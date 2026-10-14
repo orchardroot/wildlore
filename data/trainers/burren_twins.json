@@ -1,0 +1,41 @@
+{
+ "id": "burren_twins",
+ "name": "Aoife and Orla",
+ "class": "Fiddler",
+ "sprite": "villager_5",
+ "double": true,
+ "party": [
+  {
+   "species": "gealhare",
+   "level": 56
+  },
+  {
+   "species": "burrenbloom",
+   "level": 57
+  },
+  {
+   "species": "bansheen",
+   "level": 57
+  },
+  {
+   "species": "selkie",
+   "level": 56
+  }
+ ],
+ "ai": "trainer",
+ "money": 2420,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Aoife and Orla",
+   "text": "AOIFE: We're the twins. We finish each other's..."
+  },
+  {
+   "do": "say",
+   "who": "Aoife and Orla",
+   "text": "ORLA: ...reels. And battles. Two against one is only fair, in a place this big."
+  }
+ ],
+ "win": "AOIFE: Beaten! ORLA: By a fiddle-lessly strong team. Sorry, we couldn't stop.",
+ "after": "We play the Doolin sessions on Fridays. Come along. Bring a tune and a thick skin."
+}
