@@ -53,7 +53,11 @@
   ],
   "warps": [{"x": 14, "y": 4, "to": "testbed_house", "tx": 3, "ty": 4, "facing": "up"}],
   "edges": {},
-  "npcs": [],
+  "npcs": [
+    {"id": "tess", "sprite": "villager_a", "x": 7, "y": 9, "facing": "left", "script": "tester_hello", "move": "still"},
+    {"id": "dougie", "sprite": "birdwatcher", "x": 20, "y": 6, "facing": "left", "trainer": "testbed_tester", "move": "still"},
+    {"id": "wanderer", "sprite": "villager_b", "x": 18, "y": 15, "facing": "down", "text": "I am wandering. Do not read into it.", "move": "wander"}
+  ],
   "encounters": {"grass": [{"species": "spikkin", "min": 2, "max": 4, "weight": 50}, {"species": "kindlet", "min": 2, "max": 3, "weight": 50, "time": ["day"]}]},
   "signs": [{"x": 9, "y": 6, "text": "TESTBED. Every tile in the game, poorly arranged."}],
   "spawn": [4, 6]

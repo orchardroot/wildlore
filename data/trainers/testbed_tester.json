@@ -1,0 +1,18 @@
+{
+	"id": "testbed_tester",
+	"name": "Dev Dougie",
+	"class": "Birdwatcher",
+	"sprite": "birdwatcher",
+	"party": [
+		{"species": "spikkin", "level": 3},
+		{"species": "kindlet", "level": 3, "moves": ["scrap"]}
+	],
+	"ai": "trainer",
+	"money": 120,
+	"intro": [
+		{"do": "say", "who": "Dev Dougie", "text": "Stop right there, {player}! I have been standing in this exact spot since the plan was written."},
+		{"do": "say", "who": "Dev Dougie", "text": "My binoculars say you have creatures. Let us see them."}
+	],
+	"win": "Well. That is going in the logbook, and not in the good column.",
+	"after": "I am going back to birdwatching. The birds are much less competitive."
+}
