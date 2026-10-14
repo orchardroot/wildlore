@@ -13,7 +13,7 @@ def anglesey(OUT):
     z = Z("anglesey", "Anglesey", W, H, kind="route", region="north_wales", music="route_coast",
           weather={"clear": 22, "sunshine": 14, "drizzle": 22, "gale": 16, "fog": 12, "downpour": 14})
     z.d["stage"] = "coast"
-    z.legend["g"] = {"tile": "tall_grass", "colour": "#b5a53a", "prop": "none"}     # gorse
+    z.legend["g"] = {"tile": "tall_grass", "colour": "#b0a43a"}     # gorse
     z.border("T", 2, gaps=[(70, 10, 2, 3), (0, 22, 2, 3)])
     z.scatter(0, 0, W, H, "P", 24, 3, only="T")
     # the Menai Strait, with a sandy shore on the island side
@@ -24,10 +24,10 @@ def anglesey(OUT):
     # Telford's suspension bridge: a long road over the water
     z.rect(28, 10, 44, 3, "=")
     z.rect(38, 9, 20, 1, "W"); z.rect(38, 13, 20, 1, "W")
-    z.building(41, 4, 3, 6, "stone", "Pier Tower", show_label=False)
-    z.building(41, 13, 3, 6, "stone", "Pier Tower", show_label=False)
-    z.building(51, 4, 3, 6, "stone", "Pier Tower", show_label=False)
-    z.building(51, 13, 3, 6, "stone", "Pier Tower", show_label=False)
+    z.building(41, 6, 2, 4, "castle", "Pier Tower", show_label=False)
+    z.building(41, 13, 2, 4, "castle", "Pier Tower", show_label=False)
+    z.building(51, 6, 2, 4, "castle", "Pier Tower", show_label=False)
+    z.building(51, 13, 2, 4, "castle", "Pier Tower", show_label=False)
     for x in (39, 46, 48, 56):
         z.prop("lamp_post", x, 9)
         z.prop("lamp_post", x, 13)
@@ -38,7 +38,8 @@ def anglesey(OUT):
     z.rect(58, 6, 8, 3, ":"); z.rect(62, 9, 1, 1, ":")
     z.building(59, 3, 7, 3, "white_render", "Bridge Visitor Centre", door=3)
     z.rect(62, 6, 1, 4, ":")
-    z.rect(58, 15, 6, 6, "g"); z.rect(63, 24, 6, 6, ","); z.rect(58, 29, 6, 6, "g")
+    z.rect(58, 15, 5, 4, ","); z.rect(63, 24, 6, 6, ","); z.rect(58, 29, 5, 4, ",")
+    scatter_props(z, "bush", 58, 15, 5, 4, 5, 11, avoid=(",",)); scatter_props(z, "bush", 58, 29, 5, 4, 5, 12, avoid=(",",))
     z.prop("bench", 60, 7); z.prop("planter", 58, 5); z.prop("planter", 65, 5); z.prop("post_box", 66, 9)
     scatter_props(z, "bush", 57, 14, 12, 22, 12, 4, avoid=(".",))
     # the island: roads and paths
@@ -52,7 +53,8 @@ def anglesey(OUT):
     for (x, y, w, h) in [(4, 4, 6, 3), (20, 4, 7, 5), (22, 12, 5, 4), (4, 19, 8, 3), (15, 19, 8, 3), (28, 31, 7, 5), (4, 35, 12, 2)]:
         z.rect(x, y, w, h, ",")
     for (x, y, w, h) in [(12, 3, 5, 3), (3, 12, 4, 4), (13, 12, 4, 3), (12, 31, 5, 3)]:
-        z.rect(x, y, w, h, "g")
+        z.rect(x, y, w, h, ",")
+        scatter_props(z, "bush", x, y, w, h, 3, x * 7 + y, avoid=(",",))
     # standing stones: Bryn Celli Ddu, the Mound in the Dark Grove
     z.rect(8, 7, 7, 5, "f")
     z.prop("standing_stone", 9, 8, variant=0); z.prop("standing_stone", 12, 7, variant=1); z.prop("standing_stone", 13, 10, variant=2)

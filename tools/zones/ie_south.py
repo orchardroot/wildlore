@@ -235,7 +235,7 @@ def comeraghs(OUT):
           weather={"fog": 26, "drizzle": 26, "clear": 14, "downpour": 12, "gale": 10, "frost": 8, "sunshine": 4})
     z.d["stage"] = "mountain"
     z.legend["h"] = {"tile": "tall_grass", "colour": "#7a5c6a", "prop": "heather"}
-    z.legend["k"] = {"tile": "grass", "colour": "#8a8a4d"}
+    z.legend["k"] = {"tile": "grass", "colour": "#7ea84e"}
     hills(z, [(8, 8, 3), (46, 14, 4), (8, 46, 3)], sc=2.4)
     z.border("R", 2, gaps=[(26, 0, 3, 2), (0, 24, 2, 3)])
     z.scatter(0, 0, W, H, "P", 40, 2, only="R")
@@ -269,8 +269,10 @@ def comeraghs(OUT):
     # a waterfall: Mahon Falls
     z.rect(44, 21, 3, 5, "R"); z.rect(45, 21, 1, 5, "~")
     z.sign(42, 24, "MAHON FALLS. An 80 m cascade down the mountainside, which after rain looks like the mountain has had a good cry. On a dry day it's a sulk.")
-    scatter_props(z, "rock", 3, 3, 48, 50, 34, 6, avoid=("k", "h"))
-    scatter_props(z, "bush", 3, 3, 48, 50, 14, 7, avoid=("k",))
+    scatter_props(z, "rock", 3, 3, 48, 50, 40, 6, avoid=("k", "h"))
+    scatter_props(z, "bush", 3, 3, 48, 50, 18, 7, avoid=("k",))
+    scatter_props(z, "pine", 3, 3, 48, 50, 30, 9, avoid=("k",))
+    scatter_props(z, "birch", 3, 3, 48, 50, 10, 10, avoid=("k",))
     z.prop("standing_stone", 20, 12, variant=1); z.prop("standing_stone", 21, 14, variant=2)
     z.sign(22, 13, "A STANDING STONE. The Comeraghs are full of old stones, tombs and field walls. Some of the walls were built last week. It's hard to tell.")
     # sheep, as is only right
