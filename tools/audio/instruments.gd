@@ -16,6 +16,8 @@ static func render(name: String, midi: int, dur: float, sr: int, vel: float) -> 
 		"tick": return tick(sr, vel)
 		"shaker": return shaker(sr, vel)
 		"drone": return drone(hz(midi), dur, sr, vel)
+		"brass": return brass(hz(midi), dur, sr, vel)
+		"surf": return surf(dur, sr, vel)
 	push_error("unknown instrument " + name)
 	return Synth.make(1)
 
@@ -118,3 +120,25 @@ static func drone(f: float, dur: float, sr: int, vel: float) -> PackedFloat32Arr
 	Synth.adsr(a, sr, 0.5, 0.2, 0.9, rel)
 	Synth.scale(a, 0.6 * vel)
 	return a
+
+## Two detuned saws with a low-pass that opens through the note: a blaring, slightly pompous brass.
+static func brass(f: float, dur: float, sr: int, vel: float) -> PackedFloat32Array:
+	var rel := 0.08
+	var total := dur + rel
+	var a := Synth.osc(Synth.SAW, f, f, total, sr, 0.5, 5.0, 6.0, 0.3)
+	var b := Synth.osc(Synth.SAW, f * 1.006, f * 1.006, total, sr)
+	Synth.mix_into(a, b, 0, 0.8)
+	Synth.lowpass_sweep(a, f * 2.0, clampf(f * 8.0, 900.0, 4000.0), sr)
+	Synth.adsr(a, sr, 0.03, 0.08, 0.85, rel)
+	Synth.scale(a, 0.45 * vel)
+	return a
+
+## Filtered noise that swells and falls away: a wave on the shore. The note is ignored.
+static func surf(dur: float, sr: int, vel: float) -> PackedFloat32Array:
+	var n := Synth.noise(dur, sr, 31 + int(dur * 10.0))
+	Synth.lowpass(n, 1100.0, sr)
+	Synth.lowpass(n, 1100.0, sr)
+	Synth.highpass(n, 180.0, sr)
+	Synth.adsr(n, sr, dur * 0.4, 0.1, 0.7, dur * 0.45)
+	Synth.scale(n, 0.9 * vel)
+	return n

@@ -8,6 +8,11 @@ const SFX_ALIASES := {
 	"attack": "hit", "deny": "cancel", "xp": "cursor", "alert": "confirm", "item": "heal", "catch": "caught", "run": "cancel",
 }
 
+## Milestone 2 (north and Wales) additions. Ids are used directly, no alias needed.
+const M2_SFX := ["cut", "splash", "scramble", "bike_bell", "train", "ship_horn"]
+const M2_MUSIC_LOOPING := ["town_city", "town_wales", "route_coast", "route_mountain", "battle_enclosure", "legend"]
+const M2_MUSIC_STINGS := ["ferry"]
+
 static func sfx_file(id: String) -> String:
 	return "res://audio/sfx/%s.wav" % SFX_ALIASES.get(id, id)
 
