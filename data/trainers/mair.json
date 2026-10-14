@@ -1,0 +1,36 @@
+{
+ "id": "mair",
+ "name": "Hiker Mair",
+ "class": "Hiker",
+ "sprite": "hiker",
+ "party": [
+  {
+   "species": "peatmonarch",
+   "level": 35
+  },
+  {
+   "species": "sphagnet",
+   "level": 34
+  },
+  {
+   "species": "kitelet",
+   "level": 34
+  }
+ ],
+ "ai": "trainer",
+ "money": 760,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Hiker Mair",
+   "text": "Right! Waterproofs? Gaiters? Map? Compass? Emergency cheese?"
+  },
+  {
+   "do": "say",
+   "who": "Hiker Mair",
+   "text": "No? Then we need to talk. Battle talk."
+  }
+ ],
+ "win": "Fair play. Take the cheese.",
+ "after": "Never go up a mountain without cheese. Rule one."
+}

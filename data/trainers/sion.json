@@ -1,0 +1,32 @@
+{
+ "id": "sion",
+ "name": "Warden Sion",
+ "class": "Warden",
+ "sprite": "warden_grunt",
+ "party": [
+  {
+   "species": "petrelash",
+   "level": 32
+  },
+  {
+   "species": "cragchough",
+   "level": 33
+  }
+ ],
+ "ai": "trainer",
+ "money": 600,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Warden Sion",
+   "text": "This cove is now a Curated Seal Experience! Wristband required!"
+  },
+  {
+   "do": "say",
+   "who": "Warden Sion",
+   "text": "Seals are, er, included. Mostly. Please do not say 'free'."
+  }
+ ],
+ "win": "My sales pitch needed work.",
+ "after": "I'm not a Warden. I'm a Customer Experience Steward. The lanyard says so."
+}

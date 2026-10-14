@@ -1,0 +1,36 @@
+{
+ "id": "gethin",
+ "name": "Birdwatcher Gethin",
+ "class": "Birdwatcher",
+ "sprite": "birdwatcher",
+ "party": [
+  {
+   "species": "puffling",
+   "level": 32
+  },
+  {
+   "species": "clownbill",
+   "level": 33
+  },
+  {
+   "species": "cragchough",
+   "level": 33
+  }
+ ],
+ "ai": "trainer",
+ "money": 700,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Birdwatcher Gethin",
+   "text": "Hush! Choughs. Red bill, red legs, black as a vicar's hat."
+  },
+  {
+   "do": "say",
+   "who": "Birdwatcher Gethin",
+   "text": "Oh, you've scared them. Duel!"
+  }
+ ],
+ "win": "A fair fight. I'll note it in the logbook under 'rude'.",
+ "after": "Chough. Not crow. Never crow."
+}

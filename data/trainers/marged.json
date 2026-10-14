@@ -1,0 +1,36 @@
+{
+ "id": "marged",
+ "name": "Birdwatcher Marged",
+ "class": "Birdwatcher",
+ "sprite": "birdwatcher",
+ "party": [
+  {
+   "species": "cragchough",
+   "level": 30
+  },
+  {
+   "species": "kitelet",
+   "level": 30
+  },
+  {
+   "species": "forkwing",
+   "level": 31
+  }
+ ],
+ "ai": "trainer",
+ "money": 640,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Birdwatcher Marged",
+   "text": "Shh! There's a chough on that rock. Red legs, red beak, proper Welsh bird."
+  },
+  {
+   "do": "say",
+   "who": "Birdwatcher Marged",
+   "text": "You've flushed the lot. Right, battle!"
+  }
+ ],
+ "win": "Hm. Fair play. I'll put you down as 'rude but good'.",
+ "after": "Chough, not crow. Say it with me."
+}
