@@ -16,13 +16,31 @@
  ],
  "sailor": [
   {
-   "do": "say",
-   "who": "Sailor",
-   "text": "The Ulysses sails for Dublin whenever the tide and the timetable agree. Fancy a crossing?"
-  },
-  {
-   "do": "ferry",
-   "route": "holyhead_dublin"
+   "do": "if",
+   "flag": "ferry_ticket",
+   "then": [
+    {
+     "do": "say",
+     "who": "Sailor",
+     "text": "Ticket? Lovely. Laminated, even. Somebody loves you. The Ulysses sails for Dublin whenever the tide and the timetable agree. Fancy a crossing?"
+    },
+    {
+     "do": "ferry",
+     "route": "holyhead_dublin"
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Sailor",
+     "text": "Sorry, love. No ticket, no crossing. The harbour board checks, and the harbour board has a clipboard."
+    },
+    {
+     "do": "say",
+     "who": "Sailor",
+     "text": "I hear a certain professor in Macclesfield posts them to people who've seen off a gentleman in a Panama hat, down in Cornwall. Perhaps that's you, in time."
+    }
+   ]
   }
  ],
  "ticket_clerk": [

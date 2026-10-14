@@ -34,14 +34,88 @@
  ],
  "deer_ranger": [
   {
-   "do": "say",
-   "who": "Park Ranger",
-   "text": "Killarney is home to Ireland's only native herd of red deer. They've been here since the last Ice Age, and survived hunting, wolves and tourists."
-  },
-  {
-   "do": "say",
-   "who": "Park Ranger",
-   "text": "I count them every autumn at the rut. The stags roar. It sounds like a very large cow with a tragic secret."
+   "do": "if",
+   "flag": "deer_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Park Ranger",
+     "text": "Five. Of course it was five. That's what I wrote in the book. I'd been counting them as six, on account of one's very round."
+    },
+    {
+     "do": "say",
+     "who": "Park Ranger",
+     "text": "The rut is in a fortnight. Bring earplugs and a flask. The stags sound like a very large cow with a tragic secret."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Park Ranger",
+     "text": "Killarney is home to Ireland's only native herd of red deer. They've been here since the last Ice Age, and survived hunting, wolves and tourists."
+    },
+    {
+     "do": "if",
+     "flag": "deer_started",
+     "then": [
+      {
+       "do": "choice",
+       "text": "How many red deer have you counted around the lakes?",
+       "options": [
+        "Three",
+        "Four",
+        "Five",
+        "Six"
+       ],
+       "set": "kerry_count"
+      },
+      {
+       "do": "if",
+       "flag": "kerry_count",
+       "then": [
+        {
+         "do": "say",
+         "who": "Park Ranger",
+         "text": "Five! Two stags and three fawns! That's exactly what I have in the book. Go raibh maith agat, as we say. That's 'thank you'. Here, for your trouble."
+        },
+        {
+         "do": "give_item",
+         "item": "barmbrack",
+         "n": 2
+        },
+        {
+         "do": "set",
+         "flag": "deer_done"
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Park Ranger",
+         "text": "Hmm. That's not what the book says. Have another wander, and count the ones in the open and by the water. The shy ones count too."
+        }
+       ],
+       "eq": 2
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Park Ranger",
+       "text": "I count them every autumn at the rut. The stags roar. It sounds like a very large cow with a tragic secret."
+      },
+      {
+       "do": "say",
+       "who": "Park Ranger",
+       "text": "I'm one short in my sums this year. Would you count them for me? Stags and fawns on this stretch only. Walk the lakes, then come back and tell me."
+      },
+      {
+       "do": "set",
+       "flag": "deer_started"
+      }
+     ]
+    }
+   ]
   }
  ],
  "lake_painter": [
