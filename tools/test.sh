@@ -15,4 +15,5 @@ if grep -qE "SCRIPT ERROR|Parse Error" "$LOG"; then
   STATUS=1
 fi
 rm -f "$LOG"
+"$GODOT" --headless --path . -s res://tools/validate.gd || STATUS=1
 exit "$STATUS"

@@ -1,0 +1,29 @@
+{
+  "line": "holtling",
+  "species": [
+    {"id": "holtling", "name": "Holtling", "types": ["brook"],
+     "base": {"hp": 44, "atk": 50, "def": 48, "lore": 58, "ward": 50, "spd": 60},
+     "growth": "medium", "catch_rate": 45, "base_xp": 62,
+     "learnset": [[1, "scrap"], [1, "glare"], [5, "rill_shot"], [9, "drench"], [13, "quick_nip"], [18, "spate_surge"], [24, "barge"]],
+     "evolves": {"to": "rillotter", "level": 16}, "habitat": [],
+     "dex": {"text": "Plays in the shallows of the River Bollin, juggling pebbles. Gets very cross if you take one.",
+             "fact": "An otter's den is called a holt. Otters nearly vanished from England in the 1970s and have since returned to every county."},
+     "sprite": "holtling"},
+    {"id": "rillotter", "name": "Rillotter", "types": ["brook"],
+     "base": {"hp": 58, "atk": 64, "def": 62, "lore": 78, "ward": 64, "spd": 79},
+     "growth": "medium", "catch_rate": 45, "base_xp": 142,
+     "learnset": [[1, "scrap"], [1, "glare"], [5, "rill_shot"], [9, "drench"], [13, "quick_nip"], [18, "spate_surge"], [24, "barge"]],
+     "evolves": {"to": "spatelord", "level": 32}, "habitat": [],
+     "dex": {"text": "Steers small streams with a flick of its tail. Anglers suspect it, and they are right.",
+             "fact": "Otter droppings are called spraint. Naturalists swear they smell of jasmine tea, and they use them to survey where otters live."},
+     "sprite": "rillotter"},
+    {"id": "spatelord", "name": "Spatelord", "types": ["brook", "night"],
+     "base": {"hp": 75, "atk": 84, "def": 80, "lore": 102, "ward": 85, "spd": 104},
+     "growth": "medium", "catch_rate": 45, "base_xp": 236,
+     "learnset": [[1, "scrap"], [1, "glare"], [5, "rill_shot"], [9, "drench"], [13, "quick_nip"], [18, "spate_surge"], [24, "barge"]],
+     "evolves": null, "habitat": [],
+     "dex": {"text": "Hunts by moonlight when the rivers are in spate. Its wake can turn a mill wheel.",
+             "fact": "Otters are mostly active at night. Their whiskers can sense the movement of fish in murky water."},
+     "sprite": "spatelord"}
+  ]
+}
