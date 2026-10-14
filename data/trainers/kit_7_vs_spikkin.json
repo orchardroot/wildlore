@@ -1,0 +1,40 @@
+{
+ "id": "kit_7_vs_spikkin",
+ "name": "Kit",
+ "class": "Rival",
+ "sprite": "kit",
+ "party": [
+  {
+   "species": "murmurant",
+   "level": 67
+  },
+  {
+   "species": "greyhaul",
+   "level": 68
+  },
+  {
+   "species": "stagmor",
+   "level": 69
+  },
+  {
+   "species": "pyredrey",
+   "level": 71
+  }
+ ],
+ "ai": "trainer",
+ "money": 3000,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Kit",
+   "text": "{player}! Edinburgh Castle! I've been up and down the Royal Mile three times. My legs have filed a complaint."
+  },
+  {
+   "do": "say",
+   "who": "Kit",
+   "text": "How many Stones is that now? Eight? I've got... fewer. Typical. One more go, for old times' sake?"
+  }
+ ],
+ "win": "Every time. Every single time. I'm putting it on a tea towel.",
+ "after": "There's a ceilidh tonight. I'm told I dance like a shopping trolley with a wonky wheel."
+}

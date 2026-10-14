@@ -1,0 +1,31 @@
+{
+ "id": "fw_hillwalker",
+ "name": "Hillwalker Fergus",
+ "class": "Hillwalker",
+ "sprite": "hiker",
+ "party": [
+  {
+   "species": "ptarmlet",
+   "level": 72
+  },
+  {
+   "species": "eaglet",
+   "level": 72
+  },
+  {
+   "species": "kidgruff",
+   "level": 72
+  }
+ ],
+ "ai": "trainer",
+ "money": 3000,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Hillwalker Fergus",
+   "text": "I'm training for the Ben. It's an eight-hour walk and I've got two flasks of tea. Care for a warm-up?"
+  }
+ ],
+ "win": "A grand wee tussle. Back to the hill.",
+ "after": "The trick to the Ben is to start early, go steady and keep the tea hot."
+}

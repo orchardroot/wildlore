@@ -1,831 +1,792 @@
 {
- "id": "llangollen",
- "name": "Llangollen",
- "region": "north_wales",
- "kind": "town",
- "music": "town_wales",
- "weather": {
-  "drizzle": 40,
-  "clear": 25,
-  "fog": 8,
-  "sunshine": 20,
-  "downpour": 7
- },
- "props": [
-  {
-   "type": "lamp_post",
-   "x": 24,
-   "y": 3
-  },
-  {
-   "type": "lamp_post",
-   "x": 27,
-   "y": 3
-  },
-  {
-   "type": "lamp_post",
-   "x": 24,
-   "y": 10
-  },
-  {
-   "type": "lamp_post",
-   "x": 27,
-   "y": 10
-  },
-  {
-   "type": "bollard",
-   "x": 25,
-   "y": 3
-  },
-  {
-   "type": "bollard",
-   "x": 26,
-   "y": 3
-  },
-  {
-   "type": "buoy",
-   "x": 12,
-   "y": 6
-  },
-  {
-   "type": "buoy",
-   "x": 42,
-   "y": 7,
-   "variant": 1
-  },
-  {
-   "type": "boat",
-   "x": 50,
-   "y": 6,
-   "variant": 1
-  },
-  {
-   "type": "building",
-   "style": "slate_cottage",
-   "x": 5,
-   "y": 13,
-   "w": 5,
-   "h": 4,
-   "label": "Cartref"
-  },
-  {
-   "type": "building",
-   "style": "chapel",
-   "x": 11,
-   "y": 13,
-   "w": 5,
-   "h": 4,
-   "label": "Capel Bethel"
-  },
-  {
-   "type": "building",
-   "style": "sanctuary",
-   "x": 17,
-   "y": 13,
-   "w": 5,
-   "h": 4,
-   "label": "Sanctuary"
-  },
-  {
-   "type": "building",
-   "style": "shop",
-   "x": 30,
-   "y": 13,
-   "w": 5,
-   "h": 4,
-   "label": "Corner Shop"
-  },
-  {
-   "type": "building",
-   "style": "tudor",
-   "x": 36,
-   "y": 13,
-   "w": 5,
-   "h": 4,
-   "label": "Plas Newydd Tea Rooms"
-  },
-  {
-   "type": "building",
-   "style": "cream_render",
-   "x": 47,
-   "y": 11,
-   "w": 9,
-   "h": 3,
-   "label": "Eisteddfod Pavilion"
-  },
-  {
-   "type": "harp",
-   "x": 51,
-   "y": 14
-  },
-  {
-   "type": "lamp_post",
-   "x": 44,
-   "y": 16
-  },
-  {
-   "type": "lamp_post",
-   "x": 49,
-   "y": 16
-  },
-  {
-   "type": "lamp_post",
-   "x": 54,
-   "y": 16
-  },
-  {
-   "type": "lamp_post",
-   "x": 58,
-   "y": 16
-  },
-  {
-   "type": "market_stall",
-   "x": 44,
-   "y": 12,
-   "variant": 0
-  },
-  {
-   "type": "market_stall",
-   "x": 58,
-   "y": 12,
-   "variant": 2
-  },
-  {
-   "type": "bench",
-   "x": 49,
-   "y": 16
-  },
-  {
-   "type": "bench",
-   "x": 54,
-   "y": 16
-  },
-  {
-   "type": "building",
-   "style": "station",
-   "x": 46,
-   "y": 24,
-   "w": 6,
-   "h": 2,
-   "label": "Llangollen Railway"
-  },
-  {
-   "type": "lamp_post",
-   "x": 46,
-   "y": 26
-  },
-  {
-   "type": "lamp_post",
-   "x": 53,
-   "y": 26
-  },
-  {
-   "type": "bench",
-   "x": 54,
-   "y": 26
-  },
-  {
-   "type": "building",
-   "style": "castle",
-   "x": 11,
-   "y": 28,
-   "w": 7,
-   "h": 3,
-   "label": "Castell Dinas Bran"
-  },
-  {
-   "type": "building",
-   "style": "slate_cottage",
-   "x": 29,
-   "y": 22,
-   "w": 4,
-   "h": 3,
-   "label": "T\u0177 Gwyn"
-  },
-  {
-   "type": "building",
-   "style": "terrace",
-   "x": 34,
-   "y": 22,
-   "w": 4,
-   "h": 3,
-   "label": "Bryn Teg"
-  },
-  {
-   "type": "building",
-   "style": "slate_cottage",
-   "x": 5,
-   "y": 22,
-   "w": 4,
-   "h": 3,
-   "show_label": false
-  },
-  {
-   "type": "building",
-   "style": "terrace",
-   "x": 54,
-   "y": 22,
-   "w": 5,
-   "h": 3,
-   "label": "Station Terrace"
-  },
-  {
-   "type": "building",
-   "style": "slate_cottage",
-   "x": 39,
-   "y": 22,
-   "w": 3,
-   "h": 3,
-   "show_label": false
-  },
-  {
-   "type": "building",
-   "style": "chapel",
-   "x": 17,
-   "y": 22,
-   "w": 4,
-   "h": 3,
-   "label": "Capel Seion"
-  },
-  {
-   "type": "statue",
-   "x": 28,
-   "y": 15
-  },
-  {
-   "type": "bench",
-   "x": 23,
-   "y": 15
-  },
-  {
-   "type": "planter",
-   "x": 22,
-   "y": 17
-  },
-  {
-   "type": "planter",
-   "x": 29,
-   "y": 17
-  },
-  {
-   "type": "oak",
-   "x": 3,
-   "y": 25,
-   "variant": 1
-  },
-  {
-   "type": "oak",
-   "x": 12,
-   "y": 31,
-   "variant": 0
-  },
-  {
-   "type": "birch",
-   "x": 17,
-   "y": 32,
-   "variant": 0
-  },
-  {
-   "type": "birch",
-   "x": 45,
-   "y": 11,
-   "variant": 0
-  },
-  {
-   "type": "planter",
-   "x": 31,
-   "y": 26,
-   "variant": 0
-  },
-  {
-   "type": "bush",
-   "x": 52,
-   "y": 22,
-   "variant": 0
-  },
-  {
-   "type": "rock",
-   "x": 28,
-   "y": 21,
-   "variant": 0
-  },
-  {
-   "type": "rock",
-   "x": 16,
-   "y": 23,
-   "variant": 2
-  },
-  {
-   "type": "oak",
-   "x": 38,
-   "y": 11,
-   "variant": 0
-  },
-  {
-   "type": "planter",
-   "x": 16,
-   "y": 14,
-   "variant": 0
-  },
-  {
-   "type": "birch",
-   "x": 49,
-   "y": 21,
-   "variant": 1
-  },
-  {
-   "type": "bush",
-   "x": 33,
-   "y": 30,
-   "variant": 0
-  },
-  {
-   "type": "rock",
-   "x": 60,
-   "y": 15,
-   "variant": 2
-  },
-  {
-   "type": "bush",
-   "x": 37,
-   "y": 31,
-   "variant": 0
-  },
-  {
-   "type": "bush",
-   "x": 4,
-   "y": 29,
-   "variant": 2
-  },
-  {
-   "type": "planter",
-   "x": 9,
-   "y": 31,
-   "variant": 1
-  },
-  {
-   "type": "birch",
-   "x": 22,
-   "y": 30,
-   "variant": 0
-  },
-  {
-   "type": "oak",
-   "x": 38,
-   "y": 32,
-   "variant": 1
-  },
-  {
-   "type": "oak",
-   "x": 9,
-   "y": 30,
-   "variant": 0
-  },
-  {
-   "type": "birch",
-   "x": 13,
-   "y": 32,
-   "variant": 1
-  },
-  {
-   "type": "bush",
-   "x": 42,
-   "y": 26,
-   "variant": 1
-  },
-  {
-   "type": "rock",
-   "x": 42,
-   "y": 25,
-   "variant": 0
-  },
-  {
-   "type": "planter",
-   "x": 57,
-   "y": 13,
-   "variant": 0
-  },
-  {
-   "type": "planter",
-   "x": 41,
-   "y": 32,
-   "variant": 0
-  },
-  {
-   "type": "planter",
-   "x": 3,
-   "y": 13,
-   "variant": 2
-  },
-  {
-   "type": "birch",
-   "x": 21,
-   "y": 24,
-   "variant": 0
-  },
-  {
-   "type": "birch",
-   "x": 6,
-   "y": 29,
-   "variant": 0
-  },
-  {
-   "type": "rock",
-   "x": 38,
-   "y": 24,
-   "variant": 2
-  },
-  {
-   "type": "rock",
-   "x": 35,
-   "y": 26,
-   "variant": 1
-  },
-  {
-   "type": "rock",
-   "x": 15,
-   "y": 32,
-   "variant": 1
-  },
-  {
-   "type": "planter",
-   "x": 22,
-   "y": 32,
-   "variant": 1
-  },
-  {
-   "type": "oak",
-   "x": 11,
-   "y": 21,
-   "variant": 2
-  },
-  {
-   "type": "birch",
-   "x": 53,
-   "y": 21,
-   "variant": 1
-  },
-  {
-   "type": "rock",
-   "x": 47,
-   "y": 22,
-   "variant": 0
-  },
-  {
-   "type": "oak",
-   "x": 5,
-   "y": 31,
-   "variant": 2
-  },
-  {
-   "type": "bush",
-   "x": 59,
-   "y": 32,
-   "variant": 2
-  },
-  {
-   "type": "birch",
-   "x": 19,
-   "y": 27,
-   "variant": 1
-  },
-  {
-   "type": "birch",
-   "x": 48,
-   "y": 16,
-   "variant": 0
-  },
-  {
-   "type": "bush",
-   "x": 23,
-   "y": 21,
-   "variant": 2
-  },
-  {
-   "type": "oak",
-   "x": 52,
-   "y": 16,
-   "variant": 0
-  },
-  {
-   "type": "planter",
-   "x": 59,
-   "y": 29,
-   "variant": 1
-  },
-  {
-   "type": "bush",
-   "x": 31,
-   "y": 30,
-   "variant": 2
-  },
-  {
-   "type": "birch",
-   "x": 28,
-   "y": 17,
-   "variant": 2
-  },
-  {
-   "type": "birch",
-   "x": 45,
-   "y": 28,
-   "variant": 0
-  },
-  {
-   "type": "phone_box",
-   "x": 29,
-   "y": 21
-  },
-  {
-   "type": "post_box",
-   "x": 41,
-   "y": 21
-  },
-  {
-   "type": "bench",
-   "x": 22,
-   "y": 21
-  },
-  {
-   "type": "bench",
-   "x": 45,
-   "y": 21
-  },
-  {
-   "type": "lamp_post",
-   "x": 8,
-   "y": 21
-  },
-  {
-   "type": "lamp_post",
-   "x": 14,
-   "y": 21
-  },
-  {
-   "type": "lamp_post",
-   "x": 28,
-   "y": 21
-  },
-  {
-   "type": "lamp_post",
-   "x": 34,
-   "y": 21
-  },
-  {
-   "type": "lamp_post",
-   "x": 40,
-   "y": 21
-  },
-  {
-   "type": "lamp_post",
-   "x": 46,
-   "y": 21
-  },
-  {
-   "type": "lamp_post",
-   "x": 52,
-   "y": 21
-  },
-  {
-   "type": "lamp_post",
-   "x": 58,
-   "y": 21
-  }
- ],
- "warps": [
-  {
-   "x": 19,
-   "y": 16,
-   "to": "llangollen_sanctuary",
-   "tx": 5,
-   "ty": 6,
-   "facing": "up"
-  },
-  {
-   "x": 32,
-   "y": 16,
-   "to": "llangollen_shop",
-   "tx": 4,
-   "ty": 5,
-   "facing": "up"
-  }
- ],
  "edges": {
   "east": {
-   "to": "dee_valley",
-   "offset": 0
+   "offset": 0.0,
+   "to": "dee_valley"
   },
   "west": {
-   "to": "ogwen",
-   "offset": 0
+   "offset": 0.0,
+   "to": "ogwen"
   }
  },
- "npcs": [
-  {
-   "id": "rail_guard",
-   "sprite": "rail_guard",
-   "x": 51,
-   "y": 26,
-   "facing": "left",
-   "move": "still",
-   "script": "rail_guard",
-   "name": "Rail Guard"
-  },
-  {
-   "id": "harpist",
-   "sprite": "harpist",
-   "x": 51,
-   "y": 15,
-   "facing": "down",
-   "move": "still",
-   "script": "harpist",
-   "name": "Harpist"
-  },
-  {
-   "id": "choir_boss",
-   "sprite": "choir_singer",
-   "x": 47,
-   "y": 16,
-   "facing": "right",
-   "move": "still",
-   "script": "choir_boss",
-   "name": "Choir Singer"
-  },
-  {
-   "id": "bridge_keeper",
-   "sprite": "villager_2",
-   "x": 28,
-   "y": 11,
-   "facing": "down",
-   "move": "still",
-   "script": "bridge_keeper",
-   "name": "Bridge Keeper"
-  },
-  {
-   "id": "castle_climber",
-   "sprite": "hiker",
-   "x": 22,
-   "y": 24,
-   "facing": "right",
-   "move": "wander",
-   "script": "castle_climber",
-   "name": "Climber"
-  },
-  {
-   "id": "steam_fan",
-   "sprite": "villager_6",
-   "x": 49,
-   "y": 23,
-   "facing": "up",
-   "move": "still",
-   "script": "steam_fan",
-   "name": "Steam Fan"
-  },
-  {
-   "id": "ladies_tour",
-   "sprite": "tour_guide",
-   "x": 38,
-   "y": 18,
-   "facing": "down",
-   "move": "wander",
-   "script": "ladies_tour",
-   "name": "Tour Guide"
-  },
-  {
-   "id": "canal_kid",
-   "sprite": "villager_1",
-   "x": 33,
-   "y": 11,
-   "facing": "down",
-   "move": "wander",
-   "script": "canal_kid",
-   "name": "Kid on the Bank"
-  }
- ],
  "encounters": {
   "grass": [
    {
+    "max": 25.0,
+    "min": 25.0,
     "species": "tylwyth",
-    "min": 25,
-    "max": 25,
-    "weight": 25,
     "time": [
      "dawn",
      "dusk"
-    ]
+    ],
+    "weight": 25.0
    },
    {
+    "max": 26.0,
+    "min": 25.0,
     "species": "gwyllgi",
-    "min": 25,
-    "max": 26,
-    "weight": 18,
     "time": [
      "dusk",
      "night"
-    ]
+    ],
+    "weight": 18.0
    },
    {
+    "max": 25.0,
+    "min": 25.0,
     "species": "martling",
-    "min": 25,
-    "max": 25,
-    "weight": 20,
     "time": [
      "night"
-    ]
+    ],
+    "weight": 20.0
    },
    {
+    "max": 25.0,
+    "min": 25.0,
     "species": "brockling",
-    "min": 25,
-    "max": 25,
-    "weight": 20,
     "time": [
      "dawn",
      "day"
-    ]
+    ],
+    "weight": 20.0
    },
    {
+    "max": 25.0,
+    "min": 25.0,
     "species": "elverlet",
-    "min": 25,
-    "max": 25,
-    "weight": 15,
     "weather": [
      "drizzle",
      "downpour"
-    ]
+    ],
+    "weight": 15.0
    },
    {
+    "max": 26.0,
+    "min": 25.0,
     "species": "wispet",
-    "min": 25,
-    "max": 26,
-    "weight": 10,
     "weather": [
      "fog"
-    ]
+    ],
+    "weight": 10.0
    }
   ],
   "water": [
    {
+    "max": 25.0,
+    "min": 25.0,
     "species": "elverlet",
-    "min": 25,
-    "max": 25,
-    "weight": 40
+    "weight": 40.0
    },
    {
+    "max": 26.0,
+    "min": 25.0,
     "species": "afanc",
-    "min": 25,
-    "max": 26,
-    "weight": 20
+    "weight": 20.0
    },
    {
+    "max": 25.0,
+    "min": 25.0,
     "species": "holtling",
-    "min": 25,
-    "max": 25,
-    "weight": 40
+    "weight": 40.0
    }
   ]
  },
- "signs": [
+ "heights": [
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000001111100000000000000000000000000000000000000000000000",
+  "0000000000111222111000000000000000000000000000000000000000000000",
+  "0000000001122222221100000000000000000000000000000000000000000000",
+  "0000000011223333322110000000000000000000000000000000000000000000",
+  "0000000012234444432210000000000000000000000000000000000000000000",
+  "0000000112344555443211000000000000000000000000000000000000000000",
+  "0000000122345555543221000000000000000000000000000000000000000000",
+  "0000000122345555543221000000000000000000000000000000000000000000",
+  "0000000122345555543221000000000000000000000000000000000000000000",
+  "0000000112344555443211000000000000000000000000000000000000000000",
+  "0000000012234444432210000000000000000000000000000000000000000000",
+  "0000000011223333322110000000000000000000000000000000000000000000",
+  "0000000001122222221100000000000000000000000000000000000000000000"
+ ],
+ "id": "llangollen",
+ "kind": "town",
+ "music": "town_wales",
+ "name": "Llangollen",
+ "npcs": [
   {
-   "x": 26,
-   "y": 11,
-   "text": "CHAIN BRIDGE. Wobble gently. It's been doing it since 1814, and the River Dee has tried to remove it more than once."
+   "facing": "left",
+   "id": "rail_guard",
+   "move": "still",
+   "name": "Rail Guard",
+   "script": "rail_guard",
+   "sprite": "rail_guard",
+   "x": 51.0,
+   "y": 26.0
   },
   {
-   "x": 53,
-   "y": 17,
-   "text": "EISTEDDFOD FIELD. Choirs from fifty countries every July. Do not shush the sopranos."
+   "facing": "down",
+   "id": "harpist",
+   "move": "still",
+   "name": "Harpist",
+   "script": "harpist",
+   "sprite": "harpist",
+   "x": 51.0,
+   "y": 15.0
   },
   {
-   "x": 3,
-   "y": 17,
-   "text": "LLANGOLLEN. Croeso i Langollen. Welcome to the town where everyone sings and nobody admits it."
+   "facing": "right",
+   "id": "choir_boss",
+   "move": "still",
+   "name": "Choir Singer",
+   "script": "choir_boss",
+   "sprite": "choir_singer",
+   "x": 47.0,
+   "y": 16.0
   },
   {
-   "x": 44,
-   "y": 23,
-   "text": "RAILWAY. Steam trains up the valley. Tickets from the man in the hat."
+   "facing": "down",
+   "id": "bridge_keeper",
+   "move": "still",
+   "name": "Bridge Keeper",
+   "script": "bridge_keeper",
+   "sprite": "villager_2",
+   "x": 28.0,
+   "y": 11.0
   },
   {
-   "x": 15,
-   "y": 33,
-   "text": "DINAS BRAN. The castle on the hill. 'Fortress of the crow'. Crows have the lease."
+   "facing": "right",
+   "id": "castle_climber",
+   "move": "wander",
+   "name": "Climber",
+   "script": "castle_climber",
+   "sprite": "hiker",
+   "x": 22.0,
+   "y": 24.0
   },
   {
-   "x": 61,
-   "y": 17,
-   "text": "EAST: Dee Valley and the Aqueduct. Bring a head for heights, or a boat."
+   "facing": "up",
+   "id": "steam_fan",
+   "move": "still",
+   "name": "Steam Fan",
+   "script": "steam_fan",
+   "sprite": "villager_6",
+   "x": 49.0,
+   "y": 23.0
+  },
+  {
+   "facing": "down",
+   "id": "ladies_tour",
+   "move": "wander",
+   "name": "Tour Guide",
+   "script": "ladies_tour",
+   "sprite": "tour_guide",
+   "x": 38.0,
+   "y": 18.0
+  },
+  {
+   "facing": "down",
+   "id": "canal_kid",
+   "move": "wander",
+   "name": "Kid on the Bank",
+   "script": "canal_kid",
+   "sprite": "villager_1",
+   "x": 33.0,
+   "y": 11.0
   }
  ],
- "spawn": [
-  58,
-  19
+ "props": [
+  {
+   "type": "lamp_post",
+   "x": 24.0,
+   "y": 3.0
+  },
+  {
+   "type": "lamp_post",
+   "x": 27.0,
+   "y": 3.0
+  },
+  {
+   "type": "lamp_post",
+   "x": 24.0,
+   "y": 10.0
+  },
+  {
+   "type": "lamp_post",
+   "x": 27.0,
+   "y": 10.0
+  },
+  {
+   "type": "bollard",
+   "x": 25.0,
+   "y": 3.0
+  },
+  {
+   "type": "bollard",
+   "x": 26.0,
+   "y": 3.0
+  },
+  {
+   "type": "buoy",
+   "x": 12.0,
+   "y": 6.0
+  },
+  {
+   "type": "buoy",
+   "variant": 1.0,
+   "x": 42.0,
+   "y": 7.0
+  },
+  {
+   "type": "boat",
+   "variant": 1.0,
+   "x": 50.0,
+   "y": 6.0
+  },
+  {
+   "h": 4.0,
+   "label": "Cartref",
+   "style": "slate_cottage",
+   "type": "building",
+   "w": 5.0,
+   "x": 5.0,
+   "y": 13.0
+  },
+  {
+   "h": 4.0,
+   "label": "Capel Bethel",
+   "style": "chapel",
+   "type": "building",
+   "w": 5.0,
+   "x": 11.0,
+   "y": 13.0
+  },
+  {
+   "h": 4.0,
+   "label": "Sanctuary",
+   "style": "sanctuary",
+   "type": "building",
+   "w": 5.0,
+   "x": 17.0,
+   "y": 13.0
+  },
+  {
+   "h": 4.0,
+   "label": "Corner Shop",
+   "style": "shop",
+   "type": "building",
+   "w": 5.0,
+   "x": 30.0,
+   "y": 13.0
+  },
+  {
+   "h": 4.0,
+   "label": "Plas Newydd Tea Rooms",
+   "style": "tudor",
+   "type": "building",
+   "w": 5.0,
+   "x": 36.0,
+   "y": 13.0
+  },
+  {
+   "h": 3.0,
+   "label": "Eisteddfod Pavilion",
+   "style": "cream_render",
+   "type": "building",
+   "w": 9.0,
+   "x": 47.0,
+   "y": 11.0
+  },
+  {
+   "type": "harp",
+   "x": 51.0,
+   "y": 14.0
+  },
+  {
+   "type": "lamp_post",
+   "x": 44.0,
+   "y": 16.0
+  },
+  {
+   "type": "lamp_post",
+   "x": 49.0,
+   "y": 16.0
+  },
+  {
+   "type": "lamp_post",
+   "x": 54.0,
+   "y": 16.0
+  },
+  {
+   "type": "lamp_post",
+   "x": 58.0,
+   "y": 16.0
+  },
+  {
+   "type": "market_stall",
+   "variant": 0.0,
+   "x": 44.0,
+   "y": 12.0
+  },
+  {
+   "type": "market_stall",
+   "variant": 2.0,
+   "x": 58.0,
+   "y": 12.0
+  },
+  {
+   "type": "bench",
+   "x": 49.0,
+   "y": 16.0
+  },
+  {
+   "type": "bench",
+   "x": 54.0,
+   "y": 16.0
+  },
+  {
+   "h": 2.0,
+   "label": "Llangollen Railway",
+   "style": "station",
+   "type": "building",
+   "w": 6.0,
+   "x": 46.0,
+   "y": 24.0
+  },
+  {
+   "type": "lamp_post",
+   "x": 53.0,
+   "y": 26.0
+  },
+  {
+   "type": "bench",
+   "x": 54.0,
+   "y": 26.0
+  },
+  {
+   "h": 3.0,
+   "label": "Castell Dinas Bran",
+   "style": "castle",
+   "type": "building",
+   "w": 7.0,
+   "x": 11.0,
+   "y": 28.0
+  },
+  {
+   "h": 3.0,
+   "label": "Tŷ Gwyn",
+   "style": "slate_cottage",
+   "type": "building",
+   "w": 4.0,
+   "x": 29.0,
+   "y": 22.0
+  },
+  {
+   "h": 3.0,
+   "label": "Bryn Teg",
+   "style": "terrace",
+   "type": "building",
+   "w": 4.0,
+   "x": 34.0,
+   "y": 22.0
+  },
+  {
+   "h": 3.0,
+   "show_label": false,
+   "style": "slate_cottage",
+   "type": "building",
+   "w": 4.0,
+   "x": 5.0,
+   "y": 22.0
+  },
+  {
+   "h": 3.0,
+   "label": "Station Terrace",
+   "style": "terrace",
+   "type": "building",
+   "w": 5.0,
+   "x": 54.0,
+   "y": 22.0
+  },
+  {
+   "h": 3.0,
+   "show_label": false,
+   "style": "slate_cottage",
+   "type": "building",
+   "w": 3.0,
+   "x": 39.0,
+   "y": 22.0
+  },
+  {
+   "h": 3.0,
+   "label": "Capel Seion",
+   "style": "chapel",
+   "type": "building",
+   "w": 4.0,
+   "x": 17.0,
+   "y": 22.0
+  },
+  {
+   "type": "statue",
+   "x": 28.0,
+   "y": 15.0
+  },
+  {
+   "type": "bench",
+   "x": 23.0,
+   "y": 15.0
+  },
+  {
+   "type": "planter",
+   "x": 22.0,
+   "y": 17.0
+  },
+  {
+   "type": "planter",
+   "x": 29.0,
+   "y": 17.0
+  },
+  {
+   "type": "oak",
+   "variant": 1.0,
+   "x": 3.0,
+   "y": 25.0
+  },
+  {
+   "type": "oak",
+   "variant": 0.0,
+   "x": 12.0,
+   "y": 31.0
+  },
+  {
+   "type": "birch",
+   "variant": 0.0,
+   "x": 17.0,
+   "y": 32.0
+  },
+  {
+   "type": "birch",
+   "variant": 0.0,
+   "x": 45.0,
+   "y": 11.0
+  },
+  {
+   "type": "planter",
+   "variant": 0.0,
+   "x": 31.0,
+   "y": 26.0
+  },
+  {
+   "type": "bush",
+   "variant": 0.0,
+   "x": 52.0,
+   "y": 22.0
+  },
+  {
+   "type": "rock",
+   "variant": 0.0,
+   "x": 28.0,
+   "y": 21.0
+  },
+  {
+   "type": "rock",
+   "variant": 2.0,
+   "x": 16.0,
+   "y": 23.0
+  },
+  {
+   "type": "oak",
+   "variant": 0.0,
+   "x": 38.0,
+   "y": 11.0
+  },
+  {
+   "type": "planter",
+   "variant": 0.0,
+   "x": 16.0,
+   "y": 14.0
+  },
+  {
+   "type": "birch",
+   "variant": 1.0,
+   "x": 49.0,
+   "y": 21.0
+  },
+  {
+   "type": "bush",
+   "variant": 0.0,
+   "x": 33.0,
+   "y": 30.0
+  },
+  {
+   "type": "rock",
+   "variant": 2.0,
+   "x": 60.0,
+   "y": 15.0
+  },
+  {
+   "type": "bush",
+   "variant": 0.0,
+   "x": 37.0,
+   "y": 31.0
+  },
+  {
+   "type": "bush",
+   "variant": 2.0,
+   "x": 4.0,
+   "y": 29.0
+  },
+  {
+   "type": "planter",
+   "variant": 1.0,
+   "x": 9.0,
+   "y": 31.0
+  },
+  {
+   "type": "birch",
+   "variant": 0.0,
+   "x": 22.0,
+   "y": 30.0
+  },
+  {
+   "type": "oak",
+   "variant": 1.0,
+   "x": 38.0,
+   "y": 32.0
+  },
+  {
+   "type": "oak",
+   "variant": 0.0,
+   "x": 9.0,
+   "y": 30.0
+  },
+  {
+   "type": "birch",
+   "variant": 1.0,
+   "x": 13.0,
+   "y": 32.0
+  },
+  {
+   "type": "bush",
+   "variant": 1.0,
+   "x": 42.0,
+   "y": 26.0
+  },
+  {
+   "type": "rock",
+   "variant": 0.0,
+   "x": 42.0,
+   "y": 25.0
+  },
+  {
+   "type": "planter",
+   "variant": 0.0,
+   "x": 57.0,
+   "y": 13.0
+  },
+  {
+   "type": "planter",
+   "variant": 0.0,
+   "x": 41.0,
+   "y": 32.0
+  },
+  {
+   "type": "planter",
+   "variant": 2.0,
+   "x": 3.0,
+   "y": 13.0
+  },
+  {
+   "type": "birch",
+   "variant": 0.0,
+   "x": 21.0,
+   "y": 24.0
+  },
+  {
+   "type": "birch",
+   "variant": 0.0,
+   "x": 6.0,
+   "y": 29.0
+  },
+  {
+   "type": "rock",
+   "variant": 2.0,
+   "x": 38.0,
+   "y": 24.0
+  },
+  {
+   "type": "rock",
+   "variant": 1.0,
+   "x": 35.0,
+   "y": 26.0
+  },
+  {
+   "type": "rock",
+   "variant": 1.0,
+   "x": 15.0,
+   "y": 32.0
+  },
+  {
+   "type": "planter",
+   "variant": 1.0,
+   "x": 22.0,
+   "y": 32.0
+  },
+  {
+   "type": "oak",
+   "variant": 2.0,
+   "x": 11.0,
+   "y": 21.0
+  },
+  {
+   "type": "birch",
+   "variant": 1.0,
+   "x": 53.0,
+   "y": 21.0
+  },
+  {
+   "type": "rock",
+   "variant": 0.0,
+   "x": 47.0,
+   "y": 22.0
+  },
+  {
+   "type": "oak",
+   "variant": 2.0,
+   "x": 5.0,
+   "y": 31.0
+  },
+  {
+   "type": "bush",
+   "variant": 2.0,
+   "x": 59.0,
+   "y": 32.0
+  },
+  {
+   "type": "birch",
+   "variant": 1.0,
+   "x": 19.0,
+   "y": 27.0
+  },
+  {
+   "type": "birch",
+   "variant": 0.0,
+   "x": 48.0,
+   "y": 16.0
+  },
+  {
+   "type": "bush",
+   "variant": 2.0,
+   "x": 23.0,
+   "y": 21.0
+  },
+  {
+   "type": "oak",
+   "variant": 0.0,
+   "x": 52.0,
+   "y": 16.0
+  },
+  {
+   "type": "planter",
+   "variant": 1.0,
+   "x": 59.0,
+   "y": 29.0
+  },
+  {
+   "type": "bush",
+   "variant": 2.0,
+   "x": 31.0,
+   "y": 30.0
+  },
+  {
+   "type": "birch",
+   "variant": 2.0,
+   "x": 28.0,
+   "y": 17.0
+  },
+  {
+   "type": "birch",
+   "variant": 0.0,
+   "x": 45.0,
+   "y": 28.0
+  },
+  {
+   "type": "phone_box",
+   "x": 29.0,
+   "y": 21.0
+  },
+  {
+   "type": "post_box",
+   "x": 41.0,
+   "y": 21.0
+  },
+  {
+   "type": "bench",
+   "x": 22.0,
+   "y": 21.0
+  },
+  {
+   "type": "lamp_post",
+   "x": 8.0,
+   "y": 21.0
+  },
+  {
+   "type": "lamp_post",
+   "x": 14.0,
+   "y": 21.0
+  },
+  {
+   "type": "lamp_post",
+   "x": 28.0,
+   "y": 21.0
+  },
+  {
+   "type": "lamp_post",
+   "x": 34.0,
+   "y": 21.0
+  },
+  {
+   "type": "lamp_post",
+   "x": 40.0,
+   "y": 21.0
+  },
+  {
+   "type": "lamp_post",
+   "x": 46.0,
+   "y": 21.0
+  },
+  {
+   "type": "lamp_post",
+   "x": 52.0,
+   "y": 21.0
+  },
+  {
+   "type": "lamp_post",
+   "x": 58.0,
+   "y": 21.0
+  }
  ],
- "stage": "town",
- "town_id": "llangollen",
- "station": {
-  "x": 48,
-  "y": 26
- },
+ "region": "north_wales",
  "rows": [
   "PPPPPPPPPPPPPTPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP",
   "PPTPPPPPPPPPPPPPPTPPPPPPPPPPPPPPPPPPTPPPPPPPPPPPPPPPPPPPPPPPPPPP",
@@ -864,42 +825,71 @@
   "PPPPPPPPPPPPPPPPPPPP,,,,,,PPPPPPPPPPPPPPPPPPPPPPPPPPPTPPPPPPPPPP",
   "PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPTPPPPPPPPPPPPPPPPPPPPTPPPPTPPPPPP"
  ],
- "heights": [
-  "0000000000000000000000000000000000000000000000000000000000000000",
-  "0000000000000000000000000000000000000000000000000000000000000000",
-  "0000000000000000000000000000000000000000000000000000000000000000",
-  "0000000000000000000000000000000000000000000000000000000000000000",
-  "0000000000000000000000000000000000000000000000000000000000000000",
-  "0000000000000000000000000000000000000000000000000000000000000000",
-  "0000000000000000000000000000000000000000000000000000000000000000",
-  "0000000000000000000000000000000000000000000000000000000000000000",
-  "0000000000000000000000000000000000000000000000000000000000000000",
-  "0000000000000000000000000000000000000000000000000000000000000000",
-  "0000000000000000000000000000000000000000000000000000000000000000",
-  "0000000000000000000000000000000000000000000000000000000000000000",
-  "0000000000000000000000000000000000000000000000000000000000000000",
-  "0000000000000000000000000000000000000000000000000000000000000000",
-  "0000000000000000000000000000000000000000000000000000000000000000",
-  "0000000000000000000000000000000000000000000000000000000000000000",
-  "0000000000000000000000000000000000000000000000000000000000000000",
-  "0000000000000000000000000000000000000000000000000000000000000000",
-  "0000000000000000000000000000000000000000000000000000000000000000",
-  "0000000000000000000000000000000000000000000000000000000000000000",
-  "0000000000000000000000000000000000000000000000000000000000000000",
-  "0000000000000000000000000000000000000000000000000000000000000000",
-  "0000000000000000000000000000000000000000000000000000000000000000",
-  "0000000000001111100000000000000000000000000000000000000000000000",
-  "0000000000111222111000000000000000000000000000000000000000000000",
-  "0000000001122222221100000000000000000000000000000000000000000000",
-  "0000000011223333322110000000000000000000000000000000000000000000",
-  "0000000012234444432210000000000000000000000000000000000000000000",
-  "0000000112344555443211000000000000000000000000000000000000000000",
-  "0000000122345555543221000000000000000000000000000000000000000000",
-  "0000000122345555543221000000000000000000000000000000000000000000",
-  "0000000122345555543221000000000000000000000000000000000000000000",
-  "0000000112344555443211000000000000000000000000000000000000000000",
-  "0000000012234444432210000000000000000000000000000000000000000000",
-  "0000000011223333322110000000000000000000000000000000000000000000",
-  "0000000001122222221100000000000000000000000000000000000000000000"
- ]
+ "signs": [
+  {
+   "text": "CHAIN BRIDGE. Wobble gently. It's been doing it since 1814, and the River Dee has tried to remove it more than once.",
+   "x": 26.0,
+   "y": 11.0
+  },
+  {
+   "text": "EISTEDDFOD FIELD. Choirs from fifty countries every July. Do not shush the sopranos.",
+   "x": 53.0,
+   "y": 17.0
+  },
+  {
+   "text": "LLANGOLLEN. Croeso i Langollen. Welcome to the town where everyone sings and nobody admits it.",
+   "x": 3.0,
+   "y": 17.0
+  },
+  {
+   "text": "RAILWAY. Steam trains up the valley. Tickets from the man in the hat.",
+   "x": 44.0,
+   "y": 23.0
+  },
+  {
+   "text": "DINAS BRAN. The castle on the hill. 'Fortress of the crow'. Crows have the lease.",
+   "x": 15.0,
+   "y": 33.0
+  },
+  {
+   "text": "EAST: Dee Valley and the Aqueduct. Bring a head for heights, or a boat.",
+   "x": 61.0,
+   "y": 17.0
+  }
+ ],
+ "spawn": [
+  58.0,
+  19.0
+ ],
+ "stage": "town",
+ "station": {
+  "x": 48.0,
+  "y": 26.0
+ },
+ "town_id": "llangollen",
+ "warps": [
+  {
+   "facing": "up",
+   "to": "llangollen_sanctuary",
+   "tx": 5.0,
+   "ty": 6.0,
+   "x": 19.0,
+   "y": 16.0
+  },
+  {
+   "facing": "up",
+   "to": "llangollen_shop",
+   "tx": 4.0,
+   "ty": 5.0,
+   "x": 32.0,
+   "y": 16.0
+  }
+ ],
+ "weather": {
+  "clear": 25.0,
+  "downpour": 7.0,
+  "drizzle": 40.0,
+  "fog": 8.0,
+  "sunshine": 20.0
+ }
 }

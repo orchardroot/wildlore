@@ -1,0 +1,234 @@
+{
+ "id": "cairngorm_cave",
+ "name": "Cairngorm Cave",
+ "region": "scotland",
+ "kind": "interior",
+ "music": "route_mountain",
+ "weather": {},
+ "props": [
+  {
+   "type": "rock",
+   "x": 6,
+   "y": 10,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 20,
+   "y": 10,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 9,
+   "y": 14,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 18,
+   "y": 14,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 7,
+   "y": 1,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 19,
+   "y": 1,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 3,
+   "y": 11,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 23,
+   "y": 13,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 12,
+   "y": 16,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 14,
+   "y": 18,
+   "variant": 0
+  },
+  {
+   "type": "standing_stone",
+   "x": 10,
+   "y": 6,
+   "variant": 1
+  },
+  {
+   "type": "standing_stone",
+   "x": 16,
+   "y": 6,
+   "variant": 1
+  },
+  {
+   "type": "standing_stone",
+   "x": 6,
+   "y": 5,
+   "variant": 2
+  },
+  {
+   "type": "standing_stone",
+   "x": 20,
+   "y": 5,
+   "variant": 1
+  }
+ ],
+ "warps": [
+  {
+   "x": 13,
+   "y": 20,
+   "to": "cairngorms",
+   "tx": 36,
+   "ty": 8,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "cave_ranger",
+   "sprite": "hiker",
+   "x": 13,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "cave_ranger"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "ermine",
+    "min": 77,
+    "max": 78,
+    "weight": 14
+   },
+   {
+    "species": "lanternis",
+    "min": 77,
+    "max": 78,
+    "weight": 12
+   },
+   {
+    "species": "flittermouse",
+    "min": 77,
+    "max": 78,
+    "weight": 14,
+    "time": [
+     "night",
+     "dusk"
+    ]
+   },
+   {
+    "species": "highlynx",
+    "min": 77,
+    "max": 78,
+    "weight": 8
+   },
+   {
+    "species": "hushwing",
+    "min": 77,
+    "max": 78,
+    "weight": 10
+   },
+   {
+    "species": "gwyllgi",
+    "min": 78,
+    "max": 78,
+    "weight": 5,
+    "time": [
+     "night"
+    ]
+   },
+   {
+    "species": "snowhare",
+    "min": 77,
+    "max": 78,
+    "weight": 12
+   },
+   {
+    "species": "snowbunting",
+    "min": 77,
+    "max": 78,
+    "weight": 8
+   },
+   {
+    "species": "stoatlet",
+    "min": 77,
+    "max": 77,
+    "weight": 8
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 12,
+   "y": 19,
+   "text": "CAIRN GORM CAVE. Cold, dark and very old. A lamp helps. Without one, keep one hand on the wall and the other on your sense of humour. The way out is behind you."
+  },
+  {
+   "x": 13,
+   "y": 9,
+   "text": "THE INNER CHAMBER. The walls here are covered in tiny crystals that glitter in a lamp's beam. Without a lamp, you will have to take their word for it."
+  }
+ ],
+ "spawn": [
+  13,
+  18
+ ],
+ "stage": "cave",
+ "dark": true,
+ "rows": [
+  "xxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "xxxxxxeeeeeeeeeeeeeexxxxxx",
+  "xxxxeeeemmmmeeeeeeeexxxxxx",
+  "xxxxeeeemmmmeeemmmmexxxxxx",
+  "xxxxeeeemmmmeeemmmmexxxxxx",
+  "xxxxxxeeeeeeeeemmmmexxxxxx",
+  "xxxxxxeeeeeeeeeeeeeexxxxxx",
+  "xxxxxxxxxxxxeeexxxxxxxxxxx",
+  "xxxxxxxxxxxxeeexxxxxxxxxxx",
+  "xxxxxxxxxxxxeeexxxxxxxxxxx",
+  "xxxxxeeeeeeeeeeeeeeeexxxxx",
+  "xxeeeeemmmmeeeeemmmmeeeexx",
+  "xxeeeeemmmmeeeeemmmmeeeexx",
+  "xxeeeeemmmmeeeeemmmmeeeexx",
+  "xxxxxeeeeeeeeeeeeeeeexxxxx",
+  "xxxxxxxxxxxxeeexxxxxxxxxxx",
+  "xxxxxxxxxxxxeeexxxxxxxxxxx",
+  "xxxxxxxxxxxxeeexxxxxxxxxxx",
+  "xxxxxxxxxxxxeeexxxxxxxxxxx",
+  "xxxxxxxxxxxxeeexxxxxxxxxxx",
+  "xxxxxxxxxxxxeDexxxxxxxxxxx",
+  "xxxxxxxxxxxxxxxxxxxxxxxxxx"
+ ],
+ "legend_extra": {
+  "e": {
+   "tile": "path",
+   "colour": "#565d69"
+  },
+  "m": {
+   "tile": "tall_grass",
+   "colour": "#3f565a",
+   "prop": "none"
+  }
+ }
+}

@@ -1,0 +1,40 @@
+{
+ "id": "strachan_1",
+ "name": "Director Morag Strachan",
+ "class": "Director",
+ "sprite": "strachan",
+ "party": [
+  {
+   "species": "highlynx",
+   "level": 70
+  },
+  {
+   "species": "midgeswarm",
+   "level": 70
+  },
+  {
+   "species": "kelpie",
+   "level": 71
+  },
+  {
+   "species": "heilan",
+   "level": 72
+  }
+ ],
+ "ai": "trainer",
+ "money": 7200,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Morag Strachan",
+   "text": "Regional Director, Scotland. This glen is now a premium walking experience. Your ticket is, let me see, not valid."
+  },
+  {
+   "do": "say",
+   "who": "Morag Strachan",
+   "text": "I've read the reports. Pryce, Ashcombe, Kerrigan. I don't intend to be the fourth."
+  }
+ ],
+ "win": "That was unforeseen. I shall forsee it next time.",
+ "after": "Loch Ness is next on our list. We've a survey boat. And a very large net."
+}

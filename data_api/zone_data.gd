@@ -12,12 +12,12 @@ const LEGEND := {
 	"B": ["building", false], "D": ["door", true], "x": ["void", false], "|": ["floor_wood", true],
 	"+": ["floor_tile", true], "C": ["counter", false], "L": ["ledge_south", false],
 	"%": ["bramble", false], "o": ["deep_water", false], "/": ["scree", false], "_": ["platform", true],
-	"!": ["rail", false], "$": ["sea", false],
+	"!": ["rail", false], "$": ["sea", false], "*": ["bog", false],
 }
 const WALKABLE_TILES := ["grass", "tall_grass", "path", "road", "cobbles", "sand", "flowers", "shallow", "door", "floor_wood", "floor_tile", "platform"]
 ## Tiles a field ability lets you cross (bramble is different: Hedge-lay removes it for good).
-const ABILITY_TILES := {"deep_water": "brook_wade", "scree": "fell_scramble"}
-const GATE_ABILITIES := ["hedge_lay", "brook_wade", "fell_scramble"]
+const ABILITY_TILES := {"deep_water": "brook_wade", "scree": "fell_scramble", "bog": "bog_cross"}
+const GATE_ABILITIES := ["hedge_lay", "brook_wade", "fell_scramble", "bog_cross"]
 const OPPOSITE := {"north": "south", "south": "north", "east": "west", "west": "east"}
 
 var id := ""
@@ -46,6 +46,7 @@ var town_id := ""              # world map and rail id; "" for routes and interi
 var station := Vector2i(-1, -1)  # rail stop tile, (-1, -1) for none
 var ferry: Dictionary = {}     # {x, y, route}
 var stub := false              # a placeholder another builder will replace
+var dark := false              # a cave: only a circle of light round the player (wider with the Lantern)
 
 static func load_id(zone_id: String) -> ZoneData:
 	var d = JsonUtil.read(DIR.path_join(zone_id + ".json"))
@@ -82,6 +83,7 @@ static func from_dict(d: Dictionary) -> ZoneData:
 		z.station = Vector2i(int(stn.x), int(stn.y))
 	z.ferry = d.get("ferry", {})
 	z.stub = bool(d.get("stub", false))
+	z.dark = bool(d.get("dark", false))
 	var sp: Array = d.get("spawn", [0, 0])
 	z.spawn = Vector2i(int(sp[0]), int(sp[1]))
 	for p in z.props:
@@ -167,14 +169,14 @@ func cut(p: Vector2i) -> void:
 
 ## Every tile reachable on foot from `from` with these abilities (bramble passable with hedge_lay).
 ## Ledges are hopped south; warps and edges are not followed (this zone only).
-func reachable(from: Vector2i, abilities: Array = []) -> Dictionary:
+func reachable(from: Vector2i, abilities: Array = [], also_blocked: Dictionary = {}) -> Dictionary:
 	var seen := {from: true}
 	var queue: Array = [from]
 	while not queue.is_empty():
 		var p: Vector2i = queue.pop_front()
 		for d in [Vector2i(0, 1), Vector2i(0, -1), Vector2i(1, 0), Vector2i(-1, 0)]:
 			var q: Vector2i = p + d
-			if seen.has(q) or not in_bounds(q):
+			if seen.has(q) or not in_bounds(q) or also_blocked.has(q):
 				continue
 			var ok := walkable(q, d, abilities)
 			if not ok and tile_at(q) == "bramble" and "hedge_lay" in abilities and not blocked.has(q):
@@ -189,6 +191,14 @@ func reachable(from: Vector2i, abilities: Array = []) -> Dictionary:
 				seen[q] = true
 				queue.append(q)
 	return seen
+
+## Tiles held by NPCs that never move and are never hidden by a flag (they block for good).
+func _standing_npcs() -> Dictionary:
+	var out := {}
+	for n in npcs:
+		if str(n.get("move", "still")) == "still" and not n.has("hide_if") and not n.has("show_if"):
+			out[Vector2i(int(n.x), int(n.y))] = true
+	return out
 
 func _border(side: String) -> Array:
 	var out := []
@@ -298,8 +308,13 @@ func validate(all: Dictionary) -> Array:
 				e.append(tag + "can't reach the %s edge from the spawn%s" % [side, "" if g == "" else " even with " + g])
 	if station != Vector2i(-1, -1) and not walkable(station):
 		e.append(tag + "station tile %s is not walkable" % station)
-	if not ferry.is_empty() and not walkable(Vector2i(int(ferry.get("x", -1)), int(ferry.get("y", -1)))):
+	elif station != Vector2i(-1, -1) and walkable(spawn) and not reachable(station, GATE_ABILITIES, _standing_npcs()).has(spawn):
+		e.append(tag + "station tile %s is boxed in: arriving by train can't reach the town" % station)
+	var ferry_tile := Vector2i(int(ferry.get("x", -1)), int(ferry.get("y", -1)))
+	if not ferry.is_empty() and not walkable(ferry_tile):
 		e.append(tag + "ferry tile is not walkable")
+	elif not ferry.is_empty() and walkable(spawn) and not reachable(ferry_tile, GATE_ABILITIES, _standing_npcs()).has(spawn):
+		e.append(tag + "ferry quay %s is boxed in: arriving by boat can't reach the town" % ferry_tile)
 	var covered := {}
 	for p in props:
 		if p.get("type") == "building":

@@ -1,1030 +1,988 @@
 {
- "id": "llanberis",
- "name": "Llanberis",
- "region": "north_wales",
- "kind": "town",
- "music": "town_wales",
- "weather": {
-  "drizzle": 38,
-  "fog": 18,
-  "clear": 18,
-  "gale": 8,
-  "sunshine": 10,
-  "downpour": 8
- },
- "props": [
-  {
-   "type": "boat",
-   "x": 8,
-   "y": 31,
-   "variant": 1
-  },
-  {
-   "type": "boat",
-   "x": 15,
-   "y": 34,
-   "variant": 1
-  },
-  {
-   "type": "buoy",
-   "x": 12,
-   "y": 29
-  },
-  {
-   "type": "buoy",
-   "x": 18,
-   "y": 31,
-   "variant": 1
-  },
-  {
-   "type": "building",
-   "style": "slate_cottage",
-   "x": 23,
-   "y": 14,
-   "w": 3,
-   "h": 3,
-   "show_label": false
-  },
-  {
-   "type": "building",
-   "style": "sanctuary",
-   "x": 27,
-   "y": 13,
-   "w": 6,
-   "h": 4,
-   "label": "Sanctuary"
-  },
-  {
-   "type": "building",
-   "style": "shop",
-   "x": 34,
-   "y": 13,
-   "w": 5,
-   "h": 4,
-   "label": "Corner Shop"
-  },
-  {
-   "type": "building",
-   "style": "slate_cottage",
-   "x": 39,
-   "y": 14,
-   "w": 4,
-   "h": 3,
-   "label": "Bryn Eglwys"
-  },
-  {
-   "type": "planter",
-   "x": 46,
-   "y": 16
-  },
-  {
-   "type": "planter",
-   "x": 55,
-   "y": 16
-  },
-  {
-   "type": "bench",
-   "x": 50,
-   "y": 16
-  },
-  {
-   "type": "bench",
-   "x": 52,
-   "y": 16
-  },
-  {
-   "type": "building",
-   "style": "chapel",
-   "x": 51,
-   "y": 3,
-   "w": 4,
-   "h": 3,
-   "label": "Capel Coch"
-  },
-  {
-   "type": "building",
-   "style": "station",
-   "x": 46,
-   "y": 9,
-   "w": 6,
-   "h": 2,
-   "label": "Snowdon Mountain Railway"
-  },
-  {
-   "type": "lamp_post",
-   "x": 46,
-   "y": 11
-  },
-  {
-   "type": "lamp_post",
-   "x": 52,
-   "y": 11
-  },
-  {
-   "type": "bench",
-   "x": 53,
-   "y": 11
-  },
-  {
-   "type": "building",
-   "style": "stone",
-   "x": 39,
-   "y": 24,
-   "w": 12,
-   "h": 5,
-   "label": "Electric Mountain"
-  },
-  {
-   "type": "building",
-   "style": "slate_cottage",
-   "x": 28,
-   "y": 22,
-   "w": 3,
-   "h": 3,
-   "show_label": false
-  },
-  {
-   "type": "building",
-   "style": "slate_cottage",
-   "x": 32,
-   "y": 22,
-   "w": 4,
-   "h": 3,
-   "label": "Caffi Padarn"
-  },
-  {
-   "type": "building",
-   "style": "terrace",
-   "x": 54,
-   "y": 23,
-   "w": 5,
-   "h": 4,
-   "show_label": false
-  },
-  {
-   "type": "building",
-   "style": "castle",
-   "x": 7,
-   "y": 23,
-   "w": 5,
-   "h": 3,
-   "label": "Dolbadarn Castle"
-  },
-  {
-   "type": "building",
-   "style": "stone",
-   "x": 12,
-   "y": 10,
-   "w": 8,
-   "h": 4,
-   "label": "Dinorwic Quarry Gates"
-  },
-  {
-   "type": "slate_heap",
-   "x": 5,
-   "y": 11
-  },
-  {
-   "type": "slate_heap",
-   "x": 8,
-   "y": 12,
-   "variant": 1
-  },
-  {
-   "type": "slate_heap",
-   "x": 23,
-   "y": 11
-  },
-  {
-   "type": "slate_heap",
-   "x": 26,
-   "y": 12,
-   "variant": 2
-  },
-  {
-   "type": "slate_heap",
-   "x": 21,
-   "y": 6
-  },
-  {
-   "type": "slate_heap",
-   "x": 7,
-   "y": 4,
-   "variant": 1
-  },
-  {
-   "type": "slate_heap",
-   "x": 12,
-   "y": 3
-  },
-  {
-   "type": "slate_heap",
-   "x": 24,
-   "y": 4,
-   "variant": 2
-  },
-  {
-   "type": "building",
-   "style": "slate_cottage",
-   "x": 4,
-   "y": 18,
-   "w": 4,
-   "h": 3,
-   "show_label": false
-  },
-  {
-   "type": "building",
-   "style": "slate_cottage",
-   "x": 9,
-   "y": 18,
-   "w": 4,
-   "h": 3,
-   "show_label": false
-  },
-  {
-   "type": "statue",
-   "x": 29,
-   "y": 33
-  },
-  {
-   "type": "bench",
-   "x": 27,
-   "y": 33
-  },
-  {
-   "type": "bench",
-   "x": 31,
-   "y": 28
-  },
-  {
-   "type": "lamp_post",
-   "x": 28,
-   "y": 28
-  },
-  {
-   "type": "lamp_post",
-   "x": 36,
-   "y": 28
-  },
-  {
-   "type": "oak",
-   "x": 27,
-   "y": 29,
-   "variant": 2
-  },
-  {
-   "type": "oak",
-   "x": 37,
-   "y": 29,
-   "variant": 0
-  },
-  {
-   "type": "oak",
-   "x": 27,
-   "y": 36,
-   "variant": 0
-  },
-  {
-   "type": "oak",
-   "x": 37,
-   "y": 36,
-   "variant": 1
-  },
-  {
-   "type": "oak",
-   "x": 30,
-   "y": 36,
-   "variant": 0
-  },
-  {
-   "type": "bench",
-   "x": 50,
-   "y": 35,
-   "variant": 2
-  },
-  {
-   "type": "rock",
-   "x": 41,
-   "y": 31,
-   "variant": 2
-  },
-  {
-   "type": "oak",
-   "x": 23,
-   "y": 32,
-   "variant": 0
-  },
-  {
-   "type": "birch",
-   "x": 30,
-   "y": 31,
-   "variant": 2
-  },
-  {
-   "type": "rock",
-   "x": 7,
-   "y": 17,
-   "variant": 2
-  },
-  {
-   "type": "birch",
-   "x": 52,
-   "y": 30,
-   "variant": 2
-  },
-  {
-   "type": "oak",
-   "x": 42,
-   "y": 22,
-   "variant": 0
-  },
-  {
-   "type": "rock",
-   "x": 20,
-   "y": 25,
-   "variant": 2
-  },
-  {
-   "type": "bush",
-   "x": 33,
-   "y": 27,
-   "variant": 2
-  },
-  {
-   "type": "rock",
-   "x": 59,
-   "y": 17,
-   "variant": 1
-  },
-  {
-   "type": "oak",
-   "x": 11,
-   "y": 21,
-   "variant": 2
-  },
-  {
-   "type": "rock",
-   "x": 3,
-   "y": 21,
-   "variant": 2
-  },
-  {
-   "type": "planter",
-   "x": 38,
-   "y": 21,
-   "variant": 0
-  },
-  {
-   "type": "birch",
-   "x": 51,
-   "y": 23,
-   "variant": 0
-  },
-  {
-   "type": "oak",
-   "x": 11,
-   "y": 17,
-   "variant": 0
-  },
-  {
-   "type": "bench",
-   "x": 16,
-   "y": 16,
-   "variant": 2
-  },
-  {
-   "type": "birch",
-   "x": 39,
-   "y": 37,
-   "variant": 2
-  },
-  {
-   "type": "birch",
-   "x": 37,
-   "y": 38,
-   "variant": 1
-  },
-  {
-   "type": "bench",
-   "x": 44,
-   "y": 21,
-   "variant": 1
-  },
-  {
-   "type": "planter",
-   "x": 26,
-   "y": 27,
-   "variant": 2
-  },
-  {
-   "type": "planter",
-   "x": 55,
-   "y": 37,
-   "variant": 2
-  },
-  {
-   "type": "oak",
-   "x": 43,
-   "y": 30,
-   "variant": 2
-  },
-  {
-   "type": "planter",
-   "x": 53,
-   "y": 23,
-   "variant": 2
-  },
-  {
-   "type": "rock",
-   "x": 60,
-   "y": 21,
-   "variant": 2
-  },
-  {
-   "type": "planter",
-   "x": 23,
-   "y": 38,
-   "variant": 2
-  },
-  {
-   "type": "birch",
-   "x": 28,
-   "y": 33,
-   "variant": 1
-  },
-  {
-   "type": "rock",
-   "x": 27,
-   "y": 21,
-   "variant": 1
-  },
-  {
-   "type": "birch",
-   "x": 50,
-   "y": 22,
-   "variant": 1
-  },
-  {
-   "type": "bush",
-   "x": 40,
-   "y": 35,
-   "variant": 2
-  },
-  {
-   "type": "oak",
-   "x": 35,
-   "y": 29,
-   "variant": 1
-  },
-  {
-   "type": "oak",
-   "x": 53,
-   "y": 26,
-   "variant": 2
-  },
-  {
-   "type": "bush",
-   "x": 54,
-   "y": 30,
-   "variant": 2
-  },
-  {
-   "type": "birch",
-   "x": 45,
-   "y": 30,
-   "variant": 2
-  },
-  {
-   "type": "bush",
-   "x": 55,
-   "y": 35,
-   "variant": 2
-  },
-  {
-   "type": "oak",
-   "x": 21,
-   "y": 16,
-   "variant": 2
-  },
-  {
-   "type": "birch",
-   "x": 44,
-   "y": 23,
-   "variant": 2
-  },
-  {
-   "type": "bush",
-   "x": 22,
-   "y": 15,
-   "variant": 2
-  },
-  {
-   "type": "oak",
-   "x": 51,
-   "y": 22,
-   "variant": 1
-  },
-  {
-   "type": "planter",
-   "x": 36,
-   "y": 29,
-   "variant": 2
-  },
-  {
-   "type": "planter",
-   "x": 56,
-   "y": 30,
-   "variant": 0
-  },
-  {
-   "type": "bush",
-   "x": 48,
-   "y": 35,
-   "variant": 2
-  },
-  {
-   "type": "planter",
-   "x": 30,
-   "y": 27,
-   "variant": 1
-  },
-  {
-   "type": "oak",
-   "x": 46,
-   "y": 23,
-   "variant": 2
-  },
-  {
-   "type": "bush",
-   "x": 41,
-   "y": 34,
-   "variant": 0
-  },
-  {
-   "type": "rock",
-   "x": 52,
-   "y": 28,
-   "variant": 2
-  },
-  {
-   "type": "bush",
-   "x": 37,
-   "y": 26,
-   "variant": 1
-  },
-  {
-   "type": "rock",
-   "x": 54,
-   "y": 38,
-   "variant": 1
-  },
-  {
-   "type": "bench",
-   "x": 56,
-   "y": 35,
-   "variant": 0
-  },
-  {
-   "type": "pine",
-   "x": 36,
-   "y": 7,
-   "variant": 2
-  },
-  {
-   "type": "rock",
-   "x": 39,
-   "y": 10,
-   "variant": 0
-  },
-  {
-   "type": "rock",
-   "x": 35,
-   "y": 5,
-   "variant": 2
-  },
-  {
-   "type": "rock",
-   "x": 41,
-   "y": 7,
-   "variant": 1
-  },
-  {
-   "type": "rock",
-   "x": 47,
-   "y": 8,
-   "variant": 2
-  },
-  {
-   "type": "bush",
-   "x": 47,
-   "y": 4,
-   "variant": 1
-  },
-  {
-   "type": "pine",
-   "x": 52,
-   "y": 9,
-   "variant": 2
-  },
-  {
-   "type": "rock",
-   "x": 45,
-   "y": 3,
-   "variant": 2
-  },
-  {
-   "type": "rock",
-   "x": 55,
-   "y": 5,
-   "variant": 0
-  },
-  {
-   "type": "bush",
-   "x": 48,
-   "y": 3,
-   "variant": 1
-  },
-  {
-   "type": "bush",
-   "x": 39,
-   "y": 7,
-   "variant": 2
-  },
-  {
-   "type": "rock",
-   "x": 55,
-   "y": 10,
-   "variant": 2
-  },
-  {
-   "type": "pine",
-   "x": 39,
-   "y": 9,
-   "variant": 1
-  },
-  {
-   "type": "rock",
-   "x": 35,
-   "y": 8,
-   "variant": 0
-  },
-  {
-   "type": "bush",
-   "x": 37,
-   "y": 7,
-   "variant": 2
-  },
-  {
-   "type": "bush",
-   "x": 49,
-   "y": 8,
-   "variant": 1
-  },
-  {
-   "type": "pine",
-   "x": 45,
-   "y": 4,
-   "variant": 2
-  },
-  {
-   "type": "rock",
-   "x": 51,
-   "y": 8,
-   "variant": 0
-  },
-  {
-   "type": "lamp_post",
-   "x": 16,
-   "y": 21
-  },
-  {
-   "type": "lamp_post",
-   "x": 22,
-   "y": 21
-  },
-  {
-   "type": "lamp_post",
-   "x": 28,
-   "y": 21
-  },
-  {
-   "type": "lamp_post",
-   "x": 34,
-   "y": 21
-  },
-  {
-   "type": "lamp_post",
-   "x": 40,
-   "y": 21
-  },
-  {
-   "type": "lamp_post",
-   "x": 46,
-   "y": 21
-  },
-  {
-   "type": "lamp_post",
-   "x": 52,
-   "y": 21
-  },
-  {
-   "type": "lamp_post",
-   "x": 58,
-   "y": 21
-  },
-  {
-   "type": "phone_box",
-   "x": 25,
-   "y": 21
-  }
- ],
- "warps": [
-  {
-   "x": 30,
-   "y": 16,
-   "to": "llanberis_sanctuary",
-   "tx": 5,
-   "ty": 6,
-   "facing": "up"
-  },
-  {
-   "x": 36,
-   "y": 16,
-   "to": "llanberis_shop",
-   "tx": 4,
-   "ty": 5,
-   "facing": "up"
-  },
-  {
-   "x": 15,
-   "y": 13,
-   "to": "llanberis_quarry",
-   "tx": 17,
-   "ty": 29,
-   "facing": "up"
-  }
- ],
  "edges": {
   "east": {
-   "to": "ogwen",
-   "offset": 0
-  },
-  "south": {
-   "to": "cambrian_coast",
-   "offset": 0
+   "offset": 0.0,
+   "to": "ogwen"
   },
   "north": {
-   "to": "yr_wyddfa",
-   "offset": 0
+   "offset": 0.0,
+   "to": "yr_wyddfa"
+  },
+  "south": {
+   "offset": 0.0,
+   "to": "cambrian_coast"
   },
   "west": {
-   "to": "anglesey",
-   "offset": 0
+   "offset": 0.0,
+   "to": "anglesey"
   }
  },
- "npcs": [
-  {
-   "id": "rail_guard",
-   "sprite": "rail_guard",
-   "x": 50,
-   "y": 11,
-   "facing": "left",
-   "move": "still",
-   "script": "rail_guard",
-   "name": "Rail Guard"
-  },
-  {
-   "id": "pryce",
-   "sprite": "pryce",
-   "x": 15,
-   "y": 14,
-   "facing": "down",
-   "move": "still",
-   "script": "pryce_quarry",
-   "name": "Director Pryce",
-   "hide_if": "trainer_pryce_1"
-  },
-  {
-   "id": "porter",
-   "sprite": "villager_2",
-   "x": 43,
-   "y": 13,
-   "facing": "right",
-   "move": "still",
-   "script": "porter",
-   "name": "Railway Porter"
-  },
-  {
-   "id": "lake_angler",
-   "sprite": "angler",
-   "x": 21,
-   "y": 25,
-   "facing": "right",
-   "move": "still",
-   "script": "lake_angler",
-   "name": "Angler"
-  },
-  {
-   "id": "castle_guide",
-   "sprite": "tour_guide",
-   "x": 12,
-   "y": 27,
-   "facing": "up",
-   "move": "wander",
-   "script": "castle_guide",
-   "name": "Castle Guide"
-  },
-  {
-   "id": "slate_veteran",
-   "sprite": "villager_5",
-   "x": 11,
-   "y": 16,
-   "facing": "left",
-   "move": "still",
-   "script": "slate_veteran",
-   "name": "Retired Quarryman"
-  },
-  {
-   "id": "cafe_owner",
-   "sprite": "villager_4",
-   "x": 36,
-   "y": 18,
-   "facing": "up",
-   "move": "still",
-   "script": "cafe_owner",
-   "name": "Caffi Owner"
-  },
-  {
-   "id": "scout_kid",
-   "sprite": "villager_1",
-   "x": 47,
-   "y": 22,
-   "facing": "left",
-   "move": "wander",
-   "script": "scout_kid",
-   "name": "Boy Scout"
-  },
-  {
-   "id": "cambrian_gate_a",
-   "sprite": "warden_grunt",
-   "x": 24,
-   "y": 39,
-   "facing": "down",
-   "move": "still",
-   "script": "gate_cambrian",
-   "hide_if": "ch3_ddraig_woke",
-   "name": "Warden"
-  },
-  {
-   "id": "cambrian_gate_b",
-   "sprite": "warden_grunt",
-   "x": 25,
-   "y": 39,
-   "facing": "down",
-   "move": "still",
-   "script": "gate_cambrian",
-   "hide_if": "ch3_ddraig_woke",
-   "name": "Warden"
-  },
-  {
-   "id": "cambrian_gate_c",
-   "sprite": "warden_grunt",
-   "x": 26,
-   "y": 39,
-   "facing": "down",
-   "move": "still",
-   "script": "gate_cambrian",
-   "hide_if": "ch3_ddraig_woke",
-   "name": "Warden"
-  }
- ],
  "encounters": {
   "grass": [
    {
+    "max": 28.0,
+    "min": 27.0,
     "species": "kidgruff",
-    "min": 27,
-    "max": 28,
-    "weight": 22,
     "time": [
      "dawn",
      "day",
      "dusk"
-    ]
+    ],
+    "weight": 22.0
    },
    {
+    "max": 29.0,
+    "min": 27.0,
     "species": "slatelet",
-    "min": 27,
-    "max": 29,
-    "weight": 22
+    "weight": 22.0
    },
    {
+    "max": 29.0,
+    "min": 28.0,
     "species": "prismite",
-    "min": 28,
-    "max": 29,
-    "weight": 14,
     "time": [
      "day",
      "dusk"
-    ]
+    ],
+    "weight": 14.0
    },
    {
+    "max": 29.0,
+    "min": 28.0,
     "species": "tapknock",
-    "min": 28,
-    "max": 29,
-    "weight": 14,
     "time": [
      "dusk",
      "night"
-    ]
+    ],
+    "weight": 14.0
    },
    {
+    "max": 29.0,
+    "min": 27.0,
     "species": "snowhare",
-    "min": 27,
-    "max": 29,
-    "weight": 12,
     "weather": [
      "fog",
      "gale"
-    ]
+    ],
+    "weight": 12.0
    },
    {
+    "max": 29.0,
+    "min": 28.0,
     "species": "wispet",
-    "min": 28,
-    "max": 29,
-    "weight": 8,
     "weather": [
      "fog"
-    ]
+    ],
+    "weight": 8.0
    }
   ],
   "water": [
    {
+    "max": 28.0,
+    "min": 27.0,
     "species": "holtling",
-    "min": 27,
-    "max": 28,
-    "weight": 40
+    "weight": 40.0
    },
    {
+    "max": 29.0,
+    "min": 27.0,
     "species": "dipling",
-    "min": 27,
-    "max": 29,
-    "weight": 40
+    "weight": 40.0
    },
    {
+    "max": 29.0,
+    "min": 28.0,
     "species": "elverlet",
-    "min": 28,
-    "max": 29,
-    "weight": 20
+    "weight": 20.0
    }
   ]
  },
- "signs": [
+ "heights": [
+  "0000000000000000000000000000000012222222111233333333321100000000",
+  "0000000000000000000000000000000112222222112233333333322100000000",
+  "0000000000000000000000000000000112222222112233333333322100000000",
+  "0003333333333333333333333333300112222222112233333333322100000000",
+  "0003333333333333333333333333300012222222111233333333321100000000",
+  "0003333333333333333333333333300011222221101223333333221000000000",
+  "0002222222222222222222222222200001111111001122333332211000000000",
+  "0002222222222222222222222222200000011100000112222222110000000000",
+  "0001111111111111111111111111100000000000000011122211100000000000",
+  "0001111111111111111111111111100000000000000000111110000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000001111100000000000000000000000000000000000000000000000000000",
+  "0000012222210000000000000000000000000000000000000000000000000000",
+  "0000122333221000000000000000000000000000000000000000000000000000",
+  "0000123333321000000000000000000000000000000000000000000000000000",
+  "0000123333321000000000000000000000000000000000000000000000000000",
+  "0000123333321000000000000000000000000000000000000000000000000000",
+  "0000122333221000000000000000000000000000000000000000000000000000",
+  "0000012222210000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000"
+ ],
+ "id": "llanberis",
+ "kind": "town",
+ "music": "town_wales",
+ "name": "Llanberis",
+ "npcs": [
   {
-   "x": 23,
-   "y": 19,
-   "text": "LLANBERIS. Croeso i Lanberis. Welcome! Population: some people and a great many sheep."
+   "facing": "left",
+   "id": "rail_guard",
+   "move": "still",
+   "name": "Rail Guard",
+   "script": "rail_guard",
+   "sprite": "rail_guard",
+   "x": 50.0,
+   "y": 11.0
   },
   {
-   "x": 60,
-   "y": 17,
-   "text": "EAST: Nant Ffrancon, Llyn Ogwen, Tryfan. Dwyrain. Bring chocolate."
+   "facing": "down",
+   "hide_if": "trainer_pryce_1",
+   "id": "pryce",
+   "move": "still",
+   "name": "Director Pryce",
+   "script": "pryce_quarry",
+   "sprite": "pryce",
+   "x": 15.0,
+   "y": 14.0
   },
   {
-   "x": 57,
-   "y": 4,
-   "text": "YR WYDDFA (SNOWDON). 1,085 m. Walk, or ride the little train. The mountain does not mind. It has seen it all."
+   "facing": "right",
+   "id": "porter",
+   "move": "still",
+   "name": "Railway Porter",
+   "script": "porter",
+   "sprite": "villager_2",
+   "x": 43.0,
+   "y": 13.0
   },
   {
-   "x": 25,
-   "y": 38,
-   "text": "SOUTH: Cambrian Coast. Y De. Please do not feed the seagulls. They have a union too."
+   "facing": "right",
+   "id": "lake_angler",
+   "move": "still",
+   "name": "Angler",
+   "script": "lake_angler",
+   "sprite": "angler",
+   "x": 21.0,
+   "y": 25.0
   },
   {
-   "x": 16,
-   "y": 17,
-   "text": "DINORWIC QUARRY. 1787 to 1969. Hard hats provided. Hard heads optional."
+   "facing": "up",
+   "id": "castle_guide",
+   "move": "wander",
+   "name": "Castle Guide",
+   "script": "castle_guide",
+   "sprite": "tour_guide",
+   "x": 12.0,
+   "y": 27.0
   },
   {
-   "x": 43,
-   "y": 22,
-   "text": "ELECTRIC MOUNTAIN. A power station inside a mountain. Wales: 'we put the lights on, under a hill'."
+   "facing": "left",
+   "id": "slate_veteran",
+   "move": "still",
+   "name": "Retired Quarryman",
+   "script": "slate_veteran",
+   "sprite": "villager_5",
+   "x": 11.0,
+   "y": 16.0
   },
   {
-   "x": 9,
-   "y": 25,
-   "text": "DOLBADARN CASTLE. 13th century. One round tower, a lot of Welsh princes, no roof. Still standing."
+   "facing": "up",
+   "id": "cafe_owner",
+   "move": "still",
+   "name": "Caffi Owner",
+   "script": "cafe_owner",
+   "sprite": "villager_4",
+   "x": 36.0,
+   "y": 18.0
+  },
+  {
+   "facing": "left",
+   "id": "scout_kid",
+   "move": "wander",
+   "name": "Boy Scout",
+   "script": "scout_kid",
+   "sprite": "villager_1",
+   "x": 47.0,
+   "y": 22.0
+  },
+  {
+   "facing": "down",
+   "hide_if": "ch3_ddraig_woke",
+   "id": "cambrian_gate_a",
+   "move": "still",
+   "name": "Warden",
+   "script": "gate_cambrian",
+   "sprite": "warden_grunt",
+   "x": 24.0,
+   "y": 39.0
+  },
+  {
+   "facing": "down",
+   "hide_if": "ch3_ddraig_woke",
+   "id": "cambrian_gate_b",
+   "move": "still",
+   "name": "Warden",
+   "script": "gate_cambrian",
+   "sprite": "warden_grunt",
+   "x": 25.0,
+   "y": 39.0
+  },
+  {
+   "facing": "down",
+   "hide_if": "ch3_ddraig_woke",
+   "id": "cambrian_gate_c",
+   "move": "still",
+   "name": "Warden",
+   "script": "gate_cambrian",
+   "sprite": "warden_grunt",
+   "x": 26.0,
+   "y": 39.0
   }
  ],
- "spawn": [
-  58,
-  19
+ "props": [
+  {
+   "type": "boat",
+   "variant": 1.0,
+   "x": 8.0,
+   "y": 31.0
+  },
+  {
+   "type": "boat",
+   "variant": 1.0,
+   "x": 15.0,
+   "y": 34.0
+  },
+  {
+   "type": "buoy",
+   "x": 12.0,
+   "y": 29.0
+  },
+  {
+   "type": "buoy",
+   "variant": 1.0,
+   "x": 18.0,
+   "y": 31.0
+  },
+  {
+   "h": 3.0,
+   "show_label": false,
+   "style": "slate_cottage",
+   "type": "building",
+   "w": 3.0,
+   "x": 23.0,
+   "y": 14.0
+  },
+  {
+   "h": 4.0,
+   "label": "Sanctuary",
+   "style": "sanctuary",
+   "type": "building",
+   "w": 6.0,
+   "x": 27.0,
+   "y": 13.0
+  },
+  {
+   "h": 4.0,
+   "label": "Corner Shop",
+   "style": "shop",
+   "type": "building",
+   "w": 5.0,
+   "x": 34.0,
+   "y": 13.0
+  },
+  {
+   "h": 3.0,
+   "label": "Bryn Eglwys",
+   "style": "slate_cottage",
+   "type": "building",
+   "w": 4.0,
+   "x": 39.0,
+   "y": 14.0
+  },
+  {
+   "type": "planter",
+   "x": 46.0,
+   "y": 16.0
+  },
+  {
+   "type": "planter",
+   "x": 55.0,
+   "y": 16.0
+  },
+  {
+   "type": "bench",
+   "x": 50.0,
+   "y": 16.0
+  },
+  {
+   "type": "bench",
+   "x": 52.0,
+   "y": 16.0
+  },
+  {
+   "h": 3.0,
+   "label": "Capel Coch",
+   "style": "chapel",
+   "type": "building",
+   "w": 4.0,
+   "x": 51.0,
+   "y": 3.0
+  },
+  {
+   "h": 2.0,
+   "label": "Snowdon Mountain Railway",
+   "style": "station",
+   "type": "building",
+   "w": 6.0,
+   "x": 46.0,
+   "y": 9.0
+  },
+  {
+   "type": "lamp_post",
+   "x": 52.0,
+   "y": 11.0
+  },
+  {
+   "type": "bench",
+   "x": 53.0,
+   "y": 11.0
+  },
+  {
+   "h": 5.0,
+   "label": "Electric Mountain",
+   "style": "stone",
+   "type": "building",
+   "w": 12.0,
+   "x": 39.0,
+   "y": 24.0
+  },
+  {
+   "h": 3.0,
+   "show_label": false,
+   "style": "slate_cottage",
+   "type": "building",
+   "w": 3.0,
+   "x": 28.0,
+   "y": 22.0
+  },
+  {
+   "h": 3.0,
+   "label": "Caffi Padarn",
+   "style": "slate_cottage",
+   "type": "building",
+   "w": 4.0,
+   "x": 32.0,
+   "y": 22.0
+  },
+  {
+   "h": 4.0,
+   "show_label": false,
+   "style": "terrace",
+   "type": "building",
+   "w": 5.0,
+   "x": 54.0,
+   "y": 23.0
+  },
+  {
+   "h": 3.0,
+   "label": "Dolbadarn Castle",
+   "style": "castle",
+   "type": "building",
+   "w": 5.0,
+   "x": 7.0,
+   "y": 23.0
+  },
+  {
+   "h": 4.0,
+   "label": "Dinorwic Quarry Gates",
+   "style": "stone",
+   "type": "building",
+   "w": 8.0,
+   "x": 12.0,
+   "y": 10.0
+  },
+  {
+   "type": "slate_heap",
+   "x": 5.0,
+   "y": 11.0
+  },
+  {
+   "type": "slate_heap",
+   "variant": 1.0,
+   "x": 8.0,
+   "y": 12.0
+  },
+  {
+   "type": "slate_heap",
+   "x": 23.0,
+   "y": 11.0
+  },
+  {
+   "type": "slate_heap",
+   "variant": 2.0,
+   "x": 26.0,
+   "y": 12.0
+  },
+  {
+   "type": "slate_heap",
+   "x": 21.0,
+   "y": 6.0
+  },
+  {
+   "type": "slate_heap",
+   "variant": 1.0,
+   "x": 7.0,
+   "y": 4.0
+  },
+  {
+   "type": "slate_heap",
+   "x": 12.0,
+   "y": 3.0
+  },
+  {
+   "type": "slate_heap",
+   "variant": 2.0,
+   "x": 24.0,
+   "y": 4.0
+  },
+  {
+   "h": 3.0,
+   "show_label": false,
+   "style": "slate_cottage",
+   "type": "building",
+   "w": 4.0,
+   "x": 4.0,
+   "y": 18.0
+  },
+  {
+   "h": 3.0,
+   "show_label": false,
+   "style": "slate_cottage",
+   "type": "building",
+   "w": 4.0,
+   "x": 9.0,
+   "y": 18.0
+  },
+  {
+   "type": "statue",
+   "x": 29.0,
+   "y": 33.0
+  },
+  {
+   "type": "bench",
+   "x": 27.0,
+   "y": 33.0
+  },
+  {
+   "type": "bench",
+   "x": 31.0,
+   "y": 28.0
+  },
+  {
+   "type": "lamp_post",
+   "x": 28.0,
+   "y": 28.0
+  },
+  {
+   "type": "lamp_post",
+   "x": 36.0,
+   "y": 28.0
+  },
+  {
+   "type": "oak",
+   "variant": 2.0,
+   "x": 27.0,
+   "y": 29.0
+  },
+  {
+   "type": "oak",
+   "variant": 0.0,
+   "x": 37.0,
+   "y": 29.0
+  },
+  {
+   "type": "oak",
+   "variant": 0.0,
+   "x": 27.0,
+   "y": 36.0
+  },
+  {
+   "type": "oak",
+   "variant": 1.0,
+   "x": 37.0,
+   "y": 36.0
+  },
+  {
+   "type": "oak",
+   "variant": 0.0,
+   "x": 30.0,
+   "y": 36.0
+  },
+  {
+   "type": "bench",
+   "variant": 2.0,
+   "x": 50.0,
+   "y": 35.0
+  },
+  {
+   "type": "rock",
+   "variant": 2.0,
+   "x": 41.0,
+   "y": 31.0
+  },
+  {
+   "type": "oak",
+   "variant": 0.0,
+   "x": 23.0,
+   "y": 32.0
+  },
+  {
+   "type": "birch",
+   "variant": 2.0,
+   "x": 30.0,
+   "y": 31.0
+  },
+  {
+   "type": "rock",
+   "variant": 2.0,
+   "x": 7.0,
+   "y": 17.0
+  },
+  {
+   "type": "birch",
+   "variant": 2.0,
+   "x": 52.0,
+   "y": 30.0
+  },
+  {
+   "type": "oak",
+   "variant": 0.0,
+   "x": 42.0,
+   "y": 22.0
+  },
+  {
+   "type": "rock",
+   "variant": 2.0,
+   "x": 20.0,
+   "y": 25.0
+  },
+  {
+   "type": "bush",
+   "variant": 2.0,
+   "x": 33.0,
+   "y": 27.0
+  },
+  {
+   "type": "rock",
+   "variant": 1.0,
+   "x": 59.0,
+   "y": 17.0
+  },
+  {
+   "type": "oak",
+   "variant": 2.0,
+   "x": 11.0,
+   "y": 21.0
+  },
+  {
+   "type": "rock",
+   "variant": 2.0,
+   "x": 3.0,
+   "y": 21.0
+  },
+  {
+   "type": "planter",
+   "variant": 0.0,
+   "x": 38.0,
+   "y": 21.0
+  },
+  {
+   "type": "birch",
+   "variant": 0.0,
+   "x": 51.0,
+   "y": 23.0
+  },
+  {
+   "type": "oak",
+   "variant": 0.0,
+   "x": 11.0,
+   "y": 17.0
+  },
+  {
+   "type": "bench",
+   "variant": 2.0,
+   "x": 16.0,
+   "y": 16.0
+  },
+  {
+   "type": "birch",
+   "variant": 2.0,
+   "x": 39.0,
+   "y": 37.0
+  },
+  {
+   "type": "birch",
+   "variant": 1.0,
+   "x": 37.0,
+   "y": 38.0
+  },
+  {
+   "type": "bench",
+   "variant": 1.0,
+   "x": 44.0,
+   "y": 21.0
+  },
+  {
+   "type": "planter",
+   "variant": 2.0,
+   "x": 26.0,
+   "y": 27.0
+  },
+  {
+   "type": "planter",
+   "variant": 2.0,
+   "x": 55.0,
+   "y": 37.0
+  },
+  {
+   "type": "oak",
+   "variant": 2.0,
+   "x": 43.0,
+   "y": 30.0
+  },
+  {
+   "type": "planter",
+   "variant": 2.0,
+   "x": 53.0,
+   "y": 23.0
+  },
+  {
+   "type": "rock",
+   "variant": 2.0,
+   "x": 60.0,
+   "y": 21.0
+  },
+  {
+   "type": "planter",
+   "variant": 2.0,
+   "x": 23.0,
+   "y": 38.0
+  },
+  {
+   "type": "birch",
+   "variant": 1.0,
+   "x": 28.0,
+   "y": 33.0
+  },
+  {
+   "type": "rock",
+   "variant": 1.0,
+   "x": 27.0,
+   "y": 21.0
+  },
+  {
+   "type": "birch",
+   "variant": 1.0,
+   "x": 50.0,
+   "y": 22.0
+  },
+  {
+   "type": "bush",
+   "variant": 2.0,
+   "x": 40.0,
+   "y": 35.0
+  },
+  {
+   "type": "oak",
+   "variant": 1.0,
+   "x": 35.0,
+   "y": 29.0
+  },
+  {
+   "type": "oak",
+   "variant": 2.0,
+   "x": 53.0,
+   "y": 26.0
+  },
+  {
+   "type": "bush",
+   "variant": 2.0,
+   "x": 54.0,
+   "y": 30.0
+  },
+  {
+   "type": "birch",
+   "variant": 2.0,
+   "x": 45.0,
+   "y": 30.0
+  },
+  {
+   "type": "bush",
+   "variant": 2.0,
+   "x": 55.0,
+   "y": 35.0
+  },
+  {
+   "type": "oak",
+   "variant": 2.0,
+   "x": 21.0,
+   "y": 16.0
+  },
+  {
+   "type": "birch",
+   "variant": 2.0,
+   "x": 44.0,
+   "y": 23.0
+  },
+  {
+   "type": "bush",
+   "variant": 2.0,
+   "x": 22.0,
+   "y": 15.0
+  },
+  {
+   "type": "oak",
+   "variant": 1.0,
+   "x": 51.0,
+   "y": 22.0
+  },
+  {
+   "type": "planter",
+   "variant": 2.0,
+   "x": 36.0,
+   "y": 29.0
+  },
+  {
+   "type": "planter",
+   "variant": 0.0,
+   "x": 56.0,
+   "y": 30.0
+  },
+  {
+   "type": "bush",
+   "variant": 2.0,
+   "x": 48.0,
+   "y": 35.0
+  },
+  {
+   "type": "planter",
+   "variant": 1.0,
+   "x": 30.0,
+   "y": 27.0
+  },
+  {
+   "type": "oak",
+   "variant": 2.0,
+   "x": 46.0,
+   "y": 23.0
+  },
+  {
+   "type": "bush",
+   "variant": 0.0,
+   "x": 41.0,
+   "y": 34.0
+  },
+  {
+   "type": "rock",
+   "variant": 2.0,
+   "x": 52.0,
+   "y": 28.0
+  },
+  {
+   "type": "bush",
+   "variant": 1.0,
+   "x": 37.0,
+   "y": 26.0
+  },
+  {
+   "type": "rock",
+   "variant": 1.0,
+   "x": 54.0,
+   "y": 38.0
+  },
+  {
+   "type": "bench",
+   "variant": 0.0,
+   "x": 56.0,
+   "y": 35.0
+  },
+  {
+   "type": "pine",
+   "variant": 2.0,
+   "x": 36.0,
+   "y": 7.0
+  },
+  {
+   "type": "rock",
+   "variant": 0.0,
+   "x": 39.0,
+   "y": 10.0
+  },
+  {
+   "type": "rock",
+   "variant": 2.0,
+   "x": 35.0,
+   "y": 5.0
+  },
+  {
+   "type": "rock",
+   "variant": 1.0,
+   "x": 41.0,
+   "y": 7.0
+  },
+  {
+   "type": "rock",
+   "variant": 2.0,
+   "x": 47.0,
+   "y": 8.0
+  },
+  {
+   "type": "bush",
+   "variant": 1.0,
+   "x": 47.0,
+   "y": 4.0
+  },
+  {
+   "type": "pine",
+   "variant": 2.0,
+   "x": 52.0,
+   "y": 9.0
+  },
+  {
+   "type": "rock",
+   "variant": 2.0,
+   "x": 45.0,
+   "y": 3.0
+  },
+  {
+   "type": "rock",
+   "variant": 0.0,
+   "x": 55.0,
+   "y": 5.0
+  },
+  {
+   "type": "bush",
+   "variant": 1.0,
+   "x": 48.0,
+   "y": 3.0
+  },
+  {
+   "type": "bush",
+   "variant": 2.0,
+   "x": 39.0,
+   "y": 7.0
+  },
+  {
+   "type": "rock",
+   "variant": 2.0,
+   "x": 55.0,
+   "y": 10.0
+  },
+  {
+   "type": "pine",
+   "variant": 1.0,
+   "x": 39.0,
+   "y": 9.0
+  },
+  {
+   "type": "rock",
+   "variant": 0.0,
+   "x": 35.0,
+   "y": 8.0
+  },
+  {
+   "type": "bush",
+   "variant": 2.0,
+   "x": 37.0,
+   "y": 7.0
+  },
+  {
+   "type": "bush",
+   "variant": 1.0,
+   "x": 49.0,
+   "y": 8.0
+  },
+  {
+   "type": "pine",
+   "variant": 2.0,
+   "x": 45.0,
+   "y": 4.0
+  },
+  {
+   "type": "rock",
+   "variant": 0.0,
+   "x": 51.0,
+   "y": 8.0
+  },
+  {
+   "type": "lamp_post",
+   "x": 16.0,
+   "y": 21.0
+  },
+  {
+   "type": "lamp_post",
+   "x": 22.0,
+   "y": 21.0
+  },
+  {
+   "type": "lamp_post",
+   "x": 28.0,
+   "y": 21.0
+  },
+  {
+   "type": "lamp_post",
+   "x": 34.0,
+   "y": 21.0
+  },
+  {
+   "type": "lamp_post",
+   "x": 40.0,
+   "y": 21.0
+  },
+  {
+   "type": "lamp_post",
+   "x": 46.0,
+   "y": 21.0
+  },
+  {
+   "type": "lamp_post",
+   "x": 52.0,
+   "y": 21.0
+  },
+  {
+   "type": "lamp_post",
+   "x": 58.0,
+   "y": 21.0
+  },
+  {
+   "type": "phone_box",
+   "x": 25.0,
+   "y": 21.0
+  }
  ],
- "stage": "town",
- "town_id": "llanberis",
- "station": {
-  "x": 48,
-  "y": 11
- },
+ "region": "north_wales",
  "rows": [
   "PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPTPPPPP...PPPPP",
   "PPPTPPPPTPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP...PPTPP",
@@ -1069,48 +1027,85 @@
   "PPPPPPPPPPPPPPPPPPPPPPPP###PPPPPPPPPPPPTPPPPPPPPPPPPPPPPPPPPPPPP",
   "PPPPPPPPPPPPPPPPPPPPPPPP###PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP"
  ],
- "heights": [
-  "0000000000000000000000000000000012222222111233333333321100000000",
-  "0000000000000000000000000000000112222222112233333333322100000000",
-  "0000000000000000000000000000000112222222112233333333322100000000",
-  "0003333333333333333333333333300112222222112233333333322100000000",
-  "0003333333333333333333333333300012222222111233333333321100000000",
-  "0003333333333333333333333333300011222221101223333333221000000000",
-  "0002222222222222222222222222200001111111001122333332211000000000",
-  "0002222222222222222222222222200000011100000112222222110000000000",
-  "0001111111111111111111111111100000000000000011122211100000000000",
-  "0001111111111111111111111111100000000000000000111110000000000000",
-  "0000000000000000000000000000000000000000000000000000000000000000",
-  "0000000000000000000000000000000000000000000000000000000000000000",
-  "0000000000000000000000000000000000000000000000000000000000000000",
-  "0000000000000000000000000000000000000000000000000000000000000000",
-  "0000000000000000000000000000000000000000000000000000000000000000",
-  "0000000000000000000000000000000000000000000000000000000000000000",
-  "0000000000000000000000000000000000000000000000000000000000000000",
-  "0000000000000000000000000000000000000000000000000000000000000000",
-  "0000001111100000000000000000000000000000000000000000000000000000",
-  "0000012222210000000000000000000000000000000000000000000000000000",
-  "0000122333221000000000000000000000000000000000000000000000000000",
-  "0000123333321000000000000000000000000000000000000000000000000000",
-  "0000123333321000000000000000000000000000000000000000000000000000",
-  "0000123333321000000000000000000000000000000000000000000000000000",
-  "0000122333221000000000000000000000000000000000000000000000000000",
-  "0000012222210000000000000000000000000000000000000000000000000000",
-  "0000000000000000000000000000000000000000000000000000000000000000",
-  "0000000000000000000000000000000000000000000000000000000000000000",
-  "0000000000000000000000000000000000000000000000000000000000000000",
-  "0000000000000000000000000000000000000000000000000000000000000000",
-  "0000000000000000000000000000000000000000000000000000000000000000",
-  "0000000000000000000000000000000000000000000000000000000000000000",
-  "0000000000000000000000000000000000000000000000000000000000000000",
-  "0000000000000000000000000000000000000000000000000000000000000000",
-  "0000000000000000000000000000000000000000000000000000000000000000",
-  "0000000000000000000000000000000000000000000000000000000000000000",
-  "0000000000000000000000000000000000000000000000000000000000000000",
-  "0000000000000000000000000000000000000000000000000000000000000000",
-  "0000000000000000000000000000000000000000000000000000000000000000",
-  "0000000000000000000000000000000000000000000000000000000000000000",
-  "0000000000000000000000000000000000000000000000000000000000000000",
-  "0000000000000000000000000000000000000000000000000000000000000000"
- ]
+ "signs": [
+  {
+   "text": "LLANBERIS. Croeso i Lanberis. Welcome! Population: some people and a great many sheep.",
+   "x": 23.0,
+   "y": 19.0
+  },
+  {
+   "text": "EAST: Nant Ffrancon, Llyn Ogwen, Tryfan. Dwyrain. Bring chocolate.",
+   "x": 60.0,
+   "y": 17.0
+  },
+  {
+   "text": "YR WYDDFA (SNOWDON). 1,085 m. Walk, or ride the little train. The mountain does not mind. It has seen it all.",
+   "x": 57.0,
+   "y": 4.0
+  },
+  {
+   "text": "SOUTH: Cambrian Coast. Y De. Please do not feed the seagulls. They have a union too.",
+   "x": 25.0,
+   "y": 38.0
+  },
+  {
+   "text": "DINORWIC QUARRY. 1787 to 1969. Hard hats provided. Hard heads optional.",
+   "x": 16.0,
+   "y": 17.0
+  },
+  {
+   "text": "ELECTRIC MOUNTAIN. A power station inside a mountain. Wales: 'we put the lights on, under a hill'.",
+   "x": 43.0,
+   "y": 22.0
+  },
+  {
+   "text": "DOLBADARN CASTLE. 13th century. One round tower, a lot of Welsh princes, no roof. Still standing.",
+   "x": 9.0,
+   "y": 25.0
+  }
+ ],
+ "spawn": [
+  58.0,
+  19.0
+ ],
+ "stage": "town",
+ "station": {
+  "x": 48.0,
+  "y": 11.0
+ },
+ "town_id": "llanberis",
+ "warps": [
+  {
+   "facing": "up",
+   "to": "llanberis_sanctuary",
+   "tx": 5.0,
+   "ty": 6.0,
+   "x": 30.0,
+   "y": 16.0
+  },
+  {
+   "facing": "up",
+   "to": "llanberis_shop",
+   "tx": 4.0,
+   "ty": 5.0,
+   "x": 36.0,
+   "y": 16.0
+  },
+  {
+   "facing": "up",
+   "to": "llanberis_quarry",
+   "tx": 17.0,
+   "ty": 29.0,
+   "x": 15.0,
+   "y": 13.0
+  }
+ ],
+ "weather": {
+  "clear": 18.0,
+  "downpour": 8.0,
+  "drizzle": 38.0,
+  "fog": 18.0,
+  "gale": 8.0,
+  "sunshine": 10.0
+ }
 }

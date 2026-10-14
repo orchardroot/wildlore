@@ -21,6 +21,7 @@ static func render(name: String, midi: int, dur: float, sr: int, vel: float) -> 
 		"reed": return reed(hz(midi), dur, sr, vel)
 		"pipe": return pipe(hz(midi), dur, sr, vel)
 		"bouzouki": return bouzouki(hz(midi), dur, sr, vel)
+		"chanter": return chanter(hz(midi), dur, sr, vel)
 	push_error("unknown instrument " + name)
 	return Synth.make(1)
 
@@ -187,5 +188,19 @@ static func bouzouki(f: float, dur: float, sr: int, vel: float) -> PackedFloat32
 	Synth.mix_into(a, o, 0, 0.4)
 	Synth.lowpass(a, minf(f * 7.0, 3600.0), sr)
 	Synth.pluck_env(a, sr, 0.002, 5.5)
+	Synth.scale(a, 0.42 * vel)
+	return a
+
+## Bagpipe chanter: a nasal double reed. Saw and square with a hard low-pass, no vibrato, steady level, a quick bag-squeeze attack.
+static func chanter(f: float, dur: float, sr: int, vel: float) -> PackedFloat32Array:
+	var rel := 0.05
+	var total := dur + rel
+	var a := Synth.osc(Synth.SAW, f, f, total, sr)
+	var b := Synth.osc(Synth.SQUARE, f * 1.003, f * 1.003, total, sr, 0.35)
+	Synth.mix_into(a, b, 0, 0.7)
+	Synth.lowpass(a, clampf(f * 5.5, 1200.0, 3200.0), sr)
+	Synth.lowpass(a, clampf(f * 5.5, 1200.0, 3200.0), sr)
+	Synth.highpass(a, 200.0, sr)
+	Synth.adsr(a, sr, 0.02, 0.05, 0.95, rel)
 	Synth.scale(a, 0.42 * vel)
 	return a

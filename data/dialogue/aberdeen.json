@@ -1,0 +1,158 @@
+{
+ "rail_guard": [
+  {
+   "do": "say",
+   "who": "Rail Guard",
+   "text": "Aberdeen Station. It's the most northerly stop on the east coast main line, and the platform is exactly as exposed as you'd expect."
+  },
+  {
+   "do": "say",
+   "who": "Rail Guard",
+   "text": "Hop aboard. The Wildlore rail runs to any town you have visited in Great Britain. Where to?"
+  },
+  {
+   "do": "rail"
+  }
+ ],
+ "sailor": [
+  {
+   "do": "say",
+   "who": "Sailor",
+   "text": "Orkney, is it? The Hjaltland Gull sails six hours north, and the gannets are free entertainment. Bring a jumper. Bring two."
+  },
+  {
+   "do": "ferry",
+   "route": "aberdeen_kirkwall"
+  }
+ ],
+ "granite_mason": [
+  {
+   "do": "say",
+   "who": "Granite Mason",
+   "text": "Aberdeen granite is grey, and hard as an argument. They built half of London's bridges from it, and the Terrace at the Houses of Parliament, and all our own grand buildings."
+  },
+  {
+   "do": "say",
+   "who": "Granite Mason",
+   "text": "It sparkles when it's wet. Which, in Aberdeen, is Tuesday to Monday. We're not complaining. It sparkles more."
+  }
+ ],
+ "doric_speaker": [
+  {
+   "do": "say",
+   "who": "Aberdonian",
+   "text": "'Fit like?' That's how we say 'how are you?' in Doric, the Aberdeen dialect. You answer, 'Nae bad, fit like yersel?', which is 'not bad, how are you?'."
+  },
+  {
+   "do": "say",
+   "who": "Aberdonian",
+   "text": "A 'quine' is a girl and a 'loon' is a boy. 'Fit' means 'what', 'far' means 'where' and 'foo' means 'how'. It's not hard, just very fast."
+  }
+ ],
+ "harbour_master": [
+  {
+   "do": "say",
+   "who": "Harbour Master",
+   "text": "It's the oldest business in Scotland, this harbour. We've shipped granite, herring, whisky and the occasional pony. Nowadays, it's supply boats and cruise ships."
+  },
+  {
+   "do": "say",
+   "who": "Harbour Master",
+   "text": "Haar is what we call the sea fog that rolls in from the North Sea. A cold, wet blanket you can't see through. We love it, a bit. It's moody."
+  }
+ ],
+ "oil_engineer": [
+  {
+   "do": "say",
+   "who": "Oil Engineer",
+   "text": "Aberdeen's the oil capital of Europe. Oil was found under the North Sea in 1969, and the city's been busy ever since. I work on the rigs two weeks on, two weeks off."
+  },
+  {
+   "do": "say",
+   "who": "Oil Engineer",
+   "text": "Two weeks offshore, and you start talking to the seagulls. They're surprisingly good listeners. I recommend them over most of my colleagues."
+  }
+ ],
+ "abdn_postie": [
+  {
+   "do": "if",
+   "flag": "v04_complete",
+   "then": [
+    {
+     "do": "say",
+     "who": "Postie",
+     "text": "The Professor rang the post office, the harbour, and a pub. I'd say she's quite keen."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "",
+     "text": "A man in a postie's jacket is leaning against a bollard, holding a mobile phone out at arm's length as though it were a small, vocal animal."
+    },
+    {
+     "do": "say",
+     "who": "Postie",
+     "text": "Are you {player}? Ach, thank goodness. A woman in Macclesfield's rung every phone box in Aberdeen looking for you. She's beside herself. She says your phone's been off since Braemar."
+    },
+    {
+     "do": "sfx",
+     "id": "alert"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Your phone buzzes at last. Professor Garside, who sounds as if she has run up a flight of stairs."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "{player}! You're in Aberdeen! The Frost Stone, the Highlands, a sea monster and a hound. I've written a paper. It's very short. It just says \"gosh\"."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "Strachan's resigned. Morag Strachan, Regional Director, Scotland, has taken the sleeper south and sent her wellies to a charity shop. That's all four Directors gone: Pryce, Ashcombe, Kerrigan and now her. Which leaves Lord Vane, and nobody to hold his coat."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "There's one more Stone. The tenth. It's in the east of England, and the hum from there is a low, strange one, like a bell under a lake."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "York. The Spirit Stone. And then the Moot."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "Vane said he'd see you at the Moot. He's right. All the Keepers will be there, and the Four Winds, and a champion nobody has ever beaten. At Stonehenge. In the winter. I'm told it's a drizzle."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "The way south is long, and the ferry from Aberdeen to Orkney sails whenever you like. The Moot can wait a morning."
+    },
+    {
+     "do": "set",
+     "flag": "ch9_done"
+    },
+    {
+     "do": "set",
+     "flag": "v04_complete"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "End of Wildlore v0.4. The Moot is gathering."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "You are free to keep exploring. Orkney is a ferry away, and its standing stones are older than anyone's opinion of them."
+    }
+   ]
+  }
+ ]
+}

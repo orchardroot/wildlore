@@ -157,3 +157,9 @@ func test_edge_landing_must_be_walkable() -> void:
 	var a := ZoneData.from_dict(_base(["...", "...", "..."], {"id": "a", "spawn": [1, 1], "edges": {"east": {"to": "b"}}}))
 	var b := ZoneData.from_dict(_base(["T..", "...", "T.."], {"id": "b", "spawn": [1, 1], "edges": {"west": {"to": "a"}}}))
 	assert_true(_has(a.validate({"a": a, "b": b}), "lands on 0,0 in 'b'"))
+
+func test_station_must_reach_the_town() -> void:
+	# platform at (1,1) boxed in by props: arriving by train would trap you
+	var z := ZoneData.from_dict(_base(["....", "....", "...."], {"spawn": [3, 2], "station": {"x": 1, "y": 1},
+		"props": [{"type": "bench", "x": 0, "y": 1}, {"type": "bench", "x": 2, "y": 1}, {"type": "bench", "x": 1, "y": 0}, {"type": "bench", "x": 1, "y": 2}]}))
+	assert_true(_has(z.validate({"t": z}), "station"), "flags a boxed-in platform")

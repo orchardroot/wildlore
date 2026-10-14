@@ -1,0 +1,31 @@
+{
+ "id": "der_warden",
+ "name": "Warden Barnaby",
+ "class": "Warden",
+ "sprite": "warden_grunt",
+ "party": [
+  {
+   "species": "sootwing",
+   "level": 67
+  },
+  {
+   "species": "pooka",
+   "level": 67
+  },
+  {
+   "species": "tormane",
+   "level": 67
+  }
+ ],
+ "ai": "trainer",
+ "money": 2450,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Warden Barnaby",
+   "text": "Excuse me. The Enclosure has pre-installed a viewing platform on these walls. You require a booking, a lanyard, and a laminated opinion."
+  }
+ ],
+ "win": "Hm. I appear to have booked the wrong day.",
+ "after": "The Enclosure has a lovely vision for Derry: a preserved city with the people removed. The people declined."
+}

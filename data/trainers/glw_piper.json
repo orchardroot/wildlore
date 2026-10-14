@@ -1,0 +1,31 @@
+{
+ "id": "glw_piper",
+ "name": "Piper Dougal",
+ "class": "Piper",
+ "sprite": "piper",
+ "party": [
+  {
+   "species": "murmurant",
+   "level": 69
+  },
+  {
+   "species": "heronarch",
+   "level": 70
+  },
+  {
+   "species": "rookery",
+   "level": 69
+  }
+ ],
+ "ai": "trainer",
+ "money": 2700,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Piper Dougal",
+   "text": "A piper on the quay is a Glasgow tradition. Listen for the drone. Then listen for me winning."
+  }
+ ],
+ "win": "A rare lull in the drone. Well played.",
+ "after": "A good piper never runs out of breath. A great piper runs out of friends and just plays louder."
+}

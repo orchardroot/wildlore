@@ -1,0 +1,22 @@
+{"id": "goldeneyrie",
+ "palette": {"br": "#7a5a3c", "br2": "#4e3a28", "gold": "#e0b050", "gold2": "#b88a30", "hl": "#f8e098", "bill": "#e8b830", "bill2": "#a88820", "ink": "#1c1410", "eye": "#ffd23a", "foot": "#e8b828", "tail": "#5e4630", "rock": "#6a6c76", "rock2": "#4e5058"},
+ "layers": [
+  {"shape": "rect", "at": [48, 92], "size": [50, 6], "colour": "rock", "round": 2},
+  {"shape": "poly", "points": [[38, 48], [26, 26], [6, 6], [8, 24], [0, 32], [8, 40], [2, 52], [14, 52], [10, 64], [24, 58], [24, 68], [38, 60]], "colour": "br", "mirror": true, "pattern": "stripes", "pcolour": "br2", "period": 7, "pangle": 75},
+  {"shape": "poly", "points": [[38, 48], [28, 32], [16, 22], [16, 36], [10, 44], [26, 48], [38, 54]], "colour": "gold", "mirror": true, "rim": false, "pattern": "stripes", "pcolour": "gold2", "period": 5, "pangle": 70},
+  {"shape": "poly", "points": [[40, 60], [56, 60], [62, 84], [48, 90], [34, 84]], "colour": "tail", "pattern": "stripes", "pcolour": "br2", "period": 5, "pangle": 0},
+  {"shape": "ellipse", "at": [48, 62], "size": [34, 50], "colour": "br"},
+  {"shape": "ellipse", "at": [48, 66], "size": [22, 34], "colour": "gold", "front_only": true, "rim": false, "pattern": "speckle", "pcolour": "br", "density": 14},
+  {"shape": "line", "points": [[42, 82], [40, 90]], "width": 3, "colour": "foot", "mirror": true, "shade": false},
+  {"shape": "poly", "points": [[36, 92], [40, 86], [42, 92]], "colour": "bill2", "mirror": true, "rim": false},
+  {"shape": "spikes", "at": [48, 34], "size": [34, 26], "colour": "gold", "count": 8, "len": 7, "from": -190, "to": 10, "seed": 7, "rim": false, "back_only": true},
+  {"shape": "ellipse", "at": [48, 40], "size": [30, 32], "colour": "br"},
+  {"shape": "ellipse", "at": [48, 28], "size": [28, 14], "colour": "gold", "rim": false},
+  {"shape": "line", "points": [[34, 34], [44, 38]], "width": 3, "colour": "br2", "shade": false, "mirror": true, "front_only": true},
+  {"shape": "poly", "points": [[41, 40], [55, 40], [53, 50], [49, 58], [47, 50]], "colour": "bill"},
+  {"shape": "poly", "points": [[41, 40], [55, 40], [53, 44], [43, 44]], "colour": "bill2", "shade": false, "rim": false},
+  {"shape": "poly", "points": [[10, 6], [11.2, 8.8], [14, 10], [11.2, 11.2], [10, 14], [8.8, 11.2], [6, 10], [8.8, 8.8]], "colour": "hl", "shade": false, "rim": false},
+  {"shape": "poly", "points": [[86, 8], [87.2, 10.8], [90, 12], [87.2, 13.2], [86, 16], [84.8, 13.2], [82, 12], [84.8, 10.8]], "colour": "hl", "shade": false, "rim": false}
+ ],
+ "eyes": [{"at": [40, 37], "r": 4, "colour": "eye", "pupil": [2, 3], "mirror": true}]
+}

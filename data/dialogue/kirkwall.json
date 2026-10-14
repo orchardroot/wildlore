@@ -1,0 +1,129 @@
+{
+ "sailor": [
+  {
+   "do": "say",
+   "who": "Sailor",
+   "text": "Back to Aberdeen? We sail with the tide and the weather. The weather is currently 'interesting'. Hold on to your hat and your lunch."
+  },
+  {
+   "do": "ferry",
+   "route": "aberdeen_kirkwall"
+  }
+ ],
+ "cathedral_guide": [
+  {
+   "do": "say",
+   "who": "Cathedral Guide",
+   "text": "St Magnus was begun in 1137, and it took three hundred years to finish. The builders ran out of money, then stone, then patience. The red and yellow sandstone makes stripes in the arches, like a very solemn sweet shop."
+  },
+  {
+   "do": "say",
+   "who": "Cathedral Guide",
+   "text": "The cathedral has never had a bishop's palace next door that lasted. The ruin by the door is the Bishop's Palace, and it's a good place to practise your dramatic sigh."
+  }
+ ],
+ "ba_player": [
+  {
+   "do": "say",
+   "who": "Ba' Game Veteran",
+   "text": "I've played the Ba' for twenty years. Uppie, born north of the cathedral. Doonie, born south. A baby born in the town is an Uppie or Doonie from its first day. My sister's a Doonie, which is basically a different nationality."
+  },
+  {
+   "do": "say",
+   "who": "Ba' Game Veteran",
+   "text": "The ball's made of leather, stuffed with cork, and weighs a kilo and a bit. It's not thrown, it's pushed along by a hundred people at once. A scrum with a street in it."
+  }
+ ],
+ "stone_scholar": [
+  {
+   "do": "say",
+   "who": "Stone Scholar",
+   "text": "The Ring of Brodgar's older than Stonehenge. The Neolithic people of Orkney built stone houses, a great tomb at Maeshowe, and the stone circle, and they lined them up with the sun. They were serious about their calendars."
+  },
+  {
+   "do": "say",
+   "who": "Stone Scholar",
+   "text": "I'm counting the stones. I get 27, every time. A sheep behind me gets a different number. She's just very confident."
+  }
+ ],
+ "orkney_fisher": [
+  {
+   "do": "say",
+   "who": "Pier Regular",
+   "text": "On a clear winter night the northern lights dance over the water. We call them the Merry Dancers. You'll be in the kitchen, and your gran will say 'quick, they're out'."
+  },
+  {
+   "do": "say",
+   "who": "Pier Regular",
+   "text": "Orkney's mostly flat, with the sea in every direction. It's windy. The kind of wind that has opinions about your hat, and a plan."
+  }
+ ],
+ "brodgar_ranger": [
+  {
+   "do": "if",
+   "flag": "brodgar_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Ring Ranger",
+     "text": "A standing stone. Of course. We've been saying it for four and a half thousand years, and nobody's thought of a better answer."
+    },
+    {
+     "do": "say",
+     "who": "Ring Ranger",
+     "text": "Mind the sheep. They're not stones, but they've the same sort of patience."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Ring Ranger",
+     "text": "Welcome to the Ring of Brodgar. Twenty-seven stones still stand of sixty, in a circle a hundred and four metres wide. Nobody wrote down why they built it. Not a single minute."
+    },
+    {
+     "do": "say",
+     "who": "Ring Ranger",
+     "text": "The schoolchildren ask me riddles all day, so here's one back for the grown-ups. I was raised to stand in a ring. I've outlived everyone who raised me. Wind and rain and councils have all had a go, and I'm still here, quite upright."
+    },
+    {
+     "do": "choice",
+     "text": "What am I?",
+     "options": [
+      "A standing stone",
+      "A lighthouse",
+      "A retired ferry captain"
+     ],
+     "set": "brodgar_answer"
+    },
+    {
+     "do": "if",
+     "flag": "brodgar_answer",
+     "then": [
+      {
+       "do": "say",
+       "who": "Ring Ranger",
+       "text": "Ha! You're quick. There's a prize in the van: a couple of bottles of tonic, the fizzy sort. Don't ask what's in it."
+      },
+      {
+       "do": "give_item",
+       "item": "irn_tonic",
+       "n": 2
+      },
+      {
+       "do": "set",
+       "flag": "brodgar_done"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Ring Ranger",
+       "text": "Ah, no. Nearly. Have another think, and mind that the answer is, strictly, a good deal older than any ferry captain."
+      }
+     ],
+     "eq": 0
+    }
+   ]
+  }
+ ]
+}

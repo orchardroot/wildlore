@@ -1,0 +1,44 @@
+{
+ "id": "strachan_2",
+ "name": "Director Morag Strachan",
+ "class": "Director",
+ "sprite": "strachan",
+ "party": [
+  {
+   "species": "highlynx",
+   "level": 69
+  },
+  {
+   "species": "kelpie",
+   "level": 69
+  },
+  {
+   "species": "minchman",
+   "level": 70
+  },
+  {
+   "species": "orcaird",
+   "level": 70
+  },
+  {
+   "species": "heilan",
+   "level": 71
+  }
+ ],
+ "ai": "trainer",
+ "money": 8400,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Morag Strachan",
+   "text": "Stand back from the gunwale. The Wardstone's in the water and the sonar says something very big is listening."
+  },
+  {
+   "do": "say",
+   "who": "Morag Strachan",
+   "text": "If you win, I lose my bonus. If I win, I lose my bonus anyway. Lord Vane's like that. Let's go."
+  }
+ ],
+ "win": "Fine. Fine. I'll take the boat back. Slowly. Something's following it.",
+ "after": "Tell Garside the Enclosure's pulling out of Scotland. We were never wanted here anyway."
+}

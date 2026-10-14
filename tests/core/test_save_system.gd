@@ -135,3 +135,16 @@ func test_v1_badges_become_flags() -> void:
 	assert_true(d.flags.get("badge_brook", false))
 	assert_true(d.flags.get("ch2_started", false))
 	assert_eq(d.flags.starter, "kindlet")
+
+func test_v03_era_save_loads() -> void:
+	var raw := {"version": 2, "player_name": "Ffion", "zone_id": "newgrange", "pos": [20, 30], "facing": "down",
+		"party": [], "ark": [], "bag": {"ferry_ticket": 1, "rail_pass": 1}, "money": 4200,
+		"flags": {"badge_tide": true, "ch7_judged": true, "starter": "holtling"}, "badges": ["brook", "urban", "stone", "storm", "fae", "kin", "tide"],
+		"seen": {}, "caught": {}, "play_seconds": 36000.0, "clock_minutes": 600,
+		"last_sanctuary": {"zone": "newgrange", "pos": [-1, -1]}, "rng_seed": 5, "saved_at": 1.0}
+	var d := SaveSystem.migrate(raw.duplicate(true))
+	var s := GameStateData.from_dict(d, Dex.load_default())
+	assert_eq(s.player_name, "Ffion")
+	assert_eq(s.badges.size(), 7)
+	assert_true(FileAccess.file_exists("res://data/zones/%s.json" % s.zone_id))
+	assert_true(s.flag("ch7_judged") == true)

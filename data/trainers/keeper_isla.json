@@ -1,0 +1,48 @@
+{
+ "id": "keeper_isla",
+ "name": "Keeper Isla",
+ "class": "Keeper",
+ "sprite": "keeper_isla",
+ "party": [
+  {
+   "species": "ermine",
+   "level": 76
+  },
+  {
+   "species": "ptarmigan",
+   "level": 76
+  },
+  {
+   "species": "orcaird",
+   "level": 77
+  },
+  {
+   "species": "reindeer",
+   "level": 77
+  },
+  {
+   "species": "haarling",
+   "level": 78
+  },
+  {
+   "species": "polartern",
+   "level": 79
+  }
+ ],
+ "ai": "keeper",
+ "money": 8000,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Keeper Isla",
+   "text": "Mind the ice, it's freshly swept. Welcome to the rink. You've come a long way, and it's a cold way to finish."
+  },
+  {
+   "do": "say",
+   "who": "Keeper Isla",
+   "text": "Frost creatures don't hurry. They just get there first. Sweep hard!"
+  }
+ ],
+ "win": "Hurry hard, and you did. The Frost Stone. And a pair of waders: the bogs up here will swallow a welly whole.",
+ "after": "Away and see the Cù-Sìth's glen on Skye, if you dare. Bring a jumper."
+}

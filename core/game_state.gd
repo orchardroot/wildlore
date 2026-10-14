@@ -137,7 +137,7 @@ func _dev_boot() -> void:
 		data.party = [Creature.create(dex.get_species("kindlet"), 10, rng, moves)]
 		if args.ride != "":
 			data.bag["bike"] = 1
-			data.badges = ["brook", "urban", "stone"]
+			data.badges = ["brook", "urban", "stone", "iron"] if args.ride == "lantern" else ["brook", "urban", "stone"]
 		await Router.goto_zone(args.boot_zone, args.boot_pos, "down")
 		if args.ride == "bike":
 			Router.overworld.player.set_bike(true)

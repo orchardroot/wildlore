@@ -1,0 +1,568 @@
+{
+ "edges": {
+  "north": {
+   "offset": 0.0,
+   "to": "galloway"
+  }
+ },
+ "encounters": {
+  "grass": [
+   {
+    "max": 68.0,
+    "min": 67.0,
+    "species": "chipgull",
+    "time": [
+     "dawn",
+     "day"
+    ],
+    "weight": 14.0
+   },
+   {
+    "max": 68.0,
+    "min": 67.0,
+    "species": "pierlord",
+    "time": [
+     "day",
+     "dusk"
+    ],
+    "weight": 12.0
+   },
+   {
+    "max": 68.0,
+    "min": 67.0,
+    "species": "plungebeak",
+    "weight": 10.0
+   },
+   {
+    "max": 68.0,
+    "min": 67.0,
+    "species": "gannetling",
+    "weather": [
+     "gale",
+     "drizzle"
+    ],
+    "weight": 10.0
+   },
+   {
+    "max": 68.0,
+    "min": 67.0,
+    "species": "ternlet",
+    "time": [
+     "dawn",
+     "day"
+    ],
+    "weight": 8.0
+   },
+   {
+    "max": 68.0,
+    "min": 67.0,
+    "species": "baskling",
+    "weight": 6.0
+   },
+   {
+    "max": 68.0,
+    "min": 67.0,
+    "species": "binfox",
+    "time": [
+     "night",
+     "dusk"
+    ],
+    "weight": 8.0
+   },
+   {
+    "max": 68.0,
+    "min": 67.0,
+    "species": "hushwing",
+    "time": [
+     "night"
+    ],
+    "weight": 6.0
+   }
+  ],
+  "water": [
+   {
+    "max": 68.0,
+    "min": 67.0,
+    "species": "greyhaul",
+    "weight": 20.0
+   },
+   {
+    "max": 68.0,
+    "min": 67.0,
+    "species": "plungebeak",
+    "weight": 20.0
+   },
+   {
+    "max": 68.0,
+    "min": 67.0,
+    "species": "dolphlet",
+    "weight": 15.0
+   },
+   {
+    "max": 68.0,
+    "min": 67.0,
+    "species": "selklet",
+    "weight": 12.0
+   },
+   {
+    "max": 68.0,
+    "min": 67.0,
+    "species": "chipgull",
+    "weight": 15.0
+   },
+   {
+    "max": 68.0,
+    "min": 67.0,
+    "species": "baskling",
+    "weight": 8.0
+   }
+  ]
+ },
+ "ferry": {
+  "route": "belfast_cairnryan",
+  "x": 9.0,
+  "y": 20.0
+ },
+ "id": "cairnryan",
+ "kind": "town",
+ "music": "town_scotland",
+ "name": "Cairnryan",
+ "npcs": [
+  {
+   "facing": "left",
+   "id": "rail_guard",
+   "move": "still",
+   "script": "rail_guard",
+   "sprite": "rail_guard",
+   "x": 36.0,
+   "y": 5.0
+  },
+  {
+   "facing": "left",
+   "id": "cai_sailor",
+   "move": "still",
+   "script": "sailor",
+   "sprite": "sailor",
+   "x": 11.0,
+   "y": 20.0
+  },
+  {
+   "facing": "down",
+   "id": "cai_lorry",
+   "move": "wander",
+   "script": "cai_lorry",
+   "sprite": "farmer",
+   "x": 26.0,
+   "y": 21.0
+  },
+  {
+   "facing": "right",
+   "id": "cai_oyster",
+   "move": "still",
+   "script": "cai_oyster",
+   "sprite": "angler",
+   "x": 17.0,
+   "y": 24.0
+  },
+  {
+   "facing": "down",
+   "id": "cai_wife",
+   "move": "wander",
+   "script": "cai_wife",
+   "sprite": "villager_3",
+   "x": 38.0,
+   "y": 20.0
+  },
+  {
+   "facing": "down",
+   "id": "cai_kid",
+   "move": "wander",
+   "script": "cai_kid",
+   "sprite": "villager_6",
+   "x": 31.0,
+   "y": 31.0
+  },
+  {
+   "facing": "up",
+   "id": "cai_angler",
+   "move": "still",
+   "sprite": "angler",
+   "trainer": "cai_angler",
+   "x": 15.0,
+   "y": 26.0
+  }
+ ],
+ "props": [
+  {
+   "type": "boat",
+   "variant": 0.0,
+   "x": 5.0,
+   "y": 20.0
+  },
+  {
+   "type": "bollard",
+   "x": 10.0,
+   "y": 21.0
+  },
+  {
+   "type": "bollard",
+   "x": 13.0,
+   "y": 21.0
+  },
+  {
+   "type": "bollard",
+   "x": 16.0,
+   "y": 19.0
+  },
+  {
+   "type": "bollard",
+   "x": 16.0,
+   "y": 21.0
+  },
+  {
+   "type": "boat",
+   "variant": 1.0,
+   "x": 4.0,
+   "y": 14.0
+  },
+  {
+   "type": "boat",
+   "variant": 1.0,
+   "x": 6.0,
+   "y": 27.0
+  },
+  {
+   "type": "boat",
+   "variant": 1.0,
+   "x": 7.0,
+   "y": 8.0
+  },
+  {
+   "type": "boat",
+   "variant": 1.0,
+   "x": 3.0,
+   "y": 33.0
+  },
+  {
+   "type": "buoy",
+   "x": 5.0,
+   "y": 12.0
+  },
+  {
+   "type": "buoy",
+   "x": 7.0,
+   "y": 29.0
+  },
+  {
+   "type": "buoy",
+   "x": 4.0,
+   "y": 24.0
+  },
+  {
+   "type": "buoy",
+   "x": 9.0,
+   "y": 36.0
+  },
+  {
+   "type": "buoy",
+   "x": 6.0,
+   "y": 4.0
+  },
+  {
+   "type": "lighthouse",
+   "x": 8.0,
+   "y": 32.0
+  },
+  {
+   "h": 4.0,
+   "label": "Sanctuary",
+   "style": "sanctuary",
+   "type": "building",
+   "w": 6.0,
+   "x": 26.0,
+   "y": 14.0
+  },
+  {
+   "h": 4.0,
+   "label": "Corner Shop",
+   "style": "shop",
+   "type": "building",
+   "w": 5.0,
+   "x": 34.0,
+   "y": 14.0
+  },
+  {
+   "h": 2.0,
+   "label": "Cairnryan Station",
+   "style": "station",
+   "type": "building",
+   "w": 9.0,
+   "x": 30.0,
+   "y": 3.0
+  },
+  {
+   "type": "lamp_post",
+   "x": 38.0,
+   "y": 5.0
+  },
+  {
+   "h": 4.0,
+   "label": "Ferry Terminal",
+   "style": "cream_render",
+   "type": "building",
+   "w": 10.0,
+   "x": 19.0,
+   "y": 23.0
+  },
+  {
+   "h": 4.0,
+   "label": "The Ryan Arms",
+   "style": "white_render",
+   "type": "building",
+   "w": 6.0,
+   "x": 34.0,
+   "y": 23.0
+  },
+  {
+   "h": 4.0,
+   "style": "slate_cottage",
+   "type": "building",
+   "w": 5.0,
+   "x": 42.0,
+   "y": 14.0
+  },
+  {
+   "h": 4.0,
+   "style": "white_render",
+   "type": "building",
+   "w": 5.0,
+   "x": 42.0,
+   "y": 23.0
+  },
+  {
+   "h": 4.0,
+   "label": "Harbour Office",
+   "style": "stone",
+   "type": "building",
+   "w": 5.0,
+   "x": 20.0,
+   "y": 30.0
+  },
+  {
+   "type": "lamp_post",
+   "x": 27.0,
+   "y": 17.0
+  },
+  {
+   "type": "lamp_post",
+   "x": 33.0,
+   "y": 17.0
+  },
+  {
+   "type": "lamp_post",
+   "x": 40.0,
+   "y": 17.0
+  },
+  {
+   "type": "lamp_post",
+   "x": 19.0,
+   "y": 21.0
+  },
+  {
+   "type": "lamp_post",
+   "x": 30.0,
+   "y": 21.0
+  },
+  {
+   "type": "lamp_post",
+   "x": 38.0,
+   "y": 21.0
+  },
+  {
+   "type": "planter",
+   "x": 28.0,
+   "y": 17.0
+  },
+  {
+   "type": "planter",
+   "x": 33.0,
+   "y": 17.0
+  },
+  {
+   "type": "bench",
+   "x": 25.0,
+   "y": 21.0
+  },
+  {
+   "type": "post_box",
+   "x": 31.0,
+   "y": 21.0
+  },
+  {
+   "type": "phone_box",
+   "x": 45.0,
+   "y": 21.0
+  },
+  {
+   "type": "oak",
+   "variant": 2.0,
+   "x": 45.0,
+   "y": 32.0
+  },
+  {
+   "type": "oak",
+   "variant": 0.0,
+   "x": 41.0,
+   "y": 36.0
+  },
+  {
+   "type": "oak",
+   "variant": 2.0,
+   "x": 43.0,
+   "y": 31.0
+  },
+  {
+   "type": "oak",
+   "variant": 0.0,
+   "x": 36.0,
+   "y": 30.0
+  },
+  {
+   "type": "oak",
+   "variant": 0.0,
+   "x": 41.0,
+   "y": 35.0
+  },
+  {
+   "type": "oak",
+   "variant": 0.0,
+   "x": 42.0,
+   "y": 36.0
+  },
+  {
+   "type": "bush",
+   "variant": 1.0,
+   "x": 19.0,
+   "y": 10.0
+  },
+  {
+   "type": "bush",
+   "variant": 0.0,
+   "x": 18.0,
+   "y": 3.0
+  },
+  {
+   "type": "bush",
+   "variant": 1.0,
+   "x": 21.0,
+   "y": 14.0
+  },
+  {
+   "type": "bush",
+   "variant": 2.0,
+   "x": 19.0,
+   "y": 6.0
+  }
+ ],
+ "region": "scotland",
+ "rows": [
+  "$$$$$$$$$$$$$$TTTTTTTT===TTTTTTTTTTTTTTTTTTTTTTP",
+  "$$$$$$$$$$$$$$TTTTTTTT===TTTTTTTTTTTTTTTTTTTTTTT",
+  "$$$$$$$$$$$$$$wsss....===.....................TT",
+  "$$$$$$$$$$$$$$wsss....===...#.BBBBBBBBB.......TT",
+  "$$$$$$$$$$$$$$wsss....===...#.BBBBDBBBB.......TT",
+  "$$$$$$$$$$$$$$wsss....===...#._________.......TT",
+  "$$$$$$$$$$$$$$wsss....===...#!!!!!!!!!!!......TT",
+  "$$$$$$$$$$$$$$wsss....===...#.................TT",
+  "$$$$$$$$$$$$$$wsss....===...#...........,,,,,,TT",
+  "$$$$$$$$$$$$$$wsss....===...#...........,,,,,,TT",
+  "$$$$$$$$$$$$$$wsss....===...#...........,,,,,,TT",
+  "$$$$$$$$$$$$$$wsss....===...#...........,,,,,,TT",
+  "$$$$$$$$$$$$$$wsss....===...#...........,,,,,,TT",
+  "$$$$$$$$$$$$$$wsss....===...#.................TT",
+  "$$$$$$$$$$$$$$wsss....===.BBBBBB..BBBBB...BBBBBT",
+  "$$$$$$$$$$$$$$wsss....===.BBBBBB..BBBBB...BBBBBT",
+  "$$$$$$$$$$$$$$wsss....===.BBBBBB..BBBBB...BBBBBT",
+  "$$$$$$$$$$$$$$wsss....===.BBBDBB..BBDBB...BBBBBT",
+  "$$$$$$$$$$$$$$wsss============================TT",
+  "$$$$$$$$::::::::::============================TT",
+  "$$$$$$$$::::::::::============================TT",
+  "$$$$$$$$:::::::::::::..:...=........:::.####..TT",
+  "$$$$$$$$$$$$$$wsss.....:............:::.##....TT",
+  "$$$$$$$$$$$$$$wsss.BBBBBBBBBB.....BBBBBB##BBBBBT",
+  "$$$$$$$$$$$$$$wsss.BBBBBBBBBB.....BBBBBB##BBBBBT",
+  "$$$$$$$$$$$$$$wsss.BBBBBBBBBB.....BBBBBB##BBBBBT",
+  "$$$$$$$$$$$$$$wsss.BBBBBBBBBB.....BBBBBB##BBBBBT",
+  "$$$$$$$$$$$$$$wsss.:::###::::...........##....TT",
+  "$$$$$$$$$$$$$$wsss....###..################...TT",
+  "$$$$$$$$$$$$$$wsss....###.....................TT",
+  "$$$$$$$$$$$$$$wsss..BBBBB...........,,,,,,,,,,TT",
+  "$$$$$$$$::::::::ss..BBBBB...........,,,,,,,,,,TT",
+  "$$$$$$$$::::::::ss..BBBBB...........,,,,,,,,,,TT",
+  "$$$$$$$$$$$$$$wsss..BBBBB...........,,,,,,,,,,TT",
+  "$$$$$$$$$$$$$$wsss....,,,,,,,,......,,,,,,,,,,TT",
+  "$$$$$$$$$$$$$$wsss....,,,,,,,,......,,,,,,,,,,TT",
+  "$$$$$$$$$$$$$$wsss....,,,,,,,,......,,,,,,,,,,TT",
+  "$$$$$$$$$$$$$$wsss....,,,,,,,,......,,,,,,,,,,TT",
+  "$$$$$$$$$$$$$$TTTTTTTT,,,,,,,,PTTTTTTTTTTTTTTTTT",
+  "$$$$$$$$$$$$$$TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT"
+ ],
+ "signs": [
+  {
+   "text": "THE BREAKWATER. Loch Ryan is a sea loch, sheltered enough that the ferries come in almost on tiptoe. The lighthouse on the end does not pretend it is needed on a clear night. It likes to be asked.",
+   "x": 15.0,
+   "y": 31.0
+  },
+  {
+   "text": "FÀILTE GU ALBA / WELCOME TO SCOTLAND. Mind the lorries: this little village sees more trucks than a village of its size really ought to. The Gaelic means exactly what it says, which is a rare thing in signs.",
+   "x": 23.0,
+   "y": 19.0
+  },
+  {
+   "text": "AISEAG GU BEUL FEIRSTE / FERRY TO BELFAST. About two and a quarter hours across the North Channel. The ship has a cafe, a lounge and a gift shop that sells nothing you need and everything you want.",
+   "x": 11.0,
+   "y": 18.0
+  },
+  {
+   "text": "LOCH RYAN. A sea loch, and home to Scotland's last big wild native oyster bed. The oysters have been here since long before the ferries, and they have never once been late.",
+   "x": 19.0,
+   "y": 22.0
+  }
+ ],
+ "spawn": [
+  23.0,
+  17.0
+ ],
+ "stage": "docks",
+ "station": {
+  "x": 34.0,
+  "y": 5.0
+ },
+ "town_id": "cairnryan",
+ "warps": [
+  {
+   "facing": "up",
+   "to": "cairnryan_sanctuary",
+   "tx": 5.0,
+   "ty": 6.0,
+   "x": 29.0,
+   "y": 17.0
+  },
+  {
+   "facing": "up",
+   "to": "cairnryan_shop",
+   "tx": 4.0,
+   "ty": 5.0,
+   "x": 36.0,
+   "y": 17.0
+  }
+ ],
+ "weather": {
+  "clear": 20.0,
+  "downpour": 14.0,
+  "drizzle": 38.0,
+  "fog": 10.0,
+  "gale": 8.0,
+  "sunshine": 10.0
+ }
+}

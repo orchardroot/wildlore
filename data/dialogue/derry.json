@@ -1,0 +1,164 @@
+{
+ "rail_guard": [
+  {
+   "do": "say",
+   "who": "Rail Guard",
+   "text": "Derry Station, on the far bank of the Foyle, which is the prettiest place to arrive in Ireland. I'm biased, but the view helps."
+  },
+  {
+   "do": "say",
+   "who": "Rail Guard",
+   "text": "Hop aboard. The Wildlore rail runs to any town you have visited on this island. Where to?"
+  },
+  {
+   "do": "rail"
+  }
+ ],
+ "wall_guide": [
+  {
+   "do": "say",
+   "who": "Walls Guide",
+   "text": "Welcome to the Derry Walls! They're 1.5 kilometres round, up to 8 metres thick in places, and the oldest of their sort in Ireland."
+  },
+  {
+   "do": "say",
+   "who": "Walls Guide",
+   "text": "Please stay on the walkway. The walls have stood for 400 years, but they've never had to deal with tourists with selfie sticks."
+  },
+  {
+   "do": "if",
+   "flag": "walls_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Walls Guide",
+     "text": "Roaring Meg liked you, then. She doesn't like everybody. She's a cannon. She has views."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "walls_started",
+     "then": [
+      {
+       "do": "say",
+       "who": "Walls Guide",
+       "text": "Off along the top of the north wall, to the east end, and say hello to Meg's keeper. It's a fair stroll. Mind the pigeons, they have right of way."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Walls Guide",
+       "text": "Tell you what. Would you walk the north wall to the far end for me? Meg's keeper is out there with the old cannon, and she's had no visitors since the coach party."
+      },
+      {
+       "do": "say",
+       "who": "Walls Guide",
+       "text": "These walls are over four hundred years old and nobody has ever got through them. Well, nobody except tourists. And pigeons."
+      },
+      {
+       "do": "set",
+       "flag": "walls_started"
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "museum_curator": [
+  {
+   "do": "say",
+   "who": "Museum Curator",
+   "text": "The Tower Museum tells Derry's story in four floors and one very steep staircase. We say the climb is an exhibit in itself."
+  },
+  {
+   "do": "say",
+   "who": "Museum Curator",
+   "text": "Doire means 'oak grove'. The city was named for a wood. Quite a few of the oaks are still around, and the rest are doing very well as furniture."
+  }
+ ],
+ "bridge_cyclist": [
+  {
+   "do": "say",
+   "who": "Bridge Cyclist",
+   "text": "I cross the Peace Bridge four times a day. I don't need to. It's just that every time, the light on the river is different."
+  },
+  {
+   "do": "say",
+   "who": "Bridge Cyclist",
+   "text": "The bridge is built so it feels like it's dancing. You'll see. Take your time, even if you're late."
+  }
+ ],
+ "diamond_busker": [
+  {
+   "do": "say",
+   "who": "Busker",
+   "text": "I play on the Diamond. Wonderful acoustics: four streets, four directions of shouting, and a statue at the middle to absorb the heckles."
+  },
+  {
+   "do": "say",
+   "who": "Busker",
+   "text": "Derry's known for its music, you know. Songs, fiddles, and a good melody in the kitchen at two in the morning."
+  }
+ ],
+ "ferry_pilot": [
+  {
+   "do": "say",
+   "who": "Foyle Walker",
+   "text": "The Foyle's a lovely river. Wide, easy, full of light. The sort of river that makes you want to write down what you're feeling. Then you remember you have a bus to catch."
+  },
+  {
+   "do": "say",
+   "who": "Foyle Walker",
+   "text": "The name Foyle comes from the Irish 'Feabhal', and it means 'lip' or 'edge'. The river sits on the edge of everything, like a politely lingering guest."
+  }
+ ],
+ "walls_gunner": [
+  {
+   "do": "if",
+   "flag": "walls_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Walls Keeper",
+     "text": "Meg's been quiet for a good while now, and I like her that way. A cannon with nothing to prove is the best sort."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "walls_started",
+     "then": [
+      {
+       "do": "say",
+       "who": "Walls Keeper",
+       "text": "You walked the whole way? Brilliant. Nobody walks it any more. They take photographs of it from the car park."
+      },
+      {
+       "do": "say",
+       "who": "Walls Keeper",
+       "text": "This is Roaring Meg. Cast in 1642. She's a quiet pensioner now, and she's polite to everyone who walks past her. Here, a bit of soda farl for the walk back."
+      },
+      {
+       "do": "give_item",
+       "item": "soda_farl",
+       "n": 2
+      },
+      {
+       "do": "set",
+       "flag": "walls_done"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Walls Keeper",
+       "text": "Meg's a cannon from the 1600s. She's seen a lot and she's said nothing. If you fancy a walk, the guide at the other end will tell you about it."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

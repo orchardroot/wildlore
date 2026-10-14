@@ -1,0 +1,121 @@
+{
+ "id": "belfast_yard",
+ "name": "Belfast Yard",
+ "region": "",
+ "kind": "interior",
+ "music": "battle_keeper",
+ "weather": {
+  "drizzle": 100
+ },
+ "props": [
+  {
+   "type": "boat",
+   "x": 3,
+   "y": 5,
+   "variant": 1
+  },
+  {
+   "type": "bollard",
+   "x": 6,
+   "y": 2
+  },
+  {
+   "type": "bollard",
+   "x": 6,
+   "y": 8
+  },
+  {
+   "type": "lamp_post",
+   "x": 13,
+   "y": 2
+  },
+  {
+   "type": "lamp_post",
+   "x": 3,
+   "y": 10
+  },
+  {
+   "type": "planter",
+   "x": 14,
+   "y": 9
+  },
+  {
+   "type": "bench",
+   "x": 13,
+   "y": 6
+  },
+  {
+   "type": "bollard",
+   "x": 1,
+   "y": 12
+  },
+  {
+   "type": "bollard",
+   "x": 15,
+   "y": 12
+  }
+ ],
+ "warps": [
+  {
+   "x": 8,
+   "y": 12,
+   "to": "belfast",
+   "tx": 52,
+   "ty": 50,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "keeper_ruairi",
+   "sprite": "keeper_ruairi",
+   "x": 9,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "keeper_ruairi"
+  },
+  {
+   "id": "yard_welder",
+   "sprite": "tin_miner",
+   "x": 11,
+   "y": 7,
+   "facing": "left",
+   "move": "still",
+   "trainer": "yard_welder"
+  },
+  {
+   "id": "yard_apprentice",
+   "sprite": "tin_miner",
+   "x": 6,
+   "y": 5,
+   "facing": "right",
+   "move": "still",
+   "trainer": "yard_apprentice"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  8,
+  11
+ ],
+ "stage": "docks",
+ "rows": [
+  "xxxxxxxxxxxxxxxxx",
+  "x|||||||||||||||x",
+  "x|~~~|+++++++++|x",
+  "x|~~~|+++++++++|x",
+  "x|~~~|+++++++++|x",
+  "x|~~~|+++++++++|x",
+  "x|~~~|+++++++++|x",
+  "x|~~~|+++++++++|x",
+  "x|~~~|+++++++++|x",
+  "x|+++++++++++++|x",
+  "x|+++++++++++++|x",
+  "x|||||||||||||||x",
+  "x|||||||D|||||||x",
+  "xxxxxxxxxxxxxxxxx"
+ ]
+}

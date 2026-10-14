@@ -1,0 +1,596 @@
+{
+ "id": "glencoe",
+ "name": "Glencoe",
+ "region": "scotland",
+ "kind": "route",
+ "music": "route_highlands",
+ "weather": {
+  "fog": 34,
+  "drizzle": 28,
+  "downpour": 12,
+  "clear": 12,
+  "gale": 8,
+  "frost": 6
+ },
+ "props": [
+  {
+   "type": "standing_stone",
+   "x": 32,
+   "y": 59
+  },
+  {
+   "type": "rock",
+   "x": 13,
+   "y": 54,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 31,
+   "y": 3,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 13,
+   "y": 33,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 34,
+   "y": 52,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 42,
+   "y": 60,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 28,
+   "y": 45,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 36,
+   "y": 48,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 44,
+   "y": 49,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 33,
+   "y": 32,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 13,
+   "y": 49,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 14,
+   "y": 8,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 13,
+   "y": 50,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 27,
+   "y": 36,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 12,
+   "y": 5,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 42,
+   "y": 57,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 32,
+   "y": 35,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 33,
+   "y": 48,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 17,
+   "y": 31,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 35,
+   "y": 51,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 23,
+   "y": 35,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 28,
+   "y": 6,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 12,
+   "y": 51,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 31,
+   "y": 44,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 40,
+   "y": 56,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 12,
+   "y": 8,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 9,
+   "y": 55,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 14,
+   "y": 15,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 26,
+   "y": 45,
+   "variant": 0
+  }
+ ],
+ "warps": [],
+ "edges": {
+  "south": {
+   "to": "glasgow",
+   "offset": 0
+  },
+  "north": {
+   "to": "fort_william",
+   "offset": 0
+  }
+ },
+ "npcs": [
+  {
+   "id": "strachan",
+   "sprite": "strachan",
+   "x": 27,
+   "y": 29,
+   "facing": "left",
+   "move": "still",
+   "script": "strachan_glencoe",
+   "hide_if": "strachan1_done"
+  },
+  {
+   "id": "glc_walker",
+   "sprite": "hiker",
+   "x": 24,
+   "y": 14,
+   "facing": "right",
+   "move": "still",
+   "script": "glc_walker"
+  },
+  {
+   "id": "glc_photographer",
+   "sprite": "birdwatcher",
+   "x": 24,
+   "y": 56,
+   "facing": "down",
+   "move": "still",
+   "script": "glc_photographer"
+  },
+  {
+   "id": "glc_historian",
+   "sprite": "villager_4",
+   "x": 29,
+   "y": 50,
+   "facing": "left",
+   "move": "still",
+   "script": "glc_historian"
+  },
+  {
+   "id": "glc_cyclist",
+   "sprite": "jogger",
+   "x": 27,
+   "y": 12,
+   "facing": "down",
+   "move": "wander",
+   "script": "glc_cyclist"
+  },
+  {
+   "id": "glc_hillwalker",
+   "sprite": "hiker",
+   "x": 14,
+   "y": 40,
+   "facing": "right",
+   "move": "still",
+   "trainer": "glc_hillwalker"
+  },
+  {
+   "id": "glc_piper",
+   "sprite": "piper",
+   "x": 26,
+   "y": 23,
+   "facing": "right",
+   "move": "still",
+   "trainer": "glc_piper"
+  },
+  {
+   "id": "glc_ghillie",
+   "sprite": "ghillie",
+   "x": 22,
+   "y": 11,
+   "facing": "right",
+   "move": "still",
+   "trainer": "glc_ghillie"
+  },
+  {
+   "id": "glc_warden",
+   "sprite": "warden_grunt",
+   "x": 20,
+   "y": 49,
+   "facing": "right",
+   "move": "still",
+   "trainer": "glc_warden"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "wildkit",
+    "min": 70,
+    "max": 72,
+    "weight": 12,
+    "time": [
+     "night",
+     "dusk",
+     "dawn"
+    ]
+   },
+   {
+    "species": "eaglet",
+    "min": 70,
+    "max": 72,
+    "weight": 12,
+    "time": [
+     "day",
+     "dawn"
+    ]
+   },
+   {
+    "species": "midgie",
+    "min": 70,
+    "max": 72,
+    "weight": 14,
+    "weather": [
+     "drizzle",
+     "fog",
+     "clear"
+    ]
+   },
+   {
+    "species": "stagmor",
+    "min": 70,
+    "max": 72,
+    "weight": 8,
+    "time": [
+     "dawn",
+     "dusk"
+    ]
+   },
+   {
+    "species": "fawnlet",
+    "min": 70,
+    "max": 72,
+    "weight": 10
+   },
+   {
+    "species": "snowhare",
+    "min": 70,
+    "max": 72,
+    "weight": 8,
+    "weather": [
+     "frost",
+     "fog"
+    ]
+   },
+   {
+    "species": "kidgruff",
+    "min": 70,
+    "max": 72,
+    "weight": 10
+   },
+   {
+    "species": "martling",
+    "min": 70,
+    "max": 72,
+    "weight": 8,
+    "time": [
+     "dusk",
+     "night"
+    ]
+   },
+   {
+    "species": "hootlet",
+    "min": 70,
+    "max": 72,
+    "weight": 8,
+    "time": [
+     "night"
+    ]
+   },
+   {
+    "species": "sphagnet",
+    "min": 70,
+    "max": 72,
+    "weight": 6,
+    "weather": [
+     "drizzle",
+     "downpour",
+     "fog"
+    ]
+   }
+  ],
+  "water": [
+   {
+    "species": "dipling",
+    "min": 70,
+    "max": 72,
+    "weight": 20
+   },
+   {
+    "species": "rillotter",
+    "min": 70,
+    "max": 72,
+    "weight": 20
+   },
+   {
+    "species": "bradan",
+    "min": 70,
+    "max": 72,
+    "weight": 14
+   },
+   {
+    "species": "heronarch",
+    "min": 70,
+    "max": 72,
+    "weight": 10
+   },
+   {
+    "species": "spatelord",
+    "min": 70,
+    "max": 72,
+    "weight": 10,
+    "time": [
+     "dusk",
+     "night"
+    ]
+   },
+   {
+    "species": "stalklet",
+    "min": 70,
+    "max": 72,
+    "weight": 12
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 42,
+   "y": 33,
+   "text": "COIRE GABHAIL, the LOST VALLEY. A secret hollow between two of the Sisters. The MacDonalds are said to have hidden stolen cattle here, since you couldn't see it from the glen below. A hidden valley, a great hiding place and a very steep walk. You're in good company."
+  },
+  {
+   "x": 42,
+   "y": 19,
+   "text": "A HIDDEN COIRE. The hill folk call a hollow like this a coire, 'a cauldron'. This one fills with mist at the drop of a hat, so tread softly. If you hear an eagle, say hello. If an eagle says hello, say it back."
+  },
+  {
+   "x": 32,
+   "y": 60,
+   "text": "GLENCOE MEMORIAL. In February 1692, soldiers who had been guests of the MacDonalds turned on them in the snow, and about thirty people died, many more fleeing into the hills. It's remembered here quietly. Walk gently, and stay a while."
+  },
+  {
+   "x": 29,
+   "y": 44,
+   "text": "GLEANN COMHANN, GLENCOE. A glen made by ice, with sides so steep that the mist sits in the bowl like milk in a cup. Bidean nam Bian, at 1,150 m, is the highest hill in Argyll. The glen is a place to look up at."
+  },
+  {
+   "x": 28,
+   "y": 30,
+   "text": "THE THREE SISTERS. Beinn Fhada, Gearr Aonach and Aonach Dubh: three great spurs of rock standing shoulder to shoulder. Walkers love them. Film crews love them. Bond came here, and so did a boy wizard, and neither of them could get a signal."
+  }
+ ],
+ "spawn": [
+  31,
+  58
+ ],
+ "stage": "mountain",
+ "rows": [
+  "TTTTTTTTTTTTTTTTTTTTTT###PTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTT###TTTTTTTTTTTTTTTTPTTTTTP",
+  "TT.............P......###..........P..........TT",
+  "TRRRRR................###.....................TT",
+  "RRRRRRR...............###.......PP.P.P........TT",
+  "RRRRRRRR.......wwwwwww###.....................TT",
+  "RRRRRRRRR......w~~~~~w#hhhh...................TT",
+  "RR^^^RRRR......w~~~~~w#hhhh..hhh....RRRRRRR...TT",
+  "R^^^^^RRRR.....w~~~~~w#hhhh..hhh..RR^^^^^^^RR.TT",
+  "^^^^^^^RRR.....w~~~~~w#hhhh..hhh.RR^^^^^^^^^RRPT",
+  "^^^^^^^^RR.....w~~~~~w#hhhh..hhh.R^^^^^^^^^^^RTT",
+  "^^^^^^^^RRR....w~~~~~w#hhhh..hhh.R^^^^^^^^^^^RTT",
+  "^^^^^^^^^RR....w~~~~~w#hhhh..hhh.R^^^^^^^^^^^RTT",
+  "^^^^^^^^^RR....w~~~~~w#hhhh..hhh.R^^^^^^^^^^^RTT",
+  "^^^^^^^^^^RR.P.w~~~~~w#hhhh..hhh.R^^^^^^^^^^^RTT",
+  "^^^^^^^^^^RR...w~~~~~w#hhhh..hhh.RR^^^^^^^^^RRTT",
+  "^^^^^^^^^^RR...w~~~~~w#hhhh..hhh..RR^^^^^^^RR.TT",
+  "^^^^^^^^^^RR...w~~~~~w#hhhh..hhh....RRRRRRR...TT",
+  "^^^^^^^^^^^RR..wwwwwww###....hhh..P......hhhhhTT",
+  "^^^^^^^^^^^RR......ww.###////////////////hhhhhTT",
+  "^^^^^^^^^^^RR......ww.#######..P...P.....hhhhhTT",
+  "^^^^^^^^^^^RR......ww.#######.......RRRRRRR...TT",
+  "^^^^^^^^^^^RRPhhhhhhw.######hhh...RR^^^^^^^RR.TT",
+  "^^^^^^^^^^^RR.hhhhhhw.....##hhh..RR^^^^^^^^^RRTT",
+  "^^^^^^^^^^^^R.hhhhhhw.....##hhh..R^^^^^^^^^^^RTT",
+  "^^^^^^^^^^^^RPhhhhhhw...hh##hhh..R^^^^^^^^^^^RTT",
+  "^^^^^^^^^^^^R.hhhhhhw...hh##hhh..R^^^^^^^^^^^RTT",
+  "^^^^^^^^^^^^R.hhhhhhw...hh##hhh..R^^^^^^^^^^^RTT",
+  "^^^^^^^^^^^^R.hhhhhhw...hh##hhh..R^^^^^^^^^^^RTT",
+  "^^^^^^^^^^^^R.hhhhhhw...hh##hhh..RR^^^^^^^^^RRTT",
+  "^^^^^^^^^^^^R......ww...hh##hhh...RR^^^^^^^RR.TT",
+  "^^^^^^^^^^^^R......ww...P.###.......RRRRRRR.P.TT",
+  "^^^^^^^^^^^^R.###############P........P..hhhhhTT",
+  "^^^^^^^^^^^^R.###############////////////hhhhhTT",
+  "^^^^^^^^^^^^R.###############..P.....PP..hhhhhTT",
+  "^^^^^^^^^^^^R.###..ww..............PRRRRRRR...TT",
+  "^^^^^^^^^^^^R.###hhhhhhhh....hhh..RR^^^^^^^RR.TT",
+  "^^^^^^^^^^^RR.###hhhhhhhh....hhhPRR^^^^^^^^^RRTT",
+  "^^^^^^^^^^^RR.###hhhhhhhh....hhh.R^^^^^^^^^^^RTT",
+  "^^^^^^^^^^^RR.###hhhhhhhh..P.hhhPR^^^^^^^^^^^RTT",
+  "^^^^^^^^^^^RR.###hhhhhhhh....hhh.R^^^^^^^^^^^RTT",
+  "^^^^^^^^^^^RR.###hhhhhhhh....hhh.R^^^^^^^^^^^RTT",
+  "^^^^^^^^^^^RR.###hhhhhhhh...Phhh.R^^^^^^^^^^^RTT",
+  "^^^^^^^^^^RR..###hhhhhhhh.PP.hhh.RR^^^^^^^^^RRPT",
+  "^^^^^^^^^^RR..###hhhhhhhh.........RR^^^^^^^RR.TT",
+  "^^^^^^^^^^RR..###hhhhhhhh...........RRRRRRR...TT",
+  "^^^^^^^^^^RR..###..ww...P.....................TT",
+  "^^^^^^^^^RR...###..ww.........................TT",
+  "^^^^^^^^^RR...###################...P.........TT",
+  "^^^^^^^^RRR...################hh#.............TT",
+  "^^^^^^^^RR....################hh#.............TT",
+  "^^^^^^^RRR..............P.P...hh#.............TT",
+  "R^^^^^RRRR....................hh#.............TT",
+  "RR^^^RRRR........hhhhhhhhh....hh#.............TT",
+  "RRRRRRRRR........hhhhhhhhhPP..###.............TT",
+  "RRRRRRRRP........hhhhhhhhh....hhhhhh.P........TT",
+  "RRRRRRR.P........hhhhhhhhh....hhhhhh..........TT",
+  "TRRRRR...........hhhhhhhhhP...hhhhhh..........PT",
+  "TT..hhhhhhhh.....hhhhhhhhh....hhhhhh..........TT",
+  "TT..hhhhhhhh..P....P..........hhhhhh..........TT",
+  "TT..hhhhhhhh..................hhhhhh..........TT",
+  "TTP.hhhhhhhh..........P.......###.............TT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT###TTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTPT###TTTTTTTTTTTTTTT"
+ ],
+ "heights": [
+  "000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000",
+  "011111000000000000000000000000000000000000000000",
+  "111111100000000000000000000000000000000000000000",
+  "111111110000000000000000000000000000000000000000",
+  "111111111000000000000000000000000000000000000000",
+  "112221111000000000000000000000000000111111100000",
+  "122222111100000000000000000000000011222222211000",
+  "222222211100000000000000000000000112333333321100",
+  "222222221100000000000000000000000123344444332100",
+  "222222221110000000000000000000000123455555432100",
+  "223332222110000000000000000000000123456665432100",
+  "233333222110000000000000000000000123455555432100",
+  "333333322211000000000000000000000123344444332100",
+  "333333322211000000000000000000000112333333321100",
+  "333333332211000000000000000000000011222222211000",
+  "334443332211000000000000000000000000111111100000",
+  "344444333221100000000000000000000000000000000000",
+  "444444433221100000000000000000000000000000000000",
+  "444444433221100000000000000000000000000000000000",
+  "444544433221100000000000000000000000111111100000",
+  "445554443321100000000000000000000011222222211000",
+  "455555443321100000000000000000000112333333321100",
+  "455555443322100000000000000000000123344444332100",
+  "455555443322100000000000000000000123455555432100",
+  "555655543322100000000000000000000123456665432100",
+  "556665543322100000000000000000000123455555432100",
+  "556665543322100000000000000000000123344444332100",
+  "556665543322100000000000000000000112333333321100",
+  "556665543322100000000000000000000011222222211000",
+  "556665543322100000000000000000000000111111100000",
+  "556665543322100000000000000000000000000000000000",
+  "556665543322100000000000000000000000000000000000",
+  "555655543322100000000000000000000000000000000000",
+  "455555443322100000000000000000000000111111100000",
+  "455555443322100000000000000000000011222222211000",
+  "455555443321100000000000000000000112333333321100",
+  "445554443321100000000000000000000123344444332100",
+  "444544433221100000000000000000000123455555432100",
+  "444444433221100000000000000000000123456665432100",
+  "444444433221100000000000000000000123455555432100",
+  "344444333221100000000000000000000123344444332100",
+  "334443332211000000000000000000000112333333321100",
+  "333333332211000000000000000000000011222222211000",
+  "333333322211000000000000000000000000111111100000",
+  "333333322211000000000000000000000000000000000000",
+  "233333222110000000000000000000000000000000000000",
+  "223332222110000000000000000000000000000000000000",
+  "222222221110000000000000000000000000000000000000",
+  "222222221100000000000000000000000000000000000000",
+  "222222211100000000000000000000000000000000000000",
+  "122222111100000000000000000000000000000000000000",
+  "112221111000000000000000000000000000000000000000",
+  "111111111000000000000000000000000000000000000000",
+  "111111110000000000000000000000000000000000000000",
+  "111111100000000000000000000000000000000000000000",
+  "011111000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000"
+ ],
+ "legend_extra": {
+  "h": {
+   "tile": "tall_grass",
+   "colour": "#6e5a5c",
+   "prop": "heather"
+  }
+ }
+}

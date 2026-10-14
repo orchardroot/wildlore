@@ -1,0 +1,581 @@
+{
+ "id": "causeway",
+ "name": "Giant's Causeway",
+ "region": "ireland",
+ "kind": "route",
+ "music": "route_north_coast",
+ "weather": {
+  "drizzle": 22,
+  "clear": 22,
+  "fog": 8,
+  "gale": 14,
+  "sunshine": 28,
+  "downpour": 6
+ },
+ "props": [
+  {
+   "type": "building",
+   "style": "white_render",
+   "x": 14,
+   "y": 26,
+   "w": 12,
+   "h": 5,
+   "label": "Visitor Centre"
+  },
+  {
+   "type": "building",
+   "style": "white_render",
+   "x": 36,
+   "y": 29,
+   "w": 6,
+   "h": 3,
+   "label": "Vane Estates Marquee"
+  },
+  {
+   "type": "rock",
+   "x": 6,
+   "y": 27,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 32,
+   "y": 16,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 16,
+   "y": 14,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 11,
+   "y": 15,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 2,
+   "y": 29,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 12,
+   "y": 32,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 4,
+   "y": 17,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 19,
+   "y": 23,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 26,
+   "y": 30,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 30,
+   "y": 12,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 15,
+   "y": 16,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 21,
+   "y": 21,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 26,
+   "y": 26,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 28,
+   "y": 26,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 3,
+   "y": 34,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 5,
+   "y": 36,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 8,
+   "y": 26,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 2,
+   "y": 31,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 28,
+   "y": 16,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 2,
+   "y": 14,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 14,
+   "y": 25,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 15,
+   "y": 13,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 26,
+   "y": 17,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 25,
+   "y": 21,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 11,
+   "y": 16,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 23,
+   "y": 17,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 2,
+   "y": 27,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 21,
+   "y": 23,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 24,
+   "y": 35,
+   "variant": 1
+  },
+  {
+   "type": "lamp_post",
+   "x": 23,
+   "y": 33
+  },
+  {
+   "type": "lamp_post",
+   "x": 27,
+   "y": 33
+  },
+  {
+   "type": "lamp_post",
+   "x": 17,
+   "y": 24
+  },
+  {
+   "type": "lamp_post",
+   "x": 35,
+   "y": 22
+  },
+  {
+   "type": "bench",
+   "x": 29,
+   "y": 28
+  },
+  {
+   "type": "bench",
+   "x": 34,
+   "y": 26
+  },
+  {
+   "type": "planter",
+   "x": 13,
+   "y": 31
+  },
+  {
+   "type": "planter",
+   "x": 26,
+   "y": 31
+  },
+  {
+   "type": "buoy",
+   "x": 48,
+   "y": 34,
+   "variant": 0
+  },
+  {
+   "type": "boat",
+   "x": 50,
+   "y": 31,
+   "variant": 1
+  }
+ ],
+ "warps": [],
+ "edges": {
+  "south": {
+   "to": "antrim_coast",
+   "offset": 0
+  },
+  "west": {
+   "to": "bushmills",
+   "offset": 0
+  }
+ },
+ "npcs": [
+  {
+   "id": "centre_guide",
+   "sprite": "tour_guide",
+   "x": 23,
+   "y": 35,
+   "facing": "down",
+   "move": "still",
+   "script": "centre_guide"
+  },
+  {
+   "id": "geologist",
+   "sprite": "student",
+   "x": 34,
+   "y": 12,
+   "facing": "right",
+   "move": "still",
+   "script": "geologist"
+  },
+  {
+   "id": "visitor",
+   "sprite": "villager_4",
+   "x": 40,
+   "y": 35,
+   "facing": "left",
+   "move": "wander",
+   "script": "visitor"
+  },
+  {
+   "id": "local_man",
+   "sprite": "villager_6",
+   "x": 27,
+   "y": 24,
+   "facing": "right",
+   "move": "wander",
+   "script": "local_man"
+  },
+  {
+   "id": "enbarr_spot",
+   "sprite": "creature:enbarr",
+   "x": 57,
+   "y": 13,
+   "facing": "left",
+   "move": "still",
+   "script": "enbarr",
+   "hide_if": "caught_enbarr",
+   "show_if": "ch8_vane"
+  },
+  {
+   "id": "vane_causeway",
+   "sprite": "vane",
+   "x": 38,
+   "y": 33,
+   "facing": "up",
+   "move": "still",
+   "script": "vane_causeway",
+   "hide_if": "ch8_vane"
+  },
+  {
+   "id": "cw_birder",
+   "sprite": "birdwatcher",
+   "x": 24,
+   "y": 22,
+   "facing": "up",
+   "move": "still",
+   "trainer": "cw_birder"
+  },
+  {
+   "id": "cw_warden",
+   "sprite": "warden_grunt",
+   "x": 28,
+   "y": 22,
+   "facing": "right",
+   "move": "still",
+   "trainer": "cw_warden"
+  },
+  {
+   "id": "cw_hiker",
+   "sprite": "hiker",
+   "x": 12,
+   "y": 17,
+   "facing": "down",
+   "move": "still",
+   "trainer": "cw_hiker"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "basaltling",
+    "min": 65,
+    "max": 67,
+    "weight": 20
+   },
+   {
+    "species": "fionnling",
+    "min": 65,
+    "max": 67,
+    "weight": 14
+   },
+   {
+    "species": "plungebeak",
+    "min": 65,
+    "max": 66,
+    "weight": 10
+   },
+   {
+    "species": "clownbill",
+    "min": 65,
+    "max": 66,
+    "weight": 10,
+    "time": [
+     "day",
+     "dawn"
+    ]
+   },
+   {
+    "species": "cragchough",
+    "min": 65,
+    "max": 67,
+    "weight": 10
+   },
+   {
+    "species": "petrelash",
+    "min": 65,
+    "max": 67,
+    "weight": 10,
+    "weather": [
+     "gale",
+     "downpour"
+    ]
+   },
+   {
+    "species": "clawcastle",
+    "min": 65,
+    "max": 67,
+    "weight": 8
+   },
+   {
+    "species": "selkie",
+    "min": 66,
+    "max": 67,
+    "weight": 6,
+    "time": [
+     "dusk",
+     "night"
+    ]
+   },
+   {
+    "species": "polartern",
+    "min": 65,
+    "max": 66,
+    "weight": 8,
+    "weather": [
+     "frost",
+     "fog"
+    ]
+   },
+   {
+    "species": "bayrunner",
+    "min": 65,
+    "max": 67,
+    "weight": 8,
+    "time": [
+     "day"
+    ]
+   },
+   {
+    "species": "merrow",
+    "min": 66,
+    "max": 67,
+    "weight": 4,
+    "time": [
+     "dusk"
+    ]
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 29,
+   "y": 36,
+   "text": "THE GIANT'S CAUSEWAY. About 40,000 columns of basalt, most of them hexagons, formed some 60 million years ago when lava cooled and cracked. A UNESCO World Heritage Site since 1986. The columns don't care. They just stand about in a row, looking geometric."
+  },
+  {
+   "x": 34,
+   "y": 16,
+   "text": "FIONN AND BENANDONNER. The legend says the giant Fionn mac Cumhaill built the causeway to reach Scotland and fight a rival giant, Benandonner. Seeing how big Benandonner was, Fionn's wife dressed him as a baby. The rival fled. It's the best argument for sensible shoes I know."
+  },
+  {
+   "x": 36,
+   "y": 22,
+   "text": "THE WISHING CHAIR. A natural seat of columns, said to grant a wish to anyone who sits on it. Don't wish for dry weather. It has a hard time with those."
+  },
+  {
+   "x": 46,
+   "y": 16,
+   "text": "THE GRAND CAUSEWAY. The columns step down into the sea and carry on under the waves. On a calm day it feels like the beginning of a road somewhere. People have been following it for thousands of years."
+  },
+  {
+   "x": 20,
+   "y": 16,
+   "text": "THE COASTAL PATH. West to Bushmills, a few miles by foot and a few minutes by train. The path is level. The weather is not."
+  }
+ ],
+ "spawn": [
+  31,
+  36
+ ],
+ "stage": "coast",
+ "rows": [
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^................$$$$$$$$$$$$",
+  "TT..................................ccccddbbddccccbb$$$$$$$$$$$$",
+  "TT..,,,,,,,,,,,,..,,,,,,,,,,,,......ccccddbbddccccbb$$$$$$$$$$$$",
+  "TT..,,,,,,,,,,,,..,,,,,,,,,,,,......bccccddbbddccc$$$$$$$$$$$$$$",
+  "TT..,,,,,,,,,,,,..,,,,,,,,,,,,......bccccddbbddccc$$$$$$$$$$$$$$",
+  "TT..,,,,,,,,,,,,..,,,,,,,,,,,,......ddbbccccddbbddcc$$$$$R$$$$$$",
+  "TT..,,,,,,,,,,,,..ffffffffffff......ddbbccccddbbddcc$$$RdbdR$$$$",
+  "TT................ffffffffffff......bddbbccccddbbdbdbdbdbdb$$$$$",
+  "TT..ffffff........ffffffffffff......bddbbccccddbdbdbdbdbdbd$$$$$",
+  "TT..ffffff..........................ccbbddbbccccdd$$$$$RbdbR$$$$",
+  "TT..ffffff..........................ccbbddbbccccdd$$$$$$$R$$$$$$",
+  "TT..................................cccbbddbbccccd$$$$$$$$$$$$$$",
+  "..###############################...cccbbddbbccccd$$$$$$$$$$$$$$",
+  "..###############################...ddccccbbddbbcccc$$$$$$$$$$$$",
+  "..###############################...ddccccbbddbbcccc$$$$$$$$$$$$",
+  "TT............................###...bddccccbbddbbcc$$$$$$$$$$$$$",
+  "TT..,,,,,,,,..........fffffff.###...bddccccbbddbbcc$$$$$$$$$$$$$",
+  "TT..,,,,,,,,..........fffffff.###...ddbbddccccbbdd$$$$$$$$$$$$$$",
+  "TT..,,,,,,,,..........fffffff.############ccccbbdd$$$$$$$$$$$$$$",
+  "TT..,,,,,,,,..................############dccccbbd$$$$$$$$$$$$$$",
+  "TT............BBBBBBBBBBBB....############dccccbbd$$$$$$$$$$$$$$",
+  "TT............BBBBBBBBBBBB....###...................$$$$$$$$$$$$",
+  "TT............BBBBBBBBBBBB....###...........$$$$$$$$$$$$$$$$$$$$",
+  "TT............BBBBBBBBBBBB....###...BBBBBB..$$$$$$$$$$$$$$$$$$$$",
+  "TT............BBBBBBDBBBBB....###...BBBBBB..$$$$$$$$$$$$$$$$$$$$",
+  "TT................###############...BBBBBB..$$$$$$$$$$$$$$$$$$$$",
+  "TT................###############...........$$$$$$$$$$$$$$$$$$$$",
+  "TT................###############...........$$$$$$$$$$$$$$$$$$$$",
+  "TT....,,,,,,,,,,,,,,..........###...,,,,,,..$$$$$$$$$$$$$$$$$$$$",
+  "TT....,,,,,,,,,,,,,,..........###...,,,,,,..$$$$$$$$$$$$$$$$$$$$",
+  "TT....,,,,,,,,,,,,,,..........###...,,,,,,..$$$$$$$$$$$$$$$$$$$$",
+  "TT............................###...........$$$$$$$$$$$$$$$$$$$$",
+  "TTTTTTTTTTTPTTTTTTTTTTTTTTTTTT###TTTTTTTTTTT$$$$$$$$$$$$$$$$$$$$",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT###TTTTTTTTTTT$$$$$$$$$$$$$$$$$$$$"
+ ],
+ "heights": [
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "3333333333333333333333333333333333333333333333333333000000000000",
+  "3333333333333333333333333333333333333333222100000011000000000000",
+  "3333333333333333333333333333333333333333222100000011000000000000",
+  "3333333333333333333333333333333333333332222211100000000000000000",
+  "3333333333333333333333333333333333333332222221100000000000000000",
+  "3333333333333333333333333333333333332222333322110011000000000000",
+  "3333333333333333333333333333333333332222233222110011000012200000",
+  "3333333333333333333333333333333333333321122111101111000012200000",
+  "3333333333333333333333333333333333333321122111101111000012200000",
+  "3333333333333333333333333333333333333322112211110000000012200000",
+  "3333333333333333333333333333333333333322112111110000000000000000",
+  "3333333333333333333333333333333333333332211001111000000000000000",
+  "3333333333333333333333333333333333333332211001111000000000000000",
+  "3333333333333333333333333333333333333322222100110011000000000000",
+  "3333333333333333333333333333333333333322222100110011000000000000",
+  "3333333333333333333333333333333333332333211111100110000000000000",
+  "3333333333333333333333333333333333332333211111100110000000000000",
+  "3333333333333333333333333333333333332233222211000000000000000000",
+  "3333333333333333333333333333333333332233222211000000000000000000",
+  "3333333333333333333333333333333333333332211112100000000000000000",
+  "3333333333333333333333333333333333333332222212100000000000000000",
+  "3333333333333333333333333333333333333333333333333333000000000000",
+  "3333333333333333333333333333333333333333333333333333000000000000",
+  "3333333333333333333333333333333333333333333333333333000000000000",
+  "3333333333333333333333333333333333333333333333333333000000000000",
+  "3333333333333333333333333333333333333333333333333333000000000000",
+  "3333333333333333333333333333333333333333333333333333000000000000",
+  "3333333333333333333333333333333333333333333333333333000000000000",
+  "3333333333333333333333333333333333333333333333333333000000000000",
+  "3333333333333333333333333333333333333333333333333333000000000000",
+  "3333333333333333333333333333333333333333333333333333000000000000",
+  "3333333333333333333333333333333333333333333333333333000000000000",
+  "3333333333333333333333333333333333333333333333333333000000000000",
+  "3333333333333333333333333333333333333333333333333333000000000000"
+ ],
+ "legend_extra": {
+  "b": {
+   "tile": "cobbles",
+   "colour": "#43464e"
+  },
+  "c": {
+   "tile": "tall_grass",
+   "colour": "#555961",
+   "prop": "none"
+  },
+  "d": {
+   "tile": "cobbles",
+   "colour": "#34363e"
+  }
+ }
+}

@@ -1,0 +1,24 @@
+{"id": "fionnling",
+ "palette": {"skin": "#f2c4a0", "skin2": "#d89c78", "hair": "#d8b45a", "hair2": "#9a7a3a", "cloak": "#46688c", "cloak2": "#2e4a66", "fur": "#d8c8a8", "stone": "#8a8c94", "blush": "#ee8e88", "ink": "#2a1a18", "gold": "#e8c04a"},
+ "layers": [
+  {"shape": "ellipse", "at": [38, 91], "size": [16, 8], "colour": "skin2", "mirror": true},
+  {"shape": "ellipse", "at": [48, 70], "size": [52, 44], "colour": "cloak"},
+  {"shape": "poly", "points": [[28, 60], [20, 86], [34, 90], [48, 84], [62, 90], [76, 86], [68, 60]], "colour": "cloak", "pattern": "stripes", "pcolour": "cloak2", "period": 6, "pangle": 80},
+  {"shape": "ellipse", "at": [48, 56], "size": [40, 12], "colour": "fur"},
+  {"shape": "ellipse", "at": [48, 76], "size": [18, 20], "colour": "skin", "front_only": true},
+  {"shape": "rect", "at": [48, 70], "size": [36, 5], "colour": "cloak2", "front_only": true, "rim": false},
+  {"shape": "circle", "at": [48, 70], "r": 2.5, "colour": "gold", "front_only": true, "rim": false},
+  {"shape": "ellipse", "at": [23, 68], "size": [10, 18], "colour": "cloak", "angle": 10, "mirror": true},
+  {"shape": "ellipse", "at": [20, 78], "size": [8, 8], "colour": "skin"},
+  {"shape": "circle", "at": [76, 76], "r": 5, "colour": "stone", "rim": true},
+  {"shape": "spikes", "at": [48, 34], "size": [46, 30], "colour": "hair", "count": 9, "len": 8, "from": -210, "to": 30, "seed": 3},
+  {"shape": "ellipse", "at": [48, 40], "size": [44, 34], "colour": "skin"},
+  {"shape": "ellipse", "at": [48, 28], "size": [44, 14], "colour": "hair"},
+  {"shape": "poly", "points": [[28, 34], [36, 30], [34, 38]], "colour": "hair2", "mirror": true}
+ ],
+ "face_layers": [
+  {"shape": "ellipse", "at": [33, 46], "size": [7, 4], "colour": "blush", "shade": false, "mirror": true},
+  {"shape": "line", "points": [[43, 49], [48, 52], [53, 49]], "width": 1.3, "colour": "ink", "shade": false}
+ ],
+ "eyes": [{"at": [40, 41], "r": 5, "mirror": true}]
+}

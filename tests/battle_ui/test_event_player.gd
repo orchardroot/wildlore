@@ -147,3 +147,10 @@ func test_double_cues_carry_positions() -> void:
 	var dodge := EventPlayer.fx_for({"type": "miss", "side": 0, "pos": 0, "target_side": 1, "target_pos": 1}, cx)
 	assert_eq([dodge.cue, dodge.side, dodge.pos], ["dodge", 1, 1])
 	assert_false(EventPlayer.fx_for({"type": "damage", "side": 1, "amount": 3, "hp": 9, "effectiveness": 1.0, "crit": false}, _ctx()).has("pos"), "singles cues unchanged")
+
+func test_doubles_effectiveness_names_the_target() -> void:
+	var b := Fixtures.battle([Fixtures.creature("kindlet", 10), Fixtures.creature("holtling", 10)],
+		[Fixtures.creature("spikkin", 5), Fixtures.creature("scuttlet", 5)], {"kind": "trainer", "double": true})
+	var ctx := EventPlayer.make_ctx(b, {"name": "Twins"})
+	assert_eq(EventPlayer.lines_for({"type": "damage", "side": 1, "pos": 1, "amount": 5, "hp": 3, "effectiveness": 2.0}, ctx),
+		["It's super effective on Twins's Scuttlet!"])

@@ -111,6 +111,71 @@
      "flag": "garside_met"
     }
    ]
+  },
+  {
+   "do": "if",
+   "flag": "ch8_started",
+   "then": [],
+   "else": [
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "Oh, {player}, one more thing. I've been meaning to tell you for an hour. Hold on, it's easier if I ring you."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Her phone is in her hand. Yours buzzes anyway. She waves at you, three feet away, and carries on."
+    },
+    {
+     "do": "sfx",
+     "id": "alert"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Your phone buzzes. Professor Garside, who is somewhere with a great deal of wind in it."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "{player}! It's me. Don't panic. The signal's good for once and the crows won't stop talking."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "At first light something tall and feathered went up out of the Boyne and flew north. Over the Mournes, a farmer says, with three crows for an escort and no regard for the airspace."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "The Morrígan, I'd say. Or her shadow, if you've got her with you. She's a goddess of war and fate. She keeps more than one diary."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "North is where the hum is going. Belfast first: there's a Keeper in the shipyard, Ruairí, with the Iron Stone. Then the Giant's Causeway, where I'm told Lord Vane himself has been seen with a clipboard."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "The road leaves the Boyne Valley over the Mournes. Mind the Mourne Wall. It runs up and down every hill for twenty-two miles, and as far as I can tell it keeps the sheep out of the reservoir and the sheep amused."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "Pack warm things. And take a flask. I always say that. I'm told it's a catchphrase."
+    },
+    {
+     "do": "set",
+     "flag": "ch8_started"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "The way north is open: the Mournes, and Belfast beyond."
+    }
+   ]
   }
  ],
  "kerrigan_after": [

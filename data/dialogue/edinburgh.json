@@ -1,0 +1,181 @@
+{
+ "rail_guard": [
+  {
+   "do": "say",
+   "who": "Rail Guard",
+   "text": "Waverley Station, the only station in the world named after a novel. It's named after Sir Walter Scott's 'Waverley'. The trains are not obliged to be as long."
+  },
+  {
+   "do": "say",
+   "who": "Rail Guard",
+   "text": "Hop aboard! The Wildlore rail runs to every station you've visited in Great Britain. Where to?"
+  },
+  {
+   "do": "rail"
+  }
+ ],
+ "kit_edinburgh": [
+  {
+   "do": "if",
+   "flag": "kit7_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "{rival}",
+     "text": "There's a ceilidh tonight. I'm told I dance like a shopping trolley with a wonky wheel. I've been practising on the cobbles. The pigeons are unimpressed."
+    },
+    {
+     "do": "say",
+     "who": "{rival}",
+     "text": "You go on ahead. I'll catch you up. Probably. If there's a scone."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "starter",
+     "then": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "The Castle Esplanade: cobbles, a crowd, and the Castle itself standing on its black rock like a very old cat on a very tall fence. Kit is sitting on a bollard eating chips with a wooden fork."
+      },
+      {
+       "do": "say",
+       "who": "Kit",
+       "text": "{player}! Edinburgh Castle! I've been up and down the Royal Mile three times. My legs have filed a complaint."
+      },
+      {
+       "do": "say",
+       "who": "Kit",
+       "text": "How many Stones is that now? Eight? I've got... fewer. Typical. One more go, for old times' sake?"
+      },
+      {
+       "do": "battle",
+       "trainer": "kit_7_vs_spikkin"
+      }
+     ],
+     "eq": "spikkin"
+    },
+    {
+     "do": "if",
+     "flag": "starter",
+     "then": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "The Castle Esplanade: cobbles, a crowd, and the Castle itself standing on its black rock like a very old cat on a very tall fence. Kit is sitting on a bollard eating chips with a wooden fork."
+      },
+      {
+       "do": "say",
+       "who": "Kit",
+       "text": "{player}! Edinburgh Castle! I've been up and down the Royal Mile three times. My legs have filed a complaint."
+      },
+      {
+       "do": "say",
+       "who": "Kit",
+       "text": "How many Stones is that now? Eight? I've got... fewer. Typical. One more go, for old times' sake?"
+      },
+      {
+       "do": "battle",
+       "trainer": "kit_7_vs_holtling"
+      }
+     ],
+     "eq": "holtling"
+    },
+    {
+     "do": "if",
+     "flag": "starter",
+     "then": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "The Castle Esplanade: cobbles, a crowd, and the Castle itself standing on its black rock like a very old cat on a very tall fence. Kit is sitting on a bollard eating chips with a wooden fork."
+      },
+      {
+       "do": "say",
+       "who": "Kit",
+       "text": "{player}! Edinburgh Castle! I've been up and down the Royal Mile three times. My legs have filed a complaint."
+      },
+      {
+       "do": "say",
+       "who": "Kit",
+       "text": "How many Stones is that now? Eight? I've got... fewer. Typical. One more go, for old times' sake?"
+      },
+      {
+       "do": "battle",
+       "trainer": "kit_7_vs_kindlet"
+      }
+     ],
+     "eq": "kindlet"
+    },
+    {
+     "do": "say",
+     "who": "{rival}",
+     "text": "I'll tell you what, though. Standing up here, looking out at the whole city, I remembered why I started. Not the likes. Just the walking."
+    },
+    {
+     "do": "say",
+     "who": "{rival}",
+     "text": "Strachan's up in the Highlands, apparently. Waxed jacket, clipboard. She has a lanyard that makes Kerrigan's look casual. Be careful."
+    },
+    {
+     "do": "set",
+     "flag": "kit7_done"
+    },
+    {
+     "do": "set",
+     "flag": "ch9_started"
+    }
+   ]
+  }
+ ],
+ "edi_guide": [
+  {
+   "do": "say",
+   "who": "Castle Guide",
+   "text": "The Castle's on a volcanic plug. A big old volcano chilled out about 340 million years ago, and the glaciers scraped it into a crag with a long tail. Hence 'Crag and Tail'."
+  },
+  {
+   "do": "say",
+   "who": "Castle Guide",
+   "text": "The One O'Clock Gun goes off at one o'clock. It started in 1861 so ships in the Forth could set their clocks. Now it startles tourists. A fine tradition."
+  }
+ ],
+ "edi_fringe": [
+  {
+   "do": "say",
+   "who": "Fringe Performer",
+   "text": "In August the Fringe takes over the whole city: thousands of shows, a few hundred of them with real audiences, and one with a very committed accordion."
+  },
+  {
+   "do": "say",
+   "who": "Fringe Performer",
+   "text": "It's the biggest arts festival in the world. I'm doing a comedy set about pigeons. It's called 'Squab Goes Hungry'. Come on Tuesday. There'll be a seat."
+  }
+ ],
+ "edi_gardener": [
+  {
+   "do": "say",
+   "who": "Gardener",
+   "text": "The Floral Clock's a proper working clock and, I'll have you know, the oldest in the world. It's all planted in spring. It takes a month and a lot of kneeling."
+  },
+  {
+   "do": "say",
+   "who": "Gardener",
+   "text": "Mind the daffs. Children can walk on the daffs, but only after school."
+  }
+ ],
+ "edi_walker": [
+  {
+   "do": "say",
+   "who": "Seat Walker",
+   "text": "Arthur's Seat is an extinct volcano with a nice view and a path. You can be on top of it in an hour, and you will want a scone afterwards."
+  },
+  {
+   "do": "say",
+   "who": "Seat Walker",
+   "text": "They say King Arthur sat there, but there's no real evidence. There's a lot of evidence for seagulls."
+  }
+ ]
+}

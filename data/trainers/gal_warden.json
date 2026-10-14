@@ -1,0 +1,35 @@
+{
+ "id": "gal_warden",
+ "name": "Warden Hepburn",
+ "class": "Warden",
+ "sprite": "warden_grunt",
+ "party": [
+  {
+   "species": "thornsow",
+   "level": 68
+  },
+  {
+   "species": "adderking",
+   "level": 68
+  },
+  {
+   "species": "zigzlet",
+   "level": 67
+  },
+  {
+   "species": "bramblehog",
+   "level": 67
+  }
+ ],
+ "ai": "trainer",
+ "money": 2400,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Warden Hepburn",
+   "text": "This forest is being curated, I'll have you know. Trees in rows, deer in order, everything managed. I do the managing."
+  }
+ ],
+ "win": "Not in the spreadsheet! Not in the spreadsheet at all.",
+ "after": "I'll file a note. Under 'nature, unfortunate, ongoing'."
+}

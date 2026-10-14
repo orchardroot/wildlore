@@ -1,0 +1,36 @@
+{
+ "id": "mo_hiker1",
+ "name": "Hiker Oisin",
+ "class": "Hiker",
+ "sprite": "hiker",
+ "party": [
+  {
+   "species": "billgruff",
+   "level": 62
+  },
+  {
+   "species": "cragchough",
+   "level": 61
+  },
+  {
+   "species": "stagmor",
+   "level": 62
+  }
+ ],
+ "ai": "trainer",
+ "money": 1900,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Hiker Oisin",
+   "text": "Ho! A fellow walker! Mind you, nobody's a fellow walker till they've been to the top."
+  },
+  {
+   "do": "say",
+   "who": "Hiker Oisin",
+   "text": "I've done Donard eleven times. Twelve is when I finally learn the way."
+  }
+ ],
+ "win": "Fair play. The legs are good. The boots are better.",
+ "after": "The summit's up the trail east of here. Wrap up, it blows a hooley."
+}

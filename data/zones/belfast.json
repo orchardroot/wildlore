@@ -1,0 +1,909 @@
+{
+ "edges": {
+  "north": {
+   "offset": 0.0,
+   "to": "antrim_coast"
+  },
+  "south": {
+   "offset": 0.0,
+   "to": "mournes"
+  }
+ },
+ "encounters": {
+  "grass": [
+   {
+    "max": 64.0,
+    "min": 62.0,
+    "species": "rivetling",
+    "weight": 16.0
+   },
+   {
+    "max": 64.0,
+    "min": 62.0,
+    "species": "chipgull",
+    "time": [
+     "day",
+     "dawn"
+    ],
+    "weight": 14.0
+   },
+   {
+    "max": 64.0,
+    "min": 63.0,
+    "species": "pierlord",
+    "time": [
+     "day",
+     "dusk"
+    ],
+    "weight": 10.0
+   },
+   {
+    "max": 63.0,
+    "min": 62.0,
+    "species": "raidtail",
+    "weight": 10.0
+   },
+   {
+    "max": 64.0,
+    "min": 62.0,
+    "species": "binfox",
+    "time": [
+     "night",
+     "dusk"
+    ],
+    "weight": 8.0
+   },
+   {
+    "max": 63.0,
+    "min": 62.0,
+    "species": "cooplet",
+    "weather": [
+     "drizzle",
+     "downpour"
+    ],
+    "weight": 10.0
+   },
+   {
+    "max": 64.0,
+    "min": 62.0,
+    "species": "sootwing",
+    "time": [
+     "night"
+    ],
+    "weight": 8.0
+   },
+   {
+    "max": 63.0,
+    "min": 62.0,
+    "species": "strutcoo",
+    "time": [
+     "day",
+     "dawn"
+    ],
+    "weight": 8.0
+   },
+   {
+    "max": 63.0,
+    "min": 62.0,
+    "species": "grizzlet",
+    "weight": 8.0
+   },
+   {
+    "max": 63.0,
+    "min": 62.0,
+    "species": "hootlet",
+    "time": [
+     "night"
+    ],
+    "weight": 6.0
+   },
+   {
+    "max": 64.0,
+    "min": 64.0,
+    "species": "samsonian",
+    "weight": 3.0
+   },
+   {
+    "max": 63.0,
+    "min": 62.0,
+    "species": "starlet",
+    "time": [
+     "dusk"
+    ],
+    "weight": 8.0
+   }
+  ],
+  "water": [
+   {
+    "max": 64.0,
+    "min": 62.0,
+    "species": "pollanet",
+    "weight": 30.0
+   },
+   {
+    "max": 64.0,
+    "min": 63.0,
+    "species": "pierlord",
+    "weight": 18.0
+   },
+   {
+    "max": 63.0,
+    "min": 62.0,
+    "species": "chipgull",
+    "weight": 16.0
+   },
+   {
+    "max": 63.0,
+    "min": 62.0,
+    "species": "dipling",
+    "weight": 14.0
+   },
+   {
+    "max": 64.0,
+    "min": 62.0,
+    "species": "stalklet",
+    "weight": 10.0
+   },
+   {
+    "max": 64.0,
+    "min": 63.0,
+    "species": "bradan",
+    "weather": [
+     "drizzle",
+     "downpour"
+    ],
+    "weight": 10.0
+   }
+  ]
+ },
+ "ferry": {
+  "route": "belfast_cairnryan",
+  "x": 66.0,
+  "y": 45.0
+ },
+ "id": "belfast",
+ "kind": "town",
+ "music": "town_belfast",
+ "name": "Belfast",
+ "npcs": [
+  {
+   "facing": "right",
+   "id": "rail_guard",
+   "move": "still",
+   "script": "rail_guard",
+   "sprite": "rail_guard",
+   "x": 12.0,
+   "y": 40.0
+  },
+  {
+   "facing": "right",
+   "id": "belfast_sailor",
+   "move": "still",
+   "script": "sailor",
+   "sprite": "sailor",
+   "x": 64.0,
+   "y": 44.0
+  },
+  {
+   "facing": "down",
+   "id": "titanic_guide",
+   "move": "still",
+   "script": "titanic_guide",
+   "sprite": "tour_guide",
+   "x": 52.0,
+   "y": 24.0
+  },
+  {
+   "facing": "up",
+   "id": "dock_worker",
+   "move": "wander",
+   "script": "dock_worker",
+   "sprite": "tin_miner",
+   "x": 51.0,
+   "y": 42.0
+  },
+  {
+   "facing": "right",
+   "id": "black_taxi",
+   "move": "wander",
+   "script": "black_taxi",
+   "sprite": "villager_4",
+   "x": 36.0,
+   "y": 38.0
+  },
+  {
+   "facing": "down",
+   "id": "park_busker",
+   "move": "still",
+   "script": "park_busker",
+   "sprite": "villager_5",
+   "x": 15.0,
+   "y": 18.0
+  },
+  {
+   "facing": "down",
+   "id": "bridge_walker",
+   "move": "wander",
+   "script": "bridge_walker",
+   "sprite": "villager_2",
+   "x": 38.0,
+   "y": 35.0
+  },
+  {
+   "facing": "up",
+   "id": "bel_student",
+   "move": "still",
+   "sprite": "student",
+   "trainer": "bel_student",
+   "x": 14.0,
+   "y": 22.0
+  },
+  {
+   "facing": "left",
+   "id": "bel_shipwright",
+   "move": "still",
+   "sprite": "tin_miner",
+   "trainer": "bel_shipwright",
+   "x": 54.0,
+   "y": 43.0
+  },
+  {
+   "facing": "down",
+   "hide_if": "badge_iron",
+   "id": "belfast_north_a",
+   "move": "still",
+   "name": "Warden",
+   "script": "gate_belfast_north",
+   "sprite": "warden_grunt",
+   "x": 30.0,
+   "y": 1.0
+  },
+  {
+   "facing": "down",
+   "hide_if": "badge_iron",
+   "id": "belfast_north_b",
+   "move": "still",
+   "name": "Warden",
+   "script": "gate_belfast_north",
+   "sprite": "warden_grunt",
+   "x": 31.0,
+   "y": 1.0
+  },
+  {
+   "facing": "down",
+   "hide_if": "badge_iron",
+   "id": "belfast_north_c",
+   "move": "still",
+   "name": "Warden",
+   "script": "gate_belfast_north",
+   "sprite": "warden_grunt",
+   "x": 32.0,
+   "y": 1.0
+  }
+ ],
+ "props": [
+  {
+   "type": "lamp_post",
+   "x": 41.0,
+   "y": 32.0
+  },
+  {
+   "type": "lamp_post",
+   "x": 43.0,
+   "y": 38.0
+  },
+  {
+   "h": 7.0,
+   "label": "Belfast City Hall",
+   "style": "liver_building",
+   "type": "building",
+   "w": 14.0,
+   "x": 13.0,
+   "y": 7.0
+  },
+  {
+   "type": "statue",
+   "x": 20.0,
+   "y": 15.0
+  },
+  {
+   "type": "lamp_post",
+   "x": 12.0,
+   "y": 15.0
+  },
+  {
+   "type": "lamp_post",
+   "x": 28.0,
+   "y": 15.0
+  },
+  {
+   "type": "bench",
+   "x": 15.0,
+   "y": 17.0
+  },
+  {
+   "type": "bench",
+   "x": 25.0,
+   "y": 17.0
+  },
+  {
+   "type": "planter",
+   "x": 9.0,
+   "y": 14.0
+  },
+  {
+   "type": "planter",
+   "x": 31.0,
+   "y": 14.0
+  },
+  {
+   "h": 3.0,
+   "label": "Palm House",
+   "style": "white_render",
+   "type": "building",
+   "w": 6.0,
+   "x": 8.0,
+   "y": 21.0
+  },
+  {
+   "type": "oak",
+   "variant": 1.0,
+   "x": 6.0,
+   "y": 20.0
+  },
+  {
+   "type": "oak",
+   "x": 24.0,
+   "y": 21.0
+  },
+  {
+   "type": "oak",
+   "variant": 2.0,
+   "x": 16.0,
+   "y": 27.0
+  },
+  {
+   "type": "birch",
+   "x": 5.0,
+   "y": 28.0
+  },
+  {
+   "type": "birch",
+   "x": 22.0,
+   "y": 28.0
+  },
+  {
+   "type": "bench",
+   "x": 13.0,
+   "y": 25.0
+  },
+  {
+   "type": "bench",
+   "x": 15.0,
+   "y": 25.0
+  },
+  {
+   "type": "lamp_post",
+   "x": 13.0,
+   "y": 23.0
+  },
+  {
+   "type": "lamp_post",
+   "x": 15.0,
+   "y": 27.0
+  },
+  {
+   "h": 4.0,
+   "label": "Corner Shop",
+   "style": "shop",
+   "type": "building",
+   "w": 5.0,
+   "x": 12.0,
+   "y": 30.0
+  },
+  {
+   "h": 4.0,
+   "label": "Sanctuary",
+   "style": "sanctuary",
+   "type": "building",
+   "w": 6.0,
+   "x": 20.0,
+   "y": 30.0
+  },
+  {
+   "h": 6.0,
+   "label": "Ulster Museum",
+   "style": "stone",
+   "type": "building",
+   "w": 6.0,
+   "x": 34.0,
+   "y": 6.0
+  },
+  {
+   "h": 4.0,
+   "label": "Linen Hall Library",
+   "style": "terrace",
+   "type": "building",
+   "w": 6.0,
+   "x": 34.0,
+   "y": 16.0
+  },
+  {
+   "h": 3.0,
+   "label": "Albert Clock",
+   "style": "chapel",
+   "type": "building",
+   "w": 2.0,
+   "x": 36.0,
+   "y": 24.0
+  },
+  {
+   "type": "lamp_post",
+   "x": 34.0,
+   "y": 22.0
+  },
+  {
+   "type": "lamp_post",
+   "x": 39.0,
+   "y": 22.0
+  },
+  {
+   "type": "bench",
+   "x": 35.0,
+   "y": 29.0
+  },
+  {
+   "type": "planter",
+   "x": 38.0,
+   "y": 29.0
+  },
+  {
+   "type": "bollard",
+   "x": 39.0,
+   "y": 13.0
+  },
+  {
+   "type": "bollard",
+   "x": 39.0,
+   "y": 16.0
+  },
+  {
+   "type": "bollard",
+   "x": 39.0,
+   "y": 20.0
+  },
+  {
+   "h": 2.0,
+   "label": "Great Victoria Street",
+   "style": "station",
+   "type": "building",
+   "w": 9.0,
+   "x": 6.0,
+   "y": 38.0
+  },
+  {
+   "type": "lamp_post",
+   "x": 14.0,
+   "y": 40.0
+  },
+  {
+   "h": 3.0,
+   "label": "Lisburn Road Shops",
+   "show_label": false,
+   "style": "terrace",
+   "type": "building",
+   "w": 8.0,
+   "x": 4.0,
+   "y": 44.0
+  },
+  {
+   "h": 3.0,
+   "label": "Sandwich Bar",
+   "style": "red_brick",
+   "type": "building",
+   "w": 7.0,
+   "x": 14.0,
+   "y": 44.0
+  },
+  {
+   "h": 3.0,
+   "show_label": false,
+   "style": "terrace",
+   "type": "building",
+   "w": 7.0,
+   "x": 23.0,
+   "y": 44.0
+  },
+  {
+   "type": "planter",
+   "x": 7.0,
+   "y": 48.0
+  },
+  {
+   "type": "planter",
+   "x": 11.0,
+   "y": 48.0
+  },
+  {
+   "type": "planter",
+   "x": 16.0,
+   "y": 48.0
+  },
+  {
+   "type": "planter",
+   "x": 20.0,
+   "y": 48.0
+  },
+  {
+   "type": "planter",
+   "x": 25.0,
+   "y": 48.0
+  },
+  {
+   "type": "oak",
+   "x": 6.0,
+   "y": 50.0
+  },
+  {
+   "type": "oak",
+   "variant": 1.0,
+   "x": 12.0,
+   "y": 51.0
+  },
+  {
+   "type": "oak",
+   "variant": 2.0,
+   "x": 22.0,
+   "y": 50.0
+  },
+  {
+   "type": "bench",
+   "x": 17.0,
+   "y": 49.0
+  },
+  {
+   "h": 7.0,
+   "label": "Titanic Belfast",
+   "style": "stone",
+   "type": "building",
+   "w": 12.0,
+   "x": 49.0,
+   "y": 14.0
+  },
+  {
+   "type": "lamp_post",
+   "x": 48.0,
+   "y": 22.0
+  },
+  {
+   "type": "lamp_post",
+   "x": 60.0,
+   "y": 22.0
+  },
+  {
+   "type": "lamp_post",
+   "x": 48.0,
+   "y": 32.0
+  },
+  {
+   "type": "lamp_post",
+   "x": 60.0,
+   "y": 32.0
+  },
+  {
+   "type": "bench",
+   "x": 52.0,
+   "y": 23.0
+  },
+  {
+   "type": "bench",
+   "x": 55.0,
+   "y": 23.0
+  },
+  {
+   "type": "bench",
+   "x": 58.0,
+   "y": 23.0
+  },
+  {
+   "type": "planter",
+   "x": 50.0,
+   "y": 22.0
+  },
+  {
+   "type": "planter",
+   "x": 57.0,
+   "y": 22.0
+  },
+  {
+   "type": "statue",
+   "x": 54.0,
+   "y": 28.0
+  },
+  {
+   "type": "market_stall",
+   "x": 49.0,
+   "y": 26.0
+  },
+  {
+   "type": "market_stall",
+   "x": 59.0,
+   "y": 26.0
+  },
+  {
+   "type": "market_stall",
+   "x": 49.0,
+   "y": 31.0
+  },
+  {
+   "type": "market_stall",
+   "x": 59.0,
+   "y": 31.0
+  },
+  {
+   "type": "planter",
+   "x": 52.0,
+   "y": 30.0
+  },
+  {
+   "type": "planter",
+   "x": 56.0,
+   "y": 30.0
+  },
+  {
+   "h": 3.0,
+   "label": "Samson",
+   "style": "gantry_crane",
+   "type": "building",
+   "w": 5.0,
+   "x": 48.0,
+   "y": 38.0
+  },
+  {
+   "h": 3.0,
+   "label": "Goliath",
+   "style": "gantry_crane",
+   "type": "building",
+   "w": 5.0,
+   "x": 54.0,
+   "y": 38.0
+  },
+  {
+   "type": "lamp_post",
+   "x": 47.0,
+   "y": 41.0
+  },
+  {
+   "type": "lamp_post",
+   "x": 53.0,
+   "y": 41.0
+  },
+  {
+   "type": "lamp_post",
+   "x": 58.0,
+   "y": 41.0
+  },
+  {
+   "h": 6.0,
+   "label": "Belfast Yard",
+   "style": "red_brick",
+   "type": "building",
+   "w": 9.0,
+   "x": 48.0,
+   "y": 44.0
+  },
+  {
+   "type": "planter",
+   "x": 50.0,
+   "y": 50.0
+  },
+  {
+   "type": "planter",
+   "x": 54.0,
+   "y": 50.0
+  },
+  {
+   "type": "boat",
+   "variant": 0.0,
+   "x": 69.0,
+   "y": 45.0
+  },
+  {
+   "type": "boat",
+   "variant": 1.0,
+   "x": 65.0,
+   "y": 40.0
+  },
+  {
+   "type": "boat",
+   "variant": 1.0,
+   "x": 66.0,
+   "y": 50.0
+  },
+  {
+   "type": "buoy",
+   "x": 64.0,
+   "y": 38.0
+  },
+  {
+   "type": "buoy",
+   "x": 68.0,
+   "y": 41.0
+  },
+  {
+   "type": "buoy",
+   "x": 66.0,
+   "y": 36.0
+  },
+  {
+   "type": "bollard",
+   "x": 63.0,
+   "y": 43.0
+  },
+  {
+   "type": "bollard",
+   "x": 63.0,
+   "y": 47.0
+  },
+  {
+   "type": "bollard",
+   "x": 67.0,
+   "y": 43.0
+  },
+  {
+   "type": "bollard",
+   "x": 67.0,
+   "y": 47.0
+  }
+ ],
+ "region": "ireland",
+ "rows": [
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT===TTTTTTT$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT===TTTTTTT$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "TT...........................:===:......$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "TT...........................:===:......$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "TT...........................:===:......$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "TT..............................=:......$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "TT......ffff................ffff=:BBBBBB$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "TT......ffff.BBBBBBBBBBBBBB.ffff=:BBBBBB$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "TT......ffff.BBBBBBBBBBBBBB.ffff=:BBBBBB$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "TT......ffff.BBBBBBBBBBBBBB.ffff=:BBBBBB$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "TT......ffff.BBBBBBBBBBBBBB.ffff=:BBBBBB$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "TT......ffff.BBBBBBBBBBBBBB.ffff=:BBBBBB$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "TT......ffff.BBBBBBBBBBBBBB.ffff=:::::::wooow.:::.............$$$$$$$$$$",
+  "TT......ffff.BBBBBBBBBBBBBB.ffff=:::::::wooow.:::.............$$$$$$$$$$",
+  "TT......:::::::::::::::::::::::::::::::.wooow.:::BBBBBBBBBBBB.$$$$$$$$$$",
+  "TT......::::::::::::::::::::::::::......wooow.:::BBBBBBBBBBBB.$$$$$$$$$$",
+  "TT......::::::::::::::::::::::::::BBBBBBwooow.:::BBBBBBBBBBBB.$$$$$$$$$$",
+  "TT......::::::::::::::::::::::::::BBBBBBwooow.:::BBBBBBBBBBBB.$$$$$$$$$$",
+  "TT...:::::::::::::::::::::::::===:BBBBBBwooow.:::BBBBBBBBBBBB.$$$$$$$$$$",
+  "TT...:::::::::#:::::::::::::::===:BBBBBBwooow.:::BBBBBBBBBBBB.$$$$$$$$$$",
+  "TT............#..............:===:......wooow.:::BBBBBBBBBBBB.$$$$$$$$$$",
+  "TT..,,,,BBBBBB#...ffffffff...:===:......wooow.::::::::::::::::$$$$$$$$$$",
+  "TT..,,,,BBBBBB#...ffffffff...:===:......wooow.::::::::::::::::$$$$$$$$$$",
+  "TT..,,,,BBBBBB#...ffffffff...:===:......wooow.::::::::::::::::$$$$$$$$$$",
+  "TT..######################...:===:..BB..wooow.::::::::::::::::$$$$$$$$$$",
+  "TT............#..............:===:..BB..wooow.::::::::::::::::$$$$$$$$$$",
+  "TT..ffffffff..#...,,,,,,,,...:===:..BB..wooow.::::::::::::::::$$$$$$$$$$",
+  "TT..ffffffff..#...,,,,,,,,...:===:......wooow.::::::::::::::::$$$$$$$$$$",
+  "TT..ffffffff..#...,,,,,,,,...:===:......wooow.::::::::::::::::$$$$$$$$$$",
+  "TT............#..............:===:......wooow.::::::::::::::::$$$$$$$$$$",
+  "TT..........BBBBB...BBBBBB...:===:......wooow.::::::::::::::::$$$$$$$$$$",
+  "TT..........BBBBB...BBBBBB...:===:......wooow.::::::::::::::::$$$$$$$$$$",
+  "TT..........BBBBB...BBBBBB...:===:......wooow.::::::::::::::::$$$$$$$$$$",
+  "TT::::::::::BBDBB:::BBBDBB::::===:......WWWWW.::::::::::::::::$$$$$$$$$$",
+  "TT======================================:::::=================$$$$$$$$$$",
+  "TT======================================:::::=================$$$$$$$$$$",
+  "TT======================================:::::=================$$$$$$$$$$",
+  "TT:::::::::::::::::::::::::::::::::===..WWWWW.::...........:::$$$$$$$$$$",
+  "TT..::BBBBBBBBB...................:===:.wooow.::BBBBB.BBBBB:::$$$$$$$$$$",
+  "TT..::BBBBDBBBB...................:===:.wooow.::BBBBB.BBBBB:::$$$$$$$$$$",
+  "TT..::_________...................:===:.wooow.::BBBBB.BBBBB:::$$$$$$$$$$",
+  "TT...!!!!!!!!!!!..................:===:.wooow.::...........:::$$$$$$$$$$",
+  "TT................................:===:.wooow.::::::::::::::::$$$$$$$$$$",
+  "TT................................:===:.wooow.::::::::::::::::$$$$$$$$$$",
+  "TT..BBBBBBBB..BBBBBBB..BBBBBBB....:===:.wooow.::BBBBBBBBB..:::::::::$$$$",
+  "TT..BBBBBBBB..BBBBBBB..BBBBBBB....:===:.wooow.::BBBBBBBBB..:::::::::$$$$",
+  "TT..BBBBBBBB..BBBBBBB..BBBBBBB....:===:.wooow.::BBBBBBBBB..:::::::::$$$$",
+  "TT..::::::::::::::::::::::::::....:===:.wooow.::BBBBBBBBB.....$$$$$$$$$$",
+  "TT................................:===:.wooow.::BBBBBBBBB.....$$$$$$$$$$",
+  "TT................................:===:.wooow.::BBBBDBBBB.....$$$$$$$$$$",
+  "TT................................:===:.wooow.::::::::::::::..$$$$$$$$$$",
+  "TT................................:===:.wooow.................$$$$$$$$$$",
+  "TT................................:===:.wooow.................$$$$$$$$$$",
+  "TT................................:===:.wooow.................$$$$$$$$$$",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT...TTTTTTTTTTTTTTTTTTTTTTTT$$$$$$$$$$",
+  "TTTTPTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT...TTTTTTTTTTTTTTTTTTTTTTTT$$$$$$$$$$"
+ ],
+ "signs": [
+  {
+   "text": "THE LAGAN. Belfast sits where this river meets the sea, and the name 'Béal Feirste' means 'mouth of the sandbank ford'. There used to be a ford here. Now there are bridges, a weir, and a very large metal fish.",
+   "x": 39.0,
+   "y": 32.0
+  },
+  {
+   "text": "BELFAST CITY HALL. Opened in 1906 in Portland stone, with a copper dome that went green long ago. The grounds are open to everyone and have been used for fairs, concerts, and the city's grandest sulks.",
+   "x": 21.0,
+   "y": 17.0
+  },
+  {
+   "text": "THE PALM HOUSE. A curved glass and iron greenhouse from the 1830s, one of the oldest in the world. It was built to keep tropical plants alive in a climate that disagrees. The plants appear to have won.",
+   "x": 16.0,
+   "y": 20.0
+  },
+  {
+   "text": "THE LINEN HALL LIBRARY. Founded in 1788, the oldest library in Belfast, with a collection that includes a thousand years of the city's stories, a cat, and a very patient librarian. Belfast once made so much linen it was nicknamed Linenopolis.",
+   "x": 35.0,
+   "y": 21.0
+  },
+  {
+   "text": "THE ALBERT CLOCK. A tower from the 1860s built on wooden piles in soft ground. It leans a little, like a clock that has been up too late. It still tells the time, usually correctly.",
+   "x": 38.0,
+   "y": 27.0
+  },
+  {
+   "text": "TITANIC BELFAST. A museum that opened in 2012, with a front like the prows of four ships, as tall as the Titanic's hull. The ship was built just along the slipway here by 15,000 workers at Harland and Wolff. This is where the story starts, not where it ends.",
+   "x": 53.0,
+   "y": 28.0
+  },
+  {
+   "text": "THE SLIPWAYS. Two long slopes, each as big as a football pitch, where the biggest ships of their day slid into the water. The hulls took years to build and seconds to launch, and they were greased with tallow. Lots of tallow.",
+   "x": 47.0,
+   "y": 20.0
+  },
+  {
+   "text": "SAMSON AND GOLIATH. The two giant yellow cranes of the shipyard, 106 and 96 metres tall, built in 1969 and 1974. They can be seen from almost anywhere in Belfast, and they are named after two strong men, one a hero and one a pushover.",
+   "x": 51.0,
+   "y": 41.0
+  },
+  {
+   "text": "BELFAST PORT. The ferry to Cairnryan in Scotland leaves from here. The crossing takes a couple of hours, the sea is as grey as the sky, and the sandwiches are optimistic.",
+   "x": 60.0,
+   "y": 36.0
+  }
+ ],
+ "spawn": [
+  31.0,
+  30.0
+ ],
+ "stage": "docks",
+ "station": {
+  "x": 10.0,
+  "y": 40.0
+ },
+ "town_id": "belfast",
+ "warps": [
+  {
+   "facing": "up",
+   "to": "belfast_shop",
+   "tx": 4.0,
+   "ty": 5.0,
+   "x": 14.0,
+   "y": 33.0
+  },
+  {
+   "facing": "up",
+   "to": "belfast_sanctuary",
+   "tx": 5.0,
+   "ty": 6.0,
+   "x": 23.0,
+   "y": 33.0
+  },
+  {
+   "facing": "up",
+   "to": "belfast_yard",
+   "tx": 8.0,
+   "ty": 11.0,
+   "x": 52.0,
+   "y": 49.0
+  }
+ ],
+ "weather": {
+  "clear": 20.0,
+  "downpour": 10.0,
+  "drizzle": 32.0,
+  "fog": 6.0,
+  "gale": 8.0,
+  "sunshine": 24.0
+ }
+}

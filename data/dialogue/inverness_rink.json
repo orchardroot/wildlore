@@ -1,0 +1,116 @@
+{
+ "keeper_isla": [
+  {
+   "do": "if",
+   "flag": "trainer_keeper_isla",
+   "then": [
+    {
+     "do": "say",
+     "who": "Keeper Isla",
+     "text": "Away and see the C\u00f9-S\u00ecth's glen on Skye, if you dare. Bring a jumper. Bring two."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "",
+     "text": "The rink is cold in the way only a rink is cold: bright, clean and faintly smug. A woman in a woolly hat leans on a curling broom as if she were the Queen's own sweeper."
+    },
+    {
+     "do": "say",
+     "who": "Keeper Isla",
+     "text": "Mind the ice, it's freshly swept. Welcome to the rink. You've come a long way, and it's a cold way to finish."
+    },
+    {
+     "do": "say",
+     "who": "Keeper Isla",
+     "text": "I'm Isla. I keep the Frost Stone. I also keep the score, the kettle and the grudges. Mostly the kettle."
+    },
+    {
+     "do": "say",
+     "who": "Keeper Isla",
+     "text": "Frost creatures don't hurry. They just get there first. Sweep hard!"
+    },
+    {
+     "do": "battle",
+     "trainer": "keeper_isla"
+    },
+    {
+     "do": "say",
+     "who": "Keeper Isla",
+     "text": "The Frost Stone, then. It doesn't make you colder. It makes you steadier, which in a bog is the same thing as dry."
+    },
+    {
+     "do": "badge",
+     "id": "frost"
+    },
+    {
+     "do": "set",
+     "flag": "badge_frost"
+    },
+    {
+     "do": "set",
+     "flag": "ch9_frost"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "{player} received the Frost Stone!"
+    },
+    {
+     "do": "say",
+     "who": "Keeper Isla",
+     "text": "Here, take these waders. Don't lose them. They've outlived two husbands and a ferry."
+    },
+    {
+     "do": "give_item",
+     "item": "waders"
+    },
+    {
+     "do": "say",
+     "who": "Keeper Isla",
+     "text": "With the Frost Stone you can cross the deep bogs. We call it Bog-cross. The peat thinks twice, and you go over it in your waders, and the midges are, as ever, the only ones who suffer."
+    },
+    {
+     "do": "say",
+     "who": "Keeper Isla",
+     "text": "The old words say: Ceud m\u00ecle f\u00e0ilte. A hundred thousand welcomes. Now away you go. Hurry hard."
+    },
+    {
+     "do": "sfx",
+     "id": "alert"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Your phone buzzes. Professor Garside, who is plainly on a train and being told off by a conductor."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "{player}! The Frost Stone! Nine! The hum's gone from a drone to a chord."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "If the Enclosure's still on Loch Ness, they won't be for long. Skye is open now, and the Cairngorms. On Skye there's a glen with a dog in it."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "Go carefully. The old stories say the C\u00f9-S\u00ecth barks three times and expects you to be indoors by the third. I don't know what happens after that. Nobody I've asked had stayed to find out."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "And the lady in Loch Ness is expecting you now, I'd say. Keep the waders on. Ask no one about the midges."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Back in town, the Wardens at the Skye and Cairngorms roads rolled up their tape, said they'd always meant to, and went to look at a stag."
+    }
+   ]
+  }
+ ]
+}

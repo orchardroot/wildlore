@@ -1,0 +1,41 @@
+{
+ "id": "glasgow_ceilidh",
+ "name": "Fiona and Ruaridh",
+ "class": "Ceilidh Caller",
+ "sprite": "ceilidh_caller",
+ "party": [
+  {
+   "species": "raidtail",
+   "level": 69
+  },
+  {
+   "species": "cooplet",
+   "level": 69
+  },
+  {
+   "species": "kidgruff",
+   "level": 70
+  },
+  {
+   "species": "grizzlet",
+   "level": 69
+  }
+ ],
+ "ai": "trainer",
+ "money": 2800,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Fiona and Ruaridh",
+   "text": "FIONA: Strip the Willow starts at seven, and it starts with you."
+  },
+  {
+   "do": "say",
+   "who": "Fiona and Ruaridh",
+   "text": "RUARIDH: We'll teach you the steps. We'll also teach you humility. That one costs extra."
+  }
+ ],
+ "win": "FIONA: Ye've the legs for it! RUARIDH: And the feet! We'll call that a draw. Mostly in our favour.",
+ "after": "Every step has a caller, and every caller has a favourite couple. We're the couple.",
+ "double": true
+}

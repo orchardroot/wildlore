@@ -46,10 +46,12 @@ static func lines_for(ev: Dictionary, ctx: Dictionary) -> Array[String]:
 			if bool(ev.get("crit", false)):
 				out.append("A critical hit!")
 			var e := float(ev.get("effectiveness", 1.0))
+			# in doubles say who took it, since a spread move hits two
+			var on := (" on %s" % _mid(side, ctx, pos)) if ev.has("pos") else ""
 			if e > 1.0:
-				out.append("It's super effective!")
+				out.append("It's super effective%s!" % on)
 			elif e < 1.0 and e > 0.0:
-				out.append("It's not very effective...")
+				out.append("It's not very effective%s..." % on)
 		"stat":
 			var d := int(ev.delta)
 			var stat := str(STAT_NAMES.get(ev.stat, ev.stat))

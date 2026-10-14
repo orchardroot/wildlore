@@ -1,0 +1,63 @@
+{
+ "nurse": [
+  {
+   "do": "say",
+   "who": "Nurse",
+   "text": "Feasgar math, and welcome to Cairnryan Sanctuary. That's 'good afternoon'. You've come off the ferry, so let me guess: stiff legs, salty hair, team a bit queasy."
+  },
+  {
+   "do": "choice",
+   "text": "What can we do for you?",
+   "options": [
+    "Heal my team",
+    "Open the Ark",
+    "Just looking"
+   ],
+   "set": "_nurse_choice"
+  },
+  {
+   "do": "if",
+   "flag": "_nurse_choice",
+   "eq": 0,
+   "then": [
+    {
+     "do": "say",
+     "who": "Nurse",
+     "text": "Sit down, I'll put the kettle on. The kettle is always on. It is a legal requirement in Scotland. I may have made that up."
+    },
+    {
+     "do": "heal"
+    },
+    {
+     "do": "say",
+     "who": "Nurse",
+     "text": "All done. Taing for your patience, that's 'thanks' in Gaelic. Off you go, the road north is long and lovely."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "_nurse_choice",
+     "eq": 1,
+     "then": [
+      {
+       "do": "say",
+       "who": "Nurse",
+       "text": "The Ark terminal, in the corner. It's sheltered from the weather, and so am I."
+      },
+      {
+       "do": "ark"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Nurse",
+       "text": "Right you are. Beannachd leibh, that's 'blessings with you', or just 'cheerio'."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

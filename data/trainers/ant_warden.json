@@ -1,0 +1,31 @@
+{
+ "id": "ant_warden",
+ "name": "Warden Ivo",
+ "class": "Warden",
+ "sprite": "warden_grunt",
+ "party": [
+  {
+   "species": "sootwing",
+   "level": 65
+  },
+  {
+   "species": "pooka",
+   "level": 65
+  },
+  {
+   "species": "raidtail",
+   "level": 64
+  }
+ ],
+ "ai": "trainer",
+ "money": 2200,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Warden Ivo",
+   "text": "Stop. This stretch of coastline has been optimised. We've straightened the cliffs. They were looking unprofessional."
+  }
+ ],
+ "win": "Cliffs, I apologise on behalf of the management.",
+ "after": "The Enclosure would like to rent the sea. They've made the sea an offer."
+}

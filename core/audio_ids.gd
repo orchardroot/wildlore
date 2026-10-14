@@ -18,6 +18,11 @@ const M3_SFX := ["crow", "tomb_light", "harp_gliss"]
 const M3_MUSIC_LOOPING := ["town_ireland", "route_ireland", "town_cornwall", "route_moor_south", "battle_double", "legend_green", "legend_crow"]
 const M3_MUSIC_STINGS := ["ferry_irish_sea"]
 
+## Plan 5 (Northern Ireland and Scotland) additions.
+const P5_SFX := ["lantern_on", "bog_squelch", "bagpipe_drone"]
+const P5_MUSIC_LOOPING := ["town_scotland", "route_highlands", "town_belfast", "route_north_coast", "legend_sea", "legend_hound"]
+const P5_MUSIC_STINGS := ["ferry_north_channel"]
+
 static func sfx_file(id: String) -> String:
 	return "res://audio/sfx/%s.wav" % SFX_ALIASES.get(id, id)
 

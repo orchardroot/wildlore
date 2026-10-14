@@ -4,9 +4,11 @@ extends RefCounted
 ## and player apply them. Walking into a bramble with Hedge-lay clears it for good; deep water and scree are
 ## simply walkable once you have the ability.
 
-const FROM_BADGE := {"brook": "hedge_lay", "urban": "brook_wade", "stone": "fell_scramble"}
-const NAMES := {"hedge_lay": "Hedge-lay", "brook_wade": "Brook-wade", "fell_scramble": "Fell-scramble"}
-const TILE_ABILITY := {"bramble": "hedge_lay", "deep_water": "brook_wade", "scree": "fell_scramble"}
+const FROM_BADGE := {"brook": "hedge_lay", "urban": "brook_wade", "stone": "fell_scramble", "iron": "lantern", "frost": "bog_cross"}
+const NAMES := {"hedge_lay": "Hedge-lay", "brook_wade": "Brook-wade", "fell_scramble": "Fell-scramble", "lantern": "Lantern", "bog_cross": "Bog-cross"}
+const TILE_ABILITY := {"bramble": "hedge_lay", "deep_water": "brook_wade", "scree": "fell_scramble", "bog": "bog_cross"}
+const LIGHT_DIM := 2.0       # tiles of light round you in a dark cave
+const LIGHT_LANTERN := 6.0
 
 static func abilities(data: GameStateData) -> Array:
 	var out := []
@@ -36,7 +38,11 @@ static func verdict(data: GameStateData, zone: ZoneData, p: Vector2i) -> String:
 		return ""
 	if not has(data, TILE_ABILITY[t]):
 		return "blocked"
-	return {"bramble": "cut", "deep_water": "wade", "scree": "scramble"}[t]
+	return {"bramble": "cut", "deep_water": "wade", "scree": "scramble", "bog": "squelch"}[t]
+
+## How far you can see in a dark zone.
+static func light_radius(data: GameStateData) -> float:
+	return LIGHT_LANTERN if has(data, "lantern") else LIGHT_DIM
 
 static func cut_flag(zone_id: String, p: Vector2i) -> String:
 	return "cut_%s_%d_%d" % [zone_id, p.x, p.y]

@@ -13,6 +13,7 @@ var encounters := Encounters.new()
 var npcs: Array = []
 var _zone_node: Node3D
 var _tilt: ColorRect
+var _dark: ColorRect
 
 func _ready() -> void:
 	sky = SkyAndLight.new()
@@ -36,6 +37,14 @@ func _ready() -> void:
 	mat.shader = load("res://art/shaders/tilt_shift.gdshader")
 	_tilt.material = mat
 	layer.add_child(_tilt)
+	_dark = ColorRect.new()
+	_dark.set_anchors_preset(Control.PRESET_FULL_RECT)
+	_dark.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	var dm := ShaderMaterial.new()
+	dm.shader = load("res://art/shaders/darkness.gdshader")
+	_dark.material = dm
+	_dark.visible = false
+	layer.add_child(_dark)
 	_apply_quality()
 	Bus.settings_changed.connect(_apply_quality)
 
@@ -79,6 +88,35 @@ func load_zone(zone_id: String, pos: Vector2i, facing: String) -> void:
 	rig.configure(zone.width, zone.height, zone.kind == "interior")
 	if zone.music != "":
 		Audio.play_music(zone.music)
+	_dark.visible = zone.dark
+
+## Dark caves: keep the light circle on the player (and faint glows on every exit) each frame.
+func _process(_delta: float) -> void:
+	if _dark == null or not _dark.visible or rig == null or player == null:
+		return
+	var cam := get_viewport().get_camera_3d()
+	if cam == null:
+		return
+	var mat := _dark.material as ShaderMaterial
+	var here := cam.unproject_position(player.global_position + Vector3(0, 0.6, 0))
+	var r_tiles := FieldMoves.light_radius(Game.data)
+	var edge := cam.unproject_position(player.global_position + Vector3(r_tiles, 0.6, 0))
+	mat.set_shader_parameter("size", _dark.size)
+	mat.set_shader_parameter("centre", here)
+	mat.set_shader_parameter("radius", maxf(40.0, here.distance_to(edge)))
+	mat.set_shader_parameter("warmth", 1.0 if FieldMoves.has(Game.data, "lantern") else 0.0)
+	var lights := []
+	for w in zone.warps:
+		if lights.size() >= 8:
+			break
+		var wp := Vector3(int(w.x) + 0.5, ground_y(Vector2i(int(w.x), int(w.y))) + 0.3, int(w.y) + 0.5)
+		var sp := cam.unproject_position(wp)
+		var sr := sp.distance_to(cam.unproject_position(wp + Vector3(1.2, 0, 0)))
+		lights.append(Vector4(sp.x, sp.y, sr, 0.0))
+	while lights.size() < 8:
+		lights.append(Vector4(-9999, -9999, 0, 0))
+	mat.set_shader_parameter("lights", lights)
+	mat.set_shader_parameter("light_count", mini(zone.warps.size(), 8))
 
 func ground_y(p: Vector2i) -> float:
 	if not zone.in_bounds(p):
@@ -98,7 +136,7 @@ func can_enter(p: Vector2i, dir: Vector2i) -> String:
 	var fv := FieldMoves.verdict(Game.data, zone, p)
 	if fv == "blocked":
 		return "blocked"
-	if fv == "scramble" and player.on_bike and not occupied(p):
+	if fv in ["scramble", "squelch"] and player.on_bike and not occupied(p):
 		player.set_bike(false)  # scree is on foot
 	if fv == "wade" and player.on_bike and not occupied(p) and zone.walkable(p, dir, FieldMoves.abilities(Game.data)):
 		player.set_bike(false)  # hop off and push off in the coracle
@@ -179,6 +217,8 @@ func _on_step(p: Vector2i) -> void:
 		Audio.sfx("step_grass")
 	elif tile == "scree":
 		Audio.sfx("scramble")
+	elif tile == "bog":
+		Audio.sfx("bog_squelch")
 	_check_trainers()
 	if Router.busy:
 		return

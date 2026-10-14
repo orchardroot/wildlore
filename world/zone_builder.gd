@@ -13,7 +13,7 @@ const GROUND_COLOURS := {
 	"tree_oak": Color("4f8035"), "tree_pine": Color("4a7634"), "hedge": Color("557f37"), "drystone_wall": Color("5c8f3c"),
 	"fence": Color("5c8f3c"), "rock": Color("5c8f3c"),
 	"bramble": Color("4f7a35"), "deep_water": Color("34504f"), "scree": Color("8b8780"), "platform": Color("a39a8a"),
-	"rail": Color("6e655c"), "sea": Color("2f4a5c"),
+	"rail": Color("6e655c"), "sea": Color("2f4a5c"), "bog": Color("4a3b2a"),
 }
 const DEEP := ["deep_water", "sea"]
 const SIDE_EARTH := Color("6a5238")
@@ -28,6 +28,8 @@ static func ground_y(z: ZoneData, p: Vector2i) -> float:
 			return base - 0.4
 		"deep_water", "sea":
 			return base - 0.6
+		"bog":
+			return base - 0.08
 		"shallow":
 			return base - 0.14
 		"cliff":
@@ -183,6 +185,7 @@ const TILE_PROPS := {
 	"drystone_wall": ["wall_segment", 3, false], "fence": ["fence_segment", 1, false], "rock": ["rock", 3, false],
 	"flowers": ["flower_patch", 3, true], "tall_grass": ["tall_grass_tuft", 3, true], "counter": ["counter", 1, false],
 	"bramble": ["bramble", 2, true], "scree": ["scree_rubble", 3, false], "rail": ["rail_segment", 1, false],
+	"bog": ["reeds", 3, true],
 }
 const LINEAR := ["hedge", "drystone_wall", "fence", "rail"]
 ## Point props (one tile, blocking unless "walk": true). Floating ones sit on the water surface.

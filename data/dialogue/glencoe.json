@@ -1,0 +1,122 @@
+{
+ "strachan_glencoe": [
+  {
+   "do": "if",
+   "flag": "strachan1_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Morag Strachan",
+     "text": "Loch Ness is next on our list. We've a survey boat. And a very large net."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "",
+     "text": "Mist pours down off the Three Sisters like milk off a boiling pan. The glen is very quiet, in the way a place can be when it remembers more than it says."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "On the path ahead stands a woman in a waxed jacket, a hard hat and wellies the colour of a traffic cone, consulting a clipboard with a face like a closed gate."
+    },
+    {
+     "do": "say",
+     "who": "Morag Strachan",
+     "text": "Halt. Wellies on. This glen has been reclassified, effective this morning, as a \"Premium Walking Experience, Tier Two\"."
+    },
+    {
+     "do": "say",
+     "who": "Morag Strachan",
+     "text": "Regional Director, Scotland. This glen is now a premium walking experience. Your ticket is, let me see, not valid."
+    },
+    {
+     "do": "say",
+     "who": "Morag Strachan",
+     "text": "I've read the reports. Pryce, Ashcombe, Kerrigan. I don't intend to be the fourth."
+    },
+    {
+     "do": "battle",
+     "trainer": "strachan_1"
+    },
+    {
+     "do": "say",
+     "who": "Morag Strachan",
+     "text": "Loch Ness is next on our list. We've a survey boat. And a very large net."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "The mist thins as she goes, stamping off up the path in her orange wellies. Behind her the glen settles back into its own shape, grey and green and old, a place that doesn't need a sign to tell you to be gentle."
+    },
+    {
+     "do": "set",
+     "flag": "strachan1_done"
+    },
+    {
+     "do": "set",
+     "flag": "ch9_glencoe"
+    },
+    {
+     "do": "warp",
+     "zone": "glencoe",
+     "x": 27,
+     "y": 30,
+     "facing": "up"
+    },
+    {
+     "do": "end"
+    }
+   ]
+  }
+ ],
+ "glc_walker": [
+  {
+   "do": "say",
+   "who": "Munro Bagger",
+   "text": "I've bagged a hundred and twelve Munros. A Munro's a Scottish hill over three thousand feet. There are two hundred and eighty-two. I've another hundred and seventy to go. And the weather's getting worse."
+  },
+  {
+   "do": "say",
+   "who": "Munro Bagger",
+   "text": "If the mist comes down, stop and look at the map. Don't just keep walking and hope. Hope doesn't have an Ordnance Survey grid reference."
+  }
+ ],
+ "glc_photographer": [
+  {
+   "do": "say",
+   "who": "Eagle Watcher",
+   "text": "Golden eagles nest on those crags. They're big: a wingspan of two metres. You'll hear them before you see them, or you'll see them and decide not to wave."
+  },
+  {
+   "do": "say",
+   "who": "Eagle Watcher",
+   "text": "Look for a big dark shape with 'fingers' on its wing tips. If it flaps like it's embarrassed, it's a buzzard."
+  }
+ ],
+ "glc_historian": [
+  {
+   "do": "say",
+   "who": "Local Historian",
+   "text": "The glen's quiet because it's remembered. We tell the story gently, and honestly, and then we put the kettle on."
+  },
+  {
+   "do": "say",
+   "who": "Local Historian",
+   "text": "The name Glencoe comes from Gleann Comhann, the glen of the River Coe. The river's a wee thing. The glen is the giant."
+  }
+ ],
+ "glc_cyclist": [
+  {
+   "do": "say",
+   "who": "Fell Runner",
+   "text": "I run these hills for fun. That is a lie. I run them because I forgot where the car was."
+  },
+  {
+   "do": "say",
+   "who": "Fell Runner",
+   "text": "Mind the scree. It's slippery stuff, little stones that slide. A Fell-scramble is the right way across it: slow, low, and with respect."
+  }
+ ]
+}
