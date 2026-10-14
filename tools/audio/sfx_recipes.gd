@@ -10,6 +10,7 @@ const LENGTHS := {
 	"caught": 0.9, "level_up": 0.8, "heal": 0.9, "badge": 1.4, "evolve": 1.8,
 	"cut": 0.3, "splash": 0.6, "scramble": 0.7, "bike_bell": 0.7, "train": 1.4, "ship_horn": 1.6,
 	"crow": 0.75, "tomb_light": 1.8, "harp_gliss": 1.9,
+	"lantern_on": 1.3, "bog_squelch": 0.55, "bagpipe_drone": 2.0,
 }
 const PEAKS := {
 	"cursor": 0.5, "confirm": 0.6, "cancel": 0.55, "bump": 0.6, "door": 0.6, "step_grass": 0.35,
@@ -17,6 +18,7 @@ const PEAKS := {
 	"caught": 0.8, "level_up": 0.8, "heal": 0.7, "badge": 0.85, "evolve": 0.85,
 	"cut": 0.6, "splash": 0.7, "scramble": 0.6, "bike_bell": 0.7, "train": 0.7, "ship_horn": 0.8,
 	"crow": 0.75, "tomb_light": 0.7, "harp_gliss": 0.7,
+	"lantern_on": 0.7, "bog_squelch": 0.75, "bagpipe_drone": 0.7,
 }
 
 static func ids() -> Array:
@@ -287,6 +289,39 @@ static func render(id: String) -> PackedFloat32Array:
 				Synth.mix_into(s, h, 0, 0.3)
 				Synth.pluck_env(s, SR, 0.002, 3.2)
 				Synth.mix_into(out, s, _at(k * 0.04), 0.45 + 0.02 * k)
+		"lantern_on":
+			# A warm three-note chime, a soft glow underneath, and a few flickering crackles.
+			for k in 3:
+				var f: float = 659.25 * float([1.0, 1.5, 2.0][k])
+				Synth.mix_into(out, _bell(f, 0.9, 4.0), _at(0.02 + k * 0.1), 0.55)
+			var glow := _tone(Synth.TRI, 329.6, 329.6, 1.2, 0.15, 0.2, 0.5, 0.6, 1200.0)
+			Synth.mix_into(out, glow, 0, 0.3)
+			for t in [0.12, 0.31, 0.38, 0.6, 0.83]:
+				Synth.mix_into(out, _noise_burst(0.05, 6500.0, 2500.0, 55.0, int(t * 100.0)), _at(t), 0.18)
+		"bog_squelch":
+			# A wet suck-and-release: a wobbling falling thud, then a smaller bubble, over muddy noise.
+			for sq in [[0.0, 240.0, 70.0, 0.32, 1.0], [0.24, 330.0, 110.0, 0.2, 0.55]]:
+				var dur: float = sq[3]
+				var s := Synth.osc(Synth.SINE, sq[1], sq[2], dur, SR)
+				for i in s.size():
+					s[i] *= 0.55 + 0.45 * sin(TAU * 31.0 * i / SR)
+				Synth.pluck_env(s, SR, 0.004, 7.0)
+				Synth.mix_into(out, s, _at(sq[0]), sq[4])
+			Synth.mix_into(out, _noise_burst(0.35, 800.0, 120.0, 9.0, 5), 0, 0.5)
+		"bagpipe_drone":
+			# Tonic, octave and fifth drones swelling in on a bag of air, with a buzzy reed edge, then easing off.
+			var d := 2.0
+			for dr in [[110.0, 1.0], [55.0, 0.8], [165.0, 0.4]]:
+				var f: float = dr[0]
+				var s1 := Synth.osc(Synth.SAW, f, f, d, SR)
+				var s2 := Synth.osc(Synth.SAW, f * 1.004, f * 1.004, d, SR)
+				Synth.mix_into(s1, s2, 0, 0.8)
+				Synth.mix_into(out, s1, 0, dr[1])
+			var buzz := Synth.osc(Synth.SQUARE, 220.0, 220.0, d, SR, 0.35)
+			Synth.mix_into(out, buzz, 0, 0.25)
+			Synth.lowpass(out, 900.0, SR)
+			Synth.lowpass(out, 900.0, SR)
+			Synth.adsr(out, SR, 0.6, 0.2, 0.85, 0.7)
 		_:
 			push_error("unknown sfx " + id)
 	Synth.fade_out(out, SR, 0.008)
