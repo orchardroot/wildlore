@@ -17,6 +17,8 @@ def ogwen(OUT):
     z.height(47, 9, 17, 14, 2)
     z.rect(48, 10, 15, 12, "~"); z.rect(51, 13, 9, 6, "o")
     z.rect(48, 22, 15, 1, "s")
+    for (cx, cy) in [(48, 10), (62, 10), (48, 21), (62, 21)]:
+        z.set(cx, cy, "w")
     z.legend["r"] = {"tile": "shallow", "prop": "reeds"}
     z.rect(49, 9, 5, 1, "r"); z.rect(58, 9, 4, 1, "r")
     # the drop: cliffs with a path ramp (north) and a scree ramp (south)
@@ -59,9 +61,11 @@ def ogwen(OUT):
     r = random.Random(65)
     for y in range(2, 34):
         for x in range(2, 70):
-            if z.g[y][x] in ".," and z.hg[y][x] >= 3 and r.random() < 0.35 and not (46 <= x <= 56 and 26 <= y <= 29):
+            hh = z.hg[y][x]
+            pr = 0.5 if hh >= 4 else 0.38 if hh >= 3 else (0.16 if (hh >= 2 and x < 36) else 0)
+            if z.g[y][x] in ".," and r.random() < pr and not (46 <= x <= 56 and 26 <= y <= 29) and not (50 <= x <= 57 and 29 <= y <= 33):
                 z.g[y][x] = "R"
-    # make sure path tiles stay clear of rock (paths drawn earlier, rock only replaces . and ,)
+    moorland(z, 2)
     z.d["encounters"] = {
         "grass": [
             {"species": "kidgruff", "min": 25, "max": 27, "weight": 22, "time": ["dawn", "day", "dusk"]},
@@ -150,8 +154,9 @@ def llanberis(OUT):
     z.building(27, 13, 6, 4, "sanctuary", "Sanctuary", door=3)
     z.building(34, 13, 5, 4, "shop", "Corner Shop", door=2)
     z.building(39, 14, 4, 3, "slate_cottage", "Bryn Eglwys")
-    z.building(46, 14, 4, 3, "slate_cottage", show_label=False)
-    z.building(51, 14, 4, 3, "chapel", "Capel Coch")
+    z.rect(46, 13, 10, 5, "."); z.rect(47, 14, 8, 2, "f")
+    z.prop("planter", 46, 16); z.prop("planter", 55, 16); z.prop("bench", 50, 16); z.prop("bench", 52, 16)
+    z.building(51, 3, 4, 3, "chapel", "Capel Coch")
     z.rect(23, 17, 32, 1, ":")
     z.warp(30, 16, "llanberis_sanctuary", 5, 6, "up"); z.warp(36, 16, "llanberis_shop", 4, 5, "up")
     # the Snowdon Mountain Railway station
@@ -199,11 +204,14 @@ def llanberis(OUT):
     z.rect(26, 27, 12, 10, ".")
     z.rect(26, 30, 12, 1, "H")
     z.rect(32, 31, 6, 6, "f")
+    z.prop("statue", 29, 33); z.prop("bench", 27, 33); z.prop("bench", 31, 28); z.prop("lamp_post", 28, 28); z.prop("lamp_post", 36, 28)
+    for (x, y) in [(27, 29), (37, 29), (27, 36), (37, 36), (30, 36)]:
+        z.prop("oak", x, y, variant=(x + y) % 3)
     sprinkle(z, ["oak", "birch", "bush", "planter", "bench", "rock"], 3, 14, 58, 26, 48, 411)
     sprinkle(z, ["pine", "rock", "bush"], 33, 3, 24, 8, 18, 412)
     for x in (16, 22, 28, 34, 40, 46, 52, 58):
         z.prop("lamp_post", x, 21)
-    z.prop("phone_box", 25, 21); z.prop("post_box", 38, 18) if False else None
+    z.prop("phone_box", 25, 21)
     z.sign(23, 19, "LLANBERIS. Croeso i Lanberis. Welcome! Population: some people and a great many sheep.")
     z.sign(60, 17, "EAST: Nant Ffrancon, Llyn Ogwen, Tryfan. Dwyrain. Bring chocolate.")
     z.sign(57, 4, "YR WYDDFA (SNOWDON). 1,085 m. Walk, or ride the little train. The mountain does not mind. It has seen it all.")
@@ -271,7 +279,6 @@ def quarry(OUT):
     z.warp(17, 30, "llanberis", 15, 14, "down")
     # paths: gate, up x=6, along terrace 1 to x=28, up, along terrace 2 back to x=6, up to the arena
     pth(z, [(17, 29), (17, 25), (6, 25)], "#"); pth(z, [(6, 25), (6, 23)], "#", 2)
-    pth(z, [(6, 22), (6, 20), (28, 20)], "#", 2) if False else None
     z.rect(6, 20, 24, 2, "#"); z.rect(6, 22, 2, 1, "#")
     z.rect(28, 16, 2, 5, "#")
     z.rect(6, 13, 24, 2, "#"); z.rect(28, 15, 2, 1, "#")
@@ -281,15 +288,16 @@ def quarry(OUT):
     z.rect(10, 3, 18, 5, ":"); z.rect(12, 7, 14, 1, ":")
     z.rect(7, 7, 5, 1, "#")
     # slate everywhere
-    sprinkle(z, ["slate_heap"], 3, 3, 30, 26, 36, 71, on=".")
-    sprinkle(z, ["rock"], 3, 3, 30, 26, 14, 72, on=".")
+    z.building(8, 26, 4, 2, "slate_cottage", "Powder Store")
+    z.building(24, 11, 4, 2, "slate_cottage", "Barracks (the quarry kind)")
+    z.building(10, 17, 4, 2, "slate_cottage", show_label=False)
+    sprinkle(z, ["slate_heap"], 3, 3, 30, 26, 85, 71, on=".")
+    sprinkle(z, ["rock", "rock", "pine", "bush"], 3, 3, 30, 26, 36, 72, on=".")
     z.building(22, 17, 4, 2, "slate_cottage", "Weighbridge")
     z.rect(30, 3, 3, 5, "R"); z.rect(3, 3, 3, 5, "R")
     z.rect(18, 11, 1, 1, "."); z.prop("bench", 22, 5); z.prop("bench", 26, 5)
-    z.prop("lamp_post", 11, 9) if False else None
     z.prop("lamp_post", 9, 4); z.prop("lamp_post", 27, 4); z.prop("lamp_post", 16, 29); z.prop("lamp_post", 18, 29)
     z.prop("standing_stone", 13, 3, variant=0); z.prop("standing_stone", 25, 3, variant=1)
-    z.sign(15, 29, "DINORWIC GALLERY 1. Hard hats beyond this point. Also hard stares. Elueds' Gym: Stone.") if False else None
     z.sign(15, 28, "ELUNED'S GALLERY. Rock Keeper on the top terrace. Hard hats beyond this wall. Hard heads too.")
     z.sign(9, 24, "NO LOITERING (the slate is loose). NID YW'N DDIOGEL: not safe. Climb on.")
     z.sign(27, 15, "TERRACE 2. Up. The only way is up. Up is also the only way down, if you count falling.")

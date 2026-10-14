@@ -143,3 +143,16 @@ def town_interiors(out, town, name, ret_s, ret_shop, nurse_lines, shop_lines):
     DLG[town + "_shop"] = {"shopkeeper": [{"do": "say", "who": "Shopkeeper", "text": s1},
                                           {"do": "shop", "id": town + "_corner_shop"},
                                           {"do": "say", "who": "Shopkeeper", "text": s2}]}
+
+
+def moorland(z, minh=2, grass="#848a52", heather="#7a6478"):
+    """High ground goes to moor: olive grass and heathery tall grass above `minh`."""
+    z.legend["m"] = {"tile": "grass", "colour": grass}
+    z.legend["h"] = {"tile": "tall_grass", "colour": heather, "prop": "heather"}
+    for y in range(z.h):
+        for x in range(z.w):
+            if z.hg[y][x] >= minh:
+                if z.g[y][x] == ".":
+                    z.g[y][x] = "m"
+                elif z.g[y][x] == ",":
+                    z.g[y][x] = "h"

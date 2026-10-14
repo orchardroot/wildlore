@@ -31,7 +31,7 @@ def yr_wyddfa(OUT):
     r = random.Random(81)
     for y in range(3, 41):
         for x in range(3, 67):
-            if z.g[y][x] in ".," and z.hg[y][x] >= 3 and r.random() < 0.3:
+            if z.g[y][x] in ".," and r.random() < (0.45 if z.hg[y][x] >= 3 else 0.2 if z.hg[y][x] == 2 else 0):
                 z.g[y][x] = "R"
     sprinkle(z, ["rock", "rock", "bush", "standing_stone"], 3, 3, 64, 38, 40, 82, on=".,")
     z.d["props"] = [p for p in z.d["props"] if p["type"] == "building" or math.hypot(p["x"] - SX, p["y"] - SY) > 7]
@@ -70,6 +70,7 @@ def yr_wyddfa(OUT):
     z.sign(23, 27, "CLOGWYN: where the railway stops and the knees begin.")
     z.sign(28, 35, "LLYN LLYDAW. Water the colour of a very expensive jade ornament. Arthur's sword went in nearby, allegedly.")
     z.sign(34, 20, "SUMMIT: LOOSE SCREE ONLY. If you cannot fell-scramble, do not. If you can, do so with dignity.")
+    moorland(z, 2)
     z.d["encounters"] = {"grass": [
         {"species": "kidgruff", "min": 28, "max": 30, "weight": 22, "time": ["dawn", "day", "dusk"]},
         {"species": "prismite", "min": 29, "max": 31, "weight": 14, "time": ["day", "dusk"]},
@@ -119,19 +120,20 @@ def yr_wyddfa(OUT):
 
 
 def dinas_emrys(OUT):
-    z = Z("dinas_emrys", "Dinas Emrys Cave", 22, 18, fill="+", kind="interior", region="north_wales", music="legend", weather={})
+    z = Z("dinas_emrys", "Dinas Emrys Cave", 22, 18, fill="c", kind="interior", region="north_wales", music="legend", weather={})
     z.d["stage"] = "cave"
+    z.legend["c"] = {"tile": "floor_tile", "colour": "#6a6572"}
     z.border("x", 1)
     # irregular cave walls
     z.rect(1, 1, 20, 2, "R"); z.rect(1, 3, 3, 12, "R"); z.rect(18, 3, 3, 12, "R"); z.rect(4, 3, 2, 4, "R"); z.rect(16, 3, 2, 4, "R")
-    z.rect(4, 12, 2, 3, "R"); z.rect(16, 12, 2, 3, "R"); z.rect(1, 15, 20, 1, "R"); z.rect(8, 15, 5, 1, "+")
-    z.rect(9, 2, 3, 1, "+")
+    z.rect(4, 12, 2, 3, "R"); z.rect(16, 12, 2, 3, "R"); z.rect(1, 15, 20, 1, "R"); z.rect(8, 15, 5, 1, "c")
+    z.rect(9, 2, 3, 1, "c")
     # the pool where the dragons sleep
     z.rect(7, 5, 8, 6, "w"); z.rect(8, 6, 6, 4, "~")
-    z.rect(10, 4, 2, 1, "+")
+    z.rect(10, 4, 2, 1, "c")
     for i, (x, y) in enumerate([(6, 4), (15, 4), (6, 11), (15, 11), (10, 13), (12, 13)]):
         z.prop("standing_stone", x, y, variant=i % 3)
-    z.prop("rock", 5, 8); z.prop("rock", 16, 8, variant=1); z.prop("slate_heap", 18, 13) if False else None
+    z.prop("rock", 5, 8); z.prop("rock", 16, 8, variant=1)
     z.set(10, 16, "D")
     z.warp(10, 16, "yr_wyddfa", 36, 10, "down")
     z.d["spawn"] = [10, 14]
