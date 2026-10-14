@@ -86,10 +86,11 @@
    "id": "kerrigan_tomb",
    "sprite": "kerrigan",
    "x": 11,
-   "y": 27,
+   "y": 18,
    "facing": "down",
    "move": "still",
-   "script": "kerrigan_tomb"
+   "script": "kerrigan_tomb",
+   "hide_if": "ch7_judged"
   },
   {
    "id": "morrigan_spot",
@@ -99,6 +100,28 @@
    "facing": "down",
    "move": "still",
    "script": "morrigan"
+  },
+  {
+   "id": "tomb_gate_a",
+   "sprite": "warden_grunt",
+   "x": 10,
+   "y": 18,
+   "facing": "down",
+   "move": "still",
+   "script": "gate_tomb",
+   "hide_if": "trainer_kerrigan_2",
+   "name": "Warden"
+  },
+  {
+   "id": "tomb_gate_b",
+   "sprite": "warden_grunt",
+   "x": 12,
+   "y": 18,
+   "facing": "down",
+   "move": "still",
+   "script": "gate_tomb",
+   "hide_if": "trainer_kerrigan_2",
+   "name": "Warden"
   }
  ],
  "encounters": {},

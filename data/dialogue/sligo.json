@@ -16,14 +16,84 @@
  ],
  "sligo_poet": [
   {
-   "do": "say",
-   "who": "Poet",
-   "text": "I'm composing an ode to Benbulben. So far I have 'Oh, Benbulben, you are large.' It's rough, but the bones are strong."
-  },
-  {
-   "do": "say",
-   "who": "Poet",
-   "text": "Yeats said Sligo was 'the land of heart's desire'. I've yet to find the heart. I've found the desire. For tea."
+   "do": "if",
+   "flag": "poet_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Poet",
+     "text": "I've finished it. 'Oh, Benbulben, you are large, and also you are stupendous.' It's a masterpiece. It has everything: mountain, adjective, hope."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Poet",
+     "text": "I'm composing an ode to Benbulben. So far I have 'Oh, Benbulben, you are large.' It's rough, but the bones are strong."
+    },
+    {
+     "do": "say",
+     "who": "Poet",
+     "text": "Yeats said Sligo was 'the land of heart's desire'. I've yet to find the heart. I've found the desire. For tea."
+    },
+    {
+     "do": "choice",
+     "text": "Offer the poet a line?",
+     "options": [
+      "'You are stupendous'",
+      "'You are large, and the rest is silence'",
+      "Leave him to it"
+     ],
+     "set": "poet_line"
+    },
+    {
+     "do": "if",
+     "flag": "poet_line",
+     "then": [
+      {
+       "do": "say",
+       "who": "Poet",
+       "text": "Hm. Fair enough. Poetry is slow. Come back when the muse has had her tea."
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "poet_line",
+       "then": [
+        {
+         "do": "say",
+         "who": "Poet",
+         "text": "'Stupendous.' It scans. It's bold. I like a poem that doesn't apologise."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Poet",
+         "text": "'The rest is silence.' Ohh. That's Hamlet. That's a bit of a borrow. But I'll let it through. It suits a mountain."
+        }
+       ],
+       "eq": 0
+      },
+      {
+       "do": "say",
+       "who": "Poet",
+       "text": "Here. Take this. A hiker gave it to me for a haiku. It makes me rhyme. I'd rather you had it."
+      },
+      {
+       "do": "give_item",
+       "item": "kendal_mint_cake",
+       "n": 2
+      },
+      {
+       "do": "set",
+       "flag": "poet_done"
+      }
+     ],
+     "eq": 2
+    }
+   ]
   }
  ],
  "benbulben_guide": [
