@@ -1,0 +1,27 @@
+{
+ "id": "bath_guard",
+ "name": "Warden Piers",
+ "class": "Warden",
+ "sprite": "warden_grunt",
+ "party": [
+  {
+   "species": "stormswift",
+   "level": 38
+  },
+  {
+   "species": "pierlord",
+   "level": 37
+  }
+ ],
+ "ai": "trainer",
+ "money": 860,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Warden Piers",
+   "text": "We're bottling the spring! Heritage Water. Four pounds a bottle. It tastes of 2,000 years and a bit of lime."
+  }
+ ],
+ "win": "I've not been paid for this. I'll write you a receipt anyway.",
+ "after": "It's not stolen. It's curated. Different thing entirely."
+}
