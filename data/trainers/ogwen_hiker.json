@@ -1,0 +1,36 @@
+{
+ "id": "ogwen_hiker",
+ "name": "Hiker Gethin",
+ "class": "Hiker",
+ "sprite": "hiker",
+ "party": [
+  {
+   "species": "gritling",
+   "level": 27
+  },
+  {
+   "species": "kidgruff",
+   "level": 27
+  },
+  {
+   "species": "martling",
+   "level": 28
+  }
+ ],
+ "ai": "trainer",
+ "money": 392,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Hiker Gethin",
+   "text": "Tryfan, the Glyders, Pen yr Ole Wen. A grand day, if you ignore the rain."
+  },
+  {
+   "do": "say",
+   "who": "Hiker Gethin",
+   "text": "Show me what your team's made of!"
+  }
+ ],
+ "win": "Well fought. Fancy a flapjack? It's mostly oat.",
+ "after": "The Welsh word for the weather is 'tywydd'. It translates as 'surprise'."
+}

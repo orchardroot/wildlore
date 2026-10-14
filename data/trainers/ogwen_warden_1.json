@@ -1,0 +1,32 @@
+{
+ "id": "ogwen_warden_1",
+ "name": "Warden Cartwright",
+ "class": "Warden",
+ "sprite": "warden_grunt",
+ "party": [
+  {
+   "species": "tapknock",
+   "level": 27
+  },
+  {
+   "species": "kidgruff",
+   "level": 27
+  }
+ ],
+ "ai": "trainer",
+ "money": 378,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Warden Cartwright",
+   "text": "Ahem! The Enclosure is 'curating' Tryfan. Do you have a permit to be so scenic?"
+  },
+  {
+   "do": "say",
+   "who": "Warden Cartwright",
+   "text": "No? Then it's a fine."
+  }
+ ],
+ "win": "I'll note that in my curation report. Under 'rude'.",
+ "after": "We'll be back. With a clipboard."
+}

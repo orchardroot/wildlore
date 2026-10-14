@@ -1,0 +1,36 @@
+{
+ "id": "wyddfa_warden_2",
+ "name": "Warden Lanyard",
+ "class": "Warden",
+ "sprite": "warden_grunt",
+ "party": [
+  {
+   "species": "tapknock",
+   "level": 30
+  },
+  {
+   "species": "gritling",
+   "level": 30
+  },
+  {
+   "species": "snowhare",
+   "level": 31
+  }
+ ],
+ "ai": "trainer",
+ "money": 434,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Warden Lanyard",
+   "text": "Silence! This summit is being curated for Director Pryce."
+  },
+  {
+   "do": "say",
+   "who": "Warden Lanyard",
+   "text": "I have a lanyard. It is very official."
+  }
+ ],
+ "win": "My lanyard! It's ... crooked. I'll ... yes. Move along.",
+ "after": "Director Pryce says the mountain's 'underperforming'. It's a mountain."
+}
