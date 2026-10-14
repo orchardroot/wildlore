@@ -1,0 +1,19 @@
+{"id": "wispet",
+ "anim": "shift", "bob": 3,
+ "palette": {"outer": "#6cd8a4", "mid": "#a6f0c2", "core": "#ecfff4", "ink": "#10382f", "blush": "#ffb0c8"},
+ "layers": [
+  {"shape": "tri", "points": [[36, 82], [32, 95], [46, 86]], "colour": "outer", "rim": false},
+  {"shape": "tri", "points": [[60, 82], [64, 95], [52, 86]], "colour": "outer", "rim": false},
+  {"shape": "tri", "points": [[28, 62], [18, 36], [37, 50]], "colour": "outer", "rim": false},
+  {"shape": "tri", "points": [[68, 62], [80, 38], [60, 50]], "colour": "outer", "rim": false},
+  {"shape": "poly", "points": [[58, 3], [51, 16], [56, 28], [66, 42], [71, 58], [67, 74], [56, 85], [42, 85], [30, 74], [26, 58], [30, 44], [38, 34], [42, 22], [41, 10], [48, 16]], "colour": "outer"},
+  {"shape": "poly", "points": [[56, 18], [53, 28], [60, 40], [65, 54], [62, 68], [54, 78], [44, 78], [35, 68], [32, 54], [36, 42], [43, 32], [46, 22], [50, 28]], "colour": "mid"},
+  {"shape": "ellipse", "at": [48, 66], "size": [24, 22], "colour": "core", "rim": false}
+ ],
+ "face_layers": [
+  {"shape": "ellipse", "at": [48, 68], "size": [8, 5], "colour": "ink", "shade": false},
+  {"shape": "ellipse", "at": [48, 67], "size": [6, 2], "colour": "core", "shade": false},
+  {"shape": "ellipse", "at": [33, 65], "size": [6, 4], "colour": "blush", "shade": false, "mirror": true}
+ ],
+ "eyes": [{"at": [39, 58], "r": 5, "colour": "ink", "mirror": true}]
+}

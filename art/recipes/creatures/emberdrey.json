@@ -1,0 +1,27 @@
+{"id": "emberdrey",
+ "palette": {"fur": "#b04a22", "fur2": "#80311a", "cream": "#f5ddc0", "tuft": "#3a1a14", "nose": "#2a2024", "fire": "#e63c1e", "fire2": "#ff8a2a", "fire3": "#ffd84a", "fire4": "#fff6c8"},
+ "layers": [
+  {"shape": "poly", "points": [[60, 84], [62, 62], [58, 46], [66, 36], [64, 20], [74, 32], [78, 18], [86, 36], [90, 54], [92, 70], [84, 86]], "colour": "fire", "shade": false, "front_only": true, "rim": false},
+  {"shape": "poly", "points": [[66, 82], [68, 64], [66, 50], [72, 42], [74, 32], [80, 44], [84, 58], [84, 78], [78, 84]], "colour": "fire2", "shade": false, "front_only": true, "rim": false},
+  {"shape": "poly", "points": [[72, 80], [73, 66], [76, 54], [80, 62], [80, 76], [76, 82]], "colour": "fire3", "shade": false, "front_only": true, "rim": false},
+  {"shape": "poly", "points": [[34, 70], [40, 46], [36, 30], [46, 16], [48, 4], [56, 18], [66, 28], [60, 46], [64, 70]], "colour": "fire", "shade": false, "back_only": true, "rim": false},
+  {"shape": "poly", "points": [[40, 68], [44, 48], [42, 34], [48, 24], [52, 34], [56, 48], [58, 68]], "colour": "fire2", "shade": false, "back_only": true, "rim": false},
+  {"shape": "poly", "points": [[45, 66], [48, 50], [51, 66]], "colour": "fire3", "shade": false, "back_only": true, "rim": false},
+  {"shape": "ellipse", "at": [35, 88], "size": [18, 9], "colour": "fur2", "mirror": true},
+  {"shape": "ellipse", "at": [48, 66], "size": [46, 46], "colour": "fur", "pattern": "stripes", "pcolour": "fur2", "period": 8, "pangle": 75},
+  {"shape": "ellipse", "at": [48, 70], "size": [26, 32], "colour": "cream", "front_only": true},
+  {"shape": "ellipse", "at": [28, 68], "size": [12, 24], "colour": "fur", "angle": 14, "mirror": true},
+  {"shape": "tri", "points": [[26, 34], [30, 10], [42, 30]], "colour": "fur", "mirror": true},
+  {"shape": "tri", "points": [[27, 22], [29, 2], [37, 18]], "colour": "fire2", "shade": false, "mirror": true, "rim": false},
+  {"shape": "tri", "points": [[29, 17], [30, 8], [33, 16]], "colour": "fire3", "shade": false, "mirror": true, "rim": false},
+  {"shape": "ellipse", "at": [48, 42], "size": [46, 36], "colour": "fur"},
+  {"shape": "ellipse", "at": [48, 51], "size": [28, 16], "colour": "cream", "front_only": true, "rim": false}
+ ],
+ "face_layers": [
+  {"shape": "ellipse", "at": [48, 47], "size": [9, 5], "colour": "nose", "rim": false},
+  {"shape": "line", "points": [[42, 55], [48, 52], [54, 55]], "width": 1, "colour": "nose", "shade": false},
+  {"shape": "tri", "points": [[28, 46], [33, 48], [29, 51]], "colour": "fire2", "shade": false, "mirror": true},
+  {"shape": "line", "points": [[30, 35], [41, 39]], "width": 2, "colour": "tuft", "shade": false, "mirror": true}
+ ],
+ "eyes": [{"at": [38, 42], "r": 4, "colour": "#3a1208", "mirror": true}]
+}
