@@ -69,6 +69,7 @@ func load_zone(zone_id: String, pos: Vector2i, facing: String) -> void:
 		player.set_bike(false)
 	player.set_wading(zone.tile_at(pos) == "deep_water")
 	Game.data.zone_id = zone_id
+	Travel.note_visit(Game.data, zone)
 	Game.data.pos = pos
 	Game.data.facing = facing
 	weather = "clear" if zone.kind == "interior" else Weather.pick(zone.weather, Game.rng)

@@ -108,9 +108,9 @@ func _exec(c: Dictionary) -> void:
 		"ark":
 			await host.open_menu("ark")
 		"rail":
-			await host.open_menu("travel:rail")
+			await _rail()
 		"ferry":
-			await host.open_menu("travel:ferry:" + str(c.get("route", "")))
+			await _ferry(str(c.get("route", "")))
 		"whiteout":
 			await whiteout()
 			_ended = true
@@ -143,6 +143,31 @@ func _battle(trainer_id: String) -> void:
 		"lose":
 			await whiteout()
 			_ended = true
+
+func _rail() -> void:
+	if int(host.data.bag.get("rail_pass", 0)) <= 0:
+		await host.say("", "The ticket barrier beeps sadly. You'll need a Rail Pass.")
+		return
+	var dest = await host.open_menu("travel:rail")
+	if dest == null or str(dest) == "":
+		return
+	var a := Travel.rail_arrival(str(dest))
+	await host.sfx("train")
+	await host.warp(str(a.zone), a.pos.x, a.pos.y, "down")
+	_ended = true
+
+func _ferry(route: String) -> void:
+	var a := Travel.ferry_arrival(route, host.zone_id())
+	if a.is_empty():
+		push_error("Commands: no ferry route '%s'" % route)
+		return
+	var pick: int = await host.choice("Sail to %s?" % Travel.town_name(str(a.zone)), ["All aboard", "Not today"])
+	if pick != 0:
+		return
+	await host.music("ferry")
+	await host.say("", str(Travel.ferries()[route].get("card", "The ferry crosses the sea.")))
+	await host.warp(str(a.zone), a.pos.x, a.pos.y, "down")
+	_ended = true
 
 ## Lost a battle: lose half the money, heal up, back to the last Sanctuary.
 func whiteout() -> void:

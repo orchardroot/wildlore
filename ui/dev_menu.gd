@@ -35,6 +35,11 @@ static func boot(game: Node, menu: String) -> void:
 	d.money = 1840
 	d.badges = ["a", "b"]
 	d.play_seconds = 4980.0
+	for t in ["macclesfield", "buxton"]:
+		d.set_flag("visited_" + t)
+		d.set_flag("station_" + t)
+	d.set_flag("last_town", "buxton")
+	d.bag["rail_pass"] = 1
 	if menu.begins_with("shop") and not menu.contains(":"):
 		menu = "shop:macc_corner_shop"
 	await game.get_tree().process_frame

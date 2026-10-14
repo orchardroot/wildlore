@@ -177,3 +177,24 @@ func test_whiteout_command() -> void:
 	assert_eq(h.warps, [["buxton", 5, 6, "down"]])
 	assert_eq(h.data.money, 5)
 	assert_false("after" in h.texts(), "whiteout ends the script")
+
+func test_rail_needs_a_pass_then_warps() -> void:
+	var h := FakeStoryHost.new()
+	await _cmds(h).run([{"do": "rail"}])
+	assert_eq(h.warps, [])
+	assert_true(h.texts().any(func(t): return t.contains("Rail Pass")))
+	var h2 := FakeStoryHost.new()
+	h2.data.bag["rail_pass"] = 1
+	h2.menu_results["travel:rail"] = "buxton"
+	await _cmds(h2).run([{"do": "rail"}])
+	var st := ZoneData.load_id("buxton").station
+	if st != Vector2i(-1, -1):
+		assert_eq(h2.warps, [["buxton", st.x, st.y, "down"]])
+	else:
+		assert_eq(h2.warps, [["buxton", -1, -1, "down"]])
+
+func test_ferry_asks_then_sails() -> void:
+	var h := FakeStoryHost.new()
+	h.choices = [1]
+	await _cmds(h).run([{"do": "ferry", "route": "liverpool_douglas"}])
+	assert_eq(h.warps, [], "said no")

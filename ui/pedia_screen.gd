@@ -15,7 +15,7 @@ func _build() -> void:
 	_ids = Game.dex.ids()
 	var d: GameStateData = Game.data
 	header_right.text = "Seen %d    Caught %d / %d" % [d.seen.size(), d.caught.size(), _ids.size()]
-	set_hint("Up / Down  Browse        X  Back")
+	set_hint("Up / Down  Browse        Z  Where to find it        X  Back")
 	var row := HBoxContainer.new()
 	row.set_anchors_preset(Control.PRESET_FULL_RECT)
 	row.add_theme_constant_override("separation", 22)
@@ -60,7 +60,12 @@ func _entry_button(i: int) -> Button:
 	b.focus_entered.connect(func():
 		Audio.sfx("cursor")
 		_show(id))
-	b.pressed.connect(func(): Audio.sfx("confirm"))
+	b.pressed.connect(func():
+		if state_of(id) == "unseen":
+			return
+		Audio.sfx("confirm")
+		await open_child("map:species:" + id)
+		b.grab_focus())
 	var h := HBoxContainer.new()
 	h.set_anchors_preset(Control.PRESET_FULL_RECT)
 	h.offset_left = 10

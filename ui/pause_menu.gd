@@ -20,7 +20,7 @@ func _build() -> void:
 	var menu := VBoxContainer.new()
 	menu.add_theme_constant_override("separation", 8)
 	left.add_child(menu)
-	var entries := [["Team", _open_team], ["Fieldbook", _open_pedia], ["Bag", _open_bag],
+	var entries := [["Team", _open_team], ["Fieldbook", _open_pedia], ["Bag", _open_bag], ["Map", _open_map],
 		["Save", _save], ["Settings", _open_settings], ["Close", func(): close(null)]]
 	for e in entries:
 		var b := make_button(e[0], e[1])
@@ -97,7 +97,7 @@ func _open_bag() -> void:
 
 func _open_settings() -> void:
 	await open_child("settings")
-	_after_child(4)
+	_after_child(5)
 
 func _after_child(i: int) -> void:
 	_refresh()
@@ -105,4 +105,8 @@ func _after_child(i: int) -> void:
 
 func _save() -> void:
 	await open_child("save:save")
+	_after_child(4)
+
+func _open_map() -> void:
+	await open_child("map")
 	_after_child(3)

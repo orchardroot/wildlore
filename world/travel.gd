@@ -1,0 +1,58 @@
+class_name Travel
+extends RefCounted
+## Rail fast travel, ferries and the world map data. A town's station counts as visited once you've been
+## in that town; trains run between visited stations (with a Rail Pass). Ferries run both ways on their route.
+
+const MAP_PATH := "res://data/world_map.json"
+const FERRIES_PATH := "res://data/ferries.json"
+
+static var _map: Dictionary = {}
+static var _ferries: Dictionary = {}
+
+static func world_map() -> Dictionary:
+	if _map.is_empty():
+		var m = JsonUtil.read(MAP_PATH)
+		_map = m if m is Dictionary else {}
+	return _map
+
+static func ferries() -> Dictionary:
+	if _ferries.is_empty():
+		var f = JsonUtil.read(FERRIES_PATH)
+		_ferries = f if f is Dictionary else {}
+	return _ferries
+
+static func station_flag(town: String) -> String:
+	return "station_" + town
+
+static func town_name(town: String) -> String:
+	return str(world_map().get("towns", {}).get(town, {}).get("name", town.capitalize()))
+
+## Call on entering any zone: marks the town visited (world map), its station (rail) and the last town.
+static func note_visit(data: GameStateData, zone: ZoneData) -> void:
+	if zone.town_id == "":
+		return
+	data.set_flag("visited_" + zone.town_id)
+	data.set_flag("last_town", zone.town_id)
+	if zone.station != Vector2i(-1, -1):
+		data.set_flag(station_flag(zone.town_id))
+
+## Towns you can take the train to from `here`, in journey order (the world map's town order).
+static func rail_destinations(data: GameStateData, here: String) -> Array:
+	var out := []
+	for town in world_map().get("towns", {}):
+		if town != here and data.flag(station_flag(town)) and FileAccess.file_exists("res://data/zones/%s.json" % town):
+			out.append(town)
+	return out
+
+static func rail_arrival(town: String) -> Dictionary:
+	var z := ZoneData.load_id(town)
+	return {"zone": town, "pos": z.station if z.station != Vector2i(-1, -1) else Vector2i(-1, -1)}
+
+## Where a ferry on `route` leaving from `from_town` lands: the other end's quay tile.
+static func ferry_arrival(route: String, from_town: String) -> Dictionary:
+	var r: Dictionary = ferries().get(route, {})
+	if r.is_empty():
+		return {}
+	var to: String = r.b if str(r.a) == from_town else r.a
+	var z := ZoneData.load_id(to)
+	return {"zone": to, "pos": Vector2i(int(z.ferry.get("x", -1)), int(z.ferry.get("y", -1)))}
