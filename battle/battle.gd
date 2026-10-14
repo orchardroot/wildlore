@@ -348,7 +348,11 @@ func _do_item(side: int, item_id: String, target: int, ev: Array) -> void:
 	var party: Array = parties[side]
 	if side == PLAYER and item_db != null and target >= 0 and target < party.size():
 		var item := item_db.get_item(item_id)
-		if bool(item.get("battle", false)) and item.get("kind", "") in ["heal", "cure", "revive", "pp"]:
+		var on_field_fainted: bool = target in active[side] and party[target].is_fainted()
+		if str(item.get("kind", "")) == "revive" and on_field_fainted:
+			# a fainted creature still holding its spot (doubles, no reserve) must leave the field first
+			text = "It can't be revived while it's still on the field."
+		elif bool(item.get("battle", false)) and item.get("kind", "") in ["heal", "cure", "revive", "pp"]:
 			text = ItemEffects.apply(item, party[target]).text
 	ev.append({"type": "item", "side": side, "item": item_id, "target": target, "text": text})
 

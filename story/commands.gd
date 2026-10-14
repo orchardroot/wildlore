@@ -167,7 +167,7 @@ func _legend(c: Dictionary) -> void:
 		return
 	host.data.mark_seen(str(sp.id))
 	var foe := Creature.create(sp, int(c.get("level", 40)), host.rng, host.moves)
-	var result: Dictionary = await host.battle([foe], {"kind": "wild", "no_run": true, "music": "legend"})
+	var result: Dictionary = await host.battle([foe], {"kind": "wild", "no_run": true, "music": str(c.get("music", "legend"))})
 	match str(result.get("result", "")):
 		"caught":
 			_set_flag(str(c.get("flag", "caught_" + str(sp.id))), true)
@@ -195,7 +195,7 @@ func _ferry(route: String) -> void:
 	var pick: int = await host.choice("Sail to %s?" % Travel.town_name(str(a.zone)), ["All aboard", "Not today"])
 	if pick != 0:
 		return
-	await host.music("ferry")
+	await host.music(str(Travel.ferries()[route].get("music", "ferry")))
 	await host.say("", str(Travel.ferries()[route].get("card", "The ferry crosses the sea.")))
 	await host.warp(str(a.zone), a.pos.x, a.pos.y, "down")
 	_ended = true

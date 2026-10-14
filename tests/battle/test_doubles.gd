@@ -184,3 +184,15 @@ func test_faint_event_names_the_player_creatures_that_saw_it() -> void:
 	var faint: Dictionary = _all(ev, "faint")[0]
 	assert_eq(faint.index, 0)
 	assert_eq(faint.witnesses, [0, 1])
+
+func test_no_revive_on_a_fainted_creature_still_on_the_field() -> void:
+	# two-creature party, A faints with no reserve and stays in its spot; B tries to revive A
+	var p := [_mon("pa", 50), _mon("pb", 50)]
+	var f := [_mon("fa", 50), _mon("fb", 50)]
+	var b := _double(p, f, {"item_db": ItemDB.load_default()})
+	p[0].hp = 0
+	var ev := b.take_turn([{}, {"type": "item", "item": "kendal_mint_cake", "target": 0}], [{"type": "move", "slot": 0, "target": 1}, {}])
+	var item: Array = _all(ev, "item")
+	assert_eq(item.size(), 1)
+	assert_true(p[0].is_fainted(), "still fainted: a revive needs the creature off the field")
+	assert_true(str(item[0].text).contains("field"))

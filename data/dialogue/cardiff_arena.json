@@ -8,6 +8,65 @@
      "do": "say",
      "who": "Keeper Rhys",
      "text": "Rain's coming. It always is. Pop back when the Enclosure's gone. Or when it's stopped raining. We'll be waiting a while."
+    },
+    {
+     "do": "if",
+     "flag": "ch5_started",
+     "then": [],
+     "else": [
+      {
+       "do": "sfx",
+       "id": "alert"
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "Your phone buzzes. Professor Garside, who sounds as if she is running."
+      },
+      {
+       "do": "say",
+       "who": "Prof. Garside",
+       "text": "{player}! The Storm Stone! That's four! Anwen rang. She says the stones are singing in tune."
+      },
+      {
+       "do": "say",
+       "who": "Prof. Garside",
+       "text": "The red dragon is awake and curious, so do pop back to Dinas Emrys when you've a spare hour. She'd like to meet whoever did all this."
+      },
+      {
+       "do": "say",
+       "who": "Prof. Garside",
+       "text": "But the next hum is east. Avebury and Stonehenge are both going, I can hear them down the phone line. Both at once. Like a pair of very old fridges."
+      },
+      {
+       "do": "say",
+       "who": "Prof. Garside",
+       "text": "Glastonbury is the loudest, though, so Glastonbury first. Cross the Severn to Bath, then over the Mendips. The road leaves Cardiff on the east side, past the docks."
+      },
+      {
+       "do": "say",
+       "who": "Prof. Garside",
+       "text": "The Keeper there is called Morwen. She takes visitors seriously and tea more seriously still. And mind the Enclosure. Their English Director is a Sir Rupert Ashcombe. Panama hat. Hates a loose end."
+      },
+      {
+       "do": "say",
+       "who": "Prof. Garside",
+       "text": "I'll ring again when you've the next Stone. Take biscuits. The Severn Bridge has a toll in both directions, and the toll is boredom."
+      },
+      {
+       "do": "set",
+       "flag": "v02_complete"
+      },
+      {
+       "do": "set",
+       "flag": "ch5_started"
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "The way east is open. Across the Severn lie Bath, the Mendips and Glastonbury."
+      }
+     ]
     }
    ],
    "else": [

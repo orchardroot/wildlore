@@ -46,12 +46,13 @@ TOWNS = {
  "cork": ("Cork", -8.47, 51.9, "ireland"), "dingle": ("Dingle", -10.27, 52.14, "ireland"),
  "galway": ("Galway", -9.05, 53.27, "ireland"), "sligo": ("Sligo", -8.47, 54.27, "ireland"),
  "newgrange": ("Newgrange", -6.48, 53.69, "ireland"), "douglas": ("Douglas", -4.48, 54.15, "man"),
+ "holyhead": ("Holyhead", -4.63, 53.31, "wales"),
 }
 # routes and landmarks shown as small dots (for Creaturepedia habitats)
 PLACES = {
  "macc_forest": (-2.03, 53.24), "cat_and_fiddle": (-1.99, 53.25), "goyt_valley": (-2.02, 53.33), "chat_moss": (-2.6, 53.46),
  "wirral_way": (-3.1, 53.3), "dee_valley": (-3.05, 52.98), "ogwen": (-3.7, 53.12), "yr_wyddfa": (-4.08, 53.07),
- "dinas_emrys": (-4.08, 53.02), "holyhead": (-4.63, 53.31), "anglesey": (-4.35, 53.25),
+ "dinas_emrys": (-4.08, 53.02), "anglesey": (-4.35, 53.25),
  "severn_crossing": (-2.7, 51.6), "mendips": (-2.7, 51.28), "somerset_levels": (-2.85, 51.1), "dartmoor": (-3.9, 50.57),
  "tintagel": (-4.75, 50.67), "wicklow": (-6.35, 53.0), "comeraghs": (-7.6, 52.3), "ring_of_kerry": (-9.8, 51.95),
  "burren": (-9.1, 53.05), "connemara": (-9.8, 53.5), "boyne_valley": (-6.6, 53.7), "cambrian_coast": (-4.06, 52.7), "pembroke_coast": (-4.95, 51.75), "beacons": (-3.44, 51.88),

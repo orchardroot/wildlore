@@ -302,8 +302,12 @@ func menu_result(menu: String) -> Variant:
 
 func choose_action(f: BattleFlow) -> Dictionary:
 	var b := f.battle
-	var me := b.current(Battle.PLAYER)
+	var me := b.current_at(Battle.PLAYER, f.acting_pos) if b.double else b.current(Battle.PLAYER)
 	var foe := b.current(Battle.FOE)
+	if b.double:
+		var standing := b.actives(Battle.FOE)
+		if not standing.is_empty():
+			foe = standing[0]
 	var snares := int(Game.data.bag.get("wicker_snare", 0))
 	if b.kind == "wild" and snares > 0 and Game.data.party.size() < 4 and foe.hp * 2 < foe.max_hp():
 		Game.data.bag["wicker_snare"] = snares - 1
@@ -317,13 +321,19 @@ func choose_action(f: BattleFlow) -> Dictionary:
 		if s > best_score:
 			best_score = s
 			best = i
-	return {"kind": "fight", "slot": maxi(best, 0)}
+	var act := {"kind": "fight", "slot": maxi(best, 0)}
+	if b.double:
+		act["target"] = 0 if b.current_at(Battle.FOE, 0) == foe else 1
+	return act
 
 func choose_replacement(f: BattleFlow) -> int:
 	var party: Array = f.battle.parties[Battle.PLAYER]
 	var best := 0
+	var on_field: Array = f.battle.active[Battle.PLAYER] if f.battle.double else []
 	for i in party.size():
-		if not party[i].is_fainted() and (party[best].is_fainted() or party[i].hp > party[best].hp):
+		if i in on_field:
+			continue
+		if not party[i].is_fainted() and (party[best].is_fainted() or best in on_field or party[i].hp > party[best].hp):
 			best = i
 	return best
 

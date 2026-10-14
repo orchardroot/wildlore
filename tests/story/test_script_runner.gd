@@ -254,3 +254,16 @@ func test_single_trainer_battle_is_not_a_double() -> void:
 	h.data.party = [Fixtures.creature("kindlet", 10)]
 	await _cmds(h).run([{"do": "battle", "trainer": "testbed_tester"}])
 	assert_false(h.last_battle.opts.has("double"), "singles opts unchanged")
+
+func test_legend_and_ferry_music_come_from_data() -> void:
+	var h := FakeStoryHost.new()
+	h.dex = Dex.load_default()
+	h.moves = MoveDB.load_default()
+	h.battle_results = [{"result": "win", "caught": null}]
+	await _cmds(h).run([{"do": "legend", "species": "greenman", "level": 55, "flag": "caught_greenman", "music": "legend_green"}])
+	assert_eq(h.last_battle.opts.music, "legend_green")
+	var h2 := FakeStoryHost.new()
+	h2.zone = "holyhead"
+	h2.choices = [0]
+	await _cmds(h2).run([{"do": "ferry", "route": "holyhead_dublin"}])
+	assert_true(["music", "ferry_irish_sea"] in h2.log)
