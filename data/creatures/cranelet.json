@@ -1,0 +1,146 @@
+{
+  "line": "cranelet",
+  "species": [
+    {
+      "id": "cranelet",
+      "name": "Cranelet",
+      "types": [
+        "brook",
+        "gale"
+      ],
+      "base": {
+        "hp": 46,
+        "atk": 50,
+        "def": 48,
+        "lore": 58,
+        "ward": 50,
+        "spd": 60
+      },
+      "growth": "medium",
+      "catch_rate": 190,
+      "base_xp": 60,
+      "learnset": [
+        [
+          1,
+          "rill_shot"
+        ],
+        [
+          1,
+          "gust_nudge"
+        ],
+        [
+          5,
+          "drench"
+        ],
+        [
+          8,
+          "updraught"
+        ],
+        [
+          12,
+          "paddle_poke"
+        ],
+        [
+          16,
+          "bluster"
+        ],
+        [
+          21,
+          "eddy_ripple"
+        ],
+        [
+          27,
+          "kestrel_dive"
+        ]
+      ],
+      "evolves": {
+        "to": "levelcrane",
+        "level": 28
+      },
+      "habitat": [
+        "somerset_levels"
+      ],
+      "dex": {
+        "text": "Stands in the shallows of the Levels looking as if it has forgotten where it parked. It has not. It is thinking.",
+        "fact": "Common cranes stopped breeding in Britain centuries ago, and have since come back to places such as the Somerset Levels."
+      },
+      "sprite": "cranelet"
+    },
+    {
+      "id": "levelcrane",
+      "name": "Levelcrane",
+      "types": [
+        "brook",
+        "gale"
+      ],
+      "base": {
+        "hp": 64,
+        "atk": 74,
+        "def": 68,
+        "lore": 78,
+        "ward": 68,
+        "spd": 70
+      },
+      "growth": "medium",
+      "catch_rate": 60,
+      "base_xp": 150,
+      "learnset": [
+        [
+          1,
+          "rill_shot"
+        ],
+        [
+          1,
+          "gust_nudge"
+        ],
+        [
+          5,
+          "drench"
+        ],
+        [
+          8,
+          "updraught"
+        ],
+        [
+          12,
+          "paddle_poke"
+        ],
+        [
+          16,
+          "bluster"
+        ],
+        [
+          21,
+          "eddy_ripple"
+        ],
+        [
+          27,
+          "kestrel_dive"
+        ],
+        [
+          32,
+          "murmuration"
+        ],
+        [
+          38,
+          "weir_shove"
+        ],
+        [
+          46,
+          "gale_force"
+        ],
+        [
+          52,
+          "spate_surge"
+        ]
+      ],
+      "evolves": null,
+      "habitat": [],
+      "dex": {
+        "text": "Performs a dance on the marsh with bowing, leaping and a great deal of flapping. Nobody has ever asked it to stop.",
+        "fact": "Cranes perform elaborate courtship dances, bowing, leaping and tossing grass into the air, which helps a pair bond."
+      },
+      "sprite": "levelcrane"
+    }
+  ]
+}
