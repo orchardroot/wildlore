@@ -122,7 +122,12 @@ func _dev_boot() -> void:
 		if args.clock >= 0:
 			data.clock_minutes = args.clock
 		data.party = [Creature.create(dex.get_species("kindlet"), 10, rng, moves)]
-		Router.goto_zone(args.boot_zone, args.boot_pos, "down")
+		if args.ride != "":
+			data.bag["bike"] = 1
+			data.badges = ["brook", "urban", "stone"]
+		await Router.goto_zone(args.boot_zone, args.boot_pos, "down")
+		if args.ride == "bike":
+			Router.overworld.player.set_bike(true)
 
 func _take_shot() -> void:
 	await get_tree().create_timer(float(args.shot_delay), true, false, true).timeout

@@ -53,6 +53,7 @@ func load_zone(zone_id: String, pos: Vector2i, facing: String) -> void:
 		zone_id = str(ls.zone) if Game.zone_exists(str(ls.zone)) else "macclesfield"
 		pos = Vector2i(int(ls.pos[0]), int(ls.pos[1])) if zone_id == str(ls.zone) else Vector2i(-1, -1)
 	zone = ZoneData.load_id(zone_id)
+	FieldMoves.apply_cuts(Game.data, zone)
 	if _zone_node:
 		_zone_node.queue_free()
 	_zone_node = ZoneBuilder.build(zone)
@@ -64,6 +65,9 @@ func load_zone(zone_id: String, pos: Vector2i, facing: String) -> void:
 	if pos.x < 0:
 		pos = zone.spawn
 	player.place(pos, facing, ground_y(pos))
+	if zone.kind == "interior":
+		player.set_bike(false)
+	player.set_wading(zone.tile_at(pos) == "deep_water")
 	Game.data.zone_id = zone_id
 	Game.data.pos = pos
 	Game.data.facing = facing
@@ -76,7 +80,11 @@ func load_zone(zone_id: String, pos: Vector2i, facing: String) -> void:
 		Audio.play_music(zone.music)
 
 func ground_y(p: Vector2i) -> float:
-	return ZoneBuilder.ground_y(zone, p) if zone.in_bounds(p) else 0.0
+	if not zone.in_bounds(p):
+		return 0.0
+	if zone.tile_at(p) == "deep_water":
+		return ZoneBuilder.water_y(zone, p) - 0.08  # wading: float on the surface, coracle just under
+	return ZoneBuilder.ground_y(zone, p)
 
 ## "ok", "blocked", "edge" (walking off into a neighbour) or "ledge" (hop down).
 func can_enter(p: Vector2i, dir: Vector2i) -> String:
@@ -86,9 +94,33 @@ func can_enter(p: Vector2i, dir: Vector2i) -> String:
 	if zone.tile_at(p) == "ledge_south":
 		var landing := p + Vector2i(0, 1)
 		return "ledge" if dir == Vector2i(0, 1) and zone.walkable(landing) and not occupied(landing) else "blocked"
-	if not zone.walkable(p, dir) or occupied(p) or not zone.sign_at(p).is_empty():
+	var fv := FieldMoves.verdict(Game.data, zone, p)
+	if fv == "blocked" or (fv == "wade" and player.on_bike):
+		return "blocked"
+	if fv == "cut":
+		return "blocked" if occupied(p) else "cut"
+	if not zone.walkable(p, dir, FieldMoves.abilities(Game.data)) or occupied(p) or not zone.sign_at(p).is_empty():
 		return "blocked"
 	return "ok"
+
+## Hedge-lay: clear the bramble for good and rebuild the scenery.
+func cut_bramble(p: Vector2i) -> void:
+	FieldMoves.cut(Game.data, zone, p)
+	Audio.sfx("cut")
+	if _zone_node:
+		_zone_node.queue_free()
+	_zone_node = ZoneBuilder.build(zone)
+	add_child(_zone_node)
+
+func toggle_bike() -> void:
+	var why := FieldMoves.bike_refusal(Game.data, zone, player.wading)
+	if why != "" and not player.on_bike:
+		Audio.sfx("bump")
+		await say([why])
+		return
+	player.set_bike(not player.on_bike)
+	if player.on_bike:
+		Audio.sfx("bike_bell")
 
 func occupied(p: Vector2i) -> bool:
 	return npc_at(p) != null
@@ -127,8 +159,14 @@ func _on_step(p: Vector2i) -> void:
 		return
 	var tile := zone.tile_at(p)
 	stepped.emit(p, tile)
+	var was_wading := player.wading
+	player.set_wading(tile == "deep_water")
+	if player.wading and not was_wading:
+		Audio.sfx("splash")
 	if tile == "tall_grass":
 		Audio.sfx("step_grass")
+	elif tile == "scree":
+		Audio.sfx("scramble")
 	_check_trainers()
 	if Router.busy:
 		return
@@ -157,6 +195,8 @@ func _check_trainers() -> void:
 				return
 
 func _stage() -> String:
+	if zone.stage != "":
+		return zone.stage
 	if zone.kind == "interior":
 		return "spa_interior" if zone.id.contains("spa") else "town"
 	if zone.region == "peak" or zone.id.contains("fiddle"):

@@ -10,7 +10,7 @@ static func parse(args: PackedStringArray, is_debug := OS.is_debug_build()) -> D
 	if not is_debug:
 		args = PackedStringArray()
 	var out := {"shot": "", "shot_delay": 2.0, "boot_zone": "", "boot_pos": Vector2i(-1, -1),
-		"battle_species": "", "battle_level": 5, "seed": -1, "clock": -1, "weather": "", "fps": false, "playtest": "", "seconds": 0}
+		"battle_species": "", "battle_level": 5, "seed": -1, "clock": -1, "weather": "", "fps": false, "playtest": "", "seconds": 0, "ride": ""}
 	for a in args:
 		var kv := a.split("=", true, 1)
 		var key: String = kv[0]
@@ -42,6 +42,8 @@ static func parse(args: PackedStringArray, is_debug := OS.is_debug_build()) -> D
 				out.fps = true
 			"--playtest":
 				out.playtest = val
+			"--ride":
+				out.ride = val
 			"--seconds":
 				out.seconds = int(val)
 	return out

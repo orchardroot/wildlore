@@ -9,11 +9,12 @@ const GRACE_STEPS := 3
 var _grace := 0
 
 static func roll(zone: ZoneData, tile: String, phase: String, weather: String, rng: Rng) -> Dictionary:
-	if tile != "tall_grass":
+	var kind: String = {"tall_grass": "grass", "deep_water": "water"}.get(tile, "")
+	if kind == "":
 		return {}
 	if not rng.chance(STEP_CHANCE):
 		return {}
-	var list := candidates(zone, "grass", phase, weather)
+	var list := candidates(zone, kind, phase, weather)
 	if list.is_empty():
 		return {}
 	var e := pick_entry(list, rng.roll())

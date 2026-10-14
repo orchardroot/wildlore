@@ -4,6 +4,7 @@ extends Node3D
 
 const WALK_SPEED := 4.0   # tiles per second
 const RUN_SPEED := 7.0
+const BIKE_SPEED := 9.0
 const TURN_GRACE := 0.09  # a quick tap turns on the spot, holding walks
 
 signal step_finished(p: Vector2i)
@@ -18,12 +19,69 @@ var _held_t := 0.0
 var _bump_cooldown := 0.0
 ## The playtest bot sets this to drive the player without real input.
 var forced_dir := ""
+var on_bike := false
+var wading := false
+var _bike: Node3D
+var _coracle: MeshInstance3D
 
 func setup(ow: Node, sprite_id: String) -> void:
 	overworld = ow
 	sprite = CharSprite.new()
 	add_child(sprite)
 	sprite.setup(sprite_id)
+	_bike = _make_bike()
+	add_child(_bike)
+	_coracle = MeshInstance3D.new()
+	var cyl := CylinderMesh.new()
+	cyl.top_radius = 0.42
+	cyl.bottom_radius = 0.3
+	cyl.height = 0.18
+	cyl.radial_segments = 10
+	_coracle.mesh = cyl
+	var m := StandardMaterial3D.new()
+	m.albedo_color = Color("6b4a32")
+	_coracle.material_override = m
+	_coracle.position = Vector3(0, 0.02, 0)
+	add_child(_coracle)
+	_refresh_ride()
+
+## A little bicycle under the sprite: two wheels and a frame, side-on to the camera.
+func _make_bike() -> Node3D:
+	var root := Node3D.new()
+	var mat := StandardMaterial3D.new()
+	mat.albedo_color = Color("2f6b8a")
+	for x in [-0.28, 0.28]:
+		var w := MeshInstance3D.new()
+		var t := TorusMesh.new()
+		t.inner_radius = 0.13
+		t.outer_radius = 0.17
+		w.mesh = t
+		w.rotation_degrees = Vector3(90, 0, 0)
+		w.position = Vector3(x, 0.17, 0.05)
+		w.material_override = mat
+		root.add_child(w)
+	var frame := MeshInstance3D.new()
+	var b := BoxMesh.new()
+	b.size = Vector3(0.56, 0.05, 0.05)
+	frame.mesh = b
+	frame.position = Vector3(0, 0.3, 0.05)
+	frame.material_override = mat
+	root.add_child(frame)
+	return root
+
+func set_bike(v: bool) -> void:
+	on_bike = v
+	_refresh_ride()
+
+func set_wading(v: bool) -> void:
+	wading = v
+	_refresh_ride()
+
+func _refresh_ride() -> void:
+	if _bike:
+		_bike.visible = on_bike
+	if _coracle:
+		_coracle.visible = wading
 
 func place(p: Vector2i, dir: String, y: float) -> void:
 	grid_pos = p
@@ -47,6 +105,9 @@ func _physics_process(delta: float) -> void:
 		return
 	if forced_dir == "" and Input.is_action_just_pressed("menu"):
 		overworld.open_pause()
+		return
+	if forced_dir == "" and Input.is_action_just_pressed("bike") and overworld.has_method("toggle_bike"):
+		overworld.toggle_bike()
 		return
 	var dir := forced_dir if forced_dir != "" else _input_dir()
 	if dir == "":
@@ -82,6 +143,9 @@ func try_step(dir: String, running := false) -> bool:
 	face(dir)
 	var target := GridMotion.step(grid_pos, dir)
 	var verdict: String = overworld.can_enter(target, GridMotion.dir_vec(dir))
+	if verdict == "cut":
+		overworld.cut_bramble(target)
+		return false
 	if verdict == "blocked":
 		sprite.walking = false
 		if _bump_cooldown <= 0.0:
@@ -90,7 +154,7 @@ func try_step(dir: String, running := false) -> bool:
 		return false
 	moving = true
 	sprite.walking = true
-	var speed := RUN_SPEED if running else WALK_SPEED
+	var speed := BIKE_SPEED if on_bike else (RUN_SPEED if running else WALK_SPEED)
 	var dest_y: float = overworld.ground_y(target)
 	var dest := Vector3(target.x + 0.5, dest_y, target.y + 0.5)
 	var tw := create_tween()

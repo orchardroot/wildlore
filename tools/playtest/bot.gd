@@ -41,7 +41,7 @@ func _process(delta: float) -> void:
 	var ow := _ow()
 	if ow and ow.zone and ow.player and not ow.player.moving and not Router.busy:
 		var p: Vector2i = ow.player.grid_pos
-		if ow.zone.in_bounds(p) and not ow.zone.walkable(p) and ow.zone.tile_at(p) != "ledge_south":
+		if ow.zone.in_bounds(p) and not ow.zone.walkable(p, Vector2i.ZERO, FieldMoves.abilities(Game.data)) and ow.zone.tile_at(p) != "ledge_south":
 			_fail("player stands on unwalkable %s at %s in %s" % [ow.zone.tile_at(p), p, ow.zone.id])
 	if _elapsed > _limit:
 		if mode == "fuzz":
