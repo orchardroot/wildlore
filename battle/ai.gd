@@ -2,7 +2,7 @@ class_name BattleAI
 extends RefCounted
 ## Chooses actions. "wild": random usable move. "trainer": best expected damage. "keeper": also switches out of bad match-ups.
 
-static func choose(b: Battle, side: int, tier: String) -> Dictionary:
+static func choose(b: Battle, side: int, tier: String) -> Variant:
 	var me := b.current(side)
 	var foe := b.current(1 - side)
 	var usable := _usable(b, me)
@@ -53,7 +53,7 @@ static func _better_switch(b: Battle, side: int) -> int:
 	var party: Array = b.parties[side]
 	for i in party.size():
 		var c: Creature = party[i]
-		if i == b.active[side] or c.is_fainted() or c.hp * 2 <= c.max_hp():
+		if i in b.active[side] or c.is_fainted() or c.hp * 2 <= c.max_hp():
 			continue
 		if _best_score(b, c, foe) > mine * 2.0:
 			return i

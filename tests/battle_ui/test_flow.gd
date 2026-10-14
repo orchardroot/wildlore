@@ -223,3 +223,66 @@ func test_first_catch_shows_the_fieldbook_popup() -> void:
 	var f := _flow([a], [foe], ui, {}, {"wicker_snare": 20})
 	f.run()
 	assert_eq(ui.first_catches, ["pushover"])
+
+# --- double battles --------------------------------------------------------------
+
+func _double_opts() -> Dictionary:
+	return {"kind": "trainer", "ai": "trainer", "double": true, "trainer": {"name": "Twins Aoife and Fionn"}}
+
+func test_double_battle_runs_to_a_win_and_shares_xp() -> void:
+	var a := Fixtures.creature("kindlet", 20)
+	var b := Fixtures.creature("kindlet", 20)
+	var xa := a.xp
+	var xb := b.xp
+	var ui := FakeBattleUI.new()
+	var f := _flow([a, b], [Fixtures.creature("spikkin", 3), Fixtures.creature("spikkin", 3)], ui, _double_opts())
+	f.run()
+	assert_eq(f.result.result, "win")
+	assert_true(f.battle.double)
+	assert_true(a.xp > xa and b.xp > xb, "both creatures on the field earned XP")
+	assert_has(f.log, "Twins Aoife and Fionn sends out Spikkin and Spikkin!")
+	assert_has(f.log, "Go! Kindlet and Kindlet!")
+
+func test_double_battle_xp_goes_only_to_witnesses() -> void:
+	var a := Fixtures.creature("kindlet", 20)
+	var b := Fixtures.creature("kindlet", 20)
+	var bench := Fixtures.creature("kindlet", 20)
+	var x0 := bench.xp
+	var f := _flow([a, b, bench], [Fixtures.creature("spikkin", 3), Fixtures.creature("spikkin", 3)], FakeBattleUI.new(), _double_opts())
+	f.run()
+	assert_eq(f.result.result, "win")
+	assert_eq(bench.xp, x0, "the creature on the bench saw nothing")
+
+func test_double_battle_replaces_each_fainted_position() -> void:
+	var a := Fixtures.creature("kindlet", 3)
+	var b := Fixtures.creature("kindlet", 3)
+	var c := Fixtures.creature("kindlet", 3)
+	var ui := FakeBattleUI.new()
+	var f := _flow([a, b, c], [Fixtures.creature("spikkin", 30), Fixtures.creature("spikkin", 30)], ui, _double_opts())
+	f.run()
+	assert_eq(f.result.result, "lose")
+	assert_eq(ui.replacement_asked, 1, "one reserve, one replacement")
+	assert_true(c.is_fainted(), "the reserve came in and fought")
+
+func test_double_battle_refuses_snares() -> void:
+	var ui := FakeBattleUI.new()
+	ui.picks.append({"kind": "item", "item": "wicker_snare"})
+	var f := _flow([Fixtures.creature("kindlet", 20), Fixtures.creature("kindlet", 20)],
+		[Fixtures.creature("spikkin", 3), Fixtures.creature("spikkin", 3)], ui, _double_opts(), {"wicker_snare": 2})
+	f.run()
+	assert_eq(f.data.bag.wicker_snare, 2, "not consumed")
+	assert_eq(f.result.result, "win")
+
+func test_double_battle_target_is_passed_through() -> void:
+	var ui := FakeBattleUI.new()
+	ui.picks.append({"kind": "fight", "slot": 0, "target": 1})
+	ui.picks.append({"kind": "fight", "slot": 0, "target": 1})
+	var f := _flow([Fixtures.creature("kindlet", 20), Fixtures.creature("kindlet", 20)],
+		[Fixtures.creature("spikkin", 20), Fixtures.creature("spikkin", 20)], ui, _double_opts())
+	f.run()
+	var first_player_hit := {}
+	for e in ui.event_batches[0]:
+		if e.type == "damage" and e.side == Battle.FOE:
+			first_player_hit = e
+			break
+	assert_eq(first_player_hit.get("pos", -1), 1)

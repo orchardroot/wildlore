@@ -3,7 +3,7 @@
   {"id": "wind_shear", "name": "Wind Shear", "type": "storm", "category": "physical", "power": 70, "accuracy": 95, "pp": 20, "priority": 0, "effect": {"id": "none"}},
   {"id": "bolt_from_the_blue", "name": "Bolt from the Blue", "type": "storm", "category": "physical", "power": 95, "accuracy": 80, "pp": 8, "priority": 0, "effect": {"id": "none"}},
   {"id": "static_snap", "name": "Static Snap", "type": "storm", "category": "special", "power": 40, "accuracy": 100, "pp": 30, "priority": 0, "effect": {"id": "none"}},
-  {"id": "thunderclap", "name": "Thunderclap", "type": "storm", "category": "special", "power": 70, "accuracy": 95, "pp": 15, "priority": 0, "effect": {"id": "none"}},
+  {"id": "thunderclap", "name": "Thunderclap", "type": "storm", "category": "special", "power": 70, "accuracy": 95, "pp": 15, "priority": 0, "target": "all_foes", "effect": {"id": "none"}},
   {"id": "ball_lightning", "name": "Ball Lightning", "type": "storm", "category": "special", "power": 90, "accuracy": 85, "pp": 10, "priority": 0, "effect": {"id": "status", "status": "stung", "chance": 20}},
   {"id": "storm_front", "name": "Storm Front", "type": "storm", "category": "status", "power": 0, "accuracy": 100, "pp": 20, "priority": 0, "effect": {"id": "stat", "target": "self", "stat": "spd", "stages": 1}},
   {"id": "static_cling", "name": "Static Cling", "type": "storm", "category": "status", "power": 0, "accuracy": 90, "pp": 20, "priority": 0, "effect": {"id": "stat", "target": "foe", "stat": "spd", "stages": -1}}
