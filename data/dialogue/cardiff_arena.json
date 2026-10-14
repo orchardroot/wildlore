@@ -1,9 +1,101 @@
 {
  "keeper_rhys": [
   {
-   "do": "say",
-   "who": "Keeper Rhys",
-   "text": "Placeholder: the story agent rewrites this Keeper battle script."
+   "do": "if",
+   "flag": "trainer_keeper_rhys",
+   "then": [
+    {
+     "do": "say",
+     "who": "Keeper Rhys",
+     "text": "Rain's coming. It always is. Pop back when the Enclosure's gone. Or when it's stopped raining. We'll be waiting a while."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Keeper Rhys",
+     "text": "Ha! You made it to Cardiff in one piece! Dry, too, which is frankly suspicious."
+    },
+    {
+     "do": "say",
+     "who": "Keeper Rhys",
+     "text": "Rhys. Storm Stone. I play second row on Saturdays and I'm the one who gets rained on the rest of the week."
+    },
+    {
+     "do": "say",
+     "who": "Keeper Rhys",
+     "text": "Right then. Forwards up front, backs out wide, and nobody drops the ball. Kick off!"
+    },
+    {
+     "do": "battle",
+     "trainer": "keeper_rhys"
+    },
+    {
+     "do": "say",
+     "who": "Keeper Rhys",
+     "text": "The Storm Stone. Gale, gust and a good bit of drizzle. It's a lovely old thing. It's been in a drawer with my gumshield."
+    },
+    {
+     "do": "badge",
+     "id": "storm"
+    },
+    {
+     "do": "set",
+     "flag": "badge_storm"
+    },
+    {
+     "do": "set",
+     "flag": "ch4_storm"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "{player} received the Storm Stone!"
+    },
+    {
+     "do": "sfx",
+     "id": "alert"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Your phone buzzes. Professor Garside, who sounds as if she is running."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "{player}! The Storm Stone! That's four! Anwen rang. She says the stones are singing in tune."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "Go back to Dinas Emrys. The red dragon is awake, and she's curious. She'd like to meet whoever did all this."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "And after that... the sea. Ireland. The stones are humming there too, and the Enclosure has another admin. It's all very exciting. And the biscuits are better."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "Take your time. Rest. Explore. The Moot isn't going anywhere. Neither, at the moment, is the mountain."
+    },
+    {
+     "do": "set",
+     "flag": "v02_complete"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "End of Wildlore v0.2. Ireland awaits."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "You are free to keep exploring. The Dragon is waiting at Dinas Emrys."
+    }
+   ]
   }
  ]
 }
