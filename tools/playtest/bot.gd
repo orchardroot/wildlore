@@ -26,7 +26,7 @@ func start(m: String) -> void:
 	_rng.seed = maxi(0, int(Game.args.get("seed", 1)))
 	_limit = float(Game.args.get("seconds", 0))
 	if _limit <= 0.0:
-		_limit = 1500.0 if mode == "slice" else 120.0
+		_limit = {"slice": 1500.0, "m2": 9000.0}.get(mode, 120.0)
 	Bus.battle_ended.connect(_on_battle_ended)
 	Bus.battle_started.connect(func(_k): stats.battles += 1)
 	_run()
@@ -63,15 +63,39 @@ func _run() -> void:
 	_check(Game.data.party.size() >= 1, "no starter after Garside")
 	_check(Game.data.flag("starter") != null, "starter flag missing")
 	print("BOT: starter %s, money %d" % [Game.data.flag("starter"), Game.data.money])
-	var attempts := 0
-	while "brook" not in Game.data.badges and attempts < 4 and not _done:
-		attempts += 1
-		await _grind_to(12 + attempts * 2)
-		await _heal_if_low(1.0)
-		await _talk("buxton_spa", "maud")
-		print("BOT: Keeper attempt %d, badges %s" % [attempts, Game.data.badges])
-	_check("brook" in Game.data.badges, "did not win the Brook Stone in %d attempts" % attempts)
+	await _beat("buxton_spa", "maud", "badge_brook", 12, "cat_and_fiddle")
+	if mode == "m2" and not _done:
+		await _m2()
 	_finish()
+
+## Talks to `npc` until `flag` is set, grinding a bit harder in `grind_zone` before each retry.
+func _beat(zone_id: String, npc: String, flag: String, level := 0, grind_zone := "") -> void:
+	var attempts := 0
+	while not Game.data.flag(flag) and attempts < 4 and not _done:
+		attempts += 1
+		if level > 0:
+			await _grind_to(level + (attempts - 1) * 2, grind_zone)
+		await _heal_if_low(1.0)
+		await _talk(zone_id, npc)
+		print("BOT: %s/%s attempt %d -> %s, lead %s, badges %s" % [zone_id, npc, attempts, flag, _strongest().level, Game.data.badges])
+	_check(Game.data.flag(flag) == true, "%s/%s never set %s in %d attempts" % [zone_id, npc, flag, attempts])
+
+## M2: Manchester to the Storm Stone, following docs/superpowers/plans/2026-10-14-plan-3-story-beats.md.
+func _m2() -> void:
+	var starter := str(Game.data.flag("starter"))
+	await _beat("manc_bikes", "bev", "bev_bike_given")
+	_check(int(Game.data.bag.get("bike", 0)) > 0, "no bike from Bev")
+	await _beat("liverpool", "kit", "kit3_done", 19, "chat_moss")
+	await _beat("liverpool_club", "keeper_ray", "badge_urban", 22, "chat_moss")
+	_check(int(Game.data.bag.get("rail_pass", 0)) > 0, "no rail pass after the Urban Stone")
+	await _beat("llanberis", "pryce", "trainer_pryce_1", 27, "ogwen")
+	await _beat("llanberis_quarry", "keeper_eluned", "badge_stone", 30, "ogwen")
+	await _beat("yr_wyddfa", "pryce_summit", "ch3_ddraig_woke")
+	await _beat("cardiff", "kit", "kit4_done", 35, "beacons")
+	await _beat("cardiff", "pryce", "trainer_pryce_2", 35, "beacons")
+	await _beat("cardiff_arena", "keeper_rhys", "badge_storm", 37, "beacons")
+	_check(Game.data.flag("v02_complete") == true, "no end card after the Storm Stone")
+	print("BOT: M2 done with %s, badges %s" % [starter, Game.data.badges])
 
 ## Walks to an NPC (across zones if needed) and talks to them, then waits for the script to finish.
 func _talk(zone_id: String, npc_id: String) -> void:
@@ -153,7 +177,7 @@ func _walk_to(zone_id: String, target: Vector2i) -> void:
 			return
 
 ## Walks up and down tall grass until the lead creature reaches `level`.
-func _grind_to(level: int) -> void:
+func _grind_to(level: int, zone := "") -> void:
 	var lead := _strongest()
 	if lead == null or lead.level >= level:
 		return
@@ -161,7 +185,7 @@ func _grind_to(level: int) -> void:
 	var guard := 0
 	while _strongest().level < level and not _done and guard < 4000:
 		guard += 1
-		var grind_zone := "macc_forest" if _strongest().level < 9 else "cat_and_fiddle"
+		var grind_zone := zone if zone != "" else ("macc_forest" if _strongest().level < 9 else "cat_and_fiddle")
 		var spot := _grass_spot(grind_zone)
 		await _walk_to(grind_zone, spot)
 		var ow := _ow()

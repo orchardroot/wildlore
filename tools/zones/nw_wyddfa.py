@@ -14,6 +14,11 @@ def yr_wyddfa(OUT):
     z.rect(28, 30, 11, 4, "~"); z.rect(27, 30, 1, 4, "s"); z.rect(39, 30, 1, 4, "s"); z.rect(27, 29, 13, 1, "s"); z.rect(27, 34, 13, 1, "s")
     z.height(27, 29, 13, 6, 0)
     z.legend["r"] = {"tile": "shallow", "prop": "reeds"}
+    # upland palette: grey-green turf, olive grass, stony paths (not lowland meadow green)
+    z.legend["."] = {"tile": "grass", "colour": "#5f6b4c"}
+    z.legend[","] = {"tile": "tall_grass", "colour": "#596340"}
+    z.legend["#"] = {"tile": "path", "colour": "#8a8274"}
+    z.legend["R"] = {"tile": "rock", "colour": "#6f6c64"}
     z.rect(30, 34, 5, 1, "r")
     # the zigzag up
     pth(z, [(57, 36), (57, 43)], "#", 1); z.rect(56, 41, 3, 3, "#"); z.rect(56, 36, 3, 6, "#")
@@ -70,7 +75,7 @@ def yr_wyddfa(OUT):
     z.sign(23, 27, "CLOGWYN: where the railway stops and the knees begin.")
     z.sign(28, 35, "LLYN LLYDAW. Water the colour of a very expensive jade ornament. Arthur's sword went in nearby, allegedly.")
     z.sign(34, 20, "SUMMIT: LOOSE SCREE ONLY. If you cannot fell-scramble, do not. If you can, do so with dignity.")
-    moorland(z, 2)
+    moorland(z, 2, grass="#6a7150")
     z.d["encounters"] = {"grass": [
         {"species": "kidgruff", "min": 28, "max": 30, "weight": 22, "time": ["dawn", "day", "dusk"]},
         {"species": "prismite", "min": 29, "max": 31, "weight": 14, "time": ["day", "dusk"]},
