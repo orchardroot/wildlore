@@ -24,3 +24,11 @@ func test_thin_route_is_flagged() -> void:
 func test_stub_habitat_is_skipped() -> void:
 	var z := ZoneData.from_dict({"id": "r", "name": "r", "kind": "route", "rows": ["..."], "spawn": [0, 0], "stub": true})
 	assert_eq(Coverage.check(Dex.load_default(), {"r": z}, {"scuttlet": ["r"]}), [])
+
+func test_unreachable_zone_is_flagged() -> void:
+	var a := ZoneData.from_dict({"id": "macclesfield", "name": "M", "kind": "town", "rows": ["..."], "spawn": [0, 0]})
+	var b := ZoneData.from_dict({"id": "island", "name": "I", "kind": "route", "rows": ["..."], "spawn": [0, 0]})
+	var errs := Coverage.reachability({"macclesfield": a, "island": b}, {}, {})
+	assert_true(errs.any(func(e): return e.contains("island")))
+	var c := ZoneData.from_dict({"id": "macclesfield", "name": "M", "kind": "town", "rows": ["..."], "spawn": [0, 0], "warps": [{"x": 1, "y": 0, "to": "island", "tx": 0, "ty": 0}]})
+	assert_eq(Coverage.reachability({"macclesfield": c, "island": b}, {}, {}), [])
