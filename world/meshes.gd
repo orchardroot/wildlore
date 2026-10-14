@@ -258,6 +258,45 @@ static func counter() -> ArrayMesh:
 	box(st, Vector3(-0.5, 0, -0.45), Vector3(1.0, 0.9, 0.9), Color("8a6240"), Color("b08a5a"))
 	return _finish(st)
 
+static func market_stall(variant := 0) -> ArrayMesh:
+	var st := _st()
+	var wood := Color("7a5636")
+	var stripes := [Color("c9483f"), Color("2f6f9e"), Color("3f8a55")]
+	var a: Color = stripes[variant % stripes.size()]
+	for px in [-0.45, 0.39]:
+		for pz in [-0.35, 0.29]:
+			box(st, Vector3(px, 0, pz), Vector3(0.06, 1.15, 0.06), wood)
+	box(st, Vector3(-0.48, 0.55, -0.38), Vector3(0.96, 0.08, 0.72), wood.lightened(0.1))
+	for i in 6:
+		var c: Color = a if i % 2 == 0 else Color("f2ede2")
+		box(st, Vector3(-0.5 + i * 0.1667, 1.15, -0.42), Vector3(0.1667, 0.06, 0.84), c)
+	box(st, Vector3(-0.4, 0.63, -0.25), Vector3(0.25, 0.12, 0.2), Color("d9a441"))
+	box(st, Vector3(0.05, 0.63, -0.2), Vector3(0.3, 0.1, 0.25), Color("8fbf4a"))
+	return _finish(st)
+
+static func planter(variant := 0) -> ArrayMesh:
+	var rng := _rng(11000 + variant)
+	var st := _st()
+	box(st, Vector3(-0.4, 0, -0.4), Vector3(0.8, 0.35, 0.8), Color("8c8270"), Color("5a4632"))
+	blob(st, Vector3(0, 0.5, 0), Vector3(0.32, 0.25, 0.32), Color("4c7a39"), rng)
+	for i in 4:
+		box(st, Vector3(rng.randf_range(-0.25, 0.2), 0.62, rng.randf_range(-0.25, 0.2)), Vector3(0.07, 0.07, 0.07), [Color("d8566b"), Color("e8d34a")][i % 2])
+	return _finish(st)
+
+static func phone_box() -> ArrayMesh:
+	var st := _st()
+	var red := Color("c0302b")
+	box(st, Vector3(-0.3, 0, -0.3), Vector3(0.6, 1.9, 0.6), red)
+	box(st, Vector3(-0.34, 1.9, -0.34), Vector3(0.68, 0.12, 0.68), red.darkened(0.1))
+	box(st, Vector3(-0.22, 0.5, 0.29), Vector3(0.44, 1.1, 0.02), Color("bfd4dc"))
+	return _finish(st)
+
+static func post_box() -> ArrayMesh:
+	var st := _st()
+	cylinder(st, Vector3(0, 0, 0), 0.2, 0.95, 8, Color("c0302b"))
+	box(st, Vector3(-0.21, 0.95, -0.21), Vector3(0.42, 0.1, 0.42), Color("2d3138"))
+	return _finish(st)
+
 # --- buildings ---------------------------------------------------------------
 
 const WALLS := {
@@ -277,7 +316,7 @@ static func building(w: int, d: int, style: String, door_x := -1, seed_value := 
 	var wall: Color = WALLS.get(style, WALLS.red_brick)
 	var roof: Color = ROOFS.get(style, ROOFS.red_brick)
 	var storeys := 2 if w >= 5 and d >= 3 else 1
-	var hgt := 1.5 * storeys + 0.3
+	var hgt := 1.2 * storeys + 0.25
 	box(st, Vector3(0.05, 0, 0.05), Vector3(w - 0.1, hgt, d - 0.1), wall)
 	# plinth and quoins
 	box(st, Vector3(0.0, 0, 0.0), Vector3(w, 0.18, d), wall.darkened(0.3))
@@ -286,7 +325,7 @@ static func building(w: int, d: int, style: String, door_x := -1, seed_value := 
 	# pitched roof, ridge running east-west
 	var eave := 0.18
 	var ry := hgt
-	var rise := minf(1.4, d * 0.45)
+	var rise := minf(1.2, d * 0.38)
 	var a := Vector3(-eave, ry, -eave)
 	var b := Vector3(w + eave, ry, -eave)
 	var c := Vector3(w + eave, ry, d + eave)
@@ -304,14 +343,14 @@ static func building(w: int, d: int, style: String, door_x := -1, seed_value := 
 	box(st, Vector3(cx, ry + rise * 0.4, d * 0.5 - 0.2), Vector3(0.35, rise * 0.9, 0.4), wall.darkened(0.2))
 	# door
 	if door_x >= 0:
-		box(st, Vector3(door_x + 0.22, 0.18, d - 0.08), Vector3(0.56, 1.05, 0.06), Color("3b2a22"))
-		box(st, Vector3(door_x + 0.15, 1.23, d - 0.09), Vector3(0.7, 0.08, 0.08), wall.lightened(0.2))
+		box(st, Vector3(door_x + 0.22, 0.18, d - 0.08), Vector3(0.56, 0.9, 0.06), Color("3b2a22"))
+		box(st, Vector3(door_x + 0.15, 1.08, d - 0.09), Vector3(0.7, 0.08, 0.08), wall.lightened(0.2))
 	var wst := _st()
 	for s in storeys:
-		var wy := 0.55 + 1.5 * s
+		var wy := 0.42 + 1.2 * s
 		for x in w:
 			if x == door_x and s == 0:
 				continue
-			box(st, Vector3(x + 0.27, wy - 0.06, d - 0.07), Vector3(0.46, 0.72, 0.04), wall.lightened(0.25))
-			box(wst, Vector3(x + 0.32, wy, d - 0.065), Vector3(0.36, 0.6, 0.04), Color.WHITE)
+			box(st, Vector3(x + 0.27, wy - 0.06, d - 0.07), Vector3(0.46, 0.6, 0.04), wall.lightened(0.25))
+			box(wst, Vector3(x + 0.32, wy, d - 0.065), Vector3(0.36, 0.48, 0.04), Color.WHITE)
 	return [_finish(st), _finish(wst)]

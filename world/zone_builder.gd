@@ -6,7 +6,7 @@ extends RefCounted
 const LEVEL := 0.5          # world units per height level
 const SKIRT := 1.6          # how far the diorama's outer edge drops
 const GROUND_COLOURS := {
-	"grass": Color("5c8f3c"), "tall_grass": Color("4f8035"), "path": Color("b9a57c"), "road": Color("55575d"),
+	"grass": Color("527f37"), "tall_grass": Color("4f8035"), "path": Color("b9a57c"), "road": Color("55575d"),
 	"cobbles": Color("9a8f80"), "sand": Color("cdb57f"), "flowers": Color("5c8f3c"), "shallow": Color("8fa39a"),
 	"water": Color("6b7f6a"), "door": Color("c8b48a"), "building": Color("b9a98a"), "floor_wood": Color("9a6b43"),
 	"floor_tile": Color("d9d2bd"), "counter": Color("9a6b43"), "ledge_south": Color("5c8f3c"), "cliff": Color("8c8270"),
@@ -117,7 +117,9 @@ static func _paint(col: Color, x: float, z: float) -> Color:
 
 static func _vary(t: String, col: Color, x: int, y: int, rng: RandomNumberGenerator) -> Color:
 	match t:
-		"cobbles", "floor_tile":
+		"cobbles":
+			col = col.darkened(rng.randf_range(0.0, 0.07))
+		"floor_tile":
 			col = col.darkened(0.08) if (x + y) % 2 == 0 else col
 		"floor_wood":
 			col = col.darkened(0.07) if x % 2 == 0 else col.lightened(0.03)
@@ -197,7 +199,7 @@ static func _props(z: ZoneData, root: Node3D, rng: RandomNumberGenerator) -> voi
 		_add(buckets, "sign_post:0", Transform3D(Basis(), Vector3(int(s.x) + 0.5, ground_y(z, Vector2i(int(s.x), int(s.y))), int(s.y) + 0.5)))
 	for pr in z.props:
 		var pt: String = pr.get("type", "")
-		if pt in ["lamp_post", "bench", "bush", "birch", "oak", "pine", "rock"]:
+		if pt in ["lamp_post", "bench", "bush", "birch", "oak", "pine", "rock", "market_stall", "planter", "phone_box", "post_box"]:
 			var pos := Vector2i(int(pr.x), int(pr.y))
 			var tr := Transform3D(Basis(Vector3.UP, deg_to_rad(float(pr.get("rot", 0)))), Vector3(pos.x + 0.5, ground_y(z, pos), pos.y + 0.5))
 			_add(buckets, "%s:%d" % [pt, int(pr.get("variant", 0))], tr)
@@ -263,6 +265,14 @@ static func _ctor(name: String, variant: int) -> ArrayMesh:
 			return Meshes.bench()
 		"sign_post":
 			return Meshes.sign_post()
+		"market_stall":
+			return Meshes.market_stall(variant)
+		"planter":
+			return Meshes.planter(variant)
+		"phone_box":
+			return Meshes.phone_box()
+		"post_box":
+			return Meshes.post_box()
 		"counter":
 			return Meshes.counter()
 	push_warning("ZoneBuilder: unknown prop mesh '%s'" % name)

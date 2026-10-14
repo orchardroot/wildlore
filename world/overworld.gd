@@ -178,6 +178,8 @@ func interact(p: Vector2i) -> void:
 		await say([str(s.text)])
 		return
 	var n := npc_at(p)
+	if n == null and zone.tile_at(p) == "counter":
+		n = npc_at(p + GridMotion.dir_vec(player.facing))  # talk across a shop or Sanctuary counter
 	if n and n.has_method("interact"):
 		await n.interact(player)
 

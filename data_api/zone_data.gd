@@ -35,6 +35,7 @@ var encounters: Dictionary = {}
 var signs: Array = []
 var spawn := Vector2i.ZERO
 var parse_errors: Array = []
+var blocked: Dictionary = {}   # Vector2i -> true for point props (lamp posts, benches, stalls)
 
 static func load_id(zone_id: String) -> ZoneData:
 	var d = JsonUtil.read(DIR.path_join(zone_id + ".json"))
@@ -66,6 +67,9 @@ static func from_dict(d: Dictionary) -> ZoneData:
 	z.signs = d.get("signs", [])
 	var sp: Array = d.get("spawn", [0, 0])
 	z.spawn = Vector2i(int(sp[0]), int(sp[1]))
+	for p in z.props:
+		if p.get("type", "") != "building" and not p.get("walk", false):
+			z.blocked[Vector2i(int(p.get("x", 0)), int(p.get("y", 0)))] = true
 	var rows: Array = d.get("rows", [])
 	z.height = rows.size()
 	z.width = 0
@@ -126,7 +130,7 @@ func walkable(p: Vector2i, from_dir := Vector2i.ZERO) -> bool:
 	var t := tile_at(p)
 	if t == "ledge_south":
 		return from_dir == Vector2i(0, 1)
-	if t not in WALKABLE_TILES:
+	if t not in WALKABLE_TILES or blocked.has(p):
 		return false
 	if from_dir != Vector2i.ZERO:
 		var prev := p - from_dir

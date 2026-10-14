@@ -92,3 +92,8 @@ func test_validate_edge_needs_a_way_back() -> void:
 	var a := ZoneData.from_dict(_base(["...", "...", "..."], {"id": "a", "edges": {"north": {"to": "b", "offset": 0}}}))
 	var b := ZoneData.from_dict(_base(["...", "...", "..."], {"id": "b"}))
 	assert_true(_has(a.validate({"a": a, "b": b}), "no south edge back"))
+
+func test_point_props_block_movement() -> void:
+	var z := _z("testbed")
+	assert_false(z.walkable(Vector2i(11, 4)), "lamp post")
+	assert_false(z.walkable(Vector2i(18, 4)), "bench")

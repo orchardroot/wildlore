@@ -4,7 +4,7 @@ extends Node3D
 ## with a little lead, clamped so the void outside the zone stays off screen.
 
 const PITCH := 35.0
-var distance := 18.0
+var distance := 21.0
 var fov := 30.0
 var target: Node3D
 var bounds := Rect2(0, 0, 10, 10)
@@ -22,7 +22,7 @@ func _ready() -> void:
 
 func configure(zone_w: int, zone_h: int, interior: bool) -> void:
 	bounds = Rect2(0, 0, zone_w, zone_h)
-	distance = 12.0 if interior else 18.0
+	distance = 12.0 if interior else 21.0
 	fov = 32.0 if interior else 30.0
 	if camera:
 		camera.fov = fov
