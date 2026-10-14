@@ -1,0 +1,21 @@
+{
+  "line": "scuttlet",
+  "species": [
+    {"id": "scuttlet", "name": "Scuttlet", "types": ["kin"],
+     "base": {"hp": 45, "atk": 50, "def": 40, "lore": 35, "ward": 50, "spd": 80},
+     "growth": "fast", "catch_rate": 200, "base_xp": 55,
+     "learnset": [[1, "scrap"], [1, "quick_nip"], [6, "glare"], [10, "hunker"], [14, "barge"]],
+     "evolves": {"to": "warrender", "level": 18}, "habitat": [],
+     "dex": {"text": "Bolts out of the hedge in a blur of white tail, then acts as if it was never there. Nobody has ever caught one by tiptoeing up on it.",
+             "fact": "A rabbit's eyes sit on the sides of its head, giving it a field of view close to 360 degrees."},
+     "sprite": "scuttlet"},
+    {"id": "warrender", "name": "Warrender", "types": ["kin", "brawn"],
+     "base": {"hp": 65, "atk": 85, "def": 80, "lore": 50, "ward": 65, "spd": 75},
+     "growth": "medium", "catch_rate": 90, "base_xp": 145,
+     "learnset": [[1, "scrap"], [1, "glare"], [18, "shove"], [22, "hunker"], [26, "flex"], [30, "barge"], [36, "haymaker"]],
+     "evolves": null, "habitat": [],
+     "dex": {"text": "Once a Scuttlet has got over its nerves it starts giving orders to the rest of the field, and the rest of the field tends to obey. Leaves the warren tidy, mostly.",
+             "fact": "The word warren comes from an Anglo-French term for an enclosure where rabbits were kept."},
+     "sprite": "warrender"}
+  ]
+}
