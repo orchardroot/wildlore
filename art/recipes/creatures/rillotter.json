@@ -1,0 +1,27 @@
+{"id": "rillotter",
+ "palette": {"fur": "#6b4d4a", "fur2": "#4d3638", "cream": "#e9d6c0", "nose": "#231a20", "whisk": "#fff4e0", "water": "#58aedc", "water2": "#a8e0f4", "rill": "#7fd0ee"},
+ "layers": [
+  {"shape": "poly", "points": [[58, 82], [68, 62], [76, 46], [80, 32], [90, 30], [92, 48], [86, 70], [76, 88]], "colour": "fur", "front_only": true},
+  {"shape": "ellipse", "at": [30, 30], "size": [11, 11], "colour": "fur", "mirror": true},
+  {"shape": "ellipse", "at": [48, 66], "size": [54, 40], "colour": "fur", "pattern": "stripes", "pcolour": "fur2", "period": 9, "pangle": 80},
+  {"shape": "ellipse", "at": [48, 70], "size": [30, 30], "colour": "cream", "front_only": true},
+  {"shape": "ellipse", "at": [24, 68], "size": [20, 10], "colour": "fur", "angle": -28, "mirror": true},
+  {"shape": "ellipse", "at": [48, 43], "size": [50, 40], "colour": "fur"},
+  {"shape": "ellipse", "at": [48, 52], "size": [30, 20], "colour": "cream", "front_only": true, "rim": false},
+  {"shape": "ellipse", "at": [48, 89], "size": [88, 11], "colour": "water2", "rim": false, "shade": false},
+  {"shape": "ellipse", "at": [48, 89], "size": [78, 8], "colour": "water", "rim": false},
+  {"shape": "ellipse", "at": [48, 90], "size": [44, 3], "colour": "water2", "rim": false, "shade": false},
+  {"shape": "circle", "at": [12, 72], "r": 2, "colour": "water2", "rim": false, "shade": false},
+  {"shape": "circle", "at": [84, 78], "r": 2.5, "colour": "water2", "rim": false, "shade": false},
+  {"shape": "circle", "at": [8, 82], "r": 1.5, "colour": "water", "rim": false, "shade": false},
+  {"shape": "circle", "at": [20, 62], "r": 1.5, "colour": "water2", "rim": false, "shade": false}
+ ],
+ "face_layers": [
+  {"shape": "ellipse", "at": [48, 48], "size": [11, 7], "colour": "nose", "rim": false},
+  {"shape": "line", "points": [[43, 53], [45.5, 55.5], [48, 53], [50.5, 55.5], [53, 53]], "width": 1, "colour": "nose", "shade": false},
+  {"shape": "line", "points": [[36, 52], [22, 49]], "width": 1, "colour": "whisk", "shade": false, "mirror": true},
+  {"shape": "line", "points": [[36, 55], [22, 57]], "width": 1, "colour": "whisk", "shade": false, "mirror": true},
+  {"shape": "tri", "points": [[44, 30], [48, 25], [52, 30]], "colour": "rill", "shade": false}
+ ],
+ "eyes": [{"at": [37, 42], "r": 4, "mirror": true}]
+}

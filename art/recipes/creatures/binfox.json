@@ -1,0 +1,30 @@
+{"id": "binfox",
+ "palette": {"fur": "#d0682c", "fur2": "#a14a1e", "cream": "#f5ecdc", "sock": "#2c2226", "nose": "#1c1418", "amber": "#e6b030", "foil": "#e8c030", "foil2": "#d03a2a", "silver": "#cfd6de", "grub": "#b8b0a0"},
+ "layers": [
+  {"shape": "ellipse", "at": [76, 68], "size": [28, 46], "colour": "fur", "angle": 18, "front_only": true, "pattern": "speckle", "pcolour": "fur2", "density": 14},
+  {"shape": "circle", "at": [82, 50], "r": 8, "colour": "cream", "front_only": true, "rim": false},
+  {"shape": "ellipse", "at": [48, 66], "size": [50, 56], "colour": "fur", "back_only": true},
+  {"shape": "circle", "at": [48, 88], "r": 8, "colour": "cream", "back_only": true},
+  {"shape": "ellipse", "at": [37, 89], "size": [17, 9], "colour": "sock", "mirror": true},
+  {"shape": "ellipse", "at": [48, 68], "size": [46, 44], "colour": "fur"},
+  {"shape": "ellipse", "at": [48, 72], "size": [24, 34], "colour": "cream", "front_only": true, "pattern": "speckle", "pcolour": "grub", "density": 10},
+  {"shape": "ellipse", "at": [35, 76], "size": [10, 20], "colour": "sock", "mirror": true, "front_only": true},
+  {"shape": "tri", "points": [[24, 38], [26, 6], [44, 28]], "colour": "fur", "mirror": true},
+  {"shape": "tri", "points": [[28, 30], [28, 12], [38, 26]], "colour": "sock", "mirror": true, "rim": false, "back_only": true},
+  {"shape": "tri", "points": [[29, 32], [29, 14], [38, 28]], "colour": "cream", "mirror": true, "rim": false, "front_only": true},
+  {"shape": "spikes", "at": [48, 46], "size": [46, 22], "count": 8, "len": 7, "from": 10, "to": 170, "colour": "cream", "rim": false, "front_only": true},
+  {"shape": "spikes", "at": [48, 42], "size": [40, 20], "count": 6, "len": 5, "from": -200, "to": 20, "colour": "fur2", "rim": false},
+  {"shape": "ellipse", "at": [48, 42], "size": [48, 36], "colour": "fur"},
+  {"shape": "ellipse", "at": [48, 51], "size": [26, 20], "colour": "cream", "front_only": true, "rim": false},
+  {"shape": "poly", "points": [[8, 78], [22, 72], [34, 76], [30, 90], [14, 90]], "colour": "foil", "pattern": "stripes", "pcolour": "foil2", "period": 6, "pangle": 20, "rim": false},
+  {"shape": "line", "points": [[12, 80], [26, 78]], "width": 1, "colour": "silver", "shade": false},
+  {"shape": "line", "points": [[14, 86], [30, 84]], "width": 1, "colour": "silver", "shade": false}
+ ],
+ "face_layers": [
+  {"shape": "ellipse", "at": [48, 48], "size": [9, 6], "colour": "nose", "rim": false},
+  {"shape": "line", "points": [[43, 53], [46, 55], [48, 53], [50, 55], [53, 52]], "width": 1, "colour": "nose", "shade": false},
+  {"shape": "line", "points": [[28, 34], [41, 38]], "width": 2, "colour": "fur2", "shade": false, "mirror": true},
+  {"shape": "line", "points": [[36, 49], [24, 46]], "width": 1, "colour": "sock", "shade": false, "mirror": true}
+ ],
+ "eyes": [{"at": [38, 41], "r": 3.5, "colour": "amber", "pupil": [2, 5], "mirror": true}]
+}
