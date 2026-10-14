@@ -179,9 +179,16 @@ func _do_run(side: int, ev: Array) -> void:
 	if ok:
 		_finish(-1, ev)
 
-## Replaced in Task 12; until then a catch attempt is ignored.
-func _do_catch(_snare: String, _ev: Array) -> void:
-	pass
+func _do_catch(snare: String, ev: Array) -> void:
+	if kind != "wild":
+		ev.append({"type": "catch", "success": false, "reason": "trainer"})
+		return
+	var foe := current(FOE)
+	var ok := Catching.attempt(foe, snare, time, rng)
+	ev.append({"type": "catch", "success": ok})
+	if ok:
+		caught = foe
+		_finish(-1, ev)
 
 func _faint(side: int, ev: Array) -> void:
 	ev.append({"type": "faint", "side": side, "user": current(side).display_name()})
