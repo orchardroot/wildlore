@@ -1,0 +1,22 @@
+{
+  "types": ["kin", "hedgerow", "brook", "tide", "hearth", "gale", "storm", "frost",
+            "stone", "bog", "iron", "urban", "fae", "spirit", "brawn", "night"],
+  "chart": {
+    "kin":      {"se": [], "nve": ["stone", "iron"], "none": ["spirit"]},
+    "hedgerow": {"se": ["brook", "tide", "stone"], "nve": ["hearth", "gale", "bog", "iron", "urban", "hedgerow"], "none": []},
+    "brook":    {"se": ["hearth", "stone"], "nve": ["brook", "hedgerow", "frost"], "none": []},
+    "tide":     {"se": ["hearth", "stone", "iron"], "nve": ["tide", "hedgerow", "storm"], "none": []},
+    "hearth":   {"se": ["hedgerow", "frost", "iron"], "nve": ["brook", "tide", "stone", "hearth"], "none": []},
+    "gale":     {"se": ["hedgerow", "brawn"], "nve": ["stone", "iron", "storm"], "none": []},
+    "storm":    {"se": ["brook", "tide", "gale"], "nve": ["hedgerow", "storm"], "none": ["stone"]},
+    "frost":    {"se": ["hedgerow", "gale", "bog"], "nve": ["hearth", "iron", "tide", "frost"], "none": []},
+    "stone":    {"se": ["hearth", "gale", "frost", "storm"], "nve": ["brawn", "brook"], "none": []},
+    "bog":      {"se": ["hedgerow", "brook", "fae"], "nve": ["bog", "stone", "spirit"], "none": ["iron"]},
+    "iron":     {"se": ["fae", "frost", "stone"], "nve": ["hearth", "brook", "tide", "iron"], "none": []},
+    "urban":    {"se": ["hedgerow", "kin"], "nve": ["brawn", "iron", "night"], "none": []},
+    "fae":      {"se": ["brawn", "night"], "nve": ["iron", "urban", "fae"], "none": []},
+    "spirit":   {"se": ["spirit", "urban"], "nve": ["night"], "none": ["kin"]},
+    "brawn":    {"se": ["kin", "stone", "iron", "urban", "frost"], "nve": ["gale", "fae", "bog"], "none": ["spirit"]},
+    "night":    {"se": ["spirit", "fae"], "nve": ["brawn", "night"], "none": []}
+  }
+}
