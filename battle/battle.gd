@@ -20,6 +20,7 @@ var over := false
 var winner := -1
 var caught: Creature = null
 var run_attempts := 0
+var _pending: Array = []  # events raised before the first turn (a battle that starts already decided)
 
 func _init(player_party: Array, foe_party: Array, opts: Dictionary) -> void:
 	parties = [player_party, foe_party]
@@ -33,7 +34,7 @@ func _init(player_party: Array, foe_party: Array, opts: Dictionary) -> void:
 		for c in parties[side]:
 			c.reset_stages()
 		active[side] = maxi(0, _first_able(side))
-	_check_end([])
+	_check_end(_pending)
 
 func current(side: int) -> Creature:
 	return parties[side][active[side]]
@@ -42,9 +43,13 @@ func needs_switch(side: int) -> bool:
 	return not over and current(side).is_fainted()
 
 func take_turn(player_action: Dictionary, foe_action: Dictionary) -> Array:
-	var ev := []
+	var ev := _pending
+	_pending = []
 	if over:
 		return ev
+	for side in [PLAYER, FOE]:
+		if needs_switch(side):
+			return [{"type": "invalid", "side": side, "reason": "needs_switch"}]
 	var actions := [player_action, foe_action]
 	for side in _order(actions):
 		if over:
@@ -67,9 +72,12 @@ func take_turn(player_action: Dictionary, foe_action: Dictionary) -> Array:
 	return ev
 
 ## Bring in a replacement after a faint, between turns.
+## Returns [{"type": "invalid", ...}] when the index cannot be sent out.
 func force_switch(side: int, index: int) -> Array:
 	var ev := []
 	_do_switch(side, index, ev)
+	if ev.is_empty():
+		ev.append({"type": "invalid", "side": side, "reason": "bad_switch"})
 	return ev
 
 func _order(actions: Array) -> Array:
@@ -99,7 +107,8 @@ func _speed(side: int) -> float:
 func _peek_move(c: Creature, slot: int) -> Dictionary:
 	if slot < 0 or slot >= c.moves.size() or int(c.moves[slot].pp) <= 0:
 		return FLAIL
-	return move_db.get_move(c.moves[slot].id)
+	var move := move_db.get_move(c.moves[slot].id)
+	return move if not move.is_empty() else FLAIL  # a save can outlive a renamed move
 
 func _do_move(side: int, slot: int, ev: Array) -> void:
 	var user := current(side)

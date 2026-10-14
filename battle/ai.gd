@@ -5,7 +5,7 @@ extends RefCounted
 static func choose(b: Battle, side: int, tier: String) -> Dictionary:
 	var me := b.current(side)
 	var foe := b.current(1 - side)
-	var usable := _usable(me)
+	var usable := _usable(b, me)
 	if usable.is_empty():
 		return {"type": "move", "slot": 0}  # Battle falls back to Flail
 	if tier == "wild":
@@ -33,16 +33,17 @@ static func score(b: Battle, me: Creature, foe: Creature, move: Dictionary) -> f
 		s *= 1.5
 	return s
 
-static func _usable(c: Creature) -> Array:
+## Slots with PP left whose move still exists in the database.
+static func _usable(b: Battle, c: Creature) -> Array:
 	var out := []
 	for i in c.moves.size():
-		if int(c.moves[i].pp) > 0:
+		if int(c.moves[i].pp) > 0 and b.move_db.has(c.moves[i].id):
 			out.append(i)
 	return out
 
 static func _best_score(b: Battle, c: Creature, foe: Creature) -> float:
 	var best := 0.0
-	for i in _usable(c):
+	for i in _usable(b, c):
 		best = maxf(best, score(b, c, foe, b.move_db.get_move(c.moves[i].id)))
 	return best
 

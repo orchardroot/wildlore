@@ -26,3 +26,9 @@ func test_no_pp_left_still_returns_an_action() -> void:
 		m.pp = 0
 	var b := Fixtures.battle([Fixtures.creature("spikkin", 10)], [foe])
 	assert_eq(BattleAI.choose(b, 1, "trainer"), {"type": "move", "slot": 0})
+
+func test_skips_moves_missing_from_the_database() -> void:
+	var foe := Fixtures.creature("kindlet", 10)
+	foe.moves[2].id = "renamed_away"
+	var b := Fixtures.battle([Fixtures.creature("spikkin", 10)], [foe], {"kind": "trainer"})
+	assert_true(BattleAI.choose(b, 1, "trainer").slot != 2)

@@ -18,11 +18,18 @@ static func save(slot: String, data: Dictionary, dir := DEFAULT_DIR) -> Error:
 	if f == null:
 		return FileAccess.get_open_error()
 	f.store_string(JSON.stringify(payload, "\t"))
+	var err := f.get_error()
 	f.close()
-	if FileAccess.file_exists(path):
+	if err != OK or _read(tmp) == null:
+		DirAccess.remove_absolute(tmp)
+		return err if err != OK else ERR_FILE_CORRUPT
+	# Only a readable save earns the .bak slot; a corrupt one must never push out a good backup.
+	if _read(path) != null:
 		if FileAccess.file_exists(path + ".bak"):
 			DirAccess.remove_absolute(path + ".bak")
 		DirAccess.rename_absolute(path, path + ".bak")
+	elif FileAccess.file_exists(path):
+		DirAccess.remove_absolute(path)
 	return DirAccess.rename_absolute(tmp, path)
 
 static func load_slot(slot: String, dir := DEFAULT_DIR) -> Dictionary:

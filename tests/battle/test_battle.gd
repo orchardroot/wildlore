@@ -108,6 +108,7 @@ func test_side_with_no_able_creature_ends_at_once() -> void:
 	var b := Fixtures.battle([down], [Fixtures.creature("spikkin", 10)])
 	assert_true(b.over)
 	assert_eq(b.winner, 1)
+	assert_eq(b.take_turn(SCRAP, SCRAP), [{"type": "end", "winner": 1}])
 	assert_eq(b.take_turn(SCRAP, SCRAP), [])
 
 func test_zero_pp_falls_back_to_flail() -> void:
@@ -146,3 +147,33 @@ func test_same_seed_same_battle() -> void:
 			all.append_array(b.take_turn({"type": "move", "slot": 2}, {"type": "move", "slot": 2}))
 		return all
 	assert_eq(run.call(99), run.call(99))
+
+func test_unknown_move_id_falls_back_to_flail() -> void:
+	var p := Fixtures.creature("kindlet", 10)
+	p.moves[0].id = "renamed_away"
+	var b := Fixtures.battle([p], [Fixtures.creature("spikkin", 10)])
+	var ev := b.take_turn(SCRAP, {"type": "move", "slot": 1})
+	assert_eq(_first(ev, "move").move, "flail")
+
+func test_force_switch_to_bad_index_is_reported() -> void:
+	var b := Fixtures.battle([Fixtures.creature("kindlet", 30)], [Fixtures.creature("spikkin", 2), Fixtures.creature("holtling", 5)], {"kind": "trainer"})
+	b.take_turn({"type": "move", "slot": 1}, SCRAP)
+	assert_eq(b.force_switch(1, 0)[0].type, "invalid")
+	assert_eq(b.force_switch(1, 9)[0].type, "invalid")
+	assert_true(b.needs_switch(1))
+
+func test_turn_refused_while_a_replacement_is_owed() -> void:
+	var p := Fixtures.creature("kindlet", 10)
+	var f := Fixtures.creature("spikkin", 10)
+	p.hp = 1
+	f.hp = 1
+	p.status = "stung"
+	f.status = "stung"
+	var b := Fixtures.battle([p, Fixtures.creature("holtling", 10)], [f, Fixtures.creature("holtling", 10)], {"kind": "trainer"})
+	b.take_turn({"type": "move", "slot": 1}, {"type": "move", "slot": 1})
+	assert_false(b.over)
+	assert_true(b.needs_switch(0) and b.needs_switch(1))
+	assert_eq(b.take_turn({"type": "switch", "index": 1}, SCRAP)[0].type, "invalid")
+	assert_eq(b.force_switch(0, 1)[0].type, "switch")
+	assert_eq(b.force_switch(1, 1)[0].type, "switch")
+	assert_has(_types(b.take_turn(SCRAP, SCRAP)), "move")

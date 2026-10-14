@@ -66,3 +66,12 @@ func test_no_temp_file_left_behind() -> void:
 	SaveSystem.save("slot1", {"n": 1}, dir)
 	assert_false(FileAccess.file_exists(dir.path_join("slot1.json.tmp")))
 	_wipe()
+
+func test_corrupt_main_is_not_rotated_over_good_backup() -> void:
+	SaveSystem.save("slot1", {"n": 1}, dir)
+	SaveSystem.save("slot1", {"n": 2}, dir)
+	_write_raw("slot1.json", "{not json")
+	SaveSystem.save("slot1", {"n": 3}, dir)
+	_write_raw("slot1.json", "{not json")
+	assert_eq(int(SaveSystem.load_slot("slot1", dir).n), 1)
+	_wipe()
