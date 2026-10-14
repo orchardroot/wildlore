@@ -9,7 +9,7 @@ const GRACE_STEPS := 3
 var _grace := 0
 
 static func roll(zone: ZoneData, tile: String, phase: String, weather: String, rng: Rng) -> Dictionary:
-	var kind: String = {"tall_grass": "grass", "deep_water": "water"}.get(tile, "")
+	var kind: String = {"tall_grass": "grass", "deep_water": "water", "bog": "grass"}.get(tile, "")
 	if kind == "":
 		return {}
 	if not rng.chance(STEP_CHANCE):

@@ -12,12 +12,12 @@ const LEGEND := {
 	"B": ["building", false], "D": ["door", true], "x": ["void", false], "|": ["floor_wood", true],
 	"+": ["floor_tile", true], "C": ["counter", false], "L": ["ledge_south", false],
 	"%": ["bramble", false], "o": ["deep_water", false], "/": ["scree", false], "_": ["platform", true],
-	"!": ["rail", false], "$": ["sea", false],
+	"!": ["rail", false], "$": ["sea", false], "*": ["bog", false],
 }
 const WALKABLE_TILES := ["grass", "tall_grass", "path", "road", "cobbles", "sand", "flowers", "shallow", "door", "floor_wood", "floor_tile", "platform"]
 ## Tiles a field ability lets you cross (bramble is different: Hedge-lay removes it for good).
-const ABILITY_TILES := {"deep_water": "brook_wade", "scree": "fell_scramble"}
-const GATE_ABILITIES := ["hedge_lay", "brook_wade", "fell_scramble"]
+const ABILITY_TILES := {"deep_water": "brook_wade", "scree": "fell_scramble", "bog": "bog_cross"}
+const GATE_ABILITIES := ["hedge_lay", "brook_wade", "fell_scramble", "bog_cross"]
 const OPPOSITE := {"north": "south", "south": "north", "east": "west", "west": "east"}
 
 var id := ""
@@ -45,7 +45,8 @@ var stage := ""                # battle diorama id ("" = guess from kind)
 var town_id := ""              # world map and rail id; "" for routes and interiors
 var station := Vector2i(-1, -1)  # rail stop tile, (-1, -1) for none
 var ferry: Dictionary = {}     # {x, y, route}
-var stub := false              # a placeholder another builder will replace
+var stub := false
+var dark := false              # a cave: only a circle of light round the player (wider with the Lantern)              # a placeholder another builder will replace
 
 static func load_id(zone_id: String) -> ZoneData:
 	var d = JsonUtil.read(DIR.path_join(zone_id + ".json"))
@@ -82,6 +83,7 @@ static func from_dict(d: Dictionary) -> ZoneData:
 		z.station = Vector2i(int(stn.x), int(stn.y))
 	z.ferry = d.get("ferry", {})
 	z.stub = bool(d.get("stub", false))
+	z.dark = bool(d.get("dark", false))
 	var sp: Array = d.get("spawn", [0, 0])
 	z.spawn = Vector2i(int(sp[0]), int(sp[1]))
 	for p in z.props:

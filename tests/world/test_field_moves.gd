@@ -57,3 +57,22 @@ func test_sanctuary_default_is_macclesfield_door() -> void:
 	var z := ZoneData.load_id("macclesfield")
 	assert_true(z.walkable(Vector2i(int(ls.pos[0]), int(ls.pos[1]))), "lands on a walkable tile")
 	assert_true(z.warp_at(Vector2i(int(ls.pos[0]), int(ls.pos[1]) - 1)).get("to", "") == "macc_sanctuary", "just outside the Sanctuary door")
+
+func test_northern_abilities() -> void:
+	var d := GameStateData.new()
+	d.badges = ["brook", "urban", "stone", "storm", "fae", "kin", "tide", "iron"]
+	assert_true("lantern" in FieldMoves.abilities(d))
+	assert_false("bog_cross" in FieldMoves.abilities(d))
+	assert_eq(FieldMoves.light_radius(d), 6.0)
+	assert_eq(FieldMoves.light_radius(GameStateData.new()), 2.0)
+	var z := _zone([".*."])
+	assert_eq(z.tile_at(Vector2i(1, 0)), "bog")
+	assert_eq(FieldMoves.verdict(d, z, Vector2i(1, 0)), "blocked", "bog needs the Frost Stone")
+	d.badges.append("frost")
+	assert_eq(FieldMoves.verdict(d, z, Vector2i(1, 0)), "squelch")
+	assert_true(z.walkable(Vector2i(1, 0), Vector2i.ZERO, FieldMoves.abilities(d)))
+
+func test_dark_zone_key() -> void:
+	var z := ZoneData.from_dict({"id": "c", "name": "C", "kind": "interior", "rows": ["..."], "spawn": [0, 0], "dark": true})
+	assert_true(z.dark)
+	assert_false(_zone(["..."]).dark)
