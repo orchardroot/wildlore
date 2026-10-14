@@ -63,13 +63,14 @@ func _run() -> void:
 	_check(Game.data.party.size() >= 1, "no starter after Garside")
 	_check(Game.data.flag("starter") != null, "starter flag missing")
 	print("BOT: starter %s, money %d" % [Game.data.flag("starter"), Game.data.money])
-	await _beat("buxton_spa", "maud", "badge_brook", 12, "cat_and_fiddle")
+	await _beat("buxton_spa", "maud", "badge_brook", 14)
 	if mode == "m2" and not _done:
 		await _m2()
 	_finish()
 
 ## Talks to `npc` until `flag` is set, grinding a bit harder in `grind_zone` before each retry.
 func _beat(zone_id: String, npc: String, flag: String, level := 0, grind_zone := "") -> void:
+	_restock()
 	var attempts := 0
 	while not Game.data.flag(flag) and attempts < 4 and not _done:
 		attempts += 1
@@ -79,6 +80,13 @@ func _beat(zone_id: String, npc: String, flag: String, level := 0, grind_zone :=
 		await _talk(zone_id, npc)
 		print("BOT: %s/%s attempt %d -> %s, lead %s, badges %s" % [zone_id, npc, attempts, flag, _strongest().level, Game.data.badges])
 	_check(Game.data.flag(flag) == true, "%s/%s never set %s in %d attempts" % [zone_id, npc, flag, attempts])
+
+## Buys Wicker Snares (at shop price, if it can afford them) so the team can grow like a real player's.
+func _restock() -> void:
+	var price := int(Game.items.get_item("wicker_snare").get("price", 200)) if Game.items else 200
+	while int(Game.data.bag.get("wicker_snare", 0)) < 5 and Game.data.money >= price:
+		Game.data.money -= price
+		Game.data.bag["wicker_snare"] = int(Game.data.bag.get("wicker_snare", 0)) + 1
 
 ## M2: Manchester to the Storm Stone, following docs/superpowers/plans/2026-10-14-plan-3-story-beats.md.
 func _m2() -> void:
@@ -95,7 +103,8 @@ func _m2() -> void:
 	await _beat("cardiff", "pryce", "trainer_pryce_2", 35, "beacons")
 	await _beat("cardiff_arena", "keeper_rhys", "badge_storm", 37, "beacons")
 	_check(Game.data.flag("v02_complete") == true, "no end card after the Storm Stone")
-	print("BOT: M2 done with %s, badges %s" % [starter, Game.data.badges])
+	if not _done:
+		print("BOT: M2 done with %s, badges %s" % [starter, Game.data.badges])
 
 ## Walks to an NPC (across zones if needed) and talks to them, then waits for the script to finish.
 func _talk(zone_id: String, npc_id: String) -> void:
@@ -197,10 +206,12 @@ func _grind_to(level: int, zone := "") -> void:
 
 func _grass_spot(zone_id: String) -> Vector2i:
 	var z := ZoneData.load_id(zone_id)
+	FieldMoves.apply_cuts(Game.data, z)
+	var reach := z.reachable(z.spawn, FieldMoves.abilities(Game.data))  # only grass you can actually walk to
 	for y in z.height:
 		for x in range(1, z.width - 1):
 			var p := Vector2i(x, y)
-			if z.tile_at(p) == "tall_grass" and z.walkable(p + Vector2i(-1, 0)) and z.walkable(p + Vector2i(1, 0)):
+			if z.tile_at(p) == "tall_grass" and reach.has(p) and reach.has(p + Vector2i(-1, 0)) and reach.has(p + Vector2i(1, 0)):
 				return p
 	return z.spawn
 
@@ -257,7 +268,7 @@ func choose_action(f: BattleFlow) -> Dictionary:
 	var me := b.current(Battle.PLAYER)
 	var foe := b.current(Battle.FOE)
 	var snares := int(Game.data.bag.get("wicker_snare", 0))
-	if b.kind == "wild" and snares > 0 and Game.data.party.size() < 3 and foe.hp * 2 < foe.max_hp():
+	if b.kind == "wild" and snares > 0 and Game.data.party.size() < 4 and foe.hp * 2 < foe.max_hp():
 		Game.data.bag["wicker_snare"] = snares - 1
 		return {"kind": "item", "item": "wicker_snare"}
 	var best := -1

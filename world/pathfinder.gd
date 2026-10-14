@@ -89,7 +89,8 @@ static func route(zones: Dictionary, from_zone: String, from: Vector2i, to_zone:
 		var pos: Vector2i = queue[i][1]
 		i += 1
 		var z: ZoneData = zones[zid]
-		var parent := _flood(z, pos, blocked)
+		# `blocked` holds NPC tiles of the zone you're standing in; they mean nothing in other zones
+		var parent := _flood(z, pos, blocked if zid == from_zone else {})
 		var key := "%s|%d,%d" % [zid, pos.x, pos.y]
 		if zid == to_zone and parent.has(to):
 			found = key
