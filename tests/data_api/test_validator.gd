@@ -51,3 +51,17 @@ func test_bad_move() -> void:
 	var bad := MoveDB.from_array([{"id": "m", "name": "M", "type": "kin", "category": "physical", "power": 0, "accuracy": 100, "pp": 10}])
 	var errors := DataValidator.validate(chart, Dex.from_array([]), bad)
 	assert_true(_has_error_containing(errors, "needs power"))
+
+func test_effect_chance_out_of_range() -> void:
+	var bad := MoveDB.from_array([{"id": "m", "name": "M", "type": "kin", "category": "status", "power": 0, "accuracy": 100, "pp": 10, "effect": {"id": "status", "status": "stung", "chance": 150}}])
+	assert_true(_has_error_containing(DataValidator.validate(chart, Dex.from_array([]), bad), "chance"))
+
+func test_priority_out_of_range() -> void:
+	var bad := MoveDB.from_array([{"id": "m", "name": "M", "type": "kin", "category": "physical", "power": 40, "accuracy": 100, "pp": 10, "priority": 9}])
+	assert_true(_has_error_containing(DataValidator.validate(chart, Dex.from_array([]), bad), "priority"))
+
+func test_evolution_level_out_of_range() -> void:
+	assert_true(_has_error_containing(_errors_for([_sp("a", {"evolves": {"to": "b", "level": 0}}), _sp("b")]), "evolution level"))
+
+func test_malformed_learnset_is_reported_not_crashed() -> void:
+	assert_true(_has_error_containing(_errors_for([_sp("a", {"learnset": [[5], "x", [1, "scrap"]]})]), "malformed learnset"))

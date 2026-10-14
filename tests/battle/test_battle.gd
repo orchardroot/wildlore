@@ -177,3 +177,18 @@ func test_turn_refused_while_a_replacement_is_owed() -> void:
 	assert_eq(b.force_switch(0, 1)[0].type, "switch")
 	assert_eq(b.force_switch(1, 1)[0].type, "switch")
 	assert_has(_types(b.take_turn(SCRAP, SCRAP)), "move")
+
+func test_foe_cannot_catch_or_run() -> void:
+	var b := Fixtures.battle([Fixtures.creature("kindlet", 10)], [Fixtures.creature("spikkin", 10)])
+	var r := FixedRng.new()
+	r.f = 0.0
+	b.rng = r
+	b.take_turn({"type": "move", "slot": 1}, {"type": "catch", "snare": "silver"})
+	b.take_turn({"type": "move", "slot": 1}, {"type": "run"})
+	assert_false(b.over)
+
+func test_empty_party_ends_battle_without_crashing() -> void:
+	var b := Fixtures.battle([Fixtures.creature("kindlet", 10)], [])
+	assert_true(b.over)
+	assert_eq(b.winner, 0)
+	assert_eq(b.current(1), null)

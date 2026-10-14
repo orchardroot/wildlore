@@ -31,6 +31,10 @@ func _initialize() -> void:
 			if failures == before:
 				passed += 1
 	print("\n%d passed, %d failed" % [passed, failures])
+	if passed + failures == 0:
+		printerr("no tests ran")
+		quit(1)
+		return
 	quit(1 if failures > 0 else 0)
 
 func _find_tests(dir_path: String) -> Array:

@@ -35,9 +35,14 @@ static func normalise(sp: Dictionary) -> Dictionary:
 	out["catch_rate"] = int(sp.get("catch_rate", 0))
 	out["base_xp"] = int(sp.get("base_xp", 0))
 	var learnset := []
+	var malformed := 0
 	for entry in sp.get("learnset", []):
-		learnset.append([int(entry[0]), str(entry[1])])
+		if entry is Array and entry.size() == 2:
+			learnset.append([int(entry[0]), str(entry[1])])
+		else:
+			malformed += 1
 	out["learnset"] = learnset
+	out["malformed_learnset"] = malformed
 	var evo = sp.get("evolves")
 	if evo is Dictionary:
 		var e: Dictionary = evo.duplicate()

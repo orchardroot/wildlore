@@ -37,7 +37,8 @@ func _init(player_party: Array, foe_party: Array, opts: Dictionary) -> void:
 	_check_end(_pending)
 
 func current(side: int) -> Creature:
-	return parties[side][active[side]]
+	var party: Array = parties[side]
+	return party[active[side]] if not party.is_empty() else null
 
 func needs_switch(side: int) -> bool:
 	return not over and current(side).is_fainted()
@@ -61,8 +62,11 @@ func take_turn(player_action: Dictionary, foe_action: Dictionary) -> Array:
 			"switch":
 				_do_switch(side, int(a.index), ev)
 			"run":
-				_do_run(side, ev)
+				if side == PLAYER:
+					_do_run(side, ev)
 			"catch":
+				if side != PLAYER:
+					continue
 				_do_catch(str(a.get("snare", "wicker")), ev)
 			"move":
 				_do_move(side, int(a.slot), ev)

@@ -39,6 +39,10 @@ static func _check_move(m: Dictionary, chart: TypeChart) -> Array:
 			e.append("move %s: stat effect needs non-zero stages" % id)
 	elif fx.id == "status" and fx.get("status") not in Rules.STATUSES:
 		e.append("move %s: unknown status '%s'" % [id, fx.get("status")])
+	if int(fx.get("chance", 100)) < 1 or int(fx.get("chance", 100)) > 100:
+		e.append("move %s: effect chance must be 1..100" % id)
+	if int(m.get("priority", 0)) < -3 or int(m.get("priority", 0)) > 3:
+		e.append("move %s: priority must be -3..3" % id)
 	if fx.get("target", "foe") not in ["self", "foe"]:
 		e.append("move %s: effect target must be self or foe" % id)
 	return e
@@ -68,6 +72,8 @@ static func _check_species(sp: Dictionary, chart: TypeChart, dex: Dex, moves: Mo
 		e.append("species %s: base_xp must be positive" % id)
 	if sp.learnset.is_empty():
 		e.append("species %s: empty learnset" % id)
+	if int(sp.get("malformed_learnset", 0)) > 0:
+		e.append("species %s: %d malformed learnset entries (need [level, move_id])" % [id, sp.malformed_learnset])
 	for entry in sp.learnset:
 		if entry[0] < 1 or entry[0] > Rules.MAX_LEVEL:
 			e.append("species %s: learnset level %d out of range" % [id, entry[0]])
@@ -80,6 +86,8 @@ static func _check_species(sp: Dictionary, chart: TypeChart, dex: Dex, moves: Mo
 			e.append("species %s: evolves into unknown species '%s'" % [id, target])
 		elif target == id:
 			e.append("species %s: evolves into itself" % id)
+		if evo.has("level") and (int(evo.level) < 1 or int(evo.level) > Rules.MAX_LEVEL):
+			e.append("species %s: evolution level must be 1..100" % id)
 		if not evo.has("level"):
 			e.append("species %s: evolution needs a level (item and weather rules arrive in plan 2)" % id)
 	var d: Dictionary = sp.get("dex", {})

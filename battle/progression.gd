@@ -14,7 +14,8 @@ static func gain_xp(c: Creature, amount: int, move_db: MoveDB) -> Array:
 	while c.level < Rules.MAX_LEVEL and c.xp >= Rules.xp_for_level(c.species.growth, c.level + 1):
 		var old_max := c.max_hp()
 		c.level += 1
-		c.hp += c.max_hp() - old_max
+		if not c.is_fainted():
+			c.hp += c.max_hp() - old_max
 		ev.append({"type": "level_up", "level": c.level})
 		for id in moves_learned_at(c.species, c.level):
 			if c.has_move(id):
