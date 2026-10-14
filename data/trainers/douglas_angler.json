@@ -1,0 +1,36 @@
+{
+ "id": "douglas_angler",
+ "name": "Angler Maughold",
+ "class": "Angler",
+ "sprite": "angler",
+ "party": [
+  {
+   "species": "chipgull",
+   "level": 21
+  },
+  {
+   "species": "pupplash",
+   "level": 22
+  },
+  {
+   "species": "pinchkin",
+   "level": 22
+  }
+ ],
+ "ai": "trainer",
+ "money": 780,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Angler Maughold",
+   "text": "Cod, mackerel, the occasional jellyfish. Any of them would be a better opponent than my wife."
+  },
+  {
+   "do": "say",
+   "who": "Angler Maughold",
+   "text": "Care for a quick one?"
+  }
+ ],
+ "win": "Landed me. Well done.",
+ "after": "The sea round here is cold enough to pickle a herring."
+}
