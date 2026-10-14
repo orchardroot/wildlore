@@ -1,0 +1,40 @@
+{
+ "id": "keeper_morwen",
+ "name": "Keeper Morwen",
+ "class": "Keeper",
+ "sprite": "keeper_morwen",
+ "party": [
+  {
+   "species": "pixiedell",
+   "level": 47
+  },
+  {
+   "species": "thornwyn",
+   "level": 48
+  },
+  {
+   "species": "tylwyth",
+   "level": 48
+  },
+  {
+   "species": "lanternis",
+   "level": 50
+  }
+ ],
+ "ai": "keeper",
+ "money": 5000,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Keeper Morwen",
+   "text": "Up the Tor in the dark, were you? Brave. Or lost. The two look the same from here."
+  },
+  {
+   "do": "say",
+   "who": "Keeper Morwen",
+   "text": "Fae creatures don't fight fair, love. They fight interesting. Let's see if you can keep up."
+  }
+ ],
+ "win": "Well. The lanterns have stopped laughing at you. That's how I know you've won.",
+ "after": "Mind the orchard on your way down. It's been listening."
+}

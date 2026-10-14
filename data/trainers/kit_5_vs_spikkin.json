@@ -1,0 +1,44 @@
+{
+ "id": "kit_5_vs_spikkin",
+ "name": "Kit",
+ "class": "Rival",
+ "sprite": "kit",
+ "party": [
+  {
+   "species": "murmurant",
+   "level": 36
+  },
+  {
+   "species": "greyhaul",
+   "level": 37
+  },
+  {
+   "species": "brockmoor",
+   "level": 37
+  },
+  {
+   "species": "hazeldoze",
+   "level": 38
+  },
+  {
+   "species": "pyredrey",
+   "level": 40
+  }
+ ],
+ "ai": "trainer",
+ "money": 2000,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Kit",
+   "text": "{player}! Glastonbury! I've had three cups of something herbal and I can see colours I didn't know about."
+  },
+  {
+   "do": "say",
+   "who": "Kit",
+   "text": "I'm not with the Enclosure any more, but I'm still going to beat you. That's just friendship."
+  }
+ ],
+ "win": "Okay, that went badly. For me. Brilliantly for you. I'll put it in the blooper reel.",
+ "after": "The Green Man thing up there is real, isn't it? I felt it in my teeth."
+}

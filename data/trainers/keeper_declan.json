@@ -1,0 +1,40 @@
+{
+ "id": "keeper_declan",
+ "name": "Keeper Declan",
+ "class": "Keeper",
+ "sprite": "keeper_declan",
+ "party": [
+  {
+   "species": "stagmor",
+   "level": 47
+  },
+  {
+   "species": "gealhare",
+   "level": 47
+  },
+  {
+   "species": "dextera",
+   "level": 48
+  },
+  {
+   "species": "connemarr",
+   "level": 50
+  }
+ ],
+ "ai": "keeper",
+ "money": 5500,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Keeper Declan",
+   "text": "Fáilte! Welcome to Dublin. You came all the way over on the boat for this? Fair play to you."
+  },
+  {
+   "do": "say",
+   "who": "Keeper Declan",
+   "text": "Kin creatures are the everyday ones. Hares, cattle, ponies. Everyday doesn't mean easy. Let's go!"
+  }
+ ],
+ "win": "Ah, you're well able. Take the Kin Stone, you've earned every bit of it.",
+ "after": "Go and get a bowl of something warm. Doctor's orders. I'm not a doctor."
+}

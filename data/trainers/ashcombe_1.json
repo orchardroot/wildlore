@@ -1,0 +1,36 @@
+{
+ "id": "ashcombe_1",
+ "name": "Sir Rupert Ashcombe",
+ "class": "Director",
+ "sprite": "ashcombe",
+ "party": [
+  {
+   "species": "bodminax",
+   "level": 44
+  },
+  {
+   "species": "wessexwyrm",
+   "level": 45
+  },
+  {
+   "species": "cassiterix",
+   "level": 45
+  }
+ ],
+ "ai": "trainer",
+ "money": 4800,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Sir Rupert Ashcombe",
+   "text": "Ah, the young walker. Tintagel, splendid, isn't it? We're thinking a gift shop in the castle. Perhaps a zip line to Merlin's cave."
+  },
+  {
+   "do": "say",
+   "who": "Sir Rupert Ashcombe",
+   "text": "Regional Director, England. Pryce spoke of you. Briefly, and with a twitch."
+  }
+ ],
+ "win": "Good heavens. I shall have to write a strongly worded memo. To myself.",
+ "after": "The mine at Penzance holds something rather valuable. Do keep away, there's a good chap."
+}

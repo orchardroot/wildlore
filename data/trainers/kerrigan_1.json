@@ -1,0 +1,40 @@
+{
+ "id": "kerrigan_1",
+ "name": "Director Siobhán Kerrigan",
+ "class": "Director",
+ "sprite": "kerrigan",
+ "party": [
+  {
+   "species": "pooka",
+   "level": 50
+  },
+  {
+   "species": "sikawhistle",
+   "level": 50
+  },
+  {
+   "species": "pincray",
+   "level": 51
+  },
+  {
+   "species": "rookery",
+   "level": 52
+  }
+ ],
+ "ai": "trainer",
+ "money": 5600,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Siobhán Kerrigan",
+   "text": "Regional Director, Ireland. You'll have seen our launch. 'Ireland's Ancient East Experience'. Lanyards included."
+  },
+  {
+   "do": "say",
+   "who": "Siobhán Kerrigan",
+   "text": "Kilkenny Castle would make a lovely Members' Lounge. Shall we discuss it? Battle first, obviously."
+  }
+ ],
+ "win": "Annoying. You're very annoying. I'll be noting that in the minutes.",
+ "after": "Newgrange is booked for the solstice. Private event. You're not on the list."
+}
