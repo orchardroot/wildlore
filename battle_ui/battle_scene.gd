@@ -18,11 +18,14 @@ var opts := {}
 var _intro_done := false
 var _hidden_2d: CanvasItem
 var _dev_stage := ""  # --stage=moor overrides the stage (screenshots)
+var _dev_catch := false  # --battle-catch: in auto mode, throw snares instead of fighting
 var _dev_menu := ""  # --battle-menu=fight|bag|team opens that menu straight away (screenshots)
 
 func _ready() -> void:
 	auto = "--battle-auto" in OS.get_cmdline_user_args()
 	for a in OS.get_cmdline_user_args():
+		if a == "--battle-catch":
+			_dev_catch = true
 		if a.begins_with("--stage="):
 			_dev_stage = a.get_slice("=", 1)
 		if a.begins_with("--battle-menu="):
@@ -73,6 +76,8 @@ func setup(foe_party: Array, p_opts: Dictionary) -> void:
 		_hidden_2d = cs
 		cs.hide()
 	opts = p_opts.duplicate()
+	if _dev_catch and not foe_party.is_empty():
+		foe_party[0].hp = 1
 	opts["time"] = opts.get("time", GameClock.phase(Game.data.clock_minutes))
 	dio.build(_dev_stage if _dev_stage != "" else str(opts.get("stage", "grass")))
 	sky.set_weather(str(opts.get("weather", "clear")), dio.is_interior())
@@ -84,6 +89,8 @@ func setup(foe_party: Array, p_opts: Dictionary) -> void:
 
 func _run() -> void:
 	var result: Dictionary = await flow.run()
+	if auto:
+		print("battle result: ", result.result, " | log: ", " / ".join(flow.log))
 	await get_tree().create_timer(0.35).timeout
 	finished.emit(result)
 
@@ -158,6 +165,9 @@ func choose_action(f: BattleFlow) -> Dictionary:
 		msg.prompt("What will %s do?" % me.display_name())
 		if auto:
 			await _wait(0.9)
+			if _dev_catch:
+				Game.data.bag["wicker_snare"] = maxi(3, int(Game.data.bag.get("wicker_snare", 0)))
+				return {"kind": "item", "item": "wicker_snare"}
 			var best := 0
 			var power := -1
 			for i in me.moves.size():

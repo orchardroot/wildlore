@@ -257,7 +257,7 @@ func _rocks(n: int, r: float, s_min := 0.7, s_max := 1.4) -> void:
 
 ## Distant rolling hills so the plateau floats in a landscape, not a void.
 func _hills() -> void:
-	if stage == "spa_interior":
+	if stage in ["spa_interior", "water"]:
 		return
 	var cols := {"grass": Color("8bb36a"), "forest": Color("476f4a"), "moor": Color("8a7d94"), "town": Color("8fa27a"), "water": Color("7da07a")}
 	var base: Color = cols.get(stage, Color("8bb36a"))
@@ -300,9 +300,9 @@ func _forest() -> void:
 	log_mi.rotation = Vector3(0, 0.6, deg_to_rad(90))
 
 func _moor() -> void:
-	_plateau(9.0, Color("7d7090"), Color("5e4f3d"), 0.9, Color("8c80a0"))
-	_patches([Color("8a7a58"), Color("6f6482"), Color("94889f"), Color("6b7a46")], 26, 8.4, 1.6)
-	_scatter(func(i): return Meshes.rock(i), 9, 5.0, 8.4, false, 1.4, 3.0, -200.0, 10.0)
+	_plateau(9.0, Color("766b7c"), Color("5e4f3d"), 0.9, Color("857a86"))
+	_patches([Color("857a52"), Color("6f6482"), Color("8a7c92"), Color("66743f")], 26, 8.4, 1.6)
+	_scatter(func(i): return Meshes.rock(i), 9, 5.5, 8.6, false, 0.9, 1.9, -200.0, 10.0)
 	for i in 8:  # drystone wall
 		_place(Meshes.wall_segment(i), Vector3(-7.0 + i * 1.0, 0, -5.8 + i * 0.12), 0.1, 1.05)
 	_tufts(30, 7.8, 0)
