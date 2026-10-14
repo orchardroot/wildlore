@@ -11,7 +11,7 @@ var _looks: Array = []
 
 func _build() -> void:
 	set_title("Who's setting off?")
-	set_hint("Type or pick letters        Z  Choose        X  Delete")
+	set_hint("Type your name, or pick letters        Enter  Done        Backspace  Delete")
 	var col := VBoxContainer.new()
 	col.set_anchors_preset(Control.PRESET_FULL_RECT)
 	col.add_theme_constant_override("separation", 14)
@@ -89,14 +89,34 @@ func _done_pressed() -> void:
 func _on_cancel() -> void:
 	_delete()
 
-func _unhandled_key_input(event: InputEvent) -> void:
+## Keyboard typing comes first here: letters (Z and X included) and space type, Backspace deletes,
+## Enter finishes. Arrows still move round the on-screen letters, and the pad works as everywhere else.
+func _input(event: InputEvent) -> void:
 	var k := event as InputEventKey
-	if k == null or not k.pressed or _locked:
-		return
+	if k != null and k.pressed and not _locked and not _done:
+		var ch := typed_char(k)
+		if ch != "":
+			_type(ch)
+			get_viewport().set_input_as_handled()
+			return
+		if k.keycode == KEY_BACKSPACE:
+			_delete()
+			get_viewport().set_input_as_handled()
+			return
+		if k.keycode == KEY_ENTER or k.keycode == KEY_KP_ENTER:
+			_done_pressed()
+			get_viewport().set_input_as_handled()
+			return
+	super._input(event)
+
+## The character a key types, or "" for keys that don't type (Enter, arrows, modifiers).
+static func typed_char(k: InputEventKey) -> String:
+	if k.ctrl_pressed or k.meta_pressed or k.alt_pressed or k.unicode == 0:
+		return ""
 	var ch := char(k.unicode)
 	if k.unicode == 32 or (k.unicode < 127 and ((ch >= "a" and ch <= "z") or (ch >= "A" and ch <= "Z") or ch == "-" or ch == "'")):
-		_type(ch)
-		get_viewport().set_input_as_handled()
+		return ch
+	return ""
 
 func _refresh() -> void:
 	_shown.text = _name + ("_" if _name.length() < MAX_LEN else "")

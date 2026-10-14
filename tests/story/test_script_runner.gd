@@ -221,3 +221,15 @@ func test_enclosure_battle_music() -> void:
 	assert_eq(AudioIds.battle_music({"kind": "trainer", "trainer": {"class": "Warden"}}), "battle_enclosure")
 	assert_eq(AudioIds.battle_music({"kind": "trainer", "trainer": {"class": "Director"}}), "battle_enclosure")
 	assert_eq(AudioIds.battle_music({"kind": "trainer", "trainer": {"class": "Hiker"}}), "battle_trainer")
+
+class SavingHost extends FakeStoryHost:
+	var saves: Array = []
+	func autosave() -> void:
+		saves.append(data.flags.duplicate())
+
+func test_badge_sets_flag_and_autosaves_after_the_script() -> void:
+	var h := SavingHost.new()
+	await _cmds(h).run([{"do": "badge", "id": "urban"}, {"do": "set", "flag": "ch2_urban"}, {"do": "give_item", "item": "rail_pass"}])
+	assert_true(h.data.flag("badge_urban") == true, "badge sets badge_<id>")
+	assert_eq(h.saves.size(), 1)
+	assert_true(h.saves[0].get("ch2_urban", false), "the autosave includes what the script did after the badge")

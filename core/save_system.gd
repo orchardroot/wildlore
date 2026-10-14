@@ -123,6 +123,16 @@ static func _v1_to_v2(data: Dictionary) -> Dictionary:
 	if not (lp is Array) or lp.size() != 2 or (int(lp[0]) == 0 and int(lp[1]) == 0):
 		ls["pos"] = [-1, -1]
 	data["last_sanctuary"] = ls
+	# v0.2 story checks badges through flags; a v0.1 Brook Stone must count (Bev's bike) and open chapter 2
+	var flags = data.get("flags", {})
+	if not (flags is Dictionary):
+		flags = {}
+	var badges = data.get("badges", [])
+	for b in (badges if badges is Array else []):
+		flags["badge_" + str(b)] = true
+	if "brook" in (badges if badges is Array else []):
+		flags["ch2_started"] = true
+	data["flags"] = flags
 	return data
 
 static func _read(path: String) -> Variant:

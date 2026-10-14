@@ -17,6 +17,7 @@ const WHITEOUT_LINE_2 := "Your team is patched up and ready to go again."
 var host
 var npc_id: String
 var _ended := false
+var _badge_won := false
 
 ## npc_id is the NPC that owns the script (the default target of move, face and heal).
 func _init(h, owner_npc := "") -> void:
@@ -25,7 +26,11 @@ func _init(h, owner_npc := "") -> void:
 
 func run(commands: Array) -> void:
 	_ended = false
+	_badge_won = false
 	await _run_list(commands)
+	# autosave once the whole scene has played, so the save has everything the Keeper's script did after the badge
+	if _badge_won and host.has_method("autosave"):
+		host.autosave()
 
 func _run_list(commands: Array) -> void:
 	for c in commands:
@@ -100,9 +105,10 @@ func _exec(c: Dictionary) -> void:
 			var b := str(c.get("id", ""))
 			if b != "" and b not in data.badges:
 				data.badges.append(b)
+			if b != "":
+				_set_flag("badge_" + b, true)
+				_badge_won = true
 			await host.sfx("badge")
-			if host.has_method("autosave"):
-				host.autosave()
 		"end":
 			_ended = true
 		"ark":

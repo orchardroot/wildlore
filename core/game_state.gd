@@ -11,6 +11,7 @@ var args: Dictionary = {}
 var clock_running := false
 var save_dir := SaveSystem.DEFAULT_DIR
 var autosave_enabled := true
+var skip_next_autosave := false  # set by the title: the first zone after New Game or Load must not overwrite "auto"
 var _in_battle := false
 
 func _ready() -> void:
@@ -24,8 +25,10 @@ func _ready() -> void:
 	var seed_value: int = args.seed if args.seed >= 0 else int(Time.get_unix_time_from_system())
 	rng = Rng.new(seed_value)
 	data.rng_seed = seed_value
-	if args.get("playtest", "") != "":
-		autosave_enabled = false  # the bot must never overwrite a real player's save
+	if DevArgs.is_dev_session(args, DevArgs.user_args()):
+		# screenshots, dev boots and the bot never touch the player's real saves
+		autosave_enabled = false
+		save_dir = "user://saves_dev"
 	Bus.battle_started.connect(_on_battle_started)
 	Bus.battle_ended.connect(_on_battle_ended)
 	Bus.zone_entered.connect(_on_zone_entered)
@@ -74,6 +77,9 @@ func _on_battle_ended(_result: Dictionary) -> void:
 	_in_battle = false
 
 func _on_zone_entered(_zone_id: String) -> void:
+	if skip_next_autosave:
+		skip_next_autosave = false
+		return
 	autosave()
 
 ## The slot Continue should load: the newest readable one.

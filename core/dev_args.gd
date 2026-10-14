@@ -47,3 +47,13 @@ static func parse(args: PackedStringArray, is_debug := OS.is_debug_build()) -> D
 			"--seconds":
 				out.seconds = int(val)
 	return out
+
+## True when any switch that boots straight into the game is present (screenshots, boots, menus, battles,
+## talks, the bot). Such runs must never touch the player's real saves.
+static func is_dev_session(parsed: Dictionary, cmdline: PackedStringArray) -> bool:
+	if parsed.get("shot", "") != "" or parsed.get("boot_zone", "") != "" or parsed.get("battle_species", "") != "" or parsed.get("playtest", "") != "":
+		return true
+	for a in cmdline:
+		if a.begins_with("--menu=") or a.begins_with("--talk=") or a.begins_with("--battle"):
+			return true
+	return false

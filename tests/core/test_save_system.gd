@@ -129,3 +129,9 @@ func test_newest_slot_by_time() -> void:
 	SaveSystem.save("3", {"zone_id": "a", "saved_at": 100.0}, sd)
 	SaveSystem.save("auto", {"zone_id": "b", "saved_at": 50.0}, sd)
 	assert_eq(SaveSystem.newest_slot(sd), "3")
+
+func test_v1_badges_become_flags() -> void:
+	var d := SaveSystem.migrate({"version": 1, "badges": ["brook"], "flags": {"starter": "kindlet"}})
+	assert_true(d.flags.get("badge_brook", false))
+	assert_true(d.flags.get("ch2_started", false))
+	assert_eq(d.flags.starter, "kindlet")

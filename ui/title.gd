@@ -76,6 +76,7 @@ func _on_continue() -> void:
 		return
 	Audio.sfx("confirm")
 	if Game.load_slot(Game.newest_slot()):
+		Game.skip_next_autosave = true
 		Router.goto_zone(Game.data.zone_id, Game.data.pos, Game.data.facing)
 
 func _on_load() -> void:
@@ -84,15 +85,27 @@ func _on_load() -> void:
 	Audio.sfx("confirm")
 	var slot = await Router.open_menu("save:load")
 	if slot != null and _claim():
+		Game.skip_next_autosave = true
 		Router.goto_zone(Game.data.zone_id, Game.data.pos, Game.data.facing)
 	elif _menu.get_child_count() > 0:
 		_menu.get_child(0).grab_focus()
 
+var _new_confirmed := false
+
 func _on_new() -> void:
+	# a fresh journey will replace the autosave once you leave the house: ask once if there's a journey to lose
+	if not _new_confirmed and Game.newest_slot() != "" and not _chosen:
+		_new_confirmed = true
+		for b in _menu.get_children():
+			if b.text == "New Game":
+				b.text = "Start afresh? Press again"
+		Audio.sfx("bump")
+		return
 	if not _claim():
 		return
 	Audio.sfx("confirm")
 	Game.new_game()
+	Game.skip_next_autosave = true
 	var who = await Router.open_menu("name")
 	if who is Dictionary:
 		Game.data.player_name = str(who.name)
