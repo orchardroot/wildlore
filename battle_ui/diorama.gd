@@ -5,7 +5,8 @@ extends Node3D
 
 const PLAYER_POS := Vector3(-2.5, 0, 1.7)
 const FOE_POS := Vector3(2.7, 0, -2.5)
-const STAGES := ["grass", "forest", "moor", "town", "spa_interior", "water"]
+const STAGES := ["grass", "forest", "moor", "town", "spa_interior", "water", "city", "docks", "coast", "bog", "mountain",
+	"quarry", "cave", "castle", "valley"]
 
 var stage := "grass"
 var camera: Camera3D
@@ -92,11 +93,20 @@ func build(stage_id: String) -> void:
 		"town": _town()
 		"spa_interior": _spa()
 		"water": _water()
+		"city": _town(["terrace", "mill", "red_brick", "terrace", "liver_building"])
+		"docks": _docks()
+		"coast": _coast()
+		"bog": _bog()
+		"mountain": _mountain()
+		"quarry": _quarry()
+		"cave": _cave()
+		"castle": _castle()
+		"valley": _valley()
 		_: _grass()
 	_hills()
 
 func is_interior() -> bool:
-	return stage == "spa_interior"
+	return stage in ["spa_interior", "cave"]
 
 func background_colour() -> Color:
 	return Color("14161c") if is_interior() else Color("9fc3dc")
@@ -257,9 +267,10 @@ func _rocks(n: int, r: float, s_min := 0.7, s_max := 1.4) -> void:
 
 ## Distant rolling hills so the plateau floats in a landscape, not a void.
 func _hills() -> void:
-	if stage in ["spa_interior", "water"]:
+	if stage in ["spa_interior", "water", "cave", "coast", "docks"]:
 		return
-	var cols := {"grass": Color("8bb36a"), "forest": Color("476f4a"), "moor": Color("8a7d94"), "town": Color("8fa27a"), "water": Color("7da07a")}
+	var cols := {"grass": Color("8bb36a"), "forest": Color("476f4a"), "moor": Color("8a7d94"), "town": Color("8fa27a"), "water": Color("7da07a"),
+		"city": Color("8a8f8a"), "bog": Color("6f6a45"), "mountain": Color("6f7a6a"), "quarry": Color("5f6670"), "castle": Color("7fa060"), "valley": Color("5f8f4a")}
 	var base: Color = cols.get(stage, Color("8bb36a"))
 	var st := _st()
 	for i in 22:
@@ -308,10 +319,9 @@ func _moor() -> void:
 	_tufts(30, 7.8, 0)
 	_rocks(4, 7.0, 0.5, 1.0)
 
-func _town() -> void:
+func _town(styles := ["red_brick", "stone", "cream_render", "white_render", "gritstone"]) -> void:
 	_plateau(9.0, Color("a29a8c"), Color("6c6358"), 0.9, Color("c7bfb0"))
 	_patches([Color("93897a"), Color("b0a798"), Color("9a9183")], 24, 8.2, 1.1)
-	var styles := ["red_brick", "stone", "cream_render", "white_render", "gritstone"]
 	var x := -8.0
 	var i := 0
 	while x < 7.0:
@@ -405,3 +415,123 @@ func _water() -> void:
 	_scatter(func(i): return Meshes.tall_grass_tuft(i), 14, 7.0, 8.4, true, 1.6, 2.4, -200.0, 20.0)
 	_scatter(func(i): return Meshes.rock(i), 5, 7.8, 9.5, false, 1.5, 2.6, -200.0, 0.0)
 	_scatter(func(i): return Meshes.bush(i), 4, 8.0, 9.2, true, 1.5, 2.0, -180.0, -20.0)
+
+# --- M2 stages ----------------------------------------------------------------
+
+## A building (any Meshes/Landmarks style) as a backdrop piece, with lit windows.
+func _backdrop_building(w: int, d: int, style: String, pos: Vector3, yaw := 0.0, s := 1.1) -> void:
+	var b: Array = Meshes.building(w, d, style, -1, hash(style) + int(pos.x * 7))
+	var body := MeshInstance3D.new()
+	body.mesh = b[0]
+	body.material_override = Meshes.solid
+	body.position = pos
+	body.rotation.y = yaw
+	body.scale = Vector3.ONE * s
+	props.add_child(body)
+	var win := MeshInstance3D.new()
+	win.mesh = b[1]
+	win.material_override = Meshes.glow
+	win.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	body.add_child(win)
+
+func _sea(y := -0.55, deep := Color(0.1, 0.27, 0.38), shallow := Color(0.3, 0.55, 0.62)) -> void:
+	var water := MeshInstance3D.new()
+	var plane := PlaneMesh.new()
+	plane.size = Vector2(120, 120)
+	plane.subdivide_width = 24
+	plane.subdivide_depth = 24
+	water.mesh = plane
+	var wm := ShaderMaterial.new()
+	wm.shader = load("res://art/shaders/water.gdshader")
+	wm.set_shader_parameter("deep", deep)
+	wm.set_shader_parameter("shallow", shallow)
+	water.material_override = wm
+	water.position.y = y
+	water.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	props.add_child(water)
+
+func _docks() -> void:
+	_sea()
+	_plateau(8.6, Color("8d8578"), Color("4f4a44"), 1.3, Color("a9a091"))
+	_patches([Color("7f776a"), Color("9a9183")], 14, 7.6, 1.2)
+	_backdrop_building(9, 4, "liver_building", Vector3(-6.5, 0, -12.0), 0.0, 1.0)
+	_backdrop_building(7, 3, "mill", Vector3(4.5, 0, -11.0), 0.0, 1.0)
+	for k in 6:
+		_place(Landmarks.bollard(), Vector3(-6.0 + k * 2.4, 0, -6.6), 0.0, 1.3)
+	_place(Landmarks.boat(0), Vector3(9.5, -0.55, -3.0), 1.4, 1.0)
+	_place(Landmarks.buoy(0), Vector3(-10.0, -0.55, 2.0), 0.0, 1.3)
+
+func _coast() -> void:
+	_sea()
+	_plateau(8.4, Color("c4ad78"), Color("8a7350"), 1.2, Color("d2bf8e"))
+	_patches([Color("c9b47f"), Color("e2d2a0"), Color("b8a777")], 18, 7.4, 1.3)
+	_rocks(7, 7.8, 0.8, 1.8)
+	_place(Landmarks.lighthouse(), Vector3(-8.5, 0, -7.0), 0.0, 1.3)
+	_place(Landmarks.buoy(1), Vector3(10.5, -0.55, -4.0), 0.0, 1.3)
+	_place(Landmarks.boat(1), Vector3(-11.0, -0.55, 1.0), 0.6, 1.2)
+	for i in 6:
+		_place(Meshes.reeds(i), _clear_spot(7.5), _rng.randf() * TAU, 1.2, true, false)  # marram grass
+
+func _bog() -> void:
+	_plateau(9.0, Color("6b5a3a"), Color("3f3324"), 0.8, Color("7d6a44"))
+	_patches([Color("a8483f"), Color("7f9a3c"), Color("c27a3a"), Color("5f7f35")], 30, 8.4, 1.5)  # sphagnum reds and greens
+	var pools := _st()
+	for i in 6:
+		var p := _clear_spot(7.2)
+		Meshes.cone(pools, Vector3(p.x, 0.02, p.z), _rng.randf_range(0.5, 1.0), 0.01, 10, Color("2f4a52"), _rng)
+	_commit(pools, Meshes.solid, null, false)
+	for i in 14:
+		_place(Meshes.reeds(i % 3), _clear_spot(8.0), _rng.randf() * TAU, 1.3, true, false)
+	_scatter(func(i): return Meshes.birch(i), 4, 6.8, 8.6, true, 0.8, 1.1, -190.0, -60.0)
+
+func _mountain() -> void:
+	_plateau(8.8, Color("7d8a6a"), Color("5d5a52"), 1.1, Color("8f9a7a"))
+	_patches([Color("8a8780"), Color("6f7d5c"), Color("9a978e")], 24, 8.0, 1.4)
+	_scatter(func(i): return Meshes.rock(i), 12, 5.6, 8.8, false, 1.0, 2.6, -200.0, 15.0)
+	for i in 10:
+		_place(Landmarks.scree_rubble(i % 3), _clear_spot(7.6), _rng.randf() * TAU, 1.4, false, false)
+	_place(Landmarks.standing_stone(1), Vector3(5.5, 0, -6.2), 0.3, 1.2)  # a summit cairn's cousin
+
+func _quarry() -> void:
+	_plateau(9.0, Color("6c727c"), Color("454a52"), 1.0, Color("7d848e"))
+	_patches([Color("5f6670"), Color("7a828c"), Color("565c66")], 22, 8.2, 1.3)
+	var terr := _st()
+	for k in 4:  # stepped slate terraces behind
+		Meshes.box(terr, Vector3(-16.0 + k * 1.2, -1.0, -15.0 - k * 2.6), Vector3(32.0 - k * 2.4, 1.2 + k * 1.8, 2.6), Color("5a606b").lightened(0.05 * k))
+	_commit(terr, Meshes.solid)
+	for i in 6:
+		_place(Landmarks.slate_heap(i), _clear_spot(7.6), _rng.randf() * TAU, 1.3)
+
+func _cave() -> void:
+	var st := _st()
+	for ix in range(-9, 9):
+		for iz in range(-7, 5):
+			var c := Color("3b3a3f").lightened(_rng.randf_range(-0.04, 0.05))
+			Meshes.box(st, Vector3(ix, -0.3, iz), Vector3(1.0, 0.3, 1.0), c.darkened(0.1), c)
+	_commit(st, Meshes.solid, null, false)
+	var walls := _st()
+	for i in 26:
+		var t := deg_to_rad(lerpf(-200.0, 20.0, i / 25.0))
+		Meshes.blob(walls, Vector3(cos(t) * 10.0, 1.5, sin(t) * 7.5 - 2.0), Vector3(2.2, 3.4, 2.0), Color("4a4650"), _rng, 0.25)
+	_commit(walls, Meshes.solid)
+	var pool := _st()
+	Meshes.cone(pool, Vector3(4.5, 0.02, -4.0), 2.0, 0.01, 14, Color("2c5a6a"), _rng)
+	_commit(pool, Meshes.glow, null, false)
+	for k in 3:
+		_place(Landmarks.standing_stone(k), Vector3(-6.0 + k * 1.6, 0, -5.4), 0.2 * k, 1.2)
+
+func _castle() -> void:
+	_grass_base()
+	_backdrop_building(12, 7, "castle", Vector3(-7.0, 0, -15.0), 0.0, 1.0)
+	_scatter(func(i): return Meshes.oak(i), 4, 7.0, 8.4, true, 0.9, 1.2, -60.0, 20.0)
+
+func _valley() -> void:
+	_grass_base()
+	_backdrop_building(16, 2, "aqueduct", Vector3(-9.0, 0, -12.0), 0.0, 1.0)
+	_scatter(func(i): return Meshes.oak(i), 6, 6.8, 8.6, true, 0.9, 1.3, -200.0, 20.0)
+
+func _grass_base() -> void:
+	_plateau(9.0, Color("689a46"), Color("6e5037"), 0.9, Color("7aae52"))
+	_patches([Color("5f9040"), Color("72a64c"), Color("6a9c46")], 16, 8.0, 1.6)
+	_tufts(18, 7.5, 8)
+	_rocks(2, 7.0)

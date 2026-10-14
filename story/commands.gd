@@ -107,6 +107,8 @@ func _exec(c: Dictionary) -> void:
 			_ended = true
 		"ark":
 			await host.open_menu("ark")
+		"legend":
+			await _legend(c)
 		"rail":
 			await _rail()
 		"ferry":
@@ -140,6 +142,23 @@ func _battle(trainer_id: String) -> void:
 			_set_flag("trainer_" + trainer_id, true)
 			if def.win != "":
 				await host.say(def.name, _sub(def.win))
+		"lose":
+			await whiteout()
+			_ended = true
+
+## A legendary encounter: a wild battle you can't run from, with its own music. Catching it sets `flag`;
+## knocking it out doesn't, so it can be met again. Losing whites out as usual.
+func _legend(c: Dictionary) -> void:
+	var sp: Dictionary = host.dex.get_species(str(c.get("species", "")))
+	if sp.is_empty():
+		push_error("Commands: no legend species '%s'" % c.get("species", ""))
+		return
+	host.data.mark_seen(str(sp.id))
+	var foe := Creature.create(sp, int(c.get("level", 40)), host.rng, host.moves)
+	var result: Dictionary = await host.battle([foe], {"kind": "wild", "no_run": true, "music": "legend"})
+	match str(result.get("result", "")):
+		"caught":
+			_set_flag(str(c.get("flag", "caught_" + str(sp.id))), true)
 		"lose":
 			await whiteout()
 			_ended = true

@@ -27,6 +27,9 @@ var _xp_given := {}
 var _snare: Dictionary = {}
 var _catch_chance := 0.0
 
+var _evo_ctx := {}
+var _no_run := false
+
 func _init(p_data: GameStateData, p_dex: Dex, p_moves: MoveDB, p_chart: TypeChart, p_items: ItemDB, p_rng: Rng, foe_party: Array, opts: Dictionary, p_ui) -> void:
 	data = p_data
 	dex = p_dex
@@ -34,6 +37,8 @@ func _init(p_data: GameStateData, p_dex: Dex, p_moves: MoveDB, p_chart: TypeChar
 	items = p_items
 	ui = p_ui
 	trainer = opts.get("trainer", {})
+	_no_run = bool(opts.get("no_run", false))
+	_evo_ctx = {"weather": str(opts.get("weather", "clear")), "time": str(opts.get("time", "day"))}
 	ai_tier = str(opts.get("ai", "wild"))
 	bag = Bag.new(data.bag)
 	battle = Battle.new(data.party, foe_party, {
@@ -121,6 +126,9 @@ func _player_action() -> Dictionary:
 			"switch":
 				return {"type": "switch", "index": int(c.index)}
 			"run":
+				if _no_run:
+					await _say(["The air hums. It won't let you leave."])
+					continue
 				if not is_wild():
 					await _say(["No! There's no running from a keeper battle!"])
 					continue
@@ -279,7 +287,7 @@ func _evolutions() -> void:
 	for c in _levelled:
 		if c not in data.party:
 			continue
-		var to: String = Progression.evolution_target(c)
+		var to: String = Progression.evolution_target(c, _evo_ctx)
 		if to == "" or not dex.has(to):
 			continue
 		var to_sp := dex.get_species(to)

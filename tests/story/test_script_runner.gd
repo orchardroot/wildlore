@@ -198,3 +198,26 @@ func test_ferry_asks_then_sails() -> void:
 	h.choices = [1]
 	await _cmds(h).run([{"do": "ferry", "route": "liverpool_douglas"}])
 	assert_eq(h.warps, [], "said no")
+
+func test_legend_command() -> void:
+	var h := FakeStoryHost.new()
+	h.dex = Dex.load_default()
+	h.moves = MoveDB.load_default()
+	h.battle_results = [{"result": "caught", "caught": null}]
+	await _cmds(h).run([{"do": "legend", "species": "ddraig", "level": 45, "flag": "caught_ddraig"}])
+	assert_eq(h.last_battle.foes[0].species.id, "ddraig")
+	assert_eq(h.last_battle.foes[0].level, 45)
+	assert_true(h.last_battle.opts.no_run)
+	assert_eq(h.last_battle.opts.music, "legend")
+	assert_true(h.data.flag("caught_ddraig"))
+	var h2 := FakeStoryHost.new()
+	h2.dex = Dex.load_default()
+	h2.moves = MoveDB.load_default()
+	h2.battle_results = [{"result": "win", "caught": null}]
+	await _cmds(h2).run([{"do": "legend", "species": "ddraig", "level": 45, "flag": "caught_ddraig"}])
+	assert_false(h2.data.flag("caught_ddraig") == true, "knocked out, not caught: it can be met again")
+
+func test_enclosure_battle_music() -> void:
+	assert_eq(AudioIds.battle_music({"kind": "trainer", "trainer": {"class": "Warden"}}), "battle_enclosure")
+	assert_eq(AudioIds.battle_music({"kind": "trainer", "trainer": {"class": "Director"}}), "battle_enclosure")
+	assert_eq(AudioIds.battle_music({"kind": "trainer", "trainer": {"class": "Hiker"}}), "battle_trainer")

@@ -14,6 +14,7 @@ static func gain_xp(c: Creature, amount: int, move_db: MoveDB) -> Array:
 	while c.level < Rules.MAX_LEVEL and c.xp >= Rules.xp_for_level(c.species.growth, c.level + 1):
 		var old_max := c.max_hp()
 		c.level += 1
+		c.friendship = mini(255, c.friendship + 4)
 		if not c.is_fainted():
 			c.hp += c.max_hp() - old_max
 		ev.append({"type": "level_up", "level": c.level})
@@ -37,13 +38,23 @@ static func moves_learned_at(sp: Dictionary, level: int) -> Array:
 static func replace_move(c: Creature, slot: int, id: String, move_db: MoveDB) -> void:
 	c.moves[slot] = c.make_move_slot(id, move_db)
 
-static func evolution_target(c: Creature) -> String:
+## Level-up evolutions. ctx = {weather, time} from the battle: an evolution with "weather" or "time"
+## also needs that weather or time of day; one with "friendship" needs that much friendship.
+static func evolution_target(c: Creature, ctx := {}) -> String:
 	var evo = c.species.get("evolves")
-	if not (evo is Dictionary):
+	if not (evo is Dictionary) or evo.has("item"):
 		return ""
-	if evo.has("level") and c.level >= int(evo.level):
-		return evo.to
-	return ""
+	if evo.has("level") and c.level < int(evo.level):
+		return ""
+	if evo.has("friendship") and c.friendship < int(evo.friendship):
+		return ""
+	if evo.has("weather") and str(ctx.get("weather", "")) != str(evo.weather):
+		return ""
+	if evo.has("time") and str(ctx.get("time", "")) != str(evo.time):
+		return ""
+	if not (evo.has("level") or evo.has("friendship")):
+		return ""
+	return str(evo.to)
 
 ## Item evolutions ({"to", "item"}): the target if this item triggers one for this creature, else "".
 static func evolution_target_with_item(c: Creature, item_id: String) -> String:

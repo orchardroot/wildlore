@@ -30,6 +30,8 @@ static func music_exists(id: String) -> bool:
 static func battle_music(opts: Dictionary) -> String:
 	if opts.has("music"):
 		return str(opts.music)
+	if str(opts.get("trainer", {}).get("class", "")) in ["Warden", "Director", "Lord"]:
+		return "battle_enclosure"
 	if opts.get("ai", "") == "keeper":
 		return "battle_keeper"
 	return "battle_wild" if opts.get("kind", "wild") == "wild" else "battle_trainer"

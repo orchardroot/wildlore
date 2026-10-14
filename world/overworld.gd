@@ -147,8 +147,15 @@ func _spawn_npcs() -> void:
 		n.setup(def, self)
 		npcs.append(n)
 
+var _friend_steps := 0
+
 func _on_step(p: Vector2i) -> void:
 	Game.data.pos = p
+	_friend_steps += 1
+	if _friend_steps >= 128:  # a long walk together makes friends
+		_friend_steps = 0
+		for c in Game.data.party:
+			c.friendship = mini(255, c.friendship + 1)
 	Game.data.facing = player.facing
 	if not zone.in_bounds(p):
 		_cross_edge(p)
