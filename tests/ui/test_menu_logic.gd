@@ -16,7 +16,7 @@ func test_max_buy() -> void:
 	assert_eq(MenuLogic.max_buy(99999, 100), 99, "capped at 99")
 	assert_eq(MenuLogic.max_buy(50, 100), 0)
 	assert_eq(MenuLogic.max_buy(500, 0), 99, "free items are only capped")
-	assert_eq(MenuLogic.max_buy(550, 100, 3), 2, "owned stacks count towards the cap")
+	assert_eq(MenuLogic.max_buy(550, 100, 97), 2, "owned stacks count towards the cap")
 	assert_eq(MenuLogic.max_buy(99999, 100, 99), 0)
 
 func test_sell_price() -> void:
