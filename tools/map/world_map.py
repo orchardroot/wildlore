@@ -51,10 +51,15 @@ TOWNS = {
 PLACES = {
  "macc_forest": (-2.03, 53.24), "cat_and_fiddle": (-1.99, 53.25), "goyt_valley": (-2.02, 53.33), "chat_moss": (-2.6, 53.46),
  "wirral_way": (-3.1, 53.3), "dee_valley": (-3.05, 52.98), "ogwen": (-3.7, 53.12), "yr_wyddfa": (-4.08, 53.07),
- "dinas_emrys": (-4.08, 53.02), "cambrian_coast": (-4.06, 52.7), "pembroke_coast": (-4.95, 51.75), "beacons": (-3.44, 51.88),
+ "dinas_emrys": (-4.08, 53.02), "holyhead": (-4.63, 53.31), "anglesey": (-4.35, 53.25),
+ "severn_crossing": (-2.7, 51.6), "mendips": (-2.7, 51.28), "somerset_levels": (-2.85, 51.1), "dartmoor": (-3.9, 50.57),
+ "tintagel": (-4.75, 50.67), "wicklow": (-6.35, 53.0), "comeraghs": (-7.6, 52.3), "ring_of_kerry": (-9.8, 51.95),
+ "burren": (-9.1, 53.05), "connemara": (-9.8, 53.5), "boyne_valley": (-6.6, 53.7), "cambrian_coast": (-4.06, 52.7), "pembroke_coast": (-4.95, 51.75), "beacons": (-3.44, 51.88),
 }
 d = {"space": [1000, 1300], "outlines": {"gb": [pt(*p) for p in GB], "ireland": [pt(*p) for p in IRELAND], "man": [pt(*p) for p in MAN],
      "skye": [pt(*p) for p in SKYE], "orkney": [pt(*p) for p in ORKNEY]},
-     "towns": {k: {"name": v[0], "x": pt(v[1], v[2])[0], "y": pt(v[1], v[2])[1], "nation": v[3]} for k, v in TOWNS.items()},
-     "places": {k: {"x": pt(*v)[0], "y": pt(*v)[1]} for k, v in PLACES.items()}}
+     "towns": {k: {"name": v[0], "x": pt(v[1], v[2])[0], "y": pt(v[1], v[2])[1], "nation": v[3],
+                   "island": {"ireland": "ireland", "northern_ireland": "ireland", "man": "man"}.get(v[3], "gb")} for k, v in TOWNS.items()},
+     "places": {k: {"x": pt(*v)[0], "y": pt(*v)[1]} for k, v in PLACES.items()},
+     "ferries": [["liverpool", "douglas"], ["holyhead", "dublin"]]}
 json.dump(d, open(sys.argv[1], "w"), indent=0)

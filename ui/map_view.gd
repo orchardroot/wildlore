@@ -52,6 +52,12 @@ func _draw() -> void:
 			closed.append(pts[0])
 			draw_polyline(closed, LAND_EDGE, 2.0, true)
 	var d: GameStateData = Game.data
+	for pair in m.get("ferries", []):  # dotted ferry lines between visited ports
+		var a: Dictionary = m.towns.get(pair[0], m.get("places", {}).get(pair[0], {}))
+		var b: Dictionary = m.towns.get(pair[1], m.get("places", {}).get(pair[1], {}))
+		if a.is_empty() or b.is_empty() or not d.flag("visited_" + str(pair[0])):
+			continue
+		draw_dashed_line(_p(float(a.x), float(a.y), xf), _p(float(b.x), float(b.y), xf), Color("e9e2c8"), 2.0, 8.0)
 	var here := str(d.flag("last_town")) if d.flag("last_town") else ""
 	var labels: Array = []  # Rect2s already drawn, so neighbours like Macclesfield and Buxton don't overprint
 	for town in m.get("towns", {}):

@@ -40,3 +40,12 @@ func test_world_map_has_all_spec_towns() -> void:
 		assert_true(m.towns.has(t), t)
 	assert_true(m.outlines.gb.size() >= 60)
 	assert_true(m.outlines.ireland.size() >= 30)
+
+func test_rail_stays_on_island() -> void:
+	var d := GameStateData.new()
+	for t in ["cardiff", "dublin", "liverpool"]:
+		d.set_flag(Travel.station_flag(t))
+	assert_eq(Travel.island_of("dublin"), "ireland")
+	assert_eq(Travel.island_of("cardiff"), "gb")
+	assert_false("dublin" in Travel.rail_destinations(d, "liverpool"), "no train across the Irish Sea")
+	assert_false("cardiff" in Travel.rail_destinations(d, "dublin"))

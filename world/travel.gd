@@ -36,11 +36,16 @@ static func note_visit(data: GameStateData, zone: ZoneData) -> void:
 	if zone.station != Vector2i(-1, -1):
 		data.set_flag(station_flag(zone.town_id))
 
-## Towns you can take the train to from `here`, in journey order (the world map's town order).
+## "gb", "ireland" or "man": trains never cross the sea.
+static func island_of(town: String) -> String:
+	return str(world_map().get("towns", {}).get(town, {}).get("island", "gb"))
+
+## Towns you can take the train to from `here` (same island only), in the world map's town order.
 static func rail_destinations(data: GameStateData, here: String) -> Array:
 	var out := []
+	var isle := island_of(here)
 	for town in world_map().get("towns", {}):
-		if town != here and data.flag(station_flag(town)) and FileAccess.file_exists("res://data/zones/%s.json" % town):
+		if town != here and island_of(town) == isle and data.flag(station_flag(town)) and FileAccess.file_exists("res://data/zones/%s.json" % town):
 			out.append(town)
 	return out
 
