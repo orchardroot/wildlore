@@ -28,7 +28,7 @@ func test_items_of_kind() -> void:
 	assert_eq(bag.items_of_kind("snare", items), ["wicker_snare"])
 
 func test_heal_consumes() -> void:
-	var c := _hurt("kindlet", 30)
+	var c := _hurt("kindlet", 12)
 	var before := c.hp
 	var bag := Bag.new({"cup_of_tea": 1})
 	var r := bag.use_on("cup_of_tea", c, items)

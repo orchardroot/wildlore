@@ -15,6 +15,7 @@ var weather := "clear"
 var time := "day"
 var chart: TypeChart
 var move_db: MoveDB
+var item_db: ItemDB  # optional: without it item actions do nothing
 var rng: Rng
 var over := false
 var winner := -1
@@ -26,6 +27,7 @@ func _init(player_party: Array, foe_party: Array, opts: Dictionary) -> void:
 	parties = [player_party, foe_party]
 	chart = opts.chart
 	move_db = opts.move_db
+	item_db = opts.get("item_db")
 	kind = opts.get("kind", "wild")
 	weather = opts.get("weather", "clear")
 	time = opts.get("time", "day")
@@ -60,6 +62,8 @@ func take_turn(player_action: Dictionary, foe_action: Dictionary) -> Array:
 		match a.type:
 			"switch":
 				_do_switch(side, int(a.index), ev)
+			"item":
+				_do_item(side, str(a.get("item", "")), int(a.get("target", 0)), ev)
 			"run":
 				_do_run(side, ev)
 			"catch":
@@ -177,6 +181,15 @@ func _do_switch(side: int, index: int, ev: Array) -> void:
 	current(side).reset_stages()
 	active[side] = index
 	ev.append({"type": "switch", "side": side, "index": index, "user": current(side).display_name()})
+
+func _do_item(side: int, item_id: String, target: int, ev: Array) -> void:
+	var text := "Nothing happened."
+	var party: Array = parties[side]
+	if side == PLAYER and item_db != null and target >= 0 and target < party.size():
+		var item := item_db.get_item(item_id)
+		if bool(item.get("battle", false)) and item.get("kind", "") in ["heal", "cure", "revive", "pp"]:
+			text = ItemEffects.apply(item, party[target]).text
+	ev.append({"type": "item", "side": side, "item": item_id, "target": target, "text": text})
 
 func _do_run(side: int, ev: Array) -> void:
 	if kind != "wild" or side != PLAYER:
