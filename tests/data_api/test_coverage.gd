@@ -20,3 +20,7 @@ func test_thin_route_is_flagged() -> void:
 	assert_true(errs.any(func(e): return e.contains("only 1 encounter")))
 	var no_grass := Coverage.check(Dex.load_default(), {"q": _zone("q", ["..."], [])}, {})
 	assert_eq(no_grass, [], "a route without tall grass or deep water needs no table")
+
+func test_stub_habitat_is_skipped() -> void:
+	var z := ZoneData.from_dict({"id": "r", "name": "r", "kind": "route", "rows": ["..."], "spawn": [0, 0], "stub": true})
+	assert_eq(Coverage.check(Dex.load_default(), {"r": z}, {"scuttlet": ["r"]}), [])
