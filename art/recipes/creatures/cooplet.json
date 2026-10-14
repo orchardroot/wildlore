@@ -1,0 +1,22 @@
+{"id": "cooplet",
+ "palette": {"grey": "#9aa3b4", "grey2": "#6f7890", "light": "#cbd2de", "neck": "#4fa88a", "neck2": "#a266b8", "beak": "#4a3e44", "cere": "#f4ecde", "foot": "#e47a88", "eye": "#e8782a", "bar": "#2c3040"},
+ "layers": [
+  {"shape": "ellipse", "at": [39, 91], "size": [13, 6], "colour": "foot", "mirror": true, "rim": false},
+  {"shape": "poly", "points": [[38, 78], [58, 78], [57, 95], [39, 95]], "colour": "grey2", "back_only": true},
+  {"shape": "rect", "at": [48, 92], "size": [20, 3], "colour": "bar", "back_only": true, "rim": false},
+  {"shape": "ellipse", "at": [48, 64], "size": [58, 52], "colour": "grey"},
+  {"shape": "ellipse", "at": [48, 70], "size": [34, 34], "colour": "light", "front_only": true},
+  {"shape": "ellipse", "at": [25, 64], "size": [18, 38], "colour": "grey2", "angle": 8, "mirror": true},
+  {"shape": "line", "points": [[19, 54], [30, 56]], "width": 2, "colour": "bar", "shade": false, "mirror": true},
+  {"shape": "line", "points": [[19, 62], [30, 64]], "width": 2, "colour": "bar", "shade": false, "mirror": true},
+  {"shape": "ellipse", "at": [48, 48], "size": [36, 20], "colour": "grey"},
+  {"shape": "ellipse", "at": [48, 51], "size": [32, 13], "colour": "neck", "pattern": "stripes", "pcolour": "neck2", "period": 4, "pangle": 40, "rim": false},
+  {"shape": "circle", "at": [48, 36], "r": 17, "colour": "grey"},
+  {"shape": "ellipse", "at": [48, 30], "size": [24, 10], "colour": "light", "rim": false, "shade": false, "back_only": true}
+ ],
+ "face_layers": [
+  {"shape": "poly", "points": [[43, 38], [53, 38], [48, 47]], "colour": "beak", "shade": false},
+  {"shape": "ellipse", "at": [48, 38], "size": [8, 4], "colour": "cere", "shade": false, "rim": false}
+ ],
+ "eyes": [{"at": [38, 33], "r": 3.5, "colour": "eye", "pupil": [2, 2], "mirror": true}]
+}

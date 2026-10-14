@@ -1,0 +1,25 @@
+{"id": "brockling",
+ "palette": {"fur": "#8a8c92", "fur2": "#5e6068", "black": "#1e1c24", "white": "#f4f2ee", "belly": "#3a383e", "nose": "#14101a", "blush": "#f0a8a8", "claw": "#d8d0c0"},
+ "layers": [
+  {"shape": "ellipse", "at": [48, 90], "size": [26, 9], "colour": "fur2", "back_only": true, "rim": false},
+  {"shape": "ellipse", "at": [35, 90], "size": [18, 8], "colour": "black", "mirror": true, "front_only": true},
+  {"shape": "ellipse", "at": [48, 68], "size": [54, 46], "colour": "fur", "pattern": "speckle", "pcolour": "fur2", "density": 14},
+  {"shape": "ellipse", "at": [48, 74], "size": [32, 30], "colour": "belly", "front_only": true, "rim": false},
+  {"shape": "ellipse", "at": [32, 76], "size": [12, 16], "colour": "fur", "mirror": true, "front_only": true},
+  {"shape": "ellipse", "at": [32, 84], "size": [12, 6], "colour": "black", "mirror": true, "front_only": true, "rim": false},
+  {"shape": "ellipse", "at": [28, 28], "size": [14, 14], "colour": "black", "mirror": true},
+  {"shape": "ellipse", "at": [28, 25], "size": [9, 6], "colour": "white", "mirror": true, "rim": false},
+  {"shape": "ellipse", "at": [48, 44], "size": [52, 42], "colour": "fur", "pattern": "speckle", "pcolour": "fur2", "density": 10},
+  {"shape": "ellipse", "at": [48, 26], "size": [8, 10], "colour": "white", "back_only": true, "rim": false},
+  {"shape": "poly", "points": [[34, 24], [42, 24], [46, 46], [44, 62], [32, 56]], "colour": "black", "front_only": true, "rim": false},
+  {"shape": "poly", "points": [[62, 24], [54, 24], [50, 46], [52, 62], [64, 56]], "colour": "black", "front_only": true, "rim": false},
+  {"shape": "poly", "points": [[44, 22], [52, 22], [51, 46], [48, 64], [45, 46]], "colour": "white", "front_only": true, "rim": false},
+  {"shape": "ellipse", "at": [48, 56], "size": [18, 12], "colour": "white", "front_only": true, "rim": false}
+ ],
+ "face_layers": [
+  {"shape": "ellipse", "at": [48, 56], "size": [9, 6], "colour": "nose", "rim": false},
+  {"shape": "line", "points": [[44, 61], [48, 63], [52, 61]], "width": 1, "colour": "nose", "shade": false},
+  {"shape": "ellipse", "at": [28, 52], "size": [6, 4], "colour": "blush", "shade": false, "mirror": true}
+ ],
+ "eyes": [{"at": [38, 44], "r": 3.5, "colour": "#f4f2ee", "pupil": [3, 3], "mirror": true}]
+}

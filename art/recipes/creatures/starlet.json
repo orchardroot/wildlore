@@ -1,0 +1,18 @@
+{"id": "starlet",
+ "palette": {"dark": "#2c2c40", "sheen": "#3e8a8a", "sheen2": "#8a5ab0", "spot": "#f2eedc", "bill": "#f0c030", "foot": "#d86a50", "belly": "#454460"},
+ "layers": [
+  {"shape": "ellipse", "at": [39, 91], "size": [13, 6], "colour": "foot", "mirror": true, "rim": false},
+  {"shape": "poly", "points": [[38, 80], [58, 80], [56, 95], [40, 95]], "colour": "dark", "back_only": true},
+  {"shape": "ellipse", "at": [48, 64], "size": [58, 52], "colour": "dark", "pattern": "speckle", "pcolour": "sheen", "density": 14},
+  {"shape": "ellipse", "at": [48, 70], "size": [34, 32], "colour": "belly", "front_only": true, "pattern": "speckle", "pcolour": "spot", "density": 14, "rim": false},
+  {"shape": "ellipse", "at": [25, 64], "size": [18, 38], "colour": "dark", "angle": 8, "mirror": true, "pattern": "speckle", "pcolour": "spot", "density": 10},
+  {"shape": "ellipse", "at": [48, 48], "size": [34, 18], "colour": "dark", "pattern": "stripes", "pcolour": "sheen2", "period": 4, "pangle": 40},
+  {"shape": "circle", "at": [48, 36], "r": 17, "colour": "dark", "pattern": "speckle", "pcolour": "sheen", "density": 10},
+  {"shape": "circle", "at": [34, 24], "r": 1.5, "colour": "spot", "shade": false, "rim": false},
+  {"shape": "circle", "at": [58, 22], "r": 1.5, "colour": "spot", "shade": false, "rim": false}
+ ],
+ "face_layers": [
+  {"shape": "poly", "points": [[42, 38], [54, 38], [48, 48]], "colour": "bill", "shade": false}
+ ],
+ "eyes": [{"at": [38, 33], "r": 3.5, "mirror": true}]
+}

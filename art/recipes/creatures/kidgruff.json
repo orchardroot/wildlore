@@ -1,0 +1,22 @@
+{"id": "kidgruff",
+ "palette": {"fur": "#e8e0d0", "fur2": "#b8aa94", "brown": "#8a6a48", "horn": "#d8c8a0", "hoof": "#3a3030", "nose": "#d8a8a0", "ink": "#2a2024", "blush": "#f0a8a0", "beard": "#f4eee2"},
+ "layers": [
+  {"shape": "ellipse", "at": [36, 91], "size": [14, 7], "colour": "hoof", "mirror": true, "rim": false},
+  {"shape": "rect", "at": [36, 82], "size": [10, 14], "round": 3, "colour": "fur", "mirror": true},
+  {"shape": "ellipse", "at": [48, 66], "size": [54, 46], "colour": "fur", "pattern": "speckle", "pcolour": "fur2", "density": 12},
+  {"shape": "ellipse", "at": [66, 62], "size": [18, 22], "colour": "brown", "pattern": "speckle", "pcolour": "fur2", "density": 8, "rim": false},
+  {"shape": "ellipse", "at": [48, 72], "size": [30, 28], "colour": "fur", "front_only": true, "rim": false},
+  {"shape": "tri", "points": [[36, 28], [30, 10], [44, 24]], "colour": "horn", "mirror": true, "rim": false},
+  {"shape": "ellipse", "at": [24, 40], "size": [20, 10], "colour": "brown", "angle": 24, "mirror": true},
+  {"shape": "ellipse", "at": [48, 42], "size": [46, 38], "colour": "fur"},
+  {"shape": "ellipse", "at": [48, 30], "size": [30, 12], "colour": "brown", "pattern": "speckle", "pcolour": "fur2", "density": 10, "rim": false, "back_only": true},
+  {"shape": "ellipse", "at": [48, 51], "size": [26, 18], "colour": "beard", "front_only": true, "rim": false},
+  {"shape": "tri", "points": [[44, 56], [52, 56], [48, 68]], "colour": "beard", "front_only": true, "rim": false}
+ ],
+ "face_layers": [
+  {"shape": "ellipse", "at": [48, 50], "size": [9, 6], "colour": "nose", "rim": false},
+  {"shape": "line", "points": [[44, 55], [48, 57], [52, 55]], "width": 1, "colour": "ink", "shade": false},
+  {"shape": "ellipse", "at": [31, 50], "size": [6, 4], "colour": "blush", "shade": false, "mirror": true}
+ ],
+ "eyes": [{"at": [37, 42], "r": 4, "colour": "#d8a030", "pupil": [4, 1.5], "mirror": true}]
+}

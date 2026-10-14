@@ -1,0 +1,26 @@
+{"id": "petrelash",
+ "anim": "shift", "bob": 2,
+ "palette": {"sooty": "#34343e", "sooty2": "#20202a", "hi": "#54546a", "white": "#f6f6f8", "beak": "#1c1820", "leg": "#2a2630", "bolt": "#ffe040", "wave": "#3a78b0", "wave2": "#a0d0e8", "foam": "#f4fcff", "cloud": "#6a6a82", "blush": "#f0a8b0"},
+ "layers": [
+  {"shape": "poly", "points": [[84, 2], [78, 14], [82, 14], [76, 28], [88, 10], [84, 10]], "colour": "bolt", "shade": false, "rim": false},
+  {"shape": "poly", "points": [[10, 4], [4, 16], [8, 16], [2, 30], [14, 12], [10, 12]], "colour": "bolt", "shade": false, "rim": false},
+  {"shape": "ellipse", "at": [48, 92], "size": [94, 12], "colour": "wave2", "rim": false, "shade": false},
+  {"shape": "ellipse", "at": [48, 93], "size": [80, 8], "colour": "wave", "rim": false},
+  {"shape": "line", "points": [[42, 78], [38, 90]], "width": 1, "colour": "leg", "shade": false, "mirror": true},
+  {"shape": "ellipse", "at": [37, 91], "size": [8, 3], "colour": "foam", "shade": false, "rim": false, "mirror": true},
+  {"shape": "poly", "points": [[40, 74], [56, 74], [58, 84], [48, 80], [38, 84]], "colour": "sooty2"},
+  {"shape": "ellipse", "at": [48, 64], "size": [44, 38], "colour": "sooty", "pattern": "speckle", "pcolour": "hi", "density": 8},
+  {"shape": "ellipse", "at": [48, 76], "size": [28, 14], "colour": "white", "back_only": true, "rim": false},
+  {"shape": "poly", "points": [[32, 52], [14, 54], [2, 68], [6, 80], [16, 74], [30, 70]], "colour": "sooty2", "mirror": true},
+  {"shape": "line", "points": [[6, 74], [24, 62]], "width": 1, "colour": "hi", "shade": false, "mirror": true},
+  {"shape": "poly", "points": [[8, 70], [6, 80], [16, 74]], "colour": "white", "mirror": true, "rim": false, "front_only": true, "shade": false},
+  {"shape": "ellipse", "at": [48, 40], "size": [38, 32], "colour": "sooty", "pattern": "speckle", "pcolour": "hi", "density": 8},
+  {"shape": "ellipse", "at": [48, 48], "size": [22, 12], "colour": "sooty2", "front_only": true, "rim": false}
+ ],
+ "face_layers": [
+  {"shape": "poly", "points": [[44, 42], [52, 42], [50, 48], [46, 48]], "colour": "beak", "shade": false},
+  {"shape": "ellipse", "at": [33, 46], "size": [6, 4], "colour": "blush", "shade": false, "mirror": true},
+  {"shape": "line", "points": [[30, 31], [41, 36]], "width": 2, "colour": "sooty2", "shade": false, "mirror": true}
+ ],
+ "eyes": [{"at": [39, 38], "r": 4, "mirror": true}]
+}

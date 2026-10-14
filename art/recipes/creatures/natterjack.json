@@ -1,0 +1,22 @@
+{"id": "natterjack",
+ "palette": {"skin": "#8c7c4a", "skin2": "#5e4e2c", "wart": "#b0623c", "belly": "#e0d4a4", "gold": "#e8d230", "stripe": "#f4e040", "mouth": "#3a2a20", "foot": "#9a8650", "bolt": "#ffe84a", "bolt2": "#fff8b0", "sand": "#d8c890"},
+ "layers": [
+  {"shape": "ellipse", "at": [48, 92], "size": [80, 8], "colour": "sand", "rim": false, "shade": false},
+  {"shape": "ellipse", "at": [17, 86], "size": [20, 9], "colour": "foot", "mirror": true},
+  {"shape": "ellipse", "at": [18, 72], "size": [24, 38], "colour": "skin", "mirror": true, "angle": -10, "pattern": "speckle", "pcolour": "wart", "density": 12},
+  {"shape": "ellipse", "at": [48, 64], "size": [68, 50], "colour": "skin", "pattern": "speckle", "pcolour": "wart", "density": 14},
+  {"shape": "ellipse", "at": [48, 76], "size": [38, 24], "colour": "belly", "front_only": true},
+  {"shape": "ellipse", "at": [31, 80], "size": [10, 22], "colour": "skin", "mirror": true, "front_only": true},
+  {"shape": "ellipse", "at": [29, 91], "size": [14, 7], "colour": "foot", "mirror": true, "front_only": true},
+  {"shape": "ellipse", "at": [48, 42], "size": [58, 34], "colour": "skin", "pattern": "speckle", "pcolour": "wart", "density": 14},
+  {"shape": "ellipse", "at": [32, 32], "size": [18, 16], "colour": "skin", "mirror": true},
+  {"shape": "line", "points": [[48, 28], [48, 44], [48, 58], [48, 70]], "width": 3, "colour": "stripe", "shade": false},
+  {"shape": "poly", "points": [[84, 12], [78, 24], [83, 24], [77, 36], [88, 20], [83, 20]], "colour": "bolt", "shade": false, "rim": false},
+  {"shape": "poly", "points": [[10, 10], [5, 20], [9, 20], [4, 30], [14, 16], [10, 16]], "colour": "bolt", "shade": false, "rim": false}
+ ],
+ "face_layers": [
+  {"shape": "line", "points": [[22, 52], [32, 56], [48, 58], [64, 56], [74, 52]], "width": 2, "colour": "mouth", "shade": false},
+  {"shape": "ellipse", "at": [45, 46], "size": [2, 2], "colour": "mouth", "shade": false, "mirror": true}
+ ],
+ "eyes": [{"at": [32, 32], "r": 5.5, "colour": "gold", "pupil": [8, 2.5], "mirror": true}]
+}

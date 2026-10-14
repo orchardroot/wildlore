@@ -1,0 +1,21 @@
+{"id": "chipgull",
+ "palette": {"white": "#f4f4f6", "grey": "#9aa6b6", "grey2": "#7886a0", "bill": "#f2c840", "spot": "#e03a2a", "foot": "#f0a0a8", "eye": "#f2d84a", "tip": "#2a2a34", "chip": "#f0c850", "chip2": "#d8a030", "shade": "#c8ccd6"},
+ "layers": [
+  {"shape": "ellipse", "at": [38, 91], "size": [14, 6], "colour": "foot", "mirror": true, "rim": false},
+  {"shape": "ellipse", "at": [48, 66], "size": [56, 50], "colour": "white"},
+  {"shape": "ellipse", "at": [48, 74], "size": [36, 28], "colour": "shade", "back_only": true, "rim": false},
+  {"shape": "ellipse", "at": [26, 64], "size": [18, 34], "colour": "grey", "angle": 8, "mirror": true},
+  {"shape": "ellipse", "at": [23, 78], "size": [10, 8], "colour": "tip", "mirror": true, "rim": false},
+  {"shape": "poly", "points": [[40, 80], [56, 80], [54, 94], [42, 94]], "colour": "white", "back_only": true},
+  {"shape": "ellipse", "at": [48, 38], "size": [40, 34], "colour": "white"},
+  {"shape": "ellipse", "at": [48, 26], "size": [32, 12], "colour": "grey", "back_only": true, "rim": false},
+  {"shape": "rect", "at": [62, 66], "size": [5, 20], "colour": "chip", "angle": 30, "front_only": true, "rim": false},
+  {"shape": "rect", "at": [67, 64], "size": [5, 20], "colour": "chip2", "angle": 15, "front_only": true, "rim": false}
+ ],
+ "face_layers": [
+  {"shape": "poly", "points": [[40, 40], [56, 40], [57, 46], [48, 52], [42, 47]], "colour": "bill", "shade": true},
+  {"shape": "poly", "points": [[48, 47], [52, 47], [51, 52], [48, 52]], "colour": "spot", "shade": false, "rim": false},
+  {"shape": "line", "points": [[30, 31], [40, 35]], "width": 2, "colour": "grey2", "shade": false, "mirror": true}
+ ],
+ "eyes": [{"at": [38, 35], "r": 3.5, "colour": "eye", "pupil": [1.5, 2], "mirror": true}]
+}
