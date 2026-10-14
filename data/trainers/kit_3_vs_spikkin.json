@@ -1,0 +1,45 @@
+{
+ "id": "kit_3_vs_spikkin",
+ "name": "Kit",
+ "class": "Rival",
+ "sprite": "kit",
+ "party": [
+  {
+   "species": "redbreast",
+   "level": 19
+  },
+  {
+   "species": "warrender",
+   "level": 20
+  },
+  {
+   "species": "chipgull",
+   "level": 20
+  },
+  {
+   "species": "emberdrey",
+   "level": 22
+  }
+ ],
+ "ai": "trainer",
+ "money": 600,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Kit",
+   "text": "{player}! Pier Head, golden hour, and the ferry horn is hitting perfectly. This is my best backdrop yet."
+  },
+  {
+   "do": "say",
+   "who": "Kit",
+   "text": "Chat's been saying I should 'let the Enclosure sponsor a battle'. I said I'd do it for free. For now."
+  },
+  {
+   "do": "say",
+   "who": "Kit",
+   "text": "Don't make a face. It's going in the highlights!"
+  }
+ ],
+ "win": "Hang on, I wasn't even ready! Okay, I was a bit ready.",
+ "after": "Fine. You're better than the algorithm. Don't tell the algorithm."
+}

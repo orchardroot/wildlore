@@ -1,0 +1,41 @@
+{
+ "id": "keeper_eluned",
+ "name": "Keeper Eluned",
+ "class": "Keeper",
+ "sprite": "keeper_eluned",
+ "party": [
+  {
+   "species": "gritling",
+   "level": 28
+  },
+  {
+   "species": "billgruff",
+   "level": 29
+  },
+  {
+   "species": "quarrion",
+   "level": 31
+  }
+ ],
+ "ai": "keeper",
+ "money": 3500,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Keeper Eluned",
+   "text": "Shwmae. Mind the hard hat rule. Yes, even you. Especially you."
+  },
+  {
+   "do": "say",
+   "who": "Keeper Eluned",
+   "text": "Eluned. I look after the Stone Stone, and the quarry it came out of. Both are heavier than they look."
+  },
+  {
+   "do": "say",
+   "who": "Keeper Eluned",
+   "text": "I don't do speeches. Show me what you've got and we'll see how well it's bedded in."
+  }
+ ],
+ "win": "Wel, dyna ni. Solid work. Not a crack in it. Take the Stone, and mind where you put it down.",
+ "after": "Slate lasts a hundred years if you treat it right. People, rather less, but you seem sturdy. Hwyl."
+}

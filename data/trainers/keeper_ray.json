@@ -1,0 +1,41 @@
+{
+ "id": "keeper_ray",
+ "name": "Keeper Ray",
+ "class": "Keeper",
+ "sprite": "keeper_ray",
+ "party": [
+  {
+   "species": "binfox",
+   "level": 20
+  },
+  {
+   "species": "strutcoo",
+   "level": 21
+  },
+  {
+   "species": "pierlord",
+   "level": 23
+  }
+ ],
+ "ai": "keeper",
+ "money": 2500,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Keeper Ray",
+   "text": "Alright, la! Come in, come in, mind the amps. You've got the look of someone who's come all the way from the Peaks."
+  },
+  {
+   "do": "say",
+   "who": "Keeper Ray",
+   "text": "I'm Ray. I keep the Urban Stone here, and I do the odd drum solo. Mostly the Stone."
+  },
+  {
+   "do": "say",
+   "who": "Keeper Ray",
+   "text": "Let's see if you can keep time with the city. One, two, three, four!"
+  }
+ ],
+ "win": "Ey, that was gear! Fab, even. Here, take the Stone before I get all misty.",
+ "after": "Come back Thursday, we do a lovely set. Bring a mate. Bring two. The club holds forty and there's always sixty."
+}
