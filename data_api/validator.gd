@@ -2,7 +2,7 @@ class_name DataValidator
 extends RefCounted
 ## Cross-checks all game data. Returns human-readable errors; an empty array means valid.
 
-static func validate(chart: TypeChart, dex: Dex, moves: MoveDB) -> Array:
+static func validate(chart: TypeChart, dex: Dex, moves: MoveDB, items: ItemDB = null) -> Array:
 	var errors := chart.validate()
 	for id in moves.duplicates:
 		errors.append("move id '%s' defined more than once" % id)
@@ -11,7 +11,9 @@ static func validate(chart: TypeChart, dex: Dex, moves: MoveDB) -> Array:
 	for id in moves.ids():
 		errors.append_array(_check_move(moves.get_move(id), chart))
 	for id in dex.ids():
-		errors.append_array(_check_species(dex.get_species(id), chart, dex, moves))
+		errors.append_array(_check_species(dex.get_species(id), chart, dex, moves, items))
+	if items != null:
+		errors.append_array(_check_items(items, dex))
 	return errors
 
 static func _check_move(m: Dictionary, chart: TypeChart) -> Array:
@@ -47,7 +49,7 @@ static func _check_move(m: Dictionary, chart: TypeChart) -> Array:
 		e.append("move %s: effect target must be self or foe" % id)
 	return e
 
-static func _check_species(sp: Dictionary, chart: TypeChart, dex: Dex, moves: MoveDB) -> Array:
+static func _check_species(sp: Dictionary, chart: TypeChart, dex: Dex, moves: MoveDB, items: ItemDB = null) -> Array:
 	var e := []
 	var id: String = sp.get("id", "?")
 	if str(sp.get("name", "")) == "":
@@ -88,9 +90,83 @@ static func _check_species(sp: Dictionary, chart: TypeChart, dex: Dex, moves: Mo
 			e.append("species %s: evolves into itself" % id)
 		if evo.has("level") and (int(evo.level) < 1 or int(evo.level) > Rules.MAX_LEVEL):
 			e.append("species %s: evolution level must be 1..100" % id)
-		if not evo.has("level"):
-			e.append("species %s: evolution needs a level (item and weather rules arrive in plan 2)" % id)
+		if not evo.has("level") and not evo.has("item"):
+			e.append("species %s: evolution needs a level or an item" % id)
+		if evo.has("item") and items != null:
+			var it := items.get_item(str(evo.item))
+			if it.is_empty():
+				e.append("species %s: evolves with unknown item '%s'" % [id, evo.item])
+			elif it.kind != "evo":
+				e.append("species %s: '%s' is not an evolution item" % [id, evo.item])
 	var d: Dictionary = sp.get("dex", {})
 	if str(d.get("text", "")) == "" or str(d.get("fact", "")) == "":
 		e.append("species %s: needs Creaturepedia text and a real-world fact" % id)
+	return e
+
+const ITEM_KINDS := ["heal", "cure", "revive", "pp", "snare", "evo", "held", "key"]
+const EXTRA_SNARES := ["night", "water", "fae"]
+
+static func _check_items(db: ItemDB, dex: Dex) -> Array:
+	var e := []
+	for id in db.duplicates:
+		e.append("item id '%s' defined more than once" % id)
+	for id in db.ids():
+		e.append_array(_check_item(db.get_item(id), dex))
+	for sid in db.shops:
+		e.append_array(_check_shop(sid, db.shops[sid], db))
+	return e
+
+static func _check_item(it: Dictionary, dex: Dex) -> Array:
+	var e := []
+	var id: String = it.get("id", "?")
+	var kind: String = it.get("kind", "")
+	if str(it.get("name", "")) == "":
+		e.append("item %s: missing name" % id)
+	if str(it.get("desc", "")) == "":
+		e.append("item %s: missing desc" % id)
+	if kind not in ITEM_KINDS:
+		e.append("item %s: unknown kind '%s'" % [id, kind])
+	if int(it.get("price", 0)) < 0:
+		e.append("item %s: price must be 0 or more" % id)
+	match kind:
+		"heal", "pp":
+			if int(it.get("amount", 0)) < 1:
+				e.append("item %s: %s item needs amount >= 1" % [id, kind])
+		"revive":
+			var a := int(it.get("amount", 0))
+			if a < 1 or a > 100:
+				e.append("item %s: revive amount is a percentage, 1..100" % id)
+		"cure":
+			var cures: Array = it.get("cures", [])
+			if cures.is_empty():
+				e.append("item %s: cure item needs a cures list" % id)
+			for s in cures:
+				if s not in Rules.STATUSES:
+					e.append("item %s: unknown status '%s'" % [id, s])
+		"snare":
+			var sn: String = it.get("snare", "")
+			if not Catching.SNARES.has(sn) and sn not in EXTRA_SNARES:
+				e.append("item %s: unknown snare '%s'" % [id, sn])
+		"evo":
+			var evolves: Dictionary = it.get("evolves", {})
+			for from in evolves:
+				if not dex.has(str(from)):
+					e.append("item %s: evolves unknown species '%s'" % [id, from])
+				if not dex.has(str(evolves[from])):
+					e.append("item %s: evolves into unknown species '%s'" % [id, evolves[from]])
+	return e
+
+static func _check_shop(sid: String, shop: Dictionary, db: ItemDB) -> Array:
+	var e := []
+	if str(shop.get("name", "")) == "":
+		e.append("shop %s: missing name" % sid)
+	var stock: Array = shop.get("stock", [])
+	if stock.is_empty():
+		e.append("shop %s: empty stock" % sid)
+	for item_id in stock:
+		var it := db.get_item(str(item_id))
+		if it.is_empty():
+			e.append("shop %s: unknown item '%s'" % [sid, item_id])
+		elif int(it.price) <= 0:
+			e.append("shop %s: '%s' has no price" % [sid, item_id])
 	return e
