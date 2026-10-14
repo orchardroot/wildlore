@@ -1,0 +1,32 @@
+{
+ "id": "moss_dog",
+ "name": "Dog Walker Hazel",
+ "class": "Dog Walker",
+ "sprite": "villager_6",
+ "party": [
+  {
+   "species": "croakle",
+   "level": 15
+  },
+  {
+   "species": "pepperling",
+   "level": 16
+  }
+ ],
+ "ai": "trainer",
+ "money": 440,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Dog Walker Hazel",
+   "text": "Ruffles has found a toad. Ruffles has found a lot of toads."
+  },
+  {
+   "do": "say",
+   "who": "Dog Walker Hazel",
+   "text": "I do apologise. We've been out here since breakfast."
+  }
+ ],
+ "win": "Well. That's me telling Ruffles off. Not you.",
+ "after": "Ruffles is under a bog bush. She says hello."
+}

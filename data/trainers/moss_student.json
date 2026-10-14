@@ -1,0 +1,32 @@
+{
+ "id": "moss_student",
+ "name": "Student Kofi",
+ "class": "Student",
+ "sprite": "student",
+ "party": [
+  {
+   "species": "sphagnet",
+   "level": 16
+  },
+  {
+   "species": "croakle",
+   "level": 17
+  }
+ ],
+ "ai": "trainer",
+ "money": 480,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Student Kofi",
+   "text": "I'm doing my dissertation on bogs. I need field data, and you're a field."
+  },
+  {
+   "do": "say",
+   "who": "Student Kofi",
+   "text": "Hold still, I'll take notes in battle."
+  }
+ ],
+ "win": "That's my methodology ruined. Excellent.",
+ "after": "The sphagnum is winning the dissertation. It's got more pages."
+}

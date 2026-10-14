@@ -1,0 +1,36 @@
+{
+ "id": "moss_runner",
+ "name": "Jogger Neil",
+ "class": "Jogger",
+ "sprite": "jogger",
+ "party": [
+  {
+   "species": "scuttlet",
+   "level": 16
+  },
+  {
+   "species": "brockling",
+   "level": 16
+  },
+  {
+   "species": "pipkin",
+   "level": 17
+  }
+ ],
+ "ai": "trainer",
+ "money": 500,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Jogger Neil",
+   "text": "Marathon training! Twenty-six miles of bog is brilliant for the calves!"
+  },
+  {
+   "do": "say",
+   "who": "Jogger Neil",
+   "text": "Keep up!"
+  }
+ ],
+ "win": "I'll stretch and think about what I've done.",
+ "after": "Next week it's the ultra. I haven't told my knees."
+}

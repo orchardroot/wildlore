@@ -1,0 +1,36 @@
+{
+ "id": "moss_birder",
+ "name": "Birdwatcher Gill",
+ "class": "Birdwatcher",
+ "sprite": "birdwatcher",
+ "party": [
+  {
+   "species": "starlet",
+   "level": 17
+  },
+  {
+   "species": "hootlet",
+   "level": 17
+  },
+  {
+   "species": "swiftlet",
+   "level": 18
+  }
+ ],
+ "ai": "trainer",
+ "money": 560,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Birdwatcher Gill",
+   "text": "Hush! Lapwings! No, wait, that's a carrier bag."
+  },
+  {
+   "do": "say",
+   "who": "Birdwatcher Gill",
+   "text": "Do you mind? I've been after a curlew since Easter."
+  }
+ ],
+ "win": "Fine. The curlew can wait.",
+ "after": "A merlin flew over once. I've talked about nothing else since."
+}

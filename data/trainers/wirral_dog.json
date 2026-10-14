@@ -1,0 +1,32 @@
+{
+ "id": "wirral_dog",
+ "name": "Dog Walker Brenda",
+ "class": "Dog Walker",
+ "sprite": "villager_6",
+ "party": [
+  {
+   "species": "duneskink",
+   "level": 20
+  },
+  {
+   "species": "natterjack",
+   "level": 21
+  }
+ ],
+ "ai": "trainer",
+ "money": 680,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Dog Walker Brenda",
+   "text": "Biscuit! Come here! Biscuit's found a toad. Biscuit always does."
+  },
+  {
+   "do": "say",
+   "who": "Dog Walker Brenda",
+   "text": "Let's settle this."
+  }
+ ],
+ "win": "Biscuit's judging me. Fair.",
+ "after": "We do the Wirral Way twice a day. Well, I do. Biscuit does it four times."
+}
