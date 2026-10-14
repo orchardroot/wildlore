@@ -73,5 +73,57 @@
    "who": "Art Student",
    "text": "Mackintosh liked everything to match. He designed the building, the chairs, the cutlery and, probably, the weather."
   }
+ ],
+ "glw_ceilidh_host": [
+  {
+   "do": "if",
+   "flag": "glw_ceilidh_paid",
+   "then": [
+    {
+     "do": "say",
+     "who": "Hall Keeper",
+     "text": "You danced it. You won it. Well, you danced it. The cup's still in my cupboard, with a sign on it that says NOT YET."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "trainer_glasgow_ceilidh",
+     "then": [
+      {
+       "do": "say",
+       "who": "Hall Keeper",
+       "text": "Fiona and Ruaridh, beaten at their own game! That's never happened, not in the hall's whole history. Well, once, in 2011, but nobody speaks of it."
+      },
+      {
+       "do": "say",
+       "who": "Hall Keeper",
+       "text": "Here, a bit of tablet for the road. Mind your fillings. Mine are in a drawer in Paisley."
+      },
+      {
+       "do": "give_item",
+       "item": "tablet",
+       "n": 3
+      },
+      {
+       "do": "set",
+       "flag": "glw_ceilidh_paid"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Hall Keeper",
+       "text": "Strip the Willow starts at seven, and the callers, Fiona and Ruaridh, are a double act. Two on two. They're lovely, and they're not fair."
+      },
+      {
+       "do": "say",
+       "who": "Hall Keeper",
+       "text": "Walk past them and they'll ask you to dance. There's no polite way to say no. I've tried."
+      }
+     ]
+    }
+   ]
+  }
  ]
 }

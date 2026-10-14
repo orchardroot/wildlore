@@ -57,5 +57,73 @@
    "who": "Pier Regular",
    "text": "Orkney's mostly flat, with the sea in every direction. It's windy. The kind of wind that has opinions about your hat, and a plan."
   }
+ ],
+ "brodgar_ranger": [
+  {
+   "do": "if",
+   "flag": "brodgar_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Ring Ranger",
+     "text": "A standing stone. Of course. We've been saying it for four and a half thousand years, and nobody's thought of a better answer."
+    },
+    {
+     "do": "say",
+     "who": "Ring Ranger",
+     "text": "Mind the sheep. They're not stones, but they've the same sort of patience."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Ring Ranger",
+     "text": "Welcome to the Ring of Brodgar. Twenty-seven stones still stand of sixty, in a circle a hundred and four metres wide. Nobody wrote down why they built it. Not a single minute."
+    },
+    {
+     "do": "say",
+     "who": "Ring Ranger",
+     "text": "The schoolchildren ask me riddles all day, so here's one back for the grown-ups. I was raised to stand in a ring. I've outlived everyone who raised me. Wind and rain and councils have all had a go, and I'm still here, quite upright."
+    },
+    {
+     "do": "choice",
+     "text": "What am I?",
+     "options": [
+      "A standing stone",
+      "A lighthouse",
+      "A retired ferry captain"
+     ],
+     "set": "brodgar_answer"
+    },
+    {
+     "do": "if",
+     "flag": "brodgar_answer",
+     "then": [
+      {
+       "do": "say",
+       "who": "Ring Ranger",
+       "text": "Ha! You're quick. There's a prize in the van: a couple of bottles of tonic, the fizzy sort. Don't ask what's in it."
+      },
+      {
+       "do": "give_item",
+       "item": "irn_tonic",
+       "n": 2
+      },
+      {
+       "do": "set",
+       "flag": "brodgar_done"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Ring Ranger",
+       "text": "Ah, no. Nearly. Have another think, and mind that the answer is, strictly, a good deal older than any ferry captain."
+      }
+     ],
+     "eq": 0
+    }
+   ]
+  }
  ]
 }

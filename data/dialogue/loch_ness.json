@@ -49,16 +49,210 @@
  ],
  "strachan_loch_ness": [
   {
-   "do": "say",
-   "who": "Director Strachan",
-   "text": "Placeholder: the story agent writes Strachan's survey-boat battle and Nessie's surfacing here."
+   "do": "if",
+   "flag": "strachan2_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Morag Strachan",
+     "text": "I'm going. I'm already gone. This is an echo."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "",
+     "text": "At the end of a wooden pier a survey boat bobs on the black water, loaded with sonar, a winch, a net the size of a tennis court and an urn of tea. Strachan stands at the rail."
+    },
+    {
+     "do": "say",
+     "who": "Morag Strachan",
+     "text": "Stand back from the gunwale. The Wardstone's in the water and the sonar says something very big is listening."
+    },
+    {
+     "do": "say",
+     "who": "Morag Strachan",
+     "text": "If you win, I lose my bonus. If I win, I lose my bonus anyway. Lord Vane's like that. Let's go."
+    },
+    {
+     "do": "battle",
+     "trainer": "strachan_2"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "A bubble breaks on the surface. Then another. The sonar on the boat gives a long, sad beep, like a microwave that has seen something."
+    },
+    {
+     "do": "fade_out"
+    },
+    {
+     "do": "music",
+     "id": "legend_sea"
+    },
+    {
+     "do": "sfx",
+     "id": "splash"
+    },
+    {
+     "do": "wait",
+     "seconds": 1.2
+    },
+    {
+     "do": "fade_in"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "The loch goes flat as a plate. A ring spreads out from the middle: one, two, three. Then something very long and very dark lifts through the water, shaped like a question mark with a sense of humour."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "A head the size of a boat turns slowly towards the survey vessel. Two calm, ancient eyes. A long wet sigh. The net sinks without a ripple, and Nessie sneezes."
+    },
+    {
+     "do": "say",
+     "who": "Morag Strachan",
+     "text": "That. Is. Not. On. The. Sonar."
+    },
+    {
+     "do": "say",
+     "who": "Morag Strachan",
+     "text": "That is a long-necked aquatic mammal of unknown provenance, and I do not have a form for it. I have forms for everything. I have a form for forms."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Nessie looks at her, looks at you, and slides under the surface with hardly a bubble. The tea urn, for some reason, goes with her."
+    },
+    {
+     "do": "say",
+     "who": "Morag Strachan",
+     "text": "Right. That's it. That's the survey. I'm telling Head Office, and I'm telling them in writing. The Enclosure is pulling out of Scotland."
+    },
+    {
+     "do": "say",
+     "who": "Morag Strachan",
+     "text": "Tell Garside the Enclosure's pulling out of Scotland. We were never wanted here anyway. I'll take the boat back. Slowly. Something's following it."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "The survey boat chugs away down the loch with a very wide wake and a very straight-backed Director on the foredeck. Far out, a long dark shape keeps pace, a hundred yards behind, rather politely."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Something deep in the loch has gone quiet, as if it were waiting for something cold. The Frost Stone, perhaps."
+    },
+    {
+     "do": "set",
+     "flag": "strachan2_done"
+    },
+    {
+     "do": "set",
+     "flag": "ch9_nessie_seen"
+    },
+    {
+     "do": "warp",
+     "zone": "loch_ness",
+     "x": 24,
+     "y": 30,
+     "facing": "down"
+    },
+    {
+     "do": "end"
+    }
+   ]
   }
  ],
  "nessie": [
   {
-   "do": "say",
-   "who": "Nessie",
-   "text": "Placeholder: the story agent writes Nessie's surfacing and the legend encounter here."
+   "do": "if",
+   "flag": "badge_frost",
+   "then": [
+    {
+     "do": "if",
+     "flag": "caught_nessie",
+     "then": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "The island is quiet. Out on the loch, a ring of ripples spreads without a stone. Somewhere deep below it, someone is humming."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "The island is dark with heather, and the loch is as still as a held breath. The Frost Stone grows cold in your pocket, and the water answers: a ring, then another."
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "A long neck rises out of the dark water, slow as a drawbridge. The head tilts. It has a sleepy, serious, enormous face, and the expression of a creature who has heard every joke about herself and loved most of them."
+      },
+      {
+       "do": "legend",
+       "species": "nessie",
+       "level": 74,
+       "flag": "caught_nessie",
+       "music": "legend_sea"
+      },
+      {
+       "do": "if",
+       "flag": "caught_nessie",
+       "then": [
+        {
+         "do": "say",
+         "who": "",
+         "text": "Nessie slides out of the loch and settles at your side, shedding peat-brown water like a silk coat. Down on the shore, a day-tripper drops her ice cream. She'll be telling people about this for forty years."
+        },
+        {
+         "do": "warp",
+         "zone": "loch_ness",
+         "x": 56,
+         "y": 36,
+         "facing": "down"
+        },
+        {
+         "do": "end"
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "",
+         "text": "Nessie sinks without a sound, and the loch smooths itself over like a duvet. She will be back on a quiet day, if you want to try again."
+        },
+        {
+         "do": "warp",
+         "zone": "loch_ness",
+         "x": 56,
+         "y": 36,
+         "facing": "down"
+        },
+        {
+         "do": "end"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "",
+     "text": "The island is dark with heather, and the water around it is black and very cold. A long shadow turns over, deep down, and then thinks better of it."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Whatever lives here only answers something as cold and as patient as it is. Perhaps the Keeper in Inverness has the kind of Stone it is waiting for."
+    }
+   ]
   }
  ]
 }

@@ -50,6 +50,75 @@
    "do": "say",
    "who": "Reindeer Herder",
    "text": "Reindeer hooves click when they walk, a sound like castanets. It helps the herd stay together in a blizzard. The best part of my job is the herd. The worst bit is the blizzards."
+  },
+  {
+   "do": "if",
+   "flag": "reindeer_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Reindeer Herder",
+     "text": "Seven. Of course it was seven. Five at the paddock and two who've wandered off to be dramatic. That's what I wrote in the book."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "reindeer_started",
+     "then": [
+      {
+       "do": "choice",
+       "text": "How many reindeer have you counted on this stretch?",
+       "options": [
+        "Five",
+        "Six",
+        "Seven",
+        "Eight"
+       ],
+       "set": "reindeer_count"
+      },
+      {
+       "do": "if",
+       "flag": "reindeer_count",
+       "then": [
+        {
+         "do": "say",
+         "who": "Reindeer Herder",
+         "text": "Seven! The five at the paddock and the two out on the hills! You've the eye. Here, for your trouble. Cranachan, the proper sort. It has real oats in it."
+        },
+        {
+         "do": "give_item",
+         "item": "cranachan",
+         "n": 2
+        },
+        {
+         "do": "set",
+         "flag": "reindeer_done"
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Reindeer Herder",
+         "text": "Hmm. That's not the number in my book. Have another look: the ones at the paddock, and the shy ones out on the hills. All of them count."
+        }
+       ],
+       "eq": 2
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Reindeer Herder",
+       "text": "I'm one short in my sums this year, or one over. Would you count them for me? Every reindeer on this stretch, paddock and hill, then come back and tell me."
+      },
+      {
+       "do": "set",
+       "flag": "reindeer_started"
+      }
+     ]
+    }
+   ]
   }
  ],
  "ski_instructor": [

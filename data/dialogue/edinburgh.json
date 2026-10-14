@@ -16,9 +16,118 @@
  ],
  "kit_edinburgh": [
   {
-   "do": "say",
-   "who": "Kit",
-   "text": "Placeholder: the story agent writes Kit's Edinburgh Castle esplanade battle here."
+   "do": "if",
+   "flag": "kit7_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "{rival}",
+     "text": "There's a ceilidh tonight. I'm told I dance like a shopping trolley with a wonky wheel. I've been practising on the cobbles. The pigeons are unimpressed."
+    },
+    {
+     "do": "say",
+     "who": "{rival}",
+     "text": "You go on ahead. I'll catch you up. Probably. If there's a scone."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "starter",
+     "then": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "The Castle Esplanade: cobbles, a crowd, and the Castle itself standing on its black rock like a very old cat on a very tall fence. Kit is sitting on a bollard eating chips with a wooden fork."
+      },
+      {
+       "do": "say",
+       "who": "Kit",
+       "text": "{player}! Edinburgh Castle! I've been up and down the Royal Mile three times. My legs have filed a complaint."
+      },
+      {
+       "do": "say",
+       "who": "Kit",
+       "text": "Seven Stones each... wait, you've got more than me. Typical. One more go, for old times' sake?"
+      },
+      {
+       "do": "battle",
+       "trainer": "kit_7_vs_spikkin"
+      }
+     ],
+     "eq": "spikkin"
+    },
+    {
+     "do": "if",
+     "flag": "starter",
+     "then": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "The Castle Esplanade: cobbles, a crowd, and the Castle itself standing on its black rock like a very old cat on a very tall fence. Kit is sitting on a bollard eating chips with a wooden fork."
+      },
+      {
+       "do": "say",
+       "who": "Kit",
+       "text": "{player}! Edinburgh Castle! I've been up and down the Royal Mile three times. My legs have filed a complaint."
+      },
+      {
+       "do": "say",
+       "who": "Kit",
+       "text": "Seven Stones each... wait, you've got more than me. Typical. One more go, for old times' sake?"
+      },
+      {
+       "do": "battle",
+       "trainer": "kit_7_vs_holtling"
+      }
+     ],
+     "eq": "holtling"
+    },
+    {
+     "do": "if",
+     "flag": "starter",
+     "then": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "The Castle Esplanade: cobbles, a crowd, and the Castle itself standing on its black rock like a very old cat on a very tall fence. Kit is sitting on a bollard eating chips with a wooden fork."
+      },
+      {
+       "do": "say",
+       "who": "Kit",
+       "text": "{player}! Edinburgh Castle! I've been up and down the Royal Mile three times. My legs have filed a complaint."
+      },
+      {
+       "do": "say",
+       "who": "Kit",
+       "text": "Seven Stones each... wait, you've got more than me. Typical. One more go, for old times' sake?"
+      },
+      {
+       "do": "battle",
+       "trainer": "kit_7_vs_kindlet"
+      }
+     ],
+     "eq": "kindlet"
+    },
+    {
+     "do": "say",
+     "who": "{rival}",
+     "text": "I'll tell you what, though. Standing up here, looking out at the whole city, I remembered why I started. Not the likes. Just the walking."
+    },
+    {
+     "do": "say",
+     "who": "{rival}",
+     "text": "Strachan's up in the Highlands, apparently. Waxed jacket, clipboard. She has a lanyard that makes Kerrigan's look casual. Be careful."
+    },
+    {
+     "do": "set",
+     "flag": "kit7_done"
+    },
+    {
+     "do": "set",
+     "flag": "ch9_started"
+    }
+   ]
   }
  ],
  "edi_guide": [

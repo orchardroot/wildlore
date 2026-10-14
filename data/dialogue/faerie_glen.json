@@ -13,9 +13,161 @@
  ],
  "cusith": [
   {
-   "do": "say",
-   "who": "C\u00f9-S\u00ecth",
-   "text": "Placeholder: the story agent writes the C\u00f9-S\u00ecth's appearance and the legend encounter here."
+   "do": "if",
+   "flag": "badge_frost",
+   "then": [
+    {
+     "do": "if",
+     "flag": "caught_cusith",
+     "then": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "The glen is quiet. A flattened ring in the heather is the size of a very large dog, and the breeze carries a faint, satisfied snuffle."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "The cone-shaped hills lean in. Out of the heather, a shape stands up that was a hill a moment ago: a hound the size of a calf, coat the dark green of wet moss, tail curled up over its back in a plait."
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "The hound lowers his great head and says, in a voice like a landslide being polite: \"Wuf.\""
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "The Frost Stone is cold in your pocket and the hound's breath is warm on your hand. It has been waiting here a long time for someone to ask a polite question."
+      },
+      {
+       "do": "legend",
+       "species": "cusith",
+       "level": 76,
+       "flag": "caught_cusith",
+       "music": "legend_hound"
+      },
+      {
+       "do": "if",
+       "flag": "caught_cusith",
+       "then": [
+        {
+         "do": "say",
+         "who": "",
+         "text": "The C\u00f9-S\u00ecth bumps his enormous head against your hip and follows you out of the heather, green as a hill at dusk, leaving paw prints that are gone by the time you look back. He barks once. You're indoors already."
+        },
+        {
+         "do": "warp",
+         "zone": "faerie_glen",
+         "x": 15,
+         "y": 6,
+         "facing": "up"
+        },
+        {
+         "do": "end"
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "",
+         "text": "The hound vanishes into the heather without bending a stem. A long bark rolls over the hills, a little amused, and the glen is empty. He'll be back if you want to try again."
+        },
+        {
+         "do": "warp",
+         "zone": "faerie_glen",
+         "x": 15,
+         "y": 6,
+         "facing": "up"
+        },
+        {
+         "do": "end"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "",
+     "text": "The glen is hushed, the way a room is hushed when someone has just stopped talking. A cold wind goes through the heather the wrong way."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Far away, down the glen, something barks."
+    },
+    {
+     "do": "wait",
+     "seconds": 1.0
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Woof. That is one."
+    },
+    {
+     "do": "wait",
+     "seconds": 1.2
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Woof. That is two. It is a good deal closer."
+    },
+    {
+     "do": "wait",
+     "seconds": 1.4
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Woof. That is three."
+    },
+    {
+     "do": "choice",
+     "text": "How many barks was that?",
+     "options": [
+      "One",
+      "Two",
+      "Three",
+      "Four"
+     ],
+     "set": "cusith_count"
+    },
+    {
+     "do": "if",
+     "flag": "cusith_count",
+     "then": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "Three. Exactly three. In the old stories, that is the signal to be indoors. A pause, a gentle rustle in the heather, and the wind turns back the right way, as though someone has been satisfied."
+      },
+      {
+       "do": "set",
+       "flag": "ch9_cusith_heard"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "You count again, and still can't be sure. The wind drops, the heather settles, and something very large chuckles a long way off. It is not unkind, only amused."
+      }
+     ],
+     "eq": 2
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Whatever barks in this glen is not ready to be met. The Frost Stone, perhaps. The Keeper in Inverness has the Stone the old stories say he's waiting for."
+    }
+   ]
   }
  ]
 }

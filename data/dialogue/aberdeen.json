@@ -72,5 +72,87 @@
    "who": "Oil Engineer",
    "text": "Two weeks offshore, and you start talking to the seagulls. They're surprisingly good listeners. I recommend them over most of my colleagues."
   }
+ ],
+ "abdn_postie": [
+  {
+   "do": "if",
+   "flag": "v04_complete",
+   "then": [
+    {
+     "do": "say",
+     "who": "Postie",
+     "text": "The Professor rang the post office, the harbour, and a pub. I'd say she's quite keen."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "",
+     "text": "A man in a postie's jacket is leaning against a bollard, holding a mobile phone out at arm's length as though it were a small, vocal animal."
+    },
+    {
+     "do": "say",
+     "who": "Postie",
+     "text": "Are you {player}? Ach, thank goodness. A woman in Macclesfield's rung every phone box in Aberdeen looking for you. She's beside herself. She says your phone's been off since Braemar."
+    },
+    {
+     "do": "sfx",
+     "id": "alert"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Your phone buzzes at last. Professor Garside, who sounds as if she has run up a flight of stairs."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "{player}! You're in Aberdeen! The Frost Stone, the Highlands, a sea monster and a hound. I've written a paper. It's very short. It just says \"gosh\"."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "Strachan's resigned. Morag Strachan, Regional Director, Scotland, has taken the sleeper south and sent her wellies to a charity shop. That's all four Directors gone: Pryce, Ashcombe, Kerrigan and now her. Which leaves Lord Vane, and nobody to hold his coat."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "There's one more Stone. The tenth. It's in the east of England, and the hum from there is a low, strange one, like a bell under a lake."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "York. The Spirit Stone. And then the Moot."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "Vane said he'd see you at the Moot. He's right. All the Keepers will be there, and the Four Winds, and a champion nobody has ever beaten. At Stonehenge. In the winter. I'm told it's a drizzle."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "The way south is long, and the ferry from Aberdeen to Orkney sails whenever you like. The Moot can wait a morning."
+    },
+    {
+     "do": "set",
+     "flag": "ch9_done"
+    },
+    {
+     "do": "set",
+     "flag": "v04_complete"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "End of Wildlore v0.4. The Moot is gathering."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "You are free to keep exploring. Orkney is a ferry away, and its standing stones are older than anyone's opinion of them."
+    }
+   ]
+  }
  ]
 }
