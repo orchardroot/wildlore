@@ -18,6 +18,9 @@ static func render(name: String, midi: int, dur: float, sr: int, vel: float) -> 
 		"drone": return drone(hz(midi), dur, sr, vel)
 		"brass": return brass(hz(midi), dur, sr, vel)
 		"surf": return surf(dur, sr, vel)
+		"reed": return reed(hz(midi), dur, sr, vel)
+		"pipe": return pipe(hz(midi), dur, sr, vel)
+		"bouzouki": return bouzouki(hz(midi), dur, sr, vel)
 	push_error("unknown instrument " + name)
 	return Synth.make(1)
 
@@ -142,3 +145,47 @@ static func surf(dur: float, sr: int, vel: float) -> PackedFloat32Array:
 	Synth.adsr(n, sr, dur * 0.4, 0.1, 0.7, dur * 0.45)
 	Synth.scale(n, 0.9 * vel)
 	return n
+
+## Accordion-ish: two slightly detuned square-ish reeds (musette beat), mellowed, with a soft bellows attack.
+static func reed(f: float, dur: float, sr: int, vel: float) -> PackedFloat32Array:
+	var rel := 0.07
+	var total := dur + rel
+	var a := Synth.osc(Synth.SQUARE, f, f, total, sr, 0.4, 5.0, 6.0, 0.3)
+	var b := Synth.osc(Synth.SQUARE, f * 1.007, f * 1.007, total, sr, 0.3)
+	Synth.mix_into(a, b, 0, 0.9)
+	var c := Synth.osc(Synth.SAW, f * 0.5, f * 0.5, total, sr)
+	Synth.mix_into(a, c, 0, 0.25)
+	var fc := clampf(f * 5.0, 900.0, 2600.0)
+	Synth.lowpass(a, fc, sr)
+	Synth.lowpass(a, fc, sr)
+	Synth.adsr(a, sr, 0.05, 0.1, 0.85, rel)
+	Synth.scale(a, 0.4 * vel)
+	return a
+
+## A soft, breathy, distant pipe: sine with a hollow third harmonic, lots of air, slow swell.
+static func pipe(f: float, dur: float, sr: int, vel: float) -> PackedFloat32Array:
+	var rel := 0.25
+	var total := dur + rel
+	var a := Synth.osc(Synth.SINE, f, f, total, sr, 0.5, 4.6, 9.0, 0.4)
+	var h := Synth.osc(Synth.SINE, f * 3.0, f * 3.0, total, sr)
+	Synth.mix_into(a, h, 0, 0.12)
+	var br := Synth.noise(total, sr, 13 + int(f))
+	Synth.highpass(br, 1200.0, sr)
+	Synth.lowpass(br, 4200.0, sr)
+	Synth.mix_into(a, br, 0, 0.28)
+	Synth.adsr(a, sr, 0.14, 0.12, 0.8, rel)
+	Synth.scale(a, 0.5 * vel)
+	return a
+
+## Bright double-course pluck, a little metallic: bouzouki-ish.
+static func bouzouki(f: float, dur: float, sr: int, vel: float) -> PackedFloat32Array:
+	var total := maxf(dur, 0.3) + 0.25
+	var a := Synth.osc(Synth.SAW, f, f, total, sr)
+	var b := Synth.osc(Synth.SAW, f * 1.004, f * 1.004, total, sr)
+	var o := Synth.osc(Synth.TRI, f * 2.0, f * 2.0, total, sr)
+	Synth.mix_into(a, b, 0, 0.8)
+	Synth.mix_into(a, o, 0, 0.4)
+	Synth.lowpass(a, minf(f * 7.0, 3600.0), sr)
+	Synth.pluck_env(a, sr, 0.002, 5.5)
+	Synth.scale(a, 0.42 * vel)
+	return a

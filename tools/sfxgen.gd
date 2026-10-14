@@ -4,7 +4,8 @@ extends SceneTree
 
 const MUSIC_SR := 22050
 const MUSIC_IDS := ["title", "town_cheshire", "route_forest", "route_moor", "battle_wild", "battle_trainer", "battle_keeper", "sanctuary", "victory",
-	"town_city", "town_wales", "route_coast", "route_mountain", "battle_enclosure", "legend", "ferry"]
+	"town_city", "town_wales", "route_coast", "route_mountain", "battle_enclosure", "legend", "ferry",
+	"town_ireland", "route_ireland", "town_cornwall", "route_moor_south", "battle_double", "legend_green", "legend_crow", "ferry_irish_sea"]
 
 func _initialize() -> void:
 	var want: Array = Array(OS.get_cmdline_user_args())
