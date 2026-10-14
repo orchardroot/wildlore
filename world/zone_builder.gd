@@ -12,7 +12,10 @@ const GROUND_COLOURS := {
 	"floor_tile": Color("bdb6a2"), "counter": Color("9a6b43"), "ledge_south": Color("5c8f3c"), "cliff": Color("8c8270"),
 	"tree_oak": Color("4f8035"), "tree_pine": Color("4a7634"), "hedge": Color("557f37"), "drystone_wall": Color("5c8f3c"),
 	"fence": Color("5c8f3c"), "rock": Color("5c8f3c"),
+	"bramble": Color("4f7a35"), "deep_water": Color("34504f"), "scree": Color("8b8780"), "platform": Color("a39a8a"),
+	"rail": Color("6e655c"), "sea": Color("2f4a5c"),
 }
+const DEEP := ["deep_water", "sea"]
 const SIDE_EARTH := Color("6a5238")
 const SIDE_ROCK := Color("7d7462")
 
@@ -23,6 +26,8 @@ static func ground_y(z: ZoneData, p: Vector2i) -> float:
 	match t:
 		"water":
 			return base - 0.4
+		"deep_water", "sea":
+			return base - 0.6
 		"shallow":
 			return base - 0.14
 		"cliff":
@@ -36,9 +41,13 @@ static func build(z: ZoneData) -> Node3D:
 	var rng := RandomNumberGenerator.new()
 	rng.seed = hash(z.id)
 	root.add_child(_ground(z, rng))
-	var water := _water(z)
+	var water := _water(z, ["water", "shallow"], Color(0.13, 0.32, 0.42), Color(0.36, 0.62, 0.66))
 	if water:
 		root.add_child(water)
+	var deep := _water(z, DEEP, Color(0.07, 0.2, 0.3), Color(0.2, 0.42, 0.52))
+	if deep:
+		deep.name = "DeepWater"
+		root.add_child(deep)
 	_props(z, root, rng)
 	_buildings(z, root)
 	if z.kind == "interior":
@@ -135,7 +144,11 @@ static func _vary(t: String, col: Color, x: int, y: int, rng: RandomNumberGenera
 
 # --- water ---------------------------------------------------------------------
 
-static func _water(z: ZoneData) -> MeshInstance3D:
+## Surface height of water on a tile (boats float here).
+static func water_y(z: ZoneData, p: Vector2i) -> float:
+	return z.height_at(p) * LEVEL - (0.05 if z.tile_at(p) == "shallow" else 0.1)
+
+static func _water(z: ZoneData, kinds: Array, deep_col: Color, shallow_col: Color) -> MeshInstance3D:
 	var st := SurfaceTool.new()
 	st.begin(Mesh.PRIMITIVE_TRIANGLES)
 	var any := false
@@ -143,10 +156,10 @@ static func _water(z: ZoneData) -> MeshInstance3D:
 		for x in z.width:
 			var p := Vector2i(x, y)
 			var t := z.tile_at(p)
-			if t != "water" and t != "shallow":
+			if t not in kinds:
 				continue
 			any = true
-			var wy := z.height_at(p) * LEVEL - (0.1 if t == "water" else 0.05)
+			var wy := water_y(z, p)
 			Meshes._quad(st, Vector3(x, wy, y), Vector3(x + 1, wy, y), Vector3(x + 1, wy, y + 1), Vector3(x, wy, y + 1), Color.WHITE)
 	if not any:
 		return null
@@ -156,6 +169,8 @@ static func _water(z: ZoneData) -> MeshInstance3D:
 	mi.mesh = st.commit()
 	var mat := ShaderMaterial.new()
 	mat.shader = load("res://art/shaders/water.gdshader")
+	mat.set_shader_parameter("deep", deep_col)
+	mat.set_shader_parameter("shallow", shallow_col)
 	mi.material_override = mat
 	mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	return mi
@@ -167,8 +182,14 @@ const TILE_PROPS := {
 	"tree_oak": ["oak", 3, true], "tree_pine": ["pine", 3, true], "hedge": ["hedge_segment", 2, true],
 	"drystone_wall": ["wall_segment", 3, false], "fence": ["fence_segment", 1, false], "rock": ["rock", 3, false],
 	"flowers": ["flower_patch", 3, true], "tall_grass": ["tall_grass_tuft", 3, true], "counter": ["counter", 1, false],
+	"bramble": ["bramble", 2, true], "scree": ["scree_rubble", 3, false], "rail": ["rail_segment", 1, false],
 }
-const LINEAR := ["hedge", "drystone_wall", "fence"]
+const LINEAR := ["hedge", "drystone_wall", "fence", "rail"]
+## Point props (one tile, blocking unless "walk": true). Floating ones sit on the water surface.
+const POINT_PROPS := ["lamp_post", "bench", "bush", "birch", "oak", "pine", "rock", "market_stall", "planter", "phone_box",
+	"post_box", "bookshelf", "potted_plant", "table", "bed", "standing_stone", "slate_heap", "boat", "canal_boat", "bollard",
+	"buoy", "lighthouse", "statue", "harp"]
+const FLOATING := ["boat", "canal_boat", "buoy"]
 
 static func _props(z: ZoneData, root: Node3D, rng: RandomNumberGenerator) -> void:
 	var buckets := {}  # "ctor:variant" -> Array[Transform3D]
@@ -211,9 +232,10 @@ static func _props(z: ZoneData, root: Node3D, rng: RandomNumberGenerator) -> voi
 		_add(buckets, "sign_post:0", Transform3D(Basis(), Vector3(int(s.x) + 0.5, ground_y(z, Vector2i(int(s.x), int(s.y))), int(s.y) + 0.5)))
 	for pr in z.props:
 		var pt: String = pr.get("type", "")
-		if pt in ["lamp_post", "bench", "bush", "birch", "oak", "pine", "rock", "market_stall", "planter", "phone_box", "post_box", "bookshelf", "potted_plant", "table", "bed"]:
+		if pt in POINT_PROPS:
 			var pos := Vector2i(int(pr.x), int(pr.y))
-			var tr := Transform3D(Basis(Vector3.UP, deg_to_rad(float(pr.get("rot", 0)))), Vector3(pos.x + 0.5, ground_y(z, pos), pos.y + 0.5))
+			var py := water_y(z, pos) if pt in FLOATING else ground_y(z, pos)
+			var tr := Transform3D(Basis(Vector3.UP, deg_to_rad(float(pr.get("rot", 0)))), Vector3(pos.x + 0.5, py, pos.y + 0.5))
 			_add(buckets, "%s:%d" % [pt, int(pr.get("variant", 0))], tr)
 			if pt == "lamp_post":
 				_add(buckets, "lamp_bulb:0", tr)
@@ -230,7 +252,7 @@ static func _props(z: ZoneData, root: Node3D, rng: RandomNumberGenerator) -> voi
 		var mmi := MultiMeshInstance3D.new()
 		mmi.name = "Props_" + key.replace(":", "_")
 		mmi.multimesh = mm
-		var foliage := parts[0] in ["heather_tuft", "reeds"]
+		var foliage := parts[0] in ["heather_tuft", "reeds", "bramble"]
 		for tname in TILE_PROPS:
 			if TILE_PROPS[tname][0] == parts[0]:
 				foliage = TILE_PROPS[tname][2]
@@ -299,6 +321,30 @@ static func _ctor(name: String, variant: int) -> ArrayMesh:
 			return Meshes.post_box()
 		"counter":
 			return Meshes.counter()
+		"standing_stone":
+			return Landmarks.standing_stone(variant)
+		"slate_heap":
+			return Landmarks.slate_heap(variant)
+		"scree_rubble":
+			return Landmarks.scree_rubble(variant)
+		"bramble":
+			return Landmarks.bramble(variant)
+		"rail_segment":
+			return Landmarks.rail_segment()
+		"boat":
+			return Landmarks.boat(variant)
+		"canal_boat":
+			return Landmarks.canal_boat(variant)
+		"bollard":
+			return Landmarks.bollard()
+		"buoy":
+			return Landmarks.buoy(variant)
+		"lighthouse":
+			return Landmarks.lighthouse()
+		"statue":
+			return Landmarks.statue(variant)
+		"harp":
+			return Landmarks.harp()
 	push_warning("ZoneBuilder: unknown prop mesh '%s'" % name)
 	return Meshes.rock(0)
 

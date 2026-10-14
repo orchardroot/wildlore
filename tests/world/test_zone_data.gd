@@ -138,3 +138,17 @@ func test_zone_extra_keys() -> void:
 	assert_eq(z.ferry.route, "liverpool_douglas")
 	var bad := ZoneData.from_dict(_base(["...", "..T"], {"station": {"x": 2, "y": 1}}))
 	assert_true(_has(bad.validate({"t": bad}), "station"))
+
+func test_landmark_meshes_build() -> void:
+	for style in Landmarks.SPECIAL:
+		var m: Array = Meshes.building(8, 4, style, 2, 1)
+		assert_true(m[0].get_surface_count() > 0, "body for " + style)
+	for mesh in [Landmarks.standing_stone(), Landmarks.slate_heap(), Landmarks.scree_rubble(), Landmarks.bramble(),
+			Landmarks.boat(), Landmarks.boat(1), Landmarks.canal_boat(), Landmarks.buoy(), Landmarks.statue(), Landmarks.harp(), Landmarks.lighthouse()]:
+		assert_true(mesh.get_surface_count() > 0)
+
+func test_gallery_zone_builds() -> void:
+	var root := ZoneBuilder.build(_z("mesh_gallery"))
+	assert_true(root.get_child_count() > 10)
+	assert_true(root.has_node("DeepWater"))
+	root.free()
