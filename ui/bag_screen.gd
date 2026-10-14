@@ -139,7 +139,7 @@ func _draw_list() -> void:
 		_item_buttons.append(b)
 	UIKit.wrap_focus(_item_buttons)
 	_last_item = clampi(_last_item, 0, _item_buttons.size() - 1)
-	_item_buttons[_last_item].grab_focus.call_deferred()
+	UIKit.focus_later(_item_buttons[_last_item])
 
 func _show_desc(id: String) -> void:
 	UIKit.clear(_desc)
@@ -210,7 +210,7 @@ func _open_picker() -> void:
 		_pick_buttons.append(b)
 	UIKit.wrap_focus(_pick_buttons)
 	_picker_panel.visible = true
-	_pick_buttons[0].grab_focus.call_deferred()
+	UIKit.focus_later(_pick_buttons[0])
 	_set_hint()
 
 func _close_picker() -> void:

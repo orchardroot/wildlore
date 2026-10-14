@@ -74,7 +74,7 @@ func _build() -> void:
 	pv.add_child(_preview)
 	for r in _rows:
 		_paint_row(r)
-	buttons[0].grab_focus.call_deferred()
+	UIKit.focus_later(buttons[0])
 
 func _process(delta: float) -> void:
 	_t += delta

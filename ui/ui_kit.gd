@@ -116,3 +116,9 @@ static func money_text(n: int) -> String:
 		out = "," + s.substr(s.length() - 3) + out
 		s = s.substr(0, s.length() - 3)
 	return s + out + "p"
+
+## Focuses a control next frame, if it is still around by then.
+static func focus_later(c: Control) -> void:
+	(func():
+		if is_instance_valid(c) and c.is_inside_tree() and c.is_visible_in_tree():
+			c.grab_focus()).call_deferred()

@@ -148,7 +148,7 @@ func _show_preview(c: Creature) -> void:
 func _focus_slot(i: int) -> void:
 	if _slots.is_empty():
 		return
-	_slots[clampi(i, 0, _slots.size() - 1)].grab_focus.call_deferred()
+	UIKit.focus_later(_slots[clampi(i, 0, _slots.size() - 1)])
 
 func _slot_pressed(i: int) -> void:
 	if _mode == "swap":

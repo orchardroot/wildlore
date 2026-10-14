@@ -44,7 +44,7 @@ func _build() -> void:
 		_buttons.append(b)
 	UIKit.wrap_focus(_buttons)
 	if not _buttons.is_empty():
-		_buttons[0].grab_focus.call_deferred()
+		UIKit.focus_later(_buttons[0])
 
 func state_of(id: String) -> String:
 	if Game.data.caught.has(id):

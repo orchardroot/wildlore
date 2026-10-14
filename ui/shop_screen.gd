@@ -77,7 +77,7 @@ func _build() -> void:
 	_say.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	right.add_child(_say)
 	_money()
-	_root_buttons[0].grab_focus.call_deferred()
+	UIKit.focus_later(_root_buttons[0])
 	_set_hint()
 
 func setup(arg: String) -> void:
@@ -162,7 +162,7 @@ func _draw_list() -> void:
 		_item_buttons.append(b)
 	UIKit.wrap_focus(_item_buttons)
 	_last_item = clampi(_last_item, 0, _item_buttons.size() - 1)
-	_item_buttons[_last_item].grab_focus.call_deferred()
+	UIKit.focus_later(_item_buttons[_last_item])
 
 func _describe(id: String) -> void:
 	UIKit.clear(_desc)
@@ -222,7 +222,9 @@ func _commit() -> void:
 		_say.text = "Cheers. %s for the %s." % [UIKit.money_text(total), Game.items.get_item(_cur).name]
 	Audio.sfx("confirm")
 	_money()
-	_close_qty()
+	_mode = "list"
+	_qty_panel.visible = false
+	_set_hint()
 	if _side == "sell":
 		_ids = _ids.filter(func(id): return _bag.count(id) > 0)
 	_draw_list()
@@ -232,7 +234,7 @@ func _close_qty() -> void:
 	_qty_panel.visible = false
 	_set_hint()
 	if not _item_buttons.is_empty():
-		_item_buttons[clampi(_last_item, 0, _item_buttons.size() - 1)].grab_focus.call_deferred()
+		UIKit.focus_later(_item_buttons[clampi(_last_item, 0, _item_buttons.size() - 1)])
 
 func _input(event: InputEvent) -> void:
 	if _locked or _done:

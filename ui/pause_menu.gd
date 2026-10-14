@@ -43,7 +43,7 @@ func _build() -> void:
 	_note.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	right.add_child(_note)
 	_refresh()
-	_buttons[0].grab_focus.call_deferred()
+	UIKit.focus_later(_buttons[0])
 
 func _refresh() -> void:
 	UIKit.clear(_info)
