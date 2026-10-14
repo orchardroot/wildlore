@@ -5,6 +5,10 @@ extends RefCounted
 ## on one warps you.
 
 const DIRS := [Vector2i(0, -1), Vector2i(0, 1), Vector2i(-1, 0), Vector2i(1, 0)]
+## Field abilities the walker has (FieldMoves.abilities); set before planning. Brambles count as passable
+## with hedge_lay (walking into one clears it).
+static var abilities: Array = []
+
 const EDGE_DIR := {"north": Vector2i(0, -1), "south": Vector2i(0, 1), "west": Vector2i(-1, 0), "east": Vector2i(1, 0)}
 
 ## BFS parents from `from` over walkable tiles. Ledges are taken as a two-tile hop south.
@@ -25,9 +29,9 @@ static func _flood(z: ZoneData, from: Vector2i, blocked: Dictionary, goal := Vec
 				if d != Vector2i(0, 1):
 					continue
 				q = q + d
-				if not z.walkable(q) or blocked.has(q):
+				if not z.walkable(q, Vector2i.ZERO, abilities) or blocked.has(q):
 					continue
-			elif not z.walkable(q, d) or blocked.has(q):
+			elif not (z.walkable(q, d, abilities) or (z.tile_at(q) == "bramble" and "hedge_lay" in abilities)) or blocked.has(q):
 				continue
 			if parent.has(q):
 				continue
@@ -85,7 +89,8 @@ static func route(zones: Dictionary, from_zone: String, from: Vector2i, to_zone:
 		var pos: Vector2i = queue[i][1]
 		i += 1
 		var z: ZoneData = zones[zid]
-		var parent := _flood(z, pos, blocked)
+		# `blocked` holds NPC tiles of the zone you're standing in; they mean nothing in other zones
+		var parent := _flood(z, pos, blocked if zid == from_zone else {})
 		var key := "%s|%d,%d" % [zid, pos.x, pos.y]
 		if zid == to_zone and parent.has(to):
 			found = key

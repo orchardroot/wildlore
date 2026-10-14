@@ -30,3 +30,10 @@ func test_route_from_home_interior_to_forest() -> void:
 	var r := Pathfinder.route(_zones(), "macc_home", Vector2i(4, 5), "macc_forest", Vector2i(30, 13))
 	assert_eq(r[0].zone, "macc_home")
 	assert_eq(r.back().zone, "macc_forest")
+
+func test_blocked_tiles_only_apply_to_the_starting_zone() -> void:
+	var a := ZoneData.from_dict({"id": "a", "name": "A", "kind": "route", "rows": ["....", "...."], "spawn": [0, 0], "edges": {"east": {"to": "b"}}})
+	var b := ZoneData.from_dict({"id": "b", "name": "B", "kind": "route", "rows": ["TT..", "...."], "spawn": [0, 1], "edges": {"west": {"to": "a"}}})
+	# an NPC on a's (1,1) must not wall off b's (1,1), which is b's only way in
+	var legs := Pathfinder.route({"a": a, "b": b}, "a", Vector2i(2, 0), "b", Vector2i(3, 1), {Vector2i(1, 1): true})
+	assert_true(legs.size() >= 2, "route found into b")

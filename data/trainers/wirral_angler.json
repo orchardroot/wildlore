@@ -1,0 +1,36 @@
+{
+ "id": "wirral_angler",
+ "name": "Angler Colm",
+ "class": "Angler",
+ "sprite": "angler",
+ "party": [
+  {
+   "species": "pinchkin",
+   "level": 21
+  },
+  {
+   "species": "pupplash",
+   "level": 21
+  },
+  {
+   "species": "minkshade",
+   "level": 22
+  }
+ ],
+ "ai": "trainer",
+ "money": 760,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Angler Colm",
+   "text": "Bass, flounder, the odd old boot. What I'd really like is a rematch with that crab."
+  },
+  {
+   "do": "say",
+   "who": "Angler Colm",
+   "text": "Yes, that one."
+  }
+ ],
+ "win": "Crabbed by a person. Not the same.",
+ "after": "The tide here comes in faster than a horse. I speak from experience."
+}

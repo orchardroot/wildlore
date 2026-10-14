@@ -20,7 +20,7 @@ func _build() -> void:
 	var menu := VBoxContainer.new()
 	menu.add_theme_constant_override("separation", 8)
 	left.add_child(menu)
-	var entries := [["Team", _open_team], ["Fieldbook", _open_pedia], ["Bag", _open_bag],
+	var entries := [["Team", _open_team], ["Fieldbook", _open_pedia], ["Bag", _open_bag], ["Map", _open_map],
 		["Save", _save], ["Settings", _open_settings], ["Close", func(): close(null)]]
 	for e in entries:
 		var b := make_button(e[0], e[1])
@@ -57,13 +57,13 @@ func _refresh() -> void:
 	badges.add_theme_constant_override("separation", 8)
 	badges.add_child(UIKit.label("Badges", 28, UIKit.MUTED))
 	badges.add_child(UIKit.spacer(0, 8))
-	for i in 8:
+	for i in 10:
 		var earned := i < d.badges.size()
 		var dot := ColorRect.new()
 		dot.custom_minimum_size = Vector2(28, 28)
 		dot.color = UIKit.GOLD if earned else Color("2c3446")
 		badges.add_child(dot)
-	badges.add_child(UIKit.label("%d / 8" % d.badges.size(), 26))
+	badges.add_child(UIKit.label("%d / 10" % d.badges.size(), 26))
 	_info.add_child(badges)
 	_info.add_child(UIKit.spacer(8))
 	var team := HBoxContainer.new()
@@ -97,13 +97,16 @@ func _open_bag() -> void:
 
 func _open_settings() -> void:
 	await open_child("settings")
-	_after_child(4)
+	_after_child(5)
 
 func _after_child(i: int) -> void:
 	_refresh()
 	_buttons[i].grab_focus()
 
 func _save() -> void:
-	var err := Game.save("auto")
-	_note.text = "Saved. Your progress is safe as houses." if err == OK else "That didn't save. Check the disk has room."
-	Audio.sfx("heal" if err == OK else "bump")
+	await open_child("save:save")
+	_after_child(4)
+
+func _open_map() -> void:
+	await open_child("map")
+	_after_child(3)

@@ -1,0 +1,149 @@
+{
+ "cleanup": [
+  {
+   "do": "if",
+   "flag": "cleanup_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Beach Cleaner",
+     "text": "Look at that. Not a crisp packet. The puffins have never been so smug."
+    },
+    {
+     "do": "say",
+     "who": "Beach Cleaner",
+     "text": "Come and visit in the summer. Bring a bag. They always do. The puffins, I mean."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Beach Cleaner",
+     "text": "Oh, hello! Mind the nets. I'm clearing the cove. It's mostly crisp packets and the odd oil drum."
+    },
+    {
+     "do": "say",
+     "who": "Beach Cleaner",
+     "text": "The Enclosure's gift shop up the coast sells 'Authentic Welsh Seashells'. They're made in a factory. It's a shame, the real shells are free."
+    },
+    {
+     "do": "choice",
+     "text": "Give the cove a hand?",
+     "options": [
+      "Roll up your sleeves",
+      "Not today"
+     ],
+     "set": "cleanup_choice"
+    },
+    {
+     "do": "if",
+     "flag": "cleanup_choice",
+     "then": [
+      {
+       "do": "say",
+       "who": "Beach Cleaner",
+       "text": "Not today? That's fine. The tide will be back tomorrow, and so will the crisp packets."
+      }
+     ],
+     "else": [
+      {
+       "do": "fade_out"
+      },
+      {
+       "do": "wait",
+       "seconds": 0.6
+      },
+      {
+       "do": "fade_in"
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "You spend an hour filling bags. Forty-two crisp packets, one lilo, a shoe and, somehow, a traffic cone."
+      },
+      {
+       "do": "say",
+       "who": "Beach Cleaner",
+       "text": "That's the best the cove has looked in a decade. I'll bake you something. No, really. I've already baked it."
+      },
+      {
+       "do": "give_item",
+       "item": "bara_brith",
+       "n": 3
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "A pair of puffins land on the clean rock and look extremely pleased with themselves."
+      },
+      {
+       "do": "set",
+       "flag": "cleanup_done"
+      }
+     ],
+     "eq": 1
+    }
+   ]
+  }
+ ],
+ "seal_watcher": [
+  {
+   "do": "say",
+   "who": "Seal Watcher",
+   "text": "Grey seals pup on these beaches in autumn. The pups are white and fluffy and look like very cross bath towels."
+  },
+  {
+   "do": "say",
+   "who": "Seal Watcher",
+   "text": "I came by wading. Splendid, if you like cold. The seals do not judge."
+  }
+ ],
+ "puffin_warden": [
+  {
+   "do": "say",
+   "who": "Puffin Volunteer",
+   "text": "Puffins nest in burrows on Skomer from April. Up to twenty thousand of them, give or take a few."
+  },
+  {
+   "do": "say",
+   "who": "Puffin Volunteer",
+   "text": "I'm a volunteer. I count puffins. They don't stay still. It is a very bad job."
+  }
+ ],
+ "keeper_lh": [
+  {
+   "do": "say",
+   "who": "Lighthouse Keeper",
+   "text": "Strumble Head Lighthouse is automatic now. I come for the chat."
+  },
+  {
+   "do": "say",
+   "who": "Lighthouse Keeper",
+   "text": "The lamp is thirty miles of visibility. The sea has no manners. But I'm very proud of it."
+  }
+ ],
+ "coast_walker": [
+  {
+   "do": "say",
+   "who": "Coast Path Walker",
+   "text": "Pembrokeshire coast path. 186 miles. I'm on mile 41 and my feet have formed a union."
+  },
+  {
+   "do": "say",
+   "who": "Coast Path Walker",
+   "text": "Wales' only coastal national park, they tell me. Wettest views in Britain."
+  }
+ ],
+ "preseli_farmer": [
+  {
+   "do": "say",
+   "who": "Hill Farmer",
+   "text": "Those blue stones at Stonehenge came from this hill. Four hundred miles. Pulled, probably, on sleds."
+  },
+  {
+   "do": "say",
+   "who": "Hill Farmer",
+   "text": "I've a quarry full of them behind the barn. Nobody's asked for one yet."
+  }
+ ]
+}

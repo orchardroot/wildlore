@@ -44,7 +44,7 @@ func test_maud_awards_brook_stone_and_ends_slice() -> void:
 	var h := FakeStoryHost.new()
 	await _run(h, "buxton_spa", "maud", "maud")
 	assert_true("brook" in h.data.badges)
-	assert_eq(h.said.back()[1], "Thanks for playing the Wildlore slice.")
+	assert_eq(h.said.back()[1], "The road north from Buxton is open. Manchester is about thirty miles away and, by all reports, wetter.")
 	assert_eq(h.last_battle.opts.ai, "keeper")
 	h.said.clear()
 	await _run(h, "buxton_spa", "maud", "maud")

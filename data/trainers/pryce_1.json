@@ -1,0 +1,45 @@
+{
+ "id": "pryce_1",
+ "name": "Gareth Pryce",
+ "class": "Director",
+ "sprite": "pryce",
+ "party": [
+  {
+   "species": "bobbin",
+   "level": 26
+  },
+  {
+   "species": "shuttlecog",
+   "level": 27
+  },
+  {
+   "species": "slatelet",
+   "level": 26
+  },
+  {
+   "species": "sootwing",
+   "level": 28
+  }
+ ],
+ "ai": "trainer",
+ "money": 2200,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Gareth Pryce",
+   "text": "Good afternoon. Gareth Pryce, Regional Director for Wales. You'll have received my email. You haven't? How odd, it was copied to everyone."
+  },
+  {
+   "do": "say",
+   "who": "Gareth Pryce",
+   "text": "The quarry is, as of Tuesday, a Licensed Heritage Asset. You are currently an unlicensed visitor. There is a form."
+  },
+  {
+   "do": "say",
+   "who": "Gareth Pryce",
+   "text": "I'm told battles are the quickest way to resolve a dispute. I have scheduled one. It is on the agenda, item four."
+  }
+ ],
+ "win": "I see. That is a variance. I shall be logging it in the spreadsheet, and I want you to know that I am not angry. I am merely thorough.",
+ "after": "The spreadsheet has a column for you now. It is not a flattering column."
+}

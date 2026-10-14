@@ -1,0 +1,36 @@
+{
+ "id": "moss_angler",
+ "name": "Angler Barry",
+ "class": "Angler",
+ "sprite": "angler",
+ "party": [
+  {
+   "species": "holtling",
+   "level": 16
+  },
+  {
+   "species": "minkshade",
+   "level": 16
+  },
+  {
+   "species": "elverlet",
+   "level": 17
+  }
+ ],
+ "ai": "trainer",
+ "money": 520,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Angler Barry",
+   "text": "I came here for the peace. And the possible eels."
+  },
+  {
+   "do": "say",
+   "who": "Angler Barry",
+   "text": "Quiet, you'll scare the fish. Or fight me, one of the two."
+  }
+ ],
+ "win": "That's frightened every fish for a mile.",
+ "after": "Eel season. Not a sausage. Not even a boot."
+}

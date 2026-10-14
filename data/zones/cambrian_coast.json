@@ -1,0 +1,635 @@
+{
+ "id": "cambrian_coast",
+ "name": "Cambrian Coast",
+ "region": "mid_wales",
+ "kind": "route",
+ "music": "route_coast",
+ "weather": {
+  "clear": 25,
+  "drizzle": 25,
+  "gale": 20,
+  "sunshine": 15,
+  "fog": 15
+ },
+ "props": [
+  {
+   "type": "building",
+   "style": "castle",
+   "x": 13,
+   "y": 3,
+   "w": 5,
+   "h": 4,
+   "label": "Harlech Castle"
+  },
+  {
+   "type": "building",
+   "style": "castle",
+   "x": 19,
+   "y": 3,
+   "w": 3,
+   "h": 3,
+   "show_label": false
+  },
+  {
+   "type": "rock",
+   "x": 15,
+   "y": 8
+  },
+  {
+   "type": "rock",
+   "x": 20,
+   "y": 8
+  },
+  {
+   "type": "rock",
+   "x": 12,
+   "y": 8
+  },
+  {
+   "type": "standing_stone",
+   "x": 18,
+   "y": 8,
+   "variant": 1
+  },
+  {
+   "type": "bench",
+   "x": 16,
+   "y": 8
+  },
+  {
+   "type": "rock",
+   "x": 8,
+   "y": 14,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 6,
+   "y": 17,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 7,
+   "y": 17,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 6,
+   "y": 23,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 8,
+   "y": 15,
+   "variant": 0
+  },
+  {
+   "type": "buoy",
+   "x": 3,
+   "y": 14
+  },
+  {
+   "type": "boat",
+   "x": 2,
+   "y": 19,
+   "variant": 1
+  },
+  {
+   "type": "buoy",
+   "x": 3,
+   "y": 22,
+   "variant": 1
+  },
+  {
+   "type": "bench",
+   "x": 12,
+   "y": 20
+  },
+  {
+   "type": "lamp_post",
+   "x": 12,
+   "y": 13
+  },
+  {
+   "type": "building",
+   "style": "aqueduct",
+   "x": 10,
+   "y": 27,
+   "w": 19,
+   "h": 2,
+   "label": "Barmouth Viaduct"
+  },
+  {
+   "type": "bollard",
+   "x": 29,
+   "y": 25
+  },
+  {
+   "type": "bollard",
+   "x": 32,
+   "y": 25
+  },
+  {
+   "type": "bollard",
+   "x": 29,
+   "y": 31
+  },
+  {
+   "type": "bollard",
+   "x": 32,
+   "y": 31
+  },
+  {
+   "type": "boat",
+   "x": 33,
+   "y": 28,
+   "variant": 1
+  },
+  {
+   "type": "boat",
+   "x": 22,
+   "y": 30,
+   "variant": 1
+  },
+  {
+   "type": "buoy",
+   "x": 16,
+   "y": 25
+  },
+  {
+   "type": "buoy",
+   "x": 26,
+   "y": 31,
+   "variant": 1
+  },
+  {
+   "type": "buoy",
+   "x": 10,
+   "y": 38
+  },
+  {
+   "type": "boat",
+   "x": 17,
+   "y": 41,
+   "variant": 1
+  },
+  {
+   "type": "building",
+   "style": "slate_cottage",
+   "x": 23,
+   "y": 35,
+   "w": 5,
+   "h": 3,
+   "label": "Fferm y Bwlch"
+  },
+  {
+   "type": "oak",
+   "x": 28,
+   "y": 36
+  },
+  {
+   "type": "oak",
+   "x": 24,
+   "y": 42,
+   "variant": 1
+  },
+  {
+   "type": "planter",
+   "x": 22,
+   "y": 36
+  },
+  {
+   "type": "bench",
+   "x": 19,
+   "y": 47
+  },
+  {
+   "type": "lamp_post",
+   "x": 18,
+   "y": 52
+  },
+  {
+   "type": "rock",
+   "x": 9,
+   "y": 45,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 8,
+   "y": 48,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 7,
+   "y": 52,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 7,
+   "y": 46,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 8,
+   "y": 47,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 7,
+   "y": 53,
+   "variant": 2
+  },
+  {
+   "type": "lamp_post",
+   "x": 23,
+   "y": 17
+  },
+  {
+   "type": "post_box",
+   "x": 33,
+   "y": 19
+  }
+ ],
+ "warps": [],
+ "edges": {
+  "north": {
+   "to": "llanberis",
+   "offset": 0
+  },
+  "south": {
+   "to": "aberystwyth",
+   "offset": 0
+  }
+ },
+ "npcs": [
+  {
+   "id": "castle_guide",
+   "sprite": "tour_guide",
+   "x": 14,
+   "y": 8,
+   "facing": "down",
+   "move": "still",
+   "script": "castle_guide"
+  },
+  {
+   "id": "dolphin_spotter",
+   "sprite": "birdwatcher",
+   "x": 14,
+   "y": 21,
+   "facing": "down",
+   "move": "wander",
+   "script": "dolphin_spotter"
+  },
+  {
+   "id": "toll_keeper",
+   "sprite": "villager_2",
+   "x": 28,
+   "y": 32,
+   "facing": "right",
+   "move": "still",
+   "script": "toll_keeper"
+  },
+  {
+   "id": "hermit",
+   "sprite": "hiker",
+   "x": 14,
+   "y": 39,
+   "facing": "down",
+   "move": "still",
+   "script": "hermit"
+  },
+  {
+   "id": "farmer",
+   "sprite": "farmer",
+   "x": 26,
+   "y": 39,
+   "facing": "down",
+   "move": "wander",
+   "script": "farmer"
+  },
+  {
+   "id": "borth_walker",
+   "sprite": "villager_5",
+   "x": 23,
+   "y": 50,
+   "facing": "down",
+   "move": "wander",
+   "script": "borth_walker"
+  },
+  {
+   "id": "cai",
+   "sprite": "surfer",
+   "x": 27,
+   "y": 15,
+   "facing": "left",
+   "move": "still",
+   "trainer": "cai"
+  },
+  {
+   "id": "marged",
+   "sprite": "birdwatcher",
+   "x": 28,
+   "y": 21,
+   "facing": "right",
+   "move": "still",
+   "trainer": "marged"
+  },
+  {
+   "id": "dilwyn",
+   "sprite": "angler",
+   "x": 29,
+   "y": 23,
+   "facing": "right",
+   "move": "still",
+   "trainer": "dilwyn"
+  },
+  {
+   "id": "ffion",
+   "sprite": "villager_6",
+   "x": 28,
+   "y": 46,
+   "facing": "right",
+   "move": "still",
+   "trainer": "ffion"
+  },
+  {
+   "id": "owain",
+   "sprite": "student",
+   "x": 32,
+   "y": 40,
+   "facing": "left",
+   "move": "still",
+   "trainer": "owain"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "cragchough",
+    "min": 30,
+    "max": 32,
+    "weight": 24,
+    "time": [
+     "dawn",
+     "day",
+     "dusk"
+    ]
+   },
+   {
+    "species": "kitelet",
+    "min": 30,
+    "max": 32,
+    "weight": 28,
+    "time": [
+     "dawn",
+     "day"
+    ]
+   },
+   {
+    "species": "petrelash",
+    "min": 31,
+    "max": 32,
+    "weight": 16,
+    "weather": [
+     "drizzle",
+     "downpour",
+     "gale"
+    ]
+   },
+   {
+    "species": "cragchough",
+    "min": 30,
+    "max": 32,
+    "weight": 10,
+    "time": [
+     "night"
+    ]
+   },
+   {
+    "species": "kitelet",
+    "min": 30,
+    "max": 32,
+    "weight": 12,
+    "weather": [
+     "gale",
+     "sunshine"
+    ]
+   },
+   {
+    "species": "petrelash",
+    "min": 30,
+    "max": 31,
+    "weight": 10,
+    "time": [
+     "dusk",
+     "night"
+    ]
+   }
+  ],
+  "water": [
+   {
+    "species": "dolphlet",
+    "min": 30,
+    "max": 32,
+    "weight": 60
+   },
+   {
+    "species": "petrelash",
+    "min": 31,
+    "max": 32,
+    "weight": 20,
+    "weather": [
+     "drizzle",
+     "downpour",
+     "gale"
+    ]
+   },
+   {
+    "species": "dolphlet",
+    "min": 31,
+    "max": 32,
+    "weight": 20,
+    "time": [
+     "dawn",
+     "dusk"
+    ]
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 23,
+   "y": 6,
+   "text": "HARLECH CASTLE. Built 1283 to be unbeatable. Owain Glyndwr beat it anyway. 'Men of Harlech' is the song about a siege here."
+  },
+  {
+   "x": 27,
+   "y": 5,
+   "text": "HARLECH. Castle up the crag, beach down the hill, tea in between. Croeso, welcome."
+  },
+  {
+   "x": 11,
+   "y": 17,
+   "text": "DOLPHIN WATCH. Look out to sea, count to twenty, then tell everyone you saw one. Bottlenose, nine times out of ten."
+  },
+  {
+   "x": 28,
+   "y": 24,
+   "text": "BARMOUTH BRIDGE (Pont y Bermo). Wooden, 1867, nearly half a mile. Walkers pay a small toll. Seagulls travel free, as ever."
+  },
+  {
+   "x": 33,
+   "y": 32,
+   "text": "BARMOUTH (Abermaw). Chips, 99s and a steep staircase of regret."
+  },
+  {
+   "x": 23,
+   "y": 40,
+   "text": "THE HERMIT'S COVE. Deep water, no ferry. Needs a bit of wade."
+  },
+  {
+   "x": 29,
+   "y": 40,
+   "text": "CADAIR IDRIS (893 m). Legend: sleep on it and wake up a poet or mad. Take a flask instead."
+  },
+  {
+   "x": 16,
+   "y": 47,
+   "text": "BORTH. Six thousand year old tree stumps lie under this beach and show at low tide. They do not do tours."
+  },
+  {
+   "x": 28,
+   "y": 51,
+   "text": "ABERYSTWYTH 14 miles. Keep going south. Left is the sea."
+  }
+ ],
+ "spawn": [
+  25,
+  1
+ ],
+ "stage": "coast",
+ "rows": [
+  "$$$$$$PPPPPPPPPPPPPPPPPP###PPPPPPPPPPPPPPPRP",
+  "$$$$$$wsss,,,,,,........###.P.P..PPPPPPPPPPP",
+  "$$$$$$$wss^^............###......PRPPPPPPPRP",
+  "$$$$$$$wss^^.BBBBB.BBB..##.,,,,,.PPPPPPPPPPP",
+  "$$$$$$$$ws^^.BBBBB.BBB..##P,,,,,.PPPPPPPPPRP",
+  "$$$$$$$$ws^^.BBBBB.BBB..##.,,,,,.PPPPPPPPPPP",
+  "$$$$$$$$ws^^.BBBBB......##.,,,,,.PPPPPPPPPPP",
+  "$$$$$$$$ws^^##############.,,,,,.PPPPPPPPPPP",
+  "$$$$$$$$ws^^ffffffffff..##.,,,,,.PPPPPPPPRPP",
+  "$$$$$$$$ws^^^^^^^^^^^^..##.,,,,,.PPPPPPPPPPR",
+  "$$$$$$$$ws^^^^^^^^^^^^..##.,,,,,.PRPPPPPPPPP",
+  "$$$$$$$$ws..............##P......PPPPPPPPPPP",
+  "$$$$$$$wsss,,,,,f.......##.P.....PPPPPPPPPPP",
+  "$$$$$$$wsss,,,,,,.....P.##......PPPPPPPPPPPP",
+  "$$$$$$$wsss,,,,,,,,.....##.......PPRPPPPPRRP",
+  "$$$$$$wsss,f,,,,,,,.....##.....P.PPPPPPPPPPP",
+  "$$$$$$wsss,,,,,,,,,.....##.....P.PPPRPPPRPPP",
+  "$$$$$wsss,,,,,,,,,,.....##.......PPPPPPPPPPP",
+  "$$$$$wsss,,,,,,,,,,.....########.PPPPPPPPPPP",
+  "$$$$$wsss,f,,,,.........##,,,,##.PPPPPPPPPPP",
+  "$$$$wsss,,,,,,............,,,,##.PPPPPPPPPPP",
+  "$$$$wsss,,,,,,............,,,,##.PPPPPPPPPPP",
+  "$$$$wsss,,,,,,............,,,,##.PPPPPPPPPPP",
+  "$$$$wsss,,,,,,.........P..,,,,##.PPRPPPPPPPP",
+  "$$$$wsss,,,,,,...........P....##.PPPPPPPPRPP",
+  "$$$$~~~~~~~~~~~~~~~~~~~~~~~~~~##~~PPPPPRPPPP",
+  "$$$$~~~~~~~~~~~~~~~~~~~~~~~~~~##~~PPPRPPPPRP",
+  "$$$$~~~~~~BBBBBBBBBBBBBBBBBBB~##~~PPPPPPPPPR",
+  "$$$$~~~~~~BBBBBBBBBBBBBBBBBBB~##~~PPPPPPPPRP",
+  "$$$$~~~~~~~~~~~~~~~~~~~~~~~~~~##~~PPPPPPPPPP",
+  "$$$$~~~~~~~~~~~~~~~~~~~~~~~~~~##~~PPPRPPPRPP",
+  "$$$$~~~~~~~~~~~~~~~~~~~~~~~~~~##~~PRPPPPPPPP",
+  "$$$$$$wsss,,,,,,..............##.PPPPPPPPPPP",
+  "$$$$$$$wsss,,,,,,.....WWWWWWWW##.PPPPPPPPPPP",
+  "$$$$$$$wsss,,,,,,.....W.......##.PPPPPRPRPPP",
+  "$$$$$$$wsss,,,,,,.....WBBBBB..##.PPPPPPPPPPP",
+  "$$$$$$$$^^^^^^^^^^^^^^WBBBBB..##.PPPPPPRPPPP",
+  "$$$$$$$$oooooooooooo^^WBBDBBP.##.PPPRPPPPPPP",
+  "$$$$$$$$oooooooooooo^^##########.PPPPRRPPPPP",
+  "$$$$$$$$ooooosssooooss##......##.PPPPPPPPPPP",
+  "$$$$$$$$ooooosssoooossW.fffff.##.PPPPPPRRPPP",
+  "$$$$$$$$oooooooooooo^^W.fffff.##.PPPPPPPPPPP",
+  "$$$$$$$$oooooooooooo^^W.......##.RPPPPPPPPPP",
+  "$$$$$$$$^^^^^^^^^^^^^^WWWWWWWW##.PPPPPRPPPPP",
+  "$$$$$$$wsss,,,,,,.......P.,,,,,#.PPPPPPPPPPP",
+  "$$$$$$$wsss,,,,,,.........,,,,,#PPPPRPPRPPPP",
+  "$$$$$$wsss,,,,,,......P...,,,,,#.PPPPPPPPPRP",
+  "$$$$$$wsss,,,,,,..........,,,,,#.PPPPPPPPPPP",
+  "$$$$$$wsss,,,,,,..sss.....,,,,,#.PPPPPPPPPPP",
+  "$$$$$wsss,,,,,,...........,,,,,#.PPPPRPPPPPP",
+  "$$$$$wsss,,,,,,...........,,,,,#.PPPPPPPPPPP",
+  "$$$$wsss,,,,,,............,,,,,#.PPPPPPPPPPP",
+  "$$$$wsss,,,,,,................##.RPPPPPPPPPP",
+  "$$$$wsss,,,,,,................###PPPPPPPPRPP",
+  "$$$$wsss,,,,,,................###RPPPPPPPPPR",
+  "$$$$PPPPPPPPPPPPPPPPPPPPPPPPPP###PPPPPPPPPPP"
+ ],
+ "heights": [
+  "00000000000000000000000000000000001111111111",
+  "00000000000000000000000000000000001111111111",
+  "00000000001111111111111100000000001111111111",
+  "00000000001122222222221100000000001111111111",
+  "00000000001122222222221100000000001111111111",
+  "00000000001122222222221100000000001111111111",
+  "00000000001122222222221100000000001112222222",
+  "00000000001122222222221100000000001112222222",
+  "00000000001122222222221100000000001112222222",
+  "00000000001122222222221100000000001112222222",
+  "00000000001111111111111100000000001112222222",
+  "00000000001111111111111100000000001112222222",
+  "00000000000000000000000000000000001112222222",
+  "00000000000000000000000000000000001112222222",
+  "00000000000000000000000000000000001112222222",
+  "00000000000000000000000000000000001112222222",
+  "00000000000000000000000000000000001112222222",
+  "00000000000000000000000000000000001112222222",
+  "00000000000000000000000000000000001112222222",
+  "00000000000000000000000000000000001112222222",
+  "00000000000000000000000000000000001112222222",
+  "00000000000000000000000000000000001112222222",
+  "00000000000000000000000000000000001112222222",
+  "00000000000000000000000000000000001112222222",
+  "00000000000000000000000000000000001112222222",
+  "00000000000000000000000000000000001112222222",
+  "00000000000000000000000000000000001112222222",
+  "00000000000000000000000000000000001112222222",
+  "00000000000000000000000000000000001112222222",
+  "00000000000000000000000000000000001112222222",
+  "00000000000000000000000000000000001112222222",
+  "00000000000000000000000000000000001112222222",
+  "00000000000000000000000000000000001112222222",
+  "00000000000000000000000000000000001112222222",
+  "00000000000000000000000000000000001112222222",
+  "00000000000000000000000000000000001112222222",
+  "00000000000000000000000000000000001112222222",
+  "00000000000000000000000000000000001112222222",
+  "00000000000000000000000000000000001112222222",
+  "00000000000000000000000000000000001112222222",
+  "00000000000000000000000000000000001112222222",
+  "00000000000000000000000000000000001112222222",
+  "00000000000000000000000000000000001112222222",
+  "00000000000000000000000000000000001112222222",
+  "00000000000000000000000000000000001112222222",
+  "00000000000000000000000000000000001112222222",
+  "00000000000000000000000000000000001112222222",
+  "00000000000000000000000000000000001112222222",
+  "00000000000000000000000000000000001112222222",
+  "00000000000000000000000000000000001112222222",
+  "00000000000000000000000000000000001111111111",
+  "00000000000000000000000000000000001111111111",
+  "00000000000000000000000000000000001111111111",
+  "00000000000000000000000000000000001111111111",
+  "00000000000000000000000000000000001111111111",
+  "00000000000000000000000000000000001111111111"
+ ]
+}

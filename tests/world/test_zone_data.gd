@@ -101,3 +101,59 @@ func test_point_props_block_movement() -> void:
 func test_signs_block_movement() -> void:
 	var z := _z("testbed")
 	assert_false(z.walkable(Vector2i(9, 6)), "sign post")
+
+func test_new_tiles_parse() -> void:
+	var z := ZoneData.from_dict(_base(["%o/_!$", "......"]))
+	assert_eq(z.parse_errors, [])
+	assert_eq([z.tile_at(Vector2i(0, 0)), z.tile_at(Vector2i(1, 0)), z.tile_at(Vector2i(2, 0)), z.tile_at(Vector2i(3, 0)), z.tile_at(Vector2i(4, 0)), z.tile_at(Vector2i(5, 0))],
+		["bramble", "deep_water", "scree", "platform", "rail", "sea"])
+	assert_false(z.walkable(Vector2i(0, 0)), "bramble blocks until cut")
+	assert_false(z.walkable(Vector2i(1, 0)), "deep water needs Brook-wade")
+	assert_true(z.walkable(Vector2i(1, 0), Vector2i.ZERO, ["brook_wade"]))
+	assert_false(z.walkable(Vector2i(2, 0)), "scree needs Fell-scramble")
+	assert_true(z.walkable(Vector2i(2, 0), Vector2i.ZERO, ["fell_scramble"]))
+	assert_true(z.walkable(Vector2i(3, 0)), "platform")
+	assert_false(z.walkable(Vector2i(4, 0)), "rail")
+	assert_false(z.walkable(Vector2i(5, 0), Vector2i.ZERO, ["brook_wade"]), "the open sea is never wadeable")
+	z.cut(Vector2i(0, 0))
+	assert_true(z.walkable(Vector2i(0, 0)), "cut bramble is grass")
+
+func test_ability_gates_rule() -> void:
+	# exit east only through a bramble: fails unless the edge says it's gated by hedge_lay
+	var rows := ["....%.", "TTTTTT"]
+	var other := ZoneData.from_dict(_base(["...", "..."], {"id": "o", "edges": {"west": {"to": "a"}}}))
+	var a := ZoneData.from_dict(_base(rows, {"id": "a", "spawn": [0, 0], "edges": {"east": {"to": "o"}}}))
+	assert_true(_has(a.validate({"a": a, "o": other}), "can't reach the east edge"))
+	var a2 := ZoneData.from_dict(_base(rows, {"id": "a", "spawn": [0, 0], "edges": {"east": {"to": "o", "gate": "hedge_lay"}}}))
+	assert_false(_has(a2.validate({"a": a2, "o": other}), "can't reach"))
+	# a warp walled off by deep water needs a brook_wade gate
+	var b := ZoneData.from_dict(_base(["..o.", "TTTT"], {"id": "b", "spawn": [0, 0], "warps": [{"x": 3, "y": 0, "to": "b", "tx": 0, "ty": 0}]}))
+	assert_true(_has(b.validate({"b": b}), "can't reach the warp at 3,0"))
+
+func test_zone_extra_keys() -> void:
+	var z := ZoneData.from_dict(_base(["...", "..."], {"stage": "coast", "town_id": "liverpool", "station": {"x": 1, "y": 1}, "ferry": {"x": 2, "y": 1, "route": "liverpool_douglas"}}))
+	assert_eq(z.stage, "coast")
+	assert_eq(z.town_id, "liverpool")
+	assert_eq(z.station, Vector2i(1, 1))
+	assert_eq(z.ferry.route, "liverpool_douglas")
+	var bad := ZoneData.from_dict(_base(["...", "..T"], {"station": {"x": 2, "y": 1}}))
+	assert_true(_has(bad.validate({"t": bad}), "station"))
+
+func test_landmark_meshes_build() -> void:
+	for style in Landmarks.SPECIAL:
+		var m: Array = Meshes.building(8, 4, style, 2, 1)
+		assert_true(m[0].get_surface_count() > 0, "body for " + style)
+	for mesh in [Landmarks.standing_stone(), Landmarks.slate_heap(), Landmarks.scree_rubble(), Landmarks.bramble(),
+			Landmarks.boat(), Landmarks.boat(1), Landmarks.canal_boat(), Landmarks.buoy(), Landmarks.statue(), Landmarks.harp(), Landmarks.lighthouse()]:
+		assert_true(mesh.get_surface_count() > 0)
+
+func test_gallery_zone_builds() -> void:
+	var root := ZoneBuilder.build(_z("mesh_gallery"))
+	assert_true(root.get_child_count() > 10)
+	assert_true(root.has_node("DeepWater"))
+	root.free()
+
+func test_edge_landing_must_be_walkable() -> void:
+	var a := ZoneData.from_dict(_base(["...", "...", "..."], {"id": "a", "spawn": [1, 1], "edges": {"east": {"to": "b"}}}))
+	var b := ZoneData.from_dict(_base(["T..", "...", "T.."], {"id": "b", "spawn": [1, 1], "edges": {"west": {"to": "a"}}}))
+	assert_true(_has(a.validate({"a": a, "b": b}), "lands on 0,0 in 'b'"))

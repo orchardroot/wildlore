@@ -1,0 +1,106 @@
+{
+ "keeper_ray": [
+  {
+   "do": "if",
+   "flag": "trainer_keeper_ray",
+   "then": [
+    {
+     "do": "say",
+     "who": "Keeper Ray",
+     "text": "Come back Thursday, we do a lovely set. Bring a mate. Bring two. The club holds forty and there's always sixty."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Keeper Ray",
+     "text": "Alright, la! Come in, come in, mind the amps. You've got the look of someone who's come all the way from the Peaks."
+    },
+    {
+     "do": "say",
+     "who": "Keeper Ray",
+     "text": "I'm Ray. I keep the Urban Stone here, and I do the odd drum solo. Mostly the Stone."
+    },
+    {
+     "do": "say",
+     "who": "Keeper Ray",
+     "text": "Let's see if you can keep time with the city. One, two, three, four!"
+    },
+    {
+     "do": "battle",
+     "trainer": "keeper_ray"
+    },
+    {
+     "do": "say",
+     "who": "Keeper Ray",
+     "text": "This is the Urban Stone. Pavements, rooftops, pigeons. It's a city thing, so it's got a bit of grit."
+    },
+    {
+     "do": "say",
+     "who": "Keeper Ray",
+     "text": "And it'll teach your team Brook-wade. Deep water won't be a problem. Just don't wade the Mersey, la. It's not that kind of deep."
+    },
+    {
+     "do": "badge",
+     "id": "urban"
+    },
+    {
+     "do": "set",
+     "flag": "badge_urban"
+    },
+    {
+     "do": "set",
+     "flag": "ch2_urban"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "{player} received the Urban Stone!"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "{player}'s team learned Brook-wade! Deep water can now be crossed."
+    },
+    {
+     "do": "sfx",
+     "id": "alert"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Your phone buzzes mid-solo. It's Professor Garside, who is clearly standing near a kettle."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "{player}! The Urban Stone! Lovely. I felt it from here. Well, I felt my teacup rattle."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "The hum is moving west now, into Wales. Dinas Emrys, Yr Wyddfa. The old dragon country."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "I'm posting you a Rail Pass. Every station will let you hop between the towns you've visited. Don't lose it, it's laminated."
+    },
+    {
+     "do": "give_item",
+     "item": "rail_pass"
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "The Wirral road should be open. Head south to Chester, then west. And if you've a spare afternoon, there's a ferry to Douglas. The Manx are very polite about lost sheep."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Outside, the Wardens on the Wirral road quietly packed up their barriers and pretended it had been a drill."
+    }
+   ]
+  }
+ ]
+}

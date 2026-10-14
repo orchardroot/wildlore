@@ -25,6 +25,7 @@ static func boot(game: Node, menu: String) -> void:
 	var f: Creature = mk.call("hootlet", 7)
 	f.status = "asleep"
 	d.party = [a, b, c, e, f]
+	d.ark = [mk.call("croakle", 6), mk.call("pipkin", 4), mk.call("dipling", 9)]
 	for sp in ["spikkin", "kindlet", "holtling", "binfox", "hootlet", "pipkin", "scuttlet", "croakle"]:
 		d.mark_caught(sp)
 	for sp in ["dipling", "wispet", "snowhare"]:
@@ -34,6 +35,11 @@ static func boot(game: Node, menu: String) -> void:
 	d.money = 1840
 	d.badges = ["a", "b"]
 	d.play_seconds = 4980.0
+	for t in ["macclesfield", "buxton"]:
+		d.set_flag("visited_" + t)
+		d.set_flag("station_" + t)
+	d.set_flag("last_town", "buxton")
+	d.bag["rail_pass"] = 1
 	if menu.begins_with("shop") and not menu.contains(":"):
 		menu = "shop:macc_corner_shop"
 	await game.get_tree().process_frame

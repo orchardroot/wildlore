@@ -1,0 +1,152 @@
+{
+ "id": "liverpool_club",
+ "name": "The Cavern (ish)",
+ "region": "",
+ "kind": "interior",
+ "music": "battle_keeper",
+ "weather": {},
+ "props": [
+  {
+   "type": "bookshelf",
+   "x": 1,
+   "y": 5
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 8
+  },
+  {
+   "type": "bookshelf",
+   "x": 11,
+   "y": 5
+  },
+  {
+   "type": "potted_plant",
+   "x": 11,
+   "y": 8
+  },
+  {
+   "type": "table",
+   "x": 3,
+   "y": 1
+  },
+  {
+   "type": "table",
+   "x": 9,
+   "y": 1
+  },
+  {
+   "type": "lamp_post",
+   "x": 4,
+   "y": 4
+  },
+  {
+   "type": "lamp_post",
+   "x": 8,
+   "y": 4
+  },
+  {
+   "type": "bookshelf",
+   "x": 1,
+   "y": 3
+  },
+  {
+   "type": "bookshelf",
+   "x": 11,
+   "y": 3
+  },
+  {
+   "type": "bookshelf",
+   "x": 1,
+   "y": 7
+  },
+  {
+   "type": "bookshelf",
+   "x": 11,
+   "y": 7
+  },
+  {
+   "type": "table",
+   "x": 3,
+   "y": 9
+  },
+  {
+   "type": "table",
+   "x": 9,
+   "y": 9
+  },
+  {
+   "type": "bench",
+   "x": 2,
+   "y": 10
+  },
+  {
+   "type": "bench",
+   "x": 10,
+   "y": 10
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 10,
+   "to": "liverpool",
+   "tx": 34,
+   "ty": 28,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "keeper_ray",
+   "sprite": "keeper_ray",
+   "x": 6,
+   "y": 2,
+   "facing": "down",
+   "move": "still",
+   "script": "keeper_ray",
+   "name": "Keeper Ray"
+  },
+  {
+   "id": "club_lenny",
+   "sprite": "villager_5",
+   "x": 3,
+   "y": 6,
+   "facing": "right",
+   "move": "still",
+   "trainer": "club_lenny"
+  },
+  {
+   "id": "club_jude",
+   "sprite": "student",
+   "x": 9,
+   "y": 6,
+   "facing": "left",
+   "move": "still",
+   "trainer": "club_jude"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  6,
+  9
+ ],
+ "stage": "city",
+ "rows": [
+  "xxxxxxxxxxxxx",
+  "xCC+++++++CCx",
+  "x||+++++++||x",
+  "x||+++++++||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "xxxxxxxxxxxxx"
+ ]
+}

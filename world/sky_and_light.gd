@@ -19,8 +19,6 @@ var follow: Node3D
 
 func _ready() -> void:
 	sun = DirectionalLight3D.new()
-	sun.shadow_enabled = Settings.quality != "low"
-	sun.directional_shadow_mode = DirectionalLight3D.SHADOW_PARALLEL_2_SPLITS if Settings.quality != "high" else DirectionalLight3D.SHADOW_PARALLEL_4_SPLITS
 	sun.directional_shadow_max_distance = 40.0
 	sun.shadow_blur = 1.5
 	sun.rotation_degrees = Vector3(-52, -35, 0)
@@ -31,7 +29,6 @@ func _ready() -> void:
 	env.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
 	env.tonemap_mode = Environment.TONE_MAPPER_FILMIC
 	env.tonemap_exposure = 0.92
-	env.glow_enabled = Settings.quality != "low"
 	env.glow_intensity = 0.35
 	env.glow_bloom = 0.08
 	env.glow_hdr_threshold = 0.95
@@ -42,6 +39,7 @@ func _ready() -> void:
 	env.adjustment_contrast = 1.04
 	we.environment = env
 	add_child(we)
+	apply_quality(Settings.quality)
 	_rain = CPUParticles3D.new()
 	_rain.emitting = false
 	_rain.amount = 600
@@ -129,3 +127,9 @@ func _process(_delta: float) -> void:
 		_rain.global_position = follow.global_position + Vector3(0, 9, 2)
 	if Engine.get_process_frames() % 30 == 0:
 		apply_time(Game.data.clock_minutes)
+
+## Low: no shadows or glow. Medium: 2-split shadows and glow. High: 4-split shadows. Safe to call live.
+func apply_quality(q: String) -> void:
+	sun.shadow_enabled = q != "low"
+	sun.directional_shadow_mode = DirectionalLight3D.SHADOW_PARALLEL_4_SPLITS if q == "high" else DirectionalLight3D.SHADOW_PARALLEL_2_SPLITS
+	env.glow_enabled = q != "low"

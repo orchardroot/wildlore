@@ -1,0 +1,83 @@
+{
+ "keeper_eluned": [
+  {
+   "do": "if",
+   "flag": "trainer_keeper_eluned",
+   "then": [
+    {
+     "do": "say",
+     "who": "Keeper Eluned",
+     "text": "Mind your head. And your step. And, if you're heading up the mountain, mind the scree too. It has opinions."
+    },
+    {
+     "do": "say",
+     "who": "Keeper Eluned",
+     "text": "Slate lasts a hundred years if you treat it right. People, rather less. Go up there carefully."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Keeper Eluned",
+     "text": "Shwmae. Mind the hard hat rule. Yes, even you. Especially you."
+    },
+    {
+     "do": "say",
+     "who": "Keeper Eluned",
+     "text": "Eluned. I look after the Stone Stone, and the quarry it came out of. Both are heavier than they look."
+    },
+    {
+     "do": "say",
+     "who": "Keeper Eluned",
+     "text": "I don't do speeches. Show me what you've got and we'll see how well it's bedded in."
+    },
+    {
+     "do": "battle",
+     "trainer": "keeper_eluned"
+    },
+    {
+     "do": "say",
+     "who": "Keeper Eluned",
+     "text": "Here. The Stone Stone. Don't drop it on your foot. It's the heaviest thing you'll carry that isn't a regret."
+    },
+    {
+     "do": "say",
+     "who": "Keeper Eluned",
+     "text": "It gives your team Fell-scramble. They'll climb scree, loose slate and mountain paths that look like a bad idea."
+    },
+    {
+     "do": "say",
+     "who": "Keeper Eluned",
+     "text": "There's scree on the way up Yr Wyddfa. Your Fell-scramble gets you over it. That man in the tweed went up there with half a dozen Wardens and a drill. I don't like it."
+    },
+    {
+     "do": "say",
+     "who": "Keeper Eluned",
+     "text": "Go up. And if the mountain asks, I didn't send you. Hwyl."
+    },
+    {
+     "do": "badge",
+     "id": "stone"
+    },
+    {
+     "do": "set",
+     "flag": "badge_stone"
+    },
+    {
+     "do": "set",
+     "flag": "ch3_stone"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "{player} received the Stone Stone!"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "{player}'s team learned Fell-scramble! Scree slopes can now be climbed."
+    }
+   ]
+  }
+ ]
+}

@@ -17,6 +17,7 @@ var _limit := 0.0
 var _elapsed := 0.0
 var _rng := RandomNumberGenerator.new()
 var _done := false
+var _last_beat := 0.0
 
 func start(m: String) -> void:
 	mode = m
@@ -26,7 +27,7 @@ func start(m: String) -> void:
 	_rng.seed = maxi(0, int(Game.args.get("seed", 1)))
 	_limit = float(Game.args.get("seconds", 0))
 	if _limit <= 0.0:
-		_limit = 1500.0 if mode == "slice" else 120.0
+		_limit = {"slice": 1500.0, "m2": 9000.0}.get(mode, 120.0)
 	Bus.battle_ended.connect(_on_battle_ended)
 	Bus.battle_started.connect(func(_k): stats.battles += 1)
 	_run()
@@ -41,8 +42,14 @@ func _process(delta: float) -> void:
 	var ow := _ow()
 	if ow and ow.zone and ow.player and not ow.player.moving and not Router.busy:
 		var p: Vector2i = ow.player.grid_pos
-		if ow.zone.in_bounds(p) and not ow.zone.walkable(p) and ow.zone.tile_at(p) != "ledge_south":
+		if ow.zone.in_bounds(p) and not ow.zone.walkable(p, Vector2i.ZERO, FieldMoves.abilities(Game.data)) and ow.zone.tile_at(p) != "ledge_south":
 			_fail("player stands on unwalkable %s at %s in %s" % [ow.zone.tile_at(p), p, ow.zone.id])
+	if mode != "fuzz" and _elapsed - _last_beat > 120.0:
+		_last_beat = _elapsed
+		var owh := _ow()
+		print("BOT: heartbeat %ds in %s at %s, team %s, steps %d, battles %d W/L %d/%d, heals %d" % [int(_elapsed), Game.data.zone_id,
+			owh.player.grid_pos if owh and owh.player else Vector2i(-1, -1), Game.data.party.map(func(c): return "%s L%d" % [c.species.id, c.level]),
+			stats.steps, stats.battles, stats.wins, stats.losses, stats.cheat_heals])
 	if _elapsed > _limit:
 		if mode == "fuzz":
 			_finish()
@@ -63,15 +70,49 @@ func _run() -> void:
 	_check(Game.data.party.size() >= 1, "no starter after Garside")
 	_check(Game.data.flag("starter") != null, "starter flag missing")
 	print("BOT: starter %s, money %d" % [Game.data.flag("starter"), Game.data.money])
-	var attempts := 0
-	while "brook" not in Game.data.badges and attempts < 4 and not _done:
-		attempts += 1
-		await _grind_to(12 + attempts * 2)
-		await _heal_if_low(1.0)
-		await _talk("buxton_spa", "maud")
-		print("BOT: Keeper attempt %d, badges %s" % [attempts, Game.data.badges])
-	_check("brook" in Game.data.badges, "did not win the Brook Stone in %d attempts" % attempts)
+	await _beat("buxton_spa", "maud", "badge_brook", 14)
+	if mode == "m2" and not _done:
+		await _m2()
 	_finish()
+
+## Talks to `npc` until `flag` is set, grinding a bit harder in `grind_zone` before each retry.
+func _beat(zone_id: String, npc: String, flag: String, level := 0, grind_zone := "") -> void:
+	_restock()
+	var attempts := 0
+	while not Game.data.flag(flag) and attempts < 4 and not _done:
+		attempts += 1
+		if level > 0:
+			await _grind_to(level + (attempts - 1) * 2, grind_zone)
+		await _heal_if_low(1.0)
+		await _talk(zone_id, npc)
+		var team: Array = Game.data.party.map(func(c): return "%s L%d" % [c.species.id, c.level])
+		print("BOT: %s/%s attempt %d -> %s %s, team %s, W/L %d/%d" % [zone_id, npc, attempts, flag, "WON" if Game.data.flag(flag) else "not yet", team, stats.wins, stats.losses])
+	_check(Game.data.flag(flag) == true, "%s/%s never set %s in %d attempts" % [zone_id, npc, flag, attempts])
+
+## Buys Wicker Snares (at shop price, if it can afford them) so the team can grow like a real player's.
+func _restock() -> void:
+	var price := int(Game.items.get_item("wicker_snare").get("price", 200)) if Game.items else 200
+	while int(Game.data.bag.get("wicker_snare", 0)) < 5 and Game.data.money >= price:
+		Game.data.money -= price
+		Game.data.bag["wicker_snare"] = int(Game.data.bag.get("wicker_snare", 0)) + 1
+
+## M2: Manchester to the Storm Stone, following docs/superpowers/plans/2026-10-14-plan-3-story-beats.md.
+func _m2() -> void:
+	var starter := str(Game.data.flag("starter"))
+	await _beat("manc_bikes", "bev", "bev_bike_given")
+	_check(int(Game.data.bag.get("bike", 0)) > 0, "no bike from Bev")
+	await _beat("liverpool", "kit", "kit3_done", 19, "chat_moss")
+	await _beat("liverpool_club", "keeper_ray", "badge_urban", 22, "chat_moss")
+	_check(int(Game.data.bag.get("rail_pass", 0)) > 0, "no rail pass after the Urban Stone")
+	await _beat("llanberis", "pryce", "trainer_pryce_1", 27, "ogwen")
+	await _beat("llanberis_quarry", "keeper_eluned", "badge_stone", 30, "ogwen")
+	await _beat("yr_wyddfa", "pryce_summit", "ch3_ddraig_woke")
+	await _beat("cardiff", "kit", "kit4_done", 35, "beacons")
+	await _beat("cardiff", "pryce", "trainer_pryce_2", 35, "beacons")
+	await _beat("cardiff_arena", "keeper_rhys", "badge_storm", 37, "beacons")
+	_check(Game.data.flag("v02_complete") == true, "no end card after the Storm Stone")
+	if not _done:
+		print("BOT: M2 done with %s, badges %s" % [starter, Game.data.badges])
 
 ## Walks to an NPC (across zones if needed) and talks to them, then waits for the script to finish.
 func _talk(zone_id: String, npc_id: String) -> void:
@@ -121,6 +162,9 @@ func _walk_to(zone_id: String, target: Vector2i) -> void:
 		if Game.data.zone_id == zone_id and ow.player.grid_pos == target:
 			return
 		await _heal_if_low(0.35)
+		Pathfinder.abilities = FieldMoves.abilities(Game.data)
+		if not ow.player.on_bike and ow.zone.kind != "interior" and FieldMoves.bike_refusal(Game.data, ow.zone, ow.player.wading) == "":
+			ow.player.set_bike(true)
 		var blocked := {}
 		for n in ow.npcs:
 			if is_instance_valid(n) and n.grid_pos != target:
@@ -150,15 +194,16 @@ func _walk_to(zone_id: String, target: Vector2i) -> void:
 			return
 
 ## Walks up and down tall grass until the lead creature reaches `level`.
-func _grind_to(level: int) -> void:
+func _grind_to(level: int, zone := "") -> void:
 	var lead := _strongest()
-	if lead == null or lead.level >= level:
+	if lead == null or _team_level() >= level:
 		return
-	print("BOT: grinding %s from %d to %d" % [lead.display_name(), lead.level, level])
+	print("BOT: training the team towards L%d (best %s L%d)" % [level, lead.display_name(), lead.level])
 	var guard := 0
-	while _strongest().level < level and not _done and guard < 4000:
+	while _team_level() < level and not _done and guard < 4000:
 		guard += 1
-		var grind_zone := "macc_forest" if _strongest().level < 9 else "cat_and_fiddle"
+		_lead_with_weakest()
+		var grind_zone := zone if zone != "" else ("macc_forest" if _strongest().level < 9 else "cat_and_fiddle")
 		var spot := _grass_spot(grind_zone)
 		await _walk_to(grind_zone, spot)
 		var ow := _ow()
@@ -168,12 +213,42 @@ func _grind_to(level: int) -> void:
 			stats.steps += 1
 		await _heal_if_low(0.4)
 
+## How strong the team is: the third-best level plus 3 (a lone star doesn't make a team), or the best if there are fewer than 3.
+func _team_level() -> int:
+	var best := _strongest().level
+	# creatures too far behind to train (see _lead_with_weakest) don't hold the team back
+	var lv: Array = Game.data.party.filter(func(c): return c.level >= best - 8).map(func(c): return c.level)
+	lv.sort()
+	lv.reverse()
+	return lv[0] if lv.size() < 3 else mini(lv[0], lv[2] + 3)
+
+## Like a sensible player: put the lowest-level creature first while training, so the whole team keeps up.
+## A creature far below the area's level would just faint, so it never leads more than 8 levels under the best.
+func _lead_with_weakest() -> void:
+	var party: Array = Game.data.party
+	if party.size() < 2:
+		return
+	var best := _strongest().level
+	var pick := -1
+	for i in party.size():
+		var c: Creature = party[i]
+		if c.is_fainted() or c.level < best - 8:
+			continue
+		if pick < 0 or c.level < party[pick].level:
+			pick = i
+	if pick > 0:
+		var c: Creature = party[pick]
+		party.remove_at(pick)
+		party.insert(0, c)
+
 func _grass_spot(zone_id: String) -> Vector2i:
 	var z := ZoneData.load_id(zone_id)
+	FieldMoves.apply_cuts(Game.data, z)
+	var reach := z.reachable(z.spawn, FieldMoves.abilities(Game.data))  # only grass you can actually walk to
 	for y in z.height:
 		for x in range(1, z.width - 1):
 			var p := Vector2i(x, y)
-			if z.tile_at(p) == "tall_grass" and z.walkable(p + Vector2i(-1, 0)) and z.walkable(p + Vector2i(1, 0)):
+			if z.tile_at(p) == "tall_grass" and reach.has(p) and reach.has(p + Vector2i(-1, 0)) and reach.has(p + Vector2i(1, 0)):
 				return p
 	return z.spawn
 
@@ -230,7 +305,7 @@ func choose_action(f: BattleFlow) -> Dictionary:
 	var me := b.current(Battle.PLAYER)
 	var foe := b.current(Battle.FOE)
 	var snares := int(Game.data.bag.get("wicker_snare", 0))
-	if b.kind == "wild" and snares > 0 and Game.data.party.size() < 3 and foe.hp * 2 < foe.max_hp():
+	if b.kind == "wild" and snares > 0 and Game.data.party.size() < 4 and foe.hp * 2 < foe.max_hp():
 		Game.data.bag["wicker_snare"] = snares - 1
 		return {"kind": "item", "item": "wicker_snare"}
 	var best := -1
@@ -266,6 +341,8 @@ func choose_forget(c: Creature, move_id: String) -> int:
 # --- helpers -------------------------------------------------------------------
 
 func _on_battle_ended(result: Dictionary) -> void:
+	if mode != "fuzz" and str(result.get("result", "")) == "lose":
+		print("BOT: lost a battle in %s (weather %s)" % [Game.data.zone_id, Router.overworld.weather if Router.overworld else "?"])
 	match str(result.get("result", "")):
 		"win":
 			stats.wins += 1

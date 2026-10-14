@@ -1,0 +1,549 @@
+{
+ "id": "beacons",
+ "name": "Brecon Beacons",
+ "region": "south_wales",
+ "kind": "route",
+ "music": "route_mountain",
+ "weather": {
+  "downpour": 28,
+  "gale": 24,
+  "fog": 20,
+  "drizzle": 15,
+  "clear": 8,
+  "frost": 5
+ },
+ "props": [
+  {
+   "type": "bench",
+   "x": 56,
+   "y": 27
+  },
+  {
+   "type": "building",
+   "style": "white_render",
+   "x": 4,
+   "y": 21,
+   "w": 6,
+   "h": 3,
+   "label": "Storey Arms"
+  },
+  {
+   "type": "bench",
+   "x": 3,
+   "y": 24
+  },
+  {
+   "type": "lamp_post",
+   "x": 10,
+   "y": 24
+  },
+  {
+   "type": "bollard",
+   "x": 10,
+   "y": 21
+  },
+  {
+   "type": "post_box",
+   "x": 3,
+   "y": 22
+  },
+  {
+   "type": "standing_stone",
+   "x": 42,
+   "y": 14,
+   "variant": 1
+  },
+  {
+   "type": "standing_stone",
+   "x": 43,
+   "y": 14,
+   "variant": 2
+  },
+  {
+   "type": "standing_stone",
+   "x": 42,
+   "y": 15,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 14,
+   "y": 24,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 16,
+   "y": 25,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 30,
+   "y": 26,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 52,
+   "y": 22,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 54,
+   "y": 21,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 28,
+   "y": 12,
+   "variant": 2
+  },
+  {
+   "type": "standing_stone",
+   "x": 38,
+   "y": 22,
+   "variant": 2
+  },
+  {
+   "type": "standing_stone",
+   "x": 24,
+   "y": 20,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 26,
+   "y": 3,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 62,
+   "y": 8,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 8,
+   "y": 27,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 23,
+   "y": 13,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 9,
+   "y": 10,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 16,
+   "y": 21,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 31,
+   "y": 29,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 37,
+   "y": 16,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 38,
+   "y": 24,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 28,
+   "y": 3,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 65,
+   "y": 11,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 33,
+   "y": 30,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 17,
+   "y": 3,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 28,
+   "y": 15,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 4,
+   "y": 8,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 5,
+   "y": 35,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 66,
+   "y": 15,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 27,
+   "y": 8,
+   "variant": 2
+  }
+ ],
+ "warps": [],
+ "edges": {
+  "west": {
+   "to": "st_davids",
+   "offset": 0
+  },
+  "east": {
+   "to": "cardiff",
+   "offset": 0
+  }
+ },
+ "npcs": [
+  {
+   "id": "pony_trekker",
+   "sprite": "farmer",
+   "x": 14,
+   "y": 26,
+   "facing": "up",
+   "move": "wander",
+   "script": "pony_trekker"
+  },
+  {
+   "id": "stargazer",
+   "sprite": "student",
+   "x": 8,
+   "y": 17,
+   "facing": "right",
+   "move": "still",
+   "script": "stargazer"
+  },
+  {
+   "id": "storey_instructor",
+   "sprite": "villager_2",
+   "x": 5,
+   "y": 25,
+   "facing": "down",
+   "move": "still",
+   "script": "storey_instructor"
+  },
+  {
+   "id": "shepherd",
+   "sprite": "farmer",
+   "x": 27,
+   "y": 24,
+   "facing": "down",
+   "move": "wander",
+   "script": "shepherd"
+  },
+  {
+   "id": "lost_walker",
+   "sprite": "hiker",
+   "x": 36,
+   "y": 20,
+   "facing": "left",
+   "move": "wander",
+   "script": "lost_walker"
+  },
+  {
+   "id": "rhodri",
+   "sprite": "jogger",
+   "x": 14,
+   "y": 17,
+   "facing": "down",
+   "move": "still",
+   "trainer": "rhodri"
+  },
+  {
+   "id": "mair",
+   "sprite": "hiker",
+   "x": 24,
+   "y": 25,
+   "facing": "right",
+   "move": "still",
+   "trainer": "mair"
+  },
+  {
+   "id": "dai",
+   "sprite": "rugby_player",
+   "x": 36,
+   "y": 21,
+   "facing": "right",
+   "move": "still",
+   "trainer": "dai"
+  },
+  {
+   "id": "gwilym",
+   "sprite": "warden_grunt",
+   "x": 45,
+   "y": 17,
+   "facing": "down",
+   "move": "still",
+   "trainer": "gwilym"
+  },
+  {
+   "id": "carys",
+   "sprite": "birdwatcher",
+   "x": 52,
+   "y": 26,
+   "facing": "left",
+   "move": "still",
+   "trainer": "carys"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "gwyllgi",
+    "min": 34,
+    "max": 36,
+    "weight": 22,
+    "time": [
+     "dusk",
+     "night"
+    ]
+   },
+   {
+    "species": "kitelet",
+    "min": 33,
+    "max": 35,
+    "weight": 26,
+    "time": [
+     "dawn",
+     "day"
+    ]
+   },
+   {
+    "species": "sphagnet",
+    "min": 33,
+    "max": 35,
+    "weight": 24,
+    "weather": [
+     "drizzle",
+     "downpour",
+     "fog"
+    ]
+   },
+   {
+    "species": "zigzlet",
+    "min": 34,
+    "max": 36,
+    "weight": 18,
+    "time": [
+     "dusk",
+     "night"
+    ]
+   },
+   {
+    "species": "kitelet",
+    "min": 34,
+    "max": 36,
+    "weight": 16,
+    "weather": [
+     "gale"
+    ]
+   },
+   {
+    "species": "sphagnet",
+    "min": 34,
+    "max": 35,
+    "weight": 14
+   },
+   {
+    "species": "gwyllgi",
+    "min": 35,
+    "max": 36,
+    "weight": 10,
+    "weather": [
+     "fog"
+    ]
+   },
+   {
+    "species": "zigzlet",
+    "min": 33,
+    "max": 35,
+    "weight": 10,
+    "time": [
+     "dawn",
+     "day"
+    ]
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 9,
+   "y": 20,
+   "text": "STOREY ARMS. Start of the Pen y Fan path. It's mostly up. Mostly sideways in the rain."
+  },
+  {
+   "x": 3,
+   "y": 17,
+   "text": "BANNAU BRYCHEINIOG (BRECON BEACONS). A National Park and an International Dark Sky Reserve. Stars, if the sky co-operates."
+  },
+  {
+   "x": 44,
+   "y": 16,
+   "text": "PEN Y FAN, 886 m. The highest peak in southern Britain. You are at the top. Everyone else is also at the top. Mind the elbow."
+  },
+  {
+   "x": 34,
+   "y": 18,
+   "text": "CORN DU, 873 m. Pen y Fan's less famous sibling. Good wind, no queue."
+  },
+  {
+   "x": 23,
+   "y": 23,
+   "text": "SARN HELEN. A Roman road, still here after 1,900 years. Which is more than can be said for your umbrella."
+  },
+  {
+   "x": 12,
+   "y": 28,
+   "text": "WILD PONIES. Do not feed. Do not pet. Do not ask them for directions."
+  },
+  {
+   "x": 59,
+   "y": 25,
+   "text": "CARDIFF 20 miles. Downhill, mostly. The rain will come with you."
+  },
+  {
+   "x": 1,
+   "y": 16,
+   "text": "ST DAVIDS 40 miles. Behind you. Good luck with that."
+  }
+ ],
+ "spawn": [
+  2,
+  19
+ ],
+ "stage": "mountain",
+ "rows": [
+  "RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR",
+  "RRRRRRRRRRRRRRRRRRRRRRRRRRRRRPRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR",
+  "RRkkkkkkkkkkkkkkkkRkkkkkkkkRkkkkkkkkkkkkkRkkkRkkkkkRkkPkkkkPkkkkkkkkRR",
+  "RRkkkkkkkkkkkkkRkkkkkRkkkkkkkkkkRkkkkkkkkkkkkRkkkkkkkkkkkkkkkkkPkkkkRR",
+  "RRkkhhhhhhhhhhhhkRRkkkkkkkkkkkRkRkkkkkkkkkkkkkkkhhhhhhhhhhhhhhkkkkkkRR",
+  "RRRkhhhhhhhhhhhhkRhhhhhhhhhhkkkkkkkkkkkkkkkkkkkkhhhhhhhhhhhhhhkRkkkkRR",
+  "RRkkhhhhhhhhhhhhkRhhhhhhhhhhkkRRkkkkkkkkkkkkkkkkhhhhhhhhhhhhhhRkkkkkRR",
+  "RRkkhhhhhhhhhhhhkkhhhhhhhhhhkkkkkkkkkkkkkkkkkRkkhhhhhhhhhhhhhhkkkPkkRR",
+  "RRkkhhhhhhhhhhhhWWWWWWWWhhhhkkkkkk^^^^^^^^^^^^^^hhhhhhhhhhhhhhhhhhhkRR",
+  "RRkkhhhhhhhhhhhhkkhhhhhhhhhhkkkkkk^^^^^^^^^^^^^^^^^hhhhhhhhhhhhhhhhkRR",
+  "RRkkhhhhhhhhhhhhkkhhhhhhhhhhkk^^^^k//////////kRk^^^hhhhhhhhhWhhhhhhkRR",
+  "RRkkkkkkkkkkkkkkkkkkkkkkkkkkkk^^^^kR//////kkkkkk^^^kkkRkkkkkWhhhhhhkRR",
+  "RPkkkkkkkkRkhhhhhhhhhhkkkkkkkkkkkkkkkRkkkkkkkkkkkkkkkkkkPkRkWhhhhhhkRR",
+  "RRkkkkkkkkkkhhhhhhhhhhkkkkkkkkkkkkkkkkkkkkkRkkkkkkkkkkkkkPkkWhhhhhhkRR",
+  "RRkkkkRkkkkkhhhhhhhhhhkkkkkkkkkRkkkkkkkkkkkkkkkkkkkkWkkkkkkkWhRRhhhRRR",
+  "RRkkkkkkkkkkhhhhhhhhhhkkkkkkkkkkkkkkkkkk#########kkkWkkkkkkkWhhhhhhkRR",
+  "RRkkkkkkkkkkkkkkkkkkkRkkkkkkkkkkkkkkRkkk#########kkkWkRkkkkkWkkkkkRkRR",
+  "RRkkkkkkkkkkkkkkkRkkkkkkkkkkkkkk##########kkkkk##kkkWkkkkkkkWkkkkkkkRR",
+  "############kkkkkkRkkkkkkkkkkkkk##########kkkkk##RkkWkkkkR############",
+  "############kkkkkkkkkkkkkRkkkkkk##kkkkkkkkkkkkk##kkkWkkkkk############",
+  "##kkkkkkkk##kkkkkkkkkkkkkkkkkkkk##kkkkkkkkkkkkh##hhhhhRRkk##hhhhhhhk##",
+  "RRkkBBBBBB##kkkkkkRkkkkkkkkkkkkk##kkkkkkkkkkkkh##hhhhhkkkk##hhhhhhhkRR",
+  "RRkkBBBBBB##kkkRkkkkkk############kkkkkkRkkkkkh##hhhhhkRkk##hhhhhhhkRR",
+  "RRkkBBBBBB##RkkkRkkkkk############kkkkkkkkkkkkk##kRkkkkkkk##hhhhhhhkRR",
+  "RRkkkk######kRkkkkkkkk##kkkkkkkkkkkkkkkkkkkkkkk#############hhhhhhhkRR",
+  "RRkkRkkkkk##kkkkkkRkkk##kkkkkkkkkkkkkkkkkkRkkkk#############hhhhhhhkRR",
+  "RRkkRkkkkk##kkkkkkkRkk##kkkkkkkkkkkkkkkkRkkkkkkkkkkkkkkkkkkkkkWWWWWWRR",
+  "RRkkkkkkkk##############kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkRkkkkkRkRkkkRR",
+  "RRkkkPkkkk##############kkkkkkkkkkkkkkkRRkkkhhhhhhhhkssssssssskkkkkkRR",
+  "RRkhhhhhhhhhhhhhhkkkkkkkkkkkkkkkkkkRRkkRkkkkhhhhhhhhks~~~~~~~skkkkkkRR",
+  "RRkhhhhhhhhhhhWWWWWWWWWWkkhhhhhhhhhhWWWWWWWWWWWWhhhhks~~~~~~~skkkkkkRR",
+  "RRPhhhhhhhhhhhWhhkkkkkkkkkhhhhhhhhhhhhkkkkkkhhhhWhhhks~~~~~~~skkkkkkRR",
+  "RRkhhhhhhhhhhhWhhkkkkkkkkkhhhhhhhhhhhhkkkkkkhhhhWhhhks~~~~~~~skRkkkkRR",
+  "RRkhhhhhhhhhhhWhhkkkkkkkkkhhhhhhhhhhhhkkkkkkhhhhWhhhkssssssssskkkkkkRR",
+  "RRkhhhhhhhhhhhWhhkkkRRkkkkhhhhhhhhhhhhkkkkkkRRhhWhhhkkkkkkkkkkkRkkkRRR",
+  "RRPhhhhhhhhhhhWhhkkkRRkkkkhhhhhhhhhhhhkkkkkkhRhhWhhhkkkkkkkkRkkkkkkkRR",
+  "RRkkkkkkkkkkkPkkkkkkkkkkkkkkkkkkRkkkkkRkkkkRkkRkkkkkkkkkkkkkkkRkkkkkRR",
+  "RRkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkRkkkkRkkkkkkkkkkRkkkkkRkkkkkkkkkkRR",
+  "RRRRRRRRRRRRRRRRRRRRRRRRRRRPRRRRPRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR",
+  "RRRRRRRRRRRRRRRRRRRRRPRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR"
+ ],
+ "heights": [
+  "0000000000000000000011111122222223333333333333333333222222211111100000",
+  "0000000000000000000111111222222333333333333333333333332222221111110000",
+  "0000000000000000000111112222223333333334444444333333333222222111110000",
+  "0000000000000000001111122222233333334444444444444333333322222211111000",
+  "0000000000000000011111122222333333344444444444444433333332222211111000",
+  "0000000000000000111111222222333334444444444444444444333332222221111100",
+  "0000000000000000111112222223333344444444444444444444433333222221111100",
+  "0000000000000001111122222233333344444455555555544444433333322222111100",
+  "0000000000000001111222222333333444444555555555554444443333322222111110",
+  "0000000000000011111222223333334444445555555555555444444333322222111110",
+  "0000000000000011112222233333344444455555555555555544444333332222111110",
+  "0000000000000111112222333333444444555555666665555554444333332222211110",
+  "0000000000000111122222333334444444555556666666555554444433332222211110",
+  "0000000000000111122222333344444455555566666666655554444433332222211110",
+  "0000000000000111122223333344444555555566666666655554444433332222211110",
+  "0000000000000111122223333444445555555566666666655554444433332222211110",
+  "0000000000000111122223333444455555555566666666655554444433332222211110",
+  "0000000000001111122223333444455555555566666666655554444433332222211110",
+  "0000000000000111122223333444455555555556666666555554444433332222211110",
+  "0000000000000111122223333444445555555555666665555554444333332222211110",
+  "0000000000000111122223333344444555555555555555555544444333332222111110",
+  "0000000000000111122222333344444455545555555555555444444333322222111110",
+  "0000000000000111122222333334444444444555555555554444443333322222111110",
+  "0000000000000111112222333333444444444455555555544444433333322222111100",
+  "0000000000000011112222233333344444444444444444444444433333222221111100",
+  "0000000000000011111222223333333444444444444444444444333332222221111100",
+  "0000000000000001111222222333333333344444444444444433333332222211111000",
+  "0000000000000001111122222233333333334444444444444333333322222211111000",
+  "0000000000000000111112222223333333333334444444333333333222222111110000",
+  "0000000000000000111111222222223333333333333333333333332222221111110000",
+  "0000000000000000011111122222222223333333333333333333222222211111100000",
+  "0000000000000000001111112222222222333333333333333332222222111111000000",
+  "0000000000000000000111111122222222222333333333332222222221111110000000",
+  "0000000000000000000011111111222222222222222222222222222211111110000000",
+  "0000000000000000000001111111112222222222222222222222222111111100000000",
+  "0000000000000000000000011111111122222222222222222222211111111000000000",
+  "0000000000000000000000000111111111222222222222222221111111100000000000",
+  "0000000000000000000000000001111111111122222222211111111111000000000000",
+  "0000000000000000000000000000111111111111111111111111111110000000000000",
+  "0000000000000000000000000000001111111111111111111111111000000000000000"
+ ],
+ "legend_extra": {
+  "h": {
+   "tile": "tall_grass",
+   "colour": "#7a6a5a",
+   "prop": "heather"
+  },
+  "k": {
+   "tile": "grass",
+   "colour": "#8a8a4d"
+  }
+ }
+}

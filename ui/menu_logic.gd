@@ -2,7 +2,7 @@ class_name MenuLogic
 extends RefCounted
 ## Pure helpers behind the menus, so they can be tested without a scene tree.
 
-const MAX_STACK := 99
+const MAX_STACK := Bag.MAX_STACK
 
 static func wrap_index(i: int, delta: int, n: int) -> int:
 	if n <= 0:

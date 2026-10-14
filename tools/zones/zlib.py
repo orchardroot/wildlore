@@ -50,3 +50,27 @@ class Z:
         # compact rows/heights onto single lines for readability
         txt = open(path).read()
         open(path, "w").write(txt)
+
+
+# ---------------- shared interiors ----------------
+def sanctuary(out, town, town_name, ret, music="sanctuary"):
+    """<town>_sanctuary: 11x9, arrive at (5,6) facing up; the exit door (5,7) returns to `ret` = (x, y) in the town
+    (the tile just south of the town's Sanctuary door). Nurse script id "nurse" in data/dialogue/<town>_sanctuary.json."""
+    z = Z(town + "_sanctuary", town_name + " Sanctuary", 11, 9, fill="|", kind="interior", region="", music=music, weather={})
+    z.border("x", 1); z.rect(3, 3, 5, 1, "C"); z.rect(1, 6, 2, 1, "+"); z.rect(8, 6, 2, 1, "+"); z.set(5, 7, "D")
+    z.warp(5, 7, town, ret[0], ret[1], "down")
+    z.prop("potted_plant", 1, 1); z.prop("potted_plant", 9, 1); z.prop("bookshelf", 1, 4); z.prop("table", 9, 4)
+    z.npc(id="nurse", sprite="sanctuary_nurse", x=5, y=2, facing="down", move="still", script="nurse")
+    z.d["spawn"] = [5, 6]
+    z.save(out + "/" + town + "_sanctuary.json")
+
+def shop(out, town, town_name, ret, music=""):
+    """<town>_shop: 9x8, arrive at (4,5) facing up; exit door (4,6) returns to `ret`. Script "shopkeeper" in
+    data/dialogue/<town>_shop.json, which runs {"do": "shop", "id": "<town>_corner_shop"}."""
+    z = Z(town + "_shop", town_name + " Corner Shop", 9, 8, fill="|", kind="interior", region="", music=music, weather={})
+    z.border("x", 1); z.rect(2, 2, 3, 1, "C"); z.rect(6, 2, 2, 3, "C"); z.set(4, 6, "D")
+    z.warp(4, 6, town, ret[0], ret[1], "down")
+    z.prop("bookshelf", 1, 1); z.prop("potted_plant", 7, 5)
+    z.npc(id="shopkeeper", sprite="shopkeeper", x=3, y=1, facing="down", move="still", script="shopkeeper")
+    z.d["spawn"] = [4, 5]
+    z.save(out + "/" + town + "_shop.json")

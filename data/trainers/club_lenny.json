@@ -1,0 +1,32 @@
+{
+ "id": "club_lenny",
+ "name": "Mod Lenny",
+ "class": "Busker",
+ "sprite": "villager_5",
+ "party": [
+  {
+   "species": "cooplet",
+   "level": 18
+  },
+  {
+   "species": "grizzlet",
+   "level": 19
+  }
+ ],
+ "ai": "trainer",
+ "money": 620,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Mod Lenny",
+   "text": "Oi, oi! You're not on the guest list. Nobody is."
+  },
+  {
+   "do": "say",
+   "who": "Mod Lenny",
+   "text": "Hold up. Ray makes you earn the front row."
+  }
+ ],
+ "win": "Alright, you've got moves. Ray's up the front.",
+ "after": "Hear that? That's a tambourine in my chest."
+}

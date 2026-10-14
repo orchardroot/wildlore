@@ -1,0 +1,36 @@
+{
+ "id": "goyt_runner_t",
+ "name": "Fell Runner Sasha",
+ "class": "Fell Runner",
+ "sprite": "jogger",
+ "party": [
+  {
+   "species": "scuttlet",
+   "level": 14
+  },
+  {
+   "species": "zigzlet",
+   "level": 14
+  },
+  {
+   "species": "sphagnet",
+   "level": 15
+  }
+ ],
+ "ai": "trainer",
+ "money": 450,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Fell Runner Sasha",
+   "text": "I run up Shining Tor before breakfast. Do you want to see how fast I run into a fight?"
+  },
+  {
+   "do": "say",
+   "who": "Fell Runner Sasha",
+   "text": "Warm up first, or you'll get a stitch."
+  }
+ ],
+ "win": "Ow. I'm taking a stitch and a lesson. Well run, you.",
+ "after": "Next time I'll take the hill first, then you."
+}

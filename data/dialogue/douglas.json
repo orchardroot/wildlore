@@ -1,0 +1,231 @@
+{
+ "farmer": [
+  {
+   "do": "if",
+   "flag": "lambs_returned",
+   "then": [
+    {
+     "do": "say",
+     "who": "Farmer",
+     "text": "The lambs are back, all three, and all of them smug about it. Thank you."
+    },
+    {
+     "do": "say",
+     "who": "Farmer",
+     "text": "Loaghtan sheep sometimes have four horns. Mostly they have attitude."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "lambs_started",
+     "then": [],
+     "else": [
+      {
+       "do": "say",
+       "who": "Farmer",
+       "text": "Ah. A visitor. Don't suppose you've seen three Loaghtan lambs? Brown, small, certain they own the island."
+      },
+      {
+       "do": "say",
+       "who": "Farmer",
+       "text": "They got out of the field this morning. They know how to open the gate. I've never taught them. I don't want to know."
+      },
+      {
+       "do": "say",
+       "who": "Farmer",
+       "text": "If you find them, give them a word. They'll follow you back. They like new people. They don't like me."
+      },
+      {
+       "do": "set",
+       "flag": "lambs_started"
+      }
+     ]
+    },
+    {
+     "do": "if",
+     "flag": "lamb_1_found",
+     "then": [
+      {
+       "do": "if",
+       "flag": "lamb_2_found",
+       "then": [
+        {
+         "do": "if",
+         "flag": "lamb_3_found",
+         "then": [
+          {
+           "do": "say",
+           "who": "Farmer",
+           "text": "All three! Bless you. Here, take this. A Silver Snare. My uncle used it on a sea monster. Allegedly. It was a seal."
+          },
+          {
+           "do": "give_item",
+           "item": "silver_snare"
+          },
+          {
+           "do": "set",
+           "flag": "lambs_returned"
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Farmer",
+           "text": "Two back and one to go. The last one is the cleverest. Look somewhere with a good view of me."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Farmer",
+         "text": "Some of them are back, but not all. Keep looking along the fences."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Farmer",
+       "text": "Still missing, the little scamps. They'll be in the field somewhere, hiding in plain sight."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "sailor": [
+  {
+   "do": "say",
+   "who": "Sailor",
+   "text": "Back to Liverpool? The boat goes when the tide agrees."
+  },
+  {
+   "do": "ferry",
+   "route": "liverpool_douglas"
+  }
+ ],
+ "rail_guard": [
+  {
+   "do": "say",
+   "who": "Rail Guard",
+   "text": "Douglas Station. Steam trains to Port Erin, horse trams along the prom."
+  },
+  {
+   "do": "say",
+   "who": "Rail Guard",
+   "text": "Trains to the mainland? Love, it's an island. You'll want the ferry for that."
+  }
+ ],
+ "tram_driver": [
+  {
+   "do": "say",
+   "who": "Tram Driver",
+   "text": "Horse trams have run along this prom since 1876. The oldest surviving horse tramway in the world."
+  },
+  {
+   "do": "say",
+   "who": "Tram Driver",
+   "text": "Our horses get the winter off. Lucky horses."
+  }
+ ],
+ "tt_fan": [
+  {
+   "do": "say",
+   "who": "TT Fan",
+   "text": "The Isle of Man TT races started in 1907. Bikes at over 120 miles an hour, past people's front gardens."
+  },
+  {
+   "do": "say",
+   "who": "TT Fan",
+   "text": "My nan's front hedge has been clipped by seven world champions."
+  }
+ ],
+ "cat_lady": [
+  {
+   "do": "say",
+   "who": "Cat Lady",
+   "text": "That's a Manx cat. No tail. Well, almost none. Some have a tiny stump called a rumpy."
+  },
+  {
+   "do": "say",
+   "who": "Cat Lady",
+   "text": "A Manx cat can't wag a tail at you. You'll have to guess whether it likes you."
+  }
+ ],
+ "kipper_man": [
+  {
+   "do": "say",
+   "who": "Kipper Seller",
+   "text": "Manx kippers are smoked over oak chippings. The island's been doing it since the 1840s."
+  },
+  {
+   "do": "say",
+   "who": "Kipper Seller",
+   "text": "If you smell this on your coat for days, you've been shopping well."
+  }
+ ],
+ "tynwald_guide": [
+  {
+   "do": "say",
+   "who": "Guide",
+   "text": "Tynwald is the Manx parliament. It's more than a thousand years old. Arguably the oldest in the world to be running continuously."
+  },
+  {
+   "do": "say",
+   "who": "Guide",
+   "text": "Every July they sit on a hill and read the laws out loud, in Manx and English. Takes ages. Free tea after."
+  }
+ ],
+ "lamb_1": [
+  {
+   "do": "say",
+   "who": "Lamb",
+   "text": "Baa. (It looks at you as if you were the lost one.)"
+  },
+  {
+   "do": "say",
+   "who": "",
+   "text": "The Loaghtan lamb trots off towards the farmer's gate."
+  },
+  {
+   "do": "set",
+   "flag": "lamb_1_found"
+  }
+ ],
+ "lamb_2": [
+  {
+   "do": "say",
+   "who": "Lamb",
+   "text": "Baa. (It looks at you as if you were the lost one.)"
+  },
+  {
+   "do": "say",
+   "who": "",
+   "text": "The Loaghtan lamb trots off towards the farmer's gate."
+  },
+  {
+   "do": "set",
+   "flag": "lamb_2_found"
+  }
+ ],
+ "lamb_3": [
+  {
+   "do": "say",
+   "who": "Lamb",
+   "text": "Baa. (It looks at you as if you were the lost one.)"
+  },
+  {
+   "do": "say",
+   "who": "",
+   "text": "The Loaghtan lamb trots off towards the farmer's gate."
+  },
+  {
+   "do": "set",
+   "flag": "lamb_3_found"
+  }
+ ]
+}

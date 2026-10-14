@@ -168,3 +168,68 @@ func test_starter_gives_the_chosen_creature() -> void:
 	assert_eq(h.data.party[0].species.id, "holtling")
 	assert_eq(h.data.party[0].level, 5)
 	assert_true(h.data.caught.has("holtling"))
+
+func test_whiteout_command() -> void:
+	var h := FakeStoryHost.new()
+	h.data.money = 10
+	h.data.last_sanctuary = {"zone": "buxton", "pos": [5, 6]}
+	await _cmds(h).run([{"do": "whiteout"}, {"do": "say", "text": "after"}])
+	assert_eq(h.warps, [["buxton", 5, 6, "down"]])
+	assert_eq(h.data.money, 5)
+	assert_false("after" in h.texts(), "whiteout ends the script")
+
+func test_rail_needs_a_pass_then_warps() -> void:
+	var h := FakeStoryHost.new()
+	await _cmds(h).run([{"do": "rail"}])
+	assert_eq(h.warps, [])
+	assert_true(h.texts().any(func(t): return t.contains("Rail Pass")))
+	var h2 := FakeStoryHost.new()
+	h2.data.bag["rail_pass"] = 1
+	h2.menu_results["travel:rail"] = "buxton"
+	await _cmds(h2).run([{"do": "rail"}])
+	var st := ZoneData.load_id("buxton").station
+	if st != Vector2i(-1, -1):
+		assert_eq(h2.warps, [["buxton", st.x, st.y, "down"]])
+	else:
+		assert_eq(h2.warps, [["buxton", -1, -1, "down"]])
+
+func test_ferry_asks_then_sails() -> void:
+	var h := FakeStoryHost.new()
+	h.choices = [1]
+	await _cmds(h).run([{"do": "ferry", "route": "liverpool_douglas"}])
+	assert_eq(h.warps, [], "said no")
+
+func test_legend_command() -> void:
+	var h := FakeStoryHost.new()
+	h.dex = Dex.load_default()
+	h.moves = MoveDB.load_default()
+	h.battle_results = [{"result": "caught", "caught": null}]
+	await _cmds(h).run([{"do": "legend", "species": "ddraig", "level": 45, "flag": "caught_ddraig"}])
+	assert_eq(h.last_battle.foes[0].species.id, "ddraig")
+	assert_eq(h.last_battle.foes[0].level, 45)
+	assert_true(h.last_battle.opts.no_run)
+	assert_eq(h.last_battle.opts.music, "legend")
+	assert_true(h.data.flag("caught_ddraig"))
+	var h2 := FakeStoryHost.new()
+	h2.dex = Dex.load_default()
+	h2.moves = MoveDB.load_default()
+	h2.battle_results = [{"result": "win", "caught": null}]
+	await _cmds(h2).run([{"do": "legend", "species": "ddraig", "level": 45, "flag": "caught_ddraig"}])
+	assert_false(h2.data.flag("caught_ddraig") == true, "knocked out, not caught: it can be met again")
+
+func test_enclosure_battle_music() -> void:
+	assert_eq(AudioIds.battle_music({"kind": "trainer", "trainer": {"class": "Warden"}}), "battle_enclosure")
+	assert_eq(AudioIds.battle_music({"kind": "trainer", "trainer": {"class": "Director"}}), "battle_enclosure")
+	assert_eq(AudioIds.battle_music({"kind": "trainer", "trainer": {"class": "Hiker"}}), "battle_trainer")
+
+class SavingHost extends FakeStoryHost:
+	var saves: Array = []
+	func autosave() -> void:
+		saves.append(data.flags.duplicate())
+
+func test_badge_sets_flag_and_autosaves_after_the_script() -> void:
+	var h := SavingHost.new()
+	await _cmds(h).run([{"do": "badge", "id": "urban"}, {"do": "set", "flag": "ch2_urban"}, {"do": "give_item", "item": "rail_pass"}])
+	assert_true(h.data.flag("badge_urban") == true, "badge sets badge_<id>")
+	assert_eq(h.saves.size(), 1)
+	assert_true(h.saves[0].get("ch2_urban", false), "the autosave includes what the script did after the badge")

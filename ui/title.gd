@@ -37,9 +37,11 @@ func _ready() -> void:
 	col.add_child(panel)
 	_menu = VBoxContainer.new()
 	panel.add_child(_menu)
-	if Game.has_save("auto"):
+	if Game.newest_slot() != "":
 		_add("Continue", _on_continue)
 	_add("New Game", _on_new)
+	if SaveSystem.slot_infos(Game.save_dir).any(func(i): return i.ok):
+		_add("Load", _on_load)
 	_add("Settings", _on_settings)
 	_add("Quit", func(): get_tree().quit())
 	_menu.get_child(0).grab_focus()
@@ -73,14 +75,41 @@ func _on_continue() -> void:
 	if not _claim():
 		return
 	Audio.sfx("confirm")
-	if Game.load_slot("auto"):
+	if Game.load_slot(Game.newest_slot()):
+		Game.skip_next_autosave = true
 		Router.goto_zone(Game.data.zone_id, Game.data.pos, Game.data.facing)
 
+func _on_load() -> void:
+	if _chosen:
+		return
+	Audio.sfx("confirm")
+	var slot = await Router.open_menu("save:load")
+	if slot != null and _claim():
+		Game.skip_next_autosave = true
+		Router.goto_zone(Game.data.zone_id, Game.data.pos, Game.data.facing)
+	elif _menu.get_child_count() > 0:
+		_menu.get_child(0).grab_focus()
+
+var _new_confirmed := false
+
 func _on_new() -> void:
+	# a fresh journey will replace the autosave once you leave the house: ask once if there's a journey to lose
+	if not _new_confirmed and Game.newest_slot() != "" and not _chosen:
+		_new_confirmed = true
+		for b in _menu.get_children():
+			if b.text == "New Game":
+				b.text = "Start afresh? Press again"
+		Audio.sfx("bump")
+		return
 	if not _claim():
 		return
 	Audio.sfx("confirm")
 	Game.new_game()
+	Game.skip_next_autosave = true
+	var who = await Router.open_menu("name")
+	if who is Dictionary:
+		Game.data.player_name = str(who.name)
+		Game.data.set_flag("player_sprite", str(who.sprite))
 	Router.goto_zone(Game.data.zone_id, Vector2i(-1, -1), "down")
 
 func _on_settings() -> void:
@@ -88,7 +117,10 @@ func _on_settings() -> void:
 	await Router.open_menu("settings")
 	_menu.get_child(0).grab_focus()
 
+const BACKDROPS := [["macclesfield", 14.0, 16.0], ["liverpool", 30.0, 14.0], ["llanberis", 32.0, 20.0]]
+
 var _cam: Camera3D
+var _focus := Vector2(14.0, 16.0)
 var _t := 0.0
 
 ## A slowly drifting view over Macclesfield at golden hour, rendered live behind the menu.
@@ -102,7 +134,11 @@ func _backdrop() -> Control:
 	box.add_child(vp)
 	var world := Node3D.new()
 	vp.add_child(world)
-	var zid := "macclesfield" if Game.zone_exists("macclesfield") else "testbed"
+	# a different backdrop most launches: Macclesfield, Liverpool's waterfront or Llanberis under the mountain
+	var spots := BACKDROPS.filter(func(b): return Game.zone_exists(b[0]))
+	var pick: Array = spots[int(Time.get_unix_time_from_system()) % spots.size()] if not spots.is_empty() else ["testbed", 14.0, 16.0]
+	var zid: String = pick[0]
+	_focus = Vector2(float(pick[1]), float(pick[2]))
 	var zone := ZoneData.load_id(zid)
 	world.add_child(ZoneBuilder.build(zone))
 	var sky := SkyAndLight.new()
@@ -122,8 +158,8 @@ func _process(delta: float) -> void:
 		_place_cam()
 
 func _place_cam() -> void:
-	var x := 14.0 + sin(_t * 0.05) * 10.0
-	_cam.position = Vector3(x, 15.0, 40.0)
+	var x := _focus.x + sin(_t * 0.05) * 10.0
+	_cam.position = Vector3(x, 15.0, _focus.y + 24.0)
 	_cam.rotation_degrees = Vector3(-32.0, 0.0, 0.0)
 
 func _shade_gradient() -> GradientTexture2D:

@@ -19,7 +19,7 @@ var caught: Dictionary = {}
 var badges: Array = []
 var play_seconds := 0.0
 var clock_minutes := 480
-var last_sanctuary: Dictionary = {"zone": "macclesfield", "pos": [0, 0]}
+var last_sanctuary: Dictionary = {"zone": "macclesfield", "pos": [-1, -1]}  # (-1, -1) = the zone's spawn
 var rng_seed := 0
 
 func add_creature(c: Creature) -> String:
@@ -30,6 +30,29 @@ func add_creature(c: Creature) -> String:
 		return "party"
 	ark.append(c)
 	return "ark"
+
+## Party -> Ark. Returns "" on success or why not.
+func deposit(i: int) -> String:
+	if i < 0 or i >= party.size():
+		return "Nobody there."
+	if party.size() <= 1:
+		return "You can't travel without a single companion."
+	var able := party.filter(func(c): return not c.is_fainted())
+	if not party[i].is_fainted() and able.size() <= 1:
+		return "That's your last creature fit to battle. Keep them with you."
+	ark.append(party[i])
+	party.remove_at(i)
+	return ""
+
+## Ark -> party. Returns "" on success or why not.
+func withdraw(j: int) -> String:
+	if j < 0 or j >= ark.size():
+		return "Nobody there."
+	if party.size() >= PARTY_MAX:
+		return "Your team is full. Deposit someone first."
+	party.append(ark[j])
+	ark.remove_at(j)
+	return ""
 
 func mark_seen(id: String) -> void:
 	seen[id] = true
@@ -95,7 +118,8 @@ static func from_dict(d: Dictionary, dex: Dex) -> GameStateData:
 	s.badges = d.get("badges", []).duplicate()
 	s.play_seconds = float(d.get("play_seconds", 0.0))
 	s.clock_minutes = int(d.get("clock_minutes", 480))
-	var ls: Dictionary = d.get("last_sanctuary", {"zone": "macclesfield", "pos": [0, 0]})
-	s.last_sanctuary = {"zone": ls.get("zone", "macclesfield"), "pos": [int(ls.pos[0]), int(ls.pos[1])]}
+	var ls: Dictionary = d.get("last_sanctuary", {})
+	var lp: Array = ls.get("pos", [-1, -1])
+	s.last_sanctuary = {"zone": str(ls.get("zone", "macclesfield")), "pos": [int(lp[0]), int(lp[1])]}
 	s.rng_seed = int(d.get("rng_seed", 0))
 	return s

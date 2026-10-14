@@ -1,0 +1,249 @@
+{
+ "rail_guard": [
+  {
+   "do": "say",
+   "who": "Rail Guard",
+   "text": "Cardiff Central. Rugby fans on the left, shoppers on the right, everybody in the way."
+  },
+  {
+   "do": "say",
+   "who": "Rail Guard",
+   "text": "Hop aboard. The Wildlore rail runs to any town you have visited. Where to?"
+  },
+  {
+   "do": "rail"
+  }
+ ],
+ "rugby_fan": [
+  {
+   "do": "say",
+   "who": "Rugby Fan",
+   "text": "I'd tell you the score but it changes every time I get a hot dog."
+  },
+  {
+   "do": "say",
+   "who": "Rugby Fan",
+   "text": "The Principality Stadium holds seventy-four thousand and they all sing at once. Hearing it from outside is free."
+  }
+ ],
+ "castle_guide2": [
+  {
+   "do": "say",
+   "who": "Castle Guide",
+   "text": "Cardiff Castle has a Roman wall at its foot and a Victorian fairy-tale on top. A thousand years in one view."
+  },
+  {
+   "do": "say",
+   "who": "Castle Guide",
+   "text": "The peacocks on the lawn are not decorative. They're managers."
+  }
+ ],
+ "bay_sailor": [
+  {
+   "do": "say",
+   "who": "Bay Skipper",
+   "text": "Cardiff Bay used to be the biggest coal port on the planet. In 1913 more coal left here than any other port in the world."
+  },
+  {
+   "do": "say",
+   "who": "Bay Skipper",
+   "text": "Now it's mostly ferries, ice creams and people photographing the same bollard."
+  }
+ ],
+ "dahl_fan": [
+  {
+   "do": "say",
+   "who": "Reader",
+   "text": "Roald Dahl was born in Cardiff. He's the reason I check every sweet shop for a golden ticket."
+  },
+  {
+   "do": "say",
+   "who": "Reader",
+   "text": "They've named a plaza after him. No giant peaches, but the water tower is quite tall."
+  }
+ ],
+ "shopper": [
+  {
+   "do": "say",
+   "who": "Shopper",
+   "text": "Cardiff's Victorian arcades are the best shopping you can do in the rain. Which is to say, all of it."
+  },
+  {
+   "do": "say",
+   "who": "Shopper",
+   "text": "I came in for a coat. I left with three hats and a bag of Welsh cakes. A win."
+  }
+ ],
+ "kit_bay": [
+  {
+   "do": "if",
+   "flag": "kit4_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Kit",
+     "text": "I'm not streaming for a while. I'm trying a new hobby called 'looking at the sea'."
+    },
+    {
+     "do": "say",
+     "who": "Kit",
+     "text": "It's very good. You don't get comments. Not even from the seagulls."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Kit",
+     "text": "Oh, it's you. I thought it would be, honestly."
+    },
+    {
+     "do": "if",
+     "flag": "starter",
+     "then": [
+      {
+       "do": "say",
+       "who": "Kit",
+       "text": "{player}. Cardiff Bay, no cameras. I switched them off. That should tell you something."
+      },
+      {
+       "do": "say",
+       "who": "Kit",
+       "text": "I've seen what the Enclosure actually does. The free merch was a lot less free than it looked."
+      },
+      {
+       "do": "say",
+       "who": "Kit",
+       "text": "I'm done with the sponsorship. But I'm not done with you. Let's go!"
+      },
+      {
+       "do": "battle",
+       "trainer": "kit_4_vs_spikkin"
+      }
+     ],
+     "eq": "spikkin"
+    },
+    {
+     "do": "if",
+     "flag": "starter",
+     "then": [
+      {
+       "do": "say",
+       "who": "Kit",
+       "text": "{player}. Cardiff Bay, no cameras. I switched them off. That should tell you something."
+      },
+      {
+       "do": "say",
+       "who": "Kit",
+       "text": "I've seen what the Enclosure actually does. The free merch was a lot less free than it looked."
+      },
+      {
+       "do": "say",
+       "who": "Kit",
+       "text": "I'm done with the sponsorship. But I'm not done with you. Let's go!"
+      },
+      {
+       "do": "battle",
+       "trainer": "kit_4_vs_holtling"
+      }
+     ],
+     "eq": "holtling"
+    },
+    {
+     "do": "if",
+     "flag": "starter",
+     "then": [
+      {
+       "do": "say",
+       "who": "Kit",
+       "text": "{player}. Cardiff Bay, no cameras. I switched them off. That should tell you something."
+      },
+      {
+       "do": "say",
+       "who": "Kit",
+       "text": "I've seen what the Enclosure actually does. The free merch was a lot less free than it looked."
+      },
+      {
+       "do": "say",
+       "who": "Kit",
+       "text": "I'm done with the sponsorship. But I'm not done with you. Let's go!"
+      },
+      {
+       "do": "battle",
+       "trainer": "kit_4_vs_kindlet"
+      }
+     ],
+     "eq": "kindlet"
+    },
+    {
+     "do": "say",
+     "who": "Kit",
+     "text": "I mean it, about the Enclosure. I've sent them an email. A long one. It had a heading in bold."
+    },
+    {
+     "do": "say",
+     "who": "Kit",
+     "text": "I'll still be around. And I'm going to beat you one day. On camera. Possibly with a banner."
+    },
+    {
+     "do": "say",
+     "who": "Kit",
+     "text": "Go on. Pryce and Rhys are about. Rhys is the Keeper. Pryce is the other one."
+    },
+    {
+     "do": "set",
+     "flag": "kit4_done"
+    }
+   ]
+  }
+ ],
+ "pryce_cardiff": [
+  {
+   "do": "say",
+   "who": "Gareth Pryce",
+   "text": "Ah. Cardiff. Our offices are just up there, the glass ones. You may have seen the sign. It says 'Synergy'."
+  },
+  {
+   "do": "say",
+   "who": "Gareth Pryce",
+   "text": "I have reviewed Llanberis. I have reviewed Yr Wyddfa. Overall performance: below target. I attribute this to you."
+  },
+  {
+   "do": "say",
+   "who": "Gareth Pryce",
+   "text": "Today I am restructuring you. Out of the Stones, and into the history books. Politely, of course."
+  },
+  {
+   "do": "battle",
+   "trainer": "pryce_2"
+  },
+  {
+   "do": "say",
+   "who": "Director Pryce",
+   "text": "I note the outcome. I note it for the record. I note it in a very small font."
+  },
+  {
+   "do": "say",
+   "who": "Director Pryce",
+   "text": "The Cardiff office will be closing for the foreseeable. For team building. In Swindon."
+  },
+  {
+   "do": "say",
+   "who": "",
+   "text": "Pryce walks off towards the glass offices, looking like a man who has been audited by a dragon."
+  },
+  {
+   "do": "set",
+   "flag": "ch4_pryce2"
+  },
+  {
+   "do": "warp",
+   "zone": "cardiff",
+   "x": 21,
+   "y": 31,
+   "facing": "up"
+  },
+  {
+   "do": "end"
+  }
+ ]
+}

@@ -8,6 +8,7 @@ const ROWS := {"down": 0, "left": 1, "right": 2, "up": 3}
 var facing := "down"
 var _walk_t := 0.0
 var walking := false
+var _single := false   # "creature:<id>": a wild creature standing in the world, drawn from its 2-frame icon
 
 func setup(sprite_id: String) -> void:
 	var path := "res://art/sprites/chars/%s.png" % sprite_id
@@ -16,6 +17,13 @@ func setup(sprite_id: String) -> void:
 	texture = load(path) if ResourceLoader.exists(path) else _fallback()
 	hframes = 3
 	vframes = 4
+	if sprite_id.begins_with("creature:"):
+		var cpath := "res://art/sprites/creatures/%s_icon.png" % sprite_id.substr(9)
+		if ResourceLoader.exists(cpath):
+			texture = load(cpath)
+			_single = true
+			hframes = maxi(1, texture.get_width() / 32)
+			vframes = 1
 	pixel_size = 1.0 / 32.0
 	billboard = BaseMaterial3D.BILLBOARD_FIXED_Y
 	texture_filter = BaseMaterial3D.TEXTURE_FILTER_NEAREST
@@ -24,7 +32,7 @@ func setup(sprite_id: String) -> void:
 	double_sided = true
 	cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_ON
 	centered = true
-	offset = Vector2(0, 24)
+	offset = Vector2(0, 16) if _single else Vector2(0, 24)
 	_apply()
 	var blob := MeshInstance3D.new()
 	var q := QuadMesh.new()
@@ -53,6 +61,9 @@ func _process(delta: float) -> void:
 	_apply()
 
 func _apply() -> void:
+	if _single:
+		frame = (int(_walk_t * 3.0) % hframes) if walking else 0
+		return
 	var col := 1
 	if walking:
 		var phase := int(_walk_t * 8.0) % 4

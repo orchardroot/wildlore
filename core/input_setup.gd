@@ -6,12 +6,12 @@ const KEYS := {
 	"move_up": [KEY_UP, KEY_W], "move_down": [KEY_DOWN, KEY_S],
 	"move_left": [KEY_LEFT, KEY_A], "move_right": [KEY_RIGHT, KEY_D],
 	"confirm": [KEY_Z, KEY_ENTER, KEY_SPACE], "cancel": [KEY_X, KEY_BACKSPACE],
-	"menu": [KEY_ESCAPE, KEY_TAB], "run": [KEY_SHIFT],
+	"menu": [KEY_ESCAPE, KEY_TAB], "run": [KEY_SHIFT], "bike": [KEY_B],
 }
 const PAD_BUTTONS := {
 	"move_up": [JOY_BUTTON_DPAD_UP], "move_down": [JOY_BUTTON_DPAD_DOWN],
 	"move_left": [JOY_BUTTON_DPAD_LEFT], "move_right": [JOY_BUTTON_DPAD_RIGHT],
-	"confirm": [JOY_BUTTON_A], "cancel": [JOY_BUTTON_B], "menu": [JOY_BUTTON_START], "run": [JOY_BUTTON_X],
+	"confirm": [JOY_BUTTON_A], "cancel": [JOY_BUTTON_B], "menu": [JOY_BUTTON_START], "run": [JOY_BUTTON_X], "bike": [JOY_BUTTON_Y],
 }
 const PAD_AXES := {
 	"move_up": [JOY_AXIS_LEFT_Y, -1.0], "move_down": [JOY_AXIS_LEFT_Y, 1.0],

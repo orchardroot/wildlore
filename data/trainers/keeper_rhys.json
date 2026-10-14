@@ -1,0 +1,45 @@
+{
+ "id": "keeper_rhys",
+ "name": "Keeper Rhys",
+ "class": "Keeper",
+ "sprite": "keeper_rhys",
+ "party": [
+  {
+   "species": "natterjack",
+   "level": 32
+  },
+  {
+   "species": "severnshock",
+   "level": 33
+  },
+  {
+   "species": "petrelash",
+   "level": 34
+  },
+  {
+   "species": "stormswift",
+   "level": 35
+  }
+ ],
+ "ai": "keeper",
+ "money": 4500,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Keeper Rhys",
+   "text": "Ha! You made it to Cardiff in one piece! Dry, too, which is frankly suspicious."
+  },
+  {
+   "do": "say",
+   "who": "Keeper Rhys",
+   "text": "Rhys. Storm Stone. I play second row on Saturdays and I'm the one who gets rained on the rest of the week."
+  },
+  {
+   "do": "say",
+   "who": "Keeper Rhys",
+   "text": "Right then. Forwards up front, backs out wide, and nobody drops the ball. Kick off!"
+  }
+ ],
+ "win": "Try! Under the posts, no argument. That's a proper performance. Take the Stone, you've earned the full ninety minutes.",
+ "after": "Next time we'll do it in the rain. Oh, it IS raining. Always is. Great stuff."
+}

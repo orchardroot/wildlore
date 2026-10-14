@@ -1,0 +1,45 @@
+{
+ "id": "kit_4_vs_kindlet",
+ "name": "Kit",
+ "class": "Rival",
+ "sprite": "kit",
+ "party": [
+  {
+   "species": "murmurant",
+   "level": 31
+  },
+  {
+   "species": "greyhaul",
+   "level": 32
+  },
+  {
+   "species": "brockmoor",
+   "level": 32
+  },
+  {
+   "species": "spatelord",
+   "level": 34
+  }
+ ],
+ "ai": "trainer",
+ "money": 1200,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Kit",
+   "text": "{player}. Cardiff Bay, no cameras. I switched them off. That should tell you something."
+  },
+  {
+   "do": "say",
+   "who": "Kit",
+   "text": "I've seen what the Enclosure actually does. The free merch was a lot less free than it looked."
+  },
+  {
+   "do": "say",
+   "who": "Kit",
+   "text": "I'm done with the sponsorship. But I'm not done with you. Let's go!"
+  }
+ ],
+ "win": "Right. Okay. That's fair. I'll go and be annoyingly right about things somewhere else.",
+ "after": "I'm quitting the sponsorship, by the way. Mum says that's the most grown-up thing I've done. She said it with a face."
+}

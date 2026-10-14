@@ -4,8 +4,10 @@ const EXPECTED := {
 	"cursor": 0.06, "confirm": 0.16, "cancel": 0.16, "bump": 0.12, "door": 0.45, "step_grass": 0.12,
 	"hit": 0.25, "hit_super": 0.4, "hit_weak": 0.22, "faint": 0.8, "snare_throw": 0.35, "snare_wobble": 0.4,
 	"caught": 0.9, "level_up": 0.8, "heal": 0.9, "badge": 1.4, "evolve": 1.8,
+	"cut": 0.3, "splash": 0.6, "scramble": 0.7, "bike_bell": 0.7, "train": 1.4, "ship_horn": 1.6,
 }
-const LOOPING := ["title", "town_cheshire", "route_forest", "route_moor", "battle_wild", "battle_trainer", "battle_keeper", "sanctuary"]
+const LOOPING := ["title", "town_cheshire", "route_forest", "route_moor", "battle_wild", "battle_trainer", "battle_keeper", "sanctuary",
+	"town_city", "town_wales", "route_coast", "route_mountain", "battle_enclosure", "legend"]
 
 func test_sfx_length_peak_not_silent() -> void:
 	for id in EXPECTED:
@@ -57,3 +59,32 @@ func test_music_loop_points_inside_data() -> void:
 func test_sfx_files_exist() -> void:
 	for id in EXPECTED:
 		assert_true(ResourceLoader.exists("res://audio/sfx/%s.wav" % id), id + " wav exists")
+
+func test_m2_ids_registered_and_files_exist() -> void:
+	for id in AudioIds.M2_SFX:
+		assert_true(AudioIds.sfx_exists(id), id + " sfx registered and present")
+		assert_has(SfxRecipes.ids(), id)
+	for id in AudioIds.M2_MUSIC_LOOPING + AudioIds.M2_MUSIC_STINGS:
+		assert_true(AudioIds.music_exists(id), id + " music present")
+
+## Rendering is deterministic and identical to the shipped file, so the buffers are checked rather than the importer's output.
+func test_m2_music_peak_length_and_loop_seam() -> void:
+	for id in AudioIds.M2_MUSIC_LOOPING + AudioIds.M2_MUSIC_STINGS:
+		var c: Composer = load("res://tools/music/%s.gd" % id).build()
+		assert_true(c.errors.is_empty(), id + " bar lengths: " + str(c.errors))
+		var buf := c.render(22050)
+		var secs := buf.size() / 22050.0
+		var p := Synth.peak(buf)
+		assert_true(p >= 0.2 and p <= 0.95, "%s peak %s" % [id, str(p)])
+		if id in AudioIds.M2_MUSIC_LOOPING:
+			assert_true(c.loop, id + " loops")
+			assert_true(secs >= 30.0 and secs <= 60.0, "%s length %s" % [id, str(secs)])
+			assert_true(absf(buf[0]) < 0.05, "%s starts near zero (%s)" % [id, str(buf[0])])
+			assert_true(absf(buf[buf.size() - 1]) < 0.05, "%s ends near zero (%s)" % [id, str(buf[buf.size() - 1])])
+		else:
+			assert_true(not c.loop, id + " does not loop")
+			assert_true(secs >= 4.0 and secs <= 6.0, "%s length %s" % [id, str(secs)])
+			assert_near(buf[buf.size() - 1], 0.0, 0.01, id + " ends at zero")
+		var s: AudioStreamWAV = load("res://audio/music/%s.wav" % id)
+		assert_near(s.get_length(), secs, 0.05, id + " file length matches the render")
+		assert_eq(s.loop_mode, AudioStreamWAV.LOOP_FORWARD if id in AudioIds.M2_MUSIC_LOOPING else AudioStreamWAV.LOOP_DISABLED, id + " loop mode")

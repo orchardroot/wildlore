@@ -41,13 +41,19 @@ func _ready() -> void:
 
 func _apply_quality() -> void:
 	_tilt.visible = Settings.quality != "low"
+	sky.apply_quality(Settings.quality)
+	get_viewport().msaa_3d = Viewport.MSAA_2X if Settings.quality == "high" else Viewport.MSAA_DISABLED
 
 ## pos (-1, -1) means the zone's spawn point.
 func load_zone(zone_id: String, pos: Vector2i, facing: String) -> void:
 	if not Game.zone_exists(zone_id):
-		push_error("Overworld: no zone '%s'" % zone_id)
-		zone_id = "testbed"
+		# a save from a zone that no longer exists: back to the last Sanctuary (or Macclesfield)
+		push_warning("Overworld: no zone '%s', going to the last Sanctuary" % zone_id)
+		var ls: Dictionary = Game.data.last_sanctuary
+		zone_id = str(ls.zone) if Game.zone_exists(str(ls.zone)) else "macclesfield"
+		pos = Vector2i(int(ls.pos[0]), int(ls.pos[1])) if zone_id == str(ls.zone) else Vector2i(-1, -1)
 	zone = ZoneData.load_id(zone_id)
+	FieldMoves.apply_cuts(Game.data, zone)
 	if _zone_node:
 		_zone_node.queue_free()
 	_zone_node = ZoneBuilder.build(zone)
@@ -59,7 +65,11 @@ func load_zone(zone_id: String, pos: Vector2i, facing: String) -> void:
 	if pos.x < 0:
 		pos = zone.spawn
 	player.place(pos, facing, ground_y(pos))
+	if zone.kind == "interior":
+		player.set_bike(false)
+	player.set_wading(zone.tile_at(pos) == "deep_water")
 	Game.data.zone_id = zone_id
+	Travel.note_visit(Game.data, zone)
 	Game.data.pos = pos
 	Game.data.facing = facing
 	weather = "clear" if zone.kind == "interior" else Weather.pick(zone.weather, Game.rng)
@@ -71,7 +81,11 @@ func load_zone(zone_id: String, pos: Vector2i, facing: String) -> void:
 		Audio.play_music(zone.music)
 
 func ground_y(p: Vector2i) -> float:
-	return ZoneBuilder.ground_y(zone, p) if zone.in_bounds(p) else 0.0
+	if not zone.in_bounds(p):
+		return 0.0
+	if zone.tile_at(p) == "deep_water":
+		return ZoneBuilder.water_y(zone, p) - 0.08  # wading: float on the surface, coracle just under
+	return ZoneBuilder.ground_y(zone, p)
 
 ## "ok", "blocked", "edge" (walking off into a neighbour) or "ledge" (hop down).
 func can_enter(p: Vector2i, dir: Vector2i) -> String:
@@ -81,9 +95,35 @@ func can_enter(p: Vector2i, dir: Vector2i) -> String:
 	if zone.tile_at(p) == "ledge_south":
 		var landing := p + Vector2i(0, 1)
 		return "ledge" if dir == Vector2i(0, 1) and zone.walkable(landing) and not occupied(landing) else "blocked"
-	if not zone.walkable(p, dir) or occupied(p) or not zone.sign_at(p).is_empty():
+	var fv := FieldMoves.verdict(Game.data, zone, p)
+	if fv == "blocked":
+		return "blocked"
+	if fv == "wade" and player.on_bike and not occupied(p) and zone.walkable(p, dir, FieldMoves.abilities(Game.data)):
+		player.set_bike(false)  # hop off and push off in the coracle
+	if fv == "cut":
+		return "blocked" if occupied(p) else "cut"
+	if not zone.walkable(p, dir, FieldMoves.abilities(Game.data)) or occupied(p) or not zone.sign_at(p).is_empty():
 		return "blocked"
 	return "ok"
+
+## Hedge-lay: clear the bramble for good and rebuild the scenery.
+func cut_bramble(p: Vector2i) -> void:
+	FieldMoves.cut(Game.data, zone, p)
+	Audio.sfx("cut")
+	if _zone_node:
+		_zone_node.queue_free()
+	_zone_node = ZoneBuilder.build(zone)
+	add_child(_zone_node)
+
+func toggle_bike() -> void:
+	var why := FieldMoves.bike_refusal(Game.data, zone, player.wading)
+	if why != "" and not player.on_bike:
+		Audio.sfx("bump")
+		await say([why])
+		return
+	player.set_bike(not player.on_bike)
+	if player.on_bike:
+		Audio.sfx("bike_bell")
 
 func occupied(p: Vector2i) -> bool:
 	return npc_at(p) != null
@@ -109,8 +149,15 @@ func _spawn_npcs() -> void:
 		n.setup(def, self)
 		npcs.append(n)
 
+var _friend_steps := 0
+
 func _on_step(p: Vector2i) -> void:
 	Game.data.pos = p
+	_friend_steps += 1
+	if _friend_steps >= 128:  # a long walk together makes friends
+		_friend_steps = 0
+		for c in Game.data.party:
+			c.friendship = mini(255, c.friendship + 1)
 	Game.data.facing = player.facing
 	if not zone.in_bounds(p):
 		_cross_edge(p)
@@ -122,8 +169,14 @@ func _on_step(p: Vector2i) -> void:
 		return
 	var tile := zone.tile_at(p)
 	stepped.emit(p, tile)
+	var was_wading := player.wading
+	player.set_wading(tile == "deep_water")
+	if player.wading and not was_wading:
+		Audio.sfx("splash")
 	if tile == "tall_grass":
 		Audio.sfx("step_grass")
+	elif tile == "scree":
+		Audio.sfx("scramble")
 	_check_trainers()
 	if Router.busy:
 		return
@@ -152,6 +205,8 @@ func _check_trainers() -> void:
 				return
 
 func _stage() -> String:
+	if zone.stage != "":
+		return zone.stage
 	if zone.kind == "interior":
 		return "spa_interior" if zone.id.contains("spa") else "town"
 	if zone.region == "peak" or zone.id.contains("fiddle"):
@@ -168,16 +223,7 @@ func on_battle_finished(result: Dictionary) -> void:
 
 func _after_battle(result: Dictionary) -> void:
 	if result.get("result") == "lose":
-		await whiteout()
-
-## Lost a battle: back to the last Sanctuary, healed, a bit poorer.
-func whiteout() -> void:
-	Game.data.money = Game.data.money / 2
-	Game.data.heal_party()
-	var ls: Dictionary = Game.data.last_sanctuary
-	var pos := Vector2i(int(ls.pos[0]), int(ls.pos[1]))
-	await Router.goto_zone(str(ls.zone), pos, "down")
-	await say(["You hurry back to safety, a little dazed.", "Your team is patched up and ready to go again."])
+		await ScriptRunner.start(self, [{"do": "whiteout"}])  # one whiteout, shared with trainer battles
 
 func interact(p: Vector2i) -> void:
 	var s := zone.sign_at(p)

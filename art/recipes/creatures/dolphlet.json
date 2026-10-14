@@ -1,0 +1,22 @@
+{"id": "dolphlet",
+ "anim": "shift", "bob": 2,
+ "palette": {"back": "#6a8cb0", "back2": "#4e6e96", "belly": "#d8e6f2", "fin": "#4a6a90", "wave": "#4aa0d0", "wave2": "#9cdcf0", "foam": "#f4fcff", "ink": "#16202c", "blush": "#f4a8b0"},
+ "layers": [
+  {"shape": "ellipse", "at": [48, 90], "size": [94, 14], "colour": "wave2", "rim": false, "shade": false},
+  {"shape": "ellipse", "at": [48, 91], "size": [80, 9], "colour": "wave", "rim": false},
+  {"shape": "poly", "points": [[78, 56], [92, 44], [90, 54], [94, 64], [80, 62]], "colour": "fin"},
+  {"shape": "tri", "points": [[44, 36], [56, 16], [64, 38]], "colour": "fin"},
+  {"shape": "poly", "points": [[8, 60], [14, 52], [22, 42], [34, 34], [48, 30], [62, 33], [74, 42], [82, 54], [82, 62], [74, 62], [64, 60], [52, 58], [40, 60], [30, 66], [20, 68], [10, 66]], "colour": "back"},
+  {"shape": "poly", "points": [[10, 64], [20, 67], [30, 65], [40, 59], [52, 57], [64, 59], [74, 62], [66, 66], [52, 66], [38, 70], [24, 74], [12, 70]], "colour": "belly", "front_only": true, "rim": false},
+  {"shape": "tri", "points": [[32, 62], [26, 80], [42, 68]], "colour": "fin"},
+  {"shape": "ellipse", "at": [14, 58], "size": [14, 7], "colour": "back2", "angle": -10, "back_only": true, "rim": false},
+  {"shape": "circle", "at": [10, 78], "r": 2, "colour": "foam", "shade": false, "rim": false},
+  {"shape": "circle", "at": [86, 76], "r": 2.5, "colour": "foam", "shade": false, "rim": false},
+  {"shape": "circle", "at": [6, 38], "r": 1.5, "colour": "foam", "shade": false, "rim": false}
+ ],
+ "face_layers": [
+  {"shape": "line", "points": [[8, 63], [18, 65], [28, 61]], "width": 1, "colour": "ink", "shade": false},
+  {"shape": "ellipse", "at": [28, 59], "size": [6, 4], "colour": "blush", "shade": false}
+ ],
+ "eyes": [{"at": [24, 52], "r": 4.5}]
+}

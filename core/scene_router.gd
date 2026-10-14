@@ -7,7 +7,8 @@ const BATTLE := "res://battle_ui/battle_scene.tscn"
 const MENUS := {
 	"pause": "res://ui/pause_menu.tscn", "party": "res://ui/party_screen.tscn", "bag": "res://ui/bag_screen.tscn",
 	"pedia": "res://ui/pedia_screen.tscn", "shop": "res://ui/shop_screen.tscn", "starter": "res://ui/starter_picker.tscn",
-	"settings": "res://ui/settings_screen.tscn",
+	"settings": "res://ui/settings_screen.tscn", "save": "res://ui/save_screen.tscn", "ark": "res://ui/ark_screen.tscn",
+	"map": "res://ui/world_map.tscn", "travel": "res://ui/travel_menu.tscn", "name": "res://ui/name_entry.tscn",
 }
 
 var busy := false
@@ -84,6 +85,11 @@ func battle(foe_party: Array, opts: Dictionary) -> Dictionary:
 		overworld.process_mode = Node.PROCESS_MODE_INHERIT
 		if overworld.has_method("on_battle_finished"):
 			overworld.on_battle_finished(result)
+	if str(result.get("result", "")) == "lose" and overworld and is_instance_valid(overworld):
+		# a loss is always followed by a whiteout warp: stay dark and busy so the screen doesn't flash the
+		# battle spot before fading back out (goto_zone fades in and clears busy)
+		Bus.battle_ended.emit(result)
+		return result
 	await fade_in(0.3)
 	busy = false
 	Bus.battle_ended.emit(result)

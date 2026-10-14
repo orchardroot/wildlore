@@ -17,6 +17,7 @@ const WHITEOUT_LINE_2 := "Your team is patched up and ready to go again."
 var host
 var npc_id: String
 var _ended := false
+var _badge_won := false
 
 ## npc_id is the NPC that owns the script (the default target of move, face and heal).
 func _init(h, owner_npc := "") -> void:
@@ -25,7 +26,11 @@ func _init(h, owner_npc := "") -> void:
 
 func run(commands: Array) -> void:
 	_ended = false
+	_badge_won = false
 	await _run_list(commands)
+	# autosave once the whole scene has played, so the save has everything the Keeper's script did after the badge
+	if _badge_won and host.has_method("autosave"):
+		host.autosave()
 
 func _run_list(commands: Array) -> void:
 	for c in commands:
@@ -100,8 +105,22 @@ func _exec(c: Dictionary) -> void:
 			var b := str(c.get("id", ""))
 			if b != "" and b not in data.badges:
 				data.badges.append(b)
+			if b != "":
+				_set_flag("badge_" + b, true)
+				_badge_won = true
 			await host.sfx("badge")
 		"end":
+			_ended = true
+		"ark":
+			await host.open_menu("ark")
+		"legend":
+			await _legend(c)
+		"rail":
+			await _rail()
+		"ferry":
+			await _ferry(str(c.get("route", "")))
+		"whiteout":
+			await whiteout()
 			_ended = true
 		_:
 			push_warning("Commands: unknown command '%s'" % c.get("do", ""))
@@ -132,6 +151,48 @@ func _battle(trainer_id: String) -> void:
 		"lose":
 			await whiteout()
 			_ended = true
+
+## A legendary encounter: a wild battle you can't run from, with its own music. Catching it sets `flag`;
+## knocking it out doesn't, so it can be met again. Losing whites out as usual.
+func _legend(c: Dictionary) -> void:
+	var sp: Dictionary = host.dex.get_species(str(c.get("species", "")))
+	if sp.is_empty():
+		push_error("Commands: no legend species '%s'" % c.get("species", ""))
+		return
+	host.data.mark_seen(str(sp.id))
+	var foe := Creature.create(sp, int(c.get("level", 40)), host.rng, host.moves)
+	var result: Dictionary = await host.battle([foe], {"kind": "wild", "no_run": true, "music": "legend"})
+	match str(result.get("result", "")):
+		"caught":
+			_set_flag(str(c.get("flag", "caught_" + str(sp.id))), true)
+		"lose":
+			await whiteout()
+			_ended = true
+
+func _rail() -> void:
+	if int(host.data.bag.get("rail_pass", 0)) <= 0:
+		await host.say("", "The ticket barrier beeps sadly. You'll need a Rail Pass.")
+		return
+	var dest = await host.open_menu("travel:rail")
+	if dest == null or str(dest) == "":
+		return
+	var a := Travel.rail_arrival(str(dest))
+	await host.sfx("train")
+	await host.warp(str(a.zone), a.pos.x, a.pos.y, "down")
+	_ended = true
+
+func _ferry(route: String) -> void:
+	var a := Travel.ferry_arrival(route, host.zone_id())
+	if a.is_empty():
+		push_error("Commands: no ferry route '%s'" % route)
+		return
+	var pick: int = await host.choice("Sail to %s?" % Travel.town_name(str(a.zone)), ["All aboard", "Not today"])
+	if pick != 0:
+		return
+	await host.music("ferry")
+	await host.say("", str(Travel.ferries()[route].get("card", "The ferry crosses the sea.")))
+	await host.warp(str(a.zone), a.pos.x, a.pos.y, "down")
+	_ended = true
 
 ## Lost a battle: lose half the money, heal up, back to the last Sanctuary.
 func whiteout() -> void:

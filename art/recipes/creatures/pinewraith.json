@@ -1,0 +1,25 @@
+{"id": "pinewraith",
+ "anim": "shift", "bob": 2,
+ "palette": {"fur": "#3a2a2e", "fur2": "#241a22", "bib": "#d8c890", "ear": "#a89a70", "nose": "#14101a", "pine": "#2e5a38", "pine2": "#4a8a52", "mist": "#6a8a8a", "mist2": "#a8c4b8", "glow": "#7ff0a0", "whisk": "#cfe0d0"},
+ "layers": [
+  {"shape": "poly", "points": [[60, 70], [80, 56], [92, 40], [90, 66], [80, 84], [64, 94]], "colour": "mist", "front_only": true, "shade": false, "rim": false},
+  {"shape": "ellipse", "at": [78, 62], "size": [30, 64], "colour": "fur", "angle": 22, "pattern": "speckle", "pcolour": "fur2", "density": 12},
+  {"shape": "poly", "points": [[24, 66], [72, 66], [78, 86], [66, 94], [56, 86], [48, 96], [40, 86], [30, 94], [20, 84]], "colour": "mist", "shade": false, "rim": false},
+  {"shape": "poly", "points": [[30, 66], [66, 66], [66, 82], [56, 80], [48, 88], [40, 80], [30, 82]], "colour": "mist2", "shade": false, "rim": false},
+  {"shape": "ellipse", "at": [48, 60], "size": [46, 50], "colour": "fur"},
+  {"shape": "ellipse", "at": [48, 62], "size": [22, 28], "colour": "bib", "front_only": true, "rim": false},
+  {"shape": "spikes", "at": [48, 32], "size": [46, 30], "count": 9, "len": 12, "from": -200, "to": 20, "colour": "pine", "rim": false},
+  {"shape": "spikes", "at": [48, 34], "size": [38, 22], "count": 7, "len": 8, "from": -190, "to": 10, "colour": "pine2", "rim": false},
+  {"shape": "tri", "points": [[24, 38], [18, 10], [38, 30]], "colour": "fur", "mirror": true},
+  {"shape": "tri", "points": [[26, 32], [22, 16], [34, 28]], "colour": "ear", "mirror": true, "rim": false, "front_only": true},
+  {"shape": "ellipse", "at": [48, 44], "size": [46, 34], "colour": "fur"},
+  {"shape": "ellipse", "at": [48, 54], "size": [22, 14], "colour": "bib", "front_only": true, "rim": false},
+  {"shape": "ellipse", "at": [48, 47], "size": [18, 12], "colour": "fur2", "front_only": true, "rim": false}
+ ],
+ "face_layers": [
+  {"shape": "ellipse", "at": [48, 47], "size": [7, 4], "colour": "nose", "rim": false},
+  {"shape": "line", "points": [[40, 50], [28, 48]], "width": 1, "colour": "whisk", "shade": false, "mirror": true},
+  {"shape": "line", "points": [[30, 34], [41, 40]], "width": 2, "colour": "fur2", "shade": false, "mirror": true}
+ ],
+ "eyes": [{"at": [38, 40], "r": 4, "colour": "glow", "pupil": [2, 4], "mirror": true, "highlight": false}]
+}

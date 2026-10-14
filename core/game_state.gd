@@ -9,6 +9,10 @@ var items = null  # ItemDB once data_api/item_db.gd exists
 var rng: Rng
 var args: Dictionary = {}
 var clock_running := false
+var save_dir := SaveSystem.DEFAULT_DIR
+var autosave_enabled := true
+var skip_next_autosave := false  # set by the title: the first zone after New Game or Load must not overwrite "auto"
+var _in_battle := false
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -17,10 +21,17 @@ func _ready() -> void:
 	chart = TypeChart.load_default()
 	if ResourceLoader.exists("res://data_api/item_db.gd"):
 		items = load("res://data_api/item_db.gd").load_default()
-	args = DevArgs.parse(OS.get_cmdline_user_args())
+	args = DevArgs.parse(DevArgs.user_args())
 	var seed_value: int = args.seed if args.seed >= 0 else int(Time.get_unix_time_from_system())
 	rng = Rng.new(seed_value)
 	data.rng_seed = seed_value
+	if DevArgs.is_dev_session(args, DevArgs.user_args()):
+		# screenshots, dev boots and the bot never touch the player's real saves
+		autosave_enabled = false
+		save_dir = "user://saves_dev"
+	Bus.battle_started.connect(_on_battle_started)
+	Bus.battle_ended.connect(_on_battle_ended)
+	Bus.zone_entered.connect(_on_zone_entered)
 	call_deferred("_dev_boot")
 
 func _process(delta: float) -> void:
@@ -52,17 +63,38 @@ func phase() -> String:
 	return GameClock.phase(data.clock_minutes)
 
 func save(slot := "auto") -> Error:
-	return SaveSystem.save(slot, data.to_dict())
+	return SaveSystem.save(slot, data.to_dict(), save_dir)
+
+## Saves to the "auto" slot unless a battle is running or autosave is off (the playtest bot, tests).
+func autosave() -> void:
+	if autosave_enabled and not _in_battle:
+		save("auto")
+
+func _on_battle_started(_kind: String) -> void:
+	_in_battle = true
+
+func _on_battle_ended(_result: Dictionary) -> void:
+	_in_battle = false
+
+func _on_zone_entered(_zone_id: String) -> void:
+	if skip_next_autosave:
+		skip_next_autosave = false
+		return
+	autosave()
+
+## The slot Continue should load: the newest readable one.
+func newest_slot() -> String:
+	return SaveSystem.newest_slot(save_dir)
 
 func load_slot(slot := "auto") -> bool:
-	var d := SaveSystem.load_slot(slot)
+	var d := SaveSystem.load_slot(slot, save_dir)
 	if d.is_empty() or d.get("_too_new", false):
 		return false
 	data = GameStateData.from_dict(d, dex)
 	return true
 
 func has_save(slot := "auto") -> bool:
-	var d := SaveSystem.load_slot(slot)
+	var d := SaveSystem.load_slot(slot, save_dir)
 	return not d.is_empty() and not d.get("_too_new", false)
 
 func zone_exists(id: String) -> bool:
@@ -79,7 +111,7 @@ func _dev_boot() -> void:
 		return
 	if args.shot != "":
 		_take_shot()
-	var dev_menu := DevMenu.arg(OS.get_cmdline_user_args())
+	var dev_menu := DevMenu.arg(DevArgs.user_args())
 	if dev_menu != "":
 		DevMenu.boot(self, dev_menu)  # --menu=<name>[:arg], see ui/dev_menu.gd
 	elif args.battle_species != "":
@@ -96,7 +128,12 @@ func _dev_boot() -> void:
 		if args.clock >= 0:
 			data.clock_minutes = args.clock
 		data.party = [Creature.create(dex.get_species("kindlet"), 10, rng, moves)]
-		Router.goto_zone(args.boot_zone, args.boot_pos, "down")
+		if args.ride != "":
+			data.bag["bike"] = 1
+			data.badges = ["brook", "urban", "stone"]
+		await Router.goto_zone(args.boot_zone, args.boot_pos, "down")
+		if args.ride == "bike":
+			Router.overworld.player.set_bike(true)
 
 func _take_shot() -> void:
 	await get_tree().create_timer(float(args.shot_delay), true, false, true).timeout

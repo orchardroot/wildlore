@@ -1,0 +1,36 @@
+{
+ "id": "wyddfa_warden_1",
+ "name": "Warden Fitch",
+ "class": "Warden",
+ "sprite": "warden_grunt",
+ "party": [
+  {
+   "species": "slatelet",
+   "level": 29
+  },
+  {
+   "species": "prismite",
+   "level": 30
+  },
+  {
+   "species": "kidgruff",
+   "level": 30
+  }
+ ],
+ "ai": "trainer",
+ "money": 420,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Warden Fitch",
+   "text": "The summit is closed for a premium experience. Please queue at the cairn."
+  },
+  {
+   "do": "say",
+   "who": "Warden Fitch",
+   "text": "Queue forms to the left. After a battle."
+  }
+ ],
+ "win": "Noted. For the record, the cairn queue is now cancelled.",
+ "after": "I'm only the first Warden. The second is meaner. He has a lanyard."
+}

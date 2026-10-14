@@ -11,7 +11,7 @@ const MODES := {
 	"aeolian": [0, 2, 3, 5, 7, 8, 10],
 	"ionian": [0, 2, 4, 5, 7, 9, 11],
 }
-const GAINS := {"fiddle": 1.0, "whistle": 1.0, "harp": 0.8, "guitar": 0.7, "bass": 0.9, "thump": 1.0, "tick": 0.8, "shaker": 0.6, "drone": 0.45}
+const GAINS := {"fiddle": 1.0, "whistle": 1.0, "harp": 0.8, "guitar": 0.7, "bass": 0.9, "thump": 1.0, "tick": 0.8, "shaker": 0.6, "drone": 0.45, "brass": 0.9, "surf": 0.5}
 const LOOSE := ["harp", "guitar", "thump", "tick", "shaker"]  # voices that get a hint of human timing
 
 var tonic := 62
@@ -21,6 +21,7 @@ var upb := 8  ## units per bar
 var bars := 16
 var loop := true
 var tail := 1.5
+var seam_fade := 0.0  ## seconds of fade at each end of a looping track, so the loop point sits exactly on zero
 var events: Array = []
 var errors: Array = []
 
@@ -177,6 +178,9 @@ func render(sr: int) -> PackedFloat32Array:
 	Synth.remove_dc(out)
 	Synth.soften(out, 1.3)
 	Synth.normalise(out, 0.72)
+	if loop and seam_fade > 0.0:
+		Synth.fade_in(out, sr, seam_fade)
+		Synth.fade_out(out, sr, seam_fade)
 	if not loop:
 		Synth.fade_out(out, sr, 0.4)
 		Synth.fade_in(out, sr, 0.004)

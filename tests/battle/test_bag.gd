@@ -120,3 +120,10 @@ func test_unusable_kinds_and_missing_items() -> void:
 	assert_false(bag.use_on("cup_of_tea", c, items).ok, "none in the bag")
 	assert_false(bag.use_on("nope", c, items).ok)
 	assert_eq(bag.count("wicker_snare"), 1)
+
+func test_add_respects_max_stack() -> void:
+	var b := Bag.new({})
+	assert_eq(b.add("tea", 90), 90)
+	assert_eq(b.add("tea", 20), 9)
+	assert_eq(b.count("tea"), Bag.MAX_STACK)
+	assert_eq(b.add("tea"), 0)

@@ -1,0 +1,125 @@
+{
+ "id": "cardiff_arena",
+ "name": "Cardiff Arena",
+ "region": "",
+ "kind": "interior",
+ "music": "battle_keeper",
+ "weather": {
+  "downpour": 100
+ },
+ "props": [
+  {
+   "type": "lamp_post",
+   "x": 6,
+   "y": 2
+  },
+  {
+   "type": "lamp_post",
+   "x": 10,
+   "y": 2
+  },
+  {
+   "type": "bench",
+   "x": 3,
+   "y": 11
+  },
+  {
+   "type": "bench",
+   "x": 13,
+   "y": 11
+  },
+  {
+   "type": "bench",
+   "x": 3,
+   "y": 3
+  },
+  {
+   "type": "bench",
+   "x": 13,
+   "y": 3
+  },
+  {
+   "type": "planter",
+   "x": 2,
+   "y": 7
+  },
+  {
+   "type": "planter",
+   "x": 14,
+   "y": 7
+  },
+  {
+   "type": "bollard",
+   "x": 1,
+   "y": 12
+  },
+  {
+   "type": "bollard",
+   "x": 15,
+   "y": 12
+  }
+ ],
+ "warps": [
+  {
+   "x": 8,
+   "y": 12,
+   "to": "cardiff",
+   "tx": 21,
+   "ty": 30,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "keeper_rhys",
+   "sprite": "keeper_rhys",
+   "x": 8,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "keeper_rhys"
+  },
+  {
+   "id": "dai_arena",
+   "sprite": "rugby_player",
+   "x": 12,
+   "y": 7,
+   "facing": "left",
+   "move": "still",
+   "trainer": "dai_arena"
+  },
+  {
+   "id": "cerys_arena",
+   "sprite": "student",
+   "x": 4,
+   "y": 5,
+   "facing": "right",
+   "move": "still",
+   "trainer": "cerys_arena"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  8,
+  11
+ ],
+ "stage": "city",
+ "rows": [
+  "xxxxxxxxxxxxxxxxx",
+  "x|||||||||||||||x",
+  "x|+++++++++++++|x",
+  "x|.............|x",
+  "x|.............|x",
+  "x|.............|x",
+  "x|.............|x",
+  "x|.............|x",
+  "x|.............|x",
+  "x|.............|x",
+  "x|+++++++++++++|x",
+  "x|||||||||||||||x",
+  "x|||||||D|||||||x",
+  "xxxxxxxxxxxxxxxxx"
+ ]
+}

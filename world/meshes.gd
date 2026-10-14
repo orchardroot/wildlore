@@ -369,6 +369,8 @@ const ROOFS := {
 ## A building occupying w x d tiles with its origin at the footprint's north-west corner (tile edges, not centres).
 ## `door_x` is the door column relative to the footprint (-1 for none). Returns [body_mesh, windows_mesh].
 static func building(w: int, d: int, style: String, door_x := -1, seed_value := 0) -> Array:
+	if style in Landmarks.SPECIAL:
+		return Landmarks.building(w, d, style, door_x, seed_value)
 	var rng := _rng(seed_value)
 	var st := _st()
 	var wall: Color = WALLS.get(style, WALLS.red_brick)

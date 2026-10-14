@@ -1,0 +1,239 @@
+{
+ "summit": [
+  {
+   "do": "if",
+   "flag": "ch3_ddraig_woke",
+   "then": [
+    {
+     "do": "say",
+     "who": "Director Pryce",
+     "text": "..."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Director Pryce",
+     "text": "Ah! The unlicensed visitor. Excellent timing. Do stand behind the tape. Yes, I brought tape."
+    },
+    {
+     "do": "say",
+     "who": "Director Pryce",
+     "text": "Today is a demonstration. The mountain is going to be bound, tagged and put on a very handsome spreadsheet."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Pryce sets a grey disc on the summit cairn. It has a barcode and a small green button."
+    },
+    {
+     "do": "say",
+     "who": "Director Pryce",
+     "text": "This is a Wardstone. It listens to the old stones and tells them to be quiet. It's a one-button solution."
+    },
+    {
+     "do": "say",
+     "who": "{rival}",
+     "text": "Hang on. Hang on. Is this actually safe? I'm streaming. If something goes wrong I'll look really silly."
+    },
+    {
+     "do": "say",
+     "who": "Director Pryce",
+     "text": "It is entirely safe. I have signed a form saying so. Press it, Warden."
+    },
+    {
+     "do": "sfx",
+     "id": "alert"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "A deep note rolls across the mountain. Every stone in Eryri hums back."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "The cairn begins to glow, then to shake. The Wardens glance at one another."
+    },
+    {
+     "do": "say",
+     "who": "Warden",
+     "text": "Sir. Sir, the floor is making a noise."
+    },
+    {
+     "do": "say",
+     "who": "Director Pryce",
+     "text": "That is not in the manual."
+    },
+    {
+     "do": "fade_out"
+    },
+    {
+     "do": "music",
+     "id": "legend"
+    },
+    {
+     "do": "sfx",
+     "id": "ship_horn"
+    },
+    {
+     "do": "wait",
+     "seconds": 1.0
+    },
+    {
+     "do": "fade_in"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "The snow on the summit cracks. Something red and enormous rises from under the stone."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Y Ddraig Goch, the Red Dragon, opens one eye. It is the size of a bus. It is deeply unimpressed."
+    },
+    {
+     "do": "sfx",
+     "id": "scramble"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "She yawns. The Wardens scatter down the mountain in six directions, shedding lanyards."
+    },
+    {
+     "do": "say",
+     "who": "Director Pryce",
+     "text": "This is an unscheduled event. I will be escalating. I will be escalating very quickly, downhill."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Pryce goes after them, his tweed flapping, his spreadsheet clutched to his chest."
+    },
+    {
+     "do": "say",
+     "who": "{rival}",
+     "text": "..."
+    },
+    {
+     "do": "say",
+     "who": "{rival}",
+     "text": "Okay. That was not in the brochure. That was not in ANY brochure."
+    },
+    {
+     "do": "say",
+     "who": "{rival}",
+     "text": "{player}, I thought the Enclosure were the good guys. They had free pens."
+    },
+    {
+     "do": "say",
+     "who": "{rival}",
+     "text": "Maybe they're not the good guys. Maybe a pen is just a pen."
+    },
+    {
+     "do": "say",
+     "who": "{rival}",
+     "text": "I'm not going to say anything online. I'm going to sit down. Somewhere with no dragon."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "The dragon sinks slowly back into the mountain. The hum fades. For the first time all day, the summit is quiet."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "A red feather, or possibly a scale, drifts down and settles on the snow. It is warm."
+    },
+    {
+     "do": "set",
+     "flag": "ch3_ddraig_woke"
+    },
+    {
+     "do": "warp",
+     "zone": "yr_wyddfa",
+     "x": 34,
+     "y": 14,
+     "facing": "up"
+    },
+    {
+     "do": "end"
+    }
+   ]
+  }
+ ],
+ "wyddfa_rangers": [
+  {
+   "do": "say",
+   "who": "Summit Ranger",
+   "text": "Yr Wyddfa means 'the grave' or 'the burial mound'. Legend says a giant is buried under the cairn."
+  },
+  {
+   "do": "say",
+   "who": "Summit Ranger",
+   "text": "It's the highest mountain in England and Wales. Yes, we checked. We got a ruler."
+  }
+ ],
+ "wyddfa_rail": [
+  {
+   "do": "say",
+   "who": "Train Passenger",
+   "text": "The little train goes up there, whistling, from Llanberis. Rack and pinion."
+  },
+  {
+   "do": "say",
+   "who": "Train Passenger",
+   "text": "I'm walking down. Tickets are single only. The mountain is also single only."
+  }
+ ],
+ "wyddfa_sheep": [
+  {
+   "do": "say",
+   "who": "Shepherd",
+   "text": "There are sheep on every ledge. I'm not sure how they're getting up. Or why."
+  },
+  {
+   "do": "say",
+   "who": "Shepherd",
+   "text": "Welsh Mountain sheep: hardy, shy, and unimpressed by lanyards."
+  }
+ ],
+ "wyddfa_photographer": [
+  {
+   "do": "say",
+   "who": "Photographer",
+   "text": "I'm waiting for the cloud to lift. I've been here since Tuesday."
+  },
+  {
+   "do": "say",
+   "who": "Photographer",
+   "text": "The Brocken spectre: sometimes your own shadow turns up in the mist, ringed with a rainbow. I'm hoping."
+  }
+ ],
+ "kit_summit": [
+  {
+   "do": "say",
+   "who": "{rival}",
+   "text": "Pryce says he's got a demonstration. I'm filming. That's all I'm doing. Filming."
+  },
+  {
+   "do": "say",
+   "who": "{rival}",
+   "text": "Go on, talk to him. I'll be here, looking supportive."
+  }
+ ],
+ "kit_summit_after": [
+  {
+   "do": "say",
+   "who": "{rival}",
+   "text": "I'm still thinking. That's allowed. It's a new hobby."
+  },
+  {
+   "do": "say",
+   "who": "{rival}",
+   "text": "Don't tell Mum I said the Enclosure were wrong. She likes the pens."
+  }
+ ]
+}

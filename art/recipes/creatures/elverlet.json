@@ -1,0 +1,28 @@
+{"id": "elverlet",
+ "anim": "squash", "bob": 2,
+ "palette": {"glass": "#bcdcc8", "glass2": "#86b4a0", "belly": "#e8f6ea", "fin": "#a8d0c4", "ink": "#1a2a28", "blush": "#f4a8b0", "water": "#4aa0c0", "water2": "#9cdcea", "spark": "#fffbd0"},
+ "layers": [
+  {"shape": "ellipse", "at": [48, 92], "size": [94, 8], "colour": "water2", "rim": false, "shade": false},
+  {"shape": "ellipse", "at": [48, 92], "size": [78, 5], "colour": "water", "rim": false, "shade": false},
+  {"shape": "poly", "points": [[18, 76], [10, 70], [16, 66], [20, 72]], "colour": "fin", "rim": false},
+  {"shape": "circle", "at": [24, 80], "r": 3.5, "colour": "glass"},
+  {"shape": "circle", "at": [31, 84], "r": 4.5, "colour": "glass"},
+  {"shape": "circle", "at": [40, 86], "r": 5.5, "colour": "glass"},
+  {"shape": "circle", "at": [50, 83], "r": 6.5, "colour": "glass"},
+  {"shape": "circle", "at": [57, 74], "r": 7.5, "colour": "glass"},
+  {"shape": "circle", "at": [55, 63], "r": 8.5, "colour": "glass"},
+  {"shape": "circle", "at": [49, 53], "r": 9.5, "colour": "glass"},
+  {"shape": "ellipse", "at": [50, 63], "size": [8, 20], "colour": "belly", "front_only": true, "rim": false, "angle": -8},
+  {"shape": "line", "points": [[56, 56], [60, 66], [60, 76], [52, 84], [42, 88]], "width": 1, "colour": "glass2", "shade": false},
+  {"shape": "ellipse", "at": [48, 36], "size": [44, 36], "colour": "glass"},
+  {"shape": "ellipse", "at": [48, 44], "size": [32, 16], "colour": "belly", "front_only": true, "rim": false},
+  {"shape": "tri", "points": [[28, 34], [20, 24], [34, 28]], "colour": "fin", "mirror": true, "rim": false},
+  {"shape": "circle", "at": [12, 50], "r": 2, "colour": "spark", "shade": false, "rim": false},
+  {"shape": "circle", "at": [86, 40], "r": 2.5, "colour": "spark", "shade": false, "rim": false}
+ ],
+ "face_layers": [
+  {"shape": "line", "points": [[43, 46], [48, 49], [53, 46]], "width": 1, "colour": "ink", "shade": false},
+  {"shape": "ellipse", "at": [32, 44], "size": [6, 4], "colour": "blush", "shade": false, "mirror": true}
+ ],
+ "eyes": [{"at": [38, 36], "r": 5, "mirror": true}]
+}

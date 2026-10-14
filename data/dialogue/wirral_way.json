@@ -1,0 +1,84 @@
+{
+ "lighthouse_fan": [
+  {
+   "do": "say",
+   "who": "Lighthouse Fan",
+   "text": "That's Leasowe Lighthouse, built in 1763. The oldest brick-built lighthouse in Britain."
+  },
+  {
+   "do": "say",
+   "who": "Lighthouse Fan",
+   "text": "It shone out over the Mersey long before anyone had heard of satnav. Honestly, it's better than satnav."
+  }
+ ],
+ "tide_walker": [
+  {
+   "do": "say",
+   "who": "Tide Walker",
+   "text": "Hilbre Island! You can walk out at low tide, two hours either side. Miss it and you wait for the next tide. Twelve hours."
+  },
+  {
+   "do": "say",
+   "who": "Tide Walker",
+   "text": "There's a colony of grey seals out there. Hundreds. They pretend not to notice you."
+  }
+ ],
+ "cyclist": [
+  {
+   "do": "say",
+   "who": "Cyclist",
+   "text": "This path was the Hooton to West Kirby railway until 1962. Now it's twelve miles of flat, tree-lined cycling."
+  },
+  {
+   "do": "say",
+   "who": "Cyclist",
+   "text": "I do it every Sunday. I'd say it's relaxing if the geese would stop heckling."
+  }
+ ],
+ "icecream": [
+  {
+   "do": "say",
+   "who": "Ice Cream Seller",
+   "text": "Parkgate used to be a port. Ships sailed from here to Ireland. Then the River Dee silted up and left us a marsh."
+  },
+  {
+   "do": "say",
+   "who": "Ice Cream Seller",
+   "text": "Now we sell ice cream to people looking at where the sea used to be. It's good business."
+  }
+ ],
+ "seal_whisperer": [
+  {
+   "do": "say",
+   "who": "Seal Whisperer",
+   "text": "Shh. Not so loud. You waded through the channel? Brave. Or silly. Possibly both."
+  },
+  {
+   "do": "if",
+   "flag": "seal_cove_gift",
+   "then": [
+    {
+     "do": "say",
+     "who": "Seal Whisperer",
+     "text": "The seals like you. That's all I'll say. They're very judgemental."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Seal Whisperer",
+     "text": "Here, take these. The seals insist. They don't know what a snare is, but they know a good bag when they see one."
+    },
+    {
+     "do": "give_item",
+     "item": "water_snare",
+     "n": 5
+    },
+    {
+     "do": "set",
+     "flag": "seal_cove_gift"
+    }
+   ]
+  }
+ ]
+}
