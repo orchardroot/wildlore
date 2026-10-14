@@ -17,6 +17,7 @@ var _limit := 0.0
 var _elapsed := 0.0
 var _rng := RandomNumberGenerator.new()
 var _done := false
+var _last_beat := 0.0
 
 func start(m: String) -> void:
 	mode = m
@@ -43,6 +44,12 @@ func _process(delta: float) -> void:
 		var p: Vector2i = ow.player.grid_pos
 		if ow.zone.in_bounds(p) and not ow.zone.walkable(p, Vector2i.ZERO, FieldMoves.abilities(Game.data)) and ow.zone.tile_at(p) != "ledge_south":
 			_fail("player stands on unwalkable %s at %s in %s" % [ow.zone.tile_at(p), p, ow.zone.id])
+	if mode != "fuzz" and _elapsed - _last_beat > 120.0:
+		_last_beat = _elapsed
+		var owh := _ow()
+		print("BOT: heartbeat %ds in %s at %s, team %s, steps %d, battles %d W/L %d/%d, heals %d" % [int(_elapsed), Game.data.zone_id,
+			owh.player.grid_pos if owh and owh.player else Vector2i(-1, -1), Game.data.party.map(func(c): return "%s L%d" % [c.species.id, c.level]),
+			stats.steps, stats.battles, stats.wins, stats.losses, stats.cheat_heals])
 	if _elapsed > _limit:
 		if mode == "fuzz":
 			_finish()
