@@ -9,12 +9,14 @@ const LENGTHS := {
 	"hit": 0.25, "hit_super": 0.4, "hit_weak": 0.22, "faint": 0.8, "snare_throw": 0.35, "snare_wobble": 0.4,
 	"caught": 0.9, "level_up": 0.8, "heal": 0.9, "badge": 1.4, "evolve": 1.8,
 	"cut": 0.3, "splash": 0.6, "scramble": 0.7, "bike_bell": 0.7, "train": 1.4, "ship_horn": 1.6,
+	"crow": 0.75, "tomb_light": 1.8, "harp_gliss": 1.9,
 }
 const PEAKS := {
 	"cursor": 0.5, "confirm": 0.6, "cancel": 0.55, "bump": 0.6, "door": 0.6, "step_grass": 0.35,
 	"hit": 0.8, "hit_super": 0.9, "hit_weak": 0.5, "faint": 0.7, "snare_throw": 0.6, "snare_wobble": 0.6,
 	"caught": 0.8, "level_up": 0.8, "heal": 0.7, "badge": 0.85, "evolve": 0.85,
 	"cut": 0.6, "splash": 0.7, "scramble": 0.6, "bike_bell": 0.7, "train": 0.7, "ship_horn": 0.8,
+	"crow": 0.75, "tomb_light": 0.7, "harp_gliss": 0.7,
 }
 
 static func ids() -> Array:
@@ -246,6 +248,45 @@ static func render(id: String) -> PackedFloat32Array:
 				Synth.lowpass(h, 900.0, SR)
 				Synth.adsr(h, SR, 0.08, 0.12, 0.85, 0.35)
 				Synth.mix_into(out, h, 0, 0.5)
+		"crow":
+			# Two harsh caws: a falling saw, chopped by a fast growl, with a rasp of noise on top.
+			for cw in [[0.0, 0.24, 780.0, 520.0], [0.33, 0.3, 700.0, 430.0]]:
+				var dur: float = cw[1]
+				var c := Synth.osc(Synth.SAW, cw[2], cw[3], dur, SR)
+				var c2 := Synth.osc(Synth.SAW, float(cw[2]) * 1.5, float(cw[3]) * 1.5, dur, SR)
+				Synth.mix_into(c, c2, 0, 0.4)
+				for i in c.size():
+					c[i] *= 0.55 + 0.45 * sin(TAU * 85.0 * i / SR)
+				var rasp := Synth.noise(dur, SR, 61)
+				Synth.highpass(rasp, 900.0, SR)
+				Synth.lowpass(rasp, 3800.0, SR)
+				Synth.mix_into(c, rasp, 0, 0.35)
+				Synth.lowpass(c, 2800.0, SR)
+				Synth.highpass(c, 300.0, SR)
+				Synth.adsr(c, SR, 0.02, 0.05, 0.8, dur * 0.4)
+				Synth.mix_into(out, c, _at(cw[0]), 0.7)
+		"tomb_light":
+			# A rising run of glassy bells over a shimmering, slowly swelling pad.
+			var semis := [0, 2, 4, 7, 9, 12, 14, 16, 19, 21, 24, 26]
+			for k in semis.size():
+				var f := 523.25 * pow(2.0, float(semis[k]) / 12.0)
+				var gain := 0.5 + 0.5 * float(k) / semis.size()
+				Synth.mix_into(out, _bell(f, 0.85, 4.5), _at(0.02 + k * 0.085), gain * 0.5)
+				Synth.mix_into(out, _bell(f * 3.0, 0.4, 9.0), _at(0.02 + k * 0.085), gain * 0.12)
+			for f in [1046.5, 1568.0, 2093.0]:
+				var sh := Synth.osc(Synth.SINE, f, f * 1.01, 1.6, SR, 0.5, 6.5, 18.0, 0.0)
+				Synth.adsr(sh, SR, 0.5, 0.2, 0.6, 0.7)
+				Synth.mix_into(out, sh, _at(0.1), 0.12)
+		"harp_gliss":
+			# Two octaves of D major plucked in a quick sweep, each string ringing on.
+			var gl := [0, 2, 4, 5, 7, 9, 11, 12, 14, 16, 17, 19, 21, 23, 24, 26, 28, 29, 31, 33]
+			for k in gl.size():
+				var f := 146.83 * pow(2.0, float(gl[k]) / 12.0)
+				var s := Synth.osc(Synth.TRI, f, f, 1.2, SR)
+				var h := Synth.osc(Synth.SINE, f * 2.0, f * 2.0, 1.2, SR)
+				Synth.mix_into(s, h, 0, 0.3)
+				Synth.pluck_env(s, SR, 0.002, 3.2)
+				Synth.mix_into(out, s, _at(k * 0.04), 0.45 + 0.02 * k)
 		_:
 			push_error("unknown sfx " + id)
 	Synth.fade_out(out, SR, 0.008)
