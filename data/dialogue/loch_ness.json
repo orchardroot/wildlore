@@ -20,7 +20,7 @@
   {
    "do": "say",
    "who": "Castle Guide",
-   "text": "A Gaelic phrase, 'F\u00e0ilte gu Caisteal Urchadain'. Welcome to Urquhart Castle. Say it three times and the ghost of a medieval cook brings you a scone. Possibly."
+   "text": "A Gaelic phrase, 'Fàilte gu Caisteal Urchadain'. Welcome to Urquhart Castle. Say it three times and the ghost of a medieval cook brings you a scone. Possibly."
   }
  ],
  "coach_kid": [
@@ -170,36 +170,12 @@
  "nessie": [
   {
    "do": "if",
-   "flag": "badge_frost",
+   "flag": "trainer_strachan_2",
    "then": [
     {
      "do": "if",
-     "flag": "caught_nessie",
+     "flag": "badge_frost",
      "then": [
-      {
-       "do": "say",
-       "who": "",
-       "text": "The island is quiet. Out on the loch, a ring of ripples spreads without a stone. Somewhere deep below it, someone is humming."
-      }
-     ],
-     "else": [
-      {
-       "do": "say",
-       "who": "",
-       "text": "The island is dark with heather, and the loch is as still as a held breath. The Frost Stone grows cold in your pocket, and the water answers: a ring, then another."
-      },
-      {
-       "do": "say",
-       "who": "",
-       "text": "A long neck rises out of the dark water, slow as a drawbridge. The head tilts. It has a sleepy, serious, enormous face, and the expression of a creature who has heard every joke about herself and loved most of them."
-      },
-      {
-       "do": "legend",
-       "species": "nessie",
-       "level": 74,
-       "flag": "caught_nessie",
-       "music": "legend_sea"
-      },
       {
        "do": "if",
        "flag": "caught_nessie",
@@ -207,36 +183,78 @@
         {
          "do": "say",
          "who": "",
-         "text": "Nessie slides out of the loch and settles at your side, shedding peat-brown water like a silk coat. Down on the shore, a day-tripper drops her ice cream. She'll be telling people about this for forty years."
-        },
-        {
-         "do": "warp",
-         "zone": "loch_ness",
-         "x": 56,
-         "y": 36,
-         "facing": "down"
-        },
-        {
-         "do": "end"
+         "text": "The island is quiet. Out on the loch, a ring of ripples spreads without a stone. Somewhere deep below it, someone is humming."
         }
        ],
        "else": [
         {
          "do": "say",
          "who": "",
-         "text": "Nessie sinks without a sound, and the loch smooths itself over like a duvet. She will be back on a quiet day, if you want to try again."
+         "text": "The island is dark with heather, and the loch is as still as a held breath. The Frost Stone grows cold in your pocket, and the water answers: a ring, then another."
         },
         {
-         "do": "warp",
-         "zone": "loch_ness",
-         "x": 56,
-         "y": 36,
-         "facing": "down"
+         "do": "say",
+         "who": "",
+         "text": "A long neck rises out of the dark water, slow as a drawbridge. The head tilts. It has a sleepy, serious, enormous face, and the expression of a creature who has heard every joke about herself and loved most of them."
         },
         {
-         "do": "end"
+         "do": "legend",
+         "species": "nessie",
+         "level": 74,
+         "flag": "caught_nessie",
+         "music": "legend_sea"
+        },
+        {
+         "do": "if",
+         "flag": "caught_nessie",
+         "then": [
+          {
+           "do": "say",
+           "who": "",
+           "text": "Nessie slides out of the loch and settles at your side, shedding peat-brown water like a silk coat. Down on the shore, a day-tripper drops her ice cream. She'll be telling people about this for forty years."
+          },
+          {
+           "do": "warp",
+           "zone": "loch_ness",
+           "x": 56,
+           "y": 36,
+           "facing": "down"
+          },
+          {
+           "do": "end"
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "",
+           "text": "Nessie sinks without a sound, and the loch smooths itself over like a duvet. She will be back on a quiet day, if you want to try again."
+          },
+          {
+           "do": "warp",
+           "zone": "loch_ness",
+           "x": 56,
+           "y": 36,
+           "facing": "down"
+          },
+          {
+           "do": "end"
+          }
+         ]
         }
        ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "The island is dark with heather, and the water around it is black and very cold. A long shadow turns over, deep down, and then thinks better of it."
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "Whatever lives here only answers something as cold and as patient as it is. Perhaps the Keeper in Inverness has the kind of Stone it is waiting for."
       }
      ]
     }
@@ -245,12 +263,7 @@
     {
      "do": "say",
      "who": "",
-     "text": "The island is dark with heather, and the water around it is black and very cold. A long shadow turns over, deep down, and then thinks better of it."
-    },
-    {
-     "do": "say",
-     "who": "",
-     "text": "Whatever lives here only answers something as cold and as patient as it is. Perhaps the Keeper in Inverness has the kind of Stone it is waiting for."
+     "text": "The island is quiet. Out on the loch, the Enclosure survey boat is still circling. Whatever lives down there isn't coming up while that thing's out."
     }
    ]
   }

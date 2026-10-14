@@ -1,831 +1,817 @@
 {
- "id": "cork",
- "name": "Cork",
- "region": "ireland",
- "kind": "town",
- "music": "town_ireland",
- "weather": {
-  "drizzle": 34,
-  "clear": 18,
-  "downpour": 14,
-  "sunshine": 14,
-  "fog": 10,
-  "gale": 10
- },
- "props": [
-  {
-   "type": "lamp_post",
-   "x": 6,
-   "y": 23
-  },
-  {
-   "type": "lamp_post",
-   "x": 18,
-   "y": 23
-  },
-  {
-   "type": "lamp_post",
-   "x": 26,
-   "y": 23
-  },
-  {
-   "type": "lamp_post",
-   "x": 36,
-   "y": 23
-  },
-  {
-   "type": "lamp_post",
-   "x": 44,
-   "y": 23
-  },
-  {
-   "type": "lamp_post",
-   "x": 58,
-   "y": 23
-  },
-  {
-   "type": "lamp_post",
-   "x": 10,
-   "y": 27
-  },
-  {
-   "type": "lamp_post",
-   "x": 22,
-   "y": 27
-  },
-  {
-   "type": "lamp_post",
-   "x": 40,
-   "y": 27
-  },
-  {
-   "type": "lamp_post",
-   "x": 48,
-   "y": 27
-  },
-  {
-   "type": "lamp_post",
-   "x": 56,
-   "y": 27
-  },
-  {
-   "type": "phone_box",
-   "x": 20,
-   "y": 27
-  },
-  {
-   "type": "post_box",
-   "x": 8,
-   "y": 23
-  },
-  {
-   "type": "bench",
-   "x": 28,
-   "y": 27
-  },
-  {
-   "type": "bench",
-   "x": 35,
-   "y": 23
-  },
-  {
-   "type": "building",
-   "style": "chapel",
-   "x": 21,
-   "y": 4,
-   "w": 6,
-   "h": 5,
-   "label": "St Anne's Shandon"
-  },
-  {
-   "type": "building",
-   "style": "red_brick",
-   "x": 8,
-   "y": 4,
-   "w": 8,
-   "h": 5,
-   "label": "The Butter Exchange"
-  },
-  {
-   "type": "building",
-   "style": "terrace",
-   "x": 34,
-   "y": 4,
-   "w": 6,
-   "h": 5,
-   "show_label": false
-  },
-  {
-   "type": "building",
-   "style": "slate_cottage",
-   "x": 41,
-   "y": 4,
-   "w": 8,
-   "h": 5,
-   "label": "P\u00e1irc Caf\u00e9"
-  },
-  {
-   "type": "bench",
-   "x": 20,
-   "y": 9
-  },
-  {
-   "type": "planter",
-   "x": 28,
-   "y": 9
-  },
-  {
-   "type": "lamp_post",
-   "x": 26,
-   "y": 10
-  },
-  {
-   "type": "building",
-   "style": "station",
-   "x": 38,
-   "y": 11,
-   "w": 9,
-   "h": 2,
-   "label": "Kent Station"
-  },
-  {
-   "type": "bench",
-   "x": 40,
-   "y": 13
-  },
-  {
-   "type": "lamp_post",
-   "x": 45,
-   "y": 13
-  },
-  {
-   "type": "building",
-   "style": "sanctuary",
-   "x": 6,
-   "y": 28,
-   "w": 6,
-   "h": 4,
-   "label": "Sanctuary"
-  },
-  {
-   "type": "building",
-   "style": "shop",
-   "x": 13,
-   "y": 28,
-   "w": 5,
-   "h": 4,
-   "label": "Corner Shop"
-  },
-  {
-   "type": "building",
-   "style": "terrace",
-   "x": 20,
-   "y": 28,
-   "w": 7,
-   "h": 4,
-   "label": "Patrick Street Shops"
-  },
-  {
-   "type": "building",
-   "style": "cream_render",
-   "x": 34,
-   "y": 28,
-   "w": 12,
-   "h": 4,
-   "label": "The English Market"
-  },
-  {
-   "type": "market_stall",
-   "x": 35,
-   "y": 27,
-   "variant": 2
-  },
-  {
-   "type": "market_stall",
-   "x": 37,
-   "y": 27,
-   "variant": 0
-  },
-  {
-   "type": "market_stall",
-   "x": 39,
-   "y": 27,
-   "variant": 1
-  },
-  {
-   "type": "market_stall",
-   "x": 41,
-   "y": 27,
-   "variant": 2
-  },
-  {
-   "type": "market_stall",
-   "x": 43,
-   "y": 27,
-   "variant": 0
-  },
-  {
-   "type": "market_stall",
-   "x": 45,
-   "y": 27,
-   "variant": 1
-  },
-  {
-   "type": "building",
-   "style": "red_brick",
-   "x": 48,
-   "y": 28,
-   "w": 8,
-   "h": 4,
-   "label": "The Oliver Plunkett Pub"
-  },
-  {
-   "type": "building",
-   "style": "terrace",
-   "x": 58,
-   "y": 28,
-   "w": 5,
-   "h": 4,
-   "show_label": false
-  },
-  {
-   "type": "building",
-   "style": "stone",
-   "x": 5,
-   "y": 18,
-   "w": 6,
-   "h": 4,
-   "label": "City Hall"
-  },
-  {
-   "type": "building",
-   "style": "red_brick",
-   "x": 16,
-   "y": 19,
-   "w": 7,
-   "h": 3,
-   "label": "Opera Lane Books"
-  },
-  {
-   "type": "building",
-   "style": "white_render",
-   "x": 34,
-   "y": 19,
-   "w": 8,
-   "h": 4,
-   "label": "Grand Parade Cafe"
-  },
-  {
-   "type": "building",
-   "style": "terrace",
-   "x": 44,
-   "y": 19,
-   "w": 6,
-   "h": 4,
-   "show_label": false
-  },
-  {
-   "type": "statue",
-   "x": 33,
-   "y": 20
-  },
-  {
-   "type": "bench",
-   "x": 28,
-   "y": 20
-  },
-  {
-   "type": "planter",
-   "x": 28,
-   "y": 22
-  },
-  {
-   "type": "building",
-   "style": "cathedral",
-   "x": 16,
-   "y": 39,
-   "w": 14,
-   "h": 9,
-   "label": "St Fin Barre's Cathedral"
-  },
-  {
-   "type": "bench",
-   "x": 40,
-   "y": 39
-  },
-  {
-   "type": "bench",
-   "x": 56,
-   "y": 39
-  },
-  {
-   "type": "lamp_post",
-   "x": 34,
-   "y": 42
-  },
-  {
-   "type": "lamp_post",
-   "x": 60,
-   "y": 42
-  },
-  {
-   "type": "boat",
-   "x": 38,
-   "y": 35,
-   "variant": 1
-  },
-  {
-   "type": "buoy",
-   "x": 46,
-   "y": 35
-  },
-  {
-   "type": "boat",
-   "x": 58,
-   "y": 16,
-   "variant": 1
-  },
-  {
-   "type": "oak",
-   "x": 53,
-   "y": 47,
-   "variant": 0
-  },
-  {
-   "type": "oak",
-   "x": 5,
-   "y": 38,
-   "variant": 0
-  },
-  {
-   "type": "oak",
-   "x": 45,
-   "y": 47,
-   "variant": 1
-  },
-  {
-   "type": "oak",
-   "x": 51,
-   "y": 49,
-   "variant": 1
-  },
-  {
-   "type": "oak",
-   "x": 23,
-   "y": 38,
-   "variant": 1
-  },
-  {
-   "type": "oak",
-   "x": 34,
-   "y": 41,
-   "variant": 2
-  },
-  {
-   "type": "oak",
-   "x": 37,
-   "y": 46,
-   "variant": 2
-  },
-  {
-   "type": "oak",
-   "x": 39,
-   "y": 46,
-   "variant": 2
-  },
-  {
-   "type": "oak",
-   "x": 54,
-   "y": 49,
-   "variant": 1
-  },
-  {
-   "type": "oak",
-   "x": 46,
-   "y": 39,
-   "variant": 1
-  },
-  {
-   "type": "oak",
-   "x": 47,
-   "y": 48,
-   "variant": 1
-  },
-  {
-   "type": "oak",
-   "x": 9,
-   "y": 38,
-   "variant": 2
-  },
-  {
-   "type": "bush",
-   "x": 6,
-   "y": 39,
-   "variant": 2
-  },
-  {
-   "type": "bush",
-   "x": 35,
-   "y": 41,
-   "variant": 0
-  },
-  {
-   "type": "bush",
-   "x": 43,
-   "y": 48,
-   "variant": 2
-  },
-  {
-   "type": "bush",
-   "x": 57,
-   "y": 40,
-   "variant": 1
-  },
-  {
-   "type": "bush",
-   "x": 37,
-   "y": 39,
-   "variant": 2
-  },
-  {
-   "type": "bush",
-   "x": 55,
-   "y": 48,
-   "variant": 0
-  },
-  {
-   "type": "bush",
-   "x": 39,
-   "y": 48,
-   "variant": 0
-  },
-  {
-   "type": "bush",
-   "x": 38,
-   "y": 49,
-   "variant": 0
-  },
-  {
-   "type": "bush",
-   "x": 34,
-   "y": 48,
-   "variant": 2
-  },
-  {
-   "type": "bush",
-   "x": 53,
-   "y": 40,
-   "variant": 2
-  },
-  {
-   "type": "oak",
-   "x": 6,
-   "y": 8,
-   "variant": 1
-  },
-  {
-   "type": "oak",
-   "x": 5,
-   "y": 6,
-   "variant": 2
-  },
-  {
-   "type": "oak",
-   "x": 3,
-   "y": 4,
-   "variant": 0
-  },
-  {
-   "type": "oak",
-   "x": 6,
-   "y": 11,
-   "variant": 0
-  }
- ],
- "warps": [
-  {
-   "x": 9,
-   "y": 31,
-   "to": "cork_sanctuary",
-   "tx": 5,
-   "ty": 6,
-   "facing": "up"
-  },
-  {
-   "x": 15,
-   "y": 31,
-   "to": "cork_shop",
-   "tx": 4,
-   "ty": 5,
-   "facing": "up"
-  }
- ],
  "edges": {
   "east": {
-   "to": "comeraghs",
-   "offset": 0
+   "offset": 0.0,
+   "to": "comeraghs"
   },
   "west": {
-   "to": "ring_of_kerry",
-   "offset": 0
+   "offset": 0.0,
+   "to": "ring_of_kerry"
   }
  },
- "npcs": [
-  {
-   "id": "rail_guard",
-   "sprite": "rail_guard",
-   "x": 44,
-   "y": 13,
-   "facing": "right",
-   "move": "still",
-   "script": "rail_guard"
-  },
-  {
-   "id": "market_fishmonger",
-   "sprite": "shopkeeper",
-   "x": 41,
-   "y": 26,
-   "facing": "down",
-   "move": "still",
-   "script": "market_fishmonger"
-  },
-  {
-   "id": "bell_ringer",
-   "sprite": "tour_guide",
-   "x": 24,
-   "y": 12,
-   "facing": "down",
-   "move": "still",
-   "script": "bell_ringer"
-  },
-  {
-   "id": "rebel_local",
-   "sprite": "villager_5",
-   "x": 34,
-   "y": 25,
-   "facing": "down",
-   "move": "wander",
-   "script": "rebel_local"
-  },
-  {
-   "id": "lee_swimmer",
-   "sprite": "villager_1",
-   "x": 28,
-   "y": 33,
-   "facing": "down",
-   "move": "wander",
-   "script": "lee_swimmer"
-  },
-  {
-   "id": "kent_stationman",
-   "sprite": "student",
-   "x": 49,
-   "y": 12,
-   "facing": "left",
-   "move": "still",
-   "script": "kent_stationman"
-  },
-  {
-   "id": "cork_hurler",
-   "sprite": "hurler",
-   "x": 45,
-   "y": 25,
-   "facing": "left",
-   "move": "still",
-   "trainer": "cork_hurler"
-  },
-  {
-   "id": "cork_singer",
-   "sprite": "sean_nos_singer",
-   "x": 24,
-   "y": 11,
-   "facing": "down",
-   "move": "still",
-   "trainer": "cork_singer"
-  },
-  {
-   "id": "cork_student",
-   "sprite": "student",
-   "x": 34,
-   "y": 26,
-   "facing": "up",
-   "move": "still",
-   "trainer": "cork_student"
-  },
-  {
-   "id": "cork_angler",
-   "sprite": "angler",
-   "x": 40,
-   "y": 38,
-   "facing": "left",
-   "move": "still",
-   "trainer": "cork_angler"
-  },
-  {
-   "id": "market_baker",
-   "sprite": "shopkeeper",
-   "x": 36,
-   "y": 27,
-   "facing": "up",
-   "move": "still",
-   "script": "market_baker",
-   "name": "Baker"
-  },
-  {
-   "id": "market_spice",
-   "sprite": "shopkeeper",
-   "x": 47,
-   "y": 27,
-   "facing": "up",
-   "move": "still",
-   "script": "market_spice",
-   "name": "Butcher"
-  }
- ],
  "encounters": {
   "grass": [
    {
+    "max": 54.0,
+    "min": 53.0,
     "species": "cluricaun",
-    "min": 53,
-    "max": 54,
-    "weight": 12,
     "time": [
      "dusk",
      "night"
-    ]
+    ],
+    "weight": 12.0
    },
    {
+    "max": 54.0,
+    "min": 53.0,
     "species": "barnling",
-    "min": 53,
-    "max": 54,
-    "weight": 8,
     "time": [
      "dusk",
      "night"
-    ]
+    ],
+    "weight": 8.0
    },
    {
+    "max": 54.0,
+    "min": 53.0,
     "species": "rooklet",
-    "min": 53,
-    "max": 54,
-    "weight": 12,
     "time": [
      "day",
      "dawn"
-    ]
+    ],
+    "weight": 12.0
    },
    {
+    "max": 55.0,
+    "min": 53.0,
     "species": "rookery",
-    "min": 53,
-    "max": 55,
-    "weight": 8,
     "time": [
      "dusk",
      "night"
-    ]
+    ],
+    "weight": 8.0
    },
    {
+    "max": 54.0,
+    "min": 53.0,
     "species": "raidtail",
-    "min": 53,
-    "max": 54,
-    "weight": 10
+    "weight": 10.0
    },
    {
+    "max": 54.0,
+    "min": 53.0,
     "species": "binfox",
-    "min": 53,
-    "max": 54,
-    "weight": 8,
     "time": [
      "night"
-    ]
+    ],
+    "weight": 8.0
    },
    {
+    "max": 54.0,
+    "min": 53.0,
     "species": "strutcoo",
-    "min": 53,
-    "max": 54,
-    "weight": 10,
     "time": [
      "day"
-    ]
+    ],
+    "weight": 10.0
    },
    {
+    "max": 54.0,
+    "min": 53.0,
     "species": "chipgull",
-    "min": 53,
-    "max": 54,
-    "weight": 12,
     "time": [
      "day"
-    ]
+    ],
+    "weight": 12.0
    },
    {
+    "max": 55.0,
+    "min": 53.0,
     "species": "pierlord",
-    "min": 53,
-    "max": 55,
-    "weight": 8,
     "weather": [
      "drizzle",
      "downpour"
-    ]
+    ],
+    "weight": 8.0
    },
    {
+    "max": 55.0,
+    "min": 53.0,
     "species": "hushwing",
-    "min": 53,
-    "max": 55,
-    "weight": 8,
     "time": [
      "night"
-    ]
+    ],
+    "weight": 8.0
    },
    {
+    "max": 55.0,
+    "min": 54.0,
     "species": "flittermouse",
-    "min": 54,
-    "max": 55,
-    "weight": 6,
     "time": [
      "night"
-    ]
+    ],
+    "weight": 6.0
    },
    {
+    "max": 54.0,
+    "min": 53.0,
     "species": "sootwing",
-    "min": 53,
-    "max": 54,
-    "weight": 6,
     "weather": [
      "fog",
      "drizzle"
-    ]
+    ],
+    "weight": 6.0
    }
   ],
   "water": [
    {
+    "max": 55.0,
+    "min": 53.0,
     "species": "bradan",
-    "min": 53,
-    "max": 55,
-    "weight": 25
+    "weight": 25.0
    },
    {
+    "max": 54.0,
+    "min": 53.0,
     "species": "pierlord",
-    "min": 53,
-    "max": 54,
-    "weight": 20
+    "weight": 20.0
    },
    {
+    "max": 54.0,
+    "min": 53.0,
     "species": "dipling",
-    "min": 53,
-    "max": 54,
-    "weight": 20
+    "weight": 20.0
    },
    {
+    "max": 55.0,
+    "min": 53.0,
     "species": "heronarch",
-    "min": 53,
-    "max": 55,
-    "weight": 15
+    "weight": 15.0
    },
    {
+    "max": 54.0,
+    "min": 53.0,
     "species": "stalklet",
-    "min": 53,
-    "max": 54,
-    "weight": 10
+    "weight": 10.0
    }
   ]
  },
- "signs": [
+ "heights": [
+  "000000000000001111111111111000000000000000000000000000000000000000",
+  "000000000000011112222222111100000000000000000000000000000000000000",
+  "000000000000111122222222211110000000000000000000000000000000000000",
+  "000000000000111222222222221110000000000000000000000000000000000000",
+  "000000000000111222333332221110000000000000000000000000000000000000",
+  "000000000000111222333332221110000000000000000000000000000000000000",
+  "000000000000111222333332221110000000000000000000000000000000000000",
+  "000000000000111222333332221110000000000000000000000000000000000000",
+  "000000000000111222333332221110000000000000000000000000000000000000",
+  "000000000000111222222222221110000000000000000000000000000000000000",
+  "000000000000111122222222211110000000000000000000000000000000000000",
+  "000000000000011112222222111100000000000000000000000000000000000000",
+  "000000000000001111111111111000000000000000000000000000000000000000",
+  "000000000000000111111111110000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000"
+ ],
+ "id": "cork",
+ "kind": "town",
+ "music": "town_ireland",
+ "name": "Cork",
+ "npcs": [
   {
-   "x": 25,
-   "y": 10,
-   "text": "SHANDON BELLS. The tower of St Anne's has eight bells you can ring yourself, and a clock with four faces that for years each told a different time. Corkonians call it 'the four-faced liar'. They say it with love."
+   "facing": "right",
+   "id": "rail_guard",
+   "move": "still",
+   "script": "rail_guard",
+   "sprite": "rail_guard",
+   "x": 44.0,
+   "y": 13.0
   },
   {
-   "x": 34,
-   "y": 27,
-   "text": "THE ENGLISH MARKET. A covered market since 1788, with fish, fruit, spices and the best tripe in Ireland, if you like that sort of thing. Queen Elizabeth II stopped to chat to a fishmonger here in 2011, and the fish said nothing."
+   "facing": "down",
+   "id": "market_fishmonger",
+   "move": "still",
+   "script": "market_fishmonger",
+   "sprite": "shopkeeper",
+   "x": 41.0,
+   "y": 26.0
   },
   {
-   "x": 11,
-   "y": 22,
-   "text": "CORK. In Irish, Corcaigh, 'the marsh'. The city is built on an island in the River Lee. Corkonians say Cork is the real capital of Ireland, and have said so since 1920 at least."
+   "facing": "down",
+   "id": "bell_ringer",
+   "move": "still",
+   "script": "bell_ringer",
+   "sprite": "tour_guide",
+   "x": 24.0,
+   "y": 12.0
   },
   {
-   "x": 13,
-   "y": 38,
-   "text": "THE LEE. It splits in two to flow round the city, then joins up again to head for Cork Harbour. It's the sort of river that's a bit of a tease."
+   "facing": "down",
+   "id": "rebel_local",
+   "move": "wander",
+   "script": "rebel_local",
+   "sprite": "villager_5",
+   "x": 34.0,
+   "y": 25.0
   },
   {
-   "x": 33,
-   "y": 38,
-   "text": "ST FIN BARRE'S. A neo-Gothic cathedral from 1879 with three spires, a golden angel and plenty of stone beasts on the roof. It stands on the spot where the city's patron saint founded a monastery in the 7th century. Fin Barre, naturally, would have preferred something cosier."
+   "facing": "down",
+   "id": "lee_swimmer",
+   "move": "wander",
+   "script": "lee_swimmer",
+   "sprite": "villager_1",
+   "x": 28.0,
+   "y": 33.0
+  },
+  {
+   "facing": "left",
+   "id": "kent_stationman",
+   "move": "still",
+   "script": "kent_stationman",
+   "sprite": "student",
+   "x": 49.0,
+   "y": 12.0
+  },
+  {
+   "facing": "left",
+   "id": "cork_hurler",
+   "move": "still",
+   "sprite": "hurler",
+   "trainer": "cork_hurler",
+   "x": 45.0,
+   "y": 25.0
+  },
+  {
+   "facing": "down",
+   "id": "cork_singer",
+   "move": "still",
+   "sprite": "sean_nos_singer",
+   "trainer": "cork_singer",
+   "x": 24.0,
+   "y": 11.0
+  },
+  {
+   "facing": "up",
+   "id": "cork_student",
+   "move": "still",
+   "sprite": "student",
+   "trainer": "cork_student",
+   "x": 34.0,
+   "y": 26.0
+  },
+  {
+   "facing": "left",
+   "id": "cork_angler",
+   "move": "still",
+   "sprite": "angler",
+   "trainer": "cork_angler",
+   "x": 40.0,
+   "y": 38.0
+  },
+  {
+   "facing": "up",
+   "id": "market_baker",
+   "move": "still",
+   "name": "Baker",
+   "script": "market_baker",
+   "sprite": "shopkeeper",
+   "x": 36.0,
+   "y": 27.0
+  },
+  {
+   "facing": "up",
+   "id": "market_spice",
+   "move": "still",
+   "name": "Butcher",
+   "script": "market_spice",
+   "sprite": "shopkeeper",
+   "x": 47.0,
+   "y": 27.0
   }
  ],
- "spawn": [
-  31,
-  25
+ "props": [
+  {
+   "type": "lamp_post",
+   "x": 6.0,
+   "y": 23.0
+  },
+  {
+   "type": "lamp_post",
+   "x": 18.0,
+   "y": 23.0
+  },
+  {
+   "type": "lamp_post",
+   "x": 26.0,
+   "y": 23.0
+  },
+  {
+   "type": "lamp_post",
+   "x": 36.0,
+   "y": 23.0
+  },
+  {
+   "type": "lamp_post",
+   "x": 44.0,
+   "y": 23.0
+  },
+  {
+   "type": "lamp_post",
+   "x": 58.0,
+   "y": 23.0
+  },
+  {
+   "type": "lamp_post",
+   "x": 10.0,
+   "y": 27.0
+  },
+  {
+   "type": "lamp_post",
+   "x": 22.0,
+   "y": 27.0
+  },
+  {
+   "type": "lamp_post",
+   "x": 40.0,
+   "y": 27.0
+  },
+  {
+   "type": "lamp_post",
+   "x": 48.0,
+   "y": 27.0
+  },
+  {
+   "type": "lamp_post",
+   "x": 56.0,
+   "y": 27.0
+  },
+  {
+   "type": "phone_box",
+   "x": 20.0,
+   "y": 27.0
+  },
+  {
+   "type": "post_box",
+   "x": 8.0,
+   "y": 23.0
+  },
+  {
+   "type": "bench",
+   "x": 28.0,
+   "y": 27.0
+  },
+  {
+   "type": "bench",
+   "x": 35.0,
+   "y": 23.0
+  },
+  {
+   "h": 5.0,
+   "label": "St Anne's Shandon",
+   "style": "chapel",
+   "type": "building",
+   "w": 6.0,
+   "x": 21.0,
+   "y": 4.0
+  },
+  {
+   "h": 5.0,
+   "label": "The Butter Exchange",
+   "style": "red_brick",
+   "type": "building",
+   "w": 8.0,
+   "x": 8.0,
+   "y": 4.0
+  },
+  {
+   "h": 5.0,
+   "show_label": false,
+   "style": "terrace",
+   "type": "building",
+   "w": 6.0,
+   "x": 34.0,
+   "y": 4.0
+  },
+  {
+   "h": 5.0,
+   "label": "Páirc Café",
+   "style": "slate_cottage",
+   "type": "building",
+   "w": 8.0,
+   "x": 41.0,
+   "y": 4.0
+  },
+  {
+   "type": "bench",
+   "x": 20.0,
+   "y": 9.0
+  },
+  {
+   "type": "planter",
+   "x": 28.0,
+   "y": 9.0
+  },
+  {
+   "type": "lamp_post",
+   "x": 26.0,
+   "y": 10.0
+  },
+  {
+   "h": 2.0,
+   "label": "Kent Station",
+   "style": "station",
+   "type": "building",
+   "w": 9.0,
+   "x": 38.0,
+   "y": 11.0
+  },
+  {
+   "type": "lamp_post",
+   "x": 45.0,
+   "y": 13.0
+  },
+  {
+   "h": 4.0,
+   "label": "Sanctuary",
+   "style": "sanctuary",
+   "type": "building",
+   "w": 6.0,
+   "x": 6.0,
+   "y": 28.0
+  },
+  {
+   "h": 4.0,
+   "label": "Corner Shop",
+   "style": "shop",
+   "type": "building",
+   "w": 5.0,
+   "x": 13.0,
+   "y": 28.0
+  },
+  {
+   "h": 4.0,
+   "label": "Patrick Street Shops",
+   "style": "terrace",
+   "type": "building",
+   "w": 7.0,
+   "x": 20.0,
+   "y": 28.0
+  },
+  {
+   "h": 4.0,
+   "label": "The English Market",
+   "style": "cream_render",
+   "type": "building",
+   "w": 12.0,
+   "x": 34.0,
+   "y": 28.0
+  },
+  {
+   "type": "market_stall",
+   "variant": 2.0,
+   "x": 35.0,
+   "y": 27.0
+  },
+  {
+   "type": "market_stall",
+   "variant": 0.0,
+   "x": 37.0,
+   "y": 27.0
+  },
+  {
+   "type": "market_stall",
+   "variant": 1.0,
+   "x": 39.0,
+   "y": 27.0
+  },
+  {
+   "type": "market_stall",
+   "variant": 2.0,
+   "x": 41.0,
+   "y": 27.0
+  },
+  {
+   "type": "market_stall",
+   "variant": 0.0,
+   "x": 43.0,
+   "y": 27.0
+  },
+  {
+   "type": "market_stall",
+   "variant": 1.0,
+   "x": 45.0,
+   "y": 27.0
+  },
+  {
+   "h": 4.0,
+   "label": "The Oliver Plunkett Pub",
+   "style": "red_brick",
+   "type": "building",
+   "w": 8.0,
+   "x": 48.0,
+   "y": 28.0
+  },
+  {
+   "h": 4.0,
+   "show_label": false,
+   "style": "terrace",
+   "type": "building",
+   "w": 5.0,
+   "x": 58.0,
+   "y": 28.0
+  },
+  {
+   "h": 4.0,
+   "label": "City Hall",
+   "style": "stone",
+   "type": "building",
+   "w": 6.0,
+   "x": 5.0,
+   "y": 18.0
+  },
+  {
+   "h": 3.0,
+   "label": "Opera Lane Books",
+   "style": "red_brick",
+   "type": "building",
+   "w": 7.0,
+   "x": 16.0,
+   "y": 19.0
+  },
+  {
+   "h": 4.0,
+   "label": "Grand Parade Cafe",
+   "style": "white_render",
+   "type": "building",
+   "w": 8.0,
+   "x": 34.0,
+   "y": 19.0
+  },
+  {
+   "h": 4.0,
+   "show_label": false,
+   "style": "terrace",
+   "type": "building",
+   "w": 6.0,
+   "x": 44.0,
+   "y": 19.0
+  },
+  {
+   "type": "statue",
+   "x": 33.0,
+   "y": 20.0
+  },
+  {
+   "type": "bench",
+   "x": 28.0,
+   "y": 20.0
+  },
+  {
+   "type": "planter",
+   "x": 28.0,
+   "y": 22.0
+  },
+  {
+   "h": 9.0,
+   "label": "St Fin Barre's Cathedral",
+   "style": "cathedral",
+   "type": "building",
+   "w": 14.0,
+   "x": 16.0,
+   "y": 39.0
+  },
+  {
+   "type": "bench",
+   "x": 40.0,
+   "y": 39.0
+  },
+  {
+   "type": "bench",
+   "x": 56.0,
+   "y": 39.0
+  },
+  {
+   "type": "lamp_post",
+   "x": 34.0,
+   "y": 42.0
+  },
+  {
+   "type": "lamp_post",
+   "x": 60.0,
+   "y": 42.0
+  },
+  {
+   "type": "boat",
+   "variant": 1.0,
+   "x": 38.0,
+   "y": 35.0
+  },
+  {
+   "type": "buoy",
+   "x": 46.0,
+   "y": 35.0
+  },
+  {
+   "type": "boat",
+   "variant": 1.0,
+   "x": 58.0,
+   "y": 16.0
+  },
+  {
+   "type": "oak",
+   "variant": 0.0,
+   "x": 53.0,
+   "y": 47.0
+  },
+  {
+   "type": "oak",
+   "variant": 0.0,
+   "x": 5.0,
+   "y": 38.0
+  },
+  {
+   "type": "oak",
+   "variant": 1.0,
+   "x": 45.0,
+   "y": 47.0
+  },
+  {
+   "type": "oak",
+   "variant": 1.0,
+   "x": 51.0,
+   "y": 49.0
+  },
+  {
+   "type": "oak",
+   "variant": 1.0,
+   "x": 23.0,
+   "y": 38.0
+  },
+  {
+   "type": "oak",
+   "variant": 2.0,
+   "x": 34.0,
+   "y": 41.0
+  },
+  {
+   "type": "oak",
+   "variant": 2.0,
+   "x": 37.0,
+   "y": 46.0
+  },
+  {
+   "type": "oak",
+   "variant": 2.0,
+   "x": 39.0,
+   "y": 46.0
+  },
+  {
+   "type": "oak",
+   "variant": 1.0,
+   "x": 54.0,
+   "y": 49.0
+  },
+  {
+   "type": "oak",
+   "variant": 1.0,
+   "x": 46.0,
+   "y": 39.0
+  },
+  {
+   "type": "oak",
+   "variant": 1.0,
+   "x": 47.0,
+   "y": 48.0
+  },
+  {
+   "type": "oak",
+   "variant": 2.0,
+   "x": 9.0,
+   "y": 38.0
+  },
+  {
+   "type": "bush",
+   "variant": 2.0,
+   "x": 6.0,
+   "y": 39.0
+  },
+  {
+   "type": "bush",
+   "variant": 0.0,
+   "x": 35.0,
+   "y": 41.0
+  },
+  {
+   "type": "bush",
+   "variant": 2.0,
+   "x": 43.0,
+   "y": 48.0
+  },
+  {
+   "type": "bush",
+   "variant": 1.0,
+   "x": 57.0,
+   "y": 40.0
+  },
+  {
+   "type": "bush",
+   "variant": 2.0,
+   "x": 37.0,
+   "y": 39.0
+  },
+  {
+   "type": "bush",
+   "variant": 0.0,
+   "x": 55.0,
+   "y": 48.0
+  },
+  {
+   "type": "bush",
+   "variant": 0.0,
+   "x": 39.0,
+   "y": 48.0
+  },
+  {
+   "type": "bush",
+   "variant": 0.0,
+   "x": 38.0,
+   "y": 49.0
+  },
+  {
+   "type": "bush",
+   "variant": 2.0,
+   "x": 34.0,
+   "y": 48.0
+  },
+  {
+   "type": "bush",
+   "variant": 2.0,
+   "x": 53.0,
+   "y": 40.0
+  },
+  {
+   "type": "oak",
+   "variant": 1.0,
+   "x": 6.0,
+   "y": 8.0
+  },
+  {
+   "type": "oak",
+   "variant": 2.0,
+   "x": 5.0,
+   "y": 6.0
+  },
+  {
+   "type": "oak",
+   "variant": 0.0,
+   "x": 3.0,
+   "y": 4.0
+  },
+  {
+   "type": "oak",
+   "variant": 0.0,
+   "x": 6.0,
+   "y": 11.0
+  }
  ],
- "stage": "city",
- "town_id": "cork",
- "station": {
-  "x": 42,
-  "y": 13
- },
+ "region": "ireland",
  "rows": [
   "TTTTTTTTTTTT:::TTTTTTTTTTTTTTT===TTTTTTTTTTTTTTTTTTT:::TTTTTTTTTTT",
   "TTTTTTTTTTTT:::TTTTTTTTTTTTTTP===TTTTTTTTTTTTTTTTTTT:::TTTTTTTTTTT",
@@ -880,58 +866,67 @@
   "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT===TTTTTTTTTTTTTPTTTTTTTTTTTTTTTTTTT",
   "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT===TTTTTTTTTTTTTTTTTPTTTTTTTTTTTTTTT"
  ],
- "heights": [
-  "000000000000001111111111111000000000000000000000000000000000000000",
-  "000000000000011112222222111100000000000000000000000000000000000000",
-  "000000000000111122222222211110000000000000000000000000000000000000",
-  "000000000000111222222222221110000000000000000000000000000000000000",
-  "000000000000111222333332221110000000000000000000000000000000000000",
-  "000000000000111222333332221110000000000000000000000000000000000000",
-  "000000000000111222333332221110000000000000000000000000000000000000",
-  "000000000000111222333332221110000000000000000000000000000000000000",
-  "000000000000111222333332221110000000000000000000000000000000000000",
-  "000000000000111222222222221110000000000000000000000000000000000000",
-  "000000000000111122222222211110000000000000000000000000000000000000",
-  "000000000000011112222222111100000000000000000000000000000000000000",
-  "000000000000001111111111111000000000000000000000000000000000000000",
-  "000000000000000111111111110000000000000000000000000000000000000000",
-  "000000000000000000000000000000000000000000000000000000000000000000",
-  "000000000000000000000000000000000000000000000000000000000000000000",
-  "000000000000000000000000000000000000000000000000000000000000000000",
-  "000000000000000000000000000000000000000000000000000000000000000000",
-  "000000000000000000000000000000000000000000000000000000000000000000",
-  "000000000000000000000000000000000000000000000000000000000000000000",
-  "000000000000000000000000000000000000000000000000000000000000000000",
-  "000000000000000000000000000000000000000000000000000000000000000000",
-  "000000000000000000000000000000000000000000000000000000000000000000",
-  "000000000000000000000000000000000000000000000000000000000000000000",
-  "000000000000000000000000000000000000000000000000000000000000000000",
-  "000000000000000000000000000000000000000000000000000000000000000000",
-  "000000000000000000000000000000000000000000000000000000000000000000",
-  "000000000000000000000000000000000000000000000000000000000000000000",
-  "000000000000000000000000000000000000000000000000000000000000000000",
-  "000000000000000000000000000000000000000000000000000000000000000000",
-  "000000000000000000000000000000000000000000000000000000000000000000",
-  "000000000000000000000000000000000000000000000000000000000000000000",
-  "000000000000000000000000000000000000000000000000000000000000000000",
-  "000000000000000000000000000000000000000000000000000000000000000000",
-  "000000000000000000000000000000000000000000000000000000000000000000",
-  "000000000000000000000000000000000000000000000000000000000000000000",
-  "000000000000000000000000000000000000000000000000000000000000000000",
-  "000000000000000000000000000000000000000000000000000000000000000000",
-  "000000000000000000000000000000000000000000000000000000000000000000",
-  "000000000000000000000000000000000000000000000000000000000000000000",
-  "000000000000000000000000000000000000000000000000000000000000000000",
-  "000000000000000000000000000000000000000000000000000000000000000000",
-  "000000000000000000000000000000000000000000000000000000000000000000",
-  "000000000000000000000000000000000000000000000000000000000000000000",
-  "000000000000000000000000000000000000000000000000000000000000000000",
-  "000000000000000000000000000000000000000000000000000000000000000000",
-  "000000000000000000000000000000000000000000000000000000000000000000",
-  "000000000000000000000000000000000000000000000000000000000000000000",
-  "000000000000000000000000000000000000000000000000000000000000000000",
-  "000000000000000000000000000000000000000000000000000000000000000000",
-  "000000000000000000000000000000000000000000000000000000000000000000",
-  "000000000000000000000000000000000000000000000000000000000000000000"
- ]
+ "signs": [
+  {
+   "text": "SHANDON BELLS. The tower of St Anne's has eight bells you can ring yourself, and a clock with four faces that for years each told a different time. Corkonians call it 'the four-faced liar'. They say it with love.",
+   "x": 25.0,
+   "y": 10.0
+  },
+  {
+   "text": "THE ENGLISH MARKET. A covered market since 1788, with fish, fruit, spices and the best tripe in Ireland, if you like that sort of thing. Queen Elizabeth II stopped to chat to a fishmonger here in 2011, and the fish said nothing.",
+   "x": 34.0,
+   "y": 27.0
+  },
+  {
+   "text": "CORK. In Irish, Corcaigh, 'the marsh'. The city is built on an island in the River Lee. Corkonians say Cork is the real capital of Ireland, and have said so since 1920 at least.",
+   "x": 11.0,
+   "y": 22.0
+  },
+  {
+   "text": "THE LEE. It splits in two to flow round the city, then joins up again to head for Cork Harbour. It's the sort of river that's a bit of a tease.",
+   "x": 13.0,
+   "y": 38.0
+  },
+  {
+   "text": "ST FIN BARRE'S. A neo-Gothic cathedral from 1879 with three spires, a golden angel and plenty of stone beasts on the roof. It stands on the spot where the city's patron saint founded a monastery in the 7th century. Fin Barre, naturally, would have preferred something cosier.",
+   "x": 33.0,
+   "y": 38.0
+  }
+ ],
+ "spawn": [
+  31.0,
+  25.0
+ ],
+ "stage": "city",
+ "station": {
+  "x": 42.0,
+  "y": 13.0
+ },
+ "town_id": "cork",
+ "warps": [
+  {
+   "facing": "up",
+   "to": "cork_sanctuary",
+   "tx": 5.0,
+   "ty": 6.0,
+   "x": 9.0,
+   "y": 31.0
+  },
+  {
+   "facing": "up",
+   "to": "cork_shop",
+   "tx": 4.0,
+   "ty": 5.0,
+   "x": 15.0,
+   "y": 31.0
+  }
+ ],
+ "weather": {
+  "clear": 18.0,
+  "downpour": 14.0,
+  "drizzle": 34.0,
+  "fog": 10.0,
+  "gale": 10.0,
+  "sunshine": 14.0
+ }
 }
