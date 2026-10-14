@@ -6,11 +6,13 @@ var _menu: VBoxContainer
 func _ready() -> void:
 	theme = load("res://ui/theme.tres")
 	set_anchors_preset(Control.PRESET_FULL_RECT)
-	var sky := TextureRect.new()
-	sky.set_anchors_preset(Control.PRESET_FULL_RECT)
-	sky.texture = _sky_gradient()
-	sky.stretch_mode = TextureRect.STRETCH_SCALE
-	add_child(sky)
+	add_child(_backdrop())
+	var shade := TextureRect.new()
+	shade.set_anchors_preset(Control.PRESET_FULL_RECT)
+	shade.texture = _shade_gradient()
+	shade.stretch_mode = TextureRect.STRETCH_SCALE
+	shade.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	add_child(shade)
 	var centre := CenterContainer.new()
 	centre.set_anchors_preset(Control.PRESET_FULL_RECT)
 	add_child(centre)
@@ -71,10 +73,48 @@ func _on_settings() -> void:
 	await Router.open_menu("settings")
 	_menu.get_child(0).grab_focus()
 
-func _sky_gradient() -> GradientTexture2D:
+var _cam: Camera3D
+var _t := 0.0
+
+## A slowly drifting view over Macclesfield at golden hour, rendered live behind the menu.
+func _backdrop() -> Control:
+	var box := SubViewportContainer.new()
+	box.set_anchors_preset(Control.PRESET_FULL_RECT)
+	box.stretch = true
+	box.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	var vp := SubViewport.new()
+	vp.own_world_3d = true
+	box.add_child(vp)
+	var world := Node3D.new()
+	vp.add_child(world)
+	var zid := "macclesfield" if Game.zone_exists("macclesfield") else "testbed"
+	var zone := ZoneData.load_id(zid)
+	world.add_child(ZoneBuilder.build(zone))
+	var sky := SkyAndLight.new()
+	world.add_child(sky)
+	Game.data.clock_minutes = 18 * 60 + 30
+	sky.call_deferred("set_weather", "clear", false)
+	_cam = Camera3D.new()
+	_cam.fov = 34.0
+	world.add_child(_cam)
+	_cam.current = true
+	_place_cam()
+	return box
+
+func _process(delta: float) -> void:
+	_t += delta
+	if _cam:
+		_place_cam()
+
+func _place_cam() -> void:
+	var x := 14.0 + sin(_t * 0.05) * 10.0
+	_cam.position = Vector3(x, 15.0, 40.0)
+	_cam.rotation_degrees = Vector3(-32.0, 0.0, 0.0)
+
+func _shade_gradient() -> GradientTexture2D:
 	var g := Gradient.new()
-	g.set_color(0, Color("3b4f7a"))
-	g.set_color(1, Color("e8b77c"))
+	g.set_color(0, Color(0.08, 0.09, 0.14, 0.15))
+	g.set_color(1, Color(0.08, 0.09, 0.14, 0.75))
 	var tex := GradientTexture2D.new()
 	tex.gradient = g
 	tex.fill_from = Vector2(0, 0)
