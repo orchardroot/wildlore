@@ -1,0 +1,29 @@
+{
+  "line": "spikkin",
+  "species": [
+    {"id": "spikkin", "name": "Spikkin", "types": ["hedgerow"],
+     "base": {"hp": 45, "atk": 55, "def": 62, "lore": 45, "ward": 55, "spd": 48},
+     "growth": "medium", "catch_rate": 45, "base_xp": 62,
+     "learnset": [[1, "scrap"], [1, "glare"], [5, "bramble_lash"], [9, "hunker"], [13, "spore_puff"], [18, "thorn_volley"], [24, "barge"]],
+     "evolves": {"to": "bramblehog", "level": 16}, "habitat": [],
+     "dex": {"text": "Snuffles along hedge bottoms at dusk, grumbling to itself. Rolls into a prickly ball and waits for trouble to get bored.",
+             "fact": "A hedgehog has around 5,000 to 7,000 spines. Each one is a hollow hair made stiff with keratin, the same stuff as your fingernails."},
+     "sprite": "spikkin"},
+    {"id": "bramblehog", "name": "Bramblehog", "types": ["hedgerow"],
+     "base": {"hp": 60, "atk": 72, "def": 82, "lore": 58, "ward": 70, "spd": 63},
+     "growth": "medium", "catch_rate": 45, "base_xp": 142,
+     "learnset": [[1, "scrap"], [1, "glare"], [5, "bramble_lash"], [9, "hunker"], [13, "spore_puff"], [18, "thorn_volley"], [24, "barge"]],
+     "evolves": {"to": "thornsow", "level": 32}, "habitat": [],
+     "dex": {"text": "Its spines have grown into living bramble. Gardeners leave a gap under the fence for it, which it considers the least they could do.",
+             "fact": "Hedgehogs can travel a mile or more a night looking for food, which is why holes in garden fences, called hedgehog highways, help them so much."},
+     "sprite": "bramblehog"},
+    {"id": "thornsow", "name": "Thornsow", "types": ["hedgerow", "brawn"],
+     "base": {"hp": 80, "atk": 98, "def": 105, "lore": 72, "ward": 90, "spd": 85},
+     "growth": "medium", "catch_rate": 45, "base_xp": 236,
+     "learnset": [[1, "scrap"], [1, "glare"], [5, "bramble_lash"], [9, "hunker"], [13, "spore_puff"], [18, "thorn_volley"], [24, "barge"]],
+     "evolves": null, "habitat": [],
+     "dex": {"text": "A walking hedgerow the size of a pony. Old farmers say a field with a Thornsow in it never needs a gate.",
+             "fact": "Hedgehogs are one of the few mammals with some resistance to adder venom, though they are not immune."},
+     "sprite": "thornsow"}
+  ]
+}
