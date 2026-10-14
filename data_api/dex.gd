@@ -8,8 +8,26 @@ var duplicates: Array = []
 var _species: Dictionary = {}
 var _order: Array = []
 
+const ORDER_PATH := "res://data/dex_order.json"
+
 static func load_default() -> Dex:
-	return load_dir(DEFAULT_DIR)
+	var dex := load_dir(DEFAULT_DIR)
+	if FileAccess.file_exists(ORDER_PATH):
+		var order = JsonUtil.read(ORDER_PATH)
+		if order is Array:
+			dex.apply_order(order)
+	return dex
+
+## Creaturepedia numbering: listed ids first in this order, anything unlisted after, in load order.
+func apply_order(order: Array) -> void:
+	var out := []
+	for id in order:
+		if _species.has(id) and id not in out:
+			out.append(id)
+	for id in _order:
+		if id not in out:
+			out.append(id)
+	_order = out
 
 static func load_dir(dir: String) -> Dex:
 	var all := []

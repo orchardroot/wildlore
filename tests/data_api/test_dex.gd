@@ -28,3 +28,10 @@ func test_unknown_species_is_empty() -> void:
 func test_missing_stat_becomes_zero_for_the_validator_to_catch() -> void:
 	var sp := Dex.normalise({"id": "x", "base": {"hp": 10}})
 	assert_eq(sp.base.atk, 0)
+
+func test_dex_follows_dex_order_file() -> void:
+	var ids := Dex.load_default().ids()
+	assert_eq(ids[0], "spikkin")
+	assert_eq(ids[3], "holtling")
+	assert_eq(ids[6], "kindlet")
+	assert_eq(ids.size(), Dex.load_default().ids().size())
