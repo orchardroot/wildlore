@@ -1,0 +1,63 @@
+{
+ "nurse": [
+  {
+   "do": "say",
+   "who": "Nurse",
+   "text": "F\u00e0ilte to the Inverness Sanctuary. That's 'welcome', so you've learned something. Pop your team on the counter and have a seat, there's a kettle on."
+  },
+  {
+   "do": "choice",
+   "text": "What can we do for you?",
+   "options": [
+    "Heal my team",
+    "Open the Ark",
+    "Just looking"
+   ],
+   "set": "_nurse_choice"
+  },
+  {
+   "do": "if",
+   "flag": "_nurse_choice",
+   "eq": 0,
+   "then": [
+    {
+     "do": "say",
+     "who": "Nurse",
+     "text": "Och, they've had a day. Sit down, take a tablet, and watch the kettle. It's a very slow kettle. It's very good."
+    },
+    {
+     "do": "heal"
+    },
+    {
+     "do": "say",
+     "who": "Nurse",
+     "text": "All done. M\u00f2ran taing, that's 'many thanks'. Wrap up warm out there, it's wetter than it looks. Even when it looks wet."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "_nurse_choice",
+     "eq": 1,
+     "then": [
+      {
+       "do": "say",
+       "who": "Nurse",
+       "text": "The Ark terminal. It's powered by tea and a hamster wheel that nobody has volunteered to explain."
+      },
+      {
+       "do": "ark"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Nurse",
+       "text": "D\u00e8 a tha thu ag iarraidh? That's 'what do you want?'. Take your time. We're not going anywhere. It's raining."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,396 @@
+{
+ "id": "faerie_glen",
+ "name": "Faerie Glen",
+ "region": "scotland",
+ "kind": "route",
+ "music": "route_highlands",
+ "weather": {
+  "fog": 40,
+  "drizzle": 25,
+  "clear": 20,
+  "sunshine": 15
+ },
+ "props": [
+  {
+   "type": "standing_stone",
+   "x": 12,
+   "y": 4,
+   "variant": 0
+  },
+  {
+   "type": "standing_stone",
+   "x": 18,
+   "y": 4,
+   "variant": 1
+  },
+  {
+   "type": "standing_stone",
+   "x": 11,
+   "y": 8,
+   "variant": 2
+  },
+  {
+   "type": "standing_stone",
+   "x": 19,
+   "y": 8,
+   "variant": 0
+  },
+  {
+   "type": "standing_stone",
+   "x": 15,
+   "y": 3,
+   "variant": 1
+  },
+  {
+   "type": "birch",
+   "x": 11,
+   "y": 18,
+   "variant": 2
+  },
+  {
+   "type": "birch",
+   "x": 8,
+   "y": 19,
+   "variant": 1
+  },
+  {
+   "type": "birch",
+   "x": 12,
+   "y": 5,
+   "variant": 1
+  },
+  {
+   "type": "birch",
+   "x": 16,
+   "y": 12,
+   "variant": 2
+  },
+  {
+   "type": "birch",
+   "x": 26,
+   "y": 16,
+   "variant": 1
+  },
+  {
+   "type": "birch",
+   "x": 13,
+   "y": 20,
+   "variant": 2
+  },
+  {
+   "type": "birch",
+   "x": 10,
+   "y": 6,
+   "variant": 0
+  },
+  {
+   "type": "birch",
+   "x": 13,
+   "y": 12,
+   "variant": 0
+  },
+  {
+   "type": "birch",
+   "x": 5,
+   "y": 14,
+   "variant": 0
+  },
+  {
+   "type": "birch",
+   "x": 23,
+   "y": 13,
+   "variant": 0
+  },
+  {
+   "type": "birch",
+   "x": 19,
+   "y": 11,
+   "variant": 1
+  },
+  {
+   "type": "birch",
+   "x": 3,
+   "y": 14,
+   "variant": 2
+  },
+  {
+   "type": "birch",
+   "x": 24,
+   "y": 12,
+   "variant": 2
+  },
+  {
+   "type": "birch",
+   "x": 4,
+   "y": 14,
+   "variant": 2
+  },
+  {
+   "type": "birch",
+   "x": 26,
+   "y": 20,
+   "variant": 0
+  },
+  {
+   "type": "birch",
+   "x": 13,
+   "y": 3,
+   "variant": 0
+  },
+  {
+   "type": "birch",
+   "x": 9,
+   "y": 9,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 21,
+   "y": 3,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 3,
+   "y": 15,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 12,
+   "y": 13,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 11,
+   "y": 14,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 3,
+   "y": 7,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 14,
+   "y": 11,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 20,
+   "y": 4,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 8,
+   "y": 12,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 12,
+   "y": 14
+  },
+  {
+   "type": "bush",
+   "x": 18,
+   "y": 14
+  }
+ ],
+ "warps": [
+  {
+   "x": 15,
+   "y": 22,
+   "to": "skye",
+   "tx": 5,
+   "ty": 9,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "glen_wanderer",
+   "sprite": "villager_4",
+   "x": 12,
+   "y": 17,
+   "facing": "right",
+   "move": "wander",
+   "script": "glen_wanderer"
+  },
+  {
+   "id": "cusith_spot",
+   "sprite": "creature:cusith",
+   "x": 15,
+   "y": 5,
+   "facing": "down",
+   "move": "still",
+   "script": "cusith",
+   "hide_if": "caught_cusith"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "wispet",
+    "min": 75,
+    "max": 76,
+    "weight": 16
+   },
+   {
+    "species": "brownie",
+    "min": 75,
+    "max": 76,
+    "weight": 14,
+    "time": [
+     "dusk",
+     "night"
+    ]
+   },
+   {
+    "species": "pixiedell",
+    "min": 75,
+    "max": 76,
+    "weight": 10
+   },
+   {
+    "species": "glowmite",
+    "min": 75,
+    "max": 76,
+    "weight": 8,
+    "time": [
+     "dusk",
+     "night"
+    ]
+   },
+   {
+    "species": "lanternis",
+    "min": 76,
+    "max": 76,
+    "weight": 6,
+    "time": [
+     "night"
+    ]
+   },
+   {
+    "species": "tylwyth",
+    "min": 75,
+    "max": 76,
+    "weight": 10,
+    "weather": [
+     "fog",
+     "drizzle"
+    ]
+   },
+   {
+    "species": "gealhare",
+    "min": 75,
+    "max": 76,
+    "weight": 10,
+    "time": [
+     "dawn",
+     "day"
+    ]
+   },
+   {
+    "species": "prismite",
+    "min": 75,
+    "max": 76,
+    "weight": 8,
+    "weather": [
+     "sunshine",
+     "clear"
+    ]
+   },
+   {
+    "species": "pooka",
+    "min": 75,
+    "max": 76,
+    "weight": 8,
+    "time": [
+     "night"
+    ]
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 14,
+   "y": 19,
+   "text": "THE FAERIE GLEN. Every hill here is a perfect green cone, like a giant pressed a thumb into the ground. It's real, a place on Skye with the same strange shape. Nobody knows who built it. The sheep do not say."
+  },
+  {
+   "x": 16,
+   "y": 11,
+   "text": "A RING OF STONES. Please stay on the path, speak softly and don't take anything home with you except photos. A fairy hound watches over the glen. It has a great deal of patience and a great deal of teeth."
+  }
+ ],
+ "spawn": [
+  15,
+  19
+ ],
+ "stage": "forest",
+ "rows": [
+  "TTTTTTTPTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTPTTTTTTTTT",
+  "TTkkkkkkkkkkkkkkkkkkkkkkkkkkTT",
+  "TTkkkkkkkkkkkkkkkkkkkkkkkkkkTT",
+  "TTkkk,,,,kkkkkkkkkkkkkkkkkkkTT",
+  "TTkkk,,,,kkkkfffffkkkkkkkkkkPT",
+  "TTkkk,,,,kkkkfffffkkkkkkkkkkTT",
+  "TTkkk,,,,kkkkfffffkkk,,,,,kkTT",
+  "TTkkkkkkkkkkkfffffkkk,,,,,kkTT",
+  "TTkkkkkkkkkkkkkkkkkkk,,,,,kkTT",
+  "TTkkkkkkkkkkkkkkkkkkk,,,,,kkTT",
+  "TTkkkkkkkkkkkkkkkkkkkkkkkkkkTT",
+  "TTkkkkkkkkkkkkkkkk,,,,,kkkkkTT",
+  "TTkkkkkkkkkkkkkkkk,,,,,kkkkkTT",
+  "PTkkkkkkkkkkkkkkkk,,,,,kkkkkTT",
+  "TTkkk,,,,,kkkk###kkkkkkkkkkkTT",
+  "TTkkk,,,,,kkkk###kwkkkkkkkkkTT",
+  "TTkkk,,,,,kkkk###kw~~~~~wkkkTT",
+  "TTkkk,,,,,kkkk###kw~~~~~wkkkTT",
+  "TTkkkkkkkkkkkk###kw~~~~~wkkkTT",
+  "TTkkkkkkkkkkkk###kwkkkkkkkkkTT",
+  "TTkkkkkkkkkkkk###kkkkkkkkkkkTT",
+  "TTTTTTTTTTTTTT###TTTTTTTTPTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTPTTT"
+ ],
+ "heights": [
+  "000000000011111111111000000000",
+  "000000000111112221111100000000",
+  "000000000111222222211100000000",
+  "000000001112222222221110000000",
+  "000000001112223332221110000000",
+  "000000001122233333222110000000",
+  "000000001122233333222110000000",
+  "000000001122233333222110000000",
+  "000011111112223332221110000000",
+  "000111111112222222221111111000",
+  "001112221111222222211111111100",
+  "001122222111112221111112221110",
+  "001122222111111111111122222110",
+  "001122222110111111101122222110",
+  "001112221111100000001122222110",
+  "000111111111110000001112221110",
+  "000011111222110000000111111100",
+  "000000011222110000000011111000",
+  "000000011222110000000000000000",
+  "000000011111110000000000000000",
+  "000000001111100000000000000000",
+  "000000000000000000000000000000",
+  "000000000000000000000000000000",
+  "000000000000000000000000000000"
+ ],
+ "legend_extra": {
+  "k": {
+   "tile": "grass",
+   "colour": "#6f9a5a"
+  }
+ }
+}

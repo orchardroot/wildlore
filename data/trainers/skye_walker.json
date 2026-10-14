@@ -1,0 +1,31 @@
+{
+ "id": "skye_walker",
+ "name": "Hillwalker Fraser",
+ "class": "Hillwalker",
+ "sprite": "hiker",
+ "party": [
+  {
+   "species": "ptarmigan",
+   "level": 75
+  },
+  {
+   "species": "heilan",
+   "level": 75
+  },
+  {
+   "species": "highlynx",
+   "level": 75
+  }
+ ],
+ "ai": "trainer",
+ "money": 2500,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Hillwalker Fraser",
+   "text": "The Storr is an easy hike. 'Easy' here means you'll only need a map, a compass, a flask and a good sense of humour."
+  }
+ ],
+ "win": "Och, I'll sit down for a bit.",
+ "after": "The Cuillin ridge is for climbers. The Storr is for people who wish to stay alive and have lunch."
+}

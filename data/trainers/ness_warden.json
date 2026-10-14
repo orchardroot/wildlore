@@ -1,0 +1,31 @@
+{
+ "id": "ness_warden",
+ "name": "Warden Fenella",
+ "class": "Warden",
+ "sprite": "warden_grunt",
+ "party": [
+  {
+   "species": "peatmonarch",
+   "level": 73
+  },
+  {
+   "species": "bufomire",
+   "level": 73
+  },
+  {
+   "species": "kelpie",
+   "level": 74
+  }
+ ],
+ "ai": "trainer",
+ "money": 2290,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Warden Fenella",
+   "text": "Welcome to the Urquhart Heritage Experience! Entry to the ruin: eleven pounds. Entry to the bit I'm standing in: negotiable."
+  }
+ ],
+ "win": "I'll note that in the guest book. Under 'complaints'.",
+ "after": "The Enclosure says: if it's old, charge for it. If it's older, charge twice."
+}

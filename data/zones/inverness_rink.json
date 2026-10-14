@@ -1,0 +1,133 @@
+{
+ "id": "inverness_rink",
+ "name": "Inverness Ice Rink",
+ "region": "",
+ "kind": "interior",
+ "music": "battle_keeper",
+ "weather": {},
+ "props": [
+  {
+   "type": "bench",
+   "x": 3,
+   "y": 11
+  },
+  {
+   "type": "bench",
+   "x": 13,
+   "y": 11
+  },
+  {
+   "type": "planter",
+   "x": 1,
+   "y": 2
+  },
+  {
+   "type": "planter",
+   "x": 15,
+   "y": 2
+  },
+  {
+   "type": "bollard",
+   "x": 4,
+   "y": 4
+  },
+  {
+   "type": "bollard",
+   "x": 12,
+   "y": 4
+  },
+  {
+   "type": "bollard",
+   "x": 4,
+   "y": 8
+  },
+  {
+   "type": "bollard",
+   "x": 12,
+   "y": 8
+  },
+  {
+   "type": "lamp_post",
+   "x": 7,
+   "y": 2
+  },
+  {
+   "type": "lamp_post",
+   "x": 9,
+   "y": 2
+  }
+ ],
+ "warps": [
+  {
+   "x": 8,
+   "y": 12,
+   "to": "inverness",
+   "tx": 53,
+   "ty": 16,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "keeper_isla",
+   "sprite": "keeper_isla",
+   "x": 8,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "keeper_isla"
+  },
+  {
+   "id": "rink_curler",
+   "sprite": "student",
+   "x": 11,
+   "y": 7,
+   "facing": "left",
+   "move": "still",
+   "trainer": "rink_curler"
+  },
+  {
+   "id": "rink_skater",
+   "sprite": "jogger",
+   "x": 4,
+   "y": 6,
+   "facing": "right",
+   "move": "still",
+   "trainer": "rink_skater"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  8,
+  11
+ ],
+ "stage": "town",
+ "rows": [
+  "xxxxxxxxxxxxxxxxx",
+  "x|||||||||||||||x",
+  "x|ijiiiijiiiiji|x",
+  "x|jiiiijiiiijii|x",
+  "x|iiiijiiiijiii|x",
+  "x|iiijiiiijiiii|x",
+  "x|iijiiiijiiiij|x",
+  "x|ijiiiijiiiiji|x",
+  "x|jiiiijiiiijii|x",
+  "x|iiiijiiiijiii|x",
+  "x|iiijiiiijiiii|x",
+  "x|||||||||||||||x",
+  "x|||||||D|||||||x",
+  "xxxxxxxxxxxxxxxxx"
+ ],
+ "legend_extra": {
+  "i": {
+   "tile": "floor_tile",
+   "colour": "#d6eaf6"
+  },
+  "j": {
+   "tile": "floor_tile",
+   "colour": "#e8f3fb"
+  }
+ }
+}

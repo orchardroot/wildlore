@@ -1,0 +1,63 @@
+{
+ "nurse": [
+  {
+   "do": "say",
+   "who": "Nurse",
+   "text": "Fit like? Welcome to the Aberdeen Sanctuary. That's Doric for 'how are you?'. Put your team on the counter, and we'll get them sorted."
+  },
+  {
+   "do": "choice",
+   "text": "What can we do for you?",
+   "options": [
+    "Heal my team",
+    "Open the Ark",
+    "Just looking"
+   ],
+   "set": "_nurse_choice"
+  },
+  {
+   "do": "if",
+   "flag": "_nurse_choice",
+   "eq": 0,
+   "then": [
+    {
+     "do": "say",
+     "who": "Nurse",
+     "text": "Sit yersel doon. We've a wee kettle, a damp biscuit and a seat with a very good view of the fog."
+    },
+    {
+     "do": "heal"
+    },
+    {
+     "do": "say",
+     "who": "Nurse",
+     "text": "Aa done! Awa ye go, and mind the haar. It rolls in like a bad rumour. Ye'll nae see yer ain feet."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "_nurse_choice",
+     "eq": 1,
+     "then": [
+      {
+       "do": "say",
+       "who": "Nurse",
+       "text": "The Ark terminal. It's in the cupboard with the lifebelts. Aberdeen takes its emergencies seriously."
+      },
+      {
+       "do": "ark"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Nurse",
+       "text": "Nae bother. Come back when yer ready. We'll still be here. The fog is, too."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

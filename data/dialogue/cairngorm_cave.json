@@ -1,0 +1,41 @@
+{
+ "cave_ranger": [
+  {
+   "do": "say",
+   "who": "Old Ranger",
+   "text": "Ha! A visitor. I've been down here since breakfast looking for a lost glove. It's a very good glove. It had a pocket."
+  },
+  {
+   "do": "if",
+   "flag": "cave_ranger_gift",
+   "then": [
+    {
+     "do": "say",
+     "who": "Old Ranger",
+     "text": "The tonic's yours, the glove's mine. Keep to the wall on the way out, and give my regards to the daylight."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Old Ranger",
+     "text": "Here, take these. Irn tonic, for what ails you, and a tablet for the road. Sweet as a rock, and about as soft."
+    },
+    {
+     "do": "give_item",
+     "item": "irn_tonic",
+     "n": 2
+    },
+    {
+     "do": "give_item",
+     "item": "tablet",
+     "n": 3
+    },
+    {
+     "do": "set",
+     "flag": "cave_ranger_gift"
+    }
+   ]
+  }
+ ]
+}
