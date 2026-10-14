@@ -1,0 +1,31 @@
+{
+ "id": "burren_warden",
+ "name": "Warden Barnaby",
+ "class": "Warden",
+ "sprite": "warden_grunt",
+ "party": [
+  {
+   "species": "gentlet",
+   "level": 55
+  },
+  {
+   "species": "bansheen",
+   "level": 56
+  },
+  {
+   "species": "kidgruff",
+   "level": 55
+  }
+ ],
+ "ai": "trainer",
+ "money": 2280,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Warden Barnaby",
+   "text": "Welcome to the Burren Heritage Experience! The limestone is curated, the flowers are numbered, the goats are on a leash."
+  }
+ ],
+ "win": "I'll note it in the visitor feedback. 'Too good for the goats.'",
+ "after": "Director Kerrigan wants to put turnstiles on the cliffs. I told her the wind would get them."
+}

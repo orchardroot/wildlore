@@ -1,0 +1,147 @@
+{
+ "id": "galway_docks",
+ "name": "Galway Docks",
+ "region": "",
+ "kind": "interior",
+ "music": "battle_keeper",
+ "weather": {
+  "drizzle": 100
+ },
+ "props": [
+  {
+   "type": "boat",
+   "x": 3,
+   "y": 4,
+   "variant": 1
+  },
+  {
+   "type": "boat",
+   "x": 15,
+   "y": 7,
+   "variant": 1
+  },
+  {
+   "type": "buoy",
+   "x": 3,
+   "y": 8
+  },
+  {
+   "type": "buoy",
+   "x": 15,
+   "y": 3
+  },
+  {
+   "type": "bollard",
+   "x": 5,
+   "y": 2
+  },
+  {
+   "type": "bollard",
+   "x": 13,
+   "y": 2
+  },
+  {
+   "type": "bollard",
+   "x": 5,
+   "y": 9
+  },
+  {
+   "type": "bollard",
+   "x": 13,
+   "y": 9
+  },
+  {
+   "type": "lamp_post",
+   "x": 7,
+   "y": 2
+  },
+  {
+   "type": "lamp_post",
+   "x": 11,
+   "y": 2
+  },
+  {
+   "type": "bench",
+   "x": 6,
+   "y": 11
+  },
+  {
+   "type": "bench",
+   "x": 12,
+   "y": 11
+  },
+  {
+   "type": "planter",
+   "x": 2,
+   "y": 11
+  },
+  {
+   "type": "planter",
+   "x": 16,
+   "y": 11
+  }
+ ],
+ "warps": [
+  {
+   "x": 9,
+   "y": 12,
+   "to": "galway",
+   "tx": 63,
+   "ty": 34,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "keeper_nuala",
+   "sprite": "keeper_nuala",
+   "x": 9,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "keeper_nuala"
+  },
+  {
+   "id": "galway_junior_1",
+   "sprite": "sailor",
+   "x": 6,
+   "y": 7,
+   "facing": "right",
+   "move": "still",
+   "trainer": "galway_junior_1"
+  },
+  {
+   "id": "galway_junior_2",
+   "sprite": "surfer",
+   "x": 12,
+   "y": 5,
+   "facing": "left",
+   "move": "still",
+   "trainer": "galway_junior_2"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  9,
+  11
+ ],
+ "stage": "docks",
+ "rows": [
+  "xxxxxxxxxxxxxxxxxxx",
+  "x|||||||||||||||||x",
+  "x|~~~|||||||||~~~|x",
+  "x|~~~|||||||||~~~|x",
+  "x|~~~|||||||||~~~|x",
+  "x|~~~|||||||||~~~|x",
+  "x|~~~|||||||||~~~|x",
+  "x|~~~|||||||||~~~|x",
+  "x|~~~|||||||||~~~|x",
+  "x|~~~|||||||||~~~|x",
+  "x|+++++++++++++++|x",
+  "x|||||||||||||||||x",
+  "x||||||||D||||||||x",
+  "xxxxxxxxxxxxxxxxxxx"
+ ]
+}
