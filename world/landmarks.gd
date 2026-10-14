@@ -15,7 +15,7 @@ const IRON := Color("3c4450")
 const GLASS := Color.WHITE
 
 ## Building styles handled here rather than by the generic house in Meshes.building.
-const SPECIAL := ["mill", "castle", "cathedral", "liver_building", "station", "aqueduct", "chapel", "terrace", "tudor", "slate_cottage", "lighthouse_house"]
+const SPECIAL := ["gantry_crane", "mill", "castle", "cathedral", "liver_building", "station", "aqueduct", "chapel", "terrace", "tudor", "slate_cottage", "lighthouse_house"]
 
 static func building(w: int, d: int, style: String, door_x: int, seed_value: int) -> Array:
 	var rng := Meshes._rng(seed_value)
@@ -36,6 +36,8 @@ static func building(w: int, d: int, style: String, door_x: int, seed_value: int
 			_station(st, wst, w, d, door_x)
 		"aqueduct":
 			_aqueduct(st, w, d)
+		"gantry_crane":
+			_gantry(st, w, d)
 		"terrace":
 			_house(st, wst, w, d, door_x, rng, BRICK, SLATE, 2, true, false)
 		"tudor":
@@ -278,6 +280,18 @@ static func _aqueduct(st: SurfaceTool, w: int, d: int) -> void:
 	Meshes.box(st, Vector3(0, h, d * 0.5 - 0.5), Vector3(w, 0.4, 1.0), IRON)
 	Meshes.box(st, Vector3(0, h + 0.38, d * 0.5 - 0.4), Vector3(w, 0.04, 0.8), Color("4f7f8f"))
 	Meshes.box(st, Vector3(0, h + 0.4, d * 0.5 + 0.42), Vector3(w, 0.35, 0.05), IRON.lightened(0.2))
+
+## Belfast's Samson and Goliath: a huge yellow gantry crane, two box legs straddling the dock and a beam on top.
+static func _gantry(st: SurfaceTool, w: int, d: int) -> void:
+	var yellow := Color("e8c228")
+	var h := 6.5
+	for lx in [0.2, w - 0.9]:
+		Meshes.box(st, Vector3(lx, 0, d * 0.5 - 0.35), Vector3(0.7, h, 0.7), yellow)
+		Meshes.box(st, Vector3(lx - 0.1, 0, d * 0.5 - 0.6), Vector3(0.9, 0.3, 1.2), IRON)  # bogie on the rail
+	Meshes.box(st, Vector3(-0.3, h, d * 0.5 - 0.5), Vector3(w + 0.6, 0.9, 1.0), yellow, yellow.lightened(0.1))
+	Meshes.box(st, Vector3(w * 0.5 - 0.6, h - 0.8, d * 0.5 - 0.45), Vector3(1.2, 0.8, 0.9), IRON.lightened(0.15))  # trolley
+	Meshes.box(st, Vector3(w * 0.5 - 0.05, 1.4, d * 0.5 - 0.05), Vector3(0.1, h - 2.2, 0.1), Color("2a2a2a"))   # hoist cable
+	Meshes.box(st, Vector3(w * 0.5 - 0.25, 1.1, d * 0.5 - 0.25), Vector3(0.5, 0.35, 0.5), IRON)                # hook block
 
 # --- point props -------------------------------------------------------------
 
