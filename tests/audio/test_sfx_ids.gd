@@ -39,5 +39,7 @@ func test_battle_music_by_kind() -> void:
 	assert_eq(AudioIds.battle_music({"kind": "trainer", "ai": "trainer"}), "battle_trainer")
 	assert_eq(AudioIds.battle_music({"kind": "trainer", "ai": "keeper"}), "battle_keeper")
 	assert_eq(AudioIds.battle_music({"kind": "trainer", "music": "title"}), "title")
+	assert_eq(AudioIds.battle_music({"kind": "trainer", "ai": "trainer", "double": true}), "battle_double")
+	assert_true(AudioIds.music_exists("battle_double"))
 	for id in ["battle_wild", "battle_trainer", "battle_keeper", "victory"]:
 		assert_true(AudioIds.music_exists(id), id)

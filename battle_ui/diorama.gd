@@ -1,16 +1,23 @@
 class_name Diorama
 extends Node3D
 ## The 3D stage of a battle: a little themed plateau of vertex-coloured low-poly props (same look as the overworld),
-## two creature actors, and a slowly swaying camera that can swoop to whoever is acting.
+## two creature actors (four in a double battle), and a slowly swaying camera that can swoop to whoever is acting.
 
 const PLAYER_POS := Vector3(-2.5, 0, 1.7)
 const FOE_POS := Vector3(2.7, 0, -2.5)
+## Double battles: the player's pair front-left, the foes' pair back-right. Position 0 is the left one on screen.
+const DOUBLE_HOMES := [
+	[Vector3(-4.0, 0, 1.2), Vector3(-1.4, 0, 2.5)],
+	[Vector3(1.3, 0, -3.1), Vector3(4.0, 0, -1.9)],
+]
 const STAGES := ["grass", "forest", "moor", "town", "spa_interior", "water", "city", "docks", "coast", "bog", "mountain",
 	"quarry", "cave", "castle", "valley"]
 
 var stage := "grass"
 var camera: Camera3D
-var actors: Array = []
+var actors: Array = []  # position 0 actor for each side (the only ones in singles)
+var extra_actors: Array = []  # doubles: the position 1 actor for each side
+var double := false
 var props: Node3D
 var focus := Vector3(0.1, 0.9, -0.3)
 var dist := 15.0
@@ -79,6 +86,29 @@ func _tint_backdrop(bg: Color) -> void:
 	_sky_grad.offsets = PackedFloat32Array([0.0, 0.55, 0.62, 1.0])
 	_sky_grad.colors = PackedColorArray([top, bg, bg.lightened(0.3), bg.lightened(0.45)])
 
+## Switch to a double battle layout: four actors. Call before build() so the props keep clear of them.
+func set_double(on: bool) -> void:
+	double = on
+	if on and extra_actors.is_empty():
+		for side in 2:
+			var a := CreatureActor.new()
+			add_child(a)
+			extra_actors.append(a)
+	for side in 2:
+		for pos in (2 if on else 1):
+			var a := actor(side, pos)
+			a.home = home_of(side, pos)
+			a.position = a.home
+
+## The actor at a field position (position 1 only exists in doubles).
+func actor(side: int, pos := 0) -> CreatureActor:
+	return extra_actors[side] if pos == 1 and double else actors[side]
+
+func home_of(side: int, pos := 0) -> Vector3:
+	if double:
+		return DOUBLE_HOMES[side][clampi(pos, 0, 1)]
+	return PLAYER_POS if side == Battle.PLAYER else FOE_POS
+
 func build(stage_id: String) -> void:
 	stage = stage_id if stage_id in STAGES else "grass"
 	if props:
@@ -141,21 +171,41 @@ func swoop(new_focus: Vector3, new_dist: float, new_az: float, new_pitch: float,
 	_swoop.tween_property(self, "az", new_az, t)
 	_swoop.tween_property(self, "pitch", new_pitch, t)
 
+const HOME_FOCUS := Vector3(0.1, 0.9, -0.3)
+
 func swoop_home(t := 0.6) -> void:
-	swoop(Vector3(0.1, 0.9, -0.3), 15.0, 0.0, 24.0, t)
+	swoop(HOME_FOCUS, 16.5 if double else 15.0, 0.0, 24.0, t)
 
 ## Over the shoulder of whoever is acting (for the player: from behind, down the line to the foe).
-func swoop_to_attacker(side: int) -> void:
+## In doubles `pos` is the attacker's position and `target_pos` the foe it is aiming at; the camera stays wider
+## and straighter there so the partners (and the HUD) stay clear of each other.
+func swoop_to_attacker(side: int, pos := 0, target_pos := 0) -> void:
+	var mine := home_of(Battle.PLAYER, pos if side == Battle.PLAYER else target_pos)
+	var foes := home_of(Battle.FOE, pos if side == Battle.FOE else target_pos)
+	if double:
+		if side == Battle.PLAYER:
+			swoop(HOME_FOCUS.lerp(foes + Vector3(0, 0.9, 0), 0.3), 15.0, -0.1, 23.0)
+		else:  # a foe acting: hold the wide shot, so our pair is not pushed under the plates
+			swoop(HOME_FOCUS + Vector3(0.4, 0, -0.4), 15.5, 0.05, 23.0)
+		return
 	if side == Battle.PLAYER:
-		swoop(PLAYER_POS.lerp(FOE_POS, 0.6) + Vector3(0, 1.0, 0), 10.0, -0.72, 20.0)
+		swoop(mine.lerp(foes, 0.6) + Vector3(0, 1.0, 0), 10.0, -0.72, 20.0)
 	else:
-		swoop(PLAYER_POS.lerp(FOE_POS, 0.4) + Vector3(0, 1.0, 0), 12.0, 0.15, 22.0)
+		swoop(mine.lerp(foes, 0.4) + Vector3(0, 1.0, 0), 12.0, 0.15, 22.0)
 
-func swoop_to_target(side: int) -> void:
+func swoop_to_target(side: int, pos := 0) -> void:
+	var at := home_of(side, pos)
+	if double:
+		# A gentle lean towards a foe that is hit; for our own pair, the wide shot. Everyone stays in view.
+		if side == Battle.FOE:
+			swoop(HOME_FOCUS.lerp(at + Vector3(0, 0.9, 0), 0.35), 14.5, 0.0, 23.0, 0.3)
+		else:
+			swoop(HOME_FOCUS, 15.5, 0.0, 23.0, 0.3)
+		return
 	if side == Battle.FOE:
-		swoop(FOE_POS + Vector3(0, 1.0, 0), 9.5, -0.5, 20.0, 0.3)
+		swoop(at + Vector3(0, 1.0, 0), 9.5, -0.5, 20.0, 0.3)
 	else:
-		swoop(PLAYER_POS.lerp(Vector3.ZERO, 0.3) + Vector3(0, 1.0, 0), 10.5, 0.3, 21.0, 0.3)
+		swoop(at.lerp(Vector3.ZERO, 0.3) + Vector3(0, 1.0, 0), 10.5, 0.3, 21.0, 0.3)
 
 func intro_swoop() -> void:
 	focus = Vector3(1.0, 1.4, -2.0)
@@ -252,7 +302,8 @@ func _clear_spot(r_max: float) -> Vector3:
 		var d := sqrt(_rng.randf()) * r_max
 		var p := Vector3(cos(t) * d, 0, sin(t) * d * 0.86)
 		if p.distance_to(PLAYER_POS) > 2.2 and p.distance_to(FOE_POS) > 2.2 and p.distance_to(Vector3(0, 0, -0.4)) > 1.6:
-			return p
+			if not double or DOUBLE_HOMES.all(func(row): return row.all(func(h): return p.distance_to(h) > 2.0)):
+				return p
 	return Vector3(-6, 0, -3)
 
 func _tufts(n: int, r: float, flowers := 0) -> void:

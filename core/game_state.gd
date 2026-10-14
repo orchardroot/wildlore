@@ -120,6 +120,13 @@ func _dev_boot() -> void:
 		data.party = party
 		var foe := [Creature.create(dex.get_species(args.battle_species), args.battle_level, rng, moves)]
 		var opts := {"kind": "wild"}
+		if args.get("double", false):
+			# A double battle: two of ours against the dev twins, with the --battle species leading theirs.
+			var twins := StoryData.trainer("dev_double")
+			data.party = [party[0], Creature.create(dex.get_species("holtling"), 10, rng, moves), Creature.create(dex.get_species("spikkin"), 9, rng, moves)]
+			for m in twins.party.slice(1):
+				foe.append(Creature.create(dex.get_species(m.species), args.battle_level, rng, moves))
+			opts = {"kind": "trainer", "ai": "trainer", "double": true, "trainer": twins}
 		if args.weather != "":
 			opts["weather"] = args.weather
 		Router.battle(foe, opts)

@@ -14,8 +14,8 @@ var _quad_mat: StandardMaterial3D
 func _wait(sec: float) -> void:
 	await get_tree().create_timer(sec).timeout
 
-func _actor(side: int) -> CreatureActor:
-	return dio.actors[side]
+func _actor(side: int, pos := 0) -> CreatureActor:
+	return dio.actor(side, pos)
 
 func burst(pos: Vector3, colour: Color, amount := 16, speed := 3.5, size := 0.16, life := 0.6, gravity := -4.0, up := Vector3.UP) -> void:
 	var p := CPUParticles3D.new()
@@ -47,83 +47,94 @@ func burst(pos: Vector3, colour: Color, amount := 16, speed := 3.5, size := 0.16
 	p.global_position = pos
 	get_tree().create_timer(life + 0.3).timeout.connect(p.queue_free)
 
-func _chest(side: int) -> Vector3:
-	return _actor(side).world_centre()
+func _chest(side: int, pos := 0) -> Vector3:
+	return _actor(side, pos).world_centre()
 
-## Plays one cue. `battle` is only used to look up the creature a switch brings in.
+## Plays one cue. `battle` is only used to look up the creature a switch brings in (and, in doubles, where an
+## item's target stands). Double-battle cues carry "pos" (and attacks "target_side" / "target_pos" / "spread").
 func play(cue: Dictionary, battle: Battle) -> void:
 	var side := int(cue.get("side", 0))
+	var pos := int(cue.get("pos", 0))
 	match str(cue.cue):
 		"attack":
-			await _attack(side, str(cue.move_type))
+			await _attack(side, str(cue.move_type), pos, int(cue.get("target_side", 1 - side)), int(cue.get("target_pos", 0)), bool(cue.get("spread", false)))
 		"hit":
-			await _hit(side, int(cue.hp), str(cue.strength))
+			await _hit(side, int(cue.hp), str(cue.strength), pos)
 		"dodge":
-			await _actor(side).dodge()
+			await _actor(side, pos).dodge()
 		"shrug":
-			await _actor(side).nod()
+			await _actor(side, pos).nod()
 		"stat_up", "stat_down":
 			var up: bool = cue.cue == "stat_up"
 			Audio.sfx("stat_up" if up else "stat_down")
-			burst(_actor(side).global_position + Vector3(0, 0.3 if up else 2.0, 0), Color("7fe07a") if up else Color("e07a7a"), 14, 2.0, 0.14, 0.9, 1.5 if not up else -1.0, Vector3.UP if up else Vector3.DOWN)
+			burst(_actor(side, pos).global_position + Vector3(0, 0.3 if up else 2.0, 0), Color("7fe07a") if up else Color("e07a7a"), 14, 2.0, 0.14, 0.9, 1.5 if not up else -1.0, Vector3.UP if up else Vector3.DOWN)
 			await _wait(0.55)
 		"status":
 			var col: Color = STATUS_COLOURS.get(str(cue.status), Color.WHITE)
-			burst(_chest(side), col, 18, 2.5, 0.16, 0.8, -1.0)
-			hud.set_status(side, str(cue.status))
+			burst(_chest(side, pos), col, 18, 2.5, 0.16, 0.8, -1.0)
+			hud.set_status(side, str(cue.status), pos)
 			await _wait(0.5)
 		"cure":
-			burst(_chest(side), Color("fff2b0"), 14, 2.5, 0.14, 0.7, -2.0)
-			hud.set_status(side, "")
+			burst(_chest(side, pos), Color("fff2b0"), 14, 2.5, 0.14, 0.7, -2.0)
+			hud.set_status(side, "", pos)
 			await _wait(0.4)
 		"idle":
-			await _actor(side).nod()
+			await _actor(side, pos).nod()
 		"faint":
 			Audio.sfx("faint")
-			await _actor(side).faint()
+			await _actor(side, pos).faint()
 		"switch":
-			await _switch(side, battle.parties[side][int(cue.index)])
+			await _switch(side, battle.parties[side][int(cue.index)], pos)
 		"run":
 			Audio.sfx("run")
 			await _actor(Battle.PLAYER).slip_away()
 		"heal":
 			Audio.sfx("heal")
-			burst(_actor(side).global_position + Vector3(0, 0.2, 0), Color("8fe89a"), 18, 2.2, 0.15, 1.0, 1.0, Vector3.UP)
+			var at := 0
+			if battle.double:
+				at = maxi(0, battle.active[side].find(int(cue.get("target", 0))))
+			burst(_actor(side, at).global_position + Vector3(0, 0.2, 0), Color("8fe89a"), 18, 2.2, 0.15, 1.0, 1.0, Vector3.UP)
 			await _wait(0.5)
 		"catch":
 			await _catch(bool(cue.success), int(cue.wobbles))
 		"end", "none":
 			pass
 
-func _attack(side: int, type_id: String) -> void:
-	var other := 1 - side
-	dio.swoop_to_attacker(side)
+func _attack(side: int, type_id: String, pos := 0, t_side := -1, t_pos := 0, spread := false) -> void:
+	var other := 1 - side if t_side < 0 else t_side
+	dio.swoop_to_attacker(side, pos, t_pos)
 	await _wait(0.4)
 	Audio.sfx("attack")
 	var col := TypeColours.of(type_id) if type_id != "" else Color("f4ecd8")
-	var actor := _actor(side)
+	var actor := _actor(side, pos)
 	burst(actor.global_position + Vector3(0, 1.0, 0), col, 10, 2.0, 0.14, 0.5, -1.0)
-	get_tree().create_timer(0.2).timeout.connect(func(): burst(_chest(other), col, 22, 4.5, 0.2, 0.55))
-	await actor.lunge(_actor(other).home)
+	var hit_pos := [0, 1] if spread else [t_pos]
+	get_tree().create_timer(0.2).timeout.connect(func():
+		for p in hit_pos:
+			burst(_chest(other, p), col, 22, 4.5, 0.2, 0.55))
+	var aim := _actor(other, t_pos).home
+	if spread:
+		aim = _actor(other, 0).home.lerp(_actor(other, 1).home, 0.5)
+	await actor.lunge(aim)
 
-func _hit(side: int, hp: int, strength: String) -> void:
+func _hit(side: int, hp: int, strength: String, pos := 0) -> void:
 	Audio.sfx("hit")
-	dio.swoop_to_target(side)
+	dio.swoop_to_target(side, pos)
 	dio.shake = {"strong": 1.0, "normal": 0.55, "weak": 0.25}.get(strength, 0.5)
-	var a := _actor(side)
-	burst(_chest(side), Color("fff2d0") if strength != "strong" else Color("ffd070"), 12 if strength == "weak" else 24, 4.0, 0.2, 0.4)
-	var before := hud.shown_hp(side)
-	var frac := absf(before - hp) / maxf(1.0, hud.max_hp(side))
-	hud.tween_hp(side, hp, clampf(0.35 + frac * 1.4, 0.35, 1.4))
+	var a := _actor(side, pos)
+	burst(_chest(side, pos), Color("fff2d0") if strength != "strong" else Color("ffd070"), 12 if strength == "weak" else 24, 4.0, 0.2, 0.4)
+	var before := hud.shown_hp(side, pos)
+	var frac := absf(before - hp) / maxf(1.0, hud.max_hp(side, pos))
+	hud.tween_hp(side, hp, clampf(0.35 + frac * 1.4, 0.35, 1.4), pos)
 	await a.hit(strength)
 	await _wait(maxf(0.0, clampf(0.35 + frac * 1.4, 0.35, 1.4) - 0.45))
 
-func _switch(side: int, c: Creature) -> void:
-	var a := _actor(side)
+func _switch(side: int, c: Creature, pos := 0) -> void:
+	var a := _actor(side, pos)
 	if a.sprite.visible:
 		await a.pop_out()
 	a.show_creature(c, side == Battle.PLAYER)
-	hud.set_creature(side, c)
+	hud.set_creature(side, c, pos)
 	Audio.sfx("send_out")
 	burst(a.global_position + Vector3(0, 1.0, 0), Color("fff2d0"), 20, 3.0, 0.16, 0.6, -1.0)
 	await a.pop_in()

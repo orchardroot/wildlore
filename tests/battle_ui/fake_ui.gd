@@ -29,7 +29,7 @@ func play_events(events: Array, _ctx: Dictionary) -> void:
 func choose_action(flow) -> Dictionary:
 	if not picks.is_empty():
 		return picks.pop_front()
-	var me: Creature = flow.battle.current(Battle.PLAYER)
+	var me: Creature = flow.battle.current_at(Battle.PLAYER, flow.acting_pos)
 	var best := 0
 	var power := -1
 	for i in me.moves.size():
@@ -45,7 +45,7 @@ func choose_replacement(flow) -> int:
 		return replacement
 	var party: Array = flow.battle.parties[Battle.PLAYER]
 	for i in party.size():
-		if not party[i].is_fainted():
+		if not party[i].is_fainted() and i not in flow.battle.active[Battle.PLAYER]:
 			return i
 	return 0
 

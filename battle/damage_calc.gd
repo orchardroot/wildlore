@@ -6,7 +6,8 @@ const CRIT_CHANCE := 100.0 / 24.0
 const STAB := 1.5
 const CRIT_MULT := 1.5
 
-static func compute(attacker: Creature, defender: Creature, move: Dictionary, chart: TypeChart, weather: String, rng: Rng, crit_chance: float = CRIT_CHANCE) -> Dictionary:
+## extra_mult: anything else that scales the hit (a spread move in a double battle hits each foe at 0.75).
+static func compute(attacker: Creature, defender: Creature, move: Dictionary, chart: TypeChart, weather: String, rng: Rng, crit_chance: float = CRIT_CHANCE, extra_mult := 1.0) -> Dictionary:
 	var move_type: String = move.get("type", "")
 	var power: int = move.get("power", 0)
 	var eff := chart.effectiveness(move_type, defender.types())
@@ -29,5 +30,6 @@ static func compute(attacker: Creature, defender: Creature, move: Dictionary, ch
 		mult *= STAB
 	if crit:
 		mult *= CRIT_MULT
+	mult *= extra_mult
 	mult *= rng.roll_range(0.85, 1.0)
 	return {"damage": maxi(1, floori(base * mult)), "effectiveness": eff, "crit": crit}

@@ -8,6 +8,10 @@ extends RefCounted
 ##   evolve_anim(creature, to_species) -> bool (false if cancelled), xp_gained(creature, level_events).
 ## choose_action returns {"kind": "fight", "slot"} | {"kind": "switch", "index"} | {"kind": "run"}
 ## | {"kind": "item", "item": id, "target": party index (ignored for snares)}.
+## Double battles (opts.double): choose_action and choose_replacement are asked once per field position, with
+## `acting_pos` saying which; a fight choice may carry "target" (foe position, default the first foe standing).
+## XP in doubles: every player creature standing on the field when a foe faints (the faint event's witnesses)
+## earns that foe's full XP reward. Both fought it, and doubles are rare trainer fights, so nobody is short-changed.
 
 signal species_caught(species_id: String)
 
@@ -29,6 +33,8 @@ var _catch_chance := 0.0
 
 var _evo_ctx := {}
 var _no_run := false
+var acting_pos := 0  # doubles: the field position the ui is choosing for
+var _switching := []  # doubles: party indices already picked to switch in this turn
 
 func _init(p_data: GameStateData, p_dex: Dex, p_moves: MoveDB, p_chart: TypeChart, p_items: ItemDB, p_rng: Rng, foe_party: Array, opts: Dictionary, p_ui) -> void:
 	data = p_data
@@ -44,6 +50,7 @@ func _init(p_data: GameStateData, p_dex: Dex, p_moves: MoveDB, p_chart: TypeChar
 	battle = Battle.new(data.party, foe_party, {
 		"chart": p_chart, "move_db": p_moves, "item_db": p_items, "rng": p_rng,
 		"kind": opts.get("kind", "wild"), "weather": opts.get("weather", "clear"), "time": opts.get("time", "day"),
+		"double": bool(opts.get("double", false)),
 	})
 
 func ctx() -> Dictionary:
@@ -85,14 +92,14 @@ func item_check(item_id: String, target: int) -> Dictionary:
 
 func run() -> Dictionary:
 	var foe := battle.current(Battle.FOE)
-	if foe != null:
-		data.mark_seen(foe.species.id)
+	for c in battle.actives(Battle.FOE):
+		data.mark_seen(c.species.id)
 	await ui.intro(self)
 	if foe != null and not battle.over:
 		await _say(_intro_lines())
 	while not battle.over:
-		var pa := await _player_action()
-		var fa := BattleAI.choose(battle, Battle.FOE, ai_tier)
+		var pa: Variant = await _player_actions()
+		var fa: Variant = BattleAI.choose(battle, Battle.FOE, ai_tier)
 		var events := battle.take_turn(pa, fa)
 		await _play(events)
 		await _after_events(events)
@@ -101,6 +108,12 @@ func run() -> Dictionary:
 
 func _intro_lines() -> Array[String]:
 	var out: Array[String] = []
+	if battle.double:
+		var t := str(trainer.get("name", "A keeper"))
+		out.append("%s wants to battle!" % t if not is_wild() else "Wild creatures appeared!")
+		out.append("%s sends out %s!" % [t, _names(battle.actives(Battle.FOE))])
+		out.append("Go! %s!" % _names(battle.actives(Battle.PLAYER)))
+		return out
 	var foe := battle.current(Battle.FOE)
 	var me := battle.current(Battle.PLAYER)
 	if is_wild():
@@ -112,18 +125,50 @@ func _intro_lines() -> Array[String]:
 	out.append("Go! %s!" % me.display_name())
 	return out
 
+static func _names(cs: Array) -> String:
+	return " and ".join(cs.map(func(c): return c.display_name()))
+
 func _say(lines: Array, hold := 0.0) -> void:
 	for l in lines:
 		log.append(str(l))
 	await ui.say(lines, hold)
+
+## Singles: one action. Doubles: an Array with an action per field position ({} where nobody is standing).
+func _player_actions() -> Variant:
+	if not battle.double:
+		return await _player_action()
+	var out := []
+	_switching = []
+	for pos in battle.positions():
+		acting_pos = pos
+		var c := battle.current_at(Battle.PLAYER, pos)
+		out.append({} if c == null or c.is_fainted() else await _player_action())
+	acting_pos = 0
+	return out
+
+## The first foe position with someone standing in it.
+func default_target() -> int:
+	for p in battle.positions():
+		var c := battle.current_at(Battle.FOE, p)
+		if c != null and not c.is_fainted():
+			return p
+	return 0
 
 func _player_action() -> Dictionary:
 	while true:
 		var c: Dictionary = await ui.choose_action(self)
 		match str(c.get("kind", "")):
 			"fight":
+				if battle.double:
+					return {"type": "move", "slot": int(c.slot), "target": c.get("target", default_target())}
 				return {"type": "move", "slot": int(c.slot)}
 			"switch":
+				if battle.double:
+					var i := int(c.index)
+					if i in battle.active[Battle.PLAYER] or i in _switching:
+						await _say(["%s is already going in!" % battle.parties[Battle.PLAYER][i].display_name()])
+						continue
+					_switching.append(i)
 				return {"type": "switch", "index": int(c.index)}
 			"run":
 				if _no_run:
@@ -146,6 +191,9 @@ func _item_action(c: Dictionary) -> Dictionary:
 		await _say(["You don't have any."])
 		return {}
 	if str(it.kind) == "snare":
+		if battle.double:
+			await _say(["You can't throw a snare into a double battle!"])
+			return {}
 		if not is_wild():
 			await _say(["You can't snare another keeper's creature!"])
 			return {}
@@ -171,7 +219,8 @@ func _play(events: Array) -> void:
 		elif e.type == "item":
 			var t := int(e.get("target", 0))
 			if t >= 0 and t < party.size():
-				e["shown_hp"] = EventPlayer.hp_after_item(events, i, party[t])
+				var at: int = battle.active[Battle.PLAYER].find(t) if battle.double else -1
+				e["shown_hp"] = EventPlayer.hp_after_item(events, i, party[t], at)
 	var cx := ctx()
 	for e in events:
 		log.append_array(EventPlayer.lines_for(e, cx))
@@ -180,46 +229,62 @@ func _play(events: Array) -> void:
 func _after_events(events: Array) -> void:
 	for e in events:
 		if e.type == "faint" and int(e.side) == Battle.FOE:
-			await _award_xp()
+			await _award_xp(e)
 	if battle.over:
 		return
 	for e in events:
 		if e.type == "invalid" and str(e.get("reason", "")) == "bad_switch":
 			return
-	if battle.needs_switch(Battle.PLAYER):
-		await _replace_player()
-	if battle.needs_switch(Battle.FOE):
-		await _replace_foe()
+	for pos in battle.positions():
+		if battle.needs_switch_at(Battle.PLAYER, pos):
+			acting_pos = pos
+			await _replace_player(pos)
+	acting_pos = 0
+	for pos in battle.positions():
+		if battle.needs_switch_at(Battle.FOE, pos):
+			await _replace_foe(pos)
 
-func _replace_player() -> void:
+func _replace_player(pos := 0) -> void:
 	var party: Array = battle.parties[Battle.PLAYER]
 	for attempt in 4:
 		var idx: int = await ui.choose_replacement(self)
-		var ev := battle.force_switch(Battle.PLAYER, idx)
+		var ev := battle.force_switch(Battle.PLAYER, idx, pos)
 		if ev[0].type != "invalid":
 			await _play(ev)
 			return
 	for i in party.size():  # the ui kept picking nonsense: take the first creature that can stand
-		if not party[i].is_fainted():
-			await _play(battle.force_switch(Battle.PLAYER, i))
+		if not party[i].is_fainted() and i not in battle.active[Battle.PLAYER]:
+			await _play(battle.force_switch(Battle.PLAYER, i, pos))
 			return
 
-func _replace_foe() -> void:
+func _replace_foe(pos := 0) -> void:
 	var party: Array = battle.parties[Battle.FOE]
 	for i in party.size():
-		if not party[i].is_fainted():
-			var ev := battle.force_switch(Battle.FOE, i)
+		if not party[i].is_fainted() and i not in battle.active[Battle.FOE]:
+			var ev := battle.force_switch(Battle.FOE, i, pos)
 			data.mark_seen(party[i].species.id)
 			await _play(ev)
 			return
 
-func _award_xp() -> void:
+## XP for a fainted foe. Singles: the creature out now. Doubles: every witness still standing (see the top).
+func _award_xp(faint_ev: Dictionary = {}) -> void:
 	var foe := battle.current(Battle.FOE)
+	var earners := [battle.current(Battle.PLAYER)]
+	if battle.double and faint_ev.has("index"):
+		foe = battle.parties[Battle.FOE][int(faint_ev.index)]
+		earners = []
+		for i in faint_ev.get("witnesses", []):
+			var c: Creature = battle.parties[Battle.PLAYER][int(i)]
+			if not c.is_fainted():
+				earners.append(c)
 	if _xp_given.has(foe):
 		return
 	_xp_given[foe] = true
-	var me := battle.current(Battle.PLAYER)
 	var amount := Progression.xp_reward(foe, not is_wild())
+	for me in earners:
+		await _give_xp(me, foe, amount)
+
+func _give_xp(me: Creature, foe: Creature, amount: int) -> void:
 	Progression.add_training(me, foe.species)
 	var evs := Progression.gain_xp(me, amount, move_db)
 	await _say(["%s gained %d XP!" % [me.display_name(), amount]])

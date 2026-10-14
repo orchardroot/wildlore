@@ -144,7 +144,10 @@ func _battle(trainer_id: String) -> void:
 			for mid in m.moves:
 				cr.moves.append(cr.make_move_slot(mid, host.moves))
 		foes.append(cr)
-	var result: Dictionary = await host.battle(foes, {"kind": "trainer", "ai": def.ai, "trainer": def})
+	var opts := {"kind": "trainer", "ai": def.ai, "trainer": def}
+	if bool(def.get("double", false)) and foes.size() >= 2:
+		opts["double"] = true  # a 2v2: the trainer sends out two at once
+	var result: Dictionary = await host.battle(foes, opts)
 	match str(result.get("result", "")):
 		"win":
 			# prize money is paid by the battle scene, which also announces it
