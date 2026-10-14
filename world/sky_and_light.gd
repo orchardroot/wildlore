@@ -105,11 +105,12 @@ func apply_time(minutes: int) -> void:
 			sun_e *= 1.2
 			sun_col = sun_col.lerp(Color("ffe2a8"), 0.3)
 	if interior:
-		sun_e = 0.35
-		amb = Color("f0e2c8")
-		amb_e = 0.85
+		sun_e = 0.55
+		amb = Color("e8d2b0")
+		amb_e = 0.32
+		sun_col = Color("ffe6c4")
 		fog_d = 0.0
-		bg = Color("14161c")
+		bg = Color("0e0f13")
 	sun.light_color = sun_col
 	sun.light_energy = sun_e
 	sun.rotation_degrees.x = p[2]
@@ -118,6 +119,7 @@ func apply_time(minutes: int) -> void:
 	env.background_color = bg
 	env.fog_light_color = bg.lerp(amb, 0.5).darkened(0.25)
 	env.fog_density = fog_d
+	env.fog_enabled = fog_d > 0.0
 	if Meshes.glow:
 		Meshes.glow.emission_energy_multiplier = 0.0 if interior else p[6]
 		Meshes.glow.albedo_color = Color("3a4658") if p[6] == 0.0 else Color("ffd98a")

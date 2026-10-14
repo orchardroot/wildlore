@@ -8,8 +8,8 @@ const SKIRT := 1.6          # how far the diorama's outer edge drops
 const GROUND_COLOURS := {
 	"grass": Color("527f37"), "tall_grass": Color("4f8035"), "path": Color("b9a57c"), "road": Color("55575d"),
 	"cobbles": Color("9a8f80"), "sand": Color("cdb57f"), "flowers": Color("5c8f3c"), "shallow": Color("8fa39a"),
-	"water": Color("6b7f6a"), "door": Color("c8b48a"), "building": Color("b9a98a"), "floor_wood": Color("9a6b43"),
-	"floor_tile": Color("d9d2bd"), "counter": Color("9a6b43"), "ledge_south": Color("5c8f3c"), "cliff": Color("8c8270"),
+	"water": Color("6b7f6a"), "door": Color("c8b48a"), "building": Color("b9a98a"), "floor_wood": Color("7f5a3d"),
+	"floor_tile": Color("bdb6a2"), "counter": Color("9a6b43"), "ledge_south": Color("5c8f3c"), "cliff": Color("8c8270"),
 	"tree_oak": Color("4f8035"), "tree_pine": Color("4a7634"), "hedge": Color("557f37"), "drystone_wall": Color("5c8f3c"),
 	"fence": Color("5c8f3c"), "rock": Color("5c8f3c"),
 }
@@ -69,7 +69,10 @@ static func _ground(z: ZoneData, rng: RandomNumberGenerator) -> MeshInstance3D:
 			# side faces wherever the neighbour is lower (or missing: the diorama skirt)
 			for d in [Vector2i(0, 1), Vector2i(0, -1), Vector2i(1, 0), Vector2i(-1, 0)]:
 				var q: Vector2i = p + d
-				var ny := -SKIRT if not z.in_bounds(q) or z.tile_at(q) == "void" else ground_y(z, q)
+				var outside := not z.in_bounds(q) or z.tile_at(q) == "void"
+				if outside and z.kind == "interior":
+					continue  # rooms float in darkness, no diorama skirt
+				var ny := -SKIRT if outside else ground_y(z, q)
 				if ny >= gy - 0.001:
 					continue
 				var side := SIDE_ROCK if t == "cliff" or gy - ny > LEVEL * 1.5 else SIDE_EARTH
@@ -208,7 +211,7 @@ static func _props(z: ZoneData, root: Node3D, rng: RandomNumberGenerator) -> voi
 		_add(buckets, "sign_post:0", Transform3D(Basis(), Vector3(int(s.x) + 0.5, ground_y(z, Vector2i(int(s.x), int(s.y))), int(s.y) + 0.5)))
 	for pr in z.props:
 		var pt: String = pr.get("type", "")
-		if pt in ["lamp_post", "bench", "bush", "birch", "oak", "pine", "rock", "market_stall", "planter", "phone_box", "post_box"]:
+		if pt in ["lamp_post", "bench", "bush", "birch", "oak", "pine", "rock", "market_stall", "planter", "phone_box", "post_box", "bookshelf", "potted_plant", "table", "bed"]:
 			var pos := Vector2i(int(pr.x), int(pr.y))
 			var tr := Transform3D(Basis(Vector3.UP, deg_to_rad(float(pr.get("rot", 0)))), Vector3(pos.x + 0.5, ground_y(z, pos), pos.y + 0.5))
 			_add(buckets, "%s:%d" % [pt, int(pr.get("variant", 0))], tr)
@@ -280,6 +283,14 @@ static func _ctor(name: String, variant: int) -> ArrayMesh:
 			return Meshes.sign_post()
 		"market_stall":
 			return Meshes.market_stall(variant)
+		"bookshelf":
+			return Meshes.bookshelf(variant)
+		"potted_plant":
+			return Meshes.potted_plant(variant)
+		"table":
+			return Meshes.table(variant)
+		"bed":
+			return Meshes.bed(variant)
 		"planter":
 			return Meshes.planter(variant)
 		"phone_box":
@@ -336,7 +347,7 @@ static func _buildings(z: ZoneData, root: Node3D) -> void:
 static func _interior_walls(z: ZoneData) -> MeshInstance3D:
 	var st := SurfaceTool.new()
 	st.begin(Mesh.PRIMITIVE_TRIANGLES)
-	var plaster := Color("e6dcc6")
+	var plaster := Color("cfc3a8")
 	var skirting := Color("6b4a32")
 	for y in z.height:
 		for x in z.width:

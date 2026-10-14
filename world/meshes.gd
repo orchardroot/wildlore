@@ -315,6 +315,46 @@ static func post_box() -> ArrayMesh:
 	box(st, Vector3(-0.21, 0.95, -0.21), Vector3(0.42, 0.1, 0.42), Color("2d3138"))
 	return _finish(st)
 
+static func bookshelf(variant := 0) -> ArrayMesh:
+	var rng := _rng(14000 + variant)
+	var st := _st()
+	var wood := Color("6b4a32")
+	box(st, Vector3(-0.48, 0, -0.3), Vector3(0.96, 1.7, 0.36), wood)
+	var spines := [Color("8c3b3b"), Color("2f5a7a"), Color("4f7a3a"), Color("c9a441"), Color("6a4a7a")]
+	for shelf in 4:
+		var y := 0.12 + shelf * 0.4
+		var x := -0.42
+		while x < 0.4:
+			var w := rng.randf_range(0.05, 0.1)
+			box(st, Vector3(x, y, 0.0), Vector3(w - 0.01, rng.randf_range(0.22, 0.32), 0.07), spines[rng.randi() % spines.size()])
+			x += w
+	return _finish(st)
+
+static func potted_plant(variant := 0) -> ArrayMesh:
+	var rng := _rng(15000 + variant)
+	var st := _st()
+	cylinder(st, Vector3(0, 0, 0), 0.2, 0.32, 8, Color("a8553a"))
+	blob(st, Vector3(0, 0.55, 0), Vector3(0.3, 0.32, 0.3), Color("4c7a39"), rng, 0.3)
+	return _finish(st)
+
+static func table(variant := 0) -> ArrayMesh:
+	var st := _st()
+	var wood := Color("7a5636")
+	for px in [-0.4, 0.34]:
+		for pz in [-0.34, 0.28]:
+			box(st, Vector3(px, 0, pz), Vector3(0.06, 0.62, 0.06), wood)
+	box(st, Vector3(-0.46, 0.62, -0.4), Vector3(0.92, 0.07, 0.8), wood.lightened(0.12))
+	box(st, Vector3(-0.1, 0.69, -0.1), Vector3(0.18, 0.12, 0.18), Color("e8e2d4"))
+	return _finish(st)
+
+static func bed(variant := 0) -> ArrayMesh:
+	var st := _st()
+	box(st, Vector3(-0.45, 0, -0.48), Vector3(0.9, 0.38, 0.96), Color("6b4a32"))
+	box(st, Vector3(-0.42, 0.38, -0.2), Vector3(0.84, 0.12, 0.66), Color("4a6d8c"))
+	box(st, Vector3(-0.36, 0.38, -0.44), Vector3(0.72, 0.16, 0.22), Color("f2ede2"))
+	box(st, Vector3(-0.45, 0, -0.5), Vector3(0.9, 0.75, 0.08), Color("5a3f2a"))
+	return _finish(st)
+
 # --- buildings ---------------------------------------------------------------
 
 const WALLS := {
