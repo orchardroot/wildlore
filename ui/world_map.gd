@@ -22,6 +22,18 @@ func setup(arg: String) -> void:
 		view.centre = Vector2(float(towns[str(here)].x), float(towns[str(here)].y))
 	header_right.text = "You are near " + Travel.town_name(str(here)) if here else ""
 	view.queue_redraw()
+	if Game.data.flag("champion") == true and not arg.begins_with("species:"):
+		set_hint("F  Fly        X  Back")
+		_can_fly = true
+
+var _can_fly := false
+
+func _unhandled_input(event: InputEvent) -> void:
+	if _can_fly and not _locked and event is InputEventKey and event.pressed and event.keycode == KEY_F:
+		get_viewport().set_input_as_handled()
+		var town = await open_child("travel:fly")
+		if town != null and str(town) != "":
+			close({"fly": str(town)})
 
 ## Zones whose wild encounter tables include this species (the truth, rather than the dex's habitat notes).
 static var _habitats: Dictionary = {}  # species id -> zone ids, built once

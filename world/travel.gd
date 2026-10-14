@@ -61,3 +61,16 @@ static func ferry_arrival(route: String, from_town: String) -> Dictionary:
 	var to: String = r.b if str(r.a) == from_town else r.a
 	var z := ZoneData.load_id(to)
 	return {"zone": to, "pos": Vector2i(int(z.ferry.get("x", -1)), int(z.ferry.get("y", -1)))}
+
+## Flight (after the Moot): any visited town on any island, except where you are.
+static func fly_destinations(data: GameStateData, here: String) -> Array:
+	var out := []
+	for town in world_map().get("towns", {}):
+		if town != here and data.flag("visited_" + town) == true and FileAccess.file_exists("res://data/zones/%s.json" % town):
+			out.append(town)
+	return out
+
+## Where a flight lands: the station platform if the town has one, else the town's spawn.
+static func fly_arrival(town: String) -> Dictionary:
+	var z := ZoneData.load_id(town)
+	return {"zone": town, "pos": z.station if z.station != Vector2i(-1, -1) else z.spawn}

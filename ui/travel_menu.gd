@@ -13,11 +13,14 @@ func _build() -> void:
 	_list.add_theme_constant_override("separation", 8)
 	p.add_child(_list)
 
-func setup(_arg: String) -> void:
+func setup(arg: String) -> void:
+	var flying := arg == "fly"
 	var here := str(Game.data.flag("last_town")) if Game.data.flag("last_town") else ""
-	header_right.text = "Departing " + Travel.town_name(here) if here != "" else ""
+	header_right.text = ("Bran's Raven is waiting" if flying else "Departing " + Travel.town_name(here)) if here != "" else ""
+	if flying:
+		set_title("Fly where?")
 	var buttons := []
-	for town in Travel.rail_destinations(Game.data, here):
+	for town in (Travel.fly_destinations(Game.data, here) if flying else Travel.rail_destinations(Game.data, here)):
 		var b := make_button("  " + Travel.town_name(town), func(): close(town))
 		b.alignment = HORIZONTAL_ALIGNMENT_LEFT
 		b.custom_minimum_size = Vector2(0, 64)

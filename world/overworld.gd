@@ -280,7 +280,12 @@ func interact(p: Vector2i) -> void:
 
 func open_pause() -> void:
 	Audio.sfx("confirm")
-	await Router.open_menu("pause")
+	var r = await Router.open_menu("pause")
+	if r is Dictionary and r.has("fly"):  # flight from the map, after the Moot
+		var a := Travel.fly_arrival(str(r.fly))
+		Audio.sfx("raven_caw")
+		player.set_bike(false)
+		await Router.goto_zone(str(a.zone), a.pos, "down")
 
 ## Shows lines in the dialogue box (or prints them if the UI isn't there yet).
 func say(lines: Array, who := "") -> void:

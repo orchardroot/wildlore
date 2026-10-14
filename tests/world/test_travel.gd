@@ -57,3 +57,15 @@ func test_northern_islands() -> void:
 	assert_eq(Travel.island_of("kirkwall"), "orkney")
 	assert_true(Travel.ferries().has("belfast_cairnryan"))
 	assert_true(Travel.ferries().has("aberdeen_kirkwall"))
+
+func test_fly_goes_anywhere_visited_across_the_sea() -> void:
+	var d := GameStateData.new()
+	for t in ["macclesfield", "dublin", "inverness"]:
+		d.set_flag("visited_" + t)
+	var dest := Travel.fly_destinations(d, "macclesfield")
+	assert_true("dublin" in dest, "across the Irish Sea")
+	assert_true("inverness" in dest)
+	assert_false("macclesfield" in dest, "not where you are")
+	assert_false("york" in dest, "not unvisited")
+	var a := Travel.fly_arrival("dublin")
+	assert_true(ZoneData.load_id("dublin").walkable(a.pos))

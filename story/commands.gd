@@ -120,6 +120,10 @@ func _exec(c: Dictionary) -> void:
 			await _legend(c)
 		"rail":
 			await _rail()
+		"gauntlet":
+			await _gauntlet(c)
+		"credits":
+			await host.open_menu("credits")
 		"ferry":
 			await _ferry(str(c.get("route", "")))
 		"whiteout":
@@ -131,11 +135,23 @@ func _exec(c: Dictionary) -> void:
 const STARTER_LEVEL := 5
 
 func _battle(trainer_id: String) -> void:
-	var data: GameStateData = host.data
 	var def := StoryData.trainer(trainer_id)
 	if def.is_empty():
 		push_error("Commands: no trainer '%s'" % trainer_id)
 		return
+	var result := await _fight(def)
+	match str(result.get("result", "")):
+		"win":
+			# prize money is paid by the battle scene, which also announces it
+			_set_flag("trainer_" + trainer_id, true)
+			if def.win != "":
+				await host.say(def.name, _sub(def.win))
+		"lose":
+			await whiteout()
+			_ended = true
+
+## Builds a trainer's party and runs the battle; returns the battle result.
+func _fight(def: Dictionary) -> Dictionary:
 	var foes := []
 	for m in def.party:
 		var cr := Creature.create(host.dex.get_species(m.species), m.level, host.rng, host.moves)
@@ -147,16 +163,33 @@ func _battle(trainer_id: String) -> void:
 	var opts := {"kind": "trainer", "ai": def.ai, "trainer": def}
 	if bool(def.get("double", false)) and foes.size() >= 2:
 		opts["double"] = true  # a 2v2: the trainer sends out two at once
-	var result: Dictionary = await host.battle(foes, opts)
-	match str(result.get("result", "")):
-		"win":
-			# prize money is paid by the battle scene, which also announces it
-			_set_flag("trainer_" + trainer_id, true)
-			if def.win != "":
-				await host.say(def.name, _sub(def.win))
-		"lose":
-			await whiteout()
+	return await host.battle(foes, opts)
+
+## The Moot: several trainers back to back with no Sanctuary in between. Winning them all sets `flag`.
+## Losing any one sends you back to the entrance (`exit`), healed and poorer, with nothing half-won.
+func _gauntlet(c: Dictionary) -> void:
+	var ids: Array = c.get("trainers", [])
+	for i in ids.size():
+		var def := StoryData.trainer(str(ids[i]))
+		if def.is_empty():
+			push_error("Commands: no trainer '%s'" % ids[i])
+			return
+		for line in def.get("intro", []):
+			await _exec(line)
+		var result := await _fight(def)
+		if str(result.get("result", "")) != "win":
+			var ex: Dictionary = c.get("exit", {})
+			host.data.money = host.data.money / 2
+			host.data.heal_party()
+			await host.warp(str(ex.get("zone", host.zone_id())), int(ex.get("x", -1)), int(ex.get("y", -1)), "down")
+			await host.say("", "You come round at the edge of the stones, patched up and a little humbled. The Moot will wait.")
 			_ended = true
+			return
+		if def.win != "":
+			await host.say(def.name, _sub(def.win))
+		if i < ids.size() - 1:
+			await host.say("", "No rest at the Moot. The next challenger steps forward.")
+	_set_flag(str(c.get("flag", "gauntlet_won")), true)
 
 ## A legendary encounter: a wild battle you can't run from, with its own music. Catching it sets `flag`;
 ## knocking it out doesn't, so it can be met again. Losing whites out as usual.

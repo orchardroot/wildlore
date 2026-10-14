@@ -108,5 +108,8 @@ func _save() -> void:
 	_after_child(4)
 
 func _open_map() -> void:
-	await open_child("map")
+	var r = await open_child("map")
+	if r is Dictionary and r.has("fly"):
+		close(r)
+		return
 	_after_child(3)
