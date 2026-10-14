@@ -16,13 +16,31 @@
  ],
  "sailor": [
   {
-   "do": "say",
-   "who": "Sailor",
-   "text": "Cairnryan, is it? The Selkie sails when the tide's right and the tea's brewed. Mind the gulls. They're organised."
-  },
-  {
-   "do": "ferry",
-   "route": "belfast_cairnryan"
+   "do": "if",
+   "flag": "badge_iron",
+   "then": [
+    {
+     "do": "say",
+     "who": "Sailor",
+     "text": "Cairnryan, is it? The Selkie sails when the tide's right and the tea's brewed. Mind the gulls. They're organised."
+    },
+    {
+     "do": "ferry",
+     "route": "belfast_cairnryan"
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Sailor",
+     "text": "Ah, the Selkie's not sailing for you yet, love. Scotland's a long way to go with an unfinished to-do list."
+    },
+    {
+     "do": "say",
+     "who": "Sailor",
+     "text": "Go and see Keeper Ruair\u00ed at the shipyard first. Past the cranes, the big shed with the sparks. He's friendly. Mostly to people who've just lost to him, but still."
+    }
+   ]
   }
  ],
  "titanic_guide": [
@@ -83,6 +101,18 @@
    "do": "say",
    "who": "Passer-by",
    "text": "There's a huge fish sculpture down by the Waterfront, covered in tiles telling the history of Belfast. It's been called the Big Fish for twenty years. Nobody has come up with a better name."
+  }
+ ],
+ "gate_belfast_north": [
+  {
+   "do": "say",
+   "who": "Warden",
+   "text": "Road's closed. Works on the Antrim coast. Very serious works. We've a cone."
+  },
+  {
+   "do": "say",
+   "who": "Warden",
+   "text": "The Keeper at the shipyard has the say on this road, and he hasn't said it yet. Ask Ruair\u00ed. Past the cranes, the big shed. You can't miss the sparks."
   }
  ]
 }

@@ -1,9 +1,121 @@
 {
  "keeper_ruairi": [
   {
-   "do": "say",
-   "who": "Keeper Ruairi",
-   "text": "Placeholder: the story agent rewrites this Keeper battle script."
+   "do": "if",
+   "flag": "trainer_keeper_ruairi",
+   "then": [
+    {
+     "do": "say",
+     "who": "Keeper Ruair\u00ed",
+     "text": "Mind the cranes on your way out. Samson's in a mood. Goliath's fine, but he's the quiet sort."
+    },
+    {
+     "do": "say",
+     "who": "Keeper Ruair\u00ed",
+     "text": "Keep the lantern lit up north. Folk say the Highlands are bonny. They are. They're also very, very dark."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "",
+     "text": "A shipyard shed with a roof like a cathedral and a floor you could eat your dinner off, if you didn't mind the sparks. A figure in a welding visor flips it up."
+    },
+    {
+     "do": "say",
+     "who": "Keeper Ruair\u00ed",
+     "text": "You'll be the one who's been tidying up after the Enclosure all over the islands. Grand. Welcome to the yard."
+    },
+    {
+     "do": "say",
+     "who": "Keeper Ruair\u00ed",
+     "text": "They built ships here you could see from space, near enough. Iron creatures are the same. Slow to start, impossible to stop."
+    },
+    {
+     "do": "say",
+     "who": "Keeper Ruair\u00ed",
+     "text": "Don't mind the noise. It's only the apprentices. They think a rivet is a personality. Let's see what you've got."
+    },
+    {
+     "do": "battle",
+     "trainer": "keeper_ruairi"
+    },
+    {
+     "do": "say",
+     "who": "Keeper Ruair\u00ed",
+     "text": "The Iron Stone. It held up a ship or two in its day. It holds a team together the same way: not clever, only very hard to knock over."
+    },
+    {
+     "do": "badge",
+     "id": "iron"
+    },
+    {
+     "do": "set",
+     "flag": "badge_iron"
+    },
+    {
+     "do": "set",
+     "flag": "ch8_iron"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "{player} received the Iron Stone!"
+    },
+    {
+     "do": "say",
+     "who": "Keeper Ruair\u00ed",
+     "text": "And the lantern, as promised. Off the hook by the door. It's older than I am and twice as reliable."
+    },
+    {
+     "do": "give_item",
+     "item": "lantern"
+    },
+    {
+     "do": "say",
+     "who": "Keeper Ruair\u00ed",
+     "text": "Here's the thing about iron. It remembers every furnace it's been through. With the Stone in your pocket, you can see in a dark cave. Carry the Lantern and the way out will always find you."
+    },
+    {
+     "do": "say",
+     "who": "Keeper Ruair\u00ed",
+     "text": "There's a cave or two up in Scotland that'll want it. Go on, away. And mind the gulls on the quay. They'll have your chips."
+    },
+    {
+     "do": "sfx",
+     "id": "alert"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Your phone buzzes. Professor Garside, who sounds as if she is eating a scone over a map."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "{player}! The Iron Stone! Eight! I've run out of fingers and started on the biscuits."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "The ferry from Belfast will take you across the North Channel to Cairnryan now. The sailors have had a word with the harbour, and the harbour has had a word with the tide."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "Scotland has a new Regional Director for the Enclosure. A Morag Strachan. Waxed jacket, clipboard, wellies, and by all accounts a will of iron. You'll get on."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "But the Causeway first, if you like. Vane's been spotted at the Giant's Causeway with a marquee. Don't ask me how you lease a coastline. I've looked into it. There's a form."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Out on the Antrim road, the Wardens finished their \"road improvement works\" and went to look at a crane."
+    }
+   ]
   }
  ]
 }

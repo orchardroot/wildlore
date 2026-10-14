@@ -49,16 +49,201 @@
  ],
  "enbarr": [
   {
-   "do": "say",
-   "who": "Manannan's Horse",
-   "text": "Placeholder: the story agent writes the Enbarr encounter here."
+   "do": "if",
+   "flag": "ch8_vane",
+   "then": [
+    {
+     "do": "if",
+     "flag": "caught_enbarr",
+     "then": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "The surf at the foot of the stones is quiet. A line of foam runs along the rock in the shape of a hoofprint, and then the tide takes it."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "The pale horse stands in the shallows, steady as a statue, waves breaking against her knees. She watches you the way the sea watches a harbour wall."
+      },
+      {
+       "do": "say",
+       "who": "Manann\u00e1n's Horse",
+       "text": "N\u00e1 b\u00ed buartha. Don't be anxious. I carried a god over a thousand miles of grey water. I can carry a walker a few fields. If you are worth the crossing."
+      },
+      {
+       "do": "legend",
+       "species": "enbarr",
+       "level": 66,
+       "flag": "caught_enbarr",
+       "music": "legend_sea"
+      },
+      {
+       "do": "if",
+       "flag": "caught_enbarr",
+       "then": [
+        {
+         "do": "say",
+         "who": "",
+         "text": "The horse steps out of the surf and falls in beside you, the sea running off her coat in silver threads. The gulls go silent, as if a bishop had walked in."
+        },
+        {
+         "do": "warp",
+         "zone": "causeway",
+         "x": 56,
+         "y": 13,
+         "facing": "right"
+        },
+        {
+         "do": "end"
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "",
+         "text": "Manann\u00e1n's Horse folds into the surf and is gone, leaving only a long curl of foam along the rocks. She will be back on the next high tide, if you want to try again."
+        },
+        {
+         "do": "warp",
+         "zone": "causeway",
+         "x": 56,
+         "y": 13,
+         "facing": "right"
+        },
+        {
+         "do": "end"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "",
+     "text": "Sea mist rolls over the far stack and the shape in it is only foam. Perhaps."
+    }
+   ]
   }
  ],
  "vane_causeway": [
   {
-   "do": "say",
-   "who": "Lord Vane",
-   "text": "Placeholder: the story agent writes Lord Vane's marquee scene here."
+   "do": "if",
+   "flag": "ch8_vane",
+   "then": [
+    {
+     "do": "say",
+     "who": "Lord Ambrose Vane",
+     "text": "I am not here. This is a mirage. The lease was never signed."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "",
+     "text": "On the flat ground above the stones stands a very large white marquee. Its banner reads: THE GIANT'S CAUSEWAY EXPERIENCE, PREMIUM TIER. Beneath it, in a spotless Panama hat, Lord Ambrose Vane directs a survey with a gold pencil and the air of a man who has never been rained on."
+    },
+    {
+     "do": "say",
+     "who": "Lord Ambrose Vane",
+     "text": "Do mind the lease, walker. It's an excellent lease. It was signed by me, witnessed by me, and notarised by a gentleman who is entirely theoretical."
+    },
+    {
+     "do": "say",
+     "who": "Lord Ambrose Vane",
+     "text": "Ah. The walker. I wondered when I'd have the pleasure. I use the word loosely."
+    },
+    {
+     "do": "say",
+     "who": "Lord Ambrose Vane",
+     "text": "Forty thousand columns, all perfectly sized for a gift shop floor. Do you know what I'd give to own this?"
+    },
+    {
+     "do": "say",
+     "who": "Lord Ambrose Vane",
+     "text": "No. Of course you don't. Very well, a little sport. I expect to lose; one always does, against the earnest."
+    },
+    {
+     "do": "battle",
+     "trainer": "vane_1"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "A breeze comes in off the sea, cool and salt and smelling of rain that hasn't started yet. The gulls on the marquee roof, who were arguing, stop."
+    },
+    {
+     "do": "fade_out"
+    },
+    {
+     "do": "music",
+     "id": "legend_sea"
+    },
+    {
+     "do": "sfx",
+     "id": "splash"
+    },
+    {
+     "do": "wait",
+     "seconds": 1.2
+    },
+    {
+     "do": "fade_in"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "The sea does not rise so much as arrive. It draws back from the foot of the stones in one long breath, and then it comes in again with something inside it."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Out of the surf rears a pale horse, made of sea-foam and light, with a mane like breaking waves and hooves that ring on the water like a bell. Manann\u00e1n's Horse. In the old stories it ran over land and sea alike without wetting a hoof."
+    },
+    {
+     "do": "say",
+     "who": "Lord Ambrose Vane",
+     "text": "I say. That is. That's a rather unlicensed animal."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "The horse tosses its head. One wave, polite and enormous, lifts the marquee off its pegs, sets it down in a rock pool upside down, and hangs the banner neatly on a basalt column. The gulls cheer."
+    },
+    {
+     "do": "say",
+     "who": "Lord Ambrose Vane",
+     "text": "That is a breach of the lease. I should like it recorded that this was an act of God. Several of them, I suspect, working in concert."
+    },
+    {
+     "do": "say",
+     "who": "Lord Ambrose Vane",
+     "text": "Fine. FINE. The Causeway may keep its columns. We'll meet at the Moot, walker. Everyone does, in the end. Bring a coat."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "He squelches off along the cliff path, gold pencil held high, his Panama brim full of seawater. Behind him, the horse shakes out its mane and looks straight at you. It isn't leaving. It's waiting to be asked."
+    },
+    {
+     "do": "set",
+     "flag": "ch8_vane"
+    },
+    {
+     "do": "warp",
+     "zone": "causeway",
+     "x": 38,
+     "y": 34,
+     "facing": "up"
+    },
+    {
+     "do": "end"
+    }
+   ]
   }
  ]
 }

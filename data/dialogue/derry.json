@@ -24,6 +24,46 @@
    "do": "say",
    "who": "Walls Guide",
    "text": "Please stay on the walkway. The walls have stood for 400 years, but they've never had to deal with tourists with selfie sticks."
+  },
+  {
+   "do": "if",
+   "flag": "walls_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Walls Guide",
+     "text": "Roaring Meg liked you, then. She doesn't like everybody. She's a cannon. She has views."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "walls_started",
+     "then": [
+      {
+       "do": "say",
+       "who": "Walls Guide",
+       "text": "Off along the top of the north wall, to the east end, and say hello to Meg's keeper. It's a fair stroll. Mind the pigeons, they have right of way."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Walls Guide",
+       "text": "Tell you what. Would you walk the north wall to the far end for me? Meg's keeper is out there with the old cannon, and she's had no visitors since the coach party."
+      },
+      {
+       "do": "say",
+       "who": "Walls Guide",
+       "text": "My badge says Derry slash Londonderry, and I've learned to smile at both halves. The walls don't mind what you call them. They've heard it all."
+      },
+      {
+       "do": "set",
+       "flag": "walls_started"
+      }
+     ]
+    }
+   ]
   }
  ],
  "museum_curator": [
@@ -72,6 +112,53 @@
    "do": "say",
    "who": "Foyle Walker",
    "text": "The name Foyle comes from the Irish 'Feabhal', and it means 'lip' or 'edge'. The river sits on the edge of everything, like a politely lingering guest."
+  }
+ ],
+ "walls_gunner": [
+  {
+   "do": "if",
+   "flag": "walls_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Walls Keeper",
+     "text": "Meg's been quiet for a good while now, and I like her that way. A cannon with nothing to prove is the best sort."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "walls_started",
+     "then": [
+      {
+       "do": "say",
+       "who": "Walls Keeper",
+       "text": "You walked the whole way? Brilliant. Nobody walks it any more. They take photographs of it from the car park."
+      },
+      {
+       "do": "say",
+       "who": "Walls Keeper",
+       "text": "This is Roaring Meg. Cast in 1642. She's a quiet pensioner now, and she's polite to everyone who walks past her. Here, a bit of soda farl for the walk back."
+      },
+      {
+       "do": "give_item",
+       "item": "soda_farl",
+       "n": 2
+      },
+      {
+       "do": "set",
+       "flag": "walls_done"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Walls Keeper",
+       "text": "Meg's a cannon from the 1600s. She's seen a lot and she's said nothing. If you fancy a walk, the guide at the other end will tell you about it."
+      }
+     ]
+    }
+   ]
   }
  ]
 }

@@ -134,7 +134,9 @@ func test_newgrange_scene_then_morrigan_offered_once() -> void:
 	assert_eq(h.data.flag("v03_complete"), true)
 	assert_true(["music", "legend_crow"] in h.log)
 	assert_true(["sfx", "tomb_light"] in h.log)
-	assert_true(["", "End of Wildlore v0.3. The North is waiting."] in h.said)
+	assert_eq(h.data.flag("ch8_started"), true, "Garside's call north replaces the v0.3 end card")
+	for line in h.said:
+		assert_false(String(line[1]).begins_with("End of Wildlore"), "the v0.3 end card is gone")
 	h.last_battle = {}
 	h.battle_results = [{"result": "caught"}]
 	await _run(h, "newgrange_tomb", "morrigan", "morrigan_spot")
