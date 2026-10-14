@@ -1,0 +1,23 @@
+{"id": "pierlord",
+ "palette": {"white": "#f6f6f8", "grey": "#8d9ab0", "grey2": "#6a7894", "bill": "#f2c63a", "spot": "#e03a2a", "foot": "#ee98a2", "eye": "#f6e04a", "tip": "#24242e", "wood": "#7a5a3c", "wood2": "#55402a", "shade": "#c4c8d4", "gold": "#e8b830"},
+ "layers": [
+  {"shape": "rect", "at": [48, 90], "size": [30, 14], "colour": "wood", "pattern": "stripes", "pcolour": "wood2", "period": 5, "pangle": 90, "round": 2},
+  {"shape": "rect", "at": [41, 80], "size": [4, 10], "colour": "foot", "rim": false},
+  {"shape": "rect", "at": [55, 80], "size": [4, 10], "colour": "foot", "rim": false},
+  {"shape": "poly", "points": [[38, 74], [58, 74], [62, 88], [34, 88]], "colour": "white", "back_only": true},
+  {"shape": "ellipse", "at": [48, 56], "size": [50, 60], "colour": "white"},
+  {"shape": "poly", "points": [[30, 36], [10, 44], [2, 62], [6, 84], [16, 76], [22, 82], [30, 70], [34, 54]], "colour": "grey", "mirror": true},
+  {"shape": "poly", "points": [[8, 70], [6, 84], [16, 76], [14, 70]], "colour": "tip", "mirror": true, "rim": false},
+  {"shape": "circle", "at": [10, 76], "r": 1.6, "colour": "white", "shade": false, "mirror": true, "rim": false},
+  {"shape": "ellipse", "at": [48, 66], "size": [24, 36], "colour": "white", "front_only": true, "rim": false},
+  {"shape": "ellipse", "at": [48, 32], "size": [36, 32], "colour": "white"},
+  {"shape": "ellipse", "at": [48, 22], "size": [28, 10], "colour": "grey", "back_only": true, "rim": false},
+  {"shape": "poly", "points": [[34, 20], [37, 8], [42, 16], [48, 4], [54, 16], [59, 8], [62, 20]], "colour": "gold"}
+ ],
+ "face_layers": [
+  {"shape": "poly", "points": [[40, 34], [58, 34], [60, 41], [50, 49], [42, 42]], "colour": "bill"},
+  {"shape": "poly", "points": [[50, 43], [55, 42], [53, 48], [50, 48]], "colour": "spot", "shade": false, "rim": false},
+  {"shape": "line", "points": [[30, 25], [41, 30]], "width": 2, "colour": "grey2", "shade": false, "mirror": true}
+ ],
+ "eyes": [{"at": [38, 29], "r": 3.5, "colour": "eye", "pupil": [1.5, 2], "mirror": true}]
+}

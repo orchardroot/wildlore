@@ -1,0 +1,23 @@
+{"id": "shuttlecog",
+ "palette": {"iron": "#6a7482", "iron2": "#4a5260", "brass": "#c8a040", "brass2": "#8e6e28", "rust": "#a85a30", "thread": "#d8484e", "glow": "#ffc040", "steam": "#e8eef4", "dark": "#2a2e38", "wood": "#a8784a"},
+ "layers": [
+  {"shape": "circle", "at": [30, 12], "r": 5, "colour": "steam", "shade": false, "rim": false, "mirror": true},
+  {"shape": "rect", "at": [40, 24], "size": [8, 14], "colour": "iron2", "mirror": true},
+  {"shape": "rect", "at": [38, 90], "size": [20, 10], "round": 2, "colour": "iron2", "mirror": true},
+  {"shape": "rect", "at": [48, 66], "size": [46, 40], "round": 5, "colour": "iron", "pattern": "stripes", "pcolour": "iron2", "period": 8, "pangle": 90},
+  {"shape": "spikes", "at": [17, 62], "size": [22, 22], "count": 12, "len": 6, "from": 0, "to": 360, "colour": "brass", "mirror": true, "rim": false},
+  {"shape": "circle", "at": [17, 62], "r": 7, "colour": "brass2", "mirror": true},
+  {"shape": "circle", "at": [17, 62], "r": 2.5, "colour": "dark", "mirror": true, "shade": false, "rim": false},
+  {"shape": "ellipse", "at": [48, 72], "size": [24, 20], "colour": "wood", "front_only": true},
+  {"shape": "ellipse", "at": [48, 72], "size": [16, 14], "colour": "thread", "front_only": true, "pattern": "stripes", "pcolour": "#a82e3a", "period": 3, "pangle": 0, "rim": false},
+  {"shape": "rect", "at": [48, 36], "size": [42, 28], "round": 8, "colour": "iron"},
+  {"shape": "rect", "at": [48, 24], "size": [34, 6], "round": 2, "colour": "brass"},
+  {"shape": "circle", "at": [36, 70], "r": 1.5, "colour": "brass", "shade": false, "rim": false, "front_only": true},
+  {"shape": "circle", "at": [60, 70], "r": 1.5, "colour": "brass", "shade": false, "rim": false, "front_only": true}
+ ],
+ "face_layers": [
+  {"shape": "rect", "at": [48, 37], "size": [34, 10], "round": 4, "colour": "dark", "shade": false, "rim": false},
+  {"shape": "line", "points": [[42, 46], [45, 48], [48, 46], [51, 48], [54, 46]], "width": 1, "colour": "dark", "shade": false}
+ ],
+ "eyes": [{"at": [40, 37], "r": 3.5, "colour": "glow", "mirror": true, "highlight": false}]
+}

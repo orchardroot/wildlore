@@ -1,0 +1,24 @@
+{"id": "bayrunner",
+ "anim": "shift", "bob": 2,
+ "palette": {"back": "#586e8a", "back2": "#3e5272", "belly": "#d0dcea", "fin": "#38486a", "wave": "#3a90c4", "wave2": "#8cd4ec", "foam": "#f4fcff", "ink": "#101822", "scar": "#a8b4c4"},
+ "layers": [
+  {"shape": "ellipse", "at": [48, 90], "size": [94, 14], "colour": "wave2", "rim": false, "shade": false},
+  {"shape": "ellipse", "at": [48, 91], "size": [82, 9], "colour": "wave", "rim": false},
+  {"shape": "poly", "points": [[78, 46], [94, 30], [90, 42], [95, 54], [80, 54]], "colour": "fin"},
+  {"shape": "poly", "points": [[44, 32], [58, 10], [62, 18], [66, 34]], "colour": "fin"},
+  {"shape": "poly", "points": [[2, 66], [6, 58], [14, 54], [18, 42], [28, 32], [42, 26], [58, 26], [72, 34], [82, 44], [84, 54], [76, 54], [66, 54], [52, 52], [40, 56], [30, 64], [20, 68], [8, 68]], "colour": "back"},
+  {"shape": "poly", "points": [[4, 67], [20, 69], [30, 65], [40, 57], [52, 53], [66, 55], [76, 54], [68, 60], [52, 62], [38, 68], [24, 76], [10, 72]], "colour": "belly", "front_only": true, "rim": false},
+  {"shape": "tri", "points": [[32, 60], [24, 82], [44, 66]], "colour": "fin"},
+  {"shape": "line", "points": [[44, 40], [56, 32]], "width": 1, "colour": "scar", "shade": false, "front_only": true},
+  {"shape": "line", "points": [[48, 46], [62, 38]], "width": 1, "colour": "scar", "shade": false, "front_only": true},
+  {"shape": "circle", "at": [8, 80], "r": 2, "colour": "foam", "shade": false, "rim": false},
+  {"shape": "circle", "at": [84, 78], "r": 2.5, "colour": "foam", "shade": false, "rim": false},
+  {"shape": "circle", "at": [10, 22], "r": 1.5, "colour": "foam", "shade": false, "rim": false},
+  {"shape": "circle", "at": [88, 12], "r": 2, "colour": "foam", "shade": false, "rim": false}
+ ],
+ "face_layers": [
+  {"shape": "line", "points": [[4, 66], [18, 68], [28, 62]], "width": 1, "colour": "ink", "shade": false},
+  {"shape": "line", "points": [[16, 44], [30, 50]], "width": 2, "colour": "back2", "shade": false}
+ ],
+ "eyes": [{"at": [25, 54], "r": 4}]
+}
