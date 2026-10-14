@@ -47,6 +47,7 @@ TOWNS = {
  "galway": ("Galway", -9.05, 53.27, "ireland"), "sligo": ("Sligo", -8.47, 54.27, "ireland"),
  "newgrange": ("Newgrange", -6.48, 53.69, "ireland"), "douglas": ("Douglas", -4.48, 54.15, "man"),
  "holyhead": ("Holyhead", -4.63, 53.31, "wales"),
+ "cairnryan": ("Cairnryan", -5.03, 54.97, "scotland"),
 }
 # routes and landmarks shown as small dots (for Creaturepedia habitats)
 PLACES = {
@@ -55,12 +56,14 @@ PLACES = {
  "dinas_emrys": (-4.08, 53.02), "anglesey": (-4.35, 53.25),
  "severn_crossing": (-2.7, 51.6), "mendips": (-2.7, 51.28), "somerset_levels": (-2.85, 51.1), "dartmoor": (-3.9, 50.57),
  "tintagel": (-4.75, 50.67), "wicklow": (-6.35, 53.0), "comeraghs": (-7.6, 52.3), "ring_of_kerry": (-9.8, 51.95),
- "burren": (-9.1, 53.05), "connemara": (-9.8, 53.5), "boyne_valley": (-6.6, 53.7), "cambrian_coast": (-4.06, 52.7), "pembroke_coast": (-4.95, 51.75), "beacons": (-3.44, 51.88),
+ "burren": (-9.1, 53.05), "mournes": (-6.0, 54.18), "antrim_coast": (-6.0, 55.05), "causeway": (-6.51, 55.24),
+ "galloway": (-4.5, 55.05), "central_belt": (-3.7, 55.9), "glencoe": (-4.95, 56.67), "great_glen": (-4.9, 57.1),
+ "loch_ness": (-4.45, 57.3), "skye": (-6.2, 57.3), "cairngorms": (-3.65, 57.08), "connemara": (-9.8, 53.5), "boyne_valley": (-6.6, 53.7), "cambrian_coast": (-4.06, 52.7), "pembroke_coast": (-4.95, 51.75), "beacons": (-3.44, 51.88),
 }
 d = {"space": [1000, 1300], "outlines": {"gb": [pt(*p) for p in GB], "ireland": [pt(*p) for p in IRELAND], "man": [pt(*p) for p in MAN],
      "skye": [pt(*p) for p in SKYE], "orkney": [pt(*p) for p in ORKNEY]},
      "towns": {k: {"name": v[0], "x": pt(v[1], v[2])[0], "y": pt(v[1], v[2])[1], "nation": v[3],
-                   "island": {"ireland": "ireland", "northern_ireland": "ireland", "man": "man"}.get(v[3], "gb")} for k, v in TOWNS.items()},
+                   "island": "orkney" if k == "kirkwall" else {"ireland": "ireland", "northern_ireland": "ireland", "man": "man"}.get(v[3], "gb")} for k, v in TOWNS.items()},
      "places": {k: {"x": pt(*v)[0], "y": pt(*v)[1]} for k, v in PLACES.items()},
-     "ferries": [["liverpool", "douglas"], ["holyhead", "dublin"]]}
+     "ferries": [["liverpool", "douglas"], ["holyhead", "dublin"], ["belfast", "cairnryan"], ["aberdeen", "kirkwall"]]}
 json.dump(d, open(sys.argv[1], "w"), indent=0)

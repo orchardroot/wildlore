@@ -35,7 +35,7 @@ func test_travel_arrival_walkable() -> void:
 
 func test_world_map_has_all_spec_towns() -> void:
 	var m := Travel.world_map()
-	assert_eq(m.towns.size(), 41, "the 40 spec towns plus Holyhead, the ferry port")
+	assert_eq(m.towns.size(), 42, "the 40 spec towns plus the ferry ports Holyhead and Cairnryan")
 	for t in ["macclesfield", "london", "cardiff", "kirkwall", "dingle", "douglas", "newgrange", "bushmills"]:
 		assert_true(m.towns.has(t), t)
 	assert_true(m.outlines.gb.size() >= 60)
@@ -49,3 +49,11 @@ func test_rail_stays_on_island() -> void:
 	assert_eq(Travel.island_of("cardiff"), "gb")
 	assert_false("dublin" in Travel.rail_destinations(d, "liverpool"), "no train across the Irish Sea")
 	assert_false("cardiff" in Travel.rail_destinations(d, "dublin"))
+
+func test_northern_islands() -> void:
+	assert_eq(Travel.island_of("belfast"), "ireland")
+	assert_eq(Travel.island_of("derry"), "ireland")
+	assert_eq(Travel.island_of("glasgow"), "gb")
+	assert_eq(Travel.island_of("kirkwall"), "orkney")
+	assert_true(Travel.ferries().has("belfast_cairnryan"))
+	assert_true(Travel.ferries().has("aberdeen_kirkwall"))
