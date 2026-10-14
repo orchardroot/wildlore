@@ -16,7 +16,7 @@ void fragment() {
 	float r = sin(world_pos.x * 3.1 + TIME * 1.3) * 0.5 + sin(world_pos.z * 2.3 - TIME * 1.1) * 0.5;
 	float r2 = sin((world_pos.x + world_pos.z) * 5.0 + TIME * 2.0);
 	vec3 col = mix(deep, shallow, 0.5 + 0.3 * r);
-	col = mix(col, foam, smoothstep(0.97, 1.0, r2) * 0.3);
+	col = mix(col, foam, smoothstep(0.985, 1.0, r2 * r) * 0.25);
 	ALBEDO = col;
 	ROUGHNESS = 0.12;
 	SPECULAR = 0.7;

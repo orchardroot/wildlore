@@ -1,0 +1,219 @@
+{
+ "id": "cat_and_fiddle",
+ "name": "Cat and Fiddle Road",
+ "region": "peak",
+ "kind": "route",
+ "music": "route_moor",
+ "weather": {
+  "fog": 30,
+  "drizzle": 30,
+  "clear": 20,
+  "gale": 12,
+  "sunshine": 8
+ },
+ "props": [
+  {
+   "type": "building",
+   "style": "gritstone",
+   "x": 31,
+   "y": 10,
+   "w": 7,
+   "h": 3,
+   "label": "Cat and Fiddle"
+  },
+  {
+   "type": "bench",
+   "x": 30,
+   "y": 13
+  }
+ ],
+ "warps": [],
+ "edges": {
+  "west": {
+   "to": "macc_forest",
+   "offset": 0
+  },
+  "east": {
+   "to": "buxton",
+   "offset": 0
+  }
+ },
+ "npcs": [],
+ "encounters": {
+  "grass": [
+   {
+    "species": "scuttlet",
+    "min": 6,
+    "max": 8,
+    "weight": 18
+   },
+   {
+    "species": "roachroo",
+    "min": 7,
+    "max": 9,
+    "weight": 14,
+    "time": [
+     "dawn",
+     "day",
+     "dusk"
+    ]
+   },
+   {
+    "species": "snowhare",
+    "min": 7,
+    "max": 9,
+    "weight": 16
+   },
+   {
+    "species": "gritling",
+    "min": 7,
+    "max": 10,
+    "weight": 12
+   },
+   {
+    "species": "croakle",
+    "min": 6,
+    "max": 8,
+    "weight": 8,
+    "weather": [
+     "drizzle",
+     "downpour",
+     "fog"
+    ]
+   },
+   {
+    "species": "hootlet",
+    "min": 7,
+    "max": 9,
+    "weight": 12,
+    "time": [
+     "dusk",
+     "night"
+    ]
+   },
+   {
+    "species": "wispet",
+    "min": 8,
+    "max": 10,
+    "weight": 16,
+    "weather": [
+     "fog"
+    ]
+   },
+   {
+    "species": "pipkin",
+    "min": 6,
+    "max": 8,
+    "weight": 6,
+    "time": [
+     "day"
+    ]
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 29,
+   "y": 13,
+   "text": "THE CAT AND FIDDLE. Second highest pub in England. Closed for refurbishment, open for weather."
+  },
+  {
+   "x": 3,
+   "y": 9,
+   "text": "A537. Exposed moorland road. Fog likely. Herons unlikely."
+  },
+  {
+   "x": 60,
+   "y": 20,
+   "text": "BUXTON 1 mile. Spa town. Hot water, cold wind."
+  }
+ ],
+ "spawn": [
+  3,
+  10
+ ],
+ "rows": [
+  "mRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR",
+  "RRRRRRRRRRRRRRRmRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRmRRRRRRRRRRRRRRRRRR",
+  "RRmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmRR",
+  "RRmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmRR",
+  "RRmmhhhhhhhmmmmmmmmRmmmmmmmmmmmmmmmmRmkkkkkmmmmmmmmmmmmmmmmmmmmmRR",
+  "RRmmhhhhhhhmmmmmmmmmmmmmmmmmmmmmmmmmmmkkkkkmmmmhhhhhhhhhmmmmmmmmRR",
+  "RRmmhhhhhhhmmmmmmmmmmmmmmmmmmmmmmmmmmmkkkkkmmmmhhhhhhhhhmmmmmmmmRR",
+  "RRmmhhhhhhhmmmmmmmmmmmmmmhhhhhhhhhhmmmkkkkkmmmmhhhhhhhhhmmmmmmmmRR",
+  "RRmmmmmmmmmmmmRRmmmmRmmmmhhhhhhhhhhmmmkkkkkmmmmhhhhhhhhhmmmmmmmmRR",
+  "..mmmmmmmmmmmmmRmmmmmmmmmhhhhhhhhhhmWmmmmmmmmmmhwwhhhhhhmmmmmmmmRR",
+  "============mmmmmmmmmmmmRhhhhhhBBBBBBBRmmmmmmmmhwwhhhhhhmmmmmmmmRR",
+  "..mmmmmmmmm=mmmmmmmmmmmmmhhhhhhBBBBBBBmmmmmmmmmhhhhhhhhhmmmmmmmmRR",
+  "RRmmmmmmmmm=mmmmmmmmmmmmmmmmmmmBBBBBBBmmmmmmmmmmmmmmmmmmmmmmmmmmRR",
+  "RRWWWWWWWWW=mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmkkkkkmmmRR",
+  "RRmmmmmmmmm=================================mmmmmmmmmmmmkkkkkmmmRR",
+  "RRmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm=mmmmmmmmmmmmkkkkkmmmmR",
+  "RRmmmmmmmmmmmWmmmmmRmmmmWWWWWWWWWWWWWWWWWWm=mWmmmmmmmmmmkkkkkmmmRR",
+  "RRmmmmmmmmmmmWmmmmmmmmmmmRmmmmmmmmmmmmmmmmm=mWmmmmmmmmmmkkkkkmmmRR",
+  "RRmmmmmmmmmmmWhhhhhhhhhmmmmmmmhhhhhhhhhhmmm=mWmmmmmmmmmmmmmmmmmmRR",
+  "RRmmmmmmmmmmRWhhhhhhhhhmmmmmmmhhhhhhhhhhmmm=mWmmmmmmmmmmmmmmmmmmRR",
+  "RRmmmmmmmmmmmWhhhhhhhhhmmmwwwmhhhhhhhhhhRmm=mmmmmmmmmmmmmmmmmmmm..",
+  "RRmmmmmmmmmmmWhhhhhhhhhmmmwwwmhhhhhhhhhhmmm=======================",
+  "RmmmmkkkkkkmmWhhhhhhhhhmmmmmmmhhhhhhhhhhmmmmmmmmmmmmmmmmmmmmmmmm..",
+  "RRmmmkkkkkkmmWhhhhhhhhhmmmmmmmhhhhhhhhhhmmmmmmmWWWWWWWWWWWWmmmmmRR",
+  "RRmmmkkkkkkmmmmmmmmmmmmmmmmmmmhhhhhhhhhhmmmmmmmmmmmmhhhhhhhhmmmmmR",
+  "RRmmmkkkkkkmmmRmmmmmmRmmmmmmmmmmmmmmmmmmmmmmmmmmmRmmhhhhhhhhmmmmRR",
+  "RRmmmkkkkkkmmmmmmmmmmmmmmmRmmmmmmmmmmmmmmmmmmmmmmmmmhhhhhhhhmmmmRR",
+  "RRmmmmmmmmmmmmmmmRmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmhhhhhhhhmmmmRR",
+  "RRmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmhhhhhhhhmmmmRR",
+  "RRmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmRR",
+  "RRRRRRRRRRRRRRRmRmRmRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR",
+  "mRRRRRRRRRRRRRRRRRRRmRRRRRRRRRRRRRRRRRRRmRRRRRRRRRRRRRRRRRRRRRRRRR"
+ ],
+ "heights": [
+  "000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000011111111111111111111111111111111111111111111110000000000",
+  "000000000011111111111111111111111111111111111111111111110000000000",
+  "000000000011111111111111111111111111111111111111111111110000000000",
+  "000000000011111111112222222222222222222222222211111111110000000000",
+  "000000000011111111112222222222222222222222222211111111110000000000",
+  "000000000011111111112222222222222222222222222211111111110000000000",
+  "000000000011111111112222222222222222222222222211111111110000000000",
+  "000000000011111111112222222222222222222222222211111111110000000000",
+  "000000000011111111112222222222222222222222222211111111110000000000",
+  "000000000011111111112222222222222222222222222211111111110000000000",
+  "000000000011111111112222222222222222222222222211111111110000000000",
+  "000000000011111111112222222222222222222222222211111111110000000000",
+  "000000000011111111112222222222222222222222222211111111110000000000",
+  "000000000011111111112222222222222222222222222211111111110000000000",
+  "000000000011111111112222222222222222222222222211111111110000000000",
+  "000000000011111111112222222222222222222222222211111111110000000000",
+  "000000000011111111112222222222222222222222222211111111110000000000",
+  "000000000011111111112222222222222222222222222211111111110000000000",
+  "000000000011111111112222222222222222222222222211111111110000000000",
+  "000000000011111111112222222222222222222222222211111111110000000000",
+  "000000000011111111112222222222222222222222222211111111110000000000",
+  "000000000011111111111111111111111111111111111111111111110000000000",
+  "000000000011111111111111111111111111111111111111111111110000000000",
+  "000000000011111111111111111111111111111111111111111111110000000000",
+  "000000000011111111111111111111111111111111111111111111110000000000",
+  "000000000011111111111111111111111111111111111111111111110000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000"
+ ],
+ "legend_extra": {
+  "m": {
+   "tile": "grass",
+   "colour": "#7d7a45"
+  },
+  "h": {
+   "tile": "tall_grass",
+   "colour": "#6e5a5c",
+   "prop": "heather"
+  },
+  "k": {
+   "tile": "tall_grass",
+   "colour": "#7a7444",
+   "prop": "none"
+  }
+ }
+}

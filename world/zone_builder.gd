@@ -58,6 +58,9 @@ static func _ground(z: ZoneData, rng: RandomNumberGenerator) -> MeshInstance3D:
 				continue
 			var gy := ground_y(z, p)
 			var col: Color = GROUND_COLOURS.get(t, Color("ff00ff"))
+			var ex: Dictionary = z.legend_extra.get(z.char_at(p), {})
+			if ex.has("colour"):
+				col = Color(str(ex.colour))
 			col = _vary(t, col, x, y, rng)
 			var x0 := float(x)
 			var z0 := float(y)
@@ -172,11 +175,17 @@ static func _props(z: ZoneData, root: Node3D, rng: RandomNumberGenerator) -> voi
 			var t := z.tile_at(p)
 			var extra: Dictionary = z.legend_extra.get(z.char_at(p), {})
 			var prop_name: String = extra.get("prop", "")
-			if prop_name != "":
-				t = {"oak": "tree_oak", "pine": "tree_pine", "birch": "tree_oak", "bush": "rock", "rock": "rock"}.get(prop_name, t)
-			if not TILE_PROPS.has(t):
-				continue
-			var spec: Array = TILE_PROPS[t]
+			var spec: Array = []
+			if prop_name in ["heather", "reeds", "none"]:
+				if prop_name == "none":
+					continue
+				spec = [prop_name + ("_tuft" if prop_name == "heather" else ""), 3, true]
+			else:
+				if prop_name != "":
+					t = {"oak": "tree_oak", "pine": "tree_pine", "birch": "tree_oak", "bush": "rock", "rock": "rock"}.get(prop_name, t)
+				if not TILE_PROPS.has(t):
+					continue
+				spec = TILE_PROPS[t]
 			var variant := rng.randi() % int(spec[1])
 			var basis := Basis()
 			if t in LINEAR:
@@ -218,7 +227,7 @@ static func _props(z: ZoneData, root: Node3D, rng: RandomNumberGenerator) -> voi
 		var mmi := MultiMeshInstance3D.new()
 		mmi.name = "Props_" + key.replace(":", "_")
 		mmi.multimesh = mm
-		var foliage := false
+		var foliage := parts[0] in ["heather_tuft", "reeds"]
 		for tname in TILE_PROPS:
 			if TILE_PROPS[tname][0] == parts[0]:
 				foliage = TILE_PROPS[tname][2]
@@ -257,6 +266,10 @@ static func _ctor(name: String, variant: int) -> ArrayMesh:
 			return Meshes.flower_patch(variant)
 		"tall_grass_tuft":
 			return Meshes.tall_grass_tuft(variant)
+		"heather_tuft":
+			return Meshes.heather_tuft(variant)
+		"reeds":
+			return Meshes.reeds(variant)
 		"lamp_post":
 			return Meshes.lamp_post()
 		"lamp_bulb":

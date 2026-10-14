@@ -223,6 +223,24 @@ static func tall_grass_tuft(variant := 0) -> ArrayMesh:
 		_tri(st, p - side, p + side, tip, Color("5b8c3a").lightened(rng.randf_range(-0.1, 0.12)))
 	return _finish(st)
 
+static func heather_tuft(variant := 0) -> ArrayMesh:
+	var rng := _rng(12000 + variant)
+	var st := _st()
+	for i in 9:
+		var p := Vector3(rng.randf_range(-0.42, 0.42), 0, rng.randf_range(-0.42, 0.42))
+		blob(st, p + Vector3(0, 0.1, 0), Vector3(0.13, 0.11, 0.13), Color("7d4f7a").lightened(rng.randf_range(-0.08, 0.12)), rng, 0.3)
+	return _finish(st)
+
+static func reeds(variant := 0) -> ArrayMesh:
+	var rng := _rng(13000 + variant)
+	var st := _st()
+	for i in 10:
+		var p := Vector3(rng.randf_range(-0.4, 0.4), 0, rng.randf_range(-0.4, 0.4))
+		var tip := p + Vector3(rng.randf_range(-0.05, 0.05), rng.randf_range(0.6, 0.9), rng.randf_range(-0.05, 0.05))
+		_tri(st, p - Vector3(0.03, 0, 0), p + Vector3(0.03, 0, 0), tip, Color("8a8a4a").lightened(rng.randf_range(-0.1, 0.1)))
+		box(st, tip - Vector3(0.025, 0.14, 0.025), Vector3(0.05, 0.14, 0.05), Color("5a3f2a"))
+	return _finish(st)
+
 static func lamp_post() -> ArrayMesh:
 	var st := _st()
 	var iron := Color("2d3138")

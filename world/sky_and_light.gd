@@ -38,7 +38,7 @@ func _ready() -> void:
 	env.fog_enabled = true
 	env.fog_density = 0.002
 	env.adjustment_enabled = true
-	env.adjustment_saturation = 1.12
+	env.adjustment_saturation = 1.0
 	env.adjustment_contrast = 1.04
 	we.environment = env
 	add_child(we)

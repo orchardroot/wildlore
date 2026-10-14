@@ -32,10 +32,10 @@
   {
    "type": "building",
    "style": "stone",
-   "x": 37,
-   "y": 12,
-   "w": 7,
-   "h": 5,
+   "x": 36,
+   "y": 23,
+   "w": 8,
+   "h": 4,
    "label": "Town Hall"
   },
   {
@@ -67,6 +67,136 @@
    "type": "lamp_post",
    "x": 34,
    "y": 18
+  },
+  {
+   "type": "market_stall",
+   "x": 21,
+   "y": 16,
+   "variant": 0
+  },
+  {
+   "type": "market_stall",
+   "x": 23,
+   "y": 16,
+   "variant": 2
+  },
+  {
+   "type": "market_stall",
+   "x": 29,
+   "y": 16,
+   "variant": 2
+  },
+  {
+   "type": "market_stall",
+   "x": 31,
+   "y": 16,
+   "variant": 1
+  },
+  {
+   "type": "planter",
+   "x": 17,
+   "y": 15
+  },
+  {
+   "type": "planter",
+   "x": 35,
+   "y": 15
+  },
+  {
+   "type": "phone_box",
+   "x": 26,
+   "y": 11
+  },
+  {
+   "type": "post_box",
+   "x": 27,
+   "y": 18
+  },
+  {
+   "type": "building",
+   "style": "red_brick",
+   "x": 13,
+   "y": 7,
+   "w": 5,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "cream_render",
+   "x": 34,
+   "y": 6,
+   "w": 3,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "oak",
+   "x": 3,
+   "y": 17,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 12,
+   "y": 14,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 15,
+   "y": 15,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 36,
+   "y": 18,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 47,
+   "y": 25,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 27,
+   "y": 24,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 31,
+   "y": 25,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 45,
+   "y": 9,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 15,
+   "y": 3,
+   "variant": 0
+  },
+  {
+   "type": "bench",
+   "x": 45,
+   "y": 24
+  },
+  {
+   "type": "building",
+   "style": "red_brick",
+   "x": 28,
+   "y": 23,
+   "w": 4,
+   "h": 3,
+   "show_label": false
   },
   {
    "type": "building",
@@ -227,28 +357,28 @@
   "TTT..............................................TTT",
   "TTT......................................BBBBBB.RTTP",
   "TTT...................................R..BBBBBB..TTT",
-  "TTT.HHHHHHHH.............................BBBBBB..TTT",
-  "TTT...BBBBBH.......BBBBBB...BBBBB........BBBBBB..TTT",
-  "TTP...BBBBBH.......BBBBBB...BBBBB..............R.TTT",
-  "TTT...BBBBBH.......BBBBBB...BBBBB......R##.......TTT",
-  "TTT...BBDBBH.......BBBDBB...BBDBB.......##.......TTT",
-  "TTT..######H.....:::::::::::::::::::....##.......TTT",
-  "TTP.....#........:::::::::::::::::::.BBBBBBB.....TTT",
-  "TTT.fff.#........:::::::::::::::::::.BBBBBBBBBBBBTTT",
-  "TTT.fff.#........::::::::fff::::::::.BBBBBBBBBBBBTTT",
-  "TTT.fff.#........::::::::fff::::::::.BBBBBBBBBBBBTTT",
-  "TTT.....#........:::::::::::::::::::.BBBBBBBBBDBBTTT",
+  "TTT.HHHHHHHH......................BBB....BBBBBB..TTT",
+  "TTT...BBBBBH.BBBBB.BBBBBB...BBBBB.BBB....BBBBBB..TTT",
+  "TTP...BBBBBH.BBBBB.BBBBBB...BBBBB.BBB..........R.TTT",
+  "TTT...BBBBBH.BBBBB.BBBBBB...BBBBB.BBB..R##.......TTT",
+  "TTT...BBDBBH.BBBBB.BBBDBB...BBDBB.......##.......TTT",
+  "TTT..######H.ffff:::::::::::::::::::....##.......TTT",
+  "TTP.....#........:::::::::::::::::::.............TTT",
+  "TTT.fff.#........:::::::::::::::::::........BBBBBTTT",
+  "TTT.fff.#........::::::::fff::::::::........BBBBBTTT",
+  "TTT.fff.#........::::::::fff::::::::........BBBBBTTT",
+  "TTT.....#........:::::::::::::::::::........BBDBBTTT",
   "TTT.....#........:::::::::::::::::::..........#..TTT",
   "TPT.....#........:::::::::::::::::::..........#.....",
   "TTP:::::::::::::::::::::::::::::::::::::::::::::::::",
   "TTT=================================================",
   "TTT::::::::::::::::::::::::::::::::::::::::::::::TTT",
   "TTT.....................##.......................TTT",
-  "TTT..BBBBB.BBBBB.BBBB...##.......................TTT",
-  "TTT..BBBBB.BBBBB.BBBB...##.......................TTT",
-  "TTT..BBBBB.BBBBB.BBBB...##.......................TTT",
-  "TTT.##################..##.......................TTT",
-  "TTT.....................##.......................TTT",
+  "TTT..BBBBB.BBBBB.BBBB...##..BBBB....BBBBBBBB.....TTT",
+  "TTT..BBBBB.BBBBB.BBBB...##..BBBB....BBBBBBBB.....TTT",
+  "TTT..BBBBB.BBBBB.BBBB...##..BBBB....BBBBBBBB.....TTT",
+  "TTT.##################..##..........BBBBBBBB.....TTT",
+  "TTT.....................##..........::::::::.....TTT",
   "TTTsssssssssssssssssssss##sssssssssssssssssssssssTTT",
   "TTT~~~~~~~~~~~~~~~~~~~~~ww~~~~~~~~~~~~~~~~~~~~~~~TTT",
   "TTT~~~~~~~~~~~~~~~~~~~~~ww~~~~~~~~~~~~~~~~~~~~~~~TTT",
