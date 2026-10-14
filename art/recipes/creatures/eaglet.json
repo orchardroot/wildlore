@@ -1,0 +1,21 @@
+{"id": "eaglet",
+ "palette": {"br": "#8a6a48", "br2": "#5e4630", "fl": "#f4e8cc", "gold": "#d8a850", "bill": "#f0c040", "bill2": "#c89828", "ink": "#1c1410", "blush": "#f0a890", "foot": "#e8b838"},
+ "layers": [
+  {"shape": "ellipse", "at": [38, 91], "size": [16, 8], "colour": "foot", "mirror": true},
+  {"shape": "ellipse", "at": [48, 68], "size": [54, 46], "colour": "br"},
+  {"shape": "ellipse", "at": [48, 76], "size": [32, 28], "colour": "fl", "front_only": true, "rim": false, "pattern": "speckle", "pcolour": "br", "density": 14},
+  {"shape": "ellipse", "at": [24, 68], "size": [12, 26], "colour": "br2", "angle": 8, "mirror": true},
+  {"shape": "poly", "points": [[66, 70], [80, 62], [84, 80], [70, 84]], "colour": "br2"},
+  {"shape": "spikes", "at": [48, 44], "size": [50, 42], "colour": "fl", "count": 10, "len": 6, "from": -200, "to": 20, "seed": 3, "rim": false},
+  {"shape": "ellipse", "at": [48, 44], "size": [46, 38], "colour": "fl"},
+  {"shape": "ellipse", "at": [48, 36], "size": [38, 14], "colour": "gold", "back_only": true},
+  {"shape": "ellipse", "at": [48, 32], "size": [34, 12], "colour": "gold", "front_only": true, "rim": false},
+  {"shape": "poly", "points": [[40, 46], [56, 46], [52, 56], [46, 60], [44, 52]], "colour": "bill"},
+  {"shape": "poly", "points": [[40, 46], [56, 46], [54, 49], [42, 49]], "colour": "bill2", "shade": false, "rim": false}
+ ],
+ "face_layers": [
+  {"shape": "ellipse", "at": [32, 52], "size": [6, 4], "colour": "blush", "shade": false, "mirror": true},
+  {"shape": "line", "points": [[33, 35], [43, 38]], "width": 2, "colour": "br2", "shade": false, "mirror": true}
+ ],
+ "eyes": [{"at": [38, 42], "r": 5, "mirror": true}]
+}

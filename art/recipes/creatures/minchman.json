@@ -1,0 +1,30 @@
+{"id": "minchman",
+ "palette": {"bl": "#3a68c4", "bl2": "#2a4a98", "hl": "#6a98e8", "hair": "#8cc0f4", "foam": "#eef8fc", "wave": "#2c64a8", "wave2": "#5a9ad0", "wave3": "#1e4880", "ink": "#10204a", "eye": "#f4fcff", "tooth": "#fbf6ea", "bolt": "#fce87a"},
+ "layers": [
+  {"shape": "ellipse", "at": [48, 86], "size": [96, 26], "colour": "wave3", "rim": false},
+  {"shape": "ellipse", "at": [48, 62], "size": [52, 50], "colour": "bl"},
+  {"shape": "ellipse", "at": [26, 52], "size": [16, 36], "colour": "bl", "angle": -14},
+  {"shape": "ellipse", "at": [70, 52], "size": [16, 36], "colour": "bl", "angle": 14},
+  {"shape": "ellipse", "at": [20, 72], "size": [12, 12], "colour": "hl"},
+  {"shape": "ellipse", "at": [76, 72], "size": [12, 12], "colour": "hl"},
+  {"shape": "ellipse", "at": [48, 40], "size": [40, 34], "colour": "bl"},
+  {"shape": "spikes", "at": [48, 26], "size": [42, 24], "colour": "hair", "count": 9, "len": 10, "from": -220, "to": 40, "seed": 5, "rim": false},
+  {"shape": "ellipse", "at": [48, 52], "size": [34, 22], "colour": "foam", "front_only": true},
+  {"shape": "ellipse", "at": [48, 50], "size": [34, 22], "colour": "hl", "back_only": true},
+  {"shape": "line", "points": [[8, 86], [18, 80], [30, 86], [42, 80], [54, 86], [66, 80], [78, 86], [90, 80]], "width": 6, "colour": "wave2", "shade": false},
+  {"shape": "ellipse", "at": [48, 92], "size": [96, 10], "colour": "wave", "rim": false, "shade": false},
+  {"shape": "circle", "at": [10, 78], "r": 3, "colour": "foam", "shade": false, "rim": false},
+  {"shape": "circle", "at": [34, 76], "r": 3, "colour": "foam", "shade": false, "rim": false},
+  {"shape": "circle", "at": [60, 78], "r": 3, "colour": "foam", "shade": false, "rim": false},
+  {"shape": "circle", "at": [86, 76], "r": 3, "colour": "foam", "shade": false, "rim": false},
+  {"shape": "circle", "at": [22, 92], "r": 3, "colour": "foam", "shade": false, "rim": false},
+  {"shape": "circle", "at": [70, 92], "r": 3, "colour": "foam", "shade": false, "rim": false},
+  {"shape": "poly", "points": [[84, 34], [90, 34], [86, 42], [92, 42], [82, 54], [85, 46], [80, 46]], "colour": "bolt", "shade": false, "rim": false}
+ ],
+ "face_layers": [
+  {"shape": "line", "points": [[40, 50], [44, 55], [48, 50], [52, 55], [56, 50]], "width": 1.4, "colour": "ink", "shade": false}
+ ],
+ "eyes": [{"at": [41, 40], "r": 5, "colour": "ink", "mirror": true}],
+ "anim": "shift",
+ "bob": 3
+}

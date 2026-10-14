@@ -1,0 +1,20 @@
+{"id": "midgie",
+ "palette": {"b": "#4a3a34", "b2": "#2e2420", "wing": "#cfe0ea", "wing2": "#a8c4d8", "leg": "#3a2e2a", "eye": "#c82a2a", "ink": "#1c1410", "blush": "#e8908a"},
+ "layers": [
+  {"shape": "line", "points": [[34, 66], [26, 76], [24, 84]], "width": 2, "colour": "leg", "mirror": true, "shade": false},
+  {"shape": "line", "points": [[38, 70], [34, 82], [34, 88]], "width": 2, "colour": "leg", "mirror": true, "shade": false},
+  {"shape": "ellipse", "at": [26, 48], "size": [28, 12], "colour": "wing", "angle": -28, "mirror": true, "rim": false, "pattern": "stripes", "pcolour": "wing2", "period": 5, "pangle": 60},
+  {"shape": "ellipse", "at": [48, 66], "size": [34, 38], "colour": "b"},
+  {"shape": "ellipse", "at": [48, 70], "size": [18, 20], "colour": "b2", "front_only": true, "rim": false},
+  {"shape": "line", "points": [[48, 76], [48, 84]], "width": 3, "colour": "b2", "shade": false},
+  {"shape": "ellipse", "at": [48, 44], "size": [34, 28], "colour": "b"},
+  {"shape": "line", "points": [[48, 52], [48, 64]], "width": 2, "colour": "leg", "shade": false, "front_only": true}
+ ],
+ "face_layers": [
+  {"shape": "ellipse", "at": [33, 50], "size": [5, 3], "colour": "blush", "shade": false, "mirror": true},
+  {"shape": "line", "points": [[44, 54], [48, 56], [52, 54]], "width": 1, "colour": "ink", "shade": false}
+ ],
+ "eyes": [{"at": [40, 42], "r": 5.5, "colour": "ink", "mirror": true}],
+ "anim": "shift",
+ "bob": 3
+}
