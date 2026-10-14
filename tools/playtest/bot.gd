@@ -189,12 +189,13 @@ func _walk_to(zone_id: String, target: Vector2i) -> void:
 ## Walks up and down tall grass until the lead creature reaches `level`.
 func _grind_to(level: int, zone := "") -> void:
 	var lead := _strongest()
-	if lead == null or lead.level >= level:
+	if lead == null or _team_level() >= level:
 		return
-	print("BOT: grinding %s from %d to %d" % [lead.display_name(), lead.level, level])
+	print("BOT: training the team towards L%d (best %s L%d)" % [level, lead.display_name(), lead.level])
 	var guard := 0
-	while _strongest().level < level and not _done and guard < 4000:
+	while _team_level() < level and not _done and guard < 4000:
 		guard += 1
+		_lead_with_weakest()
 		var grind_zone := zone if zone != "" else ("macc_forest" if _strongest().level < 9 else "cat_and_fiddle")
 		var spot := _grass_spot(grind_zone)
 		await _walk_to(grind_zone, spot)
@@ -204,6 +205,32 @@ func _grind_to(level: int, zone := "") -> void:
 			await ow.player.try_step(d, false)
 			stats.steps += 1
 		await _heal_if_low(0.4)
+
+## How strong the team is: the third-best level plus 3 (a lone star doesn't make a team), or the best if there are fewer than 3.
+func _team_level() -> int:
+	var lv: Array = Game.data.party.map(func(c): return c.level)
+	lv.sort()
+	lv.reverse()
+	return lv[0] if lv.size() < 3 else mini(lv[0], lv[2] + 3)
+
+## Like a sensible player: put the lowest-level creature first while training, so the whole team keeps up.
+## A creature far below the area's level would just faint, so it never leads more than 8 levels under the best.
+func _lead_with_weakest() -> void:
+	var party: Array = Game.data.party
+	if party.size() < 2:
+		return
+	var best := _strongest().level
+	var pick := -1
+	for i in party.size():
+		var c: Creature = party[i]
+		if c.is_fainted() or c.level < best - 8:
+			continue
+		if pick < 0 or c.level < party[pick].level:
+			pick = i
+	if pick > 0:
+		var c: Creature = party[pick]
+		party.remove_at(pick)
+		party.insert(0, c)
 
 func _grass_spot(zone_id: String) -> Vector2i:
 	var z := ZoneData.load_id(zone_id)
