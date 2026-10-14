@@ -9,6 +9,8 @@ const Character = preload("res://tools/spritegen/character.gd")
 const Placeholders = preload("res://tools/spritegen/placeholders.gd")
 const Sheets = preload("res://tools/spritegen/sheets.gd")
 
+const ORDER := ["spikkin", "bramblehog", "thornsow", "holtling", "rillotter", "spatelord", "kindlet", "emberdrey", "pyredrey", "scuttlet", "warrender", "pipkin", "redbreast", "croakle", "hootlet", "binfox", "dipling", "gritling", "wispet", "roachroo", "snowhare"]
+const CHAR_ORDER := ["player_a", "player_b", "prof_garside", "kit", "keeper_maud", "mum", "villager_1", "villager_2", "villager_3", "villager_4", "villager_5", "villager_6", "sanctuary_nurse", "shopkeeper", "hiker", "birdwatcher", "angler", "jogger", "warden_grunt"]
 const CREATURE_RECIPES := "res://art/recipes/creatures"
 const CHAR_RECIPES := "res://art/recipes/chars"
 const CREATURE_OUT := "res://art/sprites/creatures"
@@ -18,8 +20,11 @@ func _initialize() -> void:
 	var ids: Array = []
 	var sheets := false
 	var preview := ""
+	var cpreview := ""
 	for a in OS.get_cmdline_user_args():
-		if a.begins_with("--preview="):
+		if a.begins_with("--cpreview="):
+			cpreview = a.substr(11)
+		elif a.begins_with("--preview="):
 			preview = a.substr(10)
 		elif a == "--sheets":
 			sheets = true
@@ -43,13 +48,15 @@ func _initialize() -> void:
 			continue
 		_save(Character.render(load_recipe(CHAR_RECIPES, id)), "%s/%s.png" % [CHAR_OUT, id])
 		count += 1
+	if cpreview != "":
+		_save(Sheets.chars(ids, 3 if ids.size() > 1 else 8, 4 if ids.size() > 1 else 1), cpreview)
 	if preview != "":
 		_save(Sheets.preview(ids, 3), preview)
 	if sheets:
-		_save(Sheets.creatures(list_recipes(CREATURE_RECIPES), "front"), "res://docs/screens/t4-creatures.png")
-		_save(Sheets.creatures(list_recipes(CREATURE_RECIPES), "back"), "res://docs/screens/t4-creatures-back.png")
-		_save(Sheets.creatures(list_recipes(CREATURE_RECIPES), "icon"), "res://docs/screens/t4-icons.png")
-		_save(Sheets.chars(list_recipes(CHAR_RECIPES)), "res://docs/screens/t4-chars.png")
+		_save(Sheets.creatures(_ordered(list_recipes(CREATURE_RECIPES), ORDER), "front"), "res://docs/screens/t4-creatures.png")
+		_save(Sheets.creatures(_ordered(list_recipes(CREATURE_RECIPES), ORDER), "back"), "res://docs/screens/t4-creatures-back.png")
+		_save(Sheets.creatures(_ordered(list_recipes(CREATURE_RECIPES), ORDER), "icon"), "res://docs/screens/t4-icons.png")
+		_save(Sheets.chars(_ordered(list_recipes(CHAR_RECIPES), CHAR_ORDER)), "res://docs/screens/t4-chars.png")
 	print("spritegen: rendered %d recipe(s)" % count)
 	quit(0)
 
@@ -76,3 +83,13 @@ static func _save(img: Image, path: String) -> void:
 	var err := img.save_png(ProjectSettings.globalize_path(path))
 	if err != OK:
 		push_error("spritegen: cannot save %s (%d)" % [path, err])
+
+static func _ordered(ids: Array, order: Array) -> Array:
+	var out: Array = []
+	for id in order:
+		if id in ids:
+			out.append(id)
+	for id in ids:
+		if not (id in out):
+			out.append(id)
+	return out

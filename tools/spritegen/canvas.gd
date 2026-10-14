@@ -191,6 +191,8 @@ func paint(m: Dictionary, tn: Array, opt: Dictionary) -> void:
 	var ang: float = deg_to_rad(float(opt.get("angle", 60.0)))
 	var density: int = int(opt.get("density", 9))
 	var nspine: float = float(opt.get("n", 26))
+	var lo_th: float = float(opt.get("lo", LO_TH))
+	var hi_th: float = float(opt.get("hi", HI_TH))
 	var ca := cos(ang)
 	var sa := sin(ang)
 	for j in m.h:
@@ -208,9 +210,9 @@ func paint(m: Dictionary, tn: Array, opt: Dictionary) -> void:
 				var z := sqrt(maxf(0.0, 1.0 - nx * nx - ny * ny))
 				var l := 0.55 * (-(nx * 0.6 + ny * 0.8)) + 0.5 * z
 				l += (BAYER[(y & 3) * 4 + (x & 3)] / 16.0 - 0.47) * 0.17
-				if l > HI_TH:
+				if l > hi_th:
 					tone = 2
-				elif l < LO_TH:
+				elif l < lo_th:
 					tone = 1
 			var col: Color = tn[tone]
 			match pattern:

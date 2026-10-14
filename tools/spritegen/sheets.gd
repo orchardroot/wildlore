@@ -43,11 +43,11 @@ static func creatures(ids: Array, which: String) -> Image:
 		return _grid(cells, 32, 32, 7, 3)
 	return _grid(cells, 96, 96, 6 if which == "front" else 6, 2)
 
-static func chars(ids: Array) -> Image:
+static func chars(ids: Array, scale := 2, cols := 6) -> Image:
 	var cells: Array = []
 	for id in ids:
 		cells.append(_load("res://art/sprites/chars/%s.png" % id))
-	return _grid(cells, 96, 192, 6, 2)
+	return _grid(cells, 96, 192, cols, scale)
 
 ## Developer preview: front and back (first frame) of each id, scaled up.
 static func preview(ids: Array, scale: int) -> Image:
