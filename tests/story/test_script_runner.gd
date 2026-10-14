@@ -240,3 +240,17 @@ func test_give_item_when_bag_full_says_so() -> void:
 	await _cmds(h).run([{"do": "give_item", "item": "cup_of_tea", "n": 2}])
 	assert_true(h.texts().any(func(t): return t.contains("full")), "tells you the bag is full")
 	assert_false(h.texts().any(func(t): return t.contains("received")))
+
+func test_double_trainer_battle_is_a_double() -> void:
+	var h := FakeStoryHost.new()
+	h.data.party = [Fixtures.creature("kindlet", 10), Fixtures.creature("holtling", 10)]
+	await _cmds(h).run([{"do": "battle", "trainer": "dev_double"}])
+	assert_eq(h.last_battle.opts.get("double", false), true)
+	assert_eq(h.last_battle.foes.size(), 3, "two out at once, one in reserve")
+	assert_eq(h.last_battle.opts.kind, "trainer")
+
+func test_single_trainer_battle_is_not_a_double() -> void:
+	var h := FakeStoryHost.new()
+	h.data.party = [Fixtures.creature("kindlet", 10)]
+	await _cmds(h).run([{"do": "battle", "trainer": "testbed_tester"}])
+	assert_false(h.last_battle.opts.has("double"), "singles opts unchanged")

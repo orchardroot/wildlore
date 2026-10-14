@@ -31,7 +31,7 @@ static func music_exists(id: String) -> bool:
 			return true
 	return false
 
-## The battle track for a battle's opts: an explicit "music" wins, Keepers get their own reel.
+## The battle track for a battle's opts: an explicit "music" wins, Keepers get their own reel, doubles a faster one.
 static func battle_music(opts: Dictionary) -> String:
 	if opts.has("music"):
 		return str(opts.music)
@@ -39,4 +39,6 @@ static func battle_music(opts: Dictionary) -> String:
 		return "battle_enclosure"
 	if opts.get("ai", "") == "keeper":
 		return "battle_keeper"
+	if bool(opts.get("double", false)):
+		return "battle_double"
 	return "battle_wild" if opts.get("kind", "wild") == "wild" else "battle_trainer"

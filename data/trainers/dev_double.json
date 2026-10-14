@@ -1,0 +1,19 @@
+{
+	"id": "dev_double",
+	"name": "Dev Twins Aoife and Fionn",
+	"class": "Twins",
+	"sprite": "villager_2",
+	"double": true,
+	"party": [
+		{"species": "spikkin", "level": 8},
+		{"species": "starlet", "level": 8},
+		{"species": "croakle", "level": 9}
+	],
+	"ai": "trainer",
+	"money": 200,
+	"intro": [
+		{"do": "say", "who": "Dev Twins Aoife and Fionn", "text": "Two of us, {player}. Two at a time. That's only fair."}
+	],
+	"win": "We'll blame each other for that one.",
+	"after": "A test pair for double battles. We don't live anywhere yet."
+}
