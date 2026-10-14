@@ -1,0 +1,143 @@
+{
+  "line": "dozelet",
+  "species": [
+    {
+      "id": "dozelet",
+      "name": "Dozelet",
+      "types": [
+        "hedgerow",
+        "kin"
+      ],
+      "base": {
+        "hp": 50,
+        "atk": 46,
+        "def": 56,
+        "lore": 44,
+        "ward": 54,
+        "spd": 58
+      },
+      "growth": "medium",
+      "catch_rate": 190,
+      "base_xp": 60,
+      "learnset": [
+        [
+          1,
+          "scrap"
+        ],
+        [
+          1,
+          "glare"
+        ],
+        [
+          4,
+          "ivy_tangle"
+        ],
+        [
+          7,
+          "bramble_lash"
+        ],
+        [
+          11,
+          "hunker"
+        ],
+        [
+          15,
+          "nettle_sting"
+        ],
+        [
+          20,
+          "quick_nip"
+        ],
+        [
+          26,
+          "sloe_splash"
+        ]
+      ],
+      "evolves": {
+        "to": "hazeldoze",
+        "level": 18
+      },
+      "habitat": [
+        "mendips",
+        "dartmoor"
+      ],
+      "dex": {
+        "text": "Weaves a neat round nest in the hedge and then sleeps in it through most of the afternoon. Quite right too.",
+        "fact": "Hazel dormice weave round nests of grass and strips of bark, often up in a bush or hedge."
+      },
+      "sprite": "dozelet"
+    },
+    {
+      "id": "hazeldoze",
+      "name": "Hazeldoze",
+      "types": [
+        "hedgerow",
+        "kin"
+      ],
+      "base": {
+        "hp": 64,
+        "atk": 70,
+        "def": 80,
+        "lore": 62,
+        "ward": 74,
+        "spd": 74
+      },
+      "growth": "medium",
+      "catch_rate": 60,
+      "base_xp": 150,
+      "learnset": [
+        [
+          1,
+          "scrap"
+        ],
+        [
+          1,
+          "glare"
+        ],
+        [
+          4,
+          "ivy_tangle"
+        ],
+        [
+          7,
+          "bramble_lash"
+        ],
+        [
+          11,
+          "hunker"
+        ],
+        [
+          15,
+          "nettle_sting"
+        ],
+        [
+          20,
+          "quick_nip"
+        ],
+        [
+          26,
+          "sloe_splash"
+        ],
+        [
+          32,
+          "thorn_volley"
+        ],
+        [
+          40,
+          "barge"
+        ],
+        [
+          48,
+          "elder_hex"
+        ]
+      ],
+      "evolves": null,
+      "habitat": [],
+      "dex": {
+        "text": "Hibernates through most of the year and wakes only to remind everyone it was here all along. Very sleepy, very sweet.",
+        "fact": "Hazel dormice hibernate for around half the year, and they can lose a lot of their body weight before they wake up."
+      },
+      "sprite": "hazeldoze"
+    }
+  ]
+}

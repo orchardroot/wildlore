@@ -1,0 +1,147 @@
+{
+  "line": "gannetling",
+  "species": [
+    {
+      "id": "gannetling",
+      "name": "Gannetling",
+      "types": [
+        "tide",
+        "gale"
+      ],
+      "base": {
+        "hp": 54,
+        "atk": 54,
+        "def": 48,
+        "lore": 50,
+        "ward": 50,
+        "spd": 64
+      },
+      "growth": "medium",
+      "catch_rate": 190,
+      "base_xp": 60,
+      "learnset": [
+        [
+          1,
+          "brine_spray"
+        ],
+        [
+          1,
+          "gust_nudge"
+        ],
+        [
+          5,
+          "sea_fret"
+        ],
+        [
+          9,
+          "crab_pinch"
+        ],
+        [
+          13,
+          "updraught"
+        ],
+        [
+          18,
+          "swoop"
+        ],
+        [
+          23,
+          "tidal_surge"
+        ],
+        [
+          28,
+          "kestrel_dive"
+        ]
+      ],
+      "evolves": {
+        "to": "plungebeak",
+        "level": 28
+      },
+      "habitat": [
+        "penzance",
+        "dingle"
+      ],
+      "dex": {
+        "text": "Dive-bombs the sea from a great height with a splash that is entirely deliberate. Wears black wingtips like a very smart suit.",
+        "fact": "Northern gannets dive into the sea from up to 30 metres high, folding their wings back at the last moment."
+      },
+      "sprite": "gannetling"
+    },
+    {
+      "id": "plungebeak",
+      "name": "Plungebeak",
+      "types": [
+        "tide",
+        "gale"
+      ],
+      "base": {
+        "hp": 66,
+        "atk": 76,
+        "def": 62,
+        "lore": 70,
+        "ward": 68,
+        "spd": 78
+      },
+      "growth": "medium",
+      "catch_rate": 60,
+      "base_xp": 150,
+      "learnset": [
+        [
+          1,
+          "brine_spray"
+        ],
+        [
+          1,
+          "gust_nudge"
+        ],
+        [
+          5,
+          "sea_fret"
+        ],
+        [
+          9,
+          "crab_pinch"
+        ],
+        [
+          13,
+          "updraught"
+        ],
+        [
+          18,
+          "swoop"
+        ],
+        [
+          23,
+          "tidal_surge"
+        ],
+        [
+          28,
+          "kestrel_dive"
+        ],
+        [
+          33,
+          "peregrine_plunge"
+        ],
+        [
+          39,
+          "rip_current"
+        ],
+        [
+          45,
+          "gale_force"
+        ],
+        [
+          52,
+          "spring_tide"
+        ]
+      ],
+      "evolves": null,
+      "habitat": [],
+      "dex": {
+        "text": "Vanishes beneath the waves for a fish, then pops up looking extremely pleased with itself. Excellent hair, questionable dress sense.",
+        "fact": "Gannets have air sacs under the skin of their heads and necks that cushion the impact when they hit the water."
+      },
+      "sprite": "plungebeak"
+    }
+  ]
+}
