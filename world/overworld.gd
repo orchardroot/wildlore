@@ -96,8 +96,10 @@ func can_enter(p: Vector2i, dir: Vector2i) -> String:
 		var landing := p + Vector2i(0, 1)
 		return "ledge" if dir == Vector2i(0, 1) and zone.walkable(landing) and not occupied(landing) else "blocked"
 	var fv := FieldMoves.verdict(Game.data, zone, p)
-	if fv == "blocked" or (fv == "wade" and player.on_bike):
+	if fv == "blocked":
 		return "blocked"
+	if fv == "wade" and player.on_bike and not occupied(p):
+		player.set_bike(false)  # hop off and push off in the coracle
 	if fv == "cut":
 		return "blocked" if occupied(p) else "cut"
 	if not zone.walkable(p, dir, FieldMoves.abilities(Game.data)) or occupied(p) or not zone.sign_at(p).is_empty():

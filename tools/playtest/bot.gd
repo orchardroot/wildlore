@@ -121,6 +121,9 @@ func _walk_to(zone_id: String, target: Vector2i) -> void:
 		if Game.data.zone_id == zone_id and ow.player.grid_pos == target:
 			return
 		await _heal_if_low(0.35)
+		Pathfinder.abilities = FieldMoves.abilities(Game.data)
+		if not ow.player.on_bike and ow.zone.kind != "interior" and FieldMoves.bike_refusal(Game.data, ow.zone, ow.player.wading) == "":
+			ow.player.set_bike(true)
 		var blocked := {}
 		for n in ow.npcs:
 			if is_instance_valid(n) and n.grid_pos != target:
