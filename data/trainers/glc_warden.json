@@ -1,0 +1,31 @@
+{
+ "id": "glc_warden",
+ "name": "Warden Rattray",
+ "class": "Warden",
+ "sprite": "warden_grunt",
+ "party": [
+  {
+   "species": "thornsow",
+   "level": 71
+  },
+  {
+   "species": "adderking",
+   "level": 72
+  },
+  {
+   "species": "midgeswarm",
+   "level": 71
+  }
+ ],
+ "ai": "trainer",
+ "money": 3000,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Warden Rattray",
+   "text": "I curate this glen, you know. The mist? Part of the display. Please don't touch the rain."
+  }
+ ],
+ "win": "That was not part of the display! I shall be speaking to Management.",
+ "after": "I've filed a note. In the mist. It will take a while to find."
+}

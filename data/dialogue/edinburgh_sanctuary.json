@@ -1,0 +1,63 @@
+{
+ "nurse": [
+  {
+   "do": "say",
+   "who": "Nurse",
+   "text": "Good day, and welcome to Edinburgh Sanctuary. It's the nicest Sanctuary in the world, in a city that has several nice things. Pop your team on the counter."
+  },
+  {
+   "do": "choice",
+   "text": "What can we do for you?",
+   "options": [
+    "Heal my team",
+    "Open the Ark",
+    "Just looking"
+   ],
+   "set": "_nurse_choice"
+  },
+  {
+   "do": "if",
+   "flag": "_nurse_choice",
+   "eq": 0,
+   "then": [
+    {
+     "do": "say",
+     "who": "Nurse",
+     "text": "Take a seat. Have a shortbread, a wee dram of tea, whatever you fancy. Don't mind the wind. It likes to rearrange us."
+    },
+    {
+     "do": "heal"
+    },
+    {
+     "do": "say",
+     "who": "Nurse",
+     "text": "All done, and in excellent form! M\u00f2ran taing for waiting. D\u00f9n \u00c8ideann is lovely, but it's a lot of hills for a tired team."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "_nurse_choice",
+     "eq": 1,
+     "then": [
+      {
+       "do": "say",
+       "who": "Nurse",
+       "text": "The Ark terminal. It's in the cellar, which is where every self-respecting Edinburgh object lives."
+      },
+      {
+       "do": "ark"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Nurse",
+       "text": "Right you are. Beannachd leibh, and mind the cobbles: they're older than the streets."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

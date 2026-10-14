@@ -1,0 +1,35 @@
+{
+ "id": "edi_warden",
+ "name": "Warden Rennie",
+ "class": "Warden",
+ "sprite": "warden_grunt",
+ "party": [
+  {
+   "species": "thornsow",
+   "level": 69
+  },
+  {
+   "species": "zigzlet",
+   "level": 70
+  },
+  {
+   "species": "adderking",
+   "level": 70
+  },
+  {
+   "species": "bramblehog",
+   "level": 69
+  }
+ ],
+ "ai": "trainer",
+ "money": 2800,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Warden Rennie",
+   "text": "Princes Street Gardens: lovingly curated. By me. Please stay on the paths I've drawn. They're very nice paths."
+  }
+ ],
+ "win": "Unscheduled! This wasn't on the rota!",
+ "after": "I'll note it down: 'visitor, spirited'. Under 'problems'."
+}

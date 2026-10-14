@@ -1,0 +1,63 @@
+{
+ "nurse": [
+  {
+   "do": "say",
+   "who": "Nurse",
+   "text": "F\u00e0ilte, and welcome to Fort William Sanctuary. It sits at the foot of the Ben, so we see a lot of tired teams. Pop yours on the counter."
+  },
+  {
+   "do": "choice",
+   "text": "What can we do for you?",
+   "options": [
+    "Heal my team",
+    "Open the Ark",
+    "Just looking"
+   ],
+   "set": "_nurse_choice"
+  },
+  {
+   "do": "if",
+   "flag": "_nurse_choice",
+   "eq": 0,
+   "then": [
+    {
+     "do": "say",
+     "who": "Nurse",
+     "text": "Have a seat. The kettle's on, the shortbread's out and the radiator is, miraculously, working. Don't mind the rain. It's a local."
+    },
+    {
+     "do": "heal"
+    },
+    {
+     "do": "say",
+     "who": "Nurse",
+     "text": "All better! M\u00f2ran taing for waiting. The Great Glen's next: all lochs and long views. Pack a coat. And another coat."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "_nurse_choice",
+     "eq": 1,
+     "then": [
+      {
+       "do": "say",
+       "who": "Nurse",
+       "text": "The Ark terminal. It's behind the boot rack. The boot rack is the most important thing in the building."
+      },
+      {
+       "do": "ark"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Nurse",
+       "text": "No bother. Beannachd leibh. If you see the summit, send a postcard."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

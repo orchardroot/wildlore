@@ -1,0 +1,35 @@
+{
+ "id": "gg_warden",
+ "name": "Warden Ferrier",
+ "class": "Warden",
+ "sprite": "warden_grunt",
+ "party": [
+  {
+   "species": "thornsow",
+   "level": 73
+  },
+  {
+   "species": "adderking",
+   "level": 73
+  },
+  {
+   "species": "bramblehog",
+   "level": 72
+  },
+  {
+   "species": "midgeswarm",
+   "level": 72
+  }
+ ],
+ "ai": "trainer",
+ "money": 3300,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Warden Ferrier",
+   "text": "The Great Glen is an asset, you understand, and I'm its manager. I have a spreadsheet of the lochs."
+  }
+ ],
+ "win": "That wasn't in the spreadsheet either. Nothing is, today.",
+ "after": "I'm putting in a request to rename Loch Lochy. It's too confusing. I'll let you know."
+}
