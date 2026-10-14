@@ -1,9 +1,124 @@
 {
  "kit_pier": [
   {
-   "do": "say",
-   "who": "Kit",
-   "text": "Hey! Wow, you got here! I'm doing a live stream. Say hi to the viewers. All twelve of them."
+   "do": "if",
+   "flag": "kit3_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Kit",
+     "text": "Pier Head, best backdrop in England. That's a fact. I checked. Twice."
+    },
+    {
+     "do": "say",
+     "who": "Kit",
+     "text": "If the Enclosure ever ask again, I'm going to say I'm busy. Doing a bit of... thinking."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Kit",
+     "text": "Hey! Wow, you got here! I'm doing a live stream. Say hi to the viewers. All twelve of them."
+    },
+    {
+     "do": "say",
+     "who": "Kit",
+     "text": "It was fourteen, but two left when you waved."
+    },
+    {
+     "do": "if",
+     "flag": "starter",
+     "then": [
+      {
+       "do": "say",
+       "who": "Kit",
+       "text": "{player}! Pier Head, golden hour, and the ferry horn is hitting perfectly. This is my best backdrop yet."
+      },
+      {
+       "do": "say",
+       "who": "Kit",
+       "text": "Chat's been saying I should 'let the Enclosure sponsor a battle'. I said I'd do it for free. For now."
+      },
+      {
+       "do": "say",
+       "who": "Kit",
+       "text": "Don't make a face. It's going in the highlights!"
+      },
+      {
+       "do": "battle",
+       "trainer": "kit_3_vs_spikkin"
+      }
+     ],
+     "eq": "spikkin"
+    },
+    {
+     "do": "if",
+     "flag": "starter",
+     "then": [
+      {
+       "do": "say",
+       "who": "Kit",
+       "text": "{player}! Pier Head, golden hour, and the ferry horn is hitting perfectly. This is my best backdrop yet."
+      },
+      {
+       "do": "say",
+       "who": "Kit",
+       "text": "Chat's been saying I should 'let the Enclosure sponsor a battle'. I said I'd do it for free. For now."
+      },
+      {
+       "do": "say",
+       "who": "Kit",
+       "text": "Don't make a face. It's going in the highlights!"
+      },
+      {
+       "do": "battle",
+       "trainer": "kit_3_vs_holtling"
+      }
+     ],
+     "eq": "holtling"
+    },
+    {
+     "do": "if",
+     "flag": "starter",
+     "then": [
+      {
+       "do": "say",
+       "who": "Kit",
+       "text": "{player}! Pier Head, golden hour, and the ferry horn is hitting perfectly. This is my best backdrop yet."
+      },
+      {
+       "do": "say",
+       "who": "Kit",
+       "text": "Chat's been saying I should 'let the Enclosure sponsor a battle'. I said I'd do it for free. For now."
+      },
+      {
+       "do": "say",
+       "who": "Kit",
+       "text": "Don't make a face. It's going in the highlights!"
+      },
+      {
+       "do": "battle",
+       "trainer": "kit_3_vs_kindlet"
+      }
+     ],
+     "eq": "kindlet"
+    },
+    {
+     "do": "say",
+     "who": "Kit",
+     "text": "Right. The ferry horn was perfect, you were rubbish at lighting, and I still lost. Rude."
+    },
+    {
+     "do": "say",
+     "who": "Kit",
+     "text": "Go on, then. Keeper Ray is in the club up the road. Cavern-ish, loud, and he does a very good rimshot."
+    },
+    {
+     "do": "set",
+     "flag": "kit3_done"
+    }
+   ]
   }
  ],
  "sailor": [
@@ -97,6 +212,30 @@
    "do": "say",
    "who": "Ferry Fan",
    "text": "The ferry's older than the song. And better at turning."
+  }
+ ],
+ "gate_wirral": [
+  {
+   "do": "say",
+   "who": "Warden",
+   "text": "This road to the Wirral is closed for Heritage Resurfacing."
+  },
+  {
+   "do": "say",
+   "who": "Warden",
+   "text": "It has been closed since this morning. It will reopen when someone more important than me says so."
+  },
+  {
+   "do": "if",
+   "flag": "ch2_urban",
+   "then": [],
+   "else": [
+    {
+     "do": "say",
+     "who": "Warden",
+     "text": "I hear there's a Keeper in the club who knows someone more important. Just a rumour. I'm not here."
+    }
+   ]
   }
  ]
 }

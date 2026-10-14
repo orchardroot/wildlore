@@ -21,6 +21,41 @@
    "do": "say",
    "who": "Peat Cutter",
    "text": "A peat bog stores more carbon than all the forests in Britain. Don't take the mickey out of the damp."
+  },
+  {
+   "do": "if",
+   "flag": "ch2_moss_call",
+   "then": [],
+   "else": [
+    {
+     "do": "sfx",
+     "id": "alert"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Your phone buzzes. Professor Garside, calling from what sounds like a cupboard."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "{player}, I hear bog. Marvellous. Stand still and sniff. Smells a bit like pickles, yes?"
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "That's eight thousand years of Sphagnum, holding on to carbon so the sky doesn't have to. The Enclosure, I'm told, wants to drain it for 'parking'."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "Parking. On a bog. Do give the Wardens a stern look, and a battle if they insist."
+    },
+    {
+     "do": "set",
+     "flag": "ch2_moss_call"
+    }
+   ]
   }
  ],
  "botanist": [

@@ -1,9 +1,81 @@
 {
  "vane": [
   {
-   "do": "say",
-   "who": "Lord Ambrose Vane",
-   "text": "Do come in! Welcome to the Heritage Experience. Free tote bag with every signature."
+   "do": "if",
+   "flag": "ch2_vane_met",
+   "then": [
+    {
+     "do": "say",
+     "who": "Lord Ambrose Vane",
+     "text": "Do come in! Welcome to the Heritage Experience. Free tote bag with every signature."
+    },
+    {
+     "do": "say",
+     "who": "Lord Ambrose Vane",
+     "text": "No, you've had yours. We keep a list. It is a long and friendly list."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Lord Ambrose Vane",
+     "text": "Ah! A member of the public! Splendid. Do come in. Mind the bunting, it is ethically sourced."
+    },
+    {
+     "do": "say",
+     "who": "Lord Ambrose Vane",
+     "text": "Ambrose Vane, Chairman of the Enclosure. Welcome to the Manchester Heritage Experience."
+    },
+    {
+     "do": "say",
+     "who": "Lord Ambrose Vane",
+     "text": "Our mission is simple. Britain's old places are under-curated. A stone circle is just a circle with no signage."
+    },
+    {
+     "do": "say",
+     "who": "Lord Ambrose Vane",
+     "text": "So we shall look after them. Properly. With turnstiles."
+    },
+    {
+     "do": "say",
+     "who": "Lord Ambrose Vane",
+     "text": "And the old legends, the sleepy ones under the hills? We shall bind them, tag them and put them somewhere safe. Somewhere ours."
+    },
+    {
+     "do": "say",
+     "who": "Lord Ambrose Vane",
+     "text": "Free tote bag?"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "{rival} pops up from behind a table of merchandise, wearing three tote bags and a lanyard."
+    },
+    {
+     "do": "say",
+     "who": "{rival}",
+     "text": "{player}! Look at this! Free tote bag! Free water bottle! Free pen that is also a torch!"
+    },
+    {
+     "do": "say",
+     "who": "{rival}",
+     "text": "They said I can stream the launch if I tag them. That's free reach, {player}. Free!"
+    },
+    {
+     "do": "say",
+     "who": "Lord Ambrose Vane",
+     "text": "Quite. Everyone benefits. Especially the people who own the pen factory."
+    },
+    {
+     "do": "say",
+     "who": "{rival}",
+     "text": "He's a bit smug, isn't he. But the pen is genuinely a torch."
+    },
+    {
+     "do": "set",
+     "flag": "ch2_vane_met"
+    }
+   ]
   }
  ],
  "rail_guard": [
@@ -21,6 +93,11 @@
    "do": "say",
    "who": "Warden",
    "text": "We are not fencing anything. We are curating access."
+  },
+  {
+   "do": "say",
+   "who": "Warden",
+   "text": "The canal towpath is closed for heritage enhancement. The enhancement is the fence."
   },
   {
    "do": "say",

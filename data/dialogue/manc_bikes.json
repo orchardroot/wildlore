@@ -1,9 +1,73 @@
 {
  "bev": [
   {
-   "do": "say",
-   "who": "Bev",
-   "text": "Bike shop. If it has two wheels and a problem, I'll fix it."
+   "do": "if",
+   "flag": "bev_bike_given",
+   "then": [
+    {
+     "do": "say",
+     "who": "Bev",
+     "text": "How's the bike? Squeaking? Good. A squeak means it's got opinions."
+    },
+    {
+     "do": "say",
+     "who": "Bev",
+     "text": "Use the bike anywhere with room to ride, and ring the bell at pedestrians. It's the law. In my shop."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "badge_brook",
+     "then": [
+      {
+       "do": "say",
+       "who": "Bev",
+       "text": "Garside sent you? She said you'd have a Stone about you. Go on then, show us."
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "{player} held up the Brook Stone."
+      },
+      {
+       "do": "say",
+       "who": "Bev",
+       "text": "Ooh, it's smooth. Buxton water, that. A proper Hedge-lay stone. Brambles will fold like deckchairs."
+      },
+      {
+       "do": "say",
+       "who": "Bev",
+       "text": "Right. A bike. Nothing fancy, no gears you can't pronounce. Tested in thirty years of Manchester rain."
+      },
+      {
+       "do": "give_item",
+       "item": "bike"
+      },
+      {
+       "do": "set",
+       "flag": "bev_bike_given"
+      },
+      {
+       "do": "say",
+       "who": "Bev",
+       "text": "West of town is Chat Moss, then Liverpool. Flat and soggy. Tell the bog I said hello."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Bev",
+       "text": "Bike shop. If it has two wheels and a problem, I'll fix it."
+      },
+      {
+       "do": "say",
+       "who": "Bev",
+       "text": "Professor Garside rang ahead. She said you'd show me a Stone. A Brook Stone, to be exact. No Stone, no bike. I don't make the rules, I just enforce them cheerfully."
+      }
+     ]
+    }
+   ]
   }
  ]
 }
