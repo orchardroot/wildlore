@@ -1,0 +1,292 @@
+class_name BattleMenus
+extends Control
+## Keyboard, gamepad and mouse pickers for the battle: command, moves, bag, team and the forget-a-move prompt.
+## Each picker is awaitable and returns the chosen index (-1 when cancelled). The last cursor position of each
+## menu is remembered for the rest of the battle.
+
+signal _picked(index: int)
+
+const CREAM := Color("f2e8cf")
+const HEATHER := Color("9b6fb0")
+const MUTED := Color("a9a294")
+
+var _active := false
+var _rows: Array = []
+var _disabled: Array = []
+var _cols := 1
+var _idx := 0
+var _cancel_ok := true
+var _footer: Label
+var _footer_fn := Callable()
+var _mem := {}
+var _panel: PanelContainer
+
+func _ready() -> void:
+	set_anchors_preset(Control.PRESET_FULL_RECT)
+	mouse_filter = Control.MOUSE_FILTER_IGNORE
+
+func _input(event: InputEvent) -> void:
+	if not _active:
+		return
+	if event.is_action_pressed("move_up", true) or event.is_action_pressed("ui_up", true):
+		_step(0, -1)
+	elif event.is_action_pressed("move_down", true) or event.is_action_pressed("ui_down", true):
+		_step(0, 1)
+	elif event.is_action_pressed("move_left", true) or event.is_action_pressed("ui_left", true):
+		_step(-1, 0)
+	elif event.is_action_pressed("move_right", true) or event.is_action_pressed("ui_right", true):
+		_step(1, 0)
+	elif event.is_action_pressed("confirm") or event.is_action_pressed("ui_accept"):
+		_choose(_idx)
+	elif event.is_action_pressed("cancel") or event.is_action_pressed("ui_cancel"):
+		if _cancel_ok:
+			Audio.sfx("cancel")
+			_active = false
+			_picked.emit(-1)
+	else:
+		return
+	get_viewport().set_input_as_handled()
+
+func _step(dx: int, dy: int) -> void:
+	var n := _rows.size()
+	if n == 0:
+		return
+	var rows := ceili(float(n) / _cols)
+	var x := _idx % _cols
+	var y := _idx / _cols
+	x = posmod(x + dx, _cols) if dx != 0 else x
+	y = posmod(y + dy, rows) if dy != 0 else y
+	var ni := clampi(y * _cols + x, 0, n - 1)
+	if ni != _idx:
+		_idx = ni
+		Audio.sfx("cursor")
+		_highlight()
+
+func _choose(i: int) -> void:
+	if i < 0 or i >= _rows.size():
+		return
+	if _disabled[i]:
+		Audio.sfx("deny")
+		return
+	Audio.sfx("confirm")
+	_active = false
+	_picked.emit(i)
+
+func _highlight() -> void:
+	for i in _rows.size():
+		var row: PanelContainer = _rows[i]
+		var sb := StyleBoxFlat.new()
+		sb.set_corner_radius_all(5)
+		sb.set_content_margin_all(5)
+		if i == _idx:
+			sb.bg_color = Color(HEATHER, 0.45)
+			sb.border_color = CREAM
+			sb.set_border_width_all(2)
+		else:
+			sb.bg_color = Color(0, 0, 0, 0)
+		row.add_theme_stylebox_override("panel", sb)
+		row.modulate = Color(1, 1, 1, 0.45) if _disabled[i] else Color.WHITE
+	if _footer and _footer_fn.is_valid():
+		_footer.text = _footer_fn.call(_idx)
+
+## rows: [{"text", "right", "stripe": Color, "chip": String, "chip_colour": Color, "disabled", "sub"}]
+func _pick(rect: Rect2, title: String, rows: Array, cols: int, mem_key: String, cancel_ok: bool, footer_fn := Callable()) -> int:
+	_clear()
+	_cols = cols
+	_cancel_ok = cancel_ok
+	_footer_fn = footer_fn
+	_panel = PanelContainer.new()
+	_panel.position = rect.position
+	_panel.size = rect.size
+	var sb: StyleBoxFlat = (load("res://ui/theme.tres") as Theme).get_stylebox("panel", "PanelContainer").duplicate()
+	sb.set_content_margin_all(10)
+	sb.bg_color.a = 1.0
+	_panel.add_theme_stylebox_override("panel", sb)
+	add_child(_panel)
+	var vb := VBoxContainer.new()
+	vb.add_theme_constant_override("separation", 4)
+	_panel.add_child(vb)
+	if title != "":
+		var t := Label.new()
+		t.text = title
+		t.add_theme_font_size_override("font_size", 20)
+		t.modulate = Color("e8c46a")
+		t.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		vb.add_child(t)
+	var grid := GridContainer.new()
+	grid.columns = cols
+	grid.add_theme_constant_override("h_separation", 8)
+	grid.add_theme_constant_override("v_separation", 4)
+	grid.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	vb.add_child(grid)
+	_rows = []
+	_disabled = []
+	for i in rows.size():
+		var r := _row(rows[i], i)
+		r.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		grid.add_child(r)
+		_rows.append(r)
+		_disabled.append(bool(rows[i].get("disabled", false)))
+	_footer = null
+	if footer_fn.is_valid():
+		_footer = Label.new()
+		_footer.add_theme_font_size_override("font_size", 19)
+		_footer.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		_footer.custom_minimum_size = Vector2(0, 26)
+		_footer.modulate = Color(1, 1, 1, 0.85)
+		vb.add_child(_footer)
+	_idx = clampi(int(_mem.get(mem_key, 0)), 0, maxi(0, rows.size() - 1))
+	if _disabled.size() > 0 and _disabled[_idx]:
+		for i in rows.size():
+			if not _disabled[i]:
+				_idx = i
+				break
+	_highlight()
+	_panel.modulate.a = 0.0
+	create_tween().tween_property(_panel, "modulate:a", 1.0, 0.12)
+	_active = true
+	var r: int = await _picked
+	_active = false
+	_mem[mem_key] = _idx
+	_clear()
+	return r
+
+func _clear() -> void:
+	if _panel and is_instance_valid(_panel):
+		_panel.queue_free()
+	_panel = null
+	_rows = []
+	_footer = null
+
+func _row(d: Dictionary, i: int) -> PanelContainer:
+	var row := PanelContainer.new()
+	row.mouse_filter = Control.MOUSE_FILTER_STOP
+	row.gui_input.connect(func(ev: InputEvent):
+		if ev is InputEventMouseButton and ev.pressed and ev.button_index == MOUSE_BUTTON_LEFT and _active:
+			_idx = i
+			_highlight()
+			_choose(i))
+	row.mouse_entered.connect(func():
+		if _active and _idx != i:
+			_idx = i
+			_highlight())
+	var h := HBoxContainer.new()
+	h.add_theme_constant_override("separation", 8)
+	h.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	row.add_child(h)
+	if d.has("stripe"):
+		var s := ColorRect.new()
+		s.color = d.stripe
+		s.custom_minimum_size = Vector2(7, 0)
+		s.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		h.add_child(s)
+	var name_l := Label.new()
+	name_l.text = str(d.text)
+	name_l.add_theme_font_size_override("font_size", 26)
+	name_l.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	name_l.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	name_l.clip_text = true
+	h.add_child(name_l)
+	if d.has("chip") and str(d.chip) != "":
+		var chip := Label.new()
+		chip.text = " %s " % str(d.chip).to_upper()
+		chip.add_theme_font_size_override("font_size", 15)
+		var sb := StyleBoxFlat.new()
+		sb.bg_color = d.get("chip_colour", MUTED)
+		sb.set_corner_radius_all(4)
+		sb.set_content_margin_all(2)
+		chip.add_theme_stylebox_override("normal", sb)
+		chip.add_theme_color_override("font_color", d.get("chip_text", Color("14161c")))
+		chip.add_theme_constant_override("shadow_offset_x", 0)
+		chip.add_theme_constant_override("shadow_offset_y", 0)
+		chip.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+		chip.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		h.add_child(chip)
+	if d.has("right") and str(d.right) != "":
+		var rl := Label.new()
+		rl.text = str(d.right)
+		rl.add_theme_font_size_override("font_size", 22)
+		rl.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+		rl.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		if d.get("right_warn", false):
+			rl.add_theme_color_override("font_color", Color("ff8a7a"))
+		h.add_child(rl)
+	return row
+
+# --- the pickers ----------------------------------------------------------------
+
+## "fight" | "bag" | "team" | "run"
+func command(can_run: bool) -> String:
+	var rows := [{"text": "Fight"}, {"text": "Bag"}, {"text": "Team"}, {"text": "Run" if can_run else "Run", "disabled": false}]
+	var i := await _pick(Rect2(880, 566, 376, 134), "", rows, 2, "command", false)
+	return ["fight", "bag", "team", "run"][maxi(0, i)]
+
+func moves(c: Creature, move_db: MoveDB) -> int:
+	var rows := []
+	var all_empty := true
+	for m in c.moves:
+		if int(m.pp) > 0:
+			all_empty = false
+	for m in c.moves:
+		var mv := move_db.get_move(m.id)
+		var t := str(mv.get("type", ""))
+		rows.append({"text": mv.get("name", m.id), "stripe": TypeColours.of(t), "chip": t, "chip_colour": TypeColours.of(t), "chip_text": TypeColours.text_on(t),
+			"right": "%d/%d" % [int(m.pp), int(m.max_pp)], "right_warn": int(m.pp) <= 0, "disabled": int(m.pp) <= 0 and not all_empty})
+	var footer := func(i: int) -> String:
+		var mv := move_db.get_move(c.moves[i].id)
+		if int(c.moves[i].pp) <= 0:
+			return "No PP left for that one!" if not all_empty else "Out of PP: all that's left is a desperate flail."
+		var power := int(mv.get("power", 0))
+		return "%s  ·  %s  ·  %s  ·  Accuracy %d" % [str(mv.get("type", "")).capitalize(), str(mv.get("category", "")).capitalize(),
+			("Power %d" % power) if power > 0 else "No damage", int(mv.get("accuracy", 100))]
+	return await _pick(Rect2(470, 536, 786, 168), "", rows, 2, "moves", true, footer)
+
+## entries from BattleFlow.battle_items(). Returns the index into entries, or -1.
+func bag(entries: Array) -> int:
+	if entries.is_empty():
+		return -1
+	var rows := []
+	for e in entries:
+		rows.append({"text": e.name, "right": "x%d" % int(e.count)})
+	var footer := func(i: int) -> String: return str(entries[i].desc)
+	var h := mini(entries.size(), 6) * 46 + 100
+	return await _pick(Rect2(700, 560 - h, 556, h), "BAG", rows, 1, "bag", true, footer)
+
+## mode "switch" (fainted and active are greyed), "forced" (as switch but cannot cancel) or "item" (anyone; revive needs fainted).
+func party(creatures: Array, active: int, mode: String, item: Dictionary = {}, move_db: MoveDB = null) -> int:
+	var rows := []
+	for i in creatures.size():
+		var c: Creature = creatures[i]
+		var right := "FNT" if c.is_fainted() else "%d/%d" % [c.hp, c.max_hp()]
+		var dis := false
+		if mode == "item":
+			dis = false
+		else:
+			dis = c.is_fainted() or i == active
+		var chip := c.status
+		if i == active and mode != "item":
+			chip = "out"
+		rows.append({"text": "%s  Lv %d" % [c.display_name(), c.level], "right": right, "right_warn": c.is_fainted(),
+			"stripe": TypeColours.of(str(c.types()[0])), "chip": chip, "chip_colour": HEATHER if chip == "out" else BattleHUD.STATUS_COLOURS.get(chip, MUTED),
+			"chip_text": CREAM if chip == "out" else Color("14161c"), "disabled": dis})
+	var title: String = {"switch": "SEND OUT WHO?", "forced": "SEND OUT WHO?", "item": "USE ON WHOM?"}.get(mode, "TEAM")
+	var h := creatures.size() * 46 + 56
+	return await _pick(Rect2(560, 560 - h, 696, h), title, rows, 1, "party_" + mode, mode != "forced")
+
+## Returns the slot to forget, or -1 to skip learning.
+func forget(c: Creature, new_move: String, move_db: MoveDB) -> int:
+	var rows := []
+	for m in c.moves:
+		var mv := move_db.get_move(m.id)
+		var t := str(mv.get("type", ""))
+		rows.append({"text": mv.get("name", m.id), "stripe": TypeColours.of(t), "chip": t, "chip_colour": TypeColours.of(t), "chip_text": TypeColours.text_on(t),
+			"right": "Pow %d" % int(mv.get("power", 0))})
+	rows.append({"text": "Don't learn it", "stripe": MUTED})
+	var nm := move_db.get_move(new_move)
+	var title := "%s wants to learn %s (%s). Forget which move?" % [c.display_name(), nm.get("name", new_move), str(nm.get("type", "")).capitalize()]
+	var footer := func(i: int) -> String:
+		if i >= c.moves.size():
+			return "Keep what you have."
+		return "Forget %s to make room." % move_db.get_move(c.moves[i].id).get("name", c.moves[i].id)
+	var r := await _pick(Rect2(470, 330, 786, 340), title, rows, 1, "forget", false, footer)
+	return -1 if r >= c.moves.size() else r

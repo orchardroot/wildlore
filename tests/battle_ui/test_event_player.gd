@@ -1,0 +1,127 @@
+extends TestCase
+
+func _ctx(kind := "wild", trainer := {}) -> Dictionary:
+	var a := Fixtures.creature("kindlet", 10)
+	var foe := Fixtures.creature("spikkin", 5)
+	var b := Fixtures.battle([a], [foe], {"kind": kind, "item_db": ItemDB.load_default()})
+	return EventPlayer.make_ctx(b, trainer)
+
+func _lines(ev: Dictionary, ctx := {}) -> Array:
+	return EventPlayer.lines_for(ev, ctx if not ctx.is_empty() else _ctx())
+
+func test_type_colours_cover_every_type() -> void:
+	for t in Fixtures.chart().types:
+		assert_true(TypeColours.COLOURS.has(t), "colour for %s" % t)
+	assert_eq(TypeColours.COLOURS.size(), 16)
+
+func test_move_and_foe_naming() -> void:
+	assert_eq(_lines({"type": "move", "side": 0, "user": "Kindlet", "move": "kindle"}), ["Kindlet used Kindle!"])
+	assert_eq(_lines({"type": "move", "side": 1, "user": "Spikkin", "move": "scrap"}), ["The wild Spikkin used Scrap!"])
+	var tr := _ctx("trainer", {"name": "Keeper Maud"})
+	assert_eq(EventPlayer.lines_for({"type": "move", "side": 1, "user": "Spikkin", "move": "scrap"}, tr), ["Keeper Maud's Spikkin used Scrap!"])
+
+func test_flail_has_a_name() -> void:
+	assert_eq(_lines({"type": "move", "side": 0, "user": "Kindlet", "move": "flail"}), ["Kindlet used Flail!"])
+
+func test_miss_and_no_effect() -> void:
+	assert_eq(_lines({"type": "miss", "side": 0}), ["Kindlet's attack missed!"])
+	assert_eq(_lines({"type": "no_effect", "side": 1}), ["It doesn't affect the wild Spikkin..."])
+
+func test_damage_lines() -> void:
+	assert_eq(_lines({"type": "damage", "side": 1, "amount": 5, "hp": 3, "effectiveness": 2.0, "crit": false}), ["It's super effective!"])
+	assert_eq(_lines({"type": "damage", "side": 1, "amount": 5, "hp": 3, "effectiveness": 0.5, "crit": false}), ["It's not very effective..."])
+	assert_eq(_lines({"type": "damage", "side": 1, "amount": 5, "hp": 3, "effectiveness": 1.0, "crit": true}), ["A critical hit!"])
+	assert_eq(_lines({"type": "damage", "side": 1, "amount": 5, "hp": 3, "effectiveness": 2.0, "crit": true}), ["A critical hit!", "It's super effective!"])
+	assert_eq(_lines({"type": "damage", "side": 1, "amount": 5, "hp": 3, "effectiveness": 1.0, "crit": false}), [])
+
+func test_stat_lines() -> void:
+	assert_eq(_lines({"type": "stat", "side": 0, "stat": "atk", "delta": 1}), ["Kindlet's Attack rose!"])
+	assert_eq(_lines({"type": "stat", "side": 0, "stat": "def", "delta": 2}), ["Kindlet's Defence rose sharply!"])
+	assert_eq(_lines({"type": "stat", "side": 1, "stat": "spd", "delta": -1}), ["The wild Spikkin's Speed fell!"])
+	assert_eq(_lines({"type": "stat", "side": 1, "stat": "spd", "delta": -2}), ["The wild Spikkin's Speed fell harshly!"])
+	assert_eq(_lines({"type": "stat", "side": 0, "stat": "atk", "delta": 0}), ["Kindlet's Attack won't go any further!"])
+
+func test_status_lines() -> void:
+	assert_eq(_lines({"type": "status", "side": 1, "status": "soaked"}), ["The wild Spikkin is soaked through."])
+	assert_eq(_lines({"type": "status", "side": 1, "status": "asleep"}), ["The wild Spikkin is fast asleep."])
+	for s in Rules.STATUSES:
+		assert_eq(_lines({"type": "status", "side": 0, "status": s}).size(), 1, s)
+	assert_eq(_lines({"type": "status_cured", "side": 0, "status": "asleep"}), ["Kindlet woke up!"])
+	assert_eq(_lines({"type": "status_cured", "side": 0, "status": "stung"}), ["Kindlet is no longer stung."])
+
+func test_cant_act_and_self_hit() -> void:
+	assert_eq(_lines({"type": "cant_act", "side": 0, "reason": "asleep"}), ["Kindlet is fast asleep."])
+	assert_eq(_lines({"type": "cant_act", "side": 0, "reason": "chilled"}), ["Kindlet is too cold to move!"])
+	assert_eq(_lines({"type": "cant_act", "side": 0, "reason": "mystery"}), ["Kindlet can't move!"])
+	assert_eq(_lines({"type": "self_hit", "side": 0, "amount": 3, "hp": 4}), ["Kindlet is muddled and hurt itself!"])
+
+func test_status_damage_faint_switch() -> void:
+	assert_eq(_lines({"type": "status_damage", "side": 0, "status": "stung", "amount": 2, "hp": 5}), ["Kindlet is hurt by its stings!"])
+	assert_eq(_lines({"type": "status_damage", "side": 1, "status": "hexed", "amount": 2, "hp": 5}), ["The wild Spikkin is hurt by the hex!"])
+	assert_eq(_lines({"type": "faint", "side": 1, "user": "Spikkin"}), ["The wild Spikkin fainted!"])
+	assert_eq(_lines({"type": "faint", "side": 0, "user": "Kindlet"}), ["Kindlet fainted!"])
+	assert_eq(_lines({"type": "switch", "side": 0, "index": 1, "user": "Holtling"}), ["Go! Holtling!"])
+	var tr := _ctx("trainer", {"name": "Keeper Maud"})
+	assert_eq(EventPlayer.lines_for({"type": "switch", "side": 1, "index": 1, "user": "Dipling"}, tr), ["Keeper Maud sends out Dipling!"])
+
+func test_run_lines() -> void:
+	assert_eq(_lines({"type": "run", "side": 0, "success": true}), ["Got away safely!"])
+	assert_eq(_lines({"type": "run", "side": 0, "success": false}), ["Couldn't get away!"])
+	assert_eq(EventPlayer.lines_for({"type": "run", "side": 0, "success": false}, _ctx("trainer", {"name": "Keeper Maud"})), ["No! There's no running from a keeper battle!"])
+
+func test_item_lines() -> void:
+	var ev := {"type": "item", "side": 0, "item": "cup_of_tea", "target": 0, "text": "Kindlet recovered 12 HP."}
+	assert_eq(_lines(ev), ["You used a Cup of Tea.", "Kindlet recovered 12 HP."])
+	ev = {"type": "item", "side": 0, "item": "nope", "target": 0, "text": "Nothing happened."}
+	assert_eq(_lines(ev), ["You used a nope.", "Nothing happened."])
+
+func test_catch_lines() -> void:
+	var ev := {"type": "catch", "success": true, "snare_name": "Wicker Snare"}
+	assert_eq(_lines(ev), ["You threw a Wicker Snare!", "Gotcha! Spikkin was caught!"])
+	ev = {"type": "catch", "success": false}
+	assert_eq(_lines(ev), ["You threw a snare!", "Oh no! The wild Spikkin broke free!"])
+	ev = {"type": "catch", "success": false, "reason": "trainer"}
+	assert_eq(EventPlayer.lines_for(ev, _ctx("trainer", {"name": "Keeper Maud"})), ["You can't snare another keeper's creature!"])
+
+func test_invalid_and_end() -> void:
+	assert_eq(_lines({"type": "invalid", "side": 0, "reason": "needs_switch"}), ["Pick a creature to send out first."])
+	assert_eq(_lines({"type": "invalid", "side": 0, "reason": "bad_switch"}), ["That creature can't be sent out."])
+	assert_eq(_lines({"type": "end", "winner": 0}), [])
+
+func test_every_event_type_has_a_cue() -> void:
+	var evs := [
+		{"type": "move", "side": 0, "user": "Kindlet", "move": "kindle"}, {"type": "miss", "side": 0}, {"type": "no_effect", "side": 1},
+		{"type": "damage", "side": 1, "amount": 5, "hp": 3, "effectiveness": 2.0, "crit": false},
+		{"type": "stat", "side": 0, "stat": "atk", "delta": 1}, {"type": "stat", "side": 0, "stat": "atk", "delta": -1},
+		{"type": "status", "side": 1, "status": "asleep"}, {"type": "status_cured", "side": 0, "status": "asleep"},
+		{"type": "cant_act", "side": 0, "reason": "asleep"}, {"type": "self_hit", "side": 0, "amount": 3, "hp": 4},
+		{"type": "status_damage", "side": 0, "status": "stung", "amount": 2, "hp": 5}, {"type": "faint", "side": 1, "user": "Spikkin"},
+		{"type": "switch", "side": 0, "index": 0, "user": "Kindlet"}, {"type": "run", "side": 0, "success": true},
+		{"type": "end", "winner": 0}, {"type": "item", "side": 0, "item": "cup_of_tea", "target": 0, "text": "x"},
+		{"type": "catch", "success": true}, {"type": "invalid", "side": 0, "reason": "needs_switch"},
+	]
+	var seen := {}
+	for ev in evs:
+		var cue := EventPlayer.fx_for(ev, _ctx())
+		assert_true(cue.has("cue") and str(cue.cue) != "", "cue for %s" % ev.type)
+		seen[ev.type] = true
+	for t in ["move", "miss", "no_effect", "damage", "stat", "status", "status_cured", "cant_act", "self_hit", "status_damage", "faint", "switch", "run", "end", "item", "catch", "invalid"]:
+		assert_true(seen.has(t), "covered %s" % t)
+
+func test_cue_details() -> void:
+	var c := EventPlayer.fx_for({"type": "move", "side": 0, "user": "Kindlet", "move": "kindle"}, _ctx())
+	assert_eq(c.cue, "attack")
+	assert_eq(c.side, 0)
+	assert_eq(c.move_type, "hearth")
+	c = EventPlayer.fx_for({"type": "damage", "side": 1, "amount": 5, "hp": 3, "effectiveness": 2.0, "crit": true}, _ctx())
+	assert_eq(c.cue, "hit")
+	assert_eq(c.strength, "strong")
+	assert_eq(c.hp, 3)
+
+func test_hp_after_item_accounts_for_later_damage() -> void:
+	var c := Fixtures.creature("kindlet", 10)
+	c.hp = 10
+	var evs := [{"type": "item", "side": 0, "target": 0}, {"type": "damage", "side": 0, "amount": 4, "hp": 10}]
+	assert_eq(EventPlayer.hp_after_item(evs, 0, c), 14)
+	c.hp = c.max_hp() - 1
+	assert_eq(EventPlayer.hp_after_item(evs, 0, c), c.max_hp())
