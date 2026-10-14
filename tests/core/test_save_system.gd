@@ -45,7 +45,7 @@ func test_unversioned_save_migrates() -> void:
 	DirAccess.make_dir_recursive_absolute(dir)
 	_write_raw("auto.json", '{"town": "buxton"}')
 	var back := SaveSystem.load_slot("auto", dir)
-	assert_eq(int(back.version), 1)
+	assert_eq(int(back.version), SaveSystem.VERSION)
 	assert_eq(back.town, "buxton")
 	_wipe()
 
@@ -80,3 +80,52 @@ func test_underscore_keys_are_not_persisted() -> void:
 	SaveSystem.save("slot1", {"n": 1, "_recovered": true}, dir)
 	assert_false(SaveSystem.load_slot("slot1", dir).has("_recovered"))
 	_wipe()
+
+func _fresh_dir(name: String) -> String:
+	var out := "user://test_saves_" + name
+	if DirAccess.dir_exists_absolute(out):
+		for f in DirAccess.get_files_at(out):
+			DirAccess.remove_absolute(out.path_join(f))
+	return out
+
+func test_v1_save_migrates() -> void:
+	var sd := _fresh_dir("v1")
+	DirAccess.make_dir_recursive_absolute(sd)
+	var f := FileAccess.open(SaveSystem.slot_path("1", sd), FileAccess.WRITE)
+	f.store_string(JSON.stringify({"version": 1, "zone_id": "buxton", "party": [], "last_sanctuary": {"zone": "macclesfield", "pos": [0, 0]}}))
+	f.close()
+	var d := SaveSystem.load_slot("1", sd)
+	assert_eq(int(d.version), 2)
+	assert_eq(d.last_sanctuary.pos, [-1, -1], "the old [0,0] default becomes the spawn marker")
+	assert_true(d.has("saved_at"))
+
+func test_slots_independent() -> void:
+	var sd := _fresh_dir("slots")
+	for s in SaveSystem.SLOTS:
+		SaveSystem.save(s, {"zone_id": "z_" + s, "play_seconds": 10.0, "badges": ["brook"]}, sd)
+	for s in SaveSystem.SLOTS:
+		assert_eq(SaveSystem.load_slot(s, sd).zone_id, "z_" + s)
+	var info: Dictionary = SaveSystem.slot_info("2", sd)
+	assert_true(info.ok)
+	assert_eq(info.zone_id, "z_2")
+	assert_eq(info.badges, 1)
+	assert_false(SaveSystem.slot_info("3", _fresh_dir("empty")).exists)
+
+func test_corrupt_slot_listed() -> void:
+	var sd := _fresh_dir("corrupt")
+	SaveSystem.save("1", {"zone_id": "a"}, sd)
+	var f := FileAccess.open(SaveSystem.slot_path("2", sd), FileAccess.WRITE)
+	f.store_string("{not json")
+	f.close()
+	var infos: Array = SaveSystem.slot_infos(sd)
+	assert_eq(infos.size(), 4)
+	assert_eq(infos[2].slot, "2")
+	assert_true(infos[2].exists)
+	assert_false(infos[2].ok)
+	assert_eq(SaveSystem.newest_slot(sd), "1")
+
+func test_newest_slot_by_time() -> void:
+	var sd := _fresh_dir("newest")
+	SaveSystem.save("3", {"zone_id": "a", "saved_at": 100.0}, sd)
+	SaveSystem.save("auto", {"zone_id": "b", "saved_at": 50.0}, sd)
+	assert_eq(SaveSystem.newest_slot(sd), "3")

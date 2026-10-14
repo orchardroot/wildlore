@@ -69,3 +69,25 @@ func test_default_last_sanctuary_is_not_origin() -> void:
 	var s := GameStateData.from_dict({"last_sanctuary": {}}, Dex.load_default())
 	assert_eq(str(s.last_sanctuary.zone), "macclesfield")
 	assert_false(s.last_sanctuary.pos == [0, 0])
+
+func _mk(sp: String, fainted := false) -> Creature:
+	var c := Creature.create(Dex.load_default().get_species(sp), 5, Rng.new(1), MoveDB.load_default())
+	if fainted:
+		c.hp = 0
+	return c
+
+func test_ark_rules() -> void:
+	var d := GameStateData.new()
+	d.party = [_mk("spikkin")]
+	assert_true(d.deposit(0) != "", "can't deposit the only creature")
+	d.party.append(_mk("scuttlet", true))
+	assert_true(d.deposit(0) != "", "can't deposit the last able creature")
+	assert_eq(d.deposit(1), "")
+	assert_eq(d.ark.size(), 1)
+	assert_eq(d.withdraw(0), "")
+	assert_eq(d.party.size(), 2)
+	for i in 4:
+		d.party.append(_mk("pipkin"))
+	d.ark.append(_mk("croakle"))
+	assert_true(d.withdraw(0) != "", "party full")
+	assert_eq(d.ark.size(), 1)

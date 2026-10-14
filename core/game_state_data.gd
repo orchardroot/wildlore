@@ -31,6 +31,29 @@ func add_creature(c: Creature) -> String:
 	ark.append(c)
 	return "ark"
 
+## Party -> Ark. Returns "" on success or why not.
+func deposit(i: int) -> String:
+	if i < 0 or i >= party.size():
+		return "Nobody there."
+	if party.size() <= 1:
+		return "You can't travel without a single companion."
+	var able := party.filter(func(c): return not c.is_fainted())
+	if not party[i].is_fainted() and able.size() <= 1:
+		return "That's your last creature fit to battle. Keep them with you."
+	ark.append(party[i])
+	party.remove_at(i)
+	return ""
+
+## Ark -> party. Returns "" on success or why not.
+func withdraw(j: int) -> String:
+	if j < 0 or j >= ark.size():
+		return "Nobody there."
+	if party.size() >= PARTY_MAX:
+		return "Your team is full. Deposit someone first."
+	party.append(ark[j])
+	ark.remove_at(j)
+	return ""
+
 func mark_seen(id: String) -> void:
 	seen[id] = true
 
