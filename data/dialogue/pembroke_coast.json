@@ -1,9 +1,89 @@
 {
  "cleanup": [
   {
-   "do": "say",
-   "who": "Beach Cleaner",
-   "text": "Placeholder: the story agent rewrites this clean-up side quest."
+   "do": "if",
+   "flag": "cleanup_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Beach Cleaner",
+     "text": "Look at that. Not a crisp packet. The puffins have never been so smug."
+    },
+    {
+     "do": "say",
+     "who": "Beach Cleaner",
+     "text": "Come and visit in the summer. Bring a bag. They always do. The puffins, I mean."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Beach Cleaner",
+     "text": "Oh, hello! Mind the nets. I'm clearing the cove. It's mostly crisp packets and the odd oil drum."
+    },
+    {
+     "do": "say",
+     "who": "Beach Cleaner",
+     "text": "The Enclosure's gift shop up the coast sells 'Authentic Welsh Seashells'. They're made in a factory. It's a shame, the real shells are free."
+    },
+    {
+     "do": "choice",
+     "text": "Give the cove a hand?",
+     "options": [
+      "Roll up your sleeves",
+      "Not today"
+     ],
+     "set": "cleanup_choice"
+    },
+    {
+     "do": "if",
+     "flag": "cleanup_choice",
+     "then": [
+      {
+       "do": "say",
+       "who": "Beach Cleaner",
+       "text": "Not today? That's fine. The tide will be back tomorrow, and so will the crisp packets."
+      }
+     ],
+     "else": [
+      {
+       "do": "fade_out"
+      },
+      {
+       "do": "wait",
+       "seconds": 0.6
+      },
+      {
+       "do": "fade_in"
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "You spend an hour filling bags. Forty-two crisp packets, one lilo, a shoe and, somehow, a traffic cone."
+      },
+      {
+       "do": "say",
+       "who": "Beach Cleaner",
+       "text": "That's the best the cove has looked in a decade. I'll bake you something. No, really. I've already baked it."
+      },
+      {
+       "do": "give_item",
+       "item": "bara_brith",
+       "n": 3
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "A pair of puffins land on the clean rock and look extremely pleased with themselves."
+      },
+      {
+       "do": "set",
+       "flag": "cleanup_done"
+      }
+     ],
+     "eq": 1
+    }
+   ]
   }
  ],
  "seal_watcher": [

@@ -354,7 +354,8 @@
    "y": 16,
    "facing": "down",
    "move": "still",
-   "trainer": "wyddfa_warden_1"
+   "trainer": "wyddfa_warden_1",
+   "hide_if": "ch3_ddraig_woke"
   },
   {
    "id": "wyddfa_warden_2",
@@ -363,7 +364,8 @@
    "y": 16,
    "facing": "down",
    "move": "still",
-   "trainer": "wyddfa_warden_2"
+   "trainer": "wyddfa_warden_2",
+   "hide_if": "ch3_ddraig_woke"
   },
   {
    "id": "pryce_summit",
@@ -373,7 +375,8 @@
    "facing": "right",
    "move": "still",
    "script": "summit",
-   "name": "Director Pryce"
+   "name": "Director Pryce",
+   "hide_if": "ch3_ddraig_woke"
   },
   {
    "id": "wyddfa_rangers",
@@ -414,6 +417,28 @@
    "move": "still",
    "script": "wyddfa_photographer",
    "name": "Photographer"
+  },
+  {
+   "id": "kit_summit",
+   "sprite": "kit",
+   "x": 34,
+   "y": 13,
+   "facing": "left",
+   "move": "still",
+   "script": "kit_summit",
+   "name": "Kit",
+   "hide_if": "ch3_ddraig_woke"
+  },
+  {
+   "id": "kit_summit_after",
+   "sprite": "kit",
+   "x": 32,
+   "y": 13,
+   "facing": "right",
+   "move": "still",
+   "script": "kit_summit_after",
+   "name": "Kit",
+   "show_if": "ch3_ddraig_woke"
   }
  ],
  "encounters": {

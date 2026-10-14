@@ -1,0 +1,36 @@
+{
+ "id": "moss_warden",
+ "name": "Warden Pike",
+ "class": "Warden",
+ "sprite": "warden_grunt",
+ "party": [
+  {
+   "species": "scuttlet",
+   "level": 16
+  },
+  {
+   "species": "pepperling",
+   "level": 17
+  },
+  {
+   "species": "minkshade",
+   "level": 18
+  }
+ ],
+ "ai": "trainer",
+ "money": 600,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Warden Pike",
+   "text": "Halt! This bog is being pre-surfaced for a car park. Sixty spaces, two disabled, one for the Chairman."
+  },
+  {
+   "do": "say",
+   "who": "Warden Pike",
+   "text": "You'll need a permit to stand on it. It's a form. It's mostly a form about forms."
+  }
+ ],
+ "win": "The bog won. The bog always wins. I'll file that under 'ground conditions'.",
+ "after": "Apparently you can't tarmac eight thousand years of moss. Who knew. Well, everyone. Everyone knew."
+}

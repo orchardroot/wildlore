@@ -55,6 +55,10 @@
      "id": "brook"
     },
     {
+     "do": "set",
+     "flag": "badge_brook"
+    },
+    {
      "do": "say",
      "who": "",
      "text": "{player} received the Brook Stone!"
@@ -62,6 +66,10 @@
     {
      "do": "set",
      "flag": "slice_complete"
+    },
+    {
+     "do": "set",
+     "flag": "ch2_started"
     },
     {
      "do": "sfx",
@@ -80,32 +88,37 @@
     {
      "do": "say",
      "who": "Prof. Garside",
-     "text": "Mostly, I heard it from Kit, who posted it nine times."
+     "text": "Mostly, I heard it from {rival}, who posted it nine times."
     },
     {
      "do": "say",
      "who": "Prof. Garside",
-     "text": "Listen carefully. The stones at Arbor Low are humming. All of them. At once."
+     "text": "A practical note. The Brook Stone teaches your team Hedge-lay, the old craft of parting a bramble without losing a sleeve."
     },
     {
      "do": "say",
      "who": "Prof. Garside",
-     "text": "That's the old circle up on the moor. Something is waking, and it isn't the Enclosure."
+     "text": "Walk up to a bramble patch and see. Half of the Peak's best footpaths are behind one."
     },
     {
      "do": "say",
      "who": "Prof. Garside",
-     "text": "Pack a flask. Do not feed anything that hums. I'll explain when you arrive."
+     "text": "Now the serious bit. The stones at Arbor Low are humming, and the hum is spreading north. Manchester, to be specific."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "Go up the Goyt Valley and find a bike shop run by a woman called Bev. She owes me a favour and a kettle."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "Show her the Brook Stone. Pack a flask. And do not feed anything that hums."
     },
     {
      "do": "say",
      "who": "",
-     "text": "To be continued. Probably with a flask."
-    },
-    {
-     "do": "say",
-     "who": "",
-     "text": "Thanks for playing the Wildlore slice."
+     "text": "The road north from Buxton is open. Manchester is about thirty miles away and, by all reports, wetter."
     }
    ]
   }

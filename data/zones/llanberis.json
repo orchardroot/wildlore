@@ -792,12 +792,13 @@
   {
    "id": "pryce",
    "sprite": "pryce",
-   "x": 17,
-   "y": 15,
-   "facing": "up",
+   "x": 15,
+   "y": 14,
+   "facing": "down",
    "move": "still",
    "script": "pryce_quarry",
-   "name": "Director Pryce"
+   "name": "Director Pryce",
+   "hide_if": "trainer_pryce_1"
   },
   {
    "id": "porter",
@@ -858,6 +859,39 @@
    "move": "wander",
    "script": "scout_kid",
    "name": "Boy Scout"
+  },
+  {
+   "id": "cambrian_gate_a",
+   "sprite": "warden_grunt",
+   "x": 24,
+   "y": 39,
+   "facing": "down",
+   "move": "still",
+   "script": "gate_cambrian",
+   "hide_if": "ch3_ddraig_woke",
+   "name": "Warden"
+  },
+  {
+   "id": "cambrian_gate_b",
+   "sprite": "warden_grunt",
+   "x": 25,
+   "y": 39,
+   "facing": "down",
+   "move": "still",
+   "script": "gate_cambrian",
+   "hide_if": "ch3_ddraig_woke",
+   "name": "Warden"
+  },
+  {
+   "id": "cambrian_gate_c",
+   "sprite": "warden_grunt",
+   "x": 26,
+   "y": 39,
+   "facing": "down",
+   "move": "still",
+   "script": "gate_cambrian",
+   "hide_if": "ch3_ddraig_woke",
+   "name": "Warden"
   }
  ],
  "encounters": {

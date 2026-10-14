@@ -11,9 +11,61 @@
  ],
  "harpist": [
   {
-   "do": "say",
-   "who": "Harpist",
-   "text": "...placeholder harpist. Story agent, replace me."
+   "do": "if",
+   "flag": "ch3_dragon_tale",
+   "then": [
+    {
+     "do": "say",
+     "who": "Harpist",
+     "text": "Red and white, under the hill. The red one won. The white one went to England. Mostly."
+    },
+    {
+     "do": "say",
+     "who": "Harpist",
+     "text": "That's the version my nain told. The English version has a more complicated plot and a longer tea break."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Harpist",
+     "text": "Ah, a listener. Good. Sit, or at least stop leaning on the harp. Dyna welcome."
+    },
+    {
+     "do": "say",
+     "who": "Harpist",
+     "text": "Long ago, King Vortigern wanted a fortress on a hill called Dinas Emrys. Every night, the walls fell down."
+    },
+    {
+     "do": "say",
+     "who": "Harpist",
+     "text": "A boy named Emrys, who we call Myrddin, told him why. Under the hill, there's a pool. And in the pool, two dragons, asleep."
+    },
+    {
+     "do": "say",
+     "who": "Harpist",
+     "text": "One red, one white. They fought, as dragons will, over who got the better ground floor. The red one won."
+    },
+    {
+     "do": "say",
+     "who": "Harpist",
+     "text": "The red dragon is Y Ddraig Goch. She is on the flag. She is on a lot of pubs."
+    },
+    {
+     "do": "say",
+     "who": "Harpist",
+     "text": "She went back to sleep, under the mountain. But they say that if the stones ever hum together, she'll hear it."
+    },
+    {
+     "do": "say",
+     "who": "Harpist",
+     "text": "I'd let sleeping dragons lie, myself. But I'm a harpist. We're not very good at telling people no."
+    },
+    {
+     "do": "set",
+     "flag": "ch3_dragon_tale"
+    }
+   ]
   }
  ],
  "choir_boss": [

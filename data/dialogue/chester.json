@@ -1,9 +1,56 @@
 {
  "pryce_chester": [
   {
-   "do": "say",
-   "who": "Pryce",
-   "text": "..."
+   "do": "if",
+   "flag": "ch3_pryce_met",
+   "then": [
+    {
+     "do": "say",
+     "who": "Regional Director Pryce",
+     "text": "I am busy. I am always busy. It is a point of professional pride."
+    },
+    {
+     "do": "say",
+     "who": "Regional Director Pryce",
+     "text": "You'll find I am rarely in the same place twice. That is because I am scheduled to be elsewhere."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Regional Director Pryce",
+     "text": "Good afternoon. You are standing on a Roman wall. Fine. You are standing on a Licensed Heritage Asset, pending paperwork."
+    },
+    {
+     "do": "say",
+     "who": "Regional Director Pryce",
+     "text": "Gareth Pryce, Regional Director for Wales. And for the border, as of Tuesday. It was a very productive Tuesday."
+    },
+    {
+     "do": "say",
+     "who": "Regional Director Pryce",
+     "text": "Dinas Emrys. A small hill, a large pool, and an unlicensed dragon. Disgraceful. No signage, no tickets, no gift shop."
+    },
+    {
+     "do": "say",
+     "who": "Regional Director Pryce",
+     "text": "I am going to license it. Politely. I am always polite, you'll find."
+    },
+    {
+     "do": "say",
+     "who": "Regional Director Pryce",
+     "text": "I see from your face that you disapprove. I have a form for that. It's a two-page form. It's mostly about your feelings."
+    },
+    {
+     "do": "say",
+     "who": "Regional Director Pryce",
+     "text": "Do carry on with your little collection. I'll be in Wales. I'll see you at the gates. Item four on my agenda."
+    },
+    {
+     "do": "set",
+     "flag": "ch3_pryce_met"
+    }
+   ]
   }
  ],
  "rail_guard": [
@@ -20,12 +67,23 @@
   {
    "do": "say",
    "who": "Tour Guide",
-   "text": "These are the city walls. Nearly two miles, and the most complete Roman-and-medieval circuit in Britain."
+   "text": "These are the best-preserved city walls in Britain, two miles round, and you can walk the whole circuit. I recommend it. The pigeons recommend you don't."
   },
   {
    "do": "say",
    "who": "Tour Guide",
-   "text": "Walk the whole thing. It takes ninety minutes, or four hours if you stop for scones."
+   "text": "The Romans called this place Deva, after the river. The river is the Dee. It's the same name. They were very efficient and not very imaginative."
+  },
+  {
+   "do": "if",
+   "flag": "ch3_pryce_met",
+   "then": [
+    {
+     "do": "say",
+     "who": "Tour Guide",
+     "text": "That man in the tweed was measuring the walls with a laser. For 'access reasons'. I hope he's not planning to put a till on the Eastgate clock."
+    }
+   ]
   }
  ],
  "legionary": [

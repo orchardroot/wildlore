@@ -1,9 +1,100 @@
 {
  "farmer": [
   {
-   "do": "say",
-   "who": "Farmer",
-   "text": "..."
+   "do": "if",
+   "flag": "lambs_returned",
+   "then": [
+    {
+     "do": "say",
+     "who": "Farmer",
+     "text": "The lambs are back, all three, and all of them smug about it. Thank you."
+    },
+    {
+     "do": "say",
+     "who": "Farmer",
+     "text": "Loaghtan sheep sometimes have four horns. Mostly they have attitude."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "lambs_started",
+     "then": [],
+     "else": [
+      {
+       "do": "say",
+       "who": "Farmer",
+       "text": "Ah. A visitor. Don't suppose you've seen three Loaghtan lambs? Brown, small, certain they own the island."
+      },
+      {
+       "do": "say",
+       "who": "Farmer",
+       "text": "They got out of the field this morning. They know how to open the gate. I've never taught them. I don't want to know."
+      },
+      {
+       "do": "say",
+       "who": "Farmer",
+       "text": "If you find them, give them a word. They'll follow you back. They like new people. They don't like me."
+      },
+      {
+       "do": "set",
+       "flag": "lambs_started"
+      }
+     ]
+    },
+    {
+     "do": "if",
+     "flag": "lamb_1_found",
+     "then": [
+      {
+       "do": "if",
+       "flag": "lamb_2_found",
+       "then": [
+        {
+         "do": "if",
+         "flag": "lamb_3_found",
+         "then": [
+          {
+           "do": "say",
+           "who": "Farmer",
+           "text": "All three! Bless you. Here, take this. A Silver Snare. My uncle used it on a sea monster. Allegedly. It was a seal."
+          },
+          {
+           "do": "give_item",
+           "item": "silver_snare"
+          },
+          {
+           "do": "set",
+           "flag": "lambs_returned"
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Farmer",
+           "text": "Two back and one to go. The last one is the cleverest. Look somewhere with a good view of me."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Farmer",
+         "text": "Some of them are back, but not all. Keep looking along the fences."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Farmer",
+       "text": "Still missing, the little scamps. They'll be in the field somewhere, hiding in plain sight."
+      }
+     ]
+    }
+   ]
   }
  ],
  "sailor": [
@@ -85,6 +176,54 @@
    "do": "say",
    "who": "Guide",
    "text": "Every July they sit on a hill and read the laws out loud, in Manx and English. Takes ages. Free tea after."
+  }
+ ],
+ "lamb_1": [
+  {
+   "do": "say",
+   "who": "Lamb",
+   "text": "Baa. (It looks at you as if you were the lost one.)"
+  },
+  {
+   "do": "say",
+   "who": "",
+   "text": "The Loaghtan lamb trots off towards the farmer's gate."
+  },
+  {
+   "do": "set",
+   "flag": "lamb_1_found"
+  }
+ ],
+ "lamb_2": [
+  {
+   "do": "say",
+   "who": "Lamb",
+   "text": "Baa. (It looks at you as if you were the lost one.)"
+  },
+  {
+   "do": "say",
+   "who": "",
+   "text": "The Loaghtan lamb trots off towards the farmer's gate."
+  },
+  {
+   "do": "set",
+   "flag": "lamb_2_found"
+  }
+ ],
+ "lamb_3": [
+  {
+   "do": "say",
+   "who": "Lamb",
+   "text": "Baa. (It looks at you as if you were the lost one.)"
+  },
+  {
+   "do": "say",
+   "who": "",
+   "text": "The Loaghtan lamb trots off towards the farmer's gate."
+  },
+  {
+   "do": "set",
+   "flag": "lamb_3_found"
   }
  ]
 }

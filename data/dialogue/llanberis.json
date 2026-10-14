@@ -12,8 +12,56 @@
  "pryce_quarry": [
   {
    "do": "say",
-   "who": "Director Pryce",
-   "text": "...placeholder Pryce at the quarry gates. Story agent, replace me."
+   "who": "Gareth Pryce",
+   "text": "Good afternoon. Gareth Pryce, Regional Director for Wales. You'll have received my email. You haven't? How odd, it was copied to everyone."
+  },
+  {
+   "do": "say",
+   "who": "Gareth Pryce",
+   "text": "The quarry is, as of Tuesday, a Licensed Heritage Asset. You are currently an unlicensed visitor. There is a form."
+  },
+  {
+   "do": "say",
+   "who": "Gareth Pryce",
+   "text": "I'm told battles are the quickest way to resolve a dispute. I have scheduled one. It is on the agenda, item four."
+  },
+  {
+   "do": "battle",
+   "trainer": "pryce_1"
+  },
+  {
+   "do": "say",
+   "who": "Regional Director Pryce",
+   "text": "I shall be escalating this to the Yr Wyddfa office. I believe you will find that office to be on top of a mountain."
+  },
+  {
+   "do": "say",
+   "who": "Regional Director Pryce",
+   "text": "The quarry gates are open, as a gesture. It is a very small gesture. Do not frame it."
+  },
+  {
+   "do": "say",
+   "who": "Warden",
+   "text": "Sir, you have left your lanyard in the quarry."
+  },
+  {
+   "do": "say",
+   "who": "Regional Director Pryce",
+   "text": "Leave it. It is, strictly, a tactical retreat."
+  },
+  {
+   "do": "set",
+   "flag": "ch3_pryce1"
+  },
+  {
+   "do": "warp",
+   "zone": "llanberis",
+   "x": 15,
+   "y": 15,
+   "facing": "up"
+  },
+  {
+   "do": "end"
   }
  ],
  "porter": [
@@ -86,6 +134,29 @@
    "do": "say",
    "who": "Boy Scout",
    "text": "Yr Wyddfa means 'the burial mound'. A giant's grave, they say. Rather big for a gravestone."
+  }
+ ],
+ "gate_cambrian": [
+  {
+   "do": "say",
+   "who": "Warden",
+   "text": "The road south is closed. Heritage Assessment. We're waiting for Director Pryce to come back with the results."
+  },
+  {
+   "do": "say",
+   "who": "Warden",
+   "text": "He's been up the mountain for a while. I'm sure it's going very well."
+  },
+  {
+   "do": "if",
+   "flag": "ch3_stone",
+   "then": [
+    {
+     "do": "say",
+     "who": "Warden",
+     "text": "If you're thinking of going up Yr Wyddfa, I wouldn't. I'd stay down here. With the barrier. It's quite nice."
+    }
+   ]
   }
  ]
 }
