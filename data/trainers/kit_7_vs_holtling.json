@@ -1,0 +1,40 @@
+{
+ "id": "kit_7_vs_holtling",
+ "name": "Kit",
+ "class": "Rival",
+ "sprite": "kit",
+ "party": [
+  {
+   "species": "murmurant",
+   "level": 59
+  },
+  {
+   "species": "greyhaul",
+   "level": 60
+  },
+  {
+   "species": "stagmor",
+   "level": 61
+  },
+  {
+   "species": "thornsow",
+   "level": 63
+  }
+ ],
+ "ai": "trainer",
+ "money": 3000,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Kit",
+   "text": "{player}! Edinburgh Castle! I've been up and down the Royal Mile three times. My legs have filed a complaint."
+  },
+  {
+   "do": "say",
+   "who": "Kit",
+   "text": "Seven Stones each... wait, you've got more than me. Typical. One more go, for old times' sake?"
+  }
+ ],
+ "win": "Every time. Every single time. I'm putting it on a tea towel.",
+ "after": "There's a ceilidh tonight. I'm told I dance like a shopping trolley with a wonky wheel."
+}
