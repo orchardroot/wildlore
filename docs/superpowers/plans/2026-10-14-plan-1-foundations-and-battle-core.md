@@ -788,7 +788,7 @@ func test_duplicates_are_recorded() -> void:
 
 - [ ] **Step 2: Run to verify it fails**
 
-Run: `tools/test.sh move_db` — Expected: FAIL (MoveDB not defined).
+Run: `tools/test.sh move_db`. Expected: FAIL (MoveDB not defined).
 
 - [ ] **Step 3: Create `data_api/move_db.gd`**
 
@@ -887,7 +887,7 @@ func ids() -> Array:
 ]
 ```
 
-- [ ] **Step 5: Run tests** — `tools/test.sh` — Expected: all pass.
+- [ ] **Step 5: Run tests**: `tools/test.sh`. Expected: all pass.
 
 - [ ] **Step 6: Commit and push**
 
@@ -945,7 +945,7 @@ func test_missing_stat_becomes_zero_for_the_validator_to_catch() -> void:
 	assert_eq(sp.base.atk, 0)
 ```
 
-- [ ] **Step 2: Run to verify it fails** — `tools/test.sh dex` — Expected: FAIL.
+- [ ] **Step 2: Run to verify it fails**: `tools/test.sh dex`. Expected: FAIL.
 
 - [ ] **Step 3: Create `data_api/dex.gd`**
 
@@ -1119,7 +1119,7 @@ func ids() -> Array:
 }
 ```
 
-- [ ] **Step 5: Run tests** — `tools/test.sh` — Expected: all pass.
+- [ ] **Step 5: Run tests**: `tools/test.sh`. Expected: all pass.
 
 - [ ] **Step 6: Commit and push**
 
@@ -1200,7 +1200,7 @@ func test_bad_move() -> void:
 	assert_true(_has_error_containing(errors, "needs power"))
 ```
 
-- [ ] **Step 2: Run to verify it fails** — `tools/test.sh validator` — Expected: FAIL.
+- [ ] **Step 2: Run to verify it fails**: `tools/test.sh validator`. Expected: FAIL.
 
 - [ ] **Step 3: Create `data_api/validator.gd`**
 
@@ -1317,7 +1317,7 @@ rm -f "$LOG"
 exit "$STATUS"
 ```
 
-- [ ] **Step 6: Run** — `tools/test.sh` — Expected: all tests pass, then `validate: 0 error(s)`, exit 0. Then break `data/creatures/kindlet.json` temporarily (change `"kindle"` in one learnset to `"kindel"`), rerun, expect `DATA: species kindlet: learnset move 'kindel' does not exist` and exit 1; revert.
+- [ ] **Step 6: Run**: `tools/test.sh`. Expected: all tests pass, then `validate: 0 error(s)`, exit 0. Then break `data/creatures/kindlet.json` temporarily (change `"kindle"` in one learnset to `"kindel"`), rerun, expect `DATA: species kindlet: learnset move 'kindel' does not exist` and exit 1; revert.
 
 - [ ] **Step 7: Commit and push**
 
@@ -1410,7 +1410,7 @@ func test_rng_chance_edges() -> void:
 	assert_false(r.chance(0))
 ```
 
-- [ ] **Step 2: Run to verify it fails** — `tools/test.sh creature` — Expected: FAIL.
+- [ ] **Step 2: Run to verify it fails**: `tools/test.sh creature`. Expected: FAIL.
 
 - [ ] **Step 3: Create `battle/rng.gd`**
 
@@ -1649,7 +1649,7 @@ static func species(id: String, types: Array, base := 50, extra := {}) -> Dictio
 	return Dex.normalise(sp)
 ```
 
-- [ ] **Step 7: Run tests** — `tools/test.sh` — Expected: all pass.
+- [ ] **Step 7: Run tests**: `tools/test.sh`. Expected: all pass.
 
 - [ ] **Step 8: Commit and push**
 
@@ -1767,7 +1767,7 @@ func test_soaked_slows_and_conducts() -> void:
 	assert_eq(StatusFX.incoming_mult(c, "hearth"), 1.0)
 ```
 
-- [ ] **Step 2: Run to verify they fail** — `tools/test.sh weather` and `tools/test.sh status_fx` — Expected: FAIL.
+- [ ] **Step 2: Run to verify they fail**: `tools/test.sh weather` and `tools/test.sh status_fx`. Expected: FAIL.
 
 - [ ] **Step 3: Create `battle/weather.gd`**
 
@@ -1879,7 +1879,7 @@ static func _cure(c: Creature) -> String:
 	return old
 ```
 
-- [ ] **Step 5: Run tests** — `tools/test.sh` — Expected: all pass.
+- [ ] **Step 5: Run tests**: `tools/test.sh`. Expected: all pass.
 
 - [ ] **Step 6: Commit and push**
 
@@ -1956,7 +1956,7 @@ func test_soaked_defender_takes_more_storm() -> void:
 	assert_true(wet > dry)
 ```
 
-- [ ] **Step 2: Run to verify it fails** — `tools/test.sh damage` — Expected: FAIL.
+- [ ] **Step 2: Run to verify it fails**: `tools/test.sh damage`. Expected: FAIL.
 
 - [ ] **Step 3: Create `battle/damage_calc.gd`**
 
@@ -1996,7 +1996,7 @@ static func compute(attacker: Creature, defender: Creature, move: Dictionary, ch
 	return {"damage": maxi(1, floori(base * mult)), "effectiveness": eff, "crit": crit}
 ```
 
-- [ ] **Step 4: Run tests** — `tools/test.sh` — Expected: all pass. If a worked-example number differs, recheck the hand calculation in the test comment against `Creature.calc_stat` before touching the formula.
+- [ ] **Step 4: Run tests**: `tools/test.sh`. Expected: all pass. If a worked-example number differs, recheck the hand calculation in the test comment against `Creature.calc_stat` before touching the formula.
 
 - [ ] **Step 5: Commit and push**
 
@@ -2191,7 +2191,7 @@ func test_same_seed_same_battle() -> void:
 	assert_eq(run.call(99), run.call(99))
 ```
 
-- [ ] **Step 3: Run to verify it fails** — `tools/test.sh test_battle` — Expected: FAIL (Battle not defined).
+- [ ] **Step 3: Run to verify it fails**: `tools/test.sh test_battle`. Expected: FAIL (Battle not defined).
 
 - [ ] **Step 4: Create `battle/battle.gd`**
 
@@ -2420,7 +2420,7 @@ func _first_able(side: int) -> int:
 
 Note on `test_damage_faint_and_wild_win`: the foe faints during the player's move, so `_check_end` ends the battle before the foe acts; the assertion that no `move` event follows the faint pins that.
 
-- [ ] **Step 5: Run tests** — `tools/test.sh` — Expected: all pass.
+- [ ] **Step 5: Run tests**: `tools/test.sh`. Expected: all pass.
 
 - [ ] **Step 6: Commit and push**
 
@@ -2502,7 +2502,7 @@ func test_cannot_catch_trainer_creature() -> void:
 	assert_eq(b.caught, null)
 ```
 
-- [ ] **Step 2: Run to verify it fails** — `tools/test.sh catching` — Expected: FAIL.
+- [ ] **Step 2: Run to verify it fails**: `tools/test.sh catching`. Expected: FAIL.
 
 - [ ] **Step 3: Create `battle/catching.gd`**
 
@@ -2554,7 +2554,7 @@ func _do_catch(snare: String, ev: Array) -> void:
 		_finish(-1, ev)
 ```
 
-- [ ] **Step 5: Run tests** — `tools/test.sh` — Expected: all pass.
+- [ ] **Step 5: Run tests**: `tools/test.sh`. Expected: all pass.
 
 - [ ] **Step 6: Commit and push**
 
@@ -2645,7 +2645,7 @@ func test_training_goes_to_foes_best_stat_and_caps() -> void:
 	assert_eq(c.training.spd, 0)
 ```
 
-- [ ] **Step 2: Run to verify it fails** — `tools/test.sh progression` — Expected: FAIL.
+- [ ] **Step 2: Run to verify it fails**: `tools/test.sh progression`. Expected: FAIL.
 
 - [ ] **Step 3: Create `battle/progression.gd`**
 
@@ -2714,7 +2714,7 @@ static func add_training(c: Creature, foe_species: Dictionary) -> void:
 	c.training[best] = mini(int(c.training[best]) + 1, Rules.TRAINING_STAT_CAP)
 ```
 
-- [ ] **Step 4: Run tests** — `tools/test.sh` — Expected: all pass.
+- [ ] **Step 4: Run tests**: `tools/test.sh`. Expected: all pass.
 
 - [ ] **Step 5: Commit and push**
 
@@ -2770,7 +2770,7 @@ func test_no_pp_left_still_returns_an_action() -> void:
 	assert_eq(BattleAI.choose(b, 1, "trainer"), {"type": "move", "slot": 0})
 ```
 
-- [ ] **Step 2: Run to verify it fails** — `tools/test.sh test_ai` — Expected: FAIL.
+- [ ] **Step 2: Run to verify it fails**: `tools/test.sh test_ai`. Expected: FAIL.
 
 - [ ] **Step 3: Create `battle/ai.gd`**
 
@@ -2838,7 +2838,7 @@ static func _better_switch(b: Battle, side: int) -> int:
 
 Check of `test_keeper_switches_out_of_bad_matchup`: Spikkin at 20 knows bramble_lash, hunker, spore_puff, thorn_volley; its best against Kindlet is thorn_volley at 75 x 0.5 x 0.95 x 1.5 = 53.4. Benched Holtling's spate_surge scores 80 x 2 x 1.5 = 240, more than double, so it switches. In `test_keeper_stays_when_matchup_is_fine` Holtling is already active at 240 and nobody on the bench beats 480.
 
-- [ ] **Step 4: Run tests** — `tools/test.sh` — Expected: all pass.
+- [ ] **Step 4: Run tests**: `tools/test.sh`. Expected: all pass.
 
 - [ ] **Step 5: Commit and push**
 
@@ -2932,7 +2932,7 @@ func test_no_temp_file_left_behind() -> void:
 	_wipe()
 ```
 
-- [ ] **Step 2: Run to verify it fails** — `tools/test.sh save_system` — Expected: FAIL.
+- [ ] **Step 2: Run to verify it fails**: `tools/test.sh save_system`. Expected: FAIL.
 
 - [ ] **Step 3: Create `core/save_system.gd`**
 
@@ -3009,7 +3009,7 @@ static func _read(path: String) -> Variant:
 	return parsed if parsed is Dictionary else null
 ```
 
-- [ ] **Step 4: Run tests** — `tools/test.sh` — Expected: all pass. (A corrupt-JSON test may print an engine `ERROR: ... Parse JSON` line; that is expected and `tools/test.sh` only fails on `SCRIPT ERROR` or `Parse Error`. If Godot prints the literal text `Parse Error` for invalid JSON, change the corrupt fixture to `{"n": ` and confirm; if it still matches, narrow the grep in `tools/test.sh` to `SCRIPT ERROR|Parse Error: ` with a path prefix check `res://`.)
+- [ ] **Step 4: Run tests**: `tools/test.sh`. Expected: all pass. (A corrupt-JSON test may print an engine `ERROR: ... Parse JSON` line; that is expected and `tools/test.sh` only fails on `SCRIPT ERROR` or `Parse Error`. If Godot prints the literal text `Parse Error` for invalid JSON, change the corrupt fixture to `{"n": ` and confirm; if it still matches, narrow the grep in `tools/test.sh` to `SCRIPT ERROR|Parse Error: ` with a path prefix check `res://`.)
 
 - [ ] **Step 5: Commit and push**
 
