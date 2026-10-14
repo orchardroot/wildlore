@@ -1,9 +1,74 @@
 {
  "ddraig": [
   {
-   "do": "say",
-   "who": "???",
-   "text": "...placeholder at the dragon pool. Story agent, replace me."
+   "do": "if",
+   "flag": "badge_storm",
+   "then": [
+    {
+     "do": "if",
+     "flag": "caught_ddraig",
+     "then": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "The pool is still. A warm breeze, smelling of woodsmoke, drifts across the water. She is somewhere nearby, and content."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "The pool ripples. A warm wind finds its way into the cave, though there is no wind."
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "All four Stones in your pocket hum together. The water begins to glow red."
+      },
+      {
+       "do": "legend",
+       "species": "ddraig",
+       "level": 45,
+       "flag": "caught_ddraig"
+      },
+      {
+       "do": "if",
+       "flag": "caught_ddraig",
+       "then": [
+        {
+         "do": "say",
+         "who": "",
+         "text": "Y Ddraig Goch has chosen to walk beside you. It is, you suspect, the best flag-related decision in the history of Wales."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "",
+         "text": "The Dragon slips back under the water, snorting steam. The pool goes quiet. She will wait, if you want to try again."
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "",
+     "text": "A quiet pool in a cave under the mountain. The water is very still, and very old."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Somewhere below, something very large turns over in its sleep. A rumble, then silence."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Whatever lives here is not ready to meet you. Perhaps you have more Stones to find."
+    }
+   ]
   }
  ]
 }
