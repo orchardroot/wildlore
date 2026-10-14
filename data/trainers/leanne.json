@@ -1,0 +1,32 @@
+{
+ "id": "leanne",
+ "name": "Jogger Leanne",
+ "class": "Jogger",
+ "sprite": "jogger",
+ "party": [
+  {
+   "species": "scuttlet",
+   "level": 6
+  },
+  {
+   "species": "binfox",
+   "level": 7
+  }
+ ],
+ "ai": "trainer",
+ "money": 210,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Jogger Leanne",
+   "text": "Don't mind me, I'm on a personal best!"
+  },
+  {
+   "do": "say",
+   "who": "Jogger Leanne",
+   "text": "I can't stop. If I stop, the Fitbit thinks I've died. Battle on the move!"
+  }
+ ],
+ "win": "That ruined my pace. Seven minutes a mile, gone.",
+ "after": "I'll beat you next time. Or at least I'll beat my own time."
+}

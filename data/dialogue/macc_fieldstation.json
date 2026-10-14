@@ -1,0 +1,366 @@
+{
+ "garside": [
+  {
+   "do": "if",
+   "flag": "snares_given",
+   "then": [
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "East through the Forest, then the Cat and Fiddle road to Buxton."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "Keeper Maud has the first Stone. And take a coat. The moor has opinions."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "garside_met",
+     "then": [
+      {
+       "do": "say",
+       "who": "Prof. Garside",
+       "text": "Back for your creature? Take your time. They won't mind."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Prof. Garside",
+       "text": "{player}! Thank goodness. Come in, mind the kettle, mind the owl pellets."
+      },
+      {
+       "do": "say",
+       "who": "Prof. Garside",
+       "text": "Can you hear it? That low hum? That's the stones. All of them, everywhere."
+      },
+      {
+       "do": "say",
+       "who": "Prof. Garside",
+       "text": "The old legends are waking up, and every creature in the Peak can feel it."
+      },
+      {
+       "do": "say",
+       "who": "Prof. Garside",
+       "text": "This morning I found a heron in the kettle. Not as a metaphor."
+      },
+      {
+       "do": "say",
+       "who": "Prof. Garside",
+       "text": "I need someone to go and have a look, and that someone has legs. Yours."
+      },
+      {
+       "do": "say",
+       "who": "Prof. Garside",
+       "text": "First, this. A Fieldbook. It fills in as you meet creatures. Mind the coffee stains."
+      },
+      {
+       "do": "give_item",
+       "item": "fieldbook"
+      },
+      {
+       "do": "set",
+       "flag": "garside_met"
+      }
+     ]
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "Now, you can't go out there alone. Choose one of these three."
+    },
+    {
+     "do": "starter"
+    },
+    {
+     "do": "if",
+     "flag": "starter",
+     "then": [
+      {
+       "do": "if",
+       "flag": "starter",
+       "then": [
+        {
+         "do": "say",
+         "who": "Prof. Garside",
+         "text": "A Spikkin! Prickly, loyal and brilliant at parties nobody wanted."
+        }
+       ],
+       "eq": "spikkin"
+      },
+      {
+       "do": "if",
+       "flag": "starter",
+       "then": [
+        {
+         "do": "say",
+         "who": "Prof. Garside",
+         "text": "A Holtling! Curious, damp and better at fishing than I am."
+        }
+       ],
+       "eq": "holtling"
+      },
+      {
+       "do": "if",
+       "flag": "starter",
+       "then": [
+        {
+         "do": "say",
+         "who": "Prof. Garside",
+         "text": "A Kindlet! Warm, quick and absolutely not safe near the curtains."
+        }
+       ],
+       "eq": "kindlet"
+      },
+      {
+       "do": "if",
+       "flag": "starter",
+       "then": [
+        {
+         "do": "set",
+         "flag": "kit_vs_spikkin"
+        }
+       ],
+       "eq": "spikkin"
+      },
+      {
+       "do": "if",
+       "flag": "starter",
+       "then": [
+        {
+         "do": "set",
+         "flag": "kit_vs_holtling"
+        }
+       ],
+       "eq": "holtling"
+      },
+      {
+       "do": "if",
+       "flag": "starter",
+       "then": [
+        {
+         "do": "set",
+         "flag": "kit_vs_kindlet"
+        }
+       ],
+       "eq": "kindlet"
+      },
+      {
+       "do": "say",
+       "who": "Prof. Garside",
+       "text": "Now, take these as well. Five Wicker Snares, woven by hand."
+      },
+      {
+       "do": "say",
+       "who": "Prof. Garside",
+       "text": "Slightly itchy, entirely legal. Weaken a wild creature, then throw one."
+      },
+      {
+       "do": "give_item",
+       "item": "wicker_snare",
+       "n": 5
+      },
+      {
+       "do": "set",
+       "flag": "snares_given"
+      },
+      {
+       "do": "say",
+       "who": "Prof. Garside",
+       "text": "Now go east, through Macclesfield Forest. Cat and Fiddle road, then Buxton."
+      },
+      {
+       "do": "say",
+       "who": "Prof. Garside",
+       "text": "Keeper Maud has the first Stone there. She'll want to see you look after a creature."
+      },
+      {
+       "do": "move",
+       "npc": "kit",
+       "path": [
+        "left"
+       ]
+      },
+      {
+       "do": "face_player",
+       "npc": "kit"
+      },
+      {
+       "do": "say",
+       "who": "{rival}",
+       "text": "Hang on! Not so fast, {player}!"
+      },
+      {
+       "do": "say",
+       "who": "{rival}",
+       "text": "I've been waiting ALL morning for this. And I've got my phone ready."
+      },
+      {
+       "do": "if",
+       "flag": "starter",
+       "then": [
+        {
+         "do": "say",
+         "who": "{rival}",
+         "text": "Oooh, a Spikkin! Right, I'll have the Kindlet then."
+        },
+        {
+         "do": "say",
+         "who": "{rival}",
+         "text": "Fire beats hedgerow. That's not cheating, that's science."
+        }
+       ],
+       "eq": "spikkin"
+      },
+      {
+       "do": "if",
+       "flag": "starter",
+       "then": [
+        {
+         "do": "say",
+         "who": "{rival}",
+         "text": "A Holtling? Cute! I'll take the Spikkin, then."
+        },
+        {
+         "do": "say",
+         "who": "{rival}",
+         "text": "Spines beat otters. Probably. Let's find out."
+        }
+       ],
+       "eq": "holtling"
+      },
+      {
+       "do": "if",
+       "flag": "starter",
+       "then": [
+        {
+         "do": "say",
+         "who": "{rival}",
+         "text": "A Kindlet? Brave, with all these curtains. I'll have the Holtling."
+        },
+        {
+         "do": "say",
+         "who": "{rival}",
+         "text": "Water beats fire. See? I did revise."
+        }
+       ],
+       "eq": "kindlet"
+      },
+      {
+       "do": "say",
+       "who": "{rival}",
+       "text": "Right! Battle! Now! Before I overthink it!"
+      },
+      {
+       "do": "set",
+       "flag": "kit1_fought"
+      },
+      {
+       "do": "if",
+       "flag": "starter",
+       "then": [
+        {
+         "do": "battle",
+         "trainer": "kit_1_vs_spikkin"
+        }
+       ],
+       "eq": "spikkin"
+      },
+      {
+       "do": "if",
+       "flag": "starter",
+       "then": [
+        {
+         "do": "battle",
+         "trainer": "kit_1_vs_holtling"
+        }
+       ],
+       "eq": "holtling"
+      },
+      {
+       "do": "if",
+       "flag": "starter",
+       "then": [
+        {
+         "do": "battle",
+         "trainer": "kit_1_vs_kindlet"
+        }
+       ],
+       "eq": "kindlet"
+      },
+      {
+       "do": "say",
+       "who": "{rival}",
+       "text": "Good one! That's going on my channel. Both halves of it."
+      },
+      {
+       "do": "say",
+       "who": "{rival}",
+       "text": "I'm off to Buxton to see the spa! Race you there, {player}!"
+      },
+      {
+       "do": "say",
+       "who": "Prof. Garside",
+       "text": "Hm. I do hope there's a Fieldbook entry for 'overexcitable'."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Prof. Garside",
+       "text": "Shy? Quite understood. Come back when you've made up your mind."
+      },
+      {
+       "do": "end"
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "kit_station": [
+  {
+   "do": "if",
+   "flag": "kit1_fought",
+   "then": [
+    {
+     "do": "say",
+     "who": "{rival}",
+     "text": "Don't gloat. Okay, gloat a bit. I'd gloat."
+    },
+    {
+     "do": "say",
+     "who": "{rival}",
+     "text": "I'm heading to Buxton. If I trend, remember who taught you cameras."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "{rival}",
+     "text": "Garside's giving out creatures! I'm filming it for my followers."
+    },
+    {
+     "do": "say",
+     "who": "{rival}",
+     "text": "I've got eleven followers. Two are my mum. One's my mum's other account."
+    }
+   ]
+  }
+ ],
+ "intern": [
+  {
+   "do": "say",
+   "who": "Intern",
+   "text": "I've been sorting owl pellets since six. Never again."
+  },
+  {
+   "do": "say",
+   "who": "Intern",
+   "text": "The creatures keep gathering outside the window. Like an audience."
+  }
+ ]
+}

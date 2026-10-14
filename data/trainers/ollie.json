@@ -1,0 +1,32 @@
+{
+ "id": "ollie",
+ "name": "Junior Swimmer Ollie",
+ "class": "Junior Swimmer",
+ "sprite": "villager_3",
+ "party": [
+  {
+   "species": "dipling",
+   "level": 10
+  },
+  {
+   "species": "rillotter",
+   "level": 11
+  }
+ ],
+ "ai": "trainer",
+ "money": 330,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Junior Swimmer Ollie",
+   "text": "Welcome to the spa! Please do not run on the tiles."
+  },
+  {
+   "do": "say",
+   "who": "Junior Swimmer Ollie",
+   "text": "I'm only allowed to run in battles. That's Rule Four."
+  }
+ ],
+ "win": "Whoa, I slipped! Not on the tiles, though. I'm proud of that.",
+ "after": "Maud says the secret is staying calm. I stayed calm. Mostly. Outwardly."
+}

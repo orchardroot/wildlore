@@ -99,6 +99,11 @@ func _spawn_npcs() -> void:
 		return
 	var npc_script: Script = load("res://world/npc.gd")
 	for def in zone.npcs:
+		# Optional flag gating: "hide_if": flag (absent once set), "show_if": flag (present once set).
+		if def.has("hide_if") and Game.data.flag(str(def.hide_if)):
+			continue
+		if def.has("show_if") and not Game.data.flag(str(def.show_if)):
+			continue
 		var n: Node3D = npc_script.new()
 		add_child(n)
 		n.setup(def, self)

@@ -1,0 +1,32 @@
+{
+ "id": "dev",
+ "name": "Angler Dev",
+ "class": "Angler",
+ "sprite": "angler",
+ "party": [
+  {
+   "species": "croakle",
+   "level": 5
+  },
+  {
+   "species": "dipling",
+   "level": 6
+  }
+ ],
+ "ai": "trainer",
+ "money": 180,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Angler Dev",
+   "text": "Caught nothing since March. Not a nibble. Not a wellie."
+  },
+  {
+   "do": "say",
+   "who": "Angler Dev",
+   "text": "Perhaps a battle will change my luck. Shall we?"
+  }
+ ],
+ "win": "Typical. The one thing that bites today is you.",
+ "after": "Still nothing. The ducks are laughing at me. Actual ducks."
+}

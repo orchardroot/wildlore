@@ -38,7 +38,45 @@
    "offset": 0
   }
  },
- "npcs": [],
+ "npcs": [
+  {
+   "id": "warden",
+   "sprite": "warden_grunt",
+   "x": 22,
+   "y": 13,
+   "facing": "right",
+   "move": "still",
+   "script": "warden",
+   "name": "Warden"
+  },
+  {
+   "id": "gwen",
+   "sprite": "hiker",
+   "x": 15,
+   "y": 12,
+   "facing": "down",
+   "move": "still",
+   "trainer": "gwen"
+  },
+  {
+   "id": "tom",
+   "sprite": "hiker",
+   "x": 40,
+   "y": 12,
+   "facing": "down",
+   "move": "still",
+   "trainer": "tom"
+  },
+  {
+   "id": "pratt",
+   "sprite": "warden_grunt",
+   "x": 42,
+   "y": 18,
+   "facing": "right",
+   "move": "still",
+   "trainer": "pratt"
+  }
+ ],
  "encounters": {
   "grass": [
    {
@@ -126,6 +164,16 @@
    "x": 60,
    "y": 20,
    "text": "BUXTON 1 mile. Spa town. Hot water, cold wind."
+  },
+  {
+   "x": 23,
+   "y": 13,
+   "text": "PRIVATE: NO ROAMING. By order of the Enclosure. (Roaming is also discouraged.)"
+  },
+  {
+   "x": 23,
+   "y": 13,
+   "text": "PRIVATE: NO ROAMING. By order of the Enclosure. (Roaming is also discouraged.)"
   }
  ],
  "spawn": [
