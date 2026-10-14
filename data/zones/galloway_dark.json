@@ -1,0 +1,174 @@
+{
+ "id": "galloway_dark",
+ "name": "Galloway Dark Sky Hill",
+ "region": "scotland",
+ "kind": "route",
+ "music": "route_highlands",
+ "weather": {
+  "clear": 100
+ },
+ "props": [
+  {
+   "type": "standing_stone",
+   "x": 9,
+   "y": 9
+  },
+  {
+   "type": "standing_stone",
+   "x": 15,
+   "y": 9
+  },
+  {
+   "type": "standing_stone",
+   "x": 9,
+   "y": 11
+  },
+  {
+   "type": "standing_stone",
+   "x": 15,
+   "y": 11
+  },
+  {
+   "type": "standing_stone",
+   "x": 12,
+   "y": 8
+  },
+  {
+   "type": "bench",
+   "x": 11,
+   "y": 10
+  },
+  {
+   "type": "bench",
+   "x": 13,
+   "y": 10
+  }
+ ],
+ "warps": [
+  {
+   "x": 12,
+   "y": 18,
+   "to": "galloway",
+   "tx": 39,
+   "ty": 12,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "dk_flit",
+   "sprite": "creature:flittermouse",
+   "x": 6,
+   "y": 5,
+   "facing": "down",
+   "move": "wander",
+   "script": "dk_flit"
+  },
+  {
+   "id": "dk_glow",
+   "sprite": "creature:glowmite",
+   "x": 18,
+   "y": 5,
+   "facing": "down",
+   "move": "wander",
+   "script": "dk_glow"
+  },
+  {
+   "id": "dk_hoot",
+   "sprite": "creature:hootlet",
+   "x": 5,
+   "y": 15,
+   "facing": "down",
+   "move": "wander",
+   "script": "dk_hoot"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "hootlet",
+    "min": 68,
+    "max": 69,
+    "weight": 20
+   },
+   {
+    "species": "flittermouse",
+    "min": 67,
+    "max": 69,
+    "weight": 20
+   },
+   {
+    "species": "glowmite",
+    "min": 67,
+    "max": 69,
+    "weight": 18
+   },
+   {
+    "species": "hushwing",
+    "min": 68,
+    "max": 69,
+    "weight": 12
+   },
+   {
+    "species": "wildkit",
+    "min": 68,
+    "max": 69,
+    "weight": 6
+   },
+   {
+    "species": "lanternis",
+    "min": 69,
+    "max": 69,
+    "weight": 4
+   },
+   {
+    "species": "martling",
+    "min": 67,
+    "max": 68,
+    "weight": 10
+   },
+   {
+    "species": "pooka",
+    "min": 68,
+    "max": 69,
+    "weight": 6
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 12,
+   "y": 13,
+   "text": "DARK SKY HILL. Please keep torches off, or dim and red. A red light keeps your night eyes working. This is a sign you can read by starlight, if you're quick."
+  }
+ ],
+ "spawn": [
+  12,
+  16
+ ],
+ "stage": "moor",
+ "dark": true,
+ "rows": [
+  "TTTTTTTTTTTTTTTTTTTTTTTT",
+  "T......................T",
+  "T......................T",
+  "T..,,,,,,,.....,,,,,,..T",
+  "T..,,,,,,,.....,,,,,,..T",
+  "T..,,,,,,,.....,,,,,,..T",
+  "T..,,,,,,,.....,,,,,,..T",
+  "T......................T",
+  "T.......#########......T",
+  "T.......#.......#......T",
+  "T.......#.......#......T",
+  "T.......#.......#......T",
+  "T.......#########......T",
+  "T..,,,,,,..###..,,,,,..T",
+  "T..,,,,,,..###..,,,,,..T",
+  "T..,,,,,,..###..,,,,,..T",
+  "T..,,,,,,..###..,,,,,..T",
+  "T..........###.........T",
+  "T..........###.........T",
+  "TTTTTTTTTTTTTTTTTTTTTTTT"
+ ]
+}

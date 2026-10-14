@@ -1,0 +1,63 @@
+{
+ "nurse": [
+  {
+   "do": "say",
+   "who": "Nurse",
+   "text": "Haw there, and welcome to Glasgow Sanctuary. That's the traditional greeting. Pop your team on the counter, pal. Or friend. Or both."
+  },
+  {
+   "do": "choice",
+   "text": "What can we do for you?",
+   "options": [
+    "Heal my team",
+    "Open the Ark",
+    "Just looking"
+   ],
+   "set": "_nurse_choice"
+  },
+  {
+   "do": "if",
+   "flag": "_nurse_choice",
+   "eq": 0,
+   "then": [
+    {
+     "do": "say",
+     "who": "Nurse",
+     "text": "Sit yersel doon. Have a cuppa. Don't mind the rain, it's only passing through. It's been passing through for eleven days."
+    },
+    {
+     "do": "heal"
+    },
+    {
+     "do": "say",
+     "who": "Nurse",
+     "text": "There ye go, right as rain, which is exactly how you are. M\u00f2ran taing, as we say in the Gaelic bits. Mind the cone on the Duke."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "_nurse_choice",
+     "eq": 1,
+     "then": [
+      {
+       "do": "say",
+       "who": "Nurse",
+       "text": "The Ark terminal's in the corner. It's powered by hot water, determination and an enormous amount of tea."
+      },
+      {
+       "do": "ark"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Nurse",
+       "text": "No bother at all. Away you go. Beannachd leibh, and mind the puddles, they're deeper than they look."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
