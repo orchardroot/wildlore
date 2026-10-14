@@ -1,0 +1,32 @@
+{
+ "id": "goyt_angler",
+ "name": "Angler Phil",
+ "class": "Angler",
+ "sprite": "angler",
+ "party": [
+  {
+   "species": "holtling",
+   "level": 13
+  },
+  {
+   "species": "dipling",
+   "level": 14
+  }
+ ],
+ "ai": "trainer",
+ "money": 400,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Angler Phil",
+   "text": "Fernilee's full of trout. Errwood's full of excuses. Care to join me for either?"
+  },
+  {
+   "do": "say",
+   "who": "Angler Phil",
+   "text": "Hold my rod, I've a battle to see to."
+  }
+ ],
+ "win": "That's a bigger catch than anything I've had all day.",
+ "after": "Seven hours. One boot. Peaceful, though."
+}

@@ -1,0 +1,32 @@
+{
+ "id": "goyt_hiker",
+ "name": "Hiker Marge",
+ "class": "Hiker",
+ "sprite": "hiker",
+ "party": [
+  {
+   "species": "brockling",
+   "level": 12
+  },
+  {
+   "species": "pepperling",
+   "level": 13
+  }
+ ],
+ "ai": "trainer",
+ "money": 380,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Hiker Marge",
+   "text": "Do you know how far it is to Manchester? Neither do I. We've been lost since Tuesday."
+  },
+  {
+   "do": "say",
+   "who": "Hiker Marge",
+   "text": "The map says 'valley'. The valley says 'no'."
+  }
+ ],
+ "win": "Right. Left. Whichever way you're going, you've earned it.",
+ "after": "I've found the path. It was under my other foot."
+}

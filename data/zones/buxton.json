@@ -223,6 +223,10 @@
   "west": {
    "to": "cat_and_fiddle",
    "offset": 0
+  },
+  "north": {
+   "to": "goyt_valley",
+   "offset": 0
   }
  },
  "npcs": [
@@ -291,6 +295,16 @@
    "move": "still",
    "trainer": "kit_2_vs_kindlet",
    "show_if": "kit_vs_kindlet"
+  },
+  {
+   "id": "buxton_goyt_guide",
+   "sprite": "villager_2",
+   "x": 30,
+   "y": 3,
+   "facing": "left",
+   "move": "still",
+   "script": "goyt_guide",
+   "name": "Walker"
   }
  ],
  "encounters": {},
@@ -309,6 +323,11 @@
    "x": 4,
    "y": 19,
    "text": "BUXTON. Welcome to the highest market town in England. Probably. Wrap up."
+  },
+  {
+   "x": 29,
+   "y": 5,
+   "text": "NORTH: Goyt Valley and, eventually, Manchester. Take a coat. Manchester will not provide one."
   }
  ],
  "spawn": [
@@ -316,16 +335,16 @@
   21
  ],
  "rows": [
-  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
-  "TTTTTTTTTTTTTTPTTTTTTTTTTTPTTTTTTTTTTTTPTTPTTTTTTTTTTTTT",
-  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
-  "TTT...............................BBBBB..BBBBBB......TTT",
-  "TTTHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH.BBBBB..BBBBBB......TTT",
-  "TTT...............................BBBBB..BBBBBB......TTT",
-  "TTT.........BBBBBBBBBBBBBBBB......BBBBB..BBBBBB......TTT",
-  "TTT.BBBBB...BBBBBBBBBBBBBBBB.........................TTT",
-  "TTT.BBBBB...BBBBBBBBBBBBBBBB..BBB...............:=...TTT",
-  "TTT.BBBBB...BBBBBBBBBBBBBBBB..BBB...............:=...TTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTT###TTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTPTTTTTTTTTTT###TTTTTTTTTTPTTPTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTT###TTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTT.......................###.....BBBBB..BBBBBB......TTT",
+  "TTTHHHHHHHHHHHHHHHHHHHHHHH###HHHH.BBBBB..BBBBBB......TTT",
+  "TTT.......................###.....BBBBB..BBBBBB......TTT",
+  "TTT.........BBBBBBBBBBBBBBBB#.....BBBBB..BBBBBB......TTT",
+  "TTT.BBBBB...BBBBBBBBBBBBBBBB#........................TTT",
+  "TTT.BBBBB...BBBBBBBBBBBBBBBB#.BBB...............:=...TTT",
+  "TTT.BBBBB...BBBBBBBBBBBBBBBB#.BBB...............:=...TTT",
   "TTT........::::::::::::::::::...................:=...TTT",
   "TTT........::::::::::::::::::...................:=...TTT",
   "TTT.............................................:=...TTT",
@@ -356,5 +375,6 @@
   "TTTTTTTPTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
   "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
   "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTPTTTTTTTTTTTTTT"
- ]
+ ],
+ "stage": "town"
 }

@@ -1,0 +1,80 @@
+{
+ "id": "manc_bikes",
+ "name": "Bev's Bikes",
+ "region": "",
+ "kind": "interior",
+ "music": "town_city",
+ "weather": {},
+ "props": [
+  {
+   "type": "bookshelf",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 7,
+   "y": 1
+  },
+  {
+   "type": "table",
+   "x": 1,
+   "y": 5
+  },
+  {
+   "type": "table",
+   "x": 7,
+   "y": 4
+  },
+  {
+   "type": "potted_plant",
+   "x": 7,
+   "y": 6
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 6
+  }
+ ],
+ "warps": [
+  {
+   "x": 4,
+   "y": 6,
+   "to": "manchester",
+   "tx": 21,
+   "ty": 31,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "bev",
+   "sprite": "bev",
+   "x": 4,
+   "y": 1,
+   "facing": "down",
+   "move": "still",
+   "script": "bev",
+   "name": "Bev"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  4,
+  5
+ ],
+ "stage": "town",
+ "rows": [
+  "xxxxxxxxx",
+  "x|||||||x",
+  "x|CCCCC|x",
+  "x|||||||x",
+  "x|||||||x",
+  "x|||||||x",
+  "x|||D|||x",
+  "xxxxxxxxx"
+ ]
+}

@@ -1,0 +1,84 @@
+{
+ "signalman": [
+  {
+   "do": "say",
+   "who": "Signalman",
+   "text": "George Stephenson built this line across the moss in 1830. Floated it on heather, brushwood and tonnes of spoil."
+  },
+  {
+   "do": "say",
+   "who": "Signalman",
+   "text": "It sinks about a foot every year and they top it up. Like my pension, but with trains."
+  }
+ ],
+ "peat_cutter": [
+  {
+   "do": "say",
+   "who": "Peat Cutter",
+   "text": "My granddad cut peat here for the gardens. Takes eight thousand years to make. We dug it in a week."
+  },
+  {
+   "do": "say",
+   "who": "Peat Cutter",
+   "text": "A peat bog stores more carbon than all the forests in Britain. Don't take the mickey out of the damp."
+  }
+ ],
+ "botanist": [
+  {
+   "do": "say",
+   "who": "Botanist",
+   "text": "That's sphagnum moss. It can hold twenty times its own weight in water. In the First World War they used it as wound dressing."
+  },
+  {
+   "do": "say",
+   "who": "Botanist",
+   "text": "Chat Moss is one of the largest lowland raised bogs in England. Ten square miles of squelch."
+  }
+ ],
+ "salad_farmer": [
+  {
+   "do": "say",
+   "who": "Farmer",
+   "text": "They drained the edges of Chat Moss for farming. Best salad leaves in the north-west. Lettuces love a black soil."
+  },
+  {
+   "do": "say",
+   "who": "Farmer",
+   "text": "Mind the ditches. I lost a tractor in one in 1998. She's still down there, biding her time."
+  }
+ ],
+ "hermit": [
+  {
+   "do": "say",
+   "who": "Hermit",
+   "text": "Ah. You found the brambles. Not many do."
+  },
+  {
+   "do": "if",
+   "flag": "moss_hermit_gift",
+   "then": [
+    {
+     "do": "say",
+     "who": "Hermit",
+     "text": "I gave you what I had, mind. Come back for the soup when the moss is dry."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Hermit",
+     "text": "I make my own snares out of bog oak and spite. Take some. They're sturdy."
+    },
+    {
+     "do": "give_item",
+     "item": "iron_snare",
+     "n": 3
+    },
+    {
+     "do": "set",
+     "flag": "moss_hermit_gift"
+    }
+   ]
+  }
+ ]
+}

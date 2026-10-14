@@ -1,0 +1,36 @@
+{
+ "id": "goyt_birder",
+ "name": "Birdwatcher Olwen",
+ "class": "Birdwatcher",
+ "sprite": "birdwatcher",
+ "party": [
+  {
+   "species": "pipkin",
+   "level": 13
+  },
+  {
+   "species": "starlet",
+   "level": 13
+  },
+  {
+   "species": "hootlet",
+   "level": 14
+  }
+ ],
+ "ai": "trainer",
+ "money": 420,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Birdwatcher Olwen",
+   "text": "Shh! I'm watching a dipper. Did you hear that? It's just you. Now it's gone."
+  },
+  {
+   "do": "say",
+   "who": "Birdwatcher Olwen",
+   "text": "You owe me one dipper."
+  }
+ ],
+ "win": "Alright, alright. The dipper wasn't that rare anyway.",
+ "after": "Dippers walk underwater. I'd like to see you try."
+}
