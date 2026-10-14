@@ -1,0 +1,32 @@
+{
+ "id": "tom",
+ "name": "Hiker Tom",
+ "class": "Hiker",
+ "sprite": "hiker",
+ "party": [
+  {
+   "species": "roachroo",
+   "level": 9
+  },
+  {
+   "species": "snowhare",
+   "level": 8
+  }
+ ],
+ "ai": "trainer",
+ "money": 340,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Hiker Tom",
+   "text": "Gwen said you'd be along, so I put my good socks on."
+  },
+  {
+   "do": "say",
+   "who": "Hiker Tom",
+   "text": "Merino. Very serious. Let's do this."
+  }
+ ],
+ "win": "My socks held. My dignity did not.",
+ "after": "Tell Gwen I lost with great style. She'll disagree."
+}

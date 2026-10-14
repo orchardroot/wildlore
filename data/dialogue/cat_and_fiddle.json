@@ -1,0 +1,89 @@
+{
+ "warden": [
+  {
+   "do": "if",
+   "flag": "warden_seen",
+   "then": [
+    {
+     "do": "say",
+     "who": "Warden",
+     "text": "I'm still putting this sign up. It won't hammer itself."
+    },
+    {
+     "do": "say",
+     "who": "Warden",
+     "text": "Please do not roam while I'm working. It makes the paperwork wobble."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Warden",
+     "text": "Halt! This stretch of moorland is now the property of the Enclosure."
+    },
+    {
+     "do": "say",
+     "who": "{player}",
+     "text": "It's the A537. It's a road."
+    },
+    {
+     "do": "say",
+     "who": "Warden",
+     "text": "Was the A537. Lord Vane has bought the view. And the heather. And the fog."
+    },
+    {
+     "do": "say",
+     "who": "Warden",
+     "text": "I'm putting up a sign. It says PRIVATE: NO ROAMING in a very firm font."
+    },
+    {
+     "do": "choice",
+     "text": "How do you respond?",
+     "options": [
+      "Roam anyway",
+      "Ask about the fog"
+     ],
+     "set": "warden_choice"
+    },
+    {
+     "do": "if",
+     "flag": "warden_choice",
+     "then": [
+      {
+       "do": "say",
+       "who": "{player}",
+       "text": "I'm roaming. Look. I'm roaming right now."
+      },
+      {
+       "do": "say",
+       "who": "Warden",
+       "text": "You can't. The sign isn't even up yet! Wait, that's worse for me."
+      }
+     ],
+     "eq": 0,
+     "else": [
+      {
+       "do": "say",
+       "who": "Warden",
+       "text": "The fog is a Heritage Feature, and we don't discuss its terms."
+      },
+      {
+       "do": "say",
+       "who": "Warden",
+       "text": "Lord Vane says it adds atmosphere. It adds about nine bruises a week."
+      }
+     ]
+    },
+    {
+     "do": "say",
+     "who": "Warden",
+     "text": "Right. Carry on, then. But I'll be noting it down. In triplicate."
+    },
+    {
+     "do": "set",
+     "flag": "warden_seen"
+    }
+   ]
+  }
+ ]
+}

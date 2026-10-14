@@ -69,7 +69,7 @@ func zone_exists(id: String) -> bool:
 	return FileAccess.file_exists("res://data/zones/%s.json" % id)
 
 func _start_zone() -> String:
-	return "macclesfield" if zone_exists("macclesfield") else "testbed"
+	return "macc_home" if zone_exists("macc_home") else ("macclesfield" if zone_exists("macclesfield") else "testbed")
 
 func _dev_boot() -> void:
 	if args.shot != "":

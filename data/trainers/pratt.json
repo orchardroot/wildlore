@@ -1,0 +1,32 @@
+{
+ "id": "pratt",
+ "name": "Warden Pratt",
+ "class": "Warden",
+ "sprite": "warden_grunt",
+ "party": [
+  {
+   "species": "binfox",
+   "level": 9
+  },
+  {
+   "species": "gritling",
+   "level": 10
+  }
+ ],
+ "ai": "trainer",
+ "money": 400,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Warden Pratt",
+   "text": "Halt! You are Roaming without a licence."
+  },
+  {
+   "do": "say",
+   "who": "Warden Pratt",
+   "text": "This moor is a Heritage Experience and you are not on the guest list."
+  }
+ ],
+ "win": "I shall have to file this. There is no form for it.",
+ "after": "I've asked for a transfer to Stoke. Fewer creatures. Mostly pottery."
+}
