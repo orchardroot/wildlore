@@ -363,11 +363,8 @@ def tor(OUT):
     script("glastonbury_tor", "keeper_morwen", say("Keeper Morwen", "Placeholder: the story agent rewrites this Keeper battle script."))
     t.npc(id="greenman_spot", sprite="creature:greenman", x=9, y=20, facing="down", move="still", script="greenman")
     script("glastonbury_tor", "greenman", say("The Green Man", "Placeholder: the story agent writes the Green Man here."))
-    trainer(t, "tor_druid", "Druid Elowen", "Druid", "villager_6", [("pixiedell", 40), ("thornwyn", 40)],
-            19, 20, "right", ["Halt, pilgrim! I'm guarding the Tor on behalf of Keeper Morwen. And my sister, who's behind you."],
-            "Hm. The hill approves. I'm told it approves of most people.", "Keep going up. It gets steeper, then it gets a view.", 1040)
-    trainer(t, "tor_festival", "Festival-goer Tegan", "Festival-goer", "student", [("hazeldoze", 41), ("wispet", 40)],
-            21, 15, "left", ["Hold on, hold on, wellies, torch, lantern. I'm ready! Keeper Morwen says every visitor gets a warm-up."],
-            "Fair enough. My lantern's out. Mind the step.", "The Keeper's at the top. She does a lovely cuppa afterwards.", 1060)
+    # the juniors are one double battle; data/trainers/tor_druid.json is maintained by hand (story task)
+    t.npc(id="tor_druid", sprite="villager_6", x=19, y=20, facing="right", move="still", trainer="tor_druid")
+    t.npc(id="tor_festival", sprite="student", x=19, y=21, facing="right", move="still", trainer="tor_druid")
     t.d["spawn"] = [20, 28]
     t.save(OUT + "/glastonbury_tor.json")
