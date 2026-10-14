@@ -163,6 +163,8 @@ func _stage() -> String:
 ## Called by Router after any battle that ran over this overworld.
 func on_battle_finished(result: Dictionary) -> void:
 	encounters.after_battle()
+	if zone and zone.music != "":
+		Audio.play_music(zone.music, 0.4)
 
 func _after_battle(result: Dictionary) -> void:
 	if result.get("result") == "lose":

@@ -47,7 +47,7 @@ func stop_music(fade := 0.6) -> void:
 		_fade(i, SILENT_DB, fade, true)
 
 func sfx(id: String) -> void:
-	var stream := _find("res://audio/sfx/" + id)
+	var stream := _find(AudioIds.sfx_file(id).get_basename())
 	if stream == null:
 		return
 	for p in _sfx:

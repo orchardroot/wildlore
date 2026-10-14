@@ -12,6 +12,10 @@ var forget_asked: Array = []
 var evolve_asked: Array = []
 var replacement_asked := 0
 var xp_calls := 0
+var first_catches: Array = []
+
+func first_catch(c: Creature) -> void:
+	first_catches.append(c.species.id)
 
 func intro(_flow) -> void:
 	pass

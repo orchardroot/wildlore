@@ -92,6 +92,9 @@ func _run() -> void:
 	if auto:
 		print("battle result: ", result.result, " | log: ", " / ".join(flow.log))
 	await get_tree().create_timer(0.35).timeout
+	if str(result.get("result", "")) in ["win", "caught"]:
+		Audio.play_music("victory", 0.2)
+		await _wait(1.5)
 	finished.emit(result)
 
 func _wait(sec: float) -> void:
@@ -100,7 +103,7 @@ func _wait(sec: float) -> void:
 # --- the flow's ui interface --------------------------------------------------------
 
 func intro(f: BattleFlow) -> void:
-	Audio.play_music(str(opts.get("music", "battle")))
+	Audio.play_music(AudioIds.battle_music(opts))
 	dio.intro_swoop()
 	var foe := f.battle.current(Battle.FOE)
 	var me := f.battle.current(Battle.PLAYER)
@@ -241,6 +244,12 @@ func choose_forget(c: Creature, move_id: String, _f: BattleFlow) -> int:
 		return -1
 	msg.prompt("%s is trying to learn a new move." % c.display_name())
 	return await menus.forget(c, move_id, Game.moves)
+
+## First time this species is caught: the Fieldbook popup with its real-world fact.
+func first_catch(c: Creature) -> void:
+	if Engine.has_meta("autopilot"):
+		return
+	await PediaPopup.show_for(self, c.species.id)
 
 func xp_gained(c: Creature, evs: Array) -> void:
 	Audio.sfx("xp")

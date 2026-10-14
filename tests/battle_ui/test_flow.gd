@@ -70,7 +70,7 @@ func test_catch_with_full_party_goes_to_ark() -> void:
 	for l in ui.said:
 		if str(l).begins_with("Did you know?"):
 			told = true
-	assert_true(told, "first catch fact")
+	assert_eq(ui.first_catches.size(), 1, "first catch shows the Fieldbook popup")
 	var types := ui.event_types()
 	assert_has(types, "catch")
 
@@ -211,3 +211,15 @@ func test_battle_items_lists_only_usable() -> void:
 	assert_eq(ids.size(), 2)
 	var t := _flow([a], [Fixtures.creature("spikkin", 3)], FakeBattleUI.new(), {"kind": "trainer"}, {"cup_of_tea": 2, "wicker_snare": 1})
 	assert_eq(t.battle_items().map(func(e): return e.id), ["cup_of_tea"])
+
+func test_first_catch_shows_the_fieldbook_popup() -> void:
+	var a := Fixtures.creature("kindlet", 10)
+	var sp := Fixtures.species("pushover", ["kin"], 50, {"catch_rate": 255})
+	var foe := Creature.create(sp, 3, FixedRng.new(), Fixtures.moves())
+	foe.hp = 1
+	var ui := FakeBattleUI.new()
+	for i in 20:
+		ui.picks.append({"kind": "item", "item": "wicker_snare"})
+	var f := _flow([a], [foe], ui, {}, {"wicker_snare": 20})
+	f.run()
+	assert_eq(ui.first_catches, ["pushover"])

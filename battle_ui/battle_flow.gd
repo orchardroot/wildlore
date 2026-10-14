@@ -273,10 +273,7 @@ func _after_catch(c: Creature) -> void:
 	else:
 		await _say(["Your party is full, so %s went to the Ark." % c.display_name()])
 	if first:
-		await _say(["%s was added to the Creaturepedia!" % c.species.name])
-		var fact := str(c.species.get("dex", {}).get("fact", ""))
-		if fact != "":
-			await _say(["Did you know? %s" % fact], 1.2)
+		await ui.first_catch(c)
 
 func _evolutions() -> void:
 	for c in _levelled:

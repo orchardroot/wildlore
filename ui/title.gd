@@ -58,12 +58,27 @@ func _subtitle() -> String:
 		return "Game data missing from this build"
 	return "v%s  ·  %d creatures so far" % [ProjectSettings.get_setting("application/config/version"), Game.dex.ids().size()]
 
+var _chosen := false
+
+## Only the first press counts: a quick double-press must not start two games at once.
+func _claim() -> bool:
+	if _chosen:
+		return false
+	_chosen = true
+	for b in _menu.get_children():
+		b.disabled = true
+	return true
+
 func _on_continue() -> void:
+	if not _claim():
+		return
 	Audio.sfx("confirm")
 	if Game.load_slot("auto"):
 		Router.goto_zone(Game.data.zone_id, Game.data.pos, Game.data.facing)
 
 func _on_new() -> void:
+	if not _claim():
+		return
 	Audio.sfx("confirm")
 	Game.new_game()
 	Router.goto_zone(Game.data.zone_id, Vector2i(-1, -1), "down")
