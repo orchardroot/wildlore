@@ -1,0 +1,31 @@
+{
+ "id": "cw_warden",
+ "name": "Warden Percival",
+ "class": "Warden",
+ "sprite": "warden_grunt",
+ "party": [
+  {
+   "species": "sootwing",
+   "level": 66
+  },
+  {
+   "species": "raidtail",
+   "level": 66
+  },
+  {
+   "species": "gritling",
+   "level": 66
+  }
+ ],
+ "ai": "trainer",
+ "money": 2300,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Warden Percival",
+   "text": "Stop right there. The Causeway is being repositioned. We're making the columns more... uniform. Fewer dents."
+  }
+ ],
+ "win": "I'll tell management the stones resisted my tender.",
+ "after": "The Enclosure wants to put a gift shop on every column. The stones have politely declined."
+}

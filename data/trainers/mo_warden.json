@@ -1,0 +1,31 @@
+{
+ "id": "mo_warden",
+ "name": "Warden Quentin",
+ "class": "Warden",
+ "sprite": "warden_grunt",
+ "party": [
+  {
+   "species": "snowhare",
+   "level": 63
+  },
+  {
+   "species": "tormane",
+   "level": 63
+  },
+  {
+   "species": "sikawhistle",
+   "level": 62
+  }
+ ],
+ "ai": "trainer",
+ "money": 2000,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Warden Quentin",
+   "text": "Halt! This glen has been pre-curated for your enjoyment. No bog, no rambling, and certainly no mess. We've labelled the heather."
+  }
+ ],
+ "win": "Hmph. Unauthorised curation. I shall file a form.",
+ "after": "The Enclosure says views must be booked in advance. The mountain did not respond to the email."
+}

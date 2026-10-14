@@ -1,0 +1,63 @@
+{
+ "nurse": [
+  {
+   "do": "say",
+   "who": "Nurse",
+   "text": "Hello there, love, and welcome to the Derry Sanctuary! Sit down, take the weight off, and let me look at your team."
+  },
+  {
+   "do": "choice",
+   "text": "What can we do for you?",
+   "options": [
+    "Heal my team",
+    "Open the Ark",
+    "Just looking"
+   ],
+   "set": "_nurse_choice"
+  },
+  {
+   "do": "if",
+   "flag": "_nurse_choice",
+   "eq": 0,
+   "then": [
+    {
+     "do": "say",
+     "who": "Nurse",
+     "text": "Rest here. There's tea, a custard cream, and a window with a view of the Walls. It's always the best seat in town."
+    },
+    {
+     "do": "heal"
+    },
+    {
+     "do": "say",
+     "who": "Nurse",
+     "text": "All done. They're in fine fettle, and so are you. Go on, off with ye. The Walls aren't going to walk themselves."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "_nurse_choice",
+     "eq": 1,
+     "then": [
+      {
+       "do": "say",
+       "who": "Nurse",
+       "text": "The Ark is the machine by the stairs. It has a screen, a fan, and the patience of a saint."
+      },
+      {
+       "do": "ark"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Nurse",
+       "text": "No bother. Pop in any time. Even if it's just to get out of the rain. Which is a good reason."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

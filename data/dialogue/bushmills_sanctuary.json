@@ -1,0 +1,63 @@
+{
+ "nurse": [
+  {
+   "do": "say",
+   "who": "Nurse",
+   "text": "Well hello there! This is the Bushmills Sanctuary, which is small, warm, and entirely free of draughts, since we blocked them in 1998."
+  },
+  {
+   "do": "choice",
+   "text": "What can we do for you?",
+   "options": [
+    "Heal my team",
+    "Open the Ark",
+    "Just looking"
+   ],
+   "set": "_nurse_choice"
+  },
+  {
+   "do": "if",
+   "flag": "_nurse_choice",
+   "eq": 0,
+   "then": [
+    {
+     "do": "say",
+     "who": "Nurse",
+     "text": "Sit yourself down, here's a cup of tea. You'll be fine after a bit of peace, a biscuit, and a pat from the Sanctuary cat."
+    },
+    {
+     "do": "heal"
+    },
+    {
+     "do": "say",
+     "who": "Nurse",
+     "text": "There you are. All better. If you meet a seagull on the way out, don't make eye contact."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "_nurse_choice",
+     "eq": 1,
+     "then": [
+      {
+       "do": "say",
+       "who": "Nurse",
+       "text": "The Ark terminal's under the stairs, past the umbrella stand. We've named it after the river. It flows, it sits, it holds."
+      },
+      {
+       "do": "ark"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Nurse",
+       "text": "No problem. The door's always open and so is the biscuit tin."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
