@@ -1,0 +1,906 @@
+{
+ "id": "portree",
+ "name": "Portree",
+ "region": "scotland",
+ "kind": "town",
+ "music": "town_scotland",
+ "weather": {
+  "drizzle": 30,
+  "fog": 22,
+  "clear": 20,
+  "downpour": 10,
+  "gale": 10,
+  "sunshine": 8
+ },
+ "props": [
+  {
+   "type": "bollard",
+   "x": 44,
+   "y": 2
+  },
+  {
+   "type": "bollard",
+   "x": 45,
+   "y": 2
+  },
+  {
+   "type": "bollard",
+   "x": 12,
+   "y": 3
+  },
+  {
+   "type": "bollard",
+   "x": 13,
+   "y": 3
+  },
+  {
+   "type": "boat",
+   "x": 40,
+   "y": 4,
+   "variant": 1
+  },
+  {
+   "type": "boat",
+   "x": 49,
+   "y": 5,
+   "variant": 1
+  },
+  {
+   "type": "boat",
+   "x": 17,
+   "y": 6,
+   "variant": 1
+  },
+  {
+   "type": "boat",
+   "x": 8,
+   "y": 5,
+   "variant": 1
+  },
+  {
+   "type": "boat",
+   "x": 53,
+   "y": 2,
+   "variant": 1
+  },
+  {
+   "type": "buoy",
+   "x": 22,
+   "y": 3
+  },
+  {
+   "type": "buoy",
+   "x": 36,
+   "y": 6,
+   "variant": 1
+  },
+  {
+   "type": "buoy",
+   "x": 30,
+   "y": 2
+  },
+  {
+   "type": "buoy",
+   "x": 26,
+   "y": 7
+  },
+  {
+   "type": "building",
+   "style": "white_render",
+   "x": 4,
+   "y": 13,
+   "w": 4,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "red_brick",
+   "x": 8,
+   "y": 13,
+   "w": 4,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "cream_render",
+   "x": 12,
+   "y": 13,
+   "w": 4,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "shop",
+   "x": 16,
+   "y": 13,
+   "w": 5,
+   "h": 4,
+   "label": "Corner Shop"
+  },
+  {
+   "type": "building",
+   "style": "tudor",
+   "x": 21,
+   "y": 13,
+   "w": 4,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "sanctuary",
+   "x": 29,
+   "y": 13,
+   "w": 6,
+   "h": 4,
+   "label": "Sanctuary"
+  },
+  {
+   "type": "building",
+   "style": "slate_cottage",
+   "x": 35,
+   "y": 13,
+   "w": 4,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "white_render",
+   "x": 39,
+   "y": 13,
+   "w": 4,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "red_brick",
+   "x": 43,
+   "y": 13,
+   "w": 4,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "cream_render",
+   "x": 47,
+   "y": 13,
+   "w": 4,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "stone",
+   "x": 51,
+   "y": 13,
+   "w": 4,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "lamp_post",
+   "x": 6,
+   "y": 10
+  },
+  {
+   "type": "lamp_post",
+   "x": 12,
+   "y": 10
+  },
+  {
+   "type": "lamp_post",
+   "x": 18,
+   "y": 10
+  },
+  {
+   "type": "lamp_post",
+   "x": 24,
+   "y": 10
+  },
+  {
+   "type": "lamp_post",
+   "x": 30,
+   "y": 10
+  },
+  {
+   "type": "lamp_post",
+   "x": 36,
+   "y": 10
+  },
+  {
+   "type": "lamp_post",
+   "x": 42,
+   "y": 10
+  },
+  {
+   "type": "lamp_post",
+   "x": 48,
+   "y": 10
+  },
+  {
+   "type": "lamp_post",
+   "x": 54,
+   "y": 10
+  },
+  {
+   "type": "building",
+   "style": "stone",
+   "x": 6,
+   "y": 22,
+   "w": 9,
+   "h": 4,
+   "label": "Royal Hotel"
+  },
+  {
+   "type": "building",
+   "style": "chapel",
+   "x": 17,
+   "y": 22,
+   "w": 5,
+   "h": 4,
+   "label": "Kirk"
+  },
+  {
+   "type": "building",
+   "style": "cream_render",
+   "x": 32,
+   "y": 22,
+   "w": 7,
+   "h": 4,
+   "label": "Aros Centre"
+  },
+  {
+   "type": "building",
+   "style": "white_render",
+   "x": 41,
+   "y": 22,
+   "w": 6,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "red_brick",
+   "x": 49,
+   "y": 22,
+   "w": 6,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "slate_cottage",
+   "x": 33,
+   "y": 30,
+   "w": 6,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "white_render",
+   "x": 42,
+   "y": 30,
+   "w": 5,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "terrace",
+   "x": 17,
+   "y": 30,
+   "w": 6,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "bench",
+   "x": 31,
+   "y": 21
+  },
+  {
+   "type": "lamp_post",
+   "x": 34,
+   "y": 21
+  },
+  {
+   "type": "post_box",
+   "x": 36,
+   "y": 21
+  },
+  {
+   "type": "planter",
+   "x": 38,
+   "y": 21
+  },
+  {
+   "type": "bench",
+   "x": 20,
+   "y": 27
+  },
+  {
+   "type": "planter",
+   "x": 8,
+   "y": 21
+  },
+  {
+   "type": "planter",
+   "x": 13,
+   "y": 21
+  },
+  {
+   "type": "planter",
+   "x": 43,
+   "y": 21
+  },
+  {
+   "type": "lamp_post",
+   "x": 5,
+   "y": 21
+  },
+  {
+   "type": "lamp_post",
+   "x": 56,
+   "y": 21
+  },
+  {
+   "type": "lamp_post",
+   "x": 25,
+   "y": 21
+  },
+  {
+   "type": "oak",
+   "x": 31,
+   "y": 43,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 17,
+   "y": 36,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 10,
+   "y": 38,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 49,
+   "y": 41,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 5,
+   "y": 33,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 47,
+   "y": 41,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 13,
+   "y": 37,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 18,
+   "y": 37,
+   "variant": 0
+  },
+  {
+   "type": "birch",
+   "x": 16,
+   "y": 32,
+   "variant": 1
+  },
+  {
+   "type": "birch",
+   "x": 38,
+   "y": 36,
+   "variant": 2
+  },
+  {
+   "type": "birch",
+   "x": 19,
+   "y": 39,
+   "variant": 2
+  },
+  {
+   "type": "birch",
+   "x": 50,
+   "y": 27,
+   "variant": 0
+  },
+  {
+   "type": "birch",
+   "x": 44,
+   "y": 27,
+   "variant": 1
+  },
+  {
+   "type": "birch",
+   "x": 12,
+   "y": 35,
+   "variant": 2
+  },
+  {
+   "type": "birch",
+   "x": 46,
+   "y": 28,
+   "variant": 0
+  },
+  {
+   "type": "birch",
+   "x": 52,
+   "y": 28,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 3,
+   "y": 43,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 17,
+   "y": 27,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 45,
+   "y": 43,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 7,
+   "y": 38,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 4,
+   "y": 20,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 15,
+   "y": 27,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 40,
+   "y": 20,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 14,
+   "y": 42,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 19,
+   "y": 20,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 11,
+   "y": 26,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 24,
+   "y": 31,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 18,
+   "y": 21,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 31,
+   "y": 37,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 37,
+   "y": 29,
+   "variant": 2
+  },
+  {
+   "type": "market_stall",
+   "x": 11,
+   "y": 11
+  },
+  {
+   "type": "market_stall",
+   "x": 38,
+   "y": 11
+  },
+  {
+   "type": "bench",
+   "x": 50,
+   "y": 11
+  }
+ ],
+ "warps": [
+  {
+   "x": 18,
+   "y": 16,
+   "to": "portree_shop",
+   "tx": 4,
+   "ty": 5,
+   "facing": "up"
+  },
+  {
+   "x": 32,
+   "y": 16,
+   "to": "portree_sanctuary",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  }
+ ],
+ "edges": {
+  "south": {
+   "to": "skye",
+   "offset": 0
+  }
+ },
+ "npcs": [
+  {
+   "id": "house_painter",
+   "sprite": "farmer",
+   "x": 12,
+   "y": 18,
+   "facing": "up",
+   "move": "wander",
+   "script": "house_painter"
+  },
+  {
+   "id": "bus_waiter",
+   "sprite": "villager_6",
+   "x": 32,
+   "y": 21,
+   "facing": "right",
+   "move": "still",
+   "script": "bus_waiter"
+  },
+  {
+   "id": "minch_sailor",
+   "sprite": "angler",
+   "x": 20,
+   "y": 11,
+   "facing": "down",
+   "move": "still",
+   "script": "minch_sailor"
+  },
+  {
+   "id": "gaelic_teacher",
+   "sprite": "student",
+   "x": 48,
+   "y": 18,
+   "facing": "down",
+   "move": "wander",
+   "script": "gaelic_teacher"
+  },
+  {
+   "id": "portree_fisher",
+   "sprite": "angler",
+   "x": 24,
+   "y": 11,
+   "facing": "right",
+   "move": "still",
+   "trainer": "portree_fisher"
+  },
+  {
+   "id": "portree_walker",
+   "sprite": "hiker",
+   "x": 27,
+   "y": 36,
+   "facing": "up",
+   "move": "still",
+   "trainer": "portree_walker"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "minchman",
+    "min": 75,
+    "max": 75,
+    "weight": 10,
+    "weather": [
+     "gale",
+     "downpour",
+     "fog"
+    ],
+    "time": [
+     "dusk",
+     "night"
+    ]
+   },
+   {
+    "species": "redbreast",
+    "min": 75,
+    "max": 75,
+    "weight": 12,
+    "time": [
+     "dawn",
+     "day"
+    ]
+   },
+   {
+    "species": "plungebeak",
+    "min": 75,
+    "max": 75,
+    "weight": 12,
+    "time": [
+     "day"
+    ]
+   },
+   {
+    "species": "clownbill",
+    "min": 75,
+    "max": 75,
+    "weight": 10,
+    "time": [
+     "day"
+    ]
+   },
+   {
+    "species": "polartern",
+    "min": 75,
+    "max": 75,
+    "weight": 8,
+    "weather": [
+     "gale",
+     "fog"
+    ]
+   },
+   {
+    "species": "hushwing",
+    "min": 75,
+    "max": 75,
+    "weight": 8,
+    "time": [
+     "night"
+    ]
+   },
+   {
+    "species": "warrender",
+    "min": 75,
+    "max": 75,
+    "weight": 10
+   },
+   {
+    "species": "pierlord",
+    "min": 75,
+    "max": 75,
+    "weight": 10,
+    "time": [
+     "day",
+     "dusk"
+    ]
+   },
+   {
+    "species": "forkwing",
+    "min": 75,
+    "max": 75,
+    "weight": 6,
+    "time": [
+     "day"
+    ]
+   }
+  ],
+  "water": [
+   {
+    "species": "minchman",
+    "min": 75,
+    "max": 75,
+    "weight": 16
+   },
+   {
+    "species": "bayrunner",
+    "min": 75,
+    "max": 75,
+    "weight": 18
+   },
+   {
+    "species": "selkie",
+    "min": 75,
+    "max": 75,
+    "weight": 10,
+    "time": [
+     "dusk",
+     "night"
+    ]
+   },
+   {
+    "species": "greyhaul",
+    "min": 75,
+    "max": 75,
+    "weight": 16
+   },
+   {
+    "species": "plungebeak",
+    "min": 75,
+    "max": 75,
+    "weight": 14
+   },
+   {
+    "species": "pierlord",
+    "min": 75,
+    "max": 75,
+    "weight": 14
+   },
+   {
+    "species": "orcalet",
+    "min": 75,
+    "max": 75,
+    "weight": 6,
+    "time": [
+     "dawn"
+    ]
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 33,
+   "y": 21,
+   "text": "BUS STOP. Route 57, Portree to Uig. Next bus: 'Soon'. The timetable was last updated: 'Recently'. A handwritten note underneath says the bus has gone for a wee coffee. It is not a lie, merely an optimistic forecast."
+  },
+  {
+   "x": 27,
+   "y": 19,
+   "text": "PORT R\u00ccGH \u00b7 PORTREE. Gaelic for 'King's Port', after King James V, who landed here in 1540 to calm the island clans down. It took a lot of tea. The harbour is the colourful bit, painted so fishermen could find their way home in the fog. It still works."
+  },
+  {
+   "x": 10,
+   "y": 20,
+   "text": "RAASAY AND THE MINCH. The island across the water is Raasay, and the sea beyond is the Minch, where the Blue Men of the Minch are said to live. They are storm spirits who swim out to wrecks and challenge the captain to a poetry contest. Finish the rhyme or lose your ship."
+  },
+  {
+   "x": 34,
+   "y": 33,
+   "text": "AROS CENTRE. A theatre, a cinema and a gallery, with a view of the harbour. The Skye Gaelic Mod and the Highland Games are held in the village, and everyone, including the pipers, turns up in the rain."
+  }
+ ],
+ "spawn": [
+  27,
+  18
+ ],
+ "stage": "coast",
+ "town_id": "portree",
+ "rows": [
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$||$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$||$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$||$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$||$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$||$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$||$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$||$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$||$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$||$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$||$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$||$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$||$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$||$$$$$$$$$$$$$$",
+  "TTwwwwwwwwww||wwwwwwwwwwwwwwwwwwwwwwwwwwwwww||wwwwwwwwwwwwTT",
+  "TT::::::::::::::::::::::::::::::::::::::::::::::::::::::::TT",
+  "TT::::::::::::::::::::::::::::::::::::::::::::::::::::::::TT",
+  "TT::::::::::::::::::::::::::::::::::::::::::::::::::::::::TT",
+  "TTkkBBBBBBBBBBBBBBBBBBBBBkkkkBBBBBBBBBBBBBBBBBBBBBBBBBBkkkTT",
+  "TTkkBBBBBBBBBBBBBBBBBBBBBkkkkBBBBBBBBBBBBBBBBBBBBBBBBBBkkkTT",
+  "TTkkBBBBBBBBBBBBBBBBBBBBBkkkkBBBBBBBBBBBBBBBBBBBBBBBBBBkkkTT",
+  "TTkkBBBBBBBBBBBBBBDBBBBBBkkkkBBBDBBBBBBBBBBBBBBBBBBBBBBkkkTT",
+  "TTkk====================================================kkTT",
+  "TTkk====================================================kkTT",
+  "TTkk====================================================kkTT",
+  "TTkkkkkkkkkkkkkkkkkkkkkkkk===kkkkkkkkkkkkkkkkkkkkkkkkkkkkkTT",
+  "TTkkkkkkkkkkkkkkkkkkkkkkkk===k:::::kkkkkkkkkkkkkkkkkkkkkkkTT",
+  "TTkkkkBBBBBBBBBkkBBBBBkkkk===kkkBBBBBBBkkBBBBBBkkBBBBBBkkkTT",
+  "TTkkkkBBBBBBBBBkkBBBBBkkkk===kkkBBBBBBBkkBBBBBBkkBBBBBBkkkTT",
+  "TTkkkkBBBBBBBBBkkBBBBBkkkk===kkkBBBBBBBkkBBBBBBkkBBBBBBkkkTT",
+  "TTkkkkBBBBBBBBBkkBBBBBkkkk===kkkBBBBBBBkkBBBBBBkkBBBBBBkkkTT",
+  "TTkkkkkkkk#kkkkkkkk#kkkkkk===kkkkkkkkkkkkkkkkkkkkkkkkkkkkkTT",
+  "TTkkkkkkkkkkkkkkkkkkkkkkkk===k::::::kkkkkkkkkkkkkkkkkkkkkkTT",
+  "TTkkkk,,,,,,,,,,,kkk::::::===kkkkkkkkkkkkkkkkkkkkkkkkkkkkkTT",
+  "TTkkkk,,,,,,,,,,,kkkkkkkkk===kkkkkkkkkkkkkkkkkkkkkkkkkkkkkTT",
+  "TTkkkk,,,,,,,,,,,BBBBBBkkk===kkkkBBBBBBkkkBBBBBkkkkkkkkkkkTT",
+  "TTkkkk,,,,,,,,,,,BBBBBBkkk===kkkkBBBBBBkkkBBBBBkkkkkkkkkkkTT",
+  "TTkkkkkkkkkkkkkkkBBBBBBkkk===kkkkBBBBBBkkkBBBBBkkkkkkkkkkkTT",
+  "TTkkkkkkkkkkkkkkkBBBBBBkkk===kkkkBBBBBBkkkBBBBBkkkkkkkkkkkTT",
+  "TTkkkkkkkkkkkkkkkkkkkkkkkk===kkkkkkkkkkkkkkkkkkkkkkkkkkkkkPT",
+  "TTkkkkkkkkkkkkkkkkkkkkkkkk===kkkkkkkkkkkkkkkkkkkkkkkkkkkkkTT",
+  "TTkkkkkkkkkkkkkkkkkkkkkkkk===kkkkkkkkkkkkkkk,,,,,,,,kkkkkkTT",
+  "TTkkkkkkkkkkkkkkkkkkkkkkkk===kkkkkkkkkkkkkkk,,,,,,,,kkkkkkTT",
+  "TTkkkkkkkkkkkkkkkkkkkkkkkk===k,,,,,kkkkkkkkk,,,,,,,,kkkkkkTT",
+  "TTkkkkkkkkkkkkkkkkkkkkkkkk===k,,,,,kkkkkkkkk,,,,,,,,kkkkkkTT",
+  "TTkkkkkkkkkkkkkkkkkkkkkkkk===k,,,,,kkkkkkkkk,,,,,,,,kkkkkkTT",
+  "TTkkkkkkkkkkkkkkkkkkkkkkkk===k,,,,,kkkkkkkkkkkkkkkkkkkkkkkTT",
+  "TTkkkkkkkkkkkkkkkkkkkkkkkk===kkkkkkkkkkkkkkkkkkkkkkkkkkkkkTT",
+  "TTkkkkkkkkkkkkkkkkkkkkkkkk===kkkkkkkkkkkkkkkkkkkkkkkkkkkkkTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTT===TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTT===TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT"
+ ],
+ "heights": [
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000011111111100000000000000000000000000000000000000000000000",
+  "000111111111110000000000000000000000000000000000000000000000",
+  "011111111111111100000000000000000000000000000000000000000000",
+  "011111222221111100000000000000000000000000000000000000000000",
+  "111122222222211110000000000000000000000000000000011111110000",
+  "111222222222221111000000000000000000000000000001111111111100",
+  "111222233322221111000000000000000000000000000011111111111110",
+  "112222333332222111000000000000000000000000000011111111111110",
+  "112223333333222111000000000000000000000000000111112222211111",
+  "112223333333222111000000000000000000000000000111122222221111",
+  "112223333333222111000000000000000000000000000111122222221111",
+  "112222333332222111000000000000000000000000000111122222221111",
+  "111222233322221111000000000000000000000000000111122222221111",
+  "111222222222221111000000000000000000000000000111122222221111",
+  "111122222222211110000000000000000000000000000111112222211111",
+  "011111222221111100000000000000000000000000000011111111111110",
+  "011111111111111100000000000000000000000000000011111111111110",
+  "000111111111110000000000000000000000000000000001111111111100",
+  "000011111111100000000000000000000000000000000000011111110000"
+ ],
+ "legend_extra": {
+  "k": {
+   "tile": "grass",
+   "colour": "#7f8f52"
+  }
+ }
+}

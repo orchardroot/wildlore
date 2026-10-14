@@ -1,0 +1,63 @@
+{
+ "nurse": [
+  {
+   "do": "say",
+   "who": "Nurse",
+   "text": "Welcome to the Kirkwall Sanctuary. The last stop before the Arctic, as far as the sign on the wall is concerned. Pop your team on the counter and hang up your coat."
+  },
+  {
+   "do": "choice",
+   "text": "What can we do for you?",
+   "options": [
+    "Heal my team",
+    "Open the Ark",
+    "Just looking"
+   ],
+   "set": "_nurse_choice"
+  },
+  {
+   "do": "if",
+   "flag": "_nurse_choice",
+   "eq": 0,
+   "then": [
+    {
+     "do": "say",
+     "who": "Nurse",
+     "text": "There, sit down. We've a stove, a kettle and a cat who sits on whatever you put down. We call him the Senior Registrar."
+    },
+    {
+     "do": "heal"
+    },
+    {
+     "do": "say",
+     "who": "Nurse",
+     "text": "All done, and good as new. Mind the wind on the way out. It's got a stronger grip than a Viking at a family wedding."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "_nurse_choice",
+     "eq": 1,
+     "then": [
+      {
+       "do": "say",
+       "who": "Nurse",
+       "text": "The Ark terminal. It runs on peat, oatcakes and a surprisingly large battery. Don't ask where it came from. Don't ask where the battery went."
+      },
+      {
+       "do": "ark"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Nurse",
+       "text": "Right you are. Come back any time. There's nowhere else to go from here but the sea."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

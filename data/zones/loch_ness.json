@@ -5,68 +5,905 @@
  "kind": "route",
  "music": "route_highlands",
  "weather": {
-  "drizzle": 45,
-  "clear": 35,
-  "fog": 8,
-  "sunshine": 12
+  "fog": 26,
+  "drizzle": 28,
+  "clear": 20,
+  "downpour": 10,
+  "sunshine": 10,
+  "gale": 6
  },
- "props": [],
+ "props": [
+  {
+   "type": "building",
+   "style": "castle",
+   "x": 44,
+   "y": 24,
+   "w": 3,
+   "h": 3,
+   "label": "Gate Tower",
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "castle",
+   "x": 51,
+   "y": 24,
+   "w": 3,
+   "h": 3,
+   "label": "Grant Tower",
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "white_render",
+   "x": 8,
+   "y": 11,
+   "w": 8,
+   "h": 4,
+   "label": "Monster Exhibition"
+  },
+  {
+   "type": "building",
+   "style": "stone",
+   "x": 41,
+   "y": 12,
+   "w": 9,
+   "h": 4,
+   "label": "Visitor Centre"
+  },
+  {
+   "type": "pine",
+   "x": 37,
+   "y": 7,
+   "variant": 0
+  },
+  {
+   "type": "pine",
+   "x": 3,
+   "y": 13,
+   "variant": 2
+  },
+  {
+   "type": "pine",
+   "x": 62,
+   "y": 5,
+   "variant": 1
+  },
+  {
+   "type": "pine",
+   "x": 24,
+   "y": 17,
+   "variant": 2
+  },
+  {
+   "type": "pine",
+   "x": 9,
+   "y": 6,
+   "variant": 0
+  },
+  {
+   "type": "pine",
+   "x": 67,
+   "y": 5,
+   "variant": 2
+  },
+  {
+   "type": "pine",
+   "x": 40,
+   "y": 9,
+   "variant": 2
+  },
+  {
+   "type": "pine",
+   "x": 38,
+   "y": 13,
+   "variant": 0
+  },
+  {
+   "type": "pine",
+   "x": 28,
+   "y": 3,
+   "variant": 1
+  },
+  {
+   "type": "pine",
+   "x": 6,
+   "y": 10,
+   "variant": 1
+  },
+  {
+   "type": "pine",
+   "x": 17,
+   "y": 3,
+   "variant": 0
+  },
+  {
+   "type": "pine",
+   "x": 45,
+   "y": 3,
+   "variant": 0
+  },
+  {
+   "type": "pine",
+   "x": 20,
+   "y": 3,
+   "variant": 2
+  },
+  {
+   "type": "pine",
+   "x": 13,
+   "y": 18,
+   "variant": 2
+  },
+  {
+   "type": "pine",
+   "x": 8,
+   "y": 4,
+   "variant": 1
+  },
+  {
+   "type": "pine",
+   "x": 7,
+   "y": 6,
+   "variant": 2
+  },
+  {
+   "type": "pine",
+   "x": 23,
+   "y": 4,
+   "variant": 2
+  },
+  {
+   "type": "pine",
+   "x": 49,
+   "y": 5,
+   "variant": 1
+  },
+  {
+   "type": "pine",
+   "x": 17,
+   "y": 14,
+   "variant": 1
+  },
+  {
+   "type": "pine",
+   "x": 3,
+   "y": 16,
+   "variant": 0
+  },
+  {
+   "type": "pine",
+   "x": 44,
+   "y": 5,
+   "variant": 1
+  },
+  {
+   "type": "pine",
+   "x": 39,
+   "y": 6,
+   "variant": 2
+  },
+  {
+   "type": "pine",
+   "x": 10,
+   "y": 3,
+   "variant": 1
+  },
+  {
+   "type": "pine",
+   "x": 57,
+   "y": 18,
+   "variant": 1
+  },
+  {
+   "type": "pine",
+   "x": 68,
+   "y": 14,
+   "variant": 2
+  },
+  {
+   "type": "pine",
+   "x": 50,
+   "y": 7,
+   "variant": 2
+  },
+  {
+   "type": "pine",
+   "x": 40,
+   "y": 8,
+   "variant": 2
+  },
+  {
+   "type": "pine",
+   "x": 9,
+   "y": 8,
+   "variant": 1
+  },
+  {
+   "type": "pine",
+   "x": 21,
+   "y": 3,
+   "variant": 0
+  },
+  {
+   "type": "pine",
+   "x": 4,
+   "y": 14,
+   "variant": 1
+  },
+  {
+   "type": "pine",
+   "x": 21,
+   "y": 18,
+   "variant": 2
+  },
+  {
+   "type": "pine",
+   "x": 38,
+   "y": 7,
+   "variant": 0
+  },
+  {
+   "type": "pine",
+   "x": 40,
+   "y": 6,
+   "variant": 0
+  },
+  {
+   "type": "birch",
+   "x": 7,
+   "y": 16,
+   "variant": 1
+  },
+  {
+   "type": "birch",
+   "x": 4,
+   "y": 9,
+   "variant": 1
+  },
+  {
+   "type": "birch",
+   "x": 65,
+   "y": 13,
+   "variant": 0
+  },
+  {
+   "type": "birch",
+   "x": 8,
+   "y": 16,
+   "variant": 0
+  },
+  {
+   "type": "birch",
+   "x": 25,
+   "y": 12,
+   "variant": 2
+  },
+  {
+   "type": "birch",
+   "x": 49,
+   "y": 7,
+   "variant": 1
+  },
+  {
+   "type": "birch",
+   "x": 33,
+   "y": 17,
+   "variant": 2
+  },
+  {
+   "type": "birch",
+   "x": 51,
+   "y": 4,
+   "variant": 2
+  },
+  {
+   "type": "birch",
+   "x": 3,
+   "y": 10,
+   "variant": 0
+  },
+  {
+   "type": "birch",
+   "x": 60,
+   "y": 16,
+   "variant": 1
+  },
+  {
+   "type": "birch",
+   "x": 67,
+   "y": 8,
+   "variant": 0
+  },
+  {
+   "type": "birch",
+   "x": 7,
+   "y": 4,
+   "variant": 1
+  },
+  {
+   "type": "birch",
+   "x": 41,
+   "y": 5,
+   "variant": 2
+  },
+  {
+   "type": "birch",
+   "x": 13,
+   "y": 7,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 60,
+   "y": 20,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 60,
+   "y": 19,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 53,
+   "y": 17,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 4,
+   "y": 19,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 10,
+   "y": 4,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 6,
+   "y": 17,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 59,
+   "y": 21,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 40,
+   "y": 18,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 13,
+   "y": 17,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 38,
+   "y": 16,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 43,
+   "y": 10,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 39,
+   "y": 3,
+   "variant": 0
+  },
+  {
+   "type": "pine",
+   "x": 54,
+   "y": 38,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 58,
+   "y": 37,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 55,
+   "y": 39,
+   "variant": 2
+  },
+  {
+   "type": "boat",
+   "x": 27,
+   "y": 30,
+   "variant": 1
+  },
+  {
+   "type": "buoy",
+   "x": 21,
+   "y": 31
+  },
+  {
+   "type": "buoy",
+   "x": 31,
+   "y": 29,
+   "variant": 1
+  },
+  {
+   "type": "boat",
+   "x": 14,
+   "y": 33,
+   "variant": 1
+  },
+  {
+   "type": "bollard",
+   "x": 22,
+   "y": 24
+  },
+  {
+   "type": "bollard",
+   "x": 25,
+   "y": 24
+  },
+  {
+   "type": "bench",
+   "x": 20,
+   "y": 23
+  },
+  {
+   "type": "bench",
+   "x": 30,
+   "y": 23
+  },
+  {
+   "type": "lamp_post",
+   "x": 22,
+   "y": 19
+  },
+  {
+   "type": "lamp_post",
+   "x": 37,
+   "y": 19
+  },
+  {
+   "type": "phone_box",
+   "x": 16,
+   "y": 19
+  },
+  {
+   "type": "planter",
+   "x": 7,
+   "y": 15
+  },
+  {
+   "type": "planter",
+   "x": 16,
+   "y": 15
+  },
+  {
+   "type": "standing_stone",
+   "x": 66,
+   "y": 12,
+   "variant": 1
+  }
+ ],
  "warps": [],
  "edges": {
-  "south": {
+  "west": {
    "to": "great_glen",
+   "offset": 0
+  },
+  "north": {
+   "to": "inverness",
    "offset": 0
   }
  },
- "npcs": [],
- "encounters": {},
- "signs": [],
- "spawn": [
-  21,
-  36
+ "npcs": [
+  {
+   "id": "monster_hunter",
+   "sprite": "villager_3",
+   "x": 29,
+   "y": 23,
+   "facing": "down",
+   "move": "still",
+   "script": "monster_hunter"
+  },
+  {
+   "id": "castle_guide",
+   "sprite": "tour_guide",
+   "x": 49,
+   "y": 29,
+   "facing": "down",
+   "move": "still",
+   "script": "castle_guide"
+  },
+  {
+   "id": "coach_kid",
+   "sprite": "student",
+   "x": 16,
+   "y": 23,
+   "facing": "up",
+   "move": "wander",
+   "script": "coach_kid"
+  },
+  {
+   "id": "old_boatman",
+   "sprite": "farmer",
+   "x": 38,
+   "y": 24,
+   "facing": "left",
+   "move": "still",
+   "script": "old_boatman"
+  },
+  {
+   "id": "strachan_boat",
+   "sprite": "strachan",
+   "x": 24,
+   "y": 31,
+   "facing": "down",
+   "move": "still",
+   "script": "strachan_loch_ness"
+  },
+  {
+   "id": "nessie_spot",
+   "sprite": "creature:nessie",
+   "x": 56,
+   "y": 37,
+   "facing": "down",
+   "move": "still",
+   "script": "nessie",
+   "hide_if": "caught_nessie"
+  },
+  {
+   "id": "ness_angler",
+   "sprite": "angler",
+   "x": 14,
+   "y": 23,
+   "facing": "up",
+   "move": "still",
+   "trainer": "ness_angler"
+  },
+  {
+   "id": "ness_ghillie",
+   "sprite": "ghillie",
+   "x": 28,
+   "y": 19,
+   "facing": "down",
+   "move": "still",
+   "trainer": "ness_ghillie"
+  },
+  {
+   "id": "ness_birder",
+   "sprite": "birdwatcher",
+   "x": 42,
+   "y": 19,
+   "facing": "down",
+   "move": "still",
+   "trainer": "ness_birder"
+  },
+  {
+   "id": "ness_warden",
+   "sprite": "warden_grunt",
+   "x": 49,
+   "y": 26,
+   "facing": "up",
+   "move": "still",
+   "trainer": "ness_warden"
+  },
+  {
+   "id": "ness_walker",
+   "sprite": "hiker",
+   "x": 33,
+   "y": 11,
+   "facing": "right",
+   "move": "still",
+   "trainer": "ness_walker"
+  }
  ],
- "stub": true,
- "stage": "grass",
+ "encounters": {
+  "grass": [
+   {
+    "species": "heronarch",
+    "min": 72,
+    "max": 74,
+    "weight": 14
+   },
+   {
+    "species": "lochosprey",
+    "min": 72,
+    "max": 74,
+    "weight": 12,
+    "time": [
+     "dawn",
+     "day"
+    ]
+   },
+   {
+    "species": "peatmonarch",
+    "min": 72,
+    "max": 74,
+    "weight": 12
+   },
+   {
+    "species": "bufomire",
+    "min": 72,
+    "max": 74,
+    "weight": 10,
+    "weather": [
+     "drizzle",
+     "downpour",
+     "fog"
+    ]
+   },
+   {
+    "species": "midgeswarm",
+    "min": 72,
+    "max": 74,
+    "weight": 12,
+    "time": [
+     "dawn",
+     "dusk"
+    ]
+   },
+   {
+    "species": "kelpie",
+    "min": 73,
+    "max": 74,
+    "weight": 6,
+    "time": [
+     "dusk",
+     "night"
+    ],
+    "weather": [
+     "fog",
+     "drizzle"
+    ]
+   },
+   {
+    "species": "hushwing",
+    "min": 72,
+    "max": 74,
+    "weight": 8,
+    "time": [
+     "night"
+    ]
+   },
+   {
+    "species": "hootlet",
+    "min": 72,
+    "max": 73,
+    "weight": 6,
+    "time": [
+     "night"
+    ]
+   },
+   {
+    "species": "heilan",
+    "min": 73,
+    "max": 74,
+    "weight": 6,
+    "time": [
+     "day"
+    ]
+   },
+   {
+    "species": "redbreast",
+    "min": 72,
+    "max": 73,
+    "weight": 8,
+    "time": [
+     "dawn",
+     "day"
+    ]
+   }
+  ],
+  "water": [
+   {
+    "species": "rillotter",
+    "min": 72,
+    "max": 74,
+    "weight": 22
+   },
+   {
+    "species": "spatelord",
+    "min": 72,
+    "max": 74,
+    "weight": 18
+   },
+   {
+    "species": "heronarch",
+    "min": 72,
+    "max": 74,
+    "weight": 14
+   },
+   {
+    "species": "kelpie",
+    "min": 73,
+    "max": 74,
+    "weight": 10,
+    "time": [
+     "dusk",
+     "night"
+    ]
+   },
+   {
+    "species": "bradan",
+    "min": 72,
+    "max": 74,
+    "weight": 16,
+    "weather": [
+     "drizzle",
+     "downpour"
+    ]
+   },
+   {
+    "species": "lochosprey",
+    "min": 72,
+    "max": 74,
+    "weight": 10,
+    "time": [
+     "day"
+    ]
+   },
+   {
+    "species": "minkshade",
+    "min": 72,
+    "max": 73,
+    "weight": 10,
+    "time": [
+     "night"
+    ]
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 33,
+   "y": 18,
+   "text": "LOCH NIS \u00b7 LOCH NESS. 37 km long, about 230 m deep, and holding more fresh water than all the lakes of England and Wales put together. The peat stains it the colour of strong tea, so you can see about a metre down. Whatever's in there has an excellent hiding place."
+  },
+  {
+   "x": 46,
+   "y": 21,
+   "text": "URQUHART CASTLE (Caisteal Urchadain). A fortress on this headland for 700 years. In 1692 the garrison blew up their own gatehouse so the Jacobites couldn't use it, which is the kind of thing you only do when you're very cross about the furniture."
+  },
+  {
+   "x": 10,
+   "y": 17,
+   "text": "THE MONSTER EXHIBITION. Admission includes a talking sea serpent, a sonar room and a gift shop with 41 different Nessies. The one in the window is smiling. It may know something."
+  },
+  {
+   "x": 22,
+   "y": 22,
+   "text": "NESS SURVEY JETTY. Authorised vessels only. Keep a hand on your hat, a hand on your phone, and a hand on your sandwiches. That's three hands. Seagulls have more."
+  },
+  {
+   "x": 56,
+   "y": 32,
+   "text": "DEEP WATER. The loch drops off sharply here. The sign is a request. The water is not a path."
+  }
+ ],
+ "spawn": [
+  30,
+  21
+ ],
+ "stage": "valley",
  "rows": [
-  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
-  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
-  "TT....................................TT",
-  "TT....................................TT",
-  "TT....................................TT",
-  "TT....................................TT",
-  "TT....................................TT",
-  "TT....................................TT",
-  "TT....................................TT",
-  "TT....................................TT",
-  "TT....................................TT",
-  "TT....................................TT",
-  "TT....................................TT",
-  "TT....................................TT",
-  "TT....................................TT",
-  "TT....................................TT",
-  "TT....................................TT",
-  "TT....................................TT",
-  "TT....................................TT",
-  "TT....................................TT",
-  "TT....................................TT",
-  "TT....................................TT",
-  "TT....................................TT",
-  "TT....................................TT",
-  "TT....................................TT",
-  "TT....................................TT",
-  "TT....................................TT",
-  "TT....................................TT",
-  "TT....................................TT",
-  "TT....................................TT",
-  "TT....................................TT",
-  "TT....................................TT",
-  "TT....................................TT",
-  "TT....................................TT",
-  "TT....................................TT",
-  "TT....................................TT",
-  "TT....................................TT",
-  "TT....................................TT",
-  "TTTTTTTTTTTTTTTTTTTT...TTTTTTTTTTTTTTTTT",
-  "TTTTTTTTTTTTTTTTTTTT...TTTTTTTTTTTTTTTTT"
- ]
+  "PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP===PPPPPPPPPPPPTPPPPPPPPPPPPPPPPPPPPPP",
+  "PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP===PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP",
+  "PPkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk===kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkPP",
+  "PPkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk===kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkPP",
+  "PPkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk===kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkPP",
+  "PPkkkkkkkkkkkkkkkkhkhhhhhhhhhhhkkk===kkkkkkkkkkkkkkkkkkkkkkkhkkkkkkkkkPP",
+  "PPkkkkkkkkkkkkkkkkhhhhhhhhhhhhhhkk===kkkkkkkkkkkkkkkhhhhhhhhhhhhkkkkkkPP",
+  "PPkkkkkkkkkkkkkkkhhhhhhhhhhhhhhhhk===kkkkkkkkkkkkkkhhhhhhhhhhhhhhhkkkkPP",
+  "PPkkkkkkkkkkkkkkhhhhhhhhhhhhhhhhkk===kkkkkkkkkkkkkhhhhhhhhhhhhhhhhkkkkPP",
+  "PPkkkkkkkkkkkkkkkhhhhhhhhhhhhhhhkk===kkkkkkkkkkkkkhhhhhhhhhhhhhhhhhkkkPP",
+  "PPkkkkkkkkkkkkkkkkhhhhhhhhhhhhhhkk===kkkkkkkkkkkkhhhhhhhhhhhhhhhhhhkkkPP",
+  "PPkkkkkkBBBBBBBBkkkhhhhhhhhhhkkkkk===kkkkkkkkkkkkkhhhhhhhhhhhhhhhhhhkkPP",
+  "PPkkkkkkBBBBBBBBkkkkkkkkhkhhkkkkkk===kkkkBBBBBBBBBkhhhhhhhhhhhhhhhhkkkPP",
+  "PPkkkkkkBBBBBBBBkkkkkkkkkkkk,kkkkk===kkkkBBBBBBBBBkhhhhhhhhhhhhhhkkkkkPP",
+  "PPkkkkkkBBBBBBBBkkkkkkkk,,,,,,,,,k===kkkkBBBBBBBBBkkkhkhhhhhhhhhhkkkkkPP",
+  "PPkkkkkk::::::::kkkkkkk,,,,,,,,,,,===kkkkBBBBBBBBBkkkkkkkkkhkkkkkkkkkkPP",
+  "PPkkkkkkkkk##kkkkkkkkkkk,,,,,,,,,k===kkkkkkk##kkkkkkkkkkkkkkkkkkkkkkkkPP",
+  "PPkkkkkkkkk##kkkkkkkkkkkkkkk,kkkkk===kkkkkkk##kkkkkkkkkkkkkkkkkkkk,kkkPP",
+  "PPkkkkkkkkk##kkkkkkkkkkkkkkkkkkkkk===kkkkkkk##kkkkkkkkkkkkkkkkkk,,,,,kPP",
+  "PPkkkkkkkkk##kkkkkkkkkkkkkkkkkkkkk===kkkkkkk##kkkkkkkkkkkkkkkkkk,,,,,kPP",
+  "=====================================##############kkkkkkkkkkkk,,,,,,,PP",
+  "=====================================##############kkkkkkkkkkkkk,,,,,kPP",
+  "=====================================##############kkkkkkkkkkkkk,,,,,kPP",
+  "PPkkkkk,,,,,,,kkkkkkkksssssssssssssskkkkkkkkkkkk##kkkkkkkkksssssssssssPP",
+  "PPskkk,,,,,,,,,kksssssw||wwwwwwwwwwwsssskkwkBBBW##WBBBwsssswwwwwwwwwwwPP",
+  "PPwsssssssssssssswwwww$||$$$$$$$$$$$wwwwsswkBBBkkkkBBBwwwww$$$$$$$$$$$PP",
+  "PP$wwwwwwwwwwwwww$$$$$$||$$$$$$$$$$$$$$$wwwkBBBkkkkBBBw$$$$$$$$$$$$$$$PP",
+  "PP$$$$$$$$$$$$$$$$$$$$$||$$$$$$$$$$$$$$$$$wkW::::::::Ww$$$$$$$$$$$$$$$PP",
+  "$$$$$$$$$$$$$$$$$$$$$$$||$$$$$$$$$$$$$$$$$wkW:fff::::Ww$$$$$$$$$$$$$$$PP",
+  "$$$$$$$$$$$$$$$$$$$$$$$||$$$$$$$$$$$$$$$$$wkR:fff::::kw$$$$$$$$$$$$$$$PP",
+  "$$$$$$$$$$$$$$$$$$$$$$$||$$$$$$$$$$$$$$$$$wkW::::::::Rw$$$$$$$$$$$$$$$TP",
+  "$$$$$$$$$$$$$$$$$$$$$$$||$$$$$$$$$$$$$$$$$wwkkRkkkkkRww$$$$$$$$$$$$$$$PP",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$wwwwwwwww$$$$$$$$$$$$$$$$$PP",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ooooooooooooo$$$$$$$PP",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ooooooooooooo$$$$$$$PP",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ooooooooooooo$$$$$$$PP",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ookkkkkkkkkoo$$$$$$$PP",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ook,,,kkkkkoo$$$$$$$PP",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ook,,,k,,,koo$$$$$$$PP",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ookkkkkkkkkoo$$$$$$$PP",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ooooooooooooo$$$$$$$PP",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ooooooooooooo$$$$$$$PP",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$PP",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$PP",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$PP",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$PP"
+ ],
+ "heights": [
+  "122222222222222211111100000111111222222211111100111111222222222222222221",
+  "122222222222222211111100000111112222222221111100111111222222222222222221",
+  "222222222222222221111110000111112222222221111101111112222222233322222222",
+  "222222333332222222111110000111112222222221111101111112222223333333222222",
+  "222223333333222222111110000111112222222221111101111122222233333333322222",
+  "222233333333322222111110000111112222222221111101111122222233333333322222",
+  "222233333333322222111110000111111222222211111101111122222333333333332222",
+  "222233333333322222111110000111111122222111111101111122222333333333332222",
+  "222233333333322222111110000011111111111111111001111122222333333333332222",
+  "222233333333322222111110000001111111111111110001111122222233333333322222",
+  "222223333333222222111110000001111111111111110001111122222233333333322222",
+  "222222333332222222111110000000011111111111000001111112222223333333222222",
+  "222222222222222221111110000000001111111110000001111112222222233322222222",
+  "122222222222222211111100000000000000000000000000111111222222222222222221",
+  "122222222222222211111100000000000000000000000000111111222222222222222221",
+  "111222222222221111111000000000000000000000000000011111122222222222222211",
+  "111122222222211111110000000000000000000000000000011111111222222222222211",
+  "111111111111111111110000000000000000000000000000001111111112222222222211",
+  "111111111111111111100000000000000000000000000000000111111111111222222211",
+  "111111111111111110000000000000000000000000000000000011111111111222222211",
+  "011111111111111100000000000000000000000000000000000001111111111222222211",
+  "000111111111110000000000000000000000000000000000000000011111111122222111",
+  "000000000000000000000000000000000000000000000000000000000111111111111111",
+  "000000000000000000000000000000000000000000000000000000000000111111111111",
+  "000000000000000000000000000000000000000000000000000000000000011111111111",
+  "000000000000000000000000000000000000000000000000000000000000000111111100",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000"
+ ],
+ "legend_extra": {
+  "h": {
+   "tile": "tall_grass",
+   "colour": "#7a5c6a",
+   "prop": "heather"
+  },
+  "k": {
+   "tile": "grass",
+   "colour": "#7f8f52"
+  }
+ }
 }

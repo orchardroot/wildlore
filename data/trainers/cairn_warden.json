@@ -1,0 +1,31 @@
+{
+ "id": "cairn_warden",
+ "name": "Warden Hector",
+ "class": "Warden",
+ "sprite": "warden_grunt",
+ "party": [
+  {
+   "species": "stoatlet",
+   "level": 76
+  },
+  {
+   "species": "highlynx",
+   "level": 77
+  },
+  {
+   "species": "capercaillie",
+   "level": 77
+  }
+ ],
+ "ai": "trainer",
+ "money": 2680,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Warden Hector",
+   "text": "Welcome to the Cairngorm Summit Experience! The lift is closed. The cafe is closed. The view is also closed. Please buy a postcard."
+  }
+ ],
+ "win": "I'll note this in the visitor survey. Under 'experience'.",
+ "after": "The Enclosure says: if it's a mountain, it needs a gift shop. If it's a gift shop, it needs a mountain."
+}

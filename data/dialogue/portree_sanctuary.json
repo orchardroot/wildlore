@@ -1,0 +1,63 @@
+{
+ "nurse": [
+  {
+   "do": "say",
+   "who": "Nurse",
+   "text": "F\u00e0ilte to Portree Sanctuary. Pop your team on the counter. We're the only building on the quay that hasn't got a fishing boat painted on it."
+  },
+  {
+   "do": "choice",
+   "text": "What can we do for you?",
+   "options": [
+    "Heal my team",
+    "Open the Ark",
+    "Just looking"
+   ],
+   "set": "_nurse_choice"
+  },
+  {
+   "do": "if",
+   "flag": "_nurse_choice",
+   "eq": 0,
+   "then": [
+    {
+     "do": "say",
+     "who": "Nurse",
+     "text": "In you come out of the wind. We've the heating on, the kettle on, and the biscuits out. We're a full set."
+    },
+    {
+     "do": "heal"
+    },
+    {
+     "do": "say",
+     "who": "Nurse",
+     "text": "All done. Tapadh leibh, that's 'thank you', and mind the slippery bit on the quay. It's always slippery. It's the whole quay."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "_nurse_choice",
+     "eq": 1,
+     "then": [
+      {
+       "do": "say",
+       "who": "Nurse",
+       "text": "The Ark terminal. It's connected to the harbour office, so if it beeps, check the tide."
+      },
+      {
+       "do": "ark"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Nurse",
+       "text": "No worries. Come back when you're ready. The weather, as usual, will have changed twice."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
