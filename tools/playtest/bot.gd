@@ -215,7 +215,9 @@ func _grind_to(level: int, zone := "") -> void:
 
 ## How strong the team is: the third-best level plus 3 (a lone star doesn't make a team), or the best if there are fewer than 3.
 func _team_level() -> int:
-	var lv: Array = Game.data.party.map(func(c): return c.level)
+	var best := _strongest().level
+	# creatures too far behind to train (see _lead_with_weakest) don't hold the team back
+	var lv: Array = Game.data.party.filter(func(c): return c.level >= best - 8).map(func(c): return c.level)
 	lv.sort()
 	lv.reverse()
 	return lv[0] if lv.size() < 3 else mini(lv[0], lv[2] + 3)
