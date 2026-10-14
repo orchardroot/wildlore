@@ -24,12 +24,17 @@ func setup(arg: String) -> void:
 	view.queue_redraw()
 
 ## Zones whose wild encounter tables include this species (the truth, rather than the dex's habitat notes).
+static var _habitats: Dictionary = {}  # species id -> zone ids, built once
+
 static func habitat_zones(species_id: String) -> Array:
-	var out := []
-	var all := ZoneData.load_all()
-	for zid in all:
-		for kind in all[zid].encounters:
-			for e in all[zid].encounters[kind]:
-				if str(e.get("species", "")) == species_id and zid not in out:
-					out.append(zid)
-	return out
+	if _habitats.is_empty():
+		var all := ZoneData.load_all()
+		for zid in all:
+			for kind in all[zid].encounters:
+				for e in all[zid].encounters[kind]:
+					var sp := str(e.get("species", ""))
+					if not _habitats.has(sp):
+						_habitats[sp] = []
+					if zid not in _habitats[sp]:
+						_habitats[sp].append(zid)
+	return _habitats.get(species_id, [])

@@ -57,7 +57,7 @@ func new_game() -> void:
 		data.clock_minutes = args.clock
 	var start := _start_zone()
 	data.zone_id = start
-	data.last_sanctuary = {"zone": start, "pos": [-1, -1]}
+	data.last_sanctuary = GameStateData.default_sanctuary() if start != "testbed" else {"zone": start, "pos": [-1, -1]}
 
 func phase() -> String:
 	return GameClock.phase(data.clock_minutes)

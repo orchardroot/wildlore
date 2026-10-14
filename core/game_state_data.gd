@@ -22,6 +22,14 @@ var clock_minutes := 480
 var last_sanctuary: Dictionary = {"zone": "macclesfield", "pos": [-1, -1]}  # (-1, -1) = the zone's spawn
 var rng_seed := 0
 
+## Where a fresh journey whites out to: the tile just outside Macclesfield's Sanctuary door.
+static func default_sanctuary() -> Dictionary:
+	var z := ZoneData.load_id("macclesfield")
+	for w in z.warps:
+		if str(w.get("to", "")) == "macc_sanctuary":
+			return {"zone": "macclesfield", "pos": [int(w.x), int(w.y) + 1]}
+	return {"zone": "macclesfield", "pos": [-1, -1]}
+
 func add_creature(c: Creature) -> String:
 	mark_seen(c.species.id)
 	mark_caught(c.species.id)

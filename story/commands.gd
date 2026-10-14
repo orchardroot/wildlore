@@ -56,10 +56,13 @@ func _exec(c: Dictionary) -> void:
 		"give_item":
 			var id := str(c.get("item", ""))
 			var n := int(c.get("n", 1))
-			Bag.new(data.bag).add(id, n)
+			var got := Bag.new(data.bag).add(id, n)
 			var nm: String = host.items.get_item(id).get("name", id)
-			await host.sfx("item")
-			await host.say("", "%s received %s%s." % [data.player_name, nm, " x%d" % n if n > 1 else ""])
+			if got <= 0:
+				await host.say("", "Your bag's full of %s already. You leave them for someone else." % nm)
+			else:
+				await host.sfx("item")
+				await host.say("", "%s received %s%s." % [data.player_name, nm, " x%d" % got if got > 1 else ""])
 		"give_creature":
 			var sp: Dictionary = host.dex.get_species(str(c.get("species", "")))
 			var cr := Creature.create(sp, int(c.get("level", 5)), host.rng, host.moves)

@@ -233,3 +233,10 @@ func test_badge_sets_flag_and_autosaves_after_the_script() -> void:
 	assert_true(h.data.flag("badge_urban") == true, "badge sets badge_<id>")
 	assert_eq(h.saves.size(), 1)
 	assert_true(h.saves[0].get("ch2_urban", false), "the autosave includes what the script did after the badge")
+
+func test_give_item_when_bag_full_says_so() -> void:
+	var h := FakeStoryHost.new()
+	h.data.bag["cup_of_tea"] = Bag.MAX_STACK
+	await _cmds(h).run([{"do": "give_item", "item": "cup_of_tea", "n": 2}])
+	assert_true(h.texts().any(func(t): return t.contains("full")), "tells you the bag is full")
+	assert_false(h.texts().any(func(t): return t.contains("received")))
