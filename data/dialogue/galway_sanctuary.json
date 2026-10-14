@@ -1,0 +1,63 @@
+{
+ "nurse": [
+  {
+   "do": "say",
+   "who": "Nurse",
+   "text": "Welcome to Galway Sanctuary. Bh\u00ed t\u00fa ag si\u00fal i bhfad! That's 'you've been walking a long time'. Pop your team on the counter."
+  },
+  {
+   "do": "choice",
+   "text": "What can we do for you?",
+   "options": [
+    "Heal my team",
+    "Open the Ark",
+    "Just looking"
+   ],
+   "set": "_nurse_choice"
+  },
+  {
+   "do": "if",
+   "flag": "_nurse_choice",
+   "eq": 0,
+   "then": [
+    {
+     "do": "say",
+     "who": "Nurse",
+     "text": "Sit down by the radiator, you look like you've walked the whole bay. Not a bother on us."
+    },
+    {
+     "do": "heal"
+    },
+    {
+     "do": "say",
+     "who": "Nurse",
+     "text": "All better! Beir bua, that's 'success go with you'. Mind the puddle by the door, it's tidal."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "_nurse_choice",
+     "eq": 1,
+     "then": [
+      {
+       "do": "say",
+       "who": "Nurse",
+       "text": "The Ark terminal's by the window. It gets better reception than the rest of the building."
+      },
+      {
+       "do": "ark"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Nurse",
+       "text": "That's grand. Nobody's rushing. We've got tea and the Atlantic's got all day."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

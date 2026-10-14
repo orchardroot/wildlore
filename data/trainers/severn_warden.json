@@ -1,0 +1,31 @@
+{
+ "id": "severn_warden",
+ "name": "Warden Toby",
+ "class": "Warden",
+ "sprite": "warden_grunt",
+ "party": [
+  {
+   "species": "pierlord",
+   "level": 37
+  },
+  {
+   "species": "stormswift",
+   "level": 37
+  },
+  {
+   "species": "greyhaul",
+   "level": 36
+  }
+ ],
+ "ai": "trainer",
+ "money": 860,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Warden Toby",
+   "text": "Welcome to the Gateway Experience! Today's fee is a fiver. Cash only. Booth's that way."
+  }
+ ],
+ "win": "Refund requested? Denied. But well fought.",
+ "after": "The tolls went. The fee for standing here did not."
+}

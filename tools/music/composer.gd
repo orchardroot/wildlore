@@ -11,8 +11,8 @@ const MODES := {
 	"aeolian": [0, 2, 3, 5, 7, 8, 10],
 	"ionian": [0, 2, 4, 5, 7, 9, 11],
 }
-const GAINS := {"fiddle": 1.0, "whistle": 1.0, "harp": 0.8, "guitar": 0.7, "bass": 0.9, "thump": 1.0, "tick": 0.8, "shaker": 0.6, "drone": 0.45, "brass": 0.9, "surf": 0.5}
-const LOOSE := ["harp", "guitar", "thump", "tick", "shaker"]  # voices that get a hint of human timing
+const GAINS := {"fiddle": 1.0, "whistle": 1.0, "harp": 0.8, "guitar": 0.7, "bass": 0.9, "thump": 1.0, "tick": 0.8, "shaker": 0.6, "drone": 0.45, "brass": 0.9, "surf": 0.5, "reed": 0.9, "pipe": 1.0, "bouzouki": 0.75}
+const LOOSE := ["harp", "guitar", "bouzouki", "thump", "tick", "shaker"]  # voices that get a hint of human timing
 
 var tonic := 62
 var mode: Array = MODES["dorian"]

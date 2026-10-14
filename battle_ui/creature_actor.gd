@@ -11,6 +11,7 @@ var home := Vector3.ZERO
 var _t := randf() * 4.0
 var _squash := Vector3.ONE   # extra scale applied by tweens
 var _tween: Tween
+var marker: MeshInstance3D  # the bobbing arrow over a creature being picked as a target (doubles)
 
 static var _blob: GradientTexture2D
 
@@ -69,6 +70,9 @@ func _process(delta: float) -> void:
 	if sprite == null or sprite.texture == null:
 		return
 	sprite.frame = int(_t / 0.6) % 2
+	if marker and marker.visible:
+		marker.position.y = HEIGHT + 0.55 + sin(_t * 6.0) * 0.12
+		marker.rotation.y += delta * 2.0
 	var breathe := 1.0 + sin(_t * 2.6) * 0.012
 	sprite.scale = Vector3(_squash.x / breathe, _squash.y * breathe, 1.0)
 	shadow.scale = Vector3(_squash.x, 1.0, _squash.x)
@@ -163,6 +167,29 @@ func absorb(into: bool) -> void:
 		_tween.tween_property(self, "_squash", Vector3.ONE, 0.3).set_trans(Tween.TRANS_BACK)
 		_tween.tween_property(sprite, "modulate", Color(1.12, 1.12, 1.12), 0.3)
 	await _tween.finished
+
+## Show or hide the target arrow over this creature.
+func set_marked(on: bool) -> void:
+	if marker == null:
+		if not on:
+			return
+		marker = MeshInstance3D.new()
+		var cone := CylinderMesh.new()
+		cone.top_radius = 0.42
+		cone.bottom_radius = 0.0
+		cone.height = 0.7
+		cone.radial_segments = 4
+		cone.rings = 1
+		marker.mesh = cone
+		var m := StandardMaterial3D.new()
+		m.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+		m.albedo_color = Color("ffc52e")
+		marker.material_override = m
+		marker.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		add_child(marker)
+	marker.visible = on
+	if sprite:
+		sprite.modulate = Color(1.5, 1.45, 1.2) if on else Color(1.12, 1.12, 1.12)
 
 func world_centre() -> Vector3:
 	return global_position + Vector3(0, HEIGHT * 0.5, 0)

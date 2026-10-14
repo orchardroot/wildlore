@@ -1,0 +1,309 @@
+{
+ "tomb_guide": [
+  {
+   "do": "say",
+   "who": "Tomb Guide",
+   "text": "Quiet, please. This is a five-thousand-year-old burial chamber, not a bus shelter. I'll turn out the lights, and you'll see what the sun did every winter."
+  },
+  {
+   "do": "say",
+   "who": "Tomb Guide",
+   "text": "The lights go down, the lamp goes gold, a single beam crawls up the floor. People gasp. A few cry. I've seen a grown man ask for his mother."
+  }
+ ],
+ "kerrigan_tomb": [
+  {
+   "do": "if",
+   "flag": "ch7_judged",
+   "then": [
+    {
+     "do": "say",
+     "who": "Director Kerrigan",
+     "text": "..."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "trainer_kerrigan_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "Kerrigan stands in the passage, her briefcase open on a stone, her umbrella forgotten."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "The passage at Newgrange. Five thousand years old, three metres of cold stone on either side, and a very modern woman with a briefcase in the middle of it."
+      },
+      {
+       "do": "say",
+       "who": "Director Kerrigan",
+       "text": "The Wardstone goes here, right at the chamber mouth, to catch the very first light. I've told the Wardens it is exactly like installing a satellite dish."
+      },
+      {
+       "do": "say",
+       "who": "Director Kerrigan",
+       "text": "Ah. You found your way past the barrier. I did say 'private event'. I put it in writing. Twice. In green."
+      },
+      {
+       "do": "say",
+       "who": "Siobhán Kerrigan",
+       "text": "Five thousand years this tomb has waited for the sunrise. And now it has a sponsor."
+      },
+      {
+       "do": "say",
+       "who": "Siobhán Kerrigan",
+       "text": "Step aside. The light comes in at dawn and the Wardstone will catch it. And whatever comes with it."
+      },
+      {
+       "do": "battle",
+       "trainer": "kerrigan_2"
+      }
+     ]
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Outside, a thin line of gold crosses the Boyne. Inside, the tomb lamp is gone. The passage is as dark as the inside of a closed fist."
+    },
+    {
+     "do": "fade_out"
+    },
+    {
+     "do": "music",
+     "id": "legend_crow"
+    },
+    {
+     "do": "sfx",
+     "id": "tomb_light"
+    },
+    {
+     "do": "wait",
+     "seconds": 1.2
+    },
+    {
+     "do": "fade_in"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "A single beam of winter sunrise slides in through the roof-box above the door and crawls up the floor of the passage, slow as honey."
+    },
+    {
+     "do": "say",
+     "who": "Director Kerrigan",
+     "text": "There. It's working. It's actually working. The Wardstone's picking up the light. Look at the readout. It's all lines. It's lovely."
+    },
+    {
+     "do": "sfx",
+     "id": "crow"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "The light climbs the carved spirals on the stones. The spirals begin to move. They aren't spirals. They are wings."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "A figure unfolds out of the stone: tall, long-haired, wrapped in feathers like a cloak. A crow on each shoulder, a third on the lintel. Three voices speak as one."
+    },
+    {
+     "do": "say",
+     "who": "The Morrígan",
+     "text": "Cé a chuir an fál seo anseo? Who put this fence here?"
+    },
+    {
+     "do": "say",
+     "who": "Director Kerrigan",
+     "text": "Siobhán Kerrigan, Regional Director. It's a, er, heritage project. Stakeholder engagement. Terms and conditions apply, in, um, the appendix."
+    },
+    {
+     "do": "say",
+     "who": "The Morrígan",
+     "text": "Bhí an talamh anseo romhat. The land was here before you. I have judged kings. I have judged armies. Once, a man with a clipboard. He was wrong, too."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "A crow hops down, takes the grey Wardstone in its beak, and carries it out along the passage. Far away, very small, there is a splash."
+    },
+    {
+     "do": "say",
+     "who": "The Morrígan",
+     "text": "The Enclosure is weighed, and found wanting. The fence is weighed, and found wanting. The booking system is weighed, and found mildly amusing. But wanting."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Kerrigan looks at the briefcase, at the crows, at the beam of light on the floor. Then, slowly, she lifts her lanyard over her head."
+    },
+    {
+     "do": "say",
+     "who": "Director Kerrigan",
+     "text": "I think I'd like to hand in my lanyard. Is there someone I give it to? It's a deactivation protocol. It's on page fourteen."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "The third crow takes the lanyard, barcode and all, and flies out into the dawn to build a very uncomfortable nest."
+    },
+    {
+     "do": "say",
+     "who": "Director Kerrigan",
+     "text": "I came here on a school tour, you know. Nine years old. I wanted it to be mine so badly that I thought a laminator would do."
+    },
+    {
+     "do": "say",
+     "who": "Director Kerrigan",
+     "text": "Go raibh maith agat, to both of you. For not letting me. I'll write my resignation by hand. On paper. I haven't done that in years."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "She picks up her umbrella, nods once to the Morrígan, and walks out into the sunrise without a lanyard, a briefcase or a plan. She looks lighter."
+    },
+    {
+     "do": "say",
+     "who": "The Morrígan",
+     "text": "Walker. I have watched you from the lintel since the first Stone. Seven times the land has told me your name."
+    },
+    {
+     "do": "say",
+     "who": "The Morrígan",
+     "text": "I will not be bound. I will be met. Come to my chamber, if you would test yourself against the Morrígan."
+    },
+    {
+     "do": "set",
+     "flag": "ch7_judged"
+    },
+    {
+     "do": "set",
+     "flag": "kerrigan_resigned"
+    },
+    {
+     "do": "set",
+     "flag": "v03_complete"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "End of Wildlore v0.3. The North is waiting."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "You are free to keep exploring. The Morrígan is waiting in the inner chamber."
+    },
+    {
+     "do": "warp",
+     "zone": "newgrange_tomb",
+     "x": 11,
+     "y": 20,
+     "facing": "up"
+    },
+    {
+     "do": "end"
+    }
+   ]
+  }
+ ],
+ "morrigan": [
+  {
+   "do": "if",
+   "flag": "ch7_judged",
+   "then": [
+    {
+     "do": "if",
+     "flag": "caught_morrigan",
+     "then": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "The inner chamber is quiet. A single black feather lies on the stone, still warm. Somewhere in the passage, a crow is laughing."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "The inner chamber is cold and old. In the centre, a shape of feathers and shadow, with eyes like winter. Three crows watch from the roof."
+      },
+      {
+       "do": "say",
+       "who": "The Morrígan",
+       "text": "You have come. Good. I do not give myself. I am met. Show me what a walker is."
+      },
+      {
+       "do": "legend",
+       "species": "morrigan", "music": "legend_crow",
+       "level": 60,
+       "flag": "caught_morrigan"
+      },
+      {
+       "do": "if",
+       "flag": "caught_morrigan",
+       "then": [
+        {
+         "do": "say",
+         "who": "",
+         "text": "The Morrígan steps out of the stone and falls in beside you, black wings folded, three crows circling once over your head. She has chosen to walk with a walker. It is, you suspect, the quietest and most terrifying honour in Ireland."
+        },
+        {
+         "do": "warp",
+         "zone": "newgrange_tomb",
+         "x": 11,
+         "y": 8,
+         "facing": "up"
+        },
+        {
+         "do": "end"
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "",
+         "text": "The Morrígan dissolves into a storm of crows that spirals up through the roof-box and away. The chamber goes quiet. She will wait, if you want to try again."
+        },
+        {
+         "do": "warp",
+         "zone": "newgrange_tomb",
+         "x": 11,
+         "y": 8,
+         "facing": "up"
+        },
+        {
+         "do": "end"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "",
+     "text": "The inner chamber is cold and dark. A single crow sits on a stone, watching you. Nothing happens."
+    }
+   ]
+  }
+ ],
+ "gate_tomb": [
+  {
+   "do": "say",
+   "who": "Warden",
+   "text": "Private event. Solstice. Ms Kerrigan has the whole tomb booked, and she's very particular about the guest list."
+  },
+  {
+   "do": "say",
+   "who": "Warden",
+   "text": "Don't look at me, I just hold the rope. The rope is the whole job."
+  }
+ ]
+}

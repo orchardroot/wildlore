@@ -1,0 +1,86 @@
+{
+ "baths_guide": [
+  {
+   "do": "say",
+   "who": "Audio Guide",
+   "text": "Tablets cursing thieves were thrown into the spring: 'May he who stole my cloak lose his mind and his eyes.' Roman customer service."
+  },
+  {
+   "do": "say",
+   "who": "Audio Guide",
+   "text": "Roman pipes were made of lead, so please do not drink the water. The Romans did anyway. Hmm."
+  }
+ ],
+ "baths_visitor": [
+  {
+   "do": "say",
+   "who": "Visitor",
+   "text": "It's steaming! I thought the steam was a special effect. It's actually the spring. Brilliant."
+  }
+ ],
+ "spring_keeper": [
+  {
+   "do": "if",
+   "flag": "heritage_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Spring Keeper",
+     "text": "Sulis thanks you. She said so in the steam. It sounded like a kettle, but I choose to hear it as thanks."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "heritage_found",
+     "then": [
+      {
+       "do": "say",
+       "who": "Spring Keeper",
+       "text": "A stall in the town square, you say? Selling the overflow? In bottles?"
+      },
+      {
+       "do": "say",
+       "who": "Spring Keeper",
+       "text": "Right. I've kept this spring for thirty years. I'm going to have a quiet word. It will be a very loud quiet word."
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "She sets off through the colonnade, her keys jangling like a small, furious wind chime."
+      },
+      {
+       "do": "say",
+       "who": "Spring Keeper",
+       "text": "Take this. It's what the Romans would have wanted. Or at least what the tea room would have wanted."
+      },
+      {
+       "do": "give_item",
+       "item": "cream_tea"
+      },
+      {
+       "do": "set",
+       "flag": "heritage_done"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Spring Keeper",
+       "text": "Sulis's spring has run for two thousand years. The Romans threw coins in it. The Georgians drank from it. And now somebody wants to bottle it and call it 'heritage'."
+      },
+      {
+       "do": "say",
+       "who": "Spring Keeper",
+       "text": "Someone's selling bottles out in the square. I can't leave the spring. If you could find out where they got the water, I'd be so grateful."
+      },
+      {
+       "do": "set",
+       "flag": "heritage_started"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

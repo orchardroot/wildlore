@@ -50,3 +50,10 @@ func test_water_encounters_on_deep_water() -> void:
 		if not e.is_empty():
 			hit = e
 	assert_eq(hit.get("species", ""), "dolphlet")
+
+func test_sanctuary_default_is_macclesfield_door() -> void:
+	var ls: Dictionary = GameStateData.default_sanctuary()
+	assert_eq(ls.zone, "macclesfield")
+	var z := ZoneData.load_id("macclesfield")
+	assert_true(z.walkable(Vector2i(int(ls.pos[0]), int(ls.pos[1]))), "lands on a walkable tile")
+	assert_true(z.warp_at(Vector2i(int(ls.pos[0]), int(ls.pos[1]) - 1)).get("to", "") == "macc_sanctuary", "just outside the Sanctuary door")

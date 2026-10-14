@@ -1,0 +1,92 @@
+{
+ "keeper_declan": [
+  {
+   "do": "if",
+   "flag": "trainer_keeper_declan",
+   "then": [
+    {
+     "do": "say",
+     "who": "Keeper Declan",
+     "text": "Go on, off you go. Have a bowl of something warm. A proper stew, not a Dublin Bay prawn in a fancy glass. I'm not a doctor."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Keeper Declan",
+     "text": "Ah, the lad off the boat! Or the lass! Or the person with a very good ticket!"
+    },
+    {
+     "do": "say",
+     "who": "Keeper Declan",
+     "text": "Fáilte! Welcome to Dublin. You came all the way over on the boat for this? Fair play to you."
+    },
+    {
+     "do": "say",
+     "who": "Keeper Declan",
+     "text": "Kin creatures are the everyday ones. Hares, cattle, ponies. Everyday doesn't mean easy. Let's go!"
+    },
+    {
+     "do": "battle",
+     "trainer": "keeper_declan"
+    },
+    {
+     "do": "say",
+     "who": "Keeper Declan",
+     "text": "The Kin Stone. Cattle, ponies, hares, the lot. Everyday creatures with an everyday kind of strength. It's the strength of a good neighbour."
+    },
+    {
+     "do": "say",
+     "who": "Keeper Declan",
+     "text": "No new field tricks with it, mind. It just means every field in Ireland will wave at you. I've found it quite useful."
+    },
+    {
+     "do": "badge",
+     "id": "kin"
+    },
+    {
+     "do": "set",
+     "flag": "badge_kin"
+    },
+    {
+     "do": "set",
+     "flag": "ch6_kin"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "{player} received the Kin Stone!"
+    },
+    {
+     "do": "sfx",
+     "id": "alert"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Your phone buzzes. Professor Garside, who is speaking with her mouth full."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "{player}! The Kin Stone! Six! I'm eating a custard cream in your honour. The Irish stones are singing a lovely slow air."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "The Enclosure's Irish admin is a Director Kerrigan. She sounds terribly sensible on the phone, which I find sinister."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "Take the Wicklow road south, then Kilkenny. I'm told the castle has the best chips in the south-east. Not that I read about that."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Outside, the Wardens on the Wicklow road quietly stored their tarmac samples and pretended they'd been testing the surface."
+    }
+   ]
+  }
+ ]
+}

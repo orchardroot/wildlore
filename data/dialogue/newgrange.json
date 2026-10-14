@@ -1,0 +1,133 @@
+{
+ "ng_guide": [
+  {
+   "do": "say",
+   "who": "Tour Guide",
+   "text": "Newgrange: built about 3200 BC, with roughly 200,000 tonnes of stone and earth. That's five hundred years older than the Great Pyramid and a thousand older than Stonehenge."
+  },
+  {
+   "do": "say",
+   "who": "Tour Guide",
+   "text": "The white quartz on the front was brought from Wicklow, sixty-odd miles off, and the grey stones from the Boyne. On a bright day, the whole thing glitters like a very big, very old iPhone."
+  }
+ ],
+ "lottery_winner": [
+  {
+   "do": "say",
+   "who": "Lucky Visitor",
+   "text": "Every year around 30,000 people enter the lottery for the winter solstice. Fifty get in, two at a time. I'm the first Munster winner since 1994."
+  },
+  {
+   "do": "say",
+   "who": "Lucky Visitor",
+   "text": "You stand in the dark, and then a thin line of gold comes down the passage. They say it's just the sun. I say it's still astonishing."
+  }
+ ],
+ "ng_farmer": [
+  {
+   "do": "say",
+   "who": "Local Farmer",
+   "text": "My family's farmed beside this tomb for generations. We found stones in the field every year. Mostly we put them back. They looked cross."
+  },
+  {
+   "do": "say",
+   "who": "Local Farmer",
+   "text": "There are three tombs: Newgrange, Knowth and Dowth. Knowth has more carved stones than all the rest of Europe's. I've only half the facts, but I've all the pride."
+  }
+ ],
+ "ng_archaeologist": [
+  {
+   "do": "say",
+   "who": "Archaeologist",
+   "text": "Professor O'Kelly led the dig and rebuilding in the 1960s and 70s. The quartz wall's controversial, but I'm told the roof really does keep out the rain."
+  },
+  {
+   "do": "say",
+   "who": "Archaeologist",
+   "text": "After five thousand years, only one thing's had to be fixed: the roof of the passage. The Neolithic builders would be insulted."
+  }
+ ],
+ "spiral_kid": [
+  {
+   "do": "say",
+   "who": "Child",
+   "text": "There are three spirals joined at the middle, on the big stone at the door. I drew it on my hand with a pen. Mam says I'm not allowed near the stones."
+  },
+  {
+   "do": "say",
+   "who": "Child",
+   "text": "I think it's a map. Or a bus route. Or the world's first doodle."
+  }
+ ],
+ "garside_ng": [
+  {
+   "do": "if",
+   "flag": "garside_met",
+   "then": [
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "I'm going to stay a while. Go and see the North. I'll keep the kettle warm. Somewhere in Ireland I'll find a kettle."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "",
+     "text": "A woman in a cardigan, anorak and walking boots stands on the grass by the great kerbstone, holding a flask and looking up at the mound as if it owed her money."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "{player}! There you are. Professor Elspeth Garside, in the flesh, so to speak. I hired a car. It has a gearstick. I didn't know they still had those."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "I felt it from the car park. The whole mound rang like a bell. That wasn't the Wardstone. That was her. Oh, that was her."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "Seven Stones. Ten legends in the isles, and you've woken a good few. That's more than the whole of the old Society managed. They'd be furious. They'd also be jealous."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "Kerrigan's on a bench by the car park with a 99. She says it's the first ice cream she's had since 2019. Be kind. She's had a long week, and so have the crows."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "Now. The North. Belfast, the Causeway, the Mournes. The Iron Stone, I think, and a lot of very old basalt. And Scotland beyond. The hum there is a deep, slow one."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "The North is waiting. But rest first, and visit your Dragon. And take a flask. I always say that. I'm told it's a catchphrase."
+    },
+    {
+     "do": "set",
+     "flag": "garside_met"
+    }
+   ]
+  }
+ ],
+ "kerrigan_after": [
+  {
+   "do": "say",
+   "who": "Siobhán Kerrigan",
+   "text": "It's a 99. With a flake. It's a good flake. Do you know, I've been in this job six years and I've never once eaten one outdoors."
+  },
+  {
+   "do": "say",
+   "who": "Siobhán Kerrigan",
+   "text": "I've handed in the lanyard. HR said it was the strangest exit interview they'd ever had. I said that was fair. I was interviewed by a crow."
+  },
+  {
+   "do": "say",
+   "who": "Siobhán Kerrigan",
+   "text": "I'll go home to Navan and see my mother. I'll tell her I've quit a job. She'll say 'about time', and then she'll put the kettle on."
+  }
+ ]
+}

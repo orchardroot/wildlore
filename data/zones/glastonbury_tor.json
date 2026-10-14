@@ -1,0 +1,369 @@
+{
+ "id": "glastonbury_tor",
+ "name": "Glastonbury Tor",
+ "region": "south_england",
+ "kind": "interior",
+ "music": "battle_keeper",
+ "weather": {
+  "clear": 35,
+  "sunshine": 20,
+  "fog": 25,
+  "drizzle": 20
+ },
+ "props": [
+  {
+   "type": "building",
+   "style": "castle",
+   "x": 17,
+   "y": 1,
+   "w": 6,
+   "h": 3,
+   "label": "St Michael's Tower"
+  },
+  {
+   "type": "lamp_post",
+   "x": 11,
+   "y": 5
+  },
+  {
+   "type": "lamp_post",
+   "x": 11,
+   "y": 9
+  },
+  {
+   "type": "lamp_post",
+   "x": 28,
+   "y": 5
+  },
+  {
+   "type": "lamp_post",
+   "x": 28,
+   "y": 9
+  },
+  {
+   "type": "bench",
+   "x": 8,
+   "y": 4
+  },
+  {
+   "type": "bench",
+   "x": 31,
+   "y": 4
+  },
+  {
+   "type": "planter",
+   "x": 8,
+   "y": 8
+  },
+  {
+   "type": "planter",
+   "x": 31,
+   "y": 8
+  },
+  {
+   "type": "standing_stone",
+   "x": 7,
+   "y": 6,
+   "variant": 1
+  },
+  {
+   "type": "standing_stone",
+   "x": 32,
+   "y": 6,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 5,
+   "y": 15,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 8,
+   "y": 15,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 11,
+   "y": 15,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 14,
+   "y": 15,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 5,
+   "y": 18,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 8,
+   "y": 18,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 11,
+   "y": 18,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 14,
+   "y": 18,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 5,
+   "y": 21,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 8,
+   "y": 21,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 11,
+   "y": 21,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 14,
+   "y": 21,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 5,
+   "y": 24,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 8,
+   "y": 24,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 11,
+   "y": 24,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 14,
+   "y": 24,
+   "variant": 2
+  },
+  {
+   "type": "bench",
+   "x": 6,
+   "y": 18
+  },
+  {
+   "type": "bench",
+   "x": 13,
+   "y": 18
+  },
+  {
+   "type": "standing_stone",
+   "x": 30,
+   "y": 18,
+   "variant": 0
+  },
+  {
+   "type": "standing_stone",
+   "x": 32,
+   "y": 17,
+   "variant": 1
+  },
+  {
+   "type": "standing_stone",
+   "x": 34,
+   "y": 19,
+   "variant": 2
+  },
+  {
+   "type": "standing_stone",
+   "x": 33,
+   "y": 21,
+   "variant": 0
+  },
+  {
+   "type": "standing_stone",
+   "x": 31,
+   "y": 22,
+   "variant": 2
+  },
+  {
+   "type": "standing_stone",
+   "x": 29,
+   "y": 20,
+   "variant": 1
+  },
+  {
+   "type": "bench",
+   "x": 28,
+   "y": 25
+  },
+  {
+   "type": "rock",
+   "x": 26,
+   "y": 15
+  },
+  {
+   "type": "rock",
+   "x": 35,
+   "y": 25
+  }
+ ],
+ "warps": [
+  {
+   "x": 20,
+   "y": 29,
+   "to": "glastonbury",
+   "tx": 46,
+   "ty": 9,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "keeper_morwen",
+   "sprite": "keeper_morwen",
+   "x": 20,
+   "y": 6,
+   "facing": "down",
+   "move": "still",
+   "script": "keeper_morwen"
+  },
+  {
+   "id": "greenman_spot",
+   "sprite": "creature:greenman",
+   "x": 9,
+   "y": 20,
+   "facing": "down",
+   "move": "still",
+   "script": "greenman",
+   "hide_if": "caught_greenman"
+  },
+  {
+   "id": "tor_druid",
+   "sprite": "villager_6",
+   "x": 19,
+   "y": 20,
+   "facing": "right",
+   "move": "still",
+   "trainer": "tor_druid"
+  },
+  {
+   "id": "tor_festival",
+   "sprite": "student",
+   "x": 19,
+   "y": 21,
+   "facing": "right",
+   "move": "still",
+   "trainer": "tor_druid"
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "x": 13,
+   "y": 26,
+   "text": "THE ORCHARD. Old apple trees, older cider, and a feeling that something is watching. It's just the trees. Probably."
+  },
+  {
+   "x": 30,
+   "y": 25,
+   "text": "THE TOR LOOKS OUT OVER THE LEVELS. In winter the fields flood and the hill becomes an island. That's Avalon. The word means 'apple island'."
+  }
+ ],
+ "spawn": [
+  20,
+  28
+ ],
+ "stage": "castle",
+ "rows": [
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTPTTTTTTTTTTTTTTBBBBBBTTTTTTTTTTTTTTTTT",
+  "TT...............BBBBBB...............PT",
+  "TT........HHHHHWWBBBBBBWWHHHHH........TT",
+  "TT....................................TT",
+  "TT.........::::::::::::::::::.........TT",
+  "TT.........::::::::::::::::::.........TT",
+  "TT.........::::::::::::::::::.........TT",
+  "TT.........::::::::::::::::::.........TT",
+  "TT.........::::::::::::::::::.........TT",
+  "TT.....ffffffffffffffffffffffffff.....TT",
+  "TP...............HH###HH..............TT",
+  "TT.FFFFFFFFFFFFFFHH###HHFFFFFFFFFFFFF.TT",
+  "TT.F.............HH###HH............F.TT",
+  "TT.F.............HH###HH....fffffff.F.TT",
+  "TT.F.............HH###HH....fffffff.F.TT",
+  "TT.F.,,,,,,,,,...HH###HH............F.TT",
+  "TT.F.............HH###HH............F.TT",
+  "TT.F.............HH###HH............F.TT",
+  "TT.F....fff......HH###HH............F.TT",
+  "TT.F....fff......HH###HH............F.TT",
+  "TT.F.............HH###HH............F.TT",
+  "TT.F.,,,,,,,,,...HH###HH..,,,.......F.TT",
+  "TT.F.............HH###HH..,,,.......F.TT",
+  "TT.F.f...........#########,,,.......F.TT",
+  "TT.F.........##################.....F.TT",
+  "TT.F.............##########.........F.TT",
+  "TT.F.............HH###HH............F.TT",
+  "TT.FFFFFFFFFFFFFFHH###HHFFFFFFFFFFFFF.TT",
+  "TT.................###................TT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT"
+ ],
+ "heights": [
+  "3333333333333333333333333333333333333333",
+  "3333333333333333333333333333333333333333",
+  "3333333333333333333333333333333333333333",
+  "3333333333333333333333333333333333333333",
+  "3333333333333333333333333333333333333333",
+  "3333333333333333333333333333333333333333",
+  "3333333333333333333333333333333333333333",
+  "3333333333333333333333333333333333333333",
+  "3333333333333333333333333333333333333333",
+  "3333333333333333333333333333333333333333",
+  "3333333333333333333333333333333333333333",
+  "2222222222222222222222222222222222222222",
+  "2222222222222222222222222222222222222222",
+  "2222222222222222222222222222222222222222",
+  "2222222222222222222222222222222222222222",
+  "2222222222222222222222222222222222222222",
+  "2222222222222222222222222222222222222222",
+  "1111111111111111111111111111111111111111",
+  "1111111111111111111111111111111111111111",
+  "1111111111111111111111111111111111111111",
+  "1111111111111111111111111111111111111111",
+  "1111111111111111111111111111111111111111",
+  "1111111111111111111111111111111111111111",
+  "0000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000"
+ ]
+}

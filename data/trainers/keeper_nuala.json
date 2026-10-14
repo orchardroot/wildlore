@@ -1,0 +1,44 @@
+{
+ "id": "keeper_nuala",
+ "name": "Keeper Nuala",
+ "class": "Keeper",
+ "sprite": "keeper_nuala",
+ "party": [
+  {
+   "species": "plungebeak",
+   "level": 50
+  },
+  {
+   "species": "selkie",
+   "level": 51
+  },
+  {
+   "species": "baskarr",
+   "level": 51
+  },
+  {
+   "species": "merrow",
+   "level": 52
+  },
+  {
+   "species": "bradan",
+   "level": 54
+  }
+ ],
+ "ai": "keeper",
+ "money": 6500,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Keeper Nuala",
+   "text": "The tide's turning. It always is, in Galway. I've rowed a currach out past the Aran Islands in worse than you."
+  },
+  {
+   "do": "say",
+   "who": "Keeper Nuala",
+   "text": "Tide creatures are patient and then they're not. Ready?"
+  }
+ ],
+ "win": "You held your course. That's all the sea ever asks. The Tide Stone's yours.",
+ "after": "Come back on a calm day and I'll take you out to see the gannets dive."
+}

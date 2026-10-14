@@ -1,0 +1,146 @@
+{
+  "line": "tinnet",
+  "species": [
+    {
+      "id": "tinnet",
+      "name": "Tinnet",
+      "types": [
+        "iron",
+        "stone"
+      ],
+      "base": {
+        "hp": 50,
+        "atk": 56,
+        "def": 62,
+        "lore": 46,
+        "ward": 50,
+        "spd": 40
+      },
+      "growth": "medium",
+      "catch_rate": 190,
+      "base_xp": 60,
+      "learnset": [
+        [
+          1,
+          "rivet"
+        ],
+        [
+          1,
+          "pebble_flick"
+        ],
+        [
+          6,
+          "spark_shower"
+        ],
+        [
+          10,
+          "galvanise"
+        ],
+        [
+          14,
+          "flint_flick"
+        ],
+        [
+          19,
+          "forge_hammer"
+        ],
+        [
+          24,
+          "rust_bucket"
+        ],
+        [
+          30,
+          "girder_drop"
+        ]
+      ],
+      "evolves": {
+        "to": "cassiterix",
+        "level": 30
+      },
+      "habitat": [
+        "penzance"
+      ],
+      "dex": {
+        "text": "Glints in the stream bed and insists it is definitely tin. Dig carefully, the mine is not as safe as it looks.",
+        "fact": "Cornwall was once one of the world's biggest producers of tin, and some of its mines ran far out under the sea."
+      },
+      "sprite": "tinnet"
+    },
+    {
+      "id": "cassiterix",
+      "name": "Cassiterix",
+      "types": [
+        "iron",
+        "stone"
+      ],
+      "base": {
+        "hp": 72,
+        "atk": 84,
+        "def": 90,
+        "lore": 60,
+        "ward": 70,
+        "spd": 52
+      },
+      "growth": "medium",
+      "catch_rate": 60,
+      "base_xp": 150,
+      "learnset": [
+        [
+          1,
+          "rivet"
+        ],
+        [
+          1,
+          "pebble_flick"
+        ],
+        [
+          6,
+          "spark_shower"
+        ],
+        [
+          10,
+          "galvanise"
+        ],
+        [
+          14,
+          "flint_flick"
+        ],
+        [
+          19,
+          "forge_hammer"
+        ],
+        [
+          24,
+          "rust_bucket"
+        ],
+        [
+          30,
+          "girder_drop"
+        ],
+        [
+          35,
+          "quarry_blast"
+        ],
+        [
+          40,
+          "molten_pour"
+        ],
+        [
+          45,
+          "millstone_drop"
+        ],
+        [
+          52,
+          "blast_furnace"
+        ]
+      ],
+      "evolves": null,
+      "habitat": [],
+      "dex": {
+        "text": "A tin-ore giant that climbs out of a Cornish pit and asks where the dressing sheds went. Please, nobody tell it.",
+        "fact": "Tin ore is called cassiterite, from the Greek word kassiteros, which means tin."
+      },
+      "sprite": "cassiterix"
+    }
+  ]
+}

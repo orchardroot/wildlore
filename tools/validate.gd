@@ -13,6 +13,7 @@ func _initialize() -> void:
 			for enc in z.encounters[kind]:
 				if not dex.has(str(enc.get("species", ""))):
 					errors.append("zone %s: encounter species '%s' does not exist" % [zid, enc.get("species", "")])
+	errors.append_array(Coverage.check(dex, zones))
 	for e in errors:
 		printerr("DATA: " + e)
 	print("validate: %d error(s)" % errors.size())

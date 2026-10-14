@@ -5,6 +5,7 @@ extends Control
 ## menu is remembered for the rest of the battle.
 
 signal _picked(index: int)
+signal cursor_moved(index: int)  # the highlighted row changed (the scene uses it to mark a target)
 
 const CREAM := Color("f2e8cf")
 const HEATHER := Color("9b6fb0")
@@ -88,6 +89,7 @@ func _highlight() -> void:
 		row.modulate = Color(1, 1, 1, 0.45) if _disabled[i] else Color.WHITE
 	if _footer and _footer_fn.is_valid():
 		_footer.text = _footer_fn.call(_idx)
+	cursor_moved.emit(_idx)
 
 ## rows: [{"text", "right", "stripe": Color, "chip": String, "chip_colour": Color, "disabled", "sub"}]
 func _pick(rect: Rect2, title: String, rows: Array, cols: int, mem_key: String, cancel_ok: bool, footer_fn := Callable()) -> int:
@@ -253,7 +255,9 @@ func bag(entries: Array) -> int:
 	return await _pick(Rect2(700, 560 - h, 556, h), "BAG", rows, 1, "bag", true, footer)
 
 ## mode "switch" (fainted and active are greyed), "forced" (as switch but cannot cancel) or "item" (anyone; revive needs fainted).
-func party(creatures: Array, active: int, mode: String, item: Dictionary = {}, move_db: MoveDB = null) -> int:
+## active: the party index out on the field, or an Array of them (double battles).
+func party(creatures: Array, active: Variant, mode: String, item: Dictionary = {}, move_db: MoveDB = null) -> int:
+	var out_now: Array = active if active is Array else [active]
 	var rows := []
 	for i in creatures.size():
 		var c: Creature = creatures[i]
@@ -262,9 +266,9 @@ func party(creatures: Array, active: int, mode: String, item: Dictionary = {}, m
 		if mode == "item":
 			dis = false
 		else:
-			dis = c.is_fainted() or i == active
+			dis = c.is_fainted() or i in out_now
 		var chip := c.status
-		if i == active and mode != "item":
+		if i in out_now and mode != "item":
 			chip = "out"
 		rows.append({"text": "%s  Lv %d" % [c.display_name(), c.level], "right": right, "right_warn": c.is_fainted(),
 			"stripe": TypeColours.of(str(c.types()[0])), "chip": chip, "chip_colour": HEATHER if chip == "out" else BattleHUD.STATUS_COLOURS.get(chip, MUTED),
@@ -272,6 +276,17 @@ func party(creatures: Array, active: int, mode: String, item: Dictionary = {}, m
 	var title: String = {"switch": "SEND OUT WHO?", "forced": "SEND OUT WHO?", "item": "USE ON WHOM?"}.get(mode, "TEAM")
 	var h := creatures.size() * 46 + 56
 	return await _pick(Rect2(560, 560 - h, 696, h), title, rows, 1, "party_" + mode, mode != "forced")
+
+## Double battles: which foe to aim at. names: the foe at each position ("" for nobody there). Left and right
+## match the diorama. Returns the position, or -1 when cancelled.
+func target(names: Array) -> int:
+	var rows := []
+	for i in names.size():
+		var n := str(names[i])
+		var arrow := "<  " if i == 0 else ""
+		var tail := "  >" if i == 1 else ""
+		rows.append({"text": arrow + (n if n != "" else "(nobody)") + tail, "disabled": n == ""})
+	return await _pick(Rect2(640, 566, 616, 134), "AIM AT WHICH ONE?", rows, 2, "target", true)
 
 ## Returns the slot to forget, or -1 to skip learning.
 func forget(c: Creature, new_move: String, move_db: MoveDB) -> int:

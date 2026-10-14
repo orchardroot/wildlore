@@ -1,0 +1,31 @@
+{
+ "id": "moor_angler",
+ "name": "Angler Moira",
+ "class": "Angler",
+ "sprite": "angler",
+ "party": [
+  {
+   "species": "spatelord",
+   "level": 43
+  },
+  {
+   "species": "rillotter",
+   "level": 43
+  },
+  {
+   "species": "pincray",
+   "level": 43
+  }
+ ],
+ "ai": "trainer",
+ "money": 1200,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Angler Moira",
+   "text": "Brown trout, in a stream so clear you can see your own failures. Come on, then."
+  }
+ ],
+ "win": "Landed. Lovely rod.",
+ "after": "A tight line and a flask of tea. That's all anyone needs."
+}

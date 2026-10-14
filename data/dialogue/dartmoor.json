@@ -1,0 +1,149 @@
+{
+ "pony": [
+  {
+   "do": "say",
+   "who": "Dartmoor Pony",
+   "text": "It eyes your pockets, then your face. It has decided there are no apples. It looks very let down."
+  }
+ ],
+ "pony_keeper": [
+  {
+   "do": "say",
+   "who": "Pony Keeper",
+   "text": "Dartmoor ponies roam free, but every one belongs to a farmer. Each autumn we round them up in a 'drift'."
+  },
+  {
+   "do": "say",
+   "who": "Pony Keeper",
+   "text": "It's a very old tradition. The ponies think it's a prank. We think it's hard work."
+  }
+ ],
+ "tor_walker": [
+  {
+   "do": "say",
+   "who": "Tor Walker",
+   "text": "Tors are granite blocks, left standing when the softer rock around them wore away. Over millions of years, mind."
+  },
+  {
+   "do": "say",
+   "who": "Tor Walker",
+   "text": "The moor has 160-odd of them. I'm on tor number 71 this year. I've started naming the rocks."
+  }
+ ],
+ "moor_birdwatcher": [
+  {
+   "do": "say",
+   "who": "Moor Watcher",
+   "text": "Dartmoor has skylarks, wheatears, cuckoos and the odd ring ouzel."
+  },
+  {
+   "do": "say",
+   "who": "Moor Watcher",
+   "text": "Keep your voice low. The ponies take offence at loud walkers. And the ouzels aren't impressed either."
+  }
+ ],
+ "stone_row_fan": [
+  {
+   "do": "say",
+   "who": "Archaeology Student",
+   "text": "Dartmoor has more Bronze Age remains than almost anywhere in Britain: stone rows, circles, hut circles, 3,500 years old."
+  },
+  {
+   "do": "say",
+   "who": "Archaeology Student",
+   "text": "I dug a hut circle on my first day. Then it rained, and we had to put the trench back. In fairness it was a good hut."
+  }
+ ],
+ "ashcombe_moor": [
+  {
+   "do": "if",
+   "flag": "ch5_moor_met",
+   "then": [
+    {
+     "do": "say",
+     "who": "Sir Rupert Ashcombe",
+     "text": "The hound has not come out for the brochure. Frankly I think it's being difficult. I've sent a polite email. To the moor."
+    },
+    {
+     "do": "say",
+     "who": "Sir Rupert Ashcombe",
+     "text": "Do cross the moor, please. Tintagel's the next stop on my itinerary. I'm told there's a cave."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Sir Rupert Ashcombe",
+     "text": "Ah! A walker! Splendid. Do keep behind the cordon. The cordon is the grass."
+    },
+    {
+     "do": "say",
+     "who": "Sir Rupert Ashcombe",
+     "text": "Sir Rupert Ashcombe, Regional Director, England. We're surveying Hound Tor for the new brochure. 'The Hound of the Baskervilles Experience'. Hound included. Subject to availability."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Two Wardens crouch at the foot of the tor, one holding a net, the other a packet of mints. A Dartmoor pony watches them with open contempt."
+    },
+    {
+     "do": "say",
+     "who": "Warden",
+     "text": "Sir, the hound won't come out. We've tried the whistle. We've tried the mints. A pony ate the mints."
+    },
+    {
+     "do": "say",
+     "who": "Sir Rupert Ashcombe",
+     "text": "Then we need a bigger net. And a smaller pony."
+    },
+    {
+     "do": "say",
+     "who": "Sir Rupert Ashcombe",
+     "text": "The Wild Hunt rides across these tors, you know. Or something like it. A phantom hound, red eyes, a splendid night at the pub afterwards. It's a revenue stream, young person."
+    },
+    {
+     "do": "choice",
+     "text": "What do you say?",
+     "options": [
+      "It's not yours to sell",
+      "Where's the brochure?"
+     ],
+     "set": "ashcombe_moor_reply"
+    },
+    {
+     "do": "if",
+     "flag": "ashcombe_moor_reply",
+     "then": [
+      {
+       "do": "say",
+       "who": "Sir Rupert Ashcombe",
+       "text": "Not mine? My dear child, I have a deed. It's a rather good deed. It has a ribbon."
+      },
+      {
+       "do": "say",
+       "who": "Sir Rupert Ashcombe",
+       "text": "Still, I'm told you can battle. Not today. I'm rather busy being busy. I shall see you at Tintagel."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Sir Rupert Ashcombe",
+       "text": "The brochure is in draft! It has a pull-out map and a competition. Win a night in a haunted tor. Terms apply. The terms are screaming."
+      },
+      {
+       "do": "say",
+       "who": "Sir Rupert Ashcombe",
+       "text": "I shall be at Tintagel presently. Do come by. I'll show you the cave. It's going to be a gift shop."
+      }
+     ],
+     "eq": 0
+    },
+    {
+     "do": "set",
+     "flag": "ch5_moor_met"
+    }
+   ]
+  }
+ ]
+}

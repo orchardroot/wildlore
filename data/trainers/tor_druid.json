@@ -1,0 +1,41 @@
+{
+ "id": "tor_druid",
+ "name": "Elowen and Tegan",
+ "class": "Druid and Festival-goer",
+ "sprite": "villager_6",
+ "party": [
+  {
+   "species": "pixiedell",
+   "level": 40
+  },
+  {
+   "species": "thornwyn",
+   "level": 40
+  },
+  {
+   "species": "hazeldoze",
+   "level": 41
+  },
+  {
+   "species": "wispet",
+   "level": 40
+  }
+ ],
+ "ai": "trainer",
+ "money": 2100,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Elowen and Tegan",
+   "text": "ELOWEN: Halt, pilgrim! I'm guarding the Tor on behalf of Keeper Morwen. And my cousin, who's behind you."
+  },
+  {
+   "do": "say",
+   "who": "Elowen and Tegan",
+   "text": "TEGAN: Hold on, hold on, wellies, torch, lantern. I'm ready! Morwen says every visitor gets a warm-up. Two on one is the warm-up."
+  }
+ ],
+ "win": "ELOWEN: Hm. The hill approves. TEGAN: And my lantern's out. Mind the step.",
+ "after": "Keep going up. It gets steeper, then it gets a view. The Keeper does a lovely cuppa afterwards.",
+ "double": true
+}

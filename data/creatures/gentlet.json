@@ -1,0 +1,146 @@
+{
+  "line": "gentlet",
+  "species": [
+    {
+      "id": "gentlet",
+      "name": "Gentlet",
+      "types": [
+        "hedgerow",
+        "stone"
+      ],
+      "base": {
+        "hp": 46,
+        "atk": 48,
+        "def": 52,
+        "lore": 44,
+        "ward": 58,
+        "spd": 46
+      },
+      "growth": "medium",
+      "catch_rate": 190,
+      "base_xp": 60,
+      "learnset": [
+        [
+          1,
+          "spore_puff"
+        ],
+        [
+          1,
+          "pebble_flick"
+        ],
+        [
+          5,
+          "ivy_tangle"
+        ],
+        [
+          9,
+          "bramble_lash"
+        ],
+        [
+          13,
+          "grit_in_eye"
+        ],
+        [
+          18,
+          "sloe_splash"
+        ],
+        [
+          23,
+          "boulder_bump"
+        ],
+        [
+          29,
+          "quarry_blast"
+        ]
+      ],
+      "evolves": {
+        "to": "burrenbloom",
+        "level": 24
+      },
+      "habitat": [
+        "burren"
+      ],
+      "dex": {
+        "text": "Pokes up through the cracks of the Burren, a bit of blue in a very grey place. Make a wish, but be quick about it.",
+        "fact": "Spring gentian is one of the Burren's famous flowers, and it grows in the cracks of the limestone."
+      },
+      "sprite": "gentlet"
+    },
+    {
+      "id": "burrenbloom",
+      "name": "Burrenbloom",
+      "types": [
+        "hedgerow",
+        "stone"
+      ],
+      "base": {
+        "hp": 70,
+        "atk": 68,
+        "def": 76,
+        "lore": 64,
+        "ward": 80,
+        "spd": 60
+      },
+      "growth": "medium",
+      "catch_rate": 60,
+      "base_xp": 150,
+      "learnset": [
+        [
+          1,
+          "spore_puff"
+        ],
+        [
+          1,
+          "pebble_flick"
+        ],
+        [
+          5,
+          "ivy_tangle"
+        ],
+        [
+          9,
+          "bramble_lash"
+        ],
+        [
+          13,
+          "grit_in_eye"
+        ],
+        [
+          18,
+          "sloe_splash"
+        ],
+        [
+          23,
+          "boulder_bump"
+        ],
+        [
+          29,
+          "quarry_blast"
+        ],
+        [
+          34,
+          "elder_hex"
+        ],
+        [
+          40,
+          "megalith_mutter"
+        ],
+        [
+          46,
+          "hawthorn_hammer"
+        ],
+        [
+          52,
+          "millstone_drop"
+        ]
+      ],
+      "evolves": null,
+      "habitat": [],
+      "dex": {
+        "text": "Turns the Burren from grey pavement into a garden, one crack at a time. A show-off, but a charming one.",
+        "fact": "The Burren's limestone is split into blocks called clints, and plants grow in the gaps between them, called grikes."
+      },
+      "sprite": "burrenbloom"
+    }
+  ]
+}

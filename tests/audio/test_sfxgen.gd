@@ -5,6 +5,7 @@ const EXPECTED := {
 	"hit": 0.25, "hit_super": 0.4, "hit_weak": 0.22, "faint": 0.8, "snare_throw": 0.35, "snare_wobble": 0.4,
 	"caught": 0.9, "level_up": 0.8, "heal": 0.9, "badge": 1.4, "evolve": 1.8,
 	"cut": 0.3, "splash": 0.6, "scramble": 0.7, "bike_bell": 0.7, "train": 1.4, "ship_horn": 1.6,
+	"crow": 0.75, "tomb_light": 1.8, "harp_gliss": 1.9,
 }
 const LOOPING := ["title", "town_cheshire", "route_forest", "route_moor", "battle_wild", "battle_trainer", "battle_keeper", "sanctuary",
 	"town_city", "town_wales", "route_coast", "route_mountain", "battle_enclosure", "legend"]

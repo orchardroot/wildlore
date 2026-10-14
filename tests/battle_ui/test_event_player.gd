@@ -125,3 +125,25 @@ func test_hp_after_item_accounts_for_later_damage() -> void:
 	assert_eq(EventPlayer.hp_after_item(evs, 0, c), 14)
 	c.hp = c.max_hp() - 1
 	assert_eq(EventPlayer.hp_after_item(evs, 0, c), c.max_hp())
+
+func _double_ctx() -> Dictionary:
+	var b := Fixtures.battle([Fixtures.creature("kindlet", 10), Fixtures.creature("holtling", 10)],
+		[Fixtures.creature("spikkin", 5), Fixtures.creature("kindlet", 5)], {"kind": "trainer", "double": true})
+	return EventPlayer.make_ctx(b, {"name": "Twin Aoife"})
+
+func test_double_lines_name_the_creature_at_the_position() -> void:
+	var cx := _double_ctx()
+	assert_eq(EventPlayer.lines_for({"type": "miss", "side": 0, "pos": 1}, cx), ["Holtling's attack missed!"])
+	assert_eq(EventPlayer.lines_for({"type": "status", "side": 1, "pos": 1, "status": "soaked"}, cx), ["Twin Aoife's Kindlet is soaked through."])
+	assert_eq(EventPlayer.lines_for({"type": "invalid", "side": 0, "pos": 0, "reason": "no_catch_in_doubles"}, cx), ["You can't throw a snare into a double battle!"])
+	assert_eq(EventPlayer.lines_for({"type": "invalid", "side": 0, "pos": 1, "reason": "no_run_in_doubles"}, cx), ["There's no running from a double battle!"])
+
+func test_double_cues_carry_positions() -> void:
+	var cx := _double_ctx()
+	var atk := EventPlayer.fx_for({"type": "move", "side": 0, "pos": 1, "user": "Holtling", "move": "scrap", "target_side": 1, "target_pos": 0, "spread": false}, cx)
+	assert_eq([atk.cue, atk.side, atk.pos, atk.target_side, atk.target_pos], ["attack", 0, 1, 1, 0])
+	var hit := EventPlayer.fx_for({"type": "damage", "side": 1, "pos": 1, "amount": 3, "hp": 9, "effectiveness": 1.0, "crit": false}, cx)
+	assert_eq([hit.cue, hit.side, hit.pos], ["hit", 1, 1])
+	var dodge := EventPlayer.fx_for({"type": "miss", "side": 0, "pos": 0, "target_side": 1, "target_pos": 1}, cx)
+	assert_eq([dodge.cue, dodge.side, dodge.pos], ["dodge", 1, 1])
+	assert_false(EventPlayer.fx_for({"type": "damage", "side": 1, "amount": 3, "hp": 9, "effectiveness": 1.0, "crit": false}, _ctx()).has("pos"), "singles cues unchanged")

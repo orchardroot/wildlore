@@ -6,7 +6,11 @@ extends RefCounted
 ##   "palette": {skin, hair, top, bottom, shoes, accent, accent2},
 ##   "hair": short|long|bob|bun|pony|curly|spiky|bald|side, "hat": none|cap|beanie|swimcap|sunhat|bucket|headband,
 ##   "bottom_style": trousers|shorts|skirt, "sleeves": long|short,
-##   "accessories": [labcoat, glasses, hoodie, gilet, scarf, backpack, cape, apron, phone, binoculars, rod, badge]}
+##   "accessories": [labcoat, glasses, hoodie, gilet, scarf, backpack, cape, apron, phone, binoculars, rod, badge,
+##     aran, oilskin, overalls, shawl, lanyard, pin, beard, moustache, grin, glitter, wellies,
+##     lantern, hurley, umbrella, fiddle, notebook]}
+## Extra hats: witch_hat, panama, hard_hat, flat_cap, helmet, flower_crown, holly_crown. Extra hair: windswept.
+## Optional palette keys: hat, beard, prop, pin, light (lamp / lantern glow), leaf.
 
 const Canvas = preload("res://tools/spritegen/canvas.gd")
 
@@ -116,6 +120,15 @@ static func _behind(cv, c: Dictionary) -> void:
 			_rect(cv, 16, hcy + hh * 0.2 + bob, hw + 1, hh * 0.9 + 6, hs, 3, true)
 		else:
 			_rect(cv, c.hcx + hw * 0.3, hcy + hh * 0.2 + bob, hw * 0.5, hh * 0.9 + 6, hs, 3, true)
+	if _hair_style(c) == "windswept" and dir != "up":
+		var wh := _tn(c, "hair")
+		if dir == "down":
+			_rect(cv, 17.5, hcy + hh * 0.2 + bob, hw + 2, hh * 0.9 + 6, wh, 3, true, false, -6.0)
+			_ell(cv, 16.0 - hw * 0.5 - 1, hcy + hh * 0.5 + bob + 3, 4, 9, wh, true, false, 12.0)
+		else:
+			_ell(cv, c.hcx + hw * 0.5 + 3, hcy + 1 + bob, 11, 5, wh, true, false, -25.0)
+			_ell(cv, c.hcx + hw * 0.5 + 4, hcy + 5 + bob, 10, 4, _tn(c, "hair", 0.12), true, false, -10.0)
+			_ell(cv, c.hcx + hw * 0.5 + 2, hcy - 3 + bob, 8, 4, wh, true, false, -40.0)
 	if _hair_style(c) == "pony" and dir == "left":
 		_ell(cv, c.hcx + hw * 0.5 + 1, hcy + 3 + bob, 4, 10, _tn(c, "hair"), true, false, -20.0)
 	if _hair_style(c) == "bun" and dir != "up":
@@ -159,6 +172,17 @@ static func _legs(cv, c: Dictionary) -> void:
 			var foot := float(FEET_Y)
 			_limb(cv, 16.0, hip - 0.5, 16.0 + dx, foot - 1.0, lw, _tn(c, legkey, dark))
 			_ell(cv, 16.0 + dx - 1.0, foot - 0.5, lw + 3.0, 4.0, _tn(c, "shoes", dark), true)
+	if _has(c, "wellies"):
+		var wt := _tn(c, "shoes")
+		if dir == "down" or dir == "up":
+			for side in [-1, 1]:
+				var lift2 := 2 if (step != 0 and side == step) else 0
+				_rect(cv, 16.0 + side * (lw * 0.5 + 0.5), float(FEET_Y - lift2) - 3.5, lw + 0.5, 7, wt, 1.5, true, true)
+		else:
+			var sw2 := 3.0 * float(step)
+			for k in [1, 0]:
+				var dx2 := -sw2 if k == 1 else sw2
+				_limb(cv, 16.0 + dx2 * 0.8, float(FEET_Y) - 7.0, 16.0 + dx2, float(FEET_Y) - 1.0, lw + 0.5, _tn(c, "shoes", 0.22 if k == 1 else 0.0), true)
 	if style == "shorts":
 		_rect(cv, 16, hip + 2.5, lw * 2.0 + 3.0 if dir != "left" else lw + 2.0, 6, _tn(c, "bottom"), 2, true)
 	elif style == "skirt":
@@ -189,6 +213,9 @@ static func _torso(cv, c: Dictionary) -> void:
 		_limb(cv, sx, sy, sx - sw * 0.8, sy + alen - 1, aw, _tn(c, "top", 0.22), false)
 		_ell(cv, sx - sw * 0.8, sy + alen - 0.5, aw, aw - 0.5, _tn(c, "skin", 0.2), true)
 	_rect(cv, 16.0 + (0.0 if dir != "left" else 0.5), tcy, tw, th, top, 3, true, false)
+	if _has(c, "aran"):
+		_rect(cv, 16.0 + (0.0 if dir != "left" else 0.5), tcy, tw, th, top, 3, true, false, 0.0, _aran_extra(c))
+		_rect(cv, 16.0 + (0.0 if dir != "left" else 0.5), tcy + th * 0.5 - 1.0, tw, 2, _tn(c, "top", 0.2), 1, true, false)
 	if _has(c, "hoodie"):
 		_ell(cv, c.hcx + (1.0 if dir == "left" else 0.0), ttop + 1 + bob, tw - 1 if dir != "left" else tw, 6, _tn(c, "top", 0.1), true, true)
 		if dir == "down":
@@ -223,6 +250,57 @@ static func _torso(cv, c: Dictionary) -> void:
 			_rect(cv, 16, tcy + 1, tw - 1, th - 3, gl, 2, true, true)
 		else:
 			_rect(cv, 16.5, tcy + 1, tw - 1, th - 3, gl, 2, true, true)
+	if _has(c, "overalls"):
+		var ov := _tn(c, "bottom")
+		if dir == "down":
+			_rect(cv, 16, tcy + 3.5, tw - 6, th * 0.55, ov, 1, true, true)
+			_rect(cv, 16 - tw * 0.5 + 3.5, ttop + 3 + bob, 2, 6, ov, 0, false)
+			_rect(cv, 16 + tw * 0.5 - 3.5, ttop + 3 + bob, 2, 6, ov, 0, false)
+			_rect(cv, 16, tcy + 5, 4, 3, _tn(c, "bottom", 0.25), 0, false)
+			cv.px(int(16 - tw * 0.5 + 3), int(ttop + 8 + bob), Color("#e8c040"))
+			cv.px(int(16 + tw * 0.5 - 4), int(ttop + 8 + bob), Color("#e8c040"))
+		elif dir == "up":
+			_rect(cv, 16, tcy + 3, tw - 1, th * 0.6, ov, 1, true, true)
+		else:
+			_rect(cv, 16.5, tcy + 3.5, tw - 2, th * 0.55, ov, 1, true, true)
+	if _has(c, "oilskin"):
+		var oil := _tn(c, "accent")
+		var oy: float = tcy + 2.5
+		if dir == "down":
+			_rect(cv, 16 - tw * 0.25 - 1.0, oy, tw * 0.5 - 2.0, th + 4.0, oil, 2, true, true)
+			_rect(cv, 16 + tw * 0.25 + 1.0, oy, tw * 0.5 - 2.0, th + 4.0, oil, 2, true, true)
+		else:
+			_rect(cv, 16.0 + (0.5 if dir == "left" else 0.0), oy, tw + 2.0, th + 5.0, oil, 3, true, true)
+		_ell(cv, c.hcx + (1.0 if dir == "left" else 0.0), ttop + 1.5 + bob, tw if dir != "left" else tw + 1, 5, _tn(c, "accent", -0.1), true, true)
+		if dir == "down":
+			for k in range(3):
+				cv.px(14, int(ttop + 7 + bob + k * 4), _col(c, "accent2"))
+				cv.px(18, int(ttop + 7 + bob + k * 4), _col(c, "accent2"))
+	if _has(c, "shawl") and dir != "up":
+		var sh := _tn(c, "accent")
+		var shs := {"pattern": "stripes", "pcol": _tn(c, "accent2"), "period": 4, "angle": 0}
+		_ell(cv, c.hcx + (1.0 if dir == "left" else 0.0), ttop + 3 + bob, tw + 4, 8, sh, true, true)
+		if dir == "down":
+			_poly(cv, [Vector2(16 - tw * 0.5 - 1, ttop + 4 + bob), Vector2(16 + tw * 0.5 + 1, ttop + 4 + bob), Vector2(16, ttop + 11 + bob)], sh, true, true)
+			_rect(cv, 16, ttop + 5 + bob, 1, 6, _tn(c, "accent2"), 0, false)
+		else:
+			_rect(cv, 16.5, tcy + 1, tw, 9, sh, 2, true, true, 0.0, shs)
+	elif _has(c, "shawl"):
+		_ell(cv, 16, ttop + 4 + bob, tw + 4, 10, _tn(c, "accent"), true, true)
+	if _has(c, "lanyard") and dir != "up":
+		var lan := _col(c, "accent2")
+		if dir == "down":
+			cv.paint(cv.line_mask([Vector2(14, ttop + 1 + bob), Vector2(16, tcy + 1), Vector2(18, ttop + 1 + bob)], 1.0), Canvas.tones(lan), {"shade": false})
+			_rect(cv, 16, tcy + 3, 4, 5, Canvas.tones(Color("#f4f0e8")), 0, false)
+			cv.px(15, int(tcy + 2), lan)
+			cv.px(16, int(tcy + 2), lan)
+		else:
+			cv.paint(cv.line_mask([Vector2(14, ttop + 1 + bob), Vector2(13, tcy + 2)], 1.0), Canvas.tones(lan), {"shade": false})
+			_rect(cv, 12.5, tcy + 4, 2, 4, Canvas.tones(Color("#f4f0e8")), 0, false)
+	if _has(c, "pin") and dir == "down":
+		var pc := Canvas.parse_colour(c.pal.get("pin", "#d8b030"))
+		_ell(cv, 20.5, tcy - 1, 3, 3, Canvas.tones(pc), true, false)
+		cv.px(20, int(tcy - 2), pc.lightened(0.5))
 	if _has(c, "backpack") and dir == "up":
 		_rect(cv, 16, tcy + 1, tw - 1, th - 2, _tn(c, "accent2"), 3, true, true)
 		_rect(cv, 16, tcy + 4, tw - 5, 4, _tn(c, "accent2", 0.2), 1, true, true)
@@ -255,11 +333,11 @@ static func _torso(cv, c: Dictionary) -> void:
 			var x: float = 16.0 + side * (tw * 0.5 + aw * 0.5 - 0.5)
 			var sy: float = ttop + 2 + bob + float(side * step)
 			var sleeve_len := alen * (0.55 if sleeves == "short" else 0.82)
-			var armtone := _tn(c, "top") if not _has(c, "labcoat") else _tn(c, "accent")
+			var armtone := _tn(c, "top") if not (_has(c, "labcoat") or _has(c, "oilskin")) else _tn(c, "accent")
 			if _has(c, "gilet") or _has(c, "apron"):
 				armtone = _tn(c, "top")
 			_rect(cv, x, sy + (alen - 1) * 0.5, aw, alen - 1, _tn(c, "skin"), 1.5, true, false)
-			_rect(cv, x, sy + sleeve_len * 0.5, aw, sleeve_len, armtone, 1.5, true, true)
+			_rect(cv, x, sy + sleeve_len * 0.5, aw, sleeve_len, armtone, 1.5, true, true, 0.0, _aran_extra(c))
 			_ell(cv, x, sy + alen - 1, aw, aw - 0.5, _tn(c, "skin"), true)
 			if _has(c, "phone") and dir == "down" and side == -1:
 				_rect(cv, x - 1, sy + alen - 3, 3, 5, Canvas.tones(Color("#2a2a34")), 0, false)
@@ -273,10 +351,72 @@ static func _torso(cv, c: Dictionary) -> void:
 		var sleeve_len := alen * (0.55 if sleeves == "short" else 0.82)
 		var sl := sleeve_len / alen
 		_limb(cv, sx, sy, ex, ey, aw, _tn(c, "skin"), false)
-		_limb(cv, sx, sy, sx + (ex - sx) * sl, sy + (ey - sy) * sl, aw, _tn(c, "accent") if _has(c, "labcoat") else _tn(c, "top"), true)
+		_limb(cv, sx, sy, sx + (ex - sx) * sl, sy + (ey - sy) * sl, aw, _tn(c, "accent") if (_has(c, "labcoat") or _has(c, "oilskin")) else _tn(c, "top"), true)
 		_ell(cv, ex, ey + 0.5, aw, aw - 0.5, _tn(c, "skin"), true)
 		if _has(c, "phone"):
 			_rect(cv, ex - 2, ey - 1, 3, 4, Canvas.tones(Color("#2a2a34")), 0, false)
+	_props(cv, c)
+
+static func _aran_extra(c: Dictionary) -> Dictionary:
+	if not _has(c, "aran"):
+		return {}
+	return {"pattern": "stripes", "pcol": _tn(c, "accent"), "period": 3, "angle": 0}
+
+## Hand position of the carrying arm (viewer's left in front/back views).
+static func _hand(c: Dictionary) -> Vector2:
+	var b: Dictionary = c.b
+	var alen := float(b.arm_len)
+	var bob: int = c.bob
+	if c.dir == "left":
+		return Vector2(16.0 + 2.4 * float(c.step), float(c.ttop) + 3 + bob + alen - 0.5)
+	var side := -1
+	var tw: float = c.tw
+	var aw := float(b.arm_w)
+	return Vector2(16.0 + side * (tw * 0.5 + aw * 0.5 - 0.5), float(c.ttop) + 2 + bob + float(side * c.step) + alen - 1)
+
+static func _line(cv, pts: Array, w: float, col: Color) -> void:
+	cv.paint(cv.line_mask(pts, w), Canvas.tones(col), {"shade": false})
+
+static func _props(cv, c: Dictionary) -> void:
+	var h := _hand(c)
+	var hx := h.x
+	var hy := h.y
+	var skin := _tn(c, "skin")
+	var pcol := Canvas.parse_colour(c.pal.get("prop", "#8a6a40"))
+	if _has(c, "lantern"):
+		var glow := Canvas.parse_colour(c.pal.get("light", "#ffd860"))
+		_line(cv, [Vector2(hx, hy), Vector2(hx, hy + 3)], 1.0, Color("#3a3028"))
+		_rect(cv, hx, hy + 7, 6, 8, Canvas.tones(Color("#3a3028")), 1, false)
+		_rect(cv, hx, hy + 7, 4, 6, Canvas.tones(glow), 1, false)
+		cv.px(int(hx) - 1, int(hy) + 5, Color("#3a3028"))
+		cv.px(int(hx), int(hy) + 5, Color("#3a3028"))
+		cv.px(int(hx), int(hy) + 6, glow.lightened(0.6))
+		_ell(cv, hx, hy, 3.5, 3.5, skin, true)
+	if _has(c, "hurley"):
+		var top := hy - 15.0
+		_line(cv, [Vector2(hx + 1, top), Vector2(hx, hy), Vector2(hx - 1.5, FEET_Y - 4)], 1.6, pcol)
+		_ell(cv, hx - 2.5, FEET_Y - 2.5, 6, 4, Canvas.tones(pcol.lightened(0.15)), true, true, 20.0)
+		_rect(cv, hx + 1, top + 2, 2, 5, Canvas.tones(Color("#e8e0d0")), 0, false)
+		_ell(cv, hx, hy, 3.5, 3.5, skin, true)
+	if _has(c, "umbrella"):
+		var uc := Canvas.parse_colour(c.pal.get("prop", "#243a6a"))
+		_line(cv, [Vector2(hx, hy + 1), Vector2(hx, FEET_Y - 2)], 1.0, Color("#3a3a44"))
+		_poly(cv, [Vector2(hx - 2, hy + 1), Vector2(hx + 2, hy + 1), Vector2(hx + 1.5, hy + 11), Vector2(hx, hy + 14), Vector2(hx - 1.5, hy + 11)], Canvas.tones(uc), true, true)
+		_line(cv, [Vector2(hx, hy - 1), Vector2(hx - 1, hy - 4), Vector2(hx + 1.5, hy - 5)], 1.2, Color("#5a4630"))
+		_ell(cv, hx, hy, 3.5, 3.5, skin, true)
+	if _has(c, "fiddle"):
+		var wood := Canvas.tones(Color("#a8601e"))
+		_line(cv, [Vector2(hx, hy - 5), Vector2(hx + 1, hy - 14)], 1.3, Color("#3a2a20"))
+		cv.px(int(hx) + 1, int(hy) - 15, Color("#3a2a20"))
+		_ell(cv, hx, hy - 1, 7, 9, wood, true, true, 10.0)
+		cv.px(int(hx) - 1, int(hy) - 2, Color("#3a2018"))
+		cv.px(int(hx) + 1, int(hy), Color("#3a2018"))
+		_line(cv, [Vector2(hx - 5, hy + 3), Vector2(hx + 5, hy - 5)], 1.0, Color("#e8dcc0"))
+		_ell(cv, hx, hy + 1, 3.5, 3.5, skin, true)
+	if _has(c, "notebook"):
+		_rect(cv, hx, hy - 1, 5, 7, Canvas.tones(Canvas.parse_colour(c.pal.get("prop", "#8a3a30"))), 0, true, true)
+		_rect(cv, hx + 1.5, hy - 1, 1, 6, Canvas.tones(Color("#f4f0e0")), 0, false)
+		_ell(cv, hx, hy + 2, 3.5, 3.5, skin, true)
 
 # ---------- head ----------
 
@@ -326,6 +466,8 @@ static func _head(cv, c: Dictionary) -> void:
 			_rect(cv, cx, cy + hh * 0.5 + 3, hw, 10, hair, 3, true)
 		elif style == "bob":
 			_rect(cv, cx, cy + hh * 0.35, hw, hh * 0.6, hair, 3, true)
+		elif style == "windswept":
+			_rect(cv, cx + 1, cy + hh * 0.5 + 3, hw + 1, 10, hair, 3, true, false, -5.0)
 		elif style == "pony":
 			_rect(cv, cx, cy + hh * 0.5 + 4, 4, 11, hair, 2, true)
 		elif style == "bald":
@@ -357,7 +499,53 @@ static func _head(cv, c: Dictionary) -> void:
 	if style == "bun":
 		_ell(cv, cx + (hw * 0.15 if dir == "left" else 0.0), cy - hh * 0.5 - 1.5, 6, 6, hair, true, false)
 	_face(cv, c, cx, cy, hw, hh)
+	_facial(cv, c, cx, cy, hw, hh)
 	_hat(cv, c, cx, cy, hw, hh, hat)
+	if _has(c, "glitter") and dir != "up":
+		var gc := [Color("#f8e060"), Color("#f080f0"), Color("#80e8f8")]
+		var gp := [Vector2(-5, 3), Vector2(4, 4), Vector2(-3, 6), Vector2(6, 2), Vector2(0, -1)] if dir == "down" else [Vector2(-4, 4), Vector2(-2, 6), Vector2(1, 3)]
+		for k in gp.size():
+			cv.px(int(round(cx + gp[k].x)), int(round(cy + gp[k].y)), gc[k % 3])
+
+static func _facial(cv, c: Dictionary, cx: float, cy: float, hw: float, hh: float) -> void:
+	var dir: String = c.dir
+	if dir == "up":
+		return
+	var eh := int(c.b.eye_h)
+	var ey := int(round(cy + hh * 0.12))
+	var my := ey + eh + 2
+	var bc := Canvas.parse_colour(c.pal.get("beard", c.pal.get("hair", "#4a3426")))
+	var btn := Canvas.tones(bc)
+	if _has(c, "grin"):
+		var skin := _col(c, "skin")
+		if dir == "down":
+			for k in range(-3, 3):
+				cv.px(int(round(cx)) + k, my - 1, skin.darkened(0.45))
+			for k in range(-2, 2):
+				cv.px(int(round(cx)) + k, my, Color("#fffaf0"))
+			cv.px(int(round(cx)) - 3, my - 2, skin.darkened(0.35))
+			cv.px(int(round(cx)) + 2, my - 2, skin.darkened(0.35))
+		else:
+			var gx := int(round(cx - hw * 0.28)) - 1
+			for k in range(-1, 3):
+				cv.px(gx + k, my - 1, skin.darkened(0.45))
+			cv.px(gx, my, Color("#fffaf0"))
+			cv.px(gx + 1, my, Color("#fffaf0"))
+	if _has(c, "beard"):
+		if dir == "down":
+			_ell(cv, cx, cy + hh * 0.5 - 1.5, hw - 1, 8, btn, true)
+			cv.px(int(round(cx)) - 1, my, bc.darkened(0.5))
+			cv.px(int(round(cx)), my, bc.darkened(0.5))
+		else:
+			_ell(cv, cx - hw * 0.15, cy + hh * 0.5 - 1.5, hw * 0.65, 8, btn, true)
+			cv.px(int(round(cx - hw * 0.28)) - 1, my, bc.darkened(0.5))
+	if _has(c, "moustache"):
+		if dir == "down":
+			_rect(cv, cx, float(my) - 0.5, 7, 2, btn, 1, false)
+			cv.px(int(round(cx)) - 4, my + 1, bc)
+			cv.px(int(round(cx)) + 3, my + 1, bc)
+		else:
+			_rect(cv, cx - hw * 0.28 + 0.5, float(my) - 0.5, 4, 2, btn, 1, false)
 
 static func _face(cv, c: Dictionary, cx: float, cy: float, hw: float, hh: float) -> void:
 	var dir: String = c.dir
@@ -448,6 +636,75 @@ static func _hat(cv, c: Dictionary, cx: float, cy: float, hw: float, hh: float, 
 			_ell(cv, cx, top + 6, hw + 6, 4, col, true, true)
 			_rect(cv, cx, top + 3, hw, 7, col, 2, true, true)
 			_rect(cv, cx, top + 5, hw, 1.5, _tn(c, "accent2"), 0, false)
+		"witch_hat":
+			var wx := cx + (1.0 if side else 0.0)
+			_ell(cv, wx, top + 4.5, hw + 12, 5, col, true, true)
+			_poly(cv, [Vector2(wx - hw * 0.45, top + 4), Vector2(wx + hw * 0.45, top + 4), Vector2(wx + 2.5, top - 5), Vector2(wx + 6.0, top - 12), Vector2(wx - 1.0, top - 6)], col, true, true)
+			_rect(cv, wx, top + 2.5, hw * 0.9, 2.5, _tn(c, "accent"), 0, false)
+			_rect(cv, wx + 1, top + 2.5, 3, 3, Canvas.tones(Color("#e8c040")), 0, false)
+		"panama":
+			var px_ := cx + (1.0 if side else 0.0)
+			_ell(cv, px_, top + 5, hw + 10, 5, col, true, true)
+			_rect(cv, px_, top + 1.5, hw - 1, 8, _tn(c, hk, -0.05), 3, true, true)
+			_rect(cv, px_, top + 3.5, hw - 1, 2, _tn(c, "accent2"), 0, false)
+			if dir == "down":
+				cv.px(int(px_) - 2, int(top) + 1, _col(c, hk).darkened(0.2))
+				cv.px(int(px_) + 2, int(top) + 1, _col(c, hk).darkened(0.2))
+		"hard_hat":
+			var lx_ := cx + (1.0 if side else 0.0)
+			_ell(cv, lx_, top + 3, hw + 2, 9, col, true, true)
+			_rect(cv, lx_, top + 6, hw + 5, 2, _tn(c, hk, 0.15), 1, true, true)
+			_rect(cv, lx_, top + 0.5, 2, 5, _tn(c, hk, 0.2), 0, false)
+			var lamp := Canvas.parse_colour(c.pal.get("light", "#fff0a0"))
+			if dir == "down":
+				_ell(cv, cx, top + 3, 4, 4, Canvas.tones(Color("#4a4a52")), true, true)
+				cv.px(int(cx) - 1, int(top) + 3, lamp)
+				cv.px(int(cx), int(top) + 3, lamp)
+			elif side:
+				_ell(cv, cx - hw * 0.5 - 1, top + 4, 4, 4, Canvas.tones(Color("#4a4a52")), true, true)
+				cv.px(int(cx - hw * 0.5) - 2, int(top) + 4, lamp)
+		"flat_cap":
+			var fx := cx + (1.0 if side else 0.0)
+			_ell(cv, fx, top + 3.5, hw + 3, 7, col, true, true)
+			_rect(cv, fx, top + 1.5, hw + 1, 3, _tn(c, hk, -0.1), 1, true, false)
+			if dir == "down":
+				_rect(cv, cx, top + 6.5, hw, 2, _tn(c, hk, 0.25), 1, true, true)
+			elif side:
+				_rect(cv, cx - hw * 0.5 - 1.5, top + 6.5, 6, 2, _tn(c, hk, 0.25), 1, true, true)
+		"helmet":
+			var mx := cx + (1.0 if side else 0.0)
+			var cage := Color("#44464e")
+			_ell(cv, mx, top + 3.5, hw + 2.5, 9, col, true, true)
+			if dir == "down":
+				_rect(cv, cx - hw * 0.5 - 0.5, cy + 3, 2.5, 8, _tn(c, hk, 0.1), 1, true, true)
+				_rect(cv, cx + hw * 0.5 + 0.5, cy + 3, 2.5, 8, _tn(c, hk, 0.1), 1, true, true)
+				for k in [-3, 0, 3]:
+					for yy in range(int(cy) + 0, int(cy + hh * 0.5) - 1):
+						if yy != int(cy + hh * 0.12) and yy != int(cy + hh * 0.12) + 1:
+							cv.px(int(round(cx)) + k, yy, cage)
+				for k in range(-4, 5):
+					cv.px(int(round(cx)) + k, int(cy + hh * 0.5) - 1, cage)
+			elif side:
+				_rect(cv, cx + 1, cy + 4, 4, 7, _tn(c, hk, 0.1), 1, true, true)
+				for yy in range(int(cy), int(cy + hh * 0.5)):
+					cv.px(int(cx - hw * 0.5), yy, cage)
+				for k in range(0, 5):
+					cv.px(int(cx - hw * 0.5) + k, int(cy + hh * 0.5) - 1, cage)
+		"flower_crown", "holly_crown":
+			var ccx := cx + (1.0 if side else 0.0)
+			var holly := hat == "holly_crown"
+			var leaf := Canvas.parse_colour(c.pal.get("leaf", "#3e8a3a"))
+			var blooms: Array = [Color("#c83a3a"), Color("#c83a3a"), Color("#c83a3a")] if holly else [Color("#f088b8"), Color("#f4e050"), Color("#ffffff"), Color("#b080e8"), Color("#f08a40")]
+			var n := 7
+			for k in n:
+				var t := float(k) / float(n - 1)
+				var ax := ccx + (t - 0.5) * (hw + 1.5)
+				var ay := top + 3.0 - sin(t * PI) * 1.5
+				_ell(cv, ax, ay + 0.5, 3.5, 3, Canvas.tones(leaf), true)
+				if k % 2 == 1 or not holly:
+					cv.px(int(round(ax)), int(round(ay)), blooms[k % blooms.size()])
+					if not holly:
+						cv.px(int(round(ax)) + 1, int(round(ay)), blooms[k % blooms.size()])
 		"headband":
 			_rect(cv, cx + (0.5 if side else 0.0), top + 4.5, hw + 1, 2, col, 0, true)
 			if side:

@@ -12,6 +12,8 @@ func test_dev_args_parse() -> void:
 	assert_eq(a.clock, 1290)
 	assert_eq(a.weather, "fog")
 	assert_true(a.fps)
+	assert_false(a.double)
+	assert_true(DevArgs.parse(PackedStringArray(["--battle=spikkin:5", "--double"])).double)
 
 func test_dev_args_defaults() -> void:
 	var a := DevArgs.parse(PackedStringArray())

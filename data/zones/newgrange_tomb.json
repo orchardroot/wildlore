@@ -1,0 +1,206 @@
+{
+ "id": "newgrange_tomb",
+ "name": "Newgrange Passage Tomb",
+ "region": "",
+ "kind": "interior",
+ "music": "legend_crow",
+ "weather": {},
+ "props": [
+  {
+   "type": "standing_stone",
+   "x": 7,
+   "y": 9,
+   "variant": 0
+  },
+  {
+   "type": "standing_stone",
+   "x": 15,
+   "y": 9,
+   "variant": 1
+  },
+  {
+   "type": "standing_stone",
+   "x": 7,
+   "y": 16,
+   "variant": 2
+  },
+  {
+   "type": "standing_stone",
+   "x": 15,
+   "y": 16,
+   "variant": 0
+  },
+  {
+   "type": "standing_stone",
+   "x": 10,
+   "y": 22,
+   "variant": 1
+  },
+  {
+   "type": "standing_stone",
+   "x": 12,
+   "y": 24,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 4,
+   "y": 12,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 19,
+   "y": 12,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 11,
+   "y": 5,
+   "variant": 0
+  }
+ ],
+ "warps": [
+  {
+   "x": 11,
+   "y": 30,
+   "to": "newgrange",
+   "tx": 30,
+   "ty": 21,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "tomb_guide",
+   "sprite": "tour_guide",
+   "x": 10,
+   "y": 25,
+   "facing": "right",
+   "move": "still",
+   "script": "tomb_guide"
+  },
+  {
+   "id": "kerrigan_tomb",
+   "sprite": "kerrigan",
+   "x": 11,
+   "y": 18,
+   "facing": "down",
+   "move": "still",
+   "script": "kerrigan_tomb",
+   "hide_if": "ch7_judged"
+  },
+  {
+   "id": "morrigan_spot",
+   "sprite": "creature:morrigan",
+   "x": 11,
+   "y": 6,
+   "facing": "down",
+   "move": "still",
+   "script": "morrigan",
+   "hide_if": "caught_morrigan"
+  },
+  {
+   "id": "tomb_gate_a",
+   "sprite": "warden_grunt",
+   "x": 10,
+   "y": 18,
+   "facing": "down",
+   "move": "still",
+   "script": "gate_tomb",
+   "hide_if": "trainer_kerrigan_2",
+   "name": "Warden"
+  },
+  {
+   "id": "tomb_gate_b",
+   "sprite": "warden_grunt",
+   "x": 12,
+   "y": 18,
+   "facing": "down",
+   "move": "still",
+   "script": "gate_tomb",
+   "hide_if": "trainer_kerrigan_2",
+   "name": "Warden"
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "x": 10,
+   "y": 20,
+   "text": "THE PASSAGE. Nineteen metres of narrow corridor between huge slabs, rising slightly to the chamber so the sunbeam can travel all the way. Mind your head, mind your shoulders, and spare a thought for the builders."
+  },
+  {
+   "x": 12,
+   "y": 19,
+   "text": "THE ROOF BOX. The slot above the door sends a beam of the rising sun straight down the passage on the winter solstice, onto the chamber floor. It lasts about seventeen minutes. It's one of the oldest clocks in Europe."
+  },
+  {
+   "x": 5,
+   "y": 14,
+   "text": "THE WEST RECESS. A great basin stone, carved with spirals, where the cremated remains of the dead were laid. The spirals are about as old as writing. They don't say."
+  },
+  {
+   "x": 18,
+   "y": 14,
+   "text": "THE EAST RECESS. Another basin stone, carved with the triple spiral, three loops joined in one line. It's Newgrange's trademark."
+  },
+  {
+   "x": 10,
+   "y": 6,
+   "text": "THE NORTH RECESS. The deepest part of the tomb. The corbelled roof soars overhead, each stone set a little further in, until the last slab closes the dome. It has not leaked in five thousand years."
+  },
+  {
+   "x": 8,
+   "y": 11,
+   "text": "CARVED STONES. Spirals, lozenges, zigzags and eyes, in a language we've forgotten. Some are hidden behind the slabs, where only the builders and the dead could see."
+  }
+ ],
+ "spawn": [
+  11,
+  29
+ ],
+ "stage": "cave",
+ "rows": [
+  "xxxxxxxxxxxxxxxxxxxxxxx",
+  "xxxxxxxxxxxxxxxxxxxxxxx",
+  "xxxxxxxxxxxxxxxxxxxxxxx",
+  "xxxxxxxxxxxxxxxxxxxxxxx",
+  "xxxxxxxxxkkkkkxxxxxxxxx",
+  "xxxxxxxxxkkkkkxxxxxxxxx",
+  "xxxxxxxxxkkkkkxxxxxxxxx",
+  "xxxxxxxxxkkkkkxxxxxxxxx",
+  "xxxxxxxkkkkkkkkkxxxxxxx",
+  "xxxxxxxkkkkkkkkkxxxxxxx",
+  "xxxxxxxkkkkkkkkkxxxxxxx",
+  "xxxkkkkkkkkkkkkkkkkkxxx",
+  "xxxkkkkkkkkkkkkkkkkkxxx",
+  "xxxkkkkkkkkkkkkkkkkkxxx",
+  "xxxkkkkkkkkkkkkkkkkkxxx",
+  "xxxxxxxkkkkkkkkkxxxxxxx",
+  "xxxxxxxkkkkkkkkkxxxxxxx",
+  "xxxxxxxkkkkkkkkkxxxxxxx",
+  "xxxxxxxxxxkkkxxxxxxxxxx",
+  "xxxxxxxxxxkkkxxxxxxxxxx",
+  "xxxxxxxxxxkkkxxxxxxxxxx",
+  "xxxxxxxxxxkkkxxxxxxxxxx",
+  "xxxxxxxxxxkkkxxxxxxxxxx",
+  "xxxxxxxxxxkkkxxxxxxxxxx",
+  "xxxxxxxxxxkkkxxxxxxxxxx",
+  "xxxxxxxxxxkkkxxxxxxxxxx",
+  "xxxxxxxxxxkkkxxxxxxxxxx",
+  "xxxxxxxxxxkkkxxxxxxxxxx",
+  "xxxxxxxxxxkkkxxxxxxxxxx",
+  "xxxxxxxxxxkkkxxxxxxxxxx",
+  "xxxxxxxxxxxDxxxxxxxxxxx",
+  "xxxxxxxxxxxxxxxxxxxxxxx"
+ ],
+ "legend_extra": {
+  "k": {
+   "tile": "path",
+   "colour": "#6e6c66"
+  }
+ }
+}

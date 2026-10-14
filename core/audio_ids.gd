@@ -13,6 +13,11 @@ const M2_SFX := ["cut", "splash", "scramble", "bike_bell", "train", "ship_horn"]
 const M2_MUSIC_LOOPING := ["town_city", "town_wales", "route_coast", "route_mountain", "battle_enclosure", "legend"]
 const M2_MUSIC_STINGS := ["ferry"]
 
+## Milestone 3 (south and Ireland) additions.
+const M3_SFX := ["crow", "tomb_light", "harp_gliss"]
+const M3_MUSIC_LOOPING := ["town_ireland", "route_ireland", "town_cornwall", "route_moor_south", "battle_double", "legend_green", "legend_crow"]
+const M3_MUSIC_STINGS := ["ferry_irish_sea"]
+
 static func sfx_file(id: String) -> String:
 	return "res://audio/sfx/%s.wav" % SFX_ALIASES.get(id, id)
 
@@ -26,7 +31,7 @@ static func music_exists(id: String) -> bool:
 			return true
 	return false
 
-## The battle track for a battle's opts: an explicit "music" wins, Keepers get their own reel.
+## The battle track for a battle's opts: an explicit "music" wins, Keepers get their own reel, doubles a faster one.
 static func battle_music(opts: Dictionary) -> String:
 	if opts.has("music"):
 		return str(opts.music)
@@ -34,4 +39,6 @@ static func battle_music(opts: Dictionary) -> String:
 		return "battle_enclosure"
 	if opts.get("ai", "") == "keeper":
 		return "battle_keeper"
+	if bool(opts.get("double", false)):
+		return "battle_double"
 	return "battle_wild" if opts.get("kind", "wild") == "wild" else "battle_trainer"

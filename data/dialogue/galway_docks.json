@@ -1,0 +1,97 @@
+{
+ "keeper_nuala": [
+  {
+   "do": "if",
+   "flag": "trainer_keeper_nuala",
+   "then": [
+    {
+     "do": "say",
+     "who": "Keeper Nuala",
+     "text": "Come back on a calm day and I'll take you out to see the gannets dive. They go in like arrows. It's the best free show in Connacht."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Keeper Nuala",
+     "text": "Dia dhuit. You've walked a long way to my quay. Mind the nets. And the cat. The cat has right of way."
+    },
+    {
+     "do": "say",
+     "who": "Keeper Nuala",
+     "text": "The tide's turning. It always is, in Galway. I've rowed a currach out past the Aran Islands in worse than you."
+    },
+    {
+     "do": "say",
+     "who": "Keeper Nuala",
+     "text": "Tide creatures are patient and then they're not. Ready?"
+    },
+    {
+     "do": "battle",
+     "trainer": "keeper_nuala"
+    },
+    {
+     "do": "say",
+     "who": "Keeper Nuala",
+     "text": "The Tide Stone. It comes in, it goes out, and in between it tells you who you are. That's what my grandmother said, and she rowed to Inis Mór in a gale."
+    },
+    {
+     "do": "say",
+     "who": "Keeper Nuala",
+     "text": "Go n-éirí an bóthar leat. That's 'may the road rise with you'. It'll rise. Watch the bay at dusk. The light goes silver and the whole city stops to look."
+    },
+    {
+     "do": "badge",
+     "id": "tide"
+    },
+    {
+     "do": "set",
+     "flag": "badge_tide"
+    },
+    {
+     "do": "set",
+     "flag": "ch7_tide"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "{player} received the Tide Stone!"
+    },
+    {
+     "do": "sfx",
+     "id": "alert"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Your phone buzzes. Professor Garside, who sounds as if she is standing in an airport."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "{player}! The Tide Stone! Seven! I've lost count and then found it again, under a biscuit tin."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "Kerrigan's booked Newgrange for the winter solstice. It's the big one. The passage fills with light for a few minutes, once a year, at dawn."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "The bog road north is open now. Sligo, then the Boyne Valley, then the tomb. Or you could go the long way, back through Dublin. The road's reopened for that, too."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "I'll meet you there. Yes, in person. I have a passport. It's been in a drawer since the eighties and it has a very surprised photograph."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Out in the town, the Wardens at the bog road finished their consultation and went to look at the boats."
+    }
+   ]
+  }
+ ]
+}

@@ -103,6 +103,8 @@ static func _validate_trainer(tid: String, dex: Dex, moves: MoveDB, items: ItemD
 		errors.append("%s: unknown ai '%s'" % [tag, raw.get("ai")])
 	if raw.get("party", []).is_empty():
 		errors.append("%s: empty party" % tag)
+	if bool(raw.get("double", false)) and raw.get("party", []).size() < 2:
+		errors.append("%s: a double battle needs a party of at least 2" % tag)
 	if int(raw.get("money", 0)) < 0:
 		errors.append("%s: negative money" % tag)
 	for m in raw.get("party", []):

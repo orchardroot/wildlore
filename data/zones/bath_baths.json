@@ -1,0 +1,217 @@
+{
+ "id": "bath_baths",
+ "name": "The Roman Baths",
+ "region": "",
+ "kind": "interior",
+ "music": "sanctuary",
+ "weather": {},
+ "props": [
+  {
+   "type": "standing_stone",
+   "x": 6,
+   "y": 3,
+   "variant": 0
+  },
+  {
+   "type": "standing_stone",
+   "x": 6,
+   "y": 12,
+   "variant": 1
+  },
+  {
+   "type": "standing_stone",
+   "x": 9,
+   "y": 3,
+   "variant": 0
+  },
+  {
+   "type": "standing_stone",
+   "x": 9,
+   "y": 12,
+   "variant": 1
+  },
+  {
+   "type": "standing_stone",
+   "x": 12,
+   "y": 3,
+   "variant": 0
+  },
+  {
+   "type": "standing_stone",
+   "x": 12,
+   "y": 12,
+   "variant": 1
+  },
+  {
+   "type": "standing_stone",
+   "x": 15,
+   "y": 3,
+   "variant": 0
+  },
+  {
+   "type": "standing_stone",
+   "x": 15,
+   "y": 12,
+   "variant": 1
+  },
+  {
+   "type": "standing_stone",
+   "x": 18,
+   "y": 3,
+   "variant": 0
+  },
+  {
+   "type": "standing_stone",
+   "x": 18,
+   "y": 12,
+   "variant": 1
+  },
+  {
+   "type": "standing_stone",
+   "x": 6,
+   "y": 5,
+   "variant": 2
+  },
+  {
+   "type": "standing_stone",
+   "x": 17,
+   "y": 5,
+   "variant": 0
+  },
+  {
+   "type": "standing_stone",
+   "x": 6,
+   "y": 9,
+   "variant": 0
+  },
+  {
+   "type": "standing_stone",
+   "x": 17,
+   "y": 9,
+   "variant": 1
+  },
+  {
+   "type": "statue",
+   "x": 3,
+   "y": 3
+  },
+  {
+   "type": "statue",
+   "x": 20,
+   "y": 3
+  },
+  {
+   "type": "lamp_post",
+   "x": 4,
+   "y": 6
+  },
+  {
+   "type": "lamp_post",
+   "x": 19,
+   "y": 6
+  },
+  {
+   "type": "planter",
+   "x": 3,
+   "y": 12
+  },
+  {
+   "type": "planter",
+   "x": 20,
+   "y": 12
+  },
+  {
+   "type": "bench",
+   "x": 3,
+   "y": 7
+  },
+  {
+   "type": "bench",
+   "x": 20,
+   "y": 7
+  }
+ ],
+ "warps": [
+  {
+   "x": 11,
+   "y": 14,
+   "to": "bath",
+   "tx": 36,
+   "ty": 31,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "baths_guide",
+   "sprite": "tour_guide",
+   "x": 12,
+   "y": 11,
+   "facing": "down",
+   "move": "still",
+   "script": "baths_guide"
+  },
+  {
+   "id": "baths_visitor",
+   "sprite": "villager_2",
+   "x": 3,
+   "y": 9,
+   "facing": "right",
+   "move": "wander",
+   "script": "baths_visitor"
+  },
+  {
+   "id": "spring_keeper",
+   "sprite": "tour_guide",
+   "x": 7,
+   "y": 12,
+   "facing": "right",
+   "move": "still",
+   "script": "spring_keeper",
+   "name": "Spring Keeper"
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "x": 13,
+   "y": 12,
+   "text": "THE GREAT BATH. Lined with sheets of lead, almost 2,000 years old and still watertight. The water is green because of algae and tradition."
+  },
+  {
+   "x": 4,
+   "y": 4,
+   "text": "THE SACRED SPRING. 46 degrees, a million litres a day, rain that fell thousands of years ago. Travellers tossed in coins and curses. Only coins today, please."
+  }
+ ],
+ "spawn": [
+  11,
+  13
+ ],
+ "stage": "spa_interior",
+ "rows": [
+  "xxxxxxxxxxxxxxxxxxxxxxxx",
+  "x++++++++++++++++++++++x",
+  "x++++++++++++++++++++++x",
+  "x+::::::::::::::::::::+x",
+  "x++++::gggggggggg::++++x",
+  "x++++::gggggggggg::++++x",
+  "x++++::gggggggggg::++++x",
+  "x++++::gggggggggg::++++x",
+  "x++++::gggggggggg::++++x",
+  "x++++::gggggggggg::++++x",
+  "x++++::gggggggggg::++++x",
+  "x+::::::::::::::::::::+x",
+  "x+::::::::::::::::::::+x",
+  "x++++++++++++++++++++++x",
+  "x++++++++++D+++++++++++x",
+  "xxxxxxxxxxxxxxxxxxxxxxxx"
+ ],
+ "legend_extra": {
+  "g": {
+   "tile": "water",
+   "colour": "#4f9a58"
+  }
+ }
+}

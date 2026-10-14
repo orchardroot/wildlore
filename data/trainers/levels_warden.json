@@ -1,0 +1,31 @@
+{
+ "id": "levels_warden",
+ "name": "Warden Cosmo",
+ "class": "Warden",
+ "sprite": "warden_grunt",
+ "party": [
+  {
+   "species": "peatmonarch",
+   "level": 42
+  },
+  {
+   "species": "bufomire",
+   "level": 42
+  },
+  {
+   "species": "heronarch",
+   "level": 43
+  }
+ ],
+ "ai": "trainer",
+ "money": 1140,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Warden Cosmo",
+   "text": "Welcome to the Levels Heritage Experience! Boardwalk fee: two pounds. Mud fee: included."
+  }
+ ],
+ "win": "I'll have you know it's a very good boardwalk.",
+ "after": "The Enclosure says: no wetland without a gift shop."
+}

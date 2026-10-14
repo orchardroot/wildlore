@@ -1,0 +1,201 @@
+{
+ "rail_guard": [
+  {
+   "do": "say",
+   "who": "Rail Guard",
+   "text": "Ceannt Station, named for Eamonn Ceannt, who signed the 1916 Proclamation. It's an Irish Rail station, not a Wildlore one, but the rail's the same."
+  },
+  {
+   "do": "say",
+   "who": "Rail Guard",
+   "text": "Hop aboard. The Wildlore rail runs to any town you have visited on this island. Where to?"
+  },
+  {
+   "do": "rail"
+  }
+ ],
+ "ring_maker": [
+  {
+   "do": "say",
+   "who": "Jeweller",
+   "text": "The Claddagh ring: two hands for friendship, a heart for love, a crown for loyalty. Worn heart outwards, it says 'free'. Heart inwards, it says 'spoken for'."
+  },
+  {
+   "do": "say",
+   "who": "Jeweller",
+   "text": "It began in the Claddagh village, a fishing community outside the city walls. Legend says a fisherman, taken by pirates, came back for his love. Whether or not that's true, I sell a lot of them."
+  }
+ ],
+ "hooker_skipper": [
+  {
+   "do": "say",
+   "who": "Hooker Skipper",
+   "text": "A Galway hooker is a traditional working boat: black hull, red-brown sails, built for hauling turf and fish across Galway Bay."
+  },
+  {
+   "do": "say",
+   "who": "Hooker Skipper",
+   "text": "Four sizes: the Bad Mor, the Halfdecker, the Gleoiteog and the Pucan. I can name them all. I can't sail any of them."
+  }
+ ],
+ "square_student": [
+  {
+   "do": "say",
+   "who": "University Student",
+   "text": "Galway's one of the Fourteen Tribes' towns. The tribes were merchant families, and they ran the place for centuries. They had their own street names. One of them's called Lynch Lane. The word 'lynch' is theirs, they say. It might not be true. I'd have to check."
+  },
+  {
+   "do": "say",
+   "who": "University Student",
+   "text": "The Eyre Square park is the only place I know where a Kennedy statue gets less attention than a pigeon."
+  }
+ ],
+ "busker_swan": [
+  {
+   "do": "say",
+   "who": "Swan Fan",
+   "text": "The swans on the Corrib are always the same swans, I'm convinced. They're on a rota. They've got the whole river organised."
+  },
+  {
+   "do": "say",
+   "who": "Swan Fan",
+   "text": "The Corrib's one of the shortest rivers in Europe. About six kilometres. It makes up for it in volume."
+  }
+ ],
+ "oyster_man": [
+  {
+   "do": "say",
+   "who": "Oyster Man",
+   "text": "Galway Bay oysters are the best on earth, and I'd take it to court. September's the Oyster Festival. People wear black tie and eat them with a stout."
+  },
+  {
+   "do": "say",
+   "who": "Oyster Man",
+   "text": "Nobody's ever asked me what the oyster thinks. It thinks, 'Why is it me?'"
+  }
+ ],
+ "kit_galway": [
+  {
+   "do": "if",
+   "flag": "kit6_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "{rival}",
+     "text": "I've gone full busker. I know three songs and two of them are the same one. A man gave me a tenner for stopping."
+    },
+    {
+     "do": "say",
+     "who": "{rival}",
+     "text": "Whatever happens at the stones, I'm there. In the back. With a flask. And a very small banner."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "starter",
+     "then": [
+      {
+       "do": "say",
+       "who": "{rival}",
+       "text": "The Spanish Arch is lovely, isn't it? There's a swan that follows me. I think it's from the Enclosure. It looks very corporate."
+      },
+      {
+       "do": "say",
+       "who": "Kit",
+       "text": "Galway! I've been busking. I made four euro and a sandwich. Living the dream."
+      },
+      {
+       "do": "say",
+       "who": "Kit",
+       "text": "Last time before the big one, yeah? Give me everything you've got."
+      },
+      {
+       "do": "battle",
+       "trainer": "kit_6_vs_spikkin"
+      }
+     ],
+     "eq": "spikkin"
+    },
+    {
+     "do": "if",
+     "flag": "starter",
+     "then": [
+      {
+       "do": "say",
+       "who": "{rival}",
+       "text": "The Spanish Arch is lovely, isn't it? There's a swan that follows me. I think it's from the Enclosure. It looks very corporate."
+      },
+      {
+       "do": "say",
+       "who": "Kit",
+       "text": "Galway! I've been busking. I made four euro and a sandwich. Living the dream."
+      },
+      {
+       "do": "say",
+       "who": "Kit",
+       "text": "Last time before the big one, yeah? Give me everything you've got."
+      },
+      {
+       "do": "battle",
+       "trainer": "kit_6_vs_holtling"
+      }
+     ],
+     "eq": "holtling"
+    },
+    {
+     "do": "if",
+     "flag": "starter",
+     "then": [
+      {
+       "do": "say",
+       "who": "{rival}",
+       "text": "The Spanish Arch is lovely, isn't it? There's a swan that follows me. I think it's from the Enclosure. It looks very corporate."
+      },
+      {
+       "do": "say",
+       "who": "Kit",
+       "text": "Galway! I've been busking. I made four euro and a sandwich. Living the dream."
+      },
+      {
+       "do": "say",
+       "who": "Kit",
+       "text": "Last time before the big one, yeah? Give me everything you've got."
+      },
+      {
+       "do": "battle",
+       "trainer": "kit_6_vs_kindlet"
+      }
+     ],
+     "eq": "kindlet"
+    },
+    {
+     "do": "say",
+     "who": "{rival}",
+     "text": "Nuala's out on the docks. Be nice. She's rowed a currach round the Aran Islands. In a storm. Possibly twice."
+    },
+    {
+     "do": "say",
+     "who": "{rival}",
+     "text": "I'm going to head for the Hooker's quay and look at the boats. They're called hookers. It's a type of boat. I checked."
+    },
+    {
+     "do": "set",
+     "flag": "kit6_done"
+    }
+   ]
+  }
+ ],
+ "gate_galway_north": [
+  {
+   "do": "say",
+   "who": "Warden",
+   "text": "Bog road's closed. The bog is 'in consultation'. It's been consulting for three weeks. It's very thorough."
+  },
+  {
+   "do": "say",
+   "who": "Warden",
+   "text": "Keeper Nuala at the docks signs off the paperwork. She and the tide are the only ones who ever finish anything on time."
+  }
+ ]
+}

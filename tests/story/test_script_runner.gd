@@ -233,3 +233,37 @@ func test_badge_sets_flag_and_autosaves_after_the_script() -> void:
 	assert_true(h.data.flag("badge_urban") == true, "badge sets badge_<id>")
 	assert_eq(h.saves.size(), 1)
 	assert_true(h.saves[0].get("ch2_urban", false), "the autosave includes what the script did after the badge")
+
+func test_give_item_when_bag_full_says_so() -> void:
+	var h := FakeStoryHost.new()
+	h.data.bag["cup_of_tea"] = Bag.MAX_STACK
+	await _cmds(h).run([{"do": "give_item", "item": "cup_of_tea", "n": 2}])
+	assert_true(h.texts().any(func(t): return t.contains("full")), "tells you the bag is full")
+	assert_false(h.texts().any(func(t): return t.contains("received")))
+
+func test_double_trainer_battle_is_a_double() -> void:
+	var h := FakeStoryHost.new()
+	h.data.party = [Fixtures.creature("kindlet", 10), Fixtures.creature("holtling", 10)]
+	await _cmds(h).run([{"do": "battle", "trainer": "dev_double"}])
+	assert_eq(h.last_battle.opts.get("double", false), true)
+	assert_eq(h.last_battle.foes.size(), 3, "two out at once, one in reserve")
+	assert_eq(h.last_battle.opts.kind, "trainer")
+
+func test_single_trainer_battle_is_not_a_double() -> void:
+	var h := FakeStoryHost.new()
+	h.data.party = [Fixtures.creature("kindlet", 10)]
+	await _cmds(h).run([{"do": "battle", "trainer": "testbed_tester"}])
+	assert_false(h.last_battle.opts.has("double"), "singles opts unchanged")
+
+func test_legend_and_ferry_music_come_from_data() -> void:
+	var h := FakeStoryHost.new()
+	h.dex = Dex.load_default()
+	h.moves = MoveDB.load_default()
+	h.battle_results = [{"result": "win", "caught": null}]
+	await _cmds(h).run([{"do": "legend", "species": "greenman", "level": 55, "flag": "caught_greenman", "music": "legend_green"}])
+	assert_eq(h.last_battle.opts.music, "legend_green")
+	var h2 := FakeStoryHost.new()
+	h2.zone = "holyhead"
+	h2.choices = [0]
+	await _cmds(h2).run([{"do": "ferry", "route": "holyhead_dublin"}])
+	assert_true(["music", "ferry_irish_sea"] in h2.log)

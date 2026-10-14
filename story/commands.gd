@@ -56,10 +56,13 @@ func _exec(c: Dictionary) -> void:
 		"give_item":
 			var id := str(c.get("item", ""))
 			var n := int(c.get("n", 1))
-			Bag.new(data.bag).add(id, n)
+			var got := Bag.new(data.bag).add(id, n)
 			var nm: String = host.items.get_item(id).get("name", id)
-			await host.sfx("item")
-			await host.say("", "%s received %s%s." % [data.player_name, nm, " x%d" % n if n > 1 else ""])
+			if got <= 0:
+				await host.say("", "Your bag's full of %s already. You leave them for someone else." % nm)
+			else:
+				await host.sfx("item")
+				await host.say("", "%s received %s%s." % [data.player_name, nm, " x%d" % got if got > 1 else ""])
 		"give_creature":
 			var sp: Dictionary = host.dex.get_species(str(c.get("species", "")))
 			var cr := Creature.create(sp, int(c.get("level", 5)), host.rng, host.moves)
@@ -141,7 +144,10 @@ func _battle(trainer_id: String) -> void:
 			for mid in m.moves:
 				cr.moves.append(cr.make_move_slot(mid, host.moves))
 		foes.append(cr)
-	var result: Dictionary = await host.battle(foes, {"kind": "trainer", "ai": def.ai, "trainer": def})
+	var opts := {"kind": "trainer", "ai": def.ai, "trainer": def}
+	if bool(def.get("double", false)) and foes.size() >= 2:
+		opts["double"] = true  # a 2v2: the trainer sends out two at once
+	var result: Dictionary = await host.battle(foes, opts)
 	match str(result.get("result", "")):
 		"win":
 			# prize money is paid by the battle scene, which also announces it
@@ -161,7 +167,7 @@ func _legend(c: Dictionary) -> void:
 		return
 	host.data.mark_seen(str(sp.id))
 	var foe := Creature.create(sp, int(c.get("level", 40)), host.rng, host.moves)
-	var result: Dictionary = await host.battle([foe], {"kind": "wild", "no_run": true, "music": "legend"})
+	var result: Dictionary = await host.battle([foe], {"kind": "wild", "no_run": true, "music": str(c.get("music", "legend"))})
 	match str(result.get("result", "")):
 		"caught":
 			_set_flag(str(c.get("flag", "caught_" + str(sp.id))), true)
@@ -189,7 +195,7 @@ func _ferry(route: String) -> void:
 	var pick: int = await host.choice("Sail to %s?" % Travel.town_name(str(a.zone)), ["All aboard", "Not today"])
 	if pick != 0:
 		return
-	await host.music("ferry")
+	await host.music(str(Travel.ferries()[route].get("music", "ferry")))
 	await host.say("", str(Travel.ferries()[route].get("card", "The ferry crosses the sea.")))
 	await host.warp(str(a.zone), a.pos.x, a.pos.y, "down")
 	_ended = true

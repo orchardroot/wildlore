@@ -1,7 +1,7 @@
 extends Node3D
 ## The battle scene. Router.battle() instantiates this, calls setup(foe_party, opts) and awaits `finished`.
 ## All sequencing lives in BattleFlow; this node is its `ui`: it plays events on the diorama and asks for choices.
-## opts: kind ("wild"|"trainer"|"keeper"), stage, weather, ai, trainer {name, money, defeat}, music.
+## opts: kind ("wild"|"trainer"|"keeper"), stage, weather, ai, trainer {name, money, defeat}, music, double (2v2).
 ## Dev: pass --battle-auto after `--` and the battle plays itself (for screenshots).
 
 signal finished(result: Dictionary)
@@ -19,11 +19,13 @@ var _intro_done := false
 var _hidden_2d: CanvasItem
 var _dev_stage := ""  # --stage=moor overrides the stage (screenshots)
 var _dev_catch := false  # --battle-catch: in auto mode, throw snares instead of fighting
-var _dev_menu := ""  # --battle-menu=fight|bag|team opens that menu straight away (screenshots)
+var _dev_menu := ""  # --battle-menu=fight|bag|team|target opens that menu straight away (screenshots)
 
 func _ready() -> void:
 	auto = "--battle-auto" in DevArgs.user_args()
 	for a in DevArgs.user_args():
+		if a == "--battle-slow":  # quarter speed, to catch a hit mid-flash in a screenshot
+			Engine.time_scale = 0.25
 		if a == "--battle-catch":
 			_dev_catch = true
 		if a.begins_with("--stage="):
@@ -79,6 +81,9 @@ func setup(foe_party: Array, p_opts: Dictionary) -> void:
 	if _dev_catch and not foe_party.is_empty():
 		foe_party[0].hp = 1
 	opts["time"] = opts.get("time", GameClock.phase(Game.data.clock_minutes))
+	if bool(opts.get("double", false)):
+		dio.set_double(true)
+		hud.set_double(true)
 	dio.build(_dev_stage if _dev_stage != "" else str(opts.get("stage", "grass")))
 	sky.set_weather(str(opts.get("weather", "clear")), dio.is_interior())
 	sky.follow = dio
@@ -105,22 +110,20 @@ func _wait(sec: float) -> void:
 func intro(f: BattleFlow) -> void:
 	Audio.play_music(AudioIds.battle_music(opts))
 	dio.intro_swoop()
-	var foe := f.battle.current(Battle.FOE)
-	var me := f.battle.current(Battle.PLAYER)
-	if foe != null:
-		dio.actors[Battle.FOE].show_creature(foe, false)
-		hud.set_creature(Battle.FOE, foe)
-		dio.actors[Battle.FOE].pop_in()
-	await _wait(0.7)
-	if me != null:
-		dio.actors[Battle.PLAYER].show_creature(me, true)
-		hud.set_creature(Battle.PLAYER, me)
-		dio.actors[Battle.PLAYER].pop_in()
-	await _wait(0.9)
+	for side in [Battle.FOE, Battle.PLAYER]:
+		for pos in f.battle.positions():
+			var c := f.battle.current_at(side, pos)
+			if c == null:
+				continue
+			var a := dio.actor(side, pos)
+			a.show_creature(c, side == Battle.PLAYER)
+			hud.set_creature(side, c, pos)
+			a.pop_in()
+		await _wait(0.7 if side == Battle.FOE else 0.9)
 	_intro_done = true
 
 func say(lines: Array, hold := 0.0) -> void:
-	hud.plates[Battle.PLAYER].refresh_names()
+	hud.refresh_names()
 	for l in lines:
 		await msg.say(str(l), hold)
 
@@ -129,8 +132,10 @@ func play_events(events: Array, ctx: Dictionary) -> void:
 	for ev in events:
 		var cue := EventPlayer.fx_for(ev, ctx)
 		var lines := EventPlayer.lines_for(ev, ctx)
-		if ev.type == "item" and int(ev.get("target", 0)) == b.active[Battle.PLAYER]:
-			hud.tween_hp(Battle.PLAYER, int(ev.get("shown_hp", b.current(Battle.PLAYER).hp)), 0.7)
+		var item_pos: int = b.active[Battle.PLAYER].find(int(ev.get("target", 0))) if ev.type == "item" else -1
+		if item_pos >= 0:
+			var who := b.current_at(Battle.PLAYER, item_pos)
+			hud.tween_hp(Battle.PLAYER, int(ev.get("shown_hp", who.hp)), 0.7, item_pos)
 		if ev.type == "catch" and cue.cue == "catch" and lines.size() > 1:
 			await msg.say(lines[0])
 			await fx.play(cue, b)
@@ -154,19 +159,20 @@ func _cue_task(cue: Dictionary, b: Battle, flag: Array) -> void:
 ## Make the plates match the creatures, in case an event batch left them slightly off (item cures, caught foes...).
 func _sync_hud(b: Battle) -> void:
 	for side in 2:
-		var c := b.current(side)
-		if c == null:
-			continue
-		hud.set_status(side, c.status)
-		if absf(hud.shown_hp(side) - c.hp) > 0.5 and not (side == Battle.FOE and b.caught != null):
-			hud.tween_hp(side, c.hp, 0.25)
+		for pos in b.positions():
+			var c := b.current_at(side, pos)
+			if c == null:
+				continue
+			hud.set_status(side, c.status, pos)
+			if absf(hud.shown_hp(side, pos) - c.hp) > 0.5 and not (side == Battle.FOE and b.caught != null):
+				hud.tween_hp(side, c.hp, 0.25, pos)
 
 func choose_action(f: BattleFlow) -> Dictionary:
 	if Engine.has_meta("autopilot"):
 		await _wait(0.1)
 		return Engine.get_meta("autopilot").choose_action(f)
 	var b := f.battle
-	var me := b.current(Battle.PLAYER)
+	var me := b.current_at(Battle.PLAYER, f.acting_pos)
 	while true:
 		msg.prompt("What will %s do?" % me.display_name())
 		if auto:
@@ -181,8 +187,14 @@ func choose_action(f: BattleFlow) -> Dictionary:
 				if p > power and int(me.moves[i].pp) > 0:
 					power = p
 					best = i
-			return {"kind": "fight", "slot": best}
+			return {"kind": "fight", "slot": best, "target": f.default_target()}
 		var cmd := ""
+		if _dev_menu == "target":  # straight to the target picker with the first move (screenshots)
+			_dev_menu = ""
+			var aim := await _pick_target(f, 0)
+			if aim >= 0:
+				return {"kind": "fight", "slot": 0, "target": aim}
+			continue
 		if _dev_menu != "":
 			cmd = _dev_menu
 			_dev_menu = ""
@@ -198,8 +210,13 @@ func choose_action(f: BattleFlow) -> Dictionary:
 		match cmd:
 			"fight":
 				var slot := await menus.moves(me, Game.moves)
-				if slot >= 0:
+				if slot < 0:
+					continue
+				if not b.double:
 					return {"kind": "fight", "slot": slot}
+				var aim := await _pick_target(f, slot)
+				if aim >= 0:
+					return {"kind": "fight", "slot": slot, "target": aim}
 			"bag":
 				var entries := f.battle_items()
 				if entries.is_empty():
@@ -222,6 +239,29 @@ func choose_action(f: BattleFlow) -> Dictionary:
 				return {"kind": "run"}
 	return {}
 
+## Doubles: ask which foe to aim the move in `slot` at, marking the highlighted one on the diorama and HUD.
+## No question when only one foe stands or the move hits both. Returns the foe position, or -1 if cancelled.
+func _pick_target(f: BattleFlow, slot: int) -> int:
+	var b := f.battle
+	var me := b.current_at(Battle.PLAYER, f.acting_pos)
+	var mv := Game.moves.get_move(str(me.moves[slot].id)) if slot < me.moves.size() else {}
+	var names := []
+	for pos in b.positions():
+		var c := b.current_at(Battle.FOE, pos)
+		names.append(c.display_name() if c != null and not c.is_fainted() else "")
+	if str(mv.get("target", "")) == "all_foes" or names.count("") > 0:
+		return f.default_target()
+	msg.prompt("Aim %s at which one?" % str(mv.get("name", "it")))
+	var mark := func(i: int) -> void:
+		for pos in b.positions():
+			dio.actor(Battle.FOE, pos).set_marked(pos == i)
+			hud.set_marked(Battle.FOE, pos, pos == i)
+	menus.cursor_moved.connect(mark)
+	var aim := await menus.target(names)
+	menus.cursor_moved.disconnect(mark)
+	mark.call(-1)
+	return aim
+
 func choose_replacement(f: BattleFlow) -> int:
 	if Engine.has_meta("autopilot"):
 		return Engine.get_meta("autopilot").choose_replacement(f)
@@ -229,7 +269,7 @@ func choose_replacement(f: BattleFlow) -> int:
 	var party: Array = b.parties[Battle.PLAYER]
 	if auto:
 		for i in party.size():
-			if not party[i].is_fainted():
+			if not party[i].is_fainted() and i not in b.active[Battle.PLAYER]:
 				return i
 	msg.prompt("Who will you send out next?")
 	var r := -1
@@ -256,13 +296,19 @@ func xp_gained(c: Creature, evs: Array) -> void:
 	await hud.animate_xp(c, evs)
 	if evs.any(func(e): return e.type == "level_up"):
 		Audio.sfx("level_up")
-		var a: CreatureActor = dio.actors[Battle.PLAYER]
+		var a := dio.actor(Battle.PLAYER, _field_pos(c))
 		fx.burst(a.global_position + Vector3(0, 0.4, 0), Color("ffe08a"), 28, 3.5, 0.18, 1.0, 1.0, Vector3.UP)
+
+## Where a player creature stands on the field (0 if it is not out).
+func _field_pos(c: Creature) -> int:
+	var b := flow.battle
+	return maxi(0, b.active[Battle.PLAYER].find(b.parties[Battle.PLAYER].find(c)))
 
 ## The evolution sequence: the sprite flickers between old and new, faster and faster. Cancel stops it.
 func evolve_anim(c: Creature, to_sp: Dictionary) -> bool:
-	var a: CreatureActor = dio.actors[Battle.PLAYER]
-	var active := flow.battle.current(Battle.PLAYER)
+	var pos := _field_pos(c)
+	var a := dio.actor(Battle.PLAYER, pos)
+	var active := flow.battle.current_at(Battle.PLAYER, pos)
 	var old_tex := CreatureArt.texture(c.species, true)
 	var new_tex := CreatureArt.texture(to_sp, true)
 	a.show_creature(c, true)

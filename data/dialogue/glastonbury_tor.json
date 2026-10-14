@@ -1,0 +1,309 @@
+{
+ "keeper_morwen": [
+  {
+   "do": "if",
+   "flag": "trainer_keeper_morwen",
+   "then": [
+    {
+     "do": "say",
+     "who": "Keeper Morwen",
+     "text": "Come back at dusk when the lanterns are lit. Bring a flask. The Tor is brisk and so, I'm told, am I."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Keeper Morwen",
+     "text": "Well, hello. You've the look of someone who climbed the Tor in the wrong shoes. I'm Morwen. I keep the Fae Stone up here, between the sheep and a surprising number of kites."
+    },
+    {
+     "do": "say",
+     "who": "Keeper Morwen",
+     "text": "Up the Tor in the dark, were you? Brave. Or lost. The two look the same from here."
+    },
+    {
+     "do": "say",
+     "who": "Keeper Morwen",
+     "text": "Fae creatures don't fight fair, love. They fight interesting. Let's see if you can keep up."
+    },
+    {
+     "do": "battle",
+     "trainer": "keeper_morwen"
+    },
+    {
+     "do": "say",
+     "who": "Keeper Morwen",
+     "text": "The Fae Stone. It won't teach your team anything new on the road, I'm afraid. It just makes the little folk a good deal less cross with you."
+    },
+    {
+     "do": "say",
+     "who": "Keeper Morwen",
+     "text": "That's worth more than a field ability, mind. Ask anyone who's ever stepped on a fairy ring."
+    },
+    {
+     "do": "badge",
+     "id": "fae"
+    },
+    {
+     "do": "set",
+     "flag": "badge_fae"
+    },
+    {
+     "do": "set",
+     "flag": "ch5_fae"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "{player} received the Fae Stone!"
+    },
+    {
+     "do": "sfx",
+     "id": "alert"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Your phone buzzes. Professor Garside, who is eating something crunchy."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "{player}! The Fae Stone! Five! The hum's changed key, and I'm told that's a good thing. Whatever's been grumbling in that orchard has gone from a growl to a purr."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "Now, the Enclosure has been busy in the far west. Sir Rupert Ashcombe, Regional Director. He has a hat, a briefcase and a very small moustache."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "Dartmoor, then Tintagel, then Cornwall. He's after something in a tin mine, apparently. Mind the knockers. They knock back."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "And do stop at the orchard on your way down. Morwen says it's been listening."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Down in the Levels, the Wardens quietly rolled up their 'flood risk' tape and went home."
+    }
+   ]
+  }
+ ],
+ "greenman": [
+  {
+   "do": "if",
+   "flag": "badge_fae",
+   "then": [
+    {
+     "do": "if",
+     "flag": "caught_greenman",
+     "then": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "The old apple trees stand in a loose circle, heavy with fruit. A warm, green breath moves through the leaves. He's near, and he's happy."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "The Fae Stone grows warm in your pocket. The apple trees lean in. Somewhere under the roots, something very old clears its throat."
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "A face made of leaves opens its eyes in the bark. Moss for a beard. Pipe-smoke for a breath. He looks at you the way an oak looks at a sapling."
+      },
+      {
+       "do": "legend",
+       "species": "greenman", "music": "legend_green",
+       "level": 55,
+       "flag": "caught_greenman"
+      },
+      {
+       "do": "if",
+       "flag": "caught_greenman",
+       "then": [
+        {
+         "do": "say",
+         "who": "",
+         "text": "The Green Man steps out of the bark and falls in beside you, shedding a small leaf with each stride. The orchard sighs, as if a long argument had finally been settled."
+        },
+        {
+         "do": "warp",
+         "zone": "glastonbury_tor",
+         "x": 10,
+         "y": 21,
+         "facing": "up"
+        },
+        {
+         "do": "end"
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "",
+         "text": "The Green Man melts back into the trunk with a rustle like a wry laugh. The orchard stills. He will wait, if you want to try again."
+        },
+        {
+         "do": "warp",
+         "zone": "glastonbury_tor",
+         "x": 10,
+         "y": 21,
+         "facing": "up"
+        },
+        {
+         "do": "end"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "ch5_greenman_woke",
+     "then": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "The hedge around the orchard is thick with blossom that wasn't there this morning. Where the Wardens' fence stood, hawthorn has taken over."
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "A low hum rises from the roots. It's friendly, but firm. He isn't ready for you yet. Perhaps the Keeper's Stone will help."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "An orchard tucked into the corner of the Tor. Apple trees older than the road. In the middle stands a gnarled trunk with a roll of orange plastic fencing wrapped around it."
+      },
+      {
+       "do": "say",
+       "who": "Warden",
+       "text": "Right, lads, get the fence round it. Orchard's been reclassified. 'Heritage Green Space, Phase Three'."
+      },
+      {
+       "do": "say",
+       "who": "Warden",
+       "text": "And put that sign up. 'No Walking. No Wildlife. No Joy.'"
+      },
+      {
+       "do": "say",
+       "who": "{rival}",
+       "text": "Oi! Hang on! That tree is, like, five hundred years old!"
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "Kit comes pounding up the path, out of breath, one hand on a stitch, the other waving a phone."
+      },
+      {
+       "do": "say",
+       "who": "{rival}",
+       "text": "{player}! I followed you. I'm sorry. I didn't want to miss it, and I definitely didn't want to be on their side. Not this time."
+      },
+      {
+       "do": "say",
+       "who": "{rival}",
+       "text": "Pull that fence off. I'll take the signs. I'm at least good at being annoying on camera."
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "You tug at the fencing together. It bites back, tangling round your wrists. A Warden steps up with a mallet and a clipboard."
+      },
+      {
+       "do": "say",
+       "who": "Warden",
+       "text": "Sir, madam, this is a Heritage Green Space. You will need a permit. It is a nine-part form."
+      },
+      {
+       "do": "fade_out"
+      },
+      {
+       "do": "music",
+       "id": "legend_green"
+      },
+      {
+       "do": "sfx",
+       "id": "crow"
+      },
+      {
+       "do": "wait",
+       "seconds": 1.0
+      },
+      {
+       "do": "fade_in"
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "The tree opens its eyes. A face of bark and leaves, with moss for a beard. Every apple in the orchard turns to look at the Wardens."
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "The fencing sprouts. First leaves, then thorns, then a thick, cheerful tangle of hawthorn blossom that swallows the stakes whole."
+      },
+      {
+       "do": "say",
+       "who": "Warden",
+       "text": "That's. That's not in the plan. Is it in the plan?"
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "The Wardens drop their mallets and leave by the shortest route, which is down. They are very quick downhill."
+      },
+      {
+       "do": "say",
+       "who": "{rival}",
+       "text": "Okay. OKAY. I have never been this happy to see a tree."
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "The Green Man looks at you both for a long, unhurried moment. Then he breathes out, and the blossom drifts down like snow."
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "He is not ready. Not yet. A low voice rolls through the roots, slow as sap: the Keeper's Stone first, small walker. Then we shall talk."
+      },
+      {
+       "do": "say",
+       "who": "{rival}",
+       "text": "He said Keeper's Stone, right? I'm not imagining it? Morwen's at the top. I'll... go and find a cup of something. Very strong."
+      },
+      {
+       "do": "set",
+       "flag": "ch5_greenman_woke"
+      },
+      {
+       "do": "warp",
+       "zone": "glastonbury_tor",
+       "x": 10,
+       "y": 21,
+       "facing": "up"
+      },
+      {
+       "do": "end"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

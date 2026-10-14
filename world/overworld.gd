@@ -98,6 +98,8 @@ func can_enter(p: Vector2i, dir: Vector2i) -> String:
 	var fv := FieldMoves.verdict(Game.data, zone, p)
 	if fv == "blocked":
 		return "blocked"
+	if fv == "scramble" and player.on_bike and not occupied(p):
+		player.set_bike(false)  # scree is on foot
 	if fv == "wade" and player.on_bike and not occupied(p) and zone.walkable(p, dir, FieldMoves.abilities(Game.data)):
 		player.set_bike(false)  # hop off and push off in the coracle
 	if fv == "cut":

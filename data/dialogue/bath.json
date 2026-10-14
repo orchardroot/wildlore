@@ -1,0 +1,168 @@
+{
+ "rail_guard": [
+  {
+   "do": "say",
+   "who": "Rail Guard",
+   "text": "Bath Spa. Our platforms are Georgian. Our delays are timeless."
+  },
+  {
+   "do": "say",
+   "who": "Rail Guard",
+   "text": "Hop aboard. The Wildlore rail runs to any town you have visited. Where to?"
+  },
+  {
+   "do": "rail"
+  }
+ ],
+ "roman_actor": [
+  {
+   "do": "say",
+   "who": "Roman Legionary",
+   "text": "Salve! I am Gaius Maximus, legionary. Er, volunteer. The cloak is itchy but I'm told it's authentic."
+  },
+  {
+   "do": "say",
+   "who": "Roman Legionary",
+   "text": "The Romans called this place Aquae Sulis, the waters of Sulis. Sulis was a Celtic goddess the Romans blended with Minerva. Smart marketing."
+  }
+ ],
+ "bath_buns": [
+  {
+   "do": "say",
+   "who": "Bun Baker",
+   "text": "A Sally Lunn bun! Big, round, brioche-y. Sally Lunn herself is said to have baked them here in the 1680s."
+  },
+  {
+   "do": "say",
+   "who": "Bun Baker",
+   "text": "You split them and fill them with cream or cheese. I was told never to say 'a dollop' about a thing this elegant."
+  }
+ ],
+ "abbey_verger": [
+  {
+   "do": "say",
+   "who": "Verger",
+   "text": "Bath Abbey has 52 windows, so many that it's called the Lantern of the West."
+  },
+  {
+   "do": "say",
+   "who": "Verger",
+   "text": "Look at the carved ladders on the front. Bishop Oliver King dreamed of angels climbing them. Health and safety was not consulted."
+  }
+ ],
+ "austen_fan": [
+  {
+   "do": "say",
+   "who": "Austen Reader",
+   "text": "Jane Austen lived here from 1801 to 1806 and, honestly, disliked it. Then she wrote about it for the rest of her life."
+  },
+  {
+   "do": "say",
+   "who": "Austen Reader",
+   "text": "Northanger Abbey and Persuasion are both partly set in Bath. The Assembly Rooms are still lovely for the stroll and the eye contact."
+  }
+ ],
+ "bridge_busker": [
+  {
+   "do": "say",
+   "who": "Street Harpist",
+   "text": "Do you take requests? I take coins. They don't wear the strings out as quickly."
+  },
+  {
+   "do": "say",
+   "who": "Street Harpist",
+   "text": "I busk by the bridge because the acoustics are marvellous. Also the fudge shop is next door."
+  }
+ ],
+ "crescent_resident": [
+  {
+   "do": "say",
+   "who": "Crescent Resident",
+   "text": "The Royal Crescent is Grade I listed. We may paint the front doors any colour, as long as it's white."
+  },
+  {
+   "do": "say",
+   "who": "Crescent Resident",
+   "text": "I've never counted the houses. They're all identical. You'd get lost trying."
+  }
+ ],
+ "boat_hirer": [
+  {
+   "do": "say",
+   "who": "Punt Hirer",
+   "text": "The Avon here is only knee-deep at the weir. Don't ask how I know."
+  },
+  {
+   "do": "say",
+   "who": "Punt Hirer",
+   "text": "Pulteney Weir is a horseshoe. Every year a duck goes over it on purpose. The duck has better balance than me."
+  }
+ ],
+ "heritage_stall": [
+  {
+   "do": "if",
+   "flag": "heritage_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Stallholder",
+     "text": "We've pulled the Heritage Water. I'm selling lemonade now. It has no heritage whatsoever. Very refreshing."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Stallholder",
+     "text": "Heritage Water! Straight from the mythical spring of Sulis herself! Four pounds a bottle, or three for ten, which is a worse deal."
+    },
+    {
+     "do": "say",
+     "who": "Stallholder",
+     "text": "Every bottle comes with a certificate. And a lanyard. The lanyard is the product, between you and me."
+    },
+    {
+     "do": "choice",
+     "text": "Ask about the water?",
+     "options": [
+      "Where does it come from?",
+      "No thanks"
+     ],
+     "set": "heritage_ask"
+    },
+    {
+     "do": "if",
+     "flag": "heritage_ask",
+     "then": [
+      {
+       "do": "say",
+       "who": "Stallholder",
+       "text": "Well, it comes from a pipe. The pipe comes from the spring. The spring is the one in the Baths. Hot, green and mineral-y."
+      },
+      {
+       "do": "say",
+       "who": "Stallholder",
+       "text": "The Enclosure leased the overflow. 'Overflow' is doing a lot of work in that sentence."
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "You jot it down. The bottle is stamped: 'Sulis Minerva Heritage Water (tm). Do not drink. Do not return.'"
+      },
+      {
+       "do": "set",
+       "flag": "heritage_found"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Stallholder",
+       "text": "Your loss. It's mostly minerals. And, er, heritage."
+      }
+     ],
+     "eq": 0
+    }
+   ]
+  }
+ ]
+}

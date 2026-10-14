@@ -1,0 +1,143 @@
+{
+ "rail_guard": [
+  {
+   "do": "say",
+   "who": "Rail Guard",
+   "text": "Kilkenny Station. Trains for every Irish station you've visited. A nice station, with a nice view of a car park."
+  },
+  {
+   "do": "say",
+   "who": "Rail Guard",
+   "text": "Hop aboard. The Wildlore rail runs to any town you have visited on this island. Where to?"
+  },
+  {
+   "do": "rail"
+  }
+ ],
+ "kerrigan_kilkenny": [
+  {
+   "do": "if",
+   "flag": "kerrigan1_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Director Kerrigan",
+     "text": "I'm reviewing my KPIs. In particular my KPI for 'not being beaten by a teenager with a rucksack'."
+    },
+    {
+     "do": "say",
+     "who": "Director Kerrigan",
+     "text": "Newgrange is booked for the solstice. Private event. You're not on the list. I checked it twice."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "",
+     "text": "Kilkenny Castle, grey and tall above the Nore. Director Kerrigan stands on the lawn with an umbrella, a tape measure and a very long list."
+    },
+    {
+     "do": "say",
+     "who": "Director Kerrigan",
+     "text": "Ah. There you are. I was just measuring the Long Gallery. Thirty metres. A lovely Members' Lounge. With a bar."
+    },
+    {
+     "do": "say",
+     "who": "Director Kerrigan",
+     "text": "You'll know Kilkenny's the home of the Cats, of course. The hurlers. They've won a few All-Irelands. I'd like to put them on a fridge magnet."
+    },
+    {
+     "do": "say",
+     "who": "Siobhán Kerrigan",
+     "text": "Regional Director, Ireland. You'll have seen our launch. 'Ireland's Ancient East Experience'. Lanyards included."
+    },
+    {
+     "do": "say",
+     "who": "Siobhán Kerrigan",
+     "text": "Kilkenny Castle would make a lovely Members' Lounge. Shall we discuss it? Battle first, obviously."
+    },
+    {
+     "do": "battle",
+     "trainer": "kerrigan_1"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "She snaps her umbrella shut and tucks it under her arm like a sword being sheathed."
+    },
+    {
+     "do": "say",
+     "who": "Director Kerrigan",
+     "text": "Newgrange is next, in any case. The solstice is the one day of the year when the whole passage fills with light."
+    },
+    {
+     "do": "say",
+     "who": "Director Kerrigan",
+     "text": "The Wardstone will be there. So will I. So, I would very much prefer, will not you."
+    },
+    {
+     "do": "set",
+     "flag": "kerrigan1_done"
+    },
+    {
+     "do": "warp",
+     "zone": "kilkenny",
+     "x": 17,
+     "y": 15,
+     "facing": "up"
+    },
+    {
+     "do": "end"
+    }
+   ]
+  }
+ ],
+ "castle_guide3": [
+  {
+   "do": "say",
+   "who": "Castle Guide",
+   "text": "Kilkenny's 'marble city' name comes from the black limestone that's cut and polished in the quarries nearby. The pavement's the proof."
+  },
+  {
+   "do": "say",
+   "who": "Castle Guide",
+   "text": "The castle's been rebuilt a few times. The ghost on the stairs, I'm told, stays out of all the fights."
+  }
+ ],
+ "cat_fan": [
+  {
+   "do": "say",
+   "who": "Hurling Fan",
+   "text": "Kilkenny hurling team is called 'the Cats', and they play in black and amber stripes. We've won more All-Irelands than anybody."
+  },
+  {
+   "do": "say",
+   "who": "Hurling Fan",
+   "text": "If you see a cat statue, salute. If you see a cat in a Dublin jersey, move along."
+  }
+ ],
+ "pub_singer": [
+  {
+   "do": "say",
+   "who": "Local",
+   "text": "The Medieval Mile's a good walk. Every shop has a long story, and a longer queue."
+  },
+  {
+   "do": "say",
+   "who": "Local",
+   "text": "Mind the Butter Slip. The name's a very honest warning."
+  }
+ ],
+ "marble_worker": [
+  {
+   "do": "say",
+   "who": "Stone Cutter",
+   "text": "Kilkenny limestone is dark, hard and full of fossils. It polishes up black as ink. We call it 'marble', and nobody argues."
+  },
+  {
+   "do": "say",
+   "who": "Stone Cutter",
+   "text": "Look closely at the pavement. There are shells in it, 340 million years old. Walk over them gently."
+  }
+ ]
+}

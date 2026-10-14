@@ -1,0 +1,63 @@
+{
+ "nurse": [
+  {
+   "do": "say",
+   "who": "Nurse",
+   "text": "Welcome to the Kilkenny Sanctuary. F\u00e1ilte, that's welcome. Pop your team on the counter, and don't sit on the cat."
+  },
+  {
+   "do": "choice",
+   "text": "What can we do for you?",
+   "options": [
+    "Heal my team",
+    "Open the Ark",
+    "Just looking"
+   ],
+   "set": "_nurse_choice"
+  },
+  {
+   "do": "if",
+   "flag": "_nurse_choice",
+   "eq": 0,
+   "then": [
+    {
+     "do": "say",
+     "who": "Nurse",
+     "text": "Right, let's have a look. Sit by the fire, and have a biscuit. They're good for morale and crumbs."
+    },
+    {
+     "do": "heal"
+    },
+    {
+     "do": "say",
+     "who": "Nurse",
+     "text": "All set. Sl\u00e1n, that's goodbye. And mind the cobbles, they're a thousand years old and still tripping people."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "_nurse_choice",
+     "eq": 1,
+     "then": [
+      {
+       "do": "say",
+       "who": "Nurse",
+       "text": "The Ark terminal. It runs on turf, tea, and some very solid Kilkenny limestone."
+      },
+      {
+       "do": "ark"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Nurse",
+       "text": "Sure look. You know where we are if you need us."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

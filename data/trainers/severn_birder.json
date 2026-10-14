@@ -1,0 +1,31 @@
+{
+ "id": "severn_birder",
+ "name": "Birdwatcher Rosalind",
+ "class": "Birdwatcher",
+ "sprite": "birdwatcher",
+ "party": [
+  {
+   "species": "clawcastle",
+   "level": 37
+  },
+  {
+   "species": "bayrunner",
+   "level": 36
+  },
+  {
+   "species": "murmurant",
+   "level": 37
+  }
+ ],
+ "ai": "trainer",
+ "money": 880,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Birdwatcher Rosalind",
+   "text": "Shh! I'm counting redshanks. I've got to 4,000 and you've just startled the 4,001st."
+  }
+ ],
+ "win": "Oh, you've ruined my tally. Not a bad battle.",
+ "after": "Four thousand and one. I'll have to start again."
+}

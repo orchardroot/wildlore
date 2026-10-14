@@ -45,6 +45,7 @@ var stage := ""                # battle diorama id ("" = guess from kind)
 var town_id := ""              # world map and rail id; "" for routes and interiors
 var station := Vector2i(-1, -1)  # rail stop tile, (-1, -1) for none
 var ferry: Dictionary = {}     # {x, y, route}
+var stub := false              # a placeholder another builder will replace
 
 static func load_id(zone_id: String) -> ZoneData:
 	var d = JsonUtil.read(DIR.path_join(zone_id + ".json"))
@@ -80,6 +81,7 @@ static func from_dict(d: Dictionary) -> ZoneData:
 	if not stn.is_empty():
 		z.station = Vector2i(int(stn.x), int(stn.y))
 	z.ferry = d.get("ferry", {})
+	z.stub = bool(d.get("stub", false))
 	var sp: Array = d.get("spawn", [0, 0])
 	z.spawn = Vector2i(int(sp[0]), int(sp[1]))
 	for p in z.props:

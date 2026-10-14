@@ -1,0 +1,31 @@
+{
+ "id": "ang_warden",
+ "name": "Warden Hugo",
+ "class": "Warden",
+ "sprite": "warden_grunt",
+ "party": [
+  {
+   "species": "clownbill",
+   "level": 47
+  },
+  {
+   "species": "petrelash",
+   "level": 47
+  },
+  {
+   "species": "polartern",
+   "level": 48
+  }
+ ],
+ "ai": "trainer",
+ "money": 1360,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Warden Hugo",
+   "text": "Welcome to the Bridge Heritage Experience! Toll: two pounds. Tolling's a hobby of mine."
+  }
+ ],
+ "win": "The Enclosure has a policy for this. It involves crying quietly.",
+ "after": "Telford's bridge has been free since 1941. I'm campaigning to bring the toll back."
+}
