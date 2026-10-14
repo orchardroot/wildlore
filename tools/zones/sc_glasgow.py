@@ -59,7 +59,7 @@ def glasgow(OUT):
     # Merchant City and a quayside crane
     z.building(50, 23, 7, 4, "terrace", "Merchant City")
     z.building(59, 23, 9, 4, "red_brick", "Ceilidh Hall", door=4)
-    z.building(52, 32, 4, 3, "mill", "Finnieston Crane")
+    z.building(51, 32, 7, 3, "aqueduct", "Finnieston Crane")
     z.rect(59, 27, 9, 1, ":")
     # south bank: Govan, a park, a science centre
     z.building(4, 46, 9, 4, "terrace"); z.building(14, 46, 6, 4, "red_brick")

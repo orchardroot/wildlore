@@ -23,7 +23,7 @@ def central_belt(OUT):
     for x in (10, 22, 34, 46):
         z.prop("canal_boat", x, 15)
     z.prop("canal_boat", 60, 13); z.prop("canal_boat", 36, 7)
-    z.building(58, 2, 9, 8, "mill", "Falkirk Wheel")
+    z.building(58, 3, 8, 6, "liver_building", "Falkirk Wheel")
     z.building(44, 6, 14, 2, "aqueduct")
     z.rect(44, 8, 14, 1, "."); z.rect(45, 9, 10, 1, ".")
     z.sign(53, 9, "THE FALKIRK WHEEL. Opened in 2002, it lifts boats 24 metres between the Forth and Clyde Canal and the Union Canal in about five minutes, and it's the only rotating boat lift in the world. Before it, you needed eleven locks and a free afternoon. Now you need a ticket and a snack.")
@@ -31,8 +31,8 @@ def central_belt(OUT):
     z.sign(31, 10, "THE UNION CANAL. About thirty-one miles with no locks at all: it runs on one level, which is why it's called a contour canal. It brought coal into Edinburgh. Now it brings in rowers and dog walkers.")
     # the Kelpies at the Helix
     z.rect(6, 36, 16, 10, "w"); z.rect(7, 37, 14, 8, "~")
-    z.building(8, 29, 4, 7, "liver_building", "The Kelpies")
-    z.building(16, 29, 4, 7, "liver_building", show_label=False)
+    z.building(9, 30, 3, 6, "liver_building", "The Kelpies")
+    z.building(16, 30, 3, 6, "liver_building", show_label=False)
     z.rect(13, 23, 2, 14, "#"); z.rect(12, 36, 4, 1, "s")
     z.rect(5, 28, 4, 1, "."); z.rect(4, 22, 6, 5, "h"); z.rect(18, 22, 6, 5, "h")
     z.sign(14, 28, "THE KELPIES. Two steel horse heads, thirty metres tall, standing at the entrance to the Forth and Clyde Canal. They honour the heavy horses that once pulled barges and ploughs, and they take their name from the water spirit of Scottish legend. They're bigger than the legend, and better behaved.")

@@ -134,7 +134,7 @@ def galloway(OUT):
     z.prop("bench", 36, 13); z.prop("lamp_post", 41, 13)
     scatter_props(z, "bush", 3, 3, 42, 50, 24, 9, avoid=("."))
     scatter_props(z, "rock", 3, 3, 42, 50, 14, 10, avoid=("."))
-    z.scatter(0, 0, W, H, "P", 330, 11, only=".")
+    z.scatter(0, 0, W, H, "P", 640, 11, only=".")
     z.scatter(0, 0, W, H, "T", 90, 12, only=".")
     # NPCs
     chat(z, "gal_ranger", "villager_2", 20, 47, "Forest Ranger",
