@@ -1,0 +1,31 @@
+{
+ "id": "wookey_witch",
+ "name": "Druid Morgana",
+ "class": "Druid",
+ "sprite": "villager_6",
+ "party": [
+  {
+   "species": "lanternis",
+   "level": 41
+  },
+  {
+   "species": "pooka",
+   "level": 40
+  },
+  {
+   "species": "sulisa",
+   "level": 41
+  }
+ ],
+ "ai": "trainer",
+ "money": 1100,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Druid Morgana",
+   "text": "I'm the Witch of Wookey, today. The hat's a prop. The grudge is real."
+  }
+ ],
+ "win": "You've broken the spell. I'll be in the gift shop.",
+ "after": "I curse you with exceptionally good luck and mild damp."
+}

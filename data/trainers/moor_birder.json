@@ -1,0 +1,31 @@
+{
+ "id": "moor_birder",
+ "name": "Birdwatcher Percy",
+ "class": "Birdwatcher",
+ "sprite": "birdwatcher",
+ "party": [
+  {
+   "species": "forkwing",
+   "level": 44
+  },
+  {
+   "species": "hushwing",
+   "level": 44
+  },
+  {
+   "species": "kitelet",
+   "level": 43
+  }
+ ],
+ "ai": "trainer",
+ "money": 1240,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Birdwatcher Percy",
+   "text": "I'm looking for the ring ouzel, which is like a blackbird in a smart collar. Got a minute?"
+  }
+ ],
+ "win": "That was brisk. The ouzel flew off in disgust.",
+ "after": "If you see a bird in a white bib, wave. Politely."
+}
