@@ -78,7 +78,8 @@ func _beat(zone_id: String, npc: String, flag: String, level := 0, grind_zone :=
 			await _grind_to(level + (attempts - 1) * 2, grind_zone)
 		await _heal_if_low(1.0)
 		await _talk(zone_id, npc)
-		print("BOT: %s/%s attempt %d -> %s, lead %s, badges %s" % [zone_id, npc, attempts, flag, _strongest().level, Game.data.badges])
+		var team: Array = Game.data.party.map(func(c): return "%s L%d" % [c.species.id, c.level])
+		print("BOT: %s/%s attempt %d -> %s %s, team %s, W/L %d/%d" % [zone_id, npc, attempts, flag, "WON" if Game.data.flag(flag) else "not yet", team, stats.wins, stats.losses])
 	_check(Game.data.flag(flag) == true, "%s/%s never set %s in %d attempts" % [zone_id, npc, flag, attempts])
 
 ## Buys Wicker Snares (at shop price, if it can afford them) so the team can grow like a real player's.
@@ -304,6 +305,8 @@ func choose_forget(c: Creature, move_id: String) -> int:
 # --- helpers -------------------------------------------------------------------
 
 func _on_battle_ended(result: Dictionary) -> void:
+	if mode != "fuzz" and str(result.get("result", "")) == "lose":
+		print("BOT: lost a battle in %s (weather %s)" % [Game.data.zone_id, Router.overworld.weather if Router.overworld else "?"])
 	match str(result.get("result", "")):
 		"win":
 			stats.wins += 1
