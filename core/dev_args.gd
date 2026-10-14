@@ -4,7 +4,7 @@ extends RefCounted
 
 static func parse(args: PackedStringArray) -> Dictionary:
 	var out := {"shot": "", "shot_delay": 2.0, "boot_zone": "", "boot_pos": Vector2i(-1, -1),
-		"battle_species": "", "battle_level": 5, "seed": -1, "clock": -1, "weather": "", "fps": false}
+		"battle_species": "", "battle_level": 5, "seed": -1, "clock": -1, "weather": "", "fps": false, "playtest": "", "seconds": 0}
 	for a in args:
 		var kv := a.split("=", true, 1)
 		var key: String = kv[0]
@@ -34,4 +34,8 @@ static func parse(args: PackedStringArray) -> Dictionary:
 				out.weather = val
 			"--fps":
 				out.fps = true
+			"--playtest":
+				out.playtest = val
+			"--seconds":
+				out.seconds = int(val)
 	return out

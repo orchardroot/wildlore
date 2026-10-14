@@ -85,8 +85,9 @@ func _exec(c: Dictionary) -> void:
 			await host.open_menu("shop:" + str(c.get("id", "")))
 		"starter":
 			var picked = await host.open_menu("starter")
-			if picked is String and picked != "":
+			if picked is String and picked != "" and host.dex.has(picked):
 				_set_flag("starter", picked)
+				host.data.add_creature(Creature.create(host.dex.get_species(picked), STARTER_LEVEL, host.rng, host.moves))
 		"fade_out":
 			await host.fade(true)
 		"fade_in":
@@ -104,6 +105,8 @@ func _exec(c: Dictionary) -> void:
 			_ended = true
 		_:
 			push_warning("Commands: unknown command '%s'" % c.get("do", ""))
+
+const STARTER_LEVEL := 5
 
 func _battle(trainer_id: String) -> void:
 	var data: GameStateData = host.data

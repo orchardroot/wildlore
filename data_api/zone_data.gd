@@ -70,6 +70,8 @@ static func from_dict(d: Dictionary) -> ZoneData:
 	for p in z.props:
 		if p.get("type", "") != "building" and not p.get("walk", false):
 			z.blocked[Vector2i(int(p.get("x", 0)), int(p.get("y", 0)))] = true
+	for sg in z.signs:
+		z.blocked[Vector2i(int(sg.get("x", 0)), int(sg.get("y", 0)))] = true
 	var rows: Array = d.get("rows", [])
 	z.height = rows.size()
 	z.width = 0

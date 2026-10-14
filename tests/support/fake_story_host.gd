@@ -44,9 +44,11 @@ func face_player(npc: String) -> void:
 func warp(to: String, x: int, y: int, facing: String) -> void:
 	warps.append([to, x, y, facing])
 
+var menu_results: Dictionary = {}
+
 func open_menu(menu: String) -> Variant:
 	log.append(["menu", menu])
-	return null
+	return menu_results.get(menu)
 
 func fade(out: bool) -> void:
 	log.append(["fade", out])

@@ -159,6 +159,9 @@ func _sync_hud(b: Battle) -> void:
 			hud.tween_hp(side, c.hp, 0.25)
 
 func choose_action(f: BattleFlow) -> Dictionary:
+	if Engine.has_meta("autopilot"):
+		await _wait(0.1)
+		return Engine.get_meta("autopilot").choose_action(f)
 	var b := f.battle
 	var me := b.current(Battle.PLAYER)
 	while true:
@@ -217,6 +220,8 @@ func choose_action(f: BattleFlow) -> Dictionary:
 	return {}
 
 func choose_replacement(f: BattleFlow) -> int:
+	if Engine.has_meta("autopilot"):
+		return Engine.get_meta("autopilot").choose_replacement(f)
 	var b := f.battle
 	var party: Array = b.parties[Battle.PLAYER]
 	if auto:
@@ -230,6 +235,8 @@ func choose_replacement(f: BattleFlow) -> int:
 	return r
 
 func choose_forget(c: Creature, move_id: String, _f: BattleFlow) -> int:
+	if Engine.has_meta("autopilot"):
+		return Engine.get_meta("autopilot").choose_forget(c, move_id)
 	if auto:
 		return -1
 	msg.prompt("%s is trying to learn a new move." % c.display_name())

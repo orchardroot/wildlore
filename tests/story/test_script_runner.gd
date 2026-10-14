@@ -158,3 +158,13 @@ func test_move_face_wait_warp_and_misc() -> void:
 	assert_eq(h.warps, [["macclesfield", 2, 3, "up"]])
 	assert_has(h.log, ["menu", "shop:buxton_corner_shop"])
 	assert_has(h.data.badges, "stone")
+
+func test_starter_gives_the_chosen_creature() -> void:
+	var h := FakeStoryHost.new()
+	h.menu_results = {"starter": "holtling"}
+	await _cmds(h).run([{"do": "starter"}])
+	assert_eq(h.data.flag("starter"), "holtling")
+	assert_eq(h.data.party.size(), 1)
+	assert_eq(h.data.party[0].species.id, "holtling")
+	assert_eq(h.data.party[0].level, 5)
+	assert_true(h.data.caught.has("holtling"))

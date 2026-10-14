@@ -96,6 +96,8 @@ func open_menu(menu: String) -> Variant:
 	if path == "" or not ResourceLoader.exists(path):
 		push_warning("Router: no menu '%s'" % menu)
 		return null
+	if Engine.has_meta("autopilot"):
+		return Engine.get_meta("autopilot").menu_result(menu)
 	var was_busy := busy
 	busy = true
 	var scene: Node = load(path).instantiate()

@@ -72,6 +72,11 @@ func _start_zone() -> String:
 	return "macc_home" if zone_exists("macc_home") else ("macclesfield" if zone_exists("macclesfield") else "testbed")
 
 func _dev_boot() -> void:
+	if args.get("playtest", "") != "":
+		var bot: Node = load("res://tools/playtest/bot.gd").new()
+		get_tree().root.add_child(bot)
+		bot.start(args.playtest)
+		return
 	if args.shot != "":
 		_take_shot()
 	var dev_menu := DevMenu.arg(OS.get_cmdline_user_args())

@@ -140,12 +140,19 @@ func _build_choices() -> void:
 
 ## Types `text` out, then waits for confirm. `who` shows in the name tab (hidden when empty).
 func show_text(text: String, who := "") -> void:
+	if Engine.has_meta("autopilot"):
+		Engine.get_meta("autopilot").log_line(who, text)
+		await get_tree().create_timer(0.05).timeout
+		return
 	_begin(text, who)
 	_choice_after_typing = false
 	await _advanced
 
 ## Types `text`, then offers `options`. Returns the chosen index.
 func show_choice(text: String, options: Array, who := "") -> int:
+	if Engine.has_meta("autopilot"):
+		await get_tree().create_timer(0.05).timeout
+		return Engine.get_meta("autopilot").choose_option(text, options)
 	_begin(text, who)
 	_choice_after_typing = true
 	_fill_choices(options)

@@ -97,3 +97,7 @@ func test_point_props_block_movement() -> void:
 	var z := _z("testbed")
 	assert_false(z.walkable(Vector2i(11, 4)), "lamp post")
 	assert_false(z.walkable(Vector2i(18, 4)), "bench")
+
+func test_signs_block_movement() -> void:
+	var z := _z("testbed")
+	assert_false(z.walkable(Vector2i(9, 6)), "sign post")
