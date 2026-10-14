@@ -97,14 +97,14 @@ func test_heal_sets_sanctuary_and_heals() -> void:
 	assert_eq(c.hp, c.max_hp())
 	assert_eq(h.data.last_sanctuary, {"zone": "macc_sanctuary", "pos": [4, 5]})
 
-func test_battle_win_sets_flag_and_pays() -> void:
+func test_battle_win_sets_flag_and_leaves_payout_to_the_battle() -> void:
 	var h := FakeStoryHost.new()
 	h.data.money = 100
 	h.data.party = [Fixtures.creature("kindlet", 10)]
 	var cmds := _cmds(h)
 	await cmds.run([{"do": "battle", "trainer": "testbed_tester"}, {"do": "say", "text": "after"}])
 	assert_eq(h.data.flag("trainer_testbed_tester"), true)
-	assert_eq(h.data.money, 220)
+	assert_eq(h.data.money, 100, "the battle scene pays prize money, not the script")
 	assert_eq(h.last_battle.opts.kind, "trainer")
 	assert_eq(h.last_battle.opts.ai, "trainer")
 	assert_eq(h.last_battle.opts.trainer.id, "testbed_tester")

@@ -15,3 +15,10 @@ static func colour(type_id: String) -> Color:
 ## Dark text on pale chips, cream text on dark ones.
 static func text_colour(type_id: String) -> Color:
 	return Color("1d2230") if colour(type_id).get_luminance() > 0.5 else Color("f8f1dc")
+
+## Aliases used by the battle scene.
+static func of(type_id: String) -> Color:
+	return colour(type_id)
+
+static func text_on(type_id: String) -> Color:
+	return text_colour(type_id)

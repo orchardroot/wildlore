@@ -115,7 +115,7 @@ static func money_text(n: int) -> String:
 	while s.length() > 3:
 		out = "," + s.substr(s.length() - 3) + out
 		s = s.substr(0, s.length() - 3)
-	return s + out + "p"
+	return "£" + s + out
 
 ## Focuses a control next frame, if it is still around by then.
 static func focus_later(c: Control) -> void:

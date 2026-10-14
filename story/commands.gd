@@ -122,7 +122,7 @@ func _battle(trainer_id: String) -> void:
 	var result: Dictionary = await host.battle(foes, {"kind": "trainer", "ai": def.ai, "trainer": def})
 	match str(result.get("result", "")):
 		"win":
-			data.money += int(def.money)
+			# prize money is paid by the battle scene, which also announces it
 			_set_flag("trainer_" + trainer_id, true)
 			if def.win != "":
 				await host.say(def.name, _sub(def.win))
