@@ -83,6 +83,9 @@ def kerry(OUT):
         z.prop("bush", x, y)
     scatter_props(z, "oak", 3, 3, 22, 16, 12, 5, avoid=(".",))
     scatter_props(z, "bush", 3, 21, 58, 20, 22, 6, avoid=(".", "k"))
+    scatter_props(z, "oak", 26, 3, 14, 17, 14, 12, avoid=(".",))
+    scatter_props(z, "oak", 32, 23, 28, 5, 10, 13, avoid=(".",))
+    scatter_props(z, "oak", 24, 24, 12, 16, 8, 14, avoid=(".",))
     scatter_props(z, "rock", 34, 27, 28, 15, 20, 7, avoid=("k", "h"))
     scatter_props(z, "rock", 43, 3, 15, 5, 5, 8, avoid=("."))
     # red deer as scenery

@@ -17,7 +17,7 @@ def burren(OUT):
     z.legend["k"] = {"tile": "grass", "colour": "#9a9b92", "prop": "rock"}       # limestone pavement
     z.legend["j"] = {"tile": "grass", "colour": "#a7a89d"}                        # bare pale pavement
     z.legend["g"] = {"tile": "tall_grass", "colour": "#8f9183", "prop": "none"}   # grey tall grass, encounters
-    z.legend["n"] = {"tile": "flowers", "colour": "#4a62c4"}                      # spring gentian
+    z.legend["n"] = {"tile": "flowers"}                                           # spring gentian meadow
     z.rect(0, 0, W, H, "k")
     for (x, y, w, h) in [(4, 19, 30, 9), (42, 28, 26, 14), (4, 30, 14, 12), (40, 10, 24, 8)]:
         z.rect(x, y, w, h, "j")
@@ -49,7 +49,7 @@ def burren(OUT):
     r = random.Random(11)
     for y in range(16, 42):
         for x in range(3, 69):
-            if z.g[y][x] in "kj" and r.random() < 0.12:
+            if z.g[y][x] in "kj" and r.random() < 0.17:
                 z.set(x, y, "R")
     # dry-stone field walls with stiles
     for (x, y, w, h) in [(44, 28, 20, 1), (44, 28, 1, 12), (44, 39, 20, 1), (63, 28, 1, 12), (4, 36, 14, 1), (18, 30, 1, 7)]:

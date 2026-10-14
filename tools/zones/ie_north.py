@@ -19,7 +19,7 @@ def connemara(OUT):
     z.legend["k"] = {"tile": "grass", "colour": "#7f8a55"}
     z.legend["h"] = {"tile": "tall_grass", "colour": "#7a5c6a", "prop": "heather"}
     z.legend["m"] = {"tile": "tall_grass", "colour": "#5f6a4a", "prop": "none"}   # mire
-    z.legend["c"] = {"tile": "tall_grass", "colour": "#cfd0c0", "prop": "none"}   # bog cotton
+    z.legend["c"] = {"tile": "tall_grass", "colour": "#a2a58a", "prop": "none"}   # bog cotton
     z.legend["p"] = {"tile": "path", "colour": "#4a3a2c"}                          # peat
     z.rect(0, 0, W, H, "k")
     hills(z, [(14, 12, 6, 15), (27, 7, 5, 11), (7, 26, 4, 9), (52, 8, 3, 8)])
@@ -232,7 +232,7 @@ def boyne(OUT):
     z = Z(zid, "Boyne Valley", W, H, kind="route", region="ireland_east", music="route_ireland",
           weather={"clear": 24, "sunshine": 18, "drizzle": 24, "fog": 12, "downpour": 10, "gale": 6, "frost": 6})
     z.d["stage"] = "valley"
-    z.legend["c"] = {"tile": "tall_grass", "colour": "#c9b24a", "prop": "none"}   # barley
+    z.legend["c"] = {"tile": "tall_grass", "colour": "#9c8e3c", "prop": "none"}   # barley
     z.legend["r"] = {"tile": "tall_grass", "colour": "#6f7f4a", "prop": "reeds"}
     z.border("T", 2, gaps=[(0, 27, 2, 3), (30, 44, 3, 2), (64, 27, 2, 3)])
     z.scatter(0, 0, W, H, "P", 20, 2, only="T")
@@ -330,15 +330,15 @@ def newgrange(OUT):
     z = Z(zid, "Newgrange", W, H, kind="town", region="ireland_east", music="town_ireland",
           weather={"clear": 22, "sunshine": 18, "drizzle": 24, "fog": 16, "downpour": 8, "frost": 8, "gale": 4})
     z.d["stage"] = "valley"; z.d["town_id"] = "newgrange"
-    z.legend["q"] = {"tile": "cobbles", "colour": "#f0f0e8"}                       # white quartz paving
-    z.legend["c"] = {"tile": "tall_grass", "colour": "#c9b24a", "prop": "none"}
+    z.legend["q"] = {"tile": "cobbles", "colour": "#e4e2d6"}                       # white quartz paving
+    z.legend["c"] = {"tile": "tall_grass", "colour": "#9c8e3c", "prop": "none"}
     z.border("T", 2, gaps=[(0, 27, 2, 3)])
     z.scatter(0, 0, W, H, "P", 18, 2, only="T")
     # the mound: three stepped rings, a white quartz facade at the south foot
     z.height(21, 4, 19, 13, 1); z.height(23, 5, 15, 11, 2); z.height(25, 6, 11, 9, 3)
     z.rect(25, 6, 11, 9, ".")
     z.rect(28, 8, 5, 3, "f")
-    z.building(26, 17, 9, 4, "white_render", "Newgrange", door=4)
+    z.building(27, 18, 7, 3, "white_render", "Newgrange", door=3)
     z.rect(22, 21, 17, 5, "q"); z.rect(24, 21, 13, 1, "q")
     z.warp(30, 20, "newgrange_tomb", 11, 29, "up")
     z.rect(30, 21, 1, 5, "q")
