@@ -22,7 +22,7 @@ def skye(OUT):
     z.rect(0, 0, W, H, "k")
     z.border("T", 2, gaps=[(78, 20, 2, 3), (26, 0, 3, 2)])
     z.scatter(0, 0, W, H, "P", 34, 3, only="T")
-    hills(z, [(14, 9, 4, 12), (66, 8, 4, 14), (70, 38, 3, 12), (8, 34, 2, 6)])
+    hills(z, [(14, 10, 2, 9), (66, 8, 4, 14), (70, 38, 3, 12), (8, 34, 2, 6)])
     # the strait, the Skye Bridge and the mainland shore
     z.rect(36, 0, 16, H, "$")
     for y in range(H):
@@ -46,12 +46,12 @@ def skye(OUT):
     z.building(60, 29, 4, 3, "castle", "Eilean Donan", show_label=True)
     z.prop("rock", 64, 31); z.prop("buoy", 70, 30)
     # the Old Man of Storr and his neighbours
-    spires = [(14, 8, 6), (14, 9, 6), (13, 9, 4), (15, 9, 4), (14, 10, 4), (11, 7, 5), (11, 8, 5), (18, 12, 4), (17, 6, 3)]
+    spires = [(14, 7, 7), (14, 8, 8), (14, 9, 8), (15, 8, 7), (13, 9, 6), (15, 9, 6), (14, 10, 5), (11, 7, 5), (11, 8, 6), (18, 12, 4), (17, 6, 4)]
     for (x, y, h) in spires:
         z.set(x, y, "R"); z.hg[y][x] = h
     for y in range(5, 15):
         for x in range(8, 22):
-            if z.g[y][x] == "k" and z.hg[y][x] >= 3:
+            if z.g[y][x] == "k" and z.hg[y][x] >= 1:
                 z.g[y][x] = "h"
     z.rect(14, 12, 1, 5, "#"); z.rect(5, 16, 22, 1, "#")
     # the fairy knowe (hidden hollow)
@@ -96,7 +96,7 @@ def skye(OUT):
     blob(z, 30, 36, 4, 5, ",", only="k", seed=14)
     blob(z, 56, 14, 4, 2, ",", only="k", seed=15)
     scatter_props(z, "pine", 3, 3, 74, 20, 20, 16, avoid=("k",))
-    scatter_props(z, "rock", 3, 3, 74, 40, 20, 17, avoid=("k", "h"))
+    scatter_props(z, "rock", 3, 3, 74, 40, 20, 17, avoid=("k",))
     scatter_props(z, "bush", 3, 3, 74, 40, 12, 18, avoid=("k",))
     # buildings: a croft or two, the toll-free bridge cafe, mainland village
     z.building(30, 13, 5, 4, "slate_cottage", "Croft", show_label=False)
