@@ -1,0 +1,22 @@
+name: Nightly fuzz
+on:
+  schedule:
+    - cron: "17 3 * * *"
+  workflow_dispatch:
+jobs:
+  fuzz:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        seed: [101, 202, 303]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/cache@v4
+        with:
+          path: .godot-bin
+          key: godot-${{ hashFiles('tools/get_godot.sh') }}
+      - name: Fuzz
+        run: tools/playtest.sh fuzz ${{ matrix.seed }} 3000
+      - name: Slice, other starters
+        run: tools/playtest.sh slice ${{ matrix.seed }}

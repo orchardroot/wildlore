@@ -6,7 +6,7 @@ extends Node
 ##   godot --headless --path . -- --playtest=fuzz --seconds=120 [--seed=N]
 ## Exit code 0 on success, 1 on any failure. Prints "PLAYTEST PASS" or "PLAYTEST FAIL: <why>".
 
-const TIME_SCALE := 4.0
+const TIME_SCALE := 10.0
 const BUSY_LIMIT := 240.0   # game seconds Router may stay busy before we call it a soft-lock
 
 var mode := "slice"
