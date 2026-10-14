@@ -6,21 +6,19 @@ A monster-catching RPG across the UK and Ireland. You start in Macclesfield, bec
 
 ![Title](docs/screens/t13-title.png)
 
-## What's in v0.3, the South and Ireland
+## What's in v0.4, Northern Ireland and Scotland
 
-On from Cardiff: over the Severn to Bath, up the Tor at Glastonbury, across Dartmoor to Tintagel and down into a Cornish tin mine at Penzance. Then the train back north, over the Menai Bridge to Holyhead, and the ferry to Dublin. From there it's round Ireland the long way: Wicklow, Kilkenny, Cork, Kerry, Dingle, the Burren, Galway, Connemara and Sligo, ending at Newgrange on the morning of the solstice, which the Enclosure has booked for a private event. It goes about as well as you'd expect.
+From Newgrange over the Mournes to Belfast, where the shipyard Keeper keeps the Iron Stone under Samson and Goliath, then up the Antrim coast to the Giant's Causeway, where Lord Vane himself is trying to lease the columns and the sea has opinions about that. Across to Cairnryan, through Glasgow and Edinburgh, into Glencoe and up the Great Glen, where the Enclosure's survey boat on Loch Ness finds rather more than it was looking for. Inverness for the Frost Stone, then Skye, the Cairngorms, Aberdeen, and the boat to Orkney if you fancy it.
 
-- 21 towns now, and 130 creatures: dormice, cranes, basking sharks, Arctic terns, the Kerry slug, piskies, the púca, selkies, and two more legends, the Green Man and the Morrígan
-- Seven Stones: Morwen on Glastonbury Tor, Declan in Dublin and Nuala on the Galway docks join the first four
-- Double battles, for the trainers who come in pairs
-- Trains that know they can't cross the Irish Sea, and a ferry that can
-- Plus everything from v0.2: England North and Wales, the bike, field abilities, save slots, the Ark, the world map
+- 31 towns and 171 creatures: wildcats, capercaillie, Highland cattle, golden eagles, the Highland midge (sorry), orcas, the Cairngorm reindeer, kelpies, brownies, the Blue Men of the Minch, and three more legends: Manannán's Horse, the Cù-Sìth and Nessie
+- Nine Stones: Ruairí in the Belfast shipyard and Isla on the Inverness ice join the seven from before
+- The Lantern for dark caves, Bog-cross for the peat, and ferries over the North Channel and out to Kirkwall
+- Plus everything from v0.3: the South, Ireland, double battles, and the rest
 
 | | |
 |---|---|
-| ![Glastonbury Tor](docs/screens/p4-glastonbury_tor-1.png) | ![Double battle](docs/screens/p4-doubles-target.png) |
-| ![Burren](docs/screens/p4-burren-1.png) | ![Galway](docs/screens/p4-galway-1.png) |
-| ![Penzance](docs/screens/p4-penzance-1.png) | ![Dublin](docs/screens/p4-dublin-1.png) |
+| ![Belfast](docs/screens/p5-belfast-1.png) | ![Edinburgh](docs/screens/p5-edinburgh-1.png) |
+| ![Lantern](docs/screens/p5-lantern.png) | ![Inverness rink](docs/screens/p5-inverness_rink-1.png) |
 
 ## Controls
 
@@ -44,7 +42,7 @@ From source: install nothing, run `tools/get_godot.sh` (it fetches the pinned Go
 Godot 4, GDScript, the Compatibility renderer. Everything is generated: the 3D world is built from text maps by `world/zone_builder.gd`, the creature and character sprites are drawn by `tools/spritegen.gd` from JSON recipes, and the music is composed as note lists in `tools/music/`. No downloaded art or audio.
 
 ```
-tools/test.sh              # 400-odd unit tests plus the data validator
+tools/test.sh              # 440-odd unit tests plus the data validator
 tools/playtest.sh slice 2  # a headless bot plays the slice and must win the Brook Stone
 tools/playtest.sh m2 2     # ...or carries on to Cardiff and must win all four
 tools/playtest.sh fuzz 7 600   # random walking, talking and battling, looking for soft-locks
@@ -54,6 +52,6 @@ CI runs the tests and the bot on every push, and three fuzz runs every night. De
 
 ## Status
 
-Milestone M3 (the South and Ireland) is done. Next: Northern Ireland, Scotland, the Moot at Stonehenge and London. The board is [here](https://github.com/users/orchardroot/projects/2).
+Northern Ireland and Scotland are done. Next: down the east side of England to York, the Moot at Stonehenge, and London. The board is [here](https://github.com/users/orchardroot/projects/2).
 
 *orchardroot, made in Cheshire, under the supervision of two cats. Neither of them is in this one. Yet.*
