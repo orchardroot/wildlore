@@ -34,3 +34,8 @@ static func species(id: String, types: Array, base := 50, extra := {}) -> Dictio
 		sp.base[s] = base
 	sp.merge(extra, true)
 	return Dex.normalise(sp)
+
+static func battle(player: Array, foe: Array, opts := {}) -> Battle:
+	var o := {"chart": chart(), "move_db": moves(), "rng": FixedRng.new()}
+	o.merge(opts, true)
+	return Battle.new(player, foe, o)
