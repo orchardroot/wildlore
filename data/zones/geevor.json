@@ -1,0 +1,329 @@
+{
+ "id": "geevor",
+ "name": "Geevor Tin Mine",
+ "region": "",
+ "kind": "interior",
+ "music": "route_mountain",
+ "weather": {},
+ "props": [
+  {
+   "type": "slate_heap",
+   "x": 5,
+   "y": 21,
+   "variant": 0
+  },
+  {
+   "type": "slate_heap",
+   "x": 11,
+   "y": 15,
+   "variant": 1
+  },
+  {
+   "type": "slate_heap",
+   "x": 41,
+   "y": 14,
+   "variant": 2
+  },
+  {
+   "type": "slate_heap",
+   "x": 31,
+   "y": 28,
+   "variant": 0
+  },
+  {
+   "type": "slate_heap",
+   "x": 17,
+   "y": 28,
+   "variant": 1
+  },
+  {
+   "type": "slate_heap",
+   "x": 27,
+   "y": 29,
+   "variant": 2
+  },
+  {
+   "type": "slate_heap",
+   "x": 17,
+   "y": 6,
+   "variant": 0
+  },
+  {
+   "type": "slate_heap",
+   "x": 27,
+   "y": 10,
+   "variant": 1
+  },
+  {
+   "type": "slate_heap",
+   "x": 7,
+   "y": 13,
+   "variant": 2
+  },
+  {
+   "type": "lamp_post",
+   "x": 22,
+   "y": 27
+  },
+  {
+   "type": "lamp_post",
+   "x": 20,
+   "y": 20
+  },
+  {
+   "type": "lamp_post",
+   "x": 22,
+   "y": 18
+  },
+  {
+   "type": "lamp_post",
+   "x": 14,
+   "y": 21
+  },
+  {
+   "type": "lamp_post",
+   "x": 22,
+   "y": 8
+  },
+  {
+   "type": "lamp_post",
+   "x": 36,
+   "y": 15
+  },
+  {
+   "type": "lamp_post",
+   "x": 8,
+   "y": 17
+  },
+  {
+   "type": "bench",
+   "x": 19,
+   "y": 28
+  },
+  {
+   "type": "bench",
+   "x": 26,
+   "y": 28
+  },
+  {
+   "type": "rock",
+   "x": 38,
+   "y": 20
+  },
+  {
+   "type": "rock",
+   "x": 12,
+   "y": 14
+  }
+ ],
+ "warps": [
+  {
+   "x": 22,
+   "y": 31,
+   "to": "penzance",
+   "tx": 6,
+   "ty": 30,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "miner_guide",
+   "sprite": "hiker",
+   "x": 20,
+   "y": 27,
+   "facing": "right",
+   "move": "still",
+   "script": "miner_guide"
+  },
+  {
+   "id": "miner_old",
+   "sprite": "farmer",
+   "x": 7,
+   "y": 22,
+   "facing": "up",
+   "move": "still",
+   "script": "miner_old"
+  },
+  {
+   "id": "miner_kid",
+   "sprite": "student",
+   "x": 41,
+   "y": 21,
+   "facing": "left",
+   "move": "still",
+   "script": "miner_kid"
+  },
+  {
+   "id": "ashcombe_mine",
+   "sprite": "ashcombe",
+   "x": 23,
+   "y": 5,
+   "facing": "down",
+   "move": "still",
+   "script": "ashcombe_mine"
+  },
+  {
+   "id": "mine_one",
+   "sprite": "hiker",
+   "x": 22,
+   "y": 16,
+   "facing": "down",
+   "move": "still",
+   "trainer": "mine_one"
+  },
+  {
+   "id": "mine_two",
+   "sprite": "farmer",
+   "x": 12,
+   "y": 21,
+   "facing": "right",
+   "move": "still",
+   "trainer": "mine_two"
+  },
+  {
+   "id": "mine_three",
+   "sprite": "hiker",
+   "x": 31,
+   "y": 21,
+   "facing": "left",
+   "move": "still",
+   "trainer": "mine_three"
+  },
+  {
+   "id": "mine_four",
+   "sprite": "warden_grunt",
+   "x": 38,
+   "y": 15,
+   "facing": "down",
+   "move": "still",
+   "trainer": "mine_four"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "tinnet",
+    "min": 46,
+    "max": 48,
+    "weight": 20
+   },
+   {
+    "species": "cassiterix",
+    "min": 47,
+    "max": 48,
+    "weight": 8
+   },
+   {
+    "species": "coblynn",
+    "min": 46,
+    "max": 48,
+    "weight": 12
+   },
+   {
+    "species": "tapknock",
+    "min": 46,
+    "max": 47,
+    "weight": 8
+   },
+   {
+    "species": "quarrion",
+    "min": 47,
+    "max": 48,
+    "weight": 10
+   },
+   {
+    "species": "slatelet",
+    "min": 46,
+    "max": 47,
+    "weight": 8
+   },
+   {
+    "species": "gritling",
+    "min": 46,
+    "max": 47,
+    "weight": 10
+   },
+   {
+    "species": "horseshoe",
+    "min": 47,
+    "max": 48,
+    "weight": 10,
+    "time": [
+     "night",
+     "dusk"
+    ]
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 24,
+   "y": 29,
+   "text": "GEEVOR. In 1990 the last tin came out of the ground in West Penwith. The tunnels reach out under the Atlantic. The sea is above your head. Please do not worry."
+  },
+  {
+   "x": 25,
+   "y": 21,
+   "text": "LEVEL ONE. The tin ore was hand-drilled by candlelight before safety lamps came along. The miners wore felt hats hardened with clay. And bravery."
+  },
+  {
+   "x": 20,
+   "y": 7,
+   "text": "KNOCKERS. Tapping in the rock means the knockers are about. Miners left them a bit of crust. If you don't have crust, a firm 'excuse me' is polite."
+  }
+ ],
+ "spawn": [
+  22,
+  29
+ ],
+ "stage": "cave",
+ "rows": [
+  "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "xxxxxxxxxxxxxxxxkkkkkkkkkkkkkkxxxxxxxxxxxxxxxx",
+  "xxxxxxxxxxxxxxxxkkkkkkkkkkkkkkxxxxxxxxxxxxxxxx",
+  "xxxxxxxxxxxxxxxxkkgkggggggggkkxxxxxxxxxxxxxxxx",
+  "xxxxxxxxxxxxxxxxkkggggggggggkkxxxxxxxxxxxxxxxx",
+  "xxxxxxxxxxxxxxxxkkggggggggggkkxxxxxxxxxxxxxxxx",
+  "xxxxxxxxxxxxxxxxkkggggggggggkkxxxxxxxxxxxxxxxx",
+  "xxxxxxxxxxxxxxxxkkkkkkkkkkkkkkxxxxxxxxxxxxxxxx",
+  "xxxxxxxxxxxxxxxxkkkkkkkkkkkkkkxxxxkkkkkkkkkxxx",
+  "xxxxxxxxxxxxxxxxkkkkkkkkkkkkkkxxxxkkkkkkkkkxxx",
+  "xxxxxxxxxxxxxxxxxxxxxkkkxxxxxxxxxxkkggggggkxxx",
+  "xxxxkkkkkkkkkxxxxxxxxkkkxxxxxxxxxxkkggggggkxxx",
+  "xxxxkggggggkkxxxxxxxxkkkxxxxxxxxxxkkggggggkxxx",
+  "xxxxkggggggkkxxxxxxxx|||xxxxxxxxxxkkggggggkxxx",
+  "xxxxkggggggkkxxxxxxxx|||xxxxxxxxxxkkggggggkxxx",
+  "xxxxkggggggkkxxxxxxxxkkkxxxxxxxxxxkkkkkkkkkxxx",
+  "xxxxkkkkkkkkkxxxxxxxxkkkxxxxxxxxxxkkkkkkkkkxxx",
+  "xxxxkkkk~~~kkxxxxxxxxkkkxxxxxxxxxxkkkk~~kkkxxx",
+  "xxxxkkkkkkkkkk||kkkkkkkkkkkk||kkkkkkkkkkkkkxxx",
+  "xxxxkkkkkkkkkk||kkkkkkkkkkkk||kkkkkkkkkkkkkxxx",
+  "xxxxxxkkkkkkkk||kkkkkkkkkkkk||kkkkkkkkkkkxxxxx",
+  "xxxxxxxxxxxxxxxxxxxxxkkkxxxxxxxxxxxxkkxxxxxxxx",
+  "xxxxxxxxxxxxxxxxxxxxx|||xxxxxxkkkkkkkkkkkkxxxx",
+  "xxxxxxxxxxxxxxxxxxxxx|||xxxxxxkkggggggggkkxxxx",
+  "xxxxxxxxxxxxxxxxxxkkkkkkkkkkxxkkggggggggkkxxxx",
+  "xxxxxxxxxxxxxxxxxxkkkkkkkkkkxxkkggggggggkkxxxx",
+  "xxxxxxxxxxxxxxxxxxkkkkkkkkkkxxkkggggggggkkxxxx",
+  "xxxxxxxxxxxxxxxxxxkkkkkkkkkkxxkkkkkkkkkkkkxxxx",
+  "xxxxxxxxxxxxxxxxxxkkkkkkkkkkxxkkkkkkkkkkkkxxxx",
+  "xxxxxxxxxxxxxxxxxxxxxxDxxxxxxxxxxxxxxxxxxxxxxx",
+  "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+ ],
+ "legend_extra": {
+  "k": {
+   "tile": "path",
+   "colour": "#50505a"
+  },
+  "g": {
+   "tile": "tall_grass",
+   "colour": "#5a5a52",
+   "prop": "none"
+  }
+ }
+}

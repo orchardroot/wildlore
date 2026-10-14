@@ -1,0 +1,248 @@
+{
+ "id": "wookey_hole",
+ "name": "Wookey Hole",
+ "region": "",
+ "kind": "interior",
+ "music": "route_mountain",
+ "weather": {},
+ "props": [
+  {
+   "type": "rock",
+   "x": 5,
+   "y": 10,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 27,
+   "y": 10,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 8,
+   "y": 20,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 25,
+   "y": 4,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 12,
+   "y": 3,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 20,
+   "y": 18,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 6,
+   "y": 14,
+   "variant": 1
+  },
+  {
+   "type": "standing_stone",
+   "x": 16,
+   "y": 3,
+   "variant": 0
+  },
+  {
+   "type": "standing_stone",
+   "x": 17,
+   "y": 3,
+   "variant": 2
+  },
+  {
+   "type": "statue",
+   "x": 15,
+   "y": 4
+  },
+  {
+   "type": "lamp_post",
+   "x": 13,
+   "y": 17
+  },
+  {
+   "type": "lamp_post",
+   "x": 18,
+   "y": 17
+  }
+ ],
+ "warps": [
+  {
+   "x": 15,
+   "y": 22,
+   "to": "mendips",
+   "tx": 62,
+   "ty": 39,
+   "facing": "up"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "cave_guide",
+   "sprite": "tour_guide",
+   "x": 16,
+   "y": 19,
+   "facing": "down",
+   "move": "still",
+   "script": "cave_guide"
+  },
+  {
+   "id": "cave_diver",
+   "sprite": "angler",
+   "x": 6,
+   "y": 16,
+   "facing": "right",
+   "move": "still",
+   "script": "cave_diver"
+  },
+  {
+   "id": "wookey_witch",
+   "sprite": "villager_6",
+   "x": 22,
+   "y": 18,
+   "facing": "left",
+   "move": "still",
+   "trainer": "wookey_witch"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "lanternis",
+    "min": 39,
+    "max": 41,
+    "weight": 20
+   },
+   {
+    "species": "glowmite",
+    "min": 38,
+    "max": 40,
+    "weight": 14
+   },
+   {
+    "species": "horseshoe",
+    "min": 40,
+    "max": 41,
+    "weight": 18
+   },
+   {
+    "species": "horselet",
+    "min": 38,
+    "max": 40,
+    "weight": 8
+   },
+   {
+    "species": "pincray",
+    "min": 39,
+    "max": 41,
+    "weight": 16
+   },
+   {
+    "species": "parrlet",
+    "min": 38,
+    "max": 40,
+    "weight": 14
+   },
+   {
+    "species": "pooka",
+    "min": 40,
+    "max": 41,
+    "weight": 6,
+    "time": [
+     "night"
+    ]
+   }
+  ],
+  "water": [
+   {
+    "species": "pincray",
+    "min": 39,
+    "max": 41,
+    "weight": 30
+   },
+   {
+    "species": "parrlet",
+    "min": 39,
+    "max": 41,
+    "weight": 30
+   },
+   {
+    "species": "rillotter",
+    "min": 39,
+    "max": 41,
+    "weight": 30
+   },
+   {
+    "species": "sulisa",
+    "min": 40,
+    "max": 41,
+    "weight": 8
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 17,
+   "y": 4,
+   "text": "THE WITCH OF WOOKEY HOLE. A stalagmite said to be a witch turned to stone by a monk. A local legend. The monk is not named. The witch is a minor celebrity."
+  },
+  {
+   "x": 14,
+   "y": 19,
+   "text": "THE RIVER AXE. Rain that fell on the Mendips seeps for days through limestone before emerging here, at a constant 11 degrees. Paper mills used the water from 1610."
+  }
+ ],
+ "spawn": [
+  15,
+  20
+ ],
+ "stage": "cave",
+ "rows": [
+  "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "xxxxxxxxkkkkkkkkkkkkxxxxxxxxxxxx",
+  "xxxxxxxxkkkkkksssskkxxxxxxxxxxxx",
+  "xxxxkkkkkkkkkksssskkkkkkkkkkxxxx",
+  "xxxxkggggkkkkksssskkkkkkkkkkxxxx",
+  "xxxxkggggkwwwwsssswwwwkkkkkkxxxx",
+  "xxxxoggggoooooooooooooooooookkxx",
+  "xxxxoggggoooooooooooooooooookkxx",
+  "xxkkooooooooooooooooooooooookkxx",
+  "xxkkooooooooooooooooooooooookkxx",
+  "xxkkooooooooooooooooooooooookkxx",
+  "xxkkooooooooooooooooooooooookkxx",
+  "xxkkooooooooooooooooooooooookkxx",
+  "xxkkooooooooooooooooooooooookkxx",
+  "xxkkkkkkkkwwwkkkkkkwwwkkkkkkkkxx",
+  "xxkkggggggggkkkkkkkkggggggggxxxx",
+  "xxxxggggggggkkkkkkkkggggggggxxxx",
+  "xxxxggggggggkkkkkkkkggggggggxxxx",
+  "xxxxggggggggkkkkkkkkggggggggxxxx",
+  "xxxxggggggggkkkkkkkkggggggggxxxx",
+  "xxxxkkkkkkkkkkkkkkkkkkkkkkkkxxxx",
+  "xxxxxxxxxxxxkkkkkkkkxxxxxxxxxxxx",
+  "xxxxxxxxxxxxkkkDkkkkxxxxxxxxxxxx",
+  "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+ ],
+ "legend_extra": {
+  "k": {
+   "tile": "path",
+   "colour": "#5a5650"
+  },
+  "g": {
+   "tile": "tall_grass",
+   "colour": "#4f6a45",
+   "prop": "none"
+  }
+ }
+}

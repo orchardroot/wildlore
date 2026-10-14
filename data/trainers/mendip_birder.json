@@ -1,0 +1,31 @@
+{
+ "id": "mendip_birder",
+ "name": "Birdwatcher Henrietta",
+ "class": "Birdwatcher",
+ "sprite": "birdwatcher",
+ "party": [
+  {
+   "species": "forkwing",
+   "level": 39
+  },
+  {
+   "species": "hushwing",
+   "level": 40
+  },
+  {
+   "species": "murmurant",
+   "level": 39
+  }
+ ],
+ "ai": "trainer",
+ "money": 1020,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Birdwatcher Henrietta",
+   "text": "Peregrines nest in the gorge. The fastest animals on Earth, diving at over two hundred miles an hour."
+  }
+ ],
+ "win": "Oh! I blinked, and you won. It's the peregrine effect.",
+ "after": "If you hear a whoosh, don't look up. Duck."
+}

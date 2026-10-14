@@ -1,0 +1,690 @@
+{
+ "id": "tintagel",
+ "name": "Tintagel",
+ "region": "cornwall",
+ "kind": "route",
+ "music": "route_coast",
+ "weather": {
+  "clear": 20,
+  "sunshine": 12,
+  "drizzle": 22,
+  "fog": 20,
+  "gale": 18,
+  "downpour": 8
+ },
+ "props": [
+  {
+   "type": "building",
+   "style": "castle",
+   "x": 8,
+   "y": 9,
+   "w": 7,
+   "h": 4,
+   "label": "Tintagel Castle"
+  },
+  {
+   "type": "building",
+   "style": "castle",
+   "x": 5,
+   "y": 13,
+   "w": 4,
+   "h": 3,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "castle",
+   "x": 13,
+   "y": 14,
+   "w": 4,
+   "h": 3,
+   "label": "Great Hall"
+  },
+  {
+   "type": "building",
+   "style": "castle",
+   "x": 9,
+   "y": 5,
+   "w": 4,
+   "h": 3,
+   "show_label": false
+  },
+  {
+   "type": "statue",
+   "x": 7,
+   "y": 7
+  },
+  {
+   "type": "bench",
+   "x": 10,
+   "y": 15
+  },
+  {
+   "type": "rock",
+   "x": 5,
+   "y": 19
+  },
+  {
+   "type": "rock",
+   "x": 16,
+   "y": 10
+  },
+  {
+   "type": "rock",
+   "x": 7,
+   "y": 30
+  },
+  {
+   "type": "rock",
+   "x": 15,
+   "y": 31
+  },
+  {
+   "type": "boat",
+   "x": 4,
+   "y": 31,
+   "variant": 1
+  },
+  {
+   "type": "buoy",
+   "x": 3,
+   "y": 36
+  },
+  {
+   "type": "lamp_post",
+   "x": 34,
+   "y": 19
+  },
+  {
+   "type": "lamp_post",
+   "x": 42,
+   "y": 19
+  },
+  {
+   "type": "lamp_post",
+   "x": 50,
+   "y": 19
+  },
+  {
+   "type": "building",
+   "style": "stone",
+   "x": 34,
+   "y": 5,
+   "w": 10,
+   "h": 6,
+   "label": "King Arthur's Great Halls"
+  },
+  {
+   "type": "building",
+   "style": "slate_cottage",
+   "x": 46,
+   "y": 10,
+   "w": 6,
+   "h": 5,
+   "label": "Old Post Office"
+  },
+  {
+   "type": "building",
+   "style": "white_render",
+   "x": 46,
+   "y": 25,
+   "w": 7,
+   "h": 4,
+   "label": "Pasty Shop"
+  },
+  {
+   "type": "building",
+   "style": "terrace",
+   "x": 36,
+   "y": 25,
+   "w": 6,
+   "h": 4,
+   "label": "Camelot Shop"
+  },
+  {
+   "type": "building",
+   "style": "chapel",
+   "x": 36,
+   "y": 35,
+   "w": 4,
+   "h": 4,
+   "label": "St Materiana's"
+  },
+  {
+   "type": "bench",
+   "x": 37,
+   "y": 18
+  },
+  {
+   "type": "planter",
+   "x": 35,
+   "y": 11
+  },
+  {
+   "type": "planter",
+   "x": 42,
+   "y": 11
+  },
+  {
+   "type": "statue",
+   "x": 42,
+   "y": 29
+  },
+  {
+   "type": "bush",
+   "x": 33,
+   "y": 28,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 32,
+   "y": 4,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 36,
+   "y": 13,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 32,
+   "y": 24,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 42,
+   "y": 35,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 35,
+   "y": 18,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 43,
+   "y": 31,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 32,
+   "y": 5,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 52,
+   "y": 24,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 32,
+   "y": 29,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 41,
+   "y": 30,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 33,
+   "y": 6,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 54,
+   "y": 40,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 57,
+   "y": 18,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 40,
+   "y": 14,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 44,
+   "y": 4,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 34,
+   "y": 29,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 51,
+   "y": 7,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 53,
+   "y": 25,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 54,
+   "y": 18,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 31,
+   "y": 13,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 41,
+   "y": 33,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 42,
+   "y": 37,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 48,
+   "y": 18,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 53,
+   "y": 16,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 57,
+   "y": 27,
+   "variant": 0
+  }
+ ],
+ "warps": [],
+ "edges": {
+  "east": {
+   "to": "dartmoor",
+   "offset": 0
+  },
+  "south": {
+   "to": "penzance",
+   "offset": 0
+  }
+ },
+ "npcs": [
+  {
+   "id": "arthurian",
+   "sprite": "tour_guide",
+   "x": 39,
+   "y": 20,
+   "facing": "down",
+   "move": "still",
+   "script": "arthurian"
+  },
+  {
+   "id": "postmaster",
+   "sprite": "villager_3",
+   "x": 49,
+   "y": 18,
+   "facing": "down",
+   "move": "still",
+   "script": "postmaster"
+  },
+  {
+   "id": "pasty_seller",
+   "sprite": "shopkeeper",
+   "x": 49,
+   "y": 24,
+   "facing": "down",
+   "move": "still",
+   "script": "pasty_seller"
+  },
+  {
+   "id": "kernow_fan",
+   "sprite": "villager_5",
+   "x": 33,
+   "y": 22,
+   "facing": "right",
+   "move": "wander",
+   "script": "kernow_fan"
+  },
+  {
+   "id": "ashcombe",
+   "sprite": "ashcombe",
+   "x": 17,
+   "y": 12,
+   "facing": "down",
+   "move": "still",
+   "script": "ashcombe_tintagel"
+  },
+  {
+   "id": "tin_surfer",
+   "sprite": "surfer",
+   "x": 18,
+   "y": 30,
+   "facing": "right",
+   "move": "still",
+   "trainer": "tin_surfer"
+  },
+  {
+   "id": "tin_birder",
+   "sprite": "birdwatcher",
+   "x": 26,
+   "y": 6,
+   "facing": "down",
+   "move": "still",
+   "trainer": "tin_birder"
+  },
+  {
+   "id": "tin_druid",
+   "sprite": "villager_6",
+   "x": 12,
+   "y": 17,
+   "facing": "up",
+   "move": "still",
+   "trainer": "tin_druid"
+  },
+  {
+   "id": "tin_warden",
+   "sprite": "warden_grunt",
+   "x": 25,
+   "y": 13,
+   "facing": "left",
+   "move": "still",
+   "trainer": "tin_warden"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "baskling",
+    "min": 45,
+    "max": 46,
+    "weight": 8,
+    "time": [
+     "day",
+     "dawn"
+    ]
+   },
+   {
+    "species": "cragchough",
+    "min": 45,
+    "max": 46,
+    "weight": 14
+   },
+   {
+    "species": "clownbill",
+    "min": 45,
+    "max": 46,
+    "weight": 14,
+    "time": [
+     "day",
+     "dawn"
+    ]
+   },
+   {
+    "species": "polartern",
+    "min": 45,
+    "max": 46,
+    "weight": 10,
+    "weather": [
+     "gale",
+     "frost",
+     "fog"
+    ]
+   },
+   {
+    "species": "petrelash",
+    "min": 45,
+    "max": 46,
+    "weight": 12,
+    "weather": [
+     "gale",
+     "downpour",
+     "drizzle"
+    ]
+   },
+   {
+    "species": "greyhaul",
+    "min": 45,
+    "max": 46,
+    "weight": 10
+   },
+   {
+    "species": "pixiedell",
+    "min": 45,
+    "max": 46,
+    "weight": 12,
+    "weather": [
+     "fog",
+     "drizzle"
+    ]
+   },
+   {
+    "species": "pixling",
+    "min": 45,
+    "max": 46,
+    "weight": 5,
+    "weather": [
+     "fog"
+    ]
+   },
+   {
+    "species": "bodminax",
+    "min": 45,
+    "max": 46,
+    "weight": 4,
+    "time": [
+     "night"
+    ]
+   },
+   {
+    "species": "tylwyth",
+    "min": 45,
+    "max": 46,
+    "weight": 8,
+    "time": [
+     "dusk",
+     "night"
+    ]
+   },
+   {
+    "species": "wispet",
+    "min": 45,
+    "max": 46,
+    "weight": 8,
+    "time": [
+     "night"
+    ]
+   }
+  ],
+  "water": [
+   {
+    "species": "baskarr",
+    "min": 45,
+    "max": 46,
+    "weight": 30
+   },
+   {
+    "species": "baskling",
+    "min": 45,
+    "max": 46,
+    "weight": 10
+   },
+   {
+    "species": "clawcastle",
+    "min": 45,
+    "max": 46,
+    "weight": 20
+   },
+   {
+    "species": "petrelash",
+    "min": 45,
+    "max": 46,
+    "weight": 20
+   },
+   {
+    "species": "greyhaul",
+    "min": 45,
+    "max": 46,
+    "weight": 20
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 25,
+   "y": 11,
+   "text": "THE NEW FOOTBRIDGE, 2019. Two cantilevers that almost touch, with a 4 cm gap in the middle. It replaced a steep stair, and the gap is a design feature, not a mistake."
+  },
+  {
+   "x": 8,
+   "y": 7,
+   "text": "GALLOS. A giant bronze-coloured king standing on the headland, 2016. 'Gallos' is Cornish for 'power'. The artist, Rubin Eynon, says it also means 'a very big man'."
+  },
+  {
+   "x": 14,
+   "y": 12,
+   "text": "TINTAGEL CASTLE. Sixth-century fortress, 13th-century castle. Geoffrey of Monmouth says King Arthur was conceived here. The castle sniffs, and says Arthur was born whenever it suited the tourist board."
+  },
+  {
+   "x": 12,
+   "y": 27,
+   "text": "MERLIN'S CAVE. A sea cave right through the headland, 100 m long, reached at low tide. Legend says it's where Merlin found baby Arthur. On a good tide, the sea does the rest of the story."
+  },
+  {
+   "x": 32,
+   "y": 19,
+   "text": "TINTAGEL. A tiny village with a big myth. Tintagel is Cornish 'Din Tagell', the fort of the narrow neck. A very good name for a place with only one way in."
+  },
+  {
+   "x": 37,
+   "y": 40,
+   "text": "ST MATERIANA'S CHURCH. A 1,000-year-old cliff church. Materiana was a Welsh saint. The church survived a thousand winters, and never complained about the wind."
+  }
+ ],
+ "spawn": [
+  56,
+  21
+ ],
+ "stage": "coast",
+ "rows": [
+  "$$$$$$$$$$$$$$$$$$$$$$TTTTTTTTTTTTTTTTTTTTTTTTPTTTTTTTTTTTTT",
+  "$$$$$$$$$$$$$$$$$$$$$$TTTTTTTTTTTTTTTTTTTPTTTTTTTTTTTTTTTTTT",
+  "$$$$$$$$$$$$$$$$$$$$$$....................................TP",
+  "$$$$$$$$$$$$$$$$$$$$^^^^..................................TT",
+  "$$$$$$$$^^^^^^^$$$$$^^^^..................................TP",
+  "$$$$$$^^^BBBB^fff$$$^^^^..........BBBBBBBBBB..........,,,,TT",
+  "$$$$$^^^.BBBB.fff^$$^^^^..........BBBBBBBBBB..........,,,,TT",
+  "$$$$^^...BBBB....^^$^^^^..........BBBBBBBBBB..........,,,,TT",
+  "$$$^^WWWW...#.WWW.^^^^^^..........BBBBBBBBBB..........,,,,TT",
+  "$$$^^...BBBBBBB...^^^^^^..........BBBBBBBBBB..........,,,,TT",
+  "$$^^....BBBBBBB....^^^^^..........BBBBBBBBBB..BBBBBB..,,,,TT",
+  "$$^^....BBBBBBB....WWWWW..........::::::::::..BBBBBB..,,,,TT",
+  "$$^,,...BBBBBBB...::::::#######.......::......BBBBBB..,,,,TT",
+  "$$^,,BBBB..########:::::#######.......::......BBBBBB..,,,,TT",
+  "$$^,,BBBB..##BBBB.::::::#######.......::......BBBBBB..,,,,TT",
+  "$$^^.BBBB..##BBBB..WWWWW....===.......::......::::::..,,,,TT",
+  "$$^^.......##BBBB..^^^^^....===.......::.......:......,,,,TT",
+  "$$$^WWWW...#####..^^^^^^....===.......::.......:..........TT",
+  "$$$^^..ffff##WWW..^^^^^^....===.......::.......:..........TT",
+  "$$$$^^.ffff##....^^$^^^^....==::::::::::::::::::::::::::::TT",
+  "$$$$$^^^...##..^^^$$^^^^....================================",
+  "$$$$$$^^^^^^^^^^^$$$^^^^....================================",
+  "$$$$$$$$^^^^^^^$$$$$^^^^....================================",
+  "$$$$$$$$$$$$$$$$$$$$^^^^....==::::::::::::::::::::::::::::TT",
+  "$$$$^^^^^^xx^^^^^^^^^^^^....==............................TT",
+  "$$$$^^^^^^xx^^^^^^^^^^^^....==......BBBBBB....BBBBBBB.....TT",
+  "$$wwwwwwwwwwwwwwwwwwssssssss==......BBBBBB....BBBBBBB.....TT",
+  "$$wwwsssssssssssssssssssssss==......BBBBBB....BBBBBBB.....TT",
+  "$$wwwsssssssssssssssssssssss==......BBBBBB....BBBBBBB...,,,T",
+  "$$wwwsssssssssssssss^^^^....===.....:::::::::::::::::...,,,T",
+  "$$wwwsssssssssssssss^^^^....===.........................,,,T",
+  "$$wwwsssssssssssssss^^^^....===.............,,,,,,,,FFFFF,,T",
+  "$$wwwsssssssssssssss^^^^....===.............,,,,,,,,F...,,,T",
+  "$$wwwsssssssssssssss^^^^....===.,,,,........,,,,,,,,F...,,,T",
+  "$$wwwwwwwwwwwwwwwwww^^^^....===.,,,,........,,,,,,,,F...,,,T",
+  "$$$$$$$$$$$$$$$$$$$$^^^^....===.,,,,BBBB....,,,,,,,,....,,,T",
+  "$$$$$$$$$$$$$$$$$$$$^^^^....===.,,,,BBBB....,,,,,,,,....,,,T",
+  "$$$$$$$$$$$$$$$$$$$$^^^^....===.,,,,BBBB....,,,,,,,,....,,,T",
+  "$$$$$$$$$$$$$$$$$$$$^^^^....===.,,,,BBBB....,,,,,,,,....,,,T",
+  "$$$$$$$$$$$$$$$$$$$$^^^^....===.,,,,::::................,,,T",
+  "$$$$$$$$$$$$$$$$$$$$^^^^....===.,,,,......................TT",
+  "$$$$$$$$$$$$$$$$$$$$$$......===...........................TT",
+  "$$$$$$$$$$$$$$$$$$$$$$TTTTTT===TTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "$$$$$$$$$$$$$$$$$$$$$$TTTTTT...TTTTTTTTTTTTTTTTTTTTTTTTTTTTT"
+ ],
+ "heights": [
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000001111111000000000000000000000000000000000000000000000",
+  "000000111111111110000000000000000000000000000000000000000000",
+  "000001111222221111000000000000000000000000000000000000000000",
+  "000011122222222211100000000000000000000000000000000000000000",
+  "000111222222222221110000110000000000000000000000000000000000",
+  "000112222333332222110000110000000000000000000000000000000000",
+  "001112223333333222110000110000000000000000000000000000000000",
+  "001122233344433322210000221100000000000000000000000000000000",
+  "001122233444443322222222221100000000000000000000000000000000",
+  "001122233444443322222222221100000000000000000000000000000000",
+  "001122233444443322222222221100000000000000000000000000000000",
+  "001122233344433322210000221100000000000000000000000000000000",
+  "001112223333333222110000110000000000000000000000000000000000",
+  "000112222333332222110000110000000000000000000000000000000000",
+  "000111222222222221110000110000000000000000000000000000000000",
+  "000011122222222211100000000000000000000000000000000000000000",
+  "000001111222221111000000000000000000000000000000000000000000",
+  "000000111111111110000000000000000000000000000000000000000000",
+  "000000001111111000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000"
+ ]
+}

@@ -1,0 +1,31 @@
+{
+ "id": "mendip_warden",
+ "name": "Warden Quentin",
+ "class": "Warden",
+ "sprite": "warden_grunt",
+ "party": [
+  {
+   "species": "brockmoor",
+   "level": 39
+  },
+  {
+   "species": "thornsow",
+   "level": 39
+  },
+  {
+   "species": "hazeldoze",
+   "level": 38
+  }
+ ],
+ "ai": "trainer",
+ "money": 980,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Warden Quentin",
+   "text": "Welcome to the Cheddar Gorge Experience(tm)! Cliff view, guide fee, mandatory fudge."
+  }
+ ],
+ "win": "That's not in the brochure. Cut it.",
+ "after": "I'm told the goats are not signed up. I've offered them lanyards."
+}
