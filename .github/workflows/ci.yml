@@ -1,0 +1,15 @@
+name: CI
+on:
+  push:
+  pull_request:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/cache@v4
+        with:
+          path: .godot-bin
+          key: godot-${{ hashFiles('tools/get_godot.sh') }}
+      - name: Tests and data validation
+        run: tools/test.sh
