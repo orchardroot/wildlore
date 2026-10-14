@@ -37,9 +37,11 @@ func _ready() -> void:
 	col.add_child(panel)
 	_menu = VBoxContainer.new()
 	panel.add_child(_menu)
-	if Game.has_save("auto"):
+	if Game.newest_slot() != "":
 		_add("Continue", _on_continue)
 	_add("New Game", _on_new)
+	if SaveSystem.slot_infos(Game.save_dir).any(func(i): return i.ok):
+		_add("Load", _on_load)
 	_add("Settings", _on_settings)
 	_add("Quit", func(): get_tree().quit())
 	_menu.get_child(0).grab_focus()
@@ -73,8 +75,18 @@ func _on_continue() -> void:
 	if not _claim():
 		return
 	Audio.sfx("confirm")
-	if Game.load_slot("auto"):
+	if Game.load_slot(Game.newest_slot()):
 		Router.goto_zone(Game.data.zone_id, Game.data.pos, Game.data.facing)
+
+func _on_load() -> void:
+	if _chosen:
+		return
+	Audio.sfx("confirm")
+	var slot = await Router.open_menu("save:load")
+	if slot != null and _claim():
+		Router.goto_zone(Game.data.zone_id, Game.data.pos, Game.data.facing)
+	elif _menu.get_child_count() > 0:
+		_menu.get_child(0).grab_focus()
 
 func _on_new() -> void:
 	if not _claim():

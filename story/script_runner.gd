@@ -75,6 +75,9 @@ class Host extends RefCounted:
 		Router.busy = true
 		return result
 
+	func autosave() -> void:
+		Game.autosave()
+
 	func warp(zone: String, x: int, y: int, facing: String) -> void:
 		close_box()
 		await Router.goto_zone(zone, Vector2i(x, y), facing)

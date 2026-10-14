@@ -6,17 +6,58 @@
    "text": "Welcome to the Sanctuary. Pop your team on the counter."
   },
   {
-   "do": "say",
-   "who": "Nurse",
-   "text": "We'll have them right as rain in a jiffy."
+   "do": "choice",
+   "text": "What can we do for you?",
+   "options": [
+    "Heal my team",
+    "Open the Ark",
+    "Just looking"
+   ],
+   "set": "_nurse_choice"
   },
   {
-   "do": "heal"
-  },
-  {
-   "do": "say",
-   "who": "Nurse",
-   "text": "All better! Don't be a stranger, and do wipe your feet."
+   "do": "if",
+   "flag": "_nurse_choice",
+   "eq": 0,
+   "then": [
+    {
+     "do": "say",
+     "who": "Nurse",
+     "text": "We'll have them right as rain in a jiffy."
+    },
+    {
+     "do": "heal"
+    },
+    {
+     "do": "say",
+     "who": "Nurse",
+     "text": "All better! Don't be a stranger, and do wipe your feet."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "_nurse_choice",
+     "eq": 1,
+     "then": [
+      {
+       "do": "say",
+       "who": "Nurse",
+       "text": "The Ark terminal's just here. Mind the cable."
+      },
+      {
+       "do": "ark"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Nurse",
+       "text": "Right you are. Shout if anyone needs a plaster."
+      }
+     ]
+    }
+   ]
   }
  ]
 }

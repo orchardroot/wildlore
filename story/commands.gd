@@ -101,8 +101,12 @@ func _exec(c: Dictionary) -> void:
 			if b != "" and b not in data.badges:
 				data.badges.append(b)
 			await host.sfx("badge")
+			if host.has_method("autosave"):
+				host.autosave()
 		"end":
 			_ended = true
+		"ark":
+			await host.open_menu("ark")
 		"whiteout":
 			await whiteout()
 			_ended = true

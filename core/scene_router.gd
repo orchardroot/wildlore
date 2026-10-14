@@ -7,7 +7,8 @@ const BATTLE := "res://battle_ui/battle_scene.tscn"
 const MENUS := {
 	"pause": "res://ui/pause_menu.tscn", "party": "res://ui/party_screen.tscn", "bag": "res://ui/bag_screen.tscn",
 	"pedia": "res://ui/pedia_screen.tscn", "shop": "res://ui/shop_screen.tscn", "starter": "res://ui/starter_picker.tscn",
-	"settings": "res://ui/settings_screen.tscn",
+	"settings": "res://ui/settings_screen.tscn", "save": "res://ui/save_screen.tscn", "ark": "res://ui/ark_screen.tscn",
+	"map": "res://ui/world_map.tscn",
 }
 
 var busy := false

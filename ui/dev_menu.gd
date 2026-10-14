@@ -25,6 +25,7 @@ static func boot(game: Node, menu: String) -> void:
 	var f: Creature = mk.call("hootlet", 7)
 	f.status = "asleep"
 	d.party = [a, b, c, e, f]
+	d.ark = [mk.call("croakle", 6), mk.call("pipkin", 4), mk.call("dipling", 9)]
 	for sp in ["spikkin", "kindlet", "holtling", "binfox", "hootlet", "pipkin", "scuttlet", "croakle"]:
 		d.mark_caught(sp)
 	for sp in ["dipling", "wispet", "snowhare"]:

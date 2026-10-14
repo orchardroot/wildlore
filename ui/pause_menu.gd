@@ -57,13 +57,13 @@ func _refresh() -> void:
 	badges.add_theme_constant_override("separation", 8)
 	badges.add_child(UIKit.label("Badges", 28, UIKit.MUTED))
 	badges.add_child(UIKit.spacer(0, 8))
-	for i in 8:
+	for i in 10:
 		var earned := i < d.badges.size()
 		var dot := ColorRect.new()
 		dot.custom_minimum_size = Vector2(28, 28)
 		dot.color = UIKit.GOLD if earned else Color("2c3446")
 		badges.add_child(dot)
-	badges.add_child(UIKit.label("%d / 8" % d.badges.size(), 26))
+	badges.add_child(UIKit.label("%d / 10" % d.badges.size(), 26))
 	_info.add_child(badges)
 	_info.add_child(UIKit.spacer(8))
 	var team := HBoxContainer.new()
@@ -104,6 +104,5 @@ func _after_child(i: int) -> void:
 	_buttons[i].grab_focus()
 
 func _save() -> void:
-	var err := Game.save("auto")
-	_note.text = "Saved. Your progress is safe as houses." if err == OK else "That didn't save. Check the disk has room."
-	Audio.sfx("heal" if err == OK else "bump")
+	await open_child("save:save")
+	_after_child(3)

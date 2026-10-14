@@ -9,6 +9,9 @@ var items = null  # ItemDB once data_api/item_db.gd exists
 var rng: Rng
 var args: Dictionary = {}
 var clock_running := false
+var save_dir := SaveSystem.DEFAULT_DIR
+var autosave_enabled := true
+var _in_battle := false
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -21,6 +24,11 @@ func _ready() -> void:
 	var seed_value: int = args.seed if args.seed >= 0 else int(Time.get_unix_time_from_system())
 	rng = Rng.new(seed_value)
 	data.rng_seed = seed_value
+	if args.get("playtest", "") != "":
+		autosave_enabled = false  # the bot must never overwrite a real player's save
+	Bus.battle_started.connect(_on_battle_started)
+	Bus.battle_ended.connect(_on_battle_ended)
+	Bus.zone_entered.connect(_on_zone_entered)
 	call_deferred("_dev_boot")
 
 func _process(delta: float) -> void:
@@ -52,17 +60,35 @@ func phase() -> String:
 	return GameClock.phase(data.clock_minutes)
 
 func save(slot := "auto") -> Error:
-	return SaveSystem.save(slot, data.to_dict())
+	return SaveSystem.save(slot, data.to_dict(), save_dir)
+
+## Saves to the "auto" slot unless a battle is running or autosave is off (the playtest bot, tests).
+func autosave() -> void:
+	if autosave_enabled and not _in_battle:
+		save("auto")
+
+func _on_battle_started(_kind: String) -> void:
+	_in_battle = true
+
+func _on_battle_ended(_result: Dictionary) -> void:
+	_in_battle = false
+
+func _on_zone_entered(_zone_id: String) -> void:
+	autosave()
+
+## The slot Continue should load: the newest readable one.
+func newest_slot() -> String:
+	return SaveSystem.newest_slot(save_dir)
 
 func load_slot(slot := "auto") -> bool:
-	var d := SaveSystem.load_slot(slot)
+	var d := SaveSystem.load_slot(slot, save_dir)
 	if d.is_empty() or d.get("_too_new", false):
 		return false
 	data = GameStateData.from_dict(d, dex)
 	return true
 
 func has_save(slot := "auto") -> bool:
-	var d := SaveSystem.load_slot(slot)
+	var d := SaveSystem.load_slot(slot, save_dir)
 	return not d.is_empty() and not d.get("_too_new", false)
 
 func zone_exists(id: String) -> bool:
