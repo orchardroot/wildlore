@@ -49,9 +49,77 @@
  ],
  "ashcombe_tintagel": [
   {
+   "do": "if",
+   "flag": "ashcombe1_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Sir Rupert Ashcombe",
+     "text": "I am regrouping. Penzance next. The mine, you know. Do not follow me. I mean it. Do follow me. No. Don't."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Sir Rupert Ashcombe",
+     "text": "Merlin's Cave! Look at the echo. We'll sell the echo. 'The Echo Experience'. First tier gets one echo, second tier gets two."
+    },
+    {
+     "do": "say",
+     "who": "Sir Rupert Ashcombe",
+     "text": "Ah, the young walker. Tintagel, splendid, isn't it? We're thinking a gift shop in the castle. Perhaps a zip line to Merlin's cave."
+    },
+    {
+     "do": "say",
+     "who": "Sir Rupert Ashcombe",
+     "text": "Regional Director, England. Pryce spoke of you. Briefly, and with a twitch."
+    },
+    {
+     "do": "battle",
+     "trainer": "ashcombe_1"
+    },
+    {
+     "do": "say",
+     "who": "Sir Rupert Ashcombe",
+     "text": "Hrmph. I shall retire to Penzance, where the mine is. The tin, you see. Very old, very valuable, and sleeping badly."
+    },
+    {
+     "do": "say",
+     "who": "Sir Rupert Ashcombe",
+     "text": "Dydh da, as they say here. I am told that is 'good day'. It is, I'm told, a good day. For somebody."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "He tips his Panama, flicks a smear of sea spray off his blazer, and sweeps off down the cliff path towards the Penzance road."
+    },
+    {
+     "do": "set",
+     "flag": "ashcombe1_done"
+    },
+    {
+     "do": "warp",
+     "zone": "tintagel",
+     "x": 17,
+     "y": 13,
+     "facing": "up"
+    },
+    {
+     "do": "end"
+    }
+   ]
+  }
+ ],
+ "gate_tintagel": [
+  {
    "do": "say",
-   "who": "Sir Rupert Ashcombe",
-   "text": "Placeholder: the story agent writes Ashcombe's first battle here."
+   "who": "Warden",
+   "text": "Road to Penzance closed. Sir Rupert Ashcombe's orders. He likes to meet people properly first."
+  },
+  {
+   "do": "say",
+   "who": "Warden",
+   "text": "He's in Merlin's Cave, up the cliff path, at the west end of town. Dress code: smart casual. Hard hat, optional."
   }
  ]
 }

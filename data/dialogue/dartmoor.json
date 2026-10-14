@@ -56,9 +56,94 @@
  ],
  "ashcombe_moor": [
   {
-   "do": "say",
-   "who": "Sir Rupert Ashcombe",
-   "text": "Placeholder: the story agent writes Ashcombe's Hound Tor scene here."
+   "do": "if",
+   "flag": "ch5_moor_met",
+   "then": [
+    {
+     "do": "say",
+     "who": "Sir Rupert Ashcombe",
+     "text": "The hound has not come out for the brochure. Frankly I think it's being difficult. I've sent a polite email. To the moor."
+    },
+    {
+     "do": "say",
+     "who": "Sir Rupert Ashcombe",
+     "text": "Do cross the moor, please. Tintagel's the next stop on my itinerary. I'm told there's a cave."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Sir Rupert Ashcombe",
+     "text": "Ah! A walker! Splendid. Do keep behind the cordon. The cordon is the grass."
+    },
+    {
+     "do": "say",
+     "who": "Sir Rupert Ashcombe",
+     "text": "Sir Rupert Ashcombe, Regional Director, England. We're surveying Hound Tor for the new brochure. 'The Hound of the Baskervilles Experience'. Hound included. Subject to availability."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Two Wardens crouch at the foot of the tor, one holding a net, the other a packet of mints. A Dartmoor pony watches them with open contempt."
+    },
+    {
+     "do": "say",
+     "who": "Warden",
+     "text": "Sir, the hound won't come out. We've tried the whistle. We've tried the mints. A pony ate the mints."
+    },
+    {
+     "do": "say",
+     "who": "Sir Rupert Ashcombe",
+     "text": "Then we need a bigger net. And a smaller pony."
+    },
+    {
+     "do": "say",
+     "who": "Sir Rupert Ashcombe",
+     "text": "The Wild Hunt rides across these tors, you know. Or something like it. A phantom hound, red eyes, a splendid night at the pub afterwards. It's a revenue stream, young person."
+    },
+    {
+     "do": "choice",
+     "text": "What do you say?",
+     "options": [
+      "It's not yours to sell",
+      "Where's the brochure?"
+     ],
+     "set": "ashcombe_moor_reply"
+    },
+    {
+     "do": "if",
+     "flag": "ashcombe_moor_reply",
+     "then": [
+      {
+       "do": "say",
+       "who": "Sir Rupert Ashcombe",
+       "text": "Not mine? My dear child, I have a deed. It's a rather good deed. It has a ribbon."
+      },
+      {
+       "do": "say",
+       "who": "Sir Rupert Ashcombe",
+       "text": "Still, I'm told you can battle. Not today. I'm rather busy being busy. I shall see you at Tintagel."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Sir Rupert Ashcombe",
+       "text": "The brochure is in draft! It has a pull-out map and a competition. Win a night in a haunted tor. Terms apply. The terms are screaming."
+      },
+      {
+       "do": "say",
+       "who": "Sir Rupert Ashcombe",
+       "text": "I shall be at Tintagel presently. Do come by. I'll show you the cave. It's going to be a gift shop."
+      }
+     ],
+     "eq": 0
+    },
+    {
+     "do": "set",
+     "flag": "ch5_moor_met"
+    }
+   ]
   }
  ]
 }

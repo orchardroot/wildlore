@@ -85,5 +85,150 @@
    "who": "Chalice Gardener",
    "text": "The Red Spring is red because of iron. The White Spring is next door and runs white because of limestone. They're like a married couple."
   }
+ ],
+ "kit_glaston": [
+  {
+   "do": "if",
+   "flag": "kit5_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "{rival}",
+     "text": "I'm having a lie-down on a ley line. They say it does wonders for the back. I mostly feel the grass."
+    },
+    {
+     "do": "say",
+     "who": "{rival}",
+     "text": "Go on up. And tell the Green Man I said hello. If he says anything, record it. For science. And for me."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "starter",
+     "then": [
+      {
+       "do": "say",
+       "who": "{rival}",
+       "text": "Oh, there you are. I've been waiting by this very photogenic gate for an hour. Seven people took my picture."
+      },
+      {
+       "do": "if",
+       "flag": "ch5_greenman_woke",
+       "then": [
+        {
+         "do": "say",
+         "who": "{rival}",
+         "text": "You were there at the orchard, weren't you? I carried the flowers. I've never felt so useful in my life. My arms ache."
+        }
+       ]
+      },
+      {
+       "do": "say",
+       "who": "Kit",
+       "text": "{player}! Glastonbury! I've had three cups of something herbal and I can see colours I didn't know about."
+      },
+      {
+       "do": "say",
+       "who": "Kit",
+       "text": "I'm not with the Enclosure any more, but I'm still going to beat you. That's just friendship."
+      },
+      {
+       "do": "battle",
+       "trainer": "kit_5_vs_spikkin"
+      }
+     ],
+     "eq": "spikkin"
+    },
+    {
+     "do": "if",
+     "flag": "starter",
+     "then": [
+      {
+       "do": "say",
+       "who": "{rival}",
+       "text": "Oh, there you are. I've been waiting by this very photogenic gate for an hour. Seven people took my picture."
+      },
+      {
+       "do": "if",
+       "flag": "ch5_greenman_woke",
+       "then": [
+        {
+         "do": "say",
+         "who": "{rival}",
+         "text": "You were there at the orchard, weren't you? I carried the flowers. I've never felt so useful in my life. My arms ache."
+        }
+       ]
+      },
+      {
+       "do": "say",
+       "who": "Kit",
+       "text": "{player}! Glastonbury! I've had three cups of something herbal and I can see colours I didn't know about."
+      },
+      {
+       "do": "say",
+       "who": "Kit",
+       "text": "I'm not with the Enclosure any more, but I'm still going to beat you. That's just friendship."
+      },
+      {
+       "do": "battle",
+       "trainer": "kit_5_vs_holtling"
+      }
+     ],
+     "eq": "holtling"
+    },
+    {
+     "do": "if",
+     "flag": "starter",
+     "then": [
+      {
+       "do": "say",
+       "who": "{rival}",
+       "text": "Oh, there you are. I've been waiting by this very photogenic gate for an hour. Seven people took my picture."
+      },
+      {
+       "do": "if",
+       "flag": "ch5_greenman_woke",
+       "then": [
+        {
+         "do": "say",
+         "who": "{rival}",
+         "text": "You were there at the orchard, weren't you? I carried the flowers. I've never felt so useful in my life. My arms ache."
+        }
+       ]
+      },
+      {
+       "do": "say",
+       "who": "Kit",
+       "text": "{player}! Glastonbury! I've had three cups of something herbal and I can see colours I didn't know about."
+      },
+      {
+       "do": "say",
+       "who": "Kit",
+       "text": "I'm not with the Enclosure any more, but I'm still going to beat you. That's just friendship."
+      },
+      {
+       "do": "battle",
+       "trainer": "kit_5_vs_kindlet"
+      }
+     ],
+     "eq": "kindlet"
+    },
+    {
+     "do": "say",
+     "who": "{rival}",
+     "text": "I'm not streaming any of this. I'm just standing near a hill. It happens to be the nicest hill I've ever seen."
+    },
+    {
+     "do": "say",
+     "who": "{rival}",
+     "text": "Morwen's at the top. Be nice to her. She's got a way with lanterns, and I want to keep my eyebrows."
+    },
+    {
+     "do": "set",
+     "flag": "kit5_done"
+    }
+   ]
+  }
  ]
 }

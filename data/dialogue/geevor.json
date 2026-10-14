@@ -32,9 +32,134 @@
  ],
  "ashcombe_mine": [
   {
+   "do": "if",
+   "flag": "ashcombe2_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Sir Rupert Ashcombe",
+     "text": "I'm going home to Bath. To soak. Alone. With a flask. Do not post anything."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "",
+     "text": "The deepest chamber of Geevor: a low gallery, tin-bright in the lamplight, humming with a patient, knocking sound. Sir Rupert stands at the centre with a briefcase and a hard hat that doesn't suit him."
+    },
+    {
+     "do": "say",
+     "who": "Sir Rupert Ashcombe",
+     "text": "The knockers! The little tin spirits. You can hear them, can't you? Knock, knock, knock. Valuable, utterly valuable. I plan to put them in a display case."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "A faint, offended knock answers from the wall. It sounds like a hundred small miners clearing their throats at once."
+    },
+    {
+     "do": "say",
+     "who": "Sir Rupert Ashcombe",
+     "text": "Hush. They'll sign. I've got a form. It's got a tick box for 'knocking'."
+    },
+    {
+     "do": "say",
+     "who": "Sir Rupert Ashcombe",
+     "text": "Down here again? This is a hard-hat area. Have you a hard hat? No? Then this is a battle area."
+    },
+    {
+     "do": "battle",
+     "trainer": "ashcombe_2"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "The knocking stops. Then, very politely, it starts again: a single knock, slow and steady, like a round of applause."
+    },
+    {
+     "do": "say",
+     "who": "Sir Rupert Ashcombe",
+     "text": "Lord Vane will hear of this. He hears of everything, eventually, usually over breakfast."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Ashcombe stuffs his form into his briefcase and hurries up the adit. The Wardens trail after him, looking mildly relieved."
+    },
+    {
+     "do": "say",
+     "who": "Old Miner",
+     "text": "Meur ras, my lover. That's 'thank you' in Cornish. The knockers don't say it themselves, but they mean it."
+    },
+    {
+     "do": "set",
+     "flag": "ashcombe2_done"
+    },
+    {
+     "do": "sfx",
+     "id": "alert"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Your phone buzzes. The signal in a tin mine is surprisingly good. Professor Garside sounds as if she is standing in a kitchen."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "{player}! I felt that one in my fillings. Sir Rupert is down. Marvellous. You're a credit to Macclesfield and a nuisance to the Enclosure."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "Now, Ireland. The stones across the water are humming in a way I can only describe as lyrical. I'm sending you a ferry ticket. It's in your bag. I printed it. I laminated it."
+    },
+    {
+     "do": "give_item",
+     "item": "ferry_ticket"
+    },
+    {
+     "do": "set",
+     "flag": "ferry_ticket"
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "The ferry leaves from Holyhead. Take the rail to Llanberis, then walk west over Anglesey and the Menai Bridge. The sailor will want to see that ticket."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "And bring a coat. The Irish Sea has opinions."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "A faint, warm knock follows you out of the mine, like a send-off."
+    },
+    {
+     "do": "warp",
+     "zone": "geevor",
+     "x": 23,
+     "y": 6,
+     "facing": "up"
+    },
+    {
+     "do": "end"
+    }
+   ]
+  }
+ ],
+ "gate_geevor": [
+  {
    "do": "say",
-   "who": "Sir Rupert Ashcombe",
-   "text": "Placeholder: the story agent writes Ashcombe's mine confrontation here."
+   "who": "Warden",
+   "text": "Deep end's closed. Sir Rupert's orders. He likes to meet people properly, up at Tintagel, before they come down a mine."
+  },
+  {
+   "do": "say",
+   "who": "Warden",
+   "text": "He's very particular. He once made me re-introduce myself to my own boots."
   }
  ]
 }

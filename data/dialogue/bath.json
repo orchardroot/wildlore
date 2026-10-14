@@ -97,5 +97,72 @@
    "who": "Punt Hirer",
    "text": "Pulteney Weir is a horseshoe. Every year a duck goes over it on purpose. The duck has better balance than me."
   }
+ ],
+ "heritage_stall": [
+  {
+   "do": "if",
+   "flag": "heritage_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Stallholder",
+     "text": "We've pulled the Heritage Water. I'm selling lemonade now. It has no heritage whatsoever. Very refreshing."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Stallholder",
+     "text": "Heritage Water! Straight from the mythical spring of Sulis herself! Four pounds a bottle, or three for ten, which is a worse deal."
+    },
+    {
+     "do": "say",
+     "who": "Stallholder",
+     "text": "Every bottle comes with a certificate. And a lanyard. The lanyard is the product, between you and me."
+    },
+    {
+     "do": "choice",
+     "text": "Ask about the water?",
+     "options": [
+      "Where does it come from?",
+      "No thanks"
+     ],
+     "set": "heritage_ask"
+    },
+    {
+     "do": "if",
+     "flag": "heritage_ask",
+     "then": [
+      {
+       "do": "say",
+       "who": "Stallholder",
+       "text": "Well, it comes from a pipe. The pipe comes from the spring. The spring is the one in the Baths. Hot, green and mineral-y."
+      },
+      {
+       "do": "say",
+       "who": "Stallholder",
+       "text": "The Enclosure leased the overflow. 'Overflow' is doing a lot of work in that sentence."
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "You jot it down. The bottle is stamped: 'Sulis Minerva Heritage Water (tm). Do not drink. Do not return.'"
+      },
+      {
+       "do": "set",
+       "flag": "heritage_found"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Stallholder",
+       "text": "Your loss. It's mostly minerals. And, er, heritage."
+      }
+     ],
+     "eq": 0
+    }
+   ]
+  }
  ]
 }

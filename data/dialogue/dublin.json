@@ -27,9 +27,76 @@
  ],
  "kerrigan_launch": [
   {
-   "do": "say",
-   "who": "Director Kerrigan",
-   "text": "Placeholder: the story agent writes the Ireland's Ancient East Experience launch here."
+   "do": "if",
+   "flag": "ch6_launch",
+   "then": [
+    {
+     "do": "say",
+     "who": "Director Kerrigan",
+     "text": "The launch was a triumph. Eleven people stayed for the cake. Nobody stayed for the speech. Metrics are metrics."
+    },
+    {
+     "do": "say",
+     "who": "Director Kerrigan",
+     "text": "If you do come to Kilkenny, do bring the castle's measurements. I've been rounding up."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "",
+     "text": "A stage on the quays. A banner reads IRELAND'S ANCIENT EAST EXPERIENCE (tm), with a smaller line underneath: terms apply. A string quartet is playing something that is nearly a reel."
+    },
+    {
+     "do": "say",
+     "who": "Director Kerrigan",
+     "text": "Dia dhuit, Dublin! That's 'hello' for the visitors. It's in the brief. I'm told to say it with warmth."
+    },
+    {
+     "do": "say",
+     "who": "Director Kerrigan",
+     "text": "Ireland is a land of five thousand years of heritage. And now, at last, it comes with a booking system."
+    },
+    {
+     "do": "say",
+     "who": "Director Kerrigan",
+     "text": "Newgrange. Tara. Glendalough. Kilkenny Castle. Every stone, every ring fort, every holy well. Available in three tiers: Bronze, Silver and Ancient."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "A Warden hands you a lanyard. It says GUEST on it, with a small barcode and a smaller smiley face."
+    },
+    {
+     "do": "say",
+     "who": "Director Kerrigan",
+     "text": "The Wardstone will keep the stones quiet and presentable. No humming during the tour. No ghosts, unless pre-booked."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Her eyes land on you and narrow, like a woman checking a spreadsheet."
+    },
+    {
+     "do": "say",
+     "who": "Director Kerrigan",
+     "text": "Oh. You. The unlicensed walker, from the incident reports. You're taller than the file said."
+    },
+    {
+     "do": "say",
+     "who": "Director Kerrigan",
+     "text": "I won't fight you here. It's a launch. There's cake. Go and enjoy Dublin. Kilkenny, if you must. The castle would make a lovely Members' Lounge."
+    },
+    {
+     "do": "say",
+     "who": "Director Kerrigan",
+     "text": "Sl\u00e1n abhaile. That's 'safe home', and I mean it. In a purely contractual sense."
+    },
+    {
+     "do": "set",
+     "flag": "ch6_launch"
+    }
+   ]
   }
  ],
  "bridge_busker": [
@@ -97,6 +164,30 @@
    "do": "say",
    "who": "Fawnlet",
    "text": "It looks at you with the calm of a deer that has seen several hundred tourists today. You are the nicest of them."
+  }
+ ],
+ "gate_dublin_south": [
+  {
+   "do": "say",
+   "who": "Warden",
+   "text": "Roadworks. The M11 is being resurfaced with a heritage-compliant finish. It's very fancy tarmac."
+  },
+  {
+   "do": "say",
+   "who": "Warden",
+   "text": "Declan at the hurling hall says he'll sort the permits, if you win him over. Everyone in Dublin knows Declan."
+  }
+ ],
+ "gate_dublin_north": [
+  {
+   "do": "say",
+   "who": "Warden",
+   "text": "North road's closed for the Ancient East launch. The sign says 'Experience in progress'."
+  },
+  {
+   "do": "say",
+   "who": "Warden",
+   "text": "Try the long way round, via the west. You may find the closure lifts by the time you get there."
   }
  ]
 }
