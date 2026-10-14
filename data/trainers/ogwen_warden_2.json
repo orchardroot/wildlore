@@ -1,0 +1,36 @@
+{
+ "id": "ogwen_warden_2",
+ "name": "Warden Pimm",
+ "class": "Warden",
+ "sprite": "warden_grunt",
+ "party": [
+  {
+   "species": "slatelet",
+   "level": 27
+  },
+  {
+   "species": "prismite",
+   "level": 28
+  },
+  {
+   "species": "gritling",
+   "level": 27
+  }
+ ],
+ "ai": "trainer",
+ "money": 392,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Warden Pimm",
+   "text": "This path is a Heritage Experience. It costs eight pounds and a smile."
+  },
+  {
+   "do": "say",
+   "who": "Warden Pimm",
+   "text": "I'll accept the smile after a battle."
+  }
+ ],
+ "win": "A smile was in the price, I'm afraid. That one was more of a grimace.",
+ "after": "The goat has refused to be curated. We're negotiating."
+}

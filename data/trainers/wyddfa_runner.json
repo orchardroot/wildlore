@@ -1,0 +1,36 @@
+{
+ "id": "wyddfa_runner",
+ "name": "Fell Runner Osian",
+ "class": "Fell Runner",
+ "sprite": "jogger",
+ "party": [
+  {
+   "species": "snowhare",
+   "level": 29
+  },
+  {
+   "species": "roachroo",
+   "level": 29
+  },
+  {
+   "species": "tapknock",
+   "level": 30
+  }
+ ],
+ "ai": "trainer",
+ "money": 420,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Fell Runner Osian",
+   "text": "I run the Snowdon Race every year. Downhill's the hard bit. Knees. Ask the knees."
+  },
+  {
+   "do": "say",
+   "who": "Fell Runner Osian",
+   "text": "Let's see if you can keep pace."
+  }
+ ],
+ "win": "You win. I'll go and cry quietly in a sheep field.",
+ "after": "Seven miles and six hundred metres of climb. Casual."
+}

@@ -1,0 +1,119 @@
+{
+ "id": "dinas_emrys",
+ "name": "Dinas Emrys Cave",
+ "region": "north_wales",
+ "kind": "interior",
+ "music": "legend",
+ "weather": {},
+ "props": [
+  {
+   "type": "standing_stone",
+   "x": 6,
+   "y": 4,
+   "variant": 0
+  },
+  {
+   "type": "standing_stone",
+   "x": 15,
+   "y": 4,
+   "variant": 1
+  },
+  {
+   "type": "standing_stone",
+   "x": 6,
+   "y": 11,
+   "variant": 2
+  },
+  {
+   "type": "standing_stone",
+   "x": 15,
+   "y": 11,
+   "variant": 0
+  },
+  {
+   "type": "standing_stone",
+   "x": 10,
+   "y": 13,
+   "variant": 1
+  },
+  {
+   "type": "standing_stone",
+   "x": 12,
+   "y": 13,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 5,
+   "y": 8
+  },
+  {
+   "type": "rock",
+   "x": 16,
+   "y": 8,
+   "variant": 1
+  }
+ ],
+ "warps": [
+  {
+   "x": 10,
+   "y": 16,
+   "to": "yr_wyddfa",
+   "tx": 36,
+   "ty": 10,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "ddraig_spot",
+   "sprite": "villager_1",
+   "x": 10,
+   "y": 4,
+   "facing": "down",
+   "move": "still",
+   "script": "ddraig",
+   "name": "???"
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "x": 11,
+   "y": 14,
+   "text": "DINAS EMRYS. Vortigern's tower kept falling down, because two dragons slept under it. Red and white. The red won. It's on the flag."
+  }
+ ],
+ "spawn": [
+  10,
+  14
+ ],
+ "stage": "cave",
+ "rows": [
+  "xxxxxxxxxxxxxxxxxxxxxx",
+  "xRRRRRRRRRRRRRRRRRRRRx",
+  "xRRRRRRRRcccRRRRRRRRRx",
+  "xRRRRRccccccccccRRRRRx",
+  "xRRRRRccccccccccRRRRRx",
+  "xRRRRRcwwwwwwwwcRRRRRx",
+  "xRRRRRcw~~~~~~wcRRRRRx",
+  "xRRRcccw~~~~~~wcccRRRx",
+  "xRRRcccw~~~~~~wcccRRRx",
+  "xRRRcccw~~~~~~wcccRRRx",
+  "xRRRcccwwwwwwwwcccRRRx",
+  "xRRRccccccccccccccRRRx",
+  "xRRRRRccccccccccRRRRRx",
+  "xRRRRRccccccccccRRRRRx",
+  "xRRRRRccccccccccRRRRRx",
+  "xRRRRRRRcccccRRRRRRRRx",
+  "xcccccccccDccccccccccx",
+  "xxxxxxxxxxxxxxxxxxxxxx"
+ ],
+ "legend_extra": {
+  "c": {
+   "tile": "floor_tile",
+   "colour": "#6a6572"
+  }
+ }
+}
