@@ -74,6 +74,10 @@ func _input_dir() -> String:
 	return ""
 
 ## Attempts one step. Returns false (and bumps) if blocked.
+## A ledge hop: straight line from start to dest with a small arc on top (no drift).
+static func hop_pos(start: Vector3, dest: Vector3, t: float) -> Vector3:
+	return start.lerp(dest, t) + Vector3(0, sin(t * PI) * 0.35, 0)
+
 func try_step(dir: String, running := false) -> bool:
 	face(dir)
 	var target := GridMotion.step(grid_pos, dir)
@@ -93,7 +97,8 @@ func try_step(dir: String, running := false) -> bool:
 	if verdict == "ledge":
 		target = target + GridMotion.dir_vec(dir)
 		dest = Vector3(target.x + 0.5, overworld.ground_y(target), target.y + 0.5)
-		tw.tween_method(func(t: float): position = position.lerp(dest, t) + Vector3(0, sin(t * PI) * 0.06, 0), 0.0, 1.0, 0.35)
+		var start := position
+		tw.tween_method(func(t: float): position = Player.hop_pos(start, dest, t), 0.0, 1.0, 0.35)
 	else:
 		tw.tween_property(self, "position", dest, 1.0 / speed)
 	await tw.finished

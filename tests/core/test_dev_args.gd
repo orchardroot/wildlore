@@ -20,3 +20,10 @@ func test_dev_args_defaults() -> void:
 	assert_eq(a.boot_zone, "")
 	assert_eq(a.clock, -1)
 	assert_false(a.fps)
+
+func test_dev_args_ignored_in_release() -> void:
+	var a := DevArgs.parse(PackedStringArray(["--boot=testbed@4,6", "--playtest=slice", "--shot=x.png"]), false)
+	assert_eq(a.boot_zone, "")
+	assert_eq(a.playtest, "")
+	assert_eq(a.shot, "")
+	assert_eq(DevArgs.user_args(false).size(), 0)

@@ -62,3 +62,10 @@ func test_heal_party_restores_hp_pp_status() -> void:
 	assert_eq(a.hp, a.max_hp())
 	assert_eq(a.status, "")
 	assert_eq(a.moves[0].pp, a.moves[0].max_pp)
+
+func test_default_last_sanctuary_is_not_origin() -> void:
+	var d := GameStateData.new()
+	assert_false(d.last_sanctuary.pos == [0, 0])
+	var s := GameStateData.from_dict({"last_sanctuary": {}}, Dex.load_default())
+	assert_eq(str(s.last_sanctuary.zone), "macclesfield")
+	assert_false(s.last_sanctuary.pos == [0, 0])

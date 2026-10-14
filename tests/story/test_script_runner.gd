@@ -168,3 +168,12 @@ func test_starter_gives_the_chosen_creature() -> void:
 	assert_eq(h.data.party[0].species.id, "holtling")
 	assert_eq(h.data.party[0].level, 5)
 	assert_true(h.data.caught.has("holtling"))
+
+func test_whiteout_command() -> void:
+	var h := FakeStoryHost.new()
+	h.data.money = 10
+	h.data.last_sanctuary = {"zone": "buxton", "pos": [5, 6]}
+	await _cmds(h).run([{"do": "whiteout"}, {"do": "say", "text": "after"}])
+	assert_eq(h.warps, [["buxton", 5, 6, "down"]])
+	assert_eq(h.data.money, 5)
+	assert_false("after" in h.texts(), "whiteout ends the script")

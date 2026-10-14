@@ -22,8 +22,8 @@ var _dev_catch := false  # --battle-catch: in auto mode, throw snares instead of
 var _dev_menu := ""  # --battle-menu=fight|bag|team opens that menu straight away (screenshots)
 
 func _ready() -> void:
-	auto = "--battle-auto" in OS.get_cmdline_user_args()
-	for a in OS.get_cmdline_user_args():
+	auto = "--battle-auto" in DevArgs.user_args()
+	for a in DevArgs.user_args():
 		if a == "--battle-catch":
 			_dev_catch = true
 		if a.begins_with("--stage="):

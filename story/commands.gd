@@ -103,6 +103,9 @@ func _exec(c: Dictionary) -> void:
 			await host.sfx("badge")
 		"end":
 			_ended = true
+		"whiteout":
+			await whiteout()
+			_ended = true
 		_:
 			push_warning("Commands: unknown command '%s'" % c.get("do", ""))
 

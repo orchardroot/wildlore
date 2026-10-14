@@ -84,6 +84,11 @@ func battle(foe_party: Array, opts: Dictionary) -> Dictionary:
 		overworld.process_mode = Node.PROCESS_MODE_INHERIT
 		if overworld.has_method("on_battle_finished"):
 			overworld.on_battle_finished(result)
+	if str(result.get("result", "")) == "lose" and overworld and is_instance_valid(overworld):
+		# a loss is always followed by a whiteout warp: stay dark and busy so the screen doesn't flash the
+		# battle spot before fading back out (goto_zone fades in and clears busy)
+		Bus.battle_ended.emit(result)
+		return result
 	await fade_in(0.3)
 	busy = false
 	Bus.battle_ended.emit(result)

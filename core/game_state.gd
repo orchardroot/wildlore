@@ -17,7 +17,7 @@ func _ready() -> void:
 	chart = TypeChart.load_default()
 	if ResourceLoader.exists("res://data_api/item_db.gd"):
 		items = load("res://data_api/item_db.gd").load_default()
-	args = DevArgs.parse(OS.get_cmdline_user_args())
+	args = DevArgs.parse(DevArgs.user_args())
 	var seed_value: int = args.seed if args.seed >= 0 else int(Time.get_unix_time_from_system())
 	rng = Rng.new(seed_value)
 	data.rng_seed = seed_value
@@ -79,7 +79,7 @@ func _dev_boot() -> void:
 		return
 	if args.shot != "":
 		_take_shot()
-	var dev_menu := DevMenu.arg(OS.get_cmdline_user_args())
+	var dev_menu := DevMenu.arg(DevArgs.user_args())
 	if dev_menu != "":
 		DevMenu.boot(self, dev_menu)  # --menu=<name>[:arg], see ui/dev_menu.gd
 	elif args.battle_species != "":

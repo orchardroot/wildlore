@@ -186,7 +186,7 @@ func _bubble() -> void:
 
 ## Dev switch: `-- --talk=<npc_id>` runs that NPC's conversation as soon as the zone is ready.
 func _dev_talk() -> void:
-	if _dev_talk_done or "--talk=" + str(def.get("id", "")) not in OS.get_cmdline_user_args():
+	if _dev_talk_done or "--talk=" + str(def.get("id", "")) not in DevArgs.user_args():
 		return
 	_dev_talk_done = true
 	await get_tree().create_timer(0.4).timeout

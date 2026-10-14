@@ -2,7 +2,13 @@ class_name DevArgs
 extends RefCounted
 ## Developer command-line switches, passed after `--`. Used for screenshots, quick boots and the playtest bot.
 
-static func parse(args: PackedStringArray) -> Dictionary:
+## The user args after `--`, or none at all in a release build (players never get dev switches).
+static func user_args(is_debug := OS.is_debug_build()) -> PackedStringArray:
+	return OS.get_cmdline_user_args() if is_debug else PackedStringArray()
+
+static func parse(args: PackedStringArray, is_debug := OS.is_debug_build()) -> Dictionary:
+	if not is_debug:
+		args = PackedStringArray()
 	var out := {"shot": "", "shot_delay": 2.0, "boot_zone": "", "boot_pos": Vector2i(-1, -1),
 		"battle_species": "", "battle_level": 5, "seed": -1, "clock": -1, "weather": "", "fps": false, "playtest": "", "seconds": 0}
 	for a in args:

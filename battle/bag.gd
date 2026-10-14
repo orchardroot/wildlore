@@ -10,9 +10,15 @@ func _init(items: Dictionary) -> void:
 func count(id: String) -> int:
 	return int(store.get(id, 0))
 
-func add(id: String, n := 1) -> void:
-	if n > 0:
-		store[id] = count(id) + n
+const MAX_STACK := 99
+
+## Adds up to n, never past MAX_STACK. Returns how many were actually added.
+func add(id: String, n := 1) -> int:
+	var room := maxi(0, MAX_STACK - count(id))
+	var added := clampi(n, 0, room)
+	if added > 0:
+		store[id] = count(id) + added
+	return added
 
 func remove(id: String, n := 1) -> bool:
 	if n < 1 or count(id) < n:

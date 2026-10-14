@@ -41,12 +41,17 @@ func _ready() -> void:
 
 func _apply_quality() -> void:
 	_tilt.visible = Settings.quality != "low"
+	sky.apply_quality(Settings.quality)
+	get_viewport().msaa_3d = Viewport.MSAA_2X if Settings.quality == "high" else Viewport.MSAA_DISABLED
 
 ## pos (-1, -1) means the zone's spawn point.
 func load_zone(zone_id: String, pos: Vector2i, facing: String) -> void:
 	if not Game.zone_exists(zone_id):
-		push_error("Overworld: no zone '%s'" % zone_id)
-		zone_id = "testbed"
+		# a save from a zone that no longer exists: back to the last Sanctuary (or Macclesfield)
+		push_warning("Overworld: no zone '%s', going to the last Sanctuary" % zone_id)
+		var ls: Dictionary = Game.data.last_sanctuary
+		zone_id = str(ls.zone) if Game.zone_exists(str(ls.zone)) else "macclesfield"
+		pos = Vector2i(int(ls.pos[0]), int(ls.pos[1])) if zone_id == str(ls.zone) else Vector2i(-1, -1)
 	zone = ZoneData.load_id(zone_id)
 	if _zone_node:
 		_zone_node.queue_free()
@@ -168,16 +173,7 @@ func on_battle_finished(result: Dictionary) -> void:
 
 func _after_battle(result: Dictionary) -> void:
 	if result.get("result") == "lose":
-		await whiteout()
-
-## Lost a battle: back to the last Sanctuary, healed, a bit poorer.
-func whiteout() -> void:
-	Game.data.money = Game.data.money / 2
-	Game.data.heal_party()
-	var ls: Dictionary = Game.data.last_sanctuary
-	var pos := Vector2i(int(ls.pos[0]), int(ls.pos[1]))
-	await Router.goto_zone(str(ls.zone), pos, "down")
-	await say(["You hurry back to safety, a little dazed.", "Your team is patched up and ready to go again."])
+		await ScriptRunner.start(self, [{"do": "whiteout"}])  # one whiteout, shared with trainer battles
 
 func interact(p: Vector2i) -> void:
 	var s := zone.sign_at(p)
