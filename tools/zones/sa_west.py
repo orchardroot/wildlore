@@ -148,8 +148,8 @@ def dartmoor(OUT):
     rr = random.Random(21)
     for (x, y, w, h) in [(3, 3, 10, 8), (3, 30, 8, 8), (32, 3, 10, 6), (33, 24, 10, 7), (60, 4, 8, 8), (55, 22, 10, 6), (22, 5, 5, 8), (40, 16, 7, 5), (23, 22, 7, 5)]:
         z.rect(x, y, w, h, "h")
-    for (x, y, w, h) in [(4, 14, 6, 4), (36, 28, 6, 5), (24, 12, 6, 3), (46, 26, 8, 5), (62, 36, 6, 6)]:
-        z.rect(x, y, w, h, "g")
+    for (x, y, w, h) in [(4, 14, 6, 4), (36, 28, 6, 5), (32, 12, 5, 4), (46, 26, 8, 5), (62, 36, 6, 6), (24, 12, 3, 3)]:
+        z.rect(x, y, w, h, "h")
     for (x, y, w, h) in [(5, 38, 10, 5), (44, 38, 8, 5), (62, 14, 6, 5), (37, 10, 4, 4)]:
         z.rect(x, y, w, h, "m")
     # East Dart stream (north-south) with fords and the clapper bridge on the path
@@ -191,7 +191,7 @@ def dartmoor(OUT):
         z.set(x, y, "k")
     z.sign(30, 38, "WISTMAN'S WOOD. Tiny twisted oaks wrapped in moss, growing between boulders. Said to be the haunt of the Wild Hunt. Ghostly hounds, bad weather and a sense of humour.")
     scatter_props(z, "bush", 3, 3, 64, 40, 16, 5, avoid=("k", "h"))
-    scatter_props(z, "rock", 3, 3, 64, 40, 20, 6, avoid=("k", "h"))
+    scatter_props(z, "rock", 3, 3, 64, 40, 34, 6, avoid=("k", "h"))
     # granite props on the tors
     for (cx, cy, hm, r) in tors:
         z.prop("rock", cx + 1, cy, variant=1)
@@ -199,7 +199,7 @@ def dartmoor(OUT):
     z.sign(27, 8, "DARTMOOR NATIONAL PARK. 954 square km of open moor, the largest wild stretch in southern England. Sheep, ponies, tors and weather. The weather is the star.")
     z.sign(1, 19, "BODMIN MOOR AND TINTAGEL, WEST. Mind the fog. There's a rumour of a big cat. There's definitely a big sheep.")
     # ponies
-    for (x, y) in [(10, 25), (22, 28), (34, 18), (42, 30), (60, 28)]:
+    for (x, y) in [(10, 25), (22, 28), (34, 18), (42, 30), (60, 28), (33, 6), (25, 9), (32, 15)]:
         z.npc(id="pony_%d" % x, sprite="creature:foalmoor", x=x, y=y, facing="down", move="wander", script="pony")
     script("dartmoor", "pony", say("Dartmoor Pony", "It eyes your pockets, then your face. It has decided there are no apples. It looks very let down."))
     # NPCs and story

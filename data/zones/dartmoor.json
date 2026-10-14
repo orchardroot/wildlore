@@ -111,15 +111,15 @@
   },
   {
    "type": "bush",
-   "x": 36,
-   "y": 7,
+   "x": 24,
+   "y": 12,
    "variant": 1
   },
   {
    "type": "bush",
-   "x": 41,
-   "y": 41,
-   "variant": 2
+   "x": 11,
+   "y": 24,
+   "variant": 1
   },
   {
    "type": "bush",
@@ -213,8 +213,14 @@
   },
   {
    "type": "rock",
-   "x": 24,
-   "y": 4,
+   "x": 4,
+   "y": 15,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 5,
+   "y": 24,
    "variant": 2
   },
   {
@@ -245,6 +251,84 @@
    "type": "rock",
    "x": 53,
    "y": 9,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 34,
+   "y": 8,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 60,
+   "y": 31,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 12,
+   "y": 36,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 63,
+   "y": 22,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 55,
+   "y": 8,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 37,
+   "y": 31,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 25,
+   "y": 4,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 18,
+   "y": 19,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 35,
+   "y": 35,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 45,
+   "y": 36,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 55,
+   "y": 29,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 65,
+   "y": 20,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 63,
+   "y": 33,
    "variant": 1
   },
   {
@@ -335,6 +419,33 @@
    "sprite": "creature:foalmoor",
    "x": 60,
    "y": 28,
+   "facing": "down",
+   "move": "wander",
+   "script": "pony"
+  },
+  {
+   "id": "pony_33",
+   "sprite": "creature:foalmoor",
+   "x": 33,
+   "y": 6,
+   "facing": "down",
+   "move": "wander",
+   "script": "pony"
+  },
+  {
+   "id": "pony_25",
+   "sprite": "creature:foalmoor",
+   "x": 25,
+   "y": 9,
+   "facing": "down",
+   "move": "wander",
+   "script": "pony"
+  },
+  {
+   "id": "pony_32",
+   "sprite": "creature:foalmoor",
+   "x": 32,
+   "y": 15,
    "facing": "down",
    "move": "wander",
    "script": "pony"
@@ -641,12 +752,12 @@
   "RRkhhhhhhhhhhkwwwkkkkkhhhhhk###kkkkkkkkkkkkkkkkRRRRkkkkkkkkkhhhhhhhhRR",
   "RRkhhhhhhhhhhk~~~kkkkkhhhhhk###################RhhkRkkkkkkkkhhhhhhhhRR",
   "RRkkkkkkkkkkkk~~~kkkkkhhhhhk##################R#kRkkRkkkkkkkhhhhhhhhRR",
-  "RRkkkkkkkkkkkk~~~kkkkkhhgggg###kkkkkkmmmmkkkkkRR#kRRRRkkkkkkkkkkkkkkRR",
-  "RRkkkkkkkkkkkk~~~kkkkkkkgggg###kkkkkkmmmmkkkkkRkkRkRkRkkkkkkkkkkkkkkRR",
-  "RRkkggggggkkkk~~~kkkkkkkgggg###kkkkkkkkkkkkkkkRk#kRkRkkkkkkkkkmmmmmmRR",
-  "RRkkggggggkkkk~~~kkkkkkkkkkk###kkkkkkkkkkkkkkkkRkRRRkkkkkkkkkkmmmmmmRR",
-  "RRkkggggggkkkk~~~kkkkkkkkkkk###kkkkkkkkkhhhhhhhkkkkkkkkkkkkkkkmmmmmmRR",
-  "RRkkggggggkkkk~~~kkkkkkkkkkk###kkkkkkkkkhhhhhhhkkkkkkkkkkkWkWkmmmmmmRR",
+  "RRkkkkkkkkkkkk~~~kkkkkhhhhhk###khhhhhmmmmkkkkkRR#kRRRRkkkkkkkkkkkkkkRR",
+  "RRkkkkkkkkkkkk~~~kkkkkkkhhhk###khhhhhmmmmkkkkkRkkRkRkRkkkkkkkkkkkkkkRR",
+  "RRkkhhhhhhkkkk~~~kkkkkkkhhhk###khhhhhkkkkkkkkkRk#kRkRkkkkkkkkkmmmmmmRR",
+  "RRkkhhhhhhkkkk~~~kkkkkkkkkkk###khhhhhkkkkkkkkkkRkRRRkkkkkkkkkkmmmmmmRR",
+  "RRkkhhhhhhkkkk~~~kkkkkkkkkkk###kkkkkkkkkhhhhhhhkkkkkkkkkkkkkkkmmmmmmRR",
+  "RRkkhhhhhhkkkk~~~kkkkkkkkkkk###kkkkkkkkkhhhhhhhkkkkkkkkkkkWkWkmmmmmmRR",
   "RRkkkkkkkkkkkk~~kkkkkkkkkkkk###kkkkkkkkkhhhhhhhkkkkkkkWkWkWWWkmmmmmmRR",
   "RRkkkkkkkkkkkk~~~kkkkkkkkkkk###kkkkkkkkkhhhhhhhkkkkkkkWWWkkkkkkkkkkkRR",
   "##############:::##############kkkkkkkkkhhhhhhhkkkkkkkkkkkkkkkkkkkkkRR",
@@ -655,22 +766,22 @@
   "RRkkkkkkkkkkkk~~~kkkkkkhhhhhh#kkkkkkkkkkkkkkkk#kkkkkkkkhWWWhkWhhhkkkRR",
   "RRkkkkkkkkkkkk~~~kkkkkkhhhhhh#kkkhhhhhhhhhhkkk#kkkkkkkkhhhhhhhhhhkkkRR",
   "RRkkkkkkkkkkkk~~~kkkkkkhhhhhh#kkkhhhhhhhhhhkkk#kkkkkkkkhhhhhhhhhhkkkRR",
-  "RRkkkkkkkkkkkk~~~kkkkkkhhhhhh#kkkhhhhhhhhhhkkk#gggggggkhhhhhhhhhhkkkRR",
-  "RRkkkkkkkkkkkk~~~kkkkkkkkkkkk#kkkhhhhhhhhhhkkk#gggggggkhhhhhhhhhhkkkRR",
-  "RRkkkkkkkkkkkk~~~kkkkkkkkkkkk#kkkhhhgggggghkkk#gggggggkkkkkkkkkkkkkkRR",
-  "RRkkkkkkkkkkkk~~~kkkkkkkkkkkk#kkkhhhgggggghkkk#gggggggkkkkkkkkkkkkkkRR",
-  "RRkhhhhhhhhkkk~~~kkkkkkkkkkkk#kkkhhhgggggghkkk#gggggggkkkkkkkkkkkkkkRR",
-  "RRkhhhhhhhhkkk~~~kkkkkkkkkkkk#kkkkkkggggggkkkk#kkkkkkkkkkkkkkkkkkkkkRR",
-  "RRkhhhhhhhhkkk~~~kkRkkkkkkkkk#kkkkkkggggggkkkk#kkkkkkkkkkRkkkkkkkkkkRR",
+  "RRkkkkkkkkkkkk~~~kkkkkkhhhhhh#kkkhhhhhhhhhhkkk#hhhhhhhkhhhhhhhhhhkkkRR",
+  "RRkkkkkkkkkkkk~~~kkkkkkkkkkkk#kkkhhhhhhhhhhkkk#hhhhhhhkhhhhhhhhhhkkkRR",
+  "RRkkkkkkkkkkkk~~~kkkkkkkkkkkk#kkkhhhhhhhhhhkkk#hhhhhhhkkkkkkkkkkkkkkRR",
+  "RRkkkkkkkkkkkk~~~kkkkkkkkkkkk#kkkhhhhhhhhhhkkk#hhhhhhhkkkkkkkkkkkkkkRR",
+  "RRkhhhhhhhhkkk~~~kkkkkkkkkkkk#kkkhhhhhhhhhhkkk#hhhhhhhkkkkkkkkkkkkkkRR",
+  "RRkhhhhhhhhkkk~~~kkkkkkkkkkkk#kkkkkkhhhhhhkkkk#kkkkkkkkkkkkkkkkkkkkkRR",
+  "RRkhhhhhhhhkkk~~~kkRkkkkkkkkk#kkkkkkhhhhhhkkkk#kkkkkkkkkkRkkkkkkkkkkRR",
   "RRkhhhhhhhhkkk~~~RkkRkkkkkkkk#kkkkkkkkkkkkkkkk#########kkkkkkkkkkkkkRR",
   "RRkhhhhhhhhkkk~~~RkkRkkkkkkkk#kkkkkkkkkkkkkkkkkkkkkkkkkkkRRkkkkkkkkkRR",
   "RRkhhhhhhhhkkkwwwkkkkkkkkkkkk#kkkkkkkkkkkkkkkkkkkkkkkkkkRkRkkkkkkkkkRR",
-  "RRkhhhhhhhhkkk~~~Rkkkkkkkkkkk#kkkkkkkkkkkkkkkkkkkkkkkkkRkkRRkkggggggRR",
-  "RRkhhhhhhhhkkk~~~kkkkkkkkTkkk#kkkkkkkkkkkkkkkkkkkkkkkkkkkkkRkkggggggRR",
-  "RRkkkmmmmmmmmm~~~kkkkkTTTkTTk#kkkkkRkkRkkkkkmmmmmmmmkkkkkkkkkkggggggRR",
-  "RRkkkmmmmmmmmm~~~kkkkkTkTTTkT#kkkkkkkRRRkkkkmmmmmmmmkkkkkkkkkkggggggRR",
-  "RRkkkmmmmmmmmm~~~kkkkkTkkkTTk########kkRkkkkmmmmmmmmkkkkkkkkkkggggggRR",
-  "RRkkkmmmmmmmmm~~~kkkkkkTkkkkkkkkkkkkkkkkkkkkmmmmmmmmkkkkkkkkkkggggggRR",
+  "RRkhhhhhhhhkkk~~~Rkkkkkkkkkkk#kkkkkkkkkkkkkkkkkkkkkkkkkRkkRRkkhhhhhhRR",
+  "RRkhhhhhhhhkkk~~~kkkkkkkkTkkk#kkkkkkkkkkkkkkkkkkkkkkkkkkkkkRkkhhhhhhRR",
+  "RRkkkmmmmmmmmm~~~kkkkkTTTkTTk#kkkkkRkkRkkkkkmmmmmmmmkkkkkkkkkkhhhhhhRR",
+  "RRkkkmmmmmmmmm~~~kkkkkTkTTTkT#kkkkkkkRRRkkkkmmmmmmmmkkkkkkkkkkhhhhhhRR",
+  "RRkkkmmmmmmmmm~~~kkkkkTkkkTTk########kkRkkkkmmmmmmmmkkkkkkkkkkhhhhhhRR",
+  "RRkkkmmmmmmmmm~~~kkkkkkTkkkkkkkkkkkkkkkkkkkkmmmmmmmmkkkkkkkkkkhhhhhhRR",
   "RRkkkmmmmmmmmm~~~kkkkkkkTTkkTkkkkkkkkkkkkkkkmmmmmmmmkkkkkkkkkkkkkkkkRR",
   "RRkkkkkkkkkkkk~~~kkkkkkkkkkkkkkkkkkRkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkRR",
   "RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR",
