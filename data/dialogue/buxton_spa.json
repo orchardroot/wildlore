@@ -1,0 +1,113 @@
+{
+ "maud": [
+  {
+   "do": "if",
+   "flag": "trainer_keeper_maud",
+   "then": [
+    {
+     "do": "say",
+     "who": "Keeper Maud",
+     "text": "Come back any time. The pools are free. The towels are not."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Keeper Maud",
+     "text": "Welcome to the Buxton spa, {player}. Water's twenty-eight degrees, all year."
+    },
+    {
+     "do": "say",
+     "who": "Keeper Maud",
+     "text": "I'm Maud, Keeper of the Brook Stone. I've held it since before the Crescent was a plan."
+    },
+    {
+     "do": "say",
+     "who": "Keeper Maud",
+     "text": "Brook creatures are patient, you see. They wear down anything. Mountains, even."
+    },
+    {
+     "do": "say",
+     "who": "Keeper Maud",
+     "text": "Let's see what you and yours can do, shall we? Swimming costumes optional."
+    },
+    {
+     "do": "battle",
+     "trainer": "keeper_maud"
+    },
+    {
+     "do": "say",
+     "who": "Keeper Maud",
+     "text": "Here you are. The Brook Stone. It's smooth, because water is thorough."
+    },
+    {
+     "do": "say",
+     "who": "Keeper Maud",
+     "text": "Keep it by you. When the old legends wake, a Stone makes them listen."
+    },
+    {
+     "do": "say",
+     "who": "Keeper Maud",
+     "text": "There are more Stones out there, and more Keepers. Some are less polite than me."
+    },
+    {
+     "do": "badge",
+     "id": "brook"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "{player} received the Brook Stone!"
+    },
+    {
+     "do": "set",
+     "flag": "slice_complete"
+    },
+    {
+     "do": "sfx",
+     "id": "alert"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Your phone buzzes. It's Professor Garside, who still calls it 'the wireless'."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "{player}! A Stone already? Splendid. I heard from the stones themselves."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "Mostly, I heard it from Kit, who posted it nine times."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "Listen carefully. The stones at Arbor Low are humming. All of them. At once."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "That's the old circle up on the moor. Something is waking, and it isn't the Enclosure."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "Pack a flask. Do not feed anything that hums. I'll explain when you arrive."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "To be continued. Probably with a flask."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Thanks for playing the Wildlore slice."
+    }
+   ]
+  }
+ ]
+}

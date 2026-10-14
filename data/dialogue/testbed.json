@@ -1,0 +1,15 @@
+{
+	"tester_hello": [
+		{"do": "say", "who": "Tess", "text": "Hello, {player}. I am a test NPC. My whole career is standing near sand."},
+		{"do": "choice", "text": "Fancy a cup of tea?", "options": ["Go on then", "No, ta"], "set": "tester_tea"},
+		{"do": "if", "flag": "tester_tea", "eq": 0,
+			"then": [
+				{"do": "say", "who": "Tess", "text": "Lovely. Milk first, and I will not be taking questions."},
+				{"do": "give_item", "item": "cup_of_tea"}
+			],
+			"else": [
+				{"do": "say", "who": "Tess", "text": "Fair enough. More for me."}
+			]},
+		{"do": "say", "who": "Tess", "text": "Right, off you go. Mind the tall grass."}
+	]
+}

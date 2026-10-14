@@ -1,0 +1,110 @@
+extends Node
+## Autoload Router: fades between the title, zones, battles and menus. `busy` freezes the player while anything is happening.
+
+const TITLE := "res://ui/title.tscn"
+const OVERWORLD := "res://world/overworld.tscn"
+const BATTLE := "res://battle_ui/battle_scene.tscn"
+const MENUS := {
+	"pause": "res://ui/pause_menu.tscn", "party": "res://ui/party_screen.tscn", "bag": "res://ui/bag_screen.tscn",
+	"pedia": "res://ui/pedia_screen.tscn", "shop": "res://ui/shop_screen.tscn", "starter": "res://ui/starter_picker.tscn",
+	"settings": "res://ui/settings_screen.tscn",
+}
+
+var busy := false
+var overworld: Node = null
+var _fade: ColorRect
+var _menu_layer: CanvasLayer
+
+func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	var layer := CanvasLayer.new()
+	layer.layer = 100
+	add_child(layer)
+	_fade = ColorRect.new()
+	_fade.color = Color(0.03, 0.03, 0.05, 0.0)
+	_fade.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_fade.set_anchors_preset(Control.PRESET_FULL_RECT)
+	layer.add_child(_fade)
+	_menu_layer = CanvasLayer.new()
+	_menu_layer.layer = 50
+	add_child(_menu_layer)
+
+func fade_out(t := 0.3) -> void:
+	var tw := create_tween()
+	tw.tween_property(_fade, "color:a", 1.0, t)
+	await tw.finished
+
+func fade_in(t := 0.3) -> void:
+	var tw := create_tween()
+	tw.tween_property(_fade, "color:a", 0.0, t)
+	await tw.finished
+
+func goto_title() -> void:
+	busy = true
+	await fade_out()
+	overworld = null
+	Game.clock_running = false
+	get_tree().change_scene_to_file(TITLE)
+	await get_tree().process_frame
+	await fade_in()
+	busy = false
+
+## Enters a zone. pos (-1, -1) means the zone's spawn point.
+func goto_zone(zone_id: String, pos: Vector2i, facing := "down") -> void:
+	busy = true
+	await fade_out()
+	if overworld == null or not is_instance_valid(overworld):
+		get_tree().change_scene_to_file(OVERWORLD)
+		await get_tree().process_frame
+		await get_tree().process_frame
+		overworld = get_tree().current_scene
+	overworld.load_zone(zone_id, pos, facing)
+	Game.clock_running = true
+	Bus.zone_entered.emit(zone_id)
+	await fade_in()
+	busy = false
+
+## Runs a battle on top of the overworld and returns {"result": "win"|"lose"|"ran"|"caught", "caught": Creature}.
+func battle(foe_party: Array, opts: Dictionary) -> Dictionary:
+	busy = true
+	Bus.battle_started.emit(opts.get("kind", "wild"))
+	await fade_out(0.25)
+	var scene: Node = load(BATTLE).instantiate()
+	get_tree().root.add_child(scene)
+	if overworld and is_instance_valid(overworld):
+		overworld.visible = false
+		overworld.process_mode = Node.PROCESS_MODE_DISABLED
+	scene.setup(foe_party, opts)
+	await fade_in(0.25)
+	var result: Dictionary = await scene.finished
+	await fade_out(0.3)
+	scene.queue_free()
+	if overworld and is_instance_valid(overworld):
+		overworld.visible = true
+		overworld.process_mode = Node.PROCESS_MODE_INHERIT
+		if overworld.has_method("on_battle_finished"):
+			overworld.on_battle_finished(result)
+	await fade_in(0.3)
+	busy = false
+	Bus.battle_ended.emit(result)
+	return result
+
+## Opens a menu scene (name or "shop:<id>") and waits for its `closed(result)` signal.
+func open_menu(menu: String) -> Variant:
+	var parts := menu.split(":", true, 1)
+	var path: String = MENUS.get(parts[0], "")
+	if path == "" or not ResourceLoader.exists(path):
+		push_warning("Router: no menu '%s'" % menu)
+		return null
+	if Engine.has_meta("autopilot"):
+		return Engine.get_meta("autopilot").menu_result(menu)
+	var was_busy := busy
+	busy = true
+	var scene: Node = load(path).instantiate()
+	_menu_layer.add_child(scene)
+	if scene.has_method("setup"):
+		scene.setup(parts[1] if parts.size() > 1 else "")
+	var result = await scene.closed
+	scene.queue_free()
+	busy = was_busy
+	return result

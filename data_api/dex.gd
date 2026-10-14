@@ -8,8 +8,26 @@ var duplicates: Array = []
 var _species: Dictionary = {}
 var _order: Array = []
 
+const ORDER_PATH := "res://data/dex_order.json"
+
 static func load_default() -> Dex:
-	return load_dir(DEFAULT_DIR)
+	var dex := load_dir(DEFAULT_DIR)
+	if FileAccess.file_exists(ORDER_PATH):
+		var order = JsonUtil.read(ORDER_PATH)
+		if order is Array:
+			dex.apply_order(order)
+	return dex
+
+## Creaturepedia numbering: listed ids first in this order, anything unlisted after, in load order.
+func apply_order(order: Array) -> void:
+	var out := []
+	for id in order:
+		if _species.has(id) and id not in out:
+			out.append(id)
+	for id in _order:
+		if id not in out:
+			out.append(id)
+	_order = out
 
 static func load_dir(dir: String) -> Dex:
 	var all := []
@@ -35,9 +53,14 @@ static func normalise(sp: Dictionary) -> Dictionary:
 	out["catch_rate"] = int(sp.get("catch_rate", 0))
 	out["base_xp"] = int(sp.get("base_xp", 0))
 	var learnset := []
+	var malformed := 0
 	for entry in sp.get("learnset", []):
-		learnset.append([int(entry[0]), str(entry[1])])
+		if entry is Array and entry.size() == 2:
+			learnset.append([int(entry[0]), str(entry[1])])
+		else:
+			malformed += 1
 	out["learnset"] = learnset
+	out["malformed_learnset"] = malformed
 	var evo = sp.get("evolves")
 	if evo is Dictionary:
 		var e: Dictionary = evo.duplicate()

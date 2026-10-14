@@ -63,3 +63,10 @@ func test_training_goes_to_foes_best_stat_and_caps() -> void:
 	c.training = {"hp": 100, "atk": 100, "def": 100, "lore": 0, "ward": 0, "spd": 0}
 	Progression.add_training(c, Fixtures.dex().get_species("holtling"))
 	assert_eq(c.training.spd, 0)
+
+func test_fainted_creature_levels_but_stays_fainted() -> void:
+	var c := Fixtures.creature("kindlet", 10)
+	c.hp = 0
+	Progression.gain_xp(c, Rules.xp_for_level("medium", 12) - c.xp, Fixtures.moves())
+	assert_eq(c.level, 12)
+	assert_eq(c.hp, 0)

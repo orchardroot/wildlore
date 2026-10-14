@@ -75,3 +75,8 @@ func test_corrupt_main_is_not_rotated_over_good_backup() -> void:
 	_write_raw("slot1.json", "{not json")
 	assert_eq(int(SaveSystem.load_slot("slot1", dir).n), 1)
 	_wipe()
+
+func test_underscore_keys_are_not_persisted() -> void:
+	SaveSystem.save("slot1", {"n": 1, "_recovered": true}, dir)
+	assert_false(SaveSystem.load_slot("slot1", dir).has("_recovered"))
+	_wipe()

@@ -1,0 +1,32 @@
+{
+ "id": "priya",
+ "name": "Birdwatcher Priya",
+ "class": "Birdwatcher",
+ "sprite": "birdwatcher",
+ "party": [
+  {
+   "species": "pipkin",
+   "level": 4
+  },
+  {
+   "species": "hootlet",
+   "level": 5
+  }
+ ],
+ "ai": "trainer",
+ "money": 150,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Birdwatcher Priya",
+   "text": "Shh! You'll scare the herons."
+  },
+  {
+   "do": "say",
+   "who": "Birdwatcher Priya",
+   "text": "...Too late, they've gone. Now I have to take it out on you."
+  }
+ ],
+ "win": "Hm. That goes in the logbook under 'Unexpected'.",
+ "after": "A heron has just landed. It is looking at me like it knows something."
+}

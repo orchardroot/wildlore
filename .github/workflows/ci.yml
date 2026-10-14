@@ -13,3 +13,5 @@ jobs:
           key: godot-${{ hashFiles('tools/get_godot.sh') }}
       - name: Tests and data validation
         run: tools/test.sh
+      - name: Playtest the slice (headless bot)
+        run: tools/playtest.sh slice 2

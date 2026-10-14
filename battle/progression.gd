@@ -14,7 +14,8 @@ static func gain_xp(c: Creature, amount: int, move_db: MoveDB) -> Array:
 	while c.level < Rules.MAX_LEVEL and c.xp >= Rules.xp_for_level(c.species.growth, c.level + 1):
 		var old_max := c.max_hp()
 		c.level += 1
-		c.hp += c.max_hp() - old_max
+		if not c.is_fainted():
+			c.hp += c.max_hp() - old_max
 		ev.append({"type": "level_up", "level": c.level})
 		for id in moves_learned_at(c.species, c.level):
 			if c.has_move(id):
@@ -42,6 +43,13 @@ static func evolution_target(c: Creature) -> String:
 		return ""
 	if evo.has("level") and c.level >= int(evo.level):
 		return evo.to
+	return ""
+
+## Item evolutions ({"to", "item"}): the target if this item triggers one for this creature, else "".
+static func evolution_target_with_item(c: Creature, item_id: String) -> String:
+	var evo = c.species.get("evolves")
+	if evo is Dictionary and evo.has("item") and str(evo.item) == item_id:
+		return str(evo.to)
 	return ""
 
 static func evolve(c: Creature, new_sp: Dictionary) -> void:

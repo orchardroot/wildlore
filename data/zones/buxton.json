@@ -1,0 +1,360 @@
+{
+ "id": "buxton",
+ "name": "Buxton",
+ "region": "peak",
+ "kind": "town",
+ "music": "town_cheshire",
+ "weather": {
+  "drizzle": 40,
+  "clear": 35,
+  "fog": 10,
+  "sunshine": 15
+ },
+ "props": [
+  {
+   "type": "building",
+   "style": "stone",
+   "x": 12,
+   "y": 6,
+   "w": 16,
+   "h": 4,
+   "label": "The Crescent"
+  },
+  {
+   "type": "building",
+   "style": "stone",
+   "x": 30,
+   "y": 8,
+   "w": 3,
+   "h": 2,
+   "label": "St Ann's Well"
+  },
+  {
+   "type": "oak",
+   "x": 5,
+   "y": 26,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 8,
+   "y": 34,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 24,
+   "y": 32,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 27,
+   "y": 34,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 21,
+   "y": 26,
+   "variant": 2
+  },
+  {
+   "type": "bench",
+   "x": 15,
+   "y": 26
+  },
+  {
+   "type": "bench",
+   "x": 24,
+   "y": 26
+  },
+  {
+   "type": "building",
+   "style": "sanctuary",
+   "x": 34,
+   "y": 13,
+   "w": 6,
+   "h": 4,
+   "label": "Sanctuary"
+  },
+  {
+   "type": "building",
+   "style": "shop",
+   "x": 41,
+   "y": 14,
+   "w": 5,
+   "h": 3,
+   "label": "Corner Shop"
+  },
+  {
+   "type": "building",
+   "style": "cream_render",
+   "x": 32,
+   "y": 26,
+   "w": 10,
+   "h": 5,
+   "label": "Buxton Spa"
+  },
+  {
+   "type": "building",
+   "style": "stone",
+   "x": 4,
+   "y": 13,
+   "w": 5,
+   "h": 3,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "stone",
+   "x": 4,
+   "y": 7,
+   "w": 5,
+   "h": 3,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "stone",
+   "x": 44,
+   "y": 26,
+   "w": 5,
+   "h": 4,
+   "label": "Opera House"
+  },
+  {
+   "type": "lamp_post",
+   "x": 8,
+   "y": 19
+  },
+  {
+   "type": "lamp_post",
+   "x": 16,
+   "y": 19
+  },
+  {
+   "type": "lamp_post",
+   "x": 24,
+   "y": 19
+  },
+  {
+   "type": "lamp_post",
+   "x": 32,
+   "y": 19
+  },
+  {
+   "type": "lamp_post",
+   "x": 40,
+   "y": 19
+  },
+  {
+   "type": "planter",
+   "x": 30,
+   "y": 12
+  },
+  {
+   "type": "phone_box",
+   "x": 33,
+   "y": 18
+  },
+  {
+   "type": "post_box",
+   "x": 40,
+   "y": 18
+  },
+  {
+   "type": "building",
+   "style": "red_brick",
+   "x": 41,
+   "y": 3,
+   "w": 6,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "cream_render",
+   "x": 34,
+   "y": 3,
+   "w": 5,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "market_stall",
+   "x": 22,
+   "y": 19,
+   "variant": 1
+  },
+  {
+   "type": "bench",
+   "x": 12,
+   "y": 19
+  }
+ ],
+ "warps": [
+  {
+   "x": 37,
+   "y": 16,
+   "to": "buxton_sanctuary",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 43,
+   "y": 16,
+   "to": "buxton_shop",
+   "tx": 4,
+   "ty": 5,
+   "facing": "up"
+  },
+  {
+   "x": 37,
+   "y": 30,
+   "to": "buxton_spa",
+   "tx": 7,
+   "ty": 12,
+   "facing": "up"
+  }
+ ],
+ "edges": {
+  "west": {
+   "to": "cat_and_fiddle",
+   "offset": 0
+  }
+ },
+ "npcs": [
+  {
+   "id": "crescent_fan",
+   "sprite": "villager_1",
+   "x": 15,
+   "y": 12,
+   "facing": "down",
+   "move": "wander",
+   "script": "crescent_fan"
+  },
+  {
+   "id": "well_filler",
+   "sprite": "villager_2",
+   "x": 31,
+   "y": 10,
+   "facing": "up",
+   "move": "still",
+   "script": "well_filler"
+  },
+  {
+   "id": "opera_fan",
+   "sprite": "villager_3",
+   "x": 45,
+   "y": 25,
+   "facing": "down",
+   "move": "still",
+   "script": "opera_fan"
+  },
+  {
+   "id": "duck_fan",
+   "sprite": "villager_4",
+   "x": 16,
+   "y": 26,
+   "facing": "left",
+   "move": "wander",
+   "script": "duck_fan"
+  },
+  {
+   "id": "kit_2_spikkin",
+   "sprite": "kit",
+   "x": 37,
+   "y": 33,
+   "facing": "up",
+   "move": "still",
+   "trainer": "kit_2_vs_spikkin",
+   "show_if": "kit_vs_spikkin"
+  },
+  {
+   "id": "kit_2_holtling",
+   "sprite": "kit",
+   "x": 37,
+   "y": 33,
+   "facing": "up",
+   "move": "still",
+   "trainer": "kit_2_vs_holtling",
+   "show_if": "kit_vs_holtling"
+  },
+  {
+   "id": "kit_2_kindlet",
+   "sprite": "kit",
+   "x": 37,
+   "y": 33,
+   "facing": "up",
+   "move": "still",
+   "trainer": "kit_2_vs_kindlet",
+   "show_if": "kit_vs_kindlet"
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "x": 29,
+   "y": 11,
+   "text": "ST ANN'S WELL. Warm spring water, 28 degrees, all year. Fill a bottle, everyone does."
+  },
+  {
+   "x": 19,
+   "y": 23,
+   "text": "PAVILION GARDENS. Ducks have right of way."
+  },
+  {
+   "x": 4,
+   "y": 19,
+   "text": "BUXTON. Welcome to the highest market town in England. Probably. Wrap up."
+  }
+ ],
+ "spawn": [
+  4,
+  21
+ ],
+ "rows": [
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTPTTTTTTTTTTTPTTTTTTTTTTTTPTTPTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTT...............................BBBBB..BBBBBB......TTT",
+  "TTTHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH.BBBBB..BBBBBB......TTT",
+  "TTT...............................BBBBB..BBBBBB......TTT",
+  "TTT.........BBBBBBBBBBBBBBBB......BBBBB..BBBBBB......TTT",
+  "TTT.BBBBB...BBBBBBBBBBBBBBBB.........................TTT",
+  "TTT.BBBBB...BBBBBBBBBBBBBBBB..BBB...............:=...TTT",
+  "TTT.BBBBB...BBBBBBBBBBBBBBBB..BBB...............:=...TTT",
+  "TTT........::::::::::::::::::...................:=...TTT",
+  "TTT........::::::::::::::::::...................:=...TTT",
+  "TTT.............................................:=...TTT",
+  "TTT.BBBBB...ffffffffffffffff......BBBBBB........:=...PTT",
+  "TTT.BBBBB..................T......BBBBBB.BBBBB..:=...TTT",
+  "PTT.BBBBB.........................BBBBBB.BBBBB..:=...TTT",
+  "TTT.................T.T...TT......BBBDBB.BBDBB..:=...TTT",
+  "TTT.....................T.......................:=...TTT",
+  "TTT..............T..............................:=...TTP",
+  "TTT.............................................:=...TTT",
+  "...::::::::::::::::::::::::::::::::::::::::::::::=...TTT",
+  "==================================================...TTT",
+  "...:::::::::::::::::::::::::::::::::::::::::::::::...TTT",
+  "TTT.................................##...............TTT",
+  "TTT.##########################......##...............TTT",
+  "TTT.................#...............##...............TTP",
+  "TTT.................#...........BBBBBBBBBB..BBBBB....TTT",
+  "TTP.......sssssssss.#.ffffff....BBBBBBBBBB..BBBBB....TTT",
+  "TTT.......~~~~~~~~~.#.ffffff....BBBBBBBBBB..BBBBB....TTT",
+  "TTT.......~~~~~~~~~.#.ffffff....BBBBBBBBBB..BBBBB....TTT",
+  "TTT.......~~~~~~~~~.#...........BBBBBDBBBB...........TTT",
+  "TTT.......~~~~~~~~~.#...............##...............TTT",
+  "TTT.......sssssssss.#.........T.......T.....T........TTT",
+  "TTT..ffff...........#..........T.....................TTT",
+  "TTT..ffff...........#..............T.................TTT",
+  "TTT.................#..............T.....T....TT.....TTT",
+  "TTT..................................................TTT",
+  "TTTTTTTPTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTPTTTTTTTTTTTTTT"
+ ]
+}

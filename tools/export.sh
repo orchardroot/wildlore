@@ -26,7 +26,10 @@ mkdir -p build/mac build/windows
 "$GODOT" --headless --path . --export-release "Windows" build/windows/Wildlore.exe
 
 # The JSON data must be inside the packs, or the game boots empty.
-unzip -p build/mac/Wildlore.zip '*.pck' | grep -aq '"chart": {' || { echo "export.sh: data missing from mac pck" >&2; exit 1; }
+PCK="$(mktemp)"
+unzip -p build/mac/Wildlore.zip '*.pck' > "$PCK"
+grep -aq '"chart": {' "$PCK" || { echo "export.sh: data missing from mac pck" >&2; exit 1; }
+rm -f "$PCK"
 grep -aq '"chart": {' build/windows/Wildlore.exe || { echo "export.sh: data missing from windows exe" >&2; exit 1; }
 
 cp build/mac/Wildlore.zip build/Wildlore-mac.zip

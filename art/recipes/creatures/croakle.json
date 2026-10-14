@@ -1,0 +1,23 @@
+{"id": "croakle",
+ "palette": {"skin": "#7d6c3c", "skin2": "#5a4c2c", "wart": "#aa9552", "belly": "#d8cc98", "gland": "#6a5a32", "gold": "#e8a42a", "mouth": "#3a2a20", "foot": "#8a7646"},
+ "layers": [
+  {"shape": "ellipse", "at": [16, 90], "size": [22, 8], "colour": "foot", "mirror": true},
+  {"shape": "ellipse", "at": [20, 76], "size": [26, 30], "colour": "skin", "mirror": true, "pattern": "speckle", "pcolour": "wart", "density": 14},
+  {"shape": "ellipse", "at": [48, 66], "size": [78, 50], "colour": "skin", "pattern": "speckle", "pcolour": "wart", "density": 16},
+  {"shape": "ellipse", "at": [48, 78], "size": [46, 22], "colour": "belly", "front_only": true},
+  {"shape": "ellipse", "at": [33, 88], "size": [18, 9], "colour": "foot", "mirror": true, "front_only": true},
+  {"shape": "ellipse", "at": [31, 80], "size": [12, 16], "colour": "skin", "mirror": true, "front_only": true},
+  {"shape": "ellipse", "at": [64, 46], "size": [18, 10], "colour": "gland", "mirror": false, "angle": 20, "pattern": "speckle", "pcolour": "wart", "density": 20, "rim": false},
+  {"shape": "ellipse", "at": [32, 46], "size": [18, 10], "colour": "gland", "angle": -20, "pattern": "speckle", "pcolour": "wart", "density": 20, "rim": false},
+  {"shape": "ellipse", "at": [33, 38], "size": [20, 18], "colour": "skin", "mirror": true},
+  {"shape": "circle", "at": [50, 48], "r": 3, "colour": "wart", "rim": false},
+  {"shape": "circle", "at": [42, 52], "r": 2, "colour": "skin2", "rim": false, "shade": false},
+  {"shape": "circle", "at": [58, 54], "r": 2, "colour": "wart", "rim": false, "shade": false}
+ ],
+ "face_layers": [
+  {"shape": "line", "points": [[18, 62], [30, 66], [48, 69], [66, 66], [78, 62]], "width": 2, "colour": "mouth", "shade": false},
+  {"shape": "line", "points": [[22, 60], [30, 64]], "width": 1, "colour": "wart", "shade": false, "mirror": true},
+  {"shape": "ellipse", "at": [46, 56], "size": [2, 2], "colour": "mouth", "shade": false, "mirror": true}
+ ],
+ "eyes": [{"at": [33, 38], "r": 6, "colour": "gold", "pupil": [9, 3], "mirror": true}]
+}

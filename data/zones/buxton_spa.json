@@ -1,0 +1,94 @@
+{
+ "id": "buxton_spa",
+ "name": "Buxton Spa",
+ "region": "cheshire",
+ "kind": "interior",
+ "music": "battle_keeper",
+ "weather": {},
+ "props": [
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "potted_plant",
+   "x": 13,
+   "y": 1
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 13
+  },
+  {
+   "type": "potted_plant",
+   "x": 13,
+   "y": 13
+  }
+ ],
+ "warps": [
+  {
+   "x": 7,
+   "y": 13,
+   "to": "buxton",
+   "tx": 37,
+   "ty": 31,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "bea",
+   "sprite": "villager_2",
+   "x": 3,
+   "y": 12,
+   "facing": "right",
+   "move": "still",
+   "trainer": "bea"
+  },
+  {
+   "id": "ollie",
+   "sprite": "villager_3",
+   "x": 11,
+   "y": 7,
+   "facing": "left",
+   "move": "still",
+   "trainer": "ollie"
+  },
+  {
+   "id": "maud",
+   "sprite": "keeper_maud",
+   "x": 7,
+   "y": 2,
+   "facing": "down",
+   "move": "still",
+   "script": "maud",
+   "name": "Keeper Maud"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  7,
+  12
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxxx",
+  "x+++++++++++++x",
+  "x+++++|||+++++x",
+  "x+++++++++++++x",
+  "x+~~~~+++~~~~+x",
+  "x+~~~~+++~~~~+x",
+  "x+~~~~+++~~~~+x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+~~~~+++~~~~+x",
+  "x+~~~~+++~~~~+x",
+  "x+~~~~+++~~~~+x",
+  "x+++++++++++++x",
+  "x++++++D++++++x",
+  "xxxxxxxxxxxxxxx"
+ ]
+}

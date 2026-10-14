@@ -1,0 +1,90 @@
+{
+ "id": "macc_fieldstation",
+ "name": "Field Station",
+ "region": "cheshire",
+ "kind": "interior",
+ "music": "town_cheshire",
+ "weather": {},
+ "props": [
+  {
+   "type": "bookshelf",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 9,
+   "y": 1
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 7
+  },
+  {
+   "type": "potted_plant",
+   "x": 9,
+   "y": 7
+  }
+ ],
+ "warps": [
+  {
+   "x": 5,
+   "y": 7,
+   "to": "macclesfield",
+   "tx": 46,
+   "ty": 17,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "garside",
+   "sprite": "prof_garside",
+   "x": 5,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "garside",
+   "name": "Prof. Garside"
+  },
+  {
+   "id": "kit",
+   "sprite": "kit",
+   "x": 7,
+   "y": 4,
+   "facing": "left",
+   "move": "still",
+   "script": "kit_station",
+   "name": "Kit"
+  },
+  {
+   "id": "intern",
+   "sprite": "villager_6",
+   "x": 8,
+   "y": 6,
+   "facing": "up",
+   "move": "still",
+   "script": "intern",
+   "name": "Intern"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  5,
+  6
+ ],
+ "rows": [
+  "xxxxxxxxxxx",
+  "x|||||||||x",
+  "x|CCC|CCC|x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|C|||||C|x",
+  "x|||||||||x",
+  "x||||D||||x",
+  "xxxxxxxxxxx"
+ ]
+}

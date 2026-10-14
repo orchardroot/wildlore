@@ -1,0 +1,32 @@
+{
+ "id": "gwen",
+ "name": "Hiker Gwen",
+ "class": "Hiker",
+ "sprite": "hiker",
+ "party": [
+  {
+   "species": "gritling",
+   "level": 8
+  },
+  {
+   "species": "roachroo",
+   "level": 8
+  }
+ ],
+ "ai": "trainer",
+ "money": 320,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Hiker Gwen",
+   "text": "Halt! Have you a flask? A proper map? A waterproof?"
+  },
+  {
+   "do": "say",
+   "who": "Hiker Gwen",
+   "text": "No? Then you'll have to prove you can survive up here."
+  }
+ ],
+ "win": "Fair play. You've the legs for it. Mind the fog.",
+ "after": "Rule one of the moors: always carry a spare sandwich."
+}

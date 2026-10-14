@@ -1,0 +1,37 @@
+{
+ "id": "kit_2_vs_spikkin",
+ "name": "Kit",
+ "class": "Rival",
+ "sprite": "kit",
+ "party": [
+  {
+   "species": "kindlet",
+   "level": 11
+  },
+  {
+   "species": "pipkin",
+   "level": 9
+  }
+ ],
+ "ai": "trainer",
+ "money": 300,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Kit",
+   "text": "{player}! Over here! Smile, you're on camera!"
+  },
+  {
+   "do": "say",
+   "who": "Kit",
+   "text": "I got here first, so I got a bit of training in. A LOT of training."
+  },
+  {
+   "do": "say",
+   "who": "Kit",
+   "text": "Let's go. And try to lose in a way that looks good on video!"
+  }
+ ],
+ "win": "Noooo. That was going to be my best clip!",
+ "after": "Fine, you're better than me. I'm still going viral, mind."
+}

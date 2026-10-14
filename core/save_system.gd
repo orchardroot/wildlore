@@ -11,7 +11,11 @@ static func slot_path(slot: String, dir := DEFAULT_DIR) -> String:
 static func save(slot: String, data: Dictionary, dir := DEFAULT_DIR) -> Error:
 	DirAccess.make_dir_recursive_absolute(dir)
 	var path := slot_path(slot, dir)
-	var payload := data.duplicate(true)
+	var payload := {}
+	for k in data:
+		if not str(k).begins_with("_"):
+			payload[k] = data[k]
+	payload = payload.duplicate(true)
 	payload["version"] = VERSION
 	var tmp := path + ".tmp"
 	var f := FileAccess.open(tmp, FileAccess.WRITE)

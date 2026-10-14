@@ -1,0 +1,193 @@
+{
+ "id": "macc_forest",
+ "name": "Macclesfield Forest",
+ "region": "cheshire",
+ "kind": "route",
+ "music": "route_forest",
+ "weather": {
+  "drizzle": 45,
+  "clear": 25,
+  "fog": 20,
+  "sunshine": 10
+ },
+ "props": [],
+ "warps": [],
+ "edges": {
+  "west": {
+   "to": "macclesfield",
+   "offset": 0
+  },
+  "east": {
+   "to": "cat_and_fiddle",
+   "offset": 0
+  }
+ },
+ "npcs": [
+  {
+   "id": "priya",
+   "sprite": "birdwatcher",
+   "x": 20,
+   "y": 11,
+   "facing": "down",
+   "move": "still",
+   "trainer": "priya"
+  },
+  {
+   "id": "dev",
+   "sprite": "angler",
+   "x": 27,
+   "y": 20,
+   "facing": "right",
+   "move": "still",
+   "trainer": "dev"
+  },
+  {
+   "id": "leanne",
+   "sprite": "jogger",
+   "x": 36,
+   "y": 26,
+   "facing": "up",
+   "move": "still",
+   "trainer": "leanne"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "scuttlet",
+    "min": 3,
+    "max": 5,
+    "weight": 30,
+    "time": [
+     "dawn",
+     "day",
+     "dusk"
+    ]
+   },
+   {
+    "species": "pipkin",
+    "min": 3,
+    "max": 5,
+    "weight": 25,
+    "time": [
+     "dawn",
+     "day"
+    ]
+   },
+   {
+    "species": "hootlet",
+    "min": 4,
+    "max": 6,
+    "weight": 20,
+    "time": [
+     "dusk",
+     "night"
+    ]
+   },
+   {
+    "species": "dipling",
+    "min": 4,
+    "max": 6,
+    "weight": 12
+   },
+   {
+    "species": "croakle",
+    "min": 3,
+    "max": 5,
+    "weight": 10,
+    "weather": [
+     "drizzle",
+     "downpour"
+    ]
+   },
+   {
+    "species": "binfox",
+    "min": 4,
+    "max": 6,
+    "weight": 10,
+    "time": [
+     "dusk",
+     "night"
+    ]
+   },
+   {
+    "species": "wispet",
+    "min": 5,
+    "max": 7,
+    "weight": 10,
+    "weather": [
+     "fog"
+    ]
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 12,
+   "y": 18,
+   "text": "MACCLESFIELD FOREST. Mind the pines. Mind the herons. Mostly mind the herons."
+  },
+  {
+   "x": 44,
+   "y": 11,
+   "text": "EAST: Cat and Fiddle road. Moorland ahead. Weather: yes."
+  },
+  {
+   "x": 16,
+   "y": 12,
+   "text": "TRENTABANK HERONRY. Please do not argue with the herons."
+  }
+ ],
+ "spawn": [
+  4,
+  19
+ ],
+ "rows": [
+  "PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPTPPPPPPPPPPPPPPTPPPPPPPTPPP",
+  "PPPPPPPPPPPTPPPPPPPPPPPPPPPPPPPPPPTPPPPPPPPPPPPPPPPPPPPPPPPPPP",
+  "PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPTPPPPPPPPPPPPPPPPPPPPPPPPPPPPP",
+  "PTP......P.....PP....P..P........PP....PPb....P.P....P.....PPP",
+  "PPP...P..P............P.........b.....b..P...........P..PP.PPP",
+  "PPP.P..PP...P....P.....P...P.............T.P.P..PP......P..PPP",
+  "PPP...P......TP............PP.b......b.b...P........P......PPP",
+  "PPP.......PP....,,,,,,,,,...........b..b....P...P...P......PPP",
+  "PPP..P.........P,,,,,,,,,................b.................PPP",
+  "PPP.P.......P..P,,,,,,,,,........b.........P.....P......P.....",
+  "PPP........P....,,,,,,,,,......P...bP.....PP.#################",
+  "PPP....P........,,,,,,,,,......P..PP.........#..P.............",
+  "PPP.P...P...P.P..........P.....P...........P.#...P......PP.PPT",
+  "PPP..........################..PP.........P..#.............PPP",
+  "PTPP....P....#..........P.P.#.....P..........#..,,,,,,,,...PPP",
+  "PPP..........#P.P.......P..P#P...............#..,,,,,,,,..PPPP",
+  "PPP..........#....rrrrrrrr..#..,,,,,,,,,...P.#..,,,,,,,,.P.PPP",
+  "PPP........P.#..s~~~~~~~~~~s#..,,,,,,,,,P.P..#..,,,,,,,,...PTP",
+  "....P.P...P..#..s~~~~~~~~~~s#..,,,,,,,,,.P...#..,,,,,,,,..PPPP",
+  "##############.Ps~~~~~~~~~~s#..,,,,,,,,,...T.#.P,,,,,,,,...PPP",
+  "................s~~~~~~~~~~s#..,,,,,,,,,...P.#..........P..PPP",
+  "PPP..,,,,,,,....s~~~~~~~~~~s#..,,,,,,,,,....P#........P..P.PPP",
+  "PPPPP,,,,,,,.P..s~~~~~~~~~~s#....P........T..#P.....P....P.PPP",
+  "TPP..,,,,,,,..P..wwwwwwwwww.#P..PP........P.P#.P...........PPP",
+  "PPT..,,,,,,,..PP........P...##################......P......PPP",
+  "PPP..,,,,,,,.....PP....P.P.P.........P........P...,,,,,,...PPP",
+  "PPP..........P.PP.P.......P..P..............PP....,,,,,,...PPP",
+  "PPTPP........P.........P.....P......,,,,,,,,......,,,,,,...PPP",
+  "PPP.................................,,,,,,,,P.....,,,,,,.P.PPP",
+  "PPPP............PP..P............P..,,,,,,,,......,,,,,,P..PPP",
+  "PPP.P..P............P..........P....,,,,,,,,T..............PPP",
+  "PPP..P.....P...P...P..P....P.....P.............P.......PP..PPP",
+  "PPP...........P.P...P........P........P......P.....P.P.....PPP",
+  "PPTPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPTPPPPPPPPPPPPPPPPPPP",
+  "PPPPPPPPTPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP",
+  "PPPPPPPPPPPPPPPPPPPPTPPPPPPPPTPPPPPPPPPPPPPPPPPPTPPPPPPPPPPPPP"
+ ],
+ "legend_extra": {
+  "r": {
+   "tile": "shallow",
+   "prop": "reeds"
+  },
+  "b": {
+   "tile": "tree_oak",
+   "prop": "birch"
+  }
+ }
+}

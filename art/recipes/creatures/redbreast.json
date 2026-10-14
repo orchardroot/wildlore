@@ -1,0 +1,20 @@
+{"id": "redbreast",
+ "palette": {"back": "#7c6a48", "back2": "#5a4a34", "breast": "#ec5a26", "breast2": "#f58a3a", "belly": "#f4ecda", "beak": "#2c2420", "leg": "#6a4a3a", "wing": "#6a5a3c"},
+ "layers": [
+  {"shape": "poly", "points": [[40, 78], [56, 78], [64, 92], [48, 95], [32, 92]], "colour": "back2", "back_only": true},
+  {"shape": "poly", "points": [[60, 74], [76, 84], [72, 90], [58, 82]], "colour": "back2", "front_only": true},
+  {"shape": "line", "points": [[41, 86], [41, 92]], "width": 2, "colour": "leg", "shade": false, "mirror": true},
+  {"shape": "ellipse", "at": [40, 93], "size": [10, 4], "colour": "leg", "mirror": true, "rim": false},
+  {"shape": "ellipse", "at": [48, 62], "size": [48, 48], "colour": "back"},
+  {"shape": "ellipse", "at": [48, 76], "size": [30, 20], "colour": "belly", "front_only": true},
+  {"shape": "ellipse", "at": [48, 56], "size": [38, 38], "colour": "breast", "front_only": true, "pattern": "speckle", "pcolour": "breast2", "density": 12},
+  {"shape": "ellipse", "at": [24, 62], "size": [14, 38], "colour": "wing", "angle": 8, "mirror": true},
+  {"shape": "ellipse", "at": [48, 32], "size": [40, 36], "colour": "back"},
+  {"shape": "ellipse", "at": [48, 40], "size": [28, 22], "colour": "breast", "front_only": true, "rim": false}
+ ],
+ "face_layers": [
+  {"shape": "poly", "points": [[44, 36], [48, 30], [52, 36], [48, 45]], "colour": "beak", "shade": false},
+  {"shape": "line", "points": [[32, 28], [40, 24]], "width": 1, "colour": "breast2", "shade": false, "mirror": true}
+ ],
+ "eyes": [{"at": [38, 30], "r": 3.5, "mirror": true}]
+}
