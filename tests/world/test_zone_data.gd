@@ -152,3 +152,8 @@ func test_gallery_zone_builds() -> void:
 	assert_true(root.get_child_count() > 10)
 	assert_true(root.has_node("DeepWater"))
 	root.free()
+
+func test_edge_landing_must_be_walkable() -> void:
+	var a := ZoneData.from_dict(_base(["...", "...", "..."], {"id": "a", "spawn": [1, 1], "edges": {"east": {"to": "b"}}}))
+	var b := ZoneData.from_dict(_base(["T..", "...", "T.."], {"id": "b", "spawn": [1, 1], "edges": {"west": {"to": "a"}}}))
+	assert_true(_has(a.validate({"a": a, "b": b}), "lands on 0,0 in 'b'"))

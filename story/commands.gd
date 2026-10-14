@@ -107,6 +107,10 @@ func _exec(c: Dictionary) -> void:
 			_ended = true
 		"ark":
 			await host.open_menu("ark")
+		"rail":
+			await host.open_menu("travel:rail")
+		"ferry":
+			await host.open_menu("travel:ferry:" + str(c.get("route", "")))
 		"whiteout":
 			await whiteout()
 			_ended = true

@@ -188,6 +188,19 @@ func reachable(from: Vector2i, abilities: Array = []) -> Dictionary:
 				queue.append(q)
 	return seen
 
+func _border(side: String) -> Array:
+	var out := []
+	match side:
+		"north":
+			for x in width: out.append(Vector2i(x, 0))
+		"south":
+			for x in width: out.append(Vector2i(x, height - 1))
+		"west":
+			for y in height: out.append(Vector2i(0, y))
+		"east":
+			for y in height: out.append(Vector2i(width - 1, y))
+	return out
+
 func _side_reached(side: String, seen: Dictionary) -> bool:
 	for p in seen:
 		if (side == "north" and p.y == 0) or (side == "south" and p.y == height - 1) \
@@ -238,6 +251,7 @@ func validate(all: Dictionary) -> Array:
 			e.append(tag + "warp at %d,%d goes to unknown zone '%s'" % [int(w.x), int(w.y), target])
 		elif not all[target].walkable(Vector2i(int(w.tx), int(w.ty))):
 			e.append(tag + "warp arrival %d,%d in '%s' is not walkable" % [int(w.tx), int(w.ty), target])
+	var edge_reach_cache := {}
 	for side in edges:
 		var target: String = edges[side].get("to", "")
 		if side not in OPPOSITE:
@@ -246,6 +260,15 @@ func validate(all: Dictionary) -> Array:
 			e.append(tag + "%s edge goes to unknown zone '%s'" % [side, target])
 		elif not all[target].edges.has(OPPOSITE[side]) or all[target].edges[OPPOSITE[side]].get("to") != id:
 			e.append(tag + "%s edge to '%s' has no %s edge back" % [side, target, OPPOSITE[side]])
+		else:
+			# every border tile you can actually reach must land on a walkable tile next door
+			if not edge_reach_cache.has("r"):
+				edge_reach_cache["r"] = reachable(spawn, GATE_ABILITIES) if walkable(spawn) else {}
+			for b in _border(side):
+				if edge_reach_cache["r"].has(b):
+					var arr := edge_arrival(side, b, all[target])
+					if not all[target].walkable(arr):
+						e.append(tag + "walking off the %s edge at %d,%d lands on %d,%d in '%s', which is not walkable" % [side, b.x, b.y, arr.x, arr.y, target])
 	for s in signs:
 		if not in_bounds(Vector2i(int(s.x), int(s.y))):
 			e.append(tag + "sign at %d,%d is out of bounds" % [int(s.x), int(s.y)])
