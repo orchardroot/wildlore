@@ -74,7 +74,10 @@ func _start_zone() -> String:
 func _dev_boot() -> void:
 	if args.shot != "":
 		_take_shot()
-	if args.battle_species != "":
+	var dev_menu := DevMenu.arg(OS.get_cmdline_user_args())
+	if dev_menu != "":
+		DevMenu.boot(self, dev_menu)  # --menu=<name>[:arg], see ui/dev_menu.gd
+	elif args.battle_species != "":
 		new_game()
 		var party := [Creature.create(dex.get_species("kindlet"), 10, rng, moves)]
 		data.party = party
