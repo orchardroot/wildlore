@@ -93,6 +93,10 @@ func _on_new() -> void:
 		return
 	Audio.sfx("confirm")
 	Game.new_game()
+	var who = await Router.open_menu("name")
+	if who is Dictionary:
+		Game.data.player_name = str(who.name)
+		Game.data.set_flag("player_sprite", str(who.sprite))
 	Router.goto_zone(Game.data.zone_id, Vector2i(-1, -1), "down")
 
 func _on_settings() -> void:
