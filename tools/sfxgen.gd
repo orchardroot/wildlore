@@ -3,7 +3,8 @@ extends SceneTree
 ## Usage: godot --headless --path . -s res://tools/sfxgen.gd -- [ids...]   (no ids = everything)
 
 const MUSIC_SR := 22050
-const MUSIC_IDS := ["title", "town_cheshire", "route_forest", "route_moor", "battle_wild", "battle_trainer", "battle_keeper", "sanctuary", "victory"]
+const MUSIC_IDS := ["title", "town_cheshire", "route_forest", "route_moor", "battle_wild", "battle_trainer", "battle_keeper", "sanctuary", "victory",
+	"town_city", "town_wales", "route_coast", "route_mountain", "battle_enclosure", "legend", "ferry"]
 
 func _initialize() -> void:
 	var want: Array = Array(OS.get_cmdline_user_args())

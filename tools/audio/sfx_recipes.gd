@@ -8,11 +8,13 @@ const LENGTHS := {
 	"cursor": 0.06, "confirm": 0.16, "cancel": 0.16, "bump": 0.12, "door": 0.45, "step_grass": 0.12,
 	"hit": 0.25, "hit_super": 0.4, "hit_weak": 0.22, "faint": 0.8, "snare_throw": 0.35, "snare_wobble": 0.4,
 	"caught": 0.9, "level_up": 0.8, "heal": 0.9, "badge": 1.4, "evolve": 1.8,
+	"cut": 0.3, "splash": 0.6, "scramble": 0.7, "bike_bell": 0.7, "train": 1.4, "ship_horn": 1.6,
 }
 const PEAKS := {
 	"cursor": 0.5, "confirm": 0.6, "cancel": 0.55, "bump": 0.6, "door": 0.6, "step_grass": 0.35,
 	"hit": 0.8, "hit_super": 0.9, "hit_weak": 0.5, "faint": 0.7, "snare_throw": 0.6, "snare_wobble": 0.6,
 	"caught": 0.8, "level_up": 0.8, "heal": 0.7, "badge": 0.85, "evolve": 0.85,
+	"cut": 0.6, "splash": 0.7, "scramble": 0.6, "bike_bell": 0.7, "train": 0.7, "ship_horn": 0.8,
 }
 
 static func ids() -> Array:
@@ -164,6 +166,86 @@ static func render(id: String) -> PackedFloat32Array:
 				Synth.adsr(t, SR, 0.02, 0.2, 0.6, 0.5)
 				Synth.mix_into(out, t, _at(1.0), 0.4)
 			Synth.mix_into(out, _bell(2093.0, 0.8, 3.0), _at(1.0), 0.25)
+		"cut":
+			# Two snips of the shears, a twig crack, a rustle of falling bramble.
+			for at in [0.0, 0.09]:
+				Synth.mix_into(out, _noise_burst(0.05, 0.0, 3000.0, 70.0, 41 + int(at * 100.0)), _at(at), 0.8)
+				var snap := Synth.osc(Synth.TRI, 2100.0, 1100.0, 0.04, SR)
+				Synth.pluck_env(snap, SR, 0.0005, 80.0)
+				Synth.mix_into(out, snap, _at(at), 0.4)
+			Synth.mix_into(out, _noise_burst(0.03, 0.0, 1800.0, 90.0, 44), _at(0.17), 0.3)
+			var rus := Synth.noise(0.1, SR, 45)
+			Synth.lowpass(rus, 3500.0, SR)
+			Synth.highpass(rus, 900.0, SR)
+			Synth.adsr(rus, SR, 0.02, 0.03, 0.4, 0.05)
+			Synth.mix_into(out, rus, _at(0.19), 0.2)
+		"splash":
+			var w := Synth.noise(0.5, SR, 51)
+			Synth.lowpass_sweep(w, 4000.0, 700.0, SR)
+			Synth.highpass(w, 150.0, SR)
+			Synth.adsr(w, SR, 0.01, 0.12, 0.35, 0.3)
+			Synth.mix_into(out, w, 0, 0.9)
+			var plop := Synth.osc(Synth.SINE, 300.0, 120.0, 0.15, SR)
+			Synth.pluck_env(plop, SR, 0.002, 18.0)
+			Synth.mix_into(out, plop, 0, 0.5)
+			var drops := [[0.12, 520.0], [0.22, 700.0], [0.31, 610.0], [0.42, 880.0]]
+			for dr in drops:
+				var bl := Synth.osc(Synth.SINE, float(dr[1]), float(dr[1]) * 1.9, 0.09, SR)
+				Synth.pluck_env(bl, SR, 0.002, 30.0)
+				Synth.mix_into(out, bl, _at(float(dr[0])), 0.3)
+		"scramble":
+			# Scree: a rumble underneath and a scatter of stones, thinning out.
+			var rum := Synth.noise(0.7, SR, 61)
+			Synth.lowpass(rum, 450.0, SR)
+			Synth.adsr(rum, SR, 0.05, 0.2, 0.5, 0.35)
+			Synth.mix_into(out, rum, 0, 0.7)
+			var seed := 7
+			var t := 0.0
+			var k := 0
+			while t < 0.6:
+				seed = (seed * 1103515245 + 12345) & 0x7FFFFFFF
+				var lp := 1200.0 + float(seed % 3000)
+				var g := (1.0 - t / 0.7) * 0.7
+				Synth.mix_into(out, _noise_burst(0.03, lp, 400.0, 70.0, 70 + k), _at(t), g)
+				var st := Synth.osc(Synth.SINE, 500.0 + float((seed >> 8) % 600), 250.0, 0.03, SR)
+				Synth.pluck_env(st, SR, 0.0005, 90.0)
+				Synth.mix_into(out, st, _at(t), g * 0.4)
+				seed = (seed * 1103515245 + 12345) & 0x7FFFFFFF
+				t += 0.02 + float(seed % 60) / 1000.0 * (1.0 + t)
+				k += 1
+		"bike_bell":
+			for at in [0.0, 0.16]:
+				Synth.mix_into(out, _bell(2637.0, 0.5, 6.0), _at(at), 0.7)
+				Synth.mix_into(out, _bell(2637.0 * 2.76, 0.4, 9.0), _at(at), 0.3)
+				Synth.mix_into(out, _bell(2637.0 * 5.4, 0.2, 18.0), _at(at), 0.12)
+		"train":
+			# Chuff chuff chuff-chuff, then the whistle.
+			for at in [0.0, 0.17, 0.34, 0.45]:
+				var ch := Synth.noise(0.11, SR, 81 + int(at * 100.0))
+				Synth.lowpass(ch, 1300.0, SR)
+				Synth.highpass(ch, 200.0, SR)
+				Synth.adsr(ch, SR, 0.015, 0.03, 0.4, 0.05)
+				Synth.mix_into(out, ch, _at(at), 0.9)
+				var th := Synth.osc(Synth.SINE, 90.0, 55.0, 0.09, SR)
+				Synth.pluck_env(th, SR, 0.002, 25.0)
+				Synth.mix_into(out, th, _at(at), 0.5)
+			for f in [740.0, 932.0]:
+				var wh := Synth.osc(Synth.SINE, f, f * 0.98, 0.75, SR, 0.5, 7.0, 12.0, 0.2)
+				var wh2 := Synth.osc(Synth.SINE, f * 2.0, f * 2.0, 0.75, SR)
+				Synth.mix_into(wh, wh2, 0, 0.18)
+				var br := Synth.noise(0.75, SR, 91)
+				Synth.highpass(br, 2500.0, SR)
+				Synth.mix_into(wh, br, 0, 0.08)
+				Synth.adsr(wh, SR, 0.04, 0.1, 0.8, 0.3)
+				Synth.mix_into(out, wh, _at(0.65), 0.4)
+		"ship_horn":
+			for f in [110.0, 165.0, 220.0]:
+				var h := Synth.osc(Synth.SAW, f, f * 0.985, 1.5, SR, 0.5, 4.0, 5.0, 0.4)
+				var h2 := Synth.osc(Synth.SAW, f * 1.007, f * 0.992, 1.5, SR)
+				Synth.mix_into(h, h2, 0, 0.7)
+				Synth.lowpass(h, 900.0, SR)
+				Synth.adsr(h, SR, 0.08, 0.12, 0.85, 0.35)
+				Synth.mix_into(out, h, 0, 0.5)
 		_:
 			push_error("unknown sfx " + id)
 	Synth.fade_out(out, SR, 0.008)
