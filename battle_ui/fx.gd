@@ -17,35 +17,37 @@ func _wait(sec: float) -> void:
 func _actor(side: int, pos := 0) -> CreatureActor:
 	return dio.actor(side, pos)
 
+## A puff of little billboard sparks thrown out from `pos` (world space), falling under `gravity` and fading.
+## Hand-animated quads rather than a particle node, so they always appear exactly where they are aimed.
 func burst(pos: Vector3, colour: Color, amount := 16, speed := 3.5, size := 0.16, life := 0.6, gravity := -4.0, up := Vector3.UP) -> void:
-	var p := CPUParticles3D.new()
-	p.one_shot = true
-	p.explosiveness = 1.0
-	p.amount = amount
-	p.lifetime = life
-	p.direction = up
-	p.spread = 180.0 if up == Vector3.UP else 35.0
-	p.initial_velocity_min = speed * 0.5
-	p.initial_velocity_max = speed
-	p.gravity = Vector3(0, gravity, 0)
-	var q := QuadMesh.new()
-	q.size = Vector2(size, size)
 	if _quad_mat == null:
 		_quad_mat = StandardMaterial3D.new()
 		_quad_mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-		_quad_mat.vertex_color_use_as_albedo = true
-		_quad_mat.billboard_mode = BaseMaterial3D.BILLBOARD_PARTICLES
+		_quad_mat.billboard_mode = BaseMaterial3D.BILLBOARD_ENABLED
 		_quad_mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-	q.material = _quad_mat
-	p.mesh = q
-	var g := Gradient.new()
-	g.colors = PackedColorArray([colour.lightened(0.35), colour, Color(colour, 0.0)])
-	g.offsets = PackedFloat32Array([0.0, 0.5, 1.0])
-	p.color_ramp = g
-	p.emitting = true
-	dio.add_child(p)
-	p.global_position = pos
-	get_tree().create_timer(life + 0.3).timeout.connect(p.queue_free)
+		_quad_mat.vertex_color_use_as_albedo = true
+		_quad_mat.no_depth_test = true
+	var q := QuadMesh.new()
+	q.size = Vector2(size, size)
+	var rng := RandomNumberGenerator.new()
+	var cone := 1.0 if up == Vector3.UP else 0.35
+	for i in amount:
+		var m := MeshInstance3D.new()
+		m.mesh = q
+		var mat: StandardMaterial3D = _quad_mat.duplicate()
+		mat.albedo_color = colour.lightened(rng.randf_range(0.0, 0.35))
+		m.material_override = mat
+		m.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		dio.add_child(m)
+		m.global_position = pos
+		var dir := (up + Vector3(rng.randf_range(-1, 1), rng.randf_range(-1, 1), rng.randf_range(-1, 1)) * cone).normalized()
+		var vel := dir * rng.randf_range(speed * 0.5, speed)
+		var tw := m.create_tween()
+		tw.tween_method(func(t: float):
+			if is_instance_valid(m):
+				m.global_position = pos + vel * t + Vector3(0, 0.5 * gravity * t * t, 0)
+				mat.albedo_color.a = 1.0 - t / life, 0.0, life, life)
+		tw.tween_callback(m.queue_free)
 
 func _chest(side: int, pos := 0) -> Vector3:
 	return _actor(side, pos).world_centre()
