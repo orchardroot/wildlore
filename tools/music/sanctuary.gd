@@ -13,6 +13,7 @@ static func build() -> Composer:
 	c.unit = 0.25
 	c.upb = 6
 	c.bars = 32
+	c.level_db = -1.0
 	for r in 2:
 		var b := r * 16
 		if r == 0:

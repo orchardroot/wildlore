@@ -14,6 +14,7 @@ static func build() -> Composer:
 	c.upb = 8
 	c.seam_fade = 0.012
 	c.bars = 48
+	c.level_db = 1.0
 	c.drone(0, 48, 0.5)
 	c.drums("X.XxX.Xx", 0, 48, 1.0)
 	c.drums("r.rr.rr.", 0, 48, 0.5)
