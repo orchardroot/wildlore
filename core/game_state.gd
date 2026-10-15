@@ -32,6 +32,11 @@ func _ready() -> void:
 	Bus.battle_started.connect(_on_battle_started)
 	Bus.battle_ended.connect(_on_battle_ended)
 	Bus.zone_entered.connect(_on_zone_entered)
+	if "--quiet-window" in DevArgs.user_args():
+		# screenshot runs (tools/shot.sh): never grab focus, sit off-screen, make no sound
+		DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_NO_FOCUS, true)
+		DisplayServer.window_set_position(Vector2i(0, -4000))
+		AudioServer.set_bus_mute(0, true)
 	call_deferred("_dev_boot")
 
 func _process(delta: float) -> void:
