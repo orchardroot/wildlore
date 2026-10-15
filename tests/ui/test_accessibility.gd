@@ -199,6 +199,72 @@ func test_confirm_and_cancel_cannot_be_unbound_or_merged() -> void:
 	assert_true(Settings.rebind("confirm", "key", KEY_ESCAPE) != "")
 	_end()
 
+func _real_key(code: int, pressed := true) -> InputEventKey:
+	var e := InputEventKey.new()  # a real key press carries both codes; built-in ui_* bindings match on keycode
+	e.keycode = code
+	e.physical_keycode = code
+	e.pressed = pressed
+	return e
+
+func test_remapped_keys_do_not_leave_builtin_ui_bindings() -> void:
+	_begin()
+	assert_eq(Settings.rebind("cancel", "key", KEY_SPACE), "")
+	var space := _real_key(KEY_SPACE, true)
+	assert_true(InputMap.event_is_action(space, "cancel"))
+	assert_true(InputMap.event_is_action(space, "ui_cancel"), "Space now backs out")
+	assert_false(InputMap.event_is_action(space, "ui_accept"), "Space no longer confirms")
+	assert_false(InputMap.event_is_action(_real_key(KEY_ESCAPE, true), "ui_accept"))
+	# gamepad is mirrored too
+	var a := InputEventJoypadButton.new()
+	a.button_index = JOY_BUTTON_A
+	assert_true(InputMap.event_is_action(a, "ui_accept"))
+	var up := InputEventJoypadMotion.new()
+	up.axis = JOY_AXIS_LEFT_Y
+	up.axis_value = -1.0
+	assert_true(InputMap.event_is_action(up, "ui_up"))
+	# an arrow taken by Confirm leaves ui_up
+	assert_eq(Settings.rebind("confirm", "key", KEY_UP), "")
+	assert_false(InputMap.event_is_action(_real_key(KEY_UP, true), "ui_up"), "Up is Confirm now")
+	assert_true(InputMap.event_is_action(_real_key(KEY_UP, true), "ui_accept"))
+	assert_true(InputMap.event_is_action(_real_key(KEY_W, true), "ui_up"), "W still moves up")
+	_end()
+
+func _all_distinct(b: Dictionary, dev: String) -> bool:
+	var seen := {}
+	for a in InputSetup.ACTIONS:
+		if b[a][dev].is_empty():
+			return false
+		for c in b[a][dev]:
+			if seen.has(c):
+				return false
+			seen[c] = true
+	return true
+
+func test_sanitise_rejects_fake_keys() -> void:
+	var b := InputSetup.sanitise({"confirm": {"key": [1]}})
+	assert_eq(b.confirm.key, [KEY_Z, KEY_ENTER, KEY_SPACE])
+	assert_true(_all_distinct(b, "key"))
+
+func test_sanitise_keeps_a_valid_set_as_is() -> void:
+	var d := InputSetup.defaults()
+	d.run.key = [KEY_Q, KEY_SHIFT]
+	d.bike.pad = [JOY_BUTTON_LEFT_SHOULDER]
+	assert_eq(InputSetup.sanitise(JSON.parse_string(JSON.stringify(d))), d)
+	assert_eq(InputSetup.sanitise(JSON.parse_string(JSON.stringify(InputSetup.defaults()))), InputSetup.defaults())
+
+func test_sanitise_keeps_escape_on_menu_only() -> void:
+	var b := InputSetup.sanitise({"menu": {"key": [KEY_Z]}})
+	assert_true(b.menu.key.has(KEY_ESCAPE), "menu keeps Esc")
+	assert_false(b.confirm.key.has(KEY_Z) and b.menu.key.has(KEY_Z), "Z isn't shared")
+	assert_true(_all_distinct(b, "key"))
+	var c := InputSetup.sanitise({"run": {"key": [KEY_ESCAPE]}, "menu": {"pad": [JOY_BUTTON_A]}})
+	assert_false(c.run.key.has(KEY_ESCAPE))
+	assert_true(c.menu.pad.has(JOY_BUTTON_START), "menu keeps Start")
+	assert_true(_all_distinct(c, "pad"))
+	var d := InputSetup.sanitise({"run": {"key": [KEY_Q]}, "bike": {"key": [KEY_Q]}})
+	assert_eq(d.run.key, [KEY_SHIFT], "shared code falls back for the device")
+	assert_eq(d.bike.key, [KEY_B])
+
 func test_unusable_saved_bindings_fall_back() -> void:
 	_begin()
 	var f := FileAccess.open(TMP, FileAccess.WRITE)
