@@ -231,7 +231,8 @@ func _use(id: String, idx: int) -> void:
 		r["text"] = "%s evolved into %s!" % [old_name, to_sp.name]
 		Audio.sfx("evolve")
 	_note.text = str(r.get("text", ""))
-	Audio.sfx("heal" if r.get("ok", false) else "bump")
+	if not r.has("evolve_to"):
+		Audio.sfx("heal" if r.get("ok", false) else "bump")
 	if _target >= 0:
 		_rebuild()
 		if r.get("ok", false) and (_kinds.is_empty() or _bag.count(id) == 0):

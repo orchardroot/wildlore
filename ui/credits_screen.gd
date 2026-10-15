@@ -15,7 +15,11 @@ const LINES := [
 ]
 
 var _scroll: VBoxContainer
+const SKIP_DELAY := 2.0  # a confirm held over from the dialogue must not skip the credits
 var _t := 0.0
+
+static func can_skip(elapsed: float) -> bool:
+	return elapsed >= SKIP_DELAY
 
 func _build() -> void:
 	set_title("")
@@ -40,6 +44,7 @@ func _process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("confirm"):
 		get_viewport().set_input_as_handled()
-		close(null)
+		if can_skip(_t):
+			close(null)
 		return
 	super._input(event)

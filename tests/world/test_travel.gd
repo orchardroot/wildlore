@@ -69,3 +69,11 @@ func test_fly_goes_anywhere_visited_across_the_sea() -> void:
 	assert_false("york" in dest, "not unvisited")
 	var a := Travel.fly_arrival("dublin")
 	assert_true(ZoneData.load_id("dublin").walkable(a.pos))
+
+func test_fly_lists_the_last_town_when_you_are_elsewhere() -> void:
+	var d := GameStateData.new()
+	d.set_flag("visited_london")
+	d.set_flag("last_town", "london")
+	assert_true("london" in Travel.fly_destinations(d, ""), "standing in Mum's house (no town_id), London is listed")
+	assert_false("london" in Travel.fly_destinations(d, "london"), "but not when you are in it")
+	assert_eq(ZoneData.load_id("macc_home").town_id, "", "Mum's house is not in a town")

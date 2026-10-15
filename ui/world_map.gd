@@ -25,15 +25,23 @@ func setup(arg: String) -> void:
 	if Game.data.flag("champion") == true and not arg.begins_with("species:"):
 		set_hint("F  Fly        X  Back")
 		_can_fly = true
+		var fly := make_button("Fly", _fly)
+		fly.position = Vector2(20, 14)
+		content.add_child(fly)
 
 var _can_fly := false
 
 func _unhandled_input(event: InputEvent) -> void:
-	if _can_fly and not _locked and event is InputEventKey and event.pressed and event.keycode == KEY_F:
+	if _can_fly and not _locked and event.is_action_pressed("fly"):
 		get_viewport().set_input_as_handled()
-		var town = await open_child("travel:fly")
-		if town != null and str(town) != "":
-			close({"fly": str(town)})
+		_fly()
+
+func _fly() -> void:
+	if _locked:
+		return
+	var town = await open_child("travel:fly")
+	if town != null and str(town) != "":
+		close({"fly": str(town)})
 
 ## Zones whose wild encounter tables include this species (the truth, rather than the dex's habitat notes).
 static var _habitats: Dictionary = {}  # species id -> zone ids, built once

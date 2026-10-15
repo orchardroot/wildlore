@@ -16,9 +16,13 @@ func _build() -> void:
 func setup(arg: String) -> void:
 	var flying := arg == "fly"
 	var here := str(Game.data.flag("last_town")) if Game.data.flag("last_town") else ""
-	header_right.text = ("Bran's Raven is waiting" if flying else "Departing " + Travel.town_name(here)) if here != "" else ""
+	header_right.text = "Bran's Raven is waiting" if flying else ("Departing " + Travel.town_name(here) if here != "" else "")
 	if flying:
 		set_title("Fly where?")
+		set_hint("Z  Fly there        X  Back")
+		here = ""
+		if Router.overworld and is_instance_valid(Router.overworld) and Router.overworld.get("zone") != null:
+			here = Router.overworld.zone.town_id
 	var buttons := []
 	for town in (Travel.fly_destinations(Game.data, here) if flying else Travel.rail_destinations(Game.data, here)):
 		var b := make_button("  " + Travel.town_name(town), func(): close(town))
@@ -28,7 +32,8 @@ func setup(arg: String) -> void:
 		_list.add_child(b)
 		buttons.append(b)
 	if buttons.is_empty():
-		_list.add_child(UIKit.label("No other stations visited yet. Trains only go where you've been.", 26, UIKit.MUTED))
+		var none := "No other towns visited yet. Bran's Raven only flies where you've been." if flying else "No other stations visited yet. Trains only go where you've been."
+		_list.add_child(UIKit.label(none, 26, UIKit.MUTED))
 		return
 	UIKit.wrap_focus(buttons)
 	UIKit.focus_later(buttons[0])
