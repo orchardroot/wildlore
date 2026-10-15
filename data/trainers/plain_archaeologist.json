@@ -1,0 +1,31 @@
+{
+ "id": "plain_archaeologist",
+ "name": "Archaeologist Dr Lowe",
+ "class": "Archaeologist",
+ "sprite": "student",
+ "party": [
+  {
+   "species": "tunneller",
+   "level": 89
+  },
+  {
+   "species": "sarsenite",
+   "level": 90
+  },
+  {
+   "species": "megalorn",
+   "level": 89
+  }
+ ],
+ "ai": "trainer",
+ "money": 2500,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Archaeologist Dr Lowe",
+   "text": "Fascinating! A live specimen, on an actual dig site. Hold still while I measure your shoes. And your team."
+  }
+ ],
+ "win": "Remarkable. Typical! Another theory with a hole in it.",
+ "after": "Everyone says Stonehenge is a calendar. Or an observatory. Or a temple. I say it's a really good place to put stones."
+}

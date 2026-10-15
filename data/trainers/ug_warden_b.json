@@ -1,0 +1,31 @@
+{
+ "id": "ug_warden_b",
+ "name": "Warden Hargreave",
+ "class": "Warden",
+ "sprite": "warden_grunt",
+ "party": [
+  {
+   "species": "quarrion",
+   "level": 96
+  },
+  {
+   "species": "stagmajor",
+   "level": 95
+  },
+  {
+   "species": "stoopfalcon",
+   "level": 96
+  }
+ ],
+ "ai": "trainer",
+ "money": 3700,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Warden Hargreave",
+   "text": "Nobody is to go north of this junction without authorisation. I am the authorisation. I have a badge."
+  }
+ ],
+ "win": "The badge fell off. That's embarrassing.",
+ "after": "Lord Vane's tower stands right above this tunnel. I try not to think about it. It's a lot of glass."
+}

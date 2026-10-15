@@ -1,0 +1,31 @@
+{
+ "id": "vt_warden_1",
+ "name": "Warden Prentice",
+ "class": "Warden",
+ "sprite": "warden_grunt",
+ "party": [
+  {
+   "species": "samsonian",
+   "level": 96
+  },
+  {
+   "species": "steelheart",
+   "level": 96
+  },
+  {
+   "species": "tubemole",
+   "level": 95
+  }
+ ],
+ "ai": "trainer",
+ "money": 3800,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Warden Prentice",
+   "text": "Reception is closed to the public. The lobby is, however, open to the public. This is a contradiction I have been told not to resolve."
+  }
+ ],
+ "win": "I'll have to ring facilities. And then HR.",
+ "after": "The lift is on your right. I did not say that."
+}

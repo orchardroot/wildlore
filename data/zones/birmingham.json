@@ -5,69 +5,1059 @@
  "kind": "town",
  "music": "town_city",
  "weather": {
-  "drizzle": 45,
-  "clear": 35,
+  "drizzle": 38,
+  "clear": 28,
+  "sunshine": 14,
   "fog": 8,
-  "sunshine": 12
+  "downpour": 8,
+  "gale": 4
  },
- "props": [],
- "warps": [],
+ "props": [
+  {
+   "type": "building",
+   "style": "stone",
+   "x": 6,
+   "y": 5,
+   "w": 14,
+   "h": 6,
+   "label": "Library of Birmingham"
+  },
+  {
+   "type": "oak",
+   "x": 23,
+   "y": 4,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 28,
+   "y": 7,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 26,
+   "y": 5,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 23,
+   "y": 5,
+   "variant": 0
+  },
+  {
+   "type": "statue",
+   "x": 8,
+   "y": 13
+  },
+  {
+   "type": "statue",
+   "x": 24,
+   "y": 13
+  },
+  {
+   "type": "lamp_post",
+   "x": 6,
+   "y": 12
+  },
+  {
+   "type": "lamp_post",
+   "x": 11,
+   "y": 12
+  },
+  {
+   "type": "lamp_post",
+   "x": 16,
+   "y": 12
+  },
+  {
+   "type": "lamp_post",
+   "x": 21,
+   "y": 12
+  },
+  {
+   "type": "lamp_post",
+   "x": 27,
+   "y": 12
+  },
+  {
+   "type": "lamp_post",
+   "x": 9,
+   "y": 16
+  },
+  {
+   "type": "lamp_post",
+   "x": 18,
+   "y": 16
+  },
+  {
+   "type": "lamp_post",
+   "x": 26,
+   "y": 16
+  },
+  {
+   "type": "bench",
+   "x": 10,
+   "y": 14
+  },
+  {
+   "type": "bench",
+   "x": 17,
+   "y": 14
+  },
+  {
+   "type": "planter",
+   "x": 5,
+   "y": 17
+  },
+  {
+   "type": "planter",
+   "x": 28,
+   "y": 17
+  },
+  {
+   "type": "building",
+   "style": "station",
+   "x": 40,
+   "y": 5,
+   "w": 12,
+   "h": 2,
+   "label": "New Street Station"
+  },
+  {
+   "type": "lamp_post",
+   "x": 50,
+   "y": 7
+  },
+  {
+   "type": "building",
+   "style": "cream_render",
+   "x": 41,
+   "y": 13,
+   "w": 12,
+   "h": 3,
+   "label": "Selfridges"
+  },
+  {
+   "type": "building",
+   "style": "chapel",
+   "x": 55,
+   "y": 13,
+   "w": 6,
+   "h": 4,
+   "label": "St Martin's"
+  },
+  {
+   "type": "statue",
+   "x": 36,
+   "y": 16
+  },
+  {
+   "type": "market_stall",
+   "x": 34,
+   "y": 19
+  },
+  {
+   "type": "market_stall",
+   "x": 36,
+   "y": 19
+  },
+  {
+   "type": "market_stall",
+   "x": 38,
+   "y": 19
+  },
+  {
+   "type": "market_stall",
+   "x": 50,
+   "y": 19
+  },
+  {
+   "type": "market_stall",
+   "x": 53,
+   "y": 19
+  },
+  {
+   "type": "lamp_post",
+   "x": 34,
+   "y": 14
+  },
+  {
+   "type": "lamp_post",
+   "x": 40,
+   "y": 14
+  },
+  {
+   "type": "lamp_post",
+   "x": 54,
+   "y": 14
+  },
+  {
+   "type": "lamp_post",
+   "x": 60,
+   "y": 14
+  },
+  {
+   "type": "lamp_post",
+   "x": 40,
+   "y": 20
+  },
+  {
+   "type": "lamp_post",
+   "x": 54,
+   "y": 20
+  },
+  {
+   "type": "bench",
+   "x": 45,
+   "y": 19
+  },
+  {
+   "type": "bench",
+   "x": 47,
+   "y": 19
+  },
+  {
+   "type": "phone_box",
+   "x": 33,
+   "y": 20
+  },
+  {
+   "type": "building",
+   "style": "sanctuary",
+   "x": 10,
+   "y": 21,
+   "w": 6,
+   "h": 4,
+   "label": "Sanctuary"
+  },
+  {
+   "type": "building",
+   "style": "shop",
+   "x": 17,
+   "y": 21,
+   "w": 5,
+   "h": 4,
+   "label": "Corner Shop"
+  },
+  {
+   "type": "building",
+   "style": "terrace",
+   "x": 4,
+   "y": 21,
+   "w": 5,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "red_brick",
+   "x": 23,
+   "y": 21,
+   "w": 6,
+   "h": 4,
+   "label": "The Anchor"
+  },
+  {
+   "type": "building",
+   "style": "terrace",
+   "x": 34,
+   "y": 21,
+   "w": 7,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "stone",
+   "x": 42,
+   "y": 21,
+   "w": 6,
+   "h": 4,
+   "label": "The Rotunda"
+  },
+  {
+   "type": "building",
+   "style": "terrace",
+   "x": 49,
+   "y": 21,
+   "w": 6,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "red_brick",
+   "x": 56,
+   "y": 21,
+   "w": 6,
+   "h": 4,
+   "label": "Mailbox"
+  },
+  {
+   "type": "lamp_post",
+   "x": 6,
+   "y": 28
+  },
+  {
+   "type": "lamp_post",
+   "x": 24,
+   "y": 28
+  },
+  {
+   "type": "lamp_post",
+   "x": 38,
+   "y": 28
+  },
+  {
+   "type": "lamp_post",
+   "x": 46,
+   "y": 28
+  },
+  {
+   "type": "lamp_post",
+   "x": 54,
+   "y": 28
+  },
+  {
+   "type": "lamp_post",
+   "x": 58,
+   "y": 28
+  },
+  {
+   "type": "post_box",
+   "x": 3,
+   "y": 28
+  },
+  {
+   "type": "phone_box",
+   "x": 28,
+   "y": 28
+  },
+  {
+   "type": "canal_boat",
+   "x": 5,
+   "y": 31,
+   "variant": 0
+  },
+  {
+   "type": "canal_boat",
+   "x": 9,
+   "y": 32,
+   "variant": 2
+  },
+  {
+   "type": "canal_boat",
+   "x": 19,
+   "y": 31,
+   "variant": 2
+  },
+  {
+   "type": "canal_boat",
+   "x": 24,
+   "y": 32,
+   "variant": 2
+  },
+  {
+   "type": "canal_boat",
+   "x": 38,
+   "y": 31,
+   "variant": 0
+  },
+  {
+   "type": "canal_boat",
+   "x": 42,
+   "y": 32,
+   "variant": 2
+  },
+  {
+   "type": "canal_boat",
+   "x": 54,
+   "y": 31,
+   "variant": 1
+  },
+  {
+   "type": "canal_boat",
+   "x": 58,
+   "y": 32,
+   "variant": 0
+  },
+  {
+   "type": "bollard",
+   "x": 4,
+   "y": 29
+  },
+  {
+   "type": "bollard",
+   "x": 10,
+   "y": 29
+  },
+  {
+   "type": "bollard",
+   "x": 20,
+   "y": 29
+  },
+  {
+   "type": "bollard",
+   "x": 26,
+   "y": 29
+  },
+  {
+   "type": "bollard",
+   "x": 36,
+   "y": 29
+  },
+  {
+   "type": "bollard",
+   "x": 44,
+   "y": 29
+  },
+  {
+   "type": "bollard",
+   "x": 52,
+   "y": 29
+  },
+  {
+   "type": "bollard",
+   "x": 60,
+   "y": 29
+  },
+  {
+   "type": "canal_boat",
+   "x": 45,
+   "y": 38,
+   "variant": 2
+  },
+  {
+   "type": "canal_boat",
+   "x": 45,
+   "y": 41,
+   "variant": 2
+  },
+  {
+   "type": "canal_boat",
+   "x": 45,
+   "y": 48,
+   "variant": 0
+  },
+  {
+   "type": "canal_boat",
+   "x": 45,
+   "y": 50,
+   "variant": 2
+  },
+  {
+   "type": "bollard",
+   "x": 43,
+   "y": 40
+  },
+  {
+   "type": "bollard",
+   "x": 47,
+   "y": 46
+  },
+  {
+   "type": "bench",
+   "x": 43,
+   "y": 48
+  },
+  {
+   "type": "bench",
+   "x": 47,
+   "y": 38
+  },
+  {
+   "type": "building",
+   "style": "mill",
+   "x": 34,
+   "y": 37,
+   "w": 8,
+   "h": 4,
+   "label": "Custard Factory"
+  },
+  {
+   "type": "building",
+   "style": "terrace",
+   "x": 34,
+   "y": 44,
+   "w": 8,
+   "h": 4,
+   "label": "Jewellery Quarter"
+  },
+  {
+   "type": "building",
+   "style": "red_brick",
+   "x": 34,
+   "y": 50,
+   "w": 8,
+   "h": 3,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "terrace",
+   "x": 49,
+   "y": 37,
+   "w": 6,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "red_brick",
+   "x": 56,
+   "y": 37,
+   "w": 5,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "red_brick",
+   "x": 49,
+   "y": 46,
+   "w": 6,
+   "h": 4,
+   "label": "Back-to-Backs"
+  },
+  {
+   "type": "building",
+   "style": "terrace",
+   "x": 56,
+   "y": 46,
+   "w": 5,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "oak",
+   "x": 12,
+   "y": 44,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 29,
+   "y": 45,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 22,
+   "y": 37,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 11,
+   "y": 36,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 22,
+   "y": 41,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 27,
+   "y": 49,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 18,
+   "y": 42,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 4,
+   "y": 37,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 22,
+   "y": 46,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 3,
+   "y": 41,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 3,
+   "y": 48,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 4,
+   "y": 47,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 14,
+   "y": 37,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 16,
+   "y": 38,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 18,
+   "y": 39,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 20,
+   "y": 36,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 5,
+   "y": 49,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 9,
+   "y": 36,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 15,
+   "y": 36,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 21,
+   "y": 37,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 20,
+   "y": 42,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 29,
+   "y": 36,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 14,
+   "y": 52,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 26,
+   "y": 47,
+   "variant": 2
+  },
+  {
+   "type": "bench",
+   "x": 19,
+   "y": 46
+  },
+  {
+   "type": "bench",
+   "x": 15,
+   "y": 44
+  },
+  {
+   "type": "lamp_post",
+   "x": 18,
+   "y": 45
+  },
+  {
+   "type": "lamp_post",
+   "x": 16,
+   "y": 51
+  }
+ ],
+ "warps": [
+  {
+   "x": 13,
+   "y": 24,
+   "to": "birmingham_sanctuary",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 19,
+   "y": 24,
+   "to": "birmingham_shop",
+   "tx": 4,
+   "ty": 5,
+   "facing": "up"
+  }
+ ],
  "edges": {
   "north": {
    "to": "nottingham",
    "offset": 0
+  },
+  "south": {
+   "to": "salisbury_plain",
+   "offset": 0
   }
  },
- "npcs": [],
- "encounters": {},
- "signs": [],
+ "npcs": [
+  {
+   "id": "rail_guard",
+   "sprite": "rail_guard",
+   "x": 47,
+   "y": 7,
+   "facing": "right",
+   "move": "still",
+   "script": "rail_guard"
+  },
+  {
+   "id": "brum_boater_chat",
+   "sprite": "fisher",
+   "x": 12,
+   "y": 29,
+   "facing": "down",
+   "move": "still",
+   "script": "brum_boater_chat"
+  },
+  {
+   "id": "brum_student",
+   "sprite": "student",
+   "x": 20,
+   "y": 15,
+   "facing": "left",
+   "move": "wander",
+   "script": "brum_student"
+  },
+  {
+   "id": "brum_bull",
+   "sprite": "villager_4",
+   "x": 38,
+   "y": 17,
+   "facing": "right",
+   "move": "wander",
+   "script": "brum_bull"
+  },
+  {
+   "id": "brum_baker",
+   "sprite": "shopkeeper",
+   "x": 22,
+   "y": 28,
+   "facing": "down",
+   "move": "still",
+   "script": "brum_baker"
+  },
+  {
+   "id": "brum_traveller",
+   "sprite": "villager_2",
+   "x": 35,
+   "y": 6,
+   "facing": "down",
+   "move": "still",
+   "script": "brum_traveller"
+  },
+  {
+   "id": "brum_boater",
+   "sprite": "fisher",
+   "x": 22,
+   "y": 34,
+   "facing": "right",
+   "move": "still",
+   "trainer": "brum_boater"
+  },
+  {
+   "id": "brum_busker",
+   "sprite": "harpist",
+   "x": 26,
+   "y": 18,
+   "facing": "down",
+   "move": "still",
+   "trainer": "brum_busker"
+  },
+  {
+   "id": "brum_commuter",
+   "sprite": "student",
+   "x": 44,
+   "y": 11,
+   "facing": "down",
+   "move": "still",
+   "trainer": "brum_commuter"
+  },
+  {
+   "id": "brum_warden",
+   "sprite": "warden_grunt",
+   "x": 38,
+   "y": 27,
+   "facing": "left",
+   "move": "still",
+   "trainer": "brum_warden"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "barkdeer",
+    "min": 89,
+    "max": 90,
+    "weight": 12,
+    "time": [
+     "dusk",
+     "night",
+     "dawn"
+    ]
+   },
+   {
+    "species": "binfox",
+    "min": 89,
+    "max": 90,
+    "weight": 14
+   },
+   {
+    "species": "strutcoo",
+    "min": 89,
+    "max": 90,
+    "weight": 12,
+    "time": [
+     "day"
+    ]
+   },
+   {
+    "species": "raidtail",
+    "min": 89,
+    "max": 90,
+    "weight": 10
+   },
+   {
+    "species": "murmurant",
+    "min": 89,
+    "max": 90,
+    "weight": 10,
+    "time": [
+     "day",
+     "dawn"
+    ]
+   },
+   {
+    "species": "stormswift",
+    "min": 89,
+    "max": 91,
+    "weight": 6,
+    "weather": [
+     "gale",
+     "downpour"
+    ]
+   },
+   {
+    "species": "sootwing",
+    "min": 89,
+    "max": 90,
+    "weight": 8,
+    "time": [
+     "night",
+     "dusk"
+    ]
+   },
+   {
+    "species": "rookery",
+    "min": 89,
+    "max": 90,
+    "weight": 8
+   },
+   {
+    "species": "shuttlecog",
+    "min": 89,
+    "max": 91,
+    "weight": 6
+   },
+   {
+    "species": "flittermouse",
+    "min": 89,
+    "max": 90,
+    "weight": 8,
+    "time": [
+     "night"
+    ]
+   }
+  ],
+  "water": [
+   {
+    "species": "spatelord",
+    "min": 89,
+    "max": 90,
+    "weight": 14
+   },
+   {
+    "species": "heronarch",
+    "min": 89,
+    "max": 91,
+    "weight": 10
+   },
+   {
+    "species": "rillotter",
+    "min": 89,
+    "max": 90,
+    "weight": 16
+   },
+   {
+    "species": "levelcrane",
+    "min": 89,
+    "max": 90,
+    "weight": 10
+   },
+   {
+    "species": "pierlord",
+    "min": 89,
+    "max": 90,
+    "weight": 12
+   },
+   {
+    "species": "minkshade",
+    "min": 89,
+    "max": 90,
+    "weight": 10
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 12,
+   "y": 12,
+   "text": "LIBRARY OF BIRMINGHAM. Opened in 2013, wrapped in thousands of metal rings like a gigantic piece of jewellery, which suits the city's Jewellery Quarter. It has a rooftop garden, a Shakespeare Memorial Room, and more books than a person could read in several lifetimes of trying."
+  },
+  {
+   "x": 26,
+   "y": 14,
+   "text": "CENTENARY SQUARE. The city's big public living room, with fountains, statues, and a very fine view of the library. Brummies will argue about what the statues are called. They will also offer you tea during the argument."
+  },
+  {
+   "x": 37,
+   "y": 16,
+   "text": "THE BULL. A giant bronze bull has stood outside the Bullring since 2003. The Bullring has been a market since 1166, so the bull is, if anything, a bit late. Please do not ride it. People have tried."
+  },
+  {
+   "x": 57,
+   "y": 19,
+   "text": "ST MARTIN IN THE BULLRING. A church has stood here for around 800 years, and the market has been bustling round it ever since. Choirs, bells, and a very patient vicar."
+  },
+  {
+   "x": 42,
+   "y": 19,
+   "text": "SELFRIDGES. A building covered in 15,000 shiny aluminium discs, which look like a very expensive sequinned armadillo. It is the most photographed building in the city, and it has never once complained."
+  },
+  {
+   "x": 44,
+   "y": 20,
+   "text": "THE ROTUNDA. A round 1960s office tower, saved from demolition and turned into flats. Birmingham has more canal mileage than Venice, and a surprising number of round buildings."
+  },
+  {
+   "x": 27,
+   "y": 29,
+   "text": "BIRMINGHAM'S CANALS. The city has about 35 miles of canal, which is more than Venice. Narrowboats still drift through the heart of town. They have right of way. They also have tea."
+  },
+  {
+   "x": 40,
+   "y": 36,
+   "text": "THE CUSTARD FACTORY. Once the Bird's Custard works, where the yellow stuff for crumbles was made. Custard was invented in Birmingham in 1837 by Alfred Bird, so his wife, who couldn't eat eggs, could join in the pudding. A kind idea, in a bowl."
+  },
+  {
+   "x": 51,
+   "y": 44,
+   "text": "BACK-TO-BACK HOUSES. Birmingham once had thousands of homes built in rows, sharing walls on three sides. A few survive as a museum. They are small, snug, and rather harder to get a sofa into than they look."
+  },
+  {
+   "x": 39,
+   "y": 43,
+   "text": "THE JEWELLERY QUARTER. About 40% of all the jewellery made in Britain still comes from this one square mile. The clock tower is a memorial and a great place to say 'meet you under the clock'."
+  }
+ ],
  "spawn": [
   31,
-  20
+  28
  ],
  "stage": "city",
  "town_id": "birmingham",
- "stub": true,
+ "station": {
+  "x": 45,
+  "y": 7
+ },
  "rows": [
-  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT...TTTTTTT",
-  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT...TTTTTTT",
-  "TT............................===.....TT",
-  "TT............................===.....TT",
-  "TT............................===.....TT",
-  "TT............................===.....TT",
-  "TT............................===.....TT",
-  "TT............................===.....TT",
-  "TT............................===.....TT",
-  "TT............................===.....TT",
-  "TT............................===.....TT",
-  "TT............................===.....TT",
-  "TT............................===.....TT",
-  "TT............................===.....TT",
-  "TT............................===.....TT",
-  "TT............................===.....TT",
-  "TT............................===.....TT",
-  "TT............................===.....TT",
-  "TT............................===.....TT",
-  "TT====================================TT",
-  "TT====================================TT",
-  "TT====================================TT",
-  "TT....................................TT",
-  "TT....................................TT",
-  "TT....................................TT",
-  "TT....................................TT",
-  "TT....................................TT",
-  "TT....................................TT",
-  "TT....................................TT",
-  "TT....................................TT",
-  "TT....................................TT",
-  "TT....................................TT",
-  "TT....................................TT",
-  "TT....................................TT",
-  "TT....................................TT",
-  "TT....................................TT",
-  "TT....................................TT",
-  "TT....................................TT",
-  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
-  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT"
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT===TTTTTTPTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT===TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TT............................===.............................TT",
+  "TT............................===.............................TT",
+  "TT............................===::::::::.....................TT",
+  "TT....BBBBBBBBBBBBBB..........===:......BBBBBBBBBBBB..........TT",
+  "TT....BBBBBBBBBBBBBB..........===:......BBBBBDBBBBBB..........TT",
+  "TT....BBBBBBBBBBBBBB..........===:.....:____________..........TT",
+  "TT....BBBBBBBBBBBBBB..........===:.....:!!!!!!!!!!!!!.........TT",
+  "TT....BBBBBBBBBBBBBB..........===:.....:......................TT",
+  "TT....BBBBBBBDBBBBBB..........===:.....:......................TT",
+  "TT..::::::::::::::::::::::::::===:.....:......................TP",
+  "TT..::::::::::::::::::::::::::===::::::::::::::::::::::::::::.TT",
+  "TT..::::::::::::::::::::::::::===::::::::BBBBBBBBBBBB::BBBBBB.TT",
+  "TT..::::::::::::::::::::::::::===::::::::BBBBBBBBBBBB::BBBBBB.TT",
+  "TT..::::::::::::::::::::::::::===::::::::BBBBBBBBBBBB::BBBBBB.TT",
+  "TT..::::::::::::::::::::::::::===::::::::::::::::::::::BBBDBB.TT",
+  "TT..::::::::::::::::::::::::::===::::::::::::::::::::::::::::.TT",
+  "TT............................===::::::::::::::::::::::::::::.TT",
+  "TT............................===::::::::::::::::::::::::::::.TT",
+  "TT............................===::::::::::::::::::::::::::::.TT",
+  "TT..BBBBB.BBBBBB.BBBBB.BBBBBB.===.BBBBBBB.BBBBBB.BBBBBB.BBBBBBTT",
+  "TT..BBBBB.BBBBBB.BBBBB.BBBBBB.===.BBBBBBB.BBBBBB.BBBBBB.BBBBBBTT",
+  "TT..BBBBB.BBBBBB.BBBBB.BBBBBB.===.BBBBBBB.BBBBBB.BBBBBB.BBBBBBTT",
+  "TT..BBBBB.BBBDBB.BBDBB.BBBBBB.===.BBBBBBB.BBBBBB.BBBBBB.BBBBBBTT",
+  "TT============================================================TT",
+  "TT============================================================TT",
+  "TT============================================================TT",
+  "TT............................===.............................TT",
+  "TT::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::TT",
+  "TT~~~~~~~~~~~F|F~~~~~~~~~~~~~W===W~~~~~~~~~~~~~F|F~~~~~~~~~~~~TT",
+  "TT~~~~~~~~~~~F|F~~~~~~~~~~~~~W===W~~~~~~~~~~~~~F|F~~~~~~~~~~~~TT",
+  "PT~~~~~~~~~~~F|F~~~~~~~~~~~~~W===W~~~~~~~~~~~~~F|F~~~~~~~~~~~~TT",
+  "TT~~~~~~~~~~~F|F~~~~~~~~~~~~~W===W~~~~~~~~~~~~~F|F~~~~~~~~~~~~TT",
+  "TP::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::TT",
+  "TT...............#............===:::::::::::~~~:..............TT",
+  "TT...............#............===..........:~~~:..............TT",
+  "TT...............#.....wwwwwww===.BBBBBBBB.:~~~:.BBBBBB.BBBBB.TT",
+  "TT..,,,,,,,,,,,,.#......~~~~~.===.BBBBBBBB.:~~~:.BBBBBB.BBBBB.TT",
+  "TT..,,,,,,,,,,,,.#......~~~~~.===.BBBBBBBB.:~~~:.BBBBBB.BBBBB.TT",
+  "TT..,,,,,,,,,,,,.#......~~~~~.===.BBBBBBBB.:~~~:.BBBBBB.BBBBB.TT",
+  "TT..,,,,,,,,,,,,.#......~~~~~.===.::::::::.:~~~:::::::::::::::TT",
+  "TT..,,,,,,,,,,,,.#.....wwwwwww===.::::::::.:~~~:::::::::::::::TT",
+  "TT..,,,,,,,,,,,,.#............===.::::::::.:~~~:::::::::::::::TT",
+  "TT...............#............===.BBBBBBBB.|||||..............TT",
+  "TT...########################.===.BBBBBBBB.:~~~:..............TT",
+  "TT...............#............===.BBBBBBBB.:~~~:.BBBBBB.BBBBB.TT",
+  "TT......,,,,,,,,,#,,,,,,......===.BBBBBBBB.:~~~:.BBBBBB.BBBBB.TT",
+  "TT......,,,,,,,,,#,,,,,,......===.::::::::.:~~~:.BBBBBB.BBBBB.TT",
+  "TT......,,,,,,,,,#,,,,,,......===.::::::::.:~~~:.BBBBBB.BBBBB.TT",
+  "TT......,,,,,,,,,#,,,,,,......===.BBBBBBBB.:~~~:::::::::::::::TT",
+  "TT......,,,,,,,,,#,,,,,,......===.BBBBBBBB.:~~~:::::::::::::::TT",
+  "TT...............#............===.BBBBBBBB.......,,,,,,,,,,,,,TT",
+  "TT............................===................,,,,,,,,,,,,,TT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT===TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT===TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT"
  ]
 }
