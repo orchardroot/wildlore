@@ -39,35 +39,61 @@ static func defaults() -> Dictionary:
 		out[a] = {"key": KEYS[a].duplicate(), "pad": PAD_BUTTONS.get(a, []).duplicate()}
 	return out
 
-## Turns whatever was read from a settings file into a complete, safe binding set. Anything missing,
-## malformed or unusable (confirm or cancel empty, or sharing a button) falls back to the defaults.
+## Turns whatever was read from a settings file into a complete, safe binding set. It starts from the defaults
+## and replays what was loaded under the same rules as `rebound`: codes that aren't real keys or buttons are
+## dropped, Esc belongs to Menu alone and Menu always keeps Esc (and Start), a code another action claims is taken
+## from an action the file said nothing about. Per device (keyboard, pad), if anything ends up empty or two
+## actions share a button, that whole device falls back to the defaults.
 static func sanitise(raw) -> Dictionary:
 	var out := defaults()
 	if not (raw is Dictionary):
 		return out
-	for a in ACTIONS:
-		var entry = raw.get(a)
-		if not (entry is Dictionary):
-			continue
-		for dev in ["key", "pad"]:
-			var list = entry.get(dev)
-			if not (list is Array):
+	for dev in ["key", "pad"]:
+		var loaded := {}
+		for a in ACTIONS:
+			var entry = raw.get(a)
+			if not (entry is Dictionary) or not (entry.get(dev) is Array):
 				continue
 			var clean := []
-			for v in list:
-				if (v is float or v is int) and int(v) >= (1 if dev == "key" else 0) and not clean.has(int(v)):
+			for v in entry[dev]:
+				if (v is float or v is int) and _usable(dev, int(v), a) and not clean.has(int(v)):
 					clean.append(int(v))
 			if not clean.is_empty():
-				out[a][dev] = clean
-	for dev in ["key", "pad"]:
-		var bad := false
-		for c in out.confirm[dev]:
-			if out.cancel[dev].has(c):
-				bad = true
-		if bad:
-			for a in ESSENTIAL:
-				out[a][dev] = defaults()[a][dev]
+				loaded[a] = clean
+		var claimed := {}
+		for a in loaded:
+			for c in loaded[a]:
+				claimed[c] = true
+		var set := {}
+		for a in ACTIONS:
+			if loaded.has(a):
+				set[a] = loaded[a]
+			else:
+				set[a] = defaults()[a][dev].filter(func(c): return not claimed.has(c))
+		var guard: int = KEY_ESCAPE if dev == "key" else JOY_BUTTON_START
+		if not set.menu.has(guard):
+			set.menu.push_front(guard)
+		var seen := {}
+		var ok := true
+		for a in ACTIONS:
+			if set[a].is_empty():
+				ok = false
+			for c in set[a]:
+				if seen.has(c):
+					ok = false
+				seen[c] = true
+		if ok:
+			for a in ACTIONS:
+				out[a][dev] = set[a]
 	return out
+
+static func _usable(dev: String, code: int, action: String) -> bool:
+	if dev == "key":
+		if code == KEY_ESCAPE:
+			return action == "menu"
+		var nm := OS.get_keycode_string(code)
+		return code > 0 and nm != "" and OS.find_keycode_from_string(nm) == code  # junk codes name themselves "Unknown"
+	return code >= 0 and code < JOY_BUTTON_SDL_MAX
 
 ## Pure rule check: the binding set after giving `action` the new `code` as its main button on `device`.
 ## Returns {"bindings": Dictionary, "error": String}. The new button becomes the first one; the action's other
@@ -129,8 +155,14 @@ static func register(b: Dictionary = {}) -> void:
 			m.axis = PAD_AXES[action][0]
 			m.axis_value = PAD_AXES[action][1]
 			InputMap.action_add_event(action, m)
-	# Godot's built-in UI actions drive Buttons and lists: make the game's keys and the pad agree with them.
+	# Godot's built-in UI actions drive Buttons and lists. Wipe their stock keys (Space, Enter, arrows...) so a key
+	# the player gave to another action can't also confirm or back out, then mirror the game's own bindings.
+	# Esc stays on ui_cancel: it is reserved for Menu and never bound to anything else.
+	for ui in ["ui_accept", "ui_cancel", "ui_up", "ui_down", "ui_left", "ui_right"]:
+		InputMap.action_erase_events(ui)
 	for pair in [["ui_accept", "confirm"], ["ui_cancel", "cancel"], ["ui_up", "move_up"], ["ui_down", "move_down"], ["ui_left", "move_left"], ["ui_right", "move_right"]]:
 		for e in InputMap.action_get_events(pair[1]):
-			if not InputMap.action_has_event(pair[0], e):
-				InputMap.action_add_event(pair[0], e)
+			InputMap.action_add_event(pair[0], e)
+	var esc := InputEventKey.new()
+	esc.physical_keycode = KEY_ESCAPE
+	InputMap.action_add_event("ui_cancel", esc)

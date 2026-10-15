@@ -274,10 +274,6 @@
        "eq": 0,
        "then": [
         {
-         "do": "set",
-         "flag": "fairy_bridge_done"
-        },
-        {
          "do": "say",
          "who": "{player}",
          "text": "Hello, little folk. Thank you for having us. I hope the road's been kind."
@@ -306,8 +302,19 @@
          "text": "Something light drops into your hand. A ribbon, no longer than a finger, in a green that doesn't quite belong to any tree you know."
         },
         {
-         "do": "give_item",
-         "item": "fairy_bridge_ribbon"
+         "do": "if",
+         "flag": "fairy_ribbon_given",
+         "then": [],
+         "else": [
+          {
+           "do": "set",
+           "flag": "fairy_ribbon_given"
+          },
+          {
+           "do": "give_item",
+           "item": "fairy_bridge_ribbon"
+          }
+         ]
         },
         {
          "do": "say",
@@ -319,12 +326,25 @@
          "species": "tylwyth",
          "level": 95,
          "music": "legend",
-         "flag": "fairy_bridge_tylwyth_caught"
+         "flag": "fairy_bridge_done"
         },
         {
-         "do": "say",
-         "who": "Harpist",
-         "text": "That's them. Say goodbye on the way out. And thank you, love, from every driver on the island."
+         "do": "if",
+         "flag": "fairy_bridge_done",
+         "then": [
+          {
+           "do": "say",
+           "who": "Harpist",
+           "text": "That's them. Say goodbye on the way out. And thank you, love, from every driver on the island."
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Harpist",
+           "text": "Oh, they've gone quiet. They'll be back under the bridge. Say hello again whenever you like."
+          }
+         ]
         }
        ],
        "else": [

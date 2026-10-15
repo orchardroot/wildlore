@@ -152,10 +152,6 @@
        "cond": "night",
        "then": [
         {
-         "do": "set",
-         "flag": "brodgar_secret_done"
-        },
-        {
          "do": "say",
          "who": "",
          "text": "The wind drops. All at once, the way it never does in Orkney. The stones of the Ring stand against a sky so full of stars it looks overbooked."
@@ -195,8 +191,19 @@
          "text": "Here. Take this. It fell off the Ring a long time ago and has been waiting for someone to ask for it."
         },
         {
-         "do": "give_item",
-         "item": "brodgar_pebble"
+         "do": "if",
+         "flag": "brodgar_pebble_given",
+         "then": [],
+         "else": [
+          {
+           "do": "set",
+           "flag": "brodgar_pebble_given"
+          },
+          {
+           "do": "give_item",
+           "item": "brodgar_pebble"
+          }
+         ]
         },
         {
          "do": "say",
@@ -208,22 +215,35 @@
          "species": "megalorn",
          "level": 95,
          "music": "legend",
-         "flag": "brodgar_megalorn_caught"
+         "flag": "brodgar_secret_done"
         },
         {
          "do": "face_player"
         },
         {
-         "do": "say",
-         "who": "Night Warden",
-         "text": "Well. That's that. The Ring's said its piece. Go home, and mind the sheep on the way."
+         "do": "if",
+         "flag": "brodgar_secret_done",
+         "then": [
+          {
+           "do": "say",
+           "who": "Night Warden",
+           "text": "Well. That's that. The Ring's said its piece. Go home, and mind the sheep on the way."
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Night Warden",
+           "text": "Ah. It wasn't ready for you, or you for it. The Ring doesn't mind. Come back after dark and try again."
+          }
+         ]
         }
        ],
        "else": [
         {
          "do": "say",
-         "who": "",
-         "text": "A shepherd's coat has been left over a stone. A lantern sits beside it, unlit. Nobody's about."
+         "who": "Night Warden",
+         "text": "Not now, love. I only keep watch after dark. Come back at night."
         },
         {
          "do": "say",
