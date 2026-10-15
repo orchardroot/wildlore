@@ -12,6 +12,11 @@ const MODES := {
 	"ionian": [0, 2, 4, 5, 7, 9, 11],
 }
 const GAINS := {"fiddle": 1.0, "whistle": 1.0, "harp": 0.8, "guitar": 0.7, "bass": 0.9, "thump": 1.0, "tick": 0.8, "shaker": 0.6, "drone": 0.45, "brass": 0.9, "surf": 0.5, "reed": 0.9, "pipe": 1.0, "bouzouki": 0.75, "chanter": 0.85, "bell": 0.7}
+const TARGET_RMS_DB := -12.0  ## every track is levelled to this RMS (plus level_db), so tracks sit together
+const PEAK_CEIL := 0.89  ## about -1 dBFS; a track whose crest factor needs more than this stays a little quieter
+const SEAM_RIDE_SEC := 2.0
+const SEAM_FLOOR := 0.8  ## the tail is lifted to at least this fraction of the track RMS
+const SEAM_MAX_BOOST := 4.0
 const LOOSE := ["harp", "guitar", "bouzouki", "thump", "tick", "shaker"]  # voices that get a hint of human timing
 
 var tonic := 62
@@ -21,6 +26,7 @@ var upb := 8  ## units per bar
 var bars := 16
 var loop := true
 var tail := 1.5
+var level_db := 0.0  ## per-track loudness offset from TARGET_RMS_DB (battles +1, sanctuary and ending -1)
 var seam_fade := 0.0  ## seconds of fade at each end of a looping track, so the loop point sits exactly on zero
 var events: Array = []
 var errors: Array = []
@@ -184,11 +190,53 @@ func render(sr: int) -> PackedFloat32Array:
 	Synth.echo(out, Synth.frames(0.263, sr), 0.30, 0.16)
 	Synth.remove_dc(out)
 	Synth.soften(out, 1.3)
-	Synth.normalise(out, 0.72)
 	if loop and seam_fade > 0.0:
 		Synth.fade_in(out, sr, seam_fade)
 		Synth.fade_out(out, sr, seam_fade)
 	if not loop:
 		Synth.fade_out(out, sr, 0.4)
 		Synth.fade_in(out, sr, 0.004)
+	if loop:
+		_seam_ride(out, sr)
+	_level(out)
 	return out
+
+## Some phrases end on a rest, so the last second or two dips well below the body of the track and the loop breathes
+## out and back in. Ride the gain up over the tail (never down, never beyond SEAM_MAX_BOOST) so the seam has no level step.
+func _seam_ride(out: PackedFloat32Array, sr: int) -> void:
+	var n := out.size()
+	var blk := maxi(1, int(0.025 * sr))
+	var nb := n / blk
+	var tail_b := mini(nb, int(SEAM_RIDE_SEC / 0.025))
+	var floor_rms := Synth.rms(out) * SEAM_FLOOR
+	var g := PackedFloat32Array()
+	g.resize(nb)
+	g.fill(1.0)
+	for b in range(nb - tail_b, nb):
+		var s := 0.0
+		for i in range(b * blk, (b + 1) * blk):
+			s += out[i] * out[i]
+		var e := sqrt(s / blk)
+		g[b] = clampf(floor_rms / maxf(e, 1e-5), 1.0, SEAM_MAX_BOOST)
+	# Smooth the gain curve (moving average, 7 blocks) so the ride itself is inaudible.
+	var sm := g.duplicate()
+	for b in nb:
+		var acc := 0.0
+		for k in range(-3, 4):
+			acc += g[clampi(b + k, 0, nb - 1)]
+		sm[b] = acc / 7.0
+	for i in n:
+		var pos := (float(i) + 0.5) / blk - 0.5
+		var b0 := clampi(int(floor(pos)), 0, nb - 1)
+		var b1 := mini(b0 + 1, nb - 1)
+		out[i] *= lerpf(sm[b0], sm[b1], clampf(pos - b0, 0.0, 1.0))
+
+func _level(out: PackedFloat32Array) -> void:
+	var r := Synth.rms(out)
+	var p := Synth.peak(out)
+	if r <= 0.0:
+		return
+	var g := pow(10.0, (TARGET_RMS_DB + level_db) / 20.0) / r
+	if p * g > PEAK_CEIL:
+		g = PEAK_CEIL / p
+	Synth.scale(out, g)
