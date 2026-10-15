@@ -6,9 +6,9 @@ A monster-catching RPG across the UK and Ireland. You start in Macclesfield, bec
 
 ![Title](docs/screens/t13-title.png)
 
-## What's in v0.5: the whole story
+## What's in 1.0
 
-All of it, start to finish. You leave home in Macclesfield with a hedgehog, a squirrel or an otter, and you walk (and cycle, and take the train, and catch the odd ferry) all the way round England, Wales, Scotland, Northern Ireland, Ireland and the Isle of Man, collecting ten Stones from ten Keepers while a heritage company with very good lanyards tries to buy the countryside. Then you go to Stonehenge for the Moot, find out who the Champion has been all along, and go to London to have a word with Lord Vane about his tower.
+All of it, start to finish, and then some. You leave home in Macclesfield with a hedgehog, a squirrel or an otter, and you walk (and cycle, and take the train, and catch the odd ferry) all the way round England, Wales, Scotland, Northern Ireland, Ireland and the Isle of Man, collecting ten Stones from ten Keepers while a heritage company with very good lanyards tries to buy the countryside. Then you go to Stonehenge for the Moot, find out who the Champion has been all along, and go to London to have a word with Lord Vane about his tower.
 
 - 40 towns, from Macclesfield to Kirkwall, Penzance to Derry~Londonderry
 - 200 creatures, every one with a real fact about the animal or the legend it's based on, and all ten legends: Y Ddraig Goch, the Green Man, the Morrígan, Manannán's Horse, the Cù-Sìth, Nessie, Black Shuck, the Lambton Worm, Herne the Hunter and Bran's Raven
@@ -16,6 +16,8 @@ All of it, start to finish. You leave home in Macclesfield with a hedgehog, a sq
 - A bike, a coracle, a lantern, a pair of waders, trains, ferries, and eventually a raven to fly you anywhere you've been
 - Double battles, British weather that matters, day and night, three save slots and an Ark for the spares
 - Folk-ish music and sound effects, all synthesised from scratch, and pixel art and buildings all generated from code
+- A post-game: the Keepers, the Professor and your rival want rematches (once a day, they have lives), two secrets that only come out after dark or after the credits, and a diploma if you fill the Fieldbook
+- Options for the rest of us: every key and button can be remapped, type symbols as well as colours, a colour-blind palette, instant text, and a setting to calm the flashing down
 
 | | |
 |---|---|
@@ -33,6 +35,9 @@ All of it, start to finish. You leave home in Macclesfield with a hedgehog, a sq
 | Back | X or Backspace | B / East |
 | Menu | Esc or Tab | Start |
 | Bike on / off | B | Y / North |
+| Fly (after the Moot) | F | Back / Select |
+
+All of it can be rebound under Settings, Controls. Confirm and Back can't be swapped onto the same key, because I've seen what happens.
 
 ## Playing it
 
@@ -45,16 +50,17 @@ From source: install nothing, run `tools/get_godot.sh` (it fetches the pinned Go
 Godot 4, GDScript, the Compatibility renderer. Everything is generated: the 3D world is built from text maps by `world/zone_builder.gd`, the creature and character sprites are drawn by `tools/spritegen.gd` from JSON recipes, and the music is composed as note lists in `tools/music/`. No downloaded art or audio.
 
 ```
-tools/test.sh              # nearly 500 unit tests plus the data validator
+tools/test.sh              # over 500 unit tests plus the data validator
 tools/playtest.sh slice 2  # a headless bot plays the slice and must win the Brook Stone
 tools/playtest.sh m2 2     # ...or carries on to Cardiff and must win all four
 tools/playtest.sh fuzz 7 600   # random walking, talking and battling, looking for soft-locks
+tools/playtest.sh full 1   # the whole story, Macclesfield to the credits (about 20 minutes)
 ```
 
 CI runs the tests and the bot on every push, and three fuzz runs every night. Design and plans live in `docs/superpowers/`.
 
 ## Status
 
-The story is complete. What's left is polish for 1.0: post-game rematches, accessibility options, a proper listen to the music by someone with ears, and a long hard look at the balance. The board is [here](https://github.com/users/orchardroot/projects/2).
+Done. 1.0 is the whole game, polished, levelled and play-tested by a robot that walked from Macclesfield to London and found three places it could get stuck (it can't any more). If you find a fourth, the issues page is [here](../../issues). The board is [here](https://github.com/users/orchardroot/projects/2).
 
 *orchardroot, made in Cheshire, under the supervision of two cats. Neither of them is in this one. Yet.*

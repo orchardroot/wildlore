@@ -58,7 +58,7 @@ func _add(text: String, cb: Callable) -> void:
 func _subtitle() -> String:
 	if Game.chart.types.is_empty() or Game.dex.ids().is_empty() or Game.moves.ids().is_empty():
 		return "Game data missing from this build"
-	return "v%s  ·  %d creatures so far" % [ProjectSettings.get_setting("application/config/version"), Game.dex.ids().size()]
+	return "v%s  ·  %d creatures" % [ProjectSettings.get_setting("application/config/version"), Game.dex.ids().size()]
 
 var _chosen := false
 
