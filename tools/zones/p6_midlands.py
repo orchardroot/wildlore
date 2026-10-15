@@ -66,8 +66,8 @@ def birmingham():
                           "Hop aboard! Where to?"])
     # Bullring
     z.rect(33, 12, 28, 9, ":")
-    z.building(41, 13, 12, 5, "cream_render", "Selfridges")
-    z.building(55, 13, 6, 5, "chapel", "St Martin's", door=3)
+    z.building(41, 13, 12, 3, "cream_render", "Selfridges")
+    z.building(55, 13, 6, 4, "chapel", "St Martin's", door=3)
     z.prop("statue", 36, 16)
     z.sign(37, 16, "THE BULL. A giant bronze bull has stood outside the Bullring since 2003. The Bullring has been a market since 1166, so the bull is, if anything, a bit late. Please do not ride it. People have tried.")
     z.sign(57, 19, "ST MARTIN IN THE BULLRING. A church has stood here for around 800 years, and the market has been bustling round it ever since. Choirs, bells, and a very patient vicar.")
@@ -202,8 +202,8 @@ def salisbury():
     W, H = 60, 72
     z = Z("salisbury_plain", "Salisbury Plain", W, H, fill="c", kind="route", region=ENG, music="route_mountain", weather=WX_DOWN)
     z.d["stage"] = "grass"
-    z.legend["c"] = {"tile": "grass", "colour": "#cdd0a0"}                       # chalk downland
-    z.legend["g"] = {"tile": "tall_grass", "colour": "#bdc48b", "prop": "none"}  # long chalk grass: encounters
+    z.legend["c"] = {"tile": "grass", "colour": "#aab46c"}                       # chalk downland
+    z.legend["g"] = {"tile": "tall_grass", "colour": "#98a35a", "prop": "none"}  # long chalk grass: encounters
     z.legend["h"] = {"tile": "grass", "colour": "#f6f5ec"}                       # the white horse (cut chalk)
     z.border("T", 2, gaps=[(30, 0, 3, 2), (29, 70, 3, 2)])
     z.scatter(0, 0, W, H, "P", 24, 71, only="T")
@@ -286,10 +286,10 @@ def stonehenge():
     z = Z("stonehenge", "Stonehenge", W, H, fill="c", kind="route", region=ENG, music="legend",
           weather={"clear": 34, "sunshine": 28, "fog": 12, "drizzle": 10, "gale": 10, "frost": 6})
     z.d["stage"] = "grass"
-    z.legend["c"] = {"tile": "grass", "colour": "#c9cf9a"}
-    z.legend["g"] = {"tile": "tall_grass", "colour": "#b4be82", "prop": "none"}
-    z.legend["p"] = {"tile": "path", "colour": "#e4dfc4"}                        # trampled chalk
-    z.legend["m"] = {"tile": "grass", "colour": "#d9dcae"}
+    z.legend["c"] = {"tile": "grass", "colour": "#a5b068"}
+    z.legend["g"] = {"tile": "tall_grass", "colour": "#919c55", "prop": "none"}
+    z.legend["p"] = {"tile": "path", "colour": "#c9bf94"}                        # trampled chalk
+    z.legend["m"] = {"tile": "grass", "colour": "#b4ba74"}
     z.border("T", 2, gaps=[(29, 0, 3, 2), (58, 28, 2, 3)])
     z.scatter(0, 0, W, H, "P", 14, 81, only="T")
     # the great sward and the chalk circle
@@ -309,7 +309,7 @@ def stonehenge():
     z.prop("standing_stone", 28, 9, variant=1); z.prop("standing_stone", 32, 9, variant=1)
     z.sign(33, 8, "THE MOOT. All ten Spirit Stones are sworn to sit here, one midsummer in every generation. The Four Winds keep the gates and the Champion keeps the centre. Please wipe your boots on the chalk. The chalk does not mind.")
     # the outer circle: 30 sarsens, ten inner stones, the heel stone out on the avenue
-    for i, (x, y) in enumerate(ring_pts(cx, cy, 10, 30)):
+    for i, (x, y) in enumerate(ring_pts(cx, cy, 10, 36)):
         z.prop("standing_stone", x, y, variant=i % 3)
     for i, (x, y) in enumerate(ring_pts(cx, cy, 6, 10, phase=math.pi / 10)):
         z.prop("standing_stone", x, y, variant=(i + 1) % 3)
@@ -318,6 +318,17 @@ def stonehenge():
     for (x, y) in [(cx, cy - 7), (cx, cy + 7), (cx - 7, cy), (cx + 7, cy), (cx, cy)]:
         clear_prop(z, x, y)
         z.set(x, y, "p")
+    # the low earth bank round the circle (one step up, easy to walk over), and wildflowers on the sward
+    for y in range(H):
+        for x in range(W):
+            d = math.hypot(x - cx, y - cy)
+            if 14 <= d < 15.6 and not z.g[y][x] in "F":
+                z.hg[y][x] = 1
+    r = random.Random(84)
+    for _ in range(90):
+        fx, fy = r.randrange(3, W - 3), r.randrange(3, H - 3)
+        if z.g[fy][fx] in "cm" and math.hypot(fx - cx, fy - cy) > 11.5:
+            z.g[fy][fx] = "f"
     # barrows in the distance
     for (bx, by) in [(8, 20), (12, 24), (50, 18), (48, 52), (10, 46), (6, 36)]:
         mound(z, bx, by, 2, 1, 1)
@@ -401,8 +412,8 @@ def london():
         z.prop("buoy", x, y)
     z.sign(25, 29, "THE THAMES. Britain's most famous river, with 50-odd bridges in the capital alone. Once so smelly that Parliament hung wet curtains at the windows, now clean enough for seals, cormorants and the occasional confused porpoise.")
     # Westminster
-    z.building(3, 6, 15, 8, "liver_building", "Westminster")
-    z.building(19, 5, 3, 9, "stone", "Big Ben")
+    z.building(3, 6, 15, 8, "cathedral", "Westminster")
+    z.prop("lighthouse", 19, 13)
     z.rect(3, 14, 22, 6, ":"); z.rect(18, 14, 4, 12, ":")
     for (x, y) in [(5, 15), (11, 15), (17, 15)]:
         z.prop("statue", x, y)
@@ -421,7 +432,7 @@ def london():
     z.sign(28, 24, "THE UNDERGROUND. The oldest metro in the world, opened 1863. The map is a diagram, not a map, because Harry Beck knew nobody cares where anything really is. They care about where to change. The mice are unionised.")
     # Vane Tower, the Enclosure's glass tower
     z.rect(30, 20, 16, 6, ":"); z.rect(30, 14, 3, 6, ":"); z.rect(43, 14, 3, 6, ":")
-    z.building(33, 5, 9, 15, "cream_render", "Vane Tower", door=4)
+    z.building(33, 12, 9, 8, "liver_building", "Vane Tower", door=4)
     z.warp(37, 19, "vane_tower_lobby", 15, 21, "up")
     z.prop("statue", 31, 22); z.prop("statue", 44, 22)
     z.prop("planter", 34, 21); z.prop("planter", 40, 21); z.prop("lamp_post", 36, 21); z.prop("lamp_post", 38, 21)
@@ -453,7 +464,7 @@ def london():
     z.prop("bench", 18, 53); z.prop("bench", 14, 53); z.prop("lamp_post", 17, 46)
     z.building(33, 45, 10, 5, "tudor", "Shakespeare's Globe")
     z.rect(33, 50, 10, 1, ":")
-    z.building(45, 44, 5, 13, "cream_render", "The Shard")
+    z.prop("lighthouse", 47, 50)
     z.rect(51, 43, 3, 18, "=")
     z.rect(55, 57, 21, 4, ":"); z.rect(55, 46, 3, 12, ":"); z.rect(70, 47, 6, 10, ":")
     z.building(58, 47, 12, 9, "aqueduct", "London Eye")
@@ -461,7 +472,7 @@ def london():
         z.prop("market_stall", x, 59)
     lamps(z, [(35, 51), (41, 51), (56, 45), (71, 45), (71, 55), (52, 61)])
     z.sign(38, 51, "SHAKESPEARE'S GLOBE. A faithful rebuild of the 1599 theatre, with a thatched roof (fire-safe, now) and a yard where the 'groundlings' stand for a few quid and shout. The original burned down during a play, after a cannon went off a bit enthusiastically.")
-    z.sign(47, 58, "THE SHARD. The tallest building in Western Europe when it opened in 2012: 310 metres of glass, shaped like a shard of glass, which is nicely honest. Please do not throw anything at it, you will be on camera.")
+    z.sign(48, 51, "THE SHARD. The tallest building in Western Europe when it opened in 2012: 310 metres of glass, shaped like a shard of glass, which is nicely honest. Please do not throw anything at it, you will be on camera.")
     z.sign(62, 57, "THE LONDON EYE. A big wheel by the Thames. A ride takes 30 minutes and rises 135 metres. You can see Windsor Castle on a clear day, and your own breath on a cold one.")
     z.sign(57, 60, "BOROUGH MARKET. A market has stood near here for a thousand years. You can buy cheese, bread, oysters, and a sausage roll bigger than your head. London food has come a very long way since the pie.")
     z.prop("phone_box", 49, 43); z.prop("post_box", 31, 43)
