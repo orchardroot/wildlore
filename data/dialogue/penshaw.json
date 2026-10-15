@@ -2,119 +2,126 @@
  "lambton": [
   {
    "do": "if",
-   "flag": "badge_spirit",
-   "then": [
+   "flag": "caught_lambton",
+   "then": [],
+   "else": [
     {
      "do": "if",
-     "flag": "lambton_met",
+     "flag": "badge_spirit",
      "then": [
       {
-       "do": "say",
-       "who": "",
-       "text": "The heather on the hill's flank ripples, slow and wide. Something very big is paying attention."
+       "do": "if",
+       "flag": "lambton_met",
+       "then": [
+        {
+         "do": "say",
+         "who": "",
+         "text": "The heather on the hill's flank ripples, slow and wide. Something very big is paying attention."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "",
+         "text": "You carry ten Stones, and the hill hums back at exactly the right note. The grass round the monument lifts, one long ridge after another, until you realise it's not the hill that's moving."
+        },
+        {
+         "do": "music",
+         "id": "legend"
+        },
+        {
+         "do": "say",
+         "who": "",
+         "text": "Seven coils rise out of the bracken, each as wide as a bus. At the top of them, a head the size of a garden shed turns, politely, and regards you."
+        },
+        {
+         "do": "say",
+         "who": "Lambton Worm",
+         "text": "Whisht, bonny lad, or lass. Haad yer gobs and listen: I've been the subject of that song for six hundred years, and nowt but the tune has improved."
+        },
+        {
+         "do": "say",
+         "who": "Lambton Worm",
+         "text": "John Lambton fished on a Sunday, tossed me down a well, and went off to the Crusades. I grew. That was the plan, as far as I could tell. Nobody consulted me."
+        },
+        {
+         "do": "say",
+         "who": "Lambton Worm",
+         "text": "He came back and cut me in pieces, and the pieces could not join up again. I've been working on it. I'm very nearly whole. Care to see if you're worth the trouble?"
+        },
+        {
+         "do": "set",
+         "flag": "lambton_met"
+        }
+       ]
+      },
+      {
+       "do": "legend",
+       "species": "lambton",
+       "level": 86,
+       "flag": "caught_lambton",
+       "music": "legend"
+      },
+      {
+       "do": "if",
+       "flag": "caught_lambton",
+       "then": [
+        {
+         "do": "say",
+         "who": "",
+         "text": "The great coils slide away down the hill, one after another, until the last of them is tucked in at your heel like a very large and very pleased dog. The monument seems to approve. The grass, rather unusually, does not move."
+        },
+        {
+         "do": "warp",
+         "zone": "penshaw",
+         "x": 22,
+         "y": 13,
+         "facing": "up"
+        },
+        {
+         "do": "end"
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "",
+         "text": "The Worm sinks into the heather, coil on coil, and the hill is a hill again. It will be back on the next Sunday. Worms are very reliable about Sundays."
+        },
+        {
+         "do": "warp",
+         "zone": "penshaw",
+         "x": 22,
+         "y": 13,
+         "facing": "up"
+        },
+        {
+         "do": "end"
+        }
+       ]
       }
      ],
      "else": [
       {
        "do": "say",
        "who": "",
-       "text": "You carry ten Stones, and the hill hums back at exactly the right note. The grass round the monument lifts, one long ridge after another, until you realise it's not the hill that's moving."
+       "text": "The grass on Penshaw Hill moves against the wind, in one long, slow coil, then another. Somewhere under the monument, something very large turns over in its sleep."
       },
       {
-       "do": "music",
-       "id": "legend"
+       "do": "say",
+       "who": "Lambton Worm",
+       "text": "Mmm. Nine Stones. Close. It's only for ten, that. Come back when the Spirit's in your pocket, and mind your pyjamas on the stairs."
       },
       {
        "do": "say",
        "who": "",
-       "text": "Seven coils rise out of the bracken, each as wide as a bus. At the top of them, a head the size of a garden shed turns, politely, and regards you."
-      },
-      {
-       "do": "say",
-       "who": "Lambton Worm",
-       "text": "Whisht, bonny lad, or lass. Haad yer gobs and listen: I've been the subject of that song for six hundred years, and nowt but the tune has improved."
-      },
-      {
-       "do": "say",
-       "who": "Lambton Worm",
-       "text": "John Lambton fished on a Sunday, tossed me down a well, and went off to the Crusades. I grew. That was the plan, as far as I could tell. Nobody consulted me."
-      },
-      {
-       "do": "say",
-       "who": "Lambton Worm",
-       "text": "He came back and cut me in pieces, and the pieces could not join up again. I've been working on it. I'm very nearly whole. Care to see if you're worth the trouble?"
+       "text": "The coil settles. A dog walker in the distance remarks to nobody that the wind's got up."
       },
       {
        "do": "set",
-       "flag": "lambton_met"
+       "flag": "lambton_stirred"
       }
      ]
-    },
-    {
-     "do": "legend",
-     "species": "lambton",
-     "level": 86,
-     "flag": "caught_lambton",
-     "music": "legend"
-    },
-    {
-     "do": "if",
-     "flag": "caught_lambton",
-     "then": [
-      {
-       "do": "say",
-       "who": "",
-       "text": "The great coils slide away down the hill, one after another, until the last of them is tucked in at your heel like a very large and very pleased dog. The monument seems to approve. The grass, rather unusually, does not move."
-      },
-      {
-       "do": "warp",
-       "zone": "penshaw",
-       "x": 22,
-       "y": 13,
-       "facing": "up"
-      },
-      {
-       "do": "end"
-      }
-     ],
-     "else": [
-      {
-       "do": "say",
-       "who": "",
-       "text": "The Worm sinks into the heather, coil on coil, and the hill is a hill again. It will be back on the next Sunday. Worms are very reliable about Sundays."
-      },
-      {
-       "do": "warp",
-       "zone": "penshaw",
-       "x": 22,
-       "y": 13,
-       "facing": "up"
-      },
-      {
-       "do": "end"
-      }
-     ]
-    }
-   ],
-   "else": [
-    {
-     "do": "say",
-     "who": "",
-     "text": "The grass on Penshaw Hill moves against the wind, in one long, slow coil, then another. Somewhere under the monument, something very large turns over in its sleep."
-    },
-    {
-     "do": "say",
-     "who": "Lambton Worm",
-     "text": "Mmm. Nine Stones. Close. It's only for ten, that. Come back when the Spirit's in your pocket, and mind your pyjamas on the stairs."
-    },
-    {
-     "do": "say",
-     "who": "",
-     "text": "The coil settles. A dog walker in the distance remarks to nobody that the wind's got up."
-    },
-    {
-     "do": "set",
-     "flag": "lambton_stirred"
     }
    ]
   }
