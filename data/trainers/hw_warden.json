@@ -1,0 +1,31 @@
+{
+ "id": "hw_warden",
+ "name": "Warden Nigel",
+ "class": "Warden",
+ "sprite": "warden_grunt",
+ "party": [
+  {
+   "species": "forkwing",
+   "level": 80
+  },
+  {
+   "species": "raidtail",
+   "level": 80
+  },
+  {
+   "species": "hazeldoze",
+   "level": 80
+  }
+ ],
+ "ai": "trainer",
+ "money": 3240,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Warden Nigel",
+   "text": "The Enclosure says an ancient wall across the countryside is a bit of a fence. We think it needs a gate. And a ticket machine. And a turnstile."
+  }
+ ],
+ "win": "You win. I'll make a note to put a turnstile where you stood.",
+ "after": "We'll curate the gap, and put up a sign saying 'Gap'."
+}

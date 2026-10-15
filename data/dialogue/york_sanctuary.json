@@ -1,0 +1,63 @@
+{
+ "nurse": [
+  {
+   "do": "say",
+   "who": "Nurse",
+   "text": "Now then, love, and welcome to York Sanctuary. Put the team on the counter and I'll sort them. You've the look of someone who's walked the walls, and then the walls again."
+  },
+  {
+   "do": "choice",
+   "text": "What can we do for you?",
+   "options": [
+    "Heal my team",
+    "Open the Ark",
+    "Just looking"
+   ],
+   "set": "_nurse_choice"
+  },
+  {
+   "do": "if",
+   "flag": "_nurse_choice",
+   "eq": 0,
+   "then": [
+    {
+     "do": "say",
+     "who": "Nurse",
+     "text": "Sit thissen down. There's a pot of tea, a slice of parkin, and a view of the Minster, which is leaning slightly, I think. It always does when people stare."
+    },
+    {
+     "do": "heal"
+    },
+    {
+     "do": "say",
+     "who": "Nurse",
+     "text": "Champion! All fixed. Off you pop. Mind the cobbles, they're the original ones, and they've a grudge."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "_nurse_choice",
+     "eq": 1,
+     "then": [
+      {
+       "do": "say",
+       "who": "Nurse",
+       "text": "The Ark's in the corner. It has the faint scent of old stone and good chocolate. I do not know why. Have a click."
+      },
+      {
+       "do": "ark"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Nurse",
+       "text": "No bother, love. We'll be here, same as the Minster. Longer, if the stonemasons have anything to do with it."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
