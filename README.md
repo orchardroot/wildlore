@@ -10,7 +10,7 @@ A monster-catching RPG across the UK and Ireland. You start in Macclesfield, bec
 
 All of it, start to finish. You leave home in Macclesfield with a hedgehog, a squirrel or an otter, and you walk (and cycle, and take the train, and catch the odd ferry) all the way round England, Wales, Scotland, Northern Ireland, Ireland and the Isle of Man, collecting ten Stones from ten Keepers while a heritage company with very good lanyards tries to buy the countryside. Then you go to Stonehenge for the Moot, find out who the Champion has been all along, and go to London to have a word with Lord Vane about his tower.
 
-- 40 towns, from Macclesfield to Kirkwall, Penzance to Derry
+- 40 towns, from Macclesfield to Kirkwall, Penzance to Derry~Londonderry
 - 200 creatures, every one with a real fact about the animal or the legend it's based on, and all ten legends: Y Ddraig Goch, the Green Man, the Morrígan, Manannán's Horse, the Cù-Sìth, Nessie, Black Shuck, the Lambton Worm, Herne the Hunter and Bran's Raven
 - Ten Keepers, the Four Winds, a Champion, a rival who turns out to be the best mate you've got, and a villain who complains about his deposit
 - A bike, a coracle, a lantern, a pair of waders, trains, ferries, and eventually a raven to fly you anywhere you've been
