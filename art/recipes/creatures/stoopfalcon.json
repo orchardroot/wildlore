@@ -1,0 +1,29 @@
+{"id": "stoopfalcon",
+ "palette": {"b": "#52688a", "b2": "#2e3c58", "b3": "#8aa4c4", "cream": "#f4eee0", "bar": "#9aa6b8", "hood": "#222c3e", "beak": "#f4d050", "beak2": "#a07818", "ink": "#101218", "cloud": "#f4f8fc", "cloud2": "#cfdbea", "talon": "#f4d050", "eye": "#f4d870"},
+ "layers": [
+  {"shape": "ellipse", "at": [10, 62], "size": [22, 7], "colour": "cloud2", "rim": false, "shade": false},
+  {"shape": "ellipse", "at": [88, 50], "size": [20, 6], "colour": "cloud2", "rim": false, "shade": false},
+  {"shape": "poly", "points": [[40, 20], [48, 2], [56, 20], [54, 34], [42, 34]], "colour": "b2", "pattern": "stripes", "pcolour": "bar", "period": 5, "pangle": 0},
+  {"shape": "poly", "points": [[38, 60], [8, 4], [4, 24], [20, 42], [34, 62]], "colour": "b", "mirror": true},
+  {"shape": "poly", "points": [[36, 54], [10, 12], [20, 40], [34, 60]], "colour": "b2", "mirror": true, "rim": false},
+  {"shape": "line", "points": [[34, 50], [10, 8]], "width": 1.6, "colour": "b3", "mirror": true, "rim": false, "shade": false},
+  {"shape": "ellipse", "at": [48, 52], "size": [32, 58], "colour": "b"},
+  {"shape": "ellipse", "at": [48, 62], "size": [20, 40], "colour": "cream", "front_only": true, "pattern": "stripes", "pcolour": "bar", "period": 4, "pangle": 0, "rim": false},
+  {"shape": "poly", "points": [[34, 86], [38, 92], [32, 98]], "colour": "talon", "mirror": true, "rim": false},
+  {"shape": "circle", "at": [48, 70], "r": 18, "colour": "b"},
+  {"shape": "ellipse", "at": [48, 60], "size": [34, 14], "colour": "hood", "rim": false},
+  {"shape": "ellipse", "at": [48, 76], "size": [24, 16], "colour": "cream", "front_only": true, "rim": false}
+ ],
+ "face_layers": [
+  {"shape": "poly", "points": [[43, 74], [53, 74], [51, 82], [48, 88], [45, 82]], "colour": "beak", "rim": false},
+  {"shape": "poly", "points": [[46, 82], [50, 82], [48, 88]], "colour": "beak2", "rim": false},
+  {"shape": "poly", "points": [[34, 68], [40, 68], [41, 82], [37, 80]], "colour": "hood", "shade": false, "rim": false, "mirror": true},
+  {"shape": "line", "points": [[32, 62], [42, 66]], "width": 2.2, "colour": "ink", "shade": false, "mirror": true},
+  {"shape": "line", "points": [[30, 6], [30, 20]], "width": 1, "colour": "cloud", "shade": false},
+  {"shape": "line", "points": [[66, 4], [66, 16]], "width": 1, "colour": "cloud", "shade": false},
+  {"shape": "line", "points": [[48, 0], [48, 8]], "width": 1, "colour": "cloud", "shade": false}
+ ],
+ "eyes": [{"at": [40, 66], "r": 4.4, "colour": "eye", "mirror": true, "pupil": [2.4, 2.4]}],
+ "anim": "shift",
+ "bob": 2
+}
