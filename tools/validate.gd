@@ -13,6 +13,13 @@ func _initialize() -> void:
 			for enc in z.encounters[kind]:
 				if not dex.has(str(enc.get("species", ""))):
 					errors.append("zone %s: encounter species '%s' does not exist" % [zid, enc.get("species", "")])
+		if zid != "testbed":
+			for n in z.npcs:
+				# every NPC must have real art, or it shows up in game as a "?" placeholder
+				var sid := str(n.get("sprite", ""))
+				var path := ("res://art/sprites/creatures/%s_icon.png" % sid.substr(9)) if sid.begins_with("creature:") else ("res://art/sprites/chars/%s.png" % sid)
+				if not FileAccess.file_exists(path):
+					errors.append("zone %s: npc '%s' sprite '%s' has no art" % [zid, n.get("id", ""), sid])
 	errors.append_array(Coverage.check(dex, zones))
 	errors.append_array(Coverage.reachability(zones, JsonUtil.read("res://data/ferries.json"), Coverage.script_warp_targets()))
 	for e in errors:
