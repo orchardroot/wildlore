@@ -595,6 +595,9 @@ def underground():
     z.sign(55, 11, "DISUSED STATION. London has about 40 ghost stations, closed for decades and left like time capsules. Their old posters still advertise toothpaste, Bovril, and a variety show of 1938.")
     z.sign(20, 5, "TO THE VANE TOWER. Staff only. Persons without a lanyard will be asked to take a seat. There are no seats. This is the Enclosure's idea of a joke.")
     z.warp(25, 1, "vane_tower_lobby", 2, 12, "right")
+    # a one-tile bay beside each trainer, so a beaten trainer standing in the tunnel can be walked round
+    for (x, y) in [(15, 28), (15, 29), (15, 30), (25, 10), (25, 11), (25, 12)]:
+        z.set(x, y, "k")
     # blockers (placeholder story NPCs)
     _stand(z, 14, 24)
     z.npc(id="reunion_a", sprite="pryce", x=14, y=24, facing="down", move="still", script="reunion_a")

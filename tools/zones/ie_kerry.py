@@ -95,6 +95,7 @@ def kerry(OUT):
                  line={"stagmor": "The stag lifts a head like a coat rack and considers you. You are not a threat. You are barely a footnote.",
                        "fawnlet": "It trots three paces, stops, stares, and trots back. Calves are professionals at looking lost.",
                        "kerryspot": "A big dark slug with pale spots. It's the Kerry slug, found in Kerry and Spain and practically nowhere else. It is not in a hurry."}[sp])
+    z.set(22, 8, "."); z.set(23, 8, ".")  # open the trees so the stag at 21,8 can be reached
     # chat
     chat(z, "jarvey", "villager_3", 33, 23, "Jarvey",
          ["Jaunting cars have carried visitors round Killarney for two hundred years. I'm a jarvey. The horse is the boss, I just hold the reins.",

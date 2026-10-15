@@ -62,6 +62,7 @@ def coast(OUT):
     # the Farne Islands: puffins offshore
     z.rect(58, 33, 6, 5, "R"); z.rect(59, 34, 4, 3, ".")
     z.rect(58, 33, 1, 1, "$"); z.rect(63, 37, 1, 1, "$")
+    z.rect(57, 35, 2, 1, "w")  # a shallow sandbar out to the islet so the puffins can be reached
     z.prop("lighthouse", 61, 34)
     z.prop("boat", 56, 36, variant=1)
     # puffins: not walkable around, but they sit on the grass

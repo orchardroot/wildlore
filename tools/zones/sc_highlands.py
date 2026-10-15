@@ -150,7 +150,7 @@ def fort_william(OUT):
     chat(z, "fw_rescue", "hiker", 20, 18, "Mountain Rescue Volunteer",
          ["Ben Nevis is a big, kind hill with a bad temper in the mist. We go up in all weathers, so you don't have to.",
           "The summit's covered in cloud about three days in four, and there's a cliff off the north side. Take a map, a torch and a plan. In that order."], "down", "still")
-    chat(z, "fw_spotter", "birdwatcher", 38, 30, "Train Spotter",
+    chat(z, "fw_spotter", "birdwatcher", 41, 30, "Train Spotter",
          ["The Jacobite leaves here for Mallaig, a steam train that puffs along the viaduct at Glenfinnan, the one in the films. I've seen it go by seventy-three times.",
           "I've never been on it. It's about the looking, you see. I look. The train does the rest."], "up", "still")
     chat(z, "fw_piper", "villager_5", 30, 23, "Busker",

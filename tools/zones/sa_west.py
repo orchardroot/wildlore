@@ -90,7 +90,7 @@ def levels(OUT):
     chat(z, "reserve_warden", "birdwatcher", 26, 20, "Reserve Volunteer",
          ["Common cranes came back to Somerset in 2010. The Great Crane Project hand-reared chicks in costumes, so they didn't imprint on humans.",
           "A person in a crane costume. Think about that, next time you think your job's silly."], "right", "still")
-    chat(z, "withy_weaver", "villager_4", 22, 25, "Withy Weaver",
+    chat(z, "withy_weaver", "villager_4", 21, 24, "Withy Weaver",
          ["Willows grow like weeds here. Cut them down and they sprout again, so we make baskets from the prunings.",
           "Somerset withies are famous. Mind you, nobody asks me to weave a fair maid's cradle any more."], "down", "wander")
     chat(z, "cider_man", "farmer", 32, 14, "Cider Maker",
@@ -463,7 +463,7 @@ def penzance(OUT):
     chat(z, "mount_ferryman", "sailor", 45, 35, "Mount Boatman",
          ["The causeway is 'pass at your own risk' for about two hours either side of low tide.",
           "Between those, I'll ferry you across. Fifteen quid. Splash included."], "right", "still")
-    chat(z, "lido_swimmer", "villager_1", 8, 30, "Cold Water Swimmer",
+    chat(z, "lido_swimmer", "villager_1", 3, 30, "Cold Water Swimmer",
          ["The Jubilee Pool is a seawater lido. It's cold. I'll swim all year. It's good for you. I'm told. I can't feel my toes to check.",
           "They heat part of it with a geothermal well now. It's 'warmish', which is as warm as Cornwall gets."], "down", "wander")
     chat(z, "davy_fan", "student", 30, 18, "History Student",

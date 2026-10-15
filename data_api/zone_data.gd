@@ -306,6 +306,31 @@ func validate(all: Dictionary) -> Array:
 				cache[g] = reachable(spawn, [] if g == "" else [g])
 			if side in OPPOSITE and not _side_reached(side, cache[g]):
 				e.append(tag + "can't reach the %s edge from the spawn%s" % [side, "" if g == "" else " even with " + g])
+	# corks: a beaten trainer stays where it stood, so trainers that never move must not wall off
+	# a warp, an edge or another NPC (a trainer hidden by its own trainer flag steps aside)
+	if walkable(spawn):
+		var corks := _standing_npcs()
+		for n in npcs:
+			if n.has("trainer") and str(n.get("move", "still")) == "still" and str(n.get("hide_if", "")) != "trainer_" + str(n.trainer):
+				corks[Vector2i(int(n.x), int(n.y))] = true
+		var seen := reachable(spawn, GATE_ABILITIES, corks)
+		for w in warps:
+			if not seen.has(Vector2i(int(w.x), int(w.y))):
+				e.append(tag + "the warp at %d,%d is walled off by trainers that never move" % [int(w.x), int(w.y)])
+		for side in edges:
+			if side in OPPOSITE and not _side_reached(side, seen):
+				e.append(tag + "the %s edge is walled off by trainers that never move" % side)
+		for n in npcs:
+			var np := Vector2i(int(n.x), int(n.y))
+			var talkable := false
+			for d in [Vector2i(0, 1), Vector2i(0, -1), Vector2i(1, 0), Vector2i(-1, 0)]:
+				if seen.has(np + d):
+					talkable = true
+				# across a shop or Sanctuary counter (Overworld.interact looks one tile past a counter)
+				elif tile_at(np + d) == "counter" and seen.has(np + d * 2):
+					talkable = true
+			if not talkable:
+				e.append(tag + "npc '%s' is walled off by trainers that never move" % n.get("id", "?"))
 	if station != Vector2i(-1, -1) and not walkable(station):
 		e.append(tag + "station tile %s is not walkable" % station)
 	elif station != Vector2i(-1, -1) and walkable(spawn) and not reachable(station, GATE_ABILITIES, _standing_npcs()).has(spawn):
