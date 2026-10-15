@@ -1,0 +1,44 @@
+{
+ "id": "keeper_hester",
+ "name": "Keeper Hester",
+ "class": "Keeper",
+ "sprite": "keeper_hester",
+ "party": [
+  {
+   "species": "centurion",
+   "level": 86
+  },
+  {
+   "species": "coblynn",
+   "level": 86
+  },
+  {
+   "species": "gwyllgi",
+   "level": 87
+  },
+  {
+   "species": "bansheen",
+   "level": 87
+  },
+  {
+   "species": "hushwing",
+   "level": 88
+  }
+ ],
+ "ai": "keeper",
+ "money": 9000,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Keeper Hester",
+   "text": "Welcome to the crypt, love. Mind the step, it's Roman. So's the draught."
+  },
+  {
+   "do": "say",
+   "who": "Keeper Hester",
+   "text": "I've led the ghost walk for thirty years. The ghosts and I have an understanding. You and I are about to have one too."
+  }
+ ],
+ "win": "Well. The tenth Stone. They'll be talking about this on the walk for years. Mostly the ghosts.",
+ "after": "Every Stone on the islands, in one bag. The Moot will want a word."
+}

@@ -1,0 +1,41 @@
+{
+ "id": "reunion_pryce_ashcombe",
+ "name": "Directors Pryce and Ashcombe",
+ "class": "Director",
+ "sprite": "pryce",
+ "party": [
+  {
+   "species": "quarrion",
+   "level": 94
+  },
+  {
+   "species": "cassiterix",
+   "level": 94
+  },
+  {
+   "species": "shuttlecog",
+   "level": 95
+  },
+  {
+   "species": "bodminax",
+   "level": 95
+  }
+ ],
+ "ai": "trainer",
+ "money": 12000,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Gareth Pryce",
+   "text": "Ah. You again. We've been asked to hold the Northern line."
+  },
+  {
+   "do": "say",
+   "who": "Sir Rupert Ashcombe",
+   "text": "Hold it is a strong word. We've been asked to stand on it. Shall we get this over with?"
+  }
+ ],
+ "win": "Splendid. We'll put it in the minutes.",
+ "after": "",
+ "double": true
+}

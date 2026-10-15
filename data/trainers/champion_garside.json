@@ -1,0 +1,48 @@
+{
+ "id": "champion_garside",
+ "name": "Professor Elspeth Garside",
+ "class": "Champion",
+ "sprite": "prof_garside",
+ "party": [
+  {
+   "species": "heilan",
+   "level": 86
+  },
+  {
+   "species": "bradan",
+   "level": 86
+  },
+  {
+   "species": "finnmacool",
+   "level": 87
+  },
+  {
+   "species": "orcaird",
+   "level": 87
+  },
+  {
+   "species": "adderking",
+   "level": 87
+  },
+  {
+   "species": "goldeneyrie",
+   "level": 88
+  }
+ ],
+ "ai": "keeper",
+ "money": 20000,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Prof. Garside",
+   "text": "Hello, {player}. Yes. It's me. I'm afraid I've been the Champion of the Moot for rather a long time."
+  },
+  {
+   "do": "say",
+   "who": "Prof. Garside",
+   "text": "Someone had to keep the old places safe until someone better came along. I think someone better has. Let's find out."
+  }
+ ],
+ "win": "There it is. Thank you. I've been waiting twenty years to lose that properly.",
+ "after": ""
+}
