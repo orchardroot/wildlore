@@ -181,6 +181,7 @@ func test_orkney_stones_only_after_game_complete_and_at_night() -> void:
 func test_orkney_secret_gives_pebble_and_megalorn_once() -> void:
 	var h := _host()
 	h.data.clock_minutes = 23 * 60
+	h.battle_results = [{"result": "caught"}]
 	await _run(h, "kirkwall", "brodgar_night", "brodgar_night")
 	assert_eq(h.legends, [["megalorn", 95]])
 	assert_eq(_bag(h, "brodgar_pebble"), 1)
@@ -191,6 +192,39 @@ func test_orkney_secret_gives_pebble_and_megalorn_once() -> void:
 	h.data.clock_minutes = 2 * 60
 	await _run(h, "kirkwall", "brodgar_night", "brodgar_night")
 	assert_eq(h.legends.size(), 1)
+
+func test_orkney_secret_survives_a_knock_out_and_ends_on_a_catch() -> void:
+	var h := _host()
+	h.data.clock_minutes = 23 * 60
+	await _run(h, "kirkwall", "brodgar_night", "brodgar_night")  # megalorn knocked out ("win")
+	assert_false(h.data.flag("brodgar_secret_done") == true, "not used up by a knock-out")
+	h.battle_results = [{"result": "caught"}]
+	await _run(h, "kirkwall", "brodgar_night", "brodgar_night")
+	assert_eq(h.legends.size(), 2, "met again")
+	assert_eq(_bag(h, "brodgar_pebble"), 1, "the pebble is given once")
+	assert_eq(h.data.flag("brodgar_secret_done"), true)
+	await _run(h, "kirkwall", "brodgar_night", "brodgar_night")
+	assert_eq(h.legends.size(), 2, "never caught twice")
+
+func test_orkney_warden_by_day_says_to_come_back_at_night() -> void:
+	var h := _host()
+	h.data.clock_minutes = 12 * 60
+	await _run(h, "kirkwall", "brodgar_night", "brodgar_night")
+	assert_true(_said_has(h, "after dark"))
+	assert_true(h.said.any(func(l): return l[0] == "Night Warden"), "the warden is visible, so they speak")
+
+func test_fairy_secret_survives_a_knock_out_and_ends_on_a_catch() -> void:
+	var h := _host()
+	h.choices = [0, 0, 0]
+	await _run(h, "douglas", "fairy_bridge", "fairy_bridge")
+	assert_false(h.data.flag("fairy_bridge_done") == true, "not used up by a knock-out")
+	h.battle_results = [{"result": "caught"}]
+	await _run(h, "douglas", "fairy_bridge", "fairy_bridge")
+	assert_eq(h.legends.size(), 2)
+	assert_eq(_bag(h, "fairy_bridge_ribbon"), 1, "the ribbon is given once")
+	assert_eq(h.data.flag("fairy_bridge_done"), true)
+	await _run(h, "douglas", "fairy_bridge", "fairy_bridge")
+	assert_eq(h.legends.size(), 2)
 
 # ---------------------------------------------------------------- Isle of Man
 
@@ -210,6 +244,7 @@ func test_saying_hello_to_the_fairies_matters() -> void:
 	assert_eq(_bag(h, "fairy_bridge_ribbon"), 0)
 	assert_false(h.data.flag("fairy_bridge_done") == true, "and you may try again")
 	h.choices = [0]
+	h.battle_results = [{"result": "caught"}]
 	await _run(h, "douglas", "fairy_bridge", "fairy_bridge")
 	assert_eq(h.legends, [["tylwyth", 95]])
 	assert_eq(_bag(h, "fairy_bridge_ribbon"), 1)
@@ -217,6 +252,7 @@ func test_saying_hello_to_the_fairies_matters() -> void:
 func test_fairy_bridge_secret_is_once_only() -> void:
 	var h := _host()
 	h.choices = [0, 0]
+	h.battle_results = [{"result": "caught"}]
 	await _run(h, "douglas", "fairy_bridge", "fairy_bridge")
 	await _run(h, "douglas", "fairy_bridge", "fairy_bridge")
 	assert_eq(h.legends.size(), 1)
