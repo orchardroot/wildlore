@@ -41,6 +41,13 @@ func use_on(id: String, c: Creature, item_db: ItemDB) -> Dictionary:
 	var item := item_db.get_item(id)
 	if item.is_empty() or count(id) < 1:
 		return {"ok": false, "text": "You don't have any."}
+	if str(item.get("kind", "")) == "evo":
+		# evolution items: the caller does the evolving (it has the Dex); the item is used up only if it works
+		var to := Progression.evolution_target_with_item(c, id)
+		if to == "":
+			return {"ok": false, "text": "%s doesn't react to it." % c.display_name()}
+		remove(id)
+		return {"ok": true, "text": "", "evolve_to": to}
 	var r := ItemEffects.apply(item, c)
 	if r.ok:
 		remove(id)

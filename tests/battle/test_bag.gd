@@ -127,3 +127,17 @@ func test_add_respects_max_stack() -> void:
 	assert_eq(b.add("tea", 20), 9)
 	assert_eq(b.count("tea"), Bag.MAX_STACK)
 	assert_eq(b.add("tea"), 0)
+
+func test_evolution_item_from_the_bag() -> void:
+	var dex := Dex.load_default()
+	var items := ItemDB.load_default()
+	var b := Bag.new({"whitby_jet": 1})
+	var other := Creature.create(dex.get_species("spikkin"), 10, Rng.new(1), MoveDB.load_default())
+	var r := b.use_on("whitby_jet", other, items)
+	assert_false(r.ok, "nothing happens to a creature it doesn't suit")
+	assert_eq(b.count("whitby_jet"), 1, "and the jet isn't used up")
+	var jet := Creature.create(dex.get_species("jetling"), 20, Rng.new(1), MoveDB.load_default())
+	r = b.use_on("whitby_jet", jet, items)
+	assert_true(r.ok)
+	assert_eq(r.get("evolve_to", ""), "jetwhitby")
+	assert_eq(b.count("whitby_jet"), 0)
