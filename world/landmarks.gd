@@ -15,7 +15,7 @@ const IRON := Color("3c4450")
 const GLASS := Color.WHITE
 
 ## Building styles handled here rather than by the generic house in Meshes.building.
-const SPECIAL := ["gantry_crane", "mill", "castle", "cathedral", "liver_building", "station", "aqueduct", "chapel", "terrace", "tudor", "slate_cottage", "lighthouse_house"]
+const SPECIAL := ["glass_tower", "gantry_crane", "mill", "castle", "cathedral", "liver_building", "station", "aqueduct", "chapel", "terrace", "tudor", "slate_cottage", "lighthouse_house"]
 
 static func building(w: int, d: int, style: String, door_x: int, seed_value: int) -> Array:
 	var rng := Meshes._rng(seed_value)
@@ -38,6 +38,8 @@ static func building(w: int, d: int, style: String, door_x: int, seed_value: int
 			_aqueduct(st, w, d)
 		"gantry_crane":
 			_gantry(st, w, d)
+		"glass_tower":
+			_glass_tower(st, wst, w, d, door_x)
 		"terrace":
 			_house(st, wst, w, d, door_x, rng, BRICK, SLATE, 2, true, false)
 		"tudor":
@@ -292,6 +294,27 @@ static func _gantry(st: SurfaceTool, w: int, d: int) -> void:
 	Meshes.box(st, Vector3(w * 0.5 - 0.6, h - 0.8, d * 0.5 - 0.45), Vector3(1.2, 0.8, 0.9), IRON.lightened(0.15))  # trolley
 	Meshes.box(st, Vector3(w * 0.5 - 0.05, 1.4, d * 0.5 - 0.05), Vector3(0.1, h - 2.2, 0.1), Color("2a2a2a"))   # hoist cable
 	Meshes.box(st, Vector3(w * 0.5 - 0.25, 1.1, d * 0.5 - 0.25), Vector3(0.5, 0.35, 0.5), IRON)                # hook block
+
+## Lord Vane's tower: a tall tapering block of blue glass with a lit grid of windows and a needle spire.
+static func _glass_tower(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int) -> void:
+	var glass := Color("4a6e8c")
+	var frame := Color("2a3442")
+	var tiers := [[0.0, 4.0, 0.0], [4.0, 4.0, 0.35], [8.0, 3.5, 0.7]]  # [base y, height, inset]
+	for t in tiers:
+		var y0: float = t[0]
+		var h: float = t[1]
+		var ins: float = t[2]
+		Meshes.box(st, Vector3(ins, y0, ins), Vector3(w - 2 * ins, h, d - 2 * ins), glass, glass.lightened(0.2))
+		Meshes.box(st, Vector3(ins - 0.05, y0 + h - 0.12, ins - 0.05), Vector3(w - 2 * ins + 0.1, 0.12, d - 2 * ins + 0.1), frame)
+		var rows := int(h / 0.7)
+		for r in rows:
+			for x in range(int(ins) + 0, w - int(ceil(ins))):
+				if r == 0 and y0 == 0.0 and x == door_x:
+					continue
+				Meshes.box(wst, Vector3(x + 0.2, y0 + 0.25 + r * 0.7, d - ins - 0.03), Vector3(0.6, 0.4, 0.04), Color.WHITE)
+	Meshes.box(st, Vector3(w * 0.5 - 0.15, 11.5, d * 0.5 - 0.15), Vector3(0.3, 3.0, 0.3), frame.lightened(0.3))  # spire
+	if door_x >= 0:
+		Meshes.box(st, Vector3(door_x + 0.15, 0, d - 0.06), Vector3(0.7, 1.2, 0.08), frame)
 
 # --- point props -------------------------------------------------------------
 
