@@ -2,15 +2,98 @@
  "reunion_a": [
   {
    "do": "say",
-   "who": "Pryce",
-   "text": "(placeholder) Directors Pryce and Ashcombe, half-heartedly blocking a tunnel."
+   "who": "",
+   "text": "The tunnel narrows to a single track's width. On the platform, in matching raincoats and under a flickering light, stand two men who very much look as though they have been asked to wait in a corridor."
+  },
+  {
+   "do": "say",
+   "who": "Gareth Pryce",
+   "text": "Ah. You again. We've been asked to hold the Northern line."
+  },
+  {
+   "do": "say",
+   "who": "Sir Rupert Ashcombe",
+   "text": "Hold it is a strong word. We've been asked to stand on it. Shall we get this over with?"
+  },
+  {
+   "do": "battle",
+   "trainer": "reunion_pryce_ashcombe"
+  },
+  {
+   "do": "say",
+   "who": "Gareth Pryce",
+   "text": "Splendid. We hold the Northern line. I shall say you were terrifying."
+  },
+  {
+   "do": "say",
+   "who": "Sir Rupert Ashcombe",
+   "text": "I shall say it was a draw. And that the wind was against us. Underground. It's a technicality."
+  },
+  {
+   "do": "say",
+   "who": "Gareth Pryce",
+   "text": "We were never here, of course. We were at the golf club."
+  },
+  {
+   "do": "say",
+   "who": "",
+   "text": "They saunter off towards the exit, arguing amiably about which of them will tell Vane. The tunnel clears."
+  },
+  {
+   "do": "warp",
+   "zone": "underground",
+   "x": 14,
+   "y": 25,
+   "facing": "up"
+  },
+  {
+   "do": "end"
   }
  ],
  "reunion_b": [
   {
    "do": "say",
-   "who": "Kerrigan",
-   "text": "(placeholder) Directors Kerrigan and Strachan, half-heartedly blocking a tunnel."
+   "who": "",
+   "text": "Down a long dim passage, two women sit side by side on a bench under a map of the Tube, each holding a paper cup. They stand up as one."
+  },
+  {
+   "do": "say",
+   "who": "Siobh\u00e1n Kerrigan",
+   "text": "We both handed in our lanyards. Vane sent them back. With a fruit basket."
+  },
+  {
+   "do": "say",
+   "who": "Morag Strachan",
+   "text": "We're here because it's in our contracts. We're not here to win. But we won't make it easy."
+  },
+  {
+   "do": "battle",
+   "trainer": "reunion_kerrigan_strachan"
+  },
+  {
+   "do": "say",
+   "who": "Siobh\u00e1n Kerrigan",
+   "text": "That's us done. Properly, this time. It was good to see you in the end. I've missed the daylight, actually."
+  },
+  {
+   "do": "say",
+   "who": "Morag Strachan",
+   "text": "I'm for the first train to Glencoe, and my wellies. Tell Vane, if you must, that I've decided I'd rather be wet than right."
+  },
+  {
+   "do": "say",
+   "who": "",
+   "text": "They walk away together up the tunnel, already comparing which of them has the worse commute. The way is clear."
+  },
+  {
+   "do": "warp",
+   "zone": "underground",
+   "x": 24,
+   "y": 9,
+   "facing": "up"
+  },
+  {
+   "do": "end"
   }
  ],
  "ug_station_guard": [

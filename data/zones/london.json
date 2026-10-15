@@ -731,6 +731,28 @@
    "facing": "left",
    "move": "still",
    "trainer": "lon_warden_b"
+  },
+  {
+   "id": "london_tower_gate",
+   "sprite": "warden_grunt",
+   "x": 37,
+   "y": 20,
+   "facing": "up",
+   "move": "still",
+   "script": "gate_london_tower",
+   "name": "Warden",
+   "hide_if": "moot_won"
+  },
+  {
+   "id": "london_tube_gate",
+   "sprite": "warden_grunt",
+   "x": 24,
+   "y": 26,
+   "facing": "up",
+   "move": "still",
+   "script": "gate_london_tube",
+   "name": "Warden",
+   "hide_if": "moot_won"
   }
  ],
  "encounters": {

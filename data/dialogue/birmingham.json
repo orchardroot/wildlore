@@ -24,6 +24,86 @@
    "do": "say",
    "who": "Narrowboat Captain",
    "text": "Lots of Birmingham's canals were built in the 1700s to carry coal and pottery. Now they carry tea and tourists. The tea is the better cargo."
+  },
+  {
+   "do": "if",
+   "flag": "canal_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Narrowboat Captain",
+     "text": "You've had the Birmingham grand tour. More canals than Venice, and fewer gondoliers. We make up for it in kettles."
+    }
+   ],
+   "else": [
+    {
+     "do": "choice",
+     "text": "The captain pats the tiller. Hop aboard for a trip along the cut?",
+     "options": [
+      "All aboard",
+      "Not today"
+     ],
+     "set": "canal_choice"
+    },
+    {
+     "do": "if",
+     "flag": "canal_choice",
+     "then": [
+      {
+       "do": "say",
+       "who": "Narrowboat Captain",
+       "text": "Mind your head at the bridges. Mind your tea at the locks. Mind the swan. The swan is an admiral."
+      },
+      {
+       "do": "fade_out"
+      },
+      {
+       "do": "wait",
+       "seconds": 0.8
+      },
+      {
+       "do": "fade_in"
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "The narrowboat slides out under the brick arches at about the speed of a thoughtful snail. Gas lamps, rusty towpath rings, and a heron on a lock gate who regards your passing as a mild inconvenience. A cyclist overtakes you. Then a duck."
+      },
+      {
+       "do": "say",
+       "who": "Narrowboat Captain",
+       "text": "Gas Street Basin. Brindleyplace. The old Roundhouse. There are thirty-five miles of canal inside the city, give or take, and I know every one of them by its smell."
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "At the end of the trip the captain presses a flask into your hands, still warm."
+      },
+      {
+       "do": "say",
+       "who": "Narrowboat Captain",
+       "text": "That's for the road. Fresh brewed, three sugars, and a biscuit for the swan. Come back and I'll show you the Black Country the long way."
+      },
+      {
+       "do": "give_item",
+       "item": "flask_of_tea",
+       "n": 2
+      },
+      {
+       "do": "set",
+       "flag": "canal_done"
+      }
+     ],
+     "eq": 0,
+     "else": [
+      {
+       "do": "say",
+       "who": "Narrowboat Captain",
+       "text": "Another time. The canal's not going anywhere. That's rather its whole charm."
+      }
+     ]
+    }
+   ]
   }
  ],
  "brum_student": [

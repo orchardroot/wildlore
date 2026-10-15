@@ -76,12 +76,17 @@
  "abdn_postie": [
   {
    "do": "if",
-   "flag": "v04_complete",
+   "flag": "ch10_started",
    "then": [
     {
      "do": "say",
      "who": "Postie",
      "text": "The Professor rang the post office, the harbour, and a pub. I'd say she's quite keen."
+    },
+    {
+     "do": "say",
+     "who": "Postie",
+     "text": "The south road's that way. Newcastle's a fortnight on foot, they tell me, but the Ministry of Plot Convenience has had a word, so it's more of a long afternoon."
     }
    ],
    "else": [
@@ -127,12 +132,17 @@
     {
      "do": "say",
      "who": "Prof. Garside",
-     "text": "Vane said he'd see you at the Moot. He's right. All the Keepers will be there, and the Four Winds, and a champion nobody has ever beaten. At Stonehenge. In the winter. I'm told it's a drizzle."
+     "text": "Here's the good news: the road south out of Aberdeen is open. It runs down the coast to Northumberland, along Hadrian's Wall to Newcastle, over the Moors to Whitby, and on to York. I've looked at a map. It is, in places, very straight."
     },
     {
      "do": "say",
-     "who": "",
-     "text": "The way south is long, and the ferry from Aberdeen to Orkney sails whenever you like. The Moot can wait a morning."
+     "who": "Prof. Garside",
+     "text": "And two rumours. Something is stirring on a hill in County Durham, and something large and black has been seen on the clifftop at Whitby. The reports say 'worm' and 'dog'. I'm choosing to believe those are two separate reports."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "Vane said he'd see you at the Moot. He's right. All the Keepers will be there, and the Four Winds, and a champion nobody has ever beaten. At Stonehenge. In the winter. I'm told it's a drizzle."
     },
     {
      "do": "set",
@@ -143,14 +153,13 @@
      "flag": "v04_complete"
     },
     {
-     "do": "say",
-     "who": "",
-     "text": "End of Wildlore v0.4. The Moot is gathering."
+     "do": "set",
+     "flag": "ch10_started"
     },
     {
      "do": "say",
      "who": "",
-     "text": "You are free to keep exploring. Orkney is a ferry away, and its standing stones are older than anyone's opinion of them."
+     "text": "The road south is long, and the ferry from Aberdeen to Orkney sails whenever you like. The Moot can wait a morning."
     }
    ]
   }

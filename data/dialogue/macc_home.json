@@ -2,58 +2,81 @@
  "mum": [
   {
    "do": "if",
-   "flag": "mum_done",
+   "flag": "game_complete",
    "then": [
     {
      "do": "say",
      "who": "Mum",
-     "text": "Tea's in your bag. The Field Station is at the east end of town."
+     "text": "The kettle's on. It's always on. It has been on, I believe, since the Romans."
     },
     {
      "do": "say",
      "who": "Mum",
-     "text": "And if a creature follows you home, it's NOT sleeping on the sofa."
+     "text": "Did you know, Kit's mum rang me? She says Kit's been telling the whole street. I said 'yes, I know. Mine was in the credits.' She said 'what credits?'"
+    },
+    {
+     "do": "say",
+     "who": "Mum",
+     "text": "Orkney, the Isle of Man, wherever it is next. Wrap up. Take a flask. Ring when you get there. Or send a raven. I'm told they're quicker."
     }
    ],
    "else": [
     {
-     "do": "say",
-     "who": "Mum",
-     "text": "Morning, love. Well, gone ten. You slept through the pigeons AND the bin lorry."
-    },
-    {
-     "do": "say",
-     "who": "Mum",
-     "text": "Professor Garside rang. Twice. Something about the stones humming."
-    },
-    {
-     "do": "say",
-     "who": "Mum",
-     "text": "I said you were busy being asleep. She said that was 'not an excuse'."
-    },
-    {
-     "do": "say",
-     "who": "Mum",
-     "text": "Off you go to the Field Station, east end of town, past the market."
-    },
-    {
-     "do": "say",
-     "who": "Mum",
-     "text": "Here, take some tea. A flask is no good if it's not got tea in it."
-    },
-    {
-     "do": "give_item",
-     "item": "cup_of_tea",
-     "n": 3
-    },
-    {
-     "do": "set",
-     "flag": "mum_done"
-    },
-    {
-     "do": "say",
-     "who": "Mum",
-     "text": "Wrap up. And be nice to any creatures. They're only after a biscuit, same as me."
+     "do": "if",
+     "flag": "mum_done",
+     "then": [
+      {
+       "do": "say",
+       "who": "Mum",
+       "text": "Tea's in your bag. The Field Station is at the east end of town."
+      },
+      {
+       "do": "say",
+       "who": "Mum",
+       "text": "And if a creature follows you home, it's NOT sleeping on the sofa."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Mum",
+       "text": "Morning, love. Well, gone ten. You slept through the pigeons AND the bin lorry."
+      },
+      {
+       "do": "say",
+       "who": "Mum",
+       "text": "Professor Garside rang. Twice. Something about the stones humming."
+      },
+      {
+       "do": "say",
+       "who": "Mum",
+       "text": "I said you were busy being asleep. She said that was 'not an excuse'."
+      },
+      {
+       "do": "say",
+       "who": "Mum",
+       "text": "Off you go to the Field Station, east end of town, past the market."
+      },
+      {
+       "do": "say",
+       "who": "Mum",
+       "text": "Here, take some tea. A flask is no good if it's not got tea in it."
+      },
+      {
+       "do": "give_item",
+       "item": "cup_of_tea",
+       "n": 3
+      },
+      {
+       "do": "set",
+       "flag": "mum_done"
+      },
+      {
+       "do": "say",
+       "who": "Mum",
+       "text": "Wrap up. And be nice to any creatures. They're only after a biscuit, same as me."
+      }
+     ]
     }
    ]
   }

@@ -1,23 +1,568 @@
 {
  "moot_wind": [
   {
-   "do": "say",
-   "who": "Wind",
-   "text": "(placeholder) One of the Four Winds. The story agent writes the Moot gauntlet here."
+   "do": "if",
+   "flag": "moot_won",
+   "then": [
+    {
+     "do": "say",
+     "who": "Wind",
+     "text": "The Moot is yours, Champion. Go on, fly. The raven's not used to waiting. It makes her cross, and then it makes her hungry."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "kit8_done",
+     "then": [
+      {
+       "do": "if",
+       "flag": "moot_started",
+       "then": [],
+       "else": [
+        {
+         "do": "say",
+         "who": "Wind",
+         "text": "The Four Winds keep the gates of the Moot, and the Champion keeps the centre. Five fights in a row. Nobody has beaten all five since the stones went up."
+        },
+        {
+         "do": "say",
+         "who": "Wind",
+         "text": "No Sanctuary between them. You may eat and drink from your own bag. Weeping is allowed. Swearing is not: we're a heritage site, and the chalk is listening."
+        },
+        {
+         "do": "say",
+         "who": "Wind",
+         "text": "If you fall, you wake at the gate with your pride dented, and we begin again with the first of us. Walk away whenever you like, to heal or shop. The wind is never in a hurry."
+        },
+        {
+         "do": "set",
+         "flag": "moot_started"
+        }
+       ]
+      },
+      {
+       "do": "choice",
+       "text": "Begin the Moot? Five fights back to back, no Sanctuary between them.",
+       "options": [
+        "Begin",
+        "Not yet"
+       ],
+       "set": "moot_ready"
+      },
+      {
+       "do": "if",
+       "flag": "moot_ready",
+       "then": [
+        {
+         "do": "say",
+         "who": "",
+         "text": "The Four Winds take their places at the four stones, and the air in the circle changes. Chalk-dust lifts. The first of them steps forward, with the sky behind her."
+        },
+        {
+         "do": "gauntlet",
+         "trainers": [
+          "wind_aelwen",
+          "wind_fergus",
+          "wind_aoife",
+          "wind_wilf",
+          "champion_garside"
+         ],
+         "flag": "moot_won",
+         "exit": {
+          "zone": "stonehenge",
+          "x": 30,
+          "y": 8
+         }
+        },
+        {
+         "do": "music",
+         "id": "legend"
+        },
+        {
+         "do": "say",
+         "who": "",
+         "text": "The last of the Professor's creatures sinks to its haunches, and the wind drops. For a long moment the whole circle is quiet. Then the stones begin to hum: ten notes, one for each Stone in your pocket, and the strange low chord you have been hearing since Macclesfield finally resolves."
+        },
+        {
+         "do": "say",
+         "who": "Prof. Garside",
+         "text": "Champion of the Moot, then. I've been polishing that title for twenty years, and I don't mind handing it over. It was getting heavy, and the stones don't like being dusted."
+        },
+        {
+         "do": "say",
+         "who": "Aelwen",
+         "text": "Da iawn, cariad. The west wind approves."
+        },
+        {
+         "do": "say",
+         "who": "Fergus",
+         "text": "Aye. The north wind will say so, and it is a man of few words."
+        },
+        {
+         "do": "say",
+         "who": "Aoife",
+         "text": "Fair play to you. The south wind is already telling the neighbours."
+        },
+        {
+         "do": "say",
+         "who": "Wilf",
+         "text": "East wind says well done, lad or lass. And that's the most you'll get out of the east wind, so frame it."
+        },
+        {
+         "do": "say",
+         "who": "{rival}",
+         "text": "(a voice carrying from the gate, wildly out of breath) THE WHOLE VISITOR CENTRE JUST CHEERED! A man dropped his scone! I've been waving a flag! Was that you? That was you! THAT WAS YOU!"
+        },
+        {
+         "do": "set",
+         "flag": "champion"
+        },
+        {
+         "do": "sfx",
+         "id": "badge"
+        },
+        {
+         "do": "say",
+         "who": "",
+         "text": "{player} is the Champion of the Moot!"
+        },
+        {
+         "do": "music",
+         "id": "legend_crow"
+        },
+        {
+         "do": "say",
+         "who": "",
+         "text": "A shadow crosses the circle, and then another, and a huge raven comes down out of the grey like a fold of the sky itself, lands on the tallest of the sarsens and folds its wings. It is very large. It is a bit damp. It is, quite plainly, in a hurry."
+        },
+        {
+         "do": "say",
+         "who": "Bran's Raven",
+         "text": "Kraa. KRAA. Kraa-kraa, kraa."
+        },
+        {
+         "do": "say",
+         "who": "Prof. Garside",
+         "text": "She says, and I'm doing my best, that she's come from London with the news. Vane has taken the ten Wardstones to his glass tower. He means to bind every legend in the isles at once. Tonight. With a pen, apparently."
+        },
+        {
+         "do": "say",
+         "who": "Bran's Raven",
+         "text": "Kraa."
+        },
+        {
+         "do": "say",
+         "who": "Prof. Garside",
+         "text": "She says the pen is gold. She says that's the part she objects to most."
+        },
+        {
+         "do": "say",
+         "who": "Prof. Garside",
+         "text": "Right. The tower is on the Thames, at the east end of the old city. The Underground runs under it, and Vane has put the Directors in the tunnels to hold the way. They have been told to do their best. They have not been told to enjoy it."
+        },
+        {
+         "do": "say",
+         "who": "Bran's Raven",
+         "text": "Kraa. (She bows her head, which is a courtesy, and then she spreads a wing and tilts it, which is clearly an offer.)"
+        },
+        {
+         "do": "say",
+         "who": "Prof. Garside",
+         "text": "And she says you're the Champion now, so she'll carry you wherever you've been. Anywhere in the isles. Open your map and ask for a Fly, and she will do the rest. She asks only that you don't look down."
+        },
+        {
+         "do": "say",
+         "who": "",
+         "text": "You can now fly to any town you have visited. Open the Map from the pause menu and choose Fly."
+        },
+        {
+         "do": "say",
+         "who": "Prof. Garside",
+         "text": "London is a short walk from here along the road east. Kit and I will follow by the next train, with a flask. Go and put a stop to it, {player}. Kindly, if possible. But quickly."
+        },
+        {
+         "do": "say",
+         "who": "{rival}",
+         "text": "I'll be right behind you! Probably! Not right behind. A bit behind. With a flag!"
+        },
+        {
+         "do": "set",
+         "flag": "ch12_moot"
+        }
+       ],
+       "eq": 0,
+       "else": [
+        {
+         "do": "say",
+         "who": "Wind",
+         "text": "Take your time. Heal up, eat something. The stones have waited four and a half thousand years, and they'll wait while you find a sandwich."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Wind",
+       "text": "There's a friend of yours at the gate with a face like a firework. Have a word with them first. We'll still be here. We're the wind: very patient, and very bored."
+      }
+     ]
+    }
+   ]
   }
  ],
  "moot_centre": [
   {
-   "do": "say",
-   "who": "Professor Garside",
-   "text": "(placeholder) The Champion of the Moot waits in the centre of the circle."
+   "do": "if",
+   "flag": "moot_won",
+   "then": [
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "I've never been so pleased to lose. Gosh. It's a feeling worth the twenty years."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "When you've done in London, come and tell me about it. I shall make tea. In a flask. Wherever I am. It is the one skill I have."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "kit8_done",
+     "then": [
+      {
+       "do": "say",
+       "who": "Prof. Garside",
+       "text": "Don't mind me. I'm only here for the acoustics. And to hold the clipboard, and to see that nobody cheats."
+      },
+      {
+       "do": "say",
+       "who": "Prof. Garside",
+       "text": "Talk to the Winds if you'd like to begin. I'll be here. Obviously. Here is where I always am."
+      },
+      {
+       "do": "choice",
+       "text": "The Professor raises an eyebrow. Begin the Moot now?",
+       "options": [
+        "Begin",
+        "Not yet"
+       ],
+       "set": "moot_ready"
+      },
+      {
+       "do": "if",
+       "flag": "moot_ready",
+       "then": [
+        {
+         "do": "if",
+         "flag": "moot_started",
+         "then": [],
+         "else": [
+          {
+           "do": "say",
+           "who": "Wind",
+           "text": "The Four Winds keep the gates of the Moot, and the Champion keeps the centre. Five fights in a row. Nobody has beaten all five since the stones went up."
+          },
+          {
+           "do": "say",
+           "who": "Wind",
+           "text": "No Sanctuary between them. You may eat and drink from your own bag. Weeping is allowed. Swearing is not: we're a heritage site, and the chalk is listening."
+          },
+          {
+           "do": "say",
+           "who": "Wind",
+           "text": "If you fall, you wake at the gate with your pride dented, and we begin again with the first of us. Walk away whenever you like, to heal or shop. The wind is never in a hurry."
+          },
+          {
+           "do": "set",
+           "flag": "moot_started"
+          }
+         ]
+        },
+        {
+         "do": "say",
+         "who": "",
+         "text": "The Four Winds take their places at the four stones, and the air in the circle changes. The Professor steps back with the clipboard and, very slightly, does not meet your eye."
+        },
+        {
+         "do": "gauntlet",
+         "trainers": [
+          "wind_aelwen",
+          "wind_fergus",
+          "wind_aoife",
+          "wind_wilf",
+          "champion_garside"
+         ],
+         "flag": "moot_won",
+         "exit": {
+          "zone": "stonehenge",
+          "x": 30,
+          "y": 8
+         }
+        },
+        {
+         "do": "music",
+         "id": "legend"
+        },
+        {
+         "do": "say",
+         "who": "",
+         "text": "The last of the Professor's creatures sinks to its haunches, and the wind drops. For a long moment the whole circle is quiet. Then the stones begin to hum: ten notes, one for each Stone in your pocket, and the strange low chord you have been hearing since Macclesfield finally resolves."
+        },
+        {
+         "do": "say",
+         "who": "Prof. Garside",
+         "text": "Champion of the Moot, then. I've been polishing that title for twenty years, and I don't mind handing it over. It was getting heavy, and the stones don't like being dusted."
+        },
+        {
+         "do": "say",
+         "who": "Aelwen",
+         "text": "Da iawn, cariad. The west wind approves."
+        },
+        {
+         "do": "say",
+         "who": "Fergus",
+         "text": "Aye. The north wind will say so, and it is a man of few words."
+        },
+        {
+         "do": "say",
+         "who": "Aoife",
+         "text": "Fair play to you. The south wind is already telling the neighbours."
+        },
+        {
+         "do": "say",
+         "who": "Wilf",
+         "text": "East wind says well done, lad or lass. And that's the most you'll get out of the east wind, so frame it."
+        },
+        {
+         "do": "say",
+         "who": "{rival}",
+         "text": "(a voice carrying from the gate, wildly out of breath) THE WHOLE VISITOR CENTRE JUST CHEERED! A man dropped his scone! I've been waving a flag! Was that you? That was you! THAT WAS YOU!"
+        },
+        {
+         "do": "set",
+         "flag": "champion"
+        },
+        {
+         "do": "sfx",
+         "id": "badge"
+        },
+        {
+         "do": "say",
+         "who": "",
+         "text": "{player} is the Champion of the Moot!"
+        },
+        {
+         "do": "music",
+         "id": "legend_crow"
+        },
+        {
+         "do": "say",
+         "who": "",
+         "text": "A shadow crosses the circle, and then another, and a huge raven comes down out of the grey like a fold of the sky itself, lands on the tallest of the sarsens and folds its wings. It is very large. It is a bit damp. It is, quite plainly, in a hurry."
+        },
+        {
+         "do": "say",
+         "who": "Bran's Raven",
+         "text": "Kraa. KRAA. Kraa-kraa, kraa."
+        },
+        {
+         "do": "say",
+         "who": "Prof. Garside",
+         "text": "She says, and I'm doing my best, that she's come from London with the news. Vane has taken the ten Wardstones to his glass tower. He means to bind every legend in the isles at once. Tonight. With a pen, apparently."
+        },
+        {
+         "do": "say",
+         "who": "Bran's Raven",
+         "text": "Kraa."
+        },
+        {
+         "do": "say",
+         "who": "Prof. Garside",
+         "text": "She says the pen is gold. She says that's the part she objects to most."
+        },
+        {
+         "do": "say",
+         "who": "Prof. Garside",
+         "text": "Right. The tower is on the Thames, at the east end of the old city. The Underground runs under it, and Vane has put the Directors in the tunnels to hold the way. They have been told to do their best. They have not been told to enjoy it."
+        },
+        {
+         "do": "say",
+         "who": "Bran's Raven",
+         "text": "Kraa. (She bows her head, which is a courtesy, and then she spreads a wing and tilts it, which is clearly an offer.)"
+        },
+        {
+         "do": "say",
+         "who": "Prof. Garside",
+         "text": "And she says you're the Champion now, so she'll carry you wherever you've been. Anywhere in the isles. Open your map and ask for a Fly, and she will do the rest. She asks only that you don't look down."
+        },
+        {
+         "do": "say",
+         "who": "",
+         "text": "You can now fly to any town you have visited. Open the Map from the pause menu and choose Fly."
+        },
+        {
+         "do": "say",
+         "who": "Prof. Garside",
+         "text": "London is a short walk from here along the road east. Kit and I will follow by the next train, with a flask. Go and put a stop to it, {player}. Kindly, if possible. But quickly."
+        },
+        {
+         "do": "say",
+         "who": "{rival}",
+         "text": "I'll be right behind you! Probably! Not right behind. A bit behind. With a flag!"
+        },
+        {
+         "do": "set",
+         "flag": "ch12_moot"
+        }
+       ],
+       "eq": 0,
+       "else": [
+        {
+         "do": "say",
+         "who": "Prof. Garside",
+         "text": "Quite right. Heal up. Eat a sandwich. The Moot is exactly as patient as the weather."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Prof. Garside",
+       "text": "Have you seen Kit? They're by the gate, and look as though they've swallowed a firework. I'd talk to them first. I have, and I regret it. It was very loud."
+      }
+     ]
+    }
+   ]
   }
  ],
  "kit_moot": [
   {
-   "do": "say",
-   "who": "Kit",
-   "text": "(placeholder) Kit, at the gates of the Moot."
+   "do": "if",
+   "flag": "kit8_done",
+   "then": [
+    {
+     "do": "if",
+     "flag": "moot_won",
+     "then": [
+      {
+       "do": "say",
+       "who": "{rival}",
+       "text": "Champion of the Moot! My best friend is the Champion of the Moot! I'm going to put it on a mug. Two mugs. One for you, one for me, to shout about."
+      },
+      {
+       "do": "if",
+       "flag": "game_complete",
+       "then": [
+        {
+         "do": "say",
+         "who": "{rival}",
+         "text": "Mum made me take the mugs back. She said 'one of them has a spelling mistake'. It's 'Champoin'. It's artistic."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "{rival}",
+       "text": "Go on. Go and win the whole thing. I'll be right here. Cheering. Loudly. Embarrassingly."
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "",
+     "text": "At the gate of the Moot, the path is lined with ropes, and on the rope is a banner, and on the banner it says WELCOME, CHAMPIONS in a font that looks as if it has been to an agency. Kit is standing underneath it in a puffa jacket, vibrating."
+    },
+    {
+     "do": "if",
+     "flag": "starter",
+     "then": [
+      {
+       "do": "say",
+       "who": "Kit",
+       "text": "{player}. The Moot. Look at us. Two kids from Macclesfield with a stone each in our pockets. Well, you've got ten."
+      },
+      {
+       "do": "say",
+       "who": "Kit",
+       "text": "One last battle before you go in. Not for the viewers. Just for us. Ready?"
+      },
+      {
+       "do": "battle",
+       "trainer": "kit_8_vs_kindlet"
+      }
+     ],
+     "eq": "kindlet"
+    },
+    {
+     "do": "if",
+     "flag": "starter",
+     "then": [
+      {
+       "do": "say",
+       "who": "Kit",
+       "text": "{player}. The Moot. Look at us. Two kids from Macclesfield with a stone each in our pockets. Well, you've got ten."
+      },
+      {
+       "do": "say",
+       "who": "Kit",
+       "text": "One last battle before you go in. Not for the viewers. Just for us. Ready?"
+      },
+      {
+       "do": "battle",
+       "trainer": "kit_8_vs_holtling"
+      }
+     ],
+     "eq": "holtling"
+    },
+    {
+     "do": "if",
+     "flag": "starter",
+     "then": [
+      {
+       "do": "say",
+       "who": "Kit",
+       "text": "{player}. The Moot. Look at us. Two kids from Macclesfield with a stone each in our pockets. Well, you've got ten."
+      },
+      {
+       "do": "say",
+       "who": "Kit",
+       "text": "One last battle before you go in. Not for the viewers. Just for us. Ready?"
+      },
+      {
+       "do": "battle",
+       "trainer": "kit_8_vs_spikkin"
+      }
+     ],
+     "eq": "spikkin"
+    },
+    {
+     "do": "say",
+     "who": "{rival}",
+     "text": "I was going to do a speech. I wrote one. It was three pages long and a bit weepy, and then I remembered I'm terrible at those, so here's the short one: I'm proud of you. That's it. That's the speech."
+    },
+    {
+     "do": "say",
+     "who": "{rival}",
+     "text": "In there is the Moot. Four Winds and a Champion nobody has ever beaten. I'll be at the gate with the flag. Don't look at the flag. Look at the Winds."
+    },
+    {
+     "do": "set",
+     "flag": "kit8_done"
+    },
+    {
+     "do": "set",
+     "flag": "ch12_started"
+    }
+   ]
   }
  ],
  "moot_visitor": [
@@ -42,6 +587,18 @@
    "do": "say",
    "who": "Picnicker",
    "text": "On midsummer morning the sun comes up right through the Avenue, and everyone cheers. It's the best sunrise party in Britain, and the dress code is 'wrapped up warm'."
+  }
+ ],
+ "gate_moot": [
+  {
+   "do": "say",
+   "who": "Warden",
+   "text": "Halt. The Moot is for those who carry all ten Stones. Nine won't do, not even a good nine."
+  },
+  {
+   "do": "say",
+   "who": "Warden",
+   "text": "The tenth is in York, in the crypt under the Minster. Go and get it, and then come back and wipe your boots. On the chalk. The chalk is particular."
   }
  ]
 }
