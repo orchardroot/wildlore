@@ -1,0 +1,63 @@
+{
+ "nurse": [
+  {
+   "do": "say",
+   "who": "Nurse",
+   "text": "Now then, love! Welcome to Whitby Sanctuary. Pop your team on the counter and I'll see them right. They look like they've climbed all 199 steps."
+  },
+  {
+   "do": "choice",
+   "text": "What can we do for you?",
+   "options": [
+    "Heal my team",
+    "Open the Ark",
+    "Just looking"
+   ],
+   "set": "_nurse_choice"
+  },
+  {
+   "do": "if",
+   "flag": "_nurse_choice",
+   "eq": 0,
+   "then": [
+    {
+     "do": "say",
+     "who": "Nurse",
+     "text": "Sit thissen down. There's a pot of tea, a plate of parkin, and a view of the harbour. If a seagull takes the parkin, that's tradition."
+    },
+    {
+     "do": "heal"
+    },
+    {
+     "do": "say",
+     "who": "Nurse",
+     "text": "There! Champion. Right as rain, which round here is a state of mind. Mind how you go, and watch the bench, there's a hat on it."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "_nurse_choice",
+     "eq": 1,
+     "then": [
+      {
+       "do": "say",
+       "who": "Nurse",
+       "text": "The Ark's in the corner, love. It's got a faint smell of sea air and a very polite fish on the lid. Go on, have a click."
+      },
+      {
+       "do": "ark"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Nurse",
+       "text": "No bother at all, love. Off you pop, and give my regards to the steps."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

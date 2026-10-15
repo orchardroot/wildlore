@@ -1,0 +1,31 @@
+{
+ "id": "lan_warden",
+ "name": "Warden Cuthbert",
+ "class": "Warden",
+ "sprite": "warden_grunt",
+ "party": [
+  {
+   "species": "binfox",
+   "level": 85
+  },
+  {
+   "species": "sootwing",
+   "level": 85
+  },
+  {
+   "species": "grizzlet",
+   "level": 85
+  }
+ ],
+ "ai": "trainer",
+ "money": 3300,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Warden Cuthbert",
+   "text": "Welcome to the Lancaster Heritage Experience! Castle, canal and quay, all curated for your convenience. The fee is, as ever, a surprise."
+  }
+ ],
+ "win": "I'll have to ask my manager. He's on a fell somewhere.",
+ "after": "The Enclosure says the Lune should be tidier. I've been told to be kind to rivers. They don't listen."
+}

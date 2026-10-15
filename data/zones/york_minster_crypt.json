@@ -1,0 +1,150 @@
+{
+ "id": "york_minster_crypt",
+ "name": "The Minster Crypt",
+ "region": "",
+ "kind": "interior",
+ "music": "battle_keeper",
+ "weather": {},
+ "props": [
+  {
+   "type": "standing_stone",
+   "x": 4,
+   "y": 3,
+   "variant": 1
+  },
+  {
+   "type": "standing_stone",
+   "x": 4,
+   "y": 6,
+   "variant": 1
+  },
+  {
+   "type": "standing_stone",
+   "x": 4,
+   "y": 9,
+   "variant": 1
+  },
+  {
+   "type": "standing_stone",
+   "x": 14,
+   "y": 3,
+   "variant": 2
+  },
+  {
+   "type": "standing_stone",
+   "x": 14,
+   "y": 6,
+   "variant": 2
+  },
+  {
+   "type": "standing_stone",
+   "x": 14,
+   "y": 9,
+   "variant": 2
+  },
+  {
+   "type": "lamp_post",
+   "x": 6,
+   "y": 2
+  },
+  {
+   "type": "lamp_post",
+   "x": 12,
+   "y": 2
+  },
+  {
+   "type": "bench",
+   "x": 2,
+   "y": 8
+  },
+  {
+   "type": "bench",
+   "x": 16,
+   "y": 8
+  },
+  {
+   "type": "statue",
+   "x": 2,
+   "y": 2
+  },
+  {
+   "type": "statue",
+   "x": 16,
+   "y": 2
+  }
+ ],
+ "warps": [
+  {
+   "x": 9,
+   "y": 12,
+   "to": "york",
+   "tx": 38,
+   "ty": 19,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "keeper_hester",
+   "sprite": "keeper_hester",
+   "x": 9,
+   "y": 2,
+   "facing": "down",
+   "move": "still",
+   "script": "keeper_hester",
+   "name": "Keeper Hester"
+  },
+  {
+   "id": "yrk_junior_1",
+   "sprite": "tour_guide",
+   "x": 9,
+   "y": 8,
+   "facing": "down",
+   "move": "still",
+   "trainer": "yrk_junior_1"
+  },
+  {
+   "id": "yrk_junior_2",
+   "sprite": "tour_guide",
+   "x": 7,
+   "y": 5,
+   "facing": "right",
+   "move": "still",
+   "trainer": "yrk_junior_2"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  9,
+  11
+ ],
+ "stage": "cave",
+ "rows": [
+  "xxxxxxxxxxxxxxxxxxx",
+  "xqqqqqqqqqqqqqqqqqx",
+  "xqqqqqqqrrrqqqqqqqx",
+  "xqqqqqqqrrrqqqqqqqx",
+  "xqqqqqqqrrrqqqqqqqx",
+  "xqqqqqqqrrrqqqqqqqx",
+  "xqqqqqqqrrrqqqqqqqx",
+  "xqqqqqqqrrrqqqqqqqx",
+  "xqqqqqqqrrrqqqqqqqx",
+  "xqqqqqqqrrrqqqqqqqx",
+  "xqqqqqqqrrrqqqqqqqx",
+  "xqrrrrrrrrrrrrrrrqx",
+  "xqqqqqqqqDqqqqqqqqx",
+  "xxxxxxxxxxxxxxxxxxx"
+ ],
+ "legend_extra": {
+  "q": {
+   "tile": "floor_tile",
+   "colour": "#5f5f68"
+  },
+  "r": {
+   "tile": "floor_tile",
+   "colour": "#7b6f60"
+  }
+ }
+}

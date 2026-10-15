@@ -1,0 +1,63 @@
+{
+ "nurse": [
+  {
+   "do": "say",
+   "who": "Nurse",
+   "text": "Hiya, duck! Welcome to the Nottingham Sanctuary. Pop your team on the counter and I'll take a look."
+  },
+  {
+   "do": "choice",
+   "text": "What can we do for you?",
+   "options": [
+    "Heal my team",
+    "Open the Ark",
+    "Just looking"
+   ],
+   "set": "_nurse_choice"
+  },
+  {
+   "do": "if",
+   "flag": "_nurse_choice",
+   "eq": 0,
+   "then": [
+    {
+     "do": "say",
+     "who": "Nurse",
+     "text": "Sit yourself down, duck. There's a brew on, and a custard cream. Your team's in good hands. Even the Sheriff would say so."
+    },
+    {
+     "do": "heal"
+    },
+    {
+     "do": "say",
+     "who": "Nurse",
+     "text": "All done, duck. They're fit as a fiddle and twice as shiny. Mind how you go, and mind the lions."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "_nurse_choice",
+     "eq": 1,
+     "then": [
+      {
+       "do": "say",
+       "who": "Nurse",
+       "text": "The Ark? It's down in the cellar, duck, in one of the caves. It runs very cool, which is nice. It's also a bit damp."
+      },
+      {
+       "do": "ark"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Nurse",
+       "text": "No worries, duck. Come back any time. We're open when it rains. Which it does."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
