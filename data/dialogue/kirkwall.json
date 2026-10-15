@@ -125,5 +125,123 @@
     }
    ]
   }
+ ],
+ "brodgar_night": [
+  {
+   "do": "if",
+   "flag": "game_complete",
+   "then": [
+    {
+     "do": "if",
+     "flag": "brodgar_secret_done",
+     "then": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "The Ring is still. A few sheep gaze at you, politely, as if you were a standing stone that had decided to wander."
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "Somebody has left a kettle on a flat rock. It is, somehow, still warm."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "night",
+       "then": [
+        {
+         "do": "set",
+         "flag": "brodgar_secret_done"
+        },
+        {
+         "do": "say",
+         "who": "",
+         "text": "The wind drops. All at once, the way it never does in Orkney. The stones of the Ring stand against a sky so full of stars it looks overbooked."
+        },
+        {
+         "do": "say",
+         "who": "",
+         "text": "A figure in an oilskin sits on a fallen stone, a lantern at their feet. They don't seem surprised. They seem pleased, like a host."
+        },
+        {
+         "do": "say",
+         "who": "Night Warden",
+         "text": "Good evening. You've walked a long way. Everyone who comes at night has. It's the only time the Ring talks."
+        },
+        {
+         "do": "say",
+         "who": "Night Warden",
+         "text": "Four and a half thousand years it's been stood here. It's heard every argument, every proposal and every bad song. It has opinions on all of them."
+        },
+        {
+         "do": "say",
+         "who": "Night Warden",
+         "text": "It doesn't tell most folk. But it's watched you. The Stones you carry, the legends you've been kind to. It likes kind."
+        },
+        {
+         "do": "sfx",
+         "id": "alert"
+        },
+        {
+         "do": "say",
+         "who": "",
+         "text": "A low hum rises from the ground, the same hum Professor Garside once complained about, only gentler. It sounds like the world clearing its throat."
+        },
+        {
+         "do": "say",
+         "who": "Night Warden",
+         "text": "Here. Take this. It fell off the Ring a long time ago and has been waiting for someone to ask for it."
+        },
+        {
+         "do": "give_item",
+         "item": "brodgar_pebble"
+        },
+        {
+         "do": "say",
+         "who": "Night Warden",
+         "text": "Keep it in your pocket. It won't do anything. That's the whole point of it. Mind, now. Somebody wants to say hello."
+        },
+        {
+         "do": "legend",
+         "species": "megalorn",
+         "level": 95,
+         "music": "legend",
+         "flag": "brodgar_megalorn_caught"
+        },
+        {
+         "do": "face_player"
+        },
+        {
+         "do": "say",
+         "who": "Night Warden",
+         "text": "Well. That's that. The Ring's said its piece. Go home, and mind the sheep on the way."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "",
+         "text": "A shepherd's coat has been left over a stone. A lantern sits beside it, unlit. Nobody's about."
+        },
+        {
+         "do": "say",
+         "who": "",
+         "text": "The Ring feels like a held breath. Whatever it's holding, it won't let go in daylight. Perhaps after dark."
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "",
+     "text": "Just a stone, standing in a field of Orkney, with the wind going round it. Nothing more to see here. Yet."
+    }
+   ]
+  }
  ]
 }
