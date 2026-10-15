@@ -261,7 +261,7 @@ def great_glen(OUT):
     trainer(z, "gg_warden", "Warden Ferrier", "Warden", "warden_grunt", [("thornsow", 73), ("adderking", 73), ("bramblehog", 72), ("midgeswarm", 72)],
             41, 53, "right", ["The Great Glen is an asset, you understand, and I'm its manager. I have a spreadsheet of the lochs."],
             "That wasn't in the spreadsheet either. Nothing is, today.", "I'm putting in a request to rename Loch Lochy. It's too confusing. I'll let you know.", 3300)
-    z.d["edges"] = {"south": {"to": "fort_william", "offset": 0}, "east": {"to": "loch_ness", "offset": 0}  # NOTE: data/zones/great_glen.json opens the east border at rows 20-22 by hand (seam fix)}
+    z.d["edges"] = {"south": {"to": "fort_william", "offset": 0}, "east": {"to": "loch_ness", "offset": 0}}  # NOTE: data/zones/great_glen.json opens the east border at rows 20-22 by hand (seam fix)
     z.d["spawn"] = [42, 70]
     wild(z, [("kelpie", 72, 74, 8, {"weather": ["fog", "drizzle", "downpour"]}), ("coolet", 72, 74, 14, {}), ("ospret", 72, 74, 12, {"time": ["dawn", "day"]}),
              ("stagmor", 72, 74, 8, {"time": ["dawn", "dusk"]}), ("fawnlet", 72, 74, 8, {}), ("wildkit", 72, 74, 8, {"time": ["night", "dusk"]}),
