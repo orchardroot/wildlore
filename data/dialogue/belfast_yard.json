@@ -13,6 +13,58 @@
      "do": "say",
      "who": "Keeper Ruair\u00ed",
      "text": "Keep the lantern lit up north. Folk say the Highlands are bonny. They are. They're also very, very dark."
+    },
+    {
+     "do": "if",
+     "flag": "game_complete",
+     "then": [
+      {
+       "do": "say",
+       "who": "Keeper Ruair\u00ed",
+       "text": "Sparks are flying and the cranes are quiet. If you've a mind for it, my lot could do with a proper test."
+      },
+      {
+       "do": "choice",
+       "text": "A rematch with Keeper Ruair\u00ed?",
+       "options": [
+        "Yes, a rematch",
+        "Not today"
+       ],
+       "set": "rematch_pick"
+      },
+      {
+       "do": "if",
+       "flag": "rematch_pick",
+       "eq": 0,
+       "then": [
+        {
+         "do": "daily",
+         "key": "rematch_keeper_ruairi",
+         "then": [
+          {
+           "do": "battle",
+           "trainer": "keeper_ruairi_rematch",
+           "intro": true
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Keeper Ruair\u00ed",
+           "text": "Once a day, mate. Metal needs to cool or it cracks. Come tomorrow."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Keeper Ruair\u00ed",
+         "text": "Another time, then. The offer stands."
+        }
+       ]
+      }
+     ]
     }
    ],
    "else": [

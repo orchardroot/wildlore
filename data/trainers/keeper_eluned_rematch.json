@@ -1,0 +1,48 @@
+{
+ "id": "keeper_eluned_rematch",
+ "name": "Keeper Eluned",
+ "class": "Keeper",
+ "sprite": "keeper_eluned",
+ "party": [
+  {
+   "species": "slatelet",
+   "level": 95
+  },
+  {
+   "species": "quarrion",
+   "level": 95
+  },
+  {
+   "species": "billgruff",
+   "level": 96
+  },
+  {
+   "species": "brockmoor",
+   "level": 97
+  },
+  {
+   "species": "sarsenite",
+   "level": 98
+  },
+  {
+   "species": "tunneller",
+   "level": 100
+  }
+ ],
+ "ai": "keeper",
+ "money": 15500,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Keeper Eluned",
+   "text": "Slate takes a hundred years to make and a second to split. Mind your hat, {player}."
+  },
+  {
+   "do": "say",
+   "who": "Keeper Eluned",
+   "text": "Right. No speeches. Just stone."
+  }
+ ],
+ "win": "That's a clean split. Not a crack out of place. I'll put that one on the wall.",
+ "after": "Come back tomorrow for another go."
+}

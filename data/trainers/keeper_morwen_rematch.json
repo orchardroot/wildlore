@@ -1,0 +1,48 @@
+{
+ "id": "keeper_morwen_rematch",
+ "name": "Keeper Morwen",
+ "class": "Keeper",
+ "sprite": "keeper_morwen",
+ "party": [
+  {
+   "species": "pixiedell",
+   "level": 95
+  },
+  {
+   "species": "thornwyn",
+   "level": 95
+  },
+  {
+   "species": "linenwisp",
+   "level": 96
+  },
+  {
+   "species": "lanternis",
+   "level": 97
+  },
+  {
+   "species": "prismite",
+   "level": 98
+  },
+  {
+   "species": "tylwyth",
+   "level": 100
+  }
+ ],
+ "ai": "keeper",
+ "money": 16500,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Keeper Morwen",
+   "text": "They say the Tor has a door to somewhere else. I think it's just very windy."
+  },
+  {
+   "do": "say",
+   "who": "Keeper Morwen",
+   "text": "Fae don't fight fair, love. Go on, be interesting."
+  }
+ ],
+ "win": "Oh, that was lovely. Properly strange and properly good. The Tor approves. It hummed.",
+ "after": "Come back tomorrow for another go."
+}

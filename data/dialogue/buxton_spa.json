@@ -8,6 +8,58 @@
      "do": "say",
      "who": "Keeper Maud",
      "text": "Come back any time. The pools are free. The towels are not."
+    },
+    {
+     "do": "if",
+     "flag": "game_complete",
+     "then": [
+      {
+       "do": "say",
+       "who": "Keeper Maud",
+       "text": "Back again, are you? The pools have been quiet and my Brook creatures have been practising. Mostly sulking, but it counts. Fancy a rematch?"
+      },
+      {
+       "do": "choice",
+       "text": "A rematch with Keeper Maud?",
+       "options": [
+        "Yes, a rematch",
+        "Not today"
+       ],
+       "set": "rematch_pick"
+      },
+      {
+       "do": "if",
+       "flag": "rematch_pick",
+       "eq": 0,
+       "then": [
+        {
+         "do": "daily",
+         "key": "rematch_keeper_maud",
+         "then": [
+          {
+           "do": "battle",
+           "trainer": "keeper_maud_rematch",
+           "intro": true
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Keeper Maud",
+           "text": "Once a day, love. Even water needs a rest before it takes on another mountain. Come back tomorrow."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Keeper Maud",
+         "text": "Another time, then. The offer stands."
+        }
+       ]
+      }
+     ]
     }
    ],
    "else": [

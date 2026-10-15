@@ -1,0 +1,48 @@
+{
+ "id": "kit_rematch_vs_holtling",
+ "name": "Kit",
+ "class": "Rival",
+ "sprite": "kit",
+ "party": [
+  {
+   "species": "murmurant",
+   "level": 95
+  },
+  {
+   "species": "greyhaul",
+   "level": 95
+  },
+  {
+   "species": "stagmor",
+   "level": 96
+  },
+  {
+   "species": "goldeneyrie",
+   "level": 97
+  },
+  {
+   "species": "stoopfalcon",
+   "level": 98
+  },
+  {
+   "species": "spatelord",
+   "level": 100
+  }
+ ],
+ "ai": "trainer",
+ "money": 12000,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Kit",
+   "text": "{player}! Rematch. I've been training. I've got eleven followers and a very strict diet plan for my team."
+  },
+  {
+   "do": "say",
+   "who": "Kit",
+   "text": "Don't hold back. I'll know. I'll film it."
+  }
+ ],
+ "win": "Okay, that's the best loss I've ever had and I'm going to post it. Sorry. Not sorry.",
+ "after": "Tomorrow? I'll bring snacks."
+}

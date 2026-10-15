@@ -1,0 +1,48 @@
+{
+ "id": "keeper_maud_rematch",
+ "name": "Keeper Maud",
+ "class": "Keeper",
+ "sprite": "keeper_maud",
+ "party": [
+  {
+   "species": "heronarch",
+   "level": 95
+  },
+  {
+   "species": "levelcrane",
+   "level": 95
+  },
+  {
+   "species": "bufomire",
+   "level": 96
+  },
+  {
+   "species": "spatelord",
+   "level": 97
+  },
+  {
+   "species": "bradan",
+   "level": 98
+  },
+  {
+   "species": "afanc",
+   "level": 100
+  }
+ ],
+ "ai": "keeper",
+ "money": 14000,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Keeper Maud",
+   "text": "Water wears down mountains, {player}. You've grown a fair bit since the first time."
+  },
+  {
+   "do": "say",
+   "who": "Keeper Maud",
+   "text": "Right. Towels down. Let's see how deep you've got."
+  }
+ ],
+ "win": "Well swum. Properly well swum. I'll tell the mountains you said hello.",
+ "after": "Come back tomorrow for another go."
+}

@@ -8,6 +8,58 @@
      "do": "say",
      "who": "Keeper Ray",
      "text": "Come back Thursday, we do a lovely set. Bring a mate. Bring two. The club holds forty and there's always sixty."
+    },
+    {
+     "do": "if",
+     "flag": "game_complete",
+     "then": [
+      {
+       "do": "say",
+       "who": "Keeper Ray",
+       "text": "Alright, la! Soundcheck's done and the band's gone for a pie. Fancy a rematch while it's quiet?"
+      },
+      {
+       "do": "choice",
+       "text": "A rematch with Keeper Ray?",
+       "options": [
+        "Yes, a rematch",
+        "Not today"
+       ],
+       "set": "rematch_pick"
+      },
+      {
+       "do": "if",
+       "flag": "rematch_pick",
+       "eq": 0,
+       "then": [
+        {
+         "do": "daily",
+         "key": "rematch_keeper_ray",
+         "then": [
+          {
+           "do": "battle",
+           "trainer": "keeper_ray_rematch",
+           "intro": true
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Keeper Ray",
+           "text": "Once a day, la. My arms need a rest from the drums and my team needs a rest from me. Tomorrow."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Keeper Ray",
+         "text": "Another time, then. The offer stands."
+        }
+       ]
+      }
+     ]
     }
    ],
    "else": [

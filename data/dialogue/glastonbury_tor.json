@@ -8,6 +8,58 @@
      "do": "say",
      "who": "Keeper Morwen",
      "text": "Come back at dusk when the lanterns are lit. Bring a flask. The Tor is brisk and so, I'm told, am I."
+    },
+    {
+     "do": "if",
+     "flag": "game_complete",
+     "then": [
+      {
+       "do": "say",
+       "who": "Keeper Morwen",
+       "text": "The lanterns are lit and the Tor's in a mood. My lot have been fidgeting. Care for a rematch?"
+      },
+      {
+       "do": "choice",
+       "text": "A rematch with Keeper Morwen?",
+       "options": [
+        "Yes, a rematch",
+        "Not today"
+       ],
+       "set": "rematch_pick"
+      },
+      {
+       "do": "if",
+       "flag": "rematch_pick",
+       "eq": 0,
+       "then": [
+        {
+         "do": "daily",
+         "key": "rematch_keeper_morwen",
+         "then": [
+          {
+           "do": "battle",
+           "trainer": "keeper_morwen_rematch",
+           "intro": true
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Keeper Morwen",
+           "text": "Once a day, love, or the Tor gets ideas. Come back at dusk tomorrow and bring a flask."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Keeper Morwen",
+         "text": "Another time, then. The offer stands."
+        }
+       ]
+      }
+     ]
     }
    ],
    "else": [
@@ -122,7 +174,8 @@
       },
       {
        "do": "legend",
-       "species": "greenman", "music": "legend_green",
+       "species": "greenman",
+       "music": "legend_green",
        "level": 55,
        "flag": "caught_greenman"
       },

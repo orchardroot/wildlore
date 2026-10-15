@@ -1,0 +1,48 @@
+{
+ "id": "keeper_rhys_rematch",
+ "name": "Keeper Rhys",
+ "class": "Keeper",
+ "sprite": "keeper_rhys",
+ "party": [
+  {
+   "species": "natterjack",
+   "level": 95
+  },
+  {
+   "species": "minchman",
+   "level": 95
+  },
+  {
+   "species": "railspark",
+   "level": 96
+  },
+  {
+   "species": "petrelash",
+   "level": 97
+  },
+  {
+   "species": "severnshock",
+   "level": 98
+  },
+  {
+   "species": "stormswift",
+   "level": 100
+  }
+ ],
+ "ai": "keeper",
+ "money": 16000,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Keeper Rhys",
+   "text": "I've been practising in the downpour, {player}. It's cheaper than a gym."
+  },
+  {
+   "do": "say",
+   "who": "Keeper Rhys",
+   "text": "Right. Hold your umbrella high, it's about to get loud."
+  }
+ ],
+ "win": "Ha! Struck by lightning, and I enjoyed every second. Go on, you've earned a dry sock.",
+ "after": "Come back tomorrow for another go."
+}
