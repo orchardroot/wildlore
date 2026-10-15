@@ -36,14 +36,14 @@ def york(OUT):
                 z.hg[yy][xx] = 0
     smooth(z)
     z.building(11, 11, 3, 2, "castle", "Bootham Bar"); z.building(17, 11, 3, 2, "castle")
-    z.building(13, 17, 3, 2, "castle", "Micklegate Bar"); z.building(13, 24, 3, 2, "castle")
+    z.building(11, 17, 3, 2, "castle", "Micklegate Bar"); z.building(11, 24, 3, 2, "castle")
     z.building(27, 53, 3, 2, "castle", "Fishergate Bar"); z.building(33, 53, 3, 2, "castle")
     z.building(61, 27, 3, 2, "castle", "Walmgate Bar"); z.building(61, 34, 3, 2, "castle")
     for (x, y) in [(15, 7), (15, 4), (6, 21), (6, 18)]:
         z.prop("lamp_post", x, y)
     z.sign(17, 7, "THE CITY WALLS. About two miles of medieval wall round the old city, mostly rebuilt on Roman and Viking foundations, and the longest circuit of town walls in England. You can walk nearly the whole way on top. The gates are called 'bars', and the roads are called 'gates'. It's York. Don't ask.")
     # York Minster and the plaza
-    z.rect(17, 19, 34, 9, ":")
+    z.rect(17, 19, 42, 9, ":")
     z.building(30, 11, 16, 8, "cathedral", "York Minster", door=8)
     z.warp(38, 18, "york_minster_crypt", 9, 11, "up")
     z.prop("statue", 29, 20, variant=2); z.prop("statue", 47, 20, variant=1)
@@ -59,13 +59,13 @@ def york(OUT):
     z.prop("bench", 22, 17); z.prop("oak", 20, 16); z.prop("oak", 28, 12, variant=1); z.prop("birch", 27, 15)
     z.sign(23, 19, "MULTANGULAR TOWER. A Roman tower from the fortress of Eboracum, with later medieval stones on top. Constantine the Great was proclaimed emperor here in AD 306, which is why York's coffee mugs say 'Rome's Backup Capital'.")
     # Sanctuary and Corner Shop
-    z.rect(17, 28, 34, 2, ":")
+    z.rect(17, 28, 42, 2, ":")
     z.building(18, 24, 6, 4, "sanctuary", "Sanctuary", door=3)
     z.warp(21, 27, "york_sanctuary", 5, 6, "up")
     z.building(25, 24, 5, 4, "shop", "Corner Shop", door=2)
     z.warp(27, 27, "york_shop", 4, 5, "up")
-    z.building(34, 24, 8, 4, "cream_render", "Bettys Tea Rooms", door=4)
-    z.building(43, 24, 7, 4, "stone", "Stonegate Books", door=3)
+    z.building(53, 24, 8, 4, "cream_render", "Bettys Tea Rooms", door=4)
+    z.building(53, 19, 8, 3, "stone", "Stonegate Books", door=3)
     # more of the old city
     z.building(18, 34, 11, 4, "tudor", "Micklegate"); z.building(18, 40, 11, 4, "terrace", "Bishopthorpe Road")
     z.building(50, 12, 10, 5, "tudor", "Merchant Adventurers' Hall")
@@ -75,7 +75,9 @@ def york(OUT):
     # the Shambles: a narrow lane between jettied tudor houses
     z.rect(33, 38, 25, 2, ":")
     z.building(34, 34, 6, 4, "tudor", "The Shambles"); z.building(41, 34, 6, 4, "tudor"); z.building(48, 34, 5, 4, "tudor"); z.building(54, 34, 5, 4, "tudor")
-    z.building(34, 40, 6, 4, "tudor"); z.building(41, 40, 6, 4, "tudor", "Butcher's Row"); z.building(48, 40, 5, 4, "tudor"); z.building(54, 40, 5, 4, "tudor")
+    z.rect(33, 38, 25, 5, ":")
+    for x in range(36, 58, 4):
+        z.prop("market_stall", x, 41, variant=x % 3)
     z.rect(33, 33, 1, 7, ":")
     z.prop("lamp_post", 40, 39); z.prop("lamp_post", 47, 39); z.prop("lamp_post", 53, 39)
     z.sign(45, 38, "THE SHAMBLES. A Viking-age and medieval street of butchers' shops, whose name comes from the 'shamel', the wooden bench where meat was laid out. The upper floors lean out so far that neighbours across the lane can nearly shake hands. Some say a certain wizarding alley was inspired by it, which is a very polite way of saying you could film it here.")
@@ -102,7 +104,7 @@ def york(OUT):
     scatter_props(z, "birch", 3, 3, 70, 62, 14, 10, avoid=(".",))
     z.sign(31, 60, "KNAVESMIRE. York Racecourse, a huge flat meadow that floods in winter, a good place for an afternoon, and once the site of the northern gallows. Today, thankfully, it only gallops.")
     # the Treasurer's House ghosts, as the cellar story goes
-    creature(z, zid, "legionette", 59, 21, move="wander",
+    creature(z, zid, "legionette", 59, 23, move="wander",
              line="A faint tramp of marching feet and a glimmer of bronze. In 1953 an apprentice plumber in the Treasurer's House cellar saw a Roman legion march through the wall, up to their knees in the floor. They were walking on a lost Roman road.", who="Legionette")
     creature(z, zid, "legionette", 25, 44, move="wander",
              line="A small spirit in a very old helmet stands to attention, and stands very correctly, for rather a long while. It seems to be waiting to be dismissed.", who="Legionette")

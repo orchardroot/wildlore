@@ -98,15 +98,19 @@ def newcastle(OUT):
     # the Angel of the North, on her hill to the south
     hills(z, [(67, 55, 3, 8)])
     z.rect(60, 48, 14, 14, ".")
-    z.prop("statue", 66, 52, variant=0); z.prop("statue", 67, 52, variant=1); z.prop("statue", 68, 52, variant=2)
     z.prop("lamp_post", 63, 56); z.prop("lamp_post", 71, 56)
     z.rect(62, 56, 10, 1, "#")
     z.rect(55, 56, 8, 1, "#")
     z.sign(65, 57, "THE ANGEL OF THE NORTH. Antony Gormley's steel angel stands on a hill beside the A1, 20 metres tall with a wingspan of 54 metres, wider than a jumbo jet. Made of weathering steel that goes a deep rust red, and visited by about 150,000 people each year. She was put up in 1998 and some people hated her. Nobody does now.")
-    blob(z, 70, 42, 6, 3, ",", only=".", seed=4, jitter=0.3)
+    blob(z, 70, 46, 6, 2, ",", only=".", seed=4, jitter=0.3)
     z.rect(60, 38, 14, 6, ".")
+    z.building(58, 38, 10, 4, "terrace", "Gateshead Terraces"); z.building(70, 38, 9, 4, "red_brick", "Gateshead Library")
+    z.rect(55, 42, 24, 1, ":")
     scatter_props(z, "oak", 56, 38, 22, 24, 12, 12, avoid=(".",))
     scatter_props(z, "bush", 56, 38, 22, 24, 10, 13, avoid=(".",))
+    # the Angel herself: a tall figure on the hilltop, wings out
+    z.building(67, 53, 1, 1, "chapel", "The Angel of the North", show_label=True)
+    z.prop("statue", 65, 54, variant=0); z.prop("statue", 69, 54, variant=1)
     # NPCs
     chat(z, "ncl_geordie", "fisher", 31, 18, "Quayside Fisherman",
          ["Howay, pet! Welcome to the Toon. Geordie's not hard. 'Canny' is nice. 'Bairn' is a child. 'Hadaway' is 'oh, go on, you're having me on'.",
