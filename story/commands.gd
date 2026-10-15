@@ -124,6 +124,11 @@ func _exec(c: Dictionary) -> void:
 			await _gauntlet(c)
 		"credits":
 			await host.open_menu("credits")
+			# the credits swapped the music and the ending set game_complete: put the zone's tune back and save
+			if host.has_method("zone_music"):
+				host.zone_music()
+			if host.has_method("autosave"):
+				host.autosave()
 		"ferry":
 			await _ferry(str(c.get("route", "")))
 		"whiteout":
@@ -161,6 +166,8 @@ func _fight(def: Dictionary) -> Dictionary:
 				cr.moves.append(cr.make_move_slot(mid, host.moves))
 		foes.append(cr)
 	var opts := {"kind": "trainer", "ai": def.ai, "trainer": def}
+	if str(def.get("music", "")) != "":
+		opts["music"] = str(def.music)
 	if bool(def.get("double", false)) and foes.size() >= 2:
 		opts["double"] = true  # a 2v2: the trainer sends out two at once
 	return await host.battle(foes, opts)
@@ -169,6 +176,7 @@ func _fight(def: Dictionary) -> Dictionary:
 ## Losing any one sends you back to the entrance (`exit`), healed and poorer, with nothing half-won.
 func _gauntlet(c: Dictionary) -> void:
 	var ids: Array = c.get("trainers", [])
+	var prize := 0  # paid only once the whole gauntlet is won, so retries can't farm it
 	for i in ids.size():
 		var def := StoryData.trainer(str(ids[i]))
 		if def.is_empty():
@@ -176,7 +184,11 @@ func _gauntlet(c: Dictionary) -> void:
 			return
 		for line in def.get("intro", []):
 			await _exec(line)
-		var result := await _fight(def)
+		prize += int(def.get("money", def.get("reward", 0)))
+		var fight_def := def.duplicate()
+		fight_def["money"] = 0
+		fight_def.erase("reward")
+		var result := await _fight(fight_def)
 		if str(result.get("result", "")) != "win":
 			var ex: Dictionary = c.get("exit", {})
 			host.data.money = host.data.money / 2
@@ -189,6 +201,11 @@ func _gauntlet(c: Dictionary) -> void:
 			await host.say(def.name, _sub(def.win))
 		if i < ids.size() - 1:
 			await host.say("", "No rest at the Moot. The next challenger steps forward.")
+			while await host.choice("Anything to sort out before the next challenger?", ["Open your bag", "Carry on"]) == 0:
+				await host.open_menu("bag")
+	if prize > 0:
+		host.data.money += prize
+		await host.say("", "%s collects £%d in prize money from the Moot." % [host.data.player_name, prize])
 	_set_flag(str(c.get("flag", "gauntlet_won")), true)
 
 ## A legendary encounter: a wild battle you can't run from, with its own music. Catching it sets `flag`;

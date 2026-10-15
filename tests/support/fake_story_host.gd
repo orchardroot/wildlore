@@ -15,6 +15,7 @@ var choices: Array = []          # queued answers for choice()
 var battle_results: Array = []   # queued results for battle(); default is a win
 var last_battle: Dictionary = {}
 var warps: Array = []
+var autosave_flags: Array = []   # game_complete as seen at each autosave
 
 func zone_id() -> String:
 	return zone
@@ -52,6 +53,12 @@ func open_menu(menu: String) -> Variant:
 
 func fade(out: bool) -> void:
 	log.append(["fade", out])
+
+func autosave() -> void:
+	autosave_flags.append(data.flag("game_complete") == true)
+
+func zone_music() -> void:
+	log.append(["zone_music"])
 
 func music(id: String) -> void:
 	log.append(["music", id])

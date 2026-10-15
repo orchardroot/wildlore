@@ -428,3 +428,57 @@ func test_herdwick_count_matches_the_map() -> void:
 		if str(npc.get("sprite", "")) == "creature:herdwick":
 			n += 1
 	assert_eq(n, 8, "the shepherdess's right answer is Eight")
+
+# ---------------------------------------------------------------- review fixes
+
+func test_credits_autosave_with_game_complete_and_restore_zone_music() -> void:
+	var h := RecHost.new()
+	await _run(h, "vane_tower_top", "vane_final", "vane")
+	assert_true(true in h.autosave_flags, "a save is made after the ending with game_complete")
+	var ci := h.log.find(["menu", "credits"])
+	assert_true(h.log.find(["zone_music"]) > ci, "zone music replays after the credits")
+
+func test_trainer_music_field_wins() -> void:
+	var h := FakeStoryHost.new()
+	StoryData.clear_cache()
+	await Commands.new(h).run([{"do": "battle", "trainer": "vane_final"}])
+	assert_eq(AudioIds.battle_music(h.last_battle.opts), "battle_final")
+	for id in ["wind_aelwen", "wind_fergus", "wind_aoife", "wind_wilf"]:
+		assert_eq(StoryData.trainer(id).get("music"), "battle_moot", id)
+	assert_eq(StoryData.trainer("champion_garside").get("music"), "battle_champion")
+
+func test_moot_levels_rise() -> void:
+	var tops := []
+	for id in ["wind_aelwen", "wind_fergus", "wind_aoife", "wind_wilf", "champion_garside"]:
+		var m := 0
+		for p in StoryData.trainer(id).party:
+			m = maxi(m, int(p.level))
+		tops.append(m)
+	assert_eq(tops, [86, 87, 88, 89, 91])
+
+func test_gauntlet_bag_choice_loops_back() -> void:
+	var h := FakeStoryHost.new()
+	h.choices = [0, 0, 1]  # bag, bag, carry on
+	await Commands.new(h).run([{"do": "gauntlet", "trainers": ["wind_aelwen", "wind_fergus"], "flag": "g"}])
+	assert_eq(h.log.count(["menu", "bag"]), 2, "the bag reopens, then returns to the same choice")
+	assert_eq(h.choices.size(), 0, "exactly three choices asked for one gap")
+	assert_eq(h.data.flag("g"), true)
+	# a single-trainer gauntlet has no gap, so never asks
+	var h2 := FakeStoryHost.new()
+	h2.choices = [0]
+	await Commands.new(h2).run([{"do": "gauntlet", "trainers": ["wind_aelwen"], "flag": "g"}])
+	assert_eq(h2.choices.size(), 1)
+	assert_eq(h2.log.count(["menu", "bag"]), 0)
+
+func test_gauntlet_prize_money_only_when_whole_gauntlet_won() -> void:
+	var h := FakeStoryHost.new()
+	h.data.money = 1000
+	h.battle_results = [{"result": "win"}, {"result": "lose"}]
+	await Commands.new(h).run([{"do": "gauntlet", "trainers": ["wind_aelwen", "wind_fergus"], "flag": "g"}])
+	assert_eq(h.last_battle.opts.trainer.get("money", 0), 0, "no prize is paid mid-gauntlet")
+	assert_eq(h.data.money, 500, "a loss only halves what you had")
+	var h2 := FakeStoryHost.new()
+	h2.data.money = 0
+	await Commands.new(h2).run([{"do": "gauntlet", "trainers": ["wind_aelwen", "wind_fergus"], "flag": "g"}])
+	var want := int(StoryData.trainer("wind_aelwen").money) + int(StoryData.trainer("wind_fergus").money)
+	assert_eq(h2.data.money, want, "the whole gauntlet pays out at the end")
