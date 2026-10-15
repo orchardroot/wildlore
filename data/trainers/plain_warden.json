@@ -1,0 +1,31 @@
+{
+ "id": "plain_warden",
+ "name": "Warden Strand",
+ "class": "Warden",
+ "sprite": "warden_grunt",
+ "party": [
+  {
+   "species": "quarrion",
+   "level": 90
+  },
+  {
+   "species": "stoopfalcon",
+   "level": 89
+  },
+  {
+   "species": "samsonian",
+   "level": 90
+  }
+ ],
+ "ai": "trainer",
+ "money": 2550,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Warden Strand",
+   "text": "This landscape is unmanaged. By which I mean it isn't managed by us. The Enclosure will 'curate' it. With a ticket booth."
+  }
+ ],
+ "win": "Hm. Not what the brochure said would happen.",
+ "after": "We could put a gate on the chalk horse, you know. A little gate. With a fee. Why does everybody get so upset?"
+}

@@ -1,0 +1,495 @@
+{
+ "id": "underground",
+ "name": "The Underground",
+ "region": "",
+ "kind": "interior",
+ "music": "dungeon_underground",
+ "weather": {},
+ "props": [
+  {
+   "type": "canal_boat",
+   "x": 36,
+   "y": 34,
+   "variant": 0
+  },
+  {
+   "type": "canal_boat",
+   "x": 37,
+   "y": 34,
+   "variant": 0
+  },
+  {
+   "type": "canal_boat",
+   "x": 38,
+   "y": 34,
+   "variant": 0
+  },
+  {
+   "type": "canal_boat",
+   "x": 39,
+   "y": 34,
+   "variant": 0
+  },
+  {
+   "type": "canal_boat",
+   "x": 46,
+   "y": 35,
+   "variant": 1
+  },
+  {
+   "type": "canal_boat",
+   "x": 47,
+   "y": 35,
+   "variant": 1
+  },
+  {
+   "type": "canal_boat",
+   "x": 48,
+   "y": 35,
+   "variant": 1
+  },
+  {
+   "type": "canal_boat",
+   "x": 49,
+   "y": 35,
+   "variant": 1
+  },
+  {
+   "type": "canal_boat",
+   "x": 50,
+   "y": 35,
+   "variant": 1
+  },
+  {
+   "type": "canal_boat",
+   "x": 20,
+   "y": 16,
+   "variant": 2
+  },
+  {
+   "type": "canal_boat",
+   "x": 21,
+   "y": 16,
+   "variant": 2
+  },
+  {
+   "type": "canal_boat",
+   "x": 22,
+   "y": 16,
+   "variant": 2
+  },
+  {
+   "type": "canal_boat",
+   "x": 23,
+   "y": 16,
+   "variant": 2
+  },
+  {
+   "type": "canal_boat",
+   "x": 30,
+   "y": 17,
+   "variant": 0
+  },
+  {
+   "type": "canal_boat",
+   "x": 31,
+   "y": 17,
+   "variant": 0
+  },
+  {
+   "type": "canal_boat",
+   "x": 32,
+   "y": 17,
+   "variant": 0
+  },
+  {
+   "type": "canal_boat",
+   "x": 33,
+   "y": 17,
+   "variant": 0
+  },
+  {
+   "type": "canal_boat",
+   "x": 34,
+   "y": 17,
+   "variant": 0
+  },
+  {
+   "type": "lamp_post",
+   "x": 33,
+   "y": 32
+  },
+  {
+   "type": "lamp_post",
+   "x": 45,
+   "y": 32
+  },
+  {
+   "type": "lamp_post",
+   "x": 55,
+   "y": 37
+  },
+  {
+   "type": "lamp_post",
+   "x": 33,
+   "y": 37
+  },
+  {
+   "type": "lamp_post",
+   "x": 15,
+   "y": 14
+  },
+  {
+   "type": "lamp_post",
+   "x": 38,
+   "y": 18
+  },
+  {
+   "type": "lamp_post",
+   "x": 12,
+   "y": 19
+  },
+  {
+   "type": "bench",
+   "x": 40,
+   "y": 33
+  },
+  {
+   "type": "bench",
+   "x": 52,
+   "y": 36
+  },
+  {
+   "type": "bench",
+   "x": 26,
+   "y": 18
+  },
+  {
+   "type": "bench",
+   "x": 31,
+   "y": 15
+  },
+  {
+   "type": "potted_plant",
+   "x": 44,
+   "y": 43
+  },
+  {
+   "type": "potted_plant",
+   "x": 53,
+   "y": 43
+  },
+  {
+   "type": "potted_plant",
+   "x": 18,
+   "y": 3
+  },
+  {
+   "type": "potted_plant",
+   "x": 31,
+   "y": 3
+  },
+  {
+   "type": "bollard",
+   "x": 16,
+   "y": 33
+  },
+  {
+   "type": "bollard",
+   "x": 52,
+   "y": 14
+  },
+  {
+   "type": "bollard",
+   "x": 50,
+   "y": 20
+  }
+ ],
+ "warps": [
+  {
+   "x": 48,
+   "y": 48,
+   "to": "london",
+   "tx": 24,
+   "ty": 26,
+   "facing": "down"
+  },
+  {
+   "x": 25,
+   "y": 1,
+   "to": "vane_tower_lobby",
+   "tx": 2,
+   "ty": 12,
+   "facing": "right"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "reunion_a",
+   "sprite": "pryce",
+   "x": 14,
+   "y": 24,
+   "facing": "down",
+   "move": "still",
+   "script": "reunion_a"
+  },
+  {
+   "id": "reunion_b",
+   "sprite": "kerrigan",
+   "x": 24,
+   "y": 8,
+   "facing": "down",
+   "move": "still",
+   "script": "reunion_b"
+  },
+  {
+   "id": "ug_station_guard",
+   "sprite": "rail_guard",
+   "x": 48,
+   "y": 40,
+   "facing": "left",
+   "move": "still",
+   "script": "ug_station_guard"
+  },
+  {
+   "id": "ug_cleaner",
+   "sprite": "villager_3",
+   "x": 32,
+   "y": 33,
+   "facing": "down",
+   "move": "wander",
+   "script": "ug_cleaner"
+  },
+  {
+   "id": "ug_commuter",
+   "sprite": "villager_2",
+   "x": 54,
+   "y": 33,
+   "facing": "left",
+   "move": "still",
+   "trainer": "ug_commuter"
+  },
+  {
+   "id": "ug_warden_a",
+   "sprite": "warden_grunt",
+   "x": 56,
+   "y": 37,
+   "facing": "left",
+   "move": "still",
+   "trainer": "ug_warden_a"
+  },
+  {
+   "id": "ug_busker",
+   "sprite": "harpist",
+   "x": 28,
+   "y": 19,
+   "facing": "left",
+   "move": "still",
+   "trainer": "ug_busker"
+  },
+  {
+   "id": "ug_warden_b",
+   "sprite": "warden_grunt",
+   "x": 14,
+   "y": 29,
+   "facing": "down",
+   "move": "still",
+   "trainer": "ug_warden_b"
+  },
+  {
+   "id": "ug_archaeologist",
+   "sprite": "student",
+   "x": 24,
+   "y": 11,
+   "facing": "down",
+   "move": "still",
+   "trainer": "ug_archaeologist"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "tubemole",
+    "min": 94,
+    "max": 96,
+    "weight": 18
+   },
+   {
+    "species": "moldiwarp",
+    "min": 94,
+    "max": 95,
+    "weight": 8
+   },
+   {
+    "species": "tunneller",
+    "min": 95,
+    "max": 96,
+    "weight": 8
+   },
+   {
+    "species": "flittermouse",
+    "min": 94,
+    "max": 95,
+    "weight": 12
+   },
+   {
+    "species": "hushwing",
+    "min": 94,
+    "max": 96,
+    "weight": 8,
+    "time": [
+     "night"
+    ]
+   },
+   {
+    "species": "railspark",
+    "min": 94,
+    "max": 95,
+    "weight": 10
+   },
+   {
+    "species": "rivetling",
+    "min": 94,
+    "max": 95,
+    "weight": 8
+   },
+   {
+    "species": "shuttlecog",
+    "min": 94,
+    "max": 96,
+    "weight": 8
+   },
+   {
+    "species": "binfox",
+    "min": 94,
+    "max": 95,
+    "weight": 10
+   },
+   {
+    "species": "raidtail",
+    "min": 94,
+    "max": 95,
+    "weight": 10
+   },
+   {
+    "species": "sootwing",
+    "min": 94,
+    "max": 95,
+    "weight": 8
+   },
+   {
+    "species": "squawkster",
+    "min": 94,
+    "max": 95,
+    "weight": 4
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 47,
+   "y": 43,
+   "text": "MIND THE GAP. The phrase was first recorded in 1969, between a train and a platform on the Northern line. The voice you hear at one station belongs to an actor whose widow still visits to hear it. A very London love story."
+  },
+  {
+   "x": 44,
+   "y": 36,
+   "text": "CENTRAL LINE. Opened 1900 as the 'Twopenny Tube', because every ride cost twopence. Today you can't buy a Tube sandwich for twopence, or twopence for a Tube sandwich."
+  },
+  {
+   "x": 36,
+   "y": 32,
+   "text": "THE DEEP TUNNELS. The London Underground runs for 250 miles, and some of it is much deeper than it looks. Down here is less 'sky' and more 'maze'."
+  },
+  {
+   "x": 19,
+   "y": 14,
+   "text": "NORTHERN LINE. The deepest station in the system is Hampstead, 58.5 metres down. Its lift ride is a good chance to look at your shoes."
+  },
+  {
+   "x": 55,
+   "y": 11,
+   "text": "DISUSED STATION. London has about 40 ghost stations, closed for decades and left like time capsules. Their old posters still advertise toothpaste, Bovril, and a variety show of 1938."
+  },
+  {
+   "x": 20,
+   "y": 5,
+   "text": "TO THE VANE TOWER. Staff only. Persons without a lanyard will be asked to take a seat. There are no seats. This is the Enclosure's idea of a joke."
+  }
+ ],
+ "spawn": [
+  48,
+  46
+ ],
+ "stage": "city",
+ "rows": [
+  "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "xxxxxxxxxxxxxxxxxxxxxxxxxDxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "xxxxxxxxxxxxxxxxx++++++++++++++++xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "xxxxxxxxxxxxxxxxx++++++++++++++++xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "xxxxxxxxxxxxxxxxx++++++++++++++++xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "xxxxxxxxxxxxxxxxx++++++++++++++++xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "xxxxxxxxxxxxxxxxxxxxxxxxkxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "xxxxxxxxxxxxxxxxxxxxxxxxkxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "xxxxxxxxxxxxxxxxxxxxxxxxkxxxxxxxxxxxxxxxxxxxxxxkkkkkkkkkkkkkxxxx",
+  "xxxxxxxxxxxxxxxxxxxxxxxxkxxxxxxxxxxxxxxxxxxxxxxkkkggggggkkkkxxxx",
+  "xxxxxxxxxxxxxxxxxxxxxxxxkxxxxxxxxxxxxxxxxxxxxxxkkkggggggkkkkxxxx",
+  "xxxxxxxxxxxxxxxxxxxxxxxxkxxxxxxxxxxxxxxxxxxxxxxkkkkkkkkkkkkkxxxx",
+  "xxxxxxxxxxxxxxxxxxxxxxxxkxxxxxxxxxxxxxxxxxxxxxxkkggggggggkkkxxxx",
+  "xxxxxxxxxxxxxxxxxxxxxxxxkxxxxxxxxxxxxxxxxxxxxxxkkggggggggkkkxxxx",
+  "xxxxxkkkk________________________________kkkkkkkkggggggggkkkxxxx",
+  "xxxxxkkkk________________________________kkkkkkkkggggggggkkkxxxx",
+  "xxxxxkkkkxx!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!xxkkggggggggkkkxxxx",
+  "xxxxxkkkkxx!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!xxkkggggggggkkkxxxx",
+  "xxxxxkkkk________________________________xxxxxxkkkkkkvvvvvvkxxxx",
+  "xxxxxkkkk________________________________xxxxxxgggggkvvvvvvkxxxx",
+  "xxxxxxxxxxxxxxkxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxgggggkvvvvvvkxxxx",
+  "xxxxxxxxxxxxxxkxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxgggggkvvvvvvkxxxx",
+  "xxxxxxxxxxxxxxkxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "xxxxxxxxxxxxxxkxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "xxxxxxxxxxxxxxkxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "xxxxxxxxxxxxxxkxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "xxxxxxxxxxxxxxkxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "xxxxxxxxxxxxxxkxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "xxxxxxxxxxxxxxkxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "xxxxxxxxxxxxxxkxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "xxxxxxxxxxxxxxkxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "xxxxxxxxxxxxxxkxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "xxxxxxxxxxxxxxkkkkkkkkkkkkkkkk_______________________________kkx",
+  "xxxxxxxxxxxxxxkkkkkkkkkkkkkkkk_______________________________kkx",
+  "xxxxxxxxxxxxxxxxxxkkxxxx!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!kkx",
+  "xxxxxxxxxxxxxxxxxxkkxxxx!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!kkx",
+  "xxxxxxxxxxxxxxxxxxkkxxxxxxxxxx_______________________________kkx",
+  "xxxxxxxxxxxxxxxxxxkkxxxxxxxxxx_______________________________kkx",
+  "xxxxxxxxxxxxxxxxxxkkxxxxxxxxxxxxxxxxxxxxxxxxxxxkkxxxxxxxxxxxxxxx",
+  "xxxxxxxxxxxxxxxxxxkkxxxxxxxxxxxxxxxxxxxxxxxxxxxkkxxxxxxxxxxxxxxx",
+  "xxxxxxxxxxxxxxxxxxkkxxxxxxxxxxxxxxxxxxxxxxxxxxxkkxxxxxxxxxxxxxxx",
+  "xxxxxxxxxxxxxxxxxxkkxxxxxxxxxxxxxxxxxxxxxxxxxxxkkxxxxxxxxxxxxxxx",
+  "xxxxxxkkkkkkkkkkkkkkkkkkkkkkkkkkxxxxxxxxxx++++++++++++++xxxxxxxx",
+  "xxxxxxkkkkkkkkkkkkkkkkkkkkkkkkkkxxxxxxxxxx++++++++++++++xxxxxxxx",
+  "xxxxxxkkggggggggkkkkkkggggggggkkxxxxxxxxxxCCC+CC+CC+CCCCxxxxxxxx",
+  "xxxxxxkkggggggggkkkkkkggggggggkkxxxxxxxxxx++++++++++++++xxxxxxxx",
+  "xxxxxxkkggggggggkkkkkkggggggggkkxxxxxxxxxx++++++++++++++xxxxxxxx",
+  "xxxxxxkkggggggggkkkkkkggggggggkkxxxxxxxxxx++++++++++++++xxxxxxxx",
+  "xxxxxxkkggggggggkkkkkkkkkkkkkkkkxxxxxxxxxxxxxxxxDxxxxxxxxxxxxxxx",
+  "xxxxxxkkkkkkkkkkkkkkkkkkkkkkkkkkxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+ ],
+ "legend_extra": {
+  "k": {
+   "tile": "path",
+   "colour": "#5a5c66"
+  },
+  "g": {
+   "tile": "tall_grass",
+   "colour": "#6c6f66",
+   "prop": "none"
+  },
+  "v": {
+   "tile": "floor_tile",
+   "colour": "#c9c3a8"
+  }
+ }
+}

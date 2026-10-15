@@ -1,0 +1,184 @@
+{
+ "id": "vane_tower_lobby",
+ "name": "Vane Tower: Lobby",
+ "region": "",
+ "kind": "interior",
+ "music": "town_london",
+ "weather": {},
+ "props": [
+  {
+   "type": "potted_plant",
+   "x": 3,
+   "y": 3
+  },
+  {
+   "type": "potted_plant",
+   "x": 26,
+   "y": 3
+  },
+  {
+   "type": "potted_plant",
+   "x": 3,
+   "y": 20
+  },
+  {
+   "type": "potted_plant",
+   "x": 26,
+   "y": 20
+  },
+  {
+   "type": "potted_plant",
+   "x": 9,
+   "y": 12
+  },
+  {
+   "type": "potted_plant",
+   "x": 20,
+   "y": 12
+  },
+  {
+   "type": "potted_plant",
+   "x": 9,
+   "y": 18
+  },
+  {
+   "type": "potted_plant",
+   "x": 20,
+   "y": 18
+  },
+  {
+   "type": "bookshelf",
+   "x": 13,
+   "y": 3
+  },
+  {
+   "type": "bookshelf",
+   "x": 17,
+   "y": 3
+  },
+  {
+   "type": "table",
+   "x": 6,
+   "y": 14
+  },
+  {
+   "type": "table",
+   "x": 24,
+   "y": 14
+  }
+ ],
+ "warps": [
+  {
+   "x": 15,
+   "y": 22,
+   "to": "london",
+   "tx": 37,
+   "ty": 20,
+   "facing": "down"
+  },
+  {
+   "x": 24,
+   "y": 1,
+   "to": "vane_tower_mid",
+   "tx": 3,
+   "ty": 21,
+   "facing": "up"
+  },
+  {
+   "x": 1,
+   "y": 12,
+   "to": "underground",
+   "tx": 25,
+   "ty": 3,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "vt_receptionist",
+   "sprite": "shopkeeper",
+   "x": 15,
+   "y": 14,
+   "facing": "down",
+   "move": "still",
+   "script": "vt_receptionist"
+  },
+  {
+   "id": "vt_warden_1",
+   "sprite": "warden_grunt",
+   "x": 15,
+   "y": 8,
+   "facing": "down",
+   "move": "still",
+   "trainer": "vt_warden_1"
+  },
+  {
+   "id": "vt_warden_2",
+   "sprite": "warden_grunt",
+   "x": 23,
+   "y": 18,
+   "facing": "left",
+   "move": "still",
+   "trainer": "vt_warden_2"
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "x": 2,
+   "y": 14,
+   "text": "STAFF ONLY: UNDERGROUND LINK. A discreet door, down to the Enclosure's tunnels. Lanyards are not checked. This is the weak point of the security."
+  },
+  {
+   "x": 23,
+   "y": 3,
+   "text": "LIFT TO FLOORS 2 TO 40. The lift has a 40-floor button and an extremely smug chime. Floor 40 is Lord Vane's. It has a view."
+  }
+ ],
+ "spawn": [
+  15,
+  21
+ ],
+ "stage": "city",
+ "rows": [
+  "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "xxxxxxxxxxxxxxxxxxxxxxxxDxxxxx",
+  "xxmmmmmmmmmmmmmmmmmmmmmmmmmmxx",
+  "xxmmmmmmmmmmmmmmmmmmmmmmmmmmxx",
+  "xxmmmxmmmmgggggggggggmmmxmmmxx",
+  "xxmmmxmmmmgggggggggggmmmxmmmxx",
+  "xxmmmxmmmmgggggggggggmmmxmmmxx",
+  "xxmmmxmmmmgggggggggggmmmxmmmxx",
+  "xxmmmxmmxmgggggggggggxmmxmmmxx",
+  "xxmmmxmmmmgggggggggggmmmxmmmxx",
+  "xxmmmmmmmmgggggggggggmmmmmmmxx",
+  "xxmmmmmmmmmmmmmmmmmmmmmmmmmmxx",
+  "xDmmvvvvmmmmmmmmmmmmmmvvvvmmxx",
+  "xxmmvvvvmmmmmmmmmmmmmmvvvvmmxx",
+  "xxmmvvvvmmmmmmmmmmmmmmvvvvmmxx",
+  "xxmmvvvvmmmCCCmmCCCmmmvvvvmmxx",
+  "xxmmvvvvmmmmmmmmmmmmmmvvvvmmxx",
+  "xxmmvvvvmmmmmmmmmmmmmmvvvvmmxx",
+  "xxmmvvvvmmmmmmmmmmmmmmvvvvmmxx",
+  "xxmmvvvvmmmmmmmmmmmmmmvvvvmmxx",
+  "xxmmmmmmmmmmmmmmmmmmmmmmmmmmxx",
+  "xxmmmmmmmmmmmmmmmmmmmmmmmmmmxx",
+  "xxxxxxxxxxxxxxxDxxxxxxxxxxxxxx",
+  "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+ ],
+ "legend_extra": {
+  "g": {
+   "tile": "floor_tile",
+   "colour": "#a9d2ea"
+  },
+  "v": {
+   "tile": "floor_tile",
+   "colour": "#34465a"
+  },
+  "m": {
+   "tile": "floor_tile",
+   "colour": "#e6e2d6"
+  }
+ }
+}

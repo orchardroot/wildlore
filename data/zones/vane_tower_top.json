@@ -1,0 +1,148 @@
+{
+ "id": "vane_tower_top",
+ "name": "Vane Tower: Summit",
+ "region": "",
+ "kind": "interior",
+ "music": "battle_final",
+ "weather": {},
+ "props": [
+  {
+   "type": "potted_plant",
+   "x": 3,
+   "y": 5
+  },
+  {
+   "type": "potted_plant",
+   "x": 26,
+   "y": 5
+  },
+  {
+   "type": "potted_plant",
+   "x": 26,
+   "y": 20
+  },
+  {
+   "type": "potted_plant",
+   "x": 9,
+   "y": 19
+  },
+  {
+   "type": "potted_plant",
+   "x": 21,
+   "y": 19
+  },
+  {
+   "type": "potted_plant",
+   "x": 9,
+   "y": 10
+  },
+  {
+   "type": "potted_plant",
+   "x": 21,
+   "y": 10
+  },
+  {
+   "type": "bookshelf",
+   "x": 6,
+   "y": 3
+  },
+  {
+   "type": "bookshelf",
+   "x": 22,
+   "y": 3
+  }
+ ],
+ "warps": [
+  {
+   "x": 3,
+   "y": 22,
+   "to": "vane_tower_mid",
+   "tx": 24,
+   "ty": 2,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "vane",
+   "sprite": "vane",
+   "x": 15,
+   "y": 5,
+   "facing": "down",
+   "move": "still",
+   "script": "vane_final"
+  },
+  {
+   "id": "vt_warden_5",
+   "sprite": "warden_grunt",
+   "x": 15,
+   "y": 14,
+   "facing": "down",
+   "move": "still",
+   "trainer": "vt_warden_5"
+  },
+  {
+   "id": "vt_warden_6",
+   "sprite": "warden_grunt",
+   "x": 11,
+   "y": 17,
+   "facing": "right",
+   "move": "still",
+   "trainer": "vt_warden_6"
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "x": 4,
+   "y": 19,
+   "text": "THE SUMMIT. A glass floor with the whole of London beneath it. Lord Vane likes to look down. Nothing about this seems healthy."
+  }
+ ],
+ "spawn": [
+  3,
+  21
+ ],
+ "stage": "city",
+ "rows": [
+  "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "xxvvvvvvvvvvvvvvvvvvvvvvvvvvxx",
+  "xxvvvvvvvvvvvvvvvvvvvvvvvvvvxx",
+  "xxggggggggggggggggggggggggggxx",
+  "xxggggggggggggggggggggggggggxx",
+  "xxggggggmCCCCCvvCCCCCCggggggxx",
+  "xxggggggmmmmmvvvvmmmmmggggggxx",
+  "xxggggggmmmmmvvvvmmmmmggggggxx",
+  "xxggggggmmmmmvvvvmmmmmggggggxx",
+  "xxggggggmmmmmvvvvmmmmmggggggxx",
+  "xxggggggmmmmmvvvvmmmmmggggggxx",
+  "xxggggggmmmmmvvvvmmmmmggggggxx",
+  "xxggggggmmmmmvvvvmmmmmggggggxx",
+  "xxggggggmmmmmvvvvmmmmmggggggxx",
+  "xxggggggmmmmmvvvvmmmmmggggggxx",
+  "xxggggggmmmmmvvvvmmmmmggggggxx",
+  "xxggggggmmmmmvvvvmmmmmggggggxx",
+  "xxggggggmmmmmvvvvmmmmmggggggxx",
+  "xxggggggmmmmmvvvvmmmmmggggggxx",
+  "xxggggggggggggggggggggggggggxx",
+  "xxggggggggggggggggggggggggggxx",
+  "xxxDxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+ ],
+ "legend_extra": {
+  "g": {
+   "tile": "floor_tile",
+   "colour": "#a9d2ea"
+  },
+  "v": {
+   "tile": "floor_tile",
+   "colour": "#34465a"
+  },
+  "m": {
+   "tile": "floor_tile",
+   "colour": "#e6e2d6"
+  }
+ }
+}
