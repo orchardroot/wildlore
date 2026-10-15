@@ -6,19 +6,22 @@ A monster-catching RPG across the UK and Ireland. You start in Macclesfield, bec
 
 ![Title](docs/screens/t13-title.png)
 
-## What's in v0.4, Northern Ireland and Scotland
+## What's in v0.5: the whole story
 
-From Newgrange over the Mournes to Belfast, where the shipyard Keeper keeps the Iron Stone under Samson and Goliath, then up the Antrim coast to the Giant's Causeway, where Lord Vane himself is trying to lease the columns and the sea has opinions about that. Across to Cairnryan, through Glasgow and Edinburgh, into Glencoe and up the Great Glen, where the Enclosure's survey boat on Loch Ness finds rather more than it was looking for. Inverness for the Frost Stone, then Skye, the Cairngorms, Aberdeen, and the boat to Orkney if you fancy it.
+All of it, start to finish. You leave home in Macclesfield with a hedgehog, a squirrel or an otter, and you walk (and cycle, and take the train, and catch the odd ferry) all the way round England, Wales, Scotland, Northern Ireland, Ireland and the Isle of Man, collecting ten Stones from ten Keepers while a heritage company with very good lanyards tries to buy the countryside. Then you go to Stonehenge for the Moot, find out who the Champion has been all along, and go to London to have a word with Lord Vane about his tower.
 
-- 31 towns and 171 creatures: wildcats, capercaillie, Highland cattle, golden eagles, the Highland midge (sorry), orcas, the Cairngorm reindeer, kelpies, brownies, the Blue Men of the Minch, and three more legends: Manannán's Horse, the Cù-Sìth and Nessie
-- Nine Stones: Ruairí in the Belfast shipyard and Isla on the Inverness ice join the seven from before
-- The Lantern for dark caves, Bog-cross for the peat, and ferries over the North Channel and out to Kirkwall
-- Plus everything from v0.3: the South, Ireland, double battles, and the rest
+- 40 towns, from Macclesfield to Kirkwall, Penzance to Derry
+- 200 creatures, every one with a real fact about the animal or the legend it's based on, and all ten legends: Y Ddraig Goch, the Green Man, the Morrígan, Manannán's Horse, the Cù-Sìth, Nessie, Black Shuck, the Lambton Worm, Herne the Hunter and Bran's Raven
+- Ten Keepers, the Four Winds, a Champion, a rival who turns out to be the best mate you've got, and a villain who complains about his deposit
+- A bike, a coracle, a lantern, a pair of waders, trains, ferries, and eventually a raven to fly you anywhere you've been
+- Double battles, British weather that matters, day and night, three save slots and an Ark for the spares
+- Folk-ish music and sound effects, all synthesised from scratch, and pixel art and buildings all generated from code
 
 | | |
 |---|---|
-| ![Belfast](docs/screens/p5-belfast-1.png) | ![Edinburgh](docs/screens/p5-edinburgh-1.png) |
-| ![Lantern](docs/screens/p5-lantern.png) | ![Inverness rink](docs/screens/p5-inverness_rink-1.png) |
+| ![The Moot](docs/screens/p6-stonehenge-2.png) | ![London](docs/screens/p6-london-1.png) |
+| ![Belfast](docs/screens/p5-belfast-1.png) | ![Glastonbury Tor](docs/screens/p4-glastonbury_tor-1.png) |
+| ![Liverpool](docs/screens/p3-liverpool-1.png) | ![Double battle](docs/screens/p4-doubles-target.png) |
 
 ## Controls
 
@@ -42,7 +45,7 @@ From source: install nothing, run `tools/get_godot.sh` (it fetches the pinned Go
 Godot 4, GDScript, the Compatibility renderer. Everything is generated: the 3D world is built from text maps by `world/zone_builder.gd`, the creature and character sprites are drawn by `tools/spritegen.gd` from JSON recipes, and the music is composed as note lists in `tools/music/`. No downloaded art or audio.
 
 ```
-tools/test.sh              # 440-odd unit tests plus the data validator
+tools/test.sh              # nearly 500 unit tests plus the data validator
 tools/playtest.sh slice 2  # a headless bot plays the slice and must win the Brook Stone
 tools/playtest.sh m2 2     # ...or carries on to Cardiff and must win all four
 tools/playtest.sh fuzz 7 600   # random walking, talking and battling, looking for soft-locks
@@ -52,6 +55,6 @@ CI runs the tests and the bot on every push, and three fuzz runs every night. De
 
 ## Status
 
-Northern Ireland and Scotland are done. Next: down the east side of England to York, the Moot at Stonehenge, and London. The board is [here](https://github.com/users/orchardroot/projects/2).
+The story is complete. What's left is polish for 1.0: post-game rematches, accessibility options, a proper listen to the music by someone with ears, and a long hard look at the balance. The board is [here](https://github.com/users/orchardroot/projects/2).
 
 *orchardroot, made in Cheshire, under the supervision of two cats. Neither of them is in this one. Yet.*
