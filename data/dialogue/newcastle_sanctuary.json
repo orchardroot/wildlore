@@ -1,0 +1,63 @@
+{
+ "nurse": [
+  {
+   "do": "say",
+   "who": "Nurse",
+   "text": "Why aye, pet! Welcome to the Newcastle Sanctuary. Pop the team on the counter and we'll have them right as rain, which, aye, is the usual weather."
+  },
+  {
+   "do": "choice",
+   "text": "What can we do for you?",
+   "options": [
+    "Heal my team",
+    "Open the Ark",
+    "Just looking"
+   ],
+   "set": "_nurse_choice"
+  },
+  {
+   "do": "if",
+   "flag": "_nurse_choice",
+   "eq": 0,
+   "then": [
+    {
+     "do": "say",
+     "who": "Nurse",
+     "text": "Sit yersel doon, pet. There's tea in the pot, a stottie on the plate, and a wind outside that could unseat a statue."
+    },
+    {
+     "do": "heal"
+    },
+    {
+     "do": "say",
+     "who": "Nurse",
+     "text": "Aa done, hinny! Not a scratch, no a scuff. Mind how ye go, and mind the seagulls. They've been told you're the next one."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "_nurse_choice",
+     "eq": 1,
+     "then": [
+      {
+       "do": "say",
+       "who": "Nurse",
+       "text": "The Ark terminal's in the corner. It's powered by hot tea and stubbornness. Go on, pet, give us a click."
+      },
+      {
+       "do": "ark"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Nurse",
+       "text": "No bother, pet. Come back when you need us. We'll still be here, and so will the wind."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

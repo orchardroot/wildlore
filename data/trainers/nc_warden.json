@@ -1,0 +1,31 @@
+{
+ "id": "nc_warden",
+ "name": "Warden Rupert",
+ "class": "Warden",
+ "sprite": "warden_grunt",
+ "party": [
+  {
+   "species": "sootwing",
+   "level": 79
+  },
+  {
+   "species": "rookery",
+   "level": 79
+  },
+  {
+   "species": "adderking",
+   "level": 80
+  }
+ ],
+ "ai": "trainer",
+ "money": 3100,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Warden Rupert",
+   "text": "The Enclosure has decided this coastline needs curating. Wide beaches, wild dunes and huge skies are a bit uncontrolled. I'm here to tidy them up."
+  }
+ ],
+ "win": "Curating, it seems, is harder than it looks.",
+ "after": "The Enclosure says the dunes will be neatly raked. I have seen the dunes. I have seen the rake."
+}
