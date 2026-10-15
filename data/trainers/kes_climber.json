@@ -1,0 +1,31 @@
+{
+ "id": "kes_climber",
+ "name": "Climber Hamish",
+ "class": "Climber",
+ "sprite": "hillwalker",
+ "party": [
+  {
+   "species": "kidgruff",
+   "level": 87
+  },
+  {
+   "species": "tapknock",
+   "level": 87
+  },
+  {
+   "species": "herdlet",
+   "level": 87
+  }
+ ],
+ "ai": "trainer",
+ "money": 3500,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Climber Hamish",
+   "text": "I do the Lakeland crags with a pair of boots and a flask. The flask is more reliable."
+  }
+ ],
+ "win": "I have not climbed that one before. I'll make a note of the route.",
+ "after": "Latrigg, Catbells, Skiddaw. Keswick's an easy place to be a wee bit lost, and a very good place to be found."
+}
