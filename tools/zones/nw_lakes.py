@@ -158,8 +158,8 @@ def keswick(OUT):
     z.sign(33, 18, "DERWENTWATER. 'Queen of the Lakes', three miles long, with islands, a famous floating island of weed in late summer, and boats that go round it every hour. It is not the largest lake in the district. It is, we're told, the prettiest.")
     # the Market Place with the Moot Hall in the middle
     z.rect(3, 20, 44, 11, ":")
-    z.building(28, 23, 9, 4, "stone", "Moot Hall")
-    z.building(31, 20, 3, 3, "chapel", show_label=False)
+    z.building(28, 23, 7, 4, "stone", "Moot Hall")
+    z.building(35, 22, 3, 4, "chapel", show_label=False)
     z.sign(32, 27, "THE MOOT HALL. Built in 1813 on the site of earlier halls, with a clock tower and a very pleasant way of standing in the middle of the road. 'Moot' is the old word for a meeting. It's now the tourist information centre, which is its own kind of meeting.")
     z.building(16, 22, 6, 4, "sanctuary", "Sanctuary", door=3)
     z.warp(19, 25, "keswick_sanctuary", 5, 6, "up")
@@ -171,7 +171,7 @@ def keswick(OUT):
     for (x, y) in [(24, 29), (26, 29), (38, 29), (40, 29)]:
         z.prop("market_stall", x, y)
     z.prop("planter", 15, 22); z.prop("planter", 22, 22); z.prop("planter", 39, 22); z.prop("planter", 45, 22)
-    z.prop("lamp_post", 27, 23); z.prop("lamp_post", 37, 23); z.prop("lamp_post", 27, 28); z.prop("lamp_post", 37, 28)
+    z.prop("lamp_post", 27, 23); z.prop("lamp_post", 38, 23); z.prop("lamp_post", 27, 28); z.prop("lamp_post", 37, 28)
     z.prop("phone_box", 14, 21); z.prop("post_box", 46, 21)
     # the road in and the houses
     z.rect(30, 31, 3, 11, "="); z.rect(29, 31, 1, 11, ":"); z.rect(33, 31, 1, 11, ":")
