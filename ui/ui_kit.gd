@@ -7,7 +7,6 @@ const MUTED := Color("a9a294")
 const HEATHER := Color("9b6fb0")
 const SLATE := Color("1d2230")
 const GOLD := Color("e8c872")
-const HP_COLOURS := {"green": Color("5fbf6a"), "amber": Color("e8b63c"), "red": Color("d9503f")}
 const STATUS_COLOURS := {
 	"soaked": Color("4a90d9"), "chilled": Color("86d4e0"), "muddled": Color("c9a33c"),
 	"hexed": Color("8e6fbf"), "stung": Color("c24a3e"), "asleep": Color("7d7f8a"),
@@ -47,19 +46,26 @@ static func panel(bg := Color("1d2230f0"), margin := 16) -> PanelContainer:
 	return p
 
 ## A rounded coloured tag: types, statuses, kinds.
-static func chip(text: String, bg: Color, fg := Color("f8f1dc"), size := 20) -> PanelContainer:
+static func chip(text: String, bg: Color, fg := Color("f8f1dc"), size := 20, glyph_type := "") -> PanelContainer:
 	var p := PanelContainer.new()
 	p.add_theme_stylebox_override("panel", box(bg, bg.darkened(0.35), 2, 10, 5))
 	var l := label(text.to_upper(), size, fg)
 	l.add_theme_constant_override("shadow_offset_x", 0)
 	l.add_theme_constant_override("shadow_offset_y", 0)
 	l.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	p.add_child(l)
+	if glyph_type != "":
+		var h := HBoxContainer.new()
+		h.add_theme_constant_override("separation", 5)
+		h.add_child(TypeGlyph.make(glyph_type, fg, maxi(12, mini(16, size - 4))))
+		h.add_child(l)
+		p.add_child(h)
+	else:
+		p.add_child(l)
 	p.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
 	return p
 
 static func type_chip(t: String, size := 20) -> PanelContainer:
-	return chip(t, TypeColours.colour(t), TypeColours.text_colour(t), size)
+	return chip(t, TypeColours.colour(t), TypeColours.text_colour(t), size, t)
 
 static func status_chip(status: String, size := 18) -> Control:
 	if status == "":
@@ -81,8 +87,15 @@ static func hp_bar(hp: int, max_hp: int, width := 200, height := 14) -> Progress
 	b.value = clampi(hp, 0, max_hp)
 	b.custom_minimum_size = Vector2(width, height)
 	b.add_theme_stylebox_override("background", box(Color("0d0f15"), CREAM, 2, 3, 0))
-	b.add_theme_stylebox_override("fill", box(HP_COLOURS[MenuLogic.hp_band(hp, max_hp)], Color(0, 0, 0, 0), 0, 3, 0))
+	b.add_theme_stylebox_override("fill", box(TypeColours.hp_colour(MenuLogic.hp_band(hp, max_hp)), Color(0, 0, 0, 0), 0, 3, 0))
 	return b
+
+## Trims a button's padding so long lists fit: transparent at rest, a soft fill and heather outline when focused.
+static func compact(b: Button, margin := 4) -> void:
+	b.add_theme_stylebox_override("normal", box(Color(0, 0, 0, 0), Color(0, 0, 0, 0), 0, 4, margin))
+	var on := box(Color("2f3548"), HEATHER, 2, 4, margin)
+	for state in ["hover", "focus", "pressed", "hover_pressed"]:
+		b.add_theme_stylebox_override(state, on)
 
 static func button(text: String, min_w := 0) -> Button:
 	var b := Button.new()

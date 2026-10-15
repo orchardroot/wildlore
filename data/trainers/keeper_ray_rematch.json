@@ -1,0 +1,48 @@
+{
+ "id": "keeper_ray_rematch",
+ "name": "Keeper Ray",
+ "class": "Keeper",
+ "sprite": "keeper_ray",
+ "party": [
+  {
+   "species": "binfox",
+   "level": 95
+  },
+  {
+   "species": "strutcoo",
+   "level": 95
+  },
+  {
+   "species": "raidtail",
+   "level": 96
+  },
+  {
+   "species": "pierlord",
+   "level": 97
+  },
+  {
+   "species": "tubemole",
+   "level": 98
+  },
+  {
+   "species": "squawkster",
+   "level": 100
+  }
+ ],
+ "ai": "keeper",
+ "money": 15000,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Keeper Ray",
+   "text": "Same city, bigger amps. Count us in, {player}."
+  },
+  {
+   "do": "say",
+   "who": "Keeper Ray",
+   "text": "One, two, three, four! And no, I won't be taking requests."
+  }
+ ],
+ "win": "Encore! Honestly, that was a proper set. Buy yourself a pie on me. Not the one with the gravy, that's mine.",
+ "after": "Come back tomorrow for another go."
+}

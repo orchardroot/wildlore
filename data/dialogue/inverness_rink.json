@@ -8,6 +8,58 @@
      "do": "say",
      "who": "Keeper Isla",
      "text": "Away and see the C\u00f9-S\u00ecth's glen on Skye, if you dare. Bring a jumper. Bring two."
+    },
+    {
+     "do": "if",
+     "flag": "game_complete",
+     "then": [
+      {
+       "do": "say",
+       "who": "Keeper Isla",
+       "text": "Ice has just been freshly swept, and my team's been itching to skate on someone. Fancy a rematch?"
+      },
+      {
+       "do": "choice",
+       "text": "A rematch with Keeper Isla?",
+       "options": [
+        "Yes, a rematch",
+        "Not today"
+       ],
+       "set": "rematch_pick"
+      },
+      {
+       "do": "if",
+       "flag": "rematch_pick",
+       "eq": 0,
+       "then": [
+        {
+         "do": "daily",
+         "key": "rematch_keeper_isla",
+         "then": [
+          {
+           "do": "battle",
+           "trainer": "keeper_isla_rematch",
+           "intro": true
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Keeper Isla",
+           "text": "Once a day, pal. The ice needs sweeping and I need a wee sit down. Tomorrow."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Keeper Isla",
+         "text": "Another time, then. The offer stands."
+        }
+       ]
+      }
+     ]
     }
    ],
    "else": [
@@ -98,7 +150,7 @@
     {
      "do": "say",
      "who": "Prof. Garside",
-     "text": "Go carefully. The old stories say the C\u00f9-S\u00ecth barks three times and expects you to be indoors by the third. I don't know what happens after that. Nobody I've asked had stayed to find out."
+     "text": "Go carefully. The old stories say the C\u00f9-S\u00ecth barks three times and expects you to be indoors by the third. I don't know what happens after that. Nobody I've asked stayed to find out."
     },
     {
      "do": "say",

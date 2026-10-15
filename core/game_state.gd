@@ -46,6 +46,8 @@ func _process(delta: float) -> void:
 		while _minute_acc >= 1.0:
 			_minute_acc -= 1.0
 			data.clock_minutes = GameClock.wrap(data.clock_minutes + 1)
+			if data.clock_minutes == 0:
+				data.day_count += 1
 	if args.get("fps", false):
 		_fps_acc += delta
 		if _fps_acc >= 1.0:

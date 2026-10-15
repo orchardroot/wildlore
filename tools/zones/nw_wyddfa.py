@@ -61,7 +61,7 @@ def yr_wyddfa(OUT):
     z.warp(36, 9, "dinas_emrys", 10, 15, "up")
     z.d["warps"][-1]["gate"] = "fell_scramble"
     # the cairn and standing stones
-    for i, (x, y) in enumerate([(33, 11), (39, 11), (33, 14), (39, 14), (36, 15)]):
+    for i, (x, y) in enumerate([(33, 11), (39, 11), (33, 14), (39, 14)]):
         z.prop("standing_stone", x, y, variant=i % 3)
     z.prop("rock", 36, 13); z.prop("rock", 35, 13, variant=1); z.prop("rock", 37, 13, variant=2); z.prop("rock", 36, 14)
     z.sign(36, 12, "YR WYDDFA. 1,085 m, highest peak in Wales. Please add one stone to the cairn. Do not take one. We counted.")

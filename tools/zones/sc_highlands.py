@@ -150,7 +150,7 @@ def fort_william(OUT):
     chat(z, "fw_rescue", "hiker", 20, 18, "Mountain Rescue Volunteer",
          ["Ben Nevis is a big, kind hill with a bad temper in the mist. We go up in all weathers, so you don't have to.",
           "The summit's covered in cloud about three days in four, and there's a cliff off the north side. Take a map, a torch and a plan. In that order."], "down", "still")
-    chat(z, "fw_spotter", "birdwatcher", 38, 30, "Train Spotter",
+    chat(z, "fw_spotter", "birdwatcher", 41, 30, "Train Spotter",
          ["The Jacobite leaves here for Mallaig, a steam train that puffs along the viaduct at Glenfinnan, the one in the films. I've seen it go by seventy-three times.",
           "I've never been on it. It's about the looking, you see. I look. The train does the rest."], "up", "still")
     chat(z, "fw_piper", "villager_5", 30, 23, "Busker",
@@ -261,7 +261,7 @@ def great_glen(OUT):
     trainer(z, "gg_warden", "Warden Ferrier", "Warden", "warden_grunt", [("thornsow", 73), ("adderking", 73), ("bramblehog", 72), ("midgeswarm", 72)],
             41, 53, "right", ["The Great Glen is an asset, you understand, and I'm its manager. I have a spreadsheet of the lochs."],
             "That wasn't in the spreadsheet either. Nothing is, today.", "I'm putting in a request to rename Loch Lochy. It's too confusing. I'll let you know.", 3300)
-    z.d["edges"] = {"south": {"to": "fort_william", "offset": 0}, "east": {"to": "loch_ness", "offset": 0}  # NOTE: data/zones/great_glen.json opens the east border at rows 20-22 by hand (seam fix)}
+    z.d["edges"] = {"south": {"to": "fort_william", "offset": 0}, "east": {"to": "loch_ness", "offset": 0}}  # NOTE: data/zones/great_glen.json opens the east border at rows 20-22 by hand (seam fix)
     z.d["spawn"] = [42, 70]
     wild(z, [("kelpie", 72, 74, 8, {"weather": ["fog", "drizzle", "downpour"]}), ("coolet", 72, 74, 14, {}), ("ospret", 72, 74, 12, {"time": ["dawn", "day"]}),
              ("stagmor", 72, 74, 8, {"time": ["dawn", "dusk"]}), ("fawnlet", 72, 74, 8, {}), ("wildkit", 72, 74, 8, {"time": ["night", "dusk"]}),

@@ -14,6 +14,7 @@ static func build() -> Composer:
 	c.unit = 0.18
 	c.upb = 8
 	c.bars = 48
+	c.level_db = -1.0
 	c.loop = false
 	c.tail = 3.0
 	for r in 6:

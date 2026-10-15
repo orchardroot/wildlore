@@ -14,6 +14,7 @@ static func build() -> Composer:
 	c.upb = 8
 	c.seam_fade = 0.012
 	c.bars = 32
+	c.level_db = 1.0
 	for r in 2:
 		var b := r * 16
 		c.lead("brass", A, b, 8, 0.85)

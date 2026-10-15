@@ -82,10 +82,15 @@ func _kill() -> void:
 		_tween.kill()
 	position = home
 
+## A bright white flash colour, toned down when "reduce flashing" is on.
+func _flash_white(v: float) -> Color:
+	var g := 1.3 if Settings.reduce_flashing else v
+	return Color(g, g, g)
+
 func pop_in() -> void:
 	_kill()
 	_squash = Vector3(0.1, 0.1, 1.0)
-	sprite.modulate = Color(3.0, 3.0, 3.0)
+	sprite.modulate = _flash_white(3.0)
 	_tween = create_tween().set_parallel(true).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	_tween.tween_property(self, "_squash", Vector3.ONE, 0.45)
 	_tween.tween_property(sprite, "modulate", Color(1.12, 1.12, 1.12), 0.5).set_trans(Tween.TRANS_SINE)
@@ -93,7 +98,7 @@ func pop_in() -> void:
 
 func pop_out() -> void:
 	_kill()
-	sprite.modulate = Color(3.0, 3.0, 3.0)
+	sprite.modulate = _flash_white(3.0)
 	_tween = create_tween().set_parallel(true).set_trans(Tween.TRANS_SINE)
 	_tween.tween_property(self, "_squash", Vector3(0.05, 0.05, 1.0), 0.28)
 	await _tween.finished
@@ -115,11 +120,16 @@ func lunge(to: Vector3) -> void:
 func hit(strength := "normal") -> void:
 	_kill()
 	var k := 0.35 if strength == "strong" else (0.12 if strength == "weak" else 0.22)
+	var gentle := Settings.reduce_flashing  # one soft tint and a slow wobble instead of six rapid white flashes
+	if gentle:
+		k *= 0.4
 	_tween = create_tween()
-	for i in 6:
+	for i in (2 if gentle else 6):
 		var s := 1.0 if i % 2 == 0 else -1.0
-		_tween.tween_property(self, "position:x", home.x + s * k * (1.0 - i / 6.0), 0.05)
-		_tween.parallel().tween_property(sprite, "modulate", Color(3.0, 1.6, 1.6) if i % 2 == 0 else Color(1.12, 1.12, 1.12), 0.05)
+		var step := 0.14 if gentle else 0.05
+		_tween.tween_property(self, "position:x", home.x + s * k * (1.0 - i / 6.0), step)
+		var flash := Color(1.35, 1.15, 1.15) if gentle else Color(3.0, 1.6, 1.6)
+		_tween.parallel().tween_property(sprite, "modulate", flash if i % 2 == 0 else Color(1.12, 1.12, 1.12), step)
 	_tween.tween_property(self, "position", home, 0.04)
 	_tween.tween_property(sprite, "modulate", Color(1.12, 1.12, 1.12), 0.02)
 	await _tween.finished
@@ -161,7 +171,7 @@ func absorb(into: bool) -> void:
 	_kill()
 	_tween = create_tween().set_parallel(true).set_trans(Tween.TRANS_SINE)
 	if into:
-		sprite.modulate = Color(2.4, 2.4, 2.4)
+		sprite.modulate = _flash_white(2.4)
 		_tween.tween_property(self, "_squash", Vector3(0.06, 0.06, 1.0), 0.35)
 	else:
 		_tween.tween_property(self, "_squash", Vector3.ONE, 0.3).set_trans(Tween.TRANS_BACK)

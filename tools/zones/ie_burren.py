@@ -94,6 +94,7 @@ def burren(OUT):
     chat(z, "cliff_guide", "hiker", 31, 12, "Cliff Walker",
          ["The Cliffs of Moher go up two hundred and fourteen metres at the highest, and the sea at the bottom always looks like it's a long way off. It is.",
           "Don't climb the wall. I've seen what the wind does to hats, and I've seen hats do things to people."], "right", "still")
+    z.set(49, 31, "j")  # open the rock ring so the cheesemaker can be talked to
     chat(z, "cheese_farmer", "farmer", 50, 31, "Cheesemaker",
          ["Burren farmers winter their cattle on the hills, not in the valleys, so the limestone stays warm. It's called winterage. It's thousands of years old.",
           "The cattle graze the flowers, which keeps the rare ones from being swamped. It's the one place where a cow is a conservationist."], "down", "still")
@@ -212,7 +213,8 @@ def galway(OUT):
     for (x, y) in [(12, 44), (28, 43), (36, 43), (50, 42), (64, 42)]:
         z.prop("buoy", x, y)
     for x in range(4, 70, 6):
-        z.prop("bollard", x, 40)
+        if x != 46:  # keep the Spanish Arch quay open to the busker
+            z.prop("bollard", x, 40)
     z.prop("lighthouse", 69, 44)
     z.prop("lamp_post", 58, 35); z.prop("lamp_post", 68, 35); z.prop("bench", 60, 38); z.prop("bench", 66, 38)
     # signage and props

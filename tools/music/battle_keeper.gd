@@ -13,6 +13,7 @@ static func build() -> Composer:
 	c.unit = 0.085
 	c.upb = 8
 	c.bars = 48
+	c.level_db = 1.0
 	for r in 3:
 		var b := r * 16
 		c.lead("fiddle", A, b, 8, 0.9)

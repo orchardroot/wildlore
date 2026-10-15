@@ -14,10 +14,10 @@ const LENGTHS := {
 	"bell_toll": 3.2, "raven_caw": 0.9, "train_rush": 2.4,
 }
 const PEAKS := {
-	"cursor": 0.5, "confirm": 0.6, "cancel": 0.55, "bump": 0.6, "door": 0.6, "step_grass": 0.35,
-	"hit": 0.8, "hit_super": 0.9, "hit_weak": 0.5, "faint": 0.7, "snare_throw": 0.6, "snare_wobble": 0.6,
+	"cursor": 0.5, "confirm": 0.6, "cancel": 0.55, "bump": 0.6, "door": 0.6, "step_grass": 0.55,
+	"hit": 0.8, "hit_super": 0.9, "hit_weak": 0.5, "faint": 0.42, "snare_throw": 0.6, "snare_wobble": 0.6,
 	"caught": 0.8, "level_up": 0.8, "heal": 0.7, "badge": 0.85, "evolve": 0.85,
-	"cut": 0.6, "splash": 0.7, "scramble": 0.6, "bike_bell": 0.7, "train": 0.7, "ship_horn": 0.8,
+	"cut": 0.9, "splash": 0.7, "scramble": 0.9, "bike_bell": 0.7, "train": 0.7, "ship_horn": 0.8,
 	"crow": 0.75, "tomb_light": 0.7, "harp_gliss": 0.7,
 	"lantern_on": 0.7, "bog_squelch": 0.75, "bagpipe_drone": 0.7,
 	"bell_toll": 0.8, "raven_caw": 0.75, "train_rush": 0.7,

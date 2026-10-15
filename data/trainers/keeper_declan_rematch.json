@@ -1,0 +1,48 @@
+{
+ "id": "keeper_declan_rematch",
+ "name": "Keeper Declan",
+ "class": "Keeper",
+ "sprite": "keeper_declan",
+ "party": [
+  {
+   "species": "stagmor",
+   "level": 95
+  },
+  {
+   "species": "gealhare",
+   "level": 95
+  },
+  {
+   "species": "dextera",
+   "level": 96
+  },
+  {
+   "species": "connemarr",
+   "level": 97
+  },
+  {
+   "species": "tormane",
+   "level": 98
+  },
+  {
+   "species": "herdwick",
+   "level": 100
+  }
+ ],
+ "ai": "keeper",
+ "money": 16000,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Keeper Declan",
+   "text": "Everyday creatures, {player}. Everyday doesn't mean easy. Haven't I said that before?"
+  },
+  {
+   "do": "say",
+   "who": "Keeper Declan",
+   "text": "Go on so. And mind the stew."
+  }
+ ],
+ "win": "Fair play to you. That was grand. Properly grand. And the stew's only slightly ruined.",
+ "after": "Come back tomorrow for another go."
+}

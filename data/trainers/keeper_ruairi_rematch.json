@@ -1,0 +1,48 @@
+{
+ "id": "keeper_ruairi_rematch",
+ "name": "Keeper Ruairí",
+ "class": "Keeper",
+ "sprite": "keeper_ruairi",
+ "party": [
+  {
+   "species": "bobbin",
+   "level": 95
+  },
+  {
+   "species": "rivetling",
+   "level": 95
+  },
+  {
+   "species": "railspark",
+   "level": 96
+  },
+  {
+   "species": "steelheart",
+   "level": 97
+  },
+  {
+   "species": "cassiterix",
+   "level": 98
+  },
+  {
+   "species": "samsonian",
+   "level": 100
+  }
+ ],
+ "ai": "keeper",
+ "money": 17000,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Keeper Ruairí",
+   "text": "Visor down, {player}. You know the way this goes."
+  },
+  {
+   "do": "say",
+   "who": "Keeper Ruairí",
+   "text": "Hot metal, cold nerves. Go on."
+  }
+ ],
+ "win": "Solid. That's welded. I'd put my name on that one. And I'd put it in the yard log, in pen.",
+ "after": "Come back tomorrow for another go."
+}

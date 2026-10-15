@@ -63,7 +63,7 @@
   },
   {
    "type": "lamp_post",
-   "x": 52,
+   "x": 48,
    "y": 11
   },
   {
@@ -507,11 +507,6 @@
    "y": 10
   },
   {
-   "type": "buoy",
-   "x": 48,
-   "y": 17
-  },
-  {
    "type": "bollard",
    "x": 49,
    "y": 15
@@ -697,6 +692,17 @@
    "script": "lamb_3",
    "hide_if": "lamb_3_found",
    "name": "Loaghtan Lamb"
+  },
+  {
+   "id": "fairy_bridge",
+   "sprite": "harpist",
+   "x": 24,
+   "y": 39,
+   "facing": "down",
+   "move": "still",
+   "script": "fairy_bridge",
+   "name": "Harpist",
+   "show_if": "game_complete"
   }
  ],
  "encounters": {
@@ -720,7 +726,7 @@
     "weight": 14
    },
    {
-    "species": "duneskink",
+    "species": "cooplet",
     "min": 21,
     "max": 23,
     "weight": 12,
@@ -757,14 +763,10 @@
     ]
    },
    {
-    "species": "hootlet",
+    "species": "pipkin",
     "min": 21,
     "max": 23,
-    "weight": 8,
-    "time": [
-     "dusk",
-     "night"
-    ]
+    "weight": 8
    }
   ],
   "water": [
@@ -790,14 +792,14 @@
  },
  "signs": [
   {
-   "x": 50,
+   "x": 49,
    "y": 11,
    "text": "SEA TERMINAL. Ferries to Liverpool. Don't be late: the captain isn't sentimental."
   },
   {
    "x": 46,
    "y": 31,
-   "text": "THE TOWER OF REFUGE. Built 1832 so shipwrecked sailors had somewhere to wait. Still the poshest lighthouse ever. Founded by the chap who started the RNLI."
+   "text": "THE TOWER OF REFUGE. Built 1832 on a rock in the bay so shipwrecked sailors had somewhere to wait. Still the poshest waiting room at sea. Founded by the chap who started the RNLI."
   },
   {
    "x": 45,

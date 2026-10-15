@@ -1,0 +1,49 @@
+{
+ "id": "prof_garside_rematch",
+ "name": "Professor Elspeth Garside",
+ "music": "battle_champion",
+ "class": "Champion",
+ "sprite": "prof_garside",
+ "party": [
+  {
+   "species": "heilan",
+   "level": 95
+  },
+  {
+   "species": "bradan",
+   "level": 95
+  },
+  {
+   "species": "goldeneyrie",
+   "level": 96
+  },
+  {
+   "species": "orcaird",
+   "level": 97
+  },
+  {
+   "species": "adderking",
+   "level": 98
+  },
+  {
+   "species": "finnmacool",
+   "level": 100
+  }
+ ],
+ "ai": "keeper",
+ "money": 25000,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Prof. Garside",
+   "text": "Field research, {player}. I need fresh data on how far you've come. It's entirely scientific."
+  },
+  {
+   "do": "say",
+   "who": "Prof. Garside",
+   "text": "Also, I've been itching to try my new team. Ready?"
+  }
+ ],
+ "win": "Splendid. That's a very good data point. I shall have to add a footnote. And a biscuit.",
+ "after": "Come back tomorrow. I'll have a new hypothesis."
+}

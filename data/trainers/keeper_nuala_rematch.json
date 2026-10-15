@@ -1,0 +1,48 @@
+{
+ "id": "keeper_nuala_rematch",
+ "name": "Keeper Nuala",
+ "class": "Keeper",
+ "sprite": "keeper_nuala",
+ "party": [
+  {
+   "species": "plungebeak",
+   "level": 95
+  },
+  {
+   "species": "selkie",
+   "level": 95
+  },
+  {
+   "species": "baskarr",
+   "level": 96
+  },
+  {
+   "species": "merrow",
+   "level": 97
+  },
+  {
+   "species": "clawcastle",
+   "level": 98
+  },
+  {
+   "species": "enbarr",
+   "level": 100
+  }
+ ],
+ "ai": "keeper",
+ "money": 17000,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Keeper Nuala",
+   "text": "I've rowed out past the Aran Islands since we last met, {player}. My lot came along for the swim."
+  },
+  {
+   "do": "say",
+   "who": "Keeper Nuala",
+   "text": "Tide creatures are patient, and then they're not. Ready?"
+  }
+ ],
+ "win": "Well fought, a chara. You've the sea in you now. Don't tell the cat I said so.",
+ "after": "Come back tomorrow for another go."
+}

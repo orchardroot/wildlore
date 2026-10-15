@@ -130,6 +130,32 @@ func test_ability_gates_rule() -> void:
 	var b := ZoneData.from_dict(_base(["..o.", "TTTT"], {"id": "b", "spawn": [0, 0], "warps": [{"x": 3, "y": 0, "to": "b", "tx": 0, "ty": 0}]}))
 	assert_true(_has(b.validate({"b": b}), "can't reach the warp at 3,0"))
 
+func _cork_zone(extra_npc := {}, extra := {}) -> ZoneData:
+	var t := {"id": "tr", "x": 2, "y": 1, "trainer": "tr1"}
+	t.merge(extra_npc, true)
+	var d := {"id": "c", "spawn": [0, 1], "npcs": [t], "warps": [{"x": 4, "y": 1, "to": "c", "tx": 0, "ty": 1}]}
+	d.merge(extra, true)
+	return ZoneData.from_dict(_base(["..%..", ".....", "..T.."], d))
+
+func test_corks_ignore_abilities_the_gate_does_not_grant() -> void:
+	# an ungated warp must stay reachable by walking, not by a bramble cut it never asked for
+	var z := _cork_zone()
+	assert_true(_has(z.validate({"c": z}), "walled off by trainers"), "bramble detour doesn't count for an ungated warp")
+	var gated := _cork_zone({}, {"warps": [{"x": 4, "y": 1, "to": "c", "tx": 0, "ty": 1, "gate": "hedge_lay"}]})
+	assert_false(_has(gated.validate({"c": gated}), "walled off by trainers"), "a hedge_lay gate allows the detour")
+
+func test_trainer_hidden_by_its_own_flag_still_corks() -> void:
+	var z := _cork_zone({"hide_if": "trainer_tr1"})
+	assert_true(_has(z.validate({"c": z}), "walled off by trainers"))
+
+func test_corks_apply_to_station_and_ferry() -> void:
+	var rows := ["..T..", ".....", "..T.."]
+	var npc := [{"id": "tr", "x": 2, "y": 1, "trainer": "tr1"}]
+	var s := ZoneData.from_dict(_base(rows, {"npcs": npc, "spawn": [0, 1], "station": {"x": 4, "y": 1}}))
+	assert_true(_has(s.validate({"t": s}), "boxed in"), "station")
+	var f := ZoneData.from_dict(_base(rows, {"npcs": npc, "spawn": [0, 1], "ferry": {"x": 4, "y": 1, "route": "r"}}))
+	assert_true(_has(f.validate({"t": f}), "boxed in"), "ferry")
+
 func test_zone_extra_keys() -> void:
 	var z := ZoneData.from_dict(_base(["...", "..."], {"stage": "coast", "town_id": "liverpool", "station": {"x": 1, "y": 1}, "ferry": {"x": 2, "y": 1, "route": "liverpool_douglas"}}))
 	assert_eq(z.stage, "coast")

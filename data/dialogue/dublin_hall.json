@@ -8,13 +8,65 @@
      "do": "say",
      "who": "Keeper Declan",
      "text": "Go on, off you go. Have a bowl of something warm. A proper stew, not a Dublin Bay prawn in a fancy glass. I'm not a doctor."
+    },
+    {
+     "do": "if",
+     "flag": "game_complete",
+     "then": [
+      {
+       "do": "say",
+       "who": "Keeper Declan",
+       "text": "Ah, it's yourself! The stew's on and my lot are restless. How about a rematch while it simmers?"
+      },
+      {
+       "do": "choice",
+       "text": "A rematch with Keeper Declan?",
+       "options": [
+        "Yes, a rematch",
+        "Not today"
+       ],
+       "set": "rematch_pick"
+      },
+      {
+       "do": "if",
+       "flag": "rematch_pick",
+       "eq": 0,
+       "then": [
+        {
+         "do": "daily",
+         "key": "rematch_keeper_declan",
+         "then": [
+          {
+           "do": "battle",
+           "trainer": "keeper_declan_rematch",
+           "intro": true
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Keeper Declan",
+           "text": "Once a day, now. Any more and the stew goes cold, and then we've real trouble. Tomorrow."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Keeper Declan",
+         "text": "Another time, then. The offer stands."
+        }
+       ]
+      }
+     ]
     }
    ],
    "else": [
     {
      "do": "say",
      "who": "Keeper Declan",
-     "text": "Ah, the lad off the boat! Or the lass! Or the person with a very good ticket!"
+     "text": "Ah, the walker off the boat! With the very good ticket!"
     },
     {
      "do": "say",

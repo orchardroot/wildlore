@@ -306,14 +306,53 @@ func validate(all: Dictionary) -> Array:
 				cache[g] = reachable(spawn, [] if g == "" else [g])
 			if side in OPPOSITE and not _side_reached(side, cache[g]):
 				e.append(tag + "can't reach the %s edge from the spawn%s" % [side, "" if g == "" else " even with " + g])
+	# corks: a beaten trainer stays where it stood, so trainers that never move must not wall off
+	# a warp, an edge or another NPC. hide_if only applies when the zone loads, so a trainer hidden by its
+	# own flag still stands there until you leave.
+	var corks := _standing_npcs()
+	for n in npcs:
+		if n.has("trainer") and str(n.get("move", "still")) == "still" and (not n.has("hide_if") or str(n.hide_if) == "trainer_" + str(n.trainer)):
+			corks[Vector2i(int(n.x), int(n.y))] = true
+	if walkable(spawn):
+		var cork_cache := {}  # gate -> what's reachable with only that gate's ability and the corks in place
+		for w in warps:
+			var g: String = str(w.get("gate", ""))
+			if g != "" and g not in GATE_ABILITIES:
+				continue  # already reported above
+			if not cork_cache.has(g):
+				cork_cache[g] = reachable(spawn, [] if g == "" else [g], corks)
+			if cork_cache[g].has(Vector2i(int(w.x), int(w.y))):
+				continue
+			if reachable(spawn, [] if g == "" else [g]).has(Vector2i(int(w.x), int(w.y))):
+				e.append(tag + "the warp at %d,%d is walled off by trainers that never move" % [int(w.x), int(w.y)])
+		for side in edges:
+			var g: String = str(edges[side].get("gate", ""))
+			if side not in OPPOSITE or (g != "" and g not in GATE_ABILITIES):
+				continue
+			if not cork_cache.has(g):
+				cork_cache[g] = reachable(spawn, [] if g == "" else [g], corks)
+			if not _side_reached(side, cork_cache[g]) and _side_reached(side, reachable(spawn, [] if g == "" else [g])):
+				e.append(tag + "the %s edge is walled off by trainers that never move" % side)
+		var seen: Dictionary = reachable(spawn, GATE_ABILITIES, corks)
+		for n in npcs:
+			var np := Vector2i(int(n.x), int(n.y))
+			var talkable := false
+			for d in [Vector2i(0, 1), Vector2i(0, -1), Vector2i(1, 0), Vector2i(-1, 0)]:
+				if seen.has(np + d):
+					talkable = true
+				# across a shop or Sanctuary counter (Overworld.interact looks one tile past a counter)
+				elif tile_at(np + d) == "counter" and seen.has(np + d * 2):
+					talkable = true
+			if not talkable:
+				e.append(tag + "npc '%s' is walled off by trainers that never move" % n.get("id", "?"))
 	if station != Vector2i(-1, -1) and not walkable(station):
 		e.append(tag + "station tile %s is not walkable" % station)
-	elif station != Vector2i(-1, -1) and walkable(spawn) and not reachable(station, GATE_ABILITIES, _standing_npcs()).has(spawn):
+	elif station != Vector2i(-1, -1) and walkable(spawn) and not reachable(station, GATE_ABILITIES, corks).has(spawn):
 		e.append(tag + "station tile %s is boxed in: arriving by train can't reach the town" % station)
 	var ferry_tile := Vector2i(int(ferry.get("x", -1)), int(ferry.get("y", -1)))
 	if not ferry.is_empty() and not walkable(ferry_tile):
 		e.append(tag + "ferry tile is not walkable")
-	elif not ferry.is_empty() and walkable(spawn) and not reachable(ferry_tile, GATE_ABILITIES, _standing_npcs()).has(spawn):
+	elif not ferry.is_empty() and walkable(spawn) and not reachable(ferry_tile, GATE_ABILITIES, corks).has(spawn):
 		e.append(tag + "ferry quay %s is boxed in: arriving by boat can't reach the town" % ferry_tile)
 	var covered := {}
 	for p in props:

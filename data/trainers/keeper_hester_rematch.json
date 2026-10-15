@@ -1,0 +1,48 @@
+{
+ "id": "keeper_hester_rematch",
+ "name": "Keeper Hester",
+ "class": "Keeper",
+ "sprite": "keeper_hester",
+ "party": [
+  {
+   "species": "wispet",
+   "level": 95
+  },
+  {
+   "species": "centurion",
+   "level": 95
+  },
+  {
+   "species": "coblynn",
+   "level": 96
+  },
+  {
+   "species": "gwyllgi",
+   "level": 97
+  },
+  {
+   "species": "hushwing",
+   "level": 98
+  },
+  {
+   "species": "megalorn",
+   "level": 100
+  }
+ ],
+ "ai": "keeper",
+ "money": 18000,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Keeper Hester",
+   "text": "The ghosts have been talking about you, {player}. Mostly favourably."
+  },
+  {
+   "do": "say",
+   "who": "Keeper Hester",
+   "text": "Mind the step. It's still Roman. So am I, spiritually."
+  }
+ ],
+ "win": "Oh, bravo. The residents will talk about that for years. I'll put the kettle on. They can't drink it, but it's the thought.",
+ "after": "Come back tomorrow for another go."
+}

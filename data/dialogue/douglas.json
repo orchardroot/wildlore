@@ -148,7 +148,7 @@
   {
    "do": "say",
    "who": "Cat Lady",
-   "text": "That's a Manx cat. No tail. Well, almost none. Some have a tiny stump called a rumpy."
+   "text": "That's a Manx cat. No tail. Well, almost none. The ones with none at all are rumpies. The ones with a tiny stump are stumpies."
   },
   {
    "do": "say",
@@ -160,7 +160,7 @@
   {
    "do": "say",
    "who": "Kipper Seller",
-   "text": "Manx kippers are smoked over oak chippings. The island's been doing it since the 1840s."
+   "text": "Manx kippers are smoked over oak chippings. The island's been doing it for well over a hundred years."
   },
   {
    "do": "say",
@@ -226,6 +226,150 @@
   {
    "do": "set",
    "flag": "lamb_3_found"
+  }
+ ],
+ "fairy_bridge": [
+  {
+   "do": "if",
+   "flag": "game_complete",
+   "then": [
+    {
+     "do": "if",
+     "flag": "fairy_bridge_done",
+     "then": [
+      {
+       "do": "say",
+       "who": "Harpist",
+       "text": "The little folk say you're always welcome. I'd say the same, but I can't match their tone."
+      },
+      {
+       "do": "say",
+       "who": "Harpist",
+       "text": "Mind you say good morning on the way out, though. It's only polite."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Harpist",
+       "text": "This is the Fairy Bridge, near enough. Every Manx driver says hello to the little folk when they cross. Every single one. Even the grumpy ones."
+      },
+      {
+       "do": "say",
+       "who": "Harpist",
+       "text": "You greet them or you risk a flat tyre, a lost sock or a very odd Tuesday. I've never found out which. I'm not risking it."
+      },
+      {
+       "do": "choice",
+       "text": "The little folk, the Mooinjer Veggey, are listening. Say hello?",
+       "options": [
+        "Say hello to the fairies",
+        "Walk past without a word"
+       ],
+       "set": "fairy_pick"
+      },
+      {
+       "do": "if",
+       "flag": "fairy_pick",
+       "eq": 0,
+       "then": [
+        {
+         "do": "say",
+         "who": "{player}",
+         "text": "Hello, little folk. Thank you for having us. I hope the road's been kind."
+        },
+        {
+         "do": "wait",
+         "seconds": 0.8
+        },
+        {
+         "do": "say",
+         "who": "",
+         "text": "Nothing. The wind, the gulls, the tram bell in the distance. And then, under the bridge, a tiny voice answers, and it laughs, and it is the nicest sound you have ever heard."
+        },
+        {
+         "do": "say",
+         "who": "Harpist",
+         "text": "Well, would you look at that. In thirty years they've never once answered me. You must have the knack."
+        },
+        {
+         "do": "sfx",
+         "id": "catch"
+        },
+        {
+         "do": "say",
+         "who": "",
+         "text": "Something light drops into your hand. A ribbon, no longer than a finger, in a green that doesn't quite belong to any tree you know."
+        },
+        {
+         "do": "if",
+         "flag": "fairy_ribbon_given",
+         "then": [],
+         "else": [
+          {
+           "do": "set",
+           "flag": "fairy_ribbon_given"
+          },
+          {
+           "do": "give_item",
+           "item": "fairy_bridge_ribbon"
+          }
+         ]
+        },
+        {
+         "do": "say",
+         "who": "Harpist",
+         "text": "They've something else for you, I think. They do like to be thorough. Steady now."
+        },
+        {
+         "do": "legend",
+         "species": "tylwyth",
+         "level": 95,
+         "music": "legend",
+         "flag": "fairy_bridge_done"
+        },
+        {
+         "do": "if",
+         "flag": "fairy_bridge_done",
+         "then": [
+          {
+           "do": "say",
+           "who": "Harpist",
+           "text": "That's them. Say goodbye on the way out. And thank you, love, from every driver on the island."
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Harpist",
+           "text": "Oh, they've gone quiet. They'll be back under the bridge. Say hello again whenever you like."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "",
+         "text": "You walk on. Behind you, something, somewhere, tuts very softly. It's difficult to say whether it's offended or just disappointed."
+        },
+        {
+         "do": "say",
+         "who": "Harpist",
+         "text": "Oh, you didn't. Well. It's not too late. Have another think and come back."
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "",
+     "text": "A little stone bridge over a trickle of a stream. It looks like any bridge. The tram bell rings in the distance."
+    }
+   ]
   }
  ]
 }
