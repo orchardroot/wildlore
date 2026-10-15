@@ -78,7 +78,21 @@ func _exec(c: Dictionary) -> void:
 			data.last_sanctuary = {"zone": host.zone_id(), "pos": [t.x, t.y]}
 			await host.sfx("heal")
 		"battle":
+			if bool(c.get("intro", false)):
+				for line in StoryData.trainer(str(c.get("trainer", ""))).get("intro", []):
+					await _exec(line)
 			await _battle(str(c.get("trainer", "")))
+		"daily":
+			# once per in-game day: `key` remembers the day number it last ran on
+			var today := int(data.day_count)
+			var last: Variant = data.flag(str(c.get("key", "")))
+			if last == null or int(last) != today:
+				_set_flag(str(c.get("key", "")), today)
+				await _run_list(c.get("then", []))
+			else:
+				await _run_list(c.get("else", []))
+		"when":
+			await _run_list(c.get("then", []) if _when(str(c.get("cond", ""))) else c.get("else", []))
 		"move":
 			await host.move_npc(str(c.get("npc", npc_id)), c.get("path", []))
 		"face":
@@ -260,6 +274,16 @@ func whiteout() -> void:
 	await host.say("", WHITEOUT_LINE)
 	await host.say("", WHITEOUT_LINE_2)
 
+## Conditions that aren't flags: "night" (the in-game clock) and "caught_all" (every species in the Fieldbook caught).
+func _when(cond: String) -> bool:
+	match cond:
+		"night":
+			return GameClock.phase(host.data.clock_minutes) == "night"
+		"caught_all":
+			return host.data.caught.size() >= host.dex.ids().size()
+	push_warning("Commands: unknown condition '%s'" % cond)
+	return false
+
 func _test(c: Dictionary) -> bool:
 	var v: Variant = host.data.flag(str(c.get("flag", "")))
 	if c.has("eq"):
@@ -288,4 +312,7 @@ func _set_flag(key: String, value: Variant) -> void:
 		host.on_flag(key, value)
 
 func _sub(s: String) -> String:
-	return s.replace("{player}", host.data.player_name).replace("{rival}", host.data.rival_name)
+	var total: int = host.dex.ids().size()
+	var got: int = host.data.caught.size()
+	return s.replace("{player}", host.data.player_name).replace("{rival}", host.data.rival_name) \
+		.replace("{caught}", str(got)).replace("{left}", str(maxi(0, total - got))).replace("{total}", str(total))

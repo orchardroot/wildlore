@@ -3,7 +3,8 @@ extends RefCounted
 ## Checks dialogue scripts, trainers and the NPCs that use them against the rest of the data.
 
 const COMMANDS := ["say", "choice", "if", "set", "give_item", "give_creature", "heal", "battle", "move", "face",
-	"face_player", "wait", "warp", "shop", "starter", "fade_out", "fade_in", "music", "sfx", "badge", "end", "whiteout", "ark", "rail", "ferry", "legend", "gauntlet", "credits"]
+	"face_player", "wait", "warp", "shop", "starter", "fade_out", "fade_in", "music", "sfx", "badge", "end", "whiteout", "ark", "rail", "ferry", "legend", "gauntlet", "credits", "daily", "when"]
+const CONDITIONS := ["night", "caught_all"]
 const MOVE_MODES := ["still", "wander", "pace"]
 const DIRS := ["up", "down", "left", "right"]
 
@@ -62,6 +63,19 @@ static func validate_commands(cmds: Array, tag: String, dex: Dex, items: ItemDB,
 					errors.append("%s: if with no flag" % tag)
 				errors.append_array(validate_commands(c.get("then", []), tag, dex, items, zones))
 				errors.append_array(validate_commands(c.get("else", []), tag, dex, items, zones))
+			"daily":
+				if str(c.get("key", "")) == "":
+					errors.append("%s: daily with no key" % tag)
+				errors.append_array(validate_commands(c.get("then", []), tag, dex, items, zones))
+				errors.append_array(validate_commands(c.get("else", []), tag, dex, items, zones))
+			"when":
+				if str(c.get("cond", "")) not in CONDITIONS:
+					errors.append("%s: when with unknown cond '%s'" % [tag, c.get("cond", "")])
+				errors.append_array(validate_commands(c.get("then", []), tag, dex, items, zones))
+				errors.append_array(validate_commands(c.get("else", []), tag, dex, items, zones))
+			"legend":
+				if not dex.has(str(c.get("species", ""))):
+					errors.append("%s: legend species '%s' does not exist" % [tag, c.get("species", "")])
 			"set":
 				if str(c.get("flag", "")) == "":
 					errors.append("%s: set with no flag" % tag)
