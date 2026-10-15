@@ -1,0 +1,63 @@
+{
+ "nurse": [
+  {
+   "do": "say",
+   "who": "Nurse",
+   "text": "Now then, love. Welcome to the Sheffield Sanctuary. Pop 'em on the counter and let's have a look."
+  },
+  {
+   "do": "choice",
+   "text": "What can we do for you?",
+   "options": [
+    "Heal my team",
+    "Open the Ark",
+    "Just looking"
+   ],
+   "set": "_nurse_choice"
+  },
+  {
+   "do": "if",
+   "flag": "_nurse_choice",
+   "eq": 0,
+   "then": [
+    {
+     "do": "say",
+     "who": "Nurse",
+     "text": "Sit down, sit down. I'll fetch you a brew, and there's a Henderson's butty if you've the stomach for it. Your team's in the best of hands."
+    },
+    {
+     "do": "heal"
+    },
+    {
+     "do": "say",
+     "who": "Nurse",
+     "text": "Right as rain, they are. Better than steel. Ee, they've a shine on them. Go on, off with you, and mind the hills."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "_nurse_choice",
+     "eq": 1,
+     "then": [
+      {
+       "do": "say",
+       "who": "Nurse",
+       "text": "The Ark? Up the stairs, past the relish. It runs on steam, I think. Or maybe it's Wi-Fi."
+      },
+      {
+       "do": "ark"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Nurse",
+       "text": "Right you are. Come back if it gets too hilly. It always does."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

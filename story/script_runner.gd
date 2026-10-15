@@ -99,6 +99,10 @@ class Host extends RefCounted:
 	func music(id: String) -> void:
 		Audio.play_music(id)
 
+	func zone_music() -> void:
+		if _ow.zone and _ow.zone.music != "":
+			Audio.play_music(_ow.zone.music, 0.4)
+
 	func sfx(id: String) -> void:
 		Audio.sfx(id)
 

@@ -1,0 +1,22 @@
+{"id": "moldiwarp",
+ "palette": {"v": "#4a4458", "v2": "#2e2a3a", "v3": "#6a647a", "pink": "#f0a8b0", "pink2": "#d0808c", "claw": "#f0e4d0", "dirt": "#6a4a30", "dirt2": "#4a3220"},
+ "layers": [
+  {"shape": "ellipse", "at": [48, 88], "size": [90, 20], "colour": "dirt"},
+  {"shape": "ellipse", "at": [20, 80], "size": [22, 16], "colour": "dirt2", "pattern": "speckle", "pcolour": "dirt", "density": 8},
+  {"shape": "ellipse", "at": [78, 82], "size": [26, 18], "colour": "dirt2", "pattern": "speckle", "pcolour": "dirt", "density": 8},
+  {"shape": "ellipse", "at": [48, 66], "size": [58, 48], "colour": "v", "pattern": "speckle", "pcolour": "v2", "density": 10},
+  {"shape": "ellipse", "at": [48, 54], "size": [50, 40], "colour": "v3", "rim": false},
+  {"shape": "ellipse", "at": [26, 72], "size": [18, 14], "colour": "pink", "mirror": true},
+  {"shape": "line", "points": [[18, 72], [14, 80]], "width": 1.2, "colour": "claw", "mirror": true, "rim": false},
+  {"shape": "line", "points": [[22, 74], [20, 82]], "width": 1.2, "colour": "claw", "mirror": true, "rim": false},
+  {"shape": "line", "points": [[27, 76], [27, 84]], "width": 1.2, "colour": "claw", "mirror": true, "rim": false},
+  {"shape": "ellipse", "at": [48, 46], "size": [34, 28], "colour": "v"},
+  {"shape": "poly", "points": [[40, 50], [56, 50], [52, 66], [48, 70], [44, 66]], "colour": "pink", "front_only": true},
+  {"shape": "ellipse", "at": [48, 66], "size": [10, 8], "colour": "pink2", "front_only": true, "rim": false}
+ ],
+ "face_layers": [
+  {"shape": "line", "points": [[44, 70], [48, 72], [52, 70]], "width": 1, "colour": "v2", "shade": false},
+  {"shape": "circle", "at": [46, 63], "r": 1, "colour": "v2", "shade": false, "rim": false, "mirror": true}
+ ],
+ "eyes": [{"at": [38, 46], "r": 2, "colour": "#0c0a12", "mirror": true}]
+}

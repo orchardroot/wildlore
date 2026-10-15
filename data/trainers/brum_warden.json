@@ -1,0 +1,31 @@
+{
+ "id": "brum_warden",
+ "name": "Warden Hollis",
+ "class": "Warden",
+ "sprite": "warden_grunt",
+ "party": [
+  {
+   "species": "samsonian",
+   "level": 90
+  },
+  {
+   "species": "steelheart",
+   "level": 89
+  },
+  {
+   "species": "rookery",
+   "level": 89
+  }
+ ],
+ "ai": "trainer",
+ "money": 2450,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Warden Hollis",
+   "text": "The Enclosure is curating Birmingham's canals. We shall be adding a gift shop. Every towpath needs a gift shop."
+  }
+ ],
+ "win": "Ugh. That will be in my incident report. Spelt wrong, probably.",
+ "after": "The Enclosure says it only wants things 'preserved'. Preserved in what, they don't say. Jam, I assume."
+}

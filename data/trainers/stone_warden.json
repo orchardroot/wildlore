@@ -1,0 +1,31 @@
+{
+ "id": "stone_warden",
+ "name": "Warden Ashby",
+ "class": "Warden",
+ "sprite": "warden_grunt",
+ "party": [
+  {
+   "species": "quarrion",
+   "level": 93
+  },
+  {
+   "species": "stoopfalcon",
+   "level": 92
+  },
+  {
+   "species": "samsonian",
+   "level": 93
+  }
+ ],
+ "ai": "trainer",
+ "money": 3100,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Warden Ashby",
+   "text": "This site is fully curated. I'm told I must charge for the view. Forty pounds. Cash. Or a battle, to be discussed."
+  }
+ ],
+ "win": "You didn't have to be so good at it. It's embarrassing.",
+ "after": "I said the Moot would be a tough crowd. Nobody listened. I'm just a Warden."
+}

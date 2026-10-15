@@ -1,0 +1,625 @@
+{
+ "id": "salisbury_plain",
+ "name": "Salisbury Plain",
+ "region": "midlands",
+ "kind": "route",
+ "music": "route_moors",
+ "weather": {
+  "clear": 30,
+  "sunshine": 22,
+  "drizzle": 20,
+  "gale": 12,
+  "fog": 10,
+  "frost": 6
+ },
+ "props": [
+  {
+   "type": "bush",
+   "x": 7,
+   "y": 26,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 47,
+   "y": 50,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 50,
+   "y": 19,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 17,
+   "y": 51,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 43,
+   "y": 6,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 54,
+   "y": 31,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 54,
+   "y": 4,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 7,
+   "y": 40,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 35,
+   "y": 43,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 4,
+   "y": 56,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 20,
+   "y": 47,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 17,
+   "y": 50,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 43,
+   "y": 34,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 22,
+   "y": 55,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 24,
+   "y": 22,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 16,
+   "y": 8,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 24,
+   "y": 56,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 12,
+   "y": 41,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 5,
+   "y": 65,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 38,
+   "y": 13,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 32,
+   "y": 45,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 6,
+   "y": 13,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 18,
+   "y": 27,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 29,
+   "y": 4,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 35,
+   "y": 64,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 34,
+   "y": 54,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 31,
+   "y": 17,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 19,
+   "y": 55,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 29,
+   "y": 48,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 14,
+   "y": 10,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 32,
+   "y": 47,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 11,
+   "y": 32,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 16,
+   "y": 37,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 48,
+   "y": 9,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 42,
+   "y": 19,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 23,
+   "y": 6,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 14,
+   "y": 31,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 31,
+   "y": 28,
+   "variant": 1
+  }
+ ],
+ "warps": [],
+ "edges": {
+  "north": {
+   "to": "birmingham",
+   "offset": 0
+  },
+  "south": {
+   "to": "stonehenge",
+   "offset": 0
+  }
+ },
+ "npcs": [
+  {
+   "id": "plain_birdwatcher",
+   "sprite": "birdwatcher",
+   "x": 25,
+   "y": 22,
+   "facing": "right",
+   "move": "still",
+   "script": "plain_birdwatcher"
+  },
+  {
+   "id": "plain_shepherd",
+   "sprite": "farmer",
+   "x": 40,
+   "y": 52,
+   "facing": "down",
+   "move": "wander",
+   "script": "plain_shepherd"
+  },
+  {
+   "id": "plain_hillwalker",
+   "sprite": "hillwalker",
+   "x": 22,
+   "y": 28,
+   "facing": "down",
+   "move": "wander",
+   "script": "plain_hillwalker"
+  },
+  {
+   "id": "plain_horse_kid",
+   "sprite": "villager_5",
+   "x": 42,
+   "y": 34,
+   "facing": "up",
+   "move": "still",
+   "script": "plain_horse_kid"
+  },
+  {
+   "id": "plain_archaeologist",
+   "sprite": "student",
+   "x": 26,
+   "y": 20,
+   "facing": "left",
+   "move": "still",
+   "trainer": "plain_archaeologist"
+  },
+  {
+   "id": "plain_druid",
+   "sprite": "druid",
+   "x": 25,
+   "y": 34,
+   "facing": "left",
+   "move": "still",
+   "trainer": "plain_druid"
+  },
+  {
+   "id": "plain_warden",
+   "sprite": "warden_grunt",
+   "x": 32,
+   "y": 48,
+   "facing": "right",
+   "move": "still",
+   "trainer": "plain_warden"
+  },
+  {
+   "id": "plain_birdwatch_tr",
+   "sprite": "birdwatcher",
+   "x": 43,
+   "y": 56,
+   "facing": "left",
+   "move": "still",
+   "trainer": "plain_birdwatch_tr"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "churrjar",
+    "min": 89,
+    "max": 91,
+    "weight": 14,
+    "time": [
+     "dusk",
+     "night"
+    ]
+   },
+   {
+    "species": "moldiwarp",
+    "min": 89,
+    "max": 90,
+    "weight": 14
+   },
+   {
+    "species": "tunneller",
+    "min": 90,
+    "max": 91,
+    "weight": 8
+   },
+   {
+    "species": "hazeldoze",
+    "min": 89,
+    "max": 90,
+    "weight": 10
+   },
+   {
+    "species": "stoopfalcon",
+    "min": 90,
+    "max": 91,
+    "weight": 6,
+    "time": [
+     "day"
+    ]
+   },
+   {
+    "species": "goldeneyrie",
+    "min": 90,
+    "max": 91,
+    "weight": 5,
+    "weather": [
+     "gale",
+     "clear"
+    ]
+   },
+   {
+    "species": "loaghtan",
+    "min": 89,
+    "max": 90,
+    "weight": 10,
+    "time": [
+     "day",
+     "dawn"
+    ]
+   },
+   {
+    "species": "barkdeer",
+    "min": 89,
+    "max": 90,
+    "weight": 8,
+    "time": [
+     "dawn",
+     "dusk"
+    ]
+   },
+   {
+    "species": "snowhare",
+    "min": 89,
+    "max": 90,
+    "weight": 4,
+    "weather": [
+     "frost"
+    ]
+   },
+   {
+    "species": "gealhare",
+    "min": 90,
+    "max": 91,
+    "weight": 8,
+    "time": [
+     "dawn",
+     "dusk"
+    ]
+   },
+   {
+    "species": "hootlet",
+    "min": 89,
+    "max": 90,
+    "weight": 8,
+    "time": [
+     "night"
+    ]
+   },
+   {
+    "species": "quarrion",
+    "min": 90,
+    "max": 91,
+    "weight": 5
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 33,
+   "y": 18,
+   "text": "WESTBURY WHITE HORSE. Look right! A horse 180 feet long is cut into the chalk of the hill, with a pale body and a very good tail. An older horse is said to celebrate King Alfred's victory at Edington; the present one dates from 1778 and is a good deal more elegant."
+  },
+  {
+   "x": 34,
+   "y": 38,
+   "text": "SALISBURY PLAIN. 300 square miles of chalk downland, mostly used by the army for training. The red flags mean 'no walking'. The white flags mean 'perhaps walking'. The pale blue flags mean 'we have given up and gone for tea'."
+  },
+  {
+   "x": 12,
+   "y": 15,
+   "text": "BARROWS. Bronze Age burial mounds, 4,000 years old, dotted across the downs. Please do not dig. The Archaeological Society will be along shortly with trowels and very strong opinions."
+  },
+  {
+   "x": 28,
+   "y": 57,
+   "text": "STONEHENGE: 5 MILES. Follow the track. If you hear a deep, distant humming, that is the stones, or a tractor, or the army. Probably the army."
+  }
+ ],
+ "spawn": [
+  31,
+  8
+ ],
+ "stage": "grass",
+ "rows": [
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT###TTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT###TTTTTTPTTTTTTTTTTTTTTTTTTTT",
+  "TTcccccccccccccccccccccccccccc###cccccccccccccccccccccccccPT",
+  "TTcggggggccccccccccccccccccccc###cccccccccccccccccccccccccTT",
+  "TTcggggggcccccccccccccccgggggc###cccccccccccccccccccccccccTT",
+  "TTcggggggcccccccccccccccgggggc###cccccccccccccccccccccccccTT",
+  "TTcggggggcccccccccccccccgggggc###cccccccccccccccccccccccccTT",
+  "TTcggggggcccccccccccccccgggggc###cccccccccccccccccccccccccTT",
+  "TTcggggggcccccccccccccccgggggc###cccccccccccccccccggggggccTT",
+  "TTccccccccccccccccccccccgggggc###cccccccccccccccccggggggccTT",
+  "TTcccccccccccccccccccccccccccc###cccccccccccccccccggggggccTT",
+  "TTcccccccccccccccccccccccccccc###cccccccccccccccccggggggccTT",
+  "TTcccccccccccccccccc#############cccccccccccccccccggggggccTT",
+  "TTcccccccccccccccccc#############cccccccccccccccccggggggccTT",
+  "TTcccccccccccccccccc#############cccccccccccccccccggggggccTT",
+  "TTcccccccccccccccccc###cccccccccccccccccccccccccccggggggccTT",
+  "TTcccccccccccccccccc###cccccccccccccccccccccccccccccccccccTT",
+  "TTcccccccccccccccccc###cccccccccccccccccccccccccccccccccccTT",
+  "TTccggggggggggcccccc###cccccccccccccccccccccccccccccccccccTT",
+  "TTccggggggggggcccccc###cccccccccccccccccccccccccccccccccccTT",
+  "TTccggggggggggcccccc###cccccccccccccccccccccccccccccccccccTT",
+  "TTccggggggggggcccccc###cccccccccccccccccccccccccccccccccccTT",
+  "TTccggggggggggcccccc###cccccccccccccccccccccccchhhccccccccTT",
+  "TTccggggggggggcccccc###ccccccccccccccccccccccchhhhhcccccccTT",
+  "TTccggggggggggcccccc###cccccccccccchhcccccccchhhhhhhccccccTT",
+  "TTccggggggggggcccccc###cccccccccccchhhhhhhhhhhhhhhhcccccccTT",
+  "TTcccccccccccccccccc###ccccccccccchhhhhhhhhhhhhhhhhcccccccTT",
+  "TTcccccccccccccccccc###cccccccccchhhhhhhhhhhhhhhhhccccccccTT",
+  "TTcccccccccccccccccc###cgggggccccchhhhhhhhhhhhhhhhccccccccTT",
+  "TTcccccccccccccccccc###cgggggcccccchhhhhhhhhhhhhhcccccccccTT",
+  "TTcccccccccccccccccc###cgggggcccccchhhcchhhchhhcccccccccccTT",
+  "TTcccccccccccccccccc###cgggggcccccchhccchhhchhhcccccccccccTT",
+  "TTcccccccccccccccccc###cgggggcccccchhcccchhchhccccccccccccTT",
+  "TTcccccccccccccccccc###cgggggcccccchccccchhchcccccccccccccTT",
+  "TTcccccccccccccccccc###cgggggcccccccccccccccccccccccccccccTT",
+  "TTcccccccccccccccccc###cgggggcccccccccccccccccccccccccccccTT",
+  "TTccFFFFFFFFFccccccc###cccccccccccccccccFFFFFFFFFFFFFFFFFcTT",
+  "TTccFccccccccccccccc###cccccccccccccccccccccccccccccccccFcTT",
+  "TTccFccccccccccccccc###cccccccccccccccccccccccccccccccccFcTT",
+  "TTccFccccccccccccccc###cccccccccccccccccccccccccccccccccFcTT",
+  "TTcccccccccccccccccc###################cccccccccccccccccccTT",
+  "TTcccccccccccccccccc###################cccccccccccccccccccTT",
+  "TTccccgggggggggggccc###################cggggggggggggccccccTT",
+  "TTccccgggggggggggccccccccccccccccccc###cggggggggggggccccccTT",
+  "TTccccgggggggggggccccccccccccccccccc###cggggggggggggccccccTT",
+  "TTccccgggggggggggccccccccccccccccccc###cggggggggggggccccccTT",
+  "TTccccgggggggggggccccccccccccccccccc###cggggggggggggccccccTT",
+  "TTccccgggggggggggccccccccccccccccccc###cggggggggggggccccccTT",
+  "TTccccgggggggggggccccccccccccccccccc###cggggggggggggccccccTT",
+  "TTccccgggggggggggccccccccccccccccccc###cggggggggggggccccccTT",
+  "TTcccccccccccccccccccccccccccccccccc###cccccccccccccccccccTT",
+  "TTcccccccccccccccccccccccccccccccccc###cccccccccccccccccccTT",
+  "TTcccccccccccccccccccccccccccccccccc###cccccccccccccccccccTT",
+  "TTcccccccccccccccccccccccccccccccccc###cccccccccccccccccccTT",
+  "TTcccccccccccccccccccccccccccccccccc###cccccccccccccccccccTT",
+  "TTcccccccccccccccccccccccccccccccccc###cccccccccccccccccccTT",
+  "TTcccccccccccccccccccccccccccccccccc###cccccccccccccccccccTT",
+  "TTcccccccccccccccccccccccccccccccccc###cccccccccccccccccccTT",
+  "TTccccccccccccccccccccccccccc##########cccccccccccccccccccTT",
+  "TTccccccccccccccccccccccccccc##########cccccccccccccccccccTT",
+  "TTccccccccccccccccccccccccccc##########cccccccccccccccccccTT",
+  "TTccccccccccccccccccccccccccc###ccccccccccccccccccccccccccTT",
+  "TTccccggggggggggggggccccccccc###ccccccccggggggggggggccccccTT",
+  "TTccccggggggggggggggccccccccc###ccccccccggggggggggggccccccTT",
+  "TTccccggggggggggggggccccccccc###ccccccccggggggggggggccccccTT",
+  "TTccccggggggggggggggccccccccc###ccccccccggggggggggggccccccTT",
+  "TTccccggggggggggggggccccccccc###ccccccccggggggggggggccccccTT",
+  "TTccccggggggggggggggccccccccc###ccccccccggggggggggggccccccTT",
+  "TTccccccccccccccccccccccccccc###ccccccccggggggggggggccccccTT",
+  "TTccccccccccccccccccccccccccc###ccccccccccccccccccccccccccTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTT###TTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTT###TTTTTTTTTTTTTTTTTTTTTTTTTTTT"
+ ],
+ "heights": [
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000111000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000111000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000011100000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000001110000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000011111111111110000000000",
+  "000000000000000000000000000000000001111111111111111100000000",
+  "000000000000000000000000000000000111111111111111111111000000",
+  "000000000000000000000000000000001111112222222222211111100000",
+  "000000000000000000000000000000011111122222222222221111110000",
+  "000000000000000000000000000000111112222222222222222211111000",
+  "000000000000000000000000000000111112222233333332222211111000",
+  "000000000000000000000000000000111122222333333333222221111000",
+  "000000000000000000000000000000111122222333333333222221111000",
+  "000000000000000000000000000000111122222333333333222221111000",
+  "000000000000000000000000000000111112222233333332222211111000",
+  "000000000000000000000000000000111112222222222222222211111000",
+  "000000000000000000000000000000011111122222222222221111110000",
+  "000001110000000000000000000000001111112222222222211111100000",
+  "000000000000000000000000000000000111111111111111111111000000",
+  "000000000000000000000000000000000001111111111111111100000000",
+  "000000000000000000000000000000000000011111111111110000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000011100000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000011100000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000011100000000000000000000000000000000000111000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000011100000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000011100000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000"
+ ],
+ "legend_extra": {
+  "c": {
+   "tile": "grass",
+   "colour": "#aab46c"
+  },
+  "g": {
+   "tile": "tall_grass",
+   "colour": "#98a35a",
+   "prop": "none"
+  },
+  "h": {
+   "tile": "grass",
+   "colour": "#f6f5ec"
+  }
+ }
+}

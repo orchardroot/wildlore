@@ -1,0 +1,242 @@
+{
+ "rail_guard": [
+  {
+   "do": "say",
+   "who": "Rail Guard",
+   "text": "King's Cross. Platform nine and three-quarters is that wall over there. Don't run at it. I've seen what it does to shins."
+  },
+  {
+   "do": "say",
+   "who": "Rail Guard",
+   "text": "All aboard for any station you've visited. Where to?"
+  },
+  {
+   "do": "rail"
+  }
+ ],
+ "lon_beefeater": [
+  {
+   "do": "say",
+   "who": "Yeoman Warder",
+   "text": "Good day! Welcome to His Majesty's Royal Palace and Fortress. Or Her Majesty's. We update the signs. Beefeater is a nickname, from when we were allowed all the beef we wanted."
+  },
+  {
+   "do": "say",
+   "who": "Yeoman Warder",
+   "text": "Our ravens are the finest in the land. Please don't feed them, annoy them, or ask them to say 'nevermore'. They're wise, and they're touchy."
+  }
+ ],
+ "lon_ravenmaster": [
+  {
+   "do": "say",
+   "who": "Ravenmaster",
+   "text": "I look after the ravens. They arrive each morning for breakfast. They check the weather, steal a biscuit, and leave a review."
+  },
+  {
+   "do": "say",
+   "who": "Ravenmaster",
+   "text": "Every raven has a name and a personality. Merlina is cheeky, Jubilee is sulky, and Poppy would sell you out for a sausage. There is also one raven who's not mine. I'm not sure whose she is."
+  }
+ ],
+ "lon_cabbie": [
+  {
+   "do": "say",
+   "who": "Cabbie",
+   "text": "Black cab drivers do 'the Knowledge': twenty-five thousand streets and every landmark, in their heads. It takes about three years. I did not have a social life. I did, however, learn every street."
+  },
+  {
+   "do": "say",
+   "who": "Cabbie",
+   "text": "Where to, guv? Oh, you've got a Wildlore rail ticket. Good luck to you."
+  }
+ ],
+ "lon_local": [
+  {
+   "do": "say",
+   "who": "Westminster Local",
+   "text": "The Palace of Westminster has 1,100 rooms, 100 staircases and 3 miles of passages. If it's good enough to get lost in, it's good enough to get lost in."
+  },
+  {
+   "do": "say",
+   "who": "Westminster Local",
+   "text": "London's a city of villages, my gran says. Soho is one. Chelsea is one. Peckham is one. I live in one called 'Where did I park?'."
+  }
+ ],
+ "lon_tourist": [
+  {
+   "do": "say",
+   "who": "Tourist",
+   "text": "I was told there'd be a fog, a bus, and a man with a red coat. So far I've had three buses and a man in a sandwich board. I'll take it."
+  },
+  {
+   "do": "say",
+   "who": "Tourist",
+   "text": "Is that glass tower open to the public? The door keeps spinning me round. I've gone round eleven times."
+  }
+ ],
+ "bran": [
+  {
+   "do": "if",
+   "flag": "caught_bran",
+   "then": [],
+   "else": [
+    {
+     "do": "if",
+     "flag": "game_complete",
+     "then": [
+      {
+       "do": "if",
+       "flag": "bran_met",
+       "then": [
+        {
+         "do": "say",
+         "who": "",
+         "text": "On the lawn, the great raven turns her head sideways and looks at you with one bright black eye. She has the air of a bird who has an opinion, and knows exactly where you can put it."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "",
+         "text": "The great raven is waiting on the lawn, in the grey light, as though she had been expecting you for a few hundred years and had just about stopped checking her watch."
+        },
+        {
+         "do": "music",
+         "id": "legend_crow"
+        },
+        {
+         "do": "say",
+         "who": "Bran's Raven",
+         "text": "Kraa. You came back. Good. Ravens do not say 'well done'. We say 'kraa' and then we stay."
+        },
+        {
+         "do": "say",
+         "who": "Bran's Raven",
+         "text": "They say if we leave the Tower, the kingdom falls. This is partly true. The kingdom has a good deal of falling in it, and it's the ravens who do the picking up."
+        },
+        {
+         "do": "say",
+         "who": "Bran's Raven",
+         "text": "Br\u00e2n the Blessed was a giant who waded the Irish Sea, and when he died, they buried his head under this hill, to guard the isles. I am only his raven. But I have inherited the job."
+        },
+        {
+         "do": "say",
+         "who": "Bran's Raven",
+         "text": "The wardstones are broken. The old places are free. Come, then, Champion. One more thing to do. Show me you can keep what you are allowed to keep."
+        },
+        {
+         "do": "set",
+         "flag": "bran_met"
+        }
+       ]
+      },
+      {
+       "do": "legend",
+       "species": "bran",
+       "level": 92,
+       "flag": "caught_bran",
+       "music": "legend_crow"
+      },
+      {
+       "do": "if",
+       "flag": "caught_bran",
+       "then": [
+        {
+         "do": "say",
+         "who": "",
+         "text": "The great raven drops from the lawn onto your shoulder with all the delicacy of a shopping bag full of gravel, and settles. Across the Tower green, five ravens look at one another. The ravenmaster takes off his hat. Nobody says anything, which in a raven is the highest compliment."
+        },
+        {
+         "do": "warp",
+         "zone": "london",
+         "x": 70,
+         "y": 20,
+         "facing": "up"
+        },
+        {
+         "do": "end"
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "",
+         "text": "Bran's Raven lifts off the lawn in one great beat, circles the White Tower once, and settles on the battlements, glaring. She is not leaving. She is making a point."
+        },
+        {
+         "do": "warp",
+         "zone": "london",
+         "x": 70,
+         "y": 20,
+         "facing": "up"
+        },
+        {
+         "do": "end"
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "moot_won",
+       "then": [
+        {
+         "do": "say",
+         "who": "",
+         "text": "The great raven sits on the Tower lawn, with her back to you, looking at the glass tower upriver. She turns her head very slowly and gives you the look of someone saying 'after'."
+        },
+        {
+         "do": "say",
+         "who": "Bran's Raven",
+         "text": "Kraa. Later. The tower first."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "",
+         "text": "A huge raven watches you from the lawn. She is twice the size of any of the others, and a good deal less polite."
+        },
+        {
+         "do": "say",
+         "who": "Bran's Raven",
+         "text": "Kraa."
+        },
+        {
+         "do": "say",
+         "who": "",
+         "text": "She turns her head to the glass tower across the river, then back to you, then to the tower again, with the long-suffering patience of a bird who has seen what happens to rooftops and has views on glass."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "gate_london_tower": [
+  {
+   "do": "say",
+   "who": "Warden",
+   "text": "Sorry. Vane Tower is closed. Lord Vane's orders: nobody up the lift who hasn't been to the Moot first. He wants a proper contest. He's very particular. It's the most sporting thing about him."
+  },
+  {
+   "do": "say",
+   "who": "Warden",
+   "text": "The Moot's at Stonehenge. Out the west side of town, and keep going until the stones start humming. We'll be here. We always are. It's in our contracts."
+  }
+ ],
+ "gate_london_tube": [
+  {
+   "do": "say",
+   "who": "Warden",
+   "text": "The Underground is closed for essential maintenance. Essential in the sense that Lord Vane has said so, and he owns the pen."
+  },
+  {
+   "do": "say",
+   "who": "Warden",
+   "text": "You'll want the Moot first, I'm told. It's down the road at Stonehenge. Take a flask. It's drizzly."
+  }
+ ]
+}

@@ -52,3 +52,15 @@ func test_hp_band_and_time() -> void:
 	assert_eq(MenuLogic.hp_band(0, 100), "red")
 	assert_eq(MenuLogic.play_time(3725.0), "1:02")
 	assert_eq(MenuLogic.play_time(59.0), "0:00")
+
+func test_credits_ignore_an_early_confirm() -> void:
+	const Credits = preload("res://ui/credits_screen.gd")
+	assert_false(Credits.can_skip(0.3))
+	assert_true(Credits.can_skip(2.5))
+
+func test_fly_action_is_registered_on_keyboard_and_pad() -> void:
+	InputSetup.register()
+	assert_true(InputMap.has_action("fly"))
+	var kinds := InputMap.action_get_events("fly").map(func(e): return e.get_class())
+	assert_has(kinds, "InputEventKey")
+	assert_has(kinds, "InputEventJoypadButton")

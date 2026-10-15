@@ -23,6 +23,11 @@ const P5_SFX := ["lantern_on", "bog_squelch", "bagpipe_drone"]
 const P5_MUSIC_LOOPING := ["town_scotland", "route_highlands", "town_belfast", "route_north_coast", "legend_sea", "legend_hound"]
 const P5_MUSIC_STINGS := ["ferry_north_channel"]
 
+## Plan 6 (England east and the finale) additions.
+const P6_SFX := ["bell_toll", "raven_caw", "train_rush"]
+const P6_MUSIC_LOOPING := ["town_york", "route_moors", "town_north", "town_london", "route_lakes", "dungeon_underground", "battle_moot", "battle_champion", "battle_final", "legend_hound2"]
+const P6_MUSIC_STINGS := ["ending", "credits"]
+
 static func sfx_file(id: String) -> String:
 	return "res://audio/sfx/%s.wav" % SFX_ALIASES.get(id, id)
 

@@ -1,0 +1,31 @@
+{
+ "id": "vt_warden_4",
+ "name": "Warden Cathcart",
+ "class": "Warden",
+ "sprite": "warden_grunt",
+ "party": [
+  {
+   "species": "quarrion",
+   "level": 97
+  },
+  {
+   "species": "stoopfalcon",
+   "level": 96
+  },
+  {
+   "species": "tubemole",
+   "level": 96
+  }
+ ],
+ "ai": "trainer",
+ "money": 3950,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Warden Cathcart",
+   "text": "Per my last email, you are not allowed on this floor. I did not send the email, but I am sure it exists."
+  }
+ ],
+ "win": "Right. I'll bin the email.",
+ "after": "Go on up. I won't tell. I never saw you. I'm on a break."
+}

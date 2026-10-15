@@ -14,6 +14,7 @@ func _initialize() -> void:
 				if not dex.has(str(enc.get("species", ""))):
 					errors.append("zone %s: encounter species '%s' does not exist" % [zid, enc.get("species", "")])
 	errors.append_array(Coverage.check(dex, zones))
+	errors.append_array(Coverage.reachability(zones, JsonUtil.read("res://data/ferries.json"), Coverage.script_warp_targets()))
 	for e in errors:
 		printerr("DATA: " + e)
 	print("validate: %d error(s)" % errors.size())

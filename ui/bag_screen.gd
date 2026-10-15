@@ -2,7 +2,7 @@ extends MenuBase
 ## Bag: tabs by item kind, use on a party member via Bag.use_on. With arg "for:<n>" it targets party member n directly.
 
 const KIND_ORDER := ["heal", "cure", "revive", "pp", "snare", "evo", "key"]
-const USABLE := ["heal", "cure", "revive", "pp"]
+const USABLE := ["heal", "cure", "revive", "pp", "evo"]
 
 var _bag: Bag
 var _kinds: Array = []
@@ -223,8 +223,16 @@ func _close_picker() -> void:
 func _use(id: String, idx: int) -> void:
 	var c: Creature = party()[idx]
 	var r := _bag.use_on(id, c, Game.items)
+	if r.has("evolve_to"):
+		var old_name := c.display_name()
+		var to_sp: Dictionary = Game.dex.get_species(str(r.evolve_to))
+		Progression.evolve(c, to_sp)
+		Game.data.mark_caught(str(to_sp.id))
+		r["text"] = "%s evolved into %s!" % [old_name, to_sp.name]
+		Audio.sfx("evolve")
 	_note.text = str(r.get("text", ""))
-	Audio.sfx("heal" if r.get("ok", false) else "bump")
+	if not r.has("evolve_to"):
+		Audio.sfx("heal" if r.get("ok", false) else "bump")
 	if _target >= 0:
 		_rebuild()
 		if r.get("ok", false) and (_kinds.is_empty() or _bag.count(id) == 0):

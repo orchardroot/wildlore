@@ -42,3 +42,53 @@ static func check(dex: Dex, zones: Dictionary, habitats := {}) -> Array:
 		if wild and n < MIN_ROUTE_ENTRIES:
 			errors.append("route %s has only %d encounter entries (needs %d)" % [zid, n, MIN_ROUTE_ENTRIES])
 	return errors
+
+const DEV_ZONES := ["testbed", "testbed_house", "mesh_gallery"]
+
+## Every zone must be reachable from Macclesfield through edges, warps, ferries or story warps
+## (`script_warps`: zone id -> zone ids its dialogue scripts can warp to). Catches caves with no way in.
+static func reachability(zones: Dictionary, ferries: Dictionary, script_warps: Dictionary) -> Array:
+	var seen := {"macclesfield": true}
+	var queue := ["macclesfield"]
+	if zones.has("macc_home"):
+		seen["macc_home"] = true
+		queue.append("macc_home")
+	while not queue.is_empty():
+		var zid: String = queue.pop_front()
+		if not zones.has(zid):
+			continue
+		var z: ZoneData = zones[zid]
+		var next := []
+		for side in z.edges:
+			next.append(str(z.edges[side].get("to", "")))
+		for w in z.warps:
+			next.append(str(w.get("to", "")))
+		if not z.ferry.is_empty():
+			var r: Dictionary = ferries.get(str(z.ferry.get("route", "")), {})
+			next.append(str(r.get("a", "")))
+			next.append(str(r.get("b", "")))
+		next.append_array(script_warps.get(zid, []))
+		for n in next:
+			if n != "" and not seen.has(n):
+				seen[n] = true
+				queue.append(n)
+	var errors := []
+	for zid in zones:
+		if not seen.has(zid) and zid not in DEV_ZONES and not zones[zid].stub:
+			errors.append("zone %s can't be reached from Macclesfield" % zid)
+	return errors
+
+## Zone ids each zone's dialogue can warp to (story warps count as ways in).
+static func script_warp_targets() -> Dictionary:
+	var out := {}
+	for f in DirAccess.get_files_at("res://data/dialogue"):
+		if not f.ends_with(".json"):
+			continue
+		var zid := f.get_basename()
+		var text := FileAccess.get_file_as_string("res://data/dialogue/" + f)
+		var rx := RegEx.create_from_string('"do":\\s*"warp"[^}]*?"zone":\\s*"([a-z0-9_]+)"')
+		for m in rx.search_all(text):
+			if not out.has(zid):
+				out[zid] = []
+			out[zid].append(m.get_string(1))
+	return out

@@ -1,0 +1,138 @@
+{
+ "sheep_herdwick": [
+  {
+   "do": "say",
+   "who": "Herdwick",
+   "text": "How did YOU get up here? I came for the grass. The cairn is an accident."
+  }
+ ],
+ "ld_shepherd": [
+  {
+   "do": "say",
+   "who": "Shepherdess",
+   "text": "The Herdwicks 'heft' to the hill: each ewe knows her own bit of fell without a fence, and she passes it to her lambs. If a flock's lost, you can't just replace it. You have to wait three generations."
+  },
+  {
+   "do": "say",
+   "who": "Shepherdess",
+   "text": "My dog's name is Fly. She knows more about the sheep than I do, and she's polite about it."
+  },
+  {
+   "do": "if",
+   "flag": "herd_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Shepherdess",
+     "text": "Eight. Seven on the fell, and the one on the summit who thinks she's a mountain goat. That's what I wrote in the book, and the book is never wrong. Fly is never wrong either, but she's a dog."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "herd_started",
+     "then": [
+      {
+       "do": "choice",
+       "text": "How many Herdwicks have you counted on the fell?",
+       "options": [
+        "Six",
+        "Seven",
+        "Eight",
+        "Nine"
+       ],
+       "set": "herd_count"
+      },
+      {
+       "do": "if",
+       "flag": "herd_count",
+       "then": [
+        {
+         "do": "say",
+         "who": "Shepherdess",
+         "text": "Eight! The seven on the fell and the one up top! You've sharp eyes. Here, for your trouble. Kendal mint cake: the proper sort, the kind that has seen a mountain."
+        },
+        {
+         "do": "give_item",
+         "item": "kendal_mint_cake",
+         "n": 2
+        },
+        {
+         "do": "set",
+         "flag": "herd_done"
+        }
+       ],
+       "eq": 2,
+       "else": [
+        {
+         "do": "say",
+         "who": "Shepherdess",
+         "text": "Hmm. That's not what Fly says. Have another look: the ones down on the fell, and the awkward one on the very top. All of them count, even the rude ones."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Shepherdess",
+       "text": "I'm a sheep short in my sums, or one over. Would you count them for me? Every Herdwick on the fell, high and low, then come back and tell me the number."
+      },
+      {
+       "do": "set",
+       "flag": "herd_started"
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "ld_walker": [
+  {
+   "do": "say",
+   "who": "Fell Walker",
+   "text": "Eight hundred metres up and the weather's changed four times. Waterproofs on, waterproofs off, and now a hat with a bobble. The Lakes make you a layer person."
+  },
+  {
+   "do": "say",
+   "who": "Fell Walker",
+   "text": "There's a rule: Wainwright's guides list 214 fells. People try to climb them all. They're called Wainwright-baggers. It's a hobby and also a punishment."
+  }
+ ],
+ "ld_slater": [
+  {
+   "do": "say",
+   "who": "Slate Miner",
+   "text": "Green slate: the colour of rain on a good day. We split it by hand, one layer at a time. You can tell the good bit by the ring when you tap it."
+  },
+  {
+   "do": "say",
+   "who": "Slate Miner",
+   "text": "Roofs in the Lakes last a century. Roofing slate's the only thing here that doesn't mind the wet."
+  }
+ ],
+ "ld_poet": [
+  {
+   "do": "say",
+   "who": "Fell Poet",
+   "text": "I wandered lonely as a cloud, but the cloud was quite crowded. Mind you, daffodils do take the day off from the weather."
+  },
+  {
+   "do": "say",
+   "who": "Fell Poet",
+   "text": "A famous poet lived near here and walked about 175,000 miles in his life. He wrote his verses in his head as he went. He never once brought a map."
+  }
+ ],
+ "ld_ranger": [
+  {
+   "do": "say",
+   "who": "Ranger",
+   "text": "I'm told off for walking off the path, and then I tell off the walkers for walking off the path. It's a very circular job."
+  },
+  {
+   "do": "say",
+   "who": "Ranger",
+   "text": "Look at the pass in front of you. See the cairn of stones? Please leave them stacked. If you must add one, add a little one."
+  }
+ ]
+}

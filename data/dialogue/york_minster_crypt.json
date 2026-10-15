@@ -1,0 +1,121 @@
+{
+ "keeper_hester": [
+  {
+   "do": "if",
+   "flag": "trainer_keeper_hester",
+   "then": [
+    {
+     "do": "say",
+     "who": "Keeper Hester",
+     "text": "Every Stone on the islands, in one bag. The Moot will want a word. Mind the step on the way out, love. It's still Roman."
+    },
+    {
+     "do": "say",
+     "who": "Keeper Hester",
+     "text": "And if you hear footsteps behind you on the stairs, that's not a ghost. That's the choir. They're just very punctual."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "",
+     "text": "The crypt is dim and cool and older than anything you've stood in, with a smell of candle wax and long patience. A woman in a top hat lifts a lantern and does not seem at all surprised to see you."
+    },
+    {
+     "do": "say",
+     "who": "Keeper Hester",
+     "text": "Welcome to the crypt, love. Mind the step, it's Roman. So's the draught."
+    },
+    {
+     "do": "say",
+     "who": "Keeper Hester",
+     "text": "I've led the ghost walk for thirty years. The ghosts and I have an understanding. You and I are about to have one too."
+    },
+    {
+     "do": "say",
+     "who": "Keeper Hester",
+     "text": "I'm Hester. I keep the Spirit Stone, the last of the ten. Spirit creatures don't haunt you for the fun of it. They're only after someone who'll listen. Let's see if you're listening."
+    },
+    {
+     "do": "battle",
+     "trainer": "keeper_hester"
+    },
+    {
+     "do": "badge",
+     "id": "spirit"
+    },
+    {
+     "do": "set",
+     "flag": "badge_spirit"
+    },
+    {
+     "do": "set",
+     "flag": "ch10_spirit"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "{player} received the Spirit Stone!"
+    },
+    {
+     "do": "say",
+     "who": "Keeper Hester",
+     "text": "That's ten, then. The Spirit Stone doesn't open a door or cross a bog. It just means the old places have stopped being quite so shy of you."
+    },
+    {
+     "do": "say",
+     "who": "Keeper Hester",
+     "text": "This came for you in the post last Tuesday, addressed to 'The Tenth, c/o the Crypt'. I didn't open it. I'd like it noted that I did think about it."
+    },
+    {
+     "do": "give_item",
+     "item": "moot_token"
+    },
+    {
+     "do": "say",
+     "who": "Keeper Hester",
+     "text": "Now away you go, and thank you for listening. Most visitors only look at the ghosts. Nobody asks them how they are."
+    },
+    {
+     "do": "sfx",
+     "id": "alert"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Your phone buzzes. Professor Garside, who is plainly standing on a chair."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "{player}! The Spirit Stone! I felt it from here. The hum's gone from a chord to a whole choir, and a very out-of-tune cathedral organ has joined in."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "All ten. The Moot will call you."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "Go south by whichever way you like. The Sheffield road out of Buxton is open, the long way round by the Dales and the Lakes is lovely, and either way you finish up on Salisbury Plain with a token in your pocket."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "The worm on Penshaw Hill and the black dog at Whitby should be ready to see you now, too. Ten Stones is a number the old places notice."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "Be careful. Be kind. Be at Stonehenge, preferably before midsummer. It's October, so you have some slack."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Back in Buxton, the Wardens on the Sheffield road rolled up their tape, said they'd always meant to, and went to look at a spa."
+    }
+   ]
+  }
+ ]
+}

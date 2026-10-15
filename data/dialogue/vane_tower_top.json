@@ -1,0 +1,303 @@
+{
+ "vane_final": [
+  {
+   "do": "if",
+   "flag": "game_complete",
+   "then": [
+    {
+     "do": "say",
+     "who": "Lord Vane",
+     "text": "I'm sitting here. It's a perfectly good box. I am not unhappy. I am thinking. About leases. And breaks. And whether a fountain can be written off."
+    },
+    {
+     "do": "say",
+     "who": "Lord Vane",
+     "text": "If you see the horse again, tell her I said: no hard feelings. And also that she owes me a marquee."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "trainer_vane_final",
+     "then": [],
+     "else": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "The summit of the tower is one great round room of glass, with the whole city laid out below it like a model railway. In the middle, on ten plinths in a ring, the Wardstones turn slowly, each one lit from inside by a different colour. Lord Vane stands among them with a gold pen, as pleased as a cat on a radiator."
+      },
+      {
+       "do": "say",
+       "who": "Lord Ambrose Vane",
+       "text": "Ah. The walker. And, I hear, the Champion. Do come in. Mind the Wardstones. They're on loan from the nation, without the nation's knowledge."
+      },
+      {
+       "do": "say",
+       "who": "Lord Ambrose Vane",
+       "text": "At ten o'clock tonight, with one stroke of this pen, I bind the ten of them. The loch, the hill, the forest, the hound. All of it. A heritage portfolio. And then a nice fence."
+      },
+      {
+       "do": "say",
+       "who": "Lord Ambrose Vane",
+       "text": "The right to roam? Such a quaint idea. The right to roam is only a polite way of saying 'nobody has bought it yet'."
+      },
+      {
+       "do": "say",
+       "who": "Lord Ambrose Vane",
+       "text": "Ten Wardstones. Ten legends. One owner. Do you know how long I've waited for a set?"
+      },
+      {
+       "do": "say",
+       "who": "Lord Ambrose Vane",
+       "text": "You've been very tiresome. Let us finish this properly, at the top of my own tower."
+      },
+      {
+       "do": "music",
+       "id": "battle_final"
+      },
+      {
+       "do": "battle",
+       "trainer": "vane_final"
+      }
+     ]
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "The Wardstones crack."
+    },
+    {
+     "do": "sfx",
+     "id": "alert"
+    },
+    {
+     "do": "music",
+     "id": "legend"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "It starts at the first of them, a hairline across the glass, thin as a spider's thread and bright as a struck match. Then the second. Then the third, with a sound like a very small bell being rung by a very large breath."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "The ten Wardstones go off in a row, like a string of paper lanterns, and the glass tower sings. The ten lights rise out of their cases and pour out through the ceiling into the evening."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "In Loch Ness, a long, pleased ripple crosses the water, and something very large and gentle lifts its head into the evening: Nessie, free, looking about with enormous interest and no hurry at all."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Over Snowdonia, Y Ddraig Goch spreads wings the colour of a Welsh sunset, and a hillwalker on Crib Goch announces it to nobody in particular as a really good one."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "At Newgrange, the Morr\u00edgan lifts from the great stone roof with a rushing of crows, and for exactly one breath, the winter light comes through the roof-box the wrong way round, in gratitude."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "On the Isle of Skye, the C\u00f9-S\u00ecth gives three long barks across the glen. The sheep, who know the rule, are indoors by the second."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "At the Giant's Causeway, Manann\u00e1n's Horse rises from the surf in a long wave of silver foam, and runs the length of the coast without wetting a hoof."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "On Glastonbury Tor, the Green Man opens his eyes, and every tree between Somerset and the sea puts out one more leaf, just in case anyone was keeping count."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Under Penshaw Hill, the Lambton Worm unwinds, seven coils at a time, and a family out walking the dog agree it's the wind."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "On the cliff above Whitby, Black Shuck lifts his head and sniffs the sea-fog. The gulls hold their tongues. It is the quietest the harbour has been since the Romans."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "In Sherwood, Herne the Hunter sounds his horn, and every acorn in the forest bounces once, in applause, on the path."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "At the Tower of London, Bran's Raven spreads her wings, and the kingdom, for the record, does not fall. It stays exactly where it is, and quietly gets on with its tea."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Ten lights, ten legends, and not one of them in a case. Over London, a hundred thousand people look up from their phones and, quite without meaning to, smile."
+    },
+    {
+     "do": "say",
+     "who": "Lord Vane",
+     "text": "No. No, no, no. That's... Those were insured. Were those insured? I shall have to look. I shall write a very strongly worded letter to the landscape."
+    },
+    {
+     "do": "say",
+     "who": "Lord Vane",
+     "text": "I should like it noted that I never wanted them for myself. I wanted them for the portfolio. There's a difference. It is a small difference but it is, I think, mine."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "He sits down on an upturned filing box, gold pencil behind his ear, looking about the empty summit of his tower. The ten glass cases stand open and bare, like a very large pair of empty egg cups."
+    },
+    {
+     "do": "say",
+     "who": "Lord Vane",
+     "text": "Do you know, I never saw one up close? Not properly. They're rather beautiful, aren't they. The horse especially."
+    },
+    {
+     "do": "say",
+     "who": "Lord Vane",
+     "text": "And this tower was a six-month lease. With a break clause. I shall never see that deposit again, shall I. Three months in advance, and a fountain."
+    },
+    {
+     "do": "say",
+     "who": "Lord Vane",
+     "text": "Go on. Go home. Have a lie-down. I'll be here, doing a very thorough impression of a man who has given up. I shall be back at nine tomorrow, in a different hat."
+    },
+    {
+     "do": "fade_out"
+    },
+    {
+     "do": "wait",
+     "seconds": 1.0
+    },
+    {
+     "do": "warp",
+     "zone": "macc_home",
+     "x": 4,
+     "y": 5,
+     "facing": "up"
+    },
+    {
+     "do": "fade_in"
+    },
+    {
+     "do": "music",
+     "id": "ending"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Macclesfield. A wet Tuesday, and, for once, a quiet one. The kettle has been on since you left, or so it seems, and it is on again."
+    },
+    {
+     "do": "say",
+     "who": "Mum",
+     "text": "There you are. I saw you on the telly. You were in the background, behind that Professor, with a flag. I said to the cat, that's ours."
+    },
+    {
+     "do": "say",
+     "who": "Mum",
+     "text": "You've a bag the size of a donkey. You've got something in there that is breathing. It's NOT sleeping on the sofa."
+    },
+    {
+     "do": "say",
+     "who": "Mum",
+     "text": "...The little one can have the armchair. I'm not made of stone."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "There is a knock at the door, which opens before anyone can answer. Kit, in a puffa jacket and a pair of wellies that are, you notice, a good deal muddier than when you last saw them."
+    },
+    {
+     "do": "say",
+     "who": "{rival}",
+     "text": "Knock knock. Sorry. The door was open and so was my mouth. I came straight from the station. I ran. I haven't run since PE."
+    },
+    {
+     "do": "say",
+     "who": "{rival}",
+     "text": "Four hundred thousand people watched you fight Vane, did you know that? I streamed it from the car park at Morrisons. Four hundred thousand and one, if you count the man who wandered into frame."
+    },
+    {
+     "do": "say",
+     "who": "{rival}",
+     "text": "And then right at the end I turned it off. The last bit. It felt like it was ours. Is that stupid?"
+    },
+    {
+     "do": "say",
+     "who": "{rival}",
+     "text": "I'm not even bothered about the numbers, honestly. I just wanted to say: I'm proud of you. And I'm proud of me. We started in a field with a creature each, and look. Look at us."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "A second knock, much more polite. Professor Garside, a flask in one hand and a very thin sheaf of paper in the other, looking very much like someone who has not slept since September and does not wish to."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "I've finished the paper. It's very short. I'm told it's the best I've ever written. It just says 'gosh', and then 'thank you'."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "The Enclosure is no more. Pryce is learning to knit. Ashcombe is helping him. Kerrigan has taken up the harp, and Strachan has an allotment in Glencoe and a bad word for the midges. Lord Vane is, as far as I know, trying to rent a different tower."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "The old places are nobody's but their own. Which, it turns out, was always the idea. The stones will hum when they like. The legends will come to the ones who are kind to them. And you will go on walking the roads, because you will, and I'll go on writing it down."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "Keep the Fieldbook. There are a good many pages left."
+    },
+    {
+     "do": "say",
+     "who": "{rival}",
+     "text": "Race you to Lancashire."
+    },
+    {
+     "do": "say",
+     "who": "Mum",
+     "text": "Not before you've eaten. Sit down, the pair of you. And you, Professor, you look like a boiled ghost. There's a pie."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Outside the window, the hum of the old places goes on: softer now, and wider, like a held note finally let out. Somewhere a standing stone is warm to the touch. Somewhere a raven is waiting on a lawn. The road is open, and it is your turn to walk it."
+    },
+    {
+     "do": "set",
+     "flag": "game_complete"
+    },
+    {
+     "do": "credits"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "The credits roll to a close, and the kettle clicks off. You are home. And you are, entirely, free."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "You can fly to any town you have visited: open the Map and choose Fly. Bran's Raven is waiting on the lawn at the Tower of London, if you have not yet met her properly."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "There are still legends to meet, and a Creaturepedia with gaps in it. The standing stones of Orkney have secrets left, and Douglas Head, on the Isle of Man, has a few of its own. The Ark has room."
+    }
+   ]
+  }
+ ]
+}

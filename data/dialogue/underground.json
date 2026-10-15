@@ -1,0 +1,123 @@
+{
+ "reunion_a": [
+  {
+   "do": "say",
+   "who": "",
+   "text": "The tunnel narrows to a single track's width. On the platform, in matching raincoats and under a flickering light, stand two men who very much look as though they have been asked to wait in a corridor."
+  },
+  {
+   "do": "say",
+   "who": "Gareth Pryce",
+   "text": "Ah. You again. We've been asked to hold the Northern line."
+  },
+  {
+   "do": "say",
+   "who": "Sir Rupert Ashcombe",
+   "text": "Hold it is a strong word. We've been asked to stand on it. Shall we get this over with?"
+  },
+  {
+   "do": "battle",
+   "trainer": "reunion_pryce_ashcombe"
+  },
+  {
+   "do": "say",
+   "who": "Gareth Pryce",
+   "text": "Splendid. We hold the Northern line. I shall say you were terrifying."
+  },
+  {
+   "do": "say",
+   "who": "Sir Rupert Ashcombe",
+   "text": "I shall say it was a draw. And that the wind was against us. Underground. It's a technicality."
+  },
+  {
+   "do": "say",
+   "who": "Gareth Pryce",
+   "text": "We were never here, of course. We were at the golf club."
+  },
+  {
+   "do": "say",
+   "who": "",
+   "text": "They saunter off towards the exit, arguing amiably about which of them will tell Vane. The tunnel clears."
+  },
+  {
+   "do": "warp",
+   "zone": "underground",
+   "x": 14,
+   "y": 25,
+   "facing": "up"
+  },
+  {
+   "do": "end"
+  }
+ ],
+ "reunion_b": [
+  {
+   "do": "say",
+   "who": "",
+   "text": "Down a long dim passage, two women sit side by side on a bench under a map of the Tube, each holding a paper cup. They stand up as one."
+  },
+  {
+   "do": "say",
+   "who": "Siobh\u00e1n Kerrigan",
+   "text": "We both handed in our lanyards. Vane sent them back. With a fruit basket."
+  },
+  {
+   "do": "say",
+   "who": "Morag Strachan",
+   "text": "We're here because it's in our contracts. We're not here to win. But we won't make it easy."
+  },
+  {
+   "do": "battle",
+   "trainer": "reunion_kerrigan_strachan"
+  },
+  {
+   "do": "say",
+   "who": "Siobh\u00e1n Kerrigan",
+   "text": "That's us done. Properly, this time. It was good to see you in the end. I've missed the daylight, actually."
+  },
+  {
+   "do": "say",
+   "who": "Morag Strachan",
+   "text": "I'm for the first train to Glencoe, and my wellies. Tell Vane, if you must, that I've decided I'd rather be wet than right."
+  },
+  {
+   "do": "say",
+   "who": "",
+   "text": "They walk away together up the tunnel, already comparing which of them has the worse commute. The way is clear."
+  },
+  {
+   "do": "warp",
+   "zone": "underground",
+   "x": 24,
+   "y": 9,
+   "facing": "up"
+  },
+  {
+   "do": "end"
+  }
+ ],
+ "ug_station_guard": [
+  {
+   "do": "say",
+   "who": "Station Supervisor",
+   "text": "Please keep behind the yellow line. Please keep behind the yellow line. Please keep behind... oh. Hello. You're in the wrong tunnel. Everyone is."
+  },
+  {
+   "do": "say",
+   "who": "Station Supervisor",
+   "text": "There are 272 stations on the Tube. Some people try to visit them all in a day. It's called the Tube Challenge, and it's one of those things that sounds bad but is secretly delightful."
+  }
+ ],
+ "ug_cleaner": [
+  {
+   "do": "say",
+   "who": "Night Cleaner",
+   "text": "The mice here are famous. They ride the escalators. I've seen one with a ticket. Clearly an annual pass."
+  },
+  {
+   "do": "say",
+   "who": "Night Cleaner",
+   "text": "Rumour is something big lives in the old tunnels. Every time I look, it's just a mole in a hi-vis jacket. I'm choosing to believe it's a mole."
+  }
+ ]
+}

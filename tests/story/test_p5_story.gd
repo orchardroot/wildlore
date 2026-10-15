@@ -243,15 +243,16 @@ func test_cusith_only_after_the_frost_stone_and_never_twice() -> void:
 	await _run(h, "faerie_glen", "cusith", "cusith_spot")
 	assert_true(h.last_battle.is_empty())
 
-func test_aberdeen_call_and_the_v04_end_card() -> void:
+func test_aberdeen_call_sends_you_south_and_the_v04_end_card_is_gone() -> void:
 	var h := FakeStoryHost.new()
 	await _run(h, "aberdeen", "abdn_postie", "abdn_postie")
 	assert_eq(h.data.flag("v04_complete"), true)
+	assert_eq(h.data.flag("ch10_started"), true)
 	assert_true(_said_has(h, "York. The Spirit Stone. And then the Moot."))
-	assert_true(["", "End of Wildlore v0.4. The Moot is gathering."] in h.said)
+	assert_false(_said_has(h, "End of Wildlore"), "the v0.4 end card is gone")
 	h.said.clear()
 	await _run(h, "aberdeen", "abdn_postie", "abdn_postie")
-	assert_false(_said_has(h, "End of Wildlore"), "the end card shows once")
+	assert_false(_said_has(h, "York. The Spirit Stone"), "the call comes once")
 
 # ---------------------------------------------------------------- gates
 

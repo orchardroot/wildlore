@@ -1,0 +1,31 @@
+{
+ "id": "plain_birdwatch_tr",
+ "name": "Birdwatcher Maud",
+ "class": "Birdwatcher",
+ "sprite": "birdwatcher",
+ "party": [
+  {
+   "species": "stoopfalcon",
+   "level": 91
+  },
+  {
+   "species": "goldeneyrie",
+   "level": 90
+  },
+  {
+   "species": "forkwing",
+   "level": 90
+  }
+ ],
+ "ai": "trainer",
+ "money": 2560,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Birdwatcher Maud",
+   "text": "Shh! I'm waiting for a stone-curlew. It's eleven inches tall, brown, and an absolute master of standing still. You'll scare it. Battle quietly."
+  }
+ ],
+ "win": "Bother! There goes the curlew.",
+ "after": "A curlew has the saddest call in the world, and the most beautiful. They're always together in that one."
+}

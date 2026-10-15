@@ -267,3 +267,25 @@ func test_legend_and_ferry_music_come_from_data() -> void:
 	h2.choices = [0]
 	await _cmds(h2).run([{"do": "ferry", "route": "holyhead_dublin"}])
 	assert_true(["music", "ferry_irish_sea"] in h2.log)
+
+func test_gauntlet_all_won_sets_flag() -> void:
+	var h := FakeStoryHost.new()
+	h.dex = Dex.load_default()
+	h.moves = MoveDB.load_default()
+	h.battle_results = [{"result": "win"}, {"result": "win"}]
+	await _cmds(h).run([{"do": "gauntlet", "trainers": ["gwen", "bea"], "flag": "moot_won", "exit": {"zone": "buxton", "x": 5, "y": 6}}])
+	assert_true(h.data.flag("moot_won") == true)
+	assert_eq(h.warps, [])
+
+func test_gauntlet_loss_resets_to_the_entrance() -> void:
+	var h := FakeStoryHost.new()
+	h.dex = Dex.load_default()
+	h.moves = MoveDB.load_default()
+	h.data.money = 100
+	h.battle_results = [{"result": "win"}, {"result": "lose"}]
+	await _cmds(h).run([{"do": "gauntlet", "trainers": ["gwen", "bea", "leanne"], "flag": "moot_won", "exit": {"zone": "buxton", "x": 5, "y": 6}},
+		{"do": "say", "text": "never"}])
+	assert_false(h.data.flag("moot_won") == true, "no half-won Moot")
+	assert_eq(h.warps, [["buxton", 5, 6, "down"]], "back to the entrance, not the last Sanctuary")
+	assert_eq(h.data.money, 50)
+	assert_false("never" in h.texts())

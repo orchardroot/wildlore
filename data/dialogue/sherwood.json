@@ -1,0 +1,189 @@
+{
+ "herne": [
+  {
+   "do": "if",
+   "flag": "caught_herne",
+   "then": [],
+   "else": [
+    {
+     "do": "if",
+     "flag": "moot_won",
+     "then": [
+      {
+       "do": "if",
+       "flag": "herne_met",
+       "then": [
+        {
+         "do": "say",
+         "who": "",
+         "text": "Far off among the oaks, a horn sounds, low and green. The deer along the ride have stopped chewing."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "",
+         "text": "The Major Oak, on its stilts and its fence, gives a long creak that is not the wind. In the clearing ahead, a horn sounds, and the whole forest turns to look."
+        },
+        {
+         "do": "music",
+         "id": "legend_green"
+        },
+        {
+         "do": "say",
+         "who": "",
+         "text": "Out of the trees rides a hunter on a pale horse, with a stag's antlers rising from his brow like a second, older crown. Behind him the leaves lift in a rustling company of shapes that could be deer, or dogs, or the very idea of a hunt."
+        },
+        {
+         "do": "say",
+         "who": "Herne the Hunter",
+         "text": "Hail, walker. I rode before the Sheriff of Nottingham had a hat. I rode before there was a Nottingham, if we are being strict."
+        },
+        {
+         "do": "say",
+         "who": "Herne the Hunter",
+         "text": "They say I haunt the oak at Windsor, and the forest here, and a good many pub signs. I only take the air. A man in antlers gets looked at."
+        },
+        {
+         "do": "say",
+         "who": "Herne the Hunter",
+         "text": "The Moot said yes to you, and the stones sing. I heard it from the Major Oak. Ride with me, if you can keep up. And if you can't, we'll find out about that too."
+        },
+        {
+         "do": "set",
+         "flag": "herne_met"
+        }
+       ]
+      },
+      {
+       "do": "legend",
+       "species": "herne",
+       "level": 90,
+       "flag": "caught_herne",
+       "music": "legend_green"
+      },
+      {
+       "do": "if",
+       "flag": "caught_herne",
+       "then": [
+        {
+         "do": "say",
+         "who": "",
+         "text": "The antlered rider lowers his horn, swings down from nowhere in particular, and walks beside you into the trees. The deer along the ride do not run. They fall in behind, in a loose and delighted line, as though someone had finally said the right word."
+        },
+        {
+         "do": "warp",
+         "zone": "sherwood",
+         "x": 50,
+         "y": 49,
+         "facing": "right"
+        },
+        {
+         "do": "end"
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "",
+         "text": "Herne lifts the horn once more and rides into the bracken. The sound that follows is the whole forest taking a breath. The hunt will ride again when you do."
+        },
+        {
+         "do": "warp",
+         "zone": "sherwood",
+         "x": 50,
+         "y": 49,
+         "facing": "right"
+        },
+        {
+         "do": "end"
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "Deep in the trees, a hunting horn sounds. Not loud, not close. It's the kind of sound you can feel in your teeth. The deer on the ride lift their heads and look past you, all together, at something you can't see."
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "For half a breath, among the oaks, there is a pale horse, and a rider with antlers, and then a patch of dappled light and a small, dry cough from a ranger a long way off."
+      },
+      {
+       "do": "say",
+       "who": "Herne the Hunter",
+       "text": "(a voice that arrives from the middle of the forest) Not yet. The Moot first, walker. I ride only for those the stones have chosen. Be brave, and be south."
+      },
+      {
+       "do": "set",
+       "flag": "herne_stirred"
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "sh_ranger": [
+  {
+   "do": "say",
+   "who": "Forest Ranger",
+   "text": "The Major Oak is propped up on stilts, and there's a fence round the roots. Acorns drop on the path and the squirrels have a guard."
+  },
+  {
+   "do": "say",
+   "who": "Forest Ranger",
+   "text": "Some oaks here are over eight hundred years old. They've seen kings come and go, and a good number of hikers. The hikers get on the nerves more."
+  }
+ ],
+ "sh_kid": [
+  {
+   "do": "say",
+   "who": "Acorn Collector",
+   "text": "I've collected two hundred acorns! They're for the squirrels. I'm going to give them to the squirrels. The squirrels will not say thank you."
+  },
+  {
+   "do": "say",
+   "who": "Acorn Collector",
+   "text": "You can put an acorn in a pot and in a hundred years it'll be a tree. I'll be a hundred and eleven. I've worked it out."
+  }
+ ],
+ "sh_historian": [
+  {
+   "do": "say",
+   "who": "Ballad Singer",
+   "text": "He robbed the rich to feed the poor, or he was a tax-dodger with a green hat. The ballads aren't sure. Oldest one's from the fifteenth century, and he's already a legend then."
+  },
+  {
+   "do": "say",
+   "who": "Ballad Singer",
+   "text": "The Sheriff of Nottingham appears in the earliest stories. The poor man's always had a fine villain."
+  }
+ ],
+ "sh_birder": [
+  {
+   "do": "say",
+   "who": "Night Walker",
+   "text": "Nightjars come to the heath at dusk. They sound like a small machine that's been left on, and a sky that's gone very quiet. It's the best noise in the world."
+  },
+  {
+   "do": "say",
+   "who": "Night Walker",
+   "text": "At night it's another forest. The tree trunks lean in. Even the hoots sound like questions."
+  }
+ ],
+ "sh_tourist": [
+  {
+   "do": "say",
+   "who": "Visitor Centre Guide",
+   "text": "Welcome to Sherwood! We have a fine display of longbows, a mannequin in Lincoln green, and a gift shop selling green hats. They are, in all honesty, very good hats."
+  },
+  {
+   "do": "say",
+   "who": "Visitor Centre Guide",
+   "text": "The forest was a royal hunting preserve once. Now it's a country park where the deer are protected and the walkers are not."
+  }
+ ]
+}

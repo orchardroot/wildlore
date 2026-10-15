@@ -11,6 +11,7 @@ extends RefCounted
 ##     lantern, hurley, umbrella, fiddle, notebook, waxed_jacket, bagpipes, curling_broom, shinty_stick, clipboard]}
 ## bottom_style also: kilt. Hats also: welding_visor, bobble_hat, deerstalker.
 ## Extra hats: witch_hat, panama, hard_hat, flat_cap, helmet, flower_crown, holly_crown. Extra hair: windswept.
+## Added in plan 6: hats top_hat, tudor_bonnet; accessories hi_vis (vest, accent + accent2 stripes), staff (prop colour).
 ## Optional palette keys: hat, beard, prop, pin, light (lamp / lantern glow), leaf.
 
 const Canvas = preload("res://tools/spritegen/canvas.gd")
@@ -319,6 +320,13 @@ static func _torso(cv, c: Dictionary) -> void:
 		else:
 			cv.paint(cv.line_mask([Vector2(14, ttop + 1 + bob), Vector2(13, tcy + 2)], 1.0), Canvas.tones(lan), {"shade": false})
 			_rect(cv, 12.5, tcy + 4, 2, 4, Canvas.tones(Color("#f4f0e8")), 0, false)
+	if _has(c, "hi_vis"):
+		var hv_x := 16.0 + (0.5 if dir == "left" else 0.0)
+		_rect(cv, hv_x, tcy + 0.5, tw - 0.5, th - 3.0, _tn(c, "accent"), 2, true, true)
+		_rect(cv, hv_x, tcy - 1.5, tw - 0.5, 1.5, _tn(c, "accent2"), 0, false)
+		_rect(cv, hv_x, tcy + 3.5, tw - 0.5, 1.5, _tn(c, "accent2"), 0, false)
+		if dir == "down":
+			_rect(cv, 16, tcy + 0.5, 1, th - 3.0, _tn(c, "accent2", 0.3), 0, false)
 	if _has(c, "pin") and dir == "down":
 		var pc := Canvas.parse_colour(c.pal.get("pin", "#d8b030"))
 		_ell(cv, 20.5, tcy - 1, 3, 3, Canvas.tones(pc), true, false)
@@ -413,6 +421,10 @@ static func _props(cv, c: Dictionary) -> void:
 		cv.px(int(hx) - 1, int(hy) + 5, Color("#3a3028"))
 		cv.px(int(hx), int(hy) + 5, Color("#3a3028"))
 		cv.px(int(hx), int(hy) + 6, glow.lightened(0.6))
+		_ell(cv, hx, hy, 3.5, 3.5, skin, true)
+	if _has(c, "staff"):
+		_line(cv, [Vector2(hx, hy - 17), Vector2(hx, FEET_Y - 1)], 1.6, pcol)
+		_ell(cv, hx, hy - 17, 3, 3, Canvas.tones(pcol.lightened(0.2)), true, false)
 		_ell(cv, hx, hy, 3.5, 3.5, skin, true)
 	if _has(c, "hurley"):
 		var top := hy - 15.0
@@ -714,6 +726,16 @@ static func _hat(cv, c: Dictionary, cx: float, cy: float, hw: float, hh: float, 
 			elif side:
 				_ell(cv, cx - hw * 0.5 - 1, top + 4, 4, 4, Canvas.tones(Color("#4a4a52")), true, true)
 				cv.px(int(cx - hw * 0.5) - 2, int(top) + 4, lamp)
+		"top_hat":
+			var tx := cx + (1.0 if side else 0.0)
+			_ell(cv, tx, top + 4.5, hw + 4, 4, col, true, true)
+			_rect(cv, tx, top - 3.0, hw - 3, 12, col, 1, true, true)
+			_rect(cv, tx, top + 2.0, hw - 3, 2, _tn(c, "accent2"), 0, false)
+		"tudor_bonnet":
+			var ub := cx + (1.0 if side else 0.0)
+			_ell(cv, ub, top + 4.0, hw + 5, 5, col, true, true)
+			_ell(cv, ub, top + 1.5, hw + 1, 6, _tn(c, hk, -0.05), true, true)
+			_rect(cv, ub, top + 3.5, hw + 1, 1.5, _tn(c, "accent"), 0, false)
 		"flat_cap":
 			var fx := cx + (1.0 if side else 0.0)
 			_ell(cv, fx, top + 3.5, hw + 3, 7, col, true, true)

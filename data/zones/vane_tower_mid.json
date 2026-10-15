@@ -1,0 +1,186 @@
+{
+ "id": "vane_tower_mid",
+ "name": "Vane Tower: Offices",
+ "region": "",
+ "kind": "interior",
+ "music": "dungeon_underground",
+ "weather": {},
+ "props": [
+  {
+   "type": "potted_plant",
+   "x": 3,
+   "y": 3
+  },
+  {
+   "type": "potted_plant",
+   "x": 11,
+   "y": 3
+  },
+  {
+   "type": "potted_plant",
+   "x": 26,
+   "y": 3
+  },
+  {
+   "type": "potted_plant",
+   "x": 3,
+   "y": 20
+  },
+  {
+   "type": "potted_plant",
+   "x": 26,
+   "y": 20
+  },
+  {
+   "type": "potted_plant",
+   "x": 11,
+   "y": 20
+  },
+  {
+   "type": "potted_plant",
+   "x": 17,
+   "y": 11
+  },
+  {
+   "type": "table",
+   "x": 5,
+   "y": 7
+  },
+  {
+   "type": "table",
+   "x": 20,
+   "y": 7
+  },
+  {
+   "type": "table",
+   "x": 5,
+   "y": 18
+  },
+  {
+   "type": "table",
+   "x": 20,
+   "y": 18
+  },
+  {
+   "type": "bookshelf",
+   "x": 8,
+   "y": 3
+  },
+  {
+   "type": "bookshelf",
+   "x": 19,
+   "y": 3
+  },
+  {
+   "type": "bookshelf",
+   "x": 8,
+   "y": 20
+  }
+ ],
+ "warps": [
+  {
+   "x": 24,
+   "y": 1,
+   "to": "vane_tower_top",
+   "tx": 3,
+   "ty": 21,
+   "facing": "up"
+  },
+  {
+   "x": 3,
+   "y": 22,
+   "to": "vane_tower_lobby",
+   "tx": 24,
+   "ty": 2,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "vt_intern",
+   "sprite": "student",
+   "x": 4,
+   "y": 8,
+   "facing": "right",
+   "move": "still",
+   "script": "vt_intern"
+  },
+  {
+   "id": "vt_warden_3",
+   "sprite": "warden_grunt",
+   "x": 8,
+   "y": 12,
+   "facing": "right",
+   "move": "still",
+   "trainer": "vt_warden_3"
+  },
+  {
+   "id": "vt_warden_4",
+   "sprite": "warden_grunt",
+   "x": 23,
+   "y": 11,
+   "facing": "left",
+   "move": "still",
+   "trainer": "vt_warden_4"
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "x": 4,
+   "y": 11,
+   "text": "THE OPEN-PLAN OFFICE. 'Open-plan' means everyone can hear everything. Nobody has said anything interesting in this room since 2014."
+  },
+  {
+   "x": 23,
+   "y": 3,
+   "text": "TO THE EXECUTIVE FLOOR. Lord Vane's office. If you are going up, please wipe your feet on the carpet. It is the carpet of a man who minds."
+  }
+ ],
+ "spawn": [
+  3,
+  21
+ ],
+ "stage": "city",
+ "rows": [
+  "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "xxxxxxxxxxxxxxxxxxxxxxxxDxxxxx",
+  "xxvvvvvvvvvvvvxxvvvvvvvvvvvvxx",
+  "xxvvvvvvvvvvvvxxvvvvvvvvvvvvxx",
+  "xxvvvvvvvvvvvvxxvvvvvvvvvvvvxx",
+  "xxvvvCCCCvvvCCxxvvvCCCCvvvvvxx",
+  "xxvvvvvvvvvvvvxxvvvvvvvvvvvvxx",
+  "xxvvvvvvvvvvvvxxvvvvvvvvvvvvxx",
+  "xxvvvvvvvvvvvvxxvvvvvvvvvvvvxx",
+  "xxvvvvvvvvvvvvxxvvvvvvvvvvvvxx",
+  "xxggggggggggggggggggggggggggxx",
+  "xxggggggggggggggggggggggggggxx",
+  "xxggggggggggggggggggggggggggxx",
+  "xxvvvvvvvvvvvvvvvvvvvvvvvvvvxx",
+  "xxvvvvvvvvvvvvxxvvvvvvvvvvvvxx",
+  "xxvvvvvvvvvvvvxxvvvvvvvvvvvvxx",
+  "xxvvvCCCCvvvCCxxvvvCCCCvvvvvxx",
+  "xxvvvvvvvvvvvvxxvvvvvvvvvvvvxx",
+  "xxvvvvvvvvvvvvxxvvvvvvvvvvvvxx",
+  "xxvvvvvvvvvvvvxxvvvvvvvvvvvvxx",
+  "xxvvvvvvvvvvvvxxvvvvvvvvvvvvxx",
+  "xxvvvvvvvvvvvvxxvvvvvvvvvvvvxx",
+  "xxxDxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+ ],
+ "legend_extra": {
+  "g": {
+   "tile": "floor_tile",
+   "colour": "#a9d2ea"
+  },
+  "v": {
+   "tile": "floor_tile",
+   "colour": "#34465a"
+  },
+  "m": {
+   "tile": "floor_tile",
+   "colour": "#e6e2d6"
+  }
+ }
+}
