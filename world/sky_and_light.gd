@@ -14,7 +14,7 @@ const PHASES := {
 ## (the plain filmic default washed bright zones out); dawn, dusk, night and interiors keep DEFAULT_GRADE.
 const DEFAULT_GRADE := [0.92, 1.0, 1.04]
 const PHASE_GRADE := {
-	"day": [0.84, 1.3, 1.14],
+	"day": [0.84, 1.2, 1.14],
 }
 
 var sun: DirectionalLight3D
