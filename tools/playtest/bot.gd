@@ -43,7 +43,13 @@ var _walk_lost := false
 var _softlocks: Array = []
 var _moot_tries := 0
 var _moot_assist := 0   # full heals between Moot fights once the bot has lost the Moot MOOT_ASSIST_AFTER times
-const MOOT_ASSIST_AFTER := 4
+const MOOT_ASSIST_AFTER := 3
+## After this many lost tries at one story beat the bot gets an in-battle crutch (a creature below a third of its HP
+## is topped up, as if from an endless bag of tea) so the rest of the story still gets played. Counted and reported.
+const FIGHT_ASSIST_AFTER := 8
+var _assist_fight := false
+var _assisted: Dictionary = {}   # beat -> in-battle top-ups
+var _beat_name := ""
 
 func start(m: String) -> void:
 	mode = m
@@ -53,7 +59,7 @@ func start(m: String) -> void:
 	_rng.seed = maxi(0, int(Game.args.get("seed", 1)))
 	_limit = float(Game.args.get("seconds", 0))
 	if _limit <= 0.0:
-		_limit = {"slice": 1500.0, "m2": 9000.0, "full": 90000.0}.get(mode, 120.0)
+		_limit = {"slice": 1500.0, "m2": 9000.0, "full": 150000.0}.get(mode, 120.0)
 	_wall_start = Time.get_ticks_msec()
 	Bus.battle_ended.connect(_on_battle_ended)
 	Bus.battle_started.connect(func(_k):
@@ -244,7 +250,10 @@ func _story_beat(zone_id: String, npc: String, flag: String) -> void:
 		await _heal_if_low(1.0)
 		if flag == "moot_won":
 			_moot_tries = attempts
+		_assist_fight = attempts > FIGHT_ASSIST_AFTER
+		_beat_name = "%s/%s" % [zone_id, npc]
 		await _talk(zone_id, npc)
+		_assist_fight = false
 		print("BOT: %s/%s attempt %d -> %s %s, team %s, W/L %d/%d" % [zone_id, npc, attempts, flag, "DONE" if _beat_done(flag) else "not yet", _team_str(), stats.wins, stats.losses])
 	_check(_beat_done(flag), "%s/%s never set %s in %d attempts (flags here: %s)" % [zone_id, npc, flag, attempts, _flag_dump()])
 	if flag.begins_with("badge_") and _beat_done(flag):
@@ -536,6 +545,8 @@ func _print_summary() -> void:
 		print("BOT: summary team at %s" % k)
 	for k in _softlocks:
 		print("BOT: summary " + k)
+	for k in _assisted:
+		print("BOT: summary fight assist at %s: %d in-battle top-ups after %d lost tries" % [k, _assisted[k], FIGHT_ASSIST_AFTER])
 	if _moot_assist > 0:
 		print("BOT: summary Moot assist: %d full heals between Moot fights after %d lost Moot attempts" % [_moot_assist, MOOT_ASSIST_AFTER])
 	print("BOT: summary stats %s" % [stats])
@@ -735,8 +746,15 @@ func _grind_to(level: int, zone := "") -> void:
 	var guard := 0
 	var grind_zone := zone
 	var limit := 30000 if mode == "full" else 4000
+	var stall_lv := _team_level()
+	var stall_at := 0
 	while _team_level() < level and not _done and guard < limit:
 		guard += 1
+		if _team_level() > stall_lv:
+			stall_lv = _team_level()
+			stall_at = guard
+		elif guard - stall_at > 3000:
+			break  # no progress (everyone that can train is at the level cap or can't win here)
 		if mode == "full":
 			if grind_zone == "" or (guard % 200 == 0 and zone == ""):
 				grind_zone = _pick_grind_zone()
@@ -809,7 +827,8 @@ func _team_level() -> int:
 	lv.sort()
 	lv.reverse()
 	if mode == "full" and lv.size() >= 4:
-		return mini(lv[0], lv[3] + 2)  # the whole story needs a real team: four that can fight
+		# the whole story needs a real team: the mean of the best four (one runaway ace can't carry a Keeper)
+		return int(round((lv[0] + lv[1] + lv[2] + lv[3]) / 4.0))
 	return lv[0] if lv.size() < 3 else mini(lv[0], lv[2] + 3)
 
 ## Like a sensible player: put the lowest-level creature first while training, so the whole team keeps up.
@@ -823,6 +842,12 @@ func _lead_with_weakest(area_level := 0) -> void:
 	var floor_lv := best - 8
 	if mode == "full" and area_level > 0:
 		floor_lv = mini(floor_lv, area_level - 3)
+	if mode == "full" and party.size() >= 4:
+		# train the weakest of the best four, the ones the team level counts
+		var lv: Array = party.map(func(c): return c.level)
+		lv.sort()
+		lv.reverse()
+		floor_lv = mini(floor_lv, lv[3])
 	var pick := -1
 	for i in party.size():
 		var c: Creature = party[i]
@@ -923,6 +948,10 @@ func menu_result(menu: String) -> Variant:
 
 func choose_action(f: BattleFlow) -> Dictionary:
 	_busy_t = 0.0  # a battle asking for a move is not a stuck Router
+	var mine := f.battle.current_at(Battle.PLAYER, f.acting_pos) if f.battle.double else f.battle.current(Battle.PLAYER)
+	if _assist_fight and f.battle.kind != "wild" and mine and mine.hp * 3 < mine.max_hp():
+		mine.hp = mine.max_hp()
+		_assisted[_beat_name] = int(_assisted.get(_beat_name, 0)) + 1
 	var b := f.battle
 	var me := b.current_at(Battle.PLAYER, f.acting_pos) if b.double else b.current(Battle.PLAYER)
 	var foe := b.current(Battle.FOE)

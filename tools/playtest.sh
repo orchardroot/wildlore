@@ -2,7 +2,7 @@
 # Runs the headless playtest bot and fails on a bot failure or any script error.
 # Usage: tools/playtest.sh slice [seed]     tools/playtest.sh m2 [seed]     tools/playtest.sh fuzz [seed] [seconds]
 #        tools/playtest.sh full [seed] [seconds]   (the whole story to the credits; prints BOT: fight and BOT: summary lines;
-#        default limit 90000 bot seconds, a long run: start it in the background)
+#        default limit 150000 bot seconds, about an hour on a 4-core iMac: start it in the background)
 set -uo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 GODOT="$("$ROOT/tools/get_godot.sh")" || exit 1
