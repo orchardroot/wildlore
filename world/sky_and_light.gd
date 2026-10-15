@@ -5,9 +5,16 @@ extends Node3D
 const PHASES := {
 	# sun colour, sun energy, sun pitch, ambient colour, ambient energy, background, window glow
 	"dawn": [Color("ffc59a"), 0.8, -22.0, Color("b9a3c9"), 0.32, Color("e7b7a0"), 0.6],
-	"day": [Color("fff4e0"), 0.8, -52.0, Color("c3d4e6"), 0.26, Color("9fc3dc"), 0.0],
+	"day": [Color("fff4e0"), 0.62, -52.0, Color("c3d4e6"), 0.18, Color("9fc3dc"), 0.0],
 	"dusk": [Color("ffa36b"), 0.7, -18.0, Color("a98bb0"), 0.3, Color("d98f74"), 1.2],
 	"night": [Color("8fa6d9"), 0.25, -40.0, Color("3b4a78"), 0.3, Color("1b2238"), 2.2],
+}
+
+## Per-phase colour grade: [tonemap exposure, saturation, contrast]. Midday is graded richer
+## (the plain filmic default washed bright zones out); dawn, dusk, night and interiors keep DEFAULT_GRADE.
+const DEFAULT_GRADE := [0.92, 1.0, 1.04]
+const PHASE_GRADE := {
+	"day": [0.84, 1.3, 1.14],
 }
 
 var sun: DirectionalLight3D
@@ -112,6 +119,10 @@ func apply_time(minutes: int) -> void:
 	sun.light_color = sun_col
 	sun.light_energy = sun_e
 	sun.rotation_degrees.x = p[2]
+	var grade: Array = DEFAULT_GRADE if interior else PHASE_GRADE.get(ph, DEFAULT_GRADE)
+	env.tonemap_exposure = grade[0]
+	env.adjustment_saturation = grade[1]
+	env.adjustment_contrast = grade[2]
 	env.ambient_light_color = amb
 	env.ambient_light_energy = amb_e
 	env.background_color = bg
