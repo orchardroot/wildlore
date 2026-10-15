@@ -11,6 +11,7 @@ const LENGTHS := {
 	"cut": 0.3, "splash": 0.6, "scramble": 0.7, "bike_bell": 0.7, "train": 1.4, "ship_horn": 1.6,
 	"crow": 0.75, "tomb_light": 1.8, "harp_gliss": 1.9,
 	"lantern_on": 1.3, "bog_squelch": 0.55, "bagpipe_drone": 2.0,
+	"bell_toll": 3.2, "raven_caw": 0.9, "train_rush": 2.4,
 }
 const PEAKS := {
 	"cursor": 0.5, "confirm": 0.6, "cancel": 0.55, "bump": 0.6, "door": 0.6, "step_grass": 0.35,
@@ -19,6 +20,7 @@ const PEAKS := {
 	"cut": 0.6, "splash": 0.7, "scramble": 0.6, "bike_bell": 0.7, "train": 0.7, "ship_horn": 0.8,
 	"crow": 0.75, "tomb_light": 0.7, "harp_gliss": 0.7,
 	"lantern_on": 0.7, "bog_squelch": 0.75, "bagpipe_drone": 0.7,
+	"bell_toll": 0.8, "raven_caw": 0.75, "train_rush": 0.7,
 }
 
 static func ids() -> Array:
@@ -322,6 +324,55 @@ static func render(id: String) -> PackedFloat32Array:
 			Synth.lowpass(out, 900.0, SR)
 			Synth.lowpass(out, 900.0, SR)
 			Synth.adsr(out, SR, 0.6, 0.2, 0.85, 0.7)
+		"bell_toll":
+			# A great bell struck once: low hum, strike tone and inharmonic partials ringing out.
+			for pt in [[0.5, 0.5, 1.4], [1.0, 1.0, 1.8], [1.19, 0.7, 2.2], [2.0, 0.5, 2.8], [2.74, 0.3, 3.6], [4.1, 0.12, 6.0]]:
+				var f: float = 196.0 * float(pt[0])
+				var b := Synth.osc(Synth.SINE, f, f, 3.2, SR)
+				Synth.pluck_env(b, SR, 0.002, float(pt[2]))
+				Synth.mix_into(out, b, 0, pt[1])
+			Synth.mix_into(out, _noise_burst(0.05, 2500.0, 400.0, 60.0, 71), 0, 0.3)
+		"raven_caw":
+			# One deep, rasping kraa and a shorter one: lower and hoarser than the crow, with a slow fall.
+			for cw in [[0.0, 0.42, 420.0, 250.0], [0.5, 0.34, 380.0, 210.0]]:
+				var dur: float = cw[1]
+				var c := Synth.osc(Synth.SAW, cw[2], cw[3], dur, SR)
+				var c2 := Synth.osc(Synth.SQUARE, float(cw[2]) * 0.5, float(cw[3]) * 0.5, dur, SR, 0.3)
+				Synth.mix_into(c, c2, 0, 0.5)
+				for i in c.size():
+					c[i] *= 0.5 + 0.5 * sin(TAU * 52.0 * i / SR)
+				var rasp := Synth.noise(dur, SR, 77)
+				Synth.highpass(rasp, 600.0, SR)
+				Synth.lowpass(rasp, 2600.0, SR)
+				Synth.mix_into(c, rasp, 0, 0.3)
+				Synth.lowpass(c, 1900.0, SR)
+				Synth.adsr(c, SR, 0.03, 0.08, 0.75, dur * 0.45)
+				Synth.mix_into(out, c, _at(cw[0]), 0.8)
+		"train_rush":
+			# A train hurtling past: a swelling and fading roar of noise, a driving chug and a distant horn.
+			var n := 2.4
+			var roar := Synth.noise(n, SR, 93)
+			Synth.lowpass(roar, 1400.0, SR)
+			Synth.highpass(roar, 90.0, SR)
+			for i in roar.size():
+				var x := float(i) / roar.size()
+				roar[i] *= pow(sin(PI * x), 1.5)
+			Synth.mix_into(out, roar, 0, 0.9)
+			var at := 0.0
+			while at < n - 0.2:
+				var amp := pow(sin(PI * at / n), 1.2)
+				var ch := Synth.noise(0.07, SR, 200 + int(at * 100.0))
+				Synth.lowpass(ch, 1800.0, SR)
+				Synth.pluck_env(ch, SR, 0.002, 40.0)
+				Synth.mix_into(out, ch, _at(at), 0.8 * amp)
+				var th := Synth.osc(Synth.SINE, 80.0, 50.0, 0.08, SR)
+				Synth.pluck_env(th, SR, 0.002, 30.0)
+				Synth.mix_into(out, th, _at(at), 0.6 * amp)
+				at += 0.14
+			var horn := Synth.osc(Synth.SAW, 330.0, 310.0, 1.0, SR)
+			Synth.lowpass(horn, 1100.0, SR)
+			Synth.adsr(horn, SR, 0.08, 0.1, 0.8, 0.5)
+			Synth.mix_into(out, horn, _at(0.3), 0.22)
 		_:
 			push_error("unknown sfx " + id)
 	Synth.fade_out(out, SR, 0.008)

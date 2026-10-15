@@ -7,6 +7,7 @@ const EXPECTED := {
 	"cut": 0.3, "splash": 0.6, "scramble": 0.7, "bike_bell": 0.7, "train": 1.4, "ship_horn": 1.6,
 	"crow": 0.75, "tomb_light": 1.8, "harp_gliss": 1.9,
 	"lantern_on": 1.3, "bog_squelch": 0.55, "bagpipe_drone": 2.0,
+	"bell_toll": 3.2, "raven_caw": 0.9, "train_rush": 2.4,
 }
 const LOOPING := ["title", "town_cheshire", "route_forest", "route_moor", "battle_wild", "battle_trainer", "battle_keeper", "sanctuary",
 	"town_city", "town_wales", "route_coast", "route_mountain", "battle_enclosure", "legend"]

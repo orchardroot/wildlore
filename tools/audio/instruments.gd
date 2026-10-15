@@ -22,6 +22,7 @@ static func render(name: String, midi: int, dur: float, sr: int, vel: float) -> 
 		"pipe": return pipe(hz(midi), dur, sr, vel)
 		"bouzouki": return bouzouki(hz(midi), dur, sr, vel)
 		"chanter": return chanter(hz(midi), dur, sr, vel)
+		"bell": return bell(hz(midi), sr, vel)
 	push_error("unknown instrument " + name)
 	return Synth.make(1)
 
@@ -203,4 +204,15 @@ static func chanter(f: float, dur: float, sr: int, vel: float) -> PackedFloat32A
 	Synth.highpass(a, 200.0, sr)
 	Synth.adsr(a, sr, 0.02, 0.05, 0.95, rel)
 	Synth.scale(a, 0.42 * vel)
+	return a
+
+## A struck bell: a hum, the fundamental, a minor-third partial and a bright shimmer, ringing for a couple of seconds.
+static func bell(f: float, sr: int, vel: float) -> PackedFloat32Array:
+	var total := 2.4
+	var a := Synth.osc(Synth.SINE, f, f, total, sr)
+	for p in [[0.5, 0.35], [1.19, 0.4], [2.0, 0.3], [2.74, 0.12]]:
+		var h := Synth.osc(Synth.SINE, f * float(p[0]), f * float(p[0]), total, sr)
+		Synth.mix_into(a, h, 0, float(p[1]))
+	Synth.pluck_env(a, sr, 0.002, 2.2)
+	Synth.scale(a, 0.5 * vel)
 	return a
