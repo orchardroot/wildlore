@@ -120,7 +120,7 @@ def moors(OUT):
     z.rect(26, 39, 7, 1, "_")
     z.rect(25, 39, 1, 1, "#"); z.rect(33, 39, 1, 1, "#")
     z.rect(34, 36, 18, 4, "m"); z.rect(34, 39, 18, 1, "#"); z.rect(33, 39, 1, 1, "#")
-    z.prop("bench", 28, 39); z.prop("bench", 31, 39); z.prop("planter", 25, 36)
+    z.prop("bench", 28, 41); z.prop("bench", 31, 39); z.prop("planter", 25, 36)
     z.building(40, 36, 4, 2, "slate_cottage", "Signal Box")
     z.sign(46, 39, "NORTH YORK MOORS RAILWAY. Eighteen miles from Pickering to Whitby, opened in 1836, shut by the Beeching cuts in 1965 and brought back to life by volunteers who clearly enjoy being sooty. The line has appeared in dramas and in a film about a school for wizards, whose station was this one, painted for the camera.")
     z.sign(53, 36, "LEVEL CROSSING. Look both ways. Then look both ways again. Then, if you hear a whistle, look at the sky, because the steam train has a plume that you will see first.")
