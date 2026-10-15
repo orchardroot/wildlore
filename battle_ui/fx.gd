@@ -122,7 +122,7 @@ func _attack(side: int, type_id: String, pos := 0, t_side := -1, t_pos := 0, spr
 func _hit(side: int, hp: int, strength: String, pos := 0) -> void:
 	Audio.sfx("hit")
 	dio.swoop_to_target(side, pos)
-	dio.shake = {"strong": 1.0, "normal": 0.55, "weak": 0.25}.get(strength, 0.5)
+	dio.shake = {"strong": 1.0, "normal": 0.55, "weak": 0.25}.get(strength, 0.5) * Settings.flash_scale(0.25)
 	var a := _actor(side, pos)
 	burst(_chest(side, pos), Color("fff2d0") if strength != "strong" else Color("ffd070"), 12 if strength == "weak" else 24, 4.0, 0.2, 0.4)
 	var before := hud.shown_hp(side, pos)

@@ -25,7 +25,8 @@ class Bar extends Control:
 		var v := clampf(value, 0.0, 1.0)
 		var c := fill
 		if colour_by_value:
-			c = BattleHUD.GREEN if v > 0.5 else (BattleHUD.AMBER if v > 0.2 else BattleHUD.RED)
+			var band := "green" if v > 0.5 else ("amber" if v > 0.2 else "red")
+			c = TypeColours.HP_SAFE[band] if TypeColours.is_colour_blind() else {"green": BattleHUD.GREEN, "amber": BattleHUD.AMBER, "red": BattleHUD.RED}[band]
 		if v > 0.0:
 			var w := maxf(2.0, (size.x - 4.0) * v)
 			draw_rect(Rect2(2, 2, w, size.y - 4), c)

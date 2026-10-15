@@ -193,17 +193,32 @@ func _row(d: Dictionary, i: int) -> PanelContainer:
 		var chip := Label.new()
 		chip.text = " %s " % str(d.chip).to_upper()
 		chip.add_theme_font_size_override("font_size", 15)
-		var sb := StyleBoxFlat.new()
-		sb.bg_color = d.get("chip_colour", MUTED)
-		sb.set_corner_radius_all(4)
-		sb.set_content_margin_all(2)
-		chip.add_theme_stylebox_override("normal", sb)
-		chip.add_theme_color_override("font_color", d.get("chip_text", Color("14161c")))
+		var chip_fg: Color = d.get("chip_text", Color("14161c"))
+		chip.add_theme_color_override("font_color", chip_fg)
 		chip.add_theme_constant_override("shadow_offset_x", 0)
 		chip.add_theme_constant_override("shadow_offset_y", 0)
 		chip.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 		chip.mouse_filter = Control.MOUSE_FILTER_IGNORE
-		h.add_child(chip)
+		var sb := StyleBoxFlat.new()
+		sb.bg_color = d.get("chip_colour", MUTED)
+		sb.set_corner_radius_all(4)
+		sb.set_content_margin_all(2)
+		if d.has("glyph"):  # type chips carry their shape too, so they never rely on colour alone
+			var pc := PanelContainer.new()
+			pc.add_theme_stylebox_override("panel", sb)
+			pc.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+			pc.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			var gh := HBoxContainer.new()
+			gh.add_theme_constant_override("separation", 0)
+			gh.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			var gl := TypeGlyph.make(str(d.glyph), chip_fg, 14)
+			gh.add_child(gl)
+			gh.add_child(chip)
+			pc.add_child(gh)
+			h.add_child(pc)
+		else:
+			chip.add_theme_stylebox_override("normal", sb)
+			h.add_child(chip)
 	if d.has("right") and str(d.right) != "":
 		var rl := Label.new()
 		rl.text = str(d.right)
@@ -232,7 +247,7 @@ func moves(c: Creature, move_db: MoveDB) -> int:
 	for m in c.moves:
 		var mv := move_db.get_move(m.id)
 		var t := str(mv.get("type", ""))
-		rows.append({"text": mv.get("name", m.id), "stripe": TypeColours.of(t), "chip": t, "chip_colour": TypeColours.of(t), "chip_text": TypeColours.text_on(t),
+		rows.append({"text": mv.get("name", m.id), "stripe": TypeColours.of(t), "chip": t, "glyph": t, "chip_colour": TypeColours.of(t), "chip_text": TypeColours.text_on(t),
 			"right": "%d/%d" % [int(m.pp), int(m.max_pp)], "right_warn": int(m.pp) <= 0, "disabled": int(m.pp) <= 0 and not all_empty})
 	var footer := func(i: int) -> String:
 		var mv := move_db.get_move(c.moves[i].id)
@@ -294,7 +309,7 @@ func forget(c: Creature, new_move: String, move_db: MoveDB) -> int:
 	for m in c.moves:
 		var mv := move_db.get_move(m.id)
 		var t := str(mv.get("type", ""))
-		rows.append({"text": mv.get("name", m.id), "stripe": TypeColours.of(t), "chip": t, "chip_colour": TypeColours.of(t), "chip_text": TypeColours.text_on(t),
+		rows.append({"text": mv.get("name", m.id), "stripe": TypeColours.of(t), "chip": t, "glyph": t, "chip_colour": TypeColours.of(t), "chip_text": TypeColours.text_on(t),
 			"right": "Pow %d" % int(mv.get("power", 0))})
 	rows.append({"text": "Don't learn it", "stripe": MUTED})
 	var nm := move_db.get_move(new_move)

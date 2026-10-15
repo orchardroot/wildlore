@@ -316,12 +316,16 @@ func evolve_anim(c: Creature, to_sp: Dictionary) -> bool:
 	Audio.sfx("evolve")
 	var cancelled := false
 	var delay := 0.32
-	for i in 14:
+	var gentle := Settings.reduce_flashing  # a few slow, soft swaps instead of a speeding-up strobe
+	var glow := Color(1.4, 1.4, 1.5) if gentle else Color(3.2, 3.2, 3.6)
+	if gentle:
+		delay = 0.6
+	for i in (6 if gentle else 14):
 		a.sprite.texture = new_tex if i % 2 == 0 else old_tex
-		a.sprite.modulate = Color(3.2, 3.2, 3.6) if i % 2 == 0 else Color(1.12, 1.12, 1.12)
+		a.sprite.modulate = glow if i % 2 == 0 else Color(1.12, 1.12, 1.12)
 		fx.burst(a.global_position + Vector3(0, 1.1, 0), Color("fff6c0"), 6, 2.0, 0.12, 0.5, 0.5)
 		await _wait(delay)
-		delay = maxf(0.07, delay * 0.82)
+		delay = delay if gentle else maxf(0.07, delay * 0.82)
 		if not auto and (Input.is_action_pressed("cancel") or Input.is_action_pressed("ui_cancel")):
 			cancelled = true
 			break
@@ -330,7 +334,7 @@ func evolve_anim(c: Creature, to_sp: Dictionary) -> bool:
 		dio.swoop_home()
 		return false
 	a.sprite.texture = new_tex
-	a.sprite.modulate = Color(3.2, 3.2, 3.6)
+	a.sprite.modulate = glow
 	fx.burst(a.global_position + Vector3(0, 1.1, 0), Color("ffe9a0"), 40, 5.0, 0.2, 1.0, -2.0)
 	create_tween().tween_property(a.sprite, "modulate", Color(1.12, 1.12, 1.12), 0.5)
 	await _wait(0.6)
