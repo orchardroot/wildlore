@@ -1,9 +1,122 @@
 {
  "shuck": [
   {
-   "do": "say",
-   "who": "Black Shuck",
-   "text": "Placeholder: the story agent rewrites this legend script."
+   "do": "if",
+   "flag": "badge_spirit",
+   "then": [
+    {
+     "do": "if",
+     "flag": "shuck_met",
+     "then": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "Two points of light hang in the sea-fog on the clifftop, steady as lamps. They are looking at you."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "A great bank of fog rolls up over the abbey ruins in a minute and a half. Out of it, on four huge silent paws, steps a black dog the size of a pony."
+      },
+      {
+       "do": "music",
+       "id": "legend_hound2"
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "Its eyes are two lamps. Its coat doesn't so much shine as absorb the light from around it. A herring gull on the wall, who has seen everything, takes a step sideways."
+      },
+      {
+       "do": "say",
+       "who": "Black Shuck",
+       "text": "Do not be afraid. Everyone is, at first. It's the size, I think. And the eyes. And the way I tend to turn up at the end of a bad night."
+      },
+      {
+       "do": "say",
+       "who": "Black Shuck",
+       "text": "I came ashore from a wrecked ship in a story, and the story gave me a very good press agent. I've just been walking this cliff ever since, being looked at."
+      },
+      {
+       "do": "say",
+       "who": "Black Shuck",
+       "text": "They say a person who sees me will not see the year out. This is nonsense. I merely walk people home. It's usually a long way and quite a lot of steps. A hundred and ninety-nine, in fact. Shall we?"
+      },
+      {
+       "do": "set",
+       "flag": "shuck_met"
+      }
+     ]
+    },
+    {
+     "do": "legend",
+     "species": "shuck",
+     "level": 86,
+     "flag": "caught_shuck",
+     "music": "legend_hound2"
+    },
+    {
+     "do": "if",
+     "flag": "caught_shuck",
+     "then": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "The great black dog pads to your side and sits, enormous and unhurried, with its eyes like two lamps turned down low. Down the cliff, a gull screams at it. It does not look round. The gull finds a lamp-post to be somewhere else on."
+      },
+      {
+       "do": "warp",
+       "zone": "whitby",
+       "x": 53,
+       "y": 17,
+       "facing": "up"
+      },
+      {
+       "do": "end"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "Black Shuck steps backwards into the fog that has, without anybody noticing, arrived, and is gone. Somewhere on the cliff path, one slow bark. You are fairly sure it said 'next time'."
+      },
+      {
+       "do": "warp",
+       "zone": "whitby",
+       "x": 53,
+       "y": 17,
+       "facing": "up"
+      },
+      {
+       "do": "end"
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "",
+     "text": "On the clifftop above the abbey, something large and black sits against the sky, as still as a statue. When you look straight at it, it's a gatepost. When you look away, it has ears."
+    },
+    {
+     "do": "say",
+     "who": "Black Shuck",
+     "text": "Not yet, little walker. I only keep company with those who carry all ten. You have nine, and a very good start."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "The fog comes in from the sea, wraps the clifftop for a moment, and goes out again. The gatepost is a gatepost. Probably."
+    },
+    {
+     "do": "set",
+     "flag": "shuck_stirred"
+    }
+   ]
   }
  ],
  "rail_guard": [
@@ -35,14 +148,81 @@
  ],
  "wby_jeweller": [
   {
-   "do": "say",
-   "who": "Jet Carver",
-   "text": "Whitby jet is fossilised monkey-puzzle wood, nearly 180 million years old. You can carve it, and it takes a lovely polish, and it will pull a tiny scrap of paper to itself if you rub it."
-  },
-  {
-   "do": "say",
-   "who": "Jet Carver",
-   "text": "Queen Victoria wore it in mourning, so every lady in the land wanted it. At the peak there were two hundred jet workshops in this little town. Now there are some. I'm one."
+   "do": "if",
+   "flag": "jet_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Jet Carver",
+     "text": "Mind the dust, love. And mind your Jetling, if you've got one. A little polish and it'll gleam like a good intention."
+    },
+    {
+     "do": "say",
+     "who": "Jet Carver",
+     "text": "Whitby jet is patience, the old carvers say. Ten years to learn to carve a rose. Twenty to stop being annoyed by it."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Jet Carver",
+     "text": "Whitby jet is fossilised monkey-puzzle wood, nearly 180 million years old. You can carve it, and it takes a lovely polish, and it will pull a tiny scrap of paper to itself if you rub it."
+    },
+    {
+     "do": "say",
+     "who": "Jet Carver",
+     "text": "Queen Victoria wore it in mourning, so every lady in the land wanted it. At the peak there were two hundred jet workshops in this little town. Now there are some. I'm one."
+    },
+    {
+     "do": "choice",
+     "text": "The jet carver holds out a polishing cloth. Try your hand at a piece?",
+     "options": [
+      "Go on, then",
+      "Not today"
+     ],
+     "set": "jet_choice"
+    },
+    {
+     "do": "if",
+     "flag": "jet_choice",
+     "then": [
+      {
+       "do": "say",
+       "who": "Jet Carver",
+       "text": "Light hands, love. Small circles. Think of it as stroking a cat who is a bit shy of you."
+      },
+      {
+       "do": "sfx",
+       "id": "heal"
+      },
+      {
+       "do": "wait",
+       "seconds": 0.6
+      },
+      {
+       "do": "say",
+       "who": "Jet Carver",
+       "text": "Well, now. That's not bad at all. You've the touch. There's a glow on it you won't get from a shop. Here, keep it. It's good for a Jetling, if you've got one, and for the look of the thing if you haven't."
+      },
+      {
+       "do": "give_item",
+       "item": "whitby_jet"
+      },
+      {
+       "do": "set",
+       "flag": "jet_done"
+      }
+     ],
+     "eq": 0,
+     "else": [
+      {
+       "do": "say",
+       "who": "Jet Carver",
+       "text": "Another time, then. The jet'll wait. It's waited a hundred and eighty million years. It's very good at it."
+      }
+     ]
+    }
+   ]
   }
  ],
  "wby_goth": [
