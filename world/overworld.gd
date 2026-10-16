@@ -15,6 +15,7 @@ var _zone_node: Node3D
 var _tilt: ColorRect
 var _dark: ColorRect
 var traffic: RailTraffic
+var _rode_in := false   # on the bike when we went indoors (session memory only, not saved)
 
 func _ready() -> void:
 	sky = SkyAndLight.new()
@@ -74,9 +75,15 @@ func load_zone(zone_id: String, pos: Vector2i, facing: String) -> void:
 	if pos.x < 0:
 		pos = zone.spawn
 	player.place(pos, facing, ground_y(pos))
+	var wading_here := zone.tile_at(pos) == "deep_water"
 	if zone.kind == "interior":
+		_rode_in = _rode_in or player.on_bike  # remember riding in, to hop back on outside
 		player.set_bike(false)
-	player.set_wading(zone.tile_at(pos) == "deep_water")
+	elif _rode_in:
+		_rode_in = false
+		if Player.resume_bike(true, FieldMoves.bike_refusal(Game.data, zone, wading_here)):
+			player.set_bike(true)
+	player.set_wading(wading_here)
 	Game.data.zone_id = zone_id
 	Travel.note_visit(Game.data, zone)
 	Game.data.pos = pos
@@ -260,7 +267,7 @@ func _on_step(p: Vector2i) -> void:
 		var foe := Creature.create(Game.dex.get_species(enc.species), enc.level, Game.rng, Game.moves)
 		Game.data.mark_seen(enc.species)
 		var result: Dictionary = await Router.battle([foe], {"kind": "wild", "weather": weather, "time": Game.phase(), "stage": _stage()})
-		_after_battle(result)
+		await _after_battle(result)
 
 func _cross_edge(p: Vector2i) -> void:
 	var side := GridMotion.edge_side(p, zone.width, zone.height)
@@ -290,12 +297,16 @@ func _stage() -> String:
 ## Called by Router after any battle that ran over this overworld.
 func on_battle_finished(result: Dictionary) -> void:
 	encounters.after_battle()
+	if str(result.get("result", "")) == "lose":
+		_rode_in = false  # the whiteout warp is not a ride home
 	if zone and zone.music != "":
 		Audio.play_music(zone.music, 0.4)
 
 func _after_battle(result: Dictionary) -> void:
 	if result.get("result") == "lose":
 		await ScriptRunner.start(self, [{"do": "whiteout"}])  # one whiteout, shared with trainer battles
+	elif Encounters.autosave_after(result):
+		Game.autosave()  # the catch is done and nothing is half-played: bank it
 
 func interact(p: Vector2i) -> void:
 	var s := zone.sign_at(p)
@@ -312,10 +323,23 @@ func open_pause() -> void:
 	Audio.sfx("confirm")
 	var r = await Router.open_menu("pause")
 	if r is Dictionary and r.has("fly"):  # flight from the map, after the Moot
-		var a := Travel.fly_arrival(str(r.fly))
-		Audio.sfx("raven_caw")
-		player.set_bike(false)
-		await Router.goto_zone(str(a.zone), a.pos, "down")
+		await _fly_to(str(r.fly))
+
+## The Fly key out on the overworld: same rules as the Map's Fly button (Champion, nothing else going on).
+func try_fly() -> void:
+	if Game.data.flag("champion") != true or Router.busy or player.moving:
+		return
+	Audio.sfx("confirm")
+	var town = await Router.open_menu("travel:fly")
+	if town != null and str(town) != "":
+		await _fly_to(str(town))
+
+func _fly_to(town: String) -> void:
+	var a := Travel.fly_arrival(town)
+	Audio.sfx("raven_caw")
+	player.set_bike(false)
+	_rode_in = false
+	await Router.goto_zone(str(a.zone), a.pos, "down")
 
 ## Shows lines in the dialogue box (or prints them if the UI isn't there yet).
 func say(lines: Array, who := "") -> void:
