@@ -171,3 +171,28 @@ func test_castles_fly_their_regions_pennant() -> void:
 	assert_true(_has_colour(_colours(york), Landmarks.PENNANT_WHITE), "York's castle flies St George")
 	var scot: ArrayMesh = Meshes.building(6, 4, "castle", 2, 1, "scotland")[0]
 	assert_true(_has_colour(_colours(scot), Landmarks.PENNANT_BLUE), "Edinburgh's flies saltire blue")
+
+func test_titanic_belfast_has_four_silver_prows() -> void:
+	# it was a plain stone block with a bare roof: the real one is four ship's prows clad in silver shards
+	assert_has(Landmarks.SPECIAL, "titanic")
+	var body: ArrayMesh = Meshes.building(12, 7, "titanic", 6, 1)[0]
+	var box := body.get_aabb()
+	assert_true(box.size.y > 5.0, "tall (%.2f)" % box.size.y)
+	assert_true(box.size.x <= 12.6 and box.size.z <= 7.6, "keeps (near enough) to its plot")
+	var verts: PackedVector3Array = body.surface_get_arrays(0)[Mesh.ARRAY_VERTEX]
+	var cols := _colours(body)
+	var shades := {}
+	var silver := 0
+	for c in cols:
+		shades[c.to_html(false)] = true
+		if absf(c.r - c.b) < 0.08 and c.r > 0.6:
+			silver += 1
+	assert_true(shades.size() >= 10, "shard cladding in many shades (%d)" % shades.size())
+	assert_true(silver > cols.size() / 2, "mostly silver")
+	# the high points are the four prow tips, out toward the corners, not a flat roof
+	var tips := {}
+	for v in verts:
+		if v.y > box.end.y - 0.3:
+			tips[Vector2i(signi(int(roundf(v.x - 6.0))), signi(int(roundf(v.z - 3.5))))] = true
+	for k in [Vector2i(-1, -1), Vector2i(1, -1), Vector2i(-1, 1), Vector2i(1, 1)]:
+		assert_true(tips.has(k), "a prow rises at corner %s" % k)

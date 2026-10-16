@@ -16,7 +16,7 @@ const IRON := Color("3c4450")
 const GLASS := Color.WHITE
 
 ## Building styles handled here rather than by the generic house in Meshes.building.
-const SPECIAL := ["glass_tower", "gantry_crane", "cantilever_crane", "mill", "castle", "cathedral", "liver_building", "station", "aqueduct", "chapel", "terrace", "tudor", "slate_cottage", "lighthouse_house", "round_tower", "passage_tomb"]
+const SPECIAL := ["glass_tower", "gantry_crane", "cantilever_crane", "titanic", "mill", "castle", "cathedral", "liver_building", "station", "aqueduct", "chapel", "terrace", "tudor", "slate_cottage", "lighthouse_house", "round_tower", "passage_tomb"]
 
 ## Doors: where each style's door sits on its tile (see _door and friends), for the swing as you go in.
 ## {x, w, y, h, z}: left edge and width across the door column, bottom and height, z of the door's face from
@@ -123,6 +123,8 @@ static func building(w: int, d: int, style: String, door_x: int, seed_value: int
 			_gantry(st, w, d)
 		"cantilever_crane":
 			_cantilever(st, w, d)
+		"titanic":
+			_titanic(st, wst, w, d, door_x, rng)
 		"glass_tower":
 			_glass_tower(st, wst, w, d, door_x)
 		"terrace":
@@ -584,6 +586,74 @@ static func _strut(st: SurfaceTool, a: Vector3, b: Vector3, t: float, col: Color
 	for i in 4:
 		var j := (i + 1) % 4
 		Meshes._quad(st, lo[i], lo[j], hi[j], hi[i], col.darkened(0.06 * (i % 2)))
+
+## Titanic Belfast: four angular ship's prows, one rising toward each corner, flaring out as they climb and clad
+## in silver shards, round a glass atrium whose front holds the door. The prows' tips stand highest, like bows.
+static func _titanic(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int, rng: RandomNumberGenerator) -> void:
+	var c := Vector2(w * 0.5, d * 0.5)
+	var h := maxf(5.4, d * 0.8)
+	var glass := Color("35505f")
+	var frame := Color("23303a")
+	# the atrium: a glass box between the prows, reaching the front edge for the door
+	var aw := minf(3.2, w * 0.3)
+	Meshes.box(st, Vector3(c.x - aw * 0.5, 0, c.y - d * 0.2), Vector3(aw, h * 0.7, d * 0.7), glass, frame)
+	for r in 3:
+		for i in int(aw / 0.5):
+			var x := c.x - aw * 0.5 + 0.1 + i * 0.5
+			if r == 0 and door_x >= 0 and x >= door_x - 0.3 and x <= door_x + 1.0:
+				continue
+			Meshes.box(wst, Vector3(x, 0.35 + r * 1.1, d - 0.03), Vector3(0.36, 0.7, 0.04), window_colour(_wr))
+	if door_x >= 0:
+		Meshes.box(st, Vector3(door_x + 0.12, 0, d - 0.06), Vector3(0.76, 1.1, 0.08), frame)
+	# the prows: a kite in plan (inner corner, two flanks, the bow), pointing at a footprint corner
+	var half := Vector2(w * 0.5, d * 0.5)
+	for corner: Vector2 in [Vector2(-1, -1), Vector2(1, -1), Vector2(-1, 1), Vector2(1, 1)]:
+		var o := (corner * half).normalized()
+		var perp := Vector2(o.y, -o.x)
+		var reach := (corner * half).length() - 0.55
+		var flank := reach * 0.5
+		var hw := minf(1.4, half.y * 0.42)
+		var plan := [c + o * 0.6, c + o * flank + perp * hw, c + o * reach, c + o * flank - perp * hw]
+		var tops := [h * 0.8, h * 0.9, h * 1.08, h * 0.9]
+		var lo := []
+		var hi := []
+		for i in 4:
+			var p: Vector2 = plan[i]
+			# lean out as it climbs: the walls flare, the bow most of all
+			var lean: Vector2 = (p - c) * (0.1 if i != 2 else 0.12)
+			lo.append(Vector3(p.x, 0, p.y))
+			hi.append(Vector3(p.x + lean.x, tops[i], p.y + lean.y))
+		hi[2] = Vector3(clampf(hi[2].x, -0.2, w + 0.2), hi[2].y, clampf(hi[2].z, -0.2, d + 0.2))
+		for i in 4:
+			var j := (i + 1) % 4
+			_shards(st, lo[i], lo[j], hi[j], hi[i], 3, 5, rng)
+		_shards(st, hi[0], hi[1], hi[2], hi[3], 2, 2, rng, 0.08)  # the deck, darker
+
+## A wall clad in silver shards: the quad a-b-c-d (a, b along the bottom) cut into a cols x rows grid, each
+## cell split corner to corner into two triangles of different silvers.
+static func _shards(st: SurfaceTool, a: Vector3, b: Vector3, c: Vector3, d: Vector3, cols: int, rows: int, rng: RandomNumberGenerator, dark := 0.0) -> void:
+	var base := Color("c4cad0")
+	for r in rows:
+		for k in cols:
+			var u0 := k / float(cols)
+			var u1 := (k + 1) / float(cols)
+			var v0 := r / float(rows)
+			var v1 := (r + 1) / float(rows)
+			var p00 := _bilerp(a, b, c, d, u0, v0)
+			var p10 := _bilerp(a, b, c, d, u1, v0)
+			var p11 := _bilerp(a, b, c, d, u1, v1)
+			var p01 := _bilerp(a, b, c, d, u0, v1)
+			var s1 := base.lightened(rng.randf_range(0.0, 0.2)).darkened(dark) if rng.randf() < 0.5 else base.darkened(rng.randf_range(0.0, 0.16) + dark)
+			var s2 := base.lerp(Color("aebccb"), rng.randf_range(0.2, 0.7)).darkened(dark)
+			if (r + k) % 2 == 0:
+				Meshes._tri(st, p00, p10, p11, s1)
+				Meshes._tri(st, p00, p11, p01, s2)
+			else:
+				Meshes._tri(st, p00, p10, p01, s2)
+				Meshes._tri(st, p10, p11, p01, s1)
+
+static func _bilerp(a: Vector3, b: Vector3, c: Vector3, d: Vector3, u: float, v: float) -> Vector3:
+	return a.lerp(b, u).lerp(d.lerp(c, u), v)
 
 ## Lord Vane's tower: a tall tapering block of blue glass with a lit grid of windows and a needle spire.
 static func _glass_tower(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int) -> void:
