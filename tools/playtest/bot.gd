@@ -101,6 +101,10 @@ func _run() -> void:
 	if mode == "fuzz":
 		await _fuzz()
 		return
+	if mode == "doors":
+		await _doors()
+		_finish()
+		return
 	await _talk("macc_home", "mum")
 	await _talk("macc_fieldstation", "garside")
 	_check(Game.data.party.size() >= 1, "no starter after Garside")
@@ -943,6 +947,7 @@ func menu_result(menu: String) -> Variant:
 	if menu == "bag":
 		_use_bag()
 	if menu == "travel:rail":
+		_menus_seen.append(menu)
 		return _rail_dest if _rail_dest != "" else null
 	return null
 
@@ -1028,6 +1033,23 @@ func _on_battle_ended(result: Dictionary) -> void:
 			stats.losses += 1
 		"caught":
 			stats.catches += 1
+
+var _menus_seen: Array = []
+
+## Station doors: walking into a station's door opens the ticket office (the rail menu), then steps you back out.
+func _doors() -> void:
+	Game.data.bag["rail_pass"] = 1
+	await Router.goto_zone("manchester", Vector2i(43, 40), "up")
+	await _settle()
+	var ow := _ow()
+	_check(ow.zone.tile_at(Vector2i(43, 39)) == "door", "no station door above 43,40 in manchester")
+	ow.player.try_step("up")
+	for i in 120:
+		await get_tree().process_frame
+	_check(_menus_seen.has("travel:rail"), "the station door didn't open the rail menu")
+	_check(ow.player.grid_pos == Vector2i(43, 40), "player left at %s, not stepped back out" % ow.player.grid_pos)
+	_check(not Router.busy, "Router still busy after the ticket office")
+	print("BOT: doors ok, menus %s, player %s" % [_menus_seen, ow.player.grid_pos])
 
 func _ow() -> Node:
 	return Router.overworld if Router.overworld and is_instance_valid(Router.overworld) else null
