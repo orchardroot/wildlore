@@ -1,0 +1,80 @@
+{
+ "id": "dublin_templebar",
+ "name": "The Temple Bar",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "table",
+   "x": 9,
+   "y": 3
+  },
+  {
+   "type": "table",
+   "x": 9,
+   "y": 5
+  },
+  {
+   "type": "table",
+   "x": 11,
+   "y": 3
+  },
+  {
+   "type": "table",
+   "x": 11,
+   "y": 5
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 7
+  },
+  {
+   "type": "potted_plant",
+   "x": 12,
+   "y": 7
+  }
+ ],
+ "warps": [
+  {
+   "x": 7,
+   "y": 8,
+   "to": "dublin",
+   "tx": 37,
+   "ty": 38,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "dub_templebar_fiddler",
+   "sprite": "fiddler",
+   "x": 4,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "dub_templebar_fiddler"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  7,
+  7
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxx",
+  "x||||||||||||x",
+  "x|CCCC|||||||x",
+  "x||||||||||||x",
+  "x||||||||||||x",
+  "x||||||||||||x",
+  "x||||||||||||x",
+  "x||||||||||||x",
+  "x||||||D|||||x",
+  "xxxxxxxxxxxxxx"
+ ]
+}

@@ -1,0 +1,41 @@
+{
+ "dub_home_orla": [
+  {
+   "do": "say",
+   "who": "Orla",
+   "text": "Come in, come in. 'Grand' means everything from 'fine' to 'wonderful'. A 'yoke' is any gadget whose name you have forgotten."
+  },
+  {
+   "do": "say",
+   "who": "Orla",
+   "text": "Dublin's Georgian doors are famously bright. One story is that people painted them to tell the identical houses apart."
+  },
+  {
+   "do": "if",
+   "flag": "dublin_home_gift",
+   "then": [
+    {
+     "do": "say",
+     "who": "Orla",
+     "text": "That is all I have, I am afraid. Off you go, and mind how you go."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Orla",
+     "text": "Down in the Park the fawnlets hide in the bracken. Walk quietly, and they might not hide. Here, some barmbrack, my gran's recipe."
+    },
+    {
+     "do": "give_item",
+     "item": "barmbrack",
+     "n": 1
+    },
+    {
+     "do": "set",
+     "flag": "dublin_home_gift"
+    }
+   ]
+  }
+ ]
+}

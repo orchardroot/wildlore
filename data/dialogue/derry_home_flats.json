@@ -1,0 +1,41 @@
+{
+ "derry_home_flat": [
+  {
+   "do": "say",
+   "who": "Mrs Doherty",
+   "text": "Come in, mind the cat. The mill was a linen mill once, and these flats keep the big windows."
+  },
+  {
+   "do": "say",
+   "who": "Mrs Doherty",
+   "text": "'Houl yer whisht' is what you say here for 'be quiet'. Hear it from a grandmother and you will stop talking."
+  },
+  {
+   "do": "if",
+   "flag": "derry_flat_gift",
+   "then": [
+    {
+     "do": "say",
+     "who": "Mrs Doherty",
+     "text": "That is all I have, I am afraid. Off you go, and mind how you go."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Mrs Doherty",
+     "text": "The wee hootlets in the wood up the road keep very odd hours. I call them the night staff."
+    },
+    {
+     "do": "give_item",
+     "item": "cup_of_tea",
+     "n": 1
+    },
+    {
+     "do": "set",
+     "flag": "derry_flat_gift"
+    }
+   ]
+  }
+ ]
+}

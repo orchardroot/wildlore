@@ -1,0 +1,41 @@
+{
+ "bel_home_mairead": [
+  {
+   "do": "say",
+   "who": "Mairead",
+   "text": "Come on in, the kettle is on. In Belfast, 'a wee while' can mean anywhere from five minutes to a week."
+  },
+  {
+   "do": "say",
+   "who": "Mairead",
+   "text": "'Scundered' means fed up or embarrassed, usually both. 'Catch yourself on' means stop being silly. I say both every day."
+  },
+  {
+   "do": "if",
+   "flag": "belfast_home_gift",
+   "then": [
+    {
+     "do": "say",
+     "who": "Mairead",
+     "text": "That is all I have, I am afraid. Off you go, and mind how you go."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Mairead",
+     "text": "Mind the chipgulls down at the Docks. They have a system, and the system is you."
+    },
+    {
+     "do": "give_item",
+     "item": "ulster_fry",
+     "n": 1
+    },
+    {
+     "do": "set",
+     "flag": "belfast_home_gift"
+    }
+   ]
+  }
+ ]
+}
