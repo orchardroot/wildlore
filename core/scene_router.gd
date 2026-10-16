@@ -32,6 +32,8 @@ func _ready() -> void:
 	add_child(_menu_layer)
 
 func fade_out(t := 0.3) -> void:
+	if _fade.color.a >= 0.999:
+		return  # already dark (a travel scene ended on black): don't sit on a black screen for nothing
 	var tw := create_tween()
 	tw.tween_property(_fade, "color:a", 1.0, t)
 	await tw.finished

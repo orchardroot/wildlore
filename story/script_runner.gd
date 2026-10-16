@@ -83,6 +83,17 @@ class Host extends RefCounted:
 		await Router.goto_zone(zone, Vector2i(x, y), facing)
 		Router.busy = true
 
+	## A travel scene before the warp (false when scenes are off); see Journey.
+	func journey_out(kind: String, info: Dictionary) -> bool:
+		close_box()
+		var played: bool = await Journey.depart(_ow, kind, info)
+		Router.busy = true
+		return played
+
+	func journey_in(kind: String, info: Dictionary) -> void:
+		await Journey.arrive(_ow, kind, info)
+		Router.busy = true
+
 	func open_menu(menu: String) -> Variant:
 		close_box()
 		var r = await Router.open_menu(menu)

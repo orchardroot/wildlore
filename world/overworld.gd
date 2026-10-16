@@ -17,6 +17,7 @@ var _dark: ColorRect
 var traffic: RailTraffic
 var _rode_in := false   # on the bike when we went indoors (session memory only, not saved)
 var ambient: AmbientLife
+var arrival_scene := ""  # "train": the next zone loads with a train at the platform for you to step off (Journey)
 
 func _ready() -> void:
 	sky = SkyAndLight.new()
@@ -80,6 +81,10 @@ func load_zone(zone_id: String, pos: Vector2i, facing: String) -> void:
 	if pos.x < 0:
 		pos = zone.spawn
 	player.place(pos, facing, ground_y(pos))
+	var arriving := arrival_scene
+	arrival_scene = ""
+	# hidden only while a travel scene's train stands here for you to step off (Journey.arrive shows you again)
+	player.visible = not (arriving == "train" and traffic.stand_at_station())
 	var wading_here := zone.tile_at(pos) == "deep_water"
 	if zone.kind == "interior":
 		_rode_in = _rode_in or player.on_bike  # remember riding in, to hop back on outside
@@ -347,10 +352,16 @@ func try_fly() -> void:
 
 func _fly_to(town: String) -> void:
 	var a := Travel.fly_arrival(town)
-	Audio.sfx("raven_caw")
+	var here = Game.data.flag("last_town")
+	var info := {"from": str(here) if here else "", "to": town}
 	player.set_bike(false)
 	_rode_in = false
+	var scene: bool = await Journey.depart(self, "fly", info)
+	if not scene:
+		Audio.sfx("raven_caw")
 	await Router.goto_zone(str(a.zone), a.pos, "down")
+	if scene:
+		await Journey.arrive(self, "fly", info)
 
 ## Shows lines in the dialogue box (or prints them if the UI isn't there yet).
 func say(lines: Array, who := "") -> void:
