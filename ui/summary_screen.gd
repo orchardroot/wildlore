@@ -1,6 +1,6 @@
 extends MenuBase
 ## Summary: front sprite, types, stats, nature, moves with PP and the Creaturepedia fact. Left/right pages through the team;
-## up/down picks a move to read what it does.
+## up/down picks a move to read what it does. Confirm on a move, then on another, swaps them round.
 
 const STAT_NAMES := {"hp": "HP", "atk": "Attack", "def": "Defence", "lore": "Lore", "ward": "Ward", "spd": "Speed"}
 
@@ -10,6 +10,7 @@ var _move := 0  # the highlighted move row (kept while paging through the team)
 var _move_rows: Array = []
 var _move_info: Label
 var _moves_of: Creature
+var _swap_from := -1  # the move picked to be swapped, or -1
 
 func _build() -> void:
 	set_title("Summary")
@@ -18,25 +19,66 @@ func _build() -> void:
 	_body.add_theme_constant_override("separation", 22)
 	content.add_child(_body)
 
+## arg: party index. "<index>:swap" opens with the top move already picked to swap (screenshots).
 func setup(arg: String) -> void:
-	_index = clampi(int(arg), 0, maxi(0, party().size() - 1))
+	var parts := arg.split(":")
+	_index = clampi(int(parts[0]), 0, maxi(0, party().size() - 1))
+	if parts.size() > 1 and parts[1] == "swap":
+		_swap_from = 0
+		_move = 2
 	_show()
 
-func _unhandled_input(event: InputEvent) -> void:
+## Swaps two of a creature's moves (PP and all). Out-of-range slots do nothing.
+static func swap_moves(c: Creature, a: int, b: int) -> void:
+	var order := MenuLogic.reorder(c.moves, a, b)
+	c.moves.clear()
+	c.moves.append_array(order)
+
+func _on_cancel() -> void:
+	if _swap_from >= 0:
+		Audio.sfx("cancel")
+		_swap_from = -1
+		_set_hint()
+		_paint_moves()
+		return
+	close(null)
+
+## Confirm on a move: pick it, or swap it with the one already picked.
+func _move_pressed() -> void:
+	if _moves_of == null or _moves_of.moves.size() < 2:
+		return
+	if _swap_from < 0:
+		Audio.sfx("confirm")
+		_swap_from = _move
+	else:
+		Audio.sfx("confirm")
+		swap_moves(_moves_of, _swap_from, _move)
+		_swap_from = -1
+		_show()
+		return
+	_set_hint()
+	_paint_moves()
+
+## Read before the GUI, so the Team screen's focused button underneath never sees these keys.
+func _input(event: InputEvent) -> void:
 	if _locked or _done:
+		return
+	if event.is_action_pressed("confirm"):
+		get_viewport().set_input_as_handled()
+		if _move_rows.size() > 1:
+			_move_pressed()
 		return
 	var dy := 0
 	if event.is_action_pressed("move_up"):
 		dy = -1
 	elif event.is_action_pressed("move_down"):
 		dy = 1
-	if dy != 0 and _move_rows.size() > 1:
+	if dy != 0:
 		get_viewport().set_input_as_handled()
-		_move = MenuLogic.wrap_index(_move, dy, _move_rows.size())
-		Audio.sfx("cursor")
-		_paint_moves()
-		return
-	if party().size() < 2:
+		if _move_rows.size() > 1:
+			_move = MenuLogic.wrap_index(_move, dy, _move_rows.size())
+			Audio.sfx("cursor")
+			_paint_moves()
 		return
 	var d := 0
 	if event.is_action_pressed("move_left"):
@@ -45,9 +87,13 @@ func _unhandled_input(event: InputEvent) -> void:
 		d = 1
 	if d != 0:
 		get_viewport().set_input_as_handled()
-		_index = MenuLogic.wrap_index(_index, d, party().size())
-		Audio.sfx("cursor")
-		_show()
+		if party().size() > 1:
+			_swap_from = -1
+			_index = MenuLogic.wrap_index(_index, d, party().size())
+			Audio.sfx("cursor")
+			_show()
+		return
+	super._input(event)
 
 func _show() -> void:
 	UIKit.clear(_body)
@@ -55,10 +101,19 @@ func _show() -> void:
 		return
 	var c: Creature = party()[_index]
 	header_right.text = "%d / %d" % [_index + 1, party().size()]
-	set_hint(("Up / Down  Moves        " if c.moves.size() > 1 else "") + ("Left / Right  Next creature        X  Back" if party().size() > 1 else "X  Back"))
+	_moves_of = c
+	_set_hint()
 	_body.add_child(_left(c))
 	_body.add_child(_middle(c))
 	_body.add_child(_right(c))
+
+func _set_hint() -> void:
+	if _moves_of == null:
+		return
+	if _swap_from >= 0:
+		set_hint("Up / Down  Pick a spot        Z  Swap here        X  Cancel")
+		return
+	set_hint(("Up / Down  Moves        Z  Reorder        " if _moves_of.moves.size() > 1 else "") + ("Left / Right  Next creature        X  Back" if party().size() > 1 else "X  Back"))
 
 func _left(c: Creature) -> Control:
 	var p := UIKit.panel(Color("1d2230f0"), 18)
@@ -167,6 +222,11 @@ func _right(c: Creature) -> Control:
 			if _move != i:
 				_move = i
 				_paint_moves())
+		hl.gui_input.connect(func(ev: InputEvent):
+			var mb := ev as InputEventMouseButton
+			if mb and mb.pressed and mb.button_index == MOUSE_BUTTON_LEFT and not _locked and not _done:
+				_move = i
+				_move_pressed())
 		var row := HBoxContainer.new()
 		row.add_theme_constant_override("separation", 10)
 		row.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -217,9 +277,17 @@ func _paint_moves() -> void:
 		sb.content_margin_top = 2
 		sb.content_margin_bottom = 2
 		sb.bg_color = Color(UIKit.HEATHER, 0.35) if i == _move else Color(0, 0, 0, 0)
+		if i == _swap_from:
+			sb.bg_color = Color(UIKit.GOLD, 0.30)
+			sb.border_color = UIKit.GOLD
+			sb.set_border_width_all(2)
 		_move_rows[i].add_theme_stylebox_override("panel", sb)
 	if _move_info == null or _moves_of == null or _move >= _moves_of.moves.size():
 		return
 	var info: Dictionary = Game.moves.get_move(_moves_of.moves[_move].id)
 	var power := int(info.get("power", 0))
+	if _swap_from >= 0:
+		var from_name := str(Game.moves.get_move(_moves_of.moves[_swap_from].id).get("name", ""))
+		_move_info.text = "Swap %s with %s?" % [from_name, info.get("name", "")] if _swap_from != _move else "Pick where %s should go." % from_name
+		return
 	_move_info.text = "%sAccuracy %d  ·  %s" % [("Power %d  ·  " % power) if power > 0 else "", int(info.get("accuracy", 100)), MoveText.describe(info)]

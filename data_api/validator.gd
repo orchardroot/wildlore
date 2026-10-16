@@ -103,7 +103,7 @@ static func _check_species(sp: Dictionary, chart: TypeChart, dex: Dex, moves: Mo
 		e.append("species %s: needs Creaturepedia text and a real-world fact" % id)
 	return e
 
-const ITEM_KINDS := ["heal", "cure", "revive", "pp", "snare", "evo", "held", "key"]
+const ITEM_KINDS := ["heal", "cure", "revive", "pp", "snare", "evo", "held", "repel", "key"]
 const EXTRA_SNARES := ["night", "water", "fae"]
 
 static func _check_items(db: ItemDB, dex: Dex) -> Array:
@@ -143,6 +143,9 @@ static func _check_item(it: Dictionary, dex: Dex) -> Array:
 			for s in cures:
 				if s not in Rules.STATUSES:
 					e.append("item %s: unknown status '%s'" % [id, s])
+		"repel":
+			if int(it.get("steps", 0)) < 1:
+				e.append("item %s: repel item needs steps >= 1" % id)
 		"snare":
 			var sn: String = it.get("snare", "")
 			if not Catching.SNARES.has(sn) and sn not in EXTRA_SNARES:

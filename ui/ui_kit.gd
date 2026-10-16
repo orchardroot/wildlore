@@ -120,7 +120,7 @@ static func clear(node: Node) -> void:
 
 static func kind_name(kind: String) -> String:
 	return {"heal": "Healing", "cure": "Remedies", "revive": "Revivals", "pp": "Pudding", "snare": "Snares",
-		"evo": "Curios", "key": "Key Items"}.get(kind, kind.capitalize())
+		"repel": "Sachets", "evo": "Curios", "key": "Key Items"}.get(kind, kind.capitalize())
 
 static func money_text(n: int) -> String:
 	var s := str(absi(n))

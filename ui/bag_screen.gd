@@ -1,7 +1,7 @@
 extends MenuBase
 ## Bag: tabs by item kind, use on a party member via Bag.use_on. With arg "for:<n>" it targets party member n directly.
 
-const KIND_ORDER := ["heal", "cure", "revive", "pp", "snare", "evo", "key"]
+const KIND_ORDER := ["heal", "cure", "revive", "pp", "snare", "repel", "evo", "key"]
 const USABLE := ["heal", "cure", "revive", "pp", "evo"]
 
 var _bag: Bag
@@ -65,6 +65,9 @@ func _build() -> void:
 	_rebuild()
 
 func setup(arg: String) -> void:
+	if arg.begins_with("tab:"):  # open on one kind's tab (screenshots)
+		_tab = maxi(0, _kinds.find(arg.substr(4)))
+		_rebuild()
 	if arg.begins_with("for:"):
 		_target = int(arg.substr(4))
 		set_title("Use item")
@@ -152,6 +155,8 @@ func _show_desc(id: String) -> void:
 	d.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	_desc.add_child(d)
 	_desc.add_child(UIKit.fill())
+	if str(it.get("kind", "")) == "repel" and Repel.active(Game.data):
+		_desc.add_child(UIKit.label("%d steps of lavender left" % Repel.steps_left(Game.data), 22, UIKit.GOLD))
 	var price := int(it.get("price", 0))
 	if price > 0:
 		_desc.add_child(UIKit.label("Worth %s" % UIKit.money_text(MenuLogic.sell_price(price)), 22, UIKit.MUTED))
@@ -160,9 +165,16 @@ func _item_pressed(id: String) -> void:
 	var it: Dictionary = Game.items.get_item(id)
 	var kind := str(it.get("kind", ""))
 	if id == "team_thermos":
-		var off := Game.data.flag("thermos_off") != true
+		var off: bool = Game.data.flag("thermos_off") != true
 		Game.data.set_flag("thermos_off", off)
 		_note.text = "Team Thermos: off. Only the fighters get XP." if off else "Team Thermos: on. Everyone shares the XP."
+		return
+	if kind == "repel":
+		var r := Repel.use(Game.data, id, Game.items)
+		Audio.sfx("confirm" if r.ok else "bump")
+		_note.text = str(r.text)
+		if r.ok:
+			_rebuild_keep_note()
 		return
 	if kind not in USABLE:
 		_note.text = "That one's for keeping, not using." if kind == "key" else "Best saved for the right moment."
