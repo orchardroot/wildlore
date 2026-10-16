@@ -508,10 +508,55 @@ static func _buildings(z: ZoneData, root: Node3D) -> void:
 			if w >= 5 and d >= 3 and _bunting_in_front(z, bx, by + d, w):  # two storeys (see Meshes.building)
 				lbl.position.y = LABEL_OVER_BUNTING
 			lbl.billboard = BaseMaterial3D.BILLBOARD_DISABLED
-			lbl.no_depth_test = true  # walls and towers in front must not hide the name
+			# Own walls and towers in front must not hide the name, but another building's roof must.
+			lbl.no_depth_test = not label_occluded(z, pr)
 			lbl.render_priority = 10
 			body.add_child(lbl)
 	root.set_meta("chimneys", chimneys)
+
+## Rough height of a building's bulk (walls and roof, not spires or chimneys) by style, for label occlusion.
+const STYLE_HEIGHT := {"mill": 4.5, "castle": 4.5, "cathedral": 5.0, "chapel": 3.5, "round_tower": 6.9, "passage_tomb": 1.8,
+	"liver_building": 6.0, "station": 2.8, "aqueduct": 4.1, "gantry_crane": 4.5, "glass_tower": 14.5, "terrace": 3.9,
+	"tudor": 3.7, "slate_cottage": 2.6, "lighthouse_house": 3.7}
+const LABEL_HALF_CHAR := 0.08  # half the width of one name character, in tiles
+const SIGHT_RISE := 0.7        # camera sight line rises this much per tile toward the camera (tan of the 35 degree pitch)
+const LABEL_REACH := 26.0      # tiles south beyond which nothing can matter
+
+static func building_height(style: String, w: int, d: int) -> float:
+	if STYLE_HEIGHT.has(style):
+		return STYLE_HEIGHT[style]
+	return 3.7 if w >= 5 and d >= 3 else 2.7
+
+## Does another building stand between this building's name label and the camera? The camera looks north from
+## the south, so a building qualifies when it overlaps the label's east-west span, lies south of the label,
+## and is tall enough to cover the label's sight line where it enters the building.
+static func label_occluded(z: ZoneData, pr: Dictionary) -> bool:
+	var bx := int(pr.x)
+	var by := int(pr.y)
+	var w := int(pr.w)
+	var d := int(pr.h)
+	var gy := z.height_at(Vector2i(bx, by)) * LEVEL
+	var lz := by + d + 0.02
+	var ly := gy + 1.35 + 0.15  # top of the text
+	var half := maxf(0.5, str(pr.get("label", "")).length() * LABEL_HALF_CHAR)
+	var x0 := bx + w * 0.5 - half
+	var x1 := bx + w * 0.5 + half
+	for o in z.props:
+		if o == pr or o.get("type") != "building":
+			continue
+		var ox := int(o.x)
+		var oy := int(o.y)
+		var ow := int(o.w)
+		var od := int(o.h)
+		if ox - 0.2 >= x1 or ox + ow + 0.2 <= x0 or oy + od <= lz:
+			continue
+		var zin := maxf(float(oy), lz)
+		if zin - lz > LABEL_REACH:
+			continue
+		var top := z.height_at(Vector2i(ox, oy)) * LEVEL + building_height(str(o.get("style", "red_brick")), ow, od)
+		if top >= ly + SIGHT_RISE * (zin - lz):
+			return true
+	return false
 
 ## Name height on a two-storey front when bunting is strung across it (the bunting sags through the usual spot).
 const LABEL_OVER_BUNTING := 1.9
