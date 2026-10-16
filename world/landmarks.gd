@@ -16,7 +16,7 @@ const IRON := Color("3c4450")
 const GLASS := Color.WHITE
 
 ## Building styles handled here rather than by the generic house in Meshes.building.
-const SPECIAL := ["glass_tower", "gantry_crane", "mill", "castle", "cathedral", "liver_building", "station", "aqueduct", "chapel", "terrace", "tudor", "slate_cottage", "lighthouse_house", "round_tower", "passage_tomb"]
+const SPECIAL := ["glass_tower", "gantry_crane", "cantilever_crane", "mill", "castle", "cathedral", "liver_building", "station", "aqueduct", "chapel", "terrace", "tudor", "slate_cottage", "lighthouse_house", "round_tower", "passage_tomb"]
 
 ## Doors: where each style's door sits on its tile (see _door and friends), for the swing as you go in.
 ## {x, w, y, h, z}: left edge and width across the door column, bottom and height, z of the door's face from
@@ -121,6 +121,8 @@ static func building(w: int, d: int, style: String, door_x: int, seed_value: int
 			_aqueduct(st, w, d)
 		"gantry_crane":
 			_gantry(st, w, d)
+		"cantilever_crane":
+			_cantilever(st, w, d)
 		"glass_tower":
 			_glass_tower(st, wst, w, d, door_x)
 		"terrace":
@@ -446,6 +448,53 @@ static func _gantry(st: SurfaceTool, w: int, d: int) -> void:
 	Meshes.box(st, Vector3(w * 0.5 - 0.6, h - 0.8, d * 0.5 - 0.45), Vector3(1.2, 0.8, 0.9), IRON.lightened(0.15))  # trolley
 	Meshes.box(st, Vector3(w * 0.5 - 0.05, 1.4, d * 0.5 - 0.05), Vector3(0.1, h - 2.2, 0.1), Color("2a2a2a"))   # hoist cable
 	Meshes.box(st, Vector3(w * 0.5 - 0.25, 1.1, d * 0.5 - 0.25), Vector3(0.5, 0.35, 0.5), IRON)                # hook block
+
+## Glasgow's Finnieston Crane: a dark lattice tower on the quay and a hammerhead jib across the top, its long
+## arm out over the river to the south (+z) with the hook hanging above the water, the machinery house and
+## counterweight on the short tail behind.
+static func _cantilever(st: SurfaceTool, w: int, d: int) -> void:
+	var steel := Color("2e3236")
+	var lit := steel.lightened(0.12)
+	var h := 6.8
+	var cx := w * 0.5
+	var cz := d * 0.5
+	# the tower: four legs leaning in, a cross-brace every storey
+	var foot := 0.95
+	var top := 0.6
+	var legs := [Vector2(-1, -1), Vector2(1, -1), Vector2(1, 1), Vector2(-1, 1)]
+	for c in legs:
+		var a := Vector3(cx + c.x * foot, 0, cz + c.y * foot)
+		var b := Vector3(cx + c.x * top, h, cz + c.y * top)
+		_strut(st, a, b, 0.14, steel)
+	for i in 4:
+		var y := 1.2 + i * 1.4
+		var r := lerpf(foot, top, y / h)
+		Meshes.box(st, Vector3(cx - r, y, cz - r), Vector3(r * 2, 0.1, 0.1), lit)
+		Meshes.box(st, Vector3(cx - r, y, cz + r - 0.1), Vector3(r * 2, 0.1, 0.1), lit)
+		Meshes.box(st, Vector3(cx - r, y, cz - r), Vector3(0.1, 0.1, r * 2), lit)
+		Meshes.box(st, Vector3(cx + r - 0.1, y, cz - r), Vector3(0.1, 0.1, r * 2), lit)
+	Meshes.box(st, Vector3(cx - 1.15, 0, cz - 1.15), Vector3(2.3, 0.2, 2.3), Color("8a8478"))  # plinth
+	# the jib: a deep box girder from the tail (north) out over the water (south)
+	var z0 := cz - 2.2
+	var z1 := d + 4.3
+	Meshes.box(st, Vector3(cx - 0.45, h, z0), Vector3(0.9, 0.7, z1 - z0), steel, lit)
+	Meshes.box(st, Vector3(cx - 0.5, h + 0.7, z0), Vector3(1.0, 0.08, z1 - z0), lit)  # walkway on top
+	Meshes.box(st, Vector3(cx - 0.75, h + 0.78, z0 + 0.1), Vector3(1.5, 1.0, 1.6), steel.lightened(0.05))  # machinery house
+	Meshes.box(st, Vector3(cx - 0.6, h - 0.9, z0), Vector3(1.2, 0.9, 0.9), Color("4a4e52"))  # counterweight
+	# trolley, cable and hook out at the end of the arm
+	var hz := z1 - 1.2
+	Meshes.box(st, Vector3(cx - 0.35, h - 0.25, hz - 0.35), Vector3(0.7, 0.25, 0.7), IRON.lightened(0.15))
+	Meshes.box(st, Vector3(cx - 0.04, 1.3, hz - 0.04), Vector3(0.08, h - 1.55, 0.08), Color("1e1e1e"))
+	Meshes.box(st, Vector3(cx - 0.22, 0.95, hz - 0.22), Vector3(0.44, 0.35, 0.44), Color("c8a020"))  # hook block, painted
+
+## A square strut from a to b (a mostly vertical member), built as a skewed box.
+static func _strut(st: SurfaceTool, a: Vector3, b: Vector3, t: float, col: Color) -> void:
+	var h := t * 0.5
+	var lo := [a + Vector3(-h, 0, -h), a + Vector3(h, 0, -h), a + Vector3(h, 0, h), a + Vector3(-h, 0, h)]
+	var hi := [b + Vector3(-h, 0, -h), b + Vector3(h, 0, -h), b + Vector3(h, 0, h), b + Vector3(-h, 0, h)]
+	for i in 4:
+		var j := (i + 1) % 4
+		Meshes._quad(st, lo[i], lo[j], hi[j], hi[i], col.darkened(0.06 * (i % 2)))
 
 ## Lord Vane's tower: a tall tapering block of blue glass with a lit grid of windows and a needle spire.
 static func _glass_tower(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int) -> void:

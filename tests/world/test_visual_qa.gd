@@ -111,3 +111,22 @@ func test_custom_shaders_only_linearise_vertex_colour_where_the_solid_material_d
 	for path in ["res://art/shaders/foliage.gdshader", "res://art/shaders/train.gdshader", "res://art/shaders/flutter.gdshader"]:
 		var code := (load(path) as Shader).code
 		assert_true(code.contains("OUTPUT_IS_SRGB"), path + " checks OUTPUT_IS_SRGB before converting")
+
+func test_finnieston_crane_reaches_out_over_the_water() -> void:
+	# drawn as Belfast's straddling gantry, Glasgow's crane hung its hook over the road behind the quay: a
+	# cantilever crane stands on the quay and swings its jib, and hook, out over the river to the south
+	assert_has(Landmarks.SPECIAL, "cantilever_crane")
+	var body: ArrayMesh = Meshes.building(7, 3, "cantilever_crane", -1, 1)[0]
+	var box := body.get_aabb()
+	assert_true(box.end.z > 3 + 2.0, "jib runs out past the quay edge (to z %.2f)" % box.end.z)
+	assert_true(box.position.z > -2.5, "and only a short tail back over the road (from z %.2f)" % box.position.z)
+	assert_true(box.end.y > 6.0, "tall")
+	# the hook block: the lowest geometry clear of the tower's legs hangs south of the footprint
+	var verts: PackedVector3Array = body.surface_get_arrays(0)[Mesh.ARRAY_VERTEX]
+	var hook_z := -99.0
+	var low := 99.0
+	for v in verts:
+		if v.z > 3.0 and v.y < low:
+			low = v.y
+			hook_z = v.z
+	assert_true(low < 2.0 and hook_z > 4.0, "hook hangs low over the water (y %.2f at z %.2f)" % [low, hook_z])
