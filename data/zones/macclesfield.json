@@ -119,7 +119,8 @@
    "y": 7,
    "w": 5,
    "h": 4,
-   "show_label": false
+   "show_label": false,
+   "label": "Silk Museum"
   },
   {
    "type": "building",
@@ -319,6 +320,78 @@
    "tx": 5,
    "ty": 6,
    "facing": "up"
+  },
+  {
+   "x": 40,
+   "y": 26,
+   "to": "macc_townhall",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 15,
+   "y": 10,
+   "to": "macc_silkmuseum",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 35,
+   "y": 34,
+   "to": "macc_paradise",
+   "tx": 7,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 44,
+   "y": 7,
+   "to": "macc_stmichael",
+   "tx": 6,
+   "ty": 8,
+   "facing": "up"
+  },
+  {
+   "x": 35,
+   "y": 9,
+   "to": "macc_h1",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 30,
+   "y": 25,
+   "to": "macc_h2",
+   "tx": 6,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 7,
+   "y": 25,
+   "to": "macc_h3",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 13,
+   "y": 25,
+   "to": "macc_h4",
+   "tx": 6,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 19,
+   "y": 25,
+   "to": "macc_h5",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
   }
  ],
  "edges": {
@@ -455,10 +528,10 @@
   "TTT......................................BBBBBB.RTTP",
   "TTT...................................R..BBBBBB..TTT",
   "TTT.HHHHHHHH......................BBB....BBBBBB..TTT",
-  "TTT...BBBBBH.BBBBB.BBBBBB...BBBBB.BBB....BBBBBB..TTT",
+  "TTT...BBBBBH.BBBBB.BBBBBB...BBBBB.BBB....BBBDBB..TTT",
   "TTP...BBBBBH.BBBBB.BBBBBB...BBBBB.BBB..........R.TTT",
-  "TTT...BBBBBH.BBBBB.BBBBBB...BBBBB.BBB..R##.......TTT",
-  "TTT...BBDBBH.BBBBB.BBBDBB...BBDBB.......##.......TTT",
+  "TTT...BBBBBH.BBBBB.BBBBBB...BBBBB.BDB..R##.......TTT",
+  "TTT...BBDBBH.BBDBB.BBBDBB...BBDBB.......##.......TTT",
   "TTT..######H.ffff:::::::::::::::::::....##.......TTT",
   "TTP.....#........:::::::::::::::::::.............TTT",
   "TTT.fff.#........:::::::::::::::::::........BBBBBTTT",
@@ -473,8 +546,8 @@
   "TTT.....................##.......................TTT",
   "TTT..BBBBB.BBBBB.BBBB...##..BBBB....BBBBBBBB.....TTT",
   "TTT..BBBBB.BBBBB.BBBB...##..BBBB....BBBBBBBB.....TTT",
-  "TTT..BBBBB.BBBBB.BBBB...##..BBBB....BBBBBBBB.....TTT",
-  "TTT.##################..##..........BBBBBBBB.....TTT",
+  "TTT..BBDBB.BBDBB.BBDB...##..BBDB....BBBBBBBB.....TTT",
+  "TTT.##################..##..........BBBBDBBB.....TTT",
   "TTT.....................##..........::::::::.....TTT",
   "TTTsssssssssssssssssssss##sssssssssssssssssssssssTTT",
   "TTT~~~~~~~~~~~~~~~~~~~~~ww~~~~~~~~~~~~~~~~~~~~~~~TTT",
@@ -482,10 +555,10 @@
   "TTT.....f.f..f.....f..f.##f..BBBBBBBBBBBBB.......TTT",
   "TTT...f.f..ff...........##...BBBBBBBBBBBBB.......TTT",
   "TTT..............f......##...BBBBBBBBBBBBB.......TTT",
-  "TTT.....f....f..........##f..BBBBBBBBBBBBB.......TTT",
-  "TTTTTTTTTTTTTTTTTTTTTPTTTTTTTTTTTTPTTTTTTTTTTTTTTTTT",
-  "TTTTTTTTTTTTTTTTTTTTTTTTPPTTTTTTTTPTTTTTPTTTTTTTTTTT",
-  "TTTTTTTTTTPTTTTPTTTTTTTTPTTTTTTTTTTTTTTTPTTTTTTTTTTT"
+  "TTT.....f....f..........##f..BBBBBBDBBBBBB.......TTT",
+  "TTTTTTTTTTTTTTTTTTTTTPTTT###########TTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTPPTTTTT.........PTTTTTTTTTTT",
+  "TTTTTTTTTTPTTTTPTTTTTTTTPTTTTTT.........PTTTTTTTTTTT"
  ],
  "heights": [
   "0000000000000000000000000000000000000000000000000000",

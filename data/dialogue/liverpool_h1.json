@@ -1,0 +1,41 @@
+{
+ "liverpool_h1_0": [
+  {
+   "do": "say",
+   "who": "Mrs Doran",
+   "text": "Alright, la! Come in, kettle's on. 'Boss' means brilliant. 'Made up' means delighted. 'Scran' means food."
+  },
+  {
+   "do": "say",
+   "who": "Mrs Doran",
+   "text": "Scouse the stew gave its name to the people and the accent. Same word, bigger flavour."
+  },
+  {
+   "do": "if",
+   "flag": "liverpool_h1_gift",
+   "then": [
+    {
+     "do": "say",
+     "who": "Mrs Doran",
+     "text": "You have had your bowl, la. Ta-ra now."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Mrs Doran",
+     "text": "Take a bowl for the road. Lamb, spuds and carrots. Do not tell my mam it is not hers."
+    },
+    {
+     "do": "give_item",
+     "item": "scouse",
+     "n": 1
+    },
+    {
+     "do": "set",
+     "flag": "liverpool_h1_gift"
+    }
+   ]
+  }
+ ]
+}

@@ -191,6 +191,22 @@
    "type": "bench",
    "x": 12,
    "y": 19
+  },
+  {
+   "type": "building",
+   "style": "stone",
+   "x": 4,
+   "y": 28,
+   "w": 5,
+   "h": 3
+  },
+  {
+   "type": "building",
+   "style": "gritstone",
+   "x": 47,
+   "y": 31,
+   "w": 5,
+   "h": 3
   }
  ],
  "warps": [
@@ -216,6 +232,78 @@
    "to": "buxton_spa",
    "tx": 7,
    "ty": 12,
+   "facing": "up"
+  },
+  {
+   "x": 20,
+   "y": 9,
+   "to": "buxton_crescent",
+   "tx": 7,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 30,
+   "y": 9,
+   "to": "buxton_well",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 46,
+   "y": 29,
+   "to": "buxton_opera",
+   "tx": 7,
+   "ty": 8,
+   "facing": "up"
+  },
+  {
+   "x": 6,
+   "y": 9,
+   "to": "buxton_h1",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 6,
+   "y": 15,
+   "to": "buxton_h2",
+   "tx": 6,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 44,
+   "y": 6,
+   "to": "buxton_h3",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 36,
+   "y": 6,
+   "to": "buxton_h4",
+   "tx": 6,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 6,
+   "y": 30,
+   "to": "buxton_h5",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 49,
+   "y": 33,
+   "to": "buxton_h6",
+   "tx": 6,
+   "ty": 6,
    "facing": "up"
   }
  ],
@@ -375,16 +463,16 @@
   "TTT.......................###.....BBBBB..BBBBBB......TTT",
   "TTTHHHHHHHHHHHHHHHHHHHHHHH###HHHH.BBBBB..BBBBBB......TTT",
   "TTT.......................###.....BBBBB..BBBBBB......TTT",
-  "TTT.........BBBBBBBBBBBBBBBB#.....BBBBB..BBBBBB......TTT",
+  "TTT.........BBBBBBBBBBBBBBBB#.....BBDBB..BBBDBB......TTT",
   "TTT.BBBBB...BBBBBBBBBBBBBBBB#........................TTT",
   "TTT.BBBBB...BBBBBBBBBBBBBBBB#.BBB...............:=...TTT",
-  "TTT.BBBBB...BBBBBBBBBBBBBBBB#.BBB...............:=...TTT",
+  "TTT.BBDBB...BBBBBBBBDBBBBBBB#.DBB...............:=...TTT",
   "TTT........::::::::::::::::::...................:=...TTT",
   "TTT........::::::::::::::::::...................:=...TTT",
   "TTT.............................................:=...TTT",
   "TTT.BBBBB...ffffffffffffffff......BBBBBB........:=...PTT",
   "TTT.BBBBB..................T......BBBBBB.BBBBB..:=...TTT",
-  "PTT.BBBBB.........................BBBBBB.BBBBB..:=...TTT",
+  "PTT.BBDBB.........................BBBBBB.BBBBB..:=...TTT",
   "TTT.................T.T...TT......BBBDBB.BBDBB..:=...TTT",
   "TTT.....................T.......................:=...TTT",
   "TTT..............T..............................:=...TTP",
@@ -397,12 +485,12 @@
   "TTT.................#...............##...............TTP",
   "TTT.................#...........BBBBBBBBBB..BBBBB....TTT",
   "TTP.......sssssssss.#.ffffff....BBBBBBBBBB..BBBBB....TTT",
-  "TTT.......~~~~~~~~~.#.ffffff....BBBBBBBBBB..BBBBB....TTT",
-  "TTT.......~~~~~~~~~.#.ffffff....BBBBBBBBBB..BBBBB....TTT",
-  "TTT.......~~~~~~~~~.#...........BBBBBDBBBB...........TTT",
-  "TTT.......~~~~~~~~~.#...............##...............TTT",
-  "TTT.......sssssssss.#.........T.......T.....T........TTT",
-  "TTT..ffff...........#..........T.....................TTT",
+  "TTT.BBBBB.~~~~~~~~~.#.ffffff....BBBBBBBBBB..BBBBB....TTT",
+  "TTT.BBBBB.~~~~~~~~~.#.ffffff....BBBBBBBBBB..BBDBB....TTT",
+  "TTT.BBDBB.~~~~~~~~~.#...........BBBBBDBBBB...........TTT",
+  "TTT.......~~~~~~~~~.#...............##.........BBBBB.TTT",
+  "TTT.......sssssssss.#.........T.......T.....T..BBBBB.TTT",
+  "TTT..ffff...........#..........T...............BBDBB.TTT",
   "TTT..ffff...........#..............T.................TTT",
   "TTT.................#..............T.....T....TT.....TTT",
   "TTT..................................................TTT",
