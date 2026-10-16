@@ -131,7 +131,9 @@ func test_setting_switches_the_palette() -> void:
 	Settings.colour_blind = true
 	assert_true(TypeColours.colour("brook") != normal)
 	assert_eq(TypeColours.colour("brook"), TypeColours.CB_COLOURS.brook)
-	assert_eq(UIKit.hp_bar(10, 10).get_theme_stylebox("fill").bg_color, TypeColours.HP_SAFE.green)
+	var bar := UIKit.hp_bar(10, 10)
+	assert_eq(bar.get_theme_stylebox("fill").bg_color, TypeColours.HP_SAFE.green)
+	bar.free()
 	_end()
 
 # --- remapping -----------------------------------------------------------------------------------------------

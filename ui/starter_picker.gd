@@ -83,14 +83,25 @@ func _refresh() -> void:
 		s.show_species(STARTERS[i], "front", 3 if on else 2)
 		s.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
 		_holders[i].add_child(s)
-	var name: String = Game.dex.get_species(STARTERS[_index]).get("name", STARTERS[_index])
 	_line.text = LINES.get(STARTERS[_index], "")
+	_update_prompt()
 	if _confirming:
-		_prompt.text = "Take %s? Press %s again to be sure." % [name, UIKit.key_for("confirm")]
 		set_hints([["confirm", "Confirm"], ["cancel", "Look again"]])
 	else:
-		_prompt.text = ""
 		set_hints([["leftright", "Look"], ["confirm", "Choose"]])
+
+## The "Press Z again" sentence names the live button, so it is rebuilt with the hint bar when the device or bindings change.
+func _update_prompt() -> void:
+	if not _confirming:
+		_prompt.text = ""
+		return
+	var name: String = Game.dex.get_species(STARTERS[_index]).get("name", STARTERS[_index])
+	_prompt.text = "Take %s? Press %s again to be sure." % [name, UIKit.key_for("confirm")]
+
+func _redraw_hint() -> void:
+	super()
+	if is_instance_valid(_prompt):
+		_update_prompt()
 
 func _input(event: InputEvent) -> void:
 	if _locked or _done:

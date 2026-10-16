@@ -23,7 +23,7 @@ static func check(dex: Dex, zones: Dictionary, habitats := {}) -> Array:
 		if places.is_empty() or catchable.has(id):
 			continue
 		var sp := dex.get_species(id)
-		if int(sp.get("catch_rate", 45)) <= 3:
+		if bool(sp.get("legend", false)):
 			continue  # legends
 		if places.all(func(z): return zones.has(z) and not zones[z].stub):
 			errors.append("species %s lives in %s but no encounter table has it" % [id, ", ".join(places)])
