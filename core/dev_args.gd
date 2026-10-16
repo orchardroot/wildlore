@@ -10,7 +10,8 @@ static func parse(args: PackedStringArray, is_debug := OS.is_debug_build()) -> D
 	if not is_debug:
 		args = PackedStringArray()
 	var out := {"shot": "", "shot_delay": 2.0, "boot_zone": "", "boot_pos": Vector2i(-1, -1),
-		"battle_species": "", "battle_level": 5, "seed": -1, "clock": -1, "weather": "", "fps": false, "playtest": "", "seconds": 0, "ride": "", "double": false, "train": -1.0}
+		"battle_species": "", "battle_level": 5, "seed": -1, "clock": -1, "weather": "", "fps": false, "playtest": "", "seconds": 0, "ride": "", "double": false, "train": -1.0,
+		"journey": "", "journey_at": 0.5}
 	for a in args:
 		var kv := a.split("=", true, 1)
 		var key: String = kv[0]
@@ -48,6 +49,10 @@ static func parse(args: PackedStringArray, is_debug := OS.is_debug_build()) -> D
 				out.double = true  # with --battle: a 2v2 against the dev_double twins, led by the --battle species
 			"--train":
 				out.train = val.to_float()  # the first train runs this many seconds after a zone loads
+			"--journey":
+				out.journey = val  # <train|ferry|fly>:<town>: a travel scene (with --boot, the whole journey from there)
+			"--journey-at":
+				out.journey_at = val.to_float()  # without --boot: hold the scene this far through (0..1)
 			"--seconds":
 				out.seconds = int(val)
 	return out
@@ -58,6 +63,6 @@ static func is_dev_session(parsed: Dictionary, cmdline: PackedStringArray) -> bo
 	if parsed.get("shot", "") != "" or parsed.get("boot_zone", "") != "" or parsed.get("battle_species", "") != "" or parsed.get("playtest", "") != "":
 		return true
 	for a in cmdline:
-		if a.begins_with("--menu=") or a.begins_with("--talk=") or a.begins_with("--battle"):
+		if a.begins_with("--menu=") or a.begins_with("--talk=") or a.begins_with("--battle") or a.begins_with("--journey"):
 			return true
 	return false

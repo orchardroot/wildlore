@@ -151,6 +151,8 @@ func _dev_boot() -> void:
 		if args.weather != "":
 			opts["weather"] = args.weather
 		Router.battle(foe, opts)
+	elif args.get("journey", "") != "" and args.boot_zone == "":
+		DevJourney.show_scene(self, args.journey)  # --journey=<kind>:<town>, see core/dev_journey.gd
 	elif args.boot_zone != "":
 		new_game()
 		if args.clock >= 0:
@@ -162,6 +164,9 @@ func _dev_boot() -> void:
 		await Router.goto_zone(args.boot_zone, args.boot_pos, "down")
 		if args.ride == "bike":
 			Router.overworld.player.set_bike(true)
+		if args.get("journey", "") != "":
+			await get_tree().create_timer(1.0).timeout
+			await DevJourney.run(self, args.journey)
 
 func _take_shot() -> void:
 	await get_tree().create_timer(float(args.shot_delay), true, false, true).timeout
