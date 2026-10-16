@@ -35,6 +35,21 @@ func test_peat_stack_is_brown_not_slate() -> void:
 	assert_true(peat[0].r > peat[0].b, "peat is warm brown")
 	assert_true(slate[0].b > slate[0].r, "slate stays blue-grey")
 
+func test_label_behind_a_building_moves_up_on_to_its_own_roof() -> void:
+	# a name at door height, with another building a street in front, is drawn over that building's wall and
+	# reads as its name: lift it on to the ridge of its own roof
+	Meshes.materials()
+	var rows := ["BBBBB", "BBDBB", ".....", "BBBBB", "BBBBB", "BBDBB", "....."]
+	var props := [{"type": "building", "style": "stone", "x": 0, "y": 0, "w": 5, "h": 2, "label": "Back"},
+		{"type": "building", "style": "terrace", "x": 0, "y": 3, "w": 5, "h": 3, "label": "Front"}]
+	var root := ZoneBuilder.build(_zone(rows, props))
+	var back := _label(root, "Building_0_0")
+	var front := _label(root, "Building_0_3")
+	var top := (root.get_node("Building_0_0") as MeshInstance3D).mesh.get_aabb().end.y
+	assert_true(back.position.y > top, "back label above its roof (%.2f > %.2f)" % [back.position.y, top])
+	assert_true(absf(front.position.y - 1.35) < 0.001, "front label stays over its door")
+	root.free()
+
 func test_building_on_a_slope_stands_at_its_door() -> void:
 	# placed at its north-west corner's height, a building on rising ground had its door buried in the hill
 	Meshes.materials()
