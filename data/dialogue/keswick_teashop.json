@@ -1,0 +1,41 @@
+{
+ "kesteashop_owner": [
+  {
+   "do": "say",
+   "who": "Tea Shop Owner",
+   "text": "Come in out of the damp. The damp is outside, with the rest of Cumbria."
+  },
+  {
+   "do": "say",
+   "who": "Tea Shop Owner",
+   "text": "Grasmere gingerbread is the local treat, chewy and spicy, like a biscuit and a cake in an argument. Sarah Nelson started selling it in 1854."
+  },
+  {
+   "do": "if",
+   "flag": "nwest_kesteashop_gift",
+   "then": [
+    {
+     "do": "say",
+     "who": "Tea Shop Owner",
+     "text": "One cup each, love. The kettle needs a rest too. Off you go."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Tea Shop Owner",
+     "text": "Have a cup of tea. Please do not tell the rain I was nice to you."
+    },
+    {
+     "do": "give_item",
+     "item": "cup_of_tea",
+     "n": 1
+    },
+    {
+     "do": "set",
+     "flag": "nwest_kesteashop_gift"
+    }
+   ]
+  }
+ ]
+}
