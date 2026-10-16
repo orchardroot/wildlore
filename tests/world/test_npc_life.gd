@@ -96,6 +96,12 @@ func test_creatures_roam_only_tall_grass() -> void:
 	for p in tiles:
 		assert_eq(z.tile_at(p), "tall_grass")
 
+func test_creatures_skip_grass_drawn_without_tufts() -> void:
+	# a stubble field: tall grass underfoot but no tufts drawn, so a creature sunk into it looks buried
+	var z := _zone(["..cc,,", "..cc,,"], {"legend_extra": {"c": {"tile": "tall_grass", "colour": "#9c8e3c", "prop": "none"}}})
+	assert_false(RoamingCreatures.can_roam(z, Vector2i(2, 0)), "no tufts to hide in")
+	assert_true(RoamingCreatures.can_roam(z, Vector2i(4, 0)))
+
 func test_how_many_roam() -> void:
 	assert_eq(RoamingCreatures.count_for("low", 200), 0, "off on Low")
 	assert_eq(RoamingCreatures.count_for("high", 3), 0, "a scrap of grass is too small")

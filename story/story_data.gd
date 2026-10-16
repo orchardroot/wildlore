@@ -70,6 +70,57 @@ static func trainer_script(id: String) -> Array:
 	cmds.append({"do": "battle", "trainer": id})
 	return cmds
 
+## {greeting}: how folk say hello round here (dialogue writes "{greeting} Lovely day."). Zone ids beat regions,
+## interiors use the town they're in, and Man's depends on the hour.
+const GREETINGS := {
+	"cheshire": "Alright!", "manchester": "Alright, our kid!", "merseyside": "Alright, la!", "yorkshire": "Ey up!",
+	"north_east": "Alreet, pet!", "midlands": "Alright, mate!", "peak": "Ay up, me duck!", "cumbria": "Now then!",
+	"south_england": "Alright, my lover!", "cornwall": "Dydh da!", "north_wales": "Shwmae!", "mid_wales": "Shwmae!",
+	"south_wales": "Shwmae!", "scotland": "Hiya!", "ireland": "How's the form?", "ireland_east": "How's the form?",
+	"ireland_west": "Dia dhuit!",
+}
+const ZONE_GREETINGS := {
+	"birmingham": "Alright, bab!", "nottingham": "Ay up, me duck!", "aberdeen": "Fit like?",
+	# Northern Ireland
+	"belfast": "Bout ye?", "bushmills": "Bout ye?", "derry": "Bout ye?", "antrim_coast": "Bout ye?",
+	"causeway": "Bout ye?", "mournes": "Bout ye?",
+	# the Highlands and Skye, where you'll still hear Gaelic
+	"inverness": "Halò!", "fort_william": "Halò!", "portree": "Halò!", "skye": "Halò!", "faerie_glen": "Halò!",
+	"great_glen": "Halò!", "loch_ness": "Halò!", "glencoe": "Halò!", "cairngorms": "Halò!",
+}
+const MANX_MORNING := "Moghrey mie!"     # good morning
+const MANX_AFTERNOON := "Fastyr mie!"    # good afternoon (and evening)
+static var _greeting_key_cache: Dictionary = {}
+
+static func greeting(zone_id: String, minutes: int) -> String:
+	var key := _greeting_key(zone_id)
+	if key == "man":
+		var m := GameClock.wrap(minutes)
+		return MANX_MORNING if m >= 5 * 60 and m < 12 * 60 else MANX_AFTERNOON
+	if ZONE_GREETINGS.has(key):
+		return ZONE_GREETINGS[key]
+	return GREETINGS.get(key, "Hello!")
+
+## The zone id (if it has its own greeting) or region a zone greets as; an interior walks back to its town
+## ("fort_william_sanctuary" -> "fort_william").
+static func _greeting_key(zone_id: String) -> String:
+	if _greeting_key_cache.has(zone_id):
+		return _greeting_key_cache[zone_id]
+	var key := ""
+	var parts := zone_id.split("_")
+	for n in range(parts.size(), 0, -1):
+		var id := "_".join(parts.slice(0, n))
+		if ZONE_GREETINGS.has(id):
+			key = id
+			break
+		var path := ZoneData.DIR.path_join(id + ".json")
+		var d: Variant = JsonUtil.read(path) if FileAccess.file_exists(path) else null
+		if d is Dictionary and str(d.get("region", "")) != "":
+			key = str(d.region)
+			break
+	_greeting_key_cache[zone_id] = key
+	return key
+
 static func _file(name: String) -> Dictionary:
 	if not _dialogue_cache.has(name):
 		var path := DIALOGUE_DIR.path_join(name + ".json")

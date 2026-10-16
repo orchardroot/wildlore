@@ -505,11 +505,28 @@ static func _buildings(z: ZoneData, root: Node3D) -> void:
 			lbl.modulate = Color("f2e8cf")
 			lbl.outline_modulate = Color("1d2230")
 			lbl.position = Vector3(w * 0.5, 1.35 if door_x >= 0 else 1.0, d + 0.02)
+			if w >= 5 and d >= 3 and _bunting_in_front(z, bx, by + d, w):  # two storeys (see Meshes.building)
+				lbl.position.y = LABEL_OVER_BUNTING
 			lbl.billboard = BaseMaterial3D.BILLBOARD_DISABLED
 			lbl.no_depth_test = true  # walls and towers in front must not hide the name
 			lbl.render_priority = 10
 			body.add_child(lbl)
 	root.set_meta("chimneys", chimneys)
+
+## Name height on a two-storey front when bunting is strung across it (the bunting sags through the usual spot).
+const LABEL_OVER_BUNTING := 1.9
+
+## Is bunting strung east-west along row `row` (just in front of a building) across the middle of its front?
+static func _bunting_in_front(z: ZoneData, bx: int, row: int, w: int) -> bool:
+	var mid := bx + w * 0.5
+	for pr in z.props:
+		if pr.get("type") != "bunting" or int(pr.y) != row or int(pr.get("rot", 0)) % 180 != 0:
+			continue
+		var x0 := int(pr.x) + 0.5
+		var x1 := x0 + int(pr.get("variant", 3)) * (-1 if int(pr.get("rot", 0)) % 360 == 180 else 1)
+		if minf(x0, x1) < mid + 1.0 and maxf(x0, x1) > mid - 1.0:
+			return true
+	return false
 
 # --- interiors -----------------------------------------------------------------
 

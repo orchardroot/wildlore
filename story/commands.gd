@@ -404,4 +404,5 @@ func _sub(s: String) -> String:
 	var total: int = host.dex.ids().size()
 	var got: int = host.data.caught.size()
 	return s.replace("{player}", host.data.player_name).replace("{rival}", host.data.rival_name) \
-		.replace("{caught}", str(got)).replace("{left}", str(maxi(0, total - got))).replace("{total}", str(total))
+		.replace("{caught}", str(got)).replace("{left}", str(maxi(0, total - got))).replace("{total}", str(total)) \
+		.replace("{greeting}", StoryData.greeting(host.data.zone_id, host.data.clock_minutes) if "{greeting}" in s else "")

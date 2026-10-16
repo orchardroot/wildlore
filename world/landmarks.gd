@@ -15,7 +15,7 @@ const IRON := Color("3c4450")
 const GLASS := Color.WHITE
 
 ## Building styles handled here rather than by the generic house in Meshes.building.
-const SPECIAL := ["glass_tower", "gantry_crane", "mill", "castle", "cathedral", "liver_building", "station", "aqueduct", "chapel", "terrace", "tudor", "slate_cottage", "lighthouse_house"]
+const SPECIAL := ["glass_tower", "gantry_crane", "mill", "castle", "cathedral", "liver_building", "station", "aqueduct", "chapel", "terrace", "tudor", "slate_cottage", "lighthouse_house", "round_tower", "passage_tomb"]
 
 ## Doors: where each style's door sits on its tile (see _door and friends), for the swing as you go in.
 ## {x, w, y, h, z}: left edge and width across the door column, bottom and height, z of the door's face from
@@ -108,6 +108,10 @@ static func building(w: int, d: int, style: String, door_x: int, seed_value: int
 			_cathedral(st, wst, w, d, door_x, SANDSTONE)
 		"chapel":
 			_chapel(st, wst, w, d, door_x)
+		"round_tower":
+			_round_tower(st, wst, w, d, door_x)
+		"passage_tomb":
+			_passage_tomb(st, w, d, door_x)
 		"liver_building":
 			_liver(st, wst, w, d, door_x)
 		"station":
@@ -324,6 +328,72 @@ static func _chapel(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: i
 	for x in [0.5, w - 1.0]:
 		_window(st, wst, x, 0.5, d, 0.5, 1.5, wall.lightened(0.25))
 	_door(st, door_x, d, wall, 1.1)
+
+## An Irish round tower: a tall tapering stone needle with a conical cap, standing at the front of its plot (the door
+## faces south); the rest of the footprint is a little walled churchyard.
+static func _round_tower(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int) -> void:
+	var stone := Color("a39d8e")
+	var r := minf(w, 2.0) * 0.45
+	var c := Vector3(w * 0.5, 0, d - r - 0.08)
+	var h := 5.6
+	Meshes.cylinder(st, c, r, h, 10, stone)
+	Meshes.cone(st, c + Vector3(0, h, 0), r * 0.95, 1.3, 10, stone.darkened(0.12), Meshes._rng(41))
+	for y in [2.4, 3.6, 4.8]:
+		_window(st, wst, c.x - 0.1, y, c.z + r * 0.9 + 0.05, 0.2, 0.32, stone.darkened(0.2))
+	if door_x >= 0:  # one door, centred on the tower whichever tile the warp is on
+		Meshes.box(st, Vector3(c.x - 0.25, 0.1, c.z + r - 0.12), Vector3(0.5, 0.85, 0.12), Color("3b2a22"))
+		Meshes.box(st, Vector3(c.x - 0.31, 0.95, c.z + r - 0.13), Vector3(0.62, 0.08, 0.13), stone.lightened(0.2))
+	# churchyard wall round the rest of the plot
+	var wall := stone.darkened(0.1)
+	var back := c.z - r
+	if back > 0.6:
+		Meshes.box(st, Vector3(0.05, 0, 0.05), Vector3(w - 0.1, 0.45, 0.2), wall)
+		Meshes.box(st, Vector3(0.05, 0, 0.05), Vector3(0.2, 0.45, back), wall)
+		Meshes.box(st, Vector3(w - 0.25, 0, 0.05), Vector3(0.2, 0.45, back), wall)
+
+## A Neolithic passage tomb (Newgrange): a low grassy mound ringed at the front by white quartz, with the dark
+## passage mouth and its carved entrance stone on the south side.
+static func _passage_tomb(st: SurfaceTool, w: int, d: int, door_x: int) -> void:
+	var grass := Color("5f8a3e")
+	var quartz := Color("eceae2")
+	var c := Vector3(w * 0.5, 0, d * 0.5)
+	var rx := w * 0.5
+	var rz := d * 0.5
+	var sides := 16
+	var wall_h := 0.75
+	Meshes.box(st, Vector3(0, 0, 0), Vector3(w, 0.03, d), grass.darkened(0.05))  # turf in the plot's corners
+	# quartz revetment: a band round the whole base (the back is hidden in the grass anyway)
+	var lo := _ellipse(c, rx, rz, 0.0, sides)
+	var hi := _ellipse(c, rx, rz, wall_h, sides)
+	for i in sides:
+		var j := (i + 1) % sides
+		var col := quartz if lo[i].z > c.z - 0.2 else quartz.darkened(0.25)
+		Meshes._quad(st, lo[i], lo[j], hi[j], hi[i], col.darkened(0.05 * (i % 2)))
+	# the grassy dome on top, in bands
+	var bands := [[0.98, wall_h], [0.85, wall_h + 0.45], [0.62, wall_h + 0.8], [0.3, wall_h + 1.0]]
+	var prev := _ellipse(c, rx, rz, wall_h, sides)
+	for b in bands.slice(1):
+		var ring := _ellipse(c, rx * b[0], rz * b[0], b[1], sides)
+		for i in sides:
+			var j := (i + 1) % sides
+			Meshes._quad(st, prev[i], prev[j], ring[j], ring[i], grass.lightened(0.04 * (i % 3)))
+		prev = ring
+	for i in sides:
+		Meshes._tri(st, prev[i], prev[(i + 1) % sides], Vector3(c.x, wall_h + 1.08, c.z), grass.lightened(0.08))
+	# the passage mouth, its lintel stones, and the carved kerbstone lying across the front
+	var mx := (door_x + 0.5) if door_x >= 0 else c.x
+	var fz := c.z + rz
+	Meshes.box(st, Vector3(mx - 0.22, 0.2, fz - 0.06), Vector3(0.44, 0.5, 0.1), Color("1d1a17"))
+	Meshes.box(st, Vector3(mx - 0.36, 0.7, fz - 0.08), Vector3(0.72, 0.14, 0.14), Color("8d8678"))
+	Meshes.box(st, Vector3(mx - 0.3, 0.86, fz - 0.1), Vector3(0.6, 0.12, 0.12), Color("8d8678"))
+	Meshes.box(st, Vector3(mx - 0.55, 0, fz - 0.22), Vector3(1.1, 0.26, 0.24), Color("9a9384"))
+
+static func _ellipse(c: Vector3, rx: float, rz: float, y: float, sides: int) -> Array:
+	var pts := []
+	for i in sides:
+		var a := TAU * i / sides
+		pts.append(Vector3(c.x + cos(a) * rx, y, c.z + sin(a) * rz))
+	return pts
 
 ## The Liver Building: a tall granite block, two clock towers with green domes and a Liver Bird on each.
 static func _liver(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int) -> void:
