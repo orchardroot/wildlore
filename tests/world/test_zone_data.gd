@@ -196,3 +196,16 @@ func test_validate_door_onto_railway() -> void:
 	assert_true(_has(z.validate({"t": z}), "opens straight onto the railway"))
 	var ok := ZoneData.from_dict(_base([".....", ".BDB.", ".....", "....."], {"spawn": [0, 3], "warps": [{"x": 2, "y": 1, "to": "t", "tx": 0, "ty": 3}]}))
 	assert_false(_has(ok.validate({"t": ok}), "opens straight onto the railway"))
+
+
+func test_warp_arrival_on_a_door_is_an_error() -> void:
+	# arriving on the door's own warp tile (after moving a building) leaves you standing in the doorway
+	var town := ZoneData.from_dict(_base(["BBB", "BDB", "..."], {"id": "town", "spawn": [0, 2],
+		"props": [{"type": "building", "style": "stone", "x": 0, "y": 0, "w": 3, "h": 2}],
+		"warps": [{"x": 1, "y": 1, "to": "room", "tx": 1, "ty": 1}]}))
+	var room := ZoneData.from_dict(_base(["...", "..."], {"id": "room", "kind": "interior", "spawn": [1, 1],
+		"warps": [{"x": 1, "y": 0, "to": "town", "tx": 1, "ty": 1}]}))
+	var errors := room.validate({"town": town, "room": room})
+	assert_true(_has(errors, "lands on a warp"), "arrival on the door warp flagged: %s" % [errors])
+	room.warps[0].ty = 2
+	assert_false(_has(room.validate({"town": town, "room": room}), "lands on a warp"), "one step out is fine")
