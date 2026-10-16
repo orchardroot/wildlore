@@ -1,0 +1,41 @@
+{
+ "glasgow_home_a_mrmackay": [
+  {
+   "do": "say",
+   "who": "Mrs MacKay",
+   "text": "Come in, come in, wipe your feet. In a Glasgow tenement the shared entrance is the close, and the back garden is the back green."
+  },
+  {
+   "do": "say",
+   "who": "Mrs MacKay",
+   "text": "Wee word for you: gallus. It means bold, cheeky, with a bit of a swagger. Said with a grin, it is the highest compliment."
+  },
+  {
+   "do": "if",
+   "flag": "glasgow_home_a_gift",
+   "then": [
+    {
+     "do": "say",
+     "who": "Mrs MacKay",
+     "text": "That is the lot for today, I am afraid. Mind how you go."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Mrs MacKay",
+     "text": "Here, a bit of tablet. It is butter, sugar and condensed milk, and one square is never enough."
+    },
+    {
+     "do": "give_item",
+     "item": "tablet",
+     "n": 1
+    },
+    {
+     "do": "set",
+     "flag": "glasgow_home_a_gift"
+    }
+   ]
+  }
+ ]
+}

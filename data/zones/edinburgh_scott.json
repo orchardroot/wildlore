@@ -1,0 +1,103 @@
+{
+ "id": "edinburgh_scott",
+ "name": "Scott Monument",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "statue",
+   "x": 5,
+   "y": 3
+  },
+  {
+   "type": "bookshelf",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 9,
+   "y": 1
+  },
+  {
+   "type": "table",
+   "x": 3,
+   "y": 2
+  },
+  {
+   "type": "table",
+   "x": 3,
+   "y": 5
+  },
+  {
+   "type": "table",
+   "x": 7,
+   "y": 2
+  },
+  {
+   "type": "table",
+   "x": 7,
+   "y": 5
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 6
+  },
+  {
+   "type": "potted_plant",
+   "x": 9,
+   "y": 6
+  }
+ ],
+ "warps": [
+  {
+   "x": 5,
+   "y": 7,
+   "to": "edinburgh",
+   "tx": 27,
+   "ty": 16,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "edinburgh_scott_guide",
+   "sprite": "tour_guide",
+   "x": 3,
+   "y": 4,
+   "facing": "down",
+   "move": "still",
+   "script": "edinburgh_scott_guide"
+  },
+  {
+   "id": "edinburgh_scott_reader",
+   "sprite": "student",
+   "x": 7,
+   "y": 4,
+   "facing": "down",
+   "move": "still",
+   "script": "edinburgh_scott_reader"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  5,
+  6
+ ],
+ "rows": [
+  "xxxxxxxxxxx",
+  "x+++++++++x",
+  "x+++++++++x",
+  "x+++++++++x",
+  "x+++++++++x",
+  "x+++++++++x",
+  "x+++++++++x",
+  "x++++D++++x",
+  "xxxxxxxxxxx"
+ ]
+}
