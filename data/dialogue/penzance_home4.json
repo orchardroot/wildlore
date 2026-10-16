@@ -1,0 +1,46 @@
+{
+ "penz_home4_meryn": [
+  {
+   "do": "say",
+   "who": "Meryn",
+   "text": "Take a coat. It is mizzle out there. That is mist and drizzle, all in one go."
+  },
+  {
+   "do": "say",
+   "who": "Meryn",
+   "text": "The Jubilee Pool is a seawater lido from 1935, Art Deco style. It has been brave-swum since before my dad."
+  },
+  {
+   "do": "say",
+   "who": "Meryn",
+   "text": "Say 'proper job' when something goes well. That means well done. Say it about my sandcastle and I will be very proud."
+  },
+  {
+   "do": "if",
+   "flag": "penz_home4_gift",
+   "then": [
+    {
+     "do": "say",
+     "who": "Meryn",
+     "text": "Mum says one flask is plenty. She will not say that twice."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Meryn",
+     "text": "Mum insists you take a flask of tea. I cannot stop her."
+    },
+    {
+     "do": "give_item",
+     "item": "flask_of_tea",
+     "n": 1
+    },
+    {
+     "do": "set",
+     "flag": "penz_home4_gift"
+    }
+   ]
+  }
+ ]
+}

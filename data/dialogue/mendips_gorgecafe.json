@@ -1,0 +1,46 @@
+{
+ "gorgecafe_cook": [
+  {
+   "do": "say",
+   "who": "Cook",
+   "text": "Walkers, climbers, goat watchers, everyone ends up here. The gorge makes people hungry."
+  },
+  {
+   "do": "say",
+   "who": "Cook",
+   "text": "The cliffs rise to about 137 metres, which makes this the biggest gorge in Britain."
+  },
+  {
+   "do": "say",
+   "who": "Cook",
+   "text": "Wild goats and Soay sheep live on the cliffs. Do not offer them a sandwich, they will take the whole bag."
+  },
+  {
+   "do": "if",
+   "flag": "mendips_gorgecafe_gift",
+   "then": [
+    {
+     "do": "say",
+     "who": "Cook",
+     "text": "Back for another flask? You have a very thirsty cliff in front of you, I see."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Cook",
+     "text": "Take a flask of tea for the climb. Bring the flask back if you remember."
+    },
+    {
+     "do": "give_item",
+     "item": "flask_of_tea",
+     "n": 1
+    },
+    {
+     "do": "set",
+     "flag": "mendips_gorgecafe_gift"
+    }
+   ]
+  }
+ ]
+}

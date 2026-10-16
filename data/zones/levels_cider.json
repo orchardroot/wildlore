@@ -1,0 +1,90 @@
+{
+ "id": "levels_cider",
+ "name": "Cider Farm",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "table",
+   "x": 2,
+   "y": 2
+  },
+  {
+   "type": "table",
+   "x": 4,
+   "y": 2
+  },
+  {
+   "type": "table",
+   "x": 8,
+   "y": 2
+  },
+  {
+   "type": "table",
+   "x": 10,
+   "y": 2
+  },
+  {
+   "type": "slate_heap",
+   "x": 1,
+   "y": 5
+  },
+  {
+   "type": "table",
+   "x": 11,
+   "y": 5
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 7
+  },
+  {
+   "type": "potted_plant",
+   "x": 11,
+   "y": 7
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 8,
+   "to": "somerset_levels",
+   "tx": 28,
+   "ty": 14,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "levels_orchardist",
+   "sprite": "farmer",
+   "x": 6,
+   "y": 4,
+   "facing": "down",
+   "move": "still",
+   "script": "levels_orchardist"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  6,
+  7
+ ],
+ "rows": [
+  "xxxxxxxxxxxxx",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||D|||||x",
+  "xxxxxxxxxxxxx"
+ ]
+}

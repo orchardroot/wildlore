@@ -1,0 +1,46 @@
+{
+ "sallylunn_baker": [
+  {
+   "do": "say",
+   "who": "Baker",
+   "text": "Mind your head on the beams. This house is ancient."
+  },
+  {
+   "do": "say",
+   "who": "Baker",
+   "text": "It dates from about 1482, so it is one of the oldest houses in Bath. Downstairs, the kitchen museum shows Roman and medieval foundations."
+  },
+  {
+   "do": "say",
+   "who": "Baker",
+   "text": "The bun is named for Sally Lunn, a French refugee who may have baked them in the 1680s. Or it came from 'soleil et lune'. Nobody agrees."
+  },
+  {
+   "do": "if",
+   "flag": "bath_sallylunn_gift",
+   "then": [
+    {
+     "do": "say",
+     "who": "Baker",
+     "text": "One cup per customer, I am afraid. The beams are still very low, though."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Baker",
+     "text": "Have a cup of tea for the road. It is hot, so blow on it before you panic."
+    },
+    {
+     "do": "give_item",
+     "item": "cup_of_tea",
+     "n": 1
+    },
+    {
+     "do": "set",
+     "flag": "bath_sallylunn_gift"
+    }
+   ]
+  }
+ ]
+}
