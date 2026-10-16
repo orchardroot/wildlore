@@ -1,0 +1,46 @@
+{
+ "ggbothy_walker": [
+  {
+   "do": "say",
+   "who": "Walker",
+   "text": "Welcome to the bothy. The rules are simple: leave it tidier than you found it, and leave some dry wood."
+  },
+  {
+   "do": "say",
+   "who": "Walker",
+   "text": "The Mountain Bothies Association has looked after huts like this since 1965. They are free for anybody to use."
+  },
+  {
+   "do": "say",
+   "who": "Walker",
+   "text": "The Great Glen is a long straight valley where the land cracked along a fault. You can walk or paddle coast to coast."
+  },
+  {
+   "do": "if",
+   "flag": "gg_bothy_gift",
+   "then": [
+    {
+     "do": "say",
+     "who": "Walker",
+     "text": "That was my spare flask. The kettle is on if you want another, but I have only the one mug."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Walker",
+     "text": "Kelpies live in the lochs. If the water looks too calm, do not swim. Have a flask of tea instead."
+    },
+    {
+     "do": "give_item",
+     "item": "flask_of_tea",
+     "n": 1
+    },
+    {
+     "do": "set",
+     "flag": "gg_bothy_gift"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,41 @@
+{
+ "abdn_home_b_dad": [
+  {
+   "do": "say",
+   "who": "Resident",
+   "text": "Binfoxes come out on bin day with fur bristling and plans in their eyes. Never leave a bag out. They know."
+  },
+  {
+   "do": "say",
+   "who": "Resident",
+   "text": "The haarling comes in with the haar, the cold sea fog off the North Sea. It always arrives on the day of the picnic."
+  },
+  {
+   "do": "if",
+   "flag": "aberdeen_home_b_gift",
+   "then": [
+    {
+     "do": "say",
+     "who": "Resident",
+     "text": "Another bit? You will be too sweet to stand. Off you go."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Resident",
+     "text": "Here, take a bit of tablet. My wife makes it by the tray and I am only allowed to give it away."
+    },
+    {
+     "do": "give_item",
+     "item": "tablet",
+     "n": 1
+    },
+    {
+     "do": "set",
+     "flag": "aberdeen_home_b_gift"
+    }
+   ]
+  }
+ ]
+}

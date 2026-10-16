@@ -1,0 +1,95 @@
+{
+ "id": "kirkwall_palace",
+ "name": "Bishop's Palace",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "rock",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "rock",
+   "x": 1,
+   "y": 7
+  },
+  {
+   "type": "rock",
+   "x": 11,
+   "y": 1
+  },
+  {
+   "type": "rock",
+   "x": 11,
+   "y": 7
+  },
+  {
+   "type": "table",
+   "x": 6,
+   "y": 2
+  },
+  {
+   "type": "bench",
+   "x": 4,
+   "y": 4
+  },
+  {
+   "type": "bench",
+   "x": 8,
+   "y": 4
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 7
+  },
+  {
+   "type": "potted_plant",
+   "x": 11,
+   "y": 7
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 8,
+   "to": "kirkwall",
+   "tx": 16,
+   "ty": 20,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "palace_guide",
+   "sprite": "tour_guide",
+   "x": 6,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "palace_guide"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  6,
+  7
+ ],
+ "rows": [
+  "xxxxxxxxxxxxx",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++D+++++x",
+  "xxxxxxxxxxxxx"
+ ]
+}

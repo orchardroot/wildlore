@@ -1,0 +1,95 @@
+{
+ "id": "aberdeen_skene",
+ "name": "Provost Skene's House",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "statue",
+   "x": 6,
+   "y": 3
+  },
+  {
+   "type": "bookshelf",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 10,
+   "y": 1
+  },
+  {
+   "type": "table",
+   "x": 3,
+   "y": 2
+  },
+  {
+   "type": "table",
+   "x": 3,
+   "y": 5
+  },
+  {
+   "type": "table",
+   "x": 8,
+   "y": 2
+  },
+  {
+   "type": "table",
+   "x": 8,
+   "y": 5
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 7
+  },
+  {
+   "type": "potted_plant",
+   "x": 10,
+   "y": 7
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 8,
+   "to": "aberdeen",
+   "tx": 17,
+   "ty": 11,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "skene_guide",
+   "sprite": "tour_guide",
+   "x": 6,
+   "y": 2,
+   "facing": "down",
+   "move": "still",
+   "script": "skene_guide"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  6,
+  7
+ ],
+ "rows": [
+  "xxxxxxxxxxxx",
+  "x++++++++++x",
+  "x++++++++++x",
+  "x++++++++++x",
+  "x++++++++++x",
+  "x++++++++++x",
+  "x++++++++++x",
+  "x++++++++++x",
+  "x+++++D++++x",
+  "xxxxxxxxxxxx"
+ ]
+}
