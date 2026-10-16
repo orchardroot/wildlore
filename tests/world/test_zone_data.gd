@@ -224,3 +224,34 @@ func test_warp_arrival_on_a_door_is_an_error() -> void:
 	assert_true(_has(errors, "lands on a warp"), "arrival on the door warp flagged: %s" % [errors])
 	room.warps[0].ty = 2
 	assert_false(_has(room.validate({"town": town, "room": room}), "lands on a warp"), "one step out is fine")
+
+func test_roam_tiles_of_a_wanderer_stay_in_its_square() -> void:
+	var rows := [".......", ".......", ".......", ".......", "......."]
+	var z := ZoneData.from_dict(_base(rows, {"npcs": [{"id": "w", "x": 3, "y": 2, "move": "wander", "radius": 1}]}))
+	var tiles := z.roam_tiles(z.npcs[0])
+	assert_eq(tiles.size(), 9)
+	assert_true(Vector2i(4, 3) in tiles and not Vector2i(5, 2) in tiles, "radius 1")
+	var z2 := ZoneData.from_dict(_base(rows, {"npcs": [{"id": "w", "x": 3, "y": 2, "move": "wander"}]}))
+	assert_eq(z2.roam_tiles(z2.npcs[0]).size(), 25, "default radius %d" % ZoneData.WANDER_RADIUS)
+	var z3 := ZoneData.from_dict(_base(rows, {"npcs": [{"id": "p", "x": 1, "y": 1, "move": "pace", "path": ["right", "right"]}]}))
+	assert_eq(z3.roam_tiles(z3.npcs[0]), [Vector2i(1, 1), Vector2i(2, 1), Vector2i(3, 1)])
+
+func test_wanderer_must_not_mill_about_a_doorstep() -> void:
+	# someone wandering in front of a door (or a cave mouth) stands in your way as you come out
+	var rows := ["BBDBB", ".....", ".....", ".....", "....."]
+	var props := [{"type": "building", "style": "red_brick", "x": 0, "y": 0, "w": 5, "h": 1}]
+	var warps := [{"x": 2, "y": 0, "to": "testbed", "tx": 4, "ty": 6}]
+	var bad := ZoneData.from_dict(_base(rows, {"props": props, "warps": warps, "spawn": [0, 4],
+		"npcs": [{"id": "jogger", "x": 2, "y": 3, "move": "wander"}]}))
+	assert_true(_has(bad.validate(_all()), "jogger"), "wanders on to the doorstep at 2,1")
+	var ok := ZoneData.from_dict(_base(rows, {"props": props, "warps": warps, "spawn": [0, 4],
+		"npcs": [{"id": "jogger", "x": 2, "y": 3, "move": "wander", "radius": 1}]}))
+	assert_false(_has(ok.validate(_all()), "jogger"), "radius 1 keeps off it: %s" % [ok.validate(_all())])
+
+func test_wanderer_must_not_stand_in_a_one_tile_gap() -> void:
+	# a gap in a wall, a bridge, a lane between buildings: one wanderer there corks the way through
+	var rows := ["......", "......", "WW.WWW", "......", "......"]
+	var bad := ZoneData.from_dict(_base(rows, {"spawn": [0, 0], "npcs": [{"id": "dogwalker", "x": 2, "y": 3, "move": "wander", "radius": 1}]}))
+	assert_true(_has(bad.validate({}), "dogwalker"), "can step into the gap at 2,2")
+	var still := ZoneData.from_dict(_base(rows, {"spawn": [0, 0], "npcs": [{"id": "dogwalker", "x": 4, "y": 4, "move": "wander", "radius": 1}]}))
+	assert_false(_has(still.validate({}), "dogwalker"), "clear of the gap")

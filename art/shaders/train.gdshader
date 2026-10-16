@@ -19,7 +19,9 @@ void fragment() {
 	if (world.x < clip_min.x || world.z < clip_min.y || world.x > clip_max.x || world.z > clip_max.y) {
 		discard;
 	}
-	vec3 c = to_linear(COLOR.rgb);
+	// like the solid material's vertex_color_is_srgb: convert only when the output is linear (the Compatibility
+	// renderer works in sRGB, so there the colour is used as written)
+	vec3 c = OUTPUT_IS_SRGB ? COLOR.rgb : to_linear(COLOR.rgb);
 	ALBEDO = c;
 	ROUGHNESS = 1.0;
 	if (COLOR.a < 0.5) {

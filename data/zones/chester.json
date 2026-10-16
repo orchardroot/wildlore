@@ -902,12 +902,16 @@
    "x": 36,
    "y": 19,
    "facing": "down",
-   "move": "wander",
+   "move": "pace",
    "script": "legionary",
    "name": "Roman Re-enactor",
    "times": [
     "day",
     "dusk"
+   ],
+   "path": [
+    "left",
+    "left"
    ]
   },
   {
@@ -926,9 +930,13 @@
    "x": 17,
    "y": 44,
    "facing": "up",
-   "move": "wander",
+   "move": "pace",
    "script": "racegoer",
-   "name": "Racegoer"
+   "name": "Racegoer",
+   "path": [
+    "right",
+    "right"
+   ]
   },
   {
    "id": "chest_boatman",
@@ -936,9 +944,13 @@
    "x": 32,
    "y": 43,
    "facing": "down",
-   "move": "wander",
+   "move": "pace",
    "script": "boatman",
-   "name": "Boatman"
+   "name": "Boatman",
+   "path": [
+    "left",
+    "left"
+   ]
   },
   {
    "id": "chest_student",
@@ -952,7 +964,8 @@
    "times": [
     "day",
     "dusk"
-   ]
+   ],
+   "radius": 1
   },
   {
    "id": "rail_guard",

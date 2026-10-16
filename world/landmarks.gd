@@ -16,7 +16,7 @@ const IRON := Color("3c4450")
 const GLASS := Color.WHITE
 
 ## Building styles handled here rather than by the generic house in Meshes.building.
-const SPECIAL := ["glass_tower", "gantry_crane", "mill", "castle", "cathedral", "liver_building", "station", "aqueduct", "chapel", "terrace", "tudor", "slate_cottage", "lighthouse_house", "round_tower", "passage_tomb"]
+const SPECIAL := ["glass_tower", "gantry_crane", "cantilever_crane", "titanic", "mill", "castle", "cathedral", "liver_building", "station", "aqueduct", "chapel", "terrace", "tudor", "slate_cottage", "lighthouse_house", "round_tower", "passage_tomb", "field_barn"]
 
 ## Doors: where each style's door sits on its tile (see _door and friends), for the swing as you go in.
 ## {x, w, y, h, z}: left edge and width across the door column, bottom and height, z of the door's face from
@@ -94,7 +94,7 @@ static func window_colour(rng: RandomNumberGenerator) -> Color:
 	return Color(b, b, b, bedtime)
 
 ## Returns [body_mesh, windows_mesh, chimney tops (PackedVector3Array, local)].
-static func building(w: int, d: int, style: String, door_x: int, seed_value: int) -> Array:
+static func building(w: int, d: int, style: String, door_x: int, seed_value: int, region := "") -> Array:
 	var rng := Meshes._rng(seed_value)
 	var st := Meshes._st()
 	var wst := Meshes._st()
@@ -104,7 +104,7 @@ static func building(w: int, d: int, style: String, door_x: int, seed_value: int
 		"mill":
 			_mill(st, wst, w, d, door_x, rng)
 		"castle":
-			_castle(st, wst, w, d, door_x)
+			_castle(st, wst, w, d, door_x, region)
 		"cathedral":
 			_cathedral(st, wst, w, d, door_x, SANDSTONE)
 		"chapel":
@@ -113,6 +113,8 @@ static func building(w: int, d: int, style: String, door_x: int, seed_value: int
 			_round_tower(st, wst, w, d, door_x)
 		"passage_tomb":
 			_passage_tomb(st, w, d, door_x)
+		"field_barn":
+			_field_barn(st, w, d, rng)
 		"liver_building":
 			_liver(st, wst, w, d, door_x)
 		"station":
@@ -121,6 +123,10 @@ static func building(w: int, d: int, style: String, door_x: int, seed_value: int
 			_aqueduct(st, w, d)
 		"gantry_crane":
 			_gantry(st, w, d)
+		"cantilever_crane":
+			_cantilever(st, w, d)
+		"titanic":
+			_titanic(st, wst, w, d, door_x, rng)
 		"glass_tower":
 			_glass_tower(st, wst, w, d, door_x)
 		"terrace":
@@ -245,7 +251,7 @@ static func _station(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: 
 # --- grand buildings ---------------------------------------------------------
 
 ## Crenellated curtain wall with round corner towers and a gatehouse on the door column.
-static func _castle(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int) -> void:
+static func _castle(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int, region := "") -> void:
 	var stone := Color("9d968a")
 	var wall_h := 2.2
 	var t := 0.6
@@ -266,9 +272,98 @@ static func _castle(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: i
 		Meshes.box(st, Vector3(door_x - 0.4, 0, d - 0.9), Vector3(1.8, wall_h + 1.0, 1.0), stone.lightened(0.08))
 		Meshes.box(st, Vector3(door_x + 0.2, 0, d + 0.05), Vector3(0.6, 1.1, 0.06), Color("2a221e"))
 		_window(st, wst, door_x + 0.3, wall_h + 0.2, d + 0.1, 0.4, 0.4, stone.lightened(0.2))
-	# a flag on the first tower
-	Meshes.box(st, Vector3(0.38, wall_h + 1.3, 0.38), Vector3(0.05, 1.0, 0.05), Color("3b2a22"))
-	Meshes.box(st, Vector3(0.43, wall_h + 1.8, 0.38), Vector3(0.6, 0.4, 0.03), Color("c8102e"))
+	# a pennant on the first tower, and on the far one too on a bigger castle
+	var poles := [Vector2(0.4, 0.4)]
+	if w >= 6:
+		poles.append(Vector2(w - 0.4, 0.4))
+	for p in poles:
+		Meshes.box(st, Vector3(p.x - 0.025, wall_h + 1.3, p.y - 0.025), Vector3(0.05, 1.0, 0.05), Color("3b2a22"))
+		_pennant(st, Vector3(p.x + 0.03, wall_h + 2.25, p.y), region)
+
+## Pennant cloth colours (also the tests' way of telling one nation's from another's).
+const PENNANT_RED := Color("c8102e")
+const PENNANT_WHITE := Color("f4f1e8")
+const PENNANT_BLUE := Color("0065bd")
+const PENNANT_GREEN := Color("1f7a3a")
+const PENNANT_ORANGE := Color("ff883e")
+const PENNANT_BLACK := Color("1c1c1e")
+const PENNANT_GOLD := Color("e0b03a")
+const PENNANT_L := 0.78     # hoist to tips
+const PENNANT_H := 0.42     # at the hoist; it tapers to the fly
+const PENNANT_NOTCH := 0.32 # how far the swallowtail's fork cuts back, as a fraction of the length
+## Which pennant a region flies.
+const PENNANT_KINDS := {
+	"cheshire": "st_george", "peak": "st_george", "manchester": "st_george", "merseyside": "st_george",
+	"midlands": "st_george", "south_england": "st_george", "yorkshire": "st_george", "north_east": "st_george",
+	"cumbria": "st_george", "cornwall": "st_piran", "north_wales": "wales", "mid_wales": "wales",
+	"south_wales": "wales", "scotland": "saltire", "ireland": "ireland", "ireland_west": "ireland",
+	"ireland_east": "ireland", "man": "man",
+}
+
+## A castle's swallowtail pennant on its own, the hoist's top at the origin, flying along +x.
+static func pennant(region := "") -> ArrayMesh:
+	var st := Meshes._st()
+	_pennant(st, Vector3.ZERO, region)
+	return Meshes._finish(st)
+
+## A tapering, forked pennant hung from `top` (the hoist's top corner), flying east in the XY plane, cloth
+## both sides. A grid of cells, each half (upper and lower) squeezed so its fly edge runs from the tip in to
+## the fork; a cell takes the colour of the region's design at its centre.
+static func _pennant(st: SurfaceTool, top: Vector3, region: String) -> void:
+	var kind: String = PENNANT_KINDS.get(region, "")
+	var cols := 12
+	var rows := 4  # per half
+	var yc := top.y - PENNANT_H * 0.5
+	for half in 2:
+		for r in rows:
+			for c in cols:
+				var v0 := (r + half * rows) / float(rows * 2)
+				var v1 := (r + 1 + half * rows) / float(rows * 2)
+				var u0 := c / float(cols)
+				var u1 := (c + 1) / float(cols)
+				var a := _pennant_pt(top, yc, u0, v0)
+				var b := _pennant_pt(top, yc, u1, v0)
+				var cc := _pennant_pt(top, yc, u1, v1)
+				var d := _pennant_pt(top, yc, u0, v1)
+				var mid := (a + b + cc + d) * 0.25
+				var col := _pennant_colour(kind, (mid.x - top.x) / PENNANT_L, (v0 + v1) * 0.5)
+				Meshes._quad(st, a, b, cc, d, col)
+				Meshes._quad(st, a, d, cc, b, col)  # the back
+
+## A point on the pennant: u along its length (0 hoist .. 1 fly edge at this height), v down it (0 .. 1).
+static func _pennant_pt(top: Vector3, yc: float, u: float, v: float) -> Vector3:
+	var fly := 1.0 - PENNANT_NOTCH * (1.0 - absf(2.0 * v - 1.0))
+	var x := u * fly
+	var taper := 1.0 - 0.45 * x
+	return Vector3(top.x + x * PENNANT_L, yc + (0.5 - v) * PENNANT_H * taper, top.z)
+
+## The design: x along the length (0 .. 1 at the tips), v down it. Crosses sit in the hoist square.
+static func _pennant_colour(kind: String, x: float, v: float) -> Color:
+	var hoist := x < 0.44
+	match kind:
+		"st_george":
+			if hoist and (absf(x - 0.21) < 0.07 or absf(v - 0.5) < 0.13):
+				return PENNANT_RED
+			return PENNANT_WHITE
+		"st_piran":
+			if hoist and (absf(x - 0.21) < 0.07 or absf(v - 0.5) < 0.13):
+				return PENNANT_WHITE
+			return PENNANT_BLACK
+		"saltire":
+			if hoist and absf(absf(x - 0.21) / 0.21 - absf(v - 0.5) / 0.5) < 0.3:
+				return PENNANT_WHITE
+			return PENNANT_BLUE
+		"wales":
+			if x < 0.16:
+				return PENNANT_RED
+			return PENNANT_WHITE if v < 0.5 else PENNANT_GREEN
+		"ireland":
+			if x < 0.33:
+				return PENNANT_GREEN
+			return PENNANT_WHITE if x < 0.62 else PENNANT_ORANGE
+		"man":
+			return PENNANT_GOLD if x < 0.16 else PENNANT_RED
+	return PENNANT_GOLD if x < 0.16 else PENNANT_RED
 
 static func _merlons(st: SurfaceTool, from: float, to: float, at: float, y: float, col: Color, along_x: bool) -> void:
 	var x := from
@@ -447,6 +542,121 @@ static func _gantry(st: SurfaceTool, w: int, d: int) -> void:
 	Meshes.box(st, Vector3(w * 0.5 - 0.05, 1.4, d * 0.5 - 0.05), Vector3(0.1, h - 2.2, 0.1), Color("2a2a2a"))   # hoist cable
 	Meshes.box(st, Vector3(w * 0.5 - 0.25, 1.1, d * 0.5 - 0.25), Vector3(0.5, 0.35, 0.5), IRON)                # hook block
 
+## Glasgow's Finnieston Crane: a dark lattice tower on the quay and a hammerhead jib across the top, its long
+## arm out over the river to the south (+z) with the hook hanging above the water, the machinery house and
+## counterweight on the short tail behind.
+static func _cantilever(st: SurfaceTool, w: int, d: int) -> void:
+	var steel := Color("2e3236")
+	var lit := steel.lightened(0.12)
+	var h := 6.8
+	var cx := w * 0.5
+	var cz := d * 0.5
+	# the tower: four legs leaning in, a cross-brace every storey
+	var foot := 0.95
+	var top := 0.6
+	var legs := [Vector2(-1, -1), Vector2(1, -1), Vector2(1, 1), Vector2(-1, 1)]
+	for c in legs:
+		var a := Vector3(cx + c.x * foot, 0, cz + c.y * foot)
+		var b := Vector3(cx + c.x * top, h, cz + c.y * top)
+		_strut(st, a, b, 0.14, steel)
+	for i in 4:
+		var y := 1.2 + i * 1.4
+		var r := lerpf(foot, top, y / h)
+		Meshes.box(st, Vector3(cx - r, y, cz - r), Vector3(r * 2, 0.1, 0.1), lit)
+		Meshes.box(st, Vector3(cx - r, y, cz + r - 0.1), Vector3(r * 2, 0.1, 0.1), lit)
+		Meshes.box(st, Vector3(cx - r, y, cz - r), Vector3(0.1, 0.1, r * 2), lit)
+		Meshes.box(st, Vector3(cx + r - 0.1, y, cz - r), Vector3(0.1, 0.1, r * 2), lit)
+	Meshes.box(st, Vector3(cx - 1.15, 0, cz - 1.15), Vector3(2.3, 0.2, 2.3), Color("8a8478"))  # plinth
+	# the jib: a deep box girder from the tail (north) out over the water (south)
+	var z0 := cz - 2.2
+	var z1 := d + 4.3
+	Meshes.box(st, Vector3(cx - 0.45, h, z0), Vector3(0.9, 0.7, z1 - z0), steel, lit)
+	Meshes.box(st, Vector3(cx - 0.5, h + 0.7, z0), Vector3(1.0, 0.08, z1 - z0), lit)  # walkway on top
+	Meshes.box(st, Vector3(cx - 0.75, h + 0.78, z0 + 0.1), Vector3(1.5, 1.0, 1.6), steel.lightened(0.05))  # machinery house
+	Meshes.box(st, Vector3(cx - 0.6, h - 0.9, z0), Vector3(1.2, 0.9, 0.9), Color("4a4e52"))  # counterweight
+	# trolley, cable and hook out at the end of the arm
+	var hz := z1 - 1.2
+	Meshes.box(st, Vector3(cx - 0.35, h - 0.25, hz - 0.35), Vector3(0.7, 0.25, 0.7), IRON.lightened(0.15))
+	Meshes.box(st, Vector3(cx - 0.04, 1.3, hz - 0.04), Vector3(0.08, h - 1.55, 0.08), Color("1e1e1e"))
+	Meshes.box(st, Vector3(cx - 0.22, 0.95, hz - 0.22), Vector3(0.44, 0.35, 0.44), Color("c8a020"))  # hook block, painted
+
+## A square strut from a to b (a mostly vertical member), built as a skewed box.
+static func _strut(st: SurfaceTool, a: Vector3, b: Vector3, t: float, col: Color) -> void:
+	var h := t * 0.5
+	var lo := [a + Vector3(-h, 0, -h), a + Vector3(h, 0, -h), a + Vector3(h, 0, h), a + Vector3(-h, 0, h)]
+	var hi := [b + Vector3(-h, 0, -h), b + Vector3(h, 0, -h), b + Vector3(h, 0, h), b + Vector3(-h, 0, h)]
+	for i in 4:
+		var j := (i + 1) % 4
+		Meshes._quad(st, lo[i], lo[j], hi[j], hi[i], col.darkened(0.06 * (i % 2)))
+
+## Titanic Belfast: four angular ship's prows, one rising toward each corner, flaring out as they climb and clad
+## in silver shards, round a glass atrium whose front holds the door. The prows' tips stand highest, like bows.
+static func _titanic(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int, rng: RandomNumberGenerator) -> void:
+	var c := Vector2(w * 0.5, d * 0.5)
+	var h := maxf(5.4, d * 0.8)
+	var glass := Color("35505f")
+	var frame := Color("23303a")
+	# the atrium: a glass box between the prows, reaching the front edge for the door
+	var aw := minf(3.2, w * 0.3)
+	Meshes.box(st, Vector3(c.x - aw * 0.5, 0, c.y - d * 0.2), Vector3(aw, h * 0.7, d * 0.7), glass, frame)
+	for r in 3:
+		for i in int(aw / 0.5):
+			var x := c.x - aw * 0.5 + 0.1 + i * 0.5
+			if r == 0 and door_x >= 0 and x >= door_x - 0.3 and x <= door_x + 1.0:
+				continue
+			Meshes.box(wst, Vector3(x, 0.35 + r * 1.1, d - 0.03), Vector3(0.36, 0.7, 0.04), window_colour(_wr))
+	if door_x >= 0:
+		Meshes.box(st, Vector3(door_x + 0.12, 0, d - 0.06), Vector3(0.76, 1.1, 0.08), frame)
+	# the prows: a kite in plan (inner corner, two flanks, the bow), pointing at a footprint corner
+	var half := Vector2(w * 0.5, d * 0.5)
+	for corner: Vector2 in [Vector2(-1, -1), Vector2(1, -1), Vector2(-1, 1), Vector2(1, 1)]:
+		var o := (corner * half).normalized()
+		var perp := Vector2(o.y, -o.x)
+		var reach := (corner * half).length() - 0.55
+		var flank := reach * 0.5
+		var hw := minf(1.4, half.y * 0.42)
+		var plan := [c + o * 0.6, c + o * flank + perp * hw, c + o * reach, c + o * flank - perp * hw]
+		var tops := [h * 0.8, h * 0.9, h * 1.08, h * 0.9]
+		var lo := []
+		var hi := []
+		for i in 4:
+			var p: Vector2 = plan[i]
+			# lean out as it climbs: the walls flare, the bow most of all
+			var lean: Vector2 = (p - c) * (0.1 if i != 2 else 0.12)
+			lo.append(Vector3(p.x, 0, p.y))
+			hi.append(Vector3(p.x + lean.x, tops[i], p.y + lean.y))
+		hi[2] = Vector3(clampf(hi[2].x, -0.2, w + 0.2), hi[2].y, clampf(hi[2].z, -0.2, d + 0.2))
+		for i in 4:
+			var j := (i + 1) % 4
+			_shards(st, lo[i], lo[j], hi[j], hi[i], 3, 5, rng)
+		_shards(st, hi[0], hi[1], hi[2], hi[3], 2, 2, rng, 0.08)  # the deck, darker
+
+## A wall clad in silver shards: the quad a-b-c-d (a, b along the bottom) cut into a cols x rows grid, each
+## cell split corner to corner into two triangles of different silvers.
+static func _shards(st: SurfaceTool, a: Vector3, b: Vector3, c: Vector3, d: Vector3, cols: int, rows: int, rng: RandomNumberGenerator, dark := 0.0) -> void:
+	var base := Color("c4cad0")
+	for r in rows:
+		for k in cols:
+			var u0 := k / float(cols)
+			var u1 := (k + 1) / float(cols)
+			var v0 := r / float(rows)
+			var v1 := (r + 1) / float(rows)
+			var p00 := _bilerp(a, b, c, d, u0, v0)
+			var p10 := _bilerp(a, b, c, d, u1, v0)
+			var p11 := _bilerp(a, b, c, d, u1, v1)
+			var p01 := _bilerp(a, b, c, d, u0, v1)
+			var s1 := base.lightened(rng.randf_range(0.0, 0.2)).darkened(dark) if rng.randf() < 0.5 else base.darkened(rng.randf_range(0.0, 0.16) + dark)
+			var s2 := base.lerp(Color("aebccb"), rng.randf_range(0.2, 0.7)).darkened(dark)
+			if (r + k) % 2 == 0:
+				Meshes._tri(st, p00, p10, p11, s1)
+				Meshes._tri(st, p00, p11, p01, s2)
+			else:
+				Meshes._tri(st, p00, p10, p01, s2)
+				Meshes._tri(st, p10, p11, p01, s1)
+
+static func _bilerp(a: Vector3, b: Vector3, c: Vector3, d: Vector3, u: float, v: float) -> Vector3:
+	return a.lerp(b, u).lerp(d.lerp(c, u), v)
+
 ## Lord Vane's tower: a tall tapering block of blue glass with a lit grid of windows and a needle spire.
 static func _glass_tower(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int) -> void:
 	var glass := Color("4a6e8c")
@@ -469,6 +679,100 @@ static func _glass_tower(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door
 		Meshes.box(st, Vector3(door_x + 0.15, 0, d - 0.06), Vector3(0.7, 1.2, 0.08), frame)
 
 # --- point props -------------------------------------------------------------
+
+## A little waterfall where a stream drops a level: a sloping sheet of white water from the upstream (+x) edge
+## of its tile, the upper pool's lip, down to a ring of foam on the lower pool. Origin on the lower pool's
+## surface (ZoneBuilder stands it there); ZoneBuilder.LEVEL high, so it meets the pool above.
+static func cascade(variant := 0) -> ArrayMesh:
+	var rng := Meshes._rng(9500 + variant)
+	var st := Meshes._st()
+	var top := ZoneBuilder.LEVEL + 0.05
+	var strips := 5
+	for i in strips:
+		var z0 := -0.46 + i * 0.92 / strips
+		var z1 := z0 + 0.92 / strips
+		var col := Color("eef6f8") if i % 2 == 0 else Color("b9dde6")
+		var lip := 0.52 + rng.randf_range(-0.02, 0.02)
+		# white water quickening over the lip of the pool above, then the fall itself
+		Meshes._quad(st, Vector3(0.8, top - 0.01, z1), Vector3(0.8, top - 0.01, z0), Vector3(lip, top, z0), Vector3(lip, top, z1), col.lerp(Color("9fcbd8"), 0.4))
+		Meshes._quad(st, Vector3(lip, top, z1), Vector3(lip, top, z0), Vector3(0.06, 0.02, z0), Vector3(0.06, 0.02, z1), col)
+	for i in 8:
+		var z := -0.42 + i * 0.12
+		Meshes.blob(st, Vector3(rng.randf_range(-0.2, 0.12), 0.02, z), Vector3(0.17, 0.06, 0.12), Color("f2f8fa"), rng, 0.3)
+	return Meshes._finish(st)
+
+# --- the countryside ----------------------------------------------------------
+
+## A Dales field barn (a laithe): rubble stone walls with through-stones sticking out, a stone-slate roof, a
+## wide cart door and a row of little forking holes. Nobody goes in: it has no door tile.
+static func _field_barn(st: SurfaceTool, w: int, d: int, rng: RandomNumberGenerator) -> void:
+	var stone := Color("a39b8b")
+	var roof := Color("5d5850")
+	var h := 1.25
+	for row in 5:
+		var y := row * h / 5.0
+		var c := stone.lightened(rng.randf_range(-0.08, 0.06))
+		Meshes.box(st, Vector3(0.08, y, 0.12), Vector3(w - 0.16, h / 5.0, d - 0.24), c)
+	for i in w:
+		Meshes.box(st, Vector3(i + 0.35, h * 0.55, d - 0.16), Vector3(0.18, 0.08, 0.1), stone.darkened(0.15))  # through-stones
+		Meshes.box(st, Vector3(i + 0.4, h * 0.8, d - 0.13), Vector3(0.12, 0.12, 0.02), Color("2a2622"))       # forking holes
+	Meshes.box(st, Vector3(w * 0.5 - 0.4, 0, d - 0.13), Vector3(0.8, 0.85, 0.03), Color("4d3b2c"))  # cart door
+	Meshes.box(st, Vector3(w * 0.5 - 0.48, 0.85, d - 0.14), Vector3(0.96, 0.1, 0.06), stone.lightened(0.12))  # lintel
+	_roof(st, w, d, h, roof, stone, 0.32)
+
+## Field sheep standing about (point props: no creature, just wool). 0 Herdwick (grey fleece, white face, the
+## Lakes), 1 Swaledale (white fleece, black face, the Dales), 2 a Herdwick with its head down grazing.
+static func sheep(variant := 0) -> ArrayMesh:
+	var rng := Meshes._rng(9700 + variant)
+	var st := Meshes._st()
+	var fleece := Color("e6e1d6") if variant == 1 else Color("8f8a84")
+	var face := Color("24211f") if variant == 1 else Color("e9e6df")
+	var leg := Color("2a2725")
+	for p in [Vector2(-0.14, -0.09), Vector2(0.14, -0.09), Vector2(-0.14, 0.09), Vector2(0.14, 0.09)]:
+		Meshes.box(st, Vector3(p.x - 0.03, 0, p.y - 0.03), Vector3(0.06, 0.18, 0.06), leg)
+	Meshes.blob(st, Vector3(0, 0.27, 0), Vector3(0.24, 0.13, 0.16), fleece, rng, 0.12)
+	var head_y := 0.14 if variant == 2 else 0.34
+	Meshes.box(st, Vector3(0.22, head_y - 0.06, -0.06), Vector3(0.14, 0.12, 0.12), face)
+	Meshes.box(st, Vector3(0.23, head_y + 0.03, -0.1), Vector3(0.04, 0.03, 0.2), face.darkened(0.1))  # ears
+	if variant == 1:
+		Meshes.box(st, Vector3(0.24, head_y + 0.02, -0.09), Vector3(0.06, 0.06, 0.03), Color("c9bfa8"))  # curled horn
+		Meshes.box(st, Vector3(0.24, head_y + 0.02, 0.06), Vector3(0.06, 0.06, 0.03), Color("c9bfa8"))
+	return Meshes._finish(st)
+
+## A five-bar field gate standing open, folded back against the wall beside a gap: the hanging post at the
+## gap side (+x), the gate in front of the wall's face (+z). Stand it on the wall tile next to the gap, turned
+## (rot) so +x points into the gap. Variant 1 is weathered grey, 2 painted white.
+static func field_gate(variant := 0) -> ArrayMesh:
+	var st := Meshes._st()
+	var wood: Color = [Color("8a6a46"), Color("8c8a82"), Color("e8e4da")][variant % 3]
+	Meshes.box(st, Vector3(0.36, 0, 0.18), Vector3(0.12, 0.86, 0.12), Color("6d5a44") if variant != 2 else wood.darkened(0.1))
+	for i in 5:
+		Meshes.box(st, Vector3(-0.48, 0.12 + i * 0.13, 0.27), Vector3(0.86, 0.05, 0.04), wood)
+	Meshes.box(st, Vector3(-0.48, 0.1, 0.26), Vector3(0.06, 0.62, 0.06), wood.darkened(0.08))
+	Meshes.box(st, Vector3(0.28, 0.1, 0.26), Vector3(0.06, 0.62, 0.06), wood.darkened(0.08))
+	# the diagonal brace, in short steps
+	for i in 6:
+		var t := i / 5.0
+		Meshes.box(st, Vector3(lerpf(0.24, -0.44, t), lerpf(0.14, 0.6, t), 0.25), Vector3(0.12, 0.05, 0.03), wood.darkened(0.05))
+	return Meshes._finish(st)
+
+## Limestone pavement: flat clints split by dark grikes, lying on its tile. Walk over it.
+static func limestone_pavement(variant := 0) -> ArrayMesh:
+	var rng := Meshes._rng(9800 + variant)
+	var st := Meshes._st()
+	var stone := Color("bdb9ac")
+	# two bands of clints, each band split at its own place, so the grikes don't line up like floor tiles
+	for j in 2:
+		var z0 := -0.5 + j * 0.5 + 0.03
+		var cut := rng.randf_range(-0.25, 0.25)
+		for part in [[-0.5, cut], [cut, 0.5]]:
+			if rng.randf() < 0.1:
+				continue  # turf has filled this one in
+			var x0: float = part[0] + 0.03
+			var x1: float = part[1] - 0.03
+			var c := stone.lightened(rng.randf_range(-0.1, 0.06))
+			Meshes.box(st, Vector3(x0, 0, z0), Vector3(x1 - x0, rng.randf_range(0.04, 0.08), 0.44 + rng.randf_range(-0.04, 0.0)), c)
+	return Meshes._finish(st)
 
 static func standing_stone(variant := 0) -> ArrayMesh:
 	var rng := Meshes._rng(9100 + variant)

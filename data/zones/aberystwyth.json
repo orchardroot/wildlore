@@ -106,16 +106,20 @@
   {
    "facing": "right",
    "id": "starling_man",
-   "move": "still",
+   "move": "pace",
    "script": "starling_man",
    "sprite": "birdwatcher",
    "x": 8.0,
-   "y": 25.0
+   "y": 25.0,
+   "path": [
+    "right",
+    "right"
+   ]
   },
   {
    "facing": "down",
    "id": "student_aber",
-   "move": "wander",
+   "move": "pace",
    "script": "student_aber",
    "sprite": "student",
    "x": 41.0,
@@ -123,6 +127,10 @@
    "times": [
     "day",
     "dusk"
+   ],
+   "path": [
+    "right",
+    "right"
    ]
   },
   {

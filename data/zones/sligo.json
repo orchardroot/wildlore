@@ -221,11 +221,15 @@
   {
    "facing": "right",
    "id": "sligo_poet",
-   "move": "wander",
+   "move": "pace",
    "script": "sligo_poet",
    "sprite": "villager_6",
    "x": 29.0,
-   "y": 35.0
+   "y": 35.0,
+   "path": [
+    "down",
+    "down"
+   ]
   },
   {
    "facing": "left",
@@ -247,7 +251,8 @@
    "times": [
     "day",
     "dusk"
-   ]
+   ],
+   "radius": 1
   },
   {
    "facing": "up",
@@ -270,7 +275,7 @@
   {
    "facing": "down",
    "id": "surf_kid",
-   "move": "still",
+   "move": "pace",
    "script": "surf_kid",
    "sprite": "surfer",
    "x": 45.0,
@@ -278,6 +283,10 @@
    "times": [
     "day",
     "dusk"
+   ],
+   "path": [
+    "left",
+    "left"
    ]
   },
   {

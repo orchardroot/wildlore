@@ -267,16 +267,20 @@
   {
    "facing": "down",
    "id": "welsh_local",
-   "move": "wander",
+   "move": "pace",
    "script": "welsh_local",
    "sprite": "villager_5",
    "x": 37.0,
-   "y": 22.0
+   "y": 22.0,
+   "path": [
+    "left",
+    "left"
+   ]
   },
   {
    "facing": "down",
    "id": "museum_curator",
-   "move": "still",
+   "move": "pace",
    "script": "museum_curator",
    "sprite": "tour_guide",
    "x": 47.0,
@@ -284,6 +288,10 @@
    "times": [
     "day",
     "dusk"
+   ],
+   "path": [
+    "left",
+    "left"
    ]
   },
   {
@@ -297,7 +305,8 @@
    "times": [
     "day",
     "dusk"
-   ]
+   ],
+   "radius": 1
   },
   {
    "facing": "right",

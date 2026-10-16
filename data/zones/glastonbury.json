@@ -182,7 +182,7 @@
   {
    "facing": "down",
    "id": "abbey_guide",
-   "move": "still",
+   "move": "pace",
    "script": "abbey_guide",
    "sprite": "tour_guide",
    "x": 42.0,
@@ -190,12 +190,16 @@
    "times": [
     "day",
     "dusk"
+   ],
+   "path": [
+    "left",
+    "left"
    ]
   },
   {
    "facing": "right",
    "id": "chalice_gardener",
-   "move": "still",
+   "move": "wander",
    "script": "chalice_gardener",
    "sprite": "villager_5",
    "x": 27.0,

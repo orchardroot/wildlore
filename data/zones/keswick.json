@@ -753,8 +753,12 @@
    "x": 50,
    "y": 40,
    "facing": "down",
-   "move": "wander",
-   "script": "sheep_herdwick"
+   "move": "pace",
+   "script": "sheep_herdwick",
+   "path": [
+    "right",
+    "right"
+   ]
   },
   {
    "id": "kes_boatman",
@@ -776,7 +780,8 @@
    "y": 28,
    "facing": "down",
    "move": "wander",
-   "script": "kes_pencil"
+   "script": "kes_pencil",
+   "radius": 1
   },
   {
    "id": "kes_walker",

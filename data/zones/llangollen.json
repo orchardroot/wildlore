@@ -177,27 +177,35 @@
   {
    "facing": "right",
    "id": "castle_climber",
-   "move": "wander",
+   "move": "pace",
    "name": "Climber",
    "script": "castle_climber",
    "sprite": "hiker",
    "x": 22.0,
-   "y": 24.0
+   "y": 24.0,
+   "path": [
+    "right",
+    "right"
+   ]
   },
   {
    "facing": "up",
    "id": "steam_fan",
-   "move": "still",
+   "move": "pace",
    "name": "Steam Fan",
    "script": "steam_fan",
    "sprite": "villager_6",
    "x": 49.0,
-   "y": 23.0
+   "y": 23.0,
+   "path": [
+    "left",
+    "left"
+   ]
   },
   {
    "facing": "down",
    "id": "ladies_tour",
-   "move": "wander",
+   "move": "pace",
    "name": "Tour Guide",
    "script": "ladies_tour",
    "sprite": "tour_guide",
@@ -206,6 +214,10 @@
    "times": [
     "day",
     "dusk"
+   ],
+   "path": [
+    "left",
+    "left"
    ]
   },
   {

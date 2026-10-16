@@ -409,7 +409,8 @@
    "y": 22,
    "facing": "down",
    "move": "wander",
-   "script": "crane"
+   "script": "crane",
+   "radius": 1
   },
   {
    "id": "crane_cranelet_56",
@@ -462,8 +463,12 @@
    "x": 21,
    "y": 24,
    "facing": "down",
-   "move": "wander",
-   "script": "withy_weaver"
+   "move": "pace",
+   "script": "withy_weaver",
+   "path": [
+    "left",
+    "left"
+   ]
   },
   {
    "id": "cider_man",

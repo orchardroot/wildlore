@@ -18,6 +18,8 @@ void vertex() {
 }
 
 void fragment() {
-	ALBEDO = to_linear(COLOR.rgb);
+	// like the solid material's vertex_color_is_srgb: convert only when the output is linear (the Compatibility
+	// renderer works in sRGB, so there the colour is used as written)
+	ALBEDO = OUTPUT_IS_SRGB ? COLOR.rgb : to_linear(COLOR.rgb);
 	ROUGHNESS = 1.0;
 }

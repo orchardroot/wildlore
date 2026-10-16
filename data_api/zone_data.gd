@@ -24,6 +24,9 @@ const RAIL_CAPS := ["buffer_stop", "tunnel_portal"]
 ## Dev zones that may break the rail rules.
 const RAIL_RULE_EXEMPT := ["mesh_gallery", "testbed"]
 const OPPOSITE := {"north": "south", "south": "north", "east": "west", "west": "east"}
+## How far (tiles, square) a "wander" NPC strays from where it stands; an NPC's "radius" overrides it.
+const WANDER_RADIUS := 2
+const STEPS := {"up": Vector2i(0, -1), "down": Vector2i(0, 1), "left": Vector2i(-1, 0), "right": Vector2i(1, 0)}
 
 var id := ""
 var name := ""
@@ -206,6 +209,97 @@ func _standing_npcs() -> Dictionary:
 		if str(n.get("move", "still")) == "still" and not n.has("hide_if") and not n.has("show_if"):
 			out[Vector2i(int(n.x), int(n.y))] = true
 	return out
+
+## Every tile a moving NPC may stand on: a wanderer's square (as far as it can walk inside it), a pacer's beat.
+## A still NPC just its own tile.
+func roam_tiles(n: Dictionary) -> Array:
+	var home := Vector2i(int(n.get("x", 0)), int(n.get("y", 0)))
+	match str(n.get("move", "still")):
+		"wander":
+			var r := int(n.get("radius", WANDER_RADIUS))
+			var seen := {home: true}
+			var queue: Array = [home]
+			while not queue.is_empty():
+				var p: Vector2i = queue.pop_front()
+				for d in STEPS.values():
+					var q: Vector2i = p + d
+					if seen.has(q) or maxi(absi(q.x - home.x), absi(q.y - home.y)) > r or not walkable(q, d):
+						continue
+					if not warp_at(q).is_empty():
+						continue  # NPCs never step on to a warp
+					seen[q] = true
+					queue.append(q)
+			var out := seen.keys()
+			out.sort()
+			return out
+		"pace":
+			var out := [home]
+			var p := home
+			for d in n.get("path", []):
+				p += STEPS.get(str(d), Vector2i.ZERO)
+				if p not in out:
+					out.append(p)
+			return out
+	return [home]
+
+const GAP_DETOUR := 3  # tiles: how far round a "gap" check looks for a way past
+
+## A walkable tile someone standing on would cork: the ways in and out of it don't meet again close by
+## (a lane between buildings, a gap in a wall, a bridge). A dead end isn't a gap.
+func is_gap(p: Vector2i) -> bool:
+	if not walkable(p):
+		return false
+	var ways := []
+	for d in STEPS.values():
+		if walkable(p + d, d) and walkable(p, -d):
+			ways.append(p + d)
+	if ways.size() < 2:
+		return false
+	var seen := {ways[0]: true}
+	var queue: Array = [ways[0]]
+	while not queue.is_empty():
+		var q: Vector2i = queue.pop_front()
+		for d in STEPS.values():
+			var r: Vector2i = q + d
+			if r == p or seen.has(r) or maxi(absi(r.x - p.x), absi(r.y - p.y)) > GAP_DETOUR or not walkable(r, d):
+				continue
+			seen[r] = true
+			queue.append(r)
+	for w in ways:
+		if not seen.has(w):
+			return true
+	return false
+
+## Wanderers and pacers must never cork the way: nowhere on their beat may they stand next to a warp (a
+## doorstep, a cave mouth), on the station or ferry tile, or in a one-tile gap (a lane, a wall gap, a bridge).
+## What's wrong with NPC n's beat, or "".
+func roamer_problem(n: Dictionary) -> String:
+	if str(n.get("move", "still")) == "still":
+		return ""
+	var keep_clear := {}
+	for w in warps:
+		var wp := Vector2i(int(w.x), int(w.y))
+		for d in STEPS.values():
+			keep_clear[wp + d] = "the doorstep of the warp at %d,%d" % [wp.x, wp.y]
+	if station != Vector2i(-1, -1):
+		keep_clear[station] = "the station tile"
+	if not ferry.is_empty():
+		keep_clear[Vector2i(int(ferry.get("x", -1)), int(ferry.get("y", -1)))] = "the ferry quay"
+	var home := Vector2i(int(n.get("x", 0)), int(n.get("y", 0)))
+	for p in roam_tiles(n):
+		if keep_clear.has(p):
+			return "can wander on to %s (at %d,%d)" % [keep_clear[p], p.x, p.y]
+		if p != home and is_gap(p):
+			return "can wander into a one-tile gap at %d,%d" % [p.x, p.y]
+	return ""
+
+func _roamer_errors(tag: String) -> Array:
+	var e := []
+	for n in npcs:
+		var why := roamer_problem(n)
+		if why != "":
+			e.append(tag + "npc '%s' %s" % [n.get("id", "?"), why])
+	return e
 
 func _border(side: String) -> Array:
 	var out := []
@@ -391,6 +485,7 @@ func validate(all: Dictionary) -> Array:
 		for x in width:
 			if tiles[y][x] == "building" and not covered.has(Vector2i(x, y)):
 				e.append(tag + "B at %d,%d is not covered by a building prop" % [x, y])
+	e.append_array(_roamer_errors(tag))
 	if id not in RAIL_RULE_EXEMPT:
 		e.append_array(_rail_errors(tag))
 	return e
