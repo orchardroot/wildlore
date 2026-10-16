@@ -289,9 +289,7 @@ static func _props(z: ZoneData, root: Node3D, rng: RandomNumberGenerator) -> voi
 			match pt:
 				"lamp_post":
 					_add(buckets, "lamp_bulb:0", tr)
-					# the pool of light on the ground, a little above it so it never z-fights
-					var pool := Transform3D(Basis.from_scale(Vector3.ONE * 3.4), tr.origin + Vector3(0, 0.04, 0))
-					_add(buckets, "lamp_pool:0", pool)
+					_add(buckets, "lamp_pool:0", lamp_pool(z, pos))
 				"flagpole":
 					_add(buckets, "flag:%d" % variant, tr)
 				"fireplace":
@@ -331,6 +329,30 @@ static func _props(z: ZoneData, root: Node3D, rng: RandomNumberGenerator) -> voi
 			mmi.material_override = Meshes.foliage if foliage else Meshes.solid
 			mmi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF if parts[0] in ["tall_grass_tuft", "flower_patch"] else GeometryInstance3D.SHADOW_CASTING_SETTING_ON
 		root.add_child(mmi)
+
+const POOL_SIZE := 3.4
+## The pool of light under the lamp post on tile p, a little above the ground so it never z-fights. The pool is
+## flat, so next to water or a drop (a bridge parapet, a quay, a cliff edge) it would hang in the air as a
+## glowing disc: there it shrinks and keeps to the lamp's own side, or to its own tile when the drop is all round.
+static func lamp_pool(z: ZoneData, p: Vector2i) -> Transform3D:
+	var gy := ground_y(z, p)
+	var away := Vector2.ZERO
+	var drops := 0
+	for dy in range(-1, 2):
+		for dx in range(-1, 2):
+			var q := p + Vector2i(dx, dy)
+			if (dx == 0 and dy == 0) or not z.in_bounds(q):
+				continue
+			if ground_y(z, q) < gy - 0.2 or z.tile_at(q) in ["water", "shallow", "deep_water", "sea"]:
+				away -= Vector2(dx, dy)
+				drops += 1
+	var centre := Vector3(p.x + 0.5, gy + 0.04, p.y + 0.5)
+	if drops == 0:
+		return Transform3D(Basis.from_scale(Vector3.ONE * POOL_SIZE), centre)
+	if away.length() < 0.5:
+		return Transform3D(Basis.from_scale(Vector3.ONE * 1.2), centre)
+	var dir := away.normalized()
+	return Transform3D(Basis.from_scale(Vector3.ONE * 2.2), centre + Vector3(dir.x, 0, dir.y) * 0.6)
 
 ## Yaw that turns a mesh's local +X to point along grid direction `d` (x east, y south).
 static func cap_angle(d: Vector2i) -> float:
@@ -481,7 +503,8 @@ static func _buildings(z: ZoneData, root: Node3D) -> void:
 			if z.tile_at(Vector2i(x, by + d - 1)) == "door":
 				door_x = x - bx
 		var meshes: Array = Meshes.building(w, d, str(pr.get("style", "red_brick")), door_x, hash(z.id) + bx * 31 + by)
-		var gy := z.height_at(Vector2i(bx, by)) * LEVEL
+		# stand on the door's ground, so on a slope the door meets the path rather than sinking into the hill
+		var gy := z.height_at(Vector2i(bx + door_x, by + d - 1) if door_x >= 0 else Vector2i(bx, by)) * LEVEL
 		var body := MeshInstance3D.new()
 		body.name = "Building_%d_%d" % [bx, by]
 		body.mesh = meshes[0]

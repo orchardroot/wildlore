@@ -9,6 +9,7 @@ const DARK_BRICK := Color("7a3a30")
 const SANDSTONE := Color("b5654a")   # Chester's red sandstone
 const SLATE := Color("4d5563")
 const SLATE_WALL := Color("7d838a")
+const PEAT := Color("4a3626")
 const LIMESTONE := Color("c9c0aa")
 const PORTLAND := Color("d8d2c2")    # Liver Building granite and Portland stone, near enough
 const IRON := Color("3c4450")
@@ -348,13 +349,15 @@ static func standing_stone(variant := 0) -> ArrayMesh:
 	Meshes.blob(st, Vector3(0.1, h * 0.5, 0.15), Vector3(0.1, 0.12, 0.04), Color("9fae6a"), rng)  # lichen
 	return Meshes._finish(st)
 
+## Variants 0 to 2 are slate (or slag); variant 3 is a stack of cut peat.
 static func slate_heap(variant := 0) -> ArrayMesh:
 	var rng := Meshes._rng(9200 + variant)
 	var st := Meshes._st()
+	var col := PEAT if variant == 3 else SLATE
 	for i in 9:
 		var y := i * 0.09
 		var s := 0.9 - i * 0.08
-		Meshes.box(st, Vector3(-s * 0.5 + rng.randf_range(-0.05, 0.05), y, -s * 0.45), Vector3(s, 0.08, s * 0.9), SLATE.lightened(rng.randf_range(-0.08, 0.12)))
+		Meshes.box(st, Vector3(-s * 0.5 + rng.randf_range(-0.05, 0.05), y, -s * 0.45), Vector3(s, 0.08, s * 0.9), col.lightened(rng.randf_range(-0.08, 0.12)))
 	return Meshes._finish(st)
 
 static func scree_rubble(variant := 0) -> ArrayMesh:

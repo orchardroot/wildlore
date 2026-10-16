@@ -29,8 +29,8 @@ c.rect(32, 3, 3, 34, "h"); c.rect(36, 3, 3, 34, "h")
 c.rect(35, 0, 1, 40, "!")
 # peat cuttings: a long ditch, fenced
 c.rect(43, 6, 1, 12, "w")
-for y in (6, 9, 12, 15, 17): c.prop("slate_heap", 40, y, variant=y % 2)
-for y in (7, 10, 13): c.prop("slate_heap", 45, y, variant=(y + 1) % 2)
+for y in (6, 9, 12, 15, 17): c.prop("slate_heap", 40, y, variant=3)  # peat stacks
+for y in (7, 10, 13): c.prop("slate_heap", 45, y, variant=3)
 # the route
 ROUTE = [(71, 25), (58, 25), (58, 30), (46, 30), (46, 25), (24, 25), (24, 14), (12, 14), (12, 21), (0, 21)]
 path(c, ROUTE, "g", 3); c.border("T", 3, gaps=[(69, 24, 3, 3), (0, 20, 3, 3)]); path(c, ROUTE, "#", 1)
