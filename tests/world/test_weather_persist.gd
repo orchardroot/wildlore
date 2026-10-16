@@ -76,7 +76,7 @@ func test_weather_round_trips_and_old_saves_default() -> void:
 	var back := GameStateData.from_dict(JSON.parse_string(JSON.stringify(s.to_dict())), Fixtures.dex())
 	assert_eq(back.weather, "drizzle")
 	assert_eq(back.weather_region, "cheshire")
-	assert_eq(back.weather_until, 620)
+	assert_eq(back.weather_until, 600 + GameStateData.WEATHER_MIN)
 	var old := GameStateData.from_dict({"zone_id": "buxton"}, Fixtures.dex())
 	assert_eq(old.weather, "")
 	assert_eq(old.weather_until, 0)
