@@ -218,7 +218,7 @@ const POINT_PROPS := ["lamp_post", "bench", "bush", "birch", "oak", "pine", "roc
 	"post_box", "bookshelf", "potted_plant", "table", "bed", "standing_stone", "slate_heap", "boat", "canal_boat", "bollard",
 	"buoy", "lighthouse", "statue", "harp", "clock_tower", "shard", "buffer_stop", "tunnel_portal",
 	"bunting", "flagpole", "washing_line", "hanging_basket", "rug", "fireplace", "wall_picture", "clock", "kitchen_dresser",
-	"fryer", "menu_board", "piano", "telescope", "plant_stand", "sofa", "display_case"]
+	"fryer", "menu_board", "piano", "telescope", "plant_stand", "sofa", "display_case", "cascade"]
 ## Cloth meshes that ripple (flutter shader) and glow meshes that add light (firelight shader).
 const CLOTH := ["bunting", "flag", "washing_line"]
 const FLOATING := ["boat", "canal_boat", "buoy"]
@@ -277,7 +277,7 @@ static func _props(z: ZoneData, root: Node3D, rng: RandomNumberGenerator) -> voi
 		var pt: String = pr.get("type", "")
 		if pt in POINT_PROPS:
 			var pos := Vector2i(int(pr.x), int(pr.y))
-			var py := water_y(z, pos) if pt in FLOATING else ground_y(z, pos)
+			var py := prop_y(z, pt, pos)
 			var rot := deg_to_rad(float(pr.get("rot", 0)))
 			if pt in ZoneData.RAIL_CAPS:
 				py = z.height_at(pos) * LEVEL
@@ -359,6 +359,10 @@ static func lamp_pool(z: ZoneData, p: Vector2i) -> Transform3D:
 	var dir := away.normalized()
 	return Transform3D(Basis.from_scale(Vector3.ONE * 2.2), centre + Vector3(dir.x, 0, dir.y) * 0.6)
 
+## Where a point prop stands on tile p: the water's surface for boats, buoys and waterfalls, else the ground.
+static func prop_y(z: ZoneData, pt: String, p: Vector2i) -> float:
+	return water_y(z, p) if pt in FLOATING or pt == "cascade" else ground_y(z, p)
+
 ## Yaw that turns a mesh's local +X to point along grid direction `d` (x east, y south).
 static func cap_angle(d: Vector2i) -> float:
 	return atan2(-float(d.y), float(d.x))
@@ -436,6 +440,8 @@ static func _ctor(name: String, variant: int) -> ArrayMesh:
 			return Landmarks.buffer_stop()
 		"tunnel_portal":
 			return Landmarks.tunnel_portal(variant)
+		"cascade":
+			return Landmarks.cascade(variant)
 		"boat":
 			return Landmarks.boat(variant)
 		"canal_boat":

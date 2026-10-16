@@ -196,3 +196,13 @@ func test_titanic_belfast_has_four_silver_prows() -> void:
 			tips[Vector2i(signi(int(roundf(v.x - 6.0))), signi(int(roundf(v.z - 3.5))))] = true
 	for k in [Vector2i(-1, -1), Vector2i(1, -1), Vector2i(-1, 1), Vector2i(1, 1)]:
 		assert_true(tips.has(k), "a prow rises at corner %s" % k)
+
+func test_cascade_tumbles_one_level_from_the_upstream_edge() -> void:
+	# a hill stream stepping down a level showed a bare earth step between two flat strips of water
+	assert_has(ZoneBuilder.POINT_PROPS, "cascade")
+	var box := (ZoneBuilder._ctor("cascade", 0) as ArrayMesh).get_aabb()
+	assert_true(box.end.y >= ZoneBuilder.LEVEL + 0.04, "reaches the upper pool (%.2f)" % box.end.y)
+	assert_true(box.end.x >= 0.5, "falls from the tile's upstream (+x) edge")
+	var z := _zone(["~~", "~~"], [{"type": "cascade", "x": 0, "y": 0}])
+	assert_near(ZoneBuilder.prop_y(z, "cascade", Vector2i(0, 0)), ZoneBuilder.water_y(z, Vector2i(0, 0)), 0.001, "stands on the lower pool's surface")
+	assert_near(ZoneBuilder.prop_y(z, "rock", Vector2i(0, 0)), ZoneBuilder.ground_y(z, Vector2i(0, 0)), 0.001, "a rock sits on the bed")

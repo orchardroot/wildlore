@@ -678,6 +678,27 @@ static func _glass_tower(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door
 
 # --- point props -------------------------------------------------------------
 
+## A little waterfall where a stream drops a level: a sloping sheet of white water from the upstream (+x) edge
+## of its tile, the upper pool's lip, down to a ring of foam on the lower pool. Origin on the lower pool's
+## surface (ZoneBuilder stands it there); ZoneBuilder.LEVEL high, so it meets the pool above.
+static func cascade(variant := 0) -> ArrayMesh:
+	var rng := Meshes._rng(9500 + variant)
+	var st := Meshes._st()
+	var top := ZoneBuilder.LEVEL + 0.05
+	var strips := 5
+	for i in strips:
+		var z0 := -0.46 + i * 0.92 / strips
+		var z1 := z0 + 0.92 / strips
+		var col := Color("eef6f8") if i % 2 == 0 else Color("b9dde6")
+		var lip := 0.52 + rng.randf_range(-0.02, 0.02)
+		# white water quickening over the lip of the pool above, then the fall itself
+		Meshes._quad(st, Vector3(0.8, top - 0.01, z1), Vector3(0.8, top - 0.01, z0), Vector3(lip, top, z0), Vector3(lip, top, z1), col.lerp(Color("9fcbd8"), 0.4))
+		Meshes._quad(st, Vector3(lip, top, z1), Vector3(lip, top, z0), Vector3(0.06, 0.02, z0), Vector3(0.06, 0.02, z1), col)
+	for i in 8:
+		var z := -0.42 + i * 0.12
+		Meshes.blob(st, Vector3(rng.randf_range(-0.2, 0.12), 0.02, z), Vector3(0.17, 0.06, 0.12), Color("f2f8fa"), rng, 0.3)
+	return Meshes._finish(st)
+
 static func standing_stone(variant := 0) -> ArrayMesh:
 	var rng := Meshes._rng(9100 + variant)
 	var st := Meshes._st()
