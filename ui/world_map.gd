@@ -45,7 +45,7 @@ func setup(arg: String) -> void:
 	view.queue_redraw()
 
 func _build_panel() -> void:
-	_panel = UIKit.panel(Color("1d2230f2"), 14)
+	_panel = UIKit.panel(Color("1d2230"), 14)
 	_panel.custom_minimum_size = Vector2(400, 0)
 	_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	var col := VBoxContainer.new()
