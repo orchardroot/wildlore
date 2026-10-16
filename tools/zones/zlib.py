@@ -75,7 +75,7 @@ def shop(out, town, town_name, ret, music=""):
     z.d["spawn"] = [4, 5]
     z.save(out + "/" + town + "_shop.json")
 
-LANDMARK_KINDS = ("library", "church", "mill", "hall", "museum", "cafe", "castle", "theatre")
+LANDMARK_KINDS = ("library", "church", "mill", "hall", "museum", "cafe", "castle", "theatre", "home", "cottage", "school", "workshop")
 
 def landmark(out, zid, name, town, ret, kind, npcs, w=13, h=10):
     """A walk-in landmark interior <zid> (e.g. "manchester_rylands") called `name`. Its exit door (bottom middle)
@@ -84,7 +84,7 @@ def landmark(out, zid, name, town, ret, kind, npcs, w=13, h=10):
     furniture. `npcs` = list of npc dicts (id, sprite, x, y, facing, move, script); keep them off rows h-3..h-2
     near the middle column. Scripts live in data/dialogue/<zid>.json."""
     assert kind in LANDMARK_KINDS, kind
-    floor = "|" if kind in ("library", "mill", "cafe", "theatre") else "+"
+    floor = "|" if kind in ("library", "mill", "cafe", "theatre", "home", "cottage", "workshop") else "+"
     z = Z(zid, name, w, h, fill=floor, kind="interior", region="", music="", weather={})
     z.border("x", 1)
     dx = w // 2
@@ -120,6 +120,17 @@ def landmark(out, zid, name, town, ret, kind, npcs, w=13, h=10):
         for y in (4, 5):
             for x in sides: z.prop("bench", x, y)
         z.prop("harp", 2, 1)
+    elif kind == "home":
+        z.prop("bed", w - 3, 1); z.prop("bookshelf", 1, 1); z.prop("table", 3, 3); z.prop("bench", 3, 4)
+        z.rect(w - 5, 4, 3, 1, "C")
+    elif kind == "cottage":
+        z.prop("bed", 1, 1); z.prop("table", dx, 3); z.prop("bench", dx - 1, 3); z.prop("bookshelf", w - 2, 1)
+    elif kind == "school":
+        for y in (3, 5):
+            for x in (2, 4, w - 5, w - 3): z.prop("table", x, y)
+        z.prop("bookshelf", dx, 1)
+    elif kind == "workshop":
+        z.rect(2, 2, w - 4, 1, "C"); z.prop("slate_heap", 1, 5); z.prop("table", w - 2, 5)
     z.prop("potted_plant", 1, h - 3); z.prop("potted_plant", w - 2, h - 3)
     for n in npcs:
         z.npc(**n)
