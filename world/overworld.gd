@@ -18,6 +18,8 @@ var traffic: RailTraffic
 var _rode_in := false   # on the bike when we went indoors (session memory only, not saved)
 var ambient: AmbientLife
 var arrival_scene := ""  # "train": the next zone loads with a train at the platform for you to step off (Journey)
+var _door_opened := false  # door_ahead swung a door (and played its sound) for the step now finishing
+var _edge_facing := ""     # walked off an edge this way: the next zone's camera glides in
 
 func _ready() -> void:
 	sky = SkyAndLight.new()
@@ -104,6 +106,10 @@ func load_zone(zone_id: String, pos: Vector2i, facing: String) -> void:
 	ambient.setup(zone, _zone_node, sky)
 	RoamingCreatures.attach(self)
 	rig.configure(zone.width, zone.height, zone.kind == "interior")
+	if _edge_facing != "":
+		rig.arrive(_edge_facing)
+		_edge_facing = ""
+	_door_opened = false
 	if zone.music != "":
 		Audio.play_music(zone.music)
 	Audio.enter_zone(self, zone, weather)  # ambience bed, weather layer, muffled music indoors, town bells
@@ -245,11 +251,17 @@ func _on_step(p: Vector2i) -> void:
 		return
 	var w := zone.warp_at(p)
 	if not w.is_empty():
-		Audio.sfx("door")
-		Router.goto_zone(str(w.to), Vector2i(int(w.tx), int(w.ty)), str(w.get("facing", player.facing)))
+		var indoors := zone.tile_at(p) == "door" or zone.kind == "interior"
+		if not _door_opened:
+			Audio.sfx("door")
+		_door_opened = false
+		Router.goto_zone(str(w.to), Vector2i(int(w.tx), int(w.ty)), str(w.get("facing", player.facing)),
+			Router.DOOR_FADE if indoors else Vector2(0.3, 0.3))
 		return
 	if zone.tile_at(p) == "door" and str(zone.building_at(p).get("style", "")) == "station":
-		Audio.sfx("door")
+		if not _door_opened:
+			Audio.sfx("door")
+		_door_opened = false
 		var here := zone
 		await ScriptRunner.start(self, [{"do": "rail"}])  # the ticket office
 		if not is_inside_tree() or not is_instance_valid(player) or zone != here or player.grid_pos != p:
@@ -291,7 +303,46 @@ func _cross_edge(p: Vector2i) -> void:
 	var target := ZoneData.load_id(target_id)
 	var back := p - GridMotion.dir_vec(player.facing)
 	var arrival := zone.edge_arrival(side, back, target)
+	_edge_facing = player.facing  # load_zone lets the camera glide in from behind
 	Router.goto_zone(target_id, arrival, player.facing)
+
+## The player is about to step onto `p`: if it is a building's door, swing it open onto a dark doorway
+## (the step itself carries you in, then a quick fade).
+func door_ahead(p: Vector2i) -> void:
+	if zone.kind == "interior" or zone.tile_at(p) != "door" or _zone_node == null:
+		return
+	var b := zone.building_at(p)
+	if b.is_empty() or (zone.warp_at(p).is_empty() and str(b.get("style", "")) != "station"):
+		return
+	var style := str(b.get("style", "red_brick"))
+	var swing := Landmarks.door_swing(style)
+	var by := int(b.y) + int(b.h)  # the footprint's south edge, where the door face is
+	swing.position = Vector3(p.x, zone.height_at(Vector2i(int(b.x), int(b.y))) * ZoneBuilder.LEVEL, by)
+	_zone_node.add_child(swing)
+	Audio.sfx("door")
+	_door_opened = true
+	var tw := swing.create_tween()
+	tw.tween_property(swing.get_node("Hinge"), "rotation:y", Landmarks.DOOR_OPEN_ANGLE, Landmarks.DOOR_SWING_SECS) \
+		.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	if str(b.get("style", "")) == "station":  # the ticket office: you come straight back out, so shut it behind you
+		tw.tween_interval(0.6)
+		tw.tween_property(swing.get_node("Hinge"), "rotation:y", 0.0, 0.2)
+		tw.tween_callback(swing.queue_free)
+
+## What the battle transition needs to know about where the player is standing (see BattleIntro.choose):
+## the tile, whether it is dark, a cave stage or indoors, the region (for the VS stripe) and where on screen.
+func battle_context() -> Dictionary:
+	var ctx := {"tile": zone.tile_at(player.grid_pos) if zone.in_bounds(player.grid_pos) else "", "dark": zone.dark,
+		"stage": _stage(), "interior": zone.kind == "interior", "region": zone.region}
+	if zone.region == "":  # indoors: the town you are in
+		var town = Game.data.flag("last_town")
+		if town and Game.zone_exists(str(town)):
+			ctx.region = ZoneData.load_id(str(town)).region
+	var cam := get_viewport().get_camera_3d()
+	var vs := get_viewport().get_visible_rect().size
+	if cam and vs.x > 0.0:
+		ctx["centre"] = cam.unproject_position(player.global_position + Vector3(0, 0.6, 0)) / vs
+	return ctx
 
 func _check_trainers() -> void:
 	for n in npcs:

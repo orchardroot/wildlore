@@ -279,7 +279,7 @@ func _legend(c: Dictionary) -> void:
 		return
 	host.data.mark_seen(str(sp.id))
 	var foe := Creature.create(sp, int(c.get("level", 40)), host.rng, host.moves)
-	var result: Dictionary = await host.battle([foe], {"kind": "wild", "no_run": true, "music": str(c.get("music", "legend"))})
+	var result: Dictionary = await host.battle([foe], {"kind": "wild", "no_run": true, "legend": true, "music": str(c.get("music", "legend"))})
 	match str(result.get("result", "")):
 		"caught":
 			_set_flag(str(c.get("flag", "caught_" + str(sp.id))), true)

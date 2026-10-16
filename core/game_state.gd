@@ -167,6 +167,9 @@ func _dev_boot() -> void:
 		if args.get("journey", "") != "":
 			await get_tree().create_timer(1.0).timeout
 			await DevJourney.run(self, args.journey)
+		if args.get("intro", "") != "":
+			await get_tree().create_timer(0.8).timeout
+			BattleIntro.dev_show(Router, Router.overworld, str(args.intro), float(args.get("intro_at", 0.5)))
 
 func _take_shot() -> void:
 	await get_tree().create_timer(float(args.shot_delay), true, false, true).timeout
