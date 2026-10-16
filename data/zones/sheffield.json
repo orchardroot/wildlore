@@ -715,8 +715,12 @@
    "x": 8,
    "y": 19,
    "facing": "down",
-   "move": "wander",
-   "script": "shf_steelman"
+   "move": "pace",
+   "script": "shf_steelman",
+   "path": [
+    "right",
+    "right"
+   ]
   },
   {
    "id": "shf_snooker",
@@ -769,7 +773,8 @@
    "times": [
     "day",
     "dusk"
-   ]
+   ],
+   "radius": 1
   },
   {
    "id": "shf_steelworker",

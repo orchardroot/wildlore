@@ -177,12 +177,16 @@
   {
    "facing": "right",
    "id": "castle_climber",
-   "move": "wander",
+   "move": "pace",
    "name": "Climber",
    "script": "castle_climber",
    "sprite": "hiker",
    "x": 22.0,
-   "y": 24.0
+   "y": 24.0,
+   "path": [
+    "right",
+    "right"
+   ]
   },
   {
    "facing": "up",
@@ -197,7 +201,7 @@
   {
    "facing": "down",
    "id": "ladies_tour",
-   "move": "wander",
+   "move": "pace",
    "name": "Tour Guide",
    "script": "ladies_tour",
    "sprite": "tour_guide",
@@ -206,6 +210,10 @@
    "times": [
     "day",
     "dusk"
+   ],
+   "path": [
+    "left",
+    "left"
    ]
   },
   {

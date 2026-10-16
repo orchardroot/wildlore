@@ -465,7 +465,8 @@
    "y": 33,
    "facing": "down",
    "move": "wander",
-   "script": "c_connie"
+   "script": "c_connie",
+   "radius": 1
   },
   {
    "id": "c_connemarr_20_33",
@@ -474,7 +475,8 @@
    "y": 33,
    "facing": "down",
    "move": "wander",
-   "script": "c_connemarr"
+   "script": "c_connemarr",
+   "radius": 1
   },
   {
    "id": "c_connie_8_40",
@@ -545,8 +547,12 @@
    "x": 22,
    "y": 28,
    "facing": "up",
-   "move": "wander",
-   "script": "wall_builder"
+   "move": "pace",
+   "script": "wall_builder",
+   "path": [
+    "right",
+    "right"
+   ]
   },
   {
    "id": "bens_walker",

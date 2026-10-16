@@ -707,7 +707,8 @@
    "y": 8,
    "facing": "down",
    "move": "wander",
-   "script": "sheep"
+   "script": "sheep",
+   "radius": 1
   },
   {
    "id": "sheep_20_30",
@@ -769,8 +770,12 @@
    "x": 33,
    "y": 37,
    "facing": "right",
-   "move": "wander",
-   "script": "geologist"
+   "move": "pace",
+   "script": "geologist",
+   "path": [
+    "left",
+    "left"
+   ]
   },
   {
    "id": "bothy_walker",

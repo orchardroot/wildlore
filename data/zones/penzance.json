@@ -228,7 +228,7 @@
   {
    "facing": "down",
    "id": "lido_swimmer",
-   "move": "wander",
+   "move": "pace",
    "script": "lido_swimmer",
    "sprite": "villager_1",
    "x": 3.0,
@@ -236,6 +236,10 @@
    "times": [
     "day",
     "dusk"
+   ],
+   "path": [
+    "up",
+    "up"
    ]
   },
   {
@@ -258,7 +262,8 @@
    "script": "harbour_master",
    "sprite": "angler",
    "x": 28.0,
-   "y": 37.0
+   "y": 37.0,
+   "radius": 1
   },
   {
    "facing": "up",

@@ -230,16 +230,21 @@
    "script": "cat_fan",
    "sprite": "rugby_player",
    "x": 22.0,
-   "y": 22.0
+   "y": 22.0,
+   "radius": 1
   },
   {
    "facing": "left",
    "id": "pub_singer",
-   "move": "wander",
+   "move": "pace",
    "script": "pub_singer",
    "sprite": "villager_5",
    "x": 44.0,
-   "y": 22.0
+   "y": 22.0,
+   "path": [
+    "left",
+    "left"
+   ]
   },
   {
    "facing": "right",

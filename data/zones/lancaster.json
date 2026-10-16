@@ -578,7 +578,8 @@
    "times": [
     "day",
     "dusk"
-   ]
+   ],
+   "radius": 1
   },
   {
    "id": "lan_boater",
@@ -608,8 +609,12 @@
    "x": 16,
    "y": 28,
    "facing": "up",
-   "move": "wander",
-   "script": "lan_baker"
+   "move": "pace",
+   "script": "lan_baker",
+   "path": [
+    "right",
+    "right"
+   ]
   },
   {
    "id": "lan_walker",

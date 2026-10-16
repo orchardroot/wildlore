@@ -192,11 +192,15 @@
   {
    "facing": "left",
    "id": "busker_swan",
-   "move": "wander",
+   "move": "pace",
    "script": "busker_swan",
    "sprite": "villager_2",
    "x": 49.0,
-   "y": 39.0
+   "y": 39.0,
+   "path": [
+    "left",
+    "left"
+   ]
   },
   {
    "facing": "down",
@@ -205,7 +209,8 @@
    "script": "oyster_man",
    "sprite": "angler",
    "x": 56.0,
-   "y": 38.0
+   "y": 38.0,
+   "radius": 1
   },
   {
    "facing": "down",
