@@ -10,7 +10,7 @@ static func parse(args: PackedStringArray, is_debug := OS.is_debug_build()) -> D
 	if not is_debug:
 		args = PackedStringArray()
 	var out := {"shot": "", "shot_delay": 2.0, "boot_zone": "", "boot_pos": Vector2i(-1, -1),
-		"battle_species": "", "battle_level": 5, "seed": -1, "clock": -1, "weather": "", "fps": false, "playtest": "", "seconds": 0, "ride": "", "double": false}
+		"battle_species": "", "battle_level": 5, "seed": -1, "clock": -1, "weather": "", "fps": false, "playtest": "", "seconds": 0, "ride": "", "double": false, "train": -1.0}
 	for a in args:
 		var kv := a.split("=", true, 1)
 		var key: String = kv[0]
@@ -46,6 +46,8 @@ static func parse(args: PackedStringArray, is_debug := OS.is_debug_build()) -> D
 				out.ride = val
 			"--double":
 				out.double = true  # with --battle: a 2v2 against the dev_double twins, led by the --battle species
+			"--train":
+				out.train = val.to_float()  # the first train runs this many seconds after a zone loads
 			"--seconds":
 				out.seconds = int(val)
 	return out
