@@ -1,0 +1,41 @@
+{
+ "lanbakery_baker": [
+  {
+   "do": "say",
+   "who": "Baker",
+   "text": "Morning! Warm out of the oven. Lancashire folk are mad about Chorley cakes, which are flat, full of currants and a bit plain."
+  },
+  {
+   "do": "say",
+   "who": "Baker",
+   "text": "Eccles cakes are the flaky ones. We eat them with a slice of crumbly Lancashire cheese, and I will not hear otherwise."
+  },
+  {
+   "do": "if",
+   "flag": "nwest_lanbakery_gift",
+   "then": [
+    {
+     "do": "say",
+     "who": "Baker",
+     "text": "You have had your cake, my love. Off you go before the cats smell it."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Baker",
+     "text": "Take one for the road. Mind the pastry flakes. They get everywhere, especially on cats."
+    },
+    {
+     "do": "give_item",
+     "item": "eccles_cake",
+     "n": 1
+    },
+    {
+     "do": "set",
+     "flag": "nwest_lanbakery_gift"
+    }
+   ]
+  }
+ ]
+}
