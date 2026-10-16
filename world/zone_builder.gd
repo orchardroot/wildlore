@@ -216,7 +216,7 @@ const LINEAR := ["hedge", "drystone_wall", "fence", "rail"]
 ## Point props (one tile, blocking unless "walk": true). Floating ones sit on the water surface.
 const POINT_PROPS := ["lamp_post", "bench", "bush", "birch", "oak", "pine", "rock", "market_stall", "planter", "phone_box",
 	"post_box", "bookshelf", "potted_plant", "table", "bed", "standing_stone", "slate_heap", "boat", "canal_boat", "bollard",
-	"buoy", "lighthouse", "statue", "harp", "buffer_stop", "tunnel_portal",
+	"buoy", "lighthouse", "statue", "harp", "clock_tower", "shard", "buffer_stop", "tunnel_portal",
 	"bunting", "flagpole", "washing_line", "hanging_basket", "rug", "fireplace", "wall_picture", "clock", "kitchen_dresser",
 	"fryer", "menu_board", "piano", "telescope", "plant_stand", "sofa", "display_case"]
 ## Cloth meshes that ripple (flutter shader) and glow meshes that add light (firelight shader).
@@ -450,6 +450,10 @@ static func _ctor(name: String, variant: int) -> ArrayMesh:
 			return Landmarks.statue(variant)
 		"harp":
 			return Landmarks.harp()
+		"clock_tower":
+			return Landmarks.clock_tower()
+		"shard":
+			return Landmarks.shard()
 		"lamp_pool":
 			return Dressing.pool_quad()
 		"bunting":

@@ -66,6 +66,14 @@ func test_short_grass_shows_low_tufts() -> void:
 	assert_eq(ZoneBuilder.tuft_height(""), 1.0)
 	root.free()
 
+func test_london_landmarks_have_their_own_shapes() -> void:
+	# Big Ben and the Shard were stood in by red and white lighthouses in the middle of the lawns
+	for name in ["clock_tower", "shard"]:
+		assert_true(name in ZoneBuilder.POINT_PROPS, name + " is a point prop")
+		var mesh: ArrayMesh = ZoneBuilder._ctor(name, 0)
+		assert_true(mesh.get_surface_count() > 0, name + " has geometry")
+		assert_true(mesh.get_aabb().size.y > 3.5, name + " is tall")
+
 func test_building_on_a_slope_stands_at_its_door() -> void:
 	# placed at its north-west corner's height, a building on rising ground had its door buried in the hill
 	Meshes.materials()
