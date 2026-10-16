@@ -160,7 +160,7 @@ func _item_pressed(id: String) -> void:
 	var it: Dictionary = Game.items.get_item(id)
 	var kind := str(it.get("kind", ""))
 	if id == "team_thermos":
-		var off := Game.data.flag("thermos_off") != true
+		var off: bool = Game.data.flag("thermos_off") != true
 		Game.data.set_flag("thermos_off", off)
 		_note.text = "Team Thermos: off. Only the fighters get XP." if off else "Team Thermos: on. Everyone shares the XP."
 		return
