@@ -1,0 +1,79 @@
+{
+ "id": "anglesey_farm",
+ "name": "Stone Farmhouse",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "bed",
+   "x": 9,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "table",
+   "x": 3,
+   "y": 3
+  },
+  {
+   "type": "bench",
+   "x": 3,
+   "y": 4
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 6
+  },
+  {
+   "type": "potted_plant",
+   "x": 10,
+   "y": 6
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 7,
+   "to": "anglesey",
+   "tx": 26,
+   "ty": 34,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "angfarm_farmer",
+   "sprite": "farmer",
+   "x": 6,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "angfarm_farmer"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  6,
+  6
+ ],
+ "rows": [
+  "xxxxxxxxxxxx",
+  "x||||||||||x",
+  "x||||||||||x",
+  "x||||||||||x",
+  "x||||||CCC|x",
+  "x||||||||||x",
+  "x||||||||||x",
+  "x|||||D||||x",
+  "xxxxxxxxxxxx"
+ ]
+}

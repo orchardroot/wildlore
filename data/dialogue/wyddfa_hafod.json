@@ -1,0 +1,51 @@
+{
+ "hafod_attendant": [
+  {
+   "do": "say",
+   "who": "Summit Attendant",
+   "text": "You made it. Have a sit. Everything below is very small and you are very high."
+  },
+  {
+   "do": "say",
+   "who": "Summit Attendant",
+   "text": "The summit of Yr Wyddfa is 1,085 metres, the tallest point in Wales. The cafe is called Hafod Eryri, which means summer house of Snowdonia."
+  },
+  {
+   "do": "say",
+   "who": "Summit Attendant",
+   "text": "The visitor centre opened in 2009 and replaced a worn-out one. The old one was built in the 1930s."
+  },
+  {
+   "do": "say",
+   "who": "Summit Attendant",
+   "text": "It is windy up here. That is not a surprise to anyone but the sandwiches."
+  },
+  {
+   "do": "if",
+   "flag": "wyddfa_hafod_mintcake",
+   "then": [
+    {
+     "do": "say",
+     "who": "Summit Attendant",
+     "text": "More mint cake? You will not need any more energy. You will need a lie down."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Summit Attendant",
+     "text": "Here, a bit of mint cake. Proper fuel for the way down."
+    },
+    {
+     "do": "give_item",
+     "item": "kendal_mint_cake",
+     "n": 1
+    },
+    {
+     "do": "set",
+     "flag": "wyddfa_hafod_mintcake"
+    }
+   ]
+  }
+ ]
+}

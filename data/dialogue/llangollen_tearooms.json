@@ -1,0 +1,46 @@
+{
+ "plasnewydd_host": [
+  {
+   "do": "say",
+   "who": "Tea Room Host",
+   "text": "Welcome in. Scones, jam, cream, and a seat with a view. What more does a person need?"
+  },
+  {
+   "do": "say",
+   "who": "Tea Room Host",
+   "text": "Plas Newydd was the home of the Ladies of Llangollen, Lady Eleanor Butler and Sarah Ponsonby. They arrived in 1780."
+  },
+  {
+   "do": "say",
+   "who": "Tea Room Host",
+   "text": "They left Ireland, set up house here and became so famous that Wordsworth and the Duke of Wellington came to tea."
+  },
+  {
+   "do": "if",
+   "flag": "llangollen_tearooms_gift",
+   "then": [
+    {
+     "do": "say",
+     "who": "Tea Room Host",
+     "text": "A second one? The Ladies would be shocked. And a bit impressed. Off you go."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Tea Room Host",
+     "text": "A cream tea for the road? Jam first, then cream. Anyone who says different is from Cornwall."
+    },
+    {
+     "do": "give_item",
+     "item": "cream_tea",
+     "n": 1
+    },
+    {
+     "do": "set",
+     "flag": "llangollen_tearooms_gift"
+    }
+   ]
+  }
+ ]
+}
