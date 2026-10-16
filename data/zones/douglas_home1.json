@@ -1,0 +1,79 @@
+{
+ "id": "douglas_home1",
+ "name": "Mrs Quayle's House",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "bed",
+   "x": 8,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "table",
+   "x": 3,
+   "y": 3
+  },
+  {
+   "type": "bench",
+   "x": 3,
+   "y": 4
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 6
+  },
+  {
+   "type": "potted_plant",
+   "x": 9,
+   "y": 6
+  }
+ ],
+ "warps": [
+  {
+   "x": 5,
+   "y": 7,
+   "to": "douglas",
+   "tx": 29,
+   "ty": 10,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "dou_home1_quayle",
+   "sprite": "mum",
+   "x": 4,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "dou_home1_quayle"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  5,
+  6
+ ],
+ "rows": [
+  "xxxxxxxxxxx",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||CCC|x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x||||D||||x",
+  "xxxxxxxxxxx"
+ ]
+}
