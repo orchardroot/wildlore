@@ -1,0 +1,88 @@
+{
+ "id": "sligo_strandcafe",
+ "name": "Strand Cafe",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "table",
+   "x": 8,
+   "y": 3
+  },
+  {
+   "type": "table",
+   "x": 8,
+   "y": 5
+  },
+  {
+   "type": "table",
+   "x": 10,
+   "y": 3
+  },
+  {
+   "type": "table",
+   "x": 10,
+   "y": 5
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 6
+  },
+  {
+   "type": "potted_plant",
+   "x": 11,
+   "y": 6
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 7,
+   "to": "sligo",
+   "tx": 49,
+   "ty": 26,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "strandcafe_owner",
+   "sprite": "villager_2",
+   "x": 4,
+   "y": 1,
+   "facing": "down",
+   "move": "still",
+   "script": "strandcafe_owner"
+  },
+  {
+   "id": "strandcafe_walker",
+   "sprite": "hillwalker",
+   "x": 8,
+   "y": 4,
+   "facing": "down",
+   "move": "still",
+   "script": "strandcafe_walker"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  6,
+  6
+ ],
+ "rows": [
+  "xxxxxxxxxxxxx",
+  "x|||||||||||x",
+  "x|CCCC||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||D|||||x",
+  "xxxxxxxxxxxxx"
+ ]
+}
