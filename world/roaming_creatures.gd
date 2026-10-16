@@ -38,9 +38,11 @@ static func attach(ow: Node) -> RoamingCreatures:
 
 # --- rules (pure, tested) ------------------------------------------------------------
 
-## A creature may stand here: tall grass, nothing standing in it, not a doorway or a warp.
+## A creature may stand here: tall grass with tufts drawn (not a "prop": "none" stubble field, where a creature
+## sunk into the grass would look buried), nothing standing in it, not a doorway or a warp.
 static func can_roam(z: ZoneData, p: Vector2i) -> bool:
-	return z.in_bounds(p) and z.tile_at(p) == "tall_grass" and not z.blocked.has(p) and z.warp_at(p).is_empty()
+	return z.in_bounds(p) and z.tile_at(p) == "tall_grass" and not z.blocked.has(p) and z.warp_at(p).is_empty() \
+		and str(z.legend_extra.get(z.char_at(p), {}).get("prop", "")) != "none"
 
 static func roam_tiles(z: ZoneData) -> Array:
 	var out := []
