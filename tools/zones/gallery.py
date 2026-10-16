@@ -13,7 +13,9 @@ g.building(42, 3, 10, 8, "castle", "Castle", door=4)
 g.building(3, 10, 9, 4, "cathedral", "Cathedral", door=4)
 g.building(14, 10, 9, 4, "liver_building", "Liver Building", door=4)
 g.building(25, 11, 6, 2, "station", "Station", door=2)
-g.rect(25, 13, 6, 1, "_"); g.rect(24, 14, 8, 1, "!")
+g.rect(25, 13, 6, 1, "_"); g.rect(24, 14, 11, 1, "!")
+# a second line running north-south through a level crossing on the road, tunnel mouths at the ends of both lines
+g.rect(38, 8, 1, 12, "!"); g.set(38, 16, "&")
 # a river under the aqueduct, a sea corner, bramble, scree
 g.rect(3, 20, 14, 3, "~")
 g.building(3, 18, 14, 2, "aqueduct", show_label=False)
@@ -26,5 +28,15 @@ for i, x in enumerate([14, 16, 18]):
     g.prop("standing_stone", x, 28, variant=i)
 g.prop("slate_heap", 22, 29); g.prop("slate_heap", 24, 29, variant=1)
 g.prop("statue", 27, 17); g.prop("harp", 29, 17); g.prop("bollard", 31, 19); g.prop("bollard", 33, 19)
+g.prop("buffer_stop", 24, 14); g.prop("tunnel_portal", 34, 14); g.prop("tunnel_portal", 38, 8); g.prop("tunnel_portal", 38, 19, variant=1)
+# immersion dressing: lamps, bunting, flags, and a row of furnishings (walk = whether you can step on it)
+g.prop("lamp_post", 3, 29); g.prop("lamp_post", 8, 29)
+g.prop("bunting", 3, 29, variant=5, walk=True); g.prop("hanging_basket", 8, 29, walk=True); g.prop("washing_line", 11, 29, variant=3, walk=True)
+for i in range(7):
+    g.prop("flagpole", 16 + 2 * i, 30, variant=i)
+for i, (t, walk) in enumerate([("rug", True), ("fireplace", False), ("wall_picture", True), ("clock", True), ("kitchen_dresser", False),
+                               ("fryer", False), ("menu_board", True), ("piano", False), ("telescope", False), ("plant_stand", False),
+                               ("sofa", False), ("display_case", False)]):
+    g.prop(t, 3 + 2 * i, 31, walk=walk)
 g.d["spawn"] = [27, 18]
 g.save(OUT + "/mesh_gallery.json")
