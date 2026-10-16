@@ -7,7 +7,6 @@ extends Node3D
 ## An optional `"times": ["dawn", "day", "dusk", "night"]` keeps hours: they are only out in those phases.
 
 const STEP_SPEED := 3.0      # tiles per second
-const WANDER_RADIUS := 2
 const NOTICE_RANGE := 2      # tiles: a still NPC turns to look at the player this close
 const SCHEDULE_FAR := 9      # tiles: someone coming out or going home only does it out of the player's sight
 
@@ -147,7 +146,7 @@ func _process(delta: float) -> void:
 		_timer = randf_range(2.0, 5.0)
 		var dir: String = ["up", "down", "left", "right"].pick_random()
 		var target := GridMotion.step(grid_pos, dir)
-		if maxi(absi(target.x - home.x), absi(target.y - home.y)) <= WANDER_RADIUS:
+		if maxi(absi(target.x - home.x), absi(target.y - home.y)) <= int(def.get("radius", ZoneData.WANDER_RADIUS)):
 			_step(dir)
 		else:
 			face(dir)

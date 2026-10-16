@@ -4,15 +4,15 @@ extends RefCounted
 
 const MODES := ["dex", "level", "type"]
 const MODE_NAMES := {"dex": "Fieldbook number", "level": "Level", "type": "Type"}
-## Legends are the creatures with the rock-bottom catch rate; letting one go takes two confirmations.
-const LEGEND_CATCH_RATE := 3
+## Legends are the species marked `"legend": true` in data/creatures (the validator keeps every rock-bottom catch rate
+## marked); letting one go takes two confirmations.
 
 static func next_mode(mode: String) -> String:
 	var i := MODES.find(mode)
 	return MODES[(i + 1) % MODES.size()]
 
 static func is_legend(c: Creature) -> bool:
-	return int(c.species.get("catch_rate", 255)) <= LEGEND_CATCH_RATE
+	return bool(c.species.get("legend", false))
 
 ## Sorts `ark` in place. `order` is the Fieldbook order (Dex.ids()). Every mode falls back to Fieldbook number,
 ## then to level (highest first), so the result is stable and predictable.

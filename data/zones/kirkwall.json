@@ -489,11 +489,15 @@
    "x": 32,
    "y": 23,
    "facing": "down",
-   "move": "still",
+   "move": "pace",
    "script": "cathedral_guide",
    "times": [
     "day",
     "dusk"
+   ],
+   "path": [
+    "left",
+    "left"
    ]
   },
   {
@@ -524,8 +528,12 @@
    "x": 52,
    "y": 11,
    "facing": "down",
-   "move": "wander",
-   "script": "orkney_fisher"
+   "move": "pace",
+   "script": "orkney_fisher",
+   "path": [
+    "left",
+    "left"
+   ]
   },
   {
    "id": "kwl_fisher",

@@ -70,6 +70,10 @@ static func _check_species(sp: Dictionary, chart: TypeChart, dex: Dex, moves: Mo
 		e.append("species %s: unknown growth '%s'" % [id, sp.get("growth")])
 	if sp.catch_rate < 1 or sp.catch_rate > 255:
 		e.append("species %s: catch_rate must be 1..255" % id)
+	if sp.has("legend") and not sp.legend is bool:
+		e.append("species %s: legend must be true or false" % id)
+	if sp.catch_rate <= 3 and sp.get("legend", false) != true:
+		e.append("species %s: catch_rate %d is legend territory, so mark it \"legend\": true" % [id, sp.catch_rate])
 	if sp.base_xp < 1:
 		e.append("species %s: base_xp must be positive" % id)
 	if sp.learnset.is_empty():

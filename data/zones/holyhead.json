@@ -267,16 +267,20 @@
   {
    "facing": "down",
    "id": "welsh_local",
-   "move": "wander",
+   "move": "pace",
    "script": "welsh_local",
    "sprite": "villager_5",
    "x": 37.0,
-   "y": 22.0
+   "y": 22.0,
+   "path": [
+    "left",
+    "left"
+   ]
   },
   {
    "facing": "down",
    "id": "museum_curator",
-   "move": "still",
+   "move": "pace",
    "script": "museum_curator",
    "sprite": "tour_guide",
    "x": 47.0,
@@ -284,6 +288,10 @@
    "times": [
     "day",
     "dusk"
+   ],
+   "path": [
+    "left",
+    "left"
    ]
   },
   {
@@ -297,7 +305,8 @@
    "times": [
     "day",
     "dusk"
-   ]
+   ],
+   "radius": 1
   },
   {
    "facing": "right",
@@ -893,7 +902,7 @@
    "y": 20.0
   },
   {
-   "text": "THE BREAKWATER. 1.7 km (more than a mile) of granite, started in 1847 and finished in 1873, taking 26 years. For a time it was the longest in the world. It is also the best place in Wales to stare at the horizon and feel small.",
+   "text": "THE BREAKWATER. 1.7 miles of stone, started in 1847 and finished in 1873, taking 26 years. For a time it was the longest in the world. It is also the best place in Wales to stare at the horizon and feel small.",
    "x": 15.0,
    "y": 32.0
   },

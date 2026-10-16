@@ -182,7 +182,7 @@
   {
    "facing": "down",
    "id": "abbey_guide",
-   "move": "still",
+   "move": "pace",
    "script": "abbey_guide",
    "sprite": "tour_guide",
    "x": 42.0,
@@ -190,12 +190,16 @@
    "times": [
     "day",
     "dusk"
+   ],
+   "path": [
+    "left",
+    "left"
    ]
   },
   {
    "facing": "right",
    "id": "chalice_gardener",
-   "move": "still",
+   "move": "wander",
    "script": "chalice_gardener",
    "sprite": "villager_5",
    "x": 27.0,
@@ -925,7 +929,7 @@
    "y": 10.0
   },
   {
-   "text": "GLASTONBURY ABBEY. A monastery for 1,000 years, said to be the oldest in England. In 1191 the monks announced they'd found King Arthur's grave. A convenient discovery.",
+   "text": "GLASTONBURY ABBEY. A monastery for the best part of a thousand years, said to be the oldest in England. In 1191 the monks announced they'd found King Arthur's grave. A convenient discovery.",
    "x": 36.0,
    "y": 34.0
   },

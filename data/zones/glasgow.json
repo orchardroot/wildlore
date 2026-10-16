@@ -176,7 +176,8 @@
    "script": "glw_subway",
    "sprite": "villager_1",
    "x": 21.0,
-   "y": 30.0
+   "y": 30.0,
+   "radius": 1
   },
   {
    "facing": "down",
@@ -194,11 +195,15 @@
   {
    "facing": "down",
    "id": "glw_riveter",
-   "move": "still",
+   "move": "pace",
    "script": "glw_riveter",
    "sprite": "farmer",
    "x": 54.0,
-   "y": 35.0
+   "y": 35.0,
+   "path": [
+    "up",
+    "up"
+   ]
   },
   {
    "facing": "down",
@@ -518,13 +523,13 @@
    "y": 10.0
   },
   {
-   "h": 4,
+   "h": 3,
    "label": "Glasgow Cathedral",
    "style": "cathedral",
    "type": "building",
    "w": 10,
    "x": 60,
-   "y": 16
+   "y": 17
   },
   {
    "h": 2,
@@ -561,7 +566,7 @@
   {
    "h": 3,
    "label": "Finnieston Crane",
-   "style": "gantry_crane",
+   "style": "cantilever_crane",
    "type": "building",
    "w": 7,
    "x": 51,
@@ -791,7 +796,7 @@
   "TT..,,,,,.#.,,,,,,,,..#.......===.BBBBBBBBBBBB....BBBBDBBBBB..........TT",
   "TT..,,,,,.#.,w~~w,,,..#.......===.BBBBBBBBBBBB..::__________::::::::..TT",
   "TT..,,,,,.#.,wwww,,,..#.......===.BBBBBBBBBBBB..:!!!!!!!!!!!!!!!!!!!!!!!",
-  "TT..,,,,,.#.,,,,,,,,..#.......===.BBBBBBDBBBBB..:...........BBBBBBBBBBTT",
+  "TT..,,,,,.#.,,,,,,,,..#.......===.BBBBBBDBBBBB..:.....................TT",
   "TT..###################.....:::::::::::::::::::::...........BBBBBBBBBBTT",
   "TT........#...........#.....:::::::::::::::::::::...........BBBBBBBBBBTT",
   "TT..,,,,,.#.,,,,,,,,..#.....:::::::::::::::::::::...........BBBBBDBBBBTT",

@@ -715,8 +715,12 @@
    "x": 8,
    "y": 19,
    "facing": "down",
-   "move": "wander",
-   "script": "shf_steelman"
+   "move": "pace",
+   "script": "shf_steelman",
+   "path": [
+    "right",
+    "right"
+   ]
   },
   {
    "id": "shf_snooker",
@@ -724,8 +728,12 @@
    "x": 63,
    "y": 30,
    "facing": "down",
-   "move": "still",
-   "script": "shf_snooker"
+   "move": "pace",
+   "script": "shf_snooker",
+   "path": [
+    "left",
+    "left"
+   ]
   },
   {
    "id": "shf_busker",
@@ -769,7 +777,8 @@
    "times": [
     "day",
     "dusk"
-   ]
+   ],
+   "radius": 1
   },
   {
    "id": "shf_steelworker",

@@ -455,12 +455,6 @@
   },
   {
    "type": "oak",
-   "x": 31,
-   "y": 33,
-   "variant": 1
-  },
-  {
-   "type": "oak",
    "x": 28,
    "y": 31,
    "variant": 1
@@ -647,6 +641,74 @@
    "w": 4,
    "h": 4,
    "show_label": false
+  },
+  {
+   "type": "cascade",
+   "x": 32,
+   "y": 34
+  },
+  {
+   "type": "cascade",
+   "x": 35,
+   "y": 34
+  },
+  {
+   "type": "cascade",
+   "x": 41,
+   "y": 34
+  },
+  {
+   "type": "cascade",
+   "x": 44,
+   "y": 34
+  },
+  {
+   "type": "rock",
+   "x": 36,
+   "y": 33,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 41,
+   "y": 33,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 42,
+   "y": 33,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 32,
+   "y": 35,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 36,
+   "y": 35,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 40,
+   "y": 35,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 44,
+   "y": 35,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 45,
+   "y": 33,
+   "variant": 2
   }
  ],
  "warps": [
@@ -711,7 +773,8 @@
    "y": 25,
    "facing": "down",
    "move": "wander",
-   "script": "c_fawnlet"
+   "script": "c_fawnlet",
+   "radius": 1
   },
   {
    "id": "c_fawnlet_56_26",
@@ -1049,9 +1112,9 @@
   "TTrr~~~~~~.BBB.~~~~~~~~~~ww...#.BBBBBkkkkkkkkkkk##kkkkkkkkkkkkTT",
   "TTrr~~~~~~.BDB.~~~~~~~~~~ww...#.BBDBBkkkkkkkkkkk##kkhhhhhhhkkkTT",
   "TTrr~~~~~~.....~~~~~~~~~~~w...#...kkkkkkhhhhhhhh##kkhhhhhhhkkkTT",
-  "TTrr~~~~~~~~o~~~~~~~~~~~~ww####...kkkkkkhhhhhhhh##kkhhhhhhhkkkTT",
-  "TTrr~~~~~~~~o~~~~~~~~~~~~wwwwwwwww~~~~~~~~~~wwwh##kkhhhhhhhkkkTT",
-  "TT.ww~~~~~~~o~~~~~~~~~~~ww........kkkkkkhhhhhhhh##kkhhhhhhhkkkTT",
+  "TTrr~~~~~~~~o~~~~~~~~~~~~ww####bbbbbbbbbbbbbbbbh##kkhhhhhhhkkkTT",
+  "TTrr~~~~~~~~o~~~~~~~~~~~~wwwwwwww~~~~~~~~~~~~wwh##kkhhhhhhhkkkTT",
+  "TT.ww~~~~~~~o~~~~~~~~~~~ww.....bbbbbbbbbbbbbbbbh##kkhhhhhhhkkkTT",
   "TT.ww~~~~~~~o~~~~~~~~~~~ww........kkhhhhhhhhhhhh##kkkkkkhhhhkkTT",
   "TT..www~~~~~o~~~~~~~~~www.........kkhhhhhkkkkkkkkkkkkkkkhhhhkkTT",
   "TT...rrrrrr~o~~~~~rrrrrrr.........kkhhhhhkkkkkhhhhhhkkkkhhhhkkTT",
@@ -1121,6 +1184,10 @@
   "k": {
    "tile": "grass",
    "colour": "#7f8a55"
+  },
+  "b": {
+   "tile": "grass",
+   "colour": "#8d8676"
   }
  }
 }

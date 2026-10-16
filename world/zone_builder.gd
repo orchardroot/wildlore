@@ -218,7 +218,8 @@ const POINT_PROPS := ["lamp_post", "bench", "bush", "birch", "oak", "pine", "roc
 	"post_box", "bookshelf", "potted_plant", "table", "bed", "standing_stone", "slate_heap", "boat", "canal_boat", "bollard",
 	"buoy", "lighthouse", "statue", "harp", "clock_tower", "shard", "buffer_stop", "tunnel_portal",
 	"bunting", "flagpole", "washing_line", "hanging_basket", "rug", "fireplace", "wall_picture", "clock", "kitchen_dresser",
-	"fryer", "menu_board", "piano", "telescope", "plant_stand", "sofa", "display_case"]
+	"fryer", "menu_board", "piano", "telescope", "plant_stand", "sofa", "display_case", "cascade", "sheep",
+	"field_gate", "limestone_pavement"]
 ## Cloth meshes that ripple (flutter shader) and glow meshes that add light (firelight shader).
 const CLOTH := ["bunting", "flag", "washing_line"]
 const FLOATING := ["boat", "canal_boat", "buoy"]
@@ -240,6 +241,8 @@ static func _props(z: ZoneData, root: Node3D, rng: RandomNumberGenerator) -> voi
 				if prop_name == "none":
 					continue
 				spec = [prop_name + ("_tuft" if prop_name == "heather" else ""), 3, true]
+			elif prop_name == "pavement":
+				spec = ["limestone_pavement", 3, false]  # limestone pavement laid over a walkable tile
 			else:
 				if prop_name != "":
 					t = {"oak": "tree_oak", "pine": "tree_pine", "birch": "tree_oak", "bush": "rock", "rock": "rock"}.get(prop_name, t)
@@ -256,6 +259,8 @@ static func _props(z: ZoneData, root: Node3D, rng: RandomNumberGenerator) -> voi
 				var ew := z.tile_at(p + Vector2i(-1, 0)) == t or z.tile_at(p + Vector2i(1, 0)) == t
 				if ns and not ew:
 					basis = Basis(Vector3.UP, PI / 2)
+			elif prop_name == "pavement":
+				basis = Basis(Vector3.UP, PI * 0.5 * (rng.randi() % 4))  # slabs keep square to the tile
 			elif t != "counter":
 				basis = Basis(Vector3.UP, rng.randf() * TAU)
 				var s := rng.randf_range(0.9, 1.15) if t.begins_with("tree") else 1.0
@@ -277,7 +282,7 @@ static func _props(z: ZoneData, root: Node3D, rng: RandomNumberGenerator) -> voi
 		var pt: String = pr.get("type", "")
 		if pt in POINT_PROPS:
 			var pos := Vector2i(int(pr.x), int(pr.y))
-			var py := water_y(z, pos) if pt in FLOATING else ground_y(z, pos)
+			var py := prop_y(z, pt, pos)
 			var rot := deg_to_rad(float(pr.get("rot", 0)))
 			if pt in ZoneData.RAIL_CAPS:
 				py = z.height_at(pos) * LEVEL
@@ -359,6 +364,10 @@ static func lamp_pool(z: ZoneData, p: Vector2i) -> Transform3D:
 	var dir := away.normalized()
 	return Transform3D(Basis.from_scale(Vector3.ONE * 2.2), centre + Vector3(dir.x, 0, dir.y) * 0.6)
 
+## Where a point prop stands on tile p: the water's surface for boats, buoys and waterfalls, else the ground.
+static func prop_y(z: ZoneData, pt: String, p: Vector2i) -> float:
+	return water_y(z, p) if pt in FLOATING or pt == "cascade" else ground_y(z, p)
+
 ## Yaw that turns a mesh's local +X to point along grid direction `d` (x east, y south).
 static func cap_angle(d: Vector2i) -> float:
 	return atan2(-float(d.y), float(d.x))
@@ -436,6 +445,14 @@ static func _ctor(name: String, variant: int) -> ArrayMesh:
 			return Landmarks.buffer_stop()
 		"tunnel_portal":
 			return Landmarks.tunnel_portal(variant)
+		"cascade":
+			return Landmarks.cascade(variant)
+		"sheep":
+			return Landmarks.sheep(variant)
+		"field_gate":
+			return Landmarks.field_gate(variant)
+		"limestone_pavement":
+			return Landmarks.limestone_pavement(variant)
 		"boat":
 			return Landmarks.boat(variant)
 		"canal_boat":
@@ -512,7 +529,7 @@ static func _buildings(z: ZoneData, root: Node3D) -> void:
 		for x in range(bx, bx + w):
 			if z.tile_at(Vector2i(x, by + d - 1)) == "door":
 				door_x = x - bx
-		var meshes: Array = Meshes.building(w, d, str(pr.get("style", "red_brick")), door_x, hash(z.id) + bx * 31 + by)
+		var meshes: Array = Meshes.building(w, d, str(pr.get("style", "red_brick")), door_x, hash(z.id) + bx * 31 + by, z.region)
 		# stand on the door's ground, so on a slope the door meets the path rather than sinking into the hill
 		var gy := z.height_at(Vector2i(bx + door_x, by + d - 1) if door_x >= 0 else Vector2i(bx, by)) * LEVEL
 		var body := MeshInstance3D.new()
