@@ -16,6 +16,10 @@ func test_dev_args_parse() -> void:
 	assert_true(DevArgs.parse(PackedStringArray(["--battle=spikkin:5", "--double"])).double)
 	assert_eq(DevArgs.parse(PackedStringArray(["--train=2.5"])).train, 2.5)
 	assert_eq(DevArgs.parse(PackedStringArray()).train, -1.0, "no switch: trains keep their own timetable")
+	var i := DevArgs.parse(PackedStringArray(["--intro=vs:keeper_declan", "--intro-at=0.8"]))
+	assert_eq(i.intro, "vs:keeper_declan")
+	assert_near(i.intro_at, 0.8)
+	assert_eq(DevArgs.parse(PackedStringArray()).intro, "", "no battle intro unless asked")
 
 func test_dev_args_defaults() -> void:
 	var a := DevArgs.parse(PackedStringArray())

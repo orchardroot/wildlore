@@ -114,9 +114,26 @@ func setup(foe_party: Array, p_opts: Dictionary) -> void:
 	sky.set_weather(str(opts.get("weather", "clear")), dio.is_interior())
 	sky.follow = dio
 	dio.camera.environment = sky.env
+	_warm_cries(foe_party)
 	flow = BattleFlow.new(Game.data, Game.dex, Game.moves, Game.chart, Game.items, Game.rng, foe_party, opts, self)
 	flow.species_caught.connect(func(id: String): Bus.creature_caught.emit(id))
 	_run()
+
+## Cries are synthesised the first time they are needed: the leads now (the screen is still dark), the rest
+## of both teams one a frame after, so a switch-in later never waits on one.
+func _warm_cries(foe_party: Array) -> void:
+	var rest: Array = []
+	for team in [foe_party, Game.data.party]:
+		for i in team.size():
+			if i < 2:
+				Cries.stream_for(team[i].species)
+			else:
+				rest.append(team[i].species)
+	for sp in rest:
+		await get_tree().process_frame
+		if not is_inside_tree():
+			return
+		Cries.stream_for(sp)
 
 func _run() -> void:
 	var result: Dictionary = await flow.run()
@@ -147,6 +164,7 @@ func intro(f: BattleFlow) -> void:
 			hud.set_creature(side, c, pos)
 			_mark_caught(f, side, c, pos)
 			a.pop_in()
+			Audio.cry(c.species)
 		await _wait(0.7 if side == Battle.FOE else 0.9)
 	_intro_done = true
 

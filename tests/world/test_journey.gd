@@ -331,3 +331,23 @@ func test_dev_switch_parses() -> void:
 	assert_true(DevArgs.is_dev_session(p, PackedStringArray(["--journey=ferry:douglas"])), "never touches real saves")
 	var q := DevArgs.parse(PackedStringArray([]), true)
 	assert_eq(q.journey, "")
+
+## The Raven's battle sprite stands on a grey perch; in the sky it must not (no slab under its feet).
+func test_raven_flies_without_its_perch() -> void:
+	var s := _scene("fly")
+	s.build_view(Vector2(1280, 720))
+	var frames: Array = s.get("_raven_frames")
+	assert_eq(frames.size(), 2, "two wingbeat frames")
+	for f in frames:
+		var at: AtlasTexture = f
+		var img: Image = at.atlas.get_image()
+		var r := Rect2i(at.region)
+		var widest := 0  # the longest run of grey across any of the bottom rows (its legs are grey too, but thin)
+		for y in range(r.end.y - 4, r.end.y):
+			var run := 0
+			for x in range(r.position.x, r.end.x):
+				var c := img.get_pixel(x, y)
+				run = run + 1 if c.a > 0.5 and c.s < 0.15 and c.v > 0.35 else 0
+				widest = maxi(widest, run)
+		assert_true(widest < 8, "no perch along the bottom of the frame (a grey run %d px wide)" % widest)
+	s.free()

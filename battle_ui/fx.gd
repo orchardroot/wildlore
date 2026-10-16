@@ -138,6 +138,7 @@ func _switch(side: int, c: Creature, pos := 0) -> void:
 	a.show_creature(c, side == Battle.PLAYER)
 	hud.set_creature(side, c, pos)
 	Audio.sfx("send_out")
+	Audio.cry(c.species)
 	burst(a.global_position + Vector3(0, 1.0, 0), Color("fff2d0"), 20, 3.0, 0.16, 0.6, -1.0)
 	await a.pop_in()
 

@@ -17,6 +17,67 @@ const GLASS := Color.WHITE
 ## Building styles handled here rather than by the generic house in Meshes.building.
 const SPECIAL := ["glass_tower", "gantry_crane", "mill", "castle", "cathedral", "liver_building", "station", "aqueduct", "chapel", "terrace", "tudor", "slate_cottage", "lighthouse_house"]
 
+## Doors: where each style's door sits on its tile (see _door and friends), for the swing as you go in.
+## {x, w, y, h, z}: left edge and width across the door column, bottom and height, z of the door's face from
+## the footprint's south edge. Styles drawn by Meshes.building (and anything unknown) use DOOR_PLAIN.
+const DOOR_PLAIN := {"x": 0.22, "w": 0.56, "y": 0.18, "h": 0.9, "z": -0.02}
+const DOOR_RECTS := {
+	"mill": {"x": 0.22, "w": 0.56, "y": 0.16, "h": 1.1, "z": -0.02},
+	"station": {"x": 0.22, "w": 0.56, "y": 0.16, "h": 1.0, "z": -0.02},
+	"chapel": {"x": 0.22, "w": 0.56, "y": 0.16, "h": 1.1, "z": -0.02},
+	"liver_building": {"x": 0.22, "w": 0.56, "y": 0.16, "h": 1.2, "z": -0.02},
+	"terrace": {"x": 0.22, "w": 0.56, "y": 0.16, "h": 0.9, "z": -0.02},
+	"tudor": {"x": 0.22, "w": 0.56, "y": 0.16, "h": 0.9, "z": -0.02},
+	"slate_cottage": {"x": 0.22, "w": 0.56, "y": 0.16, "h": 0.9, "z": -0.02},
+	"lighthouse_house": {"x": 0.22, "w": 0.56, "y": 0.16, "h": 0.9, "z": -0.02},
+	"castle": {"x": 0.2, "w": 0.6, "y": 0.0, "h": 1.1, "z": 0.11},
+	"cathedral": {"x": 0.15, "w": 0.7, "y": 0.0, "h": 1.3, "z": 0.03},
+	"glass_tower": {"x": 0.15, "w": 0.7, "y": 0.0, "h": 1.2, "z": 0.02},
+}
+const DOOR_OPEN_ANGLE := -1.75     # radians about the hinge: swings out toward you, about 100 degrees
+const DOOR_SWING_SECS := 0.16
+const DOOR_WOOD := Color("3b2a22")
+static var _doorway_mat: StandardMaterial3D
+static var _leaf_mat: StandardMaterial3D
+
+static func door_rect(style: String) -> Dictionary:
+	return DOOR_RECTS.get(style, DOOR_PLAIN)
+
+## A door that opens: a dark doorway over the painted door, and a leaf on a hinge ("Hinge", turned by
+## DOOR_OPEN_ANGLE to open). Local origin is the door column's south-west corner at ground level.
+static func door_swing(style: String) -> Node3D:
+	var r := door_rect(style)
+	if _doorway_mat == null:
+		_doorway_mat = StandardMaterial3D.new()
+		_doorway_mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+		_doorway_mat.albedo_color = Color(0.03, 0.025, 0.03)
+		_leaf_mat = StandardMaterial3D.new()
+		_leaf_mat.albedo_color = DOOR_WOOD
+	var root := Node3D.new()
+	root.name = "DoorSwing"
+	var hole := MeshInstance3D.new()
+	hole.name = "Doorway"
+	var hm := BoxMesh.new()
+	hm.size = Vector3(float(r.w), float(r.h), 0.02)
+	hole.mesh = hm
+	hole.material_override = _doorway_mat
+	hole.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	hole.position = Vector3(float(r.x) + float(r.w) * 0.5, float(r.y) + float(r.h) * 0.5, float(r.z) + 0.012)
+	root.add_child(hole)
+	var hinge := Node3D.new()
+	hinge.name = "Hinge"
+	hinge.position = Vector3(float(r.x), float(r.y), float(r.z) + 0.03)
+	root.add_child(hinge)
+	var leaf := MeshInstance3D.new()
+	leaf.name = "Leaf"
+	var lm := BoxMesh.new()
+	lm.size = Vector3(float(r.w), float(r.h), 0.05)
+	leaf.mesh = lm
+	leaf.material_override = _leaf_mat
+	leaf.position = Vector3(float(r.w) * 0.5, float(r.h) * 0.5, 0.0)
+	hinge.add_child(leaf)
+	return root
+
 ## Per-window variety for the night: shared by every _window in one building() call.
 static var _wr := RandomNumberGenerator.new()
 ## Chimney tops (local) collected while building, for the smoke.

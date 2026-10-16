@@ -39,6 +39,7 @@ const SKY := {
 const LAND_TINT := {"dawn": Color(1.0, 0.88, 0.84), "day": Color(1, 1, 1), "dusk": Color(0.9, 0.72, 0.7), "night": Color(0.3, 0.35, 0.55)}
 const GREY_WEATHER := ["drizzle", "downpour", "gale", "fog"]
 const WINDOW_LIT := Color("ffd27a")
+const RAVEN_ROWS := 86      # the battle sprite's top 86 of 96 rows: the rest is the grey perch it stands on in battle
 
 var kind := "train"
 var info: Dictionary = {}
@@ -818,7 +819,7 @@ func _build_fly() -> void:
 		for i in 2:
 			var a := AtlasTexture.new()
 			a.atlas = sheet
-			a.region = Rect2(i * 96, 0, 96, 96)
+			a.region = Rect2(i * 96, 0, 96, RAVEN_ROWS)
 			_raven_frames.append(a)
 		_raven.texture = _raven_frames[0]
 	_raven.scale = Vector2(1.7, 1.7) * (H / 720.0)

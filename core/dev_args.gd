@@ -11,7 +11,7 @@ static func parse(args: PackedStringArray, is_debug := OS.is_debug_build()) -> D
 		args = PackedStringArray()
 	var out := {"shot": "", "shot_delay": 2.0, "boot_zone": "", "boot_pos": Vector2i(-1, -1),
 		"battle_species": "", "battle_level": 5, "seed": -1, "clock": -1, "weather": "", "fps": false, "playtest": "", "seconds": 0, "ride": "", "double": false, "train": -1.0,
-		"journey": "", "journey_at": 0.5}
+		"journey": "", "journey_at": 0.5, "intro": "", "intro_at": 0.5}
 	for a in args:
 		var kv := a.split("=", true, 1)
 		var key: String = kv[0]
@@ -53,6 +53,10 @@ static func parse(args: PackedStringArray, is_debug := OS.is_debug_build()) -> D
 				out.journey = val  # <train|ferry|fly>:<town>: a travel scene (with --boot, the whole journey from there)
 			"--journey-at":
 				out.journey_at = val.to_float()  # without --boot: hold the scene this far through (0..1)
+			"--intro":
+				out.intro = val  # with --boot: a battle transition (grass|ripple|iris|bars|pulse) or vs:<trainer id>, held
+			"--intro-at":
+				out.intro_at = val.to_float()  # how far through to hold it (0..1)
 			"--seconds":
 				out.seconds = int(val)
 	return out

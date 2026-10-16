@@ -1,5 +1,6 @@
 extends SceneTree
-## Prints RMS dBFS, peak dBFS and loop-seam stats for every rendered music track, sfx and ambience loop in res://audio/.
+## Prints RMS dBFS, peak dBFS and loop-seam stats for every rendered music track, sfx and ambience loop in res://audio/,
+## then a summary of the creature cries (synthesised in game by Cries, so never on disk).
 ## Ambience beds are meant to sit 12 dB or more under the music median (see AmbienceRecipes.TARGET_DB).
 ## Usage: godot --headless --path . -s res://tools/audio/loudness.gd
 ## seam_db: level step across the loop point (RMS of the 250 ms after the start minus the 250 ms before the end).
@@ -93,4 +94,20 @@ func _initialize() -> void:
 			if m["loop"]:
 				seam = "%7.2f %7.2f" % [m["seam_db"], m["click"]]
 			print("%-20s %6.2f %7.2f %7.2f %+7.2f %s" % [r[0], m["secs"], m["rms"], m["peak"], m["rms"] - med, seam])
+	_cries()
 	quit(0)
+
+## Creature cries are synthesised in game (core/cries.gd), not stored: render each and list the spread.
+func _cries() -> void:
+	var dex := Dex.load_default()
+	var rows: Array = []
+	for id in dex.ids():
+		var buf := Cries.render(dex.get_species(id))
+		var pk := 0.0
+		for v in buf:
+			pk = maxf(pk, absf(v))
+		rows.append([db(rms_of(buf)), db(pk), buf.size() / float(Cries.SR), id])
+	rows.sort()
+	var rms_list: Array = rows.map(func(r): return r[0])
+	print("== cries (%d, median rms %.2f dBFS, quietest %s %.2f, loudest %s %.2f, longest %.2f s) ==" % [rows.size(),
+		median(rms_list), rows[0][3], rows[0][0], rows[-1][3], rows[-1][0], rows.map(func(r): return r[2]).max()])
