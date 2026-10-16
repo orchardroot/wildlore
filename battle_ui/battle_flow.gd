@@ -35,6 +35,7 @@ var _evo_ctx := {}
 var _no_run := false
 var acting_pos := 0  # doubles: the field position the ui is choosing for
 var _switching := []  # doubles: party indices already picked to switch in this turn
+var _known := {}  # species the player had seen before this battle began (run() marks the foes seen)
 
 func _init(p_data: GameStateData, p_dex: Dex, p_moves: MoveDB, p_chart: TypeChart, p_items: ItemDB, p_rng: Rng, foe_party: Array, opts: Dictionary, p_ui) -> void:
 	data = p_data
@@ -47,6 +48,7 @@ func _init(p_data: GameStateData, p_dex: Dex, p_moves: MoveDB, p_chart: TypeChar
 	_evo_ctx = {"weather": str(opts.get("weather", "clear")), "time": str(opts.get("time", "day"))}
 	ai_tier = str(opts.get("ai", "wild"))
 	bag = Bag.new(data.bag)
+	_known = data.seen.duplicate()
 	battle = Battle.new(data.party, foe_party, {
 		"chart": p_chart, "move_db": p_moves, "item_db": p_items, "rng": p_rng,
 		"kind": opts.get("kind", "wild"), "weather": opts.get("weather", "clear"), "time": opts.get("time", "day"),
@@ -58,6 +60,20 @@ func ctx() -> Dictionary:
 
 func is_wild() -> bool:
 	return battle.kind == "wild"
+
+func is_caught_species(id: String) -> bool:
+	return data.caught.has(id)
+
+## The move picker's type hint for move `slot` of `me`: "Super effective", "No effect on X"... ("" if unknown).
+## Only foes the player had met before this battle are judged, so a first encounter stays a surprise.
+func move_hint(me: Creature, slot: int) -> String:
+	if slot < 0 or slot >= me.moves.size():
+		return ""
+	var foes := []
+	for c in battle.actives(Battle.FOE):
+		if not c.is_fainted():
+			foes.append({"name": c.display_name(), "types": c.types(), "known": _known.has(c.species.id)})
+	return MoveText.versus(move_db.get_move(str(me.moves[slot].id)), foes, battle.chart)
 
 ## 1 to 3 wobbles: a likelier snare wobbles more before it either clicks or breaks. A caught creature always wobbles thrice.
 static func wobbles_for(chance: float, success: bool) -> int:
@@ -79,7 +95,11 @@ func battle_items() -> Array:
 		if kind == "snare" and not is_wild():
 			continue
 		if kind in ["heal", "cure", "revive", "pp", "snare"]:
-			out.append({"id": id, "name": it.get("name", id), "count": n, "kind": kind, "desc": it.get("desc", "")})
+			var e := {"id": id, "name": it.get("name", id), "count": n, "kind": kind, "desc": it.get("desc", "")}
+			var foe := battle.current(Battle.FOE)
+			if kind == "snare" and not battle.double and foe != null:
+				e["odds"] = Catching.chance(foe, str(it.get("snare", "")), battle.time)
+			out.append(e)
 	return out
 
 ## Would this item do anything to that party member? Tries it on a copy, so nothing changes.
