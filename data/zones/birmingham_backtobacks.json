@@ -1,0 +1,79 @@
+{
+ "id": "birmingham_backtobacks",
+ "name": "Back-to-Backs",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "bed",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "table",
+   "x": 5,
+   "y": 3
+  },
+  {
+   "type": "bench",
+   "x": 4,
+   "y": 3
+  },
+  {
+   "type": "bookshelf",
+   "x": 9,
+   "y": 1
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 6
+  },
+  {
+   "type": "potted_plant",
+   "x": 9,
+   "y": 6
+  }
+ ],
+ "warps": [
+  {
+   "x": 5,
+   "y": 7,
+   "to": "birmingham",
+   "tx": 52,
+   "ty": 50,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "backtoback_volunteer",
+   "sprite": "mum",
+   "x": 5,
+   "y": 2,
+   "facing": "down",
+   "move": "still",
+   "script": "backtoback_volunteer"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  5,
+  6
+ ],
+ "rows": [
+  "xxxxxxxxxxx",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x||||D||||x",
+  "xxxxxxxxxxx"
+ ]
+}

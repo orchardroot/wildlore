@@ -1,0 +1,46 @@
+{
+ "brum_home1_nan": [
+  {
+   "do": "say",
+   "who": "Nan Pat",
+   "text": "Come in, bab, mind the step. Kettle's on, it is always on. It is a Birmingham law."
+  },
+  {
+   "do": "say",
+   "who": "Nan Pat",
+   "text": "'Bab' means love, 'bostin' means brilliant, and 'tara-a-bit' means see you later. You can say it to anyone, even the bin men."
+  },
+  {
+   "do": "say",
+   "who": "Nan Pat",
+   "text": "Our back gate opens near the cut. In summer you can hear narrowboats and a heron complaining about the traffic."
+  },
+  {
+   "do": "if",
+   "flag": "gift_brum_home1",
+   "then": [
+    {
+     "do": "say",
+     "who": "Nan Pat",
+     "text": "I have already given you a flask, you cheeky thing. Off you go, tara-a-bit."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Nan Pat",
+     "text": "Mind the binfox on the way out. It once took a whole Sunday roast off my windowsill. Here, a flask for the road, bab."
+    },
+    {
+     "do": "give_item",
+     "item": "flask_of_tea",
+     "n": 1
+    },
+    {
+     "do": "set",
+     "flag": "gift_brum_home1"
+    }
+   ]
+  }
+ ]
+}

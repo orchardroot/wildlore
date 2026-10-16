@@ -1,0 +1,88 @@
+{
+ "id": "birmingham_rotunda",
+ "name": "The Rotunda",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "statue",
+   "x": 2,
+   "y": 1
+  },
+  {
+   "type": "statue",
+   "x": 8,
+   "y": 1
+  },
+  {
+   "type": "table",
+   "x": 4,
+   "y": 3
+  },
+  {
+   "type": "table",
+   "x": 6,
+   "y": 3
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 6
+  },
+  {
+   "type": "potted_plant",
+   "x": 9,
+   "y": 6
+  }
+ ],
+ "warps": [
+  {
+   "x": 5,
+   "y": 7,
+   "to": "birmingham",
+   "tx": 45,
+   "ty": 25,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "rotunda_concierge",
+   "sprite": "commuter",
+   "x": 3,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "rotunda_concierge"
+  },
+  {
+   "id": "rotunda_resident",
+   "sprite": "student",
+   "x": 8,
+   "y": 5,
+   "facing": "down",
+   "move": "still",
+   "script": "rotunda_resident"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  5,
+  6
+ ],
+ "rows": [
+  "xxxxxxxxxxx",
+  "x+++++++++x",
+  "x+++++++++x",
+  "x+++++++++x",
+  "x+++++++++x",
+  "x+++++++++x",
+  "x+++++++++x",
+  "x++++D++++x",
+  "xxxxxxxxxxx"
+ ]
+}
