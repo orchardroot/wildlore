@@ -191,7 +191,11 @@
    "script": "titanic_guide",
    "sprite": "tour_guide",
    "x": 52.0,
-   "y": 24.0
+   "y": 24.0,
+   "times": [
+    "day",
+    "dusk"
+   ]
   },
   {
    "facing": "up",
@@ -218,7 +222,11 @@
    "script": "park_busker",
    "sprite": "villager_5",
    "x": 15.0,
-   "y": 18.0
+   "y": 18.0,
+   "times": [
+    "day",
+    "dusk"
+   ]
   },
   {
    "facing": "down",
@@ -279,6 +287,32 @@
    "sprite": "warden_grunt",
    "x": 32.0,
    "y": 1.0
+  },
+  {
+   "id": "belfast_night_nurse",
+   "sprite": "night_nurse",
+   "x": 14,
+   "y": 36,
+   "facing": "down",
+   "move": "still",
+   "script": "belfast_night_nurse",
+   "name": "Night Nurse",
+   "times": [
+    "night"
+   ]
+  },
+  {
+   "id": "belfast_astronomer",
+   "sprite": "astronomer",
+   "x": 29,
+   "y": 28,
+   "facing": "down",
+   "move": "still",
+   "script": "belfast_astronomer",
+   "name": "Astronomer",
+   "times": [
+    "night"
+   ]
   }
  ],
  "props": [

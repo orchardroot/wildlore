@@ -183,7 +183,11 @@
    "script": "square_student",
    "sprite": "student",
    "x": 22.0,
-   "y": 13.0
+   "y": 13.0,
+   "times": [
+    "day",
+    "dusk"
+   ]
   },
   {
    "facing": "left",
@@ -262,6 +266,32 @@
    "sprite": "warden_grunt",
    "x": 36.0,
    "y": 1.0
+  },
+  {
+   "id": "galway_fisher",
+   "sprite": "fisher",
+   "x": 33,
+   "y": 23,
+   "facing": "down",
+   "move": "still",
+   "script": "galway_fisher",
+   "name": "Night Fisher",
+   "times": [
+    "night"
+   ]
+  },
+  {
+   "id": "galway_night_fiddler",
+   "sprite": "fiddler",
+   "x": 30,
+   "y": 25,
+   "facing": "down",
+   "move": "still",
+   "script": "galway_night_fiddler",
+   "name": "Fiddler",
+   "times": [
+    "night"
+   ]
   }
  ],
  "props": [

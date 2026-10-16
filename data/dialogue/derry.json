@@ -68,6 +68,32 @@
  ],
  "museum_curator": [
   {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Museum Curator",
+     "text": "Wet out, is it? Come in, the Tower Museum's lovely and dry. The stairs are free."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "sunshine",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Museum Curator",
+       "text": "Sun's out! Walk the Walls today, you'll see right across the whole city."
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Museum Curator",
    "text": "The Tower Museum tells Derry~Londonderry's story in four floors and one very steep staircase. We say the climb is an exhibit in itself."
@@ -79,6 +105,46 @@
   }
  ],
  "bridge_cyclist": [
+  {
+   "do": "when",
+   "cond": "fog",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Bridge Cyclist",
+     "text": "The Peace Bridge is floating in the fog today. Like it's dancing on a cloud."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "gale",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Bridge Cyclist",
+       "text": "Wind on the Foyle! The bridge isn't dancing today, it's doing a jig."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "dusk",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Bridge Cyclist",
+         "text": "Dusk is the best crossing. The river goes all gold and pink, like a sweetie wrapper."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Bridge Cyclist",
@@ -92,6 +158,32 @@
  ],
  "diamond_busker": [
   {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Busker",
+     "text": "Rain on the Diamond. The acoustics stay great, it's the audience that runs away."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "night",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Busker",
+       "text": "Late one? This is when the good tunes come out, slow and soft."
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Busker",
    "text": "I play on the Diamond. Wonderful acoustics: four streets, four directions of shouting, and a statue at the middle to absorb the heckles."
@@ -103,6 +195,32 @@
   }
  ],
  "ferry_pilot": [
+  {
+   "do": "when",
+   "cond": "fog",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Foyle Walker",
+     "text": "Fog on the Foyle. The river's still there, it's just being mysterious."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "dawn",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Foyle Walker",
+       "text": "First light on the water. The Foyle's at its calmest now, before anybody's had their tea."
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Foyle Walker",
@@ -159,6 +277,40 @@
      ]
     }
    ]
+  }
+ ],
+ "derry_lamplighter": [
+  {
+   "do": "say",
+   "who": "Lamplighter",
+   "text": "I light the old lamps along the Walls. Four hundred years of stone, and it still likes a bit of glow."
+  },
+  {
+   "do": "say",
+   "who": "Lamplighter",
+   "text": "The Walls were never broken through, you know. They call it the Maiden City for that."
+  },
+  {
+   "do": "say",
+   "who": "Lamplighter",
+   "text": "Quiet night. Just me, the lamps, and the odd cat on patrol."
+  }
+ ],
+ "derry_fox_watcher": [
+  {
+   "do": "say",
+   "who": "Fox Watcher",
+   "text": "Shh. There's a vixen comes down by the river most nights. Red torch only, it doesn't bother her."
+  },
+  {
+   "do": "say",
+   "who": "Fox Watcher",
+   "text": "Foxes in the city are cheeky wee things. One stole my sandwich last week. Fair play to her."
+  },
+  {
+   "do": "say",
+   "who": "Fox Watcher",
+   "text": "If you see two eyes glowing by the bins, say hello nicely. Don't follow, though."
   }
  ]
 }

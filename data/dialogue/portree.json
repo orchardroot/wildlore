@@ -1,6 +1,46 @@
 {
  "house_painter": [
   {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "House Painter",
+     "text": "Rain's good for paint, you know. Washes the salt off and leaves the colours bright as a box of sweeties."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "sunshine",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "House Painter",
+       "text": "Look at that harbour in the sun. Every colour I've ever painted, all lined up and showing off."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "dusk",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "House Painter",
+         "text": "At dusk the houses go soft, like someone's turned the colours down a notch. Still my favourite time."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "House Painter",
    "text": "Every house on the quay is a different colour. They say it was so fishermen could find their own front door from the sea. In the dark. With a dram."
@@ -12,6 +52,46 @@
   }
  ],
  "bus_waiter": [
+  {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Bus Waiter",
+     "text": "Raining, and the bus is late. Two things you can always count on here. Three, if you count me."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "fog",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Bus Waiter",
+       "text": "In this fog the bus could be right in front of me and I'd not know. I'll wave at every noise, just in case."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "dusk",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Bus Waiter",
+         "text": "Still waiting, and the sun's going down. I've decided I'm not late, I'm just very early for tomorrow."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Bus Waiter",
@@ -25,6 +105,46 @@
  ],
  "minch_sailor": [
   {
+   "do": "when",
+   "cond": "gale",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Old Sailor",
+     "text": "A gale on the Minch! If the Blue Men show up, I'll rhyme till I'm hoarse. 'Gale' and 'sail'. 'Boat' and 'float'."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "fog",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Old Sailor",
+       "text": "Thick fog on the water. Perfect weather for Blue Men, my granda would say. I've my rhymes ready."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "night",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Old Sailor",
+         "text": "Quiet night on the harbour. If you hear poetry out on the water, answer it. Just in case."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Old Sailor",
    "text": "The Blue Men of the Minch. They'd come up beside the boat in a storm and call out a line of poetry. You answered in rhyme, or the sea took your boat."
@@ -36,6 +156,32 @@
   }
  ],
  "gaelic_teacher": [
+  {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Gaelic Pupil",
+     "text": "In Gaelic, water is 'uisge'. On Skye that covers the sea, the lochs and most of the sky as well."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "dawn",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Gaelic Pupil",
+       "text": "Madainn mhath! That's 'good morning', and I mean it. The sun's coming up over the Storr, look."
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Gaelic Pupil",

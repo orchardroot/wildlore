@@ -23,6 +23,46 @@
  ],
  "lan_boater": [
   {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Narrowboat Owner",
+     "text": "Wet Weekend, living up to its name again. I'm thinking of renaming her Wet Fortnight."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "fog",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Narrowboat Owner",
+       "text": "Fog on the canal. Can't see the cows. I can hear them judging me, though."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "sunshine",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Narrowboat Owner",
+         "text": "Sun's out! First dry day on the boat in eleven years. I'm not sure what to do with myself."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Narrowboat Owner",
    "text": "Our boat's called Wet Weekend. I've had it eleven years, and it hasn't been dry for any of them."
@@ -34,6 +74,32 @@
   }
  ],
  "lan_guide": [
+  {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Castle Guide",
+     "text": "Raining on the castle tour, so this is the indoor bit. Lucky us, it's got a gift shop."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "gale",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Castle Guide",
+       "text": "Windy on the castle hill! Hold onto your ticket, it's had three tourists' hats already."
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Castle Guide",
@@ -47,6 +113,32 @@
  ],
  "lan_baker": [
   {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Baker",
+     "text": "Cold, wet day? Hotpot weather, love. I've had a pot on since six."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "dawn",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Baker",
+       "text": "Morning! First batch of Eccles cakes is out. Still don't tell the Eccles people."
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Baker",
    "text": "Lancashire hotpot: lamb, onions, sliced potato on top, and a long, slow bake. It's the Sunday dinner of the north. I've been told I make it too well, which has never once been a complaint."
@@ -59,6 +151,32 @@
  ],
  "lan_walker": [
   {
+   "do": "when",
+   "cond": "sunshine",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Walker",
+     "text": "Clear day! Look across the bay, you can see the fells. Today is, finally, a day."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "rain",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Walker",
+       "text": "Proper fell rain coming in off Morecambe Bay. Boots, not trainers. I did warn you."
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Walker",
    "text": "Lancaster's the gateway north. Fell country is that way, with the Lakes at the end of it. Wear boots. The Lakes have opinions about trainers."
@@ -67,6 +185,23 @@
    "do": "say",
    "who": "Walker",
    "text": "From Lancaster you can see the hills across Morecambe Bay. On a clear day. Today is... a day."
+  }
+ ],
+ "lancaster_fox_watcher": [
+  {
+   "do": "say",
+   "who": "Fox Watcher",
+   "text": "Shh. There's a fox family that lives up by Williamson Park. The cubs come out to play about now."
+  },
+  {
+   "do": "say",
+   "who": "Fox Watcher",
+   "text": "Red torch, so I don't startle them. They're not bothered by me. I'm basically furniture."
+  },
+  {
+   "do": "say",
+   "who": "Fox Watcher",
+   "text": "The castle looks proper spooky lit up at night. The foxes don't care. They've got bins to visit."
   }
  ]
 }

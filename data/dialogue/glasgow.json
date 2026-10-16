@@ -16,6 +16,46 @@
  ],
  "glw_subway": [
   {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Subway Rider",
+     "text": "Raining again? That's why the Subway's underground. Glasgow's smartest idea, and it's from 1896."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "sunshine",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Subway Rider",
+       "text": "Sunshine! Folk are walking instead of taking the Subway. It'll feel quite lonely down there the day."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "dusk",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Subway Rider",
+         "text": "Rush hour on the Clockwork Orange. Round and round, everyone heading home. Mind the doors, pal."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Subway Rider",
    "text": "The Glasgow Subway is just one circle, opened in 1896, and it's the third oldest underground in the world after London and Budapest. We call it the Clockwork Orange. Politely, it's orange."
@@ -27,6 +67,32 @@
   }
  ],
  "glw_guide": [
+  {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Gallery Guide",
+     "text": "Raining? Perfect day for Kelvingrove. It's dry, it's free, and Sir Roger the elephant never complains."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "sunshine",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Gallery Guide",
+       "text": "Sunshine in Glasgow! Folk'll be out in Kelvingrove Park, so you'll have Sir Roger all to yourself."
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Gallery Guide",
@@ -40,6 +106,46 @@
  ],
  "glw_riveter": [
   {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Retired Riveter",
+     "text": "Rain? We built ships in worse than this. Forty years on the Clyde and I've never been properly dry."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "fog",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Retired Riveter",
+       "text": "Fog on the Clyde takes me back. You'd hear the yards before you saw them. Clang, clang, clang, all day."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "dusk",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Retired Riveter",
+         "text": "I like the Clyde at dusk. The cranes go all dark against the sky, like great big iron giraffes."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Retired Riveter",
    "text": "I worked on the Clyde for forty years. Whole ships grew from the river like a magic trick, and it took ten thousand of us to do the trick."
@@ -52,6 +158,46 @@
  ],
  "glw_busker": [
   {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Square Busker",
+     "text": "Rain's nae bother, I've got a brolly and a waterproof song. It's mostly about rain, so it fits."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "gale",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Square Busker",
+       "text": "Nae point playing in this wind, the tune goes halfway to Paisley before anyone hears it."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "night",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Square Busker",
+         "text": "Late set in George Square. The streetlights are on and the pigeons have gone to bed, so it's just us."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Square Busker",
    "text": "Nae bother in George Square. It's a cracking spot for a tune. The statues are a captive audience, and the pigeons are fair critics."
@@ -63,6 +209,32 @@
   }
  ],
  "glw_artstudent": [
+  {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Art Student",
+     "text": "Mackintosh would've designed a better umbrella. Tall, straight lines, a wee rose on the handle."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "dawn",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Art Student",
+       "text": "Up early for life drawing. Nobody's awake enough to talk, which is ideal. I can just draw."
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Art Student",
@@ -124,6 +296,40 @@
      ]
     }
    ]
+  }
+ ],
+ "glasgow_fox_watcher": [
+  {
+   "do": "say",
+   "who": "Fox Watcher",
+   "text": "Shh. There's a vixen in the park, just past the bins. Red torch only, foxes don't mind red light."
+  },
+  {
+   "do": "say",
+   "who": "Fox Watcher",
+   "text": "Glasgow's got more foxes than you'd think. They come out when the city goes quiet, and they own the place."
+  },
+  {
+   "do": "say",
+   "who": "Fox Watcher",
+   "text": "One fox here nicks chips from the bins every Friday. Very regular. You could set the Subway by him."
+  }
+ ],
+ "glasgow_night_nurse": [
+  {
+   "do": "say",
+   "who": "Night Nurse",
+   "text": "Off to the night shift at the Royal Infirmary. Twelve hours, a flask of tea and a packet of teacakes."
+  },
+  {
+   "do": "say",
+   "who": "Night Nurse",
+   "text": "Night shifts are quiet, until they're not. Still, I wouldn't swap the folk I work with for anything."
+  },
+  {
+   "do": "say",
+   "who": "Night Nurse",
+   "text": "Glasgow at night's got a wee glow to it. Even the rain looks friendly under the streetlights."
   }
  ]
 }

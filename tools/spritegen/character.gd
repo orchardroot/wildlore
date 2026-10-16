@@ -426,6 +426,21 @@ static func _props(cv, c: Dictionary) -> void:
 		_line(cv, [Vector2(hx, hy - 17), Vector2(hx, FEET_Y - 1)], 1.6, pcol)
 		_ell(cv, hx, hy - 17, 3, 3, Canvas.tones(pcol.lightened(0.2)), true, false)
 		_ell(cv, hx, hy, 3.5, 3.5, skin, true)
+	if _has(c, "lamp_pole"):
+		# a lamplighter's long pole, its little flame up above the hat
+		var flame := Canvas.parse_colour(c.pal.get("light", "#ffd860"))
+		_line(cv, [Vector2(hx - 3, hy - 22), Vector2(hx + 0.5, FEET_Y - 1)], 1.6, pcol)
+		_ell(cv, hx - 3.5, hy - 24.5, 3, 4, Canvas.tones(flame), false)
+		cv.px(int(hx) - 4, int(hy) - 25, flame.lightened(0.7))
+		_ell(cv, hx, hy, 3.5, 3.5, skin, true)
+	if _has(c, "telescope"):
+		# a brass telescope on a little tripod, pointing up and away at the sky
+		var brass := Canvas.parse_colour(c.pal.get("prop", "#c8a050"))
+		_line(cv, [Vector2(hx, hy + 2), Vector2(hx - 3, FEET_Y - 1)], 1.0, Color("#3a3028"))
+		_line(cv, [Vector2(hx, hy + 2), Vector2(hx + 2, FEET_Y - 1)], 1.0, Color("#3a3028"))
+		_line(cv, [Vector2(hx + 1, hy + 1), Vector2(hx - 3, hy - 10)], 3.0, brass.darkened(0.1))
+		_line(cv, [Vector2(hx - 3, hy - 10), Vector2(hx - 5, hy - 15)], 2.2, brass.lightened(0.2))
+		_ell(cv, hx, hy, 3.5, 3.5, skin, true)
 	if _has(c, "hurley"):
 		var top := hy - 15.0
 		_line(cv, [Vector2(hx + 1, top), Vector2(hx, hy), Vector2(hx - 1.5, FEET_Y - 4)], 1.6, pcol)

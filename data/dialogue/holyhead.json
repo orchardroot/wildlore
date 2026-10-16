@@ -45,6 +45,46 @@
  ],
  "ticket_clerk": [
   {
+   "do": "when",
+   "cond": "gale",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Ticket Clerk",
+     "text": "Gale's up, so the ferry might be a bit late. Or bouncy. Probably both. Ginger biscuit?"
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "fog",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Ticket Clerk",
+       "text": "Fog on the Irish Sea. The ship's got radar, so it's fine. The seagulls have nothing."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "night",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Ticket Clerk",
+         "text": "Night sailing, is it? Three hours to Dublin and you'll be there by morning. Bring a pillow."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Ticket Clerk",
    "text": "Three hours to Dublin. We have a lounge, a cafe, a shop, and a deck for people who've decided they'd like to be a figurehead."
@@ -57,6 +97,32 @@
  ],
  "old_fisherman": [
   {
+   "do": "when",
+   "cond": "gale",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Old Fisherman",
+     "text": "Gale's blowing. FitzRoy would've hoisted the storm cone for this one. I'm off home for a cuppa."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "rain",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Old Fisherman",
+       "text": "Rain doesn't bother the fish. They're wet already. I'm the only one complaining."
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Old Fisherman",
    "text": "The breakwater's the best place to fish. You can see the whole bay. And the whole bay can see you."
@@ -68,6 +134,32 @@
   }
  ],
  "welsh_local": [
+  {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Local",
+     "text": "Glaw! That means rain. You'll learn that word fast up here, cariad."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "dawn",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Local",
+       "text": "Bore da! Early sun over Holyhead Mountain. Lovely, it is, before the ferry crowd turns up."
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Local",
@@ -92,6 +184,18 @@
   }
  ],
  "fort_student": [
+  {
+   "do": "when",
+   "cond": "fog",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "History Student",
+     "text": "Fog round the Roman walls. Very atmospheric. I'm writing it all down. Too much detail, probably."
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "History Student",

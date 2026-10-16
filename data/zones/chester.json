@@ -809,7 +809,11 @@
    "facing": "down",
    "move": "wander",
    "script": "wall_guide",
-   "name": "Tour Guide"
+   "name": "Tour Guide",
+   "times": [
+    "day",
+    "dusk"
+   ]
   },
   {
    "id": "chest_legionary",
@@ -819,7 +823,11 @@
    "facing": "down",
    "move": "wander",
    "script": "legionary",
-   "name": "Roman Re-enactor"
+   "name": "Roman Re-enactor",
+   "times": [
+    "day",
+    "dusk"
+   ]
   },
   {
    "id": "chest_verger",
@@ -859,7 +867,11 @@
    "facing": "left",
    "move": "wander",
    "script": "chester_student",
-   "name": "Student"
+   "name": "Student",
+   "times": [
+    "day",
+    "dusk"
+   ]
   },
   {
    "id": "rail_guard",
@@ -870,6 +882,19 @@
    "move": "still",
    "script": "rail_guard",
    "name": "Rail Guard"
+  },
+  {
+   "id": "chester_lamplighter",
+   "sprite": "lamplighter",
+   "x": 16,
+   "y": 19,
+   "facing": "down",
+   "move": "still",
+   "script": "chester_lamplighter",
+   "name": "Lamplighter",
+   "times": [
+    "night"
+   ]
   }
  ],
  "encounters": {

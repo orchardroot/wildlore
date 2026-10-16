@@ -27,6 +27,46 @@
  ],
  "cai_lorry": [
   {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Lorry Driver",
+     "text": "Raining on the lorry park. The view's still lovely, mind. You just need to wipe it first."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "gale",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Lorry Driver",
+       "text": "Ferry might be held in this wind. Means I'm parked here with a bacon roll. Worse things happen at sea."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "dawn",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Lorry Driver",
+         "text": "First ferry's loading. Lorries in a long line, seagulls on the roofs. Every morning, same show."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Lorry Driver",
    "text": "Cairnryan is basically a lorry car park with a lovely view. Hundreds of ferry lorries roll through every day. The seagulls know the timetable better than I do."
@@ -39,6 +79,32 @@
  ],
  "cai_oyster": [
   {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Oyster Man",
+     "text": "Rain doesn't bother the oysters. They live in the loch. They've never been dry in their lives."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "fog",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Oyster Man",
+       "text": "Loch Ryan in fog is lovely and quiet. You hear the ferry horn long before you see the ferry."
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Oyster Man",
    "text": "The wild oysters in Loch Ryan were here before the ferries and they'll be here after. They're patient. I admire that in a shellfish."
@@ -46,10 +112,50 @@
   {
    "do": "say",
    "who": "Oyster Man",
-   "text": "F\u00e0ilte, by the way. That means welcome. Say it with a bit of cheek and you'll sound local."
+   "text": "Fàilte, by the way. That means welcome. Say it with a bit of cheek and you'll sound local."
   }
  ],
  "cai_wife": [
+  {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Terminal Cafe Owner",
+     "text": "Wet day? A bacon roll fixes it. It's science, or near enough."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "gale",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Terminal Cafe Owner",
+       "text": "Ferry's delayed in this wind, so I'm doing a roaring trade. Bacon rolls all round, the size of hats."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "dawn",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Terminal Cafe Owner",
+         "text": "Grill's on early for the first boat. The seagulls are up even earlier, practising their sad faces."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Terminal Cafe Owner",
@@ -58,10 +164,50 @@
   {
    "do": "say",
    "who": "Terminal Cafe Owner",
-   "text": "M\u00f2ran taing, that's 'many thanks'. I say it forty times a day. It never gets old, and neither does the roll."
+   "text": "Mòran taing, that's 'many thanks'. I say it forty times a day. It never gets old, and neither does the roll."
   }
  ],
  "cai_kid": [
+  {
+   "do": "when",
+   "cond": "sunshine",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Wee Lass",
+     "text": "On a sunny day you can see the ferry right across the loch. One day I'll be the one driving it."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "rain",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Wee Lass",
+       "text": "It's raining, so I'm practising being a ferry captain. Captains don't mind rain. Seagulls don't either."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "dusk",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Wee Lass",
+         "text": "Mum says I have to be in when the lights come on. The lights are coming on. See you tomorrow!"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Wee Lass",

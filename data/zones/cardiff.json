@@ -99,7 +99,11 @@
    "script": "castle_guide2",
    "sprite": "tour_guide",
    "x": 29.0,
-   "y": 12.0
+   "y": 12.0,
+   "times": [
+    "day",
+    "dusk"
+   ]
   },
   {
    "facing": "left",
@@ -117,7 +121,11 @@
    "script": "dahl_fan",
    "sprite": "student",
    "x": 20.0,
-   "y": 19.0
+   "y": 19.0,
+   "times": [
+    "day",
+    "dusk"
+   ]
   },
   {
    "facing": "down",
@@ -179,6 +187,32 @@
    "sprite": "warden_grunt",
    "x": 62.0,
    "y": 22.0
+  },
+  {
+   "id": "cardiff_night_nurse",
+   "sprite": "night_nurse",
+   "x": 10,
+   "y": 28,
+   "facing": "down",
+   "move": "still",
+   "script": "cardiff_night_nurse",
+   "name": "Night Nurse",
+   "times": [
+    "night"
+   ]
+  },
+  {
+   "id": "cardiff_fox_watcher",
+   "sprite": "fox_watcher",
+   "x": 28,
+   "y": 19,
+   "facing": "down",
+   "move": "still",
+   "script": "cardiff_fox_watcher",
+   "name": "Fox Watcher",
+   "times": [
+    "night"
+   ]
   }
  ],
  "props": [

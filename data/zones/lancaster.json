@@ -502,7 +502,11 @@
    "y": 21,
    "facing": "down",
    "move": "wander",
-   "script": "lan_student"
+   "script": "lan_student",
+   "times": [
+    "day",
+    "dusk"
+   ]
   },
   {
    "id": "lan_boater",
@@ -520,7 +524,11 @@
    "y": 16,
    "facing": "down",
    "move": "still",
-   "script": "lan_guide"
+   "script": "lan_guide",
+   "times": [
+    "day",
+    "dusk"
+   ]
   },
   {
    "id": "lan_baker",
@@ -557,6 +565,19 @@
    "facing": "down",
    "move": "still",
    "trainer": "lan_warden"
+  },
+  {
+   "id": "lancaster_fox_watcher",
+   "sprite": "fox_watcher",
+   "x": 32,
+   "y": 19,
+   "facing": "down",
+   "move": "still",
+   "script": "lancaster_fox_watcher",
+   "name": "Fox Watcher",
+   "times": [
+    "night"
+   ]
   }
  ],
  "encounters": {

@@ -24,6 +24,8 @@ var _run_latched := false   # run mode "toggle": running stays on until the run 
 var wading := false
 var _bike: Node3D
 var _coracle: MeshInstance3D
+var _was_running := false   # for the dust puff on breaking into a run
+var _dust: CPUParticles3D
 
 func setup(ow: Node, sprite_id: String) -> void:
 	overworld = ow
@@ -133,6 +135,7 @@ func _physics_process(delta: float) -> void:
 		_held_dir = ""
 		_held_t = 0.0
 		sprite.walking = false
+		_was_running = false
 		return
 	if dir != _held_dir:
 		_held_dir = dir
@@ -152,6 +155,45 @@ func _input_dir() -> String:
 		if Input.is_action_pressed("move_" + d):
 			return d
 	return ""
+
+## A little puff of dust kicked up on breaking into a run (not on Low quality).
+func _puff() -> void:
+	if Settings.quality == "low":
+		return
+	if _dust == null:
+		_dust = CPUParticles3D.new()
+		_dust.one_shot = true
+		_dust.emitting = false
+		_dust.amount = 8
+		_dust.lifetime = 0.5
+		_dust.explosiveness = 0.85
+		_dust.direction = Vector3(0, 1, 0)
+		_dust.spread = 70.0
+		_dust.initial_velocity_min = 0.35
+		_dust.initial_velocity_max = 0.7
+		_dust.gravity = Vector3(0, 0.3, 0)
+		_dust.damping_min = 1.0
+		_dust.damping_max = 1.5
+		var grow := Curve.new()
+		grow.add_point(Vector2(0, 0.5))
+		grow.add_point(Vector2(1, 1.3))
+		_dust.scale_amount_curve = grow
+		var fade := Gradient.new()
+		fade.colors = PackedColorArray([Color(0.82, 0.76, 0.66, 0.7), Color(0.82, 0.76, 0.66, 0.0)])
+		_dust.color_ramp = fade
+		var q := QuadMesh.new()
+		q.size = Vector2(0.22, 0.22)
+		var m := StandardMaterial3D.new()
+		m.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+		m.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+		m.vertex_color_use_as_albedo = true
+		m.billboard_mode = BaseMaterial3D.BILLBOARD_PARTICLES
+		m.albedo_texture = SkyAndLight._soft_texture()
+		q.material = m
+		_dust.mesh = q
+		_dust.position = Vector3(0, 0.08, 0)
+		add_child(_dust)
+	_dust.restart()
 
 ## Attempts one step. Returns false (and bumps) if blocked.
 ## A ledge hop: straight line from start to dest with a small arc on top (no drift).
@@ -173,6 +215,11 @@ func try_step(dir: String, running := false) -> bool:
 		return false
 	moving = true
 	sprite.walking = true
+	var run_on_foot := running and not on_bike and not wading
+	sprite.walk_rate = CharSprite.RUN_RATE if run_on_foot else CharSprite.WALK_RATE
+	if run_on_foot and not _was_running and verdict != "ledge":
+		_puff()
+	_was_running = run_on_foot
 	var speed := BIKE_SPEED if on_bike else (RUN_SPEED if running else WALK_SPEED)
 	var dest_y: float = overworld.ground_y(target)
 	var dest := Vector3(target.x + 0.5, dest_y, target.y + 0.5)

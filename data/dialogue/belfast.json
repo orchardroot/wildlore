@@ -38,12 +38,38 @@
     {
      "do": "say",
      "who": "Sailor",
-     "text": "Go and see Keeper Ruair\u00ed at the shipyard first. Past the cranes, the big shed with the sparks. He's friendly. Mostly to people who've just lost to him, but still."
+     "text": "Go and see Keeper Ruairí at the shipyard first. Past the cranes, the big shed with the sparks. He's friendly. Mostly to people who've just lost to him, but still."
     }
    ]
   }
  ],
  "titanic_guide": [
+  {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Museum Guide",
+     "text": "Grand day for the museum. Nobody minds a wee shower when there's fudge inside."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "dawn",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Museum Guide",
+       "text": "You're early! The building looks like four ship's hulls at sunrise. Worth the alarm clock."
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Museum Guide",
@@ -57,6 +83,46 @@
  ],
  "dock_worker": [
   {
+   "do": "when",
+   "cond": "fog",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Dock Worker",
+     "text": "Can't see Samson or Goliath in this fog. Doesn't matter, I know fine well they're there."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "sunshine",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Dock Worker",
+       "text": "Sun on the cranes! They go bright yellow, like two big daffodils with jobs."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "dusk",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Dock Worker",
+         "text": "Knocking-off time. Samson and Goliath are the last thing I see on the way home."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Dock Worker",
    "text": "I look up at Samson and Goliath every day. Hundred metres of yellow steel. They're no longer needed to build ships, but they're loved. We would never take them down."
@@ -68,6 +134,46 @@
   }
  ],
  "black_taxi": [
+  {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Taxi Driver",
+     "text": "Hop in out of that rain, so. Belfast drizzle's not weather, it's a lifestyle."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "gale",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Taxi Driver",
+       "text": "Wind's blowing a hoolie off the Lough. Hold on to your hat, and your wee dog."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "night",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Taxi Driver",
+         "text": "Late one, is it? The city's quiet now, but the stories don't stop for bedtime."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Taxi Driver",
@@ -81,6 +187,32 @@
  ],
  "park_busker": [
   {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Busker",
+     "text": "Told you. One-man wet session. The bodhrán's in a bin bag and still keeping time."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "sunshine",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Busker",
+       "text": "Sun's out in Belfast! Quick, everybody outside before it changes its mind."
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Busker",
    "text": "Fiddle, whistle, and a bodhrán on my knee. I'm a one-man session. If the rain comes, I'll be a one-man wet session."
@@ -92,6 +224,32 @@
   }
  ],
  "bridge_walker": [
+  {
+   "do": "when",
+   "cond": "fog",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Passer-by",
+     "text": "The Lagan's hiding in the fog this morning. The seals know where it is, mind."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "dusk",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Passer-by",
+       "text": "The Big Fish glows lovely at dusk. Like it's had a good day too."
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Passer-by",
@@ -112,7 +270,41 @@
   {
    "do": "say",
    "who": "Warden",
-   "text": "The Keeper at the shipyard has the say on this road, and he hasn't said it yet. Ask Ruair\u00ed. Past the cranes, the big shed. You can't miss the sparks."
+   "text": "The Keeper at the shipyard has the say on this road, and he hasn't said it yet. Ask Ruairí. Past the cranes, the big shed. You can't miss the sparks."
+  }
+ ],
+ "belfast_night_nurse": [
+  {
+   "do": "say",
+   "who": "Night Nurse",
+   "text": "Off to the Royal for the night shift. Flask of tea, wee bag of biscuits, sorted."
+  },
+  {
+   "do": "say",
+   "who": "Night Nurse",
+   "text": "Belfast's quiet at this hour. You can hear the Lagan if you stand still long enough."
+  },
+  {
+   "do": "say",
+   "who": "Night Nurse",
+   "text": "Mind yourself getting home now. And get some sleep, I'll be jealous."
+  }
+ ],
+ "belfast_astronomer": [
+  {
+   "do": "say",
+   "who": "Astronomer",
+   "text": "I'm away up Cave Hill with the telescope. Clear nights here are rare, so you grab them."
+  },
+  {
+   "do": "say",
+   "who": "Astronomer",
+   "text": "From up there, the city lights look like stars fell into the Lough."
+  },
+  {
+   "do": "say",
+   "who": "Astronomer",
+   "text": "There's Orion. Big lad with a belt. Every winter he turns up, regular as a bus."
   }
  ]
 }

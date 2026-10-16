@@ -13,6 +13,46 @@
  ],
  "steps_man": [
   {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Walker",
+     "text": "Wet steps today, so I'm counting them slowly. Still getting a different answer."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "fog",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Walker",
+       "text": "Can't see the top of the 108 Steps in this fog. Could be 200 of them now."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "dusk",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Walker",
+         "text": "Last count of the day. If it comes out at 108, I'm retiring."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Walker",
    "text": "Those are the 108 Steps. I've counted them four times."
@@ -25,6 +65,32 @@
  ],
  "pigeon_lady": [
   {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Pigeon Lady",
+     "text": "The pigeons are sheltering under the Town Hall porch. Union rules: no flying in drizzle."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "dawn",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Pigeon Lady",
+       "text": "Up early? So are the pigeons. They clock on at sunrise and expect breakfast."
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Pigeon Lady",
    "text": "Don't feed the pigeons. They've got a union."
@@ -36,6 +102,46 @@
   }
  ],
  "weather_man": [
+  {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Weatherwise Walt",
+     "text": "Drizzle! Told you. I also told you sun, but let's focus on the bit I got right."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "sunshine",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Weatherwise Walt",
+       "text": "Sunshine in Macc! Write it down, nobody back home will believe you."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "fog",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Weatherwise Walt",
+         "text": "Fog this thick, I can't see the hills. I'm forecasting them anyway."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Weatherwise Walt",
@@ -72,6 +178,32 @@
   }
  ],
  "bank_ducks": [
+  {
+   "do": "when",
+   "cond": "sunshine",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Duck Watcher",
+     "text": "Sun on the Bollin! The ducks are out sunbathing like they've paid for deckchairs."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "dusk",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Duck Watcher",
+       "text": "The ducks are tucking in for the night. They do it in order of importance."
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Duck Watcher",

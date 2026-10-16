@@ -810,7 +810,11 @@
    "y": 25,
    "facing": "up",
    "move": "wander",
-   "script": "ncl_guide"
+   "script": "ncl_guide",
+   "times": [
+    "day",
+    "dusk"
+   ]
   },
   {
    "id": "ncl_artstudent",
@@ -819,7 +823,11 @@
    "y": 37,
    "facing": "left",
    "move": "wander",
-   "script": "ncl_artstudent"
+   "script": "ncl_artstudent",
+   "times": [
+    "day",
+    "dusk"
+   ]
   },
   {
    "id": "ncl_freeman",
@@ -856,6 +864,32 @@
    "facing": "right",
    "move": "still",
    "trainer": "ncl_fisher"
+  },
+  {
+   "id": "newcastle_night_nurse",
+   "sprite": "night_nurse",
+   "x": 10,
+   "y": 36,
+   "facing": "down",
+   "move": "still",
+   "script": "newcastle_night_nurse",
+   "name": "Night Nurse",
+   "times": [
+    "night"
+   ]
+  },
+  {
+   "id": "newcastle_fox_watcher",
+   "sprite": "fox_watcher",
+   "x": 30,
+   "y": 23,
+   "facing": "down",
+   "move": "still",
+   "script": "newcastle_fox_watcher",
+   "name": "Fox Watcher",
+   "times": [
+    "night"
+   ]
   }
  ],
  "encounters": {

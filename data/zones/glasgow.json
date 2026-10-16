@@ -185,7 +185,11 @@
    "script": "glw_guide",
    "sprite": "tour_guide",
    "x": 12.0,
-   "y": 12.0
+   "y": 12.0,
+   "times": [
+    "day",
+    "dusk"
+   ]
   },
   {
    "facing": "down",
@@ -212,7 +216,11 @@
    "script": "glw_artstudent",
    "sprite": "student",
    "x": 22.0,
-   "y": 20.0
+   "y": 20.0,
+   "times": [
+    "day",
+    "dusk"
+   ]
   },
   {
    "facing": "down",
@@ -268,6 +276,32 @@
    "sprite": "villager_5",
    "x": 65.0,
    "y": 29.0
+  },
+  {
+   "id": "glasgow_fox_watcher",
+   "sprite": "fox_watcher",
+   "x": 33,
+   "y": 26,
+   "facing": "down",
+   "move": "still",
+   "script": "glasgow_fox_watcher",
+   "name": "Fox Watcher",
+   "times": [
+    "night"
+   ]
+  },
+  {
+   "id": "glasgow_night_nurse",
+   "sprite": "night_nurse",
+   "x": 51,
+   "y": 17,
+   "facing": "down",
+   "move": "still",
+   "script": "glasgow_night_nurse",
+   "name": "Night Nurse",
+   "times": [
+    "night"
+   ]
   }
  ],
  "props": [

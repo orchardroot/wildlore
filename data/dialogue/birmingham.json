@@ -113,6 +113,32 @@
  ],
  "brum_student": [
   {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Library Student",
+     "text": "Raining again, bab. Good job the library's got ten floors of dry. I've read three books just waiting for it to stop."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "dawn",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Library Student",
+       "text": "Up at dawn for a nine o'clock lecture. I'm not a morning person. I'm barely an afternoon person."
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Library Student",
    "text": "The Library of Birmingham is the biggest public library in Britain. The shelves go on forever. I got lost looking for the exit and found a better book."
@@ -124,6 +150,46 @@
   }
  ],
  "brum_bull": [
+  {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Bullring Local",
+     "text": "Bit of drizzle, bab. Brum's got more canal than Venice, so a bit more water won't hurt nobody."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "sunshine",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Bullring Local",
+       "text": "Bostin' day, innit? Sun out on the Bullring and everyone's suddenly found their sunglasses."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "dusk",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Bullring Local",
+         "text": "Lights coming on round the Bullring. Lovely. Tara-a-bit to the daylight, eh?"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Bullring Local",
@@ -149,6 +215,46 @@
  ],
  "brum_traveller": [
   {
+   "do": "when",
+   "cond": "fog",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Waiting Traveller",
+     "text": "Fog's in. The departure board says 'delayed'. I'd say 'lost', personally."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "gale",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Waiting Traveller",
+       "text": "Wind's whistling through New Street. My tent's holding up better than my hat."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "night",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Waiting Traveller",
+         "text": "Last train's gone, has it? Good thing I brought the tent. Platform 12 has a lovely view."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Waiting Traveller",
    "text": "Birmingham New Street is the busiest station in Britain outside London. I'm told it has a great deal of rail and a great deal of pigeons."
@@ -157,6 +263,35 @@
    "do": "say",
    "who": "Waiting Traveller",
    "text": "My train's late. It's alright. I've brought a book. And a pasty. And a tent."
+  }
+ ],
+ "birmingham_fox_watcher": [
+  {
+   "do": "say",
+   "who": "Fox Watcher",
+   "text": "Shh. There's a fox on the canal towpath. Brum's foxes know the canals better than the boaters do."
+  },
+  {
+   "do": "say",
+   "who": "Fox Watcher",
+   "text": "Red torch, see. Foxes don't mind red light, so they carry on being nosy and I get to watch."
+  },
+  {
+   "do": "say",
+   "who": "Fox Watcher",
+   "text": "Night-time in the city, it's all foxes, owls and the odd person heading home with a balti. Lovely."
+  }
+ ],
+ "birmingham_night_boater": [
+  {
+   "do": "say",
+   "who": "Night Boater",
+   "text": "Moored up at Gas Street Basin for the night. The water goes all gold under the lamps."
+  },
+  {
+   "do": "say",
+   "who": "Night Boater",
+   "text": "No locks after dark, that's my rule. Brum's got more canal than Venice, and I'm not doing it in the dark."
   }
  ]
 }

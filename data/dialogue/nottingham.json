@@ -11,6 +11,32 @@
  ],
  "not_lace": [
   {
+   "do": "when",
+   "cond": "sunshine",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Lace Historian",
+     "text": "Sun's out over the Lace Market. Lovely light through a lace curtain, that. Pretty patterns on the floor."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "dusk",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Lace Historian",
+       "text": "Warehouse windows glowing at dusk. You can picture the lace frames clattering away inside."
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Lace Historian",
    "text": "Nottingham lace was machine-made on frames of cast iron, a bit like a very precise loom. The lace curtains in your gran's front window were probably made here."
@@ -22,6 +48,32 @@
   }
  ],
  "not_caver": [
+  {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Cave Guide",
+     "text": "Raining up top? Down in the caves it's dry as a biscuit. Nottingham always did think ahead."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "fog",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Cave Guide",
+       "text": "Fog on the streets, and the caves stay exactly the same. Cool, quiet and full of old secrets."
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Cave Guide",
@@ -47,6 +99,32 @@
  ],
  "not_goose": [
   {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Goose Fair Stallholder",
+     "text": "Drizzle, duck? Goose Fair's had worse. Pull your hood up and get a bag of mushy peas, it'll warm you through."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "dusk",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Goose Fair Stallholder",
+       "text": "The fair lights look best at dusk, duck. Everything's sparkly and the waltzers are already spinning."
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Goose Fair Stallholder",
    "text": "Goose Fair started as a medieval market where people sold geese. Now it sells mushy peas and a ride that goes upside down. The geese went home, but the name stayed."
@@ -59,6 +137,46 @@
  ],
  "not_cyclist": [
   {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Cyclist",
+     "text": "Raining, so Brenda's got her mudguards on. She doesn't like getting her chain wet. Fair enough."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "gale",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Cyclist",
+       "text": "Wind's against me all the way up to the Castle. Brenda says we're training. Brenda fibs."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "dawn",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Cyclist",
+         "text": "Morning ride before work. Empty streets, birds singing, and Brenda's bell waking up half of Sneinton."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Cyclist",
    "text": "Raleigh bicycles started here in 1887, and soon they made hundreds of thousands a year. It was a Nottingham invention. I'm not saying the bike was a Nottingham invention. I'm saying the best ones were."
@@ -67,6 +185,35 @@
    "do": "say",
    "who": "Cyclist",
    "text": "My bike's called Brenda. She's got a bell like a church."
+  }
+ ],
+ "nottingham_night_nurse": [
+  {
+   "do": "say",
+   "who": "Night Nurse",
+   "text": "Off to the Queen's Medical Centre for the night shift, duck. It's that big, you need a map to find the canteen."
+  },
+  {
+   "do": "say",
+   "who": "Night Nurse",
+   "text": "Nights are quiet on the streets but never on the wards. Mind how you go, and don't trip over any geese."
+  },
+  {
+   "do": "say",
+   "who": "Night Nurse",
+   "text": "Flask of tea, a sandwich and a slice of Bramley apple pie. Proper night shift supplies, that."
+  }
+ ],
+ "nottingham_lamplighter": [
+  {
+   "do": "say",
+   "who": "Lamplighter",
+   "text": "Evening! Somebody's got to light the way past the Castle. Robin Hood used arrows. I use a pole."
+  },
+  {
+   "do": "say",
+   "who": "Lamplighter",
+   "text": "Quiet streets, warm lamps, and a hedgehog doing his rounds on Old Market Square. Lovely night for it."
   }
  ]
 }
