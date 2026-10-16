@@ -94,7 +94,7 @@ static func window_colour(rng: RandomNumberGenerator) -> Color:
 	return Color(b, b, b, bedtime)
 
 ## Returns [body_mesh, windows_mesh, chimney tops (PackedVector3Array, local)].
-static func building(w: int, d: int, style: String, door_x: int, seed_value: int) -> Array:
+static func building(w: int, d: int, style: String, door_x: int, seed_value: int, region := "") -> Array:
 	var rng := Meshes._rng(seed_value)
 	var st := Meshes._st()
 	var wst := Meshes._st()
@@ -104,7 +104,7 @@ static func building(w: int, d: int, style: String, door_x: int, seed_value: int
 		"mill":
 			_mill(st, wst, w, d, door_x, rng)
 		"castle":
-			_castle(st, wst, w, d, door_x)
+			_castle(st, wst, w, d, door_x, region)
 		"cathedral":
 			_cathedral(st, wst, w, d, door_x, SANDSTONE)
 		"chapel":
@@ -247,7 +247,7 @@ static func _station(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: 
 # --- grand buildings ---------------------------------------------------------
 
 ## Crenellated curtain wall with round corner towers and a gatehouse on the door column.
-static func _castle(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int) -> void:
+static func _castle(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int, region := "") -> void:
 	var stone := Color("9d968a")
 	var wall_h := 2.2
 	var t := 0.6
@@ -268,9 +268,98 @@ static func _castle(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: i
 		Meshes.box(st, Vector3(door_x - 0.4, 0, d - 0.9), Vector3(1.8, wall_h + 1.0, 1.0), stone.lightened(0.08))
 		Meshes.box(st, Vector3(door_x + 0.2, 0, d + 0.05), Vector3(0.6, 1.1, 0.06), Color("2a221e"))
 		_window(st, wst, door_x + 0.3, wall_h + 0.2, d + 0.1, 0.4, 0.4, stone.lightened(0.2))
-	# a flag on the first tower
-	Meshes.box(st, Vector3(0.38, wall_h + 1.3, 0.38), Vector3(0.05, 1.0, 0.05), Color("3b2a22"))
-	Meshes.box(st, Vector3(0.43, wall_h + 1.8, 0.38), Vector3(0.6, 0.4, 0.03), Color("c8102e"))
+	# a pennant on the first tower, and on the far one too on a bigger castle
+	var poles := [Vector2(0.4, 0.4)]
+	if w >= 6:
+		poles.append(Vector2(w - 0.4, 0.4))
+	for p in poles:
+		Meshes.box(st, Vector3(p.x - 0.025, wall_h + 1.3, p.y - 0.025), Vector3(0.05, 1.0, 0.05), Color("3b2a22"))
+		_pennant(st, Vector3(p.x + 0.03, wall_h + 2.25, p.y), region)
+
+## Pennant cloth colours (also the tests' way of telling one nation's from another's).
+const PENNANT_RED := Color("c8102e")
+const PENNANT_WHITE := Color("f4f1e8")
+const PENNANT_BLUE := Color("0065bd")
+const PENNANT_GREEN := Color("1f7a3a")
+const PENNANT_ORANGE := Color("ff883e")
+const PENNANT_BLACK := Color("1c1c1e")
+const PENNANT_GOLD := Color("e0b03a")
+const PENNANT_L := 0.78     # hoist to tips
+const PENNANT_H := 0.42     # at the hoist; it tapers to the fly
+const PENNANT_NOTCH := 0.32 # how far the swallowtail's fork cuts back, as a fraction of the length
+## Which pennant a region flies.
+const PENNANT_KINDS := {
+	"cheshire": "st_george", "peak": "st_george", "manchester": "st_george", "merseyside": "st_george",
+	"midlands": "st_george", "south_england": "st_george", "yorkshire": "st_george", "north_east": "st_george",
+	"cumbria": "st_george", "cornwall": "st_piran", "north_wales": "wales", "mid_wales": "wales",
+	"south_wales": "wales", "scotland": "saltire", "ireland": "ireland", "ireland_west": "ireland",
+	"ireland_east": "ireland", "man": "man",
+}
+
+## A castle's swallowtail pennant on its own, the hoist's top at the origin, flying along +x.
+static func pennant(region := "") -> ArrayMesh:
+	var st := Meshes._st()
+	_pennant(st, Vector3.ZERO, region)
+	return Meshes._finish(st)
+
+## A tapering, forked pennant hung from `top` (the hoist's top corner), flying east in the XY plane, cloth
+## both sides. A grid of cells, each half (upper and lower) squeezed so its fly edge runs from the tip in to
+## the fork; a cell takes the colour of the region's design at its centre.
+static func _pennant(st: SurfaceTool, top: Vector3, region: String) -> void:
+	var kind: String = PENNANT_KINDS.get(region, "")
+	var cols := 12
+	var rows := 4  # per half
+	var yc := top.y - PENNANT_H * 0.5
+	for half in 2:
+		for r in rows:
+			for c in cols:
+				var v0 := (r + half * rows) / float(rows * 2)
+				var v1 := (r + 1 + half * rows) / float(rows * 2)
+				var u0 := c / float(cols)
+				var u1 := (c + 1) / float(cols)
+				var a := _pennant_pt(top, yc, u0, v0)
+				var b := _pennant_pt(top, yc, u1, v0)
+				var cc := _pennant_pt(top, yc, u1, v1)
+				var d := _pennant_pt(top, yc, u0, v1)
+				var mid := (a + b + cc + d) * 0.25
+				var col := _pennant_colour(kind, (mid.x - top.x) / PENNANT_L, (v0 + v1) * 0.5)
+				Meshes._quad(st, a, b, cc, d, col)
+				Meshes._quad(st, a, d, cc, b, col)  # the back
+
+## A point on the pennant: u along its length (0 hoist .. 1 fly edge at this height), v down it (0 .. 1).
+static func _pennant_pt(top: Vector3, yc: float, u: float, v: float) -> Vector3:
+	var fly := 1.0 - PENNANT_NOTCH * (1.0 - absf(2.0 * v - 1.0))
+	var x := u * fly
+	var taper := 1.0 - 0.45 * x
+	return Vector3(top.x + x * PENNANT_L, yc + (0.5 - v) * PENNANT_H * taper, top.z)
+
+## The design: x along the length (0 .. 1 at the tips), v down it. Crosses sit in the hoist square.
+static func _pennant_colour(kind: String, x: float, v: float) -> Color:
+	var hoist := x < 0.44
+	match kind:
+		"st_george":
+			if hoist and (absf(x - 0.21) < 0.07 or absf(v - 0.5) < 0.13):
+				return PENNANT_RED
+			return PENNANT_WHITE
+		"st_piran":
+			if hoist and (absf(x - 0.21) < 0.07 or absf(v - 0.5) < 0.13):
+				return PENNANT_WHITE
+			return PENNANT_BLACK
+		"saltire":
+			if hoist and absf(absf(x - 0.21) / 0.21 - absf(v - 0.5) / 0.5) < 0.3:
+				return PENNANT_WHITE
+			return PENNANT_BLUE
+		"wales":
+			if x < 0.16:
+				return PENNANT_RED
+			return PENNANT_WHITE if v < 0.5 else PENNANT_GREEN
+		"ireland":
+			if x < 0.33:
+				return PENNANT_GREEN
+			return PENNANT_WHITE if x < 0.62 else PENNANT_ORANGE
+		"man":
+			return PENNANT_GOLD if x < 0.16 else PENNANT_RED
+	return PENNANT_GOLD if x < 0.16 else PENNANT_RED
 
 static func _merlons(st: SurfaceTool, from: float, to: float, at: float, y: float, col: Color, along_x: bool) -> void:
 	var x := from

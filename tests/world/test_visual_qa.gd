@@ -130,3 +130,44 @@ func test_finnieston_crane_reaches_out_over_the_water() -> void:
 			low = v.y
 			hook_z = v.z
 	assert_true(low < 2.0 and hook_z > 4.0, "hook hangs low over the water (y %.2f at z %.2f)" % [low, hook_z])
+
+func _colours(m: ArrayMesh) -> PackedColorArray:
+	return m.surface_get_arrays(0)[Mesh.ARRAY_COLOR]
+
+func _has_colour(cols: PackedColorArray, c: Color) -> bool:
+	for k in cols:
+		if k.is_equal_approx(c):
+			return true
+	return false
+
+func test_castle_pennant_is_a_swallowtail_in_its_nations_colours() -> void:
+	# castle flags were plain red rectangles: a pennant tapers and forks, an English one carries St George's cross
+	var eng := Landmarks.pennant("yorkshire")
+	assert_true(_has_colour(_colours(eng), Landmarks.PENNANT_WHITE), "English: white field")
+	assert_true(_has_colour(_colours(eng), Landmarks.PENNANT_RED), "with a red cross")
+	var sco := _colours(Landmarks.pennant("scotland"))
+	assert_false(_has_colour(sco, Landmarks.PENNANT_RED), "Scotland flies no St George's cross")
+	assert_true(_has_colour(sco, Landmarks.PENNANT_BLUE), "but saltire blue")
+	assert_false(_has_colour(_colours(Landmarks.pennant("north_wales")), Landmarks.PENNANT_BLUE), "Wales is not blue")
+	# the fork: at mid-height the cloth stops short of the tips
+	var verts: PackedVector3Array = eng.surface_get_arrays(0)[Mesh.ARRAY_VERTEX]
+	var tip := 0.0
+	var mid_y := 0.0
+	var lo := 99.0
+	var hi := -99.0
+	for v in verts:
+		lo = minf(lo, v.y)
+		hi = maxf(hi, v.y)
+	mid_y = (lo + hi) * 0.5
+	var mid_reach := 0.0
+	for v in verts:
+		tip = maxf(tip, v.x)
+		if absf(v.y - mid_y) < 0.02:
+			mid_reach = maxf(mid_reach, v.x)
+	assert_true(mid_reach < tip - 0.15, "swallowtail notch (mid %.2f, tips %.2f)" % [mid_reach, tip])
+
+func test_castles_fly_their_regions_pennant() -> void:
+	var york: ArrayMesh = Meshes.building(6, 4, "castle", 2, 1, "yorkshire")[0]
+	assert_true(_has_colour(_colours(york), Landmarks.PENNANT_WHITE), "York's castle flies St George")
+	var scot: ArrayMesh = Meshes.building(6, 4, "castle", 2, 1, "scotland")[0]
+	assert_true(_has_colour(_colours(scot), Landmarks.PENNANT_BLUE), "Edinburgh's flies saltire blue")
