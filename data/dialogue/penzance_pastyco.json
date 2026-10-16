@@ -1,0 +1,46 @@
+{
+ "pastyco_baker": [
+  {
+   "do": "say",
+   "who": "Baker",
+   "text": "A proper Cornish pasty has beef, potato, swede and onion. Nothing else."
+  },
+  {
+   "do": "say",
+   "who": "Baker",
+   "text": "The crimp goes on the side, never the top. Since 2011 only pasties made in Cornwall can use the name."
+  },
+  {
+   "do": "say",
+   "who": "Baker",
+   "text": "Pasties were made for tin miners to carry underground. The thick crust kept them warm for hours."
+  },
+  {
+   "do": "if",
+   "flag": "penzance_pastyco_gift",
+   "then": [
+    {
+     "do": "say",
+     "who": "Baker",
+     "text": "Already had your pasty! One per customer. The seagulls are watching."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Baker",
+     "text": "Take a pasty for later. Eat it on a clifftop, it is the law."
+    },
+    {
+     "do": "give_item",
+     "item": "pasty",
+     "n": 1
+    },
+    {
+     "do": "set",
+     "flag": "penzance_pastyco_gift"
+    }
+   ]
+  }
+ ]
+}

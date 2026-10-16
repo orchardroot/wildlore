@@ -1,0 +1,46 @@
+{
+ "tintagel_pasty_seller": [
+  {
+   "do": "say",
+   "who": "Pasty Seller",
+   "text": "Hot pasties, cold sea air. Tintagel was designed for this."
+  },
+  {
+   "do": "say",
+   "who": "Pasty Seller",
+   "text": "Beef, potato, swede, onion, crimp on the side. Anything else is just a savoury pie."
+  },
+  {
+   "do": "say",
+   "who": "Pasty Seller",
+   "text": "Folk used to shout 'Oggy oggy oggy' to miners underground. Oggy is slang for pasty. The miners shouted back."
+  },
+  {
+   "do": "if",
+   "flag": "tintagel_pasty_gift",
+   "then": [
+    {
+     "do": "say",
+     "who": "Pasty Seller",
+     "text": "I only have one for you, sorry. Customers are queuing and the gulls are queuing too."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Pasty Seller",
+     "text": "Take one for the cliff path. Eat it somewhere windy."
+    },
+    {
+     "do": "give_item",
+     "item": "pasty",
+     "n": 1
+    },
+    {
+     "do": "set",
+     "flag": "tintagel_pasty_gift"
+    }
+   ]
+  }
+ ]
+}
