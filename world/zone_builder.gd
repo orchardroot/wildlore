@@ -13,11 +13,15 @@ const GROUND_COLOURS := {
 	"tree_oak": Color("4f8035"), "tree_pine": Color("4a7634"), "hedge": Color("557f37"), "drystone_wall": Color("5c8f3c"),
 	"fence": Color("5c8f3c"), "rock": Color("5c8f3c"),
 	"bramble": Color("4f7a35"), "deep_water": Color("34504f"), "scree": Color("8b8780"), "platform": Color("a39a8a"),
-	"rail": Color("6e655c"), "sea": Color("2f4a5c"), "bog": Color("4a3b2a"),
+	"rail": Color("6e655c"), "level_crossing": Color("7a6650"), "sea": Color("2f4a5c"), "bog": Color("4a3b2a"),
 }
 const DEEP := ["deep_water", "sea"]
 const SIDE_EARTH := Color("6a5238")
 const SIDE_ROCK := Color("7d7462")
+const CROSSING_DECK := 0.075
+const PLATFORM := 0.16       # platforms stand proud of the track
+const COPING := Color("d8d2c2")
+const SAFETY_LINE := Color("e3c02a")
 
 ## Surface height of a tile's ground (water beds sit lower).
 static func ground_y(z: ZoneData, p: Vector2i) -> float:
@@ -34,6 +38,10 @@ static func ground_y(z: ZoneData, p: Vector2i) -> float:
 			return base - 0.14
 		"cliff":
 			return base + LEVEL
+		"level_crossing":
+			return base + CROSSING_DECK  # planked up to the rails
+		"platform":
+			return base + PLATFORM
 	return base
 
 static func build(z: ZoneData) -> Node3D:
@@ -88,7 +96,18 @@ static func _ground(z: ZoneData, rng: RandomNumberGenerator) -> MeshInstance3D:
 					continue
 				var side := SIDE_ROCK if t == "cliff" or gy - ny > LEVEL * 1.5 else SIDE_EARTH
 				var lip := col.darkened(0.15)
+				if t == "platform":
+					side = Color("7a5a48")  # brick platform wall, white coping
+					lip = COPING
 				_side(st, x0, z0, d, gy, ny, side, lip)
+			if t == "platform":
+				# yellow safety line along any edge that faces the track
+				for d in [Vector2i(0, 1), Vector2i(0, -1), Vector2i(1, 0), Vector2i(-1, 0)]:
+					if z.is_rail(p + d):
+						var c := Vector3(x0 + 0.5 + d.x * 0.36, gy + 0.004, z0 + 0.5 + d.y * 0.36)
+						var hx := 0.5 if d.x == 0 else 0.05
+						var hz := 0.5 if d.y == 0 else 0.05
+						Meshes._quad(st, c + Vector3(-hx, 0, -hz), c + Vector3(hx, 0, -hz), c + Vector3(hx, 0, hz), c + Vector3(-hx, 0, hz), SAFETY_LINE)
 			if t == "ledge_south":
 				Meshes.box(st, Vector3(x0, gy - 0.18, z0 + 0.82), Vector3(1.0, 0.18, 0.18), SIDE_EARTH, col.darkened(0.1))
 	st.index()
@@ -185,13 +204,14 @@ const TILE_PROPS := {
 	"drystone_wall": ["wall_segment", 3, false], "fence": ["fence_segment", 1, false], "rock": ["rock", 3, false],
 	"flowers": ["flower_patch", 3, true], "tall_grass": ["tall_grass_tuft", 3, true], "counter": ["counter", 1, false],
 	"bramble": ["bramble", 2, true], "scree": ["scree_rubble", 3, false], "rail": ["rail_segment", 1, false],
+	"level_crossing": ["crossing_deck", 1, false],
 	"bog": ["reeds", 3, true],
 }
 const LINEAR := ["hedge", "drystone_wall", "fence", "rail"]
 ## Point props (one tile, blocking unless "walk": true). Floating ones sit on the water surface.
 const POINT_PROPS := ["lamp_post", "bench", "bush", "birch", "oak", "pine", "rock", "market_stall", "planter", "phone_box",
 	"post_box", "bookshelf", "potted_plant", "table", "bed", "standing_stone", "slate_heap", "boat", "canal_boat", "bollard",
-	"buoy", "lighthouse", "statue", "harp"]
+	"buoy", "lighthouse", "statue", "harp", "buffer_stop", "tunnel_portal"]
 const FLOATING := ["boat", "canal_boat", "buoy"]
 
 static func _props(z: ZoneData, root: Node3D, rng: RandomNumberGenerator) -> void:
@@ -215,7 +235,10 @@ static func _props(z: ZoneData, root: Node3D, rng: RandomNumberGenerator) -> voi
 				spec = TILE_PROPS[t]
 			var variant := rng.randi() % int(spec[1])
 			var basis := Basis()
-			if t in LINEAR:
+			if t in ZoneData.RAIL_TILES:
+				if z.rail_axis(p) == Vector2i(0, 1):
+					basis = Basis(Vector3.UP, PI / 2)
+			elif t in LINEAR:
 				var ns := z.tile_at(p + Vector2i(0, -1)) == t or z.tile_at(p + Vector2i(0, 1)) == t
 				var ew := z.tile_at(p + Vector2i(-1, 0)) == t or z.tile_at(p + Vector2i(1, 0)) == t
 				if ns and not ew:
@@ -225,6 +248,9 @@ static func _props(z: ZoneData, root: Node3D, rng: RandomNumberGenerator) -> voi
 				var s := rng.randf_range(0.9, 1.15) if t.begins_with("tree") else 1.0
 				basis = basis.scaled(Vector3(s, s, s))
 			var origin := Vector3(x + 0.5, ground_y(z, p), y + 0.5)
+			if t == "level_crossing":
+				origin.y = z.height_at(p) * LEVEL
+				_add(buckets, "rail_segment:0", Transform3D(basis, origin))
 			if t.begins_with("tree"):
 				origin += Vector3(rng.randf_range(-0.12, 0.12), 0, rng.randf_range(-0.12, 0.12))
 			var key := "%s:%d" % [spec[0], variant]
@@ -238,7 +264,12 @@ static func _props(z: ZoneData, root: Node3D, rng: RandomNumberGenerator) -> voi
 		if pt in POINT_PROPS:
 			var pos := Vector2i(int(pr.x), int(pr.y))
 			var py := water_y(z, pos) if pt in FLOATING else ground_y(z, pos)
-			var tr := Transform3D(Basis(Vector3.UP, deg_to_rad(float(pr.get("rot", 0)))), Vector3(pos.x + 0.5, py, pos.y + 0.5))
+			var rot := deg_to_rad(float(pr.get("rot", 0)))
+			if pt in ZoneData.RAIL_CAPS:
+				py = z.height_at(pos) * LEVEL
+				if not pr.has("rot"):
+					rot = cap_angle(z.cap_inward(pos))
+			var tr := Transform3D(Basis(Vector3.UP, rot), Vector3(pos.x + 0.5, py, pos.y + 0.5))
 			_add(buckets, "%s:%d" % [pt, int(pr.get("variant", 0))], tr)
 			if pt == "lamp_post":
 				_add(buckets, "lamp_bulb:0", tr)
@@ -266,6 +297,10 @@ static func _props(z: ZoneData, root: Node3D, rng: RandomNumberGenerator) -> voi
 			mmi.material_override = Meshes.foliage if foliage else Meshes.solid
 			mmi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF if parts[0] in ["tall_grass_tuft", "flower_patch"] else GeometryInstance3D.SHADOW_CASTING_SETTING_ON
 		root.add_child(mmi)
+
+## Yaw that turns a mesh's local +X to point along grid direction `d` (x east, y south).
+static func cap_angle(d: Vector2i) -> float:
+	return atan2(-float(d.y), float(d.x))
 
 static func _add(buckets: Dictionary, key: String, tr: Transform3D) -> void:
 	if not buckets.has(key):
@@ -334,6 +369,12 @@ static func _ctor(name: String, variant: int) -> ArrayMesh:
 			return Landmarks.bramble(variant)
 		"rail_segment":
 			return Landmarks.rail_segment()
+		"crossing_deck":
+			return Landmarks.crossing_deck()
+		"buffer_stop":
+			return Landmarks.buffer_stop()
+		"tunnel_portal":
+			return Landmarks.tunnel_portal(variant)
 		"boat":
 			return Landmarks.boat(variant)
 		"canal_boat":
