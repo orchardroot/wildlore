@@ -112,6 +112,14 @@ func test_legends_need_a_double_confirm() -> void:
 	assert_eq(ArkLogic.release_rule(d, false, 0).confirms, 2)
 	assert_eq(ArkLogic.release_rule(d, false, 1).confirms, 1)
 
+func test_story_legends_with_a_normal_catch_rate_still_count() -> void:
+	var d := _data(1, ["megalorn", "tylwyth", "spikkin"])
+	assert_true(int(d.ark[0].species.catch_rate) > 3, "megalorn is not rock-bottom")
+	assert_true(ArkLogic.is_legend(d.ark[0]))
+	assert_true(ArkLogic.is_legend(d.ark[1]))
+	assert_false(ArkLogic.is_legend(d.ark[2]))
+	assert_eq(ArkLogic.release_rule(d, false, 0).confirms, 2)
+
 func test_release_bad_index() -> void:
 	var d := _data(2)
 	assert_true(d.release(false, 5) != "")
