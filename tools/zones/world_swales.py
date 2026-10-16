@@ -18,7 +18,7 @@ def say(who, text):
 
 # New buildings (unlabelled homes) and tile patches to apply to the towns before doors are cut.
 NEW_BUILDINGS = {
-    "cardiff": [(3, 28, 5, 3, "terrace"), (9, 28, 4, 3, "terrace"), (52, 31, 4, 2, "red_brick")],
+    "cardiff": [(3, 31, 5, 3, "terrace"), (8, 31, 4, 3, "terrace"), (52, 31, 4, 2, "red_brick")],
     "st_davids": [(3, 9, 4, 3, "slate_cottage")],
 }
 TILE_PATCH = {"aberystwyth": [(3, 27, "_"), (4, 27, "_"), (5, 27, "_")]}  # a short pier deck under the Pavilion door
@@ -186,7 +186,7 @@ add("cardiff", "cardiff_norwegian", "Norwegian Church", "cafe", (55, 27), [
     ("norwegian_fan", "student", "Dahl Fan", [
         "I have read every Roald Dahl book. I still check my chocolate bars for suspicious golden tickets."], None),
 ], 13, 10)
-add("cardiff", "cardiff_home_grange", "Grangetown House", "home", (3, 28), [
+add("cardiff", "cardiff_home_grange", "Grangetown House", "home", (3, 31), [
     ("grange_mamgu", "mum", "Mamgu", [
         "Come in, mind the cat. Mamgu is what we call grandmother in the south, and I have been one for six years.",
         "A cwtch is a cuddle. It is also the cupboard under the stairs. Both are good places to hide when the washing up starts.",
@@ -194,7 +194,7 @@ add("cardiff", "cardiff_home_grange", "Grangetown House", "home", (3, 28), [
         "Here, a slice of my bara brith for the road. Do not tell the Chipgulls."],
      ("swales_grange_gift", "bara_brith", "Another slice? You will burst, cariad. Off you go.")),
 ], 11, 9)
-add("cardiff", "cardiff_home_bute", "Butetown House", "home", (9, 28), [
+add("cardiff", "cardiff_home_bute", "Butetown House", "home", (8, 31), [
     ("bute_oldman", "fisherman_north", "Old Dockworker", [
         "Alright, mush. That is what we say in Cardiff. Mush means mate.",
         "This is Butetown, known as Tiger Bay. Sailors from all over the world lived here, and it is one of the oldest mixed communities in Britain.",
