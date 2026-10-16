@@ -1,0 +1,41 @@
+{
+ "buxton_h1_0": [
+  {
+   "do": "say",
+   "who": "Mrs Wragg",
+   "text": "Ey up, duck! That is how we say hello round here. 'Duck' means dear, and it is a compliment."
+  },
+  {
+   "do": "say",
+   "who": "Mrs Wragg",
+   "text": "Folk argue about Bakewell tart. Over in Bakewell they will tell you the real thing is a pudding."
+  },
+  {
+   "do": "if",
+   "flag": "buxton_h1_gift",
+   "then": [
+    {
+     "do": "say",
+     "who": "Mrs Wragg",
+     "text": "Another slice? Your eyes are bigger than the tin. Off you go."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Mrs Wragg",
+     "text": "Have a slice of the tart. I will not tell Bakewell."
+    },
+    {
+     "do": "give_item",
+     "item": "bakewell_tart",
+     "n": 1
+    },
+    {
+     "do": "set",
+     "flag": "buxton_h1_gift"
+    }
+   ]
+  }
+ ]
+}

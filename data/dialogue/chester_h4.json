@@ -1,0 +1,36 @@
+{
+ "chester_h4_0": [
+  {
+   "do": "say",
+   "who": "Walker",
+   "text": "Lewis Carroll grew up a few miles away at Daresbury. Some say the Cheshire Cat grinned its way out of Cheshire."
+  },
+  {
+   "do": "if",
+   "flag": "chester_h4_gift",
+   "then": [
+    {
+     "do": "say",
+     "who": "Walker",
+     "text": "Another brew? You will turn into a teapot. Off you go."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Walker",
+     "text": "Nobody can prove it. Have a brew, you look as if you have walked the walls."
+    },
+    {
+     "do": "give_item",
+     "item": "cup_of_tea",
+     "n": 1
+    },
+    {
+     "do": "set",
+     "flag": "chester_h4_gift"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,46 @@
+{
+ "buxton_well_0": [
+  {
+   "do": "say",
+   "who": "Well Keeper",
+   "text": "St Ann's Well. The water comes out at about 28 degrees all year round. Mild as a Tuesday."
+  },
+  {
+   "do": "say",
+   "who": "Well Keeper",
+   "text": "The Romans knew this place as Aquae Arnemetiae, the waters of the goddess Arnemetia. Not an easy name for an address."
+  },
+  {
+   "do": "say",
+   "who": "Well Keeper",
+   "text": "The rain falls on the hills, sinks deep, warms in the rock and rises here years later. Slow travel, but worth the wait."
+  },
+  {
+   "do": "if",
+   "flag": "buxton_well_gift",
+   "then": [
+    {
+     "do": "say",
+     "who": "Well Keeper",
+     "text": "Another bottle? You will slosh. Off you go, and mind the hills."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Well Keeper",
+     "text": "Here, a bottle to take with you. It is good for the road, and for arguing with your sister."
+    },
+    {
+     "do": "give_item",
+     "item": "buxton_water",
+     "n": 1
+    },
+    {
+     "do": "set",
+     "flag": "buxton_well_gift"
+    }
+   ]
+  }
+ ]
+}
