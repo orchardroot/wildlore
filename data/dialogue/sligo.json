@@ -98,6 +98,46 @@
  ],
  "benbulben_guide": [
   {
+   "do": "when",
+   "cond": "fog",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Mountain Guide",
+     "text": "Benbulben's wearing a fog hat today. Very stylish. Very hard to climb."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "sunshine",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Mountain Guide",
+       "text": "Sun on Benbulben! Every ridge on the cliff stands out like corduroy."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "gale",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Mountain Guide",
+         "text": "No climbing in this wind, I'm afraid. The top's flat, and so would you be."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Mountain Guide",
    "text": "Benbulben's on top of an ancient seabed, with fossils all over. The flat top's about 526 metres, and the cliff face is a wall of limestone."
@@ -109,6 +149,32 @@
   }
  ],
  "knocknarea_fan": [
+  {
+   "do": "when",
+   "cond": "fog",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Student",
+     "text": "Queen Maeve's cairn is in the clouds today. She likes her privacy."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "rain",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Student",
+       "text": "Rain on Carrowmore. Five thousand years old, and still getting a wash."
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Student",
@@ -122,6 +188,18 @@
  ],
  "usher": [
   {
+   "do": "when",
+   "cond": "dusk",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Theatre Usher",
+     "text": "Doors open soon. Grab a seat, the play's short but the queue for ice cream isn't."
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Theatre Usher",
    "text": "The Hawk's Well Theatre is named for a Yeats play. He wrote it in 1916, inspired by Japanese Noh theatre. It's a play about a waiting man and a well with no water."
@@ -134,6 +212,32 @@
  ],
  "river_angler": [
   {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Fisherman",
+     "text": "Rain's grand for salmon. The river rises and they come up to see what's going on."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "dawn",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Fisherman",
+       "text": "Dawn on the Garavogue. Best time for fishing. Worst time for talking, so whisper."
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Fisherman",
    "text": "The Garavogue runs through the middle of Sligo, only about four kilometres from Lough Gill to the sea. Salmon and sea trout come in all year."
@@ -145,6 +249,32 @@
   }
  ],
  "surf_kid": [
+  {
+   "do": "when",
+   "cond": "gale",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Strandhill Surfer",
+     "text": "Gale off the Atlantic! Massive waves at Strandhill. Mam says no. Mam's probably right."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "sunshine",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Strandhill Surfer",
+       "text": "Sun's out! The Atlantic's still freezing, but at least it's a pretty freezing."
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Strandhill Surfer",

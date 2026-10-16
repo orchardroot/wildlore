@@ -965,7 +965,11 @@
    "facing": "up",
    "move": "wander",
    "script": "beatles_fan",
-   "name": "Beatles Fan"
+   "name": "Beatles Fan",
+   "times": [
+    "day",
+    "dusk"
+   ]
   },
   {
    "id": "liv_historian",
@@ -985,7 +989,11 @@
    "facing": "up",
    "move": "still",
    "script": "verger",
-   "name": "Verger"
+   "name": "Verger",
+   "times": [
+    "day",
+    "dusk"
+   ]
   },
   {
    "id": "liv_scouser",
@@ -1049,6 +1057,32 @@
    "script": "gate_wirral",
    "hide_if": "badge_urban",
    "name": "Warden"
+  },
+  {
+   "id": "liverpool_deckhand",
+   "sprite": "fisher",
+   "x": 25,
+   "y": 22,
+   "facing": "down",
+   "move": "still",
+   "script": "liverpool_deckhand",
+   "name": "Ferry Deckhand",
+   "times": [
+    "night"
+   ]
+  },
+  {
+   "id": "liverpool_astronomer",
+   "sprite": "astronomer",
+   "x": 27,
+   "y": 26,
+   "facing": "down",
+   "move": "still",
+   "script": "liverpool_astronomer",
+   "name": "Astronomer",
+   "times": [
+    "night"
+   ]
   }
  ],
  "encounters": {

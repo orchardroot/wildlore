@@ -332,15 +332,27 @@ func whiteout() -> void:
 	await host.say("", WHITEOUT_LINE)
 	await host.say("", WHITEOUT_LINE_2)
 
-## Conditions that aren't flags: "night" (the in-game clock) and "caught_all" (every species in the Fieldbook caught).
+const PHASE_CONDS := ["dawn", "day", "dusk", "night"]
+const WEATHER_CONDS := {"rain": ["drizzle", "downpour"], "fog": ["fog"], "gale": ["gale"], "frost": ["frost"], "sunshine": ["sunshine"]}
+
+## Conditions that aren't flags: the time of day ("dawn", "day", "dusk", "night", from the in-game clock), the
+## weather ("rain" is drizzle or a downpour; "fog", "gale", "frost", "sunshine") and "caught_all" (every species
+## in the Fieldbook caught).
 func _when(cond: String) -> bool:
-	match cond:
-		"night":
-			return GameClock.phase(host.data.clock_minutes) == "night"
-		"caught_all":
-			return host.data.caught.size() >= host.dex.ids().size()
+	if cond in PHASE_CONDS:
+		return GameClock.phase(host.data.clock_minutes) == cond
+	if WEATHER_CONDS.has(cond):
+		return _weather() in WEATHER_CONDS[cond]
+	if cond == "caught_all":
+		return host.data.caught.size() >= host.dex.ids().size()
 	push_warning("Commands: unknown condition '%s'" % cond)
 	return false
+
+## The outdoor weather: the overworld's sky when the host has one, otherwise the saved outdoor weather
+## (which interiors inherit). Nothing rolled yet is "clear".
+func _weather() -> String:
+	var w := str(host.current_weather()) if host.has_method("current_weather") else str(host.data.weather)
+	return w if w != "" else "clear"
 
 func _test(c: Dictionary) -> bool:
 	var v: Variant = host.data.flag(str(c.get("flag", "")))

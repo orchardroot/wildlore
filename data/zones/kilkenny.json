@@ -217,7 +217,11 @@
    "script": "castle_guide3",
    "sprite": "tour_guide",
    "x": 19.0,
-   "y": 12.0
+   "y": 12.0,
+   "times": [
+    "day",
+    "dusk"
+   ]
   },
   {
    "facing": "right",
@@ -244,7 +248,11 @@
    "script": "marble_worker",
    "sprite": "farmer",
    "x": 12.0,
-   "y": 31.0
+   "y": 31.0,
+   "times": [
+    "day",
+    "dusk"
+   ]
   },
   {
    "facing": "left",
@@ -263,6 +271,32 @@
    "trainer": "kk_fiddler",
    "x": 14.0,
    "y": 17.0
+  },
+  {
+   "id": "kilkenny_baker",
+   "sprite": "villager_3",
+   "x": 25,
+   "y": 22,
+   "facing": "down",
+   "move": "still",
+   "script": "kilkenny_baker",
+   "name": "Night Baker",
+   "times": [
+    "night"
+   ]
+  },
+  {
+   "id": "kilkenny_fox_watcher",
+   "sprite": "fox_watcher",
+   "x": 28,
+   "y": 24,
+   "facing": "down",
+   "move": "still",
+   "script": "kilkenny_fox_watcher",
+   "name": "Fox Watcher",
+   "times": [
+    "night"
+   ]
   }
  ],
  "props": [

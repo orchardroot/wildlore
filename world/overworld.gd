@@ -97,6 +97,7 @@ func load_zone(zone_id: String, pos: Vector2i, facing: String) -> void:
 	weather = "clear" if zone.kind == "interior" else outdoor
 	sky.set_weather(outdoor, zone.kind == "interior")
 	ambient.setup(zone, _zone_node, sky)
+	RoamingCreatures.attach(self)
 	rig.configure(zone.width, zone.height, zone.kind == "interior")
 	if zone.music != "":
 		Audio.play_music(zone.music)
@@ -105,6 +106,8 @@ func load_zone(zone_id: String, pos: Vector2i, facing: String) -> void:
 
 ## Dark caves: keep the light circle on the player (and faint glows on every exit) each frame.
 func _process(_delta: float) -> void:
+	if zone and Engine.get_process_frames() % 60 == 0:
+		Npc.sync_schedule(self)  # people with hours go home or come out as the time of day changes
 	if _dark == null or not _dark.visible or rig == null or player == null:
 		return
 	var cam := get_viewport().get_camera_3d()
@@ -213,11 +216,9 @@ func _spawn_npcs() -> void:
 	if not ResourceLoader.exists("res://world/npc.gd"):
 		return
 	var npc_script: Script = load("res://world/npc.gd")
+	set_meta("npc_phase", Game.phase())
 	for def in zone.npcs:
-		# Optional flag gating: "hide_if": flag (absent once set), "show_if": flag (present once set).
-		if def.has("hide_if") and Game.data.flag(str(def.hide_if)):
-			continue
-		if def.has("show_if") and not Game.data.flag(str(def.show_if)):
+		if not Npc.should_spawn(def, Game.data, Game.phase()):  # flag gating and hours ("times")
 			continue
 		var n: Node3D = npc_script.new()
 		add_child(n)

@@ -122,6 +122,46 @@
  ],
  "tram_driver": [
   {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Tram Driver",
+     "text": "A bit of rain never stopped a Manx tram horse. They've got waterproof coats. Built in."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "gale",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Tram Driver",
+       "text": "Blowing a gale on the prom. Hold on to your hat, and maybe the horse."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "dusk",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Tram Driver",
+         "text": "Last tram of the day. The horses know. They speed up a bit towards the stables."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Tram Driver",
    "text": "Horse trams have run along this prom since 1876. The oldest surviving horse tramway in the world."
@@ -133,6 +173,32 @@
   }
  ],
  "tt_fan": [
+  {
+   "do": "when",
+   "cond": "sunshine",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "TT Fan",
+     "text": "Sun's out, roads are dry, perfect race weather. Mind you, on the Isle of Man it changes by the corner."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "fog",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "TT Fan",
+       "text": "Mist on the Mountain Course. Even the bikes slow down for this. Traa dy liooar, eh?"
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "TT Fan",
@@ -146,6 +212,32 @@
  ],
  "cat_lady": [
   {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Cat Lady",
+     "text": "Rain? The Manx cats are all indoors. No tail to keep dry, and still they complain."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "sunshine",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Cat Lady",
+       "text": "Sunshine! Every cat on the island is lying on a warm wall. Tails optional."
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Cat Lady",
    "text": "That's a Manx cat. No tail. Well, almost none. The ones with none at all are rumpies. The ones with a tiny stump are stumpies."
@@ -157,6 +249,32 @@
   }
  ],
  "kipper_man": [
+  {
+   "do": "when",
+   "cond": "fog",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Kipper Seller",
+     "text": "Sea fog in Douglas Bay. The kipper smoke and the fog get along famously."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "dawn",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Kipper Seller",
+       "text": "Up at dawn to light the smokehouse. Traa dy liooar, time enough. But the kippers won't wait."
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Kipper Seller",

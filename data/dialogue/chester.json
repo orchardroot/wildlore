@@ -65,6 +65,46 @@
  ],
  "wall_guide": [
   {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Tour Guide",
+     "text": "Rain on the walls. Good news: the Rows are covered, so the tour moves indoors, sort of."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "sunshine",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Tour Guide",
+       "text": "Lovely day for the walls! Two miles of views, and the pigeons are in a good mood."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "fog",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Tour Guide",
+         "text": "Can't see the cathedral in this fog. Trust me, it's there. It's been there ages."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Tour Guide",
    "text": "These are the best-preserved city walls in Britain, two miles round, and you can walk the whole circuit. I recommend it. The pigeons recommend you don't."
@@ -87,6 +127,46 @@
   }
  ],
  "legionary": [
+  {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Roman Re-enactor",
+     "text": "Romans in the rain. My sandals are full of water. Very authentic, very cold."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "gale",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Roman Re-enactor",
+       "text": "My cloak's trying to fly back to Rome. Hold on, Marcus. I mean Brian. Either."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "dusk",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Roman Re-enactor",
+         "text": "The legion's off duty. Brian has to get the bus home and he can't do it in armour."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Roman Re-enactor",
@@ -112,6 +192,32 @@
  ],
  "racegoer": [
   {
+   "do": "when",
+   "cond": "sunshine",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Racegoer",
+     "text": "Sun on the Roodee! Perfect day to lose a bit of money in style."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "rain",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Racegoer",
+       "text": "Rain on the course. The horses don't mind. I mind. My shoes mind."
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Racegoer",
    "text": "The Roodee has hosted races since 1539. England's oldest racecourse still in use."
@@ -123,6 +229,32 @@
   }
  ],
  "boatman": [
+  {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Boatman",
+     "text": "After rain like this the Dee rises quick. She's in a mood, the goddess river."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "sunshine",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Boatman",
+       "text": "Sunshine on the Dee! Everyone wants a boat. I've only got the one."
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Boatman",
@@ -144,6 +276,23 @@
    "do": "say",
    "who": "Student",
    "text": "The Rows are two storeys of shops. Nobody agrees why. Chester just likes to be awkward."
+  }
+ ],
+ "chester_lamplighter": [
+  {
+   "do": "say",
+   "who": "Lamplighter",
+   "text": "Evening! Walking the walls with my pole. Chester looks its best by lamplight, like an old painting."
+  },
+  {
+   "do": "say",
+   "who": "Lamplighter",
+   "text": "The Eastgate Clock glows at night. Everyone photographs it then too. Still nobody checks the time."
+  },
+  {
+   "do": "say",
+   "who": "Lamplighter",
+   "text": "Watch your step on the walls after dark. The Romans didn't build railings, and neither did anyone else."
   }
  ]
 }

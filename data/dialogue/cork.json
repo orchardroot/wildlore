@@ -107,6 +107,32 @@
  ],
  "bell_ringer": [
   {
+   "do": "when",
+   "cond": "fog",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Bell Ringer",
+     "text": "Fog over Shandon. You can't see the salmon, but you'll hear the bells, girl. Guaranteed."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "gale",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Bell Ringer",
+       "text": "Wind's spinning the golden salmon like a top. He'll be dizzy by teatime."
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Bell Ringer",
    "text": "You can ring the Shandon bells yourself. There's a tune sheet, and a lot of enthusiasm. The tune will be recognisable. Possibly."
@@ -118,6 +144,46 @@
   }
  ],
  "rebel_local": [
+  {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Local",
+     "text": "Rain in Cork? Sure, it's a Tuesday. Or a Wednesday. Or any day ending in Y, like."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "sunshine",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Local",
+       "text": "Sun out over Cork! The whole city is mighty today, boy. Mighty altogether."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "dusk",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Local",
+         "text": "Lovely evening, like. The lights on the river would make you proud to be a Rebel."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Local",
@@ -131,6 +197,46 @@
  ],
  "lee_swimmer": [
   {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Lee Walker",
+     "text": "Rain? I'm going in the river anyway. Can't get wetter than wet, can you?"
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "gale",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Lee Walker",
+       "text": "Too choppy for a swim today. The swans have gone home and so should I."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "dawn",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Lee Walker",
+         "text": "Dawn swim's the best one. The Lee's all mist and swans and nobody watching."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Lee Walker",
    "text": "The Lee splits in two and runs round both sides of the city centre, and people swim in both. It's quite the commute. Mind the swans, they know where the bread is."
@@ -142,6 +248,32 @@
   }
  ],
  "kent_stationman": [
+  {
+   "do": "when",
+   "cond": "fog",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Train Spotter",
+     "text": "Fog this morning. I can hear the trains before I see them, which makes it a game."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "dawn",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Train Spotter",
+       "text": "First train of the day! Number one on the list. Twelve more and I've matched yesterday."
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Train Spotter",
@@ -183,6 +315,40 @@
   {
    "do": "set",
    "flag": "market_spice_done"
+  }
+ ],
+ "cork_astronomer": [
+  {
+   "do": "say",
+   "who": "Astronomer",
+   "text": "There's an observatory at Blackrock Castle, down the river. A castle full of telescopes. Only in Cork."
+  },
+  {
+   "do": "say",
+   "who": "Astronomer",
+   "text": "Clear night, for once! I'd put the kettle on, but I'll miss Jupiter."
+  },
+  {
+   "do": "say",
+   "who": "Astronomer",
+   "text": "The stars over the harbour are mighty tonight, like. Look up, go on."
+  }
+ ],
+ "cork_night_nurse": [
+  {
+   "do": "say",
+   "who": "Night Nurse",
+   "text": "Off to the hospital for the night shift. Twelve hours, one flask, and a fierce amount of biscuits."
+  },
+  {
+   "do": "say",
+   "who": "Night Nurse",
+   "text": "The city's lovely and quiet at this hour. Just me and the gulls arguing."
+  },
+  {
+   "do": "say",
+   "who": "Night Nurse",
+   "text": "Mind yourself going home, like. Get a good sleep in for me."
   }
  ]
 }

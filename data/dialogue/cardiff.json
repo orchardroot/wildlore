@@ -16,6 +16,46 @@
  ],
  "rugby_fan": [
   {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Rugby Fan",
+     "text": "Rain, is it? Proper rugby weather, that. Slippery ball, muddy knees, loud singing."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "gale",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Rugby Fan",
+       "text": "Wind's blowing a hooley across the Taff. I'd not want to be kicking for goal today."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "dusk",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Rugby Fan",
+         "text": "Floodlights coming on at the stadium. Best sight in Cardiff, that. After a Welsh cake."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Rugby Fan",
    "text": "I'd tell you the score but it changes every time I get a hot dog."
@@ -27,6 +67,32 @@
   }
  ],
  "castle_guide2": [
+  {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Castle Guide",
+     "text": "Rain on the castle walls. The peacocks have gone indoors to file a complaint."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "fog",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Castle Guide",
+       "text": "Fog round the keep! Very spooky. We'll pretend it's planned. Atmosphere, see."
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Castle Guide",
@@ -52,6 +118,32 @@
  ],
  "dahl_fan": [
   {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Reader",
+     "text": "Drizzle again. Roald Dahl would've invented a word for this. Something like 'splishsplodgy'."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "dawn",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Reader",
+       "text": "Early start for lectures. Cardiff's lovely at dawn. I'll be fully awake now in a minute."
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Reader",
    "text": "Roald Dahl was born in Cardiff. He's the reason I check every sweet shop for a golden ticket."
@@ -63,6 +155,32 @@
   }
  ],
  "shopper": [
+  {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Shopper",
+     "text": "Raining again, cariad. To the arcades! I'll be in and out now in a minute. Well, an hour. Two."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "sunshine",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Shopper",
+       "text": "Sun's out! Nobody knows what to do. We've all brought umbrellas out of habit."
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Shopper",
@@ -256,6 +374,35 @@
    "do": "say",
    "who": "Warden",
    "text": "Come back when you've got the Storm Stone. Keeper Rhys says we're not to let anyone leave Cardiff without a proper soaking."
+  }
+ ],
+ "cardiff_night_nurse": [
+  {
+   "do": "say",
+   "who": "Night Nurse",
+   "text": "Off to the Heath hospital for the night shift, cariad. Somebody has to keep Cardiff ticking while it sleeps."
+  },
+  {
+   "do": "say",
+   "who": "Night Nurse",
+   "text": "Quiet streets, a full flask and a bag of Welsh cakes. That's a night nurse's toolkit, that is."
+  },
+  {
+   "do": "say",
+   "who": "Night Nurse",
+   "text": "Mind yourself out here at this hour. The Bay's lovely at night, but it's a long walk back."
+  }
+ ],
+ "cardiff_fox_watcher": [
+  {
+   "do": "say",
+   "who": "Fox Watcher",
+   "text": "There's a fox family living by Bute Park. They come out when the city goes to bed."
+  },
+  {
+   "do": "say",
+   "who": "Fox Watcher",
+   "text": "Red torch, see. Foxes don't mind it. They just sit there looking at me like I'm the odd one."
   }
  ]
 }

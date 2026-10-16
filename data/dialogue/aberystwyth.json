@@ -28,6 +28,46 @@
  ],
  "ice_cream": [
   {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Ice Cream Seller",
+     "text": "Raining? Ice cream still tastes the same, cariad. Wetter, but the same."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "gale",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Ice Cream Seller",
+       "text": "Gale's up! Hold that cone with both hands. The seagulls are using the wind for extra speed."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "sunshine",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Ice Cream Seller",
+         "text": "Sunshine on the prom! Queue starts here. The seagulls are already at the front."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Ice Cream Seller",
    "text": "Mint choc chip, Welsh honey or 99 with a flake. Pick quickly, a seagull is already looking."
@@ -40,6 +80,32 @@
  ],
  "starling_man": [
   {
+   "do": "when",
+   "cond": "dusk",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Starling Watcher",
+     "text": "Dusk! This is it. Watch the pier. Any minute the sky will fill with starlings. Well, now in a minute."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "fog",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Starling Watcher",
+       "text": "Fog over the bay. The starlings will still find the pier. They're cleverer than my satnav."
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Starling Watcher",
    "text": "Come back in winter at dusk. Thousands of starlings roost under the Royal Pier."
@@ -51,6 +117,32 @@
   }
  ],
  "student_aber": [
+  {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Student",
+     "text": "Drizzle again. I'll go to my lecture in a minute. After a cup of tea. And maybe a scone."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "dawn",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Student",
+       "text": "Dawn over Cardigan Bay. I'm only up because I haven't been to bed. Essay deadline."
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Student",
@@ -87,6 +179,32 @@
   }
  ],
  "prom_walker": [
+  {
+   "do": "when",
+   "cond": "gale",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Promenade Walker",
+     "text": "Gale on the prom! Waves over the railings. Kick the bar quick and run, that's my advice."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "sunshine",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Promenade Walker",
+       "text": "Lovely day for walking the whole prom. Don't forget to kick the bar at the end."
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Promenade Walker",

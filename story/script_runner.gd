@@ -46,6 +46,11 @@ class Host extends RefCounted:
 	func zone_id() -> String:
 		return _ow.zone.id
 
+	## The outdoor weather for `when` conditions. Indoors the sky holds the inherited outdoor weather.
+	func current_weather() -> String:
+		var sky = _ow.get("sky")
+		return str(sky.weather) if sky != null else str(data.weather)
+
 	func close_box() -> void:
 		if _box and is_instance_valid(_box):
 			_box.close()

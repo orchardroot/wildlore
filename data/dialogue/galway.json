@@ -40,6 +40,46 @@
  ],
  "square_student": [
   {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "University Student",
+     "text": "Raining on Eyre Square. The pigeons are fine. I'm late for a lecture and soaked."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "sunshine",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "University Student",
+       "text": "Sun in Galway! Half the city's on the grass, the other half is jealous in an office."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "dusk",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "University Student",
+         "text": "Evening already? Shop Street's filling up with buskers. Best show in town, free."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "University Student",
    "text": "Galway's the City of the Tribes. The fourteen tribes were merchant families, and they ran the place for centuries. Lynch's Castle on Shop Street was one of theirs. It's a bank now. Very respectable."
@@ -52,6 +92,32 @@
  ],
  "busker_swan": [
   {
+   "do": "when",
+   "cond": "gale",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Swan Fan",
+     "text": "Wind's up on the Corrib. The swans are going sideways. Very dignified about it, though."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "fog",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Swan Fan",
+       "text": "Fog on the river, so I can hear the swans before I see them. Grumpy wee honks."
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Swan Fan",
    "text": "The swans on the Corrib are always the same swans, I'm convinced. They're on a rota. They've got the whole river organised."
@@ -63,6 +129,46 @@
   }
  ],
  "oyster_man": [
+  {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Oyster Man",
+     "text": "Rain's good for oysters. Keeps the bay fresh. Keeps the customers inside, mind."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "gale",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Oyster Man",
+       "text": "Gale over Galway Bay. Boats are staying in today. The oysters are delighted."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "dawn",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Oyster Man",
+         "text": "Up at dawn for the boats. The bay's silver this early. Prettiest sight in Connacht."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Oyster Man",
@@ -196,6 +302,40 @@
    "do": "say",
    "who": "Warden",
    "text": "Keeper Nuala at the docks signs off the paperwork. She and the tide are the only ones who ever finish anything on time."
+  }
+ ],
+ "galway_fisher": [
+  {
+   "do": "say",
+   "who": "Night Fisher",
+   "text": "Heading out from the Claddagh. Night fishing's quiet, just me, the boat and the lighthouse."
+  },
+  {
+   "do": "say",
+   "who": "Night Fisher",
+   "text": "Galway Bay by moonlight. The song doesn't do it justice, and the song's very good."
+  },
+  {
+   "do": "say",
+   "who": "Night Fisher",
+   "text": "Stars are out over Clare. Grand night for it."
+  }
+ ],
+ "galway_night_fiddler": [
+  {
+   "do": "say",
+   "who": "Fiddler",
+   "text": "Session's just ended, so I'm playing the last tune to the lamp post. It's a good listener."
+  },
+  {
+   "do": "say",
+   "who": "Fiddler",
+   "text": "Shop Street at night: the buskers gone home, and the stones still humming."
+  },
+  {
+   "do": "say",
+   "who": "Fiddler",
+   "text": "Galway at this hour belongs to the musicians and the seagulls. We share."
   }
  ]
 }

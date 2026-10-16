@@ -574,7 +574,11 @@
    "y": 26,
    "facing": "left",
    "move": "still",
-   "script": "not_goose"
+   "script": "not_goose",
+   "times": [
+    "day",
+    "dusk"
+   ]
   },
   {
    "id": "not_cyclist",
@@ -583,7 +587,11 @@
    "y": 21,
    "facing": "right",
    "move": "wander",
-   "script": "not_cyclist"
+   "script": "not_cyclist",
+   "times": [
+    "day",
+    "dusk"
+   ]
   },
   {
    "id": "not_archer",
@@ -611,6 +619,32 @@
    "facing": "right",
    "move": "still",
    "trainer": "not_angler"
+  },
+  {
+   "id": "nottingham_night_nurse",
+   "sprite": "night_nurse",
+   "x": 46,
+   "y": 39,
+   "facing": "down",
+   "move": "still",
+   "script": "nottingham_night_nurse",
+   "name": "Night Nurse",
+   "times": [
+    "night"
+   ]
+  },
+  {
+   "id": "nottingham_lamplighter",
+   "sprite": "lamplighter",
+   "x": 43,
+   "y": 30,
+   "facing": "down",
+   "move": "still",
+   "script": "nottingham_lamplighter",
+   "name": "Lamplighter",
+   "times": [
+    "night"
+   ]
   }
  ],
  "encounters": {

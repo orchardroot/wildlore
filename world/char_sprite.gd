@@ -2,12 +2,22 @@ class_name CharSprite
 extends Sprite3D
 ## A pixel-art character billboard. Sheet: 3 columns x 4 rows of 32x48 (rows down, left, right, up;
 ## columns step-left, stand, step-right). Falls back to a placeholder when the art is missing.
+## Standing still for a few seconds, a character breathes: a one-pixel rise and fall. `walk_rate` is the walk
+## cycle's speed (the player's run sets it faster).
+
+const WALK_RATE := 8.0       # walk-cycle frames per second
+const RUN_RATE := 13.0
+const BREATHE_AFTER := 3.0   # seconds standing before the breathing starts
+const BREATHE_PERIOD := 2.6  # seconds per breath
 
 const ROWS := {"down": 0, "left": 1, "right": 2, "up": 3}
 
 var facing := "down"
 var _walk_t := 0.0
 var walking := false
+var walk_rate := WALK_RATE
+var _idle_t := 0.0
+var _base_offset := Vector2.ZERO
 var _single := false   # "creature:<id>": a wild creature standing in the world, drawn from its 2-frame icon
 
 func setup(sprite_id: String) -> void:
@@ -33,6 +43,7 @@ func setup(sprite_id: String) -> void:
 	cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_ON
 	centered = true
 	offset = Vector2(0, 16) if _single else Vector2(0, 24)
+	_base_offset = offset
 	_apply()
 	var blob := MeshInstance3D.new()
 	var q := QuadMesh.new()
@@ -56,9 +67,18 @@ func set_facing(dir: String) -> void:
 func _process(delta: float) -> void:
 	if walking:
 		_walk_t += delta
+		_idle_t = 0.0
 	else:
 		_walk_t = 0.0
+		_idle_t += delta
 	_apply()
+	offset.y = _base_offset.y + breath(_idle_t)
+
+## Pixels to lift a character who has stood still for `idle_t` seconds: 0 or 1, rising on the in-breath.
+static func breath(idle_t: float) -> float:
+	if idle_t < BREATHE_AFTER:
+		return 0.0
+	return 1.0 if fmod(idle_t - BREATHE_AFTER, BREATHE_PERIOD) < BREATHE_PERIOD * 0.45 else 0.0
 
 func _apply() -> void:
 	if _single:
@@ -66,7 +86,7 @@ func _apply() -> void:
 		return
 	var col := 1
 	if walking:
-		var phase := int(_walk_t * 8.0) % 4
+		var phase := int(_walk_t * walk_rate) % 4
 		col = [0, 1, 2, 1][phase]
 	frame = ROWS.get(facing, 0) * 3 + col
 

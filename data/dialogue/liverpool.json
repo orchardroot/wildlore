@@ -144,6 +144,32 @@
  ],
  "liver_bird_fan": [
   {
+   "do": "when",
+   "cond": "gale",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Bird Fan",
+     "text": "In wind like this, I keep an eye on the Liver Birds. Still there. Phew."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "dawn",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Bird Fan",
+       "text": "Morning! Bella's watching the sea for the boats coming in. Bertie's having a lie-in."
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Bird Fan",
    "text": "Up on the Liver Building sit two Liver Birds, Bella and Bertie. One looks over the city, one over the sea."
@@ -167,6 +193,32 @@
   }
  ],
  "dock_historian": [
+  {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Dock Historian",
+     "text": "Rain on the Albert Dock bricks. They've seen worse since 1846. So have I, nearly."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "dusk",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Dock Historian",
+       "text": "Docks look lovely as the lights come on. The rum barrels would've loved it."
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Dock Historian",
@@ -192,6 +244,46 @@
  ],
  "scouser": [
   {
+   "do": "when",
+   "cond": "gale",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Local",
+     "text": "That wind's come straight off the Mersey, la. Hold onto your scran, it'll have it."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "rain",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Local",
+       "text": "Bit of rain never hurt anyone. It's perfect weather for a big bowl of scouse."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "sunshine",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Local",
+         "text": "Sun's out! Everyone's down the waterfront. Best city in the world when it's sunny, that."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Local",
    "text": "Scouse is a stew of beef, veg and spuds. The name comes from 'lobscouse', a sailor's meal."
@@ -203,6 +295,46 @@
   }
  ],
  "ferry_fan": [
+  {
+   "do": "when",
+   "cond": "gale",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Ferry Fan",
+     "text": "Choppy on the Mersey today. The ferry still goes. It's braver than me."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "fog",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Ferry Fan",
+       "text": "Can't see Birkenhead in this fog. It's still there, I checked the timetable."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "dusk",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Ferry Fan",
+         "text": "Sunset over the Mersey from the ferry. Honestly, worth the fare twice."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Ferry Fan",
@@ -236,6 +368,40 @@
      "text": "I hear there's a Keeper in the club who knows someone more important. Just a rumour. I'm not here."
     }
    ]
+  }
+ ],
+ "liverpool_deckhand": [
+  {
+   "do": "say",
+   "who": "Ferry Deckhand",
+   "text": "Last crossing to Birkenhead's gone, so it's ropes and a mop for me now."
+  },
+  {
+   "do": "say",
+   "who": "Ferry Deckhand",
+   "text": "The Mersey at night is all lights. The Liver Building glows like it's showing off."
+  },
+  {
+   "do": "say",
+   "who": "Ferry Deckhand",
+   "text": "Hear that? Foghorn out by the bar. Ships come in all night, the river never sleeps."
+  }
+ ],
+ "liverpool_astronomer": [
+  {
+   "do": "say",
+   "who": "Astronomer",
+   "text": "There's an old observatory on Bidston Hill, over the water. They used to set the ships' clocks from there."
+  },
+  {
+   "do": "say",
+   "who": "Astronomer",
+   "text": "Too many city lights for the faint stars here, but Jupiter shows up every time. Reliable lad, Jupiter."
+  },
+  {
+   "do": "say",
+   "who": "Astronomer",
+   "text": "Look, see that bright one over the river? That's not a star. That's a plane to Dublin."
   }
  ]
 }

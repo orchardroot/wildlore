@@ -215,7 +215,11 @@
    "script": "kells_guide",
    "sprite": "tour_guide",
    "x": 13.0,
-   "y": 39.0
+   "y": 39.0,
+   "times": [
+    "day",
+    "dusk"
+   ]
   },
   {
    "facing": "down",
@@ -224,7 +228,11 @@
    "script": "green_duck",
    "sprite": "villager_2",
    "x": 45.0,
-   "y": 44.0
+   "y": 44.0,
+   "times": [
+    "day",
+    "dusk"
+   ]
   },
   {
    "facing": "right",
@@ -242,7 +250,11 @@
    "script": "deer_keeper",
    "sprite": "hiker",
    "x": 22.0,
-   "y": 5.0
+   "y": 5.0,
+   "times": [
+    "day",
+    "dusk"
+   ]
   },
   {
    "facing": "down",
@@ -345,6 +357,32 @@
    "sprite": "warden_grunt",
    "x": 32.0,
    "y": 1.0
+  },
+  {
+   "id": "dublin_lamplighter",
+   "sprite": "lamplighter",
+   "x": 38,
+   "y": 14,
+   "facing": "down",
+   "move": "still",
+   "script": "dublin_lamplighter",
+   "name": "Lamplighter",
+   "times": [
+    "night"
+   ]
+  },
+  {
+   "id": "dublin_fox_watcher",
+   "sprite": "fox_watcher",
+   "x": 29,
+   "y": 20,
+   "facing": "down",
+   "move": "still",
+   "script": "dublin_fox_watcher",
+   "name": "Fox Watcher",
+   "times": [
+    "night"
+   ]
   }
  ],
  "props": [

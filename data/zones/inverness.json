@@ -222,7 +222,11 @@
    "script": "verger",
    "sprite": "villager_5",
    "x": 8.0,
-   "y": 31.0
+   "y": 31.0,
+   "times": [
+    "day",
+    "dusk"
+   ]
   },
   {
    "facing": "up",
@@ -231,7 +235,11 @@
    "script": "market_trader",
    "sprite": "villager_2",
    "x": 51.0,
-   "y": 33.0
+   "y": 33.0,
+   "times": [
+    "day",
+    "dusk"
+   ]
   },
   {
    "facing": "right",
@@ -240,7 +248,11 @@
    "script": "dolphin_watcher",
    "sprite": "birdwatcher",
    "x": 18.0,
-   "y": 7.0
+   "y": 7.0,
+   "times": [
+    "day",
+    "dusk"
+   ]
   },
   {
    "facing": "down",
@@ -343,6 +355,32 @@
    "sprite": "warden_grunt",
    "x": 62.0,
    "y": 26.0
+  },
+  {
+   "id": "inverness_astronomer",
+   "sprite": "astronomer",
+   "x": 33,
+   "y": 21,
+   "facing": "down",
+   "move": "still",
+   "script": "inverness_astronomer",
+   "name": "Astronomer",
+   "times": [
+    "night"
+   ]
+  },
+  {
+   "id": "inverness_fox_watcher",
+   "sprite": "fox_watcher",
+   "x": 28,
+   "y": 21,
+   "facing": "down",
+   "move": "still",
+   "script": "inverness_fox_watcher",
+   "name": "Fox Watcher",
+   "times": [
+    "night"
+   ]
   }
  ],
  "props": [

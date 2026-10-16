@@ -107,6 +107,32 @@
  ],
  "shf_snooker": [
   {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Snooker Fan",
+     "text": "Rainy day? Perfect. Snooker's an indoor sport, love. It's basically made for Sheffield."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "dusk",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Snooker Fan",
+       "text": "Evening session's about to start at the Crucible. Quiet as a mouse in there."
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Snooker Fan",
    "text": "The Crucible seats 980, and it's the quietest 980 you'll ever hear. You could hear a chalk drop."
@@ -118,6 +144,32 @@
   }
  ],
  "shf_busker": [
+  {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Busker",
+     "text": "Rain again. I'm playing it with feeling. The feeling is 'damp'."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "sunshine",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Busker",
+       "text": "Sun's out! Folk are tipping in coins and chips. I'll take both."
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Busker",
@@ -143,6 +195,32 @@
  ],
  "shf_fullmonty": [
   {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Local",
+     "text": "Jogging in the rain, me. Builds character. Also ruins your hat, if you've got one."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "gale",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Local",
+       "text": "Windy up the hills today! I'm jogging into it and going backwards."
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Local",
    "text": "A famous film about six lads who lost their jobs at the steelworks was set right here, and I should say it was funny and kind in equal parts."
@@ -155,6 +233,46 @@
  ],
  "shf_student": [
   {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Student",
+     "text": "Rain on all seven hills. Uphill in the wet builds character, apparently. I've loads of character."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "fog",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Student",
+       "text": "Fog in Sheffield! Can't see the hill, but my legs know it's there, love."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "dawn",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Student",
+         "text": "Up for a nine o'clock lecture. That's dawn for a student. Don't laugh."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Student",
    "text": "Two universities, sixty thousand students, and a hill on every route. The first week, everyone says 'I'll take the bus'. By week three they say 'where's the gym?'"
@@ -163,6 +281,40 @@
    "do": "say",
    "who": "Student",
    "text": "The city got a tram in 1994. It goes up the hill. It doesn't go down. Or it goes down very quietly."
+  }
+ ],
+ "sheffield_steelworker": [
+  {
+   "do": "say",
+   "who": "Steelworker",
+   "text": "Night shift at the works. Sheffield's still making steel, love, just a bit quieter than it used to."
+  },
+  {
+   "do": "say",
+   "who": "Steelworker",
+   "text": "My grandad worked nights on the Don. He said the furnaces lit the whole valley orange."
+  },
+  {
+   "do": "say",
+   "who": "Steelworker",
+   "text": "Stars are out over the hills. Shame I'll be indoors for them. Still, it's a good job."
+  }
+ ],
+ "sheffield_night_nurse": [
+  {
+   "do": "say",
+   "who": "Night Nurse",
+   "text": "Off up to the Northern General for the night. Uphill, of course. It's Sheffield."
+  },
+  {
+   "do": "say",
+   "who": "Night Nurse",
+   "text": "Lovely and quiet at this hour. Just me, the trams and a fox on the corner."
+  },
+  {
+   "do": "say",
+   "who": "Night Nurse",
+   "text": "Get to bed, love. If you need me later, I'll be the one with the tea."
   }
  ]
 }

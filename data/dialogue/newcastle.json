@@ -16,6 +16,46 @@
  ],
  "ncl_geordie": [
   {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Quayside Fisherman",
+     "text": "Bit of rain, pet? That's nowt. Geordies go out in T-shirts in this. Howay!"
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "gale",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Quayside Fisherman",
+       "text": "Windy down the Quayside! Hold your hat, pet, the Tyne's wanting it."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "sunshine",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Quayside Fisherman",
+         "text": "Sun's out in the Toon! Everyone's down the Quayside. Canny day, this."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Quayside Fisherman",
    "text": "Howay, pet! Welcome to the Toon. Geordie's not hard. 'Canny' is nice. 'Bairn' is a child. 'Hadaway' is 'oh, go on, you're having me on'."
@@ -39,6 +79,32 @@
   }
  ],
  "ncl_guide": [
+  {
+   "do": "when",
+   "cond": "fog",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Bridge Guide",
+     "text": "Fog on the Tyne! There's a famous song about this. The bridges are still there, honest."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "sunshine",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Bridge Guide",
+       "text": "Sunshine on the Tyne. All seven bridges at once, if you squint. Lovely."
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Bridge Guide",
@@ -64,6 +130,32 @@
  ],
  "ncl_freeman": [
   {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Freeman",
+     "text": "Rain on the Town Moor. The cows don't mind. They've got coats. I've got a brolly."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "dawn",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Freeman",
+       "text": "Morning! Off to check on the cows. They like their breakfast early, same as me."
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Freeman",
    "text": "I'm a Freeman of the City. Which gets me grazing rights on the Town Moor, among other things. I've three cows. They think they own the place, and in a way, so do I."
@@ -76,6 +168,32 @@
  ],
  "ncl_busker": [
   {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Busker",
+     "text": "Raining, so I'm under the bridge. The acoustics are canny. The pigeons agree."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "dusk",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Busker",
+       "text": "Evening tune for the Quayside. The lights on the bridges come on and the seagulls go quiet."
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Busker",
    "text": "Newcastle sound? Geordie folk music. Pipes: not the Highland kind, the Northumbrian kind. Smaller, gentler, played sitting down with the bellows under the arm. Posh."
@@ -84,6 +202,40 @@
    "do": "say",
    "who": "Busker",
    "text": "Aye, a smallpipes tune can make a grown man cry. Or a seagull. Mostly the seagull."
+  }
+ ],
+ "newcastle_night_nurse": [
+  {
+   "do": "say",
+   "who": "Night Nurse",
+   "text": "Off to the RVI for the night shift, pet. Flask, sandwiches, comfy shoes. Ready."
+  },
+  {
+   "do": "say",
+   "who": "Night Nurse",
+   "text": "The bridges look canny lit up at night. I always stop for a minute on the way in."
+  },
+  {
+   "do": "say",
+   "who": "Night Nurse",
+   "text": "Quiet out, isn't it? Get yourself home, it's past your bedtime. Nurse's orders."
+  }
+ ],
+ "newcastle_fox_watcher": [
+  {
+   "do": "say",
+   "who": "Fox Watcher",
+   "text": "Shh. There's a fox crossing the Town Moor. The cows don't notice. The fox doesn't care."
+  },
+  {
+   "do": "say",
+   "who": "Fox Watcher",
+   "text": "Newcastle's foxes are proper Geordies. Out all night, never wear a coat."
+  },
+  {
+   "do": "say",
+   "who": "Fox Watcher",
+   "text": "Red torch, so they're not bothered. Look, there, by the bins. Canny little thing."
   }
  ]
 }

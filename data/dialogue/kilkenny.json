@@ -94,6 +94,46 @@
  ],
  "castle_guide3": [
   {
+   "do": "when",
+   "cond": "fog",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Castle Guide",
+     "text": "Fog round the castle today. Very spooky. The ghost on the stairs is delighted."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "rain",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Castle Guide",
+       "text": "Rain makes the black marble shine. Kilkenny's at its prettiest when it's wet, honestly."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "dusk",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Castle Guide",
+         "text": "Last tour of the day. The castle goes all golden on the river side at dusk."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Castle Guide",
    "text": "Kilkenny's 'marble city' name comes from the black limestone that's cut and polished in the quarries nearby. The pavement's the proof."
@@ -105,6 +145,32 @@
   }
  ],
  "cat_fan": [
+  {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Hurling Fan",
+     "text": "Rain? The Cats play through anything. Hurling in the wet is twice the fun and three times the mud."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "sunshine",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Hurling Fan",
+       "text": "Sun's out! Black and amber weather. Even the sky's supporting Kilkenny."
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Hurling Fan",
@@ -118,6 +184,32 @@
  ],
  "pub_singer": [
   {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Local",
+     "text": "The Butter Slip in the rain. Now you know why they called it that."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "night",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Local",
+       "text": "Ah, it's the good bit of the evening. Someone always starts a song after ten."
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Local",
    "text": "The Medieval Mile's a good walk. Every shop has a long story, and a longer queue."
@@ -130,6 +222,32 @@
  ],
  "marble_worker": [
   {
+   "do": "when",
+   "cond": "gale",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Stone Cutter",
+     "text": "Wind's fierce today. The quarry dust goes everywhere. I'll be black as the marble by tea."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "sunshine",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Stone Cutter",
+       "text": "On a sunny day you can spot the fossils in the pavement, all shells and sparkle."
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Stone Cutter",
    "text": "Kilkenny limestone is dark, hard and full of fossils. It polishes up black as ink. We call it 'marble', and nobody argues."
@@ -138,6 +256,35 @@
    "do": "say",
    "who": "Stone Cutter",
    "text": "Look closely at the pavement. There are shells in it, 340 million years old. Walk over them gently."
+  }
+ ],
+ "kilkenny_baker": [
+  {
+   "do": "say",
+   "who": "Night Baker",
+   "text": "Night shift at the bakery. The bread doesn't make itself, more's the pity."
+  },
+  {
+   "do": "say",
+   "who": "Night Baker",
+   "text": "By five, the whole Medieval Mile smells of fresh soda bread. That's my doing."
+  },
+  {
+   "do": "say",
+   "who": "Night Baker",
+   "text": "Quiet streets, warm ovens, and the castle lit up over the river. Not a bad office."
+  }
+ ],
+ "kilkenny_fox_watcher": [
+  {
+   "do": "say",
+   "who": "Fox Watcher",
+   "text": "Foxes by the Nore most nights. Clever things. Black and amber would suit them."
+  },
+  {
+   "do": "say",
+   "who": "Fox Watcher",
+   "text": "Keep your voice down. There's a cub over by the castle wall, doing roly-polys."
   }
  ]
 }

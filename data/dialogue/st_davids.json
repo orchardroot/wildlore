@@ -16,6 +16,32 @@
  ],
  "verger": [
   {
+   "do": "when",
+   "cond": "fog",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Verger",
+     "text": "Sea mist in the hollow today. The Vikings would have had no chance finding us now."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "dusk",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Verger",
+       "text": "Evensong at dusk. The cathedral glows from the inside. Lovely, it is."
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Verger",
    "text": "St Davids Cathedral sits in a hollow so Viking raiders couldn't spot it from the sea. Works rather well."
@@ -27,6 +53,32 @@
   }
  ],
  "pilgrim": [
+  {
+   "do": "when",
+   "cond": "gale",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Pilgrim",
+     "text": "Into the wind for the last mile. Pilgrims did this barefoot. I've got trainers and I'm still moaning."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "sunshine",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Pilgrim",
+       "text": "Sunshine on the coast path. My feet still hurt, but at least they're warm."
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Pilgrim",
@@ -52,6 +104,46 @@
  ],
  "tea_lady": [
   {
+   "do": "when",
+   "cond": "gale",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Tea Room Lady",
+     "text": "Wind's fit to take your hat off, cariad. Come in, sit down, there's bara brith on the go."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "fog",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Tea Room Lady",
+       "text": "Sea fret's in. You can't see the cathedral, but you can smell my Welsh cakes. That's a fair swap."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "dusk",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Tea Room Lady",
+         "text": "Last pot of the day, cariad. I'll be shutting up now in a minute."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Tea Room Lady",
    "text": "Welsh cakes, bara brith and a pot for one. St David is the patron saint of Wales. March first."
@@ -64,6 +156,18 @@
  ],
  "hollow_gardener": [
   {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Gardener",
+     "text": "A bit of drizzle is good for the daffs. And the leeks. And for keeping the visitors brisk."
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Gardener",
    "text": "Daffodils in the churchyard by March. I plant them at Christmas. It's tradition and bad planning."
@@ -72,6 +176,23 @@
    "do": "say",
    "who": "Gardener",
    "text": "The leek's the other national emblem. Don't ask which is tastier. People get defensive."
+  }
+ ],
+ "st_davids_astronomer": [
+  {
+   "do": "say",
+   "who": "Astronomer",
+   "text": "Pembrokeshire has some of the darkest skies in Britain. Look up. That smear of light is the Milky Way."
+  },
+  {
+   "do": "say",
+   "who": "Astronomer",
+   "text": "Smallest city in Britain, biggest sky. I've seen more shooting stars here than anywhere."
+  },
+  {
+   "do": "say",
+   "who": "Astronomer",
+   "text": "I'll be out here until the clouds come in. Which, this being Wales, is usually now in a minute."
   }
  ]
 }

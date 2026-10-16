@@ -12,6 +12,46 @@
  ],
  "cathedral_guide": [
   {
+   "do": "when",
+   "cond": "gale",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Cathedral Guide",
+     "text": "Hear that wind in the arches? Like the cathedral's humming. It's been doing that since 1137."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "rain",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Cathedral Guide",
+       "text": "Come in out of the wet. Plenty of room, and the stripy arches look even better on a grey day."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "dusk",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Cathedral Guide",
+         "text": "The sandstone glows red at dusk. Like the whole cathedral's blushing. It doesn't get many compliments."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Cathedral Guide",
    "text": "St Magnus was begun in 1137, and it took three hundred years to finish. The builders ran out of money, then stone, then patience. The red and yellow sandstone makes stripes in the arches, like a very solemn sweet shop."
@@ -23,6 +63,32 @@
   }
  ],
  "ba_player": [
+  {
+   "do": "when",
+   "cond": "gale",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Ba' Game Veteran",
+     "text": "Grand weather for the Ba'. A gale behind you is worth ten Uppies. Or Doonies, depending."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "fog",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Ba' Game Veteran",
+       "text": "Can't see the end of the street in this fog. Perfect for a sneaky Ba' move. Not that I'd do such a thing."
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Ba' Game Veteran",
@@ -36,6 +102,46 @@
  ],
  "stone_scholar": [
   {
+   "do": "when",
+   "cond": "fog",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Stone Scholar",
+     "text": "Brodgar in the fog is spooky. The stones loom out at you one by one. Easier to count, actually."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "sunshine",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Stone Scholar",
+       "text": "Sun on the stones! Good day for measuring shadows. The Neolithic folk would be very proud of me."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "dawn",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Stone Scholar",
+         "text": "Up early to watch the sunrise over the stones. Five thousand years of practice, and still on time."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Stone Scholar",
    "text": "The Ring of Brodgar's about as old as Stonehenge. The Neolithic people of Orkney built stone houses, a great tomb at Maeshowe, and the stone circle, and they lined them up with the sun. They were serious about their calendars."
@@ -47,6 +153,32 @@
   }
  ],
  "orkney_fisher": [
+  {
+   "do": "when",
+   "cond": "gale",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Pier Regular",
+     "text": "This wind's blowing in from Norway. You can smell the fjords if you try. Or that might be the fish."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "night",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Pier Regular",
+       "text": "Clear night. Keep an eye north, the Merry Dancers might be out. My gran would already be at the window."
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Pier Regular",

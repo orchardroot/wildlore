@@ -414,7 +414,11 @@
    "y": 19,
    "facing": "down",
    "move": "wander",
-   "script": "pilgrim"
+   "script": "pilgrim",
+   "times": [
+    "day",
+    "dusk"
+   ]
   },
   {
    "id": "ramsey_boat",
@@ -432,7 +436,11 @@
    "y": 8,
    "facing": "down",
    "move": "still",
-   "script": "tea_lady"
+   "script": "tea_lady",
+   "times": [
+    "day",
+    "dusk"
+   ]
   },
   {
    "id": "hollow_gardener",
@@ -451,6 +459,19 @@
    "facing": "left",
    "move": "still",
    "trainer": "warden_hywel"
+  },
+  {
+   "id": "st_davids_astronomer",
+   "sprite": "astronomer",
+   "x": 10,
+   "y": 17,
+   "facing": "down",
+   "move": "still",
+   "script": "st_davids_astronomer",
+   "name": "Astronomer",
+   "times": [
+    "night"
+   ]
   }
  ],
  "encounters": {

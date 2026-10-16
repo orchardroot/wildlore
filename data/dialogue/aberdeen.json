@@ -27,6 +27,46 @@
  ],
  "granite_mason": [
   {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Granite Mason",
+     "text": "See that? The granite's sparkling. Rain's the only polish this city needs, and we get it free."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "sunshine",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Granite Mason",
+       "text": "Sun's out and the whole city's glittering like a sugar bowl. Shield your eyes, it's only granite."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "dusk",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Granite Mason",
+         "text": "Granite holds the day's warmth a wee while after dark. Lean on a wall, it's like a cosy grey hug."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Granite Mason",
    "text": "Aberdeen granite is grey, and hard as an argument. They built half of London's bridges from it, and the Terrace at the Houses of Parliament, and all our own grand buildings."
@@ -38,6 +78,46 @@
   }
  ],
  "doric_speaker": [
+  {
+   "do": "when",
+   "cond": "fog",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Aberdonian",
+     "text": "Fit like? Ye'll nae see much the day, the haar's in. Fit's that? Exactly, I cannae see it either."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "gale",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Aberdonian",
+       "text": "Fit like? Hold on tae yer hat, loon. That wind's awa' tae Peterhead and it wants company."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "dawn",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Aberdonian",
+         "text": "Fit like this early? I'm up wi' the gulls. They're louder than me, but nae as polite."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Aberdonian",
@@ -51,6 +131,46 @@
  ],
  "harbour_master": [
   {
+   "do": "when",
+   "cond": "fog",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Harbour Master",
+     "text": "Haar's in, so the foghorn's on. Mind your step on the quay, the edge is wetter than it looks."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "gale",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Harbour Master",
+       "text": "North Sea's in a right temper the day. The supply boats are staying put, and so is my tea."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "dusk",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Harbour Master",
+         "text": "Lights coming on along the harbour now. Best time of day, if you ask me, and nobody does."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Harbour Master",
    "text": "It's the oldest business in Scotland, this harbour. We've shipped granite, herring, whisky and the occasional pony. Nowadays, it's supply boats and cruise ships."
@@ -62,6 +182,32 @@
   }
  ],
  "oil_engineer": [
+  {
+   "do": "when",
+   "cond": "gale",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Oil Engineer",
+     "text": "Glad I'm onshore this week. A gale on the rigs is like living inside a washing machine. A tall one."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "sunshine",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Oil Engineer",
+       "text": "Sunshine in Aberdeen! I'll tell the seagulls offshore. They won't believe me either."
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Oil Engineer",
@@ -177,6 +323,40 @@
      "text": "The road south is long, and the ferry from Aberdeen to Orkney sails whenever you like. The Moot can wait a morning."
     }
    ]
+  }
+ ],
+ "aberdeen_night_baker": [
+  {
+   "do": "say",
+   "who": "Night Baker",
+   "text": "Butteries won't bake themselves. I start at midnight so the whole city has its rowies warm by breakfast."
+  },
+  {
+   "do": "say",
+   "who": "Night Baker",
+   "text": "A buttery's like a croissant that's been through an Aberdeen winter. Flatter, saltier and far tougher."
+  },
+  {
+   "do": "say",
+   "who": "Night Baker",
+   "text": "The streets are lovely and quiet at this hour. Just me, the ovens and a fox who thinks he's my apprentice."
+  }
+ ],
+ "aberdeen_astronomer": [
+  {
+   "do": "say",
+   "who": "Astronomer",
+   "text": "On a clear night you can catch the northern lights over the beach. The haar usually has other ideas."
+  },
+  {
+   "do": "say",
+   "who": "Astronomer",
+   "text": "That bright one's Jupiter. Wave if you like. It's a long way off, so it might take a while to wave back."
+  },
+  {
+   "do": "say",
+   "who": "Astronomer",
+   "text": "Granite city by day, star city by night. Well, when the clouds behave. Which is about twice a year."
   }
  ]
 }

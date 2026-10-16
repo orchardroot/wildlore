@@ -3,9 +3,13 @@ extends Node3D
 ## A character on the grid. Stands, wanders or paces, talks, and (if a trainer) spots the player and challenges them.
 ## `interact` and trainer challenges hand the actual conversation to ScriptRunner and return straight away:
 ## a whiteout rebuilds the zone and frees every NPC, so nothing here may wait on a run.
+## Idle life: a still townsperson glances about now and then and turns to look at the player passing close by.
+## An optional `"times": ["dawn", "day", "dusk", "night"]` keeps hours: they are only out in those phases.
 
 const STEP_SPEED := 3.0      # tiles per second
 const WANDER_RADIUS := 2
+const NOTICE_RANGE := 2      # tiles: a still NPC turns to look at the player this close
+const SCHEDULE_FAR := 9      # tiles: someone coming out or going home only does it out of the player's sight
 
 static var _dev_talk_done := false
 
@@ -23,6 +27,10 @@ var _talking := false
 var _challenging := false
 var _pace_dirs: Array = []
 var _pace_i := 0
+var _rest := "down"          # the way a still NPC stands when nothing has caught their eye
+var _looking := false        # turned away from `_rest` by idle life
+var _look_t := 0.0           # seconds until turning back to `_rest`
+var _glance_t := 6.0         # seconds until the next idle glance
 
 func setup(d: Dictionary, overworld: Node) -> void:
 	def = d
@@ -30,6 +38,8 @@ func setup(d: Dictionary, overworld: Node) -> void:
 	grid_pos = Vector2i(int(d.get("x", 0)), int(d.get("y", 0)))
 	home = grid_pos
 	facing = str(d.get("facing", "down"))
+	_rest = facing
+	_glance_t = randf_range(4.0, 10.0)
 	_mode = str(d.get("move", "still"))
 	sprite = CharSprite.new()
 	add_child(sprite)
@@ -56,7 +66,66 @@ static func _opposite(d: String) -> String:
 
 func face(dir: String) -> void:
 	facing = dir
+	_rest = dir
+	_looking = false
 	sprite.set_facing(dir)
+
+## Turn without changing the way they normally stand (idle glances, looking at the player).
+func _turn(dir: String) -> void:
+	facing = dir
+	sprite.set_facing(dir)
+
+## Is a schedule-free NPC, or one keeping `times`, out in this phase?
+static func shown_at(d: Dictionary, phase: String) -> bool:
+	var times: Array = d.get("times", [])
+	return times.is_empty() or phase in times
+
+## Should this NPC be in the world now: flag gating ("hide_if": absent once set, "show_if": present once set)
+## and their hours.
+static func should_spawn(d: Dictionary, data: GameStateData, phase: String) -> bool:
+	if d.has("hide_if") and data.flag(str(d.hide_if)):
+		return false
+	if d.has("show_if") and not data.flag(str(d.show_if)):
+		return false
+	return shown_at(d, phase)
+
+## Close enough to catch a still NPC's eye.
+static func notices(at: Vector2i, player_pos: Vector2i) -> bool:
+	var d := player_pos - at
+	return d != Vector2i.ZERO and maxi(absi(d.x), absi(d.y)) <= NOTICE_RANGE
+
+## The time of day changed: people with `times` go home or come out, each only once the player is far enough
+## away not to see them pop. Cheap; the overworld calls it now and then. Retries until everyone is settled.
+static func sync_schedule(ow: Node) -> void:
+	var phase := Game.phase()
+	if ow.zone == null or Router.busy or str(ow.get_meta("npc_phase", "")) == phase:
+		return
+	var settled := true
+	for d in ow.zone.npcs:
+		if not d.has("times"):
+			continue
+		var want := should_spawn(d, Game.data, phase)
+		var here: Node = null
+		for n in ow.npcs:
+			if is_instance_valid(n) and str(n.def.get("id", "")) == str(d.get("id", "")):
+				here = n
+		var p: Vector2i = here.grid_pos if here else Vector2i(int(d.get("x", 0)), int(d.get("y", 0)))
+		if want == (here != null):
+			continue
+		var gap: Vector2i = p - ow.player.grid_pos
+		if maxi(absi(gap.x), absi(gap.y)) < SCHEDULE_FAR or (here == null and ow.occupied(p)):
+			settled = false
+			continue
+		if here:
+			ow.npcs.erase(here)
+			here.queue_free()
+		else:
+			var n := Npc.new()
+			ow.add_child(n)
+			n.setup(d, ow)
+			ow.npcs.append(n)
+	if settled:
+		ow.set_meta("npc_phase", phase)
 
 func face_toward(p: Vector2i) -> void:
 	if p != grid_pos:
@@ -66,7 +135,10 @@ func is_trainer() -> bool:
 	return str(def.get("trainer", "")) != ""
 
 func _process(delta: float) -> void:
-	if _mode == "still" or _stepping or _talking or _challenging or Router.busy or ow.player.moving:
+	if _mode == "still":
+		_idle(delta)
+		return
+	if _stepping or _talking or _challenging or Router.busy or ow.player.moving:
 		return
 	_timer -= delta
 	if _timer > 0.0:
@@ -83,6 +155,33 @@ func _process(delta: float) -> void:
 		_timer = randf_range(0.5, 1.0)
 		if await _step(_pace_dirs[_pace_i]):
 			_pace_i = (_pace_i + 1) % _pace_dirs.size()
+
+## A still townsperson: look at the player when they come close, glance about now and then, and settle back.
+## Trainers never do this (their facing is their line of sight).
+func _idle(delta: float) -> void:
+	if is_trainer() or _talking or _challenging or Router.busy:
+		return
+	var pp: Vector2i = ow.player.grid_pos
+	if notices(grid_pos, pp):
+		var toward := GridMotion.facing_from(pp - grid_pos)
+		if facing != toward:
+			_turn(toward)
+		_looking = true
+		_look_t = 0.9
+		return
+	if _looking:
+		_look_t -= delta
+		if _look_t <= 0.0:
+			_looking = false
+			_turn(_rest)
+			_glance_t = randf_range(5.0, 11.0)
+		return
+	_glance_t -= delta
+	if _glance_t <= 0.0:
+		var away: Array = ["up", "down", "left", "right"].filter(func(d): return d != _rest)
+		_turn(away.pick_random())
+		_looking = true
+		_look_t = randf_range(0.8, 1.6)
 
 func _can_step(target: Vector2i) -> bool:
 	return ow.can_enter(target, target - grid_pos) == "ok" and target != ow.player.grid_pos \
@@ -118,7 +217,12 @@ func interact(player: Node) -> void:
 	if _talking or _challenging:
 		return
 	_talking = true
-	face_toward(player.grid_pos)
+	if is_trainer() or _mode != "still":
+		face_toward(player.grid_pos)
+	elif player.grid_pos != grid_pos:
+		_turn(GridMotion.facing_from(player.grid_pos - grid_pos))  # and back to how they stand, once you go
+		_looking = true
+		_look_t = 0.9
 	var tid := str(def.get("trainer", ""))
 	var cmds: Array = []
 	if tid != "":
