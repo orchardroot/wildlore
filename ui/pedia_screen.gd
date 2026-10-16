@@ -1,6 +1,7 @@
 extends MenuBase
 ## Creaturepedia ("Fieldbook"): every species in Dex order. Unseen is "???", seen is a silhouette, caught is the full entry.
 ## Left/Right (or the pad's shoulder buttons) jump ten entries; Run cycles the filter: All, Caught, Seen.
+## The Bike key (or the Cry button) plays the creature's cry, once you have met one (see Cries).
 
 const ZONE_DIR := "res://data/zones"
 static var _habitats: Dictionary = {}
@@ -26,7 +27,7 @@ func _build() -> void:
 	_all = Game.dex.ids()
 	for i in _all.size():
 		_no[_all[i]] = i + 1
-	set_hints([["updown", "Browse"], ["shoulders", "Jump 10"], ["run", "All / Caught / Seen"], ["confirm", "Map"], ["cancel", "Back"]])
+	set_hints([["updown", "Browse"], ["shoulders", "Jump 10"], ["run", "All / Caught / Seen"], ["bike", "Cry"], ["confirm", "Map"], ["cancel", "Back"]])
 	var row := HBoxContainer.new()
 	row.set_anchors_preset(Control.PRESET_FULL_RECT)
 	row.add_theme_constant_override("separation", 22)
@@ -102,6 +103,11 @@ func _input(event: InputEvent) -> void:
 		if not _buttons.is_empty():
 			_buttons[MenuLogic.page_index(_cur, d, _buttons.size())].grab_focus()
 		return
+	if event.is_action_pressed("bike"):
+		get_viewport().set_input_as_handled()
+		if not _ids.is_empty():
+			play_cry(_ids[_cur])
+		return
 	if event.is_action_pressed("run"):
 		get_viewport().set_input_as_handled()
 		_filter = MenuLogic.next_filter(_filter)
@@ -115,6 +121,13 @@ func _shoulder(event: InputEvent, button: int) -> bool:
 	if not (event is InputEventJoypadButton) or not event.pressed or event.button_index != button:
 		return false
 	return not InputSetup.ACTIONS.any(func(a): return event.is_action(a))
+
+## Heard it in the wild (seen or caught): play its cry. True if it played.
+func play_cry(id: String) -> bool:
+	if state_of(id) == "unseen":
+		return false
+	Audio.cry(Game.dex.get_species(id), 0.0)
+	return true
 
 func state_of(id: String) -> String:
 	if Game.data.caught.has(id):
@@ -193,6 +206,14 @@ func _show(id: String) -> void:
 	info.add_child(UIKit.label(str(sp.get("name", id)) if st != "unseen" else "???", 40))
 	if st != "unseen":
 		info.add_child(UIKit.types_row(sp.get("types", []), 22))
+		var cry := Button.new()
+		cry.text = "Cry"
+		cry.focus_mode = Control.FOCUS_NONE  # the list keeps focus; this is for the mouse (the Bike key does it too)
+		cry.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
+		cry.custom_minimum_size = Vector2(96, 0)
+		cry.add_theme_font_size_override("font_size", 22)
+		cry.pressed.connect(func(): play_cry(id))
+		info.add_child(cry)
 	else:
 		var u := UIKit.label("Not met yet. Out there somewhere, being elusive.", 22, UIKit.MUTED)
 		u.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
