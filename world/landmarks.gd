@@ -9,6 +9,7 @@ const DARK_BRICK := Color("7a3a30")
 const SANDSTONE := Color("b5654a")   # Chester's red sandstone
 const SLATE := Color("4d5563")
 const SLATE_WALL := Color("7d838a")
+const PEAT := Color("4a3626")
 const LIMESTONE := Color("c9c0aa")
 const PORTLAND := Color("d8d2c2")    # Liver Building granite and Portland stone, near enough
 const IRON := Color("3c4450")
@@ -479,13 +480,15 @@ static func standing_stone(variant := 0) -> ArrayMesh:
 	Meshes.blob(st, Vector3(0.1, h * 0.5, 0.15), Vector3(0.1, 0.12, 0.04), Color("9fae6a"), rng)  # lichen
 	return Meshes._finish(st)
 
+## Variants 0 to 2 are slate (or slag); variant 3 is a stack of cut peat.
 static func slate_heap(variant := 0) -> ArrayMesh:
 	var rng := Meshes._rng(9200 + variant)
 	var st := Meshes._st()
+	var col := PEAT if variant == 3 else SLATE
 	for i in 9:
 		var y := i * 0.09
 		var s := 0.9 - i * 0.08
-		Meshes.box(st, Vector3(-s * 0.5 + rng.randf_range(-0.05, 0.05), y, -s * 0.45), Vector3(s, 0.08, s * 0.9), SLATE.lightened(rng.randf_range(-0.08, 0.12)))
+		Meshes.box(st, Vector3(-s * 0.5 + rng.randf_range(-0.05, 0.05), y, -s * 0.45), Vector3(s, 0.08, s * 0.9), col.lightened(rng.randf_range(-0.08, 0.12)))
 	return Meshes._finish(st)
 
 static func scree_rubble(variant := 0) -> ArrayMesh:
@@ -678,6 +681,42 @@ static func lighthouse() -> ArrayMesh:
 		Meshes.cylinder(st, Vector3(0, i * 0.6, 0), 0.5 - i * 0.04, 0.6, 10, Color("f2efe6") if i % 2 == 0 else Color("c8102e"))
 	Meshes.cylinder(st, Vector3(0, 3.0, 0), 0.4, 0.4, 10, Color("f8e9a0"))
 	Meshes.cylinder(st, Vector3(0, 3.4, 0), 0.45, 0.15, 10, Color("1d1d1d"))
+	return Meshes._finish(st)
+
+## Big Ben, near enough: a stone shaft, a clock face on every side, a belfry and a tall pointed roof.
+static func clock_tower() -> ArrayMesh:
+	var st := Meshes._st()
+	var stone := Color("c9b98a")
+	var gilt := Color("c9a441")
+	Meshes.box(st, Vector3(-0.4, 0, -0.4), Vector3(0.8, 0.25, 0.8), stone.darkened(0.2))
+	Meshes.box(st, Vector3(-0.33, 0.25, -0.33), Vector3(0.66, 2.75, 0.66), stone)
+	for i in 4:
+		Meshes.box(st, Vector3(-0.35, 0.6 + i * 0.6, -0.35), Vector3(0.7, 0.05, 0.7), stone.darkened(0.12))
+	# the clock stage, a touch wider, with a face on each side
+	Meshes.box(st, Vector3(-0.38, 3.0, -0.38), Vector3(0.76, 0.7, 0.76), stone.lightened(0.05))
+	for f in [[Vector3(-0.22, 3.12, 0.385), Vector3(0.44, 0.44, 0.02)], [Vector3(-0.22, 3.12, -0.405), Vector3(0.44, 0.44, 0.02)],
+			[Vector3(0.385, 3.12, -0.22), Vector3(0.02, 0.44, 0.44)], [Vector3(-0.405, 3.12, -0.22), Vector3(0.02, 0.44, 0.44)]]:
+		Meshes.box(st, f[0], f[1], Color("f4ecd2"))
+	Meshes.box(st, Vector3(-0.02, 3.33, 0.4), Vector3(0.04, 0.16, 0.02), Color("1d1d1d"))
+	Meshes.box(st, Vector3(-0.02, 3.33, 0.4), Vector3(0.12, 0.03, 0.02), Color("1d1d1d"))
+	# belfry and spire
+	Meshes.box(st, Vector3(-0.3, 3.7, -0.3), Vector3(0.6, 0.35, 0.6), stone.darkened(0.08))
+	for i in 5:
+		var r := 0.3 - i * 0.06
+		Meshes.box(st, Vector3(-r, 4.05 + i * 0.2, -r), Vector3(r * 2.0, 0.2, r * 2.0), SLATE.lightened(0.1 * (i % 2)))
+	Meshes.box(st, Vector3(-0.025, 5.05, -0.025), Vector3(0.05, 0.3, 0.05), gilt)
+	return Meshes._finish(st)
+
+## The Shard: a tall, tapering spike of pale blue glass, its tip left ragged.
+static func shard() -> ArrayMesh:
+	var st := Meshes._st()
+	var glass := Color("9fc1d6")
+	var n := 12
+	for i in n:
+		var r := 0.48 * (1.0 - float(i) / n) + 0.04
+		Meshes.box(st, Vector3(-r, i * 0.45, -r * 0.8), Vector3(r * 2.0, 0.45, r * 1.6), glass.darkened(0.04 * (i % 3)).lightened(0.02 * i))
+	for k in 3:
+		Meshes.box(st, Vector3(-0.06 + k * 0.05, n * 0.45, -0.03), Vector3(0.03, 0.25 + 0.15 * k, 0.03), glass.lightened(0.2))
 	return Meshes._finish(st)
 
 static func statue(variant := 0) -> ArrayMesh:

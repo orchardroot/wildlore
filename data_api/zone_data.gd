@@ -277,6 +277,9 @@ func validate(all: Dictionary) -> Array:
 			e.append(tag + "warp at %d,%d goes to unknown zone '%s'" % [int(w.x), int(w.y), target])
 		elif not all[target].walkable(Vector2i(int(w.tx), int(w.ty))):
 			e.append(tag + "warp arrival %d,%d in '%s' is not walkable" % [int(w.tx), int(w.ty), target])
+		elif not all[target].warp_at(Vector2i(int(w.tx), int(w.ty))).is_empty():
+			# step out on to the doorstep, not into the doorway (a moved building leaves stale arrivals)
+			e.append(tag + "warp arrival %d,%d in '%s' lands on a warp" % [int(w.tx), int(w.ty), target])
 	var edge_reach_cache := {}
 	for side in edges:
 		var target: String = edges[side].get("to", "")

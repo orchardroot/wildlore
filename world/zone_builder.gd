@@ -216,12 +216,16 @@ const LINEAR := ["hedge", "drystone_wall", "fence", "rail"]
 ## Point props (one tile, blocking unless "walk": true). Floating ones sit on the water surface.
 const POINT_PROPS := ["lamp_post", "bench", "bush", "birch", "oak", "pine", "rock", "market_stall", "planter", "phone_box",
 	"post_box", "bookshelf", "potted_plant", "table", "bed", "standing_stone", "slate_heap", "boat", "canal_boat", "bollard",
-	"buoy", "lighthouse", "statue", "harp", "buffer_stop", "tunnel_portal",
+	"buoy", "lighthouse", "statue", "harp", "clock_tower", "shard", "buffer_stop", "tunnel_portal",
 	"bunting", "flagpole", "washing_line", "hanging_basket", "rug", "fireplace", "wall_picture", "clock", "kitchen_dresser",
 	"fryer", "menu_board", "piano", "telescope", "plant_stand", "sofa", "display_case"]
 ## Cloth meshes that ripple (flutter shader) and glow meshes that add light (firelight shader).
 const CLOTH := ["bunting", "flag", "washing_line"]
 const FLOATING := ["boat", "canal_boat", "buoy"]
+
+## Tall grass with "prop": "short" is cropped grass: low tufts, but still somewhere for a creature to hide.
+static func tuft_height(prop_name: String) -> float:
+	return 0.5 if prop_name == "short" else 1.0
 
 static func _props(z: ZoneData, root: Node3D, rng: RandomNumberGenerator) -> void:
 	var buckets := {}  # "ctor:variant" -> Array[Transform3D]
@@ -256,6 +260,7 @@ static func _props(z: ZoneData, root: Node3D, rng: RandomNumberGenerator) -> voi
 				basis = Basis(Vector3.UP, rng.randf() * TAU)
 				var s := rng.randf_range(0.9, 1.15) if t.begins_with("tree") else 1.0
 				basis = basis.scaled(Vector3(s, s, s))
+				basis = basis.scaled(Vector3(1, tuft_height(prop_name), 1))
 			var origin := Vector3(x + 0.5, ground_y(z, p), y + 0.5)
 			if t == "level_crossing":
 				origin.y = z.height_at(p) * LEVEL
@@ -289,9 +294,7 @@ static func _props(z: ZoneData, root: Node3D, rng: RandomNumberGenerator) -> voi
 			match pt:
 				"lamp_post":
 					_add(buckets, "lamp_bulb:0", tr)
-					# the pool of light on the ground, a little above it so it never z-fights
-					var pool := Transform3D(Basis.from_scale(Vector3.ONE * 3.4), tr.origin + Vector3(0, 0.04, 0))
-					_add(buckets, "lamp_pool:0", pool)
+					_add(buckets, "lamp_pool:0", lamp_pool(z, pos))
 				"flagpole":
 					_add(buckets, "flag:%d" % variant, tr)
 				"fireplace":
@@ -331,6 +334,30 @@ static func _props(z: ZoneData, root: Node3D, rng: RandomNumberGenerator) -> voi
 			mmi.material_override = Meshes.foliage if foliage else Meshes.solid
 			mmi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF if parts[0] in ["tall_grass_tuft", "flower_patch"] else GeometryInstance3D.SHADOW_CASTING_SETTING_ON
 		root.add_child(mmi)
+
+const POOL_SIZE := 3.4
+## The pool of light under the lamp post on tile p, a little above the ground so it never z-fights. The pool is
+## flat, so next to water or a drop (a bridge parapet, a quay, a cliff edge) it would hang in the air as a
+## glowing disc: there it shrinks and keeps to the lamp's own side, or to its own tile when the drop is all round.
+static func lamp_pool(z: ZoneData, p: Vector2i) -> Transform3D:
+	var gy := ground_y(z, p)
+	var away := Vector2.ZERO
+	var drops := 0
+	for dy in range(-1, 2):
+		for dx in range(-1, 2):
+			var q := p + Vector2i(dx, dy)
+			if (dx == 0 and dy == 0) or not z.in_bounds(q):
+				continue
+			if ground_y(z, q) < gy - 0.2 or z.tile_at(q) in ["water", "shallow", "deep_water", "sea"]:
+				away -= Vector2(dx, dy)
+				drops += 1
+	var centre := Vector3(p.x + 0.5, gy + 0.04, p.y + 0.5)
+	if drops == 0:
+		return Transform3D(Basis.from_scale(Vector3.ONE * POOL_SIZE), centre)
+	if away.length() < 0.5:
+		return Transform3D(Basis.from_scale(Vector3.ONE * 1.2), centre)
+	var dir := away.normalized()
+	return Transform3D(Basis.from_scale(Vector3.ONE * 2.2), centre + Vector3(dir.x, 0, dir.y) * 0.6)
 
 ## Yaw that turns a mesh's local +X to point along grid direction `d` (x east, y south).
 static func cap_angle(d: Vector2i) -> float:
@@ -423,6 +450,10 @@ static func _ctor(name: String, variant: int) -> ArrayMesh:
 			return Landmarks.statue(variant)
 		"harp":
 			return Landmarks.harp()
+		"clock_tower":
+			return Landmarks.clock_tower()
+		"shard":
+			return Landmarks.shard()
 		"lamp_pool":
 			return Dressing.pool_quad()
 		"bunting":
@@ -469,6 +500,7 @@ static func _ctor(name: String, variant: int) -> ArrayMesh:
 ## Also records every chimney top (world space) as the root's "chimneys" meta, for AmbientLife's smoke.
 static func _buildings(z: ZoneData, root: Node3D) -> void:
 	var chimneys := PackedVector3Array()
+	var bodies := []  # of {pr, body, door_x}: names go on once every building stands, to see what is in front
 	for pr in z.props:
 		if pr.get("type") != "building":
 			continue
@@ -481,7 +513,8 @@ static func _buildings(z: ZoneData, root: Node3D) -> void:
 			if z.tile_at(Vector2i(x, by + d - 1)) == "door":
 				door_x = x - bx
 		var meshes: Array = Meshes.building(w, d, str(pr.get("style", "red_brick")), door_x, hash(z.id) + bx * 31 + by)
-		var gy := z.height_at(Vector2i(bx, by)) * LEVEL
+		# stand on the door's ground, so on a slope the door meets the path rather than sinking into the hill
+		var gy := z.height_at(Vector2i(bx + door_x, by + d - 1) if door_x >= 0 else Vector2i(bx, by)) * LEVEL
 		var body := MeshInstance3D.new()
 		body.name = "Building_%d_%d" % [bx, by]
 		body.mesh = meshes[0]
@@ -496,67 +529,58 @@ static func _buildings(z: ZoneData, root: Node3D) -> void:
 		win.material_override = Meshes.windows
 		win.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 		body.add_child(win)
+		bodies.append({"pr": pr, "body": body, "door_x": door_x})
+	for b in bodies:
+		var pr: Dictionary = b.pr
 		if pr.has("label") and pr.get("show_label", true):
-			var lbl := Label3D.new()
-			lbl.text = str(pr.label)
-			lbl.pixel_size = 0.006
-			lbl.font_size = 48
-			lbl.outline_size = 12
-			lbl.modulate = Color("f2e8cf")
-			lbl.outline_modulate = Color("1d2230")
-			lbl.position = Vector3(w * 0.5, 1.35 if door_x >= 0 else 1.0, d + 0.02)
-			if w >= 5 and d >= 3 and _bunting_in_front(z, bx, by + d, w):  # two storeys (see Meshes.building)
-				lbl.position.y = LABEL_OVER_BUNTING
-			lbl.billboard = BaseMaterial3D.BILLBOARD_DISABLED
-			# Own walls and towers in front must not hide the name, but another building's roof must.
-			lbl.no_depth_test = not label_occluded(z, pr)
-			lbl.render_priority = 10
-			body.add_child(lbl)
+			_label(z, pr, b.body, int(b.door_x), bodies)
 	root.set_meta("chimneys", chimneys)
 
-## Rough height of a building's bulk (walls and roof, not spires or chimneys) by style, for label occlusion.
-const STYLE_HEIGHT := {"mill": 4.5, "castle": 4.5, "cathedral": 5.0, "chapel": 3.5, "round_tower": 6.9, "passage_tomb": 1.8,
-	"liver_building": 6.0, "station": 2.8, "aqueduct": 4.1, "gantry_crane": 4.5, "glass_tower": 14.5, "terrace": 3.9,
-	"tudor": 3.7, "slate_cottage": 2.6, "lighthouse_house": 3.7}
-const LABEL_HALF_CHAR := 0.08  # half the width of one name character, in tiles
-const SIGHT_RISE := 0.7        # camera sight line rises this much per tile toward the camera (tan of the 35 degree pitch)
-const LABEL_REACH := 26.0      # tiles south beyond which nothing can matter
+const LABEL_PITCH := deg_to_rad(CameraRig.PITCH)
+const LABEL_CHAR_W := 0.16   # world width of one character of a building name, roughly
 
-static func building_height(style: String, w: int, d: int) -> float:
-	if STYLE_HEIGHT.has(style):
-		return STYLE_HEIGHT[style]
-	return 3.7 if w >= 5 and d >= 3 else 2.7
+## Where a point sits up the screen (the camera looks down at PITCH from the south).
+static func _screen_v(p: Vector3) -> float:
+	return p.y * cos(LABEL_PITCH) - p.z * sin(LABEL_PITCH)
 
-## Does another building stand between this building's name label and the camera? The camera looks north from
-## the south, so a building qualifies when it overlaps the label's east-west span, lies south of the label,
-## and is tall enough to cover the label's sight line where it enters the building.
-static func label_occluded(z: ZoneData, pr: Dictionary) -> bool:
-	var bx := int(pr.x)
-	var by := int(pr.y)
-	var w := int(pr.w)
-	var d := int(pr.h)
-	var gy := z.height_at(Vector2i(bx, by)) * LEVEL
-	var lz := by + d + 0.02
-	var ly := gy + 1.35 + 0.15  # top of the text
-	var half := maxf(0.5, str(pr.get("label", "")).length() * LABEL_HALF_CHAR)
-	var x0 := bx + w * 0.5 - half
-	var x1 := bx + w * 0.5 + half
-	for o in z.props:
-		if o == pr or o.get("type") != "building":
+## Is a name centred at world point p (half width hw) drawn over another building standing in front of it?
+static func _label_covered(p: Vector3, hw: float, own: MeshInstance3D, bodies: Array) -> bool:
+	var v := _screen_v(p)
+	for b in bodies:
+		var other: MeshInstance3D = b.body
+		if other == own:
 			continue
-		var ox := int(o.x)
-		var oy := int(o.y)
-		var ow := int(o.w)
-		var od := int(o.h)
-		if ox - 0.2 >= x1 or ox + ow + 0.2 <= x0 or oy + od <= lz:
-			continue
-		var zin := maxf(float(oy), lz)
-		if zin - lz > LABEL_REACH:
-			continue
-		var top := z.height_at(Vector2i(ox, oy)) * LEVEL + building_height(str(o.get("style", "red_brick")), ow, od)
-		if top >= ly + SIGHT_RISE * (zin - lz):
+		var box := AABB(other.position + other.mesh.get_aabb().position, other.mesh.get_aabb().size)
+		if box.end.z <= p.z + 0.1 or box.end.x <= p.x - hw or box.position.x >= p.x + hw:
+			continue  # behind the name, or off to one side
+		if v >= _screen_v(Vector3(0, box.position.y, box.end.z)) and v <= _screen_v(Vector3(0, box.end.y, box.position.z)):
 			return true
 	return false
+
+static func _label(z: ZoneData, pr: Dictionary, body: MeshInstance3D, door_x: int, bodies: Array) -> void:
+	var w := int(pr.w)
+	var d := int(pr.h)
+	var lbl := Label3D.new()
+	lbl.text = str(pr.label)
+	lbl.pixel_size = 0.006
+	lbl.font_size = 48
+	lbl.outline_size = 12
+	lbl.modulate = Color("f2e8cf")
+	lbl.outline_modulate = Color("1d2230")
+	lbl.position = Vector3(w * 0.5, 1.35 if door_x >= 0 else 1.0, d + 0.02)
+	if w >= 5 and d >= 3 and _bunting_in_front(z, int(pr.x), int(pr.y) + d, w):  # two storeys (see Meshes.building)
+		lbl.position.y = LABEL_OVER_BUNTING
+	if str(pr.get("style", "")) == "aqueduct":
+		# on the iron trough: down at door height it reads as the name of whatever stands in front
+		lbl.position = Vector3(w * 0.5, 3.6, d * 0.5 + 0.5)
+	elif _label_covered(body.position + lbl.position, lbl.text.length() * LABEL_CHAR_W * 0.5, body, bodies):
+		# a street away from a building in front, the name would be drawn over that building's wall and read as
+		# its name: lift it on to our own ridge, above the roofs in front
+		lbl.position = Vector3(w * 0.5, body.mesh.get_aabb().end.y + 0.3, d * 0.5)
+	lbl.billboard = BaseMaterial3D.BILLBOARD_DISABLED
+	lbl.no_depth_test = true  # walls and towers in front must not hide the name
+	lbl.render_priority = 10
+	body.add_child(lbl)
 
 ## Name height on a two-storey front when bunting is strung across it (the bunting sags through the usual spot).
 const LABEL_OVER_BUNTING := 1.9
