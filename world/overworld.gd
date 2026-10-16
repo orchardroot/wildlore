@@ -266,11 +266,14 @@ func _on_step(p: Vector2i) -> void:
 	_check_trainers()
 	if Router.busy:
 		return
+	if Repel.step(Game.data):  # a Lavender Sachet just ran out
+		await ScriptRunner.start(self, [{"do": "sachet_worn"}])
+		return
 	if encounters.in_grace():
 		encounters.stepped()
 		return
 	var enc := Encounters.roll(zone, tile, Game.phase(), weather, Game.rng)
-	if not enc.is_empty() and Game.data.first_able() != null:
+	if not enc.is_empty() and Game.data.first_able() != null and not Repel.blocks(Game.data, int(enc.level)):
 		var foe := Creature.create(Game.dex.get_species(enc.species), enc.level, Game.rng, Game.moves)
 		Game.data.mark_seen(enc.species)
 		var result: Dictionary = await Router.battle([foe], {"kind": "wild", "weather": weather, "time": Game.phase(), "stage": _stage()})

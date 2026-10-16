@@ -133,6 +133,13 @@ func _exec(c: Dictionary) -> void:
 			_ended = true
 		"ark":
 			await host.open_menu("ark")
+		"relearn":
+			# the move relearner; `set` (optional) gets 1 if a move was learned, 0 if they backed out
+			var learned = await host.open_menu("relearn")
+			if c.has("set"):
+				_set_flag(str(c.set), 1 if learned is Dictionary else 0)
+		"sachet_worn":
+			await _sachet_worn()
 		"legend":
 			await _legend(c)
 		"rail":
@@ -242,6 +249,16 @@ func _legend(c: Dictionary) -> void:
 		"lose":
 			await whiteout()
 			_ended = true
+
+## A Lavender Sachet ran out on the overworld: say so, and offer another if there's one in the bag.
+func _sachet_worn() -> void:
+	await host.say("", Repel.WORN_LINE)
+	if Bag.new(host.data.bag).count(Repel.ITEM) < 1:
+		return
+	if await host.choice("Use another Lavender Sachet?", ["Yes", "No"]) == 0:
+		var r := Repel.use(host.data, Repel.ITEM, host.items)
+		await host.sfx("confirm" if r.ok else "bump")
+		await host.say("", str(r.text))
 
 func _rail() -> void:
 	if int(host.data.bag.get("rail_pass", 0)) <= 0:

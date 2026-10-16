@@ -1,5 +1,8 @@
 extends MenuBase
 ## New game: pick a look and type a name (keyboard or the on-screen letters). Closes with {name, sprite}.
+## Nickname mode (Router.open_menu("name:nickname:<party index>") or "name:nickname:ark:<ark index>"): text only,
+## names that creature in place and closes with the new nickname ("" means back to its species name),
+## or null if backed out without typing anything.
 
 const MAX_LEN := 10
 const ROWS := ["ABCDEFGHIJKLM", "NOPQRSTUVWXYZ", "abcdefghijklm", "nopqrstuvwxyz"]
@@ -8,6 +11,9 @@ var _name := "Sam"
 var _sprite := "player_a"
 var _shown: Label
 var _looks: Array = []
+var _look_row: HBoxContainer
+var _label: Label
+var _nick: Creature = null  # the creature being nicknamed, in nickname mode
 
 func _build() -> void:
 	set_title("Who's setting off?")
@@ -20,6 +26,7 @@ func _build() -> void:
 	var top := HBoxContainer.new()
 	top.add_theme_constant_override("separation", 24)
 	col.add_child(top)
+	_look_row = top
 	for id in ["player_a", "player_b"]:
 		var b := make_button("", func(): _pick_look(id), 150)
 		b.custom_minimum_size = Vector2(150, 150)
@@ -43,7 +50,8 @@ func _build() -> void:
 	var nm := VBoxContainer.new()
 	nm.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	top.add_child(nm)
-	nm.add_child(UIKit.label("Name", 24, UIKit.MUTED))
+	_label = UIKit.label("Name", 24, UIKit.MUTED)
+	nm.add_child(_label)
 	_shown = UIKit.label("", 56, UIKit.GOLD)
 	nm.add_child(_shown)
 	var grid := GridContainer.new()
@@ -67,6 +75,42 @@ func _build() -> void:
 	_refresh()
 	UIKit.focus_later(keys[0])
 
+func setup(arg: String) -> void:
+	_nick = nickname_target(Game.data, arg)
+	if _nick == null:
+		return
+	set_title("A name for %s?" % _nick.species.name)
+	set_hint("Type a name, or pick letters        Enter  Done        Backspace  Delete        Blank  Use the species name")
+	_name = _nick.nickname
+	_label.text = "Nickname"
+	for b in _looks:
+		b.visible = false
+	var icon := AnimSprite.new()
+	icon.show_species(_nick.species.id, "front", 2)
+	icon.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	_look_row.add_child(icon)
+	_look_row.move_child(icon, 0)
+	_refresh()
+
+## The creature a "nickname:<i>" / "nickname:ark:<i>" argument points at, or null.
+static func nickname_target(d: GameStateData, arg: String) -> Creature:
+	var parts := arg.split(":")
+	if parts.size() < 2 or parts[0] != "nickname":
+		return null
+	var list: Array = d.party
+	var idx := parts[1]
+	if parts[1] == "ark" and parts.size() > 2:
+		list = d.ark
+		idx = parts[2]
+	if not idx.is_valid_int() or int(idx) < 0 or int(idx) >= list.size():
+		return null
+	return list[int(idx)]
+
+## Sets (or, if blank or just the species name, clears) a creature's nickname.
+static func apply_nickname(c: Creature, text: String) -> void:
+	var n := clean(text)
+	c.nickname = "" if n == "" or n == str(c.species.name) else n
+
 func _pick_look(id: String) -> void:
 	_sprite = id
 	_refresh()
@@ -82,12 +126,21 @@ func _delete() -> void:
 
 func _done_pressed() -> void:
 	var n := clean(_name)
+	if _nick != null:
+		apply_nickname(_nick, n)
+		Audio.sfx("confirm")
+		_done = true
+		closed.emit(_nick.nickname)
+		return
 	if n == "":
 		Audio.sfx("bump")
 		return
 	close({"name": n, "sprite": _sprite})
 
 func _on_cancel() -> void:
+	if _nick != null and _name == "":
+		close(null)  # nothing typed: back out, nickname unchanged
+		return
 	_delete()
 
 ## Keyboard typing comes first here: letters (Z and X included) and space type, Backspace deletes,

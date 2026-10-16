@@ -1,5 +1,5 @@
 extends MenuBase
-## Team: six slots with icon, name, level, HP bar and status. Actions: Summary, Switch order, Use item.
+## Team: six slots with icon, name, level, HP bar and status. Actions: Summary, Rename, Switch order, Use item.
 
 var _slots: Array = []        # Buttons for filled slots
 var _slot_col: VBoxContainer
@@ -35,7 +35,7 @@ func _build() -> void:
 	var ap := UIKit.panel(Color("1d2230f0"), 10)
 	ap.add_child(_actions)
 	right.add_child(ap)
-	for a in [["Summary", _do_summary], ["Switch order", _do_switch], ["Use item", _do_use], ["Back", _to_list]]:
+	for a in [["Summary", _do_summary], ["Rename", _do_rename], ["Switch order", _do_switch], ["Use item", _do_use], ["Back", _to_list]]:
 		var b := make_button(a[0], a[1])
 		_actions.add_child(b)
 		_action_buttons.append(b)
@@ -178,6 +178,17 @@ func _do_summary() -> void:
 	await open_local("res://ui/summary_screen.tscn", str(i))
 	_action_buttons[0].grab_focus()
 
+func _do_rename() -> void:
+	var i := _cursor
+	var old: String = party()[i].display_name()
+	var r = await open_child("name:nickname:%d" % i)
+	_refresh()
+	_actions.get_parent().visible = true
+	_show_preview(party()[i])
+	if r is String and party()[i].display_name() != old:
+		_note.text = "%s it is. They seem pleased." % party()[i].display_name()
+	_action_buttons[1].grab_focus()
+
 func _do_switch() -> void:
 	if party().size() < 2:
 		_note.text = "Only one on the team. Nothing to shuffle."
@@ -194,7 +205,7 @@ func _do_use() -> void:
 	_refresh()
 	_actions.get_parent().visible = true
 	_show_preview(party()[i])
-	_action_buttons[2].grab_focus()
+	_action_buttons[3].grab_focus()
 
 func _on_cancel() -> void:
 	match _mode:
