@@ -10,6 +10,7 @@ var _move := 0  # the highlighted move row (kept while paging through the team)
 var _move_rows: Array = []
 var _move_info: Label
 var _moves_of: Creature
+var _in_ark := false  # summarising the Ark's creatures instead of the team
 
 func _build() -> void:
 	set_title("Summary")
@@ -18,8 +19,12 @@ func _build() -> void:
 	_body.add_theme_constant_override("separation", 22)
 	content.add_child(_body)
 
+## "3" opens team slot 3; "ark:12" opens Ark entry 12 (and pages through the Ark).
 func setup(arg: String) -> void:
-	_index = clampi(int(arg), 0, maxi(0, party().size() - 1))
+	if arg.begins_with("ark:"):
+		_in_ark = true
+		arg = arg.substr(4)
+	_index = clampi(int(arg), 0, maxi(0, _list().size() - 1))
 	_show()
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -36,7 +41,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		Audio.sfx("cursor")
 		_paint_moves()
 		return
-	if party().size() < 2:
+	if _list().size() < 2:
 		return
 	var d := 0
 	if event.is_action_pressed("move_left"):
@@ -45,17 +50,20 @@ func _unhandled_input(event: InputEvent) -> void:
 		d = 1
 	if d != 0:
 		get_viewport().set_input_as_handled()
-		_index = MenuLogic.wrap_index(_index, d, party().size())
+		_index = MenuLogic.wrap_index(_index, d, _list().size())
 		Audio.sfx("cursor")
 		_show()
 
+func _list() -> Array:
+	return Game.data.ark if _in_ark else party()
+
 func _show() -> void:
 	UIKit.clear(_body)
-	if party().is_empty():
+	if _list().is_empty():
 		return
-	var c: Creature = party()[_index]
-	header_right.text = "%d / %d" % [_index + 1, party().size()]
-	set_hint(("Up / Down  Moves        " if c.moves.size() > 1 else "") + ("Left / Right  Next creature        X  Back" if party().size() > 1 else "X  Back"))
+	var c: Creature = _list()[_index]
+	header_right.text = "%d / %d" % [_index + 1, _list().size()]
+	set_hint(("Up / Down  Moves        " if c.moves.size() > 1 else "") + ("Left / Right  Next creature        X  Back" if _list().size() > 1 else "X  Back"))
 	_body.add_child(_left(c))
 	_body.add_child(_middle(c))
 	_body.add_child(_right(c))

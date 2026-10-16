@@ -224,6 +224,59 @@ func test_first_catch_shows_the_fieldbook_popup() -> void:
 	f.run()
 	assert_eq(ui.first_catches, ["pushover"])
 
+# --- after a catch: nickname and a full party ------------------------------------
+
+func _catch(party: Array, ui: FakeBattleUI) -> BattleFlow:
+	var sp := Fixtures.species("pushover", ["kin"], 50, {"catch_rate": 255})
+	var foe := Creature.create(sp, 3, FixedRng.new(), Fixtures.moves())
+	foe.hp = 1
+	for i in 20:
+		ui.picks.append({"kind": "item", "item": "wicker_snare"})
+	var f := _flow(party, [foe], ui, {}, {"wicker_snare": 20})
+	f.run()
+	return f
+
+func _full_party() -> Array:
+	var party := []
+	for i in 6:
+		party.append(Fixtures.creature("kindlet", 10))
+	return party
+
+func test_catch_offers_a_nickname() -> void:
+	var ui := FakeBattleUI.new()
+	ui.nickname = "Biscuit"
+	var f := _catch([Fixtures.creature("kindlet", 10)], ui)
+	assert_eq(ui.nickname_asked, ["pushover"])
+	assert_eq(f.result.caught.nickname, "Biscuit")
+	assert_eq(f.result.caught.display_name(), "Biscuit")
+
+func test_declined_nickname_keeps_the_species_name() -> void:
+	var ui := FakeBattleUI.new()
+	var f := _catch([Fixtures.creature("kindlet", 10)], ui)
+	assert_eq(f.result.caught.nickname, "")
+
+func test_full_party_swap_sends_the_replaced_one_to_the_ark() -> void:
+	var party := _full_party()
+	var old: Creature = party[4]
+	var ui := FakeBattleUI.new()
+	ui.catch_slot = 4
+	var f := _catch(party, ui)
+	assert_eq(ui.destination_asked, ["pushover"])
+	assert_true(f.data.party[4] == f.result.caught, "the new catch took the slot")
+	assert_true(old in f.data.ark)
+	assert_eq(f.data.party.size(), 6)
+
+func test_full_party_can_still_choose_the_ark() -> void:
+	var ui := FakeBattleUI.new()
+	var f := _catch(_full_party(), ui)  # default: -1, the Ark
+	assert_true(f.result.caught in f.data.ark)
+	assert_eq(f.data.party.size(), 6)
+
+func test_room_in_the_party_asks_no_destination() -> void:
+	var ui := FakeBattleUI.new()
+	_catch([Fixtures.creature("kindlet", 10)], ui)
+	assert_eq(ui.destination_asked, [])
+
 # --- double battles --------------------------------------------------------------
 
 func _double_opts() -> Dictionary:

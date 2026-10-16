@@ -8,6 +8,8 @@ var _name := "Sam"
 var _sprite := "player_a"
 var _shown: Label
 var _looks: Array = []
+var _nick := false  # nickname mode (opened as "name:nickname:<Species>"): no looks, starts empty, Done on nothing keeps the name
+var _name_caption: Label
 
 func _build() -> void:
 	set_title("Who's setting off?")
@@ -42,7 +44,8 @@ func _build() -> void:
 	var nm := VBoxContainer.new()
 	nm.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	top.add_child(nm)
-	nm.add_child(UIKit.label("Name", 24, UIKit.MUTED))
+	_name_caption = UIKit.label("Name", 24, UIKit.MUTED)
+	nm.add_child(_name_caption)
 	_shown = UIKit.label("", 56, UIKit.GOLD)
 	nm.add_child(_shown)
 	var grid := GridContainer.new()
@@ -66,6 +69,20 @@ func _build() -> void:
 	_refresh()
 	UIKit.focus_later(keys[0])
 
+## Router passes everything after "name:". "nickname:<Species>" switches to nickname mode.
+func setup(arg: String) -> void:
+	if not arg.begins_with("nickname"):
+		return
+	_nick = true
+	_name = ""
+	var species := arg.get_slice(":", 1)
+	set_title("Nickname")
+	set_hint("Type a nickname, or pick letters        Enter  Done        Done on nothing keeps the name")
+	_name_caption.text = "Nickname for %s" % species if species != "" else "Nickname"
+	for b in _looks:
+		b.visible = false
+	_refresh()
+
 func _pick_look(id: String) -> void:
 	_sprite = id
 	_refresh()
@@ -82,11 +99,17 @@ func _delete() -> void:
 func _done_pressed() -> void:
 	var n := clean(_name)
 	if n == "":
+		if _nick:
+			close({"name": ""})
+			return
 		Audio.sfx("bump")
 		return
 	close({"name": n, "sprite": _sprite})
 
 func _on_cancel() -> void:
+	if _nick and _name == "":
+		close({"name": ""})
+		return
 	_delete()
 
 ## Keyboard typing comes first here: letters (Z and X included) and space type, Backspace deletes,

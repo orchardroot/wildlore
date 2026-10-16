@@ -376,9 +376,24 @@ func _conclude() -> void:
 func _after_catch(c: Creature) -> void:
 	c.reset_stages()
 	var first := not data.caught.has(c.species.id)
-	var where := data.add_creature(c)
+	var nick: String = (await ui.ask_nickname(c)).strip_edges()
+	if nick != "":
+		c.nickname = nick
+	var swapped: Creature = null
+	var where := ""
+	if data.party.size() < GameStateData.PARTY_MAX:
+		where = data.add_creature(c)
+	else:
+		var slot: int = await ui.catch_destination(c, data.party)
+		if slot >= 0 and slot < data.party.size():
+			swapped = data.party[slot]
+			where = data.add_creature_swapping(c, slot)
+		else:
+			where = data.add_creature(c)
 	species_caught.emit(c.species.id)
-	if where == "party":
+	if swapped != null:
+		await _say(["%s joined your party, and %s went to the Ark." % [c.display_name(), swapped.display_name()]])
+	elif where == "party":
 		await _say(["%s joined your party!" % c.display_name()])
 	else:
 		await _say(["Your party is full, so %s went to the Ark." % c.display_name()])

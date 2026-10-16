@@ -19,6 +19,7 @@ var _intro_done := false
 var _hidden_2d: CanvasItem
 var _dev_stage := ""  # --stage=moor overrides the stage (screenshots)
 var _dev_catch := false  # --battle-catch: in auto mode, throw snares instead of fighting
+var _dev_ask := false  # --battle-ask: in auto mode, still ask the after-catch questions (screenshots)
 var _dev_menu := ""  # --battle-menu=fight|bag|team|target|forget opens that menu straight away (screenshots)
 var _dev_cursor := -1  # --battle-cursor=N: the remembered cursor for that menu (screenshots)
 var _scale_before := -1.0  # Engine.time_scale before the battle sped it up (-1: not sped up)
@@ -31,6 +32,8 @@ func _ready() -> void:
 			Engine.time_scale = 0.25
 		if a == "--battle-catch":
 			_dev_catch = true
+		if a == "--battle-ask":
+			_dev_ask = true
 		if a.begins_with("--stage="):
 			_dev_stage = a.get_slice("=", 1)
 		if a.begins_with("--battle-menu="):
@@ -323,6 +326,33 @@ func first_catch(c: Creature) -> void:
 	if Engine.has_meta("autopilot"):
 		return
 	await PediaPopup.show_for(self, c.species.id)
+
+## After a catch: "Give it a nickname?" Yes opens the name entry. Returns the new name, or "" to keep the species name.
+func ask_nickname(c: Creature) -> String:
+	if Engine.has_meta("autopilot") or (auto and not _dev_ask):
+		return ""
+	msg.prompt("Give %s a nickname?" % c.species.name)
+	var yes: bool = await menus.yes_no()
+	msg.clear()
+	if not yes:
+		return ""
+	var r = await Router.open_menu("name:nickname:" + c.species.name)
+	return str(r.get("name", "")) if r is Dictionary else ""
+
+## After a catch with a full team: the team slot to swap with (that creature goes to the Ark), or -1 to send
+## the newcomer to the Ark.
+func catch_destination(c: Creature, party: Array) -> int:
+	if Engine.has_meta("autopilot") or (auto and not _dev_ask):
+		return -1
+	while true:
+		msg.prompt("Your team is full. What about %s?" % c.display_name())
+		if await menus.catch_destination() != 0:
+			return -1
+		msg.prompt("Swap %s in for who? They'll wait in the Ark." % c.display_name())
+		var i: int = await menus.party(party, -1, "swap")
+		if i >= 0:
+			return i
+	return -1
 
 func xp_gained(c: Creature, evs: Array) -> void:
 	Audio.sfx("xp")
