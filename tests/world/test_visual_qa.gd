@@ -104,3 +104,10 @@ func test_lamp_pool_with_water_both_sides_shrinks_in_place() -> void:
 	var t := _pool(["~~~~~", "~~~~~", "~~.~~", "~~~~~", "~~~~~"], Vector2i(2, 2))
 	assert_true(t.basis.get_scale().x <= 1.3, "just the lamp's own tile")
 	assert_true(absf(t.origin.x - 2.5) < 0.01 and absf(t.origin.z - 2.5) < 0.01, "centred")
+
+func test_custom_shaders_only_linearise_vertex_colour_where_the_solid_material_does() -> void:
+	# the solid material's vertex_color_is_srgb converts only when the output is linear (never in the
+	# Compatibility renderer, whose output is sRGB): foliage, trains and flags converting again came out darker
+	for path in ["res://art/shaders/foliage.gdshader", "res://art/shaders/train.gdshader", "res://art/shaders/flutter.gdshader"]:
+		var code := (load(path) as Shader).code
+		assert_true(code.contains("OUTPUT_IS_SRGB"), path + " checks OUTPUT_IS_SRGB before converting")
