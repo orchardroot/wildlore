@@ -16,6 +16,7 @@ var _tilt: ColorRect
 var _dark: ColorRect
 var traffic: RailTraffic
 var _rode_in := false   # on the bike when we went indoors (session memory only, not saved)
+var ambient: AmbientLife
 
 func _ready() -> void:
 	sky = SkyAndLight.new()
@@ -29,6 +30,10 @@ func _ready() -> void:
 	add_child(rig)
 	rig.target = player
 	sky.follow = player
+	sky.weather_changed.connect(func(w: String): weather = w)  # the weather ran out mid-zone
+	ambient = AmbientLife.new()
+	add_child(ambient)
+	add_child(ZoneCard.new())
 	var layer := CanvasLayer.new()
 	layer.layer = 1
 	add_child(layer)
@@ -88,10 +93,10 @@ func load_zone(zone_id: String, pos: Vector2i, facing: String) -> void:
 	Travel.note_visit(Game.data, zone)
 	Game.data.pos = pos
 	Game.data.facing = facing
-	weather = "clear" if zone.kind == "interior" else Weather.pick(zone.weather, Game.rng)
-	if Game.args.get("weather", "") != "":
-		weather = Game.args.weather
-	sky.set_weather(weather, zone.kind == "interior")
+	var outdoor := sky.weather_for_zone(zone)  # kept between zones until it runs out (see GameStateData.weather_for)
+	weather = "clear" if zone.kind == "interior" else outdoor
+	sky.set_weather(outdoor, zone.kind == "interior")
+	ambient.setup(zone, _zone_node, sky)
 	rig.configure(zone.width, zone.height, zone.kind == "interior")
 	if zone.music != "":
 		Audio.play_music(zone.music)

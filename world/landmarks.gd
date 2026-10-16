@@ -17,10 +17,27 @@ const GLASS := Color.WHITE
 ## Building styles handled here rather than by the generic house in Meshes.building.
 const SPECIAL := ["glass_tower", "gantry_crane", "mill", "castle", "cathedral", "liver_building", "station", "aqueduct", "chapel", "terrace", "tudor", "slate_cottage", "lighthouse_house"]
 
+## Per-window variety for the night: shared by every _window in one building() call.
+static var _wr := RandomNumberGenerator.new()
+## Chimney tops (local) collected while building, for the smoke.
+static var _chimneys := PackedVector3Array()
+
+## A pane's vertex colour: rgb = brightness when lit (0 = an empty, dark room), alpha = how late in the night
+## it goes out (1 = burns all night). See SkyAndLight.lateness and art/shaders/windows.gdshader.
+static func window_colour(rng: RandomNumberGenerator) -> Color:
+	if rng.randf() < 0.15:
+		return Color(0, 0, 0, 1)
+	var b := rng.randf_range(0.55, 1.0)
+	var bedtime := rng.randf_range(0.1, 0.95) if rng.randf() < 0.4 else 1.0
+	return Color(b, b, b, bedtime)
+
+## Returns [body_mesh, windows_mesh, chimney tops (PackedVector3Array, local)].
 static func building(w: int, d: int, style: String, door_x: int, seed_value: int) -> Array:
 	var rng := Meshes._rng(seed_value)
 	var st := Meshes._st()
 	var wst := Meshes._st()
+	_wr.seed = seed_value * 7 + 3
+	_chimneys = PackedVector3Array()
 	match style:
 		"mill":
 			_mill(st, wst, w, d, door_x, rng)
@@ -48,7 +65,7 @@ static func building(w: int, d: int, style: String, door_x: int, seed_value: int
 			_house(st, wst, w, d, door_x, rng, SLATE_WALL, SLATE.darkened(0.2), 1, false, false)
 		_:
 			_house(st, wst, w, d, door_x, rng, BRICK, SLATE, 2, false, false)
-	return [Meshes._finish(st), Meshes._finish(wst)]
+	return [Meshes._finish(st), Meshes._finish(wst), _chimneys]
 
 # --- houses ------------------------------------------------------------------
 
@@ -78,9 +95,11 @@ static func _house(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: in
 			Meshes.box(st, Vector3(i - 0.12, hgt + 1.25, d * 0.5 - 0.12), Vector3(0.1, 0.14, 0.1), Color("a0553c"))
 			Meshes.box(st, Vector3(i + 0.04, hgt + 1.25, d * 0.5 - 0.12), Vector3(0.1, 0.14, 0.1), Color("a0553c"))
 			Meshes.box(st, Vector3(i - 0.03, 0.16, d - 0.04), Vector3(0.06, hgt - 0.2, 0.05), wall.darkened(0.15))
+			_chimneys.append(Vector3(i, hgt + 1.39, d * 0.5 - 0.07))
 	else:
 		var cx := rng.randf_range(0.6, maxf(0.7, w - 0.9))
 		Meshes.box(st, Vector3(cx, hgt + 0.3, d * 0.5 - 0.2), Vector3(0.35, 0.95, 0.4), wall.darkened(0.2) if not tudor else Color("8a4b3b"))
+		_chimneys.append(Vector3(cx + 0.175, hgt + 1.25, d * 0.5))
 	_door(st, door_x, d + (0.0 if not tudor else 0.0), wall)
 	for s in storeys:
 		var wy := 0.4 + 1.15 * s
@@ -113,7 +132,7 @@ static func _door(st: SurfaceTool, door_x: int, d: float, wall: Color, h := 0.9)
 ## A window on the south face: frame into the body mesh, glass into the glow mesh (lit at night).
 static func _window(st: SurfaceTool, wst: SurfaceTool, x: float, y: float, d: float, ww: float, wh: float, frame: Color) -> void:
 	Meshes.box(st, Vector3(x, y - 0.06, d - 0.07), Vector3(ww, wh + 0.1, 0.04), frame)
-	Meshes.box(wst, Vector3(x + 0.05, y, d - 0.065), Vector3(ww - 0.1, wh - 0.02, 0.04), GLASS)
+	Meshes.box(wst, Vector3(x + 0.05, y, d - 0.065), Vector3(ww - 0.1, wh - 0.02, 0.04), window_colour(_wr))
 
 # --- industry ----------------------------------------------------------------
 
@@ -135,6 +154,7 @@ static func _mill(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int
 	var cx := w - 1.0
 	Meshes.cylinder(st, Vector3(cx, 0, d * 0.4), 0.45, hgt + 3.4, 8, DARK_BRICK)
 	Meshes.cylinder(st, Vector3(cx, hgt + 3.2, d * 0.4), 0.48, 0.25, 8, LIMESTONE)
+	_chimneys.append(Vector3(cx, hgt + 3.5, d * 0.4))
 	_door(st, door_x, d, BRICK, 1.1)
 
 ## Station building with a glass canopy reaching one tile south over the platform.
@@ -311,7 +331,7 @@ static func _glass_tower(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door
 			for x in range(int(ins) + 0, w - int(ceil(ins))):
 				if r == 0 and y0 == 0.0 and x == door_x:
 					continue
-				Meshes.box(wst, Vector3(x + 0.2, y0 + 0.25 + r * 0.7, d - ins - 0.03), Vector3(0.6, 0.4, 0.04), Color.WHITE)
+				Meshes.box(wst, Vector3(x + 0.2, y0 + 0.25 + r * 0.7, d - ins - 0.03), Vector3(0.6, 0.4, 0.04), window_colour(_wr))
 	Meshes.box(st, Vector3(w * 0.5 - 0.15, 11.5, d * 0.5 - 0.15), Vector3(0.3, 3.0, 0.3), frame.lightened(0.3))  # spire
 	if door_x >= 0:
 		Meshes.box(st, Vector3(door_x + 0.15, 0, d - 0.06), Vector3(0.7, 1.2, 0.08), frame)

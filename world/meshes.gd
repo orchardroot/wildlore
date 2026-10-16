@@ -3,10 +3,16 @@ extends RefCounted
 ## Procedural low-poly, flat-shaded, vertex-coloured meshes. No textures: colour lives in the vertices.
 ## All shapes sit on y = 0 at their origin and fit a 1x1 tile unless noted.
 
-## Shared materials. `solid` for buildings, rocks and ground; `foliage` sways in the wind; `glow` is lit windows.
+## Shared materials. `solid` for buildings and rocks; `foliage` sways in the wind; `glow` is lamps (and the
+## battle backdrops' windows); `windows` is lit windows, each pane's brightness and bedtime in its vertex
+## colour; `ground` darkens and shines in the rain and rimes over in a frost; `bobbing` rides the water.
 static var solid: StandardMaterial3D
 static var foliage: ShaderMaterial
 static var glow: StandardMaterial3D
+static var windows: ShaderMaterial
+static var ground: ShaderMaterial
+static var bobbing: ShaderMaterial
+static var bobbing_calm: ShaderMaterial  # canal boats: barely a ripple
 
 static func materials() -> void:
 	if solid != null:
@@ -23,6 +29,15 @@ static func materials() -> void:
 	glow.emission_enabled = true
 	glow.emission = Color("ffc860")
 	glow.emission_energy_multiplier = 0.0
+	windows = ShaderMaterial.new()
+	windows.shader = load("res://art/shaders/windows.gdshader")
+	ground = ShaderMaterial.new()
+	ground.shader = load("res://art/shaders/ground.gdshader")
+	bobbing = ShaderMaterial.new()
+	bobbing.shader = load("res://art/shaders/bobbing.gdshader")
+	bobbing_calm = ShaderMaterial.new()
+	bobbing_calm.shader = bobbing.shader
+	bobbing_calm.set_shader_parameter("amount", 0.3)
 
 # --- primitive helpers -------------------------------------------------------
 
@@ -367,7 +382,8 @@ const ROOFS := {
 }
 
 ## A building occupying w x d tiles with its origin at the footprint's north-west corner (tile edges, not centres).
-## `door_x` is the door column relative to the footprint (-1 for none). Returns [body_mesh, windows_mesh].
+## `door_x` is the door column relative to the footprint (-1 for none). Returns [body_mesh, windows_mesh,
+## chimney tops (PackedVector3Array, local)].
 static func building(w: int, d: int, style: String, door_x := -1, seed_value := 0) -> Array:
 	if style in Landmarks.SPECIAL:
 		return Landmarks.building(w, d, style, door_x, seed_value)
@@ -401,6 +417,7 @@ static func building(w: int, d: int, style: String, door_x := -1, seed_value := 
 	# chimney
 	var cx := rng.randf_range(0.6, w - 0.9)
 	box(st, Vector3(cx, ry + rise * 0.4, d * 0.5 - 0.2), Vector3(0.35, rise * 0.9, 0.4), wall.darkened(0.2))
+	var chimneys := PackedVector3Array([Vector3(cx + 0.175, ry + rise * 1.3, d * 0.5)])
 	# door
 	if door_x >= 0:
 		box(st, Vector3(door_x + 0.22, 0.18, d - 0.08), Vector3(0.56, 0.9, 0.06), Color("3b2a22"))
@@ -412,5 +429,5 @@ static func building(w: int, d: int, style: String, door_x := -1, seed_value := 
 			if x == door_x and s == 0:
 				continue
 			box(st, Vector3(x + 0.27, wy - 0.06, d - 0.07), Vector3(0.46, 0.6, 0.04), wall.lightened(0.25))
-			box(wst, Vector3(x + 0.32, wy, d - 0.065), Vector3(0.36, 0.48, 0.04), Color.WHITE)
-	return [_finish(st), _finish(wst)]
+			box(wst, Vector3(x + 0.32, wy, d - 0.065), Vector3(0.36, 0.48, 0.04), Landmarks.window_colour(rng))
+	return [_finish(st), _finish(wst), chimneys]
