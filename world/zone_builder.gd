@@ -218,7 +218,8 @@ const POINT_PROPS := ["lamp_post", "bench", "bush", "birch", "oak", "pine", "roc
 	"post_box", "bookshelf", "potted_plant", "table", "bed", "standing_stone", "slate_heap", "boat", "canal_boat", "bollard",
 	"buoy", "lighthouse", "statue", "harp", "clock_tower", "shard", "buffer_stop", "tunnel_portal",
 	"bunting", "flagpole", "washing_line", "hanging_basket", "rug", "fireplace", "wall_picture", "clock", "kitchen_dresser",
-	"fryer", "menu_board", "piano", "telescope", "plant_stand", "sofa", "display_case", "cascade"]
+	"fryer", "menu_board", "piano", "telescope", "plant_stand", "sofa", "display_case", "cascade", "sheep",
+	"field_gate", "limestone_pavement"]
 ## Cloth meshes that ripple (flutter shader) and glow meshes that add light (firelight shader).
 const CLOTH := ["bunting", "flag", "washing_line"]
 const FLOATING := ["boat", "canal_boat", "buoy"]
@@ -240,6 +241,8 @@ static func _props(z: ZoneData, root: Node3D, rng: RandomNumberGenerator) -> voi
 				if prop_name == "none":
 					continue
 				spec = [prop_name + ("_tuft" if prop_name == "heather" else ""), 3, true]
+			elif prop_name == "pavement":
+				spec = ["limestone_pavement", 3, false]  # limestone pavement laid over a walkable tile
 			else:
 				if prop_name != "":
 					t = {"oak": "tree_oak", "pine": "tree_pine", "birch": "tree_oak", "bush": "rock", "rock": "rock"}.get(prop_name, t)
@@ -256,6 +259,8 @@ static func _props(z: ZoneData, root: Node3D, rng: RandomNumberGenerator) -> voi
 				var ew := z.tile_at(p + Vector2i(-1, 0)) == t or z.tile_at(p + Vector2i(1, 0)) == t
 				if ns and not ew:
 					basis = Basis(Vector3.UP, PI / 2)
+			elif prop_name == "pavement":
+				basis = Basis(Vector3.UP, PI * 0.5 * (rng.randi() % 4))  # slabs keep square to the tile
 			elif t != "counter":
 				basis = Basis(Vector3.UP, rng.randf() * TAU)
 				var s := rng.randf_range(0.9, 1.15) if t.begins_with("tree") else 1.0
@@ -442,6 +447,12 @@ static func _ctor(name: String, variant: int) -> ArrayMesh:
 			return Landmarks.tunnel_portal(variant)
 		"cascade":
 			return Landmarks.cascade(variant)
+		"sheep":
+			return Landmarks.sheep(variant)
+		"field_gate":
+			return Landmarks.field_gate(variant)
+		"limestone_pavement":
+			return Landmarks.limestone_pavement(variant)
 		"boat":
 			return Landmarks.boat(variant)
 		"canal_boat":

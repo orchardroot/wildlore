@@ -16,7 +16,7 @@ const IRON := Color("3c4450")
 const GLASS := Color.WHITE
 
 ## Building styles handled here rather than by the generic house in Meshes.building.
-const SPECIAL := ["glass_tower", "gantry_crane", "cantilever_crane", "titanic", "mill", "castle", "cathedral", "liver_building", "station", "aqueduct", "chapel", "terrace", "tudor", "slate_cottage", "lighthouse_house", "round_tower", "passage_tomb"]
+const SPECIAL := ["glass_tower", "gantry_crane", "cantilever_crane", "titanic", "mill", "castle", "cathedral", "liver_building", "station", "aqueduct", "chapel", "terrace", "tudor", "slate_cottage", "lighthouse_house", "round_tower", "passage_tomb", "field_barn"]
 
 ## Doors: where each style's door sits on its tile (see _door and friends), for the swing as you go in.
 ## {x, w, y, h, z}: left edge and width across the door column, bottom and height, z of the door's face from
@@ -113,6 +113,8 @@ static func building(w: int, d: int, style: String, door_x: int, seed_value: int
 			_round_tower(st, wst, w, d, door_x)
 		"passage_tomb":
 			_passage_tomb(st, w, d, door_x)
+		"field_barn":
+			_field_barn(st, w, d, rng)
 		"liver_building":
 			_liver(st, wst, w, d, door_x)
 		"station":
@@ -697,6 +699,79 @@ static func cascade(variant := 0) -> ArrayMesh:
 	for i in 8:
 		var z := -0.42 + i * 0.12
 		Meshes.blob(st, Vector3(rng.randf_range(-0.2, 0.12), 0.02, z), Vector3(0.17, 0.06, 0.12), Color("f2f8fa"), rng, 0.3)
+	return Meshes._finish(st)
+
+# --- the countryside ----------------------------------------------------------
+
+## A Dales field barn (a laithe): rubble stone walls with through-stones sticking out, a stone-slate roof, a
+## wide cart door and a row of little forking holes. Nobody goes in: it has no door tile.
+static func _field_barn(st: SurfaceTool, w: int, d: int, rng: RandomNumberGenerator) -> void:
+	var stone := Color("a39b8b")
+	var roof := Color("5d5850")
+	var h := 1.25
+	for row in 5:
+		var y := row * h / 5.0
+		var c := stone.lightened(rng.randf_range(-0.08, 0.06))
+		Meshes.box(st, Vector3(0.08, y, 0.12), Vector3(w - 0.16, h / 5.0, d - 0.24), c)
+	for i in w:
+		Meshes.box(st, Vector3(i + 0.35, h * 0.55, d - 0.16), Vector3(0.18, 0.08, 0.1), stone.darkened(0.15))  # through-stones
+		Meshes.box(st, Vector3(i + 0.4, h * 0.8, d - 0.13), Vector3(0.12, 0.12, 0.02), Color("2a2622"))       # forking holes
+	Meshes.box(st, Vector3(w * 0.5 - 0.4, 0, d - 0.13), Vector3(0.8, 0.85, 0.03), Color("4d3b2c"))  # cart door
+	Meshes.box(st, Vector3(w * 0.5 - 0.48, 0.85, d - 0.14), Vector3(0.96, 0.1, 0.06), stone.lightened(0.12))  # lintel
+	_roof(st, w, d, h, roof, stone, 0.32)
+
+## Field sheep standing about (point props: no creature, just wool). 0 Herdwick (grey fleece, white face, the
+## Lakes), 1 Swaledale (white fleece, black face, the Dales), 2 a Herdwick with its head down grazing.
+static func sheep(variant := 0) -> ArrayMesh:
+	var rng := Meshes._rng(9700 + variant)
+	var st := Meshes._st()
+	var fleece := Color("e6e1d6") if variant == 1 else Color("8f8a84")
+	var face := Color("24211f") if variant == 1 else Color("e9e6df")
+	var leg := Color("2a2725")
+	for p in [Vector2(-0.14, -0.09), Vector2(0.14, -0.09), Vector2(-0.14, 0.09), Vector2(0.14, 0.09)]:
+		Meshes.box(st, Vector3(p.x - 0.03, 0, p.y - 0.03), Vector3(0.06, 0.18, 0.06), leg)
+	Meshes.blob(st, Vector3(0, 0.27, 0), Vector3(0.24, 0.13, 0.16), fleece, rng, 0.12)
+	var head_y := 0.14 if variant == 2 else 0.34
+	Meshes.box(st, Vector3(0.22, head_y - 0.06, -0.06), Vector3(0.14, 0.12, 0.12), face)
+	Meshes.box(st, Vector3(0.23, head_y + 0.03, -0.1), Vector3(0.04, 0.03, 0.2), face.darkened(0.1))  # ears
+	if variant == 1:
+		Meshes.box(st, Vector3(0.24, head_y + 0.02, -0.09), Vector3(0.06, 0.06, 0.03), Color("c9bfa8"))  # curled horn
+		Meshes.box(st, Vector3(0.24, head_y + 0.02, 0.06), Vector3(0.06, 0.06, 0.03), Color("c9bfa8"))
+	return Meshes._finish(st)
+
+## A five-bar field gate standing open, folded back against the wall beside a gap: the hanging post at the
+## gap side (+x), the gate in front of the wall's face (+z). Stand it on the wall tile next to the gap, turned
+## (rot) so +x points into the gap. Variant 1 is weathered grey, 2 painted white.
+static func field_gate(variant := 0) -> ArrayMesh:
+	var st := Meshes._st()
+	var wood: Color = [Color("8a6a46"), Color("8c8a82"), Color("e8e4da")][variant % 3]
+	Meshes.box(st, Vector3(0.36, 0, 0.18), Vector3(0.12, 0.86, 0.12), Color("6d5a44") if variant != 2 else wood.darkened(0.1))
+	for i in 5:
+		Meshes.box(st, Vector3(-0.48, 0.12 + i * 0.13, 0.27), Vector3(0.86, 0.05, 0.04), wood)
+	Meshes.box(st, Vector3(-0.48, 0.1, 0.26), Vector3(0.06, 0.62, 0.06), wood.darkened(0.08))
+	Meshes.box(st, Vector3(0.28, 0.1, 0.26), Vector3(0.06, 0.62, 0.06), wood.darkened(0.08))
+	# the diagonal brace, in short steps
+	for i in 6:
+		var t := i / 5.0
+		Meshes.box(st, Vector3(lerpf(0.24, -0.44, t), lerpf(0.14, 0.6, t), 0.25), Vector3(0.12, 0.05, 0.03), wood.darkened(0.05))
+	return Meshes._finish(st)
+
+## Limestone pavement: flat clints split by dark grikes, lying on its tile. Walk over it.
+static func limestone_pavement(variant := 0) -> ArrayMesh:
+	var rng := Meshes._rng(9800 + variant)
+	var st := Meshes._st()
+	var stone := Color("bdb9ac")
+	# two bands of clints, each band split at its own place, so the grikes don't line up like floor tiles
+	for j in 2:
+		var z0 := -0.5 + j * 0.5 + 0.03
+		var cut := rng.randf_range(-0.25, 0.25)
+		for part in [[-0.5, cut], [cut, 0.5]]:
+			if rng.randf() < 0.1:
+				continue  # turf has filled this one in
+			var x0: float = part[0] + 0.03
+			var x1: float = part[1] - 0.03
+			var c := stone.lightened(rng.randf_range(-0.1, 0.06))
+			Meshes.box(st, Vector3(x0, 0, z0), Vector3(x1 - x0, rng.randf_range(0.04, 0.08), 0.44 + rng.randf_range(-0.04, 0.0)), c)
 	return Meshes._finish(st)
 
 static func standing_stone(variant := 0) -> ArrayMesh:
