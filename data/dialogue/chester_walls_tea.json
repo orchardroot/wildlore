@@ -1,0 +1,41 @@
+{
+ "walls_tea_lady": [
+  {
+   "do": "say",
+   "who": "Tea Lady",
+   "text": "Come in, come in. You look like you have walked the Walls."
+  },
+  {
+   "do": "say",
+   "who": "Tea Lady",
+   "text": "You can walk the whole circuit. It is nearly two miles, and the most complete city walls in Britain."
+  },
+  {
+   "do": "if",
+   "flag": "chester_walls_tea_gift",
+   "then": [
+    {
+     "do": "say",
+     "who": "Tea Lady",
+     "text": "Another flask? You will float away. Off you go."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Tea Lady",
+     "text": "Here, a flask for the road. Fresh brewed. Do not tell the Romans I used a teabag."
+    },
+    {
+     "do": "give_item",
+     "item": "flask_of_tea",
+     "n": 1
+    },
+    {
+     "do": "set",
+     "flag": "chester_walls_tea_gift"
+    }
+   ]
+  }
+ ]
+}
