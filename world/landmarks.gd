@@ -9,13 +9,75 @@ const DARK_BRICK := Color("7a3a30")
 const SANDSTONE := Color("b5654a")   # Chester's red sandstone
 const SLATE := Color("4d5563")
 const SLATE_WALL := Color("7d838a")
+const PEAT := Color("4a3626")
 const LIMESTONE := Color("c9c0aa")
 const PORTLAND := Color("d8d2c2")    # Liver Building granite and Portland stone, near enough
 const IRON := Color("3c4450")
 const GLASS := Color.WHITE
 
 ## Building styles handled here rather than by the generic house in Meshes.building.
-const SPECIAL := ["glass_tower", "gantry_crane", "mill", "castle", "cathedral", "liver_building", "station", "aqueduct", "chapel", "terrace", "tudor", "slate_cottage", "lighthouse_house"]
+const SPECIAL := ["glass_tower", "gantry_crane", "mill", "castle", "cathedral", "liver_building", "station", "aqueduct", "chapel", "terrace", "tudor", "slate_cottage", "lighthouse_house", "round_tower", "passage_tomb"]
+
+## Doors: where each style's door sits on its tile (see _door and friends), for the swing as you go in.
+## {x, w, y, h, z}: left edge and width across the door column, bottom and height, z of the door's face from
+## the footprint's south edge. Styles drawn by Meshes.building (and anything unknown) use DOOR_PLAIN.
+const DOOR_PLAIN := {"x": 0.22, "w": 0.56, "y": 0.18, "h": 0.9, "z": -0.02}
+const DOOR_RECTS := {
+	"mill": {"x": 0.22, "w": 0.56, "y": 0.16, "h": 1.1, "z": -0.02},
+	"station": {"x": 0.22, "w": 0.56, "y": 0.16, "h": 1.0, "z": -0.02},
+	"chapel": {"x": 0.22, "w": 0.56, "y": 0.16, "h": 1.1, "z": -0.02},
+	"liver_building": {"x": 0.22, "w": 0.56, "y": 0.16, "h": 1.2, "z": -0.02},
+	"terrace": {"x": 0.22, "w": 0.56, "y": 0.16, "h": 0.9, "z": -0.02},
+	"tudor": {"x": 0.22, "w": 0.56, "y": 0.16, "h": 0.9, "z": -0.02},
+	"slate_cottage": {"x": 0.22, "w": 0.56, "y": 0.16, "h": 0.9, "z": -0.02},
+	"lighthouse_house": {"x": 0.22, "w": 0.56, "y": 0.16, "h": 0.9, "z": -0.02},
+	"castle": {"x": 0.2, "w": 0.6, "y": 0.0, "h": 1.1, "z": 0.11},
+	"cathedral": {"x": 0.15, "w": 0.7, "y": 0.0, "h": 1.3, "z": 0.03},
+	"glass_tower": {"x": 0.15, "w": 0.7, "y": 0.0, "h": 1.2, "z": 0.02},
+}
+const DOOR_OPEN_ANGLE := -1.75     # radians about the hinge: swings out toward you, about 100 degrees
+const DOOR_SWING_SECS := 0.16
+const DOOR_WOOD := Color("3b2a22")
+static var _doorway_mat: StandardMaterial3D
+static var _leaf_mat: StandardMaterial3D
+
+static func door_rect(style: String) -> Dictionary:
+	return DOOR_RECTS.get(style, DOOR_PLAIN)
+
+## A door that opens: a dark doorway over the painted door, and a leaf on a hinge ("Hinge", turned by
+## DOOR_OPEN_ANGLE to open). Local origin is the door column's south-west corner at ground level.
+static func door_swing(style: String) -> Node3D:
+	var r := door_rect(style)
+	if _doorway_mat == null:
+		_doorway_mat = StandardMaterial3D.new()
+		_doorway_mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+		_doorway_mat.albedo_color = Color(0.03, 0.025, 0.03)
+		_leaf_mat = StandardMaterial3D.new()
+		_leaf_mat.albedo_color = DOOR_WOOD
+	var root := Node3D.new()
+	root.name = "DoorSwing"
+	var hole := MeshInstance3D.new()
+	hole.name = "Doorway"
+	var hm := BoxMesh.new()
+	hm.size = Vector3(float(r.w), float(r.h), 0.02)
+	hole.mesh = hm
+	hole.material_override = _doorway_mat
+	hole.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	hole.position = Vector3(float(r.x) + float(r.w) * 0.5, float(r.y) + float(r.h) * 0.5, float(r.z) + 0.012)
+	root.add_child(hole)
+	var hinge := Node3D.new()
+	hinge.name = "Hinge"
+	hinge.position = Vector3(float(r.x), float(r.y), float(r.z) + 0.03)
+	root.add_child(hinge)
+	var leaf := MeshInstance3D.new()
+	leaf.name = "Leaf"
+	var lm := BoxMesh.new()
+	lm.size = Vector3(float(r.w), float(r.h), 0.05)
+	leaf.mesh = lm
+	leaf.material_override = _leaf_mat
+	leaf.position = Vector3(float(r.w) * 0.5, float(r.h) * 0.5, 0.0)
+	hinge.add_child(leaf)
+	return root
 
 ## Per-window variety for the night: shared by every _window in one building() call.
 static var _wr := RandomNumberGenerator.new()
@@ -47,6 +109,10 @@ static func building(w: int, d: int, style: String, door_x: int, seed_value: int
 			_cathedral(st, wst, w, d, door_x, SANDSTONE)
 		"chapel":
 			_chapel(st, wst, w, d, door_x)
+		"round_tower":
+			_round_tower(st, wst, w, d, door_x)
+		"passage_tomb":
+			_passage_tomb(st, w, d, door_x)
 		"liver_building":
 			_liver(st, wst, w, d, door_x)
 		"station":
@@ -264,6 +330,72 @@ static func _chapel(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: i
 		_window(st, wst, x, 0.5, d, 0.5, 1.5, wall.lightened(0.25))
 	_door(st, door_x, d, wall, 1.1)
 
+## An Irish round tower: a tall tapering stone needle with a conical cap, standing at the front of its plot (the door
+## faces south); the rest of the footprint is a little walled churchyard.
+static func _round_tower(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int) -> void:
+	var stone := Color("a39d8e")
+	var r := minf(w, 2.0) * 0.45
+	var c := Vector3(w * 0.5, 0, d - r - 0.08)
+	var h := 5.6
+	Meshes.cylinder(st, c, r, h, 10, stone)
+	Meshes.cone(st, c + Vector3(0, h, 0), r * 0.95, 1.3, 10, stone.darkened(0.12), Meshes._rng(41))
+	for y in [2.4, 3.6, 4.8]:
+		_window(st, wst, c.x - 0.1, y, c.z + r * 0.9 + 0.05, 0.2, 0.32, stone.darkened(0.2))
+	if door_x >= 0:  # one door, centred on the tower whichever tile the warp is on
+		Meshes.box(st, Vector3(c.x - 0.25, 0.1, c.z + r - 0.12), Vector3(0.5, 0.85, 0.12), Color("3b2a22"))
+		Meshes.box(st, Vector3(c.x - 0.31, 0.95, c.z + r - 0.13), Vector3(0.62, 0.08, 0.13), stone.lightened(0.2))
+	# churchyard wall round the rest of the plot
+	var wall := stone.darkened(0.1)
+	var back := c.z - r
+	if back > 0.6:
+		Meshes.box(st, Vector3(0.05, 0, 0.05), Vector3(w - 0.1, 0.45, 0.2), wall)
+		Meshes.box(st, Vector3(0.05, 0, 0.05), Vector3(0.2, 0.45, back), wall)
+		Meshes.box(st, Vector3(w - 0.25, 0, 0.05), Vector3(0.2, 0.45, back), wall)
+
+## A Neolithic passage tomb (Newgrange): a low grassy mound ringed at the front by white quartz, with the dark
+## passage mouth and its carved entrance stone on the south side.
+static func _passage_tomb(st: SurfaceTool, w: int, d: int, door_x: int) -> void:
+	var grass := Color("5f8a3e")
+	var quartz := Color("eceae2")
+	var c := Vector3(w * 0.5, 0, d * 0.5)
+	var rx := w * 0.5
+	var rz := d * 0.5
+	var sides := 16
+	var wall_h := 0.75
+	Meshes.box(st, Vector3(0, 0, 0), Vector3(w, 0.03, d), grass.darkened(0.05))  # turf in the plot's corners
+	# quartz revetment: a band round the whole base (the back is hidden in the grass anyway)
+	var lo := _ellipse(c, rx, rz, 0.0, sides)
+	var hi := _ellipse(c, rx, rz, wall_h, sides)
+	for i in sides:
+		var j := (i + 1) % sides
+		var col := quartz if lo[i].z > c.z - 0.2 else quartz.darkened(0.25)
+		Meshes._quad(st, lo[i], lo[j], hi[j], hi[i], col.darkened(0.05 * (i % 2)))
+	# the grassy dome on top, in bands
+	var bands := [[0.98, wall_h], [0.85, wall_h + 0.45], [0.62, wall_h + 0.8], [0.3, wall_h + 1.0]]
+	var prev := _ellipse(c, rx, rz, wall_h, sides)
+	for b in bands.slice(1):
+		var ring := _ellipse(c, rx * b[0], rz * b[0], b[1], sides)
+		for i in sides:
+			var j := (i + 1) % sides
+			Meshes._quad(st, prev[i], prev[j], ring[j], ring[i], grass.lightened(0.04 * (i % 3)))
+		prev = ring
+	for i in sides:
+		Meshes._tri(st, prev[i], prev[(i + 1) % sides], Vector3(c.x, wall_h + 1.08, c.z), grass.lightened(0.08))
+	# the passage mouth, its lintel stones, and the carved kerbstone lying across the front
+	var mx := (door_x + 0.5) if door_x >= 0 else c.x
+	var fz := c.z + rz
+	Meshes.box(st, Vector3(mx - 0.22, 0.2, fz - 0.06), Vector3(0.44, 0.5, 0.1), Color("1d1a17"))
+	Meshes.box(st, Vector3(mx - 0.36, 0.7, fz - 0.08), Vector3(0.72, 0.14, 0.14), Color("8d8678"))
+	Meshes.box(st, Vector3(mx - 0.3, 0.86, fz - 0.1), Vector3(0.6, 0.12, 0.12), Color("8d8678"))
+	Meshes.box(st, Vector3(mx - 0.55, 0, fz - 0.22), Vector3(1.1, 0.26, 0.24), Color("9a9384"))
+
+static func _ellipse(c: Vector3, rx: float, rz: float, y: float, sides: int) -> Array:
+	var pts := []
+	for i in sides:
+		var a := TAU * i / sides
+		pts.append(Vector3(c.x + cos(a) * rx, y, c.z + sin(a) * rz))
+	return pts
+
 ## The Liver Building: a tall granite block, two clock towers with green domes and a Liver Bird on each.
 static func _liver(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int) -> void:
 	var h := 3.6
@@ -348,13 +480,15 @@ static func standing_stone(variant := 0) -> ArrayMesh:
 	Meshes.blob(st, Vector3(0.1, h * 0.5, 0.15), Vector3(0.1, 0.12, 0.04), Color("9fae6a"), rng)  # lichen
 	return Meshes._finish(st)
 
+## Variants 0 to 2 are slate (or slag); variant 3 is a stack of cut peat.
 static func slate_heap(variant := 0) -> ArrayMesh:
 	var rng := Meshes._rng(9200 + variant)
 	var st := Meshes._st()
+	var col := PEAT if variant == 3 else SLATE
 	for i in 9:
 		var y := i * 0.09
 		var s := 0.9 - i * 0.08
-		Meshes.box(st, Vector3(-s * 0.5 + rng.randf_range(-0.05, 0.05), y, -s * 0.45), Vector3(s, 0.08, s * 0.9), SLATE.lightened(rng.randf_range(-0.08, 0.12)))
+		Meshes.box(st, Vector3(-s * 0.5 + rng.randf_range(-0.05, 0.05), y, -s * 0.45), Vector3(s, 0.08, s * 0.9), col.lightened(rng.randf_range(-0.08, 0.12)))
 	return Meshes._finish(st)
 
 static func scree_rubble(variant := 0) -> ArrayMesh:
@@ -547,6 +681,42 @@ static func lighthouse() -> ArrayMesh:
 		Meshes.cylinder(st, Vector3(0, i * 0.6, 0), 0.5 - i * 0.04, 0.6, 10, Color("f2efe6") if i % 2 == 0 else Color("c8102e"))
 	Meshes.cylinder(st, Vector3(0, 3.0, 0), 0.4, 0.4, 10, Color("f8e9a0"))
 	Meshes.cylinder(st, Vector3(0, 3.4, 0), 0.45, 0.15, 10, Color("1d1d1d"))
+	return Meshes._finish(st)
+
+## Big Ben, near enough: a stone shaft, a clock face on every side, a belfry and a tall pointed roof.
+static func clock_tower() -> ArrayMesh:
+	var st := Meshes._st()
+	var stone := Color("c9b98a")
+	var gilt := Color("c9a441")
+	Meshes.box(st, Vector3(-0.4, 0, -0.4), Vector3(0.8, 0.25, 0.8), stone.darkened(0.2))
+	Meshes.box(st, Vector3(-0.33, 0.25, -0.33), Vector3(0.66, 2.75, 0.66), stone)
+	for i in 4:
+		Meshes.box(st, Vector3(-0.35, 0.6 + i * 0.6, -0.35), Vector3(0.7, 0.05, 0.7), stone.darkened(0.12))
+	# the clock stage, a touch wider, with a face on each side
+	Meshes.box(st, Vector3(-0.38, 3.0, -0.38), Vector3(0.76, 0.7, 0.76), stone.lightened(0.05))
+	for f in [[Vector3(-0.22, 3.12, 0.385), Vector3(0.44, 0.44, 0.02)], [Vector3(-0.22, 3.12, -0.405), Vector3(0.44, 0.44, 0.02)],
+			[Vector3(0.385, 3.12, -0.22), Vector3(0.02, 0.44, 0.44)], [Vector3(-0.405, 3.12, -0.22), Vector3(0.02, 0.44, 0.44)]]:
+		Meshes.box(st, f[0], f[1], Color("f4ecd2"))
+	Meshes.box(st, Vector3(-0.02, 3.33, 0.4), Vector3(0.04, 0.16, 0.02), Color("1d1d1d"))
+	Meshes.box(st, Vector3(-0.02, 3.33, 0.4), Vector3(0.12, 0.03, 0.02), Color("1d1d1d"))
+	# belfry and spire
+	Meshes.box(st, Vector3(-0.3, 3.7, -0.3), Vector3(0.6, 0.35, 0.6), stone.darkened(0.08))
+	for i in 5:
+		var r := 0.3 - i * 0.06
+		Meshes.box(st, Vector3(-r, 4.05 + i * 0.2, -r), Vector3(r * 2.0, 0.2, r * 2.0), SLATE.lightened(0.1 * (i % 2)))
+	Meshes.box(st, Vector3(-0.025, 5.05, -0.025), Vector3(0.05, 0.3, 0.05), gilt)
+	return Meshes._finish(st)
+
+## The Shard: a tall, tapering spike of pale blue glass, its tip left ragged.
+static func shard() -> ArrayMesh:
+	var st := Meshes._st()
+	var glass := Color("9fc1d6")
+	var n := 12
+	for i in n:
+		var r := 0.48 * (1.0 - float(i) / n) + 0.04
+		Meshes.box(st, Vector3(-r, i * 0.45, -r * 0.8), Vector3(r * 2.0, 0.45, r * 1.6), glass.darkened(0.04 * (i % 3)).lightened(0.02 * i))
+	for k in 3:
+		Meshes.box(st, Vector3(-0.06 + k * 0.05, n * 0.45, -0.03), Vector3(0.03, 0.25 + 0.15 * k, 0.03), glass.lightened(0.2))
 	return Meshes._finish(st)
 
 static func statue(variant := 0) -> ArrayMesh:

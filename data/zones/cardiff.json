@@ -205,7 +205,7 @@
    "id": "cardiff_fox_watcher",
    "sprite": "fox_watcher",
    "x": 28,
-   "y": 19,
+   "y": 21,
    "facing": "down",
    "move": "still",
    "script": "cardiff_fox_watcher",
@@ -522,11 +522,6 @@
   },
   {
    "type": "bollard",
-   "x": 52.0,
-   "y": 33.0
-  },
-  {
-   "type": "bollard",
    "x": 58.0,
    "y": 33.0
   },
@@ -648,7 +643,7 @@
    "type": "building",
    "style": "red_brick",
    "x": 52,
-   "y": 31,
+   "y": 32,
    "w": 4,
    "h": 2
   },
@@ -661,7 +656,8 @@
    "type": "flagpole",
    "x": 22,
    "y": 10,
-   "variant": 0
+   "variant": 0,
+   "rot": 180
   },
   {
    "type": "flagpole",
@@ -704,9 +700,9 @@
   "TT.............BBBBBBBBBBBBB.:===::.BBBBBBBBBBB.BBBBBB:BBBBB..TT",
   "TT.............BBBBBBDBBBBBB.:===::.BBBBBBBBBBB.BBBBBB:BBBBB..TT",
   "TT...........::::...::::::::::===::.BBBBBBBBBBB.BBDBBB:BBDBB..TT",
-  "TT.BBBBBBBBB.::::...::::::::::===::.BBBBBDBBBBB.....BBBB......TT",
-  "TT.BBBBBBBBB.::::...::::::::::===:.::::::::::::.....BDBB......TT",
-  "TT.BBDBBBDBB::::::::::::::::::::::::::::::::::::::::::::::::::TT",
+  "TT.BBBBBBBBB.::::...::::::::::===::.BBBBBDBBBBB...............TT",
+  "TT.BBBBBBBBB.::::...::::::::::===:.::::::::::::.....BBBB......TT",
+  "TT.BBDBBBDBB::::::::::::::::::::::::::::::::::::::::BDBB::::::TT",
   "TT..........::::::::::::::::::::::::::::::::::::::::::::::::::TT",
   "TT.,,,,,,,,.::::::::::::::::::::::::::::::::::::::::::::::::::TT",
   "TT.,,,,,,,,.......s~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
@@ -725,8 +721,8 @@
  "signs": [
   {
    "text": "CARDIFF CASTLE. Roman fort, then Norman keep, then Victorian fantasy. The Marquess of Bute spent a fortune on towers.",
-   "x": 29.0,
-   "y": 14.0
+   "x": 28.0,
+   "y": 15.0
   },
   {
    "text": "BUTE PARK. 56 hectares, the River Taff, and a lot of cricket. Please do not feed the gulls. They have learnt to ask.",
@@ -860,7 +856,7 @@
   },
   {
    "x": 53,
-   "y": 32,
+   "y": 33,
    "to": "cardiff_home_roath",
    "tx": 5,
    "ty": 6,

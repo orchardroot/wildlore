@@ -43,6 +43,15 @@ static func boot(game: Node, menu: String) -> void:
 		d.set_flag("station_" + t)
 	d.set_flag("last_town", "buxton")
 	d.bag["rail_pass"] = 1
+	if menu == "map:post":  # `--menu=map:post`: the whole map visited, Champion, every Stone
+		for t in Travel.world_map().get("towns", {}):
+			d.set_flag("visited_" + t)
+			d.set_flag("station_" + t)
+		for k in ["brook", "urban", "stone", "storm", "fae", "kin", "tide", "iron", "frost", "spirit"]:
+			d.set_flag("badge_" + k)
+		d.set_flag("champion")
+		d.set_flag("game_complete")
+		d.set_flag("last_town", "york")
 	if menu.begins_with("relearn"):
 		a.level = 20  # past a couple of its moves, so the relearner has something to offer
 	if menu.begins_with("shop") and not menu.contains(":"):

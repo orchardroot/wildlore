@@ -180,7 +180,7 @@ def flags(t, rng, flag):
             if t.reach_count({(x, y)}) != base - {(x, y)}:
                 continue
             # fly the flag away from the building, so it is not lost against the roof
-            t.add("flagpole", x, y, variant=variant, **({"rot": 180} if x >= bx + bw else {}))
+            t.add("flagpole", x, y, variant=variant, **({"rot": 180} if x < bx else {}))  # the cloth flies east (+x) unless turned
             t.block.add((x, y))
             t.taken.add((x, y))
             base = t.reach_count()

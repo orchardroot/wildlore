@@ -208,6 +208,7 @@ func test_legend_command() -> void:
 	assert_eq(h.last_battle.foes[0].species.id, "ddraig")
 	assert_eq(h.last_battle.foes[0].level, 45)
 	assert_true(h.last_battle.opts.no_run)
+	assert_true(h.last_battle.opts.get("legend", false), "marked a legend (its own way in, see BattleIntro)")
 	assert_eq(h.last_battle.opts.music, "legend")
 	assert_true(h.data.flag("caught_ddraig"))
 	var h2 := FakeStoryHost.new()

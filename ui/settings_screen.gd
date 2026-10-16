@@ -1,9 +1,10 @@
 extends MenuBase
-## Settings: text speed, battle speed, quality, volumes, accessibility switches and a Controls page. Left/right changes a row; every change is saved at once.
+## Settings: text speed, battle speed, travel scenes, quality, volumes, accessibility switches and a Controls page. Left/right changes a row; every change is saved at once.
 
 const SPEEDS := ["slow", "normal", "fast", "instant"]
 const BATTLE_SPEEDS := ["normal", "fast", "fastest"]
 const QUALITIES := ["low", "medium", "high"]
+const TRAVEL := ["on", "short", "off"]
 const SAMPLE := "Oi. That's my sandwich. Also, welcome to Cheshire."
 
 var _rows: Array = []        # {key, button, value_label}
@@ -24,16 +25,16 @@ func _build() -> void:
 	v.add_theme_constant_override("separation", 2)
 	p.add_child(v)
 	var buttons := []
-	for def in [["text_speed", "Text speed"], ["battle_speed", "Battle speed"], ["quality", "Graphics quality"], ["music_volume", "Music volume"], ["sfx_volume", "Effects volume"], ["ambience_volume", "Ambience volume"], ["run_mode", "Run key"], ["colour_blind", "Colour-blind friendly"], ["reduce_flashing", "Reduce flashing"]]:
+	for def in [["text_speed", "Text speed"], ["battle_speed", "Battle speed"], ["travel_scenes", "Travel scenes"], ["quality", "Graphics quality"], ["music_volume", "Music volume"], ["sfx_volume", "Effects volume"], ["ambience_volume", "Ambience volume"], ["run_mode", "Run key"], ["colour_blind", "Colour-blind friendly"], ["reduce_flashing", "Reduce flashing"]]:
 		var b := Button.new()
-		b.custom_minimum_size = Vector2(0, 36)  # rows are tight: the preview panel must clear the hint line
+		b.custom_minimum_size = Vector2(0, 33)  # rows are tight: the preview panel must clear the hint line
 		UIKit.compact(b, 4)
 		var h := HBoxContainer.new()
 		h.set_anchors_preset(Control.PRESET_FULL_RECT)
 		h.offset_left = 18
 		h.offset_right = -18
 		h.mouse_filter = Control.MOUSE_FILTER_IGNORE
-		var k := UIKit.label(def[1], 28)
+		var k := UIKit.label(def[1], 26)
 		h.add_child(k)
 		h.add_child(UIKit.fill())
 		var bar: ProgressBar = null
@@ -45,7 +46,7 @@ func _build() -> void:
 			bar.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 			bar.add_theme_stylebox_override("fill", UIKit.box(UIKit.HEATHER, Color(0, 0, 0, 0), 0, 3, 0))
 			h.add_child(bar)
-		var val := UIKit.label("", 28, UIKit.GOLD)
+		var val := UIKit.label("", 26, UIKit.GOLD)
 		val.custom_minimum_size = Vector2(190, 0)
 		val.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 		h.add_child(val)
@@ -66,12 +67,12 @@ func _build() -> void:
 	controls.focus_neighbor_left = NodePath(".")
 	controls.focus_neighbor_right = NodePath(".")
 	UIKit.compact(controls, 4)
-	controls.custom_minimum_size.y = 42
+	controls.custom_minimum_size.y = 38
 	v.add_child(controls)
 	buttons.append(controls)
 	var back := make_button("Back", func(): close(null))
 	UIKit.compact(back, 4)
-	back.custom_minimum_size.y = 42
+	back.custom_minimum_size.y = 38
 	back.focus_neighbor_left = NodePath(".")
 	back.focus_neighbor_right = NodePath(".")
 	v.add_child(back)
@@ -130,6 +131,8 @@ func _change(key: String, d: int) -> void:
 			_t = 0.0
 		"battle_speed":
 			Settings.battle_speed = BATTLE_SPEEDS[MenuLogic.wrap_index(maxi(0, BATTLE_SPEEDS.find(Settings.battle_speed)), d, BATTLE_SPEEDS.size())]
+		"travel_scenes":
+			Settings.travel_scenes = TRAVEL[MenuLogic.wrap_index(maxi(0, TRAVEL.find(Settings.travel_scenes)), d, TRAVEL.size())]
 		"quality":
 			Settings.quality = QUALITIES[MenuLogic.wrap_index(maxi(0, QUALITIES.find(Settings.quality)), d, QUALITIES.size())]
 		"music_volume":
@@ -158,6 +161,8 @@ func _paint_row(r: Dictionary) -> void:
 			l.text = "<  %s  >" % Settings.text_speed.capitalize()
 		"battle_speed":
 			l.text = "<  %s  >" % Settings.battle_speed.capitalize()
+		"travel_scenes":
+			l.text = "<  %s  >" % Settings.travel_scenes.capitalize()
 		"quality":
 			l.text = "<  %s  >" % Settings.quality.capitalize()
 		"music_volume":

@@ -261,6 +261,8 @@ func _blocks_sight(p: Vector2i) -> bool:
 
 func _challenge(player_pos: Vector2i) -> void:
 	Audio.sfx("alert")
+	if ow.get("rig") and ow.rig.has_method("nudge"):
+		ow.rig.nudge(global_position)  # the camera leans in toward them while the "!" shows
 	await _bubble()
 	await walk(Sight.approach_path(grid_pos, facing, player_pos))
 	face_toward(ow.player.grid_pos)

@@ -12,6 +12,8 @@ const MENUS := {
 	"relearn": "res://ui/relearn_screen.tscn",
 }
 
+const DOOR_FADE := Vector2(0.15, 0.2)  # out, in: through a door in about a third of a second
+
 var busy := false
 var overworld: Node = null
 var _fade: ColorRect
@@ -32,6 +34,8 @@ func _ready() -> void:
 	add_child(_menu_layer)
 
 func fade_out(t := 0.3) -> void:
+	if _fade.color.a >= 0.999:
+		return  # already dark (a travel scene ended on black): don't sit on a black screen for nothing
 	var tw := create_tween()
 	tw.tween_property(_fade, "color:a", 1.0, t)
 	await tw.finished
@@ -51,10 +55,10 @@ func goto_title() -> void:
 	await fade_in()
 	busy = false
 
-## Enters a zone. pos (-1, -1) means the zone's spawn point.
-func goto_zone(zone_id: String, pos: Vector2i, facing := "down") -> void:
+## Enters a zone. pos (-1, -1) means the zone's spawn point. `fade` is the seconds each way (doors are quicker).
+func goto_zone(zone_id: String, pos: Vector2i, facing := "down", fade := Vector2(0.3, 0.3)) -> void:
 	busy = true
-	await fade_out()
+	await fade_out(fade.x)
 	if overworld == null or not is_instance_valid(overworld):
 		get_tree().change_scene_to_file(OVERWORLD)
 		await get_tree().process_frame
@@ -63,14 +67,19 @@ func goto_zone(zone_id: String, pos: Vector2i, facing := "down") -> void:
 	overworld.load_zone(zone_id, pos, facing)
 	Game.clock_running = true
 	Bus.zone_entered.emit(zone_id)
-	await fade_in()
+	await fade_in(fade.y)
 	busy = false
 
 ## Runs a battle on top of the overworld and returns {"result": "win"|"lose"|"ran"|"caught", "caught": Creature}.
 func battle(foe_party: Array, opts: Dictionary) -> Dictionary:
 	busy = true
 	Bus.battle_started.emit(opts.get("kind", "wild"))
-	await fade_out(0.25)
+	if Engine.has_meta("autopilot") or _fade.color.a >= 0.999:
+		await fade_out(0.25)  # the playtest bot, or already dark: no show
+	else:
+		var ctx: Dictionary = overworld.battle_context() if overworld and is_instance_valid(overworld) and overworld.has_method("battle_context") else {}
+		await BattleIntro.play(self, opts, ctx)  # the transition (and the VS splash for a big fight), ending dark
+		_fade.color.a = 1.0
 	var scene: Node = load(BATTLE).instantiate()
 	get_tree().root.add_child(scene)
 	if overworld and is_instance_valid(overworld):

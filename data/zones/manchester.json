@@ -712,11 +712,6 @@
    "y": 32
   },
   {
-   "type": "post_box",
-   "x": 48,
-   "y": 29
-  },
-  {
    "type": "bollard",
    "x": 43,
    "y": 29
@@ -724,11 +719,6 @@
   {
    "type": "bollard",
    "x": 35,
-   "y": 30
-  },
-  {
-   "type": "post_box",
-   "x": 47,
    "y": 30
   },
   {
@@ -785,16 +775,6 @@
    "type": "lamp_post",
    "x": 31,
    "y": 42
-  },
-  {
-   "type": "phone_box",
-   "x": 40,
-   "y": 44
-  },
-  {
-   "type": "phone_box",
-   "x": 30,
-   "y": 43
   },
   {
    "type": "bench",
@@ -991,7 +971,8 @@
    "type": "flagpole",
    "x": 32,
    "y": 11,
-   "variant": 4
+   "variant": 4,
+   "rot": 180
   },
   {
    "type": "washing_line",
@@ -1006,6 +987,62 @@
    "y": 37,
    "variant": 2,
    "walk": true
+  },
+  {
+   "type": "oak",
+   "x": 51,
+   "y": 28,
+   "variant": 1
+  },
+  {
+   "type": "birch",
+   "x": 59,
+   "y": 28,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 51,
+   "y": 33,
+   "variant": 2
+  },
+  {
+   "type": "birch",
+   "x": 59,
+   "y": 33,
+   "variant": 1
+  },
+  {
+   "type": "statue",
+   "x": 55,
+   "y": 30,
+   "variant": 2
+  },
+  {
+   "type": "bench",
+   "x": 54,
+   "y": 28
+  },
+  {
+   "type": "bench",
+   "x": 56,
+   "y": 28
+  },
+  {
+   "type": "bench",
+   "x": 55,
+   "y": 33,
+   "rot": 180
+  },
+  {
+   "type": "lamp_post",
+   "x": 52,
+   "y": 30
+  },
+  {
+   "type": "lamp_post",
+   "x": 58,
+   "y": 31
   }
  ],
  "warps": [
@@ -1271,7 +1308,7 @@
   {
    "id": "manchester_fox_watcher",
    "sprite": "fox_watcher",
-   "x": 27,
+   "x": 25,
    "y": 31,
    "facing": "down",
    "move": "still",
@@ -1455,9 +1492,9 @@
   "y": 40
  },
  "rows": [
-  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
-  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
-  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTT:=:TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTT:=:TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTT:=:TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
   "TTT.BBBBBBBB..BBBBBBBB....:=:.................BBBBBB..BBBBB..TTT",
   "TTT.BBBBBBBB..BBBBBBBB....:=:.....BBBBBBBBBB..BBBBBB..BBBBB..TTT",
   "TTT.BBBBBBBB..BBBBBBBB....:=:.....BBBBBBBBBB..BBBDBB..BBBBB..TTT",
@@ -1479,14 +1516,14 @@
   "TTT#######################:=:.......fffffff.www.,,,,,,,......TTT",
   "TTT.fff#.....ffff.#.......:=:................#...............TTT",
   "TTT.fff#.....ffff.#.......:=:.:::::::::::::::#::::::::::::::.TTT",
-  ":::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::TTT",
-  "=============================================================TTT",
-  ":::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::TTT",
+  "::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::",
+  "================================================================",
+  "::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::",
   "TTT.......................:=:.::::::::::::::::::::...........TTT",
   "TTT..BBBBBB..BBBBB.BBBBBB.:=:.::::::::::::::::::::...........TTT",
   "TTT..BBBBBB..BBBBB.BBBBBB.:=:.::::::::::::::::::::...........TTT",
-  "TTT..BBBBBB..BBDBB.BBDBBB.:=:.::::::::::::::::::::...........TTT",
-  "TTT.:BBBDBB::::::::::::::.:=:.::::::::::::::::::::...........TTT",
+  "TTT..BBBBBB..BBDBB.BBDBBB.:=:.::::::::::::::::::::...fffff...TTT",
+  "TTT.:BBBDBB::::::::::::::.:=:.::::::::::::::::::::...fffff...TTT",
   "TTT.:::::::::::::::::::::.:=:.::::::::::::::::::::...........TTT",
   "TTT.#####################.:=:.::::::::::::::::::::...........TTT",
   "TTT....#..........#.......:=:.::::::::::::::::::::...........TTT",

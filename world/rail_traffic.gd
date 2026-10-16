@@ -22,6 +22,7 @@ const DIRS := [Vector2i(1, 0), Vector2i(-1, 0), Vector2i(0, 1), Vector2i(0, -1)]
 const HEAR_NEAR := 3.0      # full volume within this many tiles
 const HEAR_RANGE := 36.0    # silent beyond this
 const RUSH_AT := 9.0        # the rush of it going by, when it first comes this close at speed
+const PLATFORM_REACH := 3.5 # a train standing with its middle this close to the station tile is "at the platform"
 
 var zone: ZoneData
 var routes: Array = []
@@ -76,8 +77,9 @@ func tick(delta: float) -> void:
 		timer = rng.randf_range(WAIT.x, WAIT.y)
 	_place_cars()
 
-## Starts a train on `route` (through routes can run either way; `flip` runs it backwards).
-func start(route: Dictionary, flip := false) -> void:
+## Starts a train on `route` (through routes can run either way; `flip` runs it backwards). `call` makes a
+## train in to a terminus call at the station on the way too (the one you catch, or step off).
+func start(route: Dictionary, flip := false, call_here := false) -> void:
 	var path: Array = route.path.duplicate()
 	var entry: Dictionary = route.from
 	var exit: Dictionary = route.to
@@ -89,8 +91,10 @@ func start(route: Dictionary, flip := false) -> void:
 	var length := train_length()
 	var stops := []  # [s of the train's front, kind]
 	if route.kind == "terminus":
-		var on_end: bool = zone.rail_cap_at(path[n - 1]).get("type", "") == "buffer_stop"
-		stops.append([(n - 1) - 0.2 if on_end else n - 0.2, "buffers"])
+		var ci := RailTraffic.call_index(zone, path) if call_here else -1
+		if ci >= 0:
+			stops.append([clampf(ci + length * 0.5, length - 0.5, n - 1.5), "platform"])
+		stops.append([RailTraffic.buffers_stop(zone, path), "buffers"])
 	else:
 		var call := RailTraffic.call_index(zone, path)
 		if call >= 0:
@@ -107,6 +111,85 @@ func start(route: Dictionary, flip := false) -> void:
 	_mat.set_shader_parameter("clip_max", clip[1])
 	run.v = SPEED  # it comes in at line speed (braking for anything close by)
 	_place_cars()
+
+## Where the front of a train stops coming in to the buffers at the end of `path`.
+static func buffers_stop(z: ZoneData, path: Array) -> float:
+	var n := path.size()
+	var on_end: bool = z.rail_cap_at(path[n - 1]).get("type", "") == "buffer_stop"
+	return (n - 1) - 0.2 if on_end else n - 0.2
+
+# --- the train you catch (travel scenes, see Journey) ----------------------------------------------------------
+
+## Sends in a train for the player to board: one that calls at the station, already `lead` tiles short of
+## its stop so it pulls in within a few seconds. A train already standing there just waits a little longer.
+## False when no train stops here (no line, or none by the platform).
+func call_at_station(lead := 9.0) -> bool:
+	if at_platform():
+		run.dwell = maxf(run.dwell, 2.0)
+		return true
+	var runs := RailTraffic.platform_runs(zone, routes)
+	if runs.is_empty():
+		return false
+	var pick: Dictionary = runs[rng.randi() % runs.size()]
+	start(pick.route, pick.flip, pick.get("call", false))
+	run.head = maxf(run.head, float(run.stops[0][0]) - lead)
+	_update_closed()
+	_place_cars()
+	return true
+
+## Arriving by train: one already standing at the platform, as if it had just pulled in. It leaves after its
+## usual wait. False when no train stops here.
+func stand_at_station() -> bool:
+	var runs := RailTraffic.platform_runs(zone, routes)
+	if runs.is_empty():
+		return false
+	var pick: Dictionary = runs[rng.randi() % runs.size()]
+	start(pick.route, pick.flip, pick.get("call", false))
+	run.head = float(run.stops[0][0])
+	run.v = 0.0
+	run.dwell = DWELL
+	run.stops.remove_at(0)
+	_update_closed()
+	_place_cars()
+	return true
+
+## Is a train standing by the station platform now?
+func at_platform() -> bool:
+	if zone == null or run.is_empty() or run.done or run.dwell <= 0.0 or zone.station == Vector2i(-1, -1):
+		return false
+	var mid := RailTraffic.point_at(run.path, run.head - run.length * 0.5)
+	return mid.distance_to(Vector2(zone.station) + Vector2(0.5, 0.5)) <= PLATFORM_REACH
+
+## Where on the line the middle of the standing train is (world x/z), for the player to walk to.
+func train_middle() -> Vector2:
+	if run.is_empty():
+		return Vector2(zone.station) + Vector2(0.5, 0.5)
+	return RailTraffic.point_at(run.path, run.head - run.length * 0.5)
+
+## The runs that stop by the station platform: [{"route", "flip", "call"}]. Through trains calling there (either
+## way), trains in to a terminus whose buffers are by the platform, or calling at it on the way to the buffers.
+static func platform_runs(z: ZoneData, all_routes: Array) -> Array:
+	var out := []
+	if z.station == Vector2i(-1, -1):
+		return out
+	var stn := Vector2(z.station) + Vector2(0.5, 0.5)
+	for r in all_routes:
+		if r.kind == "through":
+			if RailTraffic.call_index(z, r.path) >= 0:
+				out.append({"route": r, "flip": false})
+				var back: Array = r.path.duplicate()
+				back.reverse()
+				if RailTraffic.call_index(z, back) >= 0:
+					out.append({"route": r, "flip": true})
+		elif RailTraffic.point_at(r.path, buffers_stop(z, r.path) - train_length() * 0.5).distance_to(stn) <= PLATFORM_REACH:
+			out.append({"route": r, "flip": false})
+		elif RailTraffic.call_index(z, r.path) >= 0:
+			out.append({"route": r, "flip": false, "call": true})  # the platform is part way along
+	return out
+
+static func platform_run(z: ZoneData, all_routes: Array) -> Dictionary:
+	var runs := platform_runs(z, all_routes)
+	return {} if runs.is_empty() else runs[0]
 
 static func train_length() -> float:
 	return CARS * CAR_LEN + (CARS - 1) * CAR_GAP

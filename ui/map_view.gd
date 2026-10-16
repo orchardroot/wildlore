@@ -13,6 +13,8 @@ var highlight: Array = []   # zone ids to ring in heather purple
 var objective := Vector2(-1, -1)  # map units: the "Where next?" spot, ringed in gold; (-1, -1) for none
 var zoom := 1.8             # around `centre` (map units); 1.0 shows all the isles
 var centre := Vector2(-1, -1)
+var cursor := ""            # town id the map cursor sits on ("" for none)
+var named_unvisited: Array = []  # unvisited towns that still get a name (the "Where next?" town)
 var font: Font
 
 func _ready() -> void:
@@ -31,6 +33,11 @@ func _xf() -> Array:
 	off.x = clampf(off.x, size.x - w.x, 0.0) if w.x > size.x else (size.x - w.x) * 0.5
 	off.y = clampf(off.y, size.y - w.y, 0.0) if w.y > size.y else (size.y - w.y) * 0.5
 	return [k, off]
+
+## Where a map-space point lands on this control right now.
+func screen_pos(map_pos: Vector2) -> Vector2:
+	var xf := _xf()
+	return _p(map_pos.x, map_pos.y, xf)
 
 func _p(x: float, y: float, xf: Array) -> Vector2:
 	return Vector2(x, y) * float(xf[0]) + xf[1]
@@ -72,8 +79,8 @@ func _draw() -> void:
 			continue
 		var pos := _p(float(t.x), float(t.y), xf)
 		var visited: bool = d.flag("visited_" + town) == true
-		draw_circle(pos, 7.0 if visited else 5.0, LIT if visited else DIM)
-		if visited:
+		draw_circle(pos, 7.0 if visited else 5.0, LIT if visited else Color(DIM, 0.55))
+		if visited or town in named_unvisited:
 			var txt := str(t.name)
 			var ts := font.get_string_size(txt, HORIZONTAL_ALIGNMENT_LEFT, -1, 18)
 			# a close neighbour to the east pushes this label to the west, and vice versa
@@ -89,10 +96,14 @@ func _draw() -> void:
 				var r := Rect2(pos + o - Vector2(0, ts.y * 0.75), ts)
 				if not labels.any(func(l): return l.intersects(r)):
 					labels.append(r)
-					draw_string(font, pos + o, txt, HORIZONTAL_ALIGNMENT_LEFT, -1, 18, Color("f8f1dc"))
+					draw_string(font, pos + o, txt, HORIZONTAL_ALIGNMENT_LEFT, -1, 18, Color("f8f1dc") if visited else Color(DIM, 0.7))
 					break
 		if town == here:
 			draw_arc(pos, 13.0, 0, TAU, 24, Color("ff6b6b"), 3.0)
+		if town == cursor:
+			var tri := PackedVector2Array([pos + Vector2(0, -11), pos + Vector2(-9, -27), pos + Vector2(9, -27)])  # a pointer above the town
+			draw_colored_polygon(tri, Color.WHITE)
+			draw_polyline(PackedVector2Array([tri[0], tri[1], tri[2], tri[0]]), Color(0, 0, 0, 0.7), 2.0)
 	for zid in highlight:
 		var src: Dictionary = m.get("towns", {}).get(zid, m.get("places", {}).get(zid, {}))
 		if not src.is_empty():

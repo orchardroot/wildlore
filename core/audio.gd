@@ -15,6 +15,7 @@ const STEP_DB := -9.0         # footsteps sit under everything else
 const RUN_STEP_DB := -13.0    # quicker steps, so softer ones
 const BIKE_DB := -12.0
 const TALK_DB := -6.0
+const CRY_DB := -2.0          # a touch under the other effects: it plays over the send-out chime
 const BELL_DB := -4.0         # tolls on the hour; quiet-ish, it is across town
 const HORN_DB := -12.0        # a ship out in the harbour
 const HORN_GAP := Vector2(70.0, 160.0)
@@ -96,6 +97,16 @@ func sfx_at(id: String, gain_db := 0.0, pitch := 1.0, volume := -1.0) -> void:
 	var stream := _find(AudioIds.sfx_file(id).get_basename())
 	if stream == null:
 		return
+	play_stream(stream, gain_db, pitch, volume)
+
+## A species' cry (synthesised and cached by Cries), at sound effect volume.
+func cry(species: Dictionary, gain_db := CRY_DB) -> void:
+	var stream := Cries.stream_for(species)
+	if stream != null:
+		play_stream(stream, gain_db)
+
+## Any stream on a free sound effect player.
+func play_stream(stream: AudioStream, gain_db := 0.0, pitch := 1.0, volume := -1.0) -> void:
 	for p in _sfx:
 		if not p.playing:
 			p.stream = stream

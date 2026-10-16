@@ -10,6 +10,7 @@ extends RefCounted
 ##   warp(zone, x, y, facing)   open_menu(name) -> Variant   fade(out: bool)
 ##   music(id)  sfx(id)  wait(seconds)
 ##   optional: on_flag(key, value)
+##   optional: journey_out(kind, info) -> bool, journey_in(kind, info)   travel scenes round a rail or ferry warp
 
 const WHITEOUT_LINE := "You hurry back to the Sanctuary, a little dazed."
 const WHITEOUT_LINE_2 := "Your team is patched up and ready to go again."
@@ -278,7 +279,7 @@ func _legend(c: Dictionary) -> void:
 		return
 	host.data.mark_seen(str(sp.id))
 	var foe := Creature.create(sp, int(c.get("level", 40)), host.rng, host.moves)
-	var result: Dictionary = await host.battle([foe], {"kind": "wild", "no_run": true, "music": str(c.get("music", "legend"))})
+	var result: Dictionary = await host.battle([foe], {"kind": "wild", "no_run": true, "legend": true, "music": str(c.get("music", "legend"))})
 	match str(result.get("result", "")):
 		"caught":
 			_set_flag(str(c.get("flag", "caught_" + str(sp.id))), true)
@@ -305,8 +306,13 @@ func _rail() -> void:
 	if dest == null or str(dest) == "":
 		return
 	var a := Travel.rail_arrival(str(dest))
-	await host.sfx("train")
+	var info := {"from": host.zone_id(), "to": str(dest)}
+	var scene := await _journey_out("train", info)
+	if not scene:
+		await host.sfx("train")
 	await host.warp(str(a.zone), a.pos.x, a.pos.y, "down")
+	if scene:
+		await host.journey_in("train", info)
 	_ended = true
 
 func _ferry(route: String) -> void:
@@ -318,9 +324,22 @@ func _ferry(route: String) -> void:
 	if pick != 0:
 		return
 	await host.music(str(Travel.ferries()[route].get("music", "ferry")))
-	await host.say("", str(Travel.ferries()[route].get("card", "The ferry crosses the sea.")))
+	var card := str(Travel.ferries()[route].get("card", "The ferry crosses the sea."))
+	var info := {"from": host.zone_id(), "to": str(a.zone), "route": route, "card": card}
+	var scene := await _journey_out("ferry", info)
+	if not scene:
+		await host.say("", card)
 	await host.warp(str(a.zone), a.pos.x, a.pos.y, "down")
+	if scene:
+		await host.journey_in("ferry", info)
 	_ended = true
+
+## A travel scene on the way out (see Journey), if the host plays them: true when one played. The warp to the
+## usual arrival tile is still ours to do either way.
+func _journey_out(kind: String, info: Dictionary) -> bool:
+	if not host.has_method("journey_out"):
+		return false
+	return bool(await host.journey_out(kind, info))
 
 ## Lost a battle: lose half the money, heal up, back to the last Sanctuary.
 func whiteout() -> void:
@@ -385,4 +404,5 @@ func _sub(s: String) -> String:
 	var total: int = host.dex.ids().size()
 	var got: int = host.data.caught.size()
 	return s.replace("{player}", host.data.player_name).replace("{rival}", host.data.rival_name) \
-		.replace("{caught}", str(got)).replace("{left}", str(maxi(0, total - got))).replace("{total}", str(total))
+		.replace("{caught}", str(got)).replace("{left}", str(maxi(0, total - got))).replace("{total}", str(total)) \
+		.replace("{greeting}", StoryData.greeting(host.data.zone_id, host.data.clock_minutes) if "{greeting}" in s else "")

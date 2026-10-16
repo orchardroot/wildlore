@@ -413,7 +413,7 @@ def london():
     z.sign(25, 29, "THE THAMES. Britain's most famous river, with 50-odd bridges in the capital alone. Once so smelly that Parliament hung wet curtains at the windows, now clean enough for seals, cormorants and the occasional confused porpoise.")
     # Westminster
     z.building(3, 6, 15, 8, "cathedral", "Westminster")
-    z.prop("lighthouse", 19, 13)
+    z.prop("clock_tower", 19, 13)
     z.rect(3, 14, 22, 6, ":"); z.rect(18, 14, 4, 12, ":")
     for (x, y) in [(5, 15), (11, 15), (17, 15)]:
         z.prop("statue", x, y)
@@ -464,7 +464,7 @@ def london():
     z.prop("bench", 18, 53); z.prop("bench", 14, 53); z.prop("lamp_post", 17, 46)
     z.building(33, 45, 10, 5, "tudor", "Shakespeare's Globe")
     z.rect(33, 50, 10, 1, ":")
-    z.prop("lighthouse", 47, 50)
+    z.prop("shard", 47, 50)
     z.rect(51, 43, 3, 18, "=")
     z.rect(55, 57, 21, 4, ":"); z.rect(55, 46, 3, 12, ":"); z.rect(70, 47, 6, 10, ":")
     z.building(58, 47, 12, 9, "aqueduct", "London Eye")

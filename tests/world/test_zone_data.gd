@@ -173,6 +173,21 @@ func test_landmark_meshes_build() -> void:
 			Landmarks.boat(), Landmarks.boat(1), Landmarks.canal_boat(), Landmarks.buoy(), Landmarks.statue(), Landmarks.harp(), Landmarks.lighthouse()]:
 		assert_true(mesh.get_surface_count() > 0)
 
+func test_round_tower_stands_tall() -> void:
+	# an Irish round tower is a tall stone needle with a conical cap, not a cottage
+	assert_true("round_tower" in Landmarks.SPECIAL)
+	var tower: ArrayMesh = Meshes.building(2, 7, "round_tower", 0, 1)[0]
+	var cottage: ArrayMesh = Meshes.building(2, 7, "stone", 0, 1)[0]
+	assert_true(tower.get_aabb().size.y > 5.0, "tower height %s" % tower.get_aabb().size.y)
+	assert_true(cottage.get_aabb().size.y < 3.5)
+
+func test_passage_tomb_is_a_low_mound() -> void:
+	# Newgrange: a grassy mound with a white quartz front, lower than a house and filling its plot
+	assert_true("passage_tomb" in Landmarks.SPECIAL)
+	var aabb: AABB = (Meshes.building(7, 3, "passage_tomb", 3, 1)[0] as ArrayMesh).get_aabb()
+	assert_true(aabb.size.y > 1.2 and aabb.size.y < 2.4, "mound height %s" % aabb.size.y)
+	assert_true(aabb.size.x > 6.0, "fills the plot")
+
 func test_gallery_zone_builds() -> void:
 	var root := ZoneBuilder.build(_z("mesh_gallery"))
 	assert_true(root.get_child_count() > 10)
@@ -196,3 +211,16 @@ func test_validate_door_onto_railway() -> void:
 	assert_true(_has(z.validate({"t": z}), "opens straight onto the railway"))
 	var ok := ZoneData.from_dict(_base([".....", ".BDB.", ".....", "....."], {"spawn": [0, 3], "warps": [{"x": 2, "y": 1, "to": "t", "tx": 0, "ty": 3}]}))
 	assert_false(_has(ok.validate({"t": ok}), "opens straight onto the railway"))
+
+
+func test_warp_arrival_on_a_door_is_an_error() -> void:
+	# arriving on the door's own warp tile (after moving a building) leaves you standing in the doorway
+	var town := ZoneData.from_dict(_base(["BBB", "BDB", "..."], {"id": "town", "spawn": [0, 2],
+		"props": [{"type": "building", "style": "stone", "x": 0, "y": 0, "w": 3, "h": 2}],
+		"warps": [{"x": 1, "y": 1, "to": "room", "tx": 1, "ty": 1}]}))
+	var room := ZoneData.from_dict(_base(["...", "..."], {"id": "room", "kind": "interior", "spawn": [1, 1],
+		"warps": [{"x": 1, "y": 0, "to": "town", "tx": 1, "ty": 1}]}))
+	var errors := room.validate({"town": town, "room": room})
+	assert_true(_has(errors, "lands on a warp"), "arrival on the door warp flagged: %s" % [errors])
+	room.warps[0].ty = 2
+	assert_false(_has(room.validate({"town": town, "room": room}), "lands on a warp"), "one step out is fine")
