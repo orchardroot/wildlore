@@ -1,7 +1,16 @@
 extends MenuBase
-## The world map (pause menu "Map"). setup("") or setup("species:<id>") to ring that creature's habitats.
+## The world map (pause menu "Map"). setup("") for the interactive map: a cursor hops between visited towns
+## and an info panel says what is there. setup("species:<id>") rings that creature's habitats instead.
 
 var view: MapView
+
+var _can_fly := false      # the Champion can fly
+var _asking := false       # "Fly here?" is up for the cursor's town
+var _panel: PanelContainer
+var _name_label: Label
+var _lines_label: Label
+var _ask_label: Label
+var _objective_town := ""
 
 func _build() -> void:
 	set_title("The Isles")
@@ -11,7 +20,8 @@ func _build() -> void:
 	content.add_child(view)
 
 func setup(arg: String) -> void:
-	if arg.begins_with("species:"):
+	var species_mode := arg.begins_with("species:")
+	if species_mode:
 		var sp := Game.dex.get_species(arg.substr(8))
 		if not sp.is_empty():
 			set_title("Where to find " + str(sp.name))
@@ -21,23 +31,91 @@ func setup(arg: String) -> void:
 	if here and towns.has(str(here)):
 		view.centre = Vector2(float(towns[str(here)].x), float(towns[str(here)].y))
 	header_right.text = "You are near " + Travel.town_name(str(here)) if here else ""
-	if not arg.begins_with("species:"):
+	if not species_mode:
+		_can_fly = Game.data.flag("champion") == true
 		_show_objective()
+		_build_panel()
+		_select(MapLogic.start_town(Game.data))
+		view.resized.connect(_place_panel)
+		if _can_fly:
+			var fly := make_button("Fly", _fly)
+			fly.focus_mode = Control.FOCUS_NONE  # the cursor owns the arrows, not button focus
+			fly.position = Vector2(20, 14)
+			content.add_child(fly)
 	view.queue_redraw()
-	if Game.data.flag("champion") == true and not arg.begins_with("species:"):
-		set_hints([["fly", "Fly"], ["cancel", "Back"]])
-		_can_fly = true
-		var fly := make_button("Fly", _fly)
-		fly.position = Vector2(20, 14)
-		content.add_child(fly)
 
-var _can_fly := false
+func _build_panel() -> void:
+	_panel = UIKit.panel(Color("1d2230f2"), 14)
+	_panel.custom_minimum_size = Vector2(400, 0)
+	_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	var col := VBoxContainer.new()
+	col.add_theme_constant_override("separation", 8)
+	_panel.add_child(col)
+	_name_label = UIKit.label("", 34, UIKit.GOLD)
+	col.add_child(_name_label)
+	_lines_label = UIKit.label("", 22)
+	_lines_label.custom_minimum_size = Vector2(372, 0)
+	_lines_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	col.add_child(_lines_label)
+	_ask_label = UIKit.label("Fly here?", 26, UIKit.HEATHER)
+	col.add_child(_ask_label)
+	content.add_child(_panel)
+
+## Moves the cursor to a visited town ("" for none) and refreshes the panel and hints.
+func _select(town: String) -> void:
+	_asking = false
+	view.cursor = town
+	view.named_unvisited = MapLogic.named_unvisited(Game.data, _objective_town)
+	if town != "":
+		var t: Dictionary = Travel.world_map().towns[town]
+		view.centre = Vector2(float(t.x), float(t.y))
+		var i := MapLogic.info(Game.data, town)
+		_name_label.text = i.name
+		_lines_label.text = "\n".join(MapLogic.info_lines(i))
+	_panel.visible = town != ""
+	_refresh_ask()
+	_place_panel()
+	view.queue_redraw()
+
+func _flyable(town: String) -> bool:
+	return _can_fly and town != "" and MapLogic.can_fly_to(Game.data, _here(), town)
+
+## The town you are standing in (the overworld's zone), as the flight list sees it.
+func _here() -> String:
+	if Router.overworld and is_instance_valid(Router.overworld) and Router.overworld.get("zone") != null:
+		return Router.overworld.zone.town_id
+	var l = Game.data.flag("last_town")
+	return str(l) if l else ""
+
+## The "Fly here?" line and the hint bar for the current state.
+func _refresh_ask() -> void:
+	var hints: Array = [["=Arrows", "Pick a town", "kbd"], ["=D-pad", "Pick a town", "pad"]]
+	if _asking:
+		hints = [["confirm", "Yes, fly"], ["cancel", "No"]]
+	else:
+		if _flyable(view.cursor):
+			hints.append(["confirm", "Fly here"])
+		if _can_fly:
+			hints.append(["fly", "Fly list"])
+		hints.append(["cancel", "Back"])
+	_ask_label.visible = _asking
+	set_hints(hints)
+
+## The panel sits on whichever side of the map the cursor isn't.
+func _place_panel() -> void:
+	if _panel == null or view.cursor == "":
+		return
+	var t: Dictionary = Travel.world_map().towns[view.cursor]
+	var sp := view.screen_pos(Vector2(float(t.x), float(t.y)))
+	_panel.reset_size()
+	_panel.position = Vector2(16 if sp.x > view.size.x * 0.5 else view.size.x - _panel.size.x - 16, 64)
 
 ## Rings the "Where next?" town (or spot) in gold and says what it is along the bottom.
 func _show_objective() -> void:
 	var o := MenuLogic.next_objective(Game.data, Game.dex.ids().size())
 	if o.is_empty():
 		return
+	_objective_town = str(o.get("town", ""))
 	view.objective = objective_point(o)
 	var p := UIKit.panel(Color("1d2230e6"), 12)
 	p.set_anchors_preset(Control.PRESET_BOTTOM_WIDE)
@@ -45,6 +123,7 @@ func _show_objective() -> void:
 	p.offset_right = -16
 	p.offset_bottom = -12
 	p.grow_vertical = Control.GROW_DIRECTION_BEGIN
+	p.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	var l := UIKit.label(("Still to do: " if o.get("postgame", false) else "Where next? ") + str(o.get("text", "")), 24)
 	l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	p.add_child(l)
@@ -61,9 +140,44 @@ static func objective_point(o: Dictionary) -> Vector2:
 	return Vector2(float(src.x), float(src.y)) if not src.is_empty() else Vector2(-1, -1)
 
 func _unhandled_input(event: InputEvent) -> void:
-	if _can_fly and not _locked and event.is_action_pressed("fly"):
+	if _locked or _panel == null:
+		return
+	if _can_fly and event.is_action_pressed("fly"):
 		get_viewport().set_input_as_handled()
 		_fly()
+		return
+	if event.is_action_pressed("confirm") and view.cursor != "":
+		get_viewport().set_input_as_handled()
+		if _asking:
+			Audio.sfx("confirm")
+			close({"fly": view.cursor})  # the same result the Fly list gives
+		elif _flyable(view.cursor):
+			Audio.sfx("confirm")
+			_asking = true
+			_refresh_ask()
+		return
+	for key in MapLogic.DIRS:
+		if event.is_action_pressed("move_" + key):
+			get_viewport().set_input_as_handled()
+			_step(MapLogic.DIRS[key])
+			return
+
+## Jumps the cursor to the nearest visited town that way, if there is one.
+func _step(dir: Vector2) -> void:
+	var pos := MapLogic.visited_positions(Game.data)
+	if view.cursor == "" or not pos.has(view.cursor):
+		return
+	var n := MapLogic.nearest(pos[view.cursor], pos, dir, view.cursor)
+	if n != "":
+		Audio.sfx("cursor")
+		_select(n)
+
+func _on_cancel() -> void:
+	if _asking:
+		_asking = false
+		_refresh_ask()
+		return
+	close(null)
 
 func _fly() -> void:
 	if _locked:
