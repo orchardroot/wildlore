@@ -1,0 +1,58 @@
+{
+ "crann_baker": [
+  {
+   "do": "say",
+   "who": "Baker",
+   "text": "Crann is the Irish word for a tree, and for a ship's mast. We liked the sound of it."
+  },
+  {
+   "do": "say",
+   "who": "Baker",
+   "text": "Our soda bread has no yeast. It rises on bread soda and buttermilk, because Irish wheat is soft and low in gluten."
+  },
+  {
+   "do": "say",
+   "who": "Baker",
+   "text": "Cut a cross in the top before it goes in the oven. The old story says it lets the fairies out."
+  },
+  {
+   "do": "if",
+   "flag": "got_crann_bread",
+   "then": [
+    {
+     "do": "say",
+     "who": "Baker",
+     "text": "One loaf per customer, I am afraid. The gulls have been watching."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Baker",
+     "text": "Here, take a loaf for the road. Do not share it with the gulls, they will remember you."
+    },
+    {
+     "do": "give_item",
+     "item": "soda_bread",
+     "n": 1
+    },
+    {
+     "do": "set",
+     "flag": "got_crann_bread"
+    }
+   ]
+  }
+ ],
+ "crann_regular": [
+  {
+   "do": "say",
+   "who": "Regular",
+   "text": "If something is 'grand' in Galway it is fine, which can mean anything from wonderful to adequate."
+  },
+  {
+   "do": "say",
+   "who": "Regular",
+   "text": "Watch your chips on the quay. Chipgulls round here have a very organised supply chain."
+  }
+ ]
+}
