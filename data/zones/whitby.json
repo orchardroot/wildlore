@@ -480,6 +480,16 @@
    "type": "bollard",
    "x": 26,
    "y": 40
+  },
+  {
+   "type": "tunnel_portal",
+   "x": 17,
+   "y": 39
+  },
+  {
+   "type": "buffer_stop",
+   "x": 26,
+   "y": 39
   }
  ],
  "warps": [
@@ -521,6 +531,70 @@
    "to": "whitby_chippy",
    "tx": 5,
    "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 43,
+   "y": 11,
+   "to": "whitby_stmary",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 52,
+   "y": 31,
+   "to": "whitby_henrietta",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 52,
+   "y": 36,
+   "to": "whitby_church",
+   "tx": 6,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 8,
+   "y": 38,
+   "to": "whitby_flowergate",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 48,
+   "y": 41,
+   "to": "whitby_smugglers",
+   "tx": 7,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 21,
+   "y": 28,
+   "to": "whitby_cook",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 8,
+   "y": 44,
+   "to": "whitby_harbour",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 21,
+   "y": 47,
+   "to": "whitby_pannett",
+   "tx": 7,
+   "ty": 7,
    "facing": "up"
   }
  ],
@@ -829,7 +903,7 @@
   "TTgggggggggggggggggggggggg::wo~~~~owgggggggggggBBBBBBBBB^^$$$$$$$$$$$$$$",
   "TTgggggggggggggggggggggggg::wo~~~~owg###gBBBBBgBBBBBBBBB^^$$$$$$$$$$$$$$",
   "TTgggggggggggggggggggggggg::wo~~~~owg###gBBBBBgBBBBBBBBB^^$$$$$$$$$$$$$$",
-  "TTgggggggggggggggggggggggg::wo~~~~owg###gBBBBBgBBBBBBBBB^^$$$$$$$$$$$$$$",
+  "TTgggggggggggggggggggggggg::wo~~~~owg###gBBDBBgBBBBBBBBB^^$$$$$$$$$$$$$$",
   "TTggggggggggg#gggggggggggg::wo~~~~owg###gggggggBBBBDBBBB^^$$$$$$$$$$$$$$",
   "TTgggg################gggg::wo~~~~owg####...............#^$$$$$$$$$$$$$$",
   "TTggggggggggg#gggggggggggg::wo~~~~owg###^################^$$$$$$$$$$$$$$",
@@ -846,26 +920,26 @@
   "TTggBBBBBBgBBBBBgBBBBBBBBg::w~~~~~~wg###^gg,,,,,,,gggggg^^$$$$$$$$$$$$$$",
   "TTggBBBBBBgBBBBBgBBBBBBBBg::w~~~~~~wg###^gg,,,,,,,,ggggg^^$$$$$$$$$$$$$$",
   "TTggBBBBBBgBBBBBgBBBBBBBBg::w~~~~~~wg###^gg,,,,,,,gggggg^^$$$$$$$$$$$$$$",
-  "TTggBBBDBBgBBDBBgBBBBBBBBg::w~~~~~~wg###^gggg,,ggggggggg^^$$$$$$$$$$$$$$",
+  "TTggBBBDBBgBBDBBgBBBBDBBBg::w~~~~~~wg###^gggg,,ggggggggg^^$$$$$$$$$$$$$$",
   "TTgggggggggggggggggggggggg::WWWWWWWW::::gBBBBBBgBBBBBBBB^^$$$$$$$$$$$$$$",
   "====================================::::gBBBBBBgBBBBBBBB^^$$$$$$$$$$$$$$",
-  "====================================::::gBBDBBBgBBBBBBBBgg$$$$$$$$$$$$$$",
+  "====================================::::gBBDBBBgBBBBDBBBgg$$$$$$$$$$$$$$",
   "====================================:::::::::::::::::::::g$$$$$$$$$$$$$$",
   "TTgggggggggggg===ggggggggg::WWWWWWWW::::gggggggggggggggggg$$$$$$$$$$$$$$",
   "TTgggggggggggg===ggggggggg::w~~~~~~w::::gBBBBBBgBBBBBBBBgg$$$$$$$$$$$$$$",
   "TTggBBBBBBBBgg===ggggggggg::w~~~~~~w::::gBBBBBBgBBBBBBBBgg$$$$$$$$$$$$$$",
-  "TTggBBBBBBBBgg===ggBBBBBBBB:w~~~~~~w::::gBBDBBBgBBBBBBBBgg$$$$$$$$$$$$$$",
+  "TTggBBBBBBBBgg===ggBBBBBBBB:w~~~~~~w::::gBBDBBBgBBBBDBBBgg$$$$$$$$$$$$$$",
   "TTggBBBBBBBBgg===ggBBBBDBBB:w~~~~~~w:::::::::::::::::::::g$$$$$$$$$$$$$$",
-  "TTggBBBBBBBBgg===g:________:w~~~~~~w::::gBBBBBBBBBBBBBBggg$$$$$$$$$$$$$$",
-  "TTggg::::::::g===g:!!!!!!!!:w~~~~~~w::::gBBBBBBBBBBBBBBggg$$$$$$$$$$$$$$",
+  "TTggBBBBDBBBgg===g:________:w~~~~~~w::::gBBBBBBBBBBBBBBggg$$$$$$$$$$$$$$",
+  "TTggg::::::::g===!!!!!!!!!!:w~~~~~~w::::gBBBBBBBBBBBBBBggg$$$$$$$$$$$$$$",
   "TTgggggggggggg===ggggggggg::w~~~~~~w::::gBBBBBBBBBBBBBBggg$$$$$$$$$$$$$$",
-  "TTggBBBBBBBBgg===ggggggggg::w~~~~~~w::::gBBBBBBBBBBBBBBggg$$$$$$$$$$$$$$",
+  "TTggBBBBBBBBgg===ggggggggg::w~~~~~~w::::gBBBBBBBDBBBBBBggg$$$$$$$$$$$$$$",
   "TTggBBBBBBBBgg===ggggggggg::w~~~~~~w::::gggggggggggggggggg$$$$$$$$$$$$$$",
   "TTggBBBBBBBBgg===ggggggggg::w~~~~~~w::::gggggggggggggggggg$$$$$$$$$$$$$$",
-  "TTggBBBBBBBBgg===ggggggggg::w~~~~~~w::::gggggggggggggggggg$$$$$$$$$$$$$$",
+  "TTggBBBBDBBBgg===ggggggggg::w~~~~~~w::::gggggggggggggggggg$$$$$$$$$$$$$$",
   "TTgggggggggggg===BBBBBBBBg::w~~~~~~w::::gggggggggggggggggg$$$$$$$$$$$$$$",
   "TTgggg,g,ggggg===BBBBBBBBgggwwwwwwwwgggggggggggggggggggggg$$$$$$$$$$$$$$",
-  "TTggg,,,,,,,gg===BBBBBBBBggggggggggggggggggggggggggggggggg$$$$$$$$$$$$$$",
+  "TTggg,,,,,,,gg===BBBBDBBBggggggggggggggggggggggggggggggggg$$$$$$$$$$$$$$",
   "TTg,,,,,,,,,,,===gg,,,,,,,,ggggggggggggggggggggggggggggggg$$$$$$$$$$$$$$",
   "TTg,,,,,,,,,,,===g,,,,,,,,,ggggggggggggggggggggggggggggggg$$$$$$$$$$$$$$",
   "TTg,,,,,,,,,,,===,,,,,,,,,,ggggggggggggggggggggggggggggggg$$$$$$$$$$$$$$",

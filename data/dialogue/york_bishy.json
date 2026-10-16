@@ -1,0 +1,46 @@
+{
+ "bishy_owner": [
+  {
+   "do": "say",
+   "who": "Deli Owner",
+   "text": "Welcome to Bishy Road. Its proper name is Bishopthorpe Road, but nobody has used that since before I was born."
+  },
+  {
+   "do": "say",
+   "who": "Deli Owner",
+   "text": "York is a chocolate city. Kit Kat and Terry's Chocolate Orange were made here, and the smell used to drift across town."
+  },
+  {
+   "do": "say",
+   "who": "Deli Owner",
+   "text": "The street is full of small independent shops, and they all know each other. Gossip travels faster than the post."
+  },
+  {
+   "do": "if",
+   "flag": "bishy_tea_gift",
+   "then": [
+    {
+     "do": "say",
+     "who": "Deli Owner",
+     "text": "That is one cup each. Come back tomorrow."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Deli Owner",
+     "text": "Here, a cup of tea. It is on the house. Do not tell the Rowntrees."
+    },
+    {
+     "do": "give_item",
+     "item": "cup_of_tea",
+     "n": 1
+    },
+    {
+     "do": "set",
+     "flag": "bishy_tea_gift"
+    }
+   ]
+  }
+ ]
+}

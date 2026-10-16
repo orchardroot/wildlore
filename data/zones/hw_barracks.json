@@ -1,0 +1,79 @@
+{
+ "id": "hw_barracks",
+ "name": "Barrack Block",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "bed",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "table",
+   "x": 6,
+   "y": 3
+  },
+  {
+   "type": "bench",
+   "x": 5,
+   "y": 3
+  },
+  {
+   "type": "bookshelf",
+   "x": 10,
+   "y": 1
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 6
+  },
+  {
+   "type": "potted_plant",
+   "x": 10,
+   "y": 6
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 7,
+   "to": "hadrians_wall",
+   "tx": 56,
+   "ty": 43,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "barracks_soldier",
+   "sprite": "rugby_player",
+   "x": 6,
+   "y": 2,
+   "facing": "down",
+   "move": "still",
+   "script": "barracks_soldier"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  6,
+  6
+ ],
+ "rows": [
+  "xxxxxxxxxxxx",
+  "x||||||||||x",
+  "x||||||||||x",
+  "x||||||||||x",
+  "x||||||||||x",
+  "x||||||||||x",
+  "x||||||||||x",
+  "x|||||D||||x",
+  "xxxxxxxxxxxx"
+ ]
+}

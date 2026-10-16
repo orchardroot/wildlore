@@ -1,0 +1,46 @@
+{
+ "bigg_baker": [
+  {
+   "do": "say",
+   "who": "Deli Owner",
+   "text": "Howay in, hinny! Mind the stottie, it is bigger than your head."
+  },
+  {
+   "do": "say",
+   "who": "Deli Owner",
+   "text": "Bigg is an old word for a hardy kind of barley, and this market sold grain long before it sold anything else."
+  },
+  {
+   "do": "say",
+   "who": "Deli Owner",
+   "text": "Pease pudding and ham in a stottie is proper Geordie scran. Scran is food, in case you wondered."
+  },
+  {
+   "do": "if",
+   "flag": "bigg_deli_gift",
+   "then": [
+    {
+     "do": "say",
+     "who": "Deli Owner",
+     "text": "Another pie? Divvent be greedy. Off you go, pet."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Deli Owner",
+     "text": "Here, a pork pie for the road. Eat it before the chipgulls spot it."
+    },
+    {
+     "do": "give_item",
+     "item": "pork_pie",
+     "n": 1
+    },
+    {
+     "do": "set",
+     "flag": "bigg_deli_gift"
+    }
+   ]
+  }
+ ]
+}
