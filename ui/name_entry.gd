@@ -80,7 +80,8 @@ func setup(arg: String) -> void:
 	if _nick == null:
 		return
 	set_title("A name for %s?" % _nick.species.name)
-	set_hint("Type a name, or pick letters        Enter  Done        Backspace  Delete        Blank  Use the species name")
+	set_hints([["=Type a name, or pick letters", "", "kbd"], ["=Enter", "Done", "kbd"], ["=Backspace", "Delete", "kbd"],
+		["=Pick letters", "", "pad"], ["confirm", "Choose", "pad"], ["cancel", "Delete", "pad"], ["=Blank", "Use the species name"]])
 	_name = _nick.nickname
 	_label.text = "Nickname"
 	for b in _looks:

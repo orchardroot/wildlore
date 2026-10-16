@@ -252,6 +252,15 @@ func command(can_run: bool) -> String:
 	var i := await _pick(Rect2(880, 566, 376, 134), "", rows, 2, "command", false)
 	return ["fight", "bag", "team", "run"][maxi(0, i)]
 
+## A plain Yes / No under the message box. Cancel counts as No.
+func yes_no() -> bool:
+	return await _pick(Rect2(960, 566, 296, 134), "", [{"text": "Yes"}, {"text": "No"}], 2, "yes_no", true) == 0
+
+## After a catch with a full team: 0 to swap with a team member, 1 (or cancel) to send it to the Ark.
+func catch_destination() -> int:
+	var i := await _pick(Rect2(700, 566, 556, 134), "", [{"text": "Swap with a team member"}, {"text": "Send to the Ark"}], 1, "catch_dest", false)
+	return maxi(0, i)
+
 ## hint_fn(slot) -> String: the type-effectiveness tag for that move ("" when there's nothing to say).
 func moves(c: Creature, move_db: MoveDB, hint_fn := Callable()) -> int:
 	var rows := []
@@ -296,17 +305,17 @@ func party(creatures: Array, active: Variant, mode: String, item: Dictionary = {
 		var c: Creature = creatures[i]
 		var right := "FNT" if c.is_fainted() else "%d/%d" % [c.hp, c.max_hp()]
 		var dis := false
-		if mode == "item":
+		if mode == "item" or mode == "swap":
 			dis = false
 		else:
 			dis = c.is_fainted() or i in out_now
 		var chip := c.status
-		if i in out_now and mode != "item":
+		if i in out_now and mode != "item" and mode != "swap":
 			chip = "out"
 		rows.append({"text": "%s  Lv %d" % [c.display_name(), c.level], "right": right, "right_warn": c.is_fainted(),
 			"stripe": TypeColours.of(str(c.types()[0])), "chip": chip, "chip_colour": HEATHER if chip == "out" else BattleHUD.STATUS_COLOURS.get(chip, MUTED),
 			"chip_text": CREAM if chip == "out" else Color("14161c"), "disabled": dis})
-	var title: String = {"switch": "SEND OUT WHO?", "forced": "SEND OUT WHO?", "item": "USE ON WHOM?"}.get(mode, "TEAM")
+	var title: String = {"switch": "SEND OUT WHO?", "forced": "SEND OUT WHO?", "item": "USE ON WHOM?", "swap": "SWAP WITH WHO?"}.get(mode, "TEAM")
 	var h := creatures.size() * 46 + 56
 	return await _pick(Rect2(560, 560 - h, 696, h), title, rows, 1, "party_" + mode, mode != "forced")
 

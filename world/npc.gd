@@ -192,4 +192,6 @@ func _dev_talk() -> void:
 	await get_tree().create_timer(0.4).timeout
 	while Router.busy:
 		await get_tree().process_frame
+	if "--nurse-seen" in DevArgs.user_args():  # with a Sanctuary nurse: pretend this is a return visit (screenshots)
+		Game.data.set_flag("nurse_seen_" + Game.data.zone_id)
 	interact(ow.player)

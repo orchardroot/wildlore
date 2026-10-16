@@ -376,14 +376,38 @@ func _conclude() -> void:
 func _after_catch(c: Creature) -> void:
 	c.reset_stages()
 	var first := not data.caught.has(c.species.id)
-	var where := data.add_creature(c)
+	var swapped: Creature = null
+	var where := ""
+	if data.party.size() < GameStateData.PARTY_MAX:
+		where = data.add_creature(c)
+	else:
+		var slot: int = await ui.catch_destination(c, data.party)
+		if slot >= 0 and slot < data.party.size():
+			swapped = data.party[slot]
+			where = data.add_creature_swapping(c, slot)
+		else:
+			where = data.add_creature(c)
 	species_caught.emit(c.species.id)
-	if where == "party":
+	var target := nickname_arg(data, c)
+	if target != "":
+		await ui.ask_nickname(c, target)  # the name entry names it in place, wherever it landed
+	if swapped != null:
+		await _say(["%s joined your party, and %s went to the Ark." % [c.display_name(), swapped.display_name()]])
+	elif where == "party":
 		await _say(["%s joined your party!" % c.display_name()])
 	else:
 		await _say(["Your party is full, so %s went to the Ark." % c.display_name()])
 	if first:
 		await ui.first_catch(c)
+
+## The name entry's nickname argument for a stored creature: "nickname:<party index>" or "nickname:ark:<ark index>",
+## or "" if it is in neither.
+static func nickname_arg(d: GameStateData, c: Creature) -> String:
+	var i := d.party.find(c)
+	if i >= 0:
+		return "nickname:%d" % i
+	i = d.ark.find(c)
+	return "nickname:ark:%d" % i if i >= 0 else ""
 
 func _evolutions() -> void:
 	for c in _levelled:

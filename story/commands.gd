@@ -29,11 +29,48 @@ func run(commands: Array) -> void:
 	_ended = false
 	_badge_won = false
 	_legend_caught = false
-	await _run_list(commands)
+	await _run_list(_nurse_visit(commands))
 	# autosave once the whole scene has played, so the save has everything the Keeper's script did after the badge
 	# (or after a legend was caught, never mid-script)
 	if (_badge_won or _legend_caught) and host.has_method("autosave"):
 		host.autosave()
+
+const NURSE_HEALED := ["All set.", "Good as new.", "Right as rain."]
+const NURSE_BYE := "Mind how you go."
+
+## Every Sanctuary nurse script has the same shape: greeting, choice, then heal / Ark / just looking.
+static func is_nurse_script(c: Array) -> bool:
+	if c.size() != 3 or c[0].get("do") != "say" or c[1].get("do") != "choice" or c[2].get("do") != "if":
+		return false
+	var heal: Array = c[2].get("then", [])
+	var rest: Array = c[2].get("else", [])
+	if heal.size() != 3 or heal[0].get("do") != "say" or heal[1].get("do") != "heal" or heal[2].get("do") != "say":
+		return false
+	if rest.size() != 1 or rest[0].get("do") != "if":
+		return false
+	var ark: Array = rest[0].get("then", [])
+	return ark.size() == 2 and ark[0].get("do") == "say" and ark[1].get("do") == "ark" and rest[0].get("else", []).size() == 1
+
+## The quick version for a Sanctuary you have been to before: no greeting, no wind-up, one short line after.
+static func nurse_repeat(c: Array, variant: int) -> Array:
+	var out: Array = c.duplicate(true)
+	out.remove_at(0)
+	var branch: Dictionary = out[1]
+	branch["then"] = [branch.then[1], {"do": "say", "who": "Nurse", "text": NURSE_HEALED[posmod(variant, NURSE_HEALED.size())]}]
+	var rest: Dictionary = branch["else"][0]
+	rest["then"] = [rest.then[1]]
+	rest["else"] = [{"do": "say", "who": "Nurse", "text": NURSE_BYE}]
+	return out
+
+## First visit to a Sanctuary: the full script (and a note of it). Afterwards, the short one.
+func _nurse_visit(commands: Array) -> Array:
+	if not is_nurse_script(commands):
+		return commands
+	var key := "nurse_seen_" + str(host.zone_id())
+	if host.data.flag(key) == true:
+		return nurse_repeat(commands, int(host.data.day_count))
+	_set_flag(key, true)
+	return commands
 
 func _run_list(commands: Array) -> void:
 	for c in commands:

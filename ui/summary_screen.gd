@@ -11,6 +11,7 @@ var _move_rows: Array = []
 var _move_info: Label
 var _moves_of: Creature
 var _swap_from := -1  # the move picked to be swapped, or -1
+var _in_ark := false  # summarising the Ark's creatures instead of the team
 
 func _build() -> void:
 	set_title("Summary")
@@ -19,10 +20,14 @@ func _build() -> void:
 	_body.add_theme_constant_override("separation", 22)
 	content.add_child(_body)
 
-## arg: party index. "<index>:swap" opens with the top move already picked to swap (screenshots).
+## arg: party index ("3"), or "ark:12" for Ark entry 12 (and pages through the Ark).
+## A trailing ":swap" opens with the top move already picked to swap (screenshots).
 func setup(arg: String) -> void:
+	if arg.begins_with("ark:"):
+		_in_ark = true
+		arg = arg.substr(4)
 	var parts := arg.split(":")
-	_index = clampi(int(parts[0]), 0, maxi(0, party().size() - 1))
+	_index = clampi(int(parts[0]), 0, maxi(0, _list().size() - 1))
 	if parts.size() > 1 and parts[1] == "swap":
 		_swap_from = 0
 		_move = 2
@@ -87,20 +92,23 @@ func _input(event: InputEvent) -> void:
 		d = 1
 	if d != 0:
 		get_viewport().set_input_as_handled()
-		if party().size() > 1:
+		if _list().size() > 1:
 			_swap_from = -1
-			_index = MenuLogic.wrap_index(_index, d, party().size())
+			_index = MenuLogic.wrap_index(_index, d, _list().size())
 			Audio.sfx("cursor")
 			_show()
 		return
 	super._input(event)
 
+func _list() -> Array:
+	return Game.data.ark if _in_ark else party()
+
 func _show() -> void:
 	UIKit.clear(_body)
-	if party().is_empty():
+	if _list().is_empty():
 		return
-	var c: Creature = party()[_index]
-	header_right.text = "%d / %d" % [_index + 1, party().size()]
+	var c: Creature = _list()[_index]
+	header_right.text = "%d / %d" % [_index + 1, _list().size()]
 	_moves_of = c
 	_set_hint()
 	_body.add_child(_left(c))
@@ -114,7 +122,7 @@ func _set_hint() -> void:
 		set_hints([["updown", "Pick a spot"], ["confirm", "Swap here"], ["cancel", "Cancel"]])
 		return
 	var many := _moves_of.moves.size() > 1
-	set_hints(([["updown", "Moves"], ["confirm", "Reorder"]] if many else []) + ([["leftright", "Next creature"]] if party().size() > 1 else []) + [["cancel", "Back"]])
+	set_hints(([["updown", "Moves"], ["confirm", "Reorder"]] if many else []) + ([["leftright", "Next creature"]] if _list().size() > 1 else []) + [["cancel", "Back"]])
 
 func _left(c: Creature) -> Control:
 	var p := UIKit.panel(Color("1d2230f0"), 18)

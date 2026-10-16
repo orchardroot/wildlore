@@ -69,6 +69,41 @@ func withdraw(j: int) -> String:
 	ark.remove_at(j)
 	return ""
 
+## Caught with a full team: `c` takes team slot `slot` and whoever was there goes to the Ark. With room on the team
+## it just joins. Returns "party" like add_creature.
+func add_creature_swapping(c: Creature, slot: int) -> String:
+	if party.size() < PARTY_MAX or slot < 0 or slot >= party.size():
+		return add_creature(c)
+	mark_seen(c.species.id)
+	mark_caught(c.species.id)
+	ark.append(party[slot])
+	party[slot] = c
+	return "party"
+
+## Direct swap: team slot `pi` trades places with Ark entry `aj`. Returns "" on success or why not.
+func swap_with_ark(pi: int, aj: int) -> String:
+	if pi < 0 or pi >= party.size() or aj < 0 or aj >= ark.size():
+		return "Nobody there."
+	if not party[pi].is_fainted() and ark[aj].is_fainted():
+		var able := party.filter(func(c): return not c.is_fainted())
+		if able.size() <= 1:
+			return "That's your last creature fit to battle. Keep them with you."
+	var t: Creature = party[pi]
+	party[pi] = ark[aj]
+	ark[aj] = t
+	return ""
+
+## Lets a creature go for good (the Ark screen asks first). Returns "" on success or why not.
+func release(from_party: bool, i: int) -> String:
+	var rule := ArkLogic.release_rule(self, from_party, i)
+	if not rule.ok:
+		return rule.why
+	if from_party:
+		party.remove_at(i)
+	else:
+		ark.remove_at(i)
+	return ""
+
 func mark_seen(id: String) -> void:
 	seen[id] = true
 

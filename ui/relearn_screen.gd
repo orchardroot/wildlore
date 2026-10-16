@@ -62,7 +62,7 @@ func setup(arg: String) -> void:
 func _show_party() -> void:
 	_mode = "party"
 	header_right.text = ""
-	set_hint("Z  Choose        X  Back")
+	set_hints([["confirm", "Choose"], ["cancel", "Back"]])
 	_note.text = "Who needs reminding?"
 	_reset_list()
 	for i in party().size():
@@ -111,7 +111,7 @@ func _show_moves() -> void:
 	_mode = "moves"
 	var c: Creature = party()[_who]
 	header_right.text = c.display_name()
-	set_hint("Z  Remember this one        X  Back")
+	set_hints([["confirm", "Remember this one"], ["cancel", "Back"]])
 	_note.text = "Which move should %s remember?" % c.display_name()
 	_reset_list()
 	for id in Progression.relearnable(c):
@@ -154,7 +154,7 @@ func _show_forget() -> void:
 	_mode = "forget"
 	var c: Creature = party()[_who]
 	var new_name := str(Game.moves.get_move(_new_move).get("name", _new_move))
-	set_hint("Z  Forget this one        X  Back")
+	set_hints([["confirm", "Forget this one"], ["cancel", "Back"]])
 	_note.text = "%s can only hold four moves. Which one makes way for %s?" % [c.display_name(), new_name]
 	_describe(_new_move)
 	_reset_list()
