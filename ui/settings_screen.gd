@@ -16,17 +16,17 @@ func _build() -> void:
 	set_hint("Left / Right  Change        Z  Select        X  Back")
 	var col := VBoxContainer.new()
 	col.set_anchors_preset(Control.PRESET_FULL_RECT)
-	col.add_theme_constant_override("separation", 16)
+	col.add_theme_constant_override("separation", 10)
 	content.add_child(col)
 	var p := UIKit.panel(Color("1d2230f0"), 14)
 	col.add_child(p)
 	var v := VBoxContainer.new()
-	v.add_theme_constant_override("separation", 5)
+	v.add_theme_constant_override("separation", 2)
 	p.add_child(v)
 	var buttons := []
 	for def in [["text_speed", "Text speed"], ["battle_speed", "Battle speed"], ["quality", "Graphics quality"], ["music_volume", "Music volume"], ["sfx_volume", "Effects volume"], ["run_mode", "Run key"], ["colour_blind", "Colour-blind friendly"], ["reduce_flashing", "Reduce flashing"]]:
 		var b := Button.new()
-		b.custom_minimum_size = Vector2(0, 42)
+		b.custom_minimum_size = Vector2(0, 36)  # rows are tight: the preview panel must clear the hint line
 		UIKit.compact(b, 4)
 		var h := HBoxContainer.new()
 		h.set_anchors_preset(Control.PRESET_FULL_RECT)
@@ -84,7 +84,7 @@ func _build() -> void:
 	var ph := HBoxContainer.new()
 	ph.add_theme_constant_override("separation", 20)
 	pv.add_child(ph)
-	_preview = UIKit.label(SAMPLE, 24)
+	_preview = UIKit.label(SAMPLE, 20)
 	_preview.custom_minimum_size = Vector2(520, 0)
 	_preview.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	ph.add_child(_preview)
