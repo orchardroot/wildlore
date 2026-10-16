@@ -298,6 +298,22 @@
    "label": "The Boyne Inn"
   },
   {
+   "type": "building",
+   "x": 28,
+   "y": 32,
+   "w": 4,
+   "h": 3,
+   "style": "white_render"
+  },
+  {
+   "type": "building",
+   "x": 38,
+   "y": 32,
+   "w": 4,
+   "h": 3,
+   "style": "slate_cottage"
+  },
+  {
    "type": "lamp_post",
    "x": 5,
    "y": 25
@@ -560,6 +576,54 @@
    "tx": 4,
    "ty": 5,
    "facing": "up"
+  },
+  {
+   "x": 11,
+   "y": 24,
+   "to": "newgrange_visitor",
+   "tx": 7,
+   "ty": 8,
+   "facing": "up"
+  },
+  {
+   "x": 7,
+   "y": 34,
+   "to": "newgrange_cafe",
+   "tx": 6,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 47,
+   "y": 34,
+   "to": "newgrange_inn",
+   "tx": 7,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 15,
+   "y": 34,
+   "to": "newgrange_home_cottage",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 30,
+   "y": 34,
+   "to": "newgrange_home_farm",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 40,
+   "y": 34,
+   "to": "newgrange_home_dig",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
   }
  ],
  "edges": {
@@ -792,7 +856,7 @@
   "TT..BBBBBBBBBBBBBB....qqqqqqqqqqqqqqqqq...................TT",
   "TT..BBBBBBBBBBBBBB....qqqqqqqqqqqqqqqqq..BBBBBB.BBBBB.....TT",
   "TT..BBBBBBBBBBBBBB....qqqqqqqqqqqqqqqqq..BBBBBB.BBBBB.....TT",
-  "TT..BBBBBBBBBBBBBB....qqqqqqqqqqqqqqqqq..BBBBBB.BBBBB.....TT",
+  "TT..BBBBBBBDBBBBBB....qqqqqqqqqqqqqqqqq..BBBBBB.BBBBB.....TT",
   "TT..::::::::::::::....qqqqqqqqqqqqqqqqq..BBBDBB.BBDBB.....TT",
   "TT::::::::::::::::::::::::::::::::::::::::::::::::::::::::TT",
   "..========================================================TT",
@@ -800,9 +864,9 @@
   "..========================================================TT",
   "TT::::::::::::::::::::::::::::::::::::::::::::::::::::::::TT",
   "TT..BBBBBBB.BBBBBB..........................BBBBBBB.......TT",
-  "TT..BBBBBBB.BBBBBB..........................BBBBBBB.......TT",
-  "TT..BBBBBBB.BBBBBB..........................BBBBBBB.......TT",
-  "TT..BBBBBBB.BBBBBB..........................BBBBBBB.......TT",
+  "TT..BBBBBBB.BBBBBB..........BBBB......BBBB..BBBBBBB.......TT",
+  "TT..BBBBBBB.BBBBBB..........BBBB......BBBB..BBBBBBB.......TT",
+  "TT..BBBDBBB.BBBDBB..........BBDB......BBDB..BBBDBBB.......TT",
   "TT:::::::::::::::::::::::::::::::::::::::::::::::::::::::.TT",
   "TTHHHHHHHH.HHHHHHHHHHHHHHHHHHH#HHHHHHHHH.HHHHHHHHHHHHHHHH.TT",
   "TT..................................cccc..................TT",

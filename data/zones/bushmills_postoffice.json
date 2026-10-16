@@ -1,0 +1,69 @@
+{
+ "id": "bushmills_postoffice",
+ "name": "Bushmills Post Office",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "slate_heap",
+   "x": 1,
+   "y": 5
+  },
+  {
+   "type": "table",
+   "x": 9,
+   "y": 5
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 6
+  },
+  {
+   "type": "potted_plant",
+   "x": 9,
+   "y": 6
+  }
+ ],
+ "warps": [
+  {
+   "x": 5,
+   "y": 7,
+   "to": "bushmills",
+   "tx": 7,
+   "ty": 16,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "bush_postmaster",
+   "sprite": "villager_4",
+   "x": 5,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "bush_postmaster"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  5,
+  6
+ ],
+ "rows": [
+  "xxxxxxxxxxx",
+  "x|||||||||x",
+  "x|CCCCCCC|x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x||||D||||x",
+  "xxxxxxxxxxx"
+ ]
+}

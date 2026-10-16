@@ -1,0 +1,81 @@
+{
+ "id": "belfast_cityhall",
+ "name": "Belfast City Hall",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "statue",
+   "x": 2,
+   "y": 1
+  },
+  {
+   "type": "statue",
+   "x": 12,
+   "y": 1
+  },
+  {
+   "type": "table",
+   "x": 6,
+   "y": 3
+  },
+  {
+   "type": "table",
+   "x": 8,
+   "y": 3
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 8
+  },
+  {
+   "type": "potted_plant",
+   "x": 13,
+   "y": 8
+  }
+ ],
+ "warps": [
+  {
+   "x": 7,
+   "y": 9,
+   "to": "belfast",
+   "tx": 20,
+   "ty": 14,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "bel_hall_guide",
+   "sprite": "tour_guide",
+   "x": 5,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "bel_hall_guide"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  7,
+  8
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxxx",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x++++++D++++++x",
+  "xxxxxxxxxxxxxxx"
+ ]
+}

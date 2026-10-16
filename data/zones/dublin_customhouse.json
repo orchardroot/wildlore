@@ -1,0 +1,81 @@
+{
+ "id": "dublin_customhouse",
+ "name": "Custom House",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "statue",
+   "x": 2,
+   "y": 1
+  },
+  {
+   "type": "statue",
+   "x": 12,
+   "y": 1
+  },
+  {
+   "type": "table",
+   "x": 6,
+   "y": 3
+  },
+  {
+   "type": "table",
+   "x": 8,
+   "y": 3
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 8
+  },
+  {
+   "type": "potted_plant",
+   "x": 13,
+   "y": 8
+  }
+ ],
+ "warps": [
+  {
+   "x": 7,
+   "y": 9,
+   "to": "dublin",
+   "tx": 46,
+   "ty": 20,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "dub_custom_clerk",
+   "sprite": "commuter",
+   "x": 5,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "dub_custom_clerk"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  7,
+  8
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxxx",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x++++++D++++++x",
+  "xxxxxxxxxxxxxxx"
+ ]
+}

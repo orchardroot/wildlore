@@ -1,0 +1,105 @@
+{
+ "id": "belfast_ulstermuseum",
+ "name": "Ulster Museum",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "statue",
+   "x": 7,
+   "y": 3
+  },
+  {
+   "type": "bookshelf",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 13,
+   "y": 1
+  },
+  {
+   "type": "table",
+   "x": 3,
+   "y": 2
+  },
+  {
+   "type": "table",
+   "x": 3,
+   "y": 5
+  },
+  {
+   "type": "table",
+   "x": 11,
+   "y": 2
+  },
+  {
+   "type": "table",
+   "x": 11,
+   "y": 5
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 8
+  },
+  {
+   "type": "potted_plant",
+   "x": 13,
+   "y": 8
+  }
+ ],
+ "warps": [
+  {
+   "x": 7,
+   "y": 9,
+   "to": "belfast",
+   "tx": 37,
+   "ty": 12,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "bel_ulster_curator",
+   "sprite": "tour_guide",
+   "x": 5,
+   "y": 4,
+   "facing": "down",
+   "move": "still",
+   "script": "bel_ulster_curator"
+  },
+  {
+   "id": "bel_ulster_kid",
+   "sprite": "student",
+   "x": 9,
+   "y": 5,
+   "facing": "down",
+   "move": "still",
+   "script": "bel_ulster_kid"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  7,
+  8
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxxx",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x++++++D++++++x",
+  "xxxxxxxxxxxxxxx"
+ ]
+}
