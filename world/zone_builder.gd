@@ -505,6 +505,9 @@ static func _buildings(z: ZoneData, root: Node3D) -> void:
 			lbl.modulate = Color("f2e8cf")
 			lbl.outline_modulate = Color("1d2230")
 			lbl.position = Vector3(w * 0.5, 1.35 if door_x >= 0 else 1.0, d + 0.02)
+			if str(pr.get("style", "")) == "aqueduct":
+				# on the iron trough: down at door height it reads as the name of whatever stands in front
+				lbl.position = Vector3(w * 0.5, 3.6, d * 0.5 + 0.5)
 			lbl.billboard = BaseMaterial3D.BILLBOARD_DISABLED
 			lbl.no_depth_test = true  # walls and towers in front must not hide the name
 			lbl.render_priority = 10
