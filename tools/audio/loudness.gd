@@ -1,5 +1,6 @@
 extends SceneTree
-## Prints RMS dBFS, peak dBFS and loop-seam stats for every rendered music track and sfx in res://audio/.
+## Prints RMS dBFS, peak dBFS and loop-seam stats for every rendered music track, sfx and ambience loop in res://audio/.
+## Ambience beds are meant to sit 12 dB or more under the music median (see AmbienceRecipes.TARGET_DB).
 ## Usage: godot --headless --path . -s res://tools/audio/loudness.gd
 ## seam_db: level step across the loop point (RMS of the 250 ms after the start minus the 250 ms before the end).
 ## click: |last sample - first sample| divided by the RMS sample-to-sample delta of the track (about 1 is unremarkable, above 4 is an audible click).
@@ -74,7 +75,7 @@ static func median(a: Array) -> float:
 	return (float(s[s.size() / 2 - 1]) + float(s[s.size() / 2])) / 2.0
 
 func _initialize() -> void:
-	for kind in ["music", "sfx"]:
+	for kind in ["music", "sfx", "ambience"]:
 		var rows: Array = []
 		for id in ids_in("res://audio/%s" % kind):
 			var m := measure("res://audio/%s/%s.wav" % [kind, id])

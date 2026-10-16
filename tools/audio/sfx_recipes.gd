@@ -12,6 +12,8 @@ const LENGTHS := {
 	"crow": 0.75, "tomb_light": 1.8, "harp_gliss": 1.9,
 	"lantern_on": 1.3, "bog_squelch": 0.55, "bagpipe_drone": 2.0,
 	"bell_toll": 3.2, "raven_caw": 0.9, "train_rush": 2.4,
+	"step_path": 0.12, "step_stone": 0.1, "step_wood": 0.14, "step_sand": 0.15, "step_soft": 0.12, "step_wet": 0.16, "bike_tyre": 0.2,
+	"talk_blip": 0.08, "sign_creak": 0.5, "shop_bell": 0.9, "sanctuary_chime": 1.4, "brake_squeal": 1.6,
 }
 const PEAKS := {
 	"cursor": 0.5, "confirm": 0.6, "cancel": 0.55, "bump": 0.6, "door": 0.6, "step_grass": 0.55,
@@ -21,6 +23,8 @@ const PEAKS := {
 	"crow": 0.75, "tomb_light": 0.7, "harp_gliss": 0.7,
 	"lantern_on": 0.7, "bog_squelch": 0.75, "bagpipe_drone": 0.7,
 	"bell_toll": 0.8, "raven_caw": 0.75, "train_rush": 0.7,
+	"step_path": 0.6, "step_stone": 0.6, "step_wood": 0.6, "step_sand": 0.5, "step_soft": 0.5, "step_wet": 0.6, "bike_tyre": 0.5,
+	"talk_blip": 0.45, "sign_creak": 0.6, "shop_bell": 0.6, "sanctuary_chime": 0.6, "brake_squeal": 0.6,
 }
 
 static func ids() -> Array:
@@ -373,6 +377,110 @@ static func render(id: String) -> PackedFloat32Array:
 			Synth.lowpass(horn, 1100.0, SR)
 			Synth.adsr(horn, SR, 0.08, 0.1, 0.8, 0.5)
 			Synth.mix_into(out, horn, _at(0.3), 0.22)
+		"step_path":
+			# Gravel and packed earth: a soft scuff with a few grains crunching in it.
+			var sc := Synth.noise(0.1, SR, 151)
+			Synth.lowpass(sc, 2500.0, SR)
+			Synth.highpass(sc, 300.0, SR)
+			Synth.adsr(sc, SR, 0.006, 0.03, 0.35, 0.05)
+			Synth.mix_into(out, sc, 0)
+			for g in [[0.0, 152], [0.016, 153], [0.037, 154], [0.06, 155]]:
+				Synth.mix_into(out, _noise_burst(0.02, 6000.0, 1500.0, 120.0, g[1]), _at(g[0]), 0.6)
+		"step_stone":
+			# A heel on cobbles or tarmac: a dull thud and a little click.
+			var th := Synth.osc(Synth.SINE, 150.0, 90.0, 0.08, SR)
+			Synth.pluck_env(th, SR, 0.001, 45.0)
+			Synth.mix_into(out, th, 0, 0.8)
+			Synth.mix_into(out, _noise_burst(0.07, 1200.0, 150.0, 55.0, 161), 0, 0.7)
+			Synth.mix_into(out, _noise_burst(0.02, 0.0, 2500.0, 150.0, 162), 0, 0.35)
+		"step_wood":
+			# Boards: a hollow knock with a faint ring.
+			var k := Synth.osc(Synth.SINE, 210.0, 170.0, 0.12, SR)
+			var h := Synth.osc(Synth.SINE, 430.0, 400.0, 0.12, SR)
+			Synth.mix_into(k, h, 0, 0.4)
+			Synth.pluck_env(k, SR, 0.001, 30.0)
+			Synth.mix_into(out, k, 0, 0.8)
+			Synth.mix_into(out, _noise_burst(0.06, 1500.0, 200.0, 60.0, 171), 0, 0.5)
+		"step_sand":
+			# Sand: a soft shushing give underfoot.
+			var sh := Synth.noise(0.14, SR, 181)
+			Synth.lowpass(sh, 3000.0, SR)
+			Synth.highpass(sh, 500.0, SR)
+			Synth.adsr(sh, SR, 0.02, 0.04, 0.5, 0.07)
+			Synth.mix_into(out, sh, 0)
+		"step_soft":
+			# Short grass: a muffled brush.
+			var br := Synth.noise(0.11, SR, 191)
+			Synth.lowpass(br, 2000.0, SR)
+			Synth.highpass(br, 400.0, SR)
+			Synth.adsr(br, SR, 0.01, 0.03, 0.4, 0.05)
+			Synth.mix_into(out, br, 0)
+			var th := Synth.osc(Synth.SINE, 110.0, 80.0, 0.06, SR)
+			Synth.pluck_env(th, SR, 0.002, 50.0)
+			Synth.mix_into(out, th, 0, 0.3)
+		"step_wet":
+			# A wet slap: a splat of noise and a small bubble.
+			var sp := Synth.noise(0.12, SR, 201)
+			Synth.lowpass_sweep(sp, 3500.0, 900.0, SR)
+			Synth.highpass(sp, 300.0, SR)
+			Synth.adsr(sp, SR, 0.004, 0.04, 0.35, 0.06)
+			Synth.mix_into(out, sp, 0)
+			var bub := Synth.osc(Synth.SINE, 500.0, 900.0, 0.05, SR)
+			Synth.pluck_env(bub, SR, 0.002, 40.0)
+			Synth.mix_into(out, bub, _at(0.03), 0.3)
+		"bike_tyre":
+			# Tyres on the road: a hiss that swells and goes, a little rumble under it.
+			var hs := Synth.noise(0.2, SR, 211)
+			Synth.lowpass(hs, 5000.0, SR)
+			Synth.highpass(hs, 1500.0, SR)
+			Synth.adsr(hs, SR, 0.06, 0.04, 0.8, 0.09)
+			Synth.mix_into(out, hs, 0)
+			var rb := Synth.noise(0.2, SR, 212)
+			Synth.lowpass(rb, 200.0, SR)
+			Synth.adsr(rb, SR, 0.05, 0.04, 0.8, 0.09)
+			Synth.mix_into(out, rb, 0, 1.2)
+		"talk_blip":
+			# A soft rounded blip, rising a touch.
+			var bl := _tone(Synth.TRI, 880.0, 990.0, 0.075, 0.006, 0.02, 0.6, 0.04, 2500.0)
+			Synth.mix_into(out, bl, 0)
+		"sign_creak":
+			# An old signboard swinging: a stick-slip creak (a speeding-up train of clicks through a woody resonance).
+			var cr := Synth.make(_at(0.45))
+			var t := 0.02
+			var rate := 45.0
+			while t < 0.4:
+				cr[_at(t)] = 1.0 - 0.6 * absf(t - 0.2) / 0.2
+				t += 1.0 / rate
+				rate = minf(rate * 1.035, 140.0)
+			Synth.bandpass(cr, 650.0, 7.0, SR)
+			var body := cr.duplicate()
+			Synth.bandpass(body, 1450.0, 5.0, SR)
+			Synth.mix_into(cr, body, 0, 0.5)
+			Synth.lowpass(cr, 2500.0, SR)
+			Synth.mix_into(out, cr, 0)
+		"shop_bell":
+			# The little bell on a spring above a shop door: struck, then jingling as it settles.
+			for at in [[0.0, 1.0], [0.11, 0.6], [0.2, 0.45], [0.33, 0.25]]:
+				Synth.mix_into(out, _bell(2349.3, 0.55, 7.0), _at(at[0]), at[1])
+				Synth.mix_into(out, _bell(3135.9, 0.45, 9.0), _at(at[0] + 0.012), at[1] * 0.6)
+		"sanctuary_chime":
+			# A calm three-note chime.
+			var notes := [[1318.5, 0.0], [987.77, 0.16], [1661.2, 0.32]]
+			for nt in notes:
+				Synth.mix_into(out, _bell(nt[0], 1.05, 3.2), _at(nt[1]), 0.5)
+				Synth.mix_into(out, _bell(float(nt[0]) * 0.5, 1.05, 3.0), _at(nt[1]), 0.2)
+		"brake_squeal":
+			# Steel on steel: a high, slightly wavering squeal over a hiss, sliding down a little as it stops.
+			var sq := Synth.osc(Synth.SAW, 2650.0, 2380.0, 1.6, SR, 0.5, 5.5, 25.0, 0.1)
+			Synth.lowpass(sq, 4500.0, SR)
+			var sq2 := Synth.osc(Synth.SINE, 1320.0, 1190.0, 1.6, SR, 0.5, 4.0, 20.0)
+			Synth.mix_into(sq, sq2, 0, 0.5)
+			var hs := Synth.noise(1.6, SR, 221)
+			Synth.highpass(hs, 2000.0, SR)
+			Synth.lowpass(hs, 6000.0, SR)
+			Synth.mix_into(sq, hs, 0, 0.25)
+			Synth.adsr(sq, SR, 0.25, 0.2, 0.75, 0.5)
+			Synth.mix_into(out, sq, 0)
 		_:
 			push_error("unknown sfx " + id)
 	Synth.fade_out(out, SR, 0.008)

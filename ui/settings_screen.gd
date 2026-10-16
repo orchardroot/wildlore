@@ -23,7 +23,7 @@ func _build() -> void:
 	v.add_theme_constant_override("separation", 5)
 	p.add_child(v)
 	var buttons := []
-	for def in [["text_speed", "Text speed"], ["quality", "Graphics quality"], ["music_volume", "Music volume"], ["sfx_volume", "Effects volume"], ["colour_blind", "Colour-blind friendly"], ["reduce_flashing", "Reduce flashing"]]:
+	for def in [["text_speed", "Text speed"], ["quality", "Graphics quality"], ["music_volume", "Music volume"], ["sfx_volume", "Effects volume"], ["ambience_volume", "Ambience volume"], ["colour_blind", "Colour-blind friendly"], ["reduce_flashing", "Reduce flashing"]]:
 		var b := Button.new()
 		b.custom_minimum_size = Vector2(0, 42)
 		UIKit.compact(b, 4)
@@ -133,6 +133,8 @@ func _change(key: String, d: int) -> void:
 			Settings.music_volume = clampf(snappedf(Settings.music_volume + 0.1 * d, 0.1), 0.0, 1.0)
 		"sfx_volume":
 			Settings.sfx_volume = clampf(snappedf(Settings.sfx_volume + 0.1 * d, 0.1), 0.0, 1.0)
+		"ambience_volume":
+			Settings.ambience_volume = clampf(snappedf(Settings.ambience_volume + 0.1 * d, 0.1), 0.0, 1.0)
 		"colour_blind":
 			Settings.colour_blind = not Settings.colour_blind
 		"reduce_flashing":
@@ -157,6 +159,9 @@ func _paint_row(r: Dictionary) -> void:
 		"sfx_volume":
 			l.text = _pct(Settings.sfx_volume)
 			r.bar.value = Settings.sfx_volume
+		"ambience_volume":
+			l.text = _pct(Settings.ambience_volume)
+			r.bar.value = Settings.ambience_volume
 		"colour_blind":
 			l.text = "<  %s  >" % ("On" if Settings.colour_blind else "Off")
 			_fill_chips()

@@ -88,6 +88,7 @@ func load_zone(zone_id: String, pos: Vector2i, facing: String) -> void:
 	rig.configure(zone.width, zone.height, zone.kind == "interior")
 	if zone.music != "":
 		Audio.play_music(zone.music)
+	Audio.enter_zone(self, zone, weather)  # ambience bed, weather layer, muffled music indoors, town bells
 	_dark.visible = zone.dark
 
 ## Dark caves: keep the light circle on the player (and faint glows on every exit) each frame.
@@ -239,6 +240,7 @@ func _on_step(p: Vector2i) -> void:
 		return
 	var tile := zone.tile_at(p)
 	stepped.emit(p, tile)
+	Audio.footstep(tile, player.on_bike, Input.is_action_pressed("run"))
 	var was_wading := player.wading
 	player.set_wading(tile == "deep_water")
 	if player.wading and not was_wading:
@@ -298,6 +300,7 @@ func _after_battle(result: Dictionary) -> void:
 		await ScriptRunner.start(self, [{"do": "whiteout"}])  # one whiteout, shared with trainer battles
 
 func interact(p: Vector2i) -> void:
+	Audio.interaction(self, p)
 	var s := zone.sign_at(p)
 	if not s.is_empty():
 		await say([str(s.text)])

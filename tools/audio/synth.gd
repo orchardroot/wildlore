@@ -113,6 +113,43 @@ static func lowpass_sweep(buf: PackedFloat32Array, fc0: float, fc1: float, sr: i
 		y += (1.0 - exp(-TAU * fc / sr)) * (buf[i] - y)
 		buf[i] = y
 
+## Chamberlin state-variable band-pass: resonant, for wind howl and the body of a creak. `fcs` (one cutoff per
+## frame, same length as buf) overrides `fc` so the band can wander.
+static func bandpass(buf: PackedFloat32Array, fc: float, q: float, sr: int, fcs := PackedFloat32Array()) -> void:
+	var low := 0.0
+	var band := 0.0
+	var damp := 1.0 / maxf(q, 0.5)
+	var vary := fcs.size() == buf.size()
+	var k := 2.0 * sin(PI * minf(fc, sr * 0.16) / sr)
+	for i in buf.size():
+		if vary:
+			k = 2.0 * sin(PI * minf(fcs[i], sr * 0.16) / sr)
+		var high := buf[i] - low - damp * band
+		band += k * high
+		low += k * band
+		buf[i] = band
+
+## Makes a seamless loop of the first `n` frames: the `x` frames rendered past the end are faded (equal power)
+## over the start, so the end runs straight on into the beginning. Returns the n-frame loop.
+static func seal_loop(buf: PackedFloat32Array, n: int, x: int) -> PackedFloat32Array:
+	var out := buf.slice(0, n)
+	for i in mini(x, buf.size() - n):
+		var w := float(i) / x
+		out[i] = buf[i] * sqrt(w) + buf[n + i] * sqrt(1.0 - w)
+	return out
+
+## Adds src into a looping dst at `offset`, wrapping past the end back to the start.
+static func mix_wrap(dst: PackedFloat32Array, src: PackedFloat32Array, offset: int, gain := 1.0) -> void:
+	var n := dst.size()
+	for i in src.size():
+		dst[(offset + i) % n] += src[i] * gain
+
+## Scales so the RMS is `db` dBFS.
+static func normalise_rms(buf: PackedFloat32Array, db: float) -> void:
+	var r := rms(buf)
+	if r > 0.0:
+		scale(buf, pow(10.0, db / 20.0) / r)
+
 static func scale(buf: PackedFloat32Array, g: float) -> void:
 	for i in buf.size():
 		buf[i] *= g

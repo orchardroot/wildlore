@@ -9,6 +9,7 @@ var text_speed := "normal"
 var quality := "medium"     # low | medium | high
 var music_volume := 0.7
 var sfx_volume := 0.8
+var ambience_volume := 0.7  # background beds, weather, trains and town bells (see Ambience)
 var colour_blind := false   # palette safe for deuteranopia and protanopia
 var reduce_flashing := false  # gentle hit flashes, less shake, no strobing evolution
 var bindings := {}          # action -> {"key": [physical keycodes], "pad": [joypad buttons]}, see InputSetup
@@ -38,6 +39,7 @@ func load_settings() -> void:
 			quality = str(d.get("quality", quality))
 			music_volume = float(d.get("music_volume", music_volume))
 			sfx_volume = float(d.get("sfx_volume", sfx_volume))
+			ambience_volume = clampf(float(d.get("ambience_volume", ambience_volume)), 0.0, 1.0)
 			colour_blind = bool(d.get("colour_blind", colour_blind))
 			reduce_flashing = bool(d.get("reduce_flashing", reduce_flashing))
 			bindings = InputSetup.sanitise(d.get("bindings", {}))
@@ -47,7 +49,7 @@ func save_settings() -> void:
 	var f := FileAccess.open(path, FileAccess.WRITE)
 	if f:
 		f.store_string(JSON.stringify({"text_speed": text_speed, "quality": quality, "music_volume": music_volume,
-			"sfx_volume": sfx_volume, "colour_blind": colour_blind, "reduce_flashing": reduce_flashing, "bindings": bindings}))
+			"sfx_volume": sfx_volume, "ambience_volume": ambience_volume, "colour_blind": colour_blind, "reduce_flashing": reduce_flashing, "bindings": bindings}))
 	Bus.settings_changed.emit()
 
 ## Rebinds one slot. `device` is "key" or "pad"; `code` a physical keycode or joypad button.
