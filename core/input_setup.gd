@@ -130,6 +130,41 @@ static func describe(b: Dictionary, action: String, device: String) -> String:
 		parts.append(key_name(c) if device == "key" else pad_name(c))
 	return " / ".join(parts) if not parts.is_empty() else "-"
 
+## Short names for on-screen prompts.
+const SHORT_KEYS := {"Escape": "Esc", "BackSpace": "Backspace"}
+## Prompt entries that name two buttons at once: kind -> [first action, second action] (the pad's shoulders are fixed).
+const PAIR_ACTIONS := {"updown": ["move_up", "move_down"], "leftright": ["move_left", "move_right"]}
+
+## The name a prompt shows for `action` on a device: its first (main) button.
+static func hint_name(b: Dictionary, action: String, pad: bool) -> String:
+	if PAIR_ACTIONS.has(action):
+		var a := hint_name(b, PAIR_ACTIONS[action][0], pad)
+		var z := hint_name(b, PAIR_ACTIONS[action][1], pad)
+		if pad and a.begins_with("D-pad ") and z.begins_with("D-pad "):
+			z = z.trim_prefix("D-pad ")
+		return "%s / %s" % [a, z]
+	if action == "shoulders":
+		return "LB / RB" if pad else hint_name(b, "leftright", false)
+	var codes: Array = b.get(action, {}).get("pad" if pad else "key", [])
+	if codes.is_empty():
+		return "-"
+	if pad:
+		return pad_name(int(codes[0]))
+	var n := key_name(int(codes[0]))
+	return SHORT_KEYS.get(n, n)
+
+## Renders prompt entries as "Z  Choose        X  Back". Each entry is [action, label] or [action, label, "kbd"|"pad"]
+## (shown on that device only). An action starting with "=" is literal text (a key that can't be rebound).
+static func hint_text(b: Dictionary, pad: bool, entries: Array) -> String:
+	var parts := []
+	for e in entries:
+		if e.size() > 2 and e[2] != ("pad" if pad else "kbd"):
+			continue
+		var act: String = e[0]
+		var nm: String = act.substr(1) if act.begins_with("=") else hint_name(b, act, pad)
+		parts.append("%s  %s" % [nm, e[1]] if e[1] != "" else nm)
+	return "        ".join(parts)
+
 ## Registers the actions with the given bindings (the factory set if none are given). Safe to call again.
 static func apply(b: Dictionary = {}) -> void:
 	InputMap.load_from_project_settings()  # drops our actions and any earlier mirroring into the ui_* ones

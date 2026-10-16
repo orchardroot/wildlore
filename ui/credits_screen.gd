@@ -23,7 +23,7 @@ static func can_skip(elapsed: float) -> bool:
 
 func _build() -> void:
 	set_title("")
-	set_hint("Z  Skip")
+	set_hints([["confirm", "Skip"]])
 	_scroll = VBoxContainer.new()
 	_scroll.add_theme_constant_override("separation", 10)
 	_scroll.position = Vector2(0, 720)

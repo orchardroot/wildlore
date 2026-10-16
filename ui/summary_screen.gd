@@ -55,7 +55,7 @@ func _show() -> void:
 		return
 	var c: Creature = party()[_index]
 	header_right.text = "%d / %d" % [_index + 1, party().size()]
-	set_hint(("Up / Down  Moves        " if c.moves.size() > 1 else "") + ("Left / Right  Next creature        X  Back" if party().size() > 1 else "X  Back"))
+	set_hints(([["updown", "Moves"]] if c.moves.size() > 1 else []) + ([["leftright", "Next creature"]] if party().size() > 1 else []) + [["cancel", "Back"]])
 	_body.add_child(_left(c))
 	_body.add_child(_middle(c))
 	_body.add_child(_right(c))

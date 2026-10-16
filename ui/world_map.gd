@@ -5,7 +5,7 @@ var view: MapView
 
 func _build() -> void:
 	set_title("The Isles")
-	set_hint("X  Back")
+	set_hints([["cancel", "Back"]])
 	view = MapView.new()
 	view.set_anchors_preset(Control.PRESET_FULL_RECT)
 	content.add_child(view)
@@ -25,7 +25,7 @@ func setup(arg: String) -> void:
 		_show_objective()
 	view.queue_redraw()
 	if Game.data.flag("champion") == true and not arg.begins_with("species:"):
-		set_hint("F  Fly        X  Back")
+		set_hints([["fly", "Fly"], ["cancel", "Back"]])
 		_can_fly = true
 		var fly := make_button("Fly", _fly)
 		fly.position = Vector2(20, 14)

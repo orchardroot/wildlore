@@ -135,3 +135,23 @@ static func focus_later(c: Control) -> void:
 	(func():
 		if is_instance_valid(c) and c.is_inside_tree() and c.is_visible_in_tree():
 			c.grab_focus()).call_deferred()
+
+## Prompt text for the current device and bindings, e.g. hint([["confirm", "Choose"], ["cancel", "Back"]]).
+## Also: "menu", "run", "updown", "leftright", "shoulders"; see InputSetup.hint_text.
+static func hint(entries: Array) -> String:
+	return InputSetup.hint_text(Settings.bindings, InputDevice.pad, entries)
+
+## The current name of one action's button ("Z", or "A" on a pad), for sentences like "Press Z again".
+static func key_for(action: String) -> String:
+	return InputSetup.hint_name(Settings.bindings, action, InputDevice.pad)
+
+## Keeps `l.text` in step with `entries` as the device or the bindings change. Returns `l`.
+static func bind_hint(l: Label, entries: Array) -> Label:
+	var upd := func(): l.text = hint(entries)
+	upd.call()
+	InputDevice.changed.connect(upd)
+	Bus.settings_changed.connect(upd)
+	l.tree_exiting.connect(func():
+		InputDevice.changed.disconnect(upd)
+		Bus.settings_changed.disconnect(upd))
+	return l

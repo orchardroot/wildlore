@@ -63,7 +63,7 @@ func setup(species_id: String) -> void:
 	var added := UIKit.label("Added to your Fieldbook.", 28, UIKit.CREAM)
 	added.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	col.add_child(added)
-	var hint := UIKit.label("Z  Continue", 20, UIKit.MUTED)
+	var hint := UIKit.bind_hint(UIKit.label("", 20, UIKit.MUTED), [["confirm", "Continue"]])
 	hint.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	col.add_child(hint)
 	Audio.sfx("caught")

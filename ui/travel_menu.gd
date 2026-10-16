@@ -5,7 +5,7 @@ var _list: VBoxContainer
 
 func _build() -> void:
 	set_title("Where to?")
-	set_hint("Z  Buy a ticket (free with your pass)        X  Back")
+	set_hints([["confirm", "Buy a ticket (free with your pass)"], ["cancel", "Back"]])
 	var p := UIKit.panel(Color("1d2230f0"), 14)
 	p.set_anchors_preset(Control.PRESET_TOP_WIDE)
 	content.add_child(p)
@@ -19,7 +19,7 @@ func setup(arg: String) -> void:
 	header_right.text = "Bran's Raven is waiting" if flying else ("Departing " + Travel.town_name(here) if here != "" else "")
 	if flying:
 		set_title("Fly where?")
-		set_hint("Z  Fly there        X  Back")
+		set_hints([["confirm", "Fly there"], ["cancel", "Back"]])
 		here = ""
 		if Router.overworld and is_instance_valid(Router.overworld) and Router.overworld.get("zone") != null:
 			here = Router.overworld.zone.town_id
