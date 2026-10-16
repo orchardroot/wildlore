@@ -14,6 +14,7 @@ var npcs: Array = []
 var _zone_node: Node3D
 var _tilt: ColorRect
 var _dark: ColorRect
+var traffic: RailTraffic
 
 func _ready() -> void:
 	sky = SkyAndLight.new()
@@ -65,8 +66,7 @@ func load_zone(zone_id: String, pos: Vector2i, facing: String) -> void:
 	FieldMoves.apply_cuts(Game.data, zone)
 	if _zone_node:
 		_zone_node.queue_free()
-	_zone_node = ZoneBuilder.build(zone)
-	add_child(_zone_node)
+	_build_zone_node()
 	for n in npcs:
 		n.queue_free()
 	npcs.clear()
@@ -144,6 +144,8 @@ func can_enter(p: Vector2i, dir: Vector2i) -> String:
 		return "blocked" if occupied(p) else "cut"
 	if not zone.walkable(p, dir, FieldMoves.abilities(Game.data)) or occupied(p) or not zone.sign_at(p).is_empty():
 		return "blocked"
+	if traffic and traffic.closed(p):
+		return "blocked"  # the level crossing is shut: a train is coming
 	return "ok"
 
 ## Hedge-lay: clear the bramble for good and rebuild the scenery.
@@ -152,8 +154,28 @@ func cut_bramble(p: Vector2i) -> void:
 	Audio.sfx("cut")
 	if _zone_node:
 		_zone_node.queue_free()
+	_build_zone_node()
+
+## The zone's scenery, plus the trains that run through it.
+func _build_zone_node() -> void:
 	_zone_node = ZoneBuilder.build(zone)
 	add_child(_zone_node)
+	traffic = RailTraffic.new()
+	traffic.name = "RailTraffic"
+	_zone_node.add_child(traffic)
+	traffic.setup(zone, _occupied_tiles, float(Game.args.get("train", -1.0)))
+
+## Tiles the player and NPCs stand on or are stepping into (a train waits short of these on a crossing).
+func _occupied_tiles() -> Dictionary:
+	var out := {}
+	if player:
+		out[player.grid_pos] = true
+		if player.moving:
+			out[player.grid_pos + GridMotion.dir_vec(player.facing)] = true
+	for n in npcs:
+		if is_instance_valid(n):
+			out[n.grid_pos] = true
+	return out
 
 func toggle_bike() -> void:
 	var why := FieldMoves.bike_refusal(Game.data, zone, player.wading)
@@ -209,10 +231,11 @@ func _on_step(p: Vector2i) -> void:
 		return
 	if zone.tile_at(p) == "door" and str(zone.building_at(p).get("style", "")) == "station":
 		Audio.sfx("door")
+		var here := zone
 		await ScriptRunner.start(self, [{"do": "rail"}])  # the ticket office
-		if not is_inside_tree() or not is_instance_valid(player):
-			return  # took the train
-		player.try_step("down")
+		if not is_inside_tree() or not is_instance_valid(player) or zone != here or player.grid_pos != p:
+			return  # took the train (this overworld now shows the town it went to)
+		player.try_step("down")  # back out onto the platform
 		return
 	var tile := zone.tile_at(p)
 	stepped.emit(p, tile)

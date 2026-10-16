@@ -12,12 +12,17 @@ const LEGEND := {
 	"B": ["building", false], "D": ["door", true], "x": ["void", false], "|": ["floor_wood", true],
 	"+": ["floor_tile", true], "C": ["counter", false], "L": ["ledge_south", false],
 	"%": ["bramble", false], "o": ["deep_water", false], "/": ["scree", false], "_": ["platform", true],
-	"!": ["rail", false], "$": ["sea", false], "*": ["bog", false],
+	"!": ["rail", false], "$": ["sea", false], "*": ["bog", false], "&": ["level_crossing", true],
 }
-const WALKABLE_TILES := ["grass", "tall_grass", "path", "road", "cobbles", "sand", "flowers", "shallow", "door", "floor_wood", "floor_tile", "platform"]
+const WALKABLE_TILES := ["grass", "tall_grass", "path", "road", "cobbles", "sand", "flowers", "shallow", "door", "floor_wood", "floor_tile", "platform", "level_crossing"]
 ## Tiles a field ability lets you cross (bramble is different: Hedge-lay removes it for good).
 const ABILITY_TILES := {"deep_water": "brook_wade", "scree": "fell_scramble", "bog": "bog_cross"}
 const GATE_ABILITIES := ["hedge_lay", "brook_wade", "fell_scramble", "bog_cross"]
+## Track: a level crossing is rail you can walk over. Every line end needs one of RAIL_CAPS (or the map edge).
+const RAIL_TILES := ["rail", "level_crossing"]
+const RAIL_CAPS := ["buffer_stop", "tunnel_portal"]
+## Dev zones that may break the rail rules.
+const RAIL_RULE_EXEMPT := ["mesh_gallery", "testbed"]
 const OPPOSITE := {"north": "south", "south": "north", "east": "west", "west": "east"}
 
 var id := ""
@@ -379,4 +384,108 @@ func validate(all: Dictionary) -> Array:
 		for x in width:
 			if tiles[y][x] == "building" and not covered.has(Vector2i(x, y)):
 				e.append(tag + "B at %d,%d is not covered by a building prop" % [x, y])
+	if id not in RAIL_RULE_EXEMPT:
+		e.append_array(_rail_errors(tag))
+	return e
+
+# --- rail ----------------------------------------------------------------------
+# Lines are straight runs of `!` (and `&` level crossings), one or two tiles wide; T junctions and
+# crossings are fine, bends are not. Every line end must run off the map, or stop at a buffer_stop,
+# or go into a tunnel_portal (either prop on the end tile itself or on the tile just beyond it).
+
+func is_rail(p: Vector2i) -> bool:
+	return tile_at(p) in RAIL_TILES
+
+## How many rail tiles run in a straight line through p along `axis` (p included).
+func _rail_run(p: Vector2i, axis: Vector2i) -> int:
+	var n := 1
+	for s in [axis, -axis]:
+		var q: Vector2i = p + s
+		while is_rail(q):
+			n += 1
+			q += s
+	return n
+
+## Which way the track runs through rail tile p: (1, 0) east-west or (0, 1) north-south. The longer straight
+## run wins, so a double track (two rows side by side) still runs along its rows. Ties go east-west.
+func rail_axis(p: Vector2i) -> Vector2i:
+	return Vector2i(0, 1) if _rail_run(p, Vector2i(0, 1)) > _rail_run(p, Vector2i(1, 0)) else Vector2i(1, 0)
+
+## Every line end: [{"pos": end tile, "dir": the way out of the line}]. A lone tile has two ends (east and west).
+func rail_ends() -> Array:
+	var out := []
+	for y in height:
+		for x in width:
+			var p := Vector2i(x, y)
+			if not is_rail(p):
+				continue
+			var a := rail_axis(p)
+			var perp := Vector2i(a.y, a.x)
+			if is_rail(p + perp) and is_rail(p - perp):
+				continue  # the middle of a T junction or a crossing
+			var lone := not is_rail(p + a) and not is_rail(p - a)
+			for d in [a, -a]:
+				if not is_rail(p + d) and (lone or is_rail(p - d)):
+					out.append({"pos": p, "dir": d})
+	return out
+
+## The rail cap prop (buffer_stop or tunnel_portal) standing on tile p, or {}.
+func rail_cap_at(p: Vector2i) -> Dictionary:
+	for pr in props:
+		if str(pr.get("type", "")) in RAIL_CAPS and int(pr.get("x", -1)) == p.x and int(pr.get("y", -1)) == p.y:
+			return pr
+	return {}
+
+## What a line end runs into: "edge" (off the map), "buffer_stop", "tunnel_portal", or "" (nothing: a bad end).
+func rail_end_cap(end: Dictionary) -> String:
+	var p: Vector2i = end.pos
+	var beyond: Vector2i = p + end.dir
+	if not in_bounds(beyond):
+		return "edge"
+	for q in [p, beyond]:
+		var cap := rail_cap_at(q)
+		if not cap.is_empty():
+			return str(cap.type)
+	return ""
+
+## The way from a cap prop at p towards its track (the cap's open face points this way): along the line
+## when the cap sits on the end tile, or at the end tile when it sits just beyond it.
+func cap_inward(p: Vector2i) -> Vector2i:
+	if is_rail(p):
+		var a := rail_axis(p)
+		return a if is_rail(p + a) else (-a if is_rail(p - a) else a)
+	for d in [Vector2i(1, 0), Vector2i(-1, 0), Vector2i(0, 1), Vector2i(0, -1)]:
+		if is_rail(p + d):
+			return d
+	return Vector2i(1, 0)
+
+## Is any rail tile within `r` tiles of p (a square, so diagonals count)?
+func rail_near(p: Vector2i, r: int) -> bool:
+	for dy in range(-r, r + 1):
+		for dx in range(-r, r + 1):
+			if is_rail(p + Vector2i(dx, dy)):
+				return true
+	return false
+
+func _rail_errors(tag: String) -> Array:
+	var e := []
+	for end in rail_ends():
+		if rail_end_cap(end) == "":
+			var beyond: Vector2i = end.pos + end.dir
+			e.append(tag + "rail line ends at %d,%d with nowhere to go: run it off the map edge, or put a buffer_stop or tunnel_portal on %d,%d or %d,%d" % [end.pos.x, end.pos.y, end.pos.x, end.pos.y, beyond.x, beyond.y])
+	for pr in props:
+		var pt := str(pr.get("type", ""))
+		if pt in RAIL_CAPS:
+			var cp := Vector2i(int(pr.get("x", 0)), int(pr.get("y", 0)))
+			var touching := is_rail(cp)
+			for d in [Vector2i(1, 0), Vector2i(-1, 0), Vector2i(0, 1), Vector2i(0, -1)]:
+				touching = touching or is_rail(cp + d)
+			if not touching:
+				e.append(tag + "%s at %d,%d is not on or next to a rail line" % [pt, cp.x, cp.y])
+	for n in npcs:
+		if tile_at(Vector2i(int(n.get("x", -1)), int(n.get("y", -1)))) == "level_crossing":
+			e.append(tag + "npc '%s' stands on a level crossing (trains would wait for ever)" % n.get("id", "?"))
+	# a rail stop needs a line to stop on (heritage or disused halts with no "station" tile are left alone)
+	if station != Vector2i(-1, -1) and not rail_near(station, 2):
+		e.append(tag + "station platform %d,%d is not within 2 tiles of a rail line" % [station.x, station.y])
 	return e
