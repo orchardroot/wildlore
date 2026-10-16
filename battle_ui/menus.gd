@@ -2,7 +2,7 @@ class_name BattleMenus
 extends Control
 ## Keyboard, gamepad and mouse pickers for the battle: command, moves, bag, team and the forget-a-move prompt.
 ## Each picker is awaitable and returns the chosen index (-1 when cancelled). The last cursor position of each
-## menu is remembered for the rest of the battle.
+## menu is remembered for the rest of the session (the command menu goes back to Fight each battle).
 
 signal _picked(index: int)
 signal cursor_moved(index: int)  # the highlighted row changed (the scene uses it to mark a target)
@@ -19,10 +19,24 @@ var _idx := 0
 var _cancel_ok := true
 var _footer: Label
 var _footer_fn := Callable()
-var _mem := {}
+static var _mem := {}  # menu key -> last cursor index; outlives the battle, not the session
 var _panel: PanelContainer
 
+## A new battle: keep every remembered cursor except the command menu's, which opens on Fight.
+static func new_battle() -> void:
+	_mem.erase("command")
+
+static func forget_cursors() -> void:
+	_mem.clear()
+
+func remember(key: String, i: int) -> void:
+	_mem[key] = i
+
+func recall(key: String) -> int:
+	return int(_mem.get(key, 0))
+
 func _ready() -> void:
+	new_battle()
 	set_anchors_preset(Control.PRESET_FULL_RECT)
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 
@@ -137,7 +151,7 @@ func _pick(rect: Rect2, title: String, rows: Array, cols: int, mem_key: String, 
 		_footer.custom_minimum_size = Vector2(0, 26)
 		_footer.modulate = Color(1, 1, 1, 0.85)
 		vb.add_child(_footer)
-	_idx = clampi(int(_mem.get(mem_key, 0)), 0, maxi(0, rows.size() - 1))
+	_idx = clampi(recall(mem_key), 0, maxi(0, rows.size() - 1))
 	if _disabled.size() > 0 and _disabled[_idx]:
 		for i in rows.size():
 			if not _disabled[i]:
@@ -149,7 +163,7 @@ func _pick(rect: Rect2, title: String, rows: Array, cols: int, mem_key: String, 
 	_active = true
 	var r: int = await _picked
 	_active = false
-	_mem[mem_key] = _idx
+	remember(mem_key, _idx)
 	_clear()
 	return r
 
@@ -238,7 +252,8 @@ func command(can_run: bool) -> String:
 	var i := await _pick(Rect2(880, 566, 376, 134), "", rows, 2, "command", false)
 	return ["fight", "bag", "team", "run"][maxi(0, i)]
 
-func moves(c: Creature, move_db: MoveDB) -> int:
+## hint_fn(slot) -> String: the type-effectiveness tag for that move ("" when there's nothing to say).
+func moves(c: Creature, move_db: MoveDB, hint_fn := Callable()) -> int:
 	var rows := []
 	var all_empty := true
 	for m in c.moves:
@@ -254,9 +269,10 @@ func moves(c: Creature, move_db: MoveDB) -> int:
 		if int(c.moves[i].pp) <= 0:
 			return "No PP left for that one!" if not all_empty else "Out of PP: all that's left is a desperate flail."
 		var power := int(mv.get("power", 0))
-		return "%s  ·  %s  ·  %s  ·  Accuracy %d" % [str(mv.get("type", "")).capitalize(), str(mv.get("category", "")).capitalize(),
-			("Power %d" % power) if power > 0 else "No damage", int(mv.get("accuracy", 100))]
-	return await _pick(Rect2(470, 536, 786, 168), "", rows, 2, "moves", true, footer)
+		var hint: String = hint_fn.call(i) if hint_fn.is_valid() else ""
+		return "%s%s  ·  %s  ·  %s  ·  Accuracy %d\n%s" % [(hint.to_upper() + "  ·  ") if hint != "" else "", str(mv.get("type", "")).capitalize(),
+			str(mv.get("category", "")).capitalize(), ("Power %d" % power) if power > 0 else "No damage", int(mv.get("accuracy", 100)), MoveText.describe(mv)]
+	return await _pick(Rect2(470, 528, 786, 176), "", rows, 2, "moves", true, footer)
 
 ## entries from BattleFlow.battle_items(). Returns the index into entries, or -1.
 func bag(entries: Array) -> int:
@@ -265,7 +281,9 @@ func bag(entries: Array) -> int:
 	var rows := []
 	for e in entries:
 		rows.append({"text": e.name, "right": "x%d" % int(e.count)})
-	var footer := func(i: int) -> String: return str(entries[i].desc)
+	var footer := func(i: int) -> String:
+		var d := str(entries[i].desc)
+		return ("%s  ·  %s" % [MoveText.catch_band(float(entries[i].odds)), d]) if entries[i].has("odds") else d
 	var h := mini(entries.size(), 6) * 46 + 100
 	return await _pick(Rect2(700, 560 - h, 556, h), "BAG", rows, 1, "bag", true, footer)
 
@@ -310,13 +328,20 @@ func forget(c: Creature, new_move: String, move_db: MoveDB) -> int:
 		var mv := move_db.get_move(m.id)
 		var t := str(mv.get("type", ""))
 		rows.append({"text": mv.get("name", m.id), "stripe": TypeColours.of(t), "chip": t, "glyph": t, "chip_colour": TypeColours.of(t), "chip_text": TypeColours.text_on(t),
-			"right": "Pow %d" % int(mv.get("power", 0))})
+			"right": ("Pow %d" % int(mv.get("power", 0))) if int(mv.get("power", 0)) > 0 else "Status"})
 	rows.append({"text": "Don't learn it", "stripe": MUTED})
 	var nm := move_db.get_move(new_move)
 	var title := "%s wants to learn %s (%s). Forget which move?" % [c.display_name(), nm.get("name", new_move), str(nm.get("type", "")).capitalize()]
+	var new_line := "Learn %s: %s" % [nm.get("name", new_move), _stats_line(nm)]
 	var footer := func(i: int) -> String:
 		if i >= c.moves.size():
-			return "Keep what you have."
-		return "Forget %s to make room." % move_db.get_move(c.moves[i].id).get("name", c.moves[i].id)
-	var r := await _pick(Rect2(470, 330, 786, 340), title, rows, 1, "forget", false, footer)
+			return "Keep what you have.\n" + new_line
+		var old := move_db.get_move(c.moves[i].id)
+		return "Forget %s: %s\n%s" % [old.get("name", c.moves[i].id), _stats_line(old), new_line]
+	var r := await _pick(Rect2(470, 250, 786, 420), title, rows, 1, "forget", false, footer)
 	return -1 if r >= c.moves.size() else r
+
+## "Power 60, accuracy 95. A physical hit. ..." for the forget-a-move prompt.
+static func _stats_line(mv: Dictionary) -> String:
+	var power := int(mv.get("power", 0))
+	return "%s%s" % [("Power %d. " % power) if power > 0 else "", MoveText.describe(mv)]

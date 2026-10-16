@@ -1,7 +1,8 @@
 extends MenuBase
-## Settings: text speed, quality, volumes, accessibility switches and a Controls page. Left/right changes a row; every change is saved at once.
+## Settings: text speed, battle speed, quality, volumes, accessibility switches and a Controls page. Left/right changes a row; every change is saved at once.
 
 const SPEEDS := ["slow", "normal", "fast", "instant"]
+const BATTLE_SPEEDS := ["normal", "fast", "fastest"]
 const QUALITIES := ["low", "medium", "high"]
 const SAMPLE := "Oi. That's my sandwich. Also, welcome to Cheshire."
 
@@ -23,7 +24,7 @@ func _build() -> void:
 	v.add_theme_constant_override("separation", 5)
 	p.add_child(v)
 	var buttons := []
-	for def in [["text_speed", "Text speed"], ["quality", "Graphics quality"], ["music_volume", "Music volume"], ["sfx_volume", "Effects volume"], ["colour_blind", "Colour-blind friendly"], ["reduce_flashing", "Reduce flashing"]]:
+	for def in [["text_speed", "Text speed"], ["battle_speed", "Battle speed"], ["quality", "Graphics quality"], ["music_volume", "Music volume"], ["sfx_volume", "Effects volume"], ["colour_blind", "Colour-blind friendly"], ["reduce_flashing", "Reduce flashing"]]:
 		var b := Button.new()
 		b.custom_minimum_size = Vector2(0, 42)
 		UIKit.compact(b, 4)
@@ -127,6 +128,8 @@ func _change(key: String, d: int) -> void:
 		"text_speed":
 			Settings.text_speed = SPEEDS[MenuLogic.wrap_index(maxi(0, SPEEDS.find(Settings.text_speed)), d, SPEEDS.size())]
 			_t = 0.0
+		"battle_speed":
+			Settings.battle_speed = BATTLE_SPEEDS[MenuLogic.wrap_index(maxi(0, BATTLE_SPEEDS.find(Settings.battle_speed)), d, BATTLE_SPEEDS.size())]
 		"quality":
 			Settings.quality = QUALITIES[MenuLogic.wrap_index(maxi(0, QUALITIES.find(Settings.quality)), d, QUALITIES.size())]
 		"music_volume":
@@ -149,6 +152,8 @@ func _paint_row(r: Dictionary) -> void:
 	match r.key:
 		"text_speed":
 			l.text = "<  %s  >" % Settings.text_speed.capitalize()
+		"battle_speed":
+			l.text = "<  %s  >" % Settings.battle_speed.capitalize()
 		"quality":
 			l.text = "<  %s  >" % Settings.quality.capitalize()
 		"music_volume":
