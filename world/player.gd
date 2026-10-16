@@ -20,6 +20,7 @@ var _bump_cooldown := 0.0
 ## The playtest bot sets this to drive the player without real input.
 var forced_dir := ""
 var on_bike := false
+var _run_latched := false   # run mode "toggle": running stays on until the run key is pressed again
 var wading := false
 var _bike: Node3D
 var _coracle: MeshInstance3D
@@ -93,11 +94,26 @@ func face(dir: String) -> void:
 	if sprite:
 		sprite.set_facing(dir)
 
+## Run mode "toggle": a fresh press of the run key flips the latch. "hold" never latches.
+static func next_run_latch(mode: String, latched: bool, pressed: bool) -> bool:
+	if mode != "toggle":
+		return false
+	return not latched if pressed else latched
+
+static func is_running(mode: String, latched: bool, held: bool) -> bool:
+	return latched if mode == "toggle" else held
+
+## Back outdoors after riding in: hop back on the bike if it is allowed here (`refusal` from FieldMoves.bike_refusal).
+static func resume_bike(rode_in: bool, refusal: String) -> bool:
+	return rode_in and refusal == ""
+
 func busy() -> bool:
 	return moving or Router.busy
 
 func _physics_process(delta: float) -> void:
 	_bump_cooldown = maxf(0.0, _bump_cooldown - delta)
+	if forced_dir == "" and not Router.busy:  # (presses mid-step still count)
+		_run_latched = next_run_latch(Settings.run_mode, _run_latched, Input.is_action_just_pressed("run"))
 	if busy():
 		return
 	if forced_dir == "" and Input.is_action_just_pressed("confirm"):
@@ -108,6 +124,9 @@ func _physics_process(delta: float) -> void:
 		return
 	if forced_dir == "" and Input.is_action_just_pressed("bike") and overworld.has_method("toggle_bike"):
 		overworld.toggle_bike()
+		return
+	if forced_dir == "" and Input.is_action_just_pressed("fly") and overworld.has_method("try_fly"):
+		overworld.try_fly()
 		return
 	var dir := forced_dir if forced_dir != "" else _input_dir()
 	if dir == "":
@@ -126,7 +145,7 @@ func _physics_process(delta: float) -> void:
 		face(dir)
 	if forced_dir == "" and _held_t < TURN_GRACE and not sprite.walking:
 		return
-	try_step(dir, Input.is_action_pressed("run"))
+	try_step(dir, is_running(Settings.run_mode, _run_latched, Input.is_action_pressed("run")))
 
 func _input_dir() -> String:
 	for d in ["up", "down", "left", "right"]:

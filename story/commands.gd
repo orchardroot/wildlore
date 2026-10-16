@@ -18,6 +18,7 @@ var host
 var npc_id: String
 var _ended := false
 var _badge_won := false
+var _legend_caught := false
 
 ## npc_id is the NPC that owns the script (the default target of move, face and heal).
 func _init(h, owner_npc := "") -> void:
@@ -27,9 +28,11 @@ func _init(h, owner_npc := "") -> void:
 func run(commands: Array) -> void:
 	_ended = false
 	_badge_won = false
+	_legend_caught = false
 	await _run_list(commands)
 	# autosave once the whole scene has played, so the save has everything the Keeper's script did after the badge
-	if _badge_won and host.has_method("autosave"):
+	# (or after a legend was caught, never mid-script)
+	if (_badge_won or _legend_caught) and host.has_method("autosave"):
 		host.autosave()
 
 func _run_list(commands: Array) -> void:
@@ -235,6 +238,7 @@ func _legend(c: Dictionary) -> void:
 	match str(result.get("result", "")):
 		"caught":
 			_set_flag(str(c.get("flag", "caught_" + str(sp.id))), true)
+			_legend_caught = true
 		"lose":
 			await whiteout()
 			_ended = true
