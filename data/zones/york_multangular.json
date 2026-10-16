@@ -1,0 +1,94 @@
+{
+ "id": "york_multangular",
+ "name": "Multangular Tower",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "rock",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "rock",
+   "x": 1,
+   "y": 6
+  },
+  {
+   "type": "rock",
+   "x": 10,
+   "y": 1
+  },
+  {
+   "type": "rock",
+   "x": 10,
+   "y": 6
+  },
+  {
+   "type": "table",
+   "x": 6,
+   "y": 2
+  },
+  {
+   "type": "bench",
+   "x": 4,
+   "y": 4
+  },
+  {
+   "type": "bench",
+   "x": 8,
+   "y": 4
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 6
+  },
+  {
+   "type": "potted_plant",
+   "x": 10,
+   "y": 6
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 7,
+   "to": "york",
+   "tx": 23,
+   "ty": 15,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "multangular_guide",
+   "sprite": "tour_guide",
+   "x": 5,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "multangular_guide"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  6,
+  6
+ ],
+ "rows": [
+  "xxxxxxxxxxxx",
+  "x++++++++++x",
+  "x++++++++++x",
+  "x++++++++++x",
+  "x++++++++++x",
+  "x++++++++++x",
+  "x++++++++++x",
+  "x+++++D++++x",
+  "xxxxxxxxxxxx"
+ ]
+}

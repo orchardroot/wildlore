@@ -1,0 +1,46 @@
+{
+ "moorfarm_farmer": [
+  {
+   "do": "say",
+   "who": "Farmer Dale",
+   "text": "Ey up. Come in, but leave your boots by the door, there is nowt worse than moor mud on a clean floor."
+  },
+  {
+   "do": "say",
+   "who": "Farmer Dale",
+   "text": "Nowt means nothing, owt means anything, and a gimmer is a young ewe. You will get used to it."
+  },
+  {
+   "do": "say",
+   "who": "Farmer Dale",
+   "text": "Keep to the paths in the heather in summer. Zigzlets like to sunbathe where you least expect them."
+  },
+  {
+   "do": "if",
+   "flag": "moorfarm_parkin_gift",
+   "then": [
+    {
+     "do": "say",
+     "who": "Farmer Dale",
+     "text": "You have had your slice. The rest is for bonfire night, so hands off."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Farmer Dale",
+     "text": "My mother bakes parkin every November. Ginger, oats and treacle, and it gets better after a week. Take a slice."
+    },
+    {
+     "do": "give_item",
+     "item": "parkin",
+     "n": 1
+    },
+    {
+     "do": "set",
+     "flag": "moorfarm_parkin_gift"
+    }
+   ]
+  }
+ ]
+}

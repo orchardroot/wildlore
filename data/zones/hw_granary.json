@@ -1,0 +1,69 @@
+{
+ "id": "hw_granary",
+ "name": "The Granary",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "slate_heap",
+   "x": 1,
+   "y": 5
+  },
+  {
+   "type": "table",
+   "x": 10,
+   "y": 5
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 6
+  },
+  {
+   "type": "potted_plant",
+   "x": 10,
+   "y": 6
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 7,
+   "to": "hadrians_wall",
+   "tx": 46,
+   "ty": 35,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "granary_curator",
+   "sprite": "shopkeeper",
+   "x": 5,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "granary_curator"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  6,
+  6
+ ],
+ "rows": [
+  "xxxxxxxxxxxx",
+  "x||||||||||x",
+  "x|CCCCCCCC|x",
+  "x||||||||||x",
+  "x||||||||||x",
+  "x||||||||||x",
+  "x||||||||||x",
+  "x|||||D||||x",
+  "xxxxxxxxxxxx"
+ ]
+}
