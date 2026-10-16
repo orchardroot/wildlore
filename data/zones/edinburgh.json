@@ -794,6 +794,11 @@
    "type": "rock",
    "x": 60.0,
    "y": 51.0
+  },
+  {
+   "type": "buffer_stop",
+   "x": 37,
+   "y": 16
   }
  ],
  "region": "scotland",
@@ -805,7 +810,7 @@
   "TT.BBBBBBBBBB.BBBBBB..BBBBB.BBBB....BBBBBBBBB.BBBBBBBBB.BBBBBBBBB.....TT",
   "TT.BBBBBBBBBB.BBBBBB..BBBBB.BBBB....BBBBBBBBB.BBBBBBBBB.BBBBBBBBB.....TT",
   "TT.BBBBBBBBBB.BBBBBB..BBBBB.BBBB....BBBBBBBBB.BBBBBBBBB.BBBBBBBBB.....TT",
-  "TT.BBBBBBBBBB.BBBDBB..BBDBB.BBBB....BBBBBBBBB.BBBBBBBBB.BBBBBBBBB.....TT",
+  "TT.BBBBBDBBBB.BBBDBB..BBDBB.BBBB....BBBBDBBBB.BBBBBBBBB.BBBBDBBBB.....TT",
   "TT==============================:::===================================TT",
   "TT==============================:::===================================TT",
   "TT==============================:::===================================TT",
@@ -813,8 +818,8 @@
   "TT................#.......BBB...:::...................................TT",
   "TT.......ffffff...#...~ww.BBB...:::...BBBBBBBBBBBB.::::::.............TT",
   "TT.......f,,,,f...#...www.BBB...:::...BBBBBBDBBBBB.::::::.............TT",
-  "TT.......ffffff...#.......BBB...::::::____________.::::::.............TT",
-  "TT................#.............:::..!!!!!!!!!!!!!!...................TT",
+  "TT.......ffffff...#.......BDB...::::::____________.::::::.............TT",
+  "TT................#.............:::..!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",
   "TT..############################:::..,,,,,,,,,,,,,,...................TT",
   "TT................#.............:::..,,,,,,,,,,,,,,...................TT",
   "TT...,,,,,,,......#.............:::..,,,,,,,,,,,,,,...................TT",
@@ -836,17 +841,17 @@
   "TT....^^^^^^..BBBBBBBBBB..^^^^^^:::.BBBBBBBBB.BBBB....................TT",
   "TT....^^^^^^..BBBBBBBBBB..^^^^^^:::.BBBBBBBBB.BBBB....................TT",
   "TT....^^^^^^..BBBBBBBBBB..^^^^^^:::.BBBBBBBBB.BBBBBBBBBBBBBBBB........TT",
-  "TT....^^^^^^..BBBBBBBBBB..^^^^^^:::.BBBBBBBBB.BBBBBBBBBBBBBBBB........TT",
+  "TT....^^^^^^..BBBBBBBBBB..^^^^^^:::.BBBBDBBBB.BBDBBBBBBBBBBBBB........TT",
   "TT....^^^^^^..BBBBBBBBBB..^^^^^^::::::::::::::::::BBBBBBBBBBBB........TT",
-  "TT....^^^^^^..BBBBBBBBBB..^^^^^^::::::::::::::::::BBBBBBBBBBBB........TT",
+  "TT....^^^^^^..BBBBBDBBBB..^^^^^^::::::::::::::::::BBBBBBBBBBBB........TT",
   "TT....^^^^^^::::::::::::::::::::::::::::::::::::::BBBBBBBBBBBB........TT",
   "TT....^^^^^^::::::::::::::::::::::::::::::::::::::BBBBBBBBBBBB........TP",
-  "TT....^^^^^^::::::::::::::::::::::::::::::::::::::BBBBBBBBBBBB........TT",
+  "TT....^^^^^^::::::::::::::::::::::::::::::::::::::BBBBBBDBBBBB........TT",
   "TT....^^^^^^^^^^^^^^^^^^^^^^^^^^::::::::::::::::::....................TT",
   "TT....^^^^^^^^^^^^^^^^^^^^^^^^^^BBBBBBBB.BBBBBB...........##..........TT",
   "TT....^^^^^^^^^^^^^^^^^^^^^^^^^^BBBBBBBB.BBBBBB...........##..........TT",
   "TT....^^^^^^^^^^^^^^^^^^^^^^^^^^BBBBBBBB.BBBBBB...........##..........TT",
-  "TT....^^^^^^^^^^^^^^^^^^^^^^^^^^BBBBBBBB.BBBBBB.....,,,,,.##..,,,,....TT",
+  "TT....^^^^^^^^^^^^^^^^^^^^^^^^^^BBBBDBBB.BBBDBB.....,,,,,.##..,,,,....TT",
   "TP....^^^^^^^^^^^^^^^^^^^^^^^^^^....................,,,,,.##..,,,,....TT",
   "TT.::::::::::::::::::::::::::::.....................,,,,,.##..,,,,....TT",
   "TT.::::::::::::::::::::::::::::...................^.,,,,,.##..,,,,....TT",
@@ -857,9 +862,9 @@
   "TT..BBBBBBBBBB.BBBBBBBB.BBBBBBB......................,,,,,,..,,,,,,...TT",
   "TT..BBBBBBBBBB.BBBBBBBB.BBBBBBB......................,,,,,,..,,,,,,...TT",
   "TT..BBBBBBBBBB.BBBBBBBB.BBBBBBB.......................................TT",
-  "TT..BBBBBBBBBB.BBBBBBBB.BBBBBBB.......................................TT",
-  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
-  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT"
+  "TT..BBBBBDBBBB.BBBBDBBB.BBBDBBB.......................................TT",
+  "TTTTT..........................TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTT..........................TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT"
  ],
  "signs": [
   {
@@ -944,6 +949,110 @@
    "ty": 5.0,
    "x": 24.0,
    "y": 7.0
+  },
+  {
+   "x": 27,
+   "y": 15,
+   "to": "edinburgh_scott",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 19,
+   "y": 40,
+   "to": "edinburgh_castle",
+   "tx": 7,
+   "ty": 8,
+   "facing": "up"
+  },
+  {
+   "x": 40,
+   "y": 38,
+   "to": "edinburgh_stgiles",
+   "tx": 7,
+   "ty": 8,
+   "facing": "up"
+  },
+  {
+   "x": 48,
+   "y": 38,
+   "to": "edinburgh_camera",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 36,
+   "y": 48,
+   "to": "edinburgh_maryking",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 56,
+   "y": 43,
+   "to": "edinburgh_holyrood",
+   "tx": 7,
+   "ty": 8,
+   "facing": "up"
+  },
+  {
+   "x": 9,
+   "y": 59,
+   "to": "edinburgh_grassmarket",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 19,
+   "y": 59,
+   "to": "edinburgh_lastdrop",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 8,
+   "y": 7,
+   "to": "edinburgh_home_a",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 40,
+   "y": 7,
+   "to": "edinburgh_home_b",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 60,
+   "y": 7,
+   "to": "edinburgh_home_c",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 44,
+   "y": 48,
+   "to": "edinburgh_home_d",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 27,
+   "y": 59,
+   "to": "edinburgh_home_e",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
   }
  ],
  "weather": {

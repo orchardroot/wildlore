@@ -1,0 +1,41 @@
+{
+ "strand_baker": [
+  {
+   "do": "say",
+   "who": "Baker",
+   "text": "Strand Bakery. Brown bread, scones and barmbrack, which comes from 'bairín breac', the speckled loaf."
+  },
+  {
+   "do": "say",
+   "who": "Baker",
+   "text": "A barmbrack at Halloween has a ring baked in. Whoever finds the ring will be lucky. Whoever swallows it will be quiet."
+  },
+  {
+   "do": "if",
+   "flag": "dingle_bakery_gift",
+   "then": [
+    {
+     "do": "say",
+     "who": "Baker",
+     "text": "Another slice? You have the appetite of a fisherman. Go on."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Baker",
+     "text": "Here, a wedge of soda bread for the road. It is best eaten warm, and fastest eaten before the gulls spot it."
+    },
+    {
+     "do": "give_item",
+     "item": "soda_bread",
+     "n": 1
+    },
+    {
+     "do": "set",
+     "flag": "dingle_bakery_gift"
+    }
+   ]
+  }
+ ]
+}

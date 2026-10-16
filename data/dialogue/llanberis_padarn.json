@@ -1,0 +1,46 @@
+{
+ "padarn_owner": [
+  {
+   "do": "say",
+   "who": "Cafe Owner",
+   "text": "Bore da, welcome! Tea, toast, Welsh cakes. We do not do anything with kale."
+  },
+  {
+   "do": "say",
+   "who": "Cafe Owner",
+   "text": "Welsh cakes were cooked on a bakestone, so in Welsh they are called picau ar y maen, which means cakes on the stone."
+  },
+  {
+   "do": "say",
+   "who": "Cafe Owner",
+   "text": "Llyn Padarn outside has a rare fish called the Welsh char, or torgoch. It has been here since the Ice Age."
+  },
+  {
+   "do": "if",
+   "flag": "llanberis_padarn_brith",
+   "then": [
+    {
+     "do": "say",
+     "who": "Cafe Owner",
+     "text": "Another slice? You will be buying the cafe next. Off you go, cariad."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Cafe Owner",
+     "text": "Here, take a slice of bara brith for the path. It is a Welsh tea loaf full of dried fruit."
+    },
+    {
+     "do": "give_item",
+     "item": "bara_brith",
+     "n": 1
+    },
+    {
+     "do": "set",
+     "flag": "llanberis_padarn_brith"
+    }
+   ]
+  }
+ ]
+}

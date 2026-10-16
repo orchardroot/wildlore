@@ -1,0 +1,58 @@
+{
+ "visitor_ranger": [
+  {
+   "do": "say",
+   "who": "Ranger",
+   "text": "Welcome to the Cliffs of Moher. In Irish they are Aillte an Mhothair, 'cliffs of the ruined fort'."
+  },
+  {
+   "do": "say",
+   "who": "Ranger",
+   "text": "They run for about eight kilometres, and the highest point is around 214 metres above the Atlantic."
+  },
+  {
+   "do": "say",
+   "who": "Ranger",
+   "text": "This centre is built into the hillside so it does not spoil the view. You can tell, because you did not see it coming."
+  },
+  {
+   "do": "if",
+   "flag": "got_moher_tea",
+   "then": [
+    {
+     "do": "say",
+     "who": "Ranger",
+     "text": "That was your cuppa. The next one is in the cafe, and it costs money."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Ranger",
+     "text": "Puffins nest on the cliffs in summer. Plungebeaks dive from them, and are much less polite about it. Here, have a cuppa."
+    },
+    {
+     "do": "give_item",
+     "item": "cup_of_tea",
+     "n": 1
+    },
+    {
+     "do": "set",
+     "flag": "got_moher_tea"
+    }
+   ]
+  }
+ ],
+ "visitor_botanist": [
+  {
+   "do": "say",
+   "who": "Botanist",
+   "text": "The Burren rock is split into blocks called clints, and plants grow in the cracks between them, called grikes."
+  },
+  {
+   "do": "say",
+   "who": "Botanist",
+   "text": "Gentlets and burrenbloom love it. Arctic and Mediterranean flowers grow side by side, which is absurd and lovely."
+  }
+ ]
+}

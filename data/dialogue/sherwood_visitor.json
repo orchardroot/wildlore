@@ -1,0 +1,58 @@
+{
+ "sherwood_ranger": [
+  {
+   "do": "say",
+   "who": "Ranger",
+   "text": "Welcome to the Visitor Centre. The Major Oak is a short walk away, and about a thousand years old. Maybe eight hundred. It does not give interviews."
+  },
+  {
+   "do": "say",
+   "who": "Ranger",
+   "text": "It is named after Major Hayman Rooke, who wrote about it in 1790. It is propped up with supports, and weighs about 23 tonnes."
+  },
+  {
+   "do": "say",
+   "who": "Ranger",
+   "text": "This forest holds one of the biggest collections of ancient oaks in Europe. Over 900 veteran trees. I know a few of them by name."
+  },
+  {
+   "do": "if",
+   "flag": "gift_sherwood_vc",
+   "then": [
+    {
+     "do": "say",
+     "who": "Ranger",
+     "text": "You already have my snare. Do not make me weave another before lunch."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Ranger",
+     "text": "Here, take a snare. Wicker, hand woven, entirely legal. Be gentle with whatever you catch."
+    },
+    {
+     "do": "give_item",
+     "item": "wicker_snare",
+     "n": 1
+    },
+    {
+     "do": "set",
+     "flag": "gift_sherwood_vc"
+    }
+   ]
+  }
+ ],
+ "sherwood_volunteer": [
+  {
+   "do": "say",
+   "who": "Volunteer",
+   "text": "Barkdeer yaps at the first sign of strangers. If you hear one, you are probably being announced."
+  },
+  {
+   "do": "say",
+   "who": "Volunteer",
+   "text": "Fawnlet hides in the bracken all day. Mum comes back at dusk, so do not fuss it. The barnling hunts by sound, so keep your voice down."
+  }
+ ]
+}

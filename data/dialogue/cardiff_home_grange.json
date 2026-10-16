@@ -1,0 +1,46 @@
+{
+ "grange_mamgu": [
+  {
+   "do": "say",
+   "who": "Mamgu",
+   "text": "Come in, mind the cat. Mamgu is what we call grandmother in the south, and I have been one for six years."
+  },
+  {
+   "do": "say",
+   "who": "Mamgu",
+   "text": "A cwtch is a cuddle. It is also the cupboard under the stairs. Both are good places to hide when the washing up starts."
+  },
+  {
+   "do": "say",
+   "who": "Mamgu",
+   "text": "Cardiff gulls nest on the shop roofs. Chipgulls, you would call them. Try a snare and stay brave. They are bold little rascals."
+  },
+  {
+   "do": "if",
+   "flag": "swales_grange_gift",
+   "then": [
+    {
+     "do": "say",
+     "who": "Mamgu",
+     "text": "Another slice? You will burst, cariad. Off you go."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Mamgu",
+     "text": "Here, a slice of my bara brith for the road. Do not tell the Chipgulls."
+    },
+    {
+     "do": "give_item",
+     "item": "bara_brith",
+     "n": 1
+    },
+    {
+     "do": "set",
+     "flag": "swales_grange_gift"
+    }
+   ]
+  }
+ ]
+}

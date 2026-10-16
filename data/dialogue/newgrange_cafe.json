@@ -1,0 +1,41 @@
+{
+ "ng_cafe_cook": [
+  {
+   "do": "say",
+   "who": "Cook",
+   "text": "Sit anywhere. Soda bread is in the oven, and the scones are in the other oven."
+  },
+  {
+   "do": "say",
+   "who": "Cook",
+   "text": "Soda bread rises with baking soda and buttermilk, not yeast, so it is quick. The first time you try it you will wonder why every bread isn't."
+  },
+  {
+   "do": "if",
+   "flag": "newgrange_cafe_gift",
+   "then": [
+    {
+     "do": "say",
+     "who": "Cook",
+     "text": "That is all I have, I am afraid. Off you go, and mind how you go."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Cook",
+     "text": "Here, a slice for the road. It is still warm. The farm cat believes it is hers."
+    },
+    {
+     "do": "give_item",
+     "item": "soda_bread",
+     "n": 1
+    },
+    {
+     "do": "set",
+     "flag": "newgrange_cafe_gift"
+    }
+   ]
+  }
+ ]
+}

@@ -650,6 +650,15 @@
    "x": 49,
    "y": 6,
    "variant": 2
+  },
+  {
+   "type": "building",
+   "style": "stone",
+   "x": 19,
+   "y": 15,
+   "w": 4,
+   "h": 4,
+   "show_label": false
   }
  ],
  "warps": [
@@ -659,6 +668,31 @@
    "to": "kerry_muckross",
    "tx": 6,
    "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 12,
+   "y": 31,
+   "to": "kerry_innisfallen",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up",
+   "gate": "brook_wade"
+  },
+  {
+   "x": 34,
+   "y": 31,
+   "to": "kerry_ross",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 21,
+   "y": 18,
+   "to": "kerry_cottage",
+   "tx": 5,
+   "ty": 6,
    "facing": "up"
   }
  ],
@@ -1009,10 +1043,10 @@
   "TT.T,,,,BBBBBBBBB..,,,,.##..###..........##..ww~~~~~~~w,,,,,..TT",
   "TT..,,ffBBBBBBBBBff,,,,.##..###..........##...ww~~~~~ww,,,,,..TT",
   "TT..,,ffBBBBBBBBBff,,,,.##..###..........##....,,,,,,,.,,,,,..TT",
-  "TT..,,ffBBBBBBBBBff,,,,.##..###..........##....,,,,,,,.,,,,,..TT",
-  "TT...TffBBBBDBBBBff.....##..###..........##....,,,,,,,.,,,,,..TT",
-  "TT.TTT#############.....##..###..........##...................TT",
-  "TT.TTT#############.....##..###..........##...................TT",
+  "TT..,,ffBBBBBBBBBffBBBB.##..###..........##....,,,,,,,.,,,,,..TT",
+  "TT...TffBBBBDBBBBffBBBB.##..###..........##....,,,,,,,.,,,,,..TT",
+  "TT.TTT#############BBBB.##..###..........##...................TT",
+  "TT.TTT#############BBDB.##..###..........##...................TT",
   "TT....#############.....##..###..........##...................TT",
   "TT..############################################################",
   "TT..############################################################",
@@ -1025,14 +1059,14 @@
   "TT.ww~~~~~~~~~~~~~~~~~~~rr....#.BBBBBkkkkkkkkkkk##kkkkkkkkkkkkTT",
   "TT.ww~~~~~~~~~~~~~~~~~~~ww....#.BBBBBkkkkkkkkkkk##kkkkkkkkkkkkTT",
   "TTrr~~~~~~.BBB.~~~~~~~~~~ww...#.BBBBBkkkkkkkkkkk##kkkkkkkkkkkkTT",
-  "TTrr~~~~~~.BBB.~~~~~~~~~~ww...#.BBBBBkkkkkkkkkkk##kkhhhhhhhkkkTT",
+  "TTrr~~~~~~.BDB.~~~~~~~~~~ww...#.BBDBBkkkkkkkkkkk##kkhhhhhhhkkkTT",
   "TTrr~~~~~~.....~~~~~~~~~~~w...#...kkkkkkhhhhhhhh##kkhhhhhhhkkkTT",
-  "TTrr~~~~~~~~~~~~~~~~~~~~~ww####...kkkkkkhhhhhhhh##kkhhhhhhhkkkTT",
-  "TTrr~~~~~~~~~~~~~~~~~~~~~wwwwwwwww~~~~~~~~~~wwwh##kkhhhhhhhkkkTT",
-  "TT.ww~~~~~~~~~~~~~~~~~~~ww........kkkkkkhhhhhhhh##kkhhhhhhhkkkTT",
-  "TT.ww~~~~~~~~~~~~~~~~~~~ww........kkhhhhhhhhhhhh##kkkkkkhhhhkkTT",
-  "TT..www~~~~~~~~~~~~~~~www.........kkhhhhhkkkkkkkkkkkkkkkhhhhkkTT",
-  "TT...rrrrrr~~~~~~~rrrrrrr.........kkhhhhhkkkkkhhhhhhkkkkhhhhkkTT",
+  "TTrr~~~~~~~~o~~~~~~~~~~~~ww####...kkkkkkhhhhhhhh##kkhhhhhhhkkkTT",
+  "TTrr~~~~~~~~o~~~~~~~~~~~~wwwwwwwww~~~~~~~~~~wwwh##kkhhhhhhhkkkTT",
+  "TT.ww~~~~~~~o~~~~~~~~~~~ww........kkkkkkhhhhhhhh##kkhhhhhhhkkkTT",
+  "TT.ww~~~~~~~o~~~~~~~~~~~ww........kkhhhhhhhhhhhh##kkkkkkhhhhkkTT",
+  "TT..www~~~~~o~~~~~~~~~www.........kkhhhhhkkkkkkkkkkkkkkkhhhhkkTT",
+  "TT...rrrrrr~o~~~~~rrrrrrr.........kkhhhhhkkkkkhhhhhhkkkkhhhhkkTT",
   "TT...rrrrrrwww~wwwrrrrrrr.........kkhhhhhkkkkkhhhhhhkkkkhhhhkkTT",
   "TT........wwwwwwwww...............kkkkkkkkkkkkhhhhhhkkkkkkkkkkTT",
   "TT................................kkkkkkkkkkkkkkkkkkkkkkkkkkkkTT",

@@ -1,0 +1,69 @@
+{
+ "id": "dublin_cobbler",
+ "name": "The Cobbler's Tap",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "slate_heap",
+   "x": 1,
+   "y": 5
+  },
+  {
+   "type": "table",
+   "x": 10,
+   "y": 5
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 6
+  },
+  {
+   "type": "potted_plant",
+   "x": 10,
+   "y": 6
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 7,
+   "to": "dublin",
+   "tx": 45,
+   "ty": 38,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "dub_cobbler",
+   "sprite": "villager_5",
+   "x": 6,
+   "y": 4,
+   "facing": "down",
+   "move": "still",
+   "script": "dub_cobbler"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  6,
+  6
+ ],
+ "rows": [
+  "xxxxxxxxxxxx",
+  "x||||||||||x",
+  "x|CCCCCCCC|x",
+  "x||||||||||x",
+  "x||||||||||x",
+  "x||||||||||x",
+  "x||||||||||x",
+  "x|||||D||||x",
+  "xxxxxxxxxxxx"
+ ]
+}

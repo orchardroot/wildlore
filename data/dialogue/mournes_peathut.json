@@ -1,0 +1,41 @@
+{
+ "mournes_peatman": [
+  {
+   "do": "say",
+   "who": "Peat Cutter",
+   "text": "Mind the damp. Peat is called 'móin' in Irish, and it takes a very long time to make and a short time to burn."
+  },
+  {
+   "do": "say",
+   "who": "Peat Cutter",
+   "text": "Peatmonarch rules the bog. Slow and bulky, and not to be rushed. Treat it with respect, and it might return the favour."
+  },
+  {
+   "do": "if",
+   "flag": "mournes_peat_gift",
+   "then": [
+    {
+     "do": "say",
+     "who": "Peat Cutter",
+     "text": "That is all I have, I am afraid. Off you go, and mind how you go."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Peat Cutter",
+     "text": "The Mourne Wall runs about 22 miles over 15 summits. It was built between 1904 and 1922 to protect a reservoir's water. Here, a flask."
+    },
+    {
+     "do": "give_item",
+     "item": "flask_of_tea",
+     "n": 1
+    },
+    {
+     "do": "set",
+     "flag": "mournes_peat_gift"
+    }
+   ]
+  }
+ ]
+}

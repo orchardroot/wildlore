@@ -1,0 +1,46 @@
+{
+ "moorcock_landlord": [
+  {
+   "do": "say",
+   "who": "Landlord",
+   "text": "Welcome in, you look like you have walked a fair way. The North York Moors will do that to a person."
+  },
+  {
+   "do": "say",
+   "who": "Landlord",
+   "text": "The National Park was made in 1952, and it holds one of the biggest stretches of heather moorland in England."
+  },
+  {
+   "do": "say",
+   "who": "Landlord",
+   "text": "In August and September the whole moor goes purple. There is also an ancient road across Wheeldale Moor, called Wade's Causeway. Folk long said it was Roman, but nobody is quite sure."
+  },
+  {
+   "do": "if",
+   "flag": "moorcock_yorkie_gift",
+   "then": [
+    {
+     "do": "say",
+     "who": "Landlord",
+     "text": "One is plenty, or I will have none for the Sunday crowd. Off with you."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Landlord",
+     "text": "Here, a Yorkshire pudding. It is eaten first with gravy, to fill you up so you want less beef. Tradition, and good sense."
+    },
+    {
+     "do": "give_item",
+     "item": "yorkshire_pudding",
+     "n": 1
+    },
+    {
+     "do": "set",
+     "flag": "moorcock_yorkie_gift"
+    }
+   ]
+  }
+ ]
+}

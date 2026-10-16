@@ -1,0 +1,46 @@
+{
+ "home_sligo_nana": [
+  {
+   "do": "say",
+   "who": "Nana",
+   "text": "Sit down, sit down. The kettle has already forgiven me for being late."
+  },
+  {
+   "do": "say",
+   "who": "Nana",
+   "text": "Round here you do not complain, you 'give out'. I have given out about the weather since 1971."
+  },
+  {
+   "do": "say",
+   "who": "Nana",
+   "text": "Brocklings come into the garden at night. Keep the bins shut and we get along very well."
+  },
+  {
+   "do": "if",
+   "flag": "got_sligo_brack",
+   "then": [
+    {
+     "do": "say",
+     "who": "Nana",
+     "text": "You have had your slice. The ring is still out there, somewhere."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Nana",
+     "text": "I baked a barmbrack. There is a ring hidden inside, and whoever finds it gets a year of luck. Take a slice."
+    },
+    {
+     "do": "give_item",
+     "item": "barmbrack",
+     "n": 1
+    },
+    {
+     "do": "set",
+     "flag": "got_sligo_brack"
+    }
+   ]
+  }
+ ]
+}

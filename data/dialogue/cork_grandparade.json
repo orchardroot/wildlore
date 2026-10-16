@@ -1,0 +1,41 @@
+{
+ "grandparade_owner": [
+  {
+   "do": "say",
+   "who": "Cafe Owner",
+   "text": "Grand Parade is wide because it was built on filled-in river channels. The Lee is still down there, grumbling."
+  },
+  {
+   "do": "say",
+   "who": "Cafe Owner",
+   "text": "In Cork it is Barry's Tea or nothing. It has been made here since 1901. Lyons is a Dublin tea, and I would never say it to your face."
+  },
+  {
+   "do": "if",
+   "flag": "cork_grandparade_gift",
+   "then": [
+    {
+     "do": "say",
+     "who": "Cafe Owner",
+     "text": "Another cup? You are hard to refuse. Go on."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Cafe Owner",
+     "text": "Here, a cup on the house. I only ask that you never say 'Lyons'."
+    },
+    {
+     "do": "give_item",
+     "item": "cup_of_tea",
+     "n": 1
+    },
+    {
+     "do": "set",
+     "flag": "cork_grandparade_gift"
+    }
+   ]
+  }
+ ]
+}

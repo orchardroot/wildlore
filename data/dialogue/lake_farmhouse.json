@@ -1,0 +1,41 @@
+{
+ "lakefarm_farmer": [
+  {
+   "do": "say",
+   "who": "Farmer",
+   "text": "Come in, mind the dog. The dog minds nobody. The kettle is on. It is always on, it is practically the law."
+  },
+  {
+   "do": "say",
+   "who": "Farmer",
+   "text": "Beatrix Potter bred Herdwicks right here in the Lakes. When she died in 1943 she left about fourteen farms to the National Trust."
+  },
+  {
+   "do": "if",
+   "flag": "nwest_lakefarm_gift",
+   "then": [
+    {
+     "do": "say",
+     "who": "Farmer",
+     "text": "That flask is spoken for, love. Come back when you've climbed something."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Farmer",
+     "text": "Herdwick wool is rough as a doormat, so it goes in carpets, not jumpers. Here, take a flask. You look like you have been up Helvellyn."
+    },
+    {
+     "do": "give_item",
+     "item": "flask_of_tea",
+     "n": 1
+    },
+    {
+     "do": "set",
+     "flag": "nwest_lakefarm_gift"
+    }
+   ]
+  }
+ ]
+}

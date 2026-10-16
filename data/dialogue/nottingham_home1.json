@@ -1,0 +1,46 @@
+{
+ "not_home1_nanna": [
+  {
+   "do": "say",
+   "who": "Nanna Mavis",
+   "text": "Ay up me duck, come in. 'Me duck' is a Nottingham hello. It is not about birds, though we have those too."
+  },
+  {
+   "do": "say",
+   "who": "Nanna Mavis",
+   "text": "If somebody is 'mardy' they are in a grump. A 'jitty' is a narrow alley between houses. A 'cob' is a bread roll. It is not a swan."
+  },
+  {
+   "do": "say",
+   "who": "Nanna Mavis",
+   "text": "Meet people at the Left Lion outside the Council House. It is one of two stone lions guarding the Council House, which opened in 1929, and folk have met there ever since."
+  },
+  {
+   "do": "if",
+   "flag": "gift_not_home1",
+   "then": [
+    {
+     "do": "say",
+     "who": "Nanna Mavis",
+     "text": "You have had your tart, me duck. I will not spoil you. Much."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Nanna Mavis",
+     "text": "My cousin sends a Bakewell tart from Derbyshire every month. I cannot eat them all. Here, you have one."
+    },
+    {
+     "do": "give_item",
+     "item": "bakewell_tart",
+     "n": 1
+    },
+    {
+     "do": "set",
+     "flag": "gift_not_home1"
+    }
+   ]
+  }
+ ]
+}

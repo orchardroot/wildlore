@@ -1,0 +1,46 @@
+{
+ "market_stallholder": [
+  {
+   "do": "say",
+   "who": "Stallholder",
+   "text": "Welcome to the English Market. It has stood here since 1788, so we have sold fish to the Georgians, the Victorians and everyone since."
+  },
+  {
+   "do": "say",
+   "who": "Stallholder",
+   "text": "The name came in the 1800s, to tell it apart from St Peter's, the 'Irish Market' nearby. Everyone in here is as Cork as can be."
+  },
+  {
+   "do": "say",
+   "who": "Stallholder",
+   "text": "In 2011 Queen Elizabeth II dropped in and laughed so hard at a fishmonger's joke that it made the papers."
+  },
+  {
+   "do": "if",
+   "flag": "cork_market_gift",
+   "then": [
+    {
+     "do": "say",
+     "who": "Stallholder",
+     "text": "Another loaf? You will have fairies following you home. Off you go."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Stallholder",
+     "text": "Take a soda bread for the road. We cut a cross in the top, to let the fairies out."
+    },
+    {
+     "do": "give_item",
+     "item": "soda_bread",
+     "n": 1
+    },
+    {
+     "do": "set",
+     "flag": "cork_market_gift"
+    }
+   ]
+  }
+ ]
+}

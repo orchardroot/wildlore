@@ -1,0 +1,46 @@
+{
+ "elwick_fisher": [
+  {
+   "do": "say",
+   "who": "Old Tom",
+   "text": "Well now, a visitor. Sit yourself down by the stove, hinny."
+  },
+  {
+   "do": "say",
+   "who": "Old Tom",
+   "text": "Puffins nest on Inner Farne from about April and leave in August. Take a boat trip in June and they will land right beside you."
+  },
+  {
+   "do": "say",
+   "who": "Old Tom",
+   "text": "Mind the terns, though. Arctic terns dive at heads. Wear a hat and look wise, it helps a little."
+  },
+  {
+   "do": "if",
+   "flag": "elwick_tea_gift",
+   "then": [
+    {
+     "do": "say",
+     "who": "Old Tom",
+     "text": "I have only the one spare flask. Go on, you will manage."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Old Tom",
+     "text": "A flask of tea, that is what the sea wants from a man. Here, take one for your walk."
+    },
+    {
+     "do": "give_item",
+     "item": "flask_of_tea",
+     "n": 1
+    },
+    {
+     "do": "set",
+     "flag": "elwick_tea_gift"
+    }
+   ]
+  }
+ ]
+}

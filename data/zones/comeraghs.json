@@ -642,9 +642,35 @@
    "x": 21,
    "y": 14,
    "variant": 2
+  },
+  {
+   "type": "building",
+   "style": "slate_cottage",
+   "x": 31,
+   "y": 28,
+   "w": 5,
+   "h": 4,
+   "show_label": false
   }
  ],
- "warps": [],
+ "warps": [
+  {
+   "x": 14,
+   "y": 23,
+   "to": "comeraghs_bothy",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 33,
+   "y": 31,
+   "to": "comeraghs_farm",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  }
+ ],
  "edges": {
   "north": {
    "to": "kilkenny",
@@ -994,15 +1020,15 @@
   "RRkkkkkkkkkkBBBBBkkkkkkkkk###kkkhhhhhhhh#kkkkkkkkkkkRR",
   "RRkkkkkkkkkkBBBBBkkkkkkkkk###kkkhhhhhhhh#kkkR~RkkkkkRR",
   "RRkkkkkkkkkkBBBBBkkkkkkkkk###kkkhhhhhhhh#kkkR~RkkkkkRR",
-  "RPkkkkkkkkkkBBBBBkkkkkkkkk###kkkhhhhhhhh#kkkR~RkkkkkRR",
+  "RPkkkkkkkkkkBBDBBkkkkkkkkk###kkkhhhhhhhh#kkkR~RkkkkkRR",
   "###########:::::::###########kkkhhhhhhhhkkkkR~RkkkkkRR",
   "#############################kkkkkkkkkkkkkkkR~RkkkkkRR",
   "#############################kkkkkkkkkkkkkkkkkkkkkkkRR",
   "RRkkkkkkkkkkkkkkkkkkkkkkkk###kkkkkkkkkkkkkkkkkkkkkkkRR",
-  "RRkkkkkkkkWWWWkkWWWWkkkkkk###kkkkkkkkkkkhhhhhhhhkkkkRR",
-  "RRkkkkkkkkWkkkkkkkkWkkkkkk###kkkkkkkkkkkhhhhhhhhkkkkRR",
-  "RRkkkkkkkkWkkkkkkkkWkkkkkk###kkkkkkkkkkkhhhhhhhhkkkkRR",
-  "RRkkkkkkkkkkkkkkkkkWkkkkkk###kkkkkkkkkkkhhhhhhhhkkkkRR",
+  "RRkkkkkkkkWWWWkkWWWWkkkkkk###kkBBBBBkkkkhhhhhhhhkkkkRR",
+  "RRkkkkkkkkWkkkkkkkkWkkkkkk###kkBBBBBkkkkhhhhhhhhkkkkRR",
+  "RRkkkkkkkkWkkkkkkkkWkkkkkk###kkBBBBBkkkkhhhhhhhhkkkkRR",
+  "RRkkkkkkkkkkkkkkkkkWkkkkkk###kkBBDBBkkkkhhhhhhhhkkkkRR",
   "RRkkkkkkkkkkkkkkkkkWkkkkkk###kkkkkkkkkkkhhhhhhhhkkkkRR",
   "RRkkkkkkkkWkkkkkkkkWkkkkkk###kkkkkkkkkkkhhhhhhhhkkkkRR",
   "RRkkkkkkkkWWWWWWWWWWkkkkkk###kkkkkkkkkkkkkkkkkkkkkkkRR",

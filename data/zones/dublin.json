@@ -673,6 +673,22 @@
    "y": 34
   },
   {
+   "type": "building",
+   "x": 18,
+   "y": 16,
+   "w": 4,
+   "h": 3,
+   "style": "terrace"
+  },
+  {
+   "type": "building",
+   "x": 25,
+   "y": 2,
+   "w": 4,
+   "h": 3,
+   "style": "cream_render"
+  },
+  {
    "type": "statue",
    "x": 45.0,
    "y": 39.0
@@ -841,19 +857,29 @@
    "type": "bollard",
    "x": 66.0,
    "y": 39.0
+  },
+  {
+   "type": "buffer_stop",
+   "x": 45,
+   "y": 7
+  },
+  {
+   "type": "tunnel_portal",
+   "x": 28,
+   "y": 7
   }
  ],
  "region": "ireland",
  "rows": [
   "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT===TTTTTTTTTTTTTTTTTTTTTTTTTTT$$$$$$$$$$$$",
   "TTTTPTTTTTTTTTTTTTTTTTTTTTTTTP===TTTTTTTTTTTTTTTTTTTTTTTTTTT$$$$$$$$$$$$",
-  "TT...........................:===:............:::::::::::::.$$$$$$$$$$$$",
-  "TT............#..............:===:............::|||||||||::.$$$$$$$$$$$$",
-  "TT..,,,,,,,,..#..,,,,,,,,....:===:..BBBBBBBBB.::|||||||||::.$$$$$$$$$$$$",
+  "TT.......................BBBB:===:............:::::::::::::.$$$$$$$$$$$$",
+  "TT............#..........BBBB:===:............::|||||||||::.$$$$$$$$$$$$",
+  "TT..,,,,,,,,..#..,,,,,,,,BBDB:===:..BBBBBBBBB.::|||||||||::.$$$$$$$$$$$$",
   "TT..,,,,,,,,..#..,,,,,,,,....:===:..BBBBDBBBB.::|||||||||::.$$$$$$$$$$$$",
-  "TT..,,,,,,,,..#..,,,,,,,,....:===:::_________.::|||||||||::.$$$$$$$$$$$$",
-  "TT..........fffff............:===:.!!!!!!!!!!!:::::::::::::.$$$$$$$$$$$$",
-  "TT.#########fffff##########..:===:............:::::::::::::.$$$$$$$$$$$$",
+  "TT..,,,,,,,,..#..,,,,,,,,..TT:===:::_________.::|||||||||::.$$$$$$$$$$$$",
+  "TT..........fffff..........T.&&&&&!!!!!!!!!!!!:::::::::::::.$$$$$$$$$$$$",
+  "TT.#########fffff##########TT:===:............:::::::::::::.$$$$$$$$$$$$",
   "TT..........fffff............:===::::::::::::::::::::::::::.$$$$$$$$$$$$",
   "TT..,,,,,,,...#...,,,,,,,,...:===::::::::::::::::::::::::::.$$$$$$$$$$$$",
   "TT..,,,,,,,...#...,,,,,,,,...:===::::::::::::::::::::::::::.$$$$$$$$$$$$",
@@ -861,10 +887,10 @@
   "TT....BBBBBBBBBBBB...........:===:......BBBBBBBBBBBB........$$$$$$$$$$$$",
   "TT....BBBBBBBBBBBB...........:===:......BBBBBBBBBBBB.BBBBBB.$$$$$$$$$$$$",
   "TT....BBBBBBBBBBBB...........:===:......BBBBBBBBBBBB.BBBBBB.$$$$$$$$$$$$",
-  "TT....BBBBBBBBBBBB....BBBBBB.:===:BBBBB.BBBBBBBBBBBB.BBBBBB.$$$$$$$$$$$$",
-  "TT....BBBBBBBBBBBB....BBBBBB.:===:BBBBB.BBBBBBBBBBBB.BBBBBB.$$$$$$$$$$$$",
-  "TT....BBBBBBBBBBBB....BBBBBB.:===:BBBBB.BBBBBBBBBBBB.BBBBBB.$$$$$$$$$$$$",
-  "TT....BBBBBBDBBBBB....BBBDBB.:===:BBDBB.BBBBBBBBBBBB.BBBBBB.$$$$$$$$$$$$",
+  "TT....BBBBBBBBBBBBBBBBBBBBBB.:===:BBBBB.BBBBBBBBBBBB.BBBBBB.$$$$$$$$$$$$",
+  "TT....BBBBBBBBBBBBBBBBBBBBBB.:===:BBBBB.BBBBBBBBBBBB.BBBBBB.$$$$$$$$$$$$",
+  "TT....BBBBBBBBBBBBBBDBBBBBBB.:===:BBBBB.BBBBBBBBBBBB.BBBBBB.$$$$$$$$$$$$",
+  "TT....BBBBBBDBBBBB....BBBDBB.:===:BBDBB.BBBBBBDBBBBB.BBBDBB.$$$$$$$$$$$$",
   "TT::::::::::::::::::::::::::::===:::::::::::::::::::::::::::$$$$$$$$$$$$",
   "TT===========================:===:==========================:::::::::$$$",
   "TT===========================:===:==========================:::::::::$$$",
@@ -882,19 +908,19 @@
   "TT..WBBBBBBB:::BBBBBBB....W..:===:BBBBBBB:BBBBBB:BBBBBBBBB:::$$$$$$$$$$$",
   "TT..WBBBBBBB:::BBBBBBB....W..:===:BBBBBBB:BBBBBB:BBBBBBBBB:::$$$$$$$$$$$",
   "TT..WBBBBBBB:::BBBBBBB....W..:===:BBBBBBB:BBBBBB:BBBBBBBBB:::$$$$$$$$$$$",
-  "TT..WBBBBBBB:::BBBBBBB....W..:===:BBBBBBB:BBBBBB:BBBBBBBBB:::$$$$$$$$$$$",
+  "TT..WBBBDBBB:::BBBDBBB....W..:===:BBBDBBB:BBBDBB:BBBBDBBBB:::$$$$$$$$$$$",
   "TT..W:::::::::::::::::::::W..:===:::::::::::::::::::::::::::::::::::::$$",
   "TT..W:::::::::::::::::::::W..:===:::::::::::::::::::::::::::::::::::::$$",
   "TT..W::.......::BBB:::::::W..:===::::::::::::::::::::::::::.$$$$$$$$$$$$",
   "TT..W::.......::BBB:::::::W..:===:..........................$$$$$$$$$$$$",
-  "TT..W::.......::BBB:::::::W..:===:.FFFFFFFFFFF..FFFFFFFFFF..$$$$$$$$$$$$",
+  "TT..W::.......::BDB:::::::W..:===:.FFFFFFFFFFF..FFFFFFFFFF..$$$$$$$$$$$$",
   "TT..W::.......::::::::::::W..:===:.F.###################.F..$$$$$$$$$$$$",
   "TT..W::.......::::::::::::W..:===:.F.#fffffwwwwwww.ffff#.F..$$$$$$$$$$$$",
   "TT..W:.......:BBBBBBBBBBB:W..:===:.F.#fffffw~~|~~w.ffff#.F..$$$$$$$$$$$$",
   "TT..W:.......:BBBBBBBBBBB:W..:===:..#######|||||||######.F..$$$$$$$$$$$$",
   "TT..W:.......:BBBBBBBBBBB:W..:===:...#,,,,.w~~|~~w.,,,,#.F..$$$$$$$$$$$$",
-  "TT..W:::::::::BBBBBBBBBBB:W..:===:.F.#,,,,.w~~|~~w.,,,,#.F..$$$$$$$$$$$$",
-  "TT..WWWWWWWWWWWWWWWWWWWWWWW..:===:.F.#,,,,.wwwwwww.,,,,#.F..$$$$$$$$$$$$",
+  "TT..W:::::::::BBBBBDBBBBB:W..:===:.F.#,,,,.w~~|~~w.,,,,#.F..$$$$$$$$$$$$",
+  "TT..WWWWWWWWWWWWWWW.WWWWWWW..:===:.F.#,,,,.wwwwwww.,,,,#.F..$$$$$$$$$$$$",
   "TT...........................:===:.F.###################.F..$$$$$$$$$$$$",
   "TT...........................:===:.FFFFFFFFFFFFFFFFFFFFFFF..$$$$$$$$$$$$",
   "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT===TTTTTTTTTTTTTTTTTTTTTTTTTTT$$$$$$$$$$$$",
@@ -1001,6 +1027,94 @@
    "ty": 5.0,
    "x": 36.0,
    "y": 19.0
+  },
+  {
+   "x": 46,
+   "y": 19,
+   "to": "dublin_customhouse",
+   "tx": 7,
+   "ty": 8,
+   "facing": "up"
+  },
+  {
+   "x": 8,
+   "y": 37,
+   "to": "dublin_trinity",
+   "tx": 7,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 17,
+   "y": 42,
+   "to": "dublin_campanile",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 19,
+   "y": 48,
+   "to": "dublin_oldlibrary",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 37,
+   "y": 37,
+   "to": "dublin_templebar",
+   "tx": 7,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 45,
+   "y": 37,
+   "to": "dublin_cobbler",
+   "tx": 6,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 53,
+   "y": 37,
+   "to": "dublin_templebooks",
+   "tx": 7,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 56,
+   "y": 19,
+   "to": "dublin_home_terrace",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 18,
+   "y": 37,
+   "to": "dublin_home_stone",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 20,
+   "y": 18,
+   "to": "dublin_home_park",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 27,
+   "y": 4,
+   "to": "dublin_home_green",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
   }
  ],
  "weather": {

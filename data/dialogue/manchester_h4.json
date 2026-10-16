@@ -1,0 +1,41 @@
+{
+ "manchester_h4_0": [
+  {
+   "do": "say",
+   "who": "Nana",
+   "text": "Eccles cakes come from Eccles, just down the road. Currants in flaky pastry, buttery and dangerous."
+  },
+  {
+   "do": "say",
+   "who": "Nana",
+   "text": "The Ship Canal opened in 1894 and turned Manchester into a port, 36 miles from the sea. Cheek of it."
+  },
+  {
+   "do": "if",
+   "flag": "manchester_h4_gift",
+   "then": [
+    {
+     "do": "say",
+     "who": "Nana",
+     "text": "You have had one, our kid. Save some for the rest of Manchester."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Nana",
+     "text": "Take an Eccles cake for the road. Go on, you look peckish."
+    },
+    {
+     "do": "give_item",
+     "item": "eccles_cake",
+     "n": 1
+    },
+    {
+     "do": "set",
+     "flag": "manchester_h4_gift"
+    }
+   ]
+  }
+ ]
+}

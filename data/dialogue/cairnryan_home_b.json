@@ -1,0 +1,41 @@
+{
+ "cairnryan_home_b_sandy": [
+  {
+   "do": "say",
+   "who": "Sandy",
+   "text": "Glaur is thick mud. The path down to the harbour is mostly glaur in November."
+  },
+  {
+   "do": "say",
+   "who": "Sandy",
+   "text": "In summer the basking sharks drift past, big as a boat and gentle as a cushion. Baskling comes with the warm months."
+  },
+  {
+   "do": "if",
+   "flag": "cairnryan_home_b_gift",
+   "then": [
+    {
+     "do": "say",
+     "who": "Sandy",
+     "text": "That is the lot for today, I am afraid. Mind how you go."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Sandy",
+     "text": "My sister in Larne sends me soda farls. I will not tell you how many I eat. Have one."
+    },
+    {
+     "do": "give_item",
+     "item": "soda_farl",
+     "n": 1
+    },
+    {
+     "do": "set",
+     "flag": "cairnryan_home_b_gift"
+    }
+   ]
+  }
+ ]
+}

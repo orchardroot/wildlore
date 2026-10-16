@@ -1,0 +1,41 @@
+{
+ "kesoutdoor_assistant": [
+  {
+   "do": "say",
+   "who": "Shop Assistant",
+   "text": "Boots, maps, waterproofs and the sort of socks that change your life. Keswick is basically one big outdoor shop with a lake."
+  },
+  {
+   "do": "say",
+   "who": "Shop Assistant",
+   "text": "Alfred Wainwright walked and drew every fell in his guides. There are 214 of them, and plenty of people are trying to bag the lot."
+  },
+  {
+   "do": "if",
+   "flag": "nwest_kesoutdoor_gift",
+   "then": [
+    {
+     "do": "say",
+     "who": "Shop Assistant",
+     "text": "One bar each, or you will bounce all the way up Skiddaw. Off you go."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Shop Assistant",
+     "text": "Kendal mint cake is proper walking fuel. Joseph Wiper made the first batch by accident in 1869, and later it went up Everest. Here, have a piece."
+    },
+    {
+     "do": "give_item",
+     "item": "kendal_mint_cake",
+     "n": 1
+    },
+    {
+     "do": "set",
+     "flag": "nwest_kesoutdoor_gift"
+    }
+   ]
+  }
+ ]
+}

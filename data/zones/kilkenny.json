@@ -630,6 +630,38 @@
    "variant": 1.0,
    "x": 52.0,
    "y": 36.0
+  },
+  {
+   "type": "building",
+   "style": "white_render",
+   "x": 14,
+   "y": 30,
+   "w": 5,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "stone",
+   "x": 20,
+   "y": 30,
+   "w": 5,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "slate_cottage",
+   "x": 54,
+   "y": 25,
+   "w": 4,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "buffer_stop",
+   "x": 34,
+   "y": 37
   }
  ],
  "region": "ireland",
@@ -643,35 +675,35 @@
   "TT~~~~~sWBBBBBBBBBBBBBBBBBBBff,,,,,,,,,,,BB...BBBBBBBBBBBBTT",
   "TT~~~~~sWBBBBBBBBBBBBBBBBBBBff,,,,,,,,,,,BB...BBBBBBBBBBBBTT",
   "TT~~~~~sWBBBBBBBBBBBBBBBBBBBfffffffffffffBB...BBBBBBBBBBBBTT",
-  "TT~~~~~sWBBBBBBBBBBBBBBBBBBBfffffffffffffBB...BBBBBBBBBBBBTT",
-  "TT~~~~~sW........:::.....................BB...BBBBBBBBBBBBTT",
-  "TT~~~~~sW...WW::::::WWWWWWWWWWWWWWW:::WWWWWW..BBBBBBBBBBBBTT",
-  "TT~~~~~s......::::::...............:::........BBBBBBBBBBBBTT",
+  "TT~~~~~sWBBBBBBBBBDBBBBBBBBBfffffffffffffBB...BBBBBBBBBBBBTT",
+  "TT~~~~~sW........:::.....................DB...BBBBBBBBBBBBTT",
+  "TT~~~~~sW...WW::::::WWWWWWWWWWWWWWW:::WWW.WW..BBBBBBBBBBBBTT",
+  "TT~~~~~s......::::::...............:::........BBBBBBDBBBBBTT",
   "TT~~~~~s......::::::...............:::.........::::.......TT",
   "TT~~~~~s......::::::...............:::.........::::.......TT",
   "TT~~~~~sBBBBB.::::::.............BBBBBBBB.BBBBB::::.......TT",
   "TT~~~~~sBBBBB.::::::BBBBBB.BBBBB.BBBBBBBB.BBBBB::::.......TT",
   "TT~~~~~sBBBBB.::::::BBBBBB.BBBBB.BBBBBBBB.BBBBB::::.......TT",
   "TT~~~~~sBBBBB.::::::BBBBBB.BBBBB.BBBBBBBB.BBBBB::::.......TT",
-  "TT~~~~~sBBBBB.::::::BBBDBB.BBDBB.BBBBBBBB.BBBBB::::.......TT",
+  "TT~~~~~sBBDBB.::::::BBBDBB.BBDBB.BBBBDBBB.BBDBB::::.......TT",
   "TT~~~~~s::::::::::::::::::::::::::::::::::::::::::::......TP",
   "TT~~~~~s::::::::::::::::::::::::::::::::::::::::::::......TT",
   "TT~~~~~s::::::::::::::::::::::::::::::::::::::::::::......TT",
   "TT~~~~~s::::::::::::::::::::::::::::::::::::::::::::......TT",
   "TT~~~~~s.................:::::............................PT",
-  "TT~~~~~s.BBBBBBB::BBBBBBB:::::BBBBBB.BBBBBBB::BBBBBBB.....TT",
-  "TT~~~~~s.BBBBBBB::BBBBBBB:::::BBBBBB.BBBBBBB::BBBBBBB.....TT",
-  "TT~~~~~s.BBBBBBB::BBBBBBB:::::BBBBBB.BBBBBBB::BBBBBBB.....TT",
-  "TT~~~~~s.BBBBBBB::BBBBBBB:::::BBBBBB.BBBBBBB::BBBBBBB.....TP",
+  "TT~~~~~s.BBBBBBB::BBBBBBB:::::BBBBBB.BBBBBBB::BBBBBBB.BBBBTT",
+  "TT~~~~~s.BBBBBBB::BBBBBBB:::::BBBBBB.BBBBBBB::BBBBBBB.BBBBTT",
+  "TT~~~~~s.BBBBBBB::BBBBBBB:::::BBBBBB.BBBBBBB::BBBBBBB.BBBBTT",
+  "TT~~~~~s.BBBDBBB::BBBDBBB:::::BBBDBB.BBBDBBB::BBBDBBB.BBDBTP",
   "TT~~~~~s:::::::::::::::::::::::::::::::::::::::::::::.....TT",
-  "TT~~~~~s..................##################################",
-  "TT~~~~~s..................##################################",
-  "TT~~~~~s..................##################################",
-  "TT~~~~~s,,,,,,,,,,,,,,....###.::::::::::::::..............TT",
+  "TT~~~~~s......BBBBB.BBBBB.##################################",
+  "TT~~~~~s......BBBBB.BBBBB.##################################",
+  "TT~~~~~s......BBBBB.BBBBB.##################################",
+  "TT~~~~~s,,,,,,BBDBB,BBDBB.###.::::::::::::::..............TT",
   "TT~~~~~s,,,,,,,,,,,,,,....###....#BBBBBBBBB#..............TT",
   "TT~~~~~s,,...,,,,,,,,,....###....#BBBBDBBBB#..............TT",
   "TT~~~~~s,,...,,,,,,,,,....###....#_________#..............TT",
-  "TT~~~~~s,,...,,,,,,,,,....###....#!!!!!!!!!#..............TT",
+  "TT~~~~~s,,...,,,,,,,,,....###....#!!!!!!!!!&!!!!!!!!!!!!!!!!",
   "TT~~~~~s,,...,,,....,,....###.,,,,,,,,,,,,..,,,,,,,,,,,,..TT",
   "TT~~~~~s,,,,,,,,....,,....###.,,,,,,,,,,,,..,,,,,,,,,,,,..TT",
   "TT~~~~~s,,,,,,,,....,,....###.,,,,,,,,,,,,..,,,,,,,,,,,,..TT",
@@ -744,6 +776,118 @@
    "ty": 5.0,
    "x": 29.0,
    "y": 19.0
+  },
+  {
+   "x": 18,
+   "y": 9,
+   "to": "kilkenny_castle",
+   "tx": 7,
+   "ty": 8,
+   "facing": "up"
+  },
+  {
+   "x": 10,
+   "y": 19,
+   "to": "kilkenny_tourist",
+   "tx": 6,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 37,
+   "y": 19,
+   "to": "kilkenny_rothe",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 44,
+   "y": 19,
+   "to": "kilkenny_kyteler",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 52,
+   "y": 12,
+   "to": "kilkenny_canice",
+   "tx": 7,
+   "ty": 8,
+   "facing": "up"
+  },
+  {
+   "x": 41,
+   "y": 10,
+   "to": "kilkenny_tower",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 12,
+   "y": 28,
+   "to": "kilkenny_tholsel",
+   "tx": 6,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 21,
+   "y": 28,
+   "to": "kilkenny_butterslip",
+   "tx": 6,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 33,
+   "y": 28,
+   "to": "kilkenny_craft",
+   "tx": 6,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 40,
+   "y": 28,
+   "to": "kilkenny_hurling",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 49,
+   "y": 28,
+   "to": "kilkenny_home1",
+   "tx": 6,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 16,
+   "y": 33,
+   "to": "kilkenny_home2",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 22,
+   "y": 33,
+   "to": "kilkenny_home3",
+   "tx": 6,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 56,
+   "y": 28,
+   "to": "kilkenny_home4",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
   }
  ],
  "weather": {

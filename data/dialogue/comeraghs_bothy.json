@@ -1,0 +1,41 @@
+{
+ "bothy_keeper": [
+  {
+   "do": "say",
+   "who": "Bothy Walker",
+   "text": "Welcome to the bothy. A bothy is a simple shelter for walkers, free for anyone to use, and best left tidier than you found it."
+  },
+  {
+   "do": "say",
+   "who": "Bothy Walker",
+   "text": "The Comeraghs are in County Waterford. Coumshingaun is a corrie, a steep bowl with a lake in it, scooped out by a glacier thousands of years ago."
+  },
+  {
+   "do": "if",
+   "flag": "comeraghs_bothy_gift",
+   "then": [
+    {
+     "do": "say",
+     "who": "Bothy Walker",
+     "text": "Another flask? I need some myself. Off you go, and keep to the path."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Bothy Walker",
+     "text": "Mahon Falls pours off the plateau too, a long white ribbon. Here, a flask of tea. Walkers have to look after one another."
+    },
+    {
+     "do": "give_item",
+     "item": "flask_of_tea",
+     "n": 1
+    },
+    {
+     "do": "set",
+     "flag": "comeraghs_bothy_gift"
+    }
+   ]
+  }
+ ]
+}

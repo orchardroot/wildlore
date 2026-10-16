@@ -1,0 +1,46 @@
+{
+ "dou_home3_jo": [
+  {
+   "do": "say",
+   "who": "Aunty Jo",
+   "text": "Come in, come in. There is a cuppa ready. Manx cats have no tail. The tale says the cat was last onto Noah's Ark and Noah shut the door."
+  },
+  {
+   "do": "say",
+   "who": "Aunty Jo",
+   "text": "A swiftlet hardly ever lands. The sky is its sofa. I have seen exactly one on my washing line and I took a photo."
+  },
+  {
+   "do": "say",
+   "who": "Aunty Jo",
+   "text": "My granddaughter says pipkin is a robin in a waistcoat. The red one is its Sunday best. She is generally right."
+  },
+  {
+   "do": "if",
+   "flag": "gift_dou_home3",
+   "then": [
+    {
+     "do": "say",
+     "who": "Aunty Jo",
+     "text": "You have had your cuppa. Sit a minute, dear, then off to explore."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Aunty Jo",
+     "text": "Here, take a cuppa for later. It is still warm. Do not tell the Steam Packet."
+    },
+    {
+     "do": "give_item",
+     "item": "cup_of_tea",
+     "n": 1
+    },
+    {
+     "do": "set",
+     "flag": "gift_dou_home3"
+    }
+   ]
+  }
+ ]
+}

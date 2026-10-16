@@ -1,0 +1,41 @@
+{
+ "bridgecafe_owner": [
+  {
+   "do": "say",
+   "who": "Cafe Owner",
+   "text": "Welcome to the Bridge Cafe. Everything here is made fresh, apart from the weather."
+  },
+  {
+   "do": "say",
+   "who": "Cafe Owner",
+   "text": "The Skye Bridge opened in 1995. Before that you took a ferry from Kyle of Lochalsh. The tolls were scrapped in 2004 after a long campaign."
+  },
+  {
+   "do": "if",
+   "flag": "skye_bridgecafe_gift",
+   "then": [
+    {
+     "do": "say",
+     "who": "Cafe Owner",
+     "text": "You have had your tablet. The rest is for paying customers, and the bridge, apparently."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Cafe Owner",
+     "text": "Cragchoughs nest on the sea cliffs. You will see them tumbling in the wind. Here, have some tablet while you watch."
+    },
+    {
+     "do": "give_item",
+     "item": "tablet",
+     "n": 1
+    },
+    {
+     "do": "set",
+     "flag": "skye_bridgecafe_gift"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,90 @@
+{
+ "id": "edinburgh_holyrood",
+ "name": "Palace of Holyroodhouse",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "statue",
+   "x": 2,
+   "y": 1
+  },
+  {
+   "type": "statue",
+   "x": 12,
+   "y": 1
+  },
+  {
+   "type": "table",
+   "x": 6,
+   "y": 3
+  },
+  {
+   "type": "table",
+   "x": 8,
+   "y": 3
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 8
+  },
+  {
+   "type": "potted_plant",
+   "x": 13,
+   "y": 8
+  }
+ ],
+ "warps": [
+  {
+   "x": 7,
+   "y": 9,
+   "to": "edinburgh",
+   "tx": 56,
+   "ty": 44,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "edinburgh_holyrood_steward",
+   "sprite": "tour_guide",
+   "x": 5,
+   "y": 4,
+   "facing": "down",
+   "move": "still",
+   "script": "edinburgh_holyrood_steward"
+  },
+  {
+   "id": "edinburgh_holyrood_gardener",
+   "sprite": "farmer",
+   "x": 9,
+   "y": 4,
+   "facing": "down",
+   "move": "still",
+   "script": "edinburgh_holyrood_gardener"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  7,
+  8
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxxx",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x++++++D++++++x",
+  "xxxxxxxxxxxxxxx"
+ ]
+}

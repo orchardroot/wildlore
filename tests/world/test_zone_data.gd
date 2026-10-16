@@ -189,3 +189,10 @@ func test_station_must_reach_the_town() -> void:
 	var z := ZoneData.from_dict(_base(["....", "....", "...."], {"spawn": [3, 2], "station": {"x": 1, "y": 1},
 		"props": [{"type": "bench", "x": 0, "y": 1}, {"type": "bench", "x": 2, "y": 1}, {"type": "bench", "x": 1, "y": 0}, {"type": "bench", "x": 1, "y": 2}]}))
 	assert_true(_has(z.validate({"t": z}), "station"), "flags a boxed-in platform")
+
+func test_validate_door_onto_railway() -> void:
+	var rows := ["!!!!!", ".BDB.", "!!&!!", "....."]
+	var z := ZoneData.from_dict(_base(rows, {"spawn": [0, 3], "warps": [{"x": 2, "y": 1, "to": "t", "tx": 0, "ty": 3}]}))
+	assert_true(_has(z.validate({"t": z}), "opens straight onto the railway"))
+	var ok := ZoneData.from_dict(_base([".....", ".BDB.", ".....", "....."], {"spawn": [0, 3], "warps": [{"x": 2, "y": 1, "to": "t", "tx": 0, "ty": 3}]}))
+	assert_false(_has(ok.validate({"t": ok}), "opens straight onto the railway"))

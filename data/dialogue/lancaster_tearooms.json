@@ -1,0 +1,41 @@
+{
+ "lantea_owner": [
+  {
+   "do": "say",
+   "who": "Tea Room Owner",
+   "text": "Table by the window? Lovely. We serve cake, tea and opinions on the weather. The opinions are free."
+  },
+  {
+   "do": "say",
+   "who": "Tea Room Owner",
+   "text": "Up on the hill stands the Ashton Memorial, a great green-domed folly. Lord Ashton built it in 1909 in memory of his wife."
+  },
+  {
+   "do": "if",
+   "flag": "nwest_lantea_gift",
+   "then": [
+    {
+     "do": "say",
+     "who": "Tea Room Owner",
+     "text": "One cream tea each, my love, or the scones will run out. Off you go."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Tea Room Owner",
+     "text": "Have a cream tea, on me. Jam first or cream first, I stay out of that fight."
+    },
+    {
+     "do": "give_item",
+     "item": "cream_tea",
+     "n": 1
+    },
+    {
+     "do": "set",
+     "flag": "nwest_lantea_gift"
+    }
+   ]
+  }
+ ]
+}

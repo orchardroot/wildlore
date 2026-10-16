@@ -1,0 +1,36 @@
+{
+ "shfcafe_owner": [
+  {
+   "do": "say",
+   "who": "Cafe Owner",
+   "text": "Ey up, love! Sit anywhere. If someone is 'mardy', they are sulking, and I will not name names."
+  },
+  {
+   "do": "if",
+   "flag": "nwest_shfcafe_gift",
+   "then": [
+    {
+     "do": "say",
+     "who": "Cafe Owner",
+     "text": "Already had your pie! Don't be greedy, love. Off you go."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Cafe Owner",
+     "text": "And 'nesh' means you feel the cold easily. You look a bit nesh. Have a pork pie, on the house."
+    },
+    {
+     "do": "give_item",
+     "item": "pork_pie",
+     "n": 1
+    },
+    {
+     "do": "set",
+     "flag": "nwest_shfcafe_gift"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,46 @@
+{
+ "cauldron_cook": [
+  {
+   "do": "say",
+   "who": "Cook",
+   "text": "Mind the cat on the counter. She thinks she runs this place, and she is right."
+  },
+  {
+   "do": "say",
+   "who": "Cook",
+   "text": "Glastonbury was almost an island once, when the Levels flooded. Folk called it the Isle of Avalon."
+  },
+  {
+   "do": "say",
+   "who": "Cook",
+   "text": "The Glastonbury Thorn flowers in winter, and a sprig goes to the King each Christmas. Quite a lot of pressure for a bush."
+  },
+  {
+   "do": "if",
+   "flag": "glaston_cauldron_gift",
+   "then": [
+    {
+     "do": "say",
+     "who": "Cook",
+     "text": "Another cup? You will float up the Tor. Go on, off with you."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Cook",
+     "text": "Here, a cup of tea on the house. You look like you have climbed the Tor."
+    },
+    {
+     "do": "give_item",
+     "item": "cup_of_tea",
+     "n": 1
+    },
+    {
+     "do": "set",
+     "flag": "glaston_cauldron_gift"
+    }
+   ]
+  }
+ ]
+}
