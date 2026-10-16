@@ -223,6 +223,10 @@ const POINT_PROPS := ["lamp_post", "bench", "bush", "birch", "oak", "pine", "roc
 const CLOTH := ["bunting", "flag", "washing_line"]
 const FLOATING := ["boat", "canal_boat", "buoy"]
 
+## Tall grass with "prop": "short" is cropped grass: low tufts, but still somewhere for a creature to hide.
+static func tuft_height(prop_name: String) -> float:
+	return 0.5 if prop_name == "short" else 1.0
+
 static func _props(z: ZoneData, root: Node3D, rng: RandomNumberGenerator) -> void:
 	var buckets := {}  # "ctor:variant" -> Array[Transform3D]
 	for y in z.height:
@@ -256,6 +260,7 @@ static func _props(z: ZoneData, root: Node3D, rng: RandomNumberGenerator) -> voi
 				basis = Basis(Vector3.UP, rng.randf() * TAU)
 				var s := rng.randf_range(0.9, 1.15) if t.begins_with("tree") else 1.0
 				basis = basis.scaled(Vector3(s, s, s))
+				basis = basis.scaled(Vector3(1, tuft_height(prop_name), 1))
 			var origin := Vector3(x + 0.5, ground_y(z, p), y + 0.5)
 			if t == "level_crossing":
 				origin.y = z.height_at(p) * LEVEL

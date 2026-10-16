@@ -50,6 +50,22 @@ func test_label_behind_a_building_moves_up_on_to_its_own_roof() -> void:
 	assert_true(absf(front.position.y - 1.35) < 0.001, "front label stays over its door")
 	root.free()
 
+func test_short_grass_shows_low_tufts() -> void:
+	# tall grass drawn bare ("none") left roaming creatures standing on what looks like a lawn; "short" draws
+	# low tufts so you can see where they hide
+	Meshes.materials()
+	var d := {"id": "qa", "name": "QA", "kind": "route", "rows": ["kk", "kk"], "legend_extra": {"k": {"tile": "tall_grass", "prop": "short"}},
+		"props": [], "warps": [], "edges": {}, "npcs": [], "encounters": {}, "signs": [], "spawn": [0, 0], "weather": {}}
+	var root := ZoneBuilder.build(ZoneData.from_dict(d))
+	var tufts := 0
+	for c in root.get_children():
+		if c is MultiMeshInstance3D and str(c.name).begins_with("Props_tall_grass_tuft"):
+			tufts += (c as MultiMeshInstance3D).multimesh.instance_count
+	assert_eq(tufts, 4)
+	assert_true(ZoneBuilder.tuft_height("short") < 0.7, "low")
+	assert_eq(ZoneBuilder.tuft_height(""), 1.0)
+	root.free()
+
 func test_building_on_a_slope_stands_at_its_door() -> void:
 	# placed at its north-west corner's height, a building on rising ground had its door buried in the hill
 	Meshes.materials()
