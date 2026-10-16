@@ -1,0 +1,41 @@
+{
+ "edinburgh_home_c_murray": [
+  {
+   "do": "say",
+   "who": "Murray",
+   "text": "Every August the Fringe fills the city. It began in 1947 and is now the biggest arts festival in the world. I have been in the audience for nine shows and a street juggler."
+  },
+  {
+   "do": "say",
+   "who": "Murray",
+   "text": "Wheesht! Which is Scots for hush. My wee brother is rehearsing his own juggling."
+  },
+  {
+   "do": "if",
+   "flag": "edinburgh_home_c_gift",
+   "then": [
+    {
+     "do": "say",
+     "who": "Murray",
+     "text": "That is the lot for today, I am afraid. Mind how you go."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Murray",
+     "text": "Here, take some cranachan, toasted oats, cream and raspberries. Mum makes it. I only eat it."
+    },
+    {
+     "do": "give_item",
+     "item": "cranachan",
+     "n": 1
+    },
+    {
+     "do": "set",
+     "flag": "edinburgh_home_c_gift"
+    }
+   ]
+  }
+ ]
+}

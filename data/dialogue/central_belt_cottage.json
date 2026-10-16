@@ -1,0 +1,41 @@
+{
+ "central_belt_cottage_bessie": [
+  {
+   "do": "say",
+   "who": "Bessie",
+   "text": "Falkirk folk are called the Bairns. The old saying goes: better meddle wi' the de'il than the bairns o' Falkirk. We were very proud of that."
+  },
+  {
+   "do": "say",
+   "who": "Bessie",
+   "text": "A stoater is something excellent. A hot roll on a cold morning is a stoater."
+  },
+  {
+   "do": "if",
+   "flag": "central_belt_cottage_gift",
+   "then": [
+    {
+     "do": "say",
+     "who": "Bessie",
+     "text": "That is the lot for today, I am afraid. Mind how you go."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Bessie",
+     "text": "Brocklings dig round the canal bank on drizzly evenings. Keep your bin lids shut and they will leave your garden be. Take a flask for the walk."
+    },
+    {
+     "do": "give_item",
+     "item": "cup_of_tea",
+     "n": 1
+    },
+    {
+     "do": "set",
+     "flag": "central_belt_cottage_gift"
+    }
+   ]
+  }
+ ]
+}

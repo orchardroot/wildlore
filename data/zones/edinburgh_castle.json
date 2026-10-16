@@ -1,0 +1,105 @@
+{
+ "id": "edinburgh_castle",
+ "name": "Edinburgh Castle",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "rock",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "rock",
+   "x": 1,
+   "y": 8
+  },
+  {
+   "type": "rock",
+   "x": 13,
+   "y": 1
+  },
+  {
+   "type": "rock",
+   "x": 13,
+   "y": 8
+  },
+  {
+   "type": "table",
+   "x": 7,
+   "y": 2
+  },
+  {
+   "type": "bench",
+   "x": 5,
+   "y": 4
+  },
+  {
+   "type": "bench",
+   "x": 9,
+   "y": 4
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 8
+  },
+  {
+   "type": "potted_plant",
+   "x": 13,
+   "y": 8
+  }
+ ],
+ "warps": [
+  {
+   "x": 7,
+   "y": 9,
+   "to": "edinburgh",
+   "tx": 19,
+   "ty": 41,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "edinburgh_castle_guide",
+   "sprite": "tour_guide",
+   "x": 4,
+   "y": 4,
+   "facing": "down",
+   "move": "still",
+   "script": "edinburgh_castle_guide"
+  },
+  {
+   "id": "edinburgh_castle_piper",
+   "sprite": "piper",
+   "x": 8,
+   "y": 4,
+   "facing": "down",
+   "move": "still",
+   "script": "edinburgh_castle_piper"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  7,
+  8
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxxx",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x++++++D++++++x",
+  "xxxxxxxxxxxxxxx"
+ ]
+}

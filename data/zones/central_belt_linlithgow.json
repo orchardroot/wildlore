@@ -1,0 +1,105 @@
+{
+ "id": "central_belt_linlithgow",
+ "name": "Linlithgow Palace",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "rock",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "rock",
+   "x": 1,
+   "y": 8
+  },
+  {
+   "type": "rock",
+   "x": 13,
+   "y": 1
+  },
+  {
+   "type": "rock",
+   "x": 13,
+   "y": 8
+  },
+  {
+   "type": "table",
+   "x": 7,
+   "y": 2
+  },
+  {
+   "type": "bench",
+   "x": 5,
+   "y": 4
+  },
+  {
+   "type": "bench",
+   "x": 9,
+   "y": 4
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 8
+  },
+  {
+   "type": "potted_plant",
+   "x": 13,
+   "y": 8
+  }
+ ],
+ "warps": [
+  {
+   "x": 7,
+   "y": 9,
+   "to": "central_belt",
+   "tx": 45,
+   "ty": 36,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "central_belt_linlithgow_steward",
+   "sprite": "tour_guide",
+   "x": 4,
+   "y": 4,
+   "facing": "down",
+   "move": "still",
+   "script": "central_belt_linlithgow_steward"
+  },
+  {
+   "id": "central_belt_linlithgow_visitor",
+   "sprite": "birdwatcher",
+   "x": 8,
+   "y": 4,
+   "facing": "down",
+   "move": "still",
+   "script": "central_belt_linlithgow_visitor"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  7,
+  8
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxxx",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x++++++D++++++x",
+  "xxxxxxxxxxxxxxx"
+ ]
+}
