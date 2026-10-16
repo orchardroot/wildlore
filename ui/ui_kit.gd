@@ -131,10 +131,13 @@ static func money_text(n: int) -> String:
 	return "£" + s + out
 
 ## Focuses a control next frame, if it is still around by then.
+## (A weak reference, because a lambda capturing a freed node is itself an engine error.)
 static func focus_later(c: Control) -> void:
+	var ref: WeakRef = weakref(c)
 	(func():
-		if is_instance_valid(c) and c.is_inside_tree() and c.is_visible_in_tree():
-			c.grab_focus()).call_deferred()
+		var n = ref.get_ref()
+		if n != null and n.is_inside_tree() and n.is_visible_in_tree():
+			n.grab_focus()).call_deferred()
 
 ## Prompt text for the current device and bindings, e.g. hint([["confirm", "Choose"], ["cancel", "Back"]]).
 ## Also: "menu", "run", "updown", "leftright", "shoulders"; see InputSetup.hint_text.
