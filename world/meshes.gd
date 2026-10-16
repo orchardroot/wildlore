@@ -13,6 +13,9 @@ static var windows: ShaderMaterial
 static var ground: ShaderMaterial
 static var bobbing: ShaderMaterial
 static var bobbing_calm: ShaderMaterial  # canal boats: barely a ripple
+static var flutter: ShaderMaterial  # bunting, flags and washing
+static var pool: ShaderMaterial  # lamplight on the ground, additive, strength set by SkyAndLight
+static var firelight: ShaderMaterial  # hearth fire and its glow
 
 static func materials() -> void:
 	if solid != null:
@@ -38,6 +41,12 @@ static func materials() -> void:
 	bobbing_calm = ShaderMaterial.new()
 	bobbing_calm.shader = bobbing.shader
 	bobbing_calm.set_shader_parameter("amount", 0.3)
+	flutter = ShaderMaterial.new()
+	flutter.shader = load("res://art/shaders/flutter.gdshader")
+	pool = ShaderMaterial.new()
+	pool.shader = load("res://art/shaders/lamp_pool.gdshader")
+	firelight = ShaderMaterial.new()
+	firelight.shader = load("res://art/shaders/firelight.gdshader")
 
 # --- primitive helpers -------------------------------------------------------
 
