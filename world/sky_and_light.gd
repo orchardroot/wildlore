@@ -248,6 +248,7 @@ func _apply_fx() -> void:
 		Meshes.ground.set_shader_parameter("frost", fx[FX_FROST])
 	if Meshes.foliage:
 		Meshes.foliage.set_shader_parameter("wind_strength", lerpf(0.035, 0.09, fx[FX_SLANT]))
+		Meshes.flutter.set_shader_parameter("wind", lerpf(1.0, 2.2, fx[FX_SLANT]))
 
 ## How far into the night it is, for windows going out: 0 until 22:00, 1 by 02:00, back to 0 at 05:00.
 static func lateness(minutes: int) -> float:
@@ -333,6 +334,7 @@ func apply_time(minutes: int) -> void:
 		var lamps: float = p[6] * (0.6 if interior else 1.0)
 		Meshes.glow.emission_energy_multiplier = lamps
 		Meshes.glow.albedo_color = Color("3a4658") if lamps == 0.0 else Color("ffd98a")
+		Meshes.pool.set_shader_parameter("strength", 0.0 if interior else clampf(p[6] / 2.2, 0.0, 1.0))
 	if Meshes.windows:
 		Meshes.windows.set_shader_parameter("energy", 0.0 if interior else p[6])
 		Meshes.windows.set_shader_parameter("lateness", lateness(minutes))
