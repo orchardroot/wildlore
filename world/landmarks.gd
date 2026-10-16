@@ -353,13 +353,133 @@ static func bramble(variant := 0) -> ArrayMesh:
 		Meshes.box(st, Vector3(rng.randf_range(-0.4, 0.35), rng.randf_range(0.3, 0.7), rng.randf_range(-0.35, 0.4)), Vector3(0.07, 0.07, 0.07), Color("2b1d33") if i % 2 == 0 else Color("b8344a"))
 	return Meshes._finish(st)
 
+## One tile of track running east-west: sleepers across, two steel rails along. Rail tops sit at RAIL_TOP.
+const RAIL_TOP := 0.12
 static func rail_segment() -> ArrayMesh:
 	var st := Meshes._st()
-	var wood := Color("5a4636")
+	var wood := Color("4a3b2e")
+	var steel := Color("7d838b")
 	for i in 3:
-		Meshes.box(st, Vector3(-0.45, 0.0, -0.4 + i * 0.33), Vector3(0.9, 0.06, 0.14), wood)
-	Meshes.box(st, Vector3(-0.5, 0.06, -0.3), Vector3(1.0, 0.06, 0.06), Color("8a8f96"))
-	Meshes.box(st, Vector3(-0.5, 0.06, 0.24), Vector3(1.0, 0.06, 0.06), Color("8a8f96"))
+		Meshes.box(st, Vector3(-0.42 + i * 0.33, 0.0, -0.4), Vector3(0.17, 0.05, 0.8), wood)
+	for zr in [-0.25, 0.19]:
+		Meshes.box(st, Vector3(-0.5, 0.05, zr), Vector3(1.0, 0.07, 0.06), steel.darkened(0.25), Color("b8bec6"))
+	return Meshes._finish(st)
+
+## Level crossing furniture (track east-west, the road crossing north-south): the deck is the tile's own
+## ground, this adds plank seams and two red-and-white barrier posts on opposite corners, warning lamps on top.
+static func crossing_deck() -> ArrayMesh:
+	var st := Meshes._st()
+	var seam := Color("4f4233")
+	for zz in [-0.33, 0.33]:
+		Meshes.box(st, Vector3(-0.5, 0.075, zz - 0.01), Vector3(1.0, 0.01, 0.02), seam)
+	for c in [Vector2(-0.44, -0.46), Vector2(0.38, 0.4)]:
+		var x: float = c.x
+		var zc: float = c.y
+		Meshes.box(st, Vector3(x - 0.02, 0.0, zc - 0.02), Vector3(0.1, 0.06, 0.1), Color("3c4450"))
+		for i in 4:
+			Meshes.box(st, Vector3(x, 0.06 + i * 0.13, zc), Vector3(0.06, 0.13, 0.06), Color("c8102e") if i % 2 == 0 else Color("f2efe6"))
+		Meshes.box(st, Vector3(x - 0.06, 0.58, zc - 0.01), Vector3(0.18, 0.08, 0.08), Color("1d1d1d"))
+		for dx in [-0.04, 0.08]:
+			Meshes.box(st, Vector3(x + dx, 0.6, zc + 0.07), Vector3(0.04, 0.04, 0.012), Color("e0412e"))
+	return Meshes._finish(st)
+
+## Buffer stop at the end of a line. Local +X faces along the track (the way trains come from);
+## ZoneBuilder turns it to face its line.
+static func buffer_stop() -> ArrayMesh:
+	var st := Meshes._st()
+	var iron := Color("2e3238")
+	var red := Color("b3261e")
+	# sleepered base and the rails bending up into the frame
+	Meshes.box(st, Vector3(-0.42, 0.0, -0.42), Vector3(0.6, 0.06, 0.84), Color("4a3b2e"))
+	for zr in [-0.25, 0.19]:
+		Meshes.box(st, Vector3(-0.3, 0.06, zr), Vector3(0.12, 0.42, 0.06), iron)
+		Meshes.box(st, Vector3(-0.38, 0.06, zr), Vector3(0.5, 0.1, 0.06), iron)
+	# the beam, red with a white stripe, and two sprung buffers facing the train
+	Meshes.box(st, Vector3(-0.2, 0.28, -0.46), Vector3(0.18, 0.26, 0.92), red)
+	Meshes.box(st, Vector3(-0.02, 0.36, -0.3), Vector3(0.005, 0.07, 0.6), Color("f2efe6"))
+	for zb in [-0.38, 0.26]:
+		Meshes.box(st, Vector3(-0.02, 0.35, zb), Vector3(0.14, 0.08, 0.12), iron)
+		Meshes.box(st, Vector3(0.12, 0.32, zb - 0.02), Vector3(0.04, 0.14, 0.16), Color("9aa0a8"))
+	# the lamp on top
+	Meshes.box(st, Vector3(-0.15, 0.54, -0.06), Vector3(0.1, 0.16, 0.12), iron)
+	Meshes.box(st, Vector3(-0.05, 0.6, -0.04), Vector3(0.012, 0.07, 0.08), Color("ff3b2a"))
+	return Meshes._finish(st)
+
+## A tunnel mouth: a stone portal with a dark bore, set in a grassy bank (variant 0) or a sooty brick
+## tube mouth with no bank (variant 1, the Underground). Local +X faces along the track, out of the tunnel.
+## The bore is 0.9 wide and 1.05 high, so a train fits; RailTraffic clips trains at local x = 0.
+static func tunnel_portal(variant := 0) -> ArrayMesh:
+	var st := Meshes._st()
+	var tube := variant == 1
+	var stone := Color("6b3a2e") if tube else Color("8f8270")
+	var bank := Color("3a2f2b") if tube else Color("6a5238")
+	var bank_top := Color("2a2220") if tube else Color("527f37")
+	var dark := Color("0b0b0d")
+	# a tube mouth is exactly one tile wide, so two side by side make a double-track tunnel
+	var hw := 0.5 if tube else 0.98
+	var pier := 0.5 if tube else 0.82
+	# the bank (or brickwork) round the bore, running back over the tile behind and stepping up into a knoll
+	Meshes.box(st, Vector3(-1.4, 0, -hw), Vector3(1.68, 1.32, hw - 0.46), bank, bank_top)
+	Meshes.box(st, Vector3(-1.4, 0, 0.46), Vector3(1.68, 1.32, hw - 0.46), bank, bank_top)
+	Meshes.box(st, Vector3(-0.5, 1.05, -0.46), Vector3(0.78, 0.27, 0.92), bank, bank_top)
+	Meshes.box(st, Vector3(-1.4, 0, -0.46), Vector3(0.9, 1.32, 0.92), bank, bank_top)
+	if not tube:
+		Meshes.box(st, Vector3(-1.25, 1.32, -0.8), Vector3(1.35, 0.28, 1.6), bank, bank_top.darkened(0.04))
+		Meshes.box(st, Vector3(-1.0, 1.6, -0.5), Vector3(0.85, 0.2, 1.0), bank, bank_top.lightened(0.04))
+	# the bore: black lining inside
+	Meshes.box(st, Vector3(-0.5, 0, -0.46), Vector3(0.78, 1.05, 0.01), dark)
+	Meshes.box(st, Vector3(-0.5, 0, 0.45), Vector3(0.78, 1.05, 0.01), dark)
+	Meshes.box(st, Vector3(-0.5, 1.04, -0.46), Vector3(0.78, 0.01, 0.92), dark)
+	Meshes.box(st, Vector3(-0.5, 0, -0.46), Vector3(0.02, 1.05, 0.92), dark)
+	Meshes.box(st, Vector3(-0.5, 0.0, -0.46), Vector3(0.78, 0.04, 0.92), Color("1a1816"))
+	# the portal face: piers, an arch of voussoirs, a parapet
+	Meshes.box(st, Vector3(0.28, 0, -pier), Vector3(0.14, 1.05, pier - 0.46), stone)
+	Meshes.box(st, Vector3(0.28, 0, 0.46), Vector3(0.14, 1.05, pier - 0.46), stone)
+	Meshes.box(st, Vector3(0.28, 1.05, -pier), Vector3(0.14, 0.36, pier * 2), stone)
+	for i in 5:
+		var zz := -0.46 + i * 0.184
+		var lift := 0.05 * (2 - absi(i - 2))
+		Meshes.box(st, Vector3(0.4, 0.92 + lift, zz), Vector3(0.03, 0.14, 0.18), stone.lightened(0.1 if i % 2 == 0 else 0.0))
+	var top := 0.5 if tube else 0.9
+	Meshes.box(st, Vector3(0.24, 1.41, -top), Vector3(0.22, 0.09, top * 2), stone.darkened(0.15))
+	return Meshes._finish(st)
+
+## Train cars for RailTraffic, 1.5 long, nose along +X, wheels on y = 0 (the rail top), centred on the origin.
+## `cab` puts a driving cab on the +X end (yellow warning panel, windscreen, lamps).
+## Window colours carry alpha 0.4 so the train shader can light them up at night.
+static func train_car(livery: Color, cab: bool) -> ArrayMesh:
+	var st := Meshes._st()
+	var under := Color("26282c")
+	var roof := Color("b9bec4")
+	var win := Color(0.16, 0.2, 0.26, 0.4)
+	Meshes.box(st, Vector3(-0.62, 0.0, -0.28), Vector3(0.34, 0.16, 0.56), under)
+	Meshes.box(st, Vector3(0.28, 0.0, -0.28), Vector3(0.34, 0.16, 0.56), under)
+	Meshes.box(st, Vector3(-0.72, 0.13, -0.33), Vector3(1.44, 0.1, 0.66), under)
+	var band := livery.lightened(0.6)
+	Meshes.box(st, Vector3(-0.72, 0.23, -0.37), Vector3(1.44, 0.6, 0.74), livery, roof)
+	Meshes.box(st, Vector3(-0.725, 0.44, -0.375), Vector3(1.45, 0.34, 0.75), band, roof)
+	Meshes.box(st, Vector3(-0.7, 0.83, -0.33), Vector3(1.4, 0.07, 0.66), roof)
+	Meshes.box(st, Vector3(-0.66, 0.9, -0.22), Vector3(1.32, 0.04, 0.44), roof.lightened(0.1))
+	# windows down both sides, doors by the ends
+	var x0 := -0.5
+	var x1 := 0.3 if cab else 0.5
+	var n := 4 if cab else 5
+	for i in n:
+		var wx := x0 + (x1 - x0) * (float(i) / float(n - 1)) - 0.08
+		for zs in [-0.38, 0.37]:
+			Meshes.box(st, Vector3(wx, 0.5, zs), Vector3(0.16, 0.2, 0.01), win)
+	for dx in [-0.68, 0.56 if not cab else 0.42]:
+		for zs in [-0.38, 0.37]:
+			Meshes.box(st, Vector3(dx, 0.24, zs), Vector3(0.12, 0.55, 0.01), livery.darkened(0.25))
+	if cab:
+		Meshes.box(st, Vector3(0.72, 0.23, -0.36), Vector3(0.05, 0.36, 0.72), Color("e8c21a"))
+		Meshes.box(st, Vector3(0.72, 0.59, -0.33), Vector3(0.04, 0.2, 0.66), win)
+		Meshes.box(st, Vector3(0.72, 0.79, -0.36), Vector3(0.05, 0.04, 0.72), livery)
+		for zl in [-0.28, 0.2]:
+			Meshes.box(st, Vector3(0.77, 0.3, zl), Vector3(0.015, 0.06, 0.08), Color(1.0, 0.96, 0.82, 0.4))
+	else:
+		Meshes.box(st, Vector3(0.72, 0.23, -0.26), Vector3(0.04, 0.55, 0.52), under)
+	Meshes.box(st, Vector3(-0.76, 0.23, -0.26), Vector3(0.04, 0.55, 0.52), under)
 	return Meshes._finish(st)
 
 ## The ferry (variant 0, long, red funnel) or a fishing boat (variant 1).
