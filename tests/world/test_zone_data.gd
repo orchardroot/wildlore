@@ -173,6 +173,14 @@ func test_landmark_meshes_build() -> void:
 			Landmarks.boat(), Landmarks.boat(1), Landmarks.canal_boat(), Landmarks.buoy(), Landmarks.statue(), Landmarks.harp(), Landmarks.lighthouse()]:
 		assert_true(mesh.get_surface_count() > 0)
 
+func test_round_tower_stands_tall() -> void:
+	# an Irish round tower is a tall stone needle with a conical cap, not a cottage
+	assert_true("round_tower" in Landmarks.SPECIAL)
+	var tower: ArrayMesh = Meshes.building(2, 7, "round_tower", 0, 1)[0]
+	var cottage: ArrayMesh = Meshes.building(2, 7, "stone", 0, 1)[0]
+	assert_true(tower.get_aabb().size.y > 5.0, "tower height %s" % tower.get_aabb().size.y)
+	assert_true(cottage.get_aabb().size.y < 3.5)
+
 func test_gallery_zone_builds() -> void:
 	var root := ZoneBuilder.build(_z("mesh_gallery"))
 	assert_true(root.get_child_count() > 10)

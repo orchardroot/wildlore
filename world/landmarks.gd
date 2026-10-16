@@ -15,7 +15,7 @@ const IRON := Color("3c4450")
 const GLASS := Color.WHITE
 
 ## Building styles handled here rather than by the generic house in Meshes.building.
-const SPECIAL := ["glass_tower", "gantry_crane", "mill", "castle", "cathedral", "liver_building", "station", "aqueduct", "chapel", "terrace", "tudor", "slate_cottage", "lighthouse_house"]
+const SPECIAL := ["glass_tower", "gantry_crane", "mill", "castle", "cathedral", "liver_building", "station", "aqueduct", "chapel", "terrace", "tudor", "slate_cottage", "lighthouse_house", "round_tower"]
 
 ## Per-window variety for the night: shared by every _window in one building() call.
 static var _wr := RandomNumberGenerator.new()
@@ -47,6 +47,8 @@ static func building(w: int, d: int, style: String, door_x: int, seed_value: int
 			_cathedral(st, wst, w, d, door_x, SANDSTONE)
 		"chapel":
 			_chapel(st, wst, w, d, door_x)
+		"round_tower":
+			_round_tower(st, wst, w, d, door_x)
 		"liver_building":
 			_liver(st, wst, w, d, door_x)
 		"station":
@@ -263,6 +265,28 @@ static func _chapel(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: i
 	for x in [0.5, w - 1.0]:
 		_window(st, wst, x, 0.5, d, 0.5, 1.5, wall.lightened(0.25))
 	_door(st, door_x, d, wall, 1.1)
+
+## An Irish round tower: a tall tapering stone needle with a conical cap, standing at the front of its plot (the door
+## faces south); the rest of the footprint is a little walled churchyard.
+static func _round_tower(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int) -> void:
+	var stone := Color("a39d8e")
+	var r := minf(w, 2.0) * 0.45
+	var c := Vector3(w * 0.5, 0, d - r - 0.08)
+	var h := 5.6
+	Meshes.cylinder(st, c, r, h, 10, stone)
+	Meshes.cone(st, c + Vector3(0, h, 0), r * 0.95, 1.3, 10, stone.darkened(0.12), Meshes._rng(41))
+	for y in [2.4, 3.6, 4.8]:
+		_window(st, wst, c.x - 0.1, y, c.z + r * 0.9 + 0.05, 0.2, 0.32, stone.darkened(0.2))
+	if door_x >= 0:  # one door, centred on the tower whichever tile the warp is on
+		Meshes.box(st, Vector3(c.x - 0.25, 0.1, c.z + r - 0.12), Vector3(0.5, 0.85, 0.12), Color("3b2a22"))
+		Meshes.box(st, Vector3(c.x - 0.31, 0.95, c.z + r - 0.13), Vector3(0.62, 0.08, 0.13), stone.lightened(0.2))
+	# churchyard wall round the rest of the plot
+	var wall := stone.darkened(0.1)
+	var back := c.z - r
+	if back > 0.6:
+		Meshes.box(st, Vector3(0.05, 0, 0.05), Vector3(w - 0.1, 0.45, 0.2), wall)
+		Meshes.box(st, Vector3(0.05, 0, 0.05), Vector3(0.2, 0.45, back), wall)
+		Meshes.box(st, Vector3(w - 0.25, 0, 0.05), Vector3(0.2, 0.45, back), wall)
 
 ## The Liver Building: a tall granite block, two clock towers with green domes and a Liver Bird on each.
 static func _liver(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int) -> void:
