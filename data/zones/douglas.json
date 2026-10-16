@@ -565,6 +565,55 @@
    "type": "buffer_stop",
    "x": 20,
    "y": 31
+  },
+  {
+   "type": "bunting",
+   "x": 26,
+   "y": 30,
+   "variant": 7,
+   "walk": true
+  },
+  {
+   "type": "hanging_basket",
+   "x": 44,
+   "y": 15,
+   "rot": 180,
+   "walk": true
+  },
+  {
+   "type": "hanging_basket",
+   "x": 11,
+   "y": 20,
+   "rot": 270,
+   "walk": true
+  },
+  {
+   "type": "hanging_basket",
+   "x": 44,
+   "y": 41,
+   "rot": 270,
+   "walk": true
+  },
+  {
+   "type": "hanging_basket",
+   "x": 25,
+   "y": 31,
+   "rot": 90,
+   "walk": true
+  },
+  {
+   "type": "hanging_basket",
+   "x": 34,
+   "y": 14,
+   "rot": 0,
+   "walk": true
+  },
+  {
+   "type": "hanging_basket",
+   "x": 48,
+   "y": 9,
+   "rot": 0,
+   "walk": true
   }
  ],
  "warps": [
@@ -701,7 +750,11 @@
    "facing": "down",
    "move": "still",
    "script": "kipper_man",
-   "name": "Kipper Seller"
+   "name": "Kipper Seller",
+   "times": [
+    "day",
+    "dusk"
+   ]
   },
   {
    "id": "doug_tynwald",
@@ -711,7 +764,11 @@
    "facing": "down",
    "move": "wander",
    "script": "tynwald_guide",
-   "name": "Guide"
+   "name": "Guide",
+   "times": [
+    "day",
+    "dusk"
+   ]
   },
   {
    "id": "rail_guard",

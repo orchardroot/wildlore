@@ -986,6 +986,26 @@
    "type": "buffer_stop",
    "x": 39,
    "y": 41
+  },
+  {
+   "type": "flagpole",
+   "x": 32,
+   "y": 11,
+   "variant": 4
+  },
+  {
+   "type": "washing_line",
+   "x": 22,
+   "y": 4,
+   "variant": 2,
+   "walk": true
+  },
+  {
+   "type": "washing_line",
+   "x": 22,
+   "y": 37,
+   "variant": 2,
+   "walk": true
   }
  ],
  "warps": [
@@ -1185,7 +1205,11 @@
    "facing": "left",
    "move": "wander",
    "script": "student",
-   "name": "Student"
+   "name": "Student",
+   "times": [
+    "day",
+    "dusk"
+   ]
   },
   {
    "id": "manc_busker",
@@ -1205,7 +1229,11 @@
    "facing": "up",
    "move": "still",
    "script": "town_hall_guide",
-   "name": "Tour Guide"
+   "name": "Tour Guide",
+   "times": [
+    "day",
+    "dusk"
+   ]
   },
   {
    "id": "manc_bee",
@@ -1226,6 +1254,32 @@
    "move": "still",
    "script": "rail_guard",
    "name": "Rail Guard"
+  },
+  {
+   "id": "manchester_night_nurse",
+   "sprite": "night_nurse",
+   "x": 44,
+   "y": 43,
+   "facing": "down",
+   "move": "still",
+   "script": "manchester_night_nurse",
+   "name": "Night Nurse",
+   "times": [
+    "night"
+   ]
+  },
+  {
+   "id": "manchester_fox_watcher",
+   "sprite": "fox_watcher",
+   "x": 27,
+   "y": 31,
+   "facing": "down",
+   "move": "still",
+   "script": "manchester_fox_watcher",
+   "name": "Fox Watcher",
+   "times": [
+    "night"
+   ]
   }
  ],
  "encounters": {

@@ -591,6 +591,12 @@
    "x": 56,
    "y": 24,
    "variant": 1
+  },
+  {
+   "type": "flagpole",
+   "x": 58,
+   "y": 11,
+   "variant": 6
   }
  ],
  "warps": [
@@ -682,7 +688,11 @@
    "y": 26,
    "facing": "down",
    "move": "still",
-   "script": "lon_beefeater"
+   "script": "lon_beefeater",
+   "times": [
+    "day",
+    "dusk"
+   ]
   },
   {
    "id": "lon_ravenmaster",
@@ -709,7 +719,11 @@
    "y": 28,
    "facing": "right",
    "move": "wander",
-   "script": "lon_local"
+   "script": "lon_local",
+   "times": [
+    "day",
+    "dusk"
+   ]
   },
   {
    "id": "lon_tourist",
@@ -718,7 +732,11 @@
    "y": 52,
    "facing": "down",
    "move": "wander",
-   "script": "lon_tourist"
+   "script": "lon_tourist",
+   "times": [
+    "day",
+    "dusk"
+   ]
   },
   {
    "id": "bran_spot",
@@ -796,6 +814,32 @@
    "script": "gate_london_tube",
    "name": "Warden",
    "hide_if": "moot_won"
+  },
+  {
+   "id": "london_lamplighter",
+   "sprite": "lamplighter",
+   "x": 37,
+   "y": 23,
+   "facing": "down",
+   "move": "still",
+   "script": "london_lamplighter",
+   "name": "Lamplighter",
+   "times": [
+    "night"
+   ]
+  },
+  {
+   "id": "london_fox_watcher",
+   "sprite": "fox_watcher",
+   "x": 28,
+   "y": 27,
+   "facing": "down",
+   "move": "still",
+   "script": "london_fox_watcher",
+   "name": "Fox Watcher",
+   "times": [
+    "night"
+   ]
   }
  ],
  "encounters": {

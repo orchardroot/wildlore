@@ -1,7 +1,8 @@
 extends MenuBase
-## Settings: text speed, quality, volumes, accessibility switches and a Controls page. Left/right changes a row; every change is saved at once.
+## Settings: text speed, battle speed, quality, volumes, accessibility switches and a Controls page. Left/right changes a row; every change is saved at once.
 
 const SPEEDS := ["slow", "normal", "fast", "instant"]
+const BATTLE_SPEEDS := ["normal", "fast", "fastest"]
 const QUALITIES := ["low", "medium", "high"]
 const SAMPLE := "Oi. That's my sandwich. Also, welcome to Cheshire."
 
@@ -12,20 +13,20 @@ var _t := 0.0
 
 func _build() -> void:
 	set_title("Settings")
-	set_hint("Left / Right  Change        Z  Select        X  Back")
+	set_hints([["leftright", "Change"], ["confirm", "Select"], ["cancel", "Back"]])
 	var col := VBoxContainer.new()
 	col.set_anchors_preset(Control.PRESET_FULL_RECT)
-	col.add_theme_constant_override("separation", 16)
+	col.add_theme_constant_override("separation", 10)
 	content.add_child(col)
 	var p := UIKit.panel(Color("1d2230f0"), 14)
 	col.add_child(p)
 	var v := VBoxContainer.new()
-	v.add_theme_constant_override("separation", 5)
+	v.add_theme_constant_override("separation", 2)
 	p.add_child(v)
 	var buttons := []
-	for def in [["text_speed", "Text speed"], ["quality", "Graphics quality"], ["music_volume", "Music volume"], ["sfx_volume", "Effects volume"], ["colour_blind", "Colour-blind friendly"], ["reduce_flashing", "Reduce flashing"]]:
+	for def in [["text_speed", "Text speed"], ["battle_speed", "Battle speed"], ["quality", "Graphics quality"], ["music_volume", "Music volume"], ["sfx_volume", "Effects volume"], ["ambience_volume", "Ambience volume"], ["run_mode", "Run key"], ["colour_blind", "Colour-blind friendly"], ["reduce_flashing", "Reduce flashing"]]:
 		var b := Button.new()
-		b.custom_minimum_size = Vector2(0, 42)
+		b.custom_minimum_size = Vector2(0, 36)  # rows are tight: the preview panel must clear the hint line
 		UIKit.compact(b, 4)
 		var h := HBoxContainer.new()
 		h.set_anchors_preset(Control.PRESET_FULL_RECT)
@@ -83,7 +84,7 @@ func _build() -> void:
 	var ph := HBoxContainer.new()
 	ph.add_theme_constant_override("separation", 20)
 	pv.add_child(ph)
-	_preview = UIKit.label(SAMPLE, 24)
+	_preview = UIKit.label(SAMPLE, 20)
 	_preview.custom_minimum_size = Vector2(520, 0)
 	_preview.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	ph.add_child(_preview)
@@ -127,12 +128,18 @@ func _change(key: String, d: int) -> void:
 		"text_speed":
 			Settings.text_speed = SPEEDS[MenuLogic.wrap_index(maxi(0, SPEEDS.find(Settings.text_speed)), d, SPEEDS.size())]
 			_t = 0.0
+		"battle_speed":
+			Settings.battle_speed = BATTLE_SPEEDS[MenuLogic.wrap_index(maxi(0, BATTLE_SPEEDS.find(Settings.battle_speed)), d, BATTLE_SPEEDS.size())]
 		"quality":
 			Settings.quality = QUALITIES[MenuLogic.wrap_index(maxi(0, QUALITIES.find(Settings.quality)), d, QUALITIES.size())]
 		"music_volume":
 			Settings.music_volume = clampf(snappedf(Settings.music_volume + 0.1 * d, 0.1), 0.0, 1.0)
 		"sfx_volume":
 			Settings.sfx_volume = clampf(snappedf(Settings.sfx_volume + 0.1 * d, 0.1), 0.0, 1.0)
+		"run_mode":
+			Settings.run_mode = "toggle" if Settings.run_mode == "hold" else "hold"
+		"ambience_volume":
+			Settings.ambience_volume = clampf(snappedf(Settings.ambience_volume + 0.1 * d, 0.1), 0.0, 1.0)
 		"colour_blind":
 			Settings.colour_blind = not Settings.colour_blind
 		"reduce_flashing":
@@ -149,6 +156,8 @@ func _paint_row(r: Dictionary) -> void:
 	match r.key:
 		"text_speed":
 			l.text = "<  %s  >" % Settings.text_speed.capitalize()
+		"battle_speed":
+			l.text = "<  %s  >" % Settings.battle_speed.capitalize()
 		"quality":
 			l.text = "<  %s  >" % Settings.quality.capitalize()
 		"music_volume":
@@ -157,6 +166,11 @@ func _paint_row(r: Dictionary) -> void:
 		"sfx_volume":
 			l.text = _pct(Settings.sfx_volume)
 			r.bar.value = Settings.sfx_volume
+		"run_mode":
+			l.text = "<  %s  >" % ("Press to toggle" if Settings.run_mode == "toggle" else "Hold")
+		"ambience_volume":
+			l.text = _pct(Settings.ambience_volume)
+			r.bar.value = Settings.ambience_volume
 		"colour_blind":
 			l.text = "<  %s  >" % ("On" if Settings.colour_blind else "Off")
 			_fill_chips()

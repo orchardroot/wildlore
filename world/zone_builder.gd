@@ -22,6 +22,8 @@ const CROSSING_DECK := 0.075
 const PLATFORM := 0.16       # platforms stand proud of the track
 const COPING := Color("d8d2c2")
 const SAFETY_LINE := Color("e3c02a")
+## Paved tiles: darker and shinier in the rain (vertex alpha 0 in the ground mesh, see ground.gdshader).
+const HARD := ["road", "cobbles", "platform", "level_crossing", "door"]
 
 ## Surface height of a tile's ground (water beds sit lower).
 static func ground_y(z: ZoneData, p: Vector2i) -> float:
@@ -83,8 +85,9 @@ static func _ground(z: ZoneData, rng: RandomNumberGenerator) -> MeshInstance3D:
 			col = _vary(t, col, x, y, rng)
 			var x0 := float(x)
 			var z0 := float(y)
+			var a := 0.0 if t in HARD else 1.0
 			Meshes.quad4(st, Vector3(x0, gy, z0), Vector3(x0 + 1, gy, z0), Vector3(x0 + 1, gy, z0 + 1), Vector3(x0, gy, z0 + 1),
-				_paint(col, x0, z0), _paint(col, x0 + 1, z0), _paint(col, x0 + 1, z0 + 1), _paint(col, x0, z0 + 1))
+				_paint(col, x0, z0, a), _paint(col, x0 + 1, z0, a), _paint(col, x0 + 1, z0 + 1, a), _paint(col, x0, z0 + 1, a))
 			# side faces wherever the neighbour is lower (or missing: the diorama skirt)
 			for d in [Vector2i(0, 1), Vector2i(0, -1), Vector2i(1, 0), Vector2i(-1, 0)]:
 				var q: Vector2i = p + d
@@ -114,7 +117,7 @@ static func _ground(z: ZoneData, rng: RandomNumberGenerator) -> MeshInstance3D:
 	var mi := MeshInstance3D.new()
 	mi.name = "Ground"
 	mi.mesh = st.commit()
-	mi.material_override = Meshes.solid
+	mi.material_override = Meshes.ground
 	mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_ON
 	return mi
 
@@ -141,7 +144,7 @@ static func _side(st: SurfaceTool, x0: float, z0: float, d: Vector2i, top: float
 static var _noise: FastNoiseLite
 
 ## Low-frequency colour drift across the ground so it reads as painted, not tiled.
-static func _paint(col: Color, x: float, z: float) -> Color:
+static func _paint(col: Color, x: float, z: float, alpha := 1.0) -> Color:
 	if _noise == null:
 		_noise = FastNoiseLite.new()
 		_noise.frequency = 0.09
@@ -149,7 +152,9 @@ static func _paint(col: Color, x: float, z: float) -> Color:
 	var n := _noise.get_noise_2d(x, z)
 	var warm := Color(col.r * 1.06, col.g * 1.02, col.b * 0.9)
 	var cool := Color(col.r * 0.9, col.g * 0.97, col.b * 1.08)
-	return col.lerp(warm if n > 0.0 else cool, absf(n) * 0.9).lightened(n * 0.06)
+	var out := col.lerp(warm if n > 0.0 else cool, absf(n) * 0.9).lightened(n * 0.06)
+	out.a = alpha
+	return out
 
 static func _vary(t: String, col: Color, x: int, y: int, rng: RandomNumberGenerator) -> Color:
 	match t:
@@ -211,7 +216,11 @@ const LINEAR := ["hedge", "drystone_wall", "fence", "rail"]
 ## Point props (one tile, blocking unless "walk": true). Floating ones sit on the water surface.
 const POINT_PROPS := ["lamp_post", "bench", "bush", "birch", "oak", "pine", "rock", "market_stall", "planter", "phone_box",
 	"post_box", "bookshelf", "potted_plant", "table", "bed", "standing_stone", "slate_heap", "boat", "canal_boat", "bollard",
-	"buoy", "lighthouse", "statue", "harp", "buffer_stop", "tunnel_portal"]
+	"buoy", "lighthouse", "statue", "harp", "buffer_stop", "tunnel_portal",
+	"bunting", "flagpole", "washing_line", "hanging_basket", "rug", "fireplace", "wall_picture", "clock", "kitchen_dresser",
+	"fryer", "menu_board", "piano", "telescope", "plant_stand", "sofa", "display_case"]
+## Cloth meshes that ripple (flutter shader) and glow meshes that add light (firelight shader).
+const CLOTH := ["bunting", "flag", "washing_line"]
 const FLOATING := ["boat", "canal_boat", "buoy"]
 
 static func _props(z: ZoneData, root: Node3D, rng: RandomNumberGenerator) -> void:
@@ -270,9 +279,23 @@ static func _props(z: ZoneData, root: Node3D, rng: RandomNumberGenerator) -> voi
 				if not pr.has("rot"):
 					rot = cap_angle(z.cap_inward(pos))
 			var tr := Transform3D(Basis(Vector3.UP, rot), Vector3(pos.x + 0.5, py, pos.y + 0.5))
-			_add(buckets, "%s:%d" % [pt, int(pr.get("variant", 0))], tr)
-			if pt == "lamp_post":
-				_add(buckets, "lamp_bulb:0", tr)
+			if pt == "rug":
+				# w x h tiles from the anchor tile's north-west corner, flat on the floor
+				var rw := float(pr.get("w", 1))
+				var rh := float(pr.get("h", 1))
+				tr = Transform3D(Basis.from_scale(Vector3(rw, 1, rh)), Vector3(pos.x + rw * 0.5, py, pos.y + rh * 0.5))
+			var variant := int(pr.get("variant", 0))
+			_add(buckets, "%s:%d" % [pt, variant], tr)
+			match pt:
+				"lamp_post":
+					_add(buckets, "lamp_bulb:0", tr)
+					# the pool of light on the ground, a little above it so it never z-fights
+					var pool := Transform3D(Basis.from_scale(Vector3.ONE * 3.4), tr.origin + Vector3(0, 0.04, 0))
+					_add(buckets, "lamp_pool:0", pool)
+				"flagpole":
+					_add(buckets, "flag:%d" % variant, tr)
+				"fireplace":
+					_add(buckets, "fireplace_fire:0", tr)
 	for key in buckets:
 		var parts: PackedStringArray = key.split(":")
 		var mesh: ArrayMesh = _ctor(parts[0], int(parts[1]))
@@ -293,6 +316,17 @@ static func _props(z: ZoneData, root: Node3D, rng: RandomNumberGenerator) -> voi
 		if parts[0] == "lamp_bulb":
 			mmi.material_override = Meshes.glow
 			mmi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		elif parts[0] == "lamp_pool":
+			mmi.material_override = Meshes.pool
+			mmi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		elif parts[0] == "fireplace_fire":
+			mmi.material_override = Meshes.firelight
+			mmi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		elif parts[0] in CLOTH:
+			mmi.material_override = Meshes.flutter
+			mmi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		elif parts[0] in FLOATING:
+			mmi.material_override = Meshes.bobbing_calm if parts[0] == "canal_boat" else Meshes.bobbing
 		else:
 			mmi.material_override = Meshes.foliage if foliage else Meshes.solid
 			mmi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF if parts[0] in ["tall_grass_tuft", "flower_patch"] else GeometryInstance3D.SHADOW_CASTING_SETTING_ON
@@ -389,12 +423,52 @@ static func _ctor(name: String, variant: int) -> ArrayMesh:
 			return Landmarks.statue(variant)
 		"harp":
 			return Landmarks.harp()
+		"lamp_pool":
+			return Dressing.pool_quad()
+		"bunting":
+			return Dressing.bunting(variant)
+		"flagpole":
+			return Dressing.flagpole(variant)
+		"flag":
+			return Dressing.flag(variant)
+		"washing_line":
+			return Dressing.washing_line(variant)
+		"hanging_basket":
+			return Dressing.hanging_basket(variant)
+		"rug":
+			return Dressing.rug(variant)
+		"fireplace":
+			return Dressing.fireplace()
+		"fireplace_fire":
+			return Dressing.fireplace_fire()
+		"wall_picture":
+			return Dressing.wall_picture(variant)
+		"clock":
+			return Dressing.clock()
+		"kitchen_dresser":
+			return Dressing.kitchen_dresser()
+		"fryer":
+			return Dressing.fryer()
+		"menu_board":
+			return Dressing.menu_board()
+		"piano":
+			return Dressing.piano()
+		"telescope":
+			return Dressing.telescope()
+		"plant_stand":
+			return Dressing.plant_stand(variant)
+		"sofa":
+			return Dressing.sofa(variant)
+		"display_case":
+			return Dressing.display_case(variant)
 	push_warning("ZoneBuilder: unknown prop mesh '%s'" % name)
 	return Meshes.rock(0)
 
 # --- buildings -----------------------------------------------------------------
 
+## Also records every chimney top (world space) as the root's "chimneys" meta, for AmbientLife's smoke.
 static func _buildings(z: ZoneData, root: Node3D) -> void:
+	var chimneys := PackedVector3Array()
 	for pr in z.props:
 		if pr.get("type") != "building":
 			continue
@@ -414,9 +488,12 @@ static func _buildings(z: ZoneData, root: Node3D) -> void:
 		body.material_override = Meshes.solid
 		body.position = Vector3(bx, gy, by)
 		root.add_child(body)
+		if meshes.size() > 2:
+			for c in meshes[2]:
+				chimneys.append(body.position + c)
 		var win := MeshInstance3D.new()
 		win.mesh = meshes[1]
-		win.material_override = Meshes.glow
+		win.material_override = Meshes.windows
 		win.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 		body.add_child(win)
 		if pr.has("label") and pr.get("show_label", true):
@@ -432,6 +509,7 @@ static func _buildings(z: ZoneData, root: Node3D) -> void:
 			lbl.no_depth_test = true  # walls and towers in front must not hide the name
 			lbl.render_priority = 10
 			body.add_child(lbl)
+	root.set_meta("chimneys", chimneys)
 
 # --- interiors -----------------------------------------------------------------
 

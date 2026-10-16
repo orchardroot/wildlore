@@ -86,11 +86,11 @@ func _refresh() -> void:
 	var name: String = Game.dex.get_species(STARTERS[_index]).get("name", STARTERS[_index])
 	_line.text = LINES.get(STARTERS[_index], "")
 	if _confirming:
-		_prompt.text = "Take %s? Press Z again to be sure." % name
-		set_hint("Z  Confirm        X  Look again")
+		_prompt.text = "Take %s? Press %s again to be sure." % [name, UIKit.key_for("confirm")]
+		set_hints([["confirm", "Confirm"], ["cancel", "Look again"]])
 	else:
 		_prompt.text = ""
-		set_hint("Left / Right  Look        Z  Choose")
+		set_hints([["leftright", "Look"], ["confirm", "Choose"]])
 
 func _input(event: InputEvent) -> void:
 	if _locked or _done:

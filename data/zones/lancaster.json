@@ -367,6 +367,40 @@
    "type": "buffer_stop",
    "x": 35,
    "y": 30
+  },
+  {
+   "type": "bunting",
+   "x": 20,
+   "y": 28,
+   "variant": 7,
+   "walk": true
+  },
+  {
+   "type": "flagpole",
+   "x": 7,
+   "y": 10,
+   "variant": 4
+  },
+  {
+   "type": "hanging_basket",
+   "x": 24,
+   "y": 11,
+   "rot": 180,
+   "walk": true
+  },
+  {
+   "type": "hanging_basket",
+   "x": 15,
+   "y": 14,
+   "rot": 180,
+   "walk": true
+  },
+  {
+   "type": "hanging_basket",
+   "x": 44,
+   "y": 19,
+   "rot": 180,
+   "walk": true
   }
  ],
  "warps": [
@@ -502,7 +536,11 @@
    "y": 21,
    "facing": "down",
    "move": "wander",
-   "script": "lan_student"
+   "script": "lan_student",
+   "times": [
+    "day",
+    "dusk"
+   ]
   },
   {
    "id": "lan_boater",
@@ -520,7 +558,11 @@
    "y": 16,
    "facing": "down",
    "move": "still",
-   "script": "lan_guide"
+   "script": "lan_guide",
+   "times": [
+    "day",
+    "dusk"
+   ]
   },
   {
    "id": "lan_baker",
@@ -557,6 +599,19 @@
    "facing": "down",
    "move": "still",
    "trainer": "lan_warden"
+  },
+  {
+   "id": "lancaster_fox_watcher",
+   "sprite": "fox_watcher",
+   "x": 32,
+   "y": 19,
+   "facing": "down",
+   "move": "still",
+   "script": "lancaster_fox_watcher",
+   "name": "Fox Watcher",
+   "times": [
+    "night"
+   ]
   }
  ],
  "encounters": {

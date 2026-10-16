@@ -23,6 +23,46 @@
  ],
  "yrk_guide": [
   {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Minster Guide",
+     "text": "Raining? Wonderful. The Minster is very dry inside, and the tour is mostly indoors today."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "sunshine",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Minster Guide",
+       "text": "Sun through the Great East Window! 311 panels lit up at once. You lucky things."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "fog",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Minster Guide",
+         "text": "Fog round the Minster today. It looks like a ghost of itself. Please don't tell the ghost tour."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Minster Guide",
    "text": "Welcome to the Minster. The Great East Window has 311 panels and tells the story from Creation to the Apocalypse. The guide leaflet is 20 pages and the best part is the sandwiches."
@@ -34,6 +74,32 @@
   }
  ],
  "yrk_viking": [
+  {
+   "do": "when",
+   "cond": "gale",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Jorvik Guide",
+     "text": "Viking weather! A good stiff wind. Sails up, knitted socks on, off we go."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "rain",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Jorvik Guide",
+       "text": "Rain on the city walls. The Vikings didn't mind it. They had very warm socks."
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Jorvik Guide",
@@ -59,6 +125,32 @@
  ],
  "yrk_rail": [
   {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Railway Volunteer",
+     "text": "Wet day? Come to the railway museum. Mallard never minds the weather. She's indoors."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "dawn",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Railway Volunteer",
+       "text": "First trains in! York station in the morning is like a big, friendly beehive."
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Railway Volunteer",
    "text": "The National Railway Museum holds Mallard, the fastest steam locomotive in the world. In 1938 she reached 126 miles an hour, which is still the record, and the driver had a neat little bit of tweed on."
@@ -71,6 +163,32 @@
  ],
  "yrk_ghost": [
   {
+   "do": "when",
+   "cond": "fog",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Ghost Tour Seller",
+     "text": "Proper ghost weather this, fog in the Shambles. Look, there's the chap with the lantern again."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "dusk",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Ghost Tour Seller",
+       "text": "Getting dark. My favourite time in York. The ghosts are just starting their shift."
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Ghost Tour Seller",
    "text": "York is the most haunted city in Europe, they say. I say there's a ghost on every street, and a ghost tour on every corner. A hundred and fifty haunted sites. And the same chap with a lantern in all of them."
@@ -79,6 +197,40 @@
    "do": "say",
    "who": "Ghost Tour Seller",
    "text": "The best ghost is the one you don't see. The second best is the one with a good gift shop."
+  }
+ ],
+ "york_lamplighter": [
+  {
+   "do": "say",
+   "who": "Lamplighter",
+   "text": "Evening! York still has a few gas lamps, and someone has to look after them. That's me."
+  },
+  {
+   "do": "say",
+   "who": "Lamplighter",
+   "text": "The Shambles by lamplight. Lovely and quiet, apart from three ghost tours trying to out-spook each other."
+  },
+  {
+   "do": "say",
+   "who": "Lamplighter",
+   "text": "Mind the cobbles, they're older than most countries. The lamps are just a bit younger."
+  }
+ ],
+ "york_night_baker": [
+  {
+   "do": "say",
+   "who": "Night Baker",
+   "text": "Starting the night shift at the bakery. Bread for the whole of the Shambles by morning."
+  },
+  {
+   "do": "say",
+   "who": "Night Baker",
+   "text": "Quiet streets, warm ovens. Best job in York. Just me and the occasional ghost."
+  },
+  {
+   "do": "say",
+   "who": "Night Baker",
+   "text": "Smell that? Fat rascals are in the oven. Come back at dawn and I might save you one."
   }
  ]
 }

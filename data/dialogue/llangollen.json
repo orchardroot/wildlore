@@ -70,6 +70,32 @@
  ],
  "choir_boss": [
   {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Choir Singer",
+     "text": "Rain! The tenors love it. It gives them something to grumble about between verses."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "dusk",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Choir Singer",
+       "text": "Choir practice at dusk. You'll hear us across the Dee. The sheep have started joining in."
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Choir Singer",
    "text": "Llangollen's International Musical Eisteddfod started in 1947, to heal the world with songs."
@@ -81,6 +107,32 @@
   }
  ],
  "bridge_keeper": [
+  {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Bridge Keeper",
+     "text": "Raining up in the Berwyns, so the Dee will be up by teatime. Mind your boots, cariad."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "fog",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Bridge Keeper",
+       "text": "Mist on the river this morning. The old bridge looks like it's floating."
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Bridge Keeper",
@@ -106,6 +158,32 @@
  ],
  "steam_fan": [
   {
+   "do": "when",
+   "cond": "fog",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Steam Fan",
+     "text": "Fog and steam together. You can't tell where the train ends and the weather begins. Glorious."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "sunshine",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Steam Fan",
+       "text": "Sun's out, the engine's polished, and the whistle's going. Best day of the year, this."
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Steam Fan",
    "text": "The Llangollen Railway runs steam trains along the Dee. Proper ones, with whistles."
@@ -129,6 +207,32 @@
   }
  ],
  "canal_kid": [
+  {
+   "do": "when",
+   "cond": "sunshine",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Kid on the Bank",
+     "text": "Sun's out! The horse-drawn boats are running on the canal. I'm waving at all of them."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "dusk",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Kid on the Bank",
+       "text": "Mam says I have to go in at dusk. Hwyl fawr! See? I told you I use it a lot."
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Kid on the Bank",

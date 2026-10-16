@@ -20,9 +20,12 @@ var _bump_cooldown := 0.0
 ## The playtest bot sets this to drive the player without real input.
 var forced_dir := ""
 var on_bike := false
+var _run_latched := false   # run mode "toggle": running stays on until the run key is pressed again
 var wading := false
 var _bike: Node3D
 var _coracle: MeshInstance3D
+var _was_running := false   # for the dust puff on breaking into a run
+var _dust: CPUParticles3D
 
 func setup(ow: Node, sprite_id: String) -> void:
 	overworld = ow
@@ -93,11 +96,26 @@ func face(dir: String) -> void:
 	if sprite:
 		sprite.set_facing(dir)
 
+## Run mode "toggle": a fresh press of the run key flips the latch. "hold" never latches.
+static func next_run_latch(mode: String, latched: bool, pressed: bool) -> bool:
+	if mode != "toggle":
+		return false
+	return not latched if pressed else latched
+
+static func is_running(mode: String, latched: bool, held: bool) -> bool:
+	return latched if mode == "toggle" else held
+
+## Back outdoors after riding in: hop back on the bike if it is allowed here (`refusal` from FieldMoves.bike_refusal).
+static func resume_bike(rode_in: bool, refusal: String) -> bool:
+	return rode_in and refusal == ""
+
 func busy() -> bool:
 	return moving or Router.busy
 
 func _physics_process(delta: float) -> void:
 	_bump_cooldown = maxf(0.0, _bump_cooldown - delta)
+	if forced_dir == "" and not Router.busy:  # (presses mid-step still count)
+		_run_latched = next_run_latch(Settings.run_mode, _run_latched, Input.is_action_just_pressed("run"))
 	if busy():
 		return
 	if forced_dir == "" and Input.is_action_just_pressed("confirm"):
@@ -109,11 +127,15 @@ func _physics_process(delta: float) -> void:
 	if forced_dir == "" and Input.is_action_just_pressed("bike") and overworld.has_method("toggle_bike"):
 		overworld.toggle_bike()
 		return
+	if forced_dir == "" and Input.is_action_just_pressed("fly") and overworld.has_method("try_fly"):
+		overworld.try_fly()
+		return
 	var dir := forced_dir if forced_dir != "" else _input_dir()
 	if dir == "":
 		_held_dir = ""
 		_held_t = 0.0
 		sprite.walking = false
+		_was_running = false
 		return
 	if dir != _held_dir:
 		_held_dir = dir
@@ -126,13 +148,52 @@ func _physics_process(delta: float) -> void:
 		face(dir)
 	if forced_dir == "" and _held_t < TURN_GRACE and not sprite.walking:
 		return
-	try_step(dir, Input.is_action_pressed("run"))
+	try_step(dir, is_running(Settings.run_mode, _run_latched, Input.is_action_pressed("run")))
 
 func _input_dir() -> String:
 	for d in ["up", "down", "left", "right"]:
 		if Input.is_action_pressed("move_" + d):
 			return d
 	return ""
+
+## A little puff of dust kicked up on breaking into a run (not on Low quality).
+func _puff() -> void:
+	if Settings.quality == "low":
+		return
+	if _dust == null:
+		_dust = CPUParticles3D.new()
+		_dust.one_shot = true
+		_dust.emitting = false
+		_dust.amount = 8
+		_dust.lifetime = 0.5
+		_dust.explosiveness = 0.85
+		_dust.direction = Vector3(0, 1, 0)
+		_dust.spread = 70.0
+		_dust.initial_velocity_min = 0.35
+		_dust.initial_velocity_max = 0.7
+		_dust.gravity = Vector3(0, 0.3, 0)
+		_dust.damping_min = 1.0
+		_dust.damping_max = 1.5
+		var grow := Curve.new()
+		grow.add_point(Vector2(0, 0.5))
+		grow.add_point(Vector2(1, 1.3))
+		_dust.scale_amount_curve = grow
+		var fade := Gradient.new()
+		fade.colors = PackedColorArray([Color(0.82, 0.76, 0.66, 0.7), Color(0.82, 0.76, 0.66, 0.0)])
+		_dust.color_ramp = fade
+		var q := QuadMesh.new()
+		q.size = Vector2(0.22, 0.22)
+		var m := StandardMaterial3D.new()
+		m.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+		m.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+		m.vertex_color_use_as_albedo = true
+		m.billboard_mode = BaseMaterial3D.BILLBOARD_PARTICLES
+		m.albedo_texture = SkyAndLight._soft_texture()
+		q.material = m
+		_dust.mesh = q
+		_dust.position = Vector3(0, 0.08, 0)
+		add_child(_dust)
+	_dust.restart()
 
 ## Attempts one step. Returns false (and bumps) if blocked.
 ## A ledge hop: straight line from start to dest with a small arc on top (no drift).
@@ -154,6 +215,11 @@ func try_step(dir: String, running := false) -> bool:
 		return false
 	moving = true
 	sprite.walking = true
+	var run_on_foot := running and not on_bike and not wading
+	sprite.walk_rate = CharSprite.RUN_RATE if run_on_foot else CharSprite.WALK_RATE
+	if run_on_foot and not _was_running and verdict != "ledge":
+		_puff()
+	_was_running = run_on_foot
 	var speed := BIKE_SPEED if on_bike else (RUN_SPEED if running else WALK_SPEED)
 	var dest_y: float = overworld.ground_y(target)
 	var dest := Vector3(target.x + 0.5, dest_y, target.y + 0.5)

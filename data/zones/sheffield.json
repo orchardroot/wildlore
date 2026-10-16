@@ -502,6 +502,26 @@
    "type": "buffer_stop",
    "x": 53,
    "y": 47
+  },
+  {
+   "type": "flagpole",
+   "x": 34,
+   "y": 18,
+   "variant": 4
+  },
+  {
+   "type": "washing_line",
+   "x": 55,
+   "y": 32,
+   "variant": 2,
+   "walk": true
+  },
+  {
+   "type": "washing_line",
+   "x": 10,
+   "y": 32,
+   "variant": 2,
+   "walk": true
   }
  ],
  "warps": [
@@ -701,7 +721,11 @@
    "y": 21,
    "facing": "left",
    "move": "wander",
-   "script": "shf_fullmonty"
+   "script": "shf_fullmonty",
+   "times": [
+    "day",
+    "dusk"
+   ]
   },
   {
    "id": "shf_student",
@@ -710,7 +734,11 @@
    "y": 21,
    "facing": "down",
    "move": "wander",
-   "script": "shf_student"
+   "script": "shf_student",
+   "times": [
+    "day",
+    "dusk"
+   ]
   },
   {
    "id": "shf_steelworker",
@@ -738,6 +766,32 @@
    "facing": "up",
    "move": "still",
    "trainer": "shf_student_t"
+  },
+  {
+   "id": "sheffield_steelworker",
+   "sprite": "steelworker",
+   "x": 55,
+   "y": 49,
+   "facing": "down",
+   "move": "still",
+   "script": "sheffield_steelworker",
+   "name": "Steelworker",
+   "times": [
+    "night"
+   ]
+  },
+  {
+   "id": "sheffield_night_nurse",
+   "sprite": "night_nurse",
+   "x": 34,
+   "y": 23,
+   "facing": "down",
+   "move": "still",
+   "script": "sheffield_night_nurse",
+   "name": "Night Nurse",
+   "times": [
+    "night"
+   ]
   }
  ],
  "encounters": {

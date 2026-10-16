@@ -33,12 +33,28 @@ class Bar extends Control:
 			draw_rect(Rect2(2, 2, w, (size.y - 4) * 0.4), c.lightened(0.25))
 		draw_rect(r, BattleHUD.CREAM, false, 2.0)
 
+## A tiny woven snare: shown on a wild foe's plate when that species is already in the collection.
+class CaughtMark extends Control:
+	func _init(px := 20.0) -> void:
+		custom_minimum_size = Vector2(px, px)
+		size_flags_vertical = Control.SIZE_SHRINK_CENTER
+		tooltip_text = "Already caught"
+	func _draw() -> void:
+		var c := size * 0.5
+		var r := minf(size.x, size.y) * 0.5 - 1.5
+		draw_circle(c, r, Color("e8c46a"))
+		draw_circle(c, r * 0.62, Color("8a5a2b"))
+		draw_line(c - Vector2(r, 0), c + Vector2(r, 0), Color("14161c"), 2.0)
+		draw_circle(c, r * 0.28, BattleHUD.CREAM)
+		draw_arc(c, r, 0.0, TAU, 20, Color("14161c"), 1.5, true)
+
 class Plate extends PanelContainer:
 	var creature: Creature
 	var is_player := false
 	var name_l: Label
 	var level_l: Label
 	var chip: Label
+	var caught: CaughtMark
 	var hp_bar: Bar
 	var hp_text: Label
 	var xp_bar: Bar
@@ -69,6 +85,9 @@ class Plate extends PanelContainer:
 		var top := HBoxContainer.new()
 		top.add_theme_constant_override("separation", 10)
 		col.add_child(top)
+		caught = CaughtMark.new(20.0 * k)
+		caught.visible = false
+		top.add_child(caught)
 		name_l = Label.new()
 		name_l.add_theme_font_size_override("font_size", int(28 * k))
 		name_l.clip_text = compact
@@ -260,6 +279,9 @@ func max_hp(side: int, pos := 0) -> float:
 
 func set_status(side: int, s: String, pos := 0) -> void:
 	plate(side, pos).set_status(s)
+
+func set_caught(side: int, on: bool, pos := 0) -> void:
+	plate(side, pos).caught.visible = on
 
 func set_marked(side: int, pos: int, on: bool) -> void:
 	plate(side, pos).set_marked(on)

@@ -234,6 +234,46 @@
  ],
  "wby_goth": [
   {
+   "do": "when",
+   "cond": "fog",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Goth Weekender",
+     "text": "Fog on the abbey! This is exactly the weather I dressed for. I have never been happier."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "sunshine",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Goth Weekender",
+       "text": "Sunshine. Hmm. My velvet wasn't made for this. I'll be in the shade by the bandstand."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "dusk",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Goth Weekender",
+         "text": "Dusk on the 199 steps, bats out over the abbey. Perfect. Absolutely perfect."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Goth Weekender",
    "text": "Whitby Goth Weekend! Twice a year, thousands of us arrive in black velvet and top hats and walk up the 199 steps, because that is what Dracula would do."
@@ -246,6 +286,46 @@
  ],
  "wby_skipper": [
   {
+   "do": "when",
+   "cond": "gale",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Harbour Skipper",
+     "text": "Gale blowing in off the North Sea. Nobody's sailing today. Not even Captain Cook would."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "fog",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Harbour Skipper",
+       "text": "Sea fret coming in. That's what we call fog off the sea round here. Thick as soup."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "rain",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Harbour Skipper",
+         "text": "Bit of rain on the harbour. The boats don't mind, they're wet on the bottom anyway."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Harbour Skipper",
    "text": "The Endeavour was built here in 1764 as a coal ship called the Earl of Pembroke. The navy bought it, renamed it, and sent Captain Cook round the world in it. A Whitby collier, circling the globe!"
@@ -257,6 +337,32 @@
   }
  ],
  "wby_bard": [
+  {
+   "do": "when",
+   "cond": "fog",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Churchyard Poet",
+     "text": "Fog on the cliffs, gulls in the grey. I feel a poem coming on. Probably a limerick."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "gale",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Churchyard Poet",
+       "text": "This wind keeps stealing my poems. Somewhere in Scarborough someone's reading my best work."
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Churchyard Poet",

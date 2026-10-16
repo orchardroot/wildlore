@@ -59,7 +59,7 @@ func start(m: String) -> void:
 	_rng.seed = maxi(0, int(Game.args.get("seed", 1)))
 	_limit = float(Game.args.get("seconds", 0))
 	if _limit <= 0.0:
-		_limit = {"slice": 1500.0, "m2": 9000.0, "full": 150000.0}.get(mode, 120.0)
+		_limit = {"slice": 2400.0, "m2": 12000.0, "full": 150000.0}.get(mode, 120.0)
 	_wall_start = Time.get_ticks_msec()
 	Bus.battle_ended.connect(_on_battle_ended)
 	Bus.battle_started.connect(func(_k):

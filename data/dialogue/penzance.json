@@ -28,6 +28,32 @@
  ],
  "old_miner": [
   {
+   "do": "when",
+   "cond": "fog",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Retired Miner",
+     "text": "Mist rolling in off the moor. The knockers like a foggy day, so they say. Leave a crust out."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "rain",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Retired Miner",
+       "text": "Rain don't bother a miner. Forty years underground, I did. Weather's a treat."
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Retired Miner",
    "text": "The knockers are small folk who tapped at the rock, so the story goes. Miners left a bit of pasty crust for them, for luck."
@@ -52,6 +78,46 @@
  ],
  "lido_swimmer": [
   {
+   "do": "when",
+   "cond": "gale",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Cold Water Swimmer",
+     "text": "Waves are coming right over the pool wall today. Free extra sea. I'll still go in. Dreckly."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "rain",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Cold Water Swimmer",
+       "text": "Raining? I'm getting wet anyway, my love. Makes no difference to me."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "dawn",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Cold Water Swimmer",
+         "text": "Dawn dip! The sun comes up over Mount's Bay and you forget your toes have gone numb. Mostly."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Cold Water Swimmer",
    "text": "The Jubilee Pool is a seawater lido. It's cold. I'll swim all year. It's good for you. I'm told. I can't feel my toes to check."
@@ -64,6 +130,32 @@
  ],
  "davy_fan": [
   {
+   "do": "when",
+   "cond": "sunshine",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "History Student",
+     "text": "Sun on Market Jew Street, and the Davy statue looks very pleased with himself. As he should."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "dusk",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "History Student",
+       "text": "Lamps coming on at dusk. Every time I see a lamp, I think of Davy. I'm great fun at parties."
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "History Student",
    "text": "Sir Humphry Davy invented the safety lamp in 1815. The flame was shrouded in wire mesh, so it couldn't set off firedamp in the mine."
@@ -75,6 +167,32 @@
   }
  ],
  "harbour_master": [
+  {
+   "do": "when",
+   "cond": "gale",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Harbour Master",
+     "text": "Gale's up, so the Scillonian's staying put. You'll get to Scilly dreckly, my bird. Have a pasty."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "fog",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Harbour Master",
+       "text": "Fog in the bay. Can't see St Michael's Mount, but I promise it's still there. It's mostly rock."
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Harbour Master",

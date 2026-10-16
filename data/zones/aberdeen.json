@@ -203,7 +203,11 @@
    "script": "doric_speaker",
    "sprite": "villager_2",
    "x": 30.0,
-   "y": 25.0
+   "y": 25.0,
+   "times": [
+    "day",
+    "dusk"
+   ]
   },
   {
    "facing": "down",
@@ -221,7 +225,11 @@
    "script": "oil_engineer",
    "sprite": "student",
    "x": 44.0,
-   "y": 33.0
+   "y": 33.0,
+   "times": [
+    "day",
+    "dusk"
+   ]
   },
   {
    "facing": "left",
@@ -250,6 +258,32 @@
    "sprite": "villager_6",
    "x": 7.0,
    "y": 27.0
+  },
+  {
+   "id": "aberdeen_night_baker",
+   "sprite": "villager_3",
+   "x": 7,
+   "y": 24,
+   "facing": "down",
+   "move": "still",
+   "script": "aberdeen_night_baker",
+   "name": "Night Baker",
+   "times": [
+    "night"
+   ]
+  },
+  {
+   "id": "aberdeen_astronomer",
+   "sprite": "astronomer",
+   "x": 1,
+   "y": 25,
+   "facing": "down",
+   "move": "still",
+   "script": "aberdeen_astronomer",
+   "name": "Astronomer",
+   "times": [
+    "night"
+   ]
   }
  ],
  "props": [

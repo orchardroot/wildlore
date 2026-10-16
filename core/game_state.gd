@@ -13,6 +13,10 @@ var save_dir := SaveSystem.DEFAULT_DIR
 var autosave_enabled := true
 var skip_next_autosave := false  # set by the title: the first zone after New Game or Load must not overwrite "auto"
 var _in_battle := false
+var _toast: SaveToast
+
+## Emitted after each autosave that really wrote the file (the "Saved" toast listens).
+signal autosaved
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -76,6 +80,16 @@ func save(slot := "auto") -> Error:
 func autosave() -> void:
 	if autosave_enabled and not _in_battle:
 		save("auto")
+		autosaved.emit()
+		_show_saved_toast()
+
+func _show_saved_toast() -> void:
+	if DisplayServer.get_name() == "headless":
+		return
+	if _toast == null or not is_instance_valid(_toast):
+		_toast = SaveToast.new()
+		add_child(_toast)
+	_toast.flash()
 
 func _on_battle_started(_kind: String) -> void:
 	_in_battle = true

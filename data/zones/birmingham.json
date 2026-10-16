@@ -698,6 +698,13 @@
    "type": "buffer_stop",
    "x": 40,
    "y": 8
+  },
+  {
+   "type": "washing_line",
+   "x": 42,
+   "y": 52,
+   "variant": 2,
+   "walk": true
   }
  ],
  "warps": [
@@ -858,7 +865,11 @@
    "y": 15,
    "facing": "left",
    "move": "wander",
-   "script": "brum_student"
+   "script": "brum_student",
+   "times": [
+    "day",
+    "dusk"
+   ]
   },
   {
    "id": "brum_bull",
@@ -867,7 +878,11 @@
    "y": 17,
    "facing": "right",
    "move": "wander",
-   "script": "brum_bull"
+   "script": "brum_bull",
+   "times": [
+    "day",
+    "dusk"
+   ]
   },
   {
    "id": "brum_baker",
@@ -922,6 +937,32 @@
    "facing": "left",
    "move": "still",
    "trainer": "brum_warden"
+  },
+  {
+   "id": "birmingham_fox_watcher",
+   "sprite": "fox_watcher",
+   "x": 26,
+   "y": 26,
+   "facing": "down",
+   "move": "still",
+   "script": "birmingham_fox_watcher",
+   "name": "Fox Watcher",
+   "times": [
+    "night"
+   ]
+  },
+  {
+   "id": "birmingham_night_boater",
+   "sprite": "canal_boater",
+   "x": 29,
+   "y": 26,
+   "facing": "down",
+   "move": "still",
+   "script": "birmingham_night_boater",
+   "name": "Night Boater",
+   "times": [
+    "night"
+   ]
   }
  ],
  "encounters": {

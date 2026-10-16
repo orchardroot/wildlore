@@ -386,6 +386,32 @@
    "type": "buffer_stop",
    "x": 45,
    "y": 44
+  },
+  {
+   "type": "flagpole",
+   "x": 9,
+   "y": 10,
+   "variant": 4
+  },
+  {
+   "type": "flagpole",
+   "x": 29,
+   "y": 21,
+   "variant": 4
+  },
+  {
+   "type": "washing_line",
+   "x": 20,
+   "y": 24,
+   "variant": 2,
+   "walk": true
+  },
+  {
+   "type": "washing_line",
+   "x": 14,
+   "y": 18,
+   "variant": 2,
+   "walk": true
   }
  ],
  "warps": [
@@ -548,7 +574,11 @@
    "y": 26,
    "facing": "left",
    "move": "still",
-   "script": "not_goose"
+   "script": "not_goose",
+   "times": [
+    "day",
+    "dusk"
+   ]
   },
   {
    "id": "not_cyclist",
@@ -557,7 +587,11 @@
    "y": 21,
    "facing": "right",
    "move": "wander",
-   "script": "not_cyclist"
+   "script": "not_cyclist",
+   "times": [
+    "day",
+    "dusk"
+   ]
   },
   {
    "id": "not_archer",
@@ -585,6 +619,32 @@
    "facing": "right",
    "move": "still",
    "trainer": "not_angler"
+  },
+  {
+   "id": "nottingham_night_nurse",
+   "sprite": "night_nurse",
+   "x": 46,
+   "y": 39,
+   "facing": "down",
+   "move": "still",
+   "script": "nottingham_night_nurse",
+   "name": "Night Nurse",
+   "times": [
+    "night"
+   ]
+  },
+  {
+   "id": "nottingham_lamplighter",
+   "sprite": "lamplighter",
+   "x": 43,
+   "y": 30,
+   "facing": "down",
+   "move": "still",
+   "script": "nottingham_lamplighter",
+   "name": "Lamplighter",
+   "times": [
+    "night"
+   ]
   }
  ],
  "encounters": {

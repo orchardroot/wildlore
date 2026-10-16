@@ -10,6 +10,7 @@ var title_text := ""
 var content: Control          # where subclasses put their layout (inside the margins)
 var header_right: Label
 var hint_label: Label
+var _hint_entries: Array = []   # the prompts behind the hint bar, redrawn when the device or bindings change
 var _done := false
 var _locked := false          # true while a child menu or popup owns input
 
@@ -66,6 +67,8 @@ func _build_frame() -> void:
 	hint_label = UIKit.label("", 20, UIKit.MUTED)
 	hint_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	col.add_child(hint_label)
+	InputDevice.changed.connect(_redraw_hint)
+	Bus.settings_changed.connect(_redraw_hint)
 
 func set_title(t: String) -> void:
 	title_text = t
@@ -74,7 +77,23 @@ func set_title(t: String) -> void:
 		l.text = t
 
 func set_hint(text: String) -> void:
+	_hint_entries = []
 	hint_label.text = text
+
+## The hint bar from button prompts, e.g. [["confirm", "Choose"], ["cancel", "Back"]]; see UIKit.hint.
+func set_hints(entries: Array) -> void:
+	_hint_entries = entries
+	hint_label.text = UIKit.hint(entries)
+
+func _redraw_hint() -> void:
+	if not _hint_entries.is_empty() and is_instance_valid(hint_label):
+		hint_label.text = UIKit.hint(_hint_entries)
+
+func _exit_tree() -> void:
+	if InputDevice.changed.is_connected(_redraw_hint):
+		InputDevice.changed.disconnect(_redraw_hint)
+	if Bus.settings_changed.is_connected(_redraw_hint):
+		Bus.settings_changed.disconnect(_redraw_hint)
 
 ## Override: build the layout into `content`.
 func _build() -> void:

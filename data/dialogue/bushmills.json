@@ -16,6 +16,32 @@
  ],
  "mill_keeper": [
   {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Miller's Daughter",
+     "text": "Rain's good for the Bush. The wheel spins faster and looks very pleased with itself."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "gale",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Miller's Daughter",
+       "text": "Wind like this, the wheel thinks it's a windmill. Don't tell it otherwise."
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Miller's Daughter",
    "text": "Don't tell anyone, but the mill hasn't ground a grain in a century. The wheel still turns, though, for the tourists. It likes the audience."
@@ -27,6 +53,32 @@
   }
  ],
  "green_gardener": [
+  {
+   "do": "when",
+   "cond": "sunshine",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Gardener",
+     "text": "Sun on the tulips! They're showing off now. You can't tell them anything."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "dawn",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Gardener",
+       "text": "Up with the birds. They supervise, I dig. It's a fair arrangement."
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Gardener",
@@ -40,6 +92,46 @@
  ],
  "station_volunteer": [
   {
+   "do": "when",
+   "cond": "fog",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Railway Volunteer",
+     "text": "Fog on the line today. The sheep look like wee clouds on legs."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "rain",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Railway Volunteer",
+       "text": "Bit of rain never stopped a steam train. It just makes the whistle sound sadder."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "dusk",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Railway Volunteer",
+         "text": "Last train's back in. The engine's cooling down and so am I."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Railway Volunteer",
    "text": "We run a little steam train from here to the Causeway. Three kilometres, three-foot gauge, and a driver who waves at sheep."
@@ -51,6 +143,32 @@
   }
  ],
  "young_cyclist": [
+  {
+   "do": "when",
+   "cond": "gale",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Cyclist",
+     "text": "Headwind all the way up the coast road. I've been pedalling for an hour and I'm in the same field."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "sunshine",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Cyclist",
+       "text": "Sunshine on the North Coast! I'm going to burn and I'm going to love every second."
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Cyclist",

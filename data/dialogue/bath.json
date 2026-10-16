@@ -16,6 +16,46 @@
  ],
  "roman_actor": [
   {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Roman Legionary",
+     "text": "Rain! The Romans built a whole bath here to get wet on purpose. I am living the dream."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "frost",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Roman Legionary",
+       "text": "Frost! Under this tunic I'm wearing two vests and a thermal. Very authentic. Don't tell the Emperor."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "dusk",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Roman Legionary",
+         "text": "Torches lit by the Great Bath at dusk. The steam comes off the water like a ghost having a nice time."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Roman Legionary",
    "text": "Salve! I am Gaius Maximus, legionary. Er, volunteer. The cloak is itchy but I'm told it's authentic."
@@ -52,6 +92,32 @@
  ],
  "austen_fan": [
   {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Austen Reader",
+     "text": "Rain! Very Austen. Someone always gets caught in a shower and falls in love. I'm just getting damp."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "sunshine",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Austen Reader",
+       "text": "A fine day for a stroll along the Royal Crescent. Bonnets optional, but encouraged."
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Austen Reader",
    "text": "Jane Austen lived here from 1801 to 1806 and, honestly, disliked it. Then she wrote about it for the rest of her life."
@@ -64,6 +130,32 @@
  ],
  "bridge_busker": [
   {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Street Harpist",
+     "text": "Rain makes the acoustics even better under the arches. It also makes the coins slippery."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "sunshine",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Street Harpist",
+       "text": "Sun's out, crowd's out. I've played the same three tunes eleven times and nobody's noticed."
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Street Harpist",
    "text": "Do you take requests? I take coins. They don't wear the strings out as quickly."
@@ -75,6 +167,32 @@
   }
  ],
  "crescent_resident": [
+  {
+   "do": "when",
+   "cond": "fog",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Crescent Resident",
+     "text": "Fog over the Crescent. Now you truly can't tell the houses apart. I nearly went home to the neighbours'."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "frost",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Crescent Resident",
+       "text": "Frost on the lawn in front of the Crescent. It looks like icing on a very long cake."
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Crescent Resident",
@@ -163,6 +281,23 @@
      "eq": 0
     }
    ]
+  }
+ ],
+ "bath_astronomer": [
+  {
+   "do": "say",
+   "who": "Astronomer",
+   "text": "William Herschel found the planet Uranus from his back garden here in Bath, in 1781, with a telescope he built himself."
+  },
+  {
+   "do": "say",
+   "who": "Astronomer",
+   "text": "Clear night? Look up. Same stars Herschel saw, just fewer horses clattering past."
+  },
+  {
+   "do": "say",
+   "who": "Astronomer",
+   "text": "His sister Caroline found comets too. Bath's been a starry sort of city for a long time."
   }
  ]
 }

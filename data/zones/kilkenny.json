@@ -217,7 +217,11 @@
    "script": "castle_guide3",
    "sprite": "tour_guide",
    "x": 19.0,
-   "y": 12.0
+   "y": 12.0,
+   "times": [
+    "day",
+    "dusk"
+   ]
   },
   {
    "facing": "right",
@@ -244,7 +248,11 @@
    "script": "marble_worker",
    "sprite": "farmer",
    "x": 12.0,
-   "y": 31.0
+   "y": 31.0,
+   "times": [
+    "day",
+    "dusk"
+   ]
   },
   {
    "facing": "left",
@@ -263,6 +271,32 @@
    "trainer": "kk_fiddler",
    "x": 14.0,
    "y": 17.0
+  },
+  {
+   "id": "kilkenny_baker",
+   "sprite": "villager_3",
+   "x": 25,
+   "y": 22,
+   "facing": "down",
+   "move": "still",
+   "script": "kilkenny_baker",
+   "name": "Night Baker",
+   "times": [
+    "night"
+   ]
+  },
+  {
+   "id": "kilkenny_fox_watcher",
+   "sprite": "fox_watcher",
+   "x": 28,
+   "y": 24,
+   "facing": "down",
+   "move": "still",
+   "script": "kilkenny_fox_watcher",
+   "name": "Fox Watcher",
+   "times": [
+    "night"
+   ]
   }
  ],
  "props": [
@@ -662,6 +696,75 @@
    "type": "buffer_stop",
    "x": 34,
    "y": 37
+  },
+  {
+   "type": "bunting",
+   "x": 9,
+   "y": 29,
+   "variant": 6,
+   "walk": true
+  },
+  {
+   "type": "flagpole",
+   "x": 11,
+   "y": 11,
+   "variant": 2
+  },
+  {
+   "type": "hanging_basket",
+   "x": 28,
+   "y": 11,
+   "rot": 0,
+   "walk": true
+  },
+  {
+   "type": "hanging_basket",
+   "x": 12,
+   "y": 24,
+   "rot": 0,
+   "walk": true
+  },
+  {
+   "type": "hanging_basket",
+   "x": 46,
+   "y": 24,
+   "rot": 270,
+   "walk": true
+  },
+  {
+   "type": "hanging_basket",
+   "x": 34,
+   "y": 20,
+   "rot": 180,
+   "walk": true
+  },
+  {
+   "type": "hanging_basket",
+   "x": 16,
+   "y": 20,
+   "rot": 270,
+   "walk": true
+  },
+  {
+   "type": "hanging_basket",
+   "x": 42,
+   "y": 20,
+   "rot": 180,
+   "walk": true
+  },
+  {
+   "type": "hanging_basket",
+   "x": 43,
+   "y": 19,
+   "variant": 1,
+   "walk": true
+  },
+  {
+   "type": "hanging_basket",
+   "x": 45,
+   "y": 19,
+   "variant": 1,
+   "walk": true
   }
  ],
  "region": "ireland",

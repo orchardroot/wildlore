@@ -595,6 +595,76 @@
    "type": "buffer_stop",
    "x": 24,
    "y": 49
+  },
+  {
+   "type": "bunting",
+   "x": 40,
+   "y": 39,
+   "variant": 7,
+   "walk": true
+  },
+  {
+   "type": "bunting",
+   "x": 40,
+   "y": 53,
+   "variant": 6,
+   "walk": true
+  },
+  {
+   "type": "hanging_basket",
+   "x": 43,
+   "y": 20,
+   "rot": 0,
+   "walk": true
+  },
+  {
+   "type": "hanging_basket",
+   "x": 40,
+   "y": 39,
+   "rot": 180,
+   "walk": true
+  },
+  {
+   "type": "hanging_basket",
+   "x": 40,
+   "y": 53,
+   "rot": 0,
+   "walk": true
+  },
+  {
+   "type": "hanging_basket",
+   "x": 47,
+   "y": 39,
+   "rot": 180,
+   "walk": true
+  },
+  {
+   "type": "hanging_basket",
+   "x": 15,
+   "y": 4,
+   "rot": 0,
+   "walk": true
+  },
+  {
+   "type": "hanging_basket",
+   "x": 15,
+   "y": 7,
+   "rot": 180,
+   "walk": true
+  },
+  {
+   "type": "hanging_basket",
+   "x": 11,
+   "y": 12,
+   "variant": 1,
+   "walk": true
+  },
+  {
+   "type": "hanging_basket",
+   "x": 13,
+   "y": 12,
+   "variant": 1,
+   "walk": true
   }
  ],
  "warps": [
@@ -800,7 +870,11 @@
    "y": 21,
    "facing": "down",
    "move": "still",
-   "script": "yrk_guide"
+   "script": "yrk_guide",
+   "times": [
+    "day",
+    "dusk"
+   ]
   },
   {
    "id": "yrk_viking",
@@ -827,7 +901,11 @@
    "y": 52,
    "facing": "right",
    "move": "still",
-   "script": "yrk_rail"
+   "script": "yrk_rail",
+   "times": [
+    "day",
+    "dusk"
+   ]
   },
   {
    "id": "yrk_ghost",
@@ -864,6 +942,32 @@
    "facing": "right",
    "move": "still",
    "trainer": "yrk_warden"
+  },
+  {
+   "id": "york_lamplighter",
+   "sprite": "lamplighter",
+   "x": 15,
+   "y": 9,
+   "facing": "down",
+   "move": "still",
+   "script": "york_lamplighter",
+   "name": "Lamplighter",
+   "times": [
+    "night"
+   ]
+  },
+  {
+   "id": "york_night_baker",
+   "sprite": "villager_1",
+   "x": 15,
+   "y": 12,
+   "facing": "down",
+   "move": "still",
+   "script": "york_night_baker",
+   "name": "Night Baker",
+   "times": [
+    "night"
+   ]
   }
  ],
  "encounters": {

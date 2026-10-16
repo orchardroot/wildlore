@@ -1,7 +1,7 @@
 extends MenuBase
 ## Bag: tabs by item kind, use on a party member via Bag.use_on. With arg "for:<n>" it targets party member n directly.
 
-const KIND_ORDER := ["heal", "cure", "revive", "pp", "snare", "evo", "key"]
+const KIND_ORDER := ["heal", "cure", "revive", "pp", "snare", "repel", "evo", "key"]
 const USABLE := ["heal", "cure", "revive", "pp", "evo"]
 
 var _bag: Bag
@@ -65,6 +65,9 @@ func _build() -> void:
 	_rebuild()
 
 func setup(arg: String) -> void:
+	if arg.begins_with("tab:"):  # open on one kind's tab (screenshots)
+		_tab = maxi(0, _kinds.find(arg.substr(4)))
+		_rebuild()
 	if arg.begins_with("for:"):
 		_target = int(arg.substr(4))
 		set_title("Use item")
@@ -86,11 +89,11 @@ func _rebuild() -> void:
 
 func _set_hint() -> void:
 	if _mode == "pick":
-		set_hint("Z  Use on this one        X  Back")
+		set_hints([["confirm", "Use on this one"], ["cancel", "Back"]])
 	elif _kinds.size() > 1:
-		set_hint("Left / Right  Switch tab        Z  Use        X  Back")
+		set_hints([["leftright", "Switch tab"], ["confirm", "Use"], ["cancel", "Back"]])
 	else:
-		set_hint("Z  Use        X  Back")
+		set_hints([["confirm", "Use"], ["cancel", "Back"]])
 
 func _draw_tabs() -> void:
 	UIKit.clear(_tabs_row)
@@ -152,6 +155,8 @@ func _show_desc(id: String) -> void:
 	d.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	_desc.add_child(d)
 	_desc.add_child(UIKit.fill())
+	if str(it.get("kind", "")) == "repel" and Repel.active(Game.data):
+		_desc.add_child(UIKit.label("%d steps of lavender left" % Repel.steps_left(Game.data), 22, UIKit.GOLD))
 	var price := int(it.get("price", 0))
 	if price > 0:
 		_desc.add_child(UIKit.label("Worth %s" % UIKit.money_text(MenuLogic.sell_price(price)), 22, UIKit.MUTED))
@@ -163,6 +168,13 @@ func _item_pressed(id: String) -> void:
 		var off: bool = Game.data.flag("thermos_off") != true
 		Game.data.set_flag("thermos_off", off)
 		_note.text = "Team Thermos: off. Only the fighters get XP." if off else "Team Thermos: on. Everyone shares the XP."
+		return
+	if kind == "repel":
+		var r := Repel.use(Game.data, id, Game.items)
+		Audio.sfx("confirm" if r.ok else "bump")
+		_note.text = str(r.text)
+		if r.ok:
+			_rebuild_keep_note()
 		return
 	if kind not in USABLE:
 		_note.text = "That one's for keeping, not using." if kind == "key" else "Best saved for the right moment."
@@ -181,7 +193,7 @@ func _item_pressed(id: String) -> void:
 	_note.text = ""
 	_open_picker()
 
-func _open_picker() -> void:
+func _open_picker(focus := 0) -> void:
 	UIKit.clear(_picker)
 	_pick_buttons.clear()
 	for i in party().size():
@@ -215,7 +227,7 @@ func _open_picker() -> void:
 		_pick_buttons.append(b)
 	UIKit.wrap_focus(_pick_buttons)
 	_picker_panel.visible = true
-	UIKit.focus_later(_pick_buttons[0])
+	UIKit.focus_later(_pick_buttons[clampi(focus, 0, _pick_buttons.size() - 1)])
 	_set_hint()
 
 func _close_picker() -> void:
@@ -243,11 +255,15 @@ func _use(id: String, idx: int) -> void:
 		if r.get("ok", false) and (_kinds.is_empty() or _bag.count(id) == 0):
 			_note.text += " That was the last one."
 		return
-	if _mode == "pick" and r.get("ok", false):
+	if _mode != "pick":
+		return
+	if r.get("ok", false):
 		_rebuild_keep_note()
+	if MenuLogic.stay_in_picker(r.get("ok", false), _bag.count(id)):
+		_open_picker(idx)  # the picker shows HP, so redraw it; stay put so the next one is a single press
+	else:
+		_note.text += " That was the last one."
 		_close_picker()
-	elif _mode == "pick":
-		_open_picker()  # the picker shows HP, so redraw it; stay put so another member can be tried
 
 func _rebuild_keep_note() -> void:
 	var n := _note.text

@@ -26,12 +26,15 @@ static func boot(game: Node, menu: String) -> void:
 	f.status = "asleep"
 	d.party = [a, b, c, e, f]
 	d.ark = [mk.call("croakle", 6), mk.call("pipkin", 4), mk.call("dipling", 9)]
+	if menu.begins_with("ark"):  # a fuller Ark, so sorting shows
+		for sp in ["bramblehog", "emberdrey", "redbreast", "snowhare", "gritling", "wispet", "cooplet", "raidtail", "bran"]:
+			d.ark.append(mk.call(sp, 3 + d.ark.size() * 4 % 23))
 	for sp in ["spikkin", "kindlet", "holtling", "binfox", "hootlet", "pipkin", "scuttlet", "croakle"]:
 		d.mark_caught(sp)
 	for sp in ["dipling", "wispet", "snowhare"]:
 		d.mark_seen(sp)
 	d.bag = {"cup_of_tea": 5, "flask_of_tea": 2, "smelling_salts": 3, "bakewell_tart": 1, "kendal_mint_cake": 1,
-		"wicker_snare": 8, "iron_snare": 2, "map": 1, "fieldbook": 1}
+		"wicker_snare": 8, "iron_snare": 2, "lavender_sachet": 3, "map": 1, "fieldbook": 1}
 	d.money = 1840
 	d.badges = ["a", "b"]
 	d.play_seconds = 4980.0
@@ -40,6 +43,8 @@ static func boot(game: Node, menu: String) -> void:
 		d.set_flag("station_" + t)
 	d.set_flag("last_town", "buxton")
 	d.bag["rail_pass"] = 1
+	if menu.begins_with("relearn"):
+		a.level = 20  # past a couple of its moves, so the relearner has something to offer
 	if menu.begins_with("shop") and not menu.contains(":"):
 		menu = "shop:macc_corner_shop"
 	await game.get_tree().process_frame

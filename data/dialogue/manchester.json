@@ -107,6 +107,46 @@
  ],
  "tram_fan": [
   {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Tram Spotter",
+     "text": "Proper Manchester rain this. The trams love it. Shiny rails, shiny me."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "fog",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Tram Spotter",
+       "text": "Fog on the tracks. You hear the tram bell before you see the tram. Lovely, that."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "dawn",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Tram Spotter",
+         "text": "First tram of the day! I've got my flask. Some traditions never die."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Tram Spotter",
    "text": "Manchester's Metrolink opened in 1992. I was there. I had a flask."
@@ -118,6 +158,18 @@
   }
  ],
  "boater": [
+  {
+   "do": "when",
+   "cond": "fog",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Boater",
+     "text": "Fog on the Rochdale Canal. Go slow and shout 'boat' a lot, that's my method."
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Boater",
@@ -143,6 +195,46 @@
  ],
  "busker": [
   {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Busker",
+     "text": "Raining, is it? Perfect. My rain song's got real atmosphere today."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "sunshine",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Busker",
+       "text": "Sunshine in Manchester! I don't have a song for this. I'll have to make one up."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "dusk",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Busker",
+         "text": "Evening crowd's coming out. They tip better when the street lights come on."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Busker",
    "text": "Any requests? I know nine chords and a song about the rain."
@@ -154,6 +246,32 @@
   }
  ],
  "town_hall_guide": [
+  {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Tour Guide",
+     "text": "Welcome to the tour! Yes, it's raining. It's Manchester. The rain is part of the tour."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "sunshine",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Tour Guide",
+       "text": "A sunny tour! Quick, everyone look at the Town Hall before it clouds over."
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Tour Guide",
@@ -167,6 +285,32 @@
  ],
  "bee_fan": [
   {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Bee Fan",
+     "text": "Even the bees carry brollies in Manchester. Well, the painted ones would if they could."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "gale",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Bee Fan",
+       "text": "Hold onto your hat, it's blowing a gale down Deansgate. The bees are staying grounded."
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Bee Fan",
    "text": "Spot the bees on the lamp posts, the pavements, the bins. They're everywhere."
@@ -175,6 +319,40 @@
    "do": "say",
    "who": "Bee Fan",
    "text": "The worker bee has been the city's symbol since the Victorians. Busy city, busy bees, busy brolly."
+  }
+ ],
+ "manchester_night_nurse": [
+  {
+   "do": "say",
+   "who": "Night Nurse",
+   "text": "Off to the Royal Infirmary for the night shift. Twelve hours, three cups of tea, one biscuit if I'm lucky."
+  },
+  {
+   "do": "say",
+   "who": "Night Nurse",
+   "text": "Manchester's lovely at night. Quiet streets, wet pavements, the odd fox having a nosy."
+  },
+  {
+   "do": "say",
+   "who": "Night Nurse",
+   "text": "Get yourself home and get some sleep, love. That's my professional opinion."
+  }
+ ],
+ "manchester_fox_watcher": [
+  {
+   "do": "say",
+   "who": "Fox Watcher",
+   "text": "Shh. There's a vixen by the bins on the corner. She comes past every night about now."
+  },
+  {
+   "do": "say",
+   "who": "Fox Watcher",
+   "text": "City foxes are cleverer than country ones. They know the takeaway closing times."
+  },
+  {
+   "do": "say",
+   "who": "Fox Watcher",
+   "text": "Red torch, see? It doesn't scare them. A white one does, and so does shouting."
   }
  ]
 }

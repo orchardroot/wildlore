@@ -202,7 +202,11 @@
    "script": "ladies_tour",
    "sprite": "tour_guide",
    "x": 38.0,
-   "y": 18.0
+   "y": 18.0,
+   "times": [
+    "day",
+    "dusk"
+   ]
   },
   {
    "facing": "down",
@@ -212,7 +216,11 @@
    "script": "canal_kid",
    "sprite": "villager_1",
    "x": 33.0,
-   "y": 11.0
+   "y": 11.0,
+   "times": [
+    "day",
+    "dusk"
+   ]
   }
  ],
  "props": [
@@ -394,7 +402,7 @@
   },
   {
    "h": 3,
-   "label": "Tŷ Gwyn",
+   "label": "T\u0177 Gwyn",
    "style": "slate_cottage",
    "type": "building",
    "w": 4,
@@ -789,6 +797,69 @@
    "type": "buffer_stop",
    "x": 43,
    "y": 27
+  },
+  {
+   "type": "bunting",
+   "x": 24,
+   "y": 10,
+   "variant": 3,
+   "walk": true
+  },
+  {
+   "type": "bunting",
+   "x": 54,
+   "y": 16,
+   "variant": 4,
+   "walk": true
+  },
+  {
+   "type": "bunting",
+   "x": 44,
+   "y": 16,
+   "variant": 5,
+   "walk": true
+  },
+  {
+   "type": "hanging_basket",
+   "x": 8,
+   "y": 21,
+   "rot": 180,
+   "walk": true
+  },
+  {
+   "type": "hanging_basket",
+   "x": 40,
+   "y": 21,
+   "rot": 180,
+   "walk": true
+  },
+  {
+   "type": "hanging_basket",
+   "x": 49,
+   "y": 16,
+   "rot": 270,
+   "walk": true
+  },
+  {
+   "type": "hanging_basket",
+   "x": 46,
+   "y": 21,
+   "rot": 0,
+   "walk": true
+  },
+  {
+   "type": "hanging_basket",
+   "x": 54,
+   "y": 16,
+   "rot": 0,
+   "walk": true
+  },
+  {
+   "type": "hanging_basket",
+   "x": 44,
+   "y": 16,
+   "rot": 90,
+   "walk": true
   }
  ],
  "region": "north_wales",
@@ -852,7 +923,7 @@
    "y": 23.0
   },
   {
-   "text": "DINAS BRÂN. The castle on the hill. 'Fortress of the crow'. Crows have the lease.",
+   "text": "DINAS BR\u00c2N. The castle on the hill. 'Fortress of the crow'. Crows have the lease.",
    "x": 14.0,
    "y": 32.0
   },

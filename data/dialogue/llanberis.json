@@ -66,6 +66,32 @@
  ],
  "porter": [
   {
+   "do": "when",
+   "cond": "fog",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Railway Porter",
+     "text": "Cloud on the summit. The train still goes up. You won't see much, but you'll see it sitting down."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "gale",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Railway Porter",
+       "text": "Too windy at the top today, so we're stopping short. The mountain is in charge, not the timetable."
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Railway Porter",
    "text": "The Snowdon Mountain Railway opened in 1896. It's a rack and pinion line, so the train grips the track with teeth."
@@ -102,6 +128,32 @@
  ],
  "slate_veteran": [
   {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Retired Quarryman",
+     "text": "Rain on slate, best sound there is. Means the roof's doing its job."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "sunshine",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Retired Quarryman",
+       "text": "See the quarry in the sun? All that slate shining like a staircase for giants."
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Retired Quarryman",
    "text": "Dinorwic closed in 1969. Thousands worked there, in all weathers, on galleries cut into the hill."
@@ -114,6 +166,32 @@
  ],
  "cafe_owner": [
   {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Caffi Owner",
+     "text": "Glaw eto. Rain again. Come in, there's a pot of te on and the cacen is still warm."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "fog",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Caffi Owner",
+       "text": "Can't see Yr Wyddfa today. She's shy. Have a slice of bara brith while she makes her mind up."
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Caffi Owner",
    "text": "Te? Coffi? Cacen? Say it with me. It means tea, coffee, cake. In that order of priority."
@@ -125,6 +203,32 @@
   }
  ],
  "scout_kid": [
+  {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Boy Scout",
+     "text": "It's raining, which is fine, because Scouts are always prepared. I'm prepared to get wet."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "dusk",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Boy Scout",
+       "text": "It's getting dark, so Akela says we have to go back. I wasn't scared of the giant's grave. Much."
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Boy Scout",

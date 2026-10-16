@@ -18,6 +18,46 @@
  ],
  "kes_boatman": [
   {
+   "do": "when",
+   "cond": "fog",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Launch Skipper",
+     "text": "Fog on Derwentwater. We go slow and ring the bell. The islands like to sneak up on you."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "rain",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Launch Skipper",
+       "text": "Rain again! The passengers are damp, so everything's normal on the lake."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "frost",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Launch Skipper",
+         "text": "Frosty morning on the lake. Mind the jetty, it's like a skating rink with planks."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Launch Skipper",
    "text": "The launches go round the lake every hour, stopping at jetties for walkers. We're the buses of Derwentwater, and the passengers are usually damp."
@@ -30,6 +70,32 @@
  ],
  "kes_pencil": [
   {
+   "do": "when",
+   "cond": "fog",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Pencil Museum Clerk",
+     "text": "Fog this thick is good drawing weather. Grey sky, grey pencil, everything matches."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "rain",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Pencil Museum Clerk",
+       "text": "Rain in Borrowdale, same as in the 1500s. That's how they found the graphite, you know."
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Pencil Museum Clerk",
    "text": "A pencil isn't lead, of course. It's graphite, and there's a very good story about how a storm in Borrowdale found it in the 1500s, when the roots of a fallen tree exposed the seam."
@@ -41,6 +107,46 @@
   }
  ],
  "kes_walker": [
+  {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Walker",
+     "text": "Lakeland rain! It doesn't fall, it just sort of hangs about. I'm still doing Catbells."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "gale",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Walker",
+       "text": "Gale on the tops today. I'll do Latrigg instead. It's a shorter hill to get blown off."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "sunshine",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Walker",
+         "text": "Sunshine in the Lakes! Rare as hen's teeth. Everyone's up Catbells at once."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Walker",
@@ -65,6 +171,32 @@
   }
  ],
  "kes_ice": [
+  {
+   "do": "when",
+   "cond": "frost",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Ice Cream Seller",
+     "text": "Frost on the ground and I'm selling ice cream. Business is slow, but it's not melting."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "sunshine",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Ice Cream Seller",
+       "text": "Sun's out! Rum and raisin's flying off the shelf. Kendal mint cake cone? Go on."
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Ice Cream Seller",

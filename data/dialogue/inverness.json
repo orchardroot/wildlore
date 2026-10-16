@@ -16,6 +16,32 @@
  ],
  "verger": [
   {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Cathedral Verger",
+     "text": "Come in out of the rain, please, but quietly. The bells are resting and the pigeons are not."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "dusk",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Cathedral Verger",
+       "text": "Evensong soon. The red stone glows at this hour, and it almost looks like it got its spires after all."
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Cathedral Verger",
    "text": "St Andrew's was built in the 1860s with a red stone front and two towers that never got their spires. It has a great ring of bells, a labyrinth path in the garden and a visitor who once asked if the cathedral was real. It is."
@@ -27,6 +53,46 @@
   }
  ],
  "market_trader": [
+  {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Market Trader",
+     "text": "Raining? That's why we've a roof. Best place in Inverness for staying dry and buying fudge."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "sunshine",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Market Trader",
+       "text": "Lovely day! Everyone's outside, so I've the market to myself. Me, the fudge and the woolly coo."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "dusk",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Market Trader",
+         "text": "Closing up soon. If you want tablet, now's the time. After six it's just me eating it."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Market Trader",
@@ -40,6 +106,46 @@
  ],
  "dolphin_watcher": [
   {
+   "do": "when",
+   "cond": "fog",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Dolphin Watcher",
+     "text": "Fog on the Firth. The dolphins are out there, I can hear them blowing. I just can't see a single fin."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "sunshine",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Dolphin Watcher",
+       "text": "Flat calm and sunny, perfect for spotting fins. Bring a piece and a flask. The dolphins keep their own time."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "gale",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Dolphin Watcher",
+         "text": "Too choppy in this wind. Every wave looks like a dolphin. Every dolphin looks like a wave."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Dolphin Watcher",
    "text": "The dolphins come in with the tide, so I check the tide tables like other people check the football results. High water at Chanonry is the kick-off."
@@ -52,6 +158,32 @@
  ],
  "castle_walker": [
   {
+   "do": "when",
+   "cond": "fog",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Statue Admirer",
+     "text": "In the fog the castle looks even more like it's judging you. Don't worry, it judges everyone."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "dusk",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Statue Admirer",
+       "text": "The castle gets floodlit at dusk. It goes all pink and dramatic. It knows exactly what it's doing."
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Statue Admirer",
    "text": "That's Flora MacDonald. She helped the Prince escape over the sea to Skye in a small boat, with him disguised as her maid. History has made a lot of her. The maid costume has got a lot of press, too."
@@ -63,6 +195,46 @@
   }
  ],
  "ceilidh_dad": [
+  {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Local Dad",
+     "text": "A drop of rain never stopped a ceilidh. We just dance faster to keep warm. Strip the Willow, anyone?"
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "dusk",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Local Dad",
+       "text": "Mind the midges this time of night. They love a Highland evening almost as much as we do."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "night",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Local Dad",
+         "text": "Ceilidh's on at the hall. If you can count to eight and spin, you can dance. Even if you can't, really."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Local Dad",
@@ -84,6 +256,35 @@
    "do": "say",
    "who": "Warden",
    "text": "We're told it'll reopen once the Keeper at the ice rink has had a word with you. Up the hill, on the river. Ice rinks don't hide."
+  }
+ ],
+ "inverness_astronomer": [
+  {
+   "do": "say",
+   "who": "Astronomer",
+   "text": "This far north the skies get properly dark. On a good night you'll see the Milky Way right over the Ness."
+  },
+  {
+   "do": "say",
+   "who": "Astronomer",
+   "text": "Keep an eye on the north. If it goes green and wavy, that's the aurora. If it goes green and quacks, it's a duck."
+  },
+  {
+   "do": "say",
+   "who": "Astronomer",
+   "text": "I've spent forty winters looking up. Still haven't seen the same night twice."
+  }
+ ],
+ "inverness_fox_watcher": [
+  {
+   "do": "say",
+   "who": "Fox Watcher",
+   "text": "Foxes walk the riverbank at night, quiet as anything. Red torch, still feet, and patience."
+  },
+  {
+   "do": "say",
+   "who": "Fox Watcher",
+   "text": "I saw a pine marten once, right on that wall. Rarer than a dry August. I was grinning for a week."
   }
  ]
 }

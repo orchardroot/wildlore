@@ -549,6 +549,83 @@
    "type": "bench",
    "x": 50,
    "y": 11
+  },
+  {
+   "type": "bunting",
+   "x": 24,
+   "y": 10,
+   "variant": 6,
+   "walk": true
+  },
+  {
+   "type": "bunting",
+   "x": 12,
+   "y": 10,
+   "variant": 6,
+   "walk": true
+  },
+  {
+   "type": "bunting",
+   "x": 48,
+   "y": 10,
+   "variant": 6,
+   "walk": true
+  },
+  {
+   "type": "hanging_basket",
+   "x": 48,
+   "y": 10,
+   "rot": 90,
+   "walk": true
+  },
+  {
+   "type": "hanging_basket",
+   "x": 24,
+   "y": 10,
+   "rot": 90,
+   "walk": true
+  },
+  {
+   "type": "hanging_basket",
+   "x": 12,
+   "y": 10,
+   "rot": 90,
+   "walk": true
+  },
+  {
+   "type": "hanging_basket",
+   "x": 42,
+   "y": 10,
+   "rot": 270,
+   "walk": true
+  },
+  {
+   "type": "hanging_basket",
+   "x": 30,
+   "y": 10,
+   "rot": 180,
+   "walk": true
+  },
+  {
+   "type": "hanging_basket",
+   "x": 56,
+   "y": 21,
+   "rot": 0,
+   "walk": true
+  },
+  {
+   "type": "hanging_basket",
+   "x": 9,
+   "y": 25,
+   "variant": 1,
+   "walk": true
+  },
+  {
+   "type": "hanging_basket",
+   "x": 11,
+   "y": 25,
+   "variant": 1,
+   "walk": true
   }
  ],
  "warps": [
@@ -648,7 +725,11 @@
    "y": 21,
    "facing": "right",
    "move": "still",
-   "script": "bus_waiter"
+   "script": "bus_waiter",
+   "times": [
+    "day",
+    "dusk"
+   ]
   },
   {
    "id": "minch_sailor",
@@ -666,7 +747,11 @@
    "y": 18,
    "facing": "down",
    "move": "wander",
-   "script": "gaelic_teacher"
+   "script": "gaelic_teacher",
+   "times": [
+    "day",
+    "dusk"
+   ]
   },
   {
    "id": "portree_fisher",
@@ -838,7 +923,7 @@
   {
    "x": 27,
    "y": 19,
-   "text": "PORT RÌGH · PORTREE. 'King's Port', after King James V, who landed here in 1540 to calm the island clans down. The harbour houses were painted bright so fishermen could find their way home in the fog."
+   "text": "PORT R\u00ccGH \u00b7 PORTREE. 'King's Port', after King James V, who landed here in 1540 to calm the island clans down. The harbour houses were painted bright so fishermen could find their way home in the fog."
   },
   {
    "x": 10,

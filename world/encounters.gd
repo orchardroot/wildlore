@@ -1,10 +1,11 @@
 class_name Encounters
 extends RefCounted
-## Wild encounters: a 1 in 10 chance per step in tall grass, then a weighted pick among the zone's entries
+## Wild encounters: a 1 in 10 chance per step in tall grass (1 in 20 wading), then a weighted pick among the zone's entries
 ## that suit the time of day and weather. A short grace period follows each battle.
 
 const STEP_CHANCE := 10.0
-const GRACE_STEPS := 3
+const WATER_STEP_CHANCE := 5.0   # wading is a gentler way to meet things
+const GRACE_STEPS := 5
 
 var _grace := 0
 
@@ -12,7 +13,7 @@ static func roll(zone: ZoneData, tile: String, phase: String, weather: String, r
 	var kind: String = {"tall_grass": "grass", "deep_water": "water", "bog": "grass"}.get(tile, "")
 	if kind == "":
 		return {}
-	if not rng.chance(STEP_CHANCE):
+	if not rng.chance(step_chance(tile)):
 		return {}
 	var list := candidates(zone, kind, phase, weather)
 	if list.is_empty():
@@ -21,6 +22,19 @@ static func roll(zone: ZoneData, tile: String, phase: String, weather: String, r
 	var lo := int(e.get("min", 2))
 	var hi := maxi(lo, int(e.get("max", lo)))
 	return {"species": str(e.species), "level": rng.roll_int(lo, hi)}
+
+## Percent chance per step on this tile (0 where nothing lives).
+static func step_chance(tile: String) -> float:
+	match tile:
+		"tall_grass", "bog":
+			return STEP_CHANCE
+		"deep_water":
+			return WATER_STEP_CHANCE
+	return 0.0
+
+## A catch is worth banking straight away (the battle is over and nothing is half-done).
+static func autosave_after(result: Dictionary) -> bool:
+	return str(result.get("result", "")) == "caught"
 
 static func candidates(zone: ZoneData, kind: String, phase: String, weather: String) -> Array:
 	var out := []

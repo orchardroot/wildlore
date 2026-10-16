@@ -9,6 +9,8 @@ enum State { IDLE, TYPING, WAIT, CHOOSING }
 const CREAM := Color(0.949, 0.91, 0.812)
 const HEATHER := Color(0.608, 0.435, 0.69)
 const SLATE := Color(0.114, 0.133, 0.188, 0.95)
+const FAST_FORWARD := 6.0   # typing speed multiplier while confirm is held
+const DECLINES := ["just looking", "not today", "not yet", "another day", "no thanks", "no, ta", "carry on", "walk past", "leave him"]
 const INPUT_GRACE_MS := 180   # ignore the confirm press that opened the conversation
 
 signal _advanced
@@ -29,6 +31,7 @@ var _typed := 0.0
 var _total := 0
 var _armed_at := 0
 var _choice_after_typing := false
+var _decline := -1
 
 func _ready() -> void:
 	layer = 20
@@ -155,6 +158,7 @@ func show_choice(text: String, options: Array, who := "") -> int:
 		return Engine.get_meta("autopilot").choose_option(text, options)
 	_begin(text, who)
 	_choice_after_typing = true
+	_decline = decline_index(options)
 	_fill_choices(options)
 	var idx: int = await _chosen
 	_choice_panel.visible = false
@@ -198,10 +202,15 @@ func _refresh_choices() -> void:
 		l.add_theme_color_override("font_color", Color.WHITE if i == _choice_index else CREAM.darkened(0.15))
 
 func _process(delta: float) -> void:
-	var pressed := Input.is_action_just_pressed("confirm") and Time.get_ticks_msec() >= _armed_at
+	var armed := Time.get_ticks_msec() >= _armed_at
+	_tick(delta, Input.is_action_just_pressed("confirm") and armed, Input.is_action_just_pressed("cancel") and armed,
+		Input.is_action_pressed("confirm") and armed, int(Input.is_action_just_pressed("move_down")) - int(Input.is_action_just_pressed("move_up")))
+
+## One frame of input handling. `pressed`/`cancel` are fresh presses, `held` is confirm still down, `nav` is -1 up / +1 down.
+func _tick(delta: float, pressed: bool, cancel: bool, held: bool, nav := 0) -> void:
 	match state:
 		State.TYPING:
-			_typed += delta * Settings.chars_per_second()
+			_typed += delta * Settings.chars_per_second() * (FAST_FORWARD if held else 1.0)
 			var shown := mini(int(_typed), _total)
 			if pressed:
 				shown = _total
@@ -210,20 +219,31 @@ func _process(delta: float) -> void:
 			if shown >= _total:
 				_finish_typing()
 		State.WAIT:
-			if pressed:
+			if pressed or cancel:
 				_arrow.visible = false
 				state = State.IDLE
 				_advanced.emit()
 		State.CHOOSING:
-			if Input.is_action_just_pressed("move_up"):
-				_choice_index = posmod(_choice_index - 1, _choice_labels.size())
-				_refresh_choices()
-			elif Input.is_action_just_pressed("move_down"):
-				_choice_index = posmod(_choice_index + 1, _choice_labels.size())
+			if nav != 0:
+				_choice_index = posmod(_choice_index + nav, _choice_labels.size())
 				_refresh_choices()
 			elif pressed:
 				state = State.IDLE
 				_chosen.emit(_choice_index)
+			elif cancel and _decline >= 0:
+				state = State.IDLE
+				_chosen.emit(_decline)
+
+## The index cancel picks in a choice: the last option, but only when it reads as a polite decline.
+## Quiz answers and the like return -1 so a stray cancel can't answer them.
+static func decline_index(options: Array) -> int:
+	if options.size() < 2:
+		return -1
+	var last := str(options.back()).to_lower()
+	for w in DECLINES:
+		if last.contains(w):
+			return options.size() - 1
+	return -1
 
 func _finish_typing() -> void:
 	_label.visible_characters = -1

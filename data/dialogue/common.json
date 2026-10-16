@@ -1,5 +1,19 @@
 {
 	"nothing_to_say": [
 		{"do": "say", "text": "They give you a polite nod and carry on with their day."}
+	],
+	"memory_coach": [
+		{"do": "say", "who": "Retired Keeper", "text": "Forty years a Keeper, me. I can't find my glasses, but I've never once forgotten a move."},
+		{"do": "choice", "text": "Shall I jog a creature's memory? No charge, love.", "options": ["Yes please", "Not today"], "set": "_coach_choice"},
+		{"do": "if", "flag": "_coach_choice", "eq": 0, "then": [
+			{"do": "relearn", "set": "_relearned"},
+			{"do": "if", "flag": "_relearned", "eq": 1, "then": [
+				{"do": "say", "who": "Retired Keeper", "text": "There we are. Right back where they left it."}
+			], "else": [
+				{"do": "say", "who": "Retired Keeper", "text": "No rush. Memories keep."}
+			]}
+		], "else": [
+			{"do": "say", "who": "Retired Keeper", "text": "Righto. I'll be here with the crossword."}
+		]}
 	]
 }

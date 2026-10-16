@@ -16,6 +16,18 @@
  ],
  "lon_beefeater": [
   {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Yeoman Warder",
+     "text": "A little rain never troubled the Tower. Nine hundred years of it, and the walls are still standing."
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Yeoman Warder",
    "text": "Good day! Welcome to His Majesty's Royal Palace and Fortress. Or Her Majesty's. We update the signs. Beefeater is a nickname, from when we were allowed all the beef we wanted."
@@ -27,6 +39,46 @@
   }
  ],
  "lon_ravenmaster": [
+  {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Ravenmaster",
+     "text": "Ravens don't mind rain. They just fluff up and look grumpy. Same as most Londoners, to be fair."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "gale",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Ravenmaster",
+       "text": "Windy one. The ravens are walking today, not flying. Very sensible birds."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "dawn",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Ravenmaster",
+         "text": "Morning! Breakfast time for the ravens. Raw meat, biscuits, and a lot of opinions."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Ravenmaster",
@@ -40,6 +92,46 @@
  ],
  "lon_cabbie": [
   {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Cabbie",
+     "text": "Raining? Good for business, that is. Everyone wants a cab when it's chucking it down."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "fog",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Cabbie",
+       "text": "Bit of a pea-souper, innit? Don't worry, I could find Piccadilly with my eyes shut. I won't, mind."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "night",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Cabbie",
+         "text": "Night shift, me. London's lovely after dark. No traffic on the Embankment and the bridges all lit up."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Cabbie",
    "text": "Black cab drivers do 'the Knowledge': twenty-five thousand streets and every landmark, in their heads. It takes about three years. I did not have a social life. I did, however, learn every street."
@@ -52,6 +144,32 @@
  ],
  "lon_local": [
   {
+   "do": "when",
+   "cond": "sunshine",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Westminster Local",
+     "text": "Sun's out, so the whole of London is in the park. You'll never get a deckchair now."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "dusk",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Westminster Local",
+       "text": "Dusk on the river. The lights go on along the South Bank and even the pigeons look posh."
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Westminster Local",
    "text": "The Palace of Westminster has 1,100 rooms, 100 staircases and 3 miles of passages. If it's good enough for MPs to get lost in, it's good enough for me."
@@ -63,6 +181,46 @@
   }
  ],
  "lon_tourist": [
+  {
+   "do": "when",
+   "cond": "fog",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Tourist",
+     "text": "Fog! Actual London fog! Now all I need is a red bus and a man in a red coat."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "rain",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Tourist",
+       "text": "It's raining and nobody's even looking up. Londoners just carry on. I'm so impressed."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "dusk",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Tourist",
+         "text": "Big Ben's lit up! I've taken forty photos. Thirty-nine of them are of my thumb."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Tourist",
@@ -242,6 +400,40 @@
    "do": "say",
    "who": "Warden",
    "text": "You'll want the Moot first, I'm told. It's down the road at Stonehenge. Take a flask. It's drizzly."
+  }
+ ],
+ "london_lamplighter": [
+  {
+   "do": "say",
+   "who": "Lamplighter",
+   "text": "Evening! London still has over a thousand gas lamps. Somebody's got to look after them, and that's me."
+  },
+  {
+   "do": "say",
+   "who": "Lamplighter",
+   "text": "Each lamp gets a check, a polish and a little nod. They've lit these streets since Victorian times."
+  },
+  {
+   "do": "say",
+   "who": "Lamplighter",
+   "text": "London's quietest at this hour. Just me, the lamps, and a fox having a look in the bins."
+  }
+ ],
+ "london_fox_watcher": [
+  {
+   "do": "say",
+   "who": "Fox Watcher",
+   "text": "London's got thousands of urban foxes. They know all the shortcuts, better than any cabbie."
+  },
+  {
+   "do": "say",
+   "who": "Fox Watcher",
+   "text": "Red torch, so I don't dazzle them. Look, a cub, just by the railings. Cheeky little thing."
+  },
+  {
+   "do": "say",
+   "who": "Fox Watcher",
+   "text": "Foxes on the pavements, owls over Hampstead Heath. London at night is basically a wildlife park."
   }
  ]
 }

@@ -16,6 +16,32 @@
  ],
  "druid_lady": [
   {
+   "do": "when",
+   "cond": "fog",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Druid",
+     "text": "The mist's come up off the Levels. They say Avalon's hidden in it. I say mind the cowpats."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "dawn",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Druid",
+       "text": "Dawn on the Tor is magic. Also very cold. I've got a flask in one of these pockets somewhere."
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Druid",
    "text": "Glastonbury has been a pilgrimage place for thousands of years. Pagans, Christians, Arthurians, all queuing politely for the same hill."
@@ -40,6 +66,32 @@
  ],
  "steward": [
   {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Festival Steward",
+     "text": "Rain, is it? This is nothing. You should see the festival fields after a proper downpour. Wellies, everyone."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "sunshine",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Festival Steward",
+       "text": "Sunshine! Somebody tell the festival. They never believe it when it happens."
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Festival Steward",
    "text": "The Glastonbury Festival started in 1970 with 1,500 people and free milk. Now it's about 200,000 and a very long queue for chips."
@@ -51,6 +103,32 @@
   }
  ],
  "cider_seller": [
+  {
+   "do": "when",
+   "cond": "gale",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Cider Seller",
+     "text": "Wind's shaking the orchards. Free apples on the grass for anyone quick enough. And the wasps."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "sunshine",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Cider Seller",
+       "text": "Good drying day. The apples are ripening nicely, and so is my sunburn."
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Cider Seller",
@@ -75,6 +153,32 @@
   }
  ],
  "chalice_gardener": [
+  {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Chalice Gardener",
+     "text": "A drop of rain keeps the garden happy. The well doesn't need it, mind. It just carries on regardless."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "dusk",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Chalice Gardener",
+       "text": "The Chalice Well garden at dusk is the most peaceful spot in Somerset. Even the blackbirds whisper."
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Chalice Gardener",

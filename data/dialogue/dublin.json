@@ -101,6 +101,46 @@
  ],
  "bridge_busker": [
   {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Bridge Busker",
+     "text": "Rain on the Ha'penny Bridge. Everyone's walking fast now, so I'm playing fast. Teamwork."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "sunshine",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Bridge Busker",
+       "text": "Sun on the Liffey! The whole city's in a good mood. Tips are up, so's the tempo."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "dusk",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Bridge Busker",
+         "text": "Dusk is the best time on the bridge. The lamps come on and everyone goes soft."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Bridge Busker",
    "text": "The Ha'penny Bridge is a lovely spot to play. Everyone slows down on it, and the echo does half my work."
@@ -112,6 +152,32 @@
   }
  ],
  "kells_guide": [
+  {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Library Guide",
+     "text": "Grand soft day, as we say in Dublin. Perfect weather for an old library and a very old book."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "dawn",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Library Guide",
+       "text": "You're up early! The queue for the Book of Kells hasn't even woken up yet."
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Library Guide",
@@ -125,6 +191,32 @@
  ],
  "green_duck": [
   {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Duck Feeder",
+     "text": "Ducks don't mind the rain. They look at me like I'm the strange one for having an umbrella."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "dawn",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Duck Feeder",
+       "text": "Early breakfast for the ducks. They're very punctual. I'm the one in my slippers."
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Duck Feeder",
    "text": "These ducks know me. They know my pockets, my cardigan, and my heavy sighs."
@@ -137,6 +229,18 @@
  ],
  "pub_regular": [
   {
+   "do": "when",
+   "cond": "gale",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Pub Regular",
+     "text": "That wind would take the hat clean off you. I'm just saying, mind the hat."
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Pub Regular",
    "text": "Temple Bar's got more pubs per square foot than anywhere I know. I'm not recommending that, it's an observation."
@@ -148,6 +252,32 @@
   }
  ],
  "deer_keeper": [
+  {
+   "do": "when",
+   "cond": "fog",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Park Walker",
+     "text": "Fog in the Phoenix Park. The deer step out of it like ghosts. Very polite ghosts."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "gale",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Park Walker",
+       "text": "Windy one. The deer are all huddled under the trees, giving out about it."
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Park Walker",
@@ -188,6 +318,40 @@
    "do": "say",
    "who": "Warden",
    "text": "Try the long way round, via the west. You may find the closure lifts by the time you get there."
+  }
+ ],
+ "dublin_lamplighter": [
+  {
+   "do": "say",
+   "who": "Lamplighter",
+   "text": "Some of the old lamps round Merrion Square are still gas, you know. Somebody's got to keep them happy."
+  },
+  {
+   "do": "say",
+   "who": "Lamplighter",
+   "text": "Dublin by lamplight. The Georgian doors all glow red and blue and yellow. Like sweets in a jar."
+  },
+  {
+   "do": "say",
+   "who": "Lamplighter",
+   "text": "Quiet streets, warm lamps, and a fox having a look at me. That's my night sorted."
+  }
+ ],
+ "dublin_fox_watcher": [
+  {
+   "do": "say",
+   "who": "Fox Watcher",
+   "text": "Dublin's full of foxes at night. They're more Dublin than I am, and I'm from Phibsborough."
+  },
+  {
+   "do": "say",
+   "who": "Fox Watcher",
+   "text": "Red torch, see? Foxes don't mind red light. They just carry on with their business."
+  },
+  {
+   "do": "say",
+   "who": "Fox Watcher",
+   "text": "Saw one trot over O'Connell Bridge last week like he was late for a bus."
   }
  ]
 }

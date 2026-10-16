@@ -22,6 +22,12 @@ var clock_minutes := 480
 var day_count := 0  # in-game midnights passed; drives once-a-day things
 var last_sanctuary: Dictionary = {"zone": "macclesfield", "pos": [-1, -1]}  # (-1, -1) = the zone's spawn
 var rng_seed := 0
+var weather := ""          # the outdoor weather right now ("" = roll it at the next outdoor zone)
+var weather_region := ""   # the region it was rolled for
+var weather_until := 0     # world minute (see world_minutes) it lasts until
+
+const WEATHER_MIN := 120   # in-game minutes a spell of weather lasts (a game minute is a real second)
+const WEATHER_MAX := 240
 
 ## Where a fresh journey whites out to: the tile just outside Macclesfield's Sanctuary door.
 static func default_sanctuary() -> Dictionary:
@@ -63,6 +69,41 @@ func withdraw(j: int) -> String:
 	ark.remove_at(j)
 	return ""
 
+## Caught with a full team: `c` takes team slot `slot` and whoever was there goes to the Ark. With room on the team
+## it just joins. Returns "party" like add_creature.
+func add_creature_swapping(c: Creature, slot: int) -> String:
+	if party.size() < PARTY_MAX or slot < 0 or slot >= party.size():
+		return add_creature(c)
+	mark_seen(c.species.id)
+	mark_caught(c.species.id)
+	ark.append(party[slot])
+	party[slot] = c
+	return "party"
+
+## Direct swap: team slot `pi` trades places with Ark entry `aj`. Returns "" on success or why not.
+func swap_with_ark(pi: int, aj: int) -> String:
+	if pi < 0 or pi >= party.size() or aj < 0 or aj >= ark.size():
+		return "Nobody there."
+	if not party[pi].is_fainted() and ark[aj].is_fainted():
+		var able := party.filter(func(c): return not c.is_fainted())
+		if able.size() <= 1:
+			return "That's your last creature fit to battle. Keep them with you."
+	var t: Creature = party[pi]
+	party[pi] = ark[aj]
+	ark[aj] = t
+	return ""
+
+## Lets a creature go for good (the Ark screen asks first). Returns "" on success or why not.
+func release(from_party: bool, i: int) -> String:
+	var rule := ArkLogic.release_rule(self, from_party, i)
+	if not rule.ok:
+		return rule.why
+	if from_party:
+		party.remove_at(i)
+	else:
+		ark.remove_at(i)
+	return ""
+
 func mark_seen(id: String) -> void:
 	seen[id] = true
 
@@ -90,6 +131,29 @@ func set_flag(key: String, value: Variant = true) -> void:
 func flag(key: String) -> Variant:
 	return flags.get(key)
 
+## Minutes since the journey's first midnight: the clock plus whole days.
+func world_minutes() -> int:
+	return day_count * GameClock.DAY + clock_minutes
+
+func weather_expired() -> bool:
+	return weather == "" or world_minutes() >= weather_until
+
+## The weather for a zone. The outdoor weather is kept zone to zone until it runs out or the region changes,
+## then re-rolled from `table`. Interiors inherit it (never re-roll). A zone whose table never has the
+## region's weather (a cave, a sheltered glen) shows its own pick without changing the region's.
+func weather_for(region: String, table: Dictionary, interior: bool, rng: Rng) -> String:
+	if interior:
+		return weather if weather != "" else "clear"
+	if weather_expired() or region != weather_region:
+		weather = Weather.pick(table, rng)
+		weather_region = region
+		weather_until = world_minutes() + rng.roll_int(WEATHER_MIN, WEATHER_MAX)
+	if table.is_empty():
+		return "clear"
+	if float(table.get(weather, 0)) <= 0.0:
+		return Weather.pick(table, rng)
+	return weather
+
 func to_dict() -> Dictionary:
 	return {
 		"player_name": player_name, "rival_name": rival_name,
@@ -100,6 +164,7 @@ func to_dict() -> Dictionary:
 		"seen": seen.duplicate(), "caught": caught.duplicate(), "badges": badges.duplicate(),
 		"play_seconds": play_seconds, "clock_minutes": clock_minutes, "day_count": day_count,
 		"last_sanctuary": last_sanctuary.duplicate(true), "rng_seed": rng_seed,
+		"weather": weather, "weather_region": weather_region, "weather_until": weather_until,
 	}
 
 static func from_dict(d: Dictionary, dex: Dex) -> GameStateData:
@@ -132,4 +197,7 @@ static func from_dict(d: Dictionary, dex: Dex) -> GameStateData:
 	var lp: Array = ls.get("pos", [-1, -1])
 	s.last_sanctuary = {"zone": str(ls.get("zone", "macclesfield")), "pos": [int(lp[0]), int(lp[1])]}
 	s.rng_seed = int(d.get("rng_seed", 0))
+	s.weather = str(d.get("weather", ""))
+	s.weather_region = str(d.get("weather_region", ""))
+	s.weather_until = int(d.get("weather_until", 0))
 	return s

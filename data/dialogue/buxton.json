@@ -1,6 +1,32 @@
 {
  "crescent_fan": [
   {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Local",
+     "text": "The Crescent in the rain. Still grand. Still cold. Now also damp."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "sunshine",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Local",
+       "text": "Sun on the Crescent! Practically Bath. Don't tell Bath, it'll get ideas."
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Local",
    "text": "That's the Crescent. Georgian, grand and very cold."
@@ -12,6 +38,32 @@
   }
  ],
  "well_filler": [
+  {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Bottle Filler",
+     "text": "Raining and I'm filling bottles of water. I know. I KNOW. I can't stop."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "fog",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Bottle Filler",
+       "text": "Fog on the hills and steam off the well. Buxton looks like a spa from a storybook today."
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Bottle Filler",
@@ -37,6 +89,32 @@
  ],
  "duck_fan": [
   {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Gardener",
+     "text": "The ducks love this drizzle. They're having the best day of anyone in Buxton."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "dawn",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Gardener",
+       "text": "Morning! The ducks are already up and in charge. The sign is very clear."
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Gardener",
    "text": "Pavilion Gardens. Ducks have right of way. It's on the sign."
@@ -48,6 +126,32 @@
   }
  ],
  "goyt_guide": [
+  {
+   "do": "when",
+   "cond": "fog",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Walker",
+     "text": "Fog in the Goyt Valley today. Lovely and spooky, but stick to the path, eh."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "sunshine",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Walker",
+       "text": "Grand day for the Goyt! You can see half of Derbyshire from the top."
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Walker",

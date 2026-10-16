@@ -273,6 +273,27 @@
    "type": "buffer_stop",
    "x": 11,
    "y": 31
+  },
+  {
+   "type": "bunting",
+   "x": 36,
+   "y": 26,
+   "variant": 4,
+   "walk": true
+  },
+  {
+   "type": "hanging_basket",
+   "x": 38,
+   "y": 17,
+   "rot": 270,
+   "walk": true
+  },
+  {
+   "type": "hanging_basket",
+   "x": 5,
+   "y": 17,
+   "rot": 270,
+   "walk": true
   }
  ],
  "warps": [
@@ -386,7 +407,11 @@
    "y": 30,
    "facing": "left",
    "move": "wander",
-   "script": "station_volunteer"
+   "script": "station_volunteer",
+   "times": [
+    "day",
+    "dusk"
+   ]
   },
   {
    "id": "young_cyclist",
@@ -395,7 +420,11 @@
    "y": 19,
    "facing": "right",
    "move": "wander",
-   "script": "young_cyclist"
+   "script": "young_cyclist",
+   "times": [
+    "day",
+    "dusk"
+   ]
   },
   {
    "id": "post_clerk",

@@ -25,6 +25,32 @@
  ],
  "irish_teacher": [
   {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Gaeilge Student",
+     "text": "L\u00e1 fliuch, a wet day. You'll need that phrase a lot round here."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "sunshine",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Gaeilge Student",
+       "text": "L\u00e1 bre\u00e1! A fine day. Say it twice, it makes the sun stay longer."
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Gaeilge Student",
    "text": "Dingle's a Gaeltacht, so Irish is the everyday language. You'll hear it in the shop queue. 'Dia duit' is hello, and 'Dia is Muire duit' is the reply."
@@ -49,6 +75,32 @@
  ],
  "ceili_dancer": [
   {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Ceili Dancer",
+     "text": "Rain's no bother, we dance inside. The floor gets the workout, not the umbrella."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "dusk",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Ceili Dancer",
+       "text": "Evening's coming, so the music starts soon. Loosen up those ankles."
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Ceili Dancer",
    "text": "The set dances here go back to the quadrilles of old France. We changed them. Of course we did."
@@ -61,6 +113,32 @@
  ],
  "oceanworld_guide": [
   {
+   "do": "when",
+   "cond": "gale",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Oceanworld Guide",
+     "text": "Gale off the Atlantic today. The sharks don't mind. They're well used to it."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "fog",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Oceanworld Guide",
+       "text": "Can't see the Blaskets in this fog. They're out there, though, keeping their secrets."
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Oceanworld Guide",
    "text": "Our aquarium has a tunnel with sharks overhead, and a tank of rays that behave like kids at a bus window."
@@ -72,6 +150,46 @@
   }
  ],
  "gallarus_walker": [
+  {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Walker",
+     "text": "Lashing rain, and Gallarus is still dry inside. Twelve hundred years and not one leak."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "sunshine",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Walker",
+       "text": "Sun on the stones! On a day like this you can see why the monks stayed."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "dawn",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Walker",
+         "text": "Up early to see the oratory with nobody about. Just me and a curious sheep."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Walker",

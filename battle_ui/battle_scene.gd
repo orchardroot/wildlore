@@ -2,7 +2,7 @@ extends Node3D
 ## The battle scene. Router.battle() instantiates this, calls setup(foe_party, opts) and awaits `finished`.
 ## All sequencing lives in BattleFlow; this node is its `ui`: it plays events on the diorama and asks for choices.
 ## opts: kind ("wild"|"trainer"|"keeper"), stage, weather, ai, trainer {name, money, defeat}, music, double (2v2).
-## Dev: pass --battle-auto after `--` and the battle plays itself (for screenshots).
+## Dev: pass --battle-auto after `--` and the battle plays itself (for screenshots); --battle-caught marks the foe caught.
 
 signal finished(result: Dictionary)
 
@@ -19,19 +19,27 @@ var _intro_done := false
 var _hidden_2d: CanvasItem
 var _dev_stage := ""  # --stage=moor overrides the stage (screenshots)
 var _dev_catch := false  # --battle-catch: in auto mode, throw snares instead of fighting
-var _dev_menu := ""  # --battle-menu=fight|bag|team|target opens that menu straight away (screenshots)
+var _dev_ask := false  # --battle-ask: in auto mode, still ask the after-catch questions (screenshots)
+var _dev_menu := ""  # --battle-menu=fight|bag|team|target|forget opens that menu straight away (screenshots)
+var _dev_cursor := -1  # --battle-cursor=N: the remembered cursor for that menu (screenshots)
+var _scale_before := -1.0  # Engine.time_scale before the battle sped it up (-1: not sped up)
 
 func _ready() -> void:
+	apply_speed()
 	auto = "--battle-auto" in DevArgs.user_args()
 	for a in DevArgs.user_args():
 		if a == "--battle-slow":  # quarter speed, to catch a hit mid-flash in a screenshot
 			Engine.time_scale = 0.25
 		if a == "--battle-catch":
 			_dev_catch = true
+		if a == "--battle-ask":
+			_dev_ask = true
 		if a.begins_with("--stage="):
 			_dev_stage = a.get_slice("=", 1)
 		if a.begins_with("--battle-menu="):
 			_dev_menu = a.get_slice("=", 1)
+		if a.begins_with("--battle-cursor="):  # where the move (or bag) cursor starts (screenshots)
+			_dev_cursor = int(a.get_slice("=", 1))
 	Meshes.materials()
 	dio = Diorama.new()
 	add_child(dio)
@@ -66,8 +74,23 @@ func _ready() -> void:
 	root.add_child(msg)
 	menus = BattleMenus.new()
 	root.add_child(menus)
+	if _dev_cursor >= 0:
+		menus.remember("bag" if _dev_menu == "bag" else "moves", _dev_cursor)
+
+## The player's battle speed setting: everything in the battle (animations, pauses, text) runs faster.
+func apply_speed() -> void:
+	if _scale_before < 0.0:
+		_scale_before = Engine.time_scale
+	Engine.time_scale = Settings.battle_time_scale()
+
+## Back to normal time. Safe to call more than once; _exit_tree calls it too, so no exit path can leave it fast.
+func restore_speed() -> void:
+	if _scale_before >= 0.0:
+		Engine.time_scale = _scale_before
+		_scale_before = -1.0
 
 func _exit_tree() -> void:
+	restore_speed()
 	if _hidden_2d and is_instance_valid(_hidden_2d):
 		_hidden_2d.show()
 
@@ -80,6 +103,9 @@ func setup(foe_party: Array, p_opts: Dictionary) -> void:
 	opts = p_opts.duplicate()
 	if _dev_catch and not foe_party.is_empty():
 		foe_party[0].hp = 1
+	if "--battle-caught" in DevArgs.user_args():  # screenshots: the foe counts as caught (mark and type hints)
+		for c in foe_party:
+			Game.data.mark_caught(c.species.id)
 	opts["time"] = opts.get("time", GameClock.phase(Game.data.clock_minutes))
 	if bool(opts.get("double", false)):
 		dio.set_double(true)
@@ -100,6 +126,7 @@ func _run() -> void:
 	if str(result.get("result", "")) in ["win", "caught"]:
 		Audio.play_music("victory", 0.2)
 		await _wait(1.5)
+	restore_speed()  # the fade back to the overworld (or the whiteout) runs at normal speed
 	finished.emit(result)
 
 func _wait(sec: float) -> void:
@@ -118,9 +145,14 @@ func intro(f: BattleFlow) -> void:
 			var a := dio.actor(side, pos)
 			a.show_creature(c, side == Battle.PLAYER)
 			hud.set_creature(side, c, pos)
+			_mark_caught(f, side, c, pos)
 			a.pop_in()
 		await _wait(0.7 if side == Battle.FOE else 0.9)
 	_intro_done = true
+
+## A wild foe the player already owns gets a little snare mark on its plate.
+func _mark_caught(f: BattleFlow, side: int, c: Creature, pos: int) -> void:
+	hud.set_caught(side, side == Battle.FOE and f.is_wild() and f.is_caught_species(str(c.species.id)), pos)
 
 func say(lines: Array, hold := 0.0) -> void:
 	hud.refresh_names()
@@ -195,6 +227,10 @@ func choose_action(f: BattleFlow) -> Dictionary:
 			if aim >= 0:
 				return {"kind": "fight", "slot": 0, "target": aim}
 			continue
+		if _dev_menu == "forget":  # the learn-a-move prompt (screenshots)
+			_dev_menu = ""
+			await menus.forget(me, "will_o_wisp", Game.moves)
+			continue
 		if _dev_menu != "":
 			cmd = _dev_menu
 			_dev_menu = ""
@@ -209,7 +245,7 @@ func choose_action(f: BattleFlow) -> Dictionary:
 			cmd = await menus.command(f.is_wild())
 		match cmd:
 			"fight":
-				var slot := await menus.moves(me, Game.moves)
+				var slot := await menus.moves(me, Game.moves, func(i: int) -> String: return f.move_hint(me, i))
 				if slot < 0:
 					continue
 				if not b.double:
@@ -290,6 +326,32 @@ func first_catch(c: Creature) -> void:
 	if Engine.has_meta("autopilot"):
 		return
 	await PediaPopup.show_for(self, c.species.id)
+
+## After a catch: "Give it a nickname?" Yes opens the name entry on `target` ("nickname:<i>" or
+## "nickname:ark:<i>", wherever the catch landed), which names the creature in place.
+func ask_nickname(c: Creature, target: String) -> void:
+	if Engine.has_meta("autopilot") or (auto and not _dev_ask):
+		return
+	msg.prompt("Give %s a nickname?" % c.species.name)
+	var yes: bool = await menus.yes_no()
+	msg.clear()
+	if yes:
+		await Router.open_menu("name:" + target)
+
+## After a catch with a full team: the team slot to swap with (that creature goes to the Ark), or -1 to send
+## the newcomer to the Ark.
+func catch_destination(c: Creature, party: Array) -> int:
+	if Engine.has_meta("autopilot") or (auto and not _dev_ask):
+		return -1
+	while true:
+		msg.prompt("Your team is full. What about %s?" % c.display_name())
+		if await menus.catch_destination() != 0:
+			return -1
+		msg.prompt("Swap %s in for who? They'll wait in the Ark." % c.display_name())
+		var i: int = await menus.party(party, -1, "swap")
+		if i >= 0:
+			return i
+	return -1
 
 func xp_gained(c: Creature, evs: Array) -> void:
 	Audio.sfx("xp")

@@ -18,6 +18,7 @@ var host
 var npc_id: String
 var _ended := false
 var _badge_won := false
+var _legend_caught := false
 
 ## npc_id is the NPC that owns the script (the default target of move, face and heal).
 func _init(h, owner_npc := "") -> void:
@@ -27,10 +28,49 @@ func _init(h, owner_npc := "") -> void:
 func run(commands: Array) -> void:
 	_ended = false
 	_badge_won = false
-	await _run_list(commands)
+	_legend_caught = false
+	await _run_list(_nurse_visit(commands))
 	# autosave once the whole scene has played, so the save has everything the Keeper's script did after the badge
-	if _badge_won and host.has_method("autosave"):
+	# (or after a legend was caught, never mid-script)
+	if (_badge_won or _legend_caught) and host.has_method("autosave"):
 		host.autosave()
+
+const NURSE_HEALED := ["All set.", "Good as new.", "Right as rain."]
+const NURSE_BYE := "Mind how you go."
+
+## Every Sanctuary nurse script has the same shape: greeting, choice, then heal / Ark / just looking.
+static func is_nurse_script(c: Array) -> bool:
+	if c.size() != 3 or c[0].get("do") != "say" or c[1].get("do") != "choice" or c[2].get("do") != "if":
+		return false
+	var heal: Array = c[2].get("then", [])
+	var rest: Array = c[2].get("else", [])
+	if heal.size() != 3 or heal[0].get("do") != "say" or heal[1].get("do") != "heal" or heal[2].get("do") != "say":
+		return false
+	if rest.size() != 1 or rest[0].get("do") != "if":
+		return false
+	var ark: Array = rest[0].get("then", [])
+	return ark.size() == 2 and ark[0].get("do") == "say" and ark[1].get("do") == "ark" and rest[0].get("else", []).size() == 1
+
+## The quick version for a Sanctuary you have been to before: no greeting, no wind-up, one short line after.
+static func nurse_repeat(c: Array, variant: int) -> Array:
+	var out: Array = c.duplicate(true)
+	out.remove_at(0)
+	var branch: Dictionary = out[1]
+	branch["then"] = [branch.then[1], {"do": "say", "who": "Nurse", "text": NURSE_HEALED[posmod(variant, NURSE_HEALED.size())]}]
+	var rest: Dictionary = branch["else"][0]
+	rest["then"] = [rest.then[1]]
+	rest["else"] = [{"do": "say", "who": "Nurse", "text": NURSE_BYE}]
+	return out
+
+## First visit to a Sanctuary: the full script (and a note of it). Afterwards, the short one.
+func _nurse_visit(commands: Array) -> Array:
+	if not is_nurse_script(commands):
+		return commands
+	var key := "nurse_seen_" + str(host.zone_id())
+	if host.data.flag(key) == true:
+		return nurse_repeat(commands, int(host.data.day_count))
+	_set_flag(key, true)
+	return commands
 
 func _run_list(commands: Array) -> void:
 	for c in commands:
@@ -130,6 +170,13 @@ func _exec(c: Dictionary) -> void:
 			_ended = true
 		"ark":
 			await host.open_menu("ark")
+		"relearn":
+			# the move relearner; `set` (optional) gets 1 if a move was learned, 0 if they backed out
+			var learned = await host.open_menu("relearn")
+			if c.has("set"):
+				_set_flag(str(c.set), 1 if learned is Dictionary else 0)
+		"sachet_worn":
+			await _sachet_worn()
 		"legend":
 			await _legend(c)
 		"rail":
@@ -235,9 +282,20 @@ func _legend(c: Dictionary) -> void:
 	match str(result.get("result", "")):
 		"caught":
 			_set_flag(str(c.get("flag", "caught_" + str(sp.id))), true)
+			_legend_caught = true
 		"lose":
 			await whiteout()
 			_ended = true
+
+## A Lavender Sachet ran out on the overworld: say so, and offer another if there's one in the bag.
+func _sachet_worn() -> void:
+	await host.say("", Repel.WORN_LINE)
+	if Bag.new(host.data.bag).count(Repel.ITEM) < 1:
+		return
+	if await host.choice("Use another Lavender Sachet?", ["Yes", "No"]) == 0:
+		var r := Repel.use(host.data, Repel.ITEM, host.items)
+		await host.sfx("confirm" if r.ok else "bump")
+		await host.say("", str(r.text))
 
 func _rail() -> void:
 	if int(host.data.bag.get("rail_pass", 0)) <= 0:
@@ -274,15 +332,27 @@ func whiteout() -> void:
 	await host.say("", WHITEOUT_LINE)
 	await host.say("", WHITEOUT_LINE_2)
 
-## Conditions that aren't flags: "night" (the in-game clock) and "caught_all" (every species in the Fieldbook caught).
+const PHASE_CONDS := ["dawn", "day", "dusk", "night"]
+const WEATHER_CONDS := {"rain": ["drizzle", "downpour"], "fog": ["fog"], "gale": ["gale"], "frost": ["frost"], "sunshine": ["sunshine"]}
+
+## Conditions that aren't flags: the time of day ("dawn", "day", "dusk", "night", from the in-game clock), the
+## weather ("rain" is drizzle or a downpour; "fog", "gale", "frost", "sunshine") and "caught_all" (every species
+## in the Fieldbook caught).
 func _when(cond: String) -> bool:
-	match cond:
-		"night":
-			return GameClock.phase(host.data.clock_minutes) == "night"
-		"caught_all":
-			return host.data.caught.size() >= host.dex.ids().size()
+	if cond in PHASE_CONDS:
+		return GameClock.phase(host.data.clock_minutes) == cond
+	if WEATHER_CONDS.has(cond):
+		return _weather() in WEATHER_CONDS[cond]
+	if cond == "caught_all":
+		return host.data.caught.size() >= host.dex.ids().size()
 	push_warning("Commands: unknown condition '%s'" % cond)
 	return false
+
+## The outdoor weather: the overworld's sky when the host has one, otherwise the saved outdoor weather
+## (which interiors inherit). Nothing rolled yet is "clear".
+func _weather() -> String:
+	var w := str(host.current_weather()) if host.has_method("current_weather") else str(host.data.weather)
+	return w if w != "" else "clear"
 
 func _test(c: Dictionary) -> bool:
 	var v: Variant = host.data.flag(str(c.get("flag", "")))

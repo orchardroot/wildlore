@@ -77,12 +77,13 @@ def shop(out, town, town_name, ret, music=""):
 
 LANDMARK_KINDS = ("library", "church", "mill", "hall", "museum", "cafe", "castle", "theatre", "home", "cottage", "school", "workshop")
 
-def landmark(out, zid, name, town, ret, kind, npcs, w=13, h=10):
+def landmark(out, zid, name, town, ret, kind, npcs, w=13, h=10, furnish=True, write=True):
     """A walk-in landmark interior <zid> (e.g. "manchester_rylands") called `name`. Its exit door (bottom middle)
     returns to `town` at `ret` = (x, y), the town tile just south of the landmark's door; arrive one tile above
     the exit facing up, so the town's warp should target (w // 2, h - 3). `kind` (LANDMARK_KINDS) picks the
     furniture. `npcs` = list of npc dicts (id, sprite, x, y, facing, move, script); keep them off rows h-3..h-2
-    near the middle column. Scripts live in data/dialogue/<zid>.json."""
+    near the middle column. Scripts live in data/dialogue/<zid>.json. `furnish` adds the kind's rugs, fireplace,
+    pictures and so on on free tiles (see furnish.py); the NPCs stay where you put them."""
     assert kind in LANDMARK_KINDS, kind
     floor = "|" if kind in ("library", "mill", "cafe", "theatre", "home", "cottage", "workshop") else "+"
     z = Z(zid, name, w, h, fill=floor, kind="interior", region="", music="", weather={})
@@ -134,5 +135,9 @@ def landmark(out, zid, name, town, ret, kind, npcs, w=13, h=10):
     z.prop("potted_plant", 1, h - 3); z.prop("potted_plant", w - 2, h - 3)
     for n in npcs:
         z.npc(**n)
-    z.save(out + "/" + zid + ".json")
+    if furnish:
+        import furnish as _furnish
+        z.d["props"].extend(_furnish.furnish(kind, name, zid, ["".join(r) for r in z.g], z.d["props"], z.d["npcs"], z.d["warps"], z.d["spawn"]))
+    if write:
+        z.save(out + "/" + zid + ".json")
     return z

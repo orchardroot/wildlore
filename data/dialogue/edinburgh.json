@@ -132,6 +132,46 @@
  ],
  "edi_guide": [
   {
+   "do": "when",
+   "cond": "fog",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Castle Guide",
+     "text": "Haar's in! The Castle's up there somewhere, I promise. Use your imagination, it's included in the tour."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "rain",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Castle Guide",
+       "text": "A wee bit of rain makes the Old Town look its spooky best. Umbrellas up, everyone, follow the brolly."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "dusk",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Castle Guide",
+         "text": "Last tour of the day, and the closes get shadowy now. Stick close. The ghosts like stragglers."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Castle Guide",
    "text": "The Castle's on a volcanic plug. A big old volcano chilled out about 340 million years ago, and the glaciers scraped it into a crag with a long tail. Hence 'Crag and Tail'."
@@ -143,6 +183,46 @@
   }
  ],
  "edi_fringe": [
+  {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Fringe Performer",
+     "text": "Rain's great for comedy. Everyone ducks into a show to dry off, and suddenly I've got an audience. Of six."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "gale",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Fringe Performer",
+       "text": "I tried flyering on the Royal Mile in this wind. My flyers are now somewhere over Fife, doing very well."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "night",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Fringe Performer",
+         "text": "Just finished my late show. Nine people came. Three laughed. One was my mum, but she still counts."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Fringe Performer",
@@ -156,6 +236,32 @@
  ],
  "edi_gardener": [
   {
+   "do": "when",
+   "cond": "sunshine",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Gardener",
+     "text": "Lovely day for the Gardens. The Floral Clock's ticking nicely and so are my knees, unfortunately."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "rain",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Gardener",
+       "text": "Free watering from above. I'll take it. The flowers love it and I get a sit down in the shed."
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Gardener",
    "text": "The Floral Clock's a proper working clock and, I'll have you know, the oldest in the world. It's all planted in spring. It takes a month and a lot of kneeling."
@@ -168,6 +274,46 @@
  ],
  "edi_walker": [
   {
+   "do": "when",
+   "cond": "gale",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Seat Walker",
+     "text": "I wouldn't climb Arthur's Seat in this wind. You'd go up a walker and come down a kite."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "sunshine",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Seat Walker",
+       "text": "Grand day for a climb. From the top you can see right over the Forth to Fife. Fife waves back, mostly."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "dawn",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Seat Walker",
+         "text": "Up early to catch the sunrise from the hill. The skylarks beat me to it. They always do."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Seat Walker",
    "text": "Arthur's Seat is an extinct volcano with a nice view and a path. You can be on top of it in an hour, and you will want a scone afterwards."
@@ -176,6 +322,40 @@
    "do": "say",
    "who": "Seat Walker",
    "text": "They say King Arthur sat there, but there's no real evidence. There's a lot of evidence for seagulls."
+  }
+ ],
+ "edinburgh_lamplighter": [
+  {
+   "do": "say",
+   "who": "Lamplighter",
+   "text": "There's still a few gas lamps in the New Town. Someone's got to keep them glowing, and tonight that's me."
+  },
+  {
+   "do": "say",
+   "who": "Lamplighter",
+   "text": "Robert Louis Stevenson watched the lamplighter from his window as a boy, and wrote a poem about it. No pressure."
+  },
+  {
+   "do": "say",
+   "who": "Lamplighter",
+   "text": "Quiet streets, warm lamps, cobbles shining. Edinburgh at night is like walking through a storybook."
+  }
+ ],
+ "edinburgh_astronomer": [
+  {
+   "do": "say",
+   "who": "Astronomer",
+   "text": "There's an old observatory up on Calton Hill. The city lights get in the way now, but the Moon doesn't mind."
+  },
+  {
+   "do": "say",
+   "who": "Astronomer",
+   "text": "See that wee fuzzy patch? That's the Orion Nebula, where new stars are born. Like a nursery, but hotter."
+  },
+  {
+   "do": "say",
+   "who": "Astronomer",
+   "text": "Most folk look down at the city from up here. I look the other way. Better view, fewer seagulls."
   }
  ]
 }

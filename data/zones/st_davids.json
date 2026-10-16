@@ -258,6 +258,34 @@
    "type": "buffer_stop",
    "x": 36,
    "y": 7
+  },
+  {
+   "type": "bunting",
+   "x": 11,
+   "y": 8,
+   "variant": 4,
+   "walk": true
+  },
+  {
+   "type": "hanging_basket",
+   "x": 15,
+   "y": 16,
+   "rot": 0,
+   "walk": true
+  },
+  {
+   "type": "hanging_basket",
+   "x": 21,
+   "y": 34,
+   "rot": 90,
+   "walk": true
+  },
+  {
+   "type": "hanging_basket",
+   "x": 30,
+   "y": 20,
+   "rot": 90,
+   "walk": true
   }
  ],
  "warps": [
@@ -386,7 +414,11 @@
    "y": 19,
    "facing": "down",
    "move": "wander",
-   "script": "pilgrim"
+   "script": "pilgrim",
+   "times": [
+    "day",
+    "dusk"
+   ]
   },
   {
    "id": "ramsey_boat",
@@ -404,7 +436,11 @@
    "y": 8,
    "facing": "down",
    "move": "still",
-   "script": "tea_lady"
+   "script": "tea_lady",
+   "times": [
+    "day",
+    "dusk"
+   ]
   },
   {
    "id": "hollow_gardener",
@@ -423,6 +459,19 @@
    "facing": "left",
    "move": "still",
    "trainer": "warden_hywel"
+  },
+  {
+   "id": "st_davids_astronomer",
+   "sprite": "astronomer",
+   "x": 10,
+   "y": 17,
+   "facing": "down",
+   "move": "still",
+   "script": "st_davids_astronomer",
+   "name": "Astronomer",
+   "times": [
+    "night"
+   ]
   }
  ],
  "encounters": {

@@ -1,6 +1,10 @@
 class_name SkyAndLight
 extends Node3D
 ## Sun, ambient, fog, glow and weather particles, driven by the game clock and the zone's weather.
+## The overworld weather is kept in the save (GameStateData.weather_for) and changes mid-zone when it runs out,
+## blending over BLEND_SECONDS. Interiors are told the outdoor weather but show none of it.
+
+signal weather_changed(w: String)
 
 const PHASES := {
 	# sun colour, sun energy, sun pitch, ambient colour, ambient energy, background, window glow
@@ -8,6 +12,14 @@ const PHASES := {
 	"day": [Color("fff4e0"), 0.62, -52.0, Color("c3d4e6"), 0.18, Color("9fc3dc"), 0.0],
 	"dusk": [Color("ffa36b"), 0.7, -18.0, Color("a98bb0"), 0.3, Color("d98f74"), 1.2],
 	"night": [Color("8fa6d9"), 0.25, -40.0, Color("3b4a78"), 0.3, Color("1b2238"), 2.2],
+}
+## Indoors: lamp colour, lamp energy, ambient colour, ambient energy. Bright and warm by day; at night the
+## room is dimmer and cooler, lit by warmer lamps.
+const INTERIOR_PHASES := {
+	"dawn": [Color("ffdcb8"), 0.5, Color("c9b8b4"), 0.3],
+	"day": [Color("ffe6c4"), 0.6, Color("e8d2b0"), 0.34],
+	"dusk": [Color("ffc890"), 0.48, Color("a99ab0"), 0.28],
+	"night": [Color("ffb877"), 0.42, Color("6d7599"), 0.25],
 }
 
 ## Per-phase colour grade: [tonemap exposure, saturation, contrast]. Midday is graded richer
@@ -17,12 +29,35 @@ const PHASE_GRADE := {
 	"day": [0.84, 1.2, 1.14],
 }
 
+## What each weather shows, 0..1: rain, fog sheets, blowing leaves, frost flecks, wet ground, frosty ground, slant.
+enum { FX_RAIN, FX_FOG, FX_LEAVES, FX_FLECKS, FX_WET, FX_FROST, FX_SLANT, FX_COUNT }
+const FX := {
+	"drizzle": [0.35, 0.0, 0.0, 0.0, 0.6, 0.0, 0.1],
+	"downpour": [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.2],
+	"fog": [0.0, 1.0, 0.0, 0.0, 0.15, 0.0, 0.0],
+	"gale": [0.2, 0.0, 1.0, 0.0, 0.3, 0.0, 1.0],
+	"frost": [0.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0],
+}
+const NO_FX := [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+const RAIN_MAX := 1400
+const BLEND_SECONDS := 8.0
+
 var sun: DirectionalLight3D
 var env: Environment
 var weather := "clear"
 var interior := false
-var _rain: CPUParticles3D
 var follow: Node3D
+## The weather's visible effects right now (blended), indexed by FX_*. AmbientLife reads gale and frost here.
+var fx := PackedFloat32Array(NO_FX)
+var _from := "clear"    # blending from this weather to `weather`
+var _blend := 1.0
+var _zone: ZoneData     # the overworld zone (null in battles): its weather can run out and change
+var _low := false
+var _rain: CPUParticles3D
+var _fog: CPUParticles3D
+var _leaves: CPUParticles3D
+var _flecks: CPUParticles3D
+var _splash: CPUParticles3D
 
 func _ready() -> void:
 	sun = DirectionalLight3D.new()
@@ -46,52 +81,193 @@ func _ready() -> void:
 	env.adjustment_contrast = 1.04
 	we.environment = env
 	add_child(we)
+	_build_particles()
 	apply_quality(Settings.quality)
-	_rain = CPUParticles3D.new()
-	_rain.emitting = false
-	_rain.amount = 600
-	_rain.lifetime = 0.9
-	_rain.emission_shape = CPUParticles3D.EMISSION_SHAPE_BOX
+
+# --- particles -------------------------------------------------------------------
+
+func _build_particles() -> void:
+	_rain = _emitter(_soft_quad(Vector2(0.02, 0.38), null, false), 600, 0.9)
 	_rain.emission_box_extents = Vector3(14, 0.5, 10)
 	_rain.direction = Vector3(0.15, -1, 0.05)
 	_rain.spread = 3.0
 	_rain.initial_velocity_min = 14.0
 	_rain.initial_velocity_max = 17.0
 	_rain.gravity = Vector3(0, -6, 0)
-	var streak := QuadMesh.new()
-	streak.size = Vector2(0.02, 0.38)
-	var rm := StandardMaterial3D.new()
-	rm.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-	rm.albedo_color = Color(0.8, 0.86, 0.95, 0.45)
-	rm.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-	rm.billboard_mode = BaseMaterial3D.BILLBOARD_FIXED_Y
-	streak.material = rm
-	_rain.mesh = streak
-	add_child(_rain)
+	_rain.particle_flag_align_y = true  # streaks lean with the wind
+	var soft := _soft_texture()
+	_fog = _emitter(_soft_quad(Vector2(6.0, 2.4), soft, true), 10, 16.0)
+	_fog.emission_box_extents = Vector3(13, 0.6, 9)
+	_fog.direction = Vector3(1, 0, 0.1)
+	_fog.spread = 10.0
+	_fog.initial_velocity_min = 0.2
+	_fog.initial_velocity_max = 0.45
+	_fog.gravity = Vector3.ZERO
+	_fog.preprocess = 16.0
+	_fog.scale_amount_min = 0.8
+	_fog.scale_amount_max = 1.5
+	_fog.color_ramp = _fade_ramp()
+	_leaves = _emitter(_soft_quad(Vector2(0.14, 0.1), null, true), 36, 3.2)
+	_leaves.emission_box_extents = Vector3(4, 2.5, 9)
+	_leaves.direction = Vector3(1, 0.15, 0.25)
+	_leaves.spread = 18.0
+	_leaves.initial_velocity_min = 5.0
+	_leaves.initial_velocity_max = 8.0
+	_leaves.gravity = Vector3(0, -0.8, 0)
+	_leaves.angular_velocity_min = -360.0
+	_leaves.angular_velocity_max = 360.0
+	_leaves.angle_max = 360.0
+	var autumn := Gradient.new()
+	autumn.colors = PackedColorArray([Color("c9762f"), Color("a8552a"), Color("d9a441"), Color("7d8a3a")])
+	autumn.offsets = PackedFloat32Array([0.0, 0.35, 0.7, 1.0])
+	_leaves.color_initial_ramp = autumn
+	_flecks = _emitter(_soft_quad(Vector2(0.11, 0.11), soft, true), 110, 7.0)
+	_flecks.emission_box_extents = Vector3(14, 2.0, 10)
+	_flecks.direction = Vector3(0.3, -1, 0.1)
+	_flecks.spread = 40.0
+	_flecks.initial_velocity_min = 0.2
+	_flecks.initial_velocity_max = 0.5
+	_flecks.gravity = Vector3(0, -0.25, 0)
+	_flecks.preprocess = 7.0
+	_splash = _emitter(_soft_quad(Vector2(0.05, 0.05), null, true), 18, 0.35)
+	_splash.emission_box_extents = Vector3(0.45, 0.0, 0.45)
+	_splash.direction = Vector3(0, 1, 0)
+	_splash.spread = 35.0
+	_splash.initial_velocity_min = 1.0
+	_splash.initial_velocity_max = 1.8
+	_splash.gravity = Vector3(0, -9, 0)
 
-func set_weather(w: String, is_interior: bool) -> void:
+func _emitter(mesh: Mesh, amount: int, lifetime: float) -> CPUParticles3D:
+	var p := CPUParticles3D.new()
+	p.emitting = false
+	p.amount = amount
+	p.lifetime = lifetime
+	p.emission_shape = CPUParticles3D.EMISSION_SHAPE_BOX
+	p.mesh = mesh
+	add_child(p)
+	return p
+
+## An unshaded, see-through quad whose colour (and fade) comes from the particle colour.
+func _soft_quad(size: Vector2, tex: Texture2D, billboard: bool) -> QuadMesh:
+	var q := QuadMesh.new()
+	q.size = size
+	var m := StandardMaterial3D.new()
+	m.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	m.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	m.vertex_color_use_as_albedo = true
+	m.billboard_mode = BaseMaterial3D.BILLBOARD_PARTICLES if billboard else BaseMaterial3D.BILLBOARD_DISABLED
+	m.cull_mode = BaseMaterial3D.CULL_DISABLED
+	if tex:
+		m.albedo_texture = tex
+	q.material = m
+	return q
+
+static func _soft_texture() -> GradientTexture2D:
+	var g := Gradient.new()
+	g.colors = PackedColorArray([Color(1, 1, 1, 1), Color(1, 1, 1, 0)])
+	var t := GradientTexture2D.new()
+	t.gradient = g
+	t.fill = GradientTexture2D.FILL_RADIAL
+	t.fill_from = Vector2(0.5, 0.5)
+	t.fill_to = Vector2(1.0, 0.5)
+	t.width = 64
+	t.height = 64
+	return t
+
+## Fades a particle in and out over its life (fog sheets drift in rather than pop).
+static func _fade_ramp() -> Gradient:
+	var g := Gradient.new()
+	g.colors = PackedColorArray([Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)])
+	g.offsets = PackedFloat32Array([0.0, 0.25, 0.7, 1.0])
+	return g
+
+# --- weather -------------------------------------------------------------------
+
+## The weather for an overworld zone: the persisted outdoor weather (see GameStateData.weather_for), or the
+## --weather dev switch. Interiors get the outdoor weather too (for rain on the roof), shown as none.
+func weather_for_zone(z: ZoneData) -> String:
+	_zone = z
+	var forced: String = Game.args.get("weather", "")
+	if forced != "":
+		return forced
+	return Game.data.weather_for(z.region, z.weather, z.kind == "interior", Game.rng)
+
+## `smooth`: blend from the current weather over BLEND_SECONDS (a change mid-zone); otherwise switch at once.
+func set_weather(w: String, is_interior: bool, smooth := false) -> void:
+	if smooth and w != weather and not is_interior:
+		_from = weather
+		_blend = 0.0
+	else:
+		_from = w
+		_blend = 1.0
 	weather = w
 	interior = is_interior
-	var raining := w in ["drizzle", "downpour"] and not interior
-	_rain.emitting = raining
-	_rain.amount = 1400 if w == "downpour" else 450
-	var foliage_wind := 0.035
-	if w == "gale":
-		foliage_wind = 0.09
-	if Meshes.foliage:
-		Meshes.foliage.set_shader_parameter("wind_strength", foliage_wind)
+	var want := maxi(_rain_amount(_from), _rain_amount(w))
+	if want > 0 and _rain.amount != want:
+		_rain.amount = want  # changing the amount restarts the emitter, so only when it must
 	apply_time(Game.data.clock_minutes)
 
-func apply_time(minutes: int) -> void:
-	var ph := GameClock.phase(minutes)
-	var p: Array = PHASES[ph]
+func _rain_amount(w: String) -> int:
+	var r: float = FX.get(w, NO_FX)[FX_RAIN]
+	if r <= 0.0:
+		return 0
+	return int(RAIN_MAX * r * (0.5 if _low else 1.0))
+
+## Weather that has run out changes mid-zone (outdoors, overworld only, never while pinned by --weather).
+func _check_expiry() -> void:
+	if _zone == null or interior or Game.args.get("weather", "") != "" or not Game.data.weather_expired():
+		return
+	var w := Game.data.weather_for(_zone.region, _zone.weather, false, Game.rng)
+	if w != weather:
+		set_weather(w, false, true)
+		weather_changed.emit(w)
+
+func _fx_now() -> void:
+	var a: Array = NO_FX if interior else FX.get(_from, NO_FX)
+	var b: Array = NO_FX if interior else FX.get(weather, NO_FX)
+	var k := _blend * _blend * (3.0 - 2.0 * _blend)
+	for i in FX_COUNT:
+		fx[i] = lerpf(a[i], b[i], k)
+
+func _apply_fx() -> void:
+	var rain := fx[FX_RAIN]
+	var full := float(_rain.amount) / RAIN_MAX
+	_rain.emitting = rain > 0.01
+	_rain.color = Color(0.8, 0.86, 0.95, 0.45 * clampf(rain / maxf(full, 0.05), 0.0, 1.0))
+	_rain.direction = Vector3(lerpf(0.15, 0.9, fx[FX_SLANT]), -1, lerpf(0.05, 0.15, fx[FX_SLANT]))
+	_fog.emitting = fx[FX_FOG] > 0.01
+	_fog.color = Color(0.86, 0.88, 0.9, 0.45 * fx[FX_FOG])
+	_leaves.emitting = fx[FX_LEAVES] > 0.01 and not _low
+	_leaves.color = Color(1, 1, 1, fx[FX_LEAVES])
+	_flecks.emitting = fx[FX_FLECKS] > 0.01 and not _low
+	_flecks.color = Color(0.94, 0.97, 1.0, 0.8 * fx[FX_FLECKS])
+	_splash.emitting = fx[FX_RAIN] > 0.6 and follow is Player and not _low
+	_splash.color = Color(0.85, 0.9, 1.0, 0.6)
+	if Meshes.ground:
+		Meshes.ground.set_shader_parameter("wet", fx[FX_WET])
+		Meshes.ground.set_shader_parameter("frost", fx[FX_FROST])
+	if Meshes.foliage:
+		Meshes.foliage.set_shader_parameter("wind_strength", lerpf(0.035, 0.09, fx[FX_SLANT]))
+		Meshes.flutter.set_shader_parameter("wind", lerpf(1.0, 2.2, fx[FX_SLANT]))
+
+## How far into the night it is, for windows going out: 0 until 22:00, 1 by 02:00, back to 0 at 05:00.
+static func lateness(minutes: int) -> float:
+	var m := GameClock.wrap(minutes)
+	if m >= 22 * 60:
+		return (m - 22 * 60) / 240.0
+	if m < 2 * 60:
+		return (m + 120) / 240.0
+	if m < 5 * 60:
+		return 1.0
+	return 0.0
+
+## [sun colour, sun energy, ambient colour, fog density] for a phase under a weather.
+static func _look(p: Array, w: String) -> Array:
 	var sun_col: Color = p[0]
 	var sun_e: float = p[1]
 	var amb: Color = p[3]
-	var amb_e: float = p[4]
-	var bg: Color = p[5]
 	var fog_d := 0.002
-	match weather:
+	match w:
 		"drizzle":
 			sun_e *= 0.7
 			amb = amb.lerp(Color("a7b0bd"), 0.4)
@@ -104,16 +280,41 @@ func apply_time(minutes: int) -> void:
 			sun_e *= 0.55
 			amb = amb.lerp(Color("c9ccd0"), 0.5)
 			fog_d = 0.06
+		"gale":
+			sun_e *= 0.85
+			amb = amb.lerp(Color("b4bcc6"), 0.2)
+			fog_d = 0.003
 		"frost":
 			sun_col = sun_col.lerp(Color("dfe9ff"), 0.5)
+			amb = amb.lerp(Color("d6e2f2"), 0.25)
 		"sunshine":
 			sun_e *= 1.2
 			sun_col = sun_col.lerp(Color("ffe2a8"), 0.3)
+	return [sun_col, sun_e, amb, fog_d]
+
+func apply_time(minutes: int) -> void:
+	var ph := GameClock.phase(minutes)
+	var p: Array = PHASES[ph]
+	var amb_e: float = p[4]
+	var bg: Color = p[5]
+	var to := _look(p, weather)
+	var sun_col: Color = to[0]
+	var sun_e: float = to[1]
+	var amb: Color = to[2]
+	var fog_d: float = to[3]
+	if _blend < 1.0:
+		var from := _look(p, _from)
+		var k := _blend * _blend * (3.0 - 2.0 * _blend)
+		sun_col = (from[0] as Color).lerp(sun_col, k)
+		sun_e = lerpf(from[1], sun_e, k)
+		amb = (from[2] as Color).lerp(amb, k)
+		fog_d = lerpf(from[3], fog_d, k)
 	if interior:
-		sun_e = 0.55
-		amb = Color("e8d2b0")
-		amb_e = 0.32
-		sun_col = Color("ffe6c4")
+		var ip: Array = INTERIOR_PHASES[ph]
+		sun_col = ip[0]
+		sun_e = ip[1]
+		amb = ip[2]
+		amb_e = ip[3]
 		fog_d = 0.0
 		bg = Color("0e0f13")
 	sun.light_color = sun_col
@@ -130,17 +331,42 @@ func apply_time(minutes: int) -> void:
 	env.fog_density = fog_d
 	env.fog_enabled = fog_d > 0.0
 	if Meshes.glow:
-		Meshes.glow.emission_energy_multiplier = 0.0 if interior else p[6]
-		Meshes.glow.albedo_color = Color("3a4658") if p[6] == 0.0 else Color("ffd98a")
+		var lamps: float = p[6] * (0.6 if interior else 1.0)
+		Meshes.glow.emission_energy_multiplier = lamps
+		Meshes.glow.albedo_color = Color("3a4658") if lamps == 0.0 else Color("ffd98a")
+		Meshes.pool.set_shader_parameter("strength", 0.0 if interior else clampf(p[6] / 2.2, 0.0, 1.0))
+	if Meshes.windows:
+		Meshes.windows.set_shader_parameter("energy", 0.0 if interior else p[6])
+		Meshes.windows.set_shader_parameter("lateness", lateness(minutes))
+	_fx_now()
+	_apply_fx()
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	if follow:
-		_rain.global_position = follow.global_position + Vector3(0, 9, 2)
-	if Engine.get_process_frames() % 30 == 0:
+		var at := follow.global_position
+		_rain.global_position = at + Vector3(0, 9, 2)
+		_fog.global_position = at + Vector3(0, 0.9, 1.5)
+		_leaves.global_position = at + Vector3(-12, 1.5, 1.5)
+		_flecks.global_position = at + Vector3(0, 3.5, 1.5)
+		_splash.global_position = at + Vector3(0, 0.03, 0)
+	if _blend < 1.0:
+		_blend = minf(1.0, _blend + delta / BLEND_SECONDS)
+		apply_time(Game.data.clock_minutes)
+	elif Engine.get_process_frames() % 30 == 0:
+		_check_expiry()
 		apply_time(Game.data.clock_minutes)
 
-## Low: no shadows or glow. Medium: 2-split shadows and glow. High: 4-split shadows. Safe to call live.
+## Low: no shadows or glow, half the rain, no leaves, flecks or splashes. Medium: 2-split shadows and glow.
+## High: 4-split shadows. Safe to call live.
 func apply_quality(q: String) -> void:
 	sun.shadow_enabled = q != "low"
 	sun.directional_shadow_mode = DirectionalLight3D.SHADOW_PARALLEL_4_SPLITS if q == "high" else DirectionalLight3D.SHADOW_PARALLEL_2_SPLITS
 	env.glow_enabled = q != "low"
+	var was_low := _low
+	_low = q == "low"
+	if _low != was_low and _rain != null:
+		_fog.amount = 5 if _low else 10
+		var want := maxi(_rain_amount(_from), _rain_amount(weather))
+		if want > 0:
+			_rain.amount = want
+		_apply_fx()

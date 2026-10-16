@@ -2,6 +2,8 @@ class_name FakeBattleUI
 extends RefCounted
 ## A stand-in for the battle scene: auto-picks choices so BattleFlow can run headlessly.
 
+const NameEntry = preload("res://ui/name_entry.gd")
+
 var picks: Array = []          # queued choices for choose_action; empty means "use the best move"
 var forget_slot := -1
 var evolve := true
@@ -13,6 +15,21 @@ var evolve_asked: Array = []
 var replacement_asked := 0
 var xp_calls := 0
 var first_catches: Array = []
+var nickname := ""              # what the player types when offered a nickname ("" declines)
+var nickname_asked: Array = []
+var nickname_targets: Array = []  # the name entry arguments it was offered ("nickname:<i>" / "nickname:ark:<i>")
+var catch_slot := -1            # full party after a catch: team slot to swap with, -1 for the Ark
+var destination_asked: Array = []
+
+func ask_nickname(c: Creature, target: String) -> void:
+	nickname_asked.append(c.species.id)
+	nickname_targets.append(target)
+	if nickname != "":
+		NameEntry.apply_nickname(c, nickname)  # as the real name entry does
+
+func catch_destination(c: Creature, _party: Array) -> int:
+	destination_asked.append(c.species.id)
+	return catch_slot
 
 func first_catch(c: Creature) -> void:
 	first_catches.append(c.species.id)

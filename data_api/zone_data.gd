@@ -52,6 +52,7 @@ var station := Vector2i(-1, -1)  # rail stop tile, (-1, -1) for none
 var ferry: Dictionary = {}     # {x, y, route}
 var stub := false              # a placeholder another builder will replace
 var dark := false              # a cave: only a circle of light round the player (wider with the Lantern)
+var ambience := ""             # ambience bed override (an Ambience.BEDS id, or "none"); "" = pick from kind/stage
 
 static func load_id(zone_id: String) -> ZoneData:
 	var d = JsonUtil.read(DIR.path_join(zone_id + ".json"))
@@ -89,6 +90,7 @@ static func from_dict(d: Dictionary) -> ZoneData:
 	z.ferry = d.get("ferry", {})
 	z.stub = bool(d.get("stub", false))
 	z.dark = bool(d.get("dark", false))
+	z.ambience = str(d.get("ambience", ""))
 	var sp: Array = d.get("spawn", [0, 0])
 	z.spawn = Vector2i(int(sp[0]), int(sp[1]))
 	for p in z.props:

@@ -16,6 +16,46 @@
  ],
  "fw_rescue": [
   {
+   "do": "when",
+   "cond": "fog",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Mountain Rescue Volunteer",
+     "text": "Clag's down on the Ben today. If you're heading up, take a compass, and turn back if you're unsure. Please."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "rain",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Mountain Rescue Volunteer",
+       "text": "Rain's on, so the burns'll be up. If a crossing looks dodgy, it is. The hill will still be there tomorrow."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "sunshine",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Mountain Rescue Volunteer",
+         "text": "Clear day on the Ben! It'll be busy up there. Sun cream, water and a jumper for the top."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Mountain Rescue Volunteer",
    "text": "Ben Nevis is a big, kind hill with a bad temper in the mist. We go up in all weathers, so you don't have to."
@@ -27,6 +67,46 @@
   }
  ],
  "fw_spotter": [
+  {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Train Spotter",
+     "text": "Steam looks best in the rain, you know. Big white clouds of it. The Jacobite never looked so grand."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "fog",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Train Spotter",
+       "text": "Can't see the train in this fog, but I can hear it. Seventy-four, if hearing counts. I'm counting it."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "dusk",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Train Spotter",
+         "text": "Last train's been and gone. I'll be back tomorrow. Same spot, same flask, same happy waving."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Train Spotter",
@@ -40,6 +120,32 @@
  ],
  "fw_piper": [
   {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Busker",
+     "text": "Rain gets in the whistle and it goes a bit gurgly. Folk think it's a new style. I let them."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "gale",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Busker",
+       "text": "Can't play in this wind. Every note blows off down Loch Linnhe. Somebody in Oban's getting a free concert."
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Busker",
    "text": "I play the whistle in front of the shop. The pipers all have their own pitch and I don't argue with a piper."
@@ -51,6 +157,46 @@
   }
  ],
  "fw_kid": [
+  {
+   "do": "when",
+   "cond": "sunshine",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Wee Lad",
+     "text": "Sunshine! Gran says that means we can see Ireland. I think she just means the shop over there."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "rain",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Wee Lad",
+       "text": "It's raining again. Gran says Fort William gets more rain than anywhere. I think she's proud of that."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "dusk",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Wee Lad",
+         "text": "I'm meant to be home before the midges come out. They're coming out. Bye!"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Wee Lad",

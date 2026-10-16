@@ -39,8 +39,8 @@ func test_grace_period() -> void:
 	var g := Encounters.new()
 	g.after_battle()
 	assert_true(g.in_grace())
-	g.stepped()
-	g.stepped()
+	for i in 4:
+		g.stepped()
 	assert_true(g.in_grace())
 	g.stepped()
 	assert_false(g.in_grace())

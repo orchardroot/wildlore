@@ -1,6 +1,46 @@
 {
  "ng_guide": [
   {
+   "do": "when",
+   "cond": "frost",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Tour Guide",
+     "text": "Frost on the quartz! The whole front sparkles like a giant's tiara this morning."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "fog",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Tour Guide",
+       "text": "Fog over the Boyne. You can see why people thought this place was magic."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "dawn",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Tour Guide",
+         "text": "Dawn at Newgrange. Five thousand years of people have watched this same sunrise from here."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Tour Guide",
    "text": "Newgrange: built about 3200 BC, with roughly 200,000 tonnes of stone and earth. That's five hundred years older than the Great Pyramid and a thousand older than Stonehenge."
@@ -12,6 +52,18 @@
   }
  ],
  "lottery_winner": [
+  {
+   "do": "when",
+   "cond": "dawn",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Lucky Visitor",
+     "text": "Dawn! This is the bit. Watch the light come down the passage. I'm not crying, you are."
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Lucky Visitor",
@@ -25,6 +77,32 @@
  ],
  "ng_farmer": [
   {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Local Farmer",
+     "text": "Bit of rain's no harm. The tomb's been through five thousand years of it. So have I, near enough."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "frost",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Local Farmer",
+       "text": "Frosty one. The cows are breathing like little steam trains."
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Local Farmer",
    "text": "My family's farmed beside this tomb for generations. We found stones in the field every year. Mostly we put them back. They looked cross."
@@ -37,6 +115,32 @@
  ],
  "ng_archaeologist": [
   {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Archaeologist",
+     "text": "Raining, and the chamber's still bone dry. Neolithic builders: one, modern roofers: nil."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "fog",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Archaeologist",
+       "text": "Fog's good for thinking. It's a bit like looking back five thousand years."
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Archaeologist",
    "text": "Professor O'Kelly led the dig and rebuilding in the 1960s and 70s. The quartz wall's controversial, but I'm told the roof really does keep out the rain."
@@ -48,6 +152,32 @@
   }
  ],
  "spiral_kid": [
+  {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Child",
+     "text": "The rain washed the spiral off my hand. I'll have to draw it again. Mam'll be thrilled."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "sunshine",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Child",
+       "text": "The sun makes the stones glitter! I think the spirals are winking at me."
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Child",

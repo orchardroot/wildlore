@@ -227,7 +227,11 @@
    "script": "museum_curator",
    "sprite": "student",
    "x": 27.0,
-   "y": 15.0
+   "y": 15.0,
+   "times": [
+    "day",
+    "dusk"
+   ]
   },
   {
    "facing": "left",
@@ -236,7 +240,11 @@
    "script": "bridge_cyclist",
    "sprite": "jogger",
    "x": 56.0,
-   "y": 19.0
+   "y": 19.0,
+   "times": [
+    "day",
+    "dusk"
+   ]
   },
   {
    "facing": "right",
@@ -283,6 +291,32 @@
    "sprite": "villager_3",
    "x": 40.0,
    "y": 7.0
+  },
+  {
+   "id": "derry_lamplighter",
+   "sprite": "lamplighter",
+   "x": 45,
+   "y": 13,
+   "facing": "down",
+   "move": "still",
+   "script": "derry_lamplighter",
+   "name": "Lamplighter",
+   "times": [
+    "night"
+   ]
+  },
+  {
+   "id": "derry_fox_watcher",
+   "sprite": "fox_watcher",
+   "x": 44,
+   "y": 17,
+   "facing": "down",
+   "move": "still",
+   "script": "derry_fox_watcher",
+   "name": "Fox Watcher",
+   "times": [
+    "night"
+   ]
   }
  ],
  "props": [
@@ -719,6 +753,20 @@
    "type": "buffer_stop",
    "x": 62,
    "y": 11
+  },
+  {
+   "type": "washing_line",
+   "x": 43,
+   "y": 41,
+   "variant": 2,
+   "walk": true
+  },
+  {
+   "type": "washing_line",
+   "x": 67,
+   "y": 14,
+   "variant": 2,
+   "walk": true
   }
  ],
  "region": "ireland",

@@ -38,6 +38,22 @@ static func moves_learned_at(sp: Dictionary, level: int) -> Array:
 static func replace_move(c: Creature, slot: int, id: String, move_db: MoveDB) -> void:
 	c.moves[slot] = c.make_move_slot(id, move_db)
 
+## The move relearner's list: learnset moves at or below its level that it doesn't know, in learn order.
+static func relearnable(c: Creature) -> Array:
+	var out := []
+	for entry in c.species.learnset:
+		var id := str(entry[1])
+		if int(entry[0]) <= c.level and not c.has_move(id) and id not in out:
+			out.append(id)
+	return out
+
+## Teaches a relearned move: into a free slot if there is one, else over `slot`.
+static func relearn(c: Creature, id: String, slot: int, move_db: MoveDB) -> void:
+	if c.moves.size() < Rules.MAX_MOVES:
+		c.moves.append(c.make_move_slot(id, move_db))
+	else:
+		replace_move(c, slot, id, move_db)
+
 ## Level-up evolutions. ctx = {weather, time} from the battle: an evolution with "weather" or "time"
 ## also needs that weather or time of day; one with "friendship" needs that much friendship.
 static func evolution_target(c: Creature, ctx := {}) -> String:

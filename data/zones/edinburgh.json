@@ -237,7 +237,11 @@
    "script": "edi_guide",
    "sprite": "tour_guide",
    "x": 16.0,
-   "y": 42.0
+   "y": 42.0,
+   "times": [
+    "day",
+    "dusk"
+   ]
   },
   {
    "facing": "down",
@@ -255,7 +259,11 @@
    "script": "edi_gardener",
    "sprite": "farmer",
    "x": 20.0,
-   "y": 19.0
+   "y": 19.0,
+   "times": [
+    "day",
+    "dusk"
+   ]
   },
   {
    "facing": "down",
@@ -301,6 +309,32 @@
    "trainer": "edi_warden",
    "x": 36.0,
    "y": 20.0
+  },
+  {
+   "id": "edinburgh_lamplighter",
+   "sprite": "lamplighter",
+   "x": 33,
+   "y": 37,
+   "facing": "down",
+   "move": "still",
+   "script": "edinburgh_lamplighter",
+   "name": "Lamplighter",
+   "times": [
+    "night"
+   ]
+  },
+  {
+   "id": "edinburgh_astronomer",
+   "sprite": "astronomer",
+   "x": 31,
+   "y": 24,
+   "facing": "down",
+   "move": "still",
+   "script": "edinburgh_astronomer",
+   "name": "Astronomer",
+   "times": [
+    "night"
+   ]
   }
  ],
  "props": [
@@ -908,7 +942,7 @@
    "y": 33.0
   },
   {
-   "text": "DÙN ÈIDEANN. The Gaelic name of this city, 'the fort of Eidyn'. It's pronounced about like 'doon AY-dinn'. Say it with a straight face and a few locals will take you aside to say it better.",
+   "text": "D\u00d9N \u00c8IDEANN. The Gaelic name of this city, 'the fort of Eidyn'. It's pronounced about like 'doon AY-dinn'. Say it with a straight face and a few locals will take you aside to say it better.",
    "x": 10.0,
    "y": 27.0
   },
