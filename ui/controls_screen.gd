@@ -13,7 +13,7 @@ var _armed_at := 0
 
 func _build() -> void:
 	set_title("Controls")
-	set_hint("Up / Down  Choose        Z  Rebind        X  Back")
+	set_hints([["updown", "Choose"], ["confirm", "Rebind"], ["cancel", "Back"]])
 	var col := VBoxContainer.new()
 	col.set_anchors_preset(Control.PRESET_FULL_RECT)
 	col.add_theme_constant_override("separation", 8)

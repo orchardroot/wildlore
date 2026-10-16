@@ -26,7 +26,7 @@ func _build() -> void:
 	_all = Game.dex.ids()
 	for i in _all.size():
 		_no[_all[i]] = i + 1
-	set_hint("Up / Down  Browse      Left / Right  Jump 10      Shift  All / Caught / Seen      Z  Map      X  Back")
+	set_hints([["updown", "Browse"], ["shoulders", "Jump 10"], ["run", "All / Caught / Seen"], ["confirm", "Map"], ["cancel", "Back"]])
 	var row := HBoxContainer.new()
 	row.set_anchors_preset(Control.PRESET_FULL_RECT)
 	row.add_theme_constant_override("separation", 22)

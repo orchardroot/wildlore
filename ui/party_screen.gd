@@ -69,9 +69,9 @@ func _refresh() -> void:
 
 func _set_hint() -> void:
 	match _mode:
-		"list": set_hint("Z  Choose        X  Back")
-		"actions": set_hint("Z  Select        X  Back")
-		"swap": set_hint("Z  Swap with here        X  Cancel")
+		"list": set_hints([["confirm", "Choose"], ["cancel", "Back"]])
+		"actions": set_hints([["confirm", "Select"], ["cancel", "Back"]])
+		"swap": set_hints([["confirm", "Swap with here"], ["cancel", "Cancel"]])
 
 func _slot_button(c: Creature, i: int) -> Button:
 	var b := Button.new()

@@ -8,7 +8,7 @@ var _note: Label
 var _confirm_slot := ""
 
 func _build() -> void:
-	set_hint("Z  Choose        X  Back")
+	set_hints([["confirm", "Choose"], ["cancel", "Back"]])
 	var col := VBoxContainer.new()
 	col.set_anchors_preset(Control.PRESET_FULL_RECT)
 	col.add_theme_constant_override("separation", 14)

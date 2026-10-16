@@ -12,7 +12,7 @@ var _note: Label
 
 func _build() -> void:
 	set_title("The Ark")
-	set_hint("Z  Move        X  Back")
+	set_hints([["confirm", "Move"], ["cancel", "Back"]])
 	var row := HBoxContainer.new()
 	row.set_anchors_preset(Control.PRESET_FULL_RECT)
 	row.add_theme_constant_override("separation", 28)

@@ -86,11 +86,11 @@ func _rebuild() -> void:
 
 func _set_hint() -> void:
 	if _mode == "pick":
-		set_hint("Z  Use on this one        X  Back")
+		set_hints([["confirm", "Use on this one"], ["cancel", "Back"]])
 	elif _kinds.size() > 1:
-		set_hint("Left / Right  Switch tab        Z  Use        X  Back")
+		set_hints([["leftright", "Switch tab"], ["confirm", "Use"], ["cancel", "Back"]])
 	else:
-		set_hint("Z  Use        X  Back")
+		set_hints([["confirm", "Use"], ["cancel", "Back"]])
 
 func _draw_tabs() -> void:
 	UIKit.clear(_tabs_row)

@@ -13,7 +13,7 @@ var _note: Label
 func _build() -> void:
 	set_title("Pause")
 	header_right.text = Game.data.player_name
-	set_hint("Z  Choose        X  Close")
+	set_hints([["confirm", "Choose"], ["cancel", "Close"]])
 	var row := HBoxContainer.new()
 	row.set_anchors_preset(Control.PRESET_FULL_RECT)
 	row.add_theme_constant_override("separation", 28)

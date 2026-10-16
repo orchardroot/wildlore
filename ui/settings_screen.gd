@@ -13,7 +13,7 @@ var _t := 0.0
 
 func _build() -> void:
 	set_title("Settings")
-	set_hint("Left / Right  Change        Z  Select        X  Back")
+	set_hints([["leftright", "Change"], ["confirm", "Select"], ["cancel", "Back"]])
 	var col := VBoxContainer.new()
 	col.set_anchors_preset(Control.PRESET_FULL_RECT)
 	col.add_theme_constant_override("separation", 10)

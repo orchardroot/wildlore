@@ -11,7 +11,8 @@ var _looks: Array = []
 
 func _build() -> void:
 	set_title("Who's setting off?")
-	set_hint("Type your name, or pick letters        Enter  Done        Backspace  Delete")
+	set_hints([["=Type your name, or pick letters", "", "kbd"], ["=Enter", "Done", "kbd"], ["=Backspace", "Delete", "kbd"],
+		["=Pick letters", "", "pad"], ["confirm", "Choose", "pad"], ["cancel", "Delete", "pad"]])
 	var col := VBoxContainer.new()
 	col.set_anchors_preset(Control.PRESET_FULL_RECT)
 	col.add_theme_constant_override("separation", 14)

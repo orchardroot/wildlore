@@ -99,9 +99,9 @@ func _money() -> void:
 
 func _set_hint() -> void:
 	match _mode:
-		"root": set_hint("Z  Choose        X  Leave")
-		"list": set_hint("Z  Pick        X  Back")
-		"qty": set_hint("Z  Confirm        X  Back")
+		"root": set_hints([["confirm", "Choose"], ["cancel", "Leave"]])
+		"list": set_hints([["confirm", "Pick"], ["cancel", "Back"]])
+		"qty": set_hints([["confirm", "Confirm"], ["cancel", "Back"]])
 
 func _open_list(side: String) -> void:
 	_side = side
