@@ -89,6 +89,12 @@ func _left(c: Creature) -> Control:
 		cc.add_child(st)
 		v.add_child(cc)
 	v.add_child(UIKit.fill())
+	var evo: String = preload("res://ui/pedia_screen.gd").evolution_line(c.species)
+	if evo != "":
+		var el := UIKit.label(evo, 20, UIKit.GOLD)
+		el.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		el.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		v.add_child(el)
 	var nxt := Rules.xp_for_level(c.species.growth, c.level + 1)
 	var xp := UIKit.label("XP %d  (next level at %d)" % [c.xp, nxt] if c.level < Rules.MAX_LEVEL else "XP %d  (maxed out)" % c.xp, 20, UIKit.MUTED)
 	xp.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER

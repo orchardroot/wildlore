@@ -1,7 +1,7 @@
 class_name MapView
 extends Control
 ## Draws the isles from data/world_map.json: coastlines, towns (visited bright, known dim, unbuilt hidden),
-## the player's last town, and optional highlighted places (Creaturepedia habitats).
+## the player's last town, optional highlighted places (Creaturepedia habitats) and the "Where next?" spot.
 
 const SEA := Color("2b4157")
 const LAND := Color("8fa66b")
@@ -10,6 +10,7 @@ const DIM := Color("c9c2a8")
 const LIT := Color("ffd166")
 
 var highlight: Array = []   # zone ids to ring in heather purple
+var objective := Vector2(-1, -1)  # map units: the "Where next?" spot, ringed in gold; (-1, -1) for none
 var zoom := 1.8             # around `centre` (map units); 1.0 shows all the isles
 var centre := Vector2(-1, -1)
 var font: Font
@@ -58,6 +59,11 @@ func _draw() -> void:
 		if a.is_empty() or b.is_empty() or not d.flag("visited_" + str(pair[0])):
 			continue
 		draw_dashed_line(_p(float(a.x), float(a.y), xf), _p(float(b.x), float(b.y), xf), Color("e9e2c8"), 2.0, 8.0)
+	if objective.x >= 0:  # under the town dots and names, so it never hides a label
+		var op := _p(objective.x, objective.y, xf)
+		draw_arc(op, 16.0, 0, TAU, 28, Color(0, 0, 0, 0.5), 7.0)
+		draw_arc(op, 16.0, 0, TAU, 28, LIT, 4.0)
+		draw_arc(op, 23.0, 0, TAU, 32, Color(LIT, 0.45), 2.0)
 	var here := str(d.flag("last_town")) if d.flag("last_town") else ""
 	var labels: Array = []  # Rect2s already drawn, so neighbours like Macclesfield and Buxton don't overprint
 	for town in m.get("towns", {}):

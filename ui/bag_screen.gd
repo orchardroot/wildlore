@@ -181,7 +181,7 @@ func _item_pressed(id: String) -> void:
 	_note.text = ""
 	_open_picker()
 
-func _open_picker() -> void:
+func _open_picker(focus := 0) -> void:
 	UIKit.clear(_picker)
 	_pick_buttons.clear()
 	for i in party().size():
@@ -215,7 +215,7 @@ func _open_picker() -> void:
 		_pick_buttons.append(b)
 	UIKit.wrap_focus(_pick_buttons)
 	_picker_panel.visible = true
-	UIKit.focus_later(_pick_buttons[0])
+	UIKit.focus_later(_pick_buttons[clampi(focus, 0, _pick_buttons.size() - 1)])
 	_set_hint()
 
 func _close_picker() -> void:
@@ -243,11 +243,15 @@ func _use(id: String, idx: int) -> void:
 		if r.get("ok", false) and (_kinds.is_empty() or _bag.count(id) == 0):
 			_note.text += " That was the last one."
 		return
-	if _mode == "pick" and r.get("ok", false):
+	if _mode != "pick":
+		return
+	if r.get("ok", false):
 		_rebuild_keep_note()
+	if MenuLogic.stay_in_picker(r.get("ok", false), _bag.count(id)):
+		_open_picker(idx)  # the picker shows HP, so redraw it; stay put so the next one is a single press
+	else:
+		_note.text += " That was the last one."
 		_close_picker()
-	elif _mode == "pick":
-		_open_picker()  # the picker shows HP, so redraw it; stay put so another member can be tried
 
 func _rebuild_keep_note() -> void:
 	var n := _note.text
