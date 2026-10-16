@@ -1,0 +1,41 @@
+{
+ "butterslip_owner": [
+  {
+   "do": "say",
+   "who": "Cafe Owner",
+   "text": "Welcome to the Butter Slip Cafe. We are named for the slip outside, one of Kilkenny's narrow medieval lanes. Mind your elbows."
+  },
+  {
+   "do": "say",
+   "who": "Cafe Owner",
+   "text": "If someone says they are 'giving out' in Kilkenny, they are scolding you, not donating. I am mostly donating soup."
+  },
+  {
+   "do": "if",
+   "flag": "kilkenny_butterslip_gift",
+   "then": [
+    {
+     "do": "say",
+     "who": "Cafe Owner",
+     "text": "A second cup? That is how a visit turns into an afternoon. Go on with you."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Cafe Owner",
+     "text": "Here, a cup of tea for the road. It is the Irish way to keep warm and keep talking."
+    },
+    {
+     "do": "give_item",
+     "item": "cup_of_tea",
+     "n": 1
+    },
+    {
+     "do": "set",
+     "flag": "kilkenny_butterslip_gift"
+    }
+   ]
+  }
+ ]
+}
