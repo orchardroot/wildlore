@@ -372,6 +372,8 @@ func validate(all: Dictionary) -> Array:
 			var dp := Vector2i(x, y)
 			if id not in ["mesh_gallery", "testbed"] and tiles[y][x] == "door" and warp_at(dp).is_empty() and str(building_at(dp).get("style", "")) != "station":
 				e.append(tag + "door at %d,%d leads nowhere (add a warp)" % [x, y])
+			if tiles[y][x] == "door" and in_bounds(dp + Vector2i(0, 1)) and tile_at(dp + Vector2i(0, 1)) in ["rail", "level_crossing"]:
+				e.append(tag + "door at %d,%d opens straight onto the railway" % [x, y])
 	var covered := {}
 	for p in props:
 		if p.get("type") == "building":
