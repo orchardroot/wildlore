@@ -1,0 +1,46 @@
+{
+ "caban_poet": [
+  {
+   "do": "say",
+   "who": "Caban Poet",
+   "text": "Welcome to the caban. That is the hut where quarrymen ate lunch."
+  },
+  {
+   "do": "say",
+   "who": "Caban Poet",
+   "text": "It was a school, a debating chamber and a poetry club in one. They argued about politics and verse in equal measure."
+  },
+  {
+   "do": "say",
+   "who": "Caban Poet",
+   "text": "A good caban had a stove, a bench and a bard. Mine is the bard. I only need the stove."
+  },
+  {
+   "do": "if",
+   "flag": "quarry_caban_flask",
+   "then": [
+    {
+     "do": "say",
+     "who": "Caban Poet",
+     "text": "Another flask? No, no, I have to keep one for the poem. Off you go."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Caban Poet",
+     "text": "Here, a flask for the road. Hot and sweet. Do not tell the overseer."
+    },
+    {
+     "do": "give_item",
+     "item": "flask_of_tea",
+     "n": 1
+    },
+    {
+     "do": "set",
+     "flag": "quarry_caban_flask"
+    }
+   ]
+  }
+ ]
+}

@@ -734,6 +734,20 @@
    "variant": 2.0,
    "x": 44.0,
    "y": 28.0
+  },
+  {
+   "type": "building",
+   "style": "slate_cottage",
+   "x": 38,
+   "y": 6,
+   "w": 4,
+   "h": 3,
+   "show_label": false
+  },
+  {
+   "type": "buffer_stop",
+   "x": 35,
+   "y": 30
   }
  ],
  "region": "north_wales",
@@ -743,12 +757,12 @@
   "$$$$$$$$$$$$$$............................................TT",
   "$$$$$$$$$$$$$$...hhhhhh...BBB...hhhhhh....................TT",
   "$$$$$$$$$$$$$$...hhhhhh..RBBB...hhhhhh.....WWWWWWWWWWWWWWWWT",
-  "$$$$$$$$$$$$$$...hhhhhh...BBB.R.hhhhhh.....Wff.........fffWT",
-  "$$$$$$$$$$$$$$...hhhhhh....###..hhhhhh.....Wff.BBBBBB..fffWT",
-  "$$$$$$$$$$$$$$...hhhhhh..R.###.Rhhhhhh.....Wff.BBBBBB..fffWT",
-  "$$$$$$$$$$$$$$.............###.............W...BBBBBB.....WT",
+  "$$$$$$$$$$$$$$...hhhhhh...BDB.R.hhhhhh.....Wff.........fffWT",
+  "$$$$$$$$$$$$$$...hhhhhh....###..hhhhhhBBBB.Wff.BBBBBB..fffWT",
+  "$$$$$$$$$$$$$$...hhhhhh..R.###.RhhhhhhBBBB.Wff.BBBBBB..fffWT",
+  "$$$$$$$$$$$$$$.............###........BBDB.W...BBBBBB.....WT",
   "$$$$$$$$$$$$$$...hhhhhhh...###..hhhhhhh....W...BBBBBB.....WT",
-  "$$$$$$$$$$$$$$...hhhhhhh...###..hhhhhhh....W...BBBBBB.....WT",
+  "$$$$$$$$$$$$$$...hhhhhhh...###..hhhhhhh....W...BBBDBB.....WT",
   "$$$$$$$$$$$$$$...hhhhhhhR..###..Rhhhhhh....W......#.......WT",
   "$$$$$$$$$$$$$$::::::hhhh...###..hhhhhhh....W......#.......WT",
   "$$$$$$$$$$$$$$::::::.......###,,,,,,,,,,,,.W......#.......WT",
@@ -758,7 +772,7 @@
   "$$$$$$$$$$$$$$:BBBBBBBB....===.BBBBBB.BBBBB.BBBBB.:.,,,,,.TT",
   "$$$$$$$$$$$$$$:BBBDBBBB....===.BBBBBB.BBBBB.BBBBB.:.,,,,,.TT",
   "$$$$$$$$$$$$$$:::::::::....===.BBBBBB.BBBBB.BBBBB.:.,,,,,.TT",
-  "$$$$$$$$$$$$$$::::::.......===.BBBDBB.BBDBB.BBBBB.:.......TT",
+  "$$$$$$$$$$$$$$::::::.......===.BBBDBB.BBDBB.BBDBB.:.......TT",
   "$$$$$$$$$$$$$$:::::::::::::===:::::::::::::::::::::::::::::T",
   "$$$$$$$$::::::::::::========================================",
   "$$$$$$$$::::::::::::========================================",
@@ -767,8 +781,8 @@
   "$$$$$$$$$$$$$$:::::BBBBBB.BBBBBBB.:........:.BBBBBB.BBBBBBTT",
   "$$$$$$$$$$$$$$:::::BBBBBB.BBBBBBB.:BBBBBBBB:.BBBBBB.BBBBBBTP",
   "$$$$$$$$$$$$$$:::::BBBBBB.BBBBBBB.:BBBDBBBB:.BBBBBB.BBBBBBTT",
-  "$$$$$$$$$$$$$$:::::BBBBBB.BBBBBBB.:________:.BBBBBB.BBBBBBTT",
-  "$$$$$$$$$$$$$$:::::::::::::::::::.:!!!!!!!!:.:::::::::::::TT",
+  "$$$$$$$$$$$$$$:::::BBDBBB.BBBDBBB.:________:.BBDBBB.BBBDBBTT",
+  "$$$$$$$$$$$$$$:::::::::::::::::::.:!!!!!!!!!!!!&!!!!!!!&!!!!",
   "$$$$$$$$$$$$$$::::ssssssssssssssss,,,,,,,,,,,,sss...,,,,,,TT",
   "$$$$$$$$$$$$$$::::~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~$$$$$$$$$$$",
   "$$$$$$$$$$$$$$::::~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~$$$$$$$$$$$",
@@ -838,6 +852,70 @@
    "to": "holyhead_terminal",
    "tx": 6,
    "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 27,
+   "y": 5,
+   "to": "holyhead_watchtower",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 46,
+   "y": 20,
+   "to": "holyhead_museum",
+   "tx": 7,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 21,
+   "y": 29,
+   "to": "holyhead_chippy",
+   "tx": 6,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 29,
+   "y": 29,
+   "to": "holyhead_ferryinn",
+   "tx": 7,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 50,
+   "y": 10,
+   "to": "holyhead_cybi",
+   "tx": 7,
+   "ty": 8,
+   "facing": "up"
+  },
+  {
+   "x": 47,
+   "y": 29,
+   "to": "holyhead_home1",
+   "tx": 6,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 55,
+   "y": 29,
+   "to": "holyhead_home2",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 40,
+   "y": 8,
+   "to": "holyhead_home3",
+   "tx": 5,
+   "ty": 6,
    "facing": "up"
   }
  ],
