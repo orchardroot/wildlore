@@ -99,21 +99,7 @@ add("holyhead_cybi", "St Cybi's Church", "holyhead", (47, 6, 6, 5, 3), "church",
         "The walls around the churchyard are Roman. They have been guarding the place for around 1,700 years, and are not tired yet.",
         "Look up at the old roof beams. Locals have been repairing them since the medieval days."])],
     size=(15, 11))
-add("holyhead_home1", "Slate Cottage", "holyhead", (45, 26, 6, 4, 2), "home", [
-    ("hh1_gran", "mum", "Resident", [
-        "Come in, bach. Bach just means little, but we say it to everyone, even people taller than us.",
-        "Cawl is our family stew: lamb, leeks, potatoes and whatever is left. It tastes better on the second day.",
-        "The terns come back every summer to the breakwater. They fly all the way from the Antarctic, you know.",
-        "My Dad said the harbour never sleeps. He worked nights on the ferries for thirty years and agreed."])],
-    size=(12, 9))
-add("holyhead_home2", "Harbour Terrace", "holyhead", (52, 26, 6, 4, 3), "home", [
-    ("hh2_dad", "villager_5", "Resident", [
-        "Shush, the baby is asleep. Well, the cat is. It is the same thing.",
-        "If something is lush here, it is great. If you are twp, you are a bit daft. Both useful words.",
-        "The ferries are huge, but the ships in the old days carried the post. My great-grandad sorted it at the station.",
-        "Fancy a cuppa while you are here? There is always one on the go.",
-        ], ("holyhead_home2_tea", "cup_of_tea", "Mind, it is hot. Do not drink it all at once, you will miss the ferry."))],
-    size=(11, 9))
+# holyhead_home1 and _home2 (the houses at 45,26 and 52,26) back onto the railway now, so they have no doors.
 add("holyhead_home3", "Corner Cottage", "holyhead", (38, 6, 4, 3, 2), "cottage", [
     ("hh3_lad", "student", "Resident", [
         "I am revising for my exams. By which I mean I am sitting near a book.",
