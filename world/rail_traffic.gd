@@ -3,7 +3,9 @@ extends Node3D
 ## The occasional passing train. Every 40-90 s one runs along a line that is open at both ends (map edge or
 ## tunnel, calling at the station if it passes one), or comes in to a buffer stop, waits and goes back out.
 ## Level crossings shut while a train is near (can_enter asks `closed`), and a train waits short of a crossing
-## somebody is standing on, so nobody is ever run over or boxed in. Purely visual otherwise.
+## somebody is standing on, so nobody is ever run over or boxed in. Otherwise it is scenery, and sound:
+## a rumble that swells as it nears and a rush as it passes, the two-tone alarm while a crossing is shut, and a
+## brake squeal coming into a platform, all fading with distance from the camera's focus (the player).
 
 const SPEED := 6.0          # tiles per second at line speed (the player walks at 4)
 const ACCEL := 2.5          # tiles per second squared, speeding up and braking
@@ -17,6 +19,9 @@ const CLOSE_AHEAD := 10.0   # a crossing shuts this many tiles before the train 
 const HOLD_SHORT := 0.9     # how far short of an occupied crossing a train stops
 const LIVERIES := [Color("4150a8"), Color("a3262a"), Color("2f6b4a"), Color("3b6fa8"), Color("6a3f8f")]
 const DIRS := [Vector2i(1, 0), Vector2i(-1, 0), Vector2i(0, 1), Vector2i(0, -1)]
+const HEAR_NEAR := 3.0      # full volume within this many tiles
+const HEAR_RANGE := 36.0    # silent beyond this
+const RUSH_AT := 9.0        # the rush of it going by, when it first comes this close at speed
 
 var zone: ZoneData
 var routes: Array = []
@@ -28,6 +33,12 @@ var run: Dictionary = {}    # the train on the line now, {} when none
 var _closed := {}
 var _cars: Array = []
 var _mat: ShaderMaterial
+## Things the sound should play this frame ("brake"); tick queues them, _process plays and clears them.
+var sound_events: Array = []
+var _snd: AudioStreamPlayer
+var _rumble := -1
+var _alarm := -1
+var _rushed := false
 
 ## `first_wait` < 0 picks a random first wait (the --train=<seconds> dev switch sets it for screenshots).
 func setup(z: ZoneData, occupied: Callable, first_wait := -1.0) -> void:
@@ -46,6 +57,7 @@ func _process(delta: float) -> void:
 	tick(minf(delta, 0.1))
 	if _mat:
 		_mat.set_shader_parameter("glow", Meshes.glow.emission_energy_multiplier if Meshes.glow else 0.0)
+	_sound()
 
 ## Advances the timetable by `delta` seconds (tests drive this directly).
 func tick(delta: float) -> void:
@@ -128,12 +140,16 @@ func _move(delta: float) -> void:
 				limit = run.head - stop_at
 				limit_kind = "hold"
 	var want := minf(SPEED, sqrt(2.0 * ACCEL * maxf(limit, 0.0)))
+	if limit_kind in ["platform", "buffers"] and want < SPEED - 0.05 and not run.get("braking", false):
+		run.braking = true
+		sound_events.append("brake")
 	run.v = minf(want, run.v + ACCEL * delta)
 	var step := minf(run.v * delta, maxf(limit, 0.0))
 	run.head += step * run.sign
 	if limit - step < 0.02 and limit_kind in ["platform", "buffers"]:
 		run.v = 0.0
 		run.dwell = DWELL
+		run.braking = false
 		run.stops = run.stops.filter(func(s): return s[1] != limit_kind)
 	elif limit - step < 0.02 and limit_kind == "hold":
 		run.v = 0.0
@@ -186,6 +202,80 @@ func _place_cars() -> void:
 		var y := zone.height_at(tile) * ZoneBuilder.LEVEL + Landmarks.RAIL_TOP
 		var yaw := atan2(-dir.y, dir.x) + (PI if k == CARS - 1 else 0.0)
 		mi.transform = Transform3D(Basis(Vector3.UP, yaw), Vector3(at.x, y, at.y))
+
+# --- sound -------------------------------------------------------------------------------------------------------
+
+## Gain in dB for a sound `d` tiles away: full close by, then falling off, and gone past HEAR_RANGE.
+static func hear_db(d: float) -> float:
+	if d >= HEAR_RANGE:
+		return -80.0
+	var db := -18.0 * log(maxf(d, HEAR_NEAR) / HEAR_NEAR) / log(10.0)
+	var edge := HEAR_RANGE - 8.0
+	if d > edge:
+		db -= 40.0 * (d - edge) / 8.0
+	return db
+
+## Where the listener stands, in tile x/z: the point the camera rig follows (the player). null with no camera.
+func _ear() -> Variant:
+	var cam := get_viewport().get_camera_3d() if is_inside_tree() else null
+	if cam == null:
+		return null
+	var p := cam.global_position
+	if cam.get_parent() is Node3D:
+		p = (cam.get_parent() as Node3D).global_position
+	return Vector2(p.x, p.z)
+
+func _sound() -> void:
+	var ear = _ear()
+	if run.is_empty() or run.done or ear == null:
+		sound_events.clear()
+		if _snd and _snd.playing:
+			_snd.stop()
+		_rumble = -1
+		_alarm = -1
+		_rushed = false
+		return
+	if _snd == null:
+		_snd = AudioStreamPlayer.new()
+		_snd.name = "TrainSound"
+		var poly := AudioStreamPolyphonic.new()
+		poly.polyphony = 4  # rumble, alarm, and a rush or a squeal on top
+		_snd.stream = poly
+		add_child(_snd)
+	if not _snd.playing:
+		_snd.play()
+		_rumble = -1
+		_alarm = -1
+	var pb := _snd.get_stream_playback() as AudioStreamPlaybackPolyphonic
+	if pb == null:
+		return
+	_snd.volume_db = linear_to_db(maxf(Settings.ambience_volume, 0.0001))
+	var head: float = run.head
+	var length: float = run.length
+	var d := minf(RailTraffic.point_at(run.path, head).distance_to(ear), RailTraffic.point_at(run.path, head - length).distance_to(ear))
+	d = minf(d, RailTraffic.point_at(run.path, head - length * 0.5).distance_to(ear))
+	var pace: float = run.v / SPEED
+	if _rumble < 0:
+		_rumble = pb.play_stream(load("res://audio/ambience/train_run.wav"), 0.0, -80.0)
+	pb.set_stream_volume(_rumble, hear_db(d) + linear_to_db(0.15 + 0.85 * pace))
+	pb.set_stream_pitch_scale(_rumble, 0.75 + 0.35 * pace)  # the wheels clack faster as it speeds up
+	if not _rushed and d < RUSH_AT and pace > 0.6:
+		_rushed = true
+		pb.play_stream(load("res://audio/sfx/train_rush.wav"), 0.0, hear_db(d) - 3.0)
+	var cd := INF
+	for c in _closed:
+		cd = minf(cd, (Vector2(c) + Vector2(0.5, 0.5)).distance_to(ear))
+	if cd < INF:
+		if _alarm < 0:
+			_alarm = pb.play_stream(load("res://audio/ambience/crossing_alarm.wav"), 0.0, -80.0)
+		pb.set_stream_volume(_alarm, hear_db(cd) - 4.0)
+	elif _alarm >= 0:
+		pb.stop_stream(_alarm)
+		_alarm = -1
+	for e in sound_events:
+		if e == "brake":
+			pb.play_stream(load("res://audio/sfx/brake_squeal.wav"), 0.0, hear_db(d) - 6.0)
+	sound_events.clear()
 
 # --- route finding (static, so tests can use it without a scene) -----------------
 
