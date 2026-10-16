@@ -225,6 +225,13 @@ func ledge_landing(p: Vector2i) -> Vector2i:
 	var q := p + Vector2i(0, 1)
 	return q
 
+## The building prop covering tile `p`, or {}.
+func building_at(p: Vector2i) -> Dictionary:
+	for pr in props:
+		if pr.get("type") == "building" and p.x >= int(pr.x) and p.x < int(pr.x) + int(pr.w) and p.y >= int(pr.y) and p.y < int(pr.y) + int(pr.h):
+			return pr
+	return {}
+
 func warp_at(p: Vector2i) -> Dictionary:
 	for w in warps:
 		if int(w.x) == p.x and int(w.y) == p.y:
@@ -354,6 +361,12 @@ func validate(all: Dictionary) -> Array:
 		e.append(tag + "ferry tile is not walkable")
 	elif not ferry.is_empty() and walkable(spawn) and not reachable(ferry_tile, GATE_ABILITIES, corks).has(spawn):
 		e.append(tag + "ferry quay %s is boxed in: arriving by boat can't reach the town" % ferry_tile)
+	# every door goes somewhere: a warp, or a station's ticket office (the rail menu)
+	for y in height:
+		for x in width:
+			var dp := Vector2i(x, y)
+			if id not in ["mesh_gallery", "testbed"] and tiles[y][x] == "door" and warp_at(dp).is_empty() and str(building_at(dp).get("style", "")) != "station":
+				e.append(tag + "door at %d,%d leads nowhere (add a warp)" % [x, y])
 	var covered := {}
 	for p in props:
 		if p.get("type") == "building":

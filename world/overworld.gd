@@ -207,6 +207,13 @@ func _on_step(p: Vector2i) -> void:
 		Audio.sfx("door")
 		Router.goto_zone(str(w.to), Vector2i(int(w.tx), int(w.ty)), str(w.get("facing", player.facing)))
 		return
+	if zone.tile_at(p) == "door" and str(zone.building_at(p).get("style", "")) == "station":
+		Audio.sfx("door")
+		await ScriptRunner.start(self, [{"do": "rail"}])  # the ticket office
+		if not is_inside_tree() or not is_instance_valid(player):
+			return  # took the train
+		player.try_step("down")
+		return
 	var tile := zone.tile_at(p)
 	stepped.emit(p, tile)
 	var was_wading := player.wading

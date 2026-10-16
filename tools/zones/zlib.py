@@ -74,3 +74,54 @@ def shop(out, town, town_name, ret, music=""):
     z.npc(id="shopkeeper", sprite="shopkeeper", x=3, y=1, facing="down", move="still", script="shopkeeper")
     z.d["spawn"] = [4, 5]
     z.save(out + "/" + town + "_shop.json")
+
+LANDMARK_KINDS = ("library", "church", "mill", "hall", "museum", "cafe", "castle", "theatre")
+
+def landmark(out, zid, name, town, ret, kind, npcs, w=13, h=10):
+    """A walk-in landmark interior <zid> (e.g. "manchester_rylands") called `name`. Its exit door (bottom middle)
+    returns to `town` at `ret` = (x, y), the town tile just south of the landmark's door; arrive one tile above
+    the exit facing up, so the town's warp should target (w // 2, h - 3). `kind` (LANDMARK_KINDS) picks the
+    furniture. `npcs` = list of npc dicts (id, sprite, x, y, facing, move, script); keep them off rows h-3..h-2
+    near the middle column. Scripts live in data/dialogue/<zid>.json."""
+    assert kind in LANDMARK_KINDS, kind
+    floor = "|" if kind in ("library", "mill", "cafe", "theatre") else "+"
+    z = Z(zid, name, w, h, fill=floor, kind="interior", region="", music="", weather={})
+    z.border("x", 1)
+    dx = w // 2
+    z.set(dx, h - 2, "D")
+    z.warp(dx, h - 2, town, ret[0], ret[1], "down")
+    z.d["spawn"] = [dx, h - 3]
+    sides = list(range(2, dx - 1)) + list(range(dx + 2, w - 2))
+    if kind == "library":
+        for x in range(1, w - 1):
+            if abs(x - dx) > 1: z.prop("bookshelf", x, 1)
+        for x in (2, 3, w - 4, w - 3): z.prop("bookshelf", x, 4)
+        z.prop("table", dx - 2, 5); z.prop("table", dx + 2, 5)
+    elif kind == "church":
+        for y in (3, 5):
+            for x in sides: z.prop("bench", x, y)
+        z.prop("table", dx, 1)
+    elif kind == "mill":
+        for x in (2, 4, w - 5, w - 3): z.prop("table", x, 2)
+        z.prop("slate_heap", 1, 5); z.prop("table", w - 2, 5)
+    elif kind == "hall":
+        z.prop("statue", 2, 1); z.prop("statue", w - 3, 1)
+        z.prop("table", dx - 1, 3); z.prop("table", dx + 1, 3)
+    elif kind == "museum":
+        z.prop("statue", dx, 3); z.prop("bookshelf", 1, 1); z.prop("bookshelf", w - 2, 1)
+        for x in (3, w - 4): z.prop("table", x, 2); z.prop("table", x, 5)
+    elif kind == "cafe":
+        z.rect(2, 2, 4, 1, "C")
+        for x in (w - 5, w - 3): z.prop("table", x, 3); z.prop("table", x, 5)
+    elif kind == "castle":
+        for x in (1, w - 2): z.prop("rock", x, 1); z.prop("rock", x, h - 3)
+        z.prop("table", dx, 2); z.prop("bench", dx - 2, 4); z.prop("bench", dx + 2, 4)
+    elif kind == "theatre":
+        for y in (4, 5):
+            for x in sides: z.prop("bench", x, y)
+        z.prop("harp", 2, 1)
+    z.prop("potted_plant", 1, h - 3); z.prop("potted_plant", w - 2, h - 3)
+    for n in npcs:
+        z.npc(**n)
+    z.save(out + "/" + zid + ".json")
+    return z
