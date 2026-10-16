@@ -267,11 +267,14 @@ func _right(c: Creature) -> Control:
 	fv.add_theme_constant_override("separation", 6)
 	fp.add_child(fv)
 	var dex: Dictionary = c.species.get("dex", {})
-	var t := UIKit.label(str(dex.get("text", "")), 21)
+	# long entries step the type down so the panel never spills over the hint line
+	var chars := str(dex.get("text", "")).length() + str(dex.get("fact", "")).length()
+	var fs := 21 if chars <= 230 else (18 if chars <= 320 else 16)
+	var t := UIKit.label(str(dex.get("text", "")), fs)
 	t.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	fv.add_child(t)
 	fv.add_child(UIKit.label("Did you know?", 22, UIKit.GOLD))
-	var f := UIKit.label(str(dex.get("fact", "")), 21, Color("d8cfb4"))
+	var f := UIKit.label(str(dex.get("fact", "")), fs, Color("d8cfb4"))
 	f.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	fv.add_child(f)
 	return col
