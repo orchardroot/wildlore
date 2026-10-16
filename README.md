@@ -6,7 +6,7 @@ A monster-catching RPG across the UK and Ireland. You start in Macclesfield, bec
 
 ![Title](docs/screens/t13-title.png)
 
-## What's in 1.2
+## What's in 1.3
 
 All of it, start to finish, and then some. You leave home in Macclesfield with a hedgehog, a squirrel or an otter, and you walk (and cycle, and take the train, and catch the odd ferry) all the way round England, Wales, Scotland, Northern Ireland, Ireland and the Isle of Man, collecting ten Stones from ten Keepers while a heritage company with very good lanyards tries to buy the countryside. Then you go to Stonehenge for the Moot, find out who the Champion has been all along, and go to London to have a word with Lord Vane about his tower.
 
@@ -20,6 +20,9 @@ All of it, start to finish, and then some. You leave home in Macclesfield with a
 - About 500 buildings you can walk into: every landmark from the John Rylands Library to the Tower of London has someone inside who'll tell you something true about it, and every town has a few front doors open for a cuppa and a bit of local dialect
 - Railways that go somewhere: trains actually run (into termini, through tunnels, off over the horizon) and the level crossing barriers come down for them
 - A world that's actually alive: surf and gulls, birdsong, rain on the roof, footsteps that change with the ground, trains you can hear coming; weather that hangs about properly, chimney smoke, bobbing boats, lamplight pooling on the pavement, bunting, washing lines, and creatures rustling about in the long grass. Townsfolk notice the drizzle, some go home at night, and the lamplighter comes out
+- Journeys you can watch: the train pulls in and you get the window seat (with a cup of tea), the ferry crosses with the gulls, and the Raven gives you a lift over the map. Skippable, obviously
+- Every creature has its own cry, Keepers get a proper VS card, doors actually open, and the map tells you what's in each town and flies you there
+- Folk say hello like they mean it: Ey up, Shwmae, Bout ye, Alright la
 - Proper furniture in every room: fireplaces, rugs, a fryer in the chippy, pictures on the walls
 - Kinder to your thumbs: speed up battles and text, "super effective" tags once you know a creature, plain-English move descriptions, a "Where next?" hint, the Ark from the pause menu, nicknames, a move relearner in every Sanctuary, a Lavender Sachet to keep the riff-raff away, and button prompts that match your controller
 - The Team Thermos, a flask big enough for the whole team: switch it on and the ones on the bench learn from every win too
