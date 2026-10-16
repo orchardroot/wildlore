@@ -615,13 +615,23 @@
   },
   {
    "type": "oak",
-   "x": 46.0,
-   "y": 35.0
-  },
-  {
-   "type": "oak",
    "x": 49.0,
    "y": 34.0
+  },
+  {
+   "type": "buffer_stop",
+   "x": 15,
+   "y": 6
+  },
+  {
+   "type": "buffer_stop",
+   "x": 15,
+   "y": 11
+  },
+  {
+   "type": "buffer_stop",
+   "x": 33,
+   "y": 35
   }
  ],
  "region": "mid_wales",
@@ -629,43 +639,43 @@
   "$$$$$$$$^^RRRRRRRRRRRRPPPPPPPP===PTTTTTTTTTTTTTTTTTTTTTT",
   "$$$$$$$$^^RRBBBBBBBRRR.......:===:TTTTTTTTTTTTTTTTTTTTTP",
   "$$$$$$$$^^..BBBBBBB..........:===:....................TT",
-  "$$$$$$$$^^..BBBBBBB..........:===:....................TP",
+  "$$$$$$$$^^..BBBDBBB..........:===:....................TP",
   "$$$$$$$$^^...##########,,....:===:.TTTTTTTTTTTTTTTTTTTTT",
   "$$$$$$$$^^...##########,,....:===:...................TTT",
   "$$$$$$$$^^.,,,.!......##.....:===:...................TTT",
   "$$$$$$$$^^.,,,.!......##.....:===:....BBBBBBB.BBBBB..TTT",
   "$$$$$$$$^^.,,,.!.fff..#,,,,,.:===:....BBBBBBB.BBBBB..TTT",
   "$$$$$$$$^^.,,,.!.fff..#,,,,,.:===:....BBBBBBB.BBBBB..TTT",
-  "$$$$$$$$^^.....!.fff..#,,,,,.:===:....BBBBBBB.BBDBB..TTT",
+  "$$$$$$$$^^.....!.fff..#,,,,,.:===:....BBBDBBB.BBDBB..TTT",
   "$$$$$$$$^^.....!.fff..##.....:===:...################TTT",
   "$$$$$$wsss::.BBBBB....##.....:===:..#################TTT",
-  "$$$$$$wsss::.BBBBB....##.....:===:..#.BBBBBB##BBBBBB.TTT",
+  "$$$$$$wsss::.BBDBB....##.....:===:..#.BBBBBB##BBBBBB.TTT",
   "$$$$$$wsss::=:........##.....:===:..#.BBBBBB##BBBBBB.TTT",
-  "$$$$$$wsss::=:...............:===:..#.BBBBBB##BBBBBB.TTT",
+  "$$$$$$wsss::=:...............:===:..#.BBDBBB##BBDBBB.TTT",
   "$$$$$$wsss::=:.BBBBBBB.BBBBBB:===:..#.......##.......TTT",
   "$$$$$$wsss::=:.BBBBBBB.BBBBBB:===:..#.......##.......TTT",
   "$$$$$$wsss::=:.BBBBBBB.BBBBBB:===####................TTT",
-  "$$$$$$wsss::=:.BBBBBBB.BBBBBB:===####................TTT",
+  "$$$$$$wsss::=:.BBBDBBB.BBDBBB:===####................TTT",
   "$$$$$$wsss::=:...............:===:....................TT",
   "$$$$$$wsss::=:...............:===:....................TT",
   "$$$$$$wsss::=:...............:===:BBBBBBBB.BBBBB.BBBB.TT",
   "$$$$$$wsss::=:.BBBBBB.BBBBB..:===:BBBBBBBB.BBBBB.BBBB.TT",
   "$BBBB$wsss::=:.BBBBBB.BBBBB..:===:BBBBBBBB.BBBBB.BBBB.TT",
   "$BBBB|||||::=:.BBBBBB.BBBBB..:===:BBBBBBBB.BBBBB.BBBB.TT",
-  "$BBBB$wsss::=:.BBBDBB.BBDBB..:===:BBBBBBBB.BBBBB.BBBB.TT",
-  "$$$$$$wsss::=::::::::::::::::::::::::::::::::::::::::.TT",
+  "$BBDB$wsss::=:.BBBDBB.BBDBB..:===:BBBDBBBB.BBDBB.BDBB.TT",
+  "$$$___wsss::=::::::::::::::::::::::::::::::::::::::::.TT",
   "$$$$$$wsss::=========================================.TT",
   "$$$$$$wsss::=========================================.TT",
   "$$$$$$wsss::=::::::::::::::::::::::::::::::::::::::::.TT",
   "$$$$$$wsss::=:BBBBBB.BBBBBB..:===#::::::::............TT",
   "$$$$$$wsss::=:BBBBBB.BBBBBB..:===#BBBBBBBB............TT",
-  "$$$$$$wsss::=:BBBBBB.BBBBBB..:===#BBBDBBBB............TT",
+  "$$$$$$wsss::=:BBDBBB.BBDBBB..:===#BBBDBBBB............TT",
   "$$$$$$wsss::=:::::::::::::::.:===#________#...........TT",
-  "$$$$$$wsss::=:RRRRRRRRRRRRRRR:===!!!!!!!!!!........!!.TT",
+  "$$$$$$wsss::=:RRRRRRRRRRRRRRR:===!!!!!!!!!!!!!!!!!!!!!!!",
   "$$$$$$wsss::=:.BBBBB.#.......:===:...................TTT",
   "$$$$$$wsss::=:.BBBBB.#BBBB...:===:sssssssssssssssssssTTT",
   "$$$$$$wsss::=:.BBBBB.#BBBB...:===:s~~~~~~~~~~~~~~~~~sTTT",
-  "$$$$$$wsss::=:.BBBBB.#BBBB...:===:s~~~~~~~~~~~~~~~~~sTTT",
+  "$$$$$$wsss::=:.BBDBB.#BBBB...:===:s~~~~~~~~~~~~~~~~~sTTT",
   "$$$$$$wsss::=#########....,,,:===:s~~~~~~~~~~~~~~~~~sTTT",
   "$$$$$$wsss::=:.BBBB.#.fff.,,,:===:s~~~~~~~~~~~~~~~~~sTTT",
   "$$$$$$wsss::=:.BBBB.......,,,:===:s~~~~~~~~~~~~~~~~~sTTT",
@@ -744,6 +754,118 @@
    "ty": 7.0,
    "x": 48.0,
    "y": 10.0
+  },
+  {
+   "x": 3,
+   "y": 26,
+   "to": "aberystwyth_pier",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 15,
+   "y": 13,
+   "to": "aberystwyth_cliffrail",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 15,
+   "y": 3,
+   "to": "aberystwyth_camera",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 41,
+   "y": 10,
+   "to": "aberystwyth_oldcollege",
+   "tx": 7,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 40,
+   "y": 15,
+   "to": "aberystwyth_hughowen",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 48,
+   "y": 15,
+   "to": "aberystwyth_nlw",
+   "tx": 7,
+   "ty": 8,
+   "facing": "up"
+  },
+  {
+   "x": 37,
+   "y": 26,
+   "to": "aberystwyth_chippy",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 45,
+   "y": 26,
+   "to": "aberystwyth_icecream",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 18,
+   "y": 19,
+   "to": "aberystwyth_marineterrace",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 23,
+   "y": 33,
+   "to": "aberystwyth_arts",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 17,
+   "y": 39,
+   "to": "aberystwyth_castle",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 50,
+   "y": 26,
+   "to": "aberystwyth_home_pier",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 25,
+   "y": 19,
+   "to": "aberystwyth_home_harbour",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 16,
+   "y": 33,
+   "to": "aberystwyth_home_digs",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
   }
  ],
  "weather": {

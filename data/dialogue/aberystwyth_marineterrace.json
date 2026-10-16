@@ -1,0 +1,53 @@
+{
+ "marineterrace_landlady": [
+  {
+   "do": "say",
+   "who": "Mrs Pugh",
+   "text": "Croeso! Small rooms, big welcome, and wallpaper older than the railway."
+  },
+  {
+   "do": "say",
+   "who": "Mrs Pugh",
+   "text": "The railway reached Aberystwyth in 1864 and the Victorians arrived by the trainload. The terraces on the front were built for them. This is one."
+  },
+  {
+   "do": "say",
+   "who": "Mrs Pugh",
+   "text": "In winter, starlings roost under the pier at dusk, thousands of them. We switch the lights off and watch. Free show, and no ticket."
+  },
+  {
+   "do": "if",
+   "flag": "swales_marineterrace_gift",
+   "then": [
+    {
+     "do": "say",
+     "who": "Mrs Pugh",
+     "text": "Another cup? You will slosh. Off you go, bach."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Mrs Pugh",
+     "text": "Here, a cuppa for the road. You look like you have walked the Prom twice."
+    },
+    {
+     "do": "give_item",
+     "item": "cup_of_tea",
+     "n": 1
+    },
+    {
+     "do": "set",
+     "flag": "swales_marineterrace_gift"
+    }
+   ]
+  }
+ ],
+ "marineterrace_lodger": [
+  {
+   "do": "say",
+   "who": "Lodger",
+   "text": "Mrs Pugh's sofa is a proper cwtch. That is Welsh for a cosy cuddle, or a snug corner. I have not left it in three days."
+  }
+ ]
+}

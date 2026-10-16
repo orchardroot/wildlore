@@ -1,0 +1,53 @@
+{
+ "storeyarms_instructor": [
+  {
+   "do": "say",
+   "who": "Outdoor Instructor",
+   "text": "Waterproofs on, spirits up. Storey Arms is where the main Pen y Fan path begins, and it is nearly all up."
+  },
+  {
+   "do": "say",
+   "who": "Outdoor Instructor",
+   "text": "Pen y Fan is 886 metres, the highest peak in southern Britain. The park is Bannau Brycheiniog, after the old Welsh kingdom of Brycheiniog."
+  },
+  {
+   "do": "say",
+   "who": "Outdoor Instructor",
+   "text": "It is also Wales's first International Dark Sky Reserve, so on a clear night the stars come out in force."
+  },
+  {
+   "do": "if",
+   "flag": "swales_storeyarms_gift",
+   "then": [
+    {
+     "do": "say",
+     "who": "Outdoor Instructor",
+     "text": "Another flask? Leave some for the mountain. Off you go."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Outdoor Instructor",
+     "text": "Take a flask, it is hot. I have a shelf of them, and every one has been to the top."
+    },
+    {
+     "do": "give_item",
+     "item": "flask_of_tea",
+     "n": 1
+    },
+    {
+     "do": "set",
+     "flag": "swales_storeyarms_gift"
+    }
+   ]
+  }
+ ],
+ "storeyarms_cadet": [
+  {
+   "do": "say",
+   "who": "Student",
+   "text": "My group is learning to read a map. Mine says we are in the middle of a lake. It is a lovely map, to be fair."
+  }
+ ]
+}

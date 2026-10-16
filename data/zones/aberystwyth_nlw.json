@@ -1,0 +1,150 @@
+{
+ "id": "aberystwyth_nlw",
+ "name": "National Library of Wales",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "bookshelf",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 2,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 3,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 4,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 5,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 9,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 10,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 11,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 12,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 13,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 2,
+   "y": 4
+  },
+  {
+   "type": "bookshelf",
+   "x": 3,
+   "y": 4
+  },
+  {
+   "type": "bookshelf",
+   "x": 11,
+   "y": 4
+  },
+  {
+   "type": "bookshelf",
+   "x": 12,
+   "y": 4
+  },
+  {
+   "type": "table",
+   "x": 5,
+   "y": 5
+  },
+  {
+   "type": "table",
+   "x": 9,
+   "y": 5
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 8
+  },
+  {
+   "type": "potted_plant",
+   "x": 13,
+   "y": 8
+  }
+ ],
+ "warps": [
+  {
+   "x": 7,
+   "y": 9,
+   "to": "aberystwyth",
+   "tx": 48,
+   "ty": 16,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "nlw_archivist",
+   "sprite": "prof_garside",
+   "x": 7,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "nlw_archivist"
+  },
+  {
+   "id": "nlw_reader",
+   "sprite": "student",
+   "x": 5,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "nlw_reader"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  7,
+  8
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxxx",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x||||||D||||||x",
+  "xxxxxxxxxxxxxxx"
+ ]
+}

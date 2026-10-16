@@ -1,0 +1,89 @@
+{
+ "id": "aberystwyth_marineterrace",
+ "name": "Marine Terrace Guesthouse",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "bed",
+   "x": 10,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "table",
+   "x": 3,
+   "y": 3
+  },
+  {
+   "type": "bench",
+   "x": 3,
+   "y": 4
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 7
+  },
+  {
+   "type": "potted_plant",
+   "x": 11,
+   "y": 7
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 8,
+   "to": "aberystwyth",
+   "tx": 18,
+   "ty": 20,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "marineterrace_landlady",
+   "sprite": "mum",
+   "x": 6,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "marineterrace_landlady"
+  },
+  {
+   "id": "marineterrace_lodger",
+   "sprite": "hillwalker",
+   "x": 4,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "marineterrace_lodger"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  6,
+  7
+ ],
+ "rows": [
+  "xxxxxxxxxxxxx",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||CCC|x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||D|||||x",
+  "xxxxxxxxxxxxx"
+ ]
+}
