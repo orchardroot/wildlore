@@ -1,0 +1,96 @@
+{
+ "id": "inverness_castle",
+ "name": "Inverness Castle",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "rock",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "rock",
+   "x": 1,
+   "y": 8
+  },
+  {
+   "type": "rock",
+   "x": 12,
+   "y": 1
+  },
+  {
+   "type": "rock",
+   "x": 12,
+   "y": 8
+  },
+  {
+   "type": "table",
+   "x": 7,
+   "y": 2
+  },
+  {
+   "type": "bench",
+   "x": 5,
+   "y": 4
+  },
+  {
+   "type": "bench",
+   "x": 9,
+   "y": 4
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 8
+  },
+  {
+   "type": "potted_plant",
+   "x": 12,
+   "y": 8
+  }
+ ],
+ "warps": [
+  {
+   "x": 7,
+   "y": 9,
+   "to": "inverness",
+   "tx": 36,
+   "ty": 12,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "invcastle_guide",
+   "sprite": "tour_guide",
+   "x": 7,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "invcastle_guide"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  7,
+  8
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxx",
+  "x++++++++++++x",
+  "x++++++++++++x",
+  "x++++++++++++x",
+  "x++++++++++++x",
+  "x++++++++++++x",
+  "x++++++++++++x",
+  "x++++++++++++x",
+  "x++++++++++++x",
+  "x++++++D+++++x",
+  "xxxxxxxxxxxxxx"
+ ]
+}

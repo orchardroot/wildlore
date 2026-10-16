@@ -1,0 +1,78 @@
+{
+ "id": "inverness_market",
+ "name": "Victorian Market",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "slate_heap",
+   "x": 1,
+   "y": 5
+  },
+  {
+   "type": "table",
+   "x": 12,
+   "y": 5
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 6
+  },
+  {
+   "type": "potted_plant",
+   "x": 12,
+   "y": 6
+  }
+ ],
+ "warps": [
+  {
+   "x": 7,
+   "y": 7,
+   "to": "inverness",
+   "tx": 53,
+   "ty": 31,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "invmarket_stallholder",
+   "sprite": "villager_5",
+   "x": 7,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "invmarket_stallholder"
+  },
+  {
+   "id": "invmarket_shinty",
+   "sprite": "shinty_player",
+   "x": 5,
+   "y": 4,
+   "facing": "down",
+   "move": "still",
+   "script": "invmarket_shinty"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  7,
+  6
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxx",
+  "x||||||||||||x",
+  "x|CCCCCCCCCC|x",
+  "x||||||||||||x",
+  "x||||||||||||x",
+  "x||||||||||||x",
+  "x||||||||||||x",
+  "x||||||D|||||x",
+  "xxxxxxxxxxxxxx"
+ ]
+}

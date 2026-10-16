@@ -1,0 +1,89 @@
+{
+ "id": "cairn_ski",
+ "name": "Ski Centre",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "statue",
+   "x": 2,
+   "y": 1
+  },
+  {
+   "type": "statue",
+   "x": 11,
+   "y": 1
+  },
+  {
+   "type": "table",
+   "x": 6,
+   "y": 3
+  },
+  {
+   "type": "table",
+   "x": 8,
+   "y": 3
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 7
+  },
+  {
+   "type": "potted_plant",
+   "x": 12,
+   "y": 7
+  }
+ ],
+ "warps": [
+  {
+   "x": 7,
+   "y": 8,
+   "to": "cairngorms",
+   "tx": 59,
+   "ty": 16,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "cairnski_instructor",
+   "sprite": "fell_runner",
+   "x": 7,
+   "y": 2,
+   "facing": "down",
+   "move": "still",
+   "script": "cairnski_instructor"
+  },
+  {
+   "id": "cairnski_kid",
+   "sprite": "student",
+   "x": 7,
+   "y": 5,
+   "facing": "down",
+   "move": "still",
+   "script": "cairnski_kid"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  7,
+  7
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxx",
+  "x++++++++++++x",
+  "x++++++++++++x",
+  "x++++++++++++x",
+  "x++++++++++++x",
+  "x++++++++++++x",
+  "x++++++++++++x",
+  "x++++++++++++x",
+  "x++++++D+++++x",
+  "xxxxxxxxxxxxxx"
+ ]
+}

@@ -1,0 +1,104 @@
+{
+ "id": "aberdeen_maritime",
+ "name": "Maritime Museum",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "statue",
+   "x": 7,
+   "y": 3
+  },
+  {
+   "type": "bookshelf",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 12,
+   "y": 1
+  },
+  {
+   "type": "table",
+   "x": 3,
+   "y": 2
+  },
+  {
+   "type": "table",
+   "x": 3,
+   "y": 5
+  },
+  {
+   "type": "table",
+   "x": 10,
+   "y": 2
+  },
+  {
+   "type": "table",
+   "x": 10,
+   "y": 5
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 7
+  },
+  {
+   "type": "potted_plant",
+   "x": 12,
+   "y": 7
+  }
+ ],
+ "warps": [
+  {
+   "x": 7,
+   "y": 8,
+   "to": "aberdeen",
+   "tx": 30,
+   "ty": 38,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "maritime_shipwright",
+   "sprite": "shipwright",
+   "x": 7,
+   "y": 2,
+   "facing": "down",
+   "move": "still",
+   "script": "maritime_shipwright"
+  },
+  {
+   "id": "maritime_fisher",
+   "sprite": "fisherman_north",
+   "x": 7,
+   "y": 5,
+   "facing": "down",
+   "move": "still",
+   "script": "maritime_fisher"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  7,
+  7
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxx",
+  "x++++++++++++x",
+  "x++++++++++++x",
+  "x++++++++++++x",
+  "x++++++++++++x",
+  "x++++++++++++x",
+  "x++++++++++++x",
+  "x++++++++++++x",
+  "x++++++D+++++x",
+  "xxxxxxxxxxxxxx"
+ ]
+}

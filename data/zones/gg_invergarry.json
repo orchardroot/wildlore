@@ -1,0 +1,95 @@
+{
+ "id": "gg_invergarry",
+ "name": "Invergarry Castle",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "rock",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "rock",
+   "x": 1,
+   "y": 7
+  },
+  {
+   "type": "rock",
+   "x": 11,
+   "y": 1
+  },
+  {
+   "type": "rock",
+   "x": 11,
+   "y": 7
+  },
+  {
+   "type": "table",
+   "x": 6,
+   "y": 2
+  },
+  {
+   "type": "bench",
+   "x": 4,
+   "y": 4
+  },
+  {
+   "type": "bench",
+   "x": 8,
+   "y": 4
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 7
+  },
+  {
+   "type": "potted_plant",
+   "x": 11,
+   "y": 7
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 8,
+   "to": "great_glen",
+   "tx": 28,
+   "ty": 62,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "invergarry_guide",
+   "sprite": "ghillie",
+   "x": 6,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "invergarry_guide"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  6,
+  7
+ ],
+ "rows": [
+  "xxxxxxxxxxxxx",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++D+++++x",
+  "xxxxxxxxxxxxx"
+ ]
+}

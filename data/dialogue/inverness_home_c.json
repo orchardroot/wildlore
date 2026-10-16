@@ -1,0 +1,41 @@
+{
+ "inv_home_c_mum": [
+  {
+   "do": "say",
+   "who": "Resident",
+   "text": "Thomas Telford built the Caledonian Canal, finished in 1822, so boats could cross the Highlands without sailing round the top."
+  },
+  {
+   "do": "say",
+   "who": "Resident",
+   "text": "Go and watch the locks at Muirtown. The boats go up like they are climbing a staircase made of water."
+  },
+  {
+   "do": "if",
+   "flag": "inverness_home_c_gift",
+   "then": [
+    {
+     "do": "say",
+     "who": "Resident",
+     "text": "I have given you a cup already. Do not be greedy, the kettle is tired."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Resident",
+     "text": "There, a cup of tea to go. You look like someone who has been watching boats."
+    },
+    {
+     "do": "give_item",
+     "item": "cup_of_tea",
+     "n": 1
+    },
+    {
+     "do": "set",
+     "flag": "inverness_home_c_gift"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,88 @@
+{
+ "id": "fw_nevisinn",
+ "name": "The Nevis Inn",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "table",
+   "x": 9,
+   "y": 3
+  },
+  {
+   "type": "table",
+   "x": 9,
+   "y": 5
+  },
+  {
+   "type": "table",
+   "x": 11,
+   "y": 3
+  },
+  {
+   "type": "table",
+   "x": 11,
+   "y": 5
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 6
+  },
+  {
+   "type": "potted_plant",
+   "x": 12,
+   "y": 6
+  }
+ ],
+ "warps": [
+  {
+   "x": 7,
+   "y": 7,
+   "to": "fort_william",
+   "tx": 17,
+   "ty": 28,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "nevisinn_host",
+   "sprite": "villager_4",
+   "x": 7,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "nevisinn_host"
+  },
+  {
+   "id": "nevisinn_walker",
+   "sprite": "hillwalker",
+   "x": 5,
+   "y": 4,
+   "facing": "down",
+   "move": "still",
+   "script": "nevisinn_walker"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  7,
+  6
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxx",
+  "x||||||||||||x",
+  "x|CCCC|||||||x",
+  "x||||||||||||x",
+  "x||||||||||||x",
+  "x||||||||||||x",
+  "x||||||||||||x",
+  "x||||||D|||||x",
+  "xxxxxxxxxxxxxx"
+ ]
+}
