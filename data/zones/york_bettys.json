@@ -1,0 +1,80 @@
+{
+ "id": "york_bettys",
+ "name": "Bettys Tea Rooms",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "table",
+   "x": 8,
+   "y": 3
+  },
+  {
+   "type": "table",
+   "x": 8,
+   "y": 5
+  },
+  {
+   "type": "table",
+   "x": 10,
+   "y": 3
+  },
+  {
+   "type": "table",
+   "x": 10,
+   "y": 5
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 7
+  },
+  {
+   "type": "potted_plant",
+   "x": 11,
+   "y": 7
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 8,
+   "to": "york",
+   "tx": 57,
+   "ty": 28,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "tea_waitress",
+   "sprite": "shopkeeper",
+   "x": 3,
+   "y": 3,
+   "facing": "up",
+   "move": "still",
+   "script": "tea_waitress"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  6,
+  7
+ ],
+ "rows": [
+  "xxxxxxxxxxxxx",
+  "x|||||||||||x",
+  "x|CCCC||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||D|||||x",
+  "xxxxxxxxxxxxx"
+ ]
+}
