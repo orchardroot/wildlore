@@ -1,0 +1,40 @@
+{
+ "tea_waitress": [
+  {
+   "do": "say",
+   "who": "Waitress",
+   "text": "Good afternoon. Do take a seat. The pot is silver and the pinkies are optional."
+  },
+  {
+   "do": "say",
+   "who": "Waitress",
+   "text": "See the big mirror? Airmen based round Yorkshire in the war scratched their names on it with a diamond."
+  },
+  {
+   "do": "if",
+   "flag": "bettys_gift",
+   "then": [
+    {
+     "do": "say",
+     "who": "Waitress",
+     "text": "You've had your cream tea. Come back for another, and I'll pretend I never said it."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Waitress",
+     "text": "Here, a cream tea on the house. Scone first, jam, then cream. Yes, I know. Let's not start."
+    },
+    {
+     "do": "give_item",
+     "item": "cream_tea"
+    },
+    {
+     "do": "set",
+     "flag": "bettys_gift"
+    }
+   ]
+  }
+ ]
+}

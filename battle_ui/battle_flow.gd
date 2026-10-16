@@ -283,12 +283,29 @@ func _award_xp(faint_ev: Dictionary = {}) -> void:
 	var amount := Progression.xp_reward(foe, not is_wild())
 	for me in earners:
 		await _give_xp(me, foe, amount)
+	var benched := thermos_sharers(data, earners)
+	if not benched.is_empty():
+		var share := maxi(1, amount / 2)
+		await _say(["The rest of the team shared %d XP from the Team Thermos." % share])
+		for me in benched:
+			await _give_xp(me, foe, share, true)
 
-func _give_xp(me: Creature, foe: Creature, amount: int) -> void:
+## Party members who get a Team Thermos share: owned and switched on, not fighting, not fainted, below the cap.
+static func thermos_sharers(d: GameStateData, earners: Array) -> Array:
+	if int(d.bag.get("team_thermos", 0)) <= 0 or d.flag("thermos_off") == true:
+		return []
+	var out := []
+	for c in d.party:
+		if c not in earners and not c.is_fainted() and c.level < Rules.MAX_LEVEL:
+			out.append(c)
+	return out
+
+func _give_xp(me: Creature, foe: Creature, amount: int, quiet := false) -> void:
 	Progression.add_training(me, foe.species)
 	var evs := Progression.gain_xp(me, amount, move_db)
-	await _say(["%s gained %d XP!" % [me.display_name(), amount]])
-	await ui.xp_gained(me, evs)
+	if not quiet:
+		await _say(["%s gained %d XP!" % [me.display_name(), amount]])
+		await ui.xp_gained(me, evs)
 	for e in evs:
 		match str(e.type):
 			"level_up":
