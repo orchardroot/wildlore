@@ -21,6 +21,8 @@ func setup(arg: String) -> void:
 	if here and towns.has(str(here)):
 		view.centre = Vector2(float(towns[str(here)].x), float(towns[str(here)].y))
 	header_right.text = "You are near " + Travel.town_name(str(here)) if here else ""
+	if not arg.begins_with("species:"):
+		_show_objective()
 	view.queue_redraw()
 	if Game.data.flag("champion") == true and not arg.begins_with("species:"):
 		set_hint("F  Fly        X  Back")
@@ -30,6 +32,33 @@ func setup(arg: String) -> void:
 		content.add_child(fly)
 
 var _can_fly := false
+
+## Rings the "Where next?" town (or spot) in gold and says what it is along the bottom.
+func _show_objective() -> void:
+	var o := MenuLogic.next_objective(Game.data, Game.dex.ids().size())
+	if o.is_empty():
+		return
+	view.objective = objective_point(o)
+	var p := UIKit.panel(Color("1d2230e6"), 12)
+	p.set_anchors_preset(Control.PRESET_BOTTOM_WIDE)
+	p.offset_left = 16
+	p.offset_right = -16
+	p.offset_bottom = -12
+	p.grow_vertical = Control.GROW_DIRECTION_BEGIN
+	var l := UIKit.label(("Still to do: " if o.get("postgame", false) else "Where next? ") + str(o.get("text", "")), 24)
+	l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	p.add_child(l)
+	content.add_child(p)
+
+## Where an objective sits on the map: its "map" point, else its town or place; (-1, -1) if neither.
+static func objective_point(o: Dictionary) -> Vector2:
+	var m := Travel.world_map()
+	var at: Array = o.get("map", [])
+	if at.size() == 2:
+		return Vector2(float(at[0]), float(at[1]))
+	var t := str(o.get("town", ""))
+	var src: Dictionary = m.get("towns", {}).get(t, m.get("places", {}).get(t, {}))
+	return Vector2(float(src.x), float(src.y)) if not src.is_empty() else Vector2(-1, -1)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if _can_fly and not _locked and event.is_action_pressed("fly"):
