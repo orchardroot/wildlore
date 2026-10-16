@@ -286,3 +286,34 @@ func test_double_battle_target_is_passed_through() -> void:
 			first_player_hit = e
 			break
 	assert_eq(first_player_hit.get("pos", -1), 1)
+
+func test_team_thermos_shares_half_xp_with_the_bench() -> void:
+	var a := Fixtures.creature("kindlet", 10)
+	var b := Fixtures.creature("spikkin", 5)
+	var foe := Fixtures.creature("spikkin", 3)
+	var a0 := a.xp
+	var b0 := b.xp
+	var f := _flow([a, b], [foe], FakeBattleUI.new(), {}, {"team_thermos": 1})
+	f.run()
+	assert_eq(f.result.result, "win")
+	assert_true(b.xp > b0, "the benched creature shared the XP")
+	assert_eq(b.xp - b0, maxi(1, (a.xp - a0) / 2), "half the fighter's share")
+
+func test_team_thermos_switched_off_or_missing_shares_nothing() -> void:
+	for bag in [{}, {"team_thermos": 1}]:
+		var a := Fixtures.creature("kindlet", 10)
+		var b := Fixtures.creature("spikkin", 5)
+		var b0 := b.xp
+		var f := _flow([a, b], [Fixtures.creature("spikkin", 3)], FakeBattleUI.new(), {}, bag)
+		f.data.set_flag("thermos_off", not bag.is_empty())
+		f.run()
+		assert_eq(b.xp, b0, "no share")
+
+func test_team_thermos_skips_the_fainted() -> void:
+	var a := Fixtures.creature("kindlet", 10)
+	var b := Fixtures.creature("spikkin", 5)
+	b.hp = 0
+	var d := GameStateData.new()
+	d.party = [a, b]
+	d.bag = {"team_thermos": 1}
+	assert_eq(BattleFlow.thermos_sharers(d, [a]), [])

@@ -116,7 +116,7 @@ func _open_list(side: String) -> void:
 	else:
 		for id in _bag.store.keys():
 			var it: Dictionary = Game.items.get_item(id)
-			if not it.is_empty() and int(it.get("price", 0)) > 0 and _bag.count(id) > 0:
+			if not it.is_empty() and int(it.get("price", 0)) > 0 and str(it.get("kind", "")) != "key" and _bag.count(id) > 0:
 				_ids.append(id)
 	_draw_list()
 	_list_scroll.get_parent().visible = true
