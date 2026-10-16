@@ -181,6 +181,13 @@ func test_round_tower_stands_tall() -> void:
 	assert_true(tower.get_aabb().size.y > 5.0, "tower height %s" % tower.get_aabb().size.y)
 	assert_true(cottage.get_aabb().size.y < 3.5)
 
+func test_passage_tomb_is_a_low_mound() -> void:
+	# Newgrange: a grassy mound with a white quartz front, lower than a house and filling its plot
+	assert_true("passage_tomb" in Landmarks.SPECIAL)
+	var aabb: AABB = (Meshes.building(7, 3, "passage_tomb", 3, 1)[0] as ArrayMesh).get_aabb()
+	assert_true(aabb.size.y > 1.2 and aabb.size.y < 2.4, "mound height %s" % aabb.size.y)
+	assert_true(aabb.size.x > 6.0, "fills the plot")
+
 func test_gallery_zone_builds() -> void:
 	var root := ZoneBuilder.build(_z("mesh_gallery"))
 	assert_true(root.get_child_count() > 10)
