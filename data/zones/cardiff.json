@@ -593,6 +593,30 @@
    "type": "lamp_post",
    "x": 6.0,
    "y": 34.0
+  },
+  {
+   "type": "building",
+   "style": "terrace",
+   "x": 3,
+   "y": 28,
+   "w": 5,
+   "h": 3
+  },
+  {
+   "type": "building",
+   "style": "terrace",
+   "x": 9,
+   "y": 28,
+   "w": 4,
+   "h": 3
+  },
+  {
+   "type": "building",
+   "style": "red_brick",
+   "x": 52,
+   "y": 31,
+   "w": 4,
+   "h": 2
   }
  ],
  "region": "south_wales",
@@ -605,9 +629,9 @@
   "TTBBBBBBB.BBBBBB..WBBBB.BBBBBBBBBB...BBBBBW~.,,,,,T.T...T.T...TT",
   "TTBBBBBBB.BBBBBB..WBBBB.BBBBBBBBBB...BBBBBW~T,,,,,..#.T....T..TT",
   "TTBBBBBBB.BBBBBB..WBBBB.BBBBBBBBBB...BBBBBW~.,,,,,..#.........TT",
-  "TTBBBBBBB.BBBBBB..W.....BBBBBBBBBB...BBBBBW~.,,,,,..#.........TT",
+  "TTBBBDBBB.BBDBBB..W.....BBBBBBBBBB...BBBBBW~.,,,,,..#.........TT",
   "TT::::::::::::::..W.....BBBBBBBBBB........W~.,,,,,T.#.,,,,,,..TT",
-  "TT........:.......W.....BBBBBBBBBB........W~.,,,,,..#.,,,,,,..TT",
+  "TT........:.......W.....BBBBBBDBBB........W~.,,,,,..#.,,,,,,..TT",
   "TT........:.......W.ffffffff..###..ffffff.Ww############,,,,..TT",
   "TT........:.......W.ffffffff..###..ffffff.Ww...T......,,,,,,..TT",
   "TT..BBBBBB:BBBBB..W...........###.........W~.......T..,,,,,,.TTT",
@@ -625,11 +649,11 @@
   "TT#_________#..BBBBBBBBBBBBB.:===:::::::::::::::::::::::::::..TT",
   "TT!!!!!!!!!!!..BBBBBBBBBBBBB.:===::.BBBBBBBBBBB.BBBBBB::::::..TT",
   "TT.............BBBBBBBBBBBBB.:===::.BBBBBBBBBBB.BBBBBB:BBBBB..TT",
-  "TT.............BBBBBBBBBBBBB.:===::.BBBBBBBBBBB.BBBBBB:BBBBB..TT",
-  "TT.............BBBBBBDBBBBBB.:===::.BBBBBBBBBBB.BBBBBB:BBBBB..TT",
-  "TT...........::::...::::::::::===::.BBBBBBBBBBB.BBBBBB:BBBBB..TT",
-  "TT...........::::...::::::::::===::.BBBBBBBBBBB...............TT",
-  "TT...........::::...::::::::::===:.::::::::::::...............TT",
+  "TT.BBBBB.BBBB..BBBBBBBBBBBBB.:===::.BBBBBBBBBBB.BBBBBB:BBBBB..TT",
+  "TT.BBBBB.BBBB..BBBBBBDBBBBBB.:===::.BBBBBBBBBBB.BBBBBB:BBBBB..TT",
+  "TT.BBDBB.BDBB::::...::::::::::===::.BBBBBBBBBBB.BBDBBB:BBDBB..TT",
+  "TT...........::::...::::::::::===::.BBBBBDBBBBB.....BBBB......TT",
+  "TT...........::::...::::::::::===:.::::::::::::.....BDBB......TT",
   "TT..........::::::::::::::::::::::::::::::::::::::::::::::::::TT",
   "TT..........::::::::::::::::::::::::::::::::::::::::::::::::::TT",
   "TT.,,,,,,,,.::::::::::::::::::::::::::::::::::::::::::::::::::TT",
@@ -717,6 +741,78 @@
    "ty": 11.0,
    "x": 21.0,
    "y": 29.0
+  },
+  {
+   "x": 30,
+   "y": 10,
+   "to": "cardiff_castle",
+   "tx": 7,
+   "ty": 8,
+   "facing": "up"
+  },
+  {
+   "x": 5,
+   "y": 8,
+   "to": "cardiff_arcade",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 12,
+   "y": 8,
+   "to": "cardiff_chippy",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 41,
+   "y": 31,
+   "to": "cardiff_wmc",
+   "tx": 7,
+   "ty": 8,
+   "facing": "up"
+  },
+  {
+   "x": 50,
+   "y": 30,
+   "to": "cardiff_pierhead",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 57,
+   "y": 30,
+   "to": "cardiff_norwegian",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 5,
+   "y": 30,
+   "to": "cardiff_home_grange",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 10,
+   "y": 30,
+   "to": "cardiff_home_bute",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 53,
+   "y": 32,
+   "to": "cardiff_home_roath",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
   }
  ],
  "weather": {

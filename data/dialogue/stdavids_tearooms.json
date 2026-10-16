@@ -1,0 +1,41 @@
+{
+ "tearooms_server": [
+  {
+   "do": "say",
+   "who": "Tea Room Server",
+   "text": "Sit anywhere, cariad. Cariad means darling. Everyone in Pembrokeshire is cariad until they leave a gate open."
+  },
+  {
+   "do": "say",
+   "who": "Tea Room Server",
+   "text": "Bara brith means speckled bread. The fruit soaks overnight in tea, so by morning it is plump as a puffling."
+  },
+  {
+   "do": "if",
+   "flag": "swales_tearooms_gift",
+   "then": [
+    {
+     "do": "say",
+     "who": "Tea Room Server",
+     "text": "Another slice? You will sink the boat. Off you go, cariad."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Tea Room Server",
+     "text": "Here, a slice for the road. You look like you have walked the coast path, or at least thought about it."
+    },
+    {
+     "do": "give_item",
+     "item": "bara_brith",
+     "n": 1
+    },
+    {
+     "do": "set",
+     "flag": "swales_tearooms_gift"
+    }
+   ]
+  }
+ ]
+}

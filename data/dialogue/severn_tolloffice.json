@@ -1,0 +1,48 @@
+{
+ "toll_collector": [
+  {
+   "do": "say",
+   "who": "Toll Collector",
+   "text": "Toll office retired. Tolls were abolished on 17 December 2018. I collect dad jokes now, and you owe me one."
+  },
+  {
+   "do": "say",
+   "who": "Toll Collector",
+   "text": "The Severn Bridge opened in 1966. Its deck is shaped like an aeroplane wing, so the wind slides over it instead of shoving. That was a brand new idea then."
+  },
+  {
+   "do": "if",
+   "flag": "swales_toll_gift",
+   "then": [
+    {
+     "do": "say",
+     "who": "Toll Collector",
+     "text": "Another cuppa? Careful on the bridge. Off you go."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Toll Collector",
+     "text": "It is a long way across: the main span is 988 metres. Here is a cuppa for the road. It is free, I am out of toll booths to hide it in."
+    },
+    {
+     "do": "give_item",
+     "item": "cup_of_tea",
+     "n": 1
+    },
+    {
+     "do": "set",
+     "flag": "swales_toll_gift"
+    }
+   ]
+  }
+ ],
+ "toll_painter": [
+  {
+   "do": "say",
+   "who": "Bridge Painter",
+   "text": "They say a bridge painter's work is never done. By the time I reach the Welsh end, the English end needs another coat."
+  }
+ ]
+}
