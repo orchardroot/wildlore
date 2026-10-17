@@ -1,5 +1,6 @@
 extends MenuBase
-## Team: six slots with icon, name, level, HP bar and status. Actions: Summary, Rename, Switch order, Use item.
+## Team: six slots with icon, name, level, HP bar, status, hearts and charm. Actions: Summary, Rename, Switch order,
+## Use item, Hold / Take a charm.
 
 var _slots: Array = []        # Buttons for filled slots
 var _slot_col: VBoxContainer
@@ -35,7 +36,7 @@ func _build() -> void:
 	var ap := UIKit.panel(Color("1d2230f0"), 10)
 	ap.add_child(_actions)
 	right.add_child(ap)
-	for a in [["Summary", _do_summary], ["Rename", _do_rename], ["Switch order", _do_switch], ["Use item", _do_use], ["Back", _to_list]]:
+	for a in [["Summary", _do_summary], ["Rename", _do_rename], ["Switch order", _do_switch], ["Use item", _do_use], ["Charm", _do_charm], ["Back", _to_list]]:
 		var b := make_button(a[0], a[1])
 		_actions.add_child(b)
 		_action_buttons.append(b)
@@ -116,6 +117,12 @@ func _slot_button(c: Creature, i: int) -> Button:
 		chip.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 		top.add_child(chip)
 	top.add_child(UIKit.fill())
+	if c.held != "":
+		var tok := BondIcons.Token.new(18)
+		tok.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+		tok.tooltip_text = Charms.name_of(c.held)
+		top.add_child(tok)
+	top.add_child(BondIcons.heart_count(c.friendship, 22))
 	top.add_child(UIKit.label("Lv %d" % c.level, 24, UIKit.GOLD))
 	mid.add_child(top)
 	var bar := HBoxContainer.new()
@@ -151,6 +158,7 @@ func _focus_slot(i: int) -> void:
 	UIKit.focus_later(_slots[clampi(i, 0, _slots.size() - 1)])
 
 func _slot_pressed(i: int) -> void:
+	_charm_label(i)
 	if _mode == "swap":
 		var order := MenuLogic.reorder(Game.data.party, _picked, i)
 		Game.data.party.clear()
@@ -206,6 +214,31 @@ func _do_use() -> void:
 	_actions.get_parent().visible = true
 	_show_preview(party()[i])
 	_action_buttons[3].grab_focus()
+
+## The charm action says what it will do for this creature.
+func _charm_label(i: int) -> void:
+	if i >= 0 and i < party().size():
+		_action_buttons[4].text = "Take %s" % Charms.name_of(party()[i].held) if party()[i].held != "" else "Hold a charm"
+
+## Take its charm back, or pick one from the bag for it to hold.
+func _do_charm() -> void:
+	var i := _cursor
+	var c: Creature = party()[i]
+	var bag := Bag.new(Game.data.bag)
+	if c.held != "":
+		_note.text = str(bag.take_charm(c).text)
+		Audio.sfx("confirm")
+	elif Game.items == null or bag.items_of_kind("charm", Game.items).is_empty():
+		_note.text = "You haven't any charms to give. Shops in the big towns sell a few."
+		Audio.sfx("bump")
+		return
+	else:
+		await open_child("bag:hold:%d" % i)
+	_refresh()
+	_actions.get_parent().visible = true
+	_show_preview(party()[i])
+	_charm_label(i)
+	_action_buttons[4].grab_focus()
 
 func _on_cancel() -> void:
 	match _mode:

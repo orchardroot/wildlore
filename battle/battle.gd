@@ -32,6 +32,10 @@ var caught: Creature = null
 var run_attempts := 0
 var _pending: Array = []  # events raised before the first turn (a battle that starts already decided)
 var _fought := {}  # foe party index -> {player party index: true} for every creature that faced it on the field
+var _fielded := {}  # player party indices that have been out on the field (they share a win's friendship)
+var _once := {}  # Creature -> {"horseshoe"/"hang_on"/"entered": true}: once-a-battle charm and friendship effects
+## Events from before the first turn (charms that act as the battle starts). The flow plays them after the intro.
+var opening: Array = []
 
 func _init(player_party: Array, foe_party: Array, opts: Dictionary) -> void:
 	parties = [player_party, foe_party]
@@ -57,6 +61,9 @@ func _init(player_party: Array, foe_party: Array, opts: Dictionary) -> void:
 		else:
 			active[side] = [maxi(0, _first_able(side))]
 	_note_fighters()
+	for side in [PLAYER, FOE]:
+		for pos in positions():
+			_entered(side, pos, opening)
 	_check_end(_pending)
 
 ## Field positions per side: 2 in a double battle, else 1.
@@ -297,14 +304,33 @@ func _do_move(side: int, pos: int, a: Dictionary, ev: Array) -> void:
 			ev.append(miss)
 			continue
 		if move.category != "status":
-			var res := DamageCalc.compute(user, target, move, chart, weather, rng, DamageCalc.CRIT_CHANCE * Weather.crit_mult(weather, side), mult)
+			var crit := DamageCalc.CRIT_CHANCE * Weather.crit_mult(weather, side) * (Bond.crit_mult(user) if side == PLAYER else 1.0)
+			var res := DamageCalc.compute(user, target, move, chart, weather, rng, crit, mult)
 			if res.effectiveness == 0.0:
 				ev.append(_at({"type": "no_effect", "side": t_side}, t_pos))
 				continue
-			var dealt := target.take_damage(res.damage)
+			var amount: int = res.damage
+			var saved := ""
+			if amount >= target.hp and target.hp > 1:
+				saved = _hangs_on(t_side, target)
+				if saved != "":
+					amount = target.hp - 1
+			var dealt := target.take_damage(amount)
 			ev.append(_at({"type": "damage", "side": t_side, "amount": dealt, "hp": target.hp, "effectiveness": res.effectiveness, "crit": res.crit}, t_pos))
+			if Charms.outgoing_mult(user, str(move.type)) != 1.0:
+				ev.append(_charm(side, pos, user))
+			if Charms.incoming_mult(target, str(move.type)) != 1.0:
+				ev.append(_charm(t_side, t_pos, target))
+			if saved == "charm":
+				ev.append(_charm(t_side, t_pos, target))
+			elif saved == "bond":
+				ev.append(_at({"type": "bond", "side": t_side, "perk": "hang_on", "text": Bond.message("hang_on", "{name}")}, t_pos))
 			if target.is_fainted():
 				_faint(t_side, t_pos, ev)
+			elif dealt > 0:
+				_thorns(side, pos, user, t_side, t_pos, target, move, ev)
+			if user.is_fainted():
+				continue
 		_apply_effect(side, pos, move, t_side, t_pos, k == 0, ev)
 
 func _hits(user: Creature, move: Dictionary) -> bool:
@@ -332,6 +358,8 @@ func _apply_effect(side: int, pos: int, move: Dictionary, t_side: int, t_pos: in
 			var applied := who.change_stage(fx.stat, int(fx.stages))
 			ev.append(_at({"type": "stat", "side": to_side, "stat": fx.stat, "delta": applied}, to_pos))
 		"status":
+			if who.status == "" and _wards_off(to_side, to_pos, who, ev):
+				return
 			if StatusFX.inflict(who, fx.status, rng):
 				ev.append(_at({"type": "status", "side": to_side, "status": fx.status}, to_pos))
 
@@ -345,6 +373,7 @@ func _do_switch(side: int, index: int, ev: Array, pos := 0) -> void:
 	active[side][pos] = index
 	_note_fighters()
 	ev.append(_at({"type": "switch", "side": side, "index": index, "user": party[index].display_name()}, pos))
+	_entered(side, pos, ev)
 
 func _do_item(side: int, item_id: String, target: int, ev: Array) -> void:
 	var text := "Nothing happened."
@@ -374,7 +403,11 @@ func _do_catch(snare: String, ev: Array) -> void:
 		ev.append({"type": "catch", "success": false, "reason": "trainer"})
 		return
 	var foe := current(FOE)
-	var ok := Catching.attempt(foe, snare, time, rng)
+	var bonus := catch_bonus()
+	if bonus != 1.0:
+		var lead: Creature = parties[PLAYER][_first_able(PLAYER)]
+		ev.append({"type": "charm", "side": PLAYER, "item": lead.held, "name": lead.display_name(), "text": Charms.message(lead, "{name}")})
+	var ok := Catching.attempt(foe, snare, time, rng, bonus)
 	ev.append({"type": "catch", "success": ok})
 	if ok:
 		caught = foe
@@ -383,6 +416,8 @@ func _do_catch(snare: String, ev: Array) -> void:
 ## A faint names the party `index` and, for a foe, the player's creatures that faced it at any point and are still
 ## standing (`witnesses`): they split the XP.
 func _faint(side: int, pos: int, ev: Array) -> void:
+	if side == PLAYER:
+		Bond.add(current_at(side, pos), Bond.FAINT)
 	var e := _at({"type": "faint", "side": side, "user": current_at(side, pos).display_name()}, pos)
 	e["index"] = active[side][pos]
 	if side == FOE:
@@ -405,6 +440,9 @@ func _note_fighters() -> void:
 			if p >= 0 and not parties[PLAYER][p].is_fainted():
 				seen[p] = true
 		_fought[f] = seen
+	for p in active[PLAYER]:
+		if p >= 0:
+			_fielded[p] = true
 
 func _end_of_turn(ev: Array) -> void:
 	for side in [PLAYER, FOE]:
@@ -418,6 +456,14 @@ func _end_of_turn(ev: Array) -> void:
 				ev.append(_at({"type": "status_damage", "side": side, "status": c.status, "amount": dmg, "hp": c.hp}, pos))
 				if c.is_fainted():
 					_faint(side, pos, ev)
+					continue
+			var back := Charms.regen(c)
+			if back > 0:
+				c.heal(back)
+				var e := _charm(side, pos, c)
+				e["hp"] = c.hp
+				e["amount"] = back
+				ev.append(e)
 	_check_end(ev)
 
 func _check_end(ev: Array) -> void:
@@ -431,6 +477,10 @@ func _check_end(ev: Array) -> void:
 func _finish(who: int, ev: Array) -> void:
 	over = true
 	winner = who
+	if who == PLAYER:  # everyone who was out there for the win grows a little closer
+		for i in _fielded:
+			if not parties[PLAYER][i].is_fainted():
+				Bond.add(parties[PLAYER][i], Bond.WIN)
 	ev.append({"type": "end", "winner": who})
 
 func _first_able(side: int) -> int:
@@ -447,3 +497,71 @@ func _reserve(side: int) -> int:
 		if not party[i].is_fainted() and i not in active[side]:
 			return i
 	return -1
+
+# --- charms and friendship ----------------------------------------------------------------
+
+## Snare bonus from the player's lead (the first creature that can fight): a Four-Leaf Clover.
+func catch_bonus() -> float:
+	var i := _first_able(PLAYER)
+	return Charms.catch_mult(parties[PLAYER][i]) if i >= 0 else 1.0
+
+## A charm event: {"type": "charm", "side", "item", "text"}. The text keeps "{name}" (the holder) and "{other}" for
+## the event player to fill in, so a wild holder reads "the wild ...".
+func _charm(side: int, pos: int, c: Creature) -> Dictionary:
+	return _at({"type": "charm", "side": side, "item": c.held, "text": Charms.message(c, "{name}", "{other}")}, pos)
+
+## Who saves a creature from a knockout, once a battle each: "charm" (a horseshoe), "bond" (220+ friendship, the
+## player's own only) or "".
+func _hangs_on(side: int, c: Creature) -> String:
+	var used: Dictionary = _once.get(c, {})
+	_once[c] = used
+	if Charms.endures(c) and not used.has("horseshoe"):
+		used["horseshoe"] = true
+		return "charm"
+	if side == PLAYER and Bond.has_perk(c, "hang_on") and not used.has("hang_on"):
+		used["hang_on"] = true
+		return "bond"
+	return ""
+
+## A status about to land: a Brigid's Cross blocks it, or a close friend may shrug it off. True if it was stopped.
+func _wards_off(side: int, pos: int, c: Creature, ev: Array) -> bool:
+	if Charms.blocks_status(c):
+		ev.append(_charm(side, pos, c))
+		return true
+	if side == PLAYER and Bond.shrugs(c, rng):
+		ev.append(_at({"type": "bond", "side": side, "perk": "shrug", "text": Bond.message("shrug", "{name}")}, pos))
+		return true
+	return false
+
+## A Thistle Brooch pricks whoever just hit its holder with a physical move.
+func _thorns(side: int, pos: int, user: Creature, t_side: int, t_pos: int, target: Creature, move: Dictionary, ev: Array) -> void:
+	var hurt := Charms.thorns_damage(target, user, move)
+	if hurt <= 0 or user.is_fainted():
+		return
+	user.take_damage(hurt)
+	var e := _charm(t_side, t_pos, target)
+	e["other_side"] = side
+	e["other_pos"] = pos
+	e["amount"] = hurt
+	e["hp"] = user.hp
+	ev.append(e)
+	if user.is_fainted():
+		_faint(side, pos, ev)
+
+## Something new on the field: an Oak Acorn acts the first time its holder comes out in a battle.
+func _entered(side: int, pos: int, ev: Array) -> void:
+	var c := current_at(side, pos)
+	if c == null or c.is_fainted():
+		return
+	var used: Dictionary = _once.get(c, {})
+	_once[c] = used
+	if used.has("entered"):
+		return
+	used["entered"] = true
+	var st := Charms.start_stage(c)
+	if st.is_empty():
+		return
+	var e := _charm(side, pos, c)
+	e["stat"] = st.stat
+	e["delta"] = c.change_stage(st.stat, int(st.stages))
+	ev.append(e)

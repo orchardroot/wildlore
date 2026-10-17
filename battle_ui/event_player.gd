@@ -135,9 +135,25 @@ static func lines_for(ev: Dictionary, ctx: Dictionary) -> Array[String]:
 					out.append("There's no running from a double battle!")
 				_:
 					out.append("That creature can't be sent out.")
+		"charm", "bond":
+			out.append(charm_text(ev, ctx))
 		"end":
 			pass
 	return out
+
+## A charm or friendship line: "{name}" is the holder, "{other}" whoever it pricked. Mid-sentence names drop the capital.
+static func charm_text(ev: Dictionary, ctx: Dictionary) -> String:
+	var side := int(ev.get("side", 0))
+	var pos := int(ev.get("pos", 0))
+	var t := str(ev.get("text", ""))
+	var n := str(ev.get("name", ""))
+	var holder := name_of(side, ctx, n, pos) if t.begins_with("{name}") else _mid(side, ctx, pos)
+	t = t.replace("{name}", holder)
+	if ev.has("other_side"):
+		var o_side := int(ev.other_side)
+		var o_pos := int(ev.get("other_pos", 0))
+		t = t.replace("{other}", name_of(o_side, ctx, "", o_pos) if t.begins_with("{other}") else _mid(o_side, ctx, o_pos))
+	return t
 
 ## The animation cue for an event: {"cue": String, ...details}. The scene's BattleFX knows how to play each cue.
 ## In doubles every cue also carries "pos" (and attacks their "target_side" / "target_pos").
@@ -149,6 +165,8 @@ static func fx_for(ev: Dictionary, ctx: Dictionary) -> Dictionary:
 			cue["target_side"] = int(ev.get("target_side", 1 - int(ev.side)))
 			cue["target_pos"] = int(ev.get("target_pos", 0))
 			cue["spread"] = bool(ev.get("spread", false))
+		elif ev.has("other_pos"):
+			cue["pos"] = int(ev.other_pos)
 		elif ev.type == "miss":
 			cue["side"] = int(ev.get("target_side", 1 - int(ev.side)))
 			cue["pos"] = int(ev.get("target_pos", 0))
@@ -192,6 +210,14 @@ static func _cue(ev: Dictionary, ctx: Dictionary) -> Dictionary:
 			return {"cue": "run" if bool(ev.success) else "idle", "side": Battle.PLAYER}
 		"end":
 			return {"cue": "end", "winner": int(ev.winner)}
+		"charm", "bond":
+			if ev.has("other_side"):  # a thistle prick: the attacker takes the hit
+				return {"cue": "hit", "side": int(ev.other_side), "hp": int(ev.hp), "strength": "weak"}
+			if ev.has("delta"):
+				return {"cue": "stat_up" if int(ev.delta) > 0 else "shrug", "side": side, "stat": str(ev.get("stat", ""))}
+			if ev.has("hp"):
+				return {"cue": "heal", "side": side, "target": ctx.battle.active[side][int(ev.get("pos", 0))]}
+			return {"cue": "shrug", "side": side}
 		"item":
 			return {"cue": "heal", "side": side, "target": int(ev.get("target", 0))}
 		"catch":

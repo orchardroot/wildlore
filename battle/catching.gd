@@ -19,10 +19,11 @@ static func status_bonus(c: Creature) -> float:
 		return 2.0
 	return 1.5 if c.status != "" else 1.0
 
-static func chance(c: Creature, snare: String, time: String) -> float:
+## bonus: anything else that helps (a Four-Leaf Clover on your lead).
+static func chance(c: Creature, snare: String, time: String, bonus := 1.0) -> float:
 	var m := float(c.max_hp())
-	var a: float = (3.0 * m - 2.0 * c.hp) * c.species.catch_rate * snare_bonus(snare, c, time) / (3.0 * m) * status_bonus(c)
+	var a: float = (3.0 * m - 2.0 * c.hp) * c.species.catch_rate * snare_bonus(snare, c, time) / (3.0 * m) * status_bonus(c) * bonus
 	return clampf(a / 255.0, 0.0, 1.0)
 
-static func attempt(c: Creature, snare: String, time: String, rng: Rng) -> bool:
-	return rng.roll() < chance(c, snare, time)
+static func attempt(c: Creature, snare: String, time: String, rng: Rng, bonus := 1.0) -> bool:
+	return rng.roll() < chance(c, snare, time, bonus)

@@ -98,7 +98,7 @@ func battle_items() -> Array:
 			var e := {"id": id, "name": it.get("name", id), "count": n, "kind": kind, "desc": it.get("desc", "")}
 			var foe := battle.current(Battle.FOE)
 			if kind == "snare" and not battle.double and foe != null:
-				e["odds"] = Catching.chance(foe, str(it.get("snare", "")), battle.time)
+				e["odds"] = Catching.chance(foe, str(it.get("snare", "")), battle.time, battle.catch_bonus())
 			out.append(e)
 	return out
 
@@ -117,6 +117,8 @@ func run() -> Dictionary:
 	await ui.intro(self)
 	if foe != null and not battle.over:
 		await _say(_intro_lines())
+	if not battle.opening.is_empty():  # charms that act as the battle starts
+		await _play(battle.opening)
 	while not battle.over:
 		var pa: Variant = await _player_actions()
 		var fa: Variant = BattleAI.choose(battle, Battle.FOE, ai_tier)
@@ -219,7 +221,7 @@ func _item_action(c: Dictionary) -> Dictionary:
 			return {}
 		bag.remove(id)
 		_snare = it
-		_catch_chance = Catching.chance(battle.current(Battle.FOE), str(it.snare), battle.time)
+		_catch_chance = Catching.chance(battle.current(Battle.FOE), str(it.snare), battle.time, battle.catch_bonus())
 		return {"type": "catch", "snare": str(it.snare)}
 	var target := int(c.get("target", 0))
 	var check := item_check(id, target)
@@ -401,6 +403,8 @@ func _after_catch(c: Creature) -> void:
 		await _say(["%s joined your party!" % c.display_name()])
 	else:
 		await _say(["Your party is full, so %s went to the Ark." % c.display_name()])
+	if c.held != "":
+		await _say(["%s was carrying a %s! It's still holding it." % [c.display_name(), Charms.name_of(c.held)]])
 	if first:
 		await ui.first_catch(c)
 

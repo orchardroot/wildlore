@@ -1,7 +1,8 @@
 extends MenuBase
-## Bag: tabs by item kind, use on a party member via Bag.use_on. With arg "for:<n>" it targets party member n directly.
+## Bag: tabs by item kind, use on a party member via Bag.use_on. With arg "for:<n>" it targets party member n directly;
+## "hold:<n>" shows only charms, to give party member n one to hold. Food is shared (it heals and they like you more).
 
-const KIND_ORDER := ["heal", "cure", "revive", "pp", "snare", "repel", "evo", "key"]
+const KIND_ORDER := ["heal", "cure", "revive", "pp", "snare", "repel", "evo", "charm", "key"]
 const USABLE := ["heal", "cure", "revive", "pp", "evo"]
 
 var _bag: Bag
@@ -19,6 +20,7 @@ var _note: Label
 var _item_buttons: Array = []
 var _pick_buttons: Array = []
 var _last_item := 0
+var _hold := false       # opened to pick a charm for _target to hold
 
 func _build() -> void:
 	set_title("Bag")
@@ -68,6 +70,13 @@ func setup(arg: String) -> void:
 	if arg.begins_with("tab:"):  # open on one kind's tab (screenshots)
 		_tab = maxi(0, _kinds.find(arg.substr(4)))
 		_rebuild()
+	if arg.begins_with("hold:"):
+		_target = int(arg.substr(5))
+		_hold = true
+		set_title("Hold a charm")
+		if _target >= 0 and _target < party().size():
+			header_right.text = "for %s" % party()[_target].display_name()
+		_rebuild()
 	if arg.begins_with("for:"):
 		_target = int(arg.substr(4))
 		set_title("Use item")
@@ -78,7 +87,9 @@ func setup(arg: String) -> void:
 func _rebuild() -> void:
 	_kinds.clear()
 	for k in KIND_ORDER:
-		if _target >= 0 and k not in USABLE:
+		if _hold and k != "charm":
+			continue
+		if _target >= 0 and not _hold and k not in USABLE:
 			continue
 		if Game.items != null and not _bag.items_of_kind(k, Game.items).is_empty():
 			_kinds.append(k)
@@ -88,12 +99,14 @@ func _rebuild() -> void:
 	_set_hint()
 
 func _set_hint() -> void:
+	var kind: String = _kinds[_tab] if _tab < _kinds.size() else ""
+	var verb: String = {"heal": "Share", "charm": "Hold"}.get(kind, "Use")
 	if _mode == "pick":
-		set_hints([["confirm", "Use on this one"], ["cancel", "Back"]])
+		set_hints([["confirm", "Give to this one" if kind == "charm" else "%s with this one" % verb if kind == "heal" else "Use on this one"], ["cancel", "Back"]])
 	elif _kinds.size() > 1:
-		set_hints([["leftright", "Switch tab"], ["confirm", "Use"], ["cancel", "Back"]])
+		set_hints([["leftright", "Switch tab"], ["confirm", verb], ["cancel", "Back"]])
 	else:
-		set_hints([["confirm", "Use"], ["cancel", "Back"]])
+		set_hints([["confirm", verb], ["cancel", "Back"]])
 
 func _draw_tabs() -> void:
 	UIKit.clear(_tabs_row)
@@ -154,6 +167,10 @@ func _show_desc(id: String) -> void:
 	var d := UIKit.label(str(it.get("desc", "")), 26)
 	d.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	_desc.add_child(d)
+	if str(it.get("effect_text", "")) != "":
+		var fx := UIKit.label(str(it.effect_text), 22, UIKit.GOLD)
+		fx.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		_desc.add_child(fx)
 	_desc.add_child(UIKit.fill())
 	if str(it.get("kind", "")) == "repel" and Repel.active(Game.data):
 		_desc.add_child(UIKit.label("%d steps of lavender left" % Repel.steps_left(Game.data), 22, UIKit.GOLD))
@@ -175,6 +192,18 @@ func _item_pressed(id: String) -> void:
 		_note.text = str(r.text)
 		if r.ok:
 			_rebuild_keep_note()
+		return
+	if kind == "charm":
+		if party().is_empty():
+			_note.text = "Nobody to give it to."
+			return
+		if _target >= 0:
+			_use(id, _target)
+			return
+		_pending = id
+		_mode = "pick"
+		_note.text = ""
+		_open_picker()
 		return
 	if kind not in USABLE:
 		_note.text = "That one's for keeping, not using." if kind == "key" else "Best saved for the right moment."
@@ -239,7 +268,7 @@ func _close_picker() -> void:
 
 func _use(id: String, idx: int) -> void:
 	var c: Creature = party()[idx]
-	var r := _bag.use_on(id, c, Game.items)
+	var r := _bag.give_charm(id, c) if Charms.is_charm(id) else _bag.use_on(id, c, Game.items)
 	if r.has("evolve_to"):
 		var old_name := c.display_name()
 		var to_sp: Dictionary = Game.dex.get_species(str(r.evolve_to))
@@ -247,11 +276,19 @@ func _use(id: String, idx: int) -> void:
 		Game.data.mark_caught(str(to_sp.id))
 		r["text"] = "%s evolved into %s!" % [old_name, to_sp.name]
 		Audio.sfx("evolve")
-	if r.get("ok", false):
+	if r.get("ok", false) and not Charms.is_charm(id):
 		TrainerStats.note_item(Game.data, id)
 	_note.text = str(r.get("text", ""))
 	if not r.has("evolve_to"):
 		Audio.sfx("heal" if r.get("ok", false) else "bump")
+	if _hold and r.get("ok", false):
+		close(null)  # back to the Team screen with it held
+		return
+	if Charms.is_charm(id) and _mode == "pick":
+		if r.get("ok", false):
+			_rebuild_keep_note()
+		_close_picker()
+		return
 	if _target >= 0:
 		_rebuild()
 		if r.get("ok", false) and (_kinds.is_empty() or _bag.count(id) == 0):
@@ -289,6 +326,7 @@ func _input(event: InputEvent) -> void:
 			Audio.sfx("cursor")
 			_draw_tabs()
 			_draw_list()
+			_set_hint()  # "Share" food, "Hold" charms, "Use" the rest
 			return
 	super._input(event)
 

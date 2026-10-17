@@ -99,6 +99,9 @@ func release(from_party: bool, i: int) -> String:
 	var rule := ArkLogic.release_rule(self, from_party, i)
 	if not rule.ok:
 		return rule.why
+	var c: Creature = party[i] if from_party else ark[i]
+	if c.held != "":  # its charm stays with you
+		bag[c.held] = int(bag.get(c.held, 0)) + 1
 	if from_party:
 		party.remove_at(i)
 	else:

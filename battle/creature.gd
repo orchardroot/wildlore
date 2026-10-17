@@ -14,6 +14,7 @@ var moves: Array = []  # [{"id": String, "pp": int, "max_pp": int}]
 var status := ""
 var status_turns := 0
 var friendship := 70    # 0..255; grows with levels and walking together
+var held := ""          # the charm it is holding (an item id), or ""
 var stages := {}       # Rules.STAGE_STATS -> -6..6, reset on switch-out
 
 static func create(sp: Dictionary, lvl: int, rng: Rng, move_db: MoveDB) -> Creature:
@@ -55,13 +56,14 @@ static func from_dict(d: Dictionary, dex: Dex) -> Creature:
 	c.status = d.get("status", "")
 	c.status_turns = int(d.get("status_turns", 0))
 	c.friendship = int(d.get("friendship", 70))
+	c.held = str(d.get("held", ""))
 	c.reset_stages()
 	return c
 
 func to_dict() -> Dictionary:
 	return {"species": species.id, "nickname": nickname, "level": level, "xp": xp, "nature": nature,
 		"ivs": ivs.duplicate(), "training": training.duplicate(), "hp": hp,
-		"moves": moves.duplicate(true), "status": status, "status_turns": status_turns, "friendship": friendship}
+		"moves": moves.duplicate(true), "status": status, "status_turns": status_turns, "friendship": friendship, "held": held}
 
 func make_move_slot(id: String, move_db: MoveDB) -> Dictionary:
 	var pp := int(move_db.get_move(id).get("pp", 10))
