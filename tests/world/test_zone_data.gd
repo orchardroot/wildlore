@@ -255,3 +255,9 @@ func test_wanderer_must_not_stand_in_a_one_tile_gap() -> void:
 	assert_true(_has(bad.validate({}), "dogwalker"), "can step into the gap at 2,2")
 	var still := ZoneData.from_dict(_base(rows, {"spawn": [0, 0], "npcs": [{"id": "dogwalker", "x": 4, "y": 4, "move": "wander", "radius": 1}]}))
 	assert_false(_has(still.validate({}), "dogwalker"), "clear of the gap")
+
+func test_validate_road_off_an_edge_with_no_exit() -> void:
+	var open := ZoneData.from_dict(_base(["..=..", "..=..", "....."], {"spawn": [0, 2], "kind": "town"}))
+	assert_true(_has(open.validate({"t": open}), "runs off the north edge"))
+	var closed := ZoneData.from_dict(_base(["..F..", "..=..", "....."], {"spawn": [0, 2], "kind": "town"}))
+	assert_false(_has(closed.validate({"t": closed}), "runs off the north edge"))
