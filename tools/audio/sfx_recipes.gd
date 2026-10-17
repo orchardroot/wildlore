@@ -14,6 +14,7 @@ const LENGTHS := {
 	"bell_toll": 3.2, "raven_caw": 0.9, "train_rush": 2.4,
 	"step_path": 0.12, "step_stone": 0.1, "step_wood": 0.14, "step_sand": 0.15, "step_soft": 0.12, "step_wet": 0.16, "bike_tyre": 0.2,
 	"talk_blip": 0.08, "sign_creak": 0.5, "shop_bell": 0.9, "sanctuary_chime": 1.4, "brake_squeal": 1.6,
+	"radio_tune": 2.0,
 }
 const PEAKS := {
 	"cursor": 0.5, "confirm": 0.6, "cancel": 0.55, "bump": 0.6, "door": 0.6, "step_grass": 0.55,
@@ -25,6 +26,7 @@ const PEAKS := {
 	"bell_toll": 0.8, "raven_caw": 0.75, "train_rush": 0.7,
 	"step_path": 0.6, "step_stone": 0.6, "step_wood": 0.6, "step_sand": 0.5, "step_soft": 0.5, "step_wet": 0.6, "bike_tyre": 0.5,
 	"talk_blip": 0.45, "sign_creak": 0.6, "shop_bell": 0.6, "sanctuary_chime": 0.6, "brake_squeal": 0.6,
+	"radio_tune": 0.6,
 }
 
 static func ids() -> Array:
@@ -481,6 +483,28 @@ static func render(id: String) -> PackedFloat32Array:
 			Synth.mix_into(sq, hs, 0, 0.25)
 			Synth.adsr(sq, SR, 0.25, 0.2, 0.75, 0.5)
 			Synth.mix_into(out, sq, 0)
+		"radio_tune":
+			# A wireless warming up: a whistle swept down to the station, crackle, then a few soft lilting notes under hiss.
+			var wh := Synth.osc(Synth.SINE, 2600.0, 780.0, 0.4, SR)
+			Synth.adsr(wh, SR, 0.05, 0.1, 0.5, 0.2)
+			Synth.mix_into(out, wh, 0, 0.35)
+			var cr := Synth.make(_at(0.5))
+			var rng := RandomNumberGenerator.new()
+			rng.seed = 317
+			for i in 22:
+				cr[rng.randi_range(0, cr.size() - 1)] = rng.randf_range(-1.0, 1.0)
+			Synth.bandpass(cr, 3200.0, 1.2, SR)
+			Synth.mix_into(out, cr, _at(0.1), 1.2)
+			var tune := Synth.make(_at(2.0))
+			for nt in [[349.2, 0.5], [440.0, 0.72], [523.3, 0.94], [587.3, 1.16], [523.3, 1.5], [440.0, 1.68]]:
+				var tn := _tone(Synth.TRI, nt[0], nt[0], 0.5, 0.01, 0.1, 0.5, 0.25, 2200.0)
+				Synth.mix_into(tune, tn, _at(nt[1]), 0.8)
+			Synth.bandpass(tune, 1300.0, 0.7, SR)
+			Synth.mix_into(out, tune, 0)
+			var hiss := Synth.noise(2.0, SR, 318)
+			Synth.highpass(hiss, 2500.0, SR)
+			Synth.lowpass(hiss, 6000.0, SR)
+			Synth.mix_into(out, hiss, 0, 0.05)
 		_:
 			push_error("unknown sfx " + id)
 	Synth.fade_out(out, SR, 0.008)
