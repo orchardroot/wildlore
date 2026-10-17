@@ -198,10 +198,19 @@ func _exec(c: Dictionary) -> void:
 		"whiteout":
 			await whiteout()
 			_ended = true
+		"fieldbook_news":
+			await _fieldbook_news(str(c.get("who", "")))
 		_:
 			push_warning("Commands: unknown command '%s'" % c.get("do", ""))
 
 const STARTER_LEVEL := 5
+
+## Garside hears about each region you've finished (every species found there caught), once each.
+func _fieldbook_news(who: String) -> void:
+	for r in FieldbookGoals.untold_regions(host.data, ZoneIndex.get_index()):
+		_set_flag(FieldbookGoals.NEWS_PREFIX + r, true)
+		await host.say(_sub(who), "Every creature in %s, caught? Then that's a stamp in the Fieldbook, {player}. Region complete. I'll fetch the potato." \
+			.replace("{player}", host.data.player_name) % FieldbookGoals.region_name(r))
 
 ## The pub quiz: {"do": "quiz", "pub": id, "region": region, "who": quizmaster name, "set": flag (the score, or -1)}.
 ## The round itself is the quiz screen; the prize is once per in-game day per pub (see PubQuiz).
@@ -387,7 +396,7 @@ const WEATHER_CONDS := {"rain": ["drizzle", "downpour"], "fog": ["fog"], "gale":
 
 ## Conditions that aren't flags: the time of day ("dawn", "day", "dusk", "night", from the in-game clock), the
 ## weather ("rain" is drizzle or a downpour; "fog", "gale", "frost", "sunshine"), "caught_all" (every species
-## in the Fieldbook caught), and from the real date the season ("spring".."winter") or a festival (Calendar.FESTIVALS).
+## in the Fieldbook caught), "caught_<n>" (at least n caught), and from the real date the season ("spring".."winter") or a festival (Calendar.FESTIVALS).
 func _when(cond: String) -> bool:
 	if cond in PHASE_CONDS:
 		return GameClock.phase(host.data.clock_minutes) == cond
@@ -395,6 +404,8 @@ func _when(cond: String) -> bool:
 		return _weather() in WEATHER_CONDS[cond]
 	if cond == "caught_all":
 		return host.data.caught.size() >= host.dex.ids().size()
+	if cond.begins_with("caught_") and cond.substr(7).is_valid_int():  # a Fieldbook milestone: caught_25 and so on
+		return host.data.caught.size() >= int(cond.substr(7))
 	if cond in Calendar.SEASONS:
 		return Calendar.season_today() == cond
 	if cond in Calendar.FESTIVALS:

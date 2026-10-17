@@ -82,7 +82,14 @@ static func lines(data: GameStateData) -> Array:
 		["Money earned", "£" + _n(c.call("money_earned"))],
 		["Cups of tea drunk", _n(c.call("teas"))],
 		["Times rained on", _n(c.call("rained_on"))],
+		["Visitor's Book", _visitors_book(data)],
 	]
+
+## "20 rooms, 1 town complete": rooms walked into, and towns whose every room you've seen (see VisitorsBook).
+static func _visitors_book(data: GameStateData) -> String:
+	var rooms := VisitorsBook.rooms_seen(data)
+	var towns := VisitorsBook.towns_complete(data)
+	return "%s room%s, %s town%s complete" % [_n(rooms), "" if rooms == 1 else "s", _n(towns), "" if towns == 1 else "s"]
 
 static func _n(v: int) -> String:
 	var s := str(absi(v))

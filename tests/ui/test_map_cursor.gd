@@ -113,3 +113,11 @@ func test_flying_needs_the_champion_and_another_visited_town() -> void:
 	assert_true(MapLogic.can_fly_to(d, "macclesfield", "buxton"))
 	assert_false(MapLogic.can_fly_to(d, "buxton", "buxton"), "not to where you stand")
 	assert_false(MapLogic.can_fly_to(d, "macclesfield", "york"), "not to an unvisited town")
+
+func test_info_counts_rooms_visited() -> void:
+	var d := _data(["buxton"])
+	var rooms: Array = ZoneIndex.get_index().town_rooms.buxton
+	d.set_flag(VisitorsBook.seen_flag(str(rooms[0])))
+	var i := MapLogic.info(d, "buxton")
+	assert_eq([i.rooms_seen, i.rooms], [1, rooms.size()])
+	assert_has(MapLogic.info_lines(i), "Rooms visited: 1 of %d" % rooms.size())
