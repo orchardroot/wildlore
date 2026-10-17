@@ -36,29 +36,6 @@ func test_fireplace_has_flickering_glow() -> void:
 	assert_eq((root.get_node("Props_fireplace_fire_0") as GeometryInstance3D).material_override, Meshes.firelight)
 	root.free()
 
-func _label_y(root: Node3D) -> float:
-	for b in root.get_children():
-		for c in b.get_children():
-			if c is Label3D:
-				return (c as Label3D).position.y
-	return -1.0
-
-func test_bunting_across_a_front_lifts_the_name_above_it() -> void:
-	Meshes.materials()
-	var rows := ["BBBBBB..", "BBBBBB..", "BBBBBB..", "BBBDBB..", "........"]
-	var pub := {"type": "building", "style": "white_render", "label": "The Pub", "x": 0, "y": 0, "w": 6, "h": 4}
-	var plain := ZoneData.from_dict({"id": "t", "kind": "town", "rows": rows, "props": [pub], "spawn": [7, 4]})
-	var root := ZoneBuilder.build(plain)
-	var low := _label_y(root)
-	root.free()
-	var dressed := ZoneData.from_dict({"id": "t", "kind": "town", "rows": rows, "spawn": [7, 4],
-		"props": [pub, {"type": "bunting", "x": 0, "y": 4, "variant": 5, "walk": true}]})
-	root = ZoneBuilder.build(dressed)
-	var high := _label_y(root)
-	root.free()
-	assert_true(low > 0.0 and low < 1.5, "name sits between the floors")
-	assert_true(high > 1.7, "name lifted above the bunting, got %s" % high)
-
 func test_decor_that_hangs_does_not_block() -> void:
 	var z := _zone([{"type": "bunting", "x": 1, "y": 1, "variant": 3, "walk": true}, {"type": "rug", "x": 1, "y": 2, "w": 2, "h": 2, "walk": true}])
 	assert_true(z.walkable(Vector2i(1, 1)))

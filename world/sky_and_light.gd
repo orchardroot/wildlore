@@ -336,6 +336,7 @@ func apply_time(minutes: int) -> void:
 		Meshes.glow.emission_energy_multiplier = lamps
 		Meshes.glow.albedo_color = Color("3a4658") if lamps == 0.0 else Color("ffd98a")
 		Meshes.pool.set_shader_parameter("strength", 0.0 if interior else clampf(p[6] / 2.2, 0.0, 1.0))
+		Signage.night(get_tree() if is_inside_tree() else null, 0.0 if interior else p[6])
 	if Meshes.windows:
 		Meshes.windows.set_shader_parameter("energy", 0.0 if interior else p[6])
 		Meshes.windows.set_shader_parameter("lateness", lateness(minutes))
