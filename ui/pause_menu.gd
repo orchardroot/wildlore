@@ -1,5 +1,5 @@
 extends MenuBase
-## Pause menu: Team, Fieldbook, Bag, Ark (once you've met a Sanctuary nurse), Map, Stats, Save, Settings, Close,
+## Pause menu: Team, Fieldbook, Bag, Ark (once you've met a Sanctuary nurse), Map, Stats, Save, Settings (and Close when there's room),
 ## with the trainer card, the time and weather, and "Where next?" beside it.
 
 static var _last_entry := "Team"  # reopens on the entry you left it on (this session only)
@@ -28,7 +28,9 @@ func _build() -> void:
 	var entries := [["Team", _open_team], ["Fieldbook", _open_pedia], ["Bag", _open_bag]]
 	if MenuLogic.ark_unlocked(Game.data):
 		entries.append(["Ark", _open_ark])
-	entries.append_array([["Map", _open_map], ["Stats", _open_stats], ["Save", _save], ["Settings", _open_settings], ["Close", func(): close(null)]])
+	entries.append_array([["Map", _open_map], ["Stats", _open_stats], ["Save", _save], ["Settings", _open_settings]])
+	if entries.size() < 8:  # with the Ark there's no room for Close; Back closes, as the hint says
+		entries.append(["Close", func(): close(null)])
 	var tall := entries.size() <= 7
 	for e in entries:
 		var b := make_button(e[0], e[1])
