@@ -206,6 +206,7 @@ func _build_zone_node() -> void:
 	add_child(_zone_node)
 	Seasonal.dress(zone, _zone_node, player)  # festivals and falling leaves from the real date
 	Forage.dress(zone, _zone_node, Game.data)  # hedgerow pickings and crafting benches
+	Noticeboard.dress(zone, _zone_node)  # the parish noticeboard (jobs)
 	traffic = RailTraffic.new()
 	traffic.name = "RailTraffic"
 	_zone_node.add_child(traffic)
@@ -399,6 +400,8 @@ func _after_battle(result: Dictionary) -> void:
 func interact(p: Vector2i) -> void:
 	Audio.interaction(self, p)
 	if await Forage.interact(self, p):  # a forage prop or a crafting bench
+		return
+	if await Noticeboard.interact(self, p):
 		return
 	var s := zone.sign_at(p)
 	if not s.is_empty():

@@ -5,9 +5,15 @@ func _build() -> void:
 	set_title("Stats")
 	header_right.text = Game.data.player_name
 	set_hints([["cancel", "Back"]])
+	var cols := HBoxContainer.new()
+	cols.set_anchors_preset(Control.PRESET_FULL_RECT)
+	cols.add_theme_constant_override("separation", 20)
+	content.add_child(cols)
 	var card := UIKit.panel(Color("1d2230f0"), 14)
-	card.set_anchors_preset(Control.PRESET_FULL_RECT)
-	content.add_child(card)
+	card.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	card.size_flags_stretch_ratio = 1.45
+	cols.add_child(card)
+	cols.add_child(StandingPanel.build(Game.data, Game.dex))  # standing with the six nations, and jobs in hand
 	var col := VBoxContainer.new()
 	col.add_theme_constant_override("separation", 4)
 	card.add_child(col)

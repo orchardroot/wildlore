@@ -19,6 +19,7 @@ var _say: Label
 var _root_buttons: Array = []
 var _item_buttons: Array = []
 var _last_item := 0
+var _nation := ""        # the shop's nation: standing brings a discount and, from Regular, extra stock (see Standing)
 
 func _build() -> void:
 	set_title("Shop")
@@ -89,7 +90,10 @@ func setup(arg: String) -> void:
 		set_title("Shop")
 		return
 	set_title(str(_shop.get("name", "Shop")))
-	_say.text = "Welcome in. Mind the cat."
+	_nation = Standing.nation_for_zone(str(Game.data.zone_id))
+	var t := Standing.tier(Game.data, _nation)
+	_say.text = "Welcome in. Mind the cat." if t == Standing.STRANGER else \
+		"Oh, it's you! %s, so that's %d%% off for you." % [Standing.TIER_NAMES[t], roundi(Standing.DISCOUNT[t] * 100)]
 	if parts.size() > 1 and parts[1] in ["buy", "sell"]:
 		_open_list(parts[1])
 		_say.text = "Welcome in. Mind the cat."
@@ -113,6 +117,9 @@ func _open_list(side: String) -> void:
 		for id in _shop.get("stock", []):
 			if Game.items.has(id):
 				_ids.append(id)
+		for e in Standing.extra_stock(Game.data, _nation):  # kept back under the counter for regulars
+			if Game.items.has(str(e[0])) and str(e[0]) not in _ids:
+				_ids.append(str(e[0]))
 	else:
 		for id in _bag.store.keys():
 			var it: Dictionary = Game.items.get_item(id)
@@ -132,8 +139,8 @@ func _draw_list() -> void:
 		return
 	for id in _ids:
 		var it: Dictionary = Game.items.get_item(id)
-		var price := int(it.get("price", 0))
-		var shown := price if _side == "buy" else MenuLogic.sell_price(price)
+		var price := _buy_price(id)
+		var shown := price if _side == "buy" else MenuLogic.sell_price(int(it.get("price", 0)))
 		var b := Button.new()
 		b.custom_minimum_size = Vector2(0, 56)
 		b.focus_entered.connect(func():
@@ -175,9 +182,17 @@ func _describe(id: String) -> void:
 	_desc.add_child(UIKit.fill())
 	_desc.add_child(UIKit.label("You have %d" % _bag.count(id), 24, UIKit.MUTED))
 
+## What an item costs you here: the standing discount, and the under-the-counter price for a regular's extras.
+func _buy_price(id: String) -> int:
+	var base := int(Game.items.get_item(id).get("price", 0))
+	var extra := Standing.extra_price(_nation, id)
+	if extra > 0 and (base <= 0 or id not in _shop.get("stock", [])):
+		base = extra
+	return Standing.price(Game.data, _nation, base)
+
 func _pick(id: String) -> void:
 	_cur = id
-	var price := int(Game.items.get_item(id).get("price", 0))
+	var price := _buy_price(id)
 	var most := MenuLogic.max_buy(Game.data.money, price, _bag.count(id)) if _side == "buy" else _bag.count(id)
 	if most < 1:
 		_say.text = "You'd need a bit more cash for that one." if _side == "buy" and Game.data.money < price else "You can't carry any more of those."
@@ -191,14 +206,13 @@ func _pick(id: String) -> void:
 	_set_hint()
 
 func _max_qty() -> int:
-	var price := int(Game.items.get_item(_cur).get("price", 0))
+	var price := _buy_price(_cur)
 	if _side == "buy":
 		return MenuLogic.max_buy(Game.data.money, price, _bag.count(_cur))
 	return _bag.count(_cur)
 
 func _unit() -> int:
-	var price := int(Game.items.get_item(_cur).get("price", 0))
-	return price if _side == "buy" else MenuLogic.sell_price(price)
+	return _buy_price(_cur) if _side == "buy" else MenuLogic.sell_price(int(Game.items.get_item(_cur).get("price", 0)))
 
 func _refresh_qty() -> void:
 	_qty = clampi(_qty, 1, maxi(1, _max_qty()))

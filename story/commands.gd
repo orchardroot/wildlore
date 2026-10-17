@@ -211,6 +211,12 @@ func _exec(c: Dictionary) -> void:
 			_ended = true
 		"fieldbook_news":
 			await _fieldbook_news(str(c.get("who", "")))
+		"standing":
+			# {"do": "standing", "nation": id, "amount": n}: standing with a nation (see Standing), with a line on a new tier
+			var line := Standing.add(data, str(c.get("nation", "")), int(c.get("amount", 1)))
+			if line != "":
+				await host.sfx("badge")
+				await host.say("", line + ".")
 		_:
 			push_warning("Commands: unknown command '%s'" % c.get("do", ""))
 
@@ -244,6 +250,10 @@ func _quiz(c: Dictionary) -> void:
 	var total := int(res.get("total", PubQuiz.ROUND_SIZE))
 	await host.say(who, "%d out of %d. %s" % [score, total, PubQuiz.reaction(score, total)])
 	var paid := PubQuiz.award(data, host.items, pub, score, bonus)
+	if bool(paid.paid) and score >= 3:  # a quiz win: the pub's nation thinks a bit better of you
+		var line := Standing.add(data, Standing.nation_for_zone(pub if FileAccess.file_exists("res://data/zones/%s.json" % pub) else host.zone_id()), Standing.FOR_QUIZ_WIN)
+		if line != "":
+			await host.say("", line + ".")
 	if bool(paid.paid):
 		await host.sfx("item")
 		if str(paid.item) != "":
@@ -481,4 +491,10 @@ func _sub(s: String) -> String:
 	var got: int = host.data.caught.size()
 	return s.replace("{player}", host.data.player_name).replace("{rival}", host.data.rival_name) \
 		.replace("{caught}", str(got)).replace("{left}", str(maxi(0, total - got))).replace("{total}", str(total)) \
-		.replace("{greeting}", StoryData.greeting(host.data.zone_id, host.data.clock_minutes) if "{greeting}" in s else "")
+		.replace("{greeting}", _greeting() if "{greeting}" in s else "")
+
+## {greeting}: the local hello, and once you're a Pillar of the Community here, a word about what you sorted out.
+func _greeting() -> String:
+	var g := StoryData.greeting(host.data.zone_id, host.data.clock_minutes)
+	var extra := Standing.greeting_extra(host.data, host.data.zone_id)
+	return g + (" " + extra if extra != "" else "")

@@ -268,6 +268,7 @@ static func interact(ow: Node, p: Vector2i) -> bool:
 	if node:
 		show_ready(node, false)
 	if res.ok:
+		Bus.foraged.emit(ow.zone.id)
 		Audio.sfx("step_grass")
 		Audio.sfx("item")
 	await ow.say(res.lines)
