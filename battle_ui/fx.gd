@@ -101,7 +101,7 @@ func play(cue: Dictionary, battle: Battle) -> void:
 				hud.tween_hp(side, int(cue.hp), 0.5, at)
 			await _wait(0.5)
 		"protect":
-			Audio.sfx("stat_up")
+			Audio.sfx("bump")
 			burst(_chest(side, pos), Color("cfe3ff"), 20, 1.6, 0.18, 0.6, 0.0)
 			await _actor(side, pos).nod()
 		"knack":

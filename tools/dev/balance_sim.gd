@@ -21,7 +21,8 @@ func _initialize() -> void:
 		var foes := []
 		for m in def.party:
 			foes.append(Creature.create(dex.get_species(m.species), maxi(2, int(m.level) + offset), rng, moves))
-		var b := Battle.new(mine, foes, {"chart": chart, "move_db": moves, "rng": rng, "kind": "trainer"})
+		# NOKNACKS=1 in the environment: knacks off (the 1.x rules, for before/after comparisons)
+		var b := Battle.new(mine, foes, {"chart": chart, "move_db": moves, "rng": rng, "kind": "trainer", "knacks": OS.get_environment("NOKNACKS") == ""})
 		var guard := 0
 		while not b.over and guard < 300:
 			guard += 1
