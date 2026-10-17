@@ -255,7 +255,11 @@ func _show(id: String) -> void:
 		cry.custom_minimum_size = Vector2(96, 0)
 		cry.add_theme_font_size_override("font_size", 22)
 		cry.pressed.connect(func(): play_cry(id))
-		info.add_child(cry)
+		var cry_row := HBoxContainer.new()  # the Cry button, and beside it any uncommon coats seen or caught
+		cry_row.add_theme_constant_override("separation", 18)
+		cry_row.add_child(cry)
+		cry_row.add_child(CoatArt.swatch_row(Game.data, id))
+		info.add_child(cry_row)
 	else:
 		var u := UIKit.label("Not met yet. Out there somewhere, being elusive.", 22, UIKit.MUTED)
 		u.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART

@@ -9,7 +9,7 @@ func _build() -> void:
 	card.set_anchors_preset(Control.PRESET_FULL_RECT)
 	content.add_child(card)
 	var col := VBoxContainer.new()
-	col.add_theme_constant_override("separation", 4)
+	col.add_theme_constant_override("separation", 1)  # snug, so the coats row fits too
 	card.add_child(col)
 	var rows := TrainerStats.lines(Game.data)
 	for i in rows.size():
@@ -20,3 +20,8 @@ func _build() -> void:
 		h.add_child(UIKit.fill())
 		h.add_child(UIKit.label(rows[i][1], 28, UIKit.GOLD if i == 0 else UIKit.CREAM))
 		col.add_child(h)
+	var coats := HBoxContainer.new()  # uncommon coats (see Coats)
+	coats.add_child(UIKit.label("Uncommon coats", 26, UIKit.MUTED))
+	coats.add_child(UIKit.fill())
+	coats.add_child(UIKit.label(Coats.stats_line(Game.data), 28, UIKit.CREAM))
+	col.add_child(coats)

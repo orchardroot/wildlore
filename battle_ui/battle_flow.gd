@@ -114,6 +114,7 @@ func run() -> Dictionary:
 	var foe := battle.current(Battle.FOE)
 	for c in battle.actives(Battle.FOE):
 		data.mark_seen(c.species.id)
+		Coats.record_seen(data, c)
 	await ui.intro(self)
 	if foe != null and not battle.over:
 		await _say(_intro_lines())
@@ -140,6 +141,8 @@ func _intro_lines() -> Array[String]:
 	var me := battle.current(Battle.PLAYER)
 	if is_wild():
 		out.append("A wild %s appeared!" % foe.display_name())
+		if foe.variant != "":
+			out.append(Coats.intro_line(foe.variant))  # an uncommon coat
 	else:
 		var t := str(trainer.get("name", "A keeper"))
 		out.append("%s wants to battle!" % t)
@@ -397,6 +400,7 @@ func _after_catch(c: Creature) -> void:
 			where = data.add_creature_swapping(c, slot)
 		else:
 			where = data.add_creature(c)
+	Coats.record_caught(data, c)
 	species_caught.emit(c.species.id)
 	var target := nickname_arg(data, c)
 	if target != "":

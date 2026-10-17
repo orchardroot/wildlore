@@ -240,7 +240,7 @@ func _open_picker(focus := 0) -> void:
 		h.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		h.add_theme_constant_override("separation", 10)
 		var ic := AnimSprite.new()
-		ic.show_species(c.species.id, "icon", 1)
+		ic.show_species(c.species.id, "icon", 1, false, c.variant)
 		ic.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 		h.add_child(ic)
 		h.add_child(UIKit.label(c.display_name(), 24))

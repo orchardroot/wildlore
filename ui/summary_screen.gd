@@ -131,7 +131,7 @@ func _left(c: Creature) -> Control:
 	v.add_theme_constant_override("separation", 8)
 	p.add_child(v)
 	var s := AnimSprite.new()
-	s.show_species(c.species.id, "front", 3)
+	s.show_species(c.species.id, "front", 3, false, c.variant)
 	s.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
 	v.add_child(s)
 	var n := UIKit.label(c.display_name(), 38)
@@ -147,6 +147,8 @@ func _left(c: Creature) -> Control:
 	var tr := UIKit.types_row(c.types(), 22)
 	tr.alignment = BoxContainer.ALIGNMENT_CENTER
 	v.add_child(tr)
+	if c.variant != "":
+		v.add_child(CoatArt.coat_chip(c.variant))
 	var st: Control = UIKit.chip("fainted", Color("6b2f2f")) if c.is_fainted() else UIKit.status_chip(c.status, 20)
 	if st:
 		var cc := CenterContainer.new()

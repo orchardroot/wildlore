@@ -135,7 +135,7 @@ func _creature_button(c: Creature, wide: bool) -> Button:
 	box.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	b.add_child(box)
 	var s := AnimSprite.new()
-	s.show_species(c.species.id, "icon", 2)
+	s.show_species(c.species.id, "icon", 2, false, c.variant)
 	if c.is_fainted():
 		s.modulate = Color(0.5, 0.5, 0.5)
 	box.add_child(s)

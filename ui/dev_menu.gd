@@ -26,6 +26,11 @@ static func boot(game: Node, menu: String) -> void:
 	f.status = "asleep"
 	a.friendship = 230  # four hearts and a charm, for the summary and team screens
 	a.held = "hag_stone"
+	a.variant = str(DevArgs.parse(DevArgs.user_args()).coat)  # --coat=<variant>: the summary shows an uncommon coat
+	if a.variant != "":  # ...and the Fieldbook has it, plus a couple more seen
+		for v in Coats.ALL.slice(0, 3):
+			d.set_flag(Coats.flag_key("spikkin", v), "seen")
+		d.set_flag(Coats.flag_key("spikkin", a.variant), "caught")
 	b.friendship = 255
 	c.held = "oak_acorn"
 	d.party = [a, b, c, e, f]

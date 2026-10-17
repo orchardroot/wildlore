@@ -12,6 +12,7 @@ var _t := randf() * 4.0
 var _squash := Vector3.ONE   # extra scale applied by tweens
 var _tween: Tween
 var marker: MeshInstance3D  # the bobbing arrow over a creature being picked as a target (doubles)
+var coat := ""              # an uncommon coat: it glints as it pops in (see CoatArt)
 
 static var _blob: GradientTexture2D
 
@@ -58,7 +59,8 @@ static func _blob_texture() -> GradientTexture2D:
 	return _blob
 
 func show_creature(c: Creature, is_back: bool) -> void:
-	sprite.texture = CreatureArt.texture(c.species, is_back)
+	sprite.texture = CoatArt.texture(CreatureArt.texture(c.species, is_back), "%s/%s" % [c.species.id, is_back], c.variant)
+	coat = c.variant
 	sprite.visible = true
 	sprite.modulate = Color(1.12, 1.12, 1.12)
 	_squash = Vector3.ONE
@@ -94,6 +96,7 @@ func pop_in() -> void:
 	_tween = create_tween().set_parallel(true).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	_tween.tween_property(self, "_squash", Vector3.ONE, 0.45)
 	_tween.tween_property(sprite, "modulate", Color(1.12, 1.12, 1.12), 0.5).set_trans(Tween.TRANS_SINE)
+	CoatArt.glint(self, coat, HEIGHT)
 	await _tween.finished
 
 func pop_out() -> void:

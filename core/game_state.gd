@@ -147,6 +147,7 @@ func _dev_boot() -> void:
 			if a.begins_with("--held="):  # dev: the lead holds this charm (screenshots of charm messages)
 				party[0].held = a.substr(7)
 		var foe := [Creature.create(dex.get_species(args.battle_species), args.battle_level, rng, moves)]
+		foe[0].variant = str(args.get("coat", ""))
 		var opts := {"kind": "wild"}
 		if args.get("double", false):
 			# A double battle: two of ours against the dev twins, with the --battle species leading theirs.
@@ -165,6 +166,8 @@ func _dev_boot() -> void:
 		if args.clock >= 0:
 			data.clock_minutes = args.clock
 		data.party = [Creature.create(dex.get_species("kindlet"), 10, rng, moves)]
+		data.party[0].variant = str(args.get("coat", ""))
+		HomeBase.dev_setup(data, str(args.get("home", "")), dex)
 		if args.ride != "":
 			data.bag["bike"] = 1
 			data.badges = ["brook", "urban", "stone", "iron"] if args.ride == "lantern" else ["brook", "urban", "stone"]
