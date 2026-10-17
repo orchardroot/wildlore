@@ -206,6 +206,7 @@ func _build_zone_node() -> void:
 	add_child(_zone_node)
 	Seasonal.dress(zone, _zone_node, player)  # festivals and falling leaves from the real date
 	Forage.dress(zone, _zone_node, Game.data)  # hedgerow pickings and crafting benches
+	HomeBase.dress(zone, _zone_node, Game.data)  # Mum's trophy shelf, the garden and its visitors
 	traffic = RailTraffic.new()
 	traffic.name = "RailTraffic"
 	_zone_node.add_child(traffic)
@@ -314,6 +315,7 @@ func _on_step(p: Vector2i) -> void:
 	if not enc.is_empty() and Game.data.first_able() != null and not Repel.blocks(Game.data, int(enc.level)):
 		var foe := Creature.create(Game.dex.get_species(enc.species), enc.level, Game.rng, Game.moves)
 		Charms.maybe_wild(foe, Game.rng)  # now and then one is carrying a charm
+		foe.variant = Coats.roll(Game.rng, Calendar.today().x, weather, Game.phase())  # about 1 in 96: an uncommon coat
 		Game.data.mark_seen(enc.species)
 		var result: Dictionary = await Router.battle([foe], {"kind": "wild", "weather": weather, "time": Game.phase(), "stage": _stage()})
 		await _after_battle(result)
@@ -399,6 +401,8 @@ func _after_battle(result: Dictionary) -> void:
 func interact(p: Vector2i) -> void:
 	Audio.interaction(self, p)
 	if await Forage.interact(self, p):  # a forage prop or a crafting bench
+		return
+	if await HomeBase.interact(self, p):  # the trophy shelf, a garden plot or a visitor
 		return
 	var s := zone.sign_at(p)
 	if not s.is_empty():

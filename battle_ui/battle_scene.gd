@@ -165,6 +165,8 @@ func intro(f: BattleFlow) -> void:
 			_mark_caught(f, side, c, pos)
 			a.pop_in()
 			Audio.cry(c.species)
+			if c.variant != "":
+				Audio.sfx("harp_gliss")  # an uncommon coat glints as it appears
 		await _wait(0.7 if side == Battle.FOE else 0.9)
 	_intro_done = true
 

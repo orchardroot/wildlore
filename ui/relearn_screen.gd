@@ -71,7 +71,7 @@ func _show_party() -> void:
 		var b := _row_button(func(): _focus_creature(i), func(): _pick_creature(i))
 		var h := _row_box(b)
 		var icon := AnimSprite.new()
-		icon.show_species(c.species.id, "icon", 2)
+		icon.show_species(c.species.id, "icon", 2, false, c.variant)
 		icon.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 		h.add_child(icon)
 		h.add_child(UIKit.label(c.display_name(), 28))
@@ -86,7 +86,7 @@ func _focus_creature(i: int) -> void:
 	var c: Creature = party()[i]
 	UIKit.clear(_side)
 	var s := AnimSprite.new()
-	s.show_species(c.species.id, "front", 2)
+	s.show_species(c.species.id, "front", 2, false, c.variant)
 	s.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
 	_side.add_child(s)
 	var n := UIKit.label(c.display_name(), 34)

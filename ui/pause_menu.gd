@@ -91,7 +91,7 @@ func _refresh() -> void:
 	team.add_theme_constant_override("separation", 6)
 	for c in d.party:
 		var s := AnimSprite.new()
-		s.show_species(c.species.id, "icon", 2)
+		s.show_species(c.species.id, "icon", 2, false, c.variant)
 		if c.is_fainted():
 			s.modulate = Color(0.5, 0.5, 0.5)
 		team.add_child(s)

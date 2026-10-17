@@ -11,7 +11,7 @@ static func parse(args: PackedStringArray, is_debug := OS.is_debug_build()) -> D
 		args = PackedStringArray()
 	var out := {"shot": "", "shot_delay": 2.0, "boot_zone": "", "boot_pos": Vector2i(-1, -1),
 		"battle_species": "", "battle_level": 5, "seed": -1, "clock": -1, "weather": "", "fps": false, "playtest": "", "seconds": 0, "ride": "", "double": false, "train": -1.0,
-		"journey": "", "journey_at": 0.5, "intro": "", "intro_at": 0.5, "date": ""}
+		"journey": "", "journey_at": 0.5, "intro": "", "intro_at": 0.5, "date": "", "coat": "", "home": ""}
 	for a in args:
 		var kv := a.split("=", true, 1)
 		var key: String = kv[0]
@@ -59,6 +59,10 @@ static func parse(args: PackedStringArray, is_debug := OS.is_debug_build()) -> D
 				out.intro_at = val.to_float()  # how far through to hold it (0..1)
 			"--date":
 				out.date = val  # MM-DD or YYYY-MM-DD: pretend it's this date (seasons and festivals, see Calendar)
+			"--coat":
+				out.coat = val  # an uncommon coat (see Coats) on the --battle foe, the lead and the --menu sample creature
+			"--home":
+				out.home = val  # with --boot: the garden planted (seed|sprout|growing|ready|mixed) and the trophy shelf filled
 			"--seconds":
 				out.seconds = int(val)
 	return out

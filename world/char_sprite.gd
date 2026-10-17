@@ -60,6 +60,11 @@ func setup(sprite_id: String) -> void:
 	blob.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	add_child(blob)
 
+## An uncommon coat on a creature standing in the world (follower, garden visitors); "" leaves it as it is.
+func set_coat(variant: String) -> void:
+	if _single and variant != "":
+		texture = CoatArt.texture(texture, texture.resource_path, variant)
+
 func set_facing(dir: String) -> void:
 	facing = dir
 	_apply()

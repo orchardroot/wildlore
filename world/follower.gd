@@ -217,6 +217,7 @@ func _check_lead() -> void:
 	_sprite = CharSprite.new()
 	add_child(_sprite)
 	_sprite.setup("creature:" + str(lead.species.id))
+	_sprite.set_coat(lead.variant)
 	_sprite.scale = Vector3.ONE * scale_for(Cries.size_of(lead.species))
 	_sprite.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 

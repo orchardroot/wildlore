@@ -94,7 +94,7 @@ func _slot_button(c: Creature, i: int) -> Button:
 	h.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	b.add_child(h)
 	var icon := AnimSprite.new()
-	icon.show_species(c.species.id, "icon", 2)
+	icon.show_species(c.species.id, "icon", 2, false, c.variant)
 	icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	icon.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 	if c.is_fainted():
@@ -139,7 +139,7 @@ func _slot_button(c: Creature, i: int) -> Button:
 func _show_preview(c: Creature) -> void:
 	UIKit.clear(_preview)
 	var s := AnimSprite.new()
-	s.show_species(c.species.id, "front", 2)
+	s.show_species(c.species.id, "front", 2, false, c.variant)
 	s.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
 	_preview.add_child(s)
 	var n := UIKit.label(c.display_name(), 36)

@@ -87,7 +87,7 @@ func setup(arg: String) -> void:
 	for b in _looks:
 		b.visible = false
 	var icon := AnimSprite.new()
-	icon.show_species(_nick.species.id, "front", 2)
+	icon.show_species(_nick.species.id, "front", 2, false, _nick.variant)
 	icon.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 	_look_row.add_child(icon)
 	_look_row.move_child(icon, 0)
