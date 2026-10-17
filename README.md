@@ -6,7 +6,7 @@ A monster-catching RPG across the UK and Ireland. You start in Macclesfield, bec
 
 ![Title](docs/screens/t13-title.png)
 
-## What's in 1.3
+## What's in 1.4
 
 All of it, start to finish, and then some. You leave home in Macclesfield with a hedgehog, a squirrel or an otter, and you walk (and cycle, and take the train, and catch the odd ferry) all the way round England, Wales, Scotland, Northern Ireland, Ireland and the Isle of Man, collecting ten Stones from ten Keepers while a heritage company with very good lanyards tries to buy the countryside. Then you go to Stonehenge for the Moot, find out who the Champion has been all along, and go to London to have a word with Lord Vane about his tower.
 
@@ -26,6 +26,11 @@ All of it, start to finish, and then some. You leave home in Macclesfield with a
 - Proper furniture in every room: fireplaces, rugs, a fryer in the chippy, pictures on the walls
 - Kinder to your thumbs: speed up battles and text, "super effective" tags once you know a creature, plain-English move descriptions, a "Where next?" hint, the Ark from the pause menu, nicknames, a move relearner in every Sanctuary, a Lavender Sachet to keep the riff-raff away, and button prompts that match your controller
 - The Team Thermos, a flask big enough for the whole team: switch it on and the ones on the bench learn from every win too
+- Your lead creature walks along behind you, and has opinions about the weather if you ask it
+- The seasons follow the real calendar: the trees turn in autumn and blossom in spring, there are pumpkins on doorsteps at Halloween, fireworks for Bonfire Night, and a tree in the square at Christmas
+- A wireless in the front room reads the Shipping Forecast, off the game's own weather, so it's actually useful. And a blue plaque in every town, because somebody famous lived everywhere
+- Pub quizzes in nine pubs, a hundred and fifty questions, and a prize once a day if you're sharp. Phones away
+- Photo mode (P, or click the right stick) and a Stats page that counts your steps, your trains and your cups of tea
 - Options for the rest of us: every key and button can be remapped, type symbols as well as colours, a colour-blind palette, instant text, and a setting to calm the flashing down
 
 | | |
@@ -45,6 +50,7 @@ All of it, start to finish, and then some. You leave home in Macclesfield with a
 | Menu | Esc or Tab | Start |
 | Bike on / off | B | Y / North |
 | Fly (after the Moot) | F | Back / Select |
+| Photo mode | P | Right stick click |
 
 All of it can be rebound under Settings, Controls. Confirm and Back can't be swapped onto the same key, because I've seen what happens.
 
