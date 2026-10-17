@@ -104,7 +104,11 @@ func _refresh_next() -> void:
 	var d: GameStateData = Game.data
 	var o := MenuLogic.next_objective(d, Game.dex.ids().size())
 	if not o.is_empty():
-		_next.add_child(UIKit.label("Still to do" if o.get("postgame", false) else "Where next?", 22, UIKit.MUTED))
+		var head := HBoxContainer.new()
+		head.add_child(UIKit.label("Still to do" if o.get("postgame", false) else "Where next?", 22, UIKit.MUTED))
+		head.add_child(UIKit.fill())
+		head.add_child(UIKit.label(Jobs.summary(d, Game.dex), 20, UIKit.GOLD))  # odd jobs off the noticeboards (the Stats page lists them)
+		_next.add_child(head)
 		var t := UIKit.label(str(o.get("text", "")), 24)
 		t.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		_next.add_child(t)

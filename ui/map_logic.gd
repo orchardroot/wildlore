@@ -116,6 +116,8 @@ static func info(data: GameStateData, town: String) -> Dictionary:
 	var rooms := VisitorsBook.count(data, town, ZoneIndex.get_index())
 	out.rooms_seen = rooms.x
 	out.rooms = rooms.y
+	var nation := Standing.nation_for_zone(town)
+	out["standing"] = "%s in %s" % [Standing.tier_name(data, nation), Standing.name_of(nation)]
 	return out
 
 ## The panel's lines, top to bottom.
@@ -133,6 +135,8 @@ static func info_lines(i: Dictionary) -> Array:
 		out.append("Fieldbook nearby: no wild routes")
 	if i.get("rooms", 0) > 0:
 		out.append("Rooms visited: %d of %d%s" % [i.rooms_seen, i.rooms, "  (the full tour!)" if i.rooms_seen >= i.rooms else ""])
+	if i.has("standing"):
+		out.append("Standing: " + str(i.standing))
 	return out
 
 ## After the Champion, a visited town other than the one you are standing in is a flight away.

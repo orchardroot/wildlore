@@ -81,6 +81,14 @@ static func boot(game: Node, menu: String) -> void:
 		for r in rooms.get("macclesfield", []) + rooms.get("buxton", []).slice(0, 7):
 			d.set_flag(VisitorsBook.seen_flag(str(r)))
 		d.set_flag(VisitorsBook.BOARD_PREFIX + "macclesfield")
+	if menu.begins_with("jobs") or menu.begins_with("stats") or menu == "pause":  # parish standing and jobs in hand
+		Standing.add(d, "england", 34)
+		Standing.add(d, "wales", 12)
+		Standing.add(d, "mann", 3)
+		for id in ["eng_jam", "macc_forest_beat"]:
+			Jobs.accept(d, id, "macclesfield")
+		Jobs.note_win(d, "macc_forest")
+		d.bag["blackberries"] = 4
 	if menu.begins_with("relearn"):
 		a.level = 20  # past a couple of its moves, so the relearner has something to offer
 	if menu.begins_with("shop") and not menu.contains(":"):

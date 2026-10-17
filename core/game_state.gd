@@ -14,6 +14,7 @@ var autosave_enabled := true
 var skip_next_autosave := false  # set by the title: the first zone after New Game or Load must not overwrite "auto"
 var _in_battle := false
 var _toast: SaveToast
+var parish: Parish
 
 ## Emitted after each autosave that really wrote the file (the "Saved" toast listens).
 signal autosaved
@@ -38,6 +39,7 @@ func _ready() -> void:
 	Bus.battle_ended.connect(_on_battle_ended)
 	Bus.zone_entered.connect(_on_zone_entered)
 	TrainerStats.connect_bus(self)
+	parish = Parish.connect_bus(self)  # jobs off the noticeboards and standing with the nations
 	Bus.creature_caught.connect(func(_id: String): TodaysWalk.note_catch(data, Forecast.current_weather()))
 	if "--quiet-window" in DevArgs.user_args():
 		# screenshot runs (tools/shot.sh): never grab focus, sit off-screen, make no sound
