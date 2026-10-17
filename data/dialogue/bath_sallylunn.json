@@ -42,5 +42,66 @@
     }
    ]
   }
+ ],
+ "teach_bath_baker": [
+  {
+   "do": "if",
+   "flag": "recipe_cream_tea",
+   "then": [
+    {
+     "do": "say",
+     "who": "Baker",
+     "text": "Jam first. Always jam first. Fancy a go at my oven?"
+    },
+    {
+     "do": "choice",
+     "text": "Borrow the kitchen?",
+     "options": [
+      "Yes, please",
+      "No, ta"
+     ],
+     "set": "_borrow_bench"
+    },
+    {
+     "do": "if",
+     "flag": "_borrow_bench",
+     "eq": 0,
+     "then": [
+      {
+       "do": "craft",
+       "bench": "borrowed"
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Baker",
+     "text": "Mind the flour. Everything in here is flour. I am at least forty per cent flour."
+    },
+    {
+     "do": "say",
+     "who": "Baker",
+     "text": "You've got blackberries on your fingers. Forager, are we? Then you want a proper cream tea."
+    },
+    {
+     "do": "say",
+     "who": "Baker",
+     "text": "Hedgerow jam, a splash of elderflower, scones like clouds. Jam first, cream second. We are in Bath, not Devon, and I'll not be told."
+    },
+    {
+     "do": "recipe",
+     "id": [
+      "cream_tea"
+     ]
+    },
+    {
+     "do": "say",
+     "who": "Baker",
+     "text": "Pop in whenever you've got the makings. You can use my kitchen."
+    }
+   ]
+  }
  ]
 }

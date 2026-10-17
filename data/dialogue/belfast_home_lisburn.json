@@ -37,5 +37,61 @@
     }
    ]
   }
+ ],
+ "teach_belfast_baker": [
+  {
+   "do": "if",
+   "flag": "recipe_soda_farl",
+   "then": [
+    {
+     "do": "say",
+     "who": "Baker",
+     "text": "Griddle's hot. Help yourself."
+    },
+    {
+     "do": "choice",
+     "text": "Borrow the kitchen?",
+     "options": [
+      "Yes, please",
+      "No, ta"
+     ],
+     "set": "_borrow_bench"
+    },
+    {
+     "do": "if",
+     "flag": "_borrow_bench",
+     "eq": 0,
+     "then": [
+      {
+       "do": "craft",
+       "bench": "borrowed"
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Baker",
+     "text": "Ach, come in. You'll have a farl? You will."
+    },
+    {
+     "do": "say",
+     "who": "Baker",
+     "text": "Soda bread on a griddle, cut in quarters. A bit of wild garlic through it if you're fancy. And you are fancy, I can see."
+    },
+    {
+     "do": "recipe",
+     "id": [
+      "soda_farl"
+     ]
+    },
+    {
+     "do": "say",
+     "who": "Baker",
+     "text": "Pop in whenever you've got the makings. You can use my kitchen."
+    }
+   ]
+  }
  ]
 }

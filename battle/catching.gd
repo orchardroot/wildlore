@@ -12,6 +12,10 @@ static func snare_bonus(snare: String, c: Creature, time: String) -> float:
 			return 3.0 if ("brook" in c.types() or "tide" in c.types()) else 1.0
 		"fae":
 			return 3.0 if "fae" in c.types() else 1.0
+		"hazel":  # crafted: a Hedgerow creature feels at home in it
+			return 3.0 if "hedgerow" in c.types() else 1.0
+		"creel":  # crafted: Brook and Tide creatures put their heads in for a look
+			return 2.5 if ("brook" in c.types() or "tide" in c.types()) else 1.0
 	return float(SNARES.get(snare, 1.0))
 
 static func status_bonus(c: Creature) -> float:

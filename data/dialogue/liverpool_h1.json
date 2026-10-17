@@ -37,5 +37,61 @@
     }
    ]
   }
+ ],
+ "teach_scouse_nan": [
+  {
+   "do": "if",
+   "flag": "recipe_scouse",
+   "then": [
+    {
+     "do": "say",
+     "who": "Nan",
+     "text": "Pan's on. It's always on. Want a go?"
+    },
+    {
+     "do": "choice",
+     "text": "Borrow the kitchen?",
+     "options": [
+      "Yes, please",
+      "No, ta"
+     ],
+     "set": "_borrow_bench"
+    },
+    {
+     "do": "if",
+     "flag": "_borrow_bench",
+     "eq": 0,
+     "then": [
+      {
+       "do": "craft",
+       "bench": "borrowed"
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Nan",
+     "text": "Sit down, la, you look starved. Here's how you make a proper scouse."
+    },
+    {
+     "do": "say",
+     "who": "Nan",
+     "text": "Mushrooms if you can't get the lamb. Red cabbage on the side. If anyone calls it stew, you show them the door."
+    },
+    {
+     "do": "recipe",
+     "id": [
+      "scouse"
+     ]
+    },
+    {
+     "do": "say",
+     "who": "Nan",
+     "text": "Pop in whenever you've got the makings. You can use my kitchen."
+    }
+   ]
+  }
  ]
 }

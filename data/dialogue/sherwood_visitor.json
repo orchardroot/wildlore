@@ -54,5 +54,61 @@
    "who": "Volunteer",
    "text": "Fawnlet hides in the bracken all day. Mum comes back at dusk, so do not fuss it. The barnling hunts by sound, so keep your voice down."
   }
+ ],
+ "teach_sherwood_forester": [
+  {
+   "do": "if",
+   "flag": "recipe_oak_acorn",
+   "then": [
+    {
+     "do": "say",
+     "who": "Forester",
+     "text": "Need a bench? There's room."
+    },
+    {
+     "do": "choice",
+     "text": "Borrow the kitchen?",
+     "options": [
+      "Yes, please",
+      "No, ta"
+     ],
+     "set": "_borrow_bench"
+    },
+    {
+     "do": "if",
+     "flag": "_borrow_bench",
+     "eq": 0,
+     "then": [
+      {
+       "do": "craft",
+       "bench": "borrowed"
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Forester",
+     "text": "Every acorn off the Major Oak is spoken for. Except the odd one I polish up for friends."
+    },
+    {
+     "do": "say",
+     "who": "Forester",
+     "text": "Hazelnuts round it for luck, and a truffle from under the old roots. It makes whoever holds it stand like an oak."
+    },
+    {
+     "do": "recipe",
+     "id": [
+      "oak_acorn"
+     ]
+    },
+    {
+     "do": "say",
+     "who": "Forester",
+     "text": "Pop in whenever you've got the makings. You can use my kitchen."
+    }
+   ]
+  }
  ]
 }

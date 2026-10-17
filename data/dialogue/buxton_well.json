@@ -42,5 +42,61 @@
     }
    ]
   }
+ ],
+ "teach_buxton_bottler": [
+  {
+   "do": "if",
+   "flag": "recipe_elderflower_cordial",
+   "then": [
+    {
+     "do": "say",
+     "who": "Bottler",
+     "text": "Want to use the bottling table?"
+    },
+    {
+     "do": "choice",
+     "text": "Borrow the kitchen?",
+     "options": [
+      "Yes, please",
+      "No, ta"
+     ],
+     "set": "_borrow_bench"
+    },
+    {
+     "do": "if",
+     "flag": "_borrow_bench",
+     "eq": 0,
+     "then": [
+      {
+       "do": "craft",
+       "bench": "borrowed"
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Bottler",
+     "text": "Spring water from the well, elderflower from the hedge, and a pinch of something I'm not allowed to tell you."
+    },
+    {
+     "do": "say",
+     "who": "Bottler",
+     "text": "Fine, it's sugar. Mix them up and it clears whatever ails a creature. Better than Buxton Water. Don't tell my boss."
+    },
+    {
+     "do": "recipe",
+     "id": [
+      "elderflower_cordial"
+     ]
+    },
+    {
+     "do": "say",
+     "who": "Bottler",
+     "text": "Pop in whenever you've got the makings. You can use my kitchen."
+    }
+   ]
+  }
  ]
 }

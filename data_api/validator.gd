@@ -107,8 +107,8 @@ static func _check_species(sp: Dictionary, chart: TypeChart, dex: Dex, moves: Mo
 		e.append("species %s: needs Creaturepedia text and a real-world fact" % id)
 	return e
 
-const ITEM_KINDS := ["heal", "cure", "revive", "pp", "snare", "evo", "held", "repel", "key"]
-const EXTRA_SNARES := ["night", "water", "fae"]
+const ITEM_KINDS := ["heal", "cure", "revive", "pp", "snare", "evo", "held", "repel", "key", "material"]
+const EXTRA_SNARES := ["night", "water", "fae", "hazel", "creel"]
 
 static func _check_items(db: ItemDB, dex: Dex) -> Array:
 	var e := []

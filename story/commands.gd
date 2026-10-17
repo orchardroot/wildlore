@@ -178,6 +178,10 @@ func _exec(c: Dictionary) -> void:
 				_set_flag(str(c.set), 1 if learned is Dictionary else 0)
 		"sachet_worn":
 			await _sachet_worn()
+		"craft":
+			await host.open_menu("craft:" + str(c.get("bench", "kitchen")))
+		"recipe":
+			await _recipe(c.get("id", []))
 		"quiz":
 			await _quiz(c)
 		"legend":
@@ -316,6 +320,22 @@ func _legend(c: Dictionary) -> void:
 		"lose":
 			await whiteout()
 			_ended = true
+
+## {"do": "recipe", "id": "parkin"} or a list of ids: learn recipes (flags recipe_<id>), and one line naming the new ones.
+func _recipe(ids: Variant) -> void:
+	var names := []
+	for id in (ids if ids is Array else [ids]):
+		var r := Crafting.get_recipe(str(id))
+		if r.is_empty() or not Crafting.learn(host.data, str(id)):
+			continue
+		if host.has_method("on_flag"):
+			host.on_flag(Crafting.flag_for(str(id)), true)
+		names.append(str(host.items.get_item(str(r.out)).get("name", str(r.out).capitalize())))
+	if names.is_empty():
+		return
+	var list: String = names[0] if names.size() == 1 else ", ".join(names.slice(0, names.size() - 1)) + " and " + str(names.back())
+	await host.sfx("item")
+	await host.say("", "%s learnt how to make %s." % [host.data.player_name, list])
 
 ## A Lavender Sachet ran out on the overworld: say so, and offer another if there's one in the bag.
 func _sachet_worn() -> void:

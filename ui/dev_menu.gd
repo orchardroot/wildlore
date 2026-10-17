@@ -55,6 +55,11 @@ static func boot(game: Node, menu: String) -> void:
 		d.set_flag("champion")
 		d.set_flag("game_complete")
 		d.set_flag("last_town", "york")
+	if menu.begins_with("craft") or menu.contains("material"):  # a forager's bag and Mum's recipes, plus a few more
+		d.bag.merge({"blackberries": 6, "hazelnuts": 3, "nettles": 5, "sloes": 2, "elderflower": 1, "wild_garlic": 2,
+			"sheep_wool": 1, "rowan_berry": 1, "heather_honey": 1, "sea_glass": 1}, true)
+		for id in Crafting.taught_by("mum") + ["parkin", "bara_brith", "pasty", "miners_lamp"]:
+			Crafting.learn(d, id)
 	if menu.begins_with("relearn"):
 		a.level = 20  # past a couple of its moves, so the relearner has something to offer
 	if menu.begins_with("shop") and not menu.contains(":"):

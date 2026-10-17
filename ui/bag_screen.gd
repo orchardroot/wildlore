@@ -1,7 +1,7 @@
 extends MenuBase
 ## Bag: tabs by item kind, use on a party member via Bag.use_on. With arg "for:<n>" it targets party member n directly.
 
-const KIND_ORDER := ["heal", "cure", "revive", "pp", "snare", "repel", "evo", "key"]
+const KIND_ORDER := ["heal", "cure", "revive", "pp", "snare", "repel", "evo", "material", "key"]
 const USABLE := ["heal", "cure", "revive", "pp", "evo"]
 
 var _bag: Bag
@@ -177,7 +177,7 @@ func _item_pressed(id: String) -> void:
 			_rebuild_keep_note()
 		return
 	if kind not in USABLE:
-		_note.text = "That one's for keeping, not using." if kind == "key" else "Best saved for the right moment."
+		_note.text = {"key": "That one's for keeping, not using.", "material": "That's for making things with, at a kitchen or a bench."}.get(kind, "Best saved for the right moment.")
 		return
 	if not bool(it.get("field", false)):
 		_note.text = "That's one for battle."

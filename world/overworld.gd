@@ -190,6 +190,7 @@ func _build_zone_node() -> void:
 	_zone_node = ZoneBuilder.build(zone)
 	add_child(_zone_node)
 	Seasonal.dress(zone, _zone_node, player)  # festivals and falling leaves from the real date
+	Forage.dress(zone, _zone_node, Game.data)  # hedgerow pickings and crafting benches
 	traffic = RailTraffic.new()
 	traffic.name = "RailTraffic"
 	_zone_node.add_child(traffic)
@@ -381,6 +382,8 @@ func _after_battle(result: Dictionary) -> void:
 
 func interact(p: Vector2i) -> void:
 	Audio.interaction(self, p)
+	if await Forage.interact(self, p):  # a forage prop or a crafting bench
+		return
 	var s := zone.sign_at(p)
 	if not s.is_empty():
 		await say(Forecast.for_radio(s, Forecast.current_weather(), Game.data.day_count) if s.get("kind", "") == "radio" else [str(s.text)])
