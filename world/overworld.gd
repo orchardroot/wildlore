@@ -17,6 +17,7 @@ var _dark: ColorRect
 var traffic: RailTraffic
 var _rode_in := false   # on the bike when we went indoors (session memory only, not saved)
 var ambient: AmbientLife
+var follower: Follower
 var arrival_scene := ""  # "train": the next zone loads with a train at the platform for you to step off (Journey)
 var _door_opened := false  # door_ahead swung a door (and played its sound) for the step now finishing
 var _edge_facing := ""     # walked off an edge this way: the next zone's camera glides in
@@ -105,6 +106,7 @@ func load_zone(zone_id: String, pos: Vector2i, facing: String) -> void:
 	sky.set_weather(outdoor, zone.kind == "interior")
 	ambient.setup(zone, _zone_node, sky)
 	RoamingCreatures.attach(self)
+	follower = Follower.attach(self)  # the party lead, one tile behind
 	rig.configure(zone.width, zone.height, zone.kind == "interior")
 	if _edge_facing != "":
 		rig.arrive(_edge_facing)
@@ -386,6 +388,8 @@ func interact(p: Vector2i) -> void:
 		n = npc_at(p + GridMotion.dir_vec(player.facing))  # talk across a shop or Sanctuary counter
 	if n and n.has_method("interact"):
 		await n.interact(player)
+	elif follower and follower.is_at(p):
+		await follower.talk()
 
 func open_pause() -> void:
 	Audio.sfx("confirm")
