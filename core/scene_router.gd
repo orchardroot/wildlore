@@ -9,7 +9,7 @@ const MENUS := {
 	"pedia": "res://ui/pedia_screen.tscn", "shop": "res://ui/shop_screen.tscn", "starter": "res://ui/starter_picker.tscn",
 	"settings": "res://ui/settings_screen.tscn", "controls": "res://ui/controls_screen.tscn", "save": "res://ui/save_screen.tscn", "ark": "res://ui/ark_screen.tscn",
 	"map": "res://ui/world_map.tscn", "travel": "res://ui/travel_menu.tscn", "name": "res://ui/name_entry.tscn", "credits": "res://ui/credits_screen.tscn",
-	"relearn": "res://ui/relearn_screen.tscn",
+	"relearn": "res://ui/relearn_screen.tscn", "stats": "res://ui/stats_screen.tscn",
 }
 
 const DOOR_FADE := Vector2(0.15, 0.2)  # out, in: through a door in about a third of a second

@@ -25,6 +25,7 @@ var rng_seed := 0
 var weather := ""          # the outdoor weather right now ("" = roll it at the next outdoor zone)
 var weather_region := ""   # the region it was rolled for
 var weather_until := 0     # world minute (see world_minutes) it lasts until
+var stats: Dictionary = TrainerStats.fresh()  # lifetime tallies for the Stats page (see TrainerStats)
 
 const WEATHER_MIN := 120   # in-game minutes a spell of weather lasts (a game minute is a real second)
 const WEATHER_MAX := 240
@@ -165,6 +166,7 @@ func to_dict() -> Dictionary:
 		"play_seconds": play_seconds, "clock_minutes": clock_minutes, "day_count": day_count,
 		"last_sanctuary": last_sanctuary.duplicate(true), "rng_seed": rng_seed,
 		"weather": weather, "weather_region": weather_region, "weather_until": weather_until,
+		"stats": stats.duplicate(),
 	}
 
 static func from_dict(d: Dictionary, dex: Dex) -> GameStateData:
@@ -200,4 +202,5 @@ static func from_dict(d: Dictionary, dex: Dex) -> GameStateData:
 	s.weather = str(d.get("weather", ""))
 	s.weather_region = str(d.get("weather_region", ""))
 	s.weather_until = int(d.get("weather_until", 0))
+	s.stats = TrainerStats.sanitise(d.get("stats"))
 	return s

@@ -240,6 +240,7 @@ var _friend_steps := 0
 
 func _on_step(p: Vector2i) -> void:
 	Game.data.pos = p
+	TrainerStats.add(Game.data, "steps")
 	_friend_steps += 1
 	if _friend_steps >= 128:  # a long walk together makes friends
 		_friend_steps = 0
@@ -408,6 +409,7 @@ func _fly_to(town: String) -> void:
 	var info := {"from": str(here) if here else "", "to": town}
 	player.set_bike(false)
 	_rode_in = false
+	TrainerStats.add(Game.data, "flights")
 	var scene: bool = await Journey.depart(self, "fly", info)
 	if not scene:
 		Audio.sfx("raven_caw")

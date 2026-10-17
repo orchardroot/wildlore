@@ -6,6 +6,7 @@ const SLATE := Color(0.114, 0.133, 0.188, 0.88)
 const CREAM := Color(0.949, 0.91, 0.812)
 
 var _panel: PanelContainer
+var _label: Label
 var _tween: Tween
 
 func _ready() -> void:
@@ -33,6 +34,7 @@ func _ready() -> void:
 	sb.content_margin_bottom = 6
 	_panel.add_theme_stylebox_override("panel", sb)
 	var l := Label.new()
+	_label = l
 	l.text = "Saved"
 	l.add_theme_font_size_override("font_size", 22)
 	l.add_theme_color_override("font_color", CREAM)
@@ -42,7 +44,8 @@ func _ready() -> void:
 	_panel.modulate.a = 0.0
 
 ## Fades in, holds, fades out. Safe to call again while showing (it just restarts).
-func flash() -> void:
+func flash(text := "Saved") -> void:
+	_label.text = text
 	if _tween:
 		_tween.kill()
 	_tween = create_tween()
