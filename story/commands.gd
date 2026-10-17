@@ -178,6 +178,8 @@ func _exec(c: Dictionary) -> void:
 				_set_flag(str(c.set), 1 if learned is Dictionary else 0)
 		"sachet_worn":
 			await _sachet_worn()
+		"quiz":
+			await _quiz(c)
 		"legend":
 			await _legend(c)
 		"rail":
@@ -200,6 +202,32 @@ func _exec(c: Dictionary) -> void:
 			push_warning("Commands: unknown command '%s'" % c.get("do", ""))
 
 const STARTER_LEVEL := 5
+
+## The pub quiz: {"do": "quiz", "pub": id, "region": region, "who": quizmaster name, "set": flag (the score, or -1)}.
+## The round itself is the quiz screen; the prize is once per in-game day per pub (see PubQuiz).
+func _quiz(c: Dictionary) -> void:
+	var data: GameStateData = host.data
+	var pub := str(c.get("pub", host.zone_id()))
+	var who := str(c.get("who", "Quizmaster"))
+	if PubQuiz.claimed_today(data, pub):
+		await host.say(who, "You've had tonight's prize already. Play for glory if you like, but the kitty's shut until tomorrow.")
+	var res = await host.open_menu("quiz:%s:%s" % [pub, str(c.get("region", "all"))])
+	if c.has("set"):
+		_set_flag(str(c.set), int(res.score) if res is Dictionary else -1)
+	if not (res is Dictionary):
+		await host.say(who, "Off already? Fair enough. The quiz will be here, so will the crisps.")
+		return
+	var score := int(res.get("score", 0))
+	var total := int(res.get("total", PubQuiz.ROUND_SIZE))
+	await host.say(who, "%d out of %d. %s" % [score, total, PubQuiz.reaction(score, total)])
+	var paid := PubQuiz.award(data, host.items, pub, score)
+	if bool(paid.paid):
+		await host.sfx("item")
+		if str(paid.item) != "":
+			var nm: String = host.items.get_item(str(paid.item)).get("name", str(paid.item))
+			await host.say("", "%s wins %s%s." % [data.player_name, nm, (" and " + UIKit.money_text(int(paid.money))) if int(paid.money) > 0 else ""])
+		else:
+			await host.say("", "%s wins %s." % [data.player_name, UIKit.money_text(int(paid.money))])
 
 func _battle(trainer_id: String) -> void:
 	var def := StoryData.trainer(trainer_id)
