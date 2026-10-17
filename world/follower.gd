@@ -23,6 +23,7 @@ var _moving := false
 var _bob_t := 0.0
 var _tween: Tween
 var _rng := RandomNumberGenerator.new()
+var _walked := 0  # steps walked as the follower, towards the next bit of friendship
 
 ## The overworld's one hook in load_zone: called after each zone is built. Reuses the node between zones.
 static func attach(ow: Node) -> Follower:
@@ -125,11 +126,20 @@ const PLACE_LINES := {
 	"interior": ["{name} is trying very hard not to knock anything over."],
 }
 
+## By hearts (Bond.hearts): how it feels about you. Nothing for the middling ones; it just gets on with it.
+const BOND_LINES := {
+	0: ["{name} keeps a polite distance. Give it time.", "{name} is still making its mind up about you."],
+	3: ["{name} keeps glancing up to check you're still there.", "{name} bumps your leg with its head, just because."],
+	4: ["{name} trots right at your heels, never more than a step away.", "{name} looks at you like you hung the moon."],
+	5: ["{name} would follow you to the ends of the earth. Or at least to Wigan.", "{name} leans against you with a happy sigh. Best friends, plainly.",
+		"{name} has decided you are its favourite person, and that's that."],
+}
+
 static func template_count() -> int:
 	var seen := {}
 	for t in GENERAL:
 		seen[t] = true
-	for table in [HP_LINES, WEATHER_LINES, PHASE_LINES, PLACE_LINES]:
+	for table in [HP_LINES, WEATHER_LINES, PHASE_LINES, PLACE_LINES, BOND_LINES]:
 		for k in table:
 			for t in table[k]:
 				seen[t] = true
@@ -139,8 +149,10 @@ static func _hp_band(hp_frac: float) -> String:
 	return "low" if hp_frac < 0.35 else ("mid" if hp_frac < 0.75 else "high")
 
 ## The lines that fit right now: the ones about its health, the weather, the time of day and the place.
-static func _situational(hp_frac: float, weather: String, phase: String, kind: String) -> Array:
+static func _situational(hp_frac: float, weather: String, phase: String, kind: String, friendship := -1) -> Array:
 	var out: Array = []
+	if friendship >= 0:
+		out.append_array(BOND_LINES.get(Bond.hearts(friendship), []))
 	out.append_array(HP_LINES[_hp_band(hp_frac)])
 	out.append_array(WEATHER_LINES.get(weather, []))
 	if weather == "clear" or phase != "day":  # no "soaking up the daylight" in a downpour
@@ -149,15 +161,16 @@ static func _situational(hp_frac: float, weather: String, phase: String, kind: S
 	return out
 
 ## Every template that could be said now (general ones included).
-static func mood_pool(hp_frac: float, weather: String, phase: String, kind: String) -> Array:
+## friendship -1: leave the friendship lines out.
+static func mood_pool(hp_frac: float, weather: String, phase: String, kind: String, friendship := -1) -> Array:
 	var out: Array = GENERAL.duplicate()
-	out.append_array(_situational(hp_frac, weather, phase, kind))
+	out.append_array(_situational(hp_frac, weather, phase, kind, friendship))
 	return out
 
 ## One line, chosen by `pick`: every other pick is about the situation, so the weather and the place come up often.
 ## `kind` is the zone kind, or "cave" in a dark zone.
-static func mood_line(name: String, hp_frac: float, weather: String, phase: String, place: String, kind: String, pick: int) -> String:
-	var sit := _situational(hp_frac, weather, phase, kind)
+static func mood_line(name: String, hp_frac: float, weather: String, phase: String, place: String, kind: String, pick: int, friendship := -1) -> String:
+	var sit := _situational(hp_frac, weather, phase, kind, friendship)
 	var t: String
 	if pick % 2 == 0 and not sit.is_empty():
 		t = sit[(pick / 2) % sit.size()]
@@ -187,7 +200,8 @@ func talk() -> void:
 		if town and Game.zone_exists(str(town)):
 			place = ZoneData.load_id(str(town)).name
 	var hp_frac := float(_lead.hp) / maxf(1.0, float(_lead.max_hp()))
-	await _ow.say([mood_line(_lead.display_name(), hp_frac, str(_ow.weather), Game.phase(), place, kind, _rng.randi() % 1000)])
+	Bond.talk(Game.data, _lead)  # a chat now and then brings you closer (once an in-game hour)
+	await _ow.say([mood_line(_lead.display_name(), hp_frac, str(_ow.weather), Game.phase(), place, kind, _rng.randi() % 1000, _lead.friendship)])
 
 ## A new lead (or the setting changed): swap the sprite for the new creature's.
 func _check_lead() -> void:
@@ -252,6 +266,11 @@ func _follow(pl: Player) -> void:
 		return
 	var from := tile
 	_set_tile(to)
+	if visible and _lead != null:
+		_walked += 1
+		if _walked >= Bond.WALK_STEPS:
+			_walked = 0
+			Bond.add(_lead, Bond.WALK)
 	if _tween and _tween.is_valid():
 		_tween.kill()
 	if _sprite == null or (snaps(from, to) and not hops(from, to)):

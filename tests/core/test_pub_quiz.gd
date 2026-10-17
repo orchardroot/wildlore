@@ -84,7 +84,8 @@ func test_prize_ladder() -> void:
 		if p.item != "":
 			assert_false(ItemDB.load_default().get_item(p.item).is_empty(), "prize item exists: " + p.item)
 
-func test_prize_lock_is_once_per_day_per_pub() -> void:
+func test_prize_lock_is_once_per_real_day_per_pub() -> void:
+	Calendar.set_override("2026-10-17")
 	var d := GameStateData.new()
 	d.day_count = 3
 	d.clock_minutes = 600
@@ -92,11 +93,14 @@ func test_prize_lock_is_once_per_day_per_pub() -> void:
 	PubQuiz.claim(d, "dublin")
 	assert_true(PubQuiz.claimed_today(d, "dublin"), "locked the same day")
 	assert_false(PubQuiz.claimed_today(d, "galway"), "other pubs are separate")
-	d.clock_minutes = 1439
-	assert_true(PubQuiz.claimed_today(d, "dublin"), "still locked at closing time")
 	d.day_count = 4
 	d.clock_minutes = 5
-	assert_false(PubQuiz.claimed_today(d, "dublin"), "unlocked the next day")
+	assert_true(PubQuiz.claimed_today(d, "dublin"), "an in-game midnight doesn't reopen the kitty")
+	Calendar.set_override("2026-10-18")
+	assert_false(PubQuiz.claimed_today(d, "dublin"), "unlocked the next real day")
+	d.set_flag("quiz_day_galway", 4)
+	assert_false(PubQuiz.claimed_today(d, "galway"), "an old save's in-game day counts as not today")
+	Calendar.set_override("")
 
 func test_award_pays_out_and_locks() -> void:
 	var d := GameStateData.new()

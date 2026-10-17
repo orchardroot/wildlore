@@ -38,6 +38,7 @@ func _ready() -> void:
 	ambient = AmbientLife.new()
 	add_child(ambient)
 	add_child(ZoneCard.new())
+	add_child(PlaceIndicator.new())  # the name of the building whose door you stand at
 	var layer := CanvasLayer.new()
 	layer.layer = 1
 	add_child(layer)
@@ -99,6 +100,10 @@ func load_zone(zone_id: String, pos: Vector2i, facing: String) -> void:
 	player.set_wading(wading_here)
 	Game.data.zone_id = zone_id
 	Travel.note_visit(Game.data, zone)
+	if zone.kind == "interior" and Game.data.flag(VisitorsBook.seen_flag(zone_id)) != true:  # the Visitor's Book
+		var tour := VisitorsBook.note(Game.data, zone_id, zone.kind, ZoneIndex.get_index())
+		if not tour.is_empty():
+			VisitorsBook.announce(self, tour, Travel.town_name(tour.town), str(Game.items.get_item(tour.item).get("name", "")))
 	Game.data.pos = pos
 	Game.data.facing = facing
 	var outdoor := sky.weather_for_zone(zone)  # kept between zones until it runs out (see GameStateData.weather_for)
@@ -116,6 +121,16 @@ func load_zone(zone_id: String, pos: Vector2i, facing: String) -> void:
 		Audio.play_music(zone.music)
 	Audio.enter_zone(self, zone, weather)  # ambience bed, weather layer, muffled music indoors, town bells
 	_dark.visible = zone.dark
+	_dev_radio()
+
+## Dev switch `--talk=radio[:n]`: the wireless reads Today's Walk as soon as the zone is ready, from line n (screenshots).
+func _dev_radio() -> void:
+	for a in DevArgs.user_args():
+		if a.begins_with("--talk=radio"):
+			await get_tree().create_timer(0.6).timeout
+			var lines := TodaysWalk.radio_lines(Game.data, Game.dex, Game.items)
+			await say(lines.slice(clampi(int(a.get_slice(":", 1)), 0, lines.size() - 1)))
+			return
 
 ## Dark caves: keep the light circle on the player (and faint glows on every exit) each frame.
 func _process(_delta: float) -> void:
@@ -190,6 +205,7 @@ func _build_zone_node() -> void:
 	_zone_node = ZoneBuilder.build(zone)
 	add_child(_zone_node)
 	Seasonal.dress(zone, _zone_node, player)  # festivals and falling leaves from the real date
+	Forage.dress(zone, _zone_node, Game.data)  # hedgerow pickings and crafting benches
 	traffic = RailTraffic.new()
 	traffic.name = "RailTraffic"
 	_zone_node.add_child(traffic)
@@ -294,9 +310,10 @@ func _on_step(p: Vector2i) -> void:
 	if encounters.in_grace():
 		encounters.stepped()
 		return
-	var enc := Encounters.roll(zone, tile, Game.phase(), weather, Game.rng)
+	var enc := Encounters.roll(zone, tile, Game.phase(), weather, Game.rng, TodaysWalk.featured_in(Game.data, zone.id))
 	if not enc.is_empty() and Game.data.first_able() != null and not Repel.blocks(Game.data, int(enc.level)):
 		var foe := Creature.create(Game.dex.get_species(enc.species), enc.level, Game.rng, Game.moves)
+		Charms.maybe_wild(foe, Game.rng)  # now and then one is carrying a charm
 		Game.data.mark_seen(enc.species)
 		var result: Dictionary = await Router.battle([foe], {"kind": "wild", "weather": weather, "time": Game.phase(), "stage": _stage()})
 		await _after_battle(result)
@@ -381,9 +398,14 @@ func _after_battle(result: Dictionary) -> void:
 
 func interact(p: Vector2i) -> void:
 	Audio.interaction(self, p)
+	if await Forage.interact(self, p):  # a forage prop or a crafting bench
+		return
 	var s := zone.sign_at(p)
 	if not s.is_empty():
-		await say(Forecast.for_radio(s, Forecast.current_weather(), Game.data.day_count) if s.get("kind", "") == "radio" else [str(s.text)])
+		if s.get("kind", "") == "radio":  # the Shipping Forecast, then Today's Walk (which may pay a weather bounty)
+			await say(Forecast.for_radio(s, Forecast.current_weather(), Game.data.day_count) + TodaysWalk.radio_lines(Game.data, Game.dex, Game.items))
+		else:
+			await say([str(s.text)])
 		return
 	var n := npc_at(p)
 	if n == null and zone.tile_at(p) == "counter":

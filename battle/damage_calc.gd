@@ -26,6 +26,7 @@ static func compute(attacker: Creature, defender: Creature, move: Dictionary, ch
 	var level_factor := floori(2.0 * attacker.level / 5.0 + 2.0)
 	var base := floori(floori(level_factor * power * a / float(d)) / 50.0) + 2
 	var mult := eff * Weather.damage_mod(weather, move_type) * StatusFX.incoming_mult(defender, move_type)
+	mult *= Charms.incoming_mult(defender, move_type) * Charms.outgoing_mult(attacker, move_type)
 	if move_type in attacker.types():
 		mult *= STAB
 	if crit:

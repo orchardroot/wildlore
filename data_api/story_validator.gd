@@ -3,8 +3,9 @@ extends RefCounted
 ## Checks dialogue scripts, trainers and the NPCs that use them against the rest of the data.
 
 const COMMANDS := ["say", "choice", "if", "set", "give_item", "give_creature", "heal", "battle", "move", "face",
-	"face_player", "wait", "warp", "shop", "starter", "fade_out", "fade_in", "music", "sfx", "badge", "end", "whiteout", "ark", "rail", "ferry", "legend", "gauntlet", "credits", "daily", "when", "relearn", "sachet_worn", "quiz"]
+	"face_player", "wait", "warp", "shop", "starter", "fade_out", "fade_in", "music", "sfx", "badge", "end", "whiteout", "ark", "rail", "ferry", "legend", "gauntlet", "credits", "daily", "when", "relearn", "sachet_worn", "quiz", "craft", "recipe", "fieldbook_news"]
 const CONDITIONS := ["dawn", "day", "dusk", "night", "rain", "fog", "gale", "frost", "sunshine", "caught_all",
+	"caught_25", "caught_50", "caught_100", "caught_150", "caught_200",
 	"spring", "summer", "autumn", "winter", "halloween", "bonfire_night", "christmas", "st_patricks", "st_davids", "burns_night"]
 const MOVE_MODES := ["still", "wander", "pace"]
 const PHASES := ["dawn", "day", "dusk", "night"]
@@ -26,6 +27,7 @@ static func validate(dex: Dex, moves: MoveDB, items: ItemDB, zones: Dictionary) 
 			errors.append_array(validate_commands(cmds, "dialogue %s/%s" % [file, sid], dex, items, zones))
 	for tid in StoryData.trainer_ids():
 		errors.append_array(_validate_trainer(tid, dex, moves, items, zones))
+	errors.append_array(Crafting.validate(items))
 	var targets := _npc_targets(dialogue)
 	for zid in zones:
 		var z: ZoneData = zones[zid]
@@ -163,6 +165,14 @@ static func validate_commands(cmds: Array, tag: String, dex: Dex, items: ItemDB,
 					errors.append("%s: quiz with no pub id" % tag)
 				if str(c.get("region", "all")) not in PubQuiz.REGIONS:
 					errors.append("%s: quiz with unknown region '%s'" % [tag, c.get("region", "")])
+			"craft":
+				if str(c.get("bench", "")) not in Crafting.BENCHES:
+					errors.append("%s: craft at unknown bench '%s'" % [tag, c.get("bench", "")])
+			"recipe":
+				var ids = c.get("id", [])
+				for id in (ids if ids is Array else [ids]):
+					if not Crafting.has(str(id)):
+						errors.append("%s: recipe '%s' does not exist" % [tag, id])
 			"move":
 				for d in c.get("path", []):
 					if str(d) not in DIRS:

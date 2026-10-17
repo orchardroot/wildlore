@@ -15,5 +15,66 @@
    "who": "Blacksmith",
    "text": "Tap a good blade and it should ring. Tap a bad one and it goes thunk, and so does your reputation."
   }
+ ],
+ "teach_sheffield_smith": [
+  {
+   "do": "if",
+   "flag": "recipe_horseshoe",
+   "then": [
+    {
+     "do": "say",
+     "who": "Smith",
+     "text": "Forge is hot. Want to use the bench?"
+    },
+    {
+     "do": "choice",
+     "text": "Borrow the kitchen?",
+     "options": [
+      "Yes, please",
+      "No, ta"
+     ],
+     "set": "_borrow_bench"
+    },
+    {
+     "do": "if",
+     "flag": "_borrow_bench",
+     "eq": 0,
+     "then": [
+      {
+       "do": "craft",
+       "bench": "borrowed"
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Smith",
+     "text": "Mind the anvil, love. It's not moving, but your toes are."
+    },
+    {
+     "do": "say",
+     "who": "Smith",
+     "text": "A horseshoe for luck, forged on peat with an ammonite set in the crown. Points up, so the luck doesn't drain out."
+    },
+    {
+     "do": "say",
+     "who": "Smith",
+     "text": "Hang it over a creature and it'll take a knock it shouldn't survive. Once. Luck's not a bottomless pit."
+    },
+    {
+     "do": "recipe",
+     "id": [
+      "horseshoe"
+     ]
+    },
+    {
+     "do": "say",
+     "who": "Smith",
+     "text": "Pop in whenever you've got the makings. You can use my kitchen."
+    }
+   ]
+  }
  ]
 }

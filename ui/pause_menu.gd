@@ -98,7 +98,7 @@ func _refresh() -> void:
 	_info.add_child(team)
 	_refresh_next()
 
-## "Where next?" and, after the ending, who's up for a rematch today.
+## "Where next?", Today's Walk and, after the ending, who's up for a rematch today.
 func _refresh_next() -> void:
 	UIKit.clear(_next)
 	var d: GameStateData = Game.data
@@ -108,6 +108,11 @@ func _refresh_next() -> void:
 		var t := UIKit.label(str(o.get("text", "")), 24)
 		t.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		_next.add_child(t)
+	var walk := TodaysWalk.summary(d, Game.dex)
+	if walk != "":
+		var w := UIKit.label(walk, 18, UIKit.MUTED)
+		w.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		_next.add_child(w)
 	var ready := MenuLogic.rematches_ready(d)
 	if d.flag("game_complete") == true:
 		var r := UIKit.label("Rematches today: " + (", ".join(ready) if not ready.is_empty() else "all fought, back tomorrow"), 22, UIKit.GOLD)

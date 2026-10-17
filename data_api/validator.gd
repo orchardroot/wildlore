@@ -94,8 +94,8 @@ static func _check_species(sp: Dictionary, chart: TypeChart, dex: Dex, moves: Mo
 			e.append("species %s: evolves into itself" % id)
 		if evo.has("level") and (int(evo.level) < 1 or int(evo.level) > Rules.MAX_LEVEL):
 			e.append("species %s: evolution level must be 1..100" % id)
-		if not evo.has("level") and not evo.has("item"):
-			e.append("species %s: evolution needs a level or an item" % id)
+		if not evo.has("level") and not evo.has("item") and not evo.has("friendship"):
+			e.append("species %s: evolution needs a level, an item or friendship" % id)
 		if evo.has("item") and items != null:
 			var it := items.get_item(str(evo.item))
 			if it.is_empty():
@@ -107,8 +107,8 @@ static func _check_species(sp: Dictionary, chart: TypeChart, dex: Dex, moves: Mo
 		e.append("species %s: needs Creaturepedia text and a real-world fact" % id)
 	return e
 
-const ITEM_KINDS := ["heal", "cure", "revive", "pp", "snare", "evo", "held", "repel", "key"]
-const EXTRA_SNARES := ["night", "water", "fae"]
+const ITEM_KINDS := ["heal", "cure", "revive", "pp", "snare", "evo", "charm", "repel", "key", "material"]
+const EXTRA_SNARES := ["night", "water", "fae", "hazel", "creel"]
 
 static func _check_items(db: ItemDB, dex: Dex) -> Array:
 	var e := []
@@ -147,6 +147,10 @@ static func _check_item(it: Dictionary, dex: Dex) -> Array:
 			for s in cures:
 				if s not in Rules.STATUSES:
 					e.append("item %s: unknown status '%s'" % [id, s])
+		"charm":
+			var fx = it.get("charm", {})
+			if not (fx is Dictionary) or str(fx.get("effect", "")) not in Charms.EFFECTS:
+				e.append("item %s: charm needs a known effect" % id)
 		"repel":
 			if int(it.get("steps", 0)) < 1:
 				e.append("item %s: repel item needs steps >= 1" % id)

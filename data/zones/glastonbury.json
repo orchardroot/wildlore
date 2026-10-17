@@ -12,20 +12,20 @@
  "encounters": {
   "grass": [
    {
-    "max": 41.0,
-    "min": 40.0,
+    "max": 44.0,
+    "min": 42.0,
     "species": "thornwyn",
     "weight": 10.0
    },
    {
-    "max": 41.0,
-    "min": 40.0,
+    "max": 44.0,
+    "min": 42.0,
     "species": "hazeldoze",
     "weight": 16.0
    },
    {
-    "max": 41.0,
-    "min": 40.0,
+    "max": 44.0,
+    "min": 42.0,
     "species": "pixling",
     "time": [
      "dusk",
@@ -34,14 +34,14 @@
     "weight": 8.0
    },
    {
-    "max": 41.0,
-    "min": 40.0,
+    "max": 44.0,
+    "min": 42.0,
     "species": "pixiedell",
     "weight": 12.0
    },
    {
-    "max": 41.0,
-    "min": 40.0,
+    "max": 44.0,
+    "min": 42.0,
     "species": "wispet",
     "weather": [
      "fog"
@@ -49,8 +49,8 @@
     "weight": 10.0
    },
    {
-    "max": 41.0,
-    "min": 40.0,
+    "max": 44.0,
+    "min": 42.0,
     "species": "thornsow",
     "time": [
      "dusk",
@@ -59,8 +59,8 @@
     "weight": 12.0
    },
    {
-    "max": 41.0,
-    "min": 40.0,
+    "max": 44.0,
+    "min": 42.0,
     "species": "tylwyth",
     "time": [
      "night"
@@ -232,6 +232,15 @@
    "sprite": "kit",
    "x": 47.0,
    "y": 8.0
+  },
+  {
+   "id": "glaston_dowser",
+   "sprite": "druid",
+   "x": 14.0,
+   "y": 22.0,
+   "facing": "up",
+   "move": "still",
+   "trainer": "glaston_dowser"
   }
  ],
  "props": [
@@ -330,7 +339,8 @@
    "type": "building",
    "w": 4.0,
    "x": 3.0,
-   "y": 14.0
+   "y": 14.0,
+   "kind": "workshop"
   },
   {
    "h": 4.0,
@@ -339,7 +349,8 @@
    "type": "building",
    "w": 5.0,
    "x": 35.0,
-   "y": 15.0
+   "y": 15.0,
+   "kind": "cafe"
   },
   {
    "h": 4.0,
@@ -348,7 +359,8 @@
    "type": "building",
    "w": 7.0,
    "x": 36.0,
-   "y": 24.0
+   "y": 24.0,
+   "kind": "hall"
   },
   {
    "h": 4.0,
@@ -357,7 +369,8 @@
    "type": "building",
    "w": 7.0,
    "x": 44.0,
-   "y": 24.0
+   "y": 24.0,
+   "kind": "workshop"
   },
   {
    "type": "statue",
@@ -583,7 +596,8 @@
    "type": "building",
    "w": 7.0,
    "x": 38.0,
-   "y": 31.0
+   "y": 31.0,
+   "kind": "museum"
   },
   {
    "h": 5.0,
@@ -601,7 +615,8 @@
    "type": "building",
    "w": 6.0,
    "x": 38.0,
-   "y": 38.0
+   "y": 38.0,
+   "kind": "church"
   },
   {
    "h": 4.0,
@@ -610,7 +625,8 @@
    "type": "building",
    "w": 4.0,
    "x": 50.0,
-   "y": 38.0
+   "y": 38.0,
+   "kind": "castle"
   },
   {
    "type": "bush",
@@ -675,7 +691,8 @@
    "type": "building",
    "w": 9.0,
    "x": 6.0,
-   "y": 33.0
+   "y": 33.0,
+   "kind": "theatre"
   },
   {
    "type": "market_stall",

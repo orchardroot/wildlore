@@ -165,6 +165,43 @@ func _left(c: Creature) -> Control:
 	v.add_child(xp)
 	return p
 
+## Friendship (hearts and what they do for you) and the charm it is holding, under the stats.
+func _bond_box(c: Creature) -> Control:
+	var v := VBoxContainer.new()
+	v.add_theme_constant_override("separation", 0)
+	var top := HBoxContainer.new()
+	top.add_theme_constant_override("separation", 12)
+	top.add_child(UIKit.label("Friendship", 22, UIKit.MUTED))
+	var hr := BondIcons.hearts_row(c.friendship, 20)
+	hr.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	top.add_child(hr)
+	v.add_child(top)
+	v.add_child(_small(Bond.perk_line(c), UIKit.MUTED))
+	if c.held != "":
+		var row := HBoxContainer.new()
+		row.add_theme_constant_override("separation", 8)
+		var tok := BondIcons.Token.new(16)
+		tok.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+		row.add_child(tok)
+		var nm := UIKit.label("%s:" % Charms.name_of(c.held), 16, UIKit.GOLD)
+		row.add_child(nm)
+		var fx := UIKit.label(str(Charms.item(c.held).get("effect_text", "")), 16, Color("d8cfb4"))
+		fx.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+		fx.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		fx.clip_text = true
+		row.add_child(fx)
+		row.custom_minimum_size = Vector2(340, 0)
+		v.add_child(UIKit.spacer(4))
+		v.add_child(row)
+	return v
+
+## A small wrapped line that wraps inside the stats panel instead of widening it.
+func _small(text: String, colour: Color) -> Label:
+	var l := UIKit.label(text, 16, colour)
+	l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	l.custom_minimum_size = Vector2(340, 0)
+	return l
+
 func _middle(c: Creature) -> Control:
 	var p := UIKit.panel(Color("1d2230f0"), 18)
 	p.custom_minimum_size = Vector2(380, 0)
@@ -209,6 +246,7 @@ func _middle(c: Creature) -> Control:
 		v.add_child(UIKit.label("Likes %s, less keen on %s" % [STAT_NAMES[nat[0]], STAT_NAMES[nat[1]]], 20, UIKit.MUTED))
 	else:
 		v.add_child(UIKit.label("Perfectly balanced, as all things should be", 20, UIKit.MUTED))
+	v.add_child(_bond_box(c))
 	return p
 
 func _right(c: Creature) -> Control:

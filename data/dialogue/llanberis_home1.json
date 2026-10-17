@@ -15,5 +15,67 @@
    "who": "Resident",
    "text": "We keep hearing a tapping from the old slate wall at night. Dad says it is the coblynau, the Welsh knockers. Nan agrees. I stay out of it."
   }
+ ],
+ "teach_welsh_miner": [
+  {
+   "do": "if",
+   "flag": "recipe_miners_lamp",
+   "then": [
+    {
+     "do": "say",
+     "who": "Old Quarryman",
+     "text": "Croeso, come in. Kettle's on. Use the table if you like."
+    },
+    {
+     "do": "choice",
+     "text": "Borrow the kitchen?",
+     "options": [
+      "Yes, please",
+      "No, ta"
+     ],
+     "set": "_borrow_bench"
+    },
+    {
+     "do": "if",
+     "flag": "_borrow_bench",
+     "eq": 0,
+     "then": [
+      {
+       "do": "craft",
+       "bench": "borrowed"
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Old Quarryman",
+     "text": "Forty years I split slate up on that mountain. You can still hear it in my knees."
+    },
+    {
+     "do": "say",
+     "who": "Old Quarryman",
+     "text": "We had a lamp we made ourselves, see. Slate back, peat to light it, a bit of honeywax for the wick. Stone creatures dig like mad for it."
+    },
+    {
+     "do": "say",
+     "who": "Old Quarryman",
+     "text": "And bara brith, because you can't split slate on an empty stomach. Tea in the fruit overnight. Not optional."
+    },
+    {
+     "do": "recipe",
+     "id": [
+      "miners_lamp",
+      "bara_brith"
+     ]
+    },
+    {
+     "do": "say",
+     "who": "Old Quarryman",
+     "text": "Pop in whenever you've got the makings. You can use my kitchen."
+    }
+   ]
+  }
  ]
 }

@@ -1,0 +1,31 @@
+{
+ "id": "mo_ranger",
+ "name": "Warden Fionnuala",
+ "class": "Warden",
+ "sprite": "warden_grunt",
+ "party": [
+  {
+   "species": "snowhare",
+   "level": 64
+  },
+  {
+   "species": "peatmonarch",
+   "level": 64
+  },
+  {
+   "species": "hushwing",
+   "level": 65
+  }
+ ],
+ "ai": "trainer",
+ "money": 2500,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Warden Fionnuala",
+   "text": "Ranger. I check the paths, I check the walls and now I'm checking you."
+  }
+ ],
+ "win": "Path's clear, wall's sound, and you're very much fit to proceed.",
+ "after": "Belfast's just over the hill. Ruairi at the Yard doesn't hold back, so don't you either."
+}

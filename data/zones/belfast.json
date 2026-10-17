@@ -12,14 +12,14 @@
  "encounters": {
   "grass": [
    {
-    "max": 64.0,
-    "min": 62.0,
+    "max": 66.0,
+    "min": 64.0,
     "species": "rivetling",
     "weight": 16.0
    },
    {
-    "max": 64.0,
-    "min": 62.0,
+    "max": 66.0,
+    "min": 64.0,
     "species": "chipgull",
     "time": [
      "day",
@@ -28,8 +28,8 @@
     "weight": 14.0
    },
    {
-    "max": 64.0,
-    "min": 63.0,
+    "max": 66.0,
+    "min": 65.0,
     "species": "pierlord",
     "time": [
      "day",
@@ -38,14 +38,14 @@
     "weight": 10.0
    },
    {
-    "max": 63.0,
-    "min": 62.0,
+    "max": 65.0,
+    "min": 64.0,
     "species": "raidtail",
     "weight": 10.0
    },
    {
-    "max": 64.0,
-    "min": 62.0,
+    "max": 66.0,
+    "min": 64.0,
     "species": "binfox",
     "time": [
      "night",
@@ -54,8 +54,8 @@
     "weight": 8.0
    },
    {
-    "max": 63.0,
-    "min": 62.0,
+    "max": 65.0,
+    "min": 64.0,
     "species": "cooplet",
     "weather": [
      "drizzle",
@@ -64,8 +64,8 @@
     "weight": 10.0
    },
    {
-    "max": 64.0,
-    "min": 62.0,
+    "max": 66.0,
+    "min": 64.0,
     "species": "sootwing",
     "time": [
      "night"
@@ -73,8 +73,8 @@
     "weight": 8.0
    },
    {
-    "max": 63.0,
-    "min": 62.0,
+    "max": 65.0,
+    "min": 64.0,
     "species": "strutcoo",
     "time": [
      "day",
@@ -83,14 +83,14 @@
     "weight": 8.0
    },
    {
-    "max": 63.0,
-    "min": 62.0,
+    "max": 65.0,
+    "min": 64.0,
     "species": "grizzlet",
     "weight": 8.0
    },
    {
-    "max": 63.0,
-    "min": 62.0,
+    "max": 65.0,
+    "min": 64.0,
     "species": "hushwing",
     "time": [
      "night"
@@ -98,14 +98,14 @@
     "weight": 6.0
    },
    {
-    "max": 64.0,
-    "min": 64.0,
+    "max": 66.0,
+    "min": 66.0,
     "species": "samsonian",
     "weight": 3.0
    },
    {
-    "max": 63.0,
-    "min": 62.0,
+    "max": 65.0,
+    "min": 64.0,
     "species": "starlet",
     "time": [
      "dusk"
@@ -115,38 +115,38 @@
   ],
   "water": [
    {
-    "max": 64.0,
-    "min": 62.0,
+    "max": 66.0,
+    "min": 64.0,
     "species": "pollanet",
     "weight": 30.0
    },
    {
-    "max": 64.0,
-    "min": 63.0,
+    "max": 66.0,
+    "min": 65.0,
     "species": "pierlord",
     "weight": 18.0
    },
    {
-    "max": 63.0,
-    "min": 62.0,
+    "max": 65.0,
+    "min": 64.0,
     "species": "chipgull",
     "weight": 16.0
    },
    {
-    "max": 63.0,
-    "min": 62.0,
+    "max": 65.0,
+    "min": 64.0,
     "species": "dipling",
     "weight": 14.0
    },
    {
-    "max": 64.0,
-    "min": 62.0,
+    "max": 66.0,
+    "min": 64.0,
     "species": "stalklet",
     "weight": 10.0
    },
    {
-    "max": 64.0,
-    "min": 63.0,
+    "max": 66.0,
+    "min": 65.0,
     "species": "bradan",
     "weather": [
      "drizzle",
@@ -317,6 +317,15 @@
    "times": [
     "night"
    ]
+  },
+  {
+   "id": "bel_docker",
+   "sprite": "sailor",
+   "x": 35.0,
+   "y": 50.0,
+   "facing": "right",
+   "move": "still",
+   "trainer": "bel_docker"
   }
  ],
  "props": [
@@ -337,7 +346,8 @@
    "type": "building",
    "w": 14,
    "x": 13,
-   "y": 7
+   "y": 7,
+   "kind": "hall"
   },
   {
    "type": "statue",
@@ -381,7 +391,8 @@
    "type": "building",
    "w": 6,
    "x": 8,
-   "y": 21
+   "y": 21,
+   "kind": "museum"
   },
   {
    "type": "oak",
@@ -455,7 +466,8 @@
    "type": "building",
    "w": 6,
    "x": 34,
-   "y": 6
+   "y": 6,
+   "kind": "museum"
   },
   {
    "h": 4,
@@ -464,7 +476,8 @@
    "type": "building",
    "w": 6,
    "x": 34,
-   "y": 16
+   "y": 16,
+   "kind": "library"
   },
   {
    "h": 3,
@@ -473,7 +486,8 @@
    "type": "building",
    "w": 2,
    "x": 36,
-   "y": 24
+   "y": 24,
+   "kind": "hall"
   },
   {
    "type": "lamp_post",
@@ -527,7 +541,8 @@
    "type": "building",
    "w": 8,
    "x": 4,
-   "y": 44
+   "y": 44,
+   "kind": "workshop"
   },
   {
    "h": 3,
@@ -536,7 +551,8 @@
    "type": "building",
    "w": 7,
    "x": 14,
-   "y": 44
+   "y": 44,
+   "kind": "cafe"
   },
   {
    "h": 3,
@@ -601,7 +617,8 @@
    "type": "building",
    "w": 12,
    "x": 49,
-   "y": 14
+   "y": 14,
+   "kind": "museum"
   },
   {
    "type": "lamp_post",

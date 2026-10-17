@@ -31,6 +31,8 @@ func run(commands: Array) -> void:
 	_badge_won = false
 	_legend_caught = false
 	await _run_list(_nurse_visit(commands))
+	if is_nurse_script(commands) and not _ended:
+		await _nurse_bounty()
 	# autosave once the whole scene has played, so the save has everything the Keeper's script did after the badge
 	# (or after a legend was caught, never mid-script)
 	if (_badge_won or _legend_caught) and host.has_method("autosave"):
@@ -72,6 +74,13 @@ func _nurse_visit(commands: Array) -> Array:
 		return nurse_repeat(commands, int(host.data.day_count))
 	_set_flag(key, true)
 	return commands
+
+## Today's Walk: a Sanctuary nurse pays a waiting weather bounty.
+func _nurse_bounty() -> void:
+	var line := TodaysWalk.nurse_pays(host.data, host.items)
+	if line != "":
+		await host.sfx("item")
+		await host.say("Nurse", line)
 
 func _run_list(commands: Array) -> void:
 	for c in commands:
@@ -124,11 +133,9 @@ func _exec(c: Dictionary) -> void:
 					await _exec(line)
 			await _battle(str(c.get("trainer", "")))
 		"daily":
-			# once per in-game day: `key` remembers the day number it last ran on
-			var today := int(data.day_count)
-			var last: Variant = data.flag(str(c.get("key", "")))
-			if last == null or int(last) != today:
-				_set_flag(str(c.get("key", "")), today)
+			# once per real day (see DailyKey): `key` remembers the date it last ran on
+			if not DailyKey.done_today(data, str(c.get("key", ""))):
+				_set_flag(str(c.get("key", "")), DailyKey.stamp(data))
 				await _run_list(c.get("then", []))
 			else:
 				await _run_list(c.get("else", []))
@@ -178,6 +185,10 @@ func _exec(c: Dictionary) -> void:
 				_set_flag(str(c.set), 1 if learned is Dictionary else 0)
 		"sachet_worn":
 			await _sachet_worn()
+		"craft":
+			await host.open_menu("craft:" + str(c.get("bench", "kitchen")))
+		"recipe":
+			await _recipe(c.get("id", []))
 		"quiz":
 			await _quiz(c)
 		"legend":
@@ -198,19 +209,31 @@ func _exec(c: Dictionary) -> void:
 		"whiteout":
 			await whiteout()
 			_ended = true
+		"fieldbook_news":
+			await _fieldbook_news(str(c.get("who", "")))
 		_:
 			push_warning("Commands: unknown command '%s'" % c.get("do", ""))
 
 const STARTER_LEVEL := 5
 
+## Garside hears about each region you've finished (every species found there caught), once each.
+func _fieldbook_news(who: String) -> void:
+	for r in FieldbookGoals.untold_regions(host.data, ZoneIndex.get_index()):
+		_set_flag(FieldbookGoals.NEWS_PREFIX + r, true)
+		await host.say(_sub(who), "Every creature in %s, caught? Then that's a stamp in the Fieldbook, {player}. Region complete. I'll fetch the potato." \
+			.replace("{player}", host.data.player_name) % FieldbookGoals.region_name(r))
+
 ## The pub quiz: {"do": "quiz", "pub": id, "region": region, "who": quizmaster name, "set": flag (the score, or -1)}.
-## The round itself is the quiz screen; the prize is once per in-game day per pub (see PubQuiz).
+## The round itself is the quiz screen; the prize is once per real day per pub (see PubQuiz).
 func _quiz(c: Dictionary) -> void:
 	var data: GameStateData = host.data
 	var pub := str(c.get("pub", host.zone_id()))
 	var who := str(c.get("who", "Quizmaster"))
+	var bonus := TodaysWalk.bonus_pub(data) == pub
 	if PubQuiz.claimed_today(data, pub):
 		await host.say(who, "You've had tonight's prize already. Play for glory if you like, but the kitty's shut until tomorrow.")
+	elif bonus:
+		await host.say(who, "You'll have heard it on the wireless: double prizes here tonight. No pressure.")
 	var res = await host.open_menu("quiz:%s:%s" % [pub, str(c.get("region", "all"))])
 	if c.has("set"):
 		_set_flag(str(c.set), int(res.score) if res is Dictionary else -1)
@@ -220,7 +243,7 @@ func _quiz(c: Dictionary) -> void:
 	var score := int(res.get("score", 0))
 	var total := int(res.get("total", PubQuiz.ROUND_SIZE))
 	await host.say(who, "%d out of %d. %s" % [score, total, PubQuiz.reaction(score, total)])
-	var paid := PubQuiz.award(data, host.items, pub, score)
+	var paid := PubQuiz.award(data, host.items, pub, score, bonus)
 	if bool(paid.paid):
 		await host.sfx("item")
 		if str(paid.item) != "":
@@ -317,6 +340,22 @@ func _legend(c: Dictionary) -> void:
 			await whiteout()
 			_ended = true
 
+## {"do": "recipe", "id": "parkin"} or a list of ids: learn recipes (flags recipe_<id>), and one line naming the new ones.
+func _recipe(ids: Variant) -> void:
+	var names := []
+	for id in (ids if ids is Array else [ids]):
+		var r := Crafting.get_recipe(str(id))
+		if r.is_empty() or not Crafting.learn(host.data, str(id)):
+			continue
+		if host.has_method("on_flag"):
+			host.on_flag(Crafting.flag_for(str(id)), true)
+		names.append(str(host.items.get_item(str(r.out)).get("name", str(r.out).capitalize())))
+	if names.is_empty():
+		return
+	var list: String = names[0] if names.size() == 1 else ", ".join(names.slice(0, names.size() - 1)) + " and " + str(names.back())
+	await host.sfx("item")
+	await host.say("", "%s learnt how to make %s." % [host.data.player_name, list])
+
 ## A Lavender Sachet ran out on the overworld: say so, and offer another if there's one in the bag.
 func _sachet_worn() -> void:
 	await host.say("", Repel.WORN_LINE)
@@ -387,7 +426,7 @@ const WEATHER_CONDS := {"rain": ["drizzle", "downpour"], "fog": ["fog"], "gale":
 
 ## Conditions that aren't flags: the time of day ("dawn", "day", "dusk", "night", from the in-game clock), the
 ## weather ("rain" is drizzle or a downpour; "fog", "gale", "frost", "sunshine"), "caught_all" (every species
-## in the Fieldbook caught), and from the real date the season ("spring".."winter") or a festival (Calendar.FESTIVALS).
+## in the Fieldbook caught), "caught_<n>" (at least n caught), and from the real date the season ("spring".."winter") or a festival (Calendar.FESTIVALS).
 func _when(cond: String) -> bool:
 	if cond in PHASE_CONDS:
 		return GameClock.phase(host.data.clock_minutes) == cond
@@ -395,6 +434,8 @@ func _when(cond: String) -> bool:
 		return _weather() in WEATHER_CONDS[cond]
 	if cond == "caught_all":
 		return host.data.caught.size() >= host.dex.ids().size()
+	if cond.begins_with("caught_") and cond.substr(7).is_valid_int():  # a Fieldbook milestone: caught_25 and so on
+		return host.data.caught.size() >= int(cond.substr(7))
 	if cond in Calendar.SEASONS:
 		return Calendar.season_today() == cond
 	if cond in Calendar.FESTIVALS:

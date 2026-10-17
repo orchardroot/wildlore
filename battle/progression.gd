@@ -60,7 +60,8 @@ static func evolution_target(c: Creature, ctx := {}) -> String:
 	var evo = c.species.get("evolves")
 	if not (evo is Dictionary) or evo.has("item"):
 		return ""
-	if evo.has("level") and c.level < int(evo.level):
+	var bonded: bool = evo.has("bond") and c.friendship >= int(evo.bond)  # a close bond brings a levelled evolution on early
+	if evo.has("level") and c.level < int(evo.level) and not bonded:
 		return ""
 	if evo.has("friendship") and c.friendship < int(evo.friendship):
 		return ""

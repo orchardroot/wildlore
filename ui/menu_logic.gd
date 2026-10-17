@@ -113,7 +113,7 @@ static func page_index(i: int, delta: int, n: int) -> int:
 		return last
 	return clampi(i + delta, 0, last)
 
-const FILTERS := ["all", "caught", "seen"]
+const FILTERS := ["all", "caught", "seen", "rumours"]  # the last is the Fieldbook's Rumours tab
 
 static func next_filter(f: String) -> String:
 	return FILTERS[(FILTERS.find(f) + 1) % FILTERS.size()]
@@ -151,6 +151,8 @@ static func evolution_text(evo, target_name: String, item_name := "") -> String:
 		extra.append("once it trusts you")
 	if not extra.is_empty():
 		s += (", " if evo.has("level") or evo.has("item") else " ") + " and ".join(extra)
+	if evo.has("bond"):
+		s += ", or sooner if it really trusts you"
 	return s
 
 const WEATHER_NAMES := {"clear": "clear skies"}
@@ -196,7 +198,8 @@ static func _done(d: GameStateData, key: String) -> bool:
 	return true
 
 ## "Where next?": {text, town, map?, postgame?}. Story: the step after the furthest one done, so an
-## optional beat the player walked past never nags. After game_complete: the first post-game hint not done.
+## optional beat the player walked past never nags. After game_complete: a Fieldbook reward waiting, else the
+## first post-game hint not done (the last, catch-all one gives way to the next Fieldbook milestone).
 ## `total` is the number of species (for {total}); `o` defaults to data/objectives.json.
 static func next_objective(d: GameStateData, total := 0, o := {}) -> Dictionary:
 	if o.is_empty():
@@ -210,6 +213,8 @@ static func next_objective(d: GameStateData, total := 0, o := {}) -> Dictionary:
 		if next < story.size():
 			return story[next]
 		return story.back() if not story.is_empty() else {}
+	if FieldbookGoals.pending(d) > 0:  # a Fieldbook reward waiting at the Field Station comes first
+		return {"text": FieldbookGoals.hint(d), "town": "macclesfield", "postgame": true}
 	for e in o.get("postgame", []):
 		var need: Array = e.get("all", [])
 		if e.has("flag_done"):
@@ -220,6 +225,8 @@ static func next_objective(d: GameStateData, total := 0, o := {}) -> Dictionary:
 		var legends: Array = e.get("all", [])
 		out["text"] = str(e.get("text", "")).replace("{caught}", str(d.caught.size())).replace("{total}", str(total)) \
 			.replace("{legends}", str(legends.filter(func(f): return _done(d, str(f))).size()))
+		if need.is_empty() and FieldbookGoals.hint(d) != "":  # nothing else left: the next Fieldbook milestone
+			out = {"text": FieldbookGoals.hint(d), "town": "macclesfield"}
 		out["postgame"] = true
 		return out
 	return {}
@@ -232,7 +239,6 @@ static func rematches_ready(d: GameStateData, o := {}) -> Array:
 		return []
 	var out := []
 	for r in o.get("rematches", []):
-		var last: Variant = d.flag(str(r.get("key", "")))
-		if last == null or int(last) != d.day_count:
+		if not DailyKey.done_today(d, str(r.get("key", ""))):
 			out.append(str(r.get("name", "")))
 	return out

@@ -27,7 +27,8 @@ func test_fieldbook_filter() -> void:
 	assert_eq(MenuLogic.fieldbook_filter(ids, seen, caught, "seen"), ["a", "b", "c"], "seen includes caught")
 	assert_eq(MenuLogic.next_filter("all"), "caught")
 	assert_eq(MenuLogic.next_filter("caught"), "seen")
-	assert_eq(MenuLogic.next_filter("seen"), "all")
+	assert_eq(MenuLogic.next_filter("seen"), "rumours")
+	assert_eq(MenuLogic.next_filter("rumours"), "all")
 
 func test_habitat_labels_show_time_and_weather() -> void:
 	var zones := [
@@ -112,19 +113,25 @@ func test_postgame_hints() -> void:
 	d.mark_caught("pipkin")
 	assert_eq(MenuLogic.next_objective(d, 200, o).text, "1 of 200 caught")
 	d.set_flag("diploma", true)
-	assert_eq(MenuLogic.next_objective(d, 200, o).text, "all done")
+	assert_true("Catch 24 more" in MenuLogic.next_objective(d, 200, o).text, "the catch-all gives way to the next Fieldbook milestone")
+	assert_eq(MenuLogic.next_objective(d, 200, o).town, "macclesfield")
 
 func test_rematches_ready_today() -> void:
 	var o := {"rematches": [{"key": "rematch_keeper_maud", "name": "Maud"}, {"key": "rematch_kit", "name": "Kit"}]}
 	var d := _data()
 	assert_eq(MenuLogic.rematches_ready(d, o), [], "post-game only")
 	d.set_flag("game_complete", true)
-	d.day_count = 4
+	Calendar.set_override("2026-10-17")
 	assert_eq(MenuLogic.rematches_ready(d, o), ["Maud", "Kit"])
-	d.set_flag("rematch_kit", 4)
+	d.set_flag("rematch_kit", DailyKey.stamp(d))
 	assert_eq(MenuLogic.rematches_ready(d, o), ["Maud"], "Kit's been fought today")
-	d.day_count = 5
-	assert_eq(MenuLogic.rematches_ready(d, o), ["Maud", "Kit"], "a new day")
+	d.day_count += 1
+	assert_eq(MenuLogic.rematches_ready(d, o), ["Maud"], "an in-game day is not enough")
+	Calendar.set_override("2026-10-18")
+	assert_eq(MenuLogic.rematches_ready(d, o), ["Maud", "Kit"], "a new real day")
+	d.set_flag("rematch_keeper_maud", 4)
+	assert_eq(MenuLogic.rematches_ready(d, o), ["Maud", "Kit"], "an old save's in-game day counts as not today")
+	Calendar.set_override("")
 
 ## Every flag the story can set: set/choice/badge/battle/gauntlet/legend/daily commands in dialogue and
 ## zone scripts, sight-trainers in zones, and visited_<town> from Travel.

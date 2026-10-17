@@ -24,6 +24,10 @@ static func boot(game: Node, menu: String) -> void:
 	e.status = "stung"
 	var f: Creature = mk.call("hootlet", 7)
 	f.status = "asleep"
+	a.friendship = 230  # four hearts and a charm, for the summary and team screens
+	a.held = "hag_stone"
+	b.friendship = 255
+	c.held = "oak_acorn"
 	d.party = [a, b, c, e, f]
 	d.ark = [mk.call("croakle", 6), mk.call("pipkin", 4), mk.call("dipling", 9)]
 	if menu.begins_with("ark"):  # a fuller Ark, so sorting shows
@@ -34,7 +38,8 @@ static func boot(game: Node, menu: String) -> void:
 	for sp in ["dipling", "wispet", "snowhare"]:
 		d.mark_seen(sp)
 	d.bag = {"cup_of_tea": 5, "flask_of_tea": 2, "smelling_salts": 3, "bakewell_tart": 1, "kendal_mint_cake": 1,
-		"wicker_snare": 8, "iron_snare": 2, "lavender_sachet": 3, "map": 1, "fieldbook": 1}
+		"wicker_snare": 8, "iron_snare": 2, "lavender_sachet": 3, "map": 1, "fieldbook": 1,
+		"rowan_sprig": 1, "leek": 1}
 	d.money = 1840
 	if menu.begins_with("stats"):
 		d.stats.merge({"steps": 48213, "wins_wild": 187, "wins_trainer": 41, "caught": 52, "train_trips": 9, "rail_miles": 1180,
@@ -45,6 +50,7 @@ static func boot(game: Node, menu: String) -> void:
 		d.set_flag("visited_" + t)
 		d.set_flag("station_" + t)
 	d.set_flag("last_town", "buxton")
+	TodaysWalk.today(d, game.items)  # the pause menu's Today's Walk line
 	d.bag["rail_pass"] = 1
 	if menu == "map:post":  # `--menu=map:post`: the whole map visited, Champion, every Stone
 		for t in Travel.world_map().get("towns", {}):
@@ -55,6 +61,21 @@ static func boot(game: Node, menu: String) -> void:
 		d.set_flag("champion")
 		d.set_flag("game_complete")
 		d.set_flag("last_town", "york")
+	if menu.begins_with("craft") or menu.contains("material"):  # a forager's bag and Mum's recipes, plus a few more
+		d.bag.merge({"blackberries": 6, "hazelnuts": 3, "nettles": 5, "sloes": 2, "elderflower": 1, "wild_garlic": 2,
+			"sheep_wool": 1, "rowan_berry": 1, "heather_honey": 1, "sea_glass": 1}, true)
+		for id in Crafting.taught_by("mum") + ["parkin", "bara_brith", "pasty", "miners_lamp"]:
+			Crafting.learn(d, id)
+	if menu == "pedia:stamps":  # the Fieldbook's region stamps: Cheshire and the Peak finished
+		var idx := ZoneIndex.get_index()
+		for r in ["cheshire", "peak"]:
+			for sp in idx.region_species.get(r, []):
+				d.mark_caught(sp)
+	if menu.begins_with("map") or menu.begins_with("stats"):  # the Visitor's Book: most of Buxton's rooms, all of Macc's
+		var rooms: Dictionary = ZoneIndex.get_index().town_rooms
+		for r in rooms.get("macclesfield", []) + rooms.get("buxton", []).slice(0, 7):
+			d.set_flag(VisitorsBook.seen_flag(str(r)))
+		d.set_flag(VisitorsBook.BOARD_PREFIX + "macclesfield")
 	if menu.begins_with("relearn"):
 		a.level = 20  # past a couple of its moves, so the relearner has something to offer
 	if menu.begins_with("shop") and not menu.contains(":"):

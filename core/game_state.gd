@@ -26,7 +26,7 @@ func _ready() -> void:
 	if ResourceLoader.exists("res://data_api/item_db.gd"):
 		items = load("res://data_api/item_db.gd").load_default()
 	args = DevArgs.parse(DevArgs.user_args())
-	Calendar.set_override(str(args.get("date", "")))  # --date=MM-DD: screenshot any season or festival
+	Calendar.set_override(str(args.get("date", "")))  # --date=MM-DD or YYYY-MM-DD: screenshot any season, festival or day
 	var seed_value: int = args.seed if args.seed >= 0 else int(Time.get_unix_time_from_system())
 	rng = Rng.new(seed_value)
 	data.rng_seed = seed_value
@@ -38,6 +38,7 @@ func _ready() -> void:
 	Bus.battle_ended.connect(_on_battle_ended)
 	Bus.zone_entered.connect(_on_zone_entered)
 	TrainerStats.connect_bus(self)
+	Bus.creature_caught.connect(func(_id: String): TodaysWalk.note_catch(data, Forecast.current_weather()))
 	if "--quiet-window" in DevArgs.user_args():
 		# screenshot runs (tools/shot.sh): never grab focus, sit off-screen, make no sound
 		DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_NO_FOCUS, true)
@@ -100,6 +101,7 @@ func _on_battle_ended(_result: Dictionary) -> void:
 	_in_battle = false
 
 func _on_zone_entered(_zone_id: String) -> void:
+	TodaysWalk.today(data, items)  # a new real day picks Today's Walk (behind the zone fade, not mid-walk)
 	if skip_next_autosave:
 		skip_next_autosave = false
 		return
@@ -141,6 +143,9 @@ func _dev_boot() -> void:
 		new_game()
 		var party := [Creature.create(dex.get_species("kindlet"), 10, rng, moves)]
 		data.party = party
+		for a in DevArgs.user_args():
+			if a.begins_with("--held="):  # dev: the lead holds this charm (screenshots of charm messages)
+				party[0].held = a.substr(7)
 		var foe := [Creature.create(dex.get_species(args.battle_species), args.battle_level, rng, moves)]
 		var opts := {"kind": "wild"}
 		if args.get("double", false):

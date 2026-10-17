@@ -1,0 +1,59 @@
+{
+  "_doc": "Today's Walk (core/todays_walk.gd): text templates and the pick lists. {species}, {zone}, {pub}, {town}, {weather}, {reward} are filled in. Nothing counts days in a row, nothing is lost by missing one.",
+  "pubs": [
+    {"id": "belfast", "zone": "belfast_sandwichbar", "town": "Belfast"},
+    {"id": "cardiff", "zone": "cardiff_norwegian", "town": "Cardiff"},
+    {"id": "dublin", "zone": "dublin_templebar", "town": "Dublin"},
+    {"id": "edinburgh", "zone": "edinburgh_lastdrop", "town": "Edinburgh"},
+    {"id": "galway", "zone": "galway_tighn", "town": "Galway"},
+    {"id": "liverpool", "zone": "liverpool_club", "town": "Liverpool"},
+    {"id": "london", "zone": "london_globe", "town": "London"},
+    {"id": "manchester", "zone": "manchester_knottmill", "town": "Manchester"},
+    {"id": "york", "zone": "york_bettys", "town": "York"}
+  ],
+  "weathers": {
+    "rain": {"name": "rain", "weathers": ["drizzle", "downpour"]},
+    "fog": {"name": "fog", "weathers": ["fog"]},
+    "sunshine": {"name": "sunshine", "weathers": ["sunshine"]},
+    "gale": {"name": "wind", "weathers": ["gale"]}
+  },
+  "rewards": [
+    {"item": "blackberries", "n": 3, "text": "a punnet of blackberries"},
+    {"item": "sloes", "n": 3, "text": "a bag of sloes"},
+    {"item": "hazelnuts", "n": 3, "text": "a pocketful of hazelnuts"},
+    {"item": "elderflower", "n": 3, "text": "an armful of elderflower"},
+    {"item": "wild_garlic", "n": 3, "text": "a bunch of wild garlic"},
+    {"item": "field_mushrooms", "n": 3, "text": "a cap full of field mushrooms"},
+    {"item": "heather_honey", "n": 2, "text": "a jar of heather honey"},
+    {"item": "sheep_wool", "n": 2, "text": "a bag of fleece"},
+    {"item": "cream_tea", "n": 1, "text": "a cream tea"},
+    {"item": "bara_brith", "n": 2, "text": "two slices of bara brith"},
+    {"item": "parkin", "n": 2, "text": "two squares of parkin"},
+    {"item": "pork_pie", "n": 2, "text": "two pork pies"},
+    {"item": "eccles_cake", "n": 2, "text": "two Eccles cakes"}
+  ],
+  "radio": {
+    "open": "And now, Today's Walk.",
+    "featured": [
+      "Birders report {species} out in numbers around {zone}. Three times the usual, they reckon, so take a flask.",
+      "Walkers in {zone} say the {species} are everywhere this morning. Mind your step and your sandwiches.",
+      "A listener in {zone} rings in: {species}, dozens of them, bold as brass. Worth a wander if you're nearby."
+    ],
+    "pub": [
+      "Over at {pub} in {town}, the quiz kitty's doubled tonight. Sharpen your pencils.",
+      "Quiz news: {pub} in {town} is paying double for tonight's prize. The landlord says he regrets nothing."
+    ],
+    "bounty": [
+      "Today's bounty: catch anything at all in the {weather}, and there's {reward} for you at any Sanctuary, or right here.",
+      "Out in the {weather} today? Catch a creature in it and {reward} is yours. Collect from a nurse, or from me."
+    ],
+    "bounty_done": "Today's weather bounty has been claimed. Lovely work, that.",
+    "bounty_paid": "Ooh, and I hear you caught one in the {weather}. Here's {reward}, as promised.",
+    "close": [
+      "That's Today's Walk. Tomorrow's will be different, and if you miss it, well, the hills aren't going anywhere.",
+      "That's Today's Walk. No rush, no register. Just a nice day out if you fancy one."
+    ]
+  },
+  "nurse_paid": "Oh, you caught one in the {weather}! The wireless said there'd be a bounty. Here's {reward}.",
+  "menu": "Today's Walk: {species} at {zone}, double quiz at {pub}, catch in {weather}."
+}

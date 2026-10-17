@@ -98,7 +98,7 @@ func battle_items() -> Array:
 			var e := {"id": id, "name": it.get("name", id), "count": n, "kind": kind, "desc": it.get("desc", "")}
 			var foe := battle.current(Battle.FOE)
 			if kind == "snare" and not battle.double and foe != null:
-				e["odds"] = Catching.chance(foe, str(it.get("snare", "")), battle.time)
+				e["odds"] = Catching.chance(foe, str(it.get("snare", "")), battle.time, battle.catch_bonus())
 			out.append(e)
 	return out
 
@@ -117,6 +117,8 @@ func run() -> Dictionary:
 	await ui.intro(self)
 	if foe != null and not battle.over:
 		await _say(_intro_lines())
+	if not battle.opening.is_empty():  # charms that act as the battle starts
+		await _play(battle.opening)
 	while not battle.over:
 		var pa: Variant = await _player_actions()
 		var fa: Variant = BattleAI.choose(battle, Battle.FOE, ai_tier)
@@ -219,7 +221,7 @@ func _item_action(c: Dictionary) -> Dictionary:
 			return {}
 		bag.remove(id)
 		_snare = it
-		_catch_chance = Catching.chance(battle.current(Battle.FOE), str(it.snare), battle.time)
+		_catch_chance = Catching.chance(battle.current(Battle.FOE), str(it.snare), battle.time, battle.catch_bonus())
 		return {"type": "catch", "snare": str(it.snare)}
 	var target := int(c.get("target", 0))
 	var check := item_check(id, target)
@@ -287,6 +289,10 @@ func _replace_foe(pos := 0) -> void:
 			await _play(ev)
 			return
 
+## What each benched creature gets from the Team Thermos, as a share of the foe's whole XP (1.5: raised from a
+## half to three quarters so the bench keeps up with the bigger Keeper jumps without a grind).
+const THERMOS_SHARE := 0.75
+
 ## XP for a fainted foe, split equally between every creature that faced it and is still standing.
 func _award_xp(faint_ev: Dictionary = {}) -> void:
 	var foe := battle.current(Battle.FOE)
@@ -308,7 +314,7 @@ func _award_xp(faint_ev: Dictionary = {}) -> void:
 		await _give_xp(me, foe, each)
 	var benched := thermos_sharers(data, earners)
 	if not benched.is_empty():
-		var share := maxi(1, amount / 2)
+		var share := maxi(1, int(amount * THERMOS_SHARE))
 		await _say(["The rest of the team shared %d XP from the Team Thermos." % share])
 		for me in benched:
 			await _give_xp(me, foe, share, true)
@@ -401,6 +407,8 @@ func _after_catch(c: Creature) -> void:
 		await _say(["%s joined your party!" % c.display_name()])
 	else:
 		await _say(["Your party is full, so %s went to the Ark." % c.display_name()])
+	if c.held != "":
+		await _say(["%s was carrying a %s! It's still holding it." % [c.display_name(), Charms.name_of(c.held)]])
 	if first:
 		await ui.first_catch(c)
 

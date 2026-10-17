@@ -1,0 +1,35 @@
+{
+ "id": "glaston_dowser",
+ "name": "Druid Saffron",
+ "class": "Druid",
+ "sprite": "druid",
+ "party": [
+  {
+   "species": "wispet",
+   "level": 45
+  },
+  {
+   "species": "thornwyn",
+   "level": 45
+  },
+  {
+   "species": "pixiedell",
+   "level": 45
+  },
+  {
+   "species": "tylwyth",
+   "level": 46
+  }
+ ],
+ "ai": "trainer",
+ "money": 1300,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Druid Saffron",
+   "text": "My dowsing rods twitched the moment you walked in. Either you're a ley line or you've got keys in your pocket."
+  }
+ ],
+ "win": "The rods have gone limp. I'll take that as a sign.",
+ "after": "Morwen's up the Tor. She doesn't need dowsing rods, she just knows. It's very annoying."
+}

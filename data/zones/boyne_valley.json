@@ -21,7 +21,8 @@
    "y": 4,
    "w": 8,
    "h": 4,
-   "label": "Mellifont Abbey"
+   "label": "Mellifont Abbey",
+   "kind": "church"
   },
   {
    "type": "standing_stone",
@@ -378,6 +379,42 @@
    "x": 50,
    "y": 11,
    "variant": 2
+  },
+  {
+   "type": "forage",
+   "variant": "bramble",
+   "x": 38,
+   "y": 3
+  },
+  {
+   "type": "forage",
+   "variant": "blackthorn",
+   "x": 34,
+   "y": 8
+  },
+  {
+   "type": "forage",
+   "variant": "elder",
+   "x": 33,
+   "y": 17
+  },
+  {
+   "type": "forage",
+   "variant": "nettle_patch",
+   "x": 23,
+   "y": 26
+  },
+  {
+   "type": "forage",
+   "variant": "bramble",
+   "x": 61,
+   "y": 30
+  },
+  {
+   "type": "forage",
+   "variant": "hazel",
+   "x": 29,
+   "y": 33
   }
  ],
  "warps": [
@@ -559,14 +596,23 @@
    "script": "boyne_north_gate",
    "name": "Warden",
    "hide_if": "ch7_judged"
+  },
+  {
+   "id": "boyne_rambler",
+   "sprite": "hillwalker",
+   "x": 30,
+   "y": 12,
+   "facing": "right",
+   "move": "still",
+   "trainer": "boyne_rambler"
   }
  ],
  "encounters": {
   "grass": [
    {
     "species": "megalorn",
-    "min": 59,
-    "max": 60,
+    "min": 60,
+    "max": 61,
     "weight": 3,
     "weather": [
      "fog"
@@ -578,14 +624,14 @@
    },
    {
     "species": "rooklet",
-    "min": 59,
-    "max": 60,
+    "min": 60,
+    "max": 61,
     "weight": 14
    },
    {
     "species": "rookery",
-    "min": 60,
-    "max": 61,
+    "min": 61,
+    "max": 62,
     "weight": 10,
     "time": [
      "day",
@@ -594,8 +640,8 @@
    },
    {
     "species": "dextera",
-    "min": 59,
-    "max": 60,
+    "min": 60,
+    "max": 61,
     "weight": 10,
     "time": [
      "day"
@@ -603,14 +649,14 @@
    },
    {
     "species": "moolet",
-    "min": 59,
-    "max": 59,
+    "min": 60,
+    "max": 60,
     "weight": 8
    },
    {
     "species": "gealhare",
-    "min": 60,
-    "max": 61,
+    "min": 61,
+    "max": 62,
     "weight": 8,
     "time": [
      "dawn",
@@ -619,8 +665,8 @@
    },
    {
     "species": "brockling",
-    "min": 59,
-    "max": 60,
+    "min": 60,
+    "max": 61,
     "weight": 10,
     "time": [
      "dusk",
@@ -629,8 +675,8 @@
    },
    {
     "species": "corncrake",
-    "min": 59,
-    "max": 60,
+    "min": 60,
+    "max": 61,
     "weight": 8,
     "time": [
      "dawn",
@@ -643,8 +689,8 @@
    },
    {
     "species": "crexling",
-    "min": 59,
-    "max": 59,
+    "min": 60,
+    "max": 60,
     "weight": 6,
     "time": [
      "dawn"
@@ -652,8 +698,8 @@
    },
    {
     "species": "hushwing",
-    "min": 60,
-    "max": 61,
+    "min": 61,
+    "max": 62,
     "weight": 8,
     "time": [
      "night"
@@ -661,8 +707,8 @@
    },
    {
     "species": "barnling",
-    "min": 59,
-    "max": 60,
+    "min": 60,
+    "max": 61,
     "weight": 6,
     "time": [
      "dusk"
@@ -670,8 +716,8 @@
    },
    {
     "species": "pooka",
-    "min": 60,
-    "max": 61,
+    "min": 61,
+    "max": 62,
     "weight": 3,
     "time": [
      "night"
@@ -684,32 +730,32 @@
   "water": [
    {
     "species": "bradan",
-    "min": 59,
-    "max": 60,
+    "min": 60,
+    "max": 61,
     "weight": 20
    },
    {
     "species": "parrlet",
-    "min": 59,
-    "max": 60,
+    "min": 60,
+    "max": 61,
     "weight": 16
    },
    {
     "species": "rillotter",
-    "min": 59,
-    "max": 60,
+    "min": 60,
+    "max": 61,
     "weight": 16
    },
    {
     "species": "heronarch",
-    "min": 60,
-    "max": 61,
+    "min": 61,
+    "max": 62,
     "weight": 14
    },
    {
     "species": "spatelord",
-    "min": 60,
-    "max": 61,
+    "min": 61,
+    "max": 62,
     "weight": 12,
     "time": [
      "night"
