@@ -83,6 +83,7 @@ static func lines(data: GameStateData) -> Array:
 		["Cups of tea drunk", _n(c.call("teas"))],
 		["Times rained on", _n(c.call("rained_on"))],
 		["Visitor's Book", _visitors_book(data)],
+		["Land rewilded", "%d of %d sites Wild" % [Rewild.wild_count(data), Rewild.sites().size()]],
 	]
 
 ## "20 rooms, 1 town complete": rooms walked into, and towns whose every room you've seen (see VisitorsBook).

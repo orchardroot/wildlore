@@ -217,6 +217,8 @@ func _exec(c: Dictionary) -> void:
 			if line != "":
 				await host.sfx("badge")
 				await host.say("", line + ".")
+		"rewild":
+			await RewildTalk.run(self, c)  # a rewilding site's warden (story/rewild_talk.gd)
 		_:
 			push_warning("Commands: unknown command '%s'" % c.get("do", ""))
 

@@ -75,6 +75,7 @@ func load_zone(zone_id: String, pos: Vector2i, facing: String) -> void:
 		pos = Vector2i(int(ls.pos[0]), int(ls.pos[1])) if zone_id == str(ls.zone) else Vector2i(-1, -1)
 	zone = ZoneData.load_id(zone_id)
 	FieldMoves.apply_cuts(Game.data, zone)
+	Rewild.apply(Game.data, zone)  # rewilding sites take their stage's shape
 	if _zone_node:
 		_zone_node.queue_free()
 	_build_zone_node()
@@ -208,6 +209,7 @@ func _build_zone_node() -> void:
 	Forage.dress(zone, _zone_node, Game.data)  # hedgerow pickings and crafting benches
 	HomeBase.dress(zone, _zone_node, Game.data)  # Mum's trophy shelf, the garden and its visitors
 	Noticeboard.dress(zone, _zone_node)  # the parish noticeboard (jobs)
+	RewildScene.dress(zone, _zone_node, Game.data)  # rewilding sites: stumps, saplings, pools, marked spots
 	traffic = RailTraffic.new()
 	traffic.name = "RailTraffic"
 	_zone_node.add_child(traffic)
@@ -312,7 +314,7 @@ func _on_step(p: Vector2i) -> void:
 	if encounters.in_grace():
 		encounters.stepped()
 		return
-	var enc := Encounters.roll(zone, tile, Game.phase(), weather, Game.rng, TodaysWalk.featured_in(Game.data, zone.id))
+	var enc := Encounters.roll(zone, tile, Game.phase(), weather, Game.rng, TodaysWalk.featured_in(Game.data, zone.id), Game.data.flags)
 	if not enc.is_empty() and Game.data.first_able() != null and not Repel.blocks(Game.data, int(enc.level)):
 		var foe := Creature.create(Game.dex.get_species(enc.species), enc.level, Game.rng, Game.moves)
 		Charms.maybe_wild(foe, Game.rng)  # now and then one is carrying a charm
@@ -406,6 +408,8 @@ func interact(p: Vector2i) -> void:
 	if await HomeBase.interact(self, p):  # the trophy shelf, a garden plot or a visitor
 		return
 	if await Noticeboard.interact(self, p):
+		return
+	if await RewildScene.interact(self, p):  # a marked spot on a rewilding site
 		return
 	var s := zone.sign_at(p)
 	if not s.is_empty():

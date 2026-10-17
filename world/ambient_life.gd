@@ -107,6 +107,9 @@ func _wanted() -> Array:
 		n = 2
 	if w == "gale":
 		n = 3 if coast else 0  # only gulls ride a gale
+	var wild := RewildScene.bird_bonus(_zone)  # a rewilded site brings the songbirds back
+	if wild > 0 and n > 0:
+		return [mini(MAX_BIRDS, n + wild), ["gull", "songbird"] if coast else ["rook", "songbird", "songbird"]]
 	return [n, ["gull"] if coast else ["rook", "rook", "songbird"]]
 
 func _process(delta: float) -> void:
