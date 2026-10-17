@@ -285,6 +285,65 @@
    "times": [
     "night"
    ]
+  },
+  {
+   "id": "abdn_student",
+   "sprite": "student",
+   "x": 29,
+   "y": 16,
+   "facing": "down",
+   "move": "wander",
+   "script": "abdn_student",
+   "name": "Student",
+   "radius": 2
+  },
+  {
+   "id": "abdn_docker",
+   "sprite": "steelworker",
+   "x": 50,
+   "y": 29,
+   "facing": "left",
+   "move": "wander",
+   "script": "abdn_docker",
+   "name": "Dock Worker",
+   "radius": 2,
+   "times": [
+    "dawn",
+    "day",
+    "dusk"
+   ]
+  },
+  {
+   "id": "abdn_shopper",
+   "sprite": "commuter",
+   "x": 20,
+   "y": 25,
+   "facing": "right",
+   "move": "wander",
+   "script": "abdn_shopper",
+   "name": "Shopper",
+   "radius": 3,
+   "times": [
+    "dawn",
+    "day",
+    "dusk"
+   ]
+  },
+  {
+   "id": "abdn_jogger",
+   "sprite": "jogger",
+   "x": 36,
+   "y": 32,
+   "facing": "right",
+   "move": "pace",
+   "script": "abdn_jogger",
+   "name": "Jogger",
+   "path": [
+    "right",
+    "right",
+    "right",
+    "right"
+   ]
   }
  ],
  "props": [

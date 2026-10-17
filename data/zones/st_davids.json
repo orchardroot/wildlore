@@ -487,6 +487,69 @@
    "times": [
     "night"
    ]
+  },
+  {
+   "id": "sd_surfer",
+   "sprite": "surfer",
+   "x": 37,
+   "y": 10,
+   "facing": "down",
+   "move": "wander",
+   "script": "sd_surfer",
+   "name": "Surfer",
+   "radius": 2,
+   "times": [
+    "dawn",
+    "day",
+    "dusk"
+   ]
+  },
+  {
+   "id": "sd_walker",
+   "sprite": "hiker",
+   "x": 30,
+   "y": 19,
+   "facing": "left",
+   "move": "wander",
+   "script": "sd_walker",
+   "name": "Coast Path Walker",
+   "radius": 2,
+   "times": [
+    "dawn",
+    "day"
+   ]
+  },
+  {
+   "id": "sd_pilgrim",
+   "sprite": "choir_singer",
+   "x": 12,
+   "y": 19,
+   "facing": "right",
+   "move": "pace",
+   "script": "sd_pilgrim",
+   "name": "Pilgrim",
+   "path": [
+    "right",
+    "right",
+    "right",
+    "right"
+   ]
+  },
+  {
+   "id": "sd_local",
+   "sprite": "villager_3",
+   "x": 26,
+   "y": 11,
+   "facing": "down",
+   "move": "wander",
+   "script": "sd_local",
+   "name": "Local",
+   "radius": 2,
+   "times": [
+    "dawn",
+    "day",
+    "dusk"
+   ]
   }
  ],
  "encounters": {

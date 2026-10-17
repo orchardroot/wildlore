@@ -207,5 +207,81 @@
    "who": "Wee Lad",
    "text": "My gran says on a clear day you can see Ireland from the top. She says that a lot. I think she just likes the idea."
   }
+ ],
+ "fw_walker": [
+  {
+   "do": "say",
+   "who": "Hiker",
+   "text": "Ben Nevis tomorrow, dawn start. Packed three flasks, two jackets and a very large Kendal mint cake."
+  },
+  {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Hiker",
+     "text": "Rain at sea level means snow on top. Brilliant. I'm packing a second pair of socks."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Hiker",
+     "text": "Clear sky tonight, they say. Go up early, before the cloud gets ideas."
+    }
+   ]
+  }
+ ],
+ "fw_runner": [
+  {
+   "do": "say",
+   "who": "Fell Runner",
+   "text": "I'm training for the Ben Race. Up and down the biggest hill in Britain, against the clock. Cheerful hobby, I know."
+  },
+  {
+   "do": "say",
+   "who": "Fell Runner",
+   "text": "If you see me walking, I'm having a moment. Give me a minute and a flapjack."
+  }
+ ],
+ "fw_lochside": [
+  {
+   "do": "say",
+   "who": "Loch Walker",
+   "text": "Up and down the loch front before breakfast. The mountains don't mind, and the midges are still asleep."
+  },
+  {
+   "do": "when",
+   "cond": "sunshine",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Loch Walker",
+     "text": "Look at that, not a cloud on the Ben. Go and tell the locals. They won't believe you."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Loch Walker",
+     "text": "Everything here is either on a hill or in a loch. I've decided that's a feature."
+    }
+   ]
+  }
+ ],
+ "fw_camper": [
+  {
+   "do": "say",
+   "who": "Camper",
+   "text": "Pitched the tent by the river. A stag walked past at midnight and didn't even apologise."
+  },
+  {
+   "do": "say",
+   "who": "Camper",
+   "text": "Chippy, campsite, midge net. That's the holiday plan, and it's perfect."
+  }
  ]
 }

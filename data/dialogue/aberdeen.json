@@ -358,5 +358,95 @@
    "who": "Astronomer",
    "text": "Granite city by day, star city by night. Well, when the clouds behave. Which is about twice a year."
   }
+ ],
+ "abdn_student": [
+  {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Student",
+     "text": "Rain again. I've three essays due and an umbrella that gave up in Union Street. Bit of a theme, this term."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Student",
+     "text": "I'm meant to be at the library. I'm in the square instead, which is a very Aberdeen sort of study break."
+    },
+    {
+     "do": "say",
+     "who": "Student",
+     "text": "A seagull stole my sandwich this morning. Fair play to it, honestly. Best thing that's happened all week."
+    }
+   ]
+  }
+ ],
+ "abdn_docker": [
+  {
+   "do": "say",
+   "who": "Dock Worker",
+   "text": "Forty years round this harbour and I still watch every boat come in. Pays the bills, and the view comes free."
+  },
+  {
+   "do": "when",
+   "cond": "fog",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Dock Worker",
+     "text": "Foghorn's been going since five. You stop hearing it. Then it stops and you can't sleep."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Dock Worker",
+     "text": "Supply boats, trawlers, the Orkney ferry. If it floats, it ends up on my quay sooner or later."
+    }
+   ]
+  }
+ ],
+ "abdn_shopper": [
+  {
+   "do": "say",
+   "who": "Shopper",
+   "text": "Union Street is a mile of shops and I'm only after one pair of socks. We'll see how that goes."
+  },
+  {
+   "do": "when",
+   "cond": "sunshine",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Shopper",
+     "text": "Granite and sunshine. It's like walking through a jewellery box. Don't tell anyone I said that."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Shopper",
+     "text": "Bus is late, tea is cold, and the city's still lovely. I can't explain it either."
+    }
+   ]
+  }
+ ],
+ "abdn_jogger": [
+  {
+   "do": "say",
+   "who": "Jogger",
+   "text": "Harbour loop, then back via the beach. Don't stop me or I'll lose my rhythm and my dignity."
+  },
+  {
+   "do": "say",
+   "who": "Jogger",
+   "text": "Lovely town for a run, bar the hills. And the wind. And the seagulls."
+  }
  ]
 }

@@ -192,5 +192,81 @@
    "who": "Gaelic Pupil",
    "text": "Skye has a Gaelic college, Sabhal M\u00f2r Ostaig, down in Sleat. People come from all over to learn. They say the grammar is easy. It is not."
   }
+ ],
+ "por_creel": [
+  {
+   "do": "say",
+   "who": "Creel Fisher",
+   "text": "Langoustines in the creels, rain on my back, and a flask of tea. Don't pity me, this is the good life."
+  },
+  {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Creel Fisher",
+     "text": "The Sound of Raasay's grey today. Bonny, mind you. Everything's bonny when you're back on dry land."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Creel Fisher",
+     "text": "Painted houses so the boats can find home in the fog. Practical, and pretty."
+    }
+   ]
+  }
+ ],
+ "por_harbourhand": [
+  {
+   "do": "say",
+   "who": "Harbour Hand",
+   "text": "That's Raasay out there, and the Cuillin behind it. Show-offs, the pair of them."
+  },
+  {
+   "do": "say",
+   "who": "Harbour Hand",
+   "text": "Ferry's on time, the weather's behaving, and somebody's put the kettle on. Good day to be a deckhand."
+  }
+ ],
+ "por_shopper": [
+  {
+   "do": "say",
+   "who": "Shopper",
+   "text": "I came for a loaf and a postcard and I've been in three gift shops. Wool socks for everyone, at this rate."
+  },
+  {
+   "do": "say",
+   "who": "Shopper",
+   "text": "Wind's up but I'm not. Wrap the scarf twice and carry on."
+  }
+ ],
+ "por_birder": [
+  {
+   "do": "say",
+   "who": "Birdwatcher",
+   "text": "Sea eagle over the bay this morning. I nearly dropped the flask. Nearly."
+  },
+  {
+   "do": "when",
+   "cond": "fog",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Birdwatcher",
+     "text": "Can't see a thing, but you can hear them. Oystercatchers, I think. Possibly a very cross gull."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Birdwatcher",
+     "text": "Binoculars, notebook, bacon roll. A birder's holy trinity."
+    }
+   ]
+  }
  ]
 }
