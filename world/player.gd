@@ -127,6 +127,9 @@ func _physics_process(delta: float) -> void:
 	if forced_dir == "" and Input.is_action_just_pressed("bike") and overworld.has_method("toggle_bike"):
 		overworld.toggle_bike()
 		return
+	if forced_dir == "" and Input.is_action_just_pressed("photo"):
+		PhotoMode.start(overworld)
+		return
 	if forced_dir == "" and Input.is_action_just_pressed("fly") and overworld.has_method("try_fly"):
 		overworld.try_fly()
 		return

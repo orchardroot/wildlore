@@ -17,6 +17,46 @@
  "rugby_fan": [
   {
    "do": "when",
+   "cond": "st_davids",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Rugby Fan",
+     "text": "Dydd G\u0175yl Dewi Hapus! Happy St David's Day. Daffodil in the lapel, leek in the bag, Welsh cakes in the gob."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "christmas",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Rugby Fan",
+       "text": "All I want for Christmas is a Grand Slam. Failing that, socks."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "autumn",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Rugby Fan",
+         "text": "Autumn internationals! Red from the castle to the Bay. Then we lose to someone and it's red from crying."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "do": "when",
    "cond": "rain",
    "chat": true,
    "then": [
@@ -155,6 +195,46 @@
   }
  ],
  "shopper": [
+  {
+   "do": "when",
+   "cond": "st_davids",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Shopper",
+     "text": "Sent my little one to school dressed as a daffodil. She's been photosynthesising all morning."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "halloween",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Shopper",
+       "text": "Costume shopping. My husband wants to go as a dragon. I said, you already snore like one."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "christmas",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Shopper",
+         "text": "Came into town for wrapping paper. Leaving with a reindeer jumper for the dog. Classic Queen Street."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "when",
    "cond": "rain",

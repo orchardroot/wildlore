@@ -190,7 +190,8 @@ func weather_for_zone(z: ZoneData) -> String:
 	var forced: String = Game.args.get("weather", "")
 	if forced != "":
 		return forced
-	return Game.data.weather_for(z.region, z.weather, z.kind == "interior", Game.rng)
+	var table := Calendar.seasonal_weather(z.weather, Calendar.season_today())  # frost likelier in winter
+	return Game.data.weather_for(z.region, table, z.kind == "interior", Game.rng)
 
 ## `smooth`: blend from the current weather over BLEND_SECONDS (a change mid-zone); otherwise switch at once.
 func set_weather(w: String, is_interior: bool, smooth := false) -> void:

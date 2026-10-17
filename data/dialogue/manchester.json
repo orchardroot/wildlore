@@ -108,6 +108,46 @@
  "tram_fan": [
   {
    "do": "when",
+   "cond": "christmas",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Tram Spotter",
+     "text": "Christmas markets in Albert Square. Mulled wine at eight quid a cup. You keep the cup, so that's alright then."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "autumn",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Tram Spotter",
+       "text": "Leaves on the line. Every autumn. You'd think a tram would have got used to trees by now."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "winter",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Tram Spotter",
+         "text": "Points freeze, trams stop, everyone tuts. Tutting's practically a Manchester sport."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "do": "when",
    "cond": "rain",
    "chat": true,
    "then": [
@@ -194,6 +234,51 @@
   }
  ],
  "busker": [
+  {
+   "do": "when",
+   "cond": "halloween",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Busker",
+     "text": "Taking Halloween requests. So far it's been Thriller eleven times and 'go away' once."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "bonfire_night",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Busker",
+       "text": "Penny for the Guy? Card's fine, love."
+      },
+      {
+       "do": "say",
+       "who": "Busker",
+       "text": "Tap it on the hat. Contactless Guys are the future."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "christmas",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Busker",
+         "text": "Christmas set: three carols, a bit of Wham! and far too much Slade. Folk get generous in December."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "when",
    "cond": "rain",

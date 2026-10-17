@@ -227,6 +227,7 @@ func _item_action(c: Dictionary) -> Dictionary:
 		await _say([str(check.text)])
 		return {}
 	bag.remove(id)
+	TrainerStats.note_item(data, id)
 	return {"type": "item", "item": id, "target": target}
 
 func _play(events: Array) -> void:
@@ -361,6 +362,7 @@ func _conclude() -> void:
 				await _say([defeat])
 			if money > 0:
 				data.money += money
+				TrainerStats.earned(data, money)
 				await _say(["%s got £%d for winning!" % [who, money]], 0.4)
 			result = {"result": "win", "caught": null, "money": money}
 		Battle.FOE:

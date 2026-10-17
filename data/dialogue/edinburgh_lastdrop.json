@@ -22,5 +22,46 @@
    "who": "Regular",
    "text": "Nowadays the market is cafes, shops and buskers. Trade still happens here. It just smells less of cattle."
   }
+ ],
+ "edinburgh_quizmaster": [
+  {
+   "do": "say",
+   "who": "Quizmaster",
+   "text": "Welcome to the Grassmarket quiz. The Last Drop is named for a hanging, so no pressure, but I do take a dim view of cheating."
+  },
+  {
+   "do": "say",
+   "who": "Quizmaster",
+   "text": "Five questions. Whispering is allowed. Whispering the answer to the next table is a hanging offence. Metaphorically. Mostly."
+  },
+  {
+   "do": "choice",
+   "text": "Fancy a round? Five questions, no phones.",
+   "options": [
+    "Count me in",
+    "Not tonight"
+   ],
+   "set": "_quiz_choice"
+  },
+  {
+   "do": "if",
+   "flag": "_quiz_choice",
+   "eq": 0,
+   "then": [
+    {
+     "do": "quiz",
+     "pub": "edinburgh",
+     "region": "scotland",
+     "who": "Quizmaster"
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Quizmaster",
+     "text": "No bother. The tea room will keep the seat warm."
+    }
+   ]
+  }
  ]
 }

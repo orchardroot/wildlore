@@ -26,6 +26,7 @@ func _ready() -> void:
 	if ResourceLoader.exists("res://data_api/item_db.gd"):
 		items = load("res://data_api/item_db.gd").load_default()
 	args = DevArgs.parse(DevArgs.user_args())
+	Calendar.set_override(str(args.get("date", "")))  # --date=MM-DD: screenshot any season or festival
 	var seed_value: int = args.seed if args.seed >= 0 else int(Time.get_unix_time_from_system())
 	rng = Rng.new(seed_value)
 	data.rng_seed = seed_value
@@ -36,6 +37,7 @@ func _ready() -> void:
 	Bus.battle_started.connect(_on_battle_started)
 	Bus.battle_ended.connect(_on_battle_ended)
 	Bus.zone_entered.connect(_on_zone_entered)
+	TrainerStats.connect_bus(self)
 	if "--quiet-window" in DevArgs.user_args():
 		# screenshot runs (tools/shot.sh): never grab focus, sit off-screen, make no sound
 		DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_NO_FOCUS, true)
@@ -164,6 +166,9 @@ func _dev_boot() -> void:
 		await Router.goto_zone(args.boot_zone, args.boot_pos, "down")
 		if args.ride == "bike":
 			Router.overworld.player.set_bike(true)
+		if PhotoMode.dev_wanted():
+			await get_tree().create_timer(1.5).timeout
+			PhotoMode.start(Router.overworld)
 		if args.get("journey", "") != "":
 			await get_tree().create_timer(1.0).timeout
 			await DevJourney.run(self, args.journey)

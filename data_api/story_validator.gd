@@ -3,8 +3,9 @@ extends RefCounted
 ## Checks dialogue scripts, trainers and the NPCs that use them against the rest of the data.
 
 const COMMANDS := ["say", "choice", "if", "set", "give_item", "give_creature", "heal", "battle", "move", "face",
-	"face_player", "wait", "warp", "shop", "starter", "fade_out", "fade_in", "music", "sfx", "badge", "end", "whiteout", "ark", "rail", "ferry", "legend", "gauntlet", "credits", "daily", "when", "relearn", "sachet_worn"]
-const CONDITIONS := ["dawn", "day", "dusk", "night", "rain", "fog", "gale", "frost", "sunshine", "caught_all"]
+	"face_player", "wait", "warp", "shop", "starter", "fade_out", "fade_in", "music", "sfx", "badge", "end", "whiteout", "ark", "rail", "ferry", "legend", "gauntlet", "credits", "daily", "when", "relearn", "sachet_worn", "quiz"]
+const CONDITIONS := ["dawn", "day", "dusk", "night", "rain", "fog", "gale", "frost", "sunshine", "caught_all",
+	"spring", "summer", "autumn", "winter", "halloween", "bonfire_night", "christmas", "st_patricks", "st_davids", "burns_night"]
 const MOVE_MODES := ["still", "wander", "pace"]
 const PHASES := ["dawn", "day", "dusk", "night"]
 ## An NPC with a `times` schedule may only chat: any other command makes it part of the story.
@@ -157,6 +158,11 @@ static func validate_commands(cmds: Array, tag: String, dex: Dex, items: ItemDB,
 			"shop":
 				if not items.shops.has(str(c.get("id", ""))):
 					errors.append("%s: shop '%s' does not exist" % [tag, c.get("id", "")])
+			"quiz":
+				if str(c.get("pub", "")) == "":
+					errors.append("%s: quiz with no pub id" % tag)
+				if str(c.get("region", "all")) not in PubQuiz.REGIONS:
+					errors.append("%s: quiz with unknown region '%s'" % [tag, c.get("region", "")])
 			"move":
 				for d in c.get("path", []):
 					if str(d) not in DIRS:

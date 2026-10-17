@@ -24,6 +24,8 @@ var _clock := 0.0
 var _nudge := Vector3.ZERO
 var _zoom := 1.0
 var _applied_zoom := 1.0
+var photo := Vector3(0, 0, 1)   # photo mode: yaw and pitch change in degrees, and a zoom factor (see PhotoMode)
+var _applied_photo := Vector3(0, 0, 1)
 var _tween: Tween
 
 func _ready() -> void:
@@ -45,11 +47,13 @@ func configure(zone_w: int, zone_h: int, interior: bool) -> void:
 	snap()
 
 func _apply_offset() -> void:
-	var p := deg_to_rad(PITCH)
-	var dist := distance * _zoom
-	camera.position = Vector3(0, sin(p) * dist, cos(p) * dist)
-	camera.rotation = Vector3(-p, 0, 0)
+	var p := deg_to_rad(PITCH + photo.y)
+	var yaw := deg_to_rad(photo.x)
+	var dist := distance * _zoom * photo.z
+	camera.position = Vector3(sin(yaw) * cos(p) * dist, sin(p) * dist, cos(yaw) * cos(p) * dist)
+	camera.rotation = Vector3(-p, yaw, 0)
 	_applied_zoom = _zoom
+	_applied_photo = photo
 
 func snap() -> void:
 	_idle_t = 0.0
@@ -108,7 +112,7 @@ func _process(delta: float) -> void:
 	if target == null:
 		return
 	_clock += delta
-	if _zoom != _applied_zoom:
+	if _zoom != _applied_zoom or photo != _applied_photo:
 		_apply_offset()
 	var want := target.global_position
 	var walking: bool = target is Player and target.moving

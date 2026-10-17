@@ -15,5 +15,46 @@
    "who": "Fiddler",
    "text": "The 'bar' is an old word for a walkway by the water. Nobody has told the cafe next door."
   }
+ ],
+ "dublin_quizmaster": [
+  {
+   "do": "say",
+   "who": "Quizmaster",
+   "text": "Right, settle down, the Temple Bar quiz is about to start. Phones away. Yes, Dave, that includes the one in your sock."
+  },
+  {
+   "do": "say",
+   "who": "Quizmaster",
+   "text": "Five questions, four answers each. Wrong answers will be remembered and mocked, lovingly."
+  },
+  {
+   "do": "choice",
+   "text": "Fancy a round? Five questions, no phones.",
+   "options": [
+    "Count me in",
+    "Not tonight"
+   ],
+   "set": "_quiz_choice"
+  },
+  {
+   "do": "if",
+   "flag": "_quiz_choice",
+   "eq": 0,
+   "then": [
+    {
+     "do": "quiz",
+     "pub": "dublin",
+     "region": "ireland",
+     "who": "Quizmaster"
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Quizmaster",
+     "text": "Grand. The fiddler gets a round in whatever happens."
+    }
+   ]
+  }
  ]
 }

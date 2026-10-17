@@ -68,7 +68,7 @@ func _build() -> void:
 	back.focus_neighbor_bottom = back.get_path_to(rows[0][1])
 	rows[0][0].focus_neighbor_top = rows[0][0].get_path_to(reset)
 	rows[0][1].focus_neighbor_top = rows[0][1].get_path_to(back)
-	_message = UIKit.label("", 22, UIKit.GOLD)
+	_message = UIKit.label("In photo mode the move keys swing the camera, + / - zoom, Confirm takes a photo.", 22, UIKit.GOLD)
 	col.add_child(_message)
 	_refresh()
 	UIKit.focus_later(rows[0][0])

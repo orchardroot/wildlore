@@ -27,5 +27,46 @@
    "who": "Piper",
    "text": "It takes about seven years to get a decent tune out of them. The neighbours take a bit longer to forgive you."
   }
+ ],
+ "galway_quizmaster": [
+  {
+   "do": "say",
+   "who": "Quizmaster",
+   "text": "Quiz night at Tigh Neachtain! Please keep the singing to the gaps between questions. Looking at you, third table."
+  },
+  {
+   "do": "say",
+   "who": "Quizmaster",
+   "text": "Five questions. I'm the quizmaster, so I'm always right, and I have the laminated answers to prove it."
+  },
+  {
+   "do": "choice",
+   "text": "Fancy a round? Five questions, no phones.",
+   "options": [
+    "Count me in",
+    "Not tonight"
+   ],
+   "set": "_quiz_choice"
+  },
+  {
+   "do": "if",
+   "flag": "_quiz_choice",
+   "eq": 0,
+   "then": [
+    {
+     "do": "quiz",
+     "pub": "galway",
+     "region": "ireland",
+     "who": "Quizmaster"
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Quizmaster",
+     "text": "Fair enough. The fire's lovely, anyway."
+    }
+   ]
+  }
  ]
 }

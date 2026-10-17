@@ -219,6 +219,7 @@ func _commit() -> void:
 		if not _bag.remove(_cur, _qty):
 			return
 		Game.data.money += total
+		TrainerStats.earned(Game.data, total)
 		_say.text = "Cheers. %s for the %s." % [UIKit.money_text(total), Game.items.get_item(_cur).name]
 	Audio.sfx("confirm")
 	_money()

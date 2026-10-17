@@ -17,6 +17,7 @@ var _dark: ColorRect
 var traffic: RailTraffic
 var _rode_in := false   # on the bike when we went indoors (session memory only, not saved)
 var ambient: AmbientLife
+var follower: Follower
 var arrival_scene := ""  # "train": the next zone loads with a train at the platform for you to step off (Journey)
 var _door_opened := false  # door_ahead swung a door (and played its sound) for the step now finishing
 var _edge_facing := ""     # walked off an edge this way: the next zone's camera glides in
@@ -105,6 +106,7 @@ func load_zone(zone_id: String, pos: Vector2i, facing: String) -> void:
 	sky.set_weather(outdoor, zone.kind == "interior")
 	ambient.setup(zone, _zone_node, sky)
 	RoamingCreatures.attach(self)
+	follower = Follower.attach(self)  # the party lead, one tile behind
 	rig.configure(zone.width, zone.height, zone.kind == "interior")
 	if _edge_facing != "":
 		rig.arrive(_edge_facing)
@@ -187,6 +189,7 @@ func cut_bramble(p: Vector2i) -> void:
 func _build_zone_node() -> void:
 	_zone_node = ZoneBuilder.build(zone)
 	add_child(_zone_node)
+	Seasonal.dress(zone, _zone_node, player)  # festivals and falling leaves from the real date
 	traffic = RailTraffic.new()
 	traffic.name = "RailTraffic"
 	_zone_node.add_child(traffic)
@@ -240,6 +243,7 @@ var _friend_steps := 0
 
 func _on_step(p: Vector2i) -> void:
 	Game.data.pos = p
+	TrainerStats.add(Game.data, "steps")
 	_friend_steps += 1
 	if _friend_steps >= 128:  # a long walk together makes friends
 		_friend_steps = 0
@@ -379,13 +383,15 @@ func interact(p: Vector2i) -> void:
 	Audio.interaction(self, p)
 	var s := zone.sign_at(p)
 	if not s.is_empty():
-		await say([str(s.text)])
+		await say(Forecast.for_radio(s, Forecast.current_weather(), Game.data.day_count) if s.get("kind", "") == "radio" else [str(s.text)])
 		return
 	var n := npc_at(p)
 	if n == null and zone.tile_at(p) == "counter":
 		n = npc_at(p + GridMotion.dir_vec(player.facing))  # talk across a shop or Sanctuary counter
 	if n and n.has_method("interact"):
 		await n.interact(player)
+	elif follower and follower.is_at(p):
+		await follower.talk()
 
 func open_pause() -> void:
 	Audio.sfx("confirm")
@@ -408,6 +414,7 @@ func _fly_to(town: String) -> void:
 	var info := {"from": str(here) if here else "", "to": town}
 	player.set_bike(false)
 	_rode_in = false
+	TrainerStats.add(Game.data, "flights")
 	var scene: bool = await Journey.depart(self, "fly", info)
 	if not scene:
 		Audio.sfx("raven_caw")

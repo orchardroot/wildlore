@@ -178,6 +178,8 @@ func _exec(c: Dictionary) -> void:
 				_set_flag(str(c.set), 1 if learned is Dictionary else 0)
 		"sachet_worn":
 			await _sachet_worn()
+		"quiz":
+			await _quiz(c)
 		"legend":
 			await _legend(c)
 		"rail":
@@ -200,6 +202,32 @@ func _exec(c: Dictionary) -> void:
 			push_warning("Commands: unknown command '%s'" % c.get("do", ""))
 
 const STARTER_LEVEL := 5
+
+## The pub quiz: {"do": "quiz", "pub": id, "region": region, "who": quizmaster name, "set": flag (the score, or -1)}.
+## The round itself is the quiz screen; the prize is once per in-game day per pub (see PubQuiz).
+func _quiz(c: Dictionary) -> void:
+	var data: GameStateData = host.data
+	var pub := str(c.get("pub", host.zone_id()))
+	var who := str(c.get("who", "Quizmaster"))
+	if PubQuiz.claimed_today(data, pub):
+		await host.say(who, "You've had tonight's prize already. Play for glory if you like, but the kitty's shut until tomorrow.")
+	var res = await host.open_menu("quiz:%s:%s" % [pub, str(c.get("region", "all"))])
+	if c.has("set"):
+		_set_flag(str(c.set), int(res.score) if res is Dictionary else -1)
+	if not (res is Dictionary):
+		await host.say(who, "Off already? Fair enough. The quiz will be here, so will the crisps.")
+		return
+	var score := int(res.get("score", 0))
+	var total := int(res.get("total", PubQuiz.ROUND_SIZE))
+	await host.say(who, "%d out of %d. %s" % [score, total, PubQuiz.reaction(score, total)])
+	var paid := PubQuiz.award(data, host.items, pub, score)
+	if bool(paid.paid):
+		await host.sfx("item")
+		if str(paid.item) != "":
+			var nm: String = host.items.get_item(str(paid.item)).get("name", str(paid.item))
+			await host.say("", "%s wins %s%s." % [data.player_name, nm, (" and " + UIKit.money_text(int(paid.money))) if int(paid.money) > 0 else ""])
+		else:
+			await host.say("", "%s wins %s." % [data.player_name, UIKit.money_text(int(paid.money))])
 
 func _battle(trainer_id: String) -> void:
 	var def := StoryData.trainer(trainer_id)
@@ -267,6 +295,7 @@ func _gauntlet(c: Dictionary) -> void:
 				await host.open_menu("bag")
 	if prize > 0:
 		host.data.money += prize
+		TrainerStats.earned(host.data, prize)
 		await host.say("", "%s collects £%d in prize money from the Moot." % [host.data.player_name, prize])
 	_set_flag(str(c.get("flag", "gauntlet_won")), true)
 
@@ -307,6 +336,7 @@ func _rail() -> void:
 		return
 	var a := Travel.rail_arrival(str(dest))
 	var info := {"from": host.zone_id(), "to": str(dest)}
+	TrainerStats.note_train(host.data, host.zone_id(), str(dest))
 	var scene := await _journey_out("train", info)
 	if not scene:
 		await host.sfx("train")
@@ -326,6 +356,7 @@ func _ferry(route: String) -> void:
 	await host.music(str(Travel.ferries()[route].get("music", "ferry")))
 	var card := str(Travel.ferries()[route].get("card", "The ferry crosses the sea."))
 	var info := {"from": host.zone_id(), "to": str(a.zone), "route": route, "card": card}
+	TrainerStats.add(host.data, "ferry_trips")
 	var scene := await _journey_out("ferry", info)
 	if not scene:
 		await host.say("", card)
@@ -355,8 +386,8 @@ const PHASE_CONDS := ["dawn", "day", "dusk", "night"]
 const WEATHER_CONDS := {"rain": ["drizzle", "downpour"], "fog": ["fog"], "gale": ["gale"], "frost": ["frost"], "sunshine": ["sunshine"]}
 
 ## Conditions that aren't flags: the time of day ("dawn", "day", "dusk", "night", from the in-game clock), the
-## weather ("rain" is drizzle or a downpour; "fog", "gale", "frost", "sunshine") and "caught_all" (every species
-## in the Fieldbook caught).
+## weather ("rain" is drizzle or a downpour; "fog", "gale", "frost", "sunshine"), "caught_all" (every species
+## in the Fieldbook caught), and from the real date the season ("spring".."winter") or a festival (Calendar.FESTIVALS).
 func _when(cond: String) -> bool:
 	if cond in PHASE_CONDS:
 		return GameClock.phase(host.data.clock_minutes) == cond
@@ -364,6 +395,10 @@ func _when(cond: String) -> bool:
 		return _weather() in WEATHER_CONDS[cond]
 	if cond == "caught_all":
 		return host.data.caught.size() >= host.dex.ids().size()
+	if cond in Calendar.SEASONS:
+		return Calendar.season_today() == cond
+	if cond in Calendar.FESTIVALS:
+		return Calendar.festival_today() == cond
 	push_warning("Commands: unknown condition '%s'" % cond)
 	return false
 

@@ -82,6 +82,11 @@ static func footstep(tile: String, weather: String, indoors: bool, on_bike: bool
 ## The sound for pressing confirm at a sign (`sign` non-empty) or at an NPC (its def), or "".
 static func interact_kind(sign: Dictionary, npc_def: Dictionary) -> String:
 	if not sign.is_empty():
+		match str(sign.get("kind", "")):
+			"radio":
+				return "radio_tune"
+			"plaque":
+				return ""  # a plaque is screwed to the wall
 		return "sign_creak"
 	if npc_def.is_empty():
 		return ""

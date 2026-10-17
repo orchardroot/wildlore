@@ -25,9 +25,9 @@ func _build() -> void:
 	v.add_theme_constant_override("separation", 2)
 	p.add_child(v)
 	var buttons := []
-	for def in [["text_speed", "Text speed"], ["battle_speed", "Battle speed"], ["travel_scenes", "Travel scenes"], ["quality", "Graphics quality"], ["music_volume", "Music volume"], ["sfx_volume", "Effects volume"], ["ambience_volume", "Ambience volume"], ["run_mode", "Run key"], ["colour_blind", "Colour-blind friendly"], ["reduce_flashing", "Reduce flashing"]]:
+	for def in [["text_speed", "Text speed"], ["battle_speed", "Battle speed"], ["travel_scenes", "Travel scenes"], ["quality", "Graphics quality"], ["music_volume", "Music volume"], ["sfx_volume", "Effects volume"], ["ambience_volume", "Ambience volume"], ["run_mode", "Run key"], ["follower", "Follower"], ["colour_blind", "Colour-blind friendly"], ["reduce_flashing", "Reduce flashing"]]:
 		var b := Button.new()
-		b.custom_minimum_size = Vector2(0, 33)  # rows are tight: the preview panel must clear the hint line
+		b.custom_minimum_size = Vector2(0, 30)  # rows are tight: the preview panel must clear the hint line
 		UIKit.compact(b, 4)
 		var h := HBoxContainer.new()
 		h.set_anchors_preset(Control.PRESET_FULL_RECT)
@@ -143,6 +143,8 @@ func _change(key: String, d: int) -> void:
 			Settings.run_mode = "toggle" if Settings.run_mode == "hold" else "hold"
 		"ambience_volume":
 			Settings.ambience_volume = clampf(snappedf(Settings.ambience_volume + 0.1 * d, 0.1), 0.0, 1.0)
+		"follower":
+			Settings.follower = not Settings.follower
 		"colour_blind":
 			Settings.colour_blind = not Settings.colour_blind
 		"reduce_flashing":
@@ -176,6 +178,8 @@ func _paint_row(r: Dictionary) -> void:
 		"ambience_volume":
 			l.text = _pct(Settings.ambience_volume)
 			r.bar.value = Settings.ambience_volume
+		"follower":
+			l.text = "<  %s  >" % ("On" if Settings.follower else "Off")
 		"colour_blind":
 			l.text = "<  %s  >" % ("On" if Settings.colour_blind else "Off")
 			_fill_chips()

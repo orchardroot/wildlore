@@ -27,5 +27,46 @@
    "who": "Actor",
    "text": "No microphones. We shout. Some of us were born for it."
   }
+ ],
+ "london_quizmaster": [
+  {
+   "do": "say",
+   "who": "Quizmaster",
+   "text": "Order, order! The quiz at the Globe is about to begin. Please keep the tragedy to a minimum and the groundlings to the left."
+  },
+  {
+   "do": "say",
+   "who": "Quizmaster",
+   "text": "Five questions. Phones away, please. Dave, I can hear that one buzzing through your trousers, and so can the actors."
+  },
+  {
+   "do": "choice",
+   "text": "Fancy a round? Five questions, no phones.",
+   "options": [
+    "Count me in",
+    "Not tonight"
+   ],
+   "set": "_quiz_choice"
+  },
+  {
+   "do": "if",
+   "flag": "_quiz_choice",
+   "eq": 0,
+   "then": [
+    {
+     "do": "quiz",
+     "pub": "london",
+     "region": "london",
+     "who": "Quizmaster"
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Quizmaster",
+     "text": "Parting is such sweet sorrow. Do come back."
+    }
+   ]
+  }
  ]
 }

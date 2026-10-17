@@ -277,7 +277,16 @@ static func _props(z: ZoneData, root: Node3D, rng: RandomNumberGenerator) -> voi
 				buckets[key] = []
 			buckets[key].append(Transform3D(basis, origin))
 	for s in z.signs:
-		_add(buckets, "sign_post:0", Transform3D(Basis(), Vector3(int(s.x) + 0.5, ground_y(z, Vector2i(int(s.x), int(s.y))), int(s.y) + 0.5)))
+		var sp := Vector2i(int(s.x), int(s.y))
+		match str(s.get("kind", "")):
+			"radio":  # a wireless set on a sideboard (world/wireless_meshes.gd)
+				var on_counter := z.tile_at(sp) == "counter"  # no sideboard then: it stands on the counter (0.9 high, set 0.5 up)
+				_add(buckets, "radio:%d" % int(on_counter), Transform3D(Basis(), Vector3(sp.x + 0.5, ground_y(z, sp) + (0.4 if on_counter else 0.0), sp.y + 0.5)))
+			"plaque":  # a round plaque on the south wall of the building tile, "dx" tiles from its centre
+				_add(buckets, "plaque:%d" % int(bool(s.get("green", false))),
+					Transform3D(Basis(), Vector3(sp.x + 0.5 + float(s.get("dx", 0.0)), ground_y(z, sp), sp.y + 0.955)))
+			_:
+				_add(buckets, "sign_post:0", Transform3D(Basis(), Vector3(sp.x + 0.5, ground_y(z, sp), sp.y + 0.5)))
 	for pr in z.props:
 		var pt: String = pr.get("type", "")
 		if pt in POINT_PROPS:
@@ -317,7 +326,7 @@ static func _props(z: ZoneData, root: Node3D, rng: RandomNumberGenerator) -> voi
 		var mmi := MultiMeshInstance3D.new()
 		mmi.name = "Props_" + key.replace(":", "_")
 		mmi.multimesh = mm
-		var foliage := parts[0] in ["heather_tuft", "reeds", "bramble"]
+		var foliage := parts[0] in ["heather_tuft", "reeds", "bramble", "birch", "bush"]
 		for tname in TILE_PROPS:
 			if TILE_PROPS[tname][0] == parts[0]:
 				foliage = TILE_PROPS[tname][2]
@@ -337,7 +346,7 @@ static func _props(z: ZoneData, root: Node3D, rng: RandomNumberGenerator) -> voi
 			mmi.material_override = Meshes.bobbing_calm if parts[0] == "canal_boat" else Meshes.bobbing
 		else:
 			mmi.material_override = Meshes.foliage if foliage else Meshes.solid
-			mmi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF if parts[0] in ["tall_grass_tuft", "flower_patch"] else GeometryInstance3D.SHADOW_CASTING_SETTING_ON
+			mmi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF if parts[0] in ["tall_grass_tuft", "flower_patch", "plaque"] else GeometryInstance3D.SHADOW_CASTING_SETTING_ON
 		root.add_child(mmi)
 
 const POOL_SIZE := 3.4
@@ -411,6 +420,10 @@ static func _ctor(name: String, variant: int) -> ArrayMesh:
 			return Meshes.bench()
 		"sign_post":
 			return Meshes.sign_post()
+		"radio":
+			return WirelessMeshes.radio(variant)
+		"plaque":
+			return WirelessMeshes.plaque(variant == 1)
 		"market_stall":
 			return Meshes.market_stall(variant)
 		"bookshelf":
