@@ -10,8 +10,8 @@ extends RefCounted
 ## | {"kind": "item", "item": id, "target": party index (ignored for snares)}.
 ## Double battles (opts.double): choose_action and choose_replacement are asked once per field position, with
 ## `acting_pos` saying which; a fight choice may carry "target" (foe position, default the first foe standing).
-## XP in doubles: every player creature standing on the field when a foe faints (the faint event's witnesses)
-## earns that foe's full XP reward. Both fought it, and doubles are rare trainer fights, so nobody is short-changed.
+## XP: every player creature that faced a foe on the field at any point and is still standing when it faints (the
+## faint event's witnesses) splits that foe's XP equally, in singles and doubles alike. The Thermos shares with the rest.
 
 signal species_caught(species_id: String)
 
@@ -286,23 +286,25 @@ func _replace_foe(pos := 0) -> void:
 			await _play(ev)
 			return
 
-## XP for a fainted foe. Singles: the creature out now. Doubles: every witness still standing (see the top).
+## XP for a fainted foe, split equally between every creature that faced it and is still standing.
 func _award_xp(faint_ev: Dictionary = {}) -> void:
 	var foe := battle.current(Battle.FOE)
 	var earners := [battle.current(Battle.PLAYER)]
-	if battle.double and faint_ev.has("index"):
+	if faint_ev.has("index"):
 		foe = battle.parties[Battle.FOE][int(faint_ev.index)]
+	if faint_ev.has("witnesses"):
 		earners = []
-		for i in faint_ev.get("witnesses", []):
+		for i in faint_ev.witnesses:
 			var c: Creature = battle.parties[Battle.PLAYER][int(i)]
 			if not c.is_fainted():
 				earners.append(c)
-	if _xp_given.has(foe):
+	if _xp_given.has(foe) or earners.is_empty():
 		return
 	_xp_given[foe] = true
 	var amount := Progression.xp_reward(foe, not is_wild())
+	var each := maxi(1, amount / earners.size())  # everyone who fought it splits the XP
 	for me in earners:
-		await _give_xp(me, foe, amount)
+		await _give_xp(me, foe, each)
 	var benched := thermos_sharers(data, earners)
 	if not benched.is_empty():
 		var share := maxi(1, amount / 2)

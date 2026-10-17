@@ -31,6 +31,7 @@ var winner := -1
 var caught: Creature = null
 var run_attempts := 0
 var _pending: Array = []  # events raised before the first turn (a battle that starts already decided)
+var _fought := {}  # foe party index -> {player party index: true} for every creature that faced it on the field
 
 func _init(player_party: Array, foe_party: Array, opts: Dictionary) -> void:
 	parties = [player_party, foe_party]
@@ -55,6 +56,7 @@ func _init(player_party: Array, foe_party: Array, opts: Dictionary) -> void:
 			active[side] = lead
 		else:
 			active[side] = [maxi(0, _first_able(side))]
+	_note_fighters()
 	_check_end(_pending)
 
 ## Field positions per side: 2 in a double battle, else 1.
@@ -341,6 +343,7 @@ func _do_switch(side: int, index: int, ev: Array, pos := 0) -> void:
 	if out != null:
 		out.reset_stages()
 	active[side][pos] = index
+	_note_fighters()
 	ev.append(_at({"type": "switch", "side": side, "index": index, "user": party[index].display_name()}, pos))
 
 func _do_item(side: int, item_id: String, target: int, ev: Array) -> void:
@@ -377,19 +380,31 @@ func _do_catch(snare: String, ev: Array) -> void:
 		caught = foe
 		_finish(-1, ev)
 
-## In doubles a faint also names the party `index` and, for a foe, the player's creatures standing on the field
-## when it went down (`witnesses`): they share the XP.
+## A faint names the party `index` and, for a foe, the player's creatures that faced it at any point and are still
+## standing (`witnesses`): they split the XP.
 func _faint(side: int, pos: int, ev: Array) -> void:
 	var e := _at({"type": "faint", "side": side, "user": current_at(side, pos).display_name()}, pos)
-	if double:
-		e["index"] = active[side][pos]
-		if side == FOE:
-			var seen := []
-			for p in positions():
-				if _alive_at(PLAYER, p):
-					seen.append(active[PLAYER][p])
-			e["witnesses"] = seen
+	e["index"] = active[side][pos]
+	if side == FOE:
+		_note_fighters()
+		var seen := []
+		for i in _fought.get(active[side][pos], {}):
+			if not parties[PLAYER][i].is_fainted():
+				seen.append(i)
+		seen.sort()
+		e["witnesses"] = seen
 	ev.append(e)
+
+## Every player creature on the field has now faced every foe on the field: they share that foe's XP.
+func _note_fighters() -> void:
+	for f in active[FOE]:
+		if f < 0:
+			continue
+		var seen: Dictionary = _fought.get(f, {})
+		for p in active[PLAYER]:
+			if p >= 0 and not parties[PLAYER][p].is_fainted():
+				seen[p] = true
+		_fought[f] = seen
 
 func _end_of_turn(ev: Array) -> void:
 	for side in [PLAYER, FOE]:
