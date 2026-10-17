@@ -9,6 +9,10 @@ extends RefCounted
 ## about a creature on the field also carries `"pos"` (singles events are unchanged and have no "pos").
 ## Spread moves (`"target": "all_foes"` in the move data) hit every foe at SPREAD_MULT damage. A move whose target
 ## fainted earlier in the turn swings at the other foe. Catching and running are refused in doubles.
+##
+## 2.0: the move effects in MoveFX (drain, recoil, multi_hit, heal_self, protect, flinch, set_weather, cure_team) and
+## each species' knack (Knacks, data/knacks.json). A move can change the weather for a few turns (`weather_turns`
+## counts down at the end of each turn, then the battle goes back to `base_weather`, the zone's own).
 
 const PLAYER := 0
 const FOE := 1
@@ -21,6 +25,9 @@ var active := [[0], [0]]  # per side: the party index at each field position (-1
 var double := false
 var kind := "wild"
 var weather := "clear"
+var base_weather := "clear"  # the zone's weather: what a called-up weather fades back to
+var weather_turns := 0  # turns left on a called-up weather (0: it is the zone's own)
+var knacks_on := true  # opts.knacks = false switches knacks off (older tests that pin exact numbers)
 var time := "day"
 var chart: TypeChart
 var move_db: MoveDB
@@ -33,7 +40,11 @@ var run_attempts := 0
 var _pending: Array = []  # events raised before the first turn (a battle that starts already decided)
 var _fought := {}  # foe party index -> {player party index: true} for every creature that faced it on the field
 var _fielded := {}  # player party indices that have been out on the field (they share a win's friendship)
-var _once := {}  # Creature -> {"horseshoe"/"hang_on"/"entered": true}: once-a-battle charm and friendship effects
+var _once := {}  # Creature -> {"horseshoe"/"hang_on"/"entered"/"knack": true}: once-a-battle effects
+var _guarded := {}  # Creature -> true: protected this turn
+var _guarded_last := {}  # the same for last turn (protecting twice running fails)
+var _acted := {}  # Creature -> true: has taken its action this turn (a flinch only lands before that)
+var _flinched := {}  # Creature -> true: loses its move this turn
 ## Events from before the first turn (charms that act as the battle starts). The flow plays them after the intro.
 var opening: Array = []
 
@@ -44,6 +55,8 @@ func _init(player_party: Array, foe_party: Array, opts: Dictionary) -> void:
 	item_db = opts.get("item_db")
 	kind = opts.get("kind", "wild")
 	weather = opts.get("weather", "clear")
+	base_weather = weather
+	knacks_on = bool(opts.get("knacks", true))
 	time = opts.get("time", "day")
 	double = bool(opts.get("double", false))
 	rng = opts.get("rng", Rng.new(opts.get("seed", 0)))
@@ -119,6 +132,10 @@ func take_turn(player_action: Variant, foe_action: Variant) -> Array:
 	for side in [PLAYER, FOE]:
 		if needs_switch(side):
 			return [{"type": "invalid", "side": side, "reason": "needs_switch"}]
+	_guarded_last = _guarded
+	_guarded = {}
+	_acted = {}
+	_flinched = {}
 	for entry in _turn_order([_as_list(player_action), _as_list(foe_action)]):
 		if over:
 			break
@@ -128,6 +145,10 @@ func take_turn(player_action: Variant, foe_action: Variant) -> Array:
 		if me == null or me.is_fainted():
 			continue
 		var a: Dictionary = entry.action
+		_acted[me] = true
+		if a.type == "move" and _flinched.has(me):
+			ev.append(_at({"type": "cant_act", "side": side, "reason": "flinched"}, pos))
+			continue
 		match a.type:
 			"switch":
 				_do_switch(side, int(a.index), ev, pos)
@@ -223,7 +244,8 @@ func _speed(side: int) -> float:
 	return _speed_of(current(side))
 
 func _speed_of(c: Creature) -> float:
-	return c.battle_stat("spd") * StatusFX.speed_mult(c)
+	var s := c.battle_stat("spd") * StatusFX.speed_mult(c)
+	return s * Knacks.speed_mult(c, weather) if knacks_on else s
 
 func _peek_move(c: Creature, slot: int) -> Dictionary:
 	if slot < 0 or slot >= c.moves.size() or int(c.moves[slot].pp) <= 0:
@@ -289,14 +311,22 @@ func _do_move(side: int, pos: int, a: Dictionary, ev: Array) -> void:
 		mv["target_pos"] = targets[0][1]
 		mv["spread"] = targets.size() > 1
 	ev.append(mv)
+	var fx: Dictionary = move.get("effect", {"id": "none"})
+	if move.category == "status" and str(fx.id) in MoveFX.SELF_EFFECTS:
+		_self_effect(side, pos, user, move, ev)
+		return
 	var mult := SPREAD_MULT if targets.size() > 1 else 1.0
+	var landed := false
 	for k in targets.size():
 		var t_side: int = targets[k][0]
 		var t_pos: int = targets[k][1]
 		var target := current_at(t_side, t_pos)
 		if target.is_fainted():
 			continue
-		if not _hits(user, move):
+		if t_side != side and _guarded.has(target):
+			ev.append(_at({"type": "protected", "side": t_side}, t_pos))
+			continue
+		if not _hits(user, move, target):
 			var miss := _at({"type": "miss", "side": side}, pos)
 			if double:
 				miss["target_side"] = t_side
@@ -304,46 +334,149 @@ func _do_move(side: int, pos: int, a: Dictionary, ev: Array) -> void:
 			ev.append(miss)
 			continue
 		if move.category != "status":
-			var crit := DamageCalc.CRIT_CHANCE * Weather.crit_mult(weather, side) * (Bond.crit_mult(user) if side == PLAYER else 1.0)
-			var res := DamageCalc.compute(user, target, move, chart, weather, rng, crit, mult)
-			if res.effectiveness == 0.0:
-				ev.append(_at({"type": "no_effect", "side": t_side}, t_pos))
+			if knacks_on and Knacks.immune(target, move):
+				ev.append(_knack(t_side, t_pos, target, "immune"))
 				continue
-			var amount: int = res.damage
-			var saved := ""
-			if amount >= target.hp and target.hp > 1:
-				saved = _hangs_on(t_side, target)
-				if saved != "":
-					amount = target.hp - 1
-			var dealt := target.take_damage(amount)
-			ev.append(_at({"type": "damage", "side": t_side, "amount": dealt, "hp": target.hp, "effectiveness": res.effectiveness, "crit": res.crit}, t_pos))
+			var dealt := _strike(side, pos, user, t_side, t_pos, target, move, mult, ev)
+			if dealt < 0:
+				continue
+			landed = true
+			_after_hit(side, pos, user, fx, dealt, ev)
+			if user.is_fainted():
+				break
+		_apply_effect(side, pos, move, t_side, t_pos, k == 0, ev)
+	if landed and str(fx.id) == "set_weather" and not user.is_fainted():
+		_set_weather(side, pos, user, str(fx.weather), ev, false)
+
+## One damaging move landing on one target: every hit of it (multi_hit strikes several times). Returns the total
+## damage dealt, or -1 when the target's types shrug it off entirely.
+func _strike(side: int, pos: int, user: Creature, t_side: int, t_pos: int, target: Creature, move: Dictionary, mult: float, ev: Array) -> int:
+	var fx: Dictionary = move.get("effect", {"id": "none"})
+	var hits := MoveFX.roll_hits(fx, rng) if fx.id == "multi_hit" else 1
+	var total := 0
+	var landed := 0
+	for h in hits:
+		if target.is_fainted() or user.is_fainted():
+			break
+		var crit := DamageCalc.CRIT_CHANCE * Weather.crit_mult(weather, side) * (Bond.crit_mult(user) if side == PLAYER else 1.0)
+		var km := 1.0
+		if knacks_on:
+			crit *= Knacks.crit_mult(user)
+			km = Knacks.attack_mult(user, target, move, self) * Knacks.defend_mult(target, move, chart.effectiveness(str(move.type), target.types()))
+		var res := DamageCalc.compute(user, target, move, chart, weather, rng, crit, mult * km)
+		if res.effectiveness == 0.0:
+			ev.append(_at({"type": "no_effect", "side": t_side}, t_pos))
+			return -1
+		var amount: int = res.damage
+		var saved := ""
+		if amount >= target.hp and target.hp > 1:
+			saved = _hangs_on(t_side, target)
+			if saved != "":
+				amount = target.hp - 1
+		var dealt := target.take_damage(amount)
+		total += dealt
+		landed += 1
+		ev.append(_at({"type": "damage", "side": t_side, "amount": dealt, "hp": target.hp, "effectiveness": res.effectiveness, "crit": res.crit}, t_pos))
+		if h == 0:
 			if Charms.outgoing_mult(user, str(move.type)) != 1.0:
 				ev.append(_charm(side, pos, user))
 			if Charms.incoming_mult(target, str(move.type)) != 1.0:
 				ev.append(_charm(t_side, t_pos, target))
-			if saved == "charm":
-				ev.append(_charm(t_side, t_pos, target))
-			elif saved == "bond":
-				ev.append(_at({"type": "bond", "side": t_side, "perk": "hang_on", "text": Bond.message("hang_on", "{name}")}, t_pos))
-			if target.is_fainted():
-				_faint(t_side, t_pos, ev)
-			elif dealt > 0:
-				_thorns(side, pos, user, t_side, t_pos, target, move, ev)
-			if user.is_fainted():
-				continue
-		_apply_effect(side, pos, move, t_side, t_pos, k == 0, ev)
+		if saved == "charm":
+			ev.append(_charm(t_side, t_pos, target))
+		elif saved == "bond":
+			ev.append(_at({"type": "bond", "side": t_side, "perk": "hang_on", "text": Bond.message("hang_on", "{name}")}, t_pos))
+		elif saved == "knack":
+			ev.append(_knack(t_side, t_pos, target, "endure"))
+		if target.is_fainted():
+			_faint(t_side, t_pos, ev)
+			_after_ko(side, pos, user, ev)
+		elif dealt > 0:
+			_thorns(side, pos, user, t_side, t_pos, target, move, ev)
+			_prickly(side, pos, user, t_side, t_pos, target, move, ev)
+	if fx.id == "multi_hit":
+		ev.append(_at({"type": "hits", "side": side, "count": landed}, pos))
+	return total
 
-func _hits(user: Creature, move: Dictionary) -> bool:
+## Drain and recoil, from the damage one target took.
+func _after_hit(side: int, pos: int, user: Creature, fx: Dictionary, dealt: int, ev: Array) -> void:
+	if dealt <= 0 or user.is_fainted():
+		return
+	match str(fx.id):
+		"drain":
+			var frac := float(fx.get("frac", 50)) * (Knacks.heal_mult(user) if knacks_on else 1.0)
+			var back := user.heal(maxi(1, int(dealt * frac / 100.0)))
+			if back > 0:
+				ev.append(_at({"type": "heal", "side": side, "amount": back, "hp": user.hp, "reason": "drain"}, pos))
+		"recoil":
+			if knacks_on and Knacks.has_flag(user, "no_recoil"):
+				ev.append(_knack(side, pos, user, "recoil"))
+				return
+			var hurt := user.take_damage(maxi(1, int(dealt * float(fx.get("frac", 25)) / 100.0)))
+			ev.append(_at({"type": "recoil", "side": side, "amount": hurt, "hp": user.hp}, pos))
+			if user.is_fainted():
+				_faint(side, pos, ev)
+
+## Status moves that act on the user or its side: heal_self, protect, set_weather, cure_team.
+func _self_effect(side: int, pos: int, user: Creature, move: Dictionary, ev: Array) -> void:
+	var fx: Dictionary = move.effect
+	match str(fx.id):
+		"heal_self":
+			var frac := MoveFX.heal_frac(move, weather) * (Knacks.heal_mult(user) if knacks_on else 1.0)
+			var back := user.heal(maxi(1, int(user.max_hp() * minf(frac, 100.0) / 100.0)))
+			if back <= 0:
+				ev.append(_at({"type": "fail", "side": side}, pos))
+			else:
+				ev.append(_at({"type": "heal", "side": side, "amount": back, "hp": user.hp, "reason": "heal_self"}, pos))
+		"protect":
+			if _guarded_last.has(user):
+				ev.append(_at({"type": "fail", "side": side}, pos))
+			else:
+				_guarded[user] = true
+				ev.append(_at({"type": "protect", "side": side}, pos))
+		"set_weather":
+			_set_weather(side, pos, user, str(fx.weather), ev, true, int(fx.get("turns", MoveFX.DEFAULT_TURNS)))
+		"cure_team":
+			var cured := 0
+			for c in parties[side]:
+				if c.status != "" and not c.is_fainted():
+					c.status = ""
+					c.status_turns = 0
+					cured += 1
+			if cured == 0:
+				ev.append(_at({"type": "fail", "side": side}, pos))
+			else:
+				ev.append(_at({"type": "cure_team", "side": side, "count": cured}, pos))
+
+## Calls up a weather for a few turns (a Weather Eye knack makes it last longer). The same weather again fails.
+func _set_weather(side: int, pos: int, by: Creature, w: String, ev: Array, say_fail := true, turns := MoveFX.DEFAULT_TURNS) -> void:
+	if weather == w:
+		if say_fail:
+			ev.append(_at({"type": "fail", "side": side}, pos))
+		return
+	if knacks_on and by != null:
+		turns = maxi(turns, Knacks.weather_turns(by))
+	weather = w
+	weather_turns = turns
+	ev.append(_at({"type": "weather", "side": side, "weather": w, "turns": turns}, pos))
+
+func _hits(user: Creature, move: Dictionary, target: Creature = null) -> bool:
 	var fx: Dictionary = move.get("effect", {})
 	if move.category == "status" and fx.get("target") == "self":
 		return true
-	var acc := float(move.accuracy) * user.stage_mult("acc") * Weather.accuracy_mod(weather)
+	if MoveFX.sure_in(move, weather):
+		return true
+	var acc := float(move.accuracy) * user.stage_mult("acc")
+	if not (knacks_on and Knacks.has_flag(user, "keen")):
+		acc *= Weather.accuracy_mod(weather)
+	if knacks_on and target != null:
+		acc *= Knacks.evade_mult(target, weather)
 	return rng.chance(acc)
 
 ## A move's side effect, on its target or (for "self" effects, once per move) on the user.
 func _apply_effect(side: int, pos: int, move: Dictionary, t_side: int, t_pos: int, first: bool, ev: Array) -> void:
 	var fx: Dictionary = move.get("effect", {"id": "none"})
-	if fx.id == "none":
+	if fx.id not in ["stat", "status", "flinch"]:
 		return
 	var on_self: bool = fx.get("target", "foe") == "self"
 	if on_self and not first:
@@ -355,13 +488,27 @@ func _apply_effect(side: int, pos: int, move: Dictionary, t_side: int, t_pos: in
 		return
 	match fx.id:
 		"stat":
-			var applied := who.change_stage(fx.stat, int(fx.stages))
+			var stages := int(fx.stages)
+			if knacks_on and not on_self and stages < 0 and Knacks.blocks_drop(who, str(fx.stat)):
+				ev.append(_knack(to_side, to_pos, who, "drop"))
+				return
+			var applied := who.change_stage(fx.stat, stages)
 			ev.append(_at({"type": "stat", "side": to_side, "stat": fx.stat, "delta": applied}, to_pos))
 		"status":
+			if who.status == "" and knacks_on and Knacks.blocks_status(who, str(fx.status)):
+				ev.append(_knack(to_side, to_pos, who, "status"))
+				return
 			if who.status == "" and _wards_off(to_side, to_pos, who, ev):
 				return
 			if StatusFX.inflict(who, fx.status, rng):
 				ev.append(_at({"type": "status", "side": to_side, "status": fx.status}, to_pos))
+		"flinch":
+			if _acted.has(who):
+				return  # it has already moved this turn
+			if knacks_on and Knacks.has_flag(who, "no_flinch"):
+				ev.append(_knack(to_side, to_pos, who, "flinch"))
+				return
+			_flinched[who] = true
 
 func _do_switch(side: int, index: int, ev: Array, pos := 0) -> void:
 	var party: Array = parties[side]
@@ -370,6 +517,10 @@ func _do_switch(side: int, index: int, ev: Array, pos := 0) -> void:
 	var out := current_at(side, pos)
 	if out != null:
 		out.reset_stages()
+		if knacks_on and not out.is_fainted():
+			var back := out.heal(Knacks.switch_heal(out))
+			if back > 0:
+				ev.append(_knack(side, pos, out, "switch", {"hp": out.hp, "amount": back}))
 	active[side][pos] = index
 	_note_fighters()
 	ev.append(_at({"type": "switch", "side": side, "index": index, "user": party[index].display_name()}, pos))
@@ -464,7 +615,33 @@ func _end_of_turn(ev: Array) -> void:
 				e["hp"] = c.hp
 				e["amount"] = back
 				ev.append(e)
+			if knacks_on:
+				_knack_end_of_turn(side, pos, c, ev)
+	if weather_turns > 0:
+		weather_turns -= 1
+		if weather_turns == 0:
+			var was := weather
+			weather = base_weather
+			ev.append({"type": "weather_end", "weather": weather, "was": was})
 	_check_end(ev)
+
+## A knack's end-of-turn turn: weather or steady healing, shaking off a status, a stat creeping up.
+func _knack_end_of_turn(side: int, pos: int, c: Creature, ev: Array) -> void:
+	var heal := Knacks.turn_heal(c, weather)
+	if heal > 0 and c.hp < c.max_hp():
+		var back := c.heal(heal)
+		ev.append(_knack(side, pos, c, "heal", {"hp": c.hp, "amount": back}))
+	var shake := Knacks.int_field(c, "shake")
+	if c.status != "" and shake > 0 and rng.chance(float(shake)):
+		var old := c.status
+		c.status = ""
+		c.status_turns = 0
+		ev.append(_knack(side, pos, c, "shake"))
+		ev.append(_at({"type": "status_cured", "side": side, "status": old}, pos))
+	var st := Knacks.end_stage(c)
+	if not st.is_empty() and c.stages.get(st.stat, 0) < 6:
+		ev.append(_knack(side, pos, c, "end"))
+		ev.append(_at({"type": "stat", "side": side, "stat": st.stat, "delta": c.change_stage(st.stat, int(st.stages))}, pos))
 
 func _check_end(ev: Array) -> void:
 	if over:
@@ -515,6 +692,11 @@ func _charm(side: int, pos: int, c: Creature) -> Dictionary:
 func _hangs_on(side: int, c: Creature) -> String:
 	var used: Dictionary = _once.get(c, {})
 	_once[c] = used
+	if knacks_on and Knacks.has_flag(c, "endure_full") and c.hp == c.max_hp():
+		return "knack"
+	if knacks_on and Knacks.has_flag(c, "endure_once") and not used.has("knack"):
+		used["knack"] = true
+		return "knack"
 	if Charms.endures(c) and not used.has("horseshoe"):
 		used["horseshoe"] = true
 		return "charm"
@@ -548,11 +730,14 @@ func _thorns(side: int, pos: int, user: Creature, t_side: int, t_pos: int, targe
 	if user.is_fainted():
 		_faint(side, pos, ev)
 
-## Something new on the field: an Oak Acorn acts the first time its holder comes out in a battle.
+## Something new on the field: its knack may act (every time it comes out), and an Oak Acorn acts the first time its
+## holder comes out in a battle.
 func _entered(side: int, pos: int, ev: Array) -> void:
 	var c := current_at(side, pos)
 	if c == null or c.is_fainted():
 		return
+	if knacks_on:
+		_knack_entry(side, pos, c, ev)
 	var used: Dictionary = _once.get(c, {})
 	_once[c] = used
 	if used.has("entered"):
@@ -565,3 +750,57 @@ func _entered(side: int, pos: int, ev: Array) -> void:
 	e["stat"] = st.stat
 	e["delta"] = c.change_stage(st.stat, int(st.stages))
 	ev.append(e)
+
+# --- knacks -------------------------------------------------------------------------------
+
+## A knack event: {"type": "knack", "side", "knack", "name", "text"} (+ "pos" in doubles, + any extra such as "hp").
+## The text keeps "{name}" for the event player, like a charm's; "name" is the holder's, as it may be switching out.
+func _knack(side: int, pos: int, c: Creature, trigger: String, extra := {}) -> Dictionary:
+	var e := _at({"type": "knack", "side": side, "knack": Knacks.id_of(c), "name": c.display_name(), "text": Knacks.message(c, trigger)}, pos)
+	e.merge(extra, true)
+	return e
+
+## On entry: a weather knack calls its weather, a stat knack nudges the holder or both foes.
+func _knack_entry(side: int, pos: int, c: Creature, ev: Array) -> void:
+	var w := Knacks.entry_weather(c)
+	if w != "" and w != weather:
+		ev.append(_knack(side, pos, c, "entry"))
+		_set_weather(side, pos, c, w, ev, false)
+	var stages := Knacks.entry_stages(c, weather, time)
+	if stages.is_empty():
+		return
+	ev.append(_knack(side, pos, c, "entry"))
+	for st in stages:
+		if str(st.get("to", "self")) == "self":
+			ev.append(_at({"type": "stat", "side": side, "stat": st.stat, "delta": c.change_stage(st.stat, int(st.stages))}, pos))
+			continue
+		for p in positions():
+			var foe := current_at(1 - side, p)
+			if foe == null or foe.is_fainted():
+				continue
+			if int(st.stages) < 0 and Knacks.blocks_drop(foe, str(st.stat)):
+				ev.append(_knack(1 - side, p, foe, "drop"))
+				continue
+			ev.append(_at({"type": "stat", "side": 1 - side, "stat": st.stat, "delta": foe.change_stage(st.stat, int(st.stages))}, p))
+
+## After knocking a foe out: a knack like Cocky raises a stat.
+func _after_ko(side: int, pos: int, user: Creature, ev: Array) -> void:
+	if not knacks_on or user.is_fainted():
+		return
+	var st := Knacks.after_ko(user)
+	if st.is_empty():
+		return
+	ev.append(_knack(side, pos, user, "ko"))
+	ev.append(_at({"type": "stat", "side": side, "stat": st.stat, "delta": user.change_stage(st.stat, int(st.stages))}, pos))
+
+## A Prickly knack hurts whoever just hit its holder with a physical move.
+func _prickly(side: int, pos: int, user: Creature, t_side: int, t_pos: int, target: Creature, move: Dictionary, ev: Array) -> void:
+	if not knacks_on or user.is_fainted() or str(move.get("category", "")) != "physical":
+		return
+	var n := Knacks.int_field(target, "contact_hurt")
+	if n <= 0:
+		return
+	var hurt := user.take_damage(maxi(1, user.max_hp() / n))
+	ev.append(_knack(t_side, t_pos, target, "contact", {"other_side": side, "other_pos": pos, "amount": hurt, "hp": user.hp}))
+	if user.is_fainted():
+		_faint(side, pos, ev)

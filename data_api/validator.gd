@@ -47,6 +47,7 @@ static func _check_move(m: Dictionary, chart: TypeChart) -> Array:
 		e.append("move %s: priority must be -3..3" % id)
 	if fx.get("target", "foe") not in ["self", "foe"]:
 		e.append("move %s: effect target must be self or foe" % id)
+	e.append_array(MoveFX.check(m))
 	return e
 
 static func _check_species(sp: Dictionary, chart: TypeChart, dex: Dex, moves: MoveDB, items: ItemDB = null) -> Array:
