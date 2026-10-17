@@ -102,6 +102,46 @@
  "bridge_busker": [
   {
    "do": "when",
+   "cond": "st_patricks",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Bridge Busker",
+     "text": "Happy St Patrick's Day! The Liffey's not green, that's just the light. Probably."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "halloween",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Bridge Busker",
+       "text": "Halloween started here, you know. Samhain. We've been dressing up and scaring the neighbours for two thousand years."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "christmas",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Bridge Busker",
+         "text": "Christmas Eve, the famous ones come out to busk on Grafton Street. I stand nearby looking famous."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "do": "when",
    "cond": "rain",
    "chat": true,
    "then": [
@@ -228,6 +268,46 @@
   }
  ],
  "pub_regular": [
+  {
+   "do": "when",
+   "cond": "st_patricks",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Pub Regular",
+     "text": "Paddy's Day. I've been in since nine. Breakfast was a pint and a moral victory."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "christmas",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Pub Regular",
+       "text": "Twelve pubs of Christmas. I'm on pub four. Pub four is also pub one."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "autumn",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Pub Regular",
+         "text": "Autumn. Dark at six, raining by seven, pub by half past. Grand."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "when",
    "cond": "gale",

@@ -326,7 +326,7 @@ static func _props(z: ZoneData, root: Node3D, rng: RandomNumberGenerator) -> voi
 		var mmi := MultiMeshInstance3D.new()
 		mmi.name = "Props_" + key.replace(":", "_")
 		mmi.multimesh = mm
-		var foliage := parts[0] in ["heather_tuft", "reeds", "bramble"]
+		var foliage := parts[0] in ["heather_tuft", "reeds", "bramble", "birch", "bush"]
 		for tname in TILE_PROPS:
 			if TILE_PROPS[tname][0] == parts[0]:
 				foliage = TILE_PROPS[tname][2]

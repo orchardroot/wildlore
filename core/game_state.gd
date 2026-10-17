@@ -26,6 +26,7 @@ func _ready() -> void:
 	if ResourceLoader.exists("res://data_api/item_db.gd"):
 		items = load("res://data_api/item_db.gd").load_default()
 	args = DevArgs.parse(DevArgs.user_args())
+	Calendar.set_override(str(args.get("date", "")))  # --date=MM-DD: screenshot any season or festival
 	var seed_value: int = args.seed if args.seed >= 0 else int(Time.get_unix_time_from_system())
 	rng = Rng.new(seed_value)
 	data.rng_seed = seed_value

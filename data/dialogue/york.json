@@ -113,6 +113,46 @@
  ],
  "yrk_choc": [
   {
+   "do": "when",
+   "cond": "halloween",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Chocolate Seller",
+     "text": "Halloween special: chocolate skulls. Anatomically questionable. Delicious, though."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "bonfire_night",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Chocolate Seller",
+       "text": "Guy Fawkes was a York lad, you know. We don't go on about it. Bad for business, blowing up Parliament."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "christmas",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Chocolate Seller",
+         "text": "Chocolate oranges. York made them famous. Tap it and unwrap it, as nobody actually says."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Chocolate Seller",
    "text": "York is chocolate city. Rowntree's and Terry's were both here. The KitKat came from York in 1935, and they still make them in a factory just down the road."
@@ -162,6 +202,46 @@
   }
  ],
  "yrk_ghost": [
+  {
+   "do": "when",
+   "cond": "halloween",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Ghost Tour Seller",
+     "text": "Halloween's our Christmas. Book now: the ghosts are on double time."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "christmas",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Ghost Tour Seller",
+       "text": "Christmas ghost walk tonight. Ghosts of Christmas past, present, and the bloke who still owes me a tenner."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "autumn",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Ghost Tour Seller",
+         "text": "Autumn's ghost season. Dark by six, leaves blowing about. You hardly need the ghosts, really."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "when",
    "cond": "fog",

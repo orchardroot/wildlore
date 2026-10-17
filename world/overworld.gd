@@ -189,6 +189,7 @@ func cut_bramble(p: Vector2i) -> void:
 func _build_zone_node() -> void:
 	_zone_node = ZoneBuilder.build(zone)
 	add_child(_zone_node)
+	Seasonal.dress(zone, _zone_node, player)  # festivals and falling leaves from the real date
 	traffic = RailTraffic.new()
 	traffic.name = "RailTraffic"
 	_zone_node.add_child(traffic)

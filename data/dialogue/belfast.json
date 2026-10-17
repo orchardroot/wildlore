@@ -84,6 +84,32 @@
  "dock_worker": [
   {
    "do": "when",
+   "cond": "autumn",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Dock Worker",
+     "text": "Autumn winds up the Lagan. The cranes creak like old knees. Mine too, to be fair."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "winter",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Dock Worker",
+       "text": "Frost on the quays. Samson and Goliath look grand in it. I look like a frozen pea."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "do": "when",
    "cond": "fog",
    "chat": true,
    "then": [
@@ -134,6 +160,46 @@
   }
  ],
  "black_taxi": [
+  {
+   "do": "when",
+   "cond": "st_patricks",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Taxi Driver",
+     "text": "St Patrick's Day, busiest day of my year. Every fare wants to sing to me."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "halloween",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Taxi Driver",
+       "text": "Halloween's a whole week of fireworks here. The dog's under the bed till November."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "christmas",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Taxi Driver",
+         "text": "Christmas market's up at City Hall. Folk ask me to drive round it twice. Same price both times, love."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "when",
    "cond": "rain",

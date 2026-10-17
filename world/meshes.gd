@@ -27,6 +27,7 @@ static func materials() -> void:
 	solid.specular_mode = BaseMaterial3D.SPECULAR_DISABLED
 	foliage = ShaderMaterial.new()
 	foliage.shader = load("res://art/shaders/foliage.gdshader")
+	Seasonal.tint(foliage)  # autumn colour, spring blossom or winter rime from the real date
 	glow = StandardMaterial3D.new()
 	glow.albedo_color = Color("3a4658")
 	glow.emission_enabled = true

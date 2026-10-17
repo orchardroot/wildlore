@@ -185,6 +185,60 @@
  "edi_fringe": [
   {
    "do": "when",
+   "cond": "burns_night",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Fringe Performer",
+     "text": "Burns Night! Haggis, neeps and tatties, and a man in the corner reciting all of Tam o' Shanter whether you like it or not."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "halloween",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Fringe Performer",
+       "text": "Up here it's guising, not trick or treating. You tell a joke, you get a sweetie. My best one got me a satsuma."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "christmas",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Fringe Performer",
+         "text": "Christmas is just the warm-up act. Hogmanay's the main event."
+        }
+       ],
+       "else": [
+        {
+         "do": "when",
+         "cond": "autumn",
+         "chat": true,
+         "then": [
+          {
+           "do": "say",
+           "who": "Fringe Performer",
+           "text": "The Fringe is long gone and I'm still doing my show. Audience of one. It's that pigeon again."
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "do": "when",
    "cond": "rain",
    "chat": true,
    "then": [
@@ -273,6 +327,32 @@
   }
  ],
  "edi_walker": [
+  {
+   "do": "when",
+   "cond": "burns_night",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Seat Walker",
+     "text": "Burns Night. You address the haggis like a guest of honour, then you stab it. Very Scottish hospitality."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "winter",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Seat Walker",
+       "text": "Arthur's Seat in a frost. Cracking view. Can't feel my ears."
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "when",
    "cond": "gale",
