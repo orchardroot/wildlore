@@ -36,6 +36,9 @@ static func boot(game: Node, menu: String) -> void:
 	d.bag = {"cup_of_tea": 5, "flask_of_tea": 2, "smelling_salts": 3, "bakewell_tart": 1, "kendal_mint_cake": 1,
 		"wicker_snare": 8, "iron_snare": 2, "lavender_sachet": 3, "map": 1, "fieldbook": 1}
 	d.money = 1840
+	if menu.begins_with("stats"):
+		d.stats.merge({"steps": 48213, "wins_wild": 187, "wins_trainer": 41, "caught": 52, "train_trips": 9, "rail_miles": 1180,
+			"ferry_trips": 3, "flights": 4, "money_earned": 96450, "teas": 63, "rained_on": 28, "started": "2026-10-03"}, true)
 	d.badges = ["a", "b"]
 	d.play_seconds = 4980.0
 	for t in ["macclesfield", "buxton"]:

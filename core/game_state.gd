@@ -36,6 +36,7 @@ func _ready() -> void:
 	Bus.battle_started.connect(_on_battle_started)
 	Bus.battle_ended.connect(_on_battle_ended)
 	Bus.zone_entered.connect(_on_zone_entered)
+	TrainerStats.connect_bus()
 	if "--quiet-window" in DevArgs.user_args():
 		# screenshot runs (tools/shot.sh): never grab focus, sit off-screen, make no sound
 		DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_NO_FOCUS, true)
@@ -164,6 +165,9 @@ func _dev_boot() -> void:
 		await Router.goto_zone(args.boot_zone, args.boot_pos, "down")
 		if args.ride == "bike":
 			Router.overworld.player.set_bike(true)
+		if PhotoMode.dev_wanted():
+			await get_tree().create_timer(1.5).timeout
+			PhotoMode.start(Router.overworld)
 		if args.get("journey", "") != "":
 			await get_tree().create_timer(1.0).timeout
 			await DevJourney.run(self, args.journey)

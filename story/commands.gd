@@ -295,6 +295,7 @@ func _gauntlet(c: Dictionary) -> void:
 				await host.open_menu("bag")
 	if prize > 0:
 		host.data.money += prize
+		TrainerStats.earned(host.data, prize)
 		await host.say("", "%s collects £%d in prize money from the Moot." % [host.data.player_name, prize])
 	_set_flag(str(c.get("flag", "gauntlet_won")), true)
 
@@ -335,6 +336,7 @@ func _rail() -> void:
 		return
 	var a := Travel.rail_arrival(str(dest))
 	var info := {"from": host.zone_id(), "to": str(dest)}
+	TrainerStats.note_train(host.data, host.zone_id(), str(dest))
 	var scene := await _journey_out("train", info)
 	if not scene:
 		await host.sfx("train")
@@ -354,6 +356,7 @@ func _ferry(route: String) -> void:
 	await host.music(str(Travel.ferries()[route].get("music", "ferry")))
 	var card := str(Travel.ferries()[route].get("card", "The ferry crosses the sea."))
 	var info := {"from": host.zone_id(), "to": str(a.zone), "route": route, "card": card}
+	TrainerStats.add(host.data, "ferry_trips")
 	var scene := await _journey_out("ferry", info)
 	if not scene:
 		await host.say("", card)

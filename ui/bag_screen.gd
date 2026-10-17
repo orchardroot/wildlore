@@ -247,6 +247,8 @@ func _use(id: String, idx: int) -> void:
 		Game.data.mark_caught(str(to_sp.id))
 		r["text"] = "%s evolved into %s!" % [old_name, to_sp.name]
 		Audio.sfx("evolve")
+	if r.get("ok", false):
+		TrainerStats.note_item(Game.data, id)
 	_note.text = str(r.get("text", ""))
 	if not r.has("evolve_to"):
 		Audio.sfx("heal" if r.get("ok", false) else "bump")

@@ -3,10 +3,10 @@ extends RefCounted
 ## Registers the game's input actions in code (keyboard and gamepad), so project.godot stays readable.
 ## The bindings are data: `defaults()` gives the factory set, Settings stores the player's and calls `apply`.
 
-const ACTIONS := ["move_up", "move_down", "move_left", "move_right", "confirm", "cancel", "menu", "run", "bike", "fly"]
+const ACTIONS := ["move_up", "move_down", "move_left", "move_right", "confirm", "cancel", "menu", "run", "bike", "fly", "photo"]
 const LABELS := {
 	"move_up": "Move up", "move_down": "Move down", "move_left": "Move left", "move_right": "Move right",
-	"confirm": "Confirm", "cancel": "Cancel", "menu": "Menu", "run": "Run", "bike": "Bike", "fly": "Fly",
+	"confirm": "Confirm", "cancel": "Cancel", "menu": "Menu", "run": "Run", "bike": "Bike", "fly": "Fly", "photo": "Photo mode",
 }
 ## Confirm and cancel can never be left empty or share a button, or menus become impossible to use.
 const ESSENTIAL := ["confirm", "cancel"]
@@ -14,12 +14,12 @@ const KEYS := {
 	"move_up": [KEY_UP, KEY_W], "move_down": [KEY_DOWN, KEY_S],
 	"move_left": [KEY_LEFT, KEY_A], "move_right": [KEY_RIGHT, KEY_D],
 	"confirm": [KEY_Z, KEY_ENTER, KEY_SPACE], "cancel": [KEY_X, KEY_BACKSPACE],
-	"menu": [KEY_ESCAPE, KEY_TAB], "run": [KEY_SHIFT], "bike": [KEY_B], "fly": [KEY_F],
+	"menu": [KEY_ESCAPE, KEY_TAB], "run": [KEY_SHIFT], "bike": [KEY_B], "fly": [KEY_F], "photo": [KEY_P],
 }
 const PAD_BUTTONS := {
 	"move_up": [JOY_BUTTON_DPAD_UP], "move_down": [JOY_BUTTON_DPAD_DOWN],
 	"move_left": [JOY_BUTTON_DPAD_LEFT], "move_right": [JOY_BUTTON_DPAD_RIGHT],
-	"confirm": [JOY_BUTTON_A], "cancel": [JOY_BUTTON_B], "menu": [JOY_BUTTON_START], "run": [JOY_BUTTON_X], "bike": [JOY_BUTTON_Y], "fly": [JOY_BUTTON_BACK],
+	"confirm": [JOY_BUTTON_A], "cancel": [JOY_BUTTON_B], "menu": [JOY_BUTTON_START], "run": [JOY_BUTTON_X], "bike": [JOY_BUTTON_Y], "fly": [JOY_BUTTON_BACK], "photo": [JOY_BUTTON_RIGHT_STICK],
 }
 const PAD_AXES := {
 	"move_up": [JOY_AXIS_LEFT_Y, -1.0], "move_down": [JOY_AXIS_LEFT_Y, 1.0],
