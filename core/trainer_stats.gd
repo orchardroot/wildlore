@@ -79,7 +79,7 @@ static func lines(data: GameStateData) -> Array:
 		["Train journeys", "%s (about %s miles)" % [_n(c.call("train_trips")), _n(c.call("rail_miles"))]],
 		["Ferry crossings", _n(c.call("ferry_trips"))],
 		["Flights on Bran's Raven", _n(c.call("flights"))],
-		["Money earned", UIKit.money_text(c.call("money_earned"))],
+		["Money earned", "£" + _n(c.call("money_earned"))],
 		["Cups of tea drunk", _n(c.call("teas"))],
 		["Times rained on", _n(c.call("rained_on"))],
 	]
@@ -92,23 +92,25 @@ static func _n(v: int) -> String:
 		s = s.substr(0, s.length() - 3)
 	return s + out
 
-# --- event hooks (connected once, from the Game autoload) -------------------------------------------------------
+# --- event hooks (connected once, from the Game autoload, which passes itself in: autoload names
+# can't be used here, or every tool script that loads the save data fails to compile) --------------
 
 static var _kind := "wild"
 
-static func connect_bus() -> void:
-	Bus.battle_started.connect(func(kind: String): _kind = kind)
-	Bus.battle_ended.connect(func(result: Dictionary): record_battle(Game.data, _kind, result))
-	Bus.creature_caught.connect(func(_id: String): add(Game.data, "caught"))
-	Bus.zone_entered.connect(_on_zone_entered)
+static func connect_bus(game: Node) -> void:
+	var bus := game.get_node("/root/Bus")
+	bus.battle_started.connect(func(kind: String): _kind = kind)
+	bus.battle_ended.connect(func(result: Dictionary): record_battle(game.data, _kind, result))
+	bus.creature_caught.connect(func(_id: String): add(game.data, "caught"))
+	bus.zone_entered.connect(func(_zone_id: String): _on_zone_entered(game))
 
 ## Walking into an outdoor zone while it rains (drizzle or downpour) counts as being rained on.
-static func _on_zone_entered(_zone_id: String) -> void:
-	var ow = Router.overworld
+static func _on_zone_entered(game: Node) -> void:
+	var ow = game.get_node("/root/Router").overworld
 	if ow == null or not is_instance_valid(ow) or ow.zone == null or ow.zone.kind == "interior":
 		return
 	if rains(str(ow.weather)):
-		add(Game.data, "rained_on")
+		add(game.data, "rained_on")
 
 static func rains(weather: String) -> bool:
 	return weather in ["drizzle", "downpour"]
