@@ -530,7 +530,7 @@ static func _ctor(name: String, variant: int) -> ArrayMesh:
 ## Also records every chimney top (world space) as the root's "chimneys" meta, for AmbientLife's smoke.
 static func _buildings(z: ZoneData, root: Node3D) -> void:
 	var chimneys := PackedVector3Array()
-	var bodies := []  # of {pr, body, door_x}: names go on once every building stands, to see what is in front
+	var bodies := []  # of {pr, body, door_x}: their names go up as signs once every building stands (Signage)
 	for pr in z.props:
 		if pr.get("type") != "building":
 			continue
@@ -560,72 +560,8 @@ static func _buildings(z: ZoneData, root: Node3D) -> void:
 		win.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 		body.add_child(win)
 		bodies.append({"pr": pr, "body": body, "door_x": door_x})
-	for b in bodies:
-		var pr: Dictionary = b.pr
-		if pr.has("label") and pr.get("show_label", true):
-			_label(z, pr, b.body, int(b.door_x), bodies)
+	Signage.build(z, root, bodies)
 	root.set_meta("chimneys", chimneys)
-
-const LABEL_PITCH := deg_to_rad(CameraRig.PITCH)
-const LABEL_CHAR_W := 0.16   # world width of one character of a building name, roughly
-
-## Where a point sits up the screen (the camera looks down at PITCH from the south).
-static func _screen_v(p: Vector3) -> float:
-	return p.y * cos(LABEL_PITCH) - p.z * sin(LABEL_PITCH)
-
-## Is a name centred at world point p (half width hw) drawn over another building standing in front of it?
-static func _label_covered(p: Vector3, hw: float, own: MeshInstance3D, bodies: Array) -> bool:
-	var v := _screen_v(p)
-	for b in bodies:
-		var other: MeshInstance3D = b.body
-		if other == own:
-			continue
-		var box := AABB(other.position + other.mesh.get_aabb().position, other.mesh.get_aabb().size)
-		if box.end.z <= p.z + 0.1 or box.end.x <= p.x - hw or box.position.x >= p.x + hw:
-			continue  # behind the name, or off to one side
-		if v >= _screen_v(Vector3(0, box.position.y, box.end.z)) and v <= _screen_v(Vector3(0, box.end.y, box.position.z)):
-			return true
-	return false
-
-static func _label(z: ZoneData, pr: Dictionary, body: MeshInstance3D, door_x: int, bodies: Array) -> void:
-	var w := int(pr.w)
-	var d := int(pr.h)
-	var lbl := Label3D.new()
-	lbl.text = str(pr.label)
-	lbl.pixel_size = 0.006
-	lbl.font_size = 48
-	lbl.outline_size = 12
-	lbl.modulate = Color("f2e8cf")
-	lbl.outline_modulate = Color("1d2230")
-	lbl.position = Vector3(w * 0.5, 1.35 if door_x >= 0 else 1.0, d + 0.02)
-	if w >= 5 and d >= 3 and _bunting_in_front(z, int(pr.x), int(pr.y) + d, w):  # two storeys (see Meshes.building)
-		lbl.position.y = LABEL_OVER_BUNTING
-	if str(pr.get("style", "")) == "aqueduct":
-		# on the iron trough: down at door height it reads as the name of whatever stands in front
-		lbl.position = Vector3(w * 0.5, 3.6, d * 0.5 + 0.5)
-	elif _label_covered(body.position + lbl.position, lbl.text.length() * LABEL_CHAR_W * 0.5, body, bodies):
-		# a street away from a building in front, the name would be drawn over that building's wall and read as
-		# its name: lift it on to our own ridge, above the roofs in front
-		lbl.position = Vector3(w * 0.5, body.mesh.get_aabb().end.y + 0.3, d * 0.5)
-	lbl.billboard = BaseMaterial3D.BILLBOARD_DISABLED
-	lbl.no_depth_test = true  # walls and towers in front must not hide the name
-	lbl.render_priority = 10
-	body.add_child(lbl)
-
-## Name height on a two-storey front when bunting is strung across it (the bunting sags through the usual spot).
-const LABEL_OVER_BUNTING := 1.9
-
-## Is bunting strung east-west along row `row` (just in front of a building) across the middle of its front?
-static func _bunting_in_front(z: ZoneData, bx: int, row: int, w: int) -> bool:
-	var mid := bx + w * 0.5
-	for pr in z.props:
-		if pr.get("type") != "bunting" or int(pr.y) != row or int(pr.get("rot", 0)) % 180 != 0:
-			continue
-		var x0 := int(pr.x) + 0.5
-		var x1 := x0 + int(pr.get("variant", 3)) * (-1 if int(pr.get("rot", 0)) % 360 == 180 else 1)
-		if minf(x0, x1) < mid + 1.0 and maxf(x0, x1) > mid - 1.0:
-			return true
-	return false
 
 # --- interiors -----------------------------------------------------------------
 
