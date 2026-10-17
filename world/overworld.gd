@@ -379,7 +379,7 @@ func interact(p: Vector2i) -> void:
 	Audio.interaction(self, p)
 	var s := zone.sign_at(p)
 	if not s.is_empty():
-		await say([str(s.text)])
+		await say(Forecast.for_radio(s, Forecast.current_weather(), Game.data.day_count) if s.get("kind", "") == "radio" else [str(s.text)])
 		return
 	var n := npc_at(p)
 	if n == null and zone.tile_at(p) == "counter":

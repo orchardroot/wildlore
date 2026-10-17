@@ -10,6 +10,7 @@ const EXPECTED := {
 	"bell_toll": 3.2, "raven_caw": 0.9, "train_rush": 2.4,
 	"step_path": 0.12, "step_stone": 0.1, "step_wood": 0.14, "step_sand": 0.15, "step_soft": 0.12, "step_wet": 0.16, "bike_tyre": 0.2,
 	"talk_blip": 0.08, "sign_creak": 0.5, "shop_bell": 0.9, "sanctuary_chime": 1.4, "brake_squeal": 1.6,
+	"radio_tune": 2.0,
 }
 const LOOPING := ["title", "town_cheshire", "route_forest", "route_moor", "battle_wild", "battle_trainer", "battle_keeper", "sanctuary",
 	"town_city", "town_wales", "route_coast", "route_mountain", "battle_enclosure", "legend"]
