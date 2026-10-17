@@ -360,7 +360,7 @@ func test_double_battle_target_is_passed_through() -> void:
 			break
 	assert_eq(first_player_hit.get("pos", -1), 1)
 
-func test_team_thermos_shares_half_xp_with_the_bench() -> void:
+func test_team_thermos_shares_three_quarters_xp_with_the_bench() -> void:
 	var a := Fixtures.creature("kindlet", 10)
 	var b := Fixtures.creature("spikkin", 5)
 	var foe := Fixtures.creature("spikkin", 3)
@@ -370,7 +370,8 @@ func test_team_thermos_shares_half_xp_with_the_bench() -> void:
 	f.run()
 	assert_eq(f.result.result, "win")
 	assert_true(b.xp > b0, "the benched creature shared the XP")
-	assert_eq(b.xp - b0, maxi(1, (a.xp - a0) / 2), "half the fighter's share")
+	assert_eq(BattleFlow.THERMOS_SHARE, 0.75)
+	assert_eq(b.xp - b0, maxi(1, int((a.xp - a0) * 0.75)), "three quarters of the fighter's share")
 
 func test_team_thermos_switched_off_or_missing_shares_nothing() -> void:
 	for bag in [{}, {"team_thermos": 1}]:

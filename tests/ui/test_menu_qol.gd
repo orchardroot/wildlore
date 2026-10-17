@@ -119,12 +119,17 @@ func test_rematches_ready_today() -> void:
 	var d := _data()
 	assert_eq(MenuLogic.rematches_ready(d, o), [], "post-game only")
 	d.set_flag("game_complete", true)
-	d.day_count = 4
+	Calendar.set_override("2026-10-17")
 	assert_eq(MenuLogic.rematches_ready(d, o), ["Maud", "Kit"])
-	d.set_flag("rematch_kit", 4)
+	d.set_flag("rematch_kit", DailyKey.stamp(d))
 	assert_eq(MenuLogic.rematches_ready(d, o), ["Maud"], "Kit's been fought today")
-	d.day_count = 5
-	assert_eq(MenuLogic.rematches_ready(d, o), ["Maud", "Kit"], "a new day")
+	d.day_count += 1
+	assert_eq(MenuLogic.rematches_ready(d, o), ["Maud"], "an in-game day is not enough")
+	Calendar.set_override("2026-10-18")
+	assert_eq(MenuLogic.rematches_ready(d, o), ["Maud", "Kit"], "a new real day")
+	d.set_flag("rematch_keeper_maud", 4)
+	assert_eq(MenuLogic.rematches_ready(d, o), ["Maud", "Kit"], "an old save's in-game day counts as not today")
+	Calendar.set_override("")
 
 ## Every flag the story can set: set/choice/badge/battle/gauntlet/legend/daily commands in dialogue and
 ## zone scripts, sight-trainers in zones, and visited_<town> from Travel.

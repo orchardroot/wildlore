@@ -232,7 +232,6 @@ static func rematches_ready(d: GameStateData, o := {}) -> Array:
 		return []
 	var out := []
 	for r in o.get("rematches", []):
-		var last: Variant = d.flag(str(r.get("key", "")))
-		if last == null or int(last) != d.day_count:
+		if not DailyKey.done_today(d, str(r.get("key", ""))):
 			out.append(str(r.get("name", "")))
 	return out

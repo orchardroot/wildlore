@@ -58,7 +58,7 @@ static func parse(args: PackedStringArray, is_debug := OS.is_debug_build()) -> D
 			"--intro-at":
 				out.intro_at = val.to_float()  # how far through to hold it (0..1)
 			"--date":
-				out.date = val  # MM-DD: pretend it's this date (seasons and festivals, see Calendar)
+				out.date = val  # MM-DD or YYYY-MM-DD: pretend it's this date (seasons and festivals, see Calendar)
 			"--seconds":
 				out.seconds = int(val)
 	return out

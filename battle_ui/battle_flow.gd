@@ -287,6 +287,10 @@ func _replace_foe(pos := 0) -> void:
 			await _play(ev)
 			return
 
+## What each benched creature gets from the Team Thermos, as a share of the foe's whole XP (1.5: raised from a
+## half to three quarters so the bench keeps up with the bigger Keeper jumps without a grind).
+const THERMOS_SHARE := 0.75
+
 ## XP for a fainted foe, split equally between every creature that faced it and is still standing.
 func _award_xp(faint_ev: Dictionary = {}) -> void:
 	var foe := battle.current(Battle.FOE)
@@ -308,7 +312,7 @@ func _award_xp(faint_ev: Dictionary = {}) -> void:
 		await _give_xp(me, foe, each)
 	var benched := thermos_sharers(data, earners)
 	if not benched.is_empty():
-		var share := maxi(1, amount / 2)
+		var share := maxi(1, int(amount * THERMOS_SHARE))
 		await _say(["The rest of the team shared %d XP from the Team Thermos." % share])
 		for me in benched:
 			await _give_xp(me, foe, share, true)

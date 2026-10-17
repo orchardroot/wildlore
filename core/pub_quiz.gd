@@ -85,24 +85,25 @@ static func prize(score: int) -> Dictionary:
 			return {"item": "cup_of_tea", "n": 1, "money": 0, "text": "a consolation cup of tea"}
 	return {"item": "", "n": 0, "money": 0, "text": ""}
 
-static func day_of(data: GameStateData) -> int:
-	return data.world_minutes() / GameClock.DAY
-
+## Once per real day per pub (DailyKey: the real date, so the in-game day can't be farmed).
 static func claimed_today(data: GameStateData, pub: String) -> bool:
-	var last: Variant = data.flag(FLAG_PREFIX + pub)
-	return last != null and int(last) == day_of(data)
+	return DailyKey.done_today(data, FLAG_PREFIX + pub)
 
 static func claim(data: GameStateData, pub: String) -> void:
-	data.set_flag(FLAG_PREFIX + pub, day_of(data))
+	data.set_flag(FLAG_PREFIX + pub, DailyKey.stamp(data))
 
 ## Pays out `score` at `pub` unless the pub's prize was already won today. Returns {paid, item, n, money, text}
 ## (what was actually handed over; item/n are 0 if the bag was full and cash was given instead).
-static func award(data: GameStateData, items: ItemDB, pub: String, score: int) -> Dictionary:
+## `double` (Today's Walk bonus pub): twice the items and twice the money.
+static func award(data: GameStateData, items: ItemDB, pub: String, score: int, double := false) -> Dictionary:
 	var none := {"paid": false, "item": "", "n": 0, "money": 0, "text": ""}
 	if claimed_today(data, pub):
 		return none
 	claim(data, pub)
 	var p := prize(score)
+	if double:
+		p.n = int(p.n) * 2
+		p.money = int(p.money) * 2
 	var out := {"paid": false, "item": "", "n": 0, "money": int(p.money), "text": p.text}
 	if p.item != "" and not items.get_item(p.item).is_empty():
 		var got := Bag.new(data.bag).add(p.item, int(p.n))

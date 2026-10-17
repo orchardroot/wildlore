@@ -85,7 +85,8 @@ func test_declining_a_rematch_does_not_use_up_the_day() -> void:
 	await _run(h, "buxton_spa", "maud", "keeper_maud")
 	assert_eq(h.fought, ["keeper_maud_rematch"])
 
-func test_keeper_rematch_once_per_in_game_day() -> void:
+func test_keeper_rematch_once_per_real_day() -> void:
+	Calendar.set_override("2026-10-17")
 	var h := _host()
 	h.data.set_flag("trainer_keeper_isla", true)
 	for i in 2:
@@ -96,12 +97,17 @@ func test_keeper_rematch_once_per_in_game_day() -> void:
 	h.data.day_count += 1
 	h.choices = [0]
 	await _run(h, "inverness_rink", "keeper_isla", "keeper_isla")
+	assert_eq(h.fought.size(), 1, "an in-game midnight is not a new day any more")
+	Calendar.set_override("2026-10-18")
+	h.choices = [0]
+	await _run(h, "inverness_rink", "keeper_isla", "keeper_isla")
 	assert_eq(h.fought.size(), 2, "a new day, a new rematch")
 	# each Keeper has their own daily allowance
 	h.data.set_flag("trainer_keeper_maud", true)
 	h.choices = [0]
 	await _run(h, "buxton_spa", "maud", "keeper_maud")
 	assert_eq(h.fought.size(), 3)
+	Calendar.set_override("")
 
 func test_losing_a_rematch_whites_out_and_costs_the_day() -> void:
 	var h := _host()
@@ -116,6 +122,7 @@ func test_losing_a_rematch_whites_out_and_costs_the_day() -> void:
 	assert_eq(h.data.flag("trainer_keeper_ray_rematch"), null, "no win recorded")
 
 func test_garside_rematch_after_game_complete_once_a_day() -> void:
+	Calendar.set_override("2026-10-17")
 	var h := _host(false)
 	h.choices = [1, 0]
 	await _run(h, "macc_fieldstation", "garside", "garside")
@@ -127,10 +134,11 @@ func test_garside_rematch_after_game_complete_once_a_day() -> void:
 	h.choices = [1, 0]
 	await _run(h, "macc_fieldstation", "garside", "garside")
 	assert_eq(h.fought.size(), 1)
-	h.data.day_count += 1
+	Calendar.set_override("2026-10-18")
 	h.choices = [1, 0]
 	await _run(h, "macc_fieldstation", "garside", "garside")
 	assert_eq(h.fought.size(), 2)
+	Calendar.set_override("")
 
 func test_kit_rematch_matches_the_starter_and_runs_once_a_day() -> void:
 	for sp in ["spikkin", "holtling", "kindlet"]:
@@ -301,14 +309,18 @@ func test_seen_but_not_caught_does_not_count() -> void:
 # ---------------------------------------------------------------- the new commands
 
 func test_daily_command_and_when_conditions() -> void:
+	Calendar.set_override("2026-10-17")
 	var h := FakeStoryHost.new()
 	var script := [{"do": "daily", "key": "d", "then": [{"do": "say", "text": "first"}], "else": [{"do": "say", "text": "again"}]}]
 	await Commands.new(h).run(script)
 	await Commands.new(h).run(script)
 	h.data.day_count = 5
 	await Commands.new(h).run(script)
-	assert_eq(h.texts(), ["first", "again", "first"])
-	assert_eq(h.data.flag("d"), 5)
+	Calendar.set_override("2026-10-18")
+	await Commands.new(h).run(script)
+	assert_eq(h.texts(), ["first", "again", "again", "first"], "once per real day, not per in-game day")
+	assert_true(str(h.data.flag("d")).begins_with("2026-10-18"))
+	Calendar.set_override("")
 	h.data.clock_minutes = 22 * 60
 	var night := [{"do": "when", "cond": "night", "then": [{"do": "say", "text": "dark"}], "else": [{"do": "say", "text": "light"}]}]
 	h.said.clear()
