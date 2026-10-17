@@ -6,7 +6,7 @@ A monster-catching RPG across the UK and Ireland. You start in Macclesfield, bec
 
 ![Title](docs/screens/t13-title.png)
 
-## What's in 1.4
+## What's in 1.5
 
 All of it, start to finish, and then some. You leave home in Macclesfield with a hedgehog, a squirrel or an otter, and you walk (and cycle, and take the train, and catch the odd ferry) all the way round England, Wales, Scotland, Northern Ireland, Ireland and the Isle of Man, collecting ten Stones from ten Keepers while a heritage company with very good lanyards tries to buy the countryside. Then you go to Stonehenge for the Moot, find out who the Champion has been all along, and go to London to have a word with Lord Vane about his tower.
 
@@ -31,6 +31,13 @@ All of it, start to finish, and then some. You leave home in Macclesfield with a
 - A wireless in the front room reads the Shipping Forecast, off the game's own weather, so it's actually useful. And a blue plaque in every town, because somebody famous lived everywhere
 - Pub quizzes in nine pubs, a hundred and fifty questions, and a prize once a day if you're sharp. Phones away
 - Photo mode (P, or click the right stick) and a Stats page that counts your steps, your trains and your cups of tea
+- The Hedgerow Year: forage blackberries, sloes, mushrooms and seaweed along every route (what you find depends on the season and the weather), then cook them up in Mum's kitchen. Gran's recipe book gets you started, and folk all over the isles will teach you the rest
+- Folk charms to hold: a hag stone, a horseshoe, St Brigid's cross, a sprig of rowan and more, each with a small effect in battle. Craft them, find them, buy a few, or catch a creature that's already carrying one
+- Friendship you can see: hearts on the summary, and a creature that loves you will shake off a status or hang on at 1 HP for you. A few evolve early if the bond is strong enough
+- A Rumours page in the Fieldbook (a bloke in the pub has seen something in the fog at dusk), Professor Garside's rewards as your Fieldbook fills up, region stamps, and a Visitor's Book for every room you've walked into
+- Today's Walk on the wireless: a creature that's out in numbers, a pub with a doubled quiz prize and a weather bounty, new every real day. No streaks, nothing lost if you miss one. Rematches and quiz prizes now reset by the real date
+- Proper signs on the buildings: painted shop fascias, pub signs on brackets, enamel station boards, carved stone over the museums, and the name of the place pops up when you're at its door
+- A gentler climb in the middle: more trainers before the two big jumps in level, and the Team Thermos now shares three-quarters of the XP
 - Options for the rest of us: every key and button can be remapped, type symbols as well as colours, a colour-blind palette, instant text, and a setting to calm the flashing down
 
 | | |
