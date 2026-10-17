@@ -1,6 +1,46 @@
 {
  "silk_fan": [
   {
+   "do": "when",
+   "cond": "halloween",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Silk Fan",
+     "text": "The Silk Museum does a ghost tour for Halloween. The ghost is mostly Derek in a sheet. He's very committed."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "christmas",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Silk Fan",
+       "text": "A silk scarf makes a lovely present. I say that every year, and every year I get socks."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "autumn",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Silk Fan",
+         "text": "The trees have gone the colour of the old silk dyes. Very on brand, Macclesfield."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Silk Fan",
    "text": "Macclesfield made silk buttons, then silk everything."
@@ -12,6 +52,32 @@
   }
  ],
  "steps_man": [
+  {
+   "do": "when",
+   "cond": "bonfire_night",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Walker",
+     "text": "Watched the fireworks from the top of the 108 Steps. Lost count of the steps. And the fireworks."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "winter",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Walker",
+       "text": "Frost on the 108 Steps this morning. Counted them on my backside. Still not 108."
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "when",
    "cond": "rain",
@@ -102,6 +168,74 @@
   }
  ],
  "weather_man": [
+  {
+   "do": "when",
+   "cond": "halloween",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Weatherwise Walt",
+     "text": "Halloween forecast: a ninety per cent chance of somebody's dad in a bedsheet. Scattered sweet wrappers by midnight."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "bonfire_night",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Weatherwise Walt",
+       "text": "Remember, remember, the fifth of November. I never do. I just follow the smell of burnt sausages."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "christmas",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Weatherwise Walt",
+         "text": "White Christmas in Macc? I forecast it every year. Statistically, I'm due."
+        }
+       ],
+       "else": [
+        {
+         "do": "when",
+         "cond": "autumn",
+         "chat": true,
+         "then": [
+          {
+           "do": "say",
+           "who": "Weatherwise Walt",
+           "text": "Leaves are turning. Gold, orange, russet. Then brown, then soggy, then in my gutters."
+          }
+         ],
+         "else": [
+          {
+           "do": "when",
+           "cond": "winter",
+           "chat": true,
+           "then": [
+            {
+             "do": "say",
+             "who": "Weatherwise Walt",
+             "text": "Frost likely. Or as we call it in Macc, drizzle that's made an effort."
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "when",
    "cond": "rain",
