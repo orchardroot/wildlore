@@ -312,5 +312,81 @@
    "who": "Fox Watcher",
    "text": "If you see two eyes glowing by the bins, say hello nicely. Don't follow, though."
   }
+ ],
+ "der_shopper": [
+  {
+   "do": "say",
+   "who": "Shopper",
+   "text": "Derry~Londonderry on a Saturday, you can't move for people and I wouldn't have it any other way."
+  },
+  {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Shopper",
+     "text": "It's only soft rain. If you flinch at that here, you'll be flinching for the rest of your life."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Shopper",
+     "text": "I came in for one loaf and I've three bags. That's the high street for you."
+    }
+   ]
+  }
+ ],
+ "der_walker": [
+  {
+   "do": "say",
+   "who": "Wall Walker",
+   "text": "I've done the whole circuit of the walls. Mile and a bit, cannons and all, and the views are class."
+  },
+  {
+   "do": "say",
+   "who": "Wall Walker",
+   "text": "Best city walls in Ireland and they're all still standing. Take that, every other siege."
+  }
+ ],
+ "der_visitor": [
+  {
+   "do": "say",
+   "who": "Visitor",
+   "text": "The guide said the murals tell the whole story of Derry~Londonderry. I've been looking at them for an hour and I'm still welling up."
+  },
+  {
+   "do": "when",
+   "cond": "sunshine",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Visitor",
+     "text": "Sun on the old stone and a cup of tea. I might never go home."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Visitor",
+     "text": "Everyone here says hello. Even the dogs. I'm not used to it, and I love it."
+    }
+   ]
+  }
+ ],
+ "der_jogger": [
+  {
+   "do": "say",
+   "who": "Jogger",
+   "text": "Round the green, up the steps, down the hill. By the time I'm home I've earned a bun. A big one."
+  },
+  {
+   "do": "say",
+   "who": "Jogger",
+   "text": "Don't let the friendly faces fool you, this city is steeper than it looks."
+  }
  ]
 }

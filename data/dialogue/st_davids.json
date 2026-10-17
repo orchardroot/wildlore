@@ -194,5 +194,81 @@
    "who": "Astronomer",
    "text": "I'll be out here until the clouds come in. Which, this being Wales, is usually now in a minute."
   }
+ ],
+ "sd_surfer": [
+  {
+   "do": "say",
+   "who": "Surfer",
+   "text": "Whitesands is firing. Cold, mind you. The wetsuit is two sizes too small and I have never been happier."
+  },
+  {
+   "do": "when",
+   "cond": "gale",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Surfer",
+     "text": "Gale's coming in off the Atlantic. Absolute bliss, if you're daft. I'm daft."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Surfer",
+     "text": "Smallest city in Britain, best sets in Pembrokeshire. I'd say that to anyone."
+    }
+   ]
+  }
+ ],
+ "sd_walker": [
+  {
+   "do": "say",
+   "who": "Coast Path Walker",
+   "text": "A stretch of the Pembrokeshire Coast Path today. Lovely, but my feet will have words with me later."
+  },
+  {
+   "do": "say",
+   "who": "Coast Path Walker",
+   "text": "Seals, choughs, wild thrift on the cliffs. The only thing missing is a pub at every headland."
+  }
+ ],
+ "sd_pilgrim": [
+  {
+   "do": "say",
+   "who": "Pilgrim",
+   "text": "Two pilgrimages to St Davids were said to equal one to Rome. I like those odds, and the cake here is spectacular."
+  },
+  {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Pilgrim",
+     "text": "Rain on the cathedral roof is the best choir. Don't tell the choir."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Pilgrim",
+     "text": "The cathedral stones are ancient and the tea shop is only slightly newer. I love it here."
+    }
+   ]
+  }
+ ],
+ "sd_local": [
+  {
+   "do": "say",
+   "who": "Local",
+   "text": "City status, and we still wait for the bus like everyone else. Don't ask me about the bus."
+  },
+  {
+   "do": "say",
+   "who": "Local",
+   "text": "Best view is from the hill behind the cathedral. Climb it, then lie down. You'll have earned it."
+  }
  ]
 }

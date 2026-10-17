@@ -390,3 +390,39 @@ func test_team_thermos_skips_the_fainted() -> void:
 	d.party = [a, b]
 	d.bag = {"team_thermos": 1}
 	assert_eq(BattleFlow.thermos_sharers(d, [a]), [])
+
+func test_xp_is_split_between_creatures_that_fought_the_foe() -> void:
+	# a starts, switches out for b, b finishes the foe: both fought it, so they split the XP
+	var a := Fixtures.creature("kindlet", 10)
+	var b := Fixtures.creature("spikkin", 12)
+	var foe := Fixtures.creature("spikkin", 4)
+	var a0 := a.xp
+	var b0 := b.xp
+	var ui := FakeBattleUI.new()
+	ui.picks.append({"kind": "switch", "index": 1})
+	var f := _flow([a, b], [foe], ui)
+	f.run()
+	assert_eq(f.result.result, "win")
+	var whole := Progression.xp_reward(foe, false)
+	assert_eq(a.xp - a0, maxi(1, whole / 2), "the one switched out gets half")
+	assert_eq(b.xp - b0, maxi(1, whole / 2), "the finisher gets half")
+
+func test_xp_goes_whole_to_a_lone_fighter() -> void:
+	var a := Fixtures.creature("kindlet", 10)
+	var b := Fixtures.creature("spikkin", 12)
+	var foe := Fixtures.creature("spikkin", 4)
+	var b0 := b.xp
+	var a0 := a.xp
+	var f := _flow([a, b], [foe], FakeBattleUI.new())
+	f.run()
+	assert_eq(a.xp - a0, Progression.xp_reward(foe, false), "never switched: all of it")
+	assert_eq(b.xp, b0, "the bench gets nothing without the Thermos")
+
+func test_a_fainted_fighter_does_not_share() -> void:
+	var b := Battle.new([Fixtures.creature("kindlet", 10), Fixtures.creature("spikkin", 12)], [Fixtures.creature("spikkin", 4)], {"chart": Fixtures.chart(), "move_db": Fixtures.moves()})
+	b.force_switch(Battle.PLAYER, 1, 0)
+	b.parties[Battle.PLAYER][0].hp = 0
+	var ev := []
+	b.parties[Battle.FOE][0].hp = 0
+	b._faint(Battle.FOE, 0, ev)
+	assert_eq(ev[0].witnesses, [1], "only the standing fighter")
