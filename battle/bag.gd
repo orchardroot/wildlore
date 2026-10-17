@@ -51,4 +51,33 @@ func use_on(id: String, c: Creature, item_db: ItemDB) -> Dictionary:
 	var r := ItemEffects.apply(item, c)
 	if r.ok:
 		remove(id)
+		if str(item.get("kind", "")) == "heal":  # food shared outside battle: a little friendship too
+			Bond.add(c, Bond.FEED)
+			r["text"] = "%s %s enjoyed sharing it." % [r.text, c.display_name()]
 	return r
+
+## Gives a charm from the bag to hold. Whatever it held before goes back in the bag.
+func give_charm(id: String, c: Creature) -> Dictionary:
+	if not Charms.is_charm(id):
+		return {"ok": false, "text": "That isn't something to hold."}
+	if count(id) < 1:
+		return {"ok": false, "text": "You don't have any."}
+	if c.held == id:
+		return {"ok": false, "text": "%s is already holding one." % c.display_name()}
+	var old := c.held
+	remove(id)
+	if old != "":
+		add(old)
+	c.held = id
+	if old != "":
+		return {"ok": true, "text": "%s swapped its %s for the %s." % [c.display_name(), Charms.name_of(old), Charms.name_of(id)]}
+	return {"ok": true, "text": "%s is now holding the %s." % [c.display_name(), Charms.name_of(id)]}
+
+## Takes its charm back into the bag.
+func take_charm(c: Creature) -> Dictionary:
+	if c.held == "":
+		return {"ok": false, "text": "%s isn't holding anything." % c.display_name()}
+	var id := c.held
+	add(id)
+	c.held = ""
+	return {"ok": true, "text": "You took the %s from %s." % [Charms.name_of(id), c.display_name()]}

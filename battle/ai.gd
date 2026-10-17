@@ -46,8 +46,11 @@ static func choose(b: Battle, side: int, tier: String) -> Variant:
 static func score(b: Battle, me: Creature, foe: Creature, move: Dictionary) -> float:
 	if move.category == "status":
 		var fx: Dictionary = move.get("effect", {})
+		if fx.get("id") == "status" and Charms.blocks_status(foe):
+			return 5.0  # a Brigid's Cross: no point
 		return 30.0 if fx.get("id") == "status" and foe.status == "" else 20.0
 	var s := float(move.power) * b.chart.effectiveness(move.type, foe.types()) * float(move.accuracy) / 100.0
+	s *= Charms.incoming_mult(foe, move.type) * Charms.outgoing_mult(me, move.type)
 	if move.type in me.types():
 		s *= 1.5
 	return s

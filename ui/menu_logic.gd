@@ -151,6 +151,8 @@ static func evolution_text(evo, target_name: String, item_name := "") -> String:
 		extra.append("once it trusts you")
 	if not extra.is_empty():
 		s += (", " if evo.has("level") or evo.has("item") else " ") + " and ".join(extra)
+	if evo.has("bond"):
+		s += ", or sooner if it really trusts you"
 	return s
 
 const WEATHER_NAMES := {"clear": "clear skies"}

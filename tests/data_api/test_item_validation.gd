@@ -93,7 +93,7 @@ func test_species_item_evolution() -> void:
 	assert_eq(_errors([stone], sp), [])
 	assert_true(_has(_errors([], sp), "unknown item 'stone'"))
 	var no_rule := [_sp("a", {"evolves": {"to": "b"}}), _sp("b")]
-	assert_true(_has(_errors([], no_rule), "needs a level or an item"))
+	assert_true(_has(_errors([], no_rule), "needs a level, an item or friendship"))
 
 func test_species_item_evolution_must_be_evo_kind() -> void:
 	var sp := [_sp("a", {"evolves": {"to": "b", "item": "tea"}}), _sp("b")]

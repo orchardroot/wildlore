@@ -26,6 +26,16 @@ func test_friendship_evolution() -> void:
 	c.friendship = 220
 	assert_eq(Progression.evolution_target(c), "b")
 
+func test_bond_brings_a_level_evolution_on_early() -> void:
+	var c := _c({"to": "b", "level": 16, "bond": 220}, 10)
+	c.friendship = 100
+	assert_eq(Progression.evolution_target(c), "", "neither the level nor the bond yet")
+	c.friendship = 220
+	assert_eq(Progression.evolution_target(c), "b", "a close bond evolves it before Lv 16")
+	c.friendship = 0
+	c.level = 16
+	assert_eq(Progression.evolution_target(c), "b", "and it still evolves at Lv 16 regardless")
+
 func test_friendship_saved_and_grows() -> void:
 	var dex := Dex.load_default()
 	var c := Creature.create(dex.get_species("scuttlet"), 5, Rng.new(1), MoveDB.load_default())

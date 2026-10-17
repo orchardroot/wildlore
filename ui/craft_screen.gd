@@ -102,7 +102,7 @@ func _describe(r: Dictionary) -> void:
 	var it: Dictionary = Game.items.get_item(str(r.out))
 	_desc.add_child(UIKit.label(str(it.get("name", str(r.out).capitalize())), 34))
 	var kind := str(it.get("kind", "charm"))
-	_desc.add_child(UIKit.chip(UIKit.kind_name(kind) if kind != "held" else "Charms", Color("4a4f5e"), UIKit.CREAM, 18))
+	_desc.add_child(UIKit.chip(UIKit.kind_name(kind), Color("4a4f5e"), UIKit.CREAM, 18))
 	var d := UIKit.label(str(r.get("note", it.get("desc", ""))), 22, UIKit.MUTED)
 	d.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	_desc.add_child(d)

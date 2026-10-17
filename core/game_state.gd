@@ -143,6 +143,9 @@ func _dev_boot() -> void:
 		new_game()
 		var party := [Creature.create(dex.get_species("kindlet"), 10, rng, moves)]
 		data.party = party
+		for a in DevArgs.user_args():
+			if a.begins_with("--held="):  # dev: the lead holds this charm (screenshots of charm messages)
+				party[0].held = a.substr(7)
 		var foe := [Creature.create(dex.get_species(args.battle_species), args.battle_level, rng, moves)]
 		var opts := {"kind": "wild"}
 		if args.get("double", false):

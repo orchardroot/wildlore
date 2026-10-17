@@ -24,6 +24,10 @@ static func boot(game: Node, menu: String) -> void:
 	e.status = "stung"
 	var f: Creature = mk.call("hootlet", 7)
 	f.status = "asleep"
+	a.friendship = 230  # four hearts and a charm, for the summary and team screens
+	a.held = "hag_stone"
+	b.friendship = 255
+	c.held = "oak_acorn"
 	d.party = [a, b, c, e, f]
 	d.ark = [mk.call("croakle", 6), mk.call("pipkin", 4), mk.call("dipling", 9)]
 	if menu.begins_with("ark"):  # a fuller Ark, so sorting shows
@@ -34,7 +38,8 @@ static func boot(game: Node, menu: String) -> void:
 	for sp in ["dipling", "wispet", "snowhare"]:
 		d.mark_seen(sp)
 	d.bag = {"cup_of_tea": 5, "flask_of_tea": 2, "smelling_salts": 3, "bakewell_tart": 1, "kendal_mint_cake": 1,
-		"wicker_snare": 8, "iron_snare": 2, "lavender_sachet": 3, "map": 1, "fieldbook": 1}
+		"wicker_snare": 8, "iron_snare": 2, "lavender_sachet": 3, "map": 1, "fieldbook": 1,
+		"rowan_sprig": 1, "leek": 1}
 	d.money = 1840
 	if menu.begins_with("stats"):
 		d.stats.merge({"steps": 48213, "wins_wild": 187, "wins_trainer": 41, "caught": 52, "train_trips": 9, "rail_miles": 1180,
