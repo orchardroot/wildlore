@@ -116,6 +116,16 @@ func load_zone(zone_id: String, pos: Vector2i, facing: String) -> void:
 		Audio.play_music(zone.music)
 	Audio.enter_zone(self, zone, weather)  # ambience bed, weather layer, muffled music indoors, town bells
 	_dark.visible = zone.dark
+	_dev_radio()
+
+## Dev switch `--talk=radio[:n]`: the wireless reads Today's Walk as soon as the zone is ready, from line n (screenshots).
+func _dev_radio() -> void:
+	for a in DevArgs.user_args():
+		if a.begins_with("--talk=radio"):
+			await get_tree().create_timer(0.6).timeout
+			var lines := TodaysWalk.radio_lines(Game.data, Game.dex, Game.items)
+			await say(lines.slice(clampi(int(a.get_slice(":", 1)), 0, lines.size() - 1)))
+			return
 
 ## Dark caves: keep the light circle on the player (and faint glows on every exit) each frame.
 func _process(_delta: float) -> void:
@@ -294,7 +304,7 @@ func _on_step(p: Vector2i) -> void:
 	if encounters.in_grace():
 		encounters.stepped()
 		return
-	var enc := Encounters.roll(zone, tile, Game.phase(), weather, Game.rng)
+	var enc := Encounters.roll(zone, tile, Game.phase(), weather, Game.rng, TodaysWalk.featured_in(Game.data, zone.id))
 	if not enc.is_empty() and Game.data.first_able() != null and not Repel.blocks(Game.data, int(enc.level)):
 		var foe := Creature.create(Game.dex.get_species(enc.species), enc.level, Game.rng, Game.moves)
 		Game.data.mark_seen(enc.species)
@@ -383,7 +393,10 @@ func interact(p: Vector2i) -> void:
 	Audio.interaction(self, p)
 	var s := zone.sign_at(p)
 	if not s.is_empty():
-		await say(Forecast.for_radio(s, Forecast.current_weather(), Game.data.day_count) if s.get("kind", "") == "radio" else [str(s.text)])
+		if s.get("kind", "") == "radio":  # the Shipping Forecast, then Today's Walk (which may pay a weather bounty)
+			await say(Forecast.for_radio(s, Forecast.current_weather(), Game.data.day_count) + TodaysWalk.radio_lines(Game.data, Game.dex, Game.items))
+		else:
+			await say([str(s.text)])
 		return
 	var n := npc_at(p)
 	if n == null and zone.tile_at(p) == "counter":

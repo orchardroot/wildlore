@@ -1,0 +1,31 @@
+{
+ "id": "mendip_climber",
+ "name": "Climber Tamsin",
+ "class": "Hiker",
+ "sprite": "hillwalker",
+ "party": [
+  {
+   "species": "billgruff",
+   "level": 42
+  },
+  {
+   "species": "forkwing",
+   "level": 43
+  },
+  {
+   "species": "brockmoor",
+   "level": 43
+  }
+ ],
+ "ai": "trainer",
+ "money": 1200,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Climber Tamsin",
+   "text": "Cheddar Gorge, one hand, no rope. Well, a bit of rope. Fine, loads of rope. Fight me anyway!"
+  }
+ ],
+ "win": "Off belay! That's climber for 'I give up'.",
+ "after": "The goats go up the gorge without any rope at all. Show-offs."
+}

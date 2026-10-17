@@ -2,7 +2,7 @@ class_name Calendar
 extends RefCounted
 ## Seasons and festivals from the real date (the player's own calendar, not the in-game clock). Pure logic:
 ## the overworld dresses towns and tints the trees from these, and dialogue `when` conditions read them.
-## The --date=MM-DD dev switch overrides the date for screenshots.
+## The --date=MM-DD (or YYYY-MM-DD) dev switch overrides the date for screenshots and for testing the dailies.
 
 const SEASONS := ["spring", "summer", "autumn", "winter"]
 const FESTIVALS := ["halloween", "bonfire_night", "christmas", "st_patricks", "st_davids", "burns_night"]
@@ -10,6 +10,7 @@ const FESTIVALS := ["halloween", "bonfire_night", "christmas", "st_patricks", "s
 const FESTIVAL_NATION := {"st_patricks": "ireland", "st_davids": "wales", "burns_night": "scotland"}
 
 static var _override := Vector2i(-1, -1)
+static var _override_year := -1  # only a full YYYY-MM-DD override pins the year
 
 ## Meteorological seasons: spring is March to May, summer June to August, and so on.
 static func season_for(month: int, _day: int) -> String:
@@ -54,16 +55,22 @@ static func festival_here(festival: String, region: String) -> bool:
 		return false
 	return not FESTIVAL_NATION.has(festival) or FESTIVAL_NATION[festival] == nation_for_region(region)
 
-## "MM-DD" pins the date (the --date dev switch); "" or anything unreadable goes back to the real date.
-static func set_override(mm_dd: String) -> void:
+## "MM-DD" or "YYYY-MM-DD" pins the date (the --date dev switch); "" or anything unreadable goes back to the real date.
+static func set_override(date: String) -> void:
 	_override = Vector2i(-1, -1)
-	var parts := mm_dd.split("-")
-	if parts.size() != 2 or not parts[0].is_valid_int() or not parts[1].is_valid_int():
+	_override_year = -1
+	var parts := date.split("-")
+	if parts.size() < 2 or parts.size() > 3:
 		return
-	var m := int(parts[0])
-	var d := int(parts[1])
-	if m >= 1 and m <= 12 and d >= 1 and d <= 31:
+	for p in parts:
+		if not p.is_valid_int():
+			return
+	var y := int(parts[0]) if parts.size() == 3 else -1
+	var m := int(parts[-2])
+	var d := int(parts[-1])
+	if m >= 1 and m <= 12 and d >= 1 and d <= 31 and (y == -1 or (y >= 1 and y <= 9999)):
 		_override = Vector2i(m, d)
+		_override_year = y
 
 ## Today as (month, day).
 static func today() -> Vector2i:
@@ -71,6 +78,13 @@ static func today() -> Vector2i:
 		return _override
 	var d := Time.get_date_dict_from_system()
 	return Vector2i(int(d.month), int(d.day))
+
+## Today's real date as "YYYY-MM-DD": the key for once-a-day things (rematches, the quiz prize, Today's Walk).
+## Honours --date (an MM-DD override keeps this year).
+static func today_key() -> String:
+	var t := today()
+	var y := _override_year if _override_year > 0 else int(Time.get_date_dict_from_system().year)
+	return "%04d-%02d-%02d" % [y, t.x, t.y]
 
 static func season_today() -> String:
 	var t := today()

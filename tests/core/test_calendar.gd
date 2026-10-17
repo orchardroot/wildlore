@@ -117,3 +117,35 @@ func test_when_season_and_festival() -> void:
 		var errs := StoryValidator.validate_commands([{"do": "when", "cond": cond, "then": [{"do": "say", "text": "x"}]}], "t", Fixtures.dex(), ItemDB.load_default(), {})
 		assert_eq(errs, [], cond)
 	Calendar.set_override("")
+
+# --- today_key (the real-date daily key) ------------------------------------------------
+
+func test_today_key_is_the_real_date() -> void:
+	Calendar.set_override("")
+	var d := Time.get_date_dict_from_system()
+	assert_eq(Calendar.today_key(), "%04d-%02d-%02d" % [int(d.year), int(d.month), int(d.day)])
+
+func test_today_key_honours_the_date_switch() -> void:
+	Calendar.set_override("2027-03-17")
+	assert_eq(Calendar.today_key(), "2027-03-17")
+	assert_eq(Calendar.today(), Vector2i(3, 17), "a full date pins the month and day too")
+	assert_eq(Calendar.festival_today(), "st_patricks")
+	Calendar.set_override("12-25")
+	var y := int(Time.get_date_dict_from_system().year)
+	assert_eq(Calendar.today_key(), "%04d-12-25" % y, "MM-DD keeps this year")
+	Calendar.set_override("2027-13-01")
+	assert_eq(Calendar.today_key().length(), 10, "a bad date falls back to the real one")
+	assert_false(Calendar.today_key().begins_with("2027-13"))
+	Calendar.set_override("")
+
+func test_today_key_sorts_and_is_padded() -> void:
+	Calendar.set_override("2026-01-05")
+	var a := Calendar.today_key()
+	Calendar.set_override("2026-10-17")
+	var b := Calendar.today_key()
+	Calendar.set_override("")
+	assert_eq(a, "2026-01-05")
+	assert_true(a < b, "keys sort by date")
+
+func test_dev_arg_full_date() -> void:
+	assert_eq(DevArgs.parse(PackedStringArray(["--date=2026-12-25"])).date, "2026-12-25")

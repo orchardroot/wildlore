@@ -45,6 +45,7 @@ static func boot(game: Node, menu: String) -> void:
 		d.set_flag("visited_" + t)
 		d.set_flag("station_" + t)
 	d.set_flag("last_town", "buxton")
+	TodaysWalk.today(d, game.items)  # the pause menu's Today's Walk line
 	d.bag["rail_pass"] = 1
 	if menu == "map:post":  # `--menu=map:post`: the whole map visited, Champion, every Stone
 		for t in Travel.world_map().get("towns", {}):

@@ -6,16 +6,18 @@ extends RefCounted
 const STEP_CHANCE := 10.0
 const WATER_STEP_CHANCE := 5.0   # wading is a gentler way to meet things
 const GRACE_STEPS := 5
+const FEATURED_MULT := 3.0  # Today's Walk: the featured species is three times as likely in its zone
 
 var _grace := 0
 
-static func roll(zone: ZoneData, tile: String, phase: String, weather: String, rng: Rng) -> Dictionary:
+## `featured_species`: Today's Walk species for this zone ("" for none, see TodaysWalk.featured_in).
+static func roll(zone: ZoneData, tile: String, phase: String, weather: String, rng: Rng, featured_species := "") -> Dictionary:
 	var kind: String = {"tall_grass": "grass", "deep_water": "water", "bog": "grass"}.get(tile, "")
 	if kind == "":
 		return {}
 	if not rng.chance(step_chance(tile)):
 		return {}
-	var list := candidates(zone, kind, phase, weather)
+	var list := featured(candidates(zone, kind, phase, weather), featured_species)
 	if list.is_empty():
 		return {}
 	var e := pick_entry(list, rng.roll())
@@ -42,6 +44,20 @@ static func candidates(zone: ZoneData, kind: String, phase: String, weather: Str
 		var times: Array = e.get("time", [])
 		var weathers: Array = e.get("weather", [])
 		if (times.is_empty() or phase in times) and (weathers.is_empty() or weather in weathers):
+			out.append(e)
+	return out
+
+## The list with `species`' weight tripled (copies; the zone's own table is untouched). "" or absent: unchanged.
+static func featured(list: Array, species: String) -> Array:
+	if species == "" or not list.any(func(e): return str(e.get("species", "")) == species):
+		return list
+	var out := []
+	for e in list:
+		if str(e.get("species", "")) == species:
+			var b: Dictionary = e.duplicate()
+			b["weight"] = float(e.get("weight", 1)) * FEATURED_MULT
+			out.append(b)
+		else:
 			out.append(e)
 	return out
 
