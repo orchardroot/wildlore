@@ -770,6 +770,64 @@
    "facing": "up",
    "move": "still",
    "trainer": "portree_walker"
+  },
+  {
+   "id": "por_creel",
+   "sprite": "fisherman_north",
+   "x": 8,
+   "y": 11,
+   "facing": "right",
+   "move": "wander",
+   "script": "por_creel",
+   "name": "Creel Fisher",
+   "radius": 2,
+   "times": [
+    "dawn",
+    "day",
+    "dusk"
+   ]
+  },
+  {
+   "id": "por_harbourhand",
+   "sprite": "sailor",
+   "x": 46,
+   "y": 11,
+   "facing": "left",
+   "move": "wander",
+   "script": "por_harbourhand",
+   "name": "Harbour Hand",
+   "radius": 2
+  },
+  {
+   "id": "por_shopper",
+   "sprite": "villager_2",
+   "x": 52,
+   "y": 18,
+   "facing": "left",
+   "move": "wander",
+   "script": "por_shopper",
+   "name": "Shopper",
+   "radius": 3,
+   "times": [
+    "dawn",
+    "day",
+    "dusk"
+   ]
+  },
+  {
+   "id": "por_birder",
+   "sprite": "birdwatcher",
+   "x": 36,
+   "y": 18,
+   "facing": "right",
+   "move": "wander",
+   "script": "por_birder",
+   "name": "Birdwatcher",
+   "radius": 1,
+   "times": [
+    "dawn",
+    "day"
+   ]
   }
  ],
  "encounters": {

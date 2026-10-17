@@ -279,6 +279,65 @@
    "trainer": "fw_shinty",
    "x": 30.0,
    "y": 21.0
+  },
+  {
+   "id": "fw_walker",
+   "sprite": "hiker",
+   "x": 20,
+   "y": 23,
+   "facing": "down",
+   "move": "wander",
+   "script": "fw_walker",
+   "name": "Hiker",
+   "radius": 2,
+   "times": [
+    "dawn",
+    "day"
+   ]
+  },
+  {
+   "id": "fw_runner",
+   "sprite": "fell_runner",
+   "x": 40,
+   "y": 22,
+   "facing": "left",
+   "move": "wander",
+   "script": "fw_runner",
+   "name": "Fell Runner",
+   "radius": 2,
+   "times": [
+    "dawn",
+    "day"
+   ]
+  },
+  {
+   "id": "fw_lochside",
+   "sprite": "jogger",
+   "x": 9,
+   "y": 24,
+   "facing": "down",
+   "move": "pace",
+   "script": "fw_lochside",
+   "name": "Loch Walker",
+   "path": [
+    "down",
+    "down",
+    "down",
+    "down",
+    "down",
+    "down"
+   ]
+  },
+  {
+   "id": "fw_camper",
+   "sprite": "birdwatcher",
+   "x": 28,
+   "y": 33,
+   "facing": "up",
+   "move": "wander",
+   "script": "fw_camper",
+   "name": "Camper",
+   "radius": 3
   }
  ],
  "props": [

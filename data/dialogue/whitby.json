@@ -378,5 +378,81 @@
    "who": "Churchyard Poet",
    "text": "I have written nine hundred poems and a limerick. The limerick is the one people remember."
   }
+ ],
+ "wby_goth2": [
+  {
+   "do": "say",
+   "who": "Goth Tourist",
+   "text": "Dracula came ashore here as a big black dog, you know. I'm basically visiting family."
+  },
+  {
+   "do": "when",
+   "cond": "fog",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Goth Tourist",
+     "text": "Sea fret off the abbey. Atmospheric. Perfect. I'm having the best day of my life."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Goth Tourist",
+     "text": "Black lace, black umbrella, black eyeliner, and I've still caught the sun. Typical."
+    }
+   ]
+  }
+ ],
+ "wby_oldsalt": [
+  {
+   "do": "say",
+   "who": "Old Fisherman",
+   "text": "Captain Cook sailed from here, and he'd tell you the chips are better than the biscuits. He had awful biscuits."
+  },
+  {
+   "do": "say",
+   "who": "Old Fisherman",
+   "text": "Catch is poor but the stories are plentiful. Buy me a pint and I'll invent a few more."
+  }
+ ],
+ "wby_dogwalker": [
+  {
+   "do": "say",
+   "who": "Dog Walker",
+   "text": "Hundreds of steps up to the abbey and the dog still wants a longer walk. Sorry, lad, that is all I've got."
+  },
+  {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Dog Walker",
+     "text": "Soaked to the skin, with a very smug spaniel. At least one of us is happy."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Dog Walker",
+     "text": "He's called Stoker. Yes, I know. He bites postmen, not necks."
+    }
+   ]
+  }
+ ],
+ "wby_tripper": [
+  {
+   "do": "say",
+   "who": "Day Tripper",
+   "text": "Fish and chips on the harbour wall, one eye on the gulls. They have no shame and neither do I."
+  },
+  {
+   "do": "say",
+   "who": "Day Tripper",
+   "text": "Bought a jet necklace, a stick of rock and a postcard of a skeleton. Quite a trip."
+  }
  ]
 }
