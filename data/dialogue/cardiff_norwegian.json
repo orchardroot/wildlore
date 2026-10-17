@@ -22,5 +22,46 @@
    "who": "Dahl Fan",
    "text": "I have read every Roald Dahl book. I still check my chocolate bars for suspicious golden tickets."
   }
+ ],
+ "cardiff_quizmaster": [
+  {
+   "do": "say",
+   "who": "Quizmaster",
+   "text": "Croeso to the Norwegian Church quiz! The pub flooded in the spring so we moved the whole thing into the cafe. Nobody objected to the cake."
+  },
+  {
+   "do": "say",
+   "who": "Quizmaster",
+   "text": "Five questions, mind. The rugby lot on table four have had a head start since the last round, which tells you something."
+  },
+  {
+   "do": "choice",
+   "text": "Fancy a round? Five questions, no phones.",
+   "options": [
+    "Count me in",
+    "Not tonight"
+   ],
+   "set": "_quiz_choice"
+  },
+  {
+   "do": "if",
+   "flag": "_quiz_choice",
+   "eq": 0,
+   "then": [
+    {
+     "do": "quiz",
+     "pub": "cardiff",
+     "region": "wales",
+     "who": "Quizmaster"
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Quizmaster",
+     "text": "Iawn, no pressure. There's cake if you want it."
+    }
+   ]
+  }
  ]
 }

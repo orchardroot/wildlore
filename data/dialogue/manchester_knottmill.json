@@ -15,5 +15,46 @@
    "who": "Local Historian",
    "text": "Manchester's very name comes from it. The city is an old Roman outpost with a good rain gauge."
   }
+ ],
+ "manchester_quizmaster": [
+  {
+   "do": "say",
+   "who": "Quizmaster",
+   "text": "Evening all, welcome to the taproom quiz at Knott Mill. Yes, it's a mill. Yes, there's a bar now. Don't ask, it's Manchester."
+  },
+  {
+   "do": "say",
+   "who": "Quizmaster",
+   "text": "Five questions. Phones away. If I catch anyone googling, I'm sending you out into the rain, which is easy, because it's always raining."
+  },
+  {
+   "do": "choice",
+   "text": "Fancy a round? Five questions, no phones.",
+   "options": [
+    "Count me in",
+    "Not tonight"
+   ],
+   "set": "_quiz_choice"
+  },
+  {
+   "do": "if",
+   "flag": "_quiz_choice",
+   "eq": 0,
+   "then": [
+    {
+     "do": "quiz",
+     "pub": "manchester",
+     "region": "england_north",
+     "who": "Quizmaster"
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Quizmaster",
+     "text": "No worries. Mind how you go, it's slippy out."
+    }
+   ]
+  }
  ]
 }

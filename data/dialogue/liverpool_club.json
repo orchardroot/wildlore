@@ -154,5 +154,46 @@
     }
    ]
   }
+ ],
+ "liverpool_quizmaster": [
+  {
+   "do": "say",
+   "who": "Quizmaster",
+   "text": "Right then, la, it's quiz night at the Cavern, or something very like it. Please put the guitars down, I can't hear myself think."
+  },
+  {
+   "do": "say",
+   "who": "Quizmaster",
+   "text": "Five questions. Four answers each. The pub cat is the official scorer, and he cannot be bribed. I've tried."
+  },
+  {
+   "do": "choice",
+   "text": "Fancy a round? Five questions, no phones.",
+   "options": [
+    "Count me in",
+    "Not tonight"
+   ],
+   "set": "_quiz_choice"
+  },
+  {
+   "do": "if",
+   "flag": "_quiz_choice",
+   "eq": 0,
+   "then": [
+    {
+     "do": "quiz",
+     "pub": "liverpool",
+     "region": "england_north",
+     "who": "Quizmaster"
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Quizmaster",
+     "text": "Fair play. Sound as a pound, you."
+    }
+   ]
+  }
  ]
 }

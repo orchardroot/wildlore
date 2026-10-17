@@ -36,5 +36,46 @@
     }
    ]
   }
+ ],
+ "york_quizmaster": [
+  {
+   "do": "say",
+   "who": "Quizmaster",
+   "text": "Welcome to the Bettys quiz, the only pub quiz where the tiebreaker is a Fat Rascal. Please, no hard feelings over the last scone."
+  },
+  {
+   "do": "say",
+   "who": "Quizmaster",
+   "text": "Five questions. Phones away. And no, Dave, waving at the window does not count as phoning a friend."
+  },
+  {
+   "do": "choice",
+   "text": "Fancy a round? Five questions, no phones.",
+   "options": [
+    "Count me in",
+    "Not tonight"
+   ],
+   "set": "_quiz_choice"
+  },
+  {
+   "do": "if",
+   "flag": "_quiz_choice",
+   "eq": 0,
+   "then": [
+    {
+     "do": "quiz",
+     "pub": "york",
+     "region": "england_north",
+     "who": "Quizmaster"
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Quizmaster",
+     "text": "Of course, dear. It's very civilised in here either way."
+    }
+   ]
+  }
  ]
 }

@@ -37,5 +37,46 @@
     }
    ]
   }
+ ],
+ "belfast_quizmaster": [
+  {
+   "do": "say",
+   "who": "Quizmaster",
+   "text": "Right, quiz night at the Sandwich Bar. A toastie for every right answer, which is a lie, but it keeps you listening."
+  },
+  {
+   "do": "say",
+   "who": "Quizmaster",
+   "text": "Five questions. Phones away. Wee Dave, I can see you down there, and the answer is not on your leg."
+  },
+  {
+   "do": "choice",
+   "text": "Fancy a round? Five questions, no phones.",
+   "options": [
+    "Count me in",
+    "Not tonight"
+   ],
+   "set": "_quiz_choice"
+  },
+  {
+   "do": "if",
+   "flag": "_quiz_choice",
+   "eq": 0,
+   "then": [
+    {
+     "do": "quiz",
+     "pub": "belfast",
+     "region": "ni",
+     "who": "Quizmaster"
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Quizmaster",
+     "text": "Fair dos. Come back when you're feeling brave."
+    }
+   ]
+  }
  ]
 }
