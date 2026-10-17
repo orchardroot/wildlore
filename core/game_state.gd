@@ -165,6 +165,10 @@ func _dev_boot() -> void:
 		if args.clock >= 0:
 			data.clock_minutes = args.clock
 		data.party = [Creature.create(dex.get_species("kindlet"), 10, rng, moves)]
+		for a in DevArgs.user_args():
+			if a.begins_with("--rewild="):  # dev: every rewilding site at this stage, 0..3 (screenshots)
+				for s in Rewild.sites():
+					data.set_flag(Rewild.flag_key(str(s.id)), int(a.substr(9)))
 		if args.ride != "":
 			data.bag["bike"] = 1
 			data.badges = ["brook", "urban", "stone", "iron"] if args.ride == "lantern" else ["brook", "urban", "stone"]

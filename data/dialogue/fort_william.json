@@ -16,54 +16,68 @@
  ],
  "fw_rescue": [
   {
-   "do": "when",
-   "cond": "fog",
-   "chat": true,
+   "do": "if",
+   "flag": "rewild_dundreggan",
+   "eq": 3,
    "then": [
     {
      "do": "say",
      "who": "Mountain Rescue Volunteer",
-     "text": "Clag's down on the Ben today. If you're heading up, take a compass, and turn back if you're unsure. Please."
+     "text": "We had a call-out up Glenmoriston. Turned out it was just a walker who'd stopped to stare at a capercaillie for three hours. Can't blame him."
     }
    ],
    "else": [
     {
      "do": "when",
-     "cond": "rain",
+     "cond": "fog",
      "chat": true,
      "then": [
       {
        "do": "say",
        "who": "Mountain Rescue Volunteer",
-       "text": "Rain's on, so the burns'll be up. If a crossing looks dodgy, it is. The hill will still be there tomorrow."
+       "text": "Clag's down on the Ben today. If you're heading up, take a compass, and turn back if you're unsure. Please."
       }
      ],
      "else": [
       {
        "do": "when",
-       "cond": "sunshine",
+       "cond": "rain",
        "chat": true,
        "then": [
         {
          "do": "say",
          "who": "Mountain Rescue Volunteer",
-         "text": "Clear day on the Ben! It'll be busy up there. Sun cream, water and a jumper for the top."
+         "text": "Rain's on, so the burns'll be up. If a crossing looks dodgy, it is. The hill will still be there tomorrow."
+        }
+       ],
+       "else": [
+        {
+         "do": "when",
+         "cond": "sunshine",
+         "chat": true,
+         "then": [
+          {
+           "do": "say",
+           "who": "Mountain Rescue Volunteer",
+           "text": "Clear day on the Ben! It'll be busy up there. Sun cream, water and a jumper for the top."
+          }
+         ]
         }
        ]
       }
      ]
+    },
+    {
+     "do": "say",
+     "who": "Mountain Rescue Volunteer",
+     "text": "{greeting} Ben Nevis is a big, kind hill with a bad temper in the mist. We go up in all weathers, so you don't have to."
+    },
+    {
+     "do": "say",
+     "who": "Mountain Rescue Volunteer",
+     "text": "The summit's covered in cloud about three days in four, and there's a cliff off the north side. Take a map, a torch and a plan. In that order."
     }
    ]
-  },
-  {
-   "do": "say",
-   "who": "Mountain Rescue Volunteer",
-   "text": "{greeting} Ben Nevis is a big, kind hill with a bad temper in the mist. We go up in all weathers, so you don't have to."
-  },
-  {
-   "do": "say",
-   "who": "Mountain Rescue Volunteer",
-   "text": "The summit's covered in cloud about three days in four, and there's a cliff off the north side. Take a map, a torch and a plan. In that order."
   }
  ],
  "fw_spotter": [

@@ -211,6 +211,8 @@ func _exec(c: Dictionary) -> void:
 			_ended = true
 		"fieldbook_news":
 			await _fieldbook_news(str(c.get("who", "")))
+		"rewild":
+			await RewildTalk.run(self, c)  # a rewilding site's warden (story/rewild_talk.gd)
 		_:
 			push_warning("Commands: unknown command '%s'" % c.get("do", ""))
 

@@ -3,7 +3,7 @@ extends RefCounted
 ## Checks dialogue scripts, trainers and the NPCs that use them against the rest of the data.
 
 const COMMANDS := ["say", "choice", "if", "set", "give_item", "give_creature", "heal", "battle", "move", "face",
-	"face_player", "wait", "warp", "shop", "starter", "fade_out", "fade_in", "music", "sfx", "badge", "end", "whiteout", "ark", "rail", "ferry", "legend", "gauntlet", "credits", "daily", "when", "relearn", "sachet_worn", "quiz", "craft", "recipe", "fieldbook_news"]
+	"face_player", "wait", "warp", "shop", "starter", "fade_out", "fade_in", "music", "sfx", "badge", "end", "whiteout", "ark", "rail", "ferry", "legend", "gauntlet", "credits", "daily", "when", "relearn", "sachet_worn", "quiz", "craft", "recipe", "fieldbook_news", "rewild", "standing"]
 const CONDITIONS := ["dawn", "day", "dusk", "night", "rain", "fog", "gale", "frost", "sunshine", "caught_all",
 	"caught_25", "caught_50", "caught_100", "caught_150", "caught_200",
 	"spring", "summer", "autumn", "winter", "halloween", "bonfire_night", "christmas", "st_patricks", "st_davids", "burns_night"]
@@ -28,6 +28,7 @@ static func validate(dex: Dex, moves: MoveDB, items: ItemDB, zones: Dictionary) 
 	for tid in StoryData.trainer_ids():
 		errors.append_array(_validate_trainer(tid, dex, moves, items, zones))
 	errors.append_array(Crafting.validate(items))
+	errors.append_array(_validate_rewild(dex, items, zones))
 	var targets := _npc_targets(dialogue)
 	for zid in zones:
 		var z: ZoneData = zones[zid]
@@ -177,9 +178,36 @@ static func validate_commands(cmds: Array, tag: String, dex: Dex, items: ItemDB,
 				for d in c.get("path", []):
 					if str(d) not in DIRS:
 						errors.append("%s: move path has bad direction '%s'" % [tag, d])
+			"rewild":
+				if Rewild.site(str(c.get("site", ""))).is_empty():
+					errors.append("%s: rewild site '%s' does not exist" % [tag, c.get("site", "")])
 			"face":
 				if str(c.get("dir", "")) not in DIRS:
 					errors.append("%s: face with bad direction" % tag)
+	return errors
+
+## data/rewild.json: zones, rewards (story commands), task items and trainers, returning species.
+static func _validate_rewild(dex: Dex, items: ItemDB, zones: Dictionary) -> Array:
+	var errors := []
+	for s in Rewild.sites():
+		var tag := "rewild %s" % s.get("id", "?")
+		if not zones.has(str(s.get("zone", ""))):
+			errors.append("%s: zone '%s' does not exist" % [tag, s.get("zone", "")])
+		if Rewild.looks(str(s.get("biome", ""))).size() != 4:
+			errors.append("%s: biome '%s' needs four stage looks" % [tag, s.get("biome", "")])
+		for r in s.get("rewards", []):
+			errors.append_array(validate_commands(r, tag + " reward", dex, items, zones))
+		for t in Rewild.tasks(s):
+			for id in t.get("items", {}):
+				if not items.has(str(id)):
+					errors.append("%s: task item '%s' does not exist" % [tag, id])
+			if t.has("trainer") and not StoryData.trainer_exists(str(t.trainer)):
+				errors.append("%s: trainer '%s' does not exist" % [tag, t.trainer])
+		for stage in s.get("encounters", []):
+			for e in stage:
+				if not dex.has(str(e.get("species", ""))):
+					errors.append("%s: species '%s' does not exist" % [tag, e.get("species", "")])
+	errors.append_array(validate_commands(Rewild._all().get("complete", []), "rewild complete", dex, items, zones))
 	return errors
 
 static func _validate_trainer(tid: String, dex: Dex, moves: MoveDB, items: ItemDB, zones: Dictionary) -> Array:

@@ -225,7 +225,9 @@ static func next_objective(d: GameStateData, total := 0, o := {}) -> Dictionary:
 		var legends: Array = e.get("all", [])
 		out["text"] = str(e.get("text", "")).replace("{caught}", str(d.caught.size())).replace("{total}", str(total)) \
 			.replace("{legends}", str(legends.filter(func(f): return _done(d, str(f))).size()))
-		if need.is_empty() and FieldbookGoals.hint(d) != "":  # nothing else left: the next Fieldbook milestone
+		if need.is_empty() and Rewild.hint(d) != "":  # nothing else left: a rewilding site wants a hand
+			out = {"text": Rewild.hint(d), "town": ""}
+		elif need.is_empty() and FieldbookGoals.hint(d) != "":  # or the next Fieldbook milestone
 			out = {"text": FieldbookGoals.hint(d), "town": "macclesfield"}
 		out["postgame"] = true
 		return out

@@ -212,40 +212,54 @@
  ],
  "cat_lady": [
   {
-   "do": "when",
-   "cond": "rain",
-   "chat": true,
+   "do": "if",
+   "flag": "rewild_douglas_broogh",
+   "eq": 3,
    "then": [
     {
      "do": "say",
      "who": "Cat Lady",
-     "text": "Rain? The Manx cats are all indoors. No tail to keep dry, and still they complain."
+     "text": "The puffins have been seen over the railway broogh. My cats are beside themselves. I've told them, they're for looking at."
     }
    ],
    "else": [
     {
      "do": "when",
-     "cond": "sunshine",
+     "cond": "rain",
      "chat": true,
      "then": [
       {
        "do": "say",
        "who": "Cat Lady",
-       "text": "Sunshine! Every cat on the island is lying on a warm wall. Tails optional."
+       "text": "Rain? The Manx cats are all indoors. No tail to keep dry, and still they complain."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "sunshine",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Cat Lady",
+         "text": "Sunshine! Every cat on the island is lying on a warm wall. Tails optional."
+        }
+       ]
       }
      ]
+    },
+    {
+     "do": "say",
+     "who": "Cat Lady",
+     "text": "That's a Manx cat. No tail. Well, almost none. The ones with none at all are rumpies. The ones with a tiny stump are stumpies."
+    },
+    {
+     "do": "say",
+     "who": "Cat Lady",
+     "text": "A Manx cat can't wag a tail at you. You'll have to guess whether it likes you."
     }
    ]
-  },
-  {
-   "do": "say",
-   "who": "Cat Lady",
-   "text": "That's a Manx cat. No tail. Well, almost none. The ones with none at all are rumpies. The ones with a tiny stump are stumpies."
-  },
-  {
-   "do": "say",
-   "who": "Cat Lady",
-   "text": "A Manx cat can't wag a tail at you. You'll have to guess whether it likes you."
   }
  ],
  "kipper_man": [
@@ -488,6 +502,12 @@
      "text": "A little stone bridge over a trickle of a stream. It looks like any bridge. The tram bell rings in the distance."
     }
    ]
+  }
+ ],
+ "rewild_warden": [
+  {
+   "do": "rewild",
+   "site": "douglas_broogh"
   }
  ]
 }

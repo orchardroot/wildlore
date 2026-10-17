@@ -1,40 +1,54 @@
 {
  "crescent_fan": [
   {
-   "do": "when",
-   "cond": "rain",
-   "chat": true,
+   "do": "if",
+   "flag": "rewild_goyt_moss",
+   "eq": 3,
    "then": [
     {
      "do": "say",
      "who": "Local",
-     "text": "The Crescent in the rain. Still grand. Still cold. Now also damp."
+     "text": "The curlews are back on Goyt's Moss, you know. And water voles. Hilda's been insufferable about it. Rightly."
     }
    ],
    "else": [
     {
      "do": "when",
-     "cond": "sunshine",
+     "cond": "rain",
      "chat": true,
      "then": [
       {
        "do": "say",
        "who": "Local",
-       "text": "Sun on the Crescent! Practically Bath. Don't tell Bath, it'll get ideas."
+       "text": "The Crescent in the rain. Still grand. Still cold. Now also damp."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "sunshine",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Local",
+         "text": "Sun on the Crescent! Practically Bath. Don't tell Bath, it'll get ideas."
+        }
+       ]
       }
      ]
+    },
+    {
+     "do": "say",
+     "who": "Local",
+     "text": "That's the Crescent. Georgian, grand and very cold."
+    },
+    {
+     "do": "say",
+     "who": "Local",
+     "text": "They built it to rival Bath. Bath hasn't noticed yet."
     }
    ]
-  },
-  {
-   "do": "say",
-   "who": "Local",
-   "text": "That's the Crescent. Georgian, grand and very cold."
-  },
-  {
-   "do": "say",
-   "who": "Local",
-   "text": "They built it to rival Bath. Bath hasn't noticed yet."
   }
  ],
  "well_filler": [
