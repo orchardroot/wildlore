@@ -2,6 +2,146 @@
  "garside": [
   {
    "do": "if",
+   "flag": "starter",
+   "then": [
+    {
+     "do": "if",
+     "flag": "fieldbook_25",
+     "else": [
+      {
+       "do": "when",
+       "cond": "caught_25",
+       "then": [
+        {
+         "do": "say",
+         "who": "Prof. Garside",
+         "text": "Hold on. Let me see that Fieldbook. Twenty-five caught already? It's getting heavy, {player}. Good."
+        },
+        {
+         "do": "say",
+         "who": "Prof. Garside",
+         "text": "An acorn from the old oak outside, and some Iron Snares. Give the acorn to someone sturdy. Mighty oaks, little acorns. I'll stop."
+        },
+        {
+         "do": "give_item",
+         "item": "oak_acorn"
+        },
+        {
+         "do": "give_item",
+         "item": "iron_snare",
+         "n": 5
+        },
+        {
+         "do": "set",
+         "flag": "fieldbook_25"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "do": "if",
+     "flag": "fieldbook_50",
+     "else": [
+      {
+       "do": "when",
+       "cond": "caught_50",
+       "then": [
+        {
+         "do": "say",
+         "who": "Prof. Garside",
+         "text": "Fifty! Half a hundred, {player}. I found this four-leaf clover in 1987 and I've been saving it for someone who deserved it."
+        },
+        {
+         "do": "give_item",
+         "item": "four_leaf_clover"
+        },
+        {
+         "do": "say",
+         "who": "Prof. Garside",
+         "text": "Give it to your lead. Snares seem to hold better with a bit of luck about. Don't ask me why. I've stopped asking."
+        },
+        {
+         "do": "set",
+         "flag": "fieldbook_50"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "do": "if",
+     "flag": "fieldbook_100",
+     "else": [
+      {
+       "do": "when",
+       "cond": "caught_100",
+       "then": [
+        {
+         "do": "say",
+         "who": "Prof. Garside",
+         "text": "One hundred caught. A century! At the cricket they'd stand and clap. I'm standing. I'm clapping. The owl is unimpressed."
+        },
+        {
+         "do": "say",
+         "who": "Prof. Garside",
+         "text": "A Brigid's cross, woven from rushes, and a few Silver Snares. Don't tell the university what they cost."
+        },
+        {
+         "do": "give_item",
+         "item": "brigid_cross"
+        },
+        {
+         "do": "give_item",
+         "item": "silver_snare",
+         "n": 3
+        },
+        {
+         "do": "set",
+         "flag": "fieldbook_100"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "do": "if",
+     "flag": "fieldbook_150",
+     "else": [
+      {
+       "do": "when",
+       "cond": "caught_150",
+       "then": [
+        {
+         "do": "say",
+         "who": "Prof. Garside",
+         "text": "A hundred and fifty. I had to count twice, then make a cup of tea, then count again."
+        },
+        {
+         "do": "say",
+         "who": "Prof. Garside",
+         "text": "This horseshoe came off a pony who outlived three vicars. Luck clings to it. So does a smell, but mostly luck."
+        },
+        {
+         "do": "give_item",
+         "item": "horseshoe"
+        },
+        {
+         "do": "set",
+         "flag": "fieldbook_150"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "do": "fieldbook_news",
+     "who": "Prof. Garside"
+    }
+   ]
+  },
+  {
+   "do": "if",
    "flag": "game_complete",
    "then": [
     {

@@ -99,6 +99,10 @@ func load_zone(zone_id: String, pos: Vector2i, facing: String) -> void:
 	player.set_wading(wading_here)
 	Game.data.zone_id = zone_id
 	Travel.note_visit(Game.data, zone)
+	if zone.kind == "interior" and Game.data.flag(VisitorsBook.seen_flag(zone_id)) != true:  # the Visitor's Book
+		var tour := VisitorsBook.note(Game.data, zone_id, zone.kind, ZoneIndex.get_index())
+		if not tour.is_empty():
+			VisitorsBook.announce(self, tour, Travel.town_name(tour.town), str(Game.items.get_item(tour.item).get("name", "")))
 	Game.data.pos = pos
 	Game.data.facing = facing
 	var outdoor := sky.weather_for_zone(zone)  # kept between zones until it runs out (see GameStateData.weather_for)

@@ -61,6 +61,16 @@ static func boot(game: Node, menu: String) -> void:
 			"sheep_wool": 1, "rowan_berry": 1, "heather_honey": 1, "sea_glass": 1}, true)
 		for id in Crafting.taught_by("mum") + ["parkin", "bara_brith", "pasty", "miners_lamp"]:
 			Crafting.learn(d, id)
+	if menu == "pedia:stamps":  # the Fieldbook's region stamps: Cheshire and the Peak finished
+		var idx := ZoneIndex.get_index()
+		for r in ["cheshire", "peak"]:
+			for sp in idx.region_species.get(r, []):
+				d.mark_caught(sp)
+	if menu.begins_with("map") or menu.begins_with("stats"):  # the Visitor's Book: most of Buxton's rooms, all of Macc's
+		var rooms: Dictionary = ZoneIndex.get_index().town_rooms
+		for r in rooms.get("macclesfield", []) + rooms.get("buxton", []).slice(0, 7):
+			d.set_flag(VisitorsBook.seen_flag(str(r)))
+		d.set_flag(VisitorsBook.BOARD_PREFIX + "macclesfield")
 	if menu.begins_with("relearn"):
 		a.level = 20  # past a couple of its moves, so the relearner has something to offer
 	if menu.begins_with("shop") and not menu.contains(":"):

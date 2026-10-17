@@ -1,17 +1,18 @@
 extends MenuBase
 ## Creaturepedia ("Fieldbook"): every species in Dex order. Unseen is "???", seen is a silhouette, caught is the full entry.
-## Left/Right (or the pad's shoulder buttons) jump ten entries; Run cycles the filter: All, Caught, Seen.
+## Left/Right (or the pad's shoulder buttons) jump ten entries; Run cycles the filter: All, Caught, Seen, Rumours
+## (local gossip about creatures still to catch, and the region stamps: see RumoursTab).
 ## The Bike key (or the Cry button) plays the creature's cry, once you have met one (see Cries).
 
 const ZONE_DIR := "res://data/zones"
 static var _habitats: Dictionary = {}
 static var _habitats_loaded := false
 static var _last_id := ""      # reopens on the entry you left it on (this session only)
-static var _filter := "all"    # all | caught | seen, also kept for the session
+static var _filter := "all"    # all | caught | seen | rumours, also kept for the session
 
 const PAGE := 10
 const MAX_PLACES := 3  # the rest are on the map, so a long list can't push the entry off the bottom
-const FILTER_NAMES := {"all": "All", "caught": "Caught", "seen": "Seen"}
+const FILTER_NAMES := {"all": "All", "caught": "Caught", "seen": "Seen", "rumours": "Rumours"}
 
 var _all: Array = []           # every species id, Dex order
 var _no: Dictionary = {}       # id -> Dex number
@@ -21,13 +22,14 @@ var _scroll: ScrollContainer
 var _list_col: VBoxContainer
 var _detail: VBoxContainer
 var _buttons: Array = []
+var _rumours: Array = []       # the Rumours tab's rows, when it's showing
 
 func _build() -> void:
 	set_title("Fieldbook")
 	_all = Game.dex.ids()
 	for i in _all.size():
 		_no[_all[i]] = i + 1
-	set_hints([["updown", "Browse"], ["shoulders", "Jump 10"], ["run", "All / Caught / Seen"], ["bike", "Cry"], ["confirm", "Map"], ["cancel", "Back"]])
+	set_hints([["updown", "Browse"], ["shoulders", "Jump 10"], ["run", "All / Caught / Seen / Rumours"], ["bike", "Cry"], ["confirm", "Map"], ["cancel", "Back"]])
 	var row := HBoxContainer.new()
 	row.set_anchors_preset(Control.PRESET_FULL_RECT)
 	row.add_theme_constant_override("separation", 22)
@@ -56,12 +58,16 @@ func _build() -> void:
 ## (Re)builds the list for the current filter and focuses the remembered entry, or the first.
 func _fill_list() -> void:
 	var d: GameStateData = Game.data
-	_ids = MenuLogic.fieldbook_filter(_all, d.seen, d.caught, _filter)
+	if _filter == "rumours":
+		_rumours = RumoursTab.entries()
+		_ids = _rumours.map(func(r): return str(r.species))
+	else:
+		_ids = MenuLogic.fieldbook_filter(_all, d.seen, d.caught, _filter)
 	header_right.text = "%s    Seen %d    Caught %d / %d" % [FILTER_NAMES[_filter], d.seen.size(), d.caught.size(), _all.size()]
 	UIKit.clear(_list_col)
 	_buttons.clear()
 	for i in _ids.size():
-		var b := _entry_button(i)
+		var b := _rumour_button(i) if _filter == "rumours" else _entry_button(i)
 		_list_col.add_child(b)
 		_buttons.append(b)
 	UIKit.wrap_focus(_buttons)
@@ -81,8 +87,16 @@ func _scroll_to_later(b: Control) -> void:
 	if is_instance_valid(b) and b.is_inside_tree():
 		_scroll.ensure_control_visible(b)
 
-## setup("<species id>") opens on that entry (the filter goes back to All if it would hide it).
+## setup("<species id>") opens on that entry (the filter goes back to All if it would hide it);
+## setup("rumours") or setup("stamps") opens the Rumours tab.
 func setup(arg: String) -> void:
+	if arg in ["rumours", "stamps"]:  # straight to the Rumours tab (on its first rumour, or on the stamps)
+		_filter = "rumours"
+		_fill_list()
+		if arg == "rumours" and _ids.size() > 1:
+			_last_id = _ids[1]
+			_fill_list()
+		return
 	if arg == "" or not _all.has(arg):
 		return
 	_last_id = arg
@@ -181,6 +195,34 @@ func _entry_button(i: int) -> Button:
 	h.add_child(dot)
 	for c in h.get_children():
 		c.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	return b
+
+## A Rumours tab row: the stamps, or one bit of gossip (Confirm opens the map once you've seen the creature).
+func _rumour_button(i: int) -> Button:
+	var r: Dictionary = _rumours[i]
+	var b := Button.new()
+	b.custom_minimum_size = Vector2(0, 58)
+	b.focus_entered.connect(func():
+		Audio.sfx("cursor")
+		_cur = i
+		_last_id = str(r.species)
+		RumoursTab.show(r, _detail))
+	b.pressed.connect(func():
+		if str(r.species) == "" or state_of(str(r.species)) == "unseen":
+			return
+		Audio.sfx("confirm")
+		await open_child("map:species:" + str(r.species))
+		b.grab_focus())
+	var h := HBoxContainer.new()
+	h.set_anchors_preset(Control.PRESET_FULL_RECT)
+	h.offset_left = 10
+	h.offset_right = -10
+	h.add_theme_constant_override("separation", 10)
+	b.add_child(h)
+	RumoursTab.row(r, h)
+	for c in h.get_children():
+		c.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	h.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	return b
 
 func _show(id: String) -> void:

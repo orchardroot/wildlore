@@ -95,7 +95,7 @@ static func has_shop(town: String) -> bool:
 ## Everything the info panel shows about a visited town.
 static func info(data: GameStateData, town: String) -> Dictionary:
 	var out := {"town": town, "name": Travel.town_name(town), "keeper": {}, "sanctuary": false, "shop": false,
-		"station": false, "ferries": [], "found": 0, "nearby": 0}
+		"station": false, "ferries": [], "found": 0, "nearby": 0, "rooms": 0, "rooms_seen": 0}
 	if KEEPERS.has(town):
 		var k: Array = KEEPERS[town]
 		out.keeper = {"name": k[0], "stone": str(k[1]).capitalize() + " Stone",
@@ -113,6 +113,9 @@ static func info(data: GameStateData, town: String) -> Dictionary:
 	for sp in near:
 		if data.caught.has(sp):
 			out.found += 1
+	var rooms := VisitorsBook.count(data, town, ZoneIndex.get_index())
+	out.rooms_seen = rooms.x
+	out.rooms = rooms.y
 	return out
 
 ## The panel's lines, top to bottom.
@@ -128,6 +131,8 @@ static func info_lines(i: Dictionary) -> Array:
 		out.append("Fieldbook nearby: %d of %d found" % [i.found, i.nearby])
 	else:
 		out.append("Fieldbook nearby: no wild routes")
+	if i.get("rooms", 0) > 0:
+		out.append("Rooms visited: %d of %d%s" % [i.rooms_seen, i.rooms, "  (the full tour!)" if i.rooms_seen >= i.rooms else ""])
 	return out
 
 ## After the Champion, a visited town other than the one you are standing in is a flight away.
