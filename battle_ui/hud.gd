@@ -48,6 +48,128 @@ class CaughtMark extends Control:
 		draw_circle(c, r * 0.28, BattleHUD.CREAM)
 		draw_arc(c, r, 0.0, TAU, 20, Color("14161c"), 1.5, true)
 
+## The weather glyph on the weather plate, drawn in code: sun, rain cloud, fog bands, frost star, gale streaks.
+class WeatherIcon extends Control:
+	var kind := "clear"
+	func _init() -> void:
+		custom_minimum_size = Vector2(40, 40)
+		size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	func _draw() -> void:
+		var c := size * 0.5
+		match kind:
+			"sunshine":
+				var sun := Color("ffd257")
+				draw_circle(c, 9.0, sun)
+				for i in 8:
+					var d := Vector2.from_angle(TAU * i / 8.0)
+					draw_line(c + d * 12.5, c + d * 17.0, sun, 3.0, true)
+			"drizzle", "downpour":
+				_cloud(c + Vector2(0, -5), Color("d5dde7"))
+				var n := 3 if kind == "drizzle" else 5
+				var drop := 5.0 if kind == "drizzle" else 10.0
+				for i in n:
+					var x := c.x - 10.0 + i * 20.0 / (n - 1)
+					draw_line(Vector2(x + 1.5, c.y + 6), Vector2(x - 1.5, c.y + 6 + drop), Color("86bff2"), 2.5, true)
+			"fog":
+				for i in 4:
+					var y := c.y - 10.0 + i * 6.5
+					var inset := 5.0 if i % 2 == 0 else 10.0
+					draw_line(Vector2(inset, y), Vector2(size.x - inset, y), Color("cdd4da"), 3.5, true)
+			"frost":
+				var ice := Color("c4eef8")
+				for i in 3:
+					var d := Vector2.from_angle(PI * i / 3.0 + PI / 2.0) * 15.0
+					draw_line(c - d, c + d, ice, 3.0, true)
+					for s in [-1.0, 1.0]:  # little barbs near each tip
+						var tip: Vector2 = c + d * 0.62 * s
+						draw_line(tip, tip + d.rotated(2.4 * s).normalized() * 5.0 * s, ice, 2.0, true)
+				draw_circle(c, 3.0, ice)
+			"gale":
+				var wind := Color("e2eaf0")
+				var widths := [24.0, 30.0, 18.0]
+				for i in 3:
+					var y := c.y - 9.0 + i * 9.0
+					var x0 := c.x - 16.0 + (4.0 if i == 1 else 0.0)
+					var x1: float = x0 + widths[i]
+					draw_line(Vector2(x0, y), Vector2(x1, y), wind, 3.0, true)
+					draw_arc(Vector2(x1, y - 3.5), 3.5, PI / 2.0, -PI / 2.0 - 0.3, 8, wind, 3.0, true)
+	func _cloud(c: Vector2, col: Color) -> void:
+		draw_circle(c + Vector2(-8, 3), 6.5, col)
+		draw_circle(c + Vector2(0, -2), 9.0, col)
+		draw_circle(c + Vector2(9, 3), 6.5, col)
+		draw_rect(Rect2(c.x - 14, c.y + 2, 28, 7.5), col)
+
+## A row of pips: how many turns a called-up weather has left.
+class TurnPips extends Control:
+	var total := 5
+	var left := 0
+	func _init() -> void:
+		custom_minimum_size = Vector2(8 * 13, 12)
+		size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	func _draw() -> void:
+		for i in total:
+			var p := Vector2(6 + i * 13, size.y * 0.5)
+			if i < left:
+				draw_circle(p, 4.5, Color("ffc52e"))
+			else:
+				draw_arc(p, 4.0, 0, TAU, 14, Color(BattleHUD.CREAM, 0.45), 1.5, true)
+
+## The weather plate, top right: what the sky is doing and, for a weather a move called up, how long it lasts.
+class WeatherPlate extends PanelContainer:
+	var icon: WeatherIcon
+	var name_l: Label
+	var sub_l: Label
+	var pips: TurnPips
+	var _shown := ""
+	func build() -> void:
+		var sb: StyleBoxFlat = (load("res://ui/theme.tres") as Theme).get_stylebox("panel", "PanelContainer").duplicate()
+		sb.set_content_margin_all(10)
+		sb.content_margin_left = 12
+		sb.content_margin_right = 16
+		sb.shadow_color = Color(0, 0, 0, 0.35)
+		sb.shadow_size = 6
+		sb.shadow_offset = Vector2(0, 3)
+		add_theme_stylebox_override("panel", sb)
+		mouse_filter = Control.MOUSE_FILTER_IGNORE
+		var row := HBoxContainer.new()
+		row.add_theme_constant_override("separation", 10)
+		add_child(row)
+		icon = WeatherIcon.new()
+		row.add_child(icon)
+		var col := VBoxContainer.new()
+		col.add_theme_constant_override("separation", 0)
+		col.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+		row.add_child(col)
+		name_l = Label.new()
+		name_l.add_theme_font_size_override("font_size", 22)
+		col.add_child(name_l)
+		var sub := HBoxContainer.new()
+		sub.add_theme_constant_override("separation", 6)
+		col.add_child(sub)
+		pips = TurnPips.new()
+		sub.add_child(pips)
+		sub_l = Label.new()
+		sub_l.add_theme_font_size_override("font_size", 16)
+		sub_l.modulate = Color("e8c46a")
+		sub.add_child(sub_l)
+	func show_weather(w: String, turns: int) -> void:
+		var key := "%s/%d" % [w, turns]
+		if key == _shown:
+			return
+		if w != icon.kind or turns > pips.left:  # a fresh weather: the row is as long as it will last
+			pips.total = maxi(5, turns)
+		_shown = key
+		visible = w != "clear"
+		icon.kind = w
+		icon.queue_redraw()
+		name_l.text = MoveFX.weather_label(w)
+		pips.visible = turns > 0
+		pips.left = turns
+		pips.custom_minimum_size.x = pips.total * 13
+		pips.queue_redraw()
+		sub_l.text = ("%d turn left" if turns == 1 else "%d turns left") % turns if turns > 0 else "Today's weather"
+		reset_size()
+
 class Plate extends PanelContainer:
 	var creature: Creature
 	var is_player := false
@@ -222,6 +344,24 @@ func _ready() -> void:
 	plates[Battle.FOE].custom_minimum_size = Vector2(430, 0)
 	plates[Battle.PLAYER].position = Vector2(790, 372)
 	plates[Battle.PLAYER].custom_minimum_size = Vector2(450, 0)
+	weather_plate = WeatherPlate.new()
+	weather_plate.build()
+	weather_plate.visible = false
+	add_child(weather_plate)
+	resized.connect(_place_weather)
+
+var weather_plate: WeatherPlate
+
+## The weather plate: hidden under clear skies; a called-up weather shows its turns left.
+func set_weather(w: String, turns: int) -> void:
+	weather_plate.show_weather(w, turns)
+	_place_weather()
+
+## Top right, 24px in from the edge of the screen (wider screens included).
+func _place_weather() -> void:
+	weather_plate.reset_size()
+	var w := size.x if size.x > 0.0 else 1280.0
+	weather_plate.position = Vector2(w - weather_plate.size.x - 24.0, 20.0)
 
 ## Four compact plates: the foes' pair along the top left, the player's pair above the message box on the right,
 ## each pair in field order (position 0 on the left, as on the diorama).
