@@ -465,6 +465,15 @@ func validate(all: Dictionary) -> Array:
 		e.append(tag + "ferry tile is not walkable")
 	elif not ferry.is_empty() and walkable(spawn) and not reachable(ferry_tile, GATE_ABILITIES, corks).has(spawn):
 		e.append(tag + "ferry quay %s is boxed in: arriving by boat can't reach the town" % ferry_tile)
+	# a road or path that reaches the map edge must lead somewhere (an edge exit), or be closed off
+	if kind != "interior" and id not in ["mesh_gallery", "testbed"]:
+		for side in ["north", "south", "west", "east"]:
+			if edges.has(side):
+				continue
+			for p in _border(side):
+				if tile_at(p) in ["path", "road", "cobbles"]:
+					e.append(tag + "a road at %d,%d runs off the %s edge, which leads nowhere (close it or add an edge)" % [p.x, p.y, side])
+					break
 	# every door goes somewhere: a warp, or a station's ticket office (the rail menu)
 	for y in height:
 		for x in width:
