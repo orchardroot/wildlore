@@ -140,6 +140,8 @@ func test_milestones_pending_and_next() -> void:
 func test_where_next_mentions_the_milestone_after_the_story() -> void:
 	var o := {"story": [{"flag_done": "starter", "text": "Go."}], "postgame": [{"text": "You've seen it all.", "town": ""}]}
 	var d := _caught_n(30, {"game_complete": true})
+	for side in SideStories.sides():  # every Keeper's side story heard (they'd come before the milestone)
+		d.set_flag(SideStories.done_flag(str(side.id)), true)
 	var got := MenuLogic.next_objective(d, 200, o)
 	assert_true("Garside" in str(got.text), "a waiting reward comes first: " + str(got.text))
 	assert_eq(got.town, "macclesfield")

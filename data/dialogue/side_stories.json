@@ -1,0 +1,1189 @@
+{
+ "keeper_side_maud": [
+  {
+   "do": "if",
+   "flag": "keeper_side_maud",
+   "then": [
+    {
+     "do": "say",
+     "who": "Keeper Maud",
+     "text": "Width of the pool by Christmas, that's the plan. Don't tell the ducks. They'd only gloat."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "",
+     "text": "Keeper Maud is on a bench by the duck pond in a towelling robe, a swimming cap pulled down over her ears. She looks shifty."
+    },
+    {
+     "do": "say",
+     "who": "Keeper Maud",
+     "text": "{player}! Don't look at the cap. Sit down. Can you keep a secret? I've held the Brook Stone for forty years, and I can't swim."
+    },
+    {
+     "do": "say",
+     "who": "Keeper Maud",
+     "text": "Never could. I stand in the shallow end looking wise. Nobody's noticed. So I've started lessons. Tuesdays, with the toddlers. I'm top of the class."
+    },
+    {
+     "do": "say",
+     "who": "Keeper Maud",
+     "text": "One of them bit me, but we've sorted it out. My lot have been practising too, to keep me company. Give them a proper splash, would you?"
+    },
+    {
+     "do": "battle",
+     "trainer": "side_maud"
+    },
+    {
+     "do": "say",
+     "who": "Keeper Maud",
+     "text": "Lovely. Here, a bottle of my cordial, and how to make it. Elderflower and spring water. It won't help you swim, but it helps with most else."
+    },
+    {
+     "do": "recipe",
+     "id": "elderflower_cordial"
+    },
+    {
+     "do": "give_item",
+     "item": "buxton_water",
+     "n": 2
+    },
+    {
+     "do": "standing",
+     "nation": "england",
+     "amount": 3
+    },
+    {
+     "do": "set",
+     "flag": "keeper_side_maud"
+    }
+   ]
+  }
+ ],
+ "keeper_side_ray": [
+  {
+   "do": "if",
+   "flag": "keeper_side_ray",
+   "then": [
+    {
+     "do": "say",
+     "who": "Keeper Ray",
+     "text": "Saturday, Cavern-ish, eight o'clock. Me mam's bringing the ferret. The ferret's got a better seat than me."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "",
+     "text": "Keeper Ray is sitting by the bronze Beatles with a notebook, chewing a pencil down to splinters."
+    },
+    {
+     "do": "say",
+     "who": "Keeper Ray",
+     "text": "Alright, la. Don't laugh. I'm writing a song. Me mam's eighty on Saturday and she says one more drum solo and she's moving to Birkenhead."
+    },
+    {
+     "do": "say",
+     "who": "Keeper Ray",
+     "text": "First line's done: 'Mam, you raised five lads and a ferret.' I'm stuck on the next. Go on, you're good with words. Well, you're good with something."
+    },
+    {
+     "do": "choice",
+     "text": "Finish Ray's line?",
+     "options": [
+      "'...and we never deserved it.'",
+      "'...and you still hide the sherry.'",
+      "'...have a biscuit.'"
+     ],
+     "set": "keeper_side_pick"
+    },
+    {
+     "do": "if",
+     "flag": "keeper_side_pick",
+     "eq": 0,
+     "then": [
+      {
+       "do": "say",
+       "who": "Keeper Ray",
+       "text": "'And we never deserved it.' Oh, that's... hang on. Something in me eye. It's the Mersey. It gets everywhere."
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "keeper_side_pick",
+       "eq": 1,
+       "then": [
+        {
+         "do": "say",
+         "who": "Keeper Ray",
+         "text": "The sherry! She'll go mad. She'll love it. That's the chorus, that is. Everyone can join in, they all know about the sherry."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Keeper Ray",
+         "text": "'Have a biscuit.' Doesn't rhyme, doesn't scan. She'll love it. She loves a biscuit more than any of us."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "do": "say",
+     "who": "Keeper Ray",
+     "text": "Here, have some of me mam's scouse, and the recipe. She says if I'm giving it away, give it to someone who'll do it right."
+    },
+    {
+     "do": "recipe",
+     "id": "scouse"
+    },
+    {
+     "do": "give_item",
+     "item": "scouse",
+     "n": 2
+    },
+    {
+     "do": "standing",
+     "nation": "england",
+     "amount": 3
+    },
+    {
+     "do": "set",
+     "flag": "keeper_side_ray"
+    }
+   ]
+  }
+ ],
+ "keeper_side_eluned": [
+  {
+   "do": "if",
+   "flag": "keeper_side_eluned",
+   "then": [
+    {
+     "do": "say",
+     "who": "Keeper Eluned",
+     "text": "I booked the little train. Window seat, the side away from the drop. That's what you call planning."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "",
+     "text": "Keeper Eluned is on a bench by the quarry, staring up at Yr Wyddfa as if it owes her money."
+    },
+    {
+     "do": "say",
+     "who": "Keeper Eluned",
+     "text": "Shwmae. Sit if you want. Forty years in that quarry and I've never been up the mountain. Not once. Don't tell anyone. Especially the mountain."
+    },
+    {
+     "do": "say",
+     "who": "Keeper Eluned",
+     "text": "Heights. Down a pit, I'm fine. Put me on a ladder and I go like a jelly in a tumble dryer. You've been to the top. What's it like?"
+    },
+    {
+     "do": "choice",
+     "text": "What's it like at the summit?",
+     "options": [
+      "Cloud, mostly. And a cafe.",
+      "You can see four countries.",
+      "Worth every step."
+     ],
+     "set": "keeper_side_pick"
+    },
+    {
+     "do": "if",
+     "flag": "keeper_side_pick",
+     "eq": 0,
+     "then": [
+      {
+       "do": "say",
+       "who": "Keeper Eluned",
+       "text": "A cafe. Well. That changes things. I'll not go up for the view, but I'll go up for a Welsh cake."
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "keeper_side_pick",
+       "eq": 1,
+       "then": [
+        {
+         "do": "say",
+         "who": "Keeper Eluned",
+         "text": "Four countries. Ireland, England, the Isle of Man, and us in the middle looking smug. Right. The little train, then. Eyes shut."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Keeper Eluned",
+         "text": "Every step. You would say that, you've the legs of a goat. Go on, then. I'll go up. Slowly. Swearing in two languages."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "do": "say",
+     "who": "Keeper Eluned",
+     "text": "Here. My taid's lamp from the quarry. He said it saw him home every night for fifty years. It'll do more good with you than in my shed."
+    },
+    {
+     "do": "give_item",
+     "item": "miners_lamp"
+    },
+    {
+     "do": "standing",
+     "nation": "wales",
+     "amount": 3
+    },
+    {
+     "do": "set",
+     "flag": "keeper_side_eluned"
+    }
+   ]
+  }
+ ],
+ "keeper_side_rhys": [
+  {
+   "do": "if",
+   "flag": "keeper_side_rhys",
+   "then": [
+    {
+     "do": "say",
+     "who": "Keeper Rhys",
+     "text": "We lost the match fourteen nil. Nobody cried. Well. I did, a bit. Proud, see."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "",
+     "text": "Keeper Rhys is in Bute Park with a bag of cones, a whistle, and an ice pack strapped to one knee."
+    },
+    {
+     "do": "say",
+     "who": "Keeper Rhys",
+     "text": "Ah, {player}! Don't mind the knee. Doctor says I've the knees of a man twice my age. I said, which man? He said, a retired one."
+    },
+    {
+     "do": "say",
+     "who": "Keeper Rhys",
+     "text": "So I'm coaching the under-nines now. Twelve kids, one ball, no tactics whatsoever. Best thing I've done in years."
+    },
+    {
+     "do": "say",
+     "who": "Keeper Rhys",
+     "text": "I promised them a demonstration before their big match. Fancy being the opposition? Go easy. Actually, don't. They'll know."
+    },
+    {
+     "do": "battle",
+     "trainer": "side_rhys"
+    },
+    {
+     "do": "say",
+     "who": "Keeper Rhys",
+     "text": "Lovely stuff. They'll be talking about that for weeks. Mostly about my knee. Here, the team insisted. Wear it on match days."
+    },
+    {
+     "do": "give_item",
+     "item": "leek"
+    },
+    {
+     "do": "standing",
+     "nation": "wales",
+     "amount": 3
+    },
+    {
+     "do": "set",
+     "flag": "keeper_side_rhys"
+    }
+   ]
+  }
+ ],
+ "keeper_side_morwen": [
+  {
+   "do": "if",
+   "flag": "keeper_side_morwen",
+   "then": [
+    {
+     "do": "say",
+     "who": "Keeper Morwen",
+     "text": "Chapter nine. The Warden takes off his lanyard. Slowly. I'll say no more."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "",
+     "text": "Keeper Morwen is on a bench near the Chalice Well, typing furiously on an old laptop. She snaps it shut as you arrive."
+    },
+    {
+     "do": "say",
+     "who": "Keeper Morwen",
+     "text": "You saw nothing. Fine, you saw something. I write novels, love. Romance. Thirty-one of them. Heaving bosoms and brooding farmers, mostly."
+    },
+    {
+     "do": "say",
+     "who": "Keeper Morwen",
+     "text": "{rival} bought one at the station, read it on the train and had to get off at Taunton for a lie-down. Go on, guess my pen name."
+    },
+    {
+     "do": "choice",
+     "text": "Morwen's pen name?",
+     "options": [
+      "Rosamund Thorne",
+      "Lady Avalon Featherstone",
+      "Dave"
+     ],
+     "set": "keeper_side_pick"
+    },
+    {
+     "do": "if",
+     "flag": "keeper_side_pick",
+     "eq": 0,
+     "then": [
+      {
+       "do": "say",
+       "who": "Keeper Morwen",
+       "text": "Close. Rosamund Thornbury. Thorne was taken by a woman in Frome who writes about vets. We don't speak."
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "keeper_side_pick",
+       "eq": 1,
+       "then": [
+        {
+         "do": "say",
+         "who": "Keeper Morwen",
+         "text": "Ha! Too much. Even I have limits. It's Rosamund Thornbury. Lady Avalon is my sister, and she's far worse."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Keeper Morwen",
+         "text": "Dave. I nearly did, you know. Nobody suspects a Dave. It's Rosamund Thornbury, but I'll think of you at the next contract."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "do": "say",
+     "who": "Keeper Morwen",
+     "text": "Here. I pressed this clover in my first manuscript for luck. It's done its job. Book thirty-two is about a Warden who learns to love. Don't laugh."
+    },
+    {
+     "do": "give_item",
+     "item": "four_leaf_clover"
+    },
+    {
+     "do": "standing",
+     "nation": "england",
+     "amount": 3
+    },
+    {
+     "do": "set",
+     "flag": "keeper_side_morwen"
+    }
+   ]
+  }
+ ],
+ "keeper_side_declan": [
+  {
+   "do": "if",
+   "flag": "keeper_side_declan",
+   "then": [
+    {
+     "do": "say",
+     "who": "Keeper Declan",
+     "text": "She laughed at three of my jokes. Three! We're going to the pictures Thursday. I'm not a doctor, but I think that's serious."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "",
+     "text": "Keeper Declan is on a bench in St Stephen's Green in his good jacket, flattening his hair with one hand. He looks like a man about to sit an exam."
+    },
+    {
+     "do": "say",
+     "who": "Keeper Declan",
+     "text": "Ah, it's yourself. Thank God. I've a date. A real one, with Brid from the hurling club. First in thirty years. My hands are like two wet haddock."
+    },
+    {
+     "do": "say",
+     "who": "Keeper Declan",
+     "text": "My sister says bring flowers. My nephew says bring nothing, it's 'too much'. What would you do?"
+    },
+    {
+     "do": "choice",
+     "text": "What should Declan do?",
+     "options": [
+      "Bring flowers",
+      "Bring a bowl of stew",
+      "Just be yourself"
+     ],
+     "set": "keeper_side_pick"
+    },
+    {
+     "do": "if",
+     "flag": "keeper_side_pick",
+     "eq": 0,
+     "then": [
+      {
+       "do": "say",
+       "who": "Keeper Declan",
+       "text": "Flowers. Grand. Sensible. Daffodils. Nobody ever got in trouble over a daffodil."
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "keeper_side_pick",
+       "eq": 1,
+       "then": [
+        {
+         "do": "say",
+         "who": "Keeper Declan",
+         "text": "A bowl of stew. On a date. ...Do you know, she did say she likes a man who can cook. You're either a genius or a lunatic."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Keeper Declan",
+         "text": "Myself. God help her. Right. Right so. Myself, but in the good jacket."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "do": "say",
+     "who": "Keeper Declan",
+     "text": "Here, take this pin. My mother gave it me for luck the day I got the Kin Stone. Go on, before I lose my nerve and give you the jacket too."
+    },
+    {
+     "do": "give_item",
+     "item": "shamrock_pin"
+    },
+    {
+     "do": "standing",
+     "nation": "ireland",
+     "amount": 3
+    },
+    {
+     "do": "set",
+     "flag": "keeper_side_declan"
+    }
+   ]
+  }
+ ],
+ "keeper_side_nuala": [
+  {
+   "do": "if",
+   "flag": "keeper_side_nuala",
+   "then": [
+    {
+     "do": "say",
+     "who": "Keeper Nuala",
+     "text": "Out on the bay tomorrow, if it's calm. If it's not, sure, she'd have gone anyway."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "",
+     "text": "Keeper Nuala is by the docks with an old currach upside down on two trestles, a pot of tar, and a face like a storm warning."
+    },
+    {
+     "do": "say",
+     "who": "Keeper Nuala",
+     "text": "Dia dhuit. Grab the other end, would you? She was my grandmother's boat. The very one she rowed to Inis Mor in the gale. She's leaking like a gossip."
+    },
+    {
+     "do": "choice",
+     "text": "Help with the currach?",
+     "options": [
+      "Hold it steady",
+      "Hold it steady and hum a shanty"
+     ],
+     "set": "keeper_side_pick"
+    },
+    {
+     "do": "if",
+     "flag": "keeper_side_pick",
+     "eq": 1,
+     "then": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "You hum. Nuala joins in on the second verse, badly, and the gulls leave in protest."
+      }
+     ]
+    },
+    {
+     "do": "say",
+     "who": "Keeper Nuala",
+     "text": "There. Tight as a drum. Granny would've said I tarred it like a Dub. That was the worst thing she ever called anyone."
+    },
+    {
+     "do": "say",
+     "who": "Keeper Nuala",
+     "text": "I take her out once a year, on Granny's day. Just to the mouth of the bay and back. I say hello to the water and tell her who won the hurling."
+    },
+    {
+     "do": "say",
+     "who": "Keeper Nuala",
+     "text": "Take this. Granny wove it, and it hung over our door forty years. She'd want it out on the road, not on a nail. She hated sitting still."
+    },
+    {
+     "do": "give_item",
+     "item": "brigid_cross"
+    },
+    {
+     "do": "standing",
+     "nation": "ireland",
+     "amount": 3
+    },
+    {
+     "do": "set",
+     "flag": "keeper_side_nuala"
+    }
+   ]
+  }
+ ],
+ "keeper_side_ruairi": [
+  {
+   "do": "if",
+   "flag": "keeper_side_ruairi",
+   "then": [
+    {
+     "do": "say",
+     "who": "Keeper Ruairí",
+     "text": "She's called the Wee Samson. Forty-one hours, that one. The tweezers have earned a pension."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "",
+     "text": "Keeper Ruairí is on a bench by the slipways, squinting through a magnifying glass at a tiny ship in a bottle. His enormous hands are very, very still."
+    },
+    {
+     "do": "say",
+     "who": "Keeper Ruairí",
+     "text": "Bout ye. Whisht a second. ...There. Mainsail's up. Forty years building the big ones, and at night I build them small. Don't tell the apprentices."
+    },
+    {
+     "do": "say",
+     "who": "Keeper Ruairí",
+     "text": "It's the patience I like. You can't rush a ship in a bottle, and you can't rush iron. My lot think I've gone soft, mind."
+    },
+    {
+     "do": "say",
+     "who": "Keeper Ruairí",
+     "text": "They've been up all night watching me with the tweezers, and they're raging. Give them a run out, would you? Let them blow off steam."
+    },
+    {
+     "do": "battle",
+     "trainer": "side_ruairi"
+    },
+    {
+     "do": "say",
+     "who": "Keeper Ruairí",
+     "text": "That's them settled. Here, a horseshoe off the yard gate. Points up, so the luck doesn't run out. You've plenty, but it never hurts."
+    },
+    {
+     "do": "give_item",
+     "item": "horseshoe"
+    },
+    {
+     "do": "standing",
+     "nation": "northern_ireland",
+     "amount": 3
+    },
+    {
+     "do": "set",
+     "flag": "keeper_side_ruairi"
+    }
+   ]
+  }
+ ],
+ "keeper_side_isla": [
+  {
+   "do": "if",
+   "flag": "keeper_side_isla",
+   "then": [
+    {
+     "do": "say",
+     "who": "Keeper Isla",
+     "text": "The scarf's for Gordon's new wife. It's eleven feet long. That's not a message. It's just a very long scarf."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "",
+     "text": "Keeper Isla is on a bench on the Ness Islands, knitting something long and tartan at an alarming speed."
+    },
+    {
+     "do": "say",
+     "who": "Keeper Isla",
+     "text": "Oh, it's you. Sit, sit. I told you those waders outlived two husbands. Folk have been sending me sympathy cards."
+    },
+    {
+     "do": "say",
+     "who": "Keeper Isla",
+     "text": "They're not dead! Gordon's in Elgin with a woman who does pottery, and Alasdair runs a chippy in Nairn. Lovely men. Couldn't sweep to save their lives."
+    },
+    {
+     "do": "say",
+     "who": "Keeper Isla",
+     "text": "Gordon's getting married again next month, and I'm going to win the dancing. My team needs a warm-up first. So do I. Sweep hard!"
+    },
+    {
+     "do": "battle",
+     "trainer": "side_isla"
+    },
+    {
+     "do": "say",
+     "who": "Keeper Isla",
+     "text": "That'll do. Here, a thistle brooch. Wear it to a wedding and nobody dares sit you next to the ex."
+    },
+    {
+     "do": "give_item",
+     "item": "thistle_brooch"
+    },
+    {
+     "do": "standing",
+     "nation": "scotland",
+     "amount": 3
+    },
+    {
+     "do": "set",
+     "flag": "keeper_side_isla"
+    }
+   ]
+  }
+ ],
+ "keeper_side_hester": [
+  {
+   "do": "if",
+   "flag": "keeper_side_hester",
+   "then": [
+    {
+     "do": "say",
+     "who": "Keeper Hester",
+     "text": "The walk's at seven. I've added a stop for the Champion of the Moot. I tell them you're friendly. You are, mostly."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "",
+     "text": "Keeper Hester is on a bench by the Minster, her top hat on her knee, watching the pigeons with the tired look of someone up since the Romans."
+    },
+    {
+     "do": "say",
+     "who": "Keeper Hester",
+     "text": "Hello, love. Champion of the Moot, and you still come and sit with an old woman. Can I tell you something I've never told the walk?"
+    },
+    {
+     "do": "say",
+     "who": "Keeper Hester",
+     "text": "Thirty years leading the ghost walk, and I've never seen one. Not one. I hear them. I talk to them. But I've never seen so much as a sheet."
+    },
+    {
+     "do": "say",
+     "who": "Keeper Hester",
+     "text": "Some nights I wonder if I'm only a woman in a hat telling stories in the cold. Sit a minute. Listen with me. What do you hear?"
+    },
+    {
+     "do": "choice",
+     "text": "What do you hear?",
+     "options": [
+      "Someone humming, far off",
+      "Nothing at all"
+     ],
+     "set": "keeper_side_pick"
+    },
+    {
+     "do": "if",
+     "flag": "keeper_side_pick",
+     "eq": 0,
+     "then": [
+      {
+       "do": "say",
+       "who": "Keeper Hester",
+       "text": "Humming. Yes. That'll be the Roman lad by the wall. Tone deaf, bless him. Thank you, love. That's the nicest thing anyone's done for me since 1994."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Keeper Hester",
+       "text": "Nothing. Well, that's honest. And do you know, I think that's them being polite. They don't like to interrupt. Thank you for listening, all the same."
+      }
+     ]
+    },
+    {
+     "do": "say",
+     "who": "Keeper Hester",
+     "text": "Take this hag stone. Look through the hole and you see the spirits, they say. I've looked for thirty years. Tell me if you have better luck."
+    },
+    {
+     "do": "give_item",
+     "item": "hag_stone"
+    },
+    {
+     "do": "standing",
+     "nation": "england",
+     "amount": 3
+    },
+    {
+     "do": "set",
+     "flag": "keeper_side_hester"
+    }
+   ]
+  }
+ ],
+ "keeper_side_pryce": [
+  {
+   "do": "if",
+   "flag": "keeper_side_pryce",
+   "then": [
+    {
+     "do": "say",
+     "who": "Gareth Pryce",
+     "text": "Four hundred and thirteen. I found one in my own pocket. Old stock. I've logged it."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "",
+     "text": "Gareth Pryce is on a bench by the mountain railway in a hi-vis vest, a litter picker in one hand and a clipboard in the other. Old habits."
+    },
+    {
+     "do": "say",
+     "who": "Gareth Pryce",
+     "text": "Ah. You. I suppose you'll want an explanation. I'm volunteering. The glass offices are a soft play now, and I have feelings. I've put them in a spreadsheet."
+    },
+    {
+     "do": "say",
+     "who": "Gareth Pryce",
+     "text": "Crisp packets collected on Yr Wyddfa this month: four hundred and twelve. Last year I was dropping them, so that's infinite improvement. Will you sign my timesheet?"
+    },
+    {
+     "do": "choice",
+     "text": "Sign Pryce's timesheet?",
+     "options": [
+      "Sign it",
+      "Sign it with a smiley face"
+     ],
+     "set": "keeper_side_pick"
+    },
+    {
+     "do": "if",
+     "flag": "keeper_side_pick",
+     "eq": 0,
+     "then": [
+      {
+       "do": "say",
+       "who": "Gareth Pryce",
+       "text": "Signed. By an actual Champion. I shall frame it next to my old lanyard, which I keep in a drawer as a warning."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Gareth Pryce",
+       "text": "A smiley face. On a timesheet. That's irregular. I'll allow it. Don't tell anyone, I've a reputation for misery to keep up."
+      }
+     ]
+    },
+    {
+     "do": "say",
+     "who": "Gareth Pryce",
+     "text": "Here. The volunteer coordinator gave me this acorn and said I needed to grow as a person. Rude, but accurate. You have it."
+    },
+    {
+     "do": "give_item",
+     "item": "oak_acorn"
+    },
+    {
+     "do": "standing",
+     "nation": "wales",
+     "amount": 3
+    },
+    {
+     "do": "set",
+     "flag": "keeper_side_pryce"
+    }
+   ]
+  }
+ ],
+ "keeper_side_ashcombe": [
+  {
+   "do": "if",
+   "flag": "keeper_side_ashcombe",
+   "then": [
+    {
+     "do": "say",
+     "who": "Sir Rupert Ashcombe",
+     "text": "The knockers ate the pasty and left the note. I've decided that means I'm forgiven. The crab disagrees."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "",
+     "text": "Sir Rupert Ashcombe is on a bench by the harbour, hat off, crabbing line in the water, a child's bucket at his feet. The crab in it looks in charge."
+    },
+    {
+     "do": "say",
+     "who": "Sir Rupert Ashcombe",
+     "text": "Don't. I know how it looks. I've been asked to 'take some time to reflect'. By my wife. And the board. And, in a dream, by a very small miner with a lamp."
+    },
+    {
+     "do": "say",
+     "who": "Sir Rupert Ashcombe",
+     "text": "I've given Geevor back every ounce of tin, and I'm leaving the knockers a pasty and a note. Help me sign it off, would you?"
+    },
+    {
+     "do": "choice",
+     "text": "How should Ashcombe sign it?",
+     "options": [
+      "Yours sincerely",
+      "Yours apologetically",
+      "Sorry about the drill, love, Rupert"
+     ],
+     "set": "keeper_side_pick"
+    },
+    {
+     "do": "if",
+     "flag": "keeper_side_pick",
+     "eq": 0,
+     "then": [
+      {
+       "do": "say",
+       "who": "Sir Rupert Ashcombe",
+       "text": "Sincerely. Yes. Stiff, but sincere. Like the hat."
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "keeper_side_pick",
+       "eq": 1,
+       "then": [
+        {
+         "do": "say",
+         "who": "Sir Rupert Ashcombe",
+         "text": "Apologetically. Quite right. I've never written that word before. It has a lot of letters for something so small."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Sir Rupert Ashcombe",
+         "text": "'Sorry about the drill, love, Rupert.' Oh, that's dreadful. They'll adore it. I'll put in an extra pasty."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "do": "say",
+     "who": "Sir Rupert Ashcombe",
+     "text": "Here. I found this pearl in a sealskin pouch on the beach this morning. They say its owner may come back for it. I've had enough of keeping things that aren't mine."
+    },
+    {
+     "do": "give_item",
+     "item": "selkie_pearl"
+    },
+    {
+     "do": "standing",
+     "nation": "england",
+     "amount": 3
+    },
+    {
+     "do": "set",
+     "flag": "keeper_side_ashcombe"
+    }
+   ]
+  }
+ ],
+ "keeper_side_kerrigan": [
+  {
+   "do": "if",
+   "flag": "keeper_side_kerrigan",
+   "then": [
+    {
+     "do": "say",
+     "who": "Siobhán Kerrigan",
+     "text": "He's eaten another rose. The castle has sent a letter. I'm going to reply to it. Slowly. In full sentences."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "",
+     "text": "Siobhán Kerrigan is on a bench in the rose garden in wellies, holding a lead rope. On the end of it is a donkey, eating a rose with enormous dignity."
+    },
+    {
+     "do": "say",
+     "who": "Siobhán Kerrigan",
+     "text": "Ah. {player}. Yes, it's a donkey. I handed in my lanyard and walked straight into a donkey sanctuary. They asked if I could do spreadsheets. I said, I'm afraid so."
+    },
+    {
+     "do": "say",
+     "who": "Siobhán Kerrigan",
+     "text": "This one came in last week. Thirty years old, one ear up, and no name. I've been calling him Item Four. Will you name him?"
+    },
+    {
+     "do": "choice",
+     "text": "Name the donkey?",
+     "options": [
+      "Bartholomew",
+      "Lanyard",
+      "Kevin"
+     ],
+     "set": "keeper_side_pick"
+    },
+    {
+     "do": "if",
+     "flag": "keeper_side_pick",
+     "eq": 0,
+     "then": [
+      {
+       "do": "say",
+       "who": "Siobhán Kerrigan",
+       "text": "Bartholomew. He likes it, look. The ear went up. Both ears, nearly."
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "keeper_side_pick",
+       "eq": 1,
+       "then": [
+        {
+         "do": "say",
+         "who": "Siobhán Kerrigan",
+         "text": "Lanyard. Oh, that's cruel. That's perfect. I'll put it on the board under all the saints and see who notices."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Siobhán Kerrigan",
+         "text": "Kevin. Like St Kevin of Glendalough, who let a blackbird nest in his hand. Yes. Kevin."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "do": "say",
+     "who": "Siobhán Kerrigan",
+     "text": "I bake for the open days now. My granny's barmbrack. Have some, and the recipe. If you find the ring, you are not marrying the donkey."
+    },
+    {
+     "do": "recipe",
+     "id": "barmbrack"
+    },
+    {
+     "do": "give_item",
+     "item": "barmbrack",
+     "n": 2
+    },
+    {
+     "do": "standing",
+     "nation": "ireland",
+     "amount": 3
+    },
+    {
+     "do": "set",
+     "flag": "keeper_side_kerrigan"
+    }
+   ]
+  }
+ ],
+ "keeper_side_strachan": [
+  {
+   "do": "if",
+   "flag": "keeper_side_strachan",
+   "then": [
+    {
+     "do": "say",
+     "who": "Morag Strachan",
+     "text": "Forty-two rescues this year. One was the same man from Surrey, twice. He's bought boots now. Progress."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "",
+     "text": "Morag Strachan is on a bench on the High Street in her waxed jacket, a mountain rescue badge sewn on the arm, muttering at a notebook."
+    },
+    {
+     "do": "say",
+     "who": "Morag Strachan",
+     "text": "Don't look so surprised. Mountain rescue. Tuesdays, and whenever a man from Surrey goes up Ben Nevis in flip-flops. Which is most days."
+    },
+    {
+     "do": "say",
+     "who": "Morag Strachan",
+     "text": "And I'm learning Gaelic. Years drawing lines on maps of places I couldn't even say. Hear me out: Tha mi duilich. It means 'I'm sorry'."
+    },
+    {
+     "do": "choice",
+     "text": "How was that?",
+     "options": [
+      "Spot on",
+      "Say it like you mean it"
+     ],
+     "set": "keeper_side_pick"
+    },
+    {
+     "do": "if",
+     "flag": "keeper_side_pick",
+     "eq": 0,
+     "then": [
+      {
+       "do": "say",
+       "who": "Morag Strachan",
+       "text": "Spot on. Liar. Kind liar. I'll take it. I've a lot of people to say it to, and the hills are top of the list."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Morag Strachan",
+       "text": "Like I mean it. Aye. That was always the hard bit. Tha mi duilich. ...There. That one I meant."
+      }
+     ]
+    },
+    {
+     "do": "say",
+     "who": "Morag Strachan",
+     "text": "Have this rowan sprig. The old folk tied it over the byre to keep harm off. I spent years being the harm. Now I'm handing them out."
+    },
+    {
+     "do": "give_item",
+     "item": "rowan_sprig"
+    },
+    {
+     "do": "standing",
+     "nation": "scotland",
+     "amount": 3
+    },
+    {
+     "do": "set",
+     "flag": "keeper_side_strachan"
+    }
+   ]
+  }
+ ],
+ "keeper_side_garside": [
+  {
+   "do": "if",
+   "flag": "keeper_side_garside",
+   "then": [
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "I've packed. Unpacked. Packed again. The suitcase has been as far as the front step. Small steps, {player}."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "",
+     "text": "Professor Garside is on a bench in the middle of Macclesfield with a flask, a packet of custard creams and, for once, nowhere to be."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "{player}. Sit. Have a biscuit. This is the first Tuesday in twenty years I haven't had to keep the old places safe. I don't know what to do with my hands."
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "Twenty years as Champion and never one holiday. Every time I packed a bag, something woke up and growled. So. A whole fortnight. Where should I go?"
+    },
+    {
+     "do": "choice",
+     "text": "Where should Garside go?",
+     "options": [
+      "Somewhere hot, with a pool",
+      "A caravan in Wales",
+      "Nowhere. Feet up at home"
+     ],
+     "set": "keeper_side_pick"
+    },
+    {
+     "do": "if",
+     "flag": "keeper_side_pick",
+     "eq": 0,
+     "then": [
+      {
+       "do": "say",
+       "who": "Prof. Garside",
+       "text": "Hot, with a pool. I'll burn like a crumpet in four minutes, but I'll be a happy crumpet."
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "keeper_side_pick",
+       "eq": 1,
+       "then": [
+        {
+         "do": "say",
+         "who": "Prof. Garside",
+         "text": "A caravan in Wales. Rain on the roof, a kettle, and Eluned an hour away to tell me off. Perfect."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Prof. Garside",
+         "text": "Feet up in my own kitchen, with nobody ringing the wireless. Do you know, that might be the most daring thing of all."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "do": "say",
+     "who": "Prof. Garside",
+     "text": "Here. I nailed this horseshoe over the Champion's seat at the Moot twenty years ago, points up so the luck couldn't run out. It didn't. It's yours now. So's the seat."
+    },
+    {
+     "do": "give_item",
+     "item": "horseshoe"
+    },
+    {
+     "do": "standing",
+     "nation": "england",
+     "amount": 3
+    },
+    {
+     "do": "set",
+     "flag": "keeper_side_garside"
+    }
+   ]
+  }
+ ]
+}

@@ -174,6 +174,13 @@ func _dev_boot() -> void:
 			if a.begins_with("--rewild="):  # dev: every rewilding site at this stage, 0..3 (screenshots)
 				for s in Rewild.sites():
 					data.set_flag(Rewild.flag_key(str(s.id)), int(a.substr(9)))
+		for a in DevArgs.user_args():
+			if a.begins_with("--flag="):  # dev: story flags set before the zone loads (a postcard waiting, a side story)
+				for f in a.substr(7).split(",", false):
+					data.set_flag(f, true)
+			elif a.begins_with("--badges="):  # dev: this many Stones held
+				for i in int(a.substr(9)):
+					data.badges.append("dev_%d" % i)
 		if args.ride != "":
 			data.bag["bike"] = 1
 			data.badges = ["brook", "urban", "stone", "iron"] if args.ride == "lantern" else ["brook", "urban", "stone"]
