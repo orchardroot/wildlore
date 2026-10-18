@@ -74,9 +74,10 @@ static func evolution_target(c: Creature, ctx := {}) -> String:
 	return str(evo.to)
 
 ## Item evolutions ({"to", "item"}): the target if this item triggers one for this creature, else "".
+## A levelled evolution may also name an "early_item" that brings it on at any level.
 static func evolution_target_with_item(c: Creature, item_id: String) -> String:
 	var evo = c.species.get("evolves")
-	if evo is Dictionary and evo.has("item") and str(evo.item) == item_id:
+	if evo is Dictionary and ((evo.has("item") and str(evo.item) == item_id) or str(evo.get("early_item", "")) == item_id):
 		return str(evo.to)
 	return ""
 

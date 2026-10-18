@@ -60,6 +60,7 @@ static func from_dict(d: Dictionary, dex: Dex) -> Creature:
 	c.held = str(d.get("held", ""))
 	c.variant = str(d.get("variant", ""))
 	c.reset_stages()
+	c.hp = mini(c.hp, c.max_hp())  # base stats can change between versions; never above the (new) max
 	return c
 
 func to_dict() -> Dictionary:

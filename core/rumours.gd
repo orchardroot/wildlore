@@ -68,8 +68,8 @@ const WEATHER_PHRASES := {
 const TIME_ORDER := ["dawn", "day", "dusk", "night"]
 const WEATHER_ORDER := ["clear", "sunshine", "drizzle", "downpour", "fog", "gale", "frost"]
 
-## "in the fog at dusk", "after dark", or "" for any time, any weather.
-static func when_phrase(times: Array, weathers: Array) -> String:
+## "in the fog at dusk", "after dark in winter", or "" for any time, any weather, any season.
+static func when_phrase(times: Array, weathers: Array, seasons: Array = []) -> String:
 	var parts := []
 	var w := []
 	var in_the := []  # "in the rain or fog" rather than "in the rain or in the fog"
@@ -90,6 +90,11 @@ static func when_phrase(times: Array, weathers: Array) -> String:
 	if not t.is_empty() and t.size() < 4:
 		var key := ",".join(t)
 		parts.append(str(TIME_PHRASES[key]) if TIME_PHRASES.has(key) else " or ".join(t.map(func(x): return TIME_PHRASES[x])))
+	var s := Calendar.SEASONS.filter(func(x): return x in seasons)
+	if not s.is_empty() and s.size() < 4:
+		if s == ["spring", "winter"]:  # the year turns at New Year, not in March
+			s = ["winter", "spring"]
+		parts.append("in " + " and ".join(s) if s.size() < 3 else "except in " + str(Calendar.SEASONS.filter(func(x): return x not in s)[0]))
 	return " ".join(parts)
 
 ## A creature you've never seen: "something small and leaf green". Seen: "a Pepperling".
@@ -119,13 +124,13 @@ static func _pick(key: String, n: int) -> int:
 	return posmod(hash(key), n) if n > 0 else 0
 
 ## The gossip line for one encounter entry.
-static func text(species: String, info: Dictionary, seen: bool, place: String, table: String, times: Array, weathers: Array) -> String:
+static func text(species: String, info: Dictionary, seen: bool, place: String, table: String, times: Array, weathers: Array, seasons: Array = []) -> String:
 	var ok := TEMPLATES.filter(func(t): return t[0] == "any" or t[0] == table)
 	var tpl: String = ok[_pick(species + "@" + place, ok.size())][1]
 	var pool: Array = SPEAKERS.get(table, SPEAKERS.grass)
 	var who: String = pool[_pick(place + "#" + species, pool.size())]
 	var what := describe(info, seen)
-	var when := when_phrase(times, weathers)
+	var when := when_phrase(times, weathers, seasons)
 	var thing := what.substr(0, 1).to_upper() + what.substr(1)
 	if not seen:  # "Something leaf green", without the size
 		var types: Array = info.get("types", [])
@@ -175,7 +180,8 @@ static func build(data: GameStateData, idx: Dictionary, species_info: Dictionary
 			var sp: String = e.species
 			if data.caught.has(sp) or not species_info.has(sp):
 				continue
-			if not best.has(sp) or d < best[sp].dist or (d == best[sp].dist and id < best[sp].zone):
+			var year_round: bool = (e.get("season", []) as Array).is_empty()
+			if not best.has(sp) or d < best[sp].dist or (d == best[sp].dist and (id < best[sp].zone or (id == best[sp].zone and year_round))):
 				best[sp] = {"zone": id, "entry": e, "dist": d}
 	var out := []
 	for sp in best:
@@ -183,6 +189,7 @@ static func build(data: GameStateData, idx: Dictionary, species_info: Dictionary
 		var z: Dictionary = idx.zones[b.zone]
 		var seen := data.seen.has(sp)
 		out.append({"species": sp, "zone": b.zone, "place": z.name, "region": z.region, "seen": seen, "dist": b.dist,
-			"text": text(sp, species_info[sp], seen, z.name, "cave" if z.kind == "interior" else b.entry.table, b.entry.time, b.entry.weather)})
+			"text": text(sp, species_info[sp], seen, z.name, "cave" if z.kind == "interior" else b.entry.table, b.entry.time, b.entry.weather,
+				b.entry.get("season", []))})
 	out.sort_custom(func(a, b): return a.dist < b.dist if a.dist != b.dist else a.species < b.species)
 	return out

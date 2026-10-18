@@ -379,6 +379,7 @@ func _conclude() -> void:
 				data.money += money
 				TrainerStats.earned(data, money)
 				await _say(["%s got £%d for winning!" % [who, money]], 0.4)
+			for l in (Gleaning.after_wild_win(bag, battle.parties[Battle.FOE], battle.rng, items) if is_wild() else []): await _say([l])
 			result = {"result": "win", "caught": null, "money": money}
 		Battle.FOE:
 			await _say(["%s is out of creatures that can fight!" % who], 0.5)

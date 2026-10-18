@@ -1,7 +1,7 @@
 class_name Encounters
 extends RefCounted
 ## Wild encounters: a 1 in 10 chance per step in tall grass (1 in 20 wading), then a weighted pick among the zone's entries
-## that suit the time of day and weather. A short grace period follows each battle.
+## that suit the time of day, the weather and the season. A short grace period follows each battle.
 
 const STEP_CHANCE := 10.0
 const WATER_STEP_CHANCE := 5.0   # wading is a gentler way to meet things
@@ -41,9 +41,15 @@ static func autosave_after(result: Dictionary) -> bool:
 
 ## An entry with "requires_flag" only turns up once that flag is at least "flag_at_least" (default 1), e.g. a
 ## creature that comes back to a rewilded site (Rewild); with no flags given, gated entries never do.
-static func candidates(zone: ZoneData, kind: String, phase: String, weather: String, flags := {}) -> Array:
+## An entry with a "season" list only turns up in those seasons (the real-date season, see Calendar; `season`
+## "" means today's).
+static func candidates(zone: ZoneData, kind: String, phase: String, weather: String, flags := {}, season := "") -> Array:
 	var out := []
+	var now := season if season != "" else Calendar.season_today()
 	for e in zone.encounters.get(kind, []):
+		var seasons: Array = e.get("season", [])
+		if not seasons.is_empty() and now not in seasons:
+			continue
 		if e.has("requires_flag"):
 			var v: Variant = flags.get(str(e.requires_flag))
 			if typeof(v) not in [TYPE_INT, TYPE_FLOAT] or float(v) < float(e.get("flag_at_least", 1)):
