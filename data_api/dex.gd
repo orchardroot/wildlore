@@ -10,6 +10,11 @@ var _order: Array = []
 
 const ORDER_PATH := "res://data/dex_order.json"
 
+## Species marked "appendix": true (the 2.2 autumn fungi) are a bonus section after the original 200: they're in
+## the Fieldbook and catchable, but the milestones, the diploma and the region stamps only count the rest.
+## Kept static (ids are global) so code holding only the save, like FieldbookGoals, can ask.
+static var _appendix := {}
+
 static func load_default() -> Dex:
 	var dex := load_dir(DEFAULT_DIR)
 	if FileAccess.file_exists(ORDER_PATH):
@@ -78,6 +83,8 @@ func _add(sp: Dictionary) -> void:
 	else:
 		_order.append(id)
 	_species[id] = sp
+	if sp.get("appendix", false) == true:
+		_appendix[id] = true
 
 func get_species(id: String) -> Dictionary:
 	return _species.get(id, {})
@@ -87,3 +94,22 @@ func has(id: String) -> bool:
 
 func ids() -> Array:
 	return _order.duplicate()
+
+## The Fieldbook proper (the original 200), in dex order.
+func core_ids() -> Array:
+	return _order.filter(func(id): return not _appendix.has(id))
+
+## The appendix species, in dex order.
+func appendix_ids() -> Array:
+	return _order.filter(func(id): return _appendix.has(id))
+
+static func in_appendix(id: String) -> bool:
+	return _appendix.has(id)
+
+## How many of a caught (or seen) set are in the Fieldbook proper.
+static func core_count(ids: Dictionary) -> int:
+	var n := 0
+	for id in ids:
+		if not _appendix.has(id):
+			n += 1
+	return n

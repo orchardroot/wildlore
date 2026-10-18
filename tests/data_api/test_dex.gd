@@ -35,3 +35,39 @@ func test_dex_follows_dex_order_file() -> void:
 	assert_eq(ids[3], "holtling")
 	assert_eq(ids[6], "kindlet")
 	assert_eq(ids.size(), Dex.load_default().ids().size())
+
+# --- 2.2: the autumn fungi live in a Fieldbook appendix, after the original 200
+
+const FUNGI := ["flyling", "amanitar", "puffkin", "grandpuff", "whiffhorn", "scorchbun", "sulphurhen"]
+
+func test_the_original_200_stay_the_fieldbook_proper() -> void:
+	assert_eq(dex.core_ids().size(), 200, "the diploma and milestones count these")
+	assert_eq(dex.appendix_ids(), FUNGI, "the appendix, in dex order")
+	assert_eq(dex.ids().size(), 200 + FUNGI.size())
+	assert_eq(dex.ids().slice(200), FUNGI, "the appendix comes after the 200")
+	for id in FUNGI:
+		assert_true(Dex.in_appendix(id), id)
+	assert_false(Dex.in_appendix("spikkin"))
+
+func test_core_count_ignores_the_appendix() -> void:
+	assert_eq(Dex.core_count({"spikkin": true, "flyling": true, "grandpuff": true}), 1)
+	assert_eq(Dex.core_count({}), 0)
+
+func test_fungi_turn_up_only_in_autumn() -> void:
+	var where := {}
+	for path in JsonUtil.list_json("res://data/zones"):
+		var z = JsonUtil.read(path)
+		if not z is Dictionary or not z.get("encounters") is Dictionary:
+			continue
+		for table in z.encounters:
+			for e in z.encounters[table]:
+				if str(e.get("species", "")) in FUNGI:
+					assert_eq(e.get("season", []), ["autumn"], "%s in %s" % [e.species, z.id])
+					where[e.species] = where.get(e.species, []) + [z.id]
+	for id in FUNGI:
+		assert_true(where.get(id, []).size() >= 3, "%s turns up in a few places: %s" % [id, where.get(id, [])])
+		var hab: Array = dex.get_species(id).habitat.duplicate()
+		var got: Array = where.get(id, []).duplicate()
+		hab.sort()
+		got.sort()
+		assert_eq(hab, got, "%s: its Fieldbook habitat is where it's met" % id)

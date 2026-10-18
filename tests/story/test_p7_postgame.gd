@@ -276,7 +276,7 @@ func test_keepsakes_are_key_items() -> void:
 
 func test_garside_counts_the_fieldbook_before_200() -> void:
 	var h := _host()
-	var ids: Array = h.dex.ids()
+	var ids: Array = h.dex.core_ids()  # the Fieldbook proper; the 2.2 appendix is a bonus on top
 	assert_eq(ids.size(), 200)
 	for i in 199:
 		h.data.mark_caught(ids[i])
@@ -288,7 +288,7 @@ func test_garside_counts_the_fieldbook_before_200() -> void:
 
 func test_garside_awards_the_diploma_at_200_once() -> void:
 	var h := _host()
-	for id in h.dex.ids():
+	for id in h.dex.core_ids():  # all 200, without the appendix
 		h.data.mark_caught(id)
 	h.choices = [0, 0]
 	await _run(h, "macc_fieldstation", "garside", "garside")

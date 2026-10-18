@@ -234,7 +234,7 @@ static func next_objective(d: GameStateData, total := 0, o := {}, sides: Array =
 			continue
 		var out: Dictionary = e.duplicate()
 		var legends: Array = e.get("all", [])
-		out["text"] = str(e.get("text", "")).replace("{caught}", str(d.caught.size())).replace("{total}", str(total)) \
+		out["text"] = str(e.get("text", "")).replace("{caught}", str(FieldbookGoals.caught_count(d))).replace("{total}", str(total)) \
 			.replace("{legends}", str(legends.filter(func(f): return _done(d, str(f))).size()))
 		var side := SideStories.next_hint(d, sides) if need.is_empty() else {}
 		if not side.is_empty():  # nothing else left: someone in town would like a word

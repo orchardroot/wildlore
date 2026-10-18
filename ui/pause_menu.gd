@@ -115,7 +115,7 @@ func _refresh() -> void:
 func _refresh_next() -> void:
 	UIKit.clear(_next)
 	var d: GameStateData = Game.data
-	var o := MenuLogic.next_objective(d, Game.dex.ids().size())
+	var o := MenuLogic.next_objective(d, Game.dex.core_ids().size())
 	if not o.is_empty():
 		var head := HBoxContainer.new()
 		head.add_child(UIKit.label("Still to do" if o.get("postgame", false) else "Where next?", 22, UIKit.MUTED))

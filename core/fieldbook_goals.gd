@@ -29,17 +29,21 @@ static func collected(data: GameStateData, n: int) -> bool:
 		return true
 	return n == 200 and data.flag("fieldbook_diploma_given") == true
 
+## Catches that count towards the milestones: the Fieldbook proper, not the appendix (see Dex.in_appendix).
+static func caught_count(data: GameStateData) -> int:
+	return Dex.core_count(data.caught)
+
 ## The lowest milestone reached but not yet collected from Garside, or 0.
 static func pending(data: GameStateData) -> int:
 	for n in MILESTONES:
-		if data.caught.size() >= n and not collected(data, n):
+		if caught_count(data) >= n and not collected(data, n):
 			return n
 	return 0
 
 ## The next milestone not yet reached, or 0 when they all are.
 static func next_goal(data: GameStateData) -> int:
 	for n in MILESTONES:
-		if data.caught.size() < n:
+		if caught_count(data) < n:
 			return n
 	return 0
 
@@ -52,7 +56,7 @@ static func hint(data: GameStateData) -> String:
 		return "Professor Garside has something for you at the Field Station: you've caught %d." % p
 	var n := next_goal(data)
 	if n > 0:
-		return "Catch %d more for Professor Garside's next Fieldbook reward, at %d caught (%d so far)." % [n - data.caught.size(), n, data.caught.size()]
+		return "Catch %d more for Professor Garside's next Fieldbook reward, at %d caught (%d so far)." % [n - caught_count(data), n, caught_count(data)]
 	return ""
 
 ## [{region, name, caught, total, complete}] for every region with wild creatures, in a stable order
@@ -70,7 +74,7 @@ static func region_progress(data: GameStateData, idx: Dictionary) -> Array:
 		return ia < ib)
 	var out := []
 	for r in regs:
-		var sp: Array = idx.region_species[r]
+		var sp: Array = idx.region_species[r].filter(func(s): return not Dex.in_appendix(s))  # bonus species don't hold a stamp back
 		var got := sp.filter(func(s): return data.caught.has(s)).size()
 		out.append({"region": r, "name": region_name(r), "caught": got, "total": sp.size(), "complete": sp.size() > 0 and got >= sp.size()})
 	return out

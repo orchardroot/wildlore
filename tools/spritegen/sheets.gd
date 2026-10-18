@@ -59,3 +59,14 @@ static func preview(ids: Array, scale: int) -> Image:
 			fr.blit_rect(sheet, Rect2i(0, 0, 96, 96), Vector2i(0, 0))
 			cells.append(fr)
 	return _grid(cells, 96, 96, 4, scale)
+
+## Fronts and backs side by side (first frame each), `cols` pairs per row. Used to check back views.
+static func pairs(ids: Array, scale := 2, cols := 4) -> Image:
+	var cells: Array = []
+	for id in ids:
+		for which in ["front", "back"]:
+			var sheet := _load("res://art/sprites/creatures/%s_%s.png" % [id, which])
+			var fr := Image.create(96, 96, false, Image.FORMAT_RGBA8)
+			fr.blit_rect(sheet, Rect2i(0, 0, 96, 96), Vector2i(0, 0))
+			cells.append(fr)
+	return _grid(cells, 96, 96, cols * 2, scale)

@@ -9,16 +9,6 @@
  },
  "props": [
   {
-   "type": "lamp_post",
-   "x": 6,
-   "y": 2
-  },
-  {
-   "type": "lamp_post",
-   "x": 10,
-   "y": 2
-  },
-  {
    "type": "bench",
    "x": 3,
    "y": 11
@@ -27,26 +17,6 @@
    "type": "bench",
    "x": 13,
    "y": 11
-  },
-  {
-   "type": "bench",
-   "x": 3,
-   "y": 3
-  },
-  {
-   "type": "bench",
-   "x": 13,
-   "y": 3
-  },
-  {
-   "type": "planter",
-   "x": 2,
-   "y": 7
-  },
-  {
-   "type": "planter",
-   "x": 14,
-   "y": 7
   },
   {
    "type": "bollard",
@@ -57,6 +27,205 @@
    "type": "bollard",
    "x": 15,
    "y": 12
+  },
+  {
+   "type": "stadium_stand",
+   "x": 1,
+   "y": 1,
+   "variant": 3
+  },
+  {
+   "type": "stadium_stand",
+   "x": 2,
+   "y": 1,
+   "variant": 6
+  },
+  {
+   "type": "stadium_stand",
+   "x": 3,
+   "y": 1,
+   "variant": 9
+  },
+  {
+   "type": "stadium_stand",
+   "x": 4,
+   "y": 1,
+   "variant": 12
+  },
+  {
+   "type": "stadium_stand",
+   "x": 5,
+   "y": 1,
+   "variant": 15
+  },
+  {
+   "type": "stadium_stand",
+   "x": 6,
+   "y": 1,
+   "variant": 18
+  },
+  {
+   "type": "stadium_stand",
+   "x": 7,
+   "y": 1,
+   "variant": 21
+  },
+  {
+   "type": "stadium_stand",
+   "x": 8,
+   "y": 1,
+   "variant": 24
+  },
+  {
+   "type": "stadium_stand",
+   "x": 9,
+   "y": 1,
+   "variant": 0
+  },
+  {
+   "type": "stadium_stand",
+   "x": 10,
+   "y": 1,
+   "variant": 3
+  },
+  {
+   "type": "stadium_stand",
+   "x": 11,
+   "y": 1,
+   "variant": 6
+  },
+  {
+   "type": "stadium_stand",
+   "x": 12,
+   "y": 1,
+   "variant": 9
+  },
+  {
+   "type": "stadium_stand",
+   "x": 13,
+   "y": 1,
+   "variant": 12
+  },
+  {
+   "type": "stadium_stand",
+   "x": 14,
+   "y": 1,
+   "variant": 15
+  },
+  {
+   "type": "stadium_stand",
+   "x": 15,
+   "y": 1,
+   "variant": 18
+  },
+  {
+   "type": "rugby_posts",
+   "x": 7,
+   "y": 2,
+   "variant": 0
+  },
+  {
+   "type": "rugby_posts",
+   "x": 9,
+   "y": 2,
+   "variant": 1
+  },
+  {
+   "type": "pitch_line",
+   "x": 2,
+   "y": 2,
+   "variant": 13,
+   "walk": true
+  },
+  {
+   "type": "pitch_line",
+   "x": 2,
+   "y": 6,
+   "variant": 13,
+   "walk": true
+  },
+  {
+   "type": "pitch_line",
+   "x": 2,
+   "y": 9,
+   "variant": 13,
+   "walk": true
+  },
+  {
+   "type": "floodlight",
+   "x": 2,
+   "y": 2
+  },
+  {
+   "type": "floodlight",
+   "x": 14,
+   "y": 2
+  },
+  {
+   "type": "puddle",
+   "x": 4,
+   "y": 5,
+   "variant": 0,
+   "walk": true
+  },
+  {
+   "type": "puddle",
+   "x": 11,
+   "y": 4,
+   "variant": 1,
+   "walk": true
+  },
+  {
+   "type": "puddle",
+   "x": 6,
+   "y": 8,
+   "variant": 2,
+   "walk": true
+  },
+  {
+   "type": "puddle",
+   "x": 12,
+   "y": 8,
+   "variant": 3,
+   "walk": true
+  },
+  {
+   "type": "puddle",
+   "x": 3,
+   "y": 9,
+   "variant": 4,
+   "walk": true
+  },
+  {
+   "type": "puddle",
+   "x": 9,
+   "y": 7,
+   "variant": 5,
+   "walk": true
+  },
+  {
+   "type": "flagpole",
+   "x": 1,
+   "y": 10,
+   "variant": 0
+  },
+  {
+   "type": "flagpole",
+   "x": 15,
+   "y": 10,
+   "variant": 0
+  },
+  {
+   "type": "bench",
+   "x": 1,
+   "y": 6,
+   "rot": 90
+  },
+  {
+   "type": "bench",
+   "x": 15,
+   "y": 6,
+   "rot": 270
   }
  ],
  "warps": [
@@ -97,10 +266,76 @@
    "facing": "right",
    "move": "still",
    "trainer": "cerys_arena"
+  },
+  {
+   "id": "arena_choir",
+   "sprite": "choir_singer",
+   "x": 4,
+   "y": 11,
+   "facing": "up",
+   "move": "still",
+   "text": "We've sung Calon Lân twice and nobody's kicked off yet. The rain's joining in on the low notes.",
+   "hide_if": "trainer_keeper_rhys"
+  },
+  {
+   "id": "arena_choir_won",
+   "sprite": "choir_singer",
+   "x": 4,
+   "y": 11,
+   "facing": "up",
+   "move": "still",
+   "text": "We sang Rhys on and we'll sing you off. Bread of Heaven, feed me till I want no more. Or a pasty.",
+   "show_if": "trainer_keeper_rhys"
+  },
+  {
+   "id": "arena_fan",
+   "sprite": "rugby_player",
+   "x": 12,
+   "y": 11,
+   "facing": "up",
+   "move": "still",
+   "text": "Rhys trains in this every day. Sideways rain, he calls it a light mist. Watch his lineout.",
+   "hide_if": "trainer_keeper_rhys"
+  },
+  {
+   "id": "arena_fan_won",
+   "sprite": "rugby_player",
+   "x": 12,
+   "y": 11,
+   "facing": "up",
+   "move": "still",
+   "text": "Never seen Rhys knocked on like that. I'll be telling it in the clubhouse till Easter.",
+   "show_if": "trainer_keeper_rhys"
+  },
+  {
+   "id": "arena_mam",
+   "sprite": "villager_4",
+   "x": 15,
+   "y": 4,
+   "facing": "left",
+   "move": "still",
+   "text": "I've brought a flask, a brolly and a spare brolly. The last brolly went to Bristol without me.",
+   "hide_if": "trainer_keeper_rhys"
+  },
+  {
+   "id": "arena_mam_won",
+   "sprite": "villager_4",
+   "x": 15,
+   "y": 4,
+   "facing": "left",
+   "move": "still",
+   "text": "The flask's for you, love. You've earned it. It's mostly tea.",
+   "show_if": "trainer_keeper_rhys"
   }
  ],
  "encounters": {},
- "signs": [],
+ "signs": [
+  {
+   "x": 6,
+   "y": 12,
+   "text": "CARDIFF ARENA. Home of Keeper Rhys and the Storm Stone. Kick-off when you're ready. The ground staff apologise for the weather, which is not their fault, whatever the forum says."
+  }
+ ],
  "spawn": [
   8,
   11
@@ -109,17 +344,27 @@
  "rows": [
   "xxxxxxxxxxxxxxxxx",
   "x|||||||||||||||x",
-  "x|+++++++++++++|x",
-  "x|.............|x",
-  "x|.............|x",
-  "x|.............|x",
-  "x|.............|x",
-  "x|.............|x",
-  "x|.............|x",
-  "x|.............|x",
+  "x|bbbbbbbbbbbbb|x",
+  "x|aaaaaaaaaaaaa|x",
+  "x|bbbbbbbbbbbbb|x",
+  "x|aaaaaaaaaaaaa|x",
+  "x|bbbbbbbbbbbbb|x",
+  "x|aaaaaaaaaaaaa|x",
+  "x|bbbbbbbbbbbbb|x",
+  "x|aaaaaaaaaaaaa|x",
   "x|+++++++++++++|x",
   "x|||||||||||||||x",
   "x|||||||D|||||||x",
   "xxxxxxxxxxxxxxxxx"
- ]
+ ],
+ "legend_extra": {
+  "a": {
+   "tile": "grass",
+   "colour": "#335a2c"
+  },
+  "b": {
+   "tile": "grass",
+   "colour": "#3b6332"
+  }
+ }
 }

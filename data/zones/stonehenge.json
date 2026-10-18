@@ -491,6 +491,50 @@
    "variant": "blackthorn",
    "x": 55,
    "y": 55
+  },
+  {
+   "type": "brazier",
+   "x": 27,
+   "y": 26
+  },
+  {
+   "type": "brazier",
+   "x": 33,
+   "y": 26
+  },
+  {
+   "type": "brazier",
+   "x": 27,
+   "y": 32
+  },
+  {
+   "type": "brazier",
+   "x": 33,
+   "y": 32
+  },
+  {
+   "type": "flagpole",
+   "x": 22,
+   "y": 27,
+   "variant": 0
+  },
+  {
+   "type": "flagpole",
+   "x": 32,
+   "y": 22,
+   "variant": 1
+  },
+  {
+   "type": "flagpole",
+   "x": 28,
+   "y": 36,
+   "variant": 2
+  },
+  {
+   "type": "flagpole",
+   "x": 38,
+   "y": 31,
+   "variant": 4
   }
  ],
  "warps": [
@@ -678,6 +722,66 @@
    "script": "moot_open",
    "name": "Moot Herald",
    "show_if": "champion"
+  },
+  {
+   "id": "moot_druid",
+   "sprite": "druid",
+   "x": 26,
+   "y": 41,
+   "facing": "up",
+   "move": "still",
+   "text": "The Moot only sits once a generation. My nan saw the last one. She said the Winds were showing off.",
+   "hide_if": "champion"
+  },
+  {
+   "id": "moot_druid_won",
+   "sprite": "druid",
+   "x": 26,
+   "y": 41,
+   "facing": "up",
+   "move": "still",
+   "text": "A new Champion! I'll ring my nan. She'll say the last one was better. She's wrong.",
+   "show_if": "champion"
+  },
+  {
+   "id": "moot_reveller",
+   "sprite": "festival_goer",
+   "x": 34,
+   "y": 41,
+   "facing": "up",
+   "move": "still",
+   "text": "I came for the solstice and nobody told me there'd be a tournament. Best mistake I've made.",
+   "hide_if": "champion"
+  },
+  {
+   "id": "moot_reveller_won",
+   "sprite": "festival_goer",
+   "x": 34,
+   "y": 41,
+   "facing": "up",
+   "move": "still",
+   "text": "That's the Champion! Can I have a selfie? With the stones. You can be in it too.",
+   "show_if": "champion"
+  },
+  {
+   "id": "moot_farmer",
+   "sprite": "farmer",
+   "x": 18,
+   "y": 30,
+   "facing": "right",
+   "move": "still",
+   "text": "The Winds get sharp when the Moot sits. Last time my hat ended up in Salisbury.",
+   "hide_if": "champion"
+  },
+  {
+   "id": "moot_farmer_won",
+   "sprite": "farmer",
+   "x": 18,
+   "y": 30,
+   "facing": "right",
+   "move": "still",
+   "text": "The Winds have gone soft and warm. I'd call that a seal of approval. My hat's stayed on.",
+   "show_if": "champion"
   }
  ],
  "encounters": {
@@ -819,11 +923,11 @@
   "TTccccccccccccfcccccmmmmmmmmmmmmmmmmmmmmmcccccccccccccccccTT",
   "TTccccccccccccccccccmmmmmmmmpppppmmmmmmmmfccfcccccccccccccTT",
   "TTcccccccccccccccccmmmmmmmmpppppppmmmmmmmmccccccccfcccccccTT",
-  "TTcccccccccccccccccmmmmmmmpppppppppmmmmmmmccfccccccccccfccTT",
-  "TTcgggggggcccccccccmmmmmmmpppppppppmmmmmpppppppppppppppppppp",
-  "TTcgggggggcccccccccmmmmpmmpppppppppmmpmmpppppppppppppppppppp",
-  "TTcgggggggcccccfcccmmmmmmmpppppppppmmmmmpppppppppppppppppppp",
-  "TTcgggggggcccccccccmmmmmmmpppppppppmmmmmmmccccccccccccccccTT",
+  "TTcccccccccccccccccmmmmmmmpppkkkpppmmmmmmmccfccccccccccfccTT",
+  "TTcgggggggcccccccccmmmmmmmppkkkkkppmmmmmpppppppppppppppppppp",
+  "TTcgggggggcccccccccmmmmpmmppkkkkkppmmpmmpppppppppppppppppppp",
+  "TTcgggggggcccccfcccmmmmmmmppkkkkkppmmmmmpppppppppppppppppppp",
+  "TTcgggggggcccccccccmmmmmmmpppkkkpppmmmmmmmccccccccccccccccTT",
   "TTcgggggggcccccccccmmmmmmmmpppppppmmmmmmmmccccccccccccccccTT",
   "TTcgggggggccccccccccmmmmmmmmpppppmmmmmmmmccccfggggggggggccTT",
   "TTccccccccccccccccccmmmmmmmmmmmmmmmmmmmmmcccccggggggggggccTT",
@@ -928,6 +1032,10 @@
   "m": {
    "tile": "grass",
    "colour": "#b4ba74"
+  },
+  "k": {
+   "tile": "path",
+   "colour": "#ece6d4"
   }
  }
 }

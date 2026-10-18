@@ -219,7 +219,12 @@ const POINT_PROPS := ["lamp_post", "bench", "bush", "birch", "oak", "pine", "roc
 	"buoy", "lighthouse", "statue", "harp", "clock_tower", "shard", "buffer_stop", "tunnel_portal",
 	"bunting", "flagpole", "washing_line", "hanging_basket", "rug", "fireplace", "wall_picture", "clock", "kitchen_dresser",
 	"fryer", "menu_board", "piano", "telescope", "plant_stand", "sofa", "display_case", "cascade", "sheep",
-	"field_gate", "limestone_pavement", "window", "cat_bowl", "owl_perch", "kettle_table", "specimen_shelf", "wall_map"]
+	"field_gate", "limestone_pavement", "window", "cat_bowl", "owl_perch", "kettle_table", "specimen_shelf", "wall_map",
+	# the Keeper venues (Dressing.VENUE_PROPS)
+	"stadium_stand", "rugby_posts", "floodlight", "puddle", "pitch_line", "gantry_crane", "ship_ribs", "steel_plates",
+	"hall_stage", "tea_urn", "stacked_chairs", "currach", "lobster_pots", "harbour_arch", "fae_lantern", "toadstool_ring",
+	"clootie_tree", "curling_house", "curling_stones", "brick_arch", "band_kit", "stage_light", "slate_stack", "slate_wagon",
+	"crypt_arch", "candelabra", "tomb_chest", "brazier", "city_window", "enclosure_banner", "creature_cage"]
 ## Cloth meshes that ripple (flutter shader) and glow meshes that add light (firelight shader).
 const CLOTH := ["bunting", "flag", "washing_line"]
 const FLOATING := ["boat", "canal_boat", "buoy"]
@@ -315,6 +320,8 @@ static func _props(z: ZoneData, root: Node3D, rng: RandomNumberGenerator) -> voi
 					_add(buckets, "flag:%d" % variant, tr)
 				"fireplace":
 					_add(buckets, "fireplace_fire:0", tr)
+			if Dressing.VENUE_GLOWS.has(pt):
+				_add(buckets, "%s:%d" % [Dressing.VENUE_GLOWS[pt], variant], tr)
 	for key in buckets:
 		var parts: PackedStringArray = key.split(":")
 		var mesh: ArrayMesh = _ctor(parts[0], int(parts[1]))
@@ -338,7 +345,7 @@ static func _props(z: ZoneData, root: Node3D, rng: RandomNumberGenerator) -> voi
 		elif parts[0] == "lamp_pool":
 			mmi.material_override = Meshes.pool
 			mmi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-		elif parts[0] == "fireplace_fire":
+		elif parts[0] == "fireplace_fire" or parts[0] in Dressing.VENUE_GLOWS.values():
 			mmi.material_override = Meshes.firelight
 			mmi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 		elif parts[0] in CLOTH:
@@ -538,6 +545,8 @@ static func _ctor(name: String, variant: int) -> ArrayMesh:
 			return Dressing.specimen_shelf(variant)
 		"wall_map":
 			return Dressing.wall_map()
+	if name in Dressing.VENUE_PROPS or name in Dressing.VENUE_GLOWS.values():
+		return Dressing.venue_prop(name, variant)
 	push_warning("ZoneBuilder: unknown prop mesh '%s'" % name)
 	return Meshes.rock(0)
 

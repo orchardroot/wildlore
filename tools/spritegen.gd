@@ -1,6 +1,8 @@
 extends SceneTree
 ## Sprite generator. Usage:
 ##   godot --headless --path . -s res://tools/spritegen.gd -- [id ...] [--sheets] [--scale=N] [--no-write]
+##   ... -- [id ...] --pairs=/abs/out.png [--first=N] [--skip=M]   fronts beside backs
+##       (N species in dex order after the first M) to check back views
 ## No ids renders every recipe in art/recipes/. --sheets also writes the contact sheets
 ## docs/screens/t4-creatures.png and t4-chars.png. Output is deterministic.
 
@@ -21,8 +23,17 @@ func _initialize() -> void:
 	var sheets := false
 	var preview := ""
 	var cpreview := ""
+	var pairs := ""
+	var first := 0
+	var skip := 0
 	for a in OS.get_cmdline_user_args():
-		if a.begins_with("--cpreview="):
+		if a.begins_with("--pairs="):
+			pairs = a.substr(8)
+		elif a.begins_with("--skip="):
+			skip = int(a.substr(7))
+		elif a.begins_with("--first="):
+			first = int(a.substr(8))
+		elif a.begins_with("--cpreview="):
 			cpreview = a.substr(11)
 		elif a.begins_with("--preview="):
 			preview = a.substr(10)
@@ -50,6 +61,13 @@ func _initialize() -> void:
 		count += 1
 	if cpreview != "":
 		_save(Sheets.chars(ids, 3 if ids.size() > 1 else 8, 4 if ids.size() > 1 else 1), cpreview)
+	if pairs != "":
+		var pids: Array = ids
+		if first > 0:
+			pids = _ordered(list_recipes(CREATURE_RECIPES), ORDER).slice(skip, skip + first)
+		elif pids.is_empty():
+			pids = _ordered(list_recipes(CREATURE_RECIPES), ORDER)
+		_save(Sheets.pairs(pids, 2, 4), pairs)
 	if preview != "":
 		_save(Sheets.preview(ids, 3), preview)
 	if sheets:

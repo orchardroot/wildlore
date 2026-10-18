@@ -28,6 +28,27 @@ func test_shelf_fills_in_as_you_play() -> void:
 		assert_true(str(x.name) != "" and str(x.line) != "", "%s has a name and a line" % x.id)
 		assert_false(str(x.line).contains("—"), "no em-dashes")
 
+## 2.2: the shelf also shows County Show rosettes, Pillar of the Community trophies and the Moot Champion title.
+func test_shelf_shows_rosettes_pillar_trophies_and_the_moot_title() -> void:
+	var d := _data()
+	d.badges = ["brook"]
+	d.mark_caught("herne")
+	d.set_flag(Tournament.SHOW_WINS, 2)
+	Standing.add(d, "wales", Standing.TIER_POINTS[Standing.PILLAR])
+	Standing.add(d, "england", Standing.TIER_POINTS[Standing.LOCAL])  # nearly, but not a Pillar yet
+	d.set_flag(Tournament.MOOT_WINS, Tournament.TITLE_WINS)
+	var t := HomeBase.trophies(d, Fixtures.dex())
+	var kinds := t.map(func(x): return str(x.kind) + ":" + str(x.id))
+	assert_eq(kinds, ["stone:brook", "rosette:shows", "title:moot", "pillar:wales", "legend:herne"])
+	assert_true("2 red rosettes" in str(t[1].line), str(t[1].line))
+	for x in t:
+		assert_true(str(x.name) != "" and str(x.line) != "", "%s has a name and a line" % x.id)
+		assert_false(str(x.line).contains("—"), "no em-dashes")
+	d.set_flag(Tournament.SHOW_WINS, 1)
+	assert_true("1 red rosette " in str(HomeBase.trophies(d, Fixtures.dex())[1].line), "one rosette, singular")
+	d.set_flag(Tournament.MOOT_WINS, Tournament.TITLE_WINS - 1)
+	assert_false(HomeBase.trophies(d, Fixtures.dex()).any(func(x): return x.kind == "title"), "no title before three Moots")
+
 # --- the garden ---------------------------------------------------------------
 
 func test_planting_takes_one_from_the_bag() -> void:

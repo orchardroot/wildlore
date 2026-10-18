@@ -15,7 +15,9 @@ const MAX_PLACES := 3  # the rest are on the map, so a long list can't push the 
 const FILTER_NAMES := {"all": "All", "caught": "Caught", "seen": "Seen", "rumours": "Rumours"}
 
 var _all: Array = []           # every species id, Dex order
-var _no: Dictionary = {}       # id -> Dex number
+var _no: Dictionary = {}       # id -> Dex number as shown: "045", or "A01" in the appendix after the 200
+var _core := 0                 # how many are in the Fieldbook proper (the appendix is a bonus)
+var _extra := 0                # how many in the appendix
 var _ids: Array = []           # the ids the current filter shows
 var _cur := 0
 var _scroll: ScrollContainer
@@ -28,8 +30,13 @@ const WORD_SIZES := [25, 23, 21, 19]  # the body text's size, biggest first, unt
 func _build() -> void:
 	set_title("Fieldbook")
 	_all = Game.dex.ids()
-	for i in _all.size():
-		_no[_all[i]] = i + 1
+	for id in _all:
+		if Dex.in_appendix(id):
+			_extra += 1
+			_no[id] = "A%02d" % _extra
+		else:
+			_core += 1
+			_no[id] = "%03d" % _core
 	set_hints([["updown", "Browse"], ["shoulders", "Jump 10"], ["run", "Filter"], ["bike", "Cry"], ["confirm", "Map"], ["cancel", "Back"]])
 	var row := HBoxContainer.new()
 	row.set_anchors_preset(Control.PRESET_FULL_RECT)
@@ -64,7 +71,10 @@ func _fill_list() -> void:
 		_ids = _rumours.map(func(r): return str(r.species))
 	else:
 		_ids = MenuLogic.fieldbook_filter(_all, d.seen, d.caught, _filter)
-	header_right.text = "%s    Seen %d    Caught %d / %d" % [FILTER_NAMES[_filter], d.seen.size(), d.caught.size(), _all.size()]
+	header_right.text = "%s    Seen %d    Caught %d / %d" % [FILTER_NAMES[_filter], d.seen.size(), FieldbookGoals.caught_count(d), _core]
+	var extra_seen := d.seen.keys().filter(func(id): return Dex.in_appendix(id)).size()
+	if extra_seen > 0:  # the appendix shows up once you've met something from it
+		header_right.text += "    Appendix %d / %d" % [d.caught.size() - FieldbookGoals.caught_count(d), _extra]
 	UIKit.clear(_list_col)
 	_buttons.clear()
 	for i in _ids.size():
@@ -173,7 +183,7 @@ func _entry_button(i: int) -> Button:
 	h.add_theme_constant_override("separation", 10)
 	h.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	b.add_child(h)
-	var no := UIKit.label("%03d" % int(_no.get(id, i + 1)), 22, UIKit.MUTED)
+	var no := UIKit.label(str(_no.get(id, "%03d" % (i + 1))), 22, UIKit.MUTED)
 	no.custom_minimum_size = Vector2(52, 0)
 	h.add_child(no)
 	var ic := AnimSprite.new()
@@ -246,7 +256,7 @@ func _show(id: String) -> void:
 	info.alignment = BoxContainer.ALIGNMENT_CENTER
 	info.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	top.add_child(info)
-	info.add_child(UIKit.label("No. %03d" % int(_no.get(id, 0)), 22, UIKit.MUTED))
+	info.add_child(UIKit.label(("Appendix %s" if Dex.in_appendix(id) else "No. %s") % str(_no.get(id, "")), 22, UIKit.MUTED))
 	info.add_child(UIKit.label(str(sp.get("name", id)) if st != "unseen" else "???", 40))
 	if st != "unseen":
 		var type_row := HBoxContainer.new()  # the types, and the Cry button beside them (the Bike key does it too)
