@@ -20,7 +20,12 @@ func _initialize() -> void:
 			mine.append(Creature.create(dex.get_species(kv[0]), int(kv[1]), rng, moves))
 		var foes := []
 		for m in def.party:
-			foes.append(Creature.create(dex.get_species(m.species), maxi(2, int(m.level) + offset), rng, moves))
+			var cr := Creature.create(dex.get_species(m.species), maxi(2, int(m.level) + offset), rng, moves)
+			if m.has("moves"):  # fixed moves, as story/commands.gd builds them
+				cr.moves = []
+				for mid in m.moves:
+					cr.moves.append(cr.make_move_slot(mid, moves))
+			foes.append(cr)
 		# NOKNACKS=1 in the environment: knacks off (the 1.x rules, for before/after comparisons)
 		var b := Battle.new(mine, foes, {"chart": chart, "move_db": moves, "rng": rng, "kind": "trainer", "knacks": OS.get_environment("NOKNACKS") == ""})
 		var guard := 0

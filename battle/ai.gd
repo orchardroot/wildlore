@@ -91,7 +91,7 @@ static func attack_score(b: Battle, me: Creature, foe: Creature, move: Dictionar
 	s *= Weather.damage_mod(w, move.type)
 	s *= Charms.incoming_mult(foe, move.type) * Charms.outgoing_mult(me, move.type)
 	if b.knacks_on:
-		s *= Knacks.defend_mult(foe, move, eff)
+		s *= Knacks.defend_mult(foe, move, eff) * Knacks.weather_power(me, move, w)
 	if move.type in me.types():
 		s *= 1.5
 	return s
@@ -135,7 +135,7 @@ static func _weather_score(b: Battle, me: Creature, foe: Creature, w: String) ->
 		return 0.0
 	var side := _side_of(b, me)
 	var mine := _weather_gain(b, b.parties[side], b.actives(1 - side), w)
-	var theirs := _weather_gain(b, b.actives(1 - side), b.actives(side), w)
+	var theirs := _weather_gain(b, b.parties[1 - side], b.actives(side), w)  # their bench may like it too
 	var net := mine - theirs
 	if net <= 0.05:
 		return 1.0
@@ -147,9 +147,10 @@ static func _weather_score(b: Battle, me: Creature, foe: Creature, w: String) ->
 	return net * best * 2.0
 
 ## Average change in a team's best attack multiplier (against `targets`) from the current weather to `w`, plus a
-## little for knacks that like `w` (speed, healing, power).
+## little for each knack that likes `w` (speed, healing, hiding).
 static func _weather_gain(b: Battle, team: Array, targets: Array, w: String) -> float:
 	var total := 0.0
+	var bonus := 0.0
 	var n := 0
 	for c in team:
 		if c.is_fainted():
@@ -168,10 +169,12 @@ static func _weather_gain(b: Battle, team: Array, targets: Array, w: String) -> 
 			total += then / now - 1.0
 		if b.knacks_on:
 			if Knacks.speed_mult(c, w) > Knacks.speed_mult(c, b.weather):
-				total += 0.25
+				bonus += 0.25
 			if Knacks.turn_heal(c, w) > Knacks.turn_heal(c, b.weather):
-				total += 0.2
-	return total / maxf(1.0, n)
+				bonus += 0.2
+			if Knacks.evade_mult(c, w) < Knacks.evade_mult(c, b.weather):
+				bonus += 0.2
+	return total / maxf(1.0, n) + bonus
 
 ## Slots with PP left whose move still exists in the database.
 static func _usable(b: Battle, c: Creature) -> Array:

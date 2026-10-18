@@ -115,6 +115,13 @@ static func crit_mult(c: Creature) -> float:
 static func heal_mult(c: Creature) -> float:
 	return float(def_of(c).get("heal_mult", 1.0))
 
+## Just the weather part of a knack's power (power_weather), for a given weather: the AI weighs weathers with it.
+static func weather_power(c: Creature, move: Dictionary, weather: String) -> float:
+	var pw: Dictionary = def_of(c).get("power_weather", {})
+	if pw.is_empty() or weather not in pw.get("weather", []):
+		return 1.0
+	return float(pw.get("mult", 1.0)) if not pw.has("types") or str(move.get("type", "")) in pw.types else 1.0
+
 ## Everything a knack does to the damage its holder deals with `move` against `target`.
 static func attack_mult(c: Creature, target: Creature, move: Dictionary, b: Battle) -> float:
 	var d := def_of(c)
