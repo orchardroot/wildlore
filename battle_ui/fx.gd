@@ -109,7 +109,7 @@ func play(cue: Dictionary, battle: Battle) -> void:
 			await _wait(0.35)
 		"weather":
 			if sky != null:
-				sky.set_weather(str(cue.weather), dio.is_interior(), true)
+				sky.set_weather(str(cue.weather), dio.is_interior())  # at once: the overworld's 8s blend is two turns long
 			hud.set_weather(str(cue.weather), int(cue.get("turns", 0)))
 			await _wait(0.4)
 		"catch":

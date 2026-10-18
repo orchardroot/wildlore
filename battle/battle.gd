@@ -96,6 +96,10 @@ func current_at(side: int, pos: int) -> Creature:
 	var i: int = row[pos]
 	return party[i] if i >= 0 and i < party.size() else null
 
+## Between turns: did this creature protect itself in the turn just played? (A second protect would fail.)
+func guarded_last_turn(c: Creature) -> bool:
+	return _guarded.has(c)
+
 ## The creatures still standing on the field for a side, in position order.
 func actives(side: int) -> Array:
 	var out := []

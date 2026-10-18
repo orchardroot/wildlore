@@ -255,7 +255,19 @@ func _show(id: String) -> void:
 		cry.custom_minimum_size = Vector2(96, 0)
 		cry.add_theme_font_size_override("font_size", 22)
 		cry.pressed.connect(func(): play_cry(id))
-		info.add_child(cry)
+		var kid := Knacks.id_for_species(sp)
+		if st == "caught" and kid != "":  # 2.0: the line's knack, beside the Cry button so the entry keeps its height
+			var row := HBoxContainer.new()
+			row.add_theme_constant_override("separation", 16)
+			row.add_child(cry)
+			var kl := UIKit.label("Knack: %s" % Knacks.name_of(kid), 21, UIKit.GOLD)
+			kl.tooltip_text = Knacks.desc_of(kid)
+			kl.mouse_filter = Control.MOUSE_FILTER_PASS
+			kl.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+			row.add_child(kl)
+			info.add_child(row)
+		else:
+			info.add_child(cry)
 	else:
 		var u := UIKit.label("Not met yet. Out there somewhere, being elusive.", 22, UIKit.MUTED)
 		u.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART

@@ -152,6 +152,7 @@ func _left(c: Creature) -> Control:
 		var cc := CenterContainer.new()
 		cc.add_child(st)
 		v.add_child(cc)
+	v.add_child(_knack_box(c))
 	v.add_child(UIKit.fill())
 	var evo: String = preload("res://ui/pedia_screen.gd").evolution_line(c.species)
 	if evo != "":
@@ -164,6 +165,27 @@ func _left(c: Creature) -> Control:
 	xp.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	v.add_child(xp)
 	return p
+
+## 2.0: the line's knack (a passive that works in battle), centred under the types.
+func _knack_box(c: Creature) -> Control:
+	var v := VBoxContainer.new()
+	v.add_theme_constant_override("separation", 0)
+	var kid := Knacks.id_of(c)
+	if kid == "":
+		return v
+	var row := HBoxContainer.new()
+	row.alignment = BoxContainer.ALIGNMENT_CENTER
+	row.add_theme_constant_override("separation", 8)
+	row.add_child(UIKit.label("Knack", 20, UIKit.MUTED))
+	row.add_child(UIKit.label(Knacks.name_of(kid), 20, UIKit.GOLD))
+	v.add_child(UIKit.spacer(4))
+	v.add_child(row)
+	var d := UIKit.label(Knacks.desc_of(kid), 16, Color("d8cfb4"))
+	d.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	d.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	d.custom_minimum_size = Vector2(300, 0)
+	v.add_child(d)
+	return v
 
 ## Friendship (hearts and what they do for you) and the charm it is holding, under the stats.
 func _bond_box(c: Creature) -> Control:
