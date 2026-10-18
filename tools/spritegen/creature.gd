@@ -8,6 +8,8 @@ extends RefCounted
 ## density, n, mirror (also draw reflected about x=48), front_only, back_only.
 ## Recipe fields: palette, layers, back_layers, face_layers (front only, drawn after the outline),
 ## eyes, outline, anim ("squash" default or "shift"), bob, icon_box.
+## Back view (see back_layers): derived from `layers` seen from behind, tuned with back_over,
+## back_hide, back_marks and back_auto.
 
 const Canvas = preload("res://tools/spritegen/canvas.gd")
 const SIZE := 96
@@ -35,8 +37,8 @@ static func _sheet(recipe: Dictionary, is_back: bool) -> Image:
 	var out := Image.create(SIZE * 2, SIZE, false, Image.FORMAT_RGBA8)
 	out.fill(Color(0, 0, 0, 0))
 	var layers: Array = recipe.get("layers", [])
-	if is_back and recipe.has("back_layers"):
-		layers = recipe["back_layers"]
+	if is_back:
+		layers = back_layers(recipe)
 	var base = _draw_all(recipe, layers, is_back, null, true)
 	var bounds: Rect2i = base.content_bounds()
 	out.blit_rect(base.img, Rect2i(0, 0, SIZE, SIZE), Vector2i(0, 0))
@@ -45,6 +47,164 @@ static func _sheet(recipe: Dictionary, is_back: bool) -> Image:
 	var f2 = _draw_all(recipe, layers, is_back, xf, true)
 	out.blit_rect(f2.img, Rect2i(0, 0, SIZE, SIZE), Vector2i(SIZE, 0))
 	return out
+
+## The rear view, derived from the front recipe: everything is seen from the other side, so the
+## layers are flipped left to right, and parts tucked behind the body in the front view (a tail,
+## a lone wing) come round in front of it. `back_over` (indices into `layers`) overrides which
+## parts come forward, [] for none. The body gets a darker countershaded saddle unless
+## `back_auto` is false. `back_marks` (back-view coordinates, already seen from behind) are
+## markings that only show from behind (a dorsal stripe, the knot of a mask, a tail): drawn last,
+## over everything, or straight after the body with "under": true so limbs and head sit on top.
+## `back_hide` (indices into `layers`) drops parts the marks replace.
+static func back_layers(recipe: Dictionary) -> Array:
+	var src: Array = recipe.get("back_layers", recipe.get("layers", []))
+	var over: Array = _ints(recipe.get("back_over", _auto_over(src)) if not recipe.has("back_layers") else recipe.get("back_over", []))
+	var hide: Array = _ints(recipe.get("back_hide", []))
+	var under: Array = []
+	var top: Array = []
+	var after_body: Array = []
+	var body := _body_index(src, hide)
+	if recipe.get("back_auto", true) and not recipe.has("back_layers"):
+		after_body = _auto_marks(recipe, src, body)
+	for m in recipe.get("back_marks", []):
+		var l: Dictionary = (m as Dictionary).duplicate(true)
+		l["back_only"] = true
+		if l.get("under", false) and body >= 0:
+			after_body.append(l)
+		else:
+			top.append(l)
+	var over_layers: Array = []
+	for i in src.size():
+		if not (i in hide):
+			var l: Dictionary = _flip_layer(src[i])
+			if i in over:
+				over_layers.append(l)
+			else:
+				under.append(l)
+		if i == body:
+			under.append_array(after_body)
+	if body < 0:
+		under.append_array(after_body)
+	return under + over_layers + top
+
+## Layer indices as ints (JSON numbers arrive as floats, and 1.0 is not `in` [1]).
+static func _ints(a: Array) -> Array:
+	var out: Array = []
+	for v in a:
+		out.append(int(v))
+	return out
+
+## Layer indices that sit behind the main body in the front view and stick out to one side
+## (tails, a single wing or limb): those face the camera from behind.
+static func _auto_over(layers: Array) -> Array:
+	var main := -1
+	var main_area := 0.0
+	for i in layers.size():
+		var l: Dictionary = layers[i]
+		if l.get("front_only", false) or str(l.get("shape", "ellipse")) == "line":
+			continue
+		var bb := _layer_box(l)
+		if bb.get_center().y > 86.0:
+			continue
+		if bb.get_area() > main_area:
+			main_area = bb.get_area()
+			main = i
+	var out: Array = []
+	if main < 0:
+		return out
+	var mb := _layer_box(layers[main])
+	for i in main:
+		var l: Dictionary = layers[i]
+		if l.get("front_only", false) or l.get("mirror", false) or str(l.get("shape", "ellipse")) == "line":
+			continue
+		var bb := _layer_box(l)
+		var c := bb.get_center()
+		# a back-only rump part (scut, tail feathers) tucked under the body by draw order
+		if l.get("back_only", false) and absf(c.x - AXIS * 0.5) < 8.0 and c.y > mb.get_center().y \
+				and bb.get_area() < main_area * 0.5 and bb.intersects(mb):
+			out.append(i)
+			continue
+		if absf(c.x - AXIS * 0.5) < 12.0 or c.y > 86.0:
+			continue
+		if bb.get_area() > main_area * 0.75 or not bb.intersects(mb):
+			continue
+		out.append(i)
+	return out
+
+## Index of the body: the biggest plain layer standing above the ground line, or -1.
+static func _body_index(layers: Array, hide: Array = []) -> int:
+	var body := -1
+	var area := 0.0
+	for i in layers.size():
+		var l: Dictionary = layers[i]
+		if i in hide or l.get("front_only", false) or not (str(l.get("shape", "ellipse")) in ["ellipse", "circle"]):
+			continue
+		var bb := _layer_box(l)
+		var c := bb.get_center()
+		if c.y > 86.0 or c.y < 50.0 or absf(c.x - AXIS * 0.5) > 4.0:
+			continue
+		if bb.get_area() > area:
+			area = bb.get_area()
+			body = i
+	return body
+
+## Countershading: animals are darker along the back than the belly, so the body gets a darker
+## saddle (the palette's "<colour>2" if the design has one, else a deeper tone of the body colour)
+## with a dithered fringe. Skipped for bodies that already carry a pattern.
+static func _auto_marks(recipe: Dictionary, layers: Array, bi: int) -> Array:
+	if bi < 0:
+		return []
+	var b: Dictionary = layers[bi]
+	if str(b.get("pattern", "none")) in ["spines", "stripes"] or not bool(b.get("shade", true)):
+		return []
+	var cname := str(b.get("colour", ""))
+	var pal: Dictionary = recipe.get("palette", {})
+	var dark: String
+	if pal.has(cname + "2"):
+		dark = cname + "2"
+	else:
+		var base := Canvas.parse_colour(pal.get(cname, cname)) if not (pal.get(cname, cname) is Dictionary) else Canvas.parse_colour(pal[cname].get("base", "#888888"))
+		var t := Canvas.tones(base)
+		dark = "#" + base.lerp(t[1], 0.55).to_html(false)
+	var bb := _layer_box(b)
+	var cx := AXIS - bb.get_center().x
+	var cy := bb.get_center().y - bb.size.y * 0.1
+	var out: Array = []
+	out.append({"shape": "ellipse", "at": [cx, cy], "size": [bb.size.x * 0.66, bb.size.y * 0.62], "colour": cname,
+		"pattern": "speckle", "pcolour": dark, "density": 45, "rim": false, "seed": 5})
+	out.append({"shape": "ellipse", "at": [cx, cy - bb.size.y * 0.04], "size": [bb.size.x * 0.52, bb.size.y * 0.5], "colour": dark,
+		"rim": false, "pattern": str(b.get("pattern", "none")), "pcolour": b.get("pcolour", dark), "density": int(b.get("density", 9))})
+	return out
+
+## Rough bounding box of a layer in sprite pixels.
+static func _layer_box(l: Dictionary) -> Rect2:
+	if l.has("points"):
+		var r := Rect2(float(l["points"][0][0]), float(l["points"][0][1]), 0, 0)
+		for p in l["points"]:
+			r = r.expand(Vector2(float(p[0]), float(p[1])))
+		return r
+	var at: Array = l.get("at", [48, 48])
+	var wh: Array = l["size"] if l.has("size") else [float(l.get("r", 4)) * 2.0, float(l.get("r", 4)) * 2.0]
+	var w := float(wh[0])
+	var h := float(wh[1])
+	if absf(float(l.get("angle", 0.0))) > 30.0:
+		var s := maxf(w, h)
+		w = s
+		h = s
+	return Rect2(float(at[0]) - w * 0.5, float(at[1]) - h * 0.5, w, h)
+
+## The same layer seen from behind: reflected about the centre line (a mirrored pair stays a pair).
+static func _flip_layer(layer: Dictionary) -> Dictionary:
+	var keep_mirror: bool = layer.get("mirror", false)
+	var seed_v = layer.get("seed", null)
+	var l := _mirror_layer(layer)
+	if keep_mirror:
+		l["mirror"] = true
+	if seed_v == null:
+		l.erase("seed")
+	else:
+		l["seed"] = seed_v
+	return l
 
 ## Applies the breathing transform to a copy of a layer.
 static func _xf_layer(layer: Dictionary, xf) -> Dictionary:
@@ -169,7 +329,7 @@ static func _draw_list(cv, layers: Array, pal: Dictionary, darken: float, xf, is
 			_draw_layer(cv, _mirror_layer(layer), pal, darken, xf)
 
 static func _draw_all(recipe: Dictionary, layers: Array, is_back: bool, xf, with_outline: bool):
-	var darken := 0.14 if is_back else 0.0
+	var darken := 0.04 if is_back else 0.0
 	var pal := _palette(recipe, darken)
 	var cv = Canvas.new(SIZE, SIZE)
 	_draw_list(cv, layers, pal, darken, xf, is_back)

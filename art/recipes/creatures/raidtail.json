@@ -22,5 +22,13 @@
   {"shape": "rect", "at": [48, 52], "size": [4, 2], "colour": "tooth", "shade": false, "rim": false},
   {"shape": "line", "points": [[38, 48], [26, 45]], "width": 1, "colour": "whisk", "shade": false, "mirror": true}
  ],
- "eyes": [{"at": [37, 39], "r": 3.5, "colour": "#f4f0d0", "pupil": [2, 3], "mirror": true}]
+ "eyes": [{"at": [37, 39], "r": 3.5, "colour": "#f4f0d0", "pupil": [2, 3], "mirror": true}],
+ "back_hide": [1],
+ "back_marks": [
+  {"shape": "line", "points": [[24, 36], [48, 38], [72, 36]], "width": 3, "colour": "mask", "shade": false, "under": true},
+  {"shape": "poly", "points": [[46, 38], [40, 50], [44, 50]], "colour": "mask", "shade": false, "rim": false},
+  {"shape": "poly", "points": [[50, 38], [54, 51], [57, 49]], "colour": "mask", "shade": false, "rim": false},
+  {"shape": "circle", "at": [48, 38], "r": 3, "colour": "mask", "shade": false, "rim": false},
+  {"shape": "ellipse", "at": [25, 52], "size": [38, 66], "colour": "fur", "angle": -16, "pattern": "stripes", "pcolour": "fur2", "period": 6, "pangle": 0}
+ ]
 }
