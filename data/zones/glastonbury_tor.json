@@ -51,16 +51,6 @@
    "y": 4
   },
   {
-   "type": "planter",
-   "x": 8,
-   "y": 8
-  },
-  {
-   "type": "planter",
-   "x": 31,
-   "y": 8
-  },
-  {
    "type": "standing_stone",
    "x": 7,
    "y": 6,
@@ -228,6 +218,70 @@
    "type": "rock",
    "x": 35,
    "y": 25
+  },
+  {
+   "type": "clootie_tree",
+   "x": 8,
+   "y": 8,
+   "variant": 0
+  },
+  {
+   "type": "clootie_tree",
+   "x": 31,
+   "y": 8,
+   "variant": 1
+  },
+  {
+   "type": "fae_lantern",
+   "x": 14,
+   "y": 5,
+   "variant": 0
+  },
+  {
+   "type": "fae_lantern",
+   "x": 25,
+   "y": 5,
+   "variant": 1
+  },
+  {
+   "type": "fae_lantern",
+   "x": 15,
+   "y": 9,
+   "variant": 2
+  },
+  {
+   "type": "fae_lantern",
+   "x": 24,
+   "y": 9,
+   "variant": 0
+  },
+  {
+   "type": "toadstool_ring",
+   "x": 20,
+   "y": 8,
+   "variant": 0,
+   "walk": true
+  },
+  {
+   "type": "toadstool_ring",
+   "x": 5,
+   "y": 5,
+   "variant": 1,
+   "walk": true
+  },
+  {
+   "type": "toadstool_ring",
+   "x": 34,
+   "y": 7,
+   "variant": 2,
+   "walk": true
+  },
+  {
+   "type": "toadstool_ring",
+   "x": 17,
+   "y": 4,
+   "variant": 3,
+   "walk": true
   }
  ],
  "warps": [
@@ -278,6 +332,66 @@
    "facing": "right",
    "move": "still",
    "trainer": "tor_druid"
+  },
+  {
+   "id": "tor_reveller",
+   "sprite": "festival_goer",
+   "x": 13,
+   "y": 7,
+   "facing": "right",
+   "move": "still",
+   "text": "Came for the festival in 1997. Haven't found my tent. Haven't looked very hard either.",
+   "hide_if": "trainer_keeper_morwen"
+  },
+  {
+   "id": "tor_reveller_won",
+   "sprite": "festival_goer",
+   "x": 13,
+   "y": 7,
+   "facing": "right",
+   "move": "still",
+   "text": "The lanterns went out when she lost. Then came back on, sulking. Never seen that before.",
+   "show_if": "trainer_keeper_morwen"
+  },
+  {
+   "id": "tor_dowser",
+   "sprite": "druid",
+   "x": 27,
+   "y": 7,
+   "facing": "left",
+   "move": "still",
+   "text": "Don't step in the fairy ring. Or do. Morwen will find it very funny either way.",
+   "hide_if": "trainer_keeper_morwen"
+  },
+  {
+   "id": "tor_dowser_won",
+   "sprite": "druid",
+   "x": 27,
+   "y": 7,
+   "facing": "left",
+   "move": "still",
+   "text": "The ley lines just did a little skip. I think that's congratulations.",
+   "show_if": "trainer_keeper_morwen"
+  },
+  {
+   "id": "tor_tea",
+   "sprite": "villager_6",
+   "x": 22,
+   "y": 4,
+   "facing": "down",
+   "move": "still",
+   "text": "I bring Morwen a flask of nettle tea every Thursday. She says it's terrible. She drinks it all.",
+   "hide_if": "trainer_keeper_morwen"
+  },
+  {
+   "id": "tor_tea_won",
+   "sprite": "villager_6",
+   "x": 22,
+   "y": 4,
+   "facing": "down",
+   "move": "still",
+   "text": "She's asked for a second flask. I've never seen her ask for anything. You've rattled her.",
+   "show_if": "trainer_keeper_morwen"
   }
  ],
  "encounters": {},

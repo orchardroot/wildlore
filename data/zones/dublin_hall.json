@@ -9,16 +9,6 @@
  },
  "props": [
   {
-   "type": "lamp_post",
-   "x": 6,
-   "y": 2
-  },
-  {
-   "type": "lamp_post",
-   "x": 10,
-   "y": 2
-  },
-  {
    "type": "bench",
    "x": 3,
    "y": 11
@@ -27,26 +17,6 @@
    "type": "bench",
    "x": 13,
    "y": 11
-  },
-  {
-   "type": "bench",
-   "x": 3,
-   "y": 3
-  },
-  {
-   "type": "bench",
-   "x": 13,
-   "y": 3
-  },
-  {
-   "type": "planter",
-   "x": 2,
-   "y": 7
-  },
-  {
-   "type": "planter",
-   "x": 14,
-   "y": 7
   },
   {
    "type": "bollard",
@@ -57,6 +27,87 @@
    "type": "bollard",
    "x": 15,
    "y": 12
+  },
+  {
+   "type": "hall_stage",
+   "x": 7,
+   "y": 1,
+   "variant": 0
+  },
+  {
+   "type": "hall_stage",
+   "x": 8,
+   "y": 1,
+   "variant": 1
+  },
+  {
+   "type": "hall_stage",
+   "x": 9,
+   "y": 1,
+   "variant": 2
+  },
+  {
+   "type": "tea_urn",
+   "x": 2,
+   "y": 2
+  },
+  {
+   "type": "stacked_chairs",
+   "x": 14,
+   "y": 2,
+   "variant": 0
+  },
+  {
+   "type": "stacked_chairs",
+   "x": 2,
+   "y": 10,
+   "variant": 1
+  },
+  {
+   "type": "bunting",
+   "x": 2,
+   "y": 5,
+   "variant": 12,
+   "walk": true
+  },
+  {
+   "type": "bunting",
+   "x": 2,
+   "y": 8,
+   "variant": 12,
+   "walk": true
+  },
+  {
+   "type": "wall_picture",
+   "x": 4,
+   "y": 1,
+   "variant": 1,
+   "walk": true
+  },
+  {
+   "type": "wall_picture",
+   "x": 12,
+   "y": 1,
+   "variant": 0,
+   "walk": true
+  },
+  {
+   "type": "clock",
+   "x": 10,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "bench",
+   "x": 1,
+   "y": 5,
+   "rot": 90
+  },
+  {
+   "type": "bench",
+   "x": 15,
+   "y": 5,
+   "rot": 270
   }
  ],
  "warps": [
@@ -97,10 +148,76 @@
    "facing": "right",
    "move": "still",
    "trainer": "hall_hurler2"
+  },
+  {
+   "id": "hall_tea",
+   "sprite": "mum",
+   "x": 3,
+   "y": 2,
+   "facing": "down",
+   "move": "still",
+   "text": "Tea's on. Declan says no tea till after, but Declan's not the one running the urn.",
+   "hide_if": "trainer_keeper_declan"
+  },
+  {
+   "id": "hall_tea_won",
+   "sprite": "mum",
+   "x": 3,
+   "y": 2,
+   "facing": "down",
+   "move": "still",
+   "text": "You'll have a cup now. And a slice of brack. No, you will. Sit down.",
+   "show_if": "trainer_keeper_declan"
+  },
+  {
+   "id": "hall_fiddler",
+   "sprite": "fiddler",
+   "x": 14,
+   "y": 4,
+   "facing": "left",
+   "move": "still",
+   "text": "We're on after the match. I've a reel ready for whoever wins, and a slow air for whoever doesn't.",
+   "hide_if": "trainer_keeper_declan"
+  },
+  {
+   "id": "hall_fiddler_won",
+   "sprite": "fiddler",
+   "x": 14,
+   "y": 4,
+   "facing": "left",
+   "move": "still",
+   "text": "The reel it is. I'll call it the Visitor's Jig. Don't let it go to your head.",
+   "show_if": "trainer_keeper_declan"
+  },
+  {
+   "id": "hall_singer",
+   "sprite": "sean_nos_singer",
+   "x": 1,
+   "y": 9,
+   "facing": "right",
+   "move": "still",
+   "text": "Declan's lot aren't fancy. Hares and stags and the like. They're just very, very determined.",
+   "hide_if": "trainer_keeper_declan"
+  },
+  {
+   "id": "hall_singer_won",
+   "sprite": "sean_nos_singer",
+   "x": 1,
+   "y": 9,
+   "facing": "right",
+   "move": "still",
+   "text": "I'll put you in a song. It'll be a long one and you'll come off well about verse nine.",
+   "show_if": "trainer_keeper_declan"
   }
  ],
  "encounters": {},
- "signs": [],
+ "signs": [
+  {
+   "x": 6,
+   "y": 12,
+   "text": "ST KEVIN'S PARISH HALL. Keeper Declan, Kin Stone. Céilí Thursdays, bingo Fridays, Keeper matches whenever. Tea 50c, biscuit included if you ask nicely."
+  }
+ ],
  "spawn": [
   8,
   11
@@ -109,17 +226,27 @@
  "rows": [
   "xxxxxxxxxxxxxxxxx",
   "x|||||||||||||||x",
-  "x|+++++++++++++|x",
-  "x|.............|x",
-  "x|.............|x",
-  "x|.............|x",
-  "x|.............|x",
-  "x|.............|x",
-  "x|.............|x",
-  "x|.............|x",
-  "x|+++++++++++++|x",
+  "x|khkhkhkhkhkhk|x",
+  "x|hkhkhkhkhkhkh|x",
+  "x|khkhkhkhkhkhk|x",
+  "x|hkhkhkhkhkhkh|x",
+  "x|khkhkhkhkhkhk|x",
+  "x|hkhkhkhkhkhkh|x",
+  "x|khkhkhkhkhkhk|x",
+  "x|hkhkhkhkhkhkh|x",
+  "x|khkhkhkhkhkhk|x",
   "x|||||||||||||||x",
   "x|||||||D|||||||x",
   "xxxxxxxxxxxxxxxxx"
- ]
+ ],
+ "legend_extra": {
+  "h": {
+   "tile": "floor_wood",
+   "colour": "#b98a56"
+  },
+  "k": {
+   "tile": "floor_wood",
+   "colour": "#a97a48"
+  }
+ }
 }

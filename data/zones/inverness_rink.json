@@ -17,44 +17,144 @@
    "y": 11
   },
   {
-   "type": "planter",
+   "type": "stadium_stand",
    "x": 1,
-   "y": 2
+   "y": 1,
+   "variant": 5
   },
   {
-   "type": "planter",
-   "x": 15,
-   "y": 2
+   "type": "stadium_stand",
+   "x": 2,
+   "y": 1,
+   "variant": 8
   },
   {
-   "type": "bollard",
+   "type": "stadium_stand",
+   "x": 3,
+   "y": 1,
+   "variant": 11
+  },
+  {
+   "type": "stadium_stand",
    "x": 4,
-   "y": 4
+   "y": 1,
+   "variant": 14
   },
   {
-   "type": "bollard",
-   "x": 12,
-   "y": 4
+   "type": "stadium_stand",
+   "x": 5,
+   "y": 1,
+   "variant": 17
   },
   {
-   "type": "bollard",
-   "x": 4,
-   "y": 8
+   "type": "stadium_stand",
+   "x": 6,
+   "y": 1,
+   "variant": 20
   },
   {
-   "type": "bollard",
-   "x": 12,
-   "y": 8
-  },
-  {
-   "type": "lamp_post",
+   "type": "stadium_stand",
    "x": 7,
-   "y": 2
+   "y": 1,
+   "variant": 23
   },
   {
-   "type": "lamp_post",
+   "type": "stadium_stand",
+   "x": 8,
+   "y": 1,
+   "variant": 26
+  },
+  {
+   "type": "stadium_stand",
    "x": 9,
-   "y": 2
+   "y": 1,
+   "variant": 29
+  },
+  {
+   "type": "stadium_stand",
+   "x": 10,
+   "y": 1,
+   "variant": 32
+  },
+  {
+   "type": "stadium_stand",
+   "x": 11,
+   "y": 1,
+   "variant": 35
+  },
+  {
+   "type": "stadium_stand",
+   "x": 12,
+   "y": 1,
+   "variant": 38
+  },
+  {
+   "type": "stadium_stand",
+   "x": 13,
+   "y": 1,
+   "variant": 41
+  },
+  {
+   "type": "stadium_stand",
+   "x": 14,
+   "y": 1,
+   "variant": 44
+  },
+  {
+   "type": "stadium_stand",
+   "x": 15,
+   "y": 1,
+   "variant": 47
+  },
+  {
+   "type": "curling_house",
+   "x": 8,
+   "y": 3,
+   "walk": true
+  },
+  {
+   "type": "curling_house",
+   "x": 8,
+   "y": 9,
+   "walk": true
+  },
+  {
+   "type": "pitch_line",
+   "x": 2,
+   "y": 6,
+   "variant": 113,
+   "walk": true
+  },
+  {
+   "type": "pitch_line",
+   "x": 2,
+   "y": 5,
+   "variant": 213,
+   "walk": true
+  },
+  {
+   "type": "curling_stones",
+   "x": 2,
+   "y": 10,
+   "variant": 2
+  },
+  {
+   "type": "curling_stones",
+   "x": 14,
+   "y": 10,
+   "variant": 1
+  },
+  {
+   "type": "flagpole",
+   "x": 1,
+   "y": 11,
+   "variant": 1
+  },
+  {
+   "type": "flagpole",
+   "x": 15,
+   "y": 11,
+   "variant": 1
   }
  ],
  "warps": [
@@ -95,10 +195,76 @@
    "facing": "right",
    "move": "still",
    "trainer": "rink_skater"
+  },
+  {
+   "id": "rink_piper",
+   "sprite": "piper",
+   "x": 1,
+   "y": 6,
+   "facing": "right",
+   "move": "still",
+   "text": "I'm to pipe Isla off when she wins. Nobody's said what to play if she doesn't. I'm working on something.",
+   "hide_if": "trainer_keeper_isla"
+  },
+  {
+   "id": "rink_piper_won",
+   "sprite": "piper",
+   "x": 1,
+   "y": 6,
+   "facing": "right",
+   "move": "still",
+   "text": "I'd a lament ready. Turns out it works as a march if you stamp. Well played.",
+   "show_if": "trainer_keeper_isla"
+  },
+  {
+   "id": "rink_ghillie",
+   "sprite": "ghillie",
+   "x": 15,
+   "y": 4,
+   "facing": "left",
+   "move": "still",
+   "text": "Isla reads ice like I read a river. Mind her draw shot. It's wicked.",
+   "hide_if": "trainer_keeper_isla"
+  },
+  {
+   "id": "rink_ghillie_won",
+   "sprite": "ghillie",
+   "x": 15,
+   "y": 4,
+   "facing": "left",
+   "move": "still",
+   "text": "She'll be off up the hill to think about that. Walks it off, does Isla. Bring a jumper.",
+   "show_if": "trainer_keeper_isla"
+  },
+  {
+   "id": "rink_skip",
+   "sprite": "shinty_player",
+   "x": 15,
+   "y": 8,
+   "facing": "left",
+   "move": "still",
+   "text": "Hurry hard! Sorry. Force of habit. I shout it at the bus too.",
+   "hide_if": "trainer_keeper_isla"
+  },
+  {
+   "id": "rink_skip_won",
+   "sprite": "shinty_player",
+   "x": 15,
+   "y": 8,
+   "facing": "left",
+   "move": "still",
+   "text": "That was a proper end. Shot rock and all. I'll stand you a hot chocolate at the bar.",
+   "show_if": "trainer_keeper_isla"
   }
  ],
  "encounters": {},
- "signs": [],
+ "signs": [
+  {
+   "x": 6,
+   "y": 12,
+   "text": "INVERNESS ICE RINK. Keeper Isla, Frost Stone. Sweepers sweep, skips shout, and everyone else keeps off the sheet in their outdoor shoes."
+  }
+ ],
  "spawn": [
   8,
   11

@@ -43,34 +43,150 @@
    "variant": 2
   },
   {
-   "type": "lamp_post",
+   "type": "crypt_arch",
+   "x": 1,
+   "y": 1,
+   "variant": 1
+  },
+  {
+   "type": "crypt_arch",
+   "x": 2,
+   "y": 1,
+   "variant": 1
+  },
+  {
+   "type": "crypt_arch",
+   "x": 3,
+   "y": 1,
+   "variant": 0
+  },
+  {
+   "type": "crypt_arch",
+   "x": 4,
+   "y": 1,
+   "variant": 1
+  },
+  {
+   "type": "crypt_arch",
+   "x": 5,
+   "y": 1,
+   "variant": 1
+  },
+  {
+   "type": "crypt_arch",
    "x": 6,
-   "y": 2
+   "y": 1,
+   "variant": 0
   },
   {
-   "type": "lamp_post",
+   "type": "crypt_arch",
+   "x": 7,
+   "y": 1,
+   "variant": 1
+  },
+  {
+   "type": "crypt_arch",
+   "x": 8,
+   "y": 1,
+   "variant": 1
+  },
+  {
+   "type": "crypt_arch",
+   "x": 9,
+   "y": 1,
+   "variant": 0
+  },
+  {
+   "type": "crypt_arch",
+   "x": 10,
+   "y": 1,
+   "variant": 1
+  },
+  {
+   "type": "crypt_arch",
+   "x": 11,
+   "y": 1,
+   "variant": 1
+  },
+  {
+   "type": "crypt_arch",
    "x": 12,
-   "y": 2
+   "y": 1,
+   "variant": 0
   },
   {
-   "type": "bench",
-   "x": 2,
-   "y": 8
+   "type": "crypt_arch",
+   "x": 13,
+   "y": 1,
+   "variant": 1
   },
   {
-   "type": "bench",
+   "type": "crypt_arch",
+   "x": 14,
+   "y": 1,
+   "variant": 1
+  },
+  {
+   "type": "crypt_arch",
+   "x": 15,
+   "y": 1,
+   "variant": 0
+  },
+  {
+   "type": "crypt_arch",
    "x": 16,
-   "y": 8
+   "y": 1,
+   "variant": 1
   },
   {
-   "type": "statue",
+   "type": "crypt_arch",
+   "x": 17,
+   "y": 1,
+   "variant": 1
+  },
+  {
+   "type": "candelabra",
+   "x": 7,
+   "y": 2
+  },
+  {
+   "type": "candelabra",
+   "x": 11,
+   "y": 2
+  },
+  {
+   "type": "candelabra",
+   "x": 6,
+   "y": 7
+  },
+  {
+   "type": "candelabra",
+   "x": 12,
+   "y": 7
+  },
+  {
+   "type": "tomb_chest",
    "x": 2,
-   "y": 2
+   "y": 4,
+   "variant": 0
   },
   {
-   "type": "statue",
+   "type": "tomb_chest",
    "x": 16,
-   "y": 2
+   "y": 4,
+   "variant": 1
+  },
+  {
+   "type": "tomb_chest",
+   "x": 2,
+   "y": 8,
+   "variant": 1
+  },
+  {
+   "type": "tomb_chest",
+   "x": 16,
+   "y": 8,
+   "variant": 0
   }
  ],
  "warps": [
@@ -112,10 +228,76 @@
    "facing": "right",
    "move": "still",
    "trainer": "yrk_junior_2"
+  },
+  {
+   "id": "crypt_walker",
+   "sprite": "lamplighter",
+   "x": 17,
+   "y": 10,
+   "facing": "left",
+   "move": "still",
+   "text": "I carry the lantern on Hester's ghost walk. She says it's for atmosphere. It's so she can find the exit.",
+   "hide_if": "trainer_keeper_hester"
+  },
+  {
+   "id": "crypt_walker_won",
+   "sprite": "lamplighter",
+   "x": 17,
+   "y": 10,
+   "facing": "left",
+   "move": "still",
+   "text": "Hester's laughing down there. That's worse than when she's cross. You've made her night.",
+   "show_if": "trainer_keeper_hester"
+  },
+  {
+   "id": "crypt_tourist",
+   "sprite": "villager_3",
+   "x": 1,
+   "y": 11,
+   "facing": "right",
+   "move": "still",
+   "text": "We booked the ghost walk. Nobody said there'd be a battle. Or a draught. Mainly the draught.",
+   "hide_if": "trainer_keeper_hester"
+  },
+  {
+   "id": "crypt_tourist_won",
+   "sprite": "villager_3",
+   "x": 1,
+   "y": 11,
+   "facing": "right",
+   "move": "still",
+   "text": "Best ghost walk ever. Five stars. Would be frightened again.",
+   "show_if": "trainer_keeper_hester"
+  },
+  {
+   "id": "crypt_verger",
+   "sprite": "choir_singer",
+   "x": 17,
+   "y": 2,
+   "facing": "left",
+   "move": "still",
+   "text": "Shh. Evensong's upstairs. Battle quietly, please. Well. As quietly as you can.",
+   "hide_if": "trainer_keeper_hester"
+  },
+  {
+   "id": "crypt_verger_won",
+   "sprite": "choir_singer",
+   "x": 17,
+   "y": 2,
+   "facing": "left",
+   "move": "still",
+   "text": "Ten Stones. I heard the bells go on their own just now. I'm choosing not to think about it.",
+   "show_if": "trainer_keeper_hester"
   }
  ],
  "encounters": {},
- "signs": [],
+ "signs": [
+  {
+   "x": 7,
+   "y": 12,
+   "text": "THE UNDERCROFT. Roman barracks, Norman pillars and a Keeper. Keeper Hester leads the ghost walk at seven. The ghosts lead it at midnight."
+  }
+ ],
  "spawn": [
   9,
   11
@@ -123,16 +305,16 @@
  "stage": "cave",
  "rows": [
   "xxxxxxxxxxxxxxxxxxx",
-  "xqqqqqqqqqqqqqqqqqx",
-  "xqqqqqqqrrrqqqqqqqx",
-  "xqqqqqqqrrrqqqqqqqx",
-  "xqqqqqqqrrrqqqqqqqx",
-  "xqqqqqqqrrrqqqqqqqx",
-  "xqqqqqqqrrrqqqqqqqx",
-  "xqqqqqqqrrrqqqqqqqx",
-  "xqqqqqqqrrrqqqqqqqx",
-  "xqqqqqqqrrrqqqqqqqx",
-  "xqqqqqqqrrrqqqqqqqx",
+  "xqtqtqtqtqtqtqtqtqx",
+  "xtqtqtqtrrrtqtqtqtx",
+  "xqtqtqtqrrrqtqtqtqx",
+  "xtqtqtqtrrrtqtqtqtx",
+  "xqtqtqtqrrrqtqtqtqx",
+  "xtqtqtqtrrrtqtqtqtx",
+  "xqtqtqtqrrrqtqtqtqx",
+  "xtqtqtqtrrrtqtqtqtx",
+  "xqtqtqtqrrrqtqtqtqx",
+  "xtqtqtqtrrrtqtqtqtx",
   "xqrrrrrrrrrrrrrrrqx",
   "xqqqqqqqqDqqqqqqqqx",
   "xxxxxxxxxxxxxxxxxxx"
@@ -140,11 +322,15 @@
  "legend_extra": {
   "q": {
    "tile": "floor_tile",
-   "colour": "#5f5f68"
+   "colour": "#363439"
   },
   "r": {
    "tile": "floor_tile",
-   "colour": "#7b6f60"
+   "colour": "#544a40"
+  },
+  "t": {
+   "tile": "floor_tile",
+   "colour": "#403d43"
   }
  }
 }

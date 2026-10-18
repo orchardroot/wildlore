@@ -42,14 +42,216 @@
    "y": 10
   },
   {
-   "type": "bookshelf",
-   "x": 6,
-   "y": 3
+   "type": "city_window",
+   "x": 2,
+   "y": 2,
+   "variant": 8
   },
   {
-   "type": "bookshelf",
+   "type": "city_window",
+   "x": 3,
+   "y": 2,
+   "variant": 11
+  },
+  {
+   "type": "city_window",
+   "x": 4,
+   "y": 2,
+   "variant": 14
+  },
+  {
+   "type": "city_window",
+   "x": 5,
+   "y": 2,
+   "variant": 17
+  },
+  {
+   "type": "city_window",
+   "x": 6,
+   "y": 2,
+   "variant": 20
+  },
+  {
+   "type": "city_window",
+   "x": 7,
+   "y": 2,
+   "variant": 23
+  },
+  {
+   "type": "city_window",
+   "x": 8,
+   "y": 2,
+   "variant": 25
+  },
+  {
+   "type": "city_window",
+   "x": 9,
+   "y": 2,
+   "variant": 29
+  },
+  {
+   "type": "city_window",
+   "x": 10,
+   "y": 2,
+   "variant": 32
+  },
+  {
+   "type": "city_window",
+   "x": 11,
+   "y": 2,
+   "variant": 35
+  },
+  {
+   "type": "city_window",
+   "x": 12,
+   "y": 2,
+   "variant": 38
+  },
+  {
+   "type": "city_window",
+   "x": 13,
+   "y": 2,
+   "variant": 41
+  },
+  {
+   "type": "city_window",
+   "x": 14,
+   "y": 2,
+   "variant": 44
+  },
+  {
+   "type": "city_window",
+   "x": 15,
+   "y": 2,
+   "variant": 47
+  },
+  {
+   "type": "city_window",
+   "x": 16,
+   "y": 2,
+   "variant": 50
+  },
+  {
+   "type": "city_window",
+   "x": 17,
+   "y": 2,
+   "variant": 53
+  },
+  {
+   "type": "city_window",
+   "x": 18,
+   "y": 2,
+   "variant": 56
+  },
+  {
+   "type": "city_window",
+   "x": 19,
+   "y": 2,
+   "variant": 59
+  },
+  {
+   "type": "city_window",
+   "x": 20,
+   "y": 2,
+   "variant": 62
+  },
+  {
+   "type": "city_window",
+   "x": 21,
+   "y": 2,
+   "variant": 63
+  },
+  {
+   "type": "city_window",
    "x": 22,
-   "y": 3
+   "y": 2,
+   "variant": 68
+  },
+  {
+   "type": "city_window",
+   "x": 23,
+   "y": 2,
+   "variant": 71
+  },
+  {
+   "type": "city_window",
+   "x": 24,
+   "y": 2,
+   "variant": 74
+  },
+  {
+   "type": "city_window",
+   "x": 25,
+   "y": 2,
+   "variant": 77
+  },
+  {
+   "type": "city_window",
+   "x": 26,
+   "y": 2,
+   "variant": 80
+  },
+  {
+   "type": "city_window",
+   "x": 27,
+   "y": 2,
+   "variant": 83
+  },
+  {
+   "type": "enclosure_banner",
+   "x": 12,
+   "y": 5
+  },
+  {
+   "type": "enclosure_banner",
+   "x": 18,
+   "y": 5
+  },
+  {
+   "type": "enclosure_banner",
+   "x": 5,
+   "y": 4
+  },
+  {
+   "type": "enclosure_banner",
+   "x": 25,
+   "y": 4
+  },
+  {
+   "type": "creature_cage",
+   "x": 10,
+   "y": 8,
+   "variant": 0
+  },
+  {
+   "type": "creature_cage",
+   "x": 20,
+   "y": 8,
+   "variant": 1
+  },
+  {
+   "type": "creature_cage",
+   "x": 10,
+   "y": 14,
+   "variant": 2
+  },
+  {
+   "type": "creature_cage",
+   "x": 20,
+   "y": 14,
+   "variant": 3
+  },
+  {
+   "type": "stage_light",
+   "x": 12,
+   "y": 8,
+   "variant": 3
+  },
+  {
+   "type": "stage_light",
+   "x": 18,
+   "y": 8,
+   "variant": 3
   }
  ],
  "warps": [
@@ -90,6 +292,66 @@
    "facing": "right",
    "move": "still",
    "trainer": "vt_warden_6"
+  },
+  {
+   "id": "vt_pa",
+   "sprite": "commuter",
+   "x": 24,
+   "y": 8,
+   "facing": "left",
+   "move": "still",
+   "text": "Lord Vane's diary is full until 2031. I've pencilled you in for a defeat. His, apparently, not yours.",
+   "hide_if": "game_complete"
+  },
+  {
+   "id": "vt_pa_won",
+   "sprite": "commuter",
+   "x": 24,
+   "y": 8,
+   "facing": "left",
+   "move": "still",
+   "text": "I've cleared his diary. All of it. I'm updating my CV on the work laptop. It feels wonderful.",
+   "show_if": "game_complete"
+  },
+  {
+   "id": "vt_intern",
+   "sprite": "student",
+   "x": 6,
+   "y": 12,
+   "facing": "right",
+   "move": "still",
+   "text": "I'm only an intern. I fetch the coffee and polish the cages. I've started leaving the cages unlocked.",
+   "hide_if": "game_complete"
+  },
+  {
+   "id": "vt_intern_won",
+   "sprite": "student",
+   "x": 6,
+   "y": 12,
+   "facing": "right",
+   "move": "still",
+   "text": "I've let them all out. The cages, the creatures, the lot. Nobody's said a word. Is that allowed?",
+   "show_if": "game_complete"
+  },
+  {
+   "id": "vt_cleaner",
+   "sprite": "villager_2",
+   "x": 23,
+   "y": 17,
+   "facing": "left",
+   "move": "still",
+   "text": "I've cleaned this floor every night for six years. You can see the whole city through it. I don't look.",
+   "hide_if": "game_complete"
+  },
+  {
+   "id": "vt_cleaner_won",
+   "sprite": "villager_2",
+   "x": 23,
+   "y": 17,
+   "facing": "left",
+   "move": "still",
+   "text": "Leaving the windows unpolished tonight. Let London have a look in for once.",
+   "show_if": "game_complete"
   }
  ],
  "encounters": {},
@@ -112,20 +374,20 @@
   "xxvvvvvvvvvvvvvvvvvvvvvvvvvvxx",
   "xxggggggggggggggggggggggggggxx",
   "xxggggggggggggggggggggggggggxx",
-  "xxggggggmCCCCCvvCCCCCCggggggxx",
-  "xxggggggmmmmmvvvvmmmmmggggggxx",
-  "xxggggggmmmmmvvvvmmmmmggggggxx",
-  "xxggggggmmmmmvvvvmmmmmggggggxx",
-  "xxggggggmmmmmvvvvmmmmmggggggxx",
-  "xxggggggmmmmmvvvvmmmmmggggggxx",
-  "xxggggggmmmmmvvvvmmmmmggggggxx",
-  "xxggggggmmmmmvvvvmmmmmggggggxx",
-  "xxggggggmmmmmvvvvmmmmmggggggxx",
-  "xxggggggmmmmmvvvvmmmmmggggggxx",
-  "xxggggggmmmmmvvvvmmmmmggggggxx",
-  "xxggggggmmmmmvvvvmmmmmggggggxx",
-  "xxggggggmmmmmvvvvmmmmmggggggxx",
-  "xxggggggmmmmmvvvvmmmmmggggggxx",
+  "xxggggggmCCCCCuuCCCCCCggggggxx",
+  "xxggggggmmmmmuuuummmmmggggggxx",
+  "xxggggggmmmmmuuuummmmmggggggxx",
+  "xxggggggmmmmmuuuummmmmggggggxx",
+  "xxggggggmmmmmuuuummmmmggggggxx",
+  "xxggggggmmmmmuuuummmmmggggggxx",
+  "xxggggggmmmmmuuuummmmmggggggxx",
+  "xxggggggmmmmmuuuummmmmggggggxx",
+  "xxggggggmmmmmuuuummmmmggggggxx",
+  "xxggggggmmmmmuuuummmmmggggggxx",
+  "xxggggggmmmmmuuuummmmmggggggxx",
+  "xxggggggmmmmmuuuummmmmggggggxx",
+  "xxggggggmmmmmuuuummmmmggggggxx",
+  "xxggggggmmmmmuuuummmmmggggggxx",
   "xxggggggggggggggggggggggggggxx",
   "xxggggggggggggggggggggggggggxx",
   "xxxDxxxxxxxxxxxxxxxxxxxxxxxxxx",
@@ -134,7 +396,7 @@
  "legend_extra": {
   "g": {
    "tile": "floor_tile",
-   "colour": "#a9d2ea"
+   "colour": "#4a6a88"
   },
   "v": {
    "tile": "floor_tile",
@@ -142,7 +404,11 @@
   },
   "m": {
    "tile": "floor_tile",
-   "colour": "#e6e2d6"
+   "colour": "#2c313c"
+  },
+  "u": {
+   "tile": "floor_tile",
+   "colour": "#7a1f2a"
   }
  }
 }
