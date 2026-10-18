@@ -428,3 +428,146 @@ static func display_case(variant := 0) -> ArrayMesh:
 		var c: Color = finds[rng.randi() % finds.size()]
 		Meshes.blob(st, Vector3(rng.randf_range(-0.25, 0.25), 0.6, rng.randf_range(-0.2, 0.2)), Vector3(0.08, 0.07, 0.08), c, rng, 0.25)
 	return Meshes._finish(st)
+
+# --- the first hour's rooms (2.1): Mum's window and the cat's bowl, the Field Station's owl, kettle, jars and map ---
+
+## A sash window on the north wall, daylight in the panes, curtains either side and a pot on the sill.
+static func window() -> ArrayMesh:
+	var st := Meshes._st()
+	var frame := Color("f2ede2")
+	var glass := Color("bfe0ef")
+	Meshes.box(st, Vector3(-0.36, 0.7, -0.5), Vector3(0.72, 0.86, 0.05), frame)
+	Meshes.box(st, Vector3(-0.31, 0.75, -0.452), Vector3(0.62, 0.76, 0.01), glass)
+	Meshes.box(st, Vector3(-0.31, 1.06, -0.452), Vector3(0.62, 0.45, 0.012), glass.lightened(0.25))  # the sky's brighter up top
+	Meshes.box(st, Vector3(-0.31, 0.75, -0.452), Vector3(0.62, 0.12, 0.014), Color("8fb97a"))  # a hedge outside
+	Meshes.box(st, Vector3(-0.31, 1.11, -0.445), Vector3(0.62, 0.035, 0.012), frame)  # the sash
+	Meshes.box(st, Vector3(-0.0175, 0.75, -0.445), Vector3(0.035, 0.76, 0.012), frame)
+	Meshes.box(st, Vector3(-0.42, 0.66, -0.5), Vector3(0.84, 0.05, 0.14), frame.darkened(0.06))  # the sill
+	Meshes.cylinder(st, Vector3(0.22, 0.71, -0.42), 0.05, 0.07, 6, Color("b8643c"))
+	Meshes.blob(st, Vector3(0.22, 0.82, -0.42), Vector3(0.07, 0.06, 0.07), Color("5d8a3f"), Meshes._rng(37000), 0.25)
+	var cloth := Color("c9483f")
+	for sx in [-1.0, 1.0]:
+		var x0: float = 0.36 * sx - (0.14 if sx > 0 else 0.0)
+		Meshes.box(st, Vector3(x0, 0.56, -0.48), Vector3(0.14, 1.06, 0.05), cloth)
+		Meshes.box(st, Vector3(x0 + 0.03, 0.56, -0.43), Vector3(0.08, 1.06, 0.01), cloth.lightened(0.12))
+	Meshes.box(st, Vector3(-0.52, 1.64, -0.48), Vector3(1.04, 0.03, 0.04), DARK_WOOD)  # the pole
+	return Meshes._finish(st)
+
+## The cat's bowls on the kitchen floor: biscuits in the blue one, water in the other. Walk-over size.
+static func cat_bowl() -> ArrayMesh:
+	var st := Meshes._st()
+	var rng := Meshes._rng(37100)
+	Meshes.cylinder(st, Vector3(-0.1, 0.0, 0.05), 0.11, 0.06, 10, Color("3f6a8a"))
+	for i in 7:
+		Meshes.box(st, Vector3(-0.17 + rng.randf() * 0.12, 0.05, -0.02 + rng.randf() * 0.12), Vector3(0.025, 0.02, 0.025), Color("8a5a2e"))
+	Meshes.cylinder(st, Vector3(0.14, 0.0, -0.05), 0.09, 0.05, 10, Color("f2ede2"))
+	Meshes.cylinder(st, Vector3(0.14, 0.046, -0.05), 0.07, 0.004, 10, Color("8fc3dc"))
+	Meshes.box(st, Vector3(-0.26, 0.0, -0.14), Vector3(0.52, 0.006, 0.3), Color("c9a441"))  # a mat, mostly for show
+	return Meshes._finish(st)
+
+## Professor Garside's owl on a T-perch: a tawny, unimpressed.
+static func owl_perch() -> ArrayMesh:
+	var st := Meshes._st()
+	var rng := Meshes._rng(37200)
+	Meshes.box(st, Vector3(-0.2, 0, -0.2), Vector3(0.4, 0.05, 0.4), DARK_WOOD)
+	_bar(st, Vector3(0, 0.05, 0), Vector3(0, 1.0, 0), 0.03, WOOD)
+	_bar(st, Vector3(-0.24, 1.0, 0), Vector3(0.24, 1.0, 0), 0.025, WOOD.lightened(0.1))
+	var brown := Color("8a6440")
+	Meshes.blob(st, Vector3(0, 1.22, 0), Vector3(0.15, 0.2, 0.13), brown, rng, 0.08)
+	Meshes.blob(st, Vector3(0, 1.43, 0.01), Vector3(0.13, 0.12, 0.12), brown.lightened(0.05), rng, 0.08)
+	var face := Vector3(0, 1.44, 0.125)
+	_disc_z(st, face, 0.1, 10, Color("d8c4a0"))
+	for ex in [-0.045, 0.045]:
+		_disc_z(st, face + Vector3(ex, 0.01, 0.006), 0.028, 8, Color("1d1a18"))
+		_disc_z(st, face + Vector3(ex + 0.008, 0.02, 0.009), 0.008, 5, Color("f2ede2"))
+	Meshes._tri(st, face + Vector3(-0.015, -0.02, 0.01), face + Vector3(0, -0.06, 0.03), face + Vector3(0.015, -0.02, 0.01), Color("c9a441"))
+	for i in 5:  # speckles on the chest
+		Meshes.box(st, Vector3(-0.08 + i * 0.035, 1.15 + (i % 2) * 0.06, 0.11), Vector3(0.02, 0.03, 0.02), brown.darkened(0.3))
+	for fx in [-0.05, 0.03]:
+		Meshes.box(st, Vector3(fx, 1.0, 0.0), Vector3(0.03, 0.035, 0.06), Color("c9a441"))
+	return Meshes._finish(st)
+
+## A side table with the kettle (always on) and two mugs, one of them the Professor's.
+static func kettle_table() -> ArrayMesh:
+	var st := Meshes._st()
+	Meshes.box(st, Vector3(-0.36, 0.62, -0.36), Vector3(0.72, 0.05, 0.72), WOOD.lightened(0.05))
+	for px in [-0.32, 0.27]:
+		for pz in [-0.32, 0.27]:
+			Meshes.box(st, Vector3(px, 0, pz), Vector3(0.05, 0.62, 0.05), WOOD)
+	var steel := Color("c4ccd2")
+	Meshes.cylinder(st, Vector3(-0.08, 0.67, -0.05), 0.14, 0.24, 10, steel)
+	Meshes.cylinder(st, Vector3(-0.08, 0.91, -0.05), 0.09, 0.03, 10, steel.darkened(0.15))
+	Meshes.box(st, Vector3(-0.1, 0.94, -0.07), Vector3(0.04, 0.03, 0.04), IRON)
+	_bar(st, Vector3(-0.08 + 0.1, 0.72, -0.05), Vector3(0.14, 0.86, 0.0), 0.022, steel)  # spout
+	_bar(st, Vector3(-0.2, 0.9, -0.05), Vector3(-0.08, 0.98, -0.05), 0.015, IRON)
+	_bar(st, Vector3(-0.08, 0.98, -0.05), Vector3(0.04, 0.9, -0.05), 0.015, IRON)
+	Meshes.cylinder(st, Vector3(0.2, 0.67, 0.18), 0.05, 0.09, 8, Color("c9483f"))
+	Meshes.cylinder(st, Vector3(-0.22, 0.67, 0.22), 0.05, 0.09, 8, Color("f2ede2"))
+	Meshes.box(st, Vector3(0.12, 0.67, -0.3), Vector3(0.16, 0.06, 0.1), Color("e0b83a"))  # the biscuit tin
+	return Meshes._finish(st)
+
+## Shelves of specimen jars against the north wall: owl pellets, frogspawn, a pickled something.
+static func specimen_shelf(variant := 0) -> ArrayMesh:
+	var st := Meshes._st()
+	var rng := Meshes._rng(37300 + variant)
+	Meshes.box(st, Vector3(-0.44, 0, -0.5), Vector3(0.88, 1.36, 0.06), DARK_WOOD)
+	for sx in [-0.44, 0.4]:
+		Meshes.box(st, Vector3(sx, 0, -0.5), Vector3(0.04, 1.36, 0.34), DARK_WOOD)
+	Meshes.box(st, Vector3(-0.44, 1.32, -0.5), Vector3(0.88, 0.04, 0.34), DARK_WOOD)
+	var glass := Color("d6ebe6")
+	var insides := [Color("6f8f3a"), Color("c98a3a"), Color("8c2f39"), Color("4f7a9a"), Color("b8a888"), Color("3f6b4a")]
+	for row in 3:
+		var y := 0.1 + row * 0.42
+		Meshes.box(st, Vector3(-0.4, y - 0.04, -0.46), Vector3(0.8, 0.04, 0.3), WOOD)
+		var x := -0.34
+		while x < 0.3:
+			var r := rng.randf_range(0.045, 0.07)
+			var h := rng.randf_range(0.14, 0.26)
+			Meshes.cylinder(st, Vector3(x + r, y, -0.3), r, h, 8, glass)
+			Meshes.cylinder(st, Vector3(x + r, y + 0.01, -0.3 + 0.012), r * 0.8, h * 0.62, 8, insides[rng.randi() % insides.size()])
+			Meshes.cylinder(st, Vector3(x + r, y + h, -0.3), r * 0.9, 0.025, 8, BRASS.darkened(0.2))
+			x += r * 2.0 + 0.04
+	return Meshes._finish(st)
+
+const ISLES_GB := [[-5.7, 50.05], [-5.2, 49.96], [-4.1, 50.35], [-2.45, 50.6], [-1.3, 50.7], [-0.1, 50.8], [1.4, 51.15],
+	[1.4, 51.38], [0.9, 51.8], [1.75, 52.5], [1.3, 52.93], [0.3, 52.85], [0.1, 53.6], [-0.1, 54.1], [-0.6, 54.5],
+	[-1.4, 55.0], [-2.0, 55.77], [-2.6, 56.05], [-2.6, 56.3], [-2.1, 57.15], [-2.0, 57.69], [-3.5, 57.65],
+	[-3.1, 58.45], [-3.4, 58.67], [-5.0, 58.62], [-5.2, 57.9], [-5.8, 57.3], [-5.85, 56.95], [-5.5, 56.4],
+	[-5.7, 55.3], [-4.9, 55.7], [-5.1, 54.65], [-3.6, 54.9], [-3.6, 54.4], [-2.9, 54.05], [-3.05, 53.4],
+	[-4.6, 53.3], [-4.75, 52.8], [-4.1, 52.4], [-5.3, 51.88], [-4.0, 51.6], [-3.0, 51.55], [-3.3, 51.2],
+	[-4.6, 51.1], [-5.1, 50.6]]
+const ISLES_IE := [[-7.3, 55.38], [-6.1, 55.2], [-5.7, 54.6], [-6.05, 53.35], [-6.35, 52.2], [-8.3, 51.8], [-9.8, 51.45],
+	[-10.3, 52.15], [-9.1, 53.25], [-10.1, 53.5], [-9.9, 54.2], [-8.6, 54.65], [-8.3, 55.15]]
+const ISLES_MAN := [[-4.8, 54.05], [-4.35, 54.4], [-4.3, 54.2], [-4.6, 54.05]]
+
+## The Field Station's wall map of the Isles, pinned where the Keepers are. It spans about two tiles.
+static func wall_map() -> ArrayMesh:
+	var st := Meshes._st()
+	var w := 0.9
+	var h := 1.0
+	var bottom := 0.62
+	Meshes.box(st, Vector3(-w * 0.5 - 0.05, bottom - 0.05, -0.5), Vector3(w + 0.1, h + 0.1, 0.04), Color("6b4a32"))
+	Meshes.box(st, Vector3(-w * 0.5, bottom, -0.46), Vector3(w, h, 0.01), Color("9fc0cf"))
+	var to_wall := func(p: Array) -> Vector3:
+		var nx := (float(p[0]) + 10.6) / 12.6
+		var ny := (59.0 - float(p[1])) / 9.3
+		return Vector3(-w * 0.5 + nx * w, bottom + h - ny * h, -0.445)
+	for shape in [ISLES_GB, ISLES_IE, ISLES_MAN]:
+		var pts := PackedVector2Array()
+		for p in shape:
+			pts.append(Vector2(float(p[0]), float(p[1])))
+		var idx := Geometry2D.triangulate_polygon(pts)
+		for i in range(0, idx.size(), 3):
+			var a: Vector3 = to_wall.call(shape[idx[i]])
+			var b: Vector3 = to_wall.call(shape[idx[i + 1]])
+			var c: Vector3 = to_wall.call(shape[idx[i + 2]])
+			Meshes._tri(st, a, b, c, Color("e8dcb0"))
+			Meshes._tri(st, a, c, b, Color("e8dcb0"))
+	var pins := [[-2.13, 53.26], [-1.91, 53.26], [-2.98, 53.41], [-2.24, 53.48], [-4.13, 53.12], [-3.2, 55.95], [-6.26, 53.35],
+		[-5.93, 54.6], [-4.48, 54.15], [-1.08, 53.96], [-2.36, 51.38]]
+	for i in pins.size():
+		var at: Vector3 = to_wall.call(pins[i])
+		var col: Color = Color("c8423a") if i > 0 else Color("2f6fb0")  # blue: you are here
+		Meshes.box(st, at + Vector3(-0.012, -0.012, 0.002), Vector3(0.024, 0.024, 0.02), col)
+	Meshes.box(st, Vector3(-w * 0.5 + 0.04, bottom + h - 0.1, -0.44), Vector3(0.3, 0.05, 0.005), Color("3a2a22"))  # a title, sort of
+	return Meshes._finish(st)

@@ -126,6 +126,11 @@ func _refresh_next() -> void:
 	_next.add_child(wb[0])
 	if not o.is_empty():
 		UIKit.add_words(wb[1], str(o.get("text", "")))
+	if d.flag("game_complete") != true:  # what's going on near you: a job to hand in, a show, a site, a side story
+		var town := str(d.flag("last_town")) if d.flag("last_town") != null else ""
+		var near := MenuLogic.around_here(d, town, Tournament.today(d))
+		if near != "":
+			UIKit.add_words(wb[1], "Around here: " + near, -2, UIKit.GOLD)
 	var walk := TodaysWalk.summary(d, Game.dex)
 	if walk != "":
 		UIKit.add_words(wb[1], walk, -6, UIKit.MUTED)

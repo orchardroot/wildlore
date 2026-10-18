@@ -103,9 +103,10 @@ static func pick(key: String, data: GameStateData, ix: Dictionary, cfg: Dictiona
 		var zs: Array = homes[species]
 		zone = str(zs[rng.roll_int(0, zs.size() - 1)])
 	var pubs: Array = cfg.get("pubs", [])
+	# only a pub in a town you've been to: a first-hour player isn't sent to The Cavern (no pub yet, no quiz line)
 	var near := pubs.filter(func(p): return data.flag("visited_" + str(p.id)) == true)
-	var pub_pool := near if not near.is_empty() else pubs
-	var pub := str(pub_pool[rng.roll_int(0, pub_pool.size() - 1)].id) if not pub_pool.is_empty() else ""
+	var pub_roll := rng.roll_int(0, (near if not near.is_empty() else pubs).size() - 1) if not pubs.is_empty() else 0  # same roll as ever
+	var pub := str(near[pub_roll].id) if not near.is_empty() else ""
 	var wkeys: Array = cfg.get("weathers", {}).keys()
 	wkeys.sort()
 	var weather := str(wkeys[rng.roll_int(0, wkeys.size() - 1)]) if not wkeys.is_empty() else "rain"
@@ -247,4 +248,5 @@ static func summary(data: GameStateData, dex) -> String:
 	var w := current(data)
 	if w.is_empty() or str(w.get("species", "")) == "":
 		return ""
-	return _fill(str(config().get("menu", "")), w, dex, null)
+	var quiz := _fill(str(config().get("menu_quiz", "")), w, dex, null) if str(w.get("pub", "")) != "" else ""
+	return _fill(str(config().get("menu", "")), w, dex, null).replace("{quiz}", quiz)

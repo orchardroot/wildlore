@@ -247,6 +247,27 @@ static func next_objective(d: GameStateData, total := 0, o := {}, sides: Array =
 		return out
 	return {}
 
+## The pause card's "Around here" line before the ending ("" when there's nothing, and after it, where "Still to do"
+## covers the same ground): a job ready to hand in, else today's County Show if it's in `town`, else a rewilding
+## site that wants a hand, else a side story waiting in `town`. `show` is today's show (Tournament.today), `sides`
+## defaults to the real side stories.
+static func around_here(d: GameStateData, town: String, show := {}, sides: Array = []) -> String:
+	if _done(d, "game_complete"):
+		return ""
+	for a in Jobs.active(d):
+		if str(a[2].get("step", {}).get("type", "")) not in Jobs.AUTO and Jobs.is_ready(d, a[0], null):
+			return "Job ready to hand in at any noticeboard in %s: %s." % [Standing.name_of(str(a[2].get("nation", ""))), str(a[2].get("title", ""))]
+	if town != "" and str(show.get("town", "")) == town and Tournament.open_to(d):
+		var nm := str(show.get("name", "the County Show"))
+		return "%s is on here today. Enter at the ring." % (nm.left(1).to_upper() + nm.substr(1))
+	var site := Rewild.hint_entry(d)
+	if not site.is_empty():
+		return str(site.text)
+	for s in (sides if not sides.is_empty() else SideStories.sides()):
+		if town != "" and str(s.get("zone", "")) == town and SideStories.waiting(d, s):
+			return str(s.get("hint", ""))
+	return ""
+
 ## Names of the people whose once-a-day rematch hasn't been fought today (post-game only).
 static func rematches_ready(d: GameStateData, o := {}) -> Array:
 	if o.is_empty():

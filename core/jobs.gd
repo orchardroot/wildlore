@@ -86,6 +86,7 @@ static func offers(data: GameStateData, town: String) -> Array:
 	var rng := RandomNumberGenerator.new()
 	rng.seed = hash("%s:%d:%d" % [town, e, data.rng_seed])
 	_shuffle(local, rng)
+	if badges == 0: local.sort_custom(func(a, b): return a.get("first", false) and not b.get("first", false))  # before Maud, the first job leads
 	_shuffle(wide, rng)
 	var want := 2 + rng.randi() % 2
 	var out := local.slice(0, mini(2, want))

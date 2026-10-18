@@ -219,7 +219,7 @@ const POINT_PROPS := ["lamp_post", "bench", "bush", "birch", "oak", "pine", "roc
 	"buoy", "lighthouse", "statue", "harp", "clock_tower", "shard", "buffer_stop", "tunnel_portal",
 	"bunting", "flagpole", "washing_line", "hanging_basket", "rug", "fireplace", "wall_picture", "clock", "kitchen_dresser",
 	"fryer", "menu_board", "piano", "telescope", "plant_stand", "sofa", "display_case", "cascade", "sheep",
-	"field_gate", "limestone_pavement"]
+	"field_gate", "limestone_pavement", "window", "cat_bowl", "owl_perch", "kettle_table", "specimen_shelf", "wall_map"]
 ## Cloth meshes that ripple (flutter shader) and glow meshes that add light (firelight shader).
 const CLOTH := ["bunting", "flag", "washing_line"]
 const FLOATING := ["boat", "canal_boat", "buoy"]
@@ -526,6 +526,18 @@ static func _ctor(name: String, variant: int) -> ArrayMesh:
 			return Dressing.sofa(variant)
 		"display_case":
 			return Dressing.display_case(variant)
+		"window":
+			return Dressing.window()
+		"cat_bowl":
+			return Dressing.cat_bowl()
+		"owl_perch":
+			return Dressing.owl_perch()
+		"kettle_table":
+			return Dressing.kettle_table()
+		"specimen_shelf":
+			return Dressing.specimen_shelf(variant)
+		"wall_map":
+			return Dressing.wall_map()
 	push_warning("ZoneBuilder: unknown prop mesh '%s'" % name)
 	return Meshes.rock(0)
 
