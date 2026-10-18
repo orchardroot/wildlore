@@ -10,6 +10,11 @@ var title_text := ""
 var content: Control          # where subclasses put their layout (inside the margins)
 var header_right: Label
 var hint_label: Label
+const SIDE := 48              # the frame's left and right margin
+const HINT_H := 46            # the hint bar's own strip along the bottom
+const HINT_FONT := 20         # its text size; shrinks (to HINT_MIN) rather than run off the screen
+const HINT_MIN := 15
+
 var _hint_entries: Array = []   # the prompts behind the hint bar, redrawn when the device or bindings change
 var _done := false
 var _locked := false          # true while a child menu or popup owns input
@@ -42,31 +47,52 @@ func _build_frame() -> void:
 	rule.custom_minimum_size = Vector2(0, 6)
 	rule.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(rule)
+	# The hint bar has its own strip along the bottom, so no menu can draw underneath it.
+	var foot := PanelContainer.new()
+	foot.name = "HintBar"
+	foot.set_anchors_preset(Control.PRESET_BOTTOM_WIDE)
+	foot.offset_top = -HINT_H
+	foot.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	var fs := UIKit.box(Color(0.03, 0.035, 0.06, 0.55), Color(UIKit.HEATHER, 0.45), 0, 0, 0)
+	fs.border_width_top = 2
+	fs.content_margin_left = SIDE
+	fs.content_margin_right = SIDE
+	foot.add_theme_stylebox_override("panel", fs)
+	add_child(foot)
+	hint_label = UIKit.label("", HINT_FONT, UIKit.MUTED)
+	hint_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	hint_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	hint_label.clip_text = true  # never widens the frame; _fit_hint shrinks the text first
+	hint_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	foot.add_child(hint_label)
+	foot.resized.connect(_fit_hint)
 	var margin := MarginContainer.new()
 	margin.set_anchors_preset(Control.PRESET_FULL_RECT)
 	for side in ["left", "right"]:
-		margin.add_theme_constant_override("margin_" + side, 48)
+		margin.add_theme_constant_override("margin_" + side, SIDE)
 	margin.add_theme_constant_override("margin_top", 28)
-	margin.add_theme_constant_override("margin_bottom", 20)
+	margin.add_theme_constant_override("margin_bottom", HINT_H + 14)
 	add_child(margin)
 	var col := VBoxContainer.new()
 	col.add_theme_constant_override("separation", 14)
 	margin.add_child(col)
 	var head := HBoxContainer.new()
+	head.add_theme_constant_override("separation", 24)
 	col.add_child(head)
 	var t := UIKit.label(title_text, 44, UIKit.CREAM)
 	t.name = "Title"
 	head.add_child(t)
 	head.add_child(UIKit.fill())
 	header_right = UIKit.label("", 26, UIKit.GOLD)
+	header_right.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	header_right.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 	head.add_child(header_right)
 	content = Control.new()
+	content.name = "Content"
 	content.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	content.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	content.clip_contents = true  # a last line of defence: a panel that's too tall is cut, never drawn over the hints
 	col.add_child(content)
-	hint_label = UIKit.label("", 20, UIKit.MUTED)
-	hint_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
-	col.add_child(hint_label)
 	InputDevice.changed.connect(_redraw_hint)
 	Bus.settings_changed.connect(_redraw_hint)
 
@@ -79,15 +105,25 @@ func set_title(t: String) -> void:
 func set_hint(text: String) -> void:
 	_hint_entries = []
 	hint_label.text = text
+	_fit_hint()
 
 ## The hint bar from button prompts, e.g. [["confirm", "Choose"], ["cancel", "Back"]]; see UIKit.hint.
 func set_hints(entries: Array) -> void:
 	_hint_entries = entries
 	hint_label.text = UIKit.hint(entries)
+	_fit_hint()
 
 func _redraw_hint() -> void:
 	if not _hint_entries.is_empty() and is_instance_valid(hint_label):
 		hint_label.text = UIKit.hint(_hint_entries)
+		_fit_hint()
+
+## The biggest hint text size (HINT_FONT down to HINT_MIN) that fits the bar on one line.
+func _fit_hint() -> void:
+	if not is_instance_valid(hint_label):
+		return
+	var w := hint_label.size.x if hint_label.size.x > 0 else size.x - SIDE * 2
+	hint_label.add_theme_font_size_override("font_size", UIKit.fit_size(hint_label.text, w, HINT_FONT, HINT_MIN))
 
 func _exit_tree() -> void:
 	if InputDevice.changed.is_connected(_redraw_hint):

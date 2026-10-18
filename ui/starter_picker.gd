@@ -21,7 +21,7 @@ func _build() -> void:
 	header_right.text = "Professor Garside's field station"
 	var col := VBoxContainer.new()
 	col.set_anchors_preset(Control.PRESET_FULL_RECT)
-	col.add_theme_constant_override("separation", 14)
+	col.add_theme_constant_override("separation", 10)
 	content.add_child(col)
 	var row := HBoxContainer.new()
 	row.size_flags_vertical = Control.SIZE_EXPAND_FILL
@@ -47,7 +47,7 @@ func _build() -> void:
 		pl.custom_minimum_size = Vector2(300, 8)
 		plinth.add_child(pl)
 		v.add_child(plinth)
-		var n := UIKit.label(str(sp.get("name", id)), 36)
+		var n := UIKit.label(str(sp.get("name", id)), 34)
 		n.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		v.add_child(n)
 		var tr := UIKit.types_row(sp.get("types", []), 22)
@@ -55,7 +55,7 @@ func _build() -> void:
 		v.add_child(tr)
 		row.add_child(p)
 		_cols.append(p)
-	var dlg := UIKit.panel(Color("1d2230f8"), 12)
+	var dlg := UIKit.panel(Color("1d2230f8"), 10)
 	col.add_child(dlg)
 	var dv := VBoxContainer.new()
 	dv.add_theme_constant_override("separation", 4)
@@ -66,7 +66,7 @@ func _build() -> void:
 	dh.add_child(UIKit.fill())
 	_prompt = UIKit.label("", 22, UIKit.GOLD)
 	dh.add_child(_prompt)
-	_line = UIKit.label("", 24)
+	_line = UIKit.label("", 22)
 	_line.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	dv.add_child(_line)
 	_refresh()

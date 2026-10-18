@@ -50,10 +50,20 @@ func _build() -> void:
 	_standing = VBoxContainer.new()
 	_standing.add_theme_constant_override("separation", 6)
 	sp.add_child(_standing)
-	_say = UIKit.label("", 24, UIKit.GOLD)
+	_say = UIKit.label("", 22, UIKit.GOLD)
 	_say.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	_say.custom_minimum_size = Vector2(0, 30)
+	_say.resized.connect(_fit_say)
 	right.add_child(_say)
+
+## Several hand-ins at once make a long line: it steps down a size or two rather than push the panels off the page.
+func _fit_say() -> void:
+	var w := maxf(_say.size.x, 200.0)
+	var fs := 22
+	while fs > 17 and ThemeDB.fallback_font.get_multiline_string_size(_say.text, HORIZONTAL_ALIGNMENT_LEFT, w, fs).y > 90:
+		fs -= 1
+	if _say.get_theme_font_size("font_size") != fs:
+		_say.add_theme_font_size_override("font_size", fs)
 
 func setup(arg: String) -> void:
 	_town = arg if arg != "" else str(Game.data.zone_id)

@@ -5,7 +5,7 @@ extends MenuBase
 ## The front is the place itself (PostcardPicture); Confirm turns the card over to Kit's writing, the stamp and
 ## the postmark.
 
-const CARD := Vector2(816, 544)
+const CARD := Vector2(780, 520)  # with its tilt and shadow, clear of the hint bar
 const PAPER := Color("f4ecd9")
 const INK := Color("22305a")
 const PRINT := Color("8a7d64")

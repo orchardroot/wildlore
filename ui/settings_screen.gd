@@ -27,14 +27,15 @@ func _build() -> void:
 	var buttons := []
 	for def in [["text_speed", "Text speed"], ["battle_speed", "Battle speed"], ["travel_scenes", "Travel scenes"], ["quality", "Graphics quality"], ["music_volume", "Music volume"], ["sfx_volume", "Effects volume"], ["ambience_volume", "Ambience volume"], ["run_mode", "Run key"], ["follower", "Follower"], ["colour_blind", "Colour-blind friendly"], ["reduce_flashing", "Reduce flashing"]]:
 		var b := Button.new()
-		b.custom_minimum_size = Vector2(0, 30)  # rows are tight: the preview panel must clear the hint line
-		UIKit.compact(b, 4)
+		b.custom_minimum_size = Vector2(0, 32)  # rows are tight: the preview panel must clear the hint line
+		UIKit.compact(b, 2)
 		var h := HBoxContainer.new()
 		h.set_anchors_preset(Control.PRESET_FULL_RECT)
 		h.offset_left = 18
 		h.offset_right = -18
 		h.mouse_filter = Control.MOUSE_FILTER_IGNORE
-		var k := UIKit.label(def[1], 26)
+		var k := UIKit.label(def[1], 23)
+		k.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 		h.add_child(k)
 		h.add_child(UIKit.fill())
 		var bar: ProgressBar = null
@@ -42,13 +43,14 @@ func _build() -> void:
 			bar = ProgressBar.new()
 			bar.show_percentage = false
 			bar.max_value = 1.0
-			bar.custom_minimum_size = Vector2(260, 16)
+			bar.custom_minimum_size = Vector2(260, 14)
 			bar.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 			bar.add_theme_stylebox_override("fill", UIKit.box(UIKit.HEATHER, Color(0, 0, 0, 0), 0, 3, 0))
 			h.add_child(bar)
-		var val := UIKit.label("", 26, UIKit.GOLD)
+		var val := UIKit.label("", 23, UIKit.GOLD)
 		val.custom_minimum_size = Vector2(190, 0)
 		val.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+		val.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 		h.add_child(val)
 		for c in h.get_children():
 			c.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -63,21 +65,25 @@ func _build() -> void:
 		v.add_child(b)
 		buttons.append(b)
 		_rows.append({"key": key, "button": b, "value": val, "bar": bar})
-	var controls := make_button("Controls...", func(): await open_child("controls"))
+	v.add_child(UIKit.spacer(6))
+	var bottom := HBoxContainer.new()  # Controls... and Back side by side, so the page fits with room to spare
+	bottom.add_theme_constant_override("separation", 10)
+	v.add_child(bottom)
+	var controls := make_button("Controls...", func(): await open_child("controls"), 300)
+	var back := make_button("Back", func(): close(null), 200)
+	for b in [controls, back]:
+		UIKit.compact(b, 6)
+		b.custom_minimum_size.y = 40
+		b.add_theme_font_size_override("font_size", 25)
+		bottom.add_child(b)
+		buttons.append(b)
 	controls.focus_neighbor_left = NodePath(".")
-	controls.focus_neighbor_right = NodePath(".")
-	UIKit.compact(controls, 4)
-	controls.custom_minimum_size.y = 38
-	v.add_child(controls)
-	buttons.append(controls)
-	var back := make_button("Back", func(): close(null))
-	UIKit.compact(back, 4)
-	back.custom_minimum_size.y = 38
-	back.focus_neighbor_left = NodePath(".")
+	controls.focus_neighbor_right = controls.get_path_to(back)
+	back.focus_neighbor_left = back.get_path_to(controls)
 	back.focus_neighbor_right = NodePath(".")
-	v.add_child(back)
-	buttons.append(back)
+	back.focus_neighbor_top = back.get_path_to(buttons[buttons.size() - 3])
 	UIKit.wrap_focus(buttons)
+	controls.focus_neighbor_bottom = controls.get_path_to(buttons[0])
 	var pp := UIKit.panel(Color("14182199"), 14)
 	col.add_child(pp)
 	var pv := VBoxContainer.new()
