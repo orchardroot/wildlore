@@ -197,6 +197,8 @@ func _exec(c: Dictionary) -> void:
 			await _rail()
 		"gauntlet":
 			await _gauntlet(c)
+		"tournament":
+			await TournamentRun.new(self).run(c)  # County Shows, the Open Moot and the rosette stall
 		"credits":
 			await host.open_menu("credits")
 			# the credits swapped the music and the ending set game_complete: put the zone's tune back and save

@@ -210,6 +210,7 @@ func _build_zone_node() -> void:
 	HomeBase.dress(zone, _zone_node, Game.data)  # Mum's trophy shelf, the garden and its visitors
 	Noticeboard.dress(zone, _zone_node)  # the parish noticeboard (jobs)
 	RewildScene.dress(zone, _zone_node, Game.data)  # rewilding sites: stumps, saplings, pools, marked spots
+	ShowRing.dress(zone, _zone_node, Game.data)  # today's County Show, if it's here
 	traffic = RailTraffic.new()
 	traffic.name = "RailTraffic"
 	_zone_node.add_child(traffic)
