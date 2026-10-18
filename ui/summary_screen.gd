@@ -124,46 +124,102 @@ func _set_hint() -> void:
 	var many := _moves_of.moves.size() > 1
 	set_hints(([["updown", "Moves"], ["confirm", "Reorder"]] if many else []) + ([["leftright", "Next creature"]] if _list().size() > 1 else []) + [["cancel", "Back"]])
 
+const LEFT_W := 336
+const MID_W := 392
+
 func _left(c: Creature) -> Control:
 	var p := UIKit.panel(Color("1d2230f0"), 18)
-	p.custom_minimum_size = Vector2(340, 0)
+	p.custom_minimum_size = Vector2(LEFT_W, 0)
 	var v := VBoxContainer.new()
-	v.add_theme_constant_override("separation", 8)
+	v.add_theme_constant_override("separation", 6)
 	p.add_child(v)
+	# The sprite at full size, in a box trimmed of the frame's empty sky so the rest of the card fits under it.
+	var holder := Control.new()
+	holder.custom_minimum_size = Vector2(288, 262)
+	holder.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
 	var s := AnimSprite.new()
-	s.show_species(c.species.id, "front", 3)
-	s.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
-	v.add_child(s)
-	var n := UIKit.label(c.display_name(), 38)
+	s.show_species(c.species.id, "front", 3, false, c.variant)
+	s.position = Vector2(0, -18)
+	holder.add_child(s)
+	v.add_child(holder)
+	var inner := LEFT_W - 36
+	var n := UIKit.fit_label(c.display_name(), inner, 38, 24)
 	n.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	v.add_child(n)
 	if c.nickname != "" and c.nickname != c.species.name:
 		var sp := UIKit.label(c.species.name, 22, UIKit.MUTED)
 		sp.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		v.add_child(sp)
-	var lv := UIKit.label("Level %d" % c.level, 30, UIKit.GOLD)
-	lv.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	v.add_child(lv)
-	var tr := UIKit.types_row(c.types(), 22)
-	tr.alignment = BoxContainer.ALIGNMENT_CENTER
-	v.add_child(tr)
+	var lv_row := HBoxContainer.new()  # "Level 12", with a single type beside it
+	lv_row.alignment = BoxContainer.ALIGNMENT_CENTER
+	lv_row.add_theme_constant_override("separation", 14)
+	lv_row.add_child(UIKit.label("Level %d" % c.level, 30, UIKit.GOLD))
+	v.add_child(lv_row)
+	var tags := HFlowContainer.new()  # two types, an uncommon coat, fainted or a status: one line, two at a pinch
+	tags.alignment = FlowContainer.ALIGNMENT_CENTER
+	tags.add_theme_constant_override("h_separation", 8)
+	tags.add_theme_constant_override("v_separation", 6)
+	for t in c.types():
+		var chip := UIKit.type_chip(str(t), 20)
+		chip.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+		(lv_row if c.types().size() == 1 else tags).add_child(chip)
+	if c.variant != "":
+		tags.add_child(CoatArt.coat_chip(c.variant))
 	var st: Control = UIKit.chip("fainted", Color("6b2f2f")) if c.is_fainted() else UIKit.status_chip(c.status, 20)
 	if st:
-		var cc := CenterContainer.new()
-		cc.add_child(st)
-		v.add_child(cc)
+		tags.add_child(st)
+	if tags.get_child_count() > 0:
+		v.add_child(tags)
+	else:
+		tags.free()
 	v.add_child(UIKit.fill())
+	v.add_child(_xp_box(c))
 	var evo: String = preload("res://ui/pedia_screen.gd").evolution_line(c.species)
 	if evo != "":
-		var el := UIKit.label(evo, 20, UIKit.GOLD)
+		var el := UIKit.label(evo, 19, UIKit.GOLD)
 		el.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		el.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		v.add_child(el)
-	var nxt := Rules.xp_for_level(c.species.growth, c.level + 1)
-	var xp := UIKit.label("XP %d  (next level at %d)" % [c.xp, nxt] if c.level < Rules.MAX_LEVEL else "XP %d  (maxed out)" % c.xp, 20, UIKit.MUTED)
-	xp.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	v.add_child(xp)
 	return p
+
+## XP: a thin bar through this level, and how far to the next.
+func _xp_box(c: Creature) -> Control:
+	var v := VBoxContainer.new()
+	v.add_theme_constant_override("separation", 3)
+	var maxed := c.level >= Rules.MAX_LEVEL
+	var from := Rules.xp_for_level(c.species.growth, c.level)
+	var nxt := Rules.xp_for_level(c.species.growth, c.level + 1) if not maxed else c.xp
+	var bar := ProgressBar.new()
+	bar.show_percentage = false
+	bar.min_value = 0
+	bar.max_value = maxi(1, nxt - from)
+	bar.value = clampi(c.xp - from, 0, maxi(1, nxt - from)) if not maxed else bar.max_value
+	bar.custom_minimum_size = Vector2(0, 8)
+	bar.add_theme_stylebox_override("background", UIKit.box(Color("0d0f15"), Color("4a4f5e"), 1, 3, 0))
+	bar.add_theme_stylebox_override("fill", UIKit.box(Color("6fa8dc"), Color(0, 0, 0, 0), 0, 3, 0))
+	v.add_child(bar)
+	var t := "XP %d  ·  %d to Lv %d" % [c.xp, maxi(0, nxt - c.xp), c.level + 1] if not maxed else "XP %d  ·  maxed out" % c.xp
+	var xl := UIKit.label(t, 18, UIKit.MUTED)
+	xl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	v.add_child(xl)
+	return v
+
+## 2.0: the line's knack (a passive that works in battle), at the top of the about panel.
+func _knack_box(c: Creature) -> Control:
+	var v := VBoxContainer.new()
+	v.add_theme_constant_override("separation", 0)
+	var kid := Knacks.id_of(c)
+	if kid == "":
+		return v
+	var row := HBoxContainer.new()
+	row.add_theme_constant_override("separation", 8)
+	row.add_child(UIKit.label("Knack", 20, UIKit.MUTED))
+	row.add_child(UIKit.label(Knacks.name_of(kid), 20, UIKit.GOLD))
+	v.add_child(row)
+	var d := UIKit.label(Knacks.desc_of(kid), 17, Color("d8cfb4"))
+	d.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	v.add_child(d)
+	return v
 
 ## Friendship (hearts and what they do for you) and the charm it is holding, under the stats.
 func _bond_box(c: Creature) -> Control:
@@ -196,17 +252,17 @@ func _bond_box(c: Creature) -> Control:
 	return v
 
 ## A small wrapped line that wraps inside the stats panel instead of widening it.
-func _small(text: String, colour: Color) -> Label:
-	var l := UIKit.label(text, 16, colour)
+func _small(text: String, colour: Color, size := 16) -> Label:
+	var l := UIKit.label(text, size, colour)
 	l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	l.custom_minimum_size = Vector2(340, 0)
 	return l
 
 func _middle(c: Creature) -> Control:
 	var p := UIKit.panel(Color("1d2230f0"), 18)
-	p.custom_minimum_size = Vector2(380, 0)
+	p.custom_minimum_size = Vector2(MID_W, 0)
 	var v := VBoxContainer.new()
-	v.add_theme_constant_override("separation", 10)
+	v.add_theme_constant_override("separation", 5)
 	p.add_child(v)
 	v.add_child(UIKit.label("Stats", 24, UIKit.MUTED))
 	var nat: Array = Rules.NATURES.get(c.nature, [])
@@ -221,20 +277,20 @@ func _middle(c: Creature) -> Control:
 		elif nat.size() == 2 and nat[1] == s:
 			tag = "-"
 			colour = Color("e9998c")
-		var name_l := UIKit.label(STAT_NAMES[s] + tag, 26, colour)
-		name_l.custom_minimum_size = Vector2(110, 0)
+		var name_l := UIKit.label(STAT_NAMES[s] + tag, 24, colour)
+		name_l.custom_minimum_size = Vector2(118, 0)
 		row.add_child(name_l)
 		var val := c.max_hp() if s == "hp" else c.calc_stat(s)
 		var bar := ProgressBar.new()
 		bar.show_percentage = false
 		bar.max_value = 130
 		bar.value = val
-		bar.custom_minimum_size = Vector2(130, 14)
+		bar.custom_minimum_size = Vector2(124, 14)
 		bar.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 		bar.add_theme_stylebox_override("fill", UIKit.box(UIKit.HEATHER, Color(0, 0, 0, 0), 0, 3, 0))
 		row.add_child(bar)
 		var txt := "%d / %d" % [c.hp, val] if s == "hp" else str(val)
-		var vl := UIKit.label(txt, 26)
+		var vl := UIKit.label(txt, 24)
 		vl.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		vl.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 		row.add_child(vl)
@@ -245,7 +301,7 @@ func _middle(c: Creature) -> Control:
 	if nat.size() == 2:
 		v.add_child(UIKit.label("Likes %s, less keen on %s" % [STAT_NAMES[nat[0]], STAT_NAMES[nat[1]]], 20, UIKit.MUTED))
 	else:
-		v.add_child(UIKit.label("Perfectly balanced, as all things should be", 20, UIKit.MUTED))
+		v.add_child(_small("Perfectly balanced, as all things should be", UIKit.MUTED, 18))
 	v.add_child(_bond_box(c))
 	return p
 
@@ -278,13 +334,16 @@ func _right(c: Creature) -> Control:
 		row.add_theme_constant_override("separation", 10)
 		row.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		var chip := UIKit.type_chip(str(info.get("type", "kin")), 16)
-		chip.custom_minimum_size = Vector2(96, 0)
+		chip.custom_minimum_size = Vector2(112, 0)  # wide enough for HEDGEROW, so the names line up
 		chip.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 		row.add_child(chip)
-		row.add_child(UIKit.label(str(info.get("name", m.id)), 26))
-		row.add_child(UIKit.fill())
+		var mn := UIKit.label(str(info.get("name", m.id)), 24)
+		mn.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		mn.clip_text = true  # a long move name trims rather than push the PP off the panel
+		mn.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+		row.add_child(mn)
 		var low: bool = int(m.pp) * 4 <= int(m.max_pp)
-		row.add_child(UIKit.label("PP %d/%d" % [m.pp, m.max_pp], 22, Color("e9998c") if low else UIKit.MUTED))
+		row.add_child(UIKit.label("PP %d/%d" % [m.pp, m.max_pp], 20, Color("e9998c") if low else UIKit.MUTED))
 		for k in row.get_children():
 			k.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		hl.add_child(row)
@@ -302,19 +361,23 @@ func _right(c: Creature) -> Control:
 	fp.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	col.add_child(fp)
 	var fv := VBoxContainer.new()
-	fv.add_theme_constant_override("separation", 6)
+	fv.add_theme_constant_override("separation", 10)
 	fp.add_child(fv)
+	var kb := _knack_box(c)
+	if kb.get_child_count() > 0:
+		fv.add_child(kb)
+		var rule := ColorRect.new()
+		rule.color = Color(UIKit.CREAM, 0.15)
+		rule.custom_minimum_size = Vector2(0, 2)
+		fv.add_child(rule)
+	else:
+		kb.free()
 	var dex: Dictionary = c.species.get("dex", {})
-	# long entries step the type down so the panel never spills over the hint line
-	var chars := str(dex.get("text", "")).length() + str(dex.get("fact", "")).length()
-	var fs := 21 if chars <= 230 else (18 if chars <= 320 else 16)
-	var t := UIKit.label(str(dex.get("text", "")), fs)
-	t.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	fv.add_child(t)
-	fv.add_child(UIKit.label("Did you know?", 22, UIKit.GOLD))
-	var f := UIKit.label(str(dex.get("fact", "")), fs, Color("d8cfb4"))
-	f.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	fv.add_child(f)
+	var wb := UIKit.words_box([21, 19, 18, 17, 16], 6)  # long entries step the type down so it never spills
+	fv.add_child(wb[0])
+	UIKit.add_words(wb[1], str(dex.get("text", "")))
+	UIKit.add_words(wb[1], "Did you know?", 1, UIKit.GOLD, true)  # the Fieldbook always has room for the fact
+	UIKit.add_words(wb[1], str(dex.get("fact", "")), 0, Color("d8cfb4"), true)
 	return col
 
 ## Highlights the chosen move row and says what that move does.

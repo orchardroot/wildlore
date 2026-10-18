@@ -1,0 +1,2069 @@
+{
+ "jobs": [
+  {
+   "id": "eng_hedgehog",
+   "nation": "england",
+   "town": "",
+   "badges": 0,
+   "poster": "Hedgehog Preservation Society (North West branch)",
+   "title": "Hedge survey volunteers",
+   "text": "We need someone to count what's living in the hedges. Last volunteer counted one hedgehog four hundred times. It was the same hedgehog. He was very patient.",
+   "step": {
+    "type": "catch",
+    "ctype": "hedgerow"
+   },
+   "pay": 1,
+   "reward": {
+    "items": {
+     "hawthorn_berry": 2
+    }
+   }
+  },
+  {
+   "id": "eng_bins",
+   "nation": "england",
+   "town": "",
+   "badges": 0,
+   "poster": "Neighbourhood Watch",
+   "title": "Who's been at the bins?",
+   "text": "Something has been at the wheelie bins every Tuesday night. We suspect a fox. Our chair suspects the Hendersons. Settle it.",
+   "step": {
+    "type": "catch",
+    "ctype": "urban"
+   },
+   "pay": 1
+  },
+  {
+   "id": "eng_jam",
+   "nation": "england",
+   "town": "",
+   "badges": 0,
+   "poster": "Women's Institute, Jam Subcommittee",
+   "title": "Blackberries wanted, no questions asked",
+   "text": "The jam stall is two jars short of a scandal. Blackberries, please. Ripe ones. Not the ones by the dog walk.",
+   "step": {
+    "type": "bring",
+    "item": "blackberries",
+    "n": 4
+   },
+   "pay": 1,
+   "reward": {
+    "recipe": "bakewell_tart"
+   }
+  },
+  {
+   "id": "eng_cuppa",
+   "nation": "england",
+   "town": "",
+   "badges": 0,
+   "poster": "Parish Council",
+   "title": "Tea for the planning meeting",
+   "text": "Three hours on the new bus shelter and we've run out of tea. Morale is at Dunkirk levels. Bring a flask.",
+   "step": {
+    "type": "bring",
+    "item": "flask_of_tea",
+    "n": 1
+   },
+   "pay": 1
+  },
+  {
+   "id": "eng_bog",
+   "nation": "england",
+   "town": "",
+   "badges": 1,
+   "poster": "Moss Rangers",
+   "title": "Bog census",
+   "text": "Peat bogs hold more carbon than all the forests in Britain. They also hold frogs. We need two frogs, roughly. Bog-type, ideally.",
+   "step": {
+    "type": "catch",
+    "ctype": "bog",
+    "n": 2
+   },
+   "pay": 2,
+   "reward": {
+    "items": {
+     "peat": 2
+    }
+   }
+  },
+  {
+   "id": "eng_show_brook",
+   "nation": "england",
+   "town": "",
+   "badges": 2,
+   "poster": "Canal and River Trust volunteer",
+   "title": "Show us a river creature",
+   "text": "We're doing a talk at the primary school and the slides are just pictures of shopping trolleys. Bring a proper river creature to show the kids.",
+   "step": {
+    "type": "show",
+    "ctype": "brook"
+   },
+   "pay": 2
+  },
+  {
+   "id": "eng_fete",
+   "nation": "england",
+   "town": "",
+   "badges": 4,
+   "poster": "Village Fete Committee",
+   "title": "Judge the bonny creature contest",
+   "text": "Our usual judge was bribed with a Victoria sponge. We need someone fair, strong and above cake. Bring a creature worth judging against.",
+   "step": {
+    "type": "show",
+    "ctype": "fae"
+   },
+   "pay": 2,
+   "reward": {
+    "items": {
+     "elderflower": 2
+    }
+   }
+  },
+  {
+   "id": "eng_wassail",
+   "nation": "england",
+   "town": "",
+   "badges": 6,
+   "poster": "Cider Makers' Guild",
+   "title": "Wassail the orchard",
+   "text": "We sing to the apple trees in midwinter to wake them up. The trees don't mind. The neighbours mind. Bring sloes for the punch.",
+   "step": {
+    "type": "bring",
+    "item": "sloes",
+    "n": 5
+   },
+   "pay": 2,
+   "reward": {
+    "recipe": "rowan_sprig"
+   }
+  },
+  {
+   "id": "eng_mole",
+   "nation": "england",
+   "town": "",
+   "badges": 9,
+   "poster": "Bowls Club Groundsman",
+   "title": "Molehills on the green",
+   "text": "Somebody is digging up the bowling green. Ernest says it's the Russians. It's a mole. Find out what's digging, please.",
+   "step": {
+    "type": "catch",
+    "species": "moldiwarp"
+   },
+   "pay": 3,
+   "reward": {
+    "charm": "horseshoe"
+   }
+  },
+  {
+   "id": "macc_silk",
+   "nation": "england",
+   "town": "macclesfield",
+   "badges": 0,
+   "poster": "Silk Museum",
+   "title": "Moths for the silk room",
+   "text": "Macclesfield made silk for the whole Empire. Now we've got one sad silkworm called Graham. Help us show the kids what lives in the woods instead.",
+   "step": {
+    "type": "catch",
+    "ctype": "kin"
+   },
+   "pay": 1,
+   "reward": {
+    "items": {
+     "hazelnuts": 2
+    }
+   }
+  },
+  {
+   "id": "macc_treacle",
+   "nation": "england",
+   "town": "macclesfield",
+   "badges": 0,
+   "poster": "Treacle Town Historical Society",
+   "title": "The Treacle Town legend",
+   "text": "Legend says a cart spilled treacle on Hibel Road and the poor scooped it up. Visit the Town Hall after dark and tell us if it still smells of treacle.",
+   "step": {
+    "type": "visit",
+    "zone": "macc_townhall",
+    "time": [
+     "night"
+    ]
+   },
+   "pay": 1
+  },
+  {
+   "id": "macc_forest_beat",
+   "nation": "england",
+   "town": "macclesfield",
+   "badges": 0,
+   "poster": "Forest Rangers",
+   "title": "Macc Forest is getting cheeky",
+   "text": "Something in Macclesfield Forest nicked a ranger's sandwich and then looked him in the eye. Go and remind the wildlife who's in charge. Gently.",
+   "step": {
+    "type": "beat",
+    "zone": "macc_forest",
+    "n": 3
+   },
+   "pay": 1
+  },
+  {
+   "id": "buxton_water",
+   "nation": "england",
+   "town": "buxton",
+   "badges": 0,
+   "poster": "Buxton Spa Attendant",
+   "title": "Bottles for the well",
+   "text": "St Ann's Well flows at a steady 28 degrees. Tourists fill bottles and leave the empties. Bring some nettles for the herbal tea stall, we're diversifying.",
+   "step": {
+    "type": "bring",
+    "item": "nettles",
+    "n": 3
+   },
+   "pay": 1,
+   "reward": {
+    "recipe": "elderflower_cordial"
+   }
+  },
+  {
+   "id": "buxton_opera",
+   "nation": "england",
+   "town": "buxton",
+   "badges": 1,
+   "poster": "Buxton Opera House",
+   "title": "Something howling in the gods",
+   "text": "There's a noise in the upper circle during the matinee. The soprano blames the radiators. Catch whatever lives up the Goyt that sounds like a soprano.",
+   "step": {
+    "type": "catch",
+    "species": "hootlet"
+   },
+   "pay": 1
+  },
+  {
+   "id": "buxton_goyt",
+   "nation": "england",
+   "town": "buxton",
+   "badges": 1,
+   "poster": "Goyt Valley Rangers",
+   "title": "Pick the Goyt hedges",
+   "text": "The Goyt's hedges are groaning with fruit. If nobody picks them the wasps get drunk and start fights. Forage three times.",
+   "step": {
+    "type": "forage",
+    "zone": "goyt_valley",
+    "n": 3
+   },
+   "pay": 1,
+   "reward": {
+    "items": {
+     "sloes": 2
+    }
+   }
+  },
+  {
+   "id": "manc_rain",
+   "nation": "england",
+   "town": "manchester",
+   "badges": 1,
+   "poster": "Manchester Met Office (unofficial)",
+   "title": "Is it still raining?",
+   "text": "We need someone to confirm it's raining in Manchester. It always is. But procedure is procedure. Stand in the town hall's square in the rain, please.",
+   "step": {
+    "type": "visit",
+    "zone": "manchester",
+    "weather": "rain"
+   },
+   "pay": 1,
+   "reward": {
+    "items": {
+     "cup_of_tea": 2
+    }
+   }
+  },
+  {
+   "id": "manc_mills",
+   "nation": "england",
+   "town": "manchester",
+   "badges": 1,
+   "poster": "Royal Mills Caretaker",
+   "title": "Pigeons in the mill",
+   "text": "The old cotton mills are full of pigeons. Heritage pigeons, the council says. Catch one so we can find out what they're on about.",
+   "step": {
+    "type": "catch",
+    "species": "cooplet"
+   },
+   "pay": 1
+  },
+  {
+   "id": "manc_moss",
+   "nation": "england",
+   "town": "manchester",
+   "badges": 2,
+   "poster": "Chat Moss Peat Cutter",
+   "title": "Bog off",
+   "text": "Chat Moss swallowed half the railway once. Still hungry. Win three fights out on the moss so the creatures leave the surveyors alone.",
+   "step": {
+    "type": "beat",
+    "zone": "chat_moss",
+    "n": 3
+   },
+   "pay": 2,
+   "reward": {
+    "recipe": "eccles_cake"
+   }
+  },
+  {
+   "id": "lpool_scouse",
+   "nation": "england",
+   "town": "liverpool",
+   "badges": 2,
+   "poster": "Nan, Anfield",
+   "title": "Ingredients for a proper scouse",
+   "text": "Me grandson says scouse is just stew. He's out of the will. Bring me wild garlic for the pan, the shop stuff's too posh.",
+   "step": {
+    "type": "bring",
+    "item": "wild_garlic",
+    "n": 2
+   },
+   "pay": 2,
+   "reward": {
+    "recipe": "scouse"
+   }
+  },
+  {
+   "id": "lpool_gulls",
+   "nation": "england",
+   "town": "liverpool",
+   "badges": 2,
+   "poster": "Albert Dock Chippy",
+   "title": "The chip thieves",
+   "text": "A gang of gulls has had three portions of chips and a battered sausage off one pensioner. We want them caught. We want names.",
+   "step": {
+    "type": "catch",
+    "species": "chipgull"
+   },
+   "pay": 1
+  },
+  {
+   "id": "lpool_wirral",
+   "nation": "england",
+   "town": "liverpool",
+   "badges": 2,
+   "poster": "Wirral Way Walking Group",
+   "title": "Clear the old railway path",
+   "text": "The Wirral Way's lovely but something keeps nipping the ramblers. Win three wild fights out there and we'll put your name in the newsletter.",
+   "step": {
+    "type": "beat",
+    "zone": "wirral_way",
+    "n": 3
+   },
+   "pay": 1
+  },
+  {
+   "id": "chester_walls",
+   "nation": "england",
+   "town": "chester",
+   "badges": 3,
+   "poster": "Chester Walls Tea Room",
+   "title": "Pest control on the walls",
+   "text": "There's a bylaw that says you can shoot a Welshman with a bow and arrow after dark inside the walls. We don't. We just want the pigeons gone.",
+   "step": {
+    "type": "catch",
+    "ctype": "gale",
+    "n": 2
+   },
+   "pay": 2
+  },
+  {
+   "id": "chester_rows",
+   "nation": "england",
+   "town": "chester",
+   "badges": 3,
+   "poster": "The Rows Traders",
+   "title": "Market day sloe gin",
+   "text": "Sloe gin sells itself at the Christmas market. It also sells the stallholder. Bring sloes and we'll split the profits, roughly.",
+   "step": {
+    "type": "bring",
+    "item": "sloes",
+    "n": 4
+   },
+   "pay": 2,
+   "reward": {
+    "items": {
+     "eccles_cake": 2
+    }
+   }
+  },
+  {
+   "id": "glas_tor",
+   "nation": "england",
+   "town": "glastonbury",
+   "badges": 5,
+   "poster": "Crystal Emporium",
+   "title": "Ley line inspection",
+   "text": "The ley lines need checking at dawn. Our usual dowser is on a retreat finding himself. He's in Swindon. Climb the Tor at dawn.",
+   "step": {
+    "type": "visit",
+    "zone": "glastonbury_tor",
+    "time": [
+     "dawn"
+    ]
+   },
+   "pay": 2,
+   "reward": {
+    "items": {
+     "elderflower": 3
+    }
+   }
+  },
+  {
+   "id": "glas_levels",
+   "nation": "england",
+   "town": "glastonbury",
+   "badges": 5,
+   "poster": "Somerset Levels Withy Cutter",
+   "title": "Floods and frogs",
+   "text": "The Levels flood every winter and the frogs throw a party. Bring us a bog-type for the wetlands centre display.",
+   "step": {
+    "type": "show",
+    "ctype": "bog"
+   },
+   "pay": 2,
+   "reward": {
+    "recipe": "cream_tea"
+   }
+  },
+  {
+   "id": "bath_baths",
+   "nation": "england",
+   "town": "bath",
+   "badges": 5,
+   "poster": "Roman Baths Curator",
+   "title": "Curse tablets",
+   "text": "The Romans wrote curses on lead and threw them in the spring. Mostly about stolen cloaks. Somebody's cursed our cafe. Go and look at the baths at night.",
+   "step": {
+    "type": "visit",
+    "zone": "bath_baths",
+    "time": [
+     "night",
+     "dusk"
+    ]
+   },
+   "pay": 2
+  },
+  {
+   "id": "bath_bun",
+   "nation": "england",
+   "town": "bath",
+   "badges": 5,
+   "poster": "Sally Lunn's",
+   "title": "The Bun Defence League",
+   "text": "A Mendips creature keeps pinching our buns off the delivery van. Win three fights in the Mendips and send a message.",
+   "step": {
+    "type": "beat",
+    "zone": "mendips",
+    "n": 3
+   },
+   "pay": 2,
+   "reward": {
+    "items": {
+     "cream_tea": 1
+    }
+   }
+  },
+  {
+   "id": "pz_pasty",
+   "nation": "england",
+   "town": "penzance",
+   "badges": 6,
+   "poster": "Pasty Co.",
+   "title": "Crimp inspector",
+   "text": "A proper Cornish pasty is crimped on the side, not the top. Anyone who says otherwise is from Devon. Bring us a pasty from elsewhere so we can judge it harshly.",
+   "step": {
+    "type": "bring",
+    "item": "pasty",
+    "n": 2
+   },
+   "pay": 2,
+   "reward": {
+    "recipe": "pasty"
+   }
+  },
+  {
+   "id": "pz_tintagel",
+   "nation": "england",
+   "town": "penzance",
+   "badges": 6,
+   "poster": "Tintagel Historical Society",
+   "title": "Arthur's back, apparently",
+   "text": "Some bloke in a bedsheet keeps telling tourists he's King Arthur. Before we deal with him, deal with the wildlife on the clifftops. Three wins at Tintagel.",
+   "step": {
+    "type": "beat",
+    "zone": "tintagel",
+    "n": 3
+   },
+   "pay": 2
+  },
+  {
+   "id": "pz_seal",
+   "nation": "england",
+   "town": "penzance",
+   "badges": 6,
+   "poster": "Mousehole Harbourmaster",
+   "title": "Seaweed for the Star Gazy pie",
+   "text": "Tom Bawcock's Eve is coming and the pie needs garnish. The fish heads stick out of the crust, looking at the stars. It's art. Bring seaweed.",
+   "step": {
+    "type": "bring",
+    "item": "seaweed",
+    "n": 3
+   },
+   "pay": 1,
+   "reward": {
+    "items": {
+     "sea_glass": 1
+    }
+   }
+  },
+  {
+   "id": "york_ghost",
+   "nation": "england",
+   "town": "york",
+   "badges": 9,
+   "poster": "York Ghost Walk Guide",
+   "title": "Ghost count, Roman edition",
+   "text": "There's a legion of Roman soldiers that marches through a cellar here, cut off at the knees. Count them at night in the Minster crypt. Bring a pencil.",
+   "step": {
+    "type": "visit",
+    "zone": "york_minster_crypt",
+    "time": [
+     "night"
+    ]
+   },
+   "pay": 3,
+   "reward": {
+    "charm": "four_leaf_clover"
+   }
+  },
+  {
+   "id": "york_parkin",
+   "nation": "england",
+   "town": "york",
+   "badges": 9,
+   "poster": "Bettys Tea Rooms Pastry Chef",
+   "title": "Moorland honey for parkin",
+   "text": "Proper parkin needs oats, treacle and time. Our Bonfire Night batch needs heather honey too, which is not traditional, and we're not sorry.",
+   "step": {
+    "type": "bring",
+    "item": "heather_honey",
+    "n": 3
+   },
+   "pay": 2,
+   "reward": {
+    "recipe": "parkin"
+   }
+  },
+  {
+   "id": "whitby_jet",
+   "nation": "england",
+   "town": "whitby",
+   "badges": 9,
+   "poster": "Jet Workshop",
+   "title": "Jet black and very cross",
+   "text": "Whitby jet is fossilised monkey puzzle wood. There's a creature on the moors made of the stuff and it bit our apprentice. Catch it, carefully.",
+   "step": {
+    "type": "catch",
+    "species": "jetling"
+   },
+   "pay": 2,
+   "reward": {
+    "items": {
+     "ammonite": 1
+    }
+   }
+  },
+  {
+   "id": "whitby_dracula",
+   "nation": "england",
+   "town": "whitby",
+   "badges": 9,
+   "poster": "Whitby Goth Weekend",
+   "title": "199 steps after dark",
+   "text": "Bram Stoker got the idea for Dracula here. We'd like someone to stand in St Mary's churchyard after dark looking mysterious for the brochure.",
+   "step": {
+    "type": "visit",
+    "zone": "whitby_stmary",
+    "time": [
+     "night",
+     "dusk"
+    ]
+   },
+   "pay": 2
+  },
+  {
+   "id": "ncl_quay",
+   "nation": "england",
+   "town": "newcastle",
+   "badges": 9,
+   "poster": "Quayside Sunday Market",
+   "title": "Seabirds on the Tyne",
+   "text": "Puffins on the Farnes, kittiwakes on the bridge, a lad in a stag-do vest on the Swing Bridge. One of these needs catching. The bird.",
+   "step": {
+    "type": "catch",
+    "species": "puffling"
+   },
+   "pay": 2
+  },
+  {
+   "id": "ncl_wall",
+   "nation": "england",
+   "town": "newcastle",
+   "badges": 9,
+   "poster": "Hadrian's Wall Volunteer",
+   "title": "Nobody's minding the wall",
+   "text": "The Romans built it to keep the Picts out. Now it keeps sheep in, mostly. Win three fights along Hadrian's Wall for the volunteer rota.",
+   "step": {
+    "type": "beat",
+    "zone": "hadrians_wall",
+    "n": 3
+   },
+   "pay": 3,
+   "reward": {
+    "items": {
+     "sheep_wool": 3
+    }
+   }
+  },
+  {
+   "id": "keswick_herdwick",
+   "nation": "england",
+   "town": "keswick",
+   "badges": 9,
+   "poster": "Herdwick Breeders' Association",
+   "title": "Sort the Herdwicks out",
+   "text": "The Herdwicks have got onto the fell road and they're blocking the bus. They don't care. They're Herdwicks. Find us a young one to lead the rest home.",
+   "step": {
+    "type": "catch",
+    "species": "herdlet"
+   },
+   "pay": 3,
+   "reward": {
+    "recipe": "kendal_mint_cake"
+   }
+  },
+  {
+   "id": "keswick_pencil",
+   "nation": "england",
+   "town": "keswick",
+   "badges": 9,
+   "poster": "Cumberland Pencil Museum",
+   "title": "Graphite and slate",
+   "text": "We have the world's biggest coloured pencil. Now we want a slate display to go with it. Bring a slate creature to show the coach party.",
+   "step": {
+    "type": "show",
+    "ctype": "stone"
+   },
+   "pay": 2,
+   "reward": {
+    "items": {
+     "slate_chip": 3
+    }
+   }
+  },
+  {
+   "id": "lancaster_bats",
+   "nation": "england",
+   "town": "lancaster",
+   "badges": 9,
+   "poster": "Lancaster Castle Guide",
+   "title": "Count the bats at the castle",
+   "text": "The castle was a working prison until 2011. Now it's mostly bats. Count them at the castle after dark. They don't like flash photography, or Yorkshiremen.",
+   "step": {
+    "type": "visit",
+    "zone": "lancaster_castle",
+    "time": [
+     "night"
+    ]
+   },
+   "pay": 2,
+   "reward": {
+    "items": {
+     "hawthorn_berry": 3
+    }
+   }
+  },
+  {
+   "id": "lancaster_lakes",
+   "nation": "england",
+   "town": "lancaster",
+   "badges": 9,
+   "poster": "Lake District Mountain Rescue",
+   "title": "Keep the fells safe",
+   "text": "Somebody climbed Helvellyn in flip-flops again. Before we fetch him, clear the paths: three wins in the Lake District.",
+   "step": {
+    "type": "beat",
+    "zone": "lake_district",
+    "n": 3
+   },
+   "pay": 3
+  },
+  {
+   "id": "sheff_steel",
+   "nation": "england",
+   "town": "sheffield",
+   "badges": 9,
+   "poster": "Cutlers' Hall",
+   "title": "A creature with an edge",
+   "text": "Sheffield steel goes all over the world. We want to show the visitors something tough as the cutlery. Iron-type, high level, no rust.",
+   "step": {
+    "type": "show",
+    "ctype": "iron"
+   },
+   "pay": 3,
+   "reward": {
+    "items": {
+     "slate_chip": 2
+    }
+   }
+  },
+  {
+   "id": "sheff_dales",
+   "nation": "england",
+   "town": "sheffield",
+   "badges": 9,
+   "poster": "Dales Creamery",
+   "title": "Wensleydale emergency",
+   "text": "The cheese van is stuck behind something large in the Dales and it won't move. Win three wild fights out there and free the Wensleydale.",
+   "step": {
+    "type": "beat",
+    "zone": "yorkshire_dales",
+    "n": 3
+   },
+   "pay": 3
+  },
+  {
+   "id": "notts_robin",
+   "nation": "england",
+   "town": "nottingham",
+   "badges": 9,
+   "poster": "Sherwood Forest Visitor Centre",
+   "title": "Robin's lot",
+   "text": "Every summer forty blokes turn up dressed as Robin Hood. We need someone to forage the forest before they eat it all.",
+   "step": {
+    "type": "forage",
+    "zone": "sherwood",
+    "n": 3
+   },
+   "pay": 2,
+   "reward": {
+    "items": {
+     "truffle": 1
+    }
+   }
+  },
+  {
+   "id": "notts_pie",
+   "nation": "england",
+   "town": "nottingham",
+   "badges": 9,
+   "poster": "The Pork Pie Shop",
+   "title": "The Melton question",
+   "text": "Is a Nottingham pork pie as good as a Melton Mowbray one? Bring us two pork pies from elsewhere for a blind taste test. We're biased.",
+   "step": {
+    "type": "bring",
+    "item": "pork_pie",
+    "n": 2
+   },
+   "pay": 2
+  },
+  {
+   "id": "brum_canal",
+   "nation": "england",
+   "town": "birmingham",
+   "badges": 9,
+   "poster": "Gas Street Basin Narrowboat Club",
+   "title": "More canal than Venice",
+   "text": "Birmingham has more miles of canal than Venice. Venice has better gondoliers. Bring a river creature for the canal festival.",
+   "step": {
+    "type": "show",
+    "ctype": "brook"
+   },
+   "pay": 2
+  },
+  {
+   "id": "brum_balti",
+   "nation": "england",
+   "town": "birmingham",
+   "badges": 9,
+   "poster": "Balti Triangle Restaurant",
+   "title": "Garlic, lots of it",
+   "text": "We need wild garlic for the special. The customers won't notice it's wild. They'll notice it's good.",
+   "step": {
+    "type": "bring",
+    "item": "wild_garlic",
+    "n": 4
+   },
+   "pay": 2,
+   "reward": {
+    "items": {
+     "pork_pie": 2
+    }
+   }
+  },
+  {
+   "id": "london_ravens",
+   "nation": "england",
+   "town": "london",
+   "badges": 10,
+   "poster": "Yeoman Warder, Tower of London",
+   "title": "Raven roll call",
+   "text": "Legend says if the ravens leave the Tower, the kingdom falls. One's gone missing. We think it's on Salisbury Plain having a mid-life crisis. Three wins out there.",
+   "step": {
+    "type": "beat",
+    "zone": "salisbury_plain",
+    "n": 3
+   },
+   "pay": 3,
+   "reward": {
+    "charm": "oak_acorn"
+   }
+  },
+  {
+   "id": "london_globe",
+   "nation": "england",
+   "town": "london",
+   "badges": 10,
+   "poster": "Shakespeare's Globe",
+   "title": "A night at the theatre",
+   "text": "Exit, pursued by a bear, it says. We've got no bear. We've got Derek. Come and watch the evening show at the Globe so Derek has an audience.",
+   "step": {
+    "type": "visit",
+    "zone": "london_globe",
+    "time": [
+     "dusk",
+     "night"
+    ]
+   },
+   "pay": 2
+  },
+  {
+   "id": "wal_sheep",
+   "nation": "wales",
+   "town": "",
+   "badges": 3,
+   "poster": "Ffermwyr Ifanc (Young Farmers)",
+   "title": "Lost sheep, again",
+   "text": "Three thousand sheep on this hill and Dai has lost one. He knows which one. Don't ask how. Bring us a wool-bearing sort, kin-type.",
+   "step": {
+    "type": "catch",
+    "ctype": "kin"
+   },
+   "pay": 1,
+   "reward": {
+    "items": {
+     "sheep_wool": 2
+    }
+   }
+  },
+  {
+   "id": "wal_slate",
+   "nation": "wales",
+   "town": "",
+   "badges": 3,
+   "poster": "Slate Heritage Trust",
+   "title": "Slate for the roof",
+   "text": "Welsh slate roofed half the world. The chapel roof is leaking and the irony is not lost on us. Bring slate chips.",
+   "step": {
+    "type": "bring",
+    "item": "slate_chip",
+    "n": 4
+   },
+   "pay": 1,
+   "reward": {
+    "recipe": "bara_brith"
+   }
+  },
+  {
+   "id": "wal_choir",
+   "nation": "wales",
+   "town": "",
+   "badges": 3,
+   "poster": "Male Voice Choir",
+   "title": "The baritones are hoarse",
+   "text": "Rehearsals are Tuesday and Thursday and every baritone has a cold. Bring a cup of tea per baritone. There are two.",
+   "step": {
+    "type": "bring",
+    "item": "cup_of_tea",
+    "n": 2
+   },
+   "pay": 1
+  },
+  {
+   "id": "wal_dragon",
+   "nation": "wales",
+   "town": "",
+   "badges": 4,
+   "poster": "Cymdeithas y Ddraig",
+   "title": "Something with fire in it",
+   "text": "A Welsh dragon is red, proud, and slightly offended you even asked. Show us a creature with a bit of hearth in it for the flag-raising.",
+   "step": {
+    "type": "show",
+    "ctype": "hearth"
+   },
+   "pay": 2
+  },
+  {
+   "id": "wal_rain",
+   "nation": "wales",
+   "town": "",
+   "badges": 3,
+   "poster": "Ramblers Cymru",
+   "title": "It's not raining, it's just Wales",
+   "text": "We want a volunteer to walk the Ogwen valley in the rain, to prove the waterproofs work. They don't. Prove it anyway.",
+   "step": {
+    "type": "visit",
+    "zone": "ogwen",
+    "weather": "rain"
+   },
+   "pay": 1,
+   "reward": {
+    "items": {
+     "buxton_water": 2
+    }
+   }
+  },
+  {
+   "id": "wal_beacons",
+   "nation": "wales",
+   "town": "",
+   "badges": 4,
+   "poster": "Brecon Mountain Rescue",
+   "title": "Clear the Beacons path",
+   "text": "Pen y Fan is busy with soldiers training and influencers who've brought the wrong shoes. Three wins in the Beacons, please.",
+   "step": {
+    "type": "beat",
+    "zone": "beacons",
+    "n": 3
+   },
+   "pay": 2,
+   "reward": {
+    "charm": "leek"
+   }
+  },
+  {
+   "id": "llangollen_eist",
+   "nation": "wales",
+   "town": "llangollen",
+   "badges": 3,
+   "poster": "Eisteddfod Pavilion",
+   "title": "Something to sing about",
+   "text": "The International Eisteddfod brings choirs from every country. One of them brought a creature that won't stop humming. Win three in the Dee Valley to settle the nerves.",
+   "step": {
+    "type": "beat",
+    "zone": "dee_valley",
+    "n": 3
+   },
+   "pay": 1
+  },
+  {
+   "id": "llangollen_afanc",
+   "nation": "wales",
+   "town": "llangollen",
+   "badges": 3,
+   "poster": "Llangollen Canal Trust",
+   "title": "The Afanc is blocking the aqueduct",
+   "text": "Something has dammed the canal and it's got very big teeth. The tourists love it. We don't. Catch it.",
+   "step": {
+    "type": "catch",
+    "species": "afanc"
+   },
+   "pay": 2
+  },
+  {
+   "id": "llanberis_quarry",
+   "nation": "wales",
+   "town": "llanberis",
+   "badges": 3,
+   "poster": "Quarrymen's Caban",
+   "title": "Slate bait for the caban",
+   "text": "Quarrymen used to argue politics in the caban at dinner. We still do. Bring slate chips for the hearth and we'll let you join in.",
+   "step": {
+    "type": "forage",
+    "zone": "llanberis_quarry",
+    "n": 2
+   },
+   "pay": 1,
+   "reward": {
+    "items": {
+     "slate_chip": 2
+    }
+   }
+  },
+  {
+   "id": "llanberis_tylwyth",
+   "nation": "wales",
+   "town": "llanberis",
+   "badges": 3,
+   "poster": "Caffi Padarn",
+   "title": "The Tylwyth Teg have nicked the scones",
+   "text": "The fair folk took the scones again. They left a thimble. Very polite. Very annoying. Catch a fae creature so we can negotiate.",
+   "step": {
+    "type": "catch",
+    "ctype": "fae"
+   },
+   "pay": 2,
+   "reward": {
+    "recipe": "hazel_snare"
+   }
+  },
+  {
+   "id": "aber_pier",
+   "nation": "wales",
+   "town": "aberystwyth",
+   "badges": 4,
+   "poster": "Royal Pier",
+   "title": "Starlings at dusk",
+   "text": "Fifty thousand starlings roost under the pier at dusk. Count them. Don't look up with your mouth open.",
+   "step": {
+    "type": "visit",
+    "zone": "aberystwyth_pier",
+    "time": [
+     "dusk"
+    ]
+   },
+   "pay": 1,
+   "reward": {
+    "items": {
+     "hawthorn_berry": 2
+    }
+   }
+  },
+  {
+   "id": "aber_coast",
+   "nation": "wales",
+   "town": "aberystwyth",
+   "badges": 4,
+   "poster": "Cardigan Bay Dolphin Watch",
+   "title": "Dolphins, please",
+   "text": "Cardigan Bay has the biggest dolphin pod in Britain. Our boat trip has had a bad week. Show the tourists a tide creature before they ask for refunds.",
+   "step": {
+    "type": "show",
+    "ctype": "tide"
+   },
+   "pay": 2
+  },
+  {
+   "id": "stdavids_pilgrim",
+   "nation": "wales",
+   "town": "st_davids",
+   "badges": 4,
+   "poster": "Pilgrim Hostel",
+   "title": "Two pilgrimages to St Davids",
+   "text": "Two pilgrimages to St Davids equal one to Rome, said the Pope. We need someone to check the coast path's in order. Three wins on the Pembroke coast.",
+   "step": {
+    "type": "beat",
+    "zone": "pembroke_coast",
+    "n": 3
+   },
+   "pay": 2
+  },
+  {
+   "id": "stdavids_puffin",
+   "nation": "wales",
+   "town": "st_davids",
+   "badges": 4,
+   "poster": "Skomer Boat Trips",
+   "title": "Puffin census",
+   "text": "The puffins are back and they've brought friends. Catch one for the census. They're very small and very cross.",
+   "step": {
+    "type": "catch",
+    "species": "puffling"
+   },
+   "pay": 2
+  },
+  {
+   "id": "cardiff_chips",
+   "nation": "wales",
+   "town": "cardiff",
+   "badges": 4,
+   "poster": "Caroline Street Chip Shop",
+   "title": "Chips, cheese and curry, and a creature",
+   "text": "The lads from the rugby have left and a storm creature's got in the fryer. It's lovely and crispy and it hates us. Catch a storm-type.",
+   "step": {
+    "type": "catch",
+    "ctype": "storm"
+   },
+   "pay": 2,
+   "reward": {
+    "items": {
+     "bara_brith": 2
+    }
+   }
+  },
+  {
+   "id": "cardiff_castle",
+   "nation": "wales",
+   "town": "cardiff",
+   "badges": 4,
+   "poster": "Cardiff Castle Guide",
+   "title": "Midnight at the castle",
+   "text": "The Marquess of Bute had a clock tower with a room for every planet. We'd like someone to be in the castle at night to hear it chime.",
+   "step": {
+    "type": "visit",
+    "zone": "cardiff_castle",
+    "time": [
+     "night"
+    ]
+   },
+   "pay": 1
+  },
+  {
+   "id": "holyhead_ferry",
+   "nation": "wales",
+   "town": "holyhead",
+   "badges": 6,
+   "poster": "Holyhead Ferry Inn",
+   "title": "Anglesey is crawling",
+   "text": "The ferry crowd are complaining about the wildlife on the road in. Three wins on Anglesey and the first pint's on us. Or a cup of tea. Your age, love.",
+   "step": {
+    "type": "beat",
+    "zone": "anglesey",
+    "n": 3
+   },
+   "pay": 2,
+   "reward": {
+    "recipe": "creel_snare"
+   }
+  },
+  {
+   "id": "mann_fairies",
+   "nation": "mann",
+   "town": "douglas",
+   "badges": 5,
+   "poster": "Manx Fairy Bridge Society",
+   "title": "Say hello to the fairies",
+   "text": "You say hello to the fairies when you cross the Fairy Bridge, or bad luck follows. A lot of people forget. Show the fairies a fae creature, as an apology.",
+   "step": {
+    "type": "show",
+    "ctype": "fae"
+   },
+   "pay": 2,
+   "reward": {
+    "charm": "selkie_pearl"
+   }
+  },
+  {
+   "id": "mann_kippers",
+   "nation": "mann",
+   "town": "douglas",
+   "badges": 5,
+   "poster": "Manx Kipper Shop",
+   "title": "Oak for the smokehouse",
+   "text": "Manx kippers are smoked over oak chippings. Our supplier's sent us hazelnuts instead. He's not well. Bring hazelnuts and we'll make it work.",
+   "step": {
+    "type": "bring",
+    "item": "hazelnuts",
+    "n": 4
+   },
+   "pay": 1,
+   "reward": {
+    "items": {
+     "soda_bread": 2
+    }
+   }
+  },
+  {
+   "id": "mann_tt",
+   "nation": "mann",
+   "town": "douglas",
+   "badges": 5,
+   "poster": "TT Marshals' Club",
+   "title": "Quick as a bike on the mountain",
+   "text": "TT week is two weeks of bikes doing 200 miles an hour past a pub. We need a gale creature for the parade. Fast ones only.",
+   "step": {
+    "type": "show",
+    "ctype": "gale"
+   },
+   "pay": 2
+  },
+  {
+   "id": "mann_tram",
+   "nation": "mann",
+   "town": "douglas",
+   "badges": 5,
+   "poster": "Horse Tram Depot",
+   "title": "Hay for the horses",
+   "text": "The horse trams have run since 1876 and the horses still expect a carrot at the terminus. Bring us some field mushrooms for the depot cat. He's fussy.",
+   "step": {
+    "type": "bring",
+    "item": "field_mushrooms",
+    "n": 3
+   },
+   "pay": 1
+  },
+  {
+   "id": "mann_loaghtan",
+   "nation": "mann",
+   "town": "douglas",
+   "badges": 6,
+   "poster": "Manx National Heritage",
+   "title": "Four horns, one sheep",
+   "text": "The Loaghtan is a Manx sheep with four horns, sometimes six. We're one short for the show. Catch a Loaghtan, wherever they've wandered.",
+   "step": {
+    "type": "catch",
+    "species": "loaghtan"
+   },
+   "pay": 3
+  },
+  {
+   "id": "mann_laxey",
+   "nation": "mann",
+   "town": "douglas",
+   "badges": 5,
+   "poster": "Laxey Wheel Keeper",
+   "title": "Turn the wheel at dawn",
+   "text": "Lady Isabella is the biggest working water wheel in the world. She turns better if somebody's watching. Visit the wheel at dawn.",
+   "step": {
+    "type": "visit",
+    "zone": "douglas_laxey",
+    "time": [
+     "dawn"
+    ]
+   },
+   "pay": 1,
+   "reward": {
+    "items": {
+     "heather_honey": 2
+    }
+   }
+  },
+  {
+   "id": "mann_cats",
+   "nation": "mann",
+   "town": "douglas",
+   "badges": 5,
+   "poster": "Manx Cat Club",
+   "title": "Tailless and proud",
+   "text": "Manx cats have no tails. Ask them why and they'll look at you like you asked a rude question. Catch any kin-type for the club's open day.",
+   "step": {
+    "type": "catch",
+    "ctype": "kin"
+   },
+   "pay": 1
+  },
+  {
+   "id": "ie_hurling",
+   "nation": "ireland",
+   "town": "",
+   "badges": 6,
+   "poster": "GAA Club Committee",
+   "title": "A creature with a bit of go in it",
+   "text": "The under-twelves need a mascot. The last one was a goat called Seamus. He's retired. Bring a brawn creature to show the lads.",
+   "step": {
+    "type": "show",
+    "ctype": "brawn"
+   },
+   "pay": 2
+  },
+  {
+   "id": "ie_turf",
+   "nation": "ireland",
+   "town": "",
+   "badges": 6,
+   "poster": "Bog Cutters' Co-op",
+   "title": "Turf for the fire",
+   "text": "Nothing smells like a turf fire in November. Bring peat for the parish hall and you'll be thanked at Mass.",
+   "step": {
+    "type": "bring",
+    "item": "peat",
+    "n": 3
+   },
+   "pay": 1,
+   "reward": {
+    "recipe": "barmbrack"
+   }
+  },
+  {
+   "id": "ie_soda",
+   "nation": "ireland",
+   "town": "",
+   "badges": 6,
+   "poster": "Irish Countrywomen's Association",
+   "title": "Bread for the wake",
+   "text": "Mrs Doyle is ninety-eight and having a living wake so she can hear the nice things. We need soda bread. Lots. She's popular.",
+   "step": {
+    "type": "bring",
+    "item": "soda_bread",
+    "n": 3
+   },
+   "pay": 1
+  },
+  {
+   "id": "ie_pooka",
+   "nation": "ireland",
+   "town": "",
+   "badges": 7,
+   "poster": "Folklore Society",
+   "title": "The Púca is out",
+   "text": "On November the first the Púca spits on the blackberries and they're no good after. We'd like the Púca caught before then, please.",
+   "step": {
+    "type": "catch",
+    "species": "pooka"
+   },
+   "pay": 3,
+   "reward": {
+    "charm": "brigid_cross"
+   }
+  },
+  {
+   "id": "ie_wicklow",
+   "nation": "ireland",
+   "town": "",
+   "badges": 6,
+   "poster": "Wicklow Mountain Rescue",
+   "title": "Up the Wicklow road",
+   "text": "The Wicklow road has wildlife the size of tractors. Three wins up there and the club will name a sandwich after you.",
+   "step": {
+    "type": "beat",
+    "zone": "wicklow",
+    "n": 3
+   },
+   "pay": 2
+  },
+  {
+   "id": "dublin_trinity",
+   "nation": "ireland",
+   "town": "dublin",
+   "badges": 6,
+   "poster": "Trinity College Library",
+   "title": "A quiet creature for the Long Room",
+   "text": "The Long Room holds two hundred thousand books and one very old harp. We need a night creature to keep the moths off at closing.",
+   "step": {
+    "type": "show",
+    "ctype": "night"
+   },
+   "pay": 2
+  },
+  {
+   "id": "dublin_templebar",
+   "nation": "ireland",
+   "town": "dublin",
+   "badges": 6,
+   "poster": "The Temple Bar",
+   "title": "Nobody from Dublin goes to Temple Bar",
+   "text": "Stand in Temple Bar after dark and count how many people are from Dublin. We think it's none. Prove us wrong.",
+   "step": {
+    "type": "visit",
+    "zone": "dublin_templebar",
+    "time": [
+     "night"
+    ]
+   },
+   "pay": 1
+  },
+  {
+   "id": "kilkenny_cats",
+   "nation": "ireland",
+   "town": "kilkenny",
+   "badges": 6,
+   "poster": "Kilkenny Cats Supporters' Club",
+   "title": "Fighting like Kilkenny cats",
+   "text": "Two Kilkenny cats fought until nothing was left but their tails. We'd like a creature that can keep going. Three wins in the Comeraghs.",
+   "step": {
+    "type": "beat",
+    "zone": "comeraghs",
+    "n": 3
+   },
+   "pay": 2
+  },
+  {
+   "id": "kilkenny_kyteler",
+   "nation": "ireland",
+   "town": "kilkenny",
+   "badges": 6,
+   "poster": "Kyteler's Inn",
+   "title": "The witch's inn",
+   "text": "Dame Alice Kyteler ran this inn in 1324, was accused of witchcraft, and legged it. Visit the inn at dusk and see if she's back.",
+   "step": {
+    "type": "visit",
+    "zone": "kilkenny_kyteler",
+    "time": [
+     "dusk"
+    ]
+   },
+   "pay": 1,
+   "reward": {
+    "items": {
+     "blackberries": 2
+    }
+   }
+  },
+  {
+   "id": "cork_market",
+   "nation": "ireland",
+   "town": "cork",
+   "badges": 7,
+   "poster": "The English Market",
+   "title": "Rebel produce only",
+   "text": "The People's Republic of Cork has its own market, its own accent and its own opinion of Dublin. Bring wild garlic for the stalls.",
+   "step": {
+    "type": "bring",
+    "item": "wild_garlic",
+    "n": 3
+   },
+   "pay": 1,
+   "reward": {
+    "items": {
+     "barmbrack": 2
+    }
+   }
+  },
+  {
+   "id": "cork_shandon",
+   "nation": "ireland",
+   "town": "cork",
+   "badges": 7,
+   "poster": "St Anne's Shandon",
+   "title": "Ring the bells",
+   "text": "Tourists climb up and play the Shandon bells. Mostly badly. We need a gale creature to keep the pigeons off the four liars (the clocks).",
+   "step": {
+    "type": "catch",
+    "ctype": "gale",
+    "n": 2
+   },
+   "pay": 2
+  },
+  {
+   "id": "dingle_fungie",
+   "nation": "ireland",
+   "town": "dingle",
+   "badges": 7,
+   "poster": "Dingle Boatmen",
+   "title": "A dolphin to replace Fungie",
+   "text": "Fungie the dolphin lived in the harbour for thirty-seven years and then retired without a word. We need a new star. Catch a tide creature.",
+   "step": {
+    "type": "catch",
+    "ctype": "tide"
+   },
+   "pay": 2,
+   "reward": {
+    "items": {
+     "seaweed": 3
+    }
+   }
+  },
+  {
+   "id": "dingle_kerry",
+   "nation": "ireland",
+   "town": "dingle",
+   "badges": 7,
+   "poster": "Ring of Kerry Coach Drivers",
+   "title": "Clockwise only",
+   "text": "Coaches go anticlockwise round the Ring of Kerry so they don't meet on the bends. The wildlife goes whichever way it likes. Three wins out there.",
+   "step": {
+    "type": "beat",
+    "zone": "ring_of_kerry",
+    "n": 3
+   },
+   "pay": 2
+  },
+  {
+   "id": "galway_oyster",
+   "nation": "ireland",
+   "town": "galway",
+   "badges": 7,
+   "poster": "Galway Oyster Festival",
+   "title": "Seaweed for the oyster beds",
+   "text": "September's the oyster festival. People wear black tie and eat them with a stout. The oysters want seaweed to sit on. Forage the Burren coast.",
+   "step": {
+    "type": "forage",
+    "zone": "burren",
+    "n": 3
+   },
+   "pay": 2
+  },
+  {
+   "id": "galway_connemara",
+   "nation": "ireland",
+   "town": "galway",
+   "badges": 7,
+   "poster": "Connemara Pony Breeders",
+   "title": "A proper Connemara",
+   "text": "Connemara ponies are tough, kind and look good on a calendar. We need one for next year's. A real one.",
+   "step": {
+    "type": "catch",
+    "species": "connie"
+   },
+   "pay": 2
+  },
+  {
+   "id": "sligo_yeats",
+   "nation": "ireland",
+   "town": "sligo",
+   "badges": 7,
+   "poster": "Yeats Society",
+   "title": "I will arise and go now",
+   "text": "Yeats wrote about bee-loud glades. We'd like honey from one. Bring heather honey and we'll read you a poem, whether you like it or not.",
+   "step": {
+    "type": "bring",
+    "item": "heather_honey",
+    "n": 2
+   },
+   "pay": 2,
+   "reward": {
+    "recipe": "soda_farl"
+   }
+  },
+  {
+   "id": "sligo_surf",
+   "nation": "ireland",
+   "town": "sligo",
+   "badges": 7,
+   "poster": "Strandhill Surf School",
+   "title": "Surf's up at dawn",
+   "text": "The best waves are at dawn and the instructors are all asleep. Go to the Strandhill surf shop at dawn and knock until someone answers.",
+   "step": {
+    "type": "visit",
+    "zone": "sligo_surfshop",
+    "time": [
+     "dawn"
+    ]
+   },
+   "pay": 1
+  },
+  {
+   "id": "newgrange_solstice",
+   "nation": "ireland",
+   "town": "newgrange",
+   "badges": 8,
+   "poster": "Brú na Bóinne Visitor Centre",
+   "title": "The winter light",
+   "text": "On the winter solstice the sun shines down the passage for seventeen minutes. Visit the tomb at dawn and tell us if it's still working.",
+   "step": {
+    "type": "visit",
+    "zone": "newgrange_tomb",
+    "time": [
+     "dawn"
+    ]
+   },
+   "pay": 2,
+   "reward": {
+    "items": {
+     "honeycomb": 1
+    }
+   }
+  },
+  {
+   "id": "newgrange_boyne",
+   "nation": "ireland",
+   "town": "newgrange",
+   "badges": 8,
+   "poster": "Boyne Valley Farmers",
+   "title": "Something's been at the barley",
+   "text": "A barn creature is having the barley. Win three fights in the Boyne Valley and the farmers will owe you a pint each. There are nine farmers.",
+   "step": {
+    "type": "beat",
+    "zone": "boyne_valley",
+    "n": 3
+   },
+   "pay": 2
+  },
+  {
+   "id": "ni_fry",
+   "nation": "northern_ireland",
+   "town": "",
+   "badges": 7,
+   "poster": "Ulster Fry Appreciation Society",
+   "title": "Breakfast emergency",
+   "text": "An Ulster fry needs soda farls and potato bread or it's just a fry. Bring two soda farls and nobody gets hurt.",
+   "step": {
+    "type": "bring",
+    "item": "soda_farl",
+    "n": 2
+   },
+   "pay": 1,
+   "reward": {
+    "recipe": "soda_farl"
+   }
+  },
+  {
+   "id": "ni_bonfire",
+   "nation": "northern_ireland",
+   "town": "",
+   "badges": 7,
+   "poster": "Community Association",
+   "title": "The bonfire rota",
+   "text": "The bonfire committee has two rotas, three chairmen and one box of matches. Show us a hearth creature, so at least something's in charge.",
+   "step": {
+    "type": "show",
+    "ctype": "hearth"
+   },
+   "pay": 2
+  },
+  {
+   "id": "ni_mournes",
+   "nation": "northern_ireland",
+   "town": "",
+   "badges": 7,
+   "poster": "Mourne Wall Walkers",
+   "title": "Where the Mountains o' Mourne sweep down to the sea",
+   "text": "The Mourne Wall is twenty-two miles long and it walls in nothing at all. The wildlife up there is fierce. Three wins in the Mournes.",
+   "step": {
+    "type": "beat",
+    "zone": "mournes",
+    "n": 3
+   },
+   "pay": 2
+  },
+  {
+   "id": "ni_linen",
+   "nation": "northern_ireland",
+   "town": "",
+   "badges": 8,
+   "poster": "Irish Linen Guild",
+   "title": "Flax for the looms",
+   "text": "Ulster linen was famous the world over. We still spin a bit. Catch a flax creature so the looms have a mascot.",
+   "step": {
+    "type": "catch",
+    "species": "flaxling"
+   },
+   "pay": 2,
+   "reward": {
+    "charm": "shamrock_pin"
+   }
+  },
+  {
+   "id": "belfast_titanic",
+   "nation": "northern_ireland",
+   "town": "belfast",
+   "badges": 8,
+   "poster": "Titanic Belfast",
+   "title": "She was fine when she left here",
+   "text": "That's what we say. The tourists laugh every time. Go to the Titanic building at night and check the lights are off. We're on a meter.",
+   "step": {
+    "type": "visit",
+    "zone": "belfast_titanic",
+    "time": [
+     "night"
+    ]
+   },
+   "pay": 1
+  },
+  {
+   "id": "belfast_crane",
+   "nation": "northern_ireland",
+   "town": "belfast",
+   "badges": 8,
+   "poster": "Harland and Wolff Old Boys",
+   "title": "Samson and Goliath",
+   "text": "The two yellow cranes are called Samson and Goliath. A storm creature keeps sitting on Goliath. Catch a storm or iron creature, either will do.",
+   "step": {
+    "type": "catch",
+    "ctype": "iron"
+   },
+   "pay": 2
+  },
+  {
+   "id": "bushmills_whiskey",
+   "nation": "northern_ireland",
+   "town": "bushmills",
+   "badges": 8,
+   "poster": "The Old Mill",
+   "title": "Barley and patience",
+   "text": "Bushmills has had a licence to distil since 1608. We're very patient people. Bring hazelnuts for the visitors' tasting board.",
+   "step": {
+    "type": "bring",
+    "item": "hazelnuts",
+    "n": 3
+   },
+   "pay": 2
+  },
+  {
+   "id": "bushmills_giant",
+   "nation": "northern_ireland",
+   "town": "bushmills",
+   "badges": 8,
+   "poster": "Causeway Coast Guides",
+   "title": "Finn McCool's stepping stones",
+   "text": "Finn built the Causeway to fight a Scottish giant. He lost his nerve and dressed as a baby. True story. Catch a stone creature from the Causeway.",
+   "step": {
+    "type": "catch",
+    "species": "basaltling"
+   },
+   "pay": 2
+  },
+  {
+   "id": "derry_walls",
+   "nation": "northern_ireland",
+   "town": "derry",
+   "badges": 8,
+   "poster": "Derry Walls Heritage",
+   "title": "Walk the walls at dusk",
+   "text": "Derry's walls were never breached. That's the whole point of them. Walk round the Guildhall at dusk and see the city lit up.",
+   "step": {
+    "type": "visit",
+    "zone": "derry_guildhall",
+    "time": [
+     "dusk"
+    ]
+   },
+   "pay": 1,
+   "reward": {
+    "items": {
+     "blackberries": 3
+    }
+   }
+  },
+  {
+   "id": "derry_antrim",
+   "nation": "northern_ireland",
+   "town": "derry",
+   "badges": 8,
+   "poster": "Antrim Coast Road Bus Drivers",
+   "title": "Gulls on the coast road",
+   "text": "The coast road is the most beautiful drive in Ireland and the gulls know it. Three wins on the Antrim coast, please.",
+   "step": {
+    "type": "beat",
+    "zone": "antrim_coast",
+    "n": 3
+   },
+   "pay": 2
+  },
+  {
+   "id": "sc_midge",
+   "nation": "scotland",
+   "town": "",
+   "badges": 8,
+   "poster": "Scottish Midge Forecast",
+   "title": "Midge count",
+   "text": "The midges are out, and they've brought the whole family. Catch one for the forecast, and don't scratch.",
+   "step": {
+    "type": "catch",
+    "species": "midgie"
+   },
+   "pay": 2
+  },
+  {
+   "id": "sc_tablet",
+   "nation": "scotland",
+   "town": "",
+   "badges": 8,
+   "poster": "Scottish Women's Rural Institute",
+   "title": "Sugar for the tablet",
+   "text": "Tablet is sugar, butter and condensed milk, boiled until your dentist weeps. Bring two tablets from the shop so we can check the competition.",
+   "step": {
+    "type": "bring",
+    "item": "tablet",
+    "n": 2
+   },
+   "pay": 1,
+   "reward": {
+    "recipe": "tablet"
+   }
+  },
+  {
+   "id": "sc_ceilidh",
+   "nation": "scotland",
+   "town": "",
+   "badges": 8,
+   "poster": "Ceilidh Band",
+   "title": "Strip the Willow",
+   "text": "Last ceilidh someone stripped the willow so hard they ended up in Fife. Show us a brawn creature for the door, in case it happens again.",
+   "step": {
+    "type": "show",
+    "ctype": "brawn"
+   },
+   "pay": 2
+  },
+  {
+   "id": "sc_galloway",
+   "nation": "scotland",
+   "town": "",
+   "badges": 8,
+   "poster": "Galloway Forest Rangers",
+   "title": "Dark sky watch",
+   "text": "Galloway is one of the darkest places in Britain. Go up the Dark Sky Hill at night and look at the stars. That's it. That's the job.",
+   "step": {
+    "type": "visit",
+    "zone": "galloway_dark",
+    "time": [
+     "night"
+    ]
+   },
+   "pay": 2,
+   "reward": {
+    "items": {
+     "rowan_berry": 2
+    }
+   }
+  },
+  {
+   "id": "sc_cranachan",
+   "nation": "scotland",
+   "town": "",
+   "badges": 9,
+   "poster": "Burns Supper Committee",
+   "title": "Raspberries for the cranachan",
+   "text": "We're short on fruit for the Burns supper. Bring sloes instead. We'll tell everyone they're very dark raspberries.",
+   "step": {
+    "type": "bring",
+    "item": "sloes",
+    "n": 4
+   },
+   "pay": 2,
+   "reward": {
+    "recipe": "cranachan"
+   }
+  },
+  {
+   "id": "sc_heilan",
+   "nation": "scotland",
+   "town": "",
+   "badges": 9,
+   "poster": "Highland Cattle Society",
+   "title": "Hairy coo wanted",
+   "text": "A Highland coo is mostly fringe. We need one for the show. Brush it first.",
+   "step": {
+    "type": "catch",
+    "species": "heilan"
+   },
+   "pay": 3,
+   "reward": {
+    "charm": "thistle_brooch"
+   }
+  },
+  {
+   "id": "cairnryan_ferry",
+   "nation": "scotland",
+   "town": "cairnryan",
+   "badges": 8,
+   "poster": "Ryan Arms",
+   "title": "Galloway's restless",
+   "text": "The ferry crowd come off the boat and straight into the forest. Somebody has to calm the wildlife first. Three wins in Galloway.",
+   "step": {
+    "type": "beat",
+    "zone": "galloway",
+    "n": 3
+   },
+   "pay": 2
+  },
+  {
+   "id": "edin_castle",
+   "nation": "scotland",
+   "town": "edinburgh",
+   "badges": 8,
+   "poster": "Edinburgh Castle One O'Clock Gun",
+   "title": "Don't jump",
+   "text": "The one o'clock gun has fired every day since 1861. Tourists still drop their ice creams. Stand in the castle at midday and don't jump.",
+   "step": {
+    "type": "visit",
+    "zone": "edinburgh_castle",
+    "time": [
+     "day"
+    ]
+   },
+   "pay": 1
+  },
+  {
+   "id": "edin_fringe",
+   "nation": "scotland",
+   "town": "edinburgh",
+   "badges": 8,
+   "poster": "Fringe Festival Flyerer",
+   "title": "The worst show at the Fringe",
+   "text": "Our one-man show about tax law has sold four tickets. Two were my mum. Show us a fae creature for the poster, it'll help.",
+   "step": {
+    "type": "show",
+    "ctype": "fae"
+   },
+   "pay": 2
+  },
+  {
+   "id": "glasgow_cone",
+   "nation": "scotland",
+   "town": "glasgow",
+   "badges": 8,
+   "poster": "Merchant City Rooms",
+   "title": "The cone on the Duke",
+   "text": "There's a traffic cone on the Duke of Wellington's head. The council took it off once. The city wept. Catch an urban creature to guard it.",
+   "step": {
+    "type": "catch",
+    "ctype": "urban"
+   },
+   "pay": 2,
+   "reward": {
+    "items": {
+     "irn_tonic": 2
+    }
+   }
+  },
+  {
+   "id": "glasgow_belt",
+   "nation": "scotland",
+   "town": "glasgow",
+   "badges": 8,
+   "poster": "Forth and Clyde Canal Society",
+   "title": "The Kelpies are watching",
+   "text": "Two thirty-metre horse heads watch over the canal. They don't blink. Three wins in the Central Belt to keep them happy.",
+   "step": {
+    "type": "beat",
+    "zone": "central_belt",
+    "n": 3
+   },
+   "pay": 2
+  },
+  {
+   "id": "fw_ben",
+   "nation": "scotland",
+   "town": "fort_william",
+   "badges": 9,
+   "poster": "Ben Nevis Race Committee",
+   "title": "Up the Ben and back",
+   "text": "The Ben Nevis race is up and down Britain's highest mountain in under two hours. Glencoe's wildlife keeps getting in the way. Three wins there.",
+   "step": {
+    "type": "beat",
+    "zone": "glencoe",
+    "n": 3
+   },
+   "pay": 2
+  },
+  {
+   "id": "fw_glen",
+   "nation": "scotland",
+   "town": "fort_william",
+   "badges": 9,
+   "poster": "West Highland Museum",
+   "title": "Pick the Great Glen",
+   "text": "We're doing a display of what grows in the Great Glen. So far we have heather and a crisp packet. Forage there three times.",
+   "step": {
+    "type": "forage",
+    "zone": "great_glen",
+    "n": 3
+   },
+   "pay": 2,
+   "reward": {
+    "items": {
+     "hazelnuts": 2
+    }
+   }
+  },
+  {
+   "id": "inverness_nessie",
+   "nation": "scotland",
+   "town": "inverness",
+   "badges": 9,
+   "poster": "Loch Ness Monster Fan Club",
+   "title": "Nessie sighting at dusk",
+   "text": "Nessie's been spotted at dusk more than any other time. Mostly by men from Aberdeen with flasks. Visit Loch Ness at dusk. Bring a camera.",
+   "step": {
+    "type": "visit",
+    "zone": "loch_ness",
+    "time": [
+     "dusk"
+    ]
+   },
+   "pay": 2,
+   "reward": {
+    "items": {
+     "heather_honey": 2
+    }
+   }
+  },
+  {
+   "id": "inverness_kelpie",
+   "nation": "scotland",
+   "town": "inverness",
+   "badges": 9,
+   "poster": "Loch Ness Boat Tours",
+   "title": "Something's in the water",
+   "text": "A water horse keeps following the tour boat. The customers love it. The insurance company doesn't. Catch it.",
+   "step": {
+    "type": "catch",
+    "species": "kelpie"
+   },
+   "pay": 3
+  },
+  {
+   "id": "portree_skye",
+   "nation": "scotland",
+   "town": "portree",
+   "badges": 9,
+   "poster": "Portree Harbour Office",
+   "title": "Selkies on the shore",
+   "text": "Selkies are seals that come ashore and take off their skins. Then they want them back. Catch one for the harbour master's records.",
+   "step": {
+    "type": "catch",
+    "species": "selkie"
+   },
+   "pay": 3
+  },
+  {
+   "id": "portree_fairy",
+   "nation": "scotland",
+   "town": "portree",
+   "badges": 9,
+   "poster": "Skye Fairy Glen Ranger",
+   "title": "Stop moving the stones",
+   "text": "Tourists keep building stone spirals in the Fairy Glen. The fairies hate it. Forage the glen and leave it tidy.",
+   "step": {
+    "type": "forage",
+    "zone": "faerie_glen",
+    "n": 2
+   },
+   "pay": 2
+  },
+  {
+   "id": "aberdeen_granite",
+   "nation": "scotland",
+   "town": "aberdeen",
+   "badges": 9,
+   "poster": "Granite City Council",
+   "title": "A stone for the Granite City",
+   "text": "Everything in Aberdeen is grey granite that sparkles in the sun. Both sunny days. Show us a stone creature for the town house.",
+   "step": {
+    "type": "show",
+    "ctype": "stone"
+   },
+   "pay": 2
+  },
+  {
+   "id": "aberdeen_capercaillie",
+   "nation": "scotland",
+   "town": "aberdeen",
+   "badges": 9,
+   "poster": "Cairngorms National Park",
+   "title": "The capercaillie dance",
+   "text": "Capercaillie dance at dawn and fight anyone who interrupts. We need one counted for the survey. Catch one, carefully.",
+   "step": {
+    "type": "catch",
+    "species": "capercaillie"
+   },
+   "pay": 3
+  },
+  {
+   "id": "kirkwall_viking",
+   "nation": "scotland",
+   "town": "kirkwall",
+   "badges": 9,
+   "poster": "St Magnus Festival",
+   "title": "Viking with a cold",
+   "text": "Our Viking re-enactor has a cold and won't stop sneezing on the longship. Bring him a cup of tea, he says he's Norse, he's from Stromness.",
+   "step": {
+    "type": "bring",
+    "item": "flask_of_tea",
+    "n": 1
+   },
+   "pay": 2
+  },
+  {
+   "id": "kirkwall_frost",
+   "nation": "scotland",
+   "town": "kirkwall",
+   "badges": 9,
+   "poster": "Orkney Ba' Game Committee",
+   "title": "The Ba' at Christmas",
+   "text": "The Ba' is a game where half the town tries to get a ball into the harbour and the other half tries to stop them. We need a frost creature for the team photo.",
+   "step": {
+    "type": "show",
+    "ctype": "frost"
+   },
+   "pay": 3
+  }
+ ]
+}

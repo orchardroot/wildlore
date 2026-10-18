@@ -75,6 +75,7 @@ func load_zone(zone_id: String, pos: Vector2i, facing: String) -> void:
 		pos = Vector2i(int(ls.pos[0]), int(ls.pos[1])) if zone_id == str(ls.zone) else Vector2i(-1, -1)
 	zone = ZoneData.load_id(zone_id)
 	FieldMoves.apply_cuts(Game.data, zone)
+	Rewild.apply(Game.data, zone)  # rewilding sites take their stage's shape
 	if _zone_node:
 		_zone_node.queue_free()
 	_build_zone_node()
@@ -206,6 +207,11 @@ func _build_zone_node() -> void:
 	add_child(_zone_node)
 	Seasonal.dress(zone, _zone_node, player)  # festivals and falling leaves from the real date
 	Forage.dress(zone, _zone_node, Game.data)  # hedgerow pickings and crafting benches
+	HomeBase.dress(zone, _zone_node, Game.data)  # Mum's trophy shelf, the garden and its visitors
+	Noticeboard.dress(zone, _zone_node)  # the parish noticeboard (jobs)
+	RewildScene.dress(zone, _zone_node, Game.data)  # rewilding sites: stumps, saplings, pools, marked spots
+	ShowRing.dress(zone, _zone_node, Game.data)  # today's County Show, if it's here
+	PostBox.dress(zone, _zone_node, Game.data)  # an envelope over the post boxes while Kit's card waits
 	traffic = RailTraffic.new()
 	traffic.name = "RailTraffic"
 	_zone_node.add_child(traffic)
@@ -247,13 +253,24 @@ func _spawn_npcs() -> void:
 		return
 	var npc_script: Script = load("res://world/npc.gd")
 	set_meta("npc_phase", Game.phase())
-	for def in zone.npcs:
+	for def in zone.npcs + _side_npcs():  # plus a Keeper out in town with a side story (SideStories)
 		if not Npc.should_spawn(def, Game.data, Game.phase()):  # flag gating and hours ("times")
 			continue
 		var n: Node3D = npc_script.new()
 		add_child(n)
 		n.setup(def, self)
 		npcs.append(n)
+
+## Keepers waiting in this zone with a side story, each on their spot or the nearest free tile to it.
+func _side_npcs() -> Array:
+	var out := SideStories.npcs_for(zone.id, Game.data)
+	var taken := {}
+	for d in out:
+		var p := SideStories.nearest_free(zone, Vector2i(int(d.x), int(d.y)), taken)
+		taken[p] = true
+		d.x = p.x
+		d.y = p.y
+	return out
 
 var _friend_steps := 0
 
@@ -310,10 +327,11 @@ func _on_step(p: Vector2i) -> void:
 	if encounters.in_grace():
 		encounters.stepped()
 		return
-	var enc := Encounters.roll(zone, tile, Game.phase(), weather, Game.rng, TodaysWalk.featured_in(Game.data, zone.id))
+	var enc := Encounters.roll(zone, tile, Game.phase(), weather, Game.rng, TodaysWalk.featured_in(Game.data, zone.id), Game.data.flags)
 	if not enc.is_empty() and Game.data.first_able() != null and not Repel.blocks(Game.data, int(enc.level)):
 		var foe := Creature.create(Game.dex.get_species(enc.species), enc.level, Game.rng, Game.moves)
 		Charms.maybe_wild(foe, Game.rng)  # now and then one is carrying a charm
+		foe.variant = Coats.roll(Game.rng, Calendar.today().x, weather, Game.phase())  # about 1 in 96: an uncommon coat
 		Game.data.mark_seen(enc.species)
 		var result: Dictionary = await Router.battle([foe], {"kind": "wild", "weather": weather, "time": Game.phase(), "stage": _stage()})
 		await _after_battle(result)
@@ -399,6 +417,14 @@ func _after_battle(result: Dictionary) -> void:
 func interact(p: Vector2i) -> void:
 	Audio.interaction(self, p)
 	if await Forage.interact(self, p):  # a forage prop or a crafting bench
+		return
+	if await HomeBase.interact(self, p):  # the trophy shelf, a garden plot or a visitor
+		return
+	if await Noticeboard.interact(self, p):
+		return
+	if await RewildScene.interact(self, p):  # a marked spot on a rewilding site
+		return
+	if await PostBox.interact(self, p):  # post from Kit (or just a post box)
 		return
 	var s := zone.sign_at(p)
 	if not s.is_empty():

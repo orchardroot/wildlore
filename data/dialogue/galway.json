@@ -130,54 +130,68 @@
  ],
  "oyster_man": [
   {
-   "do": "when",
-   "cond": "rain",
-   "chat": true,
+   "do": "if",
+   "flag": "rewild_derrygimlagh",
+   "eq": 3,
    "then": [
     {
      "do": "say",
      "who": "Oyster Man",
-     "text": "Rain's good for oysters. Keeps the bay fresh. Keeps the customers inside, mind."
+     "text": "Cranes nesting out at Derrygimlagh, they're saying. Cranes! Next you'll tell me the Corrib's running clean."
     }
    ],
    "else": [
     {
      "do": "when",
-     "cond": "gale",
+     "cond": "rain",
      "chat": true,
      "then": [
       {
        "do": "say",
        "who": "Oyster Man",
-       "text": "Gale over Galway Bay. Boats are staying in today. The oysters are delighted."
+       "text": "Rain's good for oysters. Keeps the bay fresh. Keeps the customers inside, mind."
       }
      ],
      "else": [
       {
        "do": "when",
-       "cond": "dawn",
+       "cond": "gale",
        "chat": true,
        "then": [
         {
          "do": "say",
          "who": "Oyster Man",
-         "text": "Up at dawn for the boats. The bay's silver this early. Prettiest sight in Connacht."
+         "text": "Gale over Galway Bay. Boats are staying in today. The oysters are delighted."
+        }
+       ],
+       "else": [
+        {
+         "do": "when",
+         "cond": "dawn",
+         "chat": true,
+         "then": [
+          {
+           "do": "say",
+           "who": "Oyster Man",
+           "text": "Up at dawn for the boats. The bay's silver this early. Prettiest sight in Connacht."
+          }
+         ]
         }
        ]
       }
      ]
+    },
+    {
+     "do": "say",
+     "who": "Oyster Man",
+     "text": "{greeting} Galway Bay oysters are the best on earth, and I'd take it to court. September's the Oyster Festival. People wear black tie and eat them with a stout."
+    },
+    {
+     "do": "say",
+     "who": "Oyster Man",
+     "text": "Nobody's ever asked me what the oyster thinks. It thinks, 'Why is it me?'"
     }
    ]
-  },
-  {
-   "do": "say",
-   "who": "Oyster Man",
-   "text": "{greeting} Galway Bay oysters are the best on earth, and I'd take it to court. September's the Oyster Festival. People wear black tie and eat them with a stout."
-  },
-  {
-   "do": "say",
-   "who": "Oyster Man",
-   "text": "Nobody's ever asked me what the oyster thinks. It thinks, 'Why is it me?'"
   }
  ],
  "kit_galway": [

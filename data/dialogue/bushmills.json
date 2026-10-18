@@ -54,40 +54,54 @@
  ],
  "green_gardener": [
   {
-   "do": "when",
-   "cond": "sunshine",
-   "chat": true,
+   "do": "if",
+   "flag": "rewild_river_bush",
+   "eq": 3,
    "then": [
     {
      "do": "say",
      "who": "Gardener",
-     "text": "Sun on the tulips! They're showing off now. You can't tell them anything."
+     "text": "There's a bittern booming on the Bush. A bittern! My Sammy says it's a foghorn. My Sammy's an eejit."
     }
    ],
    "else": [
     {
      "do": "when",
-     "cond": "dawn",
+     "cond": "sunshine",
      "chat": true,
      "then": [
       {
        "do": "say",
        "who": "Gardener",
-       "text": "Up with the birds. They supervise, I dig. It's a fair arrangement."
+       "text": "Sun on the tulips! They're showing off now. You can't tell them anything."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "dawn",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Gardener",
+         "text": "Up with the birds. They supervise, I dig. It's a fair arrangement."
+        }
+       ]
       }
      ]
+    },
+    {
+     "do": "say",
+     "who": "Gardener",
+     "text": "I do the flower beds on the green. Two hundred years of Bushmills folk have walked across them, and not one asked permission."
+    },
+    {
+     "do": "say",
+     "who": "Gardener",
+     "text": "Planting tulips is an act of faith. You bury a thing in the cold, in the dark, and trust it to come back with a better attitude."
     }
    ]
-  },
-  {
-   "do": "say",
-   "who": "Gardener",
-   "text": "I do the flower beds on the green. Two hundred years of Bushmills folk have walked across them, and not one asked permission."
-  },
-  {
-   "do": "say",
-   "who": "Gardener",
-   "text": "Planting tulips is an act of faith. You bury a thing in the cold, in the dark, and trust it to come back with a better attitude."
   }
  ],
  "station_volunteer": [
@@ -190,6 +204,12 @@
    "do": "say",
    "who": "Postmaster",
    "text": "I know everybody who lives here and which dog belongs to whom. It's the dogs I rely on. They're never wrong."
+  }
+ ],
+ "rewild_warden": [
+  {
+   "do": "rewild",
+   "site": "river_bush"
   }
  ]
 }

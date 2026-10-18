@@ -33,6 +33,8 @@ var _catch_chance := 0.0
 
 var _evo_ctx := {}
 var _no_run := false
+var _exhibition := false  # a County Show or Open Moot bout: no XP (the team is a stand-in copy, see TournamentRun)
+var _no_items := false    # the "No Items" ruleset: the bag stays shut
 var acting_pos := 0  # doubles: the field position the ui is choosing for
 var _switching := []  # doubles: party indices already picked to switch in this turn
 var _known := {}  # species the player had seen before this battle began (run() marks the foes seen)
@@ -45,6 +47,8 @@ func _init(p_data: GameStateData, p_dex: Dex, p_moves: MoveDB, p_chart: TypeChar
 	ui = p_ui
 	trainer = opts.get("trainer", {})
 	_no_run = bool(opts.get("no_run", false))
+	_exhibition = bool(opts.get("exhibition", false))
+	_no_items = bool(opts.get("no_items", false))
 	_evo_ctx = {"weather": str(opts.get("weather", "clear")), "time": str(opts.get("time", "day"))}
 	ai_tier = str(opts.get("ai", "wild"))
 	bag = Bag.new(data.bag)
@@ -84,7 +88,7 @@ static func wobbles_for(chance: float, success: bool) -> int:
 ## Bag entries usable in this battle: [{"id", "name", "count", "kind", "desc"}].
 func battle_items() -> Array:
 	var out := []
-	if items == null:
+	if items == null or _no_items:
 		return out
 	for id in items.ids():
 		var n := bag.count(id)
@@ -114,6 +118,7 @@ func run() -> Dictionary:
 	var foe := battle.current(Battle.FOE)
 	for c in battle.actives(Battle.FOE):
 		data.mark_seen(c.species.id)
+		Coats.record_seen(data, c)
 	await ui.intro(self)
 	if foe != null and not battle.over:
 		await _say(_intro_lines())
@@ -140,6 +145,8 @@ func _intro_lines() -> Array[String]:
 	var me := battle.current(Battle.PLAYER)
 	if is_wild():
 		out.append("A wild %s appeared!" % foe.display_name())
+		if foe.variant != "":
+			out.append(Coats.intro_line(foe.variant))  # an uncommon coat
 	else:
 		var t := str(trainer.get("name", "A keeper"))
 		out.append("%s wants to battle!" % t)
@@ -295,6 +302,8 @@ const THERMOS_SHARE := 0.75
 
 ## XP for a fainted foe, split equally between every creature that faced it and is still standing.
 func _award_xp(faint_ev: Dictionary = {}) -> void:
+	if _exhibition:
+		return
 	var foe := battle.current(Battle.FOE)
 	var earners := [battle.current(Battle.PLAYER)]
 	if faint_ev.has("index"):
@@ -380,6 +389,8 @@ func _conclude() -> void:
 				result = {"result": "caught", "caught": battle.caught, "money": 0}
 			else:
 				result = {"result": "ran", "caught": null, "money": 0}
+	if _exhibition:
+		result["exhibition"] = true  # the parish gives no standing for show bouts (they can be re-entered all day)
 	if result.result != "lose":
 		await _evolutions()
 
@@ -397,6 +408,7 @@ func _after_catch(c: Creature) -> void:
 			where = data.add_creature_swapping(c, slot)
 		else:
 			where = data.add_creature(c)
+	Coats.record_caught(data, c)
 	species_caught.emit(c.species.id)
 	var target := nickname_arg(data, c)
 	if target != "":

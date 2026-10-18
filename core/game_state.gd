@@ -14,6 +14,7 @@ var autosave_enabled := true
 var skip_next_autosave := false  # set by the title: the first zone after New Game or Load must not overwrite "auto"
 var _in_battle := false
 var _toast: SaveToast
+var parish: Parish
 
 ## Emitted after each autosave that really wrote the file (the "Saved" toast listens).
 signal autosaved
@@ -38,12 +39,15 @@ func _ready() -> void:
 	Bus.battle_ended.connect(_on_battle_ended)
 	Bus.zone_entered.connect(_on_zone_entered)
 	TrainerStats.connect_bus(self)
+	parish = Parish.connect_bus(self)  # jobs off the noticeboards and standing with the nations
 	Bus.creature_caught.connect(func(_id: String): TodaysWalk.note_catch(data, Forecast.current_weather()))
 	if "--quiet-window" in DevArgs.user_args():
 		# screenshot runs (tools/shot.sh): never grab focus, sit off-screen, make no sound
 		DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_NO_FOCUS, true)
 		DisplayServer.window_set_position(Vector2i(0, -4000))
 		AudioServer.set_bus_mute(0, true)
+	if args.get("fps", false):
+		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)  # measure, don't cap at the refresh rate
 	call_deferred("_dev_boot")
 
 func _process(delta: float) -> void:
@@ -59,7 +63,11 @@ func _process(delta: float) -> void:
 		_fps_acc += delta
 		if _fps_acc >= 1.0:
 			_fps_acc = 0.0
-			print("FPS %d" % Engine.get_frames_per_second())
+			# dev --fps: uncapped (vsync off) frame rate, with the draw calls, primitives and nodes behind it
+			print("FPS %d draws %d prims %d nodes %d" % [Engine.get_frames_per_second(),
+				Performance.get_monitor(Performance.RENDER_TOTAL_DRAW_CALLS_IN_FRAME),
+				Performance.get_monitor(Performance.RENDER_TOTAL_PRIMITIVES_IN_FRAME),
+				Performance.get_monitor(Performance.OBJECT_NODE_COUNT)])
 
 var _minute_acc := 0.0
 var _fps_acc := 0.0
@@ -146,7 +154,10 @@ func _dev_boot() -> void:
 		for a in DevArgs.user_args():
 			if a.begins_with("--held="):  # dev: the lead holds this charm (screenshots of charm messages)
 				party[0].held = a.substr(7)
+			if a == "--stress":  # dev: worst-case widths (see DevMenu.stress)
+				DevMenu.stress(data)
 		var foe := [Creature.create(dex.get_species(args.battle_species), args.battle_level, rng, moves)]
+		foe[0].variant = str(args.get("coat", ""))
 		var opts := {"kind": "wild"}
 		if args.get("double", false):
 			# A double battle: two of ours against the dev twins, with the --battle species leading theirs.
@@ -165,6 +176,19 @@ func _dev_boot() -> void:
 		if args.clock >= 0:
 			data.clock_minutes = args.clock
 		data.party = [Creature.create(dex.get_species("kindlet"), 10, rng, moves)]
+		data.party[0].variant = str(args.get("coat", ""))
+		HomeBase.dev_setup(data, str(args.get("home", "")), dex)
+		for a in DevArgs.user_args():
+			if a.begins_with("--rewild="):  # dev: every rewilding site at this stage, 0..3 (screenshots)
+				for s in Rewild.sites():
+					data.set_flag(Rewild.flag_key(str(s.id)), int(a.substr(9)))
+		for a in DevArgs.user_args():
+			if a.begins_with("--flag="):  # dev: story flags set before the zone loads (a postcard waiting, a side story)
+				for f in a.substr(7).split(",", false):
+					data.set_flag(f, true)
+			elif a.begins_with("--badges="):  # dev: this many Stones held
+				for i in int(a.substr(9)):
+					data.badges.append("dev_%d" % i)
 		if args.ride != "":
 			data.bag["bike"] = 1
 			data.badges = ["brook", "urban", "stone", "iron"] if args.ride == "lantern" else ["brook", "urban", "stone"]
@@ -191,4 +215,9 @@ func _take_shot() -> void:
 	DirAccess.make_dir_recursive_absolute(path.get_base_dir())
 	img.save_png(path)
 	print("shot: ", path)
+	if "--audit" in DevArgs.user_args():  # dev: list what spills out of its menu, beside the PNG
+		var lines := LayoutAudit.report(get_tree().root, get_viewport().get_visible_rect())
+		var f := FileAccess.open(path.get_basename() + ".audit.txt", FileAccess.WRITE)
+		f.store_string("\n".join(lines) + ("\n" if lines else "ok\n"))
+		f.close()
 	get_tree().quit()

@@ -11,13 +11,14 @@ const FEATURED_MULT := 3.0  # Today's Walk: the featured species is three times 
 var _grace := 0
 
 ## `featured_species`: Today's Walk species for this zone ("" for none, see TodaysWalk.featured_in).
-static func roll(zone: ZoneData, tile: String, phase: String, weather: String, rng: Rng, featured_species := "") -> Dictionary:
+## `flags`: the save's flags, for entries gated on one (see candidates).
+static func roll(zone: ZoneData, tile: String, phase: String, weather: String, rng: Rng, featured_species := "", flags := {}) -> Dictionary:
 	var kind: String = {"tall_grass": "grass", "deep_water": "water", "bog": "grass"}.get(tile, "")
 	if kind == "":
 		return {}
 	if not rng.chance(step_chance(tile)):
 		return {}
-	var list := featured(candidates(zone, kind, phase, weather), featured_species)
+	var list := featured(candidates(zone, kind, phase, weather, flags), featured_species)
 	if list.is_empty():
 		return {}
 	var e := pick_entry(list, rng.roll())
@@ -38,9 +39,15 @@ static func step_chance(tile: String) -> float:
 static func autosave_after(result: Dictionary) -> bool:
 	return str(result.get("result", "")) == "caught"
 
-static func candidates(zone: ZoneData, kind: String, phase: String, weather: String) -> Array:
+## An entry with "requires_flag" only turns up once that flag is at least "flag_at_least" (default 1), e.g. a
+## creature that comes back to a rewilded site (Rewild); with no flags given, gated entries never do.
+static func candidates(zone: ZoneData, kind: String, phase: String, weather: String, flags := {}) -> Array:
 	var out := []
 	for e in zone.encounters.get(kind, []):
+		if e.has("requires_flag"):
+			var v: Variant = flags.get(str(e.requires_flag))
+			if typeof(v) not in [TYPE_INT, TYPE_FLOAT] or float(v) < float(e.get("flag_at_least", 1)):
+				continue
 		var times: Array = e.get("time", [])
 		var weathers: Array = e.get("weather", [])
 		if (times.is_empty() or phase in times) and (weathers.is_empty() or weather in weathers):

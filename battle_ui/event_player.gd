@@ -82,6 +82,7 @@ static func lines_for(ev: Dictionary, ctx: Dictionary) -> Array[String]:
 			match str(ev.get("reason", "")):
 				"asleep": out.append("%s is fast asleep." % n)
 				"chilled": out.append("%s is too cold to move!" % n)
+				"flinched": out.append("%s flinched and couldn't move!" % n)
 				_: out.append("%s can't move!" % n)
 		"self_hit":
 			out.append("%s is muddled and hurt itself!" % name_of(side, ctx, "", pos))
@@ -135,11 +136,51 @@ static func lines_for(ev: Dictionary, ctx: Dictionary) -> Array[String]:
 					out.append("There's no running from a double battle!")
 				_:
 					out.append("That creature can't be sent out.")
-		"charm", "bond":
+		"charm", "bond", "knack":
 			out.append(charm_text(ev, ctx))
+		"heal":
+			if str(ev.get("reason", "")) == "drain":
+				out.append("%s drained some of the foe's strength!" % name_of(side, ctx, "", pos))
+			else:
+				out.append("%s got some of its health back." % name_of(side, ctx, "", pos))
+		"recoil":
+			out.append("%s is hurt by the recoil!" % name_of(side, ctx, "", pos))
+		"hits":
+			var n := int(ev.get("count", 1))
+			out.append("Hit once!" if n == 1 else "Hit %d times!" % n)
+		"protect":
+			out.append("%s braced itself!" % name_of(side, ctx, "", pos))
+		"protected":
+			out.append("%s protected itself!" % name_of(side, ctx, "", pos))
+		"fail":
+			out.append("But it failed!")
+		"weather":
+			out.append(weather_line(str(ev.weather), int(ev.get("turns", 0))))
+		"weather_end":
+			out.append(str(WEATHER_END.get(str(ev.get("was", "")), "The weather settles.")))
+		"cure_team":
+			out.append("%s's team feels right as rain again." % name_of(side, ctx, "", pos) if side == Battle.PLAYER else "%s's side feels right as rain again." % name_of(side, ctx, "", pos))
 		"end":
 			pass
 	return out
+
+const WEATHER_START := {
+	"drizzle": "A fine drizzle sets in for %d turns.",
+	"downpour": "The heavens open: a proper downpour for %d turns!",
+	"fog": "A thick fog rolls in for %d turns.",
+	"frost": "A hard frost settles in for %d turns.",
+	"sunshine": "The sun comes out for %d turns! Everyone's suddenly in shorts.",
+	"gale": "A gale gets up for %d turns. Hold on to your hat!",
+	"clear": "The sky clears for %d turns.",
+}
+const WEATHER_END := {
+	"drizzle": "The drizzle eases off.", "downpour": "The downpour dies away.", "fog": "The fog lifts.",
+	"frost": "The frost thaws.", "sunshine": "The sun goes back in. Typical.", "gale": "The gale blows itself out.",
+	"clear": "The clouds come back.",
+}
+
+static func weather_line(w: String, turns: int) -> String:
+	return str(WEATHER_START.get(w, "The weather turns for %d turns.")) % turns
 
 ## A charm or friendship line: "{name}" is the holder, "{other}" whoever it pricked. Mid-sentence names drop the capital.
 static func charm_text(ev: Dictionary, ctx: Dictionary) -> String:
@@ -210,14 +251,30 @@ static func _cue(ev: Dictionary, ctx: Dictionary) -> Dictionary:
 			return {"cue": "run" if bool(ev.success) else "idle", "side": Battle.PLAYER}
 		"end":
 			return {"cue": "end", "winner": int(ev.winner)}
-		"charm", "bond":
-			if ev.has("other_side"):  # a thistle prick: the attacker takes the hit
+		"charm", "bond", "knack":
+			if ev.has("other_side"):  # a thistle (or prickly) prick: the attacker takes the hit
 				return {"cue": "hit", "side": int(ev.other_side), "hp": int(ev.hp), "strength": "weak"}
 			if ev.has("delta"):
 				return {"cue": "stat_up" if int(ev.delta) > 0 else "shrug", "side": side, "stat": str(ev.get("stat", ""))}
 			if ev.has("hp"):
-				return {"cue": "heal", "side": side, "target": ctx.battle.active[side][int(ev.get("pos", 0))]}
+				return {"cue": "heal", "side": side, "target": ctx.battle.active[side][int(ev.get("pos", 0))], "hp": int(ev.hp)}
+			if ev.type == "knack":
+				return {"cue": "knack", "side": side}
 			return {"cue": "shrug", "side": side}
+		"heal":
+			return {"cue": "heal", "side": side, "target": ctx.battle.active[side][int(ev.get("pos", 0))], "hp": int(ev.hp)}
+		"recoil":
+			return {"cue": "hit", "side": side, "hp": int(ev.hp), "strength": "weak"}
+		"protect":
+			return {"cue": "protect", "side": side}
+		"protected":
+			return {"cue": "protect", "side": side}
+		"fail":
+			return {"cue": "idle", "side": side}
+		"weather", "weather_end":
+			return {"cue": "weather", "weather": str(ev.weather), "turns": int(ev.get("turns", 0))}
+		"cure_team":
+			return {"cue": "cure", "side": side}
 		"item":
 			return {"cue": "heal", "side": side, "target": int(ev.get("target", 0))}
 		"catch":

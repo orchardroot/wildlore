@@ -1,0 +1,504 @@
+{
+ "_doc": "Rewilding sites (world/rewild.gd). Each site is a rectangle [x, y, w, h] of an existing zone, restored in four stages: 0 Damaged, 1 Planted, 2 Recovering, 3 Wild. tasks[i] takes the site from stage i to i+1 (kinds: plant, litter, items, money, show, battle). Stage 1 comes at once; stages 2 and 3 settle over one in-game day. rewards[i] runs as story commands when stage i+1 is reached. encounters[i] join the zone's table from stage i+1 (requires_flag rewild_<site>). looks: biome -> four stage looks (ground colours, tall grass, lattice blockers, decor meshes).",
+ "sites": [
+  {
+   "id": "goyt_moss",
+   "name": "Goyt's Moss",
+   "zone": "goyt_valley",
+   "nation": "england",
+   "town": "buxton",
+   "rect": [29, 3, 12, 6],
+   "biome": "moss",
+   "warden": "Hilda",
+   "tasks": [
+    {
+     "kind": "plant",
+     "spots": 5,
+     "thing": "sphagnum plug",
+     "ask": "Here, take a bucket of sphagnum plugs. I've marked five spots with canes. Push one in at each, like you're tucking in a very wet baby."
+    },
+    {
+     "kind": "items",
+     "items": {"sheep_wool": 3},
+     "ask": "Next we block the gullies so the water stays put. Wool bales work a treat. Bring me 3 Sheep Wool, off the fences, mind, not off the sheep."
+    },
+    {
+     "kind": "battle",
+     "trainer": "rewild_goyt_drainer",
+     "ask": "One problem. There's an Enclosure lad up top still cutting drains. Nobody told him they've gone bust. Will you go and tell him? Firmly?"
+    }
+   ],
+   "rewards": [
+    [{"do": "give_item", "item": "heather_honey", "n": 2}, {"do": "standing", "nation": "england", "amount": 5}],
+    [{"do": "give_item", "item": "honeycomb", "n": 1}, {"do": "standing", "nation": "england", "amount": 5}],
+    [{"do": "give_item", "item": "four_leaf_clover", "n": 1}, {"do": "standing", "nation": "england", "amount": 5}]
+   ],
+   "encounters": [
+    [{"kind": "grass", "species": "sphagnet", "min": 12, "max": 14, "weight": 14}],
+    [{"kind": "grass", "species": "snowhare", "min": 13, "max": 15, "weight": 10}],
+    [{"kind": "grass", "species": "volet", "min": 13, "max": 15, "weight": 12}]
+   ],
+   "lines": {
+    "intro": [
+     "Ey up, me duck. Mind where you put your feet, it's not so much a moor as a very big scab.",
+     "The Enclosure drained this lot for grouse and grazing. Peat dries out, peat blows away, and down in Stockport they wonder why the river comes up brown.",
+     "I'm Hilda. Me and the volunteers are putting it back. Fancy getting your boots mucky?"
+    ],
+    "stages": [
+     "Bare peat, gullies like a ploughed field and a drainpipe where a bog should be. Breaks your heart.",
+     "Look at that! Green coming through. The sphagnum's taken, and it's holding water like a sponge holds a grudge.",
+     "Pools! Proper bog pools! I nearly cried. I did cry, actually. Don't tell the volunteers.",
+     "Cotton grass nodding, bog pools full and the water voles are back in the cuts. Listen. You can hear the moor breathing."
+    ],
+    "settling": "Now we wait. Moss doesn't do next-day delivery. Give it a day and come and look.",
+    "done": ["That's done it. Look at it, settling in like it owns the place.", "Hear that? Something's come back. The moor's telling everyone."],
+    "wild": "You've made an old woman very happy and a moor very soggy. Come back whenever. Bring a flask."
+   }
+  },
+  {
+   "id": "coed_padarn",
+   "name": "Coed Padarn",
+   "zone": "llanberis",
+   "nation": "wales",
+   "town": "llanberis",
+   "rect": [42, 30, 18, 7],
+   "biome": "rainforest",
+   "warden": "Gwen",
+   "tasks": [
+    {
+     "kind": "plant",
+     "spots": 5,
+     "thing": "oak sapling",
+     "ask": "There's five canes in the brash. Each one wants a sessile oak, a proper Welsh one, not one of those flashy English ones. Off you go, bach."
+    },
+    {
+     "kind": "money",
+     "amount": 800,
+     "ask": "Now the deer will have those saplings for breakfast unless we guard them. Tree guards cost money, and the Enclosure left us a debt and a dead fern. Could you spare 800?"
+    },
+    {
+     "kind": "show",
+     "type": "night",
+     "ask": "Last thing. A wood's not a wood without its night shift. Bring me a Night creature and let it have a sniff round, so the others know it's safe. It stays with you, don't worry, I'm not running a zoo."
+    }
+   ],
+   "rewards": [
+    [{"do": "give_item", "item": "slate_chip", "n": 3}, {"do": "standing", "nation": "wales", "amount": 5}],
+    [{"do": "give_item", "item": "hazelnuts", "n": 3}, {"do": "standing", "nation": "wales", "amount": 5}],
+    [{"do": "give_item", "item": "leek", "n": 1}, {"do": "standing", "nation": "wales", "amount": 5}]
+   ],
+   "encounters": [
+    [{"kind": "grass", "species": "hootlet", "min": 27, "max": 29, "weight": 12}],
+    [{"kind": "grass", "species": "martling", "min": 27, "max": 29, "weight": 10}],
+    [{"kind": "grass", "species": "pinewraith", "min": 28, "max": 29, "weight": 8}]
+   ],
+   "lines": {
+    "intro": [
+     "Duw, mind the brash. The Enclosure clear-felled their spruce here and left the stumps like a mouthful of bad teeth.",
+     "This used to be rainforest. Yes, in Wales. Mossy oaks, ferns on the branches, lichen like old lace. It rains enough, God knows.",
+     "I'm Gwen. I'm growing it back, one oak at a time. You look like you've got hands."
+    ],
+    "stages": [
+     "Stumps, brash and mud. Not a fern in sight.",
+     "Saplings in! Little things, aren't they? Like a row of nervous children on the first day of school.",
+     "Look at them now, shoulder high and cheeky with it. The ferns are coming back underneath.",
+     "Moss on every branch, ferns dripping, and a pine marten looked me in the eye this morning. Cheek of it. Lovely."
+    ],
+    "settling": "Give it a day, cariad. Trees aren't in a hurry. They've got a few hundred years.",
+    "done": ["There we are. Iawn. Lovely job.", "Something new in the wood. I heard it before I saw it."],
+    "wild": "Coed Padarn, as it should be. Come and get rained on under it any time."
+   }
+  },
+  {
+   "id": "dundreggan",
+   "name": "Dundreggan",
+   "zone": "great_glen",
+   "nation": "scotland",
+   "town": "fort_william",
+   "rect": [23, 30, 14, 8],
+   "biome": "pinewood",
+   "warden": "Morag",
+   "tasks": [
+    {
+     "kind": "battle",
+     "trainer": "rewild_glen_stalker",
+     "ask": "Trouble is, there's an Enclosure stalker still keeping the deer numbers up for the shooting. Too many deer, no wee trees. Could you have a word? A battling sort of word?"
+    },
+    {
+     "kind": "plant",
+     "spots": 5,
+     "thing": "Scots pine seedling",
+     "ask": "Now he's away, we can plant. Five canes out there, five wee Scots pines. Seeds from the granny pines, so they're family."
+    },
+    {
+     "kind": "items",
+     "items": {"rowan_berry": 4},
+     "ask": "A pinewood needs its rowans for the birds. Bring me 4 Rowan Berries and the thrushes will do the rest. They're very reliable, for thrushes."
+    }
+   ],
+   "rewards": [
+    [{"do": "give_item", "item": "heather_honey", "n": 2}, {"do": "standing", "nation": "scotland", "amount": 5}],
+    [{"do": "give_item", "item": "peat", "n": 2}, {"do": "standing", "nation": "scotland", "amount": 5}],
+    [{"do": "give_item", "item": "thistle_brooch", "n": 1}, {"do": "standing", "nation": "scotland", "amount": 5}]
+   ],
+   "encounters": [
+    [{"kind": "grass", "species": "stoatlet", "min": 72, "max": 74, "weight": 10}],
+    [{"kind": "grass", "species": "highlynx", "min": 72, "max": 74, "weight": 8}],
+    [{"kind": "grass", "species": "capercaillie", "min": 72, "max": 74, "weight": 8}]
+   ],
+   "lines": {
+    "intro": [
+     "Aye, it's a bonny glen. Bonny like a putting green. That's the trouble.",
+     "Every seedling that pokes its head up gets eaten by a deer or a sheep before it's said good morning. The old pines are all grannies now, and they've no grandweans.",
+     "I'm Morag. We're bringing the Caledonian forest back to Dundreggan. Will you lend a hand?"
+    ],
+    "stages": [
+     "Grass cropped to the bone, and not a young tree in the glen.",
+     "Seedlings in, guards on. They're wee, but they're thrawn.",
+     "Young pines up to your shoulder, heather coming in between. It's starting to smell like a forest.",
+     "Pinewood. Juniper and blaeberry, and a capercaillie clattering about like a dropped tea tray. Magic."
+    ],
+    "settling": "Give it a day. A pine takes its time, and so should we.",
+    "done": ["There now. That's taken. You can see it, can't you?", "Did you hear that in the trees? Something's moved back in."],
+    "wild": "You've given the glen its grandweans back. Come and sit under them when they're tall."
+   }
+  },
+  {
+   "id": "river_bush",
+   "name": "River Bush",
+   "zone": "bushmills",
+   "nation": "northern_ireland",
+   "town": "bushmills",
+   "rect": [30, 2, 12, 9],
+   "biome": "river",
+   "warden": "Ciaran",
+   "tasks": [
+    {
+     "kind": "litter",
+     "spots": 5,
+     "thing": "pile of rubbish",
+     "ask": "First job's the rubbish. There's five piles along the bank. Bag them up and mind the trolley, it bites."
+    },
+    {
+     "kind": "show",
+     "type": "brook",
+     "ask": "Now, the river creatures want to know it's safe. Bring us a Brook creature to have a paddle. It stays with you, I'm only borrowing its opinion."
+    },
+    {
+     "kind": "battle",
+     "trainer": "rewild_bush_netter",
+     "ask": "Last of it. There's a fella with an Enclosure net strung right across the river, after the salmon. Away and sort him out, would you?"
+    }
+   ],
+   "rewards": [
+    [{"do": "give_item", "item": "hawthorn_berry", "n": 3}, {"do": "standing", "nation": "northern_ireland", "amount": 5}],
+    [{"do": "give_item", "item": "sea_glass", "n": 1}, {"do": "standing", "nation": "northern_ireland", "amount": 5}],
+    [{"do": "give_item", "item": "horseshoe", "n": 1}, {"do": "standing", "nation": "northern_ireland", "amount": 5}]
+   ],
+   "encounters": [
+    [{"kind": "water", "species": "elverlet", "min": 65, "max": 66, "weight": 12}],
+    [{"kind": "water", "species": "afanc", "min": 65, "max": 66, "weight": 10}],
+    [{"kind": "grass", "species": "boomern", "min": 66, "max": 66, "weight": 8}]
+   ],
+   "lines": {
+    "intro": [
+     "Bout ye. Wee bit of a mess, so it is.",
+     "The Enclosure straightened the Bush and dumped half of Coleraine in it. Trolleys, tyres, a settee. A whole settee! Somebody must have been comfy.",
+     "I'm Ciaran. I'm getting the river back. You look like you don't mind wet feet."
+    ],
+    "stages": [
+     "Litter in the reeds, litter in the river, litter in places I'd rather not think about.",
+     "Clean as a whistle, and the willow whips are in. The water's running clearer already.",
+     "Reeds coming thick along the bank, and somebody's started building a dam. Somebody with very big teeth.",
+     "Reedbed, beaver dam, salmon in the pools. And at dusk there's a boom out of the reeds like someone blowing over a milk bottle. A bittern! In Bushmills!"
+    ],
+    "settling": "Leave it a day. The river knows what it's doing once you stop throwing settees in it.",
+    "done": ["Look at that, now. Class.", "Did you see that? Something's back on the river. Don't scare it."],
+    "wild": "That's the Bush running wild again. You're a legend, so you are. Pint's on me. Lemonade, if you're driving."
+   }
+  },
+  {
+   "id": "derrygimlagh",
+   "name": "Derrygimlagh Bog",
+   "zone": "connemara",
+   "nation": "ireland",
+   "town": "galway",
+   "rect": [40, 32, 20, 9],
+   "biome": "cutaway",
+   "warden": "Brid",
+   "tasks": [
+    {
+     "kind": "show",
+     "type": "bog",
+     "ask": "Before we start, show me a Bog creature, would you? If it likes the place we know where to begin. Sure, it stays with you. I've three cats and a husband, I've no room."
+    },
+    {
+     "kind": "money",
+     "amount": 600,
+     "ask": "The drains have to be blocked so the water comes back up. Peat dams don't build themselves and the digger man wants paying. Could you put 600 towards it?"
+    },
+    {
+     "kind": "plant",
+     "spots": 5,
+     "thing": "sphagnum plug",
+     "ask": "Now the fun bit. Five canes out on the cutaway. Plant a sphagnum plug at each and the bog will do the rest. Bogs are very good at the rest."
+    }
+   ],
+   "rewards": [
+    [{"do": "give_item", "item": "field_mushrooms", "n": 3}, {"do": "standing", "nation": "ireland", "amount": 5}],
+    [{"do": "give_item", "item": "honeycomb", "n": 1}, {"do": "standing", "nation": "ireland", "amount": 5}],
+    [{"do": "give_item", "item": "brigid_cross", "n": 1}, {"do": "standing", "nation": "ireland", "amount": 5}]
+   ],
+   "encounters": [
+    [{"kind": "grass", "species": "natterjack", "min": 58, "max": 60, "weight": 12}],
+    [{"kind": "grass", "species": "cranelet", "min": 58, "max": 60, "weight": 10}],
+    [{"kind": "grass", "species": "levelcrane", "min": 59, "max": 60, "weight": 8}]
+   ],
+   "lines": {
+    "intro": [
+     "God, you're very welcome. Mind the drains, they're deeper than they look and so is my opinion of the Enclosure.",
+     "They milled this bog flat for turf and left it bare as a car park. A bog's a sponge, you know. This one's been wrung out.",
+     "I'm Brid. We're wetting it back up. Are you any good at getting muddy?"
+    ],
+    "stages": [
+     "Bare cutaway and straight black drains. Not a bit of life in it.",
+     "The drains are blocked and the water's coming up. You can see the shine on it now.",
+     "Pools, and the bog cotton's out. My heart's lepping.",
+     "Wet, wild and full of life. The cranes came back last week. Cranes! Nesting in Connemara! I rang my mother."
+    ],
+    "settling": "Give it a day now. A bog takes a thousand years to make, so a day's nothing.",
+    "done": ["That's grand. That's more than grand.", "Did you hear that? There's something new out on the bog."],
+    "wild": "You've done a lovely thing here. Come back in a thousand years and see how it's getting on."
+   }
+  },
+  {
+   "id": "douglas_broogh",
+   "name": "The Railway Broogh",
+   "zone": "douglas",
+   "nation": "mann",
+   "town": "douglas",
+   "rect": [3, 32, 17, 4],
+   "biome": "heath",
+   "warden": "Juan",
+   "tasks": [
+    {
+     "kind": "litter",
+     "spots": 5,
+     "thing": "pile of rubbish",
+     "ask": "First, the rubbish. Five heaps along the broogh. Bag them up and I'll fetch the barrow."
+    },
+    {
+     "kind": "items",
+     "items": {"hawthorn_berry": 3},
+     "ask": "Now we plant a sod hedge, the Manx way. Hawthorn for the top. Bring me 3 Hawthorn Berries and I'll grow the rest myself. Eventually."
+    },
+    {
+     "kind": "show",
+     "type": "gale",
+     "ask": "The birds need telling it's safe to come back. Bring a Gale creature for a fly about. It stays with you, it's a recommendation, not a donation."
+    }
+   ],
+   "rewards": [
+    [{"do": "give_item", "item": "seaweed", "n": 3}, {"do": "standing", "nation": "mann", "amount": 5}],
+    [{"do": "give_item", "item": "sea_glass", "n": 1}, {"do": "standing", "nation": "mann", "amount": 5}],
+    [{"do": "give_item", "item": "hag_stone", "n": 1}, {"do": "standing", "nation": "mann", "amount": 5}]
+   ],
+   "encounters": [
+    [{"kind": "grass", "species": "cragchough", "min": 20, "max": 23, "weight": 12}],
+    [{"kind": "grass", "species": "leveret", "min": 21, "max": 23, "weight": 10}],
+    [{"kind": "grass", "species": "puffling", "min": 21, "max": 24, "weight": 8}]
+   ],
+   "lines": {
+    "intro": [
+     "Moghrey mie! That's good morning. It's not a good morning for the broogh, mind.",
+     "This bank by the railway was all gorse and heather once. The Enclosure scraped it bare for a car park nobody ever built, and the choughs went off in a huff.",
+     "I'm Juan. Traa dy liooar, we say. Time enough. But I'd still like a hand."
+    ],
+    "stages": [
+     "Scraped earth and tyre ruts. A broogh with nothing on it but a bad mood.",
+     "Clean, and the first gorse is in. It's small, but it's already prickly. That's Manx for you.",
+     "Heather and gorse coming up together, and the choughs are back on the chimneys.",
+     "Gorse in flower, heather humming with bees, and the puffins have come round from the Calf to see what the fuss is. Smells like coconut now, gorse does."
+    ],
+    "settling": "Traa dy liooar. Give it a day.",
+    "done": ["There we are. Grand job.", "Look up! Something's come back to the broogh."],
+    "wild": "That's the broogh wild again. Even the wind seems happier. Well. Slightly."
+   }
+  }
+ ],
+ "looks": {
+  "moss": [
+   {
+    "ground": "#4a3727",
+    "alt": "#43321f",
+    "alt_amount": 0.35,
+    "decor": [{"mesh": "hag", "density": 0.2}, {"mesh": "pipe", "density": 0.02}, {"mesh": "litter", "density": 0.04}, {"mesh": "post", "density": 0.05}]
+   },
+   {
+    "ground": "#55452f",
+    "alt": "#5c5a34",
+    "alt_amount": 0.3,
+    "decor": [{"mesh": "plug", "density": 0.3}, {"mesh": "bale", "density": 0.06}, {"mesh": "hag", "density": 0.06}]
+   },
+   {
+    "ground": "#5c5f36",
+    "alt": "#56592f",
+    "alt_amount": 0.4,
+    "tall": {"density": 0.3, "colour": "#6f7040", "prop": "short"},
+    "blockers": [{"tile": "water", "density": 0.3, "decor": "pool_rim"}],
+    "decor": [{"mesh": "cotton", "density": 0.22}, {"mesh": "plug", "density": 0.18}]
+   },
+   {
+    "ground": "#55703a",
+    "alt": "#4f6a36",
+    "alt_amount": 0.4,
+    "tall": {"density": 0.5, "colour": "#6e5a5c", "prop": "heather"},
+    "blockers": [{"tile": "water", "density": 0.45, "decor": "pool_rim"}, {"tile": "tree_oak", "prop": "birch", "density": 0.1}],
+    "decor": [{"mesh": "cotton", "density": 0.35}, {"mesh": "plug", "density": 0.15}]
+   }
+  ],
+  "rainforest": [
+   {
+    "ground": "#6b553d",
+    "alt": "#634e37",
+    "alt_amount": 0.4,
+    "decor": [{"mesh": "stump", "density": 0.22}, {"mesh": "brash", "density": 0.22}, {"mesh": "litter", "density": 0.03}]
+   },
+   {
+    "ground": "#625a3b",
+    "alt": "#5b5436",
+    "alt_amount": 0.3,
+    "decor": [{"mesh": "guard", "density": 0.28}, {"mesh": "stump", "density": 0.12}, {"mesh": "brash", "density": 0.08}]
+   },
+   {
+    "ground": "#527036",
+    "alt": "#4d6933",
+    "alt_amount": 0.25,
+    "tall": {"density": 0.25},
+    "blockers": [{"tile": "tree_oak", "prop": "none", "decor": "young_oak", "density": 0.5}],
+    "decor": [{"mesh": "fern", "density": 0.25}, {"mesh": "guard", "density": 0.08}, {"mesh": "stump", "density": 0.06}]
+   },
+   {
+    "ground": "#4a722f",
+    "alt": "#466b2d",
+    "alt_amount": 0.4,
+    "tall": {"density": 0.35},
+    "blockers": [{"tile": "tree_oak", "density": 0.7}],
+    "decor": [{"mesh": "fern", "density": 0.4}, {"mesh": "mossy_rock", "density": 0.06}]
+   }
+  ],
+  "pinewood": [
+   {"ground": "#7d8a45", "alt": "#76833f", "alt_amount": 0.35, "decor": [{"mesh": "sheep", "density": 0.05}, {"mesh": "post", "density": 0.04}]},
+   {"ground": "#73804a", "alt": "#6c7944", "alt_amount": 0.3, "decor": [{"mesh": "guard", "density": 0.26}, {"mesh": "heather", "density": 0.08}]},
+   {
+    "ground": "#5f6e44",
+    "alt": "#5a6940",
+    "alt_amount": 0.35,
+    "tall": {"density": 0.3, "colour": "#6e5a5c", "prop": "heather"},
+    "blockers": [{"tile": "tree_pine", "prop": "none", "decor": "young_pine", "density": 0.5}],
+    "decor": [{"mesh": "guard", "density": 0.08}, {"mesh": "blaeberry", "density": 0.15}]
+   },
+   {
+    "ground": "#4e6e38",
+    "alt": "#4a6834",
+    "alt_amount": 0.4,
+    "tall": {"density": 0.45, "colour": "#6e5a5c", "prop": "heather"},
+    "blockers": [{"tile": "tree_pine", "density": 0.6}, {"tile": "rock", "prop": "none", "decor": "juniper", "density": 0.2}],
+    "decor": [{"mesh": "blaeberry", "density": 0.3}]
+   }
+  ],
+  "river": [
+   {
+    "ground": "#6a6a48",
+    "alt": "#646242",
+    "alt_amount": 0.3,
+    "decor": [
+     {"mesh": "litter", "density": 0.18},
+     {"mesh": "tyre", "density": 0.05},
+     {"mesh": "trolley", "density": 0.02},
+     {"mesh": "litter", "density": 0.12, "water": true},
+     {"mesh": "tyre", "density": 0.04, "water": true}
+    ]
+   },
+   {"ground": "#5f7444", "alt": "#596d40", "alt_amount": 0.25, "decor": [{"mesh": "guard", "density": 0.22}, {"mesh": "reed", "density": 0.08}]},
+   {
+    "ground": "#557a40",
+    "alt": "#50733c",
+    "alt_amount": 0.3,
+    "tall": {"density": 0.3, "colour": "#5f7a45", "prop": "reeds"},
+    "blockers": [{"tile": "tree_oak", "prop": "none", "decor": "young_willow", "density": 0.4}],
+    "decor": [{"mesh": "reed", "density": 0.2}, {"mesh": "dam", "across": true, "water": true}]
+   },
+   {
+    "ground": "#4f7a3c",
+    "alt": "#4a7338",
+    "alt_amount": 0.35,
+    "tall": {"density": 0.5, "colour": "#5f7a45", "prop": "reeds"},
+    "blockers": [{"tile": "tree_oak", "prop": "none", "decor": "willow", "density": 0.55}],
+    "decor": [
+     {"mesh": "reed", "density": 0.3},
+     {"mesh": "meadowsweet", "density": 0.2},
+     {"mesh": "dam", "across": true, "water": true},
+     {"mesh": "lily", "density": 0.12, "water": true}
+    ]
+   }
+  ],
+  "cutaway": [
+   {
+    "ground": "#3d2b1f",
+    "alt": "#281b12",
+    "alt_amount": 0.3,
+    "stripes": true,
+    "decor": [{"mesh": "pipe", "density": 0.03}, {"mesh": "litter", "density": 0.03}, {"mesh": "hag", "density": 0.05}]
+   },
+   {
+    "ground": "#4a3a28",
+    "alt": "#35291d",
+    "alt_amount": 0.3,
+    "stripes": true,
+    "decor": [{"mesh": "bale", "density": 0.08}, {"mesh": "plug", "density": 0.12}]
+   },
+   {
+    "ground": "#575a36",
+    "alt": "#515430",
+    "alt_amount": 0.4,
+    "tall": {"density": 0.3, "colour": "#a2a58a", "prop": "short"},
+    "blockers": [{"tile": "water", "density": 0.35, "decor": "pool_rim"}],
+    "decor": [{"mesh": "cotton", "density": 0.28}, {"mesh": "plug", "density": 0.15}]
+   },
+   {
+    "ground": "#56663a",
+    "alt": "#506036",
+    "alt_amount": 0.45,
+    "tall": {"density": 0.5, "colour": "#7a5c6a", "prop": "heather"},
+    "blockers": [{"tile": "water", "density": 0.55, "decor": "pool_rim"}],
+    "decor": [{"mesh": "cotton", "density": 0.4}, {"mesh": "plug", "density": 0.15}]
+   }
+  ],
+  "heath": [
+   {
+    "ground": "#80705a",
+    "alt": "#786952",
+    "alt_amount": 0.4,
+    "decor": [{"mesh": "litter", "density": 0.12}, {"mesh": "tyre", "density": 0.05}, {"mesh": "post", "density": 0.05}]
+   },
+   {"ground": "#7a7454", "alt": "#726c4e", "alt_amount": 0.3, "decor": [{"mesh": "guard", "density": 0.14}, {"mesh": "plug", "density": 0.1}]},
+   {
+    "ground": "#6c7448",
+    "alt": "#666d43",
+    "alt_amount": 0.35,
+    "tall": {"density": 0.3, "colour": "#7a5c6a", "prop": "heather"},
+    "decor": [{"mesh": "young_gorse", "density": 0.2}]
+   },
+   {
+    "ground": "#5f6c40",
+    "alt": "#59663c",
+    "alt_amount": 0.45,
+    "tall": {"density": 0.5, "colour": "#7a5c6a", "prop": "heather"},
+    "blockers": [{"tile": "rock", "prop": "none", "decor": "gorse", "density": 0.6}],
+    "decor": [{"mesh": "young_gorse", "density": 0.15}, {"mesh": "flowers", "density": 0.1}]
+   }
+  ]
+ },
+ "complete": [{"do": "give_item", "item": "rewilders_crook", "n": 1}]
+}

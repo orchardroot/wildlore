@@ -48,6 +48,7 @@ func _ready() -> void:
 	fx = BattleFX.new()
 	add_child(fx)
 	fx.dio = dio
+	fx.sky = sky
 	var post := CanvasLayer.new()
 	post.layer = 1
 	add_child(post)
@@ -112,6 +113,7 @@ func setup(foe_party: Array, p_opts: Dictionary) -> void:
 		hud.set_double(true)
 	dio.build(_dev_stage if _dev_stage != "" else str(opts.get("stage", "grass")))
 	sky.set_weather(str(opts.get("weather", "clear")), dio.is_interior())
+	hud.set_weather(str(opts.get("weather", "clear")), 0)
 	sky.follow = dio
 	dio.camera.environment = sky.env
 	_warm_cries(foe_party)
@@ -165,6 +167,8 @@ func intro(f: BattleFlow) -> void:
 			_mark_caught(f, side, c, pos)
 			a.pop_in()
 			Audio.cry(c.species)
+			if c.variant != "":
+				Audio.sfx("harp_gliss")  # an uncommon coat glints as it appears
 		await _wait(0.7 if side == Battle.FOE else 0.9)
 	_intro_done = true
 
@@ -208,6 +212,7 @@ func _cue_task(cue: Dictionary, b: Battle, flag: Array) -> void:
 
 ## Make the plates match the creatures, in case an event batch left them slightly off (item cures, caught foes...).
 func _sync_hud(b: Battle) -> void:
+	hud.set_weather(b.weather, b.weather_turns)
 	for side in 2:
 		for pos in b.positions():
 			var c := b.current_at(side, pos)

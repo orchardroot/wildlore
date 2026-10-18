@@ -53,6 +53,7 @@ func _build() -> void:
 	_label = UIKit.label("Name", 24, UIKit.MUTED)
 	nm.add_child(_label)
 	_shown = UIKit.label("", 56, UIKit.GOLD)
+	_shown.clip_text = true  # a long name never pushes the keyboard wider than the screen
 	nm.add_child(_shown)
 	var grid := GridContainer.new()
 	grid.columns = 13
@@ -63,7 +64,8 @@ func _build() -> void:
 	for row in ROWS:
 		for ch in row:
 			var b := make_button(ch, func(): _type(ch), 64)
-			b.custom_minimum_size = Vector2(64, 52)
+			b.custom_minimum_size = Vector2(84, 52)  # thirteen across the frame, each letter centred in its key
+			b.alignment = HORIZONTAL_ALIGNMENT_CENTER
 			grid.add_child(b)
 			keys.append(b)
 	var bottom := HBoxContainer.new()
@@ -87,7 +89,7 @@ func setup(arg: String) -> void:
 	for b in _looks:
 		b.visible = false
 	var icon := AnimSprite.new()
-	icon.show_species(_nick.species.id, "front", 2)
+	icon.show_species(_nick.species.id, "front", 2, false, _nick.variant)
 	icon.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 	_look_row.add_child(icon)
 	_look_row.move_child(icon, 0)

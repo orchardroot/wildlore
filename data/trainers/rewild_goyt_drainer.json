@@ -1,0 +1,32 @@
+{
+ "id": "rewild_goyt_drainer",
+ "name": "Drainer Dougie",
+ "class": "Enclosure Drainer",
+ "sprite": "warden_grunt",
+ "party": [
+  {
+   "species": "moldiwarp",
+   "level": 15
+  },
+  {
+   "species": "croakle",
+   "level": 16
+  }
+ ],
+ "ai": "trainer",
+ "money": 450,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Drainer Dougie",
+   "text": "Oi! I've got a contract to drain this moor and I'm draining it. Nobody's told me to stop."
+  },
+  {
+   "do": "say",
+   "who": "Drainer Dougie",
+   "text": "What do you mean, they've gone bust? I've not had a letter. I never get letters up here."
+  }
+ ],
+ "win": "Right. Fine. I'll put the spade down. Do I still get paid? I don't, do I.",
+ "after": "I'm going to retrain. Something indoors. Something dry."
+}

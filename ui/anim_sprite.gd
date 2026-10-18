@@ -13,8 +13,8 @@ var _frame := 0
 var _t := 0.0
 var _px := 96
 
-## kind: "front" (96 px frames, animated) or "icon" (32 px).
-func show_species(id: String, kind := "front", scale_factor := 2, as_silhouette := false) -> void:
+## kind: "front" (96 px frames, animated) or "icon" (32 px). `variant`: an uncommon coat (see CoatArt), "" for none.
+func show_species(id: String, kind := "front", scale_factor := 2, as_silhouette := false, variant := "") -> void:
 	species_id = id
 	silhouette = as_silhouette
 	texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
@@ -25,7 +25,7 @@ func show_species(id: String, kind := "front", scale_factor := 2, as_silhouette 
 	size = custom_minimum_size
 	modulate = Color.BLACK if as_silhouette else Color.WHITE
 	_frames = []
-	var sheet := load_sheet(id, kind)
+	var sheet := CoatArt.texture(load_sheet(id, kind), id + "_" + kind, "" if as_silhouette else variant)
 	if kind == "front":
 		var n := maxi(1, sheet.get_width() / _px)
 		for i in mini(n, 2):

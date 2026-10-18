@@ -23,13 +23,14 @@ var _list_col: VBoxContainer
 var _detail: VBoxContainer
 var _buttons: Array = []
 var _rumours: Array = []       # the Rumours tab's rows, when it's showing
+const WORD_SIZES := [25, 23, 21, 19]  # the body text's size, biggest first, until the entry fits
 
 func _build() -> void:
 	set_title("Fieldbook")
 	_all = Game.dex.ids()
 	for i in _all.size():
 		_no[_all[i]] = i + 1
-	set_hints([["updown", "Browse"], ["shoulders", "Jump 10"], ["run", "All / Caught / Seen / Rumours"], ["bike", "Cry"], ["confirm", "Map"], ["cancel", "Back"]])
+	set_hints([["updown", "Browse"], ["shoulders", "Jump 10"], ["run", "Filter"], ["bike", "Cry"], ["confirm", "Map"], ["cancel", "Back"]])
 	var row := HBoxContainer.new()
 	row.set_anchors_preset(Control.PRESET_FULL_RECT)
 	row.add_theme_constant_override("separation", 22)
@@ -241,21 +242,36 @@ func _show(id: String) -> void:
 		s.modulate = Color(1, 1, 1, 0.35)
 	frame.add_child(s)
 	var info := VBoxContainer.new()
-	info.add_theme_constant_override("separation", 8)
+	info.add_theme_constant_override("separation", 6)
 	info.alignment = BoxContainer.ALIGNMENT_CENTER
+	info.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	top.add_child(info)
 	info.add_child(UIKit.label("No. %03d" % int(_no.get(id, 0)), 22, UIKit.MUTED))
 	info.add_child(UIKit.label(str(sp.get("name", id)) if st != "unseen" else "???", 40))
 	if st != "unseen":
-		info.add_child(UIKit.types_row(sp.get("types", []), 22))
-		var cry := Button.new()
-		cry.text = "Cry"
-		cry.focus_mode = Control.FOCUS_NONE  # the list keeps focus; this is for the mouse (the Bike key does it too)
-		cry.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
-		cry.custom_minimum_size = Vector2(96, 0)
-		cry.add_theme_font_size_override("font_size", 22)
+		var type_row := HBoxContainer.new()  # the types, and the Cry button beside them (the Bike key does it too)
+		type_row.add_theme_constant_override("separation", 12)
+		type_row.add_child(UIKit.types_row(sp.get("types", []), 22))
+		var cry := UIKit.pill_button("Cry", 20)
+		cry.focus_mode = Control.FOCUS_NONE  # the list keeps focus; this is for the mouse
+		cry.tooltip_text = "Play its cry (%s)" % UIKit.key_for("bike")
 		cry.pressed.connect(func(): play_cry(id))
-		info.add_child(cry)
+		type_row.add_child(cry)
+		info.add_child(type_row)
+		var kid := Knacks.id_for_species(sp)
+		var knack_row := HBoxContainer.new()  # the line's knack once caught, and any uncommon coats
+		knack_row.add_theme_constant_override("separation", 16)
+		if st == "caught" and kid != "":  # 2.0: the knack, here so the entry keeps its height
+			var kl := UIKit.label("Knack: %s" % Knacks.name_of(kid), 21, UIKit.GOLD)
+			kl.tooltip_text = Knacks.desc_of(kid)
+			kl.mouse_filter = Control.MOUSE_FILTER_PASS
+			kl.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+			knack_row.add_child(kl)
+		knack_row.add_child(CoatArt.swatch_row(Game.data, id))
+		if knack_row.get_child_count() > 1 or knack_row.get_child(0).get_child_count() > 0:
+			info.add_child(knack_row)
+		else:
+			knack_row.free()
 	else:
 		var u := UIKit.label("Not met yet. Out there somewhere, being elusive.", 22, UIKit.MUTED)
 		u.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
@@ -267,29 +283,24 @@ func _show(id: String) -> void:
 	if evo != "":
 		var el := UIKit.label(evo, 21, UIKit.GOLD)
 		el.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-		el.custom_minimum_size = Vector2(380, 0)
+		el.custom_minimum_size = Vector2(300, 0)
 		info.add_child(el)
+	# The words below the picture shrink to fit, and scroll if even the smallest size can't (see UIKit.fit_block).
+	var wb := UIKit.words_box(WORD_SIZES)
+	_detail.add_child(wb[0])
+	var words: VBoxContainer = wb[1]
 	var zones := MenuLogic.habitats(habitat_index(), id)
 	var where := ", ".join(zones.slice(0, MAX_PLACES))
 	if zones.size() > MAX_PLACES:
 		where += " and %d more" % (zones.size() - MAX_PLACES)
-	var hl := UIKit.label("Found in: " + (where if not zones.is_empty() else "somewhere secret"), 21, Color("d8cfb4"))
-	hl.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	_detail.add_child(hl)
-	_detail.add_child(UIKit.spacer(4))
+	UIKit.add_words(words, "Found in: " + (where if not zones.is_empty() else "somewhere secret"), -4, Color("d8cfb4"))
 	var dex: Dictionary = sp.get("dex", {})
 	if st == "caught":
-		var t := UIKit.label(str(dex.get("text", "")), 25)
-		t.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-		_detail.add_child(t)
-		_detail.add_child(UIKit.label("Did you know?", 24, UIKit.GOLD))
-		var f := UIKit.label(str(dex.get("fact", "")), 23, Color("d8cfb4"))
-		f.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-		_detail.add_child(f)
+		UIKit.add_words(words, str(dex.get("text", "")), 0)
+		UIKit.add_words(words, "Did you know?", -1, UIKit.GOLD)
+		UIKit.add_words(words, str(dex.get("fact", "")), -2, Color("d8cfb4"))
 	else:
-		var t := UIKit.label("Spotted, but it didn't hang around. Catch one to fill in the rest of the entry.", 25, UIKit.MUTED)
-		t.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-		_detail.add_child(t)
+		UIKit.add_words(words, "Spotted, but it didn't hang around. Catch one to fill in the rest of the entry.", 0, UIKit.MUTED)
 
 ## "Evolves into X at Lv 20" for a species; the target's name stays hidden until you've seen one.
 static func evolution_line(sp: Dictionary) -> String:

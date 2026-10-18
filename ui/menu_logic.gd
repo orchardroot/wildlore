@@ -171,6 +171,16 @@ static func now_text(minutes: int, weather: String, indoors := false) -> String:
 static func ark_unlocked(d: GameStateData) -> bool:
 	return d.flag("_nurse_choice") != null or not d.ark.is_empty()
 
+## The pause menu's entries: the Ark once a Sanctuary nurse has shown you it, and always Close.
+static func pause_entries(ark: bool) -> Array:
+	return ["Team", "Fieldbook", "Bag"] + (["Ark"] if ark else []) + ["Map", "Stats", "Save", "Settings", "Close"]
+
+## The height for each of `n` rows sharing `avail` px with `sep` between them, kept between `lo` and `hi`.
+static func row_height(avail: float, n: int, sep: int, lo: int, hi: int) -> int:
+	if n <= 0:
+		return hi
+	return clampi(int((avail - sep * (n - 1)) / n), lo, hi)
+
 ## The Bag's party picker stays open after a use while there's still some of the item left.
 static func stay_in_picker(ok: bool, remaining: int) -> bool:
 	return remaining > 0 or not ok
@@ -200,8 +210,9 @@ static func _done(d: GameStateData, key: String) -> bool:
 ## "Where next?": {text, town, map?, postgame?}. Story: the step after the furthest one done, so an
 ## optional beat the player walked past never nags. After game_complete: a Fieldbook reward waiting, else the
 ## first post-game hint not done (the last, catch-all one gives way to the next Fieldbook milestone).
-## `total` is the number of species (for {total}); `o` defaults to data/objectives.json.
-static func next_objective(d: GameStateData, total := 0, o := {}) -> Dictionary:
+## `total` is the number of species (for {total}); `o` defaults to data/objectives.json. With nothing left but the
+## catch-all, a Keeper waiting with a side story of their own (SideStories; `sides` defaults to the real ones).
+static func next_objective(d: GameStateData, total := 0, o := {}, sides: Array = []) -> Dictionary:
 	if o.is_empty():
 		o = objectives()
 	var story: Array = o.get("story", [])
@@ -225,7 +236,12 @@ static func next_objective(d: GameStateData, total := 0, o := {}) -> Dictionary:
 		var legends: Array = e.get("all", [])
 		out["text"] = str(e.get("text", "")).replace("{caught}", str(d.caught.size())).replace("{total}", str(total)) \
 			.replace("{legends}", str(legends.filter(func(f): return _done(d, str(f))).size()))
-		if need.is_empty() and FieldbookGoals.hint(d) != "":  # nothing else left: the next Fieldbook milestone
+		var side := SideStories.next_hint(d, sides) if need.is_empty() else {}
+		if not side.is_empty():  # nothing else left: someone in town would like a word
+			out = side
+		elif need.is_empty() and not Rewild.hint_entry(d).is_empty():  # or a rewilding site wants a hand
+			out = Rewild.hint_entry(d)
+		elif need.is_empty() and FieldbookGoals.hint(d) != "":  # or the next Fieldbook milestone
 			out = {"text": FieldbookGoals.hint(d), "town": "macclesfield"}
 		out["postgame"] = true
 		return out

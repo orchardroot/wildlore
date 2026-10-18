@@ -231,6 +231,7 @@ static func radio_lines(data: GameStateData, dex, items, ix := {}) -> Array:
 		var paid := claim_bounty(data, items)
 		if bool(paid.ok):
 			lines.append(_fill(str(r.get("bounty_paid", "")), w, dex, items))
+	lines.append_array(Tournament.radio_lines(data))  # today's County Show
 	lines.append(_one(r.get("close", []), key + "c"))
 	return lines
 

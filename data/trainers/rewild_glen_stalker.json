@@ -1,0 +1,36 @@
+{
+ "id": "rewild_glen_stalker",
+ "name": "Stalker Hamish",
+ "class": "Enclosure Stalker",
+ "sprite": "warden_grunt",
+ "party": [
+  {
+   "species": "stagmor",
+   "level": 73
+  },
+  {
+   "species": "goldeneyrie",
+   "level": 74
+  },
+  {
+   "species": "heilan",
+   "level": 73
+  }
+ ],
+ "ai": "trainer",
+ "money": 2150,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Stalker Hamish",
+   "text": "More deer means more shooting means more money. That's the Enclosure way. Trees? Trees don't pay."
+  },
+  {
+   "do": "say",
+   "who": "Stalker Hamish",
+   "text": "Away you go, before I set the stags on you. They're very loyal. To the feed bucket."
+  }
+ ],
+ "win": "Och, fine. Fewer deer it is. They'll have to be happy with the heather.",
+ "after": "Maybe I'll guide walkers instead. They tip better and they don't need shooting."
+}

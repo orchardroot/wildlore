@@ -231,7 +231,7 @@ func interact(player: Node) -> void:
 		else:
 			cmds = StoryData.trainer_script(tid)
 	elif def.has("script"):
-		cmds = StoryData.script(ow.zone.id, str(def.script))
+		cmds = StoryData.script(str(def.get("script_file", ow.zone.id)), str(def.script))  # side stories keep their own file
 	elif def.has("text"):
 		cmds = [{"do": "say", "who": str(def.get("name", "")), "text": str(def.text)}]
 	if cmds.is_empty():

@@ -70,7 +70,7 @@ static func note_train(data: GameStateData, from_town: String, to_town: String) 
 ## Rows for the Stats page: [label, value text].
 static func lines(data: GameStateData) -> Array:
 	var c := func(k: String) -> int: return get_count(data, k)
-	return [
+	var out := [
 		["Playing since", str(data.stats.get("started", "?"))],
 		["Steps walked", _n(c.call("steps"))],
 		["Wild battles won", _n(c.call("wins_wild"))],
@@ -83,7 +83,10 @@ static func lines(data: GameStateData) -> Array:
 		["Cups of tea drunk", _n(c.call("teas"))],
 		["Times rained on", _n(c.call("rained_on"))],
 		["Visitor's Book", _visitors_book(data)],
+		["Land rewilded", "%d of %d sites Wild" % [Rewild.wild_count(data), Rewild.sites().size()]],
 	]
+	out.append_array(Tournament.stat_lines(data))  # County Shows and the Open Moot
+	return out
 
 ## "20 rooms, 1 town complete": rooms walked into, and towns whose every room you've seen (see VisitorsBook).
 static func _visitors_book(data: GameStateData) -> String:

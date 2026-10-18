@@ -152,6 +152,71 @@
      ]
     }
    ]
+  },
+  {
+   "do": "if",
+   "flag": "home_mum_note",
+   "eq": "garden_ready",
+   "then": [
+    {
+     "do": "say",
+     "who": "Mum",
+     "text": "Something's ready out in that garden of yours. I could see it from the kitchen window. I've not touched it. Much."
+    }
+   ]
+  },
+  {
+   "do": "if",
+   "flag": "home_mum_note",
+   "eq": "legends",
+   "then": [
+    {
+     "do": "say",
+     "who": "Mum",
+     "text": "There's a legend asleep on my lawn, love. An actual legend out of the old stories. I've put a saucer of milk out. I didn't know what else to do."
+    },
+    {
+     "do": "say",
+     "who": "Mum",
+     "text": "Mrs Hulme at number twelve has been twitching her nets all morning. Let her twitch."
+    }
+   ]
+  },
+  {
+   "do": "if",
+   "flag": "home_mum_note",
+   "eq": "diploma",
+   "then": [
+    {
+     "do": "say",
+     "who": "Mum",
+     "text": "Your diploma's up over the trophy shelf. Excellent light, as promised. I've shown the postman. Twice. He's started taking the long way round."
+    }
+   ]
+  },
+  {
+   "do": "if",
+   "flag": "home_mum_note",
+   "eq": "stones",
+   "then": [
+    {
+     "do": "say",
+     "who": "Mum",
+     "text": "I've dusted your Wardstones. One of them hummed at me. I've told it we'll have none of that in this house."
+    }
+   ]
+  },
+  {
+   "do": "if",
+   "flag": "home_mum_note",
+   "eq": "all_stones",
+   "then": [
+    {
+     "do": "say",
+     "who": "Mum",
+     "text": "All ten Wardstones on one shelf. I had to move the good china to the back bedroom. Worth it. Don't tell your nan."
+    }
+   ]
   }
  ]
 }

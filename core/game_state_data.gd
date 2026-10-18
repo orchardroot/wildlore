@@ -26,6 +26,9 @@ var weather := ""          # the outdoor weather right now ("" = roll it at the 
 var weather_region := ""   # the region it was rolled for
 var weather_until := 0     # world minute (see world_minutes) it lasts until
 var stats: Dictionary = TrainerStats.fresh()  # lifetime tallies for the Stats page (see TrainerStats)
+## While a County Show or the Open Moot is on, `party` holds exhibition copies (TournamentRun) and this holds the
+## real team; a save written then (never saved itself) writes the real team, so it can never keep the copies.
+var real_party: Array = []
 
 const WEATHER_MIN := 120   # in-game minutes a spell of weather lasts (a game minute is a real second)
 const WEATHER_MAX := 240
@@ -161,7 +164,7 @@ func weather_for(region: String, table: Dictionary, interior: bool, rng: Rng) ->
 func to_dict() -> Dictionary:
 	return {
 		"player_name": player_name, "rival_name": rival_name,
-		"party": party.map(func(c): return c.to_dict()),
+		"party": (real_party if not real_party.is_empty() else party).map(func(c): return c.to_dict()),
 		"ark": ark.map(func(c): return c.to_dict()),
 		"bag": bag.duplicate(), "money": money, "flags": flags.duplicate(true),
 		"zone_id": zone_id, "pos": [pos.x, pos.y], "facing": facing,

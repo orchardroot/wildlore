@@ -166,40 +166,54 @@
  ],
  "cafe_owner": [
   {
-   "do": "when",
-   "cond": "rain",
-   "chat": true,
+   "do": "if",
+   "flag": "rewild_coed_padarn",
+   "eq": 3,
    "then": [
     {
      "do": "say",
      "who": "Caffi Owner",
-     "text": "Glaw eto. Rain again. Come in, there's a pot of te on and the cacen is still warm."
+     "text": "Have you seen the wood by the park? Proper rainforest now. Gwen comes in for her bara brith dripping wet and grinning like a lamb."
     }
    ],
    "else": [
     {
      "do": "when",
-     "cond": "fog",
+     "cond": "rain",
      "chat": true,
      "then": [
       {
        "do": "say",
        "who": "Caffi Owner",
-       "text": "Can't see Yr Wyddfa today. She's shy. Have a slice of bara brith while she makes her mind up."
+       "text": "Glaw eto. Rain again. Come in, there's a pot of te on and the cacen is still warm."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "fog",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Caffi Owner",
+         "text": "Can't see Yr Wyddfa today. She's shy. Have a slice of bara brith while she makes her mind up."
+        }
+       ]
       }
      ]
+    },
+    {
+     "do": "say",
+     "who": "Caffi Owner",
+     "text": "Te? Coffi? Cacen? Say it with me. It means tea, coffee, cake. In that order of priority."
+    },
+    {
+     "do": "say",
+     "who": "Caffi Owner",
+     "text": "We also do a full Welsh breakfast, a rare treat. It comes with laverbread. Try it, or don't."
     }
    ]
-  },
-  {
-   "do": "say",
-   "who": "Caffi Owner",
-   "text": "Te? Coffi? Cacen? Say it with me. It means tea, coffee, cake. In that order of priority."
-  },
-  {
-   "do": "say",
-   "who": "Caffi Owner",
-   "text": "We also do a full Welsh breakfast, a rare treat. It comes with laverbread. Try it, or don't."
   }
  ],
  "scout_kid": [
@@ -261,6 +275,12 @@
      "text": "If you're thinking of going up Yr Wyddfa, I wouldn't. I'd stay down here. With the barrier. It's quite nice."
     }
    ]
+  }
+ ],
+ "rewild_warden": [
+  {
+   "do": "rewild",
+   "site": "coed_padarn"
   }
  ]
 }

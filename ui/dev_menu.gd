@@ -9,6 +9,14 @@ static func arg(cmdline: PackedStringArray) -> String:
 			return a.substr(7)
 	return ""
 
+## The widest things a save can hold, for checking that every menu still fits (`--stress`).
+static func stress(d: GameStateData) -> void:
+	d.player_name = "Wilhelmina M"
+	d.money = 9999999
+	d.play_seconds = 359999.0
+	for c in d.party + d.ark:
+		c.nickname = "MWMWMWMWMWMW"
+
 static func boot(game: Node, menu: String) -> void:
 	game.new_game()
 	var d: GameStateData = game.data
@@ -26,6 +34,11 @@ static func boot(game: Node, menu: String) -> void:
 	f.status = "asleep"
 	a.friendship = 230  # four hearts and a charm, for the summary and team screens
 	a.held = "hag_stone"
+	a.variant = str(DevArgs.parse(DevArgs.user_args()).coat)  # --coat=<variant>: the summary shows an uncommon coat
+	if a.variant != "":  # ...and the Fieldbook has it, plus a couple more seen
+		for v in Coats.ALL.slice(0, 3):
+			d.set_flag(Coats.flag_key("spikkin", v), "seen")
+		d.set_flag(Coats.flag_key("spikkin", a.variant), "caught")
 	b.friendship = 255
 	c.held = "oak_acorn"
 	d.party = [a, b, c, e, f]
@@ -76,8 +89,21 @@ static func boot(game: Node, menu: String) -> void:
 		for r in rooms.get("macclesfield", []) + rooms.get("buxton", []).slice(0, 7):
 			d.set_flag(VisitorsBook.seen_flag(str(r)))
 		d.set_flag(VisitorsBook.BOARD_PREFIX + "macclesfield")
+	if menu.begins_with("jobs") or menu.begins_with("stats") or menu == "pause":  # parish standing and jobs in hand
+		Standing.add(d, "england", 34)
+		Standing.add(d, "wales", 12)
+		Standing.add(d, "mann", 3)
+		for id in ["eng_jam", "macc_forest_beat"]:
+			Jobs.accept(d, id, "macclesfield")
+		Jobs.note_win(d, "macc_forest")
+		d.bag["blackberries"] = 4
+	if "--stress" in DevArgs.user_args():  # dev: worst-case widths, a 12-letter name and nicknames and a full purse
+		stress(d)
 	if menu.begins_with("relearn"):
 		a.level = 20  # past a couple of its moves, so the relearner has something to offer
+	if menu.begins_with("postcard"):  # `--menu=postcard:album`: every card in the album (or postcard:<id>[:back])
+		for pc in Postcards.cards():
+			d.set_flag(Postcards.flag_key(str(pc.id)), "2026-10-%02d" % (2 + Postcards.card_index(str(pc.id))))
 	if menu.begins_with("shop") and not menu.contains(":"):
 		menu = "shop:macc_corner_shop"
 	await game.get_tree().process_frame

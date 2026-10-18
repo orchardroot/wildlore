@@ -40,6 +40,38 @@ static func describe(mv: Dictionary) -> String:
 				parts.append("%d%% chance to %s %s." % [chance, "raise" if stages > 0 else "lower", what])
 			else:
 				parts.append("%s%s %s." % ["Also " if cat != "status" else "", ("Raises" if stages > 0 else "Lowers") if cat == "status" else ("raises" if stages > 0 else "lowers"), what])
+		"drain":
+			parts.append("Heals the user by %s of the damage dealt." % _share(int(fx.get("frac", 50))))
+		"recoil":
+			parts.append("The user takes %s of the damage dealt in recoil." % _share(int(fx.get("frac", 25))))
+		"multi_hit":
+			if fx.has("hits"):
+				parts.append("Strikes %s." % ("twice" if int(fx.hits) == 2 else "%d times" % int(fx.hits)))
+			else:
+				parts.append("Strikes %d to %d times." % [int(fx.get("min", 2)), int(fx.get("max", 5))])
+		"heal_self":
+			parts.append("Restores %s of the user's HP." % _share(int(fx.get("frac", 50))))
+		"protect":
+			parts.append("Blocks every move aimed at the user this turn. Fails if used twice in a row.")
+		"flinch":
+			parts.append("%d%% chance to make the foe flinch and lose its turn, if the user moves first." % chance)
+		"set_weather":
+			var w := str(fx.get("weather", "clear"))
+			var turns := int(fx.get("turns", MoveFX.DEFAULT_TURNS))
+			parts.append("%s %s for %d turns." % ["Also calls up" if cat != "status" else "Calls up", MoveFX.weather_phrase(w), turns])
+		"cure_team":
+			parts.append("Cures the status of everyone on the user's team.")
+	var wb: Dictionary = mv.get("weather_bonus", {})
+	if not wb.is_empty():
+		var where := MoveFX.weather_list(wb.get("weather", []))
+		var mult := float(wb.get("mult", 1.0))
+		if mult != 1.0:
+			var how := "Twice as strong" if mult == 2.0 else ("Half as strong again" if mult == 1.5 else "Stronger")
+			if str(fx.get("id", "")) == "heal_self":
+				how = "Heals half as much again" if mult == 1.5 else "Heals more"
+			parts.append("%s in %s." % [how, where])
+		if bool(wb.get("sure_hit", false)):
+			parts.append("Never misses in %s." % where)
 	if int(mv.get("priority", 0)) > 0:
 		parts.append("Usually strikes first.")
 	if str(mv.get("target", "")) == "all_foes":
@@ -47,6 +79,16 @@ static func describe(mv: Dictionary) -> String:
 	if parts.is_empty():
 		parts.append("Does nothing much.")
 	return " ".join(parts)
+
+## "half", "a quarter", "a third" or "N%", to go before "of".
+static func _share(pct: int) -> String:
+	match pct:
+		100: return "all"
+		75: return "three quarters"
+		50: return "half"
+		33: return "a third"
+		25: return "a quarter"
+	return "%d%%" % pct
 
 static func effectiveness_label(mult: float) -> String:
 	if mult == 0.0:
