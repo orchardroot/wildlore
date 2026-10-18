@@ -102,3 +102,74 @@ func test_every_recipe_has_sprites() -> void:
 func test_placeholders_exist() -> void:
 	for p in ["res://art/sprites/creatures/_placeholder_front.png", "res://art/sprites/creatures/_placeholder_back.png", "res://art/sprites/creatures/_placeholder_icon.png", "res://art/sprites/chars/_placeholder.png"]:
 		assert_true(FileAccess.file_exists(p), p)
+
+# ---------- back views ----------
+
+const TAILED := {
+	"id": "tailed",
+	"palette": {"c": "#c08040", "tail": "#3060c0"},
+	"layers": [
+		{"shape": "ellipse", "at": [76, 60], "size": [14, 30], "colour": "tail"},
+		{"shape": "ellipse", "at": [48, 60], "size": [44, 40], "colour": "c"},
+	],
+}
+
+func _region_has(img: Image, rect: Rect2i, pred: Callable) -> bool:
+	for y in range(rect.position.y, rect.end.y):
+		for x in range(rect.position.x, rect.end.x):
+			if pred.call(img.get_pixel(x, y)):
+				return true
+	return false
+
+func _is_blue(c: Color) -> bool:
+	return c.a > 0.0 and c.b > c.r + 0.15
+
+func test_back_keeps_the_front_palette() -> void:
+	var rec: Dictionary = TINY.duplicate(true)
+	rec["back_auto"] = false
+	var r := Creature.render(rec)
+	var f: Color = r.front.get_pixel(48, 64)
+	var b: Color = r.back.get_pixel(48, 64)
+	assert_true(absf(_luma(f) - _luma(b)) < 0.06, "back body is not a dark silhouette (%.3f vs %.3f)" % [_luma(f), _luma(b)])
+
+func test_back_gets_a_darker_saddle() -> void:
+	var r := Creature.render(TINY)
+	var f: Color = r.front.get_pixel(48, 58)
+	var b: Color = r.back.get_pixel(48, 58)
+	assert_true(_luma(b) < _luma(f) - 0.05, "countershaded back (%.3f vs %.3f)" % [_luma(f), _luma(b)])
+
+func test_tail_behind_the_body_comes_forward_on_the_back() -> void:
+	var r := Creature.render(TAILED)
+	# front: the tail hides behind the body on the right, so none of it is inside the body
+	assert_false(_region_has(r.front, Rect2i(56, 50, 10, 20), _is_blue), "front tail behind body")
+	# back: seen from behind it swaps sides and sits over the body
+	assert_true(_region_has(r.back, Rect2i(26, 50, 14, 20), _is_blue), "back tail over the body, on the other side")
+	assert_false(_region_has(r.back, Rect2i(70, 40, 20, 40), _is_blue), "back tail not left on the front-view side")
+
+func test_back_over_can_be_turned_off() -> void:
+	var rec: Dictionary = TAILED.duplicate(true)
+	rec["back_over"] = []
+	var r := Creature.render(rec)
+	assert_false(_region_has(r.back, Rect2i(34, 50, 28, 20), _is_blue), "explicit empty back_over keeps the tail behind")
+
+func test_back_hide_drops_a_layer_even_with_json_float_indices() -> void:
+	var rec: Dictionary = JSON.parse_string(JSON.stringify(TAILED))
+	rec["back_hide"] = JSON.parse_string("[0]")
+	var r := Creature.render(rec)
+	assert_false(_region_has(r.back, Rect2i(0, 0, 96, 96), _is_blue), "hidden tail is gone from the back")
+	assert_true(_region_has(r.front, Rect2i(0, 0, 96, 96), _is_blue), "front keeps it")
+
+func test_back_marks_draw_over_the_body() -> void:
+	var rec: Dictionary = TINY.duplicate(true)
+	rec["palette"]["m"] = "#202020"
+	rec["back_marks"] = [{"shape": "rect", "at": [48, 60], "size": [4, 20], "colour": "m", "shade": false}]
+	var r := Creature.render(rec)
+	assert_true(_luma(r.back.get_pixel(48, 60)) < 0.2, "mark on the back")
+	assert_true(_luma(r.front.get_pixel(48, 60)) > 0.3, "mark not on the front")
+
+func test_coats_recolour_back_sheets() -> void:
+	var r := Creature.render(TINY)
+	var img: Image = r.back.duplicate()
+	CoatArt.recolour(img, "winter")
+	assert_true(img.get_pixel(48, 64) != r.back.get_pixel(48, 64), "coat applies to the back sheet")
+	assert_near(img.get_pixel(0, 0).a, 0.0, 0.001, "coat keeps transparency")
