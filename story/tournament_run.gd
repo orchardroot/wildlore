@@ -171,6 +171,7 @@ func _exhibition(real: Array, picks: Array, rule: Dictionary, cap: int) -> Array
 func _rounds(bracket: Array, picks: Array, rule: Dictionary, cap: int, heal: bool, ai: String, names: Array, moot: bool) -> int:
 	var data: GameStateData = host.data
 	var real: Array = data.party
+	data.real_party = real  # a save made mid-show writes these, never the stand-ins
 	data.party = _exhibition(real, picks, rule, cap)
 	data.heal_party()
 	var wins := 0
@@ -201,6 +202,7 @@ func _rounds(bracket: Array, picks: Array, rule: Dictionary, cap: int, heal: boo
 			data.heal_party()
 			await host.sfx("heal")
 	data.party = real
+	data.real_party = []
 	return wins
 
 # ---------------------------------------------------------------- the rosette stall

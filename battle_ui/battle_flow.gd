@@ -389,6 +389,8 @@ func _conclude() -> void:
 				result = {"result": "caught", "caught": battle.caught, "money": 0}
 			else:
 				result = {"result": "ran", "caught": null, "money": 0}
+	if _exhibition:
+		result["exhibition"] = true  # the parish gives no standing for show bouts (they can be re-entered all day)
 	if result.result != "lose":
 		await _evolutions()
 

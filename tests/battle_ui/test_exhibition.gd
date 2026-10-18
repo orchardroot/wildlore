@@ -18,6 +18,7 @@ func test_an_exhibition_bout_gives_no_xp() -> void:
 	assert_eq(f.result.result, "win")
 	assert_eq(a.xp, xp0, "no XP at a show")
 	assert_eq(ui.xp_calls, 0)
+	assert_true(bool(f.result.get("exhibition", false)), "the result says it was a show bout (no standing for it)")
 
 func test_no_items_shuts_the_bag() -> void:
 	var a := Fixtures.creature("kindlet", 10)

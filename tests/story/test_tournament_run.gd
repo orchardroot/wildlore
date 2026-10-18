@@ -4,10 +4,12 @@ extends TestCase
 class RecHost extends FakeStoryHost:
 	var fights: Array = []   # [trainer id, foe levels, opts]
 	var party_seen: Array = []  # what data.party held during each battle
+	var saved: Array = []  # what a save written mid-bout would hold for the party
 
 	func battle(foe_party: Array, opts: Dictionary) -> Dictionary:
 		fights.append([str(opts.trainer.id), foe_party.map(func(c): return c.level), opts])
 		party_seen.append(data.party.duplicate())
+		saved.append(data.to_dict().party)
 		return super.battle(foe_party, opts)
 
 func _host(badges := 2) -> RecHost:
@@ -141,3 +143,17 @@ func test_the_stall_trades_rosettes() -> void:
 	h.choices = [0]  # buy the first, then "Nothing, ta" (the default last option)
 	await _run(h, "trade")
 	assert_eq(_rosettes(h), 20 - int(wares[0].cost))
+
+func test_a_save_mid_show_keeps_the_real_team() -> void:
+	var h := _host()
+	var a := _give(h, "pipkin", 40)
+	var b := _give(h, "kindlet", 12)
+	h.choices = [0]
+	await _run(h, "show")
+	assert_true(h.saved.size() > 0)
+	for party in h.saved:
+		assert_eq(party.size(), 2, "the whole real team")
+		assert_eq(int(party[0].level), 40, "the real level, not the class cap")
+		assert_eq(party[0], a.to_dict())
+		assert_eq(party[1], b.to_dict())
+	assert_true(h.data.real_party.is_empty(), "nothing held back once the show is over")
