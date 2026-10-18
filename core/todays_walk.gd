@@ -51,7 +51,7 @@ static func index() -> Dictionary:
 		var sp: Array = []
 		for e in d.get("encounters", {}).get("grass", []):
 			# always-there entries only: a featured creature that only comes out at night in fog is a cruel joke
-			if e.get("time", []).is_empty() and e.get("weather", []).is_empty() and str(e.get("species", "")) not in sp:
+			if e.get("time", []).is_empty() and e.get("weather", []).is_empty() and e.get("season", []).is_empty() and str(e.get("species", "")) not in sp:
 				sp.append(str(e.species))
 		if not sp.is_empty():
 			zones[id] = {"name": names[id], "region": region, "species": sp}
