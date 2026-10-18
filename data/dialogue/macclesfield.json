@@ -131,40 +131,107 @@
  ],
  "pigeon_lady": [
   {
-   "do": "when",
-   "cond": "rain",
-   "chat": true,
+   "do": "if",
+   "flag": "starter",
    "then": [
     {
-     "do": "say",
-     "who": "Pigeon Lady",
-     "text": "The pigeons are sheltering under the Town Hall porch. Union rules: no flying in drizzle."
+     "do": "if",
+     "flag": "job_epoch",
+     "then": [
+      {
+       "do": "when",
+       "cond": "rain",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Pigeon Lady",
+         "text": "The pigeons are sheltering under the Town Hall porch. Union rules: no flying in drizzle."
+        }
+       ],
+       "else": [
+        {
+         "do": "when",
+         "cond": "dawn",
+         "chat": true,
+         "then": [
+          {
+           "do": "say",
+           "who": "Pigeon Lady",
+           "text": "Up early? So are the pigeons. They clock on at sunrise and expect breakfast."
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "do": "say",
+       "who": "Pigeon Lady",
+       "text": "{greeting} Don't feed the pigeons. They've got a union."
+      },
+      {
+       "do": "say",
+       "who": "Pigeon Lady",
+       "text": "Last week they held a work-to-rule outside the Town Hall."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Pigeon Lady",
+       "text": "Ooh, you've got a creature! Then you'll be wanting the noticeboard. There, by the stalls."
+      },
+      {
+       "do": "say",
+       "who": "Pigeon Lady",
+       "text": "Folk pin up odd jobs. The Forest Rangers want their rabbits counted again. Catch one in the Forest and you're paid on the spot."
+      },
+      {
+       "do": "say",
+       "who": "Pigeon Lady",
+       "text": "Help out enough and people start to know you. I'm known. Mostly by the pigeons."
+      }
+     ]
     }
    ],
    "else": [
     {
      "do": "when",
-     "cond": "dawn",
+     "cond": "rain",
      "chat": true,
      "then": [
       {
        "do": "say",
        "who": "Pigeon Lady",
-       "text": "Up early? So are the pigeons. They clock on at sunrise and expect breakfast."
+       "text": "The pigeons are sheltering under the Town Hall porch. Union rules: no flying in drizzle."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "dawn",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Pigeon Lady",
+         "text": "Up early? So are the pigeons. They clock on at sunrise and expect breakfast."
+        }
+       ]
       }
      ]
+    },
+    {
+     "do": "say",
+     "who": "Pigeon Lady",
+     "text": "{greeting} Don't feed the pigeons. They've got a union."
+    },
+    {
+     "do": "say",
+     "who": "Pigeon Lady",
+     "text": "Last week they held a work-to-rule outside the Town Hall."
     }
    ]
-  },
-  {
-   "do": "say",
-   "who": "Pigeon Lady",
-   "text": "{greeting} Don't feed the pigeons. They've got a union."
-  },
-  {
-   "do": "say",
-   "who": "Pigeon Lady",
-   "text": "Last week they held a work-to-rule outside the Town Hall."
   }
  ],
  "weather_man": [

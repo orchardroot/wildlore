@@ -141,6 +141,41 @@
  ],
  "goyt_guide": [
   {
+   "do": "if",
+   "flag": "badge_brook",
+   "then": [
+    {
+     "do": "if",
+     "flag": "hilda_pointed",
+     "then": [],
+     "else": [
+      {
+       "do": "say",
+       "who": "Walker",
+       "text": "That's a Brook Stone you've got there. You'll be wanting Hilda, then."
+      },
+      {
+       "do": "say",
+       "who": "Walker",
+       "text": "She's at Goyt's Moss, at the head of the valley. The Enclosure drained it years ago and she's putting it back, one wet boot at a time."
+      },
+      {
+       "do": "say",
+       "who": "Walker",
+       "text": "Show her the Stone and she'll find you a job. She finds everyone a job. I came up here for a walk in 2009."
+      },
+      {
+       "do": "set",
+       "flag": "hilda_pointed"
+      },
+      {
+       "do": "end"
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "when",
    "cond": "fog",
    "chat": true,
