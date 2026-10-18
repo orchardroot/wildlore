@@ -258,3 +258,16 @@ func test_the_wireless_names_todays_show() -> void:
 	assert_false(line.contains("—"), "no em-dash")
 	var lines := TodaysWalk.radio_lines(d, null, ItemDB.load_default())
 	assert_true(lines.has(line), "read out after Today's Walk")
+
+## The dialogue box holds about three lines (some 200 characters at the default font): longer and the last line
+## drops off the bottom of the screen.
+const BOX_CHARS := 200
+
+func test_show_lines_fit_the_dialogue_box() -> void:
+	for s in Tournament.shows():
+		var d := _data()
+		d.set_flag(Tournament.TODAY, {"key": Calendar.today_key(), "id": str(s.id)})
+		for line in Tournament.radio_lines(d):
+			assert_true(str(line).length() <= BOX_CHARS, "%s on the wireless: %d chars" % [s.id, str(line).length()])
+		for line in TournamentRun.welcome_lines(s):
+			assert_true(str(line).length() <= BOX_CHARS, "%s welcome: %d chars" % [s.id, str(line).length()])

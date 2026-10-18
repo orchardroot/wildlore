@@ -115,12 +115,17 @@ static func on_in(data: GameStateData, town: String) -> Dictionary:
 static func open_to(data: GameStateData) -> bool:
 	return data.badges.size() >= MIN_BADGES or data.flag("champion") == true
 
-## What the wireless says after Today's Walk.
-static func radio_line(data: GameStateData) -> String:
+## What the wireless says after Today's Walk: the show, then its blurb on a line of its own (together they'd run
+## off the bottom of the dialogue box). [] when there's no show.
+static func radio_lines(data: GameStateData) -> Array:
 	var s := today(data)
 	if s.is_empty():
-		return ""
-	return "And the County Show today is %s, %s. %s" % [str(s.name), str(s.where), str(s.blurb)]
+		return []
+	return ["And the County Show today is %s, %s." % [str(s.name), str(s.where)], str(s.blurb)]
+
+static func radio_line(data: GameStateData) -> String:
+	var l := radio_lines(data)
+	return str(l[0]) if not l.is_empty() else ""
 
 # ---------------------------------------------------------------- caps and rules
 
