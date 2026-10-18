@@ -141,6 +141,18 @@ func _zones() -> Array:
 	out.sort()
 	return out
 
+## The camera looks north, so a noticeboard (tall, roofed) right in front of a post box or a sign hides it, and
+## you'd have to go round the back to post or read.
+func test_no_noticeboard_hides_a_post_box_or_a_sign() -> void:
+	for id in _zones():
+		var z := ZoneData.load_id(id)
+		for pr in z.props:
+			if str(pr.get("type", "")) != Noticeboard.TYPE:
+				continue
+			var behind := Vector2i(int(pr.x), int(pr.y) - 1)
+			assert_false(Postcards.is_post_box(z, behind), "%s: the noticeboard at %s hides the post box" % [id, behind + Vector2i(0, 1)])
+			assert_true(z.sign_at(behind).is_empty(), "%s: the noticeboard at %s hides a sign" % [id, behind + Vector2i(0, 1)])
+
 func test_nothing_2_0_clashes_in_any_zone() -> void:
 	var errs := []
 	for id in _zones():
