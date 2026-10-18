@@ -16,6 +16,8 @@ func _build() -> void:
 	set_title("The Isles")
 	set_hints([["cancel", "Back"]])
 	view = MapView.new()
+	view.framed = true
+	view.zoom = 2.4
 	view.set_anchors_preset(Control.PRESET_FULL_RECT)
 	content.add_child(view)
 
@@ -32,6 +34,7 @@ func setup(arg: String) -> void:
 		view.centre = Vector2(float(towns[str(here)].x), float(towns[str(here)].y))
 	header_right.text = "You are near " + Travel.town_name(str(here)) if here else ""
 	if not species_mode:
+		view.marks = MapLogic.marks(Game.data, Tournament.today(Game.data) if Tournament.open_to(Game.data) else {})
 		_can_fly = Game.data.flag("champion") == true
 		_show_objective()
 		_build_panel()
@@ -108,7 +111,9 @@ func _place_panel() -> void:
 	var t: Dictionary = Travel.world_map().towns[view.cursor]
 	var sp := view.screen_pos(Vector2(float(t.x), float(t.y)))
 	_panel.reset_size()
-	_panel.position = Vector2(16 if sp.x > view.size.x * 0.5 else view.size.x - _panel.size.x - 16, 64)
+	var left := sp.x > view.size.x * 0.5
+	_panel.position = Vector2(20 if left else view.size.x - _panel.size.x - 20, 96)
+	view.compass_left = not left
 
 ## Rings the "Where next?" town (or spot) in gold and says what it is along the bottom.
 func _show_objective() -> void:
