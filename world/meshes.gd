@@ -248,11 +248,15 @@ static func tall_grass_tuft(variant := 0) -> ArrayMesh:
 		_tri(st, p - side, p + side, tip, Color("5b8c3a").lightened(rng.randf_range(-0.1, 0.12)))
 	return _finish(st)
 
+## Ling heather's bloom: a muted purple-mauve with brown in it (the lighting lifts these a lot, and the old
+## violets read as lilac paint on the moor). The paler sprigs and the tufts at a crag's foot use them too.
+const HEATHER_BLOOMS := [Color("6e4a5e"), Color("7a5468"), Color("614254"), Color("80596a")]
+
 ## Ling heather: low dark woody cushions with the purple bloom on top, a few paler sprigs standing proud.
 static func heather_tuft(variant := 0) -> ArrayMesh:
 	var rng := _rng(12000 + variant)
 	var st := _st()
-	var blooms := [Color("74466f"), Color("80507b"), Color("66405f"), Color("8a5885")]
+	var blooms := HEATHER_BLOOMS
 	for i in 10:
 		var p := Vector3(rng.randf_range(-0.42, 0.42), 0, rng.randf_range(-0.42, 0.42))
 		var r := rng.randf_range(0.1, 0.15)
@@ -261,7 +265,7 @@ static func heather_tuft(variant := 0) -> ArrayMesh:
 		blob(st, p + Vector3(0, 0.12, 0), Vector3(r, rng.randf_range(0.06, 0.1), r), c.lightened(rng.randf_range(-0.06, 0.08)), rng, 0.3)
 	for i in 3:
 		var p := Vector3(rng.randf_range(-0.38, 0.38), 0.1, rng.randf_range(-0.38, 0.38))
-		box(st, p, Vector3(0.035, rng.randf_range(0.12, 0.18), 0.035), Color("a07898"))
+		box(st, p, Vector3(0.035, rng.randf_range(0.12, 0.18), 0.035), HEATHER_BLOOMS[3].lightened(0.15))
 	return _finish(st)
 
 ## A run of Peak District gritstone edge, one tile long: fallen blocks at the foot, then two to four courses of
@@ -294,7 +298,7 @@ static func gritstone_edge(variant := 0) -> ArrayMesh:
 		y += h * 0.92
 	blob(st, Vector3(rng.randf_range(-0.2, 0.2), y + 0.03, -0.1), Vector3(0.38, 0.06, 0.3), Color("9a937c"), rng, 0.15)  # lichen-pale top
 	blob(st, Vector3(rng.randf_range(-0.35, 0.35), y + 0.06, -0.18), Vector3(0.16, 0.07, 0.14), Color("5e5a3a"), rng, 0.3)  # bilberry on top
-	blob(st, Vector3(rng.randf_range(-0.45, 0.45), 0.08, 0.58), Vector3(0.18, 0.08, 0.12), Color("74506e"), rng, 0.3)  # heather at the foot
+	blob(st, Vector3(rng.randf_range(-0.45, 0.45), 0.08, 0.58), Vector3(0.18, 0.08, 0.12), HEATHER_BLOOMS[0], rng, 0.3)  # heather at the foot
 	return _finish(st)
 
 static func reeds(variant := 0) -> ArrayMesh:

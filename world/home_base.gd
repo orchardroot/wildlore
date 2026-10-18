@@ -2,7 +2,8 @@ class_name HomeBase
 extends RefCounted
 ## Mum's house as a home base. Three things, all built from the save so they fill in as you play:
 ##  - the trophy shelf in macc_home (a `trophy_shelf` prop): every Wardstone won, Garside's diploma, the Fieldbook
-##    awards and a brass plaque for each legend caught. Facing it reads them out.
+##    awards, County Show rosettes, the Moot Champion title, Pillar of the Community trophies and a brass plaque
+##    for each legend caught. Facing it reads them out.
 ##  - the garden in Macclesfield (six `garden_plot` props with "plot": 1..6): plant a hedgerow material and it
 ##    grows through seed, sprout and leaf to ready the next in-game day, for 2 to 4 back (one more in season) and
 ##    now and then a charm or a rare find. A plot is the flag garden_<n> = "<material>@<world minute>@<day>".
@@ -51,6 +52,15 @@ const AWARDS := {
 	100: ["Fieldbook Medal", "A bronze medal on a tartan ribbon: 100 caught. Mum polishes it on Sundays."],
 	150: ["Fieldbook Shield", "A little oak shield: 150 caught. Engraved, if a bit wonkily."],
 }
+## Pillar of the Community trophies (Standing.TROPHY), by nation, as they sit on the shelf: [name, line].
+const PILLAR_TROPHIES := {
+	"england": ["Freedom of the Shires", "The Freedom of the Shires, tied with its red and white rose. Mum has read every signature. Twice."],
+	"wales": ["Carved Lovespoon", "A cherrywood lovespoon from Wales. Mum finds a reason to mention it to the neighbours most days."],
+	"scotland": ["Silver Quaich", "A silver quaich from Scotland. Mum has polished it and, just the once, had a sherry out of it."],
+	"northern_ireland": ["Ulster Linen Sash", "An Ulster linen sash, folded just so. Mum ironed it, though it didn't need it."],
+	"ireland": ["Claddagh Brooch", "A Claddagh brooch from Galway, on a little velvet cushion Mum made specially."],
+	"mann": ["Three Legs Badge", "The Manx Three Legs badge. Mum knocked it over and it landed standing up. She hasn't touched it since."],
+}
 const PLAQUE_LINES := [
 	"A brass plaque: %s. Mum's put a doily under it.",
 	"A brass plaque: %s. Underneath, in Mum's writing: 'Visits. Wipe feet.'",
@@ -79,7 +89,7 @@ const HOME_ZONE := "macc_home"
 static func stone_won(data: GameStateData, id: String) -> bool:
 	return id in data.badges or data.flag("badge_" + id) == true
 
-## [{kind: stone|diploma|award|legend, id, name, line}] in shelf order.
+## [{kind: stone|diploma|award|rosette|title|pillar|legend, id, name, line}] in shelf order.
 static func trophies(data: GameStateData, dex: Dex) -> Array:
 	var out := []
 	for id in STONES:
@@ -92,6 +102,17 @@ static func trophies(data: GameStateData, dex: Dex) -> Array:
 	for n in AWARDS:
 		if data.flag("fieldbook_%d" % n) == true:
 			out.append({"kind": "award", "id": str(n), "name": AWARDS[n][0], "line": AWARDS[n][1]})
+	var shows := Tournament.shows_won(data)
+	if shows > 0:
+		out.append({"kind": "rosette", "id": "shows", "name": "County Show Rosettes", "n": shows,
+			"line": "%d red rosette%s from the County Shows, pinned along the edge of the shelf. Mum irons them." % [shows, "" if shows == 1 else "s"]})
+	if Tournament.moot_champion(data):
+		out.append({"kind": "title", "id": "moot", "name": "Moot Champion",
+			"line": "A framed certificate: Open Moot Champion. Mum has hung it where the vicar can't miss it."})
+	for nation in PILLAR_TROPHIES:
+		if Standing.tier(data, nation) >= Standing.PILLAR:
+			var p: Array = PILLAR_TROPHIES[nation]
+			out.append({"kind": "pillar", "id": nation, "name": p[0], "line": p[1]})
 	var i := 0
 	for id in legends_caught(data, dex):
 		var nm := str(dex.get_species(id).get("name", id))
@@ -355,3 +376,7 @@ static func dev_setup(data: GameStateData, mode: String, dex: Dex) -> void:
 			data.set_flag("fieldbook_%d" % n)
 		for id in ["herne", "nessie", "ddraig", "cusith", "shuck"]:
 			data.mark_caught(id)
+		data.set_flag(Tournament.SHOW_WINS, 4)
+		data.set_flag(Tournament.MOOT_WINS, Tournament.TITLE_WINS)
+		for nation in ["england", "wales", "scotland", "ireland"]:
+			Standing.add(data, nation, Standing.TIER_POINTS[Standing.PILLAR])

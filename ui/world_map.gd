@@ -117,7 +117,7 @@ func _place_panel() -> void:
 
 ## Rings the "Where next?" town (or spot) in gold and says what it is along the bottom.
 func _show_objective() -> void:
-	var o := MenuLogic.next_objective(Game.data, Game.dex.ids().size())
+	var o := MenuLogic.next_objective(Game.data, Game.dex.core_ids().size())
 	if o.is_empty():
 		return
 	_objective_town = str(o.get("town", ""))

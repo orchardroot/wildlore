@@ -433,16 +433,16 @@ const WEATHER_CONDS := {"rain": ["drizzle", "downpour"], "fog": ["fog"], "gale":
 
 ## Conditions that aren't flags: the time of day ("dawn", "day", "dusk", "night", from the in-game clock), the
 ## weather ("rain" is drizzle or a downpour; "fog", "gale", "frost", "sunshine"), "caught_all" (every species
-## in the Fieldbook caught), "caught_<n>" (at least n caught), and from the real date the season ("spring".."winter") or a festival (Calendar.FESTIVALS).
+## in the Fieldbook proper caught; the appendix is a bonus), "caught_<n>" (at least n caught), and from the real date the season ("spring".."winter") or a festival (Calendar.FESTIVALS).
 func _when(cond: String) -> bool:
 	if cond in PHASE_CONDS:
 		return GameClock.phase(host.data.clock_minutes) == cond
 	if WEATHER_CONDS.has(cond):
 		return _weather() in WEATHER_CONDS[cond]
 	if cond == "caught_all":
-		return host.data.caught.size() >= host.dex.ids().size()
+		return FieldbookGoals.caught_count(host.data) >= host.dex.core_ids().size()
 	if cond.begins_with("caught_") and cond.substr(7).is_valid_int():  # a Fieldbook milestone: caught_25 and so on
-		return host.data.caught.size() >= int(cond.substr(7))
+		return FieldbookGoals.caught_count(host.data) >= int(cond.substr(7))
 	if cond in Calendar.SEASONS:
 		return Calendar.season_today() == cond
 	if cond in Calendar.FESTIVALS:
@@ -484,8 +484,8 @@ func _set_flag(key: String, value: Variant) -> void:
 		host.on_flag(key, value)
 
 func _sub(s: String) -> String:
-	var total: int = host.dex.ids().size()
-	var got: int = host.data.caught.size()
+	var total: int = host.dex.core_ids().size()  # the Fieldbook proper: the appendix is a bonus
+	var got: int = FieldbookGoals.caught_count(host.data)
 	return s.replace("{player}", host.data.player_name).replace("{rival}", host.data.rival_name) \
 		.replace("{caught}", str(got)).replace("{left}", str(maxi(0, total - got))).replace("{total}", str(total)) \
 		.replace("{greeting}", _greeting() if "{greeting}" in s else "")
