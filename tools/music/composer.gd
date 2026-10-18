@@ -23,7 +23,8 @@ var tonic := 62
 var mode: Array = MODES["dorian"]
 var unit := 0.15  ## seconds per unit
 var upb := 8  ## units per bar
-var bars := 16
+var bars := 16  ## every bar, the intro included
+var intro_bars := 0  ## bars at the start that play once: the loop runs from the end of the intro to the end
 var loop := true
 var tail := 1.5
 var level_db := 0.0  ## per-track loudness offset from TARGET_RMS_DB (battles +1, sanctuary and ending -1)
@@ -157,6 +158,10 @@ func drone(bar: int, nbars: int, vel := 0.5) -> void:
 func total_seconds() -> float:
 	return bars * upb * unit
 
+## The frame a looping track loops back to: 0, or the end of the intro.
+func loop_begin_frame(sr: int) -> int:
+	return Synth.frames(intro_bars * upb * unit, sr) if intro_bars > 0 else 0
+
 func render(sr: int) -> PackedFloat32Array:
 	var L := Synth.frames(total_seconds(), sr)
 	var tail_n := Synth.frames(tail, sr)
@@ -180,10 +185,11 @@ func render(sr: int) -> PackedFloat32Array:
 		g *= 1.0 + float((idx * 31) % 7 - 3) * 0.02
 		Synth.mix_into(out, cache[key], start, g)
 	if loop:
-		# Ring-out folds onto the start so the loop point is seamless.
+		# Ring-out folds onto the loop start (the end of any intro) so the loop point is seamless.
+		var lb := loop_begin_frame(sr)
 		for i in tail_n:
-			if i < L:
-				out[i] += out[L + i]
+			if lb + i < L:
+				out[lb + i] += out[L + i]
 		out.resize(L)
 	# Small room: two circular combs, then compress gently and level.
 	Synth.echo(out, Synth.frames(0.137, sr), 0.35, 0.22)
@@ -196,6 +202,8 @@ func render(sr: int) -> PackedFloat32Array:
 	if not loop:
 		Synth.fade_out(out, sr, 0.4)
 		Synth.fade_in(out, sr, 0.004)
+	if loop and intro_bars > 0:
+		_seam_dip(out, sr)
 	if loop:
 		_seam_ride(out, sr)
 	_level(out)
@@ -230,6 +238,18 @@ func _seam_ride(out: PackedFloat32Array, sr: int) -> void:
 		var b0 := clampi(int(floor(pos)), 0, nb - 1)
 		var b1 := mini(b0 + 1, nb - 1)
 		out[i] *= lerpf(sm[b0], sm[b1], clampf(pos - b0, 0.0, 1.0))
+
+## With an intro the loop jumps from the end back to the intro's end, two points that need not meet: a 3 ms dip to zero
+## at both (on the way into the body too, so the first time through matches every loop after) keeps it click-free.
+func _seam_dip(out: PackedFloat32Array, sr: int) -> void:
+	var lb := loop_begin_frame(sr)
+	var f := maxi(1, int(0.003 * sr))
+	for i in f:
+		var k := float(i) / f
+		out[lb + i] *= k
+		if lb - 1 - i >= 0:
+			out[lb - 1 - i] *= k
+		out[out.size() - 1 - i] *= k
 
 func _level(out: PackedFloat32Array) -> void:
 	var r := Synth.rms(out)

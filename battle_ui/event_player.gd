@@ -218,7 +218,7 @@ static func _cue(ev: Dictionary, ctx: Dictionary) -> Dictionary:
 	match str(ev.type):
 		"move":
 			var mt := str(ctx.battle.move_db.get_move(str(ev.move)).get("type", ""))
-			return {"cue": "attack", "side": side, "move_type": mt}
+			return {"cue": "attack", "side": side, "move_type": mt, "move": str(ev.move)}
 		"miss":
 			return {"cue": "dodge", "side": 1 - side}
 		"no_effect":
