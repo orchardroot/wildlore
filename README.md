@@ -6,7 +6,7 @@ A monster-catching RPG across the UK and Ireland. You start in Macclesfield, bec
 
 ![Title](docs/screens/t13-title.png)
 
-## What's in 1.5
+## What's in 2.0
 
 All of it, start to finish, and then some. You leave home in Macclesfield with a hedgehog, a squirrel or an otter, and you walk (and cycle, and take the train, and catch the odd ferry) all the way round England, Wales, Scotland, Northern Ireland, Ireland and the Isle of Man, collecting ten Stones from ten Keepers while a heritage company with very good lanyards tries to buy the countryside. Then you go to Stonehenge for the Moot, find out who the Champion has been all along, and go to London to have a word with Lord Vane about his tower.
 
@@ -38,6 +38,15 @@ All of it, start to finish, and then some. You leave home in Macclesfield with a
 - Today's Walk on the wireless: a creature that's out in numbers, a pub with a doubled quiz prize and a weather bounty, new every real day. No streaks, nothing lost if you miss one. Rematches and quiz prizes now reset by the real date
 - Proper signs on the buildings: painted shop fascias, pub signs on brackets, enamel station boards, carved stone over the museums, and the name of the place pops up when you're at its door
 - A gentler climb in the middle: more trainers before the two big jumps in level, and the Team Thermos now shares three-quarters of the XP
+- **2.0, Common Ground.** The Enclosure spent the whole game fencing the land off. Now you get stuck in:
+  - Rewilding: six damaged places, one in each nation (a drained moss in the Peak, a clear-fell in Snowdonia, an overgrazed glen, a choked river, a cutaway bog and a scraped bank on the Isle of Man). Help the warden and the place changes in front of you, stage by stage, until the creatures that left come back
+  - A parish noticeboard in every town, with daily jobs (count the bats after dark, find some blackberries, no questions asked). Jobs earn standing with England, Wales, Scotland, Northern Ireland, Ireland and the Isle of Man, and standing gets you a discount, extra stock, a parcel from the landlord, and the locals knowing your name
+  - Battles with more to think about: call the weather yourself (Call the Clouds, Proper Downpour, The Haar, Beast from the East, Bank Holiday Sun), drain, recoil, flurries, Batten Down, and a knack for every creature line, like Thick Fleece, Stiff Upper Lip and Moaner
+  - Uncommon coats: about one wild creature in a hundred turns up in a seasonal coat, winter white, autumn russet, summer gold, spring green, storm dark or moonlit silver
+  - Home: a trophy shelf at Mum's that fills up as you go, a garden out front to grow your forage in, and the legends you've caught dropping by
+  - County Shows: a different one each real day (the Cheshire, the Royal Welsh, the Great Yorkshire, the Royal Highland, Balmoral and the Ploughing), with a marquee, a ring, a rule of the day and rosettes to spend. After the credits, the Open Moot at Stonehenge, five fights straight, as often as you like
+  - Post from Kit: sixteen postcards waiting at post boxes as the story goes on, and every Keeper (and a few Enclosure Directors, who are trying their best) has a little side story once you've moved on
+  - Every menu fits its frame now, even if you call your creature something long
 - Options for the rest of us: every key and button can be remapped, type symbols as well as colours, a colour-blind palette, instant text, and a setting to calm the flashing down
 
 | | |
