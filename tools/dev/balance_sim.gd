@@ -6,6 +6,7 @@ func _initialize() -> void:
 	var dex := Dex.load_default()
 	var moves := MoveDB.load_default()
 	var chart := TypeChart.load_default()
+	var items := ItemDB.load_default()  # a keeper's tea
 	var def := StoryData.trainer(a[0])
 	var runs := int(a[2]) if a.size() > 2 else 200
 	var offset := int(a[3]) if a.size() > 3 else 0  # added to every foe level (tuning)
@@ -18,16 +19,9 @@ func _initialize() -> void:
 		for e in a[1].split(","):
 			var kv := e.split(":")
 			mine.append(Creature.create(dex.get_species(kv[0]), int(kv[1]), rng, moves))
-		var foes := []
-		for m in def.party:
-			var cr := Creature.create(dex.get_species(m.species), maxi(2, int(m.level) + offset), rng, moves)
-			if m.has("moves"):  # fixed moves, as story/commands.gd builds them
-				cr.moves = []
-				for mid in m.moves:
-					cr.moves.append(cr.make_move_slot(mid, moves))
-			foes.append(cr)
+		var foes := TrainerParty.build(def, dex, rng, moves, offset)  # as story/commands.gd builds them
 		# NOKNACKS=1 in the environment: knacks off (the 1.x rules, for before/after comparisons)
-		var b := Battle.new(mine, foes, {"chart": chart, "move_db": moves, "rng": rng, "kind": "trainer", "knacks": OS.get_environment("NOKNACKS") == ""})
+		var b := Battle.new(mine, foes, {"chart": chart, "move_db": moves, "item_db": items, "rng": rng, "kind": "trainer", "knacks": OS.get_environment("NOKNACKS") == ""})
 		var guard := 0
 		while not b.over and guard < 300:
 			guard += 1

@@ -1,6 +1,8 @@
 class_name BattleAI
 extends RefCounted
-## Chooses actions. "wild": random usable move. "trainer": best expected damage. "keeper": also switches out of bad match-ups.
+## Chooses actions. "wild": random usable move. "trainer": best expected damage. "keeper": also switches out of bad
+## match-ups (in doubles too), pours its ace's one tea below 40% HP (TrainerParty.TEA) and, when it is safe, spends a
+## turn on a status or stat move worth at least SETUP_BAR of its best attack (see _setup_slot).
 ## In a double battle `choose` returns an Array with one action per field position (see choose_double).
 
 ## A steady roll for damage estimates: the middle of the damage spread, never a crit.
@@ -18,6 +20,9 @@ class Steady extends Rng:
 
 static var _steady := Steady.new()
 
+const SETUP_BAR := 0.8  # a set-up move must be worth this share of the best attack to be picked over it
+const TEA_BELOW := 0.4  # the keeper's ace has its tea below this share of its max HP
+
 ## Singles: one action Dictionary. Doubles: an Array of actions, one per position.
 static func choose(b: Battle, side: int, tier: String) -> Variant:
 	if b.double:
@@ -31,17 +36,137 @@ static func choose(b: Battle, side: int, tier: String) -> Variant:
 		var slot: int = b.rng.pick(usable)
 		return {"type": "move", "slot": slot}
 	if tier == "keeper":
+		var tea := _tea_action(b, side, me)
+		if not tea.is_empty():
+			return tea
 		var sw := _better_switch(b, side)
 		if sw >= 0:
 			return {"type": "switch", "index": sw}
 	var best: int = usable[0]
 	var best_score := -1.0
+	var best_attack := 0.0
 	for i in usable:
-		var s := score(b, me, foe, b.move_db.get_move(me.moves[i].id))
+		var mv := b.move_db.get_move(me.moves[i].id)
+		var s := score(b, me, foe, mv)
+		if mv.category != "status":
+			best_attack = maxf(best_attack, s)
 		if s > best_score:
 			best_score = s
 			best = i
+	if tier == "keeper" and best_score <= best_attack:  # (a heal, a guard or a weather call that scored higher stands)
+		var setup := _setup_slot(b, me, foe, usable, best_attack)
+		if setup >= 0:
+			return {"type": "move", "slot": setup}
 	return {"type": "move", "slot": best}
+
+## The keeper's tea: an item action pouring the ace its one tea when it is below TEA_BELOW, else {}.
+static func _tea_action(b: Battle, side: int, me: Creature) -> Dictionary:
+	if me == null or me.is_fainted() or not me.has_meta(TrainerParty.TEA) or me.hp >= me.max_hp() * TEA_BELOW:
+		return {}
+	return {"type": "item", "item": str(me.get_meta(TrainerParty.TEA)), "target": b.parties[side].find(me)}
+
+## A status or stat move worth spending a turn on, or -1. Only when it is safe: the keeper cannot finish the foe this
+## turn, and is either at full health (its first turn out, usually) or out of reach of the foe's best hit. Each move
+## is valued as a share of the best attack (setup_value x accuracy) and must clear SETUP_BAR.
+static func _setup_slot(b: Battle, me: Creature, foe: Creature, usable: Array, best_attack: float) -> int:
+	if best_attack <= 0.0 or foe == null or foe.is_fainted() or not _safe_to_set_up(b, me, foe):
+		return -1
+	var pick := -1
+	var pick_v := SETUP_BAR - 0.001
+	for i in usable:
+		var mv := b.move_db.get_move(me.moves[i].id)
+		if mv.category != "status":
+			continue
+		var v := setup_value(b, me, foe, mv) * float(mv.get("accuracy", 100)) / 100.0
+		if v > pick_v:
+			pick_v = v
+			pick = i
+	return pick
+
+static func _safe_to_set_up(b: Battle, me: Creature, foe: Creature) -> bool:
+	for i in _usable(b, me):
+		var mv := b.move_db.get_move(me.moves[i].id)
+		if mv.category != "status" and estimate(b, me, foe, mv) >= foe.hp:
+			return false  # it can finish the foe now: do that
+	if me.hp >= me.max_hp():
+		return true
+	for slot in foe.moves:
+		var mv := b.move_db.get_move(str(slot.id))
+		if int(slot.pp) > 0 and not mv.is_empty() and mv.category != "status" and estimate(b, foe, me, mv) >= me.hp:
+			return false
+	return true
+
+## What a status or stat move is worth this turn, as a share of a good attack (0 when pointless): sleep is worth a
+## full hit, other statuses most of one (a soak only when the team has storm moves to follow it up), a raise or a
+## drop that matters to the match-up most of one, a little less for the second stage, nothing past the second.
+static func setup_value(b: Battle, me: Creature, foe: Creature, move: Dictionary) -> float:
+	var fx: Dictionary = move.get("effect", {})
+	match str(fx.get("id", "")):
+		"status":
+			var st := str(fx.get("status", ""))
+			if foe.status != "" or Charms.blocks_status(foe) or (b.knacks_on and Knacks.blocks_status(foe, st)):
+				return 0.0
+			match st:
+				"asleep":
+					return 1.0
+				"soaked":
+					return 0.9 if _team_has_type(b, _side_of(b, me), "storm") else 0.5
+				"hexed":
+					return 0.8
+			return 0.85
+		"stat":
+			var stat := str(fx.get("stat", ""))
+			var up := int(fx.get("stages", 0)) > 0
+			if str(fx.get("target", "foe")) == "self":
+				var now := int(me.stages.get(stat, 0))
+				if not up or now >= 2:
+					return 0.0
+				var v := 0.3
+				match stat:
+					"atk", "lore":
+						v = 0.9 if _main_category(b, me) == ("physical" if stat == "atk" else "special") else 0.0
+					"def", "ward":
+						v = 0.85 if _main_category(b, foe) == ("physical" if stat == "def" else "special") else 0.3
+					"spd":
+						v = 0.85 if b._speed_of(foe) > b._speed_of(me) else 0.2
+				return v - 0.1 * now
+			var then := int(foe.stages.get(stat, 0))
+			if up or then <= -2 or (b.knacks_on and Knacks.blocks_drop(foe, stat)):
+				return 0.0
+			var d := 0.6
+			match stat:
+				"atk", "lore":
+					d = 0.85 if _main_category(b, foe) == ("physical" if stat == "atk" else "special") else 0.2
+				"def", "ward":
+					d = 0.85 if _main_category(b, me) == ("physical" if stat == "def" else "special") else 0.2
+				"spd":
+					d = 0.85 if b._speed_of(foe) > b._speed_of(me) else 0.2
+			return d + 0.1 * then
+	return 0.0
+
+## "physical" or "special": the category of a creature's strongest damaging move (power, hits, same-type bonus).
+static func _main_category(b: Battle, c: Creature) -> String:
+	var best := ""
+	var top := -1.0
+	for slot in c.moves:
+		var mv := b.move_db.get_move(str(slot.id))
+		if mv.is_empty() or mv.category == "status":
+			continue
+		var p := float(mv.get("power", 0)) * MoveFX.average_hits(mv.get("effect", {})) * (1.5 if mv.type in c.types() else 1.0)
+		if p > top:
+			top = p
+			best = str(mv.category)
+	return best
+
+static func _team_has_type(b: Battle, side: int, move_type: String) -> bool:
+	for c in b.parties[side]:
+		if c.is_fainted():
+			continue
+		for slot in c.moves:
+			var mv := b.move_db.get_move(str(slot.id))
+			if not mv.is_empty() and mv.category != "status" and str(mv.type) == move_type:
+				return true
+	return false
 
 static func score(b: Battle, me: Creature, foe: Creature, move: Dictionary) -> float:
 	var fx: Dictionary = move.get("effect", {})
@@ -204,17 +329,50 @@ static func _better_switch(b: Battle, side: int) -> int:
 
 ## Doubles: an action per field position, each move with a "target" foe position. Positions with nobody standing
 ## get {} (the battle skips them). Trainers weigh every move against every foe, favour a knockout, and do not
-## pile both attacks onto a foe the first one is already expected to finish. Keepers do not switch in doubles.
+## pile both attacks onto a foe the first one is already expected to finish. Keepers also pour their tea and swap a
+## creature with nothing useful to do for a bench one at least twice as useful (never the same one into both spots).
 static func choose_double(b: Battle, side: int, tier: String) -> Array:
 	var out := []
 	var planned := {}  # foe position -> damage already aimed at it this turn
+	var called := []  # bench indices already coming in this turn
 	for pos in b.positions():
 		var me := b.current_at(side, pos)
 		if me == null or me.is_fainted():
 			out.append({})
 			continue
+		if tier == "keeper":
+			var tea := _tea_action(b, side, me)
+			if not tea.is_empty():
+				out.append(tea)
+				continue
+			var sw := _better_switch_double(b, side, me, called)
+			if sw >= 0:
+				called.append(sw)
+				out.append({"type": "switch", "index": sw})
+				continue
 		out.append(_double_action(b, side, me, tier, planned))
 	return out
+
+## Doubles: a bench creature (over half health, not already called) whose best move against either foe beats this
+## one's by 2x, or -1.
+static func _better_switch_double(b: Battle, side: int, me: Creature, called: Array) -> int:
+	var foes := b.actives(1 - side)
+	if foes.is_empty():
+		return -1
+	var mine := 0.0
+	for f in foes:
+		mine = maxf(mine, _best_score(b, me, f))
+	var party: Array = b.parties[side]
+	for i in party.size():
+		var c: Creature = party[i]
+		if i in b.active[side] or i in called or c.is_fainted() or c.hp * 2 <= c.max_hp():
+			continue
+		var theirs := 0.0
+		for f in foes:
+			theirs = maxf(theirs, _best_score(b, c, f))
+		if theirs > mine * 2.0:
+			return i
+	return -1
 
 static func _double_action(b: Battle, side: int, me: Creature, tier: String, planned: Dictionary) -> Dictionary:
 	var foes := []
