@@ -59,6 +59,9 @@ static func normalise_trainer(d: Dictionary, id: String) -> Dictionary:
 		var e := {"species": str(m.get("species", "")), "level": int(m.get("level", 1))}
 		if m.has("moves"):
 			e["moves"] = m.moves.map(func(x): return str(x))
+		for k in ["held", "tea"]:  # a charm, and a keeper's one tea (see TrainerParty)
+			if str(m.get(k, "")) != "":
+				e[k] = str(m[k])
 		party.append(e)
 	out["party"] = party
 	return out
