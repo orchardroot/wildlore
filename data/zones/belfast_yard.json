@@ -9,12 +9,6 @@
  },
  "props": [
   {
-   "type": "boat",
-   "x": 3,
-   "y": 5,
-   "variant": 1
-  },
-  {
    "type": "bollard",
    "x": 6,
    "y": 2
@@ -26,23 +20,8 @@
   },
   {
    "type": "lamp_post",
-   "x": 13,
-   "y": 2
-  },
-  {
-   "type": "lamp_post",
    "x": 3,
    "y": 10
-  },
-  {
-   "type": "planter",
-   "x": 14,
-   "y": 9
-  },
-  {
-   "type": "bench",
-   "x": 13,
-   "y": 6
   },
   {
    "type": "bollard",
@@ -53,6 +32,55 @@
    "type": "bollard",
    "x": 15,
    "y": 12
+  },
+  {
+   "type": "ship_ribs",
+   "x": 3,
+   "y": 5
+  },
+  {
+   "type": "gantry_crane",
+   "x": 3,
+   "y": 3
+  },
+  {
+   "type": "steel_plates",
+   "x": 13,
+   "y": 2
+  },
+  {
+   "type": "steel_plates",
+   "x": 14,
+   "y": 3
+  },
+  {
+   "type": "steel_plates",
+   "x": 14,
+   "y": 8
+  },
+  {
+   "type": "floodlight",
+   "x": 6,
+   "y": 2
+  },
+  {
+   "type": "floodlight",
+   "x": 12,
+   "y": 2
+  },
+  {
+   "type": "puddle",
+   "x": 10,
+   "y": 9,
+   "variant": 2,
+   "walk": true
+  },
+  {
+   "type": "puddle",
+   "x": 7,
+   "y": 6,
+   "variant": 4,
+   "walk": true
   }
  ],
  "warps": [
@@ -93,10 +121,76 @@
    "facing": "right",
    "move": "still",
    "trainer": "yard_apprentice"
+  },
+  {
+   "id": "yard_flask",
+   "sprite": "steelworker",
+   "x": 14,
+   "y": 6,
+   "facing": "left",
+   "move": "still",
+   "text": "Ruairí's lot are built like the hulls in here. Riveted. You'll want something with a can opener.",
+   "hide_if": "trainer_keeper_ruairi"
+  },
+  {
+   "id": "yard_flask_won",
+   "sprite": "steelworker",
+   "x": 14,
+   "y": 6,
+   "facing": "left",
+   "move": "still",
+   "text": "Thirty years I've watched that man win. I'd better ring my brother, he'll never believe it.",
+   "show_if": "trainer_keeper_ruairi"
+  },
+  {
+   "id": "yard_shipwright",
+   "sprite": "shipwright",
+   "x": 6,
+   "y": 10,
+   "facing": "up",
+   "move": "still",
+   "text": "She's got a keel and ribs and a bit of plate. Give us till spring and she'll float. Probably.",
+   "hide_if": "trainer_keeper_ruairi"
+  },
+  {
+   "id": "yard_shipwright_won",
+   "sprite": "shipwright",
+   "x": 6,
+   "y": 10,
+   "facing": "up",
+   "move": "still",
+   "text": "You fought like you were built here. That's the nicest thing anyone in this yard can say.",
+   "show_if": "trainer_keeper_ruairi"
+  },
+  {
+   "id": "yard_lad",
+   "sprite": "villager_1",
+   "x": 2,
+   "y": 10,
+   "facing": "right",
+   "move": "still",
+   "text": "I'm on my break. I've been on my break since the crane went yellow. That was 1974.",
+   "hide_if": "trainer_keeper_ruairi"
+  },
+  {
+   "id": "yard_lad_won",
+   "sprite": "villager_1",
+   "x": 2,
+   "y": 10,
+   "facing": "right",
+   "move": "still",
+   "text": "Still on my break. Didn't want to miss you beating the gaffer. Worth it.",
+   "show_if": "trainer_keeper_ruairi"
   }
  ],
  "encounters": {},
- "signs": [],
+ "signs": [
+  {
+   "x": 6,
+   "y": 12,
+   "text": "QUEEN'S ISLAND YARD. Keeper Ruairí. Hard hats past this point. The cranes are called Samson and Goliath and they will not be told otherwise."
+  }
+ ],
  "spawn": [
   8,
   11
@@ -105,17 +199,27 @@
  "rows": [
   "xxxxxxxxxxxxxxxxx",
   "x|||||||||||||||x",
-  "x|~~~|+++++++++|x",
-  "x|~~~|+++++++++|x",
-  "x|~~~|+++++++++|x",
-  "x|~~~|+++++++++|x",
-  "x|~~~|+++++++++|x",
-  "x|~~~|+++++++++|x",
-  "x|~~~|+++++++++|x",
-  "x|+++++++++++++|x",
-  "x|+++++++++++++|x",
+  "x|~~~|cdccccdcc|x",
+  "x|~~~|ccdccccdc|x",
+  "x|~~~|cccdccccd|x",
+  "x|~~~|ccccdcccc|x",
+  "x|~~~|dccccdccc|x",
+  "x|~~~|cdccccdcc|x",
+  "x|~~~|ccdccccdc|x",
+  "x|ccdccccdccccd|x",
+  "x|cccdccccdcccc|x",
   "x|||||||||||||||x",
   "x|||||||D|||||||x",
   "xxxxxxxxxxxxxxxxx"
- ]
+ ],
+ "legend_extra": {
+  "c": {
+   "tile": "floor_tile",
+   "colour": "#8f8c86"
+  },
+  "d": {
+   "tile": "floor_tile",
+   "colour": "#7d7a74"
+  }
+ }
 }

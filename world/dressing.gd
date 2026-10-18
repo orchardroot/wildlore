@@ -571,3 +571,774 @@ static func wall_map() -> ArrayMesh:
 		Meshes.box(st, at + Vector3(-0.012, -0.012, 0.002), Vector3(0.024, 0.024, 0.02), col)
 	Meshes.box(st, Vector3(-w * 0.5 + 0.04, bottom + h - 0.1, -0.44), Vector3(0.3, 0.05, 0.005), Color("3a2a22"))  # a title, sort of
 	return Meshes._finish(st)
+
+# --- Keeper venues -------------------------------------------------------------
+# Each Keeper's room is a real place: a rugby ground, a shipyard, a parish hall, a harbour, a curling rink, a
+# cellar club, a quarry, a crypt; plus the Moot's braziers and Vane's penthouse. Backdrops ("..._arch", stands,
+# windows) cover the north wall like wall things do. Lights come in two parts: the fitting (solid) and its glow
+# (VENUE_GLOWS, additive and flickering through the firelight shader, so it reads the same at any hour).
+
+const VENUE_PROPS := ["stadium_stand", "rugby_posts", "floodlight", "puddle", "pitch_line", "gantry_crane", "ship_ribs",
+	"steel_plates", "hall_stage", "tea_urn", "stacked_chairs", "currach", "lobster_pots", "harbour_arch", "fae_lantern",
+	"toadstool_ring", "clootie_tree", "curling_house", "curling_stones", "brick_arch", "band_kit", "stage_light",
+	"slate_stack", "slate_wagon", "crypt_arch", "candelabra", "tomb_chest", "brazier", "city_window",
+	"enclosure_banner", "creature_cage"]
+## prop -> the glow mesh that goes with it (same tile, same variant).
+const VENUE_GLOWS := {"floodlight": "floodlight_glow", "fae_lantern": "fae_glow", "stage_light": "stage_glow",
+	"candelabra": "candle_glow", "brazier": "brazier_fire"}
+
+static func venue_prop(name: String, variant: int) -> ArrayMesh:
+	match name:
+		"stadium_stand": return stadium_stand(variant)
+		"rugby_posts": return rugby_posts(variant)
+		"floodlight": return floodlight()
+		"floodlight_glow": return floodlight_glow()
+		"puddle": return puddle(variant)
+		"pitch_line": return pitch_line(variant)
+		"gantry_crane": return gantry_crane()
+		"ship_ribs": return ship_ribs()
+		"steel_plates": return steel_plates()
+		"hall_stage": return hall_stage(variant)
+		"tea_urn": return tea_urn()
+		"stacked_chairs": return stacked_chairs(variant)
+		"currach": return currach()
+		"lobster_pots": return lobster_pots(variant)
+		"harbour_arch": return harbour_arch(variant)
+		"fae_lantern": return fae_lantern(variant)
+		"fae_glow": return fae_glow(variant)
+		"toadstool_ring": return toadstool_ring(variant)
+		"clootie_tree": return clootie_tree(variant)
+		"curling_house": return curling_house()
+		"curling_stones": return curling_stones(variant)
+		"brick_arch": return brick_arch(variant)
+		"band_kit": return band_kit(variant)
+		"stage_light": return stage_light()
+		"stage_glow": return stage_glow(variant)
+		"slate_stack": return slate_stack(variant)
+		"slate_wagon": return slate_wagon()
+		"crypt_arch": return crypt_arch(variant)
+		"candelabra": return candelabra()
+		"candle_glow": return candle_glow()
+		"tomb_chest": return tomb_chest(variant)
+		"brazier": return brazier()
+		"brazier_fire": return brazier_fire()
+		"city_window": return city_window(variant)
+		"enclosure_banner": return enclosure_banner()
+		"creature_cage": return creature_cage(variant)
+	return null
+
+## A flat panel at depth z facing the camera (+z), from (x0, y0) to (x1, y1).
+static func _panel(st: SurfaceTool, x0: float, y0: float, x1: float, y1: float, z: float, col: Color) -> void:
+	Meshes._quad(st, Vector3(x0, y1, z), Vector3(x1, y1, z), Vector3(x1, y0, z), Vector3(x0, y0, z), col)
+
+## An additive pool of light on the floor (or any flat ellipse), bright `col` at the centre, nothing at the rim.
+static func _glow_pool(st: SurfaceTool, c: Vector3, rx: float, rz: float, col: Color, strength: float) -> void:
+	var steps := 14
+	for i in steps:
+		var a0 := TAU * i / steps
+		var a1 := TAU * (i + 1) / steps
+		var p0 := c + Vector3(cos(a0) * rx, 0, sin(a0) * rz)
+		var p1 := c + Vector3(cos(a1) * rx, 0, sin(a1) * rz)
+		for pair in [[c, strength], [p1, 0.0], [p0, 0.0]]:
+			st.set_color(Color(col.r, col.g, col.b, pair[1]))
+			st.set_normal(Vector3.UP)
+			st.add_vertex(pair[0])
+
+## A glowing disc standing up, facing the camera (lantern panes, lamp faces), fading to its rim.
+static func _glow_disc(st: SurfaceTool, c: Vector3, r: float, col: Color, strength: float) -> void:
+	var steps := 10
+	for i in steps:
+		var a0 := TAU * i / steps
+		var a1 := TAU * (i + 1) / steps
+		for pair in [[c, strength], [c + Vector3(cos(a0) * r, sin(a0) * r, 0), 0.0], [c + Vector3(cos(a1) * r, sin(a1) * r, 0), 0.0]]:
+			st.set_color(Color(col.r, col.g, col.b, pair[1]))
+			st.set_normal(Vector3(0, 0, 1))
+			st.add_vertex(pair[0])
+
+## A candle-sized flame: an orange tongue with a yellow heart, two crossed so it reads from any side.
+static func _flame(st: SurfaceTool, base: Vector3, h: float, w: float) -> void:
+	for turn in [0.0, PI * 0.5]:
+		var d := Vector3(cos(turn), 0, sin(turn)) * w
+		Meshes._tri(st, base - d, base + d, base + Vector3(0, h, 0), Color(1.0, 0.5, 0.12, 1.0))
+		Meshes._tri(st, base - d * 0.5, base + d * 0.5, base + Vector3(0, h * 0.62, 0), Color(1.0, 0.88, 0.45, 1.0))
+
+const SKIN := [Color("f0c8a0"), Color("d9a77c"), Color("a8714a"), Color("6e4a32"), Color("f4d4b4")]
+
+# --- Cardiff: the rugby ground, in the rain ----------------------------------------
+
+## One tile of terrace against the north wall, packed. Variant % 3 is the crowd's colours (0 Wales, 1 Ireland,
+## 2 Scotland); the rest only reshuffles the faces, so neighbouring tiles don't look cloned.
+static func stadium_stand(variant := 0) -> ArrayMesh:
+	var st := Meshes._st()
+	var rng := Meshes._rng(41000 + variant)
+	var kits: Array = [[Color("c8102e"), Color("f2ede2"), Color("2f8a4a")], [Color("2f8a4a"), Color("f2ede2"), Color("e8892a")],
+		[Color("1f4f9a"), Color("f2ede2"), Color("2a3a6a")]][variant % 3]
+	var concrete := Color("8d8a84")
+	for row in 4:
+		var y := 0.25 + row * 0.42
+		var depth := 0.95 - row * 0.22
+		Meshes.box(st, Vector3(-0.5, 0, -0.5), Vector3(1.0, y, depth), concrete.darkened(0.05 * row), concrete.lightened(0.06))
+		var zf := -0.5 + depth - 0.14  # the front of this tier
+		for i in 3:
+			var x := -0.34 + i * 0.33 + rng.randf_range(-0.04, 0.04)
+			var shirt: Color = kits[0] if rng.randf() < 0.6 else kits[rng.randi() % 3]
+			Meshes.box(st, Vector3(x - 0.09, y, zf - 0.08), Vector3(0.18, 0.2, 0.14), shirt)
+			Meshes.box(st, Vector3(x - 0.06, y + 0.2, zf - 0.06), Vector3(0.12, 0.12, 0.11), SKIN[rng.randi() % SKIN.size()])
+			if rng.randf() < 0.35:  # a scarf held up, or a bobble hat
+				Meshes.box(st, Vector3(x - 0.13, y + 0.3, zf - 0.02), Vector3(0.26, 0.05, 0.03), kits[1] if rng.randf() < 0.5 else kits[0])
+			elif rng.randf() < 0.4:
+				Meshes.box(st, Vector3(x - 0.065, y + 0.31, zf - 0.065), Vector3(0.13, 0.06, 0.12), kits[0])
+	# the roof's front edge and the back wall it hangs off
+	_panel(st, -0.5, 1.9, 0.5, 2.45, -0.48, Color("3a3f48"))
+	Meshes.box(st, Vector3(-0.5, 2.3, -0.5), Vector3(1.0, 0.12, 0.7), Color("4a505a"), Color("5c636e"))
+	Meshes.box(st, Vector3(-0.5, 2.24, 0.16), Vector3(1.0, 0.06, 0.04), kits[0])
+	return Meshes._finish(st)
+
+## Rugby posts, in two halves so each upright blocks its own tile: 0 the left upright with the crossbar running
+## east a tile, 1 the right one with it running west. Red padding round the foot of each, as at the Arms Park.
+static func rugby_posts(variant := 0) -> ArrayMesh:
+	var st := Meshes._st()
+	var white := Color("f2efe6")
+	Meshes.box(st, Vector3(-0.17, 0, -0.17), Vector3(0.34, 0.75, 0.34), Color("c8102e"), Color("e0303e"))
+	Meshes.box(st, Vector3(-0.12, 0.6, -0.1), Vector3(0.24, 0.1, 0.22), white)  # the sponsor's band, mercifully blank
+	Meshes.cylinder(st, Vector3(0, 0.75, 0), 0.05, 2.9, 6, white)
+	var dir := 1.0 if variant % 2 == 0 else -1.0
+	_bar(st, Vector3(0, 1.25, 0), Vector3(dir * 1.0, 1.25, 0), 0.045, white)
+	return Meshes._finish(st)
+
+## A floodlight mast with its bank of lamps tilted down at the pitch.
+static func floodlight() -> ArrayMesh:
+	var st := Meshes._st()
+	var steel := Color("6d737c")
+	Meshes.box(st, Vector3(-0.2, 0, -0.2), Vector3(0.4, 0.16, 0.4), Color("8d8a84"))
+	for c in [Vector2(-0.1, -0.1), Vector2(0.1, -0.1), Vector2(0.1, 0.1), Vector2(-0.1, 0.1)]:
+		_bar(st, Vector3(c.x, 0.16, c.y), Vector3(c.x * 0.4, 3.0, c.y * 0.4), 0.025, steel)
+	for i in 6:  # lattice rungs
+		var y := 0.5 + i * 0.45
+		var k := 1.0 - (y - 0.16) / 2.84 * 0.6
+		_bar(st, Vector3(-0.1 * k, y, 0.1 * k), Vector3(0.1 * k, y + 0.2, 0.1 * k), 0.012, steel)
+	Meshes.box(st, Vector3(-0.42, 2.95, -0.12), Vector3(0.84, 0.5, 0.1), Color("2d3138"))
+	for r in 2:
+		for c in 4:
+			Meshes.box(st, Vector3(-0.38 + c * 0.2, 3.0 + r * 0.23, -0.02), Vector3(0.16, 0.18, 0.02), Color("e8ecf0"))
+	return Meshes._finish(st)
+
+## The floodlight's glare and the cold wash it throws on the wet grass in front of it.
+static func floodlight_glow() -> ArrayMesh:
+	var st := Meshes._st()
+	var cold := Color(0.75, 0.85, 1.0)
+	for r in 2:
+		for c in 4:
+			_glow_disc(st, Vector3(-0.3 + c * 0.2, 3.09 + r * 0.23, 0.02), 0.16, cold, 0.9)
+	_glow_pool(st, Vector3(0, 0.02, 1.6), 2.0, 1.8, cold, 0.22)
+	return Meshes._finish(st)
+
+## Standing water on the pitch: a dark sheet with a pale glint along its far edge. Walk-over.
+static func puddle(variant := 0) -> ArrayMesh:
+	var st := Meshes._st()
+	var rng := Meshes._rng(41100 + variant)
+	var pts := []
+	var n := 9
+	for i in n:
+		var a := TAU * i / n
+		var r := rng.randf_range(0.28, 0.46)
+		pts.append(Vector3(cos(a) * r * 1.2, 0.012, sin(a) * r * 0.85))
+	var c := Vector3(rng.randf_range(-0.05, 0.05), 0.012, 0)
+	for i in n:
+		Meshes._tri(st, c, pts[i], pts[(i + 1) % n], Color("3e5262"))
+	for i in range(5, 8):  # the glint, on the side away from the camera
+		var a: Vector3 = pts[i]
+		var b: Vector3 = pts[(i + 1) % n]
+		Meshes._quad(st, a.lerp(c, 0.25) + Vector3(0, 0.002, 0), b.lerp(c, 0.25) + Vector3(0, 0.002, 0), b.lerp(c, 0.4) + Vector3(0, 0.002, 0), a.lerp(c, 0.4) + Vector3(0, 0.002, 0), Color("9fb6c4"))
+	return Meshes._finish(st)
+
+## A painted line on a pitch or the ice, running east from the tile's west edge. Variant % 100 is its length in
+## tiles (at least 1); variant / 100 its colour: 0 white, 1 red, 2 blue. Walk-over.
+static func pitch_line(variant := 0) -> ArrayMesh:
+	var st := Meshes._st()
+	var length := float(maxi(variant % 100, 1))
+	var col: Color = [Color("f2f2ea"), Color("c8323a"), Color("2f5fa8")][clampi(floori(variant / 100.0), 0, 2)]
+	floor_quad(st, -0.5, -0.045, length - 0.5, 0.045, 0.011, col)
+	return Meshes._finish(st)
+
+# --- Belfast: the shipyard --------------------------------------------------------
+
+## A yellow gantry crane straddling the dock, after Samson and Goliath: legs three tiles apart (local x = -1.45
+## and +1.45), the girder at the top, the hook down over the slip with a plate on it.
+static func gantry_crane() -> ArrayMesh:
+	var st := Meshes._st()
+	var yellow := Color("e8c21a")
+	for sx in [-1.45, 1.45]:
+		var x: float = sx
+		_bar(st, Vector3(x, 0, -0.55), Vector3(x, 2.5, -0.1), 0.07, yellow)
+		_bar(st, Vector3(x, 0, 0.55), Vector3(x, 2.5, 0.1), 0.07, yellow)
+		_bar(st, Vector3(x, 0.9, -0.38), Vector3(x, 0.9, 0.38), 0.04, yellow.darkened(0.1))
+		Meshes.box(st, Vector3(x - 0.14, 0, -0.65), Vector3(0.28, 0.1, 1.3), Color("2d3138"))  # the bogies on the rail
+	Meshes.box(st, Vector3(-1.75, 2.45, -0.22), Vector3(3.5, 0.42, 0.44), yellow, yellow.lightened(0.15))
+	for i in 3:  # "H&W", or near enough from down here
+		Meshes.box(st, Vector3(-0.42 + i * 0.3, 2.52, 0.225), Vector3(0.2, 0.28, 0.01), Color("2d3138"))
+	Meshes.box(st, Vector3(0.25, 2.2, -0.2), Vector3(0.5, 0.25, 0.4), yellow.darkened(0.15))  # the crab
+	_bar(st, Vector3(0.5, 2.2, 0), Vector3(0.5, 1.15, 0), 0.012, IRON)
+	Meshes.box(st, Vector3(0.4, 1.0, -0.06), Vector3(0.2, 0.15, 0.12), IRON)
+	Meshes.box(st, Vector3(0.0, 0.82, -0.3), Vector3(1.0, 0.06, 0.6), Color("6d737c"))  # a hull plate going in
+	_bar(st, Vector3(0.5, 1.0, 0), Vector3(0.05, 0.88, -0.25), 0.008, IRON)
+	_bar(st, Vector3(0.5, 1.0, 0), Vector3(0.95, 0.88, 0.25), 0.008, IRON)
+	return Meshes._finish(st)
+
+## A hull on the slip, half framed and half plated, in red lead primer. It lies north-south, about three tiles.
+static func ship_ribs() -> ArrayMesh:
+	var st := Meshes._st()
+	var primer := Color("a8452e")
+	var plate := Color("5d6168")
+	Meshes.box(st, Vector3(-0.08, -0.2, -1.6), Vector3(0.16, 0.3, 3.2), primer.darkened(0.2))  # the keel
+	for i in 9:
+		var z := -1.45 + i * 0.36
+		var w := 0.62 - absf(i - 4) * 0.035
+		var steps := 5
+		var prev := Vector3(-w, 1.1, z)
+		for k in range(1, steps + 1):  # a U-frame, port to starboard
+			var a := PI * k / steps
+			var cur := Vector3(-cos(a) * w, 1.1 - sin(a) * 1.15, z)
+			_bar(st, prev, cur, 0.035, primer)
+			prev = cur
+	# plating over the stern half
+	for side in [-1.0, 1.0]:
+		var s: float = side
+		Meshes._quad(st, Vector3(s * 0.62, 1.05, 0.2), Vector3(s * 0.62, 1.05, 1.6), Vector3(s * 0.25, 0.0, 1.6), Vector3(s * 0.25, 0.0, 0.2), plate)
+		Meshes._quad(st, Vector3(s * 0.62, 1.05, 1.6), Vector3(s * 0.62, 1.05, 0.2), Vector3(s * 0.25, 0.0, 0.2), Vector3(s * 0.25, 0.0, 1.6), plate.darkened(0.15))
+	_bar(st, Vector3(-0.64, 1.1, -1.5), Vector3(-0.64, 1.1, 1.6), 0.03, primer.lightened(0.1))
+	_bar(st, Vector3(0.64, 1.1, -1.5), Vector3(0.64, 1.1, 1.6), 0.03, primer.lightened(0.1))
+	return Meshes._finish(st)
+
+## Steel plate stacked on timber bearers, with a riveter's toolbox on top.
+static func steel_plates() -> ArrayMesh:
+	var st := Meshes._st()
+	var rng := Meshes._rng(41200)
+	for bz in [-0.3, 0.2]:
+		Meshes.box(st, Vector3(-0.42, 0, float(bz)), Vector3(0.84, 0.1, 0.12), WOOD)
+	for i in 6:
+		var off := rng.randf_range(-0.04, 0.04)
+		Meshes.box(st, Vector3(-0.4 + off, 0.1 + i * 0.06, -0.36), Vector3(0.8, 0.05, 0.7), Color("6d737c").darkened(rng.randf() * 0.15), Color("8a6a4a") if i == 5 else Color(0, 0, 0, 0))
+	Meshes.box(st, Vector3(-0.2, 0.46, -0.1), Vector3(0.3, 0.14, 0.16), Color("c8323a"))
+	_bar(st, Vector3(-0.15, 0.6, -0.02), Vector3(0.05, 0.6, -0.02), 0.012, IRON)
+	return Meshes._finish(st)
+
+# --- Dublin: the parish hall ------------------------------------------------------
+
+## The hall's stage against the north wall, in three tiles: 0 left (curtain), 1 middle, 2 right (curtain).
+static func hall_stage(variant := 0) -> ArrayMesh:
+	var st := Meshes._st()
+	var part := variant % 3
+	var boards := Color("9a6a3e")
+	var velvet := Color("8c1f2a")
+	Meshes.box(st, Vector3(-0.5, 0, -0.5), Vector3(1.0, 0.5, 0.9), boards.darkened(0.25), boards)
+	for i in 4:
+		Meshes.box(st, Vector3(-0.5, 0.5, -0.45 + i * 0.22), Vector3(1.0, 0.005, 0.01), boards.darkened(0.2))
+	_panel(st, -0.5, 0.5, 0.5, 2.45, -0.49, Color("1f2a3a"))  # the backcloth
+	Meshes.box(st, Vector3(-0.5, 2.05, -0.48), Vector3(1.0, 0.4, 0.14), velvet, velvet.lightened(0.1))  # the pelmet
+	Meshes.box(st, Vector3(-0.5, 2.02, -0.34), Vector3(1.0, 0.04, 0.01), BRASS)
+	if part != 1:
+		var x0 := -0.5 if part == 0 else 0.1
+		for f in 4:  # folds
+			Meshes.box(st, Vector3(x0 + f * 0.1, 0.5, -0.47 + (f % 2) * 0.05), Vector3(0.1, 1.55, 0.12), velvet.darkened(0.08 * (f % 2)))
+		Meshes.box(st, Vector3(x0 + 0.05, 1.05, -0.33), Vector3(0.3, 0.04, 0.03), BRASS)  # the tie-back
+	else:
+		Meshes.box(st, Vector3(-0.42, 1.55, -0.47), Vector3(0.84, 0.4, 0.02), Color("2f8a4a"))  # a banner: the club crest
+		Meshes.box(st, Vector3(-0.12, 1.62, -0.45), Vector3(0.24, 0.26, 0.02), Color("f2ede2"))
+		Meshes.box(st, Vector3(-0.06, 1.66, -0.44), Vector3(0.12, 0.18, 0.02), Color("e8892a"))
+	return Meshes._finish(st)
+
+## A trestle table in a white cloth: the urn, cups on saucers and a plate of barmbrack. Every hall has one.
+static func tea_urn() -> ArrayMesh:
+	var st := Meshes._st()
+	Meshes.box(st, Vector3(-0.44, 0.66, -0.34), Vector3(0.88, 0.05, 0.68), Color("f2ede2"))
+	Meshes.box(st, Vector3(-0.44, 0.42, 0.33), Vector3(0.88, 0.26, 0.01), Color("e8e2d4"))  # the cloth's drop
+	for px in [-0.38, 0.33]:
+		_bar(st, Vector3(float(px), 0, -0.25), Vector3(float(px) + 0.04, 0.66, 0.0), 0.02, IRON)
+		_bar(st, Vector3(float(px), 0, 0.25), Vector3(float(px) + 0.04, 0.66, 0.0), 0.02, IRON)
+	var steel := Color("c4ccd2")
+	Meshes.cylinder(st, Vector3(-0.2, 0.71, -0.1), 0.15, 0.42, 10, steel)
+	Meshes.cylinder(st, Vector3(-0.2, 1.13, -0.1), 0.1, 0.05, 10, steel.darkened(0.2))
+	Meshes.box(st, Vector3(-0.22, 0.8, 0.04), Vector3(0.04, 0.05, 0.08), IRON)  # the tap
+	for i in 3:
+		var x := 0.08 + i * 0.11
+		Meshes.cylinder(st, Vector3(x, 0.71, 0.12), 0.05, 0.01, 8, Color("f8f6f0"))
+		Meshes.cylinder(st, Vector3(x, 0.72, 0.12), 0.035, 0.06, 8, Color("f8f6f0"))
+	Meshes.cylinder(st, Vector3(0.2, 0.71, -0.16), 0.13, 0.01, 10, Color("e0dccf"))
+	for i in 3:
+		Meshes.box(st, Vector3(0.12 + i * 0.05, 0.72, -0.2), Vector3(0.05, 0.05, 0.09), Color("7a4a2a"))
+	return Meshes._finish(st)
+
+## Orange plastic stacking chairs, two stacks of them (variant: how high).
+static func stacked_chairs(variant := 0) -> ArrayMesh:
+	var st := Meshes._st()
+	var orange := Color("d9762a")
+	for s in 2:
+		var x := -0.32 + s * 0.42
+		var n := 4 + (variant + s) % 3
+		for i in n:
+			var y := 0.42 + i * 0.07
+			Meshes.box(st, Vector3(x - 0.17, y, -0.17), Vector3(0.34, 0.035, 0.32), orange.darkened(0.04 * (i % 2)))
+			Meshes.box(st, Vector3(x - 0.17, y + 0.04, -0.2), Vector3(0.34, 0.3, 0.03), orange.darkened(0.04 * (i % 2)))
+		for c in [Vector2(-0.15, -0.15), Vector2(0.13, -0.15), Vector2(-0.15, 0.13), Vector2(0.13, 0.13)]:
+			_bar(st, Vector3(x + c.x, 0, c.y), Vector3(x + c.x, 0.42, c.y), 0.012, IRON)
+	return Meshes._finish(st)
+
+# --- Galway: the docks ------------------------------------------------------------
+
+## A tarred currach, upturned on two trestles to dry, an oar leaning on it. A small one: it keeps to its tile.
+static func currach() -> ArrayMesh:
+	var st := Meshes._st()
+	var tar := Color("1d1f24")
+	for tx in [-0.38, 0.38]:
+		var x: float = tx
+		_bar(st, Vector3(x, 0, -0.22), Vector3(x, 0.4, 0), 0.022, WOOD)
+		_bar(st, Vector3(x, 0, 0.22), Vector3(x, 0.4, 0), 0.022, WOOD)
+		Meshes.box(st, Vector3(x - 0.04, 0.38, -0.26), Vector3(0.08, 0.04, 0.52), WOOD)
+	Meshes.blob(st, Vector3(0, 0.44, 0), Vector3(0.62, 0.2, 0.3), tar, Meshes._rng(41250), 0.04)
+	Meshes.box(st, Vector3(-0.6, 0.42, -0.26), Vector3(1.2, 0.035, 0.52), WOOD.darkened(0.35))  # the gunwale, underneath
+	_bar(st, Vector3(-0.62, 0.64, 0), Vector3(0.62, 0.64, 0), 0.018, tar.lightened(0.18))  # the keel strip
+	_bar(st, Vector3(0.2, 0, 0.42), Vector3(0.45, 0.95, 0.18), 0.018, WOOD.lightened(0.15))
+	Meshes.box(st, Vector3(0.15, 0, 0.39), Vector3(0.1, 0.22, 0.03), WOOD.lightened(0.15))
+	return Meshes._finish(st)
+
+## Creels stacked on the quay with a coil of rope and a float. Variant: how many.
+static func lobster_pots(variant := 0) -> ArrayMesh:
+	var st := Meshes._st()
+	var rng := Meshes._rng(41300 + variant)
+	var net := Color("3f5a4a")
+	var spots := [Vector3(-0.2, 0, -0.15), Vector3(0.2, 0, -0.12), Vector3(0.0, 0.32, -0.13), Vector3(-0.2, 0, 0.22)]
+	for i in 3 + variant % 2:
+		var p: Vector3 = spots[i]
+		Meshes.box(st, p + Vector3(-0.17, 0, -0.14), Vector3(0.34, 0.06, 0.28), WOOD.darkened(0.1))
+		for k in 3:
+			var hz := -0.1 + k * 0.1
+			var prev := p + Vector3(-0.16, 0.06, hz)
+			for j in range(1, 5):
+				var a := PI * j / 4
+				var cur := p + Vector3(-cos(a) * 0.16, 0.06 + sin(a) * 0.24, hz)
+				_bar(st, prev, cur, 0.012, net.lightened(rng.randf() * 0.1))
+				prev = cur
+		Meshes.box(st, p + Vector3(-0.15, 0.06, -0.12), Vector3(0.3, 0.2, 0.24), _a(net.darkened(0.3), 1.0))
+	Meshes.cylinder(st, Vector3(0.24, 0, 0.24), 0.14, 0.08, 10, Color("c9a86a"))
+	Meshes.blob(st, Vector3(0.3, 0.12, 0.05), Vector3(0.09, 0.09, 0.09), Color("e8602a"), rng, 0.05)
+	return Meshes._finish(st)
+
+## The old town wall by the quay, with the Spanish Arch: 0 an arch with the bay through it, 1 plain wall.
+static func harbour_arch(variant := 0) -> ArrayMesh:
+	var st := Meshes._st()
+	var rng := Meshes._rng(41400 + variant)
+	var lime := Color("a8a294")
+	if variant % 2 == 0:
+		var sky := Color("b8d4dc")
+		_panel(st, -0.34, 0, 0.34, 1.0, -0.49, sky)  # the bay through the arch, under a pale sky
+		_panel(st, -0.34, 0, 0.34, 0.5, -0.485, Color("4f8aa0"))
+		_panel(st, -0.34, 0.48, 0.34, 0.53, -0.483, Color("5d6a5a"))  # Mutton Island, low on the water
+		_panel(st, 0.04, 0.24, 0.12, 0.38, -0.482, Color("8a3a2a"))  # a hooker's brown sail
+		Meshes.box(st, Vector3(-0.5, 0, -0.5), Vector3(0.16, 1.0, 0.28), lime)
+		Meshes.box(st, Vector3(0.34, 0, -0.5), Vector3(0.16, 1.0, 0.28), lime)
+		Meshes.box(st, Vector3(-0.5, 1.0, -0.5), Vector3(1.0, 1.45, 0.28), lime)
+		var c := Vector3(0, 1.0, -0.218)
+		for i in 8:  # the round head painted on as the opening's top, ringed with voussoirs
+			var a0 := PI * i / 8
+			var a1 := PI * (i + 1) / 8
+			Meshes._tri(st, c, c + Vector3(cos(a1) * 0.34, sin(a1) * 0.34, 0), c + Vector3(cos(a0) * 0.34, sin(a0) * 0.34, 0), sky)
+			Meshes._quad(st, c + Vector3(cos(a1) * 0.46, sin(a1) * 0.46, 0.001), c + Vector3(cos(a0) * 0.46, sin(a0) * 0.46, 0.001),
+				c + Vector3(cos(a0) * 0.34, sin(a0) * 0.34, 0.001), c + Vector3(cos(a1) * 0.34, sin(a1) * 0.34, 0.001), lime.lightened(0.1 if i % 2 == 0 else 0.04))
+	else:
+		Meshes.box(st, Vector3(-0.5, 0, -0.5), Vector3(1.0, 2.45, 0.28), lime)
+		Meshes.cylinder(st, Vector3(0, 0.6, -0.2), 0.07, 0.02, 8, IRON)  # a mooring ring, high and dry
+	for i in 10:  # coursed stone
+		var y := rng.randf_range(0.1, 2.3)
+		var x := rng.randf_range(-0.45, 0.3)
+		if variant % 2 == 0 and absf(x + 0.07) < 0.55 and y < 1.55:
+			continue
+		Meshes.box(st, Vector3(x, y, -0.225), Vector3(rng.randf_range(0.12, 0.2), 0.08, 0.01), lime.darkened(0.12))
+	Meshes.box(st, Vector3(-0.5, 0, -0.22), Vector3(1.0, 0.2, 0.03), Color("4a5a3a"))  # weed where the tide comes
+	return Meshes._finish(st)
+
+# --- Glastonbury: the fae ------------------------------------------------------------
+
+## A crooked hazel post hung with paper lanterns. The glow is fae_glow.
+static func fae_lantern(variant := 0) -> ArrayMesh:
+	var st := Meshes._st()
+	var hazel := Color("6b5a3e")
+	_bar(st, Vector3(0, 0, 0), Vector3(0.05, 1.0, 0.02), 0.035, hazel)
+	_bar(st, Vector3(0.05, 1.0, 0.02), Vector3(-0.04, 1.75, 0), 0.03, hazel)
+	_bar(st, Vector3(-0.04, 1.6, 0), Vector3(0.45, 1.85, 0), 0.02, hazel)
+	_bar(st, Vector3(-0.02, 1.4, 0), Vector3(-0.42, 1.6, 0.05), 0.02, hazel)
+	var paper: Color = [Color("e8d27a"), Color("b8e0a0"), Color("e8b0c8")][variant % 3]
+	for p in [Vector3(0.38, 1.55, 0), Vector3(-0.36, 1.33, 0.05)]:
+		_bar(st, p + Vector3(0, 0.22, 0), p + Vector3(0, 0.15, 0), 0.005, IRON)
+		Meshes.cylinder(st, p - Vector3(0, 0.0, 0), 0.08, 0.15, 8, paper)
+	return Meshes._finish(st)
+
+## The lanterns' light: green-gold, never quite steady, and a faint ring of it on the grass.
+static func fae_glow(variant := 0) -> ArrayMesh:
+	var st := Meshes._st()
+	var col: Color = [Color(1.0, 0.85, 0.4), Color(0.6, 1.0, 0.55), Color(1.0, 0.6, 0.85)][variant % 3]
+	for p in [Vector3(0.38, 1.62, 0.1), Vector3(-0.36, 1.4, 0.15)]:
+		_glow_disc(st, p, 0.24, col, 0.9)
+	_glow_pool(st, Vector3(0, 0.03, 0.1), 1.2, 1.0, col, 0.22)
+	return Meshes._finish(st)
+
+## A fairy ring: red-capped toadstools round the tile, spotted. Walk-over (if you dare).
+static func toadstool_ring(variant := 0) -> ArrayMesh:
+	var st := Meshes._st()
+	var rng := Meshes._rng(41500 + variant)
+	var n := 9
+	for i in n:
+		var a := TAU * i / n + rng.randf_range(-0.15, 0.15)
+		var r := 0.42 + rng.randf_range(-0.04, 0.04)
+		var p := Vector3(cos(a) * r, 0, sin(a) * r)
+		var h := rng.randf_range(0.07, 0.14)
+		Meshes.cylinder(st, p, 0.025, h, 5, Color("efe8d8"))
+		Meshes.blob(st, p + Vector3(0, h, 0), Vector3(0.07, 0.035, 0.07), Color("c8282e"), rng, 0.05)
+		Meshes.box(st, p + Vector3(-0.015, h + 0.025, 0.02), Vector3(0.02, 0.015, 0.02), Color("f8f4ea"))
+	return Meshes._finish(st)
+
+## The Holy Thorn, or a cousin: a gnarled hawthorn tied with rag ribbons for wishes (a clootie tree).
+static func clootie_tree(variant := 0) -> ArrayMesh:
+	var st := Meshes._st()
+	var rng := Meshes._rng(41600 + variant)
+	var bark := Color("5a4a3a")
+	_bar(st, Vector3(0, 0, 0), Vector3(0.1, 0.8, 0.0), 0.08, bark)
+	_bar(st, Vector3(0.1, 0.8, 0.0), Vector3(-0.15, 1.3, 0.05), 0.06, bark)
+	_bar(st, Vector3(0.1, 0.8, 0.0), Vector3(0.45, 1.25, -0.05), 0.05, bark)
+	var greens := [Color("4f6a3a"), Color("5d7a3f"), Color("6a7a3a")]
+	for c in [Vector3(-0.2, 1.5, 0), Vector3(0.45, 1.45, -0.05), Vector3(0.12, 1.7, 0.0), Vector3(-0.4, 1.3, 0.1)]:
+		Meshes.blob(st, c, Vector3(0.36, 0.26, 0.32), greens[rng.randi() % 3], rng, 0.22)
+		for k in 3:  # haws
+			Meshes.box(st, c + Vector3(rng.randf_range(-0.25, 0.25), rng.randf_range(-0.15, 0.15), 0.26), Vector3(0.04, 0.04, 0.04), Color("b8202a"))
+	for i in 9:  # the clooties
+		var at := Vector3(rng.randf_range(-0.5, 0.6), rng.randf_range(1.05, 1.35), rng.randf_range(0.15, 0.3))
+		var rag: Color = CLOTH[rng.randi() % CLOTH.size()].lightened(0.1)
+		Meshes.box(st, at, Vector3(0.05, 0.22, 0.01), rag)
+	return Meshes._finish(st)
+
+# --- Inverness: the curling rink ------------------------------------------------------
+
+## The house: blue, white and red rings painted under the ice, three tiles across, with the tee in the middle.
+static func curling_house() -> ArrayMesh:
+	var st := Meshes._st()
+	var rings := [[1.45, Color("2f5fa8")], [1.05, Color("f4f8fb")], [0.68, Color("c8323a")], [0.24, Color("f4f8fb")]]
+	for i in rings.size():
+		var r: float = rings[i][0]
+		var col: Color = rings[i][1]
+		var y := 0.009 + i * 0.003
+		var steps := 24
+		for k in steps:
+			var a0 := TAU * k / steps
+			var a1 := TAU * (k + 1) / steps
+			Meshes._tri(st, Vector3(0, y, 0), Vector3(cos(a0) * r, y, sin(a0) * r), Vector3(cos(a1) * r, y, sin(a1) * r), col)
+	floor_quad(st, -1.5, -0.02, 1.5, 0.02, 0.022, Color("3a3f48"))  # the tee line
+	floor_quad(st, -0.02, -1.5, 0.02, 1.5, 0.022, Color("3a3f48"))  # the centre line
+	return Meshes._finish(st)
+
+## Granite stones waiting by the hack, red handles and yellow, and a broom. Variant: how many.
+static func curling_stones(variant := 0) -> ArrayMesh:
+	var st := Meshes._st()
+	var granite := Color("7a7e86")
+	var spots := [Vector2(-0.22, -0.15), Vector2(0.18, -0.2), Vector2(-0.12, 0.2), Vector2(0.24, 0.18)]
+	for i in 2 + variant % 3:
+		var p := Vector3(spots[i].x, 0, spots[i].y)
+		Meshes.cylinder(st, p, 0.14, 0.04, 10, granite.darkened(0.15))
+		Meshes.cylinder(st, p + Vector3(0, 0.04, 0), 0.15, 0.07, 10, granite)
+		Meshes.cylinder(st, p + Vector3(0, 0.11, 0), 0.12, 0.012, 10, granite.lightened(0.15))
+		Meshes.box(st, p + Vector3(-0.025, 0.12, -0.09), Vector3(0.05, 0.045, 0.16), Color("c8323a") if i % 2 == 0 else Color("e8c21a"))
+	_bar(st, Vector3(0.4, 0, 0.4), Vector3(0.1, 1.05, -0.35), 0.018, Color("2d3138"))  # a broom leaning on nothing
+	Meshes.box(st, Vector3(0.32, 0, 0.32), Vector3(0.18, 0.06, 0.1), Color("2f5fa8"))
+	return Meshes._finish(st)
+
+# --- Liverpool: the cellar club --------------------------------------------------------
+
+## Brick barrel arches against the north wall, the Cavern way. 0 an arch bay (dark, a poster in it), 1 a pier.
+static func brick_arch(variant := 0) -> ArrayMesh:
+	var st := Meshes._st()
+	var rng := Meshes._rng(41700 + variant)
+	var brick := Color("8a4a32")
+	var mortar := Color("4a2e22")
+	if variant % 2 == 0:
+		_panel(st, -0.5, 0, 0.5, 2.45, -0.49, Color("1d1614"))
+		var poster: Color = [Color("e8c21a"), Color("c8323a"), Color("f2ede2")][rng.randi() % 3]
+		_panel(st, -0.18, 0.9, 0.18, 1.4, -0.485, poster)
+		_panel(st, -0.14, 1.2, 0.14, 1.32, -0.483, Color("1d1614"))
+		_panel(st, -0.12, 0.98, 0.1, 1.05, -0.483, Color("1d1614"))
+		for i in 9:  # the arch, brick on edge
+			var a := PI * i / 8
+			var c := Vector3(-cos(a) * 0.5, 1.75 + sin(a) * 0.45, -0.38)
+			Meshes.box(st, c + Vector3(-0.06, -0.06, -0.12), Vector3(0.12, 0.12, 0.24), brick.lightened(rng.randf() * 0.1))
+		Meshes.box(st, Vector3(-0.5, 2.2, -0.5), Vector3(1.0, 0.25, 0.24), brick)
+	else:
+		Meshes.box(st, Vector3(-0.5, 0, -0.5), Vector3(1.0, 2.45, 0.3), brick)
+		for row in 14:  # courses
+			var y := 0.08 + row * 0.17
+			Meshes.box(st, Vector3(-0.5, y, -0.205), Vector3(1.0, 0.018, 0.01), mortar)
+			var off := 0.0 if row % 2 == 0 else 0.15
+			for k in 4:
+				Meshes.box(st, Vector3(-0.45 + off + k * 0.3, y - 0.15, -0.205), Vector3(0.018, 0.15, 0.01), mortar)
+	return Meshes._finish(st)
+
+## The band's kit: 0 the drums, 1 an amp stack, 2 a mic stand and a guitar on its stand.
+static func band_kit(variant := 0) -> ArrayMesh:
+	var st := Meshes._st()
+	match variant % 3:
+		0:
+			Meshes.cylinder(st, Vector3(0, 0.0, 0), 0.24, 0.0, 12, IRON)
+			var bass := Vector3(0, 0.26, 0.05)
+			for r in [[0.26, Color("2d3138")], [0.22, Color("f2ede2")]]:
+				_disc_z(st, bass + Vector3(0, 0, 0.14 + (0.01 if float(r[0]) < 0.25 else 0.0)), float(r[0]), 14, r[1])
+			Meshes.cylinder(st, bass + Vector3(0, -0.26, -0.13), 0.26, 0.0, 12, IRON)
+			Meshes.box(st, Vector3(-0.26, 0.0, -0.1), Vector3(0.52, 0.52, 0.3), Color("c8323a"))
+			_disc_z(st, bass + Vector3(0, 0.0, 0.16), 0.08, 10, Color("c8323a"))  # the band's name, too small to read
+			Meshes.cylinder(st, Vector3(-0.3, 0.55, 0.12), 0.13, 0.1, 10, Color("c8323a"))  # snare
+			Meshes.cylinder(st, Vector3(0.2, 0.62, -0.02), 0.11, 0.12, 10, Color("c8323a"))  # tom
+			for cx in [-0.42, 0.42]:
+				_bar(st, Vector3(float(cx), 0, -0.1), Vector3(float(cx), 0.95, -0.1), 0.012, IRON)
+				Meshes.cylinder(st, Vector3(float(cx), 0.95, -0.1), 0.17, 0.015, 10, BRASS)
+			Meshes.box(st, Vector3(-0.12, 0, -0.42), Vector3(0.24, 0.45, 0.22), Color("2d3138"))  # the stool
+		1:
+			Meshes.box(st, Vector3(-0.32, 0, -0.3), Vector3(0.64, 0.62, 0.5), Color("1d1d20"))
+			Meshes.box(st, Vector3(-0.3, 0.62, -0.28), Vector3(0.6, 0.42, 0.46), Color("1d1d20"))
+			Meshes.box(st, Vector3(-0.28, 0.06, 0.2), Vector3(0.56, 0.5, 0.01), Color("3a3a40"))  # grille
+			Meshes.box(st, Vector3(-0.28, 0.82, 0.18), Vector3(0.56, 0.06, 0.01), BRASS)
+			for k in 5:
+				Meshes.box(st, Vector3(-0.22 + k * 0.1, 0.72, 0.18), Vector3(0.04, 0.04, 0.02), Color("f2ede2"))
+			Meshes.box(st, Vector3(-0.26, 0.94, 0.18), Vector3(0.2, 0.05, 0.01), Color("f2ede2"))  # the logo
+		_:
+			_bar(st, Vector3(-0.15, 0, -0.05), Vector3(-0.15, 1.35, -0.05), 0.012, IRON)
+			_bar(st, Vector3(-0.15, 1.35, -0.05), Vector3(-0.1, 1.4, 0.1), 0.01, IRON)
+			Meshes.blob(st, Vector3(-0.1, 1.42, 0.12), Vector3(0.035, 0.04, 0.035), Color("8a8e96"), Meshes._rng(3), 0.02)
+			for k in 3:
+				var a := TAU * k / 3
+				_bar(st, Vector3(-0.15, 0.1, -0.05), Vector3(-0.15 + cos(a) * 0.15, 0, -0.05 + sin(a) * 0.15), 0.01, IRON)
+			var body := Color("b8402a")
+			Meshes.blob(st, Vector3(0.22, 0.32, 0), Vector3(0.16, 0.2, 0.05), body, Meshes._rng(4), 0.04)
+			_disc_z(st, Vector3(0.22, 0.36, 0.05), 0.04, 8, Color("1d1614"))
+			Meshes.box(st, Vector3(0.2, 0.5, -0.02), Vector3(0.04, 0.5, 0.03), WOOD.darkened(0.2))
+			Meshes.box(st, Vector3(0.18, 1.0, -0.02), Vector3(0.08, 0.1, 0.03), WOOD.darkened(0.3))
+			_bar(st, Vector3(0.1, 0, -0.1), Vector3(0.22, 0.3, -0.04), 0.012, IRON)
+			_bar(st, Vector3(0.34, 0, -0.1), Vector3(0.22, 0.3, -0.04), 0.012, IRON)
+	return Meshes._finish(st)
+
+## A par can on a floor stand, aimed back up at the band. The colour is stage_glow's variant.
+static func stage_light() -> ArrayMesh:
+	var st := Meshes._st()
+	for k in 3:
+		var a := TAU * k / 3 + 0.4
+		_bar(st, Vector3(0, 0.3, 0), Vector3(cos(a) * 0.18, 0, sin(a) * 0.18), 0.012, IRON)
+	_bar(st, Vector3(0, 0.3, 0), Vector3(0, 0.55, 0), 0.014, IRON)
+	Meshes.box(st, Vector3(-0.1, 0.5, -0.1), Vector3(0.2, 0.2, 0.22), Color("1d1d20"))
+	return Meshes._finish(st)
+
+## Stage colour: 0 magenta, 1 cyan, 2 amber, 3 green. A beam of it on the floor towards the band (north).
+static func stage_glow(variant := 0) -> ArrayMesh:
+	var st := Meshes._st()
+	var col: Color = [Color(1.0, 0.3, 0.75), Color(0.3, 0.8, 1.0), Color(1.0, 0.65, 0.2), Color(0.4, 1.0, 0.45)][variant % 4]
+	_glow_disc(st, Vector3(0, 0.62, -0.13), 0.12, col, 1.0)
+	_glow_pool(st, Vector3(0, 0.02, -1.1), 1.0, 1.25, col, 0.45)
+	return Meshes._finish(st)
+
+# --- Llanberis: the quarry -------------------------------------------------------------
+
+## Dressed roofing slates stacked on edge in rows on a pallet, the blue-purple of Dinorwic. Variant: how full.
+static func slate_stack(variant := 0) -> ArrayMesh:
+	var st := Meshes._st()
+	var rng := Meshes._rng(41800 + variant)
+	var slate := Color("4e5468")
+	Meshes.box(st, Vector3(-0.42, 0, -0.36), Vector3(0.84, 0.1, 0.72), WOOD)
+	for k in 3 + variant % 2:  # piles of dressed slates, flat, each a little askew
+		var c := Vector3(-0.2 + (k % 2) * 0.4, 0.1, -0.16 + (0.32 if k >= 2 else 0.0))
+		var h := 10 + rng.randi() % 6
+		for i in h:
+			var o := Vector3(rng.randf_range(-0.015, 0.015), i * 0.026, rng.randf_range(-0.015, 0.015))
+			Meshes.box(st, c + o + Vector3(-0.17, 0, -0.12), Vector3(0.34, 0.022, 0.24), slate.lightened(rng.randf_range(-0.05, 0.08)), Color("6a7088"))
+	return Meshes._finish(st)
+
+## A slate wagon on a length of narrow-gauge track, loaded with slabs from the gallery.
+static func slate_wagon() -> ArrayMesh:
+	var st := Meshes._st()
+	var slate := Color("4e5468")
+	for rz in [-0.17, 0.17]:
+		Meshes.box(st, Vector3(-0.5, 0, float(rz) - 0.02), Vector3(1.0, 0.05, 0.04), Color("6d737c"))
+	for i in 4:
+		Meshes.box(st, Vector3(-0.45 + i * 0.27, 0, -0.26), Vector3(0.1, 0.03, 0.52), WOOD.darkened(0.2))
+	Meshes.box(st, Vector3(-0.36, 0.15, -0.22), Vector3(0.72, 0.1, 0.44), Color("3a3f48"))
+	for wx in [-0.24, 0.24]:
+		for wz in [-0.19, 0.19]:
+			Meshes.cylinder(st, Vector3(float(wx), 0.04, float(wz)), 0.09, 0.03, 8, IRON)
+	for cx in [-0.36, 0.3]:
+		Meshes.box(st, Vector3(float(cx), 0.25, -0.22), Vector3(0.06, 0.3, 0.44), Color("3a3f48"))
+	for i in 4:
+		Meshes.box(st, Vector3(-0.3 + i * 0.03, 0.25 + i * 0.07, -0.18), Vector3(0.62 - i * 0.06, 0.06, 0.36), slate.lightened(0.04 * i))
+	return Meshes._finish(st)
+
+# --- York: the crypt -------------------------------------------------------------------
+
+## Norman stonework over the north wall: 0 a round arch with a candle niche, 1 a squat pier with chevrons.
+static func crypt_arch(variant := 0) -> ArrayMesh:
+	var st := Meshes._st()
+	var rng := Meshes._rng(41900 + variant)
+	var ashlar := Color("8a8274")
+	if variant % 2 == 0:
+		_panel(st, -0.5, 0, 0.5, 2.45, -0.49, Color("2a2622"))
+		Meshes.box(st, Vector3(-0.5, 0, -0.5), Vector3(0.14, 0.75, 0.3), ashlar)
+		Meshes.box(st, Vector3(0.36, 0, -0.5), Vector3(0.14, 0.75, 0.3), ashlar)
+		for i in 9:
+			var a := PI * i / 8
+			var c := Vector3(-cos(a) * 0.43, 0.75 + sin(a) * 0.43, -0.35)
+			Meshes.box(st, c + Vector3(-0.07, -0.07, -0.15), Vector3(0.14, 0.14, 0.3), ashlar.lightened(0.05 + rng.randf() * 0.05))
+		Meshes.box(st, Vector3(-0.5, 1.25, -0.5), Vector3(1.0, 1.2, 0.26), ashlar)
+		for sx in [-0.5, 0.36]:
+			Meshes.box(st, Vector3(float(sx), 0.75, -0.5), Vector3(0.14, 0.5, 0.26), ashlar)
+		Meshes.box(st, Vector3(-0.16, 0.3, -0.46), Vector3(0.32, 0.04, 0.12), ashlar.lightened(0.1))  # the niche's sill
+		Meshes.box(st, Vector3(-0.1, 0.34, -0.44), Vector3(0.2, 0.12, 0.06), Color("efe6cc"))  # a skull, for the ghost walk
+		Meshes.box(st, Vector3(-0.06, 0.39, -0.379), Vector3(0.04, 0.035, 0.01), Color("1d1a18"))
+		Meshes.box(st, Vector3(0.02, 0.39, -0.379), Vector3(0.04, 0.035, 0.01), Color("1d1a18"))
+	else:
+		Meshes.box(st, Vector3(-0.5, 0, -0.5), Vector3(1.0, 2.45, 0.26), ashlar)
+		Meshes.box(st, Vector3(-0.3, 0, -0.5), Vector3(0.6, 2.45, 0.36), ashlar.lightened(0.04))
+		for k in 6:  # zig-zag chevrons, the Normans' favourite joke
+			var y := 0.4 + k * 0.3
+			_bar(st, Vector3(-0.28, y, -0.13), Vector3(0, y + 0.13, -0.13), 0.025, ashlar.darkened(0.2))
+			_bar(st, Vector3(0, y + 0.13, -0.13), Vector3(0.28, y, -0.13), 0.025, ashlar.darkened(0.2))
+	for i in 8:  # joints
+		var y := rng.randf_range(0.1, 2.35)
+		Meshes.box(st, Vector3(rng.randf_range(-0.5, 0.2), y, -0.235 if variant % 2 == 0 else -0.135), Vector3(0.28, 0.012, 0.01), ashlar.darkened(0.25))
+	return Meshes._finish(st)
+
+## A wrought-iron candle stand, five candles, wax down its legs. The flames are candle_glow.
+static func candelabra() -> ArrayMesh:
+	var st := Meshes._st()
+	for k in 3:
+		var a := TAU * k / 3 + 0.5
+		_bar(st, Vector3(0, 0.25, 0), Vector3(cos(a) * 0.2, 0, sin(a) * 0.2), 0.015, IRON)
+	_bar(st, Vector3(0, 0.2, 0), Vector3(0, 1.25, 0), 0.022, IRON)
+	_bar(st, Vector3(-0.3, 1.2, 0), Vector3(0.3, 1.2, 0), 0.015, IRON)
+	_bar(st, Vector3(0, 1.2, -0.2), Vector3(0, 1.2, 0.2), 0.015, IRON)
+	for p in [Vector3(-0.3, 1.2, 0), Vector3(0.3, 1.2, 0), Vector3(0, 1.2, -0.2), Vector3(0, 1.2, 0.2), Vector3(0, 1.25, 0)]:
+		Meshes.cylinder(st, p, 0.03, 0.16 + (0.06 if p.y > 1.21 else 0.0), 6, Color("efe6cc"))
+		Meshes.box(st, p + Vector3(0.02, -0.06, -0.01), Vector3(0.015, 0.08, 0.015), Color("efe6cc"))  # a drip
+	return Meshes._finish(st)
+
+## Five small flames and the warm pool they make on the flags.
+static func candle_glow() -> ArrayMesh:
+	var st := Meshes._st()
+	for p in [Vector3(-0.3, 1.36, 0), Vector3(0.3, 1.36, 0), Vector3(0, 1.36, -0.2), Vector3(0, 1.36, 0.2), Vector3(0, 1.47, 0)]:
+		_flame(st, p, 0.11, 0.03)
+		_glow_disc(st, p + Vector3(0, 0.04, 0.06), 0.16, Color(1.0, 0.7, 0.35), 0.45)
+	_glow_pool(st, Vector3(0, 0.03, 0.1), 1.5, 1.3, Color(1.0, 0.6, 0.25), 0.4)
+	return Meshes._finish(st)
+
+## A tomb chest with its effigy on the lid, hands together: 0 a knight with his feet on a dog, 1 a lady.
+static func tomb_chest(variant := 0) -> ArrayMesh:
+	var st := Meshes._st()
+	var rng := Meshes._rng(42000 + variant)
+	var stone := Color("a39a88")
+	Meshes.box(st, Vector3(-0.45, 0, -0.32), Vector3(0.9, 0.5, 0.64), stone.darkened(0.08), stone)
+	for i in 3:  # weepers' niches on the side
+		Meshes.box(st, Vector3(-0.36 + i * 0.27, 0.1, 0.32), Vector3(0.18, 0.3, 0.01), stone.darkened(0.3))
+	var fig := stone.lightened(0.08) if variant % 2 == 0 else Color("e0dcd0")
+	Meshes.box(st, Vector3(-0.36, 0.5, -0.12), Vector3(0.6, 0.12, 0.24), fig)
+	Meshes.blob(st, Vector3(-0.36, 0.62, 0), Vector3(0.09, 0.08, 0.09), fig, rng, 0.04)
+	Meshes.box(st, Vector3(-0.48, 0.5, -0.14), Vector3(0.12, 0.1, 0.28), stone.lightened(0.04))  # the pillow
+	Meshes.box(st, Vector3(-0.1, 0.62, -0.03), Vector3(0.06, 0.1, 0.06), fig.darkened(0.05))  # hands together
+	if variant % 2 == 0:
+		Meshes.box(st, Vector3(-0.2, 0.62, 0.08), Vector3(0.48, 0.03, 0.04), fig.darkened(0.1))  # the sword
+		Meshes.blob(st, Vector3(0.32, 0.6, 0), Vector3(0.08, 0.07, 0.1), fig.darkened(0.08), rng, 0.08)  # the dog
+	else:
+		Meshes.box(st, Vector3(0.0, 0.62, -0.12), Vector3(0.28, 0.04, 0.24), fig.darkened(0.04))  # the gown's folds
+	return Meshes._finish(st)
+
+# --- the Moot ---------------------------------------------------------------------------
+
+## An iron fire basket on a tripod. The fire is brazier_fire.
+static func brazier() -> ArrayMesh:
+	var st := Meshes._st()
+	for k in 3:
+		var a := TAU * k / 3 + 0.3
+		_bar(st, Vector3(cos(a) * 0.08, 0.7, sin(a) * 0.08), Vector3(cos(a) * 0.3, 0, sin(a) * 0.3), 0.025, IRON)
+	var lo := Meshes._ring(Vector3(0, 0.68, 0), 0.12, 0.68, 8)
+	var hi := Meshes._ring(Vector3(0, 0.95, 0), 0.3, 0.95, 8)
+	for i in 8:
+		var j := (i + 1) % 8
+		Meshes._quad(st, lo[i], lo[j], hi[j], hi[i], IRON.lightened(0.05 * (i % 2)))
+		Meshes._quad(st, hi[i], hi[j], lo[j], lo[i], IRON.darkened(0.2))
+	Meshes.blob(st, Vector3(0, 0.9, 0), Vector3(0.24, 0.06, 0.24), Color("3a2418"), Meshes._rng(5), 0.1)
+	return Meshes._finish(st)
+
+static func brazier_fire() -> ArrayMesh:
+	var st := Meshes._st()
+	for i in 5:
+		var a := TAU * i / 5
+		_flame(st, Vector3(cos(a) * 0.12, 0.92, sin(a) * 0.12), 0.35 + 0.08 * (i % 2), 0.09)
+	_flame(st, Vector3(0, 0.92, 0), 0.55, 0.12)
+	_glow_disc(st, Vector3(0, 1.2, 0.15), 0.45, Color(1.0, 0.55, 0.2), 0.5)
+	_glow_pool(st, Vector3(0, 0.03, 0), 1.8, 1.8, Color(1.0, 0.55, 0.2), 0.4)
+	return Meshes._finish(st)
+
+# --- Vane's penthouse -------------------------------------------------------------------
+
+## Floor-to-ceiling glass on the north wall with London below at dusk. Variant picks the stretch of skyline
+## (0 has the Shard, 1 the Gherkin, 2 just offices that all look like the Enclosure owns them).
+static func city_window(variant := 0) -> ArrayMesh:
+	var st := Meshes._st()
+	var rng := Meshes._rng(42100 + variant)
+	var sky := [Color("f0a868"), Color("c8789a"), Color("5a5a8a"), Color("2a3050")]
+	for i in 4:  # dusk, banded
+		_panel(st, -0.5, 0.15 + i * 0.57, 0.5, 0.15 + (i + 1) * 0.57, -0.49, sky[i])
+	var skyline := Color("2a2f3e")
+	var x := -0.5
+	while x < 0.5:
+		var w := rng.randf_range(0.08, 0.18)
+		var h := rng.randf_range(0.35, 0.95)
+		var x1 := minf(x + w, 0.5)
+		_panel(st, x, 0.15, x1, 0.15 + h, -0.485, skyline.lightened(rng.randf() * 0.08))
+		for k in int(h / 0.12):
+			if rng.randf() < 0.45:
+				var wy := 0.22 + k * 0.12
+				_panel(st, x + 0.02, wy, x + 0.045, wy + 0.04, -0.483, Color("f0d080"))
+		x = x1 + 0.01
+	match variant % 3:
+		0:
+			Meshes._tri(st, Vector3(-0.1, 0.15, -0.482), Vector3(0.08, 0.15, -0.482), Vector3(-0.03, 1.9, -0.482), Color("4a5068"))
+		1:
+			Meshes.blob(st, Vector3(0.15, 0.7, -0.48), Vector3(0.09, 0.45, 0.005), Color("3f5a6a"), rng, 0.0)
+	for mx in [-0.5, 0.47]:  # mullions
+		Meshes.box(st, Vector3(float(mx), 0, -0.5), Vector3(0.03, 2.45, 0.06), Color("1d2028"))
+	Meshes.box(st, Vector3(-0.5, 0, -0.5), Vector3(1.0, 0.15, 0.1), Color("1d2028"))
+	return Meshes._finish(st)
+
+## The Enclosure's banner on its stand: a long drop of slate grey with the logo, a white cage in a green square.
+static func enclosure_banner() -> ArrayMesh:
+	var st := Meshes._st()
+	var grey := Color("3a4048")
+	Meshes.box(st, Vector3(-0.32, 2.32, -0.5), Vector3(0.64, 0.05, 0.1), IRON)
+	for sx in [-0.34, 0.31]:  # it stands on its own two feet, which is more than its owner does
+		Meshes.box(st, Vector3(float(sx), 0, -0.5), Vector3(0.03, 2.37, 0.03), IRON)
+		Meshes.box(st, Vector3(float(sx) - 0.08, 0, -0.62), Vector3(0.19, 0.03, 0.25), IRON)
+	_panel(st, -0.28, 0.45, 0.28, 2.32, -0.46, grey)
+	Meshes._tri(st, Vector3(-0.28, 0.45, -0.46), Vector3(0.28, 0.45, -0.46), Vector3(0, 0.3, -0.46), grey)
+	_panel(st, -0.2, 1.4, 0.2, 1.8, -0.455, Color("2f6a4a"))
+	for k in 4:
+		_panel(st, -0.15 + k * 0.1, 1.45, -0.13 + k * 0.1, 1.75, -0.45, Color("f2ede2"))
+	_panel(st, -0.15, 1.72, 0.17, 1.75, -0.449, Color("f2ede2"))
+	_panel(st, -0.15, 1.45, 0.17, 1.48, -0.449, Color("f2ede2"))
+	_panel(st, -0.2, 1.12, 0.2, 1.17, -0.455, Color("c9c4b8"))  # the motto, in very small capitals
+	return Meshes._finish(st)
+
+## A glass case on a plinth with something wild inside that would rather not be. Variant: its colour.
+static func creature_cage(variant := 0) -> ArrayMesh:
+	var st := Meshes._st()
+	var rng := Meshes._rng(42200 + variant)
+	Meshes.box(st, Vector3(-0.32, 0, -0.32), Vector3(0.64, 0.5, 0.64), Color("e6e2d6"), Color("f2efe6"))
+	var fur: Color = [Color("c98a3a"), Color("6a8a9a"), Color("8a5a8a"), Color("5d8a3f")][variant % 4]
+	Meshes.blob(st, Vector3(0, 0.66, 0), Vector3(0.16, 0.14, 0.14), fur, rng, 0.12)
+	Meshes.blob(st, Vector3(0.1, 0.8, 0.06), Vector3(0.08, 0.08, 0.08), fur.lightened(0.08), rng, 0.08)
+	Meshes.box(st, Vector3(0.12, 0.82, 0.13), Vector3(0.025, 0.025, 0.01), Color("1d1a18"))
+	Meshes.box(st, Vector3(0.06, 0.82, 0.13), Vector3(0.025, 0.025, 0.01), Color("1d1a18"))
+	for c in [Vector2(-0.28, -0.28), Vector2(0.26, -0.28), Vector2(0.26, 0.26), Vector2(-0.28, 0.26)]:
+		Meshes.box(st, Vector3(c.x, 0.5, c.y), Vector3(0.02, 0.62, 0.02), BRASS)
+	Meshes.box(st, Vector3(-0.3, 1.12, -0.3), Vector3(0.6, 0.03, 0.6), BRASS)
+	Meshes.box(st, Vector3(-0.1, 0.2, 0.32), Vector3(0.2, 0.08, 0.01), BRASS)  # the plaque
+	return Meshes._finish(st)

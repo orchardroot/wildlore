@@ -7,66 +7,6 @@
  "weather": {},
  "props": [
   {
-   "type": "bookshelf",
-   "x": 1,
-   "y": 5
-  },
-  {
-   "type": "potted_plant",
-   "x": 1,
-   "y": 8
-  },
-  {
-   "type": "bookshelf",
-   "x": 11,
-   "y": 5
-  },
-  {
-   "type": "potted_plant",
-   "x": 11,
-   "y": 8
-  },
-  {
-   "type": "table",
-   "x": 3,
-   "y": 1
-  },
-  {
-   "type": "table",
-   "x": 9,
-   "y": 1
-  },
-  {
-   "type": "lamp_post",
-   "x": 4,
-   "y": 4
-  },
-  {
-   "type": "lamp_post",
-   "x": 8,
-   "y": 4
-  },
-  {
-   "type": "bookshelf",
-   "x": 1,
-   "y": 3
-  },
-  {
-   "type": "bookshelf",
-   "x": 11,
-   "y": 3
-  },
-  {
-   "type": "bookshelf",
-   "x": 1,
-   "y": 7
-  },
-  {
-   "type": "bookshelf",
-   "x": 11,
-   "y": 7
-  },
-  {
    "type": "table",
    "x": 3,
    "y": 9
@@ -85,6 +25,88 @@
    "type": "bench",
    "x": 10,
    "y": 10
+  },
+  {
+   "type": "brick_arch",
+   "x": 3,
+   "y": 1,
+   "variant": 1
+  },
+  {
+   "type": "brick_arch",
+   "x": 4,
+   "y": 1,
+   "variant": 0
+  },
+  {
+   "type": "brick_arch",
+   "x": 5,
+   "y": 1,
+   "variant": 1
+  },
+  {
+   "type": "brick_arch",
+   "x": 6,
+   "y": 1,
+   "variant": 0
+  },
+  {
+   "type": "brick_arch",
+   "x": 7,
+   "y": 1,
+   "variant": 1
+  },
+  {
+   "type": "brick_arch",
+   "x": 8,
+   "y": 1,
+   "variant": 0
+  },
+  {
+   "type": "brick_arch",
+   "x": 9,
+   "y": 1,
+   "variant": 1
+  },
+  {
+   "type": "band_kit",
+   "x": 6,
+   "y": 1,
+   "variant": 0
+  },
+  {
+   "type": "band_kit",
+   "x": 4,
+   "y": 1,
+   "variant": 1
+  },
+  {
+   "type": "band_kit",
+   "x": 8,
+   "y": 1,
+   "variant": 2
+  },
+  {
+   "type": "stage_light",
+   "x": 3,
+   "y": 3,
+   "variant": 0
+  },
+  {
+   "type": "stage_light",
+   "x": 9,
+   "y": 3,
+   "variant": 1
+  },
+  {
+   "type": "table",
+   "x": 1,
+   "y": 4
+  },
+  {
+   "type": "table",
+   "x": 11,
+   "y": 4
   }
  ],
  "warps": [
@@ -136,10 +158,76 @@
    "move": "still",
    "script": "liverpool_quizmaster",
    "name": "Quizmaster"
+  },
+  {
+   "id": "club_punter",
+   "sprite": "festival_goer",
+   "x": 1,
+   "y": 6,
+   "facing": "right",
+   "move": "still",
+   "text": "Ray says he saw the Beatles here. Ray says he saw them every week. Ray is fifty-two.",
+   "hide_if": "trainer_keeper_ray"
+  },
+  {
+   "id": "club_punter_won",
+   "sprite": "festival_goer",
+   "x": 1,
+   "y": 6,
+   "facing": "right",
+   "move": "still",
+   "text": "Ey, you've put Ray off his chorus. First time in thirty years. Top night, this.",
+   "show_if": "trainer_keeper_ray"
+  },
+  {
+   "id": "club_regular",
+   "sprite": "commuter",
+   "x": 11,
+   "y": 7,
+   "facing": "left",
+   "move": "still",
+   "text": "I only came in to get out of the rain. That was 1998. It's still raining, to be fair.",
+   "hide_if": "trainer_keeper_ray"
+  },
+  {
+   "id": "club_regular_won",
+   "sprite": "commuter",
+   "x": 11,
+   "y": 7,
+   "facing": "left",
+   "move": "still",
+   "text": "Brilliant. The band's doing a song about you. It rhymes you with 'too right'. They tried.",
+   "show_if": "trainer_keeper_ray"
+  },
+  {
+   "id": "club_drummer",
+   "sprite": "villager_5",
+   "x": 8,
+   "y": 3,
+   "facing": "left",
+   "move": "still",
+   "text": "Don't touch the snare. It's held together with gaffer tape and Ray's optimism.",
+   "hide_if": "trainer_keeper_ray"
+  },
+  {
+   "id": "club_drummer_won",
+   "sprite": "villager_5",
+   "x": 8,
+   "y": 3,
+   "facing": "left",
+   "move": "still",
+   "text": "Ray's let me play the encore. He never lets me play the encore. Cheers for that.",
+   "show_if": "trainer_keeper_ray"
   }
  ],
  "encounters": {},
- "signs": [],
+ "signs": [
+  {
+   "x": 4,
+   "y": 10,
+   "text": "THE CAVERN (ISH). Keeper Ray and the house band. Live music, cheap pop, and a Stone behind the bar. Do not ask the band for Wonderwall. They are from here."
+  }
+ ],
  "spawn": [
   6,
   9
@@ -147,16 +235,30 @@
  "stage": "city",
  "rows": [
   "xxxxxxxxxxxxx",
-  "xCC+++++++CCx",
-  "x||+++++++||x",
-  "x||+++++++||x",
-  "x|||||||||||x",
-  "x|||||||||||x",
-  "x|||||||||||x",
-  "x|||||||||||x",
-  "x|||||||||||x",
-  "x|||||||||||x",
-  "x|||||||||||x",
+  "xCCsssssssCCx",
+  "xywssssssswyx",
+  "xwysssssssywx",
+  "xywywywywywyx",
+  "xwywywywywywx",
+  "xywywywywywyx",
+  "xwywywywywywx",
+  "xywywywywywyx",
+  "xwywywywywywx",
+  "xywywywywywyx",
   "xxxxxxxxxxxxx"
- ]
+ ],
+ "legend_extra": {
+  "s": {
+   "tile": "floor_tile",
+   "colour": "#4a3a3e"
+  },
+  "w": {
+   "tile": "floor_wood",
+   "colour": "#6a4630"
+  },
+  "y": {
+   "tile": "floor_wood",
+   "colour": "#5e3e2a"
+  }
+ }
 }

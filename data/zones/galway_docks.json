@@ -51,16 +51,6 @@
    "y": 9
   },
   {
-   "type": "lamp_post",
-   "x": 7,
-   "y": 2
-  },
-  {
-   "type": "lamp_post",
-   "x": 11,
-   "y": 2
-  },
-  {
    "type": "bench",
    "x": 6,
    "y": 11
@@ -71,14 +61,149 @@
    "y": 11
   },
   {
-   "type": "planter",
-   "x": 2,
-   "y": 11
+   "type": "harbour_arch",
+   "x": 1,
+   "y": 1,
+   "variant": 1
   },
   {
-   "type": "planter",
+   "type": "harbour_arch",
+   "x": 2,
+   "y": 1,
+   "variant": 1
+  },
+  {
+   "type": "harbour_arch",
+   "x": 3,
+   "y": 1,
+   "variant": 1
+  },
+  {
+   "type": "harbour_arch",
+   "x": 4,
+   "y": 1,
+   "variant": 1
+  },
+  {
+   "type": "harbour_arch",
+   "x": 5,
+   "y": 1,
+   "variant": 1
+  },
+  {
+   "type": "harbour_arch",
+   "x": 6,
+   "y": 1,
+   "variant": 0
+  },
+  {
+   "type": "harbour_arch",
+   "x": 7,
+   "y": 1,
+   "variant": 1
+  },
+  {
+   "type": "harbour_arch",
+   "x": 8,
+   "y": 1,
+   "variant": 1
+  },
+  {
+   "type": "harbour_arch",
+   "x": 9,
+   "y": 1,
+   "variant": 0
+  },
+  {
+   "type": "harbour_arch",
+   "x": 10,
+   "y": 1,
+   "variant": 1
+  },
+  {
+   "type": "harbour_arch",
+   "x": 11,
+   "y": 1,
+   "variant": 1
+  },
+  {
+   "type": "harbour_arch",
+   "x": 12,
+   "y": 1,
+   "variant": 0
+  },
+  {
+   "type": "harbour_arch",
+   "x": 13,
+   "y": 1,
+   "variant": 1
+  },
+  {
+   "type": "harbour_arch",
+   "x": 14,
+   "y": 1,
+   "variant": 1
+  },
+  {
+   "type": "harbour_arch",
+   "x": 15,
+   "y": 1,
+   "variant": 1
+  },
+  {
+   "type": "harbour_arch",
    "x": 16,
-   "y": 11
+   "y": 1,
+   "variant": 1
+  },
+  {
+   "type": "harbour_arch",
+   "x": 17,
+   "y": 1,
+   "variant": 1
+  },
+  {
+   "type": "currach",
+   "x": 5,
+   "y": 6,
+   "rot": 90
+  },
+  {
+   "type": "lobster_pots",
+   "x": 12,
+   "y": 4,
+   "variant": 1
+  },
+  {
+   "type": "lobster_pots",
+   "x": 13,
+   "y": 8,
+   "variant": 0
+  },
+  {
+   "type": "lobster_pots",
+   "x": 5,
+   "y": 3,
+   "variant": 0
+  },
+  {
+   "type": "puddle",
+   "x": 10,
+   "y": 7,
+   "variant": 6,
+   "walk": true
+  },
+  {
+   "type": "flagpole",
+   "x": 2,
+   "y": 10,
+   "variant": 2
+  },
+  {
+   "type": "flagpole",
+   "x": 16,
+   "y": 10,
+   "variant": 2
   }
  ],
  "warps": [
@@ -119,10 +244,76 @@
    "facing": "left",
    "move": "still",
    "trainer": "galway_junior_2"
+  },
+  {
+   "id": "docks_fisher",
+   "sprite": "fisher",
+   "x": 4,
+   "y": 10,
+   "facing": "up",
+   "move": "still",
+   "text": "Nuala rows out past Inis Mór for fun. In February. You'd want to be tougher than a February.",
+   "hide_if": "trainer_keeper_nuala"
+  },
+  {
+   "id": "docks_fisher_won",
+   "sprite": "fisher",
+   "x": 4,
+   "y": 10,
+   "facing": "up",
+   "move": "still",
+   "text": "First time I've seen her lose her footing on that quay. Mind, it's been a slippy year.",
+   "show_if": "trainer_keeper_nuala"
+  },
+  {
+   "id": "docks_singer",
+   "sprite": "sean_nos_singer",
+   "x": 14,
+   "y": 10,
+   "facing": "up",
+   "move": "still",
+   "text": "The tide's on her side, she says. The tide's on nobody's side. It just turns up.",
+   "hide_if": "trainer_keeper_nuala"
+  },
+  {
+   "id": "docks_singer_won",
+   "sprite": "sean_nos_singer",
+   "x": 14,
+   "y": 10,
+   "facing": "up",
+   "move": "still",
+   "text": "Grand job. I'll sing about it at the Crane Bar later. You'll hardly recognise yourself.",
+   "show_if": "trainer_keeper_nuala"
+  },
+  {
+   "id": "docks_gannets",
+   "sprite": "birdwatcher",
+   "x": 17,
+   "y": 10,
+   "facing": "left",
+   "move": "still",
+   "text": "If you hear a splash, it's a gannet. If you hear a bigger splash, it's one of Nuala's.",
+   "hide_if": "trainer_keeper_nuala"
+  },
+  {
+   "id": "docks_gannets_won",
+   "sprite": "birdwatcher",
+   "x": 17,
+   "y": 10,
+   "facing": "left",
+   "move": "still",
+   "text": "The gannets stopped diving to watch you. That has never happened. I've written it down.",
+   "show_if": "trainer_keeper_nuala"
   }
  ],
  "encounters": {},
- "signs": [],
+ "signs": [
+  {
+   "x": 7,
+   "y": 12,
+   "text": "THE SPANISH ARCH. Built in 1584 to keep the sea out of the town. The sea has views on this. Keeper Nuala, Tide Stone, on the quay."
+  }
+ ],
  "spawn": [
   9,
   11

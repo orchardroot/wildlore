@@ -800,6 +800,53 @@
    "variant": "heather",
    "x": 27,
    "y": 19
+  },
+  {
+   "type": "slate_stack",
+   "x": 14,
+   "y": 4,
+   "variant": 0
+  },
+  {
+   "type": "slate_stack",
+   "x": 14,
+   "y": 6,
+   "variant": 1
+  },
+  {
+   "type": "slate_stack",
+   "x": 23,
+   "y": 6,
+   "variant": 1
+  },
+  {
+   "type": "slate_wagon",
+   "x": 22,
+   "y": 3,
+   "rot": 0
+  },
+  {
+   "type": "slate_wagon",
+   "x": 23,
+   "y": 3,
+   "rot": 0
+  },
+  {
+   "type": "brazier",
+   "x": 12,
+   "y": 5
+  },
+  {
+   "type": "flagpole",
+   "x": 11,
+   "y": 3,
+   "variant": 0
+  },
+  {
+   "type": "flagpole",
+   "x": 26,
+   "y": 3,
+   "variant": 0
   }
  ],
  "warps": [
@@ -873,6 +920,66 @@
    "move": "still",
    "script": "keeper_eluned",
    "name": "Keeper Eluned"
+  },
+  {
+   "id": "quarry_splitter",
+   "sprite": "tin_miner",
+   "x": 13,
+   "y": 5,
+   "facing": "right",
+   "move": "still",
+   "text": "I split slate for Eluned. Thin as a biscuit and twice as hard. That's the job.",
+   "hide_if": "trainer_keeper_eluned"
+  },
+  {
+   "id": "quarry_splitter_won",
+   "sprite": "tin_miner",
+   "x": 13,
+   "y": 5,
+   "facing": "right",
+   "move": "still",
+   "text": "You split her team clean along the grain. Never thought I'd see it. Diolch, like.",
+   "show_if": "trainer_keeper_eluned"
+  },
+  {
+   "id": "quarry_warmer",
+   "sprite": "tin_miner",
+   "x": 11,
+   "y": 6,
+   "facing": "up",
+   "move": "still",
+   "text": "Come and warm your hands. The brazier's been going since 1890. We keep meaning to let it out.",
+   "hide_if": "trainer_keeper_eluned"
+  },
+  {
+   "id": "quarry_warmer_won",
+   "sprite": "tin_miner",
+   "x": 11,
+   "y": 6,
+   "facing": "up",
+   "move": "still",
+   "text": "Eluned's gone quiet. She does that when she's impressed. Or when there's cake.",
+   "show_if": "trainer_keeper_eluned"
+  },
+  {
+   "id": "quarry_walker",
+   "sprite": "hiker",
+   "x": 24,
+   "y": 4,
+   "facing": "left",
+   "move": "still",
+   "text": "I came up for the view and stayed for the shouting. Is it always this loud? Lovely.",
+   "hide_if": "trainer_keeper_eluned"
+  },
+  {
+   "id": "quarry_walker_won",
+   "sprite": "hiker",
+   "x": 24,
+   "y": 4,
+   "facing": "left",
+   "move": "still",
+   "text": "Best thing I've seen up here, and I've seen Snowdon in the sun. Once. For a minute.",
+   "show_if": "trainer_keeper_eluned"
   }
  ],
  "encounters": {},
