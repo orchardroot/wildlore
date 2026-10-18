@@ -6,7 +6,7 @@ A monster-catching RPG across the UK and Ireland. You start in Macclesfield, bec
 
 ![Title](docs/screens/t13-title.png)
 
-## What's in 2.0
+## What's in 2.1
 
 All of it, start to finish, and then some. You leave home in Macclesfield with a hedgehog, a squirrel or an otter, and you walk (and cycle, and take the train, and catch the odd ferry) all the way round England, Wales, Scotland, Northern Ireland, Ireland and the Isle of Man, collecting ten Stones from ten Keepers while a heritage company with very good lanyards tries to buy the countryside. Then you go to Stonehenge for the Moot, find out who the Champion has been all along, and go to London to have a word with Lord Vane about his tower.
 
@@ -47,6 +47,14 @@ All of it, start to finish, and then some. You leave home in Macclesfield with a
   - County Shows: a different one each real day (the Cheshire, the Royal Welsh, the Great Yorkshire, the Royal Highland, Balmoral and the Ploughing), with a marquee, a ring, a rule of the day and rosettes to spend. After the credits, the Open Moot at Stonehenge, five fights straight, as often as you like
   - Post from Kit: sixteen postcards waiting at post boxes as the story goes on, and every Keeper (and a few Enclosure Directors, who are trying their best) has a little side story once you've moved on
   - Every menu fits its frame now, even if you call your creature something long
+- **2.1, First Impressions.** The depth was there; now you can see it:
+  - A cold open on a moonlit moor, Mum and Garside pointing you at the noticeboard and the garden, a first job you can do in the Forest, and an "Around here" line on the pause card for jobs, shows, rewilding and side stories
+  - Keepers fight like bosses: their own movesets, a held charm, a trick that suits the place, and a cup of tea for the ace. Maud's spa is dressed for a swimming gala
+  - Battles you can read: the weather plate says what the weather does, moves say when they're stronger, stat changes and crits show up, snares give you honest odds, and the wobbles are real
+  - Moves look and sound like what they are (beams, bolts, clouds, drains, a sky that changes when you call the weather), twelve new attack sounds, and longer tunes for the first hour
+  - The wild changes with the real seasons: spring fledglings, summer swifts and glow-worms, autumn starlings over Chat Moss, winter snow buntings, and adders and bats that sleep through winter. The Rumours page tells you when
+  - Each starter has a knack and a signature move of its own, evolved creatures are properly stronger, and wild creatures sometimes leave a bit of forage behind
+  - The Cat and Fiddle moor has gritstone edges and heather now, and the Field Station has the owl and a kettle
 - Options for the rest of us: every key and button can be remapped, type symbols as well as colours, a colour-blind palette, instant text, and a setting to calm the flashing down
 
 | | |
