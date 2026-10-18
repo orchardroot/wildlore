@@ -1,0 +1,166 @@
+{
+ "_doc": "Kit's postcards (core/postcards.gd). A card waits in the post once its `after` flag is set; any post box hands it over. place: the big lettering and the postmark (postmark overrides). zone + view: the picture, the zone photographed from the south of the focus tile (yaw turns round it, see ui/postcard_picture.gd). stamp: a creature from round there; nation: the stamp's colour. text: Kit's paragraphs, ps: the bit that points you somewhere, sign: the sign-off ({rival} is Kit's name).",
+ "cards": [
+  {
+   "id": "manchester", "after": "badge_brook", "place": "Manchester", "zone": "manchester", "nation": "england", "stamp": "binfox",
+   "view": {"x": 22, "y": 14, "yaw": 0, "dist": 22, "height": 15},
+   "text": [
+    "{player}! Saw your Stone on the Field Station page. Nine posts about it. Eight were me.",
+    "I'm in Manchester. It's raining, which the locals tell me is a personality. A man in a very shiny suit gave me a free tote bag that says HERITAGE in gold. I've got four now. He says there's more where they came from."
+   ],
+   "ps": "A Binfox went through the bins behind the station and stole my chips. I respect it. Bring a snare.",
+   "sign": "Love, {rival} (14 followers)"
+  },
+  {
+   "id": "chester", "after": "badge_urban", "place": "Chester", "zone": "chester", "nation": "england", "stamp": "minkshade",
+   "view": {"x": 33, "y": 19, "yaw": 0, "dist": 20, "height": 14},
+   "text": [
+    "Chester! I walked the whole city wall. Twice, by accident, because it's a circle and nobody warns you.",
+    "The Enclosure sent me a lanyard. It's very soft. I don't know why that worries me, but it does a bit."
+   ],
+   "ps": "An old man on the Rows says something lives under the lake down the Dee Valley and only comes up when it can be bothered. Sounds like my uncle.",
+   "sign": "{rival} x"
+  },
+  {
+   "id": "yr_wyddfa", "after": "badge_stone", "place": "Llanberis", "zone": "llanberis", "nation": "wales", "stamp": "cragchough",
+   "view": {"x": 14, "y": 21, "yaw": 0, "dist": 21, "height": 14},
+   "text": [
+    "Writing this halfway up Yr Wyddfa. The cafe at the top is shut and a sheep has my sandwich. We've both accepted it.",
+    "A man called Pryce wants me to film his 'demonstration' at the summit. He has a lanyard AND a laser pointer. I said yes before I'd thought about it, which is my brand."
+   ],
+   "ps": "Something up here shines like a tiny rainbow when the sun comes out. I saw it once, then it saw me. Garside will know what it is.",
+   "sign": "{rival}, slightly windswept"
+  },
+  {
+   "id": "aberystwyth", "after": "ch3_ddraig_woke", "place": "Aberystwyth", "zone": "aberystwyth", "nation": "wales", "stamp": "petrelash",
+   "view": {"x": 24, "y": 31, "yaw": 20, "dist": 22, "height": 14},
+   "text": [
+    "I've come to the seaside to think. That's what you do after you film a dragon waking up and your sponsor calls it 'great content'.",
+    "It wasn't content. It was a dragon. I've kicked the bar on the prom for luck like the students do, and gone up the cliff railway, which is so slow you can rethink your whole life on the way up. I did. Twice."
+   ],
+   "ps": "Dolphins off the Cambrian coast! Well, something dolphin-shaped. Take a snare and a sandwich.",
+   "sign": "{rival} x"
+  },
+  {
+   "id": "bath", "after": "badge_storm", "place": "Bath", "zone": "bath", "nation": "england", "stamp": "sulisa",
+   "view": {"x": 38, "y": 23, "yaw": 0, "dist": 22, "height": 15},
+   "text": [
+    "I posted the Enclosure their lanyard back. Second class. Let them wait.",
+    "Then I came to Bath to have a bath. Not in the Roman one. A lady with a much nicer lanyard was very clear about that. Mum says she's proud of me for quitting. She also says 'about time', which I think cancels it out."
+   ],
+   "ps": "Something small and bright keeps the hot spring warm, and looks very pleased with itself about it. Coins only go in the water if you mean it.",
+   "sign": "{rival} (unsponsored, unwashed)"
+  },
+  {
+   "id": "penzance", "after": "badge_fae", "place": "Penzance", "zone": "penzance", "nation": "england", "stamp": "pierlord",
+   "view": {"x": 52, "y": 30, "yaw": 15, "dist": 22, "height": 15},
+   "text": [
+    "Cornwall! I had a pasty the size of a shoe. I am now mostly pasty.",
+    "There's a posh man in tweed going round telling everyone Tintagel is 'under new management'. He said it to a seagull. The seagull won. Keep an eye on him, he looks like he owns a lot of gates."
+   ],
+   "ps": "A fisherman says something enormous made of tin climbs out of the old mine workings and asks where everyone went. I'm not going. You go.",
+   "sign": "Love, {rival}"
+  },
+  {
+   "id": "dublin", "after": "ashcombe2_done", "place": "Dublin", "zone": "dublin", "nation": "ireland", "stamp": "dextera",
+   "view": {"x": 18, "y": 21, "yaw": 0, "dist": 15, "height": 18},
+   "text": [
+    "I'm in Dublin! The ferry was fine. I was not.",
+    "Everyone says the Guinness tastes better here and I'm not allowed to argue unless I've had one. I had a lemonade and agreed anyway. A busker taught me a song. I know three now, and two of them are the same one."
+   ],
+   "ps": "Up in the Wicklow hills there's an owl that makes no sound at all. I know because I didn't hear it, for about an hour.",
+   "sign": "{rival} x"
+  },
+  {
+   "id": "kilkenny", "after": "badge_kin", "place": "Kilkenny", "zone": "kilkenny", "nation": "ireland", "stamp": "gealhare",
+   "view": {"x": 19, "y": 17, "yaw": 0, "dist": 20, "height": 15},
+   "text": [
+    "Kilkenny has a castle, a round tower, and cats on every mug. There's a story about two cats who fought until there was nothing left but tails. I bought the mug.",
+    "One of the Enclosure Directors, Kerrigan, has set up by the castle with a clipboard. Her lanyard is so long it has its own postcode."
+   ],
+   "ps": "There's a hare in the fields round here that glows a bit at the edges. Like it's been told a secret.",
+   "sign": "Your best friend and future rival, {rival}"
+  },
+  {
+   "id": "burren", "after": "badge_tide", "place": "The Burren", "postmark": "Burren", "zone": "burren", "nation": "ireland", "stamp": "bansheen",
+   "view": {"x": 36, "y": 22, "yaw": 10, "dist": 24, "height": 17, "light": "day"},
+   "text": [
+    "It's all rock out here. Miles of grey rock with flowers growing out of the cracks, being stubborn on purpose. I relate.",
+    "A goat stared at me for ten minutes. Not cross. Just disappointed, like Mum when I said I was going to be a streamer. I've stopped streaming. I'm busking now. The goat didn't tip."
+   ],
+   "ps": "At night something wails out on the rocks. A ranger says it's only bad news if it's under your window. I've moved rooms.",
+   "sign": "{rival} x"
+  },
+  {
+   "id": "derry", "after": "ch7_judged", "place": "Derry", "zone": "derry", "nation": "northern_ireland", "stamp": "pooka",
+   "view": {"x": 42, "y": 19, "yaw": 0, "dist": 22, "height": 15},
+   "text": [
+    "Derry has walls you can walk all the way round. I'm a walls person now. Chester, Derry, and I hear York has some. Collect the set.",
+    "I stood in the middle of the Peace Bridge and felt very wise for about a minute. Then a gull took my sausage roll. Balance is restored."
+   ],
+   "ps": "Up the Antrim coast there's a black horse with yellow eyes that offers you a ride. Do not get on. A lad I met did, and he's still apologising to his mum.",
+   "sign": "Love, {rival}"
+  },
+  {
+   "id": "cairnryan", "after": "badge_iron", "place": "Cairnryan", "zone": "cairnryan", "nation": "scotland", "stamp": "polartern",
+   "view": {"x": 28, "y": 22, "yaw": 0, "dist": 22, "height": 15},
+   "text": [
+    "I was sick on the ferry. Twice. Once on a man. He was very good about it. He says it happens weekly and he's started bringing a spare jumper.",
+    "Off to Edinburgh. There's a ceilidh and I've been warned about myself."
+   ],
+   "ps": "Before you sail, go and see the Giant's Causeway. Everyone says so. Someone has put a marquee on it, which feels illegal.",
+   "sign": "{rival} (green, but in a good way)"
+  },
+  {
+   "id": "glasgow", "after": "kit7_done", "place": "Glasgow", "zone": "glasgow", "nation": "scotland", "stamp": "kelpie",
+   "view": {"x": 54, "y": 40, "yaw": -10, "dist": 22, "height": 15},
+   "text": [
+    "Glasgow! Everyone calls me pal. I've decided it's official.",
+    "A man on Buchanan Street watched me dance and said it was 'pure magic'. I think he was being sarcastic. I'm keeping it anyway. Losing to you at the Castle didn't even sting. Much. That's growth."
+   ],
+   "ps": "There's a horse by the lochs that looks lovely and is absolutely not a horse. Don't sit on it. Its saddle is sticky in the worst way.",
+   "sign": "{rival}, your pal"
+  },
+  {
+   "id": "portree", "after": "badge_frost", "place": "Skye", "postmark": "Portree", "zone": "portree", "nation": "scotland", "stamp": "orcalet",
+   "view": {"x": 35, "y": 27, "yaw": 0, "dist": 22, "height": 15},
+   "text": [
+    "Skye! The houses on the harbour are painted like a box of fancy biscuits.",
+    "I put my feet in the Fairy Pools. My feet have died. I'm writing this with my hands, which are fine. The midges are not a creature you can catch. I asked a man. He laughed for a long time."
+   ],
+   "ps": "On your way through the Cairngorms there's a grouse the size of a dog that staggers about in the pines shouting. I fell over. It won.",
+   "sign": "{rival} x"
+  },
+  {
+   "id": "keswick", "after": "badge_spirit", "place": "Keswick", "zone": "keswick", "nation": "england", "stamp": "ospret",
+   "view": {"x": 30, "y": 30, "yaw": 0, "dist": 22, "height": 15},
+   "text": [
+    "All ten. ALL TEN. I've told everyone in the Lakes, including a sheep.",
+    "Kendal Mint Cake is just sugar wearing a hat, and I've had six. I keep thinking about the day at Garside's when we both picked our first. You were brilliant and I was loud. I'm still loud. But I'm proud of you. I'm practising saying that for the gate."
+   ],
+   "ps": "The Moot's at Stonehenge. I'll be there first, with a flag. Don't look at the flag.",
+   "sign": "Love, {rival}"
+  },
+  {
+   "id": "macclesfield", "after": "moot_won", "place": "Macclesfield", "zone": "macclesfield", "nation": "england", "stamp": "hootlet",
+   "view": {"x": 15, "y": 13, "yaw": 0, "dist": 20, "height": 16},
+   "text": [
+    "CHAMPION. I got the train home before you'd even come out, because your mum rang and said 'someone has to put the kettle on'. The cutting from the paper is on her fridge with four magnets. The mug is on the shelf. Still says Champoin. It's artistic.",
+    "Go and do the last bit, whatever Vane's up to. Then come home."
+   ],
+   "ps": "I'll be the one at the door with the very small banner.",
+   "sign": "Your best friend, {rival} x"
+  },
+  {
+   "id": "douglas", "after": "game_complete", "place": "Isle of Man", "postmark": "Douglas", "zone": "douglas", "nation": "mann", "stamp": "pupplash",
+   "view": {"x": 40, "y": 30, "yaw": 0, "dist": 22, "height": 15},
+   "text": [
+    "I've gone walking again. Just walking. No cameras, no banner, one flask.",
+    "Thanks for letting me tag along the whole way, even when I was a walking advert. You never once said I told you so. You're allowed to now. Once.",
+    "You have to say hello to the fairies when you cross the Fairy Bridge, out loud. I said it very loudly. A coach party joined in."
+   ],
+   "ps": "Garside says the standing stones on Orkney still have a secret or two. Race you.",
+   "sign": "Love always, {rival}"
+  }
+ ]
+}

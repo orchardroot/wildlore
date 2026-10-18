@@ -186,6 +186,9 @@ func _item_pressed(id: String) -> void:
 		Game.data.set_flag("thermos_off", off)
 		_note.text = "Team Thermos: off. Only the fighters get XP." if off else "Team Thermos: on. Everyone shares the XP."
 		return
+	if id == Postcards.ALBUM:  # Kit's postcards, to read again
+		await open_child("postcard:album")
+		return
 	if kind == "repel":
 		var r := Repel.use(Game.data, id, Game.items)
 		Audio.sfx("confirm" if r.ok else "bump")

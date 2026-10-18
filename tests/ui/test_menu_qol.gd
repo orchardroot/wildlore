@@ -113,6 +113,8 @@ func test_postgame_hints() -> void:
 	d.mark_caught("pipkin")
 	assert_eq(MenuLogic.next_objective(d, 200, o).text, "1 of 200 caught")
 	d.set_flag("diploma", true)
+	for side in SideStories.sides():  # every Keeper's side story heard (they'd come before the milestone)
+		d.set_flag(SideStories.done_flag(str(side.id)), true)
 	assert_true("Catch 24 more" in MenuLogic.next_objective(d, 200, o).text, "the catch-all gives way to the next Fieldbook milestone")
 	assert_eq(MenuLogic.next_objective(d, 200, o).town, "macclesfield")
 

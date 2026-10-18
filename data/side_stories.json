@@ -1,0 +1,180 @@
+{
+ "_doc": "Keeper side stories (see core/side_stories.gd): after a Keeper's own battle, once you hold one more Stone, they are out in their town with a short scene. Script keeper_side_<id> in data/dialogue/side_stories.json; done flag keeper_side_<id>.",
+ "sides": [
+  {
+   "id": "maud",
+   "who": "Keeper Maud",
+   "sprite": "keeper_maud",
+   "after": "trainer_keeper_maud",
+   "badges": 2,
+   "zone": "buxton",
+   "x": 23,
+   "y": 26,
+   "facing": "down",
+   "hint": "Keeper Maud is by the duck pond in Buxton's Pavilion Gardens, off duty. She'd like a word."
+  },
+  {
+   "id": "ray",
+   "who": "Keeper Ray",
+   "sprite": "keeper_ray",
+   "after": "trainer_keeper_ray",
+   "badges": 3,
+   "zone": "liverpool",
+   "x": 35,
+   "y": 18,
+   "facing": "down",
+   "hint": "Keeper Ray is by the Fab Four statue in Liverpool, chewing a pencil. Something's up."
+  },
+  {
+   "id": "eluned",
+   "who": "Keeper Eluned",
+   "sprite": "keeper_eluned",
+   "after": "trainer_keeper_eluned",
+   "badges": 4,
+   "zone": "llanberis",
+   "x": 17,
+   "y": 16,
+   "facing": "down",
+   "hint": "Keeper Eluned is on a bench by the quarry in Llanberis, glaring at the mountain."
+  },
+  {
+   "id": "rhys",
+   "who": "Keeper Rhys",
+   "sprite": "keeper_rhys",
+   "after": "trainer_keeper_rhys",
+   "badges": 5,
+   "zone": "cardiff",
+   "x": 50,
+   "y": 12,
+   "facing": "down",
+   "hint": "Keeper Rhys is in Bute Park in Cardiff with a bag of cones and an ice pack."
+  },
+  {
+   "id": "morwen",
+   "who": "Keeper Morwen",
+   "sprite": "keeper_morwen",
+   "after": "trainer_keeper_morwen",
+   "badges": 6,
+   "zone": "glastonbury",
+   "x": 33,
+   "y": 19,
+   "facing": "down",
+   "hint": "Keeper Morwen is on a bench by the Chalice Well in Glastonbury, typing something she won't show anyone."
+  },
+  {
+   "id": "declan",
+   "who": "Keeper Declan",
+   "sprite": "keeper_declan",
+   "after": "trainer_keeper_declan",
+   "badges": 7,
+   "zone": "dublin",
+   "x": 39,
+   "y": 40,
+   "facing": "down",
+   "hint": "Keeper Declan is in St Stephen's Green in Dublin, in his good jacket, looking nervous."
+  },
+  {
+   "id": "nuala",
+   "who": "Keeper Nuala",
+   "sprite": "keeper_nuala",
+   "after": "trainer_keeper_nuala",
+   "badges": 8,
+   "zone": "galway",
+   "x": 60,
+   "y": 37,
+   "facing": "down",
+   "hint": "Keeper Nuala is down by the docks in Galway, mending an old boat. She could use a hand."
+  },
+  {
+   "id": "ruairi",
+   "who": "Keeper Ruairí",
+   "sprite": "keeper_ruairi",
+   "after": "trainer_keeper_ruairi",
+   "badges": 9,
+   "zone": "belfast",
+   "x": 55,
+   "y": 22,
+   "facing": "down",
+   "hint": "Keeper Ruairí is on a bench by the slipways in Belfast, doing something very small."
+  },
+  {
+   "id": "isla",
+   "who": "Keeper Isla",
+   "sprite": "keeper_isla",
+   "after": "trainer_keeper_isla",
+   "badges": 10,
+   "zone": "inverness",
+   "x": 20,
+   "y": 27,
+   "facing": "down",
+   "hint": "Keeper Isla is knitting on the Ness Islands in Inverness. She has something to clear up."
+  },
+  {
+   "id": "hester",
+   "who": "Keeper Hester",
+   "sprite": "keeper_hester",
+   "after": "trainer_keeper_hester",
+   "needs": "moot_won",
+   "zone": "york",
+   "x": 41,
+   "y": 21,
+   "facing": "down",
+   "hint": "Keeper Hester is sitting by the Minster in York with her top hat on her knee."
+  },
+  {
+   "id": "pryce",
+   "who": "Gareth Pryce",
+   "sprite": "pryce",
+   "after": "game_complete",
+   "zone": "llanberis",
+   "x": 53,
+   "y": 16,
+   "facing": "down",
+   "hint": "Gareth Pryce is in Llanberis in a hi-vis vest. Apparently he's volunteering."
+  },
+  {
+   "id": "ashcombe",
+   "who": "Sir Rupert Ashcombe",
+   "sprite": "ashcombe",
+   "after": "game_complete",
+   "zone": "penzance",
+   "x": 25,
+   "y": 23,
+   "facing": "down",
+   "hint": "Sir Rupert Ashcombe is sitting by the harbour in Penzance with a crabbing line. He's reflecting."
+  },
+  {
+   "id": "kerrigan",
+   "who": "Siobhán Kerrigan",
+   "sprite": "kerrigan",
+   "after": "game_complete",
+   "zone": "kilkenny",
+   "x": 35,
+   "y": 6,
+   "facing": "down",
+   "hint": "Siobhán Kerrigan is in the rose garden in Kilkenny. With a donkey."
+  },
+  {
+   "id": "strachan",
+   "who": "Morag Strachan",
+   "sprite": "strachan",
+   "after": "game_complete",
+   "zone": "fort_william",
+   "x": 29,
+   "y": 22,
+   "facing": "down",
+   "hint": "Morag Strachan is on the High Street in Fort William, muttering at a notebook."
+  },
+  {
+   "id": "garside",
+   "who": "Prof. Garside",
+   "sprite": "prof_garside",
+   "after": "game_complete",
+   "zone": "macclesfield",
+   "x": 20,
+   "y": 15,
+   "facing": "down",
+   "hint": "Professor Garside is on a bench in Macclesfield with a flask and, for once, nowhere to be."
+  }
+ ]
+}

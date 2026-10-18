@@ -206,6 +206,7 @@ func _build_zone_node() -> void:
 	add_child(_zone_node)
 	Seasonal.dress(zone, _zone_node, player)  # festivals and falling leaves from the real date
 	Forage.dress(zone, _zone_node, Game.data)  # hedgerow pickings and crafting benches
+	PostBox.dress(zone, _zone_node, Game.data)  # an envelope over the post boxes while Kit's card waits
 	traffic = RailTraffic.new()
 	traffic.name = "RailTraffic"
 	_zone_node.add_child(traffic)
@@ -247,13 +248,24 @@ func _spawn_npcs() -> void:
 		return
 	var npc_script: Script = load("res://world/npc.gd")
 	set_meta("npc_phase", Game.phase())
-	for def in zone.npcs:
+	for def in zone.npcs + _side_npcs():  # plus a Keeper out in town with a side story (SideStories)
 		if not Npc.should_spawn(def, Game.data, Game.phase()):  # flag gating and hours ("times")
 			continue
 		var n: Node3D = npc_script.new()
 		add_child(n)
 		n.setup(def, self)
 		npcs.append(n)
+
+## Keepers waiting in this zone with a side story, each on their spot or the nearest free tile to it.
+func _side_npcs() -> Array:
+	var out := SideStories.npcs_for(zone.id, Game.data)
+	var taken := {}
+	for d in out:
+		var p := SideStories.nearest_free(zone, Vector2i(int(d.x), int(d.y)), taken)
+		taken[p] = true
+		d.x = p.x
+		d.y = p.y
+	return out
 
 var _friend_steps := 0
 
@@ -399,6 +411,8 @@ func _after_battle(result: Dictionary) -> void:
 func interact(p: Vector2i) -> void:
 	Audio.interaction(self, p)
 	if await Forage.interact(self, p):  # a forage prop or a crafting bench
+		return
+	if await PostBox.interact(self, p):  # post from Kit (or just a post box)
 		return
 	var s := zone.sign_at(p)
 	if not s.is_empty():

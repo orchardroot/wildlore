@@ -78,6 +78,9 @@ static func boot(game: Node, menu: String) -> void:
 		d.set_flag(VisitorsBook.BOARD_PREFIX + "macclesfield")
 	if menu.begins_with("relearn"):
 		a.level = 20  # past a couple of its moves, so the relearner has something to offer
+	if menu.begins_with("postcard"):  # `--menu=postcard:album`: every card in the album (or postcard:<id>[:back])
+		for pc in Postcards.cards():
+			d.set_flag(Postcards.flag_key(str(pc.id)), "2026-10-%02d" % (2 + Postcards.card_index(str(pc.id))))
 	if menu.begins_with("shop") and not menu.contains(":"):
 		menu = "shop:macc_corner_shop"
 	await game.get_tree().process_frame
