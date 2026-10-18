@@ -33,6 +33,8 @@ var _catch_chance := 0.0
 
 var _evo_ctx := {}
 var _no_run := false
+var _exhibition := false  # a County Show or Open Moot bout: no XP (the team is a stand-in copy, see TournamentRun)
+var _no_items := false    # the "No Items" ruleset: the bag stays shut
 var acting_pos := 0  # doubles: the field position the ui is choosing for
 var _switching := []  # doubles: party indices already picked to switch in this turn
 var _known := {}  # species the player had seen before this battle began (run() marks the foes seen)
@@ -45,6 +47,8 @@ func _init(p_data: GameStateData, p_dex: Dex, p_moves: MoveDB, p_chart: TypeChar
 	ui = p_ui
 	trainer = opts.get("trainer", {})
 	_no_run = bool(opts.get("no_run", false))
+	_exhibition = bool(opts.get("exhibition", false))
+	_no_items = bool(opts.get("no_items", false))
 	_evo_ctx = {"weather": str(opts.get("weather", "clear")), "time": str(opts.get("time", "day"))}
 	ai_tier = str(opts.get("ai", "wild"))
 	bag = Bag.new(data.bag)
@@ -84,7 +88,7 @@ static func wobbles_for(chance: float, success: bool) -> int:
 ## Bag entries usable in this battle: [{"id", "name", "count", "kind", "desc"}].
 func battle_items() -> Array:
 	var out := []
-	if items == null:
+	if items == null or _no_items:
 		return out
 	for id in items.ids():
 		var n := bag.count(id)
@@ -295,6 +299,8 @@ const THERMOS_SHARE := 0.75
 
 ## XP for a fainted foe, split equally between every creature that faced it and is still standing.
 func _award_xp(faint_ev: Dictionary = {}) -> void:
+	if _exhibition:
+		return
 	var foe := battle.current(Battle.FOE)
 	var earners := [battle.current(Battle.PLAYER)]
 	if faint_ev.has("index"):

@@ -206,6 +206,7 @@ func _build_zone_node() -> void:
 	add_child(_zone_node)
 	Seasonal.dress(zone, _zone_node, player)  # festivals and falling leaves from the real date
 	Forage.dress(zone, _zone_node, Game.data)  # hedgerow pickings and crafting benches
+	ShowRing.dress(zone, _zone_node, Game.data)  # today's County Show, if it's here
 	traffic = RailTraffic.new()
 	traffic.name = "RailTraffic"
 	_zone_node.add_child(traffic)
