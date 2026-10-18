@@ -75,6 +75,7 @@ func test_a_1_5_save_round_trips_with_all_2_0_state() -> void:
 	Tournament.today(d)
 	d.set_flag("keeper_side_maud", true)
 	d.set_flag(Postcards.flag_key("first"), "2026-10-18")
+	var epoch := Jobs.epoch(d)
 	var before := d.to_dict()
 
 	var back := _reload(d)
@@ -84,6 +85,7 @@ func test_a_1_5_save_round_trips_with_all_2_0_state() -> void:
 	assert_eq(Standing.tier(back, "wales"), Standing.KNOWN_FACE)
 	assert_eq(Jobs.active(back).size(), 1)
 	assert_true(Jobs.has_active(back, job))
+	assert_eq(Jobs.epoch(back), epoch, "the board day survives a reload (no fresh board from loading)")
 	assert_eq(Rewild.stage(back, site), 1)
 	assert_true(Rewild.pending(back, site))
 	back.day_count += 1
