@@ -392,6 +392,11 @@ func validate(all: Dictionary) -> Array:
 					var arr := edge_arrival(side, b, all[target])
 					if not all[target].walkable(arr):
 						e.append(tag + "walking off the %s edge at %d,%d lands on %d,%d in '%s', which is not walkable" % [side, b.x, b.y, arr.x, arr.y, target])
+	for kind in encounters:
+		for enc in encounters[kind]:
+			if enc.has("season") and (not (enc.season is Array) or enc.season.is_empty() \
+					or not enc.season.all(func(x): return x in ["spring", "summer", "autumn", "winter"])):
+				e.append(tag + "%s encounter '%s' has a bad season %s (a list of spring, summer, autumn, winter)" % [kind, enc.get("species", "?"), enc.season])
 	for s in signs:
 		if not in_bounds(Vector2i(int(s.x), int(s.y))):
 			e.append(tag + "sign at %d,%d is out of bounds" % [int(s.x), int(s.y)])

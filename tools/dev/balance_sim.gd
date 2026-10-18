@@ -1,50 +1,79 @@
 extends SceneTree
 ## Simulates a party against a trainer many times with the trainer-tier AI on both sides.
-## godot --headless --path . -s res://tools/dev/balance_sim.gd -- <trainer_id> <species:level,...> [runs]
+## godot --headless --path . -s res://tools/dev/balance_sim.gd -- <trainer_id> <species:level,...> [runs] [level offset]
+## Several trainers joined by "+" (wind_aelwen+wind_fergus+...) are fought back to back like the Moot's gauntlet:
+## damage, fainting and PP carry over and only winning the lot counts. PATCH=1 in the environment patches the
+## party right up between fights (a well-stocked bag); without it nothing is healed, the worst case.
+## TEAS=<item>:<n> in the environment gives the player a bag of teas, poured on the lead at a third of its HP or less
+## (Mum hands over three Cups of Tea before Kit's first battle, so the early fights read truer with TEAS=cup_of_tea:3).
+## SIMDBG=events prints the first battle blow by blow.
 func _initialize() -> void:
 	var a := OS.get_cmdline_user_args()
 	var dex := Dex.load_default()
 	var moves := MoveDB.load_default()
 	var chart := TypeChart.load_default()
-	var def := StoryData.trainer(a[0])
+	var items := ItemDB.load_default()  # a keeper's tea
+	var ids := a[0].split("+")
 	var runs := int(a[2]) if a.size() > 2 else 200
 	var offset := int(a[3]) if a.size() > 3 else 0  # added to every foe level (tuning)
 	var wins := 0
+	var teas := OS.get_environment("TEAS").split(":")
+	var reached := {}  # gauntlet: how many runs got as far as each trainer
 	for r in runs:
-		if OS.get_environment("SIMDBG") != "":
+		if OS.get_environment("SIMDBG") == "1":
 			print("run ", r)
 		var rng := Rng.new(r + 1)
 		var mine := []
 		for e in a[1].split(","):
 			var kv := e.split(":")
 			mine.append(Creature.create(dex.get_species(kv[0]), int(kv[1]), rng, moves))
-		var foes := []
-		for m in def.party:
-			var cr := Creature.create(dex.get_species(m.species), maxi(2, int(m.level) + offset), rng, moves)
-			if m.has("moves"):  # fixed moves, as story/commands.gd builds them
-				cr.moves = []
-				for mid in m.moves:
-					cr.moves.append(cr.make_move_slot(mid, moves))
-			foes.append(cr)
-		# NOKNACKS=1 in the environment: knacks off (the 1.x rules, for before/after comparisons)
-		var b := Battle.new(mine, foes, {"chart": chart, "move_db": moves, "rng": rng, "kind": "trainer", "knacks": OS.get_environment("NOKNACKS") == ""})
-		var guard := 0
-		while not b.over and guard < 300:
-			guard += 1
-			for side in [Battle.PLAYER, Battle.FOE]:
-				if b.needs_switch(side):
-					var party: Array = b.parties[side]
-					for i in party.size():
-						if not party[i].is_fainted():
-							b.force_switch(side, i)
-							break
-			if b.over:
+		var bag := int(teas[1]) if teas.size() == 2 else 0
+		var won := true
+		for n in ids.size():
+			reached[n] = int(reached.get(n, 0)) + 1
+			if n > 0 and OS.get_environment("PATCH") != "":
+				for c in mine:
+					c.hp = c.max_hp()
+					c.status = ""
+					c.status_turns = 0
+					for m in c.moves:
+						m.pp = m.max_pp
+			var def := StoryData.trainer(ids[n])
+			var foes := TrainerParty.build(def, dex, rng, moves, offset)  # as story/commands.gd builds them
+			# NOKNACKS=1 in the environment: knacks off (the 1.x rules, for before/after comparisons)
+			var b := Battle.new(mine, foes, {"chart": chart, "move_db": moves, "item_db": items, "rng": rng, "kind": "trainer", "knacks": OS.get_environment("NOKNACKS") == ""})
+			var guard := 0
+			while not b.over and guard < 300:
+				guard += 1
+				for side in [Battle.PLAYER, Battle.FOE]:
+					if b.needs_switch(side):
+						var party: Array = b.parties[side]
+						for i in party.size():
+							if not party[i].is_fainted():
+								b.force_switch(side, i)
+								break
+				if b.over:
+					break
+				var act := _best(b, moves)
+				var me := b.current(Battle.PLAYER)
+				if bag > 0 and me.hp * 3 <= me.max_hp():
+					bag -= 1
+					act = {"type": "item", "item": teas[0], "target": b.parties[Battle.PLAYER].find(me)}
+				var ev := b.take_turn(act, BattleAI.choose(b, Battle.FOE, str(def.ai)))
+				if r == 0 and OS.get_environment("SIMDBG") == "events":
+					for e in ev:
+						print("  ", e)
+			if r == 0:
+				print("first battle: turns %d, over %s, winner %d, mine %s, foes %s" % [guard, b.over, b.winner, mine.map(func(c): return "%s %d/%d" % [c.species.id, c.hp, c.max_hp()]), foes.map(func(c): return "%s %d/%d" % [c.species.id, c.hp, c.max_hp()])])
+			if b.winner != Battle.PLAYER:
+				won = false
 				break
-			b.take_turn(_best(b, moves), BattleAI.choose(b, Battle.FOE, str(def.ai)))
-		if b.winner == Battle.PLAYER:
+			for c in mine:
+				c.reset_stages()
+		if won:
 			wins += 1
-		if r == 0:
-			print("first battle: turns %d, over %s, winner %d, mine %s, foes %s" % [guard, b.over, b.winner, mine.map(func(c): return "%s %d/%d" % [c.species.id, c.hp, c.max_hp()]), foes.map(func(c): return "%s %d/%d" % [c.species.id, c.hp, c.max_hp()])])
+	if ids.size() > 1:
+		print("reached: %s" % ", ".join(range(ids.size()).map(func(n): return "%s %d" % [ids[n], int(reached.get(n, 0))])))
 	print("SIM %s vs [%s] offset %d: player wins %d/%d" % [a[0], a[1], offset, wins, runs])
 	quit()
 

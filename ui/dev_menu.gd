@@ -19,6 +19,10 @@ static func stress(d: GameStateData) -> void:
 
 static func boot(game: Node, menu: String) -> void:
 	game.new_game()
+	if menu == "new_game":  # `--menu=new_game`: a fresh journey from the cold open on, as after the name entry
+		await game.get_tree().process_frame
+		ColdOpen.then_morning(game.get_node("/root/Router"), game.data)
+		return
 	var d: GameStateData = game.data
 	var mk := func(id: String, lvl: int) -> Creature:
 		return Creature.create(game.dex.get_species(id), lvl, game.rng, game.moves)
@@ -57,7 +61,10 @@ static func boot(game: Node, menu: String) -> void:
 	if menu.begins_with("stats"):
 		d.stats.merge({"steps": 48213, "wins_wild": 187, "wins_trainer": 41, "caught": 52, "train_trips": 9, "rail_miles": 1180,
 			"ferry_trips": 3, "flights": 4, "money_earned": 96450, "teas": 63, "rained_on": 28, "started": "2026-10-03"}, true)
-	d.badges = ["a", "b"]
+	var first_day := menu == "jobs:first"  # `--menu=jobs:first`: Macclesfield's board before the first Stone
+	d.badges = [] if first_day else ["a", "b"]
+	if first_day:
+		menu = "jobs:macclesfield"
 	d.play_seconds = 4980.0
 	for t in ["macclesfield", "buxton"]:
 		d.set_flag("visited_" + t)
@@ -89,7 +96,7 @@ static func boot(game: Node, menu: String) -> void:
 		for r in rooms.get("macclesfield", []) + rooms.get("buxton", []).slice(0, 7):
 			d.set_flag(VisitorsBook.seen_flag(str(r)))
 		d.set_flag(VisitorsBook.BOARD_PREFIX + "macclesfield")
-	if menu.begins_with("jobs") or menu.begins_with("stats") or menu == "pause":  # parish standing and jobs in hand
+	if (menu.begins_with("jobs") and not first_day) or menu.begins_with("stats") or menu == "pause":  # parish standing and jobs in hand
 		Standing.add(d, "england", 34)
 		Standing.add(d, "wales", 12)
 		Standing.add(d, "mann", 3)

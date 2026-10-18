@@ -5,11 +5,11 @@
  "kind": "route",
  "music": "route_moor",
  "weather": {
-  "fog": 30,
-  "drizzle": 30,
-  "clear": 20,
+  "fog": 20,
+  "drizzle": 28,
+  "clear": 30,
   "gale": 12,
-  "sunshine": 8
+  "sunshine": 10
  },
  "props": [
   {
@@ -186,6 +186,57 @@
     "time": [
      "day"
     ]
+   },
+   {
+    "species": "kitelet",
+    "min": 7,
+    "max": 9,
+    "weight": 8,
+    "time": [
+     "dawn",
+     "day",
+     "dusk"
+    ]
+   },
+   {
+    "species": "swiftlet",
+    "min": 7,
+    "max": 9,
+    "weight": 10,
+    "time": [
+     "day",
+     "dusk"
+    ],
+    "season": [
+     "spring",
+     "summer"
+    ]
+   },
+   {
+    "species": "leveret",
+    "min": 7,
+    "max": 9,
+    "weight": 10,
+    "time": [
+     "dawn",
+     "dusk"
+    ],
+    "season": [
+     "spring"
+    ]
+   },
+   {
+    "species": "buntling",
+    "min": 7,
+    "max": 9,
+    "weight": 10,
+    "time": [
+     "dawn",
+     "day"
+    ],
+    "season": [
+     "winter"
+    ]
    }
   ]
  },
@@ -221,38 +272,38 @@
   10
  ],
  "rows": [
-  "mRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR",
-  "RRRRRRRRRRRRRRRmRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRmRRRRRRRRRRRRRRRRRR",
-  "RRmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmRR",
-  "RRmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmRR",
-  "RRmmhhhhhhhmmmmmmmmRmmmmmmmmmmmmmmmmRmkkkkkmmmmmmmmmmmmmmmmmmmmmRR",
-  "RRmmhhhhhhhmmmmmmmmmmmmmmmmmmmmmmmmmmmkkkkkmmmmhhhhhhhhhmmmmmmmmRR",
-  "RRmmhhhhhhhmmmmmmmmmmmmmmmmmmmmmmmmmmmkkkkkmmmmhhhhhhhhhmmmmmmmmRR",
-  "RRmmhhhhhhhmmmmmmmmmmmmmmhhhhhhhhhhmmmkkkkkmmmmhhhhhhhhhmmmmmmmmRR",
-  "RRmmmmmmmmmmmmRRmmmmRmmmmhhhhhhhhhhmmmkkkkkmmmmhhhhhhhhhmmmmmmmmRR",
-  "..mmmmmmmmmmmmmRmmmmmmmmmhhhhhhhhhhmWmmmmmmmmmmhwwhhhhhhmmmmmmmmRR",
-  "============mmmmmmmmmmmmRhhhhhhBBBBBBBRmmmmmmmmhwwhhhhhhmmmmmmmmRR",
-  "..mmmmmmmmm=mmmmmmmmmmmmmhhhhhhBBBBBBBmmmmmmmmmhhhhhhhhhmmmmmmmmRR",
-  "RRmmmmmmmmm=mmmmmmmmmmmmmmmmmmmBBBDBBBmmmmmmmmmmmmmmmmmmmmmmmmmmRR",
-  "RRWWWWWWWWW=mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmkkkkkmmmRR",
-  "RRmmmmmmmmm=================================mmmmmmmmmmmmkkkkkmmmRR",
-  "RRmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm=mmmmmmmmmmmmkkkkkmmmmR",
-  "RRmmmmmmmmmmmWmmmmmRmmmmWWWWWWWWWWWWWWWWWWm=mWmmmmmmmmmmkkkkkmmmRR",
-  "RRmmmmmmmmmmmWmmmmmmmmmmmRmmmmmmmmmmmmmmmmm=mWmmmmmmmmmmkkkkkmmmRR",
-  "RRmmmmmmmmmmmWhhhhhhhhhmmmmmmmhhhhhhhhhhmmm=mWmmmmmmmmmmmmmmmmmmRR",
-  "RRmmmmmmmmmmRWhhhhhhhhhmmmmmmmhhhhhhhhhhmmm=mWmmmmmmmmmmmmmmmmmmRR",
-  "RRmmmmmmmmmmmWhhhhhhhhhmmmwwwmhhhhhhhhhhRmm=mmmmmmmmmmmmmmmmmmmm..",
-  "RRmmmmmmmmmmmWhhhhhhhhhmmmwwwmhhhhhhhhhhmmm=======================",
-  "RmmmmkkkkkkmmWhhhhhhhhhmmmmmmmhhhhhhhhhhmmmmmmmmmmmmmmmmmmmmmmmm..",
-  "RRmmmkkkkkkmmWhhhhhhhhhmmmmmmmhhhhhhhhhhmmmmmmmWWWWWWWWWWWWmmmmmRR",
-  "RRmmmkkkkkkmmmmmmmmmmmmmmmmmmmhhhhhhhhhhmmmmmmmmmmmmhhhhhhhhmmmmmR",
-  "RRmmmkkkkkkmmmRmmmmmmRmmmmmmmmmmmmmmmmmmmmmmmmmmmRmmhhhhhhhhmmmmRR",
-  "RRmmmkkkkkkmmmmmmmmmmmmmmmRmmmmmmmmmmmmmmmmmmmmmmmmmhhhhhhhhmmmmRR",
-  "RRmmmmmmmmmmmmmmmRmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmhhhhhhhhmmmmRR",
-  "RRmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmhhhhhhhhmmmmRR",
-  "RRmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmRR",
+  "RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR",
+  "GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG",
+  "RRgggmmmmmmmmmmmmmmmmmmmmmmmbbbbbbbbbbbmmmmemmmemmmmmmgggggggmmmRR",
+  "RReegmmmmmmemmmmmmmmmmmmmmmmbbbbbbbbbbbmmmmmmnnmmmmmmggggggggmmmRR",
+  "RRgghhhhhhhnmmmmmmmRmmmmmmmmbbbbbbbbRbkkkkkmmnnmmmmmmggggegggmmmRR",
+  "RRgghhhhhhhnnmmmmmmmmmmmmmmmbbbbbbbbbmkkkkkmmmmhhhhhhhhhggggmmmmRR",
+  "RRgghhhhhhhnnmmmmmmmmggmmmmmbbbbbbmmmmkkkkkmmmmhhhhhhhhhgggmmmmmRR",
+  "RRgmhhhhhhhmmmmmmmmmmgggmhhhhhhhhhhmmmkkkkkmmmmhhhhhhhhhggmmmmmmRR",
+  "RRmmmmmmmmmmmmGGmmmmRmegghhhhhhhhhhmmmkkkkkmmmmhhhhhhhhhmmmmmmmmRR",
+  "..mmeemmmmmmmmmRmemmbbbbbhhhhhhhhhhmWmmmmmmmmemhwwhhhhhhmmmmmemmRR",
+  "============mmmmmbbbbbbbRhhhhhhBBBBBBBRmmmmmmgghwwhhhhhhmmmmmmmmRR",
+  "..mmmmmmmmm=mmmmbbbbbbbbbhhhhhhBBBBBBBnmmmmmggghhhhhhhhhmmnnmmmeRR",
+  "RRmmmmmemmm=mmmbbbbbbbbbbgggmmmBBBDBBBnmmmmmggggggggmemmmnnnnmmmRR",
+  "RRWWWWWWWWW=emmbbbbbbbbbbmmmmmmmmmmenmmmmmmmggggeggmmmmmkkkkkmmmRR",
+  "RRmmmmmmmem=================================ggggggmmmmmmkkkkkmmmRR",
+  "RRmmemmmmmmmmmbbbbbbbbbbbmmemmmmmmmmemmmmem=ggggmmmmmmmmkkkkkmmmmR",
+  "RRmmmmmmmmmmmWbbbbbRbbbbWWWWWWWWWWWWWWWWWWg=mWmemmmmmmmmkkkkkmmmRR",
+  "RRmmmmmmmmmmmWgbbbbbbbbmmRmnnnnmmmmmmgggggg=mWmmmmmemmmmkkkkkmmmRR",
+  "RRmmmmmmmmmmmWhhhhhhhhhmmmnnnnhhhhhhhhhhggg=mWemmemmmmmmmmmmmmmmRR",
+  "RRmemmmmmmmmRWhhhhhhhhhemmnnnnhhhhhhhhhhggg=mWmmmmmmmmmmmbbbbbbbRR",
+  "RRmmmmmmmmmmmWhhhhhhhhhmmnwwwnhhhhhhhhhhRgg=mmmmmmmmmmmmbbbbbbbb..",
+  "RRmmmmmmmmmmmWhhhhhhhhhmmmwwwmhhhhhhhhhhgge=======================",
+  "RmmmmkkkkkkmmWhhhhhhhhhmmmmmmmhhhhhhhhhhgmmmmmmmmmmmmmmmbbbbbbbb..",
+  "RRmbbkkkkkkgmWhhhhhhhhhmmmmmmmhhhhhhhhhhmmmmmmmWWWWWWWWWWWWbbbbbRR",
+  "RRbbbkkkkkkggmemmmmmmmmmmmmmmmhhhhhhhhhhmmmmmmmmmmmmhhhhhhhhbbbbbR",
+  "RRbbbkkkkkkgmmRmemnnnRmmmmmmmgggegmemmmmmmmmmmmmmRmmhhhhhhhhbbbbRR",
+  "RRbbbkkkkkkgmmmmmnnnnnmmmmRgggggggmmmmmmmmmmmmemmmmehhhhhhhhbbbgRR",
+  "RRbbbbbbbbggmmmmmRnnnnmmmmmgggggggmmemmmmmmmmmmmmmmmhhhhhhhhmmggRR",
+  "RRbbbbbbbbemmmmmmnnnnmmmmmgggegggemmmemmmmmmmmemmmmmhhhhhhhhmmegRR",
+  "RRmmbbbbbmmmmmmmmmmmmmmmmmgegggggmmmmmmmmmmmmemmmmmmmmmmmmmmmmmmRR",
   "RRRRRRRRRRRRRRRmRmRmRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR",
-  "mRRRRRRRRRRRRRRRRRRRmRRRRRRRRRRRRRRRRRRRmRRRRRRRRRRRRRRRRRRRRRRRRR"
+  "gRRRRRRRRRRRRRRRRRRRmRRRRRRRRRRRRRRRRRRRmRRRRRRRRRRRRRRRRRRRRRRRRR"
  ],
  "heights": [
   "000000000000000000000000000000000000000000000000000000000000000000",
@@ -291,17 +342,51 @@
  "legend_extra": {
   "m": {
    "tile": "grass",
-   "colour": "#7d7a45"
+   "colour": "#7f7b49"
+  },
+  "g": {
+   "tile": "grass",
+   "colour": "#77804a"
+  },
+  "b": {
+   "tile": "grass",
+   "colour": "#6e7745"
+  },
+  "n": {
+   "tile": "grass",
+   "colour": "#8a7046"
+  },
+  "e": {
+   "tile": "grass",
+   "colour": "#7a7448",
+   "prop": "heather"
   },
   "h": {
    "tile": "tall_grass",
-   "colour": "#6e5a5c",
+   "colour": "#655060",
    "prop": "heather"
   },
   "k": {
    "tile": "tall_grass",
-   "colour": "#7a7444",
+   "colour": "#7c7a47",
    "prop": "short"
+  },
+  "R": {
+   "tile": "rock",
+   "colour": "#7d7a4a"
+  },
+  "G": {
+   "tile": "rock",
+   "colour": "#6f6852",
+   "prop": "gritstone"
+  },
+  "W": {
+   "tile": "drystone_wall",
+   "colour": "#76734a"
+  },
+  ".": {
+   "tile": "grass",
+   "colour": "#7f7b49"
   }
  }
 }

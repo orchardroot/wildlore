@@ -39,13 +39,13 @@ func test_pp_is_spent() -> void:
 	assert_eq(p.moves[0].pp, 34)
 
 func test_status_move_inflicts() -> void:
-	var b := Fixtures.battle([Fixtures.creature("holtling", 10)], [Fixtures.creature("kindlet", 10)])
+	var b := Fixtures.battle([Fixtures.creature("holtling", 11)], [Fixtures.creature("kindlet", 10)])
 	var ev := b.take_turn({"type": "move", "slot": 3}, {"type": "move", "slot": 1})
 	assert_eq(_first(ev, "status"), {"type": "status", "side": 1, "status": "soaked"})
 	assert_eq(b.current(1).status, "soaked")
 
 func test_stat_move_lowers_foe() -> void:
-	var b := Fixtures.battle([Fixtures.creature("kindlet", 10)], [Fixtures.creature("spikkin", 10)])
+	var b := Fixtures.battle([Fixtures.creature("kindlet", 10)], [Fixtures.creature("volet", 10)])  # not Spikkin: Bristleback blocks drops
 	b.take_turn({"type": "move", "slot": 1}, {"type": "move", "slot": 3})
 	assert_eq(b.current(1).stages.atk, -1)
 	assert_eq(b.current(1).stages.def, 1)

@@ -37,7 +37,17 @@ func news(header: String, text: String) -> void:
 		_news.append([header, text])
 
 func standing(nation: String, n: int) -> void:
-	news("Standing", Standing.add(_data(), nation, n))
+	news("Standing", Parish.standing_line(_data(), nation, n))
+
+## Adds standing and returns the toast: a new tier's line, or on the very first point in a nation a one-off "Someone
+## in England has noticed you" so the player learns standing exists. Later points stay quiet until the next tier.
+static func standing_line(data: GameStateData, nation: String, n: int) -> String:
+	var before := Standing.points(data, nation)
+	var line := Standing.add(data, nation, n)
+	if line != "" or before > 0 or Standing.points(data, nation) <= 0:
+		return line
+	var where := ("on the " if nation == "mann" else "in ") + Standing.name_of(nation)
+	return "Someone %s has noticed you. Help out and they'll count you as one of their own" % where
 
 func _on_battle_ended(result: Dictionary) -> void:
 	if str(result.get("result", "")) != "win" or bool(result.get("exhibition", false)):

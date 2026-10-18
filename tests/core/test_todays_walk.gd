@@ -59,7 +59,7 @@ func test_bonus_pub_prefers_visited_towns() -> void:
 	for day in range(1, 15):
 		assert_eq(TodaysWalk.pick("2026-10-%02d" % day, d, _index(), _cfg(), null).pub, "york")
 	var fresh := GameStateData.new()
-	assert_true(TodaysWalk.pick("2026-10-01", fresh, _index(), _cfg(), null).pub != "", "no pubs visited: any pub")
+	assert_eq(TodaysWalk.pick("2026-10-01", fresh, _index(), _cfg(), null).pub, "", "no pubs visited: no pub (2.1)")
 
 func test_bounty_weather_and_reward_are_known() -> void:
 	var items := ItemDB.load_default()

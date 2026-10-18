@@ -120,6 +120,16 @@ func lunge(to: Vector3) -> void:
 	_tween.tween_property(self, "position", home, 0.22).set_ease(Tween.EASE_OUT)
 	await _tween.finished
 
+## Rear up and settle: the wind-up for a special, status or weather move (no dash). Not awaited by BattleFX.
+func cast() -> void:
+	_kill()
+	_tween = create_tween().set_trans(Tween.TRANS_SINE)
+	_tween.tween_property(self, "_squash", Vector3(0.9, 1.14, 1.0), 0.14).set_ease(Tween.EASE_OUT)
+	_tween.parallel().tween_property(self, "position", home + Vector3(0, 0.22, 0), 0.14).set_ease(Tween.EASE_OUT)
+	_tween.tween_property(self, "_squash", Vector3.ONE, 0.22).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	_tween.parallel().tween_property(self, "position", home, 0.22).set_ease(Tween.EASE_IN)
+	await _tween.finished
+
 func hit(strength := "normal") -> void:
 	_kill()
 	var k := 0.35 if strength == "strong" else (0.12 if strength == "weak" else 0.22)

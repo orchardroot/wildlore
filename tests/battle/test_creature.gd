@@ -18,7 +18,7 @@ func test_nature_raises_and_lowers() -> void:
 func test_default_moves_are_last_four_learned() -> void:
 	var c := Fixtures.creature("kindlet", 13)
 	var ids := c.moves.map(func(m): return m.id)
-	assert_eq(ids, ["glare", "kindle", "quick_nip", "smoulder"])
+	assert_eq(ids, ["glare", "kindle", "hot_conker", "smoulder"])
 	assert_eq(c.moves[1].pp, 25)
 
 func test_stage_multipliers() -> void:

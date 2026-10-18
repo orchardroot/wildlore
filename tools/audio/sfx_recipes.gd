@@ -15,6 +15,10 @@ const LENGTHS := {
 	"step_path": 0.12, "step_stone": 0.1, "step_wood": 0.14, "step_sand": 0.15, "step_soft": 0.12, "step_wet": 0.16, "bike_tyre": 0.2,
 	"talk_blip": 0.08, "sign_creak": 0.5, "shop_bell": 0.9, "sanctuary_chime": 1.4, "brake_squeal": 1.6,
 	"radio_tune": 2.0,
+	# 2.1 battle voices: one attack per type family (AudioIds.ATTACK_VOICE), the wild sting, stat and weather calls.
+	"atk_thud": 0.32, "atk_rustle": 0.4, "atk_splash": 0.45, "atk_crackle": 0.5, "atk_whoosh": 0.45, "atk_zap": 0.4,
+	"atk_ice": 0.5, "atk_crunch": 0.4, "atk_squelch": 0.42, "atk_clang": 0.55, "atk_shimmer": 0.6, "atk_wail": 0.6,
+	"encounter": 1.1, "stat_up": 0.45, "stat_down": 0.45, "weather_call": 1.3,
 }
 const PEAKS := {
 	"cursor": 0.5, "confirm": 0.6, "cancel": 0.55, "bump": 0.6, "door": 0.6, "step_grass": 0.55,
@@ -27,6 +31,9 @@ const PEAKS := {
 	"step_path": 0.6, "step_stone": 0.6, "step_wood": 0.6, "step_sand": 0.5, "step_soft": 0.5, "step_wet": 0.6, "bike_tyre": 0.5,
 	"talk_blip": 0.45, "sign_creak": 0.6, "shop_bell": 0.6, "sanctuary_chime": 0.6, "brake_squeal": 0.6,
 	"radio_tune": 0.6,
+	"atk_thud": 0.75, "atk_rustle": 0.65, "atk_splash": 0.7, "atk_crackle": 0.7, "atk_whoosh": 0.65, "atk_zap": 0.65,
+	"atk_ice": 0.6, "atk_crunch": 0.75, "atk_squelch": 0.5, "atk_clang": 0.8, "atk_shimmer": 0.55, "atk_wail": 0.55,
+	"encounter": 0.75, "stat_up": 0.55, "stat_down": 0.55, "weather_call": 0.85,
 }
 
 static func ids() -> Array:
@@ -505,6 +512,168 @@ static func render(id: String) -> PackedFloat32Array:
 			Synth.highpass(hiss, 2500.0, SR)
 			Synth.lowpass(hiss, 6000.0, SR)
 			Synth.mix_into(out, hiss, 0, 0.05)
+		"atk_thud":
+			# A body blow: a whoosh in, then a deep thump with a slap on top.
+			var sw := Synth.noise(0.12, SR, 601)
+			Synth.bandpass(sw, 900.0, 0.8, SR)
+			Synth.adsr(sw, SR, 0.06, 0.02, 0.5, 0.04)
+			Synth.mix_into(out, sw, 0, 0.5)
+			var t := Synth.osc(Synth.SINE, 180.0, 55.0, 0.24, SR)
+			Synth.pluck_env(t, SR, 0.002, 14.0)
+			Synth.mix_into(out, t, _at(0.08))
+			Synth.mix_into(out, _noise_burst(0.06, 2600.0, 400.0, 55.0, 602), _at(0.08), 0.7)
+		"atk_rustle":
+			# Leaves thrashed about, a twig snap at the end.
+			var n := Synth.noise(0.32, SR, 611)
+			Synth.lowpass_sweep(n, 1800.0, 5200.0, SR)
+			Synth.highpass(n, 700.0, SR)
+			Synth.adsr(n, SR, 0.03, 0.08, 0.6, 0.12)
+			Synth.mix_into(out, n, 0, 0.8)
+			for k in 3:
+				Synth.mix_into(out, _noise_burst(0.03, 0.0, 2200.0, 90.0, 612 + k), _at(0.06 + 0.07 * k), 0.4)
+			var snap := Synth.osc(Synth.TRI, 1900.0, 900.0, 0.05, SR)
+			Synth.pluck_env(snap, SR, 0.0005, 70.0)
+			Synth.mix_into(out, snap, _at(0.3), 0.5)
+		"atk_splash":
+			# A rising bloop and a slap of water.
+			for k in 3:
+				var b := Synth.osc(Synth.SINE, 260.0 + 90.0 * k, 700.0 + 160.0 * k, 0.09, SR)
+				Synth.pluck_env(b, SR, 0.004, 22.0)
+				Synth.mix_into(out, b, _at(0.05 * k), 0.45)
+			var w := Synth.noise(0.32, SR, 621)
+			Synth.lowpass_sweep(w, 5000.0, 900.0, SR)
+			Synth.highpass(w, 200.0, SR)
+			Synth.adsr(w, SR, 0.005, 0.1, 0.3, 0.18)
+			Synth.mix_into(out, w, _at(0.12), 0.9)
+		"atk_crackle":
+			# A whoomph of flame and a spit of embers.
+			var f := Synth.noise(0.4, SR, 631)
+			Synth.lowpass_sweep(f, 400.0, 2400.0, SR)
+			Synth.adsr(f, SR, 0.04, 0.12, 0.55, 0.2)
+			Synth.mix_into(out, f, 0, 1.0)
+			var lo := Synth.osc(Synth.SINE, 90.0, 140.0, 0.3, SR)
+			Synth.adsr(lo, SR, 0.03, 0.1, 0.5, 0.15)
+			Synth.mix_into(out, lo, 0, 0.5)
+			var rng := RandomNumberGenerator.new()
+			rng.seed = 632
+			for k in 9:
+				Synth.mix_into(out, _noise_burst(0.012, 0.0, 2500.0, 250.0, 633 + k), _at(rng.randf_range(0.05, 0.42)), rng.randf_range(0.3, 0.7))
+		"atk_whoosh":
+			# Wind: a band of noise swept up and back down.
+			var w := Synth.noise(0.42, SR, 641)
+			var fcs := PackedFloat32Array()
+			fcs.resize(w.size())
+			for i in w.size():
+				fcs[i] = 500.0 + 2600.0 * sin(PI * float(i) / w.size())
+			Synth.bandpass(w, 900.0, 2.0, SR, fcs)
+			Synth.adsr(w, SR, 0.12, 0.1, 0.7, 0.18)
+			Synth.mix_into(out, w, 0, 1.0)
+		"atk_zap":
+			# A buzzing arc and a crack.
+			var z := Synth.osc(Synth.SQUARE, 1400.0, 260.0, 0.3, SR, 0.3, 45.0, 300.0)
+			Synth.lowpass(z, 4200.0, SR)
+			Synth.adsr(z, SR, 0.002, 0.08, 0.5, 0.15)
+			Synth.mix_into(out, z, 0, 0.5)
+			Synth.mix_into(out, _noise_burst(0.08, 0.0, 1500.0, 40.0, 651), 0, 0.9)
+			Synth.mix_into(out, _noise_burst(0.05, 0.0, 800.0, 60.0, 652), _at(0.14), 0.6)
+		"atk_ice":
+			# Glassy tinkles over a cold hiss.
+			var h := Synth.noise(0.45, SR, 661)
+			Synth.highpass(h, 4000.0, SR)
+			Synth.adsr(h, SR, 0.02, 0.1, 0.4, 0.25)
+			Synth.mix_into(out, h, 0, 0.35)
+			var notes := [2637.0, 3136.0, 3520.0, 2349.0, 3951.0]
+			for k in 5:
+				Synth.mix_into(out, _bell(float(notes[k]), 0.3, 14.0), _at(0.05 * k), 0.4)
+		"atk_crunch":
+			# Rock on rock: a low knock and a gravelly crunch.
+			var t := Synth.osc(Synth.TRI, 120.0, 45.0, 0.3, SR)
+			Synth.pluck_env(t, SR, 0.002, 12.0)
+			Synth.mix_into(out, t, 0, 0.9)
+			var rng := RandomNumberGenerator.new()
+			rng.seed = 671
+			for k in 14:
+				Synth.mix_into(out, _noise_burst(0.02, 3000.0, 300.0, 140.0, 672 + k), _at(0.02 + rng.randf_range(0.0, 0.22)), rng.randf_range(0.3, 0.8))
+		"atk_squelch":
+			# A wet blorp, pitch falling, with a sucking tail.
+			var b := Synth.osc(Synth.SINE, 340.0, 85.0, 0.3, SR, 0.5, 14.0, 120.0)
+			Synth.adsr(b, SR, 0.01, 0.1, 0.5, 0.15)
+			Synth.mix_into(out, b, 0, 0.9)
+			var w := Synth.noise(0.3, SR, 681)
+			Synth.lowpass_sweep(w, 600.0, 1600.0, SR)
+			Synth.adsr(w, SR, 0.05, 0.1, 0.4, 0.12)
+			Synth.mix_into(out, w, _at(0.1), 0.6)
+		"atk_clang":
+			# Metal struck: inharmonic partials, a hard edge.
+			for pair in [[523.0, 1.0], [1187.0, 0.6], [1873.0, 0.4], [2741.0, 0.25]]:
+				var p := Synth.osc(Synth.SINE, pair[0], pair[0] * 0.995, 0.55, SR)
+				Synth.pluck_env(p, SR, 0.001, 6.0)
+				Synth.mix_into(out, p, 0, pair[1] * 0.5)
+			Synth.mix_into(out, _noise_burst(0.03, 0.0, 2000.0, 120.0, 691), 0, 0.7)
+		"atk_shimmer":
+			# Fairy glints running up, a soft swell under them.
+			var sw := Synth.osc(Synth.SINE, 660.0, 1320.0, 0.5, SR, 0.5, 7.0, 30.0)
+			Synth.adsr(sw, SR, 0.1, 0.1, 0.6, 0.25)
+			Synth.mix_into(out, sw, 0, 0.35)
+			var notes := [1318.5, 1568.0, 1975.5, 2349.3, 2637.0, 3136.0]
+			for k in 6:
+				Synth.mix_into(out, _bell(float(notes[k]), 0.3, 10.0), _at(0.045 * k), 0.35)
+		"atk_wail":
+			# Two detuned sines sliding down, echoing.
+			var a := Synth.osc(Synth.SINE, 820.0, 380.0, 0.45, SR, 0.5, 5.0, 40.0)
+			var b := Synth.osc(Synth.SINE, 835.0, 372.0, 0.45, SR, 0.5, 5.5, 40.0)
+			Synth.mix_into(a, b, 0, 0.8)
+			Synth.adsr(a, SR, 0.08, 0.1, 0.6, 0.2)
+			Synth.mix_into(out, a, 0, 0.7)
+			Synth.mix_into(out, a, _at(0.14), 0.3)
+			var h := Synth.noise(0.4, SR, 701)
+			Synth.bandpass(h, 1200.0, 3.0, SR)
+			Synth.adsr(h, SR, 0.1, 0.1, 0.5, 0.2)
+			Synth.mix_into(out, h, 0, 0.3)
+		"encounter":
+			# Something in the grass: a fiddle stab, a quick run down, and a held question on the fifth.
+			for f in [293.66, 440.0, 587.33]:
+				var st := Synth.osc(Synth.SAW, f, f, 0.16, SR, 0.5, 6.0, 10.0)
+				Synth.lowpass(st, 2800.0, SR)
+				Synth.adsr(st, SR, 0.005, 0.05, 0.6, 0.06)
+				Synth.mix_into(out, st, 0, 0.35)
+			var run := [880.0, 784.0, 698.5, 659.3, 587.3]
+			for k in 5:
+				var t := _tone(Synth.SQUARE, float(run[k]), float(run[k]), 0.08, 0.003, 0.02, 0.6, 0.03, 3200.0, 0.3)
+				Synth.mix_into(out, t, _at(0.18 + 0.055 * k), 0.4)
+			for f in [440.0, 659.25]:
+				var held := Synth.osc(Synth.SAW, f, f, 0.6, SR, 0.5, 5.5, 14.0, 0.1)
+				Synth.lowpass(held, 2400.0, SR)
+				Synth.adsr(held, SR, 0.02, 0.15, 0.7, 0.3)
+				Synth.mix_into(out, held, _at(0.46), 0.3)
+			var thump := Synth.osc(Synth.SINE, 110.0, 50.0, 0.3, SR)
+			Synth.pluck_env(thump, SR, 0.002, 12.0)
+			Synth.mix_into(out, thump, 0, 0.7)
+			Synth.mix_into(out, thump, _at(0.46), 0.5)
+		"stat_up":
+			for k in 3:
+				var f := 523.25 * pow(2.0, [0, 4, 7][k] / 12.0)
+				var t := _tone(Synth.TRI, f, f * 1.03, 0.14, 0.004, 0.04, 0.6, 0.06, 4000.0)
+				Synth.mix_into(out, t, _at(0.08 * k), 0.6)
+			Synth.mix_into(out, _bell(1568.0, 0.25, 10.0), _at(0.2), 0.3)
+		"stat_down":
+			for k in 3:
+				var f := 659.25 * pow(2.0, [0, -4, -8][k] / 12.0)
+				var t := _tone(Synth.TRI, f, f * 0.97, 0.14, 0.004, 0.04, 0.6, 0.06, 2600.0)
+				Synth.mix_into(out, t, _at(0.08 * k), 0.6)
+		"weather_call":
+			# The sky answering: a wind swell, a distant rumble, a bright crack at the top.
+			var w := Synth.noise(1.2, SR, 711)
+			Synth.lowpass_sweep(w, 300.0, 3000.0, SR)
+			Synth.adsr(w, SR, 0.5, 0.2, 0.5, 0.45)
+			Synth.mix_into(out, w, 0, 0.8)
+			var r := Synth.noise(1.0, SR, 712)
+			Synth.lowpass(r, 160.0, SR)
+			Synth.adsr(r, SR, 0.2, 0.3, 0.6, 0.4)
+			Synth.mix_into(out, r, _at(0.25), 2.2)
+			Synth.mix_into(out, _noise_burst(0.12, 0.0, 1200.0, 30.0, 713), _at(0.45), 0.6)
+			for f in [587.33, 880.0, 1174.66]:
+				Synth.mix_into(out, _bell(f, 0.7, 4.0), _at(0.45), 0.25)
 		_:
 			push_error("unknown sfx " + id)
 	Synth.fade_out(out, SR, 0.008)

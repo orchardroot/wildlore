@@ -219,7 +219,7 @@ const POINT_PROPS := ["lamp_post", "bench", "bush", "birch", "oak", "pine", "roc
 	"buoy", "lighthouse", "statue", "harp", "clock_tower", "shard", "buffer_stop", "tunnel_portal",
 	"bunting", "flagpole", "washing_line", "hanging_basket", "rug", "fireplace", "wall_picture", "clock", "kitchen_dresser",
 	"fryer", "menu_board", "piano", "telescope", "plant_stand", "sofa", "display_case", "cascade", "sheep",
-	"field_gate", "limestone_pavement"]
+	"field_gate", "limestone_pavement", "window", "cat_bowl", "owl_perch", "kettle_table", "specimen_shelf", "wall_map"]
 ## Cloth meshes that ripple (flutter shader) and glow meshes that add light (firelight shader).
 const CLOTH := ["bunting", "flag", "washing_line"]
 const FLOATING := ["boat", "canal_boat", "buoy"]
@@ -237,10 +237,10 @@ static func _props(z: ZoneData, root: Node3D, rng: RandomNumberGenerator) -> voi
 			var extra: Dictionary = z.legend_extra.get(z.char_at(p), {})
 			var prop_name: String = extra.get("prop", "")
 			var spec: Array = []
-			if prop_name in ["heather", "reeds", "none"]:
+			if prop_name in ["heather", "reeds", "none", "gritstone"]:
 				if prop_name == "none":
 					continue
-				spec = [prop_name + ("_tuft" if prop_name == "heather" else ""), 3, true]
+				spec = [{"heather": "heather_tuft", "gritstone": "gritstone_edge"}.get(prop_name, prop_name), 3, prop_name != "gritstone"]
 			elif prop_name == "pavement":
 				spec = ["limestone_pavement", 3, false]  # limestone pavement laid over a walkable tile
 			else:
@@ -259,6 +259,8 @@ static func _props(z: ZoneData, root: Node3D, rng: RandomNumberGenerator) -> voi
 				var ew := z.tile_at(p + Vector2i(-1, 0)) == t or z.tile_at(p + Vector2i(1, 0)) == t
 				if ns and not ew:
 					basis = Basis(Vector3.UP, PI / 2)
+			elif prop_name == "gritstone":
+				pass  # an edge faces south, square to the tile, so a row of them makes one crag
 			elif prop_name == "pavement":
 				basis = Basis(Vector3.UP, PI * 0.5 * (rng.randi() % 4))  # slabs keep square to the tile
 			elif t != "counter":
@@ -410,6 +412,8 @@ static func _ctor(name: String, variant: int) -> ArrayMesh:
 			return Meshes.tall_grass_tuft(variant)
 		"heather_tuft":
 			return Meshes.heather_tuft(variant)
+		"gritstone_edge":
+			return Meshes.gritstone_edge(variant)
 		"reeds":
 			return Meshes.reeds(variant)
 		"lamp_post":
@@ -522,6 +526,18 @@ static func _ctor(name: String, variant: int) -> ArrayMesh:
 			return Dressing.sofa(variant)
 		"display_case":
 			return Dressing.display_case(variant)
+		"window":
+			return Dressing.window()
+		"cat_bowl":
+			return Dressing.cat_bowl()
+		"owl_perch":
+			return Dressing.owl_perch()
+		"kettle_table":
+			return Dressing.kettle_table()
+		"specimen_shelf":
+			return Dressing.specimen_shelf(variant)
+		"wall_map":
+			return Dressing.wall_map()
 	push_warning("ZoneBuilder: unknown prop mesh '%s'" % name)
 	return Meshes.rock(0)
 

@@ -44,7 +44,7 @@ static func lines_for(ev: Dictionary, ctx: Dictionary) -> Array[String]:
 			out.append("It doesn't affect %s..." % _mid(side, ctx, pos))
 		"damage":
 			if bool(ev.get("crit", false)):
-				out.append("A critical hit!")
+				out.append("Right on the nose! A critical hit!")
 			var e := float(ev.get("effectiveness", 1.0))
 			# in doubles say who took it, since a spread move hits two
 			var on := (" on %s" % _mid(side, ctx, pos)) if ev.has("pos") else ""
@@ -124,8 +124,13 @@ static func lines_for(ev: Dictionary, ctx: Dictionary) -> Array[String]:
 				out.append("You threw a %s!" % ev.get("snare_name", "snare"))
 				if bool(ev.success):
 					out.append("Gotcha! %s was caught!" % ctx.battle.current(Battle.FOE).display_name())
+					if bool(ev.get("clean", false)):
+						out.append("A clean catch: not a scratch on it, and fast asleep. Textbook.")
 				else:
-					out.append("Oh no! %s broke free!" % name_of(Battle.FOE, ctx))
+					match int(ev.get("wobbles", 1)):  # the wobbles come from the real roll, so the words can too
+						3: out.append("Argh! So close! %s broke free at the last second!" % name_of(Battle.FOE, ctx))
+						0: out.append("%s burst straight out!" % name_of(Battle.FOE, ctx))
+						_: out.append("Oh no! %s broke free!" % name_of(Battle.FOE, ctx))
 		"invalid":
 			match str(ev.get("reason", "")):
 				"needs_switch":
@@ -218,7 +223,7 @@ static func _cue(ev: Dictionary, ctx: Dictionary) -> Dictionary:
 	match str(ev.type):
 		"move":
 			var mt := str(ctx.battle.move_db.get_move(str(ev.move)).get("type", ""))
-			return {"cue": "attack", "side": side, "move_type": mt}
+			return {"cue": "attack", "side": side, "move_type": mt, "move": str(ev.move)}
 		"miss":
 			return {"cue": "dodge", "side": 1 - side}
 		"no_effect":
@@ -230,7 +235,10 @@ static func _cue(ev: Dictionary, ctx: Dictionary) -> Dictionary:
 				strength = "strong"
 			elif e < 1.0:
 				strength = "weak"
-			return {"cue": "hit", "side": side, "hp": int(ev.hp), "strength": strength}
+			var hit := {"cue": "hit", "side": side, "hp": int(ev.hp), "strength": strength}
+			if bool(ev.get("crit", false)):
+				hit["crit"] = true  # its own beat on the HUD (a gold flash), on top of the strong hit
+			return hit
 		"stat":
 			return {"cue": "stat_up" if int(ev.delta) > 0 else "stat_down", "side": side, "stat": str(ev.stat)}
 		"status":

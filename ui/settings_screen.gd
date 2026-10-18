@@ -25,9 +25,9 @@ func _build() -> void:
 	v.add_theme_constant_override("separation", 2)
 	p.add_child(v)
 	var buttons := []
-	for def in [["text_speed", "Text speed"], ["battle_speed", "Battle speed"], ["travel_scenes", "Travel scenes"], ["quality", "Graphics quality"], ["music_volume", "Music volume"], ["sfx_volume", "Effects volume"], ["ambience_volume", "Ambience volume"], ["run_mode", "Run key"], ["follower", "Follower"], ["colour_blind", "Colour-blind friendly"], ["reduce_flashing", "Reduce flashing"]]:
+	for def in [["text_speed", "Text speed"], ["battle_speed", "Battle speed"], ["travel_scenes", "Travel scenes"], ["quality", "Graphics quality"], ["music_volume", "Music volume"], ["sfx_volume", "Effects volume"], ["ambience_volume", "Ambience volume"], ["run_mode", "Run key"], ["follower", "Follower"], ["colour_blind", "Colour-blind friendly"], ["reduce_flashing", "Reduce flashing"], ["damage_numbers", "Damage numbers"]]:
 		var b := Button.new()
-		b.custom_minimum_size = Vector2(0, 32)  # rows are tight: the preview panel must clear the hint line
+		b.custom_minimum_size = Vector2(0, 29)  # rows are tight: the preview panel must clear the hint line
 		UIKit.compact(b, 2)
 		var h := HBoxContainer.new()
 		h.set_anchors_preset(Control.PRESET_FULL_RECT)
@@ -155,6 +155,8 @@ func _change(key: String, d: int) -> void:
 			Settings.colour_blind = not Settings.colour_blind
 		"reduce_flashing":
 			Settings.reduce_flashing = not Settings.reduce_flashing
+		"damage_numbers":
+			Settings.damage_numbers = not Settings.damage_numbers
 	Settings.save_settings()
 	if key == "sfx_volume":
 		Audio.sfx("cursor")
@@ -191,6 +193,8 @@ func _paint_row(r: Dictionary) -> void:
 			_fill_chips()
 		"reduce_flashing":
 			l.text = "<  %s  >" % ("On" if Settings.reduce_flashing else "Off")
+		"damage_numbers":
+			l.text = "<  %s  >" % ("On" if Settings.damage_numbers else "Off")
 
 func _pct(v: float) -> String:
 	return "<  %d%%  >" % (roundi(v * 10.0) * 10)

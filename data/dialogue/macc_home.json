@@ -111,6 +111,9 @@
      ],
      "else": [
       {
+       "do": "face_player"
+      },
+      {
        "do": "say",
        "who": "Mum",
        "text": "Morning, love. Well, gone ten. You slept through the pigeons AND the bin lorry."
@@ -129,6 +132,16 @@
        "do": "say",
        "who": "Mum",
        "text": "Off you go to the Field Station, east end of town, past the market."
+      },
+      {
+       "do": "say",
+       "who": "Mum",
+       "text": "And there's a noticeboard by the market stalls. Folk pin odd jobs on it. Do a few and people start to know your face."
+      },
+      {
+       "do": "say",
+       "who": "Mum",
+       "text": "Your garden's out the front, by the way. Plant anything you pick and it grows while you're out. That's how it got all them dandelions."
       },
       {
        "do": "say",
@@ -217,6 +230,60 @@
      "text": "All ten Wardstones on one shelf. I had to move the good china to the back bedroom. Worth it. Don't tell your nan."
     }
    ]
+  }
+ ],
+ "cold_open": [
+  {
+   "do": "music",
+   "id": "legend"
+  },
+  {
+   "do": "fade_in"
+  },
+  {
+   "do": "wait",
+   "seconds": 0.6
+  },
+  {
+   "do": "say",
+   "who": "",
+   "text": "The moors above Macclesfield. Twenty to midnight, and not a soul about."
+  },
+  {
+   "do": "say",
+   "who": "",
+   "text": "Then a standing stone that has kept quiet for four thousand years begins, very softly, to hum."
+  },
+  {
+   "do": "wait",
+   "seconds": 1.2
+  },
+  {
+   "do": "say",
+   "who": "",
+   "text": "On the skyline, something with antlers lifts its head and listens."
+  },
+  {
+   "do": "wait",
+   "seconds": 0.8
+  },
+  {
+   "do": "say",
+   "who": "",
+   "text": "Then it's gone."
+  },
+  {
+   "do": "fade_out"
+  },
+  {
+   "do": "say",
+   "who": "",
+   "text": "Down in town, nobody noticed. Least of all you."
+  },
+  {
+   "do": "say",
+   "who": "",
+   "text": "Next morning."
   }
  ]
 }

@@ -24,5 +24,28 @@
 	],
 	"moot_open": [
 		{"do": "tournament", "id": "moot"}
+	],
+	"forecast": [
+		{"do": "when", "cond": "rain", "then": [
+			{"do": "say", "text": "Today's forecast: wet. Brook and Tide moves hit harder in the rain, and a proper downpour damps Hearth right down. Pack a brolly and a water type."}
+		], "else": [
+			{"do": "when", "cond": "sunshine", "then": [
+				{"do": "say", "text": "Today's forecast: sunshine, mark the calendar. Hearth and Hedgerow moves are in their element, Brook goes a bit limp, and everyone lands more critical hits. Foes included, mind."}
+			], "else": [
+				{"do": "when", "cond": "fog", "then": [
+					{"do": "say", "text": "Today's forecast: fog. Every move's a bit less likely to land, so don't bet the farm on a wobbly one."}
+				], "else": [
+					{"do": "when", "cond": "gale", "then": [
+						{"do": "say", "text": "Today's forecast: a gale. Gale moves hit harder. Hold on to your hat, and your creatures."}
+					], "else": [
+						{"do": "when", "cond": "frost", "then": [
+							{"do": "say", "text": "Today's forecast: a hard frost. Frost moves bite harder and Hearth struggles to get going."}
+						], "else": [
+							{"do": "say", "text": "Today's forecast: clear as a bell. No help from the sky today, so it's all down to you."}
+						]}
+					]}
+				]}
+			]}
+		]}
 	]
 }

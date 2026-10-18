@@ -15,9 +15,9 @@ func test_fog_hurts_accuracy() -> void:
 	assert_eq(Weather.accuracy_mod("fog"), 0.85)
 	assert_eq(Weather.accuracy_mod("drizzle"), 1.0)
 
-func test_sunshine_morale_is_player_only() -> void:
+func test_sunshine_morale_is_for_both_sides() -> void:  # 2.1: no longer a hidden player-only rule
 	assert_eq(Weather.crit_mult("sunshine", 0), 2.0)
-	assert_eq(Weather.crit_mult("sunshine", 1), 1.0)
+	assert_eq(Weather.crit_mult("sunshine", 1), 2.0)
 
 func test_pick_is_weighted_and_has_a_default() -> void:
 	assert_eq(Weather.pick({}, Rng.new(1)), "clear")

@@ -25,7 +25,7 @@ static func get_index() -> Dictionary:
 		_cached = build(zones, m if m is Dictionary else {}, f if f is Dictionary else {})
 	return _cached
 
-## {zones: {id: {name, region, kind, town, pos (Vector2, or (-1, -1)), enc: [{species, table, time, weather}]}},
+## {zones: {id: {name, region, kind, town, pos (Vector2, or (-1, -1)), enc: [{species, table, time, weather, season}]}},
 ##  adj: {region: [regions next door]}, town_rooms: {town: [interior ids]}, room_town: {interior: town},
 ##  region_species: {region: [species ids]}}
 static func build(zones: Array, world_map := {}, ferries := {}) -> Dictionary:
@@ -46,7 +46,7 @@ static func build(zones: Array, world_map := {}, ferries := {}) -> Dictionary:
 			for table in tables:
 				for e in tables[table]:
 					if str(e.get("species", "")) != "":
-						enc.append({"species": str(e.species), "table": str(table), "time": e.get("time", []), "weather": e.get("weather", [])})
+						enc.append({"species": str(e.species), "table": str(table), "time": e.get("time", []), "weather": e.get("weather", []), "season": e.get("season", [])})
 		var p: Dictionary = towns.get(id, places.get(id, {}))
 		out.zones[id] = {"name": str(z.get("name", id)), "region": str(z.get("region", "")), "kind": str(z.get("kind", "route")),
 			"town": str(z.get("town_id", "")), "pos": Vector2(float(p.x), float(p.y)) if p.has("x") else Vector2(-1, -1), "enc": enc}

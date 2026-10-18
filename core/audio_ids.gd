@@ -28,6 +28,17 @@ const P6_SFX := ["bell_toll", "raven_caw", "train_rush"]
 const P6_MUSIC_LOOPING := ["town_york", "route_moors", "town_north", "town_london", "route_lakes", "dungeon_underground", "battle_moot", "battle_champion", "battle_final", "legend_hound2"]
 const P6_MUSIC_STINGS := ["ending", "credits"]
 
+## 2.1: each move type's attack sound. Twelve voices (synthesised in tools/audio/sfx_recipes.gd, in the spirit of
+## Cries' type voices) shared across the sixteen types; anything unknown keeps the old generic hit.
+const ATTACK_VOICE := {
+	"kin": "atk_thud", "brawn": "atk_thud", "hedgerow": "atk_rustle", "brook": "atk_splash", "tide": "atk_splash",
+	"hearth": "atk_crackle", "gale": "atk_whoosh", "storm": "atk_zap", "frost": "atk_ice", "stone": "atk_crunch",
+	"bog": "atk_squelch", "iron": "atk_clang", "urban": "atk_clang", "fae": "atk_shimmer", "spirit": "atk_wail", "night": "atk_wail",
+}
+
+static func attack_sfx(type_id: String) -> String:
+	return str(ATTACK_VOICE.get(type_id, "attack"))
+
 static func sfx_file(id: String) -> String:
 	return "res://audio/sfx/%s.wav" % SFX_ALIASES.get(id, id)
 

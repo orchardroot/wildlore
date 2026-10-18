@@ -534,6 +534,9 @@ func _do_switch(side: int, index: int, ev: Array, pos := 0) -> void:
 	_entered(side, pos, ev)
 
 func _do_item(side: int, item_id: String, target: int, ev: Array) -> void:
+	if side == FOE:
+		_foe_tea(item_id, target, ev)
+		return
 	var text := "Nothing happened."
 	var party: Array = parties[side]
 	if side == PLAYER and item_db != null and target >= 0 and target < party.size():
@@ -545,6 +548,23 @@ func _do_item(side: int, item_id: String, target: int, ev: Array) -> void:
 		elif bool(item.get("battle", false)) and item.get("kind", "") in ["heal", "cure", "revive", "pp"]:
 			text = ItemEffects.apply(item, party[target]).text
 	ev.append({"type": "item", "side": side, "item": item_id, "target": target, "text": text})
+
+## A keeper's one tea (TrainerParty.TEA on the creature, set from its trainer data): heals it once and is gone.
+## Played as a charm-style event (side, item, hp, text with "{name}") so the HP bar rises with no "You used" line.
+## A foe can only pour the tea it was given; anything else does nothing.
+func _foe_tea(item_id: String, target: int, ev: Array) -> void:
+	var party: Array = parties[FOE]
+	if item_db == null or target < 0 or target >= party.size():
+		return
+	var c: Creature = party[target]
+	if c.is_fainted() or not c.has_meta(TrainerParty.TEA) or str(c.get_meta(TrainerParty.TEA)) != item_id:
+		return
+	c.remove_meta(TrainerParty.TEA)
+	var item := item_db.get_item(item_id)
+	var got := c.heal(int(item.get("amount", 0)))
+	var pos := maxi(0, active[FOE].find(target))
+	ev.append(_at({"type": "charm", "side": FOE, "item": item_id, "hp": c.hp,
+		"text": "{name} stops for a quick %s and gets %d HP back." % [str(item.get("name", item_id)), got]}, pos))
 
 func _do_run(side: int, ev: Array) -> void:
 	if kind != "wild" or side != PLAYER:

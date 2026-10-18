@@ -31,23 +31,23 @@ func test_nickname_target_parsing() -> void:
 	assert_eq(NameEntry.nickname_target(d, ""), null)
 
 func test_reorder_swaps_two_moves() -> void:
-	var c := Fixtures.creature("kindlet", 9)  # scrap, glare, kindle, quick_nip
+	var c := Fixtures.creature("kindlet", 9)  # scrap, glare, kindle, hot_conker
 	c.moves[0].pp = 3
 	Summary.swap_moves(c, 0, 2)
-	assert_eq(c.moves.map(func(m): return m.id), ["kindle", "glare", "scrap", "quick_nip"])
+	assert_eq(c.moves.map(func(m): return m.id), ["kindle", "glare", "scrap", "hot_conker"])
 	assert_eq(int(c.moves[2].pp), 3, "PP travels with the move")
 	Summary.swap_moves(c, 1, 1)
-	assert_eq(c.moves.map(func(m): return m.id), ["kindle", "glare", "scrap", "quick_nip"])
+	assert_eq(c.moves.map(func(m): return m.id), ["kindle", "glare", "scrap", "hot_conker"])
 	Summary.swap_moves(c, 0, 9)
-	assert_eq(c.moves.map(func(m): return m.id), ["kindle", "glare", "scrap", "quick_nip"], "out of range does nothing")
+	assert_eq(c.moves.map(func(m): return m.id), ["kindle", "glare", "scrap", "hot_conker"], "out of range does nothing")
 
 func test_relearn_candidates() -> void:
 	var c := Fixtures.creature("kindlet", 20)
 	c.moves = [c.make_move_slot("scrap", Fixtures.moves()), c.make_move_slot("smoulder", Fixtures.moves())]
-	assert_eq(Progression.relearnable(c), ["glare", "kindle", "quick_nip", "blaze_dash"],
+	assert_eq(Progression.relearnable(c), ["glare", "kindle", "hot_conker", "fell_run", "blaze_dash"],
 		"learnset moves at or below its level it doesn't know, in learn order")
 	c.level = 12
-	assert_eq(Progression.relearnable(c), ["glare", "kindle", "quick_nip"])
+	assert_eq(Progression.relearnable(c), ["glare", "kindle", "hot_conker"])
 
 func test_relearn_skips_duplicates_in_learnset() -> void:
 	var sp := Fixtures.species("echo", ["kin"], 50, {"learnset": [[1, "scrap"], [3, "glare"], [7, "glare"]]})

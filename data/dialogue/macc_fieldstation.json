@@ -299,6 +299,18 @@
      "flag": "snares_given",
      "then": [
       {
+       "do": "if",
+       "flag": "job_epoch",
+       "then": [],
+       "else": [
+        {
+         "do": "say",
+         "who": "Prof. Garside",
+         "text": "Have you looked at the noticeboard in the market? Odd jobs. Good for the legs, and folk remember a helpful face."
+        }
+       ]
+      },
+      {
        "do": "say",
        "who": "Prof. Garside",
        "text": "East through the Forest, then the Cat and Fiddle road to Buxton."
@@ -599,6 +611,11 @@
          "do": "say",
          "who": "Prof. Garside",
          "text": "Hm. I do hope there's a Fieldbook entry for 'overexcitable'."
+        },
+        {
+         "do": "say",
+         "who": "Prof. Garside",
+         "text": "Oh, and on your way: the parish noticeboard by the market. The Forest Rangers want a rabbit counted. Catch one in the Forest and it pays for itself."
         }
        ],
        "else": [

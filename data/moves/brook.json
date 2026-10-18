@@ -9,5 +9,6 @@
   {"id": "undertow", "name": "Undertow", "type": "brook", "category": "special", "power": 90, "accuracy": 90, "pp": 10, "priority": 0, "effect": {"id": "status", "status": "soaked", "chance": 20}},
   {"id": "loch_deep", "name": "Loch Deep", "type": "brook", "category": "special", "power": 110, "accuracy": 85, "pp": 5, "priority": 0, "effect": {"id": "none"}},
   {"id": "dales_drizzle", "name": "Dales Drizzle", "type": "brook", "category": "special", "power": 40, "accuracy": 100, "pp": 30, "priority": 0, "target": "all_foes", "weather_bonus": {"weather": ["drizzle", "downpour"], "mult": 2.0}, "effect": {"id": "none"}},
-  {"id": "beck_bounce", "name": "Beck Bounce", "type": "brook", "category": "physical", "power": 70, "accuracy": 95, "pp": 20, "priority": 0, "effect": {"id": "status", "status": "chilled", "chance": 10}}
+  {"id": "beck_bounce", "name": "Beck Bounce", "type": "brook", "category": "physical", "power": 70, "accuracy": 95, "pp": 20, "priority": 0, "effect": {"id": "status", "status": "chilled", "chance": 10}},
+  {"id": "fish_supper", "name": "Fish Supper", "type": "brook", "category": "special", "power": 50, "accuracy": 100, "pp": 20, "priority": 0, "desc": "Helps itself to whatever is in the river. A special hit that heals it by half the damage dealt.", "effect": {"id": "drain", "frac": 50}}
 ]

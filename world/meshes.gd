@@ -248,12 +248,53 @@ static func tall_grass_tuft(variant := 0) -> ArrayMesh:
 		_tri(st, p - side, p + side, tip, Color("5b8c3a").lightened(rng.randf_range(-0.1, 0.12)))
 	return _finish(st)
 
+## Ling heather: low dark woody cushions with the purple bloom on top, a few paler sprigs standing proud.
 static func heather_tuft(variant := 0) -> ArrayMesh:
 	var rng := _rng(12000 + variant)
 	var st := _st()
-	for i in 9:
+	var blooms := [Color("74466f"), Color("80507b"), Color("66405f"), Color("8a5885")]
+	for i in 10:
 		var p := Vector3(rng.randf_range(-0.42, 0.42), 0, rng.randf_range(-0.42, 0.42))
-		blob(st, p + Vector3(0, 0.1, 0), Vector3(0.13, 0.11, 0.13), Color("7d4f7a").lightened(rng.randf_range(-0.08, 0.12)), rng, 0.3)
+		var r := rng.randf_range(0.1, 0.15)
+		blob(st, p + Vector3(0, 0.05, 0), Vector3(r * 1.1, 0.06, r * 1.1), Color("4a4532").lightened(rng.randf_range(-0.04, 0.06)), rng, 0.3)
+		var c: Color = blooms[rng.randi() % blooms.size()]
+		blob(st, p + Vector3(0, 0.12, 0), Vector3(r, rng.randf_range(0.06, 0.1), r), c.lightened(rng.randf_range(-0.06, 0.08)), rng, 0.3)
+	for i in 3:
+		var p := Vector3(rng.randf_range(-0.38, 0.38), 0.1, rng.randf_range(-0.38, 0.38))
+		box(st, p, Vector3(0.035, rng.randf_range(0.12, 0.18), 0.035), Color("a07898"))
+	return _finish(st)
+
+## A run of Peak District gritstone edge, one tile long: fallen blocks at the foot, then two to four courses of
+## flat-bedded millstone grit weathered round at the corners (flattened blobs, two or three to a course, with dark
+## cracks between), lichen-pale on top. Courses overhang the tile a little so a row reads as one crag, and the
+## variants step the skyline up and down.
+static func gritstone_edge(variant := 0) -> ArrayMesh:
+	var rng := _rng(15000 + variant * 7)
+	var st := _st()
+	var grit := Color("7d7362")
+	for i in 3:  # fallen blocks at the foot
+		var p := Vector3(rng.randf_range(-0.45, 0.45), 0.1, rng.randf_range(0.42, 0.62))
+		blob(st, p, Vector3(rng.randf_range(0.12, 0.2), rng.randf_range(0.08, 0.13), rng.randf_range(0.1, 0.16)), grit.darkened(rng.randf_range(0.0, 0.1)), rng, 0.25)
+	box(st, Vector3(-0.6, 0, -0.42), Vector3(1.2, 0.18, 0.84), grit.darkened(0.25))  # a dark root so no daylight shows under the slabs
+	var y := 0.08
+	var courses: int = [3, 2, 4][variant % 3]
+	for c in courses:
+		var h := rng.randf_range(0.28, 0.4) * (0.85 if c == courses - 1 else 1.0)
+		var depth := 0.42 - 0.04 * c
+		var n := 2 + rng.randi() % 2
+		var x := -0.62
+		for k in n:
+			var w := (1.24 / n) * rng.randf_range(0.85, 1.15)
+			if k == n - 1:
+				w = 0.62 - x
+			var col := grit.lightened(rng.randf_range(-0.07, 0.06) + 0.025 * c)
+			var cz := rng.randf_range(-0.04, 0.06) - 0.03 * c
+			blob(st, Vector3(x + w * 0.5, y + h * 0.5, cz), Vector3(w * 0.54, h * 0.56, depth), col, rng, 0.08)
+			x += w
+		y += h * 0.92
+	blob(st, Vector3(rng.randf_range(-0.2, 0.2), y + 0.03, -0.1), Vector3(0.38, 0.06, 0.3), Color("9a937c"), rng, 0.15)  # lichen-pale top
+	blob(st, Vector3(rng.randf_range(-0.35, 0.35), y + 0.06, -0.18), Vector3(0.16, 0.07, 0.14), Color("5e5a3a"), rng, 0.3)  # bilberry on top
+	blob(st, Vector3(rng.randf_range(-0.45, 0.45), 0.08, 0.58), Vector3(0.18, 0.08, 0.12), Color("74506e"), rng, 0.3)  # heather at the foot
 	return _finish(st)
 
 static func reeds(variant := 0) -> ArrayMesh:

@@ -48,14 +48,118 @@ class CaughtMark extends Control:
 		draw_circle(c, r * 0.28, BattleHUD.CREAM)
 		draw_arc(c, r, 0.0, TAU, 20, Color("14161c"), 1.5, true)
 
+## A small up or down triangle, drawn in code (so it never depends on the font having one).
+class Arrow extends Control:
+	var up := true
+	func _init(p_up: bool, px: float) -> void:
+		up = p_up
+		custom_minimum_size = Vector2(px, px)
+		size_flags_vertical = Control.SIZE_SHRINK_CENTER
+		mouse_filter = Control.MOUSE_FILTER_IGNORE
+	func _draw() -> void:
+		var w := size.x
+		var h := size.y
+		var pts := PackedVector2Array([Vector2(0, h * 0.85), Vector2(w, h * 0.85), Vector2(w * 0.5, h * 0.15)]) if up \
+			else PackedVector2Array([Vector2(0, h * 0.15), Vector2(w, h * 0.15), Vector2(w * 0.5, h * 0.85)])
+		draw_colored_polygon(pts, Color("14161c"))
+
+## Stat stages on a plate: one pill per raised or lowered stat, green up, red down ("ATK +2").
+class StageRow extends HBoxContainer:
+	const SHORT := {"atk": "ATK", "def": "DEF", "lore": "LOR", "ward": "WRD", "spd": "SPD", "acc": "ACC"}
+	var stages := {}
+	var px := 14
+	func _init(p_px := 14) -> void:
+		px = p_px
+		add_theme_constant_override("separation", 4)
+		mouse_filter = Control.MOUSE_FILTER_IGNORE
+		visible = false
+	func clear() -> void:
+		set_all({})
+	func set_all(d: Dictionary) -> void:
+		var next := {}
+		for s in d:
+			if int(d[s]) != 0:
+				next[s] = int(d[s])
+		if next == stages:
+			return
+		stages = next
+		_rebuild()
+	func add(stat: String, delta: int) -> void:
+		if delta == 0:
+			return
+		var next := stages.duplicate()
+		next[stat] = clampi(int(next.get(stat, 0)) + delta, -6, 6)
+		set_all(next)
+	## The pills' words, in stat order.
+	func labels() -> Array:
+		var out := []
+		for s in Rules.STAGE_STATS:
+			if stages.has(s):
+				out.append("%s %s%d" % [SHORT.get(s, s.to_upper()), "+" if stages[s] > 0 else "-", absi(stages[s])])
+		return out
+	func _rebuild() -> void:
+		for ch in get_children():
+			remove_child(ch)
+			ch.queue_free()
+		var words := labels()
+		var i := 0
+		for s in Rules.STAGE_STATS:
+			if not stages.has(s):
+				continue
+			var up: bool = stages[s] > 0
+			var sb := StyleBoxFlat.new()
+			sb.bg_color = Color("7fd47a") if up else Color("f08070")
+			sb.set_corner_radius_all(4)
+			sb.content_margin_left = 3
+			sb.content_margin_right = 5
+			var pc := PanelContainer.new()
+			pc.add_theme_stylebox_override("panel", sb)
+			pc.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			var h := HBoxContainer.new()
+			h.add_theme_constant_override("separation", 2)
+			pc.add_child(h)
+			h.add_child(BattleHUD.Arrow.new(up, px * 0.7))
+			var l := Label.new()
+			l.text = words[i]
+			l.add_theme_font_size_override("font_size", px)
+			l.add_theme_color_override("font_color", Color("14161c"))
+			l.add_theme_constant_override("shadow_offset_x", 0)
+			l.add_theme_constant_override("shadow_offset_y", 0)
+			h.add_child(l)
+			add_child(pc)
+			i += 1
+		visible = not stages.is_empty()
+
 ## The weather glyph on the weather plate, drawn in code: sun, rain cloud, fog bands, frost star, gale streaks.
+## Drawn on a 40px square scaled by k; arrow 1 or -1 adds a small green up or red down triangle (the move menu's tag).
 class WeatherIcon extends Control:
 	var kind := "clear"
-	func _init() -> void:
-		custom_minimum_size = Vector2(40, 40)
+	var k := 1.0
+	var arrow := 0
+	func _init(p_k := 1.0) -> void:
+		k = p_k
+		custom_minimum_size = Vector2(40, 40) * k
 		size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	## A small glyph for a move row: "this weather makes it stronger (1) or weaker (-1)".
+	static func tag(w: String, dir: int) -> WeatherIcon:
+		var t := WeatherIcon.new(0.72)
+		t.kind = w
+		t.arrow = dir
+		t.custom_minimum_size.x += 15
+		t.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		t.tooltip_text = "Stronger in this weather" if dir > 0 else "Weaker in this weather"
+		return t
 	func _draw() -> void:
-		var c := size * 0.5
+		if arrow != 0:  # the arrow sits to the right of the glyph, so the glyph is drawn shifted left
+			var x := 40.0 * k + 7.0
+			var y := size.y * 0.5
+			var col := Color("7fe07a") if arrow > 0 else Color("ff8a7a")
+			var tri := PackedVector2Array([Vector2(x - 6, y + 4), Vector2(x + 6, y + 4), Vector2(x, y - 6)]) if arrow > 0 \
+				else PackedVector2Array([Vector2(x - 6, y - 4), Vector2(x + 6, y - 4), Vector2(x, y + 6)])
+			draw_colored_polygon(tri, col)
+		draw_set_transform(Vector2(0, (size.y - 40.0 * k) * 0.5), 0.0, Vector2(k, k))
+		var box := Vector2(40, 40)  # everything below is drawn on the 40px square
+		var c := box * 0.5
 		match kind:
 			"sunshine":
 				var sun := Color("ffd257")
@@ -74,7 +178,7 @@ class WeatherIcon extends Control:
 				for i in 4:
 					var y := c.y - 10.0 + i * 6.5
 					var inset := 5.0 if i % 2 == 0 else 10.0
-					draw_line(Vector2(inset, y), Vector2(size.x - inset, y), Color("cdd4da"), 3.5, true)
+					draw_line(Vector2(inset, y), Vector2(box.x - inset, y), Color("cdd4da"), 3.5, true)
 			"frost":
 				var ice := Color("c4eef8")
 				for i in 3:
@@ -152,6 +256,58 @@ class WeatherPlate extends PanelContainer:
 		sub_l.add_theme_font_size_override("font_size", 16)
 		sub_l.modulate = Color("e8c46a")
 		sub.add_child(sub_l)
+		chips = HBoxContainer.new()
+		chips.add_theme_constant_override("separation", 5)
+		col.add_child(chips)
+		note_l = Label.new()
+		note_l.add_theme_font_size_override("font_size", 15)
+		note_l.modulate = Color("ffe08a")
+		col.add_child(note_l)
+	var chips: HBoxContainer
+	var note_l: Label
+	var _chip_kind := ""
+	## One pill per type the weather changes, in the type's colour with its glyph: "Brook +50%".
+	func _build_chips(w: String) -> void:
+		if w == _chip_kind:
+			return
+		_chip_kind = w
+		for ch in chips.get_children():
+			chips.remove_child(ch)
+			ch.queue_free()
+		for e in Weather.effects(w).slice(0, 3):
+			var t := str(e.type)
+			var fg := TypeColours.text_on(t)
+			var sb := StyleBoxFlat.new()
+			sb.bg_color = TypeColours.of(t) if e.up else TypeColours.of(t).darkened(0.45)
+			sb.set_corner_radius_all(4)
+			sb.content_margin_left = 4
+			sb.content_margin_right = 6
+			sb.content_margin_top = 1
+			sb.content_margin_bottom = 1
+			var pc := PanelContainer.new()
+			pc.add_theme_stylebox_override("panel", sb)
+			pc.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			var h := HBoxContainer.new()
+			h.add_theme_constant_override("separation", 3)
+			pc.add_child(h)
+			h.add_child(TypeGlyph.make(t, fg if e.up else BattleHUD.CREAM, 13))
+			var l := Label.new()
+			l.text = str(e.text)
+			l.add_theme_font_size_override("font_size", 14)
+			l.add_theme_color_override("font_color", fg if e.up else BattleHUD.CREAM)
+			l.add_theme_constant_override("shadow_offset_x", 0)
+			l.add_theme_constant_override("shadow_offset_y", 0)
+			h.add_child(l)
+			chips.add_child(pc)
+		chips.visible = chips.get_child_count() > 0
+		note_l.text = Weather.note(w)
+		note_l.visible = note_l.text != ""
+	## The chips' words, in order (tests).
+	func chip_texts() -> Array:
+		var out := []
+		for pc in chips.get_children():
+			out.append(pc.get_child(0).get_child(1).text)
+		return out
 	func show_weather(w: String, turns: int) -> void:
 		var key := "%s/%d" % [w, turns]
 		if key == _shown:
@@ -168,6 +324,7 @@ class WeatherPlate extends PanelContainer:
 		pips.custom_minimum_size.x = pips.total * 13
 		pips.queue_redraw()
 		sub_l.text = ("%d turn left" if turns == 1 else "%d turns left") % turns if turns > 0 else "Today's weather"
+		_build_chips(w)
 		reset_size()
 
 class Plate extends PanelContainer:
@@ -179,6 +336,7 @@ class Plate extends PanelContainer:
 	var caught: CaughtMark
 	var hp_bar: Bar
 	var hp_text: Label
+	var stage_row: StageRow
 	var xp_bar: Bar
 	var hp_shown := 1.0
 	var hp_max := 1.0
@@ -235,11 +393,20 @@ class Plate extends PanelContainer:
 		hp_bar.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		hp_bar.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 		hp_row.add_child(hp_bar)
-		if player:
+		stage_row = StageRow.new(maxi(12, int(14 * k)))
+		stage_row.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+		if player:  # the stage pills share the HP numbers' row, so the plate never grows into the message box
+			var num_row := HBoxContainer.new()
+			col.add_child(num_row)
+			num_row.add_child(stage_row)
 			hp_text = Label.new()
 			hp_text.add_theme_font_size_override("font_size", int(22 * k))
 			hp_text.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
-			col.add_child(hp_text)
+			hp_text.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+			num_row.add_child(hp_text)
+		else:
+			col.add_child(stage_row)
+		if player:
 			var xp_row := HBoxContainer.new()
 			col.add_child(xp_row)
 			var xt := Label.new()
@@ -268,6 +435,7 @@ class Plate extends PanelContainer:
 		hp_shown = float(c.hp)
 		_sync_hp()
 		set_status(c.status)
+		stage_row.clear()  # a creature comes in level; the stat events (and the end-of-batch sync) fill it in
 		if is_player:
 			xp_shown = xp_fraction(c)
 			xp_bar.value = xp_shown
@@ -419,6 +587,70 @@ func max_hp(side: int, pos := 0) -> float:
 
 func set_status(side: int, s: String, pos := 0) -> void:
 	plate(side, pos).set_status(s)
+
+## The stat-stage pills straight from a creature's stages (the end-of-batch sync).
+func set_stages(side: int, stages: Dictionary, pos := 0) -> void:
+	plate(side, pos).stage_row.set_all(stages)
+
+## Called as each battle event starts playing: stat pills move with the "rose!" line, a crit flashes gold,
+## and (if the setting is on) the damage floats off the plate.
+func on_event(ev: Dictionary) -> void:
+	var side := int(ev.get("side", 0))
+	var pos := int(ev.get("pos", 0))
+	if ev.has("stat") and ev.has("delta") and not ev.has("other_side") and str(ev.type) in ["stat", "charm", "knack", "bond"]:
+		plate(side, pos).stage_row.add(str(ev.stat), int(ev.delta))
+	if ev.type == "damage" and bool(ev.get("crit", false)):
+		flash_crit()
+	var t := number_text(ev)
+	if t != "":
+		_pop_number(plate(side, pos), t, ev.type == "damage" and bool(ev.get("crit", false)))
+
+## "-12" for an event that took HP off a plate, "" when there's nothing to show (or the setting is off).
+func number_text(ev: Dictionary) -> String:
+	if not Settings.damage_numbers or str(ev.get("type", "")) not in ["damage", "status_damage", "self_hit", "recoil"]:
+		return ""
+	var n := int(ev.get("amount", 0))
+	return "-%d" % n if n > 0 else ""
+
+## A small number that drifts up beside the plate's HP bar and fades. Gold for a crit.
+func _pop_number(p: Plate, text: String, crit: bool) -> void:
+	if not p.visible:
+		return
+	var l := Label.new()
+	l.text = text
+	l.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	l.add_theme_font_size_override("font_size", 26 if crit else 22)
+	l.add_theme_color_override("font_color", Color("ffd257") if crit else CREAM)
+	l.add_theme_color_override("font_outline_color", Color("14161c"))
+	l.add_theme_constant_override("outline_size", 6)
+	add_child(l)
+	var bar := p.hp_bar.get_global_rect()
+	var right_side := p.position.x < size.x * 0.5 if size.x > 0.0 else p.position.x < 640.0
+	var at := Vector2(bar.end.x + 14.0, bar.position.y - 10.0) if right_side else Vector2(bar.position.x - 40.0, bar.position.y - 10.0)
+	if not right_side:  # the player's plate: sit just left of the bar, over the plate's own padding
+		at.x = p.position.x - l.get_minimum_size().x - 8.0
+	l.position = at - get_global_rect().position
+	var tw := l.create_tween().set_parallel()
+	tw.tween_property(l, "position:y", l.position.y - 30.0, 1.6).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+	tw.tween_property(l, "modulate:a", 0.0, 0.6).set_delay(1.1)
+	tw.chain().tween_callback(l.queue_free)
+
+var _crit_flash: ColorRect
+
+## A crit's own beat: a quick warm-gold wash over the screen (gentler with "reduce flashing").
+func flash_crit() -> void:
+	if _crit_flash == null:
+		_crit_flash = ColorRect.new()
+		_crit_flash.set_anchors_preset(Control.PRESET_FULL_RECT)
+		_crit_flash.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		_crit_flash.color = Color("ffd257")
+		add_child(_crit_flash)
+		move_child(_crit_flash, 0)  # under the plates
+	_crit_flash.modulate.a = 0.38 * Settings.flash_scale(0.35)
+	_crit_flash.visible = true
+	var tw := _crit_flash.create_tween()
+	tw.tween_property(_crit_flash, "modulate:a", 0.0, 0.55).set_ease(Tween.EASE_OUT)
+	tw.tween_callback(_crit_flash.hide)
 
 func set_caught(side: int, on: bool, pos := 0) -> void:
 	plate(side, pos).caught.visible = on

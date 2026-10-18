@@ -3,7 +3,7 @@ extends SceneTree
 ## then a summary of the creature cries (synthesised in game by Cries, so never on disk).
 ## Ambience beds are meant to sit 12 dB or more under the music median (see AmbienceRecipes.TARGET_DB).
 ## Usage: godot --headless --path . -s res://tools/audio/loudness.gd
-## seam_db: level step across the loop point (RMS of the 250 ms after the start minus the 250 ms before the end).
+## seam_db: level step across the loop point (RMS of the 250 ms after the loop start, past any intro, minus the 250 ms before the end).
 ## click: |last sample - first sample| divided by the RMS sample-to-sample delta of the track (about 1 is unremarkable, above 4 is an audible click).
 
 static func read_wav(path: String) -> Dictionary:
@@ -16,6 +16,7 @@ static func read_wav(path: String) -> Dictionary:
 	var pos := 12
 	var data := PackedFloat32Array()
 	var looping := false
+	var loop_begin := 0
 	while pos + 8 <= b.size():
 		var tag := b.slice(pos, pos + 4).get_string_from_ascii()
 		var n := b.decode_u32(pos + 4)
@@ -28,8 +29,9 @@ static func read_wav(path: String) -> Dictionary:
 				data[i] = b.decode_s16(pos + 8 + i * 2) / 32768.0
 		elif tag == "smpl":
 			looping = true
+			loop_begin = b.decode_u32(pos + 8 + 44)  # the first loop's start frame (after any intro)
 		pos += 8 + n + (n & 1)
-	return {"data": data, "sr": sr, "loop": looping}
+	return {"data": data, "sr": sr, "loop": looping, "loop_begin": loop_begin}
 
 static func db(x: float) -> float:
 	return 20.0 * log(maxf(x, 1e-9)) / log(10.0)
@@ -53,11 +55,12 @@ static func measure(path: String) -> Dictionary:
 	var out := {"rms": db(rms_of(d)), "peak": db(pk), "loop": w["loop"], "secs": d.size() / float(w["sr"])}
 	if w["loop"]:
 		var k := int(0.25 * w["sr"])
-		out["seam_db"] = db(rms_of(d, 0, k)) - db(rms_of(d, d.size() - k, d.size()))
+		var lb: int = w["loop_begin"]
+		out["seam_db"] = db(rms_of(d, lb, lb + k)) - db(rms_of(d, d.size() - k, d.size()))
 		var ds := 0.0
 		for i in range(1, d.size()):
 			ds += (d[i] - d[i - 1]) * (d[i] - d[i - 1])
-		out["click"] = absf(d[0] - d[d.size() - 1]) / maxf(sqrt(ds / d.size()), 1e-9)
+		out["click"] = absf(d[lb] - d[d.size() - 1]) / maxf(sqrt(ds / d.size()), 1e-9)
 	return out
 
 static func ids_in(dir: String) -> Array:
