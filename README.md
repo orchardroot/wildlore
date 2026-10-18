@@ -6,7 +6,7 @@ A monster-catching RPG across the UK and Ireland. You start in Macclesfield, bec
 
 ![Title](docs/screens/t13-title.png)
 
-## What's in 2.1
+## What's in 2.2
 
 All of it, start to finish, and then some. You leave home in Macclesfield with a hedgehog, a squirrel or an otter, and you walk (and cycle, and take the train, and catch the odd ferry) all the way round England, Wales, Scotland, Northern Ireland, Ireland and the Isle of Man, collecting ten Stones from ten Keepers while a heritage company with very good lanyards tries to buy the countryside. Then you go to Stonehenge for the Moot, find out who the Champion has been all along, and go to London to have a word with Lord Vane about his tower.
 
@@ -56,6 +56,7 @@ All of it, start to finish, and then some. You leave home in Macclesfield with a
   - The wild changes with the real seasons: spring fledglings, summer swifts and glow-worms, autumn starlings over Chat Moss, winter snow buntings, and adders and bats that sleep through winter. The Rumours page tells you when
   - Each starter has a knack and a signature move of its own, evolved creatures are properly stronger, and wild creatures sometimes leave a bit of forage behind
   - The Cat and Fiddle moor has gritstone edges and heather now, and the Field Station has the owl and a kettle
+- **2.2, Fine Detail.** Your own creature from behind is a proper creature now, not a brown blob: tails, stripes, flames and markings on all 200 back views. The map is a real map of the Isles (nations, uplands, rail and ferry lines, and little markers for shows, rewilding sites and waiting post). Every Keeper's venue is dressed as a real place, from a rugby terrace in Cardiff to a candlelit crypt under York Minster, with a crowd that changes its tune once you've won. The shop opens on the shelves, Mum's trophy shelf shows off your rosettes, and the heather has calmed down a bit
 - Options for the rest of us: every key and button can be remapped, type symbols as well as colours, a colour-blind palette, instant text, and a setting to calm the flashing down
 
 | | |
