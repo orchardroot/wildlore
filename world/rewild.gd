@@ -237,21 +237,25 @@ static func mark_spot(data: GameStateData, z: ZoneData, p: Vector2i) -> String:
 
 ## What to do next for the first site not yet Wild ("" before the first Stone, or once every site is Wild).
 static func hint(data: GameStateData) -> String:
+	return str(hint_entry(data).get("text", ""))
+
+## The hint as a "Where next?" entry: {text, town (the site's zone, which the map knows)}, or {}.
+static func hint_entry(data: GameStateData) -> Dictionary:
 	if data.flag("badge_brook") != true:
-		return ""
-	var settling := ""
+		return {}
+	var settling := {}
 	for s in sites():
 		var id := str(s.id)
 		var st := stage(data, id)
 		if st >= WILD:
 			continue
 		if pending(data, id):
-			if settling == "":
-				settling = "%s is settling. Give it a day, then go and see %s." % [s.name, s.warden]
+			if settling.is_empty():
+				settling = {"text": "%s is settling. Give it a day, then go and see %s." % [s.name, s.warden], "town": str(s.zone)}
 			continue
 		if data.flag(flag_key(id) + "_met") != true:
-			return "%s is restoring %s and could use a hand." % [s.warden, s.name]
-		return "%s (%s): %s" % [s.name, stage_name(st), task_summary(data, s)]
+			return {"text": "%s is restoring %s and could use a hand." % [s.warden, s.name], "town": str(s.zone)}
+		return {"text": "%s (%s): %s" % [s.name, stage_name(st), task_summary(data, s)], "town": str(s.zone)}
 	return settling
 
 static func task_summary(data: GameStateData, s: Dictionary) -> String:

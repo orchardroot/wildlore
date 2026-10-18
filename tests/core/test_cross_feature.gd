@@ -46,3 +46,17 @@ func test_where_next_keeps_the_story_first_mid_game() -> void:
 	var o := MenuLogic.next_objective(d, 124)
 	assert_eq(str(o.get("town", "")), "yr_wyddfa", str(o))
 	assert_false(bool(o.get("postgame", false)))
+
+## After the story, a rewilding site's "Still to do" rings the site on the map (it had no place before).
+func test_where_next_rings_the_rewilding_site() -> void:
+	var d := GameStateData.new()
+	d.set_flag("game_complete", true)
+	d.set_flag("badge_brook", true)
+	var o := {"story": [], "postgame": [{"text": "Catch them all.", "town": ""}]}
+	var r := MenuLogic.next_objective(d, 124, o, [{"id": "nobody", "after": "never"}])
+	var site: Dictionary = Rewild.sites()[0]
+	assert_true(str(r.text).contains(str(site.name)), str(r))
+	assert_eq(str(r.town), str(site.zone))
+	for s in Rewild.sites():
+		var m := Travel.world_map()
+		assert_true(m.towns.has(str(s.zone)) or m.places.has(str(s.zone)), "%s is on the map" % s.zone)
