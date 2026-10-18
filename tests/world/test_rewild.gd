@@ -277,6 +277,8 @@ func test_where_next_mentions_rewilding_after_the_story() -> void:
 	var d := _data()
 	d.set_flag("game_complete", true)
 	d.set_flag("badge_brook", true)
+	for side in SideStories.sides():  # every side story heard (they'd come first)
+		d.set_flag(SideStories.done_flag(str(side.id)), true)
 	var o := {"story": [], "postgame": [{"text": "all done", "town": ""}]}
 	var hint := MenuLogic.next_objective(d, 10, o)
 	assert_true(str(hint.text).contains("Goyt's Moss"), str(hint))
