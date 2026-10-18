@@ -9,6 +9,14 @@ static func arg(cmdline: PackedStringArray) -> String:
 			return a.substr(7)
 	return ""
 
+## The widest things a save can hold, for checking that every menu still fits (`--stress`).
+static func stress(d: GameStateData) -> void:
+	d.player_name = "Wilhelmina M"
+	d.money = 9999999
+	d.play_seconds = 359999.0
+	for c in d.party + d.ark:
+		c.nickname = "MWMWMWMWMWMW"
+
 static func boot(game: Node, menu: String) -> void:
 	game.new_game()
 	var d: GameStateData = game.data
@@ -89,6 +97,8 @@ static func boot(game: Node, menu: String) -> void:
 			Jobs.accept(d, id, "macclesfield")
 		Jobs.note_win(d, "macc_forest")
 		d.bag["blackberries"] = 4
+	if "--stress" in DevArgs.user_args():  # dev: worst-case widths, a 12-letter name and nicknames and a full purse
+		stress(d)
 	if menu.begins_with("relearn"):
 		a.level = 20  # past a couple of its moves, so the relearner has something to offer
 	if menu.begins_with("postcard"):  # `--menu=postcard:album`: every card in the album (or postcard:<id>[:back])

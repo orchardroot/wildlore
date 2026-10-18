@@ -154,6 +154,8 @@ func _dev_boot() -> void:
 		for a in DevArgs.user_args():
 			if a.begins_with("--held="):  # dev: the lead holds this charm (screenshots of charm messages)
 				party[0].held = a.substr(7)
+			if a == "--stress":  # dev: worst-case widths (see DevMenu.stress)
+				DevMenu.stress(data)
 		var foe := [Creature.create(dex.get_species(args.battle_species), args.battle_level, rng, moves)]
 		foe[0].variant = str(args.get("coat", ""))
 		var opts := {"kind": "wild"}
@@ -213,4 +215,9 @@ func _take_shot() -> void:
 	DirAccess.make_dir_recursive_absolute(path.get_base_dir())
 	img.save_png(path)
 	print("shot: ", path)
+	if "--audit" in DevArgs.user_args():  # dev: list what spills out of its menu, beside the PNG
+		var lines := LayoutAudit.report(get_tree().root, get_viewport().get_visible_rect())
+		var f := FileAccess.open(path.get_basename() + ".audit.txt", FileAccess.WRITE)
+		f.store_string("\n".join(lines) + ("\n" if lines else "ok\n"))
+		f.close()
 	get_tree().quit()

@@ -29,6 +29,87 @@ static func label(text: String, size := 28, colour := CREAM) -> Label:
 	l.add_theme_color_override("font_color", colour)
 	return l
 
+## The largest font size from `big` down to `small` at which `text` fits in `width` px on one line
+## (`small` if nothing does). For names and hint bars that must never widen a panel.
+static func fit_size(text: String, width: float, big: int, small: int) -> int:
+	var f: Font = ThemeDB.fallback_font  # the game's font (ui/theme.tres sets no other)
+	for s in range(big, small - 1, -1):
+		if f.get_string_size(text, HORIZONTAL_ALIGNMENT_LEFT, -1, s).x <= width:
+			return s
+	return small
+
+## A label that shrinks its font (down to `small`) so `text` fits `width` on one line.
+static func fit_label(text: String, width: float, big := 28, small := 18, colour := CREAM) -> Label:
+	var l := label(text, fit_size(text, width, big, small), colour)
+	l.clip_text = true
+	l.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+	return l
+
+## A block of wrapped labels that must fit `box` (a ScrollContainer, as a fallback for the very longest): sets the
+## biggest body size from `sizes` (biggest first) at which they all fit. `words` holds [label, size offset, optional]
+## entries, e.g. a heading one size up from the body; optional ones (a "Did you know?") are left out before the
+## text gets any smaller than the last size. `sep` is the box's separation.
+static func fit_block(words: Array, box: Control, sizes: Array, sep := 8) -> void:
+	if not is_instance_valid(box) or box.size.y <= 0 or words.is_empty():
+		return
+	var w := box.size.x - 16  # room for a scroll bar, so measuring never promises a fit that then wraps once more
+	var body: int = sizes[sizes.size() - 1]
+	var keep_all := false
+	for size in sizes:
+		if _block_height(words, w, size, sep, true) <= box.size.y:
+			body = size
+			keep_all = true
+			break
+	if not keep_all:
+		for size in sizes:
+			body = size
+			if _block_height(words, w, size, sep, false) <= box.size.y:
+				break
+	for e in words:
+		if is_instance_valid(e[0]):
+			e[0].add_theme_font_size_override("font_size", body + e[1])
+			e[0].visible = keep_all or not (e.size() > 2 and e[2])
+
+static func _block_height(words: Array, w: float, size: int, sep: int, with_optional: bool) -> float:
+	var f: Font = ThemeDB.fallback_font
+	var h := -float(sep)
+	for e in words:
+		if not with_optional and e.size() > 2 and e[2]:
+			continue
+		var fs: int = size + e[1]
+		var tall := f.get_multiline_string_size(e[0].text, HORIZONTAL_ALIGNMENT_LEFT, w, fs).y
+		var lines := maxi(1, roundi(tall / f.get_height(fs)))
+		h += tall + (lines - 1) * 3 + sep + 2  # the theme's line spacing, and a shadow pixel or two
+	return h
+
+## A ScrollContainer of wrapped words that shrink to fit it (see fit_block): returns [scroll, column].
+## Add labels with add_words(); the fit runs once laid out and again whenever the box resizes.
+static func words_box(sizes: Array, sep := 8) -> Array:
+	var sc := ScrollContainer.new()
+	sc.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	sc.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	sc.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	var col := VBoxContainer.new()
+	col.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	col.add_theme_constant_override("separation", sep)
+	sc.add_child(col)
+	var words: Array = []
+	col.set_meta("words", words)
+	var fit := func(): fit_block(words, sc, sizes, sep)
+	sc.resized.connect(fit)
+	sc.ready.connect(func(): fit.call_deferred())
+	col.set_meta("sizes", sizes)
+	return [sc, col]
+
+## A wrapped line in a words_box column, `offset` sizes from the body text; `optional` lines go first if space is short.
+static func add_words(col: VBoxContainer, text: String, offset := 0, colour := CREAM, optional := false) -> Label:
+	var sizes: Array = col.get_meta("sizes")
+	var l := label(text, sizes[0] + offset, colour)
+	l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	col.add_child(l)
+	col.get_meta("words").append([l, offset, optional])
+	return l
+
 static func spacer(h := 0, w := 0) -> Control:
 	var c := Control.new()
 	c.custom_minimum_size = Vector2(w, h)
@@ -102,6 +183,26 @@ static func button(text: String, min_w := 0) -> Button:
 	b.text = text
 	b.alignment = HORIZONTAL_ALIGNMENT_LEFT
 	b.custom_minimum_size = Vector2(min_w, 52)
+	return b
+
+## A small framed button for the mouse beside other content (the Fieldbook's Cry): framed at rest, so it reads as a
+## button, and lit the same heather as every focused button when hovered or pressed.
+static func pill_button(text: String, size := 20) -> Button:
+	var b := Button.new()
+	b.text = text
+	b.add_theme_font_size_override("font_size", size)
+	b.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
+	b.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	var rest := box(Color("2c3446"), Color("5a5f6e"), 2, 12, 4)
+	rest.content_margin_left = 14
+	rest.content_margin_right = 14
+	var on := box(Color("2f3548"), HEATHER, 2, 12, 4)
+	on.content_margin_left = 14
+	on.content_margin_right = 14
+	b.add_theme_stylebox_override("normal", rest)
+	b.add_theme_stylebox_override("disabled", rest)
+	for state in ["hover", "focus", "pressed", "hover_pressed"]:
+		b.add_theme_stylebox_override(state, on)
 	return b
 
 ## Makes the first and last of a vertical run of controls loop round on up/down.

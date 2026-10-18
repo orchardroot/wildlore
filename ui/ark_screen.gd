@@ -138,10 +138,29 @@ func _creature_button(c: Creature, wide: bool) -> Button:
 	s.show_species(c.species.id, "icon", 2, false, c.variant)
 	if c.is_fainted():
 		s.modulate = Color(0.5, 0.5, 0.5)
-	box.add_child(s)
-	var l := UIKit.label(("%s  L%d" % [c.display_name(), c.level]) if wide else "L%d" % c.level, 26 if wide else 18)
-	l.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	box.add_child(l)
+	if wide:  # the team list: icon, name, and the level lined up on the right
+		box.add_theme_constant_override("separation", 10)
+		s.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+		box.add_child(s)
+		var nm := UIKit.label(c.display_name(), UIKit.fit_size(c.display_name(), 262, 26, 20))  # long names shrink a little first
+		nm.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		nm.clip_text = true
+		nm.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+		box.add_child(nm)
+		var lv := UIKit.label("L%d" % c.level, 24, UIKit.GOLD)
+		lv.custom_minimum_size = Vector2(56, 0)
+		lv.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+		box.add_child(lv)
+		box.offset_right = -12
+	else:  # a grid cell: icon over its level, both centred
+		box.add_theme_constant_override("separation", -4)
+		s.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+		box.add_child(s)
+		var l := UIKit.label("L%d" % c.level, 18)
+		l.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		box.add_child(l)
+	for k in box.get_children():
+		k.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	return b
 
 func _creature(party_side: bool, i: int) -> Creature:
