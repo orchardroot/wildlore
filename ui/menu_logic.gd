@@ -229,8 +229,8 @@ static func next_objective(d: GameStateData, total := 0, o := {}, sides: Array =
 		var side := SideStories.next_hint(d, sides) if need.is_empty() else {}
 		if not side.is_empty():  # nothing else left: someone in town would like a word
 			out = side
-		elif need.is_empty() and Rewild.hint(d) != "":  # or a rewilding site wants a hand
-			out = {"text": Rewild.hint(d), "town": ""}
+		elif need.is_empty() and not Rewild.hint_entry(d).is_empty():  # or a rewilding site wants a hand
+			out = Rewild.hint_entry(d)
 		elif need.is_empty() and FieldbookGoals.hint(d) != "":  # or the next Fieldbook milestone
 			out = {"text": FieldbookGoals.hint(d), "town": "macclesfield"}
 		out["postgame"] = true

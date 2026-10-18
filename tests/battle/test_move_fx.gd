@@ -79,6 +79,37 @@ func test_recoil_hurts_the_user() -> void:
 	assert_eq(int(r.amount), maxi(1, dealt / 4))
 	assert_eq(me.hp, me.max_hp() - int(r.amount))
 
+## Last against last: a recoil move that knocks the foe out and then the user too is a win for whoever used it
+## (it was the winning blow), not a whiteout for the player.
+func test_a_recoil_double_knockout_goes_to_the_user() -> void:
+	var me := mon("me", ["t_recoil"], 90)
+	var foe := mon("foe", ["t_wait"], 10)
+	foe.hp = 5
+	me.hp = 1
+	var b := fight([me], [foe])
+	b.take_turn(USE, USE)
+	assert_true(me.is_fainted() and foe.is_fainted(), "both down")
+	assert_true(b.over)
+	assert_eq(b.winner, Battle.PLAYER)
+
+func test_a_foe_recoil_double_knockout_goes_to_the_foe() -> void:
+	var me := mon("me", ["t_wait"], 10)
+	var foe := mon("foe", ["t_recoil"], 90)
+	me.hp = 5
+	foe.hp = 1
+	var b := fight([me], [foe])
+	b.take_turn(USE, USE)
+	assert_eq(b.winner, Battle.FOE)
+
+## A Horseshoe (and a close friend's Hang On) stops a knockout hit; recoil is the user's own doing and isn't one.
+func test_a_horseshoe_does_not_stop_recoil() -> void:
+	var me := mon("me", ["t_recoil"], 90)
+	me.held = "horseshoe"
+	me.hp = 1
+	var b := fight([me, mon("spare", ["t_wait"])], [mon("foe", ["t_wait"], 10, 250)])
+	b.take_turn(USE, USE)
+	assert_true(me.is_fainted())
+
 func test_fixed_multi_hit_strikes_twice() -> void:
 	var b := fight([mon("me", ["t_twice"], 90)], [mon("foe", ["t_wait"], 10, 250)])
 	var ev := b.take_turn(USE, USE)

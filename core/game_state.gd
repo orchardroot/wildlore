@@ -46,6 +46,8 @@ func _ready() -> void:
 		DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_NO_FOCUS, true)
 		DisplayServer.window_set_position(Vector2i(0, -4000))
 		AudioServer.set_bus_mute(0, true)
+	if args.get("fps", false):
+		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)  # measure, don't cap at the refresh rate
 	call_deferred("_dev_boot")
 
 func _process(delta: float) -> void:
@@ -61,7 +63,11 @@ func _process(delta: float) -> void:
 		_fps_acc += delta
 		if _fps_acc >= 1.0:
 			_fps_acc = 0.0
-			print("FPS %d" % Engine.get_frames_per_second())
+			# dev --fps: uncapped (vsync off) frame rate, with the draw calls, primitives and nodes behind it
+			print("FPS %d draws %d prims %d nodes %d" % [Engine.get_frames_per_second(),
+				Performance.get_monitor(Performance.RENDER_TOTAL_DRAW_CALLS_IN_FRAME),
+				Performance.get_monitor(Performance.RENDER_TOTAL_PRIMITIVES_IN_FRAME),
+				Performance.get_monitor(Performance.OBJECT_NODE_COUNT)])
 
 var _minute_acc := 0.0
 var _fps_acc := 0.0

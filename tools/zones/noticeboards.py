@@ -31,6 +31,9 @@ def place(z):
         return None
     clear = keep_clear(z, g)
     doors = [(int(w["x"]), int(w["y"])) for w in z.get("warps", [])]
+    # things you face to use: the board would hide them from the camera, which looks north
+    hide = {(int(s["x"]), int(s["y"])) for s in z.get("signs", [])}
+    hide |= {(int(p["x"]), int(p["y"])) for p in z["props"] if p.get("type") == "post_box"}
     cx = sum(p[0] for p in base) / len(base)
     cy = sum(p[1] for p in base) / len(base)
     cands = []
@@ -43,8 +46,10 @@ def place(z):
             continue
         if any((x + dx, y + dy) in doors for dx in range(-1, 2) for dy in range(-1, 3)):
             continue
+        if (x, y - 1) in hide:
+            continue
         backed = g.tile((x, y - 1)) in BACKING or (x, y - 1) in g.blocked
-        score = abs(x - cx) + abs(y - cy) * 1.2 - (6 if backed else 0) - (2 if g.tile(front) in {"path", "road", "cobbles"} else 0)
+        score = abs(x - cx) + abs(y - cy) * 1.2 - (6 if backed else 0) - (2 if g.tile(front) in {"path", "road", "cobbles"} else 0) + (5 if g.tile(p) == "road" else 0)
         cands.append((score, y, x))
     cands.sort()
     for _, y, x in cands:

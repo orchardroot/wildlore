@@ -56,7 +56,8 @@ func _show() -> void:
 	var key := Calendar.today_key()
 	var rule := Tournament.ruleset("%s/%s" % [key, s.id], data.party)
 	var cap := Tournament.cap_for(data)
-	await _say(STEWARD, "Welcome to %s! %s" % [str(s.name), str(s.blurb)])
+	for line in welcome_lines(s):
+		await _say(STEWARD, line)
 	await _say(STEWARD, "Today's class is %s, level %d cap. %s" % [Tournament.rule_name(rule), cap, Tournament.rule_text(rule)])
 	var el := Tournament.eligible(data.party, rule, Tournament.SHOW_SIZE)
 	if el.picks.is_empty():
@@ -99,6 +100,10 @@ func _show() -> void:
 		await _say("", "%s received %s." % [data.player_name, "a Show Rosette" if paid == 1 else "%d Show Rosettes" % paid])
 	elif wins > 0:
 		await _say(STEWARD, "You've had today's rosettes already, mind. The glory's free.")
+
+## The Steward's welcome: the show, then its blurb (one line would overrun the dialogue box).
+static func welcome_lines(s: Dictionary) -> Array:
+	return ["Welcome to %s!" % str(s.name), str(s.blurb)]
 
 # ---------------------------------------------------------------- the Open Moot
 
@@ -171,6 +176,7 @@ func _exhibition(real: Array, picks: Array, rule: Dictionary, cap: int) -> Array
 func _rounds(bracket: Array, picks: Array, rule: Dictionary, cap: int, heal: bool, ai: String, names: Array, moot: bool) -> int:
 	var data: GameStateData = host.data
 	var real: Array = data.party
+	data.real_party = real  # a save made mid-show writes these, never the stand-ins
 	data.party = _exhibition(real, picks, rule, cap)
 	data.heal_party()
 	var wins := 0
@@ -201,6 +207,7 @@ func _rounds(bracket: Array, picks: Array, rule: Dictionary, cap: int, heal: boo
 			data.heal_party()
 			await host.sfx("heal")
 	data.party = real
+	data.real_party = []
 	return wins
 
 # ---------------------------------------------------------------- the rosette stall

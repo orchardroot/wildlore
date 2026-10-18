@@ -40,8 +40,8 @@ func standing(nation: String, n: int) -> void:
 	news("Standing", Standing.add(_data(), nation, n))
 
 func _on_battle_ended(result: Dictionary) -> void:
-	if str(result.get("result", "")) != "win":
-		return
+	if str(result.get("result", "")) != "win" or bool(result.get("exhibition", false)):
+		return  # a County Show or Open Moot bout: re-enterable all day, so it earns no standing
 	var d := _data()
 	if _kind == "wild":
 		_ready_news(Jobs.note_win(d, d.zone_id))
