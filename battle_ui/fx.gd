@@ -9,6 +9,7 @@ const STATUS_COLOURS := {
 
 var dio: Diorama
 var hud: BattleHUD
+var sky: SkyAndLight  # weather moves change the battle sky
 var _quad_mat: StandardMaterial3D
 
 func _wait(sec: float) -> void:
@@ -96,7 +97,21 @@ func play(cue: Dictionary, battle: Battle) -> void:
 			if battle.double:
 				at = maxi(0, battle.active[side].find(int(cue.get("target", 0))))
 			burst(_actor(side, at).global_position + Vector3(0, 0.2, 0), Color("8fe89a"), 18, 2.2, 0.15, 1.0, 1.0, Vector3.UP)
+			if cue.has("hp"):
+				hud.tween_hp(side, int(cue.hp), 0.5, at)
 			await _wait(0.5)
+		"protect":
+			Audio.sfx("bump")
+			burst(_chest(side, pos), Color("cfe3ff"), 20, 1.6, 0.18, 0.6, 0.0)
+			await _actor(side, pos).nod()
+		"knack":
+			burst(_actor(side, pos).global_position + Vector3(0, 0.25, 0), Color("ffd870"), 14, 1.8, 0.13, 0.8, 0.8, Vector3.UP)
+			await _wait(0.35)
+		"weather":
+			if sky != null:
+				sky.set_weather(str(cue.weather), dio.is_interior())  # at once: the overworld's 8s blend is two turns long
+			hud.set_weather(str(cue.weather), int(cue.get("turns", 0)))
+			await _wait(0.4)
 		"catch":
 			await _catch(bool(cue.success), int(cue.wobbles))
 		"end", "none":

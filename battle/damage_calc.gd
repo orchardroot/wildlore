@@ -9,7 +9,7 @@ const CRIT_MULT := 1.5
 ## extra_mult: anything else that scales the hit (a spread move in a double battle hits each foe at 0.75).
 static func compute(attacker: Creature, defender: Creature, move: Dictionary, chart: TypeChart, weather: String, rng: Rng, crit_chance: float = CRIT_CHANCE, extra_mult := 1.0) -> Dictionary:
 	var move_type: String = move.get("type", "")
-	var power: int = move.get("power", 0)
+	var power: int = MoveFX.power_in(move, weather)  # some moves grow stronger in the right weather
 	var eff := chart.effectiveness(move_type, defender.types())
 	if eff == 0.0 or power <= 0:
 		return {"damage": 0, "effectiveness": eff, "crit": false}

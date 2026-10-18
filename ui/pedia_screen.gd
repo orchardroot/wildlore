@@ -255,9 +255,16 @@ func _show(id: String) -> void:
 		cry.custom_minimum_size = Vector2(96, 0)
 		cry.add_theme_font_size_override("font_size", 22)
 		cry.pressed.connect(func(): play_cry(id))
-		var cry_row := HBoxContainer.new()  # the Cry button, and beside it any uncommon coats seen or caught
-		cry_row.add_theme_constant_override("separation", 18)
+		var cry_row := HBoxContainer.new()  # the Cry button, the line's knack once caught, and any uncommon coats
+		cry_row.add_theme_constant_override("separation", 16)
 		cry_row.add_child(cry)
+		var kid := Knacks.id_for_species(sp)
+		if st == "caught" and kid != "":  # 2.0: the knack, here so the entry keeps its height
+			var kl := UIKit.label("Knack: %s" % Knacks.name_of(kid), 21, UIKit.GOLD)
+			kl.tooltip_text = Knacks.desc_of(kid)
+			kl.mouse_filter = Control.MOUSE_FILTER_PASS
+			kl.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+			cry_row.add_child(kl)
 		cry_row.add_child(CoatArt.swatch_row(Game.data, id))
 		info.add_child(cry_row)
 	else:
