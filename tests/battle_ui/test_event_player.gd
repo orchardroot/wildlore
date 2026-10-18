@@ -30,8 +30,8 @@ func test_miss_and_no_effect() -> void:
 func test_damage_lines() -> void:
 	assert_eq(_lines({"type": "damage", "side": 1, "amount": 5, "hp": 3, "effectiveness": 2.0, "crit": false}), ["It's super effective!"])
 	assert_eq(_lines({"type": "damage", "side": 1, "amount": 5, "hp": 3, "effectiveness": 0.5, "crit": false}), ["It's not very effective..."])
-	assert_eq(_lines({"type": "damage", "side": 1, "amount": 5, "hp": 3, "effectiveness": 1.0, "crit": true}), ["A critical hit!"])
-	assert_eq(_lines({"type": "damage", "side": 1, "amount": 5, "hp": 3, "effectiveness": 2.0, "crit": true}), ["A critical hit!", "It's super effective!"])
+	assert_eq(_lines({"type": "damage", "side": 1, "amount": 5, "hp": 3, "effectiveness": 1.0, "crit": true}), ["Right on the nose! A critical hit!"])
+	assert_eq(_lines({"type": "damage", "side": 1, "amount": 5, "hp": 3, "effectiveness": 2.0, "crit": true}), ["Right on the nose! A critical hit!", "It's super effective!"])
 	assert_eq(_lines({"type": "damage", "side": 1, "amount": 5, "hp": 3, "effectiveness": 1.0, "crit": false}), [])
 
 func test_stat_lines() -> void:

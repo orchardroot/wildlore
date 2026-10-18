@@ -233,6 +233,8 @@ func _row(d: Dictionary, i: int) -> PanelContainer:
 		else:
 			chip.add_theme_stylebox_override("normal", sb)
 			h.add_child(chip)
+	if d.has("weather"):  # the sky helps (or hinders) this move today
+		h.add_child(BattleHUD.WeatherIcon.tag(str(d.weather), int(d.get("weather_dir", 1))))
 	if d.has("right") and str(d.right) != "":
 		var rl := Label.new()
 		rl.text = str(d.right)
@@ -262,26 +264,46 @@ func catch_destination() -> int:
 	return maxi(0, i)
 
 ## hint_fn(slot) -> String: the type-effectiveness tag for that move ("" when there's nothing to say).
-func moves(c: Creature, move_db: MoveDB, hint_fn := Callable()) -> int:
+## weather: the battle's weather, so moves it helps or hinders carry a little sky glyph and arrow.
+func moves(c: Creature, move_db: MoveDB, hint_fn := Callable(), weather := "clear") -> int:
+	var rows := move_rows(c, move_db, weather)
+	var footer := func(i: int) -> String:
+		return move_footer(c, i, move_db, hint_fn.call(i) if hint_fn.is_valid() else "", weather)
+	return await _pick(Rect2(470, 528, 786, 176), "", rows, 2, "moves", true, footer)
+
+static func _all_out_of_pp(c: Creature) -> bool:
+	return c.moves.all(func(m): return int(m.pp) <= 0)
+
+## The move picker's rows. A move the weather changes gets "weather" (the kind) and "weather_dir" (1 or -1).
+static func move_rows(c: Creature, move_db: MoveDB, weather := "clear") -> Array:
 	var rows := []
-	var all_empty := true
-	for m in c.moves:
-		if int(m.pp) > 0:
-			all_empty = false
+	var all_empty := _all_out_of_pp(c)
 	for m in c.moves:
 		var mv := move_db.get_move(m.id)
 		var t := str(mv.get("type", ""))
-		rows.append({"text": mv.get("name", m.id), "stripe": TypeColours.of(t), "chip": t, "glyph": t, "chip_colour": TypeColours.of(t), "chip_text": TypeColours.text_on(t),
-			"right": "%d/%d" % [int(m.pp), int(m.max_pp)], "right_warn": int(m.pp) <= 0, "disabled": int(m.pp) <= 0 and not all_empty})
-	var footer := func(i: int) -> String:
-		var mv := move_db.get_move(c.moves[i].id)
-		if int(c.moves[i].pp) <= 0:
-			return "No PP left for that one!" if not all_empty else "Out of PP: all that's left is a desperate flail."
-		var power := int(mv.get("power", 0))
-		var hint: String = hint_fn.call(i) if hint_fn.is_valid() else ""
-		return "%s%s  ·  %s  ·  %s  ·  Accuracy %d\n%s" % [(hint.to_upper() + "  ·  ") if hint != "" else "", str(mv.get("type", "")).capitalize(),
-			str(mv.get("category", "")).capitalize(), ("Power %d" % power) if power > 0 else "No damage", int(mv.get("accuracy", 100)), MoveText.describe(mv)]
-	return await _pick(Rect2(470, 528, 786, 176), "", rows, 2, "moves", true, footer)
+		var row := {"text": mv.get("name", m.id), "stripe": TypeColours.of(t), "chip": t, "glyph": t, "chip_colour": TypeColours.of(t), "chip_text": TypeColours.text_on(t),
+			"right": "%d/%d" % [int(m.pp), int(m.max_pp)], "right_warn": int(m.pp) <= 0, "disabled": int(m.pp) <= 0 and not all_empty}
+		var wm := Weather.move_mult(weather, mv)
+		if not is_equal_approx(wm, 1.0):
+			row["weather"] = weather
+			row["weather_dir"] = 1 if wm > 1.0 else -1
+		rows.append(row)
+	return rows
+
+## Two lines under the moves: the numbers (with the type hint up front), then what the move does, led by
+## what today's weather does to it when the description doesn't already say.
+static func move_footer(c: Creature, i: int, move_db: MoveDB, hint := "", weather := "clear") -> String:
+	var mv := move_db.get_move(c.moves[i].id)
+	if int(c.moves[i].pp) <= 0:
+		return "No PP left for that one!" if not _all_out_of_pp(c) else "Out of PP: all that's left is a desperate flail."
+	var power := int(mv.get("power", 0))
+	var desc := MoveText.describe(mv)
+	var tag := Weather.move_tag(weather, mv)
+	if tag != "" and not MoveFX.bonus_applies(mv, weather):  # a move's own weather bonus is in its description
+		var pct := int(round((Weather.move_mult(weather, mv) - 1.0) * 100.0))
+		desc = "%s (%s%d%%). %s" % [tag, "+" if pct > 0 else "-", absi(pct), desc]
+	return "%s%s  ·  %s  ·  %s  ·  Accuracy %d\n%s" % [(hint.to_upper() + "  ·  ") if hint != "" else "", str(mv.get("type", "")).capitalize(),
+		str(mv.get("category", "")).capitalize(), ("Power %d" % power) if power > 0 else "No damage", int(mv.get("accuracy", 100)), desc]
 
 ## entries from BattleFlow.battle_items(). Returns the index into entries, or -1.
 func bag(entries: Array) -> int:
@@ -291,10 +313,17 @@ func bag(entries: Array) -> int:
 	for e in entries:
 		rows.append({"text": e.name, "right": "x%d" % int(e.count)})
 	var footer := func(i: int) -> String:
-		var d := str(entries[i].desc)
-		return ("%s  ·  %s" % [MoveText.catch_band(float(entries[i].odds)), d]) if entries[i].has("odds") else d
+		return bag_footer(entries[i])
 	var h := mini(entries.size(), 6) * 46 + 100
 	return await _pick(Rect2(700, 560 - h, 556, h), "BAG", rows, 1, "bag", true, footer)
+
+## A bag entry's line: a snare leads with its odds, in words, or as a rough number once the species is caught.
+static func bag_footer(e: Dictionary) -> String:
+	var d := str(e.desc)
+	if not e.has("odds"):
+		return d
+	var odds := MoveText.catch_odds(float(e.odds)) if bool(e.get("known", false)) else MoveText.catch_band(float(e.odds))
+	return "%s  ·  %s" % [odds, d]
 
 ## mode "switch" (fainted and active are greyed), "forced" (as switch but cannot cancel) or "item" (anyone; revive needs fainted).
 ## active: the party index out on the field, or an Array of them (double battles).

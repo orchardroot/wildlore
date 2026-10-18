@@ -103,6 +103,7 @@ func battle_items() -> Array:
 			var foe := battle.current(Battle.FOE)
 			if kind == "snare" and not battle.double and foe != null:
 				e["odds"] = Catching.chance(foe, str(it.get("snare", "")), battle.time, battle.catch_bonus())
+				e["known"] = is_caught_species(str(foe.species.id))  # in the Fieldbook: odds as a number
 			out.append(e)
 	return out
 
@@ -245,7 +246,9 @@ func _play(events: Array) -> void:
 		var e: Dictionary = events[i]
 		if e.type == "catch" and str(e.get("reason", "")) == "":
 			e["snare_name"] = _snare.get("name", "snare")
-			e["wobbles"] = wobbles_for(_catch_chance, bool(e.success))
+			e["wobbles"] = Catching.wobbles(Catching.last_roll, _catch_chance, bool(e.success)) if Catching.last_roll >= 0.0 else wobbles_for(_catch_chance, bool(e.success))
+			var foe := battle.current(Battle.FOE)
+			e["clean"] = bool(e.success) and foe != null and foe.status == "asleep" and foe.hp >= foe.max_hp()
 		elif e.type == "item":
 			var t := int(e.get("target", 0))
 			if t >= 0 and t < party.size():

@@ -29,5 +29,19 @@ static func chance(c: Creature, snare: String, time: String, bonus := 1.0) -> fl
 	var a: float = (3.0 * m - 2.0 * c.hp) * c.species.catch_rate * snare_bonus(snare, c, time) / (3.0 * m) * status_bonus(c) * bonus
 	return clampf(a / 255.0, 0.0, 1.0)
 
+static var last_roll := -1.0  # the roll behind the latest attempt, so the wobbles can tell the truth
+
 static func attempt(c: Creature, snare: String, time: String, rng: Rng, bonus := 1.0) -> bool:
-	return rng.roll() < chance(c, snare, time, bonus)
+	last_roll = rng.roll()
+	return last_roll < chance(c, snare, time, bonus)
+
+## Honest wobbles: read the one roll as four shakes in a row that each hold with chance^(1/4). The snare
+## wobbles once per shake it survives (up to three), so a roll that only just missed wobbles three times.
+static func wobbles(roll: float, p_chance: float, success: bool) -> int:
+	if success:
+		return 3
+	var n := 0
+	for k in [1, 2, 3]:
+		if p_chance > 0.0 and roll < pow(p_chance, k / 4.0):
+			n += 1
+	return n
