@@ -40,6 +40,7 @@ var run_attempts := 0
 var _pending: Array = []  # events raised before the first turn (a battle that starts already decided)
 var _fought := {}  # foe party index -> {player party index: true} for every creature that faced it on the field
 var _fielded := {}  # player party indices that have been out on the field (they share a win's friendship)
+var _actor := -1  # the side whose action is being played out (-1 between actions)
 var _once := {}  # Creature -> {"horseshoe"/"hang_on"/"entered"/"knack": true}: once-a-battle effects
 var _guarded := {}  # Creature -> true: protected this turn
 var _guarded_last := {}  # the same for last turn (protecting twice running fails)
@@ -150,6 +151,7 @@ func take_turn(player_action: Variant, foe_action: Variant) -> Array:
 			continue
 		var a: Dictionary = entry.action
 		_acted[me] = true
+		_actor = side
 		if a.type == "move" and _flinched.has(me):
 			ev.append(_at({"type": "cant_act", "side": side, "reason": "flinched"}, pos))
 			continue
@@ -175,6 +177,7 @@ func take_turn(player_action: Variant, foe_action: Variant) -> Array:
 			"move":
 				_do_move(side, pos, a, ev)
 		_check_end(ev)
+	_actor = -1
 	if not over:
 		_end_of_turn(ev)
 	return ev
@@ -650,7 +653,9 @@ func _knack_end_of_turn(side: int, pos: int, c: Creature, ev: Array) -> void:
 func _check_end(ev: Array) -> void:
 	if over:
 		return
-	if _first_able(PLAYER) < 0:
+	if _actor >= 0 and _first_able(PLAYER) < 0 and _first_able(FOE) < 0:
+		_finish(_actor, ev)  # both out at once (recoil, a Thistle Brooch): the winning blow was the actor's
+	elif _first_able(PLAYER) < 0:
 		_finish(FOE, ev)
 	elif _first_able(FOE) < 0:
 		_finish(PLAYER, ev)
