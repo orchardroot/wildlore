@@ -1,5 +1,6 @@
 extends MenuBase
 ## Shop: buy with a quantity, sell at half price. Opened as "shop:<shop_id>"; stock comes from ItemDB.shops.
+## It opens straight on the Buy list with the first item described; Back goes to Buy / Sell / Leave.
 
 var _shop: Dictionary = {}
 var _bag: Bag
@@ -94,9 +95,9 @@ func setup(arg: String) -> void:
 	var t := Standing.tier(Game.data, _nation)
 	_say.text = "Welcome in. Mind the cat." if t == Standing.STRANGER else \
 		"Oh, it's you! %s, so that's %d%% off for you." % [Standing.TIER_NAMES[t], roundi(Standing.DISCOUNT[t] * 100)]
-	if parts.size() > 1 and parts[1] in ["buy", "sell"]:
-		_open_list(parts[1])
-		_say.text = "Welcome in. Mind the cat."
+	var welcome := _say.text
+	_open_list(parts[1] if parts.size() > 1 and parts[1] in ["buy", "sell"] else "buy")
+	_say.text = welcome
 
 func _money() -> void:
 	header_right.text = UIKit.money_text(Game.data.money)
@@ -169,6 +170,7 @@ func _draw_list() -> void:
 		_item_buttons.append(b)
 	UIKit.wrap_focus(_item_buttons)
 	_last_item = clampi(_last_item, 0, _item_buttons.size() - 1)
+	_describe(_ids[_last_item])  # straight away, so the right panel is never empty while focus catches up
 	UIKit.focus_later(_item_buttons[_last_item])
 
 func _describe(id: String) -> void:

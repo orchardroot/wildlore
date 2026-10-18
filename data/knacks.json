@@ -45,9 +45,21 @@
     "worm_rejoins": {"name": "The Worm Rejoins", "legend": true, "desc": "Once a battle it survives a knockout blow, and it knits itself back together a little every turn.", "msg": "{name} rejoins itself and carries on!", "msg_heal": "{name} knits itself back together.", "endure_once": true, "heal": {"weather": [], "frac": 16}},
     "older_than_hills": {"name": "Older than the Hills", "legend": true, "desc": "Super-effective hits barely trouble it, and foes can't lower its stats.", "msg": "{name} has seen it all before. It won't be moved!", "se_mult": 0.6, "no_drops": true},
     "fair_folk": {"name": "Fair Folk Glamour", "legend": true, "desc": "Hard to pin down (foes' accuracy x0.85), and it can't be muddled.", "msg": "{name}'s glamour keeps its head clear.", "evade": {"weather": [], "mult": 0.85}, "block_status": ["muddled"]},
-    "white_horses": {"name": "White Horses", "legend": true, "desc": "Gallops in with a drizzle for 5 turns, and is half as fast again in the rain.", "msg": "{name} gallops in on the white horses, and the rain follows!", "entry_weather": "drizzle", "speed": {"weather": ["drizzle", "downpour"], "mult": 1.5}}
+    "white_horses": {"name": "White Horses", "legend": true, "desc": "Gallops in with a drizzle for 5 turns, and is half as fast again in the rain.", "msg": "{name} gallops in on the white horses, and the rain follows!", "entry_weather": "drizzle", "speed": {"weather": ["drizzle", "downpour"], "mult": 1.5}},
+    "away_with_the_fairies": {"name": "Away with the Fairies", "desc": "Can't be muddled (it already is), and harder to hit in fog.", "msg": "{name} is Away with the Fairies and barely notices!", "block_status": ["muddled"], "evade": {"weather": ["fog"], "mult": 0.85}},
+    "spore_cloud": {"name": "Spore Cloud", "desc": "Every raindrop sets off a puff, so it's harder to hit in drizzle or a downpour.", "msg": "{name} vanishes in a Spore Cloud!", "evade": {"weather": ["drizzle", "downpour"], "mult": 0.85}},
+    "right_pong": {"name": "Right Pong", "desc": "Arrives reeking. Foes lose Attack holding their noses.", "msg": "{name} brings a Right Pong with it. Everyone is holding their nose!", "entry_stage": {"to": "foes", "stat": "atk", "stages": -1}},
+    "already_burnt": {"name": "Already Burnt", "desc": "Hearth moves do less to it. You can't burn what's already charcoal.", "msg": "{name} is Already Burnt. It hardly notices!", "resist": {"types": ["hearth"], "mult": 0.75}},
+    "shelf_life": {"name": "Shelf Life", "desc": "Brackets last for years: from full health it hangs on at 1 HP.", "msg": "{name} hangs on to its shelf!", "endure_full": true}
   },
   "species": {
+    "sulphurhen": "shelf_life",
+    "scorchbun": "already_burnt",
+    "whiffhorn": "right_pong",
+    "grandpuff": "spore_cloud",
+    "puffkin": "spore_cloud",
+    "amanitar": "away_with_the_fairies",
+    "flyling": "away_with_the_fairies",
     "adderking": "cocky",
     "afanc": "mardy",
     "bansheen": "pea_souper",

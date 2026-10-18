@@ -12,6 +12,7 @@ All of it, start to finish, and then some. You leave home in Macclesfield with a
 
 - 40 towns, from Macclesfield to Kirkwall, Penzance to Derry~Londonderry
 - 200 creatures, every one with a real fact about the animal or the legend it's based on, and all ten legends: Y Ddraig Goch, the Green Man, the Morrígan, Manannán's Horse, the Cù-Sìth, Nessie, Black Shuck, the Lambton Worm, Herne the Hunter and Bran's Raven
+- An autumn appendix of seven British fungi (fly agaric, puffballs, a stinkhorn, King Alfred's cakes and chicken of the woods) that only turn up from September to November. They're a bonus: the Fieldbook diploma still means the original 200
 - Ten Keepers, the Four Winds, a Champion, a rival who turns out to be the best mate you've got, and a villain who complains about his deposit
 - A bike, a coracle, a lantern, a pair of waders, trains, ferries, and eventually a raven to fly you anywhere you've been
 - Double battles, British weather that matters, day and night, three save slots and an Ark for the spares

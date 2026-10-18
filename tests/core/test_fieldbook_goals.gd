@@ -137,6 +137,21 @@ func test_milestones_pending_and_next() -> void:
 	assert_true("Garside" in FieldbookGoals.hint(_caught_n(30)))
 	assert_true("Catch 20 more" in FieldbookGoals.hint(_caught_n(30, {"fieldbook_25": true})), FieldbookGoals.hint(_caught_n(30, {"fieldbook_25": true})))
 
+## 2.2: appendix creatures (the autumn fungi) are a bonus: they never count towards the milestones or the
+## diploma, so 199 of the original 200 plus a toadstool is not "all 200", and a region's stamp stays earned.
+func test_appendix_catches_dont_count_towards_milestones() -> void:
+	Dex.from_array([{"id": "t_toadstool", "appendix": true}])
+	var d := _caught_n(199, {"fieldbook_25": true, "fieldbook_50": true, "fieldbook_100": true, "fieldbook_150": true})
+	d.caught["t_toadstool"] = true
+	assert_eq(FieldbookGoals.caught_count(d), 199)
+	assert_eq(FieldbookGoals.pending(d), 0, "199 of the 200 is not the diploma")
+	assert_eq(FieldbookGoals.next_goal(d), 200)
+	assert_true("Catch 1 more" in FieldbookGoals.hint(d), FieldbookGoals.hint(d))
+	var z := _zones()
+	z[4].encounters.grass.append({"species": "t_toadstool", "season": ["autumn"]})
+	var prog := FieldbookGoals.region_progress(_data(["fox", "owl"]), ZoneIndex.build(z, _map()))
+	assert_true(prog[0].complete, "Cheshire's stamp doesn't need the toadstool")
+
 func test_where_next_mentions_the_milestone_after_the_story() -> void:
 	var o := {"story": [{"flag_done": "starter", "text": "Go."}], "postgame": [{"text": "You've seen it all.", "town": ""}]}
 	var d := _caught_n(30, {"game_complete": true})

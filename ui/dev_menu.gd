@@ -72,6 +72,10 @@ static func boot(game: Node, menu: String) -> void:
 	d.set_flag("last_town", "buxton")
 	TodaysWalk.today(d, game.items)  # the pause menu's Today's Walk line
 	d.bag["rail_pass"] = 1
+	if menu.begins_with("pedia:") and Dex.in_appendix(menu.substr(6)):  # `--menu=pedia:flyling`: an appendix entry, caught
+		d.mark_caught(menu.substr(6))
+	if menu == "bag:first":  # `--menu=bag:first`: a first-hour bag (tea, snares, the map and the Fieldbook)
+		d.bag = {"cup_of_tea": 3, "wicker_snare": 5, "map": 1, "fieldbook": 1}
 	if menu == "map:post":  # `--menu=map:post`: the whole map visited, Champion, every Stone
 		for t in Travel.world_map().get("towns", {}):
 			d.set_flag("visited_" + t)

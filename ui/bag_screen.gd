@@ -84,15 +84,21 @@ func setup(arg: String) -> void:
 			header_right.text = "on %s" % party()[_target].display_name()
 		_rebuild()
 
-func _rebuild() -> void:
-	_kinds.clear()
+## The tabs to show, in KIND_ORDER: only kinds with something in them (a first-hour bag is three tabs, not
+## eight), narrowed to charms when picking one to hold and to usable kinds when using on one party member.
+static func tab_kinds(bag: Bag, items: ItemDB, hold := false, use_on := false) -> Array:
+	var out := []
 	for k in KIND_ORDER:
-		if _hold and k != "charm":
+		if hold and k != "charm":
 			continue
-		if _target >= 0 and not _hold and k not in USABLE:
+		if use_on and not hold and k not in USABLE:
 			continue
-		if Game.items != null and not _bag.items_of_kind(k, Game.items).is_empty():
-			_kinds.append(k)
+		if items != null and not bag.items_of_kind(k, items).is_empty():
+			out.append(k)
+	return out
+
+func _rebuild() -> void:
+	_kinds = tab_kinds(_bag, Game.items, _hold, _target >= 0)
 	_tab = clampi(_tab, 0, maxi(0, _kinds.size() - 1))
 	_draw_tabs()
 	_draw_list()
