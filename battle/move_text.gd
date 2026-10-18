@@ -127,3 +127,20 @@ static func catch_band(chance: float) -> String:
 	if chance < 0.5:
 		return "Worth a try"
 	return "Good odds"
+
+## The odds as a rough fraction ("About 1 in 3"), shown once the species is in the Fieldbook.
+const ODDS_FRACTIONS := [[1, 2], [3, 5], [2, 3], [3, 4], [4, 5], [9, 10]]
+
+static func catch_odds(chance: float) -> String:
+	if chance >= 0.95:
+		return "A dead cert"
+	if chance < 0.02:
+		return "Under 1 in 50"
+	if chance < 0.5:
+		var n := maxi(2, int(round(1.0 / chance)))
+		return "About 1 in %d" % (n if n <= 10 else int(round(n / 5.0)) * 5)  # past 1 in 10, to the nearest 5
+	var best: Array = ODDS_FRACTIONS[0]
+	for f in ODDS_FRACTIONS:
+		if absf(float(f[0]) / f[1] - chance) < absf(float(best[0]) / best[1] - chance):
+			best = f
+	return "About %d in %d" % best

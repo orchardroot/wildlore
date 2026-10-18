@@ -22,6 +22,8 @@ var _dev_catch := false  # --battle-catch: in auto mode, throw snares instead of
 var _dev_ask := false  # --battle-ask: in auto mode, still ask the after-catch questions (screenshots)
 var _dev_menu := ""  # --battle-menu=fight|bag|team|target|forget opens that menu straight away (screenshots)
 var _dev_cursor := -1  # --battle-cursor=N: the remembered cursor for that menu (screenshots)
+var _dev_crit := false  # --battle-crit: every hit is a critical one (screenshots of the crit beat)
+var _dev_stages := false  # --battle-stages: both leads start with stat stages and a status (screenshots of the plates)
 var _scale_before := -1.0  # Engine.time_scale before the battle sped it up (-1: not sped up)
 
 func _ready() -> void:
@@ -34,6 +36,10 @@ func _ready() -> void:
 			_dev_catch = true
 		if a == "--battle-ask":
 			_dev_ask = true
+		if a == "--battle-crit":
+			_dev_crit = true
+		if a == "--battle-stages":
+			_dev_stages = true
 		if a.begins_with("--stage="):
 			_dev_stage = a.get_slice("=", 1)
 		if a.begins_with("--battle-menu="):
@@ -118,6 +124,8 @@ func setup(foe_party: Array, p_opts: Dictionary) -> void:
 	dio.camera.environment = sky.env
 	_warm_cries(foe_party)
 	flow = BattleFlow.new(Game.data, Game.dex, Game.moves, Game.chart, Game.items, Game.rng, foe_party, opts, self)
+	if _dev_crit:
+		flow.battle.rng = DevCritRng.new(Game.rng)
 	flow.species_caught.connect(func(id: String): Bus.creature_caught.emit(id))
 	_run()
 
@@ -171,6 +179,30 @@ func intro(f: BattleFlow) -> void:
 				Audio.sfx("harp_gliss")  # an uncommon coat glints as it appears
 		await _wait(0.7 if side == Battle.FOE else 0.9)
 	_intro_done = true
+	if _dev_stages:
+		var me := f.battle.current(Battle.PLAYER)
+		var foe := f.battle.current(Battle.FOE)
+		me.change_stage("atk", 2)
+		me.change_stage("spd", -1)
+		foe.change_stage("def", -1)
+		foe.status = "soaked"
+		_sync_hud(f.battle)
+
+## Dev: a crit chance (the only roll between 4% and 25%) always comes up; every other roll is the game's own.
+class DevCritRng extends Rng:
+	var base: Rng
+	func _init(b: Rng) -> void:
+		base = b
+	func roll() -> float:
+		return base.roll()
+	func roll_int(a: int, b: int) -> int:
+		return base.roll_int(a, b)
+	func roll_range(a: float, b: float) -> float:
+		return base.roll_range(a, b)
+	func chance(percent: float) -> bool:
+		return true if percent > 4.0 and percent < 25.0 else base.chance(percent)
+	func pick(arr: Array):
+		return base.pick(arr)
 
 ## A wild foe the player already owns gets a little snare mark on its plate.
 func _mark_caught(f: BattleFlow, side: int, c: Creature, pos: int) -> void:
@@ -196,6 +228,7 @@ func play_events(events: Array, ctx: Dictionary) -> void:
 			for i in range(1, lines.size()):
 				await msg.say(lines[i])
 			continue
+		hud.on_event(ev)  # stat pills, the crit flash, damage numbers
 		var flag := [true]
 		_cue_task(cue, b, flag)
 		for l in lines:
@@ -219,6 +252,7 @@ func _sync_hud(b: Battle) -> void:
 			if c == null:
 				continue
 			hud.set_status(side, c.status, pos)
+			hud.set_stages(side, c.stages, pos)
 			if absf(hud.shown_hp(side, pos) - c.hp) > 0.5 and not (side == Battle.FOE and b.caught != null):
 				hud.tween_hp(side, c.hp, 0.25, pos)
 
@@ -268,7 +302,7 @@ func choose_action(f: BattleFlow) -> Dictionary:
 			cmd = await menus.command(f.is_wild())
 		match cmd:
 			"fight":
-				var slot := await menus.moves(me, Game.moves, func(i: int) -> String: return f.move_hint(me, i))
+				var slot := await menus.moves(me, Game.moves, func(i: int) -> String: return f.move_hint(me, i), b.weather)
 				if slot < 0:
 					continue
 				if not b.double:

@@ -17,7 +17,8 @@ var colour_blind := false   # palette safe for deuteranopia and protanopia
 var reduce_flashing := false  # gentle hit flashes, less shake, no strobing evolution
 var follower := true        # the party lead walks behind you in the overworld (see Follower)
 var travel_scenes := "on"   # on | short | off: the little scenes for trains, ferries and the Raven (see Journey)
-var bindings := {}          # action -> {"key": [physical keycodes], "pad": [joypad buttons]}, see InputSetup
+var damage_numbers := true  # battle: the damage taken drifts up beside the plate
+var bindings := {}        # action -> {"key": [physical keycodes], "pad": [joypad buttons]}, see InputSetup
 
 func _ready() -> void:
 	load_settings()
@@ -57,6 +58,7 @@ func load_settings() -> void:
 			colour_blind = bool(d.get("colour_blind", colour_blind))
 			reduce_flashing = bool(d.get("reduce_flashing", reduce_flashing))
 			follower = bool(d.get("follower", follower))
+			damage_numbers = bool(d.get("damage_numbers", damage_numbers))
 			travel_scenes = str(d.get("travel_scenes", travel_scenes))
 			if travel_scenes not in ["on", "short", "off"]:
 				travel_scenes = "on"
@@ -68,7 +70,7 @@ func save_settings() -> void:
 	if f:
 		f.store_string(JSON.stringify({"text_speed": text_speed, "battle_speed": battle_speed, "quality": quality, "music_volume": music_volume,
 			"sfx_volume": sfx_volume, "ambience_volume": ambience_volume, "run_mode": run_mode, "colour_blind": colour_blind, "reduce_flashing": reduce_flashing,
-			"travel_scenes": travel_scenes, "follower": follower, "bindings": bindings}))
+			"travel_scenes": travel_scenes, "follower": follower, "damage_numbers": damage_numbers, "bindings": bindings}))
 	Bus.settings_changed.emit()
 
 ## Rebinds one slot. `device` is "key" or "pad"; `code` a physical keycode or joypad button.
