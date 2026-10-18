@@ -11,9 +11,14 @@ const EXPECTED := {
 	"step_path": 0.12, "step_stone": 0.1, "step_wood": 0.14, "step_sand": 0.15, "step_soft": 0.12, "step_wet": 0.16, "bike_tyre": 0.2,
 	"talk_blip": 0.08, "sign_creak": 0.5, "shop_bell": 0.9, "sanctuary_chime": 1.4, "brake_squeal": 1.6,
 	"radio_tune": 2.0,
+	"atk_thud": 0.32, "atk_rustle": 0.4, "atk_splash": 0.45, "atk_crackle": 0.5, "atk_whoosh": 0.45, "atk_zap": 0.4,
+	"atk_ice": 0.5, "atk_crunch": 0.4, "atk_squelch": 0.42, "atk_clang": 0.55, "atk_shimmer": 0.6, "atk_wail": 0.6,
+	"encounter": 1.1, "stat_up": 0.45, "stat_down": 0.45, "weather_call": 1.3,
 }
 const LOOPING := ["title", "town_cheshire", "route_forest", "route_moor", "battle_wild", "battle_trainer", "battle_keeper", "sanctuary",
 	"town_city", "town_wales", "route_coast", "route_mountain", "battle_enclosure", "legend"]
+## The first-hour tracks (2.1): a 64-bar body after a short intro that plays once, so they loop from past the intro.
+const EXTENDED := ["title", "town_cheshire", "route_forest", "route_moor", "battle_wild", "battle_trainer"]
 
 func test_sfx_length_peak_not_silent() -> void:
 	for id in EXPECTED:
@@ -58,7 +63,11 @@ func test_music_loop_points_inside_data() -> void:
 		var frames := int(round(secs * s.mix_rate))
 		assert_true(s.loop_begin >= 0 and s.loop_begin < s.loop_end, id + " begin < end")
 		assert_true(s.loop_end <= frames, id + " end inside data")
-		assert_true(secs >= 30.0 and secs <= 60.0, "%s length %s" % [id, str(secs)])
+		if id in EXTENDED:
+			assert_true(secs >= 45.0 and secs <= 120.0, "%s length %s" % [id, str(secs)])
+			assert_true(s.loop_begin > 0, id + " loops from after its intro")
+		else:
+			assert_true(secs >= 30.0 and secs <= 60.0, "%s length %s" % [id, str(secs)])
 	var v: AudioStreamWAV = load("res://audio/music/victory.wav")
 	assert_eq(v.loop_mode, AudioStreamWAV.LOOP_DISABLED)
 
@@ -94,3 +103,23 @@ func test_m2_music_peak_length_and_loop_seam() -> void:
 		var s: AudioStreamWAV = load("res://audio/music/%s.wav" % id)
 		assert_near(s.get_length(), secs, 0.05, id + " file length matches the render")
 		assert_eq(s.loop_mode, AudioStreamWAV.LOOP_FORWARD if id in AudioIds.M2_MUSIC_LOOPING else AudioStreamWAV.LOOP_DISABLED, id + " loop mode")
+
+func test_no_intro_loops_from_the_start() -> void:
+	var c: Composer = load("res://tools/music/victory.gd").build()
+	assert_eq(c.intro_bars, 0)
+	assert_eq(c.loop_begin_frame(22050), 0)
+
+## The extended tracks: an intro, a 64-bar body, every phrase the right length, and a loop seam that sits on zero.
+func test_extended_tracks_have_intro_and_64_bar_body() -> void:
+	for id in EXTENDED:
+		var c: Composer = load("res://tools/music/%s.gd" % id).build()
+		assert_true(c.errors.is_empty(), id + " bar lengths: " + str(c.errors))
+		assert_true(c.intro_bars >= 1 and c.intro_bars <= 4, "%s intro bars %d" % [id, c.intro_bars])
+		assert_eq(c.bars - c.intro_bars, 64, id + " body bars")
+		var buf := c.render(11025)
+		var lb := c.loop_begin_frame(11025)
+		assert_near(float(lb), c.intro_bars * c.upb * c.unit * 11025.0, 1.0, id + " loop begins at the intro's end")
+		assert_true(lb > 0 and lb < buf.size(), id + " loop begin inside the buffer")
+		assert_true(absf(buf[lb]) < 0.05, "%s near zero at loop begin (%s)" % [id, str(buf[lb])])
+		assert_true(absf(buf[buf.size() - 1]) < 0.05, "%s near zero at the end (%s)" % [id, str(buf[buf.size() - 1])])
+		assert_true(Synth.peak(buf) <= 0.95 and Synth.peak(buf) >= 0.2, "%s peak" % id)

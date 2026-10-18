@@ -255,8 +255,10 @@ func _on_scene_gone() -> void:
 	stop_ambience(0.5)
 	set_music_muffled(false, 0.3)
 
-func _on_battle_started(_kind: String) -> void:
+func _on_battle_started(kind: String) -> void:
 	_in_battle = true
+	if kind == "wild" and not Engine.has_meta("autopilot"):
+		sfx("encounter")  # something in the grass: the sting plays over the swirl into battle
 	_fade_amb(SILENT_DB, 0.4)
 	_apply_muffle(false, 0.2)
 

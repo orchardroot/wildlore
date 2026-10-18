@@ -30,7 +30,7 @@ func _initialize() -> void:
 				failed = true
 			var stream: AudioStreamWAV
 			if c.loop:
-				stream = Synth.to_stream(buf, MUSIC_SR, 0, buf.size())
+				stream = Synth.to_stream(buf, MUSIC_SR, c.loop_begin_frame(MUSIC_SR), buf.size())
 			else:
 				stream = Synth.to_stream(buf, MUSIC_SR)
 			if Synth.save_wav(stream, "res://audio/music/%s.wav" % id) != OK:
