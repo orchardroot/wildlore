@@ -237,6 +237,8 @@ static func _validate_trainer(tid: String, dex: Dex, moves: MoveDB, items: ItemD
 		errors.append("%s: a double battle needs a party of at least 2" % tag)
 	if int(raw.get("money", 0)) < 0:
 		errors.append("%s: negative money" % tag)
+	if raw.has("scaled_floor") and (int(raw.scaled_floor) < 2 or int(raw.scaled_floor) > Rules.MAX_LEVEL):
+		errors.append("%s: scaled_floor %s should be a par level, 2 to %d" % [tag, raw.scaled_floor, Rules.MAX_LEVEL])
 	for m in raw.get("party", []):
 		var sp := str(m.get("species", ""))
 		if not dex.has(sp):

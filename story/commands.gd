@@ -284,7 +284,7 @@ func _battle(trainer_id: String) -> void:
 
 ## Builds a trainer's party and runs the battle; returns the battle result.
 func _fight(def: Dictionary) -> Dictionary:
-	var foes := TrainerParty.build(def, host.dex, host.rng, host.moves)  # fixed moves, a held charm, a keeper's tea
+	var foes := TrainerParty.build(def, host.dex, host.rng, host.moves, 0, host.data.flags)  # fixed moves, a held charm, a keeper's tea
 	var opts := {"kind": "trainer", "ai": def.ai, "trainer": def}
 	if str(def.get("music", "")) != "":
 		opts["music"] = str(def.music)

@@ -24,7 +24,10 @@ static func roll(zone: ZoneData, tile: String, phase: String, weather: String, r
 	var e := pick_entry(list, rng.roll())
 	var lo := int(e.get("min", 2))
 	var hi := maxi(lo, int(e.get("max", lo)))
-	return {"species": str(e.species), "level": rng.roll_int(lo, hi)}
+	var lv := rng.roll_int(lo, hi)
+	if zone.scaled_floor >= 0:  # off the main line: lifted to the story's par (the overworld evolves the species to suit)
+		return {"species": str(e.species), "level": ParLevel.lift(lv, flags, zone.scaled_floor), "scaled": true}
+	return {"species": str(e.species), "level": lv}
 
 ## Percent chance per step on this tile (0 where nothing lives).
 static func step_chance(tile: String) -> float:
