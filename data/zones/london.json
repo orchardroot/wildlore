@@ -719,6 +719,14 @@
   "west": {
    "to": "stonehenge",
    "offset": 0
+  },
+  "south": {
+   "to": "south_downs",
+   "offset": -21
+  },
+  "east": {
+   "to": "kent_downs",
+   "offset": -6
   }
  },
  "npcs": [
@@ -891,6 +899,72 @@
    "times": [
     "night"
    ]
+  },
+  {
+   "id": "london_south_gate_0",
+   "sprite": "steelworker",
+   "x": 51,
+   "y": 62,
+   "facing": "up",
+   "move": "still",
+   "text": "Road closed, I'm afraid. Every coach in the South East is booked to Stonehenge for the Moot. Come back once the Moot's been won and the roads are clear.",
+   "name": "Highways Officer",
+   "hide_if": "moot_won"
+  },
+  {
+   "id": "london_south_gate_1",
+   "sprite": "steelworker",
+   "x": 52,
+   "y": 62,
+   "facing": "up",
+   "move": "still",
+   "text": "Road closed, I'm afraid. Every coach in the South East is booked to Stonehenge for the Moot. Come back once the Moot's been won and the roads are clear.",
+   "name": "Highways Officer",
+   "hide_if": "moot_won"
+  },
+  {
+   "id": "london_south_gate_2",
+   "sprite": "steelworker",
+   "x": 53,
+   "y": 62,
+   "facing": "up",
+   "move": "still",
+   "text": "Road closed, I'm afraid. Every coach in the South East is booked to Stonehenge for the Moot. Come back once the Moot's been won and the roads are clear.",
+   "name": "Highways Officer",
+   "hide_if": "moot_won"
+  },
+  {
+   "id": "london_east_gate_0",
+   "sprite": "steelworker",
+   "x": 79,
+   "y": 26,
+   "facing": "left",
+   "move": "still",
+   "text": "Sorry, the Kent road's shut while the Moot's on. The Channel's not going anywhere. Come back when the Moot's been won.",
+   "name": "Highways Officer",
+   "hide_if": "moot_won"
+  },
+  {
+   "id": "london_east_gate_1",
+   "sprite": "steelworker",
+   "x": 79,
+   "y": 27,
+   "facing": "left",
+   "move": "still",
+   "text": "Sorry, the Kent road's shut while the Moot's on. The Channel's not going anywhere. Come back when the Moot's been won.",
+   "name": "Highways Officer",
+   "hide_if": "moot_won"
+  },
+  {
+   "id": "london_east_gate_2",
+   "sprite": "steelworker",
+   "x": 79,
+   "y": 28,
+   "facing": "left",
+   "move": "still",
+   "text": "Sorry, the Kent road's shut while the Moot's on. The Channel's not going anywhere. Come back when the Moot's been won.",
+   "name": "Highways Officer",
+   "hide_if": "moot_won"
   }
  ],
  "encounters": {
@@ -1098,6 +1172,16 @@
    "text": "BLUE PLAQUE: Charles Dickens, novelist, lived at 48 Doughty Street from 1837 to 1839 and wrote Oliver Twist there.",
    "kind": "plaque",
    "dx": -0.475
+  },
+  {
+   "x": 55,
+   "y": 62,
+   "text": "SOUTH: THE SOUTH DOWNS AND BRIGHTON. The London to Brighton road, 54 miles, mostly downhill once you're over the Downs."
+  },
+  {
+   "x": 77,
+   "y": 25,
+   "text": "EAST: THE KENT DOWNS, CANTERBURY AND DOVER. The old road to the Channel, walked by pilgrims, Romans and lorries."
   }
  ],
  "spawn": [
@@ -1137,9 +1221,9 @@
   "TT.BBBBBB.BBBBB...::::BBBBB...:::::::::::::::::_________.:F.......###........FTT",
   "TT.BBBBBB.BBBBB...::::BBBBB...:::::::::::::::::!!!!!!!!!!:FFFFFFFF:::FFFFFFFFFTT",
   "TT.BBBDBB.BBDBB...::::BBDBB...:::::::::::::::::..........:........:::.........TT",
-  "TT=============================================================================F",
-  "TT=============================================================================F",
-  "===============================================================================F",
+  "TT==============================================================================",
+  "TT==============================================================================",
+  "================================================================================",
   "==:::::::::::::===:::::::::::::::::::::::::::::::::===:::::::::::::::::::::::::F",
   "==:::::::::::::===:::::::::::::::::::::::::::::::::===::::::::::::::::::::::::TT",
   "TT~~~~~~~~~~~~W===W~~~~~~~~~~F||F~~~~~~~~~~~~~~~~~W===W~~~~~~~~~~~~~~~~~~~~~~~TT",
@@ -1172,10 +1256,10 @@
   "TT...,,,,,,,,,,,#,,,,,,............................===.:::::::::::::::::::::..TT",
   "TT...,,,,,,,,,,,#,,,,,,............................===.:::::::::::::::::::::..TT",
   "TT..............#..................................===.:::::::::::::::::::::..TT",
-  "TT..............#.............................................................TT",
-  "TT............................................................................TT",
-  "TT............................................................................TT",
-  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
-  "TTTTTTTTTTTTTTTTTTTTTTPTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT"
+  "TT..............#..................................===........................TT",
+  "TT.................................................===........................TT",
+  "TT.................................................===........................TT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT===TTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTPTTTTTTTTTTTTTTTTTTTTTTTTTTTT===TTTTTTTTTTTTTTTTTTTTTTTTTT"
  ]
 }

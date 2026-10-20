@@ -16,7 +16,7 @@ const IRON := Color("3c4450")
 const GLASS := Color.WHITE
 
 ## Building styles handled here rather than by the generic house in Meshes.building.
-const SPECIAL := ["glass_tower", "gantry_crane", "cantilever_crane", "titanic", "mill", "castle", "cathedral", "liver_building", "station", "aqueduct", "chapel", "terrace", "tudor", "slate_cottage", "lighthouse_house", "round_tower", "passage_tomb", "field_barn"]
+const SPECIAL := ["glass_tower", "gantry_crane", "cantilever_crane", "titanic", "mill", "castle", "cathedral", "liver_building", "station", "aqueduct", "chapel", "terrace", "tudor", "slate_cottage", "lighthouse_house", "round_tower", "passage_tomb", "field_barn", "oast_house", "weatherboard", "flint_cottage", "regency", "pavilion", "i360", "pier_pavilion", "canterbury_cathedral", "westgate", "windmill_black", "windmill_white"]
 
 ## Doors: where each style's door sits on its tile (see _door and friends), for the swing as you go in.
 ## {x, w, y, h, z}: left edge and width across the door column, bottom and height, z of the door's face from
@@ -115,6 +115,8 @@ static func building(w: int, d: int, style: String, door_x: int, seed_value: int
 			_passage_tomb(st, w, d, door_x)
 		"field_barn":
 			_field_barn(st, w, d, rng)
+		"oast_house", "weatherboard", "flint_cottage", "regency", "pavilion", "i360", "pier_pavilion", "canterbury_cathedral", "westgate", "windmill_black", "windmill_white":
+			_south_east(st, wst, w, d, door_x, rng, style)
 		"liver_building":
 			_liver(st, wst, w, d, door_x)
 		"station":
@@ -298,6 +300,7 @@ const PENNANT_KINDS := {
 	"cumbria": "st_george", "cornwall": "st_piran", "north_wales": "wales", "mid_wales": "wales",
 	"south_wales": "wales", "scotland": "saltire", "ireland": "ireland", "ireland_west": "ireland",
 	"ireland_east": "ireland", "man": "man",
+	"south_east": "st_george",
 }
 
 ## A castle's swallowtail pennant on its own, the hoist's top at the origin, flying along +x.
@@ -1041,3 +1044,338 @@ static func harp() -> ArrayMesh:
 	for i in 5:
 		Meshes.box(st, Vector3(-0.15 + i * 0.08, 0.12, -0.01), Vector3(0.012, 1.08 - i * 0.12, 0.012), Color("f2e2a0"))
 	return Meshes._finish(st)
+
+# --- the South East: Sussex and Kent (wave 21) ------------------------------------
+
+const CLAY_TILE := Color("86463a")    # Kent and Sussex peg tiles
+const WEATHERBOARD := Color("eeeae0")
+const FLINT := Color("6c6d72")
+const STUCCO := Color("efe4c8")       # Brighton's cream Regency stucco
+const CAEN := Color("d6cba8")         # Canterbury's pale Caen stone
+const RAGSTONE := Color("a8a596")     # Kentish ragstone
+
+static func _south_east(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int, rng: RandomNumberGenerator, style: String) -> void:
+	match style:
+		"oast_house":
+			_oast(st, wst, w, d, door_x, rng)
+		"weatherboard":
+			_house(st, wst, w, d, door_x, rng, WEATHERBOARD, CLAY_TILE, 2, false, false)
+			_boards(st, w, d, 0.3, 2.4)
+		"flint_cottage":
+			_flint(st, wst, w, d, door_x, rng)
+		"regency":
+			_regency(st, wst, w, d, door_x)
+		"pavilion":
+			_pavilion(st, wst, w, d, door_x)
+		"i360":
+			_i360(st, wst, w, d, door_x)
+		"pier_pavilion":
+			_pier_pavilion(st, wst, w, d, door_x)
+		"canterbury_cathedral":
+			_canterbury(st, wst, w, d, door_x)
+		"westgate":
+			_westgate(st, wst, w, d, door_x)
+		"windmill_black":
+			_windmill(st, w, d, true)
+		"windmill_white":
+			_windmill(st, w, d, false)
+
+## Weatherboarding: thin shadow lines across the south face, from y0 to y1.
+static func _boards(st: SurfaceTool, w: int, d: int, y0: float, y1: float) -> void:
+	var y := y0
+	while y < y1:
+		Meshes.box(st, Vector3(0.06, y, d - 0.06), Vector3(w - 0.12, 0.03, 0.025), WEATHERBOARD.darkened(0.18))
+		y += 0.2
+
+## An onion dome: a bulb of stacked rings that swells and then draws in to a point, with a gilt finial.
+static func _onion(st: SurfaceTool, c: Vector3, r: float, h: float, col: Color) -> void:
+	var prof := [[0.0, 0.85], [0.12, 1.1], [0.3, 1.2], [0.5, 1.05], [0.68, 0.7], [0.84, 0.32], [0.95, 0.1]]
+	var sides := 10
+	var rings := []
+	for p in prof:
+		rings.append(Meshes._ring(c + Vector3(0, h * float(p[0]), 0), r * float(p[1]), c.y + h * float(p[0]), sides))
+	for k in range(prof.size() - 1):
+		var shade := col.lightened(0.06 - 0.03 * k)
+		for i in sides:
+			var j := (i + 1) % sides
+			Meshes._quad(st, rings[k][i], rings[k][j], rings[k + 1][j], rings[k + 1][i], shade.darkened(0.06 * (i % 2)))
+	var tip := c + Vector3(0, h, 0)
+	var top: Array = rings[prof.size() - 1]
+	for i in sides:
+		Meshes._tri(st, top[i], top[(i + 1) % sides], tip, col.lightened(0.1))
+	Meshes.box(st, tip + Vector3(-0.03, 0, -0.03), Vector3(0.06, h * 0.28, 0.06), Color("d8b048"))
+	Meshes.box(st, tip + Vector3(-0.07, h * 0.12, -0.07), Vector3(0.14, 0.08, 0.14), Color("e8c050"))
+
+## A Kentish oast: a brick ground floor and weatherboarded stowage under a peg-tile roof, with one or two round
+## brick kilns at the east end, each under a steep cone topped by the white wooden cowl and its wind vane.
+static func _oast(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int, rng: RandomNumberGenerator) -> void:
+	var kilns := 2 if w >= 6 else 1
+	var kr := minf(0.95, d * 0.42)
+	var barn_w := float(w) - kilns * (kr * 2.0 + 0.1)
+	var hgt := 2.2
+	Meshes.box(st, Vector3(0.05, 0, 0.1), Vector3(barn_w, 1.0, d - 0.2), BRICK)
+	Meshes.box(st, Vector3(0.0, 1.0, 0.05), Vector3(barn_w + 0.05, hgt - 1.0, d - 0.1), WEATHERBOARD)
+	var y := 1.05
+	while y < hgt:
+		Meshes.box(st, Vector3(0.0, y, d - 0.07), Vector3(barn_w + 0.05, 0.03, 0.03), WEATHERBOARD.darkened(0.18))
+		y += 0.2
+	_roof_at(st, -0.1, barn_w + 0.1, -0.1, d + 0.1, hgt, minf(1.1, d * 0.4), CLAY_TILE, WEATHERBOARD)
+	# the hop loft's loading door, up under the eaves
+	Meshes.box(st, Vector3(barn_w * 0.5 - 0.3, 1.25, d - 0.02), Vector3(0.6, 0.7, 0.06), Color("6a4a32"))
+	if door_x >= 0:
+		_door(st, door_x, d - 0.05, BRICK)
+	for x in range(int(barn_w)):
+		if x != door_x:
+			_window(st, wst, x + 0.3, 0.35, d - 0.06, 0.4, 0.45, BRICK.lightened(0.25))
+	for k in kilns:
+		var c := Vector3(barn_w + 0.05 + kr + k * (kr * 2.0 + 0.1), 0, d * 0.5)
+		Meshes.cylinder(st, c, kr, 2.3, 12, BRICK.lightened(0.04))
+		Meshes.cylinder(st, c + Vector3(0, 2.3, 0), kr * 0.9, 0.12, 12, BRICK.darkened(0.2))
+		Meshes.cone(st, c + Vector3(0, 2.4, 0), kr * 0.92, 1.9, 12, CLAY_TILE.darkened(0.05), rng)
+		# the cowl: a white hood that turns its back to the wind, its fan board pointing downwind
+		var top := c + Vector3(0, 4.05, 0)
+		Meshes.box(st, top + Vector3(-0.2, 0, -0.2), Vector3(0.4, 0.42, 0.4), Color("f4f1ea"))
+		Meshes._quad(st, top + Vector3(-0.22, 0.42, -0.22), top + Vector3(0.22, 0.42, -0.22), top + Vector3(0.12, 0.62, 0.0), top + Vector3(-0.12, 0.62, 0.0), Color("f4f1ea"))
+		Meshes._quad(st, top + Vector3(0.22, 0.42, 0.22), top + Vector3(-0.22, 0.42, 0.22), top + Vector3(-0.12, 0.62, 0.0), top + Vector3(0.12, 0.62, 0.0), Color("e2ddd2"))
+		Meshes.box(st, top + Vector3(0.2, 0.18, -0.02), Vector3(0.45, 0.26, 0.04), Color("f4f1ea"))
+		Meshes.box(st, top + Vector3(-0.02, 0.62, -0.02), Vector3(0.04, 0.22, 0.04), Color("2a2a30"))
+
+## A Sussex cottage faced in knapped flint, with red brick quoins and window dressings, under a peg-tile roof.
+static func _flint(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int, rng: RandomNumberGenerator) -> void:
+	var storeys := 2 if w >= 4 else 1
+	_house(st, wst, w, d, door_x, rng, FLINT, CLAY_TILE, storeys, false, false)
+	var hgt := 1.15 * storeys + 0.2
+	for x in [0.0, w - 0.2]:
+		for i in int(hgt / 0.3):
+			var long := i % 2 == 0
+			Meshes.box(st, Vector3(x - (0.0 if x == 0.0 else (0.12 if long else 0.0)), 0.16 + i * 0.3, d - 0.08), Vector3(0.32 if long else 0.2, 0.28, 0.05), BRICK)
+	# knobbly flints catching the light
+	for i in w * 10:
+		var fx := rng.randf_range(0.25, w - 0.35)
+		var fy := rng.randf_range(0.25, hgt - 0.15)
+		var g := rng.randf_range(-0.15, 0.25)
+		Meshes.box(st, Vector3(fx, fy, d - 0.065), Vector3(0.09, 0.07, 0.02), FLINT.lightened(g) if g > 0 else FLINT.darkened(-g))
+	# brick bands under each storey's windows
+	for s in storeys:
+		Meshes.box(st, Vector3(0.05, 0.28 + 1.15 * s, d - 0.075), Vector3(w - 0.1, 0.07, 0.04), BRICK)
+
+## A Brighton Regency terrace: three storeys of cream stucco with bow fronts, black iron balconies on the first
+## floor, and a parapet hiding a shallow slate roof.
+static func _regency(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int) -> void:
+	var hgt := 3.5
+	Meshes.box(st, Vector3(0.05, 0, 0.05), Vector3(w - 0.1, hgt, d - 0.1), STUCCO)
+	Meshes.box(st, Vector3(0, 0, 0), Vector3(w, 0.2, d), STUCCO.darkened(0.2))
+	Meshes.box(st, Vector3(0, hgt, 0), Vector3(w, 0.25, d), STUCCO.lightened(0.04))
+	_roof_at(st, 0.2, w - 0.2, 0.2, d - 0.2, hgt + 0.1, 0.4, SLATE, STUCCO)
+	Meshes.box(st, Vector3(0, hgt - 0.12, d - 0.1), Vector3(w, 0.12, 0.2), STUCCO.lightened(0.08))  # cornice
+	# bow fronts, one per two tiles, round bays that run up all three storeys
+	var x := 1.0
+	while x < w - 0.5:
+		Meshes.cylinder(st, Vector3(x, 0, d - 0.15), 0.62, hgt - 0.15, 10, STUCCO.lightened(0.03))
+		x += 2.0
+	for s in 3:
+		var wy := 0.4 + 1.1 * s
+		for i in w:
+			if i == door_x and s == 0:
+				continue
+			_window(st, wst, i + 0.3, wy, d + 0.3, 0.4, 0.62 if s < 2 else 0.5, Color("f6f0e0"))
+	# the first-floor balcony, black iron the length of the terrace
+	Meshes.box(st, Vector3(0, 1.32, d - 0.05), Vector3(w, 0.05, 0.6), Color("2a2c30"))
+	Meshes.box(st, Vector3(0, 1.62, d + 0.5), Vector3(w, 0.04, 0.04), Color("2a2c30"))
+	for i in range(0, w * 4 + 1):
+		Meshes.box(st, Vector3(i * 0.25, 1.35, d + 0.5), Vector3(0.02, 0.28, 0.02), Color("2a2c30"))
+	if door_x >= 0:
+		_door(st, door_x, d + 0.05, STUCCO)
+		Meshes.box(st, Vector3(door_x + 0.1, 0.0, d + 0.0), Vector3(0.08, 1.1, 0.12), Color("f8f4ea"))
+		Meshes.box(st, Vector3(door_x + 0.82, 0.0, d + 0.0), Vector3(0.08, 1.1, 0.12), Color("f8f4ea"))
+
+## The Royal Pavilion: a long cream front with a colonnade, a great onion dome over the central saloon, smaller
+## domes over the wings, tented roofs and a crowd of slim minarets.
+static func _pavilion(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int) -> void:
+	var stone := Color("efe6cf")
+	var h := 1.8
+	Meshes.box(st, Vector3(0.05, 0, 0.3), Vector3(w - 0.1, h, d - 0.6), stone)
+	Meshes.box(st, Vector3(0, h, 0.25), Vector3(w, 0.12, d - 0.5), stone.lightened(0.05))
+	# the colonnade along the garden front, with its little pierced parapet
+	Meshes.box(st, Vector3(0, 0, d - 0.35), Vector3(w, 0.12, 0.35), stone.darkened(0.12))
+	var cx := 0.2
+	while cx < w:
+		Meshes.box(st, Vector3(cx, 0.1, d - 0.12), Vector3(0.12, 1.2, 0.12), stone.lightened(0.04))
+		cx += 0.7
+	Meshes.box(st, Vector3(0, 1.3, d - 0.35), Vector3(w, 0.12, 0.4), stone)
+	for i in range(0, w * 3):
+		Meshes.box(st, Vector3(i / 3.0 + 0.08, 1.42, d - 0.06), Vector3(0.18, 0.14, 0.04), stone.darkened(0.08))
+	for x in w:
+		if x != door_x:
+			_window(st, wst, x + 0.3, 0.3, d - 0.3, 0.4, 0.85, stone.lightened(0.15))
+	if door_x >= 0:
+		Meshes.box(st, Vector3(door_x + 0.15, 0.1, d - 0.32), Vector3(0.7, 1.05, 0.06), Color("3b2a22"))
+	var mid := w * 0.5
+	var cz := d * 0.5
+	# the saloon's drum and the great dome
+	Meshes.cylinder(st, Vector3(mid, h, cz), 1.15, 0.9, 12, stone.lightened(0.02))
+	_onion(st, Vector3(mid, h + 0.85, cz), 1.05, 2.4, Color("f4ecd8"))
+	# wing domes and tented roofs
+	for k in [-1, 1]:
+		var wx: float = mid + k * w * 0.3
+		Meshes.cylinder(st, Vector3(wx, h, cz), 0.62, 0.55, 10, stone)
+		_onion(st, Vector3(wx, h + 0.5, cz), 0.6, 1.5, Color("f4ecd8"))
+		var tx: float = mid + k * w * 0.15
+		Meshes.cone(st, Vector3(tx, h + 0.1, cz), 0.7, 1.0, 8, Color("e6dcc2"), Meshes._rng(77 + k))
+	# minarets: slim columns with tiny onion caps
+	for k in [0.0, 0.18, 0.4, 0.6, 0.82, 1.0]:
+		var mx := clampf(w * k, 0.25, w - 0.25)
+		for zz in [0.35, d - 0.45]:
+			Meshes.cylinder(st, Vector3(mx, h, zz), 0.1, 1.1, 6, stone.lightened(0.06))
+			_onion(st, Vector3(mx, h + 1.08, zz), 0.13, 0.42, Color("f4ecd8"))
+
+## The British Airways i360: a slender white mast with a ring-shaped glass viewing pod partway up, standing on
+## a low glassy pavilion.
+static func _i360(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int) -> void:
+	var c := Vector3(w * 0.5, 0, d * 0.5)
+	Meshes.box(st, Vector3(0.05, 0, 0.05), Vector3(w - 0.1, 0.9, d - 0.1), Color("dfe6ea"))
+	Meshes.box(st, Vector3(0, 0.9, 0), Vector3(w, 0.1, d), Color("f4f6f8"))
+	for x in w:
+		if x != door_x:
+			_window(st, wst, x + 0.12, 0.15, d, 0.76, 0.6, Color("c8d2d8"))
+	_door(st, door_x, d, Color("dfe6ea"), 0.7)
+	Meshes.cylinder(st, c + Vector3(0, 0.9, 0), 0.32, 11.0, 12, Color("f2f4f6"))
+	Meshes.cylinder(st, c + Vector3(0, 11.9, 0), 0.28, 0.25, 12, Color("c9d0d6"))
+	# the pod: a doughnut of glass round the mast, with a white rim above and below
+	var py := 4.2
+	Meshes.cylinder(st, c + Vector3(0, py, 0), 1.25, 0.08, 16, Color("e8ecef"))
+	Meshes.cylinder(st, c + Vector3(0, py + 0.08, 0), 1.2, 0.55, 16, Color("8fb8cc"))
+	Meshes.cylinder(st, c + Vector3(0, py + 0.6, 0), 1.08, 0.08, 16, Color("e8ecef"))
+	for i in 8:
+		var a := TAU * i / 8.0
+		Meshes.box(wst, c + Vector3(cos(a) * 1.08 - 0.12, py + 0.15, sin(a) * 1.08 - 0.12), Vector3(0.24, 0.38, 0.24), window_colour(_wr))
+
+## The Palace Pier's end-of-pier pavilion: white boarding, a run of arcade windows and a row of little domes.
+static func _pier_pavilion(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int) -> void:
+	var white := Color("f4f1ea")
+	var h := 1.5
+	Meshes.box(st, Vector3(0.05, 0, 0.05), Vector3(w - 0.1, h, d - 0.1), white)
+	Meshes.box(st, Vector3(0, h, 0), Vector3(w, 0.14, d), Color("2f5a8a"))
+	for x in w:
+		if x != door_x:
+			_window(st, wst, x + 0.2, 0.3, d, 0.6, 0.8, Color("2f5a8a"))
+	_door(st, door_x, d, white, 1.0)
+	for k in range(w):
+		var c := Vector3(k + 0.5, h + 0.14, d * 0.5)
+		Meshes.cylinder(st, c, 0.3, 0.25, 8, white)
+		_onion(st, c + Vector3(0, 0.25, 0), 0.28, 0.6, Color("f6f2e8") if k % 2 == 0 else Color("d84a3a"))
+	# the strings of bulbs along the eaves
+	for i in w * 4:
+		Meshes.box(wst, Vector3(i * 0.25 + 0.08, h - 0.08, d + 0.02), Vector3(0.07, 0.07, 0.04), Color(1, 0.95, 0.7, 1))
+
+## Canterbury Cathedral: a long pale nave, the two pinnacled west towers, and Bell Harry, the great central tower.
+static func _canterbury(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int) -> void:
+	var stone := CAEN
+	var lead := Color("6f747a")
+	var nave_h := 2.8
+	Meshes.box(st, Vector3(2.0, 0, 0.4), Vector3(w - 2.4, nave_h, d - 0.8), stone)
+	_roof_at(st, 2.0, w - 0.4, 0.4, d - 0.4, nave_h, 1.2, lead, stone)
+	# aisles with buttresses and tall lancets
+	Meshes.box(st, Vector3(2.0, 0, d - 0.9), Vector3(w - 2.4, 1.6, 0.6), stone.darkened(0.04))
+	for x in range(2, w - 1):
+		Meshes.box(st, Vector3(x + 0.85, 0, d - 0.4), Vector3(0.18, 1.8, 0.35), stone.darkened(0.08))
+		Meshes.box(st, Vector3(x + 0.88, 1.8, d - 0.38), Vector3(0.12, 0.35, 0.12), stone.lightened(0.06))
+		_window(st, wst, x + 0.3, 0.35, d - 0.32, 0.36, 1.05, stone.lightened(0.15))
+		_window(st, wst, x + 0.35, 1.85, d - 0.82, 0.3, 0.7, stone.lightened(0.15))
+	# the two west towers
+	var th := 5.4
+	for tz in [0.0, d - 1.6]:
+		Meshes.box(st, Vector3(0, 0, tz), Vector3(2.0, th, 1.6), stone.darkened(0.03))
+		for c in [Vector2(0, tz), Vector2(1.7, tz), Vector2(0, tz + 1.3), Vector2(1.7, tz + 1.3)]:
+			Meshes.box(st, Vector3(c.x, th, c.y), Vector3(0.3, 0.9, 0.3), stone.lightened(0.06))
+		_merlons(st, 0, 2.0, tz + 1.0, th, stone, true)
+		_window(st, wst, 0.75, 3.6, tz + 1.62, 0.5, 1.0, stone.lightened(0.2))
+	Meshes.box(st, Vector3(0, 0, 1.5), Vector3(2.0, 3.2, d - 3.0), stone.darkened(0.03))
+	_window(st, wst, 0.6, 1.2, d - 1.58, 0.8, 1.6, stone.lightened(0.2))
+	# Bell Harry, over the crossing
+	var bx := w * 0.55
+	var bh := 7.4
+	Meshes.box(st, Vector3(bx - 1.0, 0, d * 0.5 - 1.0), Vector3(2.0, bh, 2.0), stone.lightened(0.03))
+	for c in [Vector2(-1.0, -1.0), Vector2(0.75, -1.0), Vector2(-1.0, 0.75), Vector2(0.75, 0.75)]:
+		Meshes.box(st, Vector3(bx + c.x, bh, d * 0.5 + c.y), Vector3(0.25, 1.1, 0.25), stone.lightened(0.08))
+	_merlons(st, bx - 1.0, bx + 1.0, d * 0.5 + 0.4, bh, stone, true)
+	for k in 2:
+		_window(st, wst, bx - 0.75 + k * 0.9, 4.6, d * 0.5 + 1.02, 0.5, 1.6, stone.lightened(0.2))
+	# transepts reaching out to the south
+	Meshes.box(st, Vector3(bx - 0.9, 0, d - 0.9), Vector3(1.8, 2.6, 0.9), stone)
+	if door_x >= 0:
+		Meshes.box(st, Vector3(door_x + 0.1, 0, d - 0.3), Vector3(0.8, 1.3, 0.08), Color("3b2a22"))
+		Meshes.box(st, Vector3(door_x - 0.1, 0, d - 0.42), Vector3(1.2, 1.7, 0.1), stone.lightened(0.08))
+
+## The Westgate: two round drum towers of Kentish ragstone either side of the gate arch, battlemented on top.
+static func _westgate(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int) -> void:
+	var stone := RAGSTONE
+	var r := minf(1.05, d * 0.42)
+	var h := 3.4
+	Meshes.box(st, Vector3(r, 0, 0.3), Vector3(w - 2.0 * r, h - 0.4, d - 0.5), stone.darkened(0.04))
+	_merlons(st, r, w - r, d - 0.8, h - 0.4, stone, true)
+	for x in [r, w - r]:
+		var c := Vector3(x, 0, d - r)
+		Meshes.cylinder(st, c, r, h, 12, stone)
+		Meshes.cylinder(st, c + Vector3(0, h, 0), r * 0.9, 0.12, 12, stone.lightened(0.05))
+		for i in 8:
+			var a := TAU * i / 8.0
+			Meshes.box(st, c + Vector3(cos(a) * r * 0.78 - 0.13, h + 0.1, sin(a) * r * 0.78 - 0.13), Vector3(0.26, 0.3, 0.26), stone.lightened(0.05))
+		_window(st, wst, x - 0.12, 1.8, d + 0.02, 0.24, 0.5, stone.darkened(0.25))
+	if door_x >= 0:
+		Meshes.box(st, Vector3(door_x + 0.08, 0, d - 0.2), Vector3(0.84, 1.5, 0.06), Color("231c18"))
+		Meshes.box(st, Vector3(door_x - 0.05, 1.5, d - 0.22), Vector3(1.1, 0.18, 0.1), stone.lightened(0.1))
+
+## The burnt-out West Pier: a rusting iron skeleton standing in the sea (a point prop centred on its tile,
+## spreading about five tiles east-west and three north-south).
+static func pier_ruin() -> ArrayMesh:
+	var st := Meshes._st()
+	var rust := Color("5a3a2c")
+	var rust2 := Color("7a4a32")
+	for ix in 6:
+		for iz in 3:
+			var x := -2.4 + ix * 0.96
+			var z := -1.0 + iz * 1.0
+			Meshes.box(st, Vector3(x - 0.05, -0.6, z - 0.05), Vector3(0.1, 2.2 - 0.25 * absf(ix - 2.5), 0.1), rust)
+	for iz in 3:
+		Meshes.box(st, Vector3(-2.45, 1.0, -1.03 + iz), Vector3(4.9, 0.08, 0.06), rust2)
+	for ix in 6:
+		Meshes.box(st, Vector3(-2.43 + ix * 0.96, 1.25, -1.0), Vector3(0.06, 0.06, 2.0), rust2)
+	# the ribs of the old concert hall, a dome of bare iron arches
+	for k in 5:
+		var a0 := PI * k / 4.0
+		var a1 := PI * (k + 1) / 4.0
+		for side in [-0.6, 0.0, 0.6]:
+			var p0 := Vector3(-0.2 + cos(a0) * 1.4, 1.05 + sin(a0) * 1.1, side)
+			var p1 := Vector3(-0.2 + cos(a1) * 1.4, 1.05 + sin(a1) * 1.1, side)
+			if k < 4:
+				Meshes.box(st, Vector3(minf(p0.x, p1.x), minf(p0.y, p1.y), side - 0.03), Vector3(maxf(absf(p1.x - p0.x), 0.06), maxf(absf(p1.y - p0.y), 0.06), 0.06), rust)
+	return Meshes._finish(st)
+
+## Jack and Jill: a black tower mill (a tapering tower, only its cap turns) or a white post mill (the whole
+## weatherboarded body stands on a post), each with four sails facing south.
+static func _windmill(st: SurfaceTool, w: int, d: int, tower: bool) -> void:
+	var c := Vector3(w * 0.5, 0, d * 0.5)
+	var body := Color("2c2a2a") if tower else Color("f2efe6")
+	var hub_y := 2.7
+	if tower:
+		Meshes.cylinder(st, c, 0.85, 2.6, 10, body)
+		Meshes.cone(st, c + Vector3(0, 2.55, 0), 0.75, 0.6, 10, Color("e8e4da"), Meshes._rng(5))
+	else:
+		Meshes.box(st, c + Vector3(-0.08, 0, -0.08), Vector3(0.16, 1.0, 0.16), Color("5a4a3a"))
+		Meshes.box(st, c + Vector3(-0.6, 0, -0.6), Vector3(1.2, 0.5, 1.2), Color("8a7a6a"))
+		Meshes.box(st, c + Vector3(-0.55, 1.0, -0.7), Vector3(1.1, 1.6, 1.4), body)
+		Meshes.box(st, c + Vector3(-0.6, 2.6, -0.75), Vector3(1.2, 0.25, 1.5), body.darkened(0.12))
+		Meshes.box(st, c + Vector3(-0.04, 0.6, 0.6), Vector3(0.08, 0.08, 1.1), Color("6a5a48"))  # tail pole
+		hub_y = 2.2
+	var hub := c + Vector3(0, hub_y, 0.88 if tower else 0.75)
+	Meshes.box(st, hub + Vector3(-0.1, -0.1, 0), Vector3(0.2, 0.2, 0.15), Color("3a3430"))
+	var sail := Color("e8e2d2")
+	for k in 4:
+		var a := PI * 0.25 + PI * 0.5 * k
+		var dir := Vector3(cos(a), sin(a), 0)
+		var side := Vector3(-sin(a), cos(a), 0) * 0.16
+		var p0 := hub + dir * 0.15 + Vector3(0, 0, 0.16)
+		var p1 := hub + dir * 1.55 + Vector3(0, 0, 0.16)
+		Meshes._quad(st, p0 - side, p1 - side, p1 + side, p0 + side, sail)
+		Meshes._quad(st, p0 + side, p1 + side, p1 - side, p0 - side, sail.darkened(0.2))

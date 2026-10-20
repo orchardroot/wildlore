@@ -1,0 +1,293 @@
+{
+ "rail_guard": [
+  {
+   "do": "say",
+   "who": "Rail Guard",
+   "text": "Brighton Station. The roof's from 1883, all iron and glass. On a summer Saturday half of London comes off these platforms with a bucket and spade."
+  },
+  {
+   "do": "say",
+   "who": "Rail Guard",
+   "text": "All aboard! Trains run to everywhere you've been."
+  },
+  {
+   "do": "rail"
+  }
+ ],
+ "br_rock_seller": [
+  {
+   "do": "say",
+   "who": "Rock Seller",
+   "text": "Brighton rock! Pink on the outside, mint on the inside, and BRIGHTON written all the way through, every slice."
+  },
+  {
+   "do": "say",
+   "who": "Rock Seller",
+   "text": "The letters are made long and fat, then the whole lump is stretched and rolled till they're tiny. It's a craft. A sticky, sticky craft."
+  }
+ ],
+ "br_gull_victim": [
+  {
+   "do": "say",
+   "who": "Day Tripper",
+   "text": "A gull took my chips. The whole portion. Looked me in the eye, said nothing, took the lot."
+  },
+  {
+   "do": "say",
+   "who": "Day Tripper",
+   "text": "The man on the pier said it's my fault for holding them like that. How else do you hold chips?"
+  }
+ ],
+ "br_volks_driver": [
+  {
+   "do": "say",
+   "who": "Volk's Driver",
+   "text": "All aboard for Black Rock! Magnus Volk built this in 1883: the first public electric railway in Britain, and the oldest still running anywhere."
+  },
+  {
+   "do": "say",
+   "who": "Volk's Driver",
+   "text": "His son reckoned the old man was always tinkering. He wired his own house up for electric light too, when most people in Brighton still had gas."
+  }
+ ],
+ "br_starling_watcher": [
+  {
+   "do": "say",
+   "who": "Starling Watcher",
+   "text": "Come back at dusk in winter. Thousands of starlings pour in from the downs and swirl round the West Pier like smoke, then drop into the ironwork all at once."
+  },
+  {
+   "do": "say",
+   "who": "Starling Watcher",
+   "text": "Nobody knows exactly how they keep from crashing. Each bird watches its seven nearest neighbours, they reckon. I can't even keep track of my own kids."
+  }
+ ],
+ "br_pride_steward": [
+  {
+   "do": "say",
+   "who": "Pride Steward",
+   "text": "Pride's in August: the parade comes right down the seafront, then up to the park for the party. Everyone's welcome, and I mean everyone. Even the gulls get glitter."
+  },
+  {
+   "do": "say",
+   "who": "Pride Steward",
+   "text": "My nan marched in the first one, in 1973. There were a few dozen of them. She says the rain was the same."
+  }
+ ],
+ "br_old_salt": [
+  {
+   "do": "say",
+   "who": "Old Fisherman",
+   "text": "Brighton was a fishing town, Brighthelmstone, long before any prince came. The boats were hauled up the shingle by capstan. A few still are."
+  },
+  {
+   "do": "say",
+   "who": "Old Fisherman",
+   "text": "Dr Russell from Lewes started all this, in the 1750s: drink seawater, bathe in it, he said. People came for the cure. They stayed for the pier."
+  }
+ ],
+ "br_rally": [
+  {
+   "do": "if",
+   "flag": "q_southeast_mods_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Rally Organiser",
+     "text": "Listen to that: mods and rockers revving side by side down Madeira Drive, and nobody's thrown a deckchair. Lovely."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_southeast_mods_3",
+     "then": [
+      {
+       "do": "say",
+       "who": "Rally Organiser",
+       "text": "You got the Ace Face and Terry to shake hands, and a stick of rock each to seal it. That's diplomacy, that is."
+      },
+      {
+       "do": "say",
+       "who": "Rally Organiser",
+       "text": "Here: a mod's target badge. The RAF roundel, nicked for a fashion statement in the sixties. Wear it and you'll be first off the line."
+      },
+      {
+       "do": "give_item",
+       "item": "mod_target",
+       "n": 1
+      },
+      {
+       "do": "give_item",
+       "item": "brighton_rock",
+       "n": 3
+      },
+      {
+       "do": "standing",
+       "nation": "england",
+       "amount": 3
+      },
+      {
+       "do": "set",
+       "flag": "q_southeast_mods_done",
+       "value": true
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_southeast_mods_started",
+       "then": [
+        {
+         "do": "say",
+         "who": "Rally Organiser",
+         "text": "Beat the Ace Face, on the end of the pier, and Ton-Up Terry, down Madeira Drive. Then a peace offering from the Rock Shop in the Lanes. Everybody likes rock."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Rally Organiser",
+         "text": "{greeting} I'm running the anniversary scooter rally. Mods AND rockers, together, down Madeira Drive. Like 1964, but without the arrests."
+        },
+        {
+         "do": "say",
+         "who": "Rally Organiser",
+         "text": "In 1964 the papers called it a war. It was mostly a lot of lads in a bad mood in the rain, a few broken deckchairs, and a lot of headlines."
+        },
+        {
+         "do": "say",
+         "who": "Rally Organiser",
+         "text": "The Ace Face won't ride with the rockers, and Ton-Up Terry won't ride with the mods. Win them round for me? They only listen to people who beat them."
+        },
+        {
+         "do": "set",
+         "flag": "q_southeast_mods_started",
+         "value": true
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "br_terry": [
+  {
+   "do": "if",
+   "flag": "trainer_br_rocker",
+   "then": [
+    {
+     "do": "say",
+     "who": "Ton-Up Terry",
+     "text": "Ride with the mods? ...Go on, then. But I'm at the front."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_southeast_mods_started",
+     "then": [
+      {
+       "do": "say",
+       "who": "Ton-Up Terry",
+       "text": "A 'ton' is a hundred miles an hour. We used to do it on the bypass, from the caf\u00e9 to the roundabout and back before the record finished on the jukebox."
+      },
+      {
+       "do": "say",
+       "who": "Ton-Up Terry",
+       "text": "Scooters? Hairdryers on wheels. Come on, then."
+      },
+      {
+       "do": "battle",
+       "trainer": "br_rocker"
+      },
+      {
+       "do": "if",
+       "flag": "trainer_br_rocker",
+       "then": [
+        {
+         "do": "set",
+         "flag": "q_southeast_mods_2",
+         "value": true
+        },
+        {
+         "do": "say",
+         "who": "Ton-Up Terry",
+         "text": "Alright, I'll ride in the rally. I'll even nod at a scooter. Once."
+        }
+       ],
+       "else": []
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Ton-Up Terry",
+       "text": "Clear off, I'm polishing. This tank's seen more Brighton seafront than the gulls have."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "br_ace": [
+  {
+   "do": "if",
+   "flag": "trainer_br_ace_face",
+   "then": [
+    {
+     "do": "say",
+     "who": "The Ace Face",
+     "text": "We'll be there. Pressed, polished and in formation. Tell Terry to keep his oil to himself."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_southeast_mods_started",
+     "then": [
+      {
+       "do": "say",
+       "who": "The Ace Face",
+       "text": "They call me the Ace Face. Best suit, best scooter, best dancer on the pier. Forty mirrors on my Lambretta, and I can see you in every one of them."
+      },
+      {
+       "do": "say",
+       "who": "The Ace Face",
+       "text": "You want the mods at the rally? You'll have to beat the best of us first. I don't lose, mate. I've never had the time."
+      },
+      {
+       "do": "battle",
+       "trainer": "br_ace_face"
+      },
+      {
+       "do": "if",
+       "flag": "trainer_br_ace_face",
+       "then": [
+        {
+         "do": "set",
+         "flag": "q_southeast_mods_1",
+         "value": true
+        },
+        {
+         "do": "say",
+         "who": "The Ace Face",
+         "text": "Fine. The mods will ride. Somebody has to show the rockers how it's done."
+        }
+       ],
+       "else": []
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "The Ace Face",
+       "text": "Mind the suit. It's mohair. It cost more than your shoes and it looks it."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

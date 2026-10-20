@@ -1,0 +1,170 @@
+{
+ "id": "kent_leeds_castle",
+ "name": "Leeds Castle",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "rock",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "rock",
+   "x": 1,
+   "y": 7
+  },
+  {
+   "type": "rock",
+   "x": 13,
+   "y": 1
+  },
+  {
+   "type": "rock",
+   "x": 13,
+   "y": 7
+  },
+  {
+   "type": "table",
+   "x": 7,
+   "y": 2
+  },
+  {
+   "type": "bench",
+   "x": 5,
+   "y": 4
+  },
+  {
+   "type": "bench",
+   "x": 9,
+   "y": 4
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 7
+  },
+  {
+   "type": "potted_plant",
+   "x": 13,
+   "y": 7
+  },
+  {
+   "type": "fireplace",
+   "x": 7,
+   "y": 1
+  },
+  {
+   "type": "rug",
+   "x": 7,
+   "y": 2,
+   "w": 2,
+   "h": 4,
+   "variant": 0,
+   "walk": true
+  },
+  {
+   "type": "wall_picture",
+   "x": 6,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  },
+  {
+   "type": "wall_picture",
+   "x": 3,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  },
+  {
+   "type": "display_case",
+   "x": 2,
+   "y": 3,
+   "variant": 2
+  },
+  {
+   "type": "clock",
+   "x": 8,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "display_case",
+   "x": 1,
+   "y": 5
+  },
+  {
+   "type": "display_case",
+   "x": 13,
+   "y": 5
+  },
+  {
+   "type": "wall_picture",
+   "x": 4,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  },
+  {
+   "type": "wall_picture",
+   "x": 10,
+   "y": 1,
+   "walk": true,
+   "variant": 2
+  }
+ ],
+ "warps": [
+  {
+   "x": 7,
+   "y": 8,
+   "to": "kent_downs",
+   "tx": 55,
+   "ty": 42,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "lc_steward",
+   "sprite": "tour_guide",
+   "x": 6,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "lc_steward",
+   "name": "Steward"
+  },
+  {
+   "id": "lc_dogcollar",
+   "sprite": "student",
+   "x": 10,
+   "y": 5,
+   "facing": "left",
+   "move": "still",
+   "script": "lc_dogcollar",
+   "name": "Visitor"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  7,
+  7
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxxx",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x++++++D++++++x",
+  "xxxxxxxxxxxxxxx"
+ ]
+}

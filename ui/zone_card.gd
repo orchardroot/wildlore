@@ -9,6 +9,7 @@ const REGIONS := {
 	"south_england": "The West Country", "cornwall": "Cornwall", "yorkshire": "Yorkshire", "north_east": "North East England",
 	"cumbria": "Cumbria", "scotland": "Scotland", "ireland": "Ireland", "ireland_west": "The West of Ireland",
 	"ireland_east": "The East of Ireland", "man": "Isle of Man",
+	"south_east": "South East England",
 }
 ## Zones whose region id doesn't name them well.
 const OVERRIDES := {

@@ -1,0 +1,230 @@
+{
+ "rail_guard": [
+  {
+   "do": "say",
+   "who": "Rail Guard",
+   "text": "Canterbury East. Trains to London, and to Dover for the boats."
+  },
+  {
+   "do": "say",
+   "who": "Rail Guard",
+   "text": "All aboard! The pilgrims walked. You don't have to."
+  },
+  {
+   "do": "rail"
+  }
+ ],
+ "cb_verger": [
+  {
+   "do": "say",
+   "who": "Verger",
+   "text": "The pilgrims came in their thousands, for the miracles. Monks wrote down hundreds of cures at Becket's tomb: the blind seeing, the lame walking, and one man whose pet bird was brought back to life."
+  },
+  {
+   "do": "say",
+   "who": "Verger",
+   "text": "The windows in the Trinity Chapel show some of them. Eight hundred years old and still bright. Quite a lot brighter than the monks' handwriting."
+  }
+ ],
+ "cb_student": [
+  {
+   "do": "say",
+   "who": "Student",
+   "text": "Kent University's just up the hill. Half the city's students in term time, and half of them are lost in the Lanes at any moment."
+  },
+  {
+   "do": "say",
+   "who": "Student",
+   "text": "There's a bit of the Roman theatre under a pub cellar near here. Canterbury's like that: you dig a hole for a shed, you find a Roman."
+  }
+ ],
+ "cb_mudlark": [
+  {
+   "do": "say",
+   "who": "Mudlark",
+   "text": "Pilgrims bought little lead flasks here, ampullae, full of 'Canterbury water': water with the tiniest drop of Becket's blood mixed in. They wore them round their necks home."
+  },
+  {
+   "do": "say",
+   "who": "Mudlark",
+   "text": "Half the badges and flasks that ever turn up get found in rivers. Lost on the way home, or thrown in for luck. The Stour gives one up now and again."
+  }
+ ],
+ "cb_wife_talk": [
+  {
+   "do": "if",
+   "flag": "trainer_cb_wife",
+   "then": [
+    {
+     "do": "say",
+     "who": "The Wife of Bath",
+     "text": "My tale's told. Go and hear the others, and tell the Host I was the best."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_southeast_pilgrims_started",
+     "then": [
+      {
+       "do": "say",
+       "who": "The Wife of Bath",
+       "text": "Married five times at the church door, and I've been to Jerusalem three times, Rome, Cologne and Compostela besides. My hat's as broad as a shield. Let's see your mettle."
+      },
+      {
+       "do": "say",
+       "who": "The Wife of Bath",
+       "text": "My tale: a knight at King Arthur's court does a terrible wrong and must find out, within a year and a day, what women most desire, or lose his head."
+      },
+      {
+       "do": "say",
+       "who": "The Wife of Bath",
+       "text": "An old woman gives him the answer, in return for marrying him: what women want is sovereignty, to have their own way. He lets her choose, and she becomes young and lovely. The lesson is in the letting her choose."
+      },
+      {
+       "do": "battle",
+       "trainer": "cb_wife"
+      },
+      {
+       "do": "if",
+       "flag": "trainer_cb_wife",
+       "then": [
+        {
+         "do": "set",
+         "flag": "q_southeast_pilgrims_3",
+         "value": true
+        }
+       ],
+       "else": []
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "The Wife of Bath",
+       "text": "I'm saving my tale for the road. The Host at the Chequer of Hope in Canterbury is judging a contest, if you'd care to hear it."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "cb_pardoner_talk": [
+  {
+   "do": "if",
+   "flag": "trainer_cb_pardoner",
+   "then": [
+    {
+     "do": "say",
+     "who": "The Pardoner",
+     "text": "My tale's told. Go and hear the others, and tell the Host I was the best."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_southeast_pilgrims_started",
+     "then": [
+      {
+       "do": "say",
+       "who": "The Pardoner",
+       "text": "Relics! Pig bones, holy pig bones I mean, a glass of rags and a sheep's shoulder blade. Very reasonable. Or fight me for nothing."
+      },
+      {
+       "do": "say",
+       "who": "The Pardoner",
+       "text": "Three drunken rioters set out to kill Death, who has taken their friend. An old man tells them Death is under a tree. They find a pile of gold instead."
+      },
+      {
+       "do": "say",
+       "who": "The Pardoner",
+       "text": "One goes for wine and poisons it; the other two stab him when he gets back, then drink the wine. All three find Death after all. Radix malorum est cupiditas: greed is the root of evil. Now, about my relics..."
+      },
+      {
+       "do": "battle",
+       "trainer": "cb_pardoner"
+      },
+      {
+       "do": "if",
+       "flag": "trainer_cb_pardoner",
+       "then": [
+        {
+         "do": "set",
+         "flag": "q_southeast_pilgrims_4",
+         "value": true
+        }
+       ],
+       "else": []
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "The Pardoner",
+       "text": "I'm saving my tale for the road. The Host at the Chequer of Hope in Canterbury is judging a contest, if you'd care to hear it."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "cb_nunspriest_talk": [
+  {
+   "do": "if",
+   "flag": "trainer_cb_nunspriest",
+   "then": [
+    {
+     "do": "say",
+     "who": "The Nun's Priest",
+     "text": "My tale's told. Go and hear the others, and tell the Host I was the best."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_southeast_pilgrims_started",
+     "then": [
+      {
+       "do": "say",
+       "who": "The Nun's Priest",
+       "text": "A tale of a cockerel? Yes. A very learned cockerel. Bear with me."
+      },
+      {
+       "do": "say",
+       "who": "The Nun's Priest",
+       "text": "Chauntecleer the rooster dreams of a beast in the yard, and his wife Pertelote tells him to take a laxative and stop being silly."
+      },
+      {
+       "do": "say",
+       "who": "The Nun's Priest",
+       "text": "Next morning the fox, Russell, flatters him into shutting his eyes to sing, and grabs him. Chauntecleer talks the fox into boasting to the chasing farmers, and when it opens its mouth he flies up a tree. Never trust a flatterer, and keep your eyes open."
+      },
+      {
+       "do": "battle",
+       "trainer": "cb_nunspriest"
+      },
+      {
+       "do": "if",
+       "flag": "trainer_cb_nunspriest",
+       "then": [
+        {
+         "do": "set",
+         "flag": "q_southeast_pilgrims_5",
+         "value": true
+        }
+       ],
+       "else": []
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "The Nun's Priest",
+       "text": "I'm saving my tale for the road. The Host at the Chequer of Hope in Canterbury is judging a contest, if you'd care to hear it."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

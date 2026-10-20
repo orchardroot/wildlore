@@ -81,6 +81,7 @@ const GREETINGS := {
 	"south_england": "Alright, my lover!", "cornwall": "Dydh da!", "north_wales": "Shwmae!", "mid_wales": "Shwmae!",
 	"south_wales": "Shwmae!", "scotland": "Hiya!", "ireland": "How's the form?", "ireland_east": "How's the form?",
 	"ireland_west": "Dia dhuit!",
+	"south_east": "Alright!",
 }
 const ZONE_GREETINGS := {
 	"birmingham": "Alright, bab!", "nottingham": "Ay up, me duck!", "aberdeen": "Fit like?",

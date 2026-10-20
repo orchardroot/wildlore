@@ -98,6 +98,8 @@ static func _ground(z: ZoneData, rng: RandomNumberGenerator) -> MeshInstance3D:
 				if ny >= gy - 0.001:
 					continue
 				var side := SIDE_ROCK if t == "cliff" or gy - ny > LEVEL * 1.5 else SIDE_EARTH
+				if ex.has("side"):
+					side = Color(str(ex.side))  # legend_extra: chalk cliffs and the like
 				var lip := col.darkened(0.15)
 				if t == "platform":
 					side = Color("7a5a48")  # brick platform wall, white coping
@@ -224,7 +226,9 @@ const POINT_PROPS := ["lamp_post", "bench", "bush", "birch", "oak", "pine", "roc
 	"stadium_stand", "rugby_posts", "floodlight", "puddle", "pitch_line", "gantry_crane", "ship_ribs", "steel_plates",
 	"hall_stage", "tea_urn", "stacked_chairs", "currach", "lobster_pots", "harbour_arch", "fae_lantern", "toadstool_ring",
 	"clootie_tree", "curling_house", "curling_stones", "brick_arch", "band_kit", "stage_light", "slate_stack", "slate_wagon",
-	"crypt_arch", "candelabra", "tomb_chest", "brazier", "city_window", "enclosure_banner", "creature_cage"]
+	"crypt_arch", "candelabra", "tomb_chest", "brazier", "city_window", "enclosure_banner", "creature_cage",
+	# the South East
+	"pier_ruin"]
 ## Cloth meshes that ripple (flutter shader) and glow meshes that add light (firelight shader).
 const CLOTH := ["bunting", "flag", "washing_line"]
 const FLOATING := ["boat", "canal_boat", "buoy"]
@@ -495,6 +499,8 @@ static func _ctor(name: String, variant: int) -> ArrayMesh:
 			return Landmarks.clock_tower()
 		"shard":
 			return Landmarks.shard()
+		"pier_ruin":
+			return Landmarks.pier_ruin()
 		"lamp_pool":
 			return Dressing.pool_quad()
 		"bunting":

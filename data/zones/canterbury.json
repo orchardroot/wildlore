@@ -1,0 +1,748 @@
+{
+ "id": "canterbury",
+ "name": "Canterbury",
+ "region": "south_east",
+ "kind": "town",
+ "music": "town_york",
+ "weather": {
+  "clear": 30,
+  "drizzle": 26,
+  "sunshine": 20,
+  "fog": 10,
+  "gale": 6,
+  "downpour": 8
+ },
+ "props": [
+  {
+   "type": "building",
+   "style": "westgate",
+   "x": 4,
+   "y": 22,
+   "w": 6,
+   "h": 3,
+   "label": "Westgate Towers"
+  },
+  {
+   "type": "boat",
+   "x": 15,
+   "y": 12,
+   "variant": 0
+  },
+  {
+   "type": "boat",
+   "x": 16,
+   "y": 35,
+   "variant": 0
+  },
+  {
+   "type": "boat",
+   "x": 15,
+   "y": 44,
+   "variant": 0
+  },
+  {
+   "type": "building",
+   "style": "tudor",
+   "x": 17,
+   "y": 30,
+   "w": 6,
+   "h": 3,
+   "label": "The Weavers"
+  },
+  {
+   "type": "building",
+   "style": "canterbury_cathedral",
+   "x": 30,
+   "y": 9,
+   "w": 19,
+   "h": 6,
+   "label": "Canterbury Cathedral"
+  },
+  {
+   "type": "oak",
+   "x": 26,
+   "y": 8,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 52,
+   "y": 8,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 55,
+   "y": 12,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 26,
+   "y": 13,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 50,
+   "y": 19,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 28,
+   "y": 19,
+   "variant": 1
+  },
+  {
+   "type": "bench",
+   "x": 36,
+   "y": 18
+  },
+  {
+   "type": "bench",
+   "x": 44,
+   "y": 18
+  },
+  {
+   "type": "bench",
+   "x": 31,
+   "y": 18
+  },
+  {
+   "type": "building",
+   "style": "sanctuary",
+   "x": 18,
+   "y": 22,
+   "w": 6,
+   "h": 4,
+   "label": "Sanctuary"
+  },
+  {
+   "type": "building",
+   "style": "shop",
+   "x": 25,
+   "y": 22,
+   "w": 5,
+   "h": 4,
+   "label": "Corner Shop"
+  },
+  {
+   "type": "building",
+   "style": "tudor",
+   "x": 31,
+   "y": 22,
+   "w": 7,
+   "h": 4,
+   "label": "Chequer of Hope Inn"
+  },
+  {
+   "type": "building",
+   "style": "tudor",
+   "x": 42,
+   "y": 22,
+   "w": 8,
+   "h": 4,
+   "label": "The Beaney"
+  },
+  {
+   "type": "building",
+   "style": "tudor",
+   "x": 51,
+   "y": 22,
+   "w": 5,
+   "h": 4,
+   "label": "Crooked House"
+  },
+  {
+   "type": "building",
+   "style": "white_render",
+   "x": 26,
+   "y": 29,
+   "w": 9,
+   "h": 4,
+   "label": "Marlowe Theatre"
+  },
+  {
+   "type": "building",
+   "style": "tudor",
+   "x": 36,
+   "y": 29,
+   "w": 3,
+   "h": 4,
+   "label": "Mercery Lane"
+  },
+  {
+   "type": "statue",
+   "x": 44,
+   "y": 31,
+   "variant": 1
+  },
+  {
+   "type": "building",
+   "style": "weatherboard",
+   "x": 46,
+   "y": 29,
+   "w": 11,
+   "h": 4,
+   "label": "Burgate"
+  },
+  {
+   "type": "building",
+   "style": "tudor",
+   "x": 46,
+   "y": 36,
+   "w": 11,
+   "h": 4,
+   "label": "Palace Street"
+  },
+  {
+   "type": "building",
+   "style": "flint_cottage",
+   "x": 24,
+   "y": 36,
+   "w": 9,
+   "h": 4,
+   "label": "Greyfriars"
+  },
+  {
+   "type": "building",
+   "style": "station",
+   "x": 46,
+   "y": 51,
+   "w": 8,
+   "h": 2,
+   "label": "Canterbury East"
+  },
+  {
+   "type": "buffer_stop",
+   "x": 45,
+   "y": 54
+  },
+  {
+   "type": "buffer_stop",
+   "x": 54,
+   "y": 54
+  }
+ ],
+ "warps": [
+  {
+   "x": 21,
+   "y": 25,
+   "to": "canterbury_sanctuary",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 27,
+   "y": 25,
+   "to": "canterbury_shop",
+   "tx": 4,
+   "ty": 5,
+   "facing": "up"
+  },
+  {
+   "x": 34,
+   "y": 25,
+   "to": "canterbury_chequer",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 33,
+   "y": 14,
+   "to": "canterbury_cathedral",
+   "tx": 8,
+   "ty": 8,
+   "facing": "up"
+  },
+  {
+   "x": 6,
+   "y": 24,
+   "to": "canterbury_westgate",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 45,
+   "y": 25,
+   "to": "canterbury_beaney",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 53,
+   "y": 25,
+   "to": "canterbury_crooked",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 19,
+   "y": 32,
+   "to": "canterbury_weavers",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 30,
+   "y": 32,
+   "to": "canterbury_marlowe",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  }
+ ],
+ "edges": {
+  "west": {
+   "to": "kent_downs",
+   "offset": -6
+  },
+  "south": {
+   "to": "dover",
+   "offset": -10
+  }
+ },
+ "npcs": [
+  {
+   "id": "rail_guard",
+   "sprite": "rail_guard",
+   "x": 52,
+   "y": 53,
+   "facing": "left",
+   "move": "still",
+   "script": "rail_guard"
+  },
+  {
+   "id": "cb_verger",
+   "sprite": "choir_singer",
+   "x": 41,
+   "y": 18,
+   "facing": "down",
+   "move": "still",
+   "script": "cb_verger"
+  },
+  {
+   "id": "cb_student",
+   "sprite": "student",
+   "x": 20,
+   "y": 28,
+   "facing": "down",
+   "move": "still",
+   "script": "cb_student"
+  },
+  {
+   "id": "cb_mudlark",
+   "sprite": "angler",
+   "x": 17,
+   "y": 38,
+   "facing": "right",
+   "move": "still",
+   "script": "cb_mudlark"
+  },
+  {
+   "id": "cb_chorister",
+   "sprite": "choir_singer",
+   "x": 33,
+   "y": 18,
+   "facing": "down",
+   "move": "still",
+   "trainer": "cb_chorister"
+  },
+  {
+   "id": "cb_punt",
+   "sprite": "sailor",
+   "x": 14,
+   "y": 40,
+   "facing": "right",
+   "move": "still",
+   "trainer": "cb_punt"
+  },
+  {
+   "id": "cb_wife_talk",
+   "sprite": "festival_goer",
+   "x": 51,
+   "y": 18,
+   "facing": "down",
+   "move": "still",
+   "script": "cb_wife_talk",
+   "name": "The Wife of Bath"
+  },
+  {
+   "id": "cb_pardoner_talk",
+   "sprite": "poet",
+   "x": 12,
+   "y": 29,
+   "facing": "down",
+   "move": "still",
+   "script": "cb_pardoner_talk",
+   "name": "The Pardoner"
+  },
+  {
+   "id": "cb_nunspriest_talk",
+   "sprite": "pilgrim",
+   "x": 17,
+   "y": 41,
+   "facing": "down",
+   "move": "still",
+   "script": "cb_nunspriest_talk",
+   "name": "The Nun's Priest"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "hoplet",
+    "min": 94,
+    "max": 96,
+    "weight": 10
+   },
+   {
+    "species": "legionette",
+    "min": 94,
+    "max": 96,
+    "weight": 10
+   },
+   {
+    "species": "centurion",
+    "min": 96,
+    "max": 96,
+    "weight": 3
+   },
+   {
+    "species": "cooplet",
+    "min": 94,
+    "max": 96,
+    "weight": 12
+   },
+   {
+    "species": "rooklet",
+    "min": 94,
+    "max": 96,
+    "weight": 10
+   },
+   {
+    "species": "binfox",
+    "min": 94,
+    "max": 96,
+    "weight": 8,
+    "time": [
+     "dusk",
+     "night"
+    ]
+   },
+   {
+    "species": "pipkin",
+    "min": 94,
+    "max": 96,
+    "weight": 10
+   },
+   {
+    "species": "wispet",
+    "min": 94,
+    "max": 96,
+    "weight": 8,
+    "time": [
+     "night"
+    ]
+   },
+   {
+    "species": "grizzlet",
+    "min": 94,
+    "max": 96,
+    "weight": 8
+   },
+   {
+    "species": "flittermouse",
+    "min": 94,
+    "max": 96,
+    "weight": 6,
+    "time": [
+     "night"
+    ]
+   }
+  ],
+  "water": [
+   {
+    "species": "holtling",
+    "min": 94,
+    "max": 96,
+    "weight": 14
+   },
+   {
+    "species": "volet",
+    "min": 94,
+    "max": 96,
+    "weight": 14
+   },
+   {
+    "species": "dipling",
+    "min": 94,
+    "max": 96,
+    "weight": 12
+   },
+   {
+    "species": "stalklet",
+    "min": 94,
+    "max": 96,
+    "weight": 12
+   },
+   {
+    "species": "croakle",
+    "min": 94,
+    "max": 96,
+    "weight": 10
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 3,
+   "y": 25,
+   "text": "CANTERBURY. Pilgrims this way. Please leave your horse outside the walls."
+  },
+  {
+   "x": 10,
+   "y": 25,
+   "text": "The largest surviving city gate in England, built about 1380 of Kentish ragstone, when the French were raiding the coast. It had gun ports for early cannon, and for centuries it was the city gaol. Traffic squeezed through its arch until 2012.",
+   "plaque": "canterbury_westgate",
+   "title": "The Westgate"
+  },
+  {
+   "x": 3,
+   "y": 29,
+   "text": "Canterbury was the Roman town of Durovernum Cantiacorum, and the medieval walls follow the line of the Roman ones. More than half of their circuit still stands, about a mile and a half of it, with towers you can walk past and the odd gun loop for a nosy look out.",
+   "plaque": "canterbury_city_walls",
+   "title": "The City Walls"
+  },
+  {
+   "x": 23,
+   "y": 33,
+   "text": "Protestant Huguenot and Walloon refugees fled persecution in France and the Low Countries in the 16th century, and many settled here, weaving silk and wool by the Stour. Outside this house hangs a replica ducking stool, once used to dunk scolds and cheats in the river while the town watched.",
+   "plaque": "canterbury_weavers",
+   "title": "The Weavers"
+  },
+  {
+   "x": 38,
+   "y": 22,
+   "text": "The gateway into the cathedral precincts, finished around 1520, with a row of carved angels and heraldic shields. Pilgrims have walked under it for five hundred years, and so do the choristers, every single day, usually late.",
+   "plaque": "canterbury_christ_church_gate",
+   "title": "Christ Church Gate"
+  },
+  {
+   "x": 32,
+   "y": 16,
+   "text": "St Augustine came from Rome in 597 and founded a cathedral here, the mother church of the English church ever since. The great central tower, Bell Harry, was finished around 1500. The Archbishop of Canterbury's seat is here.",
+   "plaque": "canterbury_cathedral",
+   "title": "Canterbury Cathedral"
+  },
+  {
+   "x": 47,
+   "y": 16,
+   "text": "On 29 December 1170 four knights, who believed they were doing what Henry II wanted, murdered Archbishop Thomas Becket in this cathedral. He was made a saint in 1173, and Henry came to do penance at his tomb. For 350 years pilgrims flocked to the shrine, until Henry VIII had it destroyed in 1538.",
+   "plaque": "canterbury_becket",
+   "title": "Thomas Becket"
+  },
+  {
+   "x": 30,
+   "y": 25,
+   "text": "A great medieval inn stood on this corner, built by the cathedral's monks around 1390 to house pilgrims, with a dormitory that slept a hundred. One 15th-century sequel to Chaucer has his pilgrims lodging here when they arrive.",
+   "plaque": "canterbury_chequer",
+   "title": "The Chequer of the Hope"
+  },
+  {
+   "x": 50,
+   "y": 25,
+   "text": "The Beaney House of Art and Knowledge, opened in 1899 with money left by James Beaney, a Canterbury boy who became a surgeon in Australia. It is mock-Tudor outside, and inside it is a museum, a library and a gallery, with a room full of cows painted by the Canterbury artist Thomas Sidney Cooper.",
+   "plaque": "canterbury_beaney",
+   "title": "The Beaney"
+  },
+  {
+   "x": 57,
+   "y": 26,
+   "text": "Sir John Boys House, on King's Mile, leans so far that its door frame is cut on a slant to fit. It was built in the 17th century and has been subsiding ever since, because someone altered the chimney. It is a bookshop now. Mind your head, and the floor.",
+   "plaque": "canterbury_crooked_house",
+   "title": "The Crooked House"
+  },
+  {
+   "x": 42,
+   "y": 31,
+   "text": "Chaucer wrote The Canterbury Tales in the 1380s and 90s: a band of pilgrims riding from Southwark to Becket's shrine, each telling tales on the way. It was among the first great works written in English rather than French or Latin. He never finished it; the pilgrims never arrive.",
+   "plaque": "canterbury_chaucer",
+   "title": "Geoffrey Chaucer"
+  },
+  {
+   "x": 34,
+   "y": 34,
+   "text": "The playwright Christopher Marlowe was born in Canterbury in 1564, the son of a shoemaker, the same year as Shakespeare. He wrote Doctor Faustus and Tamburlaine, and was killed in a fight in Deptford at 29. The theatre here is named after him.",
+   "plaque": "canterbury_marlowe",
+   "title": "Christopher Marlowe"
+  },
+  {
+   "x": 23,
+   "y": 40,
+   "text": "Built over the Stour in 1267, the first house in England of the Franciscan friars, who arrived in 1224. A tiny building on arches with the river running underneath it, and still a chapel.",
+   "plaque": "canterbury_greyfriars",
+   "title": "Greyfriars Chapel"
+  },
+  {
+   "x": 14,
+   "y": 42,
+   "text": "The mound in these gardens began as a Roman burial mound and was later part of the Norman castle's defences. Its odd name probably comes from the French donjon, a castle keep. Climb it for a view of the cathedral over the rooftops.",
+   "plaque": "canterbury_dane_john",
+   "title": "Dane John"
+  },
+  {
+   "x": 43,
+   "y": 55,
+   "text": "SOUTH TO DOVER. Watling Street, the Roman road from Dover to London, ran right through here. It still does, under the tarmac."
+  }
+ ],
+ "spawn": [
+  3,
+  27
+ ],
+ "stage": "city",
+ "town_id": "canterbury",
+ "station": {
+  "x": 50,
+  "y": 53
+ },
+ "scaled_floor": 94,
+ "rows": [
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TT............................................................TT",
+  "TT............................................................TT",
+  "TT............................................................TT",
+  "TT....WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW...TT",
+  "TT....W::::::::~~:::::::ggggggggggggggggggggggggggggggggggW...TT",
+  "TT....W::::::::~~:::::::ggggggggggggggggggggggggggggggggggW...TT",
+  "TT....W::::::::~~:::::::ggggggggggggggggggggggggggggggggggW...TT",
+  "TT....W::::::::~~:::::::gg,,,gBBBBBBBBBBBBBBBBBBBgggggggggW...TT",
+  "TT....W::::::::~~:::::::gg,,,,BBBBBBBBBBBBBBBBBBBgggggggggW...TT",
+  "TT....W::::::::~~:::::::gg,,,gBBBBBBBBBBBBBBBBBBBgggggggggW...TT",
+  "TT....W::::::::~~:::::::ggggggBBBBBBBBBBBBBBBBBBBgggggggggW...TT",
+  "TT....W::::::::~~:::::::ggggggBBBBBBBBBBBBBBBBBBBgggggggggW...TT",
+  "TT....W::::::::~~:::::::ggggggBBBDBBBBBBBBBBBBBBBgggg,,,ggW...TT",
+  "TT....W::::::::~~:::::::gggggggggggggggggggggggggggg,,,,,gW...TT",
+  "TP....W::::::::~~:::::::##################################W...TT",
+  "TT....W::::::::~~:::::::##################################W...TT",
+  "TT....W::::::::~~:::::::ggggggggggggggg##gggggggggggggggggW...TT",
+  "TT....W::::::::~~:::::::ggggggggggggggg##gggggggggggggggggW...TT",
+  "TT....W::::::::~~:::::::ggggggggggggggg##gggggggggggggggggW...TT",
+  "TT....W::::::::~~:::::::WWWWWWWWWWWWWWW##WWWWWWWWWWWWWWWWWW...TT",
+  "TT..BBBBBB:::::~~:BBBBBB:BBBBB:BBBBBBB:##:BBBBBBBB:BBBBB::W...TT",
+  "TT..BBBBBB:::::~~:BBBBBB:BBBBB:BBBBBBB:##:BBBBBBBB:BBBBB::W...TT",
+  "TT..BBDBBB:::::~~:BBBBBB:BBBBB:BBBBBBB:##:BBBBBBBB:BBBBB::W...TT",
+  "TT....:::::::::~~:BBBDBB:BBDBB:BBBDBBB:##:BBBDBBBB:BBDBB::W...TT",
+  "==========================================================W...TT",
+  "==========================================================W...TT",
+  "==========================================================W...TT",
+  "TT....W::::::::~~:::::::::BBBBBBBBB:BBB:===:::BBBBBBBBBBB:W...TT",
+  "TT....W::::::::~~BBBBBB:::BBBBBBBBB:BBB:===:::BBBBBBBBBBB:W...TT",
+  "TT....W::::::::~~BBBBBB:::BBBBBBBBB:BBB:===:::BBBBBBBBBBB:W...TT",
+  "TT....W::::::::~~BBDBBB:::BBBBDBBBB:BBB:===:::BBBBBBBBBBB:W...TT",
+  "TT....W:::::::::::::::::::::::::::::::::===:::::::::::::::W...TT",
+  "TT....W:::::::::::::::::::::::::::::::::===:::::::::::::::W...TT",
+  "TT....W::::::::~~:::::::::::::::::::::::===:::::::::::::::W...TT",
+  "TT....W::::::::~~:::::::BBBBBBBBB:::::::===:::BBBBBBBBBBB:W...TT",
+  "TT....W::::::::~~:::::::BBBBBBBBB:::::::===:::BBBBBBBBBBB:W...TT",
+  "TT....W::::::::~~:::::::BBBBBBBBB:::::::===:::BBBBBBBBBBB:W...TT",
+  "TT....W::::::::~~:::::::BBBBBBBBB:::::::===:::BBBBBBBBBBB:W...TT",
+  "TT....W::::::::##:::::::::::::::::::::::===:::::::::::::::W...TT",
+  "TT....W########~~:::::::::::::::::::::::===:::::::::::::::W...TT",
+  "TT....Wgggggggg~~:::::::::::::::::::::::===:::::::::::::::W...TT",
+  "TT....Wgggggggg~~:::::::::::::::::::::::===:::::::::::::::W...TT",
+  "TT....Wgggggggg~~:::::::::::::::::::::::===:::::::::::::::W...TT",
+  "TT....Wgggggggg~~:::::::::::::::::::::::===:::::::::::::::W...TT",
+  "TT....Wgggggg,,~~:::::::::::::::::::::::===:::::::::::::::W...TT",
+  "TT....Wggggg,,,~~:::::::::::::::::::::::===:::::::::::::::W...TT",
+  "TT....Wgggggg,g~~:::::::::::::::::::::::===:::::::::::::::W...TT",
+  "TT....WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW===WWWWWWWWWWWWWWWW...TT",
+  "TT......................................===...................TT",
+  "TT......................................===...BBBBBBBB........TT",
+  "TT......................................===...BBBBDBBB........TT",
+  "TT......................................===:::________........TT",
+  "TT......................................===..!!!!!!!!!!.......TT",
+  "TT......................................===...................TT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT===TTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT===TTTTTTTTTTTTTTTTTTTTT"
+ ],
+ "heights": [
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000011111000000000000000000000000000000000000000000000000000",
+  "0000000012221000000000000000000000000000000000000000000000000000",
+  "0000000012321000000000000000000000000000000000000000000000000000",
+  "0000000012221000000000000000000000000000000000000000000000000000",
+  "0000000011111000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000"
+ ],
+ "legend_extra": {
+  "g": {
+   "tile": "grass",
+   "colour": "#5f8f3e"
+  },
+  "W": {
+   "tile": "drystone_wall",
+   "colour": "#5c8f3c"
+  }
+ }
+}

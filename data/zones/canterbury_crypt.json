@@ -1,0 +1,131 @@
+{
+ "id": "canterbury_crypt",
+ "name": "The Crypt",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "crypt_arch",
+   "x": 3,
+   "y": 1,
+   "variant": 1
+  },
+  {
+   "type": "crypt_arch",
+   "x": 6,
+   "y": 1,
+   "variant": 0
+  },
+  {
+   "type": "crypt_arch",
+   "x": 9,
+   "y": 1,
+   "variant": 1
+  },
+  {
+   "type": "crypt_arch",
+   "x": 12,
+   "y": 1,
+   "variant": 0
+  },
+  {
+   "type": "crypt_arch",
+   "x": 15,
+   "y": 1,
+   "variant": 1
+  },
+  {
+   "type": "standing_stone",
+   "x": 5,
+   "y": 4,
+   "variant": 2
+  },
+  {
+   "type": "standing_stone",
+   "x": 13,
+   "y": 4,
+   "variant": 2
+  },
+  {
+   "type": "standing_stone",
+   "x": 5,
+   "y": 7,
+   "variant": 2
+  },
+  {
+   "type": "standing_stone",
+   "x": 13,
+   "y": 7,
+   "variant": 2
+  },
+  {
+   "type": "tomb_chest",
+   "x": 9,
+   "y": 6
+  },
+  {
+   "type": "candelabra",
+   "x": 7,
+   "y": 6
+  },
+  {
+   "type": "candelabra",
+   "x": 11,
+   "y": 6
+  }
+ ],
+ "warps": [
+  {
+   "x": 9,
+   "y": 2,
+   "to": "canterbury_cathedral",
+   "tx": 14,
+   "ty": 2,
+   "facing": "left"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "grim",
+   "sprite": "pilgrim",
+   "x": 9,
+   "y": 8,
+   "facing": "up",
+   "move": "still",
+   "script": "grim",
+   "name": "Brother Edward"
+  },
+  {
+   "id": "crypt_guide",
+   "sprite": "tour_guide",
+   "x": 15,
+   "y": 5,
+   "facing": "left",
+   "move": "still",
+   "script": "crypt_guide",
+   "name": "Crypt Guide"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  9,
+  3
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxxxxxxx",
+  "x+++++++++++++++++x",
+  "x++++++++D++++++++x",
+  "x+++++++++++++++++x",
+  "x+++++++++++++++++x",
+  "x+++++++++++++++++x",
+  "x+++++++++++++++++x",
+  "x+++++++++++++++++x",
+  "x+++++++++++++++++x",
+  "x+++++++++++++++++x",
+  "xxxxxxxxxxxxxxxxxxx"
+ ]
+}

@@ -1,0 +1,50 @@
+{
+ "ant_dealer": [
+  {
+   "do": "if",
+   "flag": "q_southeast_knucker_2",
+   "then": [
+    {
+     "do": "say",
+     "who": "Antiques Dealer",
+     "text": "Enjoy the pie dish! If the dragon wants a matching gravy boat, I've got one with a crack in."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_southeast_knucker_1",
+     "then": [
+      {
+       "do": "say",
+       "who": "Antiques Dealer",
+       "text": "A pie dish big enough for a dragon? I have exactly that. Victorian, stoneware, made for a harvest supper for sixty."
+      },
+      {
+       "do": "say",
+       "who": "Antiques Dealer",
+       "text": "Take it. Anyone feeding a knucker needs all the help they can get. Bring it back if it survives."
+      },
+      {
+       "do": "set",
+       "flag": "q_southeast_knucker_2",
+       "value": true
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Antiques Dealer",
+       "text": "Everything in here has a story. That clock was in a Hove hotel for ninety years. That mirror was in a pier ballroom. That chair is just a chair."
+      },
+      {
+       "do": "say",
+       "who": "Antiques Dealer",
+       "text": "The Lanes have been full of antique dealers since after the war. Jewellers before that. Fishermen before that. We all came for the view and stayed for the rent."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

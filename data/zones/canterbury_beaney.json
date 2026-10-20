@@ -1,0 +1,187 @@
+{
+ "id": "canterbury_beaney",
+ "name": "The Beaney",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "bookshelf",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 2,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 3,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 4,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 8,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 9,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 10,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 11,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 2,
+   "y": 4
+  },
+  {
+   "type": "bookshelf",
+   "x": 3,
+   "y": 4
+  },
+  {
+   "type": "bookshelf",
+   "x": 9,
+   "y": 4
+  },
+  {
+   "type": "bookshelf",
+   "x": 10,
+   "y": 4
+  },
+  {
+   "type": "table",
+   "x": 4,
+   "y": 5
+  },
+  {
+   "type": "table",
+   "x": 8,
+   "y": 5
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 7
+  },
+  {
+   "type": "potted_plant",
+   "x": 11,
+   "y": 7
+  },
+  {
+   "type": "fireplace",
+   "x": 6,
+   "y": 1
+  },
+  {
+   "type": "clock",
+   "x": 7,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "wall_picture",
+   "x": 5,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  },
+  {
+   "type": "rug",
+   "x": 4,
+   "y": 3,
+   "w": 4,
+   "h": 2,
+   "variant": 0,
+   "walk": true
+  },
+  {
+   "type": "sofa",
+   "x": 1,
+   "y": 2,
+   "variant": 3,
+   "rot": 90
+  },
+  {
+   "type": "sofa",
+   "x": 11,
+   "y": 2,
+   "variant": 1,
+   "rot": 270
+  },
+  {
+   "type": "telescope",
+   "x": 11,
+   "y": 6
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 8,
+   "to": "canterbury",
+   "tx": 45,
+   "ty": 26,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "bn_librarian",
+   "sprite": "student",
+   "x": 6,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "bn_librarian",
+   "name": "Librarian"
+  },
+  {
+   "id": "bn_bagpuss",
+   "sprite": "villager_3",
+   "x": 2,
+   "y": 6,
+   "facing": "right",
+   "move": "still",
+   "script": "bn_bagpuss",
+   "name": "Visitor"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  6,
+  7
+ ],
+ "rows": [
+  "xxxxxxxxxxxxx",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||D|||||x",
+  "xxxxxxxxxxxxx"
+ ]
+}
