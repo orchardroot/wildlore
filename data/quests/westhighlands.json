@@ -1,0 +1,131 @@
+{
+ "quests": [
+  {
+   "id": "westhighlands_hop",
+   "title": "Island Hopping",
+   "region": "westhighlands",
+   "town": "oban",
+   "giver": "Morag",
+   "summary": "Work out the one day plan that fits a distillery tour, a Staffa boat and Iona's abbey.",
+   "start_flag": "q_westhighlands_hop_started",
+   "steps": [
+    {
+     "flag": "q_westhighlands_hop_1",
+     "text": "Take the Oban ferry to Tobermory and ask the distillery guide when the tour starts.",
+     "zone": "tobermory_distillery"
+    },
+    {
+     "flag": "q_westhighlands_hop_2",
+     "text": "Ask the skipper at the boat office when the Staffa boat sails.",
+     "zone": "tobermory_boats"
+    },
+    {
+     "flag": "q_westhighlands_hop_3",
+     "text": "Sail to Iona and ask the pilgrim when the abbey closes.",
+     "zone": "iona_abbey"
+    },
+    {
+     "flag": "q_westhighlands_hop_4",
+     "text": "Take the plan back to Morag at the CalMac terminal in Oban.",
+     "zone": "oban_calmac"
+    }
+   ],
+   "done_flag": "q_westhighlands_hop_done",
+   "reward": "Isle of Mull Cheddar, an Iona Pebble charm, a CalMac Timetable and Scottish standing."
+  },
+  {
+   "id": "westhighlands_rob",
+   "title": "Rob Roy's Outlaw Trail",
+   "region": "westhighlands",
+   "town": "loch_lomond",
+   "giver": "Red Mac",
+   "summary": "Follow the MacGregor outlaw's trail round Loch Lomond and face the Duke's Factor.",
+   "start_flag": "q_westhighlands_rob_started",
+   "steps": [
+    {
+     "flag": "q_westhighlands_rob_1",
+     "text": "Visit Rob Roy's Cave on the east shore.",
+     "zone": "loch_lomond_cave"
+    },
+    {
+     "flag": "q_westhighlands_rob_2",
+     "text": "Hear the story at Balquhidder Kirk.",
+     "zone": "loch_lomond_kirk"
+    },
+    {
+     "flag": "trainer_whl_factor",
+     "text": "Beat Montrose's Factor, lurking by the loch east of the cave.",
+     "zone": "loch_lomond"
+    },
+    {
+     "flag": "q_westhighlands_rob_done",
+     "text": "Report to Red Mac near Balloch.",
+     "zone": "loch_lomond"
+    }
+   ],
+   "done_flag": "q_westhighlands_rob_done",
+   "reward": "The Outlaw's Sporran charm and Scottish standing."
+  },
+  {
+   "id": "westhighlands_games",
+   "title": "The Heavy Events",
+   "region": "westhighlands",
+   "town": "oban",
+   "giver": "Games Marshal",
+   "summary": "Win the caber, the hammer and the stones at the Oban Highland Games.",
+   "start_flag": "q_westhighlands_games_started",
+   "steps": [
+    {
+     "flag": "trainer_obn_caber",
+     "text": "Beat Fergus at the caber.",
+     "zone": "oban"
+    },
+    {
+     "flag": "trainer_obn_hammer",
+     "text": "Beat Isla at the hammer.",
+     "zone": "oban"
+    },
+    {
+     "flag": "trainer_obn_stones",
+     "text": "Beat Dougal at the stones.",
+     "zone": "oban"
+    },
+    {
+     "flag": "q_westhighlands_games_5",
+     "text": "Collect your medal from the Games Marshal.",
+     "zone": "oban"
+    }
+   ],
+   "done_flag": "q_westhighlands_games_done",
+   "reward": "The Heavy Events Medal charm, tablet and Scottish standing, then a rematch with the champion."
+  },
+  {
+   "id": "westhighlands_cailleach",
+   "title": "The Washing of the Plaid",
+   "region": "westhighlands",
+   "town": "oban",
+   "giver": "Old Hamish",
+   "summary": "Hear the tale of the Corryvreckan and meet the Cailleach at the end of the pier.",
+   "start_flag": "q_westhighlands_cail_started",
+   "steps": [
+    {
+     "flag": "q_westhighlands_cail_1",
+     "text": "Ask the curator at the War and Peace Museum about the Corryvreckan.",
+     "zone": "oban_warmuseum"
+    },
+    {
+     "flag": "caught_cailleach",
+     "text": "Meet the Cailleach at the end of the North Pier and win her over.",
+     "zone": "oban"
+    },
+    {
+     "flag": "q_westhighlands_cail_3",
+     "text": "Tell Old Hamish.",
+     "zone": "oban"
+    }
+   ],
+   "done_flag": "q_westhighlands_cail_done",
+   "reward": "The Cailleach joins you, plus a scrap of her plaid and two scallop suppers."
+  }
+ ]
+}

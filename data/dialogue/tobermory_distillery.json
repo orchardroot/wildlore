@@ -1,0 +1,37 @@
+{
+ "tob_tour": [
+  {
+   "do": "say",
+   "who": "Distillery Guide",
+   "text": "Welcome to Tobermory Distillery. Founded 1798, one of the oldest on the islands, and the only one with a view of the harbour from the warehouse."
+  },
+  {
+   "do": "say",
+   "who": "Distillery Guide",
+   "text": "It's made from barley, water and yeast. This time of year we're doing a peated run, a smoky one, and the smell gets into your jumper for a week."
+  },
+  {
+   "do": "say",
+   "who": "Distillery Guide",
+   "text": "The tour starts at ten sharp. The door's locked at ten past. Nobody has ever been let in late. Some have begged."
+  },
+  {
+   "do": "if",
+   "flag": "q_westhighlands_hop_started",
+   "then": [
+    {
+     "do": "set",
+     "flag": "q_westhighlands_hop_1"
+    }
+   ],
+   "else": []
+  }
+ ],
+ "tob_mashman": [
+  {
+   "do": "say",
+   "who": "Mashman",
+   "text": "I stir the mash. Hot water on malted barley, and the sugars come out. It smells like warm porridge. I eat a lot of porridge, for research."
+  }
+ ]
+}

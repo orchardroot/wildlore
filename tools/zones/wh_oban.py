@@ -28,7 +28,7 @@ def sanctuary(zid, name, parent, door, town_line, sign_off):
                  props=[{"type": "potted_plant", "x": 1, "y": 1}, {"type": "potted_plant", "x": 9, "y": 1},
                         {"type": "bookshelf", "x": 1, "y": 4}, {"type": "table", "x": 9, "y": 4}],
                  counters=[(3, 3, 5)],
-                 npcs=[inpc("nurse", "sanctuary_nurse", 5, 2, "nurse"), inpc("memory_coach", "poet", 8, 5, None, name="Retired Keeper")],
+                 npcs=[inpc("nurse", "sanctuary_nurse", 5, 2, "nurse"), inpc("memory_coach", "poet", 8, 5, "memory_coach", name="Retired Keeper")],
                  rows_extra=lambda g: [g[6].__setitem__(i, "+") for i in (1, 2, 8, 9)])
     nurse_script(zid, town_line, sign_off)
     return t
@@ -96,6 +96,11 @@ def build():
         x, y = o.rng.randrange(18, 68), o.rng.randrange(54, 55) if False else o.rng.randrange(40, 53)
         if o.at(x, y) == "." and not (38 <= x <= 68 and 36 <= y <= 52):
             o.put(x, y, "T" if _ % 2 else "P")
+    o.rect(58, 13, 4, 1, "_")
+    o.rect(58, 14, 6, 1, "!")
+    o.rect(64, 14, 2, 1, "&")
+    o.prop("buffer_stop", 57, 14)
+    o.prop("buffer_stop", 66, 14)
     # --- buildings
     ds = {}
     ds["dunollie"] = o.building(20, 3, 9, 5, "castle", "Dunollie Castle", "castle", 4, "oban_dunollie", 6, 9)
@@ -190,8 +195,8 @@ def build():
     ]:
         o.enc("grass", sp, lo, hi, w, **cond)
     for sp, lo, hi, w, cond in [
-        ("selklet", 69, 70, 12, {}), ("puffling", 69, 70, 12, {"time": ["dawn", "day"]}), ("gannetling", 69, 70, 10, {}),
-        ("dolphlet", 69, 70, 10, {}), ("pupplash", 69, 70, 8, {}), ("baskling", 69, 70, 6, {"time": ["dusk", "night"]}),
+        ("selklet", 69, 70, 12, {}), ("clownbill", 69, 70, 12, {"time": ["dawn", "day"]}), ("gannetling", 69, 70, 10, {}),
+        ("dolphlet", 69, 70, 10, {}), ("greyhaul", 69, 70, 8, {}), ("baskling", 69, 70, 6, {"time": ["dusk", "night"]}),
         ("orcalet", 69, 70, 3, {}), ("minchman", 69, 70, 4, {"weather": ["gale", "downpour"]}),
     ]:
         o.enc("water", sp, lo, hi, w, **cond)
@@ -361,7 +366,7 @@ def interiors(ds):
                           set_flag("q_westhighlands_hop_4"), set_flag("q_westhighlands_hop_done"),
                           say("Morag", "The pebble's a gift from the Iona pilgrims, they say it brings good crossings. And the cheddar's from Mull, for the road. Safe travels, from all of us at CalMac.")],
             [if_("_hop_plan", [say("Morag", "Staffa first? The boat only goes at twelve, so you'd miss it by hours, and the distillery tour is at ten. No. Try again, with the times in mind.")],
-                 [say("Morag", "Iona first? You'd go there, then miss the tour at ten and the Staffa boat at twelve. Try again, and read your own notes.")], eq=2)], eq=0)]
+                 [say("Morag", "Iona first? You'd go there, then miss the tour at ten and the Staffa boat at twelve. Try again, and read your own notes.")], eq=1)], eq=0)]
     script("oban_calmac", "obn_morag", [
         if_("q_westhighlands_hop_done", [say("Morag", "Good to see you again. Anywhere I can send you? Not Staffa. You've had Staffa.")],
             [if_("q_westhighlands_hop_started",

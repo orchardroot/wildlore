@@ -1,0 +1,35 @@
+{
+ "whl_tea_owner": [
+  {
+   "do": "say",
+   "who": "Tea Room Owner",
+   "text": "Welcome, welcome. Scones are fresh, jam is local and the rain outside is not my fault."
+  },
+  {
+   "do": "if",
+   "flag": "whl_tea_free",
+   "then": [
+    {
+     "do": "say",
+     "who": "Tea Room Owner",
+     "text": "You've had your free cuppa. The second one is a pound, but the biscuits are on the house."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Tea Room Owner",
+     "text": "Here, a cuppa for the road. This village was once on the telly, you know. 'Take the High Road'. Half of Luss was an extra."
+    },
+    {
+     "do": "give_item",
+     "item": "cup_of_tea"
+    },
+    {
+     "do": "set",
+     "flag": "whl_tea_free"
+    }
+   ]
+  }
+ ]
+}

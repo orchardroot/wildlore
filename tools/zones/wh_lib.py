@@ -242,6 +242,11 @@ def inpc(nid, sprite, x, y, script_id=None, facing="down", name=None, **kw):
 
 
 def write_all():
+    for z in ZONES.values():
+        for w in z.get('warps', []):
+            t = ZONES.get(w['to'])
+            if t and t['kind'] == 'interior' and z['kind'] != 'interior':
+                w['tx'], w['ty'] = t['spawn']
     zdir = os.path.join(ROOT, "data", "zones")
     for zid, z in ZONES.items():
         with open(os.path.join(zdir, zid + ".json"), "w") as f:

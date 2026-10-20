@@ -122,13 +122,13 @@ def build():
         T("water", sp, lo, hi, w, **cond)
     o.npc("whl_redmac", "ghillie", 52, 31, "whl_redmac", "up", name="Red Mac")
     o.npc("whl_clansman", "ghillie", 54, 33, "whl_clansman", "left", name="Clansman")
-    o.npc("whl_osprey", "creature:ospret", 33, 21, "whl_osprey", "down", "wander", radius=1)
+    o.npc("whl_osprey", "creature:ospret", 33, 21, "whl_osprey", "down")
     o.npc("whl_walker_talk", "hiker", 16, 27, "whl_walker_talk", "down", name="Way Walker")
     o.npc("whl_sheepfarmer", "farmer", 8, 16, "whl_farmer", "right", name="Hill Farmer")
     o.npc("whl_lek", "creature:lekling", 32, 46, "whl_lek", "up", "wander", radius=1)
     o.trainer_npc("whl_walker", "hillwalker", 26, 28, "whl_walker", "right")
     o.trainer_npc("whl_birder", "birdwatcher", 22, 26, "whl_birder", "down")
-    o.trainer_npc("whl_angler", "angler", 11, 16, "whl_angler", "right")
+    o.trainer_npc("whl_angler", "angler", 13, 18, "whl_angler", "right")
     o.trainer_npc("whl_factor", "commuter", 44, 26, "whl_factor", "left")
     o.trainer_npc("whl_ghillie", "ghillie", 12, 44, "whl_ghillie", "right")
     # make sure nobody stands in a tree
@@ -220,11 +220,11 @@ def build():
          "Sailed her for years. Tea in the saloon, a band on summer Saturdays, and a purser's life is mostly telling people which way is the loch. It's the big wet thing.")
     tea = interior("loch_lomond_tearoom", "Luss Tea Room", 13, 8, Z, ds["tea"],
                    props=[{"type": "table", "x": 3, "y": 3}, {"type": "table", "x": 9, "y": 3}, {"type": "table", "x": 3, "y": 5},
-                          {"type": "table", "x": 9, "y": 5}, {"type": "kitchen_dresser", "x": 6, "y": 1}, {"type": "potted_plant", "x": 1, "y": 6},
+                          {"type": "table", "x": 9, "y": 5}, {"type": "kitchen_dresser", "x": 8, "y": 1}, {"type": "potted_plant", "x": 1, "y": 6},
                           {"type": "potted_plant", "x": 11, "y": 6}, {"type": "wall_picture", "x": 3, "y": 1, "walk": True, "variant": 1},
                           {"type": "wall_picture", "x": 9, "y": 1, "walk": True, "variant": 2}, {"type": "tea_urn", "x": 11, "y": 1}],
                    counters=[(4, 2, 5)],
-                   npcs=[inpc("whl_tea_owner", "mum", 6, 1, "whl_tea_owner", name="Tea Room Owner")])
+                   npcs=[inpc("whl_tea_owner", "mum", 5, 1, "whl_tea_owner", name="Tea Room Owner")])
     script("loch_lomond_tearoom", "whl_tea_owner", [
         say("Tea Room Owner", "Welcome, welcome. Scones are fresh, jam is local and the rain outside is not my fault."),
         if_("whl_tea_free", [say("Tea Room Owner", "You've had your free cuppa. The second one is a pound, but the biscuits are on the house.")],

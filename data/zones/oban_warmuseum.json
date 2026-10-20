@@ -1,0 +1,103 @@
+{
+ "id": "oban_warmuseum",
+ "name": "War and Peace Museum",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "display_case",
+   "x": 2,
+   "y": 3,
+   "variant": 1
+  },
+  {
+   "type": "display_case",
+   "x": 4,
+   "y": 3,
+   "variant": 2
+  },
+  {
+   "type": "display_case",
+   "x": 8,
+   "y": 3,
+   "variant": 3
+  },
+  {
+   "type": "wall_map",
+   "x": 6,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "wall_picture",
+   "x": 3,
+   "y": 1,
+   "walk": true,
+   "variant": 2
+  },
+  {
+   "type": "wall_picture",
+   "x": 9,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  },
+  {
+   "type": "telescope",
+   "x": 10,
+   "y": 6
+  },
+  {
+   "type": "bench",
+   "x": 3,
+   "y": 6
+  },
+  {
+   "type": "potted_plant",
+   "x": 11,
+   "y": 7
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 8,
+   "to": "oban",
+   "tx": 44,
+   "ty": 19,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "obn_curator",
+   "sprite": "student",
+   "x": 6,
+   "y": 4,
+   "facing": "down",
+   "move": "still",
+   "script": "obn_curator",
+   "name": "Curator"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  6,
+  7
+ ],
+ "rows": [
+  "xxxxxxxxxxxxx",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "xxxxxxDxxxxxx"
+ ]
+}

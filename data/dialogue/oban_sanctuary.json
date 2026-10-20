@@ -1,0 +1,63 @@
+{
+ "nurse": [
+  {
+   "do": "say",
+   "who": "Nurse",
+   "text": "Failte, welcome to Oban Sanctuary. We take in anything that's come off a ferry looking green. That includes the creatures."
+  },
+  {
+   "do": "choice",
+   "text": "What can we do for you?",
+   "options": [
+    "Heal my team",
+    "Open the Ark",
+    "Just looking"
+   ],
+   "set": "_nurse_choice"
+  },
+  {
+   "do": "if",
+   "flag": "_nurse_choice",
+   "then": [
+    {
+     "do": "say",
+     "who": "Nurse",
+     "text": "Sit yourself down. Have a cuppa. Don't mind the rain, it's only passing through."
+    },
+    {
+     "do": "heal"
+    },
+    {
+     "do": "say",
+     "who": "Nurse",
+     "text": "There you go, right as rain. Mind how you go, and mind the gulls on the pier. They've seen you with chips."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "_nurse_choice",
+     "then": [
+      {
+       "do": "say",
+       "who": "Nurse",
+       "text": "The Ark terminal's in the corner. It runs on hot water, determination and an enormous amount of tea."
+      },
+      {
+       "do": "ark"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Nurse",
+       "text": "No bother at all. Away you go. Mind the puddles, they're deeper than they look."
+      }
+     ],
+     "eq": 1
+    }
+   ],
+   "eq": 0
+  }
+ ]
+}

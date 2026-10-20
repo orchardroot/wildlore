@@ -2084,6 +2084,44 @@
     "ctype": "frost"
    },
    "pay": 3
+  },
+  {
+   "id": "oban_creels",
+   "nation": "scotland",
+   "town": "oban",
+   "badges": 9,
+   "poster": "Oban Creel Fishermen",
+   "title": "Something is eating the bait",
+   "text": "Every morning the creels come up clean. We suspect a seal, a gull, or a man from Mull. Catch a tide creature and settle it.",
+   "step": {
+    "type": "catch",
+    "ctype": "tide"
+   },
+   "pay": 2,
+   "reward": {
+    "items": {
+     "oban_scallops": 2
+    }
+   }
+  },
+  {
+   "id": "tobermory_staffa",
+   "nation": "scotland",
+   "town": "tobermory",
+   "badges": 9,
+   "poster": "Staffa Boat Trips",
+   "title": "Hear the cave sing",
+   "text": "Visitors keep asking if Fingal's Cave really sings. Take the boat out, listen, and tell them honestly.",
+   "step": {
+    "type": "visit",
+    "zone": "staffa_cave"
+   },
+   "pay": 2,
+   "reward": {
+    "items": {
+     "mull_cheddar": 2
+    }
+   }
   }
  ]
 }
