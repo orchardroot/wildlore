@@ -52,7 +52,7 @@ func setup(arg: String) -> void:
 	_say.text = "" if _recipes.is_empty() else ("Pinny on. What are we making?" if _bench != "workbench" else "Sleeves up. What are we making?")
 
 func _money() -> void:
-	header_right.text = UIKit.money_text(Wallet.balance(Game.data, Wallet.local(Game.data)), Wallet.local(Game.data))
+	header_right.text = Wallet.purse_text(Game.data, Wallet.local(Game.data))
 
 func _refresh() -> void:
 	_recipes = Crafting.known(Game.data)

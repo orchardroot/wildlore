@@ -21,6 +21,8 @@ var _root_buttons: Array = []
 var _item_buttons: Array = []
 var _last_item := 0
 var _nation := ""        # the shop's nation: standing brings a discount and, from Regular, extra stock (see Standing)
+var _mc := "gbp"          # the shop's money: euros in the Republic (see Wallet); the other purse pays at the tourist rate
+var _mid := 1.175        # today's euros to the pound, for the tourist rate
 
 func _build() -> void:
 	set_title("Shop")
@@ -92,6 +94,10 @@ func setup(arg: String) -> void:
 		return
 	set_title(str(_shop.get("name", "Shop")))
 	_nation = Standing.nation_for_zone(str(Game.data.zone_id))
+	_mc = Wallet.currency_of_nation(_nation)
+	Markets.sync(Game.data)
+	_mid = Forex.mid_for(Game.data)
+	_money()
 	var t := Standing.tier(Game.data, _nation)
 	_say.text = "Welcome in. Mind the cat." if t == Standing.STRANGER else \
 		"Oh, it's you! %s, so that's %d%% off for you." % [Standing.TIER_NAMES[t], roundi(Standing.DISCOUNT[t] * 100)]
@@ -100,7 +106,11 @@ func setup(arg: String) -> void:
 	_say.text = welcome
 
 func _money() -> void:
-	header_right.text = UIKit.money_text(Game.data.money)
+	header_right.text = Wallet.purse_text(Game.data, _mc)
+
+## Everything you could pay here: this purse plus the other one at the tourist rate.
+func _budget() -> int:
+	return Wallet.spendable(Game.data, _mc, _mid)
 
 func _set_hint() -> void:
 	match _mode:
@@ -141,7 +151,7 @@ func _draw_list() -> void:
 	for id in _ids:
 		var it: Dictionary = Game.items.get_item(id)
 		var price := _buy_price(id)
-		var shown := price if _side == "buy" else MenuLogic.sell_price(int(it.get("price", 0)))
+		var shown := price if _side == "buy" else _sell_price(id)
 		var b := Button.new()
 		b.custom_minimum_size = Vector2(0, 56)
 		b.focus_entered.connect(func():
@@ -160,8 +170,8 @@ func _draw_list() -> void:
 		h.add_theme_constant_override("separation", 10)
 		h.add_child(UIKit.label(str(it.get("name", id)), 28))
 		h.add_child(UIKit.fill())
-		var afford: bool = _side == "sell" or Game.data.money >= price
-		h.add_child(UIKit.label(UIKit.money_text(shown), 26, UIKit.GOLD if afford else Color("e9998c")))
+		var afford: bool = _side == "sell" or _budget() >= price
+		h.add_child(UIKit.label(UIKit.money_text(shown, _mc), 26, UIKit.GOLD if afford else Color("e9998c")))
 		for c in h.get_children():
 			c.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		h.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -190,14 +200,17 @@ func _buy_price(id: String) -> int:
 	var extra := Standing.extra_price(_nation, id)
 	if extra > 0 and (base <= 0 or id not in _shop.get("stock", [])):
 		base = extra
-	return Standing.price(Game.data, _nation, base)
+	return Wallet.localise(Standing.price(Game.data, _nation, base), _mc)
+
+func _sell_price(id: String) -> int:
+	return MenuLogic.sell_price(Wallet.localise(int(Game.items.get_item(id).get("price", 0)), _mc))
 
 func _pick(id: String) -> void:
 	_cur = id
 	var price := _buy_price(id)
-	var most := MenuLogic.max_buy(Game.data.money, price, _bag.count(id)) if _side == "buy" else _bag.count(id)
+	var most := MenuLogic.max_buy(_budget(), price, _bag.count(id)) if _side == "buy" else _bag.count(id)
 	if most < 1:
-		_say.text = "You'd need a bit more cash for that one." if _side == "buy" and Game.data.money < price else "You can't carry any more of those."
+		_say.text = "You'd need a bit more cash for that one." if _side == "buy" and _budget() < price else "You can't carry any more of those."
 		Audio.sfx("bump")
 		return
 	_say.text = ""
@@ -210,33 +223,39 @@ func _pick(id: String) -> void:
 func _max_qty() -> int:
 	var price := _buy_price(_cur)
 	if _side == "buy":
-		return MenuLogic.max_buy(Game.data.money, price, _bag.count(_cur))
+		return MenuLogic.max_buy(_budget(), price, _bag.count(_cur))
 	return _bag.count(_cur)
 
 func _unit() -> int:
-	return _buy_price(_cur) if _side == "buy" else MenuLogic.sell_price(int(Game.items.get_item(_cur).get("price", 0)))
+	return _buy_price(_cur) if _side == "buy" else _sell_price(_cur)
 
 func _refresh_qty() -> void:
 	_qty = clampi(_qty, 1, maxi(1, _max_qty()))
 	_qty_label.text = "%s  x %d" % [Game.items.get_item(_cur).get("name", _cur), _qty]
-	_total_label.text = "%s %s" % ["Total" if _side == "buy" else "You get", UIKit.money_text(_unit() * _qty)]
+	var total := _unit() * _qty
+	_total_label.text = "%s %s" % ["Total" if _side == "buy" else "You get", UIKit.money_text(total, _mc)]
+	var short := total - Wallet.balance(Game.data, _mc)
+	if _side == "buy" and short > 0:  # the rest from the other purse, at the tourist rate
+		_total_label.text += "  (%s at the tourist rate)" % UIKit.money_text(Wallet.foreign_cost(short, _mc, _mid), Wallet.other(_mc))
 
 func _commit() -> void:
 	var total := _unit() * _qty
 	if _side == "buy":
-		if not MenuLogic.can_afford(Game.data.money, _unit(), _qty):
+		var paid := Wallet.pay(Game.data, total, _mc, _mid)
+		if not paid.ok:
 			_say.text = "Not enough cash for that many."
 			Audio.sfx("bump")
 			return
-		Game.data.money -= total
 		_bag.add(_cur, _qty)
-		_say.text = "Lovely. %d x %s, that's %s." % [_qty, Game.items.get_item(_cur).name, UIKit.money_text(total)]
+		_say.text = "Lovely. %d x %s, that's %s." % [_qty, Game.items.get_item(_cur).name, UIKit.money_text(total, _mc)]
+		if int(paid.foreign) > 0:
+			_say.text += " " + _tourist_line(paid)
 	else:
 		if not _bag.remove(_cur, _qty):
 			return
-		Game.data.money += total
-		TrainerStats.earned(Game.data, total)
-		_say.text = "Cheers. %s for the %s." % [UIKit.money_text(total), Game.items.get_item(_cur).name]
+		Wallet.earn(Game.data, total, _mc)
+		TrainerStats.earned(Game.data, Wallet.in_sterling(total, _mc))
+		_say.text = "Cheers. %s for the %s." % [UIKit.money_text(total, _mc), Game.items.get_item(_cur).name]
 	Audio.sfx("confirm")
 	_money()
 	_mode = "list"
@@ -245,6 +264,12 @@ func _commit() -> void:
 	if _side == "sell":
 		_ids = _ids.filter(func(id): return _bag.count(id) > 0)
 	_draw_list()
+
+## The shopkeeper on being paid in the wrong money.
+func _tourist_line(paid: Dictionary) -> String:
+	if _mc == Wallet.EUR:
+		return "Short on euros? Sterling's grand, at the tourist rate mind: %s." % UIKit.money_text(int(paid.foreign), Wallet.GBP)
+	return "Euros? Go on then, at the tourist rate: %s. Don't tell the bank." % UIKit.money_text(int(paid.foreign), Wallet.EUR)
 
 func _close_qty() -> void:
 	_mode = "list"

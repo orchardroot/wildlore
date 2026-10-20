@@ -153,6 +153,12 @@ func _exec(c: Dictionary) -> void:
 			await host.warp(str(c.get("zone", "")), int(c.get("x", 0)), int(c.get("y", 0)), str(c.get("facing", "down")))
 		"shop":
 			await host.open_menu("shop:" + str(c.get("id", "")))
+		"bureau":
+			await host.open_menu("bureau")  # a bureau de change (see Forex)
+		"exchange":
+			await host.open_menu("exchange:" + str(c.get("board", "london")))  # a Stock Exchange terminal (see Markets)
+		"crypto":
+			await host.open_menu("crypto")  # the Doggerel kiosk
 		"starter":
 			var picked = await host.open_menu("starter")
 			if picked is String and picked != "" and host.dex.has(picked):

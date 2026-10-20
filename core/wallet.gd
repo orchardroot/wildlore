@@ -183,3 +183,9 @@ static func take_welcome_line(data: GameStateData) -> String:
 	var bits := str(v).split(":")
 	return "Ireland uses the euro. A kind clerk at the Sanctuary changed %s into %s for you, no commission. Bureaux de change will do the rest." \
 		% [fmt(int(bits[0]), GBP), fmt(int(bits[1]), EUR)]
+
+## The header line for a menu: the local purse, and the other one beside it once you've had euros.
+static func purse_text(data: GameStateData, cur: String) -> String:
+	if not had_euros(data):
+		return fmt(balance(data, GBP), GBP)
+	return "%s   %s" % [fmt(balance(data, cur), cur), fmt(balance(data, other(cur)), other(cur))]

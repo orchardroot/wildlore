@@ -117,6 +117,19 @@ static func boot(game: Node, menu: String) -> void:
 			d.set_flag(Postcards.flag_key(str(pc.id)), "2026-10-%02d" % (2 + Postcards.card_index(str(pc.id))))
 	if menu.begins_with("shop") and not menu.contains(":"):
 		menu = "shop:macc_corner_shop"
+	if menu.begins_with("bureau") or menu.begins_with("exchange") or menu.begins_with("crypto") or menu == "pause:euros":
+		# a few weeks into a journey with both purses, some shares, a Doggerel punt and a Stone or two
+		d.day_count = 46
+		d.money = 6840
+		d.euros = 640
+		d.set_flag("badge_stone", true)
+		Markets.sync(d)
+		for deal in [["PNM", 120], ["KTL", 150], ["VNI", 20], ["GVC", 40]]:
+			Markets.buy(d, deal[0], deal[1])
+		Markets.coin_buy(d, mini(150, Markets.coin_max_buy(d)))
+		d.day_count = 52
+		if menu == "pause:euros":
+			menu = "pause"
 	await game.get_tree().process_frame
 	var cur := game.get_tree().current_scene
 	if cur:

@@ -89,7 +89,7 @@ func _greeting() -> String:
 		"The parish runs on volunteers and biscuits."][posmod(hash(_town + Calendar.today_key()), 3)]
 
 func _refresh() -> void:
-	header_right.text = UIKit.money_text(Wallet.balance(Game.data, Wallet.local(Game.data)), Wallet.local(Game.data))
+	header_right.text = Wallet.purse_text(Game.data, Wallet.local(Game.data))
 	_rows.clear()
 	for j in Jobs.offers(Game.data, _town):
 		if not Jobs.has_active(Game.data, str(j.id)):
