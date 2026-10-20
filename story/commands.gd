@@ -198,6 +198,8 @@ func _exec(c: Dictionary) -> void:
 			await _recipe(c.get("id", []))
 		"quiz":
 			await _quiz(c)
+		"casino":
+			await _casino(c)
 		"legend":
 			await _legend(c)
 		"rail":
@@ -272,6 +274,37 @@ func _quiz(c: Dictionary) -> void:
 			await host.say("", "%s wins %s%s." % [data.player_name, nm, (" and " + Wallet.fmt(int(paid.money), str(paid.get("cur", Wallet.GBP)))) if int(paid.money) > 0 else ""])
 		else:
 			await host.say("", "%s wins %s." % [data.player_name, Wallet.fmt(int(paid.money), str(paid.get("cur", Wallet.GBP)))])
+
+## The Palace casino and the bookies: {"do": "casino", "game": id, "venue": venue}. "cage" buys and cashes chips;
+## "fruit", "blackjack", "roulette" and "hilo" are the Palace's games (played with chips); "races" is the day's
+## meeting at a venue ("aintree", "glasgow", "belfast"); "novice" runs one of your team in Aintree's novice race,
+## once a real day. The screens take the stakes, settle and save (see Punt).
+const CASINO_GAMES := Punt.GAMES
+const RACE_VENUES := Punt.RACE_VENUES
+
+func _casino(c: Dictionary) -> void:
+	var data: GameStateData = host.data
+	var game := str(c.get("game", ""))
+	var who := _sub(str(c.get("who", "")))
+	match game:
+		"cage":
+			await host.open_menu("cage")
+		"fruit", "blackjack", "roulette", "hilo":
+			if Punt.chips(data) <= 0:
+				await host.say(who, "You'll want some chips first, love. The cage is just there, by the door.")
+				return
+			await host.open_menu(game)
+			if Punt.chips(data) > 0:
+				await host.say(who, "Chips are cashed at the cage whenever you're ready. Good luck, or better luck.")
+		"races":
+			await host.open_menu("races:" + str(c.get("venue", "aintree")))
+		"novice":
+			if Racing.novice_run_today(data):
+				await host.say(who, "You've had your run today. Same time tomorrow, and bring the same legs.")
+				return
+			await host.open_menu("races:novice")
+		_:
+			push_warning("Commands: unknown casino game '%s'" % game)
 
 func _battle(trainer_id: String) -> void:
 	var def := StoryData.trainer(trainer_id)

@@ -1,0 +1,63 @@
+{
+ "bookmaker": [
+  {
+   "do": "say",
+   "who": "Bookmaker",
+   "text": "All the runners, all the prices. Each way if you're nervous, on the nose if you're not."
+  },
+  {
+   "do": "casino",
+   "game": "races",
+   "venue": "aintree"
+  }
+ ],
+ "clerk": [
+  {
+   "do": "say",
+   "who": "Clerk of the Course",
+   "text": "The Novice Stakes, run once a day. Bring one of your own creatures and we'll find it a number cloth."
+  },
+  {
+   "do": "casino",
+   "game": "novice"
+  }
+ ],
+ "tipster": [
+  {
+   "do": "when",
+   "cond": "rain",
+   "then": [
+    {
+     "do": "say",
+     "who": "Tipster",
+     "text": "The going's soft today, proper soft. Back anything with webbed feet and a positive attitude."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "sunshine",
+     "then": [
+      {
+       "do": "say",
+       "who": "Tipster",
+       "text": "Good to firm out there. The quick ones'll fly. The slow ones'll get a nice tan."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Tipster",
+       "text": "Here's a tip for nothing: read the form, check the going, then back the one with the daftest name. Same as everyone else."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "do": "say",
+   "who": "Tipster",
+   "text": "And never chase your losses, they're faster than you."
+  }
+ ]
+}
