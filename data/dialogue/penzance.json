@@ -1,4 +1,60 @@
 {
+ "e2e_cornish": [
+  {
+   "do": "if",
+   "flag": "q_farnorth_e2e_1",
+   "then": [
+    {
+     "do": "say",
+     "who": "End to Ender",
+     "text": "Off back north? Dreckly, as we say. It means 'eventually', and it's how long the trains take."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "End to Ender",
+     "text": "An End to End card from John o' Groats? Proper job! I'm the stamp at this end. Land's End is just along the road, but the road's shut, so here'll do."
+    },
+    {
+     "do": "say",
+     "who": "End to Ender",
+     "text": "But nobody gets a stamp from me without a race. I did the whole thing on a bike in nine days, and my team did it in a basket. Let's see yours."
+    },
+    {
+     "do": "battle",
+     "trainer": "e2e_cornwall",
+     "intro": true
+    },
+    {
+     "do": "if",
+     "flag": "trainer_e2e_cornwall",
+     "then": [
+      {
+       "do": "say",
+       "who": "End to Ender",
+       "text": "Dreadful. Brilliant. Give it here."
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "The End to Ender stamps your card with a tiny engine house and a pasty, then signs it with a flourish."
+      },
+      {
+       "do": "say",
+       "who": "End to Ender",
+       "text": "Now take it back to the clerk at John o' Groats. 874 miles. Don't forget to wave at Bristol."
+      },
+      {
+       "do": "set",
+       "flag": "q_farnorth_e2e_1"
+      }
+     ],
+     "else": []
+    }
+   ]
+  }
+ ],
  "rail_guard": [
   {
    "do": "say",

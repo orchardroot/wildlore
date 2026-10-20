@@ -1,0 +1,870 @@
+{
+ "id": "flow_country",
+ "name": "The Flow Country",
+ "region": "scotland",
+ "kind": "route",
+ "music": "route_highlands",
+ "weather": {
+  "clear": 16,
+  "drizzle": 30,
+  "fog": 18,
+  "gale": 12,
+  "sunshine": 14,
+  "downpour": 10
+ },
+ "legend_extra": {
+  "k": {
+   "tile": "grass",
+   "colour": "#7d8a50"
+  },
+  "m": {
+   "tile": "tall_grass",
+   "colour": "#9a8448"
+  },
+  "h": {
+   "tile": "tall_grass",
+   "colour": "#7a5c6a",
+   "prop": "heather"
+  },
+  "q": {
+   "tile": "path",
+   "colour": "#8e8c84"
+  },
+  "y": {
+   "tile": "grass",
+   "colour": "#6b7444"
+  },
+  "g": {
+   "tile": "grass",
+   "colour": "#6f9a4c"
+  },
+  "t": {
+   "tile": "rock",
+   "colour": "#5b5048"
+  }
+ },
+ "props": [
+  {
+   "type": "building",
+   "style": "caithness_flag",
+   "x": 7,
+   "y": 5,
+   "w": 6,
+   "h": 3,
+   "label": "Forsinard Flows Centre",
+   "kind": "museum"
+  },
+  {
+   "type": "building",
+   "style": "flows_lookout",
+   "x": 45,
+   "y": 2,
+   "w": 3,
+   "h": 2,
+   "label": "Flows Lookout"
+  },
+  {
+   "type": "statue",
+   "x": 12,
+   "y": 31,
+   "variant": 0
+  },
+  {
+   "type": "building",
+   "style": "dunrobin",
+   "x": 34,
+   "y": 28,
+   "w": 10,
+   "h": 5,
+   "label": "Dunrobin Castle",
+   "kind": "castle"
+  },
+  {
+   "type": "planter",
+   "x": 36,
+   "y": 37
+  },
+  {
+   "type": "planter",
+   "x": 42,
+   "y": 37
+  },
+  {
+   "type": "planter",
+   "x": 36,
+   "y": 39
+  },
+  {
+   "type": "planter",
+   "x": 42,
+   "y": 39
+  },
+  {
+   "type": "statue",
+   "x": 40,
+   "y": 37,
+   "variant": 1
+  },
+  {
+   "type": "lighthouse",
+   "x": 55,
+   "y": 51
+  },
+  {
+   "type": "bench",
+   "x": 50,
+   "y": 50
+  },
+  {
+   "type": "bench",
+   "x": 52,
+   "y": 50
+  },
+  {
+   "type": "building",
+   "style": "cathedral",
+   "x": 12,
+   "y": 53,
+   "w": 6,
+   "h": 2,
+   "label": "Fortrose Cathedral (ruins)",
+   "kind": "church"
+  },
+  {
+   "type": "pine",
+   "x": 18,
+   "y": 33,
+   "variant": 1
+  },
+  {
+   "type": "pine",
+   "x": 7,
+   "y": 40,
+   "variant": 0
+  },
+  {
+   "type": "pine",
+   "x": 30,
+   "y": 41,
+   "variant": 1
+  },
+  {
+   "type": "pine",
+   "x": 13,
+   "y": 37,
+   "variant": 2
+  },
+  {
+   "type": "pine",
+   "x": 7,
+   "y": 27,
+   "variant": 2
+  },
+  {
+   "type": "pine",
+   "x": 29,
+   "y": 34,
+   "variant": 1
+  },
+  {
+   "type": "pine",
+   "x": 23,
+   "y": 41,
+   "variant": 0
+  },
+  {
+   "type": "pine",
+   "x": 29,
+   "y": 36,
+   "variant": 2
+  },
+  {
+   "type": "pine",
+   "x": 24,
+   "y": 30,
+   "variant": 2
+  },
+  {
+   "type": "pine",
+   "x": 22,
+   "y": 30,
+   "variant": 0
+  },
+  {
+   "type": "pine",
+   "x": 6,
+   "y": 33,
+   "variant": 1
+  },
+  {
+   "type": "pine",
+   "x": 21,
+   "y": 32,
+   "variant": 2
+  },
+  {
+   "type": "pine",
+   "x": 25,
+   "y": 40,
+   "variant": 1
+  },
+  {
+   "type": "pine",
+   "x": 23,
+   "y": 40,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 6,
+   "y": 60,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 33,
+   "y": 49,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 44,
+   "y": 45,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 40,
+   "y": 48,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 7,
+   "y": 49,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 39,
+   "y": 61,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 30,
+   "y": 57,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 8,
+   "y": 46,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 8,
+   "y": 54,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 43,
+   "y": 47,
+   "variant": 2
+  },
+  {
+   "type": "birch",
+   "x": 26,
+   "y": 6,
+   "variant": 0
+  },
+  {
+   "type": "birch",
+   "x": 56,
+   "y": 16,
+   "variant": 2
+  },
+  {
+   "type": "birch",
+   "x": 28,
+   "y": 16,
+   "variant": 1
+  },
+  {
+   "type": "birch",
+   "x": 37,
+   "y": 17,
+   "variant": 1
+  },
+  {
+   "type": "birch",
+   "x": 45,
+   "y": 14,
+   "variant": 0
+  },
+  {
+   "type": "birch",
+   "x": 8,
+   "y": 10,
+   "variant": 1
+  },
+  {
+   "type": "birch",
+   "x": 37,
+   "y": 9,
+   "variant": 1
+  },
+  {
+   "type": "birch",
+   "x": 25,
+   "y": 19,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 54,
+   "y": 18,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 51,
+   "y": 18,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 49,
+   "y": 9,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 35,
+   "y": 23,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 16,
+   "y": 10,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 41,
+   "y": 22,
+   "variant": 1
+  },
+  {
+   "type": "lamp_post",
+   "x": 33,
+   "y": 50
+  },
+  {
+   "type": "lamp_post",
+   "x": 41,
+   "y": 50
+  }
+ ],
+ "warps": [
+  {
+   "x": 10,
+   "y": 7,
+   "to": "forsinard_centre",
+   "tx": 6,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 38,
+   "y": 32,
+   "to": "dunrobin_castle",
+   "tx": 7,
+   "ty": 7,
+   "facing": "up"
+  }
+ ],
+ "npcs": [
+  {
+   "id": "fc_dolphin",
+   "sprite": "birdwatcher",
+   "x": 47,
+   "y": 51,
+   "facing": "right",
+   "move": "still",
+   "trainer": "fc_dolphin"
+  },
+  {
+   "id": "fc_seer",
+   "sprite": "poet",
+   "x": 36,
+   "y": 50,
+   "facing": "down",
+   "move": "still",
+   "script": "brahan_seer",
+   "name": "Storyteller"
+  },
+  {
+   "id": "fc_nc500",
+   "sprite": "hillwalker",
+   "x": 28,
+   "y": 47,
+   "facing": "up",
+   "move": "still",
+   "trainer": "fc_nc500"
+  },
+  {
+   "id": "fc_ghillie",
+   "sprite": "ghillie",
+   "x": 20,
+   "y": 37,
+   "facing": "right",
+   "move": "still",
+   "trainer": "fc_ghillie"
+  },
+  {
+   "id": "fc_gardener",
+   "sprite": "farmer",
+   "x": 44,
+   "y": 38,
+   "facing": "left",
+   "move": "still",
+   "script": "dunrobin_gardener",
+   "name": "Gardener"
+  },
+  {
+   "id": "fc_birder",
+   "sprite": "birdwatcher",
+   "x": 46,
+   "y": 14,
+   "facing": "left",
+   "move": "still",
+   "trainer": "fc_birder"
+  },
+  {
+   "id": "fc_survey_pool",
+   "sprite": "creature:flowmoor",
+   "x": 38,
+   "y": 14,
+   "facing": "down",
+   "move": "still",
+   "script": "survey_pool",
+   "name": "Flowmoor",
+   "hide_if": "q_farnorth_bog_1"
+  },
+  {
+   "id": "fc_greenshank",
+   "sprite": "fox_watcher",
+   "x": 44,
+   "y": 21,
+   "facing": "up",
+   "move": "still",
+   "script": "survey_greenshank",
+   "name": "Bird Surveyor"
+  },
+  {
+   "id": "fc_peat",
+   "sprite": "tin_miner",
+   "x": 27,
+   "y": 14,
+   "facing": "left",
+   "move": "still",
+   "script": "peat_scientist",
+   "name": "Peat Scientist"
+  },
+  {
+   "id": "fc_peatcutter",
+   "sprite": "farmer",
+   "x": 13,
+   "y": 22,
+   "facing": "up",
+   "move": "still",
+   "script": "peat_cutter",
+   "name": "Peat Cutter"
+  },
+  {
+   "id": "fc_deerstalker",
+   "sprite": "hiker",
+   "x": 34,
+   "y": 6,
+   "facing": "down",
+   "move": "still",
+   "trainer": "fc_deer"
+  },
+  {
+   "id": "fc_railfan",
+   "sprite": "rail_guard",
+   "x": 7,
+   "y": 9,
+   "facing": "up",
+   "move": "still",
+   "script": "railfan",
+   "name": "Railway Enthusiast"
+  }
+ ],
+ "signs": [
+  {
+   "x": 28,
+   "y": 3,
+   "text": "THURSO 2. The A9 runs on north to the coast. The North Coast 500 turns off for Durness, Smoo Cave and the long road west. Mind the sheep, which have right of way and know it."
+  },
+  {
+   "x": 28,
+   "y": 61,
+   "text": "INVERNESS. Back over the Kessock Bridge, the Beauly Firth glittering on one side and the Moray Firth on the other."
+  },
+  {
+   "x": 11,
+   "y": 9,
+   "text": "The Flow Country is the largest expanse of blanket bog in Europe, and in 2024 it became a UNESCO World Heritage Site, the first peatland anywhere to be listed. 'Flow' comes from the Old Norse floi, a wet, flat place.",
+   "plaque": "farnorth_flow_country",
+   "title": "The Flow Country"
+  },
+  {
+   "x": 33,
+   "y": 11,
+   "text": "Dubh lochans (dubh is Gaelic for 'black') are the little dark pools that freckle the bog. The peat stains them the colour of strong tea. Dragonflies hunt over them all summer and the midges hunt you.",
+   "plaque": "farnorth_dubh_lochans",
+   "title": "Dubh Lochans"
+  },
+  {
+   "x": 45,
+   "y": 19,
+   "text": "Greenshank, golden plover and dunlin nest out on the open bog, where they can see trouble coming for miles. Listen for the greenshank's ringing 'tew-tew-tew'. It carries a very long way.",
+   "plaque": "farnorth_bog_birds",
+   "title": "Birds of the Bog"
+  },
+  {
+   "x": 7,
+   "y": 12,
+   "text": "The Far North Line runs from Inverness to Thurso and Wick, about 170 miles, crossing the Flow Country on its way. Forsinard station is a request stop in the middle of the bog. Wave, or the train will not.",
+   "plaque": "farnorth_far_north_line",
+   "title": "The Far North Line"
+  },
+  {
+   "x": 33,
+   "y": 32,
+   "text": "Dunrobin Castle is the seat of the Earls and Dukes of Sutherland, and has the most rooms of any house in the northern Highlands, 189 of them. Its fairy-tale spires were added in the 1840s by Sir Charles Barry, who also designed the Houses of Parliament.",
+   "plaque": "farnorth_dunrobin",
+   "title": "Dunrobin Castle"
+  },
+  {
+   "x": 14,
+   "y": 34,
+   "text": "The statue on Ben Bhraggie is the 1st Duke of Sutherland. On his estates thousands of families were cleared from their homes in the Highland Clearances to make way for sheep. Plenty of folk round here would sooner the statue came down.",
+   "plaque": "farnorth_ben_bhraggie",
+   "title": "Ben Bhraggie"
+  },
+  {
+   "x": 44,
+   "y": 51,
+   "text": "Chanonry Point on the Black Isle is one of the best places in Britain to watch bottlenose dolphins from land. Come about an hour after low tide, when the rising water brings the salmon in and the dolphins follow.",
+   "plaque": "farnorth_chanonry",
+   "title": "Chanonry Point"
+  },
+  {
+   "x": 39,
+   "y": 52,
+   "text": "Legend says Coinneach Odhar, the Brahan Seer, was burned in a barrel of tar here for a prophecy the Countess of Seaforth did not care for. A stone near the lighthouse marks the spot. Nobody can prove he was real. Nobody wants to tell him that.",
+   "plaque": "farnorth_brahan_seer",
+   "title": "The Brahan Seer"
+  },
+  {
+   "x": 19,
+   "y": 55,
+   "text": "The ruins of Fortrose Cathedral, built in red sandstone from the 13th century. Cromwell's soldiers are said to have carted off much of the stone to build a fort at Inverness."
+  }
+ ],
+ "rows": [
+  "PPPP!PPPPPPPPPPPPPPPPPPPPPPPP===PPPPPPPPPPPPPPPPPPPPPPPPPPPP",
+  "PPPP!PPPPPPPPPPPPPPPPPPPPPPPP===PPPPPPPPPPPPPPPPPPPPPPPPPPPP",
+  "PPPP!Pkkkkkkkkkkkkkkkkkkkkkkk===kkkkkkkkkkkkkBBBkkkkkkkkkkPP",
+  "PPPP!Pmmhhhhhhhhhmmmmmmmmmmmm===mmmmmmhhhhhmmBBBmmmmmmmmmmPP",
+  "PPPP!__mhhhhhhhhhmmmmmmmmmmmm===mmmmmhhhhhhhmmqmmmmmmmmmmmPP",
+  "PPPP!__BBBBBBhhhhmmmmmm~~~mmm===mmmmmmhhhhhmmmq~~~mmmmmmmmPP",
+  "PPPP!__BBBBBBhhmmmmmmmmmmmmmm===mmmmmmmmmmmmmmqmmmmmmmmmmmPP",
+  "PPPP!__BBBDBBmmmmmmmmmmmmmmmm===mmmmmmmmmmmmmmqmmm~~~mmmmmPP",
+  "PPPP!__qqqqqqqqqqqqqqqqqqqqqq===mmmmmmmmmmmmmmqmm~~~~~mmmmPP",
+  "PPPP!__mmmmmmmmmmmmmmmmmmmttm===mmmmmmmmmmmmmmqmmm~~~mmmmmPP",
+  "PPPP!__mmmmm~~~mmmmmmmmmmmmmm===qqqqqqqqqqqqqqqmmmmmmmmmmmPP",
+  "PPPP!__mmmmmmmmmmmmmmmmmmmmmm===qmmmmmmmmmmmmmqmmmmmmm~mmmPP",
+  "PPPP!__mmmmmmmmmm*****mmmmmmm===qm~~~mm~~~mmmmqmmmmmmmmmmmPP",
+  "PPPP!Pmmmmmmmmm*********mmmmm===qm~~~mmmmmmmmmqmmmmmmmmmmmPP",
+  "PPPP!Pmmmttmmm***********mmmm===qm~~~mmmmmmmmmqmmmmm~~~mmmPP",
+  "PPPP!Pmmmmmmm*****kkk*****mmm===qmmmmmmmmmmm~mqmmmmm~~~mmmPP",
+  "PPPP!Pmmmmmmm****kkkkk****mmm===qmmmmmm~~~mm~mqmmmmm~~~mmmPP",
+  "PPPP!Pmmmmmmm*****kkk*****mmm===q~~~mm~~~~~m~mqmmmmmmmmmmmPP",
+  "PPPP!Pmmmmmmmm***********mmmm===qmmmmmm~~~mmmmqmmmmmmmmmmmPP",
+  "PPPP!Pmmhhhhhmm*********mmmmm===qmmmmmmmmmmmmmqmmmhhhhhtmmPP",
+  "PPPP!Pmhhhhhhhmmm*****mmmmmmm===qqqqqqqqqqqqqqqmhhhhhhhhhmPP",
+  "PPPP!Pmhhhhhhhmmmmmmmmmmmmmmm===mmmmmmmmmmmmmmmhhhhhhhhhhhPP",
+  "PPPP!Pmhhhhhhhmmmmmmmmmm========mmmm~~~mmmmmmmmhhhhhhhhhhhPP",
+  "PPPP!Pmmhhhhhmmmmhhhhhhh========mmmmmmmmmmmmmmmtthhhhhhhhhPP",
+  "PPPP!Pmmmmmmmmmmhhhhhhhh========mmmmmmmmmmmmmmmmhhhhhhhhhmPP",
+  "PPPP!Pmmmmmmmmmmmhhhhhhh===mmmmmmmmmmmmmmmmmmmmmmmhhhhhmmmPP",
+  "PPPP!PWWWWWWWWWWWWWWWWWW===WWWWWWWWWWWWWWWWWWWWWWWW$$$$$$$$$",
+  "PPPP!Pkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkksss$$$$$$$$$",
+  "PPPP!PkkkkhhhhhkkkkkkkkkkkkkkkkkkkBBBBBBBBBBkkkksss$$$$$$$$$",
+  "PPPP!PkkhhhhhhhhhkkkkkkkkkkkkkkkkkBBBBBBBBBBkkkksss$$$$$$$$$",
+  "PPPP!PkkhhhhhhhhhkkkkkkkkkkkkkkkkkBBBBBBBBBBkkkkssw$$$$$$$$$",
+  "PPPP!PkhhhhhhhhhhhkkkkkkkkkkkkkkkkBBBBBBBBBBkkkksss$$$$$$$$$",
+  "PPPP!PkhhhhhhhhhhhkkkkkkkkkkkkkkkkBBBBDBBBBBkkkksss$$$$$$$$$",
+  "PPPP!Pkhhhhhh#hhhhkkkkkkkkk############kkkkkkkkksss$$$$$$$$$",
+  "PPPP!Pkkhhhhh#hhhkkkkkkkkkkkkkkkkkkkkk#kkkkkkkkksss$$$$$$$$$",
+  "PPPP!Pkkhhhhh#hhhkkkkkkkkkkkkkkkkHHHHH#HHHHHHHkkssw$$$$$$$$$",
+  "PPPP!Pkkkkhhh###########kkkkkkkkkHffff#ffffffHkksss$$$$$$$$$",
+  "PPPP!PkkkkkkkkkkkkkkkkkkkkkkkkkkkHffff#ffffffHkksss$$$$$$$$$",
+  "PPPP!PkkhhhhhhhhhhhhhhkkkkkkkkkkkH###########Hkksss$$$$$$$$$",
+  "PPPP!PkkhhhhhhhhhhhhhhkkkkkkkkkkkHffff#ffffffHkksss$$$$$$$$$",
+  "PPPP!PkkhhhhhhhhhhhhhhkkkkkkkkkkkHffff#ffffffHkkssw$$$$$$$$$",
+  "PPPP!PkkhhhhhhhhhhhhhhkkkkkkkkkkkHHHHH##########sss$$$$$$$$$",
+  "PPPP!Pkkhhhhhhhhhhhhhhkkkkkkkkkkkkkkkkkkkkkkkkkksss$$$$$$$$$",
+  "PPPP!Pkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkksss$$$$$$$$$",
+  "PPPP!PWWWWWWWWWWWWWWWWWW========WWWWWWWWWWWWWg$$$$$$$$$$$$$$",
+  "PPPP!Pgggggggggggggggggggggggggggggggggggggggg$$$$$$$$$$$$$$",
+  "PPPP!Pgggggggggggggggggggggggggggggggggggggggg$$$$$$$$$$$$$$",
+  "PPPP!Pgg,,,,,,,,,,,,,,gggggggggggggggggggggggg$$$$$$$$$$$$$$",
+  "PPPP!Pgg,,,,,,,,,,,,,,gggggggggggggggggggggggg$$$$$$$$$$$$$$",
+  "PPPP!Pgg,,,,,,,,,,,,,,gggggggggggggggggggggggg$$$$$$$$$$$$$$",
+  "PPPP!Pgg,,,,,,,,,,,,,,ggggggggggggggggggssssssssssssssss$$$$",
+  "PPPP!Pgg,,,,,,,,,,,,,,gggggggggg#########sssssssssssssss$$$$",
+  "PPPP!Pgg,,,,,,,,,,,,,,ggggggggggggggggggssssssssssssssss$$$$",
+  "PPPP!PggggggBBBBBBgggggggggggggggggggggggggggg$$$$$$$$$$$$$$",
+  "PPPP!PggggggBBBBBBgggggggggggggggggggggggggggg$$$$$$$$$$$$$$",
+  "PPPP!Pgg,,,,,,,,,,,,,,ggggggggggggg,,,,,,,,,gg$$$$$$$$$$$$$$",
+  "PPPP!Pgg,,,,,,,,,,,,,,ggggggggggggg,,,,,,,,,gg$$$$$$$$$$$$$$",
+  "PPPP!Pgg,,,,,,,,,,,,,,ggggggggggggg,,,,,,,,,gg$$$$$$$$$$$$$$",
+  "PPPP!Pgg,,,,,,,,,,,,,,ggggggggggggg,,,,,,,,,gg$$$$$$$$$$$$$$",
+  "PPPP!Pgg,,,,,,,,,,,,,,ggggggggggggg,,,,,,,,,gg$$$$$$$$$$$$$$",
+  "PPPP!Pgggggggggggggggggggggggggggggggggggggggg$$$$$$$$$$$$$$",
+  "PPPP!Pgggggggggggggggggggggggggggggggggggggggg$$$$$$$$$$$$$$",
+  "TTPP!PTTTTTTTTTTTTTTTTTTTTTTT===TTTTTTTTTTTTTTTTTTT$$$$$$$$$",
+  "TTPP!PTTTTTTTTTTTTTTTTTTTTTTT===TTTTTTTTTTTTTTTTTTT$$$$$$$$$"
+ ],
+ "heights": [
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000001111111110000000000000000000000000000000000000000000",
+  "000000001122222110000000000000000000000000000000000000000000",
+  "000000001122222110000000000000000000000000000000000000000000",
+  "000000001122222110000000000000000000000000000000000000000000",
+  "000000001122222110000000000000000000000000000000000000000000",
+  "000000001122222110000000000000000000000000000000000000000000",
+  "000000001111111110000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000"
+ ],
+ "edges": {
+  "south": {
+   "to": "inverness",
+   "offset": 20
+  },
+  "north": {
+   "to": "thurso",
+   "offset": 1
+  }
+ },
+ "encounters": {
+  "grass": [
+   {
+    "species": "dubhlet",
+    "min": 76,
+    "max": 77,
+    "weight": 16
+   },
+   {
+    "species": "sphagnet",
+    "min": 76,
+    "max": 77,
+    "weight": 10
+   },
+   {
+    "species": "midgie",
+    "min": 76,
+    "max": 77,
+    "weight": 10,
+    "weather": [
+     "clear",
+     "drizzle",
+     "fog",
+     "sunshine"
+    ]
+   },
+   {
+    "species": "croakle",
+    "min": 76,
+    "max": 77,
+    "weight": 8,
+    "weather": [
+     "drizzle",
+     "downpour"
+    ]
+   },
+   {
+    "species": "stoatlet",
+    "min": 76,
+    "max": 77,
+    "weight": 8
+   },
+   {
+    "species": "fawnlet",
+    "min": 76,
+    "max": 77,
+    "weight": 8,
+    "time": [
+     "dawn",
+     "dusk"
+    ]
+   },
+   {
+    "species": "eaglet",
+    "min": 77,
+    "max": 78,
+    "weight": 5,
+    "time": [
+     "day"
+    ]
+   },
+   {
+    "species": "snowhare",
+    "min": 76,
+    "max": 77,
+    "weight": 5,
+    "weather": [
+     "frost",
+     "fog"
+    ]
+   },
+   {
+    "species": "hootlet",
+    "min": 76,
+    "max": 77,
+    "weight": 6,
+    "time": [
+     "night"
+    ]
+   },
+   {
+    "species": "lanternis",
+    "min": 77,
+    "max": 78,
+    "weight": 3,
+    "time": [
+     "night"
+    ],
+    "season": [
+     "summer"
+    ]
+   },
+   {
+    "species": "amanitar",
+    "min": 76,
+    "max": 78,
+    "weight": 6,
+    "season": [
+     "autumn"
+    ]
+   }
+  ],
+  "water": [
+   {
+    "species": "dolphlet",
+    "min": 76,
+    "max": 77,
+    "weight": 20
+   },
+   {
+    "species": "pupplash",
+    "min": 76,
+    "max": 77,
+    "weight": 14
+   },
+   {
+    "species": "bradan",
+    "min": 76,
+    "max": 78,
+    "weight": 12
+   },
+   {
+    "species": "heronarch",
+    "min": 76,
+    "max": 77,
+    "weight": 10
+   },
+   {
+    "species": "gannetling",
+    "min": 76,
+    "max": 77,
+    "weight": 10
+   },
+   {
+    "species": "dubhlet",
+    "min": 76,
+    "max": 77,
+    "weight": 10
+   }
+  ]
+ },
+ "spawn": [
+  30,
+  60
+ ],
+ "stage": "bog",
+ "scaled_floor": 76
+}

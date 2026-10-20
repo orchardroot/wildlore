@@ -1,5 +1,9 @@
 {
  "edges": {
+  "north": {
+   "offset": -20,
+   "to": "flow_country"
+  },
   "east": {
    "offset": 0.0,
    "to": "cairngorms"
@@ -361,6 +365,9 @@
    "x": 62.0,
    "y": 26.0
   },
+  {"id": "kessock_a", "sprite": "steelworker", "x": 49, "y": 3, "facing": "down", "move": "still", "name": "Bridge Engineer", "script": "kessock_works", "hide_if": "badge_frost"},
+  {"id": "kessock_b", "sprite": "steelworker", "x": 50, "y": 3, "facing": "down", "move": "still", "name": "Bridge Engineer", "script": "kessock_works", "hide_if": "badge_frost"},
+  {"id": "kessock_c", "sprite": "steelworker", "x": 51, "y": 3, "facing": "down", "move": "still", "name": "Bridge Engineer", "script": "kessock_works", "hide_if": "badge_frost"},
   {
    "id": "inverness_astronomer",
    "sprite": "astronomer",
@@ -389,6 +396,10 @@
   }
  ],
  "props": [
+  {"type": "lamp_post", "x": 48, "y": 3},
+  {"type": "lamp_post", "x": 52, "y": 3},
+  {"type": "lamp_post", "x": 48, "y": 0},
+  {"type": "lamp_post", "x": 52, "y": 0},
   {
    "type": "oak",
    "x": 21.0,
@@ -1027,13 +1038,13 @@
  ],
  "region": "scotland",
  "rows": [
-  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
-  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
-  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
-  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
-  "TTwwwwwwwwwwwwwwwwwwww~~~~wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwTT",
-  "TTssssssssssssssssssss~~~~ssssssssssssssssssssssssssssssssssssTT",
-  "TTssssssssssssssssssss~~~~ssssssssssssssssssssssssssssssssssssTT",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$=====$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$=====$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$=====$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$=====$$$$$$$$$$$",
+  "TTwwwwwwwwwwwwwwwwwwww~~~~wwwwwwwwwwwwwwwwwwwwww=====wwwwwwwwwTT",
+  "TTssssssssssssssssssss~~~~ssssssssssssssssssssss=====sssssssssTT",
+  "TTssssssssssssssssssss~~~~ssssssssssssssssssssss=====sssssssssTT",
   "TTkkkkkkkkkkkkkkkkkk::~~~~::kkkkBBBBBBBBBBkkkk::::::::::::::kkTT",
   "TTkBBBBBBBBkkBBBBBBk::~~~~::kkkkBBBBBBBBBBkkkk::::::::::::::kkTT",
   "TTkBBBBBBBBkkBBBBBBk::~~~~::kkkkBBBBBBBBBBkkkkkkkkkkkkkkkkkkkkTT",
@@ -1077,6 +1088,7 @@
   "TTTTTTTTTTTTTTTTTTTTTT~~~~TTTTTTTT===TTTTTTTTTTTTTTTTTTTTTTTTTTT"
  ],
  "signs": [
+  {"x": 47, "y": 6, "text": "THE KESSOCK BRIDGE. North over the firth to the Black Isle, the Flow Country, Thurso and John o' Groats. The bridge opened in 1982 and is a favourite spot for watching the dolphins, if you can stop to look."},
   {
    "text": "INVERNESS ICE RINK. Home to curling, skating and one Keeper who will not be hurried. Curling is 'the roaring game' because of the sound the granite stones make on the ice. Sweeping is allowed. Shouting is encouraged.",
    "x": 53.0,

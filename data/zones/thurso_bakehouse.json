@@ -1,0 +1,87 @@
+{
+ "id": "thurso_bakehouse",
+ "name": "Robert Dick's Bakehouse",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "kitchen_dresser",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "fireplace",
+   "x": 4,
+   "y": 1
+  },
+  {
+   "type": "menu_board",
+   "x": 7,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "table",
+   "x": 7,
+   "y": 4
+  },
+  {
+   "type": "table",
+   "x": 9,
+   "y": 4
+  },
+  {
+   "type": "clock",
+   "x": 9,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "plant_stand",
+   "x": 1,
+   "y": 5,
+   "variant": 0
+  }
+ ],
+ "warps": [
+  {
+   "x": 5,
+   "y": 6,
+   "to": "thurso",
+   "tx": 36,
+   "ty": 23,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "baker",
+   "sprite": "shopkeeper",
+   "x": 3,
+   "y": 1,
+   "facing": "down",
+   "move": "still",
+   "script": "baker",
+   "name": "Baker"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  5,
+  5
+ ],
+ "rows": [
+  "xxxxxxxxxxx",
+  "x+++++++++x",
+  "xCCCCC++++x",
+  "x+++++++++x",
+  "x+++++++++x",
+  "x+++++++++x",
+  "x++++D++++x",
+  "xxxxxxxxxxx"
+ ]
+}

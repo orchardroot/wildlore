@@ -1,0 +1,128 @@
+{
+ "id": "thurso_gallery",
+ "name": "Swanson Gallery & Library",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "display_case",
+   "x": 2,
+   "y": 3,
+   "variant": 0
+  },
+  {
+   "type": "display_case",
+   "x": 4,
+   "y": 3,
+   "variant": 1
+  },
+  {
+   "type": "display_case",
+   "x": 8,
+   "y": 3,
+   "variant": 2
+  },
+  {
+   "type": "bookshelf",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 2,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 10,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 11,
+   "y": 1
+  },
+  {
+   "type": "wall_picture",
+   "x": 5,
+   "y": 1,
+   "walk": true,
+   "variant": 0
+  },
+  {
+   "type": "wall_picture",
+   "x": 7,
+   "y": 1,
+   "walk": true,
+   "variant": 2
+  },
+  {
+   "type": "specimen_shelf",
+   "x": 11,
+   "y": 5,
+   "variant": 0
+  },
+  {
+   "type": "table",
+   "x": 3,
+   "y": 5
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 6
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 7,
+   "to": "thurso",
+   "tx": 18,
+   "ty": 16,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "fossil_curator",
+   "sprite": "student",
+   "x": 6,
+   "y": 4,
+   "facing": "down",
+   "move": "still",
+   "script": "fossil_curator",
+   "name": "Curator"
+  },
+  {
+   "id": "dick_reader",
+   "sprite": "poet",
+   "x": 10,
+   "y": 5,
+   "facing": "left",
+   "move": "still",
+   "script": "robert_dick_fan",
+   "name": "Botanist"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  6,
+  6
+ ],
+ "rows": [
+  "xxxxxxxxxxxxx",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++D+++++x",
+  "xxxxxxxxxxxxx"
+ ]
+}
