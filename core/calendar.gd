@@ -86,6 +86,10 @@ static func today_key() -> String:
 	var y := _override_year if _override_year > 0 else int(Time.get_date_dict_from_system().year)
 	return "%04d-%02d-%02d" % [y, t.x, t.y]
 
+## This year (the real one, or the --date=YYYY-MM-DD override).
+static func year() -> int:
+	return _override_year if _override_year > 0 else int(Time.get_date_dict_from_system().year)
+
 static func season_today() -> String:
 	var t := today()
 	return season_for(t.x, t.y)
