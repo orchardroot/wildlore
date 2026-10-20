@@ -70,7 +70,7 @@ static func _church(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: i
 	var h := 1.9
 	Meshes.box(st, Vector3(0.05, 0, 0.3), Vector3(w - 0.1, h, d - 0.4), wall)
 	Meshes.box(st, Vector3(0, 0, 0.25), Vector3(w, 0.16, d - 0.3), wall.darkened(0.3))
-	Landmarks._gable_roof(st, 0.0, w, 0.25, d, h, 1.4, roof, wall)
+	Landmarks._roof_at(st, -0.1, w + 0.1, 0.25, d + 0.1, h, 1.4, roof, wall)
 	for x in range(0, w):
 		if x != door_x:
 			Landmarks._window(st, wst, x + 0.3, 0.7, d, 0.34, 0.9, wall.darkened(0.25))
@@ -180,10 +180,11 @@ static func penguin(variant := 0) -> ArrayMesh:
 static func seal(variant := 0) -> ArrayMesh:
 	var st := Meshes._st()
 	var rng := Meshes._rng(53 + variant)
-	var hide := Color("8a8478") if variant == 0 else Color("6e7480")
+	var hide := Color("5c564f") if variant == 0 else Color("4a525e")
 	var s := 1.0 if variant == 0 else 0.75
 	Meshes.blob(st, Vector3(0, 0.26 * s, -0.1), Vector3(0.34, 0.26, 0.62) * s, hide, rng, 0.08)
-	Meshes.blob(st, Vector3(0, 0.3 * s, 0.48 * s), Vector3(0.18, 0.2, 0.2) * s, hide.lightened(0.08), rng, 0.05)
+	Meshes.blob(st, Vector3(0, 0.3 * s, 0.48 * s), Vector3(0.18, 0.2, 0.2) * s, hide.lightened(0.06), rng, 0.05)
+	Meshes.box(st, Vector3(-0.22 * s, 0.05, -0.1), Vector3(0.44, 0.1, 0.7) * s, hide.lightened(0.25))  # the pale belly
 	Meshes.box(st, Vector3(-0.2 * s, 0.0, 0.0), Vector3(0.4, 0.05, 0.9) * s, hide.darkened(0.25))
 	if variant == 0:
 		Meshes.box(st, Vector3(-0.05, 0.2, 0.66), Vector3(0.1, 0.16, 0.12), hide.darkened(0.12))  # the proboscis
