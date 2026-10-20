@@ -274,7 +274,7 @@ static func front(style: String, w: int, d: int, door_x: int) -> Dictionary:
 				f.merge({"z": d - 0.3, "lo": 2.22, "hi": 3.0, "x0": tower_w + 0.15, "x1": w - 0.15}, true)
 			else:
 				f.merge({"lo": 1.4, "hi": 1.95, "x0": 0.15, "x1": tower_w - 0.15}, true)
-		"castle":
+		"castle", "castle_red":
 			if door_x >= 0:
 				f.merge({"z": d + 0.1, "lo": 1.22, "hi": 2.3, "x0": door_x - 0.32, "x1": door_x + 1.32}, true)
 			else:
@@ -768,7 +768,7 @@ static func _heritage(kit: Kit, label: String, f: Dictionary, w: int, door_x: in
 		face = SLATE
 		edge = SLATE.darkened(0.3)
 		ink = Color("e6e0cf")
-	elif style == "stone" or style == "cathedral" or style == "castle" or style == "chapel":
+	elif style == "stone" or style == "cathedral" or style == "castle" or style == "castle_red" or style == "chapel":
 		face = Color("e4dccb")
 		edge = Color("9b917e")
 	var text := label.to_upper() if fnt == font("caps") else label

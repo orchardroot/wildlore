@@ -1,0 +1,86 @@
+{
+ "abbotsford_guide": [
+  {
+   "do": "say",
+   "who": "Abbotsford Guide",
+   "text": "Welcome to Abbotsford, which is not so much a house as a very large hobby. What shall I tell you?"
+  },
+  {
+   "do": "choice",
+   "text": "Ask about...",
+   "options": [
+    "Sir Walter Scott",
+    "The collection",
+    "Tartan and the King",
+    "Maida the deerhound",
+    "That's plenty, thanks"
+   ],
+   "set": "_t_abbots"
+  },
+  {
+   "do": "if",
+   "flag": "_t_abbots",
+   "eq": 0,
+   "then": [
+    {
+     "do": "say",
+     "who": "Abbotsford Guide",
+     "text": "Scott was a lawyer and poet before he turned novelist: Waverley, Rob Roy, Ivanhoe. He was so popular that his books made him a fortune, and he spent it here, which in the end was rather the trouble."
+    }
+   ],
+   "else": []
+  },
+  {
+   "do": "if",
+   "flag": "_t_abbots",
+   "eq": 1,
+   "then": [
+    {
+     "do": "say",
+     "who": "Abbotsford Guide",
+     "text": "The house is stuffed with curiosities: Rob Roy's gun and sporran, a sword of the Marquess of Montrose, Napoleon's pen case, armour and antlers, and a library of around 9,000 books. Scott collected everything with a story attached."
+    }
+   ],
+   "else": []
+  },
+  {
+   "do": "if",
+   "flag": "_t_abbots",
+   "eq": 2,
+   "then": [
+    {
+     "do": "say",
+     "who": "Abbotsford Guide",
+     "text": "In 1822 Scott stage-managed George IV's visit to Edinburgh, the first by a reigning monarch in nearly two centuries, and persuaded everyone to turn out in tartan. The King wore a kilt, in bright pink tights. The result was a craze for tartan that has never quite stopped."
+    }
+   ],
+   "else": []
+  },
+  {
+   "do": "if",
+   "flag": "_t_abbots",
+   "eq": 3,
+   "then": [
+    {
+     "do": "say",
+     "who": "Abbotsford Guide",
+     "text": "Scott's great deerhound Maida is carved in stone by the front door, with a Latin epitaph Scott wrote himself. He loved his dogs, and kept a houseful, so the stone is about the right size for the job."
+    }
+   ],
+   "else": []
+  },
+  {
+   "do": "if",
+   "flag": "_t_abbots",
+   "eq": 4,
+   "then": [
+    {
+     "do": "say",
+     "who": "Abbotsford Guide",
+     "text": "Come back any time. History keeps."
+    }
+   ],
+   "else": []
+  }
+ ]
+}

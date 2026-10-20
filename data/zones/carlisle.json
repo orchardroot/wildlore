@@ -1,0 +1,905 @@
+{
+ "id": "carlisle",
+ "name": "Carlisle",
+ "region": "cumbria",
+ "kind": "town",
+ "music": "town_north",
+ "weather": {
+  "drizzle": 30,
+  "clear": 20,
+  "downpour": 12,
+  "fog": 10,
+  "gale": 10,
+  "sunshine": 12,
+  "frost": 6
+ },
+ "props": [
+  {
+   "type": "building",
+   "style": "station",
+   "x": 4,
+   "y": 34,
+   "w": 9,
+   "h": 3,
+   "label": "Carlisle Station"
+  },
+  {
+   "type": "buffer_stop",
+   "x": 17,
+   "y": 38
+  },
+  {
+   "type": "building",
+   "style": "castle_red",
+   "x": 6,
+   "y": 6,
+   "w": 14,
+   "h": 6,
+   "label": "Carlisle Castle",
+   "kind": "castle"
+  },
+  {
+   "type": "building",
+   "style": "red_sandstone",
+   "x": 21,
+   "y": 15,
+   "w": 7,
+   "h": 4,
+   "label": "Tullie House Museum",
+   "kind": "museum"
+  },
+  {
+   "type": "building",
+   "style": "cathedral",
+   "x": 36,
+   "y": 14,
+   "w": 9,
+   "h": 5,
+   "label": "Carlisle Cathedral",
+   "kind": "church"
+  },
+  {
+   "type": "building",
+   "style": "tudor",
+   "x": 48,
+   "y": 18,
+   "w": 5,
+   "h": 3,
+   "label": "The Guildhall",
+   "kind": "museum"
+  },
+  {
+   "type": "building",
+   "style": "red_sandstone",
+   "x": 41,
+   "y": 26,
+   "w": 6,
+   "h": 4,
+   "label": "State Pub",
+   "kind": "cafe"
+  },
+  {
+   "type": "building",
+   "style": "mill",
+   "x": 50,
+   "y": 25,
+   "w": 8,
+   "h": 5,
+   "label": "Carr's Biscuit Works",
+   "kind": "mill"
+  },
+  {
+   "type": "building",
+   "style": "red_sandstone",
+   "x": 8,
+   "y": 27,
+   "w": 6,
+   "h": 3,
+   "kind": "cottage"
+  },
+  {
+   "type": "building",
+   "style": "red_sandstone",
+   "x": 16,
+   "y": 27,
+   "w": 6,
+   "h": 3,
+   "kind": "cottage"
+  },
+  {
+   "type": "building",
+   "style": "sanctuary",
+   "x": 40,
+   "y": 36,
+   "w": 6,
+   "h": 4,
+   "label": "Sanctuary"
+  },
+  {
+   "type": "building",
+   "style": "shop",
+   "x": 48,
+   "y": 36,
+   "w": 5,
+   "h": 4,
+   "label": "Corner Shop"
+  },
+  {
+   "type": "building",
+   "style": "round_tower",
+   "x": 25,
+   "y": 33,
+   "w": 3,
+   "h": 3,
+   "label": "The Citadel"
+  },
+  {
+   "type": "building",
+   "style": "round_tower",
+   "x": 35,
+   "y": 33,
+   "w": 3,
+   "h": 3
+  },
+  {
+   "type": "lamp_post",
+   "x": 28,
+   "y": 15
+  },
+  {
+   "type": "lamp_post",
+   "x": 34,
+   "y": 15
+  },
+  {
+   "type": "lamp_post",
+   "x": 28,
+   "y": 24
+  },
+  {
+   "type": "lamp_post",
+   "x": 34,
+   "y": 24
+  },
+  {
+   "type": "lamp_post",
+   "x": 28,
+   "y": 35
+  },
+  {
+   "type": "lamp_post",
+   "x": 34,
+   "y": 35
+  },
+  {
+   "type": "lamp_post",
+   "x": 28,
+   "y": 42
+  },
+  {
+   "type": "lamp_post",
+   "x": 34,
+   "y": 42
+  },
+  {
+   "type": "bench",
+   "x": 30,
+   "y": 28
+  },
+  {
+   "type": "bench",
+   "x": 32,
+   "y": 28
+  },
+  {
+   "type": "planter",
+   "x": 24,
+   "y": 23
+  },
+  {
+   "type": "planter",
+   "x": 38,
+   "y": 23
+  },
+  {
+   "type": "post_box",
+   "x": 28,
+   "y": 22
+  },
+  {
+   "type": "phone_box",
+   "x": 34,
+   "y": 31
+  },
+  {
+   "type": "market_stall",
+   "x": 26,
+   "y": 25
+  },
+  {
+   "type": "market_stall",
+   "x": 28,
+   "y": 25
+  },
+  {
+   "type": "market_stall",
+   "x": 34,
+   "y": 25
+  },
+  {
+   "type": "market_stall",
+   "x": 36,
+   "y": 25
+  },
+  {
+   "type": "noticeboard",
+   "x": 30,
+   "y": 23
+  },
+  {
+   "type": "flagpole",
+   "x": 12,
+   "y": 13
+  },
+  {
+   "type": "flagpole",
+   "x": 14,
+   "y": 13
+  },
+  {
+   "type": "bunting",
+   "x": 30,
+   "y": 21,
+   "variant": 3,
+   "walk": true
+  },
+  {
+   "type": "bench",
+   "x": 17,
+   "y": 37
+  },
+  {
+   "type": "bench",
+   "x": 22,
+   "y": 20
+  },
+  {
+   "type": "lamp_post",
+   "x": 41,
+   "y": 20
+  },
+  {
+   "type": "lamp_post",
+   "x": 46,
+   "y": 20
+  },
+  {
+   "type": "planter",
+   "x": 36,
+   "y": 20
+  },
+  {
+   "type": "planter",
+   "x": 44,
+   "y": 20
+  },
+  {
+   "type": "lamp_post",
+   "x": 10,
+   "y": 31
+  },
+  {
+   "type": "lamp_post",
+   "x": 52,
+   "y": 31
+  },
+  {
+   "type": "bollard",
+   "x": 24,
+   "y": 12
+  },
+  {
+   "type": "bollard",
+   "x": 28,
+   "y": 12
+  },
+  {
+   "type": "boat",
+   "x": 20,
+   "y": 3,
+   "variant": 1
+  },
+  {
+   "type": "boat",
+   "x": 44,
+   "y": 3,
+   "variant": 0
+  },
+  {
+   "type": "buoy",
+   "x": 33,
+   "y": 3
+  },
+  {
+   "type": "hanging_basket",
+   "x": 42,
+   "y": 25,
+   "rot": 180,
+   "walk": true
+  },
+  {
+   "type": "hanging_basket",
+   "x": 46,
+   "y": 25,
+   "rot": 180,
+   "walk": true
+  },
+  {
+   "type": "standing_stone",
+   "x": 12,
+   "y": 16,
+   "variant": 0
+  },
+  {
+   "type": "statue",
+   "x": 31,
+   "y": 14
+  },
+  {
+   "type": "bench",
+   "x": 14,
+   "y": 20
+  }
+ ],
+ "warps": [
+  {
+   "x": 8,
+   "y": 36,
+   "to": "carlisle_station",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 13,
+   "y": 11,
+   "to": "carlisle_castle",
+   "tx": 6,
+   "ty": 8,
+   "facing": "up"
+  },
+  {
+   "x": 24,
+   "y": 18,
+   "to": "carlisle_tullie",
+   "tx": 6,
+   "ty": 8,
+   "facing": "up"
+  },
+  {
+   "x": 40,
+   "y": 18,
+   "to": "carlisle_cathedral",
+   "tx": 6,
+   "ty": 9,
+   "facing": "up"
+  },
+  {
+   "x": 50,
+   "y": 20,
+   "to": "carlisle_guildhall",
+   "tx": 5,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 44,
+   "y": 29,
+   "to": "carlisle_statepub",
+   "tx": 5,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 54,
+   "y": 29,
+   "to": "carlisle_carrs",
+   "tx": 6,
+   "ty": 8,
+   "facing": "up"
+  },
+  {
+   "x": 11,
+   "y": 29,
+   "to": "carlisle_home_armstrong",
+   "tx": 4,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 19,
+   "y": 29,
+   "to": "carlisle_home_graham",
+   "tx": 4,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 43,
+   "y": 39,
+   "to": "carlisle_sanctuary",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 50,
+   "y": 39,
+   "to": "carlisle_shop",
+   "tx": 4,
+   "ty": 5,
+   "facing": "up"
+  }
+ ],
+ "edges": {
+  "south": {
+   "to": "keswick",
+   "offset": 23
+  }
+ },
+ "npcs": [
+  {
+   "id": "rail_guard",
+   "sprite": "rail_guard",
+   "x": 15,
+   "y": 37,
+   "facing": "left",
+   "move": "still",
+   "script": "rail_guard"
+  },
+  {
+   "id": "carl_guide",
+   "sprite": "tour_guide",
+   "x": 11,
+   "y": 13,
+   "facing": "down",
+   "move": "still",
+   "script": "carl_guide"
+  },
+  {
+   "id": "carl_reader",
+   "sprite": "student",
+   "x": 12,
+   "y": 19,
+   "facing": "up",
+   "move": "still",
+   "script": "carl_reader"
+  },
+  {
+   "id": "carl_mason",
+   "sprite": "villager_3",
+   "x": 31,
+   "y": 26,
+   "facing": "left",
+   "move": "wander",
+   "script": "carl_mason",
+   "radius": 1
+  },
+  {
+   "id": "carl_shepherd",
+   "sprite": "farmer",
+   "x": 8,
+   "y": 43,
+   "facing": "right",
+   "move": "still",
+   "script": "carl_shepherd"
+  },
+  {
+   "id": "carl_armstrong_npc",
+   "sprite": "ravenmaster",
+   "x": 20,
+   "y": 22,
+   "facing": "down",
+   "move": "still",
+   "script": "carl_armstrong"
+  },
+  {
+   "id": "carl_reenactor_t",
+   "sprite": "warden_grunt",
+   "x": 31,
+   "y": 17,
+   "facing": "down",
+   "move": "still",
+   "trainer": "carl_reenactor"
+  },
+  {
+   "id": "carl_railfan_t",
+   "sprite": "commuter",
+   "x": 22,
+   "y": 37,
+   "facing": "right",
+   "move": "still",
+   "trainer": "carl_railfan"
+  },
+  {
+   "id": "carl_packer_t",
+   "sprite": "villager_4",
+   "x": 54,
+   "y": 33,
+   "facing": "left",
+   "move": "still",
+   "trainer": "carl_packer"
+  },
+  {
+   "id": "carl_chorister_t",
+   "sprite": "choir_singer",
+   "x": 41,
+   "y": 21,
+   "facing": "down",
+   "move": "still",
+   "trainer": "carl_chorister"
+  },
+  {
+   "id": "carl_angler_t",
+   "sprite": "angler",
+   "x": 50,
+   "y": 4,
+   "facing": "down",
+   "move": "still",
+   "trainer": "carl_angler"
+  },
+  {
+   "id": "carl_wall_t",
+   "sprite": "hiker",
+   "x": 52,
+   "y": 43,
+   "facing": "left",
+   "move": "still",
+   "trainer": "carl_walker"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "reivling",
+    "min": 87,
+    "max": 88,
+    "weight": 14,
+    "time": [
+     "dusk",
+     "night"
+    ]
+   },
+   {
+    "species": "reivling",
+    "min": 87,
+    "max": 87,
+    "weight": 6,
+    "time": [
+     "dawn",
+     "day"
+    ]
+   },
+   {
+    "species": "reiver",
+    "min": 87,
+    "max": 88,
+    "weight": 4,
+    "time": [
+     "night"
+    ]
+   },
+   {
+    "species": "legionette",
+    "min": 87,
+    "max": 88,
+    "weight": 10,
+    "time": [
+     "night",
+     "dusk"
+    ]
+   },
+   {
+    "species": "railspark",
+    "min": 87,
+    "max": 88,
+    "weight": 10
+   },
+   {
+    "species": "binfox",
+    "min": 87,
+    "max": 88,
+    "weight": 10,
+    "time": [
+     "night",
+     "dusk"
+    ]
+   },
+   {
+    "species": "strutcoo",
+    "min": 87,
+    "max": 87,
+    "weight": 10,
+    "time": [
+     "day",
+     "dawn"
+    ]
+   },
+   {
+    "species": "midgie",
+    "min": 87,
+    "max": 87,
+    "weight": 8,
+    "time": [
+     "dusk",
+     "dawn"
+    ]
+   },
+   {
+    "species": "herdlet",
+    "min": 87,
+    "max": 88,
+    "weight": 10
+   },
+   {
+    "species": "redbreast",
+    "min": 87,
+    "max": 87,
+    "weight": 8,
+    "time": [
+     "day"
+    ]
+   },
+   {
+    "species": "hootlet",
+    "min": 87,
+    "max": 88,
+    "weight": 8,
+    "time": [
+     "night"
+    ]
+   }
+  ],
+  "water": [
+   {
+    "species": "bradan",
+    "min": 87,
+    "max": 88,
+    "weight": 20
+   },
+   {
+    "species": "ratty",
+    "min": 87,
+    "max": 88,
+    "weight": 14
+   },
+   {
+    "species": "dipling",
+    "min": 87,
+    "max": 88,
+    "weight": 12
+   },
+   {
+    "species": "cranelet",
+    "min": 87,
+    "max": 88,
+    "weight": 10
+   },
+   {
+    "species": "ospret",
+    "min": 87,
+    "max": 88,
+    "weight": 8,
+    "time": [
+     "day"
+    ]
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 13,
+   "y": 18,
+   "text": "THE CURSING STONE. A 14-tonne granite slab, carved in 2001, with words from the curse of 1525 that the Archbishop of Glasgow, Gavin Dunbar, laid on the Border reivers: 'I curse their head and all the hairs of their head; I curse their face, their brain...' and on down to the toes. The curse was 1,500 words long. They were thorough.",
+   "plaque": "carlisle_cursing_stone",
+   "title": "The Cursing Stone"
+  },
+  {
+   "x": 14,
+   "y": 14,
+   "text": "CARLISLE CASTLE. Begun in 1092 by William Rufus, and still standing, mostly. Mary, Queen of Scots, was held here in 1568 after fleeing Scotland, and the rest of her story did not go well. Border reivers, Jacobites and a great many sheep have since passed through the gate.",
+   "plaque": "carlisle_castle",
+   "title": "Carlisle Castle"
+  },
+  {
+   "x": 22,
+   "y": 21,
+   "text": "TULLIE HOUSE. A Jacobean town house with a modern gallery bolted on, and a museum of the Roman frontier and the Border reivers. Come for the helmets and the Roman cavalry sports kit, stay for the stories nobody could print in 1600.",
+   "plaque": "carlisle_tullie",
+   "title": "Tullie House"
+  },
+  {
+   "x": 37,
+   "y": 20,
+   "text": "CARLISLE CATHEDRAL. Founded in 1122 and the second smallest of England's ancient cathedrals, because most of the nave went to mend the castle in the 1640s. What is left has a painted blue ceiling with gold stars, a splendid east window and a feeling of having survived on purpose.",
+   "plaque": "carlisle_cathedral",
+   "title": "Carlisle Cathedral"
+  },
+  {
+   "x": 47,
+   "y": 21,
+   "text": "THE GUILDHALL. A timber building of about 1407, once the meeting place of the city's eight trade guilds: merchants, smiths, butchers and so on. It has been many things since, and is now a museum, which is the least scary of them.",
+   "plaque": "carlisle_guildhall",
+   "title": "The Guildhall"
+  },
+  {
+   "x": 24,
+   "y": 36,
+   "text": "THE CITADEL. These two round towers were built in about 1810 as the city's courts, on the site of the fortified citadel that Henry VIII had put up. Together with the railway station, they make an entrance to Carlisle that says: 'We have been defended before.'",
+   "plaque": "carlisle_citadel",
+   "title": "The Citadel"
+  },
+  {
+   "x": 56,
+   "y": 31,
+   "text": "CARR'S OF CARLISLE. Jonathan Dodgson Carr, a Quaker from Kendal, opened a bakery here in 1831 and made biscuits for the nation. The Table Water biscuit, which is crisp, plain and cheese-shaped in intent, is still baked in the city.",
+   "plaque": "carlisle_carrs",
+   "title": "Carr's of Carlisle"
+  },
+  {
+   "x": 14,
+   "y": 36,
+   "text": "THE SETTLE-CARLISLE RAILWAY. 72 miles of main line over the Pennines, finished in 1876 by thousands of navvies with picks, shovels and gunpowder. It has tunnels, a score of viaducts, the highest main-line station in England and a famous habit of being nearly closed and then not.",
+   "plaque": "carlisle_settle",
+   "title": "Settle-Carlisle Railway"
+  },
+  {
+   "x": 56,
+   "y": 4,
+   "text": "HADRIAN'S WALL. The Roman frontier, begun in AD 122, ran from Wallsend on the Tyne to Bowness-on-Solway, west of here on the Solway Firth. Carlisle was the Roman fort of Luguvalium. Eighty Roman miles of wall, and nobody ever got the Scots to pay for it.",
+   "plaque": "carlisle_wall",
+   "title": "Hadrian's Wall, west end"
+  },
+  {
+   "x": 43,
+   "y": 30,
+   "text": "THE STATE PUBS. In 1916 the government bought Carlisle's pubs and breweries outright, to keep munitions workers at nearby Gretna sober and productive. The 'State Management Scheme' ran the pubs for more than fifty years. Beer, in this city, was once a branch of the civil service.",
+   "plaque": "carlisle_state",
+   "title": "The State Pubs"
+  },
+  {
+   "x": 30,
+   "y": 27,
+   "text": "RED STONE. Look at the walls: Carlisle's cathedral, castle and half its houses are built from red sandstone, laid down about 250 million years ago when this part of the world was a desert. It turns a deeper red in the rain. It rains a lot.",
+   "plaque": "carlisle_red_stone",
+   "title": "Red Stone"
+  },
+  {
+   "x": 8,
+   "y": 44,
+   "text": "THE DEBATABLE LAND. Just north of here lay a strip of country, between the Esk and the Sark, that neither England nor Scotland would own. It was home to reiver families until the two kingdoms divided it in 1552. It had a name for being a place with no law at all.",
+   "plaque": "carlisle_debatable",
+   "title": "The Debatable Land"
+  },
+  {
+   "x": 31,
+   "y": 47,
+   "text": "CARLISLE, CITY OF THE BORDER. Welcome. South: Keswick and the lakes. Ahead: the castle, the cathedral, the market and a very reasonable cup of tea. Reivers, please queue at the Cursing Stone."
+  }
+ ],
+ "spawn": [
+  31,
+  45
+ ],
+ "rows": [
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TT",
+  "TT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TT",
+  "TT............................................................TT",
+  "TT....................,,,,,,,,,,,,,.fffffffff.,,,,,,,,,,,,,...TT",
+  "TT....BBBBBBBBBBBBBB..,,,,,,,,,,,,,.fffffffff.,,,,,,,,,,,,,...TT",
+  "TT....BBBBBBBBBBBBBB..,,,,,,,,,,,,,...........,,,,,,,,,,,,,...TT",
+  "TT....BBBBBBBBBBBBBB..,,,,,,,,,,,,,...........,,,,,,,,,,,,,...TT",
+  "TT....BBBBBBBBBBBBBB..,,,,,,,,,,,,,...........,,,,,,,,,,,,,...TT",
+  "TT....BBBBBBBBBBBBBB..........................................TT",
+  "TT....BBBBBBBDBBBBBB..........................................TT",
+  "TT.ff.::::::::::::::::::::::::::::............................TT",
+  "TT.ff.::::::::::::::::::::::::::::............................TT",
+  "TT....................ffffff.:::::..BBBBBBBBB.................TT",
+  "TT.......:::::::.....BBBBBBB.:::::..BBBBBBBBB.................TT",
+  "TT.......:::::::.....BBBBBBB.:::::..BBBBBBBBB.................TT",
+  "TT.......:::::::.....BBBBBBB.:::::..BBBBBBBBB.................TT",
+  "TT.......:::::::.....BBBDBBB.:::::..BBBBDBBBB...BBBBB.........TT",
+  "TT.......::::::::::::::::::::::::::::::::::::::.BBBBB.........TT",
+  "TT.......::::::::::::::::::::::::::::::::::::::.BBDBB.........TT",
+  "TT...::::::::::::::::::::::::::::::::::::::::::::::::::::::...TT",
+  "TT...::::::::::::::::::::::::::::::::::::::::::::::::::::::...TT",
+  "TT......................:::::::::::::::.......................TT",
+  "TT.TTTTT................:::::::::::::::...................TTT.TT",
+  "TT.TTTTT................:::::::::::::::...........BBBBBBBBTTT.TT",
+  "TT.TTTTT................:::::::::::::::..BBBBBB...BBBBBBBBTTT.TT",
+  "TT.TTTTTBBBBBB..BBBBBB..:::::::::::::::..BBBBBB...BBBBBBBBTTT.TT",
+  "TT.TTTTTBBBBBB..BBBBBB..:::::::::::::::..BBBBBB...BBBBBBBBTTT.TT",
+  "TT.TTTTTBBBDBB..BBBDBB..:::::::::::::::..BBBDBB...BBBBDBBBTTT.TT",
+  "TT......................:::::::::::::::...................TTT.TT",
+  "TT...::::::::::::::::::::::::::::::::::::::::::::::::::::::...TT",
+  "TT...::::::::::::::::::::::::::::::::::::::::::::::::::::::...TT",
+  "TT.......................BBB.:::::.BBB........................TT",
+  "TT.TBBBBBBBBB............BBB.:::::.BBB.....................TT.TT",
+  "TT.TBBBBBBBBB............BBB.:::::.BBB.....................TT.TT",
+  "TT.TBBBBDBBBB................:::::......BBBBBB..BBBBB......TT.TT",
+  "TT._______________::::::::::::::::......BBBBBB..BBBBB......TT.TT",
+  "!!!!!!!!!!!!!!!!!.::::::::::::::::......BBBBBB..BBBBB......TT.TT",
+  "TT.T.........................:::::......BBBDBB..BBDBB......TT.TT",
+  "TT.T..................TTTTT..:::::..TTT....................TT.TT",
+  "TT.,,,,,,,,,,,,.......TTTTT..:::::..TTT........,,,,,,,,,,,,,..TT",
+  "TT.,,,,,,,,,,,,.......TTTTT..:::::..TTT........,,,,,,,,,,,,,..TT",
+  "TT.,,,,,,,,,,,,.......TTTTT..:::::..TTT........,,,,,,,,,,,,,..TT",
+  "TT.,,,,,,,,,,,,.......TTTTT..:::TT..TTT........,,,,,,,,,,,,,..TT",
+  "TT.,,,,,,,,,,,,.......TTTTT..:::TT..TTT........,,,,,,,,,,,,,..TT",
+  "TT.,,,,,,,,,,,,.......TTTTT..:::TT..TTT........,,,,,,,,,,,,,..TT",
+  "TT....................TTTTT..:::TT............................TT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTT:::TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTT:::TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT"
+ ],
+ "station": {
+  "x": 8,
+  "y": 37
+ },
+ "scaled_floor": 87,
+ "stage": "city",
+ "town_id": "carlisle",
+ "heights": [
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000"
+ ]
+}

@@ -1,0 +1,116 @@
+{
+ "id": "carlisle_carrs",
+ "name": "Carr's Biscuit Works",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "steel_plates",
+   "x": 2,
+   "y": 2
+  },
+  {
+   "type": "steel_plates",
+   "x": 4,
+   "y": 2
+  },
+  {
+   "type": "steel_plates",
+   "x": 8,
+   "y": 2
+  },
+  {
+   "type": "steel_plates",
+   "x": 10,
+   "y": 2
+  },
+  {
+   "type": "craft_bench",
+   "x": 6,
+   "y": 3
+  },
+  {
+   "type": "kitchen_dresser",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "tea_urn",
+   "x": 11,
+   "y": 1
+  },
+  {
+   "type": "table",
+   "x": 3,
+   "y": 6
+  },
+  {
+   "type": "table",
+   "x": 9,
+   "y": 6
+  },
+  {
+   "type": "menu_board",
+   "x": 6,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "clock",
+   "x": 8,
+   "y": 1,
+   "walk": true
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 9,
+   "to": "carlisle",
+   "tx": 54,
+   "ty": 30,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "carrs_manager",
+   "sprite": "shopkeeper",
+   "x": 6,
+   "y": 4,
+   "facing": "down",
+   "move": "still",
+   "script": "carrs_manager"
+  },
+  {
+   "id": "carrs_baker",
+   "sprite": "villager_2",
+   "x": 11,
+   "y": 4,
+   "facing": "left",
+   "move": "still",
+   "script": "carrs_baker"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  6,
+  8
+ ],
+ "rows": [
+  "xxxxxxxxxxxxx",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x||||CCC||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "xxxxxxDxxxxxx"
+ ]
+}

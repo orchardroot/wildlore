@@ -1,0 +1,110 @@
+{
+ "cornet": [
+  {
+   "do": "if",
+   "flag": "q_borders_ride_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Cornet",
+     "text": "Best riding in years. You've ridden the marches with me, and the town will remember. Come back next June and bring a horse."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_borders_ride_4",
+     "then": [
+      {
+       "do": "say",
+       "who": "Cornet",
+       "text": "You've ridden all three marches and fought off a rival of the next town? Magnificent! I'll tell the town. The colours go back to the Provost on the day. Here's a sash of the Cornet's own, for services to the town."
+      },
+      {
+       "do": "give_item",
+       "item": "cornets_sash"
+      },
+      {
+       "do": "standing",
+       "nation": "scotland",
+       "amount": 3
+      },
+      {
+       "do": "set",
+       "flag": "q_borders_ride_done"
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_borders_ride_started",
+       "then": [
+        {
+         "do": "say",
+         "who": "Cornet",
+         "text": "Have you the colours from Ma Haig? The marches are at Scott's View, the Ford and the Eildon Gate. Ride them in that order. The rest is horses."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Cornet",
+         "text": "Och, you've arrived at last. I'm the Cornet this year, chosen by the town to carry the standard at the Common Riding. It's the greatest honour a young man in the Borders can have, and I've lost my colours."
+        },
+        {
+         "do": "say",
+         "who": "Cornet",
+         "text": "We 'ride the marches': the old boundaries of the town's common land, to check that no neighbour has shifted a stone. It's an old custom, going back to the days of the reivers. Would you ride them for me? I'm needed here, with the horses."
+        },
+        {
+         "do": "choice",
+         "text": "Ride the Common Riding?",
+         "options": [
+          "Aye, I'll ride",
+          "Not just now"
+         ],
+         "set": "_t_ride"
+        },
+        {
+         "do": "if",
+         "flag": "_t_ride",
+         "eq": 0,
+         "then": [
+          {
+           "do": "say",
+           "who": "Cornet",
+           "text": "Grand. Ma Haig at the bakehouse has the colours. Then the three marches: Scott's View, the Ford and the Eildon Gate. There's a steward at each. Watch for riders from the next town."
+          },
+          {
+           "do": "set",
+           "flag": "q_borders_ride_started"
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Cornet",
+           "text": "Och, well. The horses are in no hurry."
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "stable_lass": [
+  {
+   "do": "say",
+   "who": "Stable Lass",
+   "text": "The Cornet gets all the glory, but it's the horses that do the work. Each rider polishes the tack for a week, plaits the mane and puts their best coat on. The horse just wants an apple."
+  },
+  {
+   "do": "say",
+   "who": "Stable Lass",
+   "text": "At Hawick, the Common Riding celebrates the young men who captured an English flag at Hornshole in 1514, a year after Flodden. At Selkirk, they cast the colours in memory of the soldiers who didn't come home. It's a very serious fun day."
+  }
+ ]
+}

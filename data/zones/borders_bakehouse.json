@@ -1,0 +1,94 @@
+{
+ "id": "borders_bakehouse",
+ "name": "Ma Haig's Bakehouse",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "kitchen_dresser",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "table",
+   "x": 8,
+   "y": 4
+  },
+  {
+   "type": "table",
+   "x": 8,
+   "y": 6
+  },
+  {
+   "type": "tea_urn",
+   "x": 9,
+   "y": 1
+  },
+  {
+   "type": "menu_board",
+   "x": 5,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 6
+  },
+  {
+   "type": "clock",
+   "x": 3,
+   "y": 1,
+   "walk": true
+  }
+ ],
+ "warps": [
+  {
+   "x": 5,
+   "y": 7,
+   "to": "scottish_borders",
+   "tx": 26,
+   "ty": 12,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "ma_haig",
+   "sprite": "shopkeeper",
+   "x": 3,
+   "y": 2,
+   "facing": "down",
+   "move": "still",
+   "script": "ma_haig"
+  },
+  {
+   "id": "gran_haig",
+   "sprite": "villager_5",
+   "x": 8,
+   "y": 3,
+   "facing": "left",
+   "move": "still",
+   "script": "gran_haig"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  5,
+  6
+ ],
+ "rows": [
+  "xxxxxxxxxxx",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|CCCCC|||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "xxxxxDxxxxx"
+ ]
+}

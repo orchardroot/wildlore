@@ -1,0 +1,55 @@
+{
+ "pub_landlady": [
+  {
+   "do": "say",
+   "who": "Landlady",
+   "text": "Welcome to the State Pub, pet. It's a funny old place. The government bought up every pub and brewery in Carlisle in 1916, to stop the munitions girls and lads at Gretna fighting over a shift pint. They ran them until 1971."
+  },
+  {
+   "do": "say",
+   "who": "Landlady",
+   "text": "Plain rooms, plain furniture and a rule that you couldn't be served 'treat' rounds. They wanted people drinking sensibly. It was the only English pub scheme run by a Ministry."
+  },
+  {
+   "do": "choice",
+   "text": "Fancy a quiz?",
+   "options": [
+    "Go on, then",
+    "Not tonight"
+   ],
+   "set": "_t_quiz"
+  },
+  {
+   "do": "if",
+   "flag": "_t_quiz",
+   "eq": 0,
+   "then": [
+    {
+     "do": "quiz",
+     "pub": "carlisle",
+     "region": "england_north",
+     "who": "Landlady"
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Landlady",
+     "text": "Another time. The questions aren't going anywhere, and neither is the carpet."
+    }
+   ]
+  }
+ ],
+ "pub_regular": [
+  {
+   "do": "say",
+   "who": "Regular",
+   "text": "Cumberland sausage is a local pride, coiled in a ring and sold by the length, and it has its own protected name. I like the ring."
+  },
+  {
+   "do": "say",
+   "who": "Regular",
+   "text": "Don't cut it into links. It's meant to be eaten in the coil, like a bicycle chain, only better for you."
+  }
+ ]
+}

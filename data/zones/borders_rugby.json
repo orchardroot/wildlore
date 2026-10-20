@@ -1,0 +1,107 @@
+{
+ "id": "borders_rugby",
+ "name": "Melrose Rugby Club",
+ "region": "",
+ "kind": "interior",
+ "music": "pub",
+ "weather": {},
+ "props": [
+  {
+   "type": "trophy_shelf",
+   "x": 2,
+   "y": 1
+  },
+  {
+   "type": "trophy_shelf",
+   "x": 10,
+   "y": 1
+  },
+  {
+   "type": "wall_picture",
+   "x": 4,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  },
+  {
+   "type": "wall_picture",
+   "x": 8,
+   "y": 1,
+   "walk": true,
+   "variant": 2
+  },
+  {
+   "type": "table",
+   "x": 3,
+   "y": 5
+  },
+  {
+   "type": "table",
+   "x": 9,
+   "y": 5
+  },
+  {
+   "type": "bench",
+   "x": 3,
+   "y": 6
+  },
+  {
+   "type": "bench",
+   "x": 9,
+   "y": 6
+  },
+  {
+   "type": "fireplace",
+   "x": 6,
+   "y": 1
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 8,
+   "to": "scottish_borders",
+   "tx": 47,
+   "ty": 19,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "rugby_historian",
+   "sprite": "rugby_player",
+   "x": 3,
+   "y": 3,
+   "facing": "right",
+   "move": "still",
+   "script": "rugby_historian"
+  },
+  {
+   "id": "rugby_landlord",
+   "sprite": "villager_1",
+   "x": 6,
+   "y": 2,
+   "facing": "down",
+   "move": "still",
+   "script": "rugby_landlord"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  6,
+  7
+ ],
+ "rows": [
+  "xxxxxxxxxxxxx",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||CCCCC|||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "xxxxxxDxxxxxx"
+ ]
+}
