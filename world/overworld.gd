@@ -208,6 +208,7 @@ func _build_zone_node() -> void:
 	Seasonal.dress(zone, _zone_node, player)  # festivals and falling leaves from the real date
 	Forage.dress(zone, _zone_node, Game.data)  # hedgerow pickings and crafting benches
 	HomeBase.dress(zone, _zone_node, Game.data)  # Mum's trophy shelf, the garden and its visitors
+	HomeExtrasScene.dress(zone, _zone_node, Game.data)  # souvenir shelves, plaque boards, bird table, bug hotel, pond
 	Noticeboard.dress(zone, _zone_node)  # the parish noticeboard (jobs)
 	RewildScene.dress(zone, _zone_node, Game.data)  # rewilding sites: stumps, saplings, pools, marked spots
 	ShowRing.dress(zone, _zone_node, Game.data)  # today's County Show, if it's here
@@ -421,6 +422,8 @@ func interact(p: Vector2i) -> void:
 	if await Forage.interact(self, p):  # a forage prop or a crafting bench
 		return
 	if await HomeBase.interact(self, p):  # the trophy shelf, a garden plot or a visitor
+		return
+	if await HomeExtrasScene.interact(self, p):  # souvenirs, plaque boards, garden visitors
 		return
 	if await Noticeboard.interact(self, p):
 		return
