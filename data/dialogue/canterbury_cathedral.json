@@ -1,0 +1,138 @@
+{
+ "archivist": [
+  {
+   "do": "if",
+   "flag": "q_southeast_becket_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Archivist",
+     "text": "The exhibition's open. The ampulla, the badge, Grim's account. Becket would be mortified. Pilgrims are delighted."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_southeast_becket_3",
+     "then": [
+      {
+       "do": "say",
+       "who": "Archivist",
+       "text": "The badge from the Westgate! And you've stood at the Martyrdom and met Brother Edward in the crypt. That's the whole story, start to finish."
+      },
+      {
+       "do": "say",
+       "who": "Archivist",
+       "text": "Please take this: a pilgrim's ampulla, a replica, but filled from the cathedral well. Pilgrims swore by them. I'm not allowed to swear, but it can't hurt."
+      },
+      {
+       "do": "give_item",
+       "item": "canterbury_ampulla",
+       "n": 1
+      },
+      {
+       "do": "standing",
+       "nation": "england",
+       "amount": 3
+      },
+      {
+       "do": "set",
+       "flag": "q_southeast_becket_done",
+       "value": true
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_southeast_becket_started",
+       "then": [
+        {
+         "do": "say",
+         "who": "Archivist",
+         "text": "Stand where Becket fell, at the Martyrdom just over there, then go down to the crypt where he was first buried. Then the Westgate museum has a badge for us."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Archivist",
+         "text": "{greeting} I'm putting together an exhibition on Becket for the pilgrims. I need someone to walk the story with me."
+        },
+        {
+         "do": "say",
+         "who": "Archivist",
+         "text": "Start at the Martyrdom, the corner of the north-west transept where he was killed. The verger there knows it best. Then the crypt, where the monks buried him in a hurry that night. Then the Westgate museum, who are lending us a pilgrim badge."
+        },
+        {
+         "do": "set",
+         "flag": "q_southeast_becket_started",
+         "value": true
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "martyr_verger": [
+  {
+   "do": "if",
+   "flag": "q_southeast_becket_1",
+   "then": [
+    {
+     "do": "say",
+     "who": "Verger",
+     "text": "Altar of the Sword's Point. Just a stone, a candle, and the shadow of three swords on the wall. It's enough."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_southeast_becket_started",
+     "then": [
+      {
+       "do": "say",
+       "who": "Verger",
+       "text": "This is the Martyrdom. On 29 December 1170, at dusk, four knights came in from the cloister: Reginald FitzUrse, Hugh de Morville, William de Tracy and Richard le Breton."
+      },
+      {
+       "do": "say",
+       "who": "Verger",
+       "text": "Becket refused to run. He told them he was ready to die. One sword blow broke on the stone floor here, and its point snapped off. The monks kept it as a relic: the Sword's Point."
+      },
+      {
+       "do": "say",
+       "who": "Verger",
+       "text": "Henry II was horrified when he heard, or said he was. Four years later he walked barefoot through Canterbury and let the monks whip him at the tomb."
+      },
+      {
+       "do": "set",
+       "flag": "q_southeast_becket_1",
+       "value": true
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Verger",
+       "text": "This is the Martyrdom, where Thomas Becket died. Please be quiet here. People still come to light a candle."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "cat_windows": [
+  {
+   "do": "say",
+   "who": "Glass Restorer",
+   "text": "The Miracle Windows in the Trinity Chapel show the cures at Becket's tomb, made in the early 1200s. We clean them with cotton buds. One square inch at a time. I'll be done in 2090."
+  },
+  {
+   "do": "say",
+   "who": "Glass Restorer",
+   "text": "There's a single candle burning in the Trinity Chapel, on the spot where the gold shrine stood until Henry VIII had it smashed and carted away. It took twenty-six carts, they say."
+  }
+ ]
+}

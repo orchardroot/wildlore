@@ -1,0 +1,63 @@
+{
+ "rock_maker": [
+  {
+   "do": "if",
+   "flag": "q_southeast_mods_3",
+   "then": [
+    {
+     "do": "say",
+     "who": "Rock Maker",
+     "text": "How did the peace talks go? Rock solves most things. Except teeth."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_southeast_mods_2",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_southeast_mods_1",
+       "then": [
+        {
+         "do": "say",
+         "who": "Rock Maker",
+         "text": "A peace offering for the mods and rockers? Two sticks, then: one says MODS all the way through, one says ROCKERS. I made them years ago for a joke. Nobody bought them."
+        },
+        {
+         "do": "say",
+         "who": "Rock Maker",
+         "text": "There you go. Tell them to share."
+        },
+        {
+         "do": "set",
+         "flag": "q_southeast_mods_3",
+         "value": true
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Rock Maker",
+         "text": "Still need the Ace Face to come round? He's on the end of the pier, admiring himself in his mirrors."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Rock Maker",
+       "text": "The words go in at the start, when the rock's a great hot lump the size of a pillow. Then we roll and stretch it until the letters are tiny. A single batch can make a thousand sticks."
+      },
+      {
+       "do": "say",
+       "who": "Rock Maker",
+       "text": "Sugar, glucose, a drop of peppermint, and a lot of elbow. Want one? The shop's through the back."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

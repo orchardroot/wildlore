@@ -1,0 +1,78 @@
+{
+ "grim": [
+  {
+   "do": "if",
+   "flag": "trainer_cb_grim",
+   "then": [
+    {
+     "do": "say",
+     "who": "Brother Edward",
+     "text": "My arm's still sore. Historically speaking."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_southeast_becket_1",
+     "then": [
+      {
+       "do": "say",
+       "who": "Brother Edward",
+       "text": "I play Edward Grim, a monk from Cambridge who happened to be visiting that night. He was the only one who stood by Becket, and a sword nearly took his arm off."
+      },
+      {
+       "do": "say",
+       "who": "Brother Edward",
+       "text": "He wrote what he saw. It's the account everybody uses. Want to know how it felt? Have a go at me. Gently."
+      },
+      {
+       "do": "say",
+       "who": "Brother Edward",
+       "text": "En garde! Well, not really. Monks don't en garde. Defend yourself!"
+      },
+      {
+       "do": "battle",
+       "trainer": "cb_grim"
+      },
+      {
+       "do": "if",
+       "flag": "trainer_cb_grim",
+       "then": [
+        {
+         "do": "set",
+         "flag": "q_southeast_becket_2",
+         "value": true
+        },
+        {
+         "do": "say",
+         "who": "Brother Edward",
+         "text": "That's the spirit. Becket lay in this crypt for fifty years, till his shrine upstairs was ready in 1220. Off you go to the Westgate."
+        }
+       ],
+       "else": []
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Brother Edward",
+       "text": "This crypt is the oldest part of the cathedral, Norman, with carved beasts on the capitals. Becket's first tomb was down here. Henry II did his penance here, on his knees, in 1174."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "crypt_guide": [
+  {
+   "do": "say",
+   "who": "Crypt Guide",
+   "text": "Black Prince's chantry is down here, given by Edward the Black Prince when he married in 1361. He's buried upstairs, by the shrine, with his armour hung above him."
+  },
+  {
+   "do": "say",
+   "who": "Crypt Guide",
+   "text": "The French church still holds a service in this crypt every Sunday, in French, as it has since the Huguenot weavers came."
+  }
+ ]
+}

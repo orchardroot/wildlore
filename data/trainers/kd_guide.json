@@ -1,0 +1,32 @@
+{
+ "id": "kd_guide",
+ "name": "Castle Guide Philippa",
+ "class": "Castle Guide",
+ "sprite": "tour_guide",
+ "party": [
+  {
+   "species": "hushwing",
+   "level": 94
+  },
+  {
+   "species": "centurion",
+   "level": 94
+  },
+  {
+   "species": "lochosprey",
+   "level": 95
+  }
+ ],
+ "ai": "trainer",
+ "money": 4000,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Castle Guide Philippa",
+   "text": "Welcome to Leeds Castle. Yes, it's in Kent. No, I don't know why either. Shall we battle while you get over it?"
+  }
+ ],
+ "win": "Splendid. You can join the black swans for a victory lap.",
+ "after": "Lady Baillie bought the castle in 1926 and filled it with parties and exotic birds. The black swans were hers.",
+ "scaled_floor": 94
+}

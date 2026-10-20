@@ -1,0 +1,50 @@
+{
+ "quizmaster": [
+  {
+   "do": "say",
+   "who": "Quizmaster",
+   "text": "Welcome to the Lanes Tavern quiz! Five questions, no phones, and no asking the gulls."
+  },
+  {
+   "do": "choice",
+   "text": "Fancy a round? Five questions.",
+   "options": [
+    "Go on then",
+    "Not tonight"
+   ],
+   "set": "_quiz_choice"
+  },
+  {
+   "do": "if",
+   "flag": "_quiz_choice",
+   "then": [
+    {
+     "do": "quiz",
+     "pub": "brighton",
+     "region": "england_south",
+     "who": "Quizmaster"
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Quizmaster",
+     "text": "Suit yourself. The crab sandwiches are good, anyway."
+    }
+   ],
+   "eq": 0
+  }
+ ],
+ "tav_local": [
+  {
+   "do": "say",
+   "who": "Local",
+   "text": "Brighton people are 'Brightonians', but Hove people are from 'Hove, actually'. They've been saying it for a century. It's a joke now. Mostly."
+  },
+  {
+   "do": "say",
+   "who": "Local",
+   "text": "Brighton only became a city in 2000, with Hove. Before that we were a town with a palace, a pier and ideas above our station."
+  }
+ ]
+}

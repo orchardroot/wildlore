@@ -1,0 +1,230 @@
+{
+ "sd_skylark_man": [
+  {
+   "do": "say",
+   "who": "Skylark Counter",
+   "text": "Hear that? A skylark, straight up and singing the whole way. They can keep it going for twenty minutes without a breath you can see."
+  },
+  {
+   "do": "say",
+   "who": "Skylark Counter",
+   "text": "Meredith wrote a poem about one, and Vaughan Williams set it to music: The Lark Ascending. Every summer it wins a poll. Every summer the lark ignores it."
+  }
+ ],
+ "sd_walker": [
+  {
+   "do": "say",
+   "who": "Rambler",
+   "text": "The downs are chalk all the way down: a sea floor, once, made of tiny skeletons. Every footpath up here is white when it rains, and so are your boots."
+  },
+  {
+   "do": "say",
+   "who": "Rambler",
+   "text": "Fancy a sandwich? I've got cheese and pickle, or pickle and cheese. I'm a rambler, not a caterer."
+  }
+ ],
+ "sd_paraglider_watcher": [
+  {
+   "do": "say",
+   "who": "Cliff Walker",
+   "text": "Look down there: the Seven Sisters, all white. Ships used to steer by them. The cliffs are coming towards us at about a foot a year, so I like to visit while there's still a view."
+  }
+ ],
+ "sd_churchwarden": [
+  {
+   "do": "if",
+   "flag": "q_southeast_knucker_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Churchwarden",
+     "text": "You met the knucker and lived! And it ate the pie. I'll write it in the parish book: second knucker, first happy ending."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_southeast_knucker_3",
+     "then": [
+      {
+       "do": "say",
+       "who": "Churchwarden",
+       "text": "The pie's at the edge of the knucker hole. Come back after dark. Bring a snare, and your manners."
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_southeast_knucker_2",
+       "then": [
+        {
+         "do": "say",
+         "who": "Churchwarden",
+         "text": "Flour from Jill, a pie dish from the Lanes. Right, stand back."
+        },
+        {
+         "do": "say",
+         "who": "Churchwarden",
+         "text": "There. Mutton, onion, a good crust, and no poison, because it's not the 1600s and we've all calmed down."
+        },
+        {
+         "do": "say",
+         "who": "Churchwarden",
+         "text": "Leave it by the water and come back at night. Whatever comes up for it, be polite."
+        },
+        {
+         "do": "set",
+         "flag": "q_southeast_knucker_3",
+         "value": true
+        }
+       ],
+       "else": [
+        {
+         "do": "if",
+         "flag": "q_southeast_knucker_started",
+         "then": [
+          {
+           "do": "say",
+           "who": "Churchwarden",
+           "text": "Flour from the miller up at Jack and Jill, and a pie dish big enough for a dragon. The antiques shop in Brighton's Lanes has one, I'm told."
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Churchwarden",
+           "text": "{greeting} That stone in the church is the Slayer's Slab. The tale goes that a dragon, the knucker, lived in that pond and ate the livestock, and the odd person."
+          },
+          {
+           "do": "say",
+           "who": "Churchwarden",
+           "text": "A local lad, Jim Pulk some say, baked an enormous poisoned pie, carted it to the pond, and when the knucker ate it, he cut off its head."
+          },
+          {
+           "do": "say",
+           "who": "Churchwarden",
+           "text": "I've always felt sorry for the knucker. It lived here first. I'd like to make it up to the family, if there are any."
+          },
+          {
+           "do": "say",
+           "who": "Churchwarden",
+           "text": "Help me bake a peace pie? Flour from the miller at Jack and Jill on the Downs, and a pie dish big enough, from the antiques shop in Brighton's Lanes."
+          },
+          {
+           "do": "set",
+           "flag": "q_southeast_knucker_started",
+           "value": true
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "sd_miller": [
+  {
+   "do": "if",
+   "flag": "q_southeast_knucker_1",
+   "then": [
+    {
+     "do": "say",
+     "who": "Miller",
+     "text": "That flour's stone-ground. Wind-ground, really. Jill does the work, I do the sneezing."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_southeast_knucker_started",
+     "then": [
+      {
+       "do": "say",
+       "who": "Miller",
+       "text": "A pie for the knucker? Well, that's the strangest order Jill's had since 1852."
+      },
+      {
+       "do": "say",
+       "who": "Miller",
+       "text": "Here: a sack of wholemeal, ground this morning. Don't let it get wet. You'll have a pie dish full of glue."
+      },
+      {
+       "do": "set",
+       "flag": "q_southeast_knucker_1",
+       "value": true
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Miller",
+       "text": "{greeting} Jill's a post mill: the whole body of the mill turns on one big post to face the wind. You push it round with the tail pole. Some days she pushes back."
+      },
+      {
+       "do": "say",
+       "who": "Miller",
+       "text": "Jack's the brick tower one. Only his cap turns. They're a couple, in the way that windmills can be."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "knucker": [
+  {
+   "do": "when",
+   "cond": "night",
+   "else": [
+    {
+     "do": "say",
+     "who": "",
+     "text": "The pie sits by the still water. Nothing stirs. Knuckers are night creatures; come back after dark."
+    }
+   ],
+   "then": [
+    {
+     "do": "say",
+     "who": "",
+     "text": "The water heaves. Something long and green and very, very old lifts its head, sniffs the pie, and looks straight at you."
+    },
+    {
+     "do": "set",
+     "flag": "q_southeast_knucker_4",
+     "value": true
+    },
+    {
+     "do": "legend",
+     "species": "knucker",
+     "level": 94,
+     "flag": "caught_knucker",
+     "music": "legend"
+    },
+    {
+     "do": "if",
+     "flag": "caught_knucker",
+     "then": [
+      {
+       "do": "set",
+       "flag": "q_southeast_knucker_done",
+       "value": true
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "The knucker settles into your snare like it has been waiting for a good excuse. The pie dish is licked clean."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "The knucker slides back into the bottomless dark. The pie is still there. It'll be back."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

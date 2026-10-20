@@ -1,0 +1,159 @@
+{
+ "quests": [
+  {
+   "id": "southeast_pilgrims",
+   "title": "The Pilgrims' Tales",
+   "region": "south_east",
+   "town": "canterbury",
+   "giver": "Harry the Host",
+   "summary": "Hear Chaucer's pilgrims tell their tales, beat them, and report to the Host of the Chequer of Hope.",
+   "start_flag": "q_southeast_pilgrims_started",
+   "steps": [
+    {
+     "flag": "q_southeast_pilgrims_1",
+     "text": "Hear the Knight's tale on the Pilgrims' Way.",
+     "zone": "kent_downs"
+    },
+    {
+     "flag": "q_southeast_pilgrims_2",
+     "text": "Hear Robin the Miller by the hop farm oast.",
+     "zone": "kent_downs"
+    },
+    {
+     "flag": "q_southeast_pilgrims_3",
+     "text": "Hear the Wife of Bath in the cathedral precincts.",
+     "zone": "canterbury"
+    },
+    {
+     "flag": "q_southeast_pilgrims_4",
+     "text": "Hear the Pardoner by the Westgate.",
+     "zone": "canterbury"
+    },
+    {
+     "flag": "q_southeast_pilgrims_5",
+     "text": "Hear the Nun's Priest down by the Stour.",
+     "zone": "canterbury"
+    }
+   ],
+   "done_flag": "q_southeast_pilgrims_done",
+   "reward": "A free supper: Gypsy Tarts, Kentish Hops and standing in England."
+  },
+  {
+   "id": "southeast_becket",
+   "title": "Becket's Relics",
+   "region": "south_east",
+   "town": "canterbury_cathedral",
+   "giver": "Cathedral Archivist",
+   "summary": "Walk the story of Thomas Becket for the archivist's exhibition.",
+   "start_flag": "q_southeast_becket_started",
+   "steps": [
+    {
+     "flag": "q_southeast_becket_1",
+     "text": "Stand at the Martyrdom and hear the verger's story.",
+     "zone": "canterbury_cathedral"
+    },
+    {
+     "flag": "q_southeast_becket_2",
+     "text": "Meet Brother Edward in the crypt.",
+     "zone": "canterbury_crypt"
+    },
+    {
+     "flag": "q_southeast_becket_3",
+     "text": "Collect a pilgrim badge from the Westgate Towers museum.",
+     "zone": "canterbury_westgate"
+    }
+   ],
+   "done_flag": "q_southeast_becket_done",
+   "reward": "The Canterbury Ampulla charm."
+  },
+  {
+   "id": "southeast_tunnels",
+   "title": "The Secret Tunnels",
+   "region": "south_east",
+   "town": "dover",
+   "giver": "Tunnel Guide",
+   "summary": "Help reopen Admiral Ramsay's operations room in the tunnels under Dover Castle.",
+   "start_flag": "q_southeast_tunnels_started",
+   "steps": [
+    {
+     "flag": "q_southeast_tunnels_1",
+     "text": "Get past the Wren signaller in the tunnels.",
+     "zone": "dover_tunnels"
+    },
+    {
+     "flag": "q_southeast_tunnels_2",
+     "text": "Put Ramsay's map back up in the operations room.",
+     "zone": "dover_tunnels"
+    },
+    {
+     "flag": "q_southeast_tunnels_3",
+     "text": "Take the news to the Harbourmaster at the ferry terminal.",
+     "zone": "dover_terminal"
+    }
+   ],
+   "done_flag": "q_southeast_tunnels_done",
+   "reward": "The Bluebird Brooch charm."
+  },
+  {
+   "id": "southeast_mods",
+   "title": "Mods and Rockers",
+   "region": "south_east",
+   "town": "brighton",
+   "giver": "Rally Organiser",
+   "summary": "Get the mods and the rockers to ride together in the anniversary rally on Madeira Drive.",
+   "start_flag": "q_southeast_mods_started",
+   "steps": [
+    {
+     "flag": "q_southeast_mods_1",
+     "text": "Beat the Ace Face on the end of the Palace Pier.",
+     "zone": "brighton"
+    },
+    {
+     "flag": "q_southeast_mods_2",
+     "text": "Beat Ton-Up Terry on Madeira Drive.",
+     "zone": "brighton"
+    },
+    {
+     "flag": "q_southeast_mods_3",
+     "text": "Fetch a peace offering from the Rock Shop in the Lanes.",
+     "zone": "brighton_rockshop"
+    }
+   ],
+   "done_flag": "q_southeast_mods_done",
+   "reward": "The Mod Target Badge charm and Brighton Rock."
+  },
+  {
+   "id": "southeast_knucker",
+   "title": "The Knucker Pie",
+   "region": "south_east",
+   "town": "south_downs",
+   "giver": "Lyminster Churchwarden",
+   "summary": "Bake a peace pie for the knucker of Lyminster, and meet what comes up for it.",
+   "start_flag": "q_southeast_knucker_started",
+   "steps": [
+    {
+     "flag": "q_southeast_knucker_1",
+     "text": "Get flour from the miller at Jack and Jill.",
+     "zone": "south_downs"
+    },
+    {
+     "flag": "q_southeast_knucker_2",
+     "text": "Find a pie dish at the antiques shop in Brighton's Lanes.",
+     "zone": "brighton_antiques"
+    },
+    {
+     "flag": "q_southeast_knucker_3",
+     "text": "Take them to the churchwarden at Lyminster.",
+     "zone": "south_downs"
+    },
+    {
+     "flag": "q_southeast_knucker_4",
+     "text": "Come back to the knucker hole at night.",
+     "zone": "south_downs"
+    }
+   ],
+   "done_flag": "q_southeast_knucker_done",
+   "reward": "The Knucker itself, if you can catch it."
+  }
+ ]
+}

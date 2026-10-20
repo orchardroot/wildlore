@@ -1,0 +1,156 @@
+{
+ "kd_walker": [
+  {
+   "do": "say",
+   "who": "Walker",
+   "text": "The Pilgrims' Way runs from Winchester all the way to Canterbury. They reckon Chaucer's lot came down from London on Watling Street instead, the A2 now."
+  },
+  {
+   "do": "say",
+   "who": "Walker",
+   "text": "Either way, pilgrims bought souvenir badges at the shrine and wore them home on their hats. People find them in the Thames mud even now."
+  }
+ ],
+ "kd_hop_farmer": [
+  {
+   "do": "say",
+   "who": "Hop Farmer",
+   "text": "Hops are for beer: they make it bitter and help it keep. Before hops, English ale was sweet and went off in days."
+  },
+  {
+   "do": "say",
+   "who": "Hop Farmer",
+   "text": "Every bine goes up its string clockwise. Try to make one go the other way and it'll unwind itself overnight. Stubborn things. Like farmers."
+  }
+ ],
+ "kd_cobnut_seller": [
+  {
+   "do": "say",
+   "who": "Cobnut Seller",
+   "text": "Kentish cobnuts! A kind of hazelnut, grown in plats in the Weald. Eat them fresh in August while they're green and milky, or wait till they're brown and crack them by the fire."
+  },
+  {
+   "do": "say",
+   "who": "Cobnut Seller",
+   "text": "My great-gran picked them for the London markets. She could fill a basket faster than a squirrel, and the squirrels hated her for it."
+  }
+ ],
+ "kd_knight_talk": [
+  {
+   "do": "if",
+   "flag": "trainer_kd_knight",
+   "then": [
+    {
+     "do": "say",
+     "who": "The Knight",
+     "text": "My tale's told. Go and hear the others, and tell the Host I was the best."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_southeast_pilgrims_started",
+     "then": [
+      {
+       "do": "say",
+       "who": "The Knight",
+       "text": "A verray, parfit, gentil knyght. Very perfect, gentle, and not at all wanting to fight you, unless the Host says so. He says so."
+      },
+      {
+       "do": "say",
+       "who": "The Knight",
+       "text": "My tale is of two cousins, Palamon and Arcite, prisoners in Athens, who both fall for the lady Emelye from their tower window."
+      },
+      {
+       "do": "say",
+       "who": "The Knight",
+       "text": "They fight for her in a great tournament. Arcite wins, then his horse throws him and he dies. Palamon marries Emelye in the end. Knights' tales are long. That is the short version."
+      },
+      {
+       "do": "battle",
+       "trainer": "kd_knight"
+      },
+      {
+       "do": "if",
+       "flag": "trainer_kd_knight",
+       "then": [
+        {
+         "do": "set",
+         "flag": "q_southeast_pilgrims_1",
+         "value": true
+        }
+       ],
+       "else": []
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "The Knight",
+       "text": "I'm saving my tale for the road. The Host at the Chequer of Hope in Canterbury is judging a contest, if you'd care to hear it."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "kd_miller_talk": [
+  {
+   "do": "if",
+   "flag": "trainer_kd_miller",
+   "then": [
+    {
+     "do": "say",
+     "who": "Robin the Miller",
+     "text": "My tale's told. Go and hear the others, and tell the Host I was the best."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_southeast_pilgrims_started",
+     "then": [
+      {
+       "do": "say",
+       "who": "Robin the Miller",
+       "text": "I'm the Miller. Chaucer says I could break a door off its hinges by running at it with my head. I've had a drink. Let's go."
+      },
+      {
+       "do": "say",
+       "who": "Robin the Miller",
+       "text": "My tale's about a carpenter, his young wife, and a lodger who tricks the carpenter into sleeping in a tub in the roof to escape a second Noah's flood."
+      },
+      {
+       "do": "say",
+       "who": "Robin the Miller",
+       "text": "It ends with a misplaced kiss, a red-hot poker, and the carpenter crashing through the ceiling. Chaucer apologised for it in advance. I don't."
+      },
+      {
+       "do": "battle",
+       "trainer": "kd_miller"
+      },
+      {
+       "do": "if",
+       "flag": "trainer_kd_miller",
+       "then": [
+        {
+         "do": "set",
+         "flag": "q_southeast_pilgrims_2",
+         "value": true
+        }
+       ],
+       "else": []
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Robin the Miller",
+       "text": "I'm saving my tale for the road. The Host at the Chequer of Hope in Canterbury is judging a contest, if you'd care to hear it."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
