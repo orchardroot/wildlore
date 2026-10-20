@@ -1,0 +1,121 @@
+{
+ "quests": [
+  {
+   "id": "farnorth_e2e",
+   "title": "End to End",
+   "region": "farnorth",
+   "town": "pentland_coast",
+   "giver": "End to End Clerk",
+   "summary": "Get an End to End card stamped at both ends of Britain, 874 miles apart.",
+   "start_flag": "q_farnorth_e2e_started",
+   "steps": [
+    {
+     "flag": "q_farnorth_e2e_1",
+     "text": "Take your End to End card to the Land's End end: find the End to Ender in Penzance and win your stamp.",
+     "zone": "penzance"
+    },
+    {
+     "flag": "q_farnorth_e2e_2",
+     "text": "Bring the stamped card back to the End to End Clerk at the John o' Groats signpost.",
+     "zone": "pentland_coast"
+    }
+   ],
+   "done_flag": "q_farnorth_e2e_done",
+   "reward": "An End to End Certificate, a lucky Groatie Buckie and Scottish standing."
+  },
+  {
+   "id": "farnorth_bog",
+   "title": "The Bog Survey",
+   "region": "farnorth",
+   "town": "flow_country",
+   "giver": "Flows Warden",
+   "summary": "Help the Forsinard warden survey the Flow Country, Europe's greatest blanket bog.",
+   "start_flag": "q_farnorth_bog_started",
+   "steps": [
+    {
+     "flag": "q_farnorth_bog_1",
+     "text": "Count the dubh lochans with the Flowmoor by the pools on the Dubh Lochan Trail.",
+     "zone": "flow_country"
+    },
+    {
+     "flag": "q_farnorth_bog_2",
+     "text": "Listen for the greenshank with the bird surveyor at the south end of the trail.",
+     "zone": "flow_country"
+    },
+    {
+     "flag": "q_farnorth_bog_3",
+     "text": "Help the peat scientist west of the road take a peat core, once your team has proved it won't sink.",
+     "zone": "flow_country"
+    },
+    {
+     "flag": "q_farnorth_bog_done",
+     "text": "Report back to the Flows Warden at the Forsinard visitor centre.",
+     "zone": "forsinard_centre"
+    }
+   ],
+   "done_flag": "q_farnorth_bog_done",
+   "reward": "A Bog Myrtle Sprig charm, crowdie oatcakes and Scottish standing."
+  },
+  {
+   "id": "farnorth_firth",
+   "title": "Crossing the Pentland Firth",
+   "region": "farnorth",
+   "town": "thurso",
+   "giver": "Skipper Morag",
+   "summary": "Fetch tide tables, cross the Firth to Orkney and face what walks out of the sea off Duncansby.",
+   "start_flag": "q_farnorth_firth_started",
+   "steps": [
+    {
+     "flag": "q_farnorth_firth_1",
+     "text": "Win the Tide Watcher's tide tables at the Merry Men of Mey, east of Thurso.",
+     "zone": "pentland_coast"
+    },
+    {
+     "flag": "q_farnorth_firth_2",
+     "text": "Sail from Scrabster to Orkney and give the tide tables to the Pentland Skipper on the Kirkwall quay.",
+     "zone": "kirkwall"
+    },
+    {
+     "flag": "q_farnorth_firth_3",
+     "text": "After dark, on the sands below Duncansby Head, face the Nuckelavee and catch it.",
+     "zone": "pentland_coast"
+    },
+    {
+     "flag": "q_farnorth_firth_done",
+     "text": "Tell Skipper Morag on the Scrabster quay.",
+     "zone": "thurso"
+    }
+   ],
+   "done_flag": "q_farnorth_firth_done",
+   "reward": "A Burn Water Flask charm, partan bree and Scottish standing (and a Nuckelavee)."
+  },
+  {
+   "id": "farnorth_mey",
+   "title": "The Castle of Mey Garden",
+   "region": "farnorth",
+   "town": "pentland_coast",
+   "giver": "Head Gardener",
+   "summary": "Feed the Queen Mother's walled garden with seaweed from the shore and peat from the bog.",
+   "start_flag": "q_farnorth_mey_started",
+   "steps": [
+    {
+     "flag": "q_farnorth_mey_1",
+     "text": "Fetch a creel of seaweed from the gatherer on Dunnet Bay.",
+     "zone": "pentland_coast"
+    },
+    {
+     "flag": "q_farnorth_mey_2",
+     "text": "Bring a bag of peat from the peat cutter in the Flow Country.",
+     "zone": "flow_country"
+    },
+    {
+     "flag": "q_farnorth_mey_done",
+     "text": "Take both back to the Head Gardener in the walled garden at Mey.",
+     "zone": "pentland_coast"
+    }
+   ],
+   "done_flag": "q_farnorth_mey_done",
+   "reward": "Caithness flagstones, heather honey, crowdie oatcakes and Scottish standing."
+  }
+ ]
+}

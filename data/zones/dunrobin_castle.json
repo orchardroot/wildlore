@@ -1,0 +1,133 @@
+{
+ "id": "dunrobin_castle",
+ "name": "Dunrobin Castle",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "rug",
+   "x": 5,
+   "y": 3,
+   "w": 5,
+   "h": 3
+  },
+  {
+   "type": "fireplace",
+   "x": 7,
+   "y": 1,
+   "walk": false
+  },
+  {
+   "type": "wall_picture",
+   "x": 3,
+   "y": 1,
+   "walk": true,
+   "variant": 2
+  },
+  {
+   "type": "wall_picture",
+   "x": 11,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  },
+  {
+   "type": "piano",
+   "x": 12,
+   "y": 3
+  },
+  {
+   "type": "sofa",
+   "x": 2,
+   "y": 4,
+   "variant": 2,
+   "rot": 90
+  },
+  {
+   "type": "display_case",
+   "x": 2,
+   "y": 7,
+   "variant": 2
+  },
+  {
+   "type": "display_case",
+   "x": 12,
+   "y": 7,
+   "variant": 1
+  },
+  {
+   "type": "owl_perch",
+   "x": 12,
+   "y": 5
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "potted_plant",
+   "x": 13,
+   "y": 1
+  },
+  {
+   "type": "clock",
+   "x": 9,
+   "y": 1,
+   "walk": true
+  }
+ ],
+ "warps": [
+  {
+   "x": 7,
+   "y": 8,
+   "to": "flow_country",
+   "tx": 38,
+   "ty": 33,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "dunrobin_guide",
+   "sprite": "tour_guide",
+   "x": 5,
+   "y": 6,
+   "facing": "down",
+   "move": "still",
+   "script": "dunrobin_guide",
+   "name": "Castle Guide"
+  },
+  {
+   "id": "dunrobin_falconer",
+   "sprite": "ghillie",
+   "x": 11,
+   "y": 5,
+   "facing": "left",
+   "move": "still",
+   "script": "dunrobin_falconer",
+   "name": "Falconer"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  7,
+  7
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxxx",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x||||||D||||||x",
+  "xxxxxxxxxxxxxxx"
+ ]
+}

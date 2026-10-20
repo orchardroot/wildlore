@@ -1,0 +1,109 @@
+[
+ {
+  "id": "crowdie_oatcakes",
+  "name": "Crowdie Oatcakes",
+  "kind": "heal",
+  "price": 280,
+  "battle": true,
+  "field": true,
+  "amount": 110,
+  "desc": "Crowdie, the soft, crumbly Highland cheese, spread thick on oatcakes. Restores 110 HP and a sense of being well fed."
+ },
+ {
+  "id": "partan_bree",
+  "name": "Partan Bree",
+  "kind": "heal",
+  "price": 560,
+  "battle": true,
+  "field": true,
+  "amount": 170,
+  "desc": "Partan is Scots for crab and bree is broth: a rich, creamy crab soup from the north-east coast. Restores 170 HP."
+ },
+ {
+  "id": "groatie_buckie",
+  "name": "Groatie Buckie",
+  "kind": "charm",
+  "price": 3000,
+  "battle": false,
+  "field": true,
+  "wild": true,
+  "desc": "A tiny pink cowrie shell from the beach at John o' Groats. Rare, ribbed and famously lucky.",
+  "effect_text": "As your lead: snares 20% likelier.",
+  "charm": {
+   "effect": "catch",
+   "mult": 1.2
+  },
+  "msg": "{name}'s Groatie Buckie brought a bit of luck!"
+ },
+ {
+  "id": "bog_myrtle_sprig",
+  "name": "Bog Myrtle Sprig",
+  "kind": "charm",
+  "price": 3500,
+  "battle": false,
+  "field": true,
+  "wild": true,
+  "desc": "A sprig of sweet gale from the Flow Country. Rub the leaves and the midges keep away, mostly. It once flavoured beer.",
+  "effect_text": "Bog moves hurt it 25% less.",
+  "charm": {
+   "effect": "resist",
+   "type": "bog",
+   "mult": 0.75
+  },
+  "msg": "{name}'s Bog Myrtle took the sting out of it!"
+ },
+ {
+  "id": "burn_water_flask",
+  "name": "Burn Water Flask",
+  "kind": "charm",
+  "price": 0,
+  "battle": false,
+  "field": true,
+  "wild": true,
+  "desc": "Fresh water from a Caithness burn, corked in a flask. Orkney lore says the Nuckelavee cannot cross running fresh water.",
+  "effect_text": "Tide moves hurt it 25% less.",
+  "charm": {
+   "effect": "resist",
+   "type": "tide",
+   "mult": 0.75
+  },
+  "msg": "{name}'s Burn Water Flask kept the sea at bay!"
+ },
+ {
+  "id": "caithness_flagstone",
+  "name": "Caithness Flagstone",
+  "one": "a Caithness Flagstone",
+  "kind": "material",
+  "price": 0,
+  "battle": false,
+  "field": false,
+  "desc": "A thin, tough slab of Old Red Sandstone that splits as flat as a table. Caithness built its houses, roofs and fences from it."
+ },
+ {
+  "id": "end_to_end_card",
+  "name": "End to End Card",
+  "kind": "key",
+  "price": 0,
+  "battle": false,
+  "field": true,
+  "desc": "A card for the journey from John o' Groats to Land's End, 874 miles by the signpost. Stamp it at both ends."
+ },
+ {
+  "id": "end_to_end_certificate",
+  "name": "End to End Certificate",
+  "kind": "key",
+  "price": 0,
+  "battle": false,
+  "field": true,
+  "desc": "Official proof you have been to both ends of Britain. There's a drawing of the signpost at the top and a pasty crumb in the corner."
+ },
+ {
+  "id": "tide_tables",
+  "name": "Tide Tables",
+  "kind": "key",
+  "price": 0,
+  "battle": false,
+  "field": true,
+  "desc": "The Tide Watcher's own tables for the Pentland Firth, pencilled with warnings like 'NO' and 'REALLY NO'."
+ }
+]

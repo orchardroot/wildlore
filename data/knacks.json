@@ -87,7 +87,11 @@
     "eagre": {"name": "Eagre", "desc": "Rides in on the weather: its storm and tide moves hit harder in drizzle, a downpour or a gale.", "power_weather": {"weather": ["drizzle", "downpour", "gale"], "mult": 1.3, "types": ["storm", "tide"]}},
     "rooted": {"name": "Rooted", "desc": "Four thousand years in one spot: foes can't lower its stats, and super-effective hits do a fifth less.", "msg": "{name} is Rooted. It won't be moved!", "no_drops": true, "se_mult": 0.8},
     "lure_light": {"name": "Lure Light", "desc": "Its little lamp works best in the dark: its moves hit harder at dusk and at night.", "power_time": {"time": ["dusk", "night"], "mult": 1.2}},
-    "high_girders": {"name": "The High Girders", "desc": "Comes in on a gale that lasts 5 turns, and is half as fast again in a gale.", "msg": "{name} rattles in on the storm, lamps blazing!", "entry_weather": "gale", "speed": {"weather": ["gale"], "mult": 1.5}}
+    "high_girders": {"name": "The High Girders", "desc": "Comes in on a gale that lasts 5 turns, and is half as fast again in a gale.", "msg": "{name} rattles in on the storm, lamps blazing!", "entry_weather": "gale", "speed": {"weather": ["gale"], "mult": 1.5}},
+    "waterlogged": {"name": "Waterlogged", "desc": "Soaked through already: Brook and Tide moves do less to it.", "msg": "{name} is Waterlogged. It just soaks it up!", "resist": {"types": ["brook", "tide"], "mult": 0.75}},
+    "tide_race": {"name": "Tide Race", "desc": "Rides the rough water: harder to hit in a gale.", "msg": "{name} rides the Tide Race!", "evade": {"weather": ["gale"], "mult": 0.85}},
+    "foul_breath": {"name": "Foul Breath", "desc": "Arrives breathing out. Foes lose Attack holding their noses.", "msg": "{name} yawns. The Foul Breath rolls over everyone!", "entry_stage": {"to": "foes", "stat": "atk", "stages": -1}},
+    "blighting_breath": {"name": "Blighting Breath", "desc": "Its breath withers all it touches: foes lose Defence when it arrives.", "msg": "{name}'s Blighting Breath rolls across the field!", "entry_stage": {"to": "foes", "stat": "def", "stages": -1}, "legend": true}
   },
   "species": {
     "bogglet": "mardy",
@@ -391,6 +395,12 @@
     "hellbunker": "gale_rider",
     "jamlet": "hearty_appetite",
     "marmalord": "hearty_appetite",
-    "taywraith": "high_girders"
+    "taywraith": "high_girders",
+    "dubhlet": "waterlogged",
+    "flowmoor": "waterlogged",
+    "swelklet": "tide_race",
+    "swelkie": "tide_race",
+    "stoorworm": "foul_breath",
+    "nuckelavee": "blighting_breath"
   }
 }

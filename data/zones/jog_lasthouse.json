@@ -1,0 +1,78 @@
+{
+ "id": "jog_lasthouse",
+ "name": "The Last House",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "display_case",
+   "x": 7,
+   "y": 3,
+   "variant": 0
+  },
+  {
+   "type": "display_case",
+   "x": 9,
+   "y": 3,
+   "variant": 1
+  },
+  {
+   "type": "wall_picture",
+   "x": 6,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 9,
+   "y": 1
+  },
+  {
+   "type": "potted_plant",
+   "x": 9,
+   "y": 5
+  }
+ ],
+ "warps": [
+  {
+   "x": 5,
+   "y": 6,
+   "to": "pentland_coast",
+   "tx": 60,
+   "ty": 23,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "lasthouse_keeper",
+   "sprite": "shopkeeper",
+   "x": 2,
+   "y": 1,
+   "facing": "down",
+   "move": "still",
+   "script": "lasthouse_keeper",
+   "name": "Shopkeeper"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  5,
+  5
+ ],
+ "rows": [
+  "xxxxxxxxxxx",
+  "x+++++++++x",
+  "xCCCC+++++x",
+  "x+++++++++x",
+  "x+++++++++x",
+  "x+++++++++x",
+  "x++++D++++x",
+  "xxxxxxxxxxx"
+ ]
+}

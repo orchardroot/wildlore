@@ -1,4 +1,68 @@
 {
+ "pentland_skipper": [
+  {
+   "do": "if",
+   "flag": "q_farnorth_firth_2",
+   "then": [
+    {
+     "do": "say",
+     "who": "Pentland Skipper",
+     "text": "Back to Scrabster? The Firth's in a mood, but the boat's in a worse one. Should be a fair match."
+    },
+    {
+     "do": "ferry",
+     "route": "thurso_kirkwall"
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_farnorth_firth_1",
+     "then": [
+      {
+       "do": "say",
+       "who": "Pentland Skipper",
+       "text": "Morag's tide tables! Lost overboard and fetched back by a trainer, that'll be a story in Stromness tonight. Thank you kindly."
+      },
+      {
+       "do": "say",
+       "who": "Pentland Skipper",
+       "text": "Now listen. You're going back over to Caithness, so I'll tell you what I tell everyone. On dark nights, off Duncansby, something comes out of the sea."
+      },
+      {
+       "do": "say",
+       "who": "Pentland Skipper",
+       "text": "The Nuckelavee. The old Orkney devil o' the sea. A horse and its rider in one, with no skin, and breath that blights the barley. Since the Firth got busy it's taken to walking the Caithness shore."
+      },
+      {
+       "do": "say",
+       "who": "Pentland Skipper",
+       "text": "If you're brave or daft, you'll find it on the sands below Duncansby Head after dark. If you're sensible, you won't. Either way, tell Morag I said hello."
+      },
+      {
+       "do": "set",
+       "flag": "q_farnorth_firth_2"
+      },
+      {
+       "do": "ferry",
+       "route": "thurso_kirkwall"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Pentland Skipper",
+       "text": "Scrabster boat! Across the Pentland Firth to Caithness, past the Old Man of Hoy. Hold on to your breakfast."
+      },
+      {
+       "do": "ferry",
+       "route": "thurso_kirkwall"
+      }
+     ]
+    }
+   ]
+  }
+ ],
  "sailor": [
   {
    "do": "say",

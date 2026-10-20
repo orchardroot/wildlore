@@ -2151,6 +2151,35 @@
    "reward": {
     "items": {"copper_slag": 1}
    }
+  },
+  {
+   "id": "thurso_flagstone",
+   "nation": "scotland",
+   "town": "thurso",
+   "badges": 9,
+   "poster": "Caithness Flagstone Trail",
+   "title": "Mind the flags",
+   "text": "Somebody keeps knocking over the flagstone fences round the fields. We suspect something with a lot of moss on it. Catch a Dubhlet and we'll know who to blame.",
+   "step": {
+    "type": "catch",
+    "species": "dubhlet"
+   },
+   "pay": 3
+  },
+  {
+   "id": "thurso_east",
+   "nation": "scotland",
+   "town": "thurso",
+   "badges": 9,
+   "poster": "Thurso Surf Shack",
+   "title": "Swell's up at the East",
+   "text": "Big northerly swell forecast. Go and look at the waves off the Pentland Coast at dawn and tell us if it's working. We'd go ourselves but we're very busy waxing.",
+   "step": {
+    "type": "visit",
+    "zone": "pentland_coast",
+    "time": ["dawn"]
+   },
+   "pay": 2
   }
  ]
 }

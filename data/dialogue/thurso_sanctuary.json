@@ -1,0 +1,63 @@
+{
+ "nurse": [
+  {
+   "do": "say",
+   "who": "Nurse",
+   "text": "Fàilte to the Thurso Sanctuary, the most northerly on the mainland, near enough. Pop your team on the counter and get a heat at the radiator."
+  },
+  {
+   "do": "choice",
+   "text": "What can we do for you?",
+   "options": [
+    "Heal my team",
+    "Open the Ark",
+    "Just looking"
+   ],
+   "set": "_nurse_choice"
+  },
+  {
+   "do": "if",
+   "flag": "_nurse_choice",
+   "then": [
+    {
+     "do": "say",
+     "who": "Nurse",
+     "text": "Och, the wind's had them. Sit yourself down. There's tea and a piece of tablet, and the radiator's on full."
+    },
+    {
+     "do": "heal"
+    },
+    {
+     "do": "say",
+     "who": "Nurse",
+     "text": "There you go. Fit as a fiddle, and twice as noisy."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "_nurse_choice",
+     "then": [
+      {
+       "do": "say",
+       "who": "Nurse",
+       "text": "The Ark's in the corner. Somebody's left a groatie buckie on top of it for luck. Leave it there."
+      },
+      {
+       "do": "ark"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Nurse",
+       "text": "No bother. Mind the wind at the door, it'll have your hat to Orkney."
+      }
+     ],
+     "eq": 1
+    }
+   ],
+   "eq": 0
+  }
+ ]
+}
