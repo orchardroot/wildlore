@@ -54,8 +54,25 @@
            "flag": "q_festivals_bonfire_2"
           },
           {
-           "do": "give_item",
-           "item": "fest_sparkler_tin"
+           "do": "if",
+           "flag": "festivals_souv_bonfire",
+           "then": [
+            {
+             "do": "say",
+             "who": "Bonfire Bernard",
+             "text": "You've kept my souvenir from a past year, so I won't hand you another. The food, though, is fresh every year. Tuck in."
+            }
+           ],
+           "else": [
+            {
+             "do": "give_item",
+             "item": "fest_sparkler_tin"
+            },
+            {
+             "do": "set",
+             "flag": "festivals_souv_bonfire"
+            }
+           ]
           },
           {
            "do": "give_item",
@@ -120,8 +137,25 @@
              "flag": "q_festivals_bonfire_2"
             },
             {
-             "do": "give_item",
-             "item": "fest_sparkler_tin"
+             "do": "if",
+             "flag": "festivals_souv_bonfire",
+             "then": [
+              {
+               "do": "say",
+               "who": "Bonfire Bernard",
+               "text": "You've kept my souvenir from a past year, so I won't hand you another. The food, though, is fresh every year. Tuck in."
+              }
+             ],
+             "else": [
+              {
+               "do": "give_item",
+               "item": "fest_sparkler_tin"
+              },
+              {
+               "do": "set",
+               "flag": "festivals_souv_bonfire"
+              }
+             ]
             },
             {
              "do": "give_item",
@@ -266,8 +300,25 @@
            "flag": "q_festivals_samhain_2"
           },
           {
-           "do": "give_item",
-           "item": "fest_turnip_lantern"
+           "do": "if",
+           "flag": "festivals_souv_samhain",
+           "then": [
+            {
+             "do": "say",
+             "who": "Samhain Sinead",
+             "text": "You've kept my souvenir from a past year, so I won't hand you another. The food, though, is fresh every year. Tuck in."
+            }
+           ],
+           "else": [
+            {
+             "do": "give_item",
+             "item": "fest_turnip_lantern"
+            },
+            {
+             "do": "set",
+             "flag": "festivals_souv_samhain"
+            }
+           ]
           },
           {
            "do": "give_item",
@@ -332,8 +383,25 @@
              "flag": "q_festivals_samhain_2"
             },
             {
-             "do": "give_item",
-             "item": "fest_turnip_lantern"
+             "do": "if",
+             "flag": "festivals_souv_samhain",
+             "then": [
+              {
+               "do": "say",
+               "who": "Samhain Sinead",
+               "text": "You've kept my souvenir from a past year, so I won't hand you another. The food, though, is fresh every year. Tuck in."
+              }
+             ],
+             "else": [
+              {
+               "do": "give_item",
+               "item": "fest_turnip_lantern"
+              },
+              {
+               "do": "set",
+               "flag": "festivals_souv_samhain"
+              }
+             ]
             },
             {
              "do": "give_item",
@@ -478,8 +546,25 @@
            "flag": "q_festivals_burns_2"
           },
           {
-           "do": "give_item",
-           "item": "fest_tartan_ribbon"
+           "do": "if",
+           "flag": "festivals_souv_burns",
+           "then": [
+            {
+             "do": "say",
+             "who": "Haggis Hamish",
+             "text": "You've kept my souvenir from a past year, so I won't hand you another. The food, though, is fresh every year. Tuck in."
+            }
+           ],
+           "else": [
+            {
+             "do": "give_item",
+             "item": "fest_tartan_ribbon"
+            },
+            {
+             "do": "set",
+             "flag": "festivals_souv_burns"
+            }
+           ]
           },
           {
            "do": "give_item",
@@ -544,8 +629,25 @@
              "flag": "q_festivals_burns_2"
             },
             {
-             "do": "give_item",
-             "item": "fest_tartan_ribbon"
+             "do": "if",
+             "flag": "festivals_souv_burns",
+             "then": [
+              {
+               "do": "say",
+               "who": "Haggis Hamish",
+               "text": "You've kept my souvenir from a past year, so I won't hand you another. The food, though, is fresh every year. Tuck in."
+              }
+             ],
+             "else": [
+              {
+               "do": "give_item",
+               "item": "fest_tartan_ribbon"
+              },
+              {
+               "do": "set",
+               "flag": "festivals_souv_burns"
+              }
+             ]
             },
             {
              "do": "give_item",
@@ -690,8 +792,25 @@
            "flag": "q_festivals_stdavids_2"
           },
           {
-           "do": "give_item",
-           "item": "fest_daffodil_brooch"
+           "do": "if",
+           "flag": "festivals_souv_stdavids",
+           "then": [
+            {
+             "do": "say",
+             "who": "Dewi the Daffodil",
+             "text": "You've kept my souvenir from a past year, so I won't hand you another. The food, though, is fresh every year. Tuck in."
+            }
+           ],
+           "else": [
+            {
+             "do": "give_item",
+             "item": "fest_daffodil_brooch"
+            },
+            {
+             "do": "set",
+             "flag": "festivals_souv_stdavids"
+            }
+           ]
           },
           {
            "do": "give_item",
@@ -756,8 +875,25 @@
              "flag": "q_festivals_stdavids_2"
             },
             {
-             "do": "give_item",
-             "item": "fest_daffodil_brooch"
+             "do": "if",
+             "flag": "festivals_souv_stdavids",
+             "then": [
+              {
+               "do": "say",
+               "who": "Dewi the Daffodil",
+               "text": "You've kept my souvenir from a past year, so I won't hand you another. The food, though, is fresh every year. Tuck in."
+              }
+             ],
+             "else": [
+              {
+               "do": "give_item",
+               "item": "fest_daffodil_brooch"
+              },
+              {
+               "do": "set",
+               "flag": "festivals_souv_stdavids"
+              }
+             ]
             },
             {
              "do": "give_item",
@@ -902,8 +1038,25 @@
            "flag": "q_festivals_stpatricks_2"
           },
           {
-           "do": "give_item",
-           "item": "fest_shamrock_badge"
+           "do": "if",
+           "flag": "festivals_souv_stpatricks",
+           "then": [
+            {
+             "do": "say",
+             "who": "Paddy Parade",
+             "text": "You've kept my souvenir from a past year, so I won't hand you another. The food, though, is fresh every year. Tuck in."
+            }
+           ],
+           "else": [
+            {
+             "do": "give_item",
+             "item": "fest_shamrock_badge"
+            },
+            {
+             "do": "set",
+             "flag": "festivals_souv_stpatricks"
+            }
+           ]
           },
           {
            "do": "give_item",
@@ -968,8 +1121,25 @@
              "flag": "q_festivals_stpatricks_2"
             },
             {
-             "do": "give_item",
-             "item": "fest_shamrock_badge"
+             "do": "if",
+             "flag": "festivals_souv_stpatricks",
+             "then": [
+              {
+               "do": "say",
+               "who": "Paddy Parade",
+               "text": "You've kept my souvenir from a past year, so I won't hand you another. The food, though, is fresh every year. Tuck in."
+              }
+             ],
+             "else": [
+              {
+               "do": "give_item",
+               "item": "fest_shamrock_badge"
+              },
+              {
+               "do": "set",
+               "flag": "festivals_souv_stpatricks"
+              }
+             ]
             },
             {
              "do": "give_item",
@@ -1114,8 +1284,25 @@
            "flag": "q_festivals_hogmanay_2"
           },
           {
-           "do": "give_item",
-           "item": "fest_lucky_coal"
+           "do": "if",
+           "flag": "festivals_souv_hogmanay",
+           "then": [
+            {
+             "do": "say",
+             "who": "Auld Angus",
+             "text": "You've kept my souvenir from a past year, so I won't hand you another. The food, though, is fresh every year. Tuck in."
+            }
+           ],
+           "else": [
+            {
+             "do": "give_item",
+             "item": "fest_lucky_coal"
+            },
+            {
+             "do": "set",
+             "flag": "festivals_souv_hogmanay"
+            }
+           ]
           },
           {
            "do": "give_item",
@@ -1180,8 +1367,25 @@
              "flag": "q_festivals_hogmanay_2"
             },
             {
-             "do": "give_item",
-             "item": "fest_lucky_coal"
+             "do": "if",
+             "flag": "festivals_souv_hogmanay",
+             "then": [
+              {
+               "do": "say",
+               "who": "Auld Angus",
+               "text": "You've kept my souvenir from a past year, so I won't hand you another. The food, though, is fresh every year. Tuck in."
+              }
+             ],
+             "else": [
+              {
+               "do": "give_item",
+               "item": "fest_lucky_coal"
+              },
+              {
+               "do": "set",
+               "flag": "festivals_souv_hogmanay"
+              }
+             ]
             },
             {
              "do": "give_item",
@@ -1326,8 +1530,25 @@
            "flag": "q_festivals_beltane_2"
           },
           {
-           "do": "give_item",
-           "item": "fest_may_garland"
+           "do": "if",
+           "flag": "festivals_souv_beltane",
+           "then": [
+            {
+             "do": "say",
+             "who": "May Morwenna",
+             "text": "You've kept my souvenir from a past year, so I won't hand you another. The food, though, is fresh every year. Tuck in."
+            }
+           ],
+           "else": [
+            {
+             "do": "give_item",
+             "item": "fest_may_garland"
+            },
+            {
+             "do": "set",
+             "flag": "festivals_souv_beltane"
+            }
+           ]
           },
           {
            "do": "give_item",
@@ -1392,8 +1613,25 @@
              "flag": "q_festivals_beltane_2"
             },
             {
-             "do": "give_item",
-             "item": "fest_may_garland"
+             "do": "if",
+             "flag": "festivals_souv_beltane",
+             "then": [
+              {
+               "do": "say",
+               "who": "May Morwenna",
+               "text": "You've kept my souvenir from a past year, so I won't hand you another. The food, though, is fresh every year. Tuck in."
+              }
+             ],
+             "else": [
+              {
+               "do": "give_item",
+               "item": "fest_may_garland"
+              },
+              {
+               "do": "set",
+               "flag": "festivals_souv_beltane"
+              }
+             ]
             },
             {
              "do": "give_item",
@@ -1538,8 +1776,25 @@
            "flag": "q_festivals_fringe_2"
           },
           {
-           "do": "give_item",
-           "item": "fest_fringe_flyers"
+           "do": "if",
+           "flag": "festivals_souv_fringe",
+           "then": [
+            {
+             "do": "say",
+             "who": "Flyer Fiona",
+             "text": "You've kept my souvenir from a past year, so I won't hand you another. The food, though, is fresh every year. Tuck in."
+            }
+           ],
+           "else": [
+            {
+             "do": "give_item",
+             "item": "fest_fringe_flyers"
+            },
+            {
+             "do": "set",
+             "flag": "festivals_souv_fringe"
+            }
+           ]
           },
           {
            "do": "give_item",
@@ -1604,8 +1859,25 @@
              "flag": "q_festivals_fringe_2"
             },
             {
-             "do": "give_item",
-             "item": "fest_fringe_flyers"
+             "do": "if",
+             "flag": "festivals_souv_fringe",
+             "then": [
+              {
+               "do": "say",
+               "who": "Flyer Fiona",
+               "text": "You've kept my souvenir from a past year, so I won't hand you another. The food, though, is fresh every year. Tuck in."
+              }
+             ],
+             "else": [
+              {
+               "do": "give_item",
+               "item": "fest_fringe_flyers"
+              },
+              {
+               "do": "set",
+               "flag": "festivals_souv_fringe"
+              }
+             ]
             },
             {
              "do": "give_item",
@@ -1750,8 +2022,25 @@
            "flag": "q_festivals_cheese_2"
           },
           {
-           "do": "give_item",
-           "item": "fest_cheese_round"
+           "do": "if",
+           "flag": "festivals_souv_cheese",
+           "then": [
+            {
+             "do": "say",
+             "who": "Cheese Cecil",
+             "text": "You've kept my souvenir from a past year, so I won't hand you another. The food, though, is fresh every year. Tuck in."
+            }
+           ],
+           "else": [
+            {
+             "do": "give_item",
+             "item": "fest_cheese_round"
+            },
+            {
+             "do": "set",
+             "flag": "festivals_souv_cheese"
+            }
+           ]
           },
           {
            "do": "give_item",
@@ -1816,8 +2105,25 @@
              "flag": "q_festivals_cheese_2"
             },
             {
-             "do": "give_item",
-             "item": "fest_cheese_round"
+             "do": "if",
+             "flag": "festivals_souv_cheese",
+             "then": [
+              {
+               "do": "say",
+               "who": "Cheese Cecil",
+               "text": "You've kept my souvenir from a past year, so I won't hand you another. The food, though, is fresh every year. Tuck in."
+              }
+             ],
+             "else": [
+              {
+               "do": "give_item",
+               "item": "fest_cheese_round"
+              },
+              {
+               "do": "set",
+               "flag": "festivals_souv_cheese"
+              }
+             ]
             },
             {
              "do": "give_item",
@@ -1962,8 +2268,25 @@
            "flag": "q_festivals_carnival_2"
           },
           {
-           "do": "give_item",
-           "item": "fest_carnival_feather"
+           "do": "if",
+           "flag": "festivals_souv_carnival",
+           "then": [
+            {
+             "do": "say",
+             "who": "Carnival Carlton",
+             "text": "You've kept my souvenir from a past year, so I won't hand you another. The food, though, is fresh every year. Tuck in."
+            }
+           ],
+           "else": [
+            {
+             "do": "give_item",
+             "item": "fest_carnival_feather"
+            },
+            {
+             "do": "set",
+             "flag": "festivals_souv_carnival"
+            }
+           ]
           },
           {
            "do": "give_item",
@@ -2028,8 +2351,25 @@
              "flag": "q_festivals_carnival_2"
             },
             {
-             "do": "give_item",
-             "item": "fest_carnival_feather"
+             "do": "if",
+             "flag": "festivals_souv_carnival",
+             "then": [
+              {
+               "do": "say",
+               "who": "Carnival Carlton",
+               "text": "You've kept my souvenir from a past year, so I won't hand you another. The food, though, is fresh every year. Tuck in."
+              }
+             ],
+             "else": [
+              {
+               "do": "give_item",
+               "item": "fest_carnival_feather"
+              },
+              {
+               "do": "set",
+               "flag": "festivals_souv_carnival"
+              }
+             ]
             },
             {
              "do": "give_item",
@@ -2174,8 +2514,25 @@
            "flag": "q_festivals_welldressing_2"
           },
           {
-           "do": "give_item",
-           "item": "fest_petal_panel"
+           "do": "if",
+           "flag": "festivals_souv_welldressing",
+           "then": [
+            {
+             "do": "say",
+             "who": "Petal Peggy",
+             "text": "You've kept my souvenir from a past year, so I won't hand you another. The food, though, is fresh every year. Tuck in."
+            }
+           ],
+           "else": [
+            {
+             "do": "give_item",
+             "item": "fest_petal_panel"
+            },
+            {
+             "do": "set",
+             "flag": "festivals_souv_welldressing"
+            }
+           ]
           },
           {
            "do": "give_item",
@@ -2240,8 +2597,25 @@
              "flag": "q_festivals_welldressing_2"
             },
             {
-             "do": "give_item",
-             "item": "fest_petal_panel"
+             "do": "if",
+             "flag": "festivals_souv_welldressing",
+             "then": [
+              {
+               "do": "say",
+               "who": "Petal Peggy",
+               "text": "You've kept my souvenir from a past year, so I won't hand you another. The food, though, is fresh every year. Tuck in."
+              }
+             ],
+             "else": [
+              {
+               "do": "give_item",
+               "item": "fest_petal_panel"
+              },
+              {
+               "do": "set",
+               "flag": "festivals_souv_welldressing"
+              }
+             ]
             },
             {
              "do": "give_item",
@@ -2386,8 +2760,25 @@
            "flag": "q_festivals_marilwyd_2"
           },
           {
-           "do": "give_item",
-           "item": "fest_mari_ribbon"
+           "do": "if",
+           "flag": "festivals_souv_marilwyd",
+           "then": [
+            {
+             "do": "say",
+             "who": "Mari's Mate Mal",
+             "text": "You've kept my souvenir from a past year, so I won't hand you another. The food, though, is fresh every year. Tuck in."
+            }
+           ],
+           "else": [
+            {
+             "do": "give_item",
+             "item": "fest_mari_ribbon"
+            },
+            {
+             "do": "set",
+             "flag": "festivals_souv_marilwyd"
+            }
+           ]
           },
           {
            "do": "give_item",
@@ -2452,8 +2843,25 @@
              "flag": "q_festivals_marilwyd_2"
             },
             {
-             "do": "give_item",
-             "item": "fest_mari_ribbon"
+             "do": "if",
+             "flag": "festivals_souv_marilwyd",
+             "then": [
+              {
+               "do": "say",
+               "who": "Mari's Mate Mal",
+               "text": "You've kept my souvenir from a past year, so I won't hand you another. The food, though, is fresh every year. Tuck in."
+              }
+             ],
+             "else": [
+              {
+               "do": "give_item",
+               "item": "fest_mari_ribbon"
+              },
+              {
+               "do": "set",
+               "flag": "festivals_souv_marilwyd"
+              }
+             ]
             },
             {
              "do": "give_item",

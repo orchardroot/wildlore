@@ -139,7 +139,7 @@ func _row(i: int) -> Button:
 	mark.custom_minimum_size = Vector2(26, 26)
 	mark.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 	h.add_child(mark)
-	var t := UIKit.label(str(q.get("title", "")), 25, UIKit.CREAM)
+	var t := UIKit.label(str(q.get("title", "")) + _year_tag(q), 25, UIKit.CREAM)
 	t.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 	t.clip_text = true
 	t.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -160,10 +160,15 @@ func _place(zone: String) -> String:
 	var z := Quests.map_zone(zone, idx)
 	return str(idx.zones.get(z, {}).get("name", z.capitalize()))
 
+## " (2026)" on a festival's quest: the log shows this year's run, and the next year starts it afresh.
+func _year_tag(q: Dictionary) -> String:
+	var y := Festivals.quest_year(Game.data, q)
+	return " (%d)" % y if y > 0 else ""
+
 func _describe(i: int) -> void:
 	UIKit.clear(_detail)
 	var q: Dictionary = _quests[i]
-	var title := UIKit.label(str(q.get("title", "")), 34)
+	var title := UIKit.label(str(q.get("title", "")) + _year_tag(q), 34)
 	title.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	_detail.add_child(title)
 	_detail.add_child(UIKit.label("%s, %s" % [str(q.get("giver", "")), _place(str(q.get("town", "")))], 20, UIKit.MUTED))

@@ -90,3 +90,75 @@ func test_the_scripts_walk_the_quest_to_the_end() -> void:
 		assert_true(FileAccess.file_exists("res://art/sprites/chars/%s.png" % e.sprite), str(e.id))
 		var z := ZoneData.load_id(str(e.town))
 		assert_true(SideStories.free_tile(z, Vector2i(int(e.x), int(e.y))), "%s: stands somewhere free" % e.id)
+
+# --- Every year ---
+
+func _d() -> GameStateData:
+	return GameStateData.new()
+
+func test_a_rule_window_moves_with_the_calendar() -> void:
+	var rule := {"rule": {"nth": "last", "weekday": 2, "month": 1, "from": -3, "to": 1}}
+	assert_eq(Festivals.window_of(rule, 2026), [1, 24, 1, 28], "last Tuesday of January 2026 is the 27th")
+	assert_eq(Festivals.window_of(rule, 2027), [1, 23, 1, 27], "the 26th in 2027")
+	assert_eq(Festivals.window_of(rule, 2028), [1, 22, 1, 26], "the 25th in 2028")
+	assert_true(Festivals.in_window(rule, 1, 27, 2026))
+	assert_false(Festivals.in_window(rule, 1, 28, 2027))
+
+func test_run_year_follows_the_year_a_new_year_window_opened() -> void:
+	var hog := Festivals.get_event("hogmanay")
+	assert_eq(Festivals.run_year(hog, Vector2i(12, 31), 2026), 2026)
+	assert_eq(Festivals.run_year(hog, Vector2i(1, 1), 2027), 2026, "1 January is still last year's Hogmanay")
+	assert_eq(Festivals.run_year(Festivals.get_event("bonfire"), Vector2i(11, 3), 2026), 2026)
+
+func test_a_3_1_run_still_counts_for_its_year_then_starts_afresh() -> void:
+	var d := _d()
+	d.set_flag("q_festivals_bonfire_started")
+	d.set_flag("q_festivals_bonfire_1")
+	d.set_flag("q_festivals_bonfire_2")
+	d.set_flag("q_festivals_bonfire_done")
+	assert_eq(Festivals.rollover(d, Vector2i(11, 3), 2026), [], "same year: nothing resets")
+	assert_true(d.flag("q_festivals_bonfire_done") == true)
+	assert_true(d.flag("festivals_souv_bonfire") == true, "the 3.1 souvenir is already yours")
+	assert_eq(Festivals.rollover(d, Vector2i(11, 3), 2027), ["bonfire"])
+	assert_true(d.flag("q_festivals_bonfire_done") == null)
+	assert_true(d.flag("q_festivals_bonfire_started") == null)
+	assert_true(d.flag("festivals_souv_bonfire") == true, "the souvenir flag survives the new year")
+	assert_eq(int(d.flag("festivals_year_bonfire")), 2027)
+	assert_eq(Festivals.years_done(d, Festivals.get_event("bonfire")), 1)
+	assert_eq(Festivals.rollover(d, Vector2i(11, 4), 2027), [], "once per year")
+
+func test_a_new_save_and_an_unfinished_run() -> void:
+	var d := _d()
+	assert_eq(Festivals.rollover(d, Vector2i(11, 3), 2026), [])
+	assert_eq(int(d.flag("festivals_year_bonfire")), 2026)
+	d.set_flag("q_festivals_bonfire_started")
+	d.set_flag("q_festivals_bonfire_1")
+	Festivals.rollover(d, Vector2i(11, 3), 2027)
+	assert_true(d.flag("q_festivals_bonfire_1") == null, "an unfinished run does not carry over")
+	assert_true(d.flag("festivals_souv_bonfire") == null, "and earned no souvenir")
+	assert_eq(Festivals.years_done(d, Festivals.get_event("bonfire")), 0)
+
+func test_only_the_festival_on_today_rolls_over() -> void:
+	var d := _d()
+	d.set_flag("q_festivals_burns_done")
+	assert_eq(Festivals.rollover(d, Vector2i(11, 3), 2027), ["bonfire"])
+	assert_true(d.flag("q_festivals_burns_done") == true, "Burns Night is not on in November")
+
+func test_every_souvenir_is_given_once_and_the_food_every_year() -> void:
+	var d: Dictionary = JsonUtil.read("res://data/dialogue/festivals.json")
+	var souvenirs := 0
+	var stack := [d]
+	while not stack.is_empty():
+		var n: Variant = stack.pop_back()
+		if n is Dictionary:
+			if n.get("do") == "give_item" and str(n.item).begins_with("fest_"):
+				assert_true(false, "souvenir given outside its once-only guard: " + str(n.item))
+			if n.get("do") == "if" and str(n.get("flag", "")).begins_with("festivals_souv_"):
+				souvenirs += 1
+				assert_true(n.get("else", []).size() == 2, "guarded give plus set")
+				continue
+			for v in n.values():
+				stack.append(v)
+		elif n is Array:
+			stack.append_array(n)
+	assert_true(souvenirs >= 24)
