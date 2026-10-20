@@ -1,0 +1,217 @@
+{
+ "foynes_chef": [
+  {
+   "do": "if",
+   "flag": "q_limerick_coffee_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Chef Br\u00edd",
+     "text": "Mind how you go. And the cream: float it, never stir."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_limerick_coffee_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_limerick_coffee_1",
+       "then": [
+        {
+         "do": "if",
+         "flag": "q_limerick_coffee_2",
+         "then": [
+          {
+           "do": "say",
+           "who": "Chef Br\u00edd",
+           "text": "Cream from the farm and brown sugar from the duty free. Now. Show me you were listening."
+          },
+          {
+           "do": "choice",
+           "text": "What goes into the warmed glass first?",
+           "options": [
+            "The cream",
+            "Brown sugar and hot coffee",
+            "A splash of whiskey on its own"
+           ],
+           "set": "_lim_cof"
+          },
+          {
+           "do": "if",
+           "flag": "_lim_cof",
+           "then": [
+            {
+             "do": "if",
+             "flag": "_lim_cof",
+             "eq": 1,
+             "then": [
+              {
+               "do": "choice",
+               "text": "Stirred till the sugar's gone. Then?",
+               "options": [
+                "A good measure of Irish whiskey",
+                "Ice",
+                "Milk"
+               ],
+               "set": "_lim_cof"
+              },
+              {
+               "do": "if",
+               "flag": "_lim_cof",
+               "eq": 0,
+               "then": [
+                {
+                 "do": "choice",
+                 "text": "And the cream?",
+                 "options": [
+                  "Stir it well in",
+                  "Float it over the back of a spoon",
+                  "A squirt from a can"
+                 ],
+                 "set": "_lim_cof"
+                },
+                {
+                 "do": "if",
+                 "flag": "_lim_cof",
+                 "eq": 1,
+                 "then": [
+                  {
+                   "do": "say",
+                   "who": "Chef Br\u00edd",
+                   "text": "Hot through the cold. That's it, exactly as Joe Sheridan made it in 1943. Taste that."
+                  },
+                  {
+                   "do": "say",
+                   "who": "Chef Br\u00edd",
+                   "text": "Here, something came out of the steam while you were stirring. It seems to have taken a liking to you."
+                  },
+                  {
+                   "do": "give_creature",
+                   "species": "cuppeen",
+                   "level": 50
+                  },
+                  {
+                   "do": "give_item",
+                   "item": "irish_coffee",
+                   "n": 3
+                  },
+                  {
+                   "do": "standing",
+                   "nation": "ireland",
+                   "amount": 3
+                  },
+                  {
+                   "do": "set",
+                   "flag": "q_limerick_coffee_3"
+                  },
+                  {
+                   "do": "set",
+                   "flag": "q_limerick_coffee_done"
+                  }
+                 ],
+                 "else": [
+                  {
+                   "do": "say",
+                   "who": "Chef Br\u00edd",
+                   "text": "Ah, no. Joe Sheridan is turning in his grave. Come back and try again."
+                  }
+                 ]
+                }
+               ],
+               "else": [
+                {
+                 "do": "say",
+                 "who": "Chef Br\u00edd",
+                 "text": "Ice? Milk? In an Irish coffee? Away with you and try again."
+                }
+               ]
+              }
+             ],
+             "else": [
+              {
+               "do": "say",
+               "who": "Chef Br\u00edd",
+               "text": "Not first, no. Have another think and come back to me."
+              }
+             ]
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Chef Br\u00edd",
+             "text": "Not first, no. Have another think and come back to me."
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Chef Br\u00edd",
+           "text": "Lovely cream. Now brown sugar: the duty-free shop at Shannon Airport, the first duty free in the world. Ask for the good stuff."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Chef Br\u00edd",
+         "text": "Cream first. Golden Vale cream, from the dairy farm north of the river. Lightly whipped, mind."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Chef Br\u00edd",
+       "text": "This is where Irish coffee was invented, did you know? 1943. A flying boat to America turned back in a winter storm, and Joe Sheridan, the chef, warmed the passengers up."
+      },
+      {
+       "do": "say",
+       "who": "Chef Br\u00edd",
+       "text": "A passenger asked was it Brazilian coffee. 'No,' says Joe, 'that's Irish coffee.' I make it the same way. Will you help me make a proper one?"
+      },
+      {
+       "do": "say",
+       "who": "Chef Br\u00edd",
+       "text": "I need cream from the dairy farm north of the river, and brown sugar from the duty free at Shannon Airport."
+      },
+      {
+       "do": "set",
+       "flag": "q_limerick_coffee_started"
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "foynes_curator": [
+  {
+   "do": "say",
+   "who": "Museum Curator",
+   "text": "The flying boats came in from 1937. Pan Am's Yankee Clipper, the Boeing 314, carried seventy-odd passengers in luxury: a dining room, beds, a honeymoon suite at the back."
+  },
+  {
+   "do": "say",
+   "who": "Museum Curator",
+   "text": "In 1939 the first scheduled passenger flights across the Atlantic landed here. The radio and weather room upstairs is how it was, all valves and Morse."
+  }
+ ],
+ "foynes_pilot": [
+  {
+   "do": "say",
+   "who": "Retired Navigator",
+   "text": "Navigating a flying boat across the Atlantic was dead reckoning and star sights. You'd take a sextant to the window and pray for a gap in the clouds."
+  },
+  {
+   "do": "say",
+   "who": "Retired Navigator",
+   "text": "Coming home to Foynes on the Shannon at dawn was the loveliest sight in the world. The water flat as a plate. Then breakfast."
+  }
+ ]
+}

@@ -1,0 +1,163 @@
+{
+ "lg_folklorist": [
+  {
+   "do": "if",
+   "flag": "q_limerick_iarla_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Folklorist N\u00f3ra",
+     "text": "You saw the silver shoes. Most people only hear the hoofbeats. The lake will be talking about you for seven years."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_limerick_iarla_1",
+     "then": [
+      {
+       "do": "say",
+       "who": "Folklorist N\u00f3ra",
+       "text": "You've walked the circle. Now wait by the shore at night, out past the causeway. Listen for hooves on water."
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_limerick_iarla_started",
+       "then": [
+        {
+         "do": "say",
+         "who": "Folklorist N\u00f3ra",
+         "text": "The Grange Stone Circle, east of the lake. Walk in by the entrance, the way the sun does at midsummer, and pay your respects."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Folklorist N\u00f3ra",
+         "text": "Do you know the story of Gear\u00f3id Iarla? The Earl of Desmond, a poet and a magician. His wife begged to see his magic, and he turned into a goose before her eyes. She screamed, and broke the spell, and he vanished into the lake."
+        },
+        {
+         "do": "say",
+         "who": "Folklorist N\u00f3ra",
+         "text": "Every seven years he rides out across Lough Gur on a white horse shod with silver. When the shoes are worn thin, he'll come back. I've been coming here thirty years to see the shoes."
+        },
+        {
+         "do": "say",
+         "who": "Folklorist N\u00f3ra",
+         "text": "Walk the Grange Stone Circle first, then come back to the shore at night. The old places listen to those who visit them properly."
+        },
+        {
+         "do": "set",
+         "flag": "q_limerick_iarla_started"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "lg_circle_keeper": [
+  {
+   "do": "if",
+   "flag": "q_limerick_iarla_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_limerick_iarla_1",
+     "then": [
+      {
+       "do": "say",
+       "who": "Circle Walker",
+       "text": "Back to the lake with you. N\u00f3ra will have you up all night."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Circle Walker",
+       "text": "In through the entrance passage, that's it, the way the midsummer sun comes in. You can feel it, can't you? Four thousand years of people standing just here."
+      },
+      {
+       "do": "say",
+       "who": "Circle Walker",
+       "text": "Off you go to the lake. Respects paid."
+      },
+      {
+       "do": "set",
+       "flag": "q_limerick_iarla_1"
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Circle Walker",
+     "text": "A hundred and more stones in a ring, and inside the floor was built up a metre with clay. They found broken pots in it: a feast, or a lot of very clumsy people."
+    }
+   ]
+  }
+ ],
+ "silvershod_mist": [
+  {
+   "do": "if",
+   "flag": "q_limerick_iarla_1",
+   "then": [
+    {
+     "do": "when",
+     "cond": "night",
+     "then": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "Out on the dark water there's a sound like hooves on stone. A pale horse comes walking over the lake, and its four shoes shine silver in the moonlight."
+      },
+      {
+       "do": "legend",
+       "species": "silvershod",
+       "level": 60,
+       "flag": "caught_silvershod"
+      },
+      {
+       "do": "if",
+       "flag": "caught_silvershod",
+       "then": [
+        {
+         "do": "set",
+         "flag": "q_limerick_iarla_done"
+        },
+        {
+         "do": "standing",
+         "nation": "ireland",
+         "amount": 2
+        },
+        {
+         "do": "say",
+         "who": "",
+         "text": "The shoes are still bright. Gear\u00f3id Iarla will be a while yet."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "A thin mist lies on the lake. N\u00f3ra said the silver horse rides at night."
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "",
+     "text": "A thin mist hangs over the water. It looks, for a moment, like the shape of a horse. Then it's mist again."
+    }
+   ]
+  }
+ ]
+}

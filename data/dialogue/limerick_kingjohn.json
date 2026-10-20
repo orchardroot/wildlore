@@ -1,0 +1,70 @@
+{
+ "kj_guide": [
+  {
+   "do": "if",
+   "flag": "q_limerick_verse_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_limerick_verse_1",
+     "then": [
+      {
+       "do": "say",
+       "who": "Castle Guide",
+       "text": "How's the poem coming? If you need a rhyme for 'castle', I've been looking for forty years. There isn't one. Not a decent one."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Castle Guide",
+       "text": "A first line for M\u00e1ire's limerick night? Well, they always want the castle in it. Here:"
+      },
+      {
+       "do": "say",
+       "who": "Castle Guide",
+       "text": "'A young trainer who came to King John's...'"
+      },
+      {
+       "do": "say",
+       "who": "Castle Guide",
+       "text": "That's da-DUM-da-da-DUM-da-da-DUM. Take it to M\u00e1ire; she'll do the rest with you."
+      },
+      {
+       "do": "set",
+       "flag": "q_limerick_verse_1"
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "You learnt a first line: 'A young trainer who came to King John's'."
+      }
+     ]
+    }
+   ],
+   "else": []
+  },
+  {
+   "do": "say",
+   "who": "Castle Guide",
+   "text": "King John never actually set foot in his castle, as far as anyone knows. Very typical of a landlord."
+  },
+  {
+   "do": "say",
+   "who": "Castle Guide",
+   "text": "Down in the excavations you can see the mine and countermine from the 1642 siege. The Confederates dug under the walls and the defenders dug to meet them. In the dark. With shovels."
+  }
+ ],
+ "kj_reenactor": [
+  {
+   "do": "say",
+   "who": "Re-enactor",
+   "text": "I'm a Williamite soldier, 1690. Tomorrow I'm a Jacobite. The pay's the same either way, which is very historically accurate."
+  },
+  {
+   "do": "say",
+   "who": "Re-enactor",
+   "text": "In the 1690 siege the women of Limerick fought on the walls and threw bottles and stones at the attackers. They're on the pub signs now."
+  }
+ ]
+}

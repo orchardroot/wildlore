@@ -1,0 +1,40 @@
+{
+ "id": "est_champion",
+ "name": "Sir Conor, the Earl's Champion",
+ "class": "Champion",
+ "sprite": "hurler",
+ "party": [
+  {
+   "species": "stagmor",
+   "level": 60
+  },
+  {
+   "species": "rookery",
+   "level": 59
+  },
+  {
+   "species": "billgruff",
+   "level": 59
+  },
+  {
+   "species": "selkie",
+   "level": 59
+  },
+  {
+   "species": "megalorn",
+   "level": 60
+  }
+ ],
+ "ai": "trainer",
+ "money": 3000,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Sir Conor, the Earl's Champion",
+   "text": "By order of the Earl of Thomond: a guest who would feast must first face the Earl's champion. Or the dungeon. Your pick."
+  }
+ ],
+ "win": "The Earl is satisfied. The dungeon will have to make do with the Butler.",
+ "after": "A guest gets sent down to the dungeon every banquet, for some imagined crime. It's a great honour, apparently.",
+ "scaled_floor": 58
+}

@@ -1,0 +1,223 @@
+{
+ "poet_maire": [
+  {
+   "do": "if",
+   "flag": "q_limerick_verse_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Poet M\u00e1ire",
+     "text": "There's a trainer who came to King John's... I'll be humming it for weeks. Thank you."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_limerick_verse_3",
+     "then": [
+      {
+       "do": "say",
+       "who": "Poet M\u00e1ire",
+       "text": "Ruair\u00ed beaten and the market laughing! That's a limerick doing its job. Here: a Munster scrum cap, and a scrap of Limerick lace for luck. You're a poet now. God help us."
+      },
+      {
+       "do": "give_item",
+       "item": "thomond_scrum_cap",
+       "n": 1
+      },
+      {
+       "do": "give_item",
+       "item": "limerick_lace",
+       "n": 2
+      },
+      {
+       "do": "standing",
+       "nation": "ireland",
+       "amount": 4
+      },
+      {
+       "do": "set",
+       "flag": "q_limerick_verse_done"
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_limerick_verse_2",
+       "then": [
+        {
+         "do": "say",
+         "who": "Poet M\u00e1ire",
+         "text": "Off to the Milk Market with it! Ruair\u00ed the bard holds court there. Recite it to the crowd, then see him off."
+        }
+       ],
+       "else": [
+        {
+         "do": "if",
+         "flag": "q_limerick_verse_1",
+         "then": [
+          {
+           "do": "say",
+           "who": "Poet M\u00e1ire",
+           "text": "'A young trainer who came to King John's.' Lovely. Now. Line two has to rhyme with 'John's' and keep the bounce."
+          },
+          {
+           "do": "choice",
+           "text": "Line two: 'Brought a team made of...'",
+           "options": [
+            "...geese and three hens",
+            "...ducks and of swans",
+            "...a bull called Big Ben"
+           ],
+           "set": "_lim_verse"
+          },
+          {
+           "do": "if",
+           "flag": "_lim_verse",
+           "eq": 1,
+           "then": [
+            {
+             "do": "say",
+             "who": "Poet M\u00e1ire",
+             "text": "'Ducks and of swans.' Perfect. Lines three and four are short and rhyme with each other. I'll give you three: 'They hissed at the gate,'"
+            },
+            {
+             "do": "choice",
+             "text": "Line four:",
+             "options": [
+              "And a guard yelled, \"Ye're late!\"",
+              "And one bit a guard on the bum",
+              "Which upset the man on duty"
+             ],
+             "set": "_lim_verse"
+            },
+            {
+             "do": "if",
+             "flag": "_lim_verse",
+             "eq": 0,
+             "then": [
+              {
+               "do": "say",
+               "who": "Poet M\u00e1ire",
+               "text": "Ha! Now the last line. It has to rhyme with John's and swans, and it has to land the joke."
+              },
+              {
+               "do": "choice",
+               "text": "Line five:",
+               "options": [
+                "So they all went home for a nap.",
+                "And they guard it themselves now with wands.",
+                "And King John said a very rude word."
+               ],
+               "set": "_lim_verse"
+              },
+              {
+               "do": "if",
+               "flag": "_lim_verse",
+               "eq": 1,
+               "then": [
+                {
+                 "do": "say",
+                 "who": "Poet M\u00e1ire",
+                 "text": "'A young trainer who came to King John's / Brought a team made of ducks and of swans. / They hissed at the gate, / And a guard yelled, \"Ye're late!\" / And they guard it themselves now with wands.'"
+                },
+                {
+                 "do": "say",
+                 "who": "Poet M\u00e1ire",
+                 "text": "Wands! It's nonsense. It's perfect. Now go and try it on the Milk Market crowd. If Ruair\u00ed the bard doesn't heckle you off the crate, it's a keeper."
+                },
+                {
+                 "do": "set",
+                 "flag": "q_limerick_verse_2"
+                }
+               ],
+               "else": [
+                {
+                 "do": "say",
+                 "who": "Poet M\u00e1ire",
+                 "text": "The rude word, I'll allow. But it has to rhyme, pet. Have a think and come back."
+                }
+               ]
+              }
+             ],
+             "else": [
+              {
+               "do": "say",
+               "who": "Poet M\u00e1ire",
+               "text": "Ha! Filthy. And it doesn't rhyme. Save it for the second verse. Have a think and come back."
+              }
+             ]
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Poet M\u00e1ire",
+             "text": "It doesn't rhyme with John's, does it? Say them out loud. Go on. Have a think and come back to me."
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "if",
+           "flag": "q_limerick_verse_started",
+           "then": [
+            {
+             "do": "say",
+             "who": "Poet M\u00e1ire",
+             "text": "King John's Castle first. The guide has a first line for you; he's been sitting on it for years."
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Poet M\u00e1ire",
+             "text": "Welcome to the Poet's Rest. Tonight's limerick night, and I'm a verse short. Five lines: one, two and five rhyme; three and four are short and rhyme with each other."
+            },
+            {
+             "do": "say",
+             "who": "Poet M\u00e1ire",
+             "text": "Nobody can prove the limerick comes from Limerick. We've decided not to let that stop us."
+            },
+            {
+             "do": "say",
+             "who": "Poet M\u00e1ire",
+             "text": "Will you write one with me? Get a first line from the guide at King John's Castle. He's been dying to be asked."
+            },
+            {
+             "do": "set",
+             "flag": "q_limerick_verse_started"
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "poets_quizmaster": [
+  {
+   "do": "say",
+   "who": "Quizmaster",
+   "text": "Pub quiz, every night bar Sunday. Questions on the whole of these islands, and a few on Limerick, of course."
+  },
+  {
+   "do": "quiz",
+   "pub": "limerick_poets",
+   "region": "ireland",
+   "who": "Quizmaster"
+  }
+ ],
+ "poets_regular": [
+  {
+   "do": "say",
+   "who": "Old Regular",
+   "text": "There was an old man from Thomondgate / Who drank till a quarter past eight. / He went home to bed, / With a hat on his head... I forget the rest. It's very good, the rest."
+  }
+ ]
+}
