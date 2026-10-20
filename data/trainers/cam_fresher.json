@@ -1,0 +1,32 @@
+{
+ "id": "cam_fresher",
+ "name": "Fresher Hattie",
+ "class": "Fresher",
+ "sprite": "student",
+ "scaled_floor": 94,
+ "party": [
+  {
+   "species": "murmurant",
+   "level": 94
+  },
+  {
+   "species": "ratty",
+   "level": 94
+  },
+  {
+   "species": "chronophage",
+   "level": 95
+  }
+ ],
+ "ai": "trainer",
+ "money": 4000,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Fresher Hattie",
+   "text": "First term! I've joined eleven societies, including the Assassins' Guild. It's real. It uses water pistols. Fight me!"
+  }
+ ],
+ "win": "I'll have to resign from at least four societies to recover.",
+ "after": "Matriculation is when they write you into the college book. I signed in the wrong place. I'm technically a bishop now."
+}

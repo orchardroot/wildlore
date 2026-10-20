@@ -1,0 +1,240 @@
+{
+ "eagle_barman": [
+  {
+   "do": "if",
+   "flag": "q_eastanglia_dna_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Barman",
+     "text": "Our resident geneticist! Your pint of Eagle's DNA is on the house. It's ale. I just call it that."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_eastanglia_dna_1",
+     "then": [
+      {
+       "do": "say",
+       "who": "Barman",
+       "text": "You've seen the ceiling, now for the puzzle. DNA is a ladder, twisted. Each rung is two bases holding hands. A always pairs with T, and C always with G."
+      },
+      {
+       "do": "choice",
+       "text": "What pairs with A?",
+       "options": [
+        "C",
+        "G",
+        "T"
+       ],
+       "set": "_ea_dna1"
+      },
+      {
+       "do": "if",
+       "flag": "_ea_dna1",
+       "then": [
+        {
+         "do": "choice",
+         "text": "And the other strand of A-T-G-C reads...",
+         "options": [
+          "T-A-C-G",
+          "A-T-G-C",
+          "G-C-A-T"
+         ],
+         "set": "_ea_dna2"
+        },
+        {
+         "do": "if",
+         "flag": "_ea_dna2",
+         "then": [
+          {
+           "do": "say",
+           "who": "Barman",
+           "text": "T-A-C-G! Spot on. Each strand is a template for the other: unzip it and you can build the missing half. That's how life copies itself."
+          },
+          {
+           "do": "say",
+           "who": "Barman",
+           "text": "Crick and Watson built their model from metal plates and wire. Rosalind Franklin's Photo 51 from King's College London showed it was a helix. Crick, Watson and Maurice Wilkins got the Nobel Prize in 1962; Franklin had died in 1958, and it isn't given to the dead."
+          },
+          {
+           "do": "say",
+           "who": "Barman",
+           "text": "Here. A little gold helix from behind the bar. Pin it on whoever you like."
+          },
+          {
+           "do": "give_item",
+           "item": "double_helix"
+          },
+          {
+           "do": "give_item",
+           "item": "chelsea_bun",
+           "n": 2
+          },
+          {
+           "do": "standing",
+           "nation": "england",
+           "amount": 4
+          },
+          {
+           "do": "set",
+           "flag": "q_eastanglia_dna_2"
+          },
+          {
+           "do": "set",
+           "flag": "q_eastanglia_dna_done"
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Barman",
+           "text": "Not quite. Pair them up: A with T, T with A, G with C, C with G. Have a sip and try again."
+          }
+         ],
+         "eq": 0
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Barman",
+         "text": "No, A and T go together, like fish and chips. Have another go."
+        }
+       ],
+       "eq": 2
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_eastanglia_dna_started",
+       "then": [
+        {
+         "do": "say",
+         "who": "Barman",
+         "text": "Go and look at the ceiling in the RAF bar first, at the back. Ask the regular. Then come and do my puzzle."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Barman",
+         "text": "Welcome to the Eagle. Coaching inn since 1667. In 1953 two blokes from the Cavendish Lab down the road had their lunch here most days."
+        },
+        {
+         "do": "say",
+         "who": "Barman",
+         "text": "On 28 February, Francis Crick stood up at lunchtime and told the whole pub they had found the secret of life. Everyone assumed he'd had a few. He had found the shape of DNA."
+        },
+        {
+         "do": "choice",
+         "text": "I've a puzzle for you, if you're game. Fancy it?",
+         "options": [
+          "Go on",
+          "Maybe later"
+         ],
+         "set": "_ea_dna"
+        },
+        {
+         "do": "if",
+         "flag": "_ea_dna",
+         "then": [
+          {
+           "do": "say",
+           "who": "Barman",
+           "text": "Good. First, go and look at the ceiling in the RAF bar at the back. Ask the regular about it. Science starts with looking."
+          },
+          {
+           "do": "set",
+           "flag": "q_eastanglia_dna_started"
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Barman",
+           "text": "No rush. The secret of life will keep."
+          }
+         ],
+         "eq": 0
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "eagle_raf": [
+  {
+   "do": "if",
+   "flag": "q_eastanglia_dna_started",
+   "then": [
+    {
+     "do": "say",
+     "who": "RAF Bar Regular",
+     "text": "Look up. All those names and numbers, written on the ceiling in candle smoke and lighter flame and lipstick, by British and American airmen in the Second World War."
+    },
+    {
+     "do": "say",
+     "who": "RAF Bar Regular",
+     "text": "They came here from the airfields round Cambridge between missions. Some never came back. The pub kept the ceiling just as they left it."
+    },
+    {
+     "do": "say",
+     "who": "RAF Bar Regular",
+     "text": "Funny, isn't it. Two kinds of history in one pub. One's on the ceiling, one's on a plaque by the door. Go on, the barman's waiting with his puzzle."
+    },
+    {
+     "do": "set",
+     "flag": "q_eastanglia_dna_1"
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "RAF Bar Regular",
+     "text": "Look up at the ceiling sometime. It's a war memorial written in smoke."
+    }
+   ]
+  }
+ ],
+ "eagle_quizmaster": [
+  {
+   "do": "say",
+   "who": "Quizmaster",
+   "text": "Quiz night at the Eagle. It's mostly science teams. Last week a team called Schrodinger's Cat both won and didn't."
+  },
+  {
+   "do": "choice",
+   "text": "Fancy a round? Five questions, no phones.",
+   "options": [
+    "Count me in",
+    "Not tonight"
+   ],
+   "set": "_quiz_choice"
+  },
+  {
+   "do": "if",
+   "flag": "_quiz_choice",
+   "then": [
+    {
+     "do": "quiz",
+     "pub": "cambridge_eagle",
+     "region": "england_south",
+     "who": "Quizmaster"
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Quizmaster",
+     "text": "Fair enough. Come back when your neurons are warmed up."
+    }
+   ],
+   "eq": 0
+  }
+ ]
+}

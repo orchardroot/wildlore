@@ -1,0 +1,23 @@
+{"id": "turvling",
+ "palette": {"b": "#7a5034", "b2": "#5a3822", "cream": "#d8b890", "peat": "#3e2a1c", "peat2": "#2a1c12", "spade": "#c8a46a", "spade2": "#8a6a3c", "nose": "#e89a90", "ink": "#1e120a", "reed": "#a89850", "water": "#5a8aa0"},
+ "layers": [
+  {"shape": "ellipse", "at": [48, 91], "size": [80, 9], "colour": "water", "rim": false},
+  {"shape": "rect", "at": [80, 80], "size": [14, 10], "colour": "peat", "pattern": "speckle", "pcolour": "peat2", "density": 20},
+  {"shape": "rect", "at": [80, 70], "size": [14, 10], "colour": "peat2", "pattern": "speckle", "pcolour": "peat", "density": 20},
+  {"shape": "rect", "at": [82, 60], "size": [12, 10], "colour": "peat", "pattern": "speckle", "pcolour": "peat2", "density": 20},
+  {"shape": "poly", "points": [[22, 82], [6, 70], [4, 86], [16, 92]], "colour": "spade", "pattern": "stripes", "pcolour": "spade2", "period": 4, "pangle": 60},
+  {"shape": "ellipse", "at": [46, 68], "size": [50, 42], "colour": "b", "pattern": "stripes", "pcolour": "b2", "period": 8, "pangle": 70},
+  {"shape": "ellipse", "at": [46, 74], "size": [28, 24], "colour": "cream", "front_only": true, "rim": false},
+  {"shape": "ellipse", "at": [30, 86], "size": [16, 8], "colour": "b2", "mirror": true},
+  {"shape": "poly", "points": [[26, 74], [16, 80], [22, 86], [30, 82]], "colour": "spade2", "mirror": true},
+  {"shape": "ellipse", "at": [46, 44], "size": [38, 30], "colour": "b"},
+  {"shape": "circle", "at": [32, 32], "r": 5, "colour": "b2", "mirror": true},
+  {"shape": "ellipse", "at": [46, 52], "size": [18, 12], "colour": "cream", "front_only": true, "rim": false}
+ ],
+ "face_layers": [
+  {"shape": "ellipse", "at": [46, 48], "size": [8, 5], "colour": "nose", "shade": false},
+  {"shape": "line", "points": [[42, 54], [46, 56], [50, 54]], "width": 1.2, "colour": "ink", "shade": false},
+  {"shape": "line", "points": [[36, 50], [26, 48]], "width": 0.8, "colour": "ink", "shade": false, "mirror": true}
+ ],
+ "eyes": [{"at": [38, 42], "r": 3.5, "colour": "ink", "mirror": true}]
+}

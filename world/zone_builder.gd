@@ -244,10 +244,12 @@ const POINT_PROPS := ["lamp_post", "bench", "bush", "birch", "oak", "pine", "roc
 	"clootie_tree", "curling_house", "curling_stones", "brick_arch", "band_kit", "stage_light", "slate_stack", "slate_wagon",
 	"crypt_arch", "candelabra", "tomb_chest", "brazier", "city_window", "enclosure_banner", "creature_cage", "loom",
 	# Shropshire: the Iron Bridge over its "bridge" deck tiles, gliders over the Long Mynd
-	"iron_bridge", "glider"]
+	"iron_bridge", "glider",
+	# East Anglia (Landmarks.EA_PROPS)
+	"windpump", "punt", "maths_bridge", "wherry"]
 ## Cloth meshes that ripple (flutter shader) and glow meshes that add light (firelight shader).
 const CLOTH := ["bunting", "flag", "washing_line"]
-const FLOATING := ["boat", "canal_boat", "buoy"]
+const FLOATING := ["boat", "canal_boat", "buoy", "punt", "wherry"]
 
 ## Tall grass with "prop": "short" is cropped grass: low tufts, but still somewhere for a creature to hide.
 static func tuft_height(prop_name: String) -> float:
@@ -574,6 +576,8 @@ static func _ctor(name: String, variant: int) -> ArrayMesh:
 			return Dressing.specimen_shelf(variant)
 		"wall_map":
 			return Dressing.wall_map()
+	if name in Landmarks.EA_PROPS:
+		return Landmarks.ea_prop(name, variant)
 	if name in Dressing.VENUE_PROPS or name in Dressing.VENUE_GLOWS.values():
 		return Dressing.venue_prop(name, variant)
 	push_warning("ZoneBuilder: unknown prop mesh '%s'" % name)

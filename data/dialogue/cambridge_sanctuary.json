@@ -1,0 +1,63 @@
+{
+ "nurse": [
+  {
+   "do": "say",
+   "who": "Nurse",
+   "text": "Hello, welcome to Cambridge Sanctuary! Don't mind the bikes in the porch, they breed."
+  },
+  {
+   "do": "choice",
+   "text": "What can we do for you?",
+   "options": [
+    "Heal my team",
+    "Open the Ark",
+    "Just looking"
+   ],
+   "set": "_nurse_choice"
+  },
+  {
+   "do": "if",
+   "flag": "_nurse_choice",
+   "then": [
+    {
+     "do": "say",
+     "who": "Nurse",
+     "text": "Pop them on the counter. We do a very gentle heal, then a cup of tea and a Chelsea bun."
+    },
+    {
+     "do": "heal"
+    },
+    {
+     "do": "say",
+     "who": "Nurse",
+     "text": "There we are, right as rain. Mind the cyclists on your way out, they do not mind you."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "_nurse_choice",
+     "then": [
+      {
+       "do": "say",
+       "who": "Nurse",
+       "text": "The Ark's in the corner. It was designed by a committee of three colleges, so it took four hundred years."
+      },
+      {
+       "do": "ark"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Nurse",
+       "text": "No bother at all. Enjoy Cambridge, and keep off the grass. Seriously. There are porters."
+      }
+     ],
+     "eq": 1
+    }
+   ],
+   "eq": 0
+  }
+ ]
+}

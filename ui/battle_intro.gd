@@ -23,6 +23,7 @@ const REGION_COLOURS := {
 	"south_england": Color("5aa08a"), "cornwall": Color("e0b84a"), "yorkshire": Color("4a86c8"), "north_east": Color("2f3f8f"),
 	"cumbria": Color("6f9a5a"), "lancashire": Color("c8452f"), "scotland": Color("2a62b8"), "ireland": Color("2f9e5f"), "ireland_west": Color("5fb06a"),
 	"ireland_east": Color("1f7a52"), "man": Color("a3283c"),
+	"east_anglia": Color("e0c020"),
 }
 const DEFAULT_COLOUR := Color("b08a4a")
 

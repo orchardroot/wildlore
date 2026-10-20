@@ -1,0 +1,45 @@
+{
+ "id": "fen_ivo",
+ "name": "Ivo de Taillebois",
+ "class": "Norman Knight",
+ "sprite": "warden_grunt",
+ "scaled_floor": 94,
+ "party": [
+  {
+   "species": "centurion",
+   "level": 95
+  },
+  {
+   "species": "samsonian",
+   "level": 95
+  },
+  {
+   "species": "steelheart",
+   "level": 96
+  },
+  {
+   "species": "cassiterix",
+   "level": 95
+  },
+  {
+   "species": "stagmajor",
+   "level": 96
+  }
+ ],
+ "ai": "trainer",
+ "money": 7500,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Ivo de Taillebois",
+   "text": "Halt! I am Ivo de Taillebois, lord of these fens for King William. This causeway is the King's, and that rebel Hereward will not slip away again!"
+  },
+  {
+   "do": "say",
+   "who": "Ivo de Taillebois",
+   "text": "Draw, peasant. In the name of the Conqueror."
+  }
+ ],
+ "win": "Mon Dieu. Sunk in the fen, like the King's causeway.",
+ "after": "Go, then. The rebel waits in the reeds. Tell him William sends his regards, and a very large army."
+}

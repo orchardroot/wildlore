@@ -1,0 +1,37 @@
+{
+ "broads_reedcutter": [
+  {
+   "do": "say",
+   "who": "Reed Cutter",
+   "text": "{greeting} Norfolk reed's the finest thatching reed in the land. Cut in winter when the leaves have dropped, bundled, stood to dry. A good reed roof'll last you fifty years or more."
+  },
+  {
+   "do": "say",
+   "who": "Reed Cutter",
+   "text": "Cutting keeps the reedbed young, and the bitterns and harriers like it that way. A fen that nobody cuts turns to scrub, then to wood. We're gardeners, really. Wet ones."
+  },
+  {
+   "do": "daily",
+   "key": "eastanglia_reed_broads_daily",
+   "then": [
+    {
+     "do": "say",
+     "who": "Reed Cutter",
+     "text": "Take a bundle, go on. Crafters are mad for it."
+    },
+    {
+     "do": "give_item",
+     "item": "norfolk_reed",
+     "n": 3
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Reed Cutter",
+     "text": "You've had today's bundle. Come back tomorrow, the reed's not going anywhere."
+    }
+   ]
+  }
+ ]
+}

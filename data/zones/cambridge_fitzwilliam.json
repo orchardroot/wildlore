@@ -1,0 +1,148 @@
+{
+ "id": "cambridge_fitzwilliam",
+ "name": "The Fitzwilliam Museum",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "display_case",
+   "x": 3,
+   "y": 3
+  },
+  {
+   "type": "display_case",
+   "x": 5,
+   "y": 3
+  },
+  {
+   "type": "display_case",
+   "x": 9,
+   "y": 3
+  },
+  {
+   "type": "display_case",
+   "x": 11,
+   "y": 3
+  },
+  {
+   "type": "statue",
+   "x": 2,
+   "y": 6
+  },
+  {
+   "type": "statue",
+   "x": 12,
+   "y": 6
+  },
+  {
+   "type": "wall_picture",
+   "x": 3,
+   "y": 1,
+   "walk": true,
+   "variant": 0
+  },
+  {
+   "type": "wall_picture",
+   "x": 6,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  },
+  {
+   "type": "wall_picture",
+   "x": 8,
+   "y": 1,
+   "walk": true,
+   "variant": 2
+  },
+  {
+   "type": "wall_picture",
+   "x": 11,
+   "y": 1,
+   "walk": true,
+   "variant": 0
+  },
+  {
+   "type": "specimen_shelf",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "specimen_shelf",
+   "x": 13,
+   "y": 1
+  },
+  {
+   "type": "rug",
+   "x": 7,
+   "y": 2,
+   "w": 1,
+   "h": 6,
+   "variant": 1,
+   "walk": true
+  }
+ ],
+ "warps": [
+  {
+   "x": 7,
+   "y": 8,
+   "to": "cambridge",
+   "tx": 21,
+   "ty": 43,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "fitz_curator",
+   "sprite": "tour_guide",
+   "x": 7,
+   "y": 2,
+   "facing": "down",
+   "move": "still",
+   "script": "fitz_curator",
+   "name": "Curator"
+  },
+  {
+   "id": "fitz_attendant",
+   "sprite": "villager_4",
+   "x": 10,
+   "y": 6,
+   "facing": "left",
+   "move": "still",
+   "script": "fitz_attendant",
+   "name": "Gallery Attendant"
+  },
+  {
+   "id": "fitz_child",
+   "sprite": "student",
+   "x": 4,
+   "y": 7,
+   "facing": "up",
+   "move": "still",
+   "script": "fitz_child",
+   "name": "School Trip"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  7,
+  7
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxxx",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x++++++D++++++x",
+  "xxxxxxxxxxxxxxx"
+ ]
+}

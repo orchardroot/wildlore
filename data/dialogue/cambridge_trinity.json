@@ -1,0 +1,66 @@
+{
+ "trinity_porter": [
+  {
+   "do": "say",
+   "who": "Porter",
+   "text": "Morning. This is the Wren Library, designed by Sir Christopher Wren and finished in 1695. Mind the floor, it's older than your great-great-grandmother's great-grandmother."
+  },
+  {
+   "do": "say",
+   "who": "Porter",
+   "text": "Out in Great Court, students try to run round the whole court while the clock strikes twelve. Twice, as it does. About forty-three seconds. They made a film about it. Not here, as it happens."
+  },
+  {
+   "do": "say",
+   "who": "Porter",
+   "text": "Trinity was founded by Henry VIII in 1546. He's above the Great Gate holding a chair leg instead of a sceptre. Some student swapped it years ago and nobody ever swapped it back."
+  }
+ ],
+ "wren_librarian": [
+  {
+   "do": "if",
+   "flag": "q_eastanglia_apple_1",
+   "then": [
+    {
+     "do": "say",
+     "who": "Librarian",
+     "text": "Go on, find that student. And keep your sticky apple off the Principia."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_eastanglia_apple_started",
+     "then": [
+      {
+       "do": "say",
+       "who": "Librarian",
+       "text": "An apple from the tree! How lovely. Keep it well away from the books, please."
+      },
+      {
+       "do": "say",
+       "who": "Librarian",
+       "text": "Newton came to Trinity in 1661 as a poor student who waited on richer ones. By 1669 he was a professor. In 1687 he published the Principia, the book that explained gravity and how the planets move."
+      },
+      {
+       "do": "say",
+       "who": "Librarian",
+       "text": "We keep his own copy here, full of his corrections in the margins. As for the apple: in 1726, an old man now, he told his friend William Stukeley that he'd seen one fall in the garden, and it set him thinking. He never said it hit him."
+      },
+      {
+       "do": "set",
+       "flag": "q_eastanglia_apple_1"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Librarian",
+       "text": "The Wren Library. Shhh. The books are sleeping. Some of them have been sleeping since 1695."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

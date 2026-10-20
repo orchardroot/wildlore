@@ -1,0 +1,80 @@
+{
+ "id": "broads_reedcutter",
+ "name": "Reed Cutter's Hut",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "fireplace",
+   "x": 5,
+   "y": 1
+  },
+  {
+   "type": "kitchen_dresser",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "table",
+   "x": 8,
+   "y": 2
+  },
+  {
+   "type": "slate_stack",
+   "x": 9,
+   "y": 5
+  },
+  {
+   "type": "washing_line",
+   "x": 2,
+   "y": 5,
+   "walk": true
+  },
+  {
+   "type": "cat_bowl",
+   "x": 1,
+   "y": 6
+  }
+ ],
+ "warps": [
+  {
+   "x": 5,
+   "y": 6,
+   "to": "the_broads",
+   "tx": 8,
+   "ty": 13,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "broads_reedcutter",
+   "sprite": "farmer",
+   "x": 3,
+   "y": 3,
+   "facing": "right",
+   "move": "still",
+   "script": "broads_reedcutter",
+   "name": "Reed Cutter"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  5,
+  5
+ ],
+ "rows": [
+  "xxxxxxxxxxx",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x||||D||||x",
+  "xxxxxxxxxxx"
+ ]
+}

@@ -1,0 +1,77 @@
+{
+ "ely_eelcatcher": [
+  {
+   "do": "if",
+   "flag": "q_eastanglia_hereward_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Eel Catcher",
+     "text": "You met him! I knew it. My granddad said he'd come back when the fen needed him. Mind you, my granddad also said eels could hear the weather."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_eastanglia_hereward_started",
+     "then": [
+      {
+       "do": "say",
+       "who": "Eel Catcher",
+       "text": "Ask the verger in the cathedral about the secret path. Then out to the Aldreth causeway in the west, over the bog. Mind the Norman."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Eel Catcher",
+       "text": "{greeting} Eels. Ely means eel island. In the old days you paid your rent in eels: so many sticks of twenty-five a year. The abbey got four thousand eels a year off one village alone."
+      },
+      {
+       "do": "say",
+       "who": "Eel Catcher",
+       "text": "My family's caught eels here since forever. And we've a story. Hereward the Wake, the last Englishman who wouldn't kneel to William the Conqueror, hid out on this isle."
+      },
+      {
+       "do": "say",
+       "who": "Eel Catcher",
+       "text": "There's a knight on the old causeway at night, they say, still guarding it for King William. And a beacon in the reeds no one ever lights."
+      },
+      {
+       "do": "choice",
+       "text": "Go looking for Hereward?",
+       "options": [
+        "Tell me more",
+        "Just here for the eels"
+       ],
+       "set": "_ea_here"
+      },
+      {
+       "do": "if",
+       "flag": "_ea_here",
+       "then": [
+        {
+         "do": "say",
+         "who": "Eel Catcher",
+         "text": "Good. Start in the cathedral; the verger knows how Hereward lost the isle. Then the causeway. Then... well. We'll see."
+        },
+        {
+         "do": "set",
+         "flag": "q_eastanglia_hereward_started"
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Eel Catcher",
+         "text": "Smoked, jellied or stewed? Ha! I'm only teasing. The eels are for me."
+        }
+       ],
+       "eq": 0
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

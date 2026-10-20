@@ -1,0 +1,418 @@
+{
+ "cam_puntcaptain": [
+  {
+   "do": "if",
+   "flag": "q_eastanglia_punt_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Punt Captain",
+     "text": "There goes my champion! Every punt on the Cam doffs its pole to you. Well, nods. They're busy."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_eastanglia_punt_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "Punt Captain",
+       "text": "You beat him? You beat Rupert? Up the Cam! Proper Cambridge style, standing on the till like a civilised person."
+      },
+      {
+       "do": "say",
+       "who": "Punt Captain",
+       "text": "Here, have my lucky pole-tip. Cut from an ash tree on the Backs. Brook creatures swear by it."
+      },
+      {
+       "do": "give_item",
+       "item": "punt_pole"
+      },
+      {
+       "do": "give_item",
+       "item": "chelsea_bun",
+       "n": 3
+      },
+      {
+       "do": "standing",
+       "nation": "england",
+       "amount": 4
+      },
+      {
+       "do": "set",
+       "flag": "q_eastanglia_punt_done"
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_eastanglia_punt_1",
+       "then": [
+        {
+         "do": "say",
+         "who": "Punt Captain",
+         "text": "You've got the pole! Rupert's waiting on the Backs, the far side of the Mathematical Bridge. Off you go, and don't let him splash you."
+        }
+       ],
+       "else": [
+        {
+         "do": "if",
+         "flag": "q_eastanglia_punt_started",
+         "then": [
+          {
+           "do": "say",
+           "who": "Punt Captain",
+           "text": "You'll need a proper pole. The porter at Queens' College keeps a spare, just through their door by the wooden bridge."
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Punt Captain",
+           "text": "Afternoon! Punt tour? Ninety minutes, the Backs, King's, the Bridge of Sighs, and I'll tell you which colleges have the best ghosts."
+          },
+          {
+           "do": "say",
+           "who": "Punt Captain",
+           "text": "Unless... You look sporty. Some Oxford chap called Rupert has challenged every punter on the Cam to a race, and none of my lot will take him on. They're all scared of the swan."
+          },
+          {
+           "do": "choice",
+           "text": "Race Rupert for the honour of the Cam?",
+           "options": [
+            "Pass me a pole",
+            "Not today"
+           ],
+           "set": "_ea_punt"
+          },
+          {
+           "do": "if",
+           "flag": "_ea_punt",
+           "then": [
+            {
+             "do": "say",
+             "who": "Punt Captain",
+             "text": "Champion! First you'll need a pole. The porter at Queens' College, by the Mathematical Bridge, keeps a spare. Tell him I sent you."
+            },
+            {
+             "do": "set",
+             "flag": "q_eastanglia_punt_started"
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Punt Captain",
+             "text": "Fair enough. The offer floats."
+            }
+           ],
+           "eq": 0
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "cam_rival_punter": [
+  {
+   "do": "if",
+   "flag": "trainer_cam_punter_ox",
+   "then": [
+    {
+     "do": "say",
+     "who": "Rupert",
+     "text": "We shan't speak of the race. I've already told Oxford it was foggy. It was, a bit, in my soul."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_eastanglia_punt_1",
+     "then": [
+      {
+       "do": "battle",
+       "trainer": "cam_punter_ox",
+       "intro": true
+      },
+      {
+       "do": "if",
+       "flag": "trainer_cam_punter_ox",
+       "then": [
+        {
+         "do": "set",
+         "flag": "q_eastanglia_punt_2"
+        },
+        {
+         "do": "say",
+         "who": "",
+         "text": "Rupert's punt drifts gently into the reeds. Back to the Punt Captain at Quayside with the news!"
+        }
+       ],
+       "else": []
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Rupert",
+       "text": "Rupert, Oxford. I'm racing Cambridge's best, if they ever find a pole. Ha!"
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "cam_gardener": [
+  {
+   "do": "if",
+   "flag": "q_eastanglia_apple_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "College Gardener",
+     "text": "The tree's grand. Somebody's grafted a bit of it for a school in Lincolnshire. It'll be falling on children's heads in no time."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_eastanglia_apple_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "College Gardener",
+       "text": "He watched it fall, he didn't get bonked! I'll make a gardener of you yet. Facts are like apples: best picked carefully."
+      },
+      {
+       "do": "say",
+       "who": "College Gardener",
+       "text": "Keep the apple. And take these, for your trouble. The Trinity orchard does a fine pippin."
+      },
+      {
+       "do": "give_item",
+       "item": "trinity_pippin"
+      },
+      {
+       "do": "give_item",
+       "item": "chelsea_bun",
+       "n": 2
+      },
+      {
+       "do": "standing",
+       "nation": "england",
+       "amount": 4
+      },
+      {
+       "do": "set",
+       "flag": "q_eastanglia_apple_done"
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_eastanglia_apple_started",
+       "then": [
+        {
+         "do": "say",
+         "who": "College Gardener",
+         "text": "Show the apple to the librarian in the Wren Library, through the college gate. Then go and set that student by the Corpus Clock straight."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "College Gardener",
+         "text": "See this tree? Grown from the very tree in Isaac Newton's garden at Woolsthorpe. In 1666 he watched an apple drop and wondered why it always falls straight down and never sideways or up."
+        },
+        {
+         "do": "say",
+         "who": "College Gardener",
+         "text": "One's just dropped, look. There's a student over by the Corpus Clock telling everyone it hit Newton on the head. It's driving me up the wall."
+        },
+        {
+         "do": "choice",
+         "text": "Take the apple and set the story straight?",
+         "options": [
+          "Pass it here",
+          "Not now"
+         ],
+         "set": "_ea_apple"
+        },
+        {
+         "do": "if",
+         "flag": "_ea_apple",
+         "then": [
+          {
+           "do": "give_item",
+           "item": "newtons_apple"
+          },
+          {
+           "do": "say",
+           "who": "College Gardener",
+           "text": "Good. Show it to the librarian in the Wren Library first, through the Trinity gate. She knows Newton better than his mother did."
+          },
+          {
+           "do": "set",
+           "flag": "q_eastanglia_apple_started"
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "College Gardener",
+           "text": "Suit yourself. Apples don't wait, mind. Gravity sees to that."
+          }
+         ],
+         "eq": 0
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "cam_doubter": [
+  {
+   "do": "if",
+   "flag": "q_eastanglia_apple_2",
+   "then": [
+    {
+     "do": "say",
+     "who": "Doubting Student",
+     "text": "I've changed all my notes. Newton watched it fall. I still think a little bonk would have been funnier."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_eastanglia_apple_1",
+     "then": [
+      {
+       "do": "say",
+       "who": "Doubting Student",
+       "text": "Is that one of Newton's apples? Brilliant. You know it fell on his head, right? Boing! And then he invented gravity."
+      },
+      {
+       "do": "choice",
+       "text": "What really happened?",
+       "options": [
+        "Yes, it bonked him",
+        "He watched one fall in his garden",
+        "It was a pear"
+       ],
+       "set": "_ea_doubt"
+      },
+      {
+       "do": "if",
+       "flag": "_ea_doubt",
+       "then": [
+        {
+         "do": "say",
+         "who": "Doubting Student",
+         "text": "Watched it fall. In his garden in Lincolnshire. He told his friend Stukeley himself. Huh. And he didn't invent gravity, he explained it. Fine. FINE."
+        },
+        {
+         "do": "set",
+         "flag": "q_eastanglia_apple_2"
+        },
+        {
+         "do": "say",
+         "who": "",
+         "text": "Back to the College Gardener by the apple tree to tell him!"
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Doubting Student",
+         "text": "Hmm. Are you sure? That's not what the librarian at the Wren would say, is it? Have another think."
+        }
+       ],
+       "eq": 1
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Doubting Student",
+       "text": "Did you know the Chronophage up there eats time? I've got an essay due. It's been eating mine all week."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "cam_guide": [
+  {
+   "do": "say",
+   "who": "Walking Tour Guide",
+   "text": "{greeting} This street is King's Parade. Everything you can see is older than your country's motorways and better at being photographed."
+  },
+  {
+   "do": "say",
+   "who": "Walking Tour Guide",
+   "text": "Cambridge University was started in 1209 by scholars running away from Oxford after a fight with the townsfolk. The town and the gown have been rubbing along ever since."
+  }
+ ],
+ "rail_guard": [
+  {
+   "do": "say",
+   "who": "Rail Guard",
+   "text": "Cambridge Station. Famously a very long way from the middle of town, because the colleges didn't want students nipping off to London."
+  },
+  {
+   "do": "say",
+   "who": "Rail Guard",
+   "text": "All aboard! The trains go everywhere you have been. Mind the gap, and the bicycles."
+  },
+  {
+   "do": "rail"
+  }
+ ],
+ "cam_cyclist1": [
+  {
+   "do": "say",
+   "who": "Cyclist",
+   "text": "Ding! Sorry! Ding! Sorry! That's the Cambridge greeting, mate."
+  }
+ ],
+ "cam_cyclist2": [
+  {
+   "do": "say",
+   "who": "Cyclist",
+   "text": "Lost my bike outside the library. There were four thousand other bikes. One of them was probably mine."
+  }
+ ],
+ "cam_marketeer": [
+  {
+   "do": "say",
+   "who": "Market Trader",
+   "text": "Fresh strawberries, local asparagus, and a fen celery you won't find in London. The black soil up in the Fens grows the best veg in England, they say. They say it in the Fens, mostly."
+  }
+ ],
+ "cam_cowherd": [
+  {
+   "do": "say",
+   "who": "Commons Grazier",
+   "text": "These are proper common lands. Folk have had the right to graze cattle here for centuries. We still do. The cows have right of way too, and unlike the cyclists, they know it."
+  }
+ ],
+ "cam_bunlover": [
+  {
+   "do": "say",
+   "who": "Bun Enthusiast",
+   "text": "Fitzbillies on Trumpington Street has been selling Chelsea buns since 1920. Sticky, spiced, swirled with sugar syrup. I've had three today. It's eleven o'clock."
+  },
+  {
+   "do": "say",
+   "who": "Bun Enthusiast",
+   "text": "Chelsea buns are from London, technically. Don't tell anyone in that queue."
+  }
+ ]
+}

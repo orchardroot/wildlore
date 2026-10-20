@@ -1,0 +1,139 @@
+{
+ "quests": [
+  {
+   "id": "eastanglia_punt",
+   "title": "Race on the Cam",
+   "region": "east_anglia",
+   "town": "cambridge",
+   "giver": "Punt Captain",
+   "summary": "An Oxford punter has challenged the whole Cam to a race.",
+   "start_flag": "q_eastanglia_punt_started",
+   "steps": [
+    {
+     "flag": "q_eastanglia_punt_1",
+     "text": "Borrow a punt pole from the porter at Queens' College.",
+     "zone": "cambridge_queens"
+    },
+    {
+     "flag": "q_eastanglia_punt_2",
+     "text": "Race Rupert on the Backs, over the Mathematical Bridge.",
+     "zone": "cambridge"
+    },
+    {
+     "flag": "q_eastanglia_punt_done",
+     "text": "Tell the Punt Captain at Quayside.",
+     "zone": "cambridge"
+    }
+   ],
+   "done_flag": "q_eastanglia_punt_done",
+   "reward": "Punt Pole Tip (charm), Chelsea Buns and England standing."
+  },
+  {
+   "id": "eastanglia_apple",
+   "title": "Newton's Apple",
+   "region": "east_anglia",
+   "town": "cambridge",
+   "giver": "College Gardener",
+   "summary": "An apple has fallen from Newton's tree, and a story needs setting straight.",
+   "start_flag": "q_eastanglia_apple_started",
+   "steps": [
+    {
+     "flag": "q_eastanglia_apple_1",
+     "text": "Show the apple to the librarian in Trinity's Wren Library.",
+     "zone": "cambridge_trinity"
+    },
+    {
+     "flag": "q_eastanglia_apple_2",
+     "text": "Set the doubting student by the Corpus Clock straight.",
+     "zone": "cambridge"
+    },
+    {
+     "flag": "q_eastanglia_apple_done",
+     "text": "Back to the College Gardener by the apple tree.",
+     "zone": "cambridge"
+    }
+   ],
+   "done_flag": "q_eastanglia_apple_done",
+   "reward": "Trinity Pippin (charm), Chelsea Buns and England standing."
+  },
+  {
+   "id": "eastanglia_dna",
+   "title": "The Secret of Life",
+   "region": "east_anglia",
+   "town": "cambridge",
+   "giver": "Barman at the Eagle",
+   "summary": "A puzzle at the pub where Crick and Watson announced the double helix.",
+   "start_flag": "q_eastanglia_dna_started",
+   "steps": [
+    {
+     "flag": "q_eastanglia_dna_1",
+     "text": "Ask the regular in the RAF bar about the ceiling.",
+     "zone": "cambridge_eagle"
+    },
+    {
+     "flag": "q_eastanglia_dna_2",
+     "text": "Solve the barman's base-pair puzzle.",
+     "zone": "cambridge_eagle"
+    }
+   ],
+   "done_flag": "q_eastanglia_dna_done",
+   "reward": "Double Helix Pin (charm), Chelsea Buns and England standing."
+  },
+  {
+   "id": "eastanglia_hereward",
+   "title": "Hereward's Last Stand",
+   "region": "east_anglia",
+   "town": "the_fens",
+   "giver": "Eel Catcher of Ely",
+   "summary": "The last English rebel against the Conqueror may still be out in the fen.",
+   "start_flag": "q_eastanglia_hereward_started",
+   "steps": [
+    {
+     "flag": "q_eastanglia_hereward_1",
+     "text": "Ask the verger in Ely Cathedral how the Isle fell.",
+     "zone": "fens_cathedral"
+    },
+    {
+     "flag": "q_eastanglia_hereward_2",
+     "text": "Beat the Norman knight on the Aldreth causeway.",
+     "zone": "the_fens"
+    },
+    {
+     "flag": "q_eastanglia_hereward_done",
+     "text": "Face Hereward by the beacon on the camp island.",
+     "zone": "the_fens"
+    }
+   ],
+   "done_flag": "q_eastanglia_hereward_done",
+   "reward": "A chance to catch Hereward, Smoked Fen Eels and England standing."
+  },
+  {
+   "id": "eastanglia_canary",
+   "title": "On the Ball, City",
+   "region": "east_anglia",
+   "town": "norwich",
+   "giver": "Kit Man at Carrow Road",
+   "summary": "Learn why Norwich City are the Canaries, and join the Chorus.",
+   "start_flag": "q_eastanglia_canary_started",
+   "steps": [
+    {
+     "flag": "q_eastanglia_canary_1",
+     "text": "Ask the curator at Strangers' Hall about the canaries.",
+     "zone": "norwich_strangers"
+    },
+    {
+     "flag": "q_eastanglia_canary_2",
+     "text": "Win the Chorus Leader's blessing on the market.",
+     "zone": "norwich"
+    },
+    {
+     "flag": "q_eastanglia_canary_done",
+     "text": "Sing the song for the Kit Man at Carrow Road.",
+     "zone": "norwich_carrow"
+    }
+   ],
+   "done_flag": "q_eastanglia_canary_done",
+   "reward": "Canary Scarf (charm), Norfolk Dumplings and England standing."
+  }
+ ]
+}

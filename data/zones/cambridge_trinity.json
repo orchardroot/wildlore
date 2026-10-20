@@ -1,0 +1,165 @@
+{
+ "id": "cambridge_trinity",
+ "name": "Trinity College: the Wren Library",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "bookshelf",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 2,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 3,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 4,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 5,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 9,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 10,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 11,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 12,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 13,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 1,
+   "y": 4
+  },
+  {
+   "type": "bookshelf",
+   "x": 1,
+   "y": 5
+  },
+  {
+   "type": "bookshelf",
+   "x": 13,
+   "y": 4
+  },
+  {
+   "type": "bookshelf",
+   "x": 13,
+   "y": 5
+  },
+  {
+   "type": "display_case",
+   "x": 4,
+   "y": 4
+  },
+  {
+   "type": "display_case",
+   "x": 10,
+   "y": 4
+  },
+  {
+   "type": "statue",
+   "x": 7,
+   "y": 1
+  },
+  {
+   "type": "rug",
+   "x": 7,
+   "y": 3,
+   "w": 1,
+   "h": 5,
+   "variant": 0,
+   "walk": true
+  },
+  {
+   "type": "clock",
+   "x": 6,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "telescope",
+   "x": 12,
+   "y": 7
+  }
+ ],
+ "warps": [
+  {
+   "x": 7,
+   "y": 8,
+   "to": "cambridge",
+   "tx": 21,
+   "ty": 8,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "wren_librarian",
+   "sprite": "poet",
+   "x": 6,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "wren_librarian"
+  },
+  {
+   "id": "trinity_porter",
+   "sprite": "rail_guard",
+   "x": 9,
+   "y": 7,
+   "facing": "left",
+   "move": "still",
+   "script": "trinity_porter",
+   "name": "Porter"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  7,
+  7
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxxx",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x||||||D||||||x",
+  "xxxxxxxxxxxxxxx"
+ ]
+}
