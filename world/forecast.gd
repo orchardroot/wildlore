@@ -123,3 +123,28 @@ static func for_radio(sign: Dictionary, actual: String, day: int) -> Array:
 static func current_weather() -> String:
 	var forced: String = Game.args.get("weather", "")
 	return forced if forced != "" else Game.data.weather
+
+## "Outlook" lines for the radio, from the game's own clock: how long the current spell has left and what the
+## sea area usually turns to next (its likeliest other weather), plus what the weather brings out on land.
+## `minutes_left`: game minutes until the spell runs out (< 0 if unknown); `table`: the first area's weather table.
+static func outlook(actual: String, minutes_left: int, table: Dictionary) -> Array:
+	var w: String = actual if SPEECH.has(actual) else "clear"
+	var out := []
+	var hint := WeatherWild.hint(w)
+	if hint != "":
+		out.append(hint)
+	if minutes_left < 0:
+		return out
+	var next := ""
+	var best := 0.0
+	for k in table:
+		if k != w and float(table[k]) > best:
+			best = float(table[k])
+			next = str(k)
+	var hours := maxi(1, int(round(minutes_left / 60.0)))
+	var span := "about an hour" if hours == 1 else "about %d hours" % hours
+	var line := "Outlook: this spell has %s left" % span
+	if next != "":
+		line += ", and %s is the likeliest to follow" % MoveFX.weather_phrase(next)
+	out.append(line + ".")
+	return out

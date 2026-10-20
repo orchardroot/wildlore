@@ -61,7 +61,7 @@ static func candidates(zone: ZoneData, kind: String, phase: String, weather: Str
 		var weathers: Array = e.get("weather", [])
 		if (times.is_empty() or phase in times) and (weathers.is_empty() or weather in weathers):
 			out.append(e)
-	return out
+	return WeatherWild.shift(out, weather, WeatherWild.dex_types)  # the sky favours some types (3.1)
 
 ## The list with `species`' weight tripled (copies; the zone's own table is untouched). "" or absent: unchanged.
 static func featured(list: Array, species: String) -> Array:
