@@ -1,0 +1,93 @@
+{
+ "id": "exeter_passages",
+ "name": "Underground Passages",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "crypt_arch",
+   "x": 2,
+   "y": 1,
+   "variant": 1
+  },
+  {
+   "type": "crypt_arch",
+   "x": 3,
+   "y": 1,
+   "variant": 0
+  },
+  {
+   "type": "crypt_arch",
+   "x": 4,
+   "y": 1,
+   "variant": 1
+  },
+  {
+   "type": "candelabra",
+   "x": 1,
+   "y": 5
+  },
+  {
+   "type": "candelabra",
+   "x": 5,
+   "y": 5
+  }
+ ],
+ "warps": [
+  {
+   "x": 3,
+   "y": 11,
+   "to": "exeter",
+   "tx": 21,
+   "ty": 13,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "pass_guide",
+   "sprite": "hillwalker",
+   "x": 3,
+   "y": 10,
+   "facing": "up",
+   "move": "still",
+   "script": "pass_guide",
+   "name": "Passage Guide"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  3,
+  10
+ ],
+ "rows": [
+  "xxxxxxx",
+  "xr|||rx",
+  "x|xxx|x",
+  "x|xxx|x",
+  "x|xxx|x",
+  "x|||||x",
+  "x|xxx|x",
+  "x|xxx|x",
+  "x|x|x|x",
+  "x|x|x|x",
+  "x|||||x",
+  "x||D||x",
+  "xxxxxxx"
+ ],
+ "legend_extra": {
+  "|": {
+   "tile": "floor_tile",
+   "colour": "#5d4a3e"
+  },
+  "r": {
+   "tile": "floor_tile",
+   "colour": "#3e3530"
+  }
+ },
+ "ambience": "none"
+}

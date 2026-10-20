@@ -1,0 +1,92 @@
+{
+ "lib_riddler": [
+  {
+   "do": "say",
+   "who": "Librarian",
+   "text": "{greeting} The Exeter Book lives here. A thousand years old, given to the cathedral by Bishop Leofric. Poems, wisdom, laments, and riddles."
+  },
+  {
+   "do": "say",
+   "who": "Librarian",
+   "text": "Some are about an onion, a key or a shield, written so they sound terribly rude. The monks knew exactly what they were doing. Some of the oldest rude jokes in English, and the monks wrote them down on purpose."
+  },
+  {
+   "do": "choice",
+   "text": "Try a riddle?",
+   "options": [
+    "Go on",
+    "No thanks"
+   ],
+   "set": "_lib_try"
+  },
+  {
+   "do": "if",
+   "flag": "_lib_try",
+   "then": [
+    {
+     "do": "say",
+     "who": "Librarian",
+     "text": "Here's one from the Exeter Book, in modern words. A moth ate words. I thought it a strange thing, that a worm should swallow the song of a man, a thief in the dark, and be no wiser for it."
+    },
+    {
+     "do": "choice",
+     "text": "What is it?",
+     "options": [
+      "A bookworm",
+      "A mouse",
+      "A miser"
+     ],
+     "set": "_lib_riddle"
+    },
+    {
+     "do": "if",
+     "flag": "_lib_riddle",
+     "then": [
+      {
+       "do": "say",
+       "who": "Librarian",
+       "text": "A bookworm! A moth grub eating the vellum. It ate the words and learned nothing. We've all had students like that."
+      },
+      {
+       "do": "if",
+       "flag": "devon_riddle_won",
+       "then": [],
+       "else": [
+        {
+         "do": "set",
+         "flag": "devon_riddle_won"
+        },
+        {
+         "do": "give_item",
+         "item": "devon_scone",
+         "n": 2
+        },
+        {
+         "do": "say",
+         "who": "Librarian",
+         "text": "Here, a prize. Scones. Don't eat them in the library."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Librarian",
+       "text": "Not quite. It's a bookworm: a moth's grub, chewing the vellum. All those words inside it, and none the wiser."
+      }
+     ],
+     "eq": 0
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Librarian",
+     "text": "Another time. The book's waited a thousand years, it can wait till Tuesday."
+    }
+   ],
+   "eq": 0
+  }
+ ]
+}

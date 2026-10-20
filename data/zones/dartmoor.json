@@ -411,6 +411,14 @@
   "west": {
    "to": "tintagel",
    "offset": 0
+  },
+  "south": {
+   "to": "plymouth",
+   "offset": 5
+  },
+  "east": {
+   "to": "exe_estuary",
+   "offset": -12
   }
  },
  "npcs": [
@@ -575,6 +583,16 @@
    "facing": "left",
    "move": "still",
    "trainer": "moor_druid"
+  },
+  {
+   "id": "est_box_cranmere",
+   "sprite": "hillwalker",
+   "x": 63,
+   "y": 7,
+   "facing": "down",
+   "move": "still",
+   "script": "est_box_cranmere",
+   "name": "Letterboxer Tom"
   }
  ],
  "encounters": {
@@ -590,22 +608,15 @@
     "min": 43,
     "max": 44,
     "weight": 5,
-    "time": [
-     "dawn",
-     "day"
-    ]
+    "time": ["dawn", "day"]
    },
    {
     "species": "bodminax",
     "min": 44,
     "max": 45,
     "weight": 4,
-    "time": [
-     "night"
-    ],
-    "weather": [
-     "fog"
-    ]
+    "time": ["night"],
+    "weather": ["fog"]
    },
    {
     "species": "hazeldoze",
@@ -618,108 +629,85 @@
     "min": 43,
     "max": 44,
     "weight": 4,
-    "time": [
-     "dusk"
-    ]
+    "time": ["dusk"]
    },
    {
     "species": "lanternis",
     "min": 43,
     "max": 45,
     "weight": 10,
-    "time": [
-     "night",
-     "dusk"
-    ]
+    "time": ["night", "dusk"]
    },
    {
     "species": "glowmite",
     "min": 43,
     "max": 44,
     "weight": 4,
-    "weather": [
-     "fog"
-    ],
-    "time": [
-     "night"
-    ]
+    "weather": ["fog"],
+    "time": ["night"]
    },
    {
     "species": "horseshoe",
     "min": 43,
     "max": 45,
     "weight": 10,
-    "time": [
-     "night"
-    ]
+    "time": ["night"]
    },
    {
     "species": "horselet",
     "min": 43,
     "max": 44,
     "weight": 4,
-    "time": [
-     "night"
-    ]
+    "time": ["night"]
    },
    {
     "species": "pixiedell",
     "min": 43,
     "max": 45,
     "weight": 12,
-    "weather": [
-     "fog",
-     "drizzle"
-    ]
+    "weather": ["fog", "drizzle"]
    },
    {
     "species": "pixling",
     "min": 43,
     "max": 44,
     "weight": 5,
-    "weather": [
-     "fog"
-    ]
+    "weather": ["fog"]
    },
    {
     "species": "gwyllgi",
     "min": 44,
     "max": 45,
     "weight": 10,
-    "time": [
-     "night",
-     "dusk"
-    ]
+    "time": ["night", "dusk"]
    },
    {
     "species": "peatmonarch",
     "min": 43,
     "max": 45,
     "weight": 10,
-    "weather": [
-     "drizzle",
-     "downpour"
-    ]
+    "weather": ["drizzle", "downpour"]
    },
    {
     "species": "forkwing",
     "min": 43,
     "max": 45,
     "weight": 8,
-    "weather": [
-     "gale",
-     "clear"
-    ]
+    "weather": ["gale", "clear"]
    },
    {
     "species": "adderking",
     "min": 43,
     "max": 45,
     "weight": 8,
-    "time": [
-     "dawn",
-     "day"
-    ]
+    "time": ["dawn", "day"]
+   },
+   {
+    "species": "wishtling",
+    "min": 43,
+    "max": 44,
+    "weight": 6,
+    "weather": ["fog", "drizzle"]
    }
   ],
   "water": [
@@ -782,6 +770,23 @@
    "plaque": "dartmoor_letterboxing",
    "title": "Letterboxing",
    "text": "In 1854 a Dartmoor guide, James Perrott, left a bottle at remote Cranmere Pool for walkers to leave their cards in. It grew into letterboxing: boxes hidden across the moor, each with a rubber stamp and a logbook. Somewhere out there, one is waiting for you."
+  },
+  {
+   "x": 31,
+   "y": 42,
+   "text": "PLYMOUTH, SOUTH. The Hoe, the Barbican and the sea. Follow the path off the moor and keep going till you smell chips."
+  },
+  {
+   "x": 66,
+   "y": 36,
+   "text": "B3212, EAST. The Exe Estuary, Haldon Hill and Exeter. Keep both hands on the wheel."
+  },
+  {
+   "x": 62,
+   "y": 9,
+   "text": "CRANMERE POOL. Hardly a pool at all now, more a boggy hollow in the peat at the remote heart of the north moor. In 1854 a guide, James Perrott, left a bottle here for walkers' calling cards, and the hobby of letterboxing was born.",
+   "plaque": "devon_cranmere_pool",
+   "title": "Cranmere Pool"
   }
  ],
  "spawn": [
@@ -823,19 +828,19 @@
   "RRkhhhhhhhhkkk~~~kkkkkkkkkkkk#kkkhhhhhhhhhhkkk#hhhhhhhkkkkkkkkkkkkkkRR",
   "RRkhhhhhhhhkkk~~~kkkkkkkkkkkk#kkkkkkhhhhhhkkkk#kkkkkkkkkkkkkkkkkkkkkRR",
   "RRkhhhhhhhhkkk~~~kkRkkkkkkkkk#kkkkkkhhhhhhkkkk#kkkkkkkkkkRkkkkkkkkkkRR",
-  "RRkhhhhhhhhkkk~~~RkkRkkkkkkkk#kkkkkkkkkkkkkkkk#########kkkkkkkkkkkkkRR",
-  "RRkhhhhhhhhkkk~~~RkkRkkkkkkkk#kkkkkkkkkkkkkkkkkkkkkkkkkkkRRkkkkkkkkkRR",
-  "RRkhhhhhhhhkkkwwwkkkkkkkkkkkk#kkkkkkkkkkkkkkkkkkkkkkkkkkRkRkkkkkkkkkRR",
   "RRkhhhhhhhhkkk~~~Rkkkkkkkkkkk#kkkkkkkkkkkkkkkkkkkkkkkkkRkkRRkkhhhhhhRR",
   "RRkhhhhhhhhkkk~~~kkkkkkkkTkkk#kkkkkkkkkkkkkkkkkkkkkkkkkkkkkRkkhhhhhhRR",
   "RRkkkmmmmmmmmm~~~kkkkkTTTkTTk#kkkkkRkkRkkkkkmmmmmmmmkkkkkkkkkkhhhhhhRR",
   "RRkkkmmmmmmmmm~~~kkkkkTkTTTkT#kkkkkkkRRRkkkkmmmmmmmmkkkkkkkkkkhhhhhhRR",
   "RRkkkmmmmmmmmm~~~kkkkkTkkkTTk########kkRkkkkmmmmmmmmkkkkkkkkkkhhhhhhRR",
-  "RRkkkmmmmmmmmm~~~kkkkkkTkkkkkkkkkkkkkkkkkkkkmmmmmmmmkkkkkkkkkkhhhhhhRR",
-  "RRkkkmmmmmmmmm~~~kkkkkkkTTkkTkkkkkkkkkkkkkkkmmmmmmmmkkkkkkkkkkkkkkkkRR",
-  "RRkkkkkkkkkkkk~~~kkkkkkkkkkkkkkkkkkRkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkRR",
-  "RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR",
-  "RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRPRRRRRRRRRRRRRRRRRR"
+  "RRkhhhhhhhhkkk~~~RkkRkkkkkkkk#kkkkkkkkkkkkkkkk#################kkkkkRR",
+  "RRkhhhhhhhhkkk~~~RkkRkkkkkkkk#kkkkkkkkkkkkkkkkkkkkkkkkkkkRRkkk########",
+  "RRkhhhhhhhhkkkwwwkkkkkkkkkkkk#kkkkkkkkkkkkkkkkkkkkkkkkkkRkRkkk########",
+  "RRkkkmmmmmmmmm~~~kkkkkkTkkkkk##kkkkkkkkkkkkkmmmmmmmmkkkkkkkkkkhhhhhhRR",
+  "RRkkkmmmmmmmmm~~~kkkkkkkTTkkT##kkkkkkkkkkkkkmmmmmmmmkkkkkkkkkkkkkkkkRR",
+  "RRkkkkkkkkkkkk~~~kkkkkkkkkkkk##kkkkRkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkRR",
+  "RRRRRRRRRRRRRRRRRRRRRRRRRRRRR##RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR",
+  "RRRRRRRRRRRRRRRRRRRRRRRRRRRRR##RRRRRRRRRRRRRRRRRRRRPRRRRRRRRRRRRRRRRRR"
  ],
  "heights": [
   "0000000000000000000000000000000000000000000000111111111000000000000000",

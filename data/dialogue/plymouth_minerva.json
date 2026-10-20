@@ -1,0 +1,27 @@
+{
+ "minerva_landlord": [
+  {
+   "do": "say",
+   "who": "Landlord",
+   "text": "{greeting} The Minerva. They say it's the oldest pub in Plymouth, going back to about 1540. Low ceilings, thick walls, and a lot of ghosts who never paid their tab."
+  },
+  {
+   "do": "say",
+   "who": "Landlord",
+   "text": "Drake drank round here, they say. Then again, they say that about every pub west of Bristol. He must have had a very busy liver."
+  }
+ ],
+ "minerva_quiz": [
+  {
+   "do": "say",
+   "who": "Quizmaster",
+   "text": "Quiz night! Questions on the West Country, the Navy and whatever I read in the paper this morning. Fancy a round?"
+  },
+  {
+   "do": "quiz",
+   "pub": "plymouth_minerva",
+   "region": "england_south",
+   "who": "Quizmaster"
+  }
+ ]
+}

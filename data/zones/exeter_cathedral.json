@@ -1,0 +1,342 @@
+{
+ "id": "exeter_cathedral",
+ "name": "Exeter Cathedral",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "bench",
+   "x": 2,
+   "y": 3
+  },
+  {
+   "type": "bench",
+   "x": 3,
+   "y": 3
+  },
+  {
+   "type": "bench",
+   "x": 4,
+   "y": 3
+  },
+  {
+   "type": "bench",
+   "x": 5,
+   "y": 3
+  },
+  {
+   "type": "bench",
+   "x": 6,
+   "y": 3
+  },
+  {
+   "type": "bench",
+   "x": 12,
+   "y": 3
+  },
+  {
+   "type": "bench",
+   "x": 13,
+   "y": 3
+  },
+  {
+   "type": "bench",
+   "x": 14,
+   "y": 3
+  },
+  {
+   "type": "bench",
+   "x": 15,
+   "y": 3
+  },
+  {
+   "type": "bench",
+   "x": 16,
+   "y": 3
+  },
+  {
+   "type": "bench",
+   "x": 2,
+   "y": 5
+  },
+  {
+   "type": "bench",
+   "x": 3,
+   "y": 5
+  },
+  {
+   "type": "bench",
+   "x": 4,
+   "y": 5
+  },
+  {
+   "type": "bench",
+   "x": 5,
+   "y": 5
+  },
+  {
+   "type": "bench",
+   "x": 6,
+   "y": 5
+  },
+  {
+   "type": "bench",
+   "x": 12,
+   "y": 5
+  },
+  {
+   "type": "bench",
+   "x": 13,
+   "y": 5
+  },
+  {
+   "type": "bench",
+   "x": 14,
+   "y": 5
+  },
+  {
+   "type": "bench",
+   "x": 15,
+   "y": 5
+  },
+  {
+   "type": "bench",
+   "x": 16,
+   "y": 5
+  },
+  {
+   "type": "bench",
+   "x": 2,
+   "y": 7
+  },
+  {
+   "type": "bench",
+   "x": 3,
+   "y": 7
+  },
+  {
+   "type": "bench",
+   "x": 4,
+   "y": 7
+  },
+  {
+   "type": "bench",
+   "x": 5,
+   "y": 7
+  },
+  {
+   "type": "bench",
+   "x": 6,
+   "y": 7
+  },
+  {
+   "type": "bench",
+   "x": 12,
+   "y": 7
+  },
+  {
+   "type": "bench",
+   "x": 13,
+   "y": 7
+  },
+  {
+   "type": "bench",
+   "x": 14,
+   "y": 7
+  },
+  {
+   "type": "bench",
+   "x": 15,
+   "y": 7
+  },
+  {
+   "type": "bench",
+   "x": 16,
+   "y": 7
+  },
+  {
+   "type": "bench",
+   "x": 2,
+   "y": 9
+  },
+  {
+   "type": "bench",
+   "x": 3,
+   "y": 9
+  },
+  {
+   "type": "bench",
+   "x": 4,
+   "y": 9
+  },
+  {
+   "type": "bench",
+   "x": 5,
+   "y": 9
+  },
+  {
+   "type": "bench",
+   "x": 6,
+   "y": 9
+  },
+  {
+   "type": "bench",
+   "x": 12,
+   "y": 9
+  },
+  {
+   "type": "bench",
+   "x": 13,
+   "y": 9
+  },
+  {
+   "type": "bench",
+   "x": 14,
+   "y": 9
+  },
+  {
+   "type": "bench",
+   "x": 15,
+   "y": 9
+  },
+  {
+   "type": "bench",
+   "x": 16,
+   "y": 9
+  },
+  {
+   "type": "candelabra",
+   "x": 7,
+   "y": 1
+  },
+  {
+   "type": "candelabra",
+   "x": 11,
+   "y": 1
+  },
+  {
+   "type": "table",
+   "x": 9,
+   "y": 1
+  },
+  {
+   "type": "tomb_chest",
+   "x": 1,
+   "y": 11,
+   "variant": 0
+  },
+  {
+   "type": "tomb_chest",
+   "x": 17,
+   "y": 11,
+   "variant": 1
+  },
+  {
+   "type": "clock",
+   "x": 2,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "piano",
+   "x": 16,
+   "y": 1,
+   "rot": 180
+  },
+  {
+   "type": "wall_picture",
+   "x": 5,
+   "y": 1,
+   "walk": true,
+   "variant": 0
+  },
+  {
+   "type": "wall_picture",
+   "x": 13,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  }
+ ],
+ "warps": [
+  {
+   "x": 9,
+   "y": 13,
+   "to": "exeter",
+   "tx": 38,
+   "ty": 31,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "cath_guide",
+   "sprite": "tour_guide",
+   "x": 8,
+   "y": 12,
+   "facing": "down",
+   "move": "still",
+   "script": "cath_guide",
+   "name": "Cathedral Guide"
+  },
+  {
+   "id": "cath_clock",
+   "sprite": "villager_2",
+   "x": 3,
+   "y": 2,
+   "facing": "up",
+   "move": "still",
+   "script": "cath_clock",
+   "name": "Clock Volunteer"
+  },
+  {
+   "id": "exe_verger",
+   "sprite": "poet",
+   "x": 10,
+   "y": 10,
+   "facing": "down",
+   "move": "still",
+   "trainer": "exe_verger"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  9,
+  12
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxxxxxxx",
+  "xqtqtqtqtqtqtqtqtqx",
+  "xtqtqtqtrrrtqtqtqtx",
+  "xqtqtqtqrrrqtqtqtqx",
+  "xtqtqtqtrrrtqtqtqtx",
+  "xqtqtqtqrrrqtqtqtqx",
+  "xtqtqtqtrrrtqtqtqtx",
+  "xqtqtqtqrrrqtqtqtqx",
+  "xtqtqtqtrrrtqtqtqtx",
+  "xqtqtqtqrrrqtqtqtqx",
+  "xtqtqtqtrrrtqtqtqtx",
+  "xqrrrrrrrrrrrrrrrqx",
+  "xqqqqqqqqqqqqqqqqqx",
+  "xqqqqqqqqDqqqqqqqqx",
+  "xxxxxxxxxxxxxxxxxxx"
+ ],
+ "legend_extra": {
+  "q": {
+   "tile": "floor_tile",
+   "colour": "#cfc6ae"
+  },
+  "t": {
+   "tile": "floor_tile",
+   "colour": "#bdb39a"
+  },
+  "r": {
+   "tile": "floor_tile",
+   "colour": "#7a3a34"
+  }
+ }
+}

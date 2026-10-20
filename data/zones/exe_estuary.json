@@ -1,0 +1,761 @@
+{
+ "id": "exe_estuary",
+ "name": "Exe Estuary",
+ "region": "south_england",
+ "kind": "route",
+ "legend_extra": {
+  "h": {
+   "tile": "tall_grass",
+   "colour": "#7a5c6a",
+   "prop": "heather"
+  },
+  "k": {
+   "tile": "grass",
+   "colour": "#8a8a4d"
+  },
+  "m": {
+   "tile": "tall_grass",
+   "colour": "#5f6a4a",
+   "prop": "short"
+  },
+  "r": {
+   "tile": "tall_grass",
+   "colour": "#6f7a4a",
+   "prop": "reeds"
+  },
+  "u": {
+   "tile": "sand",
+   "colour": "#7d6c55"
+  },
+  "g": {
+   "tile": "grass",
+   "colour": "#6f9447"
+  }
+ },
+ "music": "route_coast",
+ "weather": {
+  "fog": 20,
+  "drizzle": 26,
+  "clear": 22,
+  "sunshine": 12,
+  "gale": 10,
+  "downpour": 10
+ },
+ "stage": "bog",
+ "scaled_floor": 43,
+ "edges": {
+  "west": {
+   "to": "dartmoor",
+   "offset": 12
+  },
+  "north": {
+   "to": "exeter",
+   "offset": 0
+  }
+ },
+ "spawn": [
+  31,
+  10
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "wishtling",
+    "min": 43,
+    "max": 44,
+    "weight": 10,
+    "weather": [
+     "fog",
+     "drizzle"
+    ]
+   },
+   {
+    "species": "wishtling",
+    "min": 43,
+    "max": 44,
+    "weight": 4
+   },
+   {
+    "species": "foalmoor",
+    "min": 43,
+    "max": 44,
+    "weight": 8,
+    "time": [
+     "dawn",
+     "day"
+    ]
+   },
+   {
+    "species": "pixling",
+    "min": 43,
+    "max": 44,
+    "weight": 6,
+    "weather": [
+     "fog"
+    ]
+   },
+   {
+    "species": "beaconet",
+    "min": 43,
+    "max": 44,
+    "weight": 5,
+    "time": [
+     "dusk",
+     "night"
+    ]
+   },
+   {
+    "species": "stalklet",
+    "min": 43,
+    "max": 45,
+    "weight": 10
+   },
+   {
+    "species": "bittling",
+    "min": 43,
+    "max": 44,
+    "weight": 8
+   },
+   {
+    "species": "croakle",
+    "min": 43,
+    "max": 44,
+    "weight": 8,
+    "weather": [
+     "drizzle",
+     "downpour"
+    ]
+   },
+   {
+    "species": "volet",
+    "min": 43,
+    "max": 44,
+    "weight": 8
+   },
+   {
+    "species": "zigzlet",
+    "min": 43,
+    "max": 44,
+    "weight": 6,
+    "time": [
+     "day"
+    ]
+   },
+   {
+    "species": "gwyllgi",
+    "min": 44,
+    "max": 45,
+    "weight": 5,
+    "time": [
+     "night"
+    ]
+   },
+   {
+    "species": "fawnlet",
+    "min": 43,
+    "max": 44,
+    "weight": 5,
+    "time": [
+     "dawn",
+     "dusk"
+    ]
+   },
+   {
+    "species": "wistoak",
+    "min": 44,
+    "max": 45,
+    "weight": 2,
+    "time": [
+     "night"
+    ],
+    "weather": [
+     "fog"
+    ]
+   }
+  ],
+  "water": [
+   {
+    "species": "stalklet",
+    "min": 43,
+    "max": 45,
+    "weight": 20
+   },
+   {
+    "species": "elverlet",
+    "min": 43,
+    "max": 44,
+    "weight": 18
+   },
+   {
+    "species": "pinchkin",
+    "min": 43,
+    "max": 44,
+    "weight": 16
+   },
+   {
+    "species": "ternlet",
+    "min": 43,
+    "max": 44,
+    "weight": 14,
+    "season": [
+     "spring",
+     "summer"
+    ]
+   },
+   {
+    "species": "bittling",
+    "min": 43,
+    "max": 44,
+    "weight": 12,
+    "season": [
+     "autumn",
+     "winter"
+    ]
+   },
+   {
+    "species": "pupplash",
+    "min": 43,
+    "max": 44,
+    "weight": 10
+   }
+  ]
+ },
+ "props": [
+  {
+   "type": "building",
+   "style": "round_tower",
+   "x": 17,
+   "y": 37,
+   "w": 3,
+   "h": 3,
+   "label": "Haldon Belvedere"
+  },
+  {
+   "type": "building",
+   "style": "cob_thatch",
+   "x": 19,
+   "y": 17,
+   "w": 6,
+   "h": 3,
+   "label": "Ide Combe Dairy",
+   "kind": "cafe"
+  },
+  {
+   "type": "building",
+   "style": "mill",
+   "x": 36,
+   "y": 36,
+   "w": 4,
+   "h": 3,
+   "label": "Starcross Pumping House"
+  },
+  {
+   "type": "building",
+   "style": "cob_thatch",
+   "x": 61,
+   "y": 3,
+   "w": 4,
+   "h": 3,
+   "label": "Topsham"
+  },
+  {
+   "type": "building",
+   "style": "white_render",
+   "x": 65,
+   "y": 3,
+   "w": 3,
+   "h": 3,
+   "label": "The Strand, Topsham"
+  },
+  {
+   "type": "building",
+   "style": "red_brick",
+   "x": 61,
+   "y": 8,
+   "w": 6,
+   "h": 3,
+   "label": "Topsham Quay"
+  },
+  {
+   "type": "oak",
+   "x": 28,
+   "y": 3,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 24,
+   "y": 10,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 3,
+   "y": 11,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 27,
+   "y": 26,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 24,
+   "y": 30,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 6,
+   "y": 33,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 29,
+   "y": 42,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 11,
+   "y": 42,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 37,
+   "y": 24,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 41,
+   "y": 41,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 9,
+   "y": 11,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 18,
+   "y": 9,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 26,
+   "y": 19,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 3,
+   "y": 21,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 17,
+   "y": 26,
+   "variant": 1
+  },
+  {
+   "type": "brazier",
+   "x": 24,
+   "y": 36
+  },
+  {
+   "type": "field_gate",
+   "x": 17,
+   "y": 21
+  },
+  {
+   "type": "sheep",
+   "x": 8,
+   "y": 12,
+   "variant": 1
+  },
+  {
+   "type": "sheep",
+   "x": 25,
+   "y": 4,
+   "variant": 2
+  },
+  {
+   "type": "canal_boat",
+   "x": 34,
+   "y": 20
+  },
+  {
+   "type": "canal_boat",
+   "x": 34,
+   "y": 34,
+   "variant": 1
+  },
+  {
+   "type": "bench",
+   "x": 32,
+   "y": 6
+  },
+  {
+   "type": "bench",
+   "x": 32,
+   "y": 18
+  },
+  {
+   "type": "bench",
+   "x": 32,
+   "y": 28
+  },
+  {
+   "type": "bench",
+   "x": 32,
+   "y": 38
+  },
+  {
+   "type": "boat",
+   "x": 55,
+   "y": 10,
+   "variant": 0
+  },
+  {
+   "type": "boat",
+   "x": 57,
+   "y": 26,
+   "variant": 1
+  },
+  {
+   "type": "boat",
+   "x": 63,
+   "y": 38,
+   "variant": 2
+  },
+  {
+   "type": "boat",
+   "x": 50,
+   "y": 42,
+   "variant": 1
+  },
+  {
+   "type": "buoy",
+   "x": 60,
+   "y": 20
+  },
+  {
+   "type": "buoy",
+   "x": 66,
+   "y": 30,
+   "variant": 1
+  },
+  {
+   "type": "lamp_post",
+   "x": 35,
+   "y": 11
+  }
+ ],
+ "warps": [
+  {
+   "x": 21,
+   "y": 19,
+   "to": "exe_estuary_dairy",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  }
+ ],
+ "npcs": [
+  {
+   "id": "est_letterboxer",
+   "sprite": "hillwalker",
+   "x": 24,
+   "y": 21,
+   "facing": "down",
+   "move": "still",
+   "script": "est_letterboxer",
+   "name": "Letterboxer"
+  },
+  {
+   "id": "est_box_wood",
+   "sprite": "hiker",
+   "x": 6,
+   "y": 27,
+   "facing": "right",
+   "move": "still",
+   "script": "est_box_wood",
+   "name": "Letterboxer Ned"
+  },
+  {
+   "id": "est_box_haldon",
+   "sprite": "hillwalker",
+   "x": 20,
+   "y": 42,
+   "facing": "up",
+   "move": "still",
+   "script": "est_box_haldon",
+   "name": "Letterboxer Sal"
+  },
+  {
+   "id": "est_hairyhands",
+   "sprite": "creature:hairyhands",
+   "x": 10,
+   "y": 21,
+   "facing": "down",
+   "move": "still",
+   "script": "est_hairyhands",
+   "show_if": "q_devon_letterbox_3",
+   "hide_if": "caught_hairyhands"
+  },
+  {
+   "id": "est_beacon",
+   "sprite": "lamplighter",
+   "x": 24,
+   "y": 37,
+   "facing": "up",
+   "move": "still",
+   "script": "est_beacon",
+   "name": "Haldon Beacon Keeper"
+  },
+  {
+   "id": "est_warden",
+   "sprite": "birdwatcher",
+   "x": 44,
+   "y": 24,
+   "facing": "right",
+   "move": "still",
+   "script": "est_warden",
+   "name": "Reserve Warden"
+  },
+  {
+   "id": "est_pumper",
+   "sprite": "steelworker",
+   "x": 41,
+   "y": 38,
+   "facing": "left",
+   "move": "still",
+   "script": "est_pumper",
+   "name": "Railway Volunteer"
+  },
+  {
+   "id": "est_pixie_gran",
+   "sprite": "villager_6",
+   "x": 27,
+   "y": 9,
+   "facing": "left",
+   "move": "still",
+   "script": "est_pixie_gran",
+   "name": "Ottery Gran"
+  },
+  {
+   "id": "est_twitcher",
+   "sprite": "birdwatcher",
+   "x": 38,
+   "y": 13,
+   "facing": "up",
+   "move": "still",
+   "trainer": "est_twitcher"
+  },
+  {
+   "id": "est_cyclist",
+   "sprite": "jogger",
+   "x": 8,
+   "y": 24,
+   "facing": "up",
+   "move": "still",
+   "trainer": "est_cyclist"
+  },
+  {
+   "id": "est_walker",
+   "sprite": "hiker",
+   "x": 25,
+   "y": 13,
+   "facing": "left",
+   "move": "still",
+   "trainer": "est_walker"
+  },
+  {
+   "id": "est_boater",
+   "sprite": "canal_boater",
+   "x": 33,
+   "y": 26,
+   "facing": "left",
+   "move": "still",
+   "trainer": "est_boater"
+  },
+  {
+   "id": "est_cobley",
+   "sprite": "farmer",
+   "x": 12,
+   "y": 40,
+   "facing": "right",
+   "move": "still",
+   "trainer": "est_cobley"
+  }
+ ],
+ "signs": [
+  {
+   "x": 29,
+   "y": 21,
+   "text": "B3212. West: Dartmoor, Postbridge and Two Bridges. North: Exeter. Drive carefully. Keep both hands on the wheel. Keep an eye on both your hands."
+  },
+  {
+   "x": 2,
+   "y": 24,
+   "text": "THE HAIRY HANDS. From about 1910 drivers and cyclists on the B3212 near Postbridge told of a pair of large, hairy hands that gripped the wheel or the handlebars and forced them off the road. After a fatal crash in 1921 the road's camber was looked at. The hands were not.",
+   "plaque": "devon_hairy_hands",
+   "title": "The Hairy Hands"
+  },
+  {
+   "x": 14,
+   "y": 27,
+   "text": "WISTMAN'S WOOD. Up on the moor, high above any other oakwood, stunted oaks grow among granite boulders, furred with moss and lichen. 'Wisht' is old Devon for eerie, and the wood was said to be where the Wisht Hounds were kennelled.",
+   "plaque": "devon_wistmans_wood",
+   "title": "Wistman's Wood"
+  },
+  {
+   "x": 23,
+   "y": 41,
+   "text": "HALDON BELVEDERE. Built in 1788 by Sir Robert Palk in memory of his friend, General Stringer Lawrence, a three-cornered white tower on the Haldon ridge with views over the Exe to the sea and back to Dartmoor.",
+   "plaque": "devon_haldon_belvedere",
+   "title": "Haldon Belvedere"
+  },
+  {
+   "x": 36,
+   "y": 11,
+   "text": "EXMINSTER MARSHES. Grazing marsh between the canal and the river, wet in winter. Lapwings tumble over it in spring, and in winter the estuary beyond fills with wildfowl and waders."
+  },
+  {
+   "x": 44,
+   "y": 21,
+   "text": "AVOCETS. Every winter one of the biggest flocks of avocets in Britain gathers on the Exe, sweeping their upturned bills through the mud. Gone from Britain as breeders by the 1840s, they came back in the 1940s, and the RSPB put one on its badge.",
+   "plaque": "devon_exe_avocets",
+   "title": "Avocets on the Exe"
+  },
+  {
+   "x": 40,
+   "y": 40,
+   "text": "THE ATMOSPHERIC RAILWAY. In 1847 Brunel ran trains along this shore with no engine on board: pumping houses like this one sucked the air out of a pipe between the rails, and the train was pushed along by the atmosphere. The leather flaps sealing the pipe perished within a year, and steam took over.",
+   "plaque": "devon_atmospheric_railway",
+   "title": "Brunel's Atmospheric Railway"
+  },
+  {
+   "x": 33,
+   "y": 40,
+   "text": "THE TURF. At the canal's sea end stands a pub you can only reach on foot, by bike or by boat. Opinions differ on whether that is a problem or the point."
+  },
+  {
+   "x": 25,
+   "y": 34,
+   "text": "ARMADA BEACON. Haldon was one of the beacon hills of Devon, ready to pass a warning from the coast to Exeter and on across England.",
+   "plaque": "devon_haldon_beacon",
+   "title": "The Haldon Beacon"
+  },
+  {
+   "x": 59,
+   "y": 17,
+   "text": "TOPSHAM, ACROSS THE WATER. A little port whose merchants traded with Holland. Some of its houses have Dutch gables, built of bricks that came over as ballast."
+  }
+ ],
+ "rows": [
+  "RRTTTTTTTTTTTTTTTTTTTTTTTTTTTT==TT~TTTTTTT!TT~~~~~~~~~~~~~~~TTTTTTTTTT",
+  "RRTTTTTTTTTTTTTTTTTTTTTTTTTTTT==TT~TTTTTTT!TT~~~~~~~~~~~~~~~TTTTTTTTTT",
+  "RRkkkkkkkkkkkkkkkkkkkkkkkkkkkk==##~ggggggg!uuuuuuuuuu~~~~~~~ggggggggTT",
+  "RRkhhhhhhhhhhkkkkkkkkkkkkkkkkk==##~grrrrrg!uuuuuuuuuu~~~~~~~gBBBBBBBTT",
+  "RRkhhhRRhhhhhkkhhhhhhhhhhkkkkk==##~grrrrrg!uuuuuuuuuu~~~~~~~gBBBBBBBTT",
+  "RRkhhhhhRhhhhkkhRRhhhhhhhkkkkk==##~grrrrrg!uuuuuuuuuu~~~~~~~gBBBBBBBTT",
+  "RRkhhhhhhhhhhkkhhhhhhhhhhkkkkk==##~grrrrrg!uuuuooouuu~~~~~~~ggggggggTT",
+  "RRkhhhhhhhhhhkkhhhhhhhhhhkkkkk==##~grrrrrg!uuuuooouuu~~~~~~~ggggggggTT",
+  "RRkhhhhhhhhhhkkhhhhhhhhhhkkkkk==##~grrrrrg!uuuuooouuu~~~~~~~gBBBBBBgTT",
+  "RRkhhhhhhhhhhkkkkkkkkkkkkkkkkk==##~grrrrrg!uuuuooouuu~~~~~~~gBBBBBBgTT",
+  "RRkkkkkkkkkkkkkkkkkkkkkkkkkkkk==##~grrrrrg!uuuuooouuu~~~~~~~gBBBBBBgTT",
+  "RRkkkkkkkkkkkkkkkkkkmmmmmmmmkk==##~ggggggg!uuuuooouuu~~~~~~~ggggggggTT",
+  "RRkkkkkkkkkkkkkkkkkkmRmmmmmmkk==##########&uuuuooouuu~~~~~~~ggggggggTT",
+  "RRkkhhhhhhhhhhkkkkkkmmmmmmmmkk==##~#gggggg!uuuuooouuu~~~~~~~ggggggggTT",
+  "RRkkhhhhhhhhhhkkkkkkmmmmmmmmkk==##~#gggggg!uuuuooouuu~~~~~~~ggggggggTT",
+  "RRkkhhhhhhhRhhkkkkkkmmmmmmRmkk==##~#rrrrrr!uuuuooouuu~~~~~~~ggggggggTT",
+  "RRkkhhhhhhhhhhkkkkkkmmmmmmmmkk==##~#rrrrrr!uuuuooouuu~~~~~~~ss~~~~~~TT",
+  "RRkkhhhhhhhhhhkkkkkBBBBBBkkkkk==##~#rrrrrr!uuuuooouuu~~~~~~~~~~~~~~~TT",
+  "RRkkhRhhhhhhhhkkkkkBBBBBBkkkkk==##~#rrrrrr!uuuuooouuu~~~~~~~~~~~~~~~TT",
+  "RRkkhhhhhhhhhhkkkkkBBDBBBkkkkk==##~#rrrrrr!uuuuooouuu~~~~~~~~~~~~~~~TT",
+  "RRkkkkkkkkkkkkkkkkkkk#kkkkkkkk==##~#rrrrrr!uuuuooouuu~~~~~~~~~~~~~~~TT",
+  "RRkkkkkkkkkkkkkkkkkkk#kkkkkkkk==##~#rrrrrr!uuuuooouuu~~~~~~~~~~~~~~~TT",
+  "================================##~#rrrrrr!uuuuooouuu~~~~~~~~~~~~~~~TT",
+  "================================##~#gggggg!uuuuooouuu~~~~~~~~~~~~~~~TT",
+  "RRkkkkkkkkkkkk##kkkkkkkkkkkkkkkk##~#gggggg!uuuuooouuu~~~~~~~~~~~~~~~TT",
+  "RRkTmmmmTmmmmm##kkkkkkkkkkkkkkkk##~#gggggg!uuuuooouuu~~~~~~~~~~~~~~~TT",
+  "RRkmmTmmmmRmmm##kkkkkkkkkkkkkkkk##~#grrrrr!uuuuooouuu~~~~~~~~~~~~~~~TT",
+  "RRkmmmmRmmmTmm##kkkkkkkkkkkkkkkk##~#grrrrr!uuuuooouuu~~~~~~~~~~~~~~~TT",
+  "RRkmmmTmmmmmmR##kkkkkkkkkkkkkkkk##~#grrrrr!uuuuooouuu~~~~~~~~~~~~~~~TT",
+  "RRkmTmmmmTmmmm##kkkkkkkkkkkkkkkk##~#grrrrr!uuuuooouuu~~~~~~~~~~~~~~~TT",
+  "RRkmmmmmmmmmTm##kkkkkkkkkkkkkkkk##~#grrrrr!uuuuooouuu~~~~~~~~~~~~~~~TT",
+  "RRkkkkkkkkkkkk##kkkkkkkkkkkkkkkk##~#grrrrr!uuuuooouuu~~~~~~~~~~~~~~~TT",
+  "RRkkkkkkkkkkkk##kkkkkkkkkkkkkkkk##~#grrrrr!uuuuooouuu~~~~~~~~~~~~~~~TT",
+  "RRkkkkkkkkkkkk##kkkkkkkhhhhhhkkk##~#gggggg!uuuuooouuu~~~~~~~~~~~~~~~TT",
+  "RRkkkhhhhhkkkk##kkkkkkkhhhhhhkkk##~#gggggg!uuuuooouuu~~~~~~~~~~~~~~~TT",
+  "RRkkkhhhhhkkkk##kkkkkkkhhhhhhkkk##~#gggggg!uuuuuuuuuu~~~~~~~~~~~~~~~TT",
+  "RRkkkhhhhhkkkk##kkkkkkkhhhhhhkkk##~#BBBBgg!uuuuuuuuuu~~~~~~~~~~~~~~~TT",
+  "RRkkkhhhhhkkkk##kBBBkkkhhhhhhkkk##~#BBBBgg!uuuuuuuuuu~~~~~~~~~~~~~~~TT",
+  "RRkkkhhhhhkkkk##kBBBkkkhhhhhhkkk##~#BBBBgg!uuuuuuuuuu~~~~~~~~~~~~~~~TT",
+  "RRkkkhhhhhkkkk##kBBBkkkkkkkkkkkk##~#######!uuuuuuuuuu~~~~~~~~~~~~~~~TT",
+  "RRkkkhhhhhkkkk#########kkkkkkkkk##~ggggggg!uuuuuuuuuu~~~~~~~~~~~~~~~TT",
+  "RRkkkhhhhhkkkk#########kkkkkkkkk##~ggggggg!uu~~~~~~~~~~~~~~~~~~~~~~~TT",
+  "RRkkkkkkkkkkkk##kkkkkkkkkkkkkkkk##~ggggggg!uu~~~~~~~~~~~~~~~~~~~~~~~TT",
+  "RRkkkkkkkkkkkk##kkkkkkkkkkkkkkkk##~ggggggg!uu~~~~~~~~~~~~~~~~~~~~~~~TT",
+  "RRTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT~TTTTTTT!TT~~~~~~~~~~~~~~~~~~~~~~~TT",
+  "RRTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT~TTTTTTT!TT~~~~~~~~~~~~~~~~~~~~~~~TT"
+ ],
+ "heights": [
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000111111111111111111100000000000000000000000000000000000000000",
+  "0000000000111111111111111111100000000000000000000000000000000000000000",
+  "0000000000111222222222222211100000000000000000000000000000000000000000",
+  "0000000000111222222222222211100000000000000000000000000000000000000000",
+  "0000000000111222333333322211100000000000000000000000000000000000000000",
+  "0000000000111222333333322211100000000000000000000000000000000000000000",
+  "0000000000111222333333322211100000000000000000000000000000000000000000",
+  "0000000000111222333333322211100000000000000000000000000000000000000000",
+  "0000000000111222333333322211100000000000000000000000000000000000000000",
+  "0000000000111222333333322211100000000000000000000000000000000000000000",
+  "0000000000111222222222222211100000000000000000000000000000000000000000",
+  "0000000000111111111111111111100000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000"
+ ]
+}

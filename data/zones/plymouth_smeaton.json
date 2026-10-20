@@ -1,0 +1,91 @@
+{
+ "id": "plymouth_smeaton",
+ "name": "Smeaton's Tower",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "telescope",
+   "x": 2,
+   "y": 2
+  },
+  {
+   "type": "bed",
+   "x": 6,
+   "y": 2
+  },
+  {
+   "type": "table",
+   "x": 4,
+   "y": 1
+  },
+  {
+   "type": "kitchen_dresser",
+   "x": 2,
+   "y": 1
+  },
+  {
+   "type": "clock",
+   "x": 5,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "wall_picture",
+   "x": 3,
+   "y": 1,
+   "walk": true,
+   "variant": 2
+  },
+  {
+   "type": "rug",
+   "x": 3,
+   "y": 3,
+   "w": 3,
+   "h": 2,
+   "variant": 1,
+   "walk": true
+  }
+ ],
+ "warps": [
+  {
+   "x": 4,
+   "y": 6,
+   "to": "plymouth",
+   "tx": 30,
+   "ty": 42,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "smeaton_keeper",
+   "sprite": "lamplighter",
+   "x": 6,
+   "y": 3,
+   "facing": "left",
+   "move": "still",
+   "script": "smeaton_keeper",
+   "name": "Tower Volunteer"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  4,
+  5
+ ],
+ "rows": [
+  "xxxxxxxxx",
+  "xx|||||xx",
+  "x|||||||x",
+  "x|||||||x",
+  "x|||||||x",
+  "xx|||||xx",
+  "xxx|D|xxx",
+  "xxxxxxxxx"
+ ]
+}

@@ -1,0 +1,124 @@
+{
+ "rail_guard": [
+  {
+   "do": "say",
+   "who": "Rail Guard",
+   "text": "Exeter St Davids! For Plymouth, Cornwall, London and everywhere in between. The line along the sea wall at Dawlish is the prettiest in England, when the waves aren't over it."
+  },
+  {
+   "do": "rail"
+  }
+ ],
+ "exe_crier": [
+  {
+   "do": "if",
+   "flag": "q_devon_armada_4",
+   "then": [
+    {
+     "do": "say",
+     "who": "Town Crier",
+     "text": "Oyez! The city is warned! The bells have rung, the guard is out, and the mayor has put his good hat on."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_devon_armada_3",
+     "then": [
+      {
+       "do": "say",
+       "who": "Town Crier",
+       "text": "A rider from Haldon? The beacon's lit? The Armada's in the Channel?"
+      },
+      {
+       "do": "say",
+       "who": "Town Crier",
+       "text": "OYEZ! OYEZ! OYEZ! Let it be known that the Spanish are off Plymouth, and every able body is to muster! And to bring a packed lunch!"
+      },
+      {
+       "do": "set",
+       "flag": "q_devon_armada_4"
+      },
+      {
+       "do": "say",
+       "who": "Town Crier",
+       "text": "Exeter's warned. In 1588 the news went on from here, beacon to beacon, all the way to London. Go back and tell Sir Francis. He'll want to know he can stop bowling."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Town Crier",
+       "text": "{greeting} I'm the Town Crier. I shout things, nicely, in a hat. Oyez means 'hear ye', from the old French. Nobody hears me over the buses."
+      },
+      {
+       "do": "say",
+       "who": "Town Crier",
+       "text": "Exeter's been a city since the Romans. They called it Isca. Then came Saxons, Danes, Normans and, worst of all, tourists from Cornwall."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "exe_peregrine": [
+  {
+   "do": "say",
+   "who": "Birdwatcher",
+   "text": "Look up, on the cathedral. Peregrine falcons nest up there on the stonework. Fastest animal on Earth in a dive."
+  },
+  {
+   "do": "say",
+   "who": "Birdwatcher",
+   "text": "The pigeons on the Green know it too. You've never seen a pigeon so keen to look busy."
+  }
+ ],
+ "exe_gran": [
+  {
+   "do": "say",
+   "who": "Exeter Gran",
+   "text": "{greeting} Cream tea, my lover? Scone, split, clotted cream on first, then jam on top. That's the Devon way. In Cornwall they do it backwards and call it right."
+  },
+  {
+   "do": "say",
+   "who": "Exeter Gran",
+   "text": "It's not just Exeter that's fussy, mind. The monks at Tavistock Abbey were said to feed their workmen bread with cream and jam a thousand years ago. We've had time to get it right."
+  }
+ ],
+ "exe_grecian": [
+  {
+   "do": "say",
+   "who": "Exeter City Fan",
+   "text": "Up the Grecians! That's Exeter City. Nobody knows for sure why we're the Grecians. There are four theories and a fifth one my dad made up."
+  },
+  {
+   "do": "say",
+   "who": "Exeter City Fan",
+   "text": "St James' Park is just up the road. Not the London one. Ours has a better view of the allotments."
+  }
+ ],
+ "exe_boatman": [
+  {
+   "do": "say",
+   "who": "Ferryman",
+   "text": "There's been a little ferry across the Exe here for longer than anyone remembers. Pulled across on a cable, by hand. Very good for the arms."
+  },
+  {
+   "do": "say",
+   "who": "Ferryman",
+   "text": "The wool trade made this quay. Devon cloth, serge mostly, shipped all over Europe. Exeter was one of the richest cities in England on the back of a sheep."
+  }
+ ],
+ "exe_moved": [
+  {
+   "do": "say",
+   "who": "Shopkeeper's Daughter",
+   "text": "That's the House That Moved, across the way. 1961, they put it on rails and inched it along the street. Gran watched it go by with her shopping."
+  },
+  {
+   "do": "say",
+   "who": "Shopkeeper's Daughter",
+   "text": "It took days. Not one window broke. You couldn't get a sofa through our front door without breaking three."
+  }
+ ]
+}

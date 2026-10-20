@@ -1,0 +1,54 @@
+{
+ "eh_curator": [
+  {
+   "do": "if",
+   "flag": "q_devon_mayflower_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_devon_mayflower_1",
+     "then": [
+      {
+       "do": "say",
+       "who": "Curator",
+       "text": "Mind the stairs. They wind round an old ship's mast, so the story goes. Ship's carpenters built half of Plymouth."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Curator",
+       "text": "1620? This house was already forty years old. A sea captain or a merchant lived here, close to the quay."
+      },
+      {
+       "do": "say",
+       "who": "Curator",
+       "text": "Low beams, little leaded windows, one big fire for warmth and cooking. A whole family, servants and all, in a few rooms. Smoke, fleas, and the smell of the harbour."
+      },
+      {
+       "do": "say",
+       "who": "Curator",
+       "text": "The Pilgrims would have known streets just like this one. Many of them were from the Midlands and the East, and had been living in Holland. Plymouth was their last sight of England."
+      },
+      {
+       "do": "set",
+       "flag": "q_devon_mayflower_1"
+      },
+      {
+       "do": "say",
+       "who": "Curator",
+       "text": "Next, the distillery on Southside Street. They've a story about that last night."
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Curator",
+     "text": "{greeting} The Elizabethan House, built in the 1580s, when Drake and Hawkins were sailing out of this harbour. Mind your head. Everyone was shorter, or everyone hit their head."
+    }
+   ]
+  }
+ ]
+}
