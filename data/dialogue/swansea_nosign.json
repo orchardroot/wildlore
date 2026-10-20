@@ -1,0 +1,84 @@
+{
+ "nsb_quizmaster": [
+  {
+   "do": "say",
+   "who": "Quizmaster",
+   "text": "Croeso to the No Sign Bar, Wind Street. Dylan Thomas put this place in one of his stories. He didn't put the prices in, thank God."
+  },
+  {
+   "do": "choice",
+   "text": "Quiz night. Five questions, no phones.",
+   "options": [
+    "Go on then",
+    "Not tonight"
+   ],
+   "set": "_quiz_choice"
+  },
+  {
+   "do": "if",
+   "flag": "_quiz_choice",
+   "eq": 0,
+   "then": [
+    {
+     "do": "quiz",
+     "pub": "swansea",
+     "region": "wales",
+     "who": "Quizmaster"
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Quizmaster",
+     "text": "Fair play. Hwyl, and watch the step."
+    }
+   ]
+  }
+ ],
+ "swa_organ": [
+  {
+   "do": "if",
+   "flag": "q_swansea_milkwood_started",
+   "then": [
+    {
+     "do": "say",
+     "who": "Organ Morgan",
+     "text": "(At the piano, practising.) Organ Morgan, at your service. Music, music, all day long, even in my sleep."
+    },
+    {
+     "do": "say",
+     "who": "Organ Morgan",
+     "text": "Bach first thing, Bach last thing. Mrs Organ Morgan would like a word about that."
+    },
+    {
+     "do": "if",
+     "flag": "q_swansea_milkwood_organ",
+     "then": [],
+     "else": [
+      {
+       "do": "set",
+       "flag": "q_swansea_milkwood_organ",
+       "value": true
+      },
+      {
+       "do": "sfx",
+       "id": "item"
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "You found the voice of Organ Morgan for the Dylan Thomas Centre."
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Organ Morgan",
+     "text": "(Muttering lines under their breath.) Sorry, love. Rehearsing. There's a reading at the Dylan Thomas Centre and I've got about four words."
+    }
+   ]
+  }
+ ]
+}

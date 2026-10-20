@@ -1,0 +1,41 @@
+{
+ "cop_guide": [
+  {
+   "do": "say",
+   "who": "Volunteer Guide",
+   "text": "This is the Musgrave engine house, and the old powerhouse. The Vivian family ran the Hafod works from 1810. It closed in 1980, the last of them."
+  },
+  {
+   "do": "say",
+   "who": "Volunteer Guide",
+   "text": "Copper ore came in by ship, went into reverberatory furnaces with Welsh coal, and came out as ingots and sheathing. Copper sheathing on a wooden hull keeps the shipworm off."
+  },
+  {
+   "do": "say",
+   "who": "Volunteer Guide",
+   "text": "The fumes were sulphur and arsenic. Farmers sued, poets complained, and the hills went bare. Now look: trees, a stadium, a bus to Morriston. Mended, mostly."
+  },
+  {
+   "do": "if",
+   "flag": "swansea_copper_tale",
+   "then": [],
+   "else": [
+    {
+     "do": "set",
+     "flag": "swansea_copper_tale",
+     "value": true
+    },
+    {
+     "do": "say",
+     "who": "Volunteer Guide",
+     "text": "Here, a bit of old slag from the tip. People used it for doorsteps and walls. Take one, we've got about a million."
+    },
+    {
+     "do": "give_item",
+     "item": "copper_slag",
+     "n": 1
+    }
+   ]
+  }
+ ]
+}

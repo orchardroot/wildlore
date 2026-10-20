@@ -337,7 +337,10 @@ func _legend(c: Dictionary) -> void:
 		push_error("Commands: no legend species '%s'" % c.get("species", ""))
 		return
 	host.data.mark_seen(str(sp.id))
-	var foe := Creature.create(sp, int(c.get("level", 40)), host.rng, host.moves)
+	var lv := int(c.get("level", 40))
+	if c.has("scaled_floor"):  # off the main line: authored at that par, lifted with the story (ParLevel)
+		lv = ParLevel.lift(lv, host.data.flags, int(c.scaled_floor))
+	var foe := Creature.create(sp, lv, host.rng, host.moves)
 	var result: Dictionary = await host.battle([foe], {"kind": "wild", "no_run": true, "legend": true, "music": str(c.get("music", "legend"))})
 	match str(result.get("result", "")):
 		"caught":

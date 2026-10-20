@@ -1,0 +1,146 @@
+{
+ "id": "swansea_market",
+ "name": "Swansea Market",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 7
+  },
+  {
+   "type": "potted_plant",
+   "x": 11,
+   "y": 7
+  },
+  {
+   "type": "market_stall",
+   "x": 2,
+   "y": 2
+  },
+  {
+   "type": "market_stall",
+   "x": 4,
+   "y": 2
+  },
+  {
+   "type": "market_stall",
+   "x": 8,
+   "y": 2
+  },
+  {
+   "type": "market_stall",
+   "x": 10,
+   "y": 2
+  },
+  {
+   "type": "market_stall",
+   "x": 2,
+   "y": 5
+  },
+  {
+   "type": "market_stall",
+   "x": 10,
+   "y": 5
+  },
+  {
+   "type": "menu_board",
+   "x": 6,
+   "y": 1
+  },
+  {
+   "type": "bunting",
+   "x": 3,
+   "y": 1,
+   "variant": 1,
+   "walk": true
+  },
+  {
+   "type": "bunting",
+   "x": 9,
+   "y": 1,
+   "variant": 2,
+   "walk": true
+  },
+  {
+   "type": "lobster_pots",
+   "x": 1,
+   "y": 6
+  },
+  {
+   "type": "kettle_table",
+   "x": 11,
+   "y": 6
+  },
+  {
+   "type": "clock",
+   "x": 7,
+   "y": 1,
+   "walk": true
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 8,
+   "to": "swansea",
+   "tx": 24,
+   "ty": 30,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "mkt_megan",
+   "sprite": "villager_5",
+   "x": 3,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "mkt_megan",
+   "name": "Megan Laverbread"
+  },
+  {
+   "id": "mkt_baker",
+   "sprite": "shopkeeper",
+   "x": 9,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "mkt_baker",
+   "name": "Welsh Cake Stall"
+  },
+  {
+   "id": "mkt_shopper",
+   "sprite": "mum",
+   "x": 6,
+   "y": 5,
+   "facing": "left",
+   "move": "still",
+   "script": "mkt_shopper",
+   "name": "Shopper"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  6,
+  7
+ ],
+ "rows": [
+  "xxxxxxxxxxxxx",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++D+++++x",
+  "xxxxxxxxxxxxx"
+ ]
+}

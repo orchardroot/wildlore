@@ -16,7 +16,8 @@ const IRON := Color("3c4450")
 const GLASS := Color.WHITE
 
 ## Building styles handled here rather than by the generic house in Meshes.building.
-const SPECIAL := ["glass_tower", "gantry_crane", "cantilever_crane", "titanic", "mill", "castle", "cathedral", "liver_building", "station", "aqueduct", "chapel", "terrace", "tudor", "slate_cottage", "lighthouse_house", "round_tower", "passage_tomb", "field_barn"]
+const SPECIAL := ["glass_tower", "gantry_crane", "cantilever_crane", "titanic", "mill", "castle", "cathedral", "liver_building", "station", "aqueduct", "chapel", "terrace", "tudor", "slate_cottage", "lighthouse_house", "round_tower", "passage_tomb", "field_barn",
+	"football_stadium", "engine_house", "market_hall", "waterfront_museum", "pier", "cave_mouth", "three_cliffs"]
 
 ## Doors: where each style's door sits on its tile (see _door and friends), for the swing as you go in.
 ## {x, w, y, h, z}: left edge and width across the door column, bottom and height, z of the door's face from
@@ -34,6 +35,11 @@ const DOOR_RECTS := {
 	"castle": {"x": 0.2, "w": 0.6, "y": 0.0, "h": 1.1, "z": 0.11},
 	"cathedral": {"x": 0.15, "w": 0.7, "y": 0.0, "h": 1.3, "z": 0.03},
 	"glass_tower": {"x": 0.15, "w": 0.7, "y": 0.0, "h": 1.2, "z": 0.02},
+	"football_stadium": {"x": 0.22, "w": 0.56, "y": 0.16, "h": 1.0, "z": 0.13},
+	"market_hall": {"x": 0.22, "w": 0.56, "y": 0.16, "h": 1.1, "z": 0.13},
+	"engine_house": {"x": 0.22, "w": 0.56, "y": 0.16, "h": 1.2, "z": -0.12},
+	"waterfront_museum": {"x": 0.22, "w": 0.56, "y": 0.16, "h": 1.0, "z": -0.02},
+	"cave_mouth": {"x": 0.1, "w": 0.8, "y": 0.0, "h": 1.1, "z": -0.1},
 }
 const DOOR_OPEN_ANGLE := -1.75     # radians about the hinge: swings out toward you, about 100 degrees
 const DOOR_SWING_SECS := 0.16
@@ -129,6 +135,20 @@ static func building(w: int, d: int, style: String, door_x: int, seed_value: int
 			_titanic(st, wst, w, d, door_x, rng)
 		"glass_tower":
 			_glass_tower(st, wst, w, d, door_x)
+		"football_stadium":
+			_football_stadium(st, wst, w, d, door_x)
+		"engine_house":
+			_engine_house(st, wst, w, d, door_x)
+		"market_hall":
+			_market_hall(st, wst, w, d, door_x)
+		"waterfront_museum":
+			_waterfront_museum(st, wst, w, d, door_x)
+		"pier":
+			_pier(st, w, d)
+		"cave_mouth":
+			_cave_mouth(st, w, d, door_x, rng)
+		"three_cliffs":
+			_three_cliffs(st, w, d, rng)
 		"terrace":
 			_house(st, wst, w, d, door_x, rng, BRICK, SLATE, 2, true, false)
 		"tudor":
@@ -1041,3 +1061,244 @@ static func harp() -> ArrayMesh:
 	for i in 5:
 		Meshes.box(st, Vector3(-0.15 + i * 0.08, 0.12, -0.01), Vector3(0.012, 1.08 - i * 0.12, 0.012), Color("f2e2a0"))
 	return Meshes._finish(st)
+
+# --- Swansea and Gower (Wider Isles, R5) -----------------------------------------
+
+## The Liberty: a closed bowl of four stands under a white cantilever roof ring, the pitch inside. Its door is
+## the turnstile block in the south stand.
+static func _football_stadium(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int) -> void:
+	var clad := Color("8e9aa6")
+	var seat := Color("2a3e6a")
+	var seat2 := Color("e8ecf0")
+	var roof := Color("f2f4f6")
+	var h := 2.3
+	var t := 1.9  # stand depth: the pitch is inset this far each side
+	# the pitch, with its lines
+	Meshes.box(st, Vector3(t, 0, t), Vector3(w - 2 * t, 0.06, d - 2 * t), Color("4f8a3e"), Color("5a9a46"))
+	Meshes.box(st, Vector3(w * 0.5 - 0.03, 0.06, t), Vector3(0.06, 0.01, d - 2 * t), Color.WHITE)
+	Meshes.box(st, Vector3(t + 0.1, 0.06, t + 0.1), Vector3(w - 2 * t - 0.2, 0.01, 0.05), Color.WHITE)
+	Meshes.box(st, Vector3(t + 0.1, 0.06, d - t - 0.15), Vector3(w - 2 * t - 0.2, 0.01, 0.05), Color.WHITE)
+	# outer walls, with a white band at the top
+	Meshes.box(st, Vector3(0, 0, 0), Vector3(w, h, 0.3), clad)
+	Meshes.box(st, Vector3(0, 0, d - 0.3), Vector3(w, h, 0.3), clad)
+	Meshes.box(st, Vector3(0, 0, 0), Vector3(0.3, h, d), clad.darkened(0.05))
+	Meshes.box(st, Vector3(w - 0.3, 0, 0), Vector3(0.3, h, d), clad.darkened(0.05))
+	for z in [-0.02, float(d)]:
+		Meshes.box(st, Vector3(0, h - 0.45, z), Vector3(w, 0.18, 0.04), seat2)
+	# raked seating on all four sides: stepped boxes in alternating shades so the rows read
+	var steps := 4
+	for i in steps:
+		var k := float(i) / steps
+		var y := 0.25 + k * (h - 0.6)
+		var inset := t - (t - 0.3) * k
+		var c := seat if i % 2 == 0 else seat.lightened(0.12)
+		Meshes.box(st, Vector3(0.3, 0, 0.3), Vector3(w - 0.6, y, inset - 0.3), c)
+		Meshes.box(st, Vector3(0.3, 0, d - inset), Vector3(w - 0.6, y, inset - 0.3), c)
+		Meshes.box(st, Vector3(0.3, 0, 0.3), Vector3(inset - 0.3, y, d - 0.6), c.darkened(0.05))
+		Meshes.box(st, Vector3(w - inset, 0, 0.3), Vector3(inset - 0.3, y, d - 0.6), c.darkened(0.05))
+	# the roof: a white ring cantilevered over the stands, on a row of trusses
+	var ry := h + 0.5
+	Meshes.box(st, Vector3(-0.2, ry, -0.2), Vector3(w + 0.4, 0.14, t + 0.2), roof)
+	Meshes.box(st, Vector3(-0.2, ry, d - t), Vector3(w + 0.4, 0.14, t + 0.2), roof)
+	Meshes.box(st, Vector3(-0.2, ry, t), Vector3(t + 0.2, 0.14, d - 2 * t), roof)
+	Meshes.box(st, Vector3(w - t, ry, t), Vector3(t + 0.2, 0.14, d - 2 * t), roof)
+	for x in range(1, w, 2):
+		Meshes.box(st, Vector3(x, h, 0.0), Vector3(0.08, 0.5, 0.08), roof.darkened(0.2))
+		Meshes.box(st, Vector3(x, h, d - 0.08), Vector3(0.08, 0.5, 0.08), roof.darkened(0.2))
+		Meshes.box(st, Vector3(x - 0.04, ry + 0.14, 0.2), Vector3(0.08, 0.22, t - 0.2), roof.darkened(0.1))
+		Meshes.box(st, Vector3(x - 0.04, ry + 0.14, d - t), Vector3(0.08, 0.22, t - 0.2), roof.darkened(0.1))
+	# floodlights tucked under the roof edge, lit at night
+	for x in [t + 0.5, w - t - 1.0]:
+		Meshes.box(wst, Vector3(x, ry - 0.12, t - 0.1), Vector3(0.5, 0.1, 0.08), window_colour(_wr))
+		Meshes.box(wst, Vector3(x, ry - 0.12, d - t + 0.02), Vector3(0.5, 0.1, 0.08), window_colour(_wr))
+	# turnstiles and the glass entrance block on the south side
+	if door_x >= 0:
+		Meshes.box(st, Vector3(door_x - 1.0, 0, d - 0.15), Vector3(3.0, 1.4, 0.3), seat)
+		Meshes.box(wst, Vector3(door_x - 0.8, 0.3, d + 0.12), Vector3(0.6, 0.8, 0.04), window_colour(_wr))
+		Meshes.box(wst, Vector3(door_x + 1.2, 0.3, d + 0.12), Vector3(0.6, 0.8, 0.04), window_colour(_wr))
+		_door(st, door_x, d + 0.15, seat, 1.0)
+
+## Hafod-Morfa: the Musgrave engine house, a tall stone box with round-headed windows, beside the roofless shell
+## of a smelting shed and a square stone stack, capped in black copper-slag blocks.
+static func _engine_house(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int) -> void:
+	var stone := Color("8a8278")
+	var slag := Color("2a2628")
+	var ew := minf(4.0, w * 0.5)
+	var ex := clampf(door_x - 1.5, 0.0, w - ew)
+	var eh := 3.6
+	Meshes.box(st, Vector3(ex, 0, 0.6), Vector3(ew, eh, d - 0.7), stone, stone.lightened(0.1))
+	_roof_at(st, ex - 0.1, ex + ew + 0.1, 0.5, d, eh, 0.9, SLATE.darkened(0.15), stone)
+	Meshes.box(st, Vector3(ex - 0.05, eh - 0.15, 0.55), Vector3(ew + 0.1, 0.15, d - 0.6), slag)
+	for x in [ex + 0.4, ex + ew - 0.9]:
+		_window(st, wst, x, 1.8, d - 0.1, 0.5, 1.2, stone.lightened(0.25))
+		Meshes.box(st, Vector3(x - 0.05, 3.0, d - 0.15), Vector3(0.6, 0.12, 0.06), stone.lightened(0.25))
+	# the roofless works on the wider side: broken walls of uneven height with slag coping
+	var left := ex
+	var right := w - (ex + ew)
+	var rx := ex + ew if right >= left else 0.0
+	var rw := right if right >= left else left
+	if rw > 0.9:
+		var hs := [1.6, 1.1, 1.8, 1.3, 1.5, 0.9]
+		var n := int(rw)
+		for i in n:
+			var hh: float = hs[i % hs.size()]
+			Meshes.box(st, Vector3(rx + i, 0, d - 0.35), Vector3(1.0, hh, 0.3), stone.darkened(0.08))
+			Meshes.box(st, Vector3(rx + i, hh, d - 0.37), Vector3(1.0, 0.12, 0.34), slag)
+			if i % 2 == 0:
+				Meshes.box(st, Vector3(rx + i + 0.35, 0.3, d - 0.02), Vector3(0.3, 0.7, 0.04), Color("1e1a18"))
+		Meshes.box(st, Vector3(rx + rw - 0.3, 0, 0.6), Vector3(0.3, 1.2, d - 0.9), stone.darkened(0.1))
+		Meshes.box(st, Vector3(rx, 0, 0.6), Vector3(rw, 1.0, 0.3), stone.darkened(0.12))
+		# the stack: square stone, then brick, very tall
+		var sx := rx + rw - 1.0
+		Meshes.box(st, Vector3(sx, 0, 0.7), Vector3(0.8, 4.2, 0.8), stone.darkened(0.04))
+		Meshes.box(st, Vector3(sx + 0.05, 4.2, 0.75), Vector3(0.7, 2.6, 0.7), DARK_BRICK)
+		Meshes.box(st, Vector3(sx - 0.05, 6.8, 0.65), Vector3(0.9, 0.2, 0.9), slag)
+	_door(st, door_x, d - 0.1, stone, 1.2)
+
+## Swansea Market: low walls of brick and stone under a long glass barrel roof on white ribs, a grand entrance
+## arch on the door.
+static func _market_hall(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int) -> void:
+	var brick := Color("a65a44")
+	var dress := Color("d8cdb4")
+	var glass := Color("b8d4dc")
+	var h := 1.7
+	Meshes.box(st, Vector3(0.05, 0, 0.05), Vector3(w - 0.1, h, d - 0.1), brick)
+	Meshes.box(st, Vector3(0, h - 0.18, 0), Vector3(w, 0.18, d), dress)
+	Meshes.box(st, Vector3(0, 0, 0), Vector3(w, 0.2, d), brick.darkened(0.3))
+	# the barrel vault, ridge east-west: eight facets from the south eave over to the north one
+	var seg := 8
+	var r := d * 0.5
+	var cz := d * 0.5
+	var rise := minf(1.6, r)
+	for i in seg:
+		var a0 := PI * i / seg
+		var a1 := PI * (i + 1) / seg
+		var p0 := Vector3(0, h + sin(a0) * rise, cz + cos(a0) * r)
+		var p1 := Vector3(0, h + sin(a1) * rise, cz + cos(a1) * r)
+		var shade := glass.darkened(0.12 * float(i) / seg)
+		Meshes._quad(st, p0 + Vector3(w, 0, 0), p1 + Vector3(w, 0, 0), p1, p0, shade)
+		Meshes._quad(st, p0, p1, p1 + Vector3(w, 0, 0), p0 + Vector3(w, 0, 0), shade.darkened(0.3))
+		for x in range(0, w + 1, 2):
+			var xx := minf(float(x), w - 0.08)
+			Meshes._quad(st, p0 + Vector3(xx + 0.08, 0.02, 0), p1 + Vector3(xx + 0.08, 0.02, 0), p1 + Vector3(xx, 0.02, 0), p0 + Vector3(xx, 0.02, 0), Color.WHITE)
+		Meshes._tri(st, Vector3(0, h, cz), p1, p0, dress.darkened(0.05))
+		Meshes._tri(st, Vector3(w, h, cz), p0 + Vector3(w, 0, 0), p1 + Vector3(w, 0, 0), dress.darkened(0.08))
+	# windows and the entrance arch
+	for x in range(1, w - 1, 2):
+		if absi(x - door_x) > 1:
+			_window(st, wst, x + 0.2, 0.45, d, 0.6, 0.8, dress)
+	if door_x >= 0:
+		Meshes.box(st, Vector3(door_x - 0.6, 0, d - 0.1), Vector3(2.2, 2.5, 0.25), dress)
+		Meshes.box(st, Vector3(door_x - 0.4, 2.5, d - 0.1), Vector3(1.8, 0.4, 0.25), dress.darkened(0.08))
+		Meshes.box(st, Vector3(door_x - 0.5, 1.3, d + 0.15), Vector3(2.0, 0.08, 0.6), Color("2f5a4a"))
+		_door(st, door_x, d + 0.15, dress, 1.1)
+
+## The National Waterfront Museum: a red-brick 1901 dock warehouse joined to a long modern hall of slate and glass
+## under a saw-tooth roof.
+static func _waterfront_museum(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int) -> void:
+	var brick := Color("9a4434")
+	var slate := Color("4a5058")
+	var frame := Color("3a4048")
+	var ww := mini(5, w - 4)
+	# the warehouse
+	var wh := 3.2
+	Meshes.box(st, Vector3(0, 0, 0.2), Vector3(ww, wh, d - 0.2), brick)
+	_roof_at(st, -0.1, ww + 0.1, 0.1, d + 0.1, wh, 0.9, SLATE, brick)
+	for s in 2:
+		Meshes.box(st, Vector3(0, 1.4 + s * 1.4, d - 0.05), Vector3(ww, 0.08, 0.06), LIMESTONE)
+		for x in ww:
+			_window(st, wst, x + 0.3, 0.4 + s * 1.45, d, 0.4, 0.8, LIMESTONE)
+	# the modern hall: slate walls, a glass front, saw-tooth glazing on the roof
+	var mh := 2.2
+	Meshes.box(st, Vector3(ww, 0, 0.4), Vector3(w - ww, mh, d - 0.4), slate, slate.lightened(0.1))
+	for x in range(ww, w):
+		if x == door_x:
+			continue
+		Meshes.box(wst, Vector3(x + 0.08, 0.2, d - 0.02), Vector3(0.84, mh - 0.4, 0.04), window_colour(_wr))
+		Meshes.box(st, Vector3(x, 0.15, d - 0.04), Vector3(0.08, mh - 0.3, 0.06), frame)
+	for i in range(0, int(d - 0.4)):
+		var z0 := 0.4 + i
+		Meshes._quad(st, Vector3(ww, mh + 0.6, z0 + 0.8), Vector3(w, mh + 0.6, z0 + 0.8), Vector3(w, mh, z0), Vector3(ww, mh, z0), slate.lightened(0.15))
+		Meshes._quad(st, Vector3(ww, mh, z0 + 1.0), Vector3(w, mh, z0 + 1.0), Vector3(w, mh + 0.6, z0 + 0.8), Vector3(ww, mh + 0.6, z0 + 0.8), Color("9ec4d0"))
+	Meshes.box(st, Vector3(ww, mh - 0.1, d - 0.05), Vector3(w - ww, 0.15, 0.1), frame)
+	if door_x >= 0:
+		Meshes.box(st, Vector3(door_x - 0.3, 1.25, d), Vector3(1.6, 0.08, 0.7), frame)
+		_door(st, door_x, d, slate, 1.0)
+
+## Mumbles Pier: a deck on iron legs out over the sea, railings both sides, and the lifeboat house with its slipway
+## at the far (south) end. No door: it stands for the view.
+static func _pier(st: SurfaceTool, w: int, d: int) -> void:
+	var iron := Color("3c4a52")
+	var deck := Color("8a6a4a")
+	var rail := Color("e8e4dc")
+	var dy := 0.55
+	var len_ := d - 2.6
+	Meshes.box(st, Vector3(0.3, dy, 0), Vector3(w - 0.6, 0.12, len_), deck, deck.lightened(0.1))
+	for z in range(0, int(len_) + 1):
+		var zz := minf(float(z), len_ - 0.12)
+		for x in [0.4, w - 0.55]:
+			Meshes.box(st, Vector3(x, -1.2, zz), Vector3(0.14, dy + 1.2, 0.14), iron)
+		Meshes.box(st, Vector3(0.4, -0.3, zz), Vector3(w - 0.8, 0.08, 0.08), iron.darkened(0.1))
+	for x in [0.3, w - 0.36]:
+		Meshes.box(st, Vector3(x, dy + 0.12, 0), Vector3(0.06, 0.5, len_), rail)
+	# the lifeboat house on a wider platform
+	var hz := len_
+	Meshes.box(st, Vector3(-0.2, dy, hz), Vector3(w + 0.4, 0.14, 2.6), deck.darkened(0.1))
+	for c in [Vector2(-0.1, hz), Vector2(w - 0.05, hz), Vector2(-0.1, hz + 2.45), Vector2(w - 0.05, hz + 2.45)]:
+		Meshes.box(st, Vector3(c.x, -1.2, c.y), Vector3(0.16, dy + 1.2, 0.16), iron)
+	Meshes.box(st, Vector3(0.0, dy + 0.14, hz + 0.2), Vector3(w, 1.5, 2.0), Color("f0ece4"))
+	_roof_at(st, -0.1, w + 0.1, hz + 0.1, hz + 2.3, dy + 1.64, 0.6, Color("c03a2a"), Color("f0ece4"))
+	Meshes.box(st, Vector3(w * 0.5 - 0.5, dy + 0.14, hz + 2.18), Vector3(1.0, 1.1, 0.06), Color("2a3442"))
+	# the slipway, down into the sea
+	Meshes._quad(st, Vector3(w * 0.5 - 0.5, dy, hz + 2.6), Vector3(w * 0.5 + 0.5, dy, hz + 2.6),
+		Vector3(w * 0.5 + 0.5, -0.4, hz + 4.2), Vector3(w * 0.5 - 0.5, -0.4, hz + 4.2), Color("6a6a66"))
+
+## A cave in the limestone cliff: a pale, knobbly outcrop with a black mouth on the door column.
+static func _cave_mouth(st: SurfaceTool, w: int, d: int, door_x: int, rng: RandomNumberGenerator) -> void:
+	var lime := Color("b4ae9e")
+	# a heap of weathered limestone boulders, banded grey, piled round the black mouth
+	Meshes.blob(st, Vector3(w * 0.5, 0.6, d * 0.45), Vector3(w * 0.55, 1.6, d * 0.5), lime.darkened(0.1), rng, 0.3)
+	for i in 9:
+		var c := Vector3(rng.randf_range(0.3, w - 0.3), rng.randf_range(0.6, 2.4), rng.randf_range(0.4, d - 0.6))
+		Meshes.blob(st, c, Vector3(rng.randf_range(0.6, 1.1), rng.randf_range(0.5, 0.9), rng.randf_range(0.5, 0.9)), lime.lightened(rng.randf_range(-0.1, 0.08)), rng, 0.3)
+	for x in [0.35, w - 0.35]:
+		Meshes.blob(st, Vector3(x, 0.7, d - 0.45), Vector3(0.6, 0.9, 0.5), lime.darkened(0.04), rng, 0.3)
+	Meshes.blob(st, Vector3(w * 0.5, 1.7, d - 0.5), Vector3(1.1, 0.5, 0.45), lime.lightened(0.04), rng, 0.25)
+	for i in 4:  # ivy and turf hanging over the top
+		Meshes.blob(st, Vector3(rng.randf_range(0.4, w - 0.4), 2.6, rng.randf_range(0.6, d - 0.8)), Vector3(0.5, 0.25, 0.5), Color("6a8a4a"), rng, 0.3)
+	if door_x >= 0:
+		var black := Color("0c0a0a")
+		Meshes.box(st, Vector3(door_x + 0.1, 0, d - 0.12), Vector3(0.8, 1.1, 0.06), black)
+		Meshes.box(st, Vector3(door_x + 0.25, 1.1, d - 0.12), Vector3(0.5, 0.25, 0.06), black)
+		Meshes.box(st, Vector3(door_x - 0.05, 1.25, d - 0.1), Vector3(1.1, 0.25, 0.25), lime.lightened(0.04))
+
+## Three Cliffs Bay: three steep limestone pinnacles in a row on the sand, the middle one tallest, the westmost
+## pierced by a sea arch, with a skirt of fallen blocks.
+static func _three_cliffs(st: SurfaceTool, w: int, d: int, rng: RandomNumberGenerator) -> void:
+	var lime := Color("a9a393")
+	var hs := [2.6, 3.3, 2.8]
+	for i in 3:
+		var cx := (i + 0.5) * w / 3.0
+		var cz := d * 0.5
+		var h: float = hs[i]
+		var hw := w / 6.0 + 0.15
+		var a := Vector3(cx - hw, 0, cz + d * 0.45)
+		var b := Vector3(cx + hw, 0, cz + d * 0.45)
+		var c := Vector3(cx + hw * 0.8, 0, cz - d * 0.45)
+		var e := Vector3(cx - hw * 0.8, 0, cz - d * 0.45)
+		var top := Vector3(cx + rng.randf_range(-0.15, 0.15), h, cz + 0.1)
+		var col := lime.lightened(rng.randf_range(-0.05, 0.06))
+		Meshes._tri(st, b, a, top, col)
+		Meshes._tri(st, c, b, top, col.darkened(0.1))
+		Meshes._tri(st, e, c, top, col.darkened(0.18))
+		Meshes._tri(st, a, e, top, col.darkened(0.06))
+		# bedding lines: the limestone is tilted in layers
+		for k in 3:
+			var y := 0.5 + k * 0.6
+			var f := 1.0 - y / h
+			if f > 0.15:
+				Meshes.box(st, Vector3(cx - hw * f, y, cz + d * 0.45 * f - 0.02), Vector3(hw * 2 * f, 0.05, 0.04), col.darkened(0.25))
+	# the arch through the western pinnacle
+	Meshes.box(st, Vector3(w / 6.0 - 0.25, 0, d * 0.95 - 0.03), Vector3(0.5, 0.7, 0.05), Color("1a1816"))
+	for i in 5:
+		Meshes.blob(st, Vector3(rng.randf_range(0.2, w - 0.2), 0.15, rng.randf_range(d * 0.7, d)), Vector3(0.25, 0.2, 0.25), lime.darkened(0.08), rng, 0.3)
