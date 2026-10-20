@@ -1,0 +1,125 @@
+{
+ "id": "oban_distillery",
+ "name": "Oban Distillery",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "table",
+   "x": 3,
+   "y": 3
+  },
+  {
+   "type": "table",
+   "x": 11,
+   "y": 3
+  },
+  {
+   "type": "steel_plates",
+   "x": 2,
+   "y": 1
+  },
+  {
+   "type": "steel_plates",
+   "x": 12,
+   "y": 1
+  },
+  {
+   "type": "display_case",
+   "x": 7,
+   "y": 2,
+   "variant": 2
+  },
+  {
+   "type": "bench",
+   "x": 3,
+   "y": 6
+  },
+  {
+   "type": "bench",
+   "x": 11,
+   "y": 6
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 8
+  },
+  {
+   "type": "wall_picture",
+   "x": 5,
+   "y": 1,
+   "walk": true,
+   "variant": 3
+  },
+  {
+   "type": "wall_picture",
+   "x": 9,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  },
+  {
+   "type": "rug",
+   "x": 7,
+   "y": 4,
+   "w": 1,
+   "h": 4,
+   "variant": 2,
+   "walk": true
+  }
+ ],
+ "warps": [
+  {
+   "x": 7,
+   "y": 9,
+   "to": "oban",
+   "tx": 42,
+   "ty": 29,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "obn_stillman",
+   "sprite": "steelworker",
+   "x": 6,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "obn_stillman",
+   "name": "Stillman"
+  },
+  {
+   "id": "obn_cooper",
+   "sprite": "farmer",
+   "x": 9,
+   "y": 6,
+   "facing": "left",
+   "move": "still",
+   "script": "obn_cooper",
+   "name": "Cooper"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  7,
+  8
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxxx",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "xxxxxxxDxxxxxxx"
+ ]
+}

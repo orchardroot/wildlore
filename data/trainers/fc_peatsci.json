@@ -1,0 +1,36 @@
+{
+ "id": "fc_peatsci",
+ "name": "Dr Morven, Peat Scientist",
+ "class": "Scientist",
+ "sprite": "tin_miner",
+ "party": [
+  {
+   "species": "peatmonarch",
+   "level": 77
+  },
+  {
+   "species": "flowmoor",
+   "level": 77
+  },
+  {
+   "species": "midgeswarm",
+   "level": 76
+  },
+  {
+   "species": "bufomire",
+   "level": 76
+  }
+ ],
+ "ai": "trainer",
+ "money": 3200,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Dr Morven, Peat Scientist",
+   "text": "Before we core the deep peat, I need to know your team won't sink. Show me what you've got!"
+  }
+ ],
+ "win": "Excellent buoyancy. Scientifically speaking.",
+ "after": "Peat holds more carbon than all the forests in Britain put together. A wet bog is a carbon store. A dry bog is a bonfire waiting for a match.",
+ "scaled_floor": 76
+}

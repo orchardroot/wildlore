@@ -74,6 +74,8 @@ static func shelf_node(trophies: Array) -> Node3D:
 			"rosette":  # red show rosettes pinned along the middle shelf's lip, one per show won (up to five)
 				for i in mini(5, int(t.get("n", 1))):
 					_show_rosette(st, rng, Vector3(0.78 - i * 0.15, 0.6, 0.05))
+			"cheque":  # the Palace's giant novelty cheque, leant against the cabinet's right-hand side
+				_cheque(st)
 			"title":  # the Moot Champion certificate, framed on the wall beside the diploma
 				_certificate(st)
 			"pillar":  # Pillar of the Community trophies along the top of the cabinet, either side of the pediment
@@ -120,6 +122,19 @@ static func _award(st: SurfaceTool, rng: RandomNumberGenerator, id: String, at: 
 		_:  # an oak shield with a brass boss
 			Meshes.box(st, at + Vector3(-0.09, 0.02, -0.02), Vector3(0.18, 0.24, 0.03), OAK_LIGHT)
 			Meshes.blob(st, at + Vector3(0, 0.14, 0.02), Vector3(0.04, 0.04, 0.02), BRASS, rng, 0.05)
+
+## A giant novelty cheque on foam board: white with a gold border, a claret band, scribbled lines and a big figure.
+static func _cheque(st: SurfaceTool) -> void:
+	var at := Vector3(0.97, 0.02, -0.05)
+	var b := Basis(Vector3.UP, -0.35)
+	var rects := [[0.0, 0.0, 0.62, 0.34, 0.0, Color("d8b04a")], [0.02, 0.02, 0.6, 0.32, 0.004, Color("fbf7ec")],
+		[0.02, 0.26, 0.6, 0.32, 0.008, Color("8a1f2c")], [0.4, 0.06, 0.57, 0.17, 0.008, Color("e8c872")],
+		[0.42, 0.09, 0.55, 0.14, 0.012, Color("2a5a3a")]]
+	for i in 3:
+		rects.append([0.06, 0.08 + i * 0.05, 0.36, 0.09 + i * 0.05, 0.008, Color("6a5a48")])
+	for r in rects:
+		Meshes._quad(st, at + b * Vector3(r[0], r[3], r[4]), at + b * Vector3(r[2], r[3], r[4]),
+			at + b * Vector3(r[2], r[1], r[4]), at + b * Vector3(r[0], r[1], r[4]), r[5])
 
 ## Garside's diploma in a gilt frame, hung above the cabinet. Cream paper, a few lines and a red (potato) seal.
 static func _diploma(st: SurfaceTool) -> void:

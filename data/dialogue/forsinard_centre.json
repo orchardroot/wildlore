@@ -1,0 +1,111 @@
+{
+ "flows_warden": [
+  {
+   "do": "if",
+   "flag": "q_farnorth_bog_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Flows Warden",
+     "text": "Our star surveyor! The survey's off to the scientists and the birds are, I'm told, unimpressed. That's how you know it's going well."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_farnorth_bog_3",
+     "then": [
+      {
+       "do": "say",
+       "who": "Flows Warden",
+       "text": "Eleven lochans, a cross greenshank and a five-metre peat core. That's a proper survey. The UNESCO folk will be delighted, and they're not easily delighted."
+      },
+      {
+       "do": "say",
+       "who": "Flows Warden",
+       "text": "Take these. Bog myrtle: rub the leaves and the midges keep their distance. Mostly. It also smells lovely, and in the old days it went in the beer."
+      },
+      {
+       "do": "give_item",
+       "item": "bog_myrtle_sprig"
+      },
+      {
+       "do": "give_item",
+       "item": "crowdie_oatcakes",
+       "n": 3
+      },
+      {
+       "do": "standing",
+       "nation": "scotland",
+       "amount": 3
+      },
+      {
+       "do": "set",
+       "flag": "q_farnorth_bog_done"
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_farnorth_bog_started",
+       "then": [
+        {
+         "do": "say",
+         "who": "Flows Warden",
+         "text": "How's the survey going? Three things on the clipboard: count the dubh lochans with the Flowmoor by the trail pools, listen for the greenshank with the bird surveyor, and help the peat scientist take a core out west of the road."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Flows Warden",
+         "text": "Welcome to the Flow Country! Four thousand square kilometres of blanket bog, the biggest in Europe, and a UNESCO World Heritage Site since 2024. The first peatland in the world to be given that honour."
+        },
+        {
+         "do": "say",
+         "who": "Flows Warden",
+         "text": "We're doing the annual bog survey and we're short of hands. Fancy it? Count the pools, listen for the birds, help take a peat core. You'll learn more about bogs than you ever thought you'd want to."
+        },
+        {
+         "do": "say",
+         "who": "Flows Warden",
+         "text": "Start at the Dubh Lochan Trail over the road. The flagstones keep your feet dry. Mostly."
+        },
+        {
+         "do": "set",
+         "flag": "q_farnorth_bog_started"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "flows_volunteer": [
+  {
+   "do": "when",
+   "cond": "rain",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Volunteer",
+     "text": "Lovely weather for it! No, honestly. Rain is the whole point of a bog. Sphagnum moss can hold up to twenty times its own weight in water."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Volunteer",
+     "text": "Climb the Flows Lookout over the trail and you can see for miles: pools, moss, sky, and not one single tree. People find it either bleak or beautiful. Usually both, in the same minute."
+    },
+    {
+     "do": "say",
+     "who": "Volunteer",
+     "text": "Hen harriers, merlins, red-throated divers on the lochs, otters in the burns. And the midges. Never forget the midges."
+    }
+   ]
+  }
+ ]
+}

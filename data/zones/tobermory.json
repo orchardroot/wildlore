@@ -1,0 +1,907 @@
+{
+ "id": "tobermory",
+ "name": "Tobermory",
+ "region": "scotland",
+ "kind": "town",
+ "music": "town_scotland",
+ "weather": {
+  "drizzle": 32,
+  "clear": 16,
+  "downpour": 14,
+  "fog": 8,
+  "gale": 10,
+  "sunshine": 20
+ },
+ "props": [
+  {
+   "type": "building",
+   "style": "painted_yellow",
+   "x": 4,
+   "y": 19,
+   "w": 6,
+   "h": 5,
+   "label": "Harbour Gift Shop",
+   "kind": "cafe"
+  },
+  {
+   "type": "building",
+   "style": "painted_pink",
+   "x": 11,
+   "y": 19,
+   "w": 5,
+   "h": 5,
+   "label": "Sweet Shop",
+   "kind": "cafe"
+  },
+  {
+   "type": "building",
+   "style": "painted_blue",
+   "x": 17,
+   "y": 19,
+   "w": 7,
+   "h": 5,
+   "label": "Mull Museum",
+   "kind": "museum"
+  },
+  {
+   "type": "building",
+   "style": "painted_teal",
+   "x": 25,
+   "y": 19,
+   "w": 6,
+   "h": 5,
+   "label": "Tobermory Sanctuary"
+  },
+  {
+   "type": "building",
+   "style": "painted_green",
+   "x": 32,
+   "y": 19,
+   "w": 6,
+   "h": 5,
+   "label": "The Mishnish"
+  },
+  {
+   "type": "building",
+   "style": "painted_red",
+   "x": 39,
+   "y": 19,
+   "w": 6,
+   "h": 5,
+   "label": "Tobermory Corner Shop"
+  },
+  {
+   "type": "building",
+   "style": "painted_pink",
+   "x": 47,
+   "y": 19,
+   "w": 7,
+   "h": 5,
+   "label": "Staffa and Iona Boat Trips"
+  },
+  {
+   "type": "building",
+   "style": "painted_blue",
+   "x": 55,
+   "y": 19,
+   "w": 5,
+   "h": 5,
+   "label": "Fishing Supplies",
+   "kind": "cafe"
+  },
+  {
+   "type": "building",
+   "style": "distillery",
+   "x": 36,
+   "y": 8,
+   "w": 12,
+   "h": 5,
+   "label": "Tobermory Distillery",
+   "kind": "workshop"
+  },
+  {
+   "type": "building",
+   "style": "slate_cottage",
+   "x": 6,
+   "y": 12,
+   "w": 5,
+   "h": 4,
+   "label": "Cottage",
+   "kind": "cottage"
+  },
+  {
+   "type": "building",
+   "style": "white_render",
+   "x": 22,
+   "y": 10,
+   "w": 5,
+   "h": 4,
+   "label": "Cottage",
+   "kind": "cottage"
+  },
+  {
+   "type": "lamp_post",
+   "x": 8,
+   "y": 27
+  },
+  {
+   "type": "lamp_post",
+   "x": 16,
+   "y": 27
+  },
+  {
+   "type": "lamp_post",
+   "x": 24,
+   "y": 27
+  },
+  {
+   "type": "lamp_post",
+   "x": 35,
+   "y": 27
+  },
+  {
+   "type": "lamp_post",
+   "x": 42,
+   "y": 27
+  },
+  {
+   "type": "lamp_post",
+   "x": 52,
+   "y": 27
+  },
+  {
+   "type": "lamp_post",
+   "x": 58,
+   "y": 27
+  },
+  {
+   "type": "clock_tower",
+   "x": 36,
+   "y": 28
+  },
+  {
+   "type": "bench",
+   "x": 10,
+   "y": 27
+  },
+  {
+   "type": "bench",
+   "x": 48,
+   "y": 27
+  },
+  {
+   "type": "bollard",
+   "x": 29,
+   "y": 33
+  },
+  {
+   "type": "bollard",
+   "x": 31,
+   "y": 33
+  },
+  {
+   "type": "bollard",
+   "x": 29,
+   "y": 28
+  },
+  {
+   "type": "bollard",
+   "x": 31,
+   "y": 28
+  },
+  {
+   "type": "lobster_pots",
+   "x": 28,
+   "y": 28,
+   "variant": 0
+  },
+  {
+   "type": "boat",
+   "x": 12,
+   "y": 34,
+   "variant": 1
+  },
+  {
+   "type": "boat",
+   "x": 21,
+   "y": 37,
+   "variant": 1
+  },
+  {
+   "type": "boat",
+   "x": 45,
+   "y": 34,
+   "variant": 1
+  },
+  {
+   "type": "boat",
+   "x": 52,
+   "y": 39,
+   "variant": 1
+  },
+  {
+   "type": "boat",
+   "x": 38,
+   "y": 41,
+   "variant": 0
+  },
+  {
+   "type": "buoy",
+   "x": 16,
+   "y": 32
+  },
+  {
+   "type": "buoy",
+   "x": 48,
+   "y": 33
+  },
+  {
+   "type": "hanging_basket",
+   "x": 26,
+   "y": 24
+  },
+  {
+   "type": "hanging_basket",
+   "x": 33,
+   "y": 24
+  },
+  {
+   "type": "planter",
+   "x": 18,
+   "y": 24
+  },
+  {
+   "type": "planter",
+   "x": 41,
+   "y": 24
+  },
+  {
+   "type": "post_box",
+   "x": 14,
+   "y": 24
+  },
+  {
+   "type": "phone_box",
+   "x": 56,
+   "y": 24
+  },
+  {
+   "type": "bush",
+   "x": 49,
+   "y": 16,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 32,
+   "y": 8,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 19,
+   "y": 4,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 52,
+   "y": 15,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 31,
+   "y": 7,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 45,
+   "y": 7,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 17,
+   "y": 18,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 58,
+   "y": 17,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 32,
+   "y": 12,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 42,
+   "y": 4,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 29,
+   "y": 9,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 35,
+   "y": 18,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 16,
+   "y": 4,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 20,
+   "y": 15,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 5,
+   "y": 9,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 53,
+   "y": 6,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 58,
+   "y": 14,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 5,
+   "y": 5,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 35,
+   "y": 3,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 40,
+   "y": 17,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 54,
+   "y": 5,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 50,
+   "y": 13,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 45,
+   "y": 3,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 43,
+   "y": 15,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 49,
+   "y": 4,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 4,
+   "y": 11,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 33,
+   "y": 3,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 47,
+   "y": 17,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 19,
+   "y": 15,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 32,
+   "y": 3,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 5,
+   "y": 10,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 46,
+   "y": 5,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 22,
+   "y": 6,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 53,
+   "y": 14,
+   "variant": 1
+  }
+ ],
+ "warps": [
+  {
+   "x": 20,
+   "y": 23,
+   "to": "tobermory_museum",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 28,
+   "y": 23,
+   "to": "tobermory_sanctuary",
+   "tx": 5,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 35,
+   "y": 23,
+   "to": "tobermory_mishnish",
+   "tx": 7,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 42,
+   "y": 23,
+   "to": "tobermory_shop",
+   "tx": 4,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 50,
+   "y": 23,
+   "to": "tobermory_boats",
+   "tx": 6,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 42,
+   "y": 12,
+   "to": "tobermory_distillery",
+   "tx": 7,
+   "ty": 8,
+   "facing": "up"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "tob_birder",
+   "sprite": "birdwatcher",
+   "x": 53,
+   "y": 28,
+   "facing": "up",
+   "move": "still",
+   "script": "tob_birder",
+   "name": "Eagle Watcher"
+  },
+  {
+   "id": "tob_hunter",
+   "sprite": "sailor",
+   "x": 38,
+   "y": 28,
+   "facing": "down",
+   "move": "still",
+   "script": "tob_hunter",
+   "name": "Galleon Hunter"
+  },
+  {
+   "id": "tob_painter",
+   "sprite": "poet",
+   "x": 22,
+   "y": 26,
+   "facing": "down",
+   "move": "still",
+   "script": "tob_painter",
+   "name": "Artist"
+  },
+  {
+   "id": "tob_kid",
+   "sprite": "villager_4",
+   "x": 17,
+   "y": 25,
+   "facing": "down",
+   "move": "still",
+   "script": "tob_kid",
+   "name": "Child"
+  },
+  {
+   "id": "tob_otter",
+   "sprite": "creature:rillotter",
+   "x": 15,
+   "y": 29,
+   "facing": "down",
+   "move": "wander",
+   "script": "tob_otter",
+   "radius": 1
+  },
+  {
+   "id": "tob_eagle",
+   "sprite": "birdwatcher",
+   "x": 56,
+   "y": 26,
+   "facing": "left",
+   "move": "still",
+   "trainer": "tob_eagle"
+  },
+  {
+   "id": "tob_diver",
+   "sprite": "sailor",
+   "x": 24,
+   "y": 25,
+   "facing": "right",
+   "move": "still",
+   "trainer": "tob_diver"
+  },
+  {
+   "id": "tob_walker",
+   "sprite": "hiker",
+   "x": 30,
+   "y": 15,
+   "facing": "down",
+   "move": "still",
+   "trainer": "tob_walker"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "eaglet",
+    "min": 69,
+    "max": 70,
+    "weight": 12,
+    "time": [
+     "day"
+    ]
+   },
+   {
+    "species": "goldeneyrie",
+    "min": 69,
+    "max": 70,
+    "weight": 8,
+    "time": [
+     "dawn",
+     "day"
+    ]
+   },
+   {
+    "species": "stagmor",
+    "min": 69,
+    "max": 70,
+    "weight": 8,
+    "time": [
+     "dawn",
+     "dusk"
+    ]
+   },
+   {
+    "species": "fawnlet",
+    "min": 69,
+    "max": 70,
+    "weight": 10
+   },
+   {
+    "species": "wildkit",
+    "min": 69,
+    "max": 70,
+    "weight": 6,
+    "time": [
+     "dusk",
+     "night"
+    ]
+   },
+   {
+    "species": "hootlet",
+    "min": 69,
+    "max": 70,
+    "weight": 8,
+    "time": [
+     "night"
+    ]
+   },
+   {
+    "species": "midgie",
+    "min": 69,
+    "max": 70,
+    "weight": 8,
+    "weather": [
+     "drizzle",
+     "downpour"
+    ]
+   },
+   {
+    "species": "thistlet",
+    "min": 69,
+    "max": 70,
+    "weight": 8
+   },
+   {
+    "species": "cragchough",
+    "min": 69,
+    "max": 70,
+    "weight": 6
+   },
+   {
+    "species": "starlet",
+    "min": 69,
+    "max": 70,
+    "weight": 6,
+    "time": [
+     "dusk",
+     "dawn"
+    ]
+   },
+   {
+    "species": "lekling",
+    "min": 69,
+    "max": 70,
+    "weight": 5,
+    "time": [
+     "day",
+     "dawn"
+    ]
+   }
+  ],
+  "water": [
+   {
+    "species": "rillotter",
+    "min": 69,
+    "max": 70,
+    "weight": 14
+   },
+   {
+    "species": "selklet",
+    "min": 69,
+    "max": 70,
+    "weight": 12
+   },
+   {
+    "species": "clownbill",
+    "min": 69,
+    "max": 70,
+    "weight": 10,
+    "time": [
+     "dawn",
+     "day"
+    ]
+   },
+   {
+    "species": "gannetling",
+    "min": 69,
+    "max": 70,
+    "weight": 10
+   },
+   {
+    "species": "dolphlet",
+    "min": 69,
+    "max": 70,
+    "weight": 10
+   },
+   {
+    "species": "orcalet",
+    "min": 69,
+    "max": 70,
+    "weight": 4
+   },
+   {
+    "species": "plungebeak",
+    "min": 69,
+    "max": 70,
+    "weight": 6
+   }
+  ]
+ },
+ "signs": [
+  {
+   "text": "PIER. The Oban ferry docks here. Staffa and Iona boat trips run from the harbour front, tide and weather permitting, and the weather is usually the deciding vote.",
+   "x": 30,
+   "y": 36
+  },
+  {
+   "text": "HARBOUR FRONT. Gift shops, galleries, a chippy and about nine hundred photographs being taken at once.",
+   "x": 23,
+   "y": 28
+  },
+  {
+   "text": "TOBERMORY. Tobar Mhoire in Gaelic, 'Mary's Well', named after a well by an old chapel. The town was founded in 1788 by the British Fisheries Society as a herring port, which explains why it is so neatly laid out.",
+   "x": 12,
+   "y": 25,
+   "plaque": "tob_name",
+   "title": "Tobermory"
+  },
+  {
+   "text": "THE HARBOUR FRONT. The row of brightly painted houses along the bay is one of the most photographed views in Scotland, and a children's television programme filmed here in the early 2000s made it famous with the under-fives.",
+   "x": 26,
+   "y": 28,
+   "plaque": "tob_harbour",
+   "title": "The Harbour Front"
+  },
+  {
+   "text": "THE TOBERMORY GALLEON. A ship of the Spanish Armada is said to have sunk in the bay in 1588, laden with gold. Treasure hunters have dug, dived and dredged for four centuries and found a few cannon and a great deal of mud.",
+   "x": 40,
+   "y": 28,
+   "plaque": "tob_galleon",
+   "title": "The Tobermory Galleon"
+  },
+  {
+   "text": "TOBERMORY DISTILLERY. Founded in 1798, it is among the oldest on the islands. It has changed its name, its owners and its fortunes several times, and has been shut and reopened more often than the pub.",
+   "x": 44,
+   "y": 14,
+   "plaque": "tob_distillery",
+   "title": "Tobermory Distillery"
+  },
+  {
+   "text": "SEA EAGLES. The white-tailed eagle has a wingspan of about two and a half metres and was hunted to extinction in Britain by 1918. Birds from Norway were released on Rum from 1975, and Mull now has one of the best known populations. If something that looks like a barn door flies past, wave.",
+   "x": 53,
+   "y": 27,
+   "plaque": "tob_sea_eagles",
+   "title": "Sea Eagles"
+  },
+  {
+   "text": "THE MISHNISH. A famous harbour front pub with folk sessions most nights. In spring it is one of the venues for the Mull Music Festival, which is the only time the town's population doubles and the quiet doesn't.",
+   "x": 33,
+   "y": 25,
+   "plaque": "tob_mishnish",
+   "title": "The Mishnish"
+  },
+  {
+   "text": "STAFFA. A small uninhabited island of basalt columns, made about 60 million years ago when lava cooled and cracked into hexagons. The name is Norse, 'staff island', for the columns. It is the same lava as the Giant's Causeway, and the old story says the two are one causeway.",
+   "x": 44,
+   "y": 28,
+   "plaque": "tob_staffa",
+   "title": "Staffa"
+  },
+  {
+   "text": "FINGAL'S CAVE. In 1829 the composer Felix Mendelssohn, aged twenty, sailed here, was seasick, and was still so taken with the echoing arches that he used them for the opening of his Hebrides Overture. The Gaelic name is Uamh-Binn, the cave of melody.",
+   "x": 51,
+   "y": 25,
+   "plaque": "tob_fingals_cave",
+   "title": "Fingal's Cave"
+  },
+  {
+   "text": "IONA. In 563 St Columba, an Irish monk, landed here with twelve companions and founded a monastery that became a great centre of learning. The Book of Kells is thought to have been begun on Iona, before Viking raids drove the monks to Ireland.",
+   "x": 58,
+   "y": 25,
+   "plaque": "tob_iona",
+   "title": "Iona"
+  },
+  {
+   "text": "MULL MUSEUM. A small, friendly museum on the harbour front, covering Mull from its rocks and wildlife to its crofters and the wreck of the galleon.",
+   "x": 20,
+   "y": 25,
+   "plaque": "tob_mull_museum",
+   "title": "Mull Museum"
+  },
+  {
+   "text": "MULL LITTLE THEATRE. At Dervaig, a few miles from here, a professional theatre of about forty seats. It claims to be the smallest in Britain, which means every seat is the front row.",
+   "x": 8,
+   "y": 25,
+   "plaque": "tob_little_theatre",
+   "title": "Mull Little Theatre"
+  },
+  {
+   "text": "ISLE OF MULL CHEDDAR. Made on a farm just outside Tobermory, strong, crumbly and prize-winning. You'll find it in the shop and on the ploughman's lunch at the pub.",
+   "x": 37,
+   "y": 30,
+   "plaque": "tob_cheddar",
+   "title": "Isle of Mull Cheddar"
+  }
+ ],
+ "spawn": [
+  30,
+  25
+ ],
+ "stage": "coast",
+ "rows": [
+  "PTTTTTTTTTTPTTTTTTTTTTPTTTTTTTTTTPTTTTTTTTTTPTTTTTTTTTTPTTTTTTTT",
+  "TTTTTTTTTPTTTTTTTTTTPTTTTTTTTTTPTTTTTTTTTTPTTTTTTTTTTPTTTTTTTTTT",
+  "TT......P.....P.............................P.................PT",
+  "TT...........T....................P...T..T..P...P.......T.....TT",
+  "TT...............................P.....................P......TT",
+  "TP..........T.,.........................................T....TTT",
+  "TT........,,,,,,,,,.......P......PP.......P...........,P......TT",
+  "TT.T....,,,,,,,,,,,,,....P................P...P...P.,,,,,.....TP",
+  "TT.....,,,,,,,,,,,,,,,..............BBBBBBBBBBBB...,,,,,,,...PTT",
+  "TT..P..,,,,,,,,,,,,,,,P...........P.BBBBBBBBBBBBT..,,,,,,,..P.TT",
+  "TT....,,,,,,,,,,,,,,,,BBBBB.....P...BBBBBBBBBBBB..,,,,,,,,,..PTT",
+  "PT.....,,,,,,,,,,,,,,,BBBBB.........BBBBBBBBBBBB...,,,,,,,....TT",
+  "TT....BBBBB,,,,,,,,,,,BBBBB.........BBBBBBDBBBBBTT.,,,,,,,P...TT",
+  "TT....BBBBB,,,,,,,,,,.BBBBB,,.............#####.....,,,,,.....PT",
+  "TT....BBBBB,,,,,,,,..,,,,,,,,,PP.............##.P..T..,.......TT",
+  "TT....BBBBB..T,.......,,,,,,,.............P..##.P.......P.....TT",
+  "TP.P...P.......P...T...P.,.....T......T..P...##..........T....TT",
+  "TT....P..............................P.......##.P..T...P.P....TT",
+  "TT........,..................................##...............TP",
+  "TT..BBBBBB,BBBBB.BBBBBBB.BBBBBB.BBBBBB.BBBBBB##BBBBBBB.BBBBB..TT",
+  "TT..BBBBBB,BBBBB.BBBBBBB.BBBBBB.BBBBBB.BBBBBB##BBBBBBB.BBBBB..TT",
+  "TT..BBBBBB,BBBBB.BBBBBBB.BBBBBB.BBBBBB.BBBBBB##BBBBBBB.BBBBB..TT",
+  "PT..BBBBBB,BBBBB.BBBBBBB.BBBBBB.BBBBBB.BBBBBB##BBBBBBB.BBBBB..TT",
+  "TT..BBBBBB.BBBBB.BBBDBBB.BBBDBB.BBBDBB.BBBDBB##BBBDBBB.BBBBB..TT",
+  "TT..::::::::::::::::::::::::::::::::::::::::::::::::::::::::..PT",
+  "TT..::::::::::::::::::::::::::::::::::::::::::::::::::::::::..TT",
+  "TT..::::::::::::::::::::::::::::::::::::::::::::::::::::::::..TT",
+  "TP...........................:::..............................TT",
+  "TT...........................:::..............................TT",
+  "TTwwwwwwwwwwwwwwwwwwwwwwwwwww:::wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwTP",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$:::$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$:::$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$.$$$$$$$$$$$$:::$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$:::$$$$$$$$$$$$$$$$.$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$.$$$$$$$$$$$$$$$$:::$$$$$$$$$$$$$.$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$:::$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$.$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$.$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$.$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
+ ],
+ "scaled_floor": 69,
+ "town_id": "tobermory",
+ "ferry": {
+  "x": 30,
+  "y": 35,
+  "route": "oban_tobermory"
+ }
+}

@@ -2151,6 +2151,86 @@
    "reward": {
     "items": {"copper_slag": 1}
    }
+  },
+  {
+   "id": "thurso_flagstone",
+   "nation": "scotland",
+   "town": "thurso",
+   "badges": 9,
+   "poster": "Caithness Flagstone Trail",
+   "title": "Mind the flags",
+   "text": "Somebody keeps knocking over the flagstone fences round the fields. We suspect something with a lot of moss on it. Catch a Dubhlet and we'll know who to blame.",
+   "step": {
+    "type": "catch",
+    "species": "dubhlet"
+   },
+   "pay": 3
+  },
+  {
+   "id": "thurso_east",
+   "nation": "scotland",
+   "town": "thurso",
+   "badges": 9,
+   "poster": "Thurso Surf Shack",
+   "title": "Swell's up at the East",
+   "text": "Big northerly swell forecast. Go and look at the waves off the Pentland Coast at dawn and tell us if it's working. We'd go ourselves but we're very busy waxing.",
+   "step": {
+    "type": "visit",
+    "zone": "pentland_coast",
+    "time": ["dawn"]
+   },
+   "pay": 2
+  },
+  {
+   "id": "carlisle_biscuits",
+   "nation": "england",
+   "town": "carlisle",
+   "badges": 9,
+   "poster": "Carr's Works Canteen",
+   "title": "Something for the cheese board",
+   "text": "The canteen is out of cheese and the biscuits are looking at us. The foreman says a young herdlet is good luck at the works gate. Find us one, and we'll pay in biscuits.",
+   "step": {
+    "type": "catch",
+    "species": "herdlet"
+   },
+   "pay": 3,
+   "reward": {
+    "items": {"carrs_biscuits": 3}
+   }
+  },
+  {
+   "id": "oban_creels",
+   "nation": "scotland",
+   "town": "oban",
+   "badges": 9,
+   "poster": "Oban Creel Fishermen",
+   "title": "Something is eating the bait",
+   "text": "Every morning the creels come up clean. We suspect a seal, a gull, or a man from Mull. Catch a tide creature and settle it.",
+   "step": {
+    "type": "catch",
+    "ctype": "tide"
+   },
+   "pay": 2,
+   "reward": {
+    "items": {"oban_scallops": 2}
+   }
+  },
+  {
+   "id": "tobermory_staffa",
+   "nation": "scotland",
+   "town": "tobermory",
+   "badges": 9,
+   "poster": "Staffa Boat Trips",
+   "title": "Hear the cave sing",
+   "text": "Visitors keep asking if Fingal's Cave really sings. Take the boat out, listen, and tell them honestly.",
+   "step": {
+    "type": "visit",
+    "zone": "staffa_cave"
+   },
+   "pay": 2,
+   "reward": {
+    "items": {"mull_cheddar": 2}
+   }
   }
  ]
 }

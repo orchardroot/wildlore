@@ -1,0 +1,278 @@
+{
+ "brahan_seer": [
+  {
+   "do": "say",
+   "who": "Storyteller",
+   "text": "They say Coinneach Odhar, the Brahan Seer, looked through a stone with a hole in it and saw the future. He saw the Caledonian Canal, they say, with ships sailing round the back of Tomnahurich hill."
+  },
+  {
+   "do": "say",
+   "who": "Storyteller",
+   "text": "He told the Countess of Seaforth her husband was carrying on in Paris. True, as it turned out. She had him burned at Chanonry Point for saying so. Never tell a countess the truth before breakfast."
+  },
+  {
+   "do": "say",
+   "who": "Storyteller",
+   "text": "Mind you, nobody can find him in a single record from the time. A man who saw everything coming, and nobody saw him at all."
+  }
+ ],
+ "dunrobin_gardener": [
+  {
+   "do": "when",
+   "cond": "sunshine",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Gardener",
+     "text": "Sun on the parterres! The box hedges were laid out to copy the gardens at Versailles. Mind, Versailles never had a wind straight off the North Sea."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Gardener",
+     "text": "The castle gardens run right down to the sea, terrace by terrace. On a bright day the falcons fly over them and every pigeon in Sutherland remembers an appointment elsewhere."
+    },
+    {
+     "do": "say",
+     "who": "Gardener",
+     "text": "Ask inside about the museum in the old summer house. Pictish stones, hunting trophies, and more antlers than anyone strictly needs."
+    }
+   ]
+  }
+ ],
+ "survey_pool": [
+  {
+   "do": "if",
+   "flag": "q_farnorth_bog_started",
+   "then": [
+    {
+     "do": "say",
+     "who": "Flowmoor",
+     "text": "Blub. Blub-blub."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "The Flowmoor lifts a mossy flap and points at each pool in turn, very slowly, counting under its breath. You count along: eleven dubh lochans round the trail, and a dragonfly sitting on number seven."
+    },
+    {
+     "do": "say",
+     "who": "Flowmoor",
+     "text": "Bluuub."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "You note the count in your Fieldbook. The Flowmoor sinks back into the moss, looking pleased. Survey point one: done."
+    },
+    {
+     "do": "set",
+     "flag": "q_farnorth_bog_1"
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Flowmoor",
+     "text": "Blub."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "A great mossy creature sits by the pool, perfectly still, as if it has been there since the last Ice Age. It possibly has."
+    }
+   ]
+  }
+ ],
+ "survey_greenshank": [
+  {
+   "do": "if",
+   "flag": "q_farnorth_bog_1",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_farnorth_bog_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "Bird Surveyor",
+       "text": "Write it down: one greenshank, very cross, and three golden plover pretending they're not there."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Bird Surveyor",
+       "text": "Shh. Listen. Hear that? 'Tew-tew-tew.' That's a greenshank, telling the whole bog we're here."
+      },
+      {
+       "do": "say",
+       "who": "Bird Surveyor",
+       "text": "Greenshank nest out on the open flows, and the golden plover too, with their gold-spangled backs and black bellies in summer. Dunlin nest by the pools. They all need the bog wet and wide and empty."
+      },
+      {
+       "do": "say",
+       "who": "Bird Surveyor",
+       "text": "In the 1980s folk planted conifers all over these flows for tax breaks, and the waders went. Now the trees are coming out and the bog is being rewetted, and the birds are coming back. Put that in your survey. Underline it."
+      },
+      {
+       "do": "set",
+       "flag": "q_farnorth_bog_2"
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Bird Surveyor",
+     "text": "Shh. I'm counting waders. If you're here for the survey, the Flows Warden at the visitor centre hands out the clipboards."
+    }
+   ]
+  }
+ ],
+ "peat_scientist": [
+  {
+   "do": "if",
+   "flag": "q_farnorth_bog_2",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_farnorth_bog_3",
+     "then": [
+      {
+       "do": "say",
+       "who": "Peat Scientist",
+       "text": "Five metres of peat in that core. Every centimetre is roughly ten years of moss. Write that on your hand. Not my hand."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Peat Scientist",
+       "text": "You're the survey help? Good. I need a peat core from the deep bit, and the deep bit is guarded by everything that lives in the deep bit. Let's see if your team can cope with a proper bog."
+      },
+      {
+       "do": "battle",
+       "trainer": "fc_peatsci",
+       "intro": true
+      },
+      {
+       "do": "if",
+       "flag": "trainer_fc_peatsci",
+       "then": [
+        {
+         "do": "say",
+         "who": "Peat Scientist",
+         "text": "Right, that's convinced me. Hold this. Push. Keep pushing. And... there."
+        },
+        {
+         "do": "say",
+         "who": "",
+         "text": "The long steel corer comes up full of dark, wet peat, banded like a cake. The bottom of it is older than the pyramids."
+        },
+        {
+         "do": "say",
+         "who": "Peat Scientist",
+         "text": "Peat only grows about a millimetre a year, so this is thousands of years of bog in one tube. And it's packed with carbon. Look after a bog and it keeps the carbon in the ground. Drain it and the carbon goes up in the air. Simple as that."
+        },
+        {
+         "do": "set",
+         "flag": "q_farnorth_bog_3"
+        }
+       ],
+       "else": []
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Peat Scientist",
+     "text": "Peat core sampling. Very technical. Mostly I stand in a bog shouting 'push'. The Flows Warden runs the survey, if you want to help."
+    }
+   ]
+  }
+ ],
+ "peat_cutter": [
+  {
+   "do": "if",
+   "flag": "q_farnorth_mey_1",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_farnorth_mey_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "Peat Cutter",
+       "text": "Tell the gardener at Mey that's the last bag till the spring. The bank needs its rest, same as me."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Peat Cutter",
+       "text": "For the gardener at Mey? Aye, I know her. Takes a bag every year for the potting shed, and every year says it'll be the last."
+      },
+      {
+       "do": "say",
+       "who": "Peat Cutter",
+       "text": "This is my family's peat bank. We cut it with a tusker, a long spade with a blade on the side, and stack the peats to dry in the wind. Only a wee bit, mind. The bog's precious and we've always known it."
+      },
+      {
+       "do": "give_item",
+       "item": "peat",
+       "n": 3
+      },
+      {
+       "do": "set",
+       "flag": "q_farnorth_mey_2"
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Peat Cutter",
+     "text": "A peat fire smells of home to half of Caithness. Cut in May, dried all summer, burned all winter. Slow and warm, like a good story."
+    },
+    {
+     "do": "say",
+     "who": "Peat Cutter",
+     "text": "We only take a wee bit from the edge, the way it's always been done. Big drainage and forestry did the real harm. The bog's being healed now. About time."
+    }
+   ]
+  }
+ ],
+ "railfan": [
+  {
+   "do": "when",
+   "cond": "fog",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Railway Enthusiast",
+     "text": "Fog on the flows. The train comes out of it like a ghost, with its headlight on and its horn going. Magnificent. I've been here since six."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Railway Enthusiast",
+     "text": "Forsinard! A request stop in the middle of the biggest bog in Europe. You stick your arm out and the train stops. Like a bus, if a bus took four hours to Inverness."
+    },
+    {
+     "do": "say",
+     "who": "Railway Enthusiast",
+     "text": "The Far North Line was finished in 1874, built partly at the expense of the Duke of Sutherland, who wanted a railway to his castle at Dunrobin. It has its own station there. Of course it does."
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,125 @@
+{
+ "id": "thurso_pub",
+ "name": "The Flagstone Bar",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "table",
+   "x": 8,
+   "y": 3
+  },
+  {
+   "type": "table",
+   "x": 8,
+   "y": 5
+  },
+  {
+   "type": "table",
+   "x": 10,
+   "y": 3
+  },
+  {
+   "type": "table",
+   "x": 10,
+   "y": 5
+  },
+  {
+   "type": "fireplace",
+   "x": 6,
+   "y": 1
+  },
+  {
+   "type": "kitchen_dresser",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "clock",
+   "x": 8,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "wall_picture",
+   "x": 10,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  },
+  {
+   "type": "piano",
+   "x": 1,
+   "y": 6
+  },
+  {
+   "type": "sofa",
+   "x": 11,
+   "y": 6,
+   "variant": 1,
+   "rot": 270
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 7,
+   "to": "thurso",
+   "tx": 43,
+   "ty": 23,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "landlady",
+   "sprite": "villager_4",
+   "x": 3,
+   "y": 1,
+   "facing": "down",
+   "move": "still",
+   "script": "landlady",
+   "name": "Landlady"
+  },
+  {
+   "id": "quizmaster",
+   "sprite": "poet",
+   "x": 9,
+   "y": 4,
+   "facing": "left",
+   "move": "still",
+   "script": "quizmaster",
+   "name": "Quizmaster"
+  },
+  {
+   "id": "dounreay_retiree",
+   "sprite": "villager_6",
+   "x": 6,
+   "y": 5,
+   "facing": "right",
+   "move": "still",
+   "script": "dounreay_retiree",
+   "name": "Retired Engineer"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  6,
+  6
+ ],
+ "rows": [
+  "xxxxxxxxxxxxx",
+  "x|||||||||||x",
+  "xCCCCC||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||D|||||x",
+  "xxxxxxxxxxxxx"
+ ]
+}

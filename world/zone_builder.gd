@@ -250,7 +250,8 @@ const POINT_PROPS := ["lamp_post", "bench", "bush", "birch", "oak", "pine", "roc
 	# East Anglia (Landmarks.EA_PROPS)
 	"windpump", "punt", "maths_bridge", "wherry",
 	# the South East
-	"pier_ruin"]
+	"pier_ruin",
+	"slot_machine", "roulette_table", "card_table", "tote_board", "velvet_rope", "horse_statue"]
 ## Cloth meshes that ripple (flutter shader) and glow meshes that add light (firelight shader).
 const CLOTH := ["bunting", "flag", "washing_line"]
 const FLOATING := ["boat", "canal_boat", "buoy", "punt", "wherry"]

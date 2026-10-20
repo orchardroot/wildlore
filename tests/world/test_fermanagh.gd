@@ -5,7 +5,7 @@ extends TestCase
 const OUTDOOR := ["lough_neagh", "enniskillen"]
 const NEW_SPECIES := ["neagheen", "neaghmor", "dripkin", "stalaghast", "twaface"]
 const ITEMS := ["boxty", "fermanagh_black_bacon", "smoked_eel", "armagh_bramley", "illuminated_page", "geopark_pin", "scutched_flax"]
-const NEW_STYLES := ["erne_terrace", "watergate", "palladian", "monument_column", "cave_mouth"]
+const NEW_STYLES := ["erne_terrace", "watergate", "palladian", "monument_column", "marble_arch_cave"]
 
 func _zone(id: String) -> ZoneData:
 	return ZoneData.load_id(id)

@@ -182,7 +182,8 @@ func _show_desc(id: String) -> void:
 		_desc.add_child(UIKit.label("%d steps of lavender left" % Repel.steps_left(Game.data), 22, UIKit.GOLD))
 	var price := int(it.get("price", 0))
 	if price > 0:
-		_desc.add_child(UIKit.label("Worth %s" % UIKit.money_text(MenuLogic.sell_price(price)), 22, UIKit.MUTED))
+		var cur := Wallet.local(Game.data)  # what a shop here would give for it
+		_desc.add_child(UIKit.label("Worth %s" % UIKit.money_text(MenuLogic.sell_price(Wallet.localise(price, cur)), cur), 22, UIKit.MUTED))
 
 func _item_pressed(id: String) -> void:
 	var it: Dictionary = Game.items.get_item(id)

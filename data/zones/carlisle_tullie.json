@@ -1,0 +1,124 @@
+{
+ "id": "carlisle_tullie",
+ "name": "Tullie House Museum",
+ "region": "",
+ "kind": "interior",
+ "music": "museum",
+ "weather": {},
+ "props": [
+  {
+   "type": "display_case",
+   "x": 2,
+   "y": 2
+  },
+  {
+   "type": "display_case",
+   "x": 4,
+   "y": 2
+  },
+  {
+   "type": "display_case",
+   "x": 8,
+   "y": 2
+  },
+  {
+   "type": "display_case",
+   "x": 10,
+   "y": 2
+  },
+  {
+   "type": "statue",
+   "x": 1,
+   "y": 5
+  },
+  {
+   "type": "statue",
+   "x": 11,
+   "y": 5
+  },
+  {
+   "type": "wall_map",
+   "x": 6,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "specimen_shelf",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "specimen_shelf",
+   "x": 11,
+   "y": 1
+  },
+  {
+   "type": "bench",
+   "x": 6,
+   "y": 5
+  },
+  {
+   "type": "wall_picture",
+   "x": 3,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  },
+  {
+   "type": "wall_picture",
+   "x": 9,
+   "y": 1,
+   "walk": true,
+   "variant": 2
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 9,
+   "to": "carlisle",
+   "tx": 24,
+   "ty": 19,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "tullie_curator",
+   "sprite": "poet",
+   "x": 4,
+   "y": 6,
+   "facing": "right",
+   "move": "still",
+   "script": "tullie_curator"
+  },
+  {
+   "id": "tullie_assistant",
+   "sprite": "student",
+   "x": 9,
+   "y": 6,
+   "facing": "left",
+   "move": "still",
+   "script": "tullie_assistant"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  6,
+  8
+ ],
+ "rows": [
+  "xxxxxxxxxxxxx",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "xxxxxxDxxxxxx"
+ ]
+}

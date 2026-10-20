@@ -45,7 +45,7 @@ static func run(cmd: Commands, c: Dictionary) -> void:
 			await host.say(who, str(t.get("ask", "")))
 			if not Rewild.can_pay(data, t):
 				await host.say(who, "No rush. Come back when you've got it.")
-			elif await host.choice(_offer(t, host.items), YES_NO) == 0:
+			elif await host.choice(_offer(t, host.items, Wallet.local(host.data)), YES_NO) == 0:
 				Rewild.pay(data, t)
 				await host.sfx("item")
 				await host.say(who, "Champion. That'll go straight in.")
@@ -76,9 +76,9 @@ static func run(cmd: Commands, c: Dictionary) -> void:
 		await _refresh(cmd, s)
 
 ## "Hand over 3 Sheep Wool?" / "Chip in £800?"
-static func _offer(t: Dictionary, items: ItemDB) -> String:
+static func _offer(t: Dictionary, items: ItemDB, cur := Wallet.GBP) -> String:
 	if str(t.kind) == "money":
-		return "Chip in £%d?" % int(t.amount)
+		return "Chip in %s?" % Wallet.fmt(Wallet.localise(int(t.amount), cur), cur)
 	var parts := []
 	for id in t.items:
 		parts.append("%d %s" % [int(t.items[id]), str(items.get_item(str(id)).get("name", id))])

@@ -1,0 +1,32 @@
+{
+ "id": "th_fisher",
+ "name": "Trawlerman Davie",
+ "class": "Fisher",
+ "sprite": "fisherman_north",
+ "party": [
+  {
+   "species": "clawcastle",
+   "level": 76
+  },
+  {
+   "species": "greyhaul",
+   "level": 77
+  },
+  {
+   "species": "orcaird",
+   "level": 77
+  }
+ ],
+ "ai": "trainer",
+ "money": 2800,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Trawlerman Davie",
+   "text": "Back from the west of Orkney with a hold full of haddock and a head full of sea. Fancy a scrap on the quay?"
+  }
+ ],
+ "win": "Ach, that was a fair haul.",
+ "after": "Scrabster's a big fishing port, for whitefish from the grounds west of Orkney and out towards Rockall. Boats from all over land here. The gulls are the only ones that never pay.",
+ "scaled_floor": 76
+}

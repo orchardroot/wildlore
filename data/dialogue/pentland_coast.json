@@ -1,0 +1,383 @@
+{
+ "e2e_clerk": [
+  {
+   "do": "if",
+   "flag": "q_farnorth_e2e_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "End to End Clerk",
+     "text": "Back again? Going for the double? Two End to Ends in a row is called 'losing a bet'."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_farnorth_e2e_1",
+     "then": [
+      {
+       "do": "say",
+       "who": "End to End Clerk",
+       "text": "Let's see that card. Stamped at John o' Groats... stamped at the Land's End end, with a pasty crumb in the corner. That's genuine Cornish. 874 miles!"
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "The clerk signs the certificate with a flourish, blows on it, and hands it over. There's a picture of the signpost at the top."
+      },
+      {
+       "do": "give_item",
+       "item": "end_to_end_certificate"
+      },
+      {
+       "do": "give_item",
+       "item": "groatie_buckie"
+      },
+      {
+       "do": "standing",
+       "nation": "scotland",
+       "amount": 3
+      },
+      {
+       "do": "set",
+       "flag": "q_farnorth_e2e_2"
+      },
+      {
+       "do": "set",
+       "flag": "q_farnorth_e2e_done"
+      },
+      {
+       "do": "say",
+       "who": "End to End Clerk",
+       "text": "Congratulations. You are now officially somebody who has been both ends of Britain. You will bring it up at parties. Everyone does."
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_farnorth_e2e_started",
+       "then": [
+        {
+         "do": "say",
+         "who": "End to End Clerk",
+         "text": "Card stamped at this end. Now off to Land's End, or the Cornish End to Ender in Penzance at least, and get the other stamp. The train goes all the way, if you change about nine times."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "End to End Clerk",
+         "text": "Welcome to John o' Groats, the end of the road! Or the start, depending which way you're facing."
+        },
+        {
+         "do": "say",
+         "who": "End to End Clerk",
+         "text": "Land's End to John o' Groats, the whole length of Britain. 874 miles by the signpost. They've done it on bikes, on foot, on horseback, on a tractor, and a man once did it on a space hopper. Very slowly."
+        },
+        {
+         "do": "say",
+         "who": "End to End Clerk",
+         "text": "You've a team that's walked half the country already. Fancy making it official? Take this card. Get it stamped at the Cornish end, by the End to Ender who waits in Penzance, and bring it back here."
+        },
+        {
+         "do": "give_item",
+         "item": "end_to_end_card"
+        },
+        {
+         "do": "set",
+         "flag": "q_farnorth_e2e_started"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "tidewatcher": [
+  {
+   "do": "if",
+   "flag": "q_farnorth_firth_1",
+   "then": [
+    {
+     "do": "say",
+     "who": "Tide Watcher",
+     "text": "Slack water in twenty minutes, then the flood again. The Firth breathes in and out twice a day, like a great grey sleeper. Safe sailing."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_farnorth_firth_started",
+     "then": [
+      {
+       "do": "say",
+       "who": "Tide Watcher",
+       "text": "Morag lost her tide tables? Again? Overboard? Again? I've a copy, but the Firth doesn't give anything away and neither do I. Show me you can handle a rip."
+      },
+      {
+       "do": "battle",
+       "trainer": "pc_tidewatch",
+       "intro": true
+      },
+      {
+       "do": "if",
+       "flag": "trainer_pc_tidewatch",
+       "then": [
+        {
+         "do": "say",
+         "who": "Tide Watcher",
+         "text": "Fair enough. You read a fight like a tide. Here: the tables. Flood runs east, ebb runs west, and when the tide meets a westerly gale off St John's Point you get the Merry Men of Mey. Rows of breakers, standing in the sea like dancers."
+        },
+        {
+         "do": "give_item",
+         "item": "tide_tables"
+        },
+        {
+         "do": "set",
+         "flag": "q_farnorth_firth_1"
+        }
+       ],
+       "else": []
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Tide Watcher",
+       "text": "Look at it out there. The Merry Men of Mey. When the ebb runs west against an Atlantic swell they stand up in lines, white and tall, all across the Firth."
+      },
+      {
+       "do": "say",
+       "who": "Tide Watcher",
+       "text": "Stroma's out there, and the Swelkie off its north end. The old Norse said the Swelkie was the sea pouring through the eye of a giant millstone called Grotti, grinding salt at the bottom of the ocean. That's why the sea is salt. Prove it isn't."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "mey_gardener": [
+  {
+   "do": "if",
+   "flag": "q_farnorth_mey_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Head Gardener",
+     "text": "The beans have never looked better. Sweet peas next. The Queen Mother would have had a wee look and said 'lovely', and that would have been the best day of the year."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_farnorth_mey_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "Head Gardener",
+       "text": "Seaweed from Dunnet Bay and peat from the Flow Country! The two best things in the county for a garden, after a good wall and a bad temper."
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "The gardener digs the seaweed into the bean rows and tips the peat into the potting shed, humming. The garden smells of the sea and the hills at once."
+      },
+      {
+       "do": "say",
+       "who": "Head Gardener",
+       "text": "The Queen Mother loved this garden. Forty-odd years she came up every August and October. Those walls are the Great Wall of Mey, near enough twelve foot high, and without them nothing would grow at all. Here, take these. Our own."
+      },
+      {
+       "do": "give_item",
+       "item": "crowdie_oatcakes",
+       "n": 2
+      },
+      {
+       "do": "give_item",
+       "item": "caithness_flagstone",
+       "n": 2
+      },
+      {
+       "do": "give_item",
+       "item": "heather_honey",
+       "n": 2
+      },
+      {
+       "do": "standing",
+       "nation": "scotland",
+       "amount": 3
+      },
+      {
+       "do": "set",
+       "flag": "q_farnorth_mey_done"
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_farnorth_mey_started",
+       "then": [
+        {
+         "do": "say",
+         "who": "Head Gardener",
+         "text": "Seaweed from the gatherer on Dunnet Bay, west along the shore, and a bag of peat from the cutter in the Flow Country, south past Thurso. Then we'll have a garden."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Head Gardener",
+         "text": "Mind the beans. Welcome to the walled garden of the Castle of Mey, the most northerly castle on mainland Britain, and possibly the windiest garden."
+        },
+        {
+         "do": "say",
+         "who": "Head Gardener",
+         "text": "I'm behind with the autumn feed. I need two things: seaweed from the gatherer on Dunnet Bay, to dig in for the goodness, and a bag of peat from the cutter in the Flow Country for the potting shed. Could you?"
+        },
+        {
+         "do": "set",
+         "flag": "q_farnorth_mey_started"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "seaweed_gatherer": [
+  {
+   "do": "if",
+   "flag": "q_farnorth_mey_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_farnorth_mey_1",
+     "then": [
+      {
+       "do": "say",
+       "who": "Seaweed Gatherer",
+       "text": "That's the gardener's lot. She'll want more in spring. She always does."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Seaweed Gatherer",
+       "text": "For Mey? Here's a creel of tangle and wrack, washed up by last night's gale. Gardens up here have been fed on seaweed for hundreds of years. It's full of potash and it costs nothing but your back."
+      },
+      {
+       "do": "give_item",
+       "item": "seaweed",
+       "n": 3
+      },
+      {
+       "do": "set",
+       "flag": "q_farnorth_mey_1"
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Seaweed Gatherer",
+     "text": "Kelp, tangle, bladderwrack. In the 1700s and 1800s folk burned kelp along these shores to make soda ash for glass and soap. Hard, smoky work for poor pay."
+    },
+    {
+     "do": "say",
+     "who": "Seaweed Gatherer",
+     "text": "Now I just fill a creel for the garden. Dunnet Bay's two miles of sand and nobody on it but me and the oystercatchers."
+    }
+   ]
+  }
+ ],
+ "groatie_hunter": [
+  {
+   "do": "say",
+   "who": "Shell Hunter",
+   "text": "I'm looking for groatie buckies. Little cowrie shells, pink and ribbed, like a grain of rice with a smile. They're rare and they're lucky."
+  },
+  {
+   "do": "say",
+   "who": "Shell Hunter",
+   "text": "Folk have collected them on these beaches for centuries. If you find one, keep it in your pocket. If you find two, give one to someone you like."
+  }
+ ],
+ "puffin": [
+  {
+   "do": "say",
+   "who": "Puffin",
+   "text": "Arrr."
+  },
+  {
+   "do": "say",
+   "who": "",
+   "text": "The puffin gives you a long look, then turns away to inspect the sea. It is busy. It has a burrow to think about."
+  }
+ ],
+ "nuckelavee": [
+  {
+   "do": "when",
+   "cond": "night",
+   "else": [
+    {
+     "do": "say",
+     "who": "",
+     "text": "Far out past the shore something dark turns in the water, and is gone. Whatever it is, it keeps to the night. Come back after dark."
+    }
+   ],
+   "then": [
+    {
+     "do": "say",
+     "who": "",
+     "text": "The sea goes flat and black. Then something walks out of it on the shingle: a horse, and a rider grown into the horse, and neither of them has any skin at all."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Black blood runs in yellow veins. A single red eye burns in a head as wide as a barrel. Its breath rolls over the shore, and the grass at your feet goes brown and dies."
+    },
+    {
+     "do": "say",
+     "who": "Nuckelavee",
+     "text": "...hhhhhhhhh..."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "The old Orkney tales say only one thing stops it: fresh running water. There's no burn on this shore. Your team steps forward anyway."
+    },
+    {
+     "do": "legend",
+     "species": "nuckelavee",
+     "level": 82,
+     "flag": "q_farnorth_firth_3",
+     "music": "legend"
+    },
+    {
+     "do": "if",
+     "flag": "q_farnorth_firth_3",
+     "then": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "The Nuckelavee is caught. The sea lets out a breath it seems to have been holding for a very long time. Skipper Morag will want to hear about this. Everyone in Thurso will want to hear about this."
+      },
+      {
+       "do": "end"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "The thing sinks back into the sea, still burning. It will be back on another dark night. Patch up your team and try again."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

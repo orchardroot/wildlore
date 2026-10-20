@@ -1,0 +1,123 @@
+{
+ "id": "carlisle_castle",
+ "name": "Carlisle Castle",
+ "region": "",
+ "kind": "interior",
+ "music": "castle",
+ "weather": {},
+ "props": [
+  {
+   "type": "fireplace",
+   "x": 6,
+   "y": 1
+  },
+  {
+   "type": "candelabra",
+   "x": 4,
+   "y": 1
+  },
+  {
+   "type": "bed",
+   "x": 2,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 10,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 11,
+   "y": 1
+  },
+  {
+   "type": "display_case",
+   "x": 3,
+   "y": 4
+  },
+  {
+   "type": "display_case",
+   "x": 9,
+   "y": 4
+  },
+  {
+   "type": "statue",
+   "x": 11,
+   "y": 5
+  },
+  {
+   "type": "tomb_chest",
+   "x": 1,
+   "y": 6
+  },
+  {
+   "type": "rug",
+   "x": 6,
+   "y": 5,
+   "variant": 1
+  },
+  {
+   "type": "wall_picture",
+   "x": 8,
+   "y": 1,
+   "walk": true,
+   "variant": 2
+  },
+  {
+   "type": "wall_map",
+   "x": 5,
+   "y": 1,
+   "walk": true
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 9,
+   "to": "carlisle",
+   "tx": 13,
+   "ty": 12,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "castle_warden",
+   "sprite": "tour_guide",
+   "x": 8,
+   "y": 6,
+   "facing": "left",
+   "move": "still",
+   "script": "castle_warden"
+  },
+  {
+   "id": "castle_prisoner",
+   "sprite": "villager_6",
+   "x": 3,
+   "y": 7,
+   "facing": "up",
+   "move": "still",
+   "script": "castle_prisoner"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  6,
+  8
+ ],
+ "rows": [
+  "xxxxxxxxxxxxx",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "xxxxxxDxxxxxx"
+ ]
+}

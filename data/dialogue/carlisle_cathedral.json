@@ -1,0 +1,89 @@
+{
+ "cath_verger": [
+  {
+   "do": "say",
+   "who": "Verger",
+   "text": "You may look up. Everyone does. It's the point."
+  },
+  {
+   "do": "choice",
+   "text": "Ask about...",
+   "options": [
+    "The ceiling",
+    "The east window",
+    "A missing nave",
+    "That's plenty, thanks"
+   ],
+   "set": "_t_verger"
+  },
+  {
+   "do": "if",
+   "flag": "_t_verger",
+   "eq": 0,
+   "then": [
+    {
+     "do": "say",
+     "who": "Verger",
+     "text": "The ceiling is painted blue and sprinkled with gold stars, a Victorian restoration of an older scheme, and it makes people go quiet. Look at it long enough and you start to hear music. That's the organ. We checked."
+    }
+   ],
+   "else": []
+  },
+  {
+   "do": "if",
+   "flag": "_t_verger",
+   "eq": 1,
+   "then": [
+    {
+     "do": "say",
+     "who": "Verger",
+     "text": "The great east window, in the style called Decorated, is one of the largest of its kind in England: a huge sheet of curling stone tracery with medieval glass at the top. The stonework is the part that is staggering. The tracery is flame-shaped."
+    },
+    {
+     "do": "say",
+     "who": "Verger",
+     "text": "Before it, you can stand and think about how the masons set out the pattern without a pocket calculator."
+    }
+   ],
+   "else": []
+  },
+  {
+   "do": "if",
+   "flag": "_t_verger",
+   "eq": 2,
+   "then": [
+    {
+     "do": "say",
+     "who": "Verger",
+     "text": "In the 1640s, after the Civil War siege, soldiers pulled down most of the nave and used the stone to patch the castle. That is why Carlisle is the second smallest English cathedral of its age. We're a cathedral on a diet."
+    }
+   ],
+   "else": []
+  },
+  {
+   "do": "if",
+   "flag": "_t_verger",
+   "eq": 3,
+   "then": [
+    {
+     "do": "say",
+     "who": "Verger",
+     "text": "Come back any time. History keeps."
+    }
+   ],
+   "else": []
+  }
+ ],
+ "cath_chorister": [
+  {
+   "do": "say",
+   "who": "Chorister",
+   "text": "Tuesday evensong is at five. You're welcome to sit in. We have a rule that you mustn't clap, which is difficult for the Scouse visitors."
+  },
+  {
+   "do": "say",
+   "who": "Chorister",
+   "text": "There's a medieval triptych, the Brougham one, painted in Flanders about 1500. The faces are wonderfully grumpy. It's still the most realistic thing in the building."
+  }
+ ]
+}

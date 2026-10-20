@@ -119,8 +119,8 @@ static func can_pay(data: GameStateData, t: Dictionary) -> bool:
 				if int(data.bag.get(str(id), 0)) < int(t.items[id]):
 					return false
 			return true
-		"money":
-			return data.money >= int(t.get("amount", 0))
+		"money":  # in the money of wherever you stand (the site's own: you hand it over there)
+			return Wallet.can_afford(data, Wallet.localise(int(t.get("amount", 0)), Wallet.local(data)), Wallet.local(data))
 	return false
 
 static func pay(data: GameStateData, t: Dictionary) -> void:
@@ -130,7 +130,7 @@ static func pay(data: GameStateData, t: Dictionary) -> void:
 			for id in t.get("items", {}):
 				bag.remove(str(id), int(t.items[id]))
 		"money":
-			data.money -= int(t.get("amount", 0))
+			Wallet.spend(data, Wallet.localise(int(t.get("amount", 0)), Wallet.local(data)), Wallet.local(data))
 
 ## The first creature in the party of `type` (it only has a look round: it stays with you), or null.
 static func shown(data: GameStateData, type: String) -> Creature:
@@ -271,7 +271,8 @@ static func task_summary(data: GameStateData, s: Dictionary) -> String:
 				parts.append("%d %s" % [int(t.items[id]), str(id).replace("_", " ")])
 			return "bring %s %s." % [s.warden, " and ".join(parts)]
 		"money":
-			return "chip in £%d for %s." % [int(t.amount), s.warden]
+			var cur := Wallet.currency_for_zone(str(s.get("zone", "")))
+			return "chip in %s for %s." % [Wallet.fmt(Wallet.localise(int(t.amount), cur), cur), s.warden]
 		"show":
 			return "show %s a %s creature." % [s.warden, str(t.type).capitalize()]
 		"battle":

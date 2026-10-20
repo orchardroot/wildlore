@@ -1,0 +1,125 @@
+{
+ "id": "iona_abbey",
+ "name": "Iona Abbey",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "bench",
+   "x": 4,
+   "y": 5
+  },
+  {
+   "type": "bench",
+   "x": 4,
+   "y": 7
+  },
+  {
+   "type": "bench",
+   "x": 10,
+   "y": 5
+  },
+  {
+   "type": "bench",
+   "x": 10,
+   "y": 7
+  },
+  {
+   "type": "candelabra",
+   "x": 6,
+   "y": 1
+  },
+  {
+   "type": "candelabra",
+   "x": 8,
+   "y": 1
+  },
+  {
+   "type": "standing_stone",
+   "x": 1,
+   "y": 9,
+   "variant": 2
+  },
+  {
+   "type": "standing_stone",
+   "x": 13,
+   "y": 9,
+   "variant": 2
+  },
+  {
+   "type": "statue",
+   "x": 2,
+   "y": 2
+  },
+  {
+   "type": "statue",
+   "x": 12,
+   "y": 2
+  },
+  {
+   "type": "rug",
+   "x": 7,
+   "y": 3,
+   "w": 1,
+   "h": 8,
+   "variant": 1,
+   "walk": true
+  }
+ ],
+ "warps": [
+  {
+   "x": 7,
+   "y": 12,
+   "to": "tobermory",
+   "tx": 50,
+   "ty": 24,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "tob_columba",
+   "sprite": "poet",
+   "x": 7,
+   "y": 2,
+   "facing": "down",
+   "move": "still",
+   "script": "tob_columba",
+   "name": "Warden of the Abbey"
+  },
+  {
+   "id": "tob_pilgrim",
+   "sprite": "hiker",
+   "x": 3,
+   "y": 8,
+   "facing": "right",
+   "move": "still",
+   "script": "tob_pilgrim",
+   "name": "Pilgrim"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  7,
+  11
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxxx",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "xxxxxxxDxxxxxxx"
+ ]
+}

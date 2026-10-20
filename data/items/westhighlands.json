@@ -1,0 +1,110 @@
+[
+ {
+  "id": "oban_scallops",
+  "name": "Oban Scallops",
+  "kind": "heal",
+  "price": 520,
+  "battle": true,
+  "field": true,
+  "amount": 160,
+  "desc": "Hand-dived Hebridean scallops, seared in butter and eaten on the pier with a seagull watching. Restores 160 HP."
+ },
+ {
+  "id": "mull_cheddar",
+  "name": "Isle of Mull Cheddar",
+  "kind": "pp",
+  "price": 450,
+  "battle": true,
+  "field": true,
+  "amount": 12,
+  "desc": "A strong, crumbly cheddar made on a farm near Tobermory, and a prize winner. Restores 12 PP to every move."
+ },
+ {
+  "id": "oban_dram",
+  "name": "Peaty Dram",
+  "kind": "cure",
+  "price": 300,
+  "battle": true,
+  "field": true,
+  "cures": [
+   "chilled",
+   "soaked",
+   "asleep"
+  ],
+  "desc": "A wee dram of smoky island malt, as made in a distillery older than the Union's second century. Cures chills, soaking and sleep."
+ },
+ {
+  "id": "highland_medal",
+  "name": "Heavy Events Medal",
+  "kind": "charm",
+  "price": 0,
+  "battle": false,
+  "field": true,
+  "wild": true,
+  "desc": "A hefty medal from the Argyllshire Gathering, big enough to use as a doorstop. Brawn moves like it.",
+  "effect_text": "Brawn moves hit 20% harder.",
+  "charm": {
+   "effect": "boost",
+   "type": "brawn",
+   "mult": 1.2
+  },
+  "msg": "{name}'s Heavy Events Medal clinked with pride!"
+ },
+ {
+  "id": "outlaws_sporran",
+  "name": "Outlaw's Sporran",
+  "kind": "charm",
+  "price": 0,
+  "battle": false,
+  "field": true,
+  "wild": true,
+  "desc": "A leather purse on a chain, said to be carried by those who knew the hills better than the Duke's men did. Good for catching things.",
+  "effect_text": "Raises catch rates by 20%.",
+  "charm": {
+   "effect": "catch",
+   "mult": 1.2
+  },
+  "msg": "{name}'s sporran jingled."
+ },
+ {
+  "id": "cailleachs_plaid",
+  "name": "Scrap of the Cailleach's Plaid",
+  "kind": "charm",
+  "price": 0,
+  "battle": false,
+  "field": true,
+  "wild": true,
+  "desc": "A strip of tartan as white as snow that is never quite dry. Cold to the touch, and strangely comforting.",
+  "effect_text": "Frost moves hurt it 25% less.",
+  "charm": {
+   "effect": "resist",
+   "type": "frost",
+   "mult": 0.75
+  },
+  "msg": "{name}'s plaid kept the frost off!"
+ },
+ {
+  "id": "iona_pebble",
+  "name": "Iona Pebble",
+  "kind": "charm",
+  "price": 0,
+  "battle": false,
+  "field": true,
+  "wild": true,
+  "desc": "A green marble pebble from Iona's south beach. Pilgrims have carried them home for good luck for centuries.",
+  "effect_text": "Survives one knockout a battle.",
+  "charm": {
+   "effect": "endure"
+  },
+  "msg": "{name} held on thanks to its Iona Pebble!"
+ },
+ {
+  "id": "calmac_timetable",
+  "name": "CalMac Timetable",
+  "kind": "key",
+  "price": 0,
+  "battle": false,
+  "field": true,
+  "desc": "A well-thumbed ferry timetable with a coffee ring on the cover. Nobody has ever read it all the way through."
+ }
+]

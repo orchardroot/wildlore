@@ -2,7 +2,7 @@ extends TestCase
 ## Charms (held items): the data, every effect in the battle engine, giving and taking, old saves.
 
 const CONTRACT := ["hag_stone", "horseshoe", "four_leaf_clover", "brigid_cross", "leek", "rowan_sprig",
-	"selkie_pearl", "miners_lamp", "thistle_brooch", "shamrock_pin", "oak_acorn"]
+	"selkie_pearl", "miners_lamp", "thistle_brooch", "shamrock_pin", "oak_acorn", "lucky_chip"]
 const SLOT0 := {"type": "move", "slot": 0}
 
 func _mk(types: Array, level := 50, move_ids := ["scrap"]) -> Creature:

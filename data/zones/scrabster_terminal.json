@@ -1,0 +1,91 @@
+{
+ "id": "scrabster_terminal",
+ "name": "Scrabster Ferry Terminal",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "bench",
+   "x": 2,
+   "y": 4
+  },
+  {
+   "type": "bench",
+   "x": 4,
+   "y": 4
+  },
+  {
+   "type": "bench",
+   "x": 8,
+   "y": 4
+  },
+  {
+   "type": "wall_map",
+   "x": 5,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "clock",
+   "x": 8,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "potted_plant",
+   "x": 9,
+   "y": 1
+  }
+ ],
+ "warps": [
+  {
+   "x": 5,
+   "y": 6,
+   "to": "thurso",
+   "tx": 4,
+   "ty": 22,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "terminal_clerk",
+   "sprite": "sailor",
+   "x": 3,
+   "y": 2,
+   "facing": "down",
+   "move": "still",
+   "script": "terminal_clerk",
+   "name": "Ticket Clerk"
+  },
+  {
+   "id": "orkney_bound",
+   "sprite": "festival_goer",
+   "x": 7,
+   "y": 4,
+   "facing": "left",
+   "move": "still",
+   "script": "orkney_bound",
+   "name": "Day Tripper"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  5,
+  5
+ ],
+ "rows": [
+  "xxxxxxxxxxx",
+  "x+++++++++x",
+  "x+++++++++x",
+  "x+++++++++x",
+  "x+++++++++x",
+  "x+++++++++x",
+  "x++++D++++x",
+  "xxxxxxxxxxx"
+ ]
+}

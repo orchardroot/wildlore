@@ -1,0 +1,178 @@
+{
+ "tullie_curator": [
+  {
+   "do": "if",
+   "flag": "q_borders_curse_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Curator Bell",
+     "text": "The Cursing Stone is the most photographed thing in the city and, I am told, the least read. Thank you for reading it. Please accept that you are the only person who did."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_borders_curse_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "Curator Bell",
+       "text": "You faced an Armstrong? And they're still standing? Remarkable. Then the stone's work is done, for today, and you've earned a bit of Border history."
+      },
+      {
+       "do": "say",
+       "who": "Curator Bell",
+       "text": "This is a Reiver's Bonnet, a steel cap of the kind raiders wore. A replica, but it's got the dents in the right places. It's yours."
+      },
+      {
+       "do": "give_item",
+       "item": "reiver_bonnet"
+      },
+      {
+       "do": "standing",
+       "nation": "england",
+       "amount": 3
+      },
+      {
+       "do": "set",
+       "flag": "q_borders_curse_done"
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_borders_curse_started",
+       "then": [
+        {
+         "do": "say",
+         "who": "Curator Bell",
+         "text": "Have you read the Cursing Stone in the yard by the castle? There's a student who reads it aloud. Then you ought to meet an Armstrong. There's usually one on the cross street, spoiling for an argument."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Curator Bell",
+         "text": "Hello! I'm the curator for the Border reivers. We have the helmets, the swords and, in the yard by the castle, the curse. In 1525 the Archbishop of Glasgow cursed them all. It didn't work."
+        },
+        {
+         "do": "say",
+         "who": "Curator Bell",
+         "text": "Could you do me a favour? Read the Cursing Stone for me. There is a student who reads it aloud. And then ask the Armstrong who's usually on the cross street how the curse is going. He'll want to fight. He's a reiver at heart."
+        },
+        {
+         "do": "choice",
+         "text": "Take on the Cursing Stone?",
+         "options": [
+          "Yes, of course",
+          "Maybe later"
+         ],
+         "set": "_t_cur"
+        },
+        {
+         "do": "if",
+         "flag": "_t_cur",
+         "eq": 0,
+         "then": [
+          {
+           "do": "say",
+           "who": "Curator Bell",
+           "text": "Marvellous. You'll find the stone just outside, by the castle lane."
+          },
+          {
+           "do": "set",
+           "flag": "q_borders_curse_started"
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Curator Bell",
+           "text": "No hurry. The curse has waited 500 years."
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "tullie_assistant": [
+  {
+   "do": "say",
+   "who": "Gallery Assistant",
+   "text": "Roman frontier on the left, reivers on the right, a sneeze in the middle. How can I help?"
+  },
+  {
+   "do": "choice",
+   "text": "Ask about...",
+   "options": [
+    "Hadrian's Wall",
+    "Roman letters",
+    "Parade helmets",
+    "That's plenty, thanks"
+   ],
+   "set": "_t_tullie"
+  },
+  {
+   "do": "if",
+   "flag": "_t_tullie",
+   "eq": 0,
+   "then": [
+    {
+     "do": "say",
+     "who": "Gallery Assistant",
+     "text": "The wall was begun in AD 122 on the order of Emperor Hadrian and runs 73 miles across the neck of England from Wallsend to Bowness-on-Solway. It was staffed by auxiliary soldiers, not Italian legionaries, from all over the Empire."
+    },
+    {
+     "do": "say",
+     "who": "Gallery Assistant",
+     "text": "Carlisle's Roman fort, Luguvalium, was a big cavalry base just behind it. Along the Wall are milecastles at every Roman mile, which is why it is such a joy to walk, and such a trial for a tired child."
+    }
+   ],
+   "else": []
+  },
+  {
+   "do": "if",
+   "flag": "_t_tullie",
+   "eq": 1,
+   "then": [
+    {
+     "do": "say",
+     "who": "Gallery Assistant",
+     "text": "Not here but down the Wall at Vindolanda: wooden writing tablets as thin as a beer mat, the oldest handwritten documents in Britain. They include a birthday party invitation from a Roman officer's wife, Claudia Severa, and a soldier's request for more beer."
+    }
+   ],
+   "else": []
+  },
+  {
+   "do": "if",
+   "flag": "_t_tullie",
+   "eq": 2,
+   "then": [
+    {
+     "do": "say",
+     "who": "Gallery Assistant",
+     "text": "Cavalry used to put on parade helmets with face masks, like silver faces, for ceremonial sports. They are dreadful to look at, which was the idea."
+    }
+   ],
+   "else": []
+  },
+  {
+   "do": "if",
+   "flag": "_t_tullie",
+   "eq": 3,
+   "then": [
+    {
+     "do": "say",
+     "who": "Gallery Assistant",
+     "text": "Come back any time. History keeps."
+    }
+   ],
+   "else": []
+  }
+ ]
+}

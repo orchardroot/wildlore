@@ -259,8 +259,9 @@ static func complete(data: GameStateData, i: int, items: ItemDB) -> Dictionary:
 	if str(st.get("type", "")) == "bring":
 		bag.remove(str(st.item), int(st.get("n", 1)))
 	var rw: Dictionary = j.get("reward", {})
-	var money := money_for(j, data.badges.size())
-	data.money += money
+	var cur := Wallet.currency_of_nation(str(j.get("nation", "")))  # an Irish job pays in euros
+	var money := Wallet.localise(money_for(j, data.badges.size()), cur)
+	Wallet.earn(data, money, cur)
 	var got := {}
 	var gifts: Dictionary = rw.get("items", {}).duplicate()
 	if str(rw.get("charm", "")) != "":
@@ -280,7 +281,7 @@ static func complete(data: GameStateData, i: int, items: ItemDB) -> Dictionary:
 	epoch(data)
 	var done := str(data.flag(DONE_FLAG) if data.flag(DONE_FLAG) != null else "")
 	data.set_flag(DONE_FLAG, (done + "," if done != "" else "") + str(j.id))
-	return {"id": str(j.id), "title": str(j.get("title", "")), "poster": str(j.get("poster", "")), "money": money,
+	return {"id": str(j.id), "title": str(j.get("title", "")), "poster": str(j.get("poster", "")), "money": money, "cur": cur,
 		"got": got, "recipe": recipe, "standing": pts, "nation": str(j.nation), "tier_line": line}
 
 ## At a noticeboard in `nation`: hands in every ready job of that nation.

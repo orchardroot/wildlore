@@ -1,0 +1,786 @@
+{
+ "id": "scottish_borders",
+ "name": "The Scottish Borders",
+ "region": "scotland",
+ "kind": "route",
+ "music": "route_moors",
+ "weather": {
+  "drizzle": 30,
+  "clear": 22,
+  "downpour": 8,
+  "fog": 14,
+  "gale": 10,
+  "sunshine": 16
+ },
+ "props": [
+  {
+   "type": "building",
+   "style": "cathedral",
+   "x": 36,
+   "y": 6,
+   "w": 9,
+   "h": 5,
+   "label": "Melrose Abbey (ruins)",
+   "kind": "church"
+  },
+  {
+   "type": "building",
+   "style": "border_stone",
+   "x": 23,
+   "y": 8,
+   "w": 6,
+   "h": 4,
+   "label": "Ma Haig's Bakehouse",
+   "kind": "cafe"
+  },
+  {
+   "type": "building",
+   "style": "field_barn",
+   "x": 8,
+   "y": 8,
+   "w": 6,
+   "h": 4,
+   "label": "The Cornet's Stables",
+   "kind": "cottage"
+  },
+  {
+   "type": "building",
+   "style": "border_stone",
+   "x": 44,
+   "y": 16,
+   "w": 7,
+   "h": 3,
+   "label": "Melrose Rugby Club",
+   "kind": "hall"
+  },
+  {
+   "type": "building",
+   "style": "castle",
+   "x": 6,
+   "y": 41,
+   "w": 10,
+   "h": 6,
+   "label": "Abbotsford",
+   "kind": "castle"
+  },
+  {
+   "type": "building",
+   "style": "border_stone",
+   "x": 14,
+   "y": 8,
+   "w": 4,
+   "h": 3,
+   "kind": "cottage"
+  },
+  {
+   "type": "building",
+   "style": "border_stone",
+   "x": 30,
+   "y": 8,
+   "w": 5,
+   "h": 3,
+   "kind": "cottage"
+  },
+  {
+   "type": "rugby_posts",
+   "x": 39,
+   "y": 25
+  },
+  {
+   "type": "rugby_posts",
+   "x": 59,
+   "y": 25
+  },
+  {
+   "type": "pitch_line",
+   "x": 45,
+   "y": 25
+  },
+  {
+   "type": "pitch_line",
+   "x": 49,
+   "y": 25
+  },
+  {
+   "type": "pitch_line",
+   "x": 55,
+   "y": 25
+  },
+  {
+   "type": "flagpole",
+   "x": 40,
+   "y": 20
+  },
+  {
+   "type": "flagpole",
+   "x": 58,
+   "y": 20
+  },
+  {
+   "type": "bunting",
+   "x": 47,
+   "y": 15,
+   "variant": 3,
+   "walk": true
+  },
+  {
+   "type": "bunting",
+   "x": 25,
+   "y": 12,
+   "variant": 3,
+   "walk": true
+  },
+  {
+   "type": "bunting",
+   "x": 12,
+   "y": 12,
+   "variant": 3,
+   "walk": true
+  },
+  {
+   "type": "lamp_post",
+   "x": 20,
+   "y": 12
+  },
+  {
+   "type": "lamp_post",
+   "x": 33,
+   "y": 12
+  },
+  {
+   "type": "lamp_post",
+   "x": 46,
+   "y": 12
+  },
+  {
+   "type": "lamp_post",
+   "x": 33,
+   "y": 15
+  },
+  {
+   "type": "lamp_post",
+   "x": 20,
+   "y": 15
+  },
+  {
+   "type": "bench",
+   "x": 37,
+   "y": 13
+  },
+  {
+   "type": "bench",
+   "x": 40,
+   "y": 13
+  },
+  {
+   "type": "bench",
+   "x": 44,
+   "y": 13
+  },
+  {
+   "type": "planter",
+   "x": 22,
+   "y": 12
+  },
+  {
+   "type": "planter",
+   "x": 28,
+   "y": 12
+  },
+  {
+   "type": "post_box",
+   "x": 18,
+   "y": 13
+  },
+  {
+   "type": "noticeboard",
+   "x": 53,
+   "y": 12
+  },
+  {
+   "type": "market_stall",
+   "x": 24,
+   "y": 14
+  },
+  {
+   "type": "market_stall",
+   "x": 28,
+   "y": 14
+  },
+  {
+   "type": "bollard",
+   "x": 28,
+   "y": 33
+  },
+  {
+   "type": "bollard",
+   "x": 32,
+   "y": 33
+  },
+  {
+   "type": "bollard",
+   "x": 28,
+   "y": 37
+  },
+  {
+   "type": "bollard",
+   "x": 32,
+   "y": 37
+  },
+  {
+   "type": "bench",
+   "x": 57,
+   "y": 8
+  },
+  {
+   "type": "statue",
+   "x": 55,
+   "y": 5
+  },
+  {
+   "type": "standing_stone",
+   "x": 42,
+   "y": 45,
+   "variant": 1
+  },
+  {
+   "type": "boat",
+   "x": 12,
+   "y": 35,
+   "variant": 1
+  },
+  {
+   "type": "buoy",
+   "x": 46,
+   "y": 35
+  },
+  {
+   "type": "sheep",
+   "x": 10,
+   "y": 22
+  },
+  {
+   "type": "sheep",
+   "x": 14,
+   "y": 26
+  },
+  {
+   "type": "sheep",
+   "x": 18,
+   "y": 21
+  },
+  {
+   "type": "sheep",
+   "x": 22,
+   "y": 28
+  },
+  {
+   "type": "sheep",
+   "x": 60,
+   "y": 14
+  }
+ ],
+ "warps": [
+  {
+   "x": 40,
+   "y": 10,
+   "to": "borders_abbey",
+   "tx": 6,
+   "ty": 9,
+   "facing": "up"
+  },
+  {
+   "x": 26,
+   "y": 11,
+   "to": "borders_bakehouse",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 11,
+   "y": 11,
+   "to": "borders_stables",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 47,
+   "y": 18,
+   "to": "borders_rugby",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 11,
+   "y": 46,
+   "to": "borders_abbotsford",
+   "tx": 6,
+   "ty": 8,
+   "facing": "up"
+  }
+ ],
+ "edges": {
+  "north": {
+   "to": "edinburgh",
+   "offset": -7
+  }
+ },
+ "npcs": [
+  {
+   "id": "bord_pig",
+   "sprite": "creature:thornsow",
+   "x": 35,
+   "y": 13,
+   "facing": "up",
+   "move": "still",
+   "script": "bord_pig"
+  },
+  {
+   "id": "bord_painter",
+   "sprite": "poet",
+   "x": 56,
+   "y": 8,
+   "facing": "left",
+   "move": "still",
+   "script": "bord_painter"
+  },
+  {
+   "id": "bord_steward1",
+   "sprite": "farmer",
+   "x": 57,
+   "y": 10,
+   "facing": "left",
+   "move": "still",
+   "script": "bord_steward1"
+  },
+  {
+   "id": "bord_steward2",
+   "sprite": "farmer",
+   "x": 50,
+   "y": 32,
+   "facing": "down",
+   "move": "still",
+   "script": "bord_steward2"
+  },
+  {
+   "id": "bord_steward3",
+   "sprite": "farmer",
+   "x": 32,
+   "y": 38,
+   "facing": "right",
+   "move": "still",
+   "script": "bord_steward3"
+  },
+  {
+   "id": "bord_rival",
+   "sprite": "ravenmaster",
+   "x": 34,
+   "y": 40,
+   "facing": "left",
+   "move": "still",
+   "script": "bord_rival"
+  },
+  {
+   "id": "bord_angler_n",
+   "sprite": "angler",
+   "x": 25,
+   "y": 33,
+   "facing": "down",
+   "move": "still",
+   "script": "bord_angler_talk"
+  },
+  {
+   "id": "bord_rhymer",
+   "sprite": "poet",
+   "x": 41,
+   "y": 47,
+   "facing": "right",
+   "move": "still",
+   "script": "bord_rhymer"
+  },
+  {
+   "id": "bord_steed",
+   "sprite": "creature:eildonmare",
+   "x": 43,
+   "y": 48,
+   "facing": "left",
+   "move": "still",
+   "script": "bord_steed"
+  },
+  {
+   "id": "bord_rider1",
+   "sprite": "creature:tormane",
+   "x": 18,
+   "y": 20,
+   "facing": "right",
+   "move": "wander",
+   "script": "bord_rider",
+   "radius": 3
+  },
+  {
+   "id": "bord_rider2",
+   "sprite": "creature:tormane",
+   "x": 12,
+   "y": 28,
+   "facing": "right",
+   "move": "wander",
+   "script": "bord_rider",
+   "radius": 3
+  },
+  {
+   "id": "bord_rider3",
+   "sprite": "creature:foalmoor",
+   "x": 22,
+   "y": 24,
+   "facing": "left",
+   "move": "wander",
+   "script": "bord_rider",
+   "radius": 2
+  },
+  {
+   "id": "bord_local",
+   "sprite": "villager_6",
+   "x": 38,
+   "y": 14,
+   "facing": "down",
+   "move": "still",
+   "script": "bord_local"
+  },
+  {
+   "id": "bord_rugby_t",
+   "sprite": "rugby_player",
+   "x": 46,
+   "y": 23,
+   "facing": "left",
+   "move": "still",
+   "trainer": "bord_rugby"
+  },
+  {
+   "id": "bord_weaver_t",
+   "sprite": "villager_4",
+   "x": 24,
+   "y": 16,
+   "facing": "down",
+   "move": "still",
+   "trainer": "bord_weaver"
+  },
+  {
+   "id": "bord_piper_t",
+   "sprite": "piper",
+   "x": 33,
+   "y": 22,
+   "facing": "down",
+   "move": "still",
+   "trainer": "bord_piper"
+  },
+  {
+   "id": "bord_fisher_t",
+   "sprite": "angler",
+   "x": 56,
+   "y": 33,
+   "facing": "down",
+   "move": "still",
+   "trainer": "bord_fisher"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "reivling",
+    "min": 69,
+    "max": 70,
+    "weight": 12,
+    "time": [
+     "dusk",
+     "night"
+    ]
+   },
+   {
+    "species": "foalmoor",
+    "min": 69,
+    "max": 70,
+    "weight": 12,
+    "time": [
+     "dawn",
+     "day"
+    ]
+   },
+   {
+    "species": "thistlet",
+    "min": 69,
+    "max": 70,
+    "weight": 10
+   },
+   {
+    "species": "herdlet",
+    "min": 69,
+    "max": 70,
+    "weight": 12
+   },
+   {
+    "species": "leveret",
+    "min": 69,
+    "max": 70,
+    "weight": 8
+   },
+   {
+    "species": "stoatlet",
+    "min": 69,
+    "max": 69,
+    "weight": 8
+   },
+   {
+    "species": "hootlet",
+    "min": 69,
+    "max": 70,
+    "weight": 8,
+    "time": [
+     "night"
+    ]
+   },
+   {
+    "species": "ospret",
+    "min": 69,
+    "max": 70,
+    "weight": 6,
+    "time": [
+     "day"
+    ]
+   },
+   {
+    "species": "reiver",
+    "min": 69,
+    "max": 70,
+    "weight": 3,
+    "time": [
+     "night"
+    ]
+   },
+   {
+    "species": "eildonmare",
+    "min": 69,
+    "max": 70,
+    "weight": 2,
+    "time": [
+     "dusk"
+    ]
+   }
+  ],
+  "water": [
+   {
+    "species": "bradan",
+    "min": 69,
+    "max": 70,
+    "weight": 20
+   },
+   {
+    "species": "ratty",
+    "min": 69,
+    "max": 70,
+    "weight": 12
+   },
+   {
+    "species": "dipling",
+    "min": 69,
+    "max": 70,
+    "weight": 12
+   },
+   {
+    "species": "stalklet",
+    "min": 69,
+    "max": 70,
+    "weight": 8
+   },
+   {
+    "species": "ospret",
+    "min": 69,
+    "max": 70,
+    "weight": 8,
+    "time": [
+     "day"
+    ]
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 35,
+   "y": 12,
+   "text": "MELROSE ABBEY. Founded in 1136 by King David I for Cistercian monks, and wrecked by English armies in 1322, 1385 and 1545. The pink stone is carved with extraordinary skill: there is a gargoyle of a pig playing the bagpipes. The heart of Robert the Bruce is buried in the grounds.",
+   "plaque": "borders_melrose_abbey",
+   "title": "Melrose Abbey"
+  },
+  {
+   "x": 55,
+   "y": 10,
+   "text": "SCOTT'S VIEW. Sir Walter Scott's favourite view in the Borders: the Tweed curling round below, and the three Eildon Hills beyond. When his funeral procession passed in 1832, folk say the horses stopped here of their own accord, as they'd done so often for him in life.",
+   "plaque": "borders_scotts_view",
+   "title": "Scott's View"
+  },
+  {
+   "x": 31,
+   "y": 41,
+   "text": "THE EILDON HILLS. Three summits, which legend says were once one hill until the wizard Michael Scot had a demon split it in three. Under them stood the Roman fort of Trimontium, and the Iron Age hill fort on the North Hill was a large one, the biggest for some way round.",
+   "plaque": "borders_eildons",
+   "title": "The Eildon Hills"
+  },
+  {
+   "x": 32,
+   "y": 33,
+   "text": "THE RIVER TWEED. 97 miles long, and as good for salmon as any river in Britain. The cloth 'tweed' is said to owe its name to a London clerk who misread the Scots word 'tweel' (twill) as 'tweed', after the river. The mistake caught on and the weavers have been polite about it ever since.",
+   "plaque": "borders_tweed",
+   "title": "The River Tweed"
+  },
+  {
+   "x": 52,
+   "y": 17,
+   "text": "THE BIRTHPLACE OF THE SEVENS. In 1883 Ned Haig, a Melrose butcher, was looking for a way to raise money for his rugby club. He proposed a tournament of teams of seven, with shorter games, and it worked. The sevens now has world series, and an Olympic medal. It started here.",
+   "plaque": "borders_sevens",
+   "title": "Birthplace of Rugby Sevens"
+  },
+  {
+   "x": 9,
+   "y": 12,
+   "text": "THE COMMON RIDINGS. Every summer, Border towns send out hundreds of riders to 'ride the marches', the boundaries of the town's common land. It is a very old custom, tied up with Flodden in 1513 and with the days when you had to check that your neighbour had not moved the fence. A Cornet leads, carrying the town's standard.",
+   "plaque": "borders_common_riding",
+   "title": "The Common Riding"
+  },
+  {
+   "x": 14,
+   "y": 47,
+   "text": "ABBOTSFORD. The house Walter Scott built, from 1817, out of the money from his novels, and as full of turrets, antlers and swords as a man could manage. Scott died here in 1832 and is buried at Dryburgh Abbey, a few miles away.",
+   "plaque": "borders_abbotsford",
+   "title": "Abbotsford"
+  },
+  {
+   "x": 21,
+   "y": 5,
+   "text": "FINGERPOST: NORTH to Edinburgh. SOUTH is the Tweed, Melrose and the Eildon Hills. Mind the sheep, the weather and the pig. You'll know the pig."
+  }
+ ],
+ "spawn": [
+  21,
+  3
+ ],
+ "rows": [
+  "TTTTTTTTTTTTTTTTTTTT###TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTT###TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTT.###..TTTTTTTTT..............TTTTT..........TT",
+  "TTTTTTTTTTTTTTTTTT.###..TTTTTTTTT..............TTTTTfffffff...TT",
+  "TTTTTTTTTTTTTTTTTT.###..TTTTTTTTT..............TTTTTfffffff...TT",
+  "TTTTTTTTTTTTTTTTTT.###..TTTTTTTTT..............TTTTT..###.....TT",
+  "TTTTTTTTTTTTTTTTTT.###..TTTTTTTTT...BBBBBBBBB..TTTTT..###.....TT",
+  "TTTTTTTTTTTTTTTTTT.###..TTTTTTTTT...BBBBBBBBB..TTTTT..###.....TT",
+  "TTTTTTTTBBBBBBBBBB.###.BBBBBB.BBBBB.BBBBBBBBB..TTTTT..###.....TT",
+  "TT......BBBBBBBBBB.###.BBBBBB.BBBBB.BBBBBBBBB..TTTTT..###.....TT",
+  "TT......BBBBBBBBBB.###.BBBBBB.BBBBB.BBBBDBBBB.........###.....TT",
+  "TT......BBBDBB.....###.BBBDBB.....:::::::::::::.......###.....TT",
+  "TT....:::::::::::::::::::::::::::::::::::::::::::::::::.....TTTT",
+  "TT....:::::::::::::::::::::::::::::::::::::::::::::::::.....TTTT",
+  "TT....:::::::::::::::::::::::::::::::::::::::::::::::::.....TTTT",
+  "TT....:::::::::::::::::::::::::::::::::::::::::::::::::.....TTTT",
+  "TTTTT.........................#.............BBBBBBB#........TTTT",
+  "TTTTT.FFFFFFFFFFFFFFFFFFFFFFF.#.............BBBBBBB#........TTTT",
+  "TTTTT.F.....................F.#.....WWWWWWWWBBBDBBB#WWWWWWWWTTTT",
+  "TTTTT.F.,,,,,...............F.#.....W.......................TTTT",
+  "TTTTT.F.,,,,,...............F.#.....W...................,,,,TTTT",
+  "TTTTT.F.,,,,,...............F.#.....W...................,,,,TTTT",
+  "TTTTT.F.,,,,,...............F.#.....W...................,,,,TTTT",
+  "TTTTT.F.....................F.#.....W.......................TTTT",
+  "TTTTT.........................#.............................TTTT",
+  "TTTTT.F.......................#.............................TTTT",
+  "TTTTT.F.............,,,,,,,.F.#.....W.......................TTTT",
+  "TTTTT.F.............,,,,,,,.F.#.....W.......................TTTT",
+  "TTTTT.F.............,,,,,,,.F.#.....W.......................TTTT",
+  "TTTTT.F.............,,,,,,,.F.#.....W.......................TTTT",
+  "TTTTT.F.....................F.#.....W.......................TTTT",
+  "TTTTT.FFFFFFFFFFFFFFFFFFFFFFF.#.....WWWWWWWWWWWWWWW.WWWWWWWWTTTT",
+  "TTTTT.........................#....................#........TTTT",
+  "TTTTT.........................#....................#........TTTT",
+  "TT~~~~~~~~~~~~~~~~~~~~~~~~~~~===~~~~~~~~~~~~~~~~~~www~~~~~~~~~TT",
+  "TT~~~~~~~~~~~~~~~~~~~~~~~~~~~===~~~~~~~~~~~~~~~~~~www~~~~~~~~~TT",
+  "TT~~~~~~~~~~~~~~~~~~~~~~~~~~~===~~~~~~~~~~~~~~~~~~www~~~~~~~~~TT",
+  "TT......PPPPPPPPPPPPPPP.......#....................#..........TT",
+  "TTTT....PPPPPPPPPPPPPPPPPPPPP.#..PPPP..............#........TTTT",
+  "TTTT..................PPPPPPP.#..PPPP..............#........TTTT",
+  "TTTT..........................#.........,,,,,,,,............TTTT",
+  "TTTT..BBBBBBBBBB........................,,,,,,,,............TTTT",
+  "TTTT..BBBBBBBBBB..........,,,,,,,,,.....,,,,,,,,..,,,,,,,.PPPTTT",
+  "TTTT..BBBBBBBBBB..........,,,,,,,,,.....,,,,,,,,..,,,,,,,.PPPTTT",
+  "TTTT..BBBBBBBBBB..........,,,,,,,,,.....,,,,,,,,..,,,,,,,.PPPTTT",
+  "TTTT..BBBBBBBBBB..........,,,,,,,,,.....,,,,,,,,..,,,,,,,.PPPTTT",
+  "TTTT..BBBBBDBBBB..........,,,,,,,,,.....,,,,,,,,..,,,,,,,.PPPTTT",
+  "TTTT......................,,,,,,,,,.....,,,,,,,,..,,,,,,,.PPPTTT",
+  "TTTT................PPPPP.,,,,,,,,,.....,,,,,,,,..,,,,,,,.PPPTTT",
+  "TTTT................PPPPP.,,,,,,,,,...............,,,,,,,.PPPTTT",
+  "TTTT................PPPPP.,,,,,,,,,...............,,,,,,,.PPPTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTT.................................PPPTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTT...........PPPPPPPPPPPPP.........PPPTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTT...........PPPPPPPPPPPPP...........TTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT"
+ ],
+ "scaled_floor": 69,
+ "stage": "valley",
+ "heights": [
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000111111100000",
+  "0000000000000000000000000000000000000000000000000001111211110000",
+  "0000000000000000000000000000000000000000000000000001112221110000",
+  "0000000000000000000000000000000000000000000000000001111211110000",
+  "0000000000000000000000000000000000000000000000000000111111100000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000111110000000000000000000",
+  "0000000000000000000000000000000000000011122211100000000000000000",
+  "0000000000000000000000000000011100000112222222110000000000000000",
+  "0000000000000000000000000001111111001122333332211000000000000000",
+  "0000000000000000000000000111222221111223344433221111111110000000",
+  "0000000000000000000000000112233322111223445443221111121111000000",
+  "0000000000000000000000001122333332211223344433221112222211000000",
+  "0000000000000000000000001122334332211122333332211112222211000000",
+  "0000000000000000000000001122333332211112222222110122232221000000",
+  "0000000000000000000000000112233322110011122211100112222211000000",
+  "0000000000000000000000000111222221110000111110000112222211000000",
+  "0000000000000000000000000001111111000000000000000111121111000000",
+  "0000000000000000000000000000011100000000000000000011111110000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000"
+ ]
+}

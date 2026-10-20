@@ -1,0 +1,184 @@
+{
+ "skipper": [
+  {
+   "do": "if",
+   "flag": "q_farnorth_firth_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Skipper Morag",
+     "text": "Our Firth pilot! Crossing again? The Firth's not changed its mind about anything, so hold on."
+    },
+    {
+     "do": "ferry",
+     "route": "thurso_kirkwall"
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_farnorth_firth_3",
+     "then": [
+      {
+       "do": "say",
+       "who": "Skipper Morag",
+       "text": "You did WHAT on Duncansby shore? Faced the Nuckelavee and lived to tell me about it on my own quay? Well. That's a story for the bar for twenty years."
+      },
+      {
+       "do": "say",
+       "who": "Skipper Morag",
+       "text": "Here. Fresh water from the burn above the town, corked and blessed by nobody in particular. The old folk say the Nuckelavee can't abide fresh water. Keep it handy. And this badge says you've crossed the Firth and come home. Not everybody does both."
+      },
+      {
+       "do": "give_item",
+       "item": "burn_water_flask"
+      },
+      {
+       "do": "give_item",
+       "item": "partan_bree",
+       "n": 3
+      },
+      {
+       "do": "standing",
+       "nation": "scotland",
+       "amount": 4
+      },
+      {
+       "do": "set",
+       "flag": "q_farnorth_firth_done"
+      },
+      {
+       "do": "say",
+       "who": "Skipper Morag",
+       "text": "Now. Orkney? We sail when you're ready."
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_farnorth_firth_started",
+       "then": [
+        {
+         "do": "say",
+         "who": "Skipper Morag",
+         "text": "Remember: the Tide Watcher at the Merry Men of Mey for the tables, then the tables to my opposite number on the Kirkwall quay. Ready to sail?"
+        },
+        {
+         "do": "ferry",
+         "route": "thurso_kirkwall"
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Skipper Morag",
+         "text": "Orkney, is it? The Pentland Firth is no millpond. The tides race through at some of the fastest speeds round Britain, the Atlantic meets the North Sea, and the two of them argue all day."
+        },
+        {
+         "do": "say",
+         "who": "Skipper Morag",
+         "text": "I'll make you a deal. My tide tables blew overboard, which is embarrassing for a skipper. The Tide Watcher at the Merry Men of Mey, east along the coast, keeps her own. Win her respect and her copy, take it to my mate on the Kirkwall quay, and you'll have crossed the Firth like a pilot, not a passenger."
+        },
+        {
+         "do": "set",
+         "flag": "q_farnorth_firth_started"
+        },
+        {
+         "do": "say",
+         "who": "Skipper Morag",
+         "text": "Or just sail now and do it the other way about. The Firth doesn't mind who goes first."
+        },
+        {
+         "do": "ferry",
+         "route": "thurso_kirkwall"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "rail_guard": [
+  {
+   "do": "say",
+   "who": "Rail Guard",
+   "text": "Thurso. The most northerly station in Britain, and the end of the line, which round here is a compliment. Four hours to Inverness across the Flow Country. Bring a piece."
+  },
+  {
+   "do": "say",
+   "who": "Rail Guard",
+   "text": "Hop aboard. The Wildlore rail runs to any town you have visited in Great Britain. Where to?"
+  },
+  {
+   "do": "rail"
+  }
+ ],
+ "flagstone_mason": [
+  {
+   "do": "say",
+   "who": "Drystone Mason",
+   "text": "See these fences? Caithness flags, stood up on end in a row, each one a slab of stone near a man's height. No mortar. No posts. They've stood through gales for two hundred years."
+  },
+  {
+   "do": "say",
+   "who": "Drystone Mason",
+   "text": "The stone is Old Red Sandstone, laid down in a huge lake about three hundred and eighty million years ago. It splits as flat as a table. Thurso's pavements, roofs, floors, byres, the lot."
+  },
+  {
+   "do": "say",
+   "who": "Drystone Mason",
+   "text": "There's a flagstone trail at Castletown, along the road east, where the quarries were. They say Caithness flags paved half the cities of the Empire. I say: the good half."
+  }
+ ],
+ "nc500_kid": [
+  {
+   "do": "when",
+   "cond": "gale",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Bored Teenager",
+     "text": "The bus to Wick got cancelled 'cause of wind. The bus is fine. The bus has been through worse. The bus is a coward."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Bored Teenager",
+     "text": "Nothing ever happens here. Except surfing. And the Northern Lights. And orcas in the Firth. And the ferry. Fine. Some things happen."
+    },
+    {
+     "do": "say",
+     "who": "Bored Teenager",
+     "text": "Did you know it's light till nearly midnight in June? You can play footie at eleven at night. Nobody's mum believes that's a reason to stay out."
+    }
+   ]
+  }
+ ],
+ "nc500_tourist": [
+  {
+   "do": "say",
+   "who": "NC500 Driver",
+   "text": "The North Coast 500! Five hundred-odd miles round the top of Scotland, starting and finishing at Inverness. We've done the Bealach na Bà, Durness, Smoo Cave and four thousand passing places."
+  },
+  {
+   "do": "say",
+   "who": "NC500 Driver",
+   "text": "Smoo Cave is incredible: one of the biggest sea cave entrances in Britain, with a waterfall inside. My husband says the waterfall was the best bit. He also says that about every lay-by."
+  }
+ ],
+ "flow_runner": [
+  {
+   "do": "say",
+   "who": "Runner",
+   "text": "Training for a run across the Flow Country. On the road, mind. Nobody runs across a bog twice."
+  },
+  {
+   "do": "say",
+   "who": "Runner",
+   "text": "Fun fact: blanket bog covers about a fifth of Caithness and Sutherland. Not-fun fact: so do the clegs. Horseflies. They bite through Lycra."
+  }
+ ]
+}

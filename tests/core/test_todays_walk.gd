@@ -187,10 +187,10 @@ func test_bonus_pub_doubles_the_quiz_prize() -> void:
 	var h := FakeStoryHost.new()
 	_walk_day(h.data)
 	h.menu_results = {"quiz:york:england_north": {"score": 3, "total": 5}, "quiz:dublin:ireland": {"score": 3, "total": 5}}
-	var before := h.data.money
+	var eur_before := h.data.euros
 	await Commands.new(h).run([{"do": "quiz", "pub": "dublin", "region": "ireland"}])
-	var normal := h.data.money - before
-	before = h.data.money
+	var normal := Wallet.in_sterling(h.data.euros - eur_before, Wallet.EUR)  # a Dublin pub pays its kitty in euros
+	var before := h.data.money
 	await Commands.new(h).run([{"do": "quiz", "pub": "york", "region": "england_north"}])
 	assert_eq(h.data.money - before, normal * 2, "double at today's pub")
 	assert_true(h.texts().any(func(t): return str(t).contains("double")))

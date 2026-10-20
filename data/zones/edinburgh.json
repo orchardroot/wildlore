@@ -7,6 +7,10 @@
   "north": {
    "to": "forth_bridges",
    "offset": -7
+  },
+  "south": {
+   "offset": 7,
+   "to": "scottish_borders"
   }
  },
  "encounters": {
@@ -27,68 +31,49 @@
     "max": 70.0,
     "min": 69.0,
     "species": "grizzlet",
-    "time": [
-     "dawn",
-     "day"
-    ],
+    "time": ["dawn", "day"],
     "weight": 8.0
    },
    {
     "max": 70.0,
     "min": 69.0,
     "species": "binfox",
-    "time": [
-     "night",
-     "dusk"
-    ],
+    "time": ["night", "dusk"],
     "weight": 10.0
    },
    {
     "max": 70.0,
     "min": 69.0,
     "species": "strutcoo",
-    "time": [
-     "day",
-     "dawn"
-    ],
+    "time": ["day", "dawn"],
     "weight": 8.0
    },
    {
     "max": 70.0,
     "min": 69.0,
     "species": "starlet",
-    "time": [
-     "dusk",
-     "dawn"
-    ],
+    "time": ["dusk", "dawn"],
     "weight": 8.0
    },
    {
     "max": 70.0,
     "min": 69.0,
     "species": "flittermouse",
-    "time": [
-     "night"
-    ],
+    "time": ["night"],
     "weight": 8.0
    },
    {
     "max": 70.0,
     "min": 69.0,
     "species": "hootlet",
-    "time": [
-     "night"
-    ],
+    "time": ["night"],
     "weight": 8.0
    },
    {
     "max": 70.0,
     "min": 69.0,
     "species": "sootwing",
-    "weather": [
-     "fog",
-     "drizzle"
-    ],
+    "weather": ["fog", "drizzle"],
     "weight": 8.0
    },
    {
@@ -101,10 +86,7 @@
     "max": 70.0,
     "min": 69.0,
     "species": "fawnlet",
-    "time": [
-     "dawn",
-     "dusk"
-    ],
+    "time": ["dawn", "dusk"],
     "weight": 6.0
    }
   ],
@@ -383,14 +365,6 @@
    "type": "building",
    "w": 9,
    "x": 36,
-   "y": 3
-  },
-  {
-   "h": 5,
-   "style": "cream_render",
-   "type": "building",
-   "w": 9,
-   "x": 46,
    "y": 3
   },
   {
@@ -973,6 +947,16 @@
    "type": "noticeboard",
    "x": 38,
    "y": 30
+  },
+  {
+   "h": 5,
+   "style": "cream_render",
+   "type": "building",
+   "w": 9,
+   "x": 46,
+   "y": 3,
+   "label": "Stock Exchange",
+   "kind": "hall"
   }
  ],
  "region": "scotland",
@@ -1038,10 +1022,16 @@
   "TT..BBBBBBBBBB.BBBBBBBB.BBBBBBB.......................................TT",
   "TT..BBBBBDBBBB.BBBBDBBB.BBBDBBB.......................................TT",
   "TTTTT..........................TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
-  "TTTTT..........................TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT"
+  "TTTTT..........................TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TT.BBBBBDBBBB.BBBDBB..BBDBB.BBBB....BBBBDBBBB.BBBBDBBBB.BBBBDBBBB.....TT",
+  "TTTTTTTTTTTTT...TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT"
  ],
  "signs": [
-  {"x": 35, "y": 3, "text": "NORTH TO THE FORTH. South Queensferry and the three Forth bridges, then the Kingdom of Fife: St Andrews and, over the Tay, Dundee."},
+  {
+   "x": 35,
+   "y": 3,
+   "text": "NORTH TO THE FORTH. South Queensferry and the three Forth bridges, then the Kingdom of Fife: St Andrews and, over the Tay, Dundee."
+  },
   {
    "text": "THE FLORAL CLOCK. A working clock made from thousands of plants, laid out afresh every spring, and the oldest in the world. It keeps good time. It also keeps its hands, very tidily, in the border.",
    "x": 10.0,
@@ -1133,6 +1123,11 @@
    "plaque": "edinburgh_dolly_the_sheep",
    "title": "Dolly the Sheep",
    "text": "Dolly, born in July 1996 at the Roslin Institute just outside Edinburgh, was the first mammal cloned from an adult cell. She was named after Dolly Parton and had six lambs of her own. She now stands, stuffed and very patient, in the National Museum of Scotland."
+  },
+  {
+   "text": "FINGERPOST: SOUTH to the SCOTTISH BORDERS: the Tweed valley, Melrose and the Eildon Hills. Pack a raincoat and a good reason.",
+   "x": 17,
+   "y": 60
   }
  ],
  "spawn": [
@@ -1262,6 +1257,14 @@
    "x": 27,
    "y": 59,
    "to": "edinburgh_home_e",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 50,
+   "y": 7,
+   "to": "edinburgh_exchange",
    "tx": 6,
    "ty": 7,
    "facing": "up"

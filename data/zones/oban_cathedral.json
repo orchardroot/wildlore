@@ -1,0 +1,101 @@
+{
+ "id": "oban_cathedral",
+ "name": "St Columba's Cathedral",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "bench",
+   "x": 3,
+   "y": 4
+  },
+  {
+   "type": "bench",
+   "x": 3,
+   "y": 6
+  },
+  {
+   "type": "bench",
+   "x": 9,
+   "y": 4
+  },
+  {
+   "type": "bench",
+   "x": 9,
+   "y": 6
+  },
+  {
+   "type": "candelabra",
+   "x": 5,
+   "y": 1
+  },
+  {
+   "type": "candelabra",
+   "x": 7,
+   "y": 1
+  },
+  {
+   "type": "statue",
+   "x": 1,
+   "y": 2
+  },
+  {
+   "type": "statue",
+   "x": 11,
+   "y": 2
+  },
+  {
+   "type": "rug",
+   "x": 6,
+   "y": 3,
+   "w": 1,
+   "h": 6,
+   "variant": 1,
+   "walk": true
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 10,
+   "to": "oban",
+   "tx": 24,
+   "ty": 19,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "obn_verger",
+   "sprite": "poet",
+   "x": 6,
+   "y": 2,
+   "facing": "down",
+   "move": "still",
+   "script": "obn_verger",
+   "name": "Verger"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  6,
+  9
+ ],
+ "rows": [
+  "xxxxxxxxxxxxx",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "xxxxxxDxxxxxx"
+ ]
+}

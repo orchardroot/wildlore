@@ -113,6 +113,9 @@ static func trophies(data: GameStateData, dex: Dex) -> Array:
 		if Standing.tier(data, nation) >= Standing.PILLAR:
 			var p: Array = PILLAR_TROPHIES[nation]
 			out.append({"kind": "pillar", "id": nation, "name": p[0], "line": p[1]})
+	if Punt.has_trophy(data):
+		out.append({"kind": "cheque", "id": "cheque", "name": "Giant Novelty Cheque",
+			"line": "A giant novelty cheque from the Palace in Douglas, propped beside the cabinet. Mum tells visitors it's from the Premium Bonds."})
 	var i := 0
 	for id in legends_caught(data, dex):
 		var nm := str(dex.get_species(id).get("name", id))
