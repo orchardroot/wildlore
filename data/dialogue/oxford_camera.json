@@ -1,0 +1,66 @@
+{
+ "ox_camera_clerk": [
+  {
+   "do": "if",
+   "flag": "q_oxford_bodleian_1",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_oxford_bodleian_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "Reading Room Clerk",
+       "text": "The Eagle and Child, the back room. I've told you everything. My lips are sealed. Mostly."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Reading Room Clerk",
+       "text": "A reader in a mackintosh with ink on the cuffs came through here with something flat under his coat, looking shifty. I said 'You can't take that out.' He said it was a copy."
+      },
+      {
+       "do": "say",
+       "who": "Reading Room Clerk",
+       "text": "Then he mentioned a fire, and I said you can't have one in here, and he said he was going somewhere with a bit more atmosphere, by a fire, with a pint. He went out by the Catte Street door, muttering about a Bird and a Baby."
+      },
+      {
+       "do": "say",
+       "who": "Reading Room Clerk",
+       "text": "Bird and a Baby. That's the Eagle and Child, up St Giles. They all go there. Tell the Librarian I said nothing."
+      },
+      {
+       "do": "set",
+       "flag": "q_oxford_bodleian_2"
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Reading Room Clerk",
+     "text": "The Radcliffe Camera. Built from 1737 to 1749 with the money of Dr John Radcliffe, a royal physician who never married and left his fortune to books."
+    },
+    {
+     "do": "say",
+     "who": "Reading Room Clerk",
+     "text": "It was a science library first, then the Bodleian took it over in 1860. The reading room is on the upper floor, under the dome, with perfect acoustics and perfect silence. You may think about whispering. Don't."
+    }
+   ]
+  }
+ ],
+ "ox_camera_student": [
+  {
+   "do": "say",
+   "who": "Student",
+   "text": "I read here to look at the dome. It's a trick. You look up, and for a second you think you've understood Latin."
+  },
+  {
+   "do": "say",
+   "who": "Student",
+   "text": "Everyone says the Camera is round because Gibbs wanted a rotunda. 'Camera' is Latin for a room. It has nothing to do with photographs, though people sometimes take them. Outside."
+  }
+ ]
+}

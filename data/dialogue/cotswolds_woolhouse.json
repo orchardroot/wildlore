@@ -1,0 +1,44 @@
+{
+ "cw_woolman": [
+  {
+   "do": "say",
+   "who": "Wool Stapler",
+   "text": "A stapler grades wool by how long the fibres are. Cotswold wool is long, lustrous and heavy, perfect for the cloth of kings. A bale was one of the most valuable things a man could own."
+  },
+  {
+   "do": "say",
+   "who": "Wool Stapler",
+   "text": "The wool was sold at the fairs, bought by merchants from as far away as Italy, and shipped across the sea. A Cotswold sheep once had customers in Florence."
+  }
+ ],
+ "cw_fleecegirl": [
+  {
+   "do": "say",
+   "who": "Spinner",
+   "text": "Wool goes through carding, spinning, weaving and fulling. Fulling is when it's pounded in water, which makes it thick. Cotswold villages are full of old fulling mills, and the ones on the Windrush are the prettiest."
+  },
+  {
+   "do": "daily",
+   "key": "cotswolds_fleece_day",
+   "then": [
+    {
+     "do": "say",
+     "who": "Spinner",
+     "text": "Here, a hank of Cotswold fleece, straight off the Lion. It smells like a sheep in the rain. I think it's lovely."
+    },
+    {
+     "do": "give_item",
+     "item": "cotswold_fleece",
+     "n": 1
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Spinner",
+     "text": "That's your fleece for today. The sheep need a bit of fleece left for themselves."
+    }
+   ]
+  }
+ ]
+}

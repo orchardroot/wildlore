@@ -1,0 +1,17 @@
+{"quests": [
+ {"id": "cotswolds_cheese", "title": "Down Cooper's Hill", "region": "cotswolds", "town": "cotswolds", "giver": "Master of Ceremonies", "summary": "Win the creature version of the Cooper's Hill cheese-rolling: chase a Double Gloucester down a hill too steep to stand on.", "start_flag": "q_cotswolds_cheese_started",
+  "steps": [
+   {"flag": "q_cotswolds_cheese_1", "text": "Learn the rules from the cheesemaker at Cooper's Hill Dairy, at the bottom of the hill.", "zone": "cotswolds_dairy"},
+   {"flag": "q_cotswolds_cheese_2", "text": "Catch a Gloucelet in the tall grass and show it to the cheesemaker.", "zone": "cotswolds_dairy"},
+   {"flag": "q_cotswolds_cheese_3", "text": "Win the race: three chasers, back to back, down Cooper's Hill.", "zone": "cotswolds"}
+  ],
+  "done_flag": "q_cotswolds_cheese_done", "reward": "Three Double Gloucester, the Cooper's Hill Ribbon (a Brawn charm) and standing in England."},
+ {"id": "cotswolds_stones", "title": "You Can't Count Them Twice", "region": "cotswolds", "town": "cotswolds", "giver": "Stone Keeper", "summary": "The Rollright Stones can never be counted the same twice. Count them from three sides and see.", "start_flag": "q_cotswolds_stones_started",
+  "steps": [
+   {"flag": "q_cotswolds_stones_1", "text": "Ask the counter on the north side of the King's Men how many stones there are.", "zone": "cotswolds"},
+   {"flag": "q_cotswolds_stones_2", "text": "Ask the counter on the east side.", "zone": "cotswolds"},
+   {"flag": "q_cotswolds_stones_3", "text": "Ask the counter on the west side.", "zone": "cotswolds"},
+   {"flag": "q_cotswolds_stones_4", "text": "Tell the Stone Keeper what you found.", "zone": "cotswolds"}
+  ],
+  "done_flag": "q_cotswolds_stones_done", "reward": "The Rollright Pebble (a Ward charm), two Banbury Cakes and standing in England."}
+]}

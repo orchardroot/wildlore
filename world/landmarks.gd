@@ -39,7 +39,8 @@ const SPECIAL := ["shannon_tower_house", "limerick_georgian", "martyrs_obelisk",
 	"well_house", "kirk_ruin", "surf_shack", "jog_inn", "flows_lookout", "red_sandstone", "border_stone", "castle_red",
 	"painted_pink", "painted_yellow", "painted_blue", "painted_green", "painted_red", "painted_teal", "granite",
 	"distillery", "mccaig", "paddle_steamer", "blackhouse", "croft_house", "granite_house", "harbour_white",
-	"lews_castle"]
+	"lews_castle", "cotswold_house", "cotswold_cottage", "wool_church", "oxford_college", "oxford_tower",
+	"oxford_church", "radcliffe_camera"]
 
 ## Doors: where each style's door sits on its tile (see _door and friends), for the swing as you go in.
 ## {x, w, y, h, z}: left edge and width across the door column, bottom and height, z of the door's face from
@@ -246,6 +247,8 @@ static func building(w: int, d: int, style: String, door_x: int, seed_value: int
 			_bookmaker(st, wst, w, d, door_x, region)
 		"blackhouse", "croft_house", "granite_house", "harbour_white", "lews_castle":
 			_hebrides(st, wst, w, d, door_x, rng, style)
+		"cotswold_house", "cotswold_cottage", "wool_church", "oxford_college", "oxford_tower", "oxford_church", "radcliffe_camera":
+			cotswolds_building(st, wst, w, d, door_x, rng, style)
 		"liver_building":
 			_liver(st, wst, w, d, door_x)
 		"station":
@@ -5193,3 +5196,306 @@ static func _lews_castle(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door
 			_window(st, wst, i + 0.3, 0.55, d - 0.1, 0.4, 0.7, stone.lightened(0.25))
 			_window(st, wst, i + 0.3, 1.65, d - 0.1, 0.4, 0.7, stone.lightened(0.25))
 	_window(st, wst, cx - 0.2, 1.9, d + 0.06, 0.4, 0.55, stone.lightened(0.25))
+# --- The Cotswolds and Oxford (3.0 Wider Isles) -------------------------------------------------------------
+# Honey-gold oolitic limestone with steep stone-slate roofs and end-stack chimneys for the villages; softer,
+# greyer Headington and Taynton stone, parapets, gate towers and lead domes for Oxford.
+
+const COTS_HONEY := Color("d8b46c")   # Cotswold limestone, honey-gold in low sun
+const COTS_SLATE := Color("85765c")   # stone slates, lichened grey-ochre
+const OX_STONE := Color("c8b07e")     # Oxford's college stone, a little greyer than the Cotswold gold
+const OX_LEAD := Color("6f7e78")      # lead roofs and domes, weathered green-grey
+const COTS_PROPS := ["sighs_bridge", "cheese_wheel"]
+
+static func cotswolds_building(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int, rng: RandomNumberGenerator, style: String) -> void:
+	match style:
+		"cotswold_house":
+			_cots_house(st, wst, w, d, door_x, rng, 2)
+		"cotswold_cottage":
+			_cots_house(st, wst, w, d, door_x, rng, 1)
+		"wool_church":
+			_wool_church(st, wst, w, d, door_x, rng)
+		"oxford_college":
+			_oxford_college(st, wst, w, d, door_x, rng)
+		"oxford_tower":
+			_oxford_tower(st, wst, w, d, door_x, rng)
+		"oxford_church":
+			_oxford_church(st, wst, w, d, door_x, rng)
+		"radcliffe_camera":
+			_radcliffe(st, wst, w, d, door_x, rng)
+
+## A gabled roof with its ridge running north-south, the gable facing south (a dormer, a porch).
+static func _gable_roof(st: SurfaceTool, x0: float, x1: float, zb: float, zf: float, h: float, rise: float, roof: Color, wall: Color) -> void:
+	var a := Vector3(x0, h, zb)
+	var b := Vector3(x1, h, zb)
+	var c := Vector3(x1, h, zf)
+	var dd := Vector3(x0, h, zf)
+	var r0 := Vector3((x0 + x1) * 0.5, h + rise, zb)
+	var r1 := Vector3((x0 + x1) * 0.5, h + rise, zf)
+	Meshes._quad(st, r1, r0, a, dd, roof)
+	Meshes._quad(st, r0, r1, c, b, roof.darkened(0.15))
+	Meshes._tri(st, dd, c, r1, wall.lightened(0.03))
+	Meshes._tri(st, b, a, r0, wall.darkened(0.06))
+
+## A Cotswold wool church: wide and airy, with big traceried windows, buttresses, a stone-slate nave roof, a south
+## porch and a battlemented west tower with a pinnacle at each corner (the wool merchants paid for the lot).
+static func _wool_church(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int, rng: RandomNumberGenerator) -> void:
+	var stone := COTS_HONEY.lightened(0.03)
+	var light := stone.lightened(0.16)
+	var tw := mini(3, w - 3)
+	var nave_h := 2.7
+	Meshes.box(st, Vector3(tw, 0, 0.3), Vector3(w - tw, nave_h, d - 0.6), stone, stone.darkened(0.1))
+	_roof_at(st, tw, w, 0.3, d - 0.3, nave_h, 1.25, COTS_SLATE, stone)
+	for x in range(tw + 1, w, 2):
+		Meshes.box(st, Vector3(x - 0.08, 0, d - 0.42), Vector3(0.16, 2.3, 0.18), stone.darkened(0.06))
+	for x in range(tw, w):
+		if absi(x - door_x) > 1:
+			_window(st, wst, x + 0.2, 0.55, d - 0.2, 0.6, 1.75, light)
+	var th := 5.6
+	Meshes.box(st, Vector3(0, 0, 0.1), Vector3(tw, th, d - 0.2), stone.lightened(0.02), stone.darkened(0.1))
+	for y in [1.9, 3.6]:
+		Meshes.box(st, Vector3(-0.03, y, 0.07), Vector3(tw + 0.06, 0.08, d - 0.14), light)
+	_window(st, wst, tw * 0.5 - 0.22, 4.0, d, 0.44, 1.3, light)
+	_window(st, wst, tw * 0.5 - 0.22, 0.8, d, 0.44, 1.0, light)
+	Meshes.box(st, Vector3(-0.07, th, 0.03), Vector3(tw + 0.14, 0.18, d - 0.06), light)
+	_merlons(st, 0.0, float(tw), d - 0.12, th + 0.18, stone, true)
+	_merlons(st, 0.0, float(tw), 0.08, th + 0.18, stone, true)
+	for c in [Vector2(-0.05, 0.05), Vector2(tw - 0.25, 0.05), Vector2(-0.05, d - 0.35), Vector2(tw - 0.25, d - 0.35)]:
+		Meshes.box(st, Vector3(c.x, th + 0.18, c.y), Vector3(0.3, 0.4, 0.3), light)
+		Meshes.cone(st, Vector3(c.x + 0.15, th + 0.58, c.y + 0.15), 0.18, 0.7, 4, light, rng)
+	if door_x >= 0:
+		Meshes.box(st, Vector3(door_x - 0.1, 0, d - 0.5), Vector3(1.2, 1.7, 0.66), stone.lightened(0.03))
+		_gable_roof(st, door_x - 0.16, door_x + 1.16, d - 0.55, d + 0.2, 1.7, 0.55, COTS_SLATE, stone)
+		Meshes.box(st, Vector3(door_x + 0.22, 0, d + 0.14), Vector3(0.56, 1.2, 0.05), Color("3b2a22"))
+
+## A Cotswold house or cottage: honey limestone, a steep stone-slate roof with gabled dormers, a chimney on each
+## gable end, and pale mullioned windows. storeys 1 gives the low cottage, with its eaves almost to the door.
+static func _cots_house(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int, rng: RandomNumberGenerator, storeys: int) -> void:
+	var hgt := 1.15 * storeys + 0.2
+	var wall := COTS_HONEY.darkened(rng.randf_range(0.0, 0.06))
+	Meshes.box(st, Vector3(0.05, 0, 0.05), Vector3(w - 0.1, hgt, d - 0.1), wall, wall.darkened(0.1))
+	Meshes.box(st, Vector3(0, 0, 0), Vector3(w, 0.16, d), wall.darkened(0.28))
+	if storeys > 1:
+		Meshes.box(st, Vector3(-0.02, 1.3, d - 0.03), Vector3(w + 0.04, 0.07, 0.07), wall.lightened(0.14))
+	_roof(st, w, d, hgt, COTS_SLATE, wall, 0.64)
+	var rise := minf(1.2, d * 0.64)
+	for cx in [0.08, w - 0.48]:
+		Meshes.box(st, Vector3(cx, hgt, d * 0.5 - 0.2), Vector3(0.4, rise + 0.55, 0.4), wall.darkened(0.12))
+		Meshes.box(st, Vector3(cx - 0.03, hgt + rise + 0.55, d * 0.5 - 0.23), Vector3(0.46, 0.08, 0.46), wall.lightened(0.12))
+		_chimneys.append(Vector3(cx + 0.2, hgt + rise + 0.7, d * 0.5))
+	if storeys > 1 and w >= 3:
+		var slope := rise / (d * 0.5 + 0.18)
+		var zf := d - 0.2
+		var yb := hgt + slope * (d + 0.18 - zf) - 0.05
+		for i in range(0, w - 1, 2):
+			var x0 := i + 0.55
+			Meshes.box(st, Vector3(x0, yb, zf - 0.5), Vector3(0.7, 0.62, 0.5), wall.lightened(0.04))
+			_gable_roof(st, x0 - 0.06, x0 + 0.76, zf - 0.55, zf + 0.06, yb + 0.62, 0.32, COTS_SLATE.darkened(0.05), wall)
+			_window(st, wst, x0 + 0.17, yb + 0.1, zf + 0.04, 0.36, 0.38, wall.lightened(0.3))
+	_door(st, door_x, d, wall)
+	var pale := wall.lightened(0.3)
+	for s in storeys:
+		var wy := 0.42 + 1.15 * s
+		for x in w:
+			if x == door_x and s == 0:
+				continue
+			_window(st, wst, x + 0.2, wy, d, 0.6, 0.5, pale)
+			Meshes.box(st, Vector3(x + 0.47, wy - 0.04, d - 0.045), Vector3(0.05, 0.56, 0.04), pale)
+
+## An Oxford college front: three storeys of golden stone, a crenellated parapet, a gate tower with an oriel window
+## and pinnacles over the door, and a lead roof set back out of sight.
+static func _oxford_college(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int, rng: RandomNumberGenerator) -> void:
+	var hgt := 3.3
+	var stone := OX_STONE.darkened(rng.randf_range(0.0, 0.05))
+	var light := stone.lightened(0.16)
+	Meshes.box(st, Vector3(0.05, 0, 0.05), Vector3(w - 0.1, hgt, d - 0.1), stone, stone.darkened(0.12))
+	Meshes.box(st, Vector3(0, 0, 0), Vector3(w, 0.22, d), stone.darkened(0.3))
+	for y in [1.15, 2.25]:
+		Meshes.box(st, Vector3(-0.03, y, d - 0.04), Vector3(w + 0.06, 0.07, 0.08), light)
+	Meshes.box(st, Vector3(-0.05, hgt - 0.1, d - 0.3), Vector3(w + 0.1, 0.16, 0.34), light)
+	_merlons(st, 0.0, float(w), d - 0.2, hgt + 0.06, stone, true)
+	# the roof, a low lead pitch behind the parapet with stacks along its ridge
+	_roof_at(st, 0.15, w - 0.15, 0.15, d - 0.3, hgt, 0.85, OX_LEAD.darkened(0.05), stone)
+	var sx := 0.8
+	while sx < w - 0.6:
+		Meshes.box(st, Vector3(sx, hgt + 0.55, d * 0.5 - 0.1), Vector3(0.36, 0.7, 0.36), stone.darkened(0.12))
+		Meshes.box(st, Vector3(sx - 0.03, hgt + 1.22, d * 0.5 - 0.13), Vector3(0.42, 0.08, 0.42), light)
+		_chimneys.append(Vector3(sx + 0.18, hgt + 1.35, d * 0.5 + 0.08))
+		sx += 2.6
+	var has_gate := door_x >= 0 and w >= 5
+	if has_gate:
+		var gx := door_x - 0.55
+		Meshes.box(st, Vector3(gx, 0, d - 0.4), Vector3(2.1, hgt + 1.1, 0.55), stone.lightened(0.05), stone)
+		Meshes.box(st, Vector3(gx - 0.06, hgt + 1.1, d - 0.45), Vector3(2.22, 0.16, 0.65), light)
+		_merlons(st, gx, gx + 2.1, d - 0.22, hgt + 1.26, stone, true)
+		Meshes.box(st, Vector3(gx + 0.4, 1.35, d + 0.1), Vector3(1.3, 0.7, 0.3), light)  # the oriel
+		Meshes.box(wst, Vector3(gx + 0.5, 1.45, d + 0.405), Vector3(1.1, 0.5, 0.04), window_colour(_wr))
+		Meshes.box(st, Vector3(gx + 0.38, 2.05, d + 0.08), Vector3(1.34, 0.1, 0.34), stone.darkened(0.1))
+		Meshes.box(st, Vector3(door_x + 0.12, 2.8, d + 0.05), Vector3(0.76, 0.9, 0.08), stone.darkened(0.18))  # a niche for the founder
+		Meshes.box(st, Vector3(door_x + 0.32, 2.85, d + 0.1), Vector3(0.36, 0.7, 0.06), light)
+		for px in [gx - 0.02, gx + 1.82]:
+			Meshes.box(st, Vector3(px, hgt + 1.26, d - 0.42), Vector3(0.3, 0.4, 0.3), light)
+			Meshes.cone(st, Vector3(px + 0.15, hgt + 1.66, d - 0.27), 0.19, 0.5, 4, light, rng)
+	for x in w:
+		if has_gate and absi(x - door_x) <= 1:
+			continue
+		for y in [0.5, 1.6, 2.65]:
+			_window(st, wst, x + 0.22, y, d, 0.56, 0.62 if y < 2.0 else 0.5, light)
+			Meshes.box(st, Vector3(x + 0.47, y - 0.04, d - 0.045), Vector3(0.06, 0.7, 0.04), light)
+	if door_x >= 0:
+		Meshes.box(st, Vector3(door_x + 0.12, 0.2, d + 0.12 if has_gate else d - 0.1), Vector3(0.76, 1.15, 0.06), Color("2a1f1a"))
+		Meshes.box(st, Vector3(door_x + 0.06, 1.35, d + 0.1 if has_gate else d - 0.12), Vector3(0.88, 0.1, 0.1), light)
+
+## A square Oxford tower: stone stages with string courses, a clock on the face, paired belfry windows and a
+## battlemented top with a pinnacle at each corner (Carfax, Magdalen).
+static func _oxford_tower(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int, rng: RandomNumberGenerator) -> void:
+	var th := 6.4
+	var tx := 0.25
+	var tw := w - 0.5
+	var td := d - 0.5
+	var stone := OX_STONE.darkened(0.03)
+	var light := stone.lightened(0.16)
+	Meshes.box(st, Vector3(0.1, 0, 0.1), Vector3(w - 0.2, 0.3, d - 0.2), stone.darkened(0.25))
+	Meshes.box(st, Vector3(tx, 0, 0.25), Vector3(tw, th, td), stone, stone.darkened(0.12))
+	for y in [1.7, 3.3, 5.0]:
+		Meshes.box(st, Vector3(tx - 0.03, y, 0.22), Vector3(tw + 0.06, 0.08, td + 0.06), light)
+	var fz := 0.25 + td
+	_window(st, wst, w * 0.5 - 0.5, 4.0, fz + 0.1, 0.36, 1.0, light)
+	_window(st, wst, w * 0.5 + 0.14, 4.0, fz + 0.1, 0.36, 1.0, light)
+	_window(st, wst, w * 0.5 - 0.2, 0.9, fz + 0.1, 0.4, 0.9, light)
+	# the clock face and its hands
+	Meshes.box(st, Vector3(w * 0.5 - 0.4, 2.15, fz - 0.01), Vector3(0.8, 0.8, 0.06), Color("e9e2cf"))
+	Meshes.box(st, Vector3(w * 0.5 - 0.03, 2.5, fz + 0.05), Vector3(0.06, 0.28, 0.03), Color("26221e"))
+	Meshes.box(st, Vector3(w * 0.5 - 0.03, 2.5, fz + 0.05), Vector3(0.22, 0.06, 0.03), Color("26221e"))
+	Meshes.box(st, Vector3(tx - 0.08, th, 0.17), Vector3(tw + 0.16, 0.2, td + 0.16), light)
+	_merlons(st, tx, tx + tw, 0.17, th + 0.2, stone, true)
+	_merlons(st, tx, tx + tw, fz - 0.05, th + 0.2, stone, true)
+	_merlons(st, 0.25, 0.25 + td, tx - 0.05, th + 0.2, stone, false)
+	_merlons(st, 0.25, 0.25 + td, tx + tw - 0.25, th + 0.2, stone, false)
+	for c in [Vector2(tx - 0.08, 0.17), Vector2(tx + tw - 0.2, 0.17), Vector2(tx - 0.08, fz - 0.12), Vector2(tx + tw - 0.2, fz - 0.12)]:
+		Meshes.box(st, Vector3(c.x, th + 0.2, c.y), Vector3(0.28, 0.35, 0.28), light)
+		Meshes.cone(st, Vector3(c.x + 0.14, th + 0.55, c.y + 0.14), 0.18, 0.6, 4, light, rng)
+	if door_x >= 0:
+		Meshes.box(st, Vector3(door_x + 0.2, 0.3, fz - 0.06), Vector3(0.6, 0.9, 0.08), Color("2a1f1a"))
+
+## The University Church of St Mary the Virgin: a Gothic nave and a west tower topped by a tall, slim spire,
+## the one the skyline's "dreaming spires" are named for (more or less).
+static func _oxford_church(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int, rng: RandomNumberGenerator) -> void:
+	var tw := mini(3, w - 2)
+	var nave_h := 2.5
+	var stone := OX_STONE.darkened(0.02)
+	var light := stone.lightened(0.15)
+	Meshes.box(st, Vector3(tw, 0, 0.3), Vector3(w - tw, nave_h, d - 0.6), stone, stone.darkened(0.1))
+	_roof_at(st, tw, w, 0.3, d - 0.3, nave_h, 1.2, OX_LEAD, stone)
+	var th := 4.7
+	Meshes.box(st, Vector3(0.1, 0, 0.1), Vector3(tw - 0.2, th, d - 0.2), stone.lightened(0.02), stone.darkened(0.1))
+	Meshes.box(st, Vector3(0.0, th, 0.0), Vector3(tw, 0.2, d), light)
+	Meshes.cone(st, Vector3(tw * 0.5, th + 0.2, d * 0.5), minf(tw, d) * 0.46, 4.2, 8, stone.lightened(0.08), rng)
+	for c in [Vector2(0.0, 0.0), Vector2(tw - 0.3, 0.0), Vector2(0.0, d - 0.3), Vector2(tw - 0.3, d - 0.3)]:
+		Meshes.box(st, Vector3(c.x, th + 0.2, c.y), Vector3(0.3, 0.45, 0.3), light)
+		Meshes.cone(st, Vector3(c.x + 0.15, th + 0.65, c.y + 0.15), 0.17, 0.7, 4, light, rng)
+	for x in range(tw, w):
+		_window(st, wst, x + 0.3, 0.55, d - 0.2, 0.4, 1.5, light)
+	_window(st, wst, tw * 0.5 - 0.22, 2.8, d, 0.44, 1.3, light)
+	_window(st, wst, tw * 0.5 - 0.22, 0.9, d, 0.44, 1.0, light)
+	if door_x >= 0:
+		Meshes.box(st, Vector3(door_x + 0.15, 0, d - 0.05), Vector3(0.7, 1.3, 0.08), Color("3b2a22"))
+
+## The Radcliffe Camera (1749): a round, domed library on a rusticated base, a ring of columns, an attic with
+## windows, a lead dome and a lantern. Footprint about 7 x 7; the door faces south.
+static func _radcliffe(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int, rng: RandomNumberGenerator) -> void:
+	var cx := w * 0.5
+	var cz := d * 0.5
+	var stone := OX_STONE.lightened(0.07)
+	Meshes.box(st, Vector3(0.1, 0, 0.1), Vector3(w - 0.2, 0.14, d - 0.2), stone.darkened(0.2))
+	Meshes.cylinder(st, Vector3(cx, 0.14, cz), 3.0, 0.7, 16, stone.darkened(0.08))
+	Meshes.cylinder(st, Vector3(cx, 0.84, cz), 2.62, 2.0, 16, stone)
+	for i in 16:
+		var a := TAU * i / 16.0
+		Meshes.cylinder(st, Vector3(cx + cos(a) * 2.82, 0.84, cz + sin(a) * 2.82), 0.1, 2.0, 5, stone.lightened(0.12))
+	Meshes.cylinder(st, Vector3(cx, 2.84, cz), 3.0, 0.2, 16, stone.lightened(0.14))
+	Meshes.cylinder(st, Vector3(cx, 3.04, cz), 2.4, 0.95, 16, stone.lightened(0.03))
+	for i in 8:
+		var a := TAU * (i + 0.5) / 8.0
+		Meshes.box(wst, Vector3(cx + cos(a) * 2.38 - 0.16, 3.2, cz + sin(a) * 2.38 - 0.16), Vector3(0.32, 0.5, 0.32), window_colour(_wr))
+	Meshes.cylinder(st, Vector3(cx, 3.99, cz), 2.52, 0.14, 16, stone.lightened(0.16))
+	for k in [[2.25, 0.42], [1.95, 0.4], [1.55, 0.38], [1.1, 0.34], [0.62, 0.3]]:
+		var y: float = 4.13 + (2.25 - float(k[0])) * 0.75
+		Meshes.cylinder(st, Vector3(cx, y, cz), k[0], k[1], 16, OX_LEAD.lightened(0.04 * (2.25 - k[0])))
+	Meshes.cylinder(st, Vector3(cx, 5.35, cz), 0.36, 0.55, 8, stone.lightened(0.1))
+	Meshes.cone(st, Vector3(cx, 5.9, cz), 0.44, 0.55, 8, OX_LEAD, rng)
+	if door_x >= 0:
+		Meshes.box(st, Vector3(cx - 0.34, 0.14, cz + 2.98), Vector3(0.68, 1.15, 0.08), Color("2a1f1a"))
+		Meshes.box(st, Vector3(cx - 0.45, 1.3, cz + 2.96), Vector3(0.9, 0.1, 0.12), stone.lightened(0.2))
+
+# --- Cotswolds and Oxford props ------------------------------------------------------------------------------
+
+static func cots_prop(name: String, variant: int) -> ArrayMesh:
+	match name:
+		"sighs_bridge":
+			return sighs_bridge(variant)
+		"cheese_wheel":
+			return cheese_wheel(variant)
+	return Meshes.rock(0)
+
+## Hertford's Bridge of Sighs: an enclosed stone gallery with traceried windows on an arch, between the two halves
+## of the college. `variant` is the width of the lane it crosses, in tiles, running east from its tile.
+static func sighs_bridge(variant := 3) -> ArrayMesh:
+	var st := Meshes._st()
+	var n := maxi(1, variant)
+	var x0 := -0.5
+	var x1 := n - 0.5
+	var stone := OX_STONE.lightened(0.04)
+	var light := stone.lightened(0.18)
+	var glass := Color("37444a")
+	for xe in [x0 - 0.55, x1 - 0.05]:  # the college walls the bridge springs from
+		Meshes.box(st, Vector3(xe, 0, -0.5), Vector3(0.6, 3.1, 1.0), stone.darkened(0.04))
+	# the arch beneath: stepped stones over a clear opening
+	var segs := 6
+	for i in segs:
+		var t0 := float(i) / segs
+		var t1 := float(i + 1) / segs
+		var xa := lerpf(x0, x1, t0)
+		var xb := lerpf(x0, x1, t1)
+		var yy := maxf(1.55 + 0.4 * sin(PI * t0), 1.55 + 0.4 * sin(PI * t1))
+		Meshes.box(st, Vector3(xa, yy, -0.4), Vector3(xb - xa, 1.7 - yy, 0.8), stone.darkened(0.06))
+	Meshes.box(st, Vector3(x0, 1.7, -0.4), Vector3(x1 - x0, 1.15, 0.8), stone)
+	Meshes.box(st, Vector3(x0 - 0.02, 1.62, -0.44), Vector3(x1 - x0 + 0.04, 0.1, 0.88), light)
+	Meshes.box(st, Vector3(x0 - 0.02, 2.82, -0.44), Vector3(x1 - x0 + 0.04, 0.12, 0.88), light)
+	var x := x0 + 0.12
+	while x < x1 - 0.3:  # the traceried windows, both faces
+		for z in [0.4, -0.45]:
+			Meshes.box(st, Vector3(x, 1.95, z), Vector3(0.26, 0.55, 0.05), glass)
+			Meshes.box(st, Vector3(x + 0.11, 1.95, z + (0.02 if z > 0 else -0.01)), Vector3(0.04, 0.55, 0.04), light)
+			Meshes.box(st, Vector3(x + 0.02, 2.5, z + (0.01 if z > 0 else 0.0)), Vector3(0.22, 0.12, 0.05), glass)
+		x += 0.38
+	var mx := x0
+	while mx < x1 - 0.3:
+		Meshes.box(st, Vector3(mx, 2.94, -0.44), Vector3(0.3, 0.26, 0.2), stone.lightened(0.05))
+		Meshes.box(st, Vector3(mx, 2.94, 0.24), Vector3(0.3, 0.26, 0.2), stone.lightened(0.05))
+		mx += 0.6
+	return Meshes._finish(st)
+
+## A Double Gloucester: 0 a whole wheel with a wedge out of it, 1 a stack of three, 2 the prize wheel on its edge
+## (the cheese-rolling at Cooper's Hill), wrapped in a ribbon.
+static func cheese_wheel(variant := 0) -> ArrayMesh:
+	var st := Meshes._st()
+	var rind := Color("c97a2c")
+	var paste := Color("e9a63c")
+	match variant:
+		1:
+			for k in 3:
+				Meshes.cylinder(st, Vector3(0, k * 0.24, 0), 0.36 - k * 0.03, 0.23, 12, rind.lightened(0.05 * k))
+				Meshes.cylinder(st, Vector3(0, k * 0.24 + 0.19, 0), 0.33 - k * 0.03, 0.05, 12, paste)
+		2:
+			var pts := []
+			for k in 12:
+				var a := -TAU * k / 12.0
+				pts.append(Vector2(sin(a) * 0.4, 0.42 + cos(a) * 0.4))
+			_prism(st, pts, -0.13, 0.13, rind)
+			Meshes.box(st, Vector3(-0.41, 0.4, -0.15), Vector3(0.82, 0.07, 0.3), Color("c8323a"))  # the ribbon
+			Meshes.box(st, Vector3(-0.04, 0.0, -0.15), Vector3(0.08, 0.84, 0.3), Color("c8323a"))
+		_:
+			Meshes.cylinder(st, Vector3(0, 0, 0), 0.4, 0.3, 14, rind)
+			Meshes.cylinder(st, Vector3(0, 0.26, 0), 0.36, 0.06, 14, paste)
+			Meshes.box(st, Vector3(0.05, 0.0, 0.0), Vector3(0.4, 0.32, 0.18), paste.darkened(0.12))  # the cut wedge
+	return Meshes._finish(st)

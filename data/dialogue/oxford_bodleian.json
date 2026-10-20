@@ -1,0 +1,170 @@
+{
+ "ox_librarian": [
+  {
+   "do": "if",
+   "flag": "q_oxford_bodleian_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Librarian",
+     "text": "The leaf is back in its folder, the Bestiary is whole and the reader is writing very long letters of apology. Thank you."
+    },
+    {
+     "do": "say",
+     "who": "Librarian",
+     "text": "The Bodleian has over 13 million printed items on over 100 miles of shelves. A great many of them in the stacks underneath Broad Street, where you can't see them and nobody can hear you."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_oxford_bodleian_3",
+     "then": [
+      {
+       "do": "say",
+       "who": "Librarian",
+       "text": "The leaf! Safe, in one piece, and with only a slight smell of beer. He took it to the pub to read by the fire? That's two breaches of the Declaration in one go."
+      },
+      {
+       "do": "say",
+       "who": "Librarian",
+       "text": "The Ashmole Bestiary is a twelfth-century book of beasts, real and imagined, and famous for its lions. I'm so glad to have the leaf back."
+      },
+      {
+       "do": "say",
+       "who": "Librarian",
+       "text": "Take this Reader's Ticket, with my thanks. And a Banbury cake or two. Not in the reading room, though. Outside. With the pigeons."
+      },
+      {
+       "do": "set",
+       "flag": "q_oxford_bodleian_4"
+      },
+      {
+       "do": "set",
+       "flag": "q_oxford_bodleian_done"
+      },
+      {
+       "do": "give_item",
+       "item": "readers_ticket",
+       "n": 1
+      },
+      {
+       "do": "give_item",
+       "item": "banbury_cake",
+       "n": 2
+      },
+      {
+       "do": "standing",
+       "nation": "england",
+       "amount": 5
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_oxford_bodleian_2",
+       "then": [
+        {
+         "do": "say",
+         "who": "Librarian",
+         "text": "The Eagle and Child? He's taken a medieval leaf to a pub. I need to sit down. The back room, the Rabbit Room, I think. He's a don. Find him."
+        }
+       ],
+       "else": [
+        {
+         "do": "if",
+         "flag": "q_oxford_bodleian_1",
+         "then": [
+          {
+           "do": "say",
+           "who": "Librarian",
+           "text": "Ask in the Radcliffe Camera, across the square. The clerk in the reading room sees everything and says nothing, except to me."
+          }
+         ],
+         "else": [
+          {
+           "do": "if",
+           "flag": "q_oxford_bodleian_started",
+           "then": [
+            {
+             "do": "say",
+             "who": "Librarian",
+             "text": "You haven't made the Declaration yet. I can't take you any further until you do. It's the rule."
+            }
+           ],
+           "else": [
+            {
+             "do": "choice",
+             "text": "The Bodleian Library: to read here you make the Declaration. Take the oath?",
+             "options": [
+              "I do",
+              "Not yet"
+             ],
+             "set": "_oath_choice"
+            },
+            {
+             "do": "if",
+             "flag": "_oath_choice",
+             "eq": 0,
+             "then": [
+              {
+               "do": "say",
+               "who": "Librarian",
+               "text": "Repeat after me. 'I hereby undertake not to remove from the Library, or to mark, deface, or injure in any way, any volume, document or other object belonging to it or in its custody; not to bring into the Library or kindle therein any fire or flame, and not to smoke in the Library; and I promise to obey all rules of the Library.'"
+              },
+              {
+               "do": "say",
+               "who": "Librarian",
+               "text": "Marvellous. That's all it takes. It's been said, in one form or another, for four centuries, and the bit about fire and flame is there because there was a lot of both about. The library has never once burned. Knock on a bookshelf."
+              },
+              {
+               "do": "say",
+               "who": "Librarian",
+               "text": "Now. I've a problem I can only share with someone who has made the oath. A leaf is missing from the Ashmole Bestiary, a page with a very rare beast painted on it. A reader took it, and he's a don, which is worse."
+              },
+              {
+               "do": "say",
+               "who": "Librarian",
+               "text": "He was last seen heading for the Radcliffe Camera. See the clerk in the reading room, across Radcliffe Square, and find out where he went. And no fire. Even your Kindlets."
+              },
+              {
+               "do": "set",
+               "flag": "q_oxford_bodleian_started"
+              },
+              {
+               "do": "set",
+               "flag": "q_oxford_bodleian_1"
+              }
+             ],
+             "else": [
+              {
+               "do": "say",
+               "who": "Librarian",
+               "text": "Whenever you're ready. It's very short, and the penalty for breaking it is mostly shame."
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "ox_reader": [
+  {
+   "do": "say",
+   "who": "Reader",
+   "text": "I've sworn the Declaration three times. Once as an undergraduate, once as a doctoral student, once when I lost the card."
+  },
+  {
+   "do": "say",
+   "who": "Reader",
+   "text": "You can't take anything out. You can't mark it. And you can't light so much as a candle. We read in rooms with the lights on and our hands, like the Declaration says, strictly to ourselves."
+  }
+ ]
+}

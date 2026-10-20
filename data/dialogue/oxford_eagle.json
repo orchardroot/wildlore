@@ -1,0 +1,121 @@
+{
+ "ox_don": [
+  {
+   "do": "if",
+   "flag": "q_oxford_bodleian_3",
+   "then": [
+    {
+     "do": "say",
+     "who": "Don Percival",
+     "text": "I'm off to the Bodleian to apologise in person. Possibly in writing, possibly in verse."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_oxford_bodleian_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "Don Percival",
+       "text": "A bestiary leaf? I? What a suggestion. I'm merely, ah, reading a leaf. By a fire. In the pub where the Inklings met. It's atmospheric. It's research!"
+      },
+      {
+       "do": "battle",
+       "trainer": "ox_don",
+       "intro": true
+      },
+      {
+       "do": "if",
+       "flag": "trainer_ox_don",
+       "then": [
+        {
+         "do": "say",
+         "who": "Don Percival",
+         "text": "Oh, take it. It's been a joy and a worry. I've sworn the Declaration three times and this is the first time I've broken it. Not the fire, I haven't lit it. The fireplace is somebody else's."
+        },
+        {
+         "do": "say",
+         "who": "Don Percival",
+         "text": "Tell the Librarian I'll write. In Latin, so it won't be read."
+        },
+        {
+         "do": "set",
+         "flag": "q_oxford_bodleian_3"
+        }
+       ],
+       "else": []
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Don Percival",
+       "text": "Welcome to the Eagle and Child. Do sit down, and don't mind me. I'm reading. Nothing important. A leaf, of the... ah. Of the news. Of the day."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "ox_landlord": [
+  {
+   "do": "say",
+   "who": "Landlord",
+   "text": "The Eagle and Child, known as the Bird and Baby. It's the pub where the Inklings met, the writers' group, in the back room from the 1930s to 1962."
+  },
+  {
+   "do": "say",
+   "who": "Landlord",
+   "text": "Tolkien and Lewis read chapters aloud on Tuesday lunchtimes and criticised them with great enthusiasm. A great many of the arguments about whether they were any good happened right here."
+  }
+ ],
+ "ox_inkling": [
+  {
+   "do": "say",
+   "who": "Writer",
+   "text": "I'm writing a book in the back room. Not really, but it's polite to look as though you might be."
+  },
+  {
+   "do": "say",
+   "who": "Writer",
+   "text": "The Inklings read their work aloud and everyone was rude about it. It's called constructive criticism. The 'constructive' bit is optional."
+  }
+ ],
+ "ox_quizmaster": [
+  {
+   "do": "say",
+   "who": "Quizmaster",
+   "text": "Quiz night at the Eagle and Child! Five questions, no phones, and nobody quoting Tolkien at me. I've had enough of hobbits for one night."
+  },
+  {
+   "do": "choice",
+   "text": "Fancy a round? Five questions, no phones.",
+   "options": [
+    "Count me in",
+    "Not tonight"
+   ],
+   "set": "_quiz_choice"
+  },
+  {
+   "do": "if",
+   "flag": "_quiz_choice",
+   "eq": 0,
+   "then": [
+    {
+     "do": "quiz",
+     "pub": "oxford",
+     "region": "england_south",
+     "who": "Quizmaster"
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Quizmaster",
+     "text": "Suit yourself. The crisps are salt and vinegar either way."
+    }
+   ]
+  }
+ ]
+}
