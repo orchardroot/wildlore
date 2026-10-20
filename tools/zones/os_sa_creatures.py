@@ -33,11 +33,11 @@ LINES = {
      ["st_helena_jamestown", "st_helena_plantation"],
      "Walks at the speed of a pleasant thought. Has never been late for anything, as nothing has ever been waiting.",
      "Seychelles giant tortoises are among the longest-lived animals alive; Jonathan, who lives on the lawn at Plantation House on St Helena, hatched around 1832 and is thought to be the oldest living land animal.",
-     [[1, "pebble_flick"], [1, "hunker"], [7, "scrap"], [12, "dry_stone_wall"], [18, "boulder_bump"], [24, "cairn_stack"], [30, "sheepdog_herd"], [36, "slate_slide"], [42, "megalith_mutter"]], 190, 64, "older_than_hills"),
+     [[1, "pebble_flick"], [1, "hunker"], [7, "scrap"], [12, "dry_stone_wall"], [18, "boulder_bump"], [24, "cairn_stack"], [30, "sheepdog_herd"], [36, "slate_slide"], [42, "megalith_mutter"]], 190, 64, "solid_as_rock"),
   sp("elderplod", "Elderplod", ["stone", "kin"], [118, 82, 128, 62, 96, 22], None, [],
      "Ring on ring on its shell, like a tree that learned to walk. It has met eleven governors, and has opinions on nine of them.",
      "Jonathan the tortoise arrived on St Helena from the Seychelles in 1882, already fully grown, which puts his hatching at about 1832; a tortoise's shell rings cannot tell you its age.",
-     [[1, "pebble_flick"], [1, "hunker"], [7, "scrap"], [12, "dry_stone_wall"], [18, "boulder_bump"], [24, "cairn_stack"], [30, "sheepdog_herd"], [36, "slate_slide"], [42, "megalith_mutter"], [48, "millstone_drop"], [54, "barge"]], 60, 168, "older_than_hills"),
+     [[1, "pebble_flick"], [1, "hunker"], [7, "scrap"], [12, "dry_stone_wall"], [18, "boulder_bump"], [24, "cairn_stack"], [30, "sheepdog_herd"], [36, "slate_slide"], [42, "megalith_mutter"], [48, "millstone_drop"], [54, "barge"]], 60, 168, "solid_as_rock"),
  ],
  "wirefoot": [
   sp("wirefoot", "Wirefoot", ["gale", "stone"], [78, 82, 70, 76, 84, 106], None, ["st_helena_plantation"],

@@ -1,0 +1,220 @@
+{
+ "asc_ranger": [
+  {
+   "do": "if",
+   "flag": "q_overseas_ascension_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Conservation Officer",
+     "text": "Another season counted, thanks to you. I'll add your name to the list of people who didn't step on a nest."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_overseas_ascension_3",
+     "then": [
+      {
+       "do": "say",
+       "who": "Conservation Officer",
+       "text": "The Warden says you were a credit to the fair. Right, as promised: a tag from the very first turtle we ever followed, and a steak from the boat. You've earned them."
+      },
+      {
+       "do": "give_item",
+       "item": "turtle_tag",
+       "n": 1
+      },
+      {
+       "do": "give_item",
+       "item": "wahoo_steak",
+       "n": 1
+      },
+      {
+       "do": "set",
+       "flag": "q_overseas_ascension_done",
+       "value": true
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_overseas_ascension_2",
+       "then": [
+        {
+         "do": "say",
+         "who": "Conservation Officer",
+         "text": "The Wideawake Warden is east of the main road, on the plain. Tell the Warden I sent you. Ask about the fair."
+        }
+       ],
+       "else": [
+        {
+         "do": "if",
+         "flag": "q_overseas_ascension_1",
+         "then": [
+          {
+           "do": "say",
+           "who": "Conservation Officer",
+           "text": "Now find the Wideawake Warden, east of the road, and ask about the fair. A turtle is a good introduction to a tern."
+          },
+          {
+           "do": "set",
+           "flag": "q_overseas_ascension_2",
+           "value": true
+          }
+         ],
+         "else": [
+          {
+           "do": "if",
+           "flag": "q_overseas_ascension_started",
+           "then": [
+            {
+             "do": "when",
+             "cond": "has_cindershell",
+             "then": [
+              {
+               "do": "say",
+               "who": "Conservation Officer",
+               "text": "A Cindershell! Beautiful. Tracks across the sand and a very straight look. You're a natural."
+              },
+              {
+               "do": "set",
+               "flag": "q_overseas_ascension_1",
+               "value": true
+              }
+             ],
+             "else": [
+              {
+               "do": "say",
+               "who": "Conservation Officer",
+               "text": "Not yet. Try the shallows or the beach, around dusk. A green turtle, if it's feeling cooperative."
+              }
+             ]
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Conservation Officer",
+             "text": "Green turtles nest here, and the team needs people to help count the tracks each morning. Would you? Start by finding a Cindershell on the beach."
+            },
+            {
+             "do": "set",
+             "flag": "q_overseas_ascension_started",
+             "value": true
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "asc_saint": [
+  {
+   "do": "say",
+   "who": "Saint Helenian Cook",
+   "text": "I'm from St Helena. Plenty of us work here: it's a short flight and a long way home. I make a fish pie on a Friday, from wahoo, and I'll not be told it's too much."
+  },
+  {
+   "do": "say",
+   "who": "Saint Helenian Cook",
+   "text": "Everyone talks about the airfield and the turtles. Nobody mentions the goats. Ascension has goats. Ascension had goats before it had people. The goats do not read the plaques."
+  }
+ ],
+ "asc_marine": [
+  {
+   "do": "say",
+   "who": "Royal Marine",
+   "text": "The Marines built this place. Not the glamorous bits, the tanks and the wall and the lanes. We still get the job of looking at the plans and saying 'who thought of that?'"
+  },
+  {
+   "do": "say",
+   "who": "Royal Marine",
+   "text": "There's a legend that we're not meant to say the island's name aloud on a Sunday. There isn't. But the legend doesn't mind."
+  }
+ ],
+ "asc_birder": [
+  {
+   "do": "say",
+   "who": "Birdwatcher",
+   "text": "Ascension frigatebirds nest only on Boatswain Bird Island, a rock just offshore. They used to be nearly lost, because of rats and cats. The cats are gone now, and the frigatebirds are coming back."
+  },
+  {
+   "do": "say",
+   "who": "Birdwatcher",
+   "text": "They steal food from the boobies in the air. The boobies, on the whole, are too polite to mind."
+  }
+ ],
+ "asc_goatkid": [
+  {
+   "do": "say",
+   "who": "Two Boats Kid",
+   "text": "I've a pet donkey. Well, a wild donkey, but he lets me stand near him. Ascension has donkeys because they came for work and stayed."
+  },
+  {
+   "do": "say",
+   "who": "Two Boats Kid",
+   "text": "There's a place called the Devil's Riding School, a crater with a flat bottom, where it's said the devil practised his horse riding. I can't see why anyone needs a school for that."
+  }
+ ],
+ "ascension_return": [
+  {
+   "do": "say",
+   "who": "Movements Officer",
+   "text": "RAF Ascension, Wideawake. The Airbridge goes south to the Falklands and north to Brize Norton, and in between I decide whether there's room for you and your creatures. There is."
+  }
+ ],
+ "asc_legend_talk": [
+  {
+   "do": "if",
+   "flag": "q_overseas_ascension_3",
+   "then": [
+    {
+     "do": "say",
+     "who": "Wideawake Warden",
+     "text": "You fought well and the terns are back on the plain. I'll make sure the Conservation Officer hears."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_overseas_ascension_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "Wideawake Warden",
+       "text": "The Conservation Officer sent you. Good. The fair on the plain is the loudest, messiest, most beautiful thing on the island, and I'd like to see how you handle a noisy crowd."
+      },
+      {
+       "do": "battle",
+       "trainer": "asc_legend",
+       "intro": true
+      },
+      {
+       "do": "say",
+       "who": "Wideawake Warden",
+       "text": "That's the spirit of the fair. You kept your head, and your creatures, in a noise like that. I'll tell them."
+      },
+      {
+       "do": "set",
+       "flag": "q_overseas_ascension_3",
+       "value": true
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Wideawake Warden",
+       "text": "Hello. I look after the terns. Not the turtles. They have a department of their own."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

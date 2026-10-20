@@ -1,0 +1,869 @@
+{
+ "id": "ascension",
+ "name": "Georgetown, Ascension",
+ "region": "overseas_ascension",
+ "kind": "town",
+ "music": "town_cornwall",
+ "weather": {
+  "clear": 30,
+  "sunshine": 28,
+  "drizzle": 10,
+  "fog": 6,
+  "gale": 14,
+  "downpour": 4
+ },
+ "props": [
+  {
+   "type": "building",
+   "style": "castle",
+   "x": 15,
+   "y": 14,
+   "w": 10,
+   "h": 5,
+   "label": "Fort Hayes"
+  },
+  {
+   "type": "building",
+   "style": "chapel",
+   "x": 26,
+   "y": 15,
+   "w": 6,
+   "h": 4,
+   "label": "St Mary's Church"
+  },
+  {
+   "type": "building",
+   "style": "sanctuary",
+   "x": 38,
+   "y": 15,
+   "w": 6,
+   "h": 4,
+   "label": "Sanctuary"
+  },
+  {
+   "type": "building",
+   "style": "shop",
+   "x": 45,
+   "y": 15,
+   "w": 5,
+   "h": 4,
+   "label": "Shop"
+  },
+  {
+   "type": "building",
+   "style": "sa_colonial",
+   "x": 51,
+   "y": 15,
+   "w": 6,
+   "h": 4,
+   "label": "Post Office and Philatelic Bureau"
+  },
+  {
+   "type": "building",
+   "style": "sa_colonial",
+   "x": 15,
+   "y": 27,
+   "w": 8,
+   "h": 4,
+   "label": "The Exiles Club"
+  },
+  {
+   "type": "building",
+   "style": "sa_colonial",
+   "x": 38,
+   "y": 27,
+   "w": 6,
+   "h": 4,
+   "label": "Two Boats Village"
+  },
+  {
+   "type": "building",
+   "style": "sa_colonial",
+   "x": 45,
+   "y": 27,
+   "w": 6,
+   "h": 4,
+   "label": "Garrison Quarters"
+  },
+  {
+   "type": "building",
+   "style": "sa_colonial",
+   "x": 52,
+   "y": 27,
+   "w": 6,
+   "h": 4,
+   "label": "Garrison Quarters"
+  },
+  {
+   "type": "building",
+   "style": "radome",
+   "x": 42,
+   "y": 5,
+   "w": 7,
+   "h": 5,
+   "label": "Atlantic Relay",
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "radome",
+   "x": 52,
+   "y": 6,
+   "w": 6,
+   "h": 4,
+   "label": "Radome",
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "pier",
+   "x": 5,
+   "y": 37,
+   "w": 5,
+   "h": 3,
+   "label": "Pier",
+   "show_label": false
+  },
+  {
+   "type": "boat",
+   "x": 3,
+   "y": 34,
+   "variant": 1
+  },
+  {
+   "type": "boat",
+   "x": 4,
+   "y": 42,
+   "variant": 1
+  },
+  {
+   "type": "boat",
+   "x": 5,
+   "y": 28,
+   "variant": 1
+  },
+  {
+   "type": "buoy",
+   "x": 6,
+   "y": 40
+  },
+  {
+   "type": "bollard",
+   "x": 10,
+   "y": 38
+  },
+  {
+   "type": "bollard",
+   "x": 15,
+   "y": 38
+  },
+  {
+   "type": "lobster_pots",
+   "x": 12,
+   "y": 37
+  },
+  {
+   "type": "flagpole",
+   "x": 14,
+   "y": 20
+  },
+  {
+   "type": "lamp_post",
+   "x": 20,
+   "y": 22
+  },
+  {
+   "type": "lamp_post",
+   "x": 30,
+   "y": 22
+  },
+  {
+   "type": "lamp_post",
+   "x": 40,
+   "y": 22
+  },
+  {
+   "type": "lamp_post",
+   "x": 50,
+   "y": 22
+  },
+  {
+   "type": "lamp_post",
+   "x": 34,
+   "y": 30
+  },
+  {
+   "type": "bench",
+   "x": 21,
+   "y": 25
+  },
+  {
+   "type": "bench",
+   "x": 47,
+   "y": 25
+  },
+  {
+   "type": "rock",
+   "x": 52,
+   "y": 21,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 44,
+   "y": 14,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 12,
+   "y": 3,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 60,
+   "y": 17,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 56,
+   "y": 5,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 59,
+   "y": 29,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 40,
+   "y": 5,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 46,
+   "y": 34,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 41,
+   "y": 13,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 58,
+   "y": 24,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 43,
+   "y": 12,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 54,
+   "y": 5,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 27,
+   "y": 7,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 54,
+   "y": 40,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 16,
+   "y": 10,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 42,
+   "y": 38,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 21,
+   "y": 37,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 30,
+   "y": 26,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 44,
+   "y": 27,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 17,
+   "y": 13,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 57,
+   "y": 34,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 47,
+   "y": 41,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 48,
+   "y": 41,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 47,
+   "y": 42,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 18,
+   "y": 13,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 23,
+   "y": 30,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 12,
+   "y": 25,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 27,
+   "y": 13,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 16,
+   "y": 31,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 61,
+   "y": 33,
+   "variant": 0
+  }
+ ],
+ "warps": [
+  {
+   "x": 19,
+   "y": 18,
+   "to": "ascension_fort",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 29,
+   "y": 18,
+   "to": "ascension_church",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 41,
+   "y": 18,
+   "to": "ascension_sanctuary",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 47,
+   "y": 18,
+   "to": "ascension_shop",
+   "tx": 4,
+   "ty": 5,
+   "facing": "up"
+  },
+  {
+   "x": 53,
+   "y": 18,
+   "to": "ascension_post",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 18,
+   "y": 30,
+   "to": "ascension_club",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  }
+ ],
+ "edges": {
+  "north": {
+   "to": "ascension_green_mountain",
+   "offset": -6
+  }
+ },
+ "npcs": [
+  {
+   "id": "asc_ranger",
+   "sprite": "hiker",
+   "x": 28,
+   "y": 24,
+   "facing": "down",
+   "move": "still",
+   "script": "asc_ranger"
+  },
+  {
+   "id": "asc_saint",
+   "sprite": "villager_4",
+   "x": 33,
+   "y": 28,
+   "facing": "right",
+   "move": "still",
+   "script": "asc_saint"
+  },
+  {
+   "id": "asc_marine",
+   "sprite": "sailor",
+   "x": 47,
+   "y": 24,
+   "facing": "left",
+   "move": "still",
+   "script": "asc_marine"
+  },
+  {
+   "id": "asc_birder",
+   "sprite": "birdwatcher",
+   "x": 12,
+   "y": 40,
+   "facing": "up",
+   "move": "still",
+   "script": "asc_birder"
+  },
+  {
+   "id": "asc_goatkid",
+   "sprite": "villager_5",
+   "x": 40,
+   "y": 32,
+   "facing": "down",
+   "move": "wander",
+   "script": "asc_goatkid"
+  },
+  {
+   "id": "ascension_return",
+   "sprite": "rail_guard",
+   "x": 36,
+   "y": 44,
+   "facing": "down",
+   "move": "still",
+   "script": "ascension_return",
+   "name": "Movements Officer"
+  },
+  {
+   "id": "asc_ranger_t",
+   "sprite": "hiker",
+   "x": 18,
+   "y": 44,
+   "facing": "up",
+   "move": "still",
+   "trainer": "asc_ranger_t"
+  },
+  {
+   "id": "asc_airman",
+   "sprite": "warden_grunt",
+   "x": 38,
+   "y": 48,
+   "facing": "up",
+   "move": "still",
+   "trainer": "asc_airman"
+  },
+  {
+   "id": "asc_diver",
+   "sprite": "angler",
+   "x": 11,
+   "y": 33,
+   "facing": "left",
+   "move": "still",
+   "trainer": "asc_diver"
+  },
+  {
+   "id": "asc_marine_t",
+   "sprite": "sailor",
+   "x": 24,
+   "y": 22,
+   "facing": "right",
+   "move": "still",
+   "trainer": "asc_marine_t"
+  },
+  {
+   "id": "asc_goatherd",
+   "sprite": "farmer",
+   "x": 52,
+   "y": 34,
+   "facing": "left",
+   "move": "still",
+   "trainer": "asc_goatherd"
+  },
+  {
+   "id": "asc_legend",
+   "sprite": "explorer",
+   "x": 56,
+   "y": 22,
+   "facing": "left",
+   "move": "still",
+   "script": "asc_legend_talk",
+   "name": "Wideawake Warden"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "cindershell",
+    "min": 95,
+    "max": 96,
+    "weight": 14
+   },
+   {
+    "species": "gannetling",
+    "min": 95,
+    "max": 96,
+    "weight": 10
+   },
+   {
+    "species": "ternlet",
+    "min": 95,
+    "max": 96,
+    "weight": 10
+   },
+   {
+    "species": "kidgruff",
+    "min": 95,
+    "max": 96,
+    "weight": 10
+   },
+   {
+    "species": "duneskink",
+    "min": 95,
+    "max": 96,
+    "weight": 12
+   },
+   {
+    "species": "petrelash",
+    "min": 95,
+    "max": 96,
+    "weight": 8,
+    "weather": [
+     "gale"
+    ]
+   },
+   {
+    "species": "scorchbun",
+    "min": 95,
+    "max": 96,
+    "weight": 8
+   },
+   {
+    "species": "foalmoor",
+    "min": 95,
+    "max": 96,
+    "weight": 8
+   },
+   {
+    "species": "hootlet",
+    "min": 95,
+    "max": 96,
+    "weight": 6,
+    "time": [
+     "night"
+    ]
+   }
+  ],
+  "water": [
+   {
+    "species": "cindershell",
+    "min": 95,
+    "max": 96,
+    "weight": 14
+   },
+   {
+    "species": "plungebeak",
+    "min": 95,
+    "max": 96,
+    "weight": 10
+   },
+   {
+    "species": "clownbill",
+    "min": 95,
+    "max": 96,
+    "weight": 10
+   },
+   {
+    "species": "dolphlet",
+    "min": 95,
+    "max": 96,
+    "weight": 10
+   },
+   {
+    "species": "greyhaul",
+    "min": 95,
+    "max": 96,
+    "weight": 8
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 36,
+   "y": 23,
+   "plaque": "ascension_name",
+   "title": "Ascension Island",
+   "text": "A speck of volcanic rock in the middle of the South Atlantic, about 1,500 kilometres from the coast of Africa and 2,250 from Brazil. It is named for the day it was first sighted by Europeans, Ascension Day, in 1501. Nobody lived here until the Royal Navy arrived in 1815."
+  },
+  {
+   "x": 20,
+   "y": 20,
+   "plaque": "ascension_hms",
+   "title": "HMS Ascension",
+   "text": "In 1815, with Napoleon sent to St Helena, the Royal Navy occupied Ascension so that no one could use it to rescue him. It was run as a ship, the stone frigate HMS Ascension, with a captain, a crew and no ship. Sailors were paid the same as at sea, and the island has kept a naval air ever since."
+  },
+  {
+   "x": 27,
+   "y": 21,
+   "plaque": "ascension_stmarys",
+   "title": "St Mary's Church",
+   "text": "Built in 1843, St Mary's was the Royal Marines' church, and it still has the garrison's plain good sense. The graveyard holds sailors and marines from stations all over the Atlantic. Ascension did not become a place for families to live until the twentieth century, so most of the early stones are for men."
+  },
+  {
+   "x": 25,
+   "y": 26,
+   "plaque": "ascension_turtles",
+   "title": "The Turtle Ponds",
+   "text": "The ponds were built by the Navy in the 1820s. Green turtles caught on the beaches were kept alive in them until a ship needed fresh meat, or a turtle soup supper for Admiralty gentlemen. Today the turtles are protected, and the beaches are watched over by conservation staff who tag each female."
+  },
+  {
+   "x": 44,
+   "y": 12,
+   "plaque": "ascension_wideawake",
+   "title": "Wideawake Airfield",
+   "text": "In 1942 the Americans built an airstrip here in about three months, to ferry bombers across the Atlantic. It is named for the wideawake fair, the sooty terns that once nested on the plain in hundreds of thousands. In 1982 Ascension became the staging post for the Falklands task force, and for a few weeks it was one of the busiest airfields in the world."
+  },
+  {
+   "x": 53,
+   "y": 13,
+   "plaque": "ascension_cable",
+   "title": "A Wired Island",
+   "text": "Ascension has been a communications island since 1899, when the undersea telegraph cable arrived. Today it hosts a BBC relay, an American space tracking station and a joint RAF and US airfield. The big white domes are radomes: weatherproof covers over antennas, which look exactly like golf balls."
+  },
+  {
+   "x": 18,
+   "y": 25,
+   "plaque": "ascension_exiles",
+   "title": "The Exiles Club",
+   "text": "The island's social club, named for the fact that nobody here is quite at home. Ascension has no indigenous population and no right of abode: everyone on the island is working here, from Saint Helenian staff to RAF and American personnel and contractors. The Exiles is where all of them go on a Friday."
+  },
+  {
+   "x": 38,
+   "y": 25,
+   "plaque": "ascension_two_boats",
+   "title": "Two Boats Village",
+   "text": "A small settlement named for the two boats that once stood on the roadside here, with a concrete decorative flower bed made of two upturned lifeboat hulls. The houses belong to Saint Helenian staff, who have long made up much of the island's workforce, and who do most of the actual running of it."
+  },
+  {
+   "x": 46,
+   "y": 24,
+   "plaque": "ascension_garrison",
+   "title": "The Garrison",
+   "text": "The Royal Marines garrisoned Ascension until 1922, when the Eastern Telegraph Company took over. Marines built a great deal here by hand: roads, water tanks, a sea wall, and the walled farm up Green Mountain that fed the whole garrison. Their hardest enemy was not the French but the water shortage."
+  },
+  {
+   "x": 20,
+   "y": 41,
+   "plaque": "ascension_cinders",
+   "title": "Cinder Cones",
+   "text": "Ascension is the tip of an enormous volcano on the Mid-Atlantic Ridge, with about forty cinder cones and lava flows, and the youngest of them is probably only a few hundred years old. The ground is red, black and rust-brown cinder. Nothing much grows here unless somebody plants it."
+  },
+  {
+   "x": 33,
+   "y": 44,
+   "text": "WIDEAWAKE AIRFIELD. The South Atlantic Airbridge: Brize Norton, Ascension, Mount Pleasant. A long way for a cup of tea."
+  },
+  {
+   "x": 35,
+   "y": 6,
+   "text": "NORTH: the road to Green Mountain, the Farm and Dampier's Drip."
+  }
+ ],
+ "spawn": [
+  35,
+  25
+ ],
+ "stage": "coast",
+ "town_id": "ascension",
+ "scaled_floor": 95,
+ "rows": [
+  "$$jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj==jjjjjjjjjjjjjjjjjjjjjjjjjjjj",
+  "$$jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj==jjjjjjjjjjjjjjjjjjjjjjjjjjjj",
+  "$$$$$$$waaakkkkkkkkkkkkkkkkkkkkkkk==kkkkkkkkkkkkkkkkkkkkkkkkkkjj",
+  "$$$$$$$waaakkkkhkkhhkkkkkkkkkhhhhh==hhhhhkkkkkkkkkkkkkkkkkkkkkjj",
+  "$$$$$$$waaahhhhhhhhhhhkkkkkkhhhhhh==hhhhhhkkkkkkkkkkkkkkkkkkkkjj",
+  "$$$$$$$waaahhhhhhhhhhhhhkkkkkhhhhh==hhhhkkBBBBBBBjjjjjkkkkkkkkjj",
+  "$$$$$$$$$waaahhhhhhhhhhhkkkkkkkkkk==kkkkkkBBBBBBBjjjBBBBBBkkkkjj",
+  "$$$$$$$$$waaahhhhhhhhhhhhkkkkkkkkk==kkkkkkBBBBBBBjjjBBBBBBkkkkjj",
+  "$$$$$$$$$waaahhhhhhhhhhkkkkkkkkkkk==kkkkkkBBBBBBBjjjBBBBBBkkkkjj",
+  "$$$$$$$$$waaakkkhhkhkkkkkkkkkkkkkk==kkkkkkBBBBBBBjjjBBBBBBkkkkjj",
+  "$$$$$$$$$waaakkkkkkkkkkkkkkkkkkkkk==kkkkkkkkkkjjjjjjjjjkkkkkkkjj",
+  "$$$$$$$$$waaakkkkkkkkkkkkkkkkkkkkk==kkkkkkkkkkkjjjjjjjkkkkkkkkjj",
+  "$$$$$$$waaa########################=kkkkkkkkkkkkkkkkkkkkkkkkkkjj",
+  "$$$$$$$waaa##kkkkkkkkkkkkkkkkkkkkk==kkkkkkkkkkkkkkkkkkkkkkkkkkjj",
+  "$$$$$$$waaa##kkBBBBBBBBBBkkkkkkkkk==kkkkkkkkkkkkkkkkkkkkkkkkkkjj",
+  "$$$$$$$waaa##kkBBBBBBBBBBkBBBBBBkk==kkBBBBBBkBBBBBkBBBBBBkkkkkjj",
+  "$$$$$$$waaa##kkBBBBBBBBBBkBBBBBBkk==kkBBBBBBkBBBBBkBBBBBBkkkkkjj",
+  "$$$$$$$waaa##kkBBBBBBBBBBkBBBBBBkk==kkBBBBBBkBBBBBkBBBBBBkkkkkjj",
+  "$$$$$$$$$wa##kkBBBBDBBBBBkBBBDBBkk==kkBBBDBBkBBDBBkBBDBBBkkkkkjj",
+  "$$$$$$$$$wa##kkkkkkkkkkkkkkkkkkkkk==kkkkkkkkkkkkkkkkkkkkkkkkkkjj",
+  "$$$$$$$$$wa##kkkkkkkkkkkkkkkkkkkkk==kkkkkkkkkkkkkkkkkkkkkkkkkkjj",
+  "$$$$$$$$$wa##kkkkkkkkkkkkkkkkkkkkk==kkkkkkkkkkkkkkkkkkkkkkkkkkjj",
+  "$$$$$$$$$wa##kkkkkkkkkkkkkkkkkkkkk==kkkkkkkkkkkkkkkkkkkkkkkkkkjj",
+  "$$$$$$$$$wa##============================================kkkkkjj",
+  "$$$$$$$waaa==============================================kkkkkjj",
+  "$$$$$$$waaakkkkkkkkkkkkkkkkkkkkkkk==kkkkkkkkkkkkkkkkkkkkkkkkkkjj",
+  "$$$$$$$waaakkkkkkkkkkkkkkkkkkkkkkk==kkkkkkkkkkkkkkkkkkkkkkkkkkjj",
+  "$$$$$$$waaakkkkBBBBBBBBkWWWWWWWWkk==kkBBBBBBkBBBBBBkBBBBBBkkkkjj",
+  "$$$$$$$waaakkkkBBBBBBBBkW~~~~~~Wkk==kkBBBBBBkBBBBBBkBBBBBBkkkkjj",
+  "$$$$$$$waaakkkkBBBBBBBBkWWWWWWWWkk==kkBBBBBBkBBBBBBkBBBBBBkkkkjj",
+  "$$$$$$$$$waaakkBBBDBBBBkkkkkkkkkkk==kkBBBBBBkBBBBBBkBBBBBBkkkkjj",
+  "$$$$$$$$$waaakkkkkkkkkkkWWWWWWWWkk==kkkkkkkkkkkkkkkkkkkkkkkkkkjj",
+  "$$$$$$$$$waaakkkkkkkkkkkW~~~~~~Wkk==kkkkkkkkkkkkkkkkkkkkkkkkkkjj",
+  "$$$$$$$$$waaakkkkkkkkkkkWWWWWWWWkk==kkkkkkkkkkkkkkkkkkkkkkkkkkjj",
+  "$$$$$$$$$waaakkkkkkkkkkkkkkkkkkkkk==kkkkkkkkkkkkkkkkkkkkkkkkkkjj",
+  "$$$$$$$$$waaakkkkkkkkkkkkkkkkkkkkk==kkkkkkkkkkkkkkkkkkkkkkkkkkjj",
+  "$$$$$$$waaakkkkkkkkkkkkkkkkkkkkkkk==kkkkkkkkkkkkkkkkkkkkkjjjkkjj",
+  "$$$$$BBBBBakkkkkkkkkkkkkkkkkkkkkkk==kkkkkkkkkkkkkkkkkkkkjjjjjkjj",
+  "$$$$$BBBBBa######kkkkkkkkkkkkkkkkk==kkkkkkkkkkkkkkkkkkkjjjjjjjjj",
+  "$$$$$BBBBBa######kkkhkhhkkkhkkkkkk==kkkkkkkkkkkkkkkkkkkjjjjjjjjj",
+  "$$$$$$$waaakkkkkkkhhhhhhhhhhhhkhkk==kkkkkkkkkkkkkkkkkkkjjjjjjjjj",
+  "$$$$$$$waaakkkkhhhhhhhhhhhhhhhhhhh==kkkkkkkkkkkkkkkkkkkjjjjjjjjj",
+  "$$$$$$$$$waaakhhhhhhhhhhhhhhhhhhhh==kkkkkhhkkkkkkkkkkkkjjjjjjjjj",
+  "$$$$$$$$$waaakkhhhhhhhhhhhhhhhhhhh==khhhhhhhhhhhkkkkkkkkjjjjjkjj",
+  "$$$$$$$$$waaakhhhhhhhhhhhhhhhhhhhh==hhhhhhhhhhhhhkkkkkkkkjjjkkjj",
+  "$$$$$$$$$waaahhhhhhhhhhhhhhhhhhhhh==hhhhhhhhhhhhhhhkkkkkkkkkkkjj",
+  "$$$$$$$$$waaakhkhhhhhhhhhhhhhhhhhh==hhhhhhhhhhhhhhkkkkkkkkkkkkjj",
+  "$$$$$$$$$waaakkkhhhhhhhhhhhhhhhhkk==hhhhhhhhhhhhhhkkkkkkkkkkkkjj",
+  "$$$$$$$waaakkkkkkhhhhhhhhhhhhhhkkk==hhhhhhhhhhhhhhkkkkkkkkkkkkjj",
+  "$$$$$$$waaakkkkkkkkkkkhhkhhkkkkkkk==khhhhhhhhhkhkkkkkkkkkkkkkkjj",
+  "$$jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj",
+  "$$jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj"
+ ],
+ "heights": [
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000001111111111100000000",
+  "0000000000000000000000000000000000000000000111111111111111000000",
+  "0000000000000000000000000000000000000000001111222222222111100000",
+  "0000000000000000000000000000000000000000011122222222222221110000",
+  "0000000000000000000000000000000000000000111222233333332222111000",
+  "0000000000000000000000000000000000000000111222333333333222111000",
+  "0000000000000000000000000000000000000000112223334444433322211000",
+  "0000000000000000000000000000000000000000112223334444433322211000",
+  "0000000000000000000000000000000000000000112223334444433322211000",
+  "0000000000000000000000000000000000000000111222333333333222111000",
+  "0000000000000000000000000000000000000000111222233333332222111000",
+  "0000000000000000000000000000000000000000011122222222222221110000",
+  "0000000000000000000000000000000000000000001111222222222111100000",
+  "0000000000000000000000000000000000000000000111111111111111000000",
+  "0000000000000000000000000000000000000000000001111111111100000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000111111100",
+  "0000000000000000000000000000000000000000000000000000011111111111",
+  "0000000000000000000000000000000000000000000000000000011122222111",
+  "0000000000000000000000000000000000000000000000000000112222222221",
+  "0000000000000000000000000000000000000000000000000001112223332221",
+  "0000000000000000000000000000000000000000000000000001122233333222",
+  "0000000000000000000000000000000000000000000000000001122333433322",
+  "0000000000000000000000000000000000000000000000000001122334443322",
+  "0000000000000000000000000000000000000000000000000001122334443322",
+  "0000000000000000000000000000000000000000000000000001122334443322",
+  "0000000000000000000000000000000000000000000000000001122333433322",
+  "0000000000000000000000000000000000000000000000000001122233333222",
+  "0000000000000000000000001111111111111000000000000001112223332221",
+  "0000000000000000000000111111111111111110000000000000112222222221",
+  "0000000000000000000001111122222222211111000000000000011122222111",
+  "0000000000000000000001111122222222211111000000000000011111111111",
+  "0000000000000000000001111122222222211111000000000000000111111100",
+  "0000000000000000000000111111111111111110000000000000000000000000",
+  "0000000000000000000000001111111111111000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000"
+ ],
+ "legend_extra": {
+  "k": {
+   "tile": "sand",
+   "colour": "#7a5444"
+  },
+  "a": {
+   "tile": "sand",
+   "colour": "#3f3634"
+  },
+  "j": {
+   "tile": "rock",
+   "colour": "#2c2628"
+  },
+  "h": {
+   "tile": "tall_grass",
+   "colour": "#a08a56"
+  },
+  "g": {
+   "tile": "grass",
+   "colour": "#9a8c58"
+  }
+ }
+}

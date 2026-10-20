@@ -53,6 +53,13 @@ static func reachability(zones: Dictionary, ferries: Dictionary, script_warps: D
 	if zones.has("macc_home"):
 		seen["macc_home"] = true
 		queue.append("macc_home")
+	# the RAF's departures board: every overseas registry file's arrival zone is a way in
+	for f in DirAccess.get_files_at("res://data/overseas"):
+		if f.ends_with(".json"):
+			var reg = JSON.parse_string(FileAccess.get_file_as_string("res://data/overseas/" + f))
+			if reg is Dictionary and reg.get("arrival") is Dictionary and not seen.has(str(reg.arrival.get("zone", ""))):
+				seen[str(reg.arrival.zone)] = true
+				queue.append(str(reg.arrival.zone))
 	while not queue.is_empty():
 		var zid: String = queue.pop_front()
 		if not zones.has(zid):
