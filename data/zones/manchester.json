@@ -1276,10 +1276,7 @@
    "move": "wander",
    "script": "student",
    "name": "Student",
-   "times": [
-    "day",
-    "dusk"
-   ]
+   "times": ["day", "dusk"]
   },
   {
    "id": "manc_busker",
@@ -1300,10 +1297,7 @@
    "move": "still",
    "script": "town_hall_guide",
    "name": "Tour Guide",
-   "times": [
-    "day",
-    "dusk"
-   ]
+   "times": ["day", "dusk"]
   },
   {
    "id": "manc_bee",
@@ -1334,9 +1328,7 @@
    "move": "still",
    "script": "manchester_night_nurse",
    "name": "Night Nurse",
-   "times": [
-    "night"
-   ]
+   "times": ["night"]
   },
   {
    "id": "manchester_fox_watcher",
@@ -1347,172 +1339,29 @@
    "move": "still",
    "script": "manchester_fox_watcher",
    "name": "Fox Watcher",
-   "times": [
-    "night"
-   ]
+   "times": ["night"]
   }
  ],
  "encounters": {
   "grass": [
-   {
-    "species": "graftling",
-    "min": 14,
-    "max": 16,
-    "weight": 18,
-    "time": [
-     "dawn",
-     "day",
-     "dusk"
-    ]
-   },
-   {
-    "species": "bleeplet",
-    "min": 14,
-    "max": 16,
-    "weight": 12,
-    "time": [
-     "dusk",
-     "night"
-    ]
-   },
-   {
-    "species": "bogglet",
-    "min": 14,
-    "max": 16,
-    "weight": 10,
-    "time": [
-     "night"
-    ]
-   },
-   {
-    "species": "fizzlet",
-    "min": 15,
-    "max": 16,
-    "weight": 8,
-    "time": [
-     "dusk",
-     "night"
-    ]
-   },
-   {
-    "species": "fizzlet",
-    "min": 15,
-    "max": 16,
-    "weight": 14,
-    "time": [
-     "dusk",
-     "night"
-    ],
-    "season": [
-     "autumn"
-    ]
-   },
-   {
-    "species": "starlet",
-    "min": 14,
-    "max": 16,
-    "weight": 22,
-    "time": [
-     "dawn",
-     "day",
-     "dusk"
-    ]
-   },
-   {
-    "species": "swiftlet",
-    "min": 14,
-    "max": 16,
-    "weight": 16,
-    "time": [
-     "day",
-     "dusk"
-    ],
-    "weather": [
-     "clear",
-     "sunshine",
-     "gale"
-    ]
-   },
-   {
-    "species": "cooplet",
-    "min": 14,
-    "max": 16,
-    "weight": 20
-   },
-   {
-    "species": "grizzlet",
-    "min": 14,
-    "max": 16,
-    "weight": 14,
-    "time": [
-     "dawn",
-     "dusk"
-    ]
-   },
-   {
-    "species": "binfox",
-    "min": 15,
-    "max": 16,
-    "weight": 16,
-    "time": [
-     "dusk",
-     "night"
-    ]
-   },
-   {
-    "species": "pepperling",
-    "min": 14,
-    "max": 16,
-    "weight": 14,
-    "time": [
-     "dusk",
-     "night"
-    ]
-   },
-   {
-    "species": "flittermouse",
-    "min": 14,
-    "max": 16,
-    "weight": 12,
-    "time": [
-     "night"
-    ],
-    "season": [
-     "spring",
-     "summer",
-     "autumn"
-    ]
-   },
-   {
-    "species": "croakle",
-    "min": 14,
-    "max": 16,
-    "weight": 10,
-    "weather": [
-     "drizzle",
-     "downpour"
-    ]
-   }
+   {"species": "starlet", "min": 14, "max": 16, "weight": 22, "time": ["dawn", "day", "dusk"]},
+   {"species": "swiftlet", "min": 14, "max": 16, "weight": 16, "time": ["day", "dusk"], "weather": ["clear", "sunshine", "gale"]},
+   {"species": "cooplet", "min": 14, "max": 16, "weight": 20},
+   {"species": "grizzlet", "min": 14, "max": 16, "weight": 14, "time": ["dawn", "dusk"]},
+   {"species": "binfox", "min": 15, "max": 16, "weight": 16, "time": ["dusk", "night"]},
+   {"species": "pepperling", "min": 14, "max": 16, "weight": 14, "time": ["dusk", "night"]},
+   {"species": "flittermouse", "min": 14, "max": 16, "weight": 12, "time": ["night"], "season": ["spring", "summer", "autumn"]},
+   {"species": "croakle", "min": 14, "max": 16, "weight": 10, "weather": ["drizzle", "downpour"]},
+   {"species": "graftling", "min": 14, "max": 16, "weight": 18, "time": ["dawn", "day", "dusk"]},
+   {"species": "bleeplet", "min": 14, "max": 16, "weight": 12, "time": ["dusk", "night"]},
+   {"species": "bogglet", "min": 14, "max": 16, "weight": 10, "time": ["night"]},
+   {"species": "fizzlet", "min": 15, "max": 16, "weight": 8, "time": ["dusk", "night"]},
+   {"species": "fizzlet", "min": 15, "max": 16, "weight": 14, "time": ["dusk", "night"], "season": ["autumn"]}
   ],
   "water": [
-   {
-    "species": "volet",
-    "min": 14,
-    "max": 16,
-    "weight": 35
-   },
-   {
-    "species": "dipling",
-    "min": 14,
-    "max": 16,
-    "weight": 30
-   },
-   {
-    "species": "croakle",
-    "min": 14,
-    "max": 16,
-    "weight": 20
-   }
+   {"species": "volet", "min": 14, "max": 16, "weight": 35},
+   {"species": "dipling", "min": 14, "max": 16, "weight": 30},
+   {"species": "croakle", "min": 14, "max": 16, "weight": 20}
   ]
  },
  "signs": [
@@ -1577,11 +1426,6 @@
    "text": "Road to Bolton closed for resurfacing. Again. Sorry for any inconvenience."
   },
   {
-   "x": 62,
-   "y": 24,
-   "text": "EAST: Oldham, Saddleworth Moor and over the Pennines to Leeds. Open at last. Mind the hills."
-  },
-  {
    "x": 49,
    "y": 10,
    "text": "BLUE PLAQUE: Alan Turing, mathematician and computing pioneer, worked at the University of Manchester from 1948 to 1954.",
@@ -1617,6 +1461,11 @@
    "plaque": "manchester_peppered_moth",
    "title": "The Peppered Moth",
    "text": "The peppered moth is normally pale and speckled, invisible on a lichen-covered tree. In 1848 a black one was recorded in Manchester, and as soot darkened the city's trees the dark moths took over, because birds could not spot them. It became a famous example of evolution in plain sight."
+  },
+  {
+   "x": 62,
+   "y": 24,
+   "text": "EAST: Oldham, Saddleworth Moor and over the Pennines to Leeds. Open at last. Mind the hills."
   }
  ],
  "spawn": [

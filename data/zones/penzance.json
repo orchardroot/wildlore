@@ -11,30 +11,21 @@
     "max": 47.0,
     "min": 46.0,
     "species": "gannetling",
-    "time": [
-     "day",
-     "dawn"
-    ],
+    "time": ["day", "dawn"],
     "weight": 14.0
    },
    {
     "max": 48.0,
     "min": 47.0,
     "species": "plungebeak",
-    "weather": [
-     "gale",
-     "clear"
-    ],
+    "weather": ["gale", "clear"],
     "weight": 10.0
    },
    {
     "max": 47.0,
     "min": 46.0,
     "species": "baskling",
-    "weather": [
-     "fog",
-     "drizzle"
-    ],
+    "weather": ["fog", "drizzle"],
     "weight": 6.0
    },
    {
@@ -47,57 +38,42 @@
     "max": 48.0,
     "min": 47.0,
     "species": "cassiterix",
-    "weather": [
-     "downpour"
-    ],
+    "weather": ["downpour"],
     "weight": 5.0
    },
    {
     "max": 47.0,
     "min": 46.0,
     "species": "chipgull",
-    "time": [
-     "day"
-    ],
+    "time": ["day"],
     "weight": 14.0
    },
    {
     "max": 48.0,
     "min": 47.0,
     "species": "pierlord",
-    "time": [
-     "day",
-     "dusk"
-    ],
+    "time": ["day", "dusk"],
     "weight": 8.0
    },
    {
     "max": 48.0,
     "min": 46.0,
     "species": "clownbill",
-    "time": [
-     "dawn",
-     "day"
-    ],
+    "time": ["dawn", "day"],
     "weight": 10.0
    },
    {
     "max": 47.0,
     "min": 46.0,
     "species": "polartern",
-    "weather": [
-     "frost",
-     "gale"
-    ],
+    "weather": ["frost", "gale"],
     "weight": 8.0
    },
    {
     "max": 48.0,
     "min": 46.0,
     "species": "petrelash",
-    "time": [
-     "night"
-    ],
+    "time": ["night"],
     "weight": 10.0
    }
   ],
@@ -189,7 +165,6 @@
  "music": "town_cornwall",
  "name": "Penzance",
  "npcs": [
-  {"id": "e2e_cornish", "sprite": "jogger", "x": 3, "y": 24, "facing": "up", "move": "still", "script": "e2e_cornish", "name": "End to Ender", "show_if": "q_farnorth_e2e_started"},
   {
    "facing": "right",
    "id": "rail_guard",
@@ -283,6 +258,17 @@
    "trainer": "penz_busker",
    "x": 24.0,
    "y": 21.0
+  },
+  {
+   "id": "e2e_cornish",
+   "sprite": "jogger",
+   "x": 3,
+   "y": 24,
+   "facing": "up",
+   "move": "still",
+   "script": "e2e_cornish",
+   "name": "End to Ender",
+   "show_if": "q_farnorth_e2e_started"
   }
  ],
  "props": [

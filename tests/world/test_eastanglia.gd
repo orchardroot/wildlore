@@ -114,7 +114,7 @@ func test_regional_creatures() -> void:
 
 func test_regional_items_are_stocked() -> void:
 	var items := ItemDB.load_default()
-	for id in ["chelsea_bun", "smoked_eel", "norfolk_dumpling", "norwich_mustard", "fen_runners", "norfolk_reed", "canary_scarf"]:
+	for id in ["chelsea_bun", "fen_smoked_eel", "norfolk_dumpling", "norwich_mustard", "fen_runners", "norfolk_reed", "canary_scarf"]:
 		assert_false(items.get_item(id).is_empty(), "%s exists" % id)
 	assert_has(items.shops["cambridge_corner_shop"].stock, "chelsea_bun")
 	assert_has(items.shops["norwich_corner_shop"].stock, "norwich_mustard")

@@ -535,7 +535,6 @@
   }
  ],
  "edges": {
-  "east": {"to": "lincoln", "offset": 4},
   "north": {
    "to": "sherwood",
    "offset": 0
@@ -543,6 +542,10 @@
   "south": {
    "to": "birmingham",
    "offset": 0
+  },
+  "east": {
+   "to": "lincoln",
+   "offset": 4
   }
  },
  "npcs": [
@@ -673,21 +676,14 @@
     "min": 88,
     "max": 89,
     "weight": 12,
-    "time": [
-     "dawn",
-     "dusk",
-     "night"
-    ]
+    "time": ["dawn", "dusk", "night"]
    },
    {
     "species": "binfox",
     "min": 88,
     "max": 88,
     "weight": 10,
-    "time": [
-     "night",
-     "dusk"
-    ]
+    "time": ["night", "dusk"]
    },
    {
     "species": "grizzlet",
@@ -712,28 +708,21 @@
     "min": 88,
     "max": 89,
     "weight": 10,
-    "time": [
-     "day",
-     "dusk"
-    ]
+    "time": ["day", "dusk"]
    },
    {
     "species": "sootwing",
     "min": 88,
     "max": 89,
     "weight": 8,
-    "time": [
-     "night"
-    ]
+    "time": ["night"]
    },
    {
     "species": "hootlet",
     "min": 88,
     "max": 88,
     "weight": 6,
-    "time": [
-     "night"
-    ]
+    "time": ["night"]
    },
    {
     "species": "chipgull",
@@ -760,10 +749,7 @@
     "min": 88,
     "max": 89,
     "weight": 10,
-    "time": [
-     "night",
-     "dusk"
-    ]
+    "time": ["night", "dusk"]
    },
    {
     "species": "cranelet",
@@ -798,7 +784,6 @@
   ]
  },
  "signs": [
-  {"x": 69, "y": 35, "text": "FINGERPOST. East: Lincoln, its cathedral on the hill and the Imp inside it. Mind Steep Hill."},
   {
    "x": 26,
    "y": 11,
@@ -870,6 +855,11 @@
    "plaque": "nottingham_trent_bridge",
    "title": "Trent Bridge",
    "text": "Across the river stands Trent Bridge, one of England's great cricket grounds. It hosted its first Test match in 1899, which was also the last Test for W. G. Grace, the bearded giant of Victorian cricket. He was fifty, and decided his fielding days were done."
+  },
+  {
+   "x": 69,
+   "y": 35,
+   "text": "FINGERPOST. East: Lincoln, its cathedral on the hill and the Imp inside it. Mind Steep Hill."
   }
  ],
  "spawn": [

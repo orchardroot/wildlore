@@ -1,9 +1,5 @@
 {
  "edges": {
-  "north": {
-   "offset": -20,
-   "to": "flow_country"
-  },
   "east": {
    "offset": 0.0,
    "to": "cairngorms"
@@ -15,138 +11,31 @@
   "west": {
    "offset": 0.0,
    "to": "skye"
+  },
+  "north": {
+   "offset": -20,
+   "to": "flow_country"
   }
  },
  "encounters": {
   "grass": [
-   {
-    "max": 74.0,
-    "min": 74.0,
-    "species": "brownie",
-    "time": [
-     "dusk",
-     "night"
-    ],
-    "weight": 14.0
-   },
-   {
-    "max": 74.0,
-    "min": 73.0,
-    "species": "redbreast",
-    "time": [
-     "dawn",
-     "day"
-    ],
-    "weight": 14.0
-   },
-   {
-    "max": 74.0,
-    "min": 73.0,
-    "species": "warrender",
-    "weight": 12.0
-   },
-   {
-    "max": 74.0,
-    "min": 73.0,
-    "species": "strutcoo",
-    "time": [
-     "day",
-     "dawn"
-    ],
-    "weight": 12.0
-   },
-   {
-    "max": 74.0,
-    "min": 73.0,
-    "species": "hootlet",
-    "time": [
-     "night"
-    ],
-    "weight": 8.0
-   },
-   {
-    "max": 74.0,
-    "min": 73.0,
-    "species": "flittermouse",
-    "time": [
-     "night"
-    ],
-    "weight": 8.0
-   },
-   {
-    "max": 74.0,
-    "min": 73.0,
-    "species": "pierlord",
-    "time": [
-     "day",
-     "dusk"
-    ],
-    "weight": 10.0
-   },
-   {
-    "max": 74.0,
-    "min": 74.0,
-    "species": "lochosprey",
-    "time": [
-     "day"
-    ],
-    "weight": 8.0
-   },
-   {
-    "max": 74.0,
-    "min": 73.0,
-    "species": "rillotter",
-    "weather": [
-     "drizzle",
-     "downpour"
-    ],
-    "weight": 6.0
-   }
+   {"max": 74.0, "min": 74.0, "species": "brownie", "time": ["dusk", "night"], "weight": 14.0},
+   {"max": 74.0, "min": 73.0, "species": "redbreast", "time": ["dawn", "day"], "weight": 14.0},
+   {"max": 74.0, "min": 73.0, "species": "warrender", "weight": 12.0},
+   {"max": 74.0, "min": 73.0, "species": "strutcoo", "time": ["day", "dawn"], "weight": 12.0},
+   {"max": 74.0, "min": 73.0, "species": "hootlet", "time": ["night"], "weight": 8.0},
+   {"max": 74.0, "min": 73.0, "species": "flittermouse", "time": ["night"], "weight": 8.0},
+   {"max": 74.0, "min": 73.0, "species": "pierlord", "time": ["day", "dusk"], "weight": 10.0},
+   {"max": 74.0, "min": 74.0, "species": "lochosprey", "time": ["day"], "weight": 8.0},
+   {"max": 74.0, "min": 73.0, "species": "rillotter", "weather": ["drizzle", "downpour"], "weight": 6.0}
   ],
   "water": [
-   {
-    "max": 74.0,
-    "min": 73.0,
-    "species": "rillotter",
-    "weight": 24.0
-   },
-   {
-    "max": 74.0,
-    "min": 73.0,
-    "species": "pierlord",
-    "weight": 18.0
-   },
-   {
-    "max": 74.0,
-    "min": 73.0,
-    "species": "bradan",
-    "weather": [
-     "drizzle",
-     "downpour"
-    ],
-    "weight": 18.0
-   },
-   {
-    "max": 74.0,
-    "min": 73.0,
-    "species": "spatelord",
-    "weight": 16.0
-   },
-   {
-    "max": 74.0,
-    "min": 74.0,
-    "species": "bayrunner",
-    "time": [
-     "day"
-    ],
-    "weight": 8.0
-   },
-   {
-    "max": 74.0,
-    "min": 73.0,
-    "species": "heronarch",
-    "weight": 12.0
-   }
+   {"max": 74.0, "min": 73.0, "species": "rillotter", "weight": 24.0},
+   {"max": 74.0, "min": 73.0, "species": "pierlord", "weight": 18.0},
+   {"max": 74.0, "min": 73.0, "species": "bradan", "weather": ["drizzle", "downpour"], "weight": 18.0},
+   {"max": 74.0, "min": 73.0, "species": "spatelord", "weight": 16.0},
+   {"max": 74.0, "min": 74.0, "species": "bayrunner", "time": ["day"], "weight": 8.0},
+   {"max": 74.0, "min": 73.0, "species": "heronarch", "weight": 12.0}
   ]
  },
  "heights": [
@@ -227,10 +116,7 @@
    "sprite": "villager_5",
    "x": 8.0,
    "y": 31.0,
-   "times": [
-    "day",
-    "dusk"
-   ]
+   "times": ["day", "dusk"]
   },
   {
    "facing": "up",
@@ -240,10 +126,7 @@
    "sprite": "villager_2",
    "x": 51.0,
    "y": 33.0,
-   "times": [
-    "day",
-    "dusk"
-   ],
+   "times": ["day", "dusk"],
    "radius": 1
   },
   {
@@ -254,14 +137,8 @@
    "sprite": "birdwatcher",
    "x": 18.0,
    "y": 7.0,
-   "times": [
-    "day",
-    "dusk"
-   ],
-   "path": [
-    "left",
-    "left"
-   ]
+   "times": ["day", "dusk"],
+   "path": ["left", "left"]
   },
   {
    "facing": "down",
@@ -365,9 +242,6 @@
    "x": 62.0,
    "y": 26.0
   },
-  {"id": "kessock_a", "sprite": "steelworker", "x": 49, "y": 3, "facing": "down", "move": "still", "name": "Bridge Engineer", "script": "kessock_works", "hide_if": "badge_frost"},
-  {"id": "kessock_b", "sprite": "steelworker", "x": 50, "y": 3, "facing": "down", "move": "still", "name": "Bridge Engineer", "script": "kessock_works", "hide_if": "badge_frost"},
-  {"id": "kessock_c", "sprite": "steelworker", "x": 51, "y": 3, "facing": "down", "move": "still", "name": "Bridge Engineer", "script": "kessock_works", "hide_if": "badge_frost"},
   {
    "id": "inverness_astronomer",
    "sprite": "astronomer",
@@ -377,9 +251,7 @@
    "move": "still",
    "script": "inverness_astronomer",
    "name": "Astronomer",
-   "times": [
-    "night"
-   ]
+   "times": ["night"]
   },
   {
    "id": "inverness_fox_watcher",
@@ -390,16 +262,43 @@
    "move": "still",
    "script": "inverness_fox_watcher",
    "name": "Fox Watcher",
-   "times": [
-    "night"
-   ]
+   "times": ["night"]
+  },
+  {
+   "id": "kessock_a",
+   "sprite": "steelworker",
+   "x": 49,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "name": "Bridge Engineer",
+   "script": "kessock_works",
+   "hide_if": "badge_frost"
+  },
+  {
+   "id": "kessock_b",
+   "sprite": "steelworker",
+   "x": 50,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "name": "Bridge Engineer",
+   "script": "kessock_works",
+   "hide_if": "badge_frost"
+  },
+  {
+   "id": "kessock_c",
+   "sprite": "steelworker",
+   "x": 51,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "name": "Bridge Engineer",
+   "script": "kessock_works",
+   "hide_if": "badge_frost"
   }
  ],
  "props": [
-  {"type": "lamp_post", "x": 48, "y": 3},
-  {"type": "lamp_post", "x": 52, "y": 3},
-  {"type": "lamp_post", "x": 48, "y": 0},
-  {"type": "lamp_post", "x": 52, "y": 0},
   {
    "type": "oak",
    "x": 21.0,
@@ -1034,6 +933,26 @@
    "type": "noticeboard",
    "x": 26,
    "y": 25
+  },
+  {
+   "type": "lamp_post",
+   "x": 48,
+   "y": 3
+  },
+  {
+   "type": "lamp_post",
+   "x": 52,
+   "y": 3
+  },
+  {
+   "type": "lamp_post",
+   "x": 48,
+   "y": 0
+  },
+  {
+   "type": "lamp_post",
+   "x": 52,
+   "y": 0
   }
  ],
  "region": "scotland",
@@ -1088,7 +1007,6 @@
   "TTTTTTTTTTTTTTTTTTTTTT~~~~TTTTTTTT===TTTTTTTTTTTTTTTTTTTTTTTTTTT"
  ],
  "signs": [
-  {"x": 47, "y": 6, "text": "THE KESSOCK BRIDGE. North over the firth to the Black Isle, the Flow Country, Thurso and John o' Groats. The bridge opened in 1982 and is a favourite spot for watching the dolphins, if you can stop to look."},
   {
    "text": "INVERNESS ICE RINK. Home to curling, skating and one Keeper who will not be hurried. Curling is 'the roaring game' because of the sound the granite stones make on the ice. Sweeping is allowed. Shouting is encouraged.",
    "x": 53.0,
@@ -1170,6 +1088,11 @@
    "plaque": "inverness_tomnahurich",
    "title": "Tomnahurich",
    "text": "The wooded hill by the canal is Tomnahurich, from the Gaelic Tom na h-Iubhraich: 'hill of the yew wood', or perhaps 'of the boat', for its upturned-hull shape. Legend says the fairies lived inside it, and that fiddlers who went in for one night came out a hundred years later. It is a cemetery now."
+  },
+  {
+   "x": 47,
+   "y": 6,
+   "text": "THE KESSOCK BRIDGE. North over the firth to the Black Isle, the Flow Country, Thurso and John o' Groats. The bridge opened in 1982 and is a favourite spot for watching the dolphins, if you can stop to look."
   }
  ],
  "spawn": [

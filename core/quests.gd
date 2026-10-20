@@ -305,7 +305,7 @@ static func validate(list: Array, zones: Dictionary, settable: Dictionary) -> Ar
 				errors.append(tag + ": no %s" % f[0])
 				continue
 			# a step may be ticked by a plaque or a trainer win; the quest's own flags live in its region's namespace
-			if f[0] in ["start_flag", "done_flag"] and not f[1].begins_with(ns):
+			if f[0] in ["start_flag", "done_flag"] and not f[1].begins_with(ns) and not f[1].begins_with(FLAG_PREFIX + str(q.get("region", "")).replace("_", "") + "_"):
 				errors.append(tag + ": %s '%s' should start %s" % [f[0], f[1], ns])
 			if not settable.has(f[1]):
 				errors.append(tag + ": %s '%s' is never set by any script, trainer or plaque" % [f[0], f[1]])

@@ -875,7 +875,6 @@
   }
  ],
  "edges": {
-  "east": {"to": "yorkshire_wolds", "offset": -8},
   "north": {
    "to": "whitby",
    "offset": 0
@@ -887,6 +886,10 @@
   "south": {
    "to": "sheffield",
    "offset": 0
+  },
+  "east": {
+   "to": "yorkshire_wolds",
+   "offset": -8
   }
  },
  "npcs": [
@@ -1033,29 +1036,21 @@
     "min": 84,
     "max": 85,
     "weight": 16,
-    "time": [
-     "day",
-     "dawn"
-    ]
+    "time": ["day", "dawn"]
    },
    {
     "species": "legionette",
     "min": 84,
     "max": 85,
     "weight": 14,
-    "time": [
-     "night",
-     "dusk"
-    ]
+    "time": ["night", "dusk"]
    },
    {
     "species": "hootlet",
     "min": 84,
     "max": 85,
     "weight": 8,
-    "time": [
-     "night"
-    ]
+    "time": ["night"]
    },
    {
     "species": "pepperling",
@@ -1068,19 +1063,14 @@
     "min": 84,
     "max": 85,
     "weight": 8,
-    "time": [
-     "night"
-    ]
+    "time": ["night"]
    },
    {
     "species": "binfox",
     "min": 84,
     "max": 85,
     "weight": 8,
-    "time": [
-     "night",
-     "dusk"
-    ]
+    "time": ["night", "dusk"]
    },
    {
     "species": "grizzlet",
@@ -1105,24 +1095,18 @@
     "min": 84,
     "max": 85,
     "weight": 8,
-    "time": [
-     "dusk",
-     "dawn"
-    ]
+    "time": ["dusk", "dawn"]
    },
    {
     "species": "barnling",
     "min": 84,
     "max": 85,
     "weight": 6,
-    "time": [
-     "night"
-    ]
+    "time": ["night"]
    }
   ]
  },
  "signs": [
-  {"x": 69, "y": 29, "text": "FINGERPOST. East: the Yorkshire Wolds, Rudston and Hull. Chalk hills, big skies and a city with cream phone boxes."},
   {
    "x": 17,
    "y": 7,
@@ -1194,6 +1178,11 @@
    "plaque": "york_merchants",
    "title": "Merchant Adventurers",
    "text": "Built in the 1350s by a religious guild, this timber hall later became home to York's Company of Merchant Adventurers, who traded cloth and much else overseas. Its great oak frame has stood for more than 650 years. The floor slopes a little. So would yours."
+  },
+  {
+   "x": 69,
+   "y": 29,
+   "text": "FINGERPOST. East: the Yorkshire Wolds, Rudston and Hull. Chalk hills, big skies and a city with cream phone boxes."
   }
  ],
  "spawn": [

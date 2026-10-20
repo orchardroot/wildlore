@@ -481,7 +481,6 @@
  ],
  "edges": {},
  "npcs": [
-  {"id": "pentland_skipper", "sprite": "fisherman_north", "x": 44, "y": 6, "facing": "right", "move": "still", "script": "pentland_skipper", "name": "Pentland Skipper"},
   {
    "id": "kwl_sailor",
    "sprite": "sailor",
@@ -581,6 +580,16 @@
    "script": "brodgar_night",
    "name": "Night Warden",
    "show_if": "game_complete"
+  },
+  {
+   "id": "pentland_skipper",
+   "sprite": "fisherman_north",
+   "x": 44,
+   "y": 6,
+   "facing": "right",
+   "move": "still",
+   "script": "pentland_skipper",
+   "name": "Pentland Skipper"
   }
  ],
  "encounters": {
@@ -590,9 +599,7 @@
     "min": 80,
     "max": 80,
     "weight": 14,
-    "time": [
-     "day"
-    ]
+    "time": ["day"]
    },
    {
     "species": "polartern",
@@ -605,38 +612,28 @@
     "min": 80,
     "max": 80,
     "weight": 10,
-    "weather": [
-     "frost",
-     "fog"
-    ]
+    "weather": ["frost", "fog"]
    },
    {
     "species": "goldeneyrie",
     "min": 80,
     "max": 80,
     "weight": 8,
-    "time": [
-     "day"
-    ]
+    "time": ["day"]
    },
    {
     "species": "haarling",
     "min": 80,
     "max": 80,
     "weight": 10,
-    "weather": [
-     "fog"
-    ]
+    "weather": ["fog"]
    },
    {
     "species": "midgeswarm",
     "min": 80,
     "max": 80,
     "weight": 10,
-    "time": [
-     "dawn",
-     "dusk"
-    ]
+    "time": ["dawn", "dusk"]
    },
    {
     "species": "cragchough",
@@ -649,28 +646,21 @@
     "min": 80,
     "max": 80,
     "weight": 8,
-    "time": [
-     "day"
-    ]
+    "time": ["day"]
    },
    {
     "species": "hushwing",
     "min": 80,
     "max": 80,
     "weight": 6,
-    "time": [
-     "night"
-    ]
+    "time": ["night"]
    },
    {
     "species": "selkie",
     "min": 80,
     "max": 80,
     "weight": 6,
-    "time": [
-     "dusk",
-     "night"
-    ]
+    "time": ["dusk", "night"]
    }
   ],
   "water": [
@@ -685,20 +675,14 @@
     "min": 80,
     "max": 80,
     "weight": 8,
-    "time": [
-     "dawn",
-     "dusk"
-    ]
+    "time": ["dawn", "dusk"]
    },
    {
     "species": "selkie",
     "min": 80,
     "max": 80,
     "weight": 12,
-    "time": [
-     "dusk",
-     "night"
-    ]
+    "time": ["dusk", "night"]
    },
    {
     "species": "bayrunner",
@@ -717,9 +701,7 @@
     "min": 80,
     "max": 80,
     "weight": 12,
-    "weather": [
-     "fog"
-    ]
+    "weather": ["fog"]
    },
    {
     "species": "pierlord",

@@ -774,10 +774,7 @@
    "move": "still",
    "script": "kipper_man",
    "name": "Kipper Seller",
-   "times": [
-    "day",
-    "dusk"
-   ]
+   "times": ["day", "dusk"]
   },
   {
    "id": "doug_tynwald",
@@ -788,10 +785,7 @@
    "move": "wander",
    "script": "tynwald_guide",
    "name": "Guide",
-   "times": [
-    "day",
-    "dusk"
-   ]
+   "times": ["day", "dusk"]
   },
   {
    "id": "rail_guard",
@@ -878,77 +872,19 @@
  ],
  "encounters": {
   "grass": [
-   {
-    "species": "loaghtan",
-    "min": 20,
-    "max": 24,
-    "weight": 38
-   },
-   {
-    "species": "chipgull",
-    "min": 20,
-    "max": 22,
-    "weight": 18
-   },
-   {
-    "species": "pinchkin",
-    "min": 20,
-    "max": 22,
-    "weight": 14
-   },
-   {
-    "species": "cooplet",
-    "min": 21,
-    "max": 23,
-    "weight": 12,
-    "weather": ["clear", "sunshine"]
-   },
-   {
-    "species": "pupplash",
-    "min": 21,
-    "max": 23,
-    "weight": 12
-   },
-   {
-    "species": "starlet",
-    "min": 20,
-    "max": 22,
-    "weight": 10,
-    "time": ["dawn", "day", "dusk"]
-   },
-   {
-    "species": "swiftlet",
-    "min": 21,
-    "max": 23,
-    "weight": 8,
-    "weather": ["gale", "clear"]
-   },
-   {
-    "species": "pipkin",
-    "min": 21,
-    "max": 23,
-    "weight": 8
-   }
+   {"species": "loaghtan", "min": 20, "max": 24, "weight": 38},
+   {"species": "chipgull", "min": 20, "max": 22, "weight": 18},
+   {"species": "pinchkin", "min": 20, "max": 22, "weight": 14},
+   {"species": "cooplet", "min": 21, "max": 23, "weight": 12, "weather": ["clear", "sunshine"]},
+   {"species": "pupplash", "min": 21, "max": 23, "weight": 12},
+   {"species": "starlet", "min": 20, "max": 22, "weight": 10, "time": ["dawn", "day", "dusk"]},
+   {"species": "swiftlet", "min": 21, "max": 23, "weight": 8, "weather": ["gale", "clear"]},
+   {"species": "pipkin", "min": 21, "max": 23, "weight": 8}
   ],
   "water": [
-   {
-    "species": "chipgull",
-    "min": 20,
-    "max": 22,
-    "weight": 35
-   },
-   {
-    "species": "pinchkin",
-    "min": 20,
-    "max": 22,
-    "weight": 30
-   },
-   {
-    "species": "pupplash",
-    "min": 21,
-    "max": 23,
-    "weight": 25
-   }
+   {"species": "chipgull", "min": 20, "max": 22, "weight": 35},
+   {"species": "pinchkin", "min": 20, "max": 22, "weight": 30},
+   {"species": "pupplash", "min": 21, "max": 23, "weight": 25}
   ]
  },
  "signs": [
@@ -1098,7 +1034,9 @@
   "TTT:::BBBDBBBB::::::::::::BBBDBBBB::BBBBB::!:::sds$$$$$$$$$$",
   "TTT:_________________:::::::::::::::BBDBB::!:::sds$$$$$$$$$$",
   "!!!!!!!!!!!!!!!!!!!!!::::::::::::::::::::::!:::sss$$$$$$$$$$",
-  "TTT.................:::::::::::::::::::::::!:::sssRsssR$$$$$",
+  "TTT.................:::::::::::::::BBBBBBB:!:::sss$RRR$$$$$$",
+  "TTT.................:::::::::::::::BBBBBBB:!:::sssRsssR$$$$$",
+  "TTT.................:::::::::::::::BBBDBBB:!:::sssRsssRR$$$$",
   "TTT.................:::::::::::::::::::::::!:::sssRsssR$$$$$",
   "TTT========================================&:::sss$RRR$$$$$$",
   "TTT..................:::...................!:::sss$$$$$$$$$$",
@@ -1117,10 +1055,7 @@
   "TTT.............b.......b............b.....!:::sss$$$$$$$$$$",
   "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTsss$$$$$$$$$$",
   "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTsss$$$$$$$$$$",
-  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTsss$$$$$$$$$$",
-  "TTT.................:::::::::::::::BBBBBBB:!:::sss$RRR$$$$$$",
-  "TTT.................:::::::::::::::BBBBBBB:!:::sssRsssR$$$$$",
-  "TTT.................:::::::::::::::BBBDBBB:!:::sssRsssRR$$$$"
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTsss$$$$$$$$$$"
  ],
  "heights": [
   "000000000000000000000000000000000000000000000000000000000000",
