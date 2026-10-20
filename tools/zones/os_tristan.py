@@ -68,7 +68,6 @@ def tristan(OUT):
     for (bx, by) in [(20, 22), (44, 22)]:
         z.prop("bench", bx, by)
     scatter_props(z, "rock", 4, 14, 58, 36, 22, 32, avoid=("k",))
-    z.prop("flagpole", 33, 18)
     z.d["spawn"] = [32, 19]
     # ---- plaques ----
     plaque(z, 26, 19, "tristan_island", "Tristan da Cunha",
@@ -195,16 +194,16 @@ def interiors(OUT, ret_church, ret_hall, ret_fact, ret_post, ret_knit, ret_schoo
 
 def quest_data(OUT):
     z = "tristan_da_cunha"
+    hint = say("Chief Islander Mabel", "Four families will tell you where their names came from. A Glass, a Green, a Repetto and a Rogers. Talk to each of them, and come back.")
+    fight = say("Chief Islander Mabel", "You've heard the names of the founders, from the ones who carry them. The Council is pleased. Now, a bit of island custom: a friendly fight, with no hard feelings and a lot of tea after.") + \
+        [battle("tri_legend")] + \
+        say("Chief Islander Mabel", "Well fought. The island makes you an honorary Tristanian for a day. Here is a hat of our own wool, and a basket of our own potatoes.") + \
+        [give("tristan_hat"), give("tristan_potato", 3)] + standing(3) + [setf(Q + "done")]
     DLG[z]["tri_legend_talk"] = [cmd_if(Q + "done",
         say("Chief Islander Mabel", "Our friend of the island! Come and have a cup of tea any time. And bring your own hat."),
-        [cmd_if(Q + "4",
-                say("Chief Islander Mabel", "You've heard the names of the founders, from the ones who carry them. The Council is pleased. Now, a bit of island custom: a friendly fight, with no hard feelings and a lot of tea after.") +
-                [battle("tri_legend")] +
-                say("Chief Islander Mabel", "Well fought. The island makes you an honorary Tristanian for a day. Here is a hat of our own wool, and a basket of our own potatoes.") +
-                [give("tristan_hat"), give("tristan_potato", 3)] + standing(3) + [setf(Q + "done")],
-                [cmd_if(Q + "started",
-                        say("Chief Islander Mabel", "Four of the families will tell you where their names came from. A Glass, a Green, a Repetto and a Rogers. Talk to each of them, and come back."),
-                        say("Chief Islander Mabel", "Hello! You've come a long way. Would you like to hear where we all came from? Four families will tell you: a Glass, a Green, a Repetto and a Rogers. Find them in the Settlement, and then come back to me.") + [setf(Q + "started")])])])]
+        [cmd_if(Q + "started",
+                [cmd_if(Q + "1", [cmd_if(Q + "2", [cmd_if(Q + "3", [cmd_if(Q + "4", fight, hint)], hint)], hint)], hint)],
+                say("Chief Islander Mabel", "Hello! You've come a long way. Would you like to hear where we all came from? Four families will tell you: a Glass, a Green, a Repetto and a Rogers. Find them in the Settlement, and then come back to me.") + [setf(Q + "started")])])]
     for nid, who, key in [("tri_glass", "Islander (Glass)", "1"), ("tri_green", "Islander (Green)", "2"), ("tri_repetto", "Islander (Repetto)", "3"), ("tri_rogers", "Islander (Rogers)", "4")]:
         old = DLG[z][nid]
         DLG[z][nid] = old + [cmd_if(Q + "started", [setf(Q + key)])]

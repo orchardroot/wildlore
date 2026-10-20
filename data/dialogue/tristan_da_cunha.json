@@ -136,62 +136,101 @@
    "else": [
     {
      "do": "if",
-     "flag": "q_overseas_tristan_4",
+     "flag": "q_overseas_tristan_started",
      "then": [
       {
-       "do": "say",
-       "who": "Chief Islander Mabel",
-       "text": "You've heard the names of the founders, from the ones who carry them. The Council is pleased. Now, a bit of island custom: a friendly fight, with no hard feelings and a lot of tea after."
-      },
-      {
-       "do": "battle",
-       "trainer": "tri_legend",
-       "intro": true
-      },
-      {
-       "do": "say",
-       "who": "Chief Islander Mabel",
-       "text": "Well fought. The island makes you an honorary Tristanian for a day. Here is a hat of our own wool, and a basket of our own potatoes."
-      },
-      {
-       "do": "give_item",
-       "item": "tristan_hat",
-       "n": 1
-      },
-      {
-       "do": "give_item",
-       "item": "tristan_potato",
-       "n": 3
-      },
-      {
-       "do": "set",
-       "flag": "q_overseas_tristan_done",
-       "value": true
-      }
-     ],
-     "else": [
-      {
        "do": "if",
-       "flag": "q_overseas_tristan_started",
+       "flag": "q_overseas_tristan_1",
        "then": [
         {
-         "do": "say",
-         "who": "Chief Islander Mabel",
-         "text": "Four of the families will tell you where their names came from. A Glass, a Green, a Repetto and a Rogers. Talk to each of them, and come back."
+         "do": "if",
+         "flag": "q_overseas_tristan_2",
+         "then": [
+          {
+           "do": "if",
+           "flag": "q_overseas_tristan_3",
+           "then": [
+            {
+             "do": "if",
+             "flag": "q_overseas_tristan_4",
+             "then": [
+              {
+               "do": "say",
+               "who": "Chief Islander Mabel",
+               "text": "You've heard the names of the founders, from the ones who carry them. The Council is pleased. Now, a bit of island custom: a friendly fight, with no hard feelings and a lot of tea after."
+              },
+              {
+               "do": "battle",
+               "trainer": "tri_legend",
+               "intro": true
+              },
+              {
+               "do": "say",
+               "who": "Chief Islander Mabel",
+               "text": "Well fought. The island makes you an honorary Tristanian for a day. Here is a hat of our own wool, and a basket of our own potatoes."
+              },
+              {
+               "do": "give_item",
+               "item": "tristan_hat",
+               "n": 1
+              },
+              {
+               "do": "give_item",
+               "item": "tristan_potato",
+               "n": 3
+              },
+              {
+               "do": "set",
+               "flag": "q_overseas_tristan_done",
+               "value": true
+              }
+             ],
+             "else": [
+              {
+               "do": "say",
+               "who": "Chief Islander Mabel",
+               "text": "Four families will tell you where their names came from. A Glass, a Green, a Repetto and a Rogers. Talk to each of them, and come back."
+              }
+             ]
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Chief Islander Mabel",
+             "text": "Four families will tell you where their names came from. A Glass, a Green, a Repetto and a Rogers. Talk to each of them, and come back."
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Chief Islander Mabel",
+           "text": "Four families will tell you where their names came from. A Glass, a Green, a Repetto and a Rogers. Talk to each of them, and come back."
+          }
+         ]
         }
        ],
        "else": [
         {
          "do": "say",
          "who": "Chief Islander Mabel",
-         "text": "Hello! You've come a long way. Would you like to hear where we all came from? Four families will tell you: a Glass, a Green, a Repetto and a Rogers. Find them in the Settlement, and then come back to me."
-        },
-        {
-         "do": "set",
-         "flag": "q_overseas_tristan_started",
-         "value": true
+         "text": "Four families will tell you where their names came from. A Glass, a Green, a Repetto and a Rogers. Talk to each of them, and come back."
         }
        ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Chief Islander Mabel",
+       "text": "Hello! You've come a long way. Would you like to hear where we all came from? Four families will tell you: a Glass, a Green, a Repetto and a Rogers. Find them in the Settlement, and then come back to me."
+      },
+      {
+       "do": "set",
+       "flag": "q_overseas_tristan_started",
+       "value": true
       }
      ]
     }

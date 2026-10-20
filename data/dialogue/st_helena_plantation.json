@@ -132,7 +132,7 @@
  "sth_legend_talk": [
   {
    "do": "if",
-   "flag": "q_overseas_st_helena_4_seen",
+   "flag": "q_overseas_st_helena_4",
    "then": [
     {
      "do": "say",
@@ -142,29 +142,76 @@
    ],
    "else": [
     {
-     "do": "say",
-     "who": "Consul Lucien",
-     "text": "Bonjour. I am the French Honorary Consul, and I keep the keys. Our flag is the only one on the island that is not British, and I defend it. Come. A fight, in the French manner: with elegance, and a little arrogance."
-    },
-    {
-     "do": "battle",
-     "trainer": "sth_legend",
-     "intro": true
-    },
-    {
-     "do": "say",
-     "who": "Consul Lucien",
-     "text": "Bravo. You have the spirit of a marshal. Tell the curator the Consul says you may call yourself a Saint."
-    },
-    {
-     "do": "set",
-     "flag": "q_overseas_st_helena_4",
-     "value": true
-    },
-    {
-     "do": "set",
-     "flag": "q_overseas_st_helena_4_seen",
-     "value": true
+     "do": "if",
+     "flag": "q_overseas_st_helena_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_overseas_st_helena_1",
+       "then": [
+        {
+         "do": "if",
+         "flag": "q_overseas_st_helena_2",
+         "then": [
+          {
+           "do": "if",
+           "flag": "q_overseas_st_helena_3",
+           "then": [
+            {
+             "do": "say",
+             "who": "Consul Lucien",
+             "text": "Bonjour. I am the French Honorary Consul, and I keep the keys. Our flag is the only one on the island that is not British, and I defend it. You have done the tour: a fight, then, in the French manner, with elegance and a little arrogance."
+            },
+            {
+             "do": "battle",
+             "trainer": "sth_legend",
+             "intro": true
+            },
+            {
+             "do": "say",
+             "who": "Consul Lucien",
+             "text": "Bravo. You have the spirit of a marshal. Tell the curator the Consul says you may call yourself a Saint."
+            },
+            {
+             "do": "set",
+             "flag": "q_overseas_st_helena_4",
+             "value": true
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Consul Lucien",
+             "text": "Bonjour. I keep the keys to Longwood, and I only fight those who have done the whole tour. Greet the tortoise, meet the wirebird, and bow at the empty tomb in Sane Valley. Then come back to me."
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Consul Lucien",
+           "text": "Bonjour. I keep the keys to Longwood, and I only fight those who have done the whole tour. Greet the tortoise, meet the wirebird, and bow at the empty tomb in Sane Valley. Then come back to me."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Consul Lucien",
+         "text": "Bonjour. I keep the keys to Longwood, and I only fight those who have done the whole tour. Greet the tortoise, meet the wirebird, and bow at the empty tomb in Sane Valley. Then come back to me."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Consul Lucien",
+       "text": "Bonjour. This is Longwood, a little piece of France on a British island. If you wish to be shown the island, the curator at the museum in Jamestown will begin the tour."
+      }
+     ]
     }
    ]
   }

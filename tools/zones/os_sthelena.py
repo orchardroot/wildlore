@@ -316,11 +316,12 @@ def quest_data(OUT):
     # the tomb: the Longwood guide at the gate asks you to visit; a mourner at the fence sets the flag
     DLG["st_helena_plantation"]["sth_mourner"] = [cmd_if(Q + "started", [setf(Q + "3")], [])] + say("Mourner",
         "The grave is empty and the willows are not. A great many people come to stand here, and say nothing. It is the most peaceful place on the island, which is quite an achievement for a ruined Emperor.")
-    DLG["st_helena_plantation"]["sth_legend_talk"] = [cmd_if(Q + "4_seen",
-        say("Consul Lucien", "You came back for more! Monsieur or Madame is welcome at Longwood any time."),
-        say("Consul Lucien", "Bonjour. I am the French Honorary Consul, and I keep the keys. Our flag is the only one on the island that is not British, and I defend it. Come. A fight, in the French manner: with elegance, and a little arrogance.") +
-        [battle("sth_legend")] +
-        say("Consul Lucien", "Bravo. You have the spirit of a marshal. Tell the curator the Consul says you may call yourself a Saint.") + [setf(Q + "4"), setf(Q + "4_seen")])]
+    hint = say("Consul Lucien", "Bonjour. I keep the keys to Longwood, and I only fight those who have done the whole tour. Greet the tortoise, meet the wirebird, and bow at the empty tomb in Sane Valley. Then come back to me.")
+    fight = say("Consul Lucien", "Bonjour. I am the French Honorary Consul, and I keep the keys. Our flag is the only one on the island that is not British, and I defend it. You have done the tour: a fight, then, in the French manner, with elegance and a little arrogance.") + \
+        [battle("sth_legend")] + say("Consul Lucien", "Bravo. You have the spirit of a marshal. Tell the curator the Consul says you may call yourself a Saint.") + [setf(Q + "4")]
+    DLG["st_helena_plantation"]["sth_legend_talk"] = [cmd_if(Q + "4", say("Consul Lucien", "You came back for more! Monsieur or Madame is welcome at Longwood any time."),
+        [cmd_if(Q + "started", [cmd_if(Q + "1", [cmd_if(Q + "2", [cmd_if(Q + "3", fight, hint)], hint)], hint)],
+                say("Consul Lucien", "Bonjour. This is Longwood, a little piece of France on a British island. If you wish to be shown the island, the curator at the museum in Jamestown will begin the tour."))])]
     quests = [{"id": "st_helena_saint", "title": "A Saint's Tour", "region": "overseas_st_helena", "town": "st_helena_jamestown", "giver": "Museum Curator",
                "summary": "Prove you know St Helena: meet the wirebird, Jonathan the tortoise and Napoleon's empty tomb, then beat the French Consul.",
                "start_flag": Q + "started",

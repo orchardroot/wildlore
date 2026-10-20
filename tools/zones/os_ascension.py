@@ -70,7 +70,6 @@ def ascension(OUT):
         z.prop("boat", bx, by, variant=1)
     z.prop("buoy", 6, 40); z.prop("bollard", 10, 38); z.prop("bollard", 15, 38)
     z.prop("lobster_pots", 12, 37)
-    z.prop("flagpole", 14, 20)
     for (lx, ly) in [(20, 22), (30, 22), (40, 22), (50, 22), (34, 30)]:
         z.prop("lamp_post", lx, ly)
     for (bx, by) in [(21, 25), (47, 25)]:

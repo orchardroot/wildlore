@@ -77,7 +77,7 @@ static func whalebone_arch(st: SurfaceTool, w: int, d: int) -> void:
 		var prev := Vector3(cx + side * half, 0.0, z)
 		for i in range(1, 9):
 			var t := float(i) / 8.0
-			var p := Vector3(cx + side * half * (1.0 - t * t * 0.96), 3.3 * sin(t * PI * 0.5), z)
+			var p := Vector3(cx + side * half * (1.0 - t * t), 3.3 * sin(t * PI * 0.5), z)
 			Landmarks._beam(st, prev, p, 0.34 * (1.0 - t * 0.45), BONE.darkened(0.04 * i))
 			prev = p
 		Meshes.box(st, Vector3(cx + side * half - 0.35, 0.0, z - 0.35), Vector3(0.7, 0.25, 0.7), Color("8c8478"))
