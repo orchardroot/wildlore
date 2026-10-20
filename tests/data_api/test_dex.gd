@@ -42,9 +42,9 @@ const FUNGI := ["flyling", "amanitar", "puffkin", "grandpuff", "whiffhorn", "sco
 
 func test_the_original_200_stay_the_fieldbook_proper() -> void:
 	assert_eq(dex.core_ids().size(), 200, "the diploma and milestones count these")
-	assert_eq(dex.appendix_ids(), FUNGI, "the appendix, in dex order")
-	assert_eq(dex.ids().size(), 200 + FUNGI.size())
-	assert_eq(dex.ids().slice(200), FUNGI, "the appendix comes after the 200")
+	assert_eq(dex.appendix_ids().slice(0, FUNGI.size()), FUNGI, "the appendix starts with the fungi, in dex order")
+	assert_true(dex.ids().size() >= 200 + FUNGI.size(), "later regional appendix lines follow the fungi")
+	assert_eq(dex.ids().slice(200, 200 + FUNGI.size()), FUNGI, "the appendix comes after the 200")
 	for id in FUNGI:
 		assert_true(Dex.in_appendix(id), id)
 	assert_false(Dex.in_appendix("spikkin"))
