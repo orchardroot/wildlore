@@ -1,0 +1,70 @@
+{
+ "sw_inspector": [
+  {
+   "do": "if",
+   "flag": "q_hebrides_tweed_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Inspector",
+     "text": "Your first Orb. Many a weaver has framed the first one. I'd frame yours. Any length that comes in carrying the right feel gets the same stamp, whoever wove it."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_hebrides_tweed_3",
+     "then": [
+      {
+       "do": "say",
+       "who": "Inspector",
+       "text": "A length of tweed for stamping? Let me see. Handwoven, from pure wool dyed and spun on the islands, no machine anywhere in it. I can feel the beat in the weave. Seonag's work, with a bit of yours. Good."
+      },
+      {
+       "do": "say",
+       "who": "Inspector",
+       "text": "Right. The Orb. A bang, a stamp, and that's another one for the Western Isles. Harris Tweed was woven in this length, and now it's official."
+      },
+      {
+       "do": "say",
+       "who": "Inspector",
+       "text": "Here's a cap in the same cloth. It's warm, it's waterproof, and it's the nearest thing to armour a person can wear without a licence."
+      },
+      {
+       "do": "give_item",
+       "item": "harris_tweed_cap",
+       "n": 1
+      },
+      {
+       "do": "standing",
+       "nation": "scotland",
+       "amount": 2
+      },
+      {
+       "do": "set",
+       "flag": "q_hebrides_tweed_4",
+       "value": true
+      },
+      {
+       "do": "set",
+       "flag": "q_hebrides_tweed_done",
+       "value": true
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Inspector",
+       "text": "I stamp the Orb on every length. Before I do, I check the weave, the feel, and whether it smells of damp hill, which is a good sign. If you've a length that Seonag wove, bring it here."
+      },
+      {
+       "do": "say",
+       "who": "Inspector",
+       "text": "The old test of good tweed: you could stand in a downpour in it and keep your thinking dry."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

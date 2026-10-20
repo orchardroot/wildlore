@@ -1,0 +1,63 @@
+{
+ "nurse": [
+  {
+   "do": "say",
+   "who": "Nurse",
+   "text": "F\u00e0ilte! Welcome to Stornoway Sanctuary. You look as if you've crossed the Minch in a force eight. Pop them on the counter."
+  },
+  {
+   "do": "choice",
+   "text": "What can we do for you?",
+   "options": [
+    "Heal my team",
+    "Open the Ark",
+    "Just looking"
+   ],
+   "set": "_nurse_choice"
+  },
+  {
+   "do": "if",
+   "flag": "_nurse_choice",
+   "eq": 0,
+   "then": [
+    {
+     "do": "say",
+     "who": "Nurse",
+     "text": "There's a kettle on, and a plate of bannocks. You're welcome to the bannocks if you leave me the crumbs. Poor things, they're peely-wally. All better."
+    },
+    {
+     "do": "heal"
+    },
+    {
+     "do": "say",
+     "who": "Nurse",
+     "text": "There you go. M\u00f2ran taing, that's thank you very much, for being so patient. Mind the wind on the way out."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "_nurse_choice",
+     "eq": 1,
+     "then": [
+      {
+       "do": "say",
+       "who": "Nurse",
+       "text": "The Ark's in the corner, it's the one with the sea-view. Have a click."
+      },
+      {
+       "do": "ark"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Nurse",
+       "text": "No bother. Enjoy the town, and mind the swings on a Sunday."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
