@@ -1,0 +1,44 @@
+{
+ "id": "bord_douglas",
+ "name": "The Black Douglas",
+ "class": "Knight",
+ "sprite": "warden_grunt",
+ "party": [
+  {
+   "species": "reiver",
+   "level": 71
+  },
+  {
+   "species": "centurion",
+   "level": 70
+  },
+  {
+   "species": "steelheart",
+   "level": 70
+  },
+  {
+   "species": "stormswift",
+   "level": 70
+  },
+  {
+   "species": "highlynx",
+   "level": 70
+  },
+  {
+   "species": "gwyllgi",
+   "level": 72
+  }
+ ],
+ "ai": "trainer",
+ "money": 4200,
+ "scaled_floor": 69,
+ "intro": [
+  {
+   "do": "say",
+   "who": "The Black Douglas",
+   "text": "I carried the Bruce's heart. Don't ask me to put it down."
+  }
+ ],
+ "win": "Lead on. I'll follow.",
+ "after": "The Douglas never lost a heart. Only the casket."
+}

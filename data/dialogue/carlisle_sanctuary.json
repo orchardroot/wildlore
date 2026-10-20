@@ -1,0 +1,63 @@
+{
+ "nurse": [
+  {
+   "do": "say",
+   "who": "Nurse",
+   "text": "Hello, pet! Welcome to the Carlisle Sanctuary. Sit by the radiator. It was installed in 1974 and it has never once been wrong about the weather."
+  },
+  {
+   "do": "choice",
+   "text": "What can we do for you?",
+   "options": [
+    "Heal my team",
+    "Open the Ark",
+    "Just looking"
+   ],
+   "set": "_nurse_choice"
+  },
+  {
+   "do": "if",
+   "flag": "_nurse_choice",
+   "eq": 0,
+   "then": [
+    {
+     "do": "say",
+     "who": "Nurse",
+     "text": "Rest awhile. There's tea in the pot and a rock cake that has, I'm afraid, lived up to its name. Your team is in good hands."
+    },
+    {
+     "do": "heal"
+    },
+    {
+     "do": "say",
+     "who": "Nurse",
+     "text": "They're good as new. Off you go now, and take a waterproof. Take two. Take the hat with the bobble."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "_nurse_choice",
+     "eq": 1,
+     "then": [
+      {
+       "do": "say",
+       "who": "Nurse",
+       "text": "The Ark? It's through there, by the kettle. If it starts to hum, that's the tea; if it starts to hiss, that's the computer."
+      },
+      {
+       "do": "ark"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Nurse",
+       "text": "No bother. Pop in whenever you're soaked. Which is whenever."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

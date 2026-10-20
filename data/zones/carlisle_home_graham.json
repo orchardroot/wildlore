@@ -1,0 +1,75 @@
+{
+ "id": "carlisle_home_graham",
+ "name": "Graham Home",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "fireplace",
+   "x": 4,
+   "y": 1
+  },
+  {
+   "type": "table",
+   "x": 2,
+   "y": 4
+  },
+  {
+   "type": "kitchen_dresser",
+   "x": 7,
+   "y": 1
+  },
+  {
+   "type": "clock",
+   "x": 1,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "rug",
+   "x": 5,
+   "y": 4,
+   "variant": 1
+  }
+ ],
+ "warps": [
+  {
+   "x": 4,
+   "y": 7,
+   "to": "carlisle",
+   "tx": 19,
+   "ty": 30,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "gra_dad",
+   "sprite": "villager_1",
+   "x": 6,
+   "y": 4,
+   "facing": "left",
+   "move": "still",
+   "script": "gra_dad"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  4,
+  6
+ ],
+ "rows": [
+  "xxxxxxxxx",
+  "x|||||||x",
+  "x|||||||x",
+  "x|||||||x",
+  "x|||||||x",
+  "x|||||||x",
+  "x|||||||x",
+  "xxxxDxxxx"
+ ]
+}

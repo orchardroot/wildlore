@@ -1,0 +1,91 @@
+{
+ "guild_historian": [
+  {
+   "do": "say",
+   "who": "Historian",
+   "text": "Welcome to the Guildhall, and to the history of the Borders. Mind the surnames. They bite."
+  },
+  {
+   "do": "choice",
+   "text": "Ask about...",
+   "options": [
+    "The surnames",
+    "Blackmail and bereaved",
+    "The Hot Trod",
+    "The Debatable Land",
+    "That's plenty, thanks"
+   ],
+   "set": "_t_hist"
+  },
+  {
+   "do": "if",
+   "flag": "_t_hist",
+   "eq": 0,
+   "then": [
+    {
+     "do": "say",
+     "who": "Historian",
+     "text": "The great reiver families on the English side included the Fenwicks, Charltons, Robsons, Milburns, and Forsters; on the Scottish, the Armstrongs, Elliots, Johnstones, Kerrs and Scotts. The Grahams of the Esk were considered both. Carlisle was the line at which all those names collided."
+    },
+    {
+     "do": "say",
+     "who": "Historian",
+     "text": "If you're called Armstrong, Graham or Elliot, you may be descended from a robber. Be proud. Or say you're descended from the victims."
+    }
+   ],
+   "else": []
+  },
+  {
+   "do": "if",
+   "flag": "_t_hist",
+   "eq": 1,
+   "then": [
+    {
+     "do": "say",
+     "who": "Historian",
+     "text": "Two words, both reiver-made. 'Bereaved' comes from the old verb 'to reave', to rob, which is what they did to your cattle. 'Blackmail' was the protection money (mail is an old word for rent) paid in the Borders, to buy off a reiving clan. It was 'black' because it was paid in goods rather than in silver."
+    }
+   ],
+   "else": []
+  },
+  {
+   "do": "if",
+   "flag": "_t_hist",
+   "eq": 2,
+   "then": [
+    {
+     "do": "say",
+     "who": "Historian",
+     "text": "If your cattle were lifted, the law allowed you to chase the thieves 'in hot trod', with horn and hound and a burning turf on a spear, across the Border, to recover your goods. The burning turf let the neighbours know it was official. You could not do it cold."
+    }
+   ],
+   "else": []
+  },
+  {
+   "do": "if",
+   "flag": "_t_hist",
+   "eq": 3,
+   "then": [
+    {
+     "do": "say",
+     "who": "Historian",
+     "text": "A patch of countryside between the Esk and the Sark, claimed by neither England nor Scotland, where reiver clans like the Armstrongs and Grahams lived beyond the law. The two crowns divided it down the middle in 1552 with a long earth bank, the Scots' Dike, which still runs there."
+    }
+   ],
+   "else": []
+  },
+  {
+   "do": "if",
+   "flag": "_t_hist",
+   "eq": 4,
+   "then": [
+    {
+     "do": "say",
+     "who": "Historian",
+     "text": "Come back any time. History keeps."
+    }
+   ],
+   "else": []
+  }
+ ]
+}

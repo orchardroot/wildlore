@@ -1,0 +1,293 @@
+{
+ "rail_guard": [
+  {
+   "do": "say",
+   "who": "Rail Guard",
+   "text": "Carlisle. The Citadel station, where the Settle line ends and, if you listen to the old hands, begins. Trains for every station you have visited. Mind the gap, the sheep and the Scots."
+  },
+  {
+   "do": "rail"
+  }
+ ],
+ "carl_guide": [
+  {
+   "do": "say",
+   "who": "Castle Guide",
+   "text": "Welcome to Carlisle Castle! Nine hundred years of being besieged. We are very proud of it. What shall I tell you?"
+  },
+  {
+   "do": "choice",
+   "text": "Ask about...",
+   "options": [
+    "Mary, Queen of Scots",
+    "Kinmont Willie",
+    "The last siege",
+    "That's plenty, thanks"
+   ],
+   "set": "_t_guide"
+  },
+  {
+   "do": "if",
+   "flag": "_t_guide",
+   "eq": 0,
+   "then": [
+    {
+     "do": "say",
+     "who": "Castle Guide",
+     "text": "In May 1568 Mary fled across the Solway after her defeat at Langside, and landed in England. She was held here at Carlisle Castle for about two months, before being moved to Bolton and on into nineteen years of captivity."
+    },
+    {
+     "do": "say",
+     "who": "Castle Guide",
+     "text": "She arrived with very little, and had to be lent clothes. A tower of the castle still carries her name. Nothing ever stays unlabelled in Carlisle."
+    }
+   ],
+   "else": []
+  },
+  {
+   "do": "if",
+   "flag": "_t_guide",
+   "eq": 1,
+   "then": [
+    {
+     "do": "say",
+     "who": "Castle Guide",
+     "text": "Kinmont Willie Armstrong was a famous reiver, taken on a day of truce in 1596 and locked in here. Scott of Buccleuch led a band of riders in at night, with ladders and pickaxes, and walked him out. The ballad is still sung."
+    },
+    {
+     "do": "say",
+     "who": "Castle Guide",
+     "text": "It's the only castle escape I know of in which the escaping party had the better rhyme scheme."
+    }
+   ],
+   "else": []
+  },
+  {
+   "do": "if",
+   "flag": "_t_guide",
+   "eq": 2,
+   "then": [
+    {
+     "do": "say",
+     "who": "Castle Guide",
+     "text": "In 1745 Bonnie Prince Charlie's army took the city and the castle on the way south. In December Cumberland retook it on the way back. The castle is said to have seen the last siege fought on English soil."
+    },
+    {
+     "do": "say",
+     "who": "Castle Guide",
+     "text": "Prisoners were kept in the keep afterwards. They carved their names in the walls. Some of them licked the damp stones for water, which is why we call them the licking stones. We don't recommend it."
+    }
+   ],
+   "else": []
+  },
+  {
+   "do": "if",
+   "flag": "_t_guide",
+   "eq": 3,
+   "then": [
+    {
+     "do": "say",
+     "who": "Castle Guide",
+     "text": "Come back any time. History keeps."
+    }
+   ],
+   "else": []
+  }
+ ],
+ "carl_reader": [
+  {
+   "do": "if",
+   "flag": "q_borders_curse_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_borders_curse_1",
+     "then": [
+      {
+       "do": "say",
+       "who": "Student",
+       "text": "Honestly, it is just a stone. A very large, very polite stone. I'm only here because it's on my reading list."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Student",
+       "text": "Oh, are you here for the curse too? Let me read you the good bit. 'I curse their head and all the hairs of their head. I curse their face, their brain, their mouth, their nose, their tongue, their teeth, their eyes...'"
+      },
+      {
+       "do": "say",
+       "who": "Student",
+       "text": "...it goes on for 1,500 words. Gavin Dunbar, Archbishop of Glasgow, in 1525, against every reiver in the Borders. He worked down to the toenails. Then he cursed their cattle."
+      },
+      {
+       "do": "say",
+       "who": "Student",
+       "text": "Some locals half-joke that the floods of 2005 were the curse. It's a lot to put on a rock. Anyway. If you want to see the real grumble, an Armstrong stands at the end of the cross street. They have opinions."
+      },
+      {
+       "do": "set",
+       "flag": "q_borders_curse_1"
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Student",
+     "text": "This is the Cursing Stone. 14 tonnes of granite, 1,500 words of curse, and not one of them anything you'd say at tea. If you speak to the curator at Tullie House, she'll tell you why it's here."
+    }
+   ]
+  }
+ ],
+ "carl_mason": [
+  {
+   "do": "say",
+   "who": "Old Mason",
+   "text": "Lovely bit of stone, that. Ask me anything about it. I'll tell you anyway."
+  },
+  {
+   "do": "choice",
+   "text": "Ask about...",
+   "options": [
+    "Why is everything red?",
+    "What's 'yan tan tethera'?",
+    "Roman Carlisle",
+    "That's plenty, thanks"
+   ],
+   "set": "_t_mason"
+  },
+  {
+   "do": "if",
+   "flag": "_t_mason",
+   "eq": 0,
+   "then": [
+    {
+     "do": "say",
+     "who": "Old Mason",
+     "text": "It's red sandstone, about 250 million years old, laid down when this was desert. Quarried round the Eden valley and carted in. It weathers soft in the wet, so every generation of masons has had work. It's job security."
+    }
+   ],
+   "else": []
+  },
+  {
+   "do": "if",
+   "flag": "_t_mason",
+   "eq": 1,
+   "then": [
+    {
+     "do": "say",
+     "who": "Old Mason",
+     "text": "The old shepherds' count: yan, tan, tethera, methera, pimp. That's one to five. They kept it for counting sheep, and it comes down from the old British language that was spoken here before English. Every dale has its own variety."
+    }
+   ],
+   "else": []
+  },
+  {
+   "do": "if",
+   "flag": "_t_mason",
+   "eq": 2,
+   "then": [
+    {
+     "do": "say",
+     "who": "Old Mason",
+     "text": "The Romans called it Luguvalium, from a Celtic name linked to a god, Lugus. They built a fort up at Stanwix for a thousand cavalry. When the army was gone, the city was still here, grumbling in Latin."
+    }
+   ],
+   "else": []
+  },
+  {
+   "do": "if",
+   "flag": "_t_mason",
+   "eq": 3,
+   "then": [
+    {
+     "do": "say",
+     "who": "Old Mason",
+     "text": "Come back any time. History keeps."
+    }
+   ],
+   "else": []
+  }
+ ],
+ "carl_shepherd": [
+  {
+   "do": "say",
+   "who": "Shepherd",
+   "text": "Yan, tan, tethera, methera, pimp. That's five of them, and that's all the ones that came when I whistled. The rest are in the next field, deciding."
+  },
+  {
+   "do": "say",
+   "who": "Shepherd",
+   "text": "Cumbrian shepherds still know the old numbers. Sethera, lethera, hovera, dovera, dick: six to ten. Dick is ten. I had a ram called Dick. He was a good lad."
+  }
+ ],
+ "carl_armstrong": [
+  {
+   "do": "if",
+   "flag": "trainer_carl_armstrong",
+   "then": [
+    {
+     "do": "say",
+     "who": "Armstrong",
+     "text": "Beaten fair, and I'll say so at the Common Riding. Invictus maneo, they say: I remain unvanquished. We've agreed to make it 'mostly'."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_borders_curse_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "Armstrong",
+       "text": "Back already?"
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_borders_curse_1",
+       "then": [
+        {
+         "do": "say",
+         "who": "Armstrong",
+         "text": "So you've read the curse and come to see an Armstrong. Good. My family have heard it said that every reiver name is accursed. We are not accursed. We are merely misunderstood, with horses."
+        },
+        {
+         "do": "battle",
+         "trainer": "carl_armstrong",
+         "intro": true
+        },
+        {
+         "do": "if",
+         "flag": "trainer_carl_armstrong",
+         "then": [
+          {
+           "do": "say",
+           "who": "Armstrong",
+           "text": "Well. That's me told. The Bishop could not have done it better, and he took 1,500 words."
+          },
+          {
+           "do": "set",
+           "flag": "q_borders_curse_2"
+          }
+         ],
+         "else": []
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Armstrong",
+         "text": "I'm an Armstrong. Our motto is 'Invictus maneo'. I remain unvanquished. That's the only Latin I've ever needed. Mind how you go through the Debatable Land."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

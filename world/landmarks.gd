@@ -16,7 +16,7 @@ const IRON := Color("3c4450")
 const GLASS := Color.WHITE
 
 ## Building styles handled here rather than by the generic house in Meshes.building.
-const SPECIAL := ["glass_tower", "gantry_crane", "cantilever_crane", "titanic", "mill", "castle", "cathedral", "liver_building", "station", "aqueduct", "chapel", "terrace", "tudor", "slate_cottage", "lighthouse_house", "round_tower", "passage_tomb", "field_barn"]
+const SPECIAL := ["glass_tower", "gantry_crane", "cantilever_crane", "titanic", "mill", "castle", "cathedral", "liver_building", "station", "aqueduct", "chapel", "terrace", "tudor", "slate_cottage", "lighthouse_house", "round_tower", "passage_tomb", "field_barn", "red_sandstone", "border_stone", "castle_red"]
 
 ## Doors: where each style's door sits on its tile (see _door and friends), for the swing as you go in.
 ## {x, w, y, h, z}: left edge and width across the door column, bottom and height, z of the door's face from
@@ -32,6 +32,7 @@ const DOOR_RECTS := {
 	"slate_cottage": {"x": 0.22, "w": 0.56, "y": 0.16, "h": 0.9, "z": -0.02},
 	"lighthouse_house": {"x": 0.22, "w": 0.56, "y": 0.16, "h": 0.9, "z": -0.02},
 	"castle": {"x": 0.2, "w": 0.6, "y": 0.0, "h": 1.1, "z": 0.11},
+	"castle_red": {"x": 0.2, "w": 0.6, "y": 0.0, "h": 1.1, "z": 0.11},
 	"cathedral": {"x": 0.15, "w": 0.7, "y": 0.0, "h": 1.3, "z": 0.03},
 	"glass_tower": {"x": 0.15, "w": 0.7, "y": 0.0, "h": 1.2, "z": 0.02},
 }
@@ -105,6 +106,16 @@ static func building(w: int, d: int, style: String, door_x: int, seed_value: int
 			_mill(st, wst, w, d, door_x, rng)
 		"castle":
 			_castle(st, wst, w, d, door_x, region)
+		"castle_red":
+			_castle(st, wst, w, d, door_x, region, SANDSTONE.lightened(0.04))  # Carlisle: red sandstone all through
+		"red_sandstone":
+			# Carlisle's streets: deep red sandstone, slate roofs, a pale string course and stone-framed windows
+			_house(st, wst, w, d, door_x, rng, Color("a9503c"), SLATE, 2, true, false)
+			Meshes.box(st, Vector3(0.0, 1.28, d), Vector3(w, 0.08, 0.06), Color("d9b79c"))
+		"border_stone":
+			# the Borders: grey whinstone with crow-stepped gables
+			_house(st, wst, w, d, door_x, rng, Color("9a958a"), Color("5b6068"), 2, false, false)
+			_crow_steps(st, w, d)
 		"cathedral":
 			_cathedral(st, wst, w, d, door_x, SANDSTONE)
 		"chapel":
@@ -251,8 +262,7 @@ static func _station(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: 
 # --- grand buildings ---------------------------------------------------------
 
 ## Crenellated curtain wall with round corner towers and a gatehouse on the door column.
-static func _castle(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int, region := "") -> void:
-	var stone := Color("9d968a")
+static func _castle(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int, region := "", stone := Color("9d968a")) -> void:
 	var wall_h := 2.2
 	var t := 0.6
 	Meshes.box(st, Vector3(0, 0, 0), Vector3(w, wall_h, t), stone)
@@ -1041,3 +1051,16 @@ static func harp() -> ArrayMesh:
 	for i in 5:
 		Meshes.box(st, Vector3(-0.15 + i * 0.08, 0.12, -0.01), Vector3(0.012, 1.08 - i * 0.12, 0.012), Color("f2e2a0"))
 	return Meshes._finish(st)
+
+## Crow-stepped gables (Scots and Border houses): little stair-steps up both slopes of each gable end.
+static func _crow_steps(st: SurfaceTool, w: int, d: int) -> void:
+	var hgt := 1.15 * 2 + 0.2
+	var rise := minf(1.2, d * 0.38)
+	var wall := Color("9a958a").darkened(0.06)
+	for xe in [-0.18, w + 0.18 - 0.14]:
+		for side in [-1.0, 1.0]:
+			for k in 3:
+				var run := (d * 0.5) / 3.0
+				var z0: float = d * 0.5 + (run * k if side > 0 else -run * (k + 1))
+				var top := hgt + rise * (1.0 - (run * k) / (d * 0.5))
+				Meshes.box(st, Vector3(xe, hgt - 0.02, z0), Vector3(0.14, top - hgt + 0.12, run), wall)

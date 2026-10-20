@@ -1,0 +1,170 @@
+{
+ "abbey_warden": [
+  {
+   "do": "if",
+   "flag": "q_borders_heart_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Abbey Warden",
+     "text": "The Bruce is at rest, and so am I. Come and visit when you like. His heart, I mean. Mine's fine."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_borders_heart_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "Abbey Warden",
+       "text": "You faced the Black Douglas and survived? Then you know the story as well as anyone does. Take this: a pin in the shape of a crowned heart, like the one on the plaque. May it guard you from the blows that brawn hits you with."
+      },
+      {
+       "do": "give_item",
+       "item": "bruces_heart"
+      },
+      {
+       "do": "standing",
+       "nation": "scotland",
+       "amount": 3
+      },
+      {
+       "do": "set",
+       "flag": "q_borders_heart_done"
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_borders_heart_started",
+       "then": [
+        {
+         "do": "say",
+         "who": "Abbey Warden",
+         "text": "Have you found the pig on the roof? Then speak to the knight in the corner. He doesn't bite, mostly. He plays the Black Douglas. Be firm with him."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Abbey Warden",
+         "text": "Welcome to Melrose Abbey. It was a great Cistercian house until the English wrecked it, three times over. We've kept the best bits and, in the chapter house, something very special."
+        },
+        {
+         "do": "say",
+         "who": "Abbey Warden",
+         "text": "Robert the Bruce died in 1329 and asked that his heart be carried on crusade. His friend, Sir James Douglas, set out with it in a silver casket, and was killed in Spain in 1330. The heart was brought home and buried here at Melrose."
+        },
+        {
+         "do": "say",
+         "who": "Abbey Warden",
+         "text": "A lead casket was found in 1921, and found again in 1996, and the heart was reburied here in 1998 under a stone in the chapter house. Would you help me with a task? Find the pig on the roof outside, the one with the bagpipes. Then have a word with the Douglas man in the corner."
+        },
+        {
+         "do": "choice",
+         "text": "Help the warden?",
+         "options": [
+          "Gladly",
+          "Not just now"
+         ],
+         "set": "_t_heart"
+        },
+        {
+         "do": "if",
+         "flag": "_t_heart",
+         "eq": 0,
+         "then": [
+          {
+           "do": "say",
+           "who": "Abbey Warden",
+           "text": "Splendid. The pig's outside, to the east of the abbey. You can't miss him. He's very loud."
+          },
+          {
+           "do": "set",
+           "flag": "q_borders_heart_started"
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Abbey Warden",
+           "text": "No bother. He's been up there for centuries. He can wait."
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "abbey_douglas": [
+  {
+   "do": "if",
+   "flag": "q_borders_heart_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_borders_heart_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "Black Douglas",
+       "text": "A fair fight. Tell them the Douglas would have gone to Spain anyway. It was the heart that insisted."
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_borders_heart_1",
+       "then": [
+        {
+         "do": "say",
+         "who": "Black Douglas",
+         "text": "So you've found the pig. Then you know the heart's here, and that I carried it. Tradition says that at Teba, outnumbered, I threw the casket ahead of me and cried: 'Lead on, as thou wert wont, and I will follow thee or die.'"
+        },
+        {
+         "do": "battle",
+         "trainer": "bord_douglas",
+         "intro": true
+        },
+        {
+         "do": "if",
+         "flag": "trainer_bord_douglas",
+         "then": [
+          {
+           "do": "say",
+           "who": "Black Douglas",
+           "text": "Well. That's me answered. The Bruce would have been proud. I rather think his heart was."
+          },
+          {
+           "do": "set",
+           "flag": "q_borders_heart_2"
+          }
+         ],
+         "else": []
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Black Douglas",
+         "text": "Find the pig on the roof first. Then we'll talk about hearts. I'm a re-enactor, but I take it seriously."
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Black Douglas",
+     "text": "Sir James Douglas, they called the Black Douglas, because he was dark, and because the English used his name to frighten their children. I'm only the re-enactor."
+    }
+   ]
+  }
+ ]
+}

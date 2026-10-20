@@ -1,0 +1,59 @@
+{
+ "ma_haig": [
+  {
+   "do": "say",
+   "who": "Ma Haig",
+   "text": "Come in, hen, come in. Selkirk bannock, Border tart and a pie that'd stop a Reiver at forty paces. The bannock's fruit bread, and Queen Victoria is said to have liked it, so you've no excuse."
+  },
+  {
+   "do": "shop",
+   "id": "borders_bakehouse_shop"
+  },
+  {
+   "do": "say",
+   "who": "Ma Haig",
+   "text": "Mind the steps. The Common Riding's on, and half the town's in here wanting breakfast."
+  }
+ ],
+ "gran_haig": [
+  {
+   "do": "if",
+   "flag": "q_borders_ride_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_borders_ride_1",
+     "then": [
+      {
+       "do": "say",
+       "who": "Gran Haig",
+       "text": "You've got them. Now off you go, and don't let a Hawick man near the colours."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Gran Haig",
+       "text": "Oh, you're the one the Cornet sent. The colours are in the cupboard behind the bannocks, wrapped in a tea-towel. They've been in the family for 80 years. It's a bit of a secret. We don't tell the next town."
+      },
+      {
+       "do": "give_item",
+       "item": "cornets_colours"
+      },
+      {
+       "do": "set",
+       "flag": "q_borders_ride_1"
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Gran Haig",
+     "text": "My late husband was Cornet in '62. He rode every march and never lost the colours. He did once lose a horse, but that was a different matter."
+    }
+   ]
+  }
+ ]
+}

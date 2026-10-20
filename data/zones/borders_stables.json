@@ -1,0 +1,89 @@
+{
+ "id": "borders_stables",
+ "name": "The Cornet's Stables",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "bench",
+   "x": 1,
+   "y": 5
+  },
+  {
+   "type": "bench",
+   "x": 9,
+   "y": 5
+  },
+  {
+   "type": "kitchen_dresser",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "table",
+   "x": 8,
+   "y": 2
+  },
+  {
+   "type": "noticeboard",
+   "x": 5,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "wall_picture",
+   "x": 3,
+   "y": 1,
+   "walk": true
+  }
+ ],
+ "warps": [
+  {
+   "x": 5,
+   "y": 7,
+   "to": "scottish_borders",
+   "tx": 11,
+   "ty": 12,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "cornet",
+   "sprite": "farmer",
+   "x": 5,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "cornet"
+  },
+  {
+   "id": "stable_lass",
+   "sprite": "villager_6",
+   "x": 8,
+   "y": 5,
+   "facing": "left",
+   "move": "still",
+   "script": "stable_lass"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  5,
+  6
+ ],
+ "rows": [
+  "xxxxxxxxxxx",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "xxxxxDxxxxx"
+ ]
+}

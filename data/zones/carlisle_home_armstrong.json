@@ -1,0 +1,80 @@
+{
+ "id": "carlisle_home_armstrong",
+ "name": "Armstrong Home",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "fireplace",
+   "x": 4,
+   "y": 1
+  },
+  {
+   "type": "sofa",
+   "x": 2,
+   "y": 4,
+   "rot": 90
+  },
+  {
+   "type": "table",
+   "x": 6,
+   "y": 4
+  },
+  {
+   "type": "bookshelf",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "wall_picture",
+   "x": 6,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "rug",
+   "x": 4,
+   "y": 4
+  }
+ ],
+ "warps": [
+  {
+   "x": 4,
+   "y": 7,
+   "to": "carlisle",
+   "tx": 11,
+   "ty": 30,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "arm_mum",
+   "sprite": "villager_5",
+   "x": 6,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "arm_mum"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  4,
+  6
+ ],
+ "rows": [
+  "xxxxxxxxx",
+  "x|||||||x",
+  "x|||||||x",
+  "x|||||||x",
+  "x|||||||x",
+  "x|||||||x",
+  "x|||||||x",
+  "xxxxDxxxx"
+ ]
+}

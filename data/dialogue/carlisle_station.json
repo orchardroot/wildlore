@@ -1,0 +1,72 @@
+{
+ "station_volunteer": [
+  {
+   "do": "say",
+   "who": "Volunteer",
+   "text": "Hello! I'm with the Friends of the Settle-Carlisle Line. We've been fighting for it since long before it was cool."
+  },
+  {
+   "do": "choice",
+   "text": "Ask about...",
+   "options": [
+    "The Ribblehead Viaduct",
+    "The nearly-closed line",
+    "Highest in England",
+    "That's plenty, thanks"
+   ],
+   "set": "_t_stn"
+  },
+  {
+   "do": "if",
+   "flag": "_t_stn",
+   "eq": 0,
+   "then": [
+    {
+     "do": "say",
+     "who": "Volunteer",
+     "text": "Twenty-four arches, over 400 metres long, 32 metres high, across a bleak moor in the Dales. Built in the 1870s with a shanty town of navvies and their families below it, called Batty Green, with its own school and hospital. Many are buried in the nearby churchyard."
+    }
+   ],
+   "else": []
+  },
+  {
+   "do": "if",
+   "flag": "_t_stn",
+   "eq": 1,
+   "then": [
+    {
+     "do": "say",
+     "who": "Volunteer",
+     "text": "In the 1980s British Rail tried to close the line, claiming the viaduct was beyond repair. Locals proved the trains were busy, and in 1989 the government refused to close it. It's now one of the best-loved railways in Britain."
+    }
+   ],
+   "else": []
+  },
+  {
+   "do": "if",
+   "flag": "_t_stn",
+   "eq": 2,
+   "then": [
+    {
+     "do": "say",
+     "who": "Volunteer",
+     "text": "Dent Station sits at 1,150 feet, the highest main-line station in England. It's four miles from the village it's named for, and down a very steep lane. They have a brass plate and a very good reason to look pleased."
+    }
+   ],
+   "else": []
+  },
+  {
+   "do": "if",
+   "flag": "_t_stn",
+   "eq": 3,
+   "then": [
+    {
+     "do": "say",
+     "who": "Volunteer",
+     "text": "Come back any time. History keeps."
+    }
+   ],
+   "else": []
+  }
+ ]
+}
