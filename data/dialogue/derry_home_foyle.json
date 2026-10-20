@@ -15,5 +15,61 @@
    "who": "Mr Brogan",
    "text": "I have never caught a salmon here. The salmon have never caught me. We have an understanding."
   }
+ ],
+ "teach_cook_champ": [
+  {
+   "do": "if",
+   "flag": "recipe_champ",
+   "then": [
+    {
+     "do": "say",
+     "who": "Auntie Maura",
+     "text": "Back for the Champ? Kitchen's yours."
+    },
+    {
+     "do": "choice",
+     "text": "Borrow the kitchen?",
+     "options": [
+      "Yes, please",
+      "No, ta"
+     ],
+     "set": "_borrow_bench"
+    },
+    {
+     "do": "if",
+     "flag": "_borrow_bench",
+     "eq": 0,
+     "then": [
+      {
+       "do": "craft",
+       "bench": "borrowed"
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Auntie Maura",
+     "text": "Spring onions, love. Lots of spring onions. And no skimping on the butter."
+    },
+    {
+     "do": "say",
+     "who": "Auntie Maura",
+     "text": "Steep the spring onions in warm milk first, then beat it all into the mash. The butter goes in the hole in the middle, and you dip your fork."
+    },
+    {
+     "do": "recipe",
+     "id": [
+      "champ"
+     ]
+    },
+    {
+     "do": "say",
+     "who": "Auntie Maura",
+     "text": "Pop in whenever you've got the makings. Use my kitchen."
+    }
+   ]
+  }
  ]
 }

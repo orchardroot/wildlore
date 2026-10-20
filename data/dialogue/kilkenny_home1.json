@@ -15,5 +15,61 @@
    "who": "Mr Brennan",
    "text": "A Moolet is a tiny Dexter cow. Dexters come from the south-west of Ireland, and they are among the smallest cattle in the world."
   }
+ ],
+ "teach_cook_irish_stew": [
+  {
+   "do": "if",
+   "flag": "recipe_irish_stew",
+   "then": [
+    {
+     "do": "say",
+     "who": "Grandad Phelan",
+     "text": "Back for the Irish Stew? Kitchen's yours."
+    },
+    {
+     "do": "choice",
+     "text": "Borrow the kitchen?",
+     "options": [
+      "Yes, please",
+      "No, ta"
+     ],
+     "set": "_borrow_bench"
+    },
+    {
+     "do": "if",
+     "flag": "_borrow_bench",
+     "eq": 0,
+     "then": [
+      {
+       "do": "craft",
+       "bench": "borrowed"
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Grandad Phelan",
+     "text": "Carrots? In an Irish stew? Take your coat and leave. Joking. Sit down."
+    },
+    {
+     "do": "say",
+     "who": "Grandad Phelan",
+     "text": "Lamb, spuds, onions, water. Put them in a pot and leave them be. Some folk add carrots. We don't talk about those folk."
+    },
+    {
+     "do": "recipe",
+     "id": [
+      "irish_stew"
+     ]
+    },
+    {
+     "do": "say",
+     "who": "Grandad Phelan",
+     "text": "Pop in whenever you've got the makings. Use my kitchen."
+    }
+   ]
+  }
  ]
 }

@@ -10,5 +10,61 @@
    "who": "Grandad",
    "text": "Poole's Cavern is just up the hill. Legend says an outlaw called Poole hid in it. Sensible man, it is dry in there."
   }
+ ],
+ "teach_cook_bakewell_pudding": [
+  {
+   "do": "if",
+   "flag": "recipe_bakewell_pudding",
+   "then": [
+    {
+     "do": "say",
+     "who": "Mrs Mellor",
+     "text": "Back for the Bakewell Pudding? Kitchen's yours."
+    },
+    {
+     "do": "choice",
+     "text": "Borrow the kitchen?",
+     "options": [
+      "Yes, please",
+      "No, ta"
+     ],
+     "set": "_borrow_bench"
+    },
+    {
+     "do": "if",
+     "flag": "_borrow_bench",
+     "eq": 0,
+     "then": [
+      {
+       "do": "craft",
+       "bench": "borrowed"
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Mrs Mellor",
+     "text": "A pudding, mind. Not a tart. Folk round here get quite sharp about it."
+    },
+    {
+     "do": "say",
+     "who": "Mrs Mellor",
+     "text": "Jam on the bottom, egg and almond on top, and it all goes in together. Legend says it was a mistake by a cook in Bakewell. Best mistake in Derbyshire."
+    },
+    {
+     "do": "recipe",
+     "id": [
+      "bakewell_pudding"
+     ]
+    },
+    {
+     "do": "say",
+     "who": "Mrs Mellor",
+     "text": "Pop in whenever you've got the makings. Use my kitchen."
+    }
+   ]
+  }
  ]
 }

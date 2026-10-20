@@ -11,7 +11,7 @@ const FLAG_PREFIX := "recipe_"
 const CONTRACT_CHARMS := ["hag_stone", "horseshoe", "four_leaf_clover", "brigid_cross", "leek", "rowan_sprig",
 	"selkie_pearl", "miners_lamp", "thistle_brooch", "shamrock_pin", "oak_acorn"]
 ## Mum's kitchen and the Field Station bench (any bench can make any recipe; the name is for the title).
-const BENCHES := {"kitchen": "Mum's Kitchen", "workbench": "Field Station Bench", "borrowed": "A Borrowed Kitchen"}
+const BENCHES := {"kitchen": "Mum's Kitchen", "workbench": "Field Station Bench", "borrowed": "A Borrowed Kitchen", "hob": "The Pub Hob"}
 
 static var _cache: Array = []
 

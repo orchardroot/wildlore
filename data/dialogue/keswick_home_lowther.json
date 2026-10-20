@@ -22,5 +22,61 @@
    "who": "Kid",
    "text": "Dad says I am the best tree he has ever seen. He has seen one other tree."
   }
+ ],
+ "teach_cook_cumberland_sausage": [
+  {
+   "do": "if",
+   "flag": "recipe_cumberland_sausage",
+   "then": [
+    {
+     "do": "say",
+     "who": "Farmer Tyson",
+     "text": "Back for the Cumberland Sausage? Kitchen's yours."
+    },
+    {
+     "do": "choice",
+     "text": "Borrow the kitchen?",
+     "options": [
+      "Yes, please",
+      "No, ta"
+     ],
+     "set": "_borrow_bench"
+    },
+    {
+     "do": "if",
+     "flag": "_borrow_bench",
+     "eq": 0,
+     "then": [
+      {
+       "do": "craft",
+       "bench": "borrowed"
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Farmer Tyson",
+     "text": "A proper Cumberland comes in a coil. Not links. If you cut it up, I'll know."
+    },
+    {
+     "do": "say",
+     "who": "Farmer Tyson",
+     "text": "Prick it and pan it whole, slowly. Mash and onion gravy underneath. Whatever you do, don't twist it into links."
+    },
+    {
+     "do": "recipe",
+     "id": [
+      "cumberland_sausage"
+     ]
+    },
+    {
+     "do": "say",
+     "who": "Farmer Tyson",
+     "text": "Pop in whenever you've got the makings. Use my kitchen."
+    }
+   ]
+  }
  ]
 }

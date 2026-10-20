@@ -16,7 +16,7 @@ static func roll(zone: ZoneData, tile: String, phase: String, weather: String, r
 	var kind: String = {"tall_grass": "grass", "deep_water": "water", "bog": "grass"}.get(tile, "")
 	if kind == "":
 		return {}
-	if not rng.chance(step_chance(tile)):
+	if not rng.chance(step_chance(tile) * Meals.lure_mult(flags)):
 		return {}
 	var list := featured(candidates(zone, kind, phase, weather, flags), featured_species)
 	if list.is_empty():

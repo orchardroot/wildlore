@@ -325,6 +325,7 @@ func _on_step(p: Vector2i) -> void:
 	if Repel.step(Game.data):  # a Lavender Sachet just ran out
 		await ScriptRunner.start(self, [{"do": "sachet_worn"}])
 		return
+	Meals.step(Game.data)  # a lure dish counts its steps down
 	if encounters.in_grace():
 		encounters.stepped()
 		return

@@ -15,5 +15,61 @@
    "who": "Old Dockworker",
    "text": "Shirley Bassey was born round the corner. When she sang, the whole bay listened. So did the Chipgulls, but only for chips."
   }
+ ],
+ "teach_cook_glamorgan_sausage": [
+  {
+   "do": "if",
+   "flag": "recipe_glamorgan_sausage",
+   "then": [
+    {
+     "do": "say",
+     "who": "Mrs Prosser",
+     "text": "Back for the Glamorgan Sausage? Kitchen's yours."
+    },
+    {
+     "do": "choice",
+     "text": "Borrow the kitchen?",
+     "options": [
+      "Yes, please",
+      "No, ta"
+     ],
+     "set": "_borrow_bench"
+    },
+    {
+     "do": "if",
+     "flag": "_borrow_bench",
+     "eq": 0,
+     "then": [
+      {
+       "do": "craft",
+       "bench": "borrowed"
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Mrs Prosser",
+     "text": "No pork. Cheese and leeks. Don't look like that, you'll love it."
+    },
+    {
+     "do": "say",
+     "who": "Mrs Prosser",
+     "text": "Caerphilly, leeks and breadcrumbs, bound with egg. Roll them in more crumbs and fry. Mustard in the mix gives it a kick."
+    },
+    {
+     "do": "recipe",
+     "id": [
+      "glamorgan_sausage"
+     ]
+    },
+    {
+     "do": "say",
+     "who": "Mrs Prosser",
+     "text": "Pop in whenever you've got the makings. Use my kitchen."
+    }
+   ]
+  }
  ]
 }

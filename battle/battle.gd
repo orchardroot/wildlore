@@ -48,6 +48,8 @@ var _acted := {}  # Creature -> true: has taken its action this turn (a flinch o
 var _flinched := {}  # Creature -> true: loses its move this turn
 ## Events from before the first turn (charms that act as the battle starts). The flow plays them after the intro.
 var opening: Array = []
+## Snare multiplier from a lucky dish (Meals); the flow sets it as a wild battle starts.
+var meal_catch := 1.0
 
 func _init(player_party: Array, foe_party: Array, opts: Dictionary) -> void:
 	parties = [player_party, foe_party]
@@ -585,6 +587,7 @@ func _do_catch(snare: String, ev: Array) -> void:
 	if bonus != 1.0:
 		var lead: Creature = parties[PLAYER][_first_able(PLAYER)]
 		ev.append({"type": "charm", "side": PLAYER, "item": lead.held, "name": lead.display_name(), "text": Charms.message(lead, "{name}")})
+	bonus *= meal_catch
 	var ok := Catching.attempt(foe, snare, time, rng, bonus)
 	ev.append({"type": "catch", "success": ok})
 	if ok:
