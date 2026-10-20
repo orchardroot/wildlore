@@ -617,6 +617,43 @@
    "pay": 2
   },
   {
+   "id": "blackpool_gulls",
+   "nation": "england",
+   "town": "blackpool",
+   "badges": 2,
+   "poster": "Central Pier",
+   "title": "Chips under siege",
+   "text": "The gulls on Central Pier have learnt to unzip a handbag. Catch one of the ringleaders and we'll find it a quieter pier.",
+   "step": {
+    "type": "catch",
+    "species": "chipgull"
+   },
+   "pay": 2,
+   "reward": {
+    "items": {
+     "blackpool_rock": 2
+    }
+   }
+  },
+  {
+   "id": "blackpool_lights_check",
+   "nation": "england",
+   "town": "blackpool",
+   "badges": 2,
+   "poster": "Illuminations Depot",
+   "title": "Walk the lights",
+   "text": "We need someone to walk past the Tower after dark and tell us if any bulbs are out. All of them, ideally, are on.",
+   "step": {
+    "type": "visit",
+    "zone": "blackpool",
+    "time": [
+     "night",
+     "dusk"
+    ]
+   },
+   "pay": 2
+  },
+  {
    "id": "ncl_quay",
    "nation": "england",
    "town": "newcastle",

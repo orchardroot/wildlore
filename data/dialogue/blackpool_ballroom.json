@@ -1,0 +1,167 @@
+{
+ "ball_organist": [
+  {
+   "do": "if",
+   "flag": "q_lancashire_ballroom_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_lancashire_ballroom_1",
+     "then": [
+      {
+       "do": "say",
+       "who": "Organist",
+       "text": "Off you go and dance! I'll give you a quickstep. Everybody loves a quickstep."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Organist",
+       "text": "A tune for the contest? Of course. This is the Mighty Wurlitzer: it rises up out of the stage on a lift, playing as it comes, and the whole room cheers."
+      },
+      {
+       "do": "say",
+       "who": "Organist",
+       "text": "Reginald Dixon played it from 1930 to 1970. Mr Blackpool, they called him. 'I Do Like To Be Beside The Seaside' was his signature tune. Every organist since has had to live up to him."
+      },
+      {
+       "do": "say",
+       "who": "Organist",
+       "text": "Right: a quickstep, I think, with a cheeky slow foxtrot in the middle. Off you go!"
+      },
+      {
+       "do": "sfx",
+       "id": "badge"
+      },
+      {
+       "do": "set",
+       "flag": "q_lancashire_ballroom_1",
+       "value": true
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Organist",
+     "text": "The Wurlitzer's resting. So am I. The Ballroom's ceiling took longer to paint than the organ did to build, you know. Look up! Gold leaf everywhere."
+    }
+   ]
+  }
+ ],
+ "ball_mc": [
+  {
+   "do": "if",
+   "flag": "q_lancashire_ballroom_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Master of Ceremonies",
+     "text": "Our champions! Twirl for the people, darling. Lovely."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_lancashire_ballroom_1",
+     "then": [
+      {
+       "do": "say",
+       "who": "Master of Ceremonies",
+       "text": "Music, maestro! Ladies and gentlemen, the final of the Tower Ballroom Creature Dance Contest!"
+      },
+      {
+       "do": "say",
+       "who": "Master of Ceremonies",
+       "text": "Reigning champions, the Twinkletoes! And the challenger, {player}! Take your partners, two by two!"
+      },
+      {
+       "do": "battle",
+       "trainer": "bp_twinkletoes",
+       "intro": true
+      },
+      {
+       "do": "say",
+       "who": "Master of Ceremonies",
+       "text": "The judges' scores: TEN! TEN! TEN! And a SEVEN from the grumpy one. The new champions!"
+      },
+      {
+       "do": "say",
+       "who": "Master of Ceremonies",
+       "text": "Your prize: a box of the Tower's own rock, and the eternal gratitude of the sequin industry."
+      },
+      {
+       "do": "give_item",
+       "item": "blackpool_rock",
+       "n": 3
+      },
+      {
+       "do": "give_item",
+       "item": "rowan_sprig",
+       "n": 1
+      },
+      {
+       "do": "standing",
+       "nation": "england",
+       "amount": 3
+      },
+      {
+       "do": "set",
+       "flag": "q_lancashire_ballroom_done",
+       "value": true
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_lancashire_ballroom_started",
+       "then": [
+        {
+         "do": "say",
+         "who": "Master of Ceremonies",
+         "text": "You'll need music first, darling. Ask our organist for a tune, then come back and we'll begin."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Master of Ceremonies",
+         "text": "Welcome to the Tower Ballroom! Opened in 1894, sprung floor, gold leaf, and the most famous organ in the land. People come from all over the world just to dance a waltz here."
+        },
+        {
+         "do": "say",
+         "who": "Master of Ceremonies",
+         "text": "Tonight's the Creature Dance Contest: two of yours against two of theirs, in step. The champions, the Twinkletoes, have never been beaten. Fancy it?"
+        },
+        {
+         "do": "say",
+         "who": "Master of Ceremonies",
+         "text": "Marvellous! First, see the organist for a tune. You can't dance to silence. Well, you can, but it's called standing about."
+        },
+        {
+         "do": "set",
+         "flag": "q_lancashire_ballroom_started",
+         "value": true
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "ball_couple": [
+  {
+   "do": "say",
+   "who": "Ballroom Dancer",
+   "text": "We're the Twinkletoes. Forty years married, forty years champions. He treads on my feet, I tread on his, the judges call it 'a modern interpretation'."
+  },
+  {
+   "do": "say",
+   "who": "Ballroom Dancer",
+   "text": "The floor's made of thousands of blocks of mahogany, oak and walnut. Sprung, too, so it gives a little under your feet. It's like dancing on a very polite trampoline."
+  }
+ ]
+}

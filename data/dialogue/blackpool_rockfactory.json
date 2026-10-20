@@ -1,0 +1,141 @@
+{
+ "rock_boss": [
+  {
+   "do": "if",
+   "flag": "q_lancashire_rock_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Rock Boiler Maureen",
+     "text": "You've a job here any time, love. Pay's terrible, but you can eat the mistakes."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_lancashire_rock_1",
+     "then": [
+      {
+       "do": "say",
+       "who": "Rock Boiler Maureen",
+       "text": "You beat Liam at pulling? He's been here three summers! Right, that's your training done."
+      },
+      {
+       "do": "say",
+       "who": "Rock Boiler Maureen",
+       "text": "Here's how it goes: boil the sugar and glucose to a hard crack, pour it on the slab, then colour some red and pull the rest until it goes white and shiny."
+      },
+      {
+       "do": "say",
+       "who": "Rock Boiler Maureen",
+       "text": "The letters are built by hand, in red, each one as a long fat bar packed with white, set round the middle like a stick of seaside rock in cross-section. Then the whole lump's rolled and pulled out thin, and every inch says BLACKPOOL."
+      },
+      {
+       "do": "say",
+       "who": "Rock Boiler Maureen",
+       "text": "Here's your wages. In rock. Don't eat it all at once. You will, but don't."
+      },
+      {
+       "do": "give_item",
+       "item": "blackpool_rock",
+       "n": 6
+      },
+      {
+       "do": "give_item",
+       "item": "eccles_cake",
+       "n": 2
+      },
+      {
+       "do": "standing",
+       "nation": "england",
+       "amount": 3
+      },
+      {
+       "do": "set",
+       "flag": "q_lancashire_rock_done",
+       "value": true
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_lancashire_rock_started",
+       "then": [
+        {
+         "do": "say",
+         "who": "Rock Boiler Maureen",
+         "text": "Go on, take on Liam. He's over by the pulling hook, showing off."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Rock Boiler Maureen",
+         "text": "Short-handed, I am! It's switch-on week and the whole town wants rock. Can you pull sugar?"
+        },
+        {
+         "do": "say",
+         "who": "Rock Boiler Maureen",
+         "text": "No? You'll learn. First, see Liam, my apprentice. Beat him and you've earned your apron."
+        },
+        {
+         "do": "set",
+         "flag": "q_lancashire_rock_started",
+         "value": true
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "rock_apprentice": [
+  {
+   "do": "if",
+   "flag": "q_lancashire_rock_1",
+   "then": [
+    {
+     "do": "say",
+     "who": "Apprentice Liam",
+     "text": "Fair play. I'll stick to wrapping. Wrapping can't beat you in a battle."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_lancashire_rock_started",
+     "then": [
+      {
+       "do": "say",
+       "who": "Apprentice Liam",
+       "text": "Maureen says you're the new apprentice? Over my dead sugar. Rock-pulling battle! Loser does the washing up."
+      },
+      {
+       "do": "battle",
+       "trainer": "bp_rock_liam",
+       "intro": true
+      },
+      {
+       "do": "say",
+       "who": "Apprentice Liam",
+       "text": "Aw, man. Go on then, tell Maureen. I'll get the washing-up gloves."
+      },
+      {
+       "do": "set",
+       "flag": "q_lancashire_rock_1",
+       "value": true
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Apprentice Liam",
+       "text": "Mind the slab, it's hot. Boiled sugar sticks to everything. Especially eyebrows."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,32 @@
+{
+ "id": "bp_fortune",
+ "name": "Gypsy Rosa-ish",
+ "class": "Fortune Teller",
+ "sprite": "druid",
+ "party": [
+  {
+   "species": "hootlet",
+   "level": 19
+  },
+  {
+   "species": "wispet",
+   "level": 20
+  },
+  {
+   "species": "bulbkin",
+   "level": 19
+  }
+ ],
+ "ai": "trainer",
+ "money": 880,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Gypsy Rosa-ish",
+   "text": "Cross my palm with silver and I'll tell your future. I see... a battle. Ooh, and a stick of rock. Possibly at once."
+  }
+ ],
+ "win": "I didn't see that coming. Bit awkward in my line of work.",
+ "after": "Your future: chips. I'd put money on it. I'd put your money on it.",
+ "scaled_floor": 18
+}

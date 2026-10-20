@@ -1,0 +1,38 @@
+{
+ "id": "bp_twinkletoes",
+ "name": "The Twinkletoes",
+ "class": "Dance Champions",
+ "sprite": "festival_goer",
+ "party": [
+  {
+   "species": "starlet",
+   "level": 20
+  },
+  {
+   "species": "murmurant",
+   "level": 20
+  },
+  {
+   "species": "cooplet",
+   "level": 20
+  },
+  {
+   "species": "bulbkin",
+   "level": 21
+  }
+ ],
+ "ai": "trainer",
+ "money": 1500,
+ "intro": [
+  {
+   "do": "say",
+   "who": "The Twinkletoes",
+   "text": "Shall we dance? Two at a time, darling. Keep your frame!"
+  }
+ ],
+ "win": "Oh! Beaten on our own floor! Well danced. We'll be back next year, with sequins.",
+ "after": "Remember: it's not the steps, it's the smile. Also the steps.",
+ "scaled_floor": 18,
+ "double": true,
+ "music": "battle_double"
+}

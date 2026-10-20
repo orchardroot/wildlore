@@ -1,0 +1,450 @@
+{
+ "sef_crosby_walker": [
+  {
+   "do": "say",
+   "who": "Dog Walker",
+   "text": "I walk Biscuit past the iron men every morning. He used to bark at them. Now he says hello to his favourite, third from the left."
+  },
+  {
+   "do": "say",
+   "who": "Dog Walker",
+   "text": "People dress them up, you know. Scarves, bobble hats, an Everton shirt, a Liverpool shirt the next day. The iron men stay neutral."
+  }
+ ],
+ "sef_shipwatcher": [
+  {
+   "do": "say",
+   "who": "Ship Spotter",
+   "text": "That's the Belfast boat going out, and the big container ship's waiting for the tide. Liverpool's docks still handle more than most people think, just with fewer men and more cranes."
+  },
+  {
+   "do": "say",
+   "who": "Ship Spotter",
+   "text": "Ships here wait on the tide. The Mersey has one of the biggest tidal ranges in Britain, near enough ten metres on a spring tide."
+  }
+ ],
+ "sef_asparagus": [
+  {
+   "do": "say",
+   "who": "Asparagus Grower",
+   "text": "Formby asparagus, best in the land. We cut it from late April to midsummer, then we stop and let the plants grow up into ferny bushes so they've strength for next year."
+  },
+  {
+   "do": "say",
+   "who": "Asparagus Grower",
+   "text": "My great-grandad sent his down the line to the Pullman cars. Now I sell it from a table at the gate with an honesty box. Mostly honest."
+  }
+ ],
+ "sef_sandgrounder": [
+  {
+   "do": "say",
+   "who": "Southport Local",
+   "text": "Sandgrounder, me. That's what you call someone born in Southport. Blackpool has sandgrown'uns. We have sandgrounders. Completely different. Don't ask how."
+  },
+  {
+   "do": "say",
+   "who": "Southport Local",
+   "text": "Lord Street's verandas were put up so the Victorian ladies could shop without getting their hats wet. It still rains. The verandas still work."
+  }
+ ],
+ "sef_swan_warden": [
+  {
+   "do": "say",
+   "who": "Swan Warden",
+   "text": "The whoopers come in October from Iceland, a thousand miles, some in a single flight. You hear them before you see them: they honk like a brass band tuning up."
+  },
+  {
+   "do": "say",
+   "who": "Swan Warden",
+   "text": "Whooper swans have a yellow wedge on the bill. Mute swans have orange, and they're the ones in the park that hiss at your sandwich."
+  }
+ ],
+ "sef_squirrel_a": [
+  {
+   "do": "say",
+   "who": "",
+   "text": "A red squirrel freezes on a pine trunk, tufted ears up, then scolds you with a noise like a tiny wet engine."
+  },
+  {
+   "do": "set",
+   "flag": "lancashire_sq_a",
+   "value": true
+  },
+  {
+   "do": "if",
+   "flag": "lancashire_sq_b",
+   "then": [
+    {
+     "do": "if",
+     "flag": "lancashire_sq_c",
+     "then": [
+      {
+       "do": "if",
+       "flag": "lancashire_sq_d",
+       "then": [
+        {
+         "do": "set",
+         "flag": "q_lancashire_squirrels_1",
+         "value": true
+        },
+        {
+         "do": "say",
+         "who": "",
+         "text": "That's four red squirrels counted. Ranger Hughes will want the tally."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "sef_squirrel_b": [
+  {
+   "do": "say",
+   "who": "",
+   "text": "A red squirrel sits up with a pine cone, strips it scale by scale, and drops the core on your head. Counted."
+  },
+  {
+   "do": "set",
+   "flag": "lancashire_sq_b",
+   "value": true
+  },
+  {
+   "do": "if",
+   "flag": "lancashire_sq_a",
+   "then": [
+    {
+     "do": "if",
+     "flag": "lancashire_sq_c",
+     "then": [
+      {
+       "do": "if",
+       "flag": "lancashire_sq_d",
+       "then": [
+        {
+         "do": "set",
+         "flag": "q_lancashire_squirrels_1",
+         "value": true
+        },
+        {
+         "do": "say",
+         "who": "",
+         "text": "That's four red squirrels counted. Ranger Hughes will want the tally."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "sef_squirrel_c": [
+  {
+   "do": "say",
+   "who": "",
+   "text": "A red squirrel runs along a branch, stops, flicks its tail three times and vanishes into its drey. Counted."
+  },
+  {
+   "do": "set",
+   "flag": "lancashire_sq_c",
+   "value": true
+  },
+  {
+   "do": "if",
+   "flag": "lancashire_sq_a",
+   "then": [
+    {
+     "do": "if",
+     "flag": "lancashire_sq_b",
+     "then": [
+      {
+       "do": "if",
+       "flag": "lancashire_sq_d",
+       "then": [
+        {
+         "do": "set",
+         "flag": "q_lancashire_squirrels_1",
+         "value": true
+        },
+        {
+         "do": "say",
+         "who": "",
+         "text": "That's four red squirrels counted. Ranger Hughes will want the tally."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "sef_squirrel_d": [
+  {
+   "do": "say",
+   "who": "",
+   "text": "A red squirrel buries a hazelnut, looks at you, digs it up and buries it somewhere else. It doesn't trust you. Counted."
+  },
+  {
+   "do": "set",
+   "flag": "lancashire_sq_d",
+   "value": true
+  },
+  {
+   "do": "if",
+   "flag": "lancashire_sq_a",
+   "then": [
+    {
+     "do": "if",
+     "flag": "lancashire_sq_b",
+     "then": [
+      {
+       "do": "if",
+       "flag": "lancashire_sq_c",
+       "then": [
+        {
+         "do": "set",
+         "flag": "q_lancashire_squirrels_1",
+         "value": true
+        },
+        {
+         "do": "say",
+         "who": "",
+         "text": "That's four red squirrels counted. Ranger Hughes will want the tally."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "sef_natterjack": [
+  {
+   "do": "say",
+   "who": "",
+   "text": "A natterjack sits in the warm shallows, yellow stripe down its back, throat swelling for a call. Catch it for the survey?"
+  },
+  {
+   "do": "choice",
+   "text": "Catch the natterjack for the survey?",
+   "options": [
+    "Go on then",
+    "Leave it be"
+   ],
+   "set": "_lancs_toad"
+  },
+  {
+   "do": "if",
+   "flag": "_lancs_toad",
+   "then": [
+    {
+     "do": "say",
+     "who": "",
+     "text": "Off it runs. It's quicker than it looks."
+    }
+   ],
+   "else": [
+    {
+     "do": "legend",
+     "species": "natterjack",
+     "level": 20,
+     "flag": "q_lancashire_squirrels_2",
+     "music": "battle_wild"
+    },
+    {
+     "do": "if",
+     "flag": "q_lancashire_squirrels_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "Got it. Ranger Hughes will want to see it before it goes back in the slack. Well, before you keep it, anyway."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "It's slipped off into the reeds. There'll be another chance: natterjacks don't go far from their slack."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "sef_ranger": [
+  {
+   "do": "if",
+   "flag": "q_lancashire_squirrels_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Ranger Hughes",
+     "text": "Thanks again. Your squirrel count's gone into the national survey, and the toad's in the record book. You're an honorary ranger, near enough. No hat, though. Hats are earned."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_lancashire_squirrels_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "Ranger Hughes",
+       "text": "Four reds and a natterjack! That's a proper survey, that. Natterjacks are one of Britain's rarest amphibians, and this coast holds a big share of them."
+      },
+      {
+       "do": "say",
+       "who": "Ranger Hughes",
+       "text": "Here, for your trouble. An acorn from the old oak by the car park, and a bit of my lunch."
+      },
+      {
+       "do": "give_item",
+       "item": "oak_acorn",
+       "n": 1
+      },
+      {
+       "do": "give_item",
+       "item": "potted_shrimps",
+       "n": 2
+      },
+      {
+       "do": "standing",
+       "nation": "england",
+       "amount": 4
+      },
+      {
+       "do": "set",
+       "flag": "q_lancashire_squirrels_done",
+       "value": true
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_lancashire_squirrels_1",
+       "then": [
+        {
+         "do": "say",
+         "who": "Ranger Hughes",
+         "text": "Four reds! Grand. Now the dunes. We need one natterjack checked for the survey: try the warm slack in the middle of the dunes, west of here. They run, they don't hop, so be quick."
+        }
+       ],
+       "else": [
+        {
+         "do": "if",
+         "flag": "q_lancashire_squirrels_started",
+         "then": [
+          {
+           "do": "say",
+           "who": "Ranger Hughes",
+           "text": "Still counting? There are four reds out there today: try the clearings either side of the paths. Look up. They're always above you, judging."
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Ranger Hughes",
+           "text": "Afternoon! National Trust ranger. We're doing the red squirrel count, and I'm one pair of eyes short."
+          },
+          {
+           "do": "say",
+           "who": "Ranger Hughes",
+           "text": "Formby's reds nearly vanished in 2008, when squirrelpox came through. Greys carry it without getting ill. Reds catch it and die. We've spent years since keeping the greys out."
+          },
+          {
+           "do": "say",
+           "who": "Ranger Hughes",
+           "text": "Fancy helping? Count four reds in the pinewoods for me. Then there's a toad job. You'll love the toad job."
+          },
+          {
+           "do": "set",
+           "flag": "q_lancashire_squirrels_started",
+           "value": true
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "sef_pier_keeper": [
+  {
+   "do": "if",
+   "flag": "q_lancashire_lights_2",
+   "then": [
+    {
+     "do": "say",
+     "who": "Pier Keeper",
+     "text": "Did Doreen get her bulbs? Tell her she owes me a fish supper. She's owed me one since 1997."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_lancashire_lights_1",
+     "then": [
+      {
+       "do": "say",
+       "who": "Pier Keeper",
+       "text": "Doreen sent you? From the Illuminations depot? Of course she did. Here's her crate of spare bulbs. Every year they run short, every year she sends someone up the coast to me."
+      },
+      {
+       "do": "say",
+       "who": "Pier Keeper",
+       "text": "Mind how you carry it. Some of those bulbs are older than the trams. Not the 1885 trams. The other ones."
+      },
+      {
+       "do": "set",
+       "flag": "q_lancashire_lights_2",
+       "value": true
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "You take the crate of spare bulbs. It clinks."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Pier Keeper",
+       "text": "Welcome to the end of Southport Pier. The sea's out. It's usually out. Give it an hour and it'll come rushing in faster than you'd believe, so don't go wandering on the sands."
+      },
+      {
+       "do": "say",
+       "who": "Pier Keeper",
+       "text": "There used to be a little train along the pier. Folk rode it to the end, looked at the sand, and rode back. Lovely day out."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "sef_donkey": [
+  {
+   "do": "say",
+   "who": "",
+   "text": "A small grey donkey with a red brow-band stands in the asparagus rows, chewing with enormous satisfaction. The name stitched on the band says BRAMBLE."
+  },
+  {
+   "do": "say",
+   "who": "Asparagus Grower",
+   "text": "Is she yours? She's had half a row. Go on, take her home. Tell Jack she owes me a fiver and a ride for my granddaughter."
+  },
+  {
+   "do": "say",
+   "who": "",
+   "text": "You scratch Bramble behind her long ears. She decides you're acceptable and sets off north along the sands, back towards Blackpool, at a steady donkey pace."
+  },
+  {
+   "do": "set",
+   "flag": "q_lancashire_donkey_2",
+   "value": true
+  }
+ ]
+}

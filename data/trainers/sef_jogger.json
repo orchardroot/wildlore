@@ -1,0 +1,32 @@
+{
+ "id": "sef_jogger",
+ "name": "Jogger Callum",
+ "class": "Jogger",
+ "sprite": "jogger",
+ "party": [
+  {
+   "species": "scuttlet",
+   "level": 18
+  },
+  {
+   "species": "duneskink",
+   "level": 19
+  },
+  {
+   "species": "starlet",
+   "level": 19
+  }
+ ],
+ "ai": "trainer",
+ "money": 780,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Jogger Callum",
+   "text": "Formby parkrun PB attempt! Out of my way! Or battle me, that counts as interval training."
+  }
+ ],
+ "win": "Ah, that's my PB gone. Worth it.",
+ "after": "Running on sand is twice the effort for half the distance. I'm basically training for nothing.",
+ "scaled_floor": 18
+}

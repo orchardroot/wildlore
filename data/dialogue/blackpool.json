@@ -1,0 +1,367 @@
+{
+ "rail_guard": [
+  {
+   "do": "say",
+   "who": "Rail Guard",
+   "text": "Blackpool North. Trains to everywhere you've been, and on Fridays in summer, every hen do in the North West."
+  },
+  {
+   "do": "say",
+   "who": "Rail Guard",
+   "text": "All aboard! Mind the gap and the inflatable flamingo."
+  },
+  {
+   "do": "rail"
+  }
+ ],
+ "bp_rock_seller": [
+  {
+   "do": "say",
+   "who": "Rock Seller",
+   "text": "Rock! Real Blackpool rock, with BLACKPOOL all the way through. Snap it anywhere and it still says Blackpool. Unlike my ex."
+  },
+  {
+   "do": "say",
+   "who": "Rock Seller",
+   "text": "The letters are made by hand in a big fat slab, then the whole thing's rolled and pulled thin until the writing is tiny. Like a sugary sausage with a message."
+  }
+ ],
+ "bp_landlady": [
+  {
+   "do": "say",
+   "who": "Landlady",
+   "text": "Sea View Guest House, love. No sea view, mind, but there's a picture of the sea in the hall."
+  },
+  {
+   "do": "say",
+   "who": "Landlady",
+   "text": "In the old days it was house rules: breakfast at eight, out by ten, not back till teatime whatever the weather. Wakes Week, the whole of Oldham stayed on this street."
+  }
+ ],
+ "bp_sandgrownun": [
+  {
+   "do": "say",
+   "who": "Local Lad",
+   "text": "Sandgrown'un, me. Born and bred in Blackpool. Visitors come for a weekend. We have to live with the lights every autumn. Lovely, it is. You can read in bed with the curtains open."
+  },
+  {
+   "do": "say",
+   "who": "Local Lad",
+   "text": "Get yourself a chippy tea: fish, chips and mushy peas, or a pea wet if you're proper. Then a barm cake. Then the Tower. In that order."
+  }
+ ],
+ "bp_icecream": [
+  {
+   "do": "if",
+   "flag": "q_lancashire_donkey_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_lancashire_donkey_1",
+     "then": [
+      {
+       "do": "say",
+       "who": "Ice-Cream Seller",
+       "text": "South, love. Nose down, tail swishing. Follow the hoofprints."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Ice-Cream Seller",
+       "text": "Bramble? Jack's donkey? I saw her trotting south along the sands this morning, nose down, like she'd smelt summat green."
+      },
+      {
+       "do": "say",
+       "who": "Ice-Cream Seller",
+       "text": "She'll be halfway to Southport by now. Or Formby. Donkeys love a vegetable patch."
+      },
+      {
+       "do": "set",
+       "flag": "q_lancashire_donkey_1",
+       "value": true
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Ice-Cream Seller",
+     "text": "Ninety-nine with a flake, love? Strawberry sauce is extra and so is sympathy."
+    },
+    {
+     "do": "say",
+     "who": "Ice-Cream Seller",
+     "text": "Ice cream on Central Pier since before I was born. My dad sold it, his mum sold it. We've never once sold a hot one."
+    }
+   ]
+  }
+ ],
+ "bp_alf": [
+  {
+   "do": "if",
+   "flag": "q_lancashire_lights_1",
+   "then": [
+    {
+     "do": "say",
+     "who": "Tram Driver Alf",
+     "text": "Fuses to Doreen, bulbs from Southport, then a celebrity. Doreen's got you running about like the last tram at midnight."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_lancashire_lights_started",
+     "then": [
+      {
+       "do": "say",
+       "who": "Tram Driver Alf",
+       "text": "Doreen wants the spare fuses from my cab? She'll have to earn them. Well, you will. Beat me fair and square, like the old timetable, and they're yours."
+      },
+      {
+       "do": "battle",
+       "trainer": "bp_tram_alf",
+       "intro": true
+      },
+      {
+       "do": "say",
+       "who": "Tram Driver Alf",
+       "text": "Right. A deal's a deal. One box of fuses, bit greasy, and some advice: Doreen's short of bulbs too. Every year. Try Southport Pier, the keeper keeps a crate."
+      },
+      {
+       "do": "set",
+       "flag": "q_lancashire_lights_1",
+       "value": true
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Tram Driver Alf",
+       "text": "Blackpool trams, since 1885. Older than the Tower! Electric from the start, too, from a conduit in the road at first, before the overhead wires."
+      },
+      {
+       "do": "say",
+       "who": "Tram Driver Alf",
+       "text": "I drive a Balloon on heritage days. Upstairs at the front, on the prom, with the lights on. Best seat in Lancashire."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "bp_compere": [
+  {
+   "do": "if",
+   "flag": "q_lancashire_lights_3",
+   "then": [
+    {
+     "do": "when",
+     "cond": "dusk",
+     "then": [
+      {
+       "do": "set",
+       "flag": "_lancs_dark",
+       "value": true
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "night",
+       "then": [
+        {
+         "do": "set",
+         "flag": "_lancs_dark",
+         "value": true
+        }
+       ],
+       "else": [
+        {
+         "do": "set",
+         "flag": "_lancs_dark",
+         "value": false
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "do": "if",
+     "flag": "_lancs_dark",
+     "then": [
+      {
+       "do": "say",
+       "who": "Comp\u00e8re",
+       "text": "Ladies and gentlemen, boys and girls, hen dos and stag dos! Our celebrity is stuck on the M55, so tonight, please welcome a very special stand-in..."
+      },
+      {
+       "do": "say",
+       "who": "Comp\u00e8re",
+       "text": "...{player}! Ten! Nine! Eight! Oh, they've done it early. Never mind!"
+      },
+      {
+       "do": "fade_out"
+      },
+      {
+       "do": "sfx",
+       "id": "badge"
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "You pull the big brass lever. Six miles of lights come on in a rush, the Tower blazes from top to toe, and the whole promenade goes 'ooooh'."
+      },
+      {
+       "do": "fade_in"
+      },
+      {
+       "do": "say",
+       "who": "Doreen",
+       "text": "Every bulb lit! Not one fuse gone! You're a star, {player}. Here, a little thank you from the depot."
+      },
+      {
+       "do": "give_item",
+       "item": "illuminations_bulb",
+       "n": 1
+      },
+      {
+       "do": "give_item",
+       "item": "blackpool_rock",
+       "n": 5
+      },
+      {
+       "do": "give_item",
+       "item": "chippy_tea",
+       "n": 2
+      },
+      {
+       "do": "standing",
+       "nation": "england",
+       "amount": 6
+      },
+      {
+       "do": "set",
+       "flag": "q_lancashire_lights_done",
+       "value": true
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Comp\u00e8re",
+       "text": "Not yet, love! You can't switch on the Illuminations in broad daylight. Come back at dusk, when the sky goes purple over the Irish Sea."
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Comp\u00e8re",
+     "text": "Testing, testing. One, two. Is this thing on? It's the switch-on soon, and the celebrity's been held up on the motorway. Again."
+    },
+    {
+     "do": "say",
+     "who": "Comp\u00e8re",
+     "text": "Doreen at the depot's running about like a headless chicken. You could do worse than ask her what she needs."
+    }
+   ]
+  }
+ ],
+ "bp_donkey_jack": [
+  {
+   "do": "if",
+   "flag": "q_lancashire_donkey_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Donkey Man Jack",
+     "text": "Bramble's been as good as gold since. Well, she's eaten a hat. But it was a kiss-me-quick hat, so it's practically food."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_lancashire_donkey_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "Donkey Man Jack",
+       "text": "Bramble! You daft article! Where've you been? Eating asparagus in Formby? Twenty miles for a vegetable!"
+      },
+      {
+       "do": "say",
+       "who": "Donkey Man Jack",
+       "text": "Thank you, love. Honestly. Here, take this. It's one of her old shoes, for luck, the right way up so the luck doesn't fall out."
+      },
+      {
+       "do": "give_item",
+       "item": "horseshoe",
+       "n": 1
+      },
+      {
+       "do": "give_item",
+       "item": "blackpool_rock",
+       "n": 2
+      },
+      {
+       "do": "standing",
+       "nation": "england",
+       "amount": 3
+      },
+      {
+       "do": "set",
+       "flag": "q_lancashire_donkey_done",
+       "value": true
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_lancashire_donkey_1",
+       "then": [
+        {
+         "do": "say",
+         "who": "Donkey Man Jack",
+         "text": "South, you reckon? Along the sands towards Southport? The tide's out, she could walk to Formby without getting her hooves wet. Could you go after her? She'll come to anyone with a carrot. Or anyone, frankly."
+        }
+       ],
+       "else": [
+        {
+         "do": "if",
+         "flag": "q_lancashire_donkey_started",
+         "then": [
+          {
+           "do": "say",
+           "who": "Donkey Man Jack",
+           "text": "Have you asked along the beach? Somebody on Central Pier must've seen a donkey walk past. They're not easy to miss."
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Donkey Man Jack",
+           "text": "You haven't seen a donkey, have you? Grey, about this high, answers to Bramble. Well, she doesn't answer. But it's her name."
+          },
+          {
+           "do": "say",
+           "who": "Donkey Man Jack",
+           "text": "She slipped her halter at dinner time while I was counting the takings. Twenty-odd years on these sands and I've never lost one. Would you ask about for me?"
+          },
+          {
+           "do": "set",
+           "flag": "q_lancashire_donkey_started",
+           "value": true
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,199 @@
+{
+ "id": "blackpool_ballroom",
+ "name": "Tower Ballroom",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "statue",
+   "x": 14,
+   "y": 1
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 9
+  },
+  {
+   "type": "potted_plant",
+   "x": 15,
+   "y": 9
+  },
+  {
+   "type": "hall_stage",
+   "x": 8,
+   "y": 1
+  },
+  {
+   "type": "piano",
+   "x": 2,
+   "y": 1
+  },
+  {
+   "type": "stage_light",
+   "x": 5,
+   "y": 1
+  },
+  {
+   "type": "stage_light",
+   "x": 11,
+   "y": 1
+  },
+  {
+   "type": "bench",
+   "x": 1,
+   "y": 4,
+   "rot": 90
+  },
+  {
+   "type": "bench",
+   "x": 1,
+   "y": 6,
+   "rot": 90
+  },
+  {
+   "type": "bench",
+   "x": 15,
+   "y": 4,
+   "rot": 270
+  },
+  {
+   "type": "bench",
+   "x": 15,
+   "y": 6,
+   "rot": 270
+  },
+  {
+   "type": "candelabra",
+   "x": 1,
+   "y": 2
+  },
+  {
+   "type": "candelabra",
+   "x": 15,
+   "y": 2
+  },
+  {
+   "type": "wall_picture",
+   "x": 7,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  },
+  {
+   "type": "wall_picture",
+   "x": 9,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  },
+  {
+   "type": "wall_picture",
+   "x": 3,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  },
+  {
+   "type": "clock",
+   "x": 10,
+   "y": 1,
+   "walk": true
+  }
+ ],
+ "warps": [
+  {
+   "x": 8,
+   "y": 10,
+   "to": "blackpool",
+   "tx": 28,
+   "ty": 28,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "ball_mc",
+   "sprite": "tour_guide",
+   "x": 8,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "ball_mc",
+   "name": "Master of Ceremonies"
+  },
+  {
+   "id": "ball_organist",
+   "sprite": "harpist",
+   "x": 3,
+   "y": 2,
+   "facing": "right",
+   "move": "still",
+   "script": "ball_organist",
+   "name": "Organist"
+  },
+  {
+   "id": "ball_couple",
+   "sprite": "festival_goer",
+   "x": 12,
+   "y": 5,
+   "facing": "left",
+   "move": "still",
+   "script": "ball_couple",
+   "name": "Ballroom Dancer"
+  },
+  {
+   "id": "ball_gran",
+   "sprite": "villager_3",
+   "x": 14,
+   "y": 8,
+   "facing": "left",
+   "move": "still",
+   "name": "Regular",
+   "text": "I've danced here every Tuesday since 1962. The floor's been relaid since. I haven't."
+  },
+  {
+   "id": "ball_teen",
+   "sprite": "student",
+   "x": 2,
+   "y": 8,
+   "facing": "right",
+   "move": "still",
+   "name": "Teenager",
+   "text": "Me nan dragged me here. I'm not enjoying it. ...Okay, the organ's a bit good."
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  8,
+  9
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxxxxx",
+  "x+++++++++++++++x",
+  "x+++++++++++++++x",
+  "x+++++++++++++++x",
+  "x++pqpqpqpqpqp++x",
+  "x++qpqpqpqpqpq++x",
+  "x++pqpqpqpqpqp++x",
+  "x++qpqpqpqpqpq++x",
+  "x++pqpqpqpqpqp++x",
+  "x+++++++++++++++x",
+  "x+++++++D+++++++x",
+  "xxxxxxxxxxxxxxxxx"
+ ],
+ "legend_extra": {
+  "p": {
+   "tile": "floor_wood",
+   "colour": "#9a6a3c"
+  },
+  "q": {
+   "tile": "floor_wood",
+   "colour": "#7e5430"
+  }
+ }
+}
