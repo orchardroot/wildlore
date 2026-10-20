@@ -62,7 +62,10 @@
     "another_tide": {"name": "Another Tide", "desc": "Brook and tide moves hurt it a quarter less, and foes can't lower its stats.", "msg": "{name} has stood through a thousand tides. It won't be moved!", "resist": {"types": ["brook", "tide"], "mult": 0.75}, "no_drops": true},
     "broad_gauge": {"name": "Broad Gauge", "desc": "Built wide and steady: foes can't lower its stats, and super-effective hits do a little less to it.", "msg": "{name} runs on the Broad Gauge. It won't be shifted!", "no_drops": true, "se_mult": 0.85},
     "hot_air": {"name": "Hot Air", "desc": "Rises on a warm day: half as fast again in sunshine, and frost moves hurt it a quarter less.", "msg": "{name} is full of Hot Air!", "speed": {"weather": ["sunshine"], "mult": 1.5}, "resist": {"types": ["frost"], "mult": 0.75}},
-    "overnight_job": {"name": "Overnight Job", "desc": "Does its best work in the dark: its moves hit harder at dusk and at night, and it can't be muddled.", "msg": "{name} keeps a clear head. Nobody saw a thing.", "block_status": ["muddled"], "power_time": {"time": ["dusk", "night"], "mult": 1.2}}
+    "overnight_job": {"name": "Overnight Job", "desc": "Does its best work in the dark: its moves hit harder at dusk and at night, and it can't be muddled.", "msg": "{name} keeps a clear head. Nobody saw a thing.", "block_status": ["muddled"], "power_time": {"time": ["dusk", "night"], "mult": 1.2}},
+    "blowhole": {"name": "Blowhole", "desc": "Booms in on a squall that brings drizzle for 5 turns, and its storm and tide moves hit harder in the rain.", "msg": "{name} booms through the rock, and a squall blows in!", "entry_weather": "drizzle", "power_weather": {"weather": ["drizzle", "downpour"], "mult": 1.3, "types": ["storm", "tide"]}},
+    "copper_smoke": {"name": "Copper Smoke", "desc": "Arrives in a cloud of copper smoke that lowers the foes' Defence.", "msg": "{name} belches copper smoke over the field. Everyone's coughing!", "entry_stage": {"to": "foes", "stat": "def", "stages": -1}},
+    "pwnco": {"name": "Pwnco", "desc": "Comes to the door with a rhyme: the foes' Lore drops, and it can't be muddled.", "msg": "{name} knocks and sings a rhyme at the door. The foes can't think of a comeback!", "block_status": ["muddled"], "entry_stage": {"to": "foes", "stat": "lore", "stages": -1}}
   },
   "species": {
     "bogglet": "mardy",
@@ -311,6 +314,11 @@
     "broadgauge": "broad_gauge",
     "wickerling": "hot_air",
     "montgolfire": "hot_air",
-    "stencilette": "overnight_job"
+    "stencilette": "overnight_job",
+    "wurmlet": "blowhole",
+    "ormwyrm": "blowhole",
+    "smeltling": "copper_smoke",
+    "cuprion": "copper_smoke",
+    "marilwyd": "pwnco"
   }
 }

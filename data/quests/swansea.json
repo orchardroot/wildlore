@@ -1,0 +1,32 @@
+{"quests": [
+ {"id": "swansea_worm", "title": "Worm's Head", "region": "swansea", "town": "gower", "giver": "Coastwatch Volunteer",
+  "summary": "Cross to the Worm on the tide and see what breathes at the blowhole.",
+  "start_flag": "q_swansea_worm_started",
+  "steps": [
+   {"flag": "q_swansea_worm_1", "text": "Read the tide table with the coastwatch volunteer at Rhossili and cross the causeway in time.", "zone": "gower"},
+   {"flag": "q_swansea_worm_2", "text": "Prove yourself to Gwen of the Worm on the Low Neck.", "zone": "gower"},
+   {"flag": "q_swansea_worm_3", "text": "Listen at the blowhole on the Outer Head, and catch what answers.", "zone": "gower"},
+   {"flag": "q_swansea_worm_done", "text": "Tell the coastwatch volunteer at Rhossili what you found.", "zone": "gower"}
+  ],
+  "done_flag": "q_swansea_worm_done", "reward": "A Hag Stone, laverbread, standing in Wales, and an Ormwyrm."},
+ {"id": "swansea_milkwood", "title": "Under Milk Wood", "region": "swansea", "town": "swansea", "giver": "Curator, Dylan Thomas Centre",
+  "summary": "Find four of Dylan Thomas's voices rehearsing around Swansea for the Centre's reading.",
+  "start_flag": "q_swansea_milkwood_started",
+  "steps": [
+   {"flag": "q_swansea_milkwood_captain", "text": "Find blind Captain Cat, dreaming by the boats in the marina.", "zone": "swansea"},
+   {"flag": "q_swansea_milkwood_polly", "text": "Find Polly Garter, singing over her washing in the Mumbles.", "zone": "swansea"},
+   {"flag": "q_swansea_milkwood_organ", "text": "Find Organ Morgan, practising in the No Sign Bar on Wind Street.", "zone": "swansea_nosign"},
+   {"flag": "q_swansea_milkwood_ogmore", "text": "Find Mrs Ogmore-Pritchard, polishing on Cwmdonkin Drive.", "zone": "swansea"},
+   {"flag": "q_swansea_milkwood_done", "text": "Report back to the curator at the Dylan Thomas Centre.", "zone": "swansea_dtc"}
+  ],
+  "done_flag": "q_swansea_milkwood_done", "reward": "A signed copy of Under Milk Wood, Welsh cakes and standing in Wales."},
+ {"id": "swansea_cockles", "title": "Cockles for Breakfast", "region": "swansea", "town": "swansea_market", "giver": "Megan Laverbread",
+  "summary": "Fetch fresh cockles from Penclawdd for a proper Swansea breakfast.",
+  "start_flag": "q_swansea_cockles_started",
+  "steps": [
+   {"flag": "q_swansea_cockles_1", "text": "Find Dilys on the cockle beds at Penclawdd, on Gower's north shore.", "zone": "gower"},
+   {"flag": "q_swansea_cockles_2", "text": "Rake and riddle a bag of cockles the proper way.", "zone": "gower"},
+   {"flag": "q_swansea_cockles_done", "text": "Take the cockles back to Megan in Swansea Market.", "zone": "swansea_market"}
+  ],
+  "done_flag": "q_swansea_cockles_done", "reward": "A laverbread breakfast to take away, Welsh cakes and standing in Wales."}
+]}

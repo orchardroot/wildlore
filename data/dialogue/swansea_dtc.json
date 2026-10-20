@@ -1,0 +1,137 @@
+{
+ "dtc_curator": [
+  {
+   "do": "if",
+   "flag": "q_swansea_milkwood_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Curator",
+     "text": "The reading went beautifully. Somebody sneezed in the quiet bit, but that's live theatre."
+    },
+    {
+     "do": "say",
+     "who": "Curator",
+     "text": "Llareggub, the town in the play, is a rude word spelled backwards. Dylan thought he was very clever. He was."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_swansea_milkwood_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_swansea_milkwood_captain",
+       "then": [
+        {
+         "do": "if",
+         "flag": "q_swansea_milkwood_polly",
+         "then": [
+          {
+           "do": "if",
+           "flag": "q_swansea_milkwood_organ",
+           "then": [
+            {
+             "do": "if",
+             "flag": "q_swansea_milkwood_ogmore",
+             "then": [
+              {
+               "do": "set",
+               "flag": "q_swansea_milkwood_done",
+               "value": true
+              },
+              {
+               "do": "say",
+               "who": "Curator",
+               "text": "All four! Captain Cat, Polly Garter, Organ Morgan and Mrs Ogmore-Pritchard. We've got our voices for the reading. Diolch yn fawr, thank you very much."
+              },
+              {
+               "do": "say",
+               "who": "Curator",
+               "text": "Here, take a copy of the play. And a lovespoon from the gift shop. Carved spoons are how Welsh lads courted, once. Don't read anything into it."
+              },
+              {
+               "do": "give_item",
+               "item": "milk_wood_script",
+               "n": 1
+              },
+              {
+               "do": "give_item",
+               "item": "welsh_cake",
+               "n": 6
+              },
+              {
+               "do": "standing",
+               "nation": "wales",
+               "amount": 5
+              }
+             ],
+             "else": [
+              {
+               "do": "say",
+               "who": "Curator",
+               "text": "Still missing a voice or two. Captain Cat dreams by the boats, Polly Garter sings over her washing, Organ Morgan plays, and Mrs Ogmore-Pritchard polishes. Find them all."
+              }
+             ]
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Curator",
+             "text": "Still missing a voice or two. Captain Cat dreams by the boats, Polly Garter sings over her washing, Organ Morgan plays, and Mrs Ogmore-Pritchard polishes. Find them all."
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Curator",
+           "text": "Still missing a voice or two. Captain Cat dreams by the boats, Polly Garter sings over her washing, Organ Morgan plays, and Mrs Ogmore-Pritchard polishes. Find them all."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Curator",
+         "text": "Still missing a voice or two. Captain Cat dreams by the boats, Polly Garter sings over her washing, Organ Morgan plays, and Mrs Ogmore-Pritchard polishes. Find them all."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Curator",
+       "text": "Croeso to the Dylan Thomas Centre. Dylan wrote Under Milk Wood, a play for voices, about one spring day in a little Welsh seaside town called Llareggub."
+      },
+      {
+       "do": "say",
+       "who": "Curator",
+       "text": "It was first read on stage in New York in 1953, a few weeks before he died there, and first broadcast on the BBC in 1954. Sixty-odd voices, and nobody leaves the town."
+      },
+      {
+       "do": "say",
+       "who": "Curator",
+       "text": "We're putting on a reading and our actors are scattered across Swansea, rehearsing in all sorts of places. Could you find four of them for me?"
+      },
+      {
+       "do": "set",
+       "flag": "q_swansea_milkwood_started",
+       "value": true
+      },
+      {
+       "do": "say",
+       "who": "Curator",
+       "text": "Captain Cat, Polly Garter, Organ Morgan and Mrs Ogmore-Pritchard. Listen for them around town. Pob lwc, good luck!"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

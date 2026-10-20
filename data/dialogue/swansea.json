@@ -1,0 +1,263 @@
+{
+ "rail_guard": [
+  {
+   "do": "say",
+   "who": "Rail Guard",
+   "text": "Abertawe! Swansea, end of the line. Croeso, that's welcome. Trains back out the way they came in."
+  },
+  {
+   "do": "say",
+   "who": "Rail Guard",
+   "text": "Mind the gap and mind the gulls. They take the crusts off your sandwiches and then complain about the filling."
+  },
+  {
+   "do": "rail"
+  }
+ ],
+ "swa_welcome": [
+  {
+   "do": "say",
+   "who": "Lollipop Lady",
+   "text": "Shwmae! That's hello. You've come down off the Beacons, then. Croeso i Abertawe, welcome to Swansea."
+  },
+  {
+   "do": "say",
+   "who": "Lollipop Lady",
+   "text": "Abertawe is 'the mouth of the Tawe'. Swansea is Viking, they say, Sveinn's island. We answer to both, and to 'oi'."
+  }
+ ],
+ "swa_fan_chat": [
+  {
+   "do": "say",
+   "who": "Swans Fan",
+   "text": "First Welsh club in the Premier League, us, 2011. Then the League Cup in 2013, five-nil at Wembley. I cried into a pasty."
+  },
+  {
+   "do": "say",
+   "who": "Swans Fan",
+   "text": "We're the Jacks. The Cardiff lot are the Bluebirds. We don't talk about the derby. We talk about it all the time."
+  }
+ ],
+ "swa_copper_chat": [
+  {
+   "do": "say",
+   "who": "Retired Smelter",
+   "text": "Copperopolis, they called us. Ore from Cornwall, then from Chile, smelted with Welsh coal, because it was cheaper to bring the ore to the coal."
+  },
+  {
+   "do": "say",
+   "who": "Retired Smelter",
+   "text": "The ships that went round Cape Horn for it were the Cape Horners. Hard men, hard trip. The smoke that came off the works was so bad nothing grew on Kilvey Hill for a hundred years."
+  }
+ ],
+ "swa_tide_chat": [
+  {
+   "do": "say",
+   "who": "Bait Digger",
+   "text": "Tide's out a mile today. Swansea Bay, see: the water goes up and down ten metres on a big spring. That's a house on a house on a house."
+  },
+  {
+   "do": "say",
+   "who": "Bait Digger",
+   "text": "Lugworm for the bass. You find them by the little coils of sand they leave. Diolch, that's thanks, for not stepping on them."
+  }
+ ],
+ "swa_rail_chat": [
+  {
+   "do": "say",
+   "who": "Retired Tram Driver",
+   "text": "The Mumbles Train ran right along here. First passenger railway in the world, 1807, pulled by a horse. My grandad drove the electric ones."
+  },
+  {
+   "do": "say",
+   "who": "Retired Tram Driver",
+   "text": "They shut it in 1960 and the whole town turned out to say goodbye. You can still walk the line. You just can't sit down on it."
+  }
+ ],
+ "swa_icecream": [
+  {
+   "do": "say",
+   "who": "Ice Cream Seller",
+   "text": "Ice cream on Mumbles prom is the law. Italian families came to South Wales a century ago and opened cafes in every valley, and thank God they did."
+  },
+  {
+   "do": "say",
+   "who": "Ice Cream Seller",
+   "text": "Two scoops, a flake, and a gull's undivided attention. Off you go."
+  }
+ ],
+ "swa_jack_walker": [
+  {
+   "do": "say",
+   "who": "Dog Walker",
+   "text": "This is Swansea Jack's memorial. Best dog in Wales. Twenty-seven people out of the docks, they say, and he never asked for a biscuit."
+  },
+  {
+   "do": "say",
+   "who": "Dog Walker",
+   "text": "Mine's called Jack too. He's never saved anyone. He did once eat a whole Welsh cake off a pram."
+  }
+ ],
+ "swa_mumbles_chat": [
+  {
+   "do": "say",
+   "who": "Mumbles Local",
+   "text": "Oystermouth, this was, for the oysters. They dredged the bay bare by the end of the 1800s, mind. Now there's the Mumbles Mile, pub to pub along the front."
+  },
+  {
+   "do": "say",
+   "who": "Mumbles Local",
+   "text": "Dylan Thomas drank in the Antelope and the Mermaid round here. Whether he paid is another story."
+  }
+ ],
+ "swa_rugby": [
+  {
+   "do": "say",
+   "who": "Ospreys Fan",
+   "text": "The Ospreys play rugby up at the stadium too. Shared it with the Swans for years. It's like sharing a flat, if your flatmate sings."
+  },
+  {
+   "do": "say",
+   "who": "Ospreys Fan",
+   "text": "St Helen's ground, down by the bay, is where Garry Sobers hit six sixes in an over in 1968. First man to do it in first-class cricket. In Swansea!"
+  }
+ ],
+ "swa_captain_cat": [
+  {
+   "do": "if",
+   "flag": "q_swansea_milkwood_started",
+   "then": [
+    {
+     "do": "say",
+     "who": "Captain Cat",
+     "text": "(An old actor, eyes shut, sitting on a bollard.) I am blind Captain Cat. I dream of my drowned shipmates, every night."
+    },
+    {
+     "do": "say",
+     "who": "Captain Cat",
+     "text": "To begin at the beginning, as the First Voice says. That's all you're getting for free."
+    },
+    {
+     "do": "if",
+     "flag": "q_swansea_milkwood_captain",
+     "then": [],
+     "else": [
+      {
+       "do": "set",
+       "flag": "q_swansea_milkwood_captain",
+       "value": true
+      },
+      {
+       "do": "sfx",
+       "id": "item"
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "You found the voice of Captain Cat for the Dylan Thomas Centre."
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Captain Cat",
+     "text": "(Muttering lines under their breath.) Sorry, love. Rehearsing. There's a reading at the Dylan Thomas Centre and I've got about four words."
+    }
+   ]
+  }
+ ],
+ "swa_polly": [
+  {
+   "do": "if",
+   "flag": "q_swansea_milkwood_started",
+   "then": [
+    {
+     "do": "say",
+     "who": "Polly Garter",
+     "text": "(Pegging out washing and singing.) Polly Garter, I am. I loved a little man called Willy Wee, so the song goes, and I'm not telling you the rest."
+    },
+    {
+     "do": "say",
+     "who": "Polly Garter",
+     "text": "Dylan wrote my songs to be sung on the doorstep, not in the Albert Hall."
+    },
+    {
+     "do": "if",
+     "flag": "q_swansea_milkwood_polly",
+     "then": [],
+     "else": [
+      {
+       "do": "set",
+       "flag": "q_swansea_milkwood_polly",
+       "value": true
+      },
+      {
+       "do": "sfx",
+       "id": "item"
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "You found the voice of Polly Garter for the Dylan Thomas Centre."
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Polly Garter",
+     "text": "(Muttering lines under their breath.) Sorry, love. Rehearsing. There's a reading at the Dylan Thomas Centre and I've got about four words."
+    }
+   ]
+  }
+ ],
+ "swa_ogmore": [
+  {
+   "do": "if",
+   "flag": "q_swansea_milkwood_started",
+   "then": [
+    {
+     "do": "say",
+     "who": "Mrs Ogmore-Pritchard",
+     "text": "(Polishing a door knocker on Cwmdonkin Drive.) I am Mrs Ogmore-Pritchard, and before you let the sun in, mind it wipes its shoes."
+    },
+    {
+     "do": "say",
+     "who": "Mrs Ogmore-Pritchard",
+     "text": "I had two husbands, both dead, both tidy. Wipe your feet."
+    },
+    {
+     "do": "if",
+     "flag": "q_swansea_milkwood_ogmore",
+     "then": [],
+     "else": [
+      {
+       "do": "set",
+       "flag": "q_swansea_milkwood_ogmore",
+       "value": true
+      },
+      {
+       "do": "sfx",
+       "id": "item"
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "You found the voice of Mrs Ogmore-Pritchard for the Dylan Thomas Centre."
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Mrs Ogmore-Pritchard",
+     "text": "(Muttering lines under their breath.) Sorry, love. Rehearsing. There's a reading at the Dylan Thomas Centre and I've got about four words."
+    }
+   ]
+  }
+ ]
+}

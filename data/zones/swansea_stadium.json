@@ -1,0 +1,108 @@
+{
+ "id": "swansea_stadium",
+ "name": "The Liberty Stadium",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 7
+  },
+  {
+   "type": "potted_plant",
+   "x": 11,
+   "y": 7
+  },
+  {
+   "type": "stadium_stand",
+   "x": 2,
+   "y": 1
+  },
+  {
+   "type": "stadium_stand",
+   "x": 10,
+   "y": 1
+  },
+  {
+   "type": "pitch_line",
+   "x": 6,
+   "y": 5,
+   "walk": true
+  },
+  {
+   "type": "floodlight",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "floodlight",
+   "x": 11,
+   "y": 1
+  },
+  {
+   "type": "flagpole",
+   "x": 3,
+   "y": 6,
+   "variant": 0
+  },
+  {
+   "type": "bench",
+   "x": 2,
+   "y": 4
+  },
+  {
+   "type": "bench",
+   "x": 10,
+   "y": 4
+  },
+  {
+   "type": "rugby_posts",
+   "x": 6,
+   "y": 1
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 8,
+   "to": "swansea",
+   "tx": 48,
+   "ty": 11,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "lib_kitman",
+   "sprite": "rugby_player",
+   "x": 6,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "lib_kitman",
+   "name": "Kit Man"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  6,
+  7
+ ],
+ "rows": [
+  "xxxxxxxxxxxxx",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++D+++++x",
+  "xxxxxxxxxxxxx"
+ ]
+}

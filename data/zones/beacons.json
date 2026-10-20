@@ -277,6 +277,10 @@
   "east": {
    "to": "cardiff",
    "offset": 0
+  },
+  "south": {
+   "to": "swansea",
+   "offset": 11
   }
  },
  "npcs": [
@@ -375,6 +379,18 @@
  "encounters": {
   "grass": [
    {
+    "species": "marilwyd",
+    "min": 35,
+    "max": 36,
+    "weight": 8,
+    "time": [
+     "night"
+    ],
+    "season": [
+     "winter"
+    ]
+   },
+   {
     "species": "gwyllgi",
     "min": 34,
     "max": 36,
@@ -471,6 +487,11 @@
  },
  "signs": [
   {
+   "x": 25,
+   "y": 36,
+   "text": "ABERTAWE / SWANSEA 25 miles. Down the old drovers' lane to the sea, the market and the Mumbles. Gower beyond."
+  },
+  {
    "x": 9,
    "y": 20,
    "text": "STOREY ARMS. Start of the Pen y Fan path. It's mostly up. Mostly sideways in the rain."
@@ -559,18 +580,18 @@
   "RRkkRkkkkk##kkkkkkRkkk##kkkkkkkkkkkkkkkkkkRkkkk#############hhhhhhhkRR",
   "RRkkRkkkkk##kkkkkkkRkk##kkkkkkkkkkkkkkkkRkkkkkkkkkkkkkkkkkkkkkWWWWWWRR",
   "RRkkkkkkkk##############kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkRkkkkkRkRkkkRR",
-  "RRkkkPkkkk##############kkkkkkkkkkkkkkkRRkkkhhhhhhhhkssssssssskkkkkkRR",
-  "RRkhhhhhhhhhhhhhhkkkkkkkkkkkkkkkkkkRRkkRkkkkhhhhhhhhks~~~~~~~skkkkkkRR",
-  "RRkhhhhhhhhhhhWWWWWWWWWWkkhhhhhhhhhhWWWWWWWWWWWWhhhhks~~~~~~~skkkkkkRR",
-  "RRPhhhhhhhhhhhWhhkkkkkkkkkhhhhhhhhhhhhkkkkkkhhhhWhhhks~~~~~~~skkkkkkRR",
-  "RRkhhhhhhhhhhhWhhkkkkkkkkkhhhhhhhhhhhhkkkkkkhhhhWhhhks~~~~~~~skRkkkkRR",
-  "RRkhhhhhhhhhhhWhhkkkkkkkkkhhhhhhhhhhhhkkkkkkhhhhWhhhkssssssssskkkkkkRR",
-  "RRkhhhhhhhhhhhWhhkkkRRkkkkhhhhhhhhhhhhkkkkkkRRhhWhhhkkkkkkkkkkkRkkkRRR",
-  "RRPhhhhhhhhhhhWhhkkkRRkkkkhhhhhhhhhhhhkkkkkkhRhhWhhhkkkkkkkkRkkkkkkkRR",
-  "RRkkkkkkkkkkkPkkkkkkkkkkkkkkkkkkRkkkkkRkkkkRkkRkkkkkkkkkkkkkkkRkkkkkRR",
-  "RRkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkRkkkkRkkkkkkkkkkRkkkkkRkkkkkkkkkkRR",
-  "RRRRRRRRRRRRRRRRRRRRRRRRRRRPRRRRPRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR",
-  "RRRRRRRRRRRRRRRRRRRRRPRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR"
+  "RRkkkPkkkk###############kkkkkkkkkkkkkkRRkkkhhhhhhhhkssssssssskkkkkkRR",
+  "RRkhhhhhhhhhhhhhhkkkkkkk#kkkkkkkkkkRRkkRkkkkhhhhhhhhks~~~~~~~skkkkkkRR",
+  "RRkhhhhhhhhhhhWWWWWWWWWW#khhhhhhhhhhWWWWWWWWWWWWhhhhks~~~~~~~skkkkkkRR",
+  "RRPhhhhhhhhhhhWhhkkkkkkk#khhhhhhhhhhhhkkkkkkhhhhWhhhks~~~~~~~skkkkkkRR",
+  "RRkhhhhhhhhhhhWhhkkkkkkk#khhhhhhhhhhhhkkkkkkhhhhWhhhks~~~~~~~skRkkkkRR",
+  "RRkhhhhhhhhhhhWhhkkkkkkk#khhhhhhhhhhhhkkkkkkhhhhWhhhkssssssssskkkkkkRR",
+  "RRkhhhhhhhhhhhWhhkkkRRkk#khhhhhhhhhhhhkkkkkkRRhhWhhhkkkkkkkkkkkRkkkRRR",
+  "RRPhhhhhhhhhhhWhhkkkRRkk#khhhhhhhhhhhhkkkkkkhRhhWhhhkkkkkkkkRkkkkkkkRR",
+  "RRkkkkkkkkkkkPkkkkkkkkkk#kkkkkkkRkkkkkRkkkkRkkRkkkkkkkkkkkkkkkRkkkkkRR",
+  "RRkkkkkkkkkkkkkkkkkkkkkk#kkkkkkkkkkRkkkkRkkkkkkkkkkRkkkkkRkkkkkkkkkkRR",
+  "RRRRRRRRRRRRRRRRRRRRRRR###RPRRRRPRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR",
+  "RRRRRRRRRRRRRRRRRRRRRPR###RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR"
  ],
  "heights": [
   "0000000000000000000011111122222223333333333333333333222222211111100000",
