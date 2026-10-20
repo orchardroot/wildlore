@@ -1,0 +1,41 @@
+{
+ "id": "angu_salt_t",
+ "name": "Salt Raker Hodge",
+ "class": "Salt Pan Worker",
+ "sprite": "steelworker",
+ "party": [
+  {
+   "species": "saggit",
+   "level": 96
+  },
+  {
+   "species": "flintwarden",
+   "level": 96
+  },
+  {
+   "species": "bottlekiln",
+   "level": 96
+  },
+  {
+   "species": "duneskink",
+   "level": 96
+  }
+ ],
+ "ai": "trainer",
+ "money": 4500,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Salt Raker Hodge",
+   "text": "Rake the crust, heap the salt, shovel it onto the wagon. Do it again tomorrow. My dad did it, his dad did, and I hope my kids don't."
+  },
+  {
+   "do": "say",
+   "who": "Salt Raker Hodge",
+   "text": "Come on, then."
+  }
+ ],
+ "win": "A fine afternoon's work. Have a break.",
+ "after": "Sea salt is the only thing that gets worse the more you wash it.",
+ "scaled_floor": 95
+}

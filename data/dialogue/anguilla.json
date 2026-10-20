@@ -1,0 +1,302 @@
+{
+ "angu_builder2": [
+  {
+   "do": "if",
+   "flag": "q_overseas_anguilla_race_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Boat Builder",
+     "text": "Your sloop took second on Anguilla Day. The first place was an inch longer. We're appealing to the weather."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_overseas_anguilla_race_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_overseas_anguilla_race_1",
+       "then": [
+        {
+         "do": "if",
+         "flag": "q_overseas_anguilla_race_2",
+         "then": [
+          {
+           "do": "if",
+           "flag": "q_overseas_anguilla_race_3",
+           "then": [
+            {
+             "do": "if",
+             "flag": "trainer_ang_rival",
+             "then": [
+              {
+               "do": "say",
+               "who": "Boat Builder",
+               "text": "Rival Kincaid has lost his bet and his sail, and my sloop is the fastest in Road Bay. You've made this island proud."
+              },
+              {
+               "do": "set",
+               "flag": "q_overseas_anguilla_race_4"
+              },
+              {
+               "do": "give_item",
+               "item": "race_pennant"
+              },
+              {
+               "do": "set",
+               "flag": "q_overseas_anguilla_race_done"
+              },
+              {
+               "do": "say",
+               "who": "Boat Builder",
+               "text": "Take the pennant. It flies on the winner's mast, and sometimes at the bar."
+              }
+             ],
+             "else": [
+              {
+               "do": "say",
+               "who": "Boat Builder",
+               "text": "Last thing: Kincaid's been boasting in the bay. Go and teach him. He's out by the boats, north of town."
+              }
+             ]
+            }
+           ],
+           "else": [
+            {
+             "do": "when",
+             "cond": "has_sloopling",
+             "then": [
+              {
+               "do": "say",
+               "who": "Boat Builder",
+               "text": "A sloopling! A young racer, with a sail and an attitude. Every sloop starts as one of these."
+              },
+              {
+               "do": "set",
+               "flag": "q_overseas_anguilla_race_3"
+              }
+             ],
+             "else": [
+              {
+               "do": "say",
+               "who": "Boat Builder",
+               "text": "A boat needs a heart. Catch a sloopling along the shore, a young racer, and show me. It'll know the wind."
+              }
+             ]
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Boat Builder",
+           "text": "Sail's done. Now the plank. The carpenter by the harbour has a spare, she'll lend it to a friend."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Boat Builder",
+         "text": "First thing: a sail. The sailmaker's near the boats. Mind the pins."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Boat Builder",
+       "text": "Welcome to Sandy Ground. Boat racing is our national sport. The sloops are built from memory, no plans, and raced with a crew sitting out on planks."
+      },
+      {
+       "do": "say",
+       "who": "Boat Builder",
+       "text": "Anguilla Day is coming. I need a sail, a plank, a young sloopling for luck, and someone to beat the cocky rival. Take the job, and the sloop's yours to sail."
+      },
+      {
+       "do": "set",
+       "flag": "q_overseas_anguilla_race_started"
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "angu_sailmaker": [
+  {
+   "do": "if",
+   "flag": "q_overseas_anguilla_race_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_overseas_anguilla_race_1",
+     "then": [
+      {
+       "do": "say",
+       "who": "Sailmaker",
+       "text": "Sail's in the boat. Mind the stitching."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Sailmaker",
+       "text": "A sail for the race? Here. Dacron, three-cornered, and a patch where the last skipper got stuck on a nail."
+      },
+      {
+       "do": "give_item",
+       "item": "angu_sail"
+      },
+      {
+       "do": "set",
+       "flag": "q_overseas_anguilla_race_1"
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Sailmaker",
+     "text": "A racing sloop's mainsail is enormous, and the mast is held up with prayer and a rope. I sew sails, not miracles."
+    }
+   ]
+  }
+ ],
+ "angu_carpenter": [
+  {
+   "do": "if",
+   "flag": "q_overseas_anguilla_race_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_overseas_anguilla_race_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "Carpenter",
+       "text": "That plank's been sat on by a hundred crews. It's got character."
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_overseas_anguilla_race_1",
+       "then": [
+        {
+         "do": "say",
+         "who": "Carpenter",
+         "text": "A plank for the crew to sit on, out over the water? Take this one. Teak. A little worn. A lot lucky."
+        },
+        {
+         "do": "give_item",
+         "item": "angu_plank"
+        },
+        {
+         "do": "set",
+         "flag": "q_overseas_anguilla_race_2"
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Carpenter",
+         "text": "Plank? Come back when you've got the sail. I'm not giving a plank to someone without a boat."
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Carpenter",
+     "text": "The racing sloop's crew sit on planks stuck out of the side to keep it upright. If you fall off, you swim. If the skipper falls off, he swims faster."
+    }
+   ]
+  }
+ ],
+ "angu_fisher": [
+  {
+   "do": "say",
+   "who": "Lobster Fisherman",
+   "text": "Spiny lobster, caught in pots. We're careful: no berried females, a closed season, and a size limit. Lobster's too good to waste."
+  },
+  {
+   "do": "say",
+   "who": "Lobster Fisherman",
+   "text": "The lobster here is grilled on the beach with butter and garlic, and served with peas and rice. Don't ask for a fork."
+  }
+ ],
+ "angu_goat": [
+  {
+   "do": "say",
+   "who": "Goat",
+   "text": "A goat regards you with the calm of an animal that has outlived three governments and one invasion."
+  }
+ ],
+ "angu_kid": [
+  {
+   "do": "say",
+   "who": "Race Fan",
+   "text": "Anguilla Day is on the thirtieth of May and there's a big race in the bay. I watch from the shore with a fish sandwich. Good seats."
+  },
+  {
+   "do": "say",
+   "who": "Race Fan",
+   "text": "My grandad says the sloops used to be built on the beach without a drawing. He says a lot of things."
+  }
+ ],
+ "angu_home": [
+  {
+   "do": "say",
+   "who": "Airport Official",
+   "text": "Back to Brize Norton? The RAF flight leaves from the airport on the dot of whenever."
+  },
+  {
+   "do": "choice",
+   "text": "Head home to RAF Brize Norton?",
+   "options": [
+    "Yes, take me home",
+    "Not yet"
+   ],
+   "set": "_home_choice"
+  },
+  {
+   "do": "if",
+   "flag": "_home_choice",
+   "then": [
+    {
+     "do": "say",
+     "who": "Airport Official",
+     "text": "Right-o. The goats will wave from the runway."
+    },
+    {
+     "do": "set",
+     "flag": "overseas_return",
+     "value": "anguilla"
+    },
+    {
+     "do": "fade_out"
+    },
+    {
+     "do": "end"
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Airport Official",
+     "text": "Take your time. We'll be here."
+    }
+   ],
+   "eq": 0
+  }
+ ]
+}

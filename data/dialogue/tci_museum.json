@@ -1,0 +1,68 @@
+{
+ "tci_curator": [
+  {
+   "do": "say",
+   "who": "Curator",
+   "text": "Welcome to Guinep House. Our best piece is from the Molasses Reef wreck, about 1513 to 1520: the oldest European shipwreck excavated in the Americas."
+  },
+  {
+   "do": "say",
+   "who": "Curator",
+   "text": "We have a Lucayan canoe, a ship's bell, a few cannonballs and a diorama of the salt industry. The gift shop does a very good bookmark."
+  }
+ ],
+ "tci_gourd": [
+  {
+   "do": "if",
+   "flag": "q_overseas_turks_caicos_ripsaw_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_overseas_turks_caicos_ripsaw_3",
+     "then": [
+      {
+       "do": "say",
+       "who": "Volunteer",
+       "text": "The shaker's with the band now. I hope they bring it back before the school visit."
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_overseas_turks_caicos_ripsaw_2",
+       "then": [
+        {
+         "do": "say",
+         "who": "Volunteer",
+         "text": "The band needs a gourd shaker? We've got one in the cabinet we're not supposed to touch. Take it. Quick. Quietly. And bring it back."
+        },
+        {
+         "do": "give_item",
+         "item": "tci_shaker"
+        },
+        {
+         "do": "set",
+         "flag": "q_overseas_turks_caicos_ripsaw_3"
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Volunteer",
+         "text": "A shaker? Come back when you've got the drum. I'm not giving it out until the rest are sorted."
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Volunteer",
+     "text": "Everything here is real except the volunteer. I am very real but also a bit tired."
+    }
+   ]
+  }
+ ]
+}

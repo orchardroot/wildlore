@@ -1,0 +1,41 @@
+{
+ "id": "bvi_skipper_t",
+ "name": "Skipper Penn",
+ "class": "Charter Skipper",
+ "sprite": "sailor",
+ "party": [
+  {
+   "species": "clownbill",
+   "level": 96
+  },
+  {
+   "species": "pierlord",
+   "level": 96
+  },
+  {
+   "species": "bayrunner",
+   "level": 96
+  },
+  {
+   "species": "gannetling",
+   "level": 96
+  }
+ ],
+ "ai": "trainer",
+ "money": 4500,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Skipper Penn",
+   "text": "Charter skipper. I sail you to six islands in six days and tell you about every one. You'll remember the bar."
+  },
+  {
+   "do": "say",
+   "who": "Skipper Penn",
+   "text": "Fancy a race?"
+  }
+ ],
+ "win": "You've got the helm. Take the wheel.",
+ "after": "The wind round here is steady, the sea is warm, and the customers are never in a hurry. The worst day on the water beats the best in an office.",
+ "scaled_floor": 95
+}

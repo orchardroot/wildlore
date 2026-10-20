@@ -1,0 +1,37 @@
+{
+ "quests": [
+  {
+   "id": "overseas_bvi_treasure",
+   "title": "The Pub Map",
+   "region": "overseas_bvi",
+   "town": "bvi",
+   "giver": "Landlady",
+   "summary": "A damp map found in a pub points to pirate treasure. Follow the clues from the Baths to the dive shop to Norman Island, and beat a rival hunter.",
+   "start_flag": "q_overseas_bvi_treasure_started",
+   "steps": [
+    {
+     "flag": "q_overseas_bvi_treasure_1",
+     "text": "Get the map from the landlady at Pusser's Pub.",
+     "zone": "bvi"
+    },
+    {
+     "flag": "q_overseas_bvi_treasure_2",
+     "text": "Find the crab with the clue in the Baths on Virgin Gorda.",
+     "zone": "bvi"
+    },
+    {
+     "flag": "q_overseas_bvi_treasure_3",
+     "text": "Ask the Rhone Dive Shop's guide about Norman Island.",
+     "zone": "bvi"
+    },
+    {
+     "flag": "q_overseas_bvi_treasure_4",
+     "text": "Beat the Treasure Hunter's rival on Norman Island, then dig.",
+     "zone": "bvi"
+    }
+   ],
+   "done_flag": "q_overseas_bvi_treasure_done",
+   "reward": "A Doubloon (a charm: spirit moves hurt less)."
+  }
+ ]
+}

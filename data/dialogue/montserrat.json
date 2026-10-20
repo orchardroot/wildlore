@@ -1,0 +1,137 @@
+{
+ "mont_elder": [
+  {
+   "do": "say",
+   "who": "Elder",
+   "text": "I grew up in Plymouth. The street I lived on is under six metres of ash. Sometimes I think I can still hear the clock."
+  },
+  {
+   "do": "say",
+   "who": "Elder",
+   "text": "We came to Little Bay. We built again. We're good at it. We've had practice."
+  }
+ ],
+ "mont_birder_n": [
+  {
+   "do": "say",
+   "who": "Oriole Warden",
+   "text": "The Montserrat oriole: black and bright yellow, the national bird, found nowhere else. It nests high in the banana and heliconia leaves of the Centre Hills."
+  },
+  {
+   "do": "say",
+   "who": "Oriole Warden",
+   "text": "After the eruption most of its forest was gone, and the population crashed. We protect what's left. We're slowly winning."
+  }
+ ],
+ "mont_cook": [
+  {
+   "do": "say",
+   "who": "Goat Water Cook",
+   "text": "Goat water: goat meat, cloves, thyme, hot pepper, breadfruit if I'm feeling generous. National dish, so be polite."
+  },
+  {
+   "do": "say",
+   "who": "Goat Water Cook",
+   "text": "It's called water because it's a broth. It's called goat because it's goat. We keep things simple."
+  }
+ ],
+ "mont_ash": [
+  {
+   "do": "if",
+   "flag": "q_overseas_montserrat_ash_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_overseas_montserrat_ash_1",
+     "then": [
+      {
+       "do": "say",
+       "who": "Ash Drift",
+       "text": "The grey bank is full of tiny pale glassy specks. You've already got a sample jar."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Ash Drift",
+       "text": "You kneel at the boundary and scoop a handful of ash into the sample jar. It's fine as flour and very slightly warm. It sparkles in the sun."
+      },
+      {
+       "do": "give_item",
+       "item": "mont_ash_sample"
+      },
+      {
+       "do": "set",
+       "flag": "q_overseas_montserrat_ash_1"
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Ash Drift",
+     "text": "A drift of fine grey ash, soft as flour. It's from the volcano. It's still falling, in tiny amounts, from time to time."
+    }
+   ]
+  }
+ ],
+ "mont_guide": [
+  {
+   "do": "say",
+   "who": "Island Guide",
+   "text": "Welcome to Montserrat. We say 'Emerald Isle'. We mean it. The north is green and the south is grey. Please stay in the north."
+  },
+  {
+   "do": "say",
+   "who": "Island Guide",
+   "text": "St Patrick's Day is our big week: masquerade, music, food and the holiday. Don't ask me which saint is the patron of volcanoes. We've checked."
+  }
+ ],
+ "mont_home": [
+  {
+   "do": "say",
+   "who": "Airport Official",
+   "text": "The flight to Brize Norton goes via Antigua for the sake of the schedule, but you'll not notice. The RAF has other ideas."
+  },
+  {
+   "do": "choice",
+   "text": "Head home to RAF Brize Norton?",
+   "options": [
+    "Yes, take me home",
+    "Not yet"
+   ],
+   "set": "_home_choice"
+  },
+  {
+   "do": "if",
+   "flag": "_home_choice",
+   "then": [
+    {
+     "do": "say",
+     "who": "Airport Official",
+     "text": "Right-o. Keep an eye on the plume as we take off."
+    },
+    {
+     "do": "set",
+     "flag": "overseas_return",
+     "value": "montserrat"
+    },
+    {
+     "do": "fade_out"
+    },
+    {
+     "do": "end"
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Airport Official",
+     "text": "Take your time. We'll be here."
+    }
+   ],
+   "eq": 0
+  }
+ ]
+}

@@ -1,0 +1,41 @@
+{
+ "id": "bm_pilot",
+ "name": "Pilot Trimingham",
+ "class": "Harbour Pilot",
+ "sprite": "sailor",
+ "party": [
+  {
+   "species": "clownbill",
+   "level": 95
+  },
+  {
+   "species": "plungebeak",
+   "level": 96
+  },
+  {
+   "species": "pierlord",
+   "level": 96
+  },
+  {
+   "species": "minchman",
+   "level": 96
+  }
+ ],
+ "ai": "trainer",
+ "money": 4500,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Pilot Trimingham",
+   "text": "Every ship that comes through the reef takes one of us on board. I steer. They worry. It's a good arrangement."
+  },
+  {
+   "do": "say",
+   "who": "Pilot Trimingham",
+   "text": "Fancy a go?"
+  }
+ ],
+ "win": "Clean through the gap, that.",
+ "after": "Bermuda's reefs have been wrecking ships since 1609. I make sure it's other people's ships.",
+ "scaled_floor": 95
+}

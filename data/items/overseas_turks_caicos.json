@@ -1,0 +1,76 @@
+[
+ {
+  "id": "tci_conch_salad",
+  "name": "Conch Salad",
+  "kind": "heal",
+  "price": 480,
+  "battle": true,
+  "field": true,
+  "amount": 190,
+  "desc": "Raw conch chopped with lime, onion, tomato and pepper at the Conch Shack, in front of you. Sharp, fresh and a bit alarming. Restores 190 HP."
+ },
+ {
+  "id": "tci_johnny_cake",
+  "name": "Johnny Cake",
+  "kind": "heal",
+  "price": 330,
+  "battle": true,
+  "field": true,
+  "amount": 140,
+  "desc": "A sweet, dense fried bread, eaten with fish for breakfast. It may be named for 'journey cake', or it may not. Restores 140 HP."
+ },
+ {
+  "id": "tci_island_salt",
+  "name": "Turks Island Salt",
+  "kind": "pp",
+  "price": 600,
+  "battle": true,
+  "field": true,
+  "amount": 15,
+  "desc": "Coarse white salt raked by hand from the Grand Turk ponds, once shipped across the Atlantic. Restores 15 PP to every move, and improves chips."
+ },
+ {
+  "id": "tci_saw",
+  "name": "Carpenter's Saw",
+  "kind": "key",
+  "price": 0,
+  "battle": false,
+  "field": true,
+  "desc": "A battered saw with a worn handle and a very good ring. In a ripsaw band it is scraped with a screwdriver, not used on wood."
+ },
+ {
+  "id": "tci_drum",
+  "name": "Goatskin Drum",
+  "kind": "key",
+  "price": 0,
+  "battle": false,
+  "field": true,
+  "desc": "A hand-made drum with a goatskin head, kept dry in an old fishing boat. It has seen more parties than anyone will admit."
+ },
+ {
+  "id": "tci_shaker",
+  "name": "Gourd Shaker",
+  "kind": "key",
+  "price": 0,
+  "battle": false,
+  "field": true,
+  "desc": "A dried gourd packed with seeds, rattled behind the beat. The museum was not supposed to lend it out."
+ },
+ {
+  "id": "conch_shell_horn",
+  "name": "Conch Shell Horn",
+  "kind": "charm",
+  "price": 0,
+  "battle": false,
+  "field": true,
+  "wild": false,
+  "desc": "A conch shell with the tip cut off, blown to call boats home. A good one can be heard from the other side of the island, and the other side of the argument.",
+  "effect_text": "Tide moves hurt it 25% less.",
+  "charm": {
+   "effect": "resist",
+   "type": "tide",
+   "mult": 0.75
+  },
+  "msg": "{name}'s Conch Shell Horn blew the tide aside!"
+ }
+]

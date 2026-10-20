@@ -1,0 +1,178 @@
+{
+ "bvi_skipper": [
+  {
+   "do": "say",
+   "who": "Charter Skipper",
+   "text": "The Sir Francis Drake Channel is a perfect sailing route: steady trade winds, short hops, rum at every stop. It's named for Drake, who sailed it in 1595."
+  },
+  {
+   "do": "say",
+   "who": "Charter Skipper",
+   "text": "The BVI is 60-odd islands, but only about fifteen are inhabited. The rest are rocks and cays and a lot of seabirds."
+  }
+ ],
+ "bvi_ranger": [
+  {
+   "do": "if",
+   "flag": "q_overseas_bvi_treasure_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_overseas_bvi_treasure_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "Park Warden",
+       "text": "Mind the grotto walls. They've got a few hundred million years on you."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Park Warden",
+       "text": "A clue in the Baths? Go in through the crawl-way. There's a crab down there who guards something. He's very polite about it."
+      },
+      {
+       "do": "say",
+       "who": "Park Warden",
+       "text": "Take your time. The tide comes in. The crab doesn't."
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Park Warden",
+     "text": "These boulders are granite. They came up from underground and were rounded by weathering. Water shoes, torch, and keep your elbows in."
+    },
+    {
+     "do": "say",
+     "who": "Park Warden",
+     "text": "Some go through the Baths to Devil's Bay. Some turn back. The sensible ones turn back with photographs."
+    }
+   ]
+  }
+ ],
+ "bvi_fisher": [
+  {
+   "do": "say",
+   "who": "Fisherman",
+   "text": "Fungi's the dish. Cornmeal and okra, stirred hard in a pot and shaped into a dome. We eat it with fish. The band's fungi, the dish is fungi. Everyone else gets confused."
+  },
+  {
+   "do": "say",
+   "who": "Fisherman",
+   "text": "On Anegada they catch lobster by the sackful. Don't ask what I know about it."
+  }
+ ],
+ "bvi_pirate": [
+  {
+   "do": "if",
+   "flag": "q_overseas_bvi_treasure_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_overseas_bvi_treasure_3",
+     "then": [
+      {
+       "do": "if",
+       "flag": "trainer_bvi_hunter",
+       "then": [
+        {
+         "do": "say",
+         "who": "Treasure Hunter",
+         "text": "You found it, then. It's behind the rock I was sitting on. Everything always is."
+        },
+        {
+         "do": "set",
+         "flag": "q_overseas_bvi_treasure_4"
+        },
+        {
+         "do": "give_item",
+         "item": "doubloon_charm"
+        },
+        {
+         "do": "set",
+         "flag": "q_overseas_bvi_treasure_done"
+        },
+        {
+         "do": "say",
+         "who": "Treasure Hunter",
+         "text": "Keep the doubloon. It's not Spanish. It's from the pub. But it's got a good story attached, and so will you."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Treasure Hunter",
+         "text": "I'm looking for treasure. So is Scrope, just over there. He thinks he's first. He is not. Beat him and the dig's yours."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Treasure Hunter",
+       "text": "Looking for pirate treasure? Get the clue from the dive shop first. Everyone knows the Rhone, but few know the caves behind Norman Island."
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Treasure Hunter",
+     "text": "Norman Island: said to have inspired Treasure Island. Pirates hid loot in the caves. I've been here three years and found three crisps."
+    }
+   ]
+  }
+ ],
+ "bvi_home": [
+  {
+   "do": "say",
+   "who": "Ferry Master",
+   "text": "Back to Brize Norton? The RAF's flight leaves from Beef Island, over the bridge, and the pilot waits for nobody. Well, for a wedding, if there is one."
+  },
+  {
+   "do": "choice",
+   "text": "Head home to RAF Brize Norton?",
+   "options": [
+    "Yes, take me home",
+    "Not yet"
+   ],
+   "set": "_home_choice"
+  },
+  {
+   "do": "if",
+   "flag": "_home_choice",
+   "then": [
+    {
+     "do": "say",
+     "who": "Ferry Master",
+     "text": "Right, mind the gap. Mind the other gap too."
+    },
+    {
+     "do": "set",
+     "flag": "overseas_return",
+     "value": "bvi"
+    },
+    {
+     "do": "fade_out"
+    },
+    {
+     "do": "end"
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Ferry Master",
+     "text": "Take your time. We'll be here."
+    }
+   ],
+   "eq": 0
+  }
+ ]
+}

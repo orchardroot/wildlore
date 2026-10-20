@@ -1,0 +1,41 @@
+{
+ "id": "tci_bird_t",
+ "name": "Warden Capron",
+ "class": "Flamingo Warden",
+ "sprite": "birdwatcher",
+ "party": [
+  {
+   "species": "flamingale",
+   "level": 96
+  },
+  {
+   "species": "plungebeak",
+   "level": 96
+  },
+  {
+   "species": "heronarch",
+   "level": 96
+  },
+  {
+   "species": "corncrake",
+   "level": 96
+  }
+ ],
+ "ai": "trainer",
+ "money": 4500,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Warden Capron",
+   "text": "Keep your voice down. The flamingos are nesting, and they have opinions about shouting."
+  },
+  {
+   "do": "say",
+   "who": "Warden Capron",
+   "text": "Quietly, then. Battle?"
+  }
+ ],
+ "win": "Hush now. Lovely. Flamingos like a gentle winner.",
+ "after": "Flamingos only look daft. They're tough birds, and they've been doing this for a very long time.",
+ "scaled_floor": 95
+}

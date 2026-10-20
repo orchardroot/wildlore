@@ -1,0 +1,41 @@
+{
+ "id": "mont_fisher",
+ "name": "Fisherman Dyer",
+ "class": "Fisherman",
+ "sprite": "fisher",
+ "party": [
+  {
+   "species": "pincray",
+   "level": 96
+  },
+  {
+   "species": "clownbill",
+   "level": 96
+  },
+  {
+   "species": "bayrunner",
+   "level": 96
+  },
+  {
+   "species": "minchman",
+   "level": 96
+  }
+ ],
+ "ai": "trainer",
+ "money": 4500,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Fisherman Dyer",
+   "text": "I fish off the black sand. The fish are the same, but you can't see anything until you're in it. It helps if you like surprises."
+  },
+  {
+   "do": "say",
+   "who": "Fisherman Dyer",
+   "text": "Fancy a go?"
+  }
+ ],
+ "win": "A good catch. Bring it ashore.",
+ "after": "Little Bay has the first new harbour in years. We needed one. The old one is under grey.",
+ "scaled_floor": 95
+}

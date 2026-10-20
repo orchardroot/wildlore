@@ -1,0 +1,37 @@
+{
+ "quests": [
+  {
+   "id": "overseas_montserrat_ash",
+   "title": "The Ash and the Cinderling",
+   "region": "overseas_montserrat",
+   "town": "montserrat",
+   "giver": "Volcanologist",
+   "summary": "The Observatory needs an ash sample, a look at a young cinderling, and a trespassing tourist sent home.",
+   "start_flag": "q_overseas_montserrat_ash_started",
+   "steps": [
+    {
+     "flag": "q_overseas_montserrat_ash_1",
+     "text": "Scoop an ash sample at the drift on Garibaldi Hill.",
+     "zone": "montserrat"
+    },
+    {
+     "flag": "q_overseas_montserrat_ash_2",
+     "text": "Take the sample to the Volcanologist at the Observatory.",
+     "zone": "montserrat_mvo"
+    },
+    {
+     "flag": "q_overseas_montserrat_ash_3",
+     "text": "Catch a cinderling on the southern slopes and show the Volcanologist.",
+     "zone": "montserrat"
+    },
+    {
+     "flag": "q_overseas_montserrat_ash_4",
+     "text": "Send Ash Tourist Mallon home from the edge of Plymouth, then report back.",
+     "zone": "montserrat"
+    }
+   ],
+   "done_flag": "q_overseas_montserrat_ash_done",
+   "reward": "A Piece of Pumice (a charm: hearth moves hurt less)."
+  }
+ ]
+}

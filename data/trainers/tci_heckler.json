@@ -1,0 +1,41 @@
+{
+ "id": "tci_heckler",
+ "name": "Heckler Sands",
+ "class": "Ripsaw Heckler",
+ "sprite": "festival_goer",
+ "party": [
+  {
+   "species": "skaldwake",
+   "level": 96
+  },
+  {
+   "species": "murmurant",
+   "level": 96
+  },
+  {
+   "species": "railspark",
+   "level": 96
+  },
+  {
+   "species": "stormswift",
+   "level": 97
+  }
+ ],
+ "ai": "trainer",
+ "money": 4500,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Heckler Sands",
+   "text": "They call it music. I call it a woodworker's argument. The saw's out of tune!"
+  },
+  {
+   "do": "say",
+   "who": "Heckler Sands",
+   "text": "Care to say that to my face?"
+  }
+ ],
+ "win": "Fine. The saw was in tune. I was out of sorts.",
+ "after": "A ripsaw band is a very loud thing. I'd miss it if it stopped. Don't tell them.",
+ "scaled_floor": 95
+}

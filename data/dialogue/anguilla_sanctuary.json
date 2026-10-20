@@ -1,0 +1,63 @@
+{
+ "nurse": [
+  {
+   "do": "say",
+   "who": "Nurse",
+   "text": "Hello, dear! Sun, salt or sloop-sick? Sit down. Cup of tea?"
+  },
+  {
+   "do": "choice",
+   "text": "What can we do for you?",
+   "options": [
+    "Heal my team",
+    "Open the Ark",
+    "Just looking"
+   ],
+   "set": "_nurse_choice"
+  },
+  {
+   "do": "if",
+   "flag": "_nurse_choice",
+   "then": [
+    {
+     "do": "say",
+     "who": "Nurse",
+     "text": "Right-o, give them here. We'll have them champion in no time."
+    },
+    {
+     "do": "heal"
+    },
+    {
+     "do": "say",
+     "who": "Nurse",
+     "text": "There you are. Better than new. Off you pop."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "_nurse_choice",
+     "then": [
+      {
+       "do": "say",
+       "who": "Nurse",
+       "text": "The Ark is by the window. No cats in it, please. We've tried."
+      },
+      {
+       "do": "ark"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Nurse",
+       "text": "No problem. Mind the gulls on the way out. They know."
+      }
+     ],
+     "eq": 1
+    }
+   ],
+   "eq": 0
+  }
+ ]
+}

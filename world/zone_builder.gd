@@ -61,10 +61,12 @@ static func build(z: ZoneData) -> Node3D:
 	var rng := RandomNumberGenerator.new()
 	rng.seed = hash(z.id)
 	root.add_child(_ground(z, rng))
-	var water := _water(z, ["water", "shallow"], Color(0.13, 0.32, 0.42), Color(0.36, 0.62, 0.66))
+	var wp := OverseasStyles.water_pair(z, false, [Color(0.13, 0.32, 0.42), Color(0.36, 0.62, 0.66)])
+	var water := _water(z, ["water", "shallow"], wp[0], wp[1])
 	if water:
 		root.add_child(water)
-	var deep := _water(z, DEEP, Color(0.07, 0.2, 0.3), Color(0.2, 0.42, 0.52))
+	var dp := OverseasStyles.water_pair(z, true, [Color(0.07, 0.2, 0.3), Color(0.2, 0.42, 0.52)])
+	var deep := _water(z, DEEP, dp[0], dp[1])
 	if deep:
 		deep.name = "DeepWater"
 		root.add_child(deep)
@@ -253,6 +255,8 @@ const POINT_PROPS := ["lamp_post", "bench", "bush", "birch", "oak", "pine", "roc
 	"sighs_bridge", "cheese_wheel",
 	# the South East
 	"pier_ruin",
+	# British Overseas Territories (OverseasStyles.PROPS)
+	"palm", "cannon", "salt_heap", "buried_roof",
 	"slot_machine", "roulette_table", "card_table", "tote_board", "velvet_rope", "horse_statue"]
 ## Cloth meshes that ripple (flutter shader) and glow meshes that add light (firelight shader).
 const CLOTH := ["bunting", "flag", "washing_line"]
@@ -277,6 +281,8 @@ static func _props(z: ZoneData, root: Node3D, rng: RandomNumberGenerator) -> voi
 				spec = [{"heather": "heather_tuft", "gritstone": "gritstone_edge"}.get(prop_name, prop_name), 3, prop_name != "gritstone"]
 			elif prop_name == "pavement":
 				spec = ["limestone_pavement", 3, false]  # limestone pavement laid over a walkable tile
+			elif OverseasStyles.TILE_PROPS.has(prop_name):
+				spec = OverseasStyles.TILE_PROPS[prop_name]  # palms on a sandy tile
 			else:
 				if prop_name != "":
 					t = {"oak": "tree_oak", "pine": "tree_pine", "birch": "tree_oak", "bush": "rock", "rock": "rock"}.get(prop_name, t)
@@ -585,6 +591,8 @@ static func _ctor(name: String, variant: int) -> ArrayMesh:
 			return Dressing.specimen_shelf(variant)
 		"wall_map":
 			return Dressing.wall_map()
+	if name in OverseasStyles.PROPS:
+		return OverseasStyles.prop(name, variant)
 	if name in Landmarks.COTS_PROPS:
 		return Landmarks.cots_prop(name, variant)
 	if name in Landmarks.EA_PROPS:

@@ -17,6 +17,8 @@ const REGION_NAMES := {
 	"ireland_east": "The Boyne Valley",
 	"east_anglia": "East Anglia",
 	"south_east": "The South East",
+	"overseas_bermuda": "Bermuda", "overseas_cayman": "The Cayman Islands", "overseas_turks_caicos": "Turks and Caicos",
+	"overseas_bvi": "The British Virgin Islands", "overseas_anguilla": "Anguilla", "overseas_montserrat": "Montserrat",
 }
 
 static func region_name(r: String) -> String:

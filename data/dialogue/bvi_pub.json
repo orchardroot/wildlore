@@ -1,0 +1,64 @@
+{
+ "bvi_landlady": [
+  {
+   "do": "if",
+   "flag": "q_overseas_bvi_treasure_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_overseas_bvi_treasure_1",
+     "then": [
+      {
+       "do": "say",
+       "who": "Landlady",
+       "text": "Take the map and good luck. There's a crab in the Baths who knows more than he lets on."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Landlady",
+       "text": "Treasure map? There's one in the till. Drawn by a customer after four rum punches. I think it's real. It shows a pub."
+      },
+      {
+       "do": "give_item",
+       "item": "bvi_map"
+      },
+      {
+       "do": "set",
+       "flag": "q_overseas_bvi_treasure_1"
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Landlady",
+     "text": "Welcome to the pub. We pour Navy-style rum here, which is a nod to the tot. That ended on Black Tot Day, 31 July 1970. The grief hasn't."
+    },
+    {
+     "do": "say",
+     "who": "Landlady",
+     "text": "A customer says he found a map in the toilets. Another says it's a hoax. Ask the park warden at the Baths. Then come back and I'll tell you where I put the actual one."
+    },
+    {
+     "do": "set",
+     "flag": "q_overseas_bvi_treasure_started"
+    }
+   ]
+  }
+ ],
+ "bvi_sailor": [
+  {
+   "do": "say",
+   "who": "Old Salt",
+   "text": "Rum ration, the tot: half a pint of rum, daily, to every sailor, until 1970. It was called 'splicing the mainbrace' when you were given extra. The navy's last tot was on Black Tot Day."
+  },
+  {
+   "do": "say",
+   "who": "Old Salt",
+   "text": "I was there when the last one was poured. The sea went quiet."
+  }
+ ]
+}

@@ -1,0 +1,41 @@
+{
+ "id": "bm_diver",
+ "name": "Diver Hollis",
+ "class": "Wreck Diver",
+ "sprite": "fisher",
+ "party": [
+  {
+   "species": "swelkie",
+   "level": 96
+  },
+  {
+   "species": "halitor",
+   "level": 95
+  },
+  {
+   "species": "merrow",
+   "level": 96
+  },
+  {
+   "species": "glimmerjaw",
+   "level": 96
+  }
+ ],
+ "ai": "trainer",
+ "money": 4500,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Diver Hollis",
+   "text": "I've dived a dozen wrecks off this island. Found two coins, a boot and one very unhappy octopus."
+  },
+  {
+   "do": "say",
+   "who": "Diver Hollis",
+   "text": "Let's see what you've got down there."
+  }
+ ],
+ "win": "You've got good lungs.",
+ "after": "More ships have sunk on Bermuda's reefs than I've had hot dinners. Several of them are friendly. Several are not.",
+ "scaled_floor": 95
+}
