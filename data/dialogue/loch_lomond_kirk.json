@@ -1,0 +1,30 @@
+{
+ "whl_sexton": [
+  {
+   "do": "say",
+   "who": "Sexton",
+   "text": "Rob Roy lies in the kirkyard outside, with his wife Mary and two of his sons. The stone has a sword on it and a Celtic cross, and a surprising number of visitors lay coins on it."
+  },
+  {
+   "do": "say",
+   "who": "Sexton",
+   "text": "He was nearly sixty-three when he died, which for a man who'd been hunted most of his life is a good innings. The story says he received his last visitors fully dressed, with his sword and his bagpipes."
+  },
+  {
+   "do": "say",
+   "who": "Sexton",
+   "text": "He asked for the pipes to be played as he died. Whether it's true or not, nobody dared contradict a MacGregor. Not at the time."
+  },
+  {
+   "do": "if",
+   "flag": "q_westhighlands_rob_started",
+   "then": [
+    {
+     "do": "set",
+     "flag": "q_westhighlands_rob_2"
+    }
+   ],
+   "else": []
+  }
+ ]
+}

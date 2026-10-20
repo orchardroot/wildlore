@@ -1,0 +1,85 @@
+{
+ "id": "loch_lomond_cave",
+ "name": "Rob Roy's Cave",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "rock",
+   "x": 2,
+   "y": 2
+  },
+  {
+   "type": "rock",
+   "x": 11,
+   "y": 3
+  },
+  {
+   "type": "rock",
+   "x": 3,
+   "y": 7
+  },
+  {
+   "type": "brazier",
+   "x": 6,
+   "y": 3
+  },
+  {
+   "type": "standing_stone",
+   "x": 10,
+   "y": 7,
+   "variant": 0
+  }
+ ],
+ "warps": [
+  {
+   "x": 7,
+   "y": 10,
+   "to": "loch_lomond",
+   "tx": 47,
+   "ty": 25,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "whl_cave_guide",
+   "sprite": "ghillie",
+   "x": 7,
+   "y": 4,
+   "facing": "down",
+   "move": "still",
+   "script": "whl_cave_guide",
+   "name": "MacGregor Clansman"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  7,
+  9
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxx",
+  "xeeeeeeeeeeeex",
+  "xeeeeeeeeeeeex",
+  "xeeeeeeeeeeeex",
+  "xeeeeeeeeeeeex",
+  "xeeeeeeeeeeeex",
+  "xeeeeeeeeeeeex",
+  "xeeeeeeeeeeeex",
+  "xeeeeeeeeeeeex",
+  "xeeeeeeeeeeeex",
+  "xxxxxxxDxxxxxx"
+ ],
+ "legend_extra": {
+  "e": {
+   "tile": "path",
+   "colour": "#5a5651"
+  }
+ },
+ "stage": "cave"
+}

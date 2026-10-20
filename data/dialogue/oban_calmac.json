@@ -1,0 +1,169 @@
+{
+ "obn_ferry_kid": [
+  {
+   "do": "say",
+   "who": "Traveller",
+   "text": "I've been here since eight. The ferry to Mull leaves at nine. I like to be early. My dad says early is another word for lost."
+  }
+ ],
+ "obn_morag": [
+  {
+   "do": "if",
+   "flag": "q_westhighlands_hop_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Morag",
+     "text": "Good to see you again. Anywhere I can send you? Not Staffa. You've had Staffa."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_westhighlands_hop_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_westhighlands_hop_3",
+       "then": [
+        {
+         "do": "if",
+         "flag": "q_westhighlands_hop_2",
+         "then": [
+          {
+           "do": "if",
+           "flag": "q_westhighlands_hop_1",
+           "then": [
+            {
+             "do": "say",
+             "who": "Morag",
+             "text": "Let's lay it out. Three stops on Mull and the isles, one day, and the last boat back leaves late afternoon. What's the order?"
+            },
+            {
+             "do": "choice",
+             "text": "The day-trip plan",
+             "options": [
+              "Distillery, then Staffa, then Iona",
+              "Staffa, then Iona, then the distillery",
+              "Iona, then the distillery, then Staffa"
+             ],
+             "set": "_hop_plan"
+            },
+            {
+             "do": "if",
+             "flag": "_hop_plan",
+             "then": [
+              {
+               "do": "say",
+               "who": "Morag",
+               "text": "That's it exactly. Distillery tour at ten, before the doors close. The Staffa boat at twelve with the tide, back by three. Then the Iona run, with the abbey open till five. You've saved a day. And possibly a marriage."
+              },
+              {
+               "do": "give_item",
+               "item": "mull_cheddar",
+               "n": 3
+              },
+              {
+               "do": "give_item",
+               "item": "iona_pebble"
+              },
+              {
+               "do": "give_item",
+               "item": "calmac_timetable"
+              },
+              {
+               "do": "standing",
+               "nation": "scotland",
+               "amount": 3
+              },
+              {
+               "do": "set",
+               "flag": "q_westhighlands_hop_4"
+              },
+              {
+               "do": "set",
+               "flag": "q_westhighlands_hop_done"
+              },
+              {
+               "do": "say",
+               "who": "Morag",
+               "text": "The pebble's a gift from the Iona pilgrims, they say it brings good crossings. And the cheddar's from Mull, for the road. Safe travels, from all of us at CalMac."
+              }
+             ],
+             "else": [
+              {
+               "do": "if",
+               "flag": "_hop_plan",
+               "then": [
+                {
+                 "do": "say",
+                 "who": "Morag",
+                 "text": "Staffa first? The boat only goes at twelve, so you'd miss it by hours, and the distillery tour is at ten. No. Try again, with the times in mind."
+                }
+               ],
+               "else": [
+                {
+                 "do": "say",
+                 "who": "Morag",
+                 "text": "Iona first? You'd go there, then miss the tour at ten and the Staffa boat at twelve. Try again, and read your own notes."
+                }
+               ],
+               "eq": 1
+              }
+             ],
+             "eq": 0
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Morag",
+             "text": "Not got all three times yet. The distillery guide at Tobermory has the tour time, the boatman has the Staffa time, and the Iona pilgrim has the abbey's."
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Morag",
+           "text": "Not got all three times yet. The distillery guide at Tobermory has the tour time, the boatman has the Staffa time, and the Iona pilgrim has the abbey's."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Morag",
+         "text": "Not got all three times yet. The distillery guide at Tobermory has the tour time, the boatman has the Staffa time, and the Iona pilgrim has the abbey's. The Tobermory boat is on the quay, just south of the terminal."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Morag",
+       "text": "Welcome to CalMac. We run the ferries: big red-and-blue ships and a timetable more complex than any I've seen. I've a problem for you, if you've a day."
+      },
+      {
+       "do": "say",
+       "who": "Morag",
+       "text": "A group wants to see Mull and the isles in a day: a distillery tour, the boat to Staffa and Iona's abbey. They want the plan in order. I can't make it fit, but I think you can."
+      },
+      {
+       "do": "say",
+       "who": "Morag",
+       "text": "Here's the trick: ask the guides on Mull what time each thing happens. Tobermory is the place to start. Take the ferry from the quay, just south of here, then come back and tell me."
+      },
+      {
+       "do": "set",
+       "flag": "q_westhighlands_hop_started"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

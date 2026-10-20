@@ -1,0 +1,197 @@
+{
+ "id": "staffa_cave",
+ "name": "Fingal's Cave",
+ "region": "",
+ "kind": "interior",
+ "music": "route_north_coast",
+ "weather": {},
+ "props": [
+  {
+   "type": "standing_stone",
+   "x": 2,
+   "y": 3,
+   "variant": 0
+  },
+  {
+   "type": "standing_stone",
+   "x": 2,
+   "y": 5,
+   "variant": 2
+  },
+  {
+   "type": "standing_stone",
+   "x": 2,
+   "y": 7,
+   "variant": 1
+  },
+  {
+   "type": "standing_stone",
+   "x": 14,
+   "y": 3,
+   "variant": 0
+  },
+  {
+   "type": "standing_stone",
+   "x": 14,
+   "y": 5,
+   "variant": 2
+  },
+  {
+   "type": "standing_stone",
+   "x": 14,
+   "y": 7,
+   "variant": 1
+  },
+  {
+   "type": "standing_stone",
+   "x": 3,
+   "y": 9,
+   "variant": 0
+  },
+  {
+   "type": "standing_stone",
+   "x": 3,
+   "y": 11,
+   "variant": 2
+  },
+  {
+   "type": "standing_stone",
+   "x": 13,
+   "y": 9,
+   "variant": 0
+  },
+  {
+   "type": "standing_stone",
+   "x": 13,
+   "y": 11,
+   "variant": 2
+  }
+ ],
+ "warps": [
+  {
+   "x": 8,
+   "y": 15,
+   "to": "tobermory",
+   "tx": 50,
+   "ty": 24,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "tob_mendelssohn",
+   "sprite": "poet",
+   "x": 7,
+   "y": 9,
+   "facing": "down",
+   "move": "still",
+   "script": "tob_mendelssohn",
+   "name": "Young Composer"
+  },
+  {
+   "id": "tob_staffa_puffin",
+   "sprite": "creature:puffling",
+   "x": 11,
+   "y": 6,
+   "facing": "down",
+   "move": "still",
+   "script": "tob_staffa_puffin",
+   "name": "Puffin"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "staffling",
+    "min": 69,
+    "max": 71,
+    "weight": 16
+   },
+   {
+    "species": "fingalith",
+    "min": 70,
+    "max": 72,
+    "weight": 4
+   },
+   {
+    "species": "clownbill",
+    "min": 69,
+    "max": 71,
+    "weight": 12,
+    "time": [
+     "dawn",
+     "day"
+    ]
+   },
+   {
+    "species": "selklet",
+    "min": 69,
+    "max": 71,
+    "weight": 10
+   },
+   {
+    "species": "polartern",
+    "min": 69,
+    "max": 71,
+    "weight": 8
+   },
+   {
+    "species": "gannetling",
+    "min": 69,
+    "max": 71,
+    "weight": 6
+   },
+   {
+    "species": "minchman",
+    "min": 69,
+    "max": 71,
+    "weight": 4
+   }
+  ]
+ },
+ "signs": [
+  {
+   "text": "FINGAL'S CAVE. The cave is about 69 metres deep and the arched roof rises like a cathedral's. The walls are made of columns of basalt, thousands of them, as tidy as organ pipes. Fingal is Fionn mac Cumhaill, the giant, in Scottish clothes. The same giant built the Giant's Causeway, the story goes, to walk across to fight a rival here.",
+   "x": 7,
+   "y": 12,
+   "plaque": "tob_fingals_cave_inside",
+   "title": "Fingal's Cave"
+  }
+ ],
+ "spawn": [
+  8,
+  14
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxxxxx",
+  "x~~~~~~~~~~~~~~~x",
+  "x~~eeeeeeeeeee~~x",
+  "x~~emmmmmmmmme~~x",
+  "x~~emmmmmmmmme~~x",
+  "x~~eeeeeeeeeee~~x",
+  "xxxeeeeeeeeeeexxx",
+  "xxxemmmeeemmmexxx",
+  "xxxemmmeeemmmexxx",
+  "xxxeeeeeeeeeeexxx",
+  "xxxemmmeeemmmexxx",
+  "xxxemmmeeemmmexxx",
+  "xxxeeeeeeeeeeexxx",
+  "xxxxxxeeeexxxxxxx",
+  "xxxxxxeeeexxxxxxx",
+  "xxxxxxxxDxxxxxxxx"
+ ],
+ "stage": "cave",
+ "legend_extra": {
+  "e": {
+   "tile": "path",
+   "colour": "#4c4f58"
+  },
+  "m": {
+   "tile": "tall_grass",
+   "colour": "#3b4651",
+   "prop": "none"
+  }
+ },
+ "scaled_floor": 69
+}

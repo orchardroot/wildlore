@@ -1,0 +1,299 @@
+{
+ "obn_gull": [
+  {
+   "do": "say",
+   "who": "",
+   "text": "A herring gull stands guard over a polystyrene tray. It has never lost an argument about a chip."
+  }
+ ],
+ "obn_guide": [
+  {
+   "do": "say",
+   "who": "Tower Guide",
+   "text": "That's McCaig's Tower, the folly on the hill. A banker built it to give masons work in winter. It's free to go in and the climb is short but steep. Take your time, and a pair of lungs."
+  }
+ ],
+ "obn_porter": [
+  {
+   "do": "say",
+   "who": "Pier Porter",
+   "text": "The ferries run all year. Mull, Coll, Tiree, Colonsay, Barra, South Uist and Lismore. The Mull boat is the big one. Mind the car deck. Cars first, people after, and gulls everywhere."
+  }
+ ],
+ "obn_walker": [
+  {
+   "do": "say",
+   "who": "Visitor",
+   "text": "Everyone says Oban's the seafood capital of Scotland. Having now eaten six scallops at nine in the morning, I believe them."
+  }
+ ],
+ "obn_shinty_fan": [
+  {
+   "do": "say",
+   "who": "Shinty Player",
+   "text": "It's a bit like hurling and a bit like hockey and a bit like a brawl that got organised. Twelve a side. Oban has a team. Nobody's ever told me the offside rule and I've been playing for years."
+  }
+ ],
+ "rail_guard": [
+  {
+   "do": "say",
+   "who": "Rail Guard",
+   "text": "Oban Station, the end of the line from Glasgow. A hundred miles of lochs and hills and a ten-minute stop at Crianlarich for tea."
+  },
+  {
+   "do": "say",
+   "who": "Rail Guard",
+   "text": "Hop aboard. The Wildlore rail runs to any town you have visited in Great Britain. Where to?"
+  },
+  {
+   "do": "rail"
+  }
+ ],
+ "obn_marshal": [
+  {
+   "do": "if",
+   "flag": "q_westhighlands_games_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Games Marshal",
+     "text": "Champion! Anything I can do, ask. The only thing I can't do is weigh the caber. I tried once. The scales threw in the towel."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_westhighlands_games_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "trainer_obn_caber",
+       "then": [
+        {
+         "do": "if",
+         "flag": "trainer_obn_hammer",
+         "then": [
+          {
+           "do": "if",
+           "flag": "trainer_obn_stones",
+           "then": [
+            {
+             "do": "say",
+             "who": "Games Marshal",
+             "text": "Three events, three wins. You've done more than most do in a season. The Gathering committee has a medal for you, and it's the heaviest we've got. Mind your neck."
+            },
+            {
+             "do": "give_item",
+             "item": "highland_medal"
+            },
+            {
+             "do": "give_item",
+             "item": "tablet",
+             "n": 3
+            },
+            {
+             "do": "standing",
+             "nation": "scotland",
+             "amount": 3
+            },
+            {
+             "do": "set",
+             "flag": "q_westhighlands_games_5"
+            },
+            {
+             "do": "set",
+             "flag": "q_westhighlands_games_done"
+            },
+            {
+             "do": "say",
+             "who": "Games Marshal",
+             "text": "And... Big Dougie MacLeod, our Heavy Events champion, has heard. He's out on the field now. You'll want a bite first."
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Games Marshal",
+             "text": "Three heavy events: the caber, the hammer and the stones. Beat Fergus, Isla and Dougal in turn. You'll find them in the field. Come back to me when you're done."
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Games Marshal",
+           "text": "Three heavy events: the caber, the hammer and the stones. Beat Fergus, Isla and Dougal in turn. You'll find them in the field. Come back to me when you're done."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Games Marshal",
+         "text": "Three heavy events: the caber, the hammer and the stones. Beat Fergus, Isla and Dougal in turn. You'll find them in the field. Come back to me when you're done."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Games Marshal",
+       "text": "Welcome to Mossfield, the Oban Games ground. The Argyllshire Gathering has been held here for well over a century."
+      },
+      {
+       "do": "say",
+       "who": "Games Marshal",
+       "text": "We have a Heavy Events programme: the caber, the hammer and the stones. Three athletes, three events, and you need to win all three. It's the creature version, naturally. We have brawn."
+      },
+      {
+       "do": "set",
+       "flag": "q_westhighlands_games_started"
+      },
+      {
+       "do": "say",
+       "who": "Games Marshal",
+       "text": "Fergus has the caber, Isla the hammer and Dougal the stones. Beat them in the field. Report back when you're done."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "obn_hamish": [
+  {
+   "do": "if",
+   "flag": "q_westhighlands_cail_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Old Hamish",
+     "text": "The Cailleach's with you now? Then it'll be a mild winter, and I'll be the first to say I didn't believe in her."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_westhighlands_cail_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "caught_cailleach",
+       "then": [
+        {
+         "do": "say",
+         "who": "Old Hamish",
+         "text": "You've brought the Cailleach home! Well I never. Seventy years I've told that tale, and I never once thought she'd sit down for it."
+        },
+        {
+         "do": "give_item",
+         "item": "cailleachs_plaid"
+        },
+        {
+         "do": "give_item",
+         "item": "oban_scallops",
+         "n": 2
+        },
+        {
+         "do": "standing",
+         "nation": "scotland",
+         "amount": 2
+        },
+        {
+         "do": "set",
+         "flag": "q_westhighlands_cail_3"
+        },
+        {
+         "do": "set",
+         "flag": "q_westhighlands_cail_done"
+        },
+        {
+         "do": "say",
+         "who": "Old Hamish",
+         "text": "That's a scrap of her plaid, they say. It turns white at the first frost. Keep it dry. Or don't, it's a good sort of cold."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Old Hamish",
+         "text": "Ask the curator in the War and Peace Museum what the old tale says. Then walk to the end of the quay. She'll be there for you. She'll not stay long."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Old Hamish",
+       "text": "See out there, past Kerrera, past Lismore, where the sea goes white between Jura and Scarba? That's the Corryvreckan, and it's the Cailleach's wash-tub."
+      },
+      {
+       "do": "say",
+       "who": "Old Hamish",
+       "text": "The Cailleach, the old hag, the winter queen, washes her plaid in the whirlpool every autumn. When she's done it comes out white as snow, and that's the first frost. Some say she walks the quays, if you're quiet."
+      },
+      {
+       "do": "set",
+       "flag": "q_westhighlands_cail_started"
+      },
+      {
+       "do": "say",
+       "who": "Old Hamish",
+       "text": "Go and ask at the museum, that's the War and Peace, they keep the old stories. Then come and find me. And mind your manners with her."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "obn_cailleach": [
+  {
+   "do": "say",
+   "who": "",
+   "text": "The end of the pier is cold. Frost feathers the bollards, though it is not a cold day. At the edge of the quay stands a tall grey figure with a plaid over her shoulders, as white as a gull's wing, dripping seawater that crackles into ice."
+  },
+  {
+   "do": "say",
+   "who": "The Cailleach",
+   "text": "You have the look of someone sent by Hamish. He is a good old fool. I washed his father's boat once, in the Corryvreckan, and he has been telling the story ever since."
+  },
+  {
+   "do": "say",
+   "who": "The Cailleach",
+   "text": "I am the wash-woman of the winter, child. I bring the frost and take the summer. Each autumn I wash my plaid in the whirlpool, and the first frost is when it dries. Look at it. Cold. Clean. White."
+  },
+  {
+   "do": "say",
+   "who": "The Cailleach",
+   "text": "I do not do company. But I am curious, and a challenge is a challenge. Let us see if you are as warm as you look."
+  },
+  {
+   "do": "legend",
+   "species": "cailleach",
+   "level": 72,
+   "flag": "caught_cailleach",
+   "music": "legend_sea"
+  },
+  {
+   "do": "if",
+   "flag": "caught_cailleach",
+   "then": [
+    {
+     "do": "say",
+     "who": "",
+     "text": "The Cailleach folds into your team like a snowfall. The whirlpool out past Kerrera goes briefly quiet. On the pier, Hamish drops a creel and says a word you can't repeat."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "",
+     "text": "The Cailleach turns away and walks off the end of the pier. The water goes white, then black, then still. She will come back, if you are ready to try again."
+    }
+   ]
+  }
+ ]
+}

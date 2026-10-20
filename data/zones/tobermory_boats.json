@@ -1,0 +1,77 @@
+{
+ "id": "tobermory_boats",
+ "name": "Boat Trips Office",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "wall_map",
+   "x": 4,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "menu_board",
+   "x": 8,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "bench",
+   "x": 2,
+   "y": 5
+  },
+  {
+   "type": "lobster_pots",
+   "x": 10,
+   "y": 5,
+   "variant": 1
+  },
+  {
+   "type": "potted_plant",
+   "x": 11,
+   "y": 6
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 7,
+   "to": "tobermory",
+   "tx": 50,
+   "ty": 24,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "tob_skipper",
+   "sprite": "fisherman_north",
+   "x": 6,
+   "y": 1,
+   "facing": "down",
+   "move": "still",
+   "script": "tob_skipper",
+   "name": "Skipper"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  6,
+  6
+ ],
+ "rows": [
+  "xxxxxxxxxxxxx",
+  "x|||||||||||x",
+  "x||CCCCCC|||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "xxxxxxDxxxxxx"
+ ]
+}

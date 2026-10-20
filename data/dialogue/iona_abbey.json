@@ -1,0 +1,42 @@
+{
+ "tob_columba": [
+  {
+   "do": "say",
+   "who": "Warden of the Abbey",
+   "text": "St Columba came here from Ireland in 563, with twelve companions, and built a monastery of wood and wattle. The abbey you see is much later, from the 1200s, but the island has been holy for over fourteen hundred years."
+  },
+  {
+   "do": "say",
+   "who": "Warden of the Abbey",
+   "text": "Kings of Scotland were buried here for centuries, including, they say, Macbeth. A nice bit of good press for a man usually described as a murderer."
+  },
+  {
+   "do": "say",
+   "who": "Warden of the Abbey",
+   "text": "Iona's called the cradle of Scottish Christianity. Also of Scottish tourism. Please don't picnic on the graves."
+  }
+ ],
+ "tob_pilgrim": [
+  {
+   "do": "say",
+   "who": "Pilgrim",
+   "text": "I walked the island from the jetty. The beach on the south end has little green stones, a marble that's local. People pick them up and carry them home."
+  },
+  {
+   "do": "say",
+   "who": "Pilgrim",
+   "text": "The abbey's open till five. Don't dawdle, the last boat leaves shortly afterwards, and the skipper doesn't wait for dreamers."
+  },
+  {
+   "do": "if",
+   "flag": "q_westhighlands_hop_started",
+   "then": [
+    {
+     "do": "set",
+     "flag": "q_westhighlands_hop_3"
+    }
+   ],
+   "else": []
+  }
+ ]
+}

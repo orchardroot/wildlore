@@ -36,7 +36,9 @@ const SPECIAL := ["shannon_tower_house", "limerick_georgian", "martyrs_obelisk",
 	"norwich_cathedral", "norman_keep", "football_stand", "forth_bridge", "forth_approach", "road_bridge",
 	"bridge_girder", "cable_stayed", "crow_step", "culross_palace", "tenement", "st_andrews_ruin", "discovery_ship",
 	"va_dundee", "tay_bridge", "caithness_flag", "flag_fence", "mey_castle", "dunrobin", "jog_signpost", "sea_stacks",
-	"well_house", "kirk_ruin", "surf_shack", "jog_inn", "flows_lookout", "red_sandstone", "border_stone", "castle_red"]
+	"well_house", "kirk_ruin", "surf_shack", "jog_inn", "flows_lookout", "red_sandstone", "border_stone", "castle_red",
+	"painted_pink", "painted_yellow", "painted_blue", "painted_green", "painted_red", "painted_teal", "granite",
+	"distillery", "mccaig", "paddle_steamer"]
 
 ## Doors: where each style's door sits on its tile (see _door and friends), for the swing as you go in.
 ## {x, w, y, h, z}: left edge and width across the door column, bottom and height, z of the door's face from
@@ -53,6 +55,7 @@ const DOOR_RECTS := {
 	"lighthouse_house": {"x": 0.22, "w": 0.56, "y": 0.16, "h": 0.9, "z": -0.02},
 	"castle": {"x": 0.2, "w": 0.6, "y": 0.0, "h": 1.1, "z": 0.11},
 	"castle_red": {"x": 0.2, "w": 0.6, "y": 0.0, "h": 1.1, "z": 0.11},
+	"paddle_steamer": {"x": 0.22, "w": 0.56, "y": 0.7, "h": 0.9, "z": -0.6},
 	"cathedral": {"x": 0.15, "w": 0.7, "y": 0.0, "h": 1.3, "z": 0.03},
 	"glass_tower": {"x": 0.15, "w": 0.7, "y": 0.0, "h": 1.2, "z": 0.02},
 	"canal_tunnel": {"x": 0.24, "w": 0.52, "y": 0.0, "h": 0.95, "z": -0.04},
@@ -326,9 +329,24 @@ static func building(w: int, d: int, style: String, door_x: int, seed_value: int
 			_blast_furnace(st, wst, w, d, door_x)
 		"gault", "flint", "flint_gable", "thatch", "college", "kings_chapel", "portico", "ely_cathedral", "norwich_cathedral", "norman_keep", "football_stand":
 			ea_building(st, wst, style, w, d, door_x, rng)
+		"painted_pink", "painted_yellow", "painted_blue", "painted_green", "painted_red", "painted_teal":
+			_house(st, wst, w, d, door_x, rng, PAINTS[style], SLATE, 2, false, false)
+			_trim(st, w, d)
+		"granite":
+			_house(st, wst, w, d, door_x, rng, PAINTS[style], SLATE, 2, false, false)
+		"distillery":
+			_distillery(st, wst, w, d, door_x, rng)
+		"mccaig":
+			_mccaig(st, w, d, door_x)
+		"paddle_steamer":
+			_steamer(st, wst, w, d, door_x)
 		_:
 			_house(st, wst, w, d, door_x, rng, BRICK, SLATE, 2, false, false)
 	return [Meshes._finish(st), Meshes._finish(wst), _chimneys]
+
+## Painted harbour fronts (Tobermory) and Oban's grey-pink granite.
+const PAINTS := {"painted_pink": Color("e8a2b4"), "painted_yellow": Color("f0cf6a"), "painted_blue": Color("6fa4d2"),
+	"painted_green": Color("8cc48c"), "painted_red": Color("d4605a"), "painted_teal": Color("5fb4ac"), "granite": Color("b9a8a2")}
 
 # --- houses ------------------------------------------------------------------
 
@@ -4994,3 +5012,65 @@ static func _crow_steps(st: SurfaceTool, w: int, d: int) -> void:
 				var z0: float = d * 0.5 + (run * k if side > 0 else -run * (k + 1))
 				var top := hgt + rise * (1.0 - (run * k) / (d * 0.5))
 				Meshes.box(st, Vector3(xe, hgt - 0.02, z0), Vector3(0.14, top - hgt + 0.12, run), wall)
+# --- the west Highlands --------------------------------------------------------------------------------
+
+## White trim along a painted house: plinth and eaves band, so the colour reads as paint.
+static func _trim(st: SurfaceTool, w: int, d: int) -> void:
+	var white := Color("f4f0e6")
+	Meshes.box(st, Vector3(-0.02, 0.0, d - 0.03), Vector3(w + 0.04, 0.2, 0.08), white)
+	Meshes.box(st, Vector3(-0.02, 2.4, d - 0.03), Vector3(w + 0.04, 0.12, 0.08), white)
+
+## A whitewashed distillery: slate roof, a pagoda ventilator on the ridge and a tall square stack at the back.
+static func _distillery(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int, rng: RandomNumberGenerator) -> void:
+	var wall := Color("d2cab6")
+	_house(st, wst, w, d, door_x, rng, wall, SLATE, 2, false, false)
+	var hgt := 2.5
+	var px := w * 0.3
+	Meshes.box(st, Vector3(px - 0.5, hgt + 0.3, d * 0.5 - 0.5), Vector3(1.0, 0.8, 1.0), wall.lightened(0.1))
+	Meshes.cone(st, Vector3(px, hgt + 1.1, d * 0.5), 0.95, 0.9, 4, SLATE.darkened(0.1), rng)
+	Meshes.box(st, Vector3(w - 1.3, 0.0, 0.2), Vector3(0.7, hgt + 2.6, 0.7), Color("8a5a48"))
+	_chimneys.append(Vector3(w - 0.95, hgt + 2.6, 0.55))
+
+## McCaig's Tower: a drum of grey granite with two tiers of dark arches and a parapet, the door at the south.
+static func _mccaig(st: SurfaceTool, w: int, d: int, door_x: int) -> void:
+	var stone := Color("8f8c85")
+	var r := minf(w, d) * 0.5 - 0.15
+	var c := Vector3(w * 0.5, 0.0, d - r - 0.02)
+	var h := 3.4
+	Meshes.cylinder(st, Vector3(c.x, 0.0, c.z), r, h, 20, stone)
+	var dark := Color("2a2826")
+	for tier in 2:
+		var y := 0.65 + tier * 1.45
+		var rr := r * (1.0 - 0.15 * y / h) + 0.02
+		for i in range(-3, 4):
+			var a := PI * 0.5 + i * 0.3
+			var p := Vector3(c.x + cos(a) * rr, y, c.z + sin(a) * rr)
+			Meshes.box(st, Vector3(p.x - 0.22, y, p.z - 0.1), Vector3(0.44, 0.8, 0.14), dark)
+			Meshes.box(st, Vector3(p.x - 0.15, y + 0.8, p.z - 0.1), Vector3(0.3, 0.14, 0.14), dark)
+	var top := r * 0.85
+	for i in 16:
+		var a := TAU * i / 16
+		Meshes.box(st, Vector3(c.x + cos(a) * (top - 0.15) - 0.17, h, c.z + sin(a) * (top - 0.15) - 0.17), Vector3(0.34, 0.34, 0.34), stone.lightened(0.08))
+	var ring := _ellipse(c, top * 0.82, top * 0.82, h + 0.02, 16)
+	for i in 16:
+		Meshes._tri(st, ring[i], ring[(i + 1) % 16], Vector3(c.x, h + 0.02, c.z), Color("6f8a4a"))
+	_door(st, door_x, d, stone, 1.1)
+
+## The Maid of the Loch: a low dark hull, a white deck-house, paddle boxes, a buff funnel with a black top.
+static func _steamer(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int) -> void:
+	var hull := Color("2b2f3a")
+	var white := Color("f0ece0")
+	Meshes.box(st, Vector3(0.1, 0.0, 0.5), Vector3(w - 0.2, 0.7, d - 0.7), hull, Color("a68a66"))
+	Meshes.box(st, Vector3(1.4, 0.7, 0.8), Vector3(w - 2.8, 0.9, d - 1.4), white)
+	Meshes.box(st, Vector3(1.8, 1.6, 0.9), Vector3(w - 3.6, 0.5, d - 1.6), white.darkened(0.05))
+	var mid := w * 0.5
+	Meshes.box(st, Vector3(mid - 1.0, 0.4, d - 0.55), Vector3(2.0, 1.0, 0.55), white.darkened(0.1))
+	Meshes.box(st, Vector3(mid - 1.0, 0.4, 0.0), Vector3(2.0, 1.0, 0.55), white.darkened(0.1))
+	Meshes.cylinder(st, Vector3(mid - 0.9, 1.6, d * 0.5), 0.34, 1.2, 8, Color("d8b878"))
+	Meshes.cylinder(st, Vector3(mid - 0.9, 2.8, d * 0.5), 0.3, 0.3, 8, Color("1d1d1d"))
+	Meshes.cylinder(st, Vector3(mid + 0.9, 1.6, d * 0.5), 0.34, 1.2, 8, Color("d8b878"))
+	Meshes.cylinder(st, Vector3(mid + 0.9, 2.8, d * 0.5), 0.3, 0.3, 8, Color("1d1d1d"))
+	Meshes.box(st, Vector3(w - 1.2, 0.7, d * 0.5 - 0.03), Vector3(0.06, 1.8, 0.06), Color("5a4636"))
+	for x in range(2, w - 2, 1):
+		_window(st, wst, x + 0.27, 0.95, d - 0.53, 0.46, 0.4, white.darkened(0.15))
+	Meshes.box(st, Vector3(door_x + 0.22, 0.7, d - 0.66), Vector3(0.56, 0.9, 0.08), DOOR_WOOD)
