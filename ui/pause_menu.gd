@@ -87,6 +87,8 @@ func _refresh() -> void:
 	_info.add_child(_stat("Money", UIKit.money_text(d.money)))
 	if Wallet.had_euros(d):  # once you've been paid in euros, both purses
 		_info.add_child(_stat("Euros", UIKit.money_text(d.euros, Wallet.EUR)))
+	for line in Wallet.foreign_lines(d):  # any overseas money still in your pockets
+		_info.add_child(_stat(str(line[0]), str(line[1])))
 	_info.add_child(_stat("Play time", MenuLogic.play_time(d.play_seconds)))
 	_info.add_child(_stat("Fieldbook", "%d seen, %d caught" % [d.seen.size(), d.caught.size()]))
 	header_right.text = _now()  # the time of day and the weather, up in the corner

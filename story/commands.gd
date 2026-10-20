@@ -155,7 +155,8 @@ func _exec(c: Dictionary) -> void:
 		"shop":
 			await host.open_menu("shop:" + str(c.get("id", "")))
 		"bureau":
-			await host.open_menu("bureau")  # a bureau de change (see Forex)
+			# a bureau de change (see Forex); "currency" names the local money when the zone doesn't (e.g. "usd")
+			await host.open_menu("bureau" + ((":" + str(c.currency)) if str(c.get("currency", "")) != "" else ""))
 		"exchange":
 			await host.open_menu("exchange:" + str(c.get("board", "london")))  # a Stock Exchange terminal (see Markets)
 		"crypto":

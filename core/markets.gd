@@ -281,13 +281,13 @@ static func buy(data: GameStateData, id: String, n: int) -> Dictionary:
 		return out
 	if n > max_buy(data, id):
 		var p := price_for(data, id)
-		out.why = "That's over your limit for one company." if Wallet.balance(data, cur) >= buy_cost(n, p, cur) else "You'd need more %s for that." % Wallet.NAMES[cur]
+		out.why = "That's over your limit for one company." if Wallet.balance(data, cur) >= buy_cost(n, p, cur) else "You'd need more %s for that." % Wallet.name_of(cur)
 		return out
 	settle(data)  # any dividend due on what you hold is paid before the new shares join it
 	var p2 := price_for(data, id)
 	var cost := buy_cost(n, p2, cur)
 	if not Wallet.spend(data, cost, cur):
-		out.why = "You'd need more %s for that." % Wallet.NAMES[cur]
+		out.why = "You'd need more %s for that." % Wallet.name_of(cur)
 		return out
 	var h: Dictionary = data.markets.h
 	var e: Dictionary = h.get(id, {"n": 0, "cost": 0, "since": data.day_count})
