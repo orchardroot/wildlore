@@ -1178,18 +1178,18 @@ static func _lincoln_cathedral(st: SurfaceTool, wst: SurfaceTool, w: int, d: int
 	# buttresses and tall lancets down the south side
 	for x in range(int(west) + 1, w - 1):
 		Meshes.box(st, Vector3(x - 0.1, 0, d - 0.85), Vector3(0.2, nave_h - 0.2, 0.3), stone.darkened(0.08))
-		_window(st, wst, x + 0.3, 0.6, d - 0.7, 0.36, 1.5, stone.lightened(0.15))
+		_window(st, wst, x + 0.3, 0.6, d - 0.65, 0.36, 1.5, stone.lightened(0.15))
 	# the transept and the crossing tower
 	var tx := west + (w - west) * 0.42
 	Meshes.box(st, Vector3(tx - 0.9, 0, 0.1), Vector3(1.8, nave_h, d - 0.2), stone.darkened(0.03))
 	_roof_at(st, tx - 0.9, tx + 0.9, 0.1, d - 0.1, nave_h, 1.0, lead, stone)
-	_window(st, wst, tx - 0.35, 0.8, d - 0.1, 0.7, 1.4, stone.lightened(0.15))
+	_window(st, wst, tx - 0.35, 1.5, d - 0.05, 0.7, 1.0, stone.lightened(0.15))
 	var ct := 2.0
 	var th := 8.2
 	var cz := d * 0.5 - ct * 0.5
 	Meshes.box(st, Vector3(tx - ct * 0.5, 0, cz), Vector3(ct, th, ct), stone.lightened(0.04))
 	for k in 2:
-		_window(st, wst, tx - 0.6 + k * 0.8, th - 2.8, cz + ct, 0.3, 1.8, stone.lightened(0.2))
+		_window(st, wst, tx - 0.6 + k * 0.8, th - 2.8, cz + ct + 0.05, 0.3, 1.8, stone.lightened(0.2))
 	for p in [Vector2(0, 0), Vector2(ct - 0.3, 0), Vector2(0, ct - 0.3), Vector2(ct - 0.3, ct - 0.3)]:
 		Meshes.box(st, Vector3(tx - ct * 0.5 + p.x, th, cz + p.y), Vector3(0.3, 1.1, 0.3), stone.lightened(0.08))
 		Meshes.box(st, Vector3(tx - ct * 0.5 + p.x + 0.08, th + 1.1, cz + p.y + 0.08), Vector3(0.14, 0.5, 0.14), stone.lightened(0.12))
@@ -1200,11 +1200,12 @@ static func _lincoln_cathedral(st: SurfaceTool, wst: SurfaceTool, w: int, d: int
 		Meshes.box(st, Vector3(0.4, 0, z), Vector3(1.3, 6.6, 1.3), stone.lightened(0.05))
 		for p in [Vector2(0, 0), Vector2(1.05, 0), Vector2(0, 1.05), Vector2(1.05, 1.05)]:
 			Meshes.box(st, Vector3(0.4 + p.x, 6.6, z + p.y), Vector3(0.25, 0.9, 0.25), stone.lightened(0.1))
-		_window(st, wst, 0.85, 4.6, z + 1.3, 0.4, 1.3, stone.lightened(0.2))
+		_window(st, wst, 0.85, 4.6, z + 1.35, 0.4, 1.3, stone.lightened(0.2))
 	for k in 3:
-		_window(st, wst, 0.35 + k * 0.7, 1.6, d - 0.3, 0.3, 1.4, stone.lightened(0.2))
-	if door_x >= 0:
-		Meshes.box(st, Vector3(door_x + 0.15, 0, d - 0.73), Vector3(0.7, 1.3, 0.08), Color("3b2a22"))
+		_window(st, wst, 0.35 + k * 0.7, 1.6, d - 0.25, 0.3, 1.4, stone.lightened(0.2))
+	if door_x >= 0:  # on the transept front when the door falls inside it, else on the nave
+		var fz := d - 0.1 if absf(door_x + 0.5 - tx) < 0.95 else d - 0.7
+		Meshes.box(st, Vector3(door_x + 0.15, 0, fz - 0.03), Vector3(0.7, 1.3, 0.08), Color("3b2a22"))
 
 ## A solid outline extruded along z (front cap at z1 faces south), for the tank's rhomboid sides.
 ## `pts` (x, y) run clockwise seen from the south.
