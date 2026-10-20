@@ -1,0 +1,197 @@
+{
+ "tw_weaver": [
+  {
+   "do": "if",
+   "flag": "q_donegal_tweed_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Úna the Weaver",
+     "text": "How's the cap? Don't wash it in hot water. Don't wash it at all, if you can help it. Tweed improves with weather."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_donegal_tweed_4",
+     "then": [
+      {
+       "do": "say",
+       "who": "Úna the Weaver",
+       "text": "You saw off that buyer! Grand. Now watch. The crotal for the rust, the heather and whin for the flecks, warp and weft, shuttle and beater..."
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "The loom clacks for a long while. When Úna stops, there is a bolt of tweed the colour of a Donegal hillside in October, flecked with gold and purple."
+      },
+      {
+       "do": "say",
+       "who": "Úna the Weaver",
+       "text": "And a bit for you. A cap. Every person who ever walked these hills in the rain wore one of these, and every one of them was right."
+      },
+      {
+       "do": "give_item",
+       "item": "tweed_cap"
+      },
+      {
+       "do": "standing",
+       "nation": "ireland",
+       "amount": 5
+      },
+      {
+       "do": "set",
+       "flag": "q_donegal_tweed_done"
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_donegal_tweed_3",
+       "then": [
+        {
+         "do": "say",
+         "who": "Úna the Weaver",
+         "text": "That fashion buyer is still hovering. He won't leave until somebody beats him at something. Would you?"
+        }
+       ],
+       "else": [
+        {
+         "do": "if",
+         "flag": "q_donegal_tweed_2",
+         "then": [
+          {
+           "do": "if",
+           "flag": "q_donegal_tweed_1",
+           "then": [
+            {
+             "do": "say",
+             "who": "Úna the Weaver",
+             "text": "Crotal from Glenveagh and heather and whin from Nóra? You've done the rounds! Let me get these in the dye pot..."
+            },
+            {
+             "do": "say",
+             "who": "Úna the Weaver",
+             "text": "Oh no. Him. That buyer from Dublin has been in all week wanting to buy the bolt before it's even woven. He'll not leave till somebody beats him. Would you see to him?"
+            },
+            {
+             "do": "set",
+             "flag": "q_donegal_tweed_3"
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Úna the Weaver",
+             "text": "You've the heather and whin, but I still need crotal from the lichen gatherer by Errigal."
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "if",
+           "flag": "q_donegal_tweed_started",
+           "then": [
+            {
+             "do": "say",
+             "who": "Úna the Weaver",
+             "text": "Crotal from the lichen gatherer by Errigal, then heather and whin from Nóra in Gaoth Dobhair. Off you go, the loom's getting cold."
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Úna the Weaver",
+             "text": "{greeting} I'm Úna. I weave tweed, the way my mother did, and hers. But I've no dyes left, and a big order coming in."
+            },
+            {
+             "do": "say",
+             "who": "Úna the Weaver",
+             "text": "Would you gather some for me? Crotal lichen from the woman picking it by Errigal, in Glenveagh. Then heather and whin from Nóra, the weaver in Gaoth Dobhair."
+            },
+            {
+             "do": "set",
+             "flag": "q_donegal_tweed_started"
+            },
+            {
+             "do": "say",
+             "who": "Úna the Weaver",
+             "text": "Bring them back and I'll weave you something. Go raibh maith agat!"
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "tw_assistant": [
+  {
+   "do": "say",
+   "who": "Shop Assistant",
+   "text": "Tweed jackets, caps, scarves, all of it. Donegal tweed's been sold from this town since the 1800s. Have a look, no pressure. A little pressure."
+  },
+  {
+   "do": "shop",
+   "id": "donegal_tweed_house"
+  }
+ ],
+ "tw_buyer": [
+  {
+   "do": "if",
+   "flag": "q_donegal_tweed_3",
+   "then": [
+    {
+     "do": "if",
+     "flag": "trainer_dt_buyer",
+     "then": [
+      {
+       "do": "say",
+       "who": "Fashion Buyer",
+       "text": "I'll be back next season. With a bigger chequebook. And better creatures."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Fashion Buyer",
+       "text": "I am buying that bolt for the spring collection in Milan, and I am not leaving without it. Unless you beat me. Which you won't."
+      },
+      {
+       "do": "battle",
+       "trainer": "dt_buyer"
+      },
+      {
+       "do": "if",
+       "flag": "trainer_dt_buyer",
+       "then": [
+        {
+         "do": "set",
+         "flag": "q_donegal_tweed_4"
+        },
+        {
+         "do": "say",
+         "who": "Fashion Buyer",
+         "text": "Fine. The weaver keeps her tweed. I'll just have to buy the cap like everyone else."
+        }
+       ],
+       "else": []
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Fashion Buyer",
+     "text": "Darling, this is the most gorgeous tweed. The flecks! The texture! I must have the whole bolt. When is it woven? Is it woven yet? Is it woven now?"
+    }
+   ]
+  }
+ ]
+}

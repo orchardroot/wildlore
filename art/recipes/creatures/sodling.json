@@ -1,0 +1,23 @@
+{"id": "sodling",
+ "palette": {"peat": "#5a3e2a", "peat2": "#3e2a1c", "fibre": "#8a6a48", "grass": "#6e9a3c", "grass2": "#a8c860", "heather": "#9a5a8a", "heather2": "#c88ab8", "shadow": "#4a5a32", "ink": "#1e140c", "blush": "#d88a70", "eye": "#f2d488"},
+ "layers": [
+  {"shape": "ellipse", "at": [48, 90], "size": [66, 10], "colour": "shadow", "rim": false, "shade": false},
+  {"shape": "ellipse", "at": [34, 86], "size": [14, 10], "colour": "peat2", "mirror": true},
+  {"shape": "rect", "at": [48, 64], "size": [54, 40], "round": 7, "colour": "peat", "pattern": "stripes", "pcolour": "peat2", "period": 6, "pangle": 0},
+  {"shape": "rect", "at": [48, 66], "size": [46, 30], "round": 5, "colour": "peat", "pattern": "speckle", "pcolour": "fibre", "density": 22, "front_only": true, "rim": false},
+  {"shape": "ellipse", "at": [22, 66], "size": [9, 16], "colour": "peat2", "angle": 18, "mirror": true},
+  {"shape": "rect", "at": [48, 44], "size": [56, 9], "round": 4, "colour": "grass", "pattern": "speckle", "pcolour": "grass2", "density": 18},
+  {"shape": "spikes", "at": [48, 40], "size": [54, 12], "count": 11, "len": 9, "from": -170, "to": -10, "seed": 4, "colour": "grass", "rim": false},
+  {"shape": "spikes", "at": [36, 38], "size": [14, 8], "count": 5, "len": 6, "from": -160, "to": -20, "seed": 7, "colour": "grass2", "rim": false},
+  {"shape": "circle", "at": [62, 34], "r": 2.6, "colour": "heather", "rim": false},
+  {"shape": "circle", "at": [66, 31], "r": 2.2, "colour": "heather2", "rim": false},
+  {"shape": "circle", "at": [59, 30], "r": 2.0, "colour": "heather", "rim": false},
+  {"shape": "circle", "at": [64, 27], "r": 1.8, "colour": "heather2", "rim": false},
+  {"shape": "line", "points": [[63, 42], [63, 30]], "width": 1, "colour": "shadow", "shade": false}
+ ],
+ "face_layers": [
+  {"shape": "ellipse", "at": [32, 70], "size": [7, 4], "colour": "blush", "shade": false, "mirror": true},
+  {"shape": "line", "points": [[43, 73], [48, 76], [53, 73]], "width": 1.2, "colour": "ink", "shade": false}
+ ],
+ "eyes": [{"at": [39, 63], "r": 4.5, "mirror": true}]
+}

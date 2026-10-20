@@ -1,0 +1,64 @@
+{
+ "dp_barwoman": [
+  {
+   "do": "say",
+   "who": "Barwoman",
+   "text": "Welcome to the Eske. There's a session most nights and a quiz on a Tuesday, unless the session runs into the quiz, which it usually does."
+  }
+ ],
+ "dp_quizmaster": [
+  {
+   "do": "say",
+   "who": "Quizmaster",
+   "text": "Quiz time! Five questions. No phones, no conferring, and no shouting the answers to the next table, Seán."
+  },
+  {
+   "do": "choice",
+   "text": "Fancy a round? Five questions, no phones.",
+   "options": [
+    "Count me in",
+    "Not tonight"
+   ],
+   "set": "_quiz_choice"
+  },
+  {
+   "do": "if",
+   "flag": "_quiz_choice",
+   "then": [
+    {
+     "do": "quiz",
+     "pub": "donegal_town",
+     "region": "ireland",
+     "who": "Quizmaster"
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Quizmaster",
+     "text": "Grand. Your seat will be warm when you come back. It's beside the fire."
+    }
+   ],
+   "eq": 0
+  }
+ ],
+ "dp_trawlerman": [
+  {
+   "do": "say",
+   "who": "Trawlerman",
+   "text": "I fish out of Killybegs. Mackerel, herring, blue whiting. We land more fish there than anywhere else in Ireland, and the gulls know it."
+  },
+  {
+   "do": "say",
+   "who": "Trawlerman",
+   "text": "Smoked mackerel, now. Best breakfast there is. Fight me."
+  }
+ ],
+ "dp_singer": [
+  {
+   "do": "say",
+   "who": "Singer",
+   "text": "This one's about a ship that left from the bay for America, and everybody on the quay crying. Most of our songs are about somebody leaving. The rest are about somebody coming home."
+  }
+ ]
+}

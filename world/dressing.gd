@@ -582,7 +582,7 @@ const VENUE_PROPS := ["stadium_stand", "rugby_posts", "floodlight", "puddle", "p
 	"steel_plates", "hall_stage", "tea_urn", "stacked_chairs", "currach", "lobster_pots", "harbour_arch", "fae_lantern",
 	"toadstool_ring", "clootie_tree", "curling_house", "curling_stones", "brick_arch", "band_kit", "stage_light",
 	"slate_stack", "slate_wagon", "crypt_arch", "candelabra", "tomb_chest", "brazier", "city_window",
-	"enclosure_banner", "creature_cage"]
+	"enclosure_banner", "creature_cage", "loom"]
 ## prop -> the glow mesh that goes with it (same tile, same variant).
 const VENUE_GLOWS := {"floodlight": "floodlight_glow", "fae_lantern": "fae_glow", "stage_light": "stage_glow",
 	"candelabra": "candle_glow", "brazier": "brazier_fire"}
@@ -625,6 +625,7 @@ static func venue_prop(name: String, variant: int) -> ArrayMesh:
 		"city_window": return city_window(variant)
 		"enclosure_banner": return enclosure_banner()
 		"creature_cage": return creature_cage(variant)
+		"loom": return loom(variant)
 	return null
 
 ## A flat panel at depth z facing the camera (+z), from (x0, y0) to (x1, y1).
@@ -1341,4 +1342,28 @@ static func creature_cage(variant := 0) -> ArrayMesh:
 		Meshes.box(st, Vector3(c.x, 0.5, c.y), Vector3(0.02, 0.62, 0.02), BRASS)
 	Meshes.box(st, Vector3(-0.3, 1.12, -0.3), Vector3(0.6, 0.03, 0.6), BRASS)
 	Meshes.box(st, Vector3(-0.1, 0.2, 0.32), Vector3(0.2, 0.08, 0.01), BRASS)  # the plaque
+	return Meshes._finish(st)
+
+## A handloom for tweed: a heavy wooden frame, the warp running back from the weaver's bench, a length of flecked
+## Donegal tweed rolled on the cloth beam at the front and the heddles hung from the top. Variant 1 has heather-
+## coloured cloth, 0 a crotal brown.
+static func loom(variant := 0) -> ArrayMesh:
+	var st := Meshes._st()
+	var oak := WOOD.darkened(0.1)
+	for p in [Vector2(-0.42, -0.36), Vector2(0.38, -0.36), Vector2(-0.42, 0.3), Vector2(0.38, 0.3)]:
+		Meshes.box(st, Vector3(p.x, 0, p.y), Vector3(0.07, 1.15, 0.07), oak)
+	Meshes.box(st, Vector3(-0.44, 1.12, -0.38), Vector3(0.9, 0.07, 0.75), oak.lightened(0.05))  # the castle over the top
+	Meshes.box(st, Vector3(-0.42, 0.62, 0.28), Vector3(0.87, 0.08, 0.1), oak.lightened(0.1))    # breast beam
+	Meshes.box(st, Vector3(-0.42, 0.5, -0.34), Vector3(0.87, 0.08, 0.08), oak)                   # warp beam at the back
+	var cloth: Color = Color("8a5a3a") if variant % 2 == 0 else Color("6a5a7a")
+	Meshes.box(st, Vector3(-0.36, 0.4, 0.22), Vector3(0.75, 0.2, 0.1), cloth)                    # the rolled cloth
+	var flecks := [Color("e0b53a"), Color("2f7a55"), Color("b03a2e"), Color("f0ece0"), Color("2f5d8a")]
+	for i in 10:
+		Meshes.box(st, Vector3(-0.34 + i * 0.075, 0.45 + (i % 3) * 0.05, 0.315), Vector3(0.025, 0.025, 0.01), flecks[i % flecks.size()])
+	for i in 9:
+		var x := -0.34 + i * 0.085
+		_bar(st, Vector3(x, 0.66, 0.26), Vector3(x, 0.56, -0.3), 0.006, Color("e8e0cc"))         # the warp threads
+	Meshes.box(st, Vector3(-0.36, 0.72, -0.05), Vector3(0.75, 0.3, 0.03), Color("cfc5ae"))       # heddles
+	Meshes.box(st, Vector3(-0.38, 0.98, -0.07), Vector3(0.79, 0.04, 0.07), oak)
+	Meshes.box(st, Vector3(-0.3, 0, 0.38), Vector3(0.6, 0.38, 0.14), oak.darkened(0.1))          # the bench
 	return Meshes._finish(st)

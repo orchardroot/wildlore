@@ -1,0 +1,103 @@
+{
+ "id": "tory_club",
+ "name": "Club Sóisialta Thoraí",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "fireplace",
+   "x": 11,
+   "y": 1
+  },
+  {
+   "type": "band_kit",
+   "x": 12,
+   "y": 3,
+   "variant": 0
+  },
+  {
+   "type": "table",
+   "x": 3,
+   "y": 5
+  },
+  {
+   "type": "table",
+   "x": 10,
+   "y": 5
+  },
+  {
+   "type": "tea_urn",
+   "x": 13,
+   "y": 6
+  },
+  {
+   "type": "wall_picture",
+   "x": 8,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  }
+ ],
+ "warps": [
+  {
+   "x": 7,
+   "y": 7,
+   "to": "tory_island",
+   "tx": 22,
+   "ty": 19,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "tc_barman",
+   "sprite": "shopkeeper",
+   "x": 3,
+   "y": 1,
+   "facing": "down",
+   "move": "still",
+   "script": "tc_barman",
+   "name": "Club Barman"
+  },
+  {
+   "id": "tc_dancer",
+   "sprite": "festival_goer",
+   "x": 7,
+   "y": 4,
+   "facing": "down",
+   "move": "still",
+   "script": "tc_dancer",
+   "name": "Islander"
+  },
+  {
+   "id": "tc_box",
+   "sprite": "fiddler",
+   "x": 11,
+   "y": 3,
+   "facing": "left",
+   "move": "still",
+   "script": "tc_box",
+   "name": "Accordion Player"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  7,
+  6
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxxx",
+  "x|||||||||||||x",
+  "x|CCCCC|||||||x",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x||||||D||||||x",
+  "xxxxxxxxxxxxxxx"
+ ]
+}

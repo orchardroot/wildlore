@@ -1,0 +1,100 @@
+[
+ {
+  "id": "smoked_mackerel",
+  "name": "Smoked Mackerel",
+  "kind": "heal",
+  "price": 260,
+  "battle": true,
+  "field": true,
+  "amount": 110,
+  "desc": "Landed at Killybegs, Ireland's biggest fishing port, and smoked over oak until it's gold. Restores 110 HP. Your bag will smell of it for a week."
+ },
+ {
+  "id": "carrageen_pudding",
+  "name": "Carrageen Pudding",
+  "kind": "cure",
+  "price": 220,
+  "battle": true,
+  "field": true,
+  "cures": [
+   "soaked",
+   "chilled",
+   "muddled",
+   "hexed",
+   "stung",
+   "asleep"
+  ],
+  "desc": "Carrageen moss is a seaweed off the west coast. Boiled in milk it sets into a wobbly pudding that grannies swear cures everything. Cures every status."
+ },
+ {
+  "id": "tweed_cap",
+  "name": "Donegal Tweed Cap",
+  "kind": "charm",
+  "price": 3400,
+  "battle": false,
+  "field": true,
+  "wild": true,
+  "desc": "Hand-woven Donegal tweed, flecked like a hillside of heather and gorse. Keeps out the Atlantic wind and gives everyone the look of a man who owns a field.",
+  "effect_text": "Gale moves hurt it 25% less.",
+  "charm": {
+   "effect": "resist",
+   "type": "gale",
+   "mult": 0.75
+  },
+  "msg": "{name}'s Tweed Cap kept the wind off!"
+ },
+ {
+  "id": "errigal_quartz",
+  "name": "Errigal Quartz",
+  "kind": "charm",
+  "price": 0,
+  "battle": false,
+  "field": true,
+  "wild": true,
+  "desc": "A chip of pale quartzite from the top of Errigal, faintly pink. The mountain glows this colour at sunset.",
+  "effect_text": "Stone moves hit 20% harder.",
+  "charm": {
+   "effect": "boost",
+   "type": "stone",
+   "mult": 1.2
+  },
+  "msg": "{name}'s Errigal Quartz sharpened the blow!"
+ },
+ {
+  "id": "tory_clay",
+  "name": "Tory Clay",
+  "kind": "charm",
+  "price": 0,
+  "battle": false,
+  "field": true,
+  "wild": true,
+  "desc": "A twist of clay from Tory Island. Tradition says St Colmcille blessed it, and no rat can abide it, which is why Tory has none.",
+  "effect_text": "Urban moves hurt it 25% less.",
+  "charm": {
+   "effect": "resist",
+   "type": "urban",
+   "mult": 0.75
+  },
+  "msg": "{name}'s Tory Clay kept the vermin off!"
+ },
+ {
+  "id": "crotal",
+  "name": "Crotal",
+  "one": "a scrap of Crotal",
+  "kind": "material",
+  "price": 0,
+  "battle": false,
+  "field": false,
+  "desc": "Grey crusty lichen scraped from the rocks. Boiled with wool it gives the warm rust browns of Donegal tweed, and a smell like a wet dog."
+ },
+ {
+  "id": "whin_blossom",
+  "name": "Whin Blossom",
+  "one": "a sprig of Whin Blossom",
+  "kind": "material",
+  "price": 0,
+  "battle": false,
+  "field": false,
+  "desc": "Gorse flowers, which smell of coconut on a warm day. They dye wool a yellow you could see from Tory."
+ }
+]

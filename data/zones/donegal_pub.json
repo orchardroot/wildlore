@@ -1,0 +1,126 @@
+{
+ "id": "donegal_pub",
+ "name": "The Eske Bar",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "fireplace",
+   "x": 2,
+   "y": 1
+  },
+  {
+   "type": "table",
+   "x": 3,
+   "y": 5
+  },
+  {
+   "type": "table",
+   "x": 10,
+   "y": 5
+  },
+  {
+   "type": "table",
+   "x": 12,
+   "y": 7
+  },
+  {
+   "type": "wall_picture",
+   "x": 7,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  },
+  {
+   "type": "wall_picture",
+   "x": 11,
+   "y": 1,
+   "walk": true,
+   "variant": 0
+  },
+  {
+   "type": "band_kit",
+   "x": 2,
+   "y": 3,
+   "variant": 2
+  },
+  {
+   "type": "kettle_table",
+   "x": 1,
+   "y": 7
+  }
+ ],
+ "warps": [
+  {
+   "x": 7,
+   "y": 8,
+   "to": "donegal_town",
+   "tx": 18,
+   "ty": 37,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "dp_barwoman",
+   "sprite": "shopkeeper",
+   "x": 7,
+   "y": 1,
+   "facing": "down",
+   "move": "still",
+   "script": "dp_barwoman",
+   "name": "Barwoman"
+  },
+  {
+   "id": "dp_quizmaster",
+   "sprite": "tour_guide",
+   "x": 8,
+   "y": 4,
+   "facing": "down",
+   "move": "still",
+   "script": "dp_quizmaster",
+   "name": "Quizmaster"
+  },
+  {
+   "id": "dp_trawlerman",
+   "sprite": "fisherman_north",
+   "x": 11,
+   "y": 5,
+   "facing": "left",
+   "move": "still",
+   "script": "dp_trawlerman",
+   "name": "Trawlerman"
+  },
+  {
+   "id": "dp_singer",
+   "sprite": "sean_nos_singer",
+   "x": 3,
+   "y": 3,
+   "facing": "right",
+   "move": "still",
+   "script": "dp_singer",
+   "name": "Singer"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  7,
+  7
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxxx",
+  "x|||||||||||||x",
+  "x|||CCCCCCCC||x",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x||||||D||||||x",
+  "xxxxxxxxxxxxxxx"
+ ]
+}

@@ -1,0 +1,54 @@
+{
+ "gw_weaver": [
+  {
+   "do": "if",
+   "flag": "q_donegal_tweed_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_donegal_tweed_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "Nóra the Weaver",
+       "text": "Tell Úna I said hello and that her warp is still too tight. She'll know what I mean. She'll pretend she doesn't."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Nóra the Weaver",
+       "text": "From Úna in Donegal Town? Then you'll want colour. Here: heather tips for a soft purple-grey, and whin, the gorse, for a yellow you could see from Tory."
+      },
+      {
+       "do": "give_item",
+       "item": "whin_blossom",
+       "n": 3
+      },
+      {
+       "do": "set",
+       "flag": "q_donegal_tweed_2"
+      },
+      {
+       "do": "say",
+       "who": "Nóra the Weaver",
+       "text": "Then the little flecks go in, the nepps, spun right into the yarn. That's what makes it Donegal. Off you go to Úna now, before the colours fade."
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Nóra the Weaver",
+     "text": "{greeting} Every cottage in the parish had a loom once. The women spun and dyed, the men wove, and the tweed went off to the merchants in the town."
+    },
+    {
+     "do": "say",
+     "who": "Nóra the Weaver",
+     "text": "Lichen, heather, gorse, blackberries, onion skins. A whole hillside goes into a good jacket. And a fair bit of the weaver, too."
+    }
+   ]
+  }
+ ]
+}

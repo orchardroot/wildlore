@@ -1,0 +1,90 @@
+{
+ "id": "donegal_church",
+ "name": "Church of the Four Masters",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "candelabra",
+   "x": 3,
+   "y": 1
+  },
+  {
+   "type": "candelabra",
+   "x": 9,
+   "y": 1
+  },
+  {
+   "type": "table",
+   "x": 6,
+   "y": 2
+  },
+  {
+   "type": "stacked_chairs",
+   "x": 3,
+   "y": 4,
+   "variant": 0
+  },
+  {
+   "type": "stacked_chairs",
+   "x": 9,
+   "y": 4,
+   "variant": 0
+  },
+  {
+   "type": "stacked_chairs",
+   "x": 3,
+   "y": 6,
+   "variant": 1
+  },
+  {
+   "type": "stacked_chairs",
+   "x": 9,
+   "y": 6,
+   "variant": 1
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 8,
+   "to": "donegal_town",
+   "tx": 45,
+   "ty": 9,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "dch_sacristan",
+   "sprite": "villager_2",
+   "x": 6,
+   "y": 4,
+   "facing": "down",
+   "move": "still",
+   "script": "dch_sacristan",
+   "name": "Sacristan"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  6,
+  7
+ ],
+ "rows": [
+  "xxxxxxxxxxxxx",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++D+++++x",
+  "xxxxxxxxxxxxx"
+ ]
+}

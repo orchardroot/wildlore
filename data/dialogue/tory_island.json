@@ -1,0 +1,318 @@
+{
+ "tory_boatman": [
+  {
+   "do": "say",
+   "who": "Tory Boatman",
+   "text": "Back to the mainland? The sea's in a fair mood. For now."
+  },
+  {
+   "do": "ferry",
+   "route": "gweedore_tory"
+  }
+ ],
+ "tory_king": [
+  {
+   "do": "if",
+   "flag": "q_donegal_tory_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Rí Thoraí",
+     "text": "Fáilte go Toraigh! Welcome to Tory! Oh, it's yourself. The king's own friend. Mind the steps, they're slippy with seaweed and royal dignity."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_donegal_tory_4",
+     "then": [
+      {
+       "do": "say",
+       "who": "Séamus of the Pier",
+       "text": "You saw the pretender off, and there's a band tuning up in the club. So. They want me, then? Me? I only came down to meet the boat."
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "The islanders gather at the pier. Somebody produces a chair. Somebody else produces a fiddle. There is no crown, so the youngest child on the island puts a lobster pot on Séamus's head, and everyone agrees it suits him."
+      },
+      {
+       "do": "say",
+       "who": "Rí Thoraí",
+       "text": "Right. As my first act as Rí Thoraí, I declare a céilí. As my second act, I'd like to sit down."
+      },
+      {
+       "do": "give_item",
+       "item": "tory_clay"
+      },
+      {
+       "do": "give_item",
+       "item": "smoked_mackerel",
+       "n": 3
+      },
+      {
+       "do": "standing",
+       "nation": "ireland",
+       "amount": 8
+      },
+      {
+       "do": "set",
+       "flag": "q_donegal_tory_done"
+      },
+      {
+       "do": "say",
+       "who": "Rí Thoraí",
+       "text": "That's a bit of Tory clay. They say no rat can live on the island because of it. Keep it in your bag and see what it keeps away."
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_donegal_tory_1",
+       "then": [
+        {
+         "do": "say",
+         "who": "Séamus of the Pier",
+         "text": "Did you ask the gallery? They know everyone on the island; they've painted half of us. Badly, the half they didn't like."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Séamus of the Pier",
+         "text": "{greeting} You're the one helping choose the king? Well, God help you. Nobody can agree. The painters want a painter, the fishermen want a fisherman, and everyone wants it not to be them."
+        },
+        {
+         "do": "say",
+         "who": "Séamus of the Pier",
+         "text": "Talk to the gallery keeper. If anyone can count the votes on this island, it's the gallery. Nobody leaves without being sold a picture."
+        },
+        {
+         "do": "set",
+         "flag": "q_donegal_tory_1"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "tory_elder": [
+  {
+   "do": "if",
+   "flag": "q_donegal_balor_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Island Storyteller",
+     "text": "You have him, Balor himself, in your bag. I hope you keep his eye shut. I'd sleep better."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "caught_balor",
+     "then": [
+      {
+       "do": "say",
+       "who": "Island Storyteller",
+       "text": "You caught him? Balor of the Evil Eye? The Fomorian king, tamed by a walker with a bag? Well, I'll need a new ending for the story."
+      },
+      {
+       "do": "set",
+       "flag": "q_donegal_balor_2"
+      },
+      {
+       "do": "give_item",
+       "item": "barmbrack",
+       "n": 3
+      },
+      {
+       "do": "standing",
+       "nation": "ireland",
+       "amount": 5
+      },
+      {
+       "do": "set",
+       "flag": "q_donegal_balor_done"
+      },
+      {
+       "do": "say",
+       "who": "Island Storyteller",
+       "text": "Here, take these. Barmbrack, for luck. You'll need it, travelling with that one."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Island Storyteller",
+       "text": "Do you know the story of Balor? A king of the Fomorians, the old sea giants, with one great eye that killed whatever it looked upon. It took four men to lift the lid."
+      },
+      {
+       "do": "say",
+       "who": "Island Storyteller",
+       "text": "A prophecy said his own grandson would kill him, so he locked his only daughter in a tower on this island. Well. That went the way those things always go."
+      },
+      {
+       "do": "say",
+       "who": "Island Storyteller",
+       "text": "The grandson was Lugh, and Lugh put a sling-stone through that eye. They say Balor's still out at the fort on the east cliffs, all the same, sleeping it off."
+      },
+      {
+       "do": "set",
+       "flag": "q_donegal_balor_started"
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "tory_pretender": [
+  {
+   "do": "if",
+   "flag": "q_donegal_tory_3",
+   "then": [
+    {
+     "do": "if",
+     "flag": "trainer_tory_pretender",
+     "then": [
+      {
+       "do": "say",
+       "who": "Mainland Pretender",
+       "text": "Fine. FINE. I didn't want to be king of a rock in the sea anyway. I'll be king of a nice golf club in Wicklow instead."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Mainland Pretender",
+       "text": "A céilí band? For Séamus? Absolutely not. I've had a crown on order from Dublin for a week. I'm the obvious candidate. I have a blazer."
+      },
+      {
+       "do": "battle",
+       "trainer": "tory_pretender"
+      },
+      {
+       "do": "if",
+       "flag": "trainer_tory_pretender",
+       "then": [
+        {
+         "do": "set",
+         "flag": "q_donegal_tory_4"
+        },
+        {
+         "do": "say",
+         "who": "Mainland Pretender",
+         "text": "...I may have misjudged the island. Go on, crown your fisherman."
+        }
+       ],
+       "else": []
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Mainland Pretender",
+     "text": "Hello! Hello! I'm standing for king. Vote for me and I'll put in a golf course. And a car park. And a second car park for the first car park."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Some islanders nearby are looking at him the way the sea looks at a sandcastle."
+    }
+   ]
+  }
+ ],
+ "balor": [
+  {
+   "do": "if",
+   "flag": "caught_balor",
+   "then": [],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_donegal_tory_done",
+     "then": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "The wind drops. The sea goes flat and grey as pewter. On the headland, a huge shape you took for a rock stirs, and something like a great eyelid, the size of a door, begins to lift."
+      },
+      {
+       "do": "music",
+       "id": "legend_sea"
+      },
+      {
+       "do": "say",
+       "who": "Balor",
+       "text": "Who walks on my fort? I have slept here since the sling-stone. The islanders have a new king, I hear. They always have a king. I was one, once."
+      },
+      {
+       "do": "say",
+       "who": "Balor",
+       "text": "Look away, little walker. Whatever I look upon withers. Or look at me, and let us see which of us blinks."
+      },
+      {
+       "do": "set",
+       "flag": "q_donegal_balor_1"
+      },
+      {
+       "do": "legend",
+       "species": "balor",
+       "level": 70,
+       "flag": "caught_balor",
+       "music": "legend_sea"
+      },
+      {
+       "do": "if",
+       "flag": "caught_balor",
+       "then": [
+        {
+         "do": "say",
+         "who": "",
+         "text": "The great eye closes, slowly, like a door being shut against the weather. Balor settles into your snare, and for the first time in a very long while, the east end of Tory is quiet."
+        },
+        {
+         "do": "set",
+         "flag": "q_donegal_balor_2"
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "",
+         "text": "The eyelid comes down. The storm comes up. When it clears, there is only a rock on the headland, and the faint smell of thunder."
+        },
+        {
+         "do": "warp",
+         "zone": "tory_island",
+         "x": 42,
+         "y": 14,
+         "facing": "left"
+        },
+        {
+         "do": "end"
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "A huge grey rock squats on the end of the headland, with a crack across it like a closed eye. The gulls won't land on it."
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "The islanders are busy choosing a king. Perhaps the rock is waiting for that, too."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
