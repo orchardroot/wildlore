@@ -1,0 +1,72 @@
+{
+ "ib_furnacemaster": [
+  {
+   "do": "if",
+   "flag": "q_shropshire_bridge_2",
+   "then": [
+    {
+     "do": "say",
+     "who": "Furnace Master",
+     "text": "Off you go, the casting won't carry itself. Mind, it's still warm."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_shropshire_bridge_1",
+     "then": [
+      {
+       "do": "if",
+       "flag": "trainer_ib_apprentice",
+       "then": [
+        {
+         "do": "say",
+         "who": "Furnace Master",
+         "text": "Ned says you beat him. Then you've earned a casting. Give us that pattern."
+        },
+        {
+         "do": "say",
+         "who": "Furnace Master",
+         "text": "Into the sand, press, lift, and there's the hollow. Now the iron: coke in, blast on, and wait for it to run."
+        },
+        {
+         "do": "say",
+         "who": "Furnace Master",
+         "text": "There. Grey iron, sound as a bell. The same metal that built the bridge, from the same dale. Take it to the toll keeper."
+        },
+        {
+         "do": "set",
+         "flag": "q_shropshire_bridge_2"
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Furnace Master",
+         "text": "Pattern from the Flax Mill, eh? Then you'll know the rule. Beat my apprentice Ned, outside, and I'll cast it."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Furnace Master",
+       "text": "This is the furnace where Abraham Darby the first smelted iron with coke in 1709. Before that you burnt charcoal, and charcoal meant cutting down whole forests."
+      },
+      {
+       "do": "say",
+       "who": "Furnace Master",
+       "text": "Coke is coal baked till the tar and gas are driven off. It burns hot and strong enough to hold up a big charge of ore. Bigger furnaces, cheaper iron, and the Industrial Revolution was away."
+      },
+      {
+       "do": "say",
+       "who": "Furnace Master",
+       "text": "Look at the beam over the arch. There's a date cast into it: 1777. That's when Darby the third rebuilt this furnace, just before he cast the bridge."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

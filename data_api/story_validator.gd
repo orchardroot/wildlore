@@ -137,7 +137,8 @@ static func validate_commands(cmds: Array, tag: String, dex: Dex, items: ItemDB,
 				errors.append_array(validate_commands(c.get("then", []), tag, dex, items, zones))
 				errors.append_array(validate_commands(c.get("else", []), tag, dex, items, zones))
 			"when":
-				if str(c.get("cond", "")) not in CONDITIONS:
+				var cond := str(c.get("cond", ""))
+				if cond not in CONDITIONS and not (cond.begins_with("caught_") and dex.has(cond.substr(7))):
 					errors.append("%s: when with unknown cond '%s'" % [tag, c.get("cond", "")])
 				errors.append_array(validate_commands(c.get("then", []), tag, dex, items, zones))
 				errors.append_array(validate_commands(c.get("else", []), tag, dex, items, zones))

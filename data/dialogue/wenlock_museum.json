@@ -1,0 +1,59 @@
+{
+ "wen_curator": [
+  {
+   "do": "if",
+   "flag": "q_shropshire_games_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_shropshire_games_1",
+     "then": [
+      {
+       "do": "say",
+       "who": "Curator",
+       "text": "Off to the Linden Field with you. Remember: in quoits, a ringer is when the iron ring lands right over the pin."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Curator",
+       "text": "Dr William Penny Brookes was a Much Wenlock doctor who thought everybody, not just the gentry, should be fit. In 1850 he started the Olympian Class and its yearly Games."
+      },
+      {
+       "do": "say",
+       "who": "Curator",
+       "text": "There was running, high jump, quoits, cricket, football, and tilting at the ring on horseback. Winners were crowned with laurel. In the early years there were some sillier events too, like a blindfold wheelbarrow race."
+      },
+      {
+       "do": "say",
+       "who": "Curator",
+       "text": "In 1890 a young French baron, Pierre de Coubertin, came to visit. Brookes put on a special Games for him. Six years later Coubertin's modern Olympics opened in Athens. Brookes died a few months before, in 1895."
+      },
+      {
+       "do": "say",
+       "who": "Curator",
+       "text": "So when the London Olympics came in 2012, one of the mascots was called Wenlock. Go on, the secretary's waiting."
+      },
+      {
+       "do": "set",
+       "flag": "q_shropshire_games_1"
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Curator",
+     "text": "This little museum keeps the story of the Wenlock Olympian Games: medals, programmes and photographs of men in very long shorts."
+    },
+    {
+     "do": "say",
+     "who": "Curator",
+     "text": "In 1890 Pierre de Coubertin came here and saw the Games. Six years later he founded the modern Olympics. Much Wenlock likes to mention this. Often."
+    }
+   ]
+  }
+ ]
+}

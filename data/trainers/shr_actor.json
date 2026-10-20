@@ -1,0 +1,32 @@
+{
+ "id": "shr_actor",
+ "name": "Actor Perpetua",
+ "class": "Thespian",
+ "sprite": "festival_goer",
+ "party": [
+  {
+   "species": "glowmite",
+   "level": 21
+  },
+  {
+   "species": "pixling",
+   "level": 22
+  },
+  {
+   "species": "legionette",
+   "level": 22
+  }
+ ],
+ "ai": "trainer",
+ "money": 650,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Actor Perpetua",
+   "text": "To fight, or not to fight? We've done the Scottish play, the Christmas panto and three farces. Today, a matinee."
+  }
+ ],
+ "win": "Curtain! A triumph, darling. For you.",
+ "after": "Theatre Severn sits on the river, so the interval drinks come with a view and a duck.",
+ "scaled_floor": 21
+}

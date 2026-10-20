@@ -88,6 +88,8 @@ static func _ground(z: ZoneData, rng: RandomNumberGenerator) -> MeshInstance3D:
 			var a := 0.0 if t in HARD else 1.0
 			Meshes.quad4(st, Vector3(x0, gy, z0), Vector3(x0 + 1, gy, z0), Vector3(x0 + 1, gy, z0 + 1), Vector3(x0, gy, z0 + 1),
 				_paint(col, x0, z0, a), _paint(col, x0 + 1, z0, a), _paint(col, x0 + 1, z0 + 1, a), _paint(col, x0, z0 + 1, a))
+			if ex.get("bridge", false):
+				continue  # a bridge deck: no earth under it, the bridge prop draws its own sides
 			# side faces wherever the neighbour is lower (or missing: the diorama skirt)
 			for d in [Vector2i(0, 1), Vector2i(0, -1), Vector2i(1, 0), Vector2i(-1, 0)]:
 				var q: Vector2i = p + d
@@ -224,7 +226,9 @@ const POINT_PROPS := ["lamp_post", "bench", "bush", "birch", "oak", "pine", "roc
 	"stadium_stand", "rugby_posts", "floodlight", "puddle", "pitch_line", "gantry_crane", "ship_ribs", "steel_plates",
 	"hall_stage", "tea_urn", "stacked_chairs", "currach", "lobster_pots", "harbour_arch", "fae_lantern", "toadstool_ring",
 	"clootie_tree", "curling_house", "curling_stones", "brick_arch", "band_kit", "stage_light", "slate_stack", "slate_wagon",
-	"crypt_arch", "candelabra", "tomb_chest", "brazier", "city_window", "enclosure_banner", "creature_cage"]
+	"crypt_arch", "candelabra", "tomb_chest", "brazier", "city_window", "enclosure_banner", "creature_cage",
+	# Shropshire: the Iron Bridge over its "bridge" deck tiles, gliders over the Long Mynd
+	"iron_bridge", "glider"]
 ## Cloth meshes that ripple (flutter shader) and glow meshes that add light (firelight shader).
 const CLOTH := ["bunting", "flag", "washing_line"]
 const FLOATING := ["boat", "canal_boat", "buoy"]
@@ -495,6 +499,10 @@ static func _ctor(name: String, variant: int) -> ArrayMesh:
 			return Landmarks.clock_tower()
 		"shard":
 			return Landmarks.shard()
+		"iron_bridge":
+			return Landmarks.iron_bridge()
+		"glider":
+			return Landmarks.glider(variant)
 		"lamp_pool":
 			return Dressing.pool_quad()
 		"bunting":

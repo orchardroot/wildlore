@@ -1,0 +1,21 @@
+{"id": "darwing",
+ "palette": {"shell": "#2a4a6a", "shell2": "#4a2a6a", "sheen": "#7ae0d0", "edge": "#f4e050", "wing": "#d8e8f0", "wing2": "#a8c0d0", "body": "#1c2a34", "leg": "#141c22", "ink": "#0c1014", "bolt": "#fff27a", "moss": "#5a8a40", "moss2": "#86b050"},
+ "layers": [
+  {"shape": "ellipse", "at": [48, 90], "size": [70, 9], "colour": "moss", "rim": false, "pattern": "speckle", "pcolour": "moss2", "density": 40},
+  {"shape": "ellipse", "at": [22, 44], "size": [36, 18], "colour": "wing", "angle": -28, "mirror": true, "pattern": "stripes", "pcolour": "wing2", "period": 6, "pangle": 60},
+  {"shape": "line", "points": [[34, 72], [22, 80], [18, 88]], "width": 3, "colour": "leg", "mirror": true},
+  {"shape": "line", "points": [[34, 62], [20, 64], [14, 72]], "width": 3, "colour": "leg", "mirror": true},
+  {"shape": "ellipse", "at": [48, 66], "size": [34, 40], "colour": "body"},
+  {"shape": "poly", "points": [[46, 44], [26, 50], [18, 70], [30, 84], [46, 80]], "colour": "shell", "mirror": true, "pattern": "stripes", "pcolour": "shell2", "period": 7, "pangle": 75},
+  {"shape": "line", "points": [[46, 44], [26, 50], [18, 70], [30, 84]], "width": 2, "colour": "edge", "mirror": true, "rim": false, "shade": false},
+  {"shape": "ellipse", "at": [30, 62], "size": [6, 14], "colour": "sheen", "mirror": true, "rim": false, "shade": false, "angle": 20},
+  {"shape": "ellipse", "at": [48, 42], "size": [30, 22], "colour": "shell"},
+  {"shape": "line", "points": [[42, 32], [34, 16], [26, 12]], "width": 1.8, "colour": "leg", "mirror": true, "rim": false},
+  {"shape": "circle", "at": [26, 12], "r": 2.5, "colour": "bolt", "mirror": true, "rim": false, "shade": false},
+  {"shape": "poly", "points": [[80, 20], [72, 32], [78, 32], [70, 46], [84, 28], [78, 28], [84, 20]], "colour": "bolt", "rim": false, "shade": false, "front_only": true}
+ ],
+ "face_layers": [
+  {"shape": "line", "points": [[44, 50], [48, 52], [52, 50]], "width": 1.2, "colour": "edge", "shade": false}
+ ],
+ "eyes": [{"at": [40, 42], "r": 4, "mirror": true}]
+}

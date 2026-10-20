@@ -1,0 +1,32 @@
+{
+ "id": "shr_trader",
+ "name": "Stallholder Gaz",
+ "class": "Market Trader",
+ "sprite": "villager_4",
+ "party": [
+  {
+   "species": "binfox",
+   "level": 21
+  },
+  {
+   "species": "cooplet",
+   "level": 22
+  },
+  {
+   "species": "grizzlet",
+   "level": 22
+  }
+ ],
+ "ai": "trainer",
+ "money": 660,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Stallholder Gaz",
+   "text": "Three for a pound! Not the creatures. The creatures fight. Ready?"
+  }
+ ],
+ "win": "Fair do's. Have a fiver off your next pound of carrots.",
+ "after": "Market Hall's open six days a week. Like me. Like my bad back.",
+ "scaled_floor": 21
+}

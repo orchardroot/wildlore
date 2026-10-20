@@ -1,0 +1,113 @@
+{
+ "hills_pony": [
+  {
+   "do": "if",
+   "flag": "q_shropshire_shrews_1",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_shropshire_shrews_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "Pony Warden",
+       "text": "Shrews. Like the little furry beasts. We've got plenty of them in the heather."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Pony Warden",
+       "text": "SHROOS-bury, of course. Like a shrew. The ponies agree, don't you, Duchess? ... She's eating my map. That's a yes."
+      },
+      {
+       "do": "set",
+       "flag": "q_shropshire_shrews_2"
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Pony Warden",
+     "text": "The Long Mynd hill ponies have grazed up here for centuries. They belong to the commoners, who have the right to graze the hill, and they're tough as old boots."
+    },
+    {
+     "do": "say",
+     "who": "Pony Warden",
+     "text": "Don't feed them. They'll have your sandwiches, your map and your hat."
+    }
+   ]
+  }
+ ],
+ "hills_miner": [
+  {
+   "do": "say",
+   "who": "Old Lead Miner",
+   "text": "Snailbeach was one of the richest lead mines in Europe once. The Romans had lead out of these hills, and pigs of lead have been found stamped with an emperor's name to prove it."
+  },
+  {
+   "do": "say",
+   "who": "Old Lead Miner",
+   "text": "Lead is heavy, soft and poison. We put it on church roofs and in the water pipes. Now we know better, and the hill is quiet."
+  }
+ ],
+ "hills_chair": [
+  {
+   "do": "when",
+   "cond": "fog",
+   "then": [
+    {
+     "do": "say",
+     "who": "",
+     "text": "The mist has come down over the Stiperstones. Something huge and patient is sitting in the Devil's Chair, and it turns its head towards you."
+    },
+    {
+     "do": "legend",
+     "species": "diaboulder",
+     "level": 26,
+     "flag": "caught_diaboulder",
+     "music": "legend"
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "",
+     "text": "A great jumble of quartzite, shaped very like a throne. Folk say that when the mist comes down, the Devil is sitting in it."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Today it's just rocks. Today."
+    }
+   ]
+  }
+ ],
+ "hills_quartz": [
+  {
+   "do": "daily",
+   "key": "shropshire_quartz_day",
+   "then": [
+    {
+     "do": "say",
+     "who": "Rock Hound",
+     "text": "Stiperstones quartzite! Pale as sugar and hard as a tax bill. Frost split it off the tors in the Ice Age. Have a piece, there's plenty."
+    },
+    {
+     "do": "give_item",
+     "item": "stiperstones_quartz",
+     "n": 1
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Rock Hound",
+     "text": "One a day, mind. The Devil counts them."
+    }
+   ]
+  }
+ ]
+}

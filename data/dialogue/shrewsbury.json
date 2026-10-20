@@ -1,0 +1,224 @@
+{
+ "rail_guard": [
+  {
+   "do": "say",
+   "who": "Rail Guard",
+   "text": "Shrewsbury Station, done up in mock Tudor in 1848 to match the black-and-white town. Part of it is built out over the river. Lovely, as long as you don't drop your ticket."
+  },
+  {
+   "do": "say",
+   "who": "Rail Guard",
+   "text": "Trains to everywhere you have been. You need a Rail Pass, and if you say Shrewsbury wrong the barrier says it back to you."
+  },
+  {
+   "do": "rail"
+  }
+ ],
+ "shr_shrows": [
+  {
+   "do": "if",
+   "flag": "q_shropshire_shrews_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Shrowsbury Man",
+     "text": "Shrows. Shrews. The Wrekin doesn't care and neither do the ponies. We've agreed to disagree, loudly, every Saturday."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_shropshire_shrews_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "Shrowsbury Man",
+       "text": "Well? What did they say? ... The Wrekin walker says Shrows, and the pony warden says Shrews. A draw!"
+      },
+      {
+       "do": "say",
+       "who": "Shrowsbury Man",
+       "text": "That's how it's always been. Shrewsbury School, the old families and half the town say Shrows. The other half, and most visitors, say Shrews. Even the dictionaries give both."
+      },
+      {
+       "do": "say",
+       "who": "Shrowsbury Man",
+       "text": "Here, have some cakes for your trouble. Shrewsbury cakes. However you say it."
+      },
+      {
+       "do": "set",
+       "flag": "q_shropshire_shrews_3"
+      },
+      {
+       "do": "set",
+       "flag": "q_shropshire_shrews_done"
+      },
+      {
+       "do": "give_item",
+       "item": "shrewsbury_cake",
+       "n": 3
+      },
+      {
+       "do": "standing",
+       "nation": "england",
+       "amount": 3
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_shropshire_shrews_started",
+       "then": [
+        {
+         "do": "say",
+         "who": "Shrowsbury Man",
+         "text": "Ask the walker on top of the Wrekin, east of here, then the pony warden on the Long Mynd, south. Neutral ground, both of them."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Shrowsbury Man",
+         "text": "It's SHROWS-bury. Rhymes with 'throws'. My family has said it that way since the Tudors."
+        },
+        {
+         "do": "say",
+         "who": "Shrowsbury Man",
+         "text": "She says SHROOS-bury, like the animal. We've argued about it since the coronation. Not this one. The one before."
+        },
+        {
+         "do": "say",
+         "who": "Shrowsbury Man",
+         "text": "You look impartial. Go and ask the Wrekin walker, east of here past the Iron Bridge road, and the pony warden up on the Long Mynd. Bring back their verdicts."
+        },
+        {
+         "do": "set",
+         "flag": "q_shropshire_shrews_started"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "shr_shrews": [
+  {
+   "do": "say",
+   "who": "Shroosbury Woman",
+   "text": "SHROOS-bury. Like the animal, a shrew. Spelt like it, said like it. Simple."
+  },
+  {
+   "do": "say",
+   "who": "Shroosbury Woman",
+   "text": "He'll tell you the posh school says Shrows. They do. That's half the problem."
+  }
+ ],
+ "shr_coracle": [
+  {
+   "do": "say",
+   "who": "Coracle Maker",
+   "text": "A coracle is a round little boat of willow and hide, or calico and tar these days, light enough to carry on your back. Folk fished the Severn from them for centuries."
+  },
+  {
+   "do": "say",
+   "who": "Coracle Maker",
+   "text": "When Shrewsbury Town played down at the Gay Meadow by the river, a coracle man used to paddle out and fetch the footballs that sailed over the stand. Best job in football."
+  }
+ ],
+ "shr_gardener": [
+  {
+   "do": "if",
+   "flag": "q_shropshire_beetles_1",
+   "then": [
+    {
+     "do": "say",
+     "who": "Head Gardener",
+     "text": "Long grass in the Quarry, logs by the river, and up on the Long Mynd. Squibbets love a damp log. Mind they don't squirt you."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_shropshire_beetles_started",
+     "then": [
+      {
+       "do": "say",
+       "who": "Head Gardener",
+       "text": "Beetles for the library? Darwin's old school, I know. Look in the long grass in the Quarry, south of St Chad's, and up on the Long Mynd past Kingsland Bridge."
+      },
+      {
+       "do": "say",
+       "who": "Head Gardener",
+       "text": "The Squibbet is the one with the shiny shell. Pick it up and it'll squirt. Young Charles found that out the hard way."
+      },
+      {
+       "do": "set",
+       "flag": "q_shropshire_beetles_1"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Head Gardener",
+       "text": "The Dingle was a quarry pit once. Now it's the prettiest hole in England. Mind the dahlias; they've been entered for August."
+      },
+      {
+       "do": "say",
+       "who": "Head Gardener",
+       "text": "If you're after beetles, turn over a log by the river. Gently, and put it back."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "shr_cadfael": [
+  {
+   "do": "say",
+   "who": "Cadfael Fan",
+   "text": "Brother Cadfael was a Welsh monk who had been a crusader and a sailor before he settled down to grow herbs at Shrewsbury Abbey and solve murders. Twenty books of them."
+  },
+  {
+   "do": "say",
+   "who": "Cadfael Fan",
+   "text": "The books are set in the 1130s and 40s, during the war between Stephen and Matilda. Ellis Peters was the pen name of Edith Pargeter, a Shropshire writer."
+  }
+ ],
+ "shr_cakes": [
+  {
+   "do": "say",
+   "who": "Cake Fancier",
+   "text": "Shrewsbury cakes are not cakes. They are crisp, buttery biscuits with a hint of lemon and a scalloped edge, and they've been made here since at least the 1500s."
+  },
+  {
+   "do": "say",
+   "who": "Cake Fancier",
+   "text": "In the old days they were a famous present to send off by coach. They arrived in crumbs, and everybody said that was the authentic way."
+  }
+ ],
+ "shr_drover": [
+  {
+   "do": "say",
+   "who": "Frankwell Local",
+   "text": "Welsh drovers came over this bridge with their cattle and their wool for hundreds of years. The town got rich on Welsh wool, cloth and the trade along the Severn."
+  },
+  {
+   "do": "say",
+   "who": "Frankwell Local",
+   "text": "In Welsh the town is Amwythig. Write that down. There'll be a test."
+  }
+ ],
+ "shr_rower": [
+  {
+   "do": "say",
+   "who": "Rowing Coach",
+   "text": "EASY OAR! Sorry. Habit. The school's rowers train on this stretch of the Severn. The river loops so tightly round the town you can row for miles and never get anywhere."
+  },
+  {
+   "do": "say",
+   "who": "Rowing Coach",
+   "text": "Rowing on a river with a current is all about the timing. Rather like getting a word in at a Shrewsbury dinner party."
+  }
+ ]
+}

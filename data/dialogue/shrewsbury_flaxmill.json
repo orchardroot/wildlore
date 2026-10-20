@@ -1,0 +1,59 @@
+{
+ "shr_engineer": [
+  {
+   "do": "if",
+   "flag": "q_shropshire_bridge_1",
+   "then": [
+    {
+     "do": "say",
+     "who": "Mill Engineer",
+     "text": "Take the pattern up to Coalbrookdale. And tell the furnace master the Flax Mill says hello. He'll pretend not to know us."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_shropshire_bridge_started",
+     "then": [
+      {
+       "do": "say",
+       "who": "Mill Engineer",
+       "text": "The bridge pattern? We've had it in the cupboard since the last repair. Here. Careful, it's pear wood, older than both of us."
+      },
+      {
+       "do": "say",
+       "who": "Mill Engineer",
+       "text": "A pattern is the shape the sand mould is pressed round. Pour iron into the hollow and out comes your part. Same trick Darby used on the bridge in 1779."
+      },
+      {
+       "do": "say",
+       "who": "Mill Engineer",
+       "text": "Mind how you go. The furnace master at Coalbrookdale won't cast for strangers until they've beaten his apprentice. It's tradition. Also he's busy."
+      },
+      {
+       "do": "set",
+       "flag": "q_shropshire_bridge_1"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Mill Engineer",
+       "text": "This mill was built in 1797 for spinning flax into linen thread. Charles Bage designed it with cast-iron columns and beams, so there was no timber to catch fire."
+      },
+      {
+       "do": "say",
+       "who": "Mill Engineer",
+       "text": "Cast iron is strong when you squash it and weak when you bend it, so Bage shaped his beams like an upside-down T. Every steel-framed skyscraper since is a grandchild of this building."
+      },
+      {
+       "do": "say",
+       "who": "Mill Engineer",
+       "text": "After the flax, it was a maltings for nearly a century, drying barley for brewers. Now it's been restored, and somebody's always measuring something."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
