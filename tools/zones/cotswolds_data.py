@@ -109,7 +109,7 @@ DODO = {"id": "dodo", "name": "Dodo", "types": ["spirit", "kin"], "base": {"hp":
         "growth": "slow", "catch_rate": 45, "base_xp": 190,
         "learnset": [[1, "scrap"], [1, "whisper"], [5, "rap_on_pane"], [9, "hunker"], [13, "quick_nip"], [17, "eerie_wail"], [21, "mums_look"],
                      [26, "deathwatch_tap"], [31, "barge"], [36, "passing_bell"], [42, "keening"], [48, "ghost_light"], [54, "poltergeist"]],
-        "evolves": None, "habitat": ["oxford"], "appendix": True,
+        "evolves": None, "habitat": [], "appendix": True,
         "dex": {"text": "A large, sad, blue-grey bird that steps out of its glass case on a quiet day and looks at you as though you owe it an apology. It has been waiting four hundred years, and it is not in a hurry.",
                 "fact": "The Oxford Dodo, in the University Museum of Natural History, is the only dodo with soft tissue left anywhere in the world: a head and a foot, saved in 1755 when the Ashmolean's stuffed dodo was thrown out. Lewis Carroll put a Dodo in Alice's Adventures in Wonderland, partly as a joke on his own stammered name, Do-do-Dodgson."},
         "sprite": "dodo"}
@@ -174,11 +174,10 @@ def main():
     # knacks
     kn = read("data/knacks.json")
     if '"thick_rind"' not in kn:
-        anchor = '    "high_girders": {'
-        i = kn.index(anchor)
-        j = kn.index("\n", i)
+        mark = '\n  },\n  "species": {'
+        i = kn.index(mark)
         add = "".join(',\n    "%s": %s' % (k, json.dumps(v, ensure_ascii=False)) for k, v in KNACKS.items())
-        kn = kn[:j].rstrip() + add + kn[j:]
+        kn = kn[:i] + add + kn[i:]
         last = kn.rindex('"\n  }\n}')
         kn = kn[:last + 1] + "".join(',\n    "%s": "%s"' % (k, v) for k, v in KNACK_MAP.items()) + kn[last + 1:]
         write("data/knacks.json", kn)

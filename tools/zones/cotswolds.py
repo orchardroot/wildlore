@@ -217,8 +217,8 @@ def cotswolds():
     z.rect(7, 56, 13, 2, "#")
     z.prop("cheese_wheel", 12, 57, variant=2)
     z.prop("cheese_wheel", 15, 57, variant=1)
-    z.prop("flagpole", 9, 57, variant=0)
-    z.prop("flagpole", 17, 57, variant=0)
+    z.prop("flagpole", 9, 57, variant=4)
+    z.prop("flagpole", 17, 57, variant=4)
     z.prop("bunting", 11, 56, variant=1, walk=True)
     z.prop("bunting", 14, 56, variant=2, walk=True)
     for y in range(41, 56, 3):
@@ -228,7 +228,7 @@ def cotswolds():
     bld(z, 25, 55, 6, 3, "cotswold_cottage", "Cooper's Hill Dairy", 2, "cotswolds_dairy", iw=11, ih=9)
     z.rect(25, 58, 6, 1, ":")
     z.rect(20, 58, 6, 1, "#")
-    z.rect(22, 50, 4, 8, "g")
+    z.rect(22, 50, 3, 8, "g")
     z.rect(23, 52, 3, 3, ":")
 
     # ---- the Rollright Stones, to the north-east
@@ -313,9 +313,9 @@ def cotswolds():
                 "No hurry. Have a look at the walls; there's no wall in this village that hasn't been photographed."])
     shopkeeper(zid, "Afternoon! Tea, honey, a nice bit of Double Gloucester and the sort of snares you'd expect up on the wolds. What can I get you?",
                "Cheerio. Mind the wind on the way out, it comes straight from Stow.")
-    landmark(OUT, "cotswolds_church", "St Edward's Church", zid, (53, 29), "church",
+    landmark(OUT, "cotswolds_church", "St Edward's Church", zid, (52, 28), "church",
              [dict(id="cw_churchwarden", sprite="villager_3", x=6, y=2, facing="down", move="still", script="cw_churchwarden", name="Churchwarden")])
-    landmark(OUT, "cotswolds_woolhouse", "Wool Merchant's House", zid, (42, 29), "museum",
+    landmark(OUT, "cotswolds_woolhouse", "Wool Merchant's House", zid, (42, 28), "museum",
              [dict(id="cw_woolman", sprite="villager_6", x=4, y=3, facing="right", move="still", script="cw_woolman", name="Wool Stapler"),
               dict(id="cw_fleecegirl", sprite="farmer", x=9, y=4, facing="left", move="still", script="cw_fleecegirl", name="Spinner")])
     landmark(OUT, "cotswolds_fleece", "The Fleece", zid, (31, 38), "cafe",
@@ -323,7 +323,7 @@ def cotswolds():
               dict(id="cw_quizmaster", sprite="fiddler", x=7, y=4, facing="left", move="still", script="cw_quizmaster", name="Quizmaster")], w=11, h=9)
     landmark(OUT, "cotswolds_model", "The Model Village", zid, (42, 38), "museum",
              [dict(id="cw_modelman", sprite="astronomer", x=9, y=3, facing="left", move="still", script="cw_modelman", name="Model Maker")])
-    landmark(OUT, "cotswolds_dairy", "Cooper's Hill Dairy", zid, (27, 59), "cafe",
+    landmark(OUT, "cotswolds_dairy", "Cooper's Hill Dairy", zid, (27, 58), "cafe",
              [dict(id="cw_cheesemaker", sprite="jam_maker", x=3, y=1, facing="down", move="still", script="cw_cheesemaker", name="Cheesemaker"),
               dict(id="cw_dairyshop", sprite="villager_4", x=8, y=4, facing="left", move="still", script="cw_dairyshop", name="Dairy Hand")], w=11, h=9)
 
@@ -477,7 +477,7 @@ def oxford():
            "The OED began in 1857 and was seventy years in the making. The first editor, James Murray, ran it from a corrugated-iron shed called the Scriptorium in his garden in north Oxford, and thousands of volunteers posted in quotations on paper slips. It records the history of more than 600,000 words, tracing each one back to its first known use.")
     plaque(z, 37, 29, P, "covered_market", "The Covered Market",
            "Opened in 1774 to clear the messy street stalls out of the High Street and Cornmarket, and still going. More than fifty units sell fish, game, cheese, flowers, cakes and the odd pie, in a Georgian arcade that smells of coffee.")
-    plaque(z, 22, 29, P, "dreaming_spires", "The City of Dreaming Spires",
+    plaque(z, 24, 29, P, "dreaming_spires", "The City of Dreaming Spires",
            "The poet Matthew Arnold called Oxford 'that sweet city with her dreaming spires' in a poem of 1866. The spires, towers and domes are all different, and the skyline from the hills is a tangle of stone. Oxford has been teaching since about 1096, which makes it the oldest university in the English-speaking world.")
     # trees, benches, lamps
     for (x, y) in [(6, 8), (9, 5), (4, 6), (10, 9), (7, 25), (3, 27), (13, 27), (27, 27), (5, 42), (4, 46), (9, 45), (17, 45), (24, 45), (29, 47), (36, 45), (58, 45), (57, 49), (68, 48), (68, 52), (66, 6), (69, 10), (67, 15), (69, 22), (68, 28)]:

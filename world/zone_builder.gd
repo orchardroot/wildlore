@@ -249,6 +249,8 @@ const POINT_PROPS := ["lamp_post", "bench", "bush", "birch", "oak", "pine", "roc
 	"iron_bridge", "glider",
 	# East Anglia (Landmarks.EA_PROPS)
 	"windpump", "punt", "maths_bridge", "wherry",
+	# the Cotswolds and Oxford (Landmarks.COTS_PROPS)
+	"sighs_bridge", "cheese_wheel",
 	# the South East
 	"pier_ruin",
 	"slot_machine", "roulette_table", "card_table", "tote_board", "velvet_rope", "horse_statue"]
@@ -583,6 +585,8 @@ static func _ctor(name: String, variant: int) -> ArrayMesh:
 			return Dressing.specimen_shelf(variant)
 		"wall_map":
 			return Dressing.wall_map()
+	if name in Landmarks.COTS_PROPS:
+		return Landmarks.cots_prop(name, variant)
 	if name in Landmarks.EA_PROPS:
 		return Landmarks.ea_prop(name, variant)
 	if name in Dressing.VENUE_PROPS or name in Dressing.VENUE_GLOWS.values():

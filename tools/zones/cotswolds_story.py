@@ -53,9 +53,9 @@ def cotswolds_cast(z, chat, trainer, stand):
     chat(z, "cw_folly", "astronomer", 13, 13, "Folly Keeper",
          ["Broadway Tower was built as a folly in 1798, so that a beacon lit on top could be seen from the Countess of Coventry's house, thirty-odd miles away. She never checked.",
           "On a clear day you can see sixteen counties from the top. On a cloudy day, you can see the inside of a cloud, which has its charms."], "down")
-    chat(z, "cw_morris_chat", "fiddler", 38, 30, "Fiddler",
+    chat(z, "cw_morris_chat", "fiddler", 38, 31, "Fiddler",
          ["There are Cotswold Morris sides in nearly every village. White shirts, bells on the shins and sticks that clack. It's much more athletic than it looks.",
-          "It's said morris dancing came from the Moors, which is why it's called morris. Folklorists doubt it, but it's a nice theory, and the dancers are not going to argue."], "down", "wander")
+          "It's said morris dancing came from the Moors, which is why it's called morris. Folklorists doubt it, but it's a nice theory, and the dancers are not going to argue."], "down")
     chat(z, "cw_wool_chat", "villager_6", 56, 31, "Wool Trader",
          ["The Cotswold wool trade made this whole district rich. Sheep walked in from miles around to Stow fair, tens of thousands in a day.",
           "The old wool churches are the proof. The merchants wanted heaven to know where their money had gone."], "left")
@@ -102,7 +102,7 @@ def cotswolds_cast(z, chat, trainer, stand):
 
 # ------------------------------------------------------------------------------------------------ Oxford
 def oxford_cast(z, chat, trainer, stand):
-    chat(z, "ox_guide", "tour_guide", 31, 27, "Walking Guide",
+    chat(z, "ox_guide", "tour_guide", 28, 29, "Walking Guide",
          ["Welcome to Carfax, the crossing at the middle of Oxford. 'Carfax' is from the Latin for four-forked. Four roads, one tower, and two thousand people photographing it.",
           "That's not the main tower, by the way. People always point at the wrong spire. There are about a hundred. Choose one and look amazed."], "right")
     chat(z, "ox_busker", "fiddler", 47, 31, "Busker",
@@ -114,10 +114,10 @@ def oxford_cast(z, chat, trainer, stand):
     chat(z, "ox_runner", "jogger", 5, 31, "Towpath Runner",
          ["I run the towpath along the Thames. The college boathouses are all along it, and in Eights Week the eights bump each other, which is a rowing race where you try to hit the boat in front. Gentle, it isn't.",
           "Cox shouts. Everyone else is busy. It's a good arrangement."], "up", "wander")
-    chat(z, "ox_cherwell", "angler", 64, 28, "Cherwell Angler",
+    chat(z, "ox_cherwell", "angler", 67, 29, "Cherwell Angler",
          ["The Cherwell comes down from Northamptonshire and joins the Thames here. It's called 'Charwell', not 'Cherwell', by anyone who went to school nearby.",
           "That's the sort of thing Oxford does. Magdalen is 'Maudlin' and Cherwell is 'Charwell'. Nobody says it right on purpose."], "left")
-    chat(z, "ox_bobby", "villager_2", 38, 41, "Meadow Walker",
+    chat(z, "ox_bobby", "villager_2", 36, 42, "Meadow Walker",
          ["Christ Church Meadow has had cattle in it since before the college. They are Longhorns, so you'll have to give way. The cows have the right of way, the Dean has the right of way and the Dean's cat has it, too.",
           "The Meadow is the loveliest walk in the city. Sometimes the river floods it. Then it's a different walk."], "down")
     trainer(z, "ox_fresher", "Fresher Pippa", "Fresher", "gown_student",
@@ -152,7 +152,7 @@ def oxford_cast(z, chat, trainer, stand):
             "In Torpids and Eights Week, the college boats start in a line and chase the boat in front. Catch it and touch it and that's a bump, and you swap places. You can do that four days running, and be Head of the River.", 4200)
 
     # Magdalen Bridge: the Sloping End
-    chat(z, "ox_poet", "bard", 28, 27, "Street Poet",
+    chat(z, "ox_poet", "bard", 21, 28, "Street Poet",
          ["'That sweet city with her dreaming spires.' Matthew Arnold, 1866. I have it on a mug.",
           "The spires are not all dreaming, by the way. Some of them are leaning on cranes. Preservation is a long job."], "right")
 

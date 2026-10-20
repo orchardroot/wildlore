@@ -91,7 +91,9 @@
     "waterlogged": {"name": "Waterlogged", "desc": "Soaked through already: Brook and Tide moves do less to it.", "msg": "{name} is Waterlogged. It just soaks it up!", "resist": {"types": ["brook", "tide"], "mult": 0.75}},
     "tide_race": {"name": "Tide Race", "desc": "Rides the rough water: harder to hit in a gale.", "msg": "{name} rides the Tide Race!", "evade": {"weather": ["gale"], "mult": 0.85}},
     "foul_breath": {"name": "Foul Breath", "desc": "Arrives breathing out. Foes lose Attack holding their noses.", "msg": "{name} yawns. The Foul Breath rolls over everyone!", "entry_stage": {"to": "foes", "stat": "atk", "stages": -1}},
-    "blighting_breath": {"name": "Blighting Breath", "desc": "Its breath withers all it touches: foes lose Defence when it arrives.", "msg": "{name}'s Blighting Breath rolls across the field!", "entry_stage": {"to": "foes", "stat": "def", "stages": -1}, "legend": true}
+    "blighting_breath": {"name": "Blighting Breath", "desc": "Its breath withers all it touches: foes lose Defence when it arrives.", "msg": "{name}'s Blighting Breath rolls across the field!", "entry_stage": {"to": "foes", "stat": "def", "stages": -1}, "legend": true},
+    "not_quite_extinct": {"name": "Not Quite Extinct", "desc": "At full HP, a knockout blow leaves it hanging on with 1 HP.", "msg": "{name} is not quite extinct yet!", "endure_full": true},
+    "thick_rind": {"name": "Thick Rind", "desc": "A good waxed rind: foes can't lower its stats, and brook and tide moves hurt it a quarter less.", "msg_drop": "{name}'s rind is far too thick to dent!", "no_drops": true, "resist": {"types": ["brook", "tide"], "mult": 0.75}}
   },
   "species": {
     "bogglet": "mardy",
@@ -409,6 +411,9 @@
     "fingalith": "storm_chaser",
     "lekling": "cocky",
     "lekbruiser": "cocky",
-    "cailleach": "frost_hardy"
+    "cailleach": "frost_hardy",
+    "dodo": "not_quite_extinct",
+    "gloucelet": "thick_rind",
+    "doublewheel": "thick_rind"
   }
 }

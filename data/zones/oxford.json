@@ -71,7 +71,8 @@
    "y": 34,
    "w": 12,
    "h": 4,
-   "label": "Christ Church"
+   "label": "Christ Church",
+   "kind": "hall"
   },
   {
    "type": "building",
@@ -129,7 +130,8 @@
    "y": 25,
    "w": 8,
    "h": 4,
-   "label": "Covered Market"
+   "label": "Covered Market",
+   "kind": "hall"
   },
   {
    "type": "building",
@@ -199,7 +201,8 @@
    "y": 10,
    "w": 12,
    "h": 5,
-   "label": "Bodleian Library"
+   "label": "Bodleian Library",
+   "kind": "library"
   },
   {
    "type": "building",
@@ -208,7 +211,8 @@
    "y": 10,
    "w": 7,
    "h": 7,
-   "label": "Radcliffe Camera"
+   "label": "Radcliffe Camera",
+   "kind": "library"
   },
   {
    "type": "lamp_post",
@@ -243,7 +247,8 @@
    "y": 3,
    "w": 12,
    "h": 6,
-   "label": "Museum of Natural History"
+   "label": "Museum of Natural History",
+   "kind": "museum"
   },
   {
    "type": "building",
@@ -252,7 +257,8 @@
    "y": 3,
    "w": 8,
    "h": 6,
-   "label": "Pitt Rivers Museum"
+   "label": "Pitt Rivers Museum",
+   "kind": "museum"
   },
   {
    "type": "building",
@@ -261,7 +267,8 @@
    "y": 3,
    "w": 11,
    "h": 5,
-   "label": "Ashmolean Museum"
+   "label": "Ashmolean Museum",
+   "kind": "museum"
   },
   {
    "type": "building",
@@ -270,7 +277,8 @@
    "y": 10,
    "w": 7,
    "h": 4,
-   "label": "The Eagle and Child"
+   "label": "The Eagle and Child",
+   "kind": "cafe"
   },
   {
    "type": "building",
@@ -279,7 +287,8 @@
    "y": 17,
    "w": 10,
    "h": 5,
-   "label": "Oxford University Press"
+   "label": "Oxford University Press",
+   "kind": "library"
   },
   {
    "type": "canal_boat",
@@ -324,7 +333,8 @@
    "y": 40,
    "w": 4,
    "h": 3,
-   "label": "Magdalen Bridge Boathouse"
+   "label": "Magdalen Bridge Boathouse",
+   "kind": "cafe"
   },
   {
    "type": "building",
@@ -728,8 +738,8 @@
   {
    "id": "ox_guide",
    "sprite": "tour_guide",
-   "x": 31,
-   "y": 27,
+   "x": 28,
+   "y": 29,
    "facing": "right",
    "move": "still",
    "script": "ox_guide"
@@ -764,8 +774,8 @@
   {
    "id": "ox_cherwell",
    "sprite": "angler",
-   "x": 64,
-   "y": 28,
+   "x": 67,
+   "y": 29,
    "facing": "left",
    "move": "still",
    "script": "ox_cherwell"
@@ -773,8 +783,8 @@
   {
    "id": "ox_bobby",
    "sprite": "villager_2",
-   "x": 38,
-   "y": 41,
+   "x": 36,
+   "y": 42,
    "facing": "down",
    "move": "still",
    "script": "ox_bobby"
@@ -836,8 +846,8 @@
   {
    "id": "ox_poet",
    "sprite": "bard",
-   "x": 28,
-   "y": 27,
+   "x": 21,
+   "y": 28,
    "facing": "right",
    "move": "still",
    "script": "ox_poet"
@@ -1110,7 +1120,7 @@
    "text": "Opened in 1774 to clear the messy street stalls out of the High Street and Cornmarket, and still going. More than fifty units sell fish, game, cheese, flowers, cakes and the odd pie, in a Georgian arcade that smells of coffee."
   },
   {
-   "x": 22,
+   "x": 24,
    "y": 29,
    "plaque": "oxford_dreaming_spires",
    "title": "The City of Dreaming Spires",
@@ -1156,8 +1166,8 @@
   "TTwwwwwwwwwwwwwwwwwwwww.........:::.BBBBBBBB:::BBBBBBBBBBB..w~~~~w....TT",
   "TTwwwwwwwwwwwwwwwwwwwwwBBBBB.BBB:::.BBBBBBBB:::BBBBBBBBBBB..w~~~~w....TT",
   "TT.....................BBBBB.BBB:::.BBBBBBBB:::BBBBBBBBBBB..w~~~~w....TT",
-  "TT.....................BBBBB.BBk:::.BBBBBBBB:::BBBBBBBBBBB..w~~~~w....TT",
-  "TT.....................BBBBB.BBB:::.BBBBDBBB:::BBBBBBBB.....w~~~kw....TT",
+  "TT.....................BBBBB.BBB:::.BBBBBBBB:::BBBBBBBBBBB..w~~~~w....TT",
+  "TT.....................BBBBB.BBB:::.BBBBDBBB:::BBBBBBBB.....w~~~~w....TT",
   "TT......................::::::::::::::::::::::::::::::::::::w~~~~w....TT",
   "========================:::::::::::::::::::::::::::::::::::bbbbbbb=====T",
   "========================:::::::::::::::::::::::::::::::::::bbbbbbb=====T",
@@ -1170,7 +1180,7 @@
   "TT::________:::::::::::::::::::.:::::::::::::::::::::::::::.w~~~~w#BBBBT",
   "!!!!!!!!!!!!!!!.................:::.........................w~~~~w#...TT",
   "TT..............................:::...BBBBBBBB#.WWWW::WWWW..w~~~~w#BBBBT",
-  "TT..............................:::...kBBBBBBB#.Wfff##fffW..w~~~~w#BBBBT",
+  "TT..............................:::...BBBBBBBB#.Wfff##fffW..w~~~~w#BBBBT",
   "TT..............,...............:::...BBBBBBBB#.Wfff##fffW..w~~~~w#BDBBT",
   "TT............,,,,,,,...........:::...BBBBBBBB#.Wfff##fffW..w~~~~w#####T",
   "TT.,,,,,,,,,.,,,,,,,,,..........:::...BBBBBBBB#.Wf######fW..w~~~~w...,TT",
