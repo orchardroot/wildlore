@@ -91,7 +91,7 @@ func _finish_auto() -> void:
 
 ## "Count the bats: £450, 2 Sloes and 3 standing in Wales."
 static func reward_text(r: Dictionary, items: ItemDB) -> String:
-	var bits := [UIKit.money_text(int(r.get("money", 0)))]
+	var bits := [Wallet.fmt(int(r.get("money", 0)), str(r.get("cur", Wallet.GBP)))]
 	for id in r.get("got", {}):
 		var nm := str(items.get_item(str(id)).get("name", str(id).capitalize()))
 		bits.append("%d %s" % [int(r.got[id]), nm] if int(r.got[id]) > 1 else nm)

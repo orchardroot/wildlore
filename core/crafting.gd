@@ -56,7 +56,7 @@ static func blocker(data: GameStateData, r: Dictionary) -> String:
 	for id in ins:
 		if bag.count(str(id)) < int(ins[id]):
 			return "short"
-	if data.money < int(r.get("money", 0)):
+	if not Wallet.can_afford(data, cost(data, r), Wallet.local(data)):
 		return "money"
 	if bag.count(str(r.out)) + int(r.get("n", 1)) > Bag.MAX_STACK:
 		return "full"
@@ -74,20 +74,21 @@ static func craft(data: GameStateData, r: Dictionary, items: ItemDB) -> Dictiona
 		"short":
 			return {"ok": false, "text": "You're short of something for the %s." % out_name}
 		"money":
-			return {"ok": false, "text": "You'll need %s for the rest of the ingredients." % _money(int(r.get("money", 0)))}
+			return {"ok": false, "text": "You'll need %s for the rest of the ingredients." % Wallet.fmt(cost(data, r), Wallet.local(data))}
 		"full":
 			return {"ok": false, "text": "Your bag can't fit any more %s." % out_name}
 	var bag := Bag.new(data.bag)
 	var ins: Dictionary = r.get("in", {})
 	for id in ins:
 		bag.remove(str(id), int(ins[id]))
-	data.money -= int(r.get("money", 0))
+	Wallet.spend(data, cost(data, r), Wallet.local(data))
 	var n := int(r.get("n", 1))
 	bag.add(str(r.out), n)
 	return {"ok": true, "text": "You made %s%s." % [out_name, " x%d" % n if n > 1 else ""]}
 
-static func _money(n: int) -> String:
-	return "£%d" % n
+## What the rest of the ingredients cost where you stand (euros in the Republic).
+static func cost(data: GameStateData, r: Dictionary) -> int:
+	return Wallet.localise(int(r.get("money", 0)), Wallet.local(data))
 
 ## Everything wrong with the recipe file: duplicate ids, unknown inputs or outputs, silly counts.
 static func validate(items: ItemDB, recipes: Array = all()) -> Array:

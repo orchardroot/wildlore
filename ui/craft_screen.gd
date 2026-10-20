@@ -52,7 +52,7 @@ func setup(arg: String) -> void:
 	_say.text = "" if _recipes.is_empty() else ("Pinny on. What are we making?" if _bench != "workbench" else "Sleeves up. What are we making?")
 
 func _money() -> void:
-	header_right.text = UIKit.money_text(Game.data.money)
+	header_right.text = UIKit.money_text(Wallet.balance(Game.data, Wallet.local(Game.data)), Wallet.local(Game.data))
 
 func _refresh() -> void:
 	_recipes = Crafting.known(Game.data)
@@ -117,12 +117,13 @@ func _describe(r: Dictionary) -> void:
 		line.add_child(UIKit.fill())
 		line.add_child(UIKit.label("%d / %d" % [have, need], 24, OK if have >= need else SHORT))
 		_desc.add_child(line)
-	var cost := int(r.get("money", 0))
+	var cost := Crafting.cost(Game.data, r)
+	var cur := Wallet.local(Game.data)
 	if cost > 0:
 		var line := HBoxContainer.new()
 		line.add_child(UIKit.label("Shopping", 24))
 		line.add_child(UIKit.fill())
-		line.add_child(UIKit.label(UIKit.money_text(cost), 24, OK if Game.data.money >= cost else SHORT))
+		line.add_child(UIKit.label(UIKit.money_text(cost, cur), 24, OK if Wallet.can_afford(Game.data, cost, cur) else SHORT))
 		_desc.add_child(line)
 
 func _make(i: int) -> void:

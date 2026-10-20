@@ -89,7 +89,7 @@ func _greeting() -> String:
 		"The parish runs on volunteers and biscuits."][posmod(hash(_town + Calendar.today_key()), 3)]
 
 func _refresh() -> void:
-	header_right.text = UIKit.money_text(Game.data.money)
+	header_right.text = UIKit.money_text(Wallet.balance(Game.data, Wallet.local(Game.data)), Wallet.local(Game.data))
 	_rows.clear()
 	for j in Jobs.offers(Game.data, _town):
 		if not Jobs.has_active(Game.data, str(j.id)):
@@ -222,7 +222,8 @@ func _line(k: String, v: String, col: Color) -> HBoxContainer:
 	return h
 
 func _pay_text(j: Dictionary) -> String:
-	var bits := [UIKit.money_text(Jobs.money_for(j, Game.data.badges.size()))]
+	var jc := Wallet.currency_of_nation(str(j.get("nation", "")))  # an Irish job pays in euros
+	var bits := [UIKit.money_text(Wallet.localise(Jobs.money_for(j, Game.data.badges.size()), jc), jc)]
 	var rw: Dictionary = j.get("reward", {})
 	for id in rw.get("items", {}):
 		var n := int(rw.items[id])
