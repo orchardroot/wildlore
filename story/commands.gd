@@ -443,6 +443,8 @@ func _when(cond: String) -> bool:
 		return FieldbookGoals.caught_count(host.data) >= host.dex.core_ids().size()
 	if cond.begins_with("caught_") and cond.substr(7).is_valid_int():  # a Fieldbook milestone: caught_25 and so on
 		return FieldbookGoals.caught_count(host.data) >= int(cond.substr(7))
+	if cond.begins_with("has_"):  # a show-me check for a quest: you've caught one of these
+		return host.data.caught.has(cond.substr(4))
 	if cond in Calendar.SEASONS:
 		return Calendar.season_today() == cond
 	if cond in Calendar.FESTIVALS:

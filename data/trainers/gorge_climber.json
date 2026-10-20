@@ -1,0 +1,32 @@
+{
+ "id": "gorge_climber",
+ "name": "Climber Morwenna",
+ "class": "Rock Climber",
+ "sprite": "hillwalker",
+ "party": [
+  {
+   "species": "billgruff",
+   "level": 40
+  },
+  {
+   "species": "stoopfalcon",
+   "level": 40
+  },
+  {
+   "species": "quarrion",
+   "level": 41
+  }
+ ],
+ "ai": "trainer",
+ "money": 2200,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Climber Morwenna",
+   "text": "I've been up the Main Wall twice this morning. The limestone's polished like glass from a hundred years of climbers. Let's see if you've got grip."
+  }
+ ],
+ "win": "Ah, I slipped. Not off the cliff, thankfully. Just off the pace.",
+ "after": "Climbers have been on these walls since the 1890s. The goats have been on them longer.",
+ "scaled_floor": 40
+}

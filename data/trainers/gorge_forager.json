@@ -1,0 +1,32 @@
+{
+ "id": "gorge_forager",
+ "name": "Forager Tamsin",
+ "class": "Forager",
+ "sprite": "hiker",
+ "party": [
+  {
+   "species": "sulphurhen",
+   "level": 40
+  },
+  {
+   "species": "grandpuff",
+   "level": 39
+  },
+  {
+   "species": "pinewraith",
+   "level": 40
+  }
+ ],
+ "ai": "trainer",
+ "money": 2100,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Forager Tamsin",
+   "text": "Mind your step! You're standing on lunch. Probably. Possibly. Let's battle while I work it out."
+  }
+ ],
+ "win": "Fair enough. I'll stick to blackberries.",
+ "after": "Never eat anything you can't name, and never name anything you've just eaten.",
+ "scaled_floor": 40
+}

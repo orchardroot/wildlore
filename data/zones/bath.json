@@ -7,6 +7,10 @@
   "west": {
    "offset": 0.0,
    "to": "severn_crossing"
+  },
+  "north": {
+   "to": "avon_gorge",
+   "offset": 0
   }
  },
  "encounters": {
@@ -90,8 +94,8 @@
   ]
  },
  "heights": [
-  "000000000000000000000000000000000000000000000000000000000000",
-  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000002220000000000000000000000000000000000000",
+  "000000000000000000002220000000000000000000000000000000000000",
   "002222222222222222222222222222000000000000000000000000000000",
   "002222222222222222222222222222000000000000000000000000000000",
   "002222222222222222222222222222000000000000000000000000000000",
@@ -923,9 +927,9 @@
  ],
  "region": "south_england",
  "rows": [
-  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
-  "TTTTTTTTTTTTTTPTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTPTTTT",
-  "TT........................................................TT",
+  "TTTTTTTTTTTTTTTTTTTT.#.TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTPTTTTT.#.TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTPTTTT",
+  "TT...................#....................................TT",
   "TT...HHHHHHHHHHHHHHHHHHHHHH................s~~~~~~s.......TT",
   "TT.........................................s~~~~~~s.......TT",
   "TT...........BBBBB.........................s~~~~~~s.,,,,,.TT",
@@ -1014,6 +1018,11 @@
    "text": "BLUE PLAQUE: Jane Austen, novelist, lived in Bath from 1801 to 1806, first at 4 Sydney Place.",
    "kind": "plaque",
    "dx": -0.475
+  },
+  {
+   "x": 23,
+   "y": 2,
+   "text": "FOOTPATH. North to the Avon Gorge, Clifton and Bristol. Twelve miles, give or take a goat."
   }
  ],
  "spawn": [

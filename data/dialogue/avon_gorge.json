@@ -1,0 +1,505 @@
+{
+ "toll_keeper": [
+  {
+   "do": "if",
+   "flag": "q_bristol_brunel_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_bristol_brunel_1",
+     "then": [
+      {
+       "do": "say",
+       "who": "Toll Keeper",
+       "text": "Off to the SS Great Britain next, is it? Down at the harbour, in the very dock she was built in. Give her my regards."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Toll Keeper",
+       "text": "Brunel's notebook! Well I never. Page one: 'Clifton. Span: 702 feet.' That's 214 metres, give or take."
+      },
+      {
+       "do": "say",
+       "who": "Toll Keeper",
+       "text": "He was only 24 when he won it. He called the bridge 'my first child, my darling'. His words, not mine."
+      },
+      {
+       "do": "say",
+       "who": "Toll Keeper",
+       "text": "There. I've put the toll booth's stamp on the page. Next stop, the ship."
+      },
+      {
+       "do": "set",
+       "flag": "q_bristol_brunel_1"
+      },
+      {
+       "do": "sfx",
+       "id": "item"
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Toll Keeper",
+     "text": "The deck's 214 metres from tower to tower. Folk on foot pay nothing; cars pay a toll, as they have since 1864."
+    },
+    {
+     "do": "say",
+     "who": "Toll Keeper",
+     "text": "Brunel wanted sphinxes on top of the towers. Egyptian style was all the rage. The money ran out. The towers are still waiting."
+    }
+   ]
+  }
+ ],
+ "fiesta_pilot": [
+  {
+   "do": "if",
+   "flag": "q_bristol_fiesta_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Pilot Gwen",
+     "text": "There she goes! Up over the gorge on the evening breeze. You can see right down the Avon to the Severn from up there."
+    },
+    {
+     "do": "say",
+     "who": "Pilot Gwen",
+     "text": "Fiesta's in August, but between you and me, the best flights are any still morning with a flask."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_bristol_fiesta_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_bristol_fiesta_1",
+       "then": [
+        {
+         "do": "if",
+         "flag": "q_bristol_fiesta_2",
+         "then": [
+          {
+           "do": "if",
+           "flag": "q_bristol_fiesta_3",
+           "then": [
+            {
+             "do": "fade_out"
+            },
+            {
+             "do": "sfx",
+             "id": "heal"
+            },
+            {
+             "do": "fade_in"
+            },
+            {
+             "do": "say",
+             "who": "Pilot Gwen",
+             "text": "Burner on... a long roar... and she's filling! Look at her stand up! Crew, hands on the basket!"
+            },
+            {
+             "do": "say",
+             "who": "Pilot Gwen",
+             "text": "We're off! Light as a feather. Wave to Clifton! Wave to the goats!"
+            },
+            {
+             "do": "say",
+             "who": "Pilot Gwen",
+             "text": "Down we come in a field by the orchard, gentle as you like. Champagne for the farmer: an old balloonists' custom."
+            },
+            {
+             "do": "say",
+             "who": "Pilot Gwen",
+             "text": "You've earned this. A little wicker sprite has been living in my spare basket all summer. It likes you. Take it."
+            },
+            {
+             "do": "give_creature",
+             "species": "wickerling",
+             "level": 40
+            },
+            {
+             "do": "give_item",
+             "item": "bristol_cider",
+             "n": 3
+            },
+            {
+             "do": "standing",
+             "nation": "england",
+             "amount": 2
+            },
+            {
+             "do": "set",
+             "flag": "q_bristol_fiesta_done"
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Pilot Gwen",
+             "text": "Envelope? Got it. Burner? Got it. Now I need a ground crew, and the best one in Bristol hangs about the Harbourside."
+            },
+            {
+             "do": "say",
+             "who": "Pilot Gwen",
+             "text": "Their crew chief only takes orders from someone who's beaten her. Off you go!"
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Pilot Gwen",
+           "text": "Lovely envelope! Next, my burner's valve is shot. The engineers at Aerospace Bristol, out at Filton, owe me one. Ask for a spare."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Pilot Gwen",
+         "text": "Still waiting on my envelope from the Balloon Works in Bristol. South of the harbour, by the Sanctuary."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Pilot Gwen",
+       "text": "Oh, thank goodness, a pair of hands! I'm Gwen. I fly balloons. Well, I fly them when they're not in bits."
+      },
+      {
+       "do": "say",
+       "who": "Pilot Gwen",
+       "text": "Hot air's lighter than cold air, so you heat the air in the envelope and up you go. It's been working since 1783."
+      },
+      {
+       "do": "say",
+       "who": "Pilot Gwen",
+       "text": "But my envelope's torn, my burner's sulking and my crew have gone to the pub. Can you help me get airborne?"
+      },
+      {
+       "do": "choice",
+       "text": "Help Gwen get airborne?",
+       "options": [
+        "Of course!",
+        "Not just now"
+       ],
+       "set": "_bristol_fiesta_yes"
+      },
+      {
+       "do": "if",
+       "flag": "_bristol_fiesta_yes",
+       "eq": 0,
+       "then": [
+        {
+         "do": "say",
+         "who": "Pilot Gwen",
+         "text": "Brilliant! First, the Balloon Works in Bristol are patching my envelope. Fetch it for me?"
+        },
+        {
+         "do": "set",
+         "flag": "q_bristol_fiesta_started"
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Pilot Gwen",
+         "text": "Fair enough. I'll be here, staring at the sky."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "watch_leader": [
+  {
+   "do": "if",
+   "flag": "q_bristol_peregrine_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Watch Leader Hal",
+     "text": "The tiercel brought her a pigeon this morning, mid-air. Passed it claw to claw. Romance isn't dead."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_bristol_peregrine_1",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_bristol_peregrine_2",
+       "then": [
+        {
+         "do": "when",
+         "cond": "has_peregrin",
+         "then": [
+          {
+           "do": "say",
+           "who": "Watch Leader Hal",
+           "text": "That's a peregrine! Look at that moustache stripe, those yellow feet. Beautiful. Thank you for showing me."
+          },
+          {
+           "do": "say",
+           "who": "Watch Leader Hal",
+           "text": "Here, take this. A moulted feather from the ledge, found fair and square. It's said to make a creature quick off the mark."
+          },
+          {
+           "do": "give_item",
+           "item": "peregrine_feather"
+          },
+          {
+           "do": "give_item",
+           "item": "flask_of_tea",
+           "n": 2
+          },
+          {
+           "do": "standing",
+           "nation": "england",
+           "amount": 1
+          },
+          {
+           "do": "set",
+           "flag": "q_bristol_peregrine_done"
+          }
+         ],
+         "else": [
+          {
+           "do": "when",
+           "cond": "has_stoopfalcon",
+           "then": [
+            {
+             "do": "say",
+             "who": "Watch Leader Hal",
+             "text": "That's a peregrine! Look at that moustache stripe, those yellow feet. Beautiful. Thank you for showing me."
+            },
+            {
+             "do": "say",
+             "who": "Watch Leader Hal",
+             "text": "Here, take this. A moulted feather from the ledge, found fair and square. It's said to make a creature quick off the mark."
+            },
+            {
+             "do": "give_item",
+             "item": "peregrine_feather"
+            },
+            {
+             "do": "give_item",
+             "item": "flask_of_tea",
+             "n": 2
+            },
+            {
+             "do": "standing",
+             "nation": "england",
+             "amount": 1
+            },
+            {
+             "do": "set",
+             "flag": "q_bristol_peregrine_done"
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Watch Leader Hal",
+             "text": "Last task: catch a peregrine yourself. They hunt over the gorge at dawn and by day. Bring one to show me."
+            }
+           ]
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Watch Leader Hal",
+         "text": "Ask the pigeon fancier on the Downs what peregrines eat. He'll have opinions. Loud ones."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_bristol_peregrine_started",
+       "then": [
+        {
+         "do": "say",
+         "who": "Watch Leader Hal",
+         "text": "Here, have a look through the scope. Left of the bridge, two-thirds down the cliff. See the ledge with the white splashes?"
+        },
+        {
+         "do": "say",
+         "who": "Watch Leader Hal",
+         "text": "There she is! The falcon. The female's bigger than the male, by about a third. The male's called a tiercel, from the Latin for a third."
+        },
+        {
+         "do": "say",
+         "who": "Watch Leader Hal",
+         "text": "They've raised chicks here most springs. Some years we get three or four. Now, a bit of homework for you."
+        },
+        {
+         "do": "set",
+         "flag": "q_bristol_peregrine_1"
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Watch Leader Hal",
+         "text": "Peregrine watch! Every spring we set up the scopes here so anybody can see the falcons on the cliff."
+        },
+        {
+         "do": "say",
+         "who": "Watch Leader Hal",
+         "text": "They were nearly wiped out in the 1960s by pesticides that made their eggshells thin. They've come back. Want to help with today's watch?"
+        },
+        {
+         "do": "choice",
+         "text": "Join the peregrine watch?",
+         "options": [
+          "Yes, please",
+          "Maybe later"
+         ],
+         "set": "_bristol_peregrine_yes"
+        },
+        {
+         "do": "if",
+         "flag": "_bristol_peregrine_yes",
+         "eq": 0,
+         "then": [
+          {
+           "do": "set",
+           "flag": "q_bristol_peregrine_started"
+          },
+          {
+           "do": "say",
+           "who": "Watch Leader Hal",
+           "text": "Here, have a look through the scope. Left of the bridge, two-thirds down the cliff. See the ledge with the white splashes?"
+          },
+          {
+           "do": "say",
+           "who": "Watch Leader Hal",
+           "text": "There she is! The falcon. The female's bigger than the male, by about a third. The male's called a tiercel, from the Latin for a third."
+          },
+          {
+           "do": "say",
+           "who": "Watch Leader Hal",
+           "text": "They've raised chicks here most springs. Some years we get three or four. Now, a bit of homework for you."
+          },
+          {
+           "do": "set",
+           "flag": "q_bristol_peregrine_1"
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Watch Leader Hal",
+           "text": "The falcons aren't going anywhere. Well, they are, at 300 kilometres an hour, but they'll come back."
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "pigeon_fancier": [
+  {
+   "do": "if",
+   "flag": "q_bristol_peregrine_1",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_bristol_peregrine_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "Pigeon Fancier",
+       "text": "Still here. Still counting my birds. Still one short."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Pigeon Fancier",
+       "text": "What do peregrines eat? Pigeons! My pigeons! Racing pigeons worth more than my car!"
+      },
+      {
+       "do": "say",
+       "who": "Pigeon Fancier",
+       "text": "Well, pigeons mostly, and starlings, and the odd duck. They catch them in the air, in a dive. Clean as you like."
+      },
+      {
+       "do": "say",
+       "who": "Pigeon Fancier",
+       "text": "Townie pigeons, mind, are why falcons do so well in cities. Cliffs, cathedrals, tower blocks: it's all ledges to a peregrine."
+      },
+      {
+       "do": "set",
+       "flag": "q_bristol_peregrine_2"
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Pigeon Fancier",
+     "text": "Alright my lover. Racing pigeons, me. They can find their way home from France. I can't find my way home from the pub."
+    }
+   ]
+  }
+ ],
+ "gorge_goatherd": [
+  {
+   "do": "say",
+   "who": "Downs Ranger",
+   "text": "Those goats are feral, from a herd brought in to graze the cliffs. They nibble the scrub off the rocks so the little rare plants get the light."
+  },
+  {
+   "do": "say",
+   "who": "Downs Ranger",
+   "text": "Best workers we've got. No breaks, no complaints, and they do the bits a person would need a rope for."
+  }
+ ],
+ "orchard_farmer": [
+  {
+   "do": "say",
+   "who": "Cider Farmer",
+   "text": "Proper West Country cider's just apples, pressed and left to get on with it. Kingston Black, Yarlington Mill, Dabinett. Lovely names, lovely trees."
+  },
+  {
+   "do": "say",
+   "who": "Cider Farmer",
+   "text": "Scrumpy's the rough stuff, cloudy, from the farm. It's like a pasty: there's a right way, and there's the way the tourists have it."
+  }
+ ],
+ "leigh_forager": [
+  {
+   "do": "say",
+   "who": "Woodland Volunteer",
+   "text": "Leigh Woods belongs to the National Trust now. It was given to the nation in 1909 so Bristol could never build over it."
+  },
+  {
+   "do": "say",
+   "who": "Woodland Volunteer",
+   "text": "In autumn the woods fill with fungi. Look, don't pick. That one there could have you, and it knows it."
+  }
+ ]
+}

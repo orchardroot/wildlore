@@ -1,0 +1,37 @@
+{
+ "id": "brs_night_painter",
+ "name": "The Night Painter",
+ "class": "Street Artist",
+ "sprite": "festival_goer",
+ "party": [
+  {
+   "species": "hushwing",
+   "level": 41
+  },
+  {
+   "species": "binfox",
+   "level": 41
+  },
+  {
+   "species": "stencilette",
+   "level": 42
+  }
+ ],
+ "ai": "trainer",
+ "money": 3000,
+ "intro": [
+  {
+   "do": "say",
+   "who": "The Night Painter",
+   "text": "..."
+  },
+  {
+   "do": "say",
+   "who": "The Night Painter",
+   "text": "You found them all. Nobody finds them all. Fine. One battle, then you never saw me."
+  }
+ ],
+ "win": "Good. Now look the other way for ten seconds.",
+ "after": "Gone.",
+ "scaled_floor": 40
+}

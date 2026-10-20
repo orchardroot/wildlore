@@ -2084,6 +2084,44 @@
     "ctype": "frost"
    },
    "pay": 3
+  },
+  {
+   "id": "bristol_mshed",
+   "nation": "england",
+   "town": "bristol",
+   "badges": 5,
+   "poster": "M Shed",
+   "title": "After hours at the museum",
+   "text": "Something keeps rearranging the trams in the transport gallery overnight. Our money's on a fox. Pop into M Shed after dark and have a look.",
+   "step": {
+    "type": "visit",
+    "zone": "bristol_mshed",
+    "time": [
+     "night",
+     "dusk"
+    ]
+   },
+   "pay": 2
+  },
+  {
+   "id": "bristol_gulls",
+   "nation": "england",
+   "town": "bristol",
+   "badges": 5,
+   "poster": "Harbourside Traders",
+   "title": "Chip defence",
+   "text": "The Harbourside gulls have taken three pasties, a cone and a man's hat this week. Win three fights in the Avon Gorge and show them who's boss.",
+   "step": {
+    "type": "beat",
+    "zone": "avon_gorge",
+    "n": 3
+   },
+   "pay": 2,
+   "reward": {
+    "items": {
+     "bristol_cider": 1
+    }
+   }
   }
  ]
 }
