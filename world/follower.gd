@@ -3,6 +3,8 @@ extends Node3D
 ## The party lead walking one tile behind the player, like the old handheld games: the first creature that
 ## hasn't fainted, drawn as a small billboard from its icon (the same sprite RoamingCreatures uses). It steps onto
 ## the tile the player has just left, in time with the player's own step, and bobs a little when stood still.
+## Locked in step: each stride starts on the player's step_started and runs on the player's own step_fraction(),
+## so it starts and ends on the same frame as the player's, at the same speed, with nothing to fall behind.
 ## Purely cosmetic: no grid presence, never in anyone's way. Hidden on the bike or the water, in cramped
 ## interiors, while the player is hidden (journeys, arrival scenes) and while anyone stands on its tile.
 ## Talk to it by facing it and pressing interact: a short mood line and its cry. Settings.follower turns it off.
@@ -18,10 +20,11 @@ var _ow: Node
 var _lead: Creature
 var _sprite: CharSprite
 var _tile_ok := false
-var _was_moving := false
 var _moving := false
+var _stride_from := Vector3.ZERO  # the stride under way, in step with the player's
+var _stride_to := Vector3.ZERO
+var _stride_hop := false
 var _bob_t := 0.0
-var _tween: Tween
 var _rng := RandomNumberGenerator.new()
 var _walked := 0  # steps walked as the follower, towards the next bit of friendship
 
@@ -31,10 +34,13 @@ static func attach(ow: Node) -> Follower:
 	if f == null:
 		f = Follower.new()
 		f.name = "Follower"
+		f.process_priority = 1  # after the player has moved this frame, so it reads this frame's step_fraction
 		ow.add_child(f)
 		f._rng.randomize()
 		Bus.settings_changed.connect(f._check_lead)
 	f._ow = ow
+	if not ow.player.step_started.is_connected(f._follow):
+		ow.player.step_started.connect(f._follow)
 	f._check_lead()
 	f._place_behind()
 	return f
@@ -58,11 +64,9 @@ static func hops(from: Vector2i, to: Vector2i) -> bool:
 	var d := to - from
 	return from.x >= 0 and ((absi(d.x) == 2 and d.y == 0) or (absi(d.y) == 2 and d.x == 0))
 
-## Seconds per step, the same as the player's.
-static func move_secs(running: bool, bike := false) -> float:
-	if bike:
-		return 1.0 / Player.BIKE_SPEED
-	return 1.0 / (Player.RUN_SPEED if running else Player.WALK_SPEED)
+## Where it is `t` (0..1) of the way through a stride: a straight walk, or a hop with a little arc.
+static func stride_pos(from: Vector3, to: Vector3, t: float, hop: bool) -> Vector3:
+	return Player.hop_pos(from, to, t) if hop else from.lerp(to, t)
 
 ## A place to stand after a warp or zone change: behind the player, else beside them, else in front.
 ## `ok` says whether a tile is free to stand on. NOWHERE if boxed in.
@@ -228,10 +232,7 @@ func _stand_ok(p: Vector2i) -> bool:
 
 func _place_behind() -> void:
 	var pl: Player = _ow.player
-	_was_moving = pl.moving
 	_moving = false
-	if _tween and _tween.is_valid():
-		_tween.kill()
 	_set_tile(behind_tile(pl.grid_pos, pl.facing, _stand_ok))
 	if tile != NOWHERE:
 		position = _world(tile)
@@ -252,51 +253,53 @@ func _process(delta: float) -> void:
 	if Engine.get_process_frames() % LEAD_CHECK_FRAMES == 0:
 		_check_lead()
 	var pl: Player = _ow.player
-	if pl.moving and not _was_moving:
-		_follow(pl)  # the player has just set off from grid_pos: step onto it
-	_was_moving = pl.moving
+	if _moving:
+		var t := pl.step_fraction()
+		position = stride_pos(_stride_from, _stride_to, t, _stride_hop)
+		if t >= 1.0:
+			_arrived(pl)
 	visible = should_show(Settings.follower, _sprite != null, _ow.zone.kind, _ow.zone.width * _ow.zone.height,
 		pl.on_bike, pl.wading, pl.visible, _npc_here(), _tile_ok)
 	if visible and not _moving and not Router.busy:
 		_bob_t += delta
 		_sprite.position.y = absf(sin(_bob_t * BOB_SPEED)) * BOB_HEIGHT
 
-func _follow(pl: Player) -> void:
-	var to := next_tile(tile, pl.grid_pos, pl.grid_pos)
-	if to == tile:
+## The player has just set off from `from`: step onto it, in time with them.
+func _follow(from: Vector2i, to: Vector2i) -> void:
+	if _ow == null:
 		return
-	var from := tile
-	_set_tile(to)
+	var pl: Player = _ow.player
+	if _moving:  # the last stride ended on this same frame: finish it exactly where it was going
+		position = _stride_to
+		_moving = false
+	var dest := next_tile(tile, from, to)
+	if dest == tile:
+		return
+	var prev := tile
+	_set_tile(dest)
 	if visible and _lead != null:
 		_walked += 1
 		if _walked >= Bond.WALK_STEPS:
 			_walked = 0
 			Bond.add(_lead, Bond.WALK)
-	if _tween and _tween.is_valid():
-		_tween.kill()
-	if _sprite == null or (snaps(from, to) and not hops(from, to)):
-		_moving = false
-		position = _world(to)
+	if _sprite == null or (snaps(prev, dest) and not hops(prev, dest)):
+		position = _world(dest)
 		return
-	var dx := to.x - from.x
+	var dx := dest.x - prev.x
 	if dx != 0:
 		_sprite.flip_h = dx > 0
 	_moving = true
+	_stride_from = position
+	_stride_to = _world(dest)
+	_stride_hop = hops(prev, dest)
 	_sprite.walking = true
+	_sprite.walk_rate = pl.sprite.walk_rate
 	_sprite.position.y = 0.0
-	var running: bool = pl.sprite.walk_rate == CharSprite.RUN_RATE
-	_tween = create_tween()
-	if hops(from, to):
-		var start := position
-		var dest := _world(to)
-		_tween.tween_method(func(t: float): position = Player.hop_pos(start, dest, t), 0.0, 1.0, 0.35)
-	else:
-		_tween.tween_property(self, "position", _world(to), move_secs(running, pl.on_bike))
-	_tween.finished.connect(_arrived)
 
-func _arrived() -> void:
+func _arrived(pl: Player) -> void:
+	position = _stride_to
 	_moving = false
-	if _sprite and not _ow.player.moving:
+	if _sprite and not pl.moving:
 		_sprite.walking = false
 
 func _npc_here() -> bool:

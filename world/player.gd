@@ -6,8 +6,12 @@ const WALK_SPEED := 4.0   # tiles per second
 const RUN_SPEED := 7.0
 const BIKE_SPEED := 9.0
 const TURN_GRACE := 0.09  # a quick tap turns on the spot, holding walks
+const HOP_SECS := 0.35    # a ledge hop, two tiles
 
 signal step_finished(p: Vector2i)
+## A step has just begun from `from` to `to` (two tiles for a ledge hop). The follower takes its own step on this,
+## and reads step_fraction() each frame to stay in time with it.
+signal step_started(from: Vector2i, to: Vector2i)
 
 var grid_pos := Vector2i.ZERO
 var facing := "down"
@@ -26,6 +30,14 @@ var _bike: Node3D
 var _coracle: MeshInstance3D
 var _was_running := false   # for the dust puff on breaking into a run
 var _dust: CPUParticles3D
+# the step under way: advanced in _process (not a tween) so a held direction runs straight on into the next step
+# with the frame's spare time, instead of standing still for a frame between steps
+var _step_to := Vector2i.ZERO
+var _step_start := Vector3.ZERO
+var _step_dest := Vector3.ZERO
+var _step_secs := 1.0
+var _step_t := 0.0
+var _step_hop := false
 
 func setup(ow: Node, sprite_id: String) -> void:
 	overworld = ow
@@ -226,21 +238,54 @@ func try_step(dir: String, running := false) -> bool:
 		_puff()
 	_was_running = run_on_foot
 	var speed := BIKE_SPEED if on_bike else (RUN_SPEED if running else WALK_SPEED)
-	var dest_y: float = overworld.ground_y(target)
-	var dest := Vector3(target.x + 0.5, dest_y, target.y + 0.5)
-	var tw := create_tween()
-	if verdict == "ledge":
+	var secs := 1.0 / speed
+	var hop := verdict == "ledge"
+	if hop:
 		target = target + GridMotion.dir_vec(dir)
-		dest = Vector3(target.x + 0.5, overworld.ground_y(target), target.y + 0.5)
-		var start := position
-		tw.tween_method(func(t: float): position = Player.hop_pos(start, dest, t), 0.0, 1.0, 0.35)
-	else:
-		tw.tween_property(self, "position", dest, 1.0 / speed)
-	await tw.finished
-	position = dest
-	grid_pos = target
+		secs = HOP_SECS
+	var from := grid_pos
+	_step_to = target
+	_step_start = position
+	_step_dest = Vector3(target.x + 0.5, overworld.ground_y(target), target.y + 0.5)
+	_step_secs = secs
+	_step_t = 0.0
+	_step_hop = hop
+	step_started.emit(from, target)
+	await step_finished
+	return true
+
+## How far through the step under way (0..1); 1 when standing still.
+func step_fraction() -> float:
+	return clampf(_step_t / _step_secs, 0.0, 1.0) if moving else 1.0
+
+func _step_pos(t: float) -> Vector3:
+	return Player.hop_pos(_step_start, _step_dest, t) if _step_hop else _step_start.lerp(_step_dest, t)
+
+func _process(delta: float) -> void:
+	if moving:
+		_advance(delta)
+
+## Moves the step under way on by `delta` seconds. At the end of it, a direction still held carries straight on
+## into the next step with whatever time is left over, so a long walk is one smooth glide.
+func _advance(delta: float) -> void:
+	_step_t += delta
+	if _step_t < _step_secs:
+		position = _step_pos(_step_t / _step_secs)
+		return
+	var spare := _step_t - _step_secs
+	position = _step_dest
+	grid_pos = _step_to
 	moving = false
-	if _input_dir() == "" and forced_dir == "":
+	var held := forced_dir if forced_dir != "" else _input_dir()
+	if held == "":
 		sprite.walking = false
 	step_finished.emit(grid_pos)
-	return true
+	if held != "" and not busy():
+		_keep_walking(held, spare)
+
+func _keep_walking(dir: String, spare: float) -> void:
+	_held_dir = dir
+	try_step(dir, is_running(Settings.run_mode, _run_latched, Input.is_action_pressed("run")))
+	if moving:  # carry the spare time over (never a whole step: a long hitch just loses it)
+		_step_t = minf(spare, _step_secs * 0.5)
+		position = _step_pos(_step_t / _step_secs)
