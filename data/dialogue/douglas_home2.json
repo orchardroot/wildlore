@@ -20,5 +20,61 @@
    "who": "Old Tom",
    "text": "A pinchkin claims every stone on the beach. Do not argue. It will win. Lightly."
   }
+ ],
+ "teach_cook_queenie_scallops": [
+  {
+   "do": "if",
+   "flag": "recipe_queenie_scallops",
+   "then": [
+    {
+     "do": "say",
+     "who": "Old Tom",
+     "text": "Back for the Queenie Scallops? Kitchen's yours."
+    },
+    {
+     "do": "choice",
+     "text": "Borrow the kitchen?",
+     "options": [
+      "Yes, please",
+      "No, ta"
+     ],
+     "set": "_borrow_bench"
+    },
+    {
+     "do": "if",
+     "flag": "_borrow_bench",
+     "eq": 0,
+     "then": [
+      {
+       "do": "craft",
+       "bench": "borrowed"
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Old Tom",
+     "text": "Queenies. Small scallops, big flavour. Island pride, this."
+    },
+    {
+     "do": "say",
+     "who": "Old Tom",
+     "text": "Hot pan, butter, a minute a side, no longer. Garlic and a squeeze of lemon. If you overcook them they go like rubber."
+    },
+    {
+     "do": "recipe",
+     "id": [
+      "queenie_scallops"
+     ]
+    },
+    {
+     "do": "say",
+     "who": "Old Tom",
+     "text": "Pop in whenever you've got the makings. Use my kitchen."
+    }
+   ]
+  }
  ]
 }

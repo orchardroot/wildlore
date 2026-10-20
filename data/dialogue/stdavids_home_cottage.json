@@ -22,5 +22,61 @@
    "who": "Seren",
    "text": "Dad says when the sea and the choir are in tune you have got hwyl. That is spirit and swing, all at once. I am working on it."
   }
+ ],
+ "teach_cook_laverbread": [
+  {
+   "do": "if",
+   "flag": "recipe_laverbread",
+   "then": [
+    {
+     "do": "say",
+     "who": "Mrs Griffiths",
+     "text": "Back for the Laverbread? Kitchen's yours."
+    },
+    {
+     "do": "choice",
+     "text": "Borrow the kitchen?",
+     "options": [
+      "Yes, please",
+      "No, ta"
+     ],
+     "set": "_borrow_bench"
+    },
+    {
+     "do": "if",
+     "flag": "_borrow_bench",
+     "eq": 0,
+     "then": [
+      {
+       "do": "craft",
+       "bench": "borrowed"
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Mrs Griffiths",
+     "text": "It looks like something the cat brought up. It's a delicacy. Sit down."
+    },
+    {
+     "do": "say",
+     "who": "Mrs Griffiths",
+     "text": "Wash the laver well, there's sand in it. Boil it till it's a paste, roll in oatmeal and fry. With cockles and bacon for the full Welsh breakfast."
+    },
+    {
+     "do": "recipe",
+     "id": [
+      "laverbread"
+     ]
+    },
+    {
+     "do": "say",
+     "who": "Mrs Griffiths",
+     "text": "Pop in whenever you've got the makings. Use my kitchen."
+    }
+   ]
+  }
  ]
 }

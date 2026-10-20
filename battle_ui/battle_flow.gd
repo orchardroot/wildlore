@@ -17,6 +17,7 @@ signal species_caught(species_id: String)
 
 var battle: Battle
 var data: GameStateData
+var _meal_pct := 0  # prize money bonus from a dish (Meals), this battle only
 var dex: Dex
 var move_db: MoveDB
 var items: ItemDB
@@ -123,6 +124,7 @@ func run() -> Dictionary:
 	await ui.intro(self)
 	if foe != null and not battle.over:
 		await _say(_intro_lines())
+	await _meal_buff()
 	if not battle.opening.is_empty():  # charms that act as the battle starts
 		await _play(battle.opening)
 	while not battle.over:
@@ -133,6 +135,22 @@ func run() -> Dictionary:
 		await _after_events(events)
 	await _conclude()
 	return result
+
+## A dish eaten before this battle: a stat stage for the lead, or a note that snares / prize money are lucky.
+func _meal_buff() -> void:
+	var b := Meals.take_battle_buff(data, items, battle.kind)
+	if b.is_empty():
+		return
+	var lead := battle.current(Battle.PLAYER)
+	match str(b.buff):
+		"stat":
+			if lead == null or lead.change_stage(str(b.stat), 1) == 0:
+				return
+		"catch":
+			battle.meal_catch = float(b.mult)
+		"purse":
+			_meal_pct = int(b.pct)
+	await _say([str(b.text).replace("{name}", lead.display_name() if lead != null else "your lead")])
 
 func _intro_lines() -> Array[String]:
 	var out: Array[String] = []
@@ -380,6 +398,7 @@ func _conclude() -> void:
 				await _say([defeat])
 			var cur := Wallet.local(data)  # euros in the Republic, sterling everywhere else
 			if money > 0:
+				money += money * _meal_pct / 100
 				money = Wallet.localise(money, cur)
 				Wallet.earn(data, money, cur)
 				TrainerStats.earned(data, Wallet.in_sterling(money, cur))

@@ -17,5 +17,61 @@
    "who": "Rory",
    "text": "A cooplet pinched a chip right out of my hand. They come out in the drizzle. Hold on to your chips."
   }
+ ],
+ "teach_cook_clootie_dumpling": [
+  {
+   "do": "if",
+   "flag": "recipe_clootie_dumpling",
+   "then": [
+    {
+     "do": "say",
+     "who": "Gran Morag",
+     "text": "Back for the Clootie Dumpling? Kitchen's yours."
+    },
+    {
+     "do": "choice",
+     "text": "Borrow the kitchen?",
+     "options": [
+      "Yes, please",
+      "No, ta"
+     ],
+     "set": "_borrow_bench"
+    },
+    {
+     "do": "if",
+     "flag": "_borrow_bench",
+     "eq": 0,
+     "then": [
+      {
+       "do": "craft",
+       "bench": "borrowed"
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Gran Morag",
+     "text": "Mind and don't unwrap it too soon. Wait for the skin."
+    },
+    {
+     "do": "say",
+     "who": "Gran Morag",
+     "text": "Flour well rubbed into the cloth so it doesn't stick. Tie it loose, it swells. Boil for hours, then into a warm oven to dry off. Fried the next morning with bacon."
+    },
+    {
+     "do": "recipe",
+     "id": [
+      "clootie_dumpling"
+     ]
+    },
+    {
+     "do": "say",
+     "who": "Gran Morag",
+     "text": "Pop in whenever you've got the makings. Use my kitchen."
+    }
+   ]
+  }
  ]
 }

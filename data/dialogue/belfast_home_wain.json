@@ -15,5 +15,61 @@
    "who": "Mrs Hanna",
    "text": "At dusk the starlets sit on the cranes by the hundred and have a chat. They are very loud, and very tidy about it."
   }
+ ],
+ "teach_cook_ulster_fry": [
+  {
+   "do": "if",
+   "flag": "recipe_ulster_fry",
+   "then": [
+    {
+     "do": "say",
+     "who": "Mrs McAllister",
+     "text": "Back for the Ulster Fry? Kitchen's yours."
+    },
+    {
+     "do": "choice",
+     "text": "Borrow the kitchen?",
+     "options": [
+      "Yes, please",
+      "No, ta"
+     ],
+     "set": "_borrow_bench"
+    },
+    {
+     "do": "if",
+     "flag": "_borrow_bench",
+     "eq": 0,
+     "then": [
+      {
+       "do": "craft",
+       "bench": "borrowed"
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Mrs McAllister",
+     "text": "You'll have had your breakfast? Sure, have another."
+    },
+    {
+     "do": "say",
+     "who": "Mrs McAllister",
+     "text": "Everything in the one pan, and the farl and the potato bread go in last to mop up the fat. Mushrooms and a tomato if you're feeling fancy."
+    },
+    {
+     "do": "recipe",
+     "id": [
+      "ulster_fry"
+     ]
+    },
+    {
+     "do": "say",
+     "who": "Mrs McAllister",
+     "text": "Pop in whenever you've got the makings. Use my kitchen."
+    }
+   ]
+  }
  ]
 }

@@ -230,5 +230,61 @@
     }
    ]
   }
+ ],
+ "teach_cook_arbroath_smokie": [
+  {
+   "do": "if",
+   "flag": "recipe_arbroath_smokie",
+   "then": [
+    {
+     "do": "say",
+     "who": "Dougal",
+     "text": "Back for the Arbroath Smokie? Kitchen's yours."
+    },
+    {
+     "do": "choice",
+     "text": "Borrow the kitchen?",
+     "options": [
+      "Yes, please",
+      "No, ta"
+     ],
+     "set": "_borrow_bench"
+    },
+    {
+     "do": "if",
+     "flag": "_borrow_bench",
+     "eq": 0,
+     "then": [
+      {
+       "do": "craft",
+       "bench": "borrowed"
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Dougal",
+     "text": "You'll want to eat that hot. Right off the bone, with butter, and no fork."
+    },
+    {
+     "do": "say",
+     "who": "Dougal",
+     "text": "Tied in pairs by the tail and smoked in a barrel over hardwood. Peel the skin and the flesh slides off. Butter. That's the lot."
+    },
+    {
+     "do": "recipe",
+     "id": [
+      "arbroath_smokie"
+     ]
+    },
+    {
+     "do": "say",
+     "who": "Dougal",
+     "text": "Pop in whenever you've got the makings. Use my kitchen."
+    }
+   ]
+  }
  ]
 }

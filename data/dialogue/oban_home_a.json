@@ -10,5 +10,61 @@
    "who": "Granny",
    "text": "Gaelic's still spoken round here, you'll hear 'madainn mhath', that's good morning, and 'ciamar a tha thu', how are you. It's pronounced 'kimmer a ha oo', and nobody expects you to get it right."
   }
+ ],
+ "teach_cook_scotch_broth": [
+  {
+   "do": "if",
+   "flag": "recipe_scotch_broth",
+   "then": [
+    {
+     "do": "say",
+     "who": "Granny Mhairi",
+     "text": "Back for the Scotch Broth? Kitchen's yours."
+    },
+    {
+     "do": "choice",
+     "text": "Borrow the kitchen?",
+     "options": [
+      "Yes, please",
+      "No, ta"
+     ],
+     "set": "_borrow_bench"
+    },
+    {
+     "do": "if",
+     "flag": "_borrow_bench",
+     "eq": 0,
+     "then": [
+      {
+       "do": "craft",
+       "bench": "borrowed"
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Granny Mhairi",
+     "text": "Och, come in out of that wind. The broth's been on since breakfast."
+    },
+    {
+     "do": "say",
+     "who": "Granny Mhairi",
+     "text": "Barley first, so it has time to swell. Then every root in the house goes in, chopped small. It sticks to your ribs, and that's the idea."
+    },
+    {
+     "do": "recipe",
+     "id": [
+      "scotch_broth"
+     ]
+    },
+    {
+     "do": "say",
+     "who": "Granny Mhairi",
+     "text": "Pop in whenever you've got the makings. Use my kitchen."
+    }
+   ]
+  }
  ]
 }

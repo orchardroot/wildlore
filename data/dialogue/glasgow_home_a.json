@@ -37,5 +37,61 @@
     }
    ]
   }
+ ],
+ "teach_cook_stovies": [
+  {
+   "do": "if",
+   "flag": "recipe_stovies",
+   "then": [
+    {
+     "do": "say",
+     "who": "Auld Wullie",
+     "text": "Back for the Stovies? Kitchen's yours."
+    },
+    {
+     "do": "choice",
+     "text": "Borrow the kitchen?",
+     "options": [
+      "Yes, please",
+      "No, ta"
+     ],
+     "set": "_borrow_bench"
+    },
+    {
+     "do": "if",
+     "flag": "_borrow_bench",
+     "eq": 0,
+     "then": [
+      {
+       "do": "craft",
+       "bench": "borrowed"
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Auld Wullie",
+     "text": "Stovies is what you make with what's left. Which is why it's the best thing in the house."
+    },
+    {
+     "do": "say",
+     "who": "Auld Wullie",
+     "text": "Slice the tatties thick, onions in the dripping, whatever meat is left over, and a drop of water. Put the lid on and stir now and then. Oatcakes on the side."
+    },
+    {
+     "do": "recipe",
+     "id": [
+      "stovies"
+     ]
+    },
+    {
+     "do": "say",
+     "who": "Auld Wullie",
+     "text": "Pop in whenever you've got the makings. Use my kitchen."
+    }
+   ]
+  }
  ]
 }

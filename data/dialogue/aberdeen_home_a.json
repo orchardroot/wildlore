@@ -15,5 +15,61 @@
    "who": "Resident",
    "text": "My gran says granite from the Rubislaw quarry built half the city, and bits of London's Waterloo Bridge too."
   }
+ ],
+ "teach_cook_cullen_skink": [
+  {
+   "do": "if",
+   "flag": "recipe_cullen_skink",
+   "then": [
+    {
+     "do": "say",
+     "who": "Auld Isla",
+     "text": "Back for the Cullen Skink? Kitchen's yours."
+    },
+    {
+     "do": "choice",
+     "text": "Borrow the kitchen?",
+     "options": [
+      "Yes, please",
+      "No, ta"
+     ],
+     "set": "_borrow_bench"
+    },
+    {
+     "do": "if",
+     "flag": "_borrow_bench",
+     "eq": 0,
+     "then": [
+      {
+       "do": "craft",
+       "bench": "borrowed"
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Auld Isla",
+     "text": "Fit like? Come away in. You'll take a bowl of skink."
+    },
+    {
+     "do": "say",
+     "who": "Auld Isla",
+     "text": "Finnan haddie poached in milk, flaked, then mash a few tatties into it to thicken. Pepper, butter, done. A skink was a shin of beef once. Don't ask me how the fish got in."
+    },
+    {
+     "do": "recipe",
+     "id": [
+      "cullen_skink"
+     ]
+    },
+    {
+     "do": "say",
+     "who": "Auld Isla",
+     "text": "Pop in whenever you've got the makings. Use my kitchen."
+    }
+   ]
+  }
  ]
 }

@@ -20,5 +20,61 @@
    "who": "Mrs Robson",
    "text": "The Angel of the North is up the road. When I was little it was brand new, and now bairns say it has always been there."
   }
+ ],
+ "teach_cook_stottie_cake": [
+  {
+   "do": "if",
+   "flag": "recipe_stottie_cake",
+   "then": [
+    {
+     "do": "say",
+     "who": "Hinny Ellen",
+     "text": "Back for the Stottie Cake? Kitchen's yours."
+    },
+    {
+     "do": "choice",
+     "text": "Borrow the kitchen?",
+     "options": [
+      "Yes, please",
+      "No, ta"
+     ],
+     "set": "_borrow_bench"
+    },
+    {
+     "do": "if",
+     "flag": "_borrow_bench",
+     "eq": 0,
+     "then": [
+      {
+       "do": "craft",
+       "bench": "borrowed"
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Hinny Ellen",
+     "text": "Howay in, pet. A stottie is a loaf, not a cake, don't ask me why."
+    },
+    {
+     "do": "say",
+     "who": "Hinny Ellen",
+     "text": "Knock the dough about, dimple the top with your thumb, and bake it flat. Split, then ham and pease pudding. A proper Tyneside sandwich."
+    },
+    {
+     "do": "recipe",
+     "id": [
+      "stottie_cake"
+     ]
+    },
+    {
+     "do": "say",
+     "who": "Hinny Ellen",
+     "text": "Pop in whenever you've got the makings. Use my kitchen."
+    }
+   ]
+  }
  ]
 }
