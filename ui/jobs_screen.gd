@@ -79,6 +79,7 @@ func setup(arg: String) -> void:
 		news.append("A parcel from the landlord is pinned up with your name on it: %s. On the house." % Game.items.get_item(parcel).get("name", parcel))
 	if not news.is_empty():
 		Audio.sfx("item")
+	news.append_array(Jobs.held_back(Game.data, _nation, Game.items, Game.dex))
 	_say.text = " ".join(news) if not news.is_empty() else _greeting()
 	_refresh()
 

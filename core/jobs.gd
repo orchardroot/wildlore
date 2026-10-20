@@ -353,9 +353,35 @@ static func progress_text(data: GameStateData, i: int, dex: Dex) -> String:
 	var kind := str(j.get("step", {}).get("type", ""))
 	if is_ready(data, i, dex):
 		return "Ready: hand in at any noticeboard in %s" % Standing.name_of(str(j.nation))
-	if kind in ["bring", "show"]:
+	if kind == "bring":
+		var st: Dictionary = j.get("step", {})
+		return "Have %d of %d" % [mini(Bag.new(data.bag).count(str(st.get("item", ""))), int(st.get("n", 1))), int(st.get("n", 1))]
+	if kind == "show":
 		return "Not yet"
 	return "%d / %d" % [int(s.get("n", 0)), int(s.get("need", 1))]
+
+## At a board in `nation`: why each held job didn't hand in, so the board can say so. "Tea for the planning meeting:
+## still needs a Flask of Tea." or "Bog census: done, hand it in at a board in England." Jobs that finish themselves
+## and aren't done yet say nothing (their progress is on the list).
+static func held_back(data: GameStateData, nation: String, items: ItemDB, dex: Dex) -> Array:
+	var out := []
+	for a in active(data):
+		var j: Dictionary = a[2]
+		var title := str(j.get("title", ""))
+		if is_ready(data, a[0], dex):
+			if str(j.get("nation", "")) != nation:
+				out.append("%s: done, hand it in at a board in %s." % [title, Standing.name_of(str(j.nation))])
+			continue
+		var st: Dictionary = j.get("step", {})
+		match str(st.get("type", "")):
+			"bring":
+				var n := int(st.get("n", 1))
+				var it := items.get_item(str(st.get("item", "")))
+				var nm := str(it.get("name", str(st.get("item", ""))))
+				out.append("%s: still needs %s." % [title, str(it.get("one", "a " + nm)) if n <= 1 else "%d %s" % [n, nm]])
+			"show":
+				out.append("%s: %s." % [title, step_text(j, slot(data, a[0]), items, dex).to_lower()])
+	return out
 
 ## One line for the pause menu's "Where next?" card: "Jobs in hand: 2 of 3, 1 ready to hand in", or "".
 static func summary(data: GameStateData, dex: Dex) -> String:
