@@ -1,0 +1,80 @@
+{
+ "sth_guide": [
+  {
+   "do": "say",
+   "who": "Napoleon Room Guide",
+   "text": "The Emperor arrived on HMS Northumberland in October 1815, and stayed at the Briars first, in a pavilion with a garden, and then at Longwood. He called the damp 'the climate of a swamp'. The British called it 'lodgings'."
+  },
+  {
+   "do": "say",
+   "who": "Napoleon Room Guide",
+   "text": "He died in 1821, aged fifty-one. The cause is still argued about: the autopsy said stomach cancer and a thousand books since have said otherwise."
+  }
+ ],
+ "sth_curator": [
+  {
+   "do": "if",
+   "flag": "q_overseas_st_helena_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Museum Curator",
+     "text": "Your notes about the island are in the visitors' book, and the Napoleon room has a new photograph of Jonathan. I put it up myself."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_overseas_st_helena_4",
+     "then": [
+      {
+       "do": "say",
+       "who": "Museum Curator",
+       "text": "You've seen all of it: the tomb, the tortoise and the wirebird. You're an honorary Saint. Here is a sprig of willow from Sane Valley, and a packet of the island's own coffee. Don't spend them on one cup."
+      },
+      {
+       "do": "give_item",
+       "item": "willow_sprig",
+       "n": 1
+      },
+      {
+       "do": "give_item",
+       "item": "st_helena_coffee",
+       "n": 1
+      },
+      {
+       "do": "set",
+       "flag": "q_overseas_st_helena_done",
+       "value": true
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_overseas_st_helena_started",
+       "then": [
+        {
+         "do": "say",
+         "who": "Museum Curator",
+         "text": "Three things first. Show a Wirefoot to the Warden up at Deadwood. Greet Jonathan on the lawn at Plantation House. And pay your respects at Napoleon's tomb in Sane Valley. Then come back and I'll make it official."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Museum Curator",
+         "text": "Welcome to the museum. People come to St Helena for Napoleon and stay for the tortoise. Would you like a real Saint's tour? Three places: the Wirebird Warden at Deadwood, Jonathan at Plantation House, and the tomb in Sane Valley."
+        },
+        {
+         "do": "set",
+         "flag": "q_overseas_st_helena_started",
+         "value": true
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

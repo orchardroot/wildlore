@@ -158,6 +158,8 @@ def return_npc(z, zid, x, y, sprite, who, text, line, facing="down", name=None, 
 
 
 def finish_zone(z):
+    for w in z.d["warps"]:
+        clear_prop(z, w["x"], w["y"] + 1)          # keep every doorstep clear of scattered scenery
     finish(z)
     check(z)
 

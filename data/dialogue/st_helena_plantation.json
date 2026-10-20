@@ -1,0 +1,172 @@
+{
+ "sth_jonathan": [
+  {
+   "do": "say",
+   "who": "Jonathan",
+   "text": "Jonathan raises his head, weighs you up with great seriousness, and goes back to the grass. He is about 190. He has seen everything and has chosen not to comment."
+  },
+  {
+   "do": "if",
+   "flag": "q_overseas_st_helena_started",
+   "then": [
+    {
+     "do": "set",
+     "flag": "q_overseas_st_helena_2",
+     "value": true
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "You have said hello to Jonathan. He has not said hello back, which is how he says it."
+    }
+   ]
+  }
+ ],
+ "sth_gardener": [
+  {
+   "do": "say",
+   "who": "Head Gardener",
+   "text": "Jonathan eats the lawn, and a fair number of cabbages, and the occasional hat. He's a hundred and ninety, near enough. He's lost his sense of smell and some of his sight, but he knows when it's lunch."
+  },
+  {
+   "do": "say",
+   "who": "Head Gardener",
+   "text": "We feed him a mix of lettuce, cucumber and bananas. He gets a sunny spot, and in the evenings he is brought in. The vet visits and says he is in great health for his age, which is not a lot of use as a figure."
+  }
+ ],
+ "sth_warden": [
+  {
+   "do": "if",
+   "flag": "q_overseas_st_helena_1",
+   "then": [
+    {
+     "do": "say",
+     "who": "Wirebird Warden",
+     "text": "Our wirebird is yours to remember. Keep to the paths."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_overseas_st_helena_started",
+     "then": [
+      {
+       "do": "when",
+       "cond": "has_wirefoot",
+       "then": [
+        {
+         "do": "say",
+         "who": "Wirebird Warden",
+         "text": "A Wirefoot! One of ours, and you've got it in your Fieldbook. The curator will be pleased. You're on the list of friends."
+        },
+        {
+         "do": "set",
+         "flag": "q_overseas_st_helena_1",
+         "value": true
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Wirebird Warden",
+         "text": "Not yet. Look in the long grass on Deadwood Plain. Quiet feet, quiet voice."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Wirebird Warden",
+       "text": "The wirebird runs, rather than flies, and the island has fewer than a thousand. Keep your dog on a lead and your steps on the path, and we've a chance."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "sth_consul": [
+  {
+   "do": "say",
+   "who": "Longwood Guide",
+   "text": "Longwood House has the rooms as Napoleon left them, as near as we can. The billiard room, the study, the bedroom where he died. The damp was terrible. The place was thought a miserable spot even in his day."
+  },
+  {
+   "do": "say",
+   "who": "Longwood Guide",
+   "text": "People ask if he was a prisoner. The island's records say so. The wallpaper says he was bored. Both are probably right."
+  }
+ ],
+ "sth_walker": [
+  {
+   "do": "say",
+   "who": "Hill Walker",
+   "text": "The Diana's Peak walk is the one. Up through the tree-fern forest, cool and green, past the endemic whitewood and the dogwood. Wear a coat. The cloud comes down suddenly."
+  },
+  {
+   "do": "say",
+   "who": "Hill Walker",
+   "text": "The tree ferns look like they walked out of a Jurassic picture book, and they've been here a lot longer than the Saints."
+  }
+ ],
+ "sth_mourner": [
+  {
+   "do": "if",
+   "flag": "q_overseas_st_helena_started",
+   "then": [
+    {
+     "do": "set",
+     "flag": "q_overseas_st_helena_3",
+     "value": true
+    }
+   ],
+   "else": []
+  },
+  {
+   "do": "say",
+   "who": "Mourner",
+   "text": "The grave is empty and the willows are not. A great many people come to stand here, and say nothing. It is the most peaceful place on the island, which is quite an achievement for a ruined Emperor."
+  }
+ ],
+ "sth_tomb": [],
+ "sth_legend_talk": [
+  {
+   "do": "if",
+   "flag": "q_overseas_st_helena_4_seen",
+   "then": [
+    {
+     "do": "say",
+     "who": "Consul Lucien",
+     "text": "You came back for more! Monsieur or Madame is welcome at Longwood any time."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Consul Lucien",
+     "text": "Bonjour. I am the French Honorary Consul, and I keep the keys. Our flag is the only one on the island that is not British, and I defend it. Come. A fight, in the French manner: with elegance, and a little arrogance."
+    },
+    {
+     "do": "battle",
+     "trainer": "sth_legend",
+     "intro": true
+    },
+    {
+     "do": "say",
+     "who": "Consul Lucien",
+     "text": "Bravo. You have the spirit of a marshal. Tell the curator the Consul says you may call yourself a Saint."
+    },
+    {
+     "do": "set",
+     "flag": "q_overseas_st_helena_4",
+     "value": true
+    },
+    {
+     "do": "set",
+     "flag": "q_overseas_st_helena_4_seen",
+     "value": true
+    }
+   ]
+  }
+ ]
+}

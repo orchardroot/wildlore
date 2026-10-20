@@ -1,0 +1,44 @@
+[
+ {
+  "id": "st_helena_fishcake",
+  "name": "St Helena Fishcake",
+  "kind": "heal",
+  "price": 380,
+  "battle": true,
+  "field": true,
+  "amount": 140,
+  "desc": "A flat, crisp-edged patty of tuna, potato and onion, pan-fried and served hot: the dish the Saints eat on every occasion, in at least a hundred slightly different versions. Restores 140 HP."
+ },
+ {
+  "id": "st_helena_coffee",
+  "name": "St Helena Coffee",
+  "kind": "meal",
+  "price": 600,
+  "battle": false,
+  "field": true,
+  "amount": 60,
+  "meal": {
+   "buff": "lure",
+   "steps": 60
+  },
+  "desc": "Green Tipped Bourbon Arabica, grown on the island's hills since the East India Company brought the first plants in 1733. A small harvest, picked and dried by hand. Restores 60 HP.",
+  "effect_text": "The smell carries: for 60 steps, wild creatures turn up more often."
+ },
+ {
+  "id": "willow_sprig",
+  "name": "Willow Sprig",
+  "kind": "charm",
+  "price": 0,
+  "battle": false,
+  "field": true,
+  "wild": false,
+  "desc": "A cutting from the willow trees that shade Napoleon's empty tomb in Sane Valley. Napoleon was buried here in 1821 and taken to Paris in 1840, and the willows stayed.",
+  "effect_text": "Spirit moves hurt it 25% less.",
+  "charm": {
+   "effect": "resist",
+   "type": "spirit",
+   "mult": 0.75
+  },
+  "msg": "{name} felt the calm of the willows!"
+ }
+]
