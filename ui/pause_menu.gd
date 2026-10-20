@@ -1,5 +1,5 @@
 extends MenuBase
-## Pause menu: Team, Fieldbook, Bag, Ark (once you've met a Sanctuary nurse), Map, Stats, Save, Settings and Close,
+## Pause menu: Team, Fieldbook, Bag, Ark (once you've met a Sanctuary nurse), Journal, Map, Stats, Save, Settings and Close,
 ## with the trainer card, the time and weather, and "Where next?" beside it.
 
 const ROW_GAP := 6
@@ -27,7 +27,7 @@ func _build() -> void:
 	var menu := VBoxContainer.new()
 	menu.add_theme_constant_override("separation", ROW_GAP)
 	left.add_child(menu)
-	var actions := {"Team": _open_team, "Fieldbook": _open_pedia, "Bag": _open_bag, "Ark": _open_ark, "Map": _open_map,
+	var actions := {"Team": _open_team, "Fieldbook": _open_pedia, "Bag": _open_bag, "Ark": _open_ark, "Journal": _open_journal, "Map": _open_map,
 		"Stats": _open_stats, "Save": _save, "Settings": _open_settings, "Close": func(): close(null)}
 	for nm in MenuLogic.pause_entries(MenuLogic.ark_unlocked(Game.data)):
 		var b := make_button(nm, actions[nm])
@@ -131,6 +131,9 @@ func _refresh_next() -> void:
 		var near := MenuLogic.around_here(d, town, Tournament.today(d))
 		if near != "":
 			UIKit.add_words(wb[1], "Around here: " + near, -2, UIKit.GOLD)
+		var quest := MenuLogic.quest_nearby(d, town)  # one quest under way nearby, if any
+		if quest != "":
+			UIKit.add_words(wb[1], quest, -2, Color("c9b3e0"))
 	var walk := TodaysWalk.summary(d, Game.dex)
 	if walk != "":
 		UIKit.add_words(wb[1], walk, -6, UIKit.MUTED)
@@ -172,6 +175,10 @@ func _open_bag() -> void:
 func _open_ark() -> void:
 	await open_child("ark")
 	_after_child("Ark")
+
+func _open_journal() -> void:
+	await open_child("quests")
+	_after_child("Journal")
 
 func _open_stats() -> void:
 	await open_child("stats")

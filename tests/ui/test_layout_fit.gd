@@ -13,8 +13,8 @@ func test_row_height_shares_the_panel_and_stays_in_bounds() -> void:
 		assert_true(h * n + 8 * (n - 1) <= 531, "%d rows fit" % n)
 
 func test_pause_entries_always_end_with_close() -> void:
-	assert_eq(MenuLogic.pause_entries(false), ["Team", "Fieldbook", "Bag", "Map", "Stats", "Save", "Settings", "Close"])
-	assert_eq(MenuLogic.pause_entries(true), ["Team", "Fieldbook", "Bag", "Ark", "Map", "Stats", "Save", "Settings", "Close"])
+	assert_eq(MenuLogic.pause_entries(false), ["Team", "Fieldbook", "Bag", "Journal", "Map", "Stats", "Save", "Settings", "Close"])
+	assert_eq(MenuLogic.pause_entries(true), ["Team", "Fieldbook", "Bag", "Ark", "Journal", "Map", "Stats", "Save", "Settings", "Close"])
 
 func test_fit_size_shrinks_long_text_only() -> void:
 	assert_eq(UIKit.fit_size("Spikkin", 300, 38, 24), 38)

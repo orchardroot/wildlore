@@ -1,0 +1,32 @@
+{
+ "quests": [
+  {
+   "id": "macclesfield_silk",
+   "title": "Hole Punch",
+   "region": "macclesfield",
+   "town": "macclesfield",
+   "giver": "The Curator",
+   "summary": "The Silk Museum's curator needs a Jacquard pattern card taken down to the weaver at Paradise Mill.",
+   "start_flag": "q_macclesfield_silk_started",
+   "steps": [
+    {
+     "flag": "q_macclesfield_silk_1",
+     "text": "Take the punched pattern card to the weaver at Paradise Mill, down by the river.",
+     "zone": "macc_paradise"
+    },
+    {
+     "flag": "plaque_macclesfield_paradise_mill",
+     "text": "Read the blue plaque on the front of Paradise Mill: when did its looms stop?",
+     "zone": "macclesfield"
+    },
+    {
+     "flag": "q_macclesfield_silk_3",
+     "text": "Tell the curator at the Silk Museum when Paradise Mill's looms stopped.",
+     "zone": "macc_silkmuseum"
+    }
+   ],
+   "done_flag": "q_macclesfield_silk_done",
+   "reward": "A Macclesfield Silk Square, a Bakewell Tart and a bit of standing in England."
+  }
+ ]
+}

@@ -1,19 +1,64 @@
 {
  "macc_paradise_0": [
   {
-   "do": "say",
-   "who": "Weaver",
-   "text": "Paradise Mill. Brick, windows and clatter. These handlooms were working right up until 1981."
-  },
-  {
-   "do": "say",
-   "who": "Weaver",
-   "text": "The Jacquard loom reads its pattern from a chain of punched cards. A hole means a thread lifts. It is a computer made of wood."
-  },
-  {
-   "do": "say",
-   "who": "Weaver",
-   "text": "A weaver on a very fine pattern might finish only a few inches in a day. Silk rewards patience, and punishes sneezing."
+   "do": "if",
+   "flag": "q_macclesfield_silk_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_macclesfield_silk_1",
+     "then": [
+      {
+       "do": "say",
+       "who": "Weaver",
+       "text": "Paradise Mill. Brick, windows and clatter. These handlooms were working right up until 1981."
+      },
+      {
+       "do": "say",
+       "who": "Weaver",
+       "text": "The Jacquard loom reads its pattern from a chain of punched cards. A hole means a thread lifts. It is a computer made of wood."
+      },
+      {
+       "do": "say",
+       "who": "Weaver",
+       "text": "A weaver on a very fine pattern might finish only a few inches in a day. Silk rewards patience, and punishes sneezing."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Weaver",
+       "text": "Is that a card from the Silk Museum? Give it here. Oh, that's a lovely pattern. Every hole's a thread lifting. Every gap's a thread staying put."
+      },
+      {
+       "do": "set",
+       "flag": "q_macclesfield_silk_1"
+      },
+      {
+       "do": "say",
+       "who": "Weaver",
+       "text": "Tell the curator thanks. And read the blue plaque on the front on your way out. She'll test you. She tests the postman."
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Weaver",
+     "text": "Paradise Mill. Brick, windows and clatter. These handlooms were working right up until 1981."
+    },
+    {
+     "do": "say",
+     "who": "Weaver",
+     "text": "The Jacquard loom reads its pattern from a chain of punched cards. A hole means a thread lifts. It is a computer made of wood."
+    },
+    {
+     "do": "say",
+     "who": "Weaver",
+     "text": "A weaver on a very fine pattern might finish only a few inches in a day. Silk rewards patience, and punishes sneezing."
+    }
+   ]
   }
  ]
 }

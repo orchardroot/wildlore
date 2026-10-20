@@ -22,6 +22,9 @@ func _build() -> void:
 	content.add_child(view)
 
 func setup(arg: String) -> void:
+	if arg.begins_with("quest:"):  # from the Journal: ring where the quest's current step is
+		_show_quest(arg.substr(6))
+		return
 	var species_mode := arg.begins_with("species:")
 	if species_mode:
 		var sp := Game.dex.get_species(arg.substr(8))
@@ -133,6 +136,31 @@ func _show_objective() -> void:
 	l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	p.add_child(l)
 	content.add_child(p)
+
+## The Journal's "Show on map": the current step's place ringed in gold, the map centred on it, the step below.
+func _show_quest(id: String) -> void:
+	var q := Quests.get_quest(id)
+	var step := Quests.current_step(Game.data, q)
+	set_title(str(q.get("title", "Quest")))
+	var idx := ZoneIndex.get_index()
+	var z := Quests.map_zone(str(step.get("zone", "")), idx)
+	var pos: Vector2 = idx.zones.get(z, {}).get("pos", Vector2(-1, -1))
+	view.objective = pos
+	if pos.x >= 0:
+		view.centre = pos
+	header_right.text = str(idx.zones.get(z, {}).get("name", ""))
+	var p := UIKit.panel(Color("1d2230e6"), 12)
+	p.set_anchors_preset(Control.PRESET_BOTTOM_WIDE)
+	p.offset_left = 16
+	p.offset_right = -16
+	p.offset_bottom = -12
+	p.grow_vertical = Control.GROW_DIRECTION_BEGIN
+	p.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	var l := UIKit.label(str(step.get("text", "")), 24)
+	l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	p.add_child(l)
+	content.add_child(p)
+	view.queue_redraw()
 
 ## Where an objective sits on the map: its "map" point, else its town or place; (-1, -1) if neither.
 static func objective_point(o: Dictionary) -> Vector2:

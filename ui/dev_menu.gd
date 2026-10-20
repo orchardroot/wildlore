@@ -108,6 +108,18 @@ static func boot(game: Node, menu: String) -> void:
 			Jobs.accept(d, id, "macclesfield")
 		Jobs.note_win(d, "macc_forest")
 		d.bag["blackberries"] = 4
+	if menu.begins_with("quests") or menu == "pause" or menu.begins_with("map:quest") or menu.begins_with("stats"):
+		# the Journal: the silk errand under way (card delivered) and a good few plaques read, all of Macclesfield's
+		d.set_flag("q_macclesfield_silk_started")
+		d.set_flag("q_macclesfield_silk_1")
+		d.set_flag("last_town", "macclesfield")
+		var n := 0
+		for p in Gazetteer.all():
+			if str(p.town) == "macclesfield" or n % 4 == 0:
+				d.set_flag(Gazetteer.flag_key(str(p.id)))
+			n += 1
+		for m in Gazetteer.MILESTONES.slice(0, 3):
+			d.set_flag(str(m.flag))
 	if "--stress" in DevArgs.user_args():  # dev: worst-case widths, a 12-letter name and nicknames and a full purse
 		stress(d)
 	if menu.begins_with("relearn"):

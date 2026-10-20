@@ -1,0 +1,34 @@
+{
+ "quests": [
+  {
+   "id": "testshire_kettle",
+   "title": "Put the Kettle On",
+   "region": "testshire",
+   "town": "macclesfield",
+   "giver": "Auntie Val",
+   "summary": "Auntie Val's kettle has given up. Fetch the bits to fix it.",
+   "start_flag": "q_testshire_kettle_started",
+   "steps": [
+    {"flag": "q_testshire_kettle_1", "text": "Ask the ironmonger at the Silk Museum for a fuse.", "zone": "macc_silkmuseum"},
+    {"flag": "q_testshire_kettle_2", "text": "Find a spare plug in Buxton.", "zone": "buxton"},
+    {"flag": "q_testshire_kettle_3", "text": "Take it all back to Auntie Val.", "zone": "macclesfield"}
+   ],
+   "done_flag": "q_testshire_kettle_done",
+   "reward": "A Flask of Tea and Auntie Val's undying gratitude."
+  },
+  {
+   "id": "testshire_hens",
+   "title": "Hen Night",
+   "region": "testshire",
+   "town": "buxton",
+   "giver": "Farmer Pat",
+   "summary": "Round up three escaped hens before the fox does.",
+   "start_flag": "q_testshire_hens_started",
+   "steps": [
+    {"flag": "q_testshire_hens_1", "text": "Find the hens on the old road over the moor.", "zone": "cat_and_fiddle"}
+   ],
+   "done_flag": "q_testshire_hens_done",
+   "reward": "Half a dozen eggs, eventually."
+  }
+ ]
+}
