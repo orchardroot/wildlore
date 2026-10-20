@@ -1,0 +1,27 @@
+{
+ "ship_landlord": [
+  {
+   "do": "say",
+   "who": "Landlady",
+   "text": "{greeting} The Ship Inn. Sir Francis Drake is said to have drunk here, and so did his cousin John Hawkins. Or so we've been saying for four hundred years."
+  },
+  {
+   "do": "say",
+   "who": "Landlady",
+   "text": "The story goes that Drake said, next to his own ship, he loved the Ship in Exeter best. Nobody's ever found where he wrote it. We've never stopped quoting it."
+  }
+ ],
+ "ship_quiz": [
+  {
+   "do": "say",
+   "who": "Quizmaster",
+   "text": "Pub quiz! West Country, history, and one about scones, because there's always one about scones."
+  },
+  {
+   "do": "quiz",
+   "pub": "exeter_ship",
+   "region": "england_south",
+   "who": "Quizmaster"
+  }
+ ]
+}

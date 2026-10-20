@@ -1,0 +1,105 @@
+{
+ "id": "plymouth_aquarium",
+ "name": "National Marine Aquarium",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "bench",
+   "x": 7,
+   "y": 4
+  },
+  {
+   "type": "bench",
+   "x": 9,
+   "y": 4
+  },
+  {
+   "type": "display_case",
+   "x": 6,
+   "y": 1,
+   "variant": 2
+  },
+  {
+   "type": "display_case",
+   "x": 10,
+   "y": 1,
+   "variant": 1
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 8
+  },
+  {
+   "type": "potted_plant",
+   "x": 15,
+   "y": 8
+  },
+  {
+   "type": "wall_map",
+   "x": 8,
+   "y": 1,
+   "walk": true
+  }
+ ],
+ "warps": [
+  {
+   "x": 8,
+   "y": 9,
+   "to": "plymouth",
+   "tx": 63,
+   "ty": 29,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "aq_guide",
+   "sprite": "tour_guide",
+   "x": 5,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "aq_guide",
+   "name": "Aquarium Guide"
+  },
+  {
+   "id": "ply_aquarist",
+   "sprite": "angler",
+   "x": 12,
+   "y": 7,
+   "facing": "left",
+   "move": "still",
+   "trainer": "ply_aquarist"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  8,
+  8
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxxxxx",
+  "x~~~~|||||||~~~~x",
+  "x~~~~|||||||~~~~x",
+  "x|||||||||||||||x",
+  "x|||||||||||||||x",
+  "x~~~|||||||||~~~x",
+  "x~~~|||||||||~~~x",
+  "x|||||||||||||||x",
+  "x|||||||||||||||x",
+  "x|||||||D|||||||x",
+  "xxxxxxxxxxxxxxxxx"
+ ],
+ "legend_extra": {
+  "~": {
+   "tile": "water",
+   "colour": "#2d6f8f"
+  }
+ }
+}

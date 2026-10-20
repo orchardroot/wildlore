@@ -1,0 +1,100 @@
+{
+ "id": "exeter_library",
+ "name": "Cathedral Library",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "bookshelf",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 2,
+   "y": 1,
+   "variant": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 8,
+   "y": 1,
+   "variant": 2
+  },
+  {
+   "type": "bookshelf",
+   "x": 9,
+   "y": 1
+  },
+  {
+   "type": "display_case",
+   "x": 5,
+   "y": 2,
+   "variant": 1
+  },
+  {
+   "type": "table",
+   "x": 2,
+   "y": 4
+  },
+  {
+   "type": "table",
+   "x": 8,
+   "y": 4
+  },
+  {
+   "type": "clock",
+   "x": 4,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "plant_stand",
+   "x": 1,
+   "y": 6,
+   "variant": 1
+  }
+ ],
+ "warps": [
+  {
+   "x": 5,
+   "y": 7,
+   "to": "exeter",
+   "tx": 51,
+   "ty": 29,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "lib_riddler",
+   "sprite": "poet",
+   "x": 6,
+   "y": 4,
+   "facing": "left",
+   "move": "still",
+   "script": "lib_riddler",
+   "name": "Librarian"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  5,
+  6
+ ],
+ "rows": [
+  "xxxxxxxxxxx",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x||||D||||x",
+  "xxxxxxxxxxx"
+ ]
+}

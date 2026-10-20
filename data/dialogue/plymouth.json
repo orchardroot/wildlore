@@ -1,0 +1,507 @@
+{
+ "rail_guard": [
+  {
+   "do": "say",
+   "who": "Rail Guard",
+   "text": "Plymouth! Change here for Cornwall, the Navy, and a view of the Sound if you lean out of the window, which you must not."
+  },
+  {
+   "do": "say",
+   "who": "Rail Guard",
+   "text": "Brunel's bridge over the Tamar is just up the line. Opened 1859, still carrying trains. Hop on, my lover."
+  },
+  {
+   "do": "rail"
+  }
+ ],
+ "ply_drake": [
+  {
+   "do": "if",
+   "flag": "q_devon_armada_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "'Sir Francis'",
+     "text": "{greeting} If you hear a drum out in the Sound one night, it's either Drake or the Navy band practising. Either way, very patriotic."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_devon_armada_4",
+     "then": [
+      {
+       "do": "say",
+       "who": "'Sir Francis'",
+       "text": "The game finished, the beacons lit, Exeter warned. They'd have had the news inland by morning, fire to fire, hill to hill."
+      },
+      {
+       "do": "say",
+       "who": "'Sir Francis'",
+       "text": "Here. This is a copy of Drake's Drum. They say he took the real one round the world, and that if England's ever in danger, you beat it and he'll come back up the Sound."
+      },
+      {
+       "do": "give_item",
+       "item": "drakes_drum"
+      },
+      {
+       "do": "say",
+       "who": "'Sir Francis'",
+       "text": "And this little one turned up in the Hoe beacon's ashes, warming its toes. It's taken a shine to you."
+      },
+      {
+       "do": "give_creature",
+       "species": "beaconet",
+       "level": 40
+      },
+      {
+       "do": "standing",
+       "nation": "england",
+       "amount": 3
+      },
+      {
+       "do": "set",
+       "flag": "q_devon_armada_done"
+      },
+      {
+       "do": "say",
+       "who": "'Sir Francis'",
+       "text": "Now, the tide's on the turn. Time to beat the Spaniards. Or have a cream tea. Same thing, really."
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_devon_armada_1",
+       "then": [
+        {
+         "do": "say",
+         "who": "'Sir Francis'",
+         "text": "Game won! Now the beacon. The Beacon Warden's up by the Armada Memorial with the matches. Light it, then carry the word up to Haldon Hill and on to Exeter."
+        }
+       ],
+       "else": [
+        {
+         "do": "if",
+         "flag": "q_devon_armada_started",
+         "then": [
+          {
+           "do": "say",
+           "who": "'Sir Francis'",
+           "text": "The Bowls Captain's waiting on the green. Roll that wood gently, it's got bias."
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "'Sir Francis'",
+           "text": "{greeting} Sir Francis Drake, at your service. Well, Derek, at your service, but I do the voice at weekends."
+          },
+          {
+           "do": "say",
+           "who": "'Sir Francis'",
+           "text": "Summer of 1588. A ship comes in: the Spanish Armada's off the Lizard! And Drake says: there's time to finish the game, and beat the Spaniards after."
+          },
+          {
+           "do": "say",
+           "who": "'Sir Francis'",
+           "text": "Truth is, the tide was running in and the wind was against them. He couldn't have got the fleet out of the Sound till the evening if he'd tried. So he bowled."
+          },
+          {
+           "do": "say",
+           "who": "'Sir Francis'",
+           "text": "I'm re-enacting it for the visitors and my opponent's very good. Too good. Finish the game for me? Then we light the beacons and send the warning up the country, like they did."
+          },
+          {
+           "do": "choice",
+           "text": "Finish Drake's game of bowls?",
+           "options": [
+            "Roll up",
+            "Not now"
+           ],
+           "set": "_ply_drake_choice"
+          },
+          {
+           "do": "if",
+           "flag": "_ply_drake_choice",
+           "then": [
+            {
+             "do": "set",
+             "flag": "q_devon_armada_started"
+            },
+            {
+             "do": "say",
+             "who": "'Sir Francis'",
+             "text": "Champion! The Bowls Captain's on the green with the woods. Mind the jack, it's older than you."
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "'Sir Francis'",
+             "text": "No hurry. The Armada's been coming for four hundred years, it'll keep."
+            }
+           ],
+           "eq": 0
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "ply_bowls": [
+  {
+   "do": "if",
+   "flag": "q_devon_armada_1",
+   "then": [
+    {
+     "do": "say",
+     "who": "Bowls Captain",
+     "text": "A fine game. Bowls is the second oldest thing on the Hoe, after the arguments about it."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_devon_armada_started",
+     "then": [
+      {
+       "do": "say",
+       "who": "Bowls Captain",
+       "text": "So, you're finishing Drake's game? Right. A wood has a bias, it curls in as it slows. Like my temper. Let's see you draw to the jack."
+      },
+      {
+       "do": "battle",
+       "trainer": "ply_bowls"
+      },
+      {
+       "do": "if",
+       "flag": "trainer_ply_bowls",
+       "then": [
+        {
+         "do": "set",
+         "flag": "q_devon_armada_1"
+        },
+        {
+         "do": "say",
+         "who": "Bowls Captain",
+         "text": "Touched the jack! Off you go, then. The Armada won't beat itself."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Bowls Captain",
+       "text": "Lawn bowls on Plymouth Hoe. There's been a green up here since before Drake. Mind your feet on the grass, it's been rolled flatter than my pastry."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "ply_beacon": [
+  {
+   "do": "if",
+   "flag": "q_devon_armada_2",
+   "then": [
+    {
+     "do": "say",
+     "who": "Beacon Warden",
+     "text": "She's burning lovely. On a clear night they'd have seen this from Rame Head, Staddon Heights, and up on the edge of Dartmoor."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_devon_armada_1",
+     "then": [
+      {
+       "do": "say",
+       "who": "Beacon Warden",
+       "text": "Bowls finished? Then it's time. In 1588 there were watchmen at beacons all along the coast, with orders to light up the moment they saw the fleet."
+      },
+      {
+       "do": "sfx",
+       "id": "item"
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "You touch the torch to the pitch and tar in the iron basket. It catches with a roar and a great gout of smoke rolls over the Sound."
+      },
+      {
+       "do": "set",
+       "flag": "q_devon_armada_2"
+      },
+      {
+       "do": "say",
+       "who": "Beacon Warden",
+       "text": "There she goes! Now the next fire. Haldon Hill, east, past Dartmoor on the way to Exeter. Off you go, quick as you like."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Beacon Warden",
+       "text": "This is the Hoe beacon. We light it for coronations, jubilees and anniversaries. Last time, a gull tried to sit in it. Once."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "ply_historian": [
+  {
+   "do": "if",
+   "flag": "q_devon_mayflower_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Barbican Historian",
+     "text": "The display's up by the Steps now, with your notes in it. People read it while eating ice creams, which is the highest honour in Plymouth."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_devon_mayflower_3",
+     "then": [
+      {
+       "do": "say",
+       "who": "Barbican Historian",
+       "text": "Life in a merchant's house, the last night ashore, and the leaky Speedwell. That's the story, all right."
+      },
+      {
+       "do": "say",
+       "who": "Barbican Historian",
+       "text": "They sailed on the sixth of September 1620. Sixty-six days at sea. A young man died on the way and a baby was born, named Oceanus. You'd remember that name."
+      },
+      {
+       "do": "say",
+       "who": "Barbican Historian",
+       "text": "Here, for your trouble: some bits from the beach and a flask for the road."
+      },
+      {
+       "do": "give_item",
+       "item": "sea_glass",
+       "n": 2
+      },
+      {
+       "do": "give_item",
+       "item": "flask_of_tea",
+       "n": 3
+      },
+      {
+       "do": "standing",
+       "nation": "england",
+       "amount": 2
+      },
+      {
+       "do": "set",
+       "flag": "q_devon_mayflower_done"
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_devon_mayflower_started",
+       "then": [
+        {
+         "do": "say",
+         "who": "Barbican Historian",
+         "text": "Three things for the display: the Elizabethan House on New Street, the distillery on Southside Street, and the Old Salt on the quay. Take your time; they've been waiting four hundred years."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Barbican Historian",
+         "text": "{greeting} You're stood at the Mayflower Steps. In 1620 about a hundred people sailed from here for America. Families, mostly. Some for their faith, some for a fresh start."
+        },
+        {
+         "do": "say",
+         "who": "Barbican Historian",
+         "text": "I'm making a new display for the visitors. Would you gather the story for me? Three stops round the Barbican."
+        },
+        {
+         "do": "choice",
+         "text": "Help with the Mayflower display?",
+         "options": [
+          "Of course",
+          "Not today"
+         ],
+         "set": "_ply_mf_choice"
+        },
+        {
+         "do": "if",
+         "flag": "_ply_mf_choice",
+         "then": [
+          {
+           "do": "set",
+           "flag": "q_devon_mayflower_started"
+          },
+          {
+           "do": "say",
+           "who": "Barbican Historian",
+           "text": "Lovely. Start at the Elizabethan House on New Street, then the gin distillery, then have a word with the Old Salt on the quay."
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Barbican Historian",
+           "text": "Fair enough. The Steps aren't going anywhere. They're steps."
+          }
+         ],
+         "eq": 0
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "ply_oldsalt": [
+  {
+   "do": "if",
+   "flag": "q_devon_mayflower_3",
+   "then": [
+    {
+     "do": "say",
+     "who": "Old Salt",
+     "text": "Sixty-six days, and the Speedwell sold off for scrap. The Speedwell went back to London in disgrace. Never trust a ship called Speedwell. It's tempting fate."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_devon_mayflower_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "Old Salt",
+       "text": "The Mayflower didn't set out from here, you know. She sailed from Southampton with the Speedwell for company."
+      },
+      {
+       "do": "say",
+       "who": "Old Salt",
+       "text": "The Speedwell leaked like a basket. They put into Dartmouth to mend her, set off again, and she leaked again. So they came in here, to Plymouth, and left her behind."
+      },
+      {
+       "do": "say",
+       "who": "Old Salt",
+       "text": "Crammed everybody on to the Mayflower and went alone. Late in the year, mind. Autumn gales all the way. Brave, or daft. Usually both."
+      },
+      {
+       "do": "set",
+       "flag": "q_devon_mayflower_3"
+      },
+      {
+       "do": "say",
+       "who": "Old Salt",
+       "text": "Go tell the historian. And tell her the Speedwell was a disgrace. She'll know what I mean."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Old Salt",
+       "text": "Been on the water fifty years. Plymouth Sound is the best natural harbour in the world. I've seen two others and they didn't compare."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "ply_janner": [
+  {
+   "do": "say",
+   "who": "Janner Nan",
+   "text": "{greeting} You're not from round yer, are you? Plymouth folk are Janners. Nobody agrees why. I say it's because we're lovely."
+  },
+  {
+   "do": "say",
+   "who": "Janner Nan",
+   "text": "If someone says they'll do it 'dreckly', that means some time, possibly never. 'Proper job' means well done. And 'where's it to?' means where is it. You'll pick it up, my 'ansum."
+  }
+ ],
+ "ply_matey": [
+  {
+   "do": "say",
+   "who": "Dockyard Matey",
+   "text": "Devonport. The Navy's been building and mending ships here since 1691. There's submarines in there now, though I couldn't possibly comment."
+  },
+  {
+   "do": "say",
+   "who": "Dockyard Matey",
+   "text": "Captain Scott was born just up the road, the one who went to the South Pole. And Darwin sailed on the Beagle from Plymouth Sound in 1831. Busy old Sound."
+  }
+ ],
+ "ply_swimmer": [
+  {
+   "do": "say",
+   "who": "Lido Swimmer",
+   "text": "Tinside! Seawater pool, built in 1935, and all those lovely Art Deco curves. Bracing is the word. Blue is the colour."
+  },
+  {
+   "do": "say",
+   "who": "Lido Swimmer",
+   "text": "On a good day you see seals off the Hoe, and once a whole pod of dolphins came right past the Breakwater. I screamed. They didn't seem to mind."
+  }
+ ],
+ "ply_gull": [
+  {
+   "do": "say",
+   "who": "Herring Gull",
+   "text": "Kyow! Kyow-kyow!"
+  },
+  {
+   "do": "say",
+   "who": "",
+   "text": "It looks pointedly at your bag, then at the pasty shop, then back at you. The message is clear."
+  }
+ ],
+ "ply_scott": [
+  {
+   "do": "say",
+   "who": "Student",
+   "text": "I'm at the university here, studying marine biology. Plymouth's had a marine laboratory since 1888. Half my lectures are about plankton and I've never been happier."
+  },
+  {
+   "do": "say",
+   "who": "Student",
+   "text": "Did you know Plymouth Sound and the estuaries round it are a special area of conservation? Seagrass, sea fans, the lot. It's a jungle down there. A wet one."
+  }
+ ],
+ "ply_blitz": [
+  {
+   "do": "say",
+   "who": "Old Plymothian",
+   "text": "My mum remembered the Blitz. Spring 1941, night after night. The whole middle of the city burned."
+  },
+  {
+   "do": "say",
+   "who": "Old Plymothian",
+   "text": "Charles Church was gutted and they left the shell standing as a memorial. And they say on the Hoe the people came up and danced, to show they weren't beaten. That's Plymouth for you."
+  }
+ ],
+ "ply_yardworker": [
+  {
+   "do": "say",
+   "who": "Yard Guide",
+   "text": "Royal William Yard. Everything the Navy ate and drank came through here: biscuit from the bakery, beer from the brewery, salt beef from the slaughterhouse."
+  },
+  {
+   "do": "say",
+   "who": "Yard Guide",
+   "text": "Over the gate there's a statue of King William IV. A whole yard of beautiful limestone and he's the one everybody photographs. Typical."
+  }
+ ]
+}

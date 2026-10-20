@@ -16,7 +16,8 @@ const IRON := Color("3c4450")
 const GLASS := Color.WHITE
 
 ## Building styles handled here rather than by the generic house in Meshes.building.
-const SPECIAL := ["glass_tower", "gantry_crane", "cantilever_crane", "titanic", "mill", "castle", "cathedral", "liver_building", "station", "aqueduct", "chapel", "terrace", "tudor", "slate_cottage", "lighthouse_house", "round_tower", "passage_tomb", "field_barn"]
+const SPECIAL := ["glass_tower", "gantry_crane", "cantilever_crane", "titanic", "mill", "castle", "cathedral", "liver_building", "station", "aqueduct", "chapel", "terrace", "tudor", "slate_cottage", "lighthouse_house", "round_tower", "passage_tomb", "field_barn",
+	"smeaton_tower", "exeter_cathedral", "city_wall", "cob_thatch", "football_ground", "aquarium", "mayflower_steps"]
 
 ## Doors: where each style's door sits on its tile (see _door and friends), for the swing as you go in.
 ## {x, w, y, h, z}: left edge and width across the door column, bottom and height, z of the door's face from
@@ -115,6 +116,20 @@ static func building(w: int, d: int, style: String, door_x: int, seed_value: int
 			_passage_tomb(st, w, d, door_x)
 		"field_barn":
 			_field_barn(st, w, d, rng)
+		"smeaton_tower":
+			_smeaton_tower(st, wst, w, d, door_x)
+		"exeter_cathedral":
+			_exeter_cathedral(st, wst, w, d, door_x)
+		"city_wall":
+			_city_wall(st, w, d, rng)
+		"cob_thatch":
+			_cob_thatch(st, wst, w, d, door_x, rng)
+		"football_ground":
+			_football_ground(st, wst, w, d, door_x)
+		"aquarium":
+			_aquarium(st, wst, w, d, door_x)
+		"mayflower_steps":
+			_mayflower_steps(st, w, d)
 		"liver_building":
 			_liver(st, wst, w, d, door_x)
 		"station":
@@ -1041,3 +1056,209 @@ static func harp() -> ArrayMesh:
 	for i in 5:
 		Meshes.box(st, Vector3(-0.15 + i * 0.08, 0.12, -0.01), Vector3(0.012, 1.08 - i * 0.12, 0.012), Color("f2e2a0"))
 	return Meshes._finish(st)
+
+# --- Devon -----------------------------------------------------------------------
+
+const BEER_STONE := Color("d3c9ad")   # the creamy limestone Exeter Cathedral is built of
+const HEAVITREE := Color("94483a")    # Exeter's dark red breccia and sandstone, in the city wall
+const COB := Color("eadfc4")          # limewashed cob, the Devon mud-and-straw wall
+const THATCH := Color("a8884e")
+
+## Smeaton's Tower: the 1759 Eddystone lighthouse, taken down and rebuilt on Plymouth Hoe in 1882. A curved granite
+## tower painted in red and white bands (each band tapers, so the stack curves in), a gallery, a glazed lantern
+## and a red cupola. It stands in the middle of its plot on a granite stump, with a little porch to the door.
+static func _smeaton_tower(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int) -> void:
+	var red := Color("c23a2e")
+	var white := Color("f1ece0")
+	var granite := Color("a9a59a")
+	var cx := w * 0.5
+	var cz := d * 0.5 - 0.15
+	Meshes.cylinder(st, Vector3(cx, 0, cz), minf(w, d) * 0.5, 0.35, 14, granite)
+	var r := minf(w, d) * 0.42
+	var y := 0.35
+	for i in 7:
+		var h := 0.72
+		Meshes.cylinder(st, Vector3(cx, y, cz), r, h, 14, red if i % 2 == 0 else white)
+		r *= 0.88
+		y += h
+	# the gallery: a dark ledge and a railing ring, then the lantern (lit at night) and its cupola
+	Meshes.cylinder(st, Vector3(cx, y, cz), r * 1.45, 0.1, 14, Color("2b2b2e"))
+	for i in 10:
+		var a := TAU * i / 10.0
+		Meshes.box(st, Vector3(cx + cos(a) * r * 1.35 - 0.02, y + 0.1, cz + sin(a) * r * 1.35 - 0.02), Vector3(0.04, 0.3, 0.04), Color("2b2b2e"))
+	Meshes.cylinder(st, Vector3(cx, y + 0.1, cz), r * 0.95, 0.12, 14, Color("2b2b2e"))
+	Meshes.cylinder(wst, Vector3(cx, y + 0.22, cz), r * 0.85, 0.55, 10, Color(1.0, 0.95, 0.75, 1.0))
+	Meshes.cylinder(st, Vector3(cx, y + 0.77, cz), r * 0.95, 0.08, 10, red.darkened(0.2))
+	Meshes.cone(st, Vector3(cx, y + 0.85, cz), r * 0.85, 0.5, 10, red, Meshes._rng(1759))
+	Meshes.box(st, Vector3(cx - 0.03, y + 1.3, cz - 0.03), Vector3(0.06, 0.22, 0.06), Color("c9a441"))
+	# small windows up the south face
+	var r0 := minf(w, d) * 0.42
+	for k in 3:
+		var band := 1 + k * 2
+		_window(st, wst, cx - 0.12, 0.35 + band * 0.72 + 0.15, cz + r0 * pow(0.88, band) * 0.93 + 0.04, 0.24, 0.32, white)
+	if door_x >= 0:
+		Meshes.box(st, Vector3(door_x + 0.1, 0, cz), Vector3(0.8, 1.25, d - cz), granite.lightened(0.05))
+		_door(st, door_x, d, granite)
+
+## Exeter Cathedral: a long Gothic nave in pale Beer stone under a grey lead roof, with flying buttresses and tall
+## traceried windows, and its two great square Norman towers standing out of the transepts, one in front of the
+## nave and one behind, each with corner turrets. The west front's image screen of carved figures is at the left end.
+static func _exeter_cathedral(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int) -> void:
+	var stone := BEER_STONE
+	var lead := Color("6d7278")
+	var nave_h := 2.7
+	var z0 := 1.0
+	var z1 := d - 1.0
+	Meshes.box(st, Vector3(0.6, 0, z0), Vector3(w - 0.9, nave_h, z1 - z0), stone)
+	_roof_at(st, 0.6, w - 0.3, z0, z1, nave_h, 1.0, lead, stone)
+	# aisles: lower lean-tos either side of the nave
+	Meshes.box(st, Vector3(0.6, 0, z1), Vector3(w - 0.9, 1.5, 0.75), stone.darkened(0.04))
+	Meshes.box(st, Vector3(0.6, 0, z0 - 0.75), Vector3(w - 0.9, 1.5, 0.75), stone.darkened(0.06))
+	# the west front (left end): a gable with the image screen of saints and kings across its foot
+	Meshes.box(st, Vector3(0.2, 0, z0 - 0.75), Vector3(0.5, nave_h + 0.4, z1 - z0 + 1.5), stone.lightened(0.04))
+	for row in 2:
+		for k in 7:
+			Meshes.box(st, Vector3(0.12, 0.35 + row * 0.5, z0 - 0.6 + k * (z1 - z0 + 1.2) / 7.0), Vector3(0.1, 0.3, 0.14), stone.darkened(0.25))
+	# flying buttresses and tall pointed windows along the south side
+	var tx := int(w * 0.55)
+	for x in range(1, w - 1):
+		if absi(x - tx) <= 1 or x == door_x:
+			continue
+		Meshes.box(st, Vector3(x + 0.85, 0, z1 + 0.6), Vector3(0.18, 1.9, 0.3), stone.darkened(0.08))
+		Meshes.box(st, Vector3(x + 0.85, 1.9, z1 + 0.1), Vector3(0.18, 0.15, 0.7), stone.darkened(0.08))
+		_window(st, wst, x + 0.3, 1.65, z1 + 0.02, 0.4, 0.95, stone.lightened(0.15))
+		_window(st, wst, x + 0.32, 0.35, z1 + 0.77, 0.36, 0.8, stone.lightened(0.15))
+	# the twin Norman towers: square, banded with blind arcading, corner turrets with little lead caps
+	for front in [false, true]:
+		var tw := 2.2
+		var th := 5.0
+		var t0 := Vector3(tx - 0.6, 0, z1 - 0.2 if front else 0.0)
+		var depth := (d - t0.z) if front else z0 + 0.4
+		Meshes.box(st, t0, Vector3(tw, th, depth), stone.darkened(0.02))
+		for b in 3:
+			var by := 1.6 + b * 1.05
+			Meshes.box(st, Vector3(t0.x - 0.03, by, t0.z - 0.03), Vector3(tw + 0.06, 0.08, depth + 0.06), stone.darkened(0.18))
+			for k in 4:
+				Meshes.box(st, Vector3(t0.x + 0.22 + k * 0.48, by + 0.15, t0.z + depth + 0.01), Vector3(0.22, 0.6, 0.03), stone.darkened(0.3))
+		_merlons(st, t0.x, t0.x + tw, t0.z + depth - 0.25, th, stone, true)
+		for c in [Vector2(t0.x, t0.z), Vector2(t0.x + tw - 0.35, t0.z), Vector2(t0.x, t0.z + depth - 0.35), Vector2(t0.x + tw - 0.35, t0.z + depth - 0.35)]:
+			Meshes.box(st, Vector3(c.x, th, c.y), Vector3(0.35, 0.55, 0.35), stone.lightened(0.05))
+			Meshes.cone(st, Vector3(c.x + 0.175, th + 0.55, c.y + 0.175), 0.24, 0.45, 4, lead, Meshes._rng(1133))
+		_window(st, wst, t0.x + tw * 0.5 - 0.22, 3.9, t0.z + depth, 0.44, 0.55, stone.lightened(0.15))
+	if door_x >= 0:
+		Meshes.box(st, Vector3(door_x + 0.05, 0, z1 + 0.6), Vector3(0.9, 1.35, d - z1 - 0.6), stone.lightened(0.06))
+		_door(st, door_x, d, stone, 1.0)
+
+## A run of Exeter's city wall: the Romans built it, and Saxons, Normans and everyone since have patched it; most of
+## it still stands. Dark red stone, a broader foot, crenellations along the top. No door.
+static func _city_wall(st: SurfaceTool, w: int, d: int, rng: RandomNumberGenerator) -> void:
+	var h := 1.7
+	var along_x := w >= d
+	var length := w if along_x else d
+	for i in length:
+		var c := HEAVITREE.lightened(rng.randf_range(-0.06, 0.06))
+		if along_x:
+			Meshes.box(st, Vector3(i, 0, d * 0.5 - 0.42), Vector3(1.0, 0.5, 0.84), c.darkened(0.1))
+			Meshes.box(st, Vector3(i, 0.5, d * 0.5 - 0.34), Vector3(1.0, h - 0.5, 0.68), c)
+			Meshes.box(st, Vector3(i + 0.1, h, d * 0.5 - 0.34), Vector3(0.38, 0.32, 0.68), c.lightened(0.05))
+			Meshes.box(st, Vector3(i + 0.62, h, d * 0.5 - 0.34), Vector3(0.28, 0.2, 0.68), c.lightened(0.05))
+		else:
+			Meshes.box(st, Vector3(w * 0.5 - 0.42, 0, i), Vector3(0.84, 0.5, 1.0), c.darkened(0.1))
+			Meshes.box(st, Vector3(w * 0.5 - 0.34, 0.5, i), Vector3(0.68, h - 0.5, 1.0), c)
+			Meshes.box(st, Vector3(w * 0.5 - 0.34, h, i + 0.1), Vector3(0.68, 0.32, 0.38), c.lightened(0.05))
+			Meshes.box(st, Vector3(w * 0.5 - 0.34, h, i + 0.62), Vector3(0.68, 0.2, 0.28), c.lightened(0.05))
+
+## A Devon cob cottage: thick limewashed walls of mud and straw on a stone plinth, small deep-set windows and a
+## heavy thatch with deep eaves, an eyebrow over the upstairs window and a block-cut ridge. A big stack at one end.
+static func _cob_thatch(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int, rng: RandomNumberGenerator) -> void:
+	var wall := COB.darkened(rng.randf_range(0.0, 0.06))
+	var h := 1.55
+	Meshes.box(st, Vector3(0.1, 0, 0.1), Vector3(w - 0.2, h, d - 0.2), wall)
+	Meshes.box(st, Vector3(0.05, 0, 0.05), Vector3(w - 0.1, 0.25, d - 0.1), Color("6d6a62"))  # cob wants "a good hat and good boots"
+	for c in [0.02, w - 0.2]:
+		Meshes.box(st, Vector3(c, 0.25, d - 0.22), Vector3(0.18, h - 0.3, 0.14), wall.lightened(0.04))
+	# thatch: deep eaves, steep, then a thicker block-cut ridge
+	var eave := 0.38
+	var rise := minf(1.7, d * 0.62)
+	var a := Vector3(-eave, h - 0.15, -eave)
+	var b := Vector3(w + eave, h - 0.15, -eave)
+	var c2 := Vector3(w + eave, h - 0.15, d + eave)
+	var dd := Vector3(-eave, h - 0.15, d + eave)
+	var r0 := Vector3(-eave * 0.4, h + rise, d * 0.5)
+	var r1 := Vector3(w + eave * 0.4, h + rise, d * 0.5)
+	Meshes._quad(st, r0, r1, c2, dd, THATCH)
+	Meshes._quad(st, r1, r0, a, b, THATCH.darkened(0.15))
+	Meshes._tri(st, r0, dd, a, THATCH.darkened(0.08))
+	Meshes._tri(st, r1, b, c2, THATCH.darkened(0.1))
+	Meshes._quad(st, dd, c2, b, a, THATCH.darkened(0.45))
+	Meshes.box(st, Vector3(-eave * 0.3, h + rise - 0.12, d * 0.5 - 0.22), Vector3(w + eave * 0.6, 0.2, 0.44), THATCH.darkened(0.2))
+	var stack_x := w - 0.75 if rng.randf() < 0.5 else 0.3
+	Meshes.box(st, Vector3(stack_x, h, d * 0.5 - 0.25), Vector3(0.45, rise + 0.5, 0.5), Color("8c8478"))
+	_chimneys.append(Vector3(stack_x + 0.22, h + rise + 0.55, d * 0.5))
+	for x in w:
+		if x != door_x:
+			_window(st, wst, x + 0.3, 0.55, d - 0.06, 0.4, 0.45, Color("f4efe2"))
+	# an eyebrow dormer in the thatch over the middle
+	var ex := w * 0.5 - 0.3
+	var ez := d + eave - (h + 0.4 - (h - 0.15)) * (d * 0.5 + eave) / (rise + 0.15) - 0.05
+	Meshes.box(st, Vector3(ex - 0.1, h + 0.05, ez - 0.45), Vector3(0.8, 0.38, 0.45), THATCH.lightened(0.05))
+	_window(st, wst, ex + 0.08, h + 0.1, ez + 0.02, 0.44, 0.24, Color("f4efe2"))
+	if door_x >= 0:
+		Meshes.box(st, Vector3(door_x + 0.1, 1.08, d - 0.1), Vector3(0.8, 0.06, 0.3), THATCH.darkened(0.1))  # a little porch hood
+		_door(st, door_x, d, wall)
+
+## A football ground seen from the street: a big grey stand with green cladding, a cantilever roof, the club's name
+## board and floodlight pylons at the back corners. (Home Park, Plymouth Argyle: the Pilgrims, in green.)
+static func _football_ground(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int) -> void:
+	var grey := Color("9aa0a3")
+	var green := Color("1f6a3e")
+	var h := 2.3
+	Meshes.box(st, Vector3(0.05, 0, 0.3), Vector3(w - 0.1, h, d - 0.35), grey)
+	for k in 3:
+		Meshes.box(st, Vector3(0.0, 0.5 + k * 0.6, d - 0.06), Vector3(w, 0.32, 0.04), green)
+	Meshes.box(st, Vector3(-0.1, h, 0.1), Vector3(w + 0.2, 0.12, d), Color("d9dcdc"))
+	Meshes.box(st, Vector3(w * 0.5 - 1.2, h - 0.5, d - 0.03), Vector3(2.4, 0.4, 0.04), Color("f2f2ee"))
+	for x in w:
+		if x != door_x:
+			Meshes.box(wst, Vector3(x + 0.2, 0.22, d - 0.02), Vector3(0.6, 0.18, 0.04), window_colour(_wr))
+	for c in [Vector2(0.2, 0.2), Vector2(w - 0.2, 0.2)]:
+		Meshes.box(st, Vector3(c.x - 0.06, 0, c.y - 0.06), Vector3(0.12, h + 2.6, 0.12), Color("5a6066"))
+		Meshes.box(st, Vector3(c.x - 0.35, h + 2.6, c.y - 0.1), Vector3(0.7, 0.4, 0.2), Color("3a3f44"))
+		Meshes.box(wst, Vector3(c.x - 0.3, h + 2.65, c.y + 0.1), Vector3(0.6, 0.3, 0.02), Color(1, 1, 1, 1))
+	if door_x >= 0:
+		_door(st, door_x, d, grey)
+
+## The National Marine Aquarium: a low white building on the harbour edge with a sweep of blue glass across the
+## front and a wave-shaped roof.
+static func _aquarium(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int) -> void:
+	var white := Color("eef0ee")
+	var blue := Color("3a7fa8")
+	var h := 1.9
+	Meshes.box(st, Vector3(0.05, 0, 0.05), Vector3(w - 0.1, h, d - 0.1), white)
+	var n := w * 2
+	for i in n:
+		var x0 := float(i) * w / n
+		var y0 := h + 0.25 + sin(float(i) / n * TAU) * 0.25
+		Meshes.box(st, Vector3(x0, h, 0.0), Vector3(float(w) / n + 0.01, y0 - h + 0.1, d), blue.darkened(0.1) if i % 2 == 0 else blue)
+	for x in w:
+		if x != door_x:
+			Meshes.box(wst, Vector3(x + 0.08, 0.3, d - 0.07), Vector3(0.84, 1.3, 0.04), Color(0.55, 0.8, 1.0, 1.0))
+			Meshes.box(st, Vector3(x, 0.25, d - 0.08), Vector3(0.08, 1.4, 0.05), Color("2a3a4a"))
+	if door_x >= 0:
+		_door(st, door_x, d, white, 1.1)
+
+## The Mayflower Steps memorial on the Barbican quay: a little granite portico of two Doric columns under a plain
+## entablature, on a stepped plinth leading down towards the water. No door.
+static func _mayflower_steps(st: SurfaceTool, w: int, d: int) -> void:
+	var granite := Color("b9b4a8")
+	for k in 3:
+		Meshes.box(st, Vector3(0.05 + k * 0.08, k * 0.12, 0.05 + k * 0.06), Vector3(w - 0.1 - k * 0.16, 0.12, d - 0.1 - k * 0.12), granite.darkened(0.06 * (2 - k)))
+	var top := 0.36
+	for cx in [0.45, w - 0.45]:
+		Meshes.box(st, Vector3(cx - 0.17, top, d * 0.5 - 0.17), Vector3(0.34, 0.08, 0.34), granite.lightened(0.04))
+		Meshes.cylinder(st, Vector3(cx, top + 0.08, d * 0.5), 0.13, 1.25, 10, granite.lightened(0.08))
+		Meshes.box(st, Vector3(cx - 0.17, top + 1.3, d * 0.5 - 0.17), Vector3(0.34, 0.08, 0.34), granite.lightened(0.04))
+	Meshes.box(st, Vector3(0.12, top + 1.38, d * 0.5 - 0.2), Vector3(w - 0.24, 0.26, 0.4), granite.lightened(0.06))
+	Meshes.box(st, Vector3(0.3, top + 1.43, d * 0.5 + 0.205), Vector3(w - 0.6, 0.14, 0.01), Color("3b3a36"))  # the inscription
+	Meshes._tri(st, Vector3(0.12, top + 1.64, d * 0.5 + 0.2), Vector3(w * 0.5, top + 1.95, d * 0.5 + 0.2),
+		Vector3(w - 0.12, top + 1.64, d * 0.5 + 0.2), granite.lightened(0.1))  # a low pediment

@@ -1,0 +1,401 @@
+{
+ "est_letterboxer": [
+  {
+   "do": "if",
+   "flag": "q_devon_letterbox_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Letterboxer",
+     "text": "A full book, and the Hairy Hands on top. That's a story for the Postbridge pub. Mind how you go on the B3212."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_devon_letterbox_4",
+     "then": [
+      {
+       "do": "say",
+       "who": "Letterboxer",
+       "text": "You did what? You caught the Hairy Hands? On the B3212? Well I never. That's one stamp nobody else has got."
+      },
+      {
+       "do": "say",
+       "who": "Letterboxer",
+       "text": "Here. My old Turned Coat badge. Old Devon folk turned their coats inside out if the pixies led them astray on the moor. It works. Mostly."
+      },
+      {
+       "do": "give_item",
+       "item": "turned_coat"
+      },
+      {
+       "do": "standing",
+       "nation": "england",
+       "amount": 2
+      },
+      {
+       "do": "set",
+       "flag": "q_devon_letterbox_done"
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_devon_letterbox_3",
+       "then": [
+        {
+         "do": "say",
+         "who": "Letterboxer",
+         "text": "All three! Cranmere and all. Now, there's one more, if you've the nerve. They say there's a stamp you only get after dark, on this road."
+        },
+        {
+         "do": "say",
+         "who": "Letterboxer",
+         "text": "The Hairy Hands. Big, hairy and grabby, on the B3212 by the moor. Go and see, at night, if you dare. I won't. I'm driving."
+        }
+       ],
+       "else": [
+        {
+         "do": "if",
+         "flag": "q_devon_letterbox_started",
+         "then": [
+          {
+           "do": "say",
+           "who": "Letterboxer",
+           "text": "The oaks in the boulders, south-west of here. Haldon, by the Belvedere. And Cranmere Pool, up on the north moor. Happy hunting."
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Letterboxer",
+           "text": "{greeting} Letterboxing! Ever done it? You hunt for little boxes hidden on the moor, with a clue and a compass. Inside: a rubber stamp and a visitors' book."
+          },
+          {
+           "do": "say",
+           "who": "Letterboxer",
+           "text": "You stamp your book with the box's stamp, and the box's book with your own. It began in 1854, when a Dartmoor guide called James Perrott left a bottle at Cranmere Pool for walkers to leave their calling cards in."
+          },
+          {
+           "do": "say",
+           "who": "Letterboxer",
+           "text": "Fancy a go? There are three I like: one in the stunted oaks, one up by the Belvedere on Haldon, and the oldest of all, at Cranmere Pool, way up on the north moor."
+          },
+          {
+           "do": "choice",
+           "text": "Go letterboxing?",
+           "options": [
+            "Yes please",
+            "Not today"
+           ],
+           "set": "_lb_choice"
+          },
+          {
+           "do": "if",
+           "flag": "_lb_choice",
+           "then": [
+            {
+             "do": "set",
+             "flag": "q_devon_letterbox_started"
+            },
+            {
+             "do": "give_item",
+             "item": "stamp_book"
+            },
+            {
+             "do": "say",
+             "who": "Letterboxer",
+             "text": "There's a stamp book for you. Off you go, and remember the code: put the box back exactly as you found it."
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Letterboxer",
+             "text": "Fair enough. The boxes have been there since before you were born, mostly."
+            }
+           ],
+           "eq": 0
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "est_box_wood": [
+  {
+   "do": "if",
+   "flag": "q_devon_letterbox_1",
+   "then": [
+    {
+     "do": "say",
+     "who": "Letterboxer Ned",
+     "text": "You've got this one already. Put it back nice and snug, mind."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_devon_letterbox_started",
+     "then": [
+      {
+       "do": "say",
+       "who": "Letterboxer Ned",
+       "text": "You found it! Under the third rock from the oak, in an old sandwich tin. This one's in the oaks, so the stamp's a wisht old tree. The real Wistman's Wood is high on the moor; these oaks are its cousins."
+      },
+      {
+       "do": "sfx",
+       "id": "item"
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "You press the box's stamp on to a fresh page of your book: a twisted oak with a face in the bark."
+      },
+      {
+       "do": "set",
+       "flag": "q_devon_letterbox_1"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Letterboxer Ned",
+       "text": "Letterboxing? Lovely hobby. Fresh air, a good map, and the thrill of finding a sandwich tin. You'll want a stamp book from the letterboxer on the B3212 first. And this one's best done first."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "est_box_haldon": [
+  {
+   "do": "if",
+   "flag": "q_devon_letterbox_2",
+   "then": [
+    {
+     "do": "say",
+     "who": "Letterboxer Sal",
+     "text": "You've got this one already. Put it back nice and snug, mind."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_devon_letterbox_1",
+     "then": [
+      {
+       "do": "say",
+       "who": "Letterboxer Sal",
+       "text": "You found it! Under the third rock from the oak, in an old sandwich tin. Up here you can see the moor one way and the sea the other. The Belvedere was built for a friend, which is nicer than most towers."
+      },
+      {
+       "do": "sfx",
+       "id": "item"
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "You press the box's stamp on to a fresh page of your book: the Belvedere, three turrets and a flag."
+      },
+      {
+       "do": "set",
+       "flag": "q_devon_letterbox_2"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Letterboxer Sal",
+       "text": "Letterboxing? Lovely hobby. Fresh air, a good map, and the thrill of finding a sandwich tin. You'll want a stamp book from the letterboxer on the B3212 first. And find the one in the oaks before mine, it's tradition."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "est_hairyhands": [
+  {
+   "do": "if",
+   "flag": "caught_hairyhands",
+   "then": [],
+   "else": [
+    {
+     "do": "when",
+     "cond": "night",
+     "then": [
+      {
+       "do": "if",
+       "flag": "devon_hands_met",
+       "then": [
+        {
+         "do": "say",
+         "who": "",
+         "text": "Out of the dark at the edge of the road come two great hands, grey-haired to the knuckle, flexing slowly. They have been waiting."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "",
+         "text": "The road is empty and the moor is black. Then the hedge at the verge rustles, and two huge hands crawl out on their fingertips, like crabs."
+        },
+        {
+         "do": "say",
+         "who": "",
+         "text": "They are covered in coarse dark hair. There is no arm, no body, nothing. Just hands, and the feeling that they would very much like to hold something. A steering wheel. Your shoulder."
+        },
+        {
+         "do": "music",
+         "id": "legend_hound2"
+        },
+        {
+         "do": "set",
+         "flag": "devon_hands_met"
+        }
+       ]
+      },
+      {
+       "do": "legend",
+       "species": "hairyhands",
+       "level": 46,
+       "flag": "caught_hairyhands",
+       "music": "legend_hound2"
+      },
+      {
+       "do": "if",
+       "flag": "caught_hairyhands",
+       "then": [
+        {
+         "do": "say",
+         "who": "",
+         "text": "The Hairy Hands settle into the snare, folded neatly, like a pair of gloves left on a seat. One of them gives a little wave."
+        },
+        {
+         "do": "set",
+         "flag": "q_devon_letterbox_4"
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "",
+         "text": "The hands scuttle back into the hedge. Somewhere down the road, a cattle grid rattles though nothing crossed it."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "A lay-by on the B3212. Tyre marks swerve off the tarmac and on to the verge, then back again, as if someone was pushed. Nothing here by daylight. Best come back after dark."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "est_beacon": [
+  {
+   "do": "if",
+   "flag": "q_devon_armada_3",
+   "then": [
+    {
+     "do": "say",
+     "who": "Haldon Beacon Keeper",
+     "text": "She's burning. From up here they'd see it in Exeter, and the next beacon east would take it on. Go on, to the city. Find the Town Crier."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_devon_armada_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "Haldon Beacon Keeper",
+       "text": "Smoke over Plymouth way, you say? And the Hoe beacon's lit? Then it's real!"
+      },
+      {
+       "do": "sfx",
+       "id": "item"
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "The keeper thrusts a torch into the iron basket. Tarred wood crackles, and flame leaps up into the wind off the sea."
+      },
+      {
+       "do": "set",
+       "flag": "q_devon_armada_3"
+      },
+      {
+       "do": "say",
+       "who": "Haldon Beacon Keeper",
+       "text": "Now get down to Exeter, quick as you like. The Town Crier's on the High Street. He'll raise the city."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Haldon Beacon Keeper",
+       "text": "This is the Haldon beacon. One of a chain of fires on high ground, ready to send a warning from the coast to the city in less time than a horse could gallop it."
+      },
+      {
+       "do": "say",
+       "who": "Haldon Beacon Keeper",
+       "text": "Nobody's needed it since 1588. I keep it dry anyway. You never know with the Spanish. Or the weather."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "est_warden": [
+  {
+   "do": "say",
+   "who": "Reserve Warden",
+   "text": "Avocets! There, on the mud. Black and white, legs like knitting needles, and a bill that curves up at the end. They sweep it side to side through the mud for shrimps and worms."
+  },
+  {
+   "do": "say",
+   "who": "Reserve Warden",
+   "text": "In winter we get one of the biggest flocks in the country here. And Brent geese from Siberia, thousands of them, muttering. Bring a flask. Bring two."
+  }
+ ],
+ "est_pumper": [
+  {
+   "do": "say",
+   "who": "Railway Volunteer",
+   "text": "Brunel's atmospheric railway. No locomotive. Engines in pumping houses like this sucked the air out of a pipe laid between the rails, and a piston under the train got pushed along by the air behind it."
+  },
+  {
+   "do": "say",
+   "who": "Railway Volunteer",
+   "text": "Quiet, smooth, quick. But the pipe was sealed with greased leather, and the leather perished in the salt air. People say rats ate it. It lasted less than a year. Brilliant idea, wrong century."
+  }
+ ],
+ "est_pixie_gran": [
+  {
+   "do": "say",
+   "who": "Ottery Gran",
+   "text": "{greeting} I'm from Ottery St Mary, over the river. Every June we have Pixie Day. The children dress up as pixies and capture the bell ringers."
+  },
+  {
+   "do": "say",
+   "who": "Ottery Gran",
+   "text": "The story goes the pixies didn't want church bells in Ottery and tried to kidnap the ringers. The bells won, and the pixies were banished to a cave by the river, Pixies' Parlour. They come back once a year. With face paint."
+  },
+  {
+   "do": "say",
+   "who": "Ottery Gran",
+   "text": "If they lead you astray on the moor, turn your coat inside out. Confuses them no end."
+  }
+ ]
+}

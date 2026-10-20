@@ -1,0 +1,32 @@
+{
+ "id": "est_twitcher",
+ "name": "Twitcher Gwen",
+ "class": "Birdwatcher",
+ "sprite": "birdwatcher",
+ "party": [
+  {
+   "species": "heronarch",
+   "level": 45
+  },
+  {
+   "species": "boomern",
+   "level": 44
+  },
+  {
+   "species": "levelcrane",
+   "level": 44
+  }
+ ],
+ "ai": "trainer",
+ "money": 1300,
+ "scaled_floor": 43,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Twitcher Gwen",
+   "text": "Shh! There's a spoonbill on the far side. Or a plastic bag. Battle me quietly."
+  }
+ ],
+ "win": "Hushed and defeated. A double first.",
+ "after": "Avocets winter here, but you'll see little egrets all year now. Thirty years ago they were a rarity. Now they're everywhere, like ivy."
+}

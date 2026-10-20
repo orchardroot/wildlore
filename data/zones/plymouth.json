@@ -1,0 +1,1234 @@
+{
+ "id": "plymouth",
+ "name": "Plymouth",
+ "region": "south_england",
+ "kind": "town",
+ "station": {
+  "x": 42,
+  "y": 5
+ },
+ "music": "town_cornwall",
+ "weather": {
+  "clear": 26,
+  "sunshine": 18,
+  "drizzle": 24,
+  "fog": 10,
+  "gale": 14,
+  "downpour": 8
+ },
+ "town_id": "plymouth",
+ "stage": "coast",
+ "scaled_floor": 43,
+ "legend_extra": {
+  "b": {
+   "tile": "grass",
+   "colour": "#5f9e3c"
+  }
+ },
+ "edges": {
+  "north": {
+   "to": "dartmoor",
+   "offset": -5
+  }
+ },
+ "spawn": [
+  35,
+  7
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "chipgull",
+    "min": 43,
+    "max": 44,
+    "weight": 14
+   },
+   {
+    "species": "cooplet",
+    "min": 43,
+    "max": 44,
+    "weight": 10
+   },
+   {
+    "species": "beaconet",
+    "min": 43,
+    "max": 44,
+    "weight": 6,
+    "time": [
+     "dusk",
+     "night"
+    ]
+   },
+   {
+    "species": "peregrin",
+    "min": 43,
+    "max": 45,
+    "weight": 6,
+    "time": [
+     "day"
+    ]
+   },
+   {
+    "species": "grizzlet",
+    "min": 43,
+    "max": 44,
+    "weight": 8
+   },
+   {
+    "species": "rivetling",
+    "min": 43,
+    "max": 45,
+    "weight": 8
+   },
+   {
+    "species": "gannetling",
+    "min": 43,
+    "max": 44,
+    "weight": 8,
+    "weather": [
+     "gale",
+     "clear"
+    ]
+   },
+   {
+    "species": "petrelash",
+    "min": 44,
+    "max": 45,
+    "weight": 4,
+    "weather": [
+     "gale",
+     "downpour"
+    ]
+   },
+   {
+    "species": "flittermouse",
+    "min": 43,
+    "max": 44,
+    "weight": 6,
+    "time": [
+     "night"
+    ]
+   },
+   {
+    "species": "binfox",
+    "min": 44,
+    "max": 45,
+    "weight": 5,
+    "time": [
+     "night"
+    ]
+   },
+   {
+    "species": "beaconblaze",
+    "min": 44,
+    "max": 45,
+    "weight": 2,
+    "time": [
+     "night"
+    ],
+    "weather": [
+     "gale"
+    ]
+   }
+  ]
+ },
+ "props": [
+  {
+   "type": "building",
+   "style": "station",
+   "x": 38,
+   "y": 3,
+   "w": 8,
+   "h": 2,
+   "label": "Plymouth Station"
+  },
+  {
+   "type": "building",
+   "style": "stone",
+   "x": 6,
+   "y": 11,
+   "w": 9,
+   "h": 4,
+   "label": "Devonport Dockyard",
+   "kind": "museum"
+  },
+  {
+   "type": "building",
+   "style": "gantry_crane",
+   "x": 15,
+   "y": 10,
+   "w": 3,
+   "h": 5,
+   "label": "No. 5 Basin crane"
+  },
+  {
+   "type": "building",
+   "style": "sanctuary",
+   "x": 21,
+   "y": 11,
+   "w": 6,
+   "h": 4,
+   "label": "Sanctuary"
+  },
+  {
+   "type": "building",
+   "style": "shop",
+   "x": 27,
+   "y": 11,
+   "w": 5,
+   "h": 4,
+   "label": "Corner Shop"
+  },
+  {
+   "type": "building",
+   "style": "football_ground",
+   "x": 39,
+   "y": 10,
+   "w": 11,
+   "h": 5,
+   "label": "Home Park",
+   "kind": "stadium"
+  },
+  {
+   "type": "building",
+   "style": "white_render",
+   "x": 54,
+   "y": 11,
+   "w": 7,
+   "h": 3,
+   "label": "Mutley Terrace",
+   "kind": "home"
+  },
+  {
+   "type": "building",
+   "style": "terrace",
+   "x": 62,
+   "y": 11,
+   "w": 7,
+   "h": 3,
+   "label": "North Hill"
+  },
+  {
+   "type": "building",
+   "style": "stone",
+   "x": 5,
+   "y": 21,
+   "w": 11,
+   "h": 5,
+   "label": "Royal William Yard",
+   "kind": "hall"
+  },
+  {
+   "type": "building",
+   "style": "white_render",
+   "x": 19,
+   "y": 20,
+   "w": 6,
+   "h": 3,
+   "label": "The Crescent",
+   "kind": "home"
+  },
+  {
+   "type": "building",
+   "style": "stone",
+   "x": 26,
+   "y": 20,
+   "w": 6,
+   "h": 3,
+   "label": "Hoe Gardens"
+  },
+  {
+   "type": "building",
+   "style": "tudor",
+   "x": 49,
+   "y": 20,
+   "w": 6,
+   "h": 3,
+   "label": "Elizabethan House",
+   "kind": "museum"
+  },
+  {
+   "type": "building",
+   "style": "tudor",
+   "x": 57,
+   "y": 20,
+   "w": 6,
+   "h": 3,
+   "label": "The Minerva Inn",
+   "kind": "cafe"
+  },
+  {
+   "type": "building",
+   "style": "white_render",
+   "x": 64,
+   "y": 20,
+   "w": 5,
+   "h": 3,
+   "label": "New Street"
+  },
+  {
+   "type": "building",
+   "style": "stone",
+   "x": 49,
+   "y": 25,
+   "w": 7,
+   "h": 4,
+   "label": "Black Friars Distillery",
+   "kind": "mill"
+  },
+  {
+   "type": "building",
+   "style": "aquarium",
+   "x": 59,
+   "y": 25,
+   "w": 9,
+   "h": 4,
+   "label": "National Marine Aquarium",
+   "kind": "museum"
+  },
+  {
+   "type": "building",
+   "style": "mayflower_steps",
+   "x": 53,
+   "y": 41,
+   "w": 2,
+   "h": 1,
+   "label": "Mayflower Steps"
+  },
+  {
+   "type": "building",
+   "style": "smeaton_tower",
+   "x": 29,
+   "y": 39,
+   "w": 3,
+   "h": 3,
+   "label": "Smeaton's Tower",
+   "kind": "museum"
+  },
+  {
+   "type": "lamp_post",
+   "x": 33,
+   "y": 10
+  },
+  {
+   "type": "lamp_post",
+   "x": 33,
+   "y": 14
+  },
+  {
+   "type": "lamp_post",
+   "x": 33,
+   "y": 18
+  },
+  {
+   "type": "lamp_post",
+   "x": 33,
+   "y": 22
+  },
+  {
+   "type": "lamp_post",
+   "x": 33,
+   "y": 26
+  },
+  {
+   "type": "lamp_post",
+   "x": 36,
+   "y": 10
+  },
+  {
+   "type": "lamp_post",
+   "x": 36,
+   "y": 14
+  },
+  {
+   "type": "lamp_post",
+   "x": 36,
+   "y": 18
+  },
+  {
+   "type": "lamp_post",
+   "x": 36,
+   "y": 22
+  },
+  {
+   "type": "lamp_post",
+   "x": 36,
+   "y": 26
+  },
+  {
+   "type": "planter",
+   "x": 32,
+   "y": 12
+  },
+  {
+   "type": "planter",
+   "x": 37,
+   "y": 12
+  },
+  {
+   "type": "planter",
+   "x": 32,
+   "y": 20
+  },
+  {
+   "type": "planter",
+   "x": 37,
+   "y": 20
+  },
+  {
+   "type": "planter",
+   "x": 32,
+   "y": 26
+  },
+  {
+   "type": "planter",
+   "x": 37,
+   "y": 26
+  },
+  {
+   "type": "bench",
+   "x": 37,
+   "y": 23
+  },
+  {
+   "type": "bench",
+   "x": 46,
+   "y": 21
+  },
+  {
+   "type": "oak",
+   "x": 38,
+   "y": 21,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 45,
+   "y": 27,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 19,
+   "y": 27,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 30,
+   "y": 25,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 7,
+   "y": 3,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 13,
+   "y": 4,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 21,
+   "y": 3,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 27,
+   "y": 2,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 50,
+   "y": 3,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 58,
+   "y": 2,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 64,
+   "y": 4,
+   "variant": 1
+  },
+  {
+   "type": "statue",
+   "x": 30,
+   "y": 33
+  },
+  {
+   "type": "statue",
+   "x": 41,
+   "y": 33,
+   "variant": 1
+  },
+  {
+   "type": "standing_stone",
+   "x": 11,
+   "y": 32,
+   "variant": 0
+  },
+  {
+   "type": "brazier",
+   "x": 44,
+   "y": 35
+  },
+  {
+   "type": "flagpole",
+   "x": 31,
+   "y": 37,
+   "variant": 6
+  },
+  {
+   "type": "lamp_post",
+   "x": 10,
+   "y": 44
+  },
+  {
+   "type": "lamp_post",
+   "x": 18,
+   "y": 44
+  },
+  {
+   "type": "lamp_post",
+   "x": 26,
+   "y": 44
+  },
+  {
+   "type": "lamp_post",
+   "x": 38,
+   "y": 44
+  },
+  {
+   "type": "lamp_post",
+   "x": 46,
+   "y": 44
+  },
+  {
+   "type": "bench",
+   "x": 14,
+   "y": 44
+  },
+  {
+   "type": "bench",
+   "x": 22,
+   "y": 44
+  },
+  {
+   "type": "bench",
+   "x": 42,
+   "y": 44
+  },
+  {
+   "type": "bench",
+   "x": 28,
+   "y": 35
+  },
+  {
+   "type": "bench",
+   "x": 28,
+   "y": 37
+  },
+  {
+   "type": "bench",
+   "x": 16,
+   "y": 42
+  },
+  {
+   "type": "bench",
+   "x": 24,
+   "y": 42
+  },
+  {
+   "type": "bunting",
+   "x": 49,
+   "y": 24,
+   "variant": 4,
+   "walk": true
+  },
+  {
+   "type": "bunting",
+   "x": 57,
+   "y": 24,
+   "variant": 5,
+   "walk": true
+  },
+  {
+   "type": "hanging_basket",
+   "x": 56,
+   "y": 23,
+   "walk": true
+  },
+  {
+   "type": "hanging_basket",
+   "x": 63,
+   "y": 23,
+   "variant": 1,
+   "walk": true
+  },
+  {
+   "type": "flagpole",
+   "x": 52,
+   "y": 41,
+   "variant": 6
+  },
+  {
+   "type": "bollard",
+   "x": 55,
+   "y": 33
+  },
+  {
+   "type": "bollard",
+   "x": 55,
+   "y": 36
+  },
+  {
+   "type": "bollard",
+   "x": 55,
+   "y": 39
+  },
+  {
+   "type": "bollard",
+   "x": 55,
+   "y": 42
+  },
+  {
+   "type": "boat",
+   "x": 58,
+   "y": 34,
+   "variant": 2
+  },
+  {
+   "type": "boat",
+   "x": 62,
+   "y": 36,
+   "variant": 2
+  },
+  {
+   "type": "boat",
+   "x": 66,
+   "y": 34,
+   "variant": 1
+  },
+  {
+   "type": "boat",
+   "x": 60,
+   "y": 40,
+   "variant": 1
+  },
+  {
+   "type": "boat",
+   "x": 65,
+   "y": 41,
+   "variant": 1
+  },
+  {
+   "type": "lamp_post",
+   "x": 48,
+   "y": 33
+  },
+  {
+   "type": "lamp_post",
+   "x": 48,
+   "y": 40
+  },
+  {
+   "type": "market_stall",
+   "x": 50,
+   "y": 31,
+   "variant": 1
+  },
+  {
+   "type": "market_stall",
+   "x": 53,
+   "y": 31,
+   "variant": 2
+  },
+  {
+   "type": "lighthouse",
+   "x": 7,
+   "y": 54
+  },
+  {
+   "type": "boat",
+   "x": 30,
+   "y": 48,
+   "variant": 0
+  },
+  {
+   "type": "boat",
+   "x": 44,
+   "y": 50,
+   "variant": 1
+  },
+  {
+   "type": "boat",
+   "x": 12,
+   "y": 47,
+   "variant": 2
+  },
+  {
+   "type": "boat",
+   "x": 60,
+   "y": 49,
+   "variant": 0
+  },
+  {
+   "type": "boat",
+   "x": 36,
+   "y": 52,
+   "variant": 1
+  },
+  {
+   "type": "buoy",
+   "x": 28,
+   "y": 51
+  },
+  {
+   "type": "buoy",
+   "x": 56,
+   "y": 52,
+   "variant": 1
+  },
+  {
+   "type": "boat",
+   "x": 2,
+   "y": 12,
+   "variant": 2
+  },
+  {
+   "type": "boat",
+   "x": 2,
+   "y": 19,
+   "variant": 2
+  },
+  {
+   "type": "boat",
+   "x": 1,
+   "y": 30,
+   "variant": 2
+  },
+  {
+   "type": "bollard",
+   "x": 4,
+   "y": 12
+  },
+  {
+   "type": "bollard",
+   "x": 4,
+   "y": 22
+  },
+  {
+   "type": "bollard",
+   "x": 4,
+   "y": 33
+  },
+  {
+   "type": "lamp_post",
+   "x": 5,
+   "y": 16
+  },
+  {
+   "type": "noticeboard",
+   "x": 32,
+   "y": 16
+  },
+  {
+   "type": "phone_box",
+   "x": 37,
+   "y": 16
+  },
+  {
+   "type": "post_box",
+   "x": 31,
+   "y": 16
+  }
+ ],
+ "warps": [
+  {
+   "x": 10,
+   "y": 14,
+   "to": "plymouth_dockyard",
+   "tx": 7,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 24,
+   "y": 14,
+   "to": "plymouth_sanctuary",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 29,
+   "y": 14,
+   "to": "plymouth_shop",
+   "tx": 4,
+   "ty": 5,
+   "facing": "up"
+  },
+  {
+   "x": 44,
+   "y": 14,
+   "to": "plymouth_homepark",
+   "tx": 8,
+   "ty": 10,
+   "facing": "up"
+  },
+  {
+   "x": 10,
+   "y": 25,
+   "to": "plymouth_rwy",
+   "tx": 7,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 51,
+   "y": 22,
+   "to": "plymouth_elizabethan",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 60,
+   "y": 22,
+   "to": "plymouth_minerva",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 52,
+   "y": 28,
+   "to": "plymouth_blackfriars",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 63,
+   "y": 28,
+   "to": "plymouth_aquarium",
+   "tx": 8,
+   "ty": 8,
+   "facing": "up"
+  },
+  {
+   "x": 30,
+   "y": 41,
+   "to": "plymouth_smeaton",
+   "tx": 4,
+   "ty": 5,
+   "facing": "up"
+  }
+ ],
+ "npcs": [
+  {
+   "id": "rail_guard",
+   "sprite": "rail_guard",
+   "x": 46,
+   "y": 5,
+   "facing": "down",
+   "move": "still",
+   "script": "rail_guard"
+  },
+  {
+   "id": "ply_drake",
+   "sprite": "tour_guide",
+   "x": 18,
+   "y": 37,
+   "facing": "right",
+   "move": "still",
+   "script": "ply_drake",
+   "name": "'Sir Francis'"
+  },
+  {
+   "id": "ply_bowls",
+   "sprite": "villager_4",
+   "x": 24,
+   "y": 37,
+   "facing": "left",
+   "move": "still",
+   "script": "ply_bowls",
+   "name": "Bowls Captain"
+  },
+  {
+   "id": "ply_beacon",
+   "sprite": "lamplighter",
+   "x": 44,
+   "y": 36,
+   "facing": "up",
+   "move": "still",
+   "script": "ply_beacon",
+   "name": "Beacon Warden"
+  },
+  {
+   "id": "ply_historian",
+   "sprite": "poet",
+   "x": 51,
+   "y": 39,
+   "facing": "right",
+   "move": "still",
+   "script": "ply_historian",
+   "name": "Barbican Historian"
+  },
+  {
+   "id": "ply_oldsalt",
+   "sprite": "sailor",
+   "x": 50,
+   "y": 43,
+   "facing": "right",
+   "move": "still",
+   "script": "ply_oldsalt",
+   "name": "Old Salt"
+  },
+  {
+   "id": "ply_janner",
+   "sprite": "villager_5",
+   "x": 41,
+   "y": 16,
+   "facing": "down",
+   "move": "wander",
+   "radius": 2,
+   "script": "ply_janner",
+   "name": "Janner Nan"
+  },
+  {
+   "id": "ply_matey",
+   "sprite": "steelworker",
+   "x": 8,
+   "y": 17,
+   "facing": "down",
+   "move": "still",
+   "script": "ply_matey",
+   "name": "Dockyard Matey"
+  },
+  {
+   "id": "ply_swimmer",
+   "sprite": "surfer",
+   "x": 9,
+   "y": 43,
+   "facing": "down",
+   "move": "still",
+   "script": "ply_swimmer",
+   "name": "Lido Swimmer",
+   "times": [
+    "dawn",
+    "day"
+   ]
+  },
+  {
+   "id": "ply_gull",
+   "sprite": "creature:chipgull",
+   "x": 59,
+   "y": 31,
+   "facing": "left",
+   "move": "still",
+   "script": "ply_gull",
+   "name": "Herring Gull"
+  },
+  {
+   "id": "ply_scott",
+   "sprite": "student",
+   "x": 26,
+   "y": 24,
+   "facing": "down",
+   "move": "still",
+   "script": "ply_scott",
+   "name": "Student"
+  },
+  {
+   "id": "ply_blitz",
+   "sprite": "villager_3",
+   "x": 31,
+   "y": 31,
+   "facing": "down",
+   "move": "still",
+   "script": "ply_blitz",
+   "name": "Old Plymothian"
+  },
+  {
+   "id": "ply_yardworker",
+   "sprite": "villager_2",
+   "x": 13,
+   "y": 27,
+   "facing": "up",
+   "move": "still",
+   "script": "ply_yardworker",
+   "name": "Yard Guide",
+   "times": [
+    "day",
+    "dusk"
+   ]
+  },
+  {
+   "id": "ply_rating",
+   "sprite": "sailor",
+   "x": 12,
+   "y": 18,
+   "facing": "down",
+   "move": "still",
+   "trainer": "ply_rating"
+  },
+  {
+   "id": "ply_fan",
+   "sprite": "festival_goer",
+   "x": 47,
+   "y": 16,
+   "facing": "down",
+   "move": "still",
+   "trainer": "ply_fan"
+  },
+  {
+   "id": "ply_angler",
+   "sprite": "angler",
+   "x": 54,
+   "y": 35,
+   "facing": "left",
+   "move": "still",
+   "trainer": "ply_angler"
+  },
+  {
+   "id": "ply_jogger",
+   "sprite": "jogger",
+   "x": 38,
+   "y": 43,
+   "facing": "left",
+   "move": "still",
+   "trainer": "ply_jogger"
+  }
+ ],
+ "signs": [
+  {
+   "x": 36,
+   "y": 3,
+   "text": "PLYMOUTH. Dartmoor, north. The Hoe and the Barbican, south. Mind the gulls, they've had a Navy training."
+  },
+  {
+   "x": 29,
+   "y": 34,
+   "text": "SIR FRANCIS DRAKE. The story goes that Drake was playing bowls here on the Hoe in July 1588 when word came that the Spanish Armada was in sight, and that he finished his game first. The tale only turns up in print long afterwards, but the tide and the wind were against sailing out at once anyway, so he may well have had time.",
+   "plaque": "devon_drakes_bowls",
+   "title": "Drake's Game of Bowls"
+  },
+  {
+   "x": 32,
+   "y": 42,
+   "text": "SMEATON'S TOWER. John Smeaton's lighthouse stood on the Eddystone Rocks, about nine miles out to sea, from 1759. He built it of dovetailed granite blocks set in a lime that hardens under water, and it outlasted the sea. The rock beneath it was being worn away, so in the 1880s the tower was taken down and rebuilt here; its stump still stands out on the reef.",
+   "plaque": "devon_smeatons_tower",
+   "title": "Smeaton's Tower"
+  },
+  {
+   "x": 42,
+   "y": 33,
+   "text": "THE ARMADA MEMORIAL. Begun for the three hundredth anniversary, in 1888. In 1588 a chain of beacons stood ready on the hills to carry the news of the Spanish fleet inland, fire to fire, faster than any rider.",
+   "plaque": "devon_armada_memorial",
+   "title": "The Armada Memorial"
+  },
+  {
+   "x": 12,
+   "y": 33,
+   "text": "PLYMOUTH NAVAL MEMORIAL. Remembers the sailors of the Plymouth ships of both World Wars who have no grave but the sea. Thousands of names, all facing the Sound.",
+   "plaque": "devon_naval_memorial",
+   "title": "Plymouth Naval Memorial"
+  },
+  {
+   "x": 47,
+   "y": 42,
+   "text": "THE HOE. The name comes from the Old English for a high ridge, a 'heel' of land. From here you can see Drake's Island, and the mile-long Breakwater across the Sound, built from 1812 and finished in 1841 to give the fleet a safe anchorage.",
+   "plaque": "devon_the_hoe",
+   "title": "The Hoe"
+  },
+  {
+   "x": 53,
+   "y": 40,
+   "text": "THE MAYFLOWER STEPS. In September 1620 the Mayflower sailed from Plymouth for the New World with about a hundred passengers, the people later called the Pilgrim Fathers. The exact spot is thought to be close by; this memorial marks it.",
+   "plaque": "devon_mayflower_steps",
+   "title": "The Mayflower Steps"
+  },
+  {
+   "x": 56,
+   "y": 23,
+   "text": "THE BARBICAN. Plymouth's old harbour quarter, cobbled and crooked, and the part of the old city that largely came through the bombing raids of 1941. Listed buildings on every corner, and a gull on every listed building.",
+   "plaque": "devon_barbican",
+   "title": "The Barbican"
+  },
+  {
+   "x": 53,
+   "y": 29,
+   "text": "BLACK FRIARS DISTILLERY. Gin has been made in this building since 1793, which makes it the oldest working gin distillery in England. Parts of the building are far older, from the 1400s.",
+   "plaque": "devon_black_friars",
+   "title": "Black Friars Distillery"
+  },
+  {
+   "x": 17,
+   "y": 15,
+   "text": "DEVONPORT. The Royal Dockyard was begun here in 1691. Today it is the largest naval base in Western Europe, and the people who work there have been called 'dockyard mateys' for as long as anyone remembers.",
+   "plaque": "devon_devonport",
+   "title": "Devonport Dockyard"
+  },
+  {
+   "x": 16,
+   "y": 26,
+   "text": "ROYAL WILLIAM YARD. Built from 1826 by Sir John Rennie to victual the Navy: a brewery, a bakery, a slaughterhouse and storehouses, in grand grey limestone. Named after King William IV.",
+   "plaque": "devon_royal_william_yard",
+   "title": "Royal William Yard"
+  },
+  {
+   "x": 51,
+   "y": 15,
+   "text": "HOME PARK. The ground of Plymouth Argyle, founded in 1886. They play in green, they're called the Pilgrims, and they are the most southerly and westerly club in the Football League.",
+   "plaque": "devon_home_park",
+   "title": "Home Park"
+  },
+  {
+   "x": 58,
+   "y": 29,
+   "text": "NATIONAL MARINE AQUARIUM. The biggest public aquarium in Britain, opened in 1998 on the edge of Sutton Harbour. Most of what swims in it lives just outside, in Plymouth Sound.",
+   "plaque": "devon_aquarium",
+   "title": "National Marine Aquarium"
+  },
+  {
+   "x": 36,
+   "y": 30,
+   "text": "ARMADA WAY. Plymouth's centre was flattened in the Blitz of 1941 and rebuilt to a new plan: this broad avenue runs from the station to the Hoe so you can see the sea all the way down.",
+   "plaque": "devon_armada_way",
+   "title": "Armada Way"
+  },
+  {
+   "x": 6,
+   "y": 44,
+   "text": "TINSIDE LIDO. An Art Deco open-air pool built in 1935 below the Hoe, filled with seawater. Brave people swim here in March and tell you about it in April."
+  }
+ ],
+ "rows": [
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT==TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT==TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "~~~~..............................==..................................TT",
+  "~~~~..............................==..BBBBBBBB........................TT",
+  "~~~~..............................==..BBBDBBBB........................TT",
+  "~~~~..............................==::__________......................TT",
+  "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!&&!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",
+  "~~~~:.............................==..................................TT",
+  "~~~~:================================================================.TT",
+  "~~~~:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::.TT",
+  "~~~~:..........BBB...............:##:..BBBBBBBBBBB....................TT",
+  "~~~~:.BBBBBBBBBBBB...BBBBBBBBBBB.:##:..BBBBBBBBBBB....BBBBBBB.BBBBBBB.TT",
+  "~~~~:.BBBBBBBBBBBB...BBBBBBBBBBB.:##:..BBBBBBBBBBB....BBBBBBB.BBBBBBB.TT",
+  "~~~~:.BBBBBBBBBBBB...BBBBBBBBBBB.:##:..BBBBBBBBBBB....BBBBBBB.BBBBBBB.TT",
+  "~~~~:.BBBBDBBBBBBB...BBBDBBBBDBB.:##:..BBBBBDBBBBB....................TT",
+  "~~~~::::::::::::::::::::::::::::::##:::::::::::::::::.................TT",
+  "~~~~:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::.TT",
+  "~~~~:================================================================.TT",
+  "~~~~::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::TT",
+  "~~~~:::::::::::::.::::::::::::::::##:...........::::::::::::::::::::::TT",
+  "~~~~:::::::::::::..BBBBBB.BBBBBB.:##:,,,,,,,,,,.:BBBBBB::BBBBBB:BBBBB:TT",
+  "~~~~:BBBBBBBBBBB...BBBBBB.BBBBBB.:##:,,,,,,,,,,.:BBBBBB::BBBBBB:BBBBB:TT",
+  "~~~~:BBBBBBBBBBB...BBBBBB.BBBBBB.:##:,,,,,,,,,,.:BBDBBB::BBBDBB:BBBBB:TT",
+  "~~~~:BBBBBBBBBBB..::::::::::::::::##:,,,....,,,.::::::::::::::::::::::TT",
+  "~~~~:BBBBBBBBBBB.................:##:,,,....,,,.::::::::::::::::::::::TT",
+  "~~~~:BBBBBDBBBBB..,,,,,,,,,,,,,,.:##:,,,....,,,.:BBBBBBB:::BBBBBBBBB::TT",
+  "~~~~:::::::::::::.,,,,,,,,,,,,,,.:##:,,,,,,,,,,.:BBBBBBB:::BBBBBBBBB::TT",
+  "~~~~:::::::::::::.,,,,,,,,,,,,,,.:##:,,,,,,,,,,.:BBBBBBB:::BBBBBBBBB::TT",
+  "~~~~:.............,,,,,,,,,,,,,,.:##:,,,,,,,,,,.:BBBDBBB:::BBBBDBBBB::TT",
+  "~~~~:===========================================::::::::::::::::::::::TT",
+  "~~~~:===========================================::::::::::::::::::::::TT",
+  "~~~~::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::TT",
+  "~~~~:...............#.............##............::::::::::::::::::::::TT",
+  "~~~~:.,,,,,,,,......#.............##............::::::::~~~~~~~~~~~~~~TT",
+  "~~~~:.,,,,,,,,..###########.......##............::::::::~~~~~~~~~~~~~~TT",
+  "~~~~:.,,,,,,,,..#bbb#bbbbb#.......##............::::::::~~~~~~~~~~~~~~TT",
+  "~~~~:.,,,,,,,,..#bbb#bbbbb#.......##............::::::::~~~~~~~~~~~~~~TT",
+  "~~~~:.,,,,,,,,..#bbb#bbbbb#.......##..,,,,,,,,,.::::::::~~~~~~~~~~~~~~TT",
+  "~~~~:.,,,,,,,,..#bbb#bbbbb#.......##..,,,,,,,,,.::::::::~~~~~~~~~~~~~~TT",
+  "~~~~:.,,,,,,,,..#bbb#bbbbb#..BBB..##..,,,,,,,,,.::::::::~~~~~~~~~~~~~~TT",
+  "~~~~:.,,,,,,,,..#bbb#bbbbb#..BBB..##..,,,,,,,,,.::::::::~~~~~~~~~~~~~~TT",
+  "~~~~:.,,,,,,,,..###########..BDB..##..,,,,,,,,,.:::::BB:~~~~~~~~~~~~~~TT",
+  "~~~~:...............#.......########............::::::::~~~~~~~~~~~~~~TT",
+  "~~~~:###########################################::::::::~~~~~~~~~~~~~~TT",
+  "~~~~:...........................................::::::::~~~~~~~~~~~~~~TT",
+  "~~~~$^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^~~~~~~~~~~~~~~TT",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$RRRRRRRR$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$RRTTTTRR$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$RRTTTTRR$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$RRRRRRRR$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
+ ],
+ "heights": [
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000001111111111111111111111111111111111111111111000000000000000000000000",
+  "000001111111111111111111111111111111111111111111000000000000000000000000",
+  "000001111111111111111111111111111111111111111111000000000000000000000000",
+  "000001111111111111111111111111111111111111111111000000000000000000000000",
+  "000001111111111111111111111111111111111111111111000000000000000000000000",
+  "000001111111111111111111111111111111111111111111000000000000000000000000",
+  "000001111111111111111111111111111111111111111111000000000000000000000000",
+  "000001111111111111111111111111111111111111111111000000000000000000000000",
+  "000001111111111111111111111111111111111111111111000000000000000000000000",
+  "000001111111111111111111111111111111111111111111000000000000000000000000",
+  "000001111111111111111111111111111111111111111111000000000000000000000000",
+  "000001111111111111111111111111111111111111111111000000000000000000000000",
+  "000001111111111111111111111111111111111111111111000000000000000000000000",
+  "000001111111111111111111111111111111111111111111000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000"
+ ]
+}

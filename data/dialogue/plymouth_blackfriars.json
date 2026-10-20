@@ -1,0 +1,54 @@
+{
+ "bf_distiller": [
+  {
+   "do": "if",
+   "flag": "q_devon_mayflower_1",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_devon_mayflower_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "Distiller",
+       "text": "Back again? You'll be wanting the tour. Juniper, coriander, orris root, a bit of citrus. And soft Dartmoor water, that's the secret."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Distiller",
+       "text": "The Mayflower? Ah. The story goes that the Pilgrims spent their last night in England right here, in this building. It's been told for a very long time."
+      },
+      {
+       "do": "say",
+       "who": "Distiller",
+       "text": "Is it true? The building was certainly here in 1620; parts of it go back to the 1400s. And where else would you go on your last night, but somewhere warm?"
+      },
+      {
+       "do": "set",
+       "flag": "q_devon_mayflower_2"
+      },
+      {
+       "do": "say",
+       "who": "Distiller",
+       "text": "There's the ship on our label, too. Go on, the Old Salt on the quay will tell you the rest."
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Distiller",
+     "text": "{greeting} Gin's been made here since 1793. The Navy took it on every ship, in a stronger version: Navy Strength."
+    },
+    {
+     "do": "say",
+     "who": "Distiller",
+     "text": "The old tale is that if the spirit spilled on the gunpowder, the powder would still light at that strength. Nobody tests that any more, for some reason."
+    }
+   ]
+  }
+ ]
+}
