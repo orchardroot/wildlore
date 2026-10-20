@@ -16,7 +16,7 @@ const REGION_NAMES := {
 	"scotland": "Scotland", "man": "Isle of Man", "ireland": "Ireland", "ireland_west": "The West of Ireland",
 	"ireland_east": "The Boyne Valley",
 	"east_anglia": "East Anglia",
-	"south_east": "Sussex and Kent",
+	"south_east": "The South East",
 }
 
 static func region_name(r: String) -> String:
