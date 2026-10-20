@@ -1,0 +1,116 @@
+{
+ "quests": [
+  {
+   "id": "donegal_tweed",
+   "title": "Warp and Weft",
+   "region": "donegal",
+   "town": "donegal_town",
+   "giver": "Úna the Weaver",
+   "summary": "Gather dyes from the hills so Úna can weave a bolt of Donegal tweed.",
+   "start_flag": "q_donegal_tweed_started",
+   "steps": [
+    {
+     "flag": "q_donegal_tweed_1",
+     "text": "Get crotal lichen from the lichen gatherer near Errigal, in Glenveagh.",
+     "zone": "glenveagh"
+    },
+    {
+     "flag": "q_donegal_tweed_2",
+     "text": "Ask Nóra the weaver in Gaoth Dobhair for heather and whin dyes.",
+     "zone": "gweedore"
+    },
+    {
+     "flag": "q_donegal_tweed_3",
+     "text": "Take the dyes back to Úna at the Tweed House in Donegal Town.",
+     "zone": "donegal_town"
+    },
+    {
+     "flag": "q_donegal_tweed_4",
+     "text": "See off the fashion buyer who wants the bolt before it's woven.",
+     "zone": "donegal_town"
+    }
+   ],
+   "done_flag": "q_donegal_tweed_done",
+   "reward": "A Donegal Tweed Cap (a charm against gale moves) and standing in Ireland."
+  },
+  {
+   "id": "donegal_errigal",
+   "title": "Top of Donegal",
+   "region": "donegal",
+   "town": "glenveagh",
+   "giver": "Errigal Guide",
+   "summary": "Climb Errigal, the highest mountain in Donegal, and race the fell runner at the top.",
+   "start_flag": "q_donegal_errigal_started",
+   "steps": [
+    {
+     "flag": "q_donegal_errigal_1",
+     "text": "Follow the path round and up to the summit of Errigal.",
+     "zone": "glenveagh"
+    },
+    {
+     "flag": "q_donegal_errigal_2",
+     "text": "Beat Ciarán the fell runner on the summit.",
+     "zone": "glenveagh"
+    }
+   ],
+   "done_flag": "q_donegal_errigal_done",
+   "reward": "A chip of Errigal Quartz (a charm for stone moves) and standing in Ireland."
+  },
+  {
+   "id": "donegal_tory",
+   "title": "A King for Tory",
+   "region": "donegal",
+   "town": "gweedore",
+   "giver": "Tory Boatman",
+   "summary": "Tory Island needs a new king. Help the islanders choose one, and find a band for the crowning.",
+   "start_flag": "q_donegal_tory_started",
+   "steps": [
+    {
+     "flag": "q_donegal_tory_1",
+     "text": "Take the boat from Bunbeg to Tory and talk to Séamus on the pier.",
+     "zone": "tory_island"
+    },
+    {
+     "flag": "q_donegal_tory_2",
+     "text": "Ask the gallery keeper on Tory who the island wants.",
+     "zone": "tory_island"
+    },
+    {
+     "flag": "q_donegal_tory_3",
+     "text": "Find a céilí band: the fiddler in the pub in Gaoth Dobhair and the box player on the quay in Donegal Town.",
+     "zone": "gweedore"
+    },
+    {
+     "flag": "q_donegal_tory_4",
+     "text": "See off the mainland pretender by the round tower on Tory.",
+     "zone": "tory_island"
+    }
+   ],
+   "done_flag": "q_donegal_tory_done",
+   "reward": "Tory Clay (a charm against urban moves), smoked mackerel and standing in Ireland."
+  },
+  {
+   "id": "donegal_balor",
+   "title": "The Evil Eye",
+   "region": "donegal",
+   "town": "tory_island",
+   "giver": "Island Storyteller",
+   "summary": "The storyteller says Balor of the Evil Eye still sleeps at the fort on Tory's east cliffs.",
+   "start_flag": "q_donegal_balor_started",
+   "steps": [
+    {
+     "flag": "q_donegal_balor_1",
+     "text": "Once Tory has its king, go to Balor's Fort at the east end of the island.",
+     "zone": "tory_island"
+    },
+    {
+     "flag": "q_donegal_balor_2",
+     "text": "Catch Balor of the Evil Eye.",
+     "zone": "tory_island"
+    }
+   ],
+   "done_flag": "q_donegal_balor_done",
+   "reward": "Barmbrack for luck, standing in Ireland, and a Fomorian king in your Fieldbook."
+  }
+ ]
+}

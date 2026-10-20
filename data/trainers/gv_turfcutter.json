@@ -1,0 +1,32 @@
+{
+ "id": "gv_turfcutter",
+ "name": "Packie the Turf Cutter",
+ "class": "Turf Cutter",
+ "sprite": "farmer",
+ "scaled_floor": 66,
+ "party": [
+  {
+   "species": "turfclamp",
+   "level": 67
+  },
+  {
+   "species": "bufomire",
+   "level": 67
+  },
+  {
+   "species": "peatmonarch",
+   "level": 68
+  }
+ ],
+ "ai": "trainer",
+ "money": 3000,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Packie the Turf Cutter",
+   "text": "I've a bank of turf to save before the rain. You've got about four minutes. Then I need my sleán back."
+  }
+ ],
+ "win": "Ah, you've a fine strong arm on you. Ever think of cutting turf? No? Nobody does any more.",
+ "after": "Cut, spread, foot, clamp, carry home. And then it rains on you anyway. That's turf."
+}

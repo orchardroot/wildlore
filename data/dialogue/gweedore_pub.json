@@ -1,0 +1,126 @@
+{
+ "gp_barman": [
+  {
+   "do": "say",
+   "who": "Barman",
+   "text": "Fáilte. Céad míle fáilte, a hundred thousand welcomes. We've a session every night, and a quiz when the musicians need a lie down."
+  },
+  {
+   "do": "say",
+   "who": "Barman",
+   "text": "There's been music in this parish forever. The bands that came out of these hills sang in Irish on stages all over the world. We're quietly very proud. Loudly, after nine."
+  }
+ ],
+ "gp_quizmaster": [
+  {
+   "do": "say",
+   "who": "Quizmaster",
+   "text": "Quiz night! Ceisteanna, questions. Five of them. Answers in Irish get a round of applause and no extra points."
+  },
+  {
+   "do": "choice",
+   "text": "Fancy a round? Five questions, no phones.",
+   "options": [
+    "Count me in",
+    "Not tonight"
+   ],
+   "set": "_quiz_choice"
+  },
+  {
+   "do": "if",
+   "flag": "_quiz_choice",
+   "then": [
+    {
+     "do": "quiz",
+     "pub": "gweedore",
+     "region": "ireland",
+     "who": "Quizmaster"
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Quizmaster",
+     "text": "Next time, so. The questions will keep. They're mostly about sheep."
+    }
+   ],
+   "eq": 0
+  }
+ ],
+ "gp_fiddler": [
+  {
+   "do": "if",
+   "flag": "q_donegal_tory_fiddle",
+   "then": [
+    {
+     "do": "say",
+     "who": "Fiddler",
+     "text": "I'll be on the first boat to Tory for the crowning. Bow rosined, strings tuned, stomach braced."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_donegal_tory_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "Fiddler",
+       "text": "A crowning on Tory? A new king? And they want a fiddler? Sure I wouldn't miss it if you paid me. Which they won't."
+      },
+      {
+       "do": "set",
+       "flag": "q_donegal_tory_fiddle"
+      },
+      {
+       "do": "if",
+       "flag": "q_donegal_tory_box",
+       "then": [
+        {
+         "do": "set",
+         "flag": "q_donegal_tory_3"
+        },
+        {
+         "do": "say",
+         "who": "Fiddler",
+         "text": "You've the box player too? Then that's a band. Off you go and tell Séamus."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Fiddler",
+         "text": "You'll want a box player too, an accordion. There's a lad plays down on the quay in Donegal Town. Tell him I sent you; he'll pretend not to know me."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Fiddler",
+       "text": "This is a mazurka. Donegal fiddlers took to them in the 1800s and never let go. Listen. One, two, three, one, two, THREE."
+      },
+      {
+       "do": "say",
+       "who": "Fiddler",
+       "text": "Most places forgot them. Donegal kept them, like a good coat."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "gp_local": [
+  {
+   "do": "say",
+   "who": "Local",
+   "text": "{greeting} You're not from round here. I can tell by the way you're dry."
+  },
+  {
+   "do": "say",
+   "who": "Local",
+   "text": "Gaoth Dobhair is spread out along the coast like jam that didn't quite reach the edges. Derrybeg, Bunbeg, Meenaleck, Dunlewey. All one parish, all one argument about whose townland's best."
+  }
+ ]
+}

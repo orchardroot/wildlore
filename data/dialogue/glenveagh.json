@@ -1,0 +1,286 @@
+{
+ "gv_border_walker": [
+  {
+   "do": "say",
+   "who": "Walker from Derry",
+   "text": "{greeting} I walk out from Derry most Sundays. There used to be a checkpoint on this road, years ago. Now the only way you'd know you've crossed is the speed signs going metric."
+  },
+  {
+   "do": "say",
+   "who": "Walker from Derry",
+   "text": "Miles behind you, kilometres in front. My car does the sums. My legs refuse to."
+  }
+ ],
+ "gv_eagle_watcher": [
+  {
+   "do": "say",
+   "who": "Eagle Watcher",
+   "text": "Shh. There. No. That was a raven. Ravens tumble about for fun; a golden eagle just hangs there like it owns the sky. Which it does."
+  },
+  {
+   "do": "say",
+   "who": "Eagle Watcher",
+   "text": "They were gone from Ireland for nearly a hundred years. The chicks for Glenveagh came over from Scotland from 2000 on, and now there are pairs nesting in the hills again."
+  },
+  {
+   "do": "say",
+   "who": "Eagle Watcher",
+   "text": "Seven years old before they're properly grown up and breeding, you know. Teenagers with talons. I've a lot of sympathy."
+  }
+ ],
+ "gv_deer": [
+  {
+   "do": "say",
+   "who": "",
+   "text": "A red deer lifts its head from the heather, chews thoughtfully, and decides you are not worth stopping lunch for."
+  },
+  {
+   "do": "say",
+   "who": "",
+   "text": "In the autumn rut the stags roar across Glenveagh day and night. Right now it is just chewing, which is quieter."
+  }
+ ],
+ "gv_fiddler": [
+  {
+   "do": "say",
+   "who": "Fiddler",
+   "text": "I'm practising for a céilí. The castle gardens have the best acoustics in Donegal, if you don't count the midges, and I don't, because they count me."
+  },
+  {
+   "do": "say",
+   "who": "Fiddler",
+   "text": "This one's a highland. Donegal has its own highlands, a kind of tune, nothing to do with Scotland. Well. A bit to do with Scotland. Don't tell anyone."
+  }
+ ],
+ "gv_gardener": [
+  {
+   "do": "say",
+   "who": "Castle Gardener",
+   "text": "The gardens have plants from all over the world, sheltered by the trees and the hills. Rhododendrons, tree ferns, palms. Palms! In Donegal!"
+  },
+  {
+   "do": "say",
+   "who": "Castle Gardener",
+   "text": "The Gulf Stream does half the work. I do the other half, and the slugs do their best to undo both."
+  }
+ ],
+ "gv_glen_poet": [
+  {
+   "do": "say",
+   "who": "Glen Walker",
+   "text": "They call it the Poisoned Glen, but look at it. Granite walls, a stream, a ruined church. If this is poison, pour me a pint of it."
+  },
+  {
+   "do": "say",
+   "who": "Glen Walker",
+   "text": "One story says Balor of the Evil Eye was killed hereabouts, and the poison of his eye split the rocks. The other says a mapmaker spelt 'heavenly' wrong. I prefer the mapmaker. He's more relatable."
+  }
+ ],
+ "gv_dyer": [
+  {
+   "do": "if",
+   "flag": "q_donegal_tweed_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_donegal_tweed_1",
+     "then": [
+      {
+       "do": "say",
+       "who": "Lichen Gatherer",
+       "text": "Back again? The crotal grows slowly, love. I'm not scraping the mountain bald for one bolt of tweed."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Lichen Gatherer",
+       "text": "Úna sent you for crotal? Good woman. This is it, the grey crusty lichen on the boulders. Boil it up with wool and you get the rust and brown of a proper Donegal tweed."
+      },
+      {
+       "do": "say",
+       "who": "Lichen Gatherer",
+       "text": "It grows about as fast as a glacier, so you only ever take a little, from a lot of stones. There."
+      },
+      {
+       "do": "give_item",
+       "item": "crotal",
+       "n": 3
+      },
+      {
+       "do": "set",
+       "flag": "q_donegal_tweed_1"
+      },
+      {
+       "do": "say",
+       "who": "Lichen Gatherer",
+       "text": "Now you want the brighter colours. Nóra the weaver over in Gaoth Dobhair has heather and whin in her pots. Over the mountain, west."
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Lichen Gatherer",
+     "text": "{greeting} I'm picking crotal, the lichen off the rocks. The weavers dye wool with it. Smells like a wet dog when it's boiling, and the colour is worth every sniff."
+    },
+    {
+     "do": "say",
+     "who": "Lichen Gatherer",
+     "text": "Harris tweed in Scotland used it too. They call it crottle. We call it crotal. We have both been arguing about the spelling for two hundred years."
+    }
+   ]
+  }
+ ],
+ "gv_errigal_guide": [
+  {
+   "do": "if",
+   "flag": "q_donegal_errigal_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Errigal Guide",
+     "text": "There they are, the conqueror of Errigal. Your legs will tell you about it tomorrow, at length."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_donegal_errigal_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "Errigal Guide",
+       "text": "You raced Ciarán at the summit, and won? He'll be mortified. He trains on that ridge in the dark."
+      },
+      {
+       "do": "say",
+       "who": "Errigal Guide",
+       "text": "Here, this is for you. A chip of the mountain itself. Quartzite, pink as the sunset, and twice as stubborn."
+      },
+      {
+       "do": "give_item",
+       "item": "errigal_quartz"
+      },
+      {
+       "do": "standing",
+       "nation": "ireland",
+       "amount": 5
+      },
+      {
+       "do": "set",
+       "flag": "q_donegal_errigal_done"
+      },
+      {
+       "do": "say",
+       "who": "Errigal Guide",
+       "text": "Seven hundred and fifty-one metres. Highest in Donegal. You'll be telling people that for years."
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_donegal_errigal_started",
+       "then": [
+        {
+         "do": "say",
+         "who": "Errigal Guide",
+         "text": "The path goes all the way round the mountain and up the east side. Keep to it; the scree will have your ankles. There's a fell runner at the top who'll want a race."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Errigal Guide",
+         "text": "{greeting} That's Errigal, An Earagail, the highest mountain in the county. Quartzite all the way up, and it turns pink at sunset like it's embarrassed about something."
+        },
+        {
+         "do": "choice",
+         "text": "Fancy climbing it? It's a fair old walk.",
+         "options": [
+          "Go on so",
+          "Maybe later"
+         ],
+         "set": "_errigal_choice"
+        },
+        {
+         "do": "if",
+         "flag": "_errigal_choice",
+         "then": [
+          {
+           "do": "set",
+           "flag": "q_donegal_errigal_started"
+          },
+          {
+           "do": "say",
+           "who": "Errigal Guide",
+           "text": "Good on you. Follow the path round and up. At the top, find Ciarán the fell runner. He goes up and down it before his breakfast and he'll want a race. Come back and tell me how you got on."
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Errigal Guide",
+           "text": "It'll be there tomorrow. It's been there a few hundred million years."
+          }
+         ],
+         "eq": 0
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "gv_summit": [
+  {
+   "do": "say",
+   "who": "Fell Runner",
+   "text": "You made it up! Isn't it something? Tory out on the sea, the Derryveagh Mountains all round, and the whole of Donegal under your boots."
+  },
+  {
+   "do": "set",
+   "flag": "q_donegal_errigal_1"
+  },
+  {
+   "do": "if",
+   "flag": "trainer_gv_runner",
+   "then": [
+    {
+     "do": "say",
+     "who": "Fell Runner",
+     "text": "I'm still getting my breath back after our race. And I do this every morning. Mortifying."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Fell Runner",
+     "text": "I run up here every morning. Fancy a race back down? Well. A battle. Racing down scree is how people end up on the news."
+    },
+    {
+     "do": "battle",
+     "trainer": "gv_runner"
+    },
+    {
+     "do": "if",
+     "flag": "trainer_gv_runner",
+     "then": [
+      {
+       "do": "set",
+       "flag": "q_donegal_errigal_2"
+      },
+      {
+       "do": "say",
+       "who": "Fell Runner",
+       "text": "Go on and tell the guide at the bottom. He'll never believe it."
+      }
+     ],
+     "else": []
+    }
+   ]
+  }
+ ]
+}

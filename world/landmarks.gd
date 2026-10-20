@@ -16,7 +16,7 @@ const IRON := Color("3c4450")
 const GLASS := Color.WHITE
 
 ## Building styles handled here rather than by the generic house in Meshes.building.
-const SPECIAL := ["glass_tower", "gantry_crane", "cantilever_crane", "titanic", "mill", "castle", "cathedral", "liver_building", "station", "aqueduct", "chapel", "terrace", "tudor", "slate_cottage", "lighthouse_house", "round_tower", "passage_tomb", "field_barn"]
+const SPECIAL := ["glass_tower", "gantry_crane", "cantilever_crane", "titanic", "mill", "castle", "cathedral", "liver_building", "station", "aqueduct", "chapel", "terrace", "tudor", "slate_cottage", "lighthouse_house", "round_tower", "passage_tomb", "field_barn", "tower_house", "tower_house_granite", "thatch_cottage", "irish_shopfront", "turf_stack", "obelisk", "tau_cross"]
 
 ## Doors: where each style's door sits on its tile (see _door and friends), for the swing as you go in.
 ## {x, w, y, h, z}: left edge and width across the door column, bottom and height, z of the door's face from
@@ -115,6 +115,18 @@ static func building(w: int, d: int, style: String, door_x: int, seed_value: int
 			_passage_tomb(st, w, d, door_x)
 		"field_barn":
 			_field_barn(st, w, d, rng)
+		"tower_house", "tower_house_granite":
+			_tower_house(st, wst, w, d, door_x, Color("a59f92") if style == "tower_house_granite" else Color("938d82"), style == "tower_house_granite")
+		"thatch_cottage":
+			_thatch_cottage(st, wst, w, d, door_x, rng)
+		"irish_shopfront":
+			_irish_shopfront(st, wst, w, d, door_x, rng)
+		"turf_stack":
+			_turf_stack(st, w, d, rng)
+		"obelisk":
+			_obelisk(st, w, d)
+		"tau_cross":
+			_tau_cross(st, w, d)
 		"liver_building":
 			_liver(st, wst, w, d, door_x)
 		"station":
@@ -1041,3 +1053,171 @@ static func harp() -> ArrayMesh:
 	for i in 5:
 		Meshes.box(st, Vector3(-0.15 + i * 0.08, 0.12, -0.01), Vector3(0.012, 1.08 - i * 0.12, 0.012), Color("f2e2a0"))
 	return Meshes._finish(st)
+
+# --- Donegal ------------------------------------------------------------------
+
+## An Irish tower house (Donegal Castle; Glenveagh is the same idea in pale granite): a tall square keep with a
+## corbelled parapet, crenellations and two capped corner turrets, and a lower manor wing with Jacobean gables
+## and tall chimney stacks. The keep stands at the west end of the plot; `round` adds Glenveagh's round tower.
+static func _tower_house(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int, stone: Color, round := false) -> void:
+	var rng := Meshes._rng(4471 + w * 13 + d)
+	var kw := clampf(w * 0.45, 2.0, 4.0)
+	var kh := 4.4
+	var roof := SLATE.darkened(0.1)
+	Meshes.box(st, Vector3(0.05, 0, 0.1), Vector3(kw - 0.1, kh, d - 0.15), stone)
+	Meshes.box(st, Vector3(0, 0, 0.05), Vector3(kw, 0.3, d - 0.05), stone.darkened(0.25))  # the battered base
+	Meshes.box(st, Vector3(-0.08, kh - 0.12, 0.02), Vector3(kw + 0.16, 0.16, d - 0.02), stone.darkened(0.14))  # corbels
+	_merlons(st, -0.08, kw + 0.08, d - 0.6, kh + 0.04, stone, true)
+	_merlons(st, -0.08, kw + 0.08, 0.02, kh + 0.04, stone, true)
+	_merlons(st, 0.6, d - 0.6, -0.08, kh + 0.04, stone, false)
+	_merlons(st, 0.6, d - 0.6, kw - 0.52, kh + 0.04, stone, false)
+	_roof_at(st, 0.45, kw - 0.45, 0.45, d - 0.45, kh, 0.9, roof, stone)
+	Meshes.box(st, Vector3(kw * 0.5 - 0.2, kh, 0.35), Vector3(0.4, 1.3, 0.4), stone.darkened(0.08))
+	_chimneys.append(Vector3(kw * 0.5, kh + 1.35, 0.55))
+	for cx in [0.15, kw - 0.15]:
+		Meshes.cylinder(st, Vector3(cx, kh - 0.7, d - 0.2), 0.3, 1.1, 8, stone.lightened(0.05))
+		Meshes.cone(st, Vector3(cx, kh + 0.33, d - 0.2), 0.33, 0.65, 8, roof, rng)
+	for y in [1.0, 2.2, 3.35]:
+		_window(st, wst, kw * 0.5 - 0.17, y, d, 0.34, 0.5, stone.lightened(0.2))
+	if w - kw >= 1.5:
+		var wh := 2.3
+		Meshes.box(st, Vector3(kw, 0, 0.35), Vector3(w - kw - 0.05, wh, d - 0.4), stone.lightened(0.03))
+		Meshes.box(st, Vector3(kw, 0, 0.3), Vector3(w - kw, 0.18, d - 0.3), stone.darkened(0.25))
+		_roof_at(st, kw, w - 0.05, 0.35, d - 0.05, wh, 1.05, roof, stone)
+		var gx := kw + 0.35
+		while gx + 0.85 <= w - 0.2:
+			Meshes.box(st, Vector3(gx, wh - 0.05, d - 0.4), Vector3(0.85, 0.55, 0.35), stone.lightened(0.03))
+			Meshes._tri(st, Vector3(gx + 0.425, wh + 0.95, d - 0.05), Vector3(gx + 0.85, wh + 0.5, d - 0.05), Vector3(gx, wh + 0.5, d - 0.05), stone.lightened(0.06))
+			Meshes._quad(st, Vector3(gx + 0.425, wh + 0.95, d - 0.05), Vector3(gx + 0.425, wh + 0.95, d - 0.6), Vector3(gx + 0.85, wh + 0.5, d - 0.6), Vector3(gx + 0.85, wh + 0.5, d - 0.05), roof)
+			Meshes._quad(st, Vector3(gx + 0.425, wh + 0.95, d - 0.6), Vector3(gx + 0.425, wh + 0.95, d - 0.05), Vector3(gx, wh + 0.5, d - 0.05), Vector3(gx, wh + 0.5, d - 0.6), roof.darkened(0.1))
+			_window(st, wst, gx + 0.27, wh + 0.05, d, 0.32, 0.38, stone.lightened(0.22))
+			gx += 1.35
+		Meshes.box(st, Vector3(w - 0.5, wh + 0.2, d * 0.5 - 0.2), Vector3(0.4, 1.5, 0.4), stone.darkened(0.06))
+		_chimneys.append(Vector3(w - 0.3, wh + 1.75, d * 0.5))
+		for x in range(int(ceil(kw)), w):
+			if x == door_x:
+				continue
+			_window(st, wst, x + 0.22, 0.45, d, 0.56, 0.62, stone.lightened(0.22))
+			_window(st, wst, x + 0.3, 1.45, d, 0.4, 0.5, stone.lightened(0.22))
+	if round:
+		var rc := Vector3(w - 0.75, 0, 0.75)
+		Meshes.cylinder(st, rc, 0.7, kh + 0.6, 10, stone.lightened(0.04))
+		_merlons(st, w - 1.35, w - 0.15, 0.15, kh + 0.6 - 0.05, stone, true)
+		_window(st, wst, rc.x - 0.15, 2.8, rc.z + 0.62, 0.3, 0.45, stone.lightened(0.2))
+	if door_x >= 0:
+		Meshes.box(st, Vector3(door_x + 0.12, 1.06, d - 0.1), Vector3(0.76, 0.12, 0.1), stone.lightened(0.18))
+		_door(st, door_x, d, stone, 0.9)
+
+## A Donegal thatched cottage: whitewashed, a tarred skirting, one storey, and a golden thatch held down against
+## the Atlantic wind by a net of ropes tied to stone pegs under the eaves; a chimney on each gable, a half-door.
+static func _thatch_cottage(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int, rng: RandomNumberGenerator) -> void:
+	var lime := Color("ece8dc")
+	var thatch := Color("a98a50")
+	var rope := Color("4a3b2a")
+	var trim: Color = [Color("b03a2e"), Color("2f5d8a"), Color("2f7a55")][rng.randi() % 3]
+	var hgt := 1.2
+	var eave := 0.22
+	var rise := minf(1.2, d * 0.42)
+	Meshes.box(st, Vector3(0.05, 0, 0.1), Vector3(w - 0.1, hgt, d - 0.15), lime)
+	Meshes.box(st, Vector3(0.03, 0, d - 0.08), Vector3(w - 0.06, 0.2, 0.05), Color("3d3a36"))  # tarred skirting
+	var ry := hgt + rise
+	var zr := d * 0.5
+	var zf := d + eave
+	Meshes._quad(st, Vector3(-eave, ry, zr), Vector3(w + eave, ry, zr), Vector3(w + eave, hgt - 0.05, zf), Vector3(-eave, hgt - 0.05, zf), thatch)
+	Meshes._quad(st, Vector3(w + eave, ry, zr), Vector3(-eave, ry, zr), Vector3(-eave, hgt - 0.05, -eave), Vector3(w + eave, hgt - 0.05, -eave), thatch.darkened(0.15))
+	Meshes._quad(st, Vector3(-eave, hgt - 0.05, zf), Vector3(w + eave, hgt - 0.05, zf), Vector3(w + eave, hgt - 0.05, -eave), Vector3(-eave, hgt - 0.05, -eave), thatch.darkened(0.45))
+	Meshes._tri(st, Vector3(0.05, ry - 0.05, zr), Vector3(0.05, hgt, d - 0.05), Vector3(0.05, hgt, 0.1), lime.darkened(0.06))
+	Meshes._tri(st, Vector3(w - 0.05, ry - 0.05, zr), Vector3(w - 0.05, hgt, 0.1), Vector3(w - 0.05, hgt, d - 0.05), lime.darkened(0.1))
+	Meshes.box(st, Vector3(-eave, ry - 0.1, zr - 0.16), Vector3(w + eave * 2.0, 0.18, 0.32), thatch.darkened(0.08))  # ridge roll
+	Meshes.box(st, Vector3(-eave, hgt - 0.14, zf - 0.12), Vector3(w + eave * 2.0, 0.12, 0.14), thatch.darkened(0.22))  # eave lip
+	# the rope net: down the slope every 0.4, and three runs along it
+	var lift := Vector3(0, 0.02, 0.012)
+	var x := 0.1
+	while x < w:
+		Meshes._quad(st, Vector3(x, ry, zr) + lift, Vector3(x + 0.035, ry, zr) + lift, Vector3(x + 0.035, hgt - 0.05, zf) + lift, Vector3(x, hgt - 0.05, zf) + lift, rope)
+		Meshes.box(st, Vector3(x - 0.02, hgt - 0.34, d - 0.07), Vector3(0.07, 0.08, 0.08), Color("8e887c"))  # stone peg
+		x += 0.4
+	for t in [0.3, 0.58, 0.84]:
+		var y0 := lerpf(ry, hgt - 0.05, t)
+		var z0 := lerpf(zr, zf, t)
+		var y1 := lerpf(ry, hgt - 0.05, t + 0.03)
+		var z1 := lerpf(zr, zf, t + 0.03)
+		Meshes._quad(st, Vector3(-eave, y0, z0) + lift, Vector3(w + eave, y0, z0) + lift, Vector3(w + eave, y1, z1) + lift, Vector3(-eave, y1, z1) + lift, rope)
+	for cx in [0.12, w - 0.5]:
+		Meshes.box(st, Vector3(cx, ry - 0.45, zr - 0.2), Vector3(0.38, 0.85, 0.4), lime.darkened(0.04))
+		Meshes.box(st, Vector3(cx - 0.03, ry + 0.38, zr - 0.23), Vector3(0.44, 0.06, 0.46), Color("8e887c"))
+		_chimneys.append(Vector3(cx + 0.19, ry + 0.45, zr))
+	for i in w:
+		if i == door_x:
+			continue
+		_window(st, wst, i + 0.3, 0.45, d - 0.05, 0.4, 0.46, trim)
+	if door_x >= 0:
+		_door(st, door_x, d, lime)
+		Meshes.box(st, Vector3(door_x + 0.22, 0.16, d - 0.072), Vector3(0.56, 0.44, 0.06), trim)  # the half-door
+
+## An Irish town shopfront: a two-storey house rendered and painted a bright colour, with a dark fascia board and
+## cornice over pilasters, big display windows below and sash windows above. Each one picks its own colour.
+static func _irish_shopfront(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int, rng: RandomNumberGenerator) -> void:
+	var cols := [Color("2f5d8a"), Color("b8402f"), Color("e0b53a"), Color("2f7a55"), Color("c25a7c"), Color("6a4c8c"), Color("d9782e"), Color("5aa0a8")]
+	var wall: Color = cols[rng.randi() % cols.size()]
+	var fascia: Color = [Color("1f2a33"), Color("23402f"), Color("3a1f24")][rng.randi() % 3]
+	var hgt := 2.5
+	Meshes.box(st, Vector3(0.05, 0, 0.05), Vector3(w - 0.1, hgt, d - 0.1), wall)
+	Meshes.box(st, Vector3(0, 0, 0), Vector3(w, 0.16, d), wall.darkened(0.35))
+	_roof(st, w, d, hgt, SLATE, wall)
+	var cx := rng.randf_range(0.6, maxf(0.7, w - 0.9))
+	Meshes.box(st, Vector3(cx, hgt + 0.3, d * 0.5 - 0.2), Vector3(0.35, 0.95, 0.4), wall.darkened(0.25))
+	_chimneys.append(Vector3(cx + 0.175, hgt + 1.25, d * 0.5))
+	Meshes.box(st, Vector3(0.1, 1.02, d - 0.04), Vector3(w - 0.2, 0.5, 0.08), fascia)
+	Meshes.box(st, Vector3(0.04, 1.5, d - 0.07), Vector3(w - 0.08, 0.07, 0.14), fascia.lightened(0.25))
+	for px in [0.08, w - 0.24]:
+		Meshes.box(st, Vector3(px, 0.0, d - 0.05), Vector3(0.16, 1.04, 0.09), fascia.lightened(0.1))
+	for i in w:
+		if i != door_x:
+			_window(st, wst, i + 0.14, 0.32, d, 0.72, 0.6, fascia)
+		_window(st, wst, i + 0.3, 1.78, d, 0.4, 0.52, Color("f0ece0"))
+	_door(st, door_x, d, fascia)
+
+## A turf clamp (a rick): sods of peat cut from the bog and stacked to dry, rough and dark, narrowing to the top.
+## Nobody goes in: it has no door.
+static func _turf_stack(st: SurfaceTool, w: int, d: int, rng: RandomNumberGenerator) -> void:
+	var peat := Color("4a3626")
+	for layer in 5:
+		var ix := 0.1 + layer * 0.17
+		var iz := 0.12 + layer * 0.07
+		var y := layer * 0.17
+		if w - 2.0 * ix < 0.3:
+			break
+		Meshes.box(st, Vector3(ix, y, iz), Vector3(w - 2.0 * ix, 0.17, d - 2.0 * iz), peat.lightened(rng.randf_range(-0.05, 0.05)))
+		var x := ix
+		while x < w - ix - 0.12:
+			Meshes.box(st, Vector3(x, y + 0.02, d - iz - 0.02), Vector3(0.22, 0.13, 0.05), peat.lightened(rng.randf_range(-0.1, 0.14)))
+			x += 0.27
+
+## A slim stone obelisk on a stepped base, the kind a town raises in its square (Donegal's remembers the Four Masters).
+static func _obelisk(st: SurfaceTool, w: int, d: int) -> void:
+	var stone := Color("aaa69c")
+	var c := Vector3(w * 0.5, 0, d * 0.5)
+	Meshes.box(st, c + Vector3(-0.48, 0, -0.48), Vector3(0.96, 0.16, 0.96), stone.darkened(0.15))
+	Meshes.box(st, c + Vector3(-0.36, 0.16, -0.36), Vector3(0.72, 0.16, 0.72), stone.darkened(0.08))
+	Meshes.box(st, c + Vector3(-0.24, 0.32, -0.24), Vector3(0.48, 0.55, 0.48), stone)
+	var n := 6
+	for i in n:
+		var r := lerpf(0.17, 0.1, float(i) / n)
+		Meshes.box(st, c + Vector3(-r, 0.87 + i * 0.4, -r), Vector3(r * 2.0, 0.4, r * 2.0), stone.lightened(0.03 * (i % 2)))
+	var top := Vector3(c.x, 0.87 + n * 0.4, c.z)
+	var s := 0.1
+	var pts := [top + Vector3(-s, 0, -s), top + Vector3(s, 0, -s), top + Vector3(s, 0, s), top + Vector3(-s, 0, s)]
+	var tip := top + Vector3(0, 0.28, 0)
+	for i in 4:
+		Meshes._tri(st, pts[i], pts[(i + 1) % 4], tip, stone.lightened(0.1))
+
+## Tory Island's Tau cross: a T-shaped cross of grey stone on a rough plinth, older than anybody can say.
+static func _tau_cross(st: SurfaceTool, w: int, d: int) -> void:
+	var stone := Color("8f8a7c")
+	var c := Vector3(w * 0.5, 0, d * 0.5)
+	Meshes.box(st, c + Vector3(-0.32, 0, -0.26), Vector3(0.64, 0.22, 0.52), stone.darkened(0.15))
+	Meshes.box(st, c + Vector3(-0.1, 0.22, -0.07), Vector3(0.2, 1.0, 0.14), stone)
+	Meshes.box(st, c + Vector3(-0.36, 1.12, -0.07), Vector3(0.72, 0.17, 0.14), stone.lightened(0.05))
+	Meshes.box(st, c + Vector3(-0.06, 0.5, 0.06), Vector3(0.09, 0.07, 0.02), Color("b8b24a"))  # lichen
+	Meshes.box(st, c + Vector3(0.12, 1.15, 0.06), Vector3(0.1, 0.06, 0.02), Color("c9a640"))

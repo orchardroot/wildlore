@@ -1,0 +1,144 @@
+{
+ "id": "glenveagh_castle",
+ "name": "Glenveagh Castle",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "fireplace",
+   "x": 7,
+   "y": 1
+  },
+  {
+   "type": "wall_picture",
+   "x": 3,
+   "y": 1,
+   "walk": true,
+   "variant": 0
+  },
+  {
+   "type": "wall_picture",
+   "x": 11,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  },
+  {
+   "type": "clock",
+   "x": 5,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "rug",
+   "x": 5,
+   "y": 3,
+   "w": 5,
+   "h": 3,
+   "variant": 1,
+   "walk": true
+  },
+  {
+   "type": "sofa",
+   "x": 4,
+   "y": 4,
+   "variant": 1
+  },
+  {
+   "type": "sofa",
+   "x": 10,
+   "y": 4,
+   "variant": 1
+  },
+  {
+   "type": "piano",
+   "x": 1,
+   "y": 2,
+   "rot": 90
+  },
+  {
+   "type": "display_case",
+   "x": 13,
+   "y": 3,
+   "variant": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 1,
+   "y": 5
+  },
+  {
+   "type": "plant_stand",
+   "x": 13,
+   "y": 6
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 7
+  },
+  {
+   "type": "potted_plant",
+   "x": 13,
+   "y": 7
+  },
+  {
+   "type": "table",
+   "x": 7,
+   "y": 6
+  }
+ ],
+ "warps": [
+  {
+   "x": 7,
+   "y": 8,
+   "to": "glenveagh",
+   "tx": 38,
+   "ty": 18,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "gc_guide",
+   "sprite": "tour_guide",
+   "x": 9,
+   "y": 6,
+   "facing": "down",
+   "move": "still",
+   "script": "gc_guide",
+   "name": "Castle Guide"
+  },
+  {
+   "id": "gc_gardener",
+   "sprite": "farmer",
+   "x": 2,
+   "y": 7,
+   "facing": "right",
+   "move": "still",
+   "script": "gc_gardener",
+   "name": "Head Gardener"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  7,
+  7
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxxx",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x++++++D++++++x",
+  "xxxxxxxxxxxxxxx"
+ ]
+}

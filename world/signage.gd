@@ -260,6 +260,12 @@ static func front(style: String, w: int, d: int, door_x: int) -> Dictionary:
 			f.merge({"z": d + 0.16, "lo": 1.07, "hi": 1.47, "hang": 2.4}, true)
 		"slate_cottage":
 			f.merge({"z": d + 0.2, "lo": 1.07, "hi": 1.46, "hang": 1.42}, true)
+		"thatch_cottage":
+			f.merge({"z": d + 0.24, "lo": 0.95, "hi": 1.3, "hang": 1.3}, true)
+		"irish_shopfront":
+			f.merge({"z": d + 0.05, "lo": 1.08, "hi": 1.46, "hang": 2.3}, true)
+		"tower_house", "tower_house_granite":
+			f.mode = "stand"
 		"chapel":
 			f.merge({"lo": 2.08, "hi": 2.46, "x0": 0.25, "x1": w - 0.25}, true)
 		"cathedral":

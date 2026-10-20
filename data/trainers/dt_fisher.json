@@ -1,0 +1,32 @@
+{
+ "id": "dt_fisher",
+ "name": "Mick the Trawlerman",
+ "class": "Trawlerman",
+ "sprite": "fisher",
+ "scaled_floor": 66,
+ "party": [
+  {
+   "species": "greyhaul",
+   "level": 67
+  },
+  {
+   "species": "bayrunner",
+   "level": 68
+  },
+  {
+   "species": "minchman",
+   "level": 68
+  }
+ ],
+ "ai": "trainer",
+ "money": 3000,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Mick the Trawlerman",
+   "text": "Back from Killybegs with a full hold and a short temper. Let's go!"
+  }
+ ],
+ "win": "You'd make a deckhand. You'd hate it, but you'd make one.",
+ "after": "Killybegs lands more fish than any port in Ireland. Mackerel, herring, blue whiting. And the gulls get a fair cut."
+}

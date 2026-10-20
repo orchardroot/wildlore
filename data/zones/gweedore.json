@@ -1,0 +1,598 @@
+{
+ "id": "gweedore",
+ "name": "Gaoth Dobhair (Gweedore)",
+ "region": "ireland_west",
+ "kind": "town",
+ "music": "town_ireland",
+ "stage": "coast",
+ "town_id": "gweedore",
+ "weather": {
+  "drizzle": 30,
+  "fog": 12,
+  "clear": 20,
+  "gale": 14,
+  "sunshine": 14,
+  "downpour": 10
+ },
+ "scaled_floor": 66,
+ "props": [
+  {
+   "type": "building",
+   "style": "slate_cottage",
+   "x": 14,
+   "y": 17,
+   "w": 5,
+   "h": 4,
+   "label": "Tory Ferry",
+   "kind": "shop"
+  },
+  {
+   "type": "boat",
+   "x": 6,
+   "y": 16,
+   "variant": 0
+  },
+  {
+   "type": "boat",
+   "x": 9,
+   "y": 18,
+   "variant": 1
+  },
+  {
+   "type": "bollard",
+   "x": 5,
+   "y": 21
+  },
+  {
+   "type": "bollard",
+   "x": 11,
+   "y": 21
+  },
+  {
+   "type": "lobster_pots",
+   "x": 13,
+   "y": 23
+  },
+  {
+   "type": "currach",
+   "x": 15,
+   "y": 23
+  },
+  {
+   "type": "building",
+   "style": "sanctuary",
+   "x": 18,
+   "y": 25,
+   "w": 6,
+   "h": 4,
+   "label": "Sanctuary"
+  },
+  {
+   "type": "building",
+   "style": "shop",
+   "x": 25,
+   "y": 25,
+   "w": 5,
+   "h": 4,
+   "label": "An Siopa"
+  },
+  {
+   "type": "building",
+   "style": "white_render",
+   "x": 31,
+   "y": 25,
+   "w": 7,
+   "h": 4,
+   "label": "Tigh Hiúdaí Beag",
+   "kind": "cafe"
+  },
+  {
+   "type": "building",
+   "style": "white_render",
+   "x": 39,
+   "y": 25,
+   "w": 6,
+   "h": 4,
+   "label": "Raidió na Gaeltachta",
+   "kind": "museum"
+  },
+  {
+   "type": "building",
+   "style": "cream_render",
+   "x": 46,
+   "y": 25,
+   "w": 8,
+   "h": 4,
+   "label": "Amharclann",
+   "kind": "theatre"
+  },
+  {
+   "type": "building",
+   "style": "thatch_cottage",
+   "x": 55,
+   "y": 26,
+   "w": 5,
+   "h": 3,
+   "label": "Cottage",
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "stone",
+   "x": 17,
+   "y": 34,
+   "w": 9,
+   "h": 4,
+   "label": "Coláiste Gaeltachta",
+   "kind": "hall"
+  },
+  {
+   "type": "building",
+   "style": "thatch_cottage",
+   "x": 29,
+   "y": 34,
+   "w": 5,
+   "h": 4,
+   "label": "Teach an Fhíodóra",
+   "kind": "workshop"
+  },
+  {
+   "type": "building",
+   "style": "thatch_cottage",
+   "x": 36,
+   "y": 34,
+   "w": 5,
+   "h": 4,
+   "label": "Teach Bhean an Tí",
+   "kind": "home"
+  },
+  {
+   "type": "building",
+   "style": "thatch_cottage",
+   "x": 43,
+   "y": 35,
+   "w": 5,
+   "h": 3,
+   "label": "Cottage",
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "thatch_cottage",
+   "x": 50,
+   "y": 35,
+   "w": 5,
+   "h": 3,
+   "label": "Cottage",
+   "show_label": false
+  },
+  {
+   "type": "boat",
+   "x": 30,
+   "y": 8,
+   "variant": 1,
+   "rot": 25
+  },
+  {
+   "type": "lamp_post",
+   "x": 17,
+   "y": 29
+  },
+  {
+   "type": "lamp_post",
+   "x": 38,
+   "y": 29
+  },
+  {
+   "type": "lamp_post",
+   "x": 54,
+   "y": 29
+  },
+  {
+   "type": "bench",
+   "x": 45,
+   "y": 29
+  },
+  {
+   "type": "post_box",
+   "x": 30,
+   "y": 29
+  },
+  {
+   "type": "phone_box",
+   "x": 24,
+   "y": 29
+  },
+  {
+   "type": "flagpole",
+   "x": 16,
+   "y": 22,
+   "variant": 2
+  },
+  {
+   "type": "washing_line",
+   "x": 56,
+   "y": 33
+  }
+ ],
+ "warps": [
+  {
+   "x": 16,
+   "y": 20,
+   "to": "gweedore_ferry",
+   "tx": 4,
+   "ty": 4,
+   "facing": "up"
+  },
+  {
+   "x": 21,
+   "y": 28,
+   "to": "gweedore_sanctuary",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 27,
+   "y": 28,
+   "to": "gweedore_shop",
+   "tx": 4,
+   "ty": 5,
+   "facing": "up"
+  },
+  {
+   "x": 34,
+   "y": 28,
+   "to": "gweedore_pub",
+   "tx": 7,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 41,
+   "y": 28,
+   "to": "gweedore_radio",
+   "tx": 5,
+   "ty": 5,
+   "facing": "up"
+  },
+  {
+   "x": 50,
+   "y": 28,
+   "to": "gweedore_theatre",
+   "tx": 7,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 21,
+   "y": 37,
+   "to": "gweedore_colaiste",
+   "tx": 8,
+   "ty": 8,
+   "facing": "up"
+  },
+  {
+   "x": 31,
+   "y": 37,
+   "to": "gweedore_weaver",
+   "tx": 6,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 38,
+   "y": 37,
+   "to": "gweedore_beanati",
+   "tx": 5,
+   "ty": 5,
+   "facing": "up"
+  }
+ ],
+ "npcs": [
+  {
+   "id": "gw_boatman",
+   "sprite": "sailor",
+   "x": 7,
+   "y": 22,
+   "facing": "up",
+   "move": "still",
+   "script": "tory_boatman",
+   "name": "Tory Boatman"
+  },
+  {
+   "id": "gw_singer",
+   "sprite": "sean_nos_singer",
+   "x": 44,
+   "y": 33,
+   "facing": "down",
+   "move": "still",
+   "trainer": "gw_singer"
+  },
+  {
+   "id": "gw_rower",
+   "sprite": "currach_rower",
+   "x": 6,
+   "y": 23,
+   "facing": "up",
+   "move": "still",
+   "trainer": "gw_rower"
+  },
+  {
+   "id": "gw_granny",
+   "sprite": "villager_1",
+   "x": 58,
+   "y": 32,
+   "facing": "left",
+   "move": "still",
+   "script": "gw_granny",
+   "name": "Máire Bheag"
+  },
+  {
+   "id": "gw_student",
+   "sprite": "student",
+   "x": 22,
+   "y": 33,
+   "facing": "down",
+   "move": "wander",
+   "script": "gw_student",
+   "name": "Irish College Student",
+   "radius": 1
+  },
+  {
+   "id": "gw_fisher",
+   "sprite": "fisherman_north",
+   "x": 12,
+   "y": 23,
+   "facing": "up",
+   "move": "still",
+   "script": "gw_fisher",
+   "name": "Fisherman",
+   "times": [
+    "dawn",
+    "day",
+    "dusk"
+   ]
+  },
+  {
+   "id": "gw_dunes",
+   "sprite": "birdwatcher",
+   "x": 40,
+   "y": 12,
+   "facing": "up",
+   "move": "still",
+   "script": "gw_dunes",
+   "name": "Corncrake Counter"
+  },
+  {
+   "id": "gw_errigal_view",
+   "sprite": "hillwalker",
+   "x": 61,
+   "y": 22,
+   "facing": "up",
+   "move": "still",
+   "script": "gw_errigal_view",
+   "name": "Walker"
+  }
+ ],
+ "signs": [
+  {
+   "x": 59,
+   "y": 31,
+   "text": "GAOTH DOBHAIR. You are in the Gaeltacht, where Irish is the language of home, shop and pub. 'Dia dhuit' is hello, 'go raibh maith agat' is thank you, and 'slán' is goodbye. Try them. People are delighted.",
+   "plaque": "donegal_gaeltacht",
+   "title": "The Gaeltacht"
+  },
+  {
+   "x": 53,
+   "y": 23,
+   "text": "GAOTH DOBHAIR means the inlet of the Dobhar, an old word for water. It is one of the biggest Irish-speaking parishes in the country, strung out along the coast between Errigal and the sea.",
+   "plaque": "donegal_gaoth_dobhair",
+   "title": "Gaoth Dobhair"
+  },
+  {
+   "x": 10,
+   "y": 24,
+   "text": "AN BUN BEAG, BUNBEG HARBOUR. A tiny stone harbour tucked into the rocks. Boats leave here for Tory Island, Toraigh, about fourteen kilometres out to sea. If the weather says no, the boat says no.",
+   "plaque": "donegal_bunbeg",
+   "title": "Bunbeg Harbour"
+  },
+  {
+   "x": 42,
+   "y": 29,
+   "text": "RAIDIÓ NA GAELTACHTA. The national Irish-language radio station, on air since 1972, with a studio right here in Gaoth Dobhair. Music, news and death notices, all as Gaeilge.",
+   "plaque": "donegal_rnag",
+   "title": "Raidió na Gaeltachta",
+   "kind": "plaque",
+   "dx": 0.0
+  },
+  {
+   "x": 23,
+   "y": 39,
+   "text": "AN COLÁISTE. Every summer, teenagers from all over Ireland come to the Gaeltacht to learn Irish. They lodge with a bean an tí, the woman of the house, go to classes, dance at a céilí every night and must not speak a word of English. Mostly.",
+   "plaque": "donegal_irish_college",
+   "title": "The Irish College"
+  },
+  {
+   "x": 31,
+   "y": 39,
+   "text": "DONEGAL TWEED. Woven by hand in cottages like this one for generations, from wool dyed with what the hills gave: lichen for rust and brown, heather and gorse for yellows and greens. The flecks of colour are what make it Donegal.",
+   "plaque": "donegal_tweed_cottage",
+   "title": "Weaving at Home"
+  },
+  {
+   "x": 28,
+   "y": 9,
+   "text": "BÁD EDDIE, EDDIE'S BOAT. A fishing boat that ran aground on the strand here around the late 1970s and was never moved. It is now the most photographed wreck in Donegal, and rather proud of it.",
+   "plaque": "donegal_bad_eddie",
+   "title": "Bád Eddie"
+  },
+  {
+   "x": 35,
+   "y": 23,
+   "text": "THE DONEGAL FIDDLE. Donegal fiddlers are known for driving, fast reels, and for mazurkas, a dance that came from Poland and settled here as if it had always lived in the hills.",
+   "plaque": "donegal_fiddle",
+   "title": "The Donegal Fiddle"
+  },
+  {
+   "x": 60,
+   "y": 28,
+   "text": "FINGERPOST. East: Errigal and Glenveagh. West: the harbour and the Tory boat."
+  }
+ ],
+ "rows": [
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssTT",
+  "$$$$ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssTT",
+  "$$$$ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssTP",
+  "$$$$sssddddddddgd,,,,,dddddddd,d,,,dddd,,,,,,,,,,,dgg,,,,,,dg,PT",
+  "$$$$sssdd,,ddddd,,,,,,,,ddd,dddddddd,dddd,,,dddd,dggg,,,,,,dddTT",
+  "$$$$sss,,,,dgdddd,,,ddd,,,d,dddddddd,,dgd,,,,,dd,ddgdd,,,,,,,dTT",
+  "$$$$::::::::::ddd,,,ddd,,ddddd,dddd,,,ddd,,,,,dd,dddddd,,,,,,dTP",
+  "$$$$~~~~~~~~::ggWWWWWgWWWWWWgWWWWWWgWWWWWWgWWWWWWgWWWWWW,WWWWWPT",
+  "$$$$~~~~~~~~::gggggghhgggggggg,,,,,g,,gggg,gggggggggg,gg,,ggggTT",
+  "$$$$~~~~~~~~::ggggghgggggggggg,,,g,,,,gg,,,gggggggg,ggg,,,ggggTT",
+  "$$$$~~~~~~~~::BBBBBgggggggggggg,,gg,,ggg,,,gggggggg,,ggg,,ggggTP",
+  "$$$$~~~~~~~~::BBBBBggg,,ggggggg,,ggg,,gggggg,gggggg,,,ggggghhgPT",
+  "$$$$~~~~~~~~::BBBBBhggg,,,,gggg,ggggggghgggg,,,,,g,,,ggghhhhhgTT",
+  "$$$$~~~~~~~~::BBDBBhggg,,,,ggggggggghhgghhhg,,,,,,,,,ggghhgghgTT",
+  "$$$$::::::::::==:ghhgggg,,,ggggggggggggggggg,,,,,,,,,ggghhggggTP",
+  "$$$$::::::::::==:hhhggggggggggg,,,ggggggggggggg,,,,,,,gghhgg,,PT",
+  "$$$$::::::::::==:hhgggggggggggg,,,,ggg,,ggggggg,,,,,,,ggggg,,,TT",
+  "$$$$sssggggggg==ggggggggggggggggggggggggggggggggggggggggggggggTT",
+  "$$$$sssggggggg==ggBBBBBBgBBBBBgBBBBBBBgBBBBBBgBBBBBBBBggggggggTP",
+  "$$$$sssggggggg==ggBBBBBBgBBBBBgBBBBBBBgBBBBBBgBBBBBBBBgBBBBBggPT",
+  "$$$$sssggggggg==ggBBBBBBgBBBBBgBBBBBBBgBBBBBBgBBBBBBBBgBBBBBggTT",
+  "$$$$sssggggggg==ggBBBDBBgBBDBBgBBBDBBBgBBDBBBgBBBBDBBBgBBBBBggTT",
+  "$$$$sssggggggg==::::::::::::::::::::::::::::::::::::::::::::::TP",
+  "$$$$sssggggggg==================================================",
+  "$$$$sssggggggg==================================================",
+  "$$$$sssggggggggg::::::::::::::::::::::::::::::::::::::::::::::TT",
+  "$$$$sssgggggggggggggggggggg##ggggg##ggggg##ggggg##gggggg#gggggTP",
+  "$$$$sssggggggggggBBBBBBBBBg##BBBBB##BBBBB##ggggg##gggggg#gggggPT",
+  "$$$$sssggggggggggBBBBBBBBBg##BBBBB##BBBBB##BBBBB##BBBBBg#gggggTT",
+  "$$$$sssggggggggggBBBBBBBBBg##BBBBB##BBBBB##BBBBB##BBBBBg#gggggTT",
+  "$$$$sssggggggggggBBBBDBBBBg##BBDBB##BBDBB##BBBBB##BBBBBg#gggggTP",
+  "$$$$sssggggggggg#########################################gggggPT",
+  "$$$$sss,,,,,gggggggg,,,,,,,,,,,,gg,,,,g,,,gg,,,gggggg,,,ggg,ggTT",
+  "$$$$sss,,,,,,,ggggggg,,,,,,,,,,ggg,,,,gg,,,g,,,gggggg,,,ggggggTT",
+  "$$$$sssWWWWWW,WWWWWWWWgWWWWWWWWgWWWWWWWWgWWWWWWWWgWWWWWWWWgWWWTP",
+  "$$$$sss,gggg,,,gggggggg,,,,,,gg,,,,g,,gggg,ggggggg,,,,,,,,,gg,PT",
+  "$$$$sssgggg,,,gggggggg,,,,,,ggg,,,,,,,,,,g,,,ggggg,,,,,,,gggggTT",
+  "PTTTPTTTPTTTPTTTPTTTPTTTPTTTPTTTPTTTPTTTPTTTPTTTPTTTPTTTPTTTPTTT",
+  "TTTPTTTPTTTPTTTPTTTPTTTPTTTPTTTPTTTPTTTPTTTPTTTPTTTPTTTPTTTPTTTP"
+ ],
+ "edges": {
+  "east": {
+   "to": "glenveagh",
+   "offset": 0
+  }
+ },
+ "encounters": {
+  "grass": [
+   {
+    "species": "sodling",
+    "min": 66,
+    "max": 67,
+    "weight": 12
+   },
+   {
+    "species": "crexling",
+    "min": 66,
+    "max": 67,
+    "weight": 8,
+    "time": [
+     "dusk",
+     "night"
+    ]
+   },
+   {
+    "species": "corncrake",
+    "min": 66,
+    "max": 67,
+    "weight": 4,
+    "time": [
+     "night"
+    ]
+   },
+   {
+    "species": "leveret",
+    "min": 66,
+    "max": 67,
+    "weight": 8
+   },
+   {
+    "species": "rooklet",
+    "min": 66,
+    "max": 67,
+    "weight": 10
+   },
+   {
+    "species": "starlet",
+    "min": 66,
+    "max": 67,
+    "weight": 8,
+    "time": [
+     "dawn",
+     "dusk"
+    ]
+   },
+   {
+    "species": "chipgull",
+    "min": 66,
+    "max": 67,
+    "weight": 10
+   },
+   {
+    "species": "hootlet",
+    "min": 66,
+    "max": 67,
+    "weight": 6,
+    "time": [
+     "night"
+    ]
+   },
+   {
+    "species": "natterjack",
+    "min": 66,
+    "max": 67,
+    "weight": 4,
+    "weather": [
+     "drizzle",
+     "downpour"
+    ]
+   }
+  ]
+ },
+ "spawn": [
+  60,
+  30
+ ],
+ "ferry": {
+  "x": 8,
+  "y": 21,
+  "route": "gweedore_tory"
+ },
+ "legend_extra": {
+  "g": {
+   "tile": "grass",
+   "colour": "#6f8a4c"
+  },
+  "d": {
+   "tile": "tall_grass",
+   "colour": "#b8b07a",
+   "prop": "short"
+  },
+  "h": {
+   "tile": "tall_grass",
+   "colour": "#7a5c6a",
+   "prop": "heather"
+  }
+ }
+}

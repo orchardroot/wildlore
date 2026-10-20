@@ -1,0 +1,32 @@
+{
+ "id": "gv_ranger",
+ "name": "Ranger Niamh",
+ "class": "Park Ranger",
+ "sprite": "ghillie",
+ "scaled_floor": 66,
+ "party": [
+  {
+   "species": "goldeneyrie",
+   "level": 67
+  },
+  {
+   "species": "stagmor",
+   "level": 67
+  },
+  {
+   "species": "pinewraith",
+   "level": 68
+  }
+ ],
+ "ai": "trainer",
+ "money": 3000,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Ranger Niamh",
+   "text": "Stop there! Have you a permit for that creature? I'm joking. I just wanted a battle. The deer won't give me one."
+  }
+ ],
+ "win": "Fair play. Stick to the paths, mind the bog holes, and take nothing but photographs.",
+ "after": "There are fewer than a hundred golden eagles in the whole country. Every one of them knows more about this park than I do."
+}

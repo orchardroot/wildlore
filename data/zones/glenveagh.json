@@ -1,0 +1,711 @@
+{
+ "id": "glenveagh",
+ "name": "Glenveagh and Errigal",
+ "region": "ireland_west",
+ "kind": "route",
+ "music": "route_ireland",
+ "stage": "moor",
+ "weather": {
+  "drizzle": 30,
+  "fog": 16,
+  "clear": 18,
+  "gale": 12,
+  "sunshine": 14,
+  "downpour": 10
+ },
+ "scaled_floor": 66,
+ "props": [
+  {
+   "type": "standing_stone",
+   "x": 12,
+   "y": 10,
+   "variant": 1
+  },
+  {
+   "type": "standing_stone",
+   "x": 15,
+   "y": 10,
+   "variant": 2
+  },
+  {
+   "type": "building",
+   "style": "tower_house_granite",
+   "x": 36,
+   "y": 13,
+   "w": 8,
+   "h": 5,
+   "label": "Glenveagh Castle",
+   "kind": "castle"
+  },
+  {
+   "type": "planter",
+   "x": 35,
+   "y": 12
+  },
+  {
+   "type": "planter",
+   "x": 44,
+   "y": 12
+  },
+  {
+   "type": "statue",
+   "x": 33,
+   "y": 18,
+   "variant": 1
+  },
+  {
+   "type": "bench",
+   "x": 47,
+   "y": 18
+  },
+  {
+   "type": "building",
+   "style": "stone",
+   "x": 50,
+   "y": 13,
+   "w": 7,
+   "h": 4,
+   "label": "Visitor Centre",
+   "kind": "museum"
+  },
+  {
+   "type": "lamp_post",
+   "x": 49,
+   "y": 17
+  },
+  {
+   "type": "bench",
+   "x": 56,
+   "y": 17
+  },
+  {
+   "type": "building",
+   "style": "turf_stack",
+   "x": 31,
+   "y": 25,
+   "w": 3,
+   "h": 1,
+   "label": "Turf Clamp",
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "turf_stack",
+   "x": 45,
+   "y": 25,
+   "w": 3,
+   "h": 1,
+   "label": "Turf Clamp",
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "turf_stack",
+   "x": 37,
+   "y": 30,
+   "w": 2,
+   "h": 1,
+   "label": "Turf Clamp",
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "turf_stack",
+   "x": 47,
+   "y": 36,
+   "w": 3,
+   "h": 1,
+   "label": "Turf Clamp",
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "turf_stack",
+   "x": 33,
+   "y": 40,
+   "w": 2,
+   "h": 1,
+   "label": "Turf Clamp",
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "turf_stack",
+   "x": 43,
+   "y": 43,
+   "w": 3,
+   "h": 1,
+   "label": "Turf Clamp",
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "chapel",
+   "x": 15,
+   "y": 36,
+   "w": 6,
+   "h": 4,
+   "label": "Old Church, Dunlewey",
+   "kind": "church"
+  },
+  {
+   "type": "rock",
+   "x": 13,
+   "y": 35
+  },
+  {
+   "type": "rock",
+   "x": 24,
+   "y": 43
+  },
+  {
+   "type": "rock",
+   "x": 11,
+   "y": 44
+  },
+  {
+   "type": "telescope",
+   "x": 63,
+   "y": 9
+  },
+  {
+   "type": "sheep",
+   "x": 66,
+   "y": 27,
+   "variant": 1
+  },
+  {
+   "type": "sheep",
+   "x": 64,
+   "y": 40,
+   "variant": 0
+  }
+ ],
+ "warps": [
+  {
+   "x": 38,
+   "y": 17,
+   "to": "glenveagh_castle",
+   "tx": 7,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 53,
+   "y": 16,
+   "to": "glenveagh_visitor",
+   "tx": 6,
+   "ty": 6,
+   "facing": "up"
+  }
+ ],
+ "npcs": [
+  {
+   "id": "gv_border_walker",
+   "sprite": "hillwalker",
+   "x": 62,
+   "y": 21,
+   "facing": "left",
+   "move": "still",
+   "script": "gv_border_walker",
+   "name": "Walker from Derry"
+  },
+  {
+   "id": "gv_ranger",
+   "sprite": "ghillie",
+   "x": 47,
+   "y": 21,
+   "facing": "up",
+   "move": "still",
+   "trainer": "gv_ranger"
+  },
+  {
+   "id": "gv_eagle_watcher",
+   "sprite": "birdwatcher",
+   "x": 63,
+   "y": 10,
+   "facing": "up",
+   "move": "still",
+   "script": "gv_eagle_watcher",
+   "name": "Eagle Watcher"
+  },
+  {
+   "id": "gv_turfcutter",
+   "sprite": "farmer",
+   "x": 40,
+   "y": 34,
+   "facing": "up",
+   "move": "still",
+   "trainer": "gv_turfcutter"
+  },
+  {
+   "id": "gv_dyer",
+   "sprite": "villager_3",
+   "x": 23,
+   "y": 29,
+   "facing": "down",
+   "move": "still",
+   "script": "gv_dyer",
+   "name": "Lichen Gatherer"
+  },
+  {
+   "id": "gv_errigal_guide",
+   "sprite": "hillwalker",
+   "x": 23,
+   "y": 18,
+   "facing": "down",
+   "move": "still",
+   "script": "gv_errigal_guide",
+   "name": "Errigal Guide"
+  },
+  {
+   "id": "gv_hillwalker",
+   "sprite": "hiker",
+   "x": 20,
+   "y": 21,
+   "facing": "up",
+   "move": "still",
+   "trainer": "gv_hillwalker"
+  },
+  {
+   "id": "gv_summit",
+   "sprite": "fell_runner",
+   "x": 13,
+   "y": 10,
+   "facing": "down",
+   "move": "still",
+   "script": "gv_summit",
+   "name": "Fell Runner"
+  },
+  {
+   "id": "gv_glen_poet",
+   "sprite": "poet",
+   "x": 17,
+   "y": 41,
+   "facing": "up",
+   "move": "still",
+   "script": "gv_glen_poet",
+   "name": "Glen Walker"
+  },
+  {
+   "id": "gv_gardener",
+   "sprite": "farmer",
+   "x": 47,
+   "y": 15,
+   "facing": "left",
+   "move": "still",
+   "script": "gv_gardener",
+   "name": "Castle Gardener",
+   "times": [
+    "dawn",
+    "day",
+    "dusk"
+   ]
+  },
+  {
+   "id": "gv_deer_1",
+   "sprite": "creature:stagmor",
+   "x": 65,
+   "y": 30,
+   "facing": "left",
+   "move": "wander",
+   "script": "gv_deer",
+   "name": "Red Deer",
+   "radius": 2
+  },
+  {
+   "id": "gv_deer_2",
+   "sprite": "creature:fawnlet",
+   "x": 62,
+   "y": 38,
+   "facing": "right",
+   "move": "wander",
+   "script": "gv_deer",
+   "name": "Red Deer Calf",
+   "radius": 2
+  },
+  {
+   "id": "gv_gate_fiddler",
+   "sprite": "fiddler",
+   "x": 42,
+   "y": 21,
+   "facing": "up",
+   "move": "still",
+   "script": "gv_fiddler",
+   "name": "Fiddler"
+  }
+ ],
+ "signs": [
+  {
+   "x": 64,
+   "y": 17,
+   "text": "FÁILTE GO DÚN NA nGALL. Welcome to County Donegal. Speed limits are in kilometres per hour from here on, and the road signs are in Irish and English. That's the border. Mind how you go.",
+   "plaque": "donegal_border",
+   "title": "The Border at Bridgend"
+  },
+  {
+   "x": 52,
+   "y": 21,
+   "text": "FINGERPOST. West: Glenveagh Castle, Errigal and Gaoth Dobhair (Gweedore). South: Dún na nGall (Donegal Town)."
+  },
+  {
+   "x": 48,
+   "y": 17,
+   "text": "GLENVEAGH NATIONAL PARK. About 16,000 hectares of mountain, lake, bog and woodland, opened to the public in 1986. Gleann Bheatha means 'the glen of the birches', and there are still plenty about.",
+   "plaque": "donegal_glenveagh_park",
+   "title": "Glenveagh National Park"
+  },
+  {
+   "x": 45,
+   "y": 18,
+   "text": "GLENVEAGH CASTLE. Built between 1870 and 1873 for John George Adair, whose Derryveagh evictions of 1861 put 244 people off the land in the depths of winter. A later owner, Henry McIlhenny of Philadelphia, gave the castle and gardens to the nation.",
+   "plaque": "donegal_glenveagh_castle",
+   "title": "Glenveagh Castle"
+  },
+  {
+   "x": 28,
+   "y": 18,
+   "text": "GOLDEN EAGLES. Wiped out in Ireland in the early 1900s, golden eagles were brought back here from 2000, as chicks from Scotland. Look for a big dark bird soaring over the ridges with its wings held in a shallow V.",
+   "plaque": "donegal_golden_eagles",
+   "title": "The Eagles Come Back"
+  },
+  {
+   "x": 25,
+   "y": 21,
+   "text": "ERRIGAL. 751 metres, the highest mountain in County Donegal and the tallest of the Seven Sisters. It is made of quartzite, which glows pink at sunset. The two summits are joined by a narrow ridge called One Man's Pass.",
+   "plaque": "donegal_errigal",
+   "title": "Errigal (An Earagail)"
+  },
+  {
+   "x": 15,
+   "y": 13,
+   "text": "SUMMIT, ERRIGAL. 751 m. On a clear day: Tory Island out to sea, the Derryveagh Mountains all round, and the whole of Donegal at your boots. On a usual day: cloud. Very nice cloud."
+  },
+  {
+   "x": 22,
+   "y": 32,
+   "text": "AN GLEANN NIMHE, THE POISONED GLEN. The story goes that a mapmaker was meant to write Neimhe, 'heavenly', and wrote Nimhe, 'poisoned', instead. Another says Balor's eye was the poison. The glen itself is lovely, and quite safe.",
+   "plaque": "donegal_poisoned_glen",
+   "title": "The Poisoned Glen"
+  },
+  {
+   "x": 21,
+   "y": 39,
+   "text": "THE OLD CHURCH, DUNLEWEY. A Church of Ireland church built in 1853 by Jane Smith Russell in memory of her husband. The roof is long gone; the view up the glen is not.",
+   "plaque": "donegal_dunlewey_church",
+   "title": "Dunlewey Old Church"
+  },
+  {
+   "x": 36,
+   "y": 35,
+   "text": "CUTTING TURF. Peat is cut from the bank with a sleán, a narrow spade with a wing on one side, then spread, 'footed' into little stacks to dry in the wind, and built into a clamp for the winter fire. A bog grows about a millimetre a year.",
+   "plaque": "donegal_turf",
+   "title": "Saving the Turf"
+  },
+  {
+   "x": 30,
+   "y": 15,
+   "text": "LOCH GHLEANN BHEATHA, LOUGH VEAGH. A long, deep lake in a glacial valley, with the castle on its shore. In autumn the stags roar across the water, which is the most Donegal sound there is, after the rain."
+  }
+ ],
+ "rows": [
+  "PTTTTPTTTTPTTTTPTTTTPTTTTPTTTTPTTTTPTTTTPTTTTPTTTTPTTTTPTTTTPTTTTPTTTTPT",
+  "TPTTTTPTTTTPTTTTPTTTTPTTTTPTTTTPTTTTPTTTTPTTTTPTTTTPTTTTPTTTTPTTTTPTTTTP",
+  "TTggggggggggggggggggggggggggggggggggggggggggggggsooo~oosggggggggggggggTT",
+  "TTgggggggghhhhhhhggggggggggggggggggggggggggggsooo~~~~~oshhgghggggggghhTT",
+  "TTggggggghhQQ####hgggggggggggggggggggggggssooo~~~~~~~~osghgghggggggghhTT",
+  "PTggggghhQ####QQ###hggggggggggggggggggssooo~~~~~~~~~~oosggghhgggggggggPT",
+  "TPggggghQ##QQQQQQQ##ggggggTggggggggssooo~~~~~~~~~~ooosggggghhghgggggggTP",
+  "TTgggghQQ#QQQQQQQQQ##gggggTgggggssooo~~~~~~~~~~oossgggggggghhhggggggggTT",
+  "TTggghhQ##QQQQQQQQQQ##gggggTTssooo~~~~~~~~~~oossggggggggghghhhhhhgggggTT",
+  "TTggghQQ#QQQQQQQQQQQQ#gggggsooo~~~~~~~~~~oossgggggggggggghghhhhhhgggggTT",
+  "PTggghQQ#QQQ####QQQQQ#ggggso~~~~~~~~~~oossggggggggggggggghhhhhghhgggggPT",
+  "TPggghQQ#QQQ####QQQQQ#ggTgso~~~~~~ooossggggggggTTTgggggggggggggggggghhTP",
+  "TTggghQQ##QQ####QQQQQ#ggTgso~~~ffffggggggggggffffgggggggghggggggggggghTT",
+  "TTggghQQQ##QQQ#QQQQQQ#gggggsoooffffgBBBBBBBBgffffgBBBBBBBhggggggggggggTT",
+  "TTggghhQQQ#####QQQQQh#gggggggTgffffgBBBBBBBBgffffgBBBBBBBhgggTggggggggTT",
+  "PTgggghQQQQQQQQQQQQQh#gggggggggffffgBBBBBBBBgffffgBBBBBBBggggggggggggTPT",
+  "TPggggghQQQQQQQQQQQh##gggggggggffffgBBBBBBBBgffffgBBBDBBBgggggggggggggTP",
+  "TTggggghhQQQQQQQQQhh#ggggggggggffffgBBDBBBBBgffffggg###gggggggggghggghTT",
+  "TTggggggghhQQQQQhhg##gggggggggggggg::::::::::ggggg======================",
+  "TTgggggggghhhhhhhgg###############################======================",
+  "PTggggggggggggggggg###############################======================",
+  "TPgggggggggggggggggggggggg##ggggggggggggggggggggggggggggg===ggggggggggTP",
+  "TThhhhh,,gggg,,,gg,hh,hhh,##ggggggggggggggggggggggggggggg===gghhhgghhhTT",
+  "TT,hhh,,g,,gg,,g,,hhh,h,,,##gkkuuuuuuuuukgkkkuuuuuukkuuug===gghhhhhhhhTT",
+  "TT,,hh,,g,,,,,,g,hhhh,,,,,##gkukkkkkkkukkkkkkkkkkuuuuukug===gghhghhhhhTT",
+  "PT,hhh,,g,,,,,,g,,hhhh,,gg##guuBBBuuuuugkkkkuBBBkkkuuukug===ghhhhgghhgPT",
+  "TP,hhh,,,,,,,,,gg,,hhhh,gg##gkkuuuuuukkgggkkuuukkkkkuuuug===ghhhhgghhgTP",
+  "TThhhhh,g,,,,,ggggg,,hhh,,##gkkuu**uukkggggkkuukkkkkuuuug===ghhgghhgghTT",
+  "TThhhhh,,,,,,,ggggg,,,hh,,##gkuuuuuuuukggggkkuuuuukkkkkkg===ghhgghhghhTT",
+  "TT,,hh,,,,,,,,,,ggg,,,,,,,##gkkkkkkkkkkkkkkkkkkkk*kkkkkkg===ghggggghhhTT",
+  "############################guuuuuuuuBBuuuuuuuuukkukkkkkg===ggggggghhgPT",
+  "############################gukuuuuuuukuuuuuuuuuuukkkkkkg===ggggggghhgTP",
+  "TTgggggggggggggggggggg##gg##guuuuuuuuukuuuuuuuuuuuukkkkug===ggghhhhhggTT",
+  "TTggoowggggggguuuuugRg##gg###############################===ghhhhhhhggTT",
+  "TTggoowggggggguuuuuugg##Rg###############################===ghhhhhhhggTT",
+  "PTggoowggggggggugguuug##ugggguuukkuukkkkuuuuuuuuukkkkkkkg===g,,,,,hhggPT",
+  "TPgggoowgggggggBBBBBBg##ugggguuukkuukkkkuuuuuuuBBBkkuukgg===g,h,,,,gggTP",
+  "TTggggoowggguggBBBBBBg##ugggguukkuuuuuuuuuuuuuukkkgkkkkkg===g,h,,,hgggTT",
+  "TTggggoowguuuugBBBBBBg##ugggguukkuuuuuuuu**uuuukkkggkkkkg===g,hhhhghhgTT",
+  "TTgggggoowuuuugBBBBBBg##uggggukkkkkkuuukukkkkkkkkkkkkkkgg===ghhhggghhgTT",
+  "PTggggggoowuu###########ugggguuukBBkkkuuukuuukkkkkkkuuukg===ghhgggghhgPT",
+  "TPggggggoowuu###########gggggkuuuukggkukkkkkkkkgkk**uuuug===ghhhhgghhgTP",
+  "TTggggggoowugggggggguugggggggkkuuukkgkkkkkggkkkkkkkuuuuug===ghghhhhhhhTT",
+  "TTggggggoowggggggggggugggggggkuuuukgkkkukkkBBBkkkkkuuuuug===ghhhhghhh,TT",
+  "TTggggggoowggggggggggggggggggkkukkkkkkkuuukkkkkkkkkkuuukg===ghhhgghh,,TT",
+  "PTgggggoowgguuuugggggggRgggggkkuukkkkkkkkkkkkkkkkkkuuukgg===ghggghh,hhPT",
+  "TPggggggggggggggggggggggggggggggggggggggggggggggggggggggg===ggggggggggTP",
+  "TTggggggggggggggggggggggggggggggggggggggggggggggggggggggg===ggggggggggTT",
+  "TTTPTTTTPTTTTPTTTTPTTTTPTTTTPTTTTPTTTTPTTTTPTTTTPTTTTPTTT===TTTPTTTTPTTT",
+  "TTTTPTTTTPTTTTPTTTTPTTTTPTTTTPTTTTPTTTTPTTTTPTTTTPTTTTPTT===TTTTPTTTTPTT"
+ ],
+ "heights": [
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000011111110000000000000000000000000000000000000000000000000000000",
+  "000000000112222211000000000000000000000000000000000000000000000000000000",
+  "000000011223333322110000000000000000000000000000000000000000000000000000",
+  "000000012334444433210000000000000000000000000000000000000000000000000000",
+  "000000123345555543321000000000000000000000000000000000000000000000000000",
+  "000001123455666554321100000000000000000000000000000000000000000000000000",
+  "000001234556777655432100000000000000000000000000000000000000000000000000",
+  "000001234567888765432100000000000000000000000000000000000000000000000000",
+  "000001234567898765432100000000000000000000000000000000000000000000000000",
+  "000001234567888765432100000000000000000000000000000000000000000000000000",
+  "000001234556777655432100000000000000000000000000000000000000000000000000",
+  "000001123455666554321100000000000000000000000000000000000000000000000000",
+  "000000123345555543321000000000000000000000000000000000000000000000000000",
+  "000000012334444433210000000000000000000000000000000000000000000000000000",
+  "000000011223333322110000000000000000000000000000000000000000000000000000",
+  "000000000112222211000000000000000000000000000000000000000000000000000000",
+  "000000000011111110000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000"
+ ],
+ "edges": {
+  "east": {
+   "to": "derry",
+   "offset": 0
+  },
+  "west": {
+   "to": "gweedore",
+   "offset": 0
+  },
+  "south": {
+   "to": "donegal_town",
+   "offset": -27
+  }
+ },
+ "encounters": {
+  "grass": [
+   {
+    "species": "stagmor",
+    "min": 66,
+    "max": 67,
+    "weight": 12,
+    "time": [
+     "dawn",
+     "dusk"
+    ]
+   },
+   {
+    "species": "fawnlet",
+    "min": 66,
+    "max": 67,
+    "weight": 6,
+    "time": [
+     "dawn",
+     "day"
+    ]
+   },
+   {
+    "species": "sodling",
+    "min": 66,
+    "max": 67,
+    "weight": 14
+   },
+   {
+    "species": "liagling",
+    "min": 66,
+    "max": 67,
+    "weight": 8
+   },
+   {
+    "species": "gealhare",
+    "min": 66,
+    "max": 67,
+    "weight": 8
+   },
+   {
+    "species": "midgie",
+    "min": 66,
+    "max": 67,
+    "weight": 8,
+    "weather": [
+     "clear",
+     "sunshine",
+     "drizzle"
+    ],
+    "time": [
+     "dusk"
+    ]
+   },
+   {
+    "species": "eaglet",
+    "min": 66,
+    "max": 67,
+    "weight": 4,
+    "time": [
+     "day"
+    ]
+   },
+   {
+    "species": "martling",
+    "min": 66,
+    "max": 67,
+    "weight": 5,
+    "time": [
+     "night"
+    ]
+   },
+   {
+    "species": "hootlet",
+    "min": 66,
+    "max": 67,
+    "weight": 6,
+    "time": [
+     "night"
+    ]
+   },
+   {
+    "species": "pooka",
+    "min": 66,
+    "max": 67,
+    "weight": 3,
+    "time": [
+     "night"
+    ]
+   },
+   {
+    "species": "peatmonarch",
+    "min": 66,
+    "max": 67,
+    "weight": 6
+   },
+   {
+    "species": "croakle",
+    "min": 66,
+    "max": 67,
+    "weight": 6,
+    "weather": [
+     "drizzle",
+     "downpour"
+    ]
+   }
+  ],
+  "water": [
+   {
+    "species": "bradan",
+    "min": 66,
+    "max": 67,
+    "weight": 12
+   },
+   {
+    "species": "parrlet",
+    "min": 66,
+    "max": 67,
+    "weight": 14
+   },
+   {
+    "species": "dipling",
+    "min": 66,
+    "max": 67,
+    "weight": 12
+   },
+   {
+    "species": "holtling",
+    "min": 66,
+    "max": 67,
+    "weight": 10
+   },
+   {
+    "species": "rillotter",
+    "min": 66,
+    "max": 67,
+    "weight": 6,
+    "time": [
+     "dawn",
+     "dusk",
+     "night"
+    ]
+   },
+   {
+    "species": "stalklet",
+    "min": 66,
+    "max": 67,
+    "weight": 8
+   }
+  ]
+ },
+ "spawn": [
+  62,
+  19
+ ],
+ "legend_extra": {
+  "g": {
+   "tile": "grass",
+   "colour": "#6f7d49"
+  },
+  "h": {
+   "tile": "tall_grass",
+   "colour": "#7a5c6a",
+   "prop": "heather"
+  },
+  "u": {
+   "tile": "tall_grass",
+   "colour": "#7d7444"
+  },
+  "k": {
+   "tile": "grass",
+   "colour": "#5e4a32"
+  },
+  "Q": {
+   "tile": "scree",
+   "colour": "#cfc8bc"
+  },
+  "#": {
+   "tile": "path",
+   "colour": "#8a8274"
+  }
+ }
+}

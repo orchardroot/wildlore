@@ -1,0 +1,69 @@
+{
+ "id": "gweedore_ferry",
+ "name": "Tory Ferry Office",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "wall_map",
+   "x": 4,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "bench",
+   "x": 1,
+   "y": 4
+  },
+  {
+   "type": "bench",
+   "x": 7,
+   "y": 4
+  },
+  {
+   "type": "lobster_pots",
+   "x": 7,
+   "y": 1
+  }
+ ],
+ "warps": [
+  {
+   "x": 4,
+   "y": 5,
+   "to": "gweedore",
+   "tx": 16,
+   "ty": 21,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "gf_clerk",
+   "sprite": "sailor",
+   "x": 4,
+   "y": 1,
+   "facing": "down",
+   "move": "still",
+   "script": "gf_clerk",
+   "name": "Ticket Clerk"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  4,
+  4
+ ],
+ "rows": [
+  "xxxxxxxxx",
+  "x|||||||x",
+  "x|CCCCC|x",
+  "x|||||||x",
+  "x|||||||x",
+  "x|||D|||x",
+  "xxxxxxxxx"
+ ]
+}

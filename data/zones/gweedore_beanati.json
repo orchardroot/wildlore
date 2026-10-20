@@ -1,0 +1,88 @@
+{
+ "id": "gweedore_beanati",
+ "name": "Teach Bhean an Tí",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "fireplace",
+   "x": 5,
+   "y": 1
+  },
+  {
+   "type": "kitchen_dresser",
+   "x": 1,
+   "y": 2
+  },
+  {
+   "type": "table",
+   "x": 7,
+   "y": 3
+  },
+  {
+   "type": "kettle_table",
+   "x": 8,
+   "y": 4
+  },
+  {
+   "type": "bed",
+   "x": 9,
+   "y": 1
+  },
+  {
+   "type": "rug",
+   "x": 4,
+   "y": 3,
+   "w": 3,
+   "h": 2,
+   "variant": 1,
+   "walk": true
+  },
+  {
+   "type": "cat_bowl",
+   "x": 2,
+   "y": 5
+  }
+ ],
+ "warps": [
+  {
+   "x": 5,
+   "y": 6,
+   "to": "gweedore",
+   "tx": 38,
+   "ty": 38,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "gb_beanati",
+   "sprite": "villager_1",
+   "x": 5,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "gb_beanati",
+   "name": "Bean an Tí"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  5,
+  5
+ ],
+ "rows": [
+  "xxxxxxxxxxx",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x||||D||||x",
+  "xxxxxxxxxxx"
+ ]
+}

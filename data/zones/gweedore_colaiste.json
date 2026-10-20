@@ -1,0 +1,124 @@
+{
+ "id": "gweedore_colaiste",
+ "name": "Coláiste Gaeltachta",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "hall_stage",
+   "x": 8,
+   "y": 2,
+   "variant": 1
+  },
+  {
+   "type": "tea_urn",
+   "x": 1,
+   "y": 3
+  },
+  {
+   "type": "stacked_chairs",
+   "x": 15,
+   "y": 3,
+   "variant": 0
+  },
+  {
+   "type": "stacked_chairs",
+   "x": 15,
+   "y": 5,
+   "variant": 1
+  },
+  {
+   "type": "stacked_chairs",
+   "x": 1,
+   "y": 6,
+   "variant": 0
+  },
+  {
+   "type": "wall_picture",
+   "x": 4,
+   "y": 1,
+   "walk": true,
+   "variant": 0
+  },
+  {
+   "type": "wall_picture",
+   "x": 12,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  }
+ ],
+ "warps": [
+  {
+   "x": 8,
+   "y": 9,
+   "to": "gweedore",
+   "tx": 21,
+   "ty": 38,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "gc_caller",
+   "sprite": "ceilidh_caller",
+   "x": 8,
+   "y": 4,
+   "facing": "down",
+   "move": "still",
+   "trainer": "gw_dancers"
+  },
+  {
+   "id": "gc_teacher",
+   "sprite": "villager_3",
+   "x": 4,
+   "y": 4,
+   "facing": "down",
+   "move": "still",
+   "script": "gc_teacher",
+   "name": "An Múinteoir"
+  },
+  {
+   "id": "gc_student1",
+   "sprite": "student",
+   "x": 11,
+   "y": 6,
+   "facing": "left",
+   "move": "still",
+   "script": "gc_student1",
+   "name": "Student"
+  },
+  {
+   "id": "gc_student2",
+   "sprite": "festival_goer",
+   "x": 6,
+   "y": 7,
+   "facing": "up",
+   "move": "still",
+   "script": "gc_student2",
+   "name": "Student"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  8,
+  8
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxxxxx",
+  "x|||||||||||||||x",
+  "x|||||||||||||||x",
+  "x|||||||||||||||x",
+  "x|||||||||||||||x",
+  "x|||||||||||||||x",
+  "x|||||||||||||||x",
+  "x|||||||||||||||x",
+  "x|||||||||||||||x",
+  "x|||||||D|||||||x",
+  "xxxxxxxxxxxxxxxxx"
+ ]
+}

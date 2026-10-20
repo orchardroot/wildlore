@@ -1,0 +1,110 @@
+{
+ "id": "donegal_tweed",
+ "name": "The Tweed House",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "loom",
+   "x": 2,
+   "y": 2,
+   "variant": 0
+  },
+  {
+   "type": "loom",
+   "x": 5,
+   "y": 2,
+   "variant": 1
+  },
+  {
+   "type": "display_case",
+   "x": 1,
+   "y": 5,
+   "variant": 1
+  },
+  {
+   "type": "display_case",
+   "x": 13,
+   "y": 5,
+   "variant": 0
+  },
+  {
+   "type": "wall_picture",
+   "x": 8,
+   "y": 1,
+   "walk": true,
+   "variant": 0
+  },
+  {
+   "type": "rug",
+   "x": 6,
+   "y": 4,
+   "w": 3,
+   "h": 2,
+   "variant": 1,
+   "walk": true
+  }
+ ],
+ "warps": [
+  {
+   "x": 7,
+   "y": 7,
+   "to": "donegal_town",
+   "tx": 45,
+   "ty": 17,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "tw_weaver",
+   "sprite": "villager_6",
+   "x": 4,
+   "y": 4,
+   "facing": "down",
+   "move": "still",
+   "script": "tw_weaver",
+   "name": "Úna the Weaver"
+  },
+  {
+   "id": "tw_assistant",
+   "sprite": "shopkeeper",
+   "x": 11,
+   "y": 2,
+   "facing": "down",
+   "move": "still",
+   "script": "tw_assistant",
+   "name": "Shop Assistant"
+  },
+  {
+   "id": "tw_buyer",
+   "sprite": "commuter",
+   "x": 9,
+   "y": 5,
+   "facing": "left",
+   "move": "still",
+   "script": "tw_buyer",
+   "name": "Fashion Buyer"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  7,
+  6
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxxx",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x|||||||||CCC|x",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x||||||D||||||x",
+  "xxxxxxxxxxxxxxx"
+ ]
+}

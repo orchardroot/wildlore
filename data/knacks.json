@@ -50,9 +50,17 @@
     "spore_cloud": {"name": "Spore Cloud", "desc": "Every raindrop sets off a puff, so it's harder to hit in drizzle or a downpour.", "msg": "{name} vanishes in a Spore Cloud!", "evade": {"weather": ["drizzle", "downpour"], "mult": 0.85}},
     "right_pong": {"name": "Right Pong", "desc": "Arrives reeking. Foes lose Attack holding their noses.", "msg": "{name} brings a Right Pong with it. Everyone is holding their nose!", "entry_stage": {"to": "foes", "stat": "atk", "stages": -1}},
     "already_burnt": {"name": "Already Burnt", "desc": "Hearth moves do less to it. You can't burn what's already charcoal.", "msg": "{name} is Already Burnt. It hardly notices!", "resist": {"types": ["hearth"], "mult": 0.75}},
-    "shelf_life": {"name": "Shelf Life", "desc": "Brackets last for years: from full health it hangs on at 1 HP.", "msg": "{name} hangs on to its shelf!", "endure_full": true}
+    "shelf_life": {"name": "Shelf Life", "desc": "Brackets last for years: from full health it hangs on at 1 HP.", "msg": "{name} hangs on to its shelf!", "endure_full": true},
+    "footing": {"name": "Footing", "desc": "Turf dries best in the wind and sun: its Defence rises when it comes out in a gale or in sunshine.", "msg": "{name} is well footed and drying nicely. Its Defence rose!", "entry_stage": {"to": "self", "stat": "def", "stages": 1, "weather": ["gale", "sunshine"]}},
+    "atlantic_edge": {"name": "Atlantic Edge", "desc": "Its moves hit harder in a gale off the Atlantic.", "power_weather": {"weather": ["gale"], "mult": 1.3}},
+    "evil_eye": {"name": "Evil Eye", "legend": true, "desc": "The great eye opens when it arrives: both foes' Defence and Ward drop.", "msg": "{name} opens its terrible eye. Everything it looks at wilts!", "entry_stage": [{"to": "foes", "stat": "def", "stages": -1}, {"to": "foes", "stat": "ward", "stages": -1}]}
   },
   "species": {
+    "sodling": "footing",
+    "turfclamp": "footing",
+    "liagling": "atlantic_edge",
+    "liagmor": "atlantic_edge",
+    "balor": "evil_eye",
     "sulphurhen": "shelf_life",
     "scorchbun": "already_burnt",
     "whiffhorn": "right_pong",

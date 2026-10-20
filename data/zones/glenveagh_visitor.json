@@ -1,0 +1,99 @@
+{
+ "id": "glenveagh_visitor",
+ "name": "Glenveagh Visitor Centre",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "display_case",
+   "x": 2,
+   "y": 2,
+   "variant": 0
+  },
+  {
+   "type": "display_case",
+   "x": 10,
+   "y": 2,
+   "variant": 1
+  },
+  {
+   "type": "wall_map",
+   "x": 6,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "owl_perch",
+   "x": 9,
+   "y": 5
+  },
+  {
+   "type": "specimen_shelf",
+   "x": 1,
+   "y": 5,
+   "variant": 0
+  },
+  {
+   "type": "potted_plant",
+   "x": 11,
+   "y": 6
+  },
+  {
+   "type": "table",
+   "x": 3,
+   "y": 5
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 7,
+   "to": "glenveagh",
+   "tx": 53,
+   "ty": 17,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "gvc_ranger",
+   "sprite": "ghillie",
+   "x": 6,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "gvc_ranger",
+   "name": "Ranger"
+  },
+  {
+   "id": "gvc_child",
+   "sprite": "student",
+   "x": 8,
+   "y": 6,
+   "facing": "left",
+   "move": "still",
+   "script": "gvc_child",
+   "name": "School Trip"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  6,
+  6
+ ],
+ "rows": [
+  "xxxxxxxxxxxxx",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++D+++++x",
+  "xxxxxxxxxxxxx"
+ ]
+}
