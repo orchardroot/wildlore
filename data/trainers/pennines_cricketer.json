@@ -1,0 +1,37 @@
+{
+ "id": "pennines_cricketer",
+ "name": "Cricketer Dickie",
+ "class": "Cricketer",
+ "sprite": "villager_3",
+ "party": [
+  {
+   "species": "starlet",
+   "level": 15
+  },
+  {
+   "species": "swiftlet",
+   "level": 16
+  },
+  {
+   "species": "grizzlet",
+   "level": 16
+  }
+ ],
+ "ai": "trainer",
+ "money": 480,
+ "scaled_floor": 14,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Cricketer Dickie",
+   "text": "Fancy a net? I'll bowl. You battle. Same thing, really, only with more shouting."
+  },
+  {
+   "do": "say",
+   "who": "Cricketer Dickie",
+   "text": "Howzat!"
+  }
+ ],
+ "win": "Out. Clean bowled. I'll walk.",
+ "after": "Yorkshire cricket has a long memory. We're still on about 1981, and we won that one."
+}

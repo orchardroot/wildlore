@@ -1,0 +1,37 @@
+{
+ "id": "pennines_ghosthunter",
+ "name": "Ghost Hunter Mabel",
+ "class": "Ghost Hunter",
+ "sprite": "tour_guide",
+ "party": [
+  {
+   "species": "wispet",
+   "level": 15
+  },
+  {
+   "species": "flittermouse",
+   "level": 16
+  },
+  {
+   "species": "barnling",
+   "level": 16
+  }
+ ],
+ "ai": "trainer",
+ "money": 480,
+ "scaled_floor": 14,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Ghost Hunter Mabel",
+   "text": "My meter's going wild! Oh. It's your phone. Never mind. Battle me anyway."
+  },
+  {
+   "do": "say",
+   "who": "Ghost Hunter Mabel",
+   "text": "The spirits demand it!"
+  }
+ ],
+ "win": "The spirits are very disappointed in me.",
+ "after": "The churchyard has more graves than the village has people. Thousands. It's why the water was so bad."
+}

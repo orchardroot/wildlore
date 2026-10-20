@@ -1,0 +1,38 @@
+{
+ "church_verger": [
+  {
+   "do": "say",
+   "who": "Verger",
+   "text": "{greeting} The Brontë family vault is under the church floor, near the pillar there. Patrick outlived all six of his children."
+  },
+  {
+   "do": "if",
+   "flag": "q_pennines_bronte_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_pennines_bronte_vault",
+     "then": [
+      {
+       "do": "say",
+       "who": "Verger",
+       "text": "Anne's grave is in Scarborough, by St Mary's Church. She wanted to see the sea once more, and she did."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Verger",
+       "text": "You're on the Parsonage trail? Then remember this: everyone's here except Anne. She died in Scarborough in 1849 and they buried her where she died, by the sea."
+      },
+      {
+       "do": "set",
+       "flag": "q_pennines_bronte_vault"
+      }
+     ]
+    }
+   ],
+   "else": []
+  }
+ ]
+}

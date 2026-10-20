@@ -1,0 +1,210 @@
+{
+ "id": "leeds_ellandroad",
+ "name": "Elland Road",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "stadium_stand",
+   "x": 1,
+   "y": 1,
+   "variant": 5
+  },
+  {
+   "type": "stadium_stand",
+   "x": 2,
+   "y": 1,
+   "variant": 8
+  },
+  {
+   "type": "stadium_stand",
+   "x": 3,
+   "y": 1,
+   "variant": 11
+  },
+  {
+   "type": "stadium_stand",
+   "x": 4,
+   "y": 1,
+   "variant": 2
+  },
+  {
+   "type": "stadium_stand",
+   "x": 5,
+   "y": 1,
+   "variant": 5
+  },
+  {
+   "type": "stadium_stand",
+   "x": 6,
+   "y": 1,
+   "variant": 8
+  },
+  {
+   "type": "stadium_stand",
+   "x": 7,
+   "y": 1,
+   "variant": 11
+  },
+  {
+   "type": "stadium_stand",
+   "x": 8,
+   "y": 1,
+   "variant": 2
+  },
+  {
+   "type": "stadium_stand",
+   "x": 9,
+   "y": 1,
+   "variant": 5
+  },
+  {
+   "type": "stadium_stand",
+   "x": 10,
+   "y": 1,
+   "variant": 8
+  },
+  {
+   "type": "stadium_stand",
+   "x": 11,
+   "y": 1,
+   "variant": 11
+  },
+  {
+   "type": "stadium_stand",
+   "x": 12,
+   "y": 1,
+   "variant": 2
+  },
+  {
+   "type": "stadium_stand",
+   "x": 13,
+   "y": 1,
+   "variant": 5
+  },
+  {
+   "type": "stadium_stand",
+   "x": 14,
+   "y": 1,
+   "variant": 8
+  },
+  {
+   "type": "stadium_stand",
+   "x": 15,
+   "y": 1,
+   "variant": 11
+  },
+  {
+   "type": "floodlight",
+   "x": 2,
+   "y": 2
+  },
+  {
+   "type": "floodlight",
+   "x": 14,
+   "y": 2
+  },
+  {
+   "type": "pitch_line",
+   "x": 2,
+   "y": 5,
+   "variant": 13,
+   "walk": true
+  },
+  {
+   "type": "pitch_line",
+   "x": 2,
+   "y": 9,
+   "variant": 13,
+   "walk": true
+  },
+  {
+   "type": "bench",
+   "x": 3,
+   "y": 11
+  },
+  {
+   "type": "bench",
+   "x": 13,
+   "y": 11
+  },
+  {
+   "type": "flagpole",
+   "x": 1,
+   "y": 10,
+   "variant": 0
+  },
+  {
+   "type": "flagpole",
+   "x": 15,
+   "y": 10,
+   "variant": 0
+  }
+ ],
+ "warps": [
+  {
+   "x": 8,
+   "y": 12,
+   "to": "leeds",
+   "tx": 9,
+   "ty": 51,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "elland_steward",
+   "sprite": "villager_4",
+   "x": 12,
+   "y": 11,
+   "facing": "left",
+   "move": "still",
+   "script": "elland_steward",
+   "name": "Steward"
+  },
+  {
+   "id": "elland_ultra",
+   "sprite": "rugby_player",
+   "x": 5,
+   "y": 6,
+   "facing": "down",
+   "move": "still",
+   "trainer": "pennines_ultra"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  8,
+  11
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxxxxx",
+  "x|||||||||||||||x",
+  "x|bbbbbbbbbbbbb|x",
+  "x|aaaaaaaaaaaaa|x",
+  "x|bbbbbbbbbbbbb|x",
+  "x|aaaaaaaaaaaaa|x",
+  "x|bbbbbbbbbbbbb|x",
+  "x|aaaaaaaaaaaaa|x",
+  "x|bbbbbbbbbbbbb|x",
+  "x|aaaaaaaaaaaaa|x",
+  "x|+++++++++++++|x",
+  "x|||||||||||||||x",
+  "x|||||||D|||||||x",
+  "xxxxxxxxxxxxxxxxx"
+ ],
+ "legend_extra": {
+  "a": {
+   "tile": "grass",
+   "colour": "#335a2c"
+  },
+  "b": {
+   "tile": "grass",
+   "colour": "#3b6332"
+  }
+ }
+}

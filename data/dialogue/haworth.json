@@ -1,0 +1,117 @@
+{
+ "bronte_walker": [
+  {
+   "do": "say",
+   "who": "Brontë Walker",
+   "text": "{greeting} Top Withens is just there. Emily walked these moors in every weather. You can see why she wrote about wild, windy places."
+  },
+  {
+   "do": "if",
+   "flag": "q_pennines_bronte_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_pennines_bronte_withens",
+     "then": [
+      {
+       "do": "say",
+       "who": "Brontë Walker",
+       "text": "Off back to the Parsonage? Tell the curator the wind was in fine voice."
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "trainer_pennines_heathcliff",
+       "then": [
+        {
+         "do": "say",
+         "who": "Brontë Walker",
+         "text": "You saw off our Heathcliff? Good. He's been howling at me since Tuesday. Stand here a minute. Listen. That roar in the wind is what 'wuthering' means."
+        },
+        {
+         "do": "say",
+         "who": "Brontë Walker",
+         "text": "Now you've stood where Emily stood. Tell the curator you've done Withens."
+        },
+        {
+         "do": "set",
+         "flag": "q_pennines_bronte_withens"
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Brontë Walker",
+         "text": "Doing the Parsonage trail? You'll want to get past the brooding lad by the ruin first. He won't let anyone enjoy the view in peace."
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Brontë Walker",
+     "text": "There are signposts up here in Japanese as well as English. Visitors come from all over the world for the Brontës."
+    }
+   ]
+  }
+ ],
+ "bronte_keeper_tale": [
+  {
+   "do": "say",
+   "who": "Dog Walker",
+   "text": "{greeting} This one's called Keeper, after Emily's dog. He's a terrier, mind, not a mastiff. He has the attitude of a mastiff."
+  },
+  {
+   "do": "say",
+   "who": "Dog Walker",
+   "text": "Emily once punished the real Keeper for lying on the beds, and he went for her. She beat him with her bare fists. They were best friends after. Different times."
+  }
+ ],
+ "haworth_setts": [
+  {
+   "do": "say",
+   "who": "Local",
+   "text": "{greeting} Steepest Main Street in Yorkshire, I reckon. The setts are lovely on a dry day. On a wet day, hold on to summat."
+  },
+  {
+   "do": "say",
+   "who": "Local",
+   "text": "There's a Victorian weekend every winter where everyone dresses up. Our postman did it in a top hat. He's kept the top hat."
+  }
+ ],
+ "haworth_steam": [
+  {
+   "do": "say",
+   "who": "Volunteer Porter",
+   "text": "{greeting} Everyone on this railway is a volunteer, from the porters to the drivers. We do it for love. And the smell of coal smoke."
+  },
+  {
+   "do": "say",
+   "who": "Volunteer Porter",
+   "text": "Oakworth station's down the line. They filmed The Railway Children there. People still turn up waving red petticoats."
+  }
+ ],
+ "haworth_ghost": [
+  {
+   "do": "say",
+   "who": "Ghost Walk Guide",
+   "text": "They say Haworth's one of the most haunted villages in England. Grey ladies, headless horsemen, a monk on the church steps."
+  },
+  {
+   "do": "say",
+   "who": "Ghost Walk Guide",
+   "text": "Most nights I see nothing. Some nights the fog comes down Main Street and I see quite a lot of nothing very clearly."
+  }
+ ],
+ "haworth_victorian": [
+  {
+   "do": "say",
+   "who": "Victorian Weekend Fan",
+   "text": "{greeting} Do you like my bonnet? I made it. It's historically accurate apart from the fleece lining. The Brontës would have killed for fleece."
+  }
+ ]
+}

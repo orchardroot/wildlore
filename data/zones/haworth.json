@@ -1,0 +1,934 @@
+{
+ "id": "haworth",
+ "name": "Haworth",
+ "region": "yorkshire",
+ "kind": "town",
+ "music": "town_north",
+ "weather": {
+  "drizzle": 34,
+  "fog": 20,
+  "clear": 18,
+  "gale": 14,
+  "sunshine": 8,
+  "downpour": 6
+ },
+ "edges": {
+  "south": {
+   "to": "leeds",
+   "offset": 0
+  }
+ },
+ "encounters": {
+  "grass": [
+   {
+    "species": "sphagnet",
+    "min": 14,
+    "max": 16,
+    "weight": 14,
+    "weather": [
+     "drizzle",
+     "downpour",
+     "fog"
+    ]
+   },
+   {
+    "species": "pipkin",
+    "min": 14,
+    "max": 16,
+    "weight": 14,
+    "time": [
+     "dawn",
+     "day"
+    ]
+   },
+   {
+    "species": "scuttlet",
+    "min": 14,
+    "max": 16,
+    "weight": 16,
+    "time": [
+     "dawn",
+     "day",
+     "dusk"
+    ]
+   },
+   {
+    "species": "hootlet",
+    "min": 14,
+    "max": 16,
+    "weight": 10,
+    "time": [
+     "dusk",
+     "night"
+    ]
+   },
+   {
+    "species": "barnling",
+    "min": 14,
+    "max": 16,
+    "weight": 8,
+    "time": [
+     "night"
+    ]
+   },
+   {
+    "species": "wispet",
+    "min": 14,
+    "max": 16,
+    "weight": 10,
+    "weather": [
+     "fog"
+    ]
+   },
+   {
+    "species": "gritling",
+    "min": 14,
+    "max": 16,
+    "weight": 12
+   },
+   {
+    "species": "rooklet",
+    "min": 14,
+    "max": 16,
+    "weight": 10,
+    "time": [
+     "dawn",
+     "day",
+     "dusk"
+    ]
+   },
+   {
+    "species": "flittermouse",
+    "min": 14,
+    "max": 16,
+    "weight": 8,
+    "time": [
+     "night"
+    ]
+   },
+   {
+    "species": "bogglet",
+    "min": 14,
+    "max": 16,
+    "weight": 8,
+    "time": [
+     "dusk",
+     "night"
+    ]
+   },
+   {
+    "species": "boggart",
+    "min": 15,
+    "max": 16,
+    "weight": 3,
+    "time": [
+     "night"
+    ],
+    "weather": [
+     "fog"
+    ]
+   }
+  ],
+  "water": [
+   {
+    "species": "dipling",
+    "min": 14,
+    "max": 16,
+    "weight": 40
+   },
+   {
+    "species": "volet",
+    "min": 14,
+    "max": 16,
+    "weight": 30
+   },
+   {
+    "species": "croakle",
+    "min": 14,
+    "max": 16,
+    "weight": 30
+   }
+  ]
+ },
+ "spawn": [
+  23,
+  45
+ ],
+ "stage": "moor",
+ "town_id": "haworth",
+ "scaled_floor": 14,
+ "props": [
+  {
+   "type": "building",
+   "style": "parsonage",
+   "x": 3,
+   "y": 3,
+   "w": 8,
+   "h": 4,
+   "label": "Brontë Parsonage",
+   "kind": "museum"
+  },
+  {
+   "type": "building",
+   "style": "pennine_church",
+   "x": 13,
+   "y": 3,
+   "w": 8,
+   "h": 6,
+   "label": "St Michael and All Angels",
+   "kind": "church"
+  },
+  {
+   "type": "building",
+   "style": "gritstone",
+   "x": 25,
+   "y": 5,
+   "w": 6,
+   "h": 4,
+   "label": "The Black Bull",
+   "kind": "pub"
+  },
+  {
+   "type": "building",
+   "style": "gritstone",
+   "x": 32,
+   "y": 5,
+   "w": 5,
+   "h": 4,
+   "label": "Apothecary",
+   "kind": "cafe"
+  },
+  {
+   "type": "tomb_chest",
+   "x": 4,
+   "y": 8,
+   "variant": 0
+  },
+  {
+   "type": "tomb_chest",
+   "x": 6,
+   "y": 8,
+   "variant": 1
+  },
+  {
+   "type": "tomb_chest",
+   "x": 9,
+   "y": 8,
+   "variant": 2
+  },
+  {
+   "type": "tomb_chest",
+   "x": 10,
+   "y": 7,
+   "variant": 0
+  },
+  {
+   "type": "tomb_chest",
+   "x": 4,
+   "y": 10,
+   "variant": 1
+  },
+  {
+   "type": "tomb_chest",
+   "x": 9,
+   "y": 10,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 22,
+   "y": 4
+  },
+  {
+   "type": "oak",
+   "x": 37,
+   "y": 6
+  },
+  {
+   "type": "building",
+   "style": "weavers_cottage",
+   "x": 15,
+   "y": 13,
+   "w": 6,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "weavers_cottage",
+   "x": 26,
+   "y": 13,
+   "w": 6,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "weavers_cottage",
+   "x": 15,
+   "y": 21,
+   "w": 6,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "weavers_cottage",
+   "x": 26,
+   "y": 21,
+   "w": 6,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "weavers_cottage",
+   "x": 15,
+   "y": 28,
+   "w": 6,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "weavers_cottage",
+   "x": 26,
+   "y": 28,
+   "w": 6,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "weavers_cottage",
+   "x": 15,
+   "y": 35,
+   "w": 6,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "weavers_cottage",
+   "x": 26,
+   "y": 35,
+   "w": 6,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "shop",
+   "x": 15,
+   "y": 21,
+   "w": 6,
+   "h": 4,
+   "label": "Corner Shop"
+  },
+  {
+   "type": "building",
+   "style": "sanctuary",
+   "x": 26,
+   "y": 21,
+   "w": 6,
+   "h": 4,
+   "label": "Sanctuary"
+  },
+  {
+   "type": "lamp_post",
+   "x": 21,
+   "y": 14
+  },
+  {
+   "type": "lamp_post",
+   "x": 25,
+   "y": 14
+  },
+  {
+   "type": "lamp_post",
+   "x": 21,
+   "y": 22
+  },
+  {
+   "type": "lamp_post",
+   "x": 25,
+   "y": 22
+  },
+  {
+   "type": "lamp_post",
+   "x": 21,
+   "y": 30
+  },
+  {
+   "type": "lamp_post",
+   "x": 25,
+   "y": 30
+  },
+  {
+   "type": "lamp_post",
+   "x": 21,
+   "y": 37
+  },
+  {
+   "type": "lamp_post",
+   "x": 25,
+   "y": 37
+  },
+  {
+   "type": "hanging_basket",
+   "x": 15,
+   "y": 12,
+   "walk": true
+  },
+  {
+   "type": "hanging_basket",
+   "x": 27,
+   "y": 12,
+   "walk": true
+  },
+  {
+   "type": "hanging_basket",
+   "x": 31,
+   "y": 20,
+   "walk": true
+  },
+  {
+   "type": "hanging_basket",
+   "x": 14,
+   "y": 33,
+   "walk": true
+  },
+  {
+   "type": "bunting",
+   "x": 23,
+   "y": 18,
+   "walk": true
+  },
+  {
+   "type": "bunting",
+   "x": 23,
+   "y": 27,
+   "walk": true
+  },
+  {
+   "type": "bench",
+   "x": 33,
+   "y": 26
+  },
+  {
+   "type": "post_box",
+   "x": 21,
+   "y": 26
+  },
+  {
+   "type": "oak",
+   "x": 36,
+   "y": 14,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 40,
+   "y": 16,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 37,
+   "y": 20,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 41,
+   "y": 23,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 35,
+   "y": 30,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 40,
+   "y": 31,
+   "variant": 2
+  },
+  {
+   "type": "buffer_stop",
+   "x": 52,
+   "y": 42
+  },
+  {
+   "type": "building",
+   "style": "station",
+   "x": 45,
+   "y": 32,
+   "w": 5,
+   "h": 3,
+   "label": "Haworth Station (KWVR)"
+  },
+  {
+   "type": "lamp_post",
+   "x": 49,
+   "y": 37
+  },
+  {
+   "type": "flagpole",
+   "x": 46,
+   "y": 37,
+   "variant": 0
+  },
+  {
+   "type": "birch",
+   "x": 55,
+   "y": 10
+  },
+  {
+   "type": "birch",
+   "x": 56,
+   "y": 20
+  },
+  {
+   "type": "birch",
+   "x": 54,
+   "y": 33
+  },
+  {
+   "type": "birch",
+   "x": 57,
+   "y": 40
+  },
+  {
+   "type": "building",
+   "style": "field_barn",
+   "x": 3,
+   "y": 16,
+   "w": 5,
+   "h": 3,
+   "label": "Top Withens (ruin)",
+   "kind": "ruin"
+  },
+  {
+   "type": "oak",
+   "x": 8,
+   "y": 15,
+   "variant": 2
+  },
+  {
+   "type": "cascade",
+   "x": 4,
+   "y": 23,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 7,
+   "y": 25
+  },
+  {
+   "type": "rock",
+   "x": 2,
+   "y": 29
+  }
+ ],
+ "warps": [
+  {
+   "x": 7,
+   "y": 6,
+   "to": "haworth_parsonage",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 15,
+   "y": 8,
+   "to": "haworth_church",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 27,
+   "y": 8,
+   "to": "haworth_blackbull",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 34,
+   "y": 8,
+   "to": "haworth_apothecary",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 17,
+   "y": 24,
+   "to": "haworth_shop",
+   "tx": 4,
+   "ty": 5,
+   "facing": "up"
+  },
+  {
+   "x": 28,
+   "y": 24,
+   "to": "haworth_sanctuary",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 47,
+   "y": 34,
+   "to": "haworth_station",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  }
+ ],
+ "npcs": [
+  {
+   "id": "bronte_walker",
+   "sprite": "hillwalker",
+   "x": 9,
+   "y": 20,
+   "facing": "left",
+   "move": "still",
+   "script": "bronte_walker",
+   "name": "Brontë Walker"
+  },
+  {
+   "id": "bronte_keeper",
+   "sprite": "villager_6",
+   "x": 7,
+   "y": 10,
+   "facing": "down",
+   "move": "still",
+   "script": "bronte_keeper_tale",
+   "name": "Dog Walker"
+  },
+  {
+   "id": "haworth_setts",
+   "sprite": "villager_1",
+   "x": 24,
+   "y": 16,
+   "facing": "left",
+   "move": "still",
+   "script": "haworth_setts",
+   "name": "Local"
+  },
+  {
+   "id": "haworth_steam",
+   "sprite": "rail_guard",
+   "x": 50,
+   "y": 33,
+   "facing": "right",
+   "move": "still",
+   "script": "haworth_steam",
+   "name": "Volunteer Porter"
+  },
+  {
+   "id": "haworth_ghost",
+   "sprite": "lamplighter",
+   "x": 23,
+   "y": 34,
+   "facing": "up",
+   "move": "still",
+   "script": "haworth_ghost",
+   "name": "Ghost Walk Guide",
+   "times": [
+    "dusk",
+    "night"
+   ]
+  },
+  {
+   "id": "haworth_victorian",
+   "sprite": "mum",
+   "x": 36,
+   "y": 25,
+   "facing": "down",
+   "move": "still",
+   "script": "haworth_victorian",
+   "name": "Victorian Weekend Fan",
+   "times": [
+    "day"
+   ]
+  },
+  {
+   "id": "withens_heathcliff",
+   "sprite": "poet",
+   "x": 6,
+   "y": 19,
+   "facing": "up",
+   "move": "still",
+   "trainer": "pennines_heathcliff"
+  },
+  {
+   "id": "haworth_t_steam",
+   "sprite": "steelworker",
+   "x": 50,
+   "y": 29,
+   "facing": "down",
+   "move": "still",
+   "trainer": "pennines_fireman"
+  },
+  {
+   "id": "haworth_t_rambler",
+   "sprite": "hiker",
+   "x": 8,
+   "y": 31,
+   "facing": "down",
+   "move": "still",
+   "trainer": "pennines_bronteway"
+  },
+  {
+   "id": "haworth_t_ghost",
+   "sprite": "tour_guide",
+   "x": 33,
+   "y": 11,
+   "facing": "left",
+   "move": "still",
+   "trainer": "pennines_ghosthunter"
+  }
+ ],
+ "signs": [
+  {
+   "x": 25,
+   "y": 44,
+   "text": "HAWORTH. Up the hill for the Parsonage, down the hill for the steam trains. Either way, it's a hill."
+  },
+  {
+   "x": 21,
+   "y": 44,
+   "text": "SOUTH: Keighley, the Aire valley and Leeds."
+  },
+  {
+   "x": 10,
+   "y": 13,
+   "text": "THE BRONTË WAY. To the waterfall and Top Withens, over the moor. Proper boots, please. And a book."
+  },
+  {
+   "x": 11,
+   "y": 10,
+   "text": "Patrick Brontë came here as perpetual curate in 1820, and his children grew up in this house above the churchyard. Charlotte, Emily and Anne wrote their novels at the dining table, walking round and round it as they talked. The Brontë Society opened it as a museum in 1928.",
+   "plaque": "pennines_parsonage",
+   "title": "The Brontë Parsonage"
+  },
+  {
+   "x": 12,
+   "y": 4,
+   "text": "In 1847 three novels came out under the names Currer, Ellis and Acton Bell: Jane Eyre, Wuthering Heights and Agnes Grey. The authors were Charlotte, Emily and Anne Brontë, who chose names that would not give away that they were women.",
+   "plaque": "pennines_bells",
+   "title": "Currer, Ellis and Acton Bell"
+  },
+  {
+   "x": 9,
+   "y": 17,
+   "text": "Top Withens is a ruined farmhouse often said to have given Emily the setting for Wuthering Heights. A plaque on the ruin itself is more careful: the buildings, it says, bear no resemblance to the house she described. The view, everyone agrees, is the right one.",
+   "plaque": "pennines_top_withens",
+   "title": "Top Withens"
+  },
+  {
+   "x": 31,
+   "y": 9,
+   "text": "The Black Bull stands at the top of Main Street, beside the church. Branwell Brontë, the sisters' brother, a painter and poet of great promise, spent too many evenings here, and his decline darkened the family's last years.",
+   "plaque": "pennines_black_bull",
+   "title": "The Black Bull"
+  },
+  {
+   "x": 37,
+   "y": 9,
+   "text": "Across from the Black Bull was the village druggist. Branwell bought laudanum, a medicine made from opium, which you could buy over the counter in the 1840s. The old shop is still an apothecary today.",
+   "plaque": "pennines_apothecary",
+   "title": "The Apothecary"
+  },
+  {
+   "x": 21,
+   "y": 20,
+   "text": "Main Street is paved with stone setts laid on end so horses could grip on the slope. In 1850 a government inspector found Haworth's water fouled by the crowded churchyard, and the average age at death in the village was about twenty-five.",
+   "plaque": "pennines_main_street",
+   "title": "Main Street"
+  },
+  {
+   "x": 21,
+   "y": 7,
+   "text": "All the Brontës except Anne lie in the family vault beneath the church. Anne died in Scarborough in 1849 and is buried there, by the sea. The church was rebuilt in the 1870s, and only the tower is the one the family knew.",
+   "plaque": "pennines_bronte_vault",
+   "title": "The Family Vault"
+  },
+  {
+   "x": 50,
+   "y": 41,
+   "text": "The Keighley and Worth Valley Railway opened in 1867. British Railways closed it at the end of 1961, and volunteers bought it and reopened it in 1968, one of the first heritage railways in Britain. The film The Railway Children was made along the line in 1970.",
+   "plaque": "pennines_kwvr",
+   "title": "The Worth Valley Line"
+  },
+  {
+   "x": 6,
+   "y": 32,
+   "text": "The sisters loved this walk to the waterfall on Sladen Beck. A stone by the beck shaped like a seat is still called the Brontë Chair, and the little clapper bridge is the Brontë Bridge.",
+   "plaque": "pennines_bronte_falls",
+   "title": "The Brontë Waterfall"
+  }
+ ],
+ "rows": [
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT!TTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT!TTTTTTT",
+  "TTmm.nmm.mme.mmm..mmmmm.mm.m.mn.mmemnm.mm..TT.m.mmne!mmmmmTT",
+  "TT.BBBBBBBBv.BBBBBBBBvvvvmnmmmmm.mm.mvvvvvvTT.emmmmm!mmmmmTT",
+  "TTmBBBBBBBBv.BBBBBBBBvvvvmmnmm.eme.mmvvvvvvTTnmmmnem!mmmmmTT",
+  "TT.BBBBBBBBv.BBBBBBBBvvvvBBBBBB.BBBBBvvvvvvTTmn.mmmm!mmmmmTT",
+  "TTeBBBBDBBBvmBBBBBBBBvvvvBBBBBB.BBBBBvvvvvvTT.mnmmme!mmmmmTT",
+  "TT.vvvv#vvvv.BBBBBBBBvvvvBBBBBBmBBBBBvvvvvvTTmmmmnnn!mmmmmTT",
+  "TT.vvvv#vvvvmBBDBBBBBvvvvBBDBBBmBBDBBvvvvvvTTmmmm.mm!mmmmmTT",
+  "TTm#########ssssssssssssssssssssssssmm.mmmmTTmm.mmmm!mmmmmTT",
+  "TTmvvvvvvvvvssssssssssssssssssssssssm.mmmnmTTn.m..mm!mmmmmTT",
+  "TTmm.m..mmm.ssssssssssssssssssssssss.nmmnnmTTme.mmmm!mmmmmTT",
+  "TTmmmmmmm#############sssmnmm.m.mmvvvvvvvvvTTm.em.m.!mmmmmTT",
+  "TTmmmmmmm#mmmmmBBBBBB.sssmBBBBBBm.vvvvvvvvvTTmm.mm..!mmmmmTT",
+  "TThhhhhhh#hhhmmBBBBBB.sssnBBBBBB.mvvvvvvvvvTTmnnnmm.!mmmmmTT",
+  "TThhhhhhh#GhhmnBBBBBBmsss.BBBBBBm.vvvvvvvvvTT.mm.emm!mmmmmTT",
+  "TThBBBBBh#hhhm.BBBBBB.sssmBBBBBBmmvvvvvvvvvTTm.mmmm.!mmmmmTT",
+  "TThBBBBBh#hhhnn.m..mmmsssmm.mmenmmvvvvvvvvvTTm.mmmmn!mmmmmTT",
+  "TThBBBBBh#hhhe.mmmnemmsssm.n..mmmmvvvvvvvvvTT..mnmmm!mmmmmTT",
+  "TTh#######hhhm..mmnnmnssse.mmmmmmmvvvvvvvvvTT.e.enee!mmmmmTT",
+  "TThhhhhhh#hGh.mmmm..mmsssmnemmmm.evvvvvvvvvTTm..mmnm!mmmmmTT",
+  "TThhhhhhh#hhhmnBBBBBB.sss.BBBBBBm.vvvvvvvvvTTemnmm.m!mmmmmTT",
+  "TThh~~hhh#hhh..BBBBBBnsssnBBBBBBe.vvvvvvvvvTTm.em.mm!mmmmmTT",
+  "TThh~~hhh#hhhmmBBBBBBnsss.BBBBBBnmvvvvvvvvvTTm.m.m..!mmmmmTT",
+  "TThh~~hhh#hhhmmBBDBBBmsssmBBDBBB.mvvvvvvvvvTTm..n.mm!mmmmmTT",
+  "TThh~~hhh#hhhmsssssssssssssssssssmvvvvvvvvvTTm.memmm!mmmmmTT",
+  "TTho~~hhh#hhhmm.n.mmmesssmmnm.mmm.vvvvvvvvvTTmm.mnmm!mmmmmTT",
+  "TTho~~hhh#hhGnmmmne.nmsssmmmm.em.mvvvvvvvvvTTm.mmm.m!mmmmmTT",
+  "TTho~~hhh#hhhmmBBBBBBmsssnBBBBBB.mvvvvvvvvvTTmmmm.__!mmmmmTT",
+  "TThh~~hhh#hhhmmBBBBBBmsssmBBBBBBn.vvvvvvvvvTTm.m.n__!mmmmmTT",
+  "TThh~~hhh#hhh.mBBBBBBmsssmBBBBBBmmvvvvvvvvvTT.mmm.__!mmmmmTT",
+  "TT##::####hhhmmBBBBBBmsss.BBBBBBmmvvvvvvvvvTT.mm.n__!mmmmmTT",
+  "TThh~~hhh#hhhm.m.emmm.sssm.m.m.emmvvvvvvvvvTTBBBBB__!mmmmmTT",
+  "TThh~~hhh#Ghhm.m.mmmmmsssm.mm...mmvvvvvvvvvTTBBBBB__!mmmmmTT",
+  "TThh~~hhh#hhhmmn..mmmmsssnm.m.nmmm..mmmmn.emvBBDBB__!mmmmmvT",
+  "TThh~~hhh#hhhmmBBBBBB.sssmBBBBBBm.mmmmem.m.mvvvsvv__!mmmmmvT",
+  "TThhhhhhh#hhh.nBBBBBBnsss.BBBBBBm.m.m.mmmmmmvvvsvv__!mmmmmvT",
+  "TTh#######hhh.mBBBBBBmsssmBBBBBBmnmn.mmnemmmvvvsvv__!mmmmmvT",
+  "TThhhhhhhhhhhmmBBBBBBmsss.BBBBBB.m.mnm.nemmmvvvsvv__!mmmmmvT",
+  "TThhhhhhhhhhhmmme.mmmesssm.mnnmmmmnmm.mmn.m.vvvsvv__!mmmmmvT",
+  "TThhhhGhhhhhh...mmnm.mssssssssssssssssssssssvvvvvvvv!mmmmmvT",
+  "TThhhhhhhhhGh.memmmmmnsss.m..emmmem.mmm...m.vvvvvvvv!mmmmmvT",
+  "TThhhhhhhhhhh..m..mmm.:=:.mmmn.me..mmmm.mnmmvvvvvvvvvvvvvvvT",
+  "TThhhhhhhhhhh...mn.mm.:=:m..mmme..mmmm.m.mmmvvvvvvvvvvvvvvvT",
+  "TThhhhhhhhhhhmmmmemmmm:=:m..mmn..mmmm.n.mm..vvvvvvvvvvvvvvvT",
+  "TThhhhhhhhhhhnmmmmnm..:=:.emm.mmnmnmnm.mmmmmvvvvvvvvvvvvvvvT",
+  "TTTTTTTTTTTTTTTTTTTTTT:=:TTTTTTTTTTTTTTTTTTTvvvvvvvvvvvvvvvT",
+  "TTTTTTTTTTTTTTTTTTTTTT:=:TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT"
+ ],
+ "heights": [
+  "333333333333333333333333333333333333333333330000000000000000",
+  "333333333333333333333333333333333333333333330000000000000000",
+  "333333333333333333333333333333333333333333330000000000000000",
+  "333333333333333333333333333333333333333333330000000000000000",
+  "333333333333333333333333333333333333333333330000000000000000",
+  "333333333333333333333333333333333333333333330000000000000000",
+  "333333333333333333333333333333333333333333330000000000000000",
+  "333333333333333333333333333333333333333333330000000000000000",
+  "333333333333333333333333333333333333333333330000000000000000",
+  "333333333333333333333333333333333333333333330000000000000000",
+  "333333333333333333333333333333333333333333330000000000000000",
+  "333333333333333333333333333333333333333333330000000000000000",
+  "333333333333333333333333333333333333333333330000000000000000",
+  "333333333333333333333333333333333333333333330000000000000000",
+  "333333333333333333333333333333333333333333330000000000000000",
+  "333333333333333333333333333333333333333333330000000000000000",
+  "333333333333333333333333333333333333333333330000000000000000",
+  "333333333333333333333333333333333333333333330000000000000000",
+  "333333333333333333333333333333333333333333330000000000000000",
+  "333333333333333333333333333333333333333333330000000000000000",
+  "222222222222222222222222222222222222222222220000000000000000",
+  "222222222222222222222222222222222222222222220000000000000000",
+  "222222222222222222222222222222222222222222220000000000000000",
+  "222222222222222222222222222222222222222222220000000000000000",
+  "222222222222222222222222222222222222222222220000000000000000",
+  "222222222222222222222222222222222222222222220000000000000000",
+  "222222222222222222222222222222222222222222220000000000000000",
+  "111111111111111111111111111111111111111111110000000000000000",
+  "111111111111111111111111111111111111111111110000000000000000",
+  "111111111111111111111111111111111111111111110000000000000000",
+  "111111111111111111111111111111111111111111110000000000000000",
+  "111111111111111111111111111111111111111111110000000000000000",
+  "111111111111111111111111111111111111111111110000000000000000",
+  "111111111111111111111111111111111111111111110000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000"
+ ],
+ "legend_extra": {
+  ".": {
+   "tile": "grass",
+   "colour": "#7f7b49"
+  },
+  "m": {
+   "tile": "grass",
+   "colour": "#77804a"
+  },
+  "n": {
+   "tile": "grass",
+   "colour": "#8a7046"
+  },
+  "e": {
+   "tile": "grass",
+   "colour": "#7a7448",
+   "prop": "heather"
+  },
+  "h": {
+   "tile": "tall_grass",
+   "colour": "#655060",
+   "prop": "heather"
+  },
+  "k": {
+   "tile": "tall_grass",
+   "colour": "#7c7a47",
+   "prop": "short"
+  },
+  "R": {
+   "tile": "rock",
+   "colour": "#7d7a4a"
+  },
+  "G": {
+   "tile": "rock",
+   "colour": "#6f6852",
+   "prop": "gritstone"
+  },
+  "W": {
+   "tile": "drystone_wall",
+   "colour": "#76734a"
+  },
+  "r": {
+   "tile": "shallow",
+   "prop": "reeds"
+  },
+  "v": {
+   "tile": "grass",
+   "colour": "#6d7a52"
+  },
+  "s": {
+   "tile": "cobbles",
+   "colour": "#8a8072"
+  }
+ }
+}

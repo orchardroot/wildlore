@@ -1,0 +1,1258 @@
+{
+ "id": "leeds",
+ "name": "Leeds",
+ "region": "yorkshire",
+ "kind": "town",
+ "music": "town_city",
+ "weather": {
+  "drizzle": 38,
+  "clear": 22,
+  "fog": 8,
+  "gale": 7,
+  "sunshine": 15,
+  "downpour": 10
+ },
+ "edges": {
+  "west": {
+   "to": "saddleworth_moor",
+   "offset": 0
+  },
+  "north": {
+   "to": "haworth",
+   "offset": 0
+  }
+ },
+ "encounters": {
+  "grass": [
+   {
+    "species": "starlet",
+    "min": 14,
+    "max": 16,
+    "weight": 18,
+    "time": [
+     "dawn",
+     "day",
+     "dusk"
+    ]
+   },
+   {
+    "species": "cooplet",
+    "min": 14,
+    "max": 16,
+    "weight": 18
+   },
+   {
+    "species": "grizzlet",
+    "min": 14,
+    "max": 16,
+    "weight": 14,
+    "time": [
+     "dawn",
+     "day",
+     "dusk"
+    ]
+   },
+   {
+    "species": "binfox",
+    "min": 15,
+    "max": 16,
+    "weight": 14,
+    "time": [
+     "dusk",
+     "night"
+    ]
+   },
+   {
+    "species": "pepperling",
+    "min": 14,
+    "max": 16,
+    "weight": 12,
+    "time": [
+     "dusk",
+     "night"
+    ]
+   },
+   {
+    "species": "bobbin",
+    "min": 14,
+    "max": 16,
+    "weight": 10
+   },
+   {
+    "species": "swiftlet",
+    "min": 14,
+    "max": 16,
+    "weight": 10,
+    "time": [
+     "day"
+    ],
+    "season": [
+     "spring",
+     "summer"
+    ]
+   },
+   {
+    "species": "flittermouse",
+    "min": 14,
+    "max": 16,
+    "weight": 8,
+    "time": [
+     "night"
+    ]
+   },
+   {
+    "species": "forcelet",
+    "min": 14,
+    "max": 16,
+    "weight": 8,
+    "time": [
+     "dusk",
+     "night"
+    ],
+    "season": [
+     "winter",
+     "spring"
+    ]
+   },
+   {
+    "species": "forcelet",
+    "min": 14,
+    "max": 16,
+    "weight": 3
+   },
+   {
+    "species": "tootlet",
+    "min": 14,
+    "max": 16,
+    "weight": 6,
+    "time": [
+     "day",
+     "dusk"
+    ]
+   }
+  ],
+  "water": [
+   {
+    "species": "volet",
+    "min": 14,
+    "max": 16,
+    "weight": 30
+   },
+   {
+    "species": "minkshade",
+    "min": 14,
+    "max": 16,
+    "weight": 20,
+    "time": [
+     "dusk",
+     "night"
+    ]
+   },
+   {
+    "species": "elverlet",
+    "min": 14,
+    "max": 16,
+    "weight": 20
+   },
+   {
+    "species": "dipling",
+    "min": 14,
+    "max": 16,
+    "weight": 30
+   }
+  ]
+ },
+ "spawn": [
+  4,
+  25
+ ],
+ "stage": "city",
+ "town_id": "leeds",
+ "station": {
+  "x": 32,
+  "y": 35
+ },
+ "scaled_floor": 14,
+ "props": [
+  {
+   "type": "stadium_stand",
+   "x": 3,
+   "y": 3,
+   "variant": 11
+  },
+  {
+   "type": "stadium_stand",
+   "x": 4,
+   "y": 3,
+   "variant": 14
+  },
+  {
+   "type": "stadium_stand",
+   "x": 5,
+   "y": 3,
+   "variant": 2
+  },
+  {
+   "type": "stadium_stand",
+   "x": 6,
+   "y": 3,
+   "variant": 5
+  },
+  {
+   "type": "stadium_stand",
+   "x": 7,
+   "y": 3,
+   "variant": 8
+  },
+  {
+   "type": "stadium_stand",
+   "x": 8,
+   "y": 3,
+   "variant": 11
+  },
+  {
+   "type": "stadium_stand",
+   "x": 9,
+   "y": 3,
+   "variant": 14
+  },
+  {
+   "type": "stadium_stand",
+   "x": 10,
+   "y": 3,
+   "variant": 2
+  },
+  {
+   "type": "stadium_stand",
+   "x": 11,
+   "y": 3,
+   "variant": 5
+  },
+  {
+   "type": "stadium_stand",
+   "x": 12,
+   "y": 3,
+   "variant": 8
+  },
+  {
+   "type": "stadium_stand",
+   "x": 13,
+   "y": 3,
+   "variant": 11
+  },
+  {
+   "type": "stadium_stand",
+   "x": 14,
+   "y": 3,
+   "variant": 14
+  },
+  {
+   "type": "stadium_stand",
+   "x": 15,
+   "y": 3,
+   "variant": 2
+  },
+  {
+   "type": "stadium_stand",
+   "x": 16,
+   "y": 3,
+   "variant": 5
+  },
+  {
+   "type": "stadium_stand",
+   "x": 17,
+   "y": 3,
+   "variant": 8
+  },
+  {
+   "type": "stadium_stand",
+   "x": 18,
+   "y": 3,
+   "variant": 11
+  },
+  {
+   "type": "stadium_stand",
+   "x": 19,
+   "y": 3,
+   "variant": 14
+  },
+  {
+   "type": "floodlight",
+   "x": 3,
+   "y": 4
+  },
+  {
+   "type": "floodlight",
+   "x": 19,
+   "y": 4
+  },
+  {
+   "type": "floodlight",
+   "x": 3,
+   "y": 14
+  },
+  {
+   "type": "floodlight",
+   "x": 19,
+   "y": 14
+  },
+  {
+   "type": "pitch_line",
+   "x": 6,
+   "y": 9,
+   "variant": 10,
+   "walk": true
+  },
+  {
+   "type": "rugby_posts",
+   "x": 10,
+   "y": 5,
+   "variant": 0
+  },
+  {
+   "type": "rugby_posts",
+   "x": 12,
+   "y": 5,
+   "variant": 1
+  },
+  {
+   "type": "building",
+   "style": "red_brick",
+   "x": 6,
+   "y": 16,
+   "w": 9,
+   "h": 4,
+   "label": "Headingley Pavilion",
+   "kind": "hall"
+  },
+  {
+   "type": "building",
+   "style": "leeds_town_hall",
+   "x": 27,
+   "y": 11,
+   "w": 13,
+   "h": 10,
+   "label": "Leeds Town Hall",
+   "kind": "hall"
+  },
+  {
+   "type": "building",
+   "style": "red_brick",
+   "x": 26,
+   "y": 4,
+   "w": 7,
+   "h": 4,
+   "label": "Leeds Art Gallery",
+   "kind": "museum"
+  },
+  {
+   "type": "building",
+   "style": "stone",
+   "x": 35,
+   "y": 4,
+   "w": 8,
+   "h": 4,
+   "label": "Central Library",
+   "kind": "library"
+  },
+  {
+   "type": "building",
+   "style": "red_brick",
+   "x": 47,
+   "y": 5,
+   "w": 6,
+   "h": 4,
+   "label": "Curry House",
+   "kind": "cafe"
+  },
+  {
+   "type": "building",
+   "style": "red_brick",
+   "x": 54,
+   "y": 5,
+   "w": 4,
+   "h": 4,
+   "label": "Whitelock's Ale House",
+   "kind": "pub"
+  },
+  {
+   "type": "building",
+   "style": "red_brick",
+   "x": 59,
+   "y": 3,
+   "w": 10,
+   "h": 6,
+   "label": "Thackray Museum of Medicine",
+   "kind": "museum"
+  },
+  {
+   "type": "building",
+   "style": "terrace",
+   "x": 47,
+   "y": 11,
+   "w": 9,
+   "h": 3,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "corn_exchange",
+   "x": 48,
+   "y": 15,
+   "w": 8,
+   "h": 6,
+   "label": "Corn Exchange",
+   "kind": "hall"
+  },
+  {
+   "type": "building",
+   "style": "market_hall",
+   "x": 58,
+   "y": 15,
+   "w": 11,
+   "h": 6,
+   "label": "Kirkgate Market",
+   "kind": "hall"
+  },
+  {
+   "type": "market_stall",
+   "x": 59,
+   "y": 22,
+   "variant": 2
+  },
+  {
+   "type": "market_stall",
+   "x": 61,
+   "y": 22,
+   "variant": 1
+  },
+  {
+   "type": "market_stall",
+   "x": 65,
+   "y": 22,
+   "variant": 2
+  },
+  {
+   "type": "market_stall",
+   "x": 67,
+   "y": 22,
+   "variant": 1
+  },
+  {
+   "type": "building",
+   "style": "sanctuary",
+   "x": 3,
+   "y": 28,
+   "w": 6,
+   "h": 4,
+   "label": "Sanctuary"
+  },
+  {
+   "type": "building",
+   "style": "shop",
+   "x": 10,
+   "y": 28,
+   "w": 5,
+   "h": 4,
+   "label": "Corner Shop"
+  },
+  {
+   "type": "building",
+   "style": "terrace",
+   "x": 16,
+   "y": 28,
+   "w": 6,
+   "h": 3,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "terrace",
+   "x": 26,
+   "y": 28,
+   "w": 8,
+   "h": 3,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "red_brick",
+   "x": 35,
+   "y": 28,
+   "w": 8,
+   "h": 3,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "stone",
+   "x": 48,
+   "y": 28,
+   "w": 9,
+   "h": 3,
+   "label": "Temple Works",
+   "kind": "mill"
+  },
+  {
+   "type": "building",
+   "style": "terrace",
+   "x": 59,
+   "y": 28,
+   "w": 10,
+   "h": 3,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "station",
+   "x": 28,
+   "y": 33,
+   "w": 10,
+   "h": 2,
+   "label": "Leeds Station"
+  },
+  {
+   "type": "canal_boat",
+   "x": 6,
+   "y": 40,
+   "variant": 0
+  },
+  {
+   "type": "canal_boat",
+   "x": 14,
+   "y": 40,
+   "variant": 1
+  },
+  {
+   "type": "canal_boat",
+   "x": 30,
+   "y": 40,
+   "variant": 0
+  },
+  {
+   "type": "canal_boat",
+   "x": 38,
+   "y": 40,
+   "variant": 1
+  },
+  {
+   "type": "canal_boat",
+   "x": 54,
+   "y": 40,
+   "variant": 0
+  },
+  {
+   "type": "canal_boat",
+   "x": 62,
+   "y": 40,
+   "variant": 1
+  },
+  {
+   "type": "building",
+   "style": "stone",
+   "x": 4,
+   "y": 45,
+   "w": 12,
+   "h": 6,
+   "label": "Elland Road",
+   "kind": "hall"
+  },
+  {
+   "type": "floodlight",
+   "x": 3,
+   "y": 44
+  },
+  {
+   "type": "floodlight",
+   "x": 16,
+   "y": 44
+  },
+  {
+   "type": "floodlight",
+   "x": 3,
+   "y": 51
+  },
+  {
+   "type": "floodlight",
+   "x": 16,
+   "y": 51
+  },
+  {
+   "type": "building",
+   "style": "abbey_ruin",
+   "x": 21,
+   "y": 44,
+   "w": 11,
+   "h": 7,
+   "label": "Kirkstall Abbey",
+   "kind": "church"
+  },
+  {
+   "type": "building",
+   "style": "glass_tower",
+   "x": 52,
+   "y": 44,
+   "w": 12,
+   "h": 7,
+   "label": "Royal Armouries",
+   "kind": "museum"
+  },
+  {
+   "type": "oak",
+   "x": 18,
+   "y": 46,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 19,
+   "y": 49,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 34,
+   "y": 45,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 36,
+   "y": 49,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 40,
+   "y": 46,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 46,
+   "y": 48,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 48,
+   "y": 45,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 33,
+   "y": 52,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 12,
+   "y": 53,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 60,
+   "y": 53,
+   "variant": 2
+  },
+  {
+   "type": "boat",
+   "x": 67,
+   "y": 46,
+   "variant": 1
+  },
+  {
+   "type": "lamp_post",
+   "x": 4,
+   "y": 23
+  },
+  {
+   "type": "lamp_post",
+   "x": 10,
+   "y": 23
+  },
+  {
+   "type": "lamp_post",
+   "x": 16,
+   "y": 23
+  },
+  {
+   "type": "lamp_post",
+   "x": 22,
+   "y": 23
+  },
+  {
+   "type": "lamp_post",
+   "x": 28,
+   "y": 23
+  },
+  {
+   "type": "lamp_post",
+   "x": 34,
+   "y": 23
+  },
+  {
+   "type": "lamp_post",
+   "x": 40,
+   "y": 23
+  },
+  {
+   "type": "lamp_post",
+   "x": 46,
+   "y": 23
+  },
+  {
+   "type": "lamp_post",
+   "x": 52,
+   "y": 23
+  },
+  {
+   "type": "lamp_post",
+   "x": 58,
+   "y": 23
+  },
+  {
+   "type": "lamp_post",
+   "x": 64,
+   "y": 23
+  },
+  {
+   "type": "lamp_post",
+   "x": 42,
+   "y": 22
+  },
+  {
+   "type": "lamp_post",
+   "x": 25,
+   "y": 22
+  },
+  {
+   "type": "lamp_post",
+   "x": 21,
+   "y": 26
+  },
+  {
+   "type": "lamp_post",
+   "x": 47,
+   "y": 26
+  },
+  {
+   "type": "lamp_post",
+   "x": 60,
+   "y": 26
+  },
+  {
+   "type": "lamp_post",
+   "x": 8,
+   "y": 26
+  },
+  {
+   "type": "lamp_post",
+   "x": 30,
+   "y": 26
+  },
+  {
+   "type": "lamp_post",
+   "x": 36,
+   "y": 26
+  },
+  {
+   "type": "bench",
+   "x": 27,
+   "y": 26
+  },
+  {
+   "type": "bench",
+   "x": 38,
+   "y": 26
+  },
+  {
+   "type": "post_box",
+   "x": 52,
+   "y": 26
+  },
+  {
+   "type": "phone_box",
+   "x": 16,
+   "y": 26
+  },
+  {
+   "type": "planter",
+   "x": 43,
+   "y": 23
+  },
+  {
+   "type": "planter",
+   "x": 26,
+   "y": 23
+  },
+  {
+   "type": "bench",
+   "x": 24,
+   "y": 32
+  },
+  {
+   "type": "lamp_post",
+   "x": 35,
+   "y": 32
+  },
+  {
+   "type": "lamp_post",
+   "x": 50,
+   "y": 32
+  },
+  {
+   "type": "bench",
+   "x": 66,
+   "y": 32
+  },
+  {
+   "type": "lamp_post",
+   "x": 20,
+   "y": 39
+  },
+  {
+   "type": "lamp_post",
+   "x": 49,
+   "y": 39
+  },
+  {
+   "type": "bench",
+   "x": 14,
+   "y": 42
+  },
+  {
+   "type": "bench",
+   "x": 35,
+   "y": 42
+  },
+  {
+   "type": "lamp_post",
+   "x": 60,
+   "y": 42
+  },
+  {
+   "type": "noticeboard",
+   "x": 20,
+   "y": 27
+  },
+  {
+   "type": "flagpole",
+   "x": 41,
+   "y": 10,
+   "variant": 0
+  }
+ ],
+ "warps": [
+  {
+   "x": 10,
+   "y": 19,
+   "to": "leeds_headingley",
+   "tx": 6,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 33,
+   "y": 20,
+   "to": "leeds_townhall",
+   "tx": 7,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 49,
+   "y": 8,
+   "to": "leeds_curry",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 55,
+   "y": 8,
+   "to": "leeds_whitelocks",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 63,
+   "y": 8,
+   "to": "leeds_thackray",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 51,
+   "y": 20,
+   "to": "leeds_cornexchange",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 63,
+   "y": 20,
+   "to": "leeds_kirkgate",
+   "tx": 7,
+   "ty": 8,
+   "facing": "up"
+  },
+  {
+   "x": 5,
+   "y": 31,
+   "to": "leeds_sanctuary",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 12,
+   "y": 31,
+   "to": "leeds_shop",
+   "tx": 4,
+   "ty": 5,
+   "facing": "up"
+  },
+  {
+   "x": 9,
+   "y": 50,
+   "to": "leeds_ellandroad",
+   "tx": 8,
+   "ty": 11,
+   "facing": "up"
+  },
+  {
+   "x": 26,
+   "y": 50,
+   "to": "leeds_kirkstall",
+   "tx": 6,
+   "ty": 8,
+   "facing": "up"
+  },
+  {
+   "x": 57,
+   "y": 50,
+   "to": "leeds_armouries",
+   "tx": 7,
+   "ty": 8,
+   "facing": "up"
+  }
+ ],
+ "npcs": [
+  {
+   "id": "rail_guard",
+   "sprite": "rail_guard",
+   "x": 31,
+   "y": 35,
+   "facing": "down",
+   "move": "still",
+   "script": "rail_guard"
+  },
+  {
+   "id": "leeds_lions",
+   "sprite": "villager_5",
+   "x": 30,
+   "y": 22,
+   "facing": "down",
+   "move": "still",
+   "script": "leeds_lions",
+   "name": "Night Owl",
+   "times": [
+    "night"
+   ]
+  },
+  {
+   "id": "leeds_loiner",
+   "sprite": "villager_1",
+   "x": 21,
+   "y": 25,
+   "facing": "left",
+   "move": "still",
+   "script": "leeds_loiner",
+   "name": "Loiner"
+  },
+  {
+   "id": "leeds_cricket",
+   "sprite": "villager_2",
+   "x": 16,
+   "y": 19,
+   "facing": "up",
+   "move": "still",
+   "script": "leeds_cricket",
+   "name": "Cricket Fan"
+  },
+  {
+   "id": "leeds_rhubarb",
+   "sprite": "farmer",
+   "x": 66,
+   "y": 23,
+   "facing": "left",
+   "move": "still",
+   "script": "leeds_rhubarb",
+   "name": "Rhubarb Grower"
+  },
+  {
+   "id": "leeds_temple",
+   "sprite": "steelworker",
+   "x": 53,
+   "y": 32,
+   "facing": "up",
+   "move": "still",
+   "script": "leeds_temple",
+   "name": "Old Millhand"
+  },
+  {
+   "id": "leeds_prince",
+   "sprite": "astronomer",
+   "x": 47,
+   "y": 39,
+   "facing": "left",
+   "move": "still",
+   "script": "leeds_prince",
+   "name": "Film Buff",
+   "times": [
+    "day",
+    "dusk"
+   ]
+  },
+  {
+   "id": "leeds_student",
+   "sprite": "student",
+   "x": 34,
+   "y": 27,
+   "facing": "down",
+   "move": "still",
+   "script": "leeds_student",
+   "name": "Student",
+   "times": [
+    "day",
+    "dusk",
+    "night"
+   ]
+  },
+  {
+   "id": "leeds_fan",
+   "sprite": "rugby_player",
+   "x": 13,
+   "y": 43,
+   "facing": "down",
+   "move": "still",
+   "script": "leeds_utd_fan",
+   "name": "Leeds Fan"
+  },
+  {
+   "id": "leeds_t_shopper",
+   "sprite": "villager_6",
+   "x": 57,
+   "y": 25,
+   "facing": "down",
+   "move": "still",
+   "trainer": "pennines_shopper"
+  },
+  {
+   "id": "leeds_t_student",
+   "sprite": "student",
+   "x": 43,
+   "y": 31,
+   "facing": "left",
+   "move": "still",
+   "trainer": "pennines_medic"
+  },
+  {
+   "id": "leeds_t_canal",
+   "sprite": "canal_boater",
+   "x": 30,
+   "y": 39,
+   "facing": "down",
+   "move": "still",
+   "trainer": "pennines_lockkeeper"
+  },
+  {
+   "id": "leeds_t_cricketer",
+   "sprite": "villager_3",
+   "x": 7,
+   "y": 12,
+   "facing": "right",
+   "move": "still",
+   "trainer": "pennines_cricketer"
+  }
+ ],
+ "signs": [
+  {
+   "x": 2,
+   "y": 23,
+   "text": "LEEDS. Welcome to Yorkshire's biggest city. Please wipe your feet, there's a Town Hall."
+  },
+  {
+   "x": 21,
+   "y": 23,
+   "text": "NORTH: Headingley, then the Aire valley to Haworth and the Brontë moors."
+  },
+  {
+   "x": 3,
+   "y": 27,
+   "text": "WEST: Saddleworth Moor, Standedge and Manchester. Uphill. Very uphill."
+  },
+  {
+   "x": 41,
+   "y": 21,
+   "text": "Leeds Town Hall was designed by Cuthbert Brodrick, a young architect from Hull, and opened by Queen Victoria in 1858. Its clock tower made it the proudest building in the North. The four stone lions on the steps were added in 1867, and legend says that when the clock strikes midnight they come down for a walk.",
+   "plaque": "pennines_leeds_town_hall",
+   "title": "Leeds Town Hall"
+  },
+  {
+   "x": 47,
+   "y": 20,
+   "text": "Brodrick won the Corn Exchange too, an oval hall under a great domed roof of glass and iron, opened in the 1860s so corn merchants could judge their samples by daylight. The traders have gone, and shops fill the floor and galleries now.",
+   "plaque": "pennines_corn_exchange",
+   "title": "The Corn Exchange"
+  },
+  {
+   "x": 57,
+   "y": 21,
+   "text": "In 1884 Michael Marks, a refugee from the Russian Empire, set up a stall at Kirkgate Market with a sign reading 'Don't ask the price, it's a penny'. Ten years later he went into partnership with Thomas Spencer, and Marks & Spencer was born. The market hall is one of the largest covered markets in Europe.",
+   "plaque": "pennines_kirkgate_market",
+   "title": "The Penny Bazaar"
+  },
+  {
+   "x": 20,
+   "y": 50,
+   "text": "Kirkstall Abbey was founded in 1152 by Cistercian monks who came from Fountains Abbey. They farmed sheep and traded wool until Henry VIII closed the abbey in 1539. Its roofless church still stands nearly whole, which is rare for a monastery in England.",
+   "plaque": "pennines_kirkstall",
+   "title": "Kirkstall Abbey"
+  },
+  {
+   "x": 51,
+   "y": 50,
+   "text": "The Royal Armouries is the national museum of arms and armour, the oldest museum in Britain. Much of the collection moved here from the Tower of London in 1996. Its glass Hall of Steel holds about 2,500 pieces of arms and armour, arranged in great patterns up the walls.",
+   "plaque": "pennines_royal_armouries",
+   "title": "The Royal Armouries"
+  },
+  {
+   "x": 43,
+   "y": 42,
+   "text": "In 1888 the French inventor Louis Le Prince filmed traffic crossing Leeds Bridge from a window nearby, some of the earliest moving pictures ever made. Two years later he boarded a train in France and was never seen again, and nobody knows what became of him.",
+   "plaque": "pennines_le_prince",
+   "title": "Leeds Bridge on Film"
+  },
+  {
+   "x": 23,
+   "y": 42,
+   "text": "The Leeds and Liverpool Canal runs 127 miles over the Pennines to the Mersey, the longest canal in Britain built as a single waterway. It took nearly fifty years to finish, and opened end to end in 1816.",
+   "plaque": "pennines_leeds_liverpool_canal",
+   "title": "The Leeds and Liverpool Canal"
+  },
+  {
+   "x": 57,
+   "y": 32,
+   "text": "Temple Works was a flax mill built in the 1830s for John Marshall in the style of an ancient Egyptian temple. Its huge single-storey roof was covered in grass, and sheep were grazed up there to keep it trimmed.",
+   "plaque": "pennines_temple_works",
+   "title": "Sheep on the Roof"
+  },
+  {
+   "x": 15,
+   "y": 21,
+   "text": "Headingley is home to Yorkshire's cricketers and to the Leeds rugby league team, one ground beside the other. In 1981 England were made to follow on against Australia here and still won, one of the most famous turnarounds in Test cricket.",
+   "plaque": "pennines_headingley",
+   "title": "Headingley"
+  },
+  {
+   "x": 17,
+   "y": 52,
+   "text": "Leeds United play at Elland Road. The club was formed in 1919, and under the manager Don Revie in the 1960s and 70s it won the league twice and became one of the most feared sides in Europe.",
+   "plaque": "pennines_elland_road",
+   "title": "Elland Road"
+  },
+  {
+   "x": 63,
+   "y": 26,
+   "text": "Forced rhubarb is grown in the Rhubarb Triangle between Wakefield, Morley and Rothwell. The roots are moved into warm, dark sheds in winter, where the stalks shoot up so fast you can hear them creak, and they are picked by candlelight so the light doesn't stop them growing.",
+   "plaque": "pennines_rhubarb_triangle",
+   "title": "The Rhubarb Triangle"
+  },
+  {
+   "x": 56,
+   "y": 9,
+   "text": "Whitelock's is the oldest pub in Leeds, first licensed in 1715 and tucked down a narrow yard off Briggate. Its long bar, brass and mirrors have barely changed in a century.",
+   "plaque": "pennines_whitelocks",
+   "title": "Whitelock's Ale House"
+  }
+ ],
+ "rows": [
+  "TTTTTTTTTTTTTTTTTTTTTT:=:TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTT:=:TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTvvvvvvvvvvvvvvvvvvvv:=:vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvTT",
+  "TTvbbbbbbbbbbbbbbbbbvv:=:vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvBBBBBBBBBBvTT",
+  "TTvaaaaaaaaaaaaaaaaavv:=:vBBBBBBBvvBBBBBBBBv:=:vvvvvvvvvvvvBBBBBBBBBBvTT",
+  "TTvbbbbbbbbbbbbbbbbbvv:=:vBBBBBBBvvBBBBBBBBv:=:BBBBBBvBBBBvBBBBBBBBBBvTT",
+  "TTvaaaaaaaaaaaaaaaaavv:=:vBBBBBBBvvBBBBBBBBv:=:BBBBBBvBBBBvBBBBBBBBBBvTT",
+  "TTvbbbbbbbbbbbbbbbbbvv:=:vBBBBBBBvvBBBBBBBBv:=:BBBBBBvBBBBvBBBBBBBBBBvTT",
+  "TTvaaaaaabbbbbaaaaaavv:=:::::::::::::::::::::=:BBDBBBvBDBBvBBBBDBBBBBvTT",
+  "TTvbbbbbbbbbbbbbbbbbvv:=:::::::::::::::::::::=::::::::::::::::::::::::TT",
+  "TTvaaaaaabbbbbaaaaaavv:=:::vvvvvvvvvvvvv:::::=:vvvvvvvvvvvvvvvvvvvvvvvTT",
+  "TTvbbbbbbbbbbbbbbbbbvv:=:::BBBBBBBBBBBBB:::::=:BBBBBBBBBvvvvvvvvvvvvvvTT",
+  "TTvaaaaaaaaaaaaaaaaavv:=:::BBBBBBBBBBBBB:::::=:BBBBBBBBBvvvvvvvvvvvvvvTT",
+  "TTvbbbbbbbbbbbbbbbbbvv:=:::BBBBBBBBBBBBB:::::=:BBBBBBBBBvvvvvvvvvvvvvvTT",
+  "TTvaaaaaaaaaaaaaaaaavv:=:::BBBBBBBBBBBBB:::::=::::::::::::::::::::::::TT",
+  "TTvvvvvvvvvvvvvvvvvvvv:=:::BBBBBBBBBBBBB:::::=:vBBBBBBBBvvBBBBBBBBBBBvTT",
+  "TTvvvvBBBBBBBBBvvvvvvv:=:::BBBBBBBBBBBBB:::::=:vBBBBBBBBvvBBBBBBBBBBBvTT",
+  "TTvvvvBBBBBBBBBvvvvvvv:=:::BBBBBBBBBBBBB:::::=:vBBBBBBBBvvBBBBBBBBBBBvTT",
+  "TTvvvvBBBBBBBBBvvvvvvv:=:::BBBBBBBBBBBBB:::::=:vBBBBBBBBvvBBBBBBBBBBBvTT",
+  "TTvvvvBBBBDBBBBvvvvvvv:=:::BBBBBBBBBBBBB:::::=:vBBBBBBBBvvBBBBBBBBBBBvTT",
+  "TTvvvvvvvv#vvvvvvvvvvv:=:::BBBBBBDBBBBBB:::::=:vBBBDBBBBvvBBBBBDBBBBBvTT",
+  "TTvvvvvvvv#vvvvvvvvvvv:=:::::::::::::::::::::=::::::::::::::::::::::::TT",
+  "TT:::::::::::::::::::::=:::::::::::::::::::::=::::::::::::::::::::::::TT",
+  "TT:::::::::::::::::::::=:::::::::::::::::::::=::::::::::::::::::::::::TT",
+  ":::::::::::::::::::::::::::::::::::::::::::::=::::::::::::::::::::::::TT",
+  "============================================:=:=======================TT",
+  ":::::::::::::::::::::::::::::::::::::::::::::=::::::::::::::::::::::::TT",
+  "TT::::::::::::::::::::vvvvvvvvvvvvvvvvvvvvvv:=:vvvvvvvvvvvvvvvvvvvvvvvTT",
+  "TTvBBBBBBvBBBBBvBBBBBBvvvvBBBBBBBBvBBBBBBBBv:=:vBBBBBBBBBvvBBBBBBBBBBvTT",
+  "TTvBBBBBBvBBBBBvBBBBBBvvvvBBBBBBBBvBBBBBBBBv:=:vBBBBBBBBBvvBBBBBBBBBBvTT",
+  "TTvBBBBBBvBBBBBvBBBBBBvvvvBBBBBBBBvBBBBBBBBv:=:vBBBBBBBBBvvBBBBBBBBBBvTT",
+  "TTvBBDBBBvBBDBBvvvvvvvvvv::::::::::::::::::::=::::::::::::::::::::::::TT",
+  "TT::::::::::::::::::::vvv::::::::::::::::::::=::::::::::::::::::::::::TT",
+  "TT::::::::::::::::::::::::::BBBBBBBBBB::::::::::::::::::::::::::::::::TT",
+  "TT::::::::::::::::::::::::::BBBBDBBBBB::::::::::::::::::::::::::::::::TT",
+  "TTvvvvvvvvvvvvvvvvvvvv:::v______________vvvv:::vvvvvvvvvvvvvvvvvvvvvvvTT",
+  "!!!!!!!!!!!!!!!!!!!!!!!&!!!!!!!!!!!!!!!!!!!!!&!!!!!!!!!!!!!!!!!!!!!!!!!!",
+  "TTv,,,,,,,,,,,,,,,,,,vvvvvvvvvvvvvvvvvvvvvvvvvvv,,,,,,,,,,,,,,,,,,,,vvTT",
+  "TTv,,,,,,,,,,,,,,,,,,vvvvvvvvvvvvvvvvvvvvvvvvvvv,,,,,,,,,,,,,,,,,,,,vvTT",
+  "TT:::::::::::::::::::::::::::::::::::::::::::=::::::::::::::::::::::::TT",
+  "TT~~~~~~~~~~~~~~~~~~~~:::~~~~~~~~~~~~~~~~~~~:=:~~~~~~~~~~~~~~~~~~~~~~~TT",
+  "TT~~~~~~~~~~~~~~~~~~~~:::~~~~~~~~~~~~~~~~~~~:=:~~~~~~~~~~~~~~~~~~~~~~~TT",
+  "TT::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::TT",
+  "TTvvvvvvv:vvvvvvvvvvvvvvvv:vvvvvvvvvvvvvvvvvvvvvvvvvvvvvv:vvvvvv:~~~~~TT",
+  "TTvvvvvvvvvvvvvvvvvvvBBBBBBBBBBBvv,,,,,,,,vvvvvvvvvvBBBBBBBBBBBB:~~~~~TT",
+  "TTvvBBBBBBBBBBBBvvvvvBBBBBBBBBBBvv,,,,,,,,vvvvvvvvvvBBBBBBBBBBBB:~~~~~TT",
+  "TTvvBBBBBBBBBBBBvvvvvBBBBBBBBBBBvv,,,,,,,,vvvvvvvvvvBBBBBBBBBBBB:~~~~~TT",
+  "TTvvBBBBBBBBBBBBvvvvvBBBBBBBBBBBvv,,,,,,,,vvvvvvvvvvBBBBBBBBBBBB:~~~~~TT",
+  "TTvvBBBBBBBBBBBBvvvvvBBBBBBBBBBBvv,,,,,,,,vvvvvvvvvvBBBBBBBBBBBB:~~~~~TT",
+  "TTvvBBBBBBBBBBBBvvvvvBBBBBBBBBBBvvvvvvvvvvvvvvvvvvvvBBBBBBBBBBBB:~~~~~TT",
+  "TTvvBBBBBDBBBBBBvvvvvBBBBBDBBBBBvvvvvvvvvvvvvvvvvvvvBBBBBDBBBBBB:~~~~~TT",
+  "TT::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::TT",
+  "TTvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvTT",
+  "TTvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT"
+ ],
+ "legend_extra": {
+  "a": {
+   "tile": "grass",
+   "colour": "#3f7a34"
+  },
+  "b": {
+   "tile": "grass",
+   "colour": "#4a8a3c"
+  },
+  "v": {
+   "tile": "grass",
+   "colour": "#5b7f3e"
+  }
+ }
+}

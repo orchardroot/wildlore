@@ -1,0 +1,158 @@
+{
+ "band_secretary": [
+  {
+   "do": "if",
+   "flag": "q_pennines_whit_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Band Secretary",
+     "text": "{greeting} Our Whit Friday winners! The cup's on the piano. The piano is not ours, so don't lean on it."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_pennines_whit_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_pennines_whit_cornet",
+       "then": [
+        {
+         "do": "if",
+         "flag": "q_pennines_whit_tuba",
+         "then": [
+          {
+           "do": "if",
+           "flag": "q_pennines_whit_drum",
+           "then": [
+            {
+             "do": "say",
+             "who": "Band Secretary",
+             "text": "Cornet, tuba, drum, and you. That's a band! Right, coats on. The contest march starts at the top of the village."
+            },
+            {
+             "do": "say",
+             "who": "Band Secretary",
+             "text": "Oh, heck. The Thornyclough lot are marching up behind us. Their band leader wants a word. He always wants a word."
+            },
+            {
+             "do": "battle",
+             "trainer": "pennines_band_rival",
+             "intro": true
+            },
+            {
+             "do": "if",
+             "flag": "trainer_pennines_band_rival",
+             "then": [
+              {
+               "do": "set",
+               "flag": "q_pennines_whit_contest"
+              },
+              {
+               "do": "say",
+               "who": "",
+               "text": "The band marches down the street to a cheer from the pub doorways, and plays the march for a judge nobody can see."
+              },
+              {
+               "do": "say",
+               "who": "Band Secretary",
+               "text": "First prize! First! We have not been first since the 1990s! Here, love, you've earned these."
+              },
+              {
+               "do": "give_item",
+               "item": "whit_rosette"
+              },
+              {
+               "do": "give_item",
+               "item": "cornet_mouthpiece"
+              },
+              {
+               "do": "give_item",
+               "item": "curd_tart",
+               "n": 3
+              },
+              {
+               "do": "standing",
+               "nation": "england",
+               "amount": 3
+              },
+              {
+               "do": "set",
+               "flag": "q_pennines_whit_done"
+              }
+             ],
+             "else": []
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Band Secretary",
+             "text": "Still no drummer. Last seen getting on a boat into Standedge Tunnel. You'll find the portal up the towpath from the village."
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Band Secretary",
+           "text": "Still no tuba. He went for a training walk on the Pennine Way and the fog came down. Look north along the flagstones."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Band Secretary",
+         "text": "Still no cornet. She's moping down by Dovestone Reservoir. Be kind. Be firm. Mostly be kind."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Band Secretary",
+       "text": "{greeting} Whit Friday's tonight and I've a band of three, a tea urn and a man who plays the triangle. He's the urn's backup."
+      },
+      {
+       "do": "say",
+       "who": "Band Secretary",
+       "text": "Every village from here to Mossley holds a contest. Bands march into each one in turn and play for a judge who can't see them. We need a full band."
+      },
+      {
+       "do": "say",
+       "who": "Band Secretary",
+       "text": "Our cornet is sulking at Dovestone. Our tuba is lost on the Pennine Way. Our drummer went into Standedge Tunnel on a boat trip and hasn't come out. Fetch them for me?"
+      },
+      {
+       "do": "set",
+       "flag": "q_pennines_whit_started"
+      },
+      {
+       "do": "say",
+       "who": "Band Secretary",
+       "text": "You're a star. Mind, the tuba's stubborn. Take him something that reminds him where he is."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "band_tealady": [
+  {
+   "do": "say",
+   "who": "Tea Lady",
+   "text": "{greeting} Tea's stewed, buns are fresh, and you're not a band member until you've burnt your tongue on the urn."
+  },
+  {
+   "do": "say",
+   "who": "Tea Lady",
+   "text": "Brass bands used to be the mill's band, or the pit's. Now we're the village's. Same hymns, better trousers."
+  }
+ ]
+}

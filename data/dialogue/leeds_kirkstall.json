@@ -1,0 +1,49 @@
+{
+ "abbey_volunteer": [
+  {
+   "do": "if",
+   "flag": "q_pennines_bazaar_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_pennines_bazaar_abbey",
+     "then": [
+      {
+       "do": "say",
+       "who": "Abbey Volunteer",
+       "text": "The fleece is for the market display? Lovely. The monks would approve. They'd have sold it to Florence, mind."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Abbey Volunteer",
+       "text": "Kirkstall's wool went as far as Italy. Merchants bought it years ahead. The monks ran up debts doing deals on wool they hadn't sheared yet."
+      },
+      {
+       "do": "say",
+       "who": "Abbey Volunteer",
+       "text": "Here, take this fleece from the farm shop for the market. Kirkstall to Kirkgate, wool all the way."
+      },
+      {
+       "do": "set",
+       "flag": "q_pennines_bazaar_abbey"
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Abbey Volunteer",
+     "text": "{greeting} White monks, grey stone, eight hundred years. The roof went in Henry's time, but the walls are tough as old boots."
+    },
+    {
+     "do": "say",
+     "who": "Abbey Volunteer",
+     "text": "Painters loved this place. Turner came and sketched it. So did a lot of people with less talent and bigger hats."
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,63 @@
+{
+ "nurse": [
+  {
+   "do": "say",
+   "who": "Nurse",
+   "text": "Now then, love! Welcome to Haworth Sanctuary. Up Main Street with a team in tow? Pop them on the counter, they've earned it."
+  },
+  {
+   "do": "choice",
+   "text": "What can we do for you?",
+   "options": [
+    "Heal my team",
+    "Open the Ark",
+    "Just looking"
+   ],
+   "set": "_nurse_choice"
+  },
+  {
+   "do": "if",
+   "flag": "_nurse_choice",
+   "eq": 0,
+   "then": [
+    {
+     "do": "say",
+     "who": "Nurse",
+     "text": "Have a sit by the fire. Tea's on, havercakes are warm, and the wind's doing its best impression of Emily's moor."
+    },
+    {
+     "do": "heal"
+    },
+    {
+     "do": "say",
+     "who": "Nurse",
+     "text": "There we are. Right as rain, which round here is most days. Hold the rail going down the setts."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "_nurse_choice",
+     "eq": 1,
+     "then": [
+      {
+       "do": "say",
+       "who": "Nurse",
+       "text": "The Ark's by the window. Mind, if it makes a moaning noise, that's the draught. Probably."
+      },
+      {
+       "do": "ark"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Nurse",
+       "text": "No bother, love. Mind how you go. And if you see a grey lady on Main Street, she's harmless."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

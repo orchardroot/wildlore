@@ -1,0 +1,32 @@
+{
+ "id": "pennines_fireman",
+ "name": "Fireman Stan",
+ "class": "Steam Fireman",
+ "sprite": "steelworker",
+ "party": [
+  {
+   "species": "cutlet",
+   "level": 15
+  },
+  {
+   "species": "bobbin",
+   "level": 16
+  },
+  {
+   "species": "swiftlet",
+   "level": 16
+  }
+ ],
+ "ai": "trainer",
+ "money": 480,
+ "scaled_floor": 14,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Fireman Stan",
+   "text": "Fire's in, steam's up, and I've shovelled half a tonne of coal before breakfast. Let's go!"
+  }
+ ],
+ "win": "Out of puff. Need a brew and a fill of water.",
+ "after": "A fireman feeds the fire and keeps the water up. The driver just gets to wave."
+}

@@ -1,0 +1,37 @@
+{
+ "id": "pennines_heathcliff",
+ "name": "Brooding Lad Heathcliff",
+ "class": "Brooder",
+ "sprite": "poet",
+ "party": [
+  {
+   "species": "hootlet",
+   "level": 15
+  },
+  {
+   "species": "wispet",
+   "level": 16
+  },
+  {
+   "species": "gritling",
+   "level": 16
+  }
+ ],
+ "ai": "trainer",
+ "money": 480,
+ "scaled_floor": 14,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Brooding Lad Heathcliff",
+   "text": "I am Heathcliff! Well, I'm Kevin. But I've been brooding on this moor since Tuesday and it's going brilliantly."
+  },
+  {
+   "do": "say",
+   "who": "Brooding Lad Heathcliff",
+   "text": "Battle me, and the wind shall howl!"
+  }
+ ],
+ "win": "Cathy! Oh. No. Just the wind.",
+ "after": "Wuthering means the roaring of the wind on high ground. Emily used a Yorkshire word and the whole world learnt it."
+}

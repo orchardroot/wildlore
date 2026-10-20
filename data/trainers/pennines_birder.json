@@ -1,0 +1,37 @@
+{
+ "id": "pennines_birder",
+ "name": "Birdwatcher Imogen",
+ "class": "Birdwatcher",
+ "sprite": "birdwatcher",
+ "party": [
+  {
+   "species": "hootlet",
+   "level": 15
+  },
+  {
+   "species": "pipkin",
+   "level": 15
+  },
+  {
+   "species": "snowhare",
+   "level": 16
+  }
+ ],
+ "ai": "trainer",
+ "money": 480,
+ "scaled_floor": 14,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Birdwatcher Imogen",
+   "text": "Shh. Curlew. No, wait. That's my stomach. Ignore it."
+  },
+  {
+   "do": "say",
+   "who": "Birdwatcher Imogen",
+   "text": "Fine, a battle. But whisper."
+  }
+ ],
+ "win": "Beaten! I'm putting it in my notebook. Under 'regrets'.",
+ "after": "The short-eared owl hunts in daylight up here. Watch the heather at teatime."
+}

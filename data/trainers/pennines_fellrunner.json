@@ -1,0 +1,37 @@
+{
+ "id": "pennines_fellrunner",
+ "name": "Fell Runner Gaz",
+ "class": "Fell Runner",
+ "sprite": "fell_runner",
+ "party": [
+  {
+   "species": "pipkin",
+   "level": 14
+  },
+  {
+   "species": "scuttlet",
+   "level": 15
+  },
+  {
+   "species": "gritling",
+   "level": 15
+  }
+ ],
+ "ai": "trainer",
+ "money": 450,
+ "scaled_floor": 14,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Fell Runner Gaz",
+   "text": "Out of the way! I'm doing Saddleworth to Marsden and back before my porridge goes cold."
+  },
+  {
+   "do": "say",
+   "who": "Fell Runner Gaz",
+   "text": "Fell runners don't stop. We just battle at speed."
+  }
+ ],
+ "win": "Ooh, that's a personal worst. Grand.",
+ "after": "Fell running's simple. Up, down, and lie to everyone about your time."
+}

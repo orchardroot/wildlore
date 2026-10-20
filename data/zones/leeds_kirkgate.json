@@ -1,0 +1,143 @@
+{
+ "id": "leeds_kirkgate",
+ "name": "Kirkgate Market",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "market_stall",
+   "x": 2,
+   "y": 2,
+   "variant": 0
+  },
+  {
+   "type": "market_stall",
+   "x": 4,
+   "y": 2,
+   "variant": 1
+  },
+  {
+   "type": "market_stall",
+   "x": 10,
+   "y": 2,
+   "variant": 2
+  },
+  {
+   "type": "market_stall",
+   "x": 12,
+   "y": 2,
+   "variant": 0
+  },
+  {
+   "type": "market_stall",
+   "x": 2,
+   "y": 6,
+   "variant": 1
+  },
+  {
+   "type": "market_stall",
+   "x": 12,
+   "y": 6,
+   "variant": 2
+  },
+  {
+   "type": "fryer",
+   "x": 4,
+   "y": 6
+  },
+  {
+   "type": "menu_board",
+   "x": 4,
+   "y": 5,
+   "walk": true
+  },
+  {
+   "type": "tea_urn",
+   "x": 10,
+   "y": 6
+  },
+  {
+   "type": "clock",
+   "x": 7,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "display_case",
+   "x": 7,
+   "y": 3
+  }
+ ],
+ "warps": [
+  {
+   "x": 7,
+   "y": 9,
+   "to": "leeds",
+   "tx": 63,
+   "ty": 21,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "bazaar_trader",
+   "sprite": "shopkeeper",
+   "x": 7,
+   "y": 4,
+   "facing": "down",
+   "move": "still",
+   "script": "bazaar_trader",
+   "name": "Market Trader"
+  },
+  {
+   "id": "kirkgate_butcher",
+   "sprite": "villager_2",
+   "x": 3,
+   "y": 4,
+   "facing": "down",
+   "move": "still",
+   "script": "kirkgate_butcher",
+   "name": "Butcher"
+  },
+  {
+   "id": "kirkgate_fish",
+   "sprite": "fisherman_north",
+   "x": 11,
+   "y": 4,
+   "facing": "down",
+   "move": "still",
+   "script": "kirkgate_fish",
+   "name": "Fishmonger"
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "x": 6,
+   "y": 2,
+   "text": "Kirkgate's market hall opened in 1904, all iron, glass and fancy ironwork. A clock still marks the spot where the original Marks & Spencer stall stood.",
+   "plaque": "pennines_kirkgate_hall",
+   "title": "The 1904 Market Hall"
+  }
+ ],
+ "spawn": [
+  7,
+  8
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxxx",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x||||||D||||||x",
+  "xxxxxxxxxxxxxxx"
+ ]
+}
