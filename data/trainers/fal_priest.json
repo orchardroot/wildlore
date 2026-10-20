@@ -1,0 +1,36 @@
+{
+ "id": "fal_priest",
+ "name": "Dean of Stanley",
+ "class": "Dean",
+ "sprite": "choir_singer",
+ "party": [
+  {
+   "species": "hushwing",
+   "level": 95
+  },
+  {
+   "species": "hobling",
+   "level": 96
+  },
+  {
+   "species": "wistoak",
+   "level": 96
+  },
+  {
+   "species": "kelpie",
+   "level": 96
+  }
+ ],
+ "ai": "trainer",
+ "money": 5600,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Dean of Stanley",
+   "text": "Good afternoon. The Cathedral is open, the tea is hot and I'm just practising my hymns. Would you like a battle? It would be good for my wind."
+  }
+ ],
+ "win": "Very good. The Lord loves a sporting match.",
+ "after": "The Dean of the cathedral serves the southernmost cathedral in the world, with a congregation of islanders, sailors and the occasional visiting admiral.",
+ "scaled_floor": 95
+}
