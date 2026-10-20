@@ -119,29 +119,29 @@ def build(OUT):
          ["Pilgrims bought little lead flasks here, ampullae, full of 'Canterbury water': water with the tiniest drop of Becket's blood mixed in. They wore them round their necks home.",
           "Half the badges and flasks that ever turn up get found in rivers. Lost on the way home, or thrown in for luck. The Stour gives one up now and again."], "right", "still")
     # trainers
-    tdef("cb_chorister", "Chorister Benedict", "Chorister", "choir_singer", [("lanternis", 94), ("wispet", 94), ("coblynn", 94)],
+    tdef("ct_chorister", "Chorister Benedict", "Chorister", "choir_singer", [("lanternis", 94), ("wispet", 94), ("coblynn", 94)],
          ["Evensong's at half five, and I've got a solo. I'll warm up on you."],
          "Hit a bum note there. Don't tell the Precentor.", "The choir has sung here every day for centuries. Even on Christmas Day. Especially on Christmas Day.", 4000)
-    tnpc(z, "cb_chorister", 33, 18, "down")
-    tdef("cb_punt", "Punt Guide Tom", "Punt Guide", "sailor", [("spatelord", 94), ("heronarch", 94), ("ratty", 95)],
+    tnpc(z, "ct_chorister", 33, 18, "down")
+    tdef("ct_punt", "Punt Guide Tom", "Punt Guide", "sailor", [("spatelord", 94), ("heronarch", 94), ("ratty", 95)],
          ["Punt tour? Mind the low bridges. Mind the herons. Mind your phone: it's been a good year for the river and a bad year for phones."],
          "Out-poled. I'll see myself into the river.", "Look for the kingfishers under the Weavers' windows. Blue flash and gone. Like my tips.", 4000)
-    tnpc(z, "cb_punt", 14, 40, "right")
+    tnpc(z, "ct_punt", 14, 40, "right")
     # the pilgrims in town (q_southeast_pilgrims_*) and the Host who judges them
     from se_kent import pilgrim
-    pilgrim(z, zid, "cb_wife", "The Wife of Bath", "festival_goer", 51, 18,
+    pilgrim(z, zid, "ct_wife", "The Wife of Bath", "festival_goer", 51, 18,
             [("selkie", 95), ("gealhare", 95), ("stagmor", 95), ("connemarr", 95)],
             ["Married five times at the church door, and I've been to Jerusalem three times, Rome, Cologne and Compostela besides. My hat's as broad as a shield. Let's see your mettle."],
             ["My tale: a knight at King Arthur's court does a terrible wrong and must find out, within a year and a day, what women most desire, or lose his head.",
              "An old woman gives him the answer, in return for marrying him: what women want is sovereignty, to have their own way. He lets her choose, and she becomes young and lovely. The lesson is in the letting her choose."],
             "Good. I like a pilgrim with some spirit.", "q_southeast_pilgrims_3")
-    pilgrim(z, zid, "cb_pardoner", "The Pardoner", "poet", 12, 29,
+    pilgrim(z, zid, "ct_pardoner", "The Pardoner", "poet", 12, 29,
             [("hushwing", 95), ("jetwhitby", 95), ("coblynn", 95)],
             ["Relics! Pig bones, holy pig bones I mean, a glass of rags and a sheep's shoulder blade. Very reasonable. Or fight me for nothing."],
             ["Three drunken rioters set out to kill Death, who has taken their friend. An old man tells them Death is under a tree. They find a pile of gold instead.",
              "One goes for wine and poisons it; the other two stab him when he gets back, then drink the wine. All three find Death after all. Radix malorum est cupiditas: greed is the root of evil. Now, about my relics..."],
             "You have no need of my pardons. A pity. For me.", "q_southeast_pilgrims_4")
-    pilgrim(z, zid, "cb_nunspriest", "The Nun's Priest", "pilgrim", 17, 41,
+    pilgrim(z, zid, "ct_nunspriest", "The Nun's Priest", "pilgrim", 17, 41,
             [("sulphurhen", 95), ("binfox", 95), ("redbreast", 95)],
             ["A tale of a cockerel? Yes. A very learned cockerel. Bear with me."],
             ["Chauntecleer the rooster dreams of a beast in the yard, and his wife Pertelote tells him to take a laxative and stop being silly.",
@@ -252,13 +252,13 @@ def cathedral(z, zid, OUT):
             "The Miracle Windows in the Trinity Chapel show the cures at Becket's tomb, made in the early 1200s. We clean them with cotton buds. One square inch at a time. I'll be done in 2090.",
             "There's a single candle burning in the Trinity Chapel, on the spot where the gold shrine stood until Henry VIII had it smashed and carted away. It took twenty-six carts, they say."], "left")],
         w=17, h=11, edit=nave, extra_props=[P("candelabra", 1, 1), P("candelabra", 4, 1), P("candelabra", 12, 1), P("tomb_chest", 10, 8)])
-    tdef("cb_grim", "Brother Edward", "Re-enactor", "pilgrim", [("centurion", 95), ("hushwing", 95), ("longman", 95), ("coblynn", 95)],
+    tdef("ct_grim", "Brother Edward", "Re-enactor", "pilgrim", [("centurion", 95), ("hushwing", 95), ("longman", 95), ("coblynn", 95)],
          ["En garde! Well, not really. Monks don't en garde. Defend yourself!"],
          "Well struck. Grim would have approved.", "Grim's account says the murderers' last words were, 'Let us away, he will rise no more.' He's had more visitors since than they ever did.", 4600)
     grim = [IF("trainer_cb_grim", say("Brother Edward", "My arm's still sore. Historically speaking."), [
         IF(q + "1", say("Brother Edward", "I play Edward Grim, a monk from Cambridge who happened to be visiting that night. He was the only one who stood by Becket, and a sword nearly took his arm off.",
-                        "He wrote what he saw. It's the account everybody uses. Want to know how it felt? Have a go at me. Gently.") + TRN["cb_grim"]["intro"] +
-           [fight("cb_grim"), IF("trainer_cb_grim", [setf(q + "2")] + say("Brother Edward", "That's the spirit. Becket lay in this crypt for fifty years, till his shrine upstairs was ready in 1220. Off you go to the Westgate."))],
+                        "He wrote what he saw. It's the account everybody uses. Want to know how it felt? Have a go at me. Gently.") + TRN["ct_grim"]["intro"] +
+           [fight("ct_grim"), IF("trainer_cb_grim", [setf(q + "2")] + say("Brother Edward", "That's the spirit. Becket lay in this crypt for fifty years, till his shrine upstairs was ready in 1220. Off you go to the Westgate."))],
            say("Brother Edward", "This crypt is the oldest part of the cathedral, Norman, with carved beasts on the capitals. Becket's first tomb was down here. Henry II did his penance here, on his knees, in 1174."))])]
     def crypt(r):
         for x in range(1, r.w - 1):

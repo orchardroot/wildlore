@@ -32,7 +32,7 @@ func test_trainers_here_are_scaled() -> void:
 	for path in JsonUtil.list_json("res://data/trainers"):
 		var t = JsonUtil.read(path)
 		var id := str(t.get("id", ""))
-		if id.substr(0, 3) in ["sd_", "br_", "kd_", "cb_", "dv_"]:
+		if id.substr(0, 3) in ["sd_", "br_", "kd_", "ct_", "dv_"]:
 			n += 1
 			assert_eq(int(t.get("scaled_floor", -1)), 94, id + " is scaled")
 	assert_true(n >= 20, "a good crowd of trainers (%d)" % n)

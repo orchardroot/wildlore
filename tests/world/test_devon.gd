@@ -54,7 +54,7 @@ func test_plaques() -> void:
 func test_trainers_are_scaled_and_one_is_a_legend() -> void:
 	var full := 0
 	for tid in ["ply_bowls", "ply_rating", "ply_fan", "ply_angler", "ply_jogger", "ply_aquarist", "exe_legion", "exe_student",
-			"exe_runner", "exe_verger", "exe_jory", "est_twitcher", "est_cyclist", "est_walker", "est_boater", "est_cobley"]:
+			"exe_runner", "exe_verger", "exe_jory", "exe_twitcher", "exe_cyclist", "exe_walker", "exe_boater", "exe_cobley"]:
 		var t := StoryData.trainer(tid)
 		assert_false(t.is_empty(), tid)
 		assert_eq(int(t.get("scaled_floor", -1)), 43, tid)

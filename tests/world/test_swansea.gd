@@ -197,7 +197,9 @@ func test_new_creatures_are_appendix_lines_with_sprites_and_homes() -> void:
 		for side in ["front", "back", "icon"]:
 			assert_true(ResourceLoader.exists("res://art/sprites/creatures/%s_%s.png" % [sp, side]), "%s %s sprite" % [sp, side])
 		assert_true(placed.has(sp), sp + " lives somewhere in Swansea or Gower")
-	assert_eq(order.slice(order.size() - NEW_SPECIES.size()) if order.size() >= 212 else [], NEW_SPECIES, "appended at the end")
+	var at := order.find(NEW_SPECIES[0])
+	assert_eq(order.slice(at, at + NEW_SPECIES.size()), NEW_SPECIES, "appended together, in order, after the base dex")
+	assert_true(at >= 212, "after the original dex (later regions append after them)")
 
 func test_regional_items_are_sold_locally() -> void:
 	var items := ItemDB.load_default()

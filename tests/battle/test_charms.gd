@@ -24,14 +24,16 @@ func test_contract_ids_are_charms_with_real_types() -> void:
 	var items := ItemDB.load_default()
 	var types: Array = JsonUtil.read("res://data/types.json").types
 	for id in CONTRACT:
-		var it := items.get_item(id)
+		assert_true(Charms.is_charm(id), "%s is still a charm" % id)
+	for id in Charms.table():  # the original twelve plus every regional charm since
+		var it := items.get_item(str(id))
 		assert_eq(str(it.get("kind", "")), "charm", id)
 		assert_true(str(it.get("effect_text", "")) != "", "%s says what it does" % id)
 		var fx: Dictionary = it.get("charm", {})
 		assert_has(Charms.EFFECTS, str(fx.get("effect", "")), id)
 		if fx.has("type"):
 			assert_has(types, str(fx.type), id)
-	assert_eq(Charms.table().size(), CONTRACT.size())
+	assert_true(Charms.table().size() >= CONTRACT.size(), "the original twelve plus regional charms")
 
 func test_charms_have_no_em_dashes() -> void:
 	for id in Charms.table():
@@ -46,7 +48,7 @@ func test_shops_sell_three_basic_charms_at_sensible_prices() -> void:
 		for id in items.shops[sid].stock:
 			if Charms.is_charm(str(id)):
 				sold[id] = int(sold.get(id, 0)) + 1
-	assert_eq(sold.keys().size(), 3)
+	assert_true(sold.keys().size() >= 3, "the three basics, plus any regional charm a local shop stocks")
 	for id in ["oak_acorn", "hag_stone", "rowan_sprig"]:
 		assert_true(int(sold.get(id, 0)) >= 2, "%s in a few shops" % id)
 		var p := int(items.get_item(id).price)
