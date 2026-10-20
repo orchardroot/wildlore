@@ -1375,6 +1375,8 @@ static func loom(variant := 0) -> ArrayMesh:
 	Meshes.box(st, Vector3(-0.36, 0.72, -0.05), Vector3(0.75, 0.3, 0.03), Color("cfc5ae"))       # heddles
 	Meshes.box(st, Vector3(-0.38, 0.98, -0.07), Vector3(0.79, 0.04, 0.07), oak)
 	Meshes.box(st, Vector3(-0.3, 0, 0.38), Vector3(0.6, 0.38, 0.14), oak.darkened(0.1))          # the bench
+	return Meshes._finish(st)
+
 # --- the Palace, Aintree and the bookies ---------------------------------------------
 # A casino floor and a betting ring: fruit machines that glow, the roulette wheel, the baize, a wall of race screens.
 
@@ -1385,6 +1387,7 @@ const SLOT_COLOURS := [Color("c8323a"), Color("2f5fb0"), Color("7a3fa0"), Color(
 ## A pub-style fruit machine against the wall: cabinet, a lit top box, three reels behind glass, the nudge buttons
 ## and the chrome handle. Variant: the cabinet's livery.
 static func slot_machine(variant := 0) -> ArrayMesh:
+	var st := Meshes._st()
 	var body: Color = SLOT_COLOURS[variant % SLOT_COLOURS.size()]
 	var chrome := Color("c9ccd2")
 	Meshes.box(st, Vector3(-0.34, 0, -0.42), Vector3(0.68, 0.62, 0.5), Color("1d1d22"))           # plinth
@@ -1407,6 +1410,7 @@ static func slot_machine(variant := 0) -> ArrayMesh:
 
 ## The fruit machine's lights: the top box, the win line and a coloured spill on the carpet.
 static func slot_glow(variant := 0) -> ArrayMesh:
+	var st := Meshes._st()
 	var col: Color = SLOT_COLOURS[variant % SLOT_COLOURS.size()].lightened(0.45)
 	_panel(st, -0.3, 1.46, 0.3, 1.7, 0.03, Color(col.r, col.g, col.b, 0.8))
 	_panel(st, -0.28, 1.25, 0.28, 1.33, 0.01, Color(1.0, 0.9, 0.55, 0.7))
@@ -1416,6 +1420,7 @@ static func slot_glow(variant := 0) -> ArrayMesh:
 ## Half of a roulette table, two tiles long east-west. 0: the wheel end (a turned bowl of red and black pockets,
 ## one green, and a gilt spindle). 1: the layout end (the numbers in their red and black, the zero at the top).
 static func roulette_table(variant := 0) -> ArrayMesh:
+	var st := Meshes._st()
 	var wood := Color("5a3424")
 	var left := variant % 2 == 0
 	var x0 := -0.42 if left else -0.5
@@ -1458,6 +1463,7 @@ static func roulette_table(variant := 0) -> ArrayMesh:
 ## the dealer's shoe and chip float, cards dealt to the boxes). 2: a small round table with a big card on a stand,
 ## for Higher or Lower.
 static func card_table(variant := 0) -> ArrayMesh:
+	var st := Meshes._st()
 	var wood := Color("5a3424")
 	var pad := Color("3a2a22")
 	var card := Color("f6f2e6")
@@ -1499,6 +1505,7 @@ static func card_table(variant := 0) -> ArrayMesh:
 
 ## A bank of race screens on the north wall over an odds board in amber lights.
 static func tote_board(_variant := 0) -> ArrayMesh:
+	var st := Meshes._st()
 	var frame := Color("1a1c22")
 	Meshes.box(st, Vector3(-0.5, 0.5, -0.5), Vector3(1.0, 1.42, 0.08), frame)
 	_panel(st, -0.46, 0.56, 0.46, 0.8, -0.415, Color("120f0a"))  # the odds board
@@ -1510,6 +1517,7 @@ static func tote_board(_variant := 0) -> ArrayMesh:
 
 ## What's on the screens, lit: turf, a white rail, runners in their silks, and the odds in amber.
 static func tote_glow(variant := 0) -> ArrayMesh:
+	var st := Meshes._st()
 	var rng := Meshes._rng(42400 + variant)
 	for i in 2:
 		var x := -0.44 + i * 0.47
@@ -1530,6 +1538,7 @@ static func tote_glow(variant := 0) -> ArrayMesh:
 
 ## Two brass posts and a sagging rope between them, across the tile east-west. Variant: red or royal blue.
 static func velvet_rope(variant := 0) -> ArrayMesh:
+	var st := Meshes._st()
 	var rope := Color("8a1f2c") if variant % 2 == 0 else Color("2a3a6a")
 	for px in [-0.4, 0.4]:
 		Meshes.cylinder(st, Vector3(px, 0, 0), 0.1, 0.04, 10, BRASS.darkened(0.2))
@@ -1545,6 +1554,7 @@ static func velvet_rope(variant := 0) -> ArrayMesh:
 
 ## A bronze racehorse on a stone plinth, mid-stride, head up: Aintree's statue of Red Rum, more or less.
 static func horse_statue(_variant := 0) -> ArrayMesh:
+	var st := Meshes._st()
 	var rng := Meshes._rng(42500)
 	var bronze := Color("6a5038")
 	var stone := Color("c9c0aa")
