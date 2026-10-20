@@ -1,0 +1,55 @@
+{
+ "shr_landlord": [
+  {
+   "do": "say",
+   "who": "Landlord",
+   "text": "Ow bist? That's Shropshire for 'how are you'. You say 'Ah, middlin'', and then I pour you something."
+  },
+  {
+   "do": "say",
+   "who": "Landlord",
+   "text": "We're called The Coracle after the little round boats. There's one on the wall. It's not for hire after closing, whatever my brother-in-law says."
+  }
+ ],
+ "shr_quizmaster": [
+  {
+   "do": "say",
+   "who": "Quizmaster",
+   "text": "Quiz night at The Coracle! Five questions. Shropshire questions get extra marks for pronunciation."
+  },
+  {
+   "do": "say",
+   "who": "Quizmaster",
+   "text": "Rules: no phones, no shouting out, and no starting the Shrews or Shrows argument. That's a separate event on Saturdays."
+  },
+  {
+   "do": "choice",
+   "text": "Fancy a round? Five questions, no phones.",
+   "options": [
+    "Count me in",
+    "Not tonight"
+   ],
+   "set": "_quiz_choice"
+  },
+  {
+   "do": "if",
+   "flag": "_quiz_choice",
+   "eq": 0,
+   "then": [
+    {
+     "do": "quiz",
+     "pub": "shrewsbury",
+     "region": "england_south",
+     "who": "Quizmaster"
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Quizmaster",
+     "text": "Suit yourself. The crisps are cheese and onion either way."
+    }
+   ]
+  }
+ ]
+}

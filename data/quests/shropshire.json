@@ -1,0 +1,36 @@
+{"quests": [
+ {"id": "shropshire_beetles", "title": "Darwin's Beetles", "region": "shropshire", "town": "shrewsbury", "giver": "Librarian",
+  "summary": "Collect a beetle for the library in Darwin's old school, the way young Charles would have.",
+  "start_flag": "q_shropshire_beetles_started",
+  "steps": [
+   {"flag": "q_shropshire_beetles_1", "text": "Ask the head gardener in the Quarry where the beetles hide.", "zone": "shrewsbury"},
+   {"flag": "q_shropshire_beetles_2", "text": "Catch a Squibbet and show it to the librarian.", "zone": "shrewsbury_library"}
+  ],
+  "done_flag": "q_shropshire_beetles_done", "reward": "Darwin's Hand Lens (a charm that makes snares likelier) and standing in England."},
+ {"id": "shropshire_bridge", "title": "Iron for the Bridge", "region": "shropshire", "town": "ironbridge_gorge", "giver": "Toll Keeper",
+  "summary": "A bracket under the Iron Bridge has cracked. Get a new one cast the old way, at Coalbrookdale.",
+  "start_flag": "q_shropshire_bridge_started",
+  "steps": [
+   {"flag": "q_shropshire_bridge_1", "text": "Fetch the old wooden pattern from the engineer at Ditherington Flax Mill in Shrewsbury.", "zone": "shrewsbury_flaxmill"},
+   {"flag": "q_shropshire_bridge_2", "text": "Beat the apprentice at Darby's Old Furnace, then have the furnace master cast the bracket.", "zone": "coalbrookdale_furnace"},
+   {"flag": "q_shropshire_bridge_3", "text": "Take the new casting to the toll keeper at the Iron Bridge.", "zone": "ironbridge_tollhouse"}
+  ],
+  "done_flag": "q_shropshire_bridge_done", "reward": "A Pigling, the Coalbrookdale Ingot (hearth charm) and standing in England."},
+ {"id": "shropshire_games", "title": "The Wenlock Olympian Games", "region": "shropshire", "town": "ironbridge_gorge", "giver": "Games Secretary",
+  "summary": "Compete in the creature pentathlon at the games that inspired the modern Olympics.",
+  "start_flag": "q_shropshire_games_started",
+  "steps": [
+   {"flag": "q_shropshire_games_1", "text": "Learn about the Games from the curator at Much Wenlock Museum.", "zone": "wenlock_museum"},
+   {"flag": "q_shropshire_games_2", "text": "Win all four events on the Linden Field, back to back.", "zone": "ironbridge_gorge"}
+  ],
+  "done_flag": "q_shropshire_games_done", "reward": "The Wenlock Medal (a speed charm) and standing in England."},
+ {"id": "shropshire_shrews", "title": "Shrews or Shrows?", "region": "shropshire", "town": "shrewsbury", "giver": "Shrowsbury Man",
+  "summary": "Settle how to say Shrewsbury, by asking two impartial locals out in the county.",
+  "start_flag": "q_shropshire_shrews_started",
+  "steps": [
+   {"flag": "q_shropshire_shrews_1", "text": "Ask the walker on top of the Wrekin.", "zone": "ironbridge_gorge"},
+   {"flag": "q_shropshire_shrews_2", "text": "Ask the pony warden on the Long Mynd.", "zone": "shropshire_hills"},
+   {"flag": "q_shropshire_shrews_3", "text": "Report back to the pair arguing on High Street.", "zone": "shrewsbury"}
+  ],
+  "done_flag": "q_shropshire_shrews_done", "reward": "Three Shrewsbury Cakes and standing in England."}
+]}

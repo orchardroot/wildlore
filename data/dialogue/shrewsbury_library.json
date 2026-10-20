@@ -1,0 +1,99 @@
+{
+ "shr_librarian": [
+  {
+   "do": "if",
+   "flag": "q_shropshire_beetles_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Librarian",
+     "text": "Darwin wrote that no pursuit at Cambridge gave him so much pleasure as collecting beetles. I like to think he started under those trees in the Quarry."
+    },
+    {
+     "do": "say",
+     "who": "Librarian",
+     "text": "Shh, by the way. It is a library. I'm allowed to say that once a day and I've just used it."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_shropshire_beetles_started",
+     "then": [
+      {
+       "do": "when",
+       "cond": "caught_squibbet",
+       "then": [
+        {
+         "do": "say",
+         "who": "Librarian",
+         "text": "A Squibbet! And it squirted you, didn't it? Then you've collected a beetle exactly as Darwin did."
+        },
+        {
+         "do": "say",
+         "who": "Librarian",
+         "text": "At Cambridge he once had a rare beetle in each hand, spotted a third, and popped one in his mouth to free a hand. It squirted something burning on his tongue and he lost the lot."
+        },
+        {
+         "do": "say",
+         "who": "Librarian",
+         "text": "He went on to sail round the world on the Beagle and work out how living things change over time. All from turning over logs. Here, take this; it was found in a donated box of his old books, or so the label says."
+        },
+        {
+         "do": "set",
+         "flag": "q_shropshire_beetles_1"
+        },
+        {
+         "do": "set",
+         "flag": "q_shropshire_beetles_2"
+        },
+        {
+         "do": "set",
+         "flag": "q_shropshire_beetles_done"
+        },
+        {
+         "do": "give_item",
+         "item": "darwin_lens",
+         "n": 1
+        },
+        {
+         "do": "standing",
+         "nation": "england",
+         "amount": 3
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Librarian",
+         "text": "No beetle yet? The Squibbet lives in the long grass in the Quarry and up on the Long Mynd. Ask the head gardener in the Quarry; she knows every log in the park."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Librarian",
+       "text": "This building was Shrewsbury School when young Charles Darwin was a pupil, from 1818. He boarded here, a few minutes from home, and ran home most evenings anyway."
+      },
+      {
+       "do": "say",
+       "who": "Librarian",
+       "text": "His headmaster called him a poco curante, a bit of a do-nothing, for messing about with chemistry. He'd rather have been out catching beetles."
+      },
+      {
+       "do": "say",
+       "who": "Librarian",
+       "text": "Would you do something for the library? Catch a Squibbet, the little beetle creature in the Quarry, and bring it to show me. I want to see a Shrewsbury beetle up close, the way he would have."
+      },
+      {
+       "do": "set",
+       "flag": "q_shropshire_beetles_started"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

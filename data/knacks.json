@@ -68,7 +68,10 @@
     "pwnco": {"name": "Pwnco", "desc": "Comes to the door with a rhyme: the foes' Lore drops, and it can't be muddled.", "msg": "{name} knocks and sings a rhyme at the door. The foes can't think of a comeback!", "block_status": ["muddled"], "entry_stage": {"to": "foes", "stat": "lore", "stages": -1}},
     "footing": {"name": "Footing", "desc": "Turf dries best in the wind and sun: its Defence rises when it comes out in a gale or in sunshine.", "msg": "{name} is well footed and drying nicely. Its Defence rose!", "entry_stage": {"to": "self", "stat": "def", "stages": 1, "weather": ["gale", "sunshine"]}},
     "atlantic_edge": {"name": "Atlantic Edge", "desc": "Its moves hit harder in a gale off the Atlantic.", "power_weather": {"weather": ["gale"], "mult": 1.3}},
-    "evil_eye": {"name": "Evil Eye", "legend": true, "desc": "The great eye opens when it arrives: both foes' Defence and Ward drop.", "msg": "{name} opens its terrible eye. Everything it looks at wilts!", "entry_stage": [{"to": "foes", "stat": "def", "stages": -1}, {"to": "foes", "stat": "ward", "stages": -1}]}
+    "evil_eye": {"name": "Evil Eye", "legend": true, "desc": "The great eye opens when it arrives: both foes' Defence and Ward drop.", "msg": "{name} opens its terrible eye. Everything it looks at wilts!", "entry_stage": [{"to": "foes", "stat": "def", "stages": -1}, {"to": "foes", "stat": "ward", "stages": -1}]},
+    "red_hot": {"name": "Red Hot", "desc": "Fresh from the furnace: anyone who hits it with a physical move gets scorched for 1/8 of their HP.", "msg": "{other} got scorched on {name}'s red-hot hide!", "contact_hurt": 8},
+    "adaptable": {"name": "Adaptable", "desc": "Suits itself to anything: a third as fast again in any weather but a clear sky.", "speed": {"weather": ["drizzle", "downpour", "fog", "gale", "sunshine", "frost"], "mult": 1.33}},
+    "devils_chair": {"name": "The Devil's Chair", "desc": "When the mist is down he is in his chair: foes find it a fifth harder to hit in fog, and they can't lower its stats.", "msg_drop": "{name} sits tight in its chair.", "evade": {"weather": ["fog"], "mult": 0.8}, "no_drops": true}
   },
   "species": {
     "bogglet": "mardy",
@@ -339,6 +342,11 @@
     "turfclamp": "footing",
     "liagling": "atlantic_edge",
     "liagmor": "atlantic_edge",
-    "balor": "evil_eye"
+    "balor": "evil_eye",
+    "pigling": "red_hot",
+    "ironsow": "red_hot",
+    "squibbet": "adaptable",
+    "darwing": "adaptable",
+    "diaboulder": "devils_chair"
   }
 }

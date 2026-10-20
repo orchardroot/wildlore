@@ -445,7 +445,7 @@ const WEATHER_CONDS := {"rain": ["drizzle", "downpour"], "fog": ["fog"], "gale":
 
 ## Conditions that aren't flags: the time of day ("dawn", "day", "dusk", "night", from the in-game clock), the
 ## weather ("rain" is drizzle or a downpour; "fog", "gale", "frost", "sunshine"), "caught_all" (every species
-## in the Fieldbook proper caught; the appendix is a bonus), "caught_<n>" (at least n caught), "party_has_<species>" (one in the party, or what it evolved into), and from the real date the season ("spring".."winter") or a festival (Calendar.FESTIVALS).
+## in the Fieldbook proper caught; the appendix is a bonus), "caught_<n>" (at least n caught), "party_has_<species>", "caught_<species>" (one in the party, or what it evolved into), and from the real date the season ("spring".."winter") or a festival (Calendar.FESTIVALS).
 func _when(cond: String) -> bool:
 	if cond in PHASE_CONDS:
 		return GameClock.phase(host.data.clock_minutes) == cond
@@ -459,6 +459,8 @@ func _when(cond: String) -> bool:
 		return _party_has(cond.substr(PARTY_HAS.length()))
 	if cond.begins_with("has_"):  # a show-me check for a quest: you've caught one of these
 		return host.data.caught.has(cond.substr(4))
+	if cond.begins_with("caught_") and host.dex.has(cond.substr(7)):  # caught_<species>: one ever caught
+		return host.data.caught.has(cond.substr(7))
 	if cond in Calendar.SEASONS:
 		return Calendar.season_today() == cond
 	if cond in Calendar.FESTIVALS:

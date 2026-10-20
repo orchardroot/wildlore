@@ -1,0 +1,223 @@
+{
+ "ib_toaster": [
+  {
+   "do": "if",
+   "flag": "q_shropshire_shrews_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_shropshire_shrews_1",
+     "then": [
+      {
+       "do": "say",
+       "who": "Wrekin Walker",
+       "text": "Shrows. Final answer. To all friends round the Wrekin!"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Wrekin Walker",
+       "text": "How do I say it? SHROWS-bury, like my grandad, and he could see it from up here on a clear day. Tell them that."
+      },
+      {
+       "do": "set",
+       "flag": "q_shropshire_shrews_1"
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Wrekin Walker",
+     "text": "To all friends round the Wrekin! That's the old Shropshire toast. Raise your flask."
+    },
+    {
+     "do": "say",
+     "who": "Wrekin Walker",
+     "text": "They say a giant meant to dam the Severn and drown Shrewsbury with a spadeful of earth. He met a cobbler carrying a sack of worn-out shoes, who said he'd walked so far from Shrewsbury he'd worn them all through. The giant gave up and dropped his earth here. That's the Wrekin."
+    }
+   ]
+  }
+ ],
+ "ib_guide": [
+  {
+   "do": "say",
+   "who": "Museum Guide",
+   "text": "Three Abraham Darbys, grandfather, son and grandson, and every one of them a Quaker ironmaster. Darby the first worked out coke smelting; Darby the third cast the bridge."
+  },
+  {
+   "do": "say",
+   "who": "Museum Guide",
+   "text": "Coalbrookdale also cast the first iron rails and some of the first iron steam engine cylinders. If it was heavy and hot, it probably started here."
+  }
+ ],
+ "ib_lamplighter": [
+  {
+   "do": "say",
+   "who": "Lamplighter",
+   "text": "Evening! It's gas, you see. I go round with my pole and light every lamp in Blists Hill. Electric light is a fad, mark my words."
+  },
+  {
+   "do": "say",
+   "who": "Lamplighter",
+   "text": "A penny for the sweet shop goes a long way in eighteen-ninety-something. Get a quarter of humbugs and a sherbet dab."
+  }
+ ],
+ "ib_tarman": [
+  {
+   "do": "say",
+   "who": "Tar Tunnel Guide",
+   "text": "Put the hard hat on. Down there the walls weep tar, real natural bitumen, and they've been weeping since 1786."
+  },
+  {
+   "do": "say",
+   "who": "Tar Tunnel Guide",
+   "text": "They bottled it as British Oil and sold it for rheumatism. Did it work? Well, it smelt as if it should."
+  }
+ ],
+ "ib_housman": [
+  {
+   "do": "say",
+   "who": "Poet on the Edge",
+   "text": "On Wenlock Edge the wood's in trouble; his forest fleece the Wrekin heaves. A. E. Housman. He wasn't from Shropshire, you know. He just loved it from a distance, like a lot of us."
+  },
+  {
+   "do": "say",
+   "who": "Poet on the Edge",
+   "text": "Pick up any stone up here and look closely. Corals, shells, sea lilies. This hill was a tropical reef, 425 million years ago. I find it a great comfort on a wet Tuesday."
+  }
+ ],
+ "ib_kayaker": [
+  {
+   "do": "say",
+   "who": "Coracle Paddler",
+   "text": "Ironbridge was famous for its coracles. The last of the old coracle makers here kept going into his nineties. Every family on the river had one hanging on the wall."
+  },
+  {
+   "do": "say",
+   "who": "Coracle Paddler",
+   "text": "Watch the Severn in a spate. It comes up the gorge brown and fast and has been known to visit the pubs."
+  }
+ ],
+ "ib_secretary": [
+  {
+   "do": "if",
+   "flag": "q_shropshire_games_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Games Secretary",
+     "text": "Our Olympian! Come back in July. Bring your laurel."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_shropshire_games_1",
+     "then": [
+      {
+       "do": "choice",
+       "text": "Enter the Wenlock Olympian Games? Four events, no rest between.",
+       "options": [
+        "Line me up",
+        "Not yet"
+       ],
+       "set": "_wen_choice"
+      },
+      {
+       "do": "if",
+       "flag": "_wen_choice",
+       "eq": 0,
+       "then": [
+        {
+         "do": "say",
+         "who": "Games Secretary",
+         "text": "Competitors to the Linden Field! On your marks..."
+        },
+        {
+         "do": "gauntlet",
+         "trainers": [
+          "wen_sprinter",
+          "wen_quoits",
+          "wen_tilter",
+          "wen_champion"
+         ],
+         "flag": "q_shropshire_games_2",
+         "exit": {
+          "zone": "ironbridge_gorge",
+          "x": 13,
+          "y": 43
+         }
+        },
+        {
+         "do": "if",
+         "flag": "q_shropshire_games_2",
+         "then": [
+          {
+           "do": "say",
+           "who": "Games Secretary",
+           "text": "All four events! Dr Brookes would have had the band out. Here: a Wenlock medal, as near as we can make it, and a crown of laurel which I'm keeping because it's the only one."
+          },
+          {
+           "do": "set",
+           "flag": "q_shropshire_games_done"
+          },
+          {
+           "do": "give_item",
+           "item": "wenlock_medal",
+           "n": 1
+          },
+          {
+           "do": "standing",
+           "nation": "england",
+           "amount": 4
+          }
+         ],
+         "else": []
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Games Secretary",
+         "text": "No hurry. The Games have waited since 1850; they'll wait for you."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_shropshire_games_started",
+       "then": [
+        {
+         "do": "say",
+         "who": "Games Secretary",
+         "text": "Pop into Much Wenlock Museum first and learn the events. The curator will tell you all about Dr Brookes."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Games Secretary",
+         "text": "Welcome to the Linden Field, home of the Wenlock Olympian Games since 1850. Running, jumping, quoits, tilting at the ring, and a great deal of cake."
+        },
+        {
+         "do": "say",
+         "who": "Games Secretary",
+         "text": "We're a competitor short for this year's creature pentathlon. Would you have a go? See the curator at the museum first, so you know what you're in for."
+        },
+        {
+         "do": "set",
+         "flag": "q_shropshire_games_started"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

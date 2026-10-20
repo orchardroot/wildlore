@@ -23,6 +23,7 @@ const SPECIAL := ["glass_tower", "gantry_crane", "cantilever_crane", "titanic", 
 	"football_stadium", "engine_house", "market_hall", "waterfront_museum", "pier", "cave_mouth", "three_cliffs"]
 	"smeaton_tower", "exeter_cathedral", "city_wall", "cob_thatch", "football_ground", "aquarium", "mayflower_steps"]
 	"erne_terrace", "watergate", "palladian", "monument_column", "cave_mouth"]
+	"magpie", "flax_mill", "blast_furnace"]
 
 ## Doors: where each style's door sits on its tile (see _door and friends), for the swing as you go in.
 ## {x, w, y, h, z}: left edge and width across the door column, bottom and height, z of the door's face from
@@ -251,6 +252,12 @@ static func building(w: int, d: int, style: String, door_x: int, seed_value: int
 			_painted_terrace(st, wst, w, d, door_x, rng)
 		"bristol_byzantine":
 			_bristol_byzantine(st, wst, w, d, door_x)
+		"magpie":
+			_magpie(st, wst, w, d, door_x, rng)
+		"flax_mill":
+			_flax_mill(st, wst, w, d, door_x)
+		"blast_furnace":
+			_blast_furnace(st, wst, w, d, door_x)
 		_:
 			_house(st, wst, w, d, door_x, rng, BRICK, SLATE, 2, false, false)
 	return [Meshes._finish(st), Meshes._finish(wst), _chimneys]
@@ -2935,3 +2942,207 @@ static func _milk_market(st: SurfaceTool, w: int, d: int, door_x: int) -> void:
 		Meshes.box(st, Vector3(c.x - 0.04, top, c.z - 0.04), Vector3(0.08, 1.8, 0.08), Color("8a8e94"))
 	if door_x >= 0:
 		Meshes.box(st, Vector3(door_x + 0.1, h - 0.05, d - 0.33), Vector3(0.8, 0.12, 0.32), Color("2d6a3e"))
+# --- Shropshire ------------------------------------------------------------------
+
+## Shropshire black-and-white ("magpie") timber framing: close-set black studs over whitewash on both floors, a
+## jettied upper storey, and a row of steep gables to the street with dark barge boards.
+static func _magpie(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int, rng: RandomNumberGenerator) -> void:
+	var wall := Color("f1ece0")
+	var beam := Color("231d1b")
+	var roof := Color("4f413b")
+	var g := 1.2      # ground storey
+	var hgt := 2.55   # eaves
+	var jut := 0.16   # the jetty
+	Meshes.box(st, Vector3(0.05, 0, 0.05), Vector3(w - 0.1, g, d - 0.1), wall)
+	Meshes.box(st, Vector3(0, 0, 0), Vector3(w, 0.16, d), Color("5b4d44"))
+	Meshes.box(st, Vector3(0, g, 0), Vector3(w, hgt - g, d + jut), wall)
+	# rails: sill, jetty bressumer, mid rail and wall plate
+	Meshes.box(st, Vector3(0, g - 0.06, d - 0.04), Vector3(w, 0.1, 0.08), beam)
+	Meshes.box(st, Vector3(0, g, d + jut - 0.02), Vector3(w, 0.12, 0.08), beam)
+	Meshes.box(st, Vector3(0, 1.86, d + jut - 0.01), Vector3(w, 0.07, 0.06), beam)
+	Meshes.box(st, Vector3(0, hgt - 0.08, d + jut - 0.02), Vector3(w, 0.1, 0.08), beam)
+	# close studding, ground floor and upper floor
+	var n := int(w / 0.34)
+	for i in range(n + 1):
+		var x := minf(i * w / float(n), w - 0.06)
+		Meshes.box(st, Vector3(x, 0.16, d - 0.03), Vector3(0.06, g - 0.2, 0.05), beam)
+	for i in range(w * 2 + 1):
+		var x := minf(i * 0.5, w - 0.06)
+		Meshes.box(st, Vector3(x, g + 0.1, d + jut - 0.01), Vector3(0.07, hgt - g - 0.16, 0.05), beam)
+	# gables to the street: one per two tiles
+	var gables := maxi(1, w / 2)
+	var gw := float(w) / gables
+	var rise := 1.15
+	for k in gables:
+		var x0 := k * gw
+		var x1 := x0 + gw
+		var xm := (x0 + x1) * 0.5
+		var a := Vector3(x0 - 0.06, hgt, -0.1)
+		var b := Vector3(x1 + 0.06, hgt, -0.1)
+		var c := Vector3(x1 + 0.06, hgt, d + jut + 0.12)
+		var dd := Vector3(x0 - 0.06, hgt, d + jut + 0.12)
+		var r0 := Vector3(xm, hgt + rise, -0.1)
+		var r1 := Vector3(xm, hgt + rise, d + jut + 0.12)
+		Meshes._quad(st, r1, r0, a, dd, roof)
+		Meshes._quad(st, dd, a, r0, r1, roof)
+		Meshes._quad(st, r0, r1, c, b, roof.darkened(0.15))
+		Meshes._quad(st, b, c, r1, r0, roof.darkened(0.15))
+		Meshes._tri(st, Vector3(x0, hgt, d + jut), Vector3(x1, hgt, d + jut), Vector3(xm, hgt + rise - 0.06, d + jut), wall)
+		Meshes._tri(st, Vector3(xm, hgt + rise - 0.06, d + jut), Vector3(x1, hgt, d + jut), Vector3(x0, hgt, d + jut), wall)
+		Meshes._tri(st, b, a, r0, wall.darkened(0.08))
+		# a chevron of braces across the upper storey (the Shropshire herringbone), then the gable's king post
+		var zf := d + jut + 0.03
+		_beam(st, Vector3(x0 + 0.12, g + 0.16, zf), Vector3(xm, hgt - 0.1, zf), 0.07, beam)
+		_beam(st, Vector3(x1 - 0.12, g + 0.16, zf), Vector3(xm, hgt - 0.1, zf), 0.07, beam)
+		# a king post and stepped barge boards in the gable
+		Meshes.box(st, Vector3(xm - 0.03, hgt, d + jut), Vector3(0.06, rise - 0.12, 0.05), beam)
+		for t in 4:
+			var f := (t + 0.5) / 4.0
+			Meshes.box(st, Vector3(x0 + (xm - x0) * f - 0.07, hgt + rise * f - 0.05, d + jut + 0.06), Vector3(0.14, 0.09, 0.06), beam)
+			Meshes.box(st, Vector3(x1 - (x1 - xm) * f - 0.07, hgt + rise * f - 0.05, d + jut + 0.06), Vector3(0.14, 0.09, 0.06), beam)
+		_window(st, wst, xm - 0.18, hgt + 0.12, d + jut + 0.02, 0.36, 0.32, beam)
+	# a tall brick chimney stack at the back
+	var cx := rng.randf_range(0.5, maxf(0.6, w - 0.9))
+	Meshes.box(st, Vector3(cx, hgt, 0.15), Vector3(0.4, 1.7, 0.4), Color("8a4b3b"))
+	_chimneys.append(Vector3(cx + 0.2, hgt + 1.7, 0.35))
+	_door(st, door_x, d, wall)
+	for x in w:
+		if x != door_x:
+			_window(st, wst, x + 0.25, 0.42, d + 0.02, 0.5, 0.5, beam)
+		_window(st, wst, x + 0.22, 1.4, d + jut + 0.02, 0.56, 0.36, beam)
+
+## Ditherington Flax Mill: long, five storeys of red brick with small windows in tidy rows, a low slate roof, a
+## pale band at every floor where the iron beams sit inside, and a taller hoist tower in the middle.
+static func _flax_mill(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int) -> void:
+	var storeys := 5
+	var fh := 0.8
+	var hgt := fh * storeys + 0.25
+	Meshes.box(st, Vector3(0.05, 0, 0.05), Vector3(w - 0.1, hgt, d - 0.1), BRICK, BRICK.darkened(0.3))
+	Meshes.box(st, Vector3(0, 0, 0), Vector3(w, 0.2, d), DARK_BRICK)
+	for s in storeys:
+		Meshes.box(st, Vector3(0.0, fh * s + 0.74, d - 0.07), Vector3(w, 0.05, 0.04), LIMESTONE.darkened(0.1))
+		for x in w:
+			if x == door_x and s == 0:
+				continue
+			_window(st, wst, x + 0.3, 0.3 + fh * s, d, 0.4, 0.4, LIMESTONE)
+	_roof(st, w, d, hgt, SLATE, BRICK, 0.18)
+	var tx := w * 0.25 - 0.6
+	Meshes.box(st, Vector3(tx, 0, d - 0.25), Vector3(1.2, hgt + 0.7, 0.45), BRICK.lightened(0.04))
+	_roof_at(st, tx - 0.05, tx + 1.25, d - 0.3, d + 0.25, hgt + 0.7, 0.35, SLATE, BRICK)
+	_window(st, wst, tx + 0.4, hgt + 0.1, d + 0.2, 0.4, 0.4, LIMESTONE)
+	_door(st, door_x, d, BRICK, 1.0)
+
+## Darby's Old Furnace at Coalbrookdale: a squat, stepped brick furnace with a glowing casting arch under a black
+## cast-iron beam, sheltered by a modern glass-and-steel canopy on slender posts.
+static func _blast_furnace(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int) -> void:
+	var brick := Color("8e5442")
+	var stone := Color("b49a7a")
+	var iron := Color("2b2624")
+	var cx := w * 0.5 + 1.0
+	var cz := d * 0.5 - 0.3
+	for i in 4:
+		var r := 1.5 - i * 0.28
+		Meshes.box(st, Vector3(cx - r, i * 0.75, cz - r * 0.8), Vector3(r * 2.0, 0.75, r * 1.6), brick.darkened(0.05 * (i % 2)), stone)
+	Meshes.cylinder(st, Vector3(cx, 3.0, cz), 0.5, 0.5, 8, brick.darkened(0.15))
+	# the casting arch on the south face, glowing, with the dated iron beam over it
+	var fz := cz + 1.5 * 0.8
+	Meshes.box(st, Vector3(cx - 0.55, 0.05, fz - 0.02), Vector3(1.1, 0.9, 0.05), Color("2a1510"))
+	Meshes.box(st, Vector3(cx - 0.4, 0.08, fz + 0.01), Vector3(0.8, 0.45, 0.03), Color("ff8a26"))
+	Meshes.box(st, Vector3(cx - 0.75, 0.95, fz - 0.04), Vector3(1.5, 0.16, 0.1), iron)
+	Meshes.box(st, Vector3(cx - 0.62, 0.0, fz - 0.06), Vector3(0.14, 0.95, 0.12), iron)
+	Meshes.box(st, Vector3(cx + 0.48, 0.0, fz - 0.06), Vector3(0.14, 0.95, 0.12), iron)
+	# the canopy: posts and a shallow glazed roof
+	var steel := Color("8d969b")
+	for p in [Vector2(0.15, 0.15), Vector2(w - 0.25, 0.15), Vector2(0.15, d - 0.25), Vector2(w - 0.25, d - 0.25)]:
+		Meshes.box(st, Vector3(p.x, 0, p.y), Vector3(0.1, 4.0, 0.1), steel)
+	Meshes.box(st, Vector3(-0.1, 4.0, -0.1), Vector3(w + 0.2, 0.08, d + 0.2), steel.darkened(0.1))
+	Meshes.box(st, Vector3(0.1, 4.08, 0.1), Vector3(w - 0.2, 0.03, d - 0.2), Color("9fb7bd"))
+	# the museum entrance: a low brick lodge on the door column
+	if door_x >= 0:
+		Meshes.box(st, Vector3(door_x - 0.6, 0, d - 1.2), Vector3(2.2, 1.4, 1.15), brick.lightened(0.05))
+		_roof_at(st, door_x - 0.7, door_x + 1.7, d - 1.25, d + 0.0, 1.4, 0.4, SLATE, brick)
+		_door(st, door_x, d - 0.05, brick, 1.0)
+
+## A box beam from a to b, thickness t, square to the xy plane, so an arch rib reads at any angle from the side.
+static func _beam(st: SurfaceTool, a: Vector3, b: Vector3, t: float, col: Color) -> void:
+	var dir := (b - a).normalized()
+	var n := Vector3(-dir.y, dir.x, 0.0) * (t * 0.5)
+	var zo := Vector3(0, 0, t * 0.5)
+	var c := [a - n - zo, a + n - zo, a + n + zo, a - n + zo]
+	var e := [b - n - zo, b + n - zo, b + n + zo, b - n + zo]
+	for i in 4:
+		var j := (i + 1) % 4
+		Meshes._quad(st, c[i], c[j], e[j], e[i], col.darkened(0.08 * (i % 2)))
+
+## The Iron Bridge (1779): five semicircular cast-iron ribs under a level deck, the rings in the haunches, stone
+## abutments and railings. A walkable point prop on the middle deck tile of a two-row "bridge" crossing five tiles
+## of river three levels down: local x -2.5..2.5 is the span, z -0.5..1.5 the deck, y 0 the deck top, -1.6 the water.
+static func iron_bridge() -> ArrayMesh:
+	var st := Meshes._st()
+	var iron := Color("7a3f2e")
+	var dark := iron.darkened(0.35)
+	var stone := Color("a1907a")
+	var span := 2.5
+	var water := -1.58
+	Meshes._quad(st, Vector3(-span, water, -0.5), Vector3(span, water, -0.5), Vector3(span, water, 1.5), Vector3(-span, water, 1.5), Color("2b3c40"))
+	Meshes.box(st, Vector3(-span - 0.05, -0.16, -0.5), Vector3(span * 2 + 0.1, 0.15, 2.0), dark)
+	Meshes.box(st, Vector3(-span - 0.05, water - 0.1, -0.55), Vector3(0.35, -water + 0.0, 2.1), stone)
+	Meshes.box(st, Vector3(span - 0.3, water - 0.1, -0.55), Vector3(0.35, -water + 0.0, 2.1), stone)
+	var segs := 12
+	for k in 5:
+		var z := -0.42 + k * 0.46
+		var outer := k == 0 or k == 4
+		var rings := [[span - 0.3, -water - 0.2]]
+		if outer:
+			rings.append([span - 0.7, -water - 0.55])
+			rings.append([span - 1.05, -water - 0.8])
+		for ri in rings.size():
+			var rx: float = rings[ri][0]
+			var ry: float = rings[ri][1]
+			var prev := Vector3(-rx, water, z)
+			for i in range(1, segs + 1):
+				var a := PI - PI * i / segs
+				var p := Vector3(cos(a) * rx, water + sin(a) * ry, z)
+				_beam(st, prev, p, 0.12 if ri == 0 else 0.07, iron)
+				prev = p
+		if outer:
+			# uprights from the rib to the deck, and a ring in each haunch
+			for f in [-0.8, -0.55, 0.55, 0.8]:
+				var px: float = f * (span - 0.3)
+				var py: float = water + sqrt(maxf(0.0, 1.0 - f * f)) * (-water - 0.2)
+				_beam(st, Vector3(px, py, z), Vector3(px, -0.16, z), 0.06, iron)
+			for sx in [-1.0, 1.0]:
+				var c := Vector3(sx * (span - 0.55), -0.42, z)
+				var prev2 := c + Vector3(0.2, 0, 0)
+				for i in range(1, 9):
+					var a3 := TAU * i / 8.0
+					var q := c + Vector3(cos(a3) * 0.2, sin(a3) * 0.2, 0)
+					_beam(st, prev2, q, 0.05, iron)
+					prev2 = q
+	for x in [-1.6, 0.0, 1.6]:
+		_beam(st, Vector3(x, -0.3, -0.42), Vector3(x, -0.3, 1.42), 0.06, dark)
+	for zr in [-0.48, 1.44]:
+		for i in 11:
+			Meshes.box(st, Vector3(-span + i * 0.5 - 0.025, 0.0, zr), Vector3(0.05, 0.5, 0.04), dark)
+		Meshes.box(st, Vector3(-span, 0.46, zr - 0.01), Vector3(span * 2, 0.05, 0.06), dark)
+		Meshes.box(st, Vector3(-span, 0.24, zr), Vector3(span * 2, 0.03, 0.04), dark)
+	Meshes.box(st, Vector3(-0.45, -0.15, 1.5), Vector3(0.9, 0.12, 0.03), Color("c9b98a"))
+	return Meshes._finish(st)
+
+## A glider soaring over the Long Mynd: long white wings, a slim fuselage and a T-tail, hung high above the hill
+## (a walkable point prop). 0 banking one way, 1 the other.
+static func glider(variant := 0) -> ArrayMesh:
+	var st := Meshes._st()
+	var white := Color("f4f4f0")
+	var y := 4.2
+	var bank := 0.12 if variant == 0 else -0.12
+	Meshes.box(st, Vector3(-0.08, y, -0.6), Vector3(0.16, 0.16, 1.3), white)
+	Meshes.box(st, Vector3(-0.06, y + 0.1, -0.45), Vector3(0.12, 0.08, 0.3), Color("6a8fa8"))
+	for sx in [-1.0, 1.0]:
+		var tip := Vector3(sx * 1.6, y + 0.1 + sx * bank, -0.15)
+		Meshes._quad(st, Vector3(0, y + 0.1, -0.25), tip + Vector3(0, 0, -0.06), tip + Vector3(0, 0, 0.08), Vector3(0, y + 0.1, 0.0), white)
+		Meshes._quad(st, Vector3(0, y + 0.09, 0.0), tip + Vector3(0, -0.01, 0.08), tip + Vector3(0, -0.01, -0.06), Vector3(0, y + 0.09, -0.25), white.darkened(0.25))
+	Meshes.box(st, Vector3(-0.02, y + 0.1, 0.55), Vector3(0.04, 0.3, 0.12), white)
+	Meshes.box(st, Vector3(-0.35, y + 0.38, 0.55), Vector3(0.7, 0.03, 0.12), white)
+	Meshes.box(st, Vector3(-0.35, y + 0.38, 0.55), Vector3(0.12, 0.031, 0.12), Color("c8102e"))
+	return Meshes._finish(st)

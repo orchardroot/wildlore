@@ -1,0 +1,108 @@
+{
+ "ib_tollkeeper": [
+  {
+   "do": "if",
+   "flag": "q_shropshire_bridge_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Toll Keeper",
+     "text": "She's sound as a bell, thanks to you. They charged tolls to cross until 1950, you know. You can go free. Forever, mind."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_shropshire_bridge_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "Toll Keeper",
+       "text": "Is that it? A new cast bracket, from the Old Furnace itself, made off a pattern from the Flax Mill. Hold it up to the light. Lovely."
+      },
+      {
+       "do": "say",
+       "who": "Toll Keeper",
+       "text": "The bridge was put together like a wooden barn, dovetails and wedges and all, because nobody yet knew how else to join iron. Every part has to fit just so."
+      },
+      {
+       "do": "say",
+       "who": "Toll Keeper",
+       "text": "There. She's whole again. Take this ingot as a keepsake, and look after this little one too; a Pigling took a shine to you up at the furnace."
+      },
+      {
+       "do": "set",
+       "flag": "q_shropshire_bridge_3"
+      },
+      {
+       "do": "set",
+       "flag": "q_shropshire_bridge_done"
+      },
+      {
+       "do": "give_item",
+       "item": "darby_ingot",
+       "n": 1
+      },
+      {
+       "do": "give_creature",
+       "species": "pigling",
+       "level": 22
+      },
+      {
+       "do": "standing",
+       "nation": "england",
+       "amount": 4
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_shropshire_bridge_1",
+       "then": [
+        {
+         "do": "say",
+         "who": "Toll Keeper",
+         "text": "You've got the pattern? Take it up the dale to Darby's Old Furnace, at Coalbrookdale. The furnace master will cast it for you, if you can get past his apprentice."
+        }
+       ],
+       "else": [
+        {
+         "do": "if",
+         "flag": "q_shropshire_bridge_started",
+         "then": [
+          {
+           "do": "say",
+           "who": "Toll Keeper",
+           "text": "The pattern's at Ditherington Flax Mill, in Shrewsbury, north of the castle. Ask for the mill engineer."
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Toll Keeper",
+           "text": "Welcome to the Tollhouse. Every person and cart that crossed the Iron Bridge used to pay here; there's the board with the prices on."
+          },
+          {
+           "do": "say",
+           "who": "Toll Keeper",
+           "text": "Bad news, though. One of the old cast brackets under the deck has cracked in the frost. We need a new one cast the old way, in iron, at Coalbrookdale where the bridge was born."
+          },
+          {
+           "do": "say",
+           "who": "Toll Keeper",
+           "text": "The wooden pattern for it is kept up at the Flax Mill in Shrewsbury, of all places, because the mill's engineers were the iron-frame experts. Could you fetch it, and get it cast?"
+          },
+          {
+           "do": "set",
+           "flag": "q_shropshire_bridge_started"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

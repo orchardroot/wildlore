@@ -147,6 +147,8 @@ static func validate_commands(cmds: Array, tag: String, dex: Dex, items: ItemDB,
 				elif cond.begins_with("has_"):
 					if not dex.has(cond.substr(4)):
 						errors.append("%s: when has_ names an unknown species '%s'" % [tag, cond.substr(4)])
+				elif cond.begins_with("caught_") and dex.has(cond.substr(7)):
+					pass
 				elif cond not in CONDITIONS:
 					errors.append("%s: when with unknown cond '%s'" % [tag, c.get("cond", "")])
 				errors.append_array(validate_commands(c.get("then", []), tag, dex, items, zones))
