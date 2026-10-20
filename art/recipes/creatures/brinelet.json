@@ -1,0 +1,20 @@
+{"id": "brinelet",
+ "palette": {"salt": "#f2e6e4", "salt2": "#d8b8b8", "pink": "#e0a8a8", "grey": "#a89ca4", "brine": "#8ac8e8", "brine2": "#c8ecf8", "ink": "#2a1c20", "eye": "#3a2a30"},
+ "layers": [
+  {"shape": "ellipse", "at": [48, 90], "size": [56, 6], "colour": "brine", "rim": false, "shade": false},
+  {"shape": "rect", "at": [36, 84], "size": [10, 10], "colour": "grey", "mirror": true, "angle": 8},
+  {"shape": "rect", "at": [48, 62], "size": [44, 40], "colour": "salt", "round": 4, "angle": -6, "pattern": "speckle", "pcolour": "salt2", "density": 20},
+  {"shape": "rect", "at": [30, 44], "size": [20, 18], "colour": "pink", "round": 2, "angle": 14, "pattern": "speckle", "pcolour": "salt2", "density": 14},
+  {"shape": "rect", "at": [64, 42], "size": [22, 22], "colour": "salt", "round": 2, "angle": -18, "pattern": "speckle", "pcolour": "pink", "density": 14},
+  {"shape": "rect", "at": [48, 34], "size": [14, 14], "colour": "salt2", "round": 2, "angle": 30},
+  {"shape": "rect", "at": [20, 70], "size": [10, 12], "colour": "salt2", "round": 2, "angle": 20, "mirror": true},
+  {"shape": "circle", "at": [66, 78], "r": 2, "colour": "brine2", "shade": false, "rim": false}
+ ],
+ "face_layers": [
+  {"shape": "poly", "points": [[34, 68], [32, 74], [36, 74]], "colour": "brine", "shade": false},
+  {"shape": "line", "points": [[43, 70], [48, 68], [53, 70]], "width": 1.2, "colour": "ink", "shade": false}
+ ],
+ "eyes": [
+  {"at": [40, 60], "r": 3.5, "colour": "eye", "mirror": true}
+ ]
+}

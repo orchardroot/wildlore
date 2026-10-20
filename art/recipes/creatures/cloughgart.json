@@ -1,0 +1,26 @@
+{"id": "cloughgart",
+ "palette": {"soot": "#3a2e34", "soot2": "#56464a", "moss": "#4e6a34", "moss2": "#7a9448", "ember": "#f07a28", "glow": "#ffd060", "clog": "#8a5a30", "clog2": "#5e3c1e", "ink": "#140c0e", "smoke": "#8c8288"},
+ "layers": [
+  {"shape": "ellipse", "at": [48, 90], "size": [80, 8], "colour": "moss", "rim": false, "pattern": "speckle", "pcolour": "moss2", "density": 30},
+  {"shape": "poly", "points": [[34, 74], [62, 74], [74, 90], [62, 84], [54, 94], [48, 84], [40, 94], [32, 84], [20, 90]], "colour": "soot2", "pattern": "speckle", "pcolour": "smoke", "density": 20},
+  {"shape": "ellipse", "at": [16, 62], "size": [12, 46], "colour": "soot", "angle": 14, "mirror": true, "pattern": "speckle", "pcolour": "soot2", "density": 18},
+  {"shape": "ellipse", "at": [11, 86], "size": [14, 9], "colour": "soot2", "mirror": true},
+  {"shape": "ellipse", "at": [48, 58], "size": [52, 50], "colour": "soot", "pattern": "speckle", "pcolour": "soot2", "density": 24},
+  {"shape": "ellipse", "at": [48, 62], "size": [26, 24], "colour": "ember", "rim": false, "front_only": true, "pattern": "speckle", "pcolour": "glow", "density": 12},
+  {"shape": "ellipse", "at": [48, 64], "size": [16, 14], "colour": "glow", "rim": false, "shade": false, "front_only": true},
+  {"shape": "poly", "points": [[30, 30], [8, 6], [36, 20]], "colour": "soot", "mirror": true},
+  {"shape": "ellipse", "at": [48, 32], "size": [44, 32], "colour": "soot", "pattern": "speckle", "pcolour": "soot2", "density": 24},
+  {"shape": "spikes", "at": [48, 22], "size": [40, 14], "colour": "soot2", "count": 7, "len": 6, "from": -200, "to": 20},
+  {"shape": "ellipse", "at": [84, 88], "size": [18, 9], "colour": "clog", "front_only": true},
+  {"shape": "ellipse", "at": [86, 84], "size": [10, 6], "colour": "clog2", "rim": false, "front_only": true},
+  {"shape": "circle", "at": [20, 18], "r": 2.5, "colour": "smoke", "shade": false, "rim": false},
+  {"shape": "circle", "at": [16, 10], "r": 3.5, "colour": "smoke", "shade": false, "rim": false}
+ ],
+ "face_layers": [
+  {"shape": "line", "points": [[37, 40], [42, 43], [48, 41], [54, 43], [59, 40]], "width": 1.5, "colour": "glow", "shade": false},
+  {"shape": "line", "points": [[30, 26], [42, 31]], "width": 2.5, "colour": "ink", "shade": false, "mirror": true}
+ ],
+ "eyes": [
+  {"at": [40, 32], "r": 4.5, "colour": "glow", "pupil": [2, 4], "mirror": true}
+ ]
+}

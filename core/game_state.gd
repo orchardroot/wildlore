@@ -152,6 +152,8 @@ func _dev_boot() -> void:
 		var party := [Creature.create(dex.get_species("kindlet"), 10, rng, moves)]
 		data.party = party
 		for a in DevArgs.user_args():
+			if a.begins_with("--lead=") and dex.has(a.substr(7)):  # dev: our lead is this species (back-sprite shots)
+				party[0] = Creature.create(dex.get_species(a.substr(7)), 10, rng, moves)
 			if a.begins_with("--held="):  # dev: the lead holds this charm (screenshots of charm messages)
 				party[0].held = a.substr(7)
 			if a == "--stress":  # dev: worst-case widths (see DevMenu.stress)

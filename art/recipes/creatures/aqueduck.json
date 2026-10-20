@@ -1,0 +1,24 @@
+{"id": "aqueduck",
+ "palette": {"stone": "#b4a088", "stone2": "#8a7660", "iron": "#4a4e58", "iron2": "#30343c", "rivet": "#9aa0aa", "water": "#5a9ac0", "water2": "#a8d4ec", "beak": "#f0a030", "beak2": "#c87818", "boat": "#2e6a3a", "boat2": "#c83a30", "river": "#6aa8c8", "ink": "#121418", "eye": "#f0f2f4"},
+ "layers": [
+  {"shape": "ellipse", "at": [48, 92], "size": [92, 6], "colour": "river", "rim": false, "shade": false},
+  {"shape": "rect", "at": [36, 72], "size": [10, 38], "colour": "stone", "round": 1, "pattern": "stripes", "pcolour": "stone2", "period": 5, "pangle": 90},
+  {"shape": "rect", "at": [62, 72], "size": [10, 38], "colour": "stone", "round": 1, "pattern": "stripes", "pcolour": "stone2", "period": 5, "pangle": 90},
+  {"shape": "rect", "at": [86, 72], "size": [8, 38], "colour": "stone", "round": 1, "pattern": "stripes", "pcolour": "stone2", "period": 5, "pangle": 90},
+  {"shape": "rect", "at": [58, 48], "size": [72, 14], "colour": "iron", "round": 2, "pattern": "speckle", "pcolour": "rivet", "density": 10},
+  {"shape": "rect", "at": [58, 54], "size": [72, 3], "colour": "iron2", "round": 1, "rim": false},
+  {"shape": "rect", "at": [60, 40], "size": [64, 4], "colour": "water", "rim": false, "shade": false, "pattern": "stripes", "pcolour": "water2", "period": 5, "pangle": 0},
+  {"shape": "rect", "at": [66, 35], "size": [22, 6], "colour": "boat", "round": 2},
+  {"shape": "rect", "at": [62, 30], "size": [8, 5], "colour": "boat2", "round": 1},
+  {"shape": "poly", "points": [[92, 46], [95, 30], [86, 42]], "colour": "iron"},
+  {"shape": "rect", "at": [24, 44], "size": [12, 14], "colour": "iron"},
+  {"shape": "circle", "at": [22, 30], "r": 12, "colour": "iron", "pattern": "speckle", "pcolour": "iron2", "density": 12},
+  {"shape": "ellipse", "at": [9, 33], "size": [14, 7], "colour": "beak", "pattern": "stripes", "pcolour": "beak2", "period": 4, "pangle": 90}
+ ],
+ "face_layers": [
+  {"shape": "line", "points": [[3, 34], [14, 34]], "width": 1, "colour": "beak2", "shade": false}
+ ],
+ "eyes": [
+  {"at": [20, 28], "r": 4, "colour": "eye", "pupil": [2, 3]}
+ ]
+}
