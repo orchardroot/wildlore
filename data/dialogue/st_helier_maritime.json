@@ -1,0 +1,88 @@
+{
+ "sth_shipwright": [
+  {
+   "do": "say",
+   "who": "Shipwright",
+   "text": "Jersey was a great shipbuilding island in the nineteenth century, with yards all round the coast. Hundreds of ships were launched, many of them fast schooners that carried the island's apples and cod across the Atlantic."
+  },
+  {
+   "do": "say",
+   "who": "Shipwright",
+   "text": "The tide still sets the rhythm of the harbour, as it always has. Ships here have been waiting on it for centuries."
+  }
+ ],
+ "sth_tapestry": [
+  {
+   "do": "if",
+   "flag": "q_channel_islands_liberation_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Tapestry Guide",
+     "text": "Twelve panels, one for each parish, and every one stitched by islanders, in 1995, for the fiftieth Liberation Day. You've helped tell the story, my friend, and it's rare enough these days."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_channel_islands_liberation_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_channel_islands_liberation_2",
+       "then": [
+        {
+         "do": "say",
+         "who": "Tapestry Guide",
+         "text": "So the archivist told you about the hidden wirelesses and the castle guide told you about the guns? Then you know what the panels are for. People kept hope alive in the dark, a stitch at a time."
+        },
+        {
+         "do": "say",
+         "who": "Tapestry Guide",
+         "text": "Liberation Day, 9 May 1945. Crowds on the quay, flags out of every attic, and Union Flags that had spent five years under floorboards. Take this. It's a copy of one of those flags."
+        },
+        {
+         "do": "set",
+         "flag": "q_channel_islands_liberation_done"
+        },
+        {
+         "do": "give_item",
+         "item": "liberation_flag",
+         "n": 1
+        },
+        {
+         "do": "standing",
+         "nation": "channel_islands",
+         "amount": 5
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Tapestry Guide",
+         "text": "Two people to hear: the archivist at the War Tunnels, up the lane north of town, and the guide at Elizabeth Castle, across the causeway. Come back and tell me what they said."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Tapestry Guide",
+       "text": "Welcome to the Occupation Tapestry Gallery. The tapestry is twelve panels, one made by each of Jersey's twelve parishes in 1995, fifty years after Liberation. Each tells part of the Occupation story, from the arrival of the Germans to the day the island was freed."
+      },
+      {
+       "do": "say",
+       "who": "Tapestry Guide",
+       "text": "I'm trying to put together a short account for schoolchildren and I need two voices that aren't mine. Would you talk to the archivist at the War Tunnels, and to the guide at Elizabeth Castle? Then come back and tell me what they said."
+      },
+      {
+       "do": "set",
+       "flag": "q_channel_islands_liberation_started"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,50 @@
+{
+ "sth_landlord": [
+  {
+   "do": "say",
+   "who": "Landlord",
+   "text": "Welcome to the Crapaud Arms. Toads: Jerseymen. We took the name and put it on the sign, which is the right way to deal with an insult."
+  },
+  {
+   "do": "say",
+   "who": "Landlord",
+   "text": "We do a bean crock on Saturdays. It's a stew of beans, pork and a pig's trotter that cooks slowly for hours. It was taken to the baker's oven on a Saturday night and fetched after church on Sunday."
+  }
+ ],
+ "sth_quiz": [
+  {
+   "do": "say",
+   "who": "Quizmaster",
+   "text": "Tonight's warm-up: what does a Jerseyman get called, and why? A crapaud, a toad. Nobody knows why. That's an easy point."
+  },
+  {
+   "do": "choice",
+   "text": "Fancy a round? Five questions, no phones.",
+   "options": [
+    "Count me in",
+    "Not tonight"
+   ],
+   "set": "_quiz_choice"
+  },
+  {
+   "do": "if",
+   "flag": "_quiz_choice",
+   "eq": 0,
+   "then": [
+    {
+     "do": "quiz",
+     "pub": "st_helier",
+     "region": "england_south",
+     "who": "Quizmaster"
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Quizmaster",
+     "text": "Fair enough. The offer stands, and so does the bar."
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,150 @@
+{
+ "id": "poole_terminal",
+ "name": "Ferry Terminal",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "statue",
+   "x": 2,
+   "y": 1
+  },
+  {
+   "type": "statue",
+   "x": 12,
+   "y": 1
+  },
+  {
+   "type": "table",
+   "x": 6,
+   "y": 3
+  },
+  {
+   "type": "table",
+   "x": 8,
+   "y": 3
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 7
+  },
+  {
+   "type": "potted_plant",
+   "x": 13,
+   "y": 7
+  },
+  {
+   "type": "fireplace",
+   "x": 7,
+   "y": 1
+  },
+  {
+   "type": "rug",
+   "x": 5,
+   "y": 3,
+   "w": 4,
+   "h": 3,
+   "variant": 1,
+   "walk": true
+  },
+  {
+   "type": "wall_picture",
+   "x": 6,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  },
+  {
+   "type": "wall_picture",
+   "x": 8,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  },
+  {
+   "type": "wall_picture",
+   "x": 4,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  },
+  {
+   "type": "clock",
+   "x": 5,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "piano",
+   "x": 1,
+   "y": 3,
+   "rot": 90
+  },
+  {
+   "type": "sofa",
+   "x": 1,
+   "y": 4,
+   "variant": 5,
+   "rot": 90
+  },
+  {
+   "type": "plant_stand",
+   "x": 1,
+   "y": 6
+  }
+ ],
+ "warps": [
+  {
+   "x": 7,
+   "y": 8,
+   "to": "poole",
+   "tx": 31,
+   "ty": 25,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "poo_clerk",
+   "sprite": "shopkeeper",
+   "x": 4,
+   "y": 4,
+   "facing": "right",
+   "move": "still",
+   "script": "poo_clerk",
+   "name": "Ticket Clerk"
+  },
+  {
+   "id": "poo_traveller",
+   "sprite": "villager_4",
+   "x": 9,
+   "y": 4,
+   "facing": "left",
+   "move": "still",
+   "script": "poo_traveller",
+   "name": "Traveller"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  7,
+  7
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxxx",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x++++++D++++++x",
+  "xxxxxxxxxxxxxxx"
+ ]
+}

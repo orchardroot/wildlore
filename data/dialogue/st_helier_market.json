@@ -1,0 +1,98 @@
+{
+ "sth_fishhall": [
+  {
+   "do": "say",
+   "who": "Fish Hall",
+   "text": "Spider crabs, lobsters, mussels, and a conger that's been eyeing me up since Tuesday. The Fish Hall's at this end, the flowers and potatoes are at the other."
+  },
+  {
+   "do": "say",
+   "who": "Fish Hall",
+   "text": "Jersey gets some of the biggest tides in Europe. When the sea goes out you can walk a mile on the sand, and I can pick up dinner for a quid."
+  }
+ ],
+ "sth_royal_stall": [
+  {
+   "do": "if",
+   "flag": "q_channel_islands_royals_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Potato Stall",
+     "text": "Royals! Look at them. Scrape, don't peel, boil with a sprig of mint, butter and nothing else. M\u00e8rcie, my friend, you've saved my season."
+    },
+    {
+     "do": "say",
+     "who": "Potato Stall",
+     "text": "Jersey Royals are grown on steep south-facing fields called c\u00f4tils, and dug by hand from April. First crop of the year, and half the island lines up for them."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_channel_islands_royals_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_channel_islands_royals_2",
+       "then": [
+        {
+         "do": "say",
+         "who": "Potato Stall",
+         "text": "Are those them? Oh, look at the skins. You can rub them off with your thumb. Wonderful. Here, you deserve something for the trouble."
+        },
+        {
+         "do": "set",
+         "flag": "q_channel_islands_royals_done"
+        },
+        {
+         "do": "give_item",
+         "item": "jersey_royal",
+         "n": 3
+        },
+        {
+         "do": "give_creature",
+         "species": "crockling",
+         "level": 40
+        },
+        {
+         "do": "standing",
+         "nation": "channel_islands",
+         "amount": 4
+        },
+        {
+         "do": "say",
+         "who": "Potato Stall",
+         "text": "And take this little one. It turned up in the bean crock aisle and I think it's yours."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Potato Stall",
+         "text": "Any luck with the Royals? Le Brocq's farm is up the lane north of town. They want a Vraicling's seaweed for the fields and a good fight from the old man first. Jersey hospitality."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Potato Stall",
+       "text": "Bou\u00f4njour. The stall's empty, and it's the Royal season, and I've nothing to sell. The man who usually supplies me is laid up. Could you fetch me a crop of Royals?"
+      },
+      {
+       "do": "say",
+       "who": "Potato Stall",
+       "text": "Try Le Brocq's farm, up the lane to the north of town. They'll want the right fertiliser and a bit of a show. Old Josu\u00e9 doesn't give his potatoes to anybody."
+      },
+      {
+       "do": "set",
+       "flag": "q_channel_islands_royals_started"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

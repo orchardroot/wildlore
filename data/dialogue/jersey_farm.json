@@ -1,0 +1,115 @@
+{
+ "jer_farmwife": [
+  {
+   "do": "if",
+   "flag": "q_channel_islands_royals_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Farmer's Wife",
+     "text": "Did Old Josu\u00e9's Royals go down well at the market? I told him they would. Don't tell him I said so, he'll want paying."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_channel_islands_royals_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "Farmer's Wife",
+       "text": "The Royals are with the market now, I hope. Come and sit down. I've a bean crock on."
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_channel_islands_royals_started",
+       "then": [
+        {
+         "do": "if",
+         "flag": "q_channel_islands_royals_1",
+         "then": [
+          {
+           "do": "when",
+           "cond": "caught_vraicling",
+           "then": [
+            {
+             "do": "if",
+             "flag": "trainer_jer_legend",
+             "then": [
+              {
+               "do": "say",
+               "who": "Farmer's Wife",
+               "text": "A Vraicling caught, and Josu\u00e9 beaten fair and square in his own field? He won't speak to me all week. Well. The seaweed's the secret of a good Royal, and you've the right stuff."
+              },
+              {
+               "do": "say",
+               "who": "Farmer's Wife",
+               "text": "Here's a crate, the first Royals of the year. Take them to the stall in the Central Market, and tell them Josu\u00e9 Le Brocq's sent them."
+              },
+              {
+               "do": "set",
+               "flag": "q_channel_islands_royals_2"
+              },
+              {
+               "do": "give_item",
+               "item": "jersey_royal",
+               "n": 3
+              }
+             ],
+             "else": [
+              {
+               "do": "say",
+               "who": "Farmer's Wife",
+               "text": "You've the seaweed creature, good. But Josu\u00e9 won't hand a crate to anyone he hasn't tested. He's in the field by the lane. Go on, he'll enjoy it."
+              }
+             ]
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Farmer's Wife",
+             "text": "You need a Vraicling for the fields. Vraic's the seaweed we spread on the Royals. Catch one on the shore, in the shallows, and show me. They come in at the tide in rough weather."
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Farmer's Wife",
+           "text": "The market's after Royals, is it? We've plenty in the ground, but the old man wants them done properly. Seaweed on the fields, vraic, as his mother did. And a good bout before he'll let one go."
+          },
+          {
+           "do": "say",
+           "who": "Farmer's Wife",
+           "text": "Catch a Vraicling in the shallows and bring it to show me. Then beat Josu\u00e9 in the field. He's by the lane, and he's been waiting for a challenger since lunchtime."
+          },
+          {
+           "do": "set",
+           "flag": "q_channel_islands_royals_1"
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Farmer's Wife",
+         "text": "I've a bean crock in the oven since last night. Beans, a bit of pork, the trotter, and onions. You put it in with the bread and forget about it. It's the best Sunday dinner there is."
+        },
+        {
+         "do": "say",
+         "who": "Farmer's Wife",
+         "text": "Jersey Royals, black butter, bean crock and ormers. That's an island dinner."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

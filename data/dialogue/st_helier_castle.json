@@ -1,0 +1,49 @@
+{
+ "sth_castle_guide": [
+  {
+   "do": "if",
+   "flag": "q_channel_islands_liberation_2",
+   "then": [
+    {
+     "do": "say",
+     "who": "Castle Guide",
+     "text": "Welcome to Elizabeth Castle. Raleigh, the Armada, Charles II and, after, the Germans. All of them have left something here. The castle's seen everyone, and the tide still shuts the door twice a day."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_channel_islands_liberation_1",
+     "then": [
+      {
+       "do": "say",
+       "who": "Castle Guide",
+       "text": "The Tapestry Guide sent you, and the archivist already told you about the wireless? Then here's my part. The Germans fortified Elizabeth Castle and the whole island with concrete bunkers, gun emplacements and tunnels, using forced labour."
+      },
+      {
+       "do": "say",
+       "who": "Castle Guide",
+       "text": "Everywhere you see a bunker on a headland, remember who built it. The island's liberation came on 9 May 1945, and some of those guns never fired a shot. The castle, meanwhile, stayed here, with the tide coming and going as always."
+      },
+      {
+       "do": "set",
+       "flag": "q_channel_islands_liberation_2"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Castle Guide",
+       "text": "Welcome to Elizabeth Castle. Sir Walter Raleigh was Governor when it was new, and named it after the queen. He'd have called it Fort Isabella Bellissima; the guidebook says it was 'in her honour', which is kind of him."
+      },
+      {
+       "do": "say",
+       "who": "Castle Guide",
+       "text": "Charles II stayed here as a prince, twice, in the Civil War. The island stayed loyal to the king longer than most of England. Then the Germans put guns here too. It's seen everyone, and the tide still shuts the door twice a day."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

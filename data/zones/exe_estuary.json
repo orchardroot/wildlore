@@ -51,6 +51,10 @@
   "north": {
    "to": "exeter",
    "offset": 0
+  },
+  "east": {
+   "to": "poole",
+   "offset": 0
   }
  },
  "spawn": [
@@ -596,6 +600,36 @@
    "facing": "right",
    "move": "still",
    "trainer": "exe_cobley"
+  },
+  {
+   "id": "poole_marshal_1",
+   "sprite": "warden_grunt",
+   "x": 66,
+   "y": 11,
+   "facing": "right",
+   "move": "still",
+   "script": "poole_marshal",
+   "hide_if": "badge_storm"
+  },
+  {
+   "id": "poole_marshal_2",
+   "sprite": "warden_grunt",
+   "x": 66,
+   "y": 12,
+   "facing": "right",
+   "move": "still",
+   "script": "poole_marshal",
+   "hide_if": "badge_storm"
+  },
+  {
+   "id": "poole_marshal_3",
+   "sprite": "warden_grunt",
+   "x": 66,
+   "y": 13,
+   "facing": "right",
+   "move": "still",
+   "script": "poole_marshal",
+   "hide_if": "badge_storm"
   }
  ],
  "signs": [
@@ -660,6 +694,11 @@
    "x": 59,
    "y": 17,
    "text": "TOPSHAM, ACROSS THE WATER. A little port whose merchants traded with Holland. Some of its houses have Dutch gables, built of bricks that came over as ballast."
+  },
+  {
+   "x": 64,
+   "y": 14,
+   "text": "EAST: Poole Quay, and the ferries to Jersey and Guernsey. WEST: Exeter and the moor."
   }
  ],
  "rows": [
@@ -674,9 +713,9 @@
   "RRkhhhhhhhhhhkkhhhhhhhhhhkkkkk==##~grrrrrg!uuuuooouuu~~~~~~~gBBBBBBgTT",
   "RRkhhhhhhhhhhkkkkkkkkkkkkkkkkk==##~grrrrrg!uuuuooouuu~~~~~~~gBBBBBBgTT",
   "RRkkkkkkkkkkkkkkkkkkkkkkkkkkkk==##~grrrrrg!uuuuooouuu~~~~~~~gBBBBBBgTT",
-  "RRkkkkkkkkkkkkkkkkkkmmmmmmmmkk==##~ggggggg!uuuuooouuu~~~~~~~ggggggggTT",
-  "RRkkkkkkkkkkkkkkkkkkmRmmmmmmkk==##########&uuuuooouuu~~~~~~~ggggggggTT",
-  "RRkkhhhhhhhhhhkkkkkkmmmmmmmmkk==##~#gggggg!uuuuooouuu~~~~~~~ggggggggTT",
+  "RRkkkkkkkkkkkkkkkkkkmmmmmmmmkk==##~ggggggg!uuuuooouuuwwwwwwwgggggggggg",
+  "RRkkkkkkkkkkkkkkkkkkmRmmmmmmkk==##########&uuuuooouuuwwwwwwwgggggggggg",
+  "RRkkhhhhhhhhhhkkkkkkmmmmmmmmkk==##~#gggggg!uuuuooouuuwwwwwwwgggggggggg",
   "RRkkhhhhhhhhhhkkkkkkmmmmmmmmkk==##~#gggggg!uuuuooouuu~~~~~~~ggggggggTT",
   "RRkkhhhhhhhRhhkkkkkkmmmmmmRmkk==##~#rrrrrr!uuuuooouuu~~~~~~~ggggggggTT",
   "RRkkhhhhhhhhhhkkkkkkmmmmmmmmkk==##~#rrrrrr!uuuuooouuu~~~~~~~ss~~~~~~TT",

@@ -1,0 +1,88 @@
+{
+  "quests": [
+    {
+      "id": "channel_islands_royals",
+      "title": "The First Royals",
+      "region": "channel_islands",
+      "town": "st_helier",
+      "giver": "Potato Stall",
+      "summary": "Fetch the first Jersey Royals of the year for the Central Market: seaweed, a fight in the field, and a crate.",
+      "start_flag": "q_channel_islands_royals_started",
+      "steps": [
+        {
+          "flag": "q_channel_islands_royals_1",
+          "text": "Ask at Le Brocq's Farm, in the country north of St Helier.",
+          "zone": "jersey_country"
+        },
+        {
+          "flag": "q_channel_islands_royals_2",
+          "text": "Catch a Vraicling in the shallows, beat Old Josué Le Brocq in his field, and collect the Royals from the farmhouse.",
+          "zone": "jersey_country"
+        },
+        {
+          "flag": "q_channel_islands_royals_done",
+          "text": "Take the Royals to the Potato Stall in the Central Market.",
+          "zone": "st_helier"
+        }
+      ],
+      "done_flag": "q_channel_islands_royals_done",
+      "reward": "Three Jersey Royals, a Crockling and standing in the Channel Islands."
+    },
+    {
+      "id": "channel_islands_liberation",
+      "title": "Twelve Panels",
+      "region": "channel_islands",
+      "town": "st_helier",
+      "giver": "Tapestry Guide",
+      "summary": "Collect two witnesses' accounts of the Occupation for the Maritime Museum's tapestry gallery.",
+      "start_flag": "q_channel_islands_liberation_started",
+      "steps": [
+        {
+          "flag": "q_channel_islands_liberation_1",
+          "text": "Hear the archivist at the Jersey War Tunnels, north of St Helier.",
+          "zone": "jersey_tunnels"
+        },
+        {
+          "flag": "q_channel_islands_liberation_2",
+          "text": "Hear the guide at Elizabeth Castle, across the causeway.",
+          "zone": "st_helier_castle"
+        },
+        {
+          "flag": "q_channel_islands_liberation_done",
+          "text": "Tell the Tapestry Guide at the Maritime Museum what you learnt.",
+          "zone": "st_helier_maritime"
+        }
+      ],
+      "done_flag": "q_channel_islands_liberation_done",
+      "reward": "The Liberation Flag (a charm) and standing in the Channel Islands."
+    },
+    {
+      "id": "channel_islands_chapel",
+      "title": "The Little Chapel's China",
+      "region": "channel_islands",
+      "town": "guernsey_country",
+      "giver": "Chapel Keeper",
+      "summary": "Find a shell and a piece of blue-and-white china to mend the wall of the Little Chapel.",
+      "start_flag": "q_channel_islands_chapel_started",
+      "steps": [
+        {
+          "flag": "q_channel_islands_chapel_1",
+          "text": "Show the beachcomber at Cobo Bay a Pinchkin you have caught, and take his shell.",
+          "zone": "guernsey_country"
+        },
+        {
+          "flag": "q_channel_islands_chapel_2",
+          "text": "Get the blue-and-white china from the baker in St Peter Port.",
+          "zone": "st_peter_port_bakery"
+        },
+        {
+          "flag": "q_channel_islands_chapel_done",
+          "text": "Bring both back to the keeper at the Little Chapel.",
+          "zone": "guernsey_country"
+        }
+      ],
+      "done_flag": "q_channel_islands_chapel_done",
+      "reward": "The Chapel Pebble (a charm) and standing in the Channel Islands."
+    }
+  ]
+}

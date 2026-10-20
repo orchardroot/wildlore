@@ -40,7 +40,7 @@ const SPECIAL := ["edinburgh_tenement", "glasgow_tenement", "aberdeen_granite", 
 	"painted_pink", "painted_yellow", "painted_blue", "painted_green", "painted_red", "painted_teal", "granite",
 	"distillery", "mccaig", "paddle_steamer", "blackhouse", "croft_house", "granite_house", "harbour_white",
 	"lews_castle", "cotswold_house", "cotswold_cottage", "wool_church", "oxford_college", "oxford_tower",
-	"oxford_church", "radcliffe_camera"]
+	"oxford_church", "radcliffe_camera", "jersey_granite", "guernsey_granite", "jersey_tower", "little_chapel"]
 
 ## Doors: where each style's door sits on its tile (see _door and friends), for the swing as you go in.
 ## {x, w, y, h, z}: left edge and width across the door column, bottom and height, z of the door's face from
@@ -345,6 +345,14 @@ static func building(w: int, d: int, style: String, door_x: int, seed_value: int
 			ValleyStyles.steam_loco(st, wst, w, d, door_x)
 		"ironworks":
 			ValleyStyles.ironworks(st, wst, w, d, door_x)
+		"jersey_granite":
+			IslandStyles.jersey_granite(st, wst, w, d, door_x, rng)
+		"guernsey_granite":
+			IslandStyles.guernsey_granite(st, wst, w, d, door_x, rng)
+		"jersey_tower":
+			IslandStyles.jersey_tower(st, wst, w, d, door_x)
+		"little_chapel":
+			IslandStyles.little_chapel(st, wst, w, d, door_x, rng)
 		"blast_furnace":
 			_blast_furnace(st, wst, w, d, door_x)
 		"gault", "flint", "flint_gable", "thatch", "college", "kings_chapel", "portico", "ely_cathedral", "norwich_cathedral", "norman_keep", "football_stand":

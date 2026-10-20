@@ -1,0 +1,184 @@
+{
+ "jer_cow": [
+  {
+   "do": "say",
+   "who": "Jersey Cow",
+   "text": "Moo. It's a Jersey moo, a creamy, deeply contented moo. It looks at you with enormous eyes and does not appear to see why you've interrupted dinner."
+  }
+ ],
+ "jer_farmer_old": [
+  {
+   "do": "say",
+   "who": "Old Farmer",
+   "text": "Bou\u00f4njour. That's good day. We've farmed this land since before the Normans. Our fields are small, because we split them between all the sons for hundreds of years. Hence a lot of small fields and a lot of old arguments."
+  },
+  {
+   "do": "say",
+   "who": "Old Farmer",
+   "text": "My grandmother spoke nothing but J\u00e8rriais. She'd say 'M\u00e8rcie' when she meant thanks, and 'Tchian' if you meant the dog. I have a few words left myself."
+  }
+ ],
+ "jer_guide": [
+  {
+   "do": "say",
+   "who": "Hougue Guide",
+   "text": "Six thousand years old, give or take, and it was a tomb. Imagine moving those stones, and with no cranes. They hauled granite on log rollers."
+  },
+  {
+   "do": "say",
+   "who": "Hougue Guide",
+   "text": "On the equinox, the rising sun shines down the passage to the chamber at the end. Stone Age people understood the sky better than we do. Our satnavs would've been very confused."
+  }
+ ],
+ "jer_keeper": [
+  {
+   "do": "say",
+   "who": "Zoo Keeper",
+   "text": "Durrell's the world's first zoo built just to save species. He was a naturalist, and he wrote very funny books about his childhood in Corfu and chasing animals. I read them all before I was twelve."
+  },
+  {
+   "do": "say",
+   "who": "Zoo Keeper",
+   "text": "The dodo on the logo reminds us what's lost for ever, and what we can still save. It's a big, silly, wonderful bird, and it turned out not to be so silly after all."
+  }
+ ],
+ "tchian_spot": [
+  {
+   "do": "if",
+   "flag": "caught_tchian",
+   "then": [],
+   "else": [
+    {
+     "do": "when",
+     "cond": "night",
+     "then": [
+      {
+       "do": "if",
+       "flag": "tchian_met",
+       "then": [
+        {
+         "do": "say",
+         "who": "",
+         "text": "Two points of light hang in the dark on the cliff path, steady as lamps. They are looking at you."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "",
+         "text": "The wind drops. Down on the path above Bouley Bay, something large and black has stopped walking. Two eyes like lit lamps turn, and the path is suddenly very quiet."
+        },
+        {
+         "do": "say",
+         "who": "",
+         "text": "It's a dog the size of a pony, with eyes like lamps and a tail as long as the path. It doesn't growl. It simply waits, the way old dogs wait at gates."
+        },
+        {
+         "do": "say",
+         "who": "",
+         "text": "Tchian, the old Jersey word for dog. The Black Dog of Bouley Bay. They say a person who meets him on the cliff path won't see the year out. But the stories never say whether he bites. And, curiously, nobody's ever been bitten."
+        },
+        {
+         "do": "set",
+         "flag": "tchian_met"
+        }
+       ]
+      },
+      {
+       "do": "legend",
+       "species": "tchian",
+       "level": 42,
+       "flag": "caught_tchian",
+       "music": "legend_hound2"
+      },
+      {
+       "do": "if",
+       "flag": "caught_tchian",
+       "then": [
+        {
+         "do": "say",
+         "who": "",
+         "text": "The dog walks beside you along the cliff path, all the way to the lane. It doesn't look round once. When you turn at the gate, there's only the sea, the stars and a very small dent in the grass."
+        }
+       ],
+       "else": []
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "fog",
+       "then": [
+        {
+         "do": "if",
+         "flag": "tchian_met",
+         "then": [
+          {
+           "do": "say",
+           "who": "",
+           "text": "Two points of light hang in the dark on the cliff path, steady as lamps. They are looking at you."
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "",
+           "text": "The wind drops. Down on the path above Bouley Bay, something large and black has stopped walking. Two eyes like lit lamps turn, and the path is suddenly very quiet."
+          },
+          {
+           "do": "say",
+           "who": "",
+           "text": "It's a dog the size of a pony, with eyes like lamps and a tail as long as the path. It doesn't growl. It simply waits, the way old dogs wait at gates."
+          },
+          {
+           "do": "say",
+           "who": "",
+           "text": "Tchian, the old Jersey word for dog. The Black Dog of Bouley Bay. They say a person who meets him on the cliff path won't see the year out. But the stories never say whether he bites. And, curiously, nobody's ever been bitten."
+          },
+          {
+           "do": "set",
+           "flag": "tchian_met"
+          }
+         ]
+        },
+        {
+         "do": "legend",
+         "species": "tchian",
+         "level": 42,
+         "flag": "caught_tchian",
+         "music": "legend_hound2"
+        },
+        {
+         "do": "if",
+         "flag": "caught_tchian",
+         "then": [
+          {
+           "do": "say",
+           "who": "",
+           "text": "The dog walks beside you along the cliff path, all the way to the lane. It doesn't look round once. When you turn at the gate, there's only the sea, the stars and a very small dent in the grass."
+          }
+         ],
+         "else": []
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "",
+         "text": "A dip in the cliff path, where the grass has been flattened by something large. It is only a patch of grass. Probably. Come back after dark, or in the fog."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "tchian_spot_unused": [
+  {
+   "do": "say",
+   "who": "",
+   "text": "Nothing."
+  }
+ ]
+}
