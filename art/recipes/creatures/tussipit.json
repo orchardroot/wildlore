@@ -1,0 +1,21 @@
+{"id": "tussipit",
+ "palette": {"brown": "#8a6f4c", "brown2": "#b49868", "streak": "#4a3a2a", "belly": "#e4d8bc", "bill": "#6a5440", "foot": "#b88a6a", "grass": "#7f9a52", "grass2": "#b6c878", "eye": "#14101a", "snow": "#f2f6fa"},
+ "layers": [
+  {"shape": "spikes", "at": [48, 92], "size": [70, 20], "count": 16, "len": 12, "from": 190, "to": 350, "colour": "grass", "rim": false},
+  {"shape": "spikes", "at": [48, 92], "size": [50, 14], "count": 12, "len": 9, "from": 200, "to": 340, "colour": "grass2", "rim": false},
+  {"shape": "line", "points": [[44, 88], [44, 94]], "width": 1.4, "colour": "foot", "shade": false},
+  {"shape": "line", "points": [[54, 88], [54, 94]], "width": 1.4, "colour": "foot", "shade": false},
+  {"shape": "ellipse", "at": [48, 66], "size": [52, 44], "colour": "brown", "pattern": "speckle", "pcolour": "streak", "density": 10},
+  {"shape": "ellipse", "at": [48, 72], "size": [32, 30], "colour": "belly", "front_only": true, "rim": false},
+  {"shape": "poly", "points": [[74, 60], [90, 70], [82, 78], [70, 70]], "colour": "brown2"},
+  {"shape": "ellipse", "at": [27, 66], "size": [12, 26], "colour": "brown2", "angle": 8, "mirror": true},
+  {"shape": "ellipse", "at": [48, 40], "size": [38, 34], "colour": "brown", "pattern": "speckle", "pcolour": "streak", "density": 8},
+  {"shape": "ellipse", "at": [48, 46], "size": [24, 18], "colour": "belly", "front_only": true, "rim": false},
+  {"shape": "poly", "points": [[38, 28], [48, 14], [58, 28]], "colour": "snow", "rim": false}
+ ],
+ "face_layers": [
+  {"shape": "poly", "points": [[43, 42], [53, 42], [48, 52]], "colour": "bill"},
+  {"shape": "line", "points": [[34, 35], [42, 38]], "width": 1.4, "colour": "belly", "shade": false, "mirror": true}
+ ],
+ "eyes": [{"at": [38, 38], "r": 3.6, "colour": "eye", "mirror": true}]
+}

@@ -1,0 +1,77 @@
+{
+ "id": "rothera_lab",
+ "name": "Bonner Laboratory",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "specimen_shelf",
+   "x": 1,
+   "y": 2,
+   "variant": 0
+  },
+  {
+   "type": "specimen_shelf",
+   "x": 9,
+   "y": 2,
+   "variant": 1
+  },
+  {
+   "type": "telescope",
+   "x": 9,
+   "y": 5
+  },
+  {
+   "type": "table",
+   "x": 2,
+   "y": 5
+  },
+  {
+   "type": "display_case",
+   "x": 5,
+   "y": 2,
+   "variant": 0
+  }
+ ],
+ "warps": [
+  {
+   "x": 5,
+   "y": 6,
+   "to": "rothera",
+   "tx": 22,
+   "ty": 15,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "bat_scientist",
+   "sprite": "dr_hughes",
+   "x": 5,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "bat_scientist",
+   "name": "Marine Biologist"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  5,
+  5
+ ],
+ "rows": [
+  "xxxxxxxxxxx",
+  "x+++++++++x",
+  "x+++++++++x",
+  "x+++++++++x",
+  "x+++++++++x",
+  "x+++++++++x",
+  "x++++D++++x",
+  "xxxxxxxxxxx"
+ ]
+}

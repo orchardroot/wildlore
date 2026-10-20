@@ -18,7 +18,7 @@ const GLASS := Color.WHITE
 ## Wider Isles, the Shannon and Limerick (see the Shannon section at the end of the file).
 const SHANNON_STYLES := ["shannon_tower_house", "king_johns", "clare_thatch", "limerick_georgian", "airport_terminal", "flying_boat", "hydro_station", "thomond_stadium", "milk_market"]
 ## Building styles handled here rather than by the generic house in Meshes.building.
-const SPECIAL := ["edinburgh_tenement", "glasgow_tenement", "aberdeen_granite", "orkney_flagstone", "highland_sandstone", "harled_cottage", "harbour_row", "dublin_georgian", "ulster_terrace", "kilkenny_limestone", "winding_gear", "valley_terrace", "steam_loco", "ironworks", "shannon_tower_house", "limerick_georgian", "martyrs_obelisk", "palace_pier", "marble_arch_cave",
+const SPECIAL := ["edinburgh_tenement", "glasgow_tenement", "aberdeen_granite", "orkney_flagstone", "highland_sandstone", "harled_cottage", "harbour_row", "dublin_georgian", "ulster_terrace", "kilkenny_limestone", "winding_gear", "valley_terrace", "steam_loco", "ironworks", "whaling_shed", "whaling_tanks", "whalers_church", "whaler_villa", "polar_hut", "research_station", "halley_module", "hangar", "shannon_tower_house", "limerick_georgian", "martyrs_obelisk", "palace_pier", "marble_arch_cave",
 	"swansea_market", "glass_tower", "gantry_crane", "cantilever_crane", "titanic", "mill", "castle", "cathedral",
 	"liver_building", "station", "aqueduct", "chapel", "terrace", "tudor", "slate_cottage", "lighthouse_house",
 	"round_tower", "passage_tomb", "field_barn", "casino", "grandstand", "bookmaker", "bottle_kiln", "potbank",
@@ -337,6 +337,8 @@ static func building(w: int, d: int, style: String, door_x: int, seed_value: int
 			_flax_mill(st, wst, w, d, door_x)
 		"edinburgh_tenement", "glasgow_tenement", "aberdeen_granite", "orkney_flagstone", "highland_sandstone", "harled_cottage", "harbour_row", "dublin_georgian", "ulster_terrace", "kilkenny_limestone":
 			StreetsSI.build(st, wst, w, d, door_x, rng, style)
+		"whaling_shed", "whaling_tanks", "whalers_church", "whaler_villa", "polar_hut", "research_station", "halley_module", "hangar":
+			IceStyles.build(st, wst, w, d, door_x, rng, style)
 		"winding_gear":
 			ValleyStyles.winding_gear(st, wst, w, d, door_x)
 		"valley_terrace":

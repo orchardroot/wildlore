@@ -1,0 +1,67 @@
+{
+ "sg_scientist": [
+  {
+   "do": "if",
+   "flag": "q_overseas_south_georgia_pipit_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Station Scientist",
+     "text": "Pipits everywhere, thanks to you and a helicopter and a lot of rat bait. We counted them on the survey and I may have cried into a spreadsheet."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_overseas_south_georgia_pipit_1",
+     "then": [
+      {
+       "do": "when",
+       "cond": "has_tussipit",
+       "then": [
+        {
+         "do": "say",
+         "who": "Station Scientist",
+         "text": "A Tussipit, in the tussac, singing! The world's most southerly songbird, back from the rats. We've been waiting years for good news like this. Take these, you've earned them."
+        },
+        {
+         "do": "give_item",
+         "item": "pemmican",
+         "n": 3
+        },
+        {
+         "do": "give_item",
+         "item": "ships_biscuit",
+         "n": 3
+        },
+        {
+         "do": "set",
+         "flag": "q_overseas_south_georgia_pipit_done"
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Station Scientist",
+         "text": "Come back when you've a Tussipit in the Fieldbook. Bring me the proof or at least a decent photograph."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Station Scientist",
+       "text": "KEP Research Station: the British Antarctic Survey's base here. We study fish, krill, seals and the odd fisheries boat. Rats used to be the problem. The rats are gone."
+      },
+      {
+       "do": "say",
+       "who": "Station Scientist",
+       "text": "If you see a plain brown bird in the tussac grass singing its heart out, that's a pipit. If you've caught one, the field ranger at Salisbury Plain will want to hear about it. Ask her to tell you how many we've counted."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,77 @@
+{
+ "id": "grytviken_lab",
+ "name": "KEP Research Station",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "specimen_shelf",
+   "x": 1,
+   "y": 2,
+   "variant": 0
+  },
+  {
+   "type": "specimen_shelf",
+   "x": 9,
+   "y": 2,
+   "variant": 1
+  },
+  {
+   "type": "telescope",
+   "x": 9,
+   "y": 5
+  },
+  {
+   "type": "table",
+   "x": 2,
+   "y": 5
+  },
+  {
+   "type": "wall_map",
+   "x": 5,
+   "y": 1,
+   "walk": true
+  }
+ ],
+ "warps": [
+  {
+   "x": 5,
+   "y": 6,
+   "to": "grytviken",
+   "tx": 24,
+   "ty": 13,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "sg_scientist",
+   "sprite": "dr_hughes",
+   "x": 5,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "sg_scientist",
+   "name": "Station Scientist"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  5,
+  5
+ ],
+ "rows": [
+  "xxxxxxxxxxx",
+  "x+++++++++x",
+  "x+++++++++x",
+  "x+++++++++x",
+  "x+++++++++x",
+  "x+++++++++x",
+  "x++++D++++x",
+  "xxxxxxxxxxx"
+ ]
+}

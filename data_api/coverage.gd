@@ -53,6 +53,12 @@ static func reachability(zones: Dictionary, ferries: Dictionary, script_warps: D
 	if zones.has("macc_home"):
 		seen["macc_home"] = true
 		queue.append("macc_home")
+	for path in JsonUtil.list_json("res://data/overseas"):  # an overseas territory's arrival: the RAF flies there
+		var t = JsonUtil.read(path)
+		var arrive := str(t.get("arrival", {}).get("zone", "")) if t is Dictionary else ""
+		if arrive != "" and not seen.has(arrive):
+			seen[arrive] = true
+			queue.append(arrive)
 	while not queue.is_empty():
 		var zid: String = queue.pop_front()
 		if not zones.has(zid):

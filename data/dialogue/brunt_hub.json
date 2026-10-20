@@ -1,0 +1,70 @@
+{
+ "bat_halley": [
+  {
+   "do": "if",
+   "flag": "q_overseas_antarctic_post_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Station Scientist",
+     "text": "How's the post office? Is it still the world's most southerly? We checked. It is. We're quite put out."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_overseas_antarctic_post_3",
+     "then": [
+      {
+       "do": "say",
+       "who": "Station Scientist",
+       "text": "Off you go, then. East. Wait: west. We did move the station inland. Not that you can tell."
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_overseas_antarctic_post_2",
+       "then": [
+        {
+         "do": "if",
+         "flag": "trainer_bat_glaciologist",
+         "then": [
+          {
+           "do": "say",
+           "who": "Station Scientist",
+           "text": "He's finally let go of the mail! The glaciologist's been sitting on it for a month, refusing to sign until someone beat him. Now someone has. Thank you. Here's the sack, and the signature."
+          },
+          {
+           "do": "set",
+           "flag": "q_overseas_antarctic_post_3"
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Station Scientist",
+           "text": "Sign your sack? I can't. The glaciologist is holding the stamp, on the ice, outside, and he won't sign until someone beats him in a fair fight. It's a Halley thing. Go on."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Station Scientist",
+         "text": "Halley VI. We sit on a floating ice shelf, in the dark for months, and measure the sky. It was here, in the mid-80s, that British scientists first spotted the hole in the ozone layer."
+        },
+        {
+         "do": "say",
+         "who": "Station Scientist",
+         "text": "It's mended a bit. It took a treaty, a lot of fridges and a lot of nerds with instruments. Which is the best ending of any story I know."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

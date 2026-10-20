@@ -1,0 +1,74 @@
+{
+ "sg_ranger": [
+  {
+   "do": "if",
+   "flag": "q_overseas_south_georgia_pipit_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Field Ranger",
+     "text": "Another successful survey! The kettle's on. The kettle is always on. That's the only rule."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_overseas_south_georgia_pipit_1",
+     "then": [
+      {
+       "do": "say",
+       "who": "Field Ranger",
+       "text": "Take your pipit to the scientist at King Edward Point. She'll be thrilled. She cries at birds."
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_overseas_south_georgia_pipit_started",
+       "then": [
+        {
+         "do": "when",
+         "cond": "has_tussipit",
+         "then": [
+          {
+           "do": "say",
+           "who": "Field Ranger",
+           "text": "That's a Tussipit all right! The world's southernmost songbird, back from the brink. Now take it to the scientist at King Edward Point and make her day."
+          },
+          {
+           "do": "set",
+           "flag": "q_overseas_south_georgia_pipit_1"
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Field Ranger",
+           "text": "Look in the tussac grass at Grytviken or here on the plain. Listen for a tiny song among the shouting. Snares are in your bag."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Field Ranger",
+         "text": "This hut sees ten thousand penguin-hours a year, and four ranger-hours of sleep. I'm counting birds."
+        },
+        {
+         "do": "say",
+         "who": "Field Ranger",
+         "text": "Want a job? We need someone to find a South Georgia pipit. The rats nearly wiped them out. Now the island's rat-free and they're coming back. Find a Tussipit, catch it, and show it to the scientist at King Edward Point."
+        },
+        {
+         "do": "set",
+         "flag": "q_overseas_south_georgia_pipit_started"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

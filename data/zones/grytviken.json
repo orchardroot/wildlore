@@ -1,0 +1,689 @@
+{
+ "id": "grytviken",
+ "name": "Grytviken",
+ "region": "overseas_south_georgia",
+ "kind": "town",
+ "music": "town_scotland",
+ "weather": {
+  "gale": 26,
+  "fog": 16,
+  "frost": 18,
+  "clear": 14,
+  "drizzle": 12,
+  "downpour": 6,
+  "sunshine": 8
+ },
+ "props": [
+  {
+   "type": "building",
+   "style": "whalers_church",
+   "x": 5,
+   "y": 14,
+   "w": 5,
+   "h": 6,
+   "label": "Norwegian Church",
+   "kind": "church"
+  },
+  {
+   "type": "building",
+   "style": "whaler_villa",
+   "x": 11,
+   "y": 15,
+   "w": 7,
+   "h": 5,
+   "label": "South Georgia Museum",
+   "kind": "museum"
+  },
+  {
+   "type": "building",
+   "style": "shop",
+   "x": 19,
+   "y": 16,
+   "w": 5,
+   "h": 4,
+   "label": "Museum Shop"
+  },
+  {
+   "type": "building",
+   "style": "whaling_shed",
+   "x": 26,
+   "y": 12,
+   "w": 11,
+   "h": 8,
+   "label": "Whaling Station",
+   "kind": "workshop"
+  },
+  {
+   "type": "building",
+   "style": "whaling_tanks",
+   "x": 38,
+   "y": 13,
+   "w": 6,
+   "h": 4,
+   "label": "Oil Tanks",
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "sanctuary",
+   "x": 45,
+   "y": 15,
+   "w": 6,
+   "h": 5,
+   "label": "KEP Surgery"
+  },
+  {
+   "type": "building",
+   "style": "polar_hut",
+   "x": 19,
+   "y": 8,
+   "w": 6,
+   "h": 5,
+   "label": "KEP Research Station",
+   "kind": "workshop"
+  },
+  {
+   "type": "headstone",
+   "x": 4,
+   "y": 7,
+   "variant": 1
+  },
+  {
+   "type": "headstone",
+   "x": 4,
+   "y": 9,
+   "variant": 1
+  },
+  {
+   "type": "headstone",
+   "x": 8,
+   "y": 7,
+   "variant": 1
+  },
+  {
+   "type": "headstone",
+   "x": 8,
+   "y": 9,
+   "variant": 1
+  },
+  {
+   "type": "headstone",
+   "x": 9,
+   "y": 6,
+   "variant": 1
+  },
+  {
+   "type": "headstone",
+   "x": 3,
+   "y": 8,
+   "variant": 1
+  },
+  {
+   "type": "headstone",
+   "x": 6,
+   "y": 7,
+   "variant": 0
+  },
+  {
+   "type": "catcher_hulk",
+   "x": 14,
+   "y": 29
+  },
+  {
+   "type": "catcher_hulk",
+   "x": 24,
+   "y": 31
+  },
+  {
+   "type": "catcher_hulk",
+   "x": 33,
+   "y": 29
+  },
+  {
+   "type": "iceberg",
+   "x": 50,
+   "y": 31,
+   "variant": 1
+  },
+  {
+   "type": "iceberg",
+   "x": 3,
+   "y": 33,
+   "variant": 2
+  },
+  {
+   "type": "iceberg",
+   "x": 38,
+   "y": 33,
+   "variant": 0
+  },
+  {
+   "type": "penguin",
+   "x": 10,
+   "y": 25,
+   "variant": 0
+  },
+  {
+   "type": "penguin",
+   "x": 11,
+   "y": 26,
+   "variant": 0
+  },
+  {
+   "type": "penguin",
+   "x": 9,
+   "y": 26,
+   "variant": 3
+  },
+  {
+   "type": "penguin",
+   "x": 30,
+   "y": 25,
+   "variant": 0
+  },
+  {
+   "type": "penguin",
+   "x": 31,
+   "y": 26,
+   "variant": 0
+  },
+  {
+   "type": "penguin",
+   "x": 29,
+   "y": 26,
+   "variant": 3
+  },
+  {
+   "type": "seal",
+   "x": 18,
+   "y": 26,
+   "variant": 0
+  },
+  {
+   "type": "seal",
+   "x": 19,
+   "y": 25,
+   "variant": 0
+  },
+  {
+   "type": "seal",
+   "x": 40,
+   "y": 26,
+   "variant": 0
+  },
+  {
+   "type": "seal",
+   "x": 41,
+   "y": 25,
+   "variant": 1
+  },
+  {
+   "type": "tussac",
+   "x": 2,
+   "y": 14,
+   "variant": 1
+  },
+  {
+   "type": "tussac",
+   "x": 1,
+   "y": 18,
+   "variant": 1
+  },
+  {
+   "type": "tussac",
+   "x": 16,
+   "y": 12,
+   "variant": 1
+  },
+  {
+   "type": "tussac",
+   "x": 28,
+   "y": 9,
+   "variant": 1
+  },
+  {
+   "type": "tussac",
+   "x": 34,
+   "y": 10,
+   "variant": 2
+  },
+  {
+   "type": "tussac",
+   "x": 47,
+   "y": 12,
+   "variant": 2
+  },
+  {
+   "type": "tussac",
+   "x": 53,
+   "y": 12,
+   "variant": 2
+  },
+  {
+   "type": "tussac",
+   "x": 1,
+   "y": 23,
+   "variant": 0
+  },
+  {
+   "type": "tussac",
+   "x": 14,
+   "y": 23,
+   "variant": 1
+  },
+  {
+   "type": "tussac",
+   "x": 26,
+   "y": 22,
+   "variant": 0
+  },
+  {
+   "type": "tussac",
+   "x": 35,
+   "y": 23,
+   "variant": 1
+  },
+  {
+   "type": "tussac",
+   "x": 52,
+   "y": 23,
+   "variant": 0
+  },
+  {
+   "type": "tussac",
+   "x": 8,
+   "y": 14,
+   "variant": 1
+  },
+  {
+   "type": "flagpole",
+   "x": 10,
+   "y": 19,
+   "variant": 0
+  },
+  {
+   "type": "flagpole",
+   "x": 44,
+   "y": 19,
+   "variant": 0
+  },
+  {
+   "type": "bollard",
+   "x": 43,
+   "y": 25
+  },
+  {
+   "type": "bollard",
+   "x": 46,
+   "y": 25
+  },
+  {
+   "type": "boat",
+   "x": 48,
+   "y": 28,
+   "variant": 1
+  },
+  {
+   "type": "lobster_pots",
+   "x": 42,
+   "y": 24
+  }
+ ],
+ "warps": [
+  {
+   "x": 7,
+   "y": 19,
+   "to": "grytviken_church",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 14,
+   "y": 19,
+   "to": "grytviken_museum",
+   "tx": 6,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 21,
+   "y": 19,
+   "to": "grytviken_shop",
+   "tx": 4,
+   "ty": 5,
+   "facing": "up"
+  },
+  {
+   "x": 31,
+   "y": 19,
+   "to": "grytviken_factory",
+   "tx": 6,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 48,
+   "y": 19,
+   "to": "grytviken_sanctuary",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 24,
+   "y": 12,
+   "to": "grytviken_lab",
+   "tx": 5,
+   "ty": 5,
+   "facing": "up"
+  }
+ ],
+ "edges": {
+  "east": {
+   "to": "sg_salisbury",
+   "offset": 0
+  }
+ },
+ "npcs": [
+  {
+   "id": "sg_biosec",
+   "sprite": "warden_grunt",
+   "x": 31,
+   "y": 21,
+   "facing": "down",
+   "move": "still",
+   "script": "sg_biosec",
+   "name": "Biosecurity Officer"
+  },
+  {
+   "id": "sg_grave_visitor",
+   "sprite": "explorer",
+   "x": 8,
+   "y": 8,
+   "facing": "left",
+   "move": "still",
+   "script": "sg_grave_visitor",
+   "name": "Toast Man"
+  },
+  {
+   "id": "sg_photographer",
+   "sprite": "student",
+   "x": 17,
+   "y": 24,
+   "facing": "down",
+   "move": "still",
+   "trainer": "sg_photographer"
+  },
+  {
+   "id": "sg_lecturer",
+   "sprite": "tour_guide",
+   "x": 36,
+   "y": 21,
+   "facing": "down",
+   "move": "still",
+   "trainer": "sg_lecturer"
+  },
+  {
+   "id": "sg_ferryman",
+   "sprite": "sailor",
+   "x": 45,
+   "y": 29,
+   "facing": "down",
+   "move": "still",
+   "script": "sg_departure",
+   "name": "Boatman",
+   "departure": true
+  },
+  {
+   "id": "sg_wanderer",
+   "sprite": "hillwalker",
+   "x": 26,
+   "y": 25,
+   "facing": "up",
+   "move": "still",
+   "script": "sg_wanderer",
+   "name": "Cruise Passenger"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "oakling",
+    "min": 95,
+    "max": 96,
+    "weight": 18
+   },
+   {
+    "species": "slabpup",
+    "min": 95,
+    "max": 96,
+    "weight": 16
+   },
+   {
+    "species": "tussipit",
+    "min": 95,
+    "max": 96,
+    "weight": 14
+   },
+   {
+    "species": "petrelash",
+    "min": 95,
+    "max": 96,
+    "weight": 8,
+    "time": [
+     "dusk",
+     "night"
+    ]
+   },
+   {
+    "species": "chipgull",
+    "min": 95,
+    "max": 96,
+    "weight": 10
+   },
+   {
+    "species": "pupplash",
+    "min": 95,
+    "max": 96,
+    "weight": 10
+   }
+  ],
+  "water": [
+   {
+    "species": "selklet",
+    "min": 95,
+    "max": 96,
+    "weight": 14
+   },
+   {
+    "species": "orcalet",
+    "min": 95,
+    "max": 96,
+    "weight": 8
+   },
+   {
+    "species": "clearfin",
+    "min": 95,
+    "max": 96,
+    "weight": 4
+   },
+   {
+    "species": "dolphlet",
+    "min": 95,
+    "max": 96,
+    "weight": 10
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 7,
+   "y": 7,
+   "text": "SIR ERNEST SHACKLETON. Born in Ireland in 1874, he died of a heart attack on 5 January 1922, aboard the ship Quest, in Grytviken harbour, on his fourth Antarctic expedition. His wife asked that he stay here, in the whalers' cemetery. The granite headstone carries a line of Browning: 'I hold that a man should strive to the uttermost for his life's set prize.' Visitors toast the Boss with whisky, and pour a drop on the ground.",
+   "plaque": "south_georgia_shackleton",
+   "title": "Shackleton's Grave"
+  },
+  {
+   "x": 5,
+   "y": 8,
+   "text": "FRANK WILD. Shackleton's loyal second in command through three expeditions. He died in South Africa in 1939, and for years his ashes were mislaid. They were found, and in 2011 they were buried here, beside the Boss, as he had wanted.",
+   "plaque": "south_georgia_wild",
+   "title": "Frank Wild"
+  },
+  {
+   "x": 8,
+   "y": 22,
+   "text": "GRYTVIKEN. It means 'Pot Cove': a Swedish expedition in 1902 found old sealers' try-pots rusting on the shore. Carl Anton Larsen, a Norwegian captain, built a whaling station here in 1904, the first on South Georgia. The last whale was processed in 1965, and the place has been quiet ever since, apart from the seals.",
+   "plaque": "south_georgia_grytviken",
+   "title": "Grytviken"
+  },
+  {
+   "x": 16,
+   "y": 22,
+   "text": "THE SOUTH GEORGIA MUSEUM. It lives in the old whaling station manager's villa, and tells the story of sealing, whaling, exploration and wildlife. It also has a gift shop, a very small post office and a model of the James Caird, which is what Shackleton sailed here from Elephant Island, about 800 nautical miles in a lifeboat.",
+   "plaque": "south_georgia_museum",
+   "title": "South Georgia Museum"
+  },
+  {
+   "x": 22,
+   "y": 22,
+   "text": "THE NORWEGIAN CHURCH. Built for the whalers by the Norwegian community, it is a plain white wooden church with a spire the size of a pencil. It is still used for services and for the occasional wedding, which must be the most remote photographs in the Commonwealth.",
+   "plaque": "south_georgia_church",
+   "title": "The Church at Grytviken"
+  },
+  {
+   "x": 33,
+   "y": 22,
+   "text": "THE WHALING STATION. Between 1904 and 1965 about 175,000 whales were killed around South Georgia, and the carcasses were boiled down for oil in sheds like these. The oil lit lamps and made soap and margarine. The island has been recovering its whales for decades, and the humpbacks are coming back.",
+   "plaque": "south_georgia_factory",
+   "title": "The Whaling Station"
+  },
+  {
+   "x": 40,
+   "y": 22,
+   "text": "THE WHALE CATCHERS. Three rusting ships lie in the shallows: the Dias, the Albatros and the Petrel. The Dias was built in Yorkshire in 1906 as a Hull trawler called Viola, long before she came south to hunt whales. They are slowly turning to rust, as people turn to museums.",
+   "plaque": "south_georgia_hulks",
+   "title": "The Whale Catchers"
+  },
+  {
+   "x": 48,
+   "y": 22,
+   "text": "KING EDWARD POINT. A spit across the cove from Grytviken, named after Edward VII. Here are the island's government officers, the fisheries patrol and the British Antarctic Survey's research station. Everyone knows everyone. There is only one shop, and it is the museum's.",
+   "plaque": "south_georgia_kep",
+   "title": "King Edward Point"
+  },
+  {
+   "x": 30,
+   "y": 20,
+   "text": "BOOTS, BAGS, SEEDS. South Georgia has no rats, mice or plants brought from home, and it means to keep it that way. Every visitor has their boots washed and their kit checked for seeds, and the biosecurity officer would like a word about your pocket fluff.",
+   "plaque": "south_georgia_biosecurity",
+   "title": "Biosecurity"
+  },
+  {
+   "x": 3,
+   "y": 22,
+   "text": "RATS, GONE. Brown rats came ashore with the sealing ships and ate the ground-nesting birds. Between 2011 and 2015 a charity, the South Georgia Heritage Trust, baited the whole island by helicopter, and in 2018 it was declared rat-free. The South Georgia pipit, the world's most southerly songbird, is back in the tussac in numbers.",
+   "plaque": "south_georgia_rats",
+   "title": "Rats, Gone"
+  },
+  {
+   "x": 52,
+   "y": 22,
+   "text": "THE ISLAND. South Georgia lies about 1,400 kilometres south-east of the Falkland Islands: a long, mountainous crescent about 170 kilometres end to end. Captain James Cook landed in 1775 and claimed it for King George III. He found it, he wrote, a land doomed by nature to endless frozen winter, and left. He didn't see the penguins.",
+   "plaque": "south_georgia_cook",
+   "title": "The Island"
+  },
+  {
+   "x": 44,
+   "y": 24,
+   "text": "JETTY. The ferry for Salisbury Plain leaves from the end of the pier. (There is no ferry. You walk. But you can talk to the boat when you are ready for home.)"
+  }
+ ],
+ "spawn": [
+  20,
+  21
+ ],
+ "stage": "coast",
+ "town_id": "grytviken",
+ "legend_extra": {
+  "n": {
+   "tile": "grass",
+   "colour": "#eef3f8"
+  },
+  "N": {
+   "tile": "tall_grass",
+   "colour": "#d9e4ec",
+   "prop": "none"
+  },
+  "k": {
+   "tile": "grass",
+   "colour": "#7d8a4c"
+  },
+  "K": {
+   "tile": "tall_grass",
+   "colour": "#8a9650",
+   "prop": "none"
+  },
+  "e": {
+   "tile": "path",
+   "colour": "#c4cacd"
+  },
+  "g": {
+   "tile": "sand",
+   "colour": "#7f7a74"
+  },
+  "G": {
+   "tile": "cliff",
+   "colour": "#d4e6f0",
+   "side": "#a8c8da"
+  },
+  "M": {
+   "tile": "rock",
+   "colour": "#e6ecf1"
+  },
+  "i": {
+   "tile": "path",
+   "colour": "#b9d8e8"
+  }
+ },
+ "scaled_floor": 95,
+ "rows": [
+  "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMGGGGGGGGGGMMMMMMMMMM",
+  "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMGGGGGGGGGGMMMMMMMMMM",
+  "nMnnnnnnMnnnnnnnMMMnMnMnMnMMnnMMMMnnGGGGGGGGGGnnnnMnnnnM",
+  "nMnnnnMMnnnMnnnnnnnMnnnnnnnnnnMMnnnnGGGGGGGGGGMnMnnnnnMM",
+  "kknnnkkkknkkkkknnkkkkkkkNkkkkkknknknGGGGGGGGGGnkNkNkkkkM",
+  "kkFFFFFFFFFFkkkNkkkkkkkkkkkkkNkkNkkNGGGGGGGGGGknkkkkknkM",
+  "knFkkkkkkkkFkkkkkkkknkknkkknkkkknkknGGGGGGGGGGknnknkkkkM",
+  "kkFkkkkkkkkFkkknnnNnNkkkkkkkkknnkkNkNkGGGGGGkkNkkknNnkNM",
+  "kkFkkkkkkkkFkkkkNNNBBBBBBNkkkkknnkkkkkGGGGGGkkknkNkkNknM",
+  "nkFkkkkkkkkFkkkkkNnBBBBBBNNkknkNkkkkkkGGGGGGkkknkknnkkkM",
+  "kkFkkkkkkkkFKKKknKKBBBBBBKknNKKKKNKNKKnKKNKNKKKkKkknKNKM",
+  "knFeFFFFFFFFKKKKKKkBBBBBBkKKkkkKKknKnKkKkKnKKnkkKnKKKkKM",
+  "kKKeKkKKKkKKkKKKKkKBBBBBDkBBBBBBBBBBBKkkkKKkkkkkKkkKkkkM",
+  "kkkekkkkkkkkkkkkkkkkkkkkekBBBBBBBBBBBkBBBBBBkkkkkkkkkkkM",
+  "kkkekBBBBBkkkkkkkkkkkkkkekBBBBBBBBBBBkBBBBBBkkkkkkkkkkkM",
+  "kkkekBBBBBkBBBBBBBkkkkkkekBBBBBBBBBBBkBBBBBBkBBBBBBkkkkM",
+  "kkkekBBBBBkBBBBBBBkBBBBBekBBBBBBBBBBBkBBBBBBkBBBBBBkkkkM",
+  "kkkekBBBBBkBBBBBBBkBBBBBekBBBBBBBBBBBkkkkkkkkBBBBBBkkkkM",
+  "kkkekBBBBBkBBBBBBBkBBBBBekBBBBBBBBBBBkkkkkkkkBBBBBBkkkkM",
+  "kkkekBBDBBkBBBDBBBkBBDBBekBBBBBDBBBBBkkkkkkkkBBBDBBkkkkM",
+  "keeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+  "keeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+  "kKkkkkkkkKkKKKKkkkkkkkkkkkkKkkkkkkkKkKkkkkKkkkkkkkKKkkkM",
+  "kkKkkkkkkKKkKkkkKkkKkkkkKKkKkkkkkkkkkkkkKkkkkkkkKkkkkkKM",
+  "KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKM",
+  "ggggggggggggggggggggggggggggggggggggggggggggeegggggggggM",
+  "ggggggggggggggggggggggggggggggggggggggggggggeegggggggggM",
+  "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwweewwwwwwwwwM",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ee$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ee$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ee$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ee$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
+ ]
+}

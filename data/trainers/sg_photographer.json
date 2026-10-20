@@ -1,0 +1,32 @@
+{
+ "id": "sg_photographer",
+ "name": "Wildlife Photographer",
+ "class": "Photographer",
+ "sprite": "student",
+ "scaled_floor": 95,
+ "party": [
+  {
+   "species": "polartern",
+   "level": 95
+  },
+  {
+   "species": "selklet",
+   "level": 96
+  },
+  {
+   "species": "oakling",
+   "level": 96
+  }
+ ],
+ "ai": "trainer",
+ "money": 2800,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Wildlife Photographer",
+   "text": "Hold still. Don't blink. I've waited eleven days for a penguin to look at me and it's you."
+  }
+ ],
+ "win": "You've ruined my composition. Also my afternoon. Can I get one of those?",
+ "after": "I got a seal doing a yawn. Nobody believes it's real."
+}

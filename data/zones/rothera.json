@@ -1,0 +1,395 @@
+{
+ "id": "rothera",
+ "name": "Rothera",
+ "region": "overseas_antarctic",
+ "kind": "town",
+ "music": "route_mountain",
+ "weather": {
+  "frost": 30,
+  "gale": 20,
+  "clear": 20,
+  "fog": 10,
+  "sunshine": 12,
+  "drizzle": 4,
+  "downpour": 4
+ },
+ "props": [
+  {
+   "type": "building",
+   "style": "sanctuary",
+   "x": 5,
+   "y": 11,
+   "w": 6,
+   "h": 4,
+   "label": "Medical Room"
+  },
+  {
+   "type": "building",
+   "style": "shop",
+   "x": 12,
+   "y": 11,
+   "w": 5,
+   "h": 4,
+   "label": "Station Shop"
+  },
+  {
+   "type": "building",
+   "style": "research_station",
+   "x": 18,
+   "y": 10,
+   "w": 8,
+   "h": 5,
+   "label": "Bonner Laboratory",
+   "kind": "workshop"
+  },
+  {
+   "type": "building",
+   "style": "research_station",
+   "x": 28,
+   "y": 10,
+   "w": 8,
+   "h": 5,
+   "label": "Main Building",
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "hangar",
+   "x": 38,
+   "y": 9,
+   "w": 10,
+   "h": 6,
+   "label": "Hangar",
+   "kind": "workshop"
+  },
+  {
+   "type": "skidoo",
+   "x": 36,
+   "y": 18
+  },
+  {
+   "type": "skidoo",
+   "x": 49,
+   "y": 18
+  },
+  {
+   "type": "flagpole",
+   "x": 4,
+   "y": 14,
+   "variant": 0
+  },
+  {
+   "type": "flagpole",
+   "x": 49,
+   "y": 14,
+   "variant": 0
+  },
+  {
+   "type": "iceberg",
+   "x": 6,
+   "y": 29,
+   "variant": 2
+  },
+  {
+   "type": "iceberg",
+   "x": 24,
+   "y": 30,
+   "variant": 1
+  },
+  {
+   "type": "iceberg",
+   "x": 44,
+   "y": 29,
+   "variant": 2
+  },
+  {
+   "type": "iceberg",
+   "x": 51,
+   "y": 31,
+   "variant": 0
+  },
+  {
+   "type": "seal",
+   "x": 8,
+   "y": 24,
+   "variant": 1
+  },
+  {
+   "type": "seal",
+   "x": 40,
+   "y": 24,
+   "variant": 1
+  }
+ ],
+ "warps": [
+  {
+   "x": 8,
+   "y": 14,
+   "to": "rothera_sanctuary",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 14,
+   "y": 14,
+   "to": "rothera_shop",
+   "tx": 4,
+   "ty": 5,
+   "facing": "up"
+  },
+  {
+   "x": 22,
+   "y": 14,
+   "to": "rothera_lab",
+   "tx": 5,
+   "ty": 5,
+   "facing": "up"
+  },
+  {
+   "x": 43,
+   "y": 14,
+   "to": "rothera_hangar",
+   "tx": 6,
+   "ty": 6,
+   "facing": "up"
+  }
+ ],
+ "edges": {
+  "west": {
+   "to": "port_lockroy",
+   "offset": 0
+  },
+  "east": {
+   "to": "brunt_shelf",
+   "offset": 0
+  }
+ },
+ "npcs": [
+  {
+   "id": "bat_pilot",
+   "sprite": "explorer",
+   "x": 41,
+   "y": 17,
+   "facing": "down",
+   "move": "still",
+   "script": "bat_pilot",
+   "name": "Twin Otter Pilot",
+   "departure": true
+  },
+  {
+   "id": "bat_diver",
+   "sprite": "surfer",
+   "x": 14,
+   "y": 18,
+   "facing": "down",
+   "move": "still",
+   "trainer": "bat_diver"
+  },
+  {
+   "id": "bat_cook",
+   "sprite": "jam_maker",
+   "x": 20,
+   "y": 18,
+   "facing": "down",
+   "move": "still",
+   "trainer": "bat_cook"
+  },
+  {
+   "id": "bat_fitter",
+   "sprite": "steelworker",
+   "x": 30,
+   "y": 17,
+   "facing": "down",
+   "move": "still",
+   "script": "bat_fitter",
+   "name": "Station Mechanic"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "downlet",
+    "min": 95,
+    "max": 96,
+    "weight": 14
+   },
+   {
+    "species": "clearfin",
+    "min": 95,
+    "max": 96,
+    "weight": 6
+   },
+   {
+    "species": "polartern",
+    "min": 95,
+    "max": 96,
+    "weight": 10
+   },
+   {
+    "species": "petrelash",
+    "min": 95,
+    "max": 96,
+    "weight": 8,
+    "time": [
+     "dusk",
+     "night"
+    ]
+   },
+   {
+    "species": "haarling",
+    "min": 95,
+    "max": 96,
+    "weight": 6,
+    "weather": [
+     "fog"
+    ]
+   },
+   {
+    "species": "stalaghast",
+    "min": 95,
+    "max": 96,
+    "weight": 3
+   }
+  ],
+  "water": [
+   {
+    "species": "selklet",
+    "min": 95,
+    "max": 96,
+    "weight": 12
+   },
+   {
+    "species": "orcalet",
+    "min": 95,
+    "max": 96,
+    "weight": 8
+   },
+   {
+    "species": "clearfin",
+    "min": 95,
+    "max": 96,
+    "weight": 8
+   },
+   {
+    "species": "orcaird",
+    "min": 95,
+    "max": 96,
+    "weight": 3
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 8,
+   "y": 17,
+   "text": "ROTHERA. The British Antarctic Survey's main base, on Adelaide Island, opened in 1975 and named after John Rothera, a surveyor who worked in the area. In the southern summer more than a hundred people live here, in winter about twenty. It's the biggest British base on the continent, and runs on gravel, aviation fuel and a great deal of tea.",
+   "plaque": "antarctic_rothera",
+   "title": "Rothera Research Station"
+  },
+  {
+   "x": 22,
+   "y": 17,
+   "text": "THE RRS SIR DAVID ATTENBOROUGH. Britain's polar research ship, in service since 2020, ploughs to Rothera each summer with supplies. A public vote to name her picked 'Boaty McBoatface', so the name went to a small yellow robot submarine on board instead. She is called Sir David Attenborough, and the sub is called Boaty. Both are very good.",
+   "plaque": "antarctic_attenborough",
+   "title": "The RRS Sir David Attenborough"
+  },
+  {
+   "x": 32,
+   "y": 17,
+   "text": "THE AIRFIELD. A gravel runway rather than snow or ice, so ordinary wheels can land. Twin Otters on skis or wheels fly scientists and kit to field camps all over the Peninsula, and a larger plane, the Dash 7, flies in from Punta Arenas, in Chile. There is no weather forecast so precise as the one on the pilot's face.",
+   "plaque": "antarctic_airfield",
+   "title": "The Rothera Airfield"
+  },
+  {
+   "x": 44,
+   "y": 17,
+   "text": "MIDWINTER'S DAY. On 21 June, the shortest day in the south, every Antarctic base stops and holds a feast. Scientists dress up, cooks outdo themselves, cards are posted to friends at other bases, and presents are exchanged. It's an Antarctic tradition older than the Treaty, and a very good reason for a pudding.",
+   "plaque": "antarctic_midwinter",
+   "title": "Midwinter's Day"
+  }
+ ],
+ "spawn": [
+  10,
+  16
+ ],
+ "stage": "mountain",
+ "town_id": "rothera",
+ "legend_extra": {
+  "n": {
+   "tile": "grass",
+   "colour": "#eef3f8"
+  },
+  "N": {
+   "tile": "tall_grass",
+   "colour": "#dce8f0",
+   "prop": "none"
+  },
+  "e": {
+   "tile": "path",
+   "colour": "#c9d3d9"
+  },
+  "i": {
+   "tile": "path",
+   "colour": "#b4d6e6"
+  },
+  "a": {
+   "tile": "path",
+   "colour": "#8f918f"
+  },
+  "r": {
+   "tile": "grass",
+   "colour": "#7b7d7e"
+  },
+  "G": {
+   "tile": "cliff",
+   "colour": "#d4e6f0",
+   "side": "#a8c8da"
+  },
+  "M": {
+   "tile": "rock",
+   "colour": "#e6ecf1"
+  },
+  "w": {
+   "tile": "shallow",
+   "colour": "#8fb4c8"
+  }
+ },
+ "scaled_floor": 95,
+ "rows": [
+  "MGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGM",
+  "MGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGM",
+  "MGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGM",
+  "MGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGM",
+  "MGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGM",
+  "MGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGM",
+  "MnMnMMMnnnMMMnMMMMMMMnnMMMnMMMnMMMnMMMnMMnnMMnMMMMMMMMMM",
+  "MMMMMMMnMMMMnnMMnMnMMMMMMnMMMMnMMnnMnMMMMMMMMMnnMnMMMnMM",
+  "MnnnnnnMnnnnnnnnnnnnnMnnMnnMMnnMnMnnMnnnnnnnMnMnnMnnnMnM",
+  "MnnnMnnnnnnnnnnnnnnMnnMnnnnnMnMMnnnnnnBBBBBBBBBBMnnnnnnM",
+  "MNnNnMMnMMnNnNMnnNBBBBBBBBnNBBBBBBBBnMBBBBBBBBBBNNNnMMnM",
+  "MNMnnBBBBBBnBBBBBnBBBBBBBBnnBBBBBBBBnNBBBBBBBBBBnnMNnnNM",
+  "MnMMnBBBBBBnBBBBBnBBBBBBBBnNBBBBBBBBMnBBBBBBBBBBNNnNNNnM",
+  "MNnnNBBBBBBnBBBBBNBBBBBBBBnnBBBBBBBBNNBBBBBBBBBBnNnnnnNM",
+  "MnnnnBBBDBBnBBDBBnBBBBDBBBnnBBBBBBBBnnBBBBBDBBBBnnnnnnnM",
+  "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+  "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+  "MnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnM",
+  "MnnnnnnnnnnnnnnnnnrnnnrnrnnnnnrnnnrnnnrnnnnnnnnnrnnnrrnM",
+  "MnnnrnnnnnnnnnnrnnrrnrnnnrnnrnnnnnnrnnnrnnnnnnnnnnnrnrrM",
+  "MnnnrrnrnnrnnnnnnnnrnnnnrnnrrnrrnrrnnnnnnrnrnnnnnrrnnnnM",
+  "MrraaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaarrM",
+  "MrraaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaarrM",
+  "MrnNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNnnM",
+  "MrnNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNrnM",
+  "MwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwM",
+  "MwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwM",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
+ ]
+}

@@ -1,0 +1,32 @@
+{
+ "id": "sg_lecturer",
+ "name": "Expedition Lecturer",
+ "class": "Lecturer",
+ "sprite": "tour_guide",
+ "scaled_floor": 95,
+ "party": [
+  {
+   "species": "marilwyd",
+   "level": 95
+  },
+  {
+   "species": "kingwalker",
+   "level": 96
+  },
+  {
+   "species": "slabpup",
+   "level": 95
+  }
+ ],
+ "ai": "trainer",
+ "money": 3200,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Expedition Lecturer",
+   "text": "I speak on the Heroic Age of Antarctic Exploration for forty minutes without notes. I can fight for longer."
+  }
+ ],
+ "win": "A fair point, well made, and quite right. I shall work it into the second half.",
+ "after": "The audience always asks if Shackleton was cold. Yes. That's the whole lecture."
+}

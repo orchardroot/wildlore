@@ -1,0 +1,75 @@
+{
+ "id": "rothera_hangar",
+ "name": "Hangar",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "twin_otter",
+   "x": 6,
+   "y": 3
+  },
+  {
+   "type": "steel_plates",
+   "x": 2,
+   "y": 2
+  },
+  {
+   "type": "gantry_crane",
+   "x": 11,
+   "y": 2
+  },
+  {
+   "type": "brazier",
+   "x": 11,
+   "y": 6
+  },
+  {
+   "type": "table",
+   "x": 2,
+   "y": 5
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 7,
+   "to": "rothera",
+   "tx": 43,
+   "ty": 15,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "bat_hangar",
+   "sprite": "steelworker",
+   "x": 10,
+   "y": 4,
+   "facing": "down",
+   "move": "still",
+   "script": "bat_hangar",
+   "name": "Aircraft Engineer"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  6,
+  6
+ ],
+ "rows": [
+  "xxxxxxxxxxxxx",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++D+++++x",
+  "xxxxxxxxxxxxx"
+ ]
+}

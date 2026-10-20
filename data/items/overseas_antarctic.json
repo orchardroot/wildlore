@@ -1,0 +1,48 @@
+[
+ {
+  "id": "pemmican",
+  "name": "Pemmican",
+  "kind": "heal",
+  "price": 260,
+  "battle": true,
+  "field": true,
+  "amount": 120,
+  "desc": "Dried meat pounded with fat into a brick, the polar explorers' favourite since the first expeditions: all the calories, none of the charm. Restores 120 HP, and sticks to your teeth until spring."
+ },
+ {
+  "id": "midwinter_dinner",
+  "name": "Midwinter Dinner",
+  "kind": "heal",
+  "price": 400,
+  "battle": true,
+  "field": true,
+  "amount": 220,
+  "desc": "Every Antarctic base holds a feast on Midwinter's Day, 21 June. Roast, pudding and a speech from the base commander. Nobody has ever left hungry, or sober. Restores 220 HP."
+ },
+ {
+  "id": "fids_hat",
+  "name": "Fid's Woolly Hat",
+  "kind": "charm",
+  "price": 3400,
+  "battle": false,
+  "field": true,
+  "wild": true,
+  "desc": "A heavy knitted hat in the style of the old Falkland Islands Dependencies Survey men: warm enough for a winter on the Peninsula and daft enough for the photographs. Handed down, like the beards.",
+  "effect_text": "Frost moves hurt it 25% less.",
+  "charm": {
+   "effect": "resist",
+   "type": "frost",
+   "mult": 0.75
+  },
+  "msg": "{name}'s Woolly Hat kept the frost off!"
+ },
+ {
+  "id": "mail_sack",
+  "name": "Mail Sack",
+  "kind": "key",
+  "price": 0,
+  "battle": false,
+  "field": false,
+  "desc": "A heavy canvas sack of postcards, due for the Penguin Post Office at Port Lockroy. It smells of aviation fuel and good intentions."
+ }
+]

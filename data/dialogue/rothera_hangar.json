@@ -1,0 +1,48 @@
+{
+ "bat_hangar": [
+  {
+   "do": "if",
+   "flag": "q_overseas_antarctic_post_1",
+   "then": [
+    {
+     "do": "say",
+     "who": "Aircraft Engineer",
+     "text": "Sack's yours, with my blessing. Mind the Twin Otter. It's older than I am and a lot better looked after."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_overseas_antarctic_post_started",
+     "then": [
+      {
+       "do": "say",
+       "who": "Aircraft Engineer",
+       "text": "Mail sack for the Post Office? There, by the wall. Twenty kilos of postcards and one parcel that rattles. Don't ask."
+      },
+      {
+       "do": "give_item",
+       "item": "mail_sack"
+      },
+      {
+       "do": "set",
+       "flag": "q_overseas_antarctic_post_1"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Aircraft Engineer",
+       "text": "Twin Otter on skis. Eighteen cylinders between two engines and a lot of faith. We keep the wheels for the runway and the skis for the rest of the continent."
+      },
+      {
+       "do": "say",
+       "who": "Aircraft Engineer",
+       "text": "The pilots do all the clever bit. I do the other clever bit, which is stopping them dying."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
