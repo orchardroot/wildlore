@@ -1,0 +1,96 @@
+{
+ "bla_caretaker": [
+  {
+   "do": "if",
+   "flag": "q_valleys_choir_3",
+   "then": [
+    {
+     "do": "say",
+     "who": "Caretaker",
+     "text": "I'll be there. I've got the hymn book out and everything."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_valleys_choir_started",
+     "then": [
+      {
+       "do": "say",
+       "who": "Caretaker",
+       "text": "A bass? Baritone, I'll have you know! There's a difference. And I'm not singing for just anybody. Here: what is Wales' national anthem called?"
+      },
+      {
+       "do": "choice",
+       "text": "Wales' national anthem is...",
+       "options": [
+        "Calon Lan",
+        "Cwm Rhondda",
+        "Hen Wlad Fy Nhadau",
+        "Myfanwy"
+       ],
+       "set": "_caretaker_q"
+      },
+      {
+       "do": "if",
+       "flag": "_caretaker_q",
+       "eq": 2,
+       "then": [
+        {
+         "do": "say",
+         "who": "Caretaker",
+         "text": "Hen Wlad Fy Nhadau: 'Land of My Fathers'. Written in Pontypridd in 1856 by Evan and James James, father and son. Right, I'll sing. Third from the left, baritone."
+        },
+        {
+         "do": "set",
+         "flag": "q_valleys_choir_3",
+         "value": true
+        },
+        {
+         "do": "sfx",
+         "id": "item"
+        },
+        {
+         "do": "say",
+         "who": "",
+         "text": "You found a baritone for the eisteddfod choir."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Caretaker",
+         "text": "No, bach. That one's lovely, mind, but it's not the anthem. Try again."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Caretaker",
+       "text": "I look after the Workmen's Hall: the stage, the library, the billiards, the lot. I sing, too, in my own time. Mostly to the radiators."
+      },
+      {
+       "do": "say",
+       "who": "Caretaker",
+       "text": "Ask me again if the choir needs a baritone. They do, usually."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "bla_billiards": [
+  {
+   "do": "say",
+   "who": "Billiards player",
+   "text": "Eight feet of green baize, bought with the pennies of men who'd already done a shift. It's still the best table in Gwent."
+  },
+  {
+   "do": "say",
+   "who": "Billiards player",
+   "text": "The hall had a library, a stage, a cinema and a committee. The committee argued about all four. A proper institution."
+  }
+ ]
+}

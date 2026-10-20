@@ -26,6 +26,8 @@ const SPECIAL := ["glass_tower", "gantry_crane", "cantilever_crane", "titanic", 
 	"magpie", "flax_mill", "blast_furnace",
 	"gault", "flint", "flint_gable", "thatch", "college", "kings_chapel", "portico", "ely_cathedral", "norwich_cathedral",
 	"norman_keep", "football_stand",
+	# South Wales valleys (Rhondda, Merthyr, Blaenavon)
+	"winding_gear", "valley_terrace", "steam_loco", "ironworks",
 	# Fife and the Forth (3.0 Wider Isles)
 	"forth_bridge", "forth_approach", "road_bridge", "bridge_girder", "cable_stayed", "crow_step", "culross_palace", "tenement",
 	"st_andrews_ruin", "obelisk", "discovery_ship", "va_dundee", "tay_bridge"]
@@ -35,6 +37,10 @@ const SPECIAL := ["glass_tower", "gantry_crane", "cantilever_crane", "titanic", 
 ## the footprint's south edge. Styles drawn by Meshes.building (and anything unknown) use DOOR_PLAIN.
 const DOOR_PLAIN := {"x": 0.22, "w": 0.56, "y": 0.18, "h": 0.9, "z": -0.02}
 const DOOR_RECTS := {
+	"winding_gear": {"x": 0.22, "w": 0.56, "y": 0.16, "h": 1.1, "z": -0.05},
+	"valley_terrace": {"x": 0.22, "w": 0.56, "y": 0.16, "h": 0.9, "z": -0.02},
+	"steam_loco": {"x": 0.22, "w": 0.56, "y": 0.0, "h": 0.1, "z": -0.02},
+	"ironworks": {"x": 0.12, "w": 0.76, "y": 0.0, "h": 1.35, "z": -0.5},
 	"mill": {"x": 0.22, "w": 0.56, "y": 0.16, "h": 1.1, "z": -0.02},
 	"station": {"x": 0.22, "w": 0.56, "y": 0.16, "h": 1.0, "z": -0.02},
 	"chapel": {"x": 0.22, "w": 0.56, "y": 0.16, "h": 1.1, "z": -0.02},
@@ -292,6 +298,14 @@ static func building(w: int, d: int, style: String, door_x: int, seed_value: int
 			_magpie(st, wst, w, d, door_x, rng)
 		"flax_mill":
 			_flax_mill(st, wst, w, d, door_x)
+		"winding_gear":
+			ValleyStyles.winding_gear(st, wst, w, d, door_x)
+		"valley_terrace":
+			ValleyStyles.terrace(st, wst, w, d, door_x, rng)
+		"steam_loco":
+			ValleyStyles.steam_loco(st, wst, w, d, door_x)
+		"ironworks":
+			ValleyStyles.ironworks(st, wst, w, d, door_x)
 		"blast_furnace":
 			_blast_furnace(st, wst, w, d, door_x)
 		"gault", "flint", "flint_gable", "thatch", "college", "kings_chapel", "portico", "ely_cathedral", "norwich_cathedral", "norman_keep", "football_stand":

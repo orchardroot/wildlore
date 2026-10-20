@@ -1,0 +1,129 @@
+{
+ "id": "merthyr_ynysfach",
+ "name": "Ynysfach Engine House",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "bookshelf",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 11,
+   "y": 1
+  },
+  {
+   "type": "table",
+   "x": 3,
+   "y": 5
+  },
+  {
+   "type": "table",
+   "x": 9,
+   "y": 5
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 7
+  },
+  {
+   "type": "potted_plant",
+   "x": 11,
+   "y": 7
+  },
+  {
+   "type": "display_case",
+   "x": 3,
+   "y": 2,
+   "variant": 1
+  },
+  {
+   "type": "display_case",
+   "x": 9,
+   "y": 2,
+   "variant": 2
+  },
+  {
+   "type": "slate_heap",
+   "x": 1,
+   "y": 5
+  },
+  {
+   "type": "slate_heap",
+   "x": 11,
+   "y": 5,
+   "variant": 1
+  },
+  {
+   "type": "wall_map",
+   "x": 6,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "clock",
+   "x": 4,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "table",
+   "x": 2,
+   "y": 6
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 8,
+   "to": "merthyr",
+   "tx": 8,
+   "ty": 25,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "mer_ironguide",
+   "sprite": "tour_guide",
+   "x": 6,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "mer_ironguide",
+   "name": "Bryn, Iron Heritage guide"
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "x": 8,
+   "y": 5,
+   "plaque": "merthyr_penydarren",
+   "title": "The Penydarren Engine",
+   "text": "Trevithick's locomotive was a high-pressure steam engine with one horizontal cylinder let into the boiler, a tall chimney and a great flywheel. The exhaust steam was turned up the chimney to make the fire draw, which was a clever trick. It was the first of its kind to haul a load on rails."
+  }
+ ],
+ "spawn": [
+  6,
+  7
+ ],
+ "rows": [
+  "xxxxxxxxxxxxx",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++D+++++x",
+  "xxxxxxxxxxxxx"
+ ]
+}

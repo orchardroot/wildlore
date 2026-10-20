@@ -1,0 +1,88 @@
+{
+ "rhn_baker": [
+  {
+   "do": "if",
+   "flag": "q_valleys_choir_1",
+   "then": [
+    {
+     "do": "say",
+     "who": "Nan",
+     "text": "I'll be at the chapel Saturday. Have a Welsh cake for the road."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_valleys_choir_started",
+     "then": [
+      {
+       "do": "say",
+       "who": "Nan",
+       "text": "Sing? Me? I do a fair first tenor, mind. But I'm not singing for just anybody. A question first. Which hymn tune is named for this valley?"
+      },
+      {
+       "do": "choice",
+       "text": "Which hymn tune is named for the Rhondda?",
+       "options": [
+        "Cwm Rhondda",
+        "Greensleeves",
+        "Myfanwy",
+        "Land of Hope and Glory"
+       ],
+       "set": "_nan_q"
+      },
+      {
+       "do": "if",
+       "flag": "_nan_q",
+       "eq": 0,
+       "then": [
+        {
+         "do": "say",
+         "who": "Nan",
+         "text": "Cwm Rhondda! 'Bread of heaven'! Good girl, good boy, good whatever you are. I'll sing. Tell Elwyn I'll bring Welsh cakes for the second row."
+        },
+        {
+         "do": "set",
+         "flag": "q_valleys_choir_1",
+         "value": true
+        },
+        {
+         "do": "sfx",
+         "id": "item"
+        },
+        {
+         "do": "say",
+         "who": "",
+         "text": "You found the first tenor for the eisteddfod choir."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Nan",
+         "text": "No, no, no. Go and ask the old boys on the bench outside. Come back when you've got it."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Nan",
+       "text": "Welsh cakes, picau ar y maen: cakes on the stone. Flour, butter, currants, sugar and patience. Never an oven, never a rolling pin you've washed."
+      },
+      {
+       "do": "say",
+       "who": "Nan",
+       "text": "Mind, I sing as well as I bake. Ask Elwyn at the chapel if he's short of voices. He always is."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "do": "shop",
+   "id": "rhondda_bakehouse"
+  }
+ ]
+}

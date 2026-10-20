@@ -1,0 +1,32 @@
+{
+ "id": "mer_agent",
+ "name": "Ironmaster's Agent",
+ "class": "Ironmaster's Agent",
+ "sprite": "villager_1",
+ "scaled_floor": 36,
+ "party": [
+  {
+   "species": "gaugelet",
+   "level": 36
+  },
+  {
+   "species": "bobbin",
+   "level": 36
+  },
+  {
+   "species": "rustelver",
+   "level": 37
+  }
+ ],
+ "ai": "trainer",
+ "money": 3200,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Ironmaster's Agent",
+   "text": "A steam engine on rails! Haul ten tons of iron nearly ten miles? I'll bet you five hundred guineas, no, I'll bet my reputation, that it breaks down before Quaker's Yard."
+  }
+ ],
+ "win": "Hmph. The wager's lost. Don't tell the ironmaster I said it was impressive.",
+ "after": "A steam engine is the future. Don't tell the horses."
+}

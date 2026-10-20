@@ -1,0 +1,110 @@
+{
+ "rail_guard": [
+  {
+   "do": "say",
+   "who": "Rail Guard",
+   "text": "Merthyr Tydfil! End of the line, and not a metaphor. This is where the Taff Vale Railway opened in 1841, taking iron and coal down to Cardiff docks."
+  },
+  {
+   "do": "say",
+   "who": "Rail Guard",
+   "text": "Trains back down the valley run all the way to Cardiff. Hold on to your hat: there's a tunnel and a lot of weather."
+  },
+  {
+   "do": "rail"
+  }
+ ],
+ "mer_mam": [
+  {
+   "do": "say",
+   "who": "Mam",
+   "text": "Merthyr people are the friendliest in Wales, and the most argumentative. They go together."
+  },
+  {
+   "do": "say",
+   "who": "Mam",
+   "text": "Cyfarthfa Park's lovely on a dry day. Go on, have a walk round the lake. You'll meet dippers, tits, and my sister, who feeds the swans out of spite."
+  }
+ ],
+ "mer_busker": [
+  {
+   "do": "say",
+   "who": "Busker",
+   "text": "(Humming 'Myfanwy' on the pavement.) You've caught me. Joseph Parry wrote it, a Merthyr man. It's about a girl who doesn't love him back. Typical Welsh love song."
+  },
+  {
+   "do": "say",
+   "who": "Busker",
+   "text": "Every choir in Wales sings it. They sing it at weddings, funerals, and half time."
+  }
+ ],
+ "mer_rising": [
+  {
+   "do": "say",
+   "who": "Local",
+   "text": "Dic Penderyn's name is on half the pubs and a lot of the walls in this town. Merthyr doesn't forget its own."
+  },
+  {
+   "do": "say",
+   "who": "Local",
+   "text": "They say he was innocent. Nearly two centuries on, people are still saying it, and the campaign for a pardon has never quite gone quiet."
+  }
+ ],
+ "mer_walker": [
+  {
+   "do": "say",
+   "who": "Park Walker",
+   "text": "Cyfarthfa Lake was dug to feed the ironworks' water wheels. Now it feeds the ducks."
+  },
+  {
+   "do": "say",
+   "who": "Park Walker",
+   "text": "The castle's much grander than the house the ironmaster needed. That was the idea. He wanted the workers to look up and see who was in charge."
+  }
+ ],
+ "mer_agent": [
+  {
+   "do": "if",
+   "flag": "q_valleys_wager_3",
+   "then": [
+    {
+     "do": "say",
+     "who": "Ironmaster's Agent",
+     "text": "I stand corrected. Don't tell Mr Crawshay. I'd be dismissed. He'd say it was pure Cyfarthfa spite."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_valleys_wager_2",
+     "then": [
+      {
+       "do": "battle",
+       "trainer": "mer_agent",
+       "intro": true
+      },
+      {
+       "do": "if",
+       "flag": "trainer_mer_agent",
+       "then": [
+        {
+         "do": "set",
+         "flag": "q_valleys_wager_3",
+         "value": true
+        }
+       ],
+       "else": []
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Ironmaster's Agent",
+       "text": "Another gawper? That engine'll never go anywhere. Five hundred guineas says it breaks the rails before the first bend."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

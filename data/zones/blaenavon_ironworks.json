@@ -1,0 +1,100 @@
+{
+ "id": "blaenavon_ironworks",
+ "name": "Blaenavon Ironworks",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 8
+  },
+  {
+   "type": "potted_plant",
+   "x": 13,
+   "y": 8
+  },
+  {
+   "type": "slate_heap",
+   "x": 1,
+   "y": 6
+  },
+  {
+   "type": "slate_heap",
+   "x": 13,
+   "y": 6,
+   "variant": 1
+  },
+  {
+   "type": "table",
+   "x": 3,
+   "y": 5
+  },
+  {
+   "type": "brazier",
+   "x": 11,
+   "y": 3
+  },
+  {
+   "type": "brazier",
+   "x": 3,
+   "y": 3
+  },
+  {
+   "type": "display_case",
+   "x": 11,
+   "y": 6,
+   "variant": 1
+  },
+  {
+   "type": "wall_picture",
+   "x": 7,
+   "y": 1,
+   "walk": true
+  }
+ ],
+ "warps": [
+  {
+   "x": 7,
+   "y": 9,
+   "to": "blaenavon",
+   "tx": 13,
+   "ty": 39,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "bla_ironguide",
+   "sprite": "tour_guide",
+   "x": 7,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "bla_ironguide",
+   "name": "Iolo, ironworks guide"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  7,
+  8
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxxx",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x||||||D||||||x",
+  "xxxxxxxxxxxxxxx"
+ ]
+}

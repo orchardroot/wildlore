@@ -1,6 +1,8 @@
 {
   "_doc": "Knacks: one passive per evolution line. 'knacks' defines each (name, desc, battle msg with {name}/{other}, and hook fields read by battle/knacks.gd); 'species' maps every species id to its line's knack. Legends have their own.",
   "knacks": {
+    "cwm_mizzle": {"name": "Cwm Mizzle", "desc": "Valley drizzle puts a song in the rock: its stone and fae moves hit harder in drizzle, fog or a downpour.", "msg": "{name} knocks, and the mizzle sings back!", "power_weather": {"weather": ["drizzle", "downpour", "fog"], "mult": 1.3, "types": ["stone", "fae"]}},
+    "full_head": {"name": "Full Head of Steam", "desc": "Comes out with the pressure up: its Attack rises as it arrives.", "msg": "{name} arrives with a full head of steam!", "entry_stage": {"to": "self", "stat": "atk", "stages": 1}},
     "thick_fleece": {"name": "Thick Fleece", "desc": "Frost moves and chills can't get through its coat.", "msg": "{name}'s Thick Fleece kept the frost out!", "immune_type": "frost", "block_status": ["chilled"]},
     "frost_hardy": {"name": "Frost Hardy", "desc": "Never chilled, and half as fast again in a frost.", "msg": "{name} is Frost Hardy and shrugs off the cold!", "block_status": ["chilled"], "speed": {"weather": ["frost"], "mult": 1.5}},
     "early_riser": {"name": "Early Riser", "desc": "Up with the lark: its Speed rises when it comes out at dawn or in sunshine.", "msg": "{name} is an Early Riser and already up and about!", "entry_stage": {"to": "self", "stat": "spd", "stages": 1, "weather": ["sunshine"], "time": ["dawn"]}},
@@ -90,6 +92,10 @@
     "high_girders": {"name": "The High Girders", "desc": "Comes in on a gale that lasts 5 turns, and is half as fast again in a gale.", "msg": "{name} rattles in on the storm, lamps blazing!", "entry_weather": "gale", "speed": {"weather": ["gale"], "mult": 1.5}}
   },
   "species": {
+    "cobblet": "cwm_mizzle",
+    "seamknocker": "cwm_mizzle",
+    "steamlet": "full_head",
+    "penydarren": "full_head",
     "bogglet": "mardy",
     "cloughgart": "mardy",
     "graftling": "early_riser",
