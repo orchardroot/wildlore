@@ -6,7 +6,7 @@ const ZONES := ["swansea", "gower"]
 const TRAINERS := ["swa_jack", "swa_trader", "swa_historian", "swa_surfer", "swa_poet", "swa_jogger",
 	"gow_trekker", "gow_climber", "gow_cockler", "gow_caver", "gow_kiter", "gow_gwen"]
 const NEW_SPECIES := ["wurmlet", "ormwyrm", "smeltling", "cuprion", "marilwyd"]
-const STYLES := ["football_stadium", "engine_house", "market_hall", "waterfront_museum", "pier", "cave_mouth", "three_cliffs"]
+const STYLES := ["football_stadium", "engine_house", "swansea_market", "waterfront_museum", "pier", "cave_mouth", "three_cliffs"]
 
 func _json(path: String) -> Variant:
 	return JSON.parse_string(FileAccess.get_file_as_string(path))
