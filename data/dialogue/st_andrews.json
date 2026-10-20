@@ -1,0 +1,196 @@
+{
+ "sta_gown": [
+  {
+   "do": "say",
+   "who": "Student",
+   "text": "The red gown is the undergraduate gown. First years wear it on the shoulders, second years a bit off, third years off one shoulder, fourth years off both. It's very complicated and we all pretend it isn't."
+  },
+  {
+   "do": "say",
+   "who": "Student",
+   "text": "Raisin Monday, in November, the first years get a receipt in Latin from their academic parents and have a foam fight in St Salvator's Quad. It's a great tradition. It's also a great deal of foam."
+  }
+ ],
+ "sta_runner": [
+  {
+   "do": "say",
+   "who": "Beach Runner",
+   "text": "Da-da-da-da-daa-da. Da-da-da-da-daaa. Sorry. Every time. The West Sands does it to you."
+  },
+  {
+   "do": "say",
+   "who": "Beach Runner",
+   "text": "Eric Liddell, the Flying Scotsman of the film, won gold in the 400 metres in Paris in 1924, after refusing to run his best race, the 100, because the heats were on a Sunday."
+  }
+ ],
+ "sta_greenkeeper": [
+  {
+   "do": "say",
+   "who": "Greenkeeper",
+   "text": "The Old Course is public, you know. Anybody can play it. And on Sundays it's closed to golf and open as a park, for walkers, dogs and picnics. Mind the greens."
+  },
+  {
+   "do": "say",
+   "who": "Greenkeeper",
+   "text": "The course used to be played backwards, clockwise. They still do the reverse course a few days a year, in the spring. It's like reading a book from the end."
+  }
+ ],
+ "sta_fisher": [
+  {
+   "do": "say",
+   "who": "Harbour Fisher",
+   "text": "The legend says Saint Rule was shipwrecked here bringing the bones of Saint Andrew from Greece. That's how a wee fishing town got Scotland's patron saint."
+  },
+  {
+   "do": "say",
+   "who": "Harbour Fisher",
+   "text": "The saltire, the white cross on blue, is Saint Andrew's cross. He was crucified on an X-shaped cross because he said he wasn't worthy of the same cross as Christ."
+  }
+ ],
+ "sta_starter": [
+  {
+   "do": "if",
+   "flag": "q_fife_golf_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Starter",
+     "text": "Back for another look at the first tee? You're on the honours board in my head, and that's more exclusive than the clubhouse."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_fife_golf_2",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_fife_golf_done",
+       "then": [],
+       "else": [
+        {
+         "do": "say",
+         "who": "Starter",
+         "text": "Round done, and you've beaten every one of them. I'd give you a trophy, but the good ones are in the museum. Have this instead. It's older than the trophies."
+        },
+        {
+         "do": "give_item",
+         "item": "featherie",
+         "n": 1
+        },
+        {
+         "do": "standing",
+         "nation": "scotland",
+         "amount": 2
+        },
+        {
+         "do": "set",
+         "flag": "q_fife_golf_done",
+         "value": true
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_fife_golf_1",
+       "then": [
+        {
+         "do": "say",
+         "who": "Starter",
+         "text": "Old Tam says you know your way round. Good enough for me. Four players to beat, first tee to eighteenth green, no stopping at the Sanctuary."
+        },
+        {
+         "do": "choice",
+         "text": "Play the round on the Old Course?",
+         "options": [
+          "On the tee",
+          "Not yet"
+         ],
+         "set": "_fife_golf_go"
+        },
+        {
+         "do": "if",
+         "flag": "_fife_golf_go",
+         "then": [
+          {
+           "do": "gauntlet",
+           "trainers": [
+            "sta_golf_1",
+            "sta_golf_2",
+            "sta_golf_3",
+            "sta_golf_4"
+           ],
+           "flag": "q_fife_golf_2",
+           "exit": {
+            "zone": "st_andrews",
+            "x": 34,
+            "y": 29
+           },
+           "lose_line": "You trudge back to the first tee with sand in your shoes. The Old Course has seen this before. It'll see you again.",
+           "next_line": "On to the next hole. The wind gets up. The next player is already waiting on the tee.",
+           "prize_from": "the Old Course"
+          },
+          {
+           "do": "if",
+           "flag": "q_fife_golf_done",
+           "then": [],
+           "else": [
+            {
+             "do": "say",
+             "who": "Starter",
+             "text": "Round done, and you've beaten every one of them. I'd give you a trophy, but the good ones are in the museum. Have this instead. It's older than the trophies."
+            },
+            {
+             "do": "give_item",
+             "item": "featherie",
+             "n": 1
+            },
+            {
+             "do": "standing",
+             "nation": "scotland",
+             "amount": 2
+            },
+            {
+             "do": "set",
+             "flag": "q_fife_golf_done",
+             "value": true
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Starter",
+           "text": "No rush. The course has been here six hundred years."
+          }
+         ],
+         "eq": 0
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Starter",
+         "text": "Welcome to the first tee of the Old Course. Want a round? Well. It's not the clubs that matter here, it's the local knowledge."
+        },
+        {
+         "do": "say",
+         "who": "Starter",
+         "text": "Go and see Old Tam, the caddie, at the British Golf Museum, just over there. If he says you know the course, I'll put you out. Four players. Every one of them thinks the course is theirs."
+        },
+        {
+         "do": "set",
+         "flag": "q_fife_golf_started",
+         "value": true
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

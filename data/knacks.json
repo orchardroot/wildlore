@@ -86,7 +86,8 @@
     "armour_plate": {"name": "Armour Plate", "desc": "Takes no recoil, and iron and stone moves hurt it a quarter less.", "msg": "{name}'s Armour Plate took the knock!", "no_recoil": true, "resist": {"types": ["iron", "stone"], "mult": 0.75}},
     "eagre": {"name": "Eagre", "desc": "Rides in on the weather: its storm and tide moves hit harder in drizzle, a downpour or a gale.", "power_weather": {"weather": ["drizzle", "downpour", "gale"], "mult": 1.3, "types": ["storm", "tide"]}},
     "rooted": {"name": "Rooted", "desc": "Four thousand years in one spot: foes can't lower its stats, and super-effective hits do a fifth less.", "msg": "{name} is Rooted. It won't be moved!", "no_drops": true, "se_mult": 0.8},
-    "lure_light": {"name": "Lure Light", "desc": "Its little lamp works best in the dark: its moves hit harder at dusk and at night.", "power_time": {"time": ["dusk", "night"], "mult": 1.2}}
+    "lure_light": {"name": "Lure Light", "desc": "Its little lamp works best in the dark: its moves hit harder at dusk and at night.", "power_time": {"time": ["dusk", "night"], "mult": 1.2}},
+    "high_girders": {"name": "The High Girders", "desc": "Comes in on a gale that lasts 5 turns, and is half as fast again in a gale.", "msg": "{name} rattles in on the storm, lamps blazing!", "entry_weather": "gale", "speed": {"weather": ["gale"], "mult": 1.5}}
   },
   "species": {
     "bogglet": "mardy",
@@ -385,6 +386,11 @@
     "borelet": "eagre",
     "aegir": "eagre",
     "roodstone": "rooted",
-    "glimmerjaw": "lure_light"
+    "glimmerjaw": "lure_light",
+    "divotling": "gale_rider",
+    "hellbunker": "gale_rider",
+    "jamlet": "hearty_appetite",
+    "marmalord": "hearty_appetite",
+    "taywraith": "high_girders"
   }
 }

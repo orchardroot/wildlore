@@ -1,0 +1,59 @@
+{
+ "dun_mill_guide": [
+  {
+   "do": "if",
+   "flag": "q_fife_discovery_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_fife_discovery_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "Mill Guide",
+       "text": "Did the sacking fit? Dundee jute went everywhere: sandbags in two world wars, wagon covers in the American West, sacks for coffee and sugar all over the world."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Mill Guide",
+       "text": "Sacking for the Discovery's stores? We can do that. Jute's tough, cheap and it doesn't mind the cold."
+      },
+      {
+       "do": "say",
+       "who": "Mill Guide",
+       "text": "Take these hanks of fibre. And here's how the spinners twisted it into twine, if you fancy making snares of your own."
+      },
+      {
+       "do": "give_item",
+       "item": "jute_fibre",
+       "n": 4
+      },
+      {
+       "do": "recipe",
+       "id": "jute_snare"
+      },
+      {
+       "do": "set",
+       "flag": "q_fife_discovery_2",
+       "value": true
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Mill Guide",
+     "text": "This was a jute mill. Raw jute came from Bengal, was softened with whale oil, then carded, spun and woven. The noise was so loud the workers learnt to lip-read."
+    },
+    {
+     "do": "say",
+     "who": "Mill Guide",
+     "text": "At its height Dundee had dozens of mills and tens of thousands of jute workers. Most of them women and girls, some no older than you'd be starting high school."
+    }
+   ]
+  }
+ ]
+}

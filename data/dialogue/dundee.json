@@ -1,0 +1,147 @@
+{
+ "dun_dolphins": [
+  {
+   "do": "say",
+   "who": "Dolphin Watcher",
+   "text": "There are bottlenose dolphins in the Tay. You see them off Broughty Ferry, along the coast there, leaping in the river mouth. Bring a flask. Bring patience."
+  },
+  {
+   "do": "say",
+   "who": "Dolphin Watcher",
+   "text": "Grey seals and common seals too, on the sandbanks at Tentsmuir across the water. The Tay is busier than the bridge."
+  }
+ ],
+ "dun_comic_fan": [
+  {
+   "do": "say",
+   "who": "Comics Fan",
+   "text": "Dundee's been making comics for kids for nearly a hundred years. Cowboys who eat cow pie, menaces with catapults, bash street bands of rascals. Generations of British kids learnt to read from them."
+  },
+  {
+   "do": "say",
+   "who": "Comics Fan",
+   "text": "The statue's Desperate Dan. He's so strong he shaves with a blowtorch. My dad says I'm not allowed to try that."
+  }
+ ],
+ "dun_millworker": [
+  {
+   "do": "say",
+   "who": "Retired Spinner",
+   "text": "My granny was a spinner in a jute mill. She started at twelve. The men stayed home and minded the bairns, so they called them kettle bilers, kettle boilers. Dundee was a women's town."
+  },
+  {
+   "do": "say",
+   "who": "Retired Spinner",
+   "text": "The mill chimneys were everywhere. Cox's Stack at Lochee is still standing, nearly three hundred feet tall, like a bell tower for jute."
+  }
+ ],
+ "dun_law_walker": [
+  {
+   "do": "say",
+   "who": "Hill Walker",
+   "text": "Up the Law every morning. You can see right over the Tay to Fife, and on a clear day out to the sea. Behind you, the Sidlaw Hills."
+  },
+  {
+   "do": "say",
+   "who": "Hill Walker",
+   "text": "Dundonians say 'eh' for 'I' and 'pehs' for 'pies'. A steak peh, please. Practise that. You'll need it at the football."
+  }
+ ],
+ "taywraith": [
+  {
+   "do": "when",
+   "cond": "night",
+   "then": [
+    {
+     "do": "if",
+     "flag": "taywraith_met",
+     "then": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "The lamps hang over the water where the old girders stood. A whistle, very faint, from a long way off. It is waiting for you."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "The wind gets up off the Tay. Out on the water, between the old stumps, two lamps are moving, steady as a train. There are no rails there. There haven't been since 1879."
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "The lamps come closer. Iron and steam and something lonelier than either. It stops at the end of the quay as if it had always meant to."
+      },
+      {
+       "do": "music",
+       "id": "legend_sea"
+      },
+      {
+       "do": "set",
+       "flag": "taywraith_met",
+       "value": true
+      }
+     ]
+    },
+    {
+     "do": "legend",
+     "species": "taywraith",
+     "level": 72,
+     "flag": "caught_taywraith",
+     "music": "legend_sea"
+    },
+    {
+     "do": "if",
+     "flag": "caught_taywraith",
+     "then": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "The lamps dim to a warm, contented glow. Whatever was crossing the Tay has, at last, got to the other side. It seems to have decided that the other side is you."
+      },
+      {
+       "do": "set",
+       "flag": "q_fife_poet_2",
+       "value": true
+      },
+      {
+       "do": "warp",
+       "zone": "dundee",
+       "x": 8,
+       "y": 43,
+       "facing": "down"
+      },
+      {
+       "do": "end"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "The lamps flicker, and fade back over the water towards the stumps. A long, low whistle. It will cross again."
+      },
+      {
+       "do": "warp",
+       "zone": "dundee",
+       "x": 8,
+       "y": 43,
+       "facing": "down"
+      },
+      {
+       "do": "end"
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "",
+     "text": "Out on the water, the stumps of the old bridge stand in a line, like the posts of a fence nobody finished. Folk say a ghost train crosses here, but only at night."
+    }
+   ]
+  }
+ ]
+}

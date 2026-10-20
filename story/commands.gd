@@ -295,6 +295,7 @@ func _fight(def: Dictionary) -> Dictionary:
 
 ## The Moot: several trainers back to back with no Sanctuary in between. Winning them all sets `flag`.
 ## Losing any one sends you back to the entrance (`exit`), healed and poorer, with nothing half-won.
+## Other gauntlets (a round on the Old Course) may reword it: optional `lose_line`, `next_line`, `prize_from`.
 func _gauntlet(c: Dictionary) -> void:
 	var ids: Array = c.get("trainers", [])
 	var prize := 0  # paid only once the whole gauntlet is won, so retries can't farm it
@@ -315,19 +316,19 @@ func _gauntlet(c: Dictionary) -> void:
 			host.data.money = host.data.money / 2
 			host.data.heal_party()
 			await host.warp(str(ex.get("zone", host.zone_id())), int(ex.get("x", -1)), int(ex.get("y", -1)), "down")
-			await host.say("", "You come round at the edge of the stones, patched up and a little humbled. The Moot will wait.")
+			await host.say("", str(c.get("lose_line", "You come round at the edge of the stones, patched up and a little humbled. The Moot will wait.")))
 			_ended = true
 			return
 		if def.win != "":
 			await host.say(def.name, _sub(def.win))
 		if i < ids.size() - 1:
-			await host.say("", "No rest at the Moot. The next challenger steps forward.")
+			await host.say("", str(c.get("next_line", "No rest at the Moot. The next challenger steps forward.")))
 			while await host.choice("Anything to sort out before the next challenger?", ["Open your bag", "Carry on"]) == 0:
 				await host.open_menu("bag")
 	if prize > 0:
 		host.data.money += prize
 		TrainerStats.earned(host.data, prize)
-		await host.say("", "%s collects £%d in prize money from the Moot." % [host.data.player_name, prize])
+		await host.say("", "%s collects £%d in prize money from %s." % [host.data.player_name, prize, str(c.get("prize_from", "the Moot"))])
 	_set_flag(str(c.get("flag", "gauntlet_won")), true)
 
 ## A legendary encounter: a wild battle you can't run from, with its own music. Catching it sets `flag`;

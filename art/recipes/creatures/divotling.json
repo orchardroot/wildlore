@@ -1,0 +1,22 @@
+{"id": "divotling",
+ "palette": {"soil": "#8a6a3e", "soil2": "#6a4e2c", "sand": "#d8c48a", "grass": "#6aa83c", "grass2": "#9ccc5a", "ball": "#f6f6f0", "dimple": "#d2d2c8", "tee": "#e8c040", "wind": "#c8e4f4", "wind2": "#8ac0e0", "ink": "#2a1e14", "blush": "#e89a7a", "shadow": "#8a9a7a"},
+ "layers": [
+  {"shape": "ellipse", "at": [48, 91], "size": [34, 5], "colour": "shadow", "rim": false},
+  {"shape": "line", "points": [[6, 66], [18, 60], [30, 64], [22, 72]], "width": 2.2, "colour": "wind2", "shade": false, "rim": false},
+  {"shape": "line", "points": [[90, 46], [78, 40], [70, 44], [76, 50]], "width": 2.2, "colour": "wind2", "shade": false, "rim": false},
+  {"shape": "ellipse", "at": [48, 58], "size": [60, 30], "colour": "soil", "pattern": "speckle", "pcolour": "sand", "density": 22},
+  {"shape": "ellipse", "at": [48, 70], "size": [44, 10], "colour": "soil2", "rim": false},
+  {"shape": "poly", "points": [[22, 52], [24, 36], [28, 48], [32, 32], [36, 46], [41, 30], [45, 45], [50, 28], [54, 44], [59, 31], [62, 46], [67, 34], [70, 48], [74, 38], [76, 52], [48, 50]], "colour": "grass", "pattern": "stripes", "pcolour": "grass2", "period": 4, "pangle": 80},
+  {"shape": "ellipse", "at": [48, 48], "size": [58, 10], "colour": "grass", "rim": false},
+  {"shape": "rect", "at": [62, 26], "size": [3, 10], "colour": "tee", "rim": false},
+  {"shape": "circle", "at": [62, 17], "r": 7, "colour": "ball", "pattern": "speckle", "pcolour": "dimple", "density": 30},
+  {"shape": "line", "points": [[10, 30], [22, 24], [34, 28]], "width": 1.6, "colour": "wind", "shade": false, "rim": false},
+  {"shape": "line", "points": [[80, 70], [88, 64], [92, 70]], "width": 1.6, "colour": "wind", "shade": false, "rim": false}
+ ],
+ "face_layers": [
+  {"shape": "ellipse", "at": [34, 64], "size": [6, 3.5], "colour": "blush", "shade": false, "mirror": true},
+  {"shape": "line", "points": [[43, 65], [48, 68], [53, 65]], "width": 1.5, "colour": "ink", "shade": false}
+ ],
+ "eyes": [{"at": [39, 58], "r": 4.2, "mirror": true, "colour": "ink"}],
+ "bob": 3.0
+}
