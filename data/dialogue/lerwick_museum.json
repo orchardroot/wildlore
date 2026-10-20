@@ -1,0 +1,123 @@
+{
+ "ls_curator": [
+  {
+   "do": "if",
+   "flag": "q_shetland_survey_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Curator Ingrid",
+     "text": "Your survey is in the files, in a folder called 'The Helpful Visitor', which is a folder of one. Thank you again. The spindle whorl is a copy, by the way. The real ones are in the cupboard."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_shetland_survey_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "Curator Ingrid",
+       "text": "You've done all three! Jarlshof, the cliffs and the answers. Wonderful. I'll write it up: 'Visitor completed South Mainland, unsupervised, did not fall off anything.'"
+      },
+      {
+       "do": "say",
+       "who": "Curator Ingrid",
+       "text": "Here's a spindle whorl. A copy, not a real one: the real ones are over two thousand years old and not in my budget. It's a nice flat stone with a hole in it, and I'm told it's lucky."
+      },
+      {
+       "do": "give_item",
+       "item": "jarlshof_whorl",
+       "n": 1
+      },
+      {
+       "do": "standing",
+       "nation": "scotland",
+       "amount": 2
+      },
+      {
+       "do": "set",
+       "flag": "q_shetland_survey_3",
+       "value": true
+      },
+      {
+       "do": "set",
+       "flag": "q_shetland_survey_done",
+       "value": true
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_shetland_survey_started",
+       "then": [
+        {
+         "do": "say",
+         "who": "Curator Ingrid",
+         "text": "The survey of the South Mainland. Three stops: the archaeologist at Jarlshof, the warden at Sumburgh Head with a Puffling for the cliff records, and then back to me. Take the road south. Watch for the runway."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Curator Ingrid",
+         "text": "Welcome to the Shetland Museum! Four thousand years in one building, with a shop. We're short of someone who'll walk to the south end of the Mainland and ask questions on our behalf. I'll make it worth your while."
+        },
+        {
+         "do": "say",
+         "who": "Curator Ingrid",
+         "text": "It's a survey. At Jarlshof, the archaeologist will tell you about the oldest settlement in these islands. At Sumburgh Head, the warden will want to see a Puffling for our records. Then come back and tell me about it. Will you do it?"
+        },
+        {
+         "do": "choice",
+         "text": "Take the Museum's survey?",
+         "options": [
+          "Count me in",
+          "Not just now"
+         ],
+         "set": "_survey_ans"
+        },
+        {
+         "do": "if",
+         "flag": "_survey_ans",
+         "then": [
+          {
+           "do": "say",
+           "who": "Curator Ingrid",
+           "text": "Marvellous. South, along the road, all the way. Don't miss the sheep."
+          },
+          {
+           "do": "set",
+           "flag": "q_shetland_survey_started",
+           "value": true
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Curator Ingrid",
+           "text": "The offer stands. The museum is not going anywhere. It is, after all, a museum."
+          }
+         ],
+         "eq": 0
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "ls_boatman": [
+  {
+   "do": "say",
+   "who": "Boat Builder",
+   "text": "Shetland boats are built clinker, with overlapping planks, the way the Norse did, and the old shape is still the best. Hulls like a gull in flight. These are the boats that went out to the haaf, the deep-sea fishery, and the men were out for days. Hard folk."
+  },
+  {
+   "do": "say",
+   "who": "Boat Builder",
+   "text": "I build them to the old pattern. It takes a few months, and the paint is applied with great ceremony and a flask of tea. If you build a boat in Shetland you must not leave a nail to hold the wind out. I forget why, but it's an old rule."
+  }
+ ]
+}

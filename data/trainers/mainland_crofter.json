@@ -1,0 +1,36 @@
+{
+ "id": "mainland_crofter",
+ "name": "Crofter Magnus",
+ "class": "Crofter",
+ "sprite": "farmer",
+ "party": [
+  {
+   "species": "foalmoor",
+   "level": 80
+  },
+  {
+   "species": "herdlet",
+   "level": 81
+  },
+  {
+   "species": "herdwick",
+   "level": 81
+  },
+  {
+   "species": "heilan",
+   "level": 81
+  }
+ ],
+ "ai": "trainer",
+ "money": 3200,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Crofter Magnus",
+   "text": "I've twelve sheep, three ponies and a dog that thinks it's a pony. A croft is a very small farm with a very large number of opinions. Fancy a battle?"
+  }
+ ],
+ "win": "Not bad. Take a bannock for the road.",
+ "after": "A croft is a small farm worked by a tenant, with common grazing on the hill. Crofters have rights in law, which is why they're so hard to shift. In the 1880s the crofters fought for those rights and won.",
+ "scaled_floor": 80
+}

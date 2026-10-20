@@ -2950,5 +2950,251 @@
     }
    ]
   }
+ ],
+ "fest_uphellyaa": [
+  {
+   "do": "if",
+   "flag": "q_festivals_uphellyaa_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Guizer Magnus",
+     "text": "A torch in each fist and a galley in the flames. That's Lerwick in January. Mind your eyebrows."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_festivals_uphellyaa_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_festivals_uphellyaa_1",
+       "then": [
+        {
+         "do": "say",
+         "who": "Guizer Magnus",
+         "text": "Back for the big question?"
+        },
+        {
+         "do": "choice",
+         "text": "Quick, before the torches are lit. When is Up Helly Aa held?",
+         "options": [
+          "The last Tuesday of January",
+          "Hogmanay",
+          "Midsummer"
+         ],
+         "set": "festivals_uphellyaa_ans"
+        },
+        {
+         "do": "if",
+         "flag": "festivals_uphellyaa_ans",
+         "eq": 0,
+         "then": [
+          {
+           "do": "say",
+           "who": "Guizer Magnus",
+           "text": "The last Tuesday of January, every year, come wind, rain or sleet. It was once the end of Yule, and we've never quite stopped celebrating."
+          },
+          {
+           "do": "say",
+           "who": "Guizer Magnus",
+           "text": "Right, torches up! And have some reestit mutton soup. It's mutton salted and dried in the rafters, then simmered with tatties and neeps. A Shetland thing, and nothing warms you better after a night of fire."
+          },
+          {
+           "do": "set",
+           "flag": "q_festivals_uphellyaa_2"
+          },
+          {
+           "do": "if",
+           "flag": "festivals_souv_uphellyaa",
+           "then": [
+            {
+             "do": "say",
+             "who": "Guizer Magnus",
+             "text": "You've kept my souvenir from a past year, so I won't hand you another. The food, though, is fresh every year. Tuck in."
+            }
+           ],
+           "else": [
+            {
+             "do": "give_item",
+             "item": "fest_galley_torch"
+            },
+            {
+             "do": "set",
+             "flag": "festivals_souv_uphellyaa"
+            }
+           ]
+          },
+          {
+           "do": "give_item",
+           "item": "reestit_mutton_soup",
+           "n": 2
+          },
+          {
+           "do": "set",
+           "flag": "q_festivals_uphellyaa_done"
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Guizer Magnus",
+           "text": "Not quite. It's the last Tuesday of January. Think of the darkest, coldest bit of the year."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "when",
+         "cond": "has_kindlet",
+         "then": [
+          {
+           "do": "say",
+           "who": "Guizer Magnus",
+           "text": "A Kindlet! Look at that tail glow. That's a proper spark for a torch."
+          },
+          {
+           "do": "set",
+           "flag": "q_festivals_uphellyaa_1"
+          },
+          {
+           "do": "choice",
+           "text": "Quick, before the torches are lit. When is Up Helly Aa held?",
+           "options": [
+            "The last Tuesday of January",
+            "Hogmanay",
+            "Midsummer"
+           ],
+           "set": "festivals_uphellyaa_ans"
+          },
+          {
+           "do": "if",
+           "flag": "festivals_uphellyaa_ans",
+           "eq": 0,
+           "then": [
+            {
+             "do": "say",
+             "who": "Guizer Magnus",
+             "text": "The last Tuesday of January, every year, come wind, rain or sleet. It was once the end of Yule, and we've never quite stopped celebrating."
+            },
+            {
+             "do": "say",
+             "who": "Guizer Magnus",
+             "text": "Right, torches up! And have some reestit mutton soup. It's mutton salted and dried in the rafters, then simmered with tatties and neeps. A Shetland thing, and nothing warms you better after a night of fire."
+            },
+            {
+             "do": "set",
+             "flag": "q_festivals_uphellyaa_2"
+            },
+            {
+             "do": "if",
+             "flag": "festivals_souv_uphellyaa",
+             "then": [
+              {
+               "do": "say",
+               "who": "Guizer Magnus",
+               "text": "You've kept my souvenir from a past year, so I won't hand you another. The food, though, is fresh every year. Tuck in."
+              }
+             ],
+             "else": [
+              {
+               "do": "give_item",
+               "item": "fest_galley_torch"
+              },
+              {
+               "do": "set",
+               "flag": "festivals_souv_uphellyaa"
+              }
+             ]
+            },
+            {
+             "do": "give_item",
+             "item": "reestit_mutton_soup",
+             "n": 2
+            },
+            {
+             "do": "set",
+             "flag": "q_festivals_uphellyaa_done"
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Guizer Magnus",
+             "text": "Not quite. It's the last Tuesday of January. Think of the darkest, coldest bit of the year."
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Guizer Magnus",
+           "text": "Catch me a Kindlet and I'll know the torches are in safe hands."
+          },
+          {
+           "do": "say",
+           "who": "Guizer Magnus",
+           "text": "Catch a Kindlet, a little ember of a creature that only turns up round Lerwick at Up Helly Aa."
+          }
+         ]
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Guizer Magnus",
+       "text": "Up Helly Aa! Lerwick's fire festival, the last Tuesday of January. A thousand guizers in Viking gear, torches blazing, and a galley the length of a bus that we build all winter to burn in minutes. No, I'm not joking."
+      },
+      {
+       "do": "say",
+       "who": "Guizer Magnus",
+       "text": "We've a galley to light and not one decent spark. Things that glow and smoulder turn up round the town this week."
+      },
+      {
+       "do": "say",
+       "who": "Guizer Magnus",
+       "text": "Catch me a Kindlet and I'll know the torches are in safe hands."
+      },
+      {
+       "do": "choice",
+       "text": "Help with Up Helly Aa?",
+       "options": [
+        "Count me in",
+        "Not just now"
+       ],
+       "set": "festivals_uphellyaa_ans"
+      },
+      {
+       "do": "if",
+       "flag": "festivals_uphellyaa_ans",
+       "eq": 0,
+       "then": [
+        {
+         "do": "set",
+         "flag": "q_festivals_uphellyaa_started"
+        },
+        {
+         "do": "say",
+         "who": "Guizer Magnus",
+         "text": "Catch a Kindlet, a little ember of a creature that only turns up round Lerwick at Up Helly Aa."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Guizer Magnus",
+         "text": "No bother. I'll be here while it lasts."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
  ]
 }

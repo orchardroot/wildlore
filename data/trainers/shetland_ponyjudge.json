@@ -1,0 +1,36 @@
+{
+ "id": "shetland_ponyjudge",
+ "name": "Show Judge",
+ "class": "Show Judge",
+ "sprite": "shipwright",
+ "party": [
+  {
+   "species": "tormane",
+   "level": 81
+  },
+  {
+   "species": "foalmoor",
+   "level": 80
+  },
+  {
+   "species": "heilan",
+   "level": 81
+  },
+  {
+   "species": "herdwick",
+   "level": 81
+  }
+ ],
+ "ai": "trainer",
+ "money": 3600,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Show Judge",
+   "text": "Four of yours against four of mine. Remember: stand square, hold your head high, and no biting. The ponies may bite. You may not."
+  }
+ ],
+ "win": "Adequate. Highly adequate.",
+ "after": "The ponies are watching. They have opinions.",
+ "scaled_floor": 80
+}

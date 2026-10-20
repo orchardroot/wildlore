@@ -1,0 +1,185 @@
+{
+ "id": "lerwick_museum",
+ "name": "Shetland Museum and Archives",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "statue",
+   "x": 7,
+   "y": 3
+  },
+  {
+   "type": "bookshelf",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 13,
+   "y": 1
+  },
+  {
+   "type": "table",
+   "x": 3,
+   "y": 2
+  },
+  {
+   "type": "table",
+   "x": 3,
+   "y": 5
+  },
+  {
+   "type": "table",
+   "x": 11,
+   "y": 2
+  },
+  {
+   "type": "table",
+   "x": 11,
+   "y": 5
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 8
+  },
+  {
+   "type": "potted_plant",
+   "x": 13,
+   "y": 8
+  },
+  {
+   "type": "display_case",
+   "x": 2,
+   "y": 5,
+   "variant": 2
+  },
+  {
+   "type": "display_case",
+   "x": 12,
+   "y": 5,
+   "variant": 0
+  },
+  {
+   "type": "wall_picture",
+   "x": 5,
+   "y": 1,
+   "walk": true,
+   "variant": 2
+  },
+  {
+   "type": "wall_picture",
+   "x": 7,
+   "y": 1,
+   "walk": true,
+   "variant": 0
+  },
+  {
+   "type": "wall_picture",
+   "x": 9,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  },
+  {
+   "type": "clock",
+   "x": 8,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "telescope",
+   "x": 1,
+   "y": 7
+  },
+  {
+   "type": "plant_stand",
+   "x": 13,
+   "y": 7
+  },
+  {
+   "type": "display_case",
+   "x": 2,
+   "y": 3,
+   "variant": 1
+  },
+  {
+   "type": "display_case",
+   "x": 12,
+   "y": 3,
+   "variant": 2
+  },
+  {
+   "type": "display_case",
+   "x": 7,
+   "y": 2,
+   "variant": 1
+  }
+ ],
+ "warps": [
+  {
+   "x": 7,
+   "y": 9,
+   "to": "lerwick",
+   "tx": 6,
+   "ty": 16,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "ls_curator",
+   "sprite": "tour_guide",
+   "x": 6,
+   "y": 4,
+   "facing": "right",
+   "move": "still",
+   "script": "ls_curator",
+   "name": "Curator Ingrid"
+  },
+  {
+   "id": "ls_boatman",
+   "sprite": "shipwright",
+   "x": 10,
+   "y": 4,
+   "facing": "left",
+   "move": "still",
+   "script": "ls_boatman",
+   "name": "Boat Builder"
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "x": 4,
+   "y": 6,
+   "text": "THE BOAT HALL. A sixareen, a six-oared fishing boat of the type that went out to the far haaf fishing, forty miles into the Atlantic, in open boats. The men were out a day or more at a time in open boats. The Norse lines of the hull have changed very little in a thousand years."
+  },
+  {
+   "x": 10,
+   "y": 6,
+   "text": "THE PICTISH STONES. Carved around 1,300 years ago by the Picts, who lived here before the Norse arrived. A mirror, a comb, a serpent, a crescent. No-one is quite sure what the symbols mean, but they are very stylish about it."
+  }
+ ],
+ "spawn": [
+  7,
+  8
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxxx",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x++++++D++++++x",
+  "xxxxxxxxxxxxxxx"
+ ]
+}

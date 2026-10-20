@@ -6,6 +6,12 @@ A monster-catching RPG across the UK and Ireland. You start in Macclesfield, bec
 
 ![Title](docs/screens/t13-title.png)
 
+## What's new in 3.2
+
+- **Festivals come round every year.** Do each one again next year: the quest starts afresh, the log shows this year's run, the food is yours every time, and the souvenir only the first. Finished a 3.1 festival? It still counts for its year.
+- **Shetland.** Take the boat from Kirkwall to Lerwick: the Shetland Museum, Fort Charlotte, the Galley Shed, a pub with a session, Fair Isle knitwear, Clickimin Broch, and the road south past ponies, Jarlshof and the runway to Sumburgh Head's puffins. Two quests, eight trainers and a lot of plaques.
+- **Up Helly Aa** in Lerwick, on its real date (the last Tuesday of January): help Guizer Magnus light the galley.
+
 ## What's new in 3.1: Seasons & Streets
 
 - **Towns look like where they are.** The original towns get their own architecture: Bath stone crescents, Manchester mill brick, York's jettied timber, Chester's Rows, Welsh slate terraces, Cornish granite, Edinburgh and Glasgow tenements, Aberdeen granite, Orkney flagstone, Portree's painted harbour and Dublin's Georgian doors.

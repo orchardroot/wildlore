@@ -1,0 +1,942 @@
+{
+ "id": "lerwick",
+ "name": "Lerwick",
+ "region": "scotland",
+ "kind": "town",
+ "music": "town_scotland",
+ "weather": {
+  "gale": 24,
+  "fog": 18,
+  "drizzle": 22,
+  "clear": 16,
+  "sunshine": 10,
+  "downpour": 10
+ },
+ "props": [
+  {
+   "type": "lighthouse",
+   "x": 68,
+   "y": 34
+  },
+  {
+   "type": "building",
+   "style": "granite_house",
+   "x": 3,
+   "y": 12,
+   "w": 8,
+   "h": 4,
+   "label": "Shetland Museum and Archives"
+  },
+  {
+   "type": "building",
+   "style": "granite_house",
+   "x": 12,
+   "y": 12,
+   "w": 8,
+   "h": 4,
+   "label": "Town Hall"
+  },
+  {
+   "type": "building",
+   "style": "harbour_white",
+   "x": 21,
+   "y": 12,
+   "w": 9,
+   "h": 4,
+   "label": "Up Helly Aa Galley Shed"
+  },
+  {
+   "type": "building",
+   "style": "orkney_flagstone",
+   "x": 30,
+   "y": 12,
+   "w": 6,
+   "h": 4,
+   "label": "Hillhead"
+  },
+  {
+   "type": "building",
+   "style": "castle",
+   "x": 42,
+   "y": 12,
+   "w": 8,
+   "h": 4,
+   "label": "Fort Charlotte"
+  },
+  {
+   "type": "building",
+   "style": "sanctuary",
+   "x": 4,
+   "y": 21,
+   "w": 6,
+   "h": 4,
+   "label": "Sanctuary"
+  },
+  {
+   "type": "building",
+   "style": "shop",
+   "x": 11,
+   "y": 21,
+   "w": 5,
+   "h": 4,
+   "label": "Corner Shop"
+  },
+  {
+   "type": "building",
+   "style": "orkney_flagstone",
+   "x": 17,
+   "y": 21,
+   "w": 8,
+   "h": 4,
+   "label": "The Lounge"
+  },
+  {
+   "type": "building",
+   "style": "harbour_white",
+   "x": 26,
+   "y": 21,
+   "w": 8,
+   "h": 4,
+   "label": "Harbour Tea Room"
+  },
+  {
+   "type": "building",
+   "style": "orkney_flagstone",
+   "x": 42,
+   "y": 21,
+   "w": 8,
+   "h": 4,
+   "label": "Fair Isle Knitwear"
+  },
+  {
+   "type": "building",
+   "style": "croft_house",
+   "x": 4,
+   "y": 30,
+   "w": 8,
+   "h": 4,
+   "label": "Fiddler's House"
+  },
+  {
+   "type": "building",
+   "style": "harbour_white",
+   "x": 13,
+   "y": 30,
+   "w": 7,
+   "h": 4,
+   "label": "King Harald Street"
+  },
+  {
+   "type": "building",
+   "style": "orkney_flagstone",
+   "x": 21,
+   "y": 30,
+   "w": 8,
+   "h": 4,
+   "label": "Burns Lane"
+  },
+  {
+   "type": "building",
+   "style": "croft_house",
+   "x": 30,
+   "y": 30,
+   "w": 3,
+   "h": 4,
+   "label": "Burns Lane"
+  },
+  {
+   "type": "building",
+   "style": "orkney_flagstone",
+   "x": 42,
+   "y": 30,
+   "w": 8,
+   "h": 4,
+   "label": "Commercial Road"
+  },
+  {
+   "type": "building",
+   "style": "orkney_flagstone",
+   "x": 55,
+   "y": 19,
+   "w": 3,
+   "h": 3,
+   "label": "Lodberry",
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "orkney_flagstone",
+   "x": 55,
+   "y": 29,
+   "w": 3,
+   "h": 3,
+   "label": "Lodberry",
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "kirk_ruin",
+   "x": 11,
+   "y": 45,
+   "w": 3,
+   "h": 2,
+   "label": "Clickimin Broch"
+  },
+  {
+   "type": "boat",
+   "x": 26,
+   "y": 44,
+   "variant": 1
+  },
+  {
+   "type": "bunting",
+   "x": 22,
+   "y": 38
+  },
+  {
+   "type": "bunting",
+   "x": 31,
+   "y": 38
+  },
+  {
+   "type": "rock",
+   "x": 20,
+   "y": 3,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 33,
+   "y": 7,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 32,
+   "y": 5,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 7,
+   "y": 6,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 15,
+   "y": 6,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 4,
+   "y": 5,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 4,
+   "y": 6,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 30,
+   "y": 6,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 30,
+   "y": 4,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 19,
+   "y": 7,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 45,
+   "y": 41,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 37,
+   "y": 47,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 39,
+   "y": 49,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 43,
+   "y": 52,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 40,
+   "y": 52,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 41,
+   "y": 46,
+   "variant": 2
+  },
+  {
+   "type": "sheep",
+   "x": 5,
+   "y": 6
+  },
+  {
+   "type": "sheep",
+   "x": 9,
+   "y": 8
+  },
+  {
+   "type": "sheep",
+   "x": 20,
+   "y": 8
+  },
+  {
+   "type": "sheep",
+   "x": 26,
+   "y": 6
+  },
+  {
+   "type": "sheep",
+   "x": 8,
+   "y": 50
+  },
+  {
+   "type": "sheep",
+   "x": 40,
+   "y": 48
+  },
+  {
+   "type": "lamp_post",
+   "x": 39,
+   "y": 8
+  },
+  {
+   "type": "lamp_post",
+   "x": 39,
+   "y": 20
+  },
+  {
+   "type": "lamp_post",
+   "x": 45,
+   "y": 17
+  },
+  {
+   "type": "lamp_post",
+   "x": 52,
+   "y": 10
+  },
+  {
+   "type": "lamp_post",
+   "x": 52,
+   "y": 30
+  },
+  {
+   "type": "lamp_post",
+   "x": 20,
+   "y": 17
+  },
+  {
+   "type": "lamp_post",
+   "x": 8,
+   "y": 25
+  },
+  {
+   "type": "lamp_post",
+   "x": 30,
+   "y": 34
+  },
+  {
+   "type": "bench",
+   "x": 53,
+   "y": 14
+  },
+  {
+   "type": "bench",
+   "x": 53,
+   "y": 26
+  },
+  {
+   "type": "bench",
+   "x": 53,
+   "y": 36
+  },
+  {
+   "type": "bollard",
+   "x": 52,
+   "y": 24
+  },
+  {
+   "type": "bollard",
+   "x": 52,
+   "y": 34
+  },
+  {
+   "type": "bollard",
+   "x": 52,
+   "y": 8
+  },
+  {
+   "type": "lobster_pots",
+   "x": 51,
+   "y": 40
+  },
+  {
+   "type": "buoy",
+   "x": 58,
+   "y": 38
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 15,
+   "to": "lerwick_museum",
+   "tx": 7,
+   "ty": 8,
+   "facing": "up"
+  },
+  {
+   "x": 15,
+   "y": 15,
+   "to": "lerwick_townhall",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 25,
+   "y": 15,
+   "to": "lerwick_galley_shed",
+   "tx": 7,
+   "ty": 8,
+   "facing": "up"
+  },
+  {
+   "x": 45,
+   "y": 15,
+   "to": "lerwick_fort",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 7,
+   "y": 24,
+   "to": "lerwick_sanctuary",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 13,
+   "y": 24,
+   "to": "lerwick_shop",
+   "tx": 4,
+   "ty": 5,
+   "facing": "up"
+  },
+  {
+   "x": 20,
+   "y": 24,
+   "to": "lerwick_pub",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 29,
+   "y": 24,
+   "to": "lerwick_tearoom",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 45,
+   "y": 24,
+   "to": "lerwick_wool",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 7,
+   "y": 33,
+   "to": "lerwick_home_a",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  }
+ ],
+ "edges": {
+  "south": {
+   "to": "shetland_mainland",
+   "offset": 0
+  }
+ },
+ "npcs": [
+  {
+   "id": "ls_ferryhand",
+   "sprite": "sailor",
+   "x": 58,
+   "y": 41,
+   "facing": "left",
+   "move": "still",
+   "script": "ls_ferryhand",
+   "name": "Ferry Hand"
+  },
+  {
+   "id": "ls_harbour_hand",
+   "sprite": "fisherman_north",
+   "x": 52,
+   "y": 40,
+   "facing": "down",
+   "move": "wander",
+   "script": "ls_harbour_hand"
+  },
+  {
+   "id": "ls_dialect",
+   "sprite": "villager_3",
+   "x": 30,
+   "y": 18,
+   "facing": "right",
+   "move": "wander",
+   "script": "ls_dialect"
+  },
+  {
+   "id": "ls_knitter",
+   "sprite": "villager_4",
+   "x": 44,
+   "y": 27,
+   "facing": "down",
+   "move": "still",
+   "script": "ls_knitter"
+  },
+  {
+   "id": "ls_birder",
+   "sprite": "birdwatcher",
+   "x": 8,
+   "y": 40,
+   "facing": "right",
+   "move": "wander",
+   "script": "ls_birder"
+  },
+  {
+   "id": "ls_pier_kid",
+   "sprite": "student",
+   "x": 48,
+   "y": 40,
+   "facing": "left",
+   "move": "wander",
+   "script": "ls_pier_kid"
+  },
+  {
+   "id": "lerwick_skipper",
+   "sprite": "fisherman_north",
+   "x": 56,
+   "y": 36,
+   "facing": "left",
+   "move": "still",
+   "trainer": "lerwick_skipper"
+  },
+  {
+   "id": "lerwick_fiddler",
+   "sprite": "fiddler",
+   "x": 22,
+   "y": 18,
+   "facing": "down",
+   "move": "still",
+   "trainer": "lerwick_fiddler"
+  },
+  {
+   "id": "lerwick_knitter",
+   "sprite": "villager_4",
+   "x": 47,
+   "y": 28,
+   "facing": "up",
+   "move": "still",
+   "trainer": "lerwick_knitter"
+  },
+  {
+   "id": "lerwick_birder",
+   "sprite": "birdwatcher",
+   "x": 14,
+   "y": 38,
+   "facing": "right",
+   "move": "still",
+   "trainer": "lerwick_birder"
+  },
+  {
+   "id": "lerwick_guizer",
+   "sprite": "explorer",
+   "x": 24,
+   "y": 40,
+   "facing": "right",
+   "move": "still",
+   "trainer": "lerwick_guizer"
+  },
+  {
+   "id": "lerwick_jarl",
+   "sprite": "ghillie",
+   "x": 28,
+   "y": 46,
+   "facing": "up",
+   "move": "still",
+   "trainer": "lerwick_jarl"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "foalmoor",
+    "min": 80,
+    "max": 81,
+    "weight": 10
+   },
+   {
+    "species": "herdlet",
+    "min": 80,
+    "max": 81,
+    "weight": 10
+   },
+   {
+    "species": "puffling",
+    "min": 80,
+    "max": 81,
+    "weight": 8,
+    "time": [
+     "day"
+    ]
+   },
+   {
+    "species": "cragchough",
+    "min": 80,
+    "max": 81,
+    "weight": 10
+   },
+   {
+    "species": "polartern",
+    "min": 80,
+    "max": 81,
+    "weight": 10
+   },
+   {
+    "species": "snowbunting",
+    "min": 80,
+    "max": 81,
+    "weight": 8,
+    "weather": [
+     "frost",
+     "fog"
+    ]
+   },
+   {
+    "species": "midgeswarm",
+    "min": 80,
+    "max": 81,
+    "weight": 8,
+    "time": [
+     "dawn",
+     "dusk"
+    ]
+   },
+   {
+    "species": "hushwing",
+    "min": 80,
+    "max": 81,
+    "weight": 6,
+    "time": [
+     "night"
+    ]
+   },
+   {
+    "species": "haarling",
+    "min": 80,
+    "max": 81,
+    "weight": 6,
+    "weather": [
+     "fog"
+    ]
+   },
+   {
+    "species": "gannetling",
+    "min": 80,
+    "max": 81,
+    "weight": 6,
+    "time": [
+     "day"
+    ]
+   }
+  ],
+  "water": [
+   {
+    "species": "rillotter",
+    "min": 80,
+    "max": 81,
+    "weight": 14
+   },
+   {
+    "species": "selklet",
+    "min": 80,
+    "max": 81,
+    "weight": 14
+   },
+   {
+    "species": "greyhaul",
+    "min": 80,
+    "max": 81,
+    "weight": 12
+   },
+   {
+    "species": "dolphlet",
+    "min": 80,
+    "max": 81,
+    "weight": 8,
+    "time": [
+     "day"
+    ]
+   },
+   {
+    "species": "orcaird",
+    "min": 80,
+    "max": 81,
+    "weight": 6,
+    "time": [
+     "dawn",
+     "dusk"
+    ]
+   },
+   {
+    "species": "gannetling",
+    "min": 80,
+    "max": 81,
+    "weight": 10
+   },
+   {
+    "species": "plungebeak",
+    "min": 80,
+    "max": 81,
+    "weight": 12
+   },
+   {
+    "species": "chipgull",
+    "min": 80,
+    "max": 81,
+    "weight": 8
+   },
+   {
+    "species": "skaldling",
+    "min": 80,
+    "max": 81,
+    "weight": 6,
+    "weather": [
+     "gale",
+     "fog"
+    ]
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 42,
+   "y": 17,
+   "plaque": "shetland_lerwick_name",
+   "title": "Leirvik",
+   "text": "Lerwick comes from the Old Norse Leirvik, the muddy or clay bay. Not the grandest name for a capital, but it is honest. It is the only town of any size in Shetland, and home to about a third of everyone who lives on the islands."
+  },
+  {
+   "x": 46,
+   "y": 17,
+   "plaque": "shetland_fort_charlotte",
+   "title": "Fort Charlotte",
+   "text": "The fort was begun in 1665, in one of the wars with the Dutch, and the Dutch burned it down in 1673 before it was properly finished. It was rebuilt in 1781 and named for Queen Charlotte, wife of George III. It is now in the care of Historic Environment Scotland, and the ramparts are a fine place to watch the ferry come in."
+  },
+  {
+   "x": 24,
+   "y": 17,
+   "plaque": "shetland_up_helly_aa",
+   "title": "Up Helly Aa",
+   "text": "Up Helly Aa is Lerwick's fire festival, held on the last Tuesday of January. Around a thousand guizers march with burning torches through the town, led by the Guizer Jarl, and then throw the torches into a replica longship. The name meant the end of the holy days, the old end of Yule."
+  },
+  {
+   "x": 28,
+   "y": 17,
+   "plaque": "shetland_galley",
+   "title": "The Galley",
+   "text": "A new galley is built every year by the Jarl Squad, over the autumn, in a shed like the one behind you. It is about ten metres long, with a dragon head, and it is burned within minutes at the King George V Playing Field. Months of work, and then fire. Everyone agrees it is worth it."
+  },
+  {
+   "x": 6,
+   "y": 17,
+   "plaque": "shetland_museum",
+   "title": "The Shetland Museum",
+   "text": "The Shetland Museum and Archives opened on Hay's Dock in 2007. Its boat hall holds the sleek wooden Shetland boats, with their Norse lines, and the galleries hold Pictish carved stones and four thousand years of island life. It is lovely, and it is dry, which is not nothing."
+  },
+  {
+   "x": 53,
+   "y": 22,
+   "plaque": "shetland_lodberries",
+   "title": "The Lodberries",
+   "text": "A lodberry is a Shetland word for a stone-built house or store with its own landing place, sitting at the water's edge. The Lerwick ones date from the 1700s, when merchants had goods landed straight from the boats. Smuggled tea and gin were popular, and the stories are better than the paperwork."
+  },
+  {
+   "x": 40,
+   "y": 28,
+   "plaque": "shetland_commercial_street",
+   "title": "Commercial Street",
+   "text": "Commercial Street was once the shoreline, which is why the old houses stand with their feet in the water on one side and narrow lanes, called closes, running up the other. It is paved with big flagstones. It is also properly narrow, so passing a delivery van is a social event."
+  },
+  {
+   "x": 11,
+   "y": 41,
+   "plaque": "shetland_clickimin",
+   "title": "Clickimin Broch",
+   "text": "On a small island in Clickimin Loch stands a broch, an Iron Age tower of dry stone over two thousand years old. It began as a fortified farmstead and was added to over the centuries. A stone causeway runs out to it, and the loch is a pleasant spot for a walk if you ignore the swans."
+  },
+  {
+   "x": 52,
+   "y": 32,
+   "plaque": "shetland_bus",
+   "title": "The Shetland Bus",
+   "text": "From 1940 to 1945 Norwegian fishermen ran a secret ferry service from Shetland to occupied Norway, carrying agents, radios and refugees across the North Sea in winter nights. They called it the Shetland Bus. The route ran from Lunna and then Scalloway, and was an astonishing piece of seamanship."
+  },
+  {
+   "x": 45,
+   "y": 26,
+   "plaque": "shetland_fair_isle",
+   "title": "Fair Isle Knitting",
+   "text": "Fair Isle is a tiny island between Shetland and Orkney, and it gave its name to the stranded knitting with bands of patterns in several colours, never more than two in a row. The wool comes from the small Shetland sheep, and the finest lace shawls are so thin they can be pulled through a wedding ring."
+  },
+  {
+   "x": 14,
+   "y": 17,
+   "plaque": "shetland_norse",
+   "title": "Norse Shetland",
+   "text": "Shetland was part of Norway for centuries and became Scottish in 1469, when it was pledged as part of the dowry of Margaret of Denmark on her marriage to James III. The pledge was never redeemed. You can still find Norse in the place names, the dialect and the festival."
+  },
+  {
+   "x": 30,
+   "y": 26,
+   "plaque": "shetland_ponies",
+   "title": "The Shetland Pony",
+   "text": "The Shetland pony is among the smallest of horse breeds, no taller than about a metre at the shoulder, and tough as boots. They hauled peat and seaweed on crofts and, in the 1800s, pulled coal wagons underground in mines across Britain. They are small, and they are well aware of it, and they do not care."
+  },
+  {
+   "x": 53,
+   "y": 12,
+   "plaque": "shetland_mirrie_dancers",
+   "title": "Mirrie Dancers",
+   "text": "In Shetland the northern lights are the mirrie dancers, the merry dancers. On a clear winter night they ripple green across the sky above the harbour, and everyone goes outside for a look, however cold. The islands are so far north that midsummer nights never quite get dark."
+  },
+  {
+   "x": 35,
+   "y": 53,
+   "text": "SOUTH: the road to Sumburgh Head, Jarlshof, the ponies and the puffins. WELCOME TO LERWICK."
+  },
+  {
+   "x": 36,
+   "y": 17,
+   "text": "THE WATERFRONT: Commercial Street and the Victoria Pier, for the boat to Kirkwall and Aberdeen. NORTH: Fort Charlotte. WEST: the Museum and the Galley Shed."
+  }
+ ],
+ "spawn": [
+  35,
+  33
+ ],
+ "stage": "coast",
+ "town_id": "lerwick",
+ "scaled_floor": 80,
+ "ferry": {
+  "x": 59,
+  "y": 41,
+  "route": "kirkwall_lerwick"
+ },
+ "rows": [
+  "RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRw$$$$$$$$$$",
+  "RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRw$$$$$$$$$$",
+  "RRkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkw$$$$$$$$$$",
+  "RRkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkw$$$$$$$$$",
+  "RRkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkw$$$$$$$$$",
+  "RRkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkw$$$$$$$$$",
+  "RRkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk:::kkkkkkkkk:::::kkkkkkkw$$$$$$$$$",
+  "RRkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk:::kkkkkkkkk:::::kkkkkkkw$$$$$$$$$",
+  "RRkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk:::kkkkkkkkk:::::kkkkkkkw$$$$$$$$$",
+  "RRkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk:::kkkkkkkkk:::::kkkkkkkw$$$$$$$$$",
+  "RRkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk:::kkkkkkkkk:::::kkkkkkkw$$$$$$$$$",
+  "RRkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk:::kkkkkkkkk:::::kkkkkkw$$$$$$$$$$",
+  "RRkBBBBBBBBkBBBBBBBBkBBBBBBBBBBBBBBBkk:::kBBBBBBBB:::::kkkkkkw$$$$$$$$$$",
+  "RRkBBBBBBBBkBBBBBBBBkBBBBBBBBBBBBBBBkk:::kBBBBBBBB:::::kkkkkkw$$$$$$$$$$",
+  "RRkBBBBBBBBkBBBBBBBBkBBBBBBBBBBBBBBBkk:::kBBBBBBBB:::::kkkkkkw$$$$$$$$$$",
+  "RRkBBBDBBBBkBBBDBBBBkBBBBDBBBBBBBBBBkk:::kBBBDBBBB:::::kkkkkw$$$$$$$$$$$",
+  "RRk::::::::::::::::::::::::::::::::::::::::::::::::::::kkkkkw$$$$$$$$$$$",
+  "RRk::::::::::::::::::::::::::::::::::::::::::::::::::::kkkkkw$$$$$$$$$$$",
+  "RRkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk:::kkkkkkkkk:::::kkkkkw$$$$$$$$$$$",
+  "RRkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk:::kkkkkkkkk:::::BBBkkw$$$$$$$$$$$",
+  "RRkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk:::kkkkkkkkk:::::BBBkkw$$$$$$kk$$$",
+  "RRkkBBBBBBkBBBBBkBBBBBBBBkBBBBBBBBkkkk:::kBBBBBBBB:::::BBBkkw$$$$$$kkkk$",
+  "RRkkBBBBBBkBBBBBkBBBBBBBBkBBBBBBBBkkkk:::kBBBBBBBB:::::kkkkkw$$$$$kkkkk$",
+  "RRkkBBBBBBkBBBBBkBBBBBBBBkBBBBBBBBkkkk:::kBBBBBBBB:::::kkkkkw$$$$$kkkkk$",
+  "RRkkBBBDBBkBBDBBkBBBDBBBBkBBBDBBBBkkkk:::kBBBDBBBB:::::kkkkkkw$$$$kkkkk$",
+  "RRk::::::::::::::::::::::::::::::::::::::::::::::::::::kkkkkkw$$$$kkkkk$",
+  "RRk::::::::::::::::::::::::::::::::::::::::::::::::::::kkkkkkw$$$$kkkkkk",
+  "RRkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk:::kkkkkkkkk:::::kkkkkkw$$$kkkkkkk",
+  "RRkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk:::kkkkkkkkk:::::kkkkkkkw$$kkkkkkk",
+  "RRkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk:::kkkkkkkkk:::::BBBkkkkw$$kkkkkk$",
+  "RRkkBBBBBBBBkBBBBBBBkBBBBBBBBkBBBkkkkk:::kBBBBBBBB:::::BBBkkkkw$$kkkkkk$",
+  "RRkkBBBBBBBBkBBBBBBBkBBBBBBBBkBBBkkkkk:::kBBBBBBBB:::::BBBkkkkw$$$kkkkk$",
+  "RRkkBBBBBBBBkBBBBBBBkBBBBBBBBkBBBkkkkk:::kBBBBBBBB:::::kkkkkkkw$$$kkkkk$",
+  "RRkkBBBDBBBBkBBBBBBBkBBBBBBBBkBBBkkkkk:::kBBBBBBBB:::::kkkkkkkw$$$kkkkk$",
+  "RRk::::::::::::::::::::::::::::::::::::::::::::::::::::kkkkkkkw$$$kkkkk$",
+  "RRk::::::::::::::::::::::::::::::::::::::::::::::::::::kkkkkkkw$$$$kkkk$",
+  "RRkkkkkkhkhhhkkkkkkkkkkkkkkkkkkkkk===kkkkkkkkkkkkk:::::kkkkkkw$$$$$kkk$$",
+  "RRkkkkhkkkkkkkkkkkhkkkkkkkkkkkkkkk===kkkkkkkkkkkkk:::::kkkkkkw$$$$$$$k$$",
+  "RRhkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk===kkkkkkkkkkkkk:::::::::::w$$$$$$$$$$",
+  "RRkkkkkkkkhkkkkkhkkkkkkkkkkkkkkkkk===kkkkkkkkkkkkk:::::::::::w$$$$$$$$$$",
+  "RRkkkkhkhhhkkkkkhkkkkkkkkkkkkkkkkk===kkkkkkkkkhhkk:::::::::::$$$$$$$$$$$",
+  "RRkkkkkkkkkkkhkkkkkkkkkkkkkkkkkkkk===kkkhkkkkkkkkk:::::::::::$$$$$$$$$$$",
+  "RRkhhhkkkkwwwwwwkkkkkkkkkkkkkkkkkk===kkkkkhkkhkhkk:::::::::::$$$$$$$$$$$",
+  "RRhkkhkwww~~#~wwwwkkkkkkkkkkkkkkkk===kkkkhkkkkkkkk:::::::::::$$$$$$$$$$$",
+  "RRkkkkww~~~~#~~~~wwkkkkkkkkkkkkkkk===kkkkkhkkkkkkk:::::::::::$$$$$$$$$$$",
+  "RRkkkww~~~kBBBk~~~wwkkkkkkkkkkkkkk===khhhkkkhhkkkk:::::kkkkkw$$$$$$$$$$$",
+  "RRkkkww~~~kBBBk~~~wwkkkkkkkkkkkkkk===kkkhkkkkkkkkkkkkkkkkkkkw$$$$$$$$$$$",
+  "RRkhkww~~~hkkkk~~~wwkkkkkkkkkkkkkk===khhkkkkkhkkkkkkkkkkkkkkw$$$$$$$$$$$",
+  "RRhkkkww~~~~~~~~~wwkkkkkkkkkkkkkkk===kkkkkkkkkkhkkkkkkkkkkkkw$$$$$$$$$$$",
+  "RRkkkkhwww~~~~wwwwkkkkkkkkkkkkkkkk===kkkkkkkkkkkkkkkkkkkkkkkkw$$$$$$$$$$",
+  "RRkkkkkhkkwwwwwwkhkkkkkkkkkkkkkkkk===kkkkkkhkkkhkkkkkkkkkkkkkw$$$$$$$$$$",
+  "RRkkkkkkkhkkkkkkkhkkkkkkkkkkkkkkkk===kkkhkkkkhkhkkkkkkkkkkkkkw$$$$$$$$$$",
+  "RRkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk===hkkkkkkkkkhkkkkkkkkkkkkkw$$$$$$$$$$",
+  "RRkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk===kkkkhkkkkkkkkkkkkkkkkkkkkw$$$$$$$$$",
+  "RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR===RRRRRRRRRRRRRRRRRRRRR$$$$$$$$$$$$$$",
+  "RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR===RRRRRRRRRRRRRRRRRRRRR$$$$$$$$$$$$$$"
+ ],
+ "legend_extra": {
+  "k": {
+   "tile": "grass",
+   "colour": "#7d8c55"
+  },
+  "h": {
+   "tile": "tall_grass",
+   "colour": "#7a5c6a",
+   "prop": "heather"
+  }
+ }
+}
