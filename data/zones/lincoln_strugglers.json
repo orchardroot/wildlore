@@ -1,0 +1,132 @@
+{
+ "id": "lincoln_strugglers",
+ "name": "The Strugglers Inn",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "table",
+   "x": 8,
+   "y": 3
+  },
+  {
+   "type": "table",
+   "x": 8,
+   "y": 5
+  },
+  {
+   "type": "table",
+   "x": 10,
+   "y": 3
+  },
+  {
+   "type": "table",
+   "x": 10,
+   "y": 5
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 6
+  },
+  {
+   "type": "potted_plant",
+   "x": 11,
+   "y": 6
+  },
+  {
+   "type": "menu_board",
+   "x": 6,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "kitchen_dresser",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "clock",
+   "x": 5,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "wall_picture",
+   "x": 9,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  },
+  {
+   "type": "wall_picture",
+   "x": 3,
+   "y": 1,
+   "walk": true,
+   "variant": 2
+  },
+  {
+   "type": "plant_stand",
+   "x": 1,
+   "y": 5,
+   "variant": 1
+  },
+  {
+   "type": "sofa",
+   "x": 11,
+   "y": 3,
+   "variant": 3,
+   "rot": 270
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 7,
+   "to": "lincoln",
+   "tx": 6,
+   "ty": 15,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "lin_landlord",
+   "sprite": "shopkeeper",
+   "x": 3,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "lin_landlord"
+  },
+  {
+   "id": "lin_hangman",
+   "sprite": "villager_1",
+   "x": 9,
+   "y": 3,
+   "facing": "left",
+   "move": "still",
+   "script": "lin_hangman"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  6,
+  6
+ ],
+ "rows": [
+  "xxxxxxxxxxxxx",
+  "x|||||||||||x",
+  "x|CCCC||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||D|||||x",
+  "xxxxxxxxxxxxx"
+ ]
+}

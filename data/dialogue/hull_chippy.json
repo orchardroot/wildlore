@@ -1,0 +1,48 @@
+{
+ "hul_frier": [
+  {
+   "do": "if",
+   "flag": "q_humber_trawler_1",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_humber_trawler_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "Chip Shop Owner",
+       "text": "Enjoy your voyage. Don't feed the patty to the gulls, they'll follow you to Iceland."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Chip Shop Owner",
+       "text": "For the Corsair? On the house, duck. One patty, wrapped, still hot."
+      },
+      {
+       "do": "set",
+       "flag": "q_humber_trawler_2",
+       "value": true
+      },
+      {
+       "do": "give_item",
+       "item": "hull_patty",
+       "n": 1
+      }
+     ]
+    }
+   ],
+   "else": []
+  },
+  {
+   "do": "say",
+   "who": "Chip Shop Owner",
+   "text": "Patty, chips and a scraps on top. That's Hull. Mashed spud and sage, battered, fried golden. Want a few for the road?"
+  },
+  {
+   "do": "shop",
+   "id": "hull_chippy"
+  }
+ ]
+}

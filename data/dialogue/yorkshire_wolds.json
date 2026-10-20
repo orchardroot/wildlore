@@ -1,0 +1,56 @@
+{
+ "wld_farmer": [
+  {
+   "do": "say",
+   "who": "Kilham Farmer",
+   "text": "Now then. Chalk, this, all the way down. Grows grand barley and lousy ponds. My granddad's sheep never knew a stream."
+  },
+  {
+   "do": "say",
+   "who": "Kilham Farmer",
+   "text": "See the roofs? Pantiles. Orange clay, curled like an S, made just over the Humber and shipped in from the Low Countries before that. Every barn in East Yorkshire wears a pantile hat."
+  }
+ ],
+ "wld_flint": [
+  {
+   "do": "say",
+   "who": "Flint Picker",
+   "text": "The ploughs bring up flints every winter. Black inside, white crust, sharp as a tongue. Folk here built walls with them and Stone Age folk made arrowheads."
+  },
+  {
+   "do": "say",
+   "who": "Flint Picker",
+   "text": "Plenty for everyone. Take a handful, the field won't miss them."
+  },
+  {
+   "do": "daily",
+   "key": "humber_flint_day",
+   "then": [
+    {
+     "do": "give_item",
+     "item": "wolds_flint",
+     "n": 2
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Flint Picker",
+     "text": "That's today's lot. Come back tomorrow, the plough'll have turned up more."
+    }
+   ]
+  }
+ ],
+ "wld_hare": [
+  {
+   "do": "say",
+   "who": "Hare Watcher",
+   "text": "Brown hares, out on the open wolds. In spring the females box the males off when they get too keen. Everybody thinks it's two lads fighting. It's a lass saying no."
+  },
+  {
+   "do": "say",
+   "who": "Hare Watcher",
+   "text": "Hares never dig burrows. They lie up in a scrape in the grass called a form, and trust their legs."
+  }
+ ]
+}

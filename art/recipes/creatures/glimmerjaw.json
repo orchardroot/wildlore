@@ -1,0 +1,24 @@
+{"id": "glimmerjaw",
+ "palette": {"b": "#2a2a4a", "b2": "#18182e", "b3": "#44446a", "belly": "#5a4a6a", "fin": "#3a3a62", "tooth": "#eef0e6", "gum": "#5a1830", "lure": "#9af0ff", "lure2": "#eaffff", "stalk": "#4a4a72", "ink": "#08080e", "eye": "#f4f0a0", "dot": "#7ad8ff", "sea": "#16304a"},
+ "layers": [
+  {"shape": "ellipse", "at": [48, 90], "size": [74, 9], "colour": "sea", "rim": false, "shade": false},
+  {"shape": "poly", "points": [[78, 56], [94, 40], [92, 60], [96, 78], [80, 66]], "colour": "fin"},
+  {"shape": "ellipse", "at": [46, 60], "size": [70, 54], "colour": "b", "pattern": "speckle", "pcolour": "b2", "density": 12},
+  {"shape": "ellipse", "at": [46, 74], "size": [50, 22], "colour": "belly", "front_only": true, "rim": false},
+  {"shape": "poly", "points": [[28, 70], [16, 84], [34, 80]], "colour": "fin"},
+  {"shape": "poly", "points": [[60, 76], [70, 88], [56, 84]], "colour": "fin"},
+  {"shape": "poly", "points": [[40, 34], [48, 26], [56, 34], [62, 30], [64, 38]], "colour": "fin", "rim": false},
+  {"shape": "line", "points": [[44, 36], [40, 20], [30, 10], [18, 12], [14, 20]], "width": 2.2, "colour": "stalk", "shade": false},
+  {"shape": "circle", "at": [14, 24], "r": 6, "colour": "lure", "shade": false, "rim": false},
+  {"shape": "circle", "at": [13, 23], "r": 3, "colour": "lure2", "shade": false, "rim": false},
+  {"shape": "circle", "at": [70, 50], "r": 1.5, "colour": "dot", "shade": false, "rim": false},
+  {"shape": "circle", "at": [74, 60], "r": 1.5, "colour": "dot", "shade": false, "rim": false},
+  {"shape": "circle", "at": [66, 66], "r": 1.5, "colour": "dot", "shade": false, "rim": false}
+ ],
+ "face_layers": [
+  {"shape": "poly", "points": [[18, 58], [62, 56], [58, 74], [40, 80], [22, 72]], "colour": "gum", "shade": false, "rim": false},
+  {"shape": "poly", "points": [[20, 58], [24, 66], [28, 58], [32, 67], [36, 58], [40, 67], [44, 57], [48, 66], [52, 57], [56, 65], [60, 56]], "colour": "tooth", "shade": false, "rim": false},
+  {"shape": "poly", "points": [[24, 72], [28, 66], [32, 74], [36, 66], [40, 76], [44, 67], [48, 75], [52, 66], [56, 72]], "colour": "tooth", "shade": false, "rim": false}
+ ],
+ "eyes": [{"at": [38, 46], "r": 4.2, "colour": "eye", "pupil": [1.6, 3.6]}, {"at": [56, 45], "r": 3.6, "colour": "eye", "pupil": [1.4, 3]}]
+}

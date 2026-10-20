@@ -1,0 +1,71 @@
+{
+ "hul_verger": [
+  {
+   "do": "say",
+   "who": "Verger",
+   "text": "This church is built of brick, and brick was still a newfangled thing in England when they started. Humber clay, baked in Hull. The stone was for the fancy bits."
+  },
+  {
+   "do": "say",
+   "who": "Verger",
+   "text": "Wilberforce's family worshipped here. So did nearly everybody in Hull, at one time or another, usually at weddings."
+  }
+ ],
+ "hul_clerk": [
+  {
+   "do": "if",
+   "flag": "q_humber_petition_3",
+   "then": [
+    {
+     "do": "say",
+     "who": "Parliamentary Clerk",
+     "text": "Yes, yes, the petition is in order. I've stamped it twice. Don't tell anyone I helped."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_humber_petition_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "Parliamentary Clerk",
+       "text": "A petition? To Parliament? Hm. The margins are wrong, the ink is common and I don't like your tone."
+      },
+      {
+       "do": "say",
+       "who": "Parliamentary Clerk",
+       "text": "If you want my signature, you'll have to argue for it."
+      },
+      {
+       "do": "battle",
+       "trainer": "hul_clerk"
+      },
+      {
+       "do": "set",
+       "flag": "q_humber_petition_3",
+       "value": true
+      },
+      {
+       "do": "say",
+       "who": "Parliamentary Clerk",
+       "text": "Oh, very well. A good argument is a good argument. There: signed, stamped, sanded."
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "Three names on the petition. Back to Wilberforce House."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Parliamentary Clerk",
+       "text": "I am on my lunch. I am always on my lunch."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
