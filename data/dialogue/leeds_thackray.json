@@ -1,0 +1,49 @@
+{
+ "thackray_guide": [
+  {
+   "do": "if",
+   "flag": "q_pennines_bazaar_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_pennines_bazaar_thackray",
+     "then": [
+      {
+       "do": "say",
+       "who": "Museum Guide",
+       "text": "Enjoy the pill tin. It's empty. Please don't fill it with anything from the Victorian street gallery."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Museum Guide",
+       "text": "This was a workhouse. Then a hospital. Now a museum of how we stopped dying of everything. Progress!"
+      },
+      {
+       "do": "say",
+       "who": "Museum Guide",
+       "text": "For the market? Have an old pill tin. Leeds was famous for surgical instruments, you know. Very sharp people."
+      },
+      {
+       "do": "set",
+       "flag": "q_pennines_bazaar_thackray"
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Museum Guide",
+     "text": "{greeting} Before sewers, cholera swept through Leeds in 1832 and again later. Doctors worked out it was the water, not bad smells, and the city built proper drains."
+    },
+    {
+     "do": "say",
+     "who": "Museum Guide",
+     "text": "Try the gallery where you're the patient. Nobody comes out without wincing."
+    }
+   ]
+  }
+ ]
+}

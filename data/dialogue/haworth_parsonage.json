@@ -1,0 +1,111 @@
+{
+ "parsonage_curator": [
+  {
+   "do": "if",
+   "flag": "q_pennines_bronte_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Curator",
+     "text": "{greeting} The display's up: Withens, the Bull and the vault. The Bells would be proud. Well, Charlotte would. Emily would pretend not to care."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_pennines_bronte_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_pennines_bronte_withens",
+       "then": [
+        {
+         "do": "if",
+         "flag": "q_pennines_bronte_bull",
+         "then": [
+          {
+           "do": "if",
+           "flag": "q_pennines_bronte_vault",
+           "then": [
+            {
+             "do": "say",
+             "who": "Curator",
+             "text": "Withens, the Black Bull and the family vault. You've walked the whole story: the moor that made the books, the brother who lost his way, and the grave that keeps them all."
+            },
+            {
+             "do": "say",
+             "who": "Curator",
+             "text": "Take this. It's a copy of Keeper's collar. Emily's dog was the most loyal soul in Haworth."
+            },
+            {
+             "do": "give_item",
+             "item": "keepers_collar"
+            },
+            {
+             "do": "give_item",
+             "item": "havercake",
+             "n": 3
+            },
+            {
+             "do": "standing",
+             "nation": "england",
+             "amount": 3
+            },
+            {
+             "do": "set",
+             "flag": "q_pennines_bronte_done"
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Curator",
+             "text": "Now the church. Ask the verger about the family vault, and who isn't in it."
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Curator",
+           "text": "Next, the Black Bull at the top of Main Street. The landlord knows Branwell's story better than anyone."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Curator",
+         "text": "First, Top Withens, out on the moor along the Brontë Way. Go and stand where Emily stood. And mind the moody chap."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Curator",
+       "text": "{greeting} Welcome to the Parsonage. Three sisters wrote some of the greatest novels in English at that table. In a damp house. Next to a graveyard. With a brother in the pub."
+      },
+      {
+       "do": "say",
+       "who": "Curator",
+       "text": "I'm building a little trail for visitors. Will you walk it for me first? Top Withens on the moor, the Black Bull, and the family vault in the church."
+      },
+      {
+       "do": "set",
+       "flag": "q_pennines_bronte_started"
+      },
+      {
+       "do": "say",
+       "who": "Curator",
+       "text": "Come back and tell me what you learn. Bring your own umbrella. Haworth never lends one."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

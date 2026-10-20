@@ -1,0 +1,41 @@
+{
+ "id": "pennines_band_rival",
+ "name": "Bandmaster Horace",
+ "class": "Bandmaster",
+ "sprite": "choir_singer",
+ "party": [
+  {
+   "species": "swiftlet",
+   "level": 15
+  },
+  {
+   "species": "hootlet",
+   "level": 16
+  },
+  {
+   "species": "gritling",
+   "level": 16
+  },
+  {
+   "species": "pepperling",
+   "level": 17
+  }
+ ],
+ "ai": "trainer",
+ "money": 900,
+ "scaled_floor": 14,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Bandmaster Horace",
+   "text": "Thornyclough Silver Band have won this march four years running, and I've the trophy cabinet to prove it."
+  },
+  {
+   "do": "say",
+   "who": "Bandmaster Horace",
+   "text": "Before you step off, let's see if your lot can keep time under pressure."
+  }
+ ],
+ "win": "Well. The judge can't see us, but I felt that.",
+ "after": "Whit Friday's not about the cups. It's about the cups. Next year, though."
+}

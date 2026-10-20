@@ -1,0 +1,135 @@
+{
+ "id": "leeds_townhall",
+ "name": "Leeds Town Hall",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "hall_stage",
+   "x": 6,
+   "y": 1,
+   "variant": 0
+  },
+  {
+   "type": "hall_stage",
+   "x": 7,
+   "y": 1,
+   "variant": 1
+  },
+  {
+   "type": "hall_stage",
+   "x": 8,
+   "y": 1,
+   "variant": 2
+  },
+  {
+   "type": "piano",
+   "x": 4,
+   "y": 1
+  },
+  {
+   "type": "candelabra",
+   "x": 2,
+   "y": 2
+  },
+  {
+   "type": "candelabra",
+   "x": 12,
+   "y": 2
+  },
+  {
+   "type": "stacked_chairs",
+   "x": 1,
+   "y": 6
+  },
+  {
+   "type": "stacked_chairs",
+   "x": 13,
+   "y": 6,
+   "variant": 1
+  },
+  {
+   "type": "rug",
+   "x": 5,
+   "y": 4,
+   "w": 5,
+   "h": 3,
+   "walk": true,
+   "variant": 2
+  },
+  {
+   "type": "wall_picture",
+   "x": 10,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  },
+  {
+   "type": "clock",
+   "x": 12,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "bench",
+   "x": 3,
+   "y": 5
+  },
+  {
+   "type": "bench",
+   "x": 11,
+   "y": 5
+  }
+ ],
+ "warps": [
+  {
+   "x": 7,
+   "y": 8,
+   "to": "leeds",
+   "tx": 33,
+   "ty": 21,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "townhall_organist",
+   "sprite": "poet",
+   "x": 7,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "townhall_organist",
+   "name": "Organist"
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "x": 2,
+   "y": 4,
+   "text": "The Victoria Hall's great organ, built in the 1850s, was one of the largest in Europe when it was new. The hall has hosted concerts ever since, and the Leeds International Piano Competition, founded in 1961, is held in the city.",
+   "plaque": "pennines_town_hall_organ",
+   "title": "The Victoria Hall Organ"
+  }
+ ],
+ "spawn": [
+  7,
+  7
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxxx",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x++++++D++++++x",
+  "xxxxxxxxxxxxxxx"
+ ]
+}

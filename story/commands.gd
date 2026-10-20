@@ -433,7 +433,7 @@ const WEATHER_CONDS := {"rain": ["drizzle", "downpour"], "fog": ["fog"], "gale":
 
 ## Conditions that aren't flags: the time of day ("dawn", "day", "dusk", "night", from the in-game clock), the
 ## weather ("rain" is drizzle or a downpour; "fog", "gale", "frost", "sunshine"), "caught_all" (every species
-## in the Fieldbook proper caught; the appendix is a bonus), "caught_<n>" (at least n caught), and from the real date the season ("spring".."winter") or a festival (Calendar.FESTIVALS).
+## in the Fieldbook proper caught; the appendix is a bonus), "caught_<n>" (at least n caught), "party_has_<species>" (one in the party, or what it evolved into), and from the real date the season ("spring".."winter") or a festival (Calendar.FESTIVALS).
 func _when(cond: String) -> bool:
 	if cond in PHASE_CONDS:
 		return GameClock.phase(host.data.clock_minutes) == cond
@@ -443,11 +443,30 @@ func _when(cond: String) -> bool:
 		return FieldbookGoals.caught_count(host.data) >= host.dex.core_ids().size()
 	if cond.begins_with("caught_") and cond.substr(7).is_valid_int():  # a Fieldbook milestone: caught_25 and so on
 		return FieldbookGoals.caught_count(host.data) >= int(cond.substr(7))
+	if cond.begins_with(PARTY_HAS):  # showing someone a creature: party_has_<species>, or anything it grew into
+		return _party_has(cond.substr(PARTY_HAS.length()))
 	if cond in Calendar.SEASONS:
 		return Calendar.season_today() == cond
 	if cond in Calendar.FESTIVALS:
 		return Calendar.festival_today() == cond
 	push_warning("Commands: unknown condition '%s'" % cond)
+	return false
+
+const PARTY_HAS := "party_has_"
+
+## Is a `species_id` in the party, or a creature that evolved from one (level, item or friendship evolutions)?
+func _party_has(species_id: String) -> bool:
+	var line := {}
+	var id := species_id
+	for _guard in 4:
+		line[id] = true
+		var evo: Variant = host.dex.get_species(id).get("evolves") if host.dex.has(id) else null
+		if not (evo is Dictionary) or str(evo.get("to", "")) == "":
+			break
+		id = str(evo.to)
+	for c in host.data.party:
+		if c != null and line.has(str(c.species.get("id", ""))):
+			return true
 	return false
 
 ## The outdoor weather: the overworld's sky when the host has one, otherwise the saved outdoor weather

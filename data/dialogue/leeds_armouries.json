@@ -1,0 +1,51 @@
+{
+ "armouries_curator": [
+  {
+   "do": "if",
+   "flag": "q_pennines_bazaar_armouries",
+   "then": [
+    {
+     "do": "say",
+     "who": "Curator",
+     "text": "{greeting} Did the armourer give you the toy knight? He's been polishing it all week. Don't tell him it's tin."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Curator",
+     "text": "{greeting} The Hall of Steel's a staircase tower lined with swords, pikes and breastplates, set out in patterns like a Victorian trophy wall."
+    },
+    {
+     "do": "if",
+     "flag": "q_pennines_bazaar_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "trainer_pennines_armourer",
+       "then": [
+        {
+         "do": "say",
+         "who": "Curator",
+         "text": "You beat our armourer? Then this is yours for the market. A little tin knight from the shop. Very historically inaccurate. Very popular."
+        },
+        {
+         "do": "set",
+         "flag": "q_pennines_bazaar_armouries"
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Curator",
+         "text": "For Kirkgate? You'll have to get past the armourer first. He gives nothing away without a bout."
+        }
+       ]
+      }
+     ],
+     "else": []
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,37 @@
+{
+ "id": "pennines_armourer",
+ "name": "Armourer Godfrey",
+ "class": "Armourer",
+ "sprite": "steelworker",
+ "party": [
+  {
+   "species": "bobbin",
+   "level": 15
+  },
+  {
+   "species": "cutlet",
+   "level": 16
+  },
+  {
+   "species": "gritling",
+   "level": 16
+  }
+ ],
+ "ai": "trainer",
+ "money": 480,
+ "scaled_floor": 14,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Armourer Godfrey",
+   "text": "Steel, leather and rivets. Every piece in this hall was made to be used. Let's see if you were."
+  },
+  {
+   "do": "say",
+   "who": "Armourer Godfrey",
+   "text": "En garde, as they say. Then they usually fall over in the armour."
+  }
+ ],
+ "win": "A palpable hit. Fair's fair.",
+ "after": "Jousting armour was so heavy the knights were hoisted on to their horses. Well, sometimes. The rest is films."
+}

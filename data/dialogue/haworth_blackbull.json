@@ -1,0 +1,50 @@
+{
+ "bull_landlord": [
+  {
+   "do": "say",
+   "who": "Landlord",
+   "text": "{greeting} That chair by the stairs? Branwell's, they say. He'd sit there and entertain the whole room, and the room would buy the drinks."
+  },
+  {
+   "do": "if",
+   "flag": "q_pennines_bronte_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_pennines_bronte_bull",
+     "then": [
+      {
+       "do": "say",
+       "who": "Landlord",
+       "text": "Raise a glass to Branwell if you like. Just the one, though. He never managed just the one."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Landlord",
+       "text": "Branwell was the clever one, they thought. Painter, poet. He painted his sisters, then painted himself out of the picture. You can still see the ghost of him where he was."
+      },
+      {
+       "do": "say",
+       "who": "Landlord",
+       "text": "He lost his job as a tutor, then his way. Drink and laudanum. He died at thirty-one, a few months before Emily."
+      },
+      {
+       "do": "set",
+       "flag": "q_pennines_bronte_bull"
+      }
+     ]
+    }
+   ],
+   "else": []
+  }
+ ],
+ "bull_regular": [
+  {
+   "do": "say",
+   "who": "Regular",
+   "text": "{greeting} Locals sit here, visitors sit there, and Branwell's ghost sits wherever there's a free stool."
+  }
+ ]
+}

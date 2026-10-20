@@ -16,7 +16,8 @@ const IRON := Color("3c4450")
 const GLASS := Color.WHITE
 
 ## Building styles handled here rather than by the generic house in Meshes.building.
-const SPECIAL := ["glass_tower", "gantry_crane", "cantilever_crane", "titanic", "mill", "castle", "cathedral", "liver_building", "station", "aqueduct", "chapel", "terrace", "tudor", "slate_cottage", "lighthouse_house", "round_tower", "passage_tomb", "field_barn"]
+const SPECIAL := ["glass_tower", "gantry_crane", "cantilever_crane", "titanic", "mill", "castle", "cathedral", "liver_building", "station", "aqueduct", "chapel", "terrace", "tudor", "slate_cottage", "lighthouse_house", "round_tower", "passage_tomb", "field_barn",
+	"canal_tunnel", "leeds_town_hall", "corn_exchange", "market_hall", "abbey_ruin", "parsonage", "weavers_cottage", "pennine_church"]
 
 ## Doors: where each style's door sits on its tile (see _door and friends), for the swing as you go in.
 ## {x, w, y, h, z}: left edge and width across the door column, bottom and height, z of the door's face from
@@ -34,6 +35,11 @@ const DOOR_RECTS := {
 	"castle": {"x": 0.2, "w": 0.6, "y": 0.0, "h": 1.1, "z": 0.11},
 	"cathedral": {"x": 0.15, "w": 0.7, "y": 0.0, "h": 1.3, "z": 0.03},
 	"glass_tower": {"x": 0.15, "w": 0.7, "y": 0.0, "h": 1.2, "z": 0.02},
+	"canal_tunnel": {"x": 0.24, "w": 0.52, "y": 0.0, "h": 0.95, "z": -0.04},
+	"leeds_town_hall": {"x": 0.15, "w": 0.7, "y": 0.4, "h": 1.3, "z": -0.94},
+	"corn_exchange": {"x": 0.2, "w": 0.6, "y": 0.0, "h": 1.1, "z": -0.02},
+	"market_hall": {"x": 0.12, "w": 0.76, "y": 0.2, "h": 1.2, "z": -0.02},
+	"abbey_ruin": {"x": 0.2, "w": 0.6, "y": 0.0, "h": 1.2, "z": -0.02},
 }
 const DOOR_OPEN_ANGLE := -1.75     # radians about the hinge: swings out toward you, about 100 degrees
 const DOOR_SWING_SECS := 0.16
@@ -135,6 +141,22 @@ static func building(w: int, d: int, style: String, door_x: int, seed_value: int
 			_house(st, wst, w, d, door_x, rng, Color("ece5d2"), Color("5a4a44"), 2, false, true)
 		"slate_cottage":
 			_house(st, wst, w, d, door_x, rng, SLATE_WALL, SLATE.darkened(0.2), 1, false, false)
+		"canal_tunnel":
+			_canal_tunnel(st, w, d, door_x)
+		"leeds_town_hall":
+			_leeds_town_hall(st, wst, w, d, door_x)
+		"corn_exchange":
+			_corn_exchange(st, wst, w, d, door_x)
+		"market_hall":
+			_market_hall(st, wst, w, d, door_x)
+		"abbey_ruin":
+			_abbey_ruin(st, w, d, door_x)
+		"parsonage":
+			_parsonage(st, wst, w, d, door_x)
+		"weavers_cottage":
+			_weavers_cottage(st, wst, w, d, door_x, rng)
+		"pennine_church":
+			_cathedral(st, wst, w, d, door_x, GRIT_SOOT.lightened(0.08))
 		_:
 			_house(st, wst, w, d, door_x, rng, BRICK, SLATE, 2, false, false)
 	return [Meshes._finish(st), Meshes._finish(wst), _chimneys]
@@ -1041,3 +1063,256 @@ static func harp() -> ArrayMesh:
 	for i in 5:
 		Meshes.box(st, Vector3(-0.15 + i * 0.08, 0.12, -0.01), Vector3(0.012, 1.08 - i * 0.12, 0.012), Color("f2e2a0"))
 	return Meshes._finish(st)
+
+
+
+
+# --- the South Pennines and Leeds ----------------------------------------------
+
+const GRITSTONE := Color("8c8270")     # Pennine millstone grit, weathered dark
+const GRIT_SOOT := Color("6a6152")     # the same, with a century of mill smoke on it
+const MOOR_TOP := Color("6b6a42")
+const HEATHER_TOP := Color("6e5a5c")
+const LEEDS_STONE := Color("c2ab86")   # the cleaned sandstone of the civic buildings
+
+## A canal tunnel portal (Standedge): a gritstone face set into the moor, with a dark horseshoe arch over the
+## water (the two columns east of the door, where the canal runs in) and a little gate on the towpath door.
+static func _canal_tunnel(st: SurfaceTool, w: int, d: int, door_x: int) -> void:
+	var rng := Meshes._rng(1811)
+	var face_z := d - 0.55
+	# the hill it burrows into, rising to the back
+	Meshes.box(st, Vector3(0, 0, 0), Vector3(w, 2.1, face_z), MOOR_TOP.darkened(0.1), MOOR_TOP)
+	for i in 5:  # the moor rolling over the top, humped and heathery
+		var hx := 0.4 + i * (w - 0.8) / 4.0
+		Meshes.blob(st, Vector3(hx, 2.1, face_z * 0.45), Vector3(0.95, 0.55 + rng.randf() * 0.35, face_z * 0.55),
+			MOOR_TOP.lightened(rng.randf_range(-0.04, 0.06)), rng, 0.15)
+	for i in 7:
+		Meshes.blob(st, Vector3(rng.randf_range(0.3, w - 0.3), 2.45 + rng.randf() * 0.35, rng.randf_range(0.4, face_z - 0.4)),
+			Vector3(0.32, 0.18, 0.28), HEATHER_TOP.lightened(rng.randf_range(-0.05, 0.1)), rng, 0.25)
+	# the portal face, with coping and a date stone
+	Meshes.box(st, Vector3(0, 0, face_z), Vector3(w, 2.2, 0.55), GRITSTONE, GRITSTONE.lightened(0.1))
+	Meshes.box(st, Vector3(-0.08, 2.2, face_z - 0.05), Vector3(w + 0.16, 0.18, 0.66), GRITSTONE.lightened(0.12))
+	for wing in [-0.35, float(w)]:  # wing walls stepping down either side
+		Meshes.box(st, Vector3(wing, 0, face_z - 0.4), Vector3(0.35, 1.5, 0.95), GRIT_SOOT)
+	var ax := float(door_x + 1) if door_x >= 0 else w * 0.5 - 1.0
+	var aw := 2.0
+	var dark := Color("120f0d")
+	# the arch: a dark opening stepped round at the top, ringed with paler voussoirs
+	Meshes.box(st, Vector3(ax + 0.1, -0.3, d - 0.03), Vector3(aw - 0.2, 1.25, 0.04), dark)
+	for s in [[0.18, 1.4], [0.42, 1.55], [0.7, 1.62]]:
+		Meshes.box(st, Vector3(ax + float(s[0]), 0.9, d - 0.03), Vector3(aw - 2.0 * float(s[0]), float(s[1]) - 0.9, 0.04), dark)
+	var ring := GRITSTONE.lightened(0.18)
+	for i in 7:
+		var a := PI * i / 6.0
+		var cx := ax + aw * 0.5 - cos(a) * (aw * 0.5 + 0.05)
+		var cy := 0.95 + sin(a) * 0.72
+		Meshes.box(st, Vector3(cx - 0.11, cy - 0.06, d - 0.06), Vector3(0.22, 0.2, 0.06), ring)
+	Meshes.box(st, Vector3(ax + aw * 0.5 - 0.4, 1.78, d - 0.06), Vector3(0.8, 0.3, 0.06), Color("d8cfb8"))  # date stone
+	if door_x >= 0:
+		Meshes.box(st, Vector3(door_x + 0.24, 0.0, d - 0.06), Vector3(0.52, 0.95, 0.05), Color("2f3a2a"))  # towpath gate
+		Meshes.box(st, Vector3(door_x + 0.18, 0.95, d - 0.07), Vector3(0.64, 0.08, 0.07), ring)
+
+## Leeds Town Hall: a pale stone palace on a podium, a colonnade along the front, the tall clock tower with its
+## ring of columns and dome rising from the middle, and the four lions guarding the steps.
+static func _leeds_town_hall(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int) -> void:
+	var stone := LEEDS_STONE
+	var rng := Meshes._rng(1858)
+	var front := d - 0.5
+	Meshes.box(st, Vector3(0, 0, 0), Vector3(w, 0.2, d), stone.darkened(0.25))
+	Meshes.box(st, Vector3(0.2, 0.2, 0.2), Vector3(w - 0.4, 0.2, d - 0.3), stone.darkened(0.18))   # the steps
+	Meshes.box(st, Vector3(0.4, 0.4, 0.4), Vector3(w - 0.8, 2.9, front - 0.8), stone)
+	Meshes.box(st, Vector3(0.3, 3.3, 0.3), Vector3(w - 0.6, 0.25, front - 0.5), stone.lightened(0.1))  # cornice
+	for x in range(1, w - 1):  # balustrade
+		Meshes.box(st, Vector3(x + 0.1, 3.55, front - 0.3), Vector3(0.8, 0.22, 0.12), stone.lightened(0.05))
+	# the colonnade across the front
+	for i in range(0, w - 1):
+		Meshes.cylinder(st, Vector3(i + 1.0, 0.4, front - 0.25), 0.15, 2.8, 8, stone.lightened(0.12))
+	Meshes.box(st, Vector3(0.6, 3.1, front - 0.45), Vector3(w - 1.2, 0.25, 0.4), stone.lightened(0.08))
+	for x in range(1, w - 1):
+		if x != door_x:
+			_window(st, wst, x + 0.3, 0.9, front - 0.4, 0.4, 0.9, stone.lightened(0.2))
+			_window(st, wst, x + 0.32, 2.2, front - 0.4, 0.36, 0.6, stone.lightened(0.2))
+	if door_x >= 0:
+		Meshes.box(st, Vector3(door_x + 0.15, 0.4, front - 0.46), Vector3(0.7, 1.5, 0.06), Color("3b2a22"))
+		Meshes.box(st, Vector3(door_x + 0.08, 1.9, front - 0.47), Vector3(0.84, 0.16, 0.08), stone.lightened(0.2))
+	# the tower: a square shaft, the clock stage, a ring of columns, the dome and its finial
+	var cx := w * 0.5
+	var cz := front * 0.45
+	Meshes.box(st, Vector3(cx - 1.5, 3.3, cz - 1.5), Vector3(3.0, 2.2, 3.0), stone.lightened(0.04))
+	Meshes.box(st, Vector3(cx - 1.25, 5.5, cz - 1.25), Vector3(2.5, 1.6, 2.5), stone)
+	for f in [Vector3(0, 0, 1), Vector3(1, 0, 0), Vector3(-1, 0, 0)]:
+		var c: Vector3 = Vector3(cx, 6.3, cz) + f * 1.27
+		var sz := Vector3(0.05, 0.9, 0.9) if f.x != 0 else Vector3(0.9, 0.9, 0.05)
+		Meshes.box(st, c - sz * 0.5, sz, Color("f4efe2"))
+		Meshes.box(st, c - Vector3(0.03, -0.05, 0.03) + f * 0.03, Vector3(0.06, 0.32, 0.06), Color("2a2a2a"))
+	Meshes.box(st, Vector3(cx - 1.4, 7.1, cz - 1.4), Vector3(2.8, 0.18, 2.8), stone.lightened(0.12))
+	for i in 10:
+		var a := TAU * i / 10.0
+		Meshes.cylinder(st, Vector3(cx + cos(a) * 1.0, 7.28, cz + sin(a) * 1.0), 0.09, 1.3, 6, stone.lightened(0.1))
+	Meshes.cylinder(st, Vector3(cx, 7.28, cz), 0.8, 1.35, 10, stone.darkened(0.05))
+	Meshes.box(st, Vector3(cx - 1.15, 8.6, cz - 1.15), Vector3(2.3, 0.15, 2.3), stone.lightened(0.12))
+	Meshes.blob(st, Vector3(cx, 8.95, cz), Vector3(0.95, 0.75, 0.95), Color("5f6b6a"), rng, 0.02)
+	Meshes.cylinder(st, Vector3(cx, 9.6, cz), 0.22, 0.5, 6, stone.lightened(0.1))
+	Meshes.cone(st, Vector3(cx, 10.1, cz), 0.2, 0.6, 6, Color("c9a84a"), rng)
+	# the lions, couchant on their plinths along the front steps
+	for lx in [1.4, 3.4, w - 3.4, w - 1.4]:
+		var lz := d - 0.25
+		Meshes.box(st, Vector3(lx - 0.35, 0.2, lz - 0.3), Vector3(0.7, 0.35, 0.5), stone.darkened(0.1))
+		Meshes.box(st, Vector3(lx - 0.3, 0.55, lz - 0.28), Vector3(0.6, 0.22, 0.32), Color("8f8576"))
+		Meshes.blob(st, Vector3(lx, 0.85, lz - 0.02), Vector3(0.17, 0.17, 0.15), Color("8f8576"), rng, 0.05)
+
+## The Corn Exchange: Brodrick's oval hall in dark rusticated stone, ringed with arched windows under a great
+## shallow dome of glass, with a lantern on top.
+static func _corn_exchange(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int) -> void:
+	var stone := Color("7d7262")
+	var sides := 18
+	var c := Vector3(w * 0.5, 0, d * 0.5)
+	var rx := w * 0.5 - 0.1
+	var rz := d * 0.5 - 0.1
+	var h := 2.6
+	var lo: Array = _ellipse(c, rx, rz, 0.0, sides)
+	var hi: Array = _ellipse(c, rx, rz, h, sides)
+	for i in sides:
+		var j := (i + 1) % sides
+		Meshes._quad(st, lo[i], lo[j], hi[j], hi[i], stone.darkened(0.05 * (i % 2)))
+		var mid: Vector3 = (lo[i] + lo[j]) * 0.5
+		if mid.z > c.z + rz * 0.2:  # arched windows round the southern half, two storeys
+			var p: Vector3 = mid + (mid - c).normalized() * 0.03
+			for wy in [0.5, 1.6]:
+				Meshes.box(wst, Vector3(p.x - 0.18, wy, p.z - 0.03), Vector3(0.36, 0.65, 0.06), window_colour(_wr))
+	var ring: Array = _ellipse(c, rx + 0.08, rz + 0.08, h, sides)
+	var ring_hi: Array = _ellipse(c, rx + 0.08, rz + 0.08, h + 0.2, sides)
+	for i in sides:
+		var j := (i + 1) % sides
+		Meshes._quad(st, ring[i], ring[j], ring_hi[j], ring_hi[i], stone.lightened(0.15))
+	# the dome: three shallow rings of glass and iron, and the lantern
+	var glass := Color("8fa3ad")
+	var prev: Array = ring_hi
+	for k in [[0.82, 0.55], [0.55, 0.95], [0.22, 1.2]]:
+		var nxt: Array = _ellipse(c, rx * float(k[0]), rz * float(k[0]), h + 0.2 + float(k[1]), sides)
+		for i in sides:
+			var j := (i + 1) % sides
+			Meshes._quad(st, prev[i], prev[j], nxt[j], nxt[i], glass.darkened(0.12 * (i % 2)) if float(k[0]) > 0.5 else glass.lightened(0.05))
+		prev = nxt
+	Meshes.cylinder(st, c + Vector3(0, h + 1.4, 0), 0.35, 0.45, 8, stone.lightened(0.1))
+	Meshes.cone(st, c + Vector3(0, h + 1.85, 0), 0.4, 0.35, 8, IRON, Meshes._rng(1863))
+	if door_x >= 0:  # a porch out to the street
+		Meshes.box(st, Vector3(door_x - 0.1, 0, d - 1.0), Vector3(1.2, 1.6, 1.0), stone.lightened(0.05))
+		Meshes.box(st, Vector3(door_x + 0.2, 0, d - 0.03), Vector3(0.6, 1.1, 0.05), Color("3b2a22"))
+
+## Kirkgate Market's 1904 hall: a long pale frontage of arched bays, a gable in the middle with a clock, corner
+## turrets with little green domes, and the glass roof of the halls behind.
+static func _market_hall(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int) -> void:
+	var stone := Color("d8c9a6")
+	var trim := Color("b8a06e")
+	var rng := Meshes._rng(1904)
+	var h := 2.5
+	Meshes.box(st, Vector3(0.05, 0, d - 1.6), Vector3(w - 0.1, h, 1.55), stone)
+	Meshes.box(st, Vector3(0, 0, d - 1.65), Vector3(w, 0.2, 1.65), trim.darkened(0.2))
+	Meshes.box(st, Vector3(-0.05, h, d - 1.7), Vector3(w + 0.1, 0.18, 1.7), trim)
+	# the glass halls behind
+	Meshes.box(st, Vector3(0.3, 0, 0.2), Vector3(w - 0.6, 1.9, d - 1.8), Color("7a7f84"))
+	_roof_at(st, 0.3, w - 0.3, 0.2, d - 1.6, 1.9, 0.9, Color("9fb3b8"), Color("7a7f84"))
+	for x in w:
+		if x == door_x:
+			continue
+		_window(st, wst, x + 0.25, 0.35, d, 0.5, 0.85, trim)
+		_window(st, wst, x + 0.3, 1.5, d, 0.4, 0.6, trim)
+	# the middle gable with its clock
+	var mx := w * 0.5
+	Meshes.box(st, Vector3(mx - 1.2, h, d - 0.5), Vector3(2.4, 0.9, 0.45), stone)
+	Meshes._tri(st, Vector3(mx - 1.3, h + 0.9, d - 0.05), Vector3(mx + 1.3, h + 0.9, d - 0.05), Vector3(mx, h + 1.6, d - 0.05), stone.lightened(0.05))
+	Meshes.box(st, Vector3(mx - 0.3, h + 0.3, d - 0.06), Vector3(0.6, 0.6, 0.04), Color("f4efe2"))
+	Meshes.box(st, Vector3(mx - 0.03, h + 0.45, d - 0.03), Vector3(0.06, 0.25, 0.03), Color("2a2a2a"))
+	# corner turrets with green domes
+	for tx in [0.45, w - 0.45]:
+		Meshes.cylinder(st, Vector3(tx, 0, d - 0.55), 0.45, h + 1.1, 8, stone.lightened(0.04))
+		Meshes.blob(st, Vector3(tx, h + 1.25, d - 0.55), Vector3(0.42, 0.45, 0.42), Color("5f8a72"), rng, 0.02)
+		Meshes.cone(st, Vector3(tx, h + 1.6, d - 0.55), 0.08, 0.4, 5, Color("c9a84a"), rng)
+	if door_x >= 0:
+		Meshes.box(st, Vector3(door_x + 0.12, 0.2, d - 0.04), Vector3(0.76, 1.2, 0.05), Color("2f3a2a"))
+		Meshes.box(st, Vector3(door_x + 0.05, 1.4, d - 0.05), Vector3(0.9, 0.18, 0.06), trim)
+
+## A roofless Cistercian abbey church (Kirkstall): long nave walls broken by tall lancet gaps, a gabled west
+## front, and the crossing tower standing tall with one corner fallen away. Grass grows where the roof was.
+static func _abbey_ruin(st: SurfaceTool, w: int, d: int, door_x: int) -> void:
+	var stone := Color("9a8e78")
+	var dark := Color("2a2622")
+	var h := 2.6
+	var t := 0.4
+	var z0 := 0.4
+	var z1 := d - 0.6
+	Meshes.box(st, Vector3(0.2, 0, z0), Vector3(w - 0.4, 0.05, z1 - z0), Color("5c7a3c"))
+	# the nave walls, roofless and ragged along the top, with a tall lancet window in every bay
+	var rng := Meshes._rng(1152)
+	for x in range(0, w):
+		for zz in [z0, z1 - t]:
+			var top: float = h - rng.randf_range(0.0, 0.5) - (0.6 if x == w - 2 else 0.0)
+			Meshes.box(st, Vector3(x, 0, zz), Vector3(1.0, top, t), stone.lightened(rng.randf_range(-0.04, 0.04)))
+			if x % 2 == 1 and x < w - 1:
+				var face: float = zz + t + 0.01 if zz > z0 else zz - 0.04
+				Meshes.box(st, Vector3(x + 0.32, 0.6, face), Vector3(0.36, 1.35, 0.03), dark)
+				Meshes.box(st, Vector3(x + 0.4, 1.95, face), Vector3(0.2, 0.18, 0.03), dark)
+			Meshes.box(st, Vector3(x - 0.06, 0, zz + (t if zz > z0 else -0.12)), Vector3(0.18, top * 0.8, 0.12), stone.darkened(0.08))  # buttress
+	# west front with its gable, and a lower broken east end
+	Meshes.box(st, Vector3(0.0, 0, z0), Vector3(t + 0.1, h + 0.3, z1 - z0), stone.darkened(0.04))
+	Meshes._tri(st, Vector3(0.0, h + 0.3, z1), Vector3(0.0, h + 0.3, z0), Vector3(0.0, h + 1.6, (z0 + z1) * 0.5), stone.darkened(0.08))
+	Meshes._tri(st, Vector3(t + 0.1, h + 0.3, z0), Vector3(t + 0.1, h + 0.3, z1), Vector3(t + 0.1, h + 1.6, (z0 + z1) * 0.5), stone.darkened(0.12))
+	Meshes.box(st, Vector3(0.05, 0.8, z1 + 0.01), Vector3(0.35, 1.2, 0.03), dark)
+	Meshes.box(st, Vector3(w - t - 0.1, 0, z0), Vector3(t + 0.1, h - 0.6, z1 - z0), stone.darkened(0.06))
+	# the crossing tower, east of centre, its top broken off on one side
+	var tx := w * 0.62
+	Meshes.box(st, Vector3(tx - 0.9, 0, z0), Vector3(1.8, 5.0, z1 - z0), stone)
+	Meshes.box(st, Vector3(tx - 0.9, 5.0, z0), Vector3(0.9, 0.9, z1 - z0), stone.lightened(0.05))
+	Meshes.box(st, Vector3(tx, 5.0, z0), Vector3(0.9, 0.35, (z1 - z0) * 0.5), stone.lightened(0.02))
+	for s in [0.6, 2.1, 3.5]:
+		Meshes.box(st, Vector3(tx - 0.25, s + 0.4, z1 + 0.01), Vector3(0.5, 0.95, 0.03), dark)
+	# the south door: a round-headed arch through a thick porch
+	if door_x >= 0:
+		Meshes.box(st, Vector3(door_x - 0.1, 0, z1 - 0.05), Vector3(1.2, h, d - z1 + 0.05), stone.lightened(0.06))
+		Meshes.box(st, Vector3(door_x + 0.2, 0, d - 0.04), Vector3(0.6, 1.2, 0.05), dark)
+		Meshes.box(st, Vector3(door_x + 0.28, 1.2, d - 0.04), Vector3(0.44, 0.15, 0.05), dark)
+
+## The Brontë Parsonage: a plain Georgian house in blackened gritstone, five bays of sash windows, a pedimented
+## doorcase in the middle, a stone-slate roof and a chimney stack at each gable.
+static func _parsonage(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int) -> void:
+	var wall := GRIT_SOOT
+	var hgt := 2.5
+	Meshes.box(st, Vector3(0.05, 0, 0.05), Vector3(w - 0.1, hgt, d - 0.1), wall)
+	Meshes.box(st, Vector3(0, 0, 0), Vector3(w, 0.18, d), wall.darkened(0.3))
+	for q in [0.0, w - 0.18]:
+		Meshes.box(st, Vector3(q, 0.18, d - 0.12), Vector3(0.18, hgt - 0.18, 0.14), wall.lightened(0.12))  # quoins
+	_roof(st, w, d, hgt, Color("4d4a44"), wall, 0.3)
+	for gx in [0.25, w - 0.85]:
+		Meshes.box(st, Vector3(gx, hgt + 0.2, d * 0.5 - 0.3), Vector3(0.6, 1.3, 0.6), wall.darkened(0.1))
+		_chimneys.append(Vector3(gx + 0.3, hgt + 1.5, d * 0.5))
+	for b in [0.6, 2.0, w * 0.5 - 0.22, w - 2.44, w - 1.04]:
+		if door_x < 0 or absf(float(b) + 0.22 - (door_x + 0.5)) > 0.4:
+			_window(st, wst, float(b), 0.55, d, 0.44, 0.72, Color("e8e2d4"))
+		_window(st, wst, float(b), 1.6, d, 0.44, 0.65, Color("e8e2d4"))
+	if door_x >= 0:
+		_door(st, door_x, d, wall, 1.0)
+		Meshes._tri(st, Vector3(door_x + 0.08, 1.24, d + 0.02), Vector3(door_x + 0.92, 1.24, d + 0.02), Vector3(door_x + 0.5, 1.48, d + 0.02), Color("d8cfb8"))
+
+## Pennine weavers' cottages: a gritstone terrace three storeys high, its top floor lit by a long run of small
+## mullioned windows where the handlooms stood, under a stone-slate roof with stacks along the ridge.
+static func _weavers_cottage(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int, rng: RandomNumberGenerator) -> void:
+	var wall := GRITSTONE.darkened(rng.randf_range(0.0, 0.12))
+	var hgt := 3.1
+	Meshes.box(st, Vector3(0.05, 0, 0.05), Vector3(w - 0.1, hgt, d - 0.1), wall)
+	Meshes.box(st, Vector3(0, 0, 0), Vector3(w, 0.16, d), wall.darkened(0.3))
+	_roof(st, w, d, hgt, Color("55524b"), wall, 0.28)
+	for i in range(1, w, 2):
+		Meshes.box(st, Vector3(i - 0.2, hgt + 0.25, d * 0.5 - 0.2), Vector3(0.4, 0.9, 0.4), wall.darkened(0.15))
+		_chimneys.append(Vector3(i, hgt + 1.15, d * 0.5))
+		Meshes.box(st, Vector3(i - 0.03, 0.16, d - 0.04), Vector3(0.06, hgt - 0.2, 0.05), wall.darkened(0.2))
+	for x in w:
+		if x != door_x:
+			_window(st, wst, x + 0.3, 0.4, d, 0.4, 0.55, wall.lightened(0.18))
+		_window(st, wst, x + 0.3, 1.35, d, 0.4, 0.5, wall.lightened(0.18))
+	# the weaving floor: one long band of lights, split by stone mullions
+	Meshes.box(st, Vector3(0.15, 2.18, d - 0.07), Vector3(w - 0.3, 0.62, 0.04), wall.lightened(0.2))
+	for x in w:
+		for k in 3:
+			Meshes.box(wst, Vector3(x + 0.08 + k * 0.3, 2.24, d - 0.065), Vector3(0.22, 0.48, 0.04), window_colour(_wr))
+	_door(st, door_x, d, wall)

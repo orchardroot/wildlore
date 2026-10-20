@@ -1,0 +1,105 @@
+{
+ "id": "haworth_blackbull",
+ "name": "The Black Bull",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "fireplace",
+   "x": 11,
+   "y": 1
+  },
+  {
+   "type": "table",
+   "x": 3,
+   "y": 5
+  },
+  {
+   "type": "table",
+   "x": 9,
+   "y": 5
+  },
+  {
+   "type": "bench",
+   "x": 3,
+   "y": 6
+  },
+  {
+   "type": "bench",
+   "x": 9,
+   "y": 6
+  },
+  {
+   "type": "sofa",
+   "x": 11,
+   "y": 4,
+   "rot": 270
+  },
+  {
+   "type": "clock",
+   "x": 1,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "wall_picture",
+   "x": 10,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 8,
+   "to": "haworth",
+   "tx": 27,
+   "ty": 9,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "bull_landlord",
+   "sprite": "shopkeeper",
+   "x": 5,
+   "y": 1,
+   "facing": "down",
+   "move": "still",
+   "script": "bull_landlord",
+   "name": "Landlord"
+  },
+  {
+   "id": "bull_regular",
+   "sprite": "villager_2",
+   "x": 9,
+   "y": 7,
+   "facing": "down",
+   "move": "still",
+   "script": "bull_regular",
+   "name": "Regular"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  6,
+  7
+ ],
+ "rows": [
+  "xxxxxxxxxxxxx",
+  "x|||||||||||x",
+  "x|CCCCCCC|||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||D|||||x",
+  "xxxxxxxxxxxxx"
+ ]
+}

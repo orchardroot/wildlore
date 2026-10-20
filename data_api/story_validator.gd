@@ -7,6 +7,9 @@ const COMMANDS := ["say", "choice", "if", "set", "give_item", "give_creature", "
 const CONDITIONS := ["dawn", "day", "dusk", "night", "rain", "fog", "gale", "frost", "sunshine", "caught_all",
 	"caught_25", "caught_50", "caught_100", "caught_150", "caught_200",
 	"spring", "summer", "autumn", "winter", "halloween", "bonfire_night", "christmas", "st_patricks", "st_davids", "burns_night"]
+## `when` "party_has_<species>" (Commands._party_has): the species must exist. Spelt out here, not read from
+## Commands, so the validator stays free of the UI scripts Commands pulls in.
+const PARTY_HAS := "party_has_"
 const MOVE_MODES := ["still", "wander", "pace"]
 const PHASES := ["dawn", "day", "dusk", "night"]
 ## An NPC with a `times` schedule may only chat: any other command makes it part of the story.
@@ -137,7 +140,11 @@ static func validate_commands(cmds: Array, tag: String, dex: Dex, items: ItemDB,
 				errors.append_array(validate_commands(c.get("then", []), tag, dex, items, zones))
 				errors.append_array(validate_commands(c.get("else", []), tag, dex, items, zones))
 			"when":
-				if str(c.get("cond", "")) not in CONDITIONS:
+				var cond := str(c.get("cond", ""))
+				if cond.begins_with(PARTY_HAS):
+					if not dex.has(cond.substr(PARTY_HAS.length())):
+						errors.append("%s: when %s names an unknown species" % [tag, cond])
+				elif cond not in CONDITIONS:
 					errors.append("%s: when with unknown cond '%s'" % [tag, c.get("cond", "")])
 				errors.append_array(validate_commands(c.get("then", []), tag, dex, items, zones))
 				errors.append_array(validate_commands(c.get("else", []), tag, dex, items, zones))

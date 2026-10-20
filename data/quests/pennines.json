@@ -1,0 +1,53 @@
+{
+ "quests": [
+  {
+   "id": "pennines_whit_friday",
+   "title": "Whit Friday",
+   "region": "pennines",
+   "town": "saddleworth_moor",
+   "giver": "Band Secretary",
+   "summary": "Round up the village brass band, scattered over Saddleworth Moor, in time for the Whit Friday march contest.",
+   "start_flag": "q_pennines_whit_started",
+   "steps": [
+    {"flag": "q_pennines_whit_cornet", "text": "Find the cornet player moping by Dovestone Reservoir.", "zone": "saddleworth_moor"},
+    {"flag": "q_pennines_whit_tuba", "text": "Find the tuba player lost on the Pennine Way, and show him a mountain hare.", "zone": "saddleworth_moor"},
+    {"flag": "q_pennines_whit_drum", "text": "Find the drummer on the boat trip through Standedge Tunnel.", "zone": "standedge_tunnel"},
+    {"flag": "q_pennines_whit_contest", "text": "Back to the Band Room, and beat the rival bandmaster in the march contest.", "zone": "saddleworth_bandroom"}
+   ],
+   "done_flag": "q_pennines_whit_done",
+   "reward": "A Whit Friday Rosette, a Cornet Mouthpiece charm, Yorkshire curd tarts and standing in England."
+  },
+  {
+   "id": "pennines_penny_bazaar",
+   "title": "Don't Ask the Price",
+   "region": "pennines",
+   "town": "leeds",
+   "giver": "Market Trader",
+   "summary": "Gather three bits of Leeds for a display at Kirkgate Market, where Marks & Spencer began as a penny stall.",
+   "start_flag": "q_pennines_bazaar_started",
+   "steps": [
+    {"flag": "q_pennines_bazaar_armouries", "text": "Beat the armourer at the Royal Armouries, then ask the curator for a toy knight.", "zone": "leeds_armouries"},
+    {"flag": "q_pennines_bazaar_abbey", "text": "Ask the volunteer at Kirkstall Abbey for a fleece.", "zone": "leeds_kirkstall"},
+    {"flag": "q_pennines_bazaar_thackray", "text": "Ask the guide at the Thackray Museum of Medicine for an old pill tin.", "zone": "leeds_thackray"}
+   ],
+   "done_flag": "q_pennines_bazaar_done",
+   "reward": "A Penny Bazaar Tin, forced rhubarb, a Bobbin to keep and standing in England."
+  },
+  {
+   "id": "pennines_bronte_trail",
+   "title": "The Brontë Trail",
+   "region": "pennines",
+   "town": "haworth",
+   "giver": "Parsonage Curator",
+   "summary": "Walk a new visitors' trail round Haworth for the Brontë Parsonage, from the moor to the church vault.",
+   "start_flag": "q_pennines_bronte_started",
+   "steps": [
+    {"flag": "q_pennines_bronte_withens", "text": "Walk the Brontë Way to Top Withens, beat the brooding lad there, and talk to the walker.", "zone": "haworth"},
+    {"flag": "q_pennines_bronte_bull", "text": "Hear Branwell's story from the landlord of the Black Bull.", "zone": "haworth_blackbull"},
+    {"flag": "q_pennines_bronte_vault", "text": "Ask the verger at the church about the family vault.", "zone": "haworth_church"}
+   ],
+   "done_flag": "q_pennines_bronte_done",
+   "reward": "Keeper's Collar charm, havercakes and standing in England."
+  }
+ ]
+}
