@@ -1,0 +1,37 @@
+{
+ "id": "gib_customs",
+ "name": "Customs Officer",
+ "class": "Customs Officer",
+ "sprite": "rail_guard",
+ "party": [
+  {
+   "species": "binfox",
+   "level": 95
+  },
+  {
+   "species": "graftling",
+   "level": 95
+  },
+  {
+   "species": "tunneller",
+   "level": 95
+  }
+ ],
+ "ai": "trainer",
+ "money": 4200,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Customs Officer",
+   "text": "Anything to declare? Cigarettes, spirits, a stray Barbary macaque?"
+  },
+  {
+   "do": "say",
+   "who": "Customs Officer",
+   "text": "I'll need to see inside that bag. And the one in your head."
+  }
+ ],
+ "win": "Declared in full and cleared. Move along.",
+ "after": "I've seen a man with eleven watches under his sleeve. He was lovely about it.",
+ "scaled_floor": 95
+}

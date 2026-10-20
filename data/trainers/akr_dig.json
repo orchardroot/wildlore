@@ -1,0 +1,37 @@
+{
+ "id": "akr_dig",
+ "name": "Dig Supervisor",
+ "class": "Archaeologist",
+ "sprite": "astronomer",
+ "party": [
+  {
+   "species": "tesserite",
+   "level": 95
+  },
+  {
+   "species": "sarsenite",
+   "level": 95
+  },
+  {
+   "species": "chalkling",
+   "level": 95
+  }
+ ],
+ "ai": "trainer",
+ "money": 4300,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Dig Supervisor",
+   "text": "Careful: that tile is two thousand years old and about as sturdy as a digestive biscuit."
+  },
+  {
+   "do": "say",
+   "who": "Dig Supervisor",
+   "text": "If you want to walk on my mosaic, you'll have to win."
+  }
+ ],
+ "win": "Fine, fine. Walk on it. But take your shoes off.",
+ "after": "The trick is to dig slowly and write it all down. The dig is the least of it.",
+ "scaled_floor": 95
+}

@@ -14,6 +14,9 @@ func _build() -> void:
 	p.add_child(_list)
 
 func setup(arg: String) -> void:
+	if arg == "overseas":
+		_setup_departures()
+		return
 	var flying := arg == "fly"
 	var here := str(Game.data.flag("last_town")) if Game.data.flag("last_town") else ""
 	header_right.text = "Bran's Raven is waiting" if flying else ("Departing " + Travel.town_name(here) if here != "" else "")
@@ -35,5 +38,29 @@ func setup(arg: String) -> void:
 		var none := "No other towns visited yet. Bran's Raven only flies where you've been." if flying else "No other stations visited yet. Trains only go where you've been."
 		_list.add_child(UIKit.label(none, 26, UIKit.MUTED))
 		return
+	UIKit.wrap_focus(buttons)
+	UIKit.focus_later(buttons[0])
+
+## RAF Brize Norton's departures board: every registry territory whose unlock flag is set. Closes with its id.
+func _setup_departures() -> void:
+	set_title("Departures")
+	header_right.text = "RAF Brize Norton"
+	set_hints([["confirm", "Board"], ["cancel", "Back"]])
+	var buttons := []
+	var blurb := UIKit.label("", 24, UIKit.MUTED)
+	blurb.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	for e in Overseas.available(Game.data):
+		var how := "ferry via " + Travel.town_name(str(e.get("port", ""))) if Overseas.is_ferry(e) else "RAF"
+		var b := make_button("  %s   (%s)" % [str(e.name), how], func(): close(str(e.id)))
+		b.alignment = HORIZONTAL_ALIGNMENT_LEFT
+		b.custom_minimum_size = Vector2(0, 64)
+		b.add_theme_font_size_override("font_size", 28)
+		b.focus_entered.connect(func(): blurb.text = str(e.get("blurb", "")))
+		_list.add_child(b)
+		buttons.append(b)
+	if buttons.is_empty():
+		_list.add_child(UIKit.label("Nothing on the board yet. Come back with some paperwork.", 26, UIKit.MUTED))
+		return
+	_list.add_child(blurb)
 	UIKit.wrap_focus(buttons)
 	UIKit.focus_later(buttons[0])

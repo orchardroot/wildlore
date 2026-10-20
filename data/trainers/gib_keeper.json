@@ -1,0 +1,37 @@
+{
+ "id": "gib_keeper",
+ "name": "Ape Keeper",
+ "class": "Ape Keeper",
+ "sprite": "ghillie",
+ "party": [
+  {
+   "species": "macaquet",
+   "level": 95
+  },
+  {
+   "species": "grizzlet",
+   "level": 95
+  },
+  {
+   "species": "raidtail",
+   "level": 95
+  }
+ ],
+ "ai": "trainer",
+ "money": 4300,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Ape Keeper",
+   "text": "Keep your hands in your pockets and your sandwiches in your head."
+  },
+  {
+   "do": "say",
+   "who": "Ape Keeper",
+   "text": "They're not mine, they're the Rock's. I just keep the count."
+  }
+ ],
+ "win": "A good match. They liked your style.",
+ "after": "The Rock has to keep its apes. If it ever lost one I'd have to tell the Governor. Then lie down.",
+ "scaled_floor": 95
+}

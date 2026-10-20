@@ -1,0 +1,37 @@
+{
+ "id": "akr_diver_t",
+ "name": "Dive Instructor",
+ "class": "Diver",
+ "sprite": "surfer",
+ "party": [
+  {
+   "species": "glimmerjaw",
+   "level": 95
+  },
+  {
+   "species": "merrow",
+   "level": 95
+  },
+  {
+   "species": "clawcastle",
+   "level": 95
+  }
+ ],
+ "ai": "trainer",
+ "money": 4200,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Dive Instructor",
+   "text": "Keep your breathing steady. I'll teach you to read the water."
+  },
+  {
+   "do": "say",
+   "who": "Dive Instructor",
+   "text": "Let's see how you handle a bit of current."
+  }
+ ],
+ "win": "Lovely buoyancy. You're a natural.",
+ "after": "The first rule of diving is never to hold your breath. The second is never to say 'I'll just have a look'.",
+ "scaled_floor": 95
+}

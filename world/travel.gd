@@ -25,6 +25,8 @@ static func station_flag(town: String) -> String:
 	return "station_" + town
 
 static func town_name(town: String) -> String:
+	if Overseas.name_of(town) != "":
+		return Overseas.name_of(town)
 	return str(world_map().get("towns", {}).get(town, {}).get("name", town.capitalize()))
 
 ## Call on entering any zone: marks the town visited (world map), its station (rail) and the last town.

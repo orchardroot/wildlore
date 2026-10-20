@@ -1,0 +1,37 @@
+{
+ "id": "dhk_sergeant",
+ "name": "Garrison Sergeant",
+ "class": "Sergeant",
+ "sprite": "hurler",
+ "party": [
+  {
+   "species": "steelheart",
+   "level": 95
+  },
+  {
+   "species": "shieldbiter",
+   "level": 95
+  },
+  {
+   "species": "samsonian",
+   "level": 95
+  }
+ ],
+ "ai": "trainer",
+ "money": 4300,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Garrison Sergeant",
+   "text": "On parade! Right turn! Eyes front! And now you may stand easy, which is more than I can say for your stance."
+  },
+  {
+   "do": "say",
+   "who": "Garrison Sergeant",
+   "text": "Drill is simple. You do what I say and I don't shout."
+  }
+ ],
+ "win": "Not bad. Not good, but not bad.",
+ "after": "I've drilled four thousand recruits. Two thousand of them had two left feet. I've forgotten the rest.",
+ "scaled_floor": 95
+}

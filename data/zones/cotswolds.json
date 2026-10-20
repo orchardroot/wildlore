@@ -935,6 +935,10 @@
   "east": {
    "to": "oxford",
    "offset": 0
+  },
+  "south": {
+   "to": "brize_norton",
+   "offset": 0
   }
  },
  "npcs": [
@@ -1095,6 +1099,50 @@
    "move": "still",
    "script": "cw_count_w",
    "name": "Counter"
+  },
+  {
+   "id": "cw_raf_police_72",
+   "sprite": "rail_guard",
+   "x": 72,
+   "y": 62,
+   "facing": "down",
+   "move": "still",
+   "script": "cw_raf_police",
+   "name": "RAF Police",
+   "hide_if": "champion"
+  },
+  {
+   "id": "cw_raf_police_73",
+   "sprite": "rail_guard",
+   "x": 73,
+   "y": 62,
+   "facing": "down",
+   "move": "still",
+   "script": "cw_raf_police",
+   "name": "RAF Police",
+   "hide_if": "champion"
+  },
+  {
+   "id": "cw_raf_police_74",
+   "sprite": "rail_guard",
+   "x": 74,
+   "y": 62,
+   "facing": "down",
+   "move": "still",
+   "script": "cw_raf_police",
+   "name": "RAF Police",
+   "hide_if": "champion"
+  },
+  {
+   "id": "cw_raf_police_75",
+   "sprite": "rail_guard",
+   "x": 75,
+   "y": 62,
+   "facing": "down",
+   "move": "still",
+   "script": "cw_raf_police",
+   "name": "RAF Police",
+   "hide_if": "champion"
   }
  ],
  "encounters": {
@@ -1350,6 +1398,11 @@
    "plaque": "cotswolds_drystone",
    "title": "Drystone Walls",
    "text": "The Cotswolds are criss-crossed by thousands of kilometres of walls built without a drop of mortar. Wallers sort the stone, lay two faces that lean inwards, tie them across with long 'through stones', fill the heart with rubble and finish with upright coping stones. Most date from the enclosure of the open fields in the 1700s and 1800s, and a good wall will outlast the waller by centuries."
+  },
+  {
+   "x": 71,
+   "y": 59,
+   "text": "SOUTH: RAF Brize Norton, the Airbridge and the flights to the overseas territories. Civilians must be the Champion to pass the RAF Police. They have a very good eye for a rosette."
   }
  ],
  "spawn": [
@@ -1423,8 +1476,8 @@
   "TTggggggggggggggggggggggggggggg,,,,,,,ggWgggggggggWggggggg,g,,,gggggggWgggggggggggggggTT",
   "TTggWWWWWWWWggWWWWWWWWWWWgggggg,,,,,,,,gWWWWWWWWWWWgggggggggggggggggggWgggggggggggggggTT",
   "TTggggggggggggggggggggggggggggg,,,,,,,ggggggggggggggggggggggggggggggggggggggggggggggggTT",
-  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
-  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT"
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTggggTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTggggTTTTTTTTTTTT"
  ],
  "heights": [
   "0000011112222222111100000000000000000000000000000000000000000000001111111111111111100000",

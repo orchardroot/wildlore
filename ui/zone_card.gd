@@ -18,6 +18,7 @@ const OVERRIDES := {
 	"belfast": "Northern Ireland", "bushmills": "Northern Ireland", "derry": "Northern Ireland",
 	"antrim_coast": "Northern Ireland", "causeway": "Northern Ireland", "mournes": "Northern Ireland",
 	"lough_neagh": "Northern Ireland", "enniskillen": "County Fermanagh",
+	"brize_norton": "Oxfordshire", "akrotiri": "Akrotiri Sovereign Base Area", "dhekelia": "Dhekelia Sovereign Base Area",
 }
 const FADE_IN := 0.5
 const HOLD := 2.4
@@ -30,6 +31,8 @@ var _sub: Label
 var _tween: Tween
 
 static func subtitle(zone_id: String, region: String) -> String:
+	if not OVERRIDES.has(zone_id) and not REGIONS.has(region) and region.begins_with("overseas_"):
+		return Overseas.name_of(region.trim_prefix("overseas_"))  # a registered territory's own name (data/overseas)
 	return OVERRIDES.get(zone_id, REGIONS.get(region, ""))
 
 ## Records arriving in a zone; true when the card should show. Interiors never count, and don't reset

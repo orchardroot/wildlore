@@ -1,0 +1,41 @@
+{
+ "id": "gib_ceremonial",
+ "name": "Ceremonial Guard",
+ "class": "Legend of the Rock",
+ "sprite": "rail_guard",
+ "party": [
+  {
+   "species": "centurion",
+   "level": 95
+  },
+  {
+   "species": "silvershod",
+   "level": 95
+  },
+  {
+   "species": "ironwatch",
+   "level": 95
+  },
+  {
+   "species": "hellbunker",
+   "level": 95
+  }
+ ],
+ "ai": "trainer",
+ "money": 6400,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Ceremonial Guard",
+   "text": "I have stood outside this Convent in the sun for eighteen summers and nobody has ever made me blink."
+  },
+  {
+   "do": "say",
+   "who": "Ceremonial Guard",
+   "text": "You'll be the first. Come on, then."
+  }
+ ],
+ "win": "You made me blink. Enjoy it: you're the first.",
+ "after": "The guard's secret is in the knees. And in not thinking about the sun.",
+ "scaled_floor": 95
+}

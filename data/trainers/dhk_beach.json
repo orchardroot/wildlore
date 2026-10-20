@@ -1,0 +1,37 @@
+{
+ "id": "dhk_beach",
+ "name": "Bay Swimmer",
+ "class": "Swimmer",
+ "sprite": "surfer",
+ "party": [
+  {
+   "species": "dolphlet",
+   "level": 95
+  },
+  {
+   "species": "selkie",
+   "level": 95
+  },
+  {
+   "species": "gannetling",
+   "level": 95
+  }
+ ],
+ "ai": "trainer",
+ "money": 4000,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Bay Swimmer",
+   "text": "The water is perfect today. Forty minutes out and forty back. Do you want to race?"
+  },
+  {
+   "do": "say",
+   "who": "Bay Swimmer",
+   "text": "Fine, a fight instead. Please don't splash."
+  }
+ ],
+ "win": "Impressive. You're a strong swimmer, and a stronger sport.",
+ "after": "The trick is to get in slowly, and to leave before you get cold. Neither of which I ever do.",
+ "scaled_floor": 95
+}

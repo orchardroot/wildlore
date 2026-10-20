@@ -1,0 +1,41 @@
+{
+ "id": "brz_wing_commander",
+ "name": "Wing Commander",
+ "class": "Station Officer",
+ "sprite": "explorer",
+ "party": [
+  {
+   "species": "shieldbiter",
+   "level": 95
+  },
+  {
+   "species": "stoopfalcon",
+   "level": 95
+  },
+  {
+   "species": "railspark",
+   "level": 95
+  },
+  {
+   "species": "landship",
+   "level": 95
+  }
+ ],
+ "ai": "trainer",
+ "money": 6200,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Wing Commander",
+   "text": "I command a wing of the Air Mobility Force: eight thousand people, fifty-odd aircraft and not enough tea."
+  },
+  {
+   "do": "say",
+   "who": "Wing Commander",
+   "text": "The Airbridge never closes, and neither does my interest in who's walking about on my apron."
+  }
+ ],
+ "win": "Well flown. I'll put you down for the Air Officer's commendation, just as soon as I remember where the pen is.",
+ "after": "The best of the Airbridge is that every flight has something nobody expected. One had a goat.",
+ "scaled_floor": 95
+}

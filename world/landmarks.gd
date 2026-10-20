@@ -40,7 +40,8 @@ const SPECIAL := ["edinburgh_tenement", "glasgow_tenement", "aberdeen_granite", 
 	"painted_pink", "painted_yellow", "painted_blue", "painted_green", "painted_red", "painted_teal", "granite",
 	"distillery", "mccaig", "paddle_steamer", "blackhouse", "croft_house", "granite_house", "harbour_white",
 	"lews_castle", "cotswold_house", "cotswold_cottage", "wool_church", "oxford_college", "oxford_tower",
-	"oxford_church", "radcliffe_camera"]
+	"oxford_church", "radcliffe_camera", "raf_hangar", "control_tower", "raf_aircraft", "raf_block", "gib_house", "gib_rock",
+	"europa_lighthouse", "flat_house", "greek_theatre", "raf_terminal"]
 
 ## Doors: where each style's door sits on its tile (see _door and friends), for the swing as you go in.
 ## {x, w, y, h, z}: left edge and width across the door column, bottom and height, z of the door's face from
@@ -337,6 +338,26 @@ static func building(w: int, d: int, style: String, door_x: int, seed_value: int
 			_flax_mill(st, wst, w, d, door_x)
 		"edinburgh_tenement", "glasgow_tenement", "aberdeen_granite", "orkney_flagstone", "highland_sandstone", "harled_cottage", "harbour_row", "dublin_georgian", "ulster_terrace", "kilkenny_limestone":
 			StreetsSI.build(st, wst, w, d, door_x, rng, style)
+		"raf_hangar":
+			OverseasStyles.raf_hangar(st, wst, w, d, door_x)
+		"control_tower":
+			OverseasStyles.control_tower(st, wst, w, d, door_x)
+		"raf_aircraft":
+			OverseasStyles.raf_aircraft(st, w, d)
+		"raf_block":
+			OverseasStyles.raf_block(st, wst, w, d, door_x, rng)
+		"raf_terminal":
+			OverseasStyles.raf_terminal(st, wst, w, d, door_x)
+		"gib_house":
+			OverseasStyles.gib_house(st, wst, w, d, door_x, rng)
+		"gib_rock":
+			OverseasStyles.gib_rock(st, wst, w, d, door_x, rng)
+		"europa_lighthouse":
+			OverseasStyles.europa_lighthouse(st, wst, w, d, door_x)
+		"flat_house":
+			OverseasStyles.flat_house(st, wst, w, d, door_x, rng)
+		"greek_theatre":
+			OverseasStyles.greek_theatre(st, wst, w, d, door_x)
 		"winding_gear":
 			ValleyStyles.winding_gear(st, wst, w, d, door_x)
 		"valley_terrace":

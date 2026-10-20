@@ -1,0 +1,37 @@
+{
+ "id": "dhk_grove",
+ "name": "Olive Farmer",
+ "class": "Farmer",
+ "sprite": "farmer",
+ "party": [
+  {
+   "species": "greenman",
+   "level": 95
+  },
+  {
+   "species": "thornwyn",
+   "level": 95
+  },
+  {
+   "species": "wistoak",
+   "level": 95
+  }
+ ],
+ "ai": "trainer",
+ "money": 4100,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Olive Farmer",
+   "text": "Careful of the trees. They're older than your country."
+  },
+  {
+   "do": "say",
+   "who": "Olive Farmer",
+   "text": "If you want to fight me, you'll have to do it politely and avoiding the olives."
+  }
+ ],
+ "win": "Aye, well. The harvest starts tomorrow, and I've an excuse for being late.",
+ "after": "My great-grandfather planted these. He said 'plant a tree for those who come after.' I planted three. One of them died.",
+ "scaled_floor": 95
+}

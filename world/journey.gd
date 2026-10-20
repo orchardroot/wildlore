@@ -54,8 +54,8 @@ static func total_seconds(kind: String, m: String) -> float:
 
 ## The scenery for a journey's destination: a JourneyScene.SCHEMES key.
 static func scheme_for(town: String) -> String:
-	if SCHEME_TOWNS.has(town):
-		return SCHEME_TOWNS[town]
+	if SCHEME_TOWNS.has(town) or Overseas.name_of(town) != "":
+		return SCHEME_TOWNS.get(town, "coast")
 	var nation := str(Travel.world_map().get("towns", {}).get(town, {}).get("nation", ""))
 	return NATION_SCHEMES.get(nation, "lowland")
 

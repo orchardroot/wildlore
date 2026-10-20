@@ -1,0 +1,37 @@
+{
+ "id": "brz_loadmaster",
+ "name": "Loadmaster",
+ "class": "Loadmaster",
+ "sprite": "sailor",
+ "party": [
+  {
+   "species": "quayhulk",
+   "level": 95
+  },
+  {
+   "species": "shuttlecog",
+   "level": 95
+  },
+  {
+   "species": "samsonian",
+   "level": 95
+  }
+ ],
+ "ai": "trainer",
+ "money": 4200,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Loadmaster",
+   "text": "Cargo checked, weight spread, ties done. Got the manifest? Then you'll want my signature."
+  },
+  {
+   "do": "say",
+   "who": "Loadmaster",
+   "text": "Stand still while I strap you down."
+  }
+ ],
+ "win": "Fair enough. I'll sign you off as 'Fragile'.",
+ "after": "Fifteen tonnes of aid and I never dropped one crate. A little Tormane kicked me, but that doesn't count.",
+ "scaled_floor": 95
+}
