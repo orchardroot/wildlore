@@ -1,0 +1,63 @@
+{
+ "nurse": [
+  {
+   "do": "say",
+   "who": "Nurse",
+   "text": "Hiya, chuck! Welcome to Blackpool Sanctuary. Pop your team on the counter. They look like they've been on the Big One twice."
+  },
+  {
+   "do": "choice",
+   "text": "What can we do for you?",
+   "options": [
+    "Heal my team",
+    "Open the Ark",
+    "Just looking"
+   ],
+   "set": "_nurse_choice"
+  },
+  {
+   "do": "if",
+   "flag": "_nurse_choice",
+   "eq": 0,
+   "then": [
+    {
+     "do": "say",
+     "who": "Nurse",
+     "text": "There we are. A nice cup of tea, a stick of rock for the shock, and a sit-down out of the wind."
+    },
+    {
+     "do": "heal"
+    },
+    {
+     "do": "say",
+     "who": "Nurse",
+     "text": "All better! Fit as a lop, as my nan used to say. Nobody knows what a lop is. Off you go, love."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "_nurse_choice",
+     "eq": 1,
+     "then": [
+      {
+       "do": "say",
+       "who": "Nurse",
+       "text": "The Ark's in the corner, chuck. Somebody's stuck a kiss-me-quick sticker on the lid. It wasn't me."
+      },
+      {
+       "do": "ark"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Nurse",
+       "text": "Ta-ra, love! Mind the trams, they don't stop for anyone."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

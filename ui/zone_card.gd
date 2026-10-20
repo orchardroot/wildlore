@@ -7,7 +7,7 @@ const REGIONS := {
 	"cheshire": "Cheshire", "peak": "The Peak District", "manchester": "Greater Manchester", "merseyside": "Merseyside",
 	"north_wales": "North Wales", "mid_wales": "Mid Wales", "south_wales": "South Wales", "midlands": "The Midlands",
 	"south_england": "The West Country", "cornwall": "Cornwall", "yorkshire": "Yorkshire", "north_east": "North East England",
-	"cumbria": "Cumbria", "scotland": "Scotland", "ireland": "Ireland", "ireland_west": "The West of Ireland",
+	"cumbria": "Cumbria", "lancashire": "Lancashire", "scotland": "Scotland", "ireland": "Ireland", "ireland_west": "The West of Ireland",
 	"ireland_east": "The East of Ireland", "man": "Isle of Man",
 }
 ## Zones whose region id doesn't name them well.

@@ -1,0 +1,127 @@
+{
+ "wg_norman": [
+  {
+   "do": "if",
+   "flag": "q_lancashire_lights_3",
+   "then": [
+    {
+     "do": "say",
+     "who": "Uncle Norman",
+     "text": "Off you go to the stage on the prom, and wait for dusk! I've told the comp\u00e8re. I've told everyone. I'm very proud. I'll be at the back, crying into a barm cake."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_lancashire_lights_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "Uncle Norman",
+       "text": "Doreen needs a celebrity for the switch-on? Well, I was on the telly in 1983. Briefly. On the news. For the wrong reasons."
+      },
+      {
+       "do": "say",
+       "who": "Uncle Norman",
+       "text": "No, love. You do it. But a Blackpool celebrity has to know their Blackpool. Three questions. Ready?"
+      },
+      {
+       "do": "choice",
+       "text": "When did eight arc lamps first light the prom, the 'artificial sunshine'?",
+       "options": [
+        "1879",
+        "1912",
+        "1953"
+       ],
+       "set": "_lancs_q1"
+      },
+      {
+       "do": "choice",
+       "text": "Which tower inspired Blackpool's?",
+       "options": [
+        "Big Ben",
+        "The Eiffel Tower",
+        "The Leaning Tower of Pisa"
+       ],
+       "set": "_lancs_q2"
+      },
+      {
+       "do": "choice",
+       "text": "How many piers does Blackpool have?",
+       "options": [
+        "Two",
+        "Three",
+        "Seven"
+       ],
+       "set": "_lancs_q3"
+      },
+      {
+       "do": "if",
+       "flag": "_lancs_q1",
+       "eq": 0,
+       "then": [
+        {
+         "do": "if",
+         "flag": "_lancs_q2",
+         "eq": 1,
+         "then": [
+          {
+           "do": "if",
+           "flag": "_lancs_q3",
+           "eq": 1,
+           "then": [
+            {
+             "do": "say",
+             "who": "Uncle Norman",
+             "text": "Three out of three! You're a natural. Right: you're our stand-in. I'll ring the comp\u00e8re. Go to the stage on the prom by the Tower at dusk and throw that switch!"
+            },
+            {
+             "do": "set",
+             "flag": "q_lancashire_lights_3",
+             "value": true
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Uncle Norman",
+             "text": "Ooh, no. North, Central and South: three piers, the only town in Britain with three. Have another go when you're ready."
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Uncle Norman",
+           "text": "No, love. It was the Eiffel Tower. Blackpool's mayor went to Paris in 1889 and came back with ideas. Try again."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Uncle Norman",
+         "text": "Not quite. 1879: eight arc lamps, 'artificial sunshine'. 1912 is when the Illuminations proper began. Try again."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Uncle Norman",
+       "text": "Uncle Norman, comedian, Blackpool's finest, on in the second half. I've played the Winter Gardens, the piers, the Tower Circus once when the clown was ill."
+      },
+      {
+       "do": "say",
+       "who": "Uncle Norman",
+       "text": "Here's one. A man walks into the Tower Ballroom with a pork pie on his head. The organist says, 'You've got a pork pie on your head.' He says, 'Not usually, it's a cheese and onion one, but it's my day off.' Thank you, I'm here all week."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

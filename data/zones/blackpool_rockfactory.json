@@ -1,0 +1,139 @@
+{
+ "id": "blackpool_rockfactory",
+ "name": "Blackpool Rock Factory",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "slate_heap",
+   "x": 1,
+   "y": 5
+  },
+  {
+   "type": "table",
+   "x": 11,
+   "y": 5
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 7
+  },
+  {
+   "type": "potted_plant",
+   "x": 11,
+   "y": 7
+  },
+  {
+   "type": "kettle_table",
+   "x": 2,
+   "y": 4
+  },
+  {
+   "type": "table",
+   "x": 4,
+   "y": 5
+  },
+  {
+   "type": "table",
+   "x": 8,
+   "y": 5
+  },
+  {
+   "type": "specimen_shelf",
+   "x": 11,
+   "y": 2
+  },
+  {
+   "type": "menu_board",
+   "x": 9,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "kitchen_dresser",
+   "x": 11,
+   "y": 1
+  },
+  {
+   "type": "clock",
+   "x": 6,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "wall_picture",
+   "x": 4,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  },
+  {
+   "type": "rug",
+   "x": 6,
+   "y": 3,
+   "w": 2,
+   "h": 2,
+   "variant": 3,
+   "walk": true
+  },
+  {
+   "type": "plant_stand",
+   "x": 1,
+   "y": 6
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 8,
+   "to": "blackpool",
+   "tx": 43,
+   "ty": 8,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "rock_boss",
+   "sprite": "shopkeeper",
+   "x": 6,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "rock_boss",
+   "name": "Rock Boiler Maureen"
+  },
+  {
+   "id": "rock_apprentice",
+   "sprite": "student",
+   "x": 10,
+   "y": 4,
+   "facing": "left",
+   "move": "still",
+   "script": "rock_apprentice",
+   "name": "Apprentice Liam"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  6,
+  7
+ ],
+ "rows": [
+  "xxxxxxxxxxxxx",
+  "x|||||||||||x",
+  "x|CCCCCCCCC|x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||D|||||x",
+  "xxxxxxxxxxxxx"
+ ]
+}

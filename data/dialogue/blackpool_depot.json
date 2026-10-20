@@ -1,0 +1,50 @@
+{
+ "depot_doreen": [
+  {
+   "do": "if",
+   "flag": "q_lancashire_lights_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Doreen",
+     "text": "Still glowing? So's the prom. Come back every autumn, the lights run till early November."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_lancashire_lights_started",
+     "then": [
+      {
+       "do": "say",
+       "who": "Doreen",
+       "text": "Fuses from Alf's tram, spare bulbs from Southport Pier, then somebody famous for the switch. Try Uncle Norman at the Winter Gardens: he knows everybody, and he'll tell you so."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Doreen",
+       "text": "Oh, thank goodness, a pair of hands! Doreen, Illuminations Depot. It's switch-on night and everything that can go wrong has gone wrong."
+      },
+      {
+       "do": "say",
+       "who": "Doreen",
+       "text": "The fuse boxes have blown, I'm short of bulbs, and the celebrity's stuck on the M55 with a flat tyre and a film crew."
+      },
+      {
+       "do": "say",
+       "who": "Doreen",
+       "text": "Tram Driver Alf keeps spare fuses in his cab: he's at the tram stop on the prom. Get those, then we'll talk bulbs."
+      },
+      {
+       "do": "set",
+       "flag": "q_lancashire_lights_started",
+       "value": true
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

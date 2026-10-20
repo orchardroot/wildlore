@@ -77,7 +77,7 @@ static func trainer_script(id: String) -> Array:
 ## interiors use the town they're in, and Man's depends on the hour.
 const GREETINGS := {
 	"cheshire": "Alright!", "manchester": "Alright, our kid!", "merseyside": "Alright, la!", "yorkshire": "Ey up!",
-	"north_east": "Alreet, pet!", "midlands": "Alright, mate!", "peak": "Ay up, me duck!", "cumbria": "Now then!",
+	"north_east": "Alreet, pet!", "midlands": "Alright, mate!", "peak": "Ay up, me duck!", "cumbria": "Now then!", "lancashire": "Hiya, love!",
 	"south_england": "Alright, my lover!", "cornwall": "Dydh da!", "north_wales": "Shwmae!", "mid_wales": "Shwmae!",
 	"south_wales": "Shwmae!", "scotland": "Hiya!", "ireland": "How's the form?", "ireland_east": "How's the form?",
 	"ireland_west": "Dia dhuit!",

@@ -16,7 +16,7 @@ const IRON := Color("3c4450")
 const GLASS := Color.WHITE
 
 ## Building styles handled here rather than by the generic house in Meshes.building.
-const SPECIAL := ["glass_tower", "gantry_crane", "cantilever_crane", "titanic", "mill", "castle", "cathedral", "liver_building", "station", "aqueduct", "chapel", "terrace", "tudor", "slate_cottage", "lighthouse_house", "round_tower", "passage_tomb", "field_barn", "bottle_kiln", "potbank"]
+const SPECIAL := ["glass_tower", "gantry_crane", "cantilever_crane", "titanic", "mill", "castle", "cathedral", "liver_building", "station", "aqueduct", "chapel", "terrace", "tudor", "slate_cottage", "lighthouse_house", "round_tower", "passage_tomb", "field_barn", "bottle_kiln", "potbank", "blackpool_tower", "big_one", "blackpool_tram", "pier_pavilion", "veranda_shop", "guest_house"]
 	"canal_tunnel", "leeds_town_hall", "corn_exchange", "market_hall", "abbey_ruin", "parsonage", "weavers_cottage", "pennine_church"]
 
 ## Doors: where each style's door sits on its tile (see _door and friends), for the swing as you go in.
@@ -161,6 +161,18 @@ static func building(w: int, d: int, style: String, door_x: int, seed_value: int
 			_bottle_kiln(st, w, d, door_x)
 		"potbank":
 			_potbank(st, wst, w, d, door_x, rng)
+		"blackpool_tower":
+			_blackpool_tower(st, wst, w, d, door_x)
+		"big_one":
+			_big_one(st, wst, w, d)
+		"blackpool_tram":
+			_blackpool_tram(st, wst, w, d)
+		"pier_pavilion":
+			_pier_pavilion(st, wst, w, d, door_x)
+		"veranda_shop":
+			_veranda_shop(st, wst, w, d, door_x, rng)
+		"guest_house":
+			_guest_house(st, wst, w, d, door_x, rng)
 		_:
 			_house(st, wst, w, d, door_x, rng, BRICK, SLATE, 2, false, false)
 	return [Meshes._finish(st), Meshes._finish(wst), _chimneys]
@@ -321,7 +333,7 @@ const PENNANT_NOTCH := 0.32 # how far the swallowtail's fork cuts back, as a fra
 const PENNANT_KINDS := {
 	"cheshire": "st_george", "peak": "st_george", "manchester": "st_george", "merseyside": "st_george",
 	"midlands": "st_george", "south_england": "st_george", "yorkshire": "st_george", "north_east": "st_george",
-	"cumbria": "st_george", "cornwall": "st_piran", "north_wales": "wales", "mid_wales": "wales",
+	"cumbria": "st_george", "lancashire": "st_george", "cornwall": "st_piran", "north_wales": "wales", "mid_wales": "wales",
 	"south_wales": "wales", "scotland": "saltire", "ireland": "ireland", "ireland_west": "ireland",
 	"ireland_east": "ireland", "man": "man",
 }
@@ -1050,6 +1062,8 @@ static func shard() -> ArrayMesh:
 	return Meshes._finish(st)
 
 static func statue(variant := 0) -> ArrayMesh:
+	if variant == IRON_MAN:
+		return iron_man()
 	var st := Meshes._st()
 	var rng := Meshes._rng(9600 + variant)
 	Meshes.box(st, Vector3(-0.35, 0, -0.35), Vector3(0.7, 0.7, 0.7), LIMESTONE)
@@ -1370,4 +1384,233 @@ static func _potbank(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: 
 		Meshes.box(st, Vector3(x0 + 0.4, 1.3, d - 0.05), Vector3(0.2, 0.08, 0.08), LIMESTONE.darkened(0.1))  # keystone
 	var kx := (w - 1.2) if door_x < w * 0.5 else 1.2
 	_bottle(st, Vector3(kx, 0, minf(1.0, d * 0.35)), minf(0.95, d * 0.32), 0.95, POT_BRICK.darkened(0.08))
+# --- the Lancashire coast --------------------------------------------------------
+
+const TOWER_RED := Color("a9442f")
+const TERRACOTTA := Color("d9b48a")
+## statue variant: one of the cast-iron men on Crosby beach.
+const IRON_MAN := 3
+
+## Blackpool Tower: the red-brick and terracotta Tower Buildings, with the red lattice tower rising from the
+## roof to a lookout and a flagstaff. Little bulbs on the legs and the lookout go in the window mesh, so the
+## whole tower lights up at night like the Illuminations.
+static func _blackpool_tower(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int) -> void:
+	var hb := 2.5
+	Meshes.box(st, Vector3(0.05, 0, 0.05), Vector3(w - 0.1, hb, d - 0.1), BRICK, BRICK.darkened(0.3))
+	Meshes.box(st, Vector3(0, 0, 0), Vector3(w, 0.2, d), DARK_BRICK)
+	for s in 2:
+		Meshes.box(st, Vector3(0.0, 1.15 + s * 1.2, d - 0.06), Vector3(w, 0.1, 0.05), TERRACOTTA)
+		for x in w:
+			if x == door_x and s == 0:
+				continue
+			_window(st, wst, x + 0.25, 0.4 + 1.15 * s, d, 0.5, 0.6, TERRACOTTA)
+	Meshes.box(st, Vector3(-0.05, hb - 0.1, -0.05), Vector3(w + 0.1, 0.18, d + 0.1), TERRACOTTA)
+	# little corner turrets on the front of the buildings
+	for tx in [0.0, w - 0.7]:
+		Meshes.box(st, Vector3(tx, 0, d - 0.75), Vector3(0.7, hb + 0.5, 0.7), BRICK.lightened(0.05), TERRACOTTA)
+		Meshes.box(st, Vector3(tx + 0.15, hb + 0.5, d - 0.6), Vector3(0.4, 0.35, 0.4), TERRACOTTA)
+	# a grand arched entrance in terracotta
+	if door_x >= 0:
+		Meshes.box(st, Vector3(door_x - 0.15, 0.2, d - 0.14), Vector3(1.3, 1.45, 0.08), TERRACOTTA)
+	_door(st, door_x, d, BRICK, 1.1)
+	# the tower: four legs leaning in from the roof, braced every storey
+	var cx := w * 0.5
+	var cz := maxf(d * 0.5, d - 2.3)  # towards the front, so the lattice shows over the prom
+	var top := hb + 7.0
+	var foot := minf(1.7, minf(w, d) * 0.42)
+	var neck := 0.32
+	var legs := [Vector2(-1, -1), Vector2(1, -1), Vector2(1, 1), Vector2(-1, 1)]
+	var bulb := Color(1, 0.92, 0.6, 1)
+	for c in legs:
+		_strut(st, Vector3(cx + c.x * foot, hb, cz + c.y * foot), Vector3(cx + c.x * neck, top, cz + c.y * neck), 0.18, TOWER_RED)
+	var levels := 7
+	for i in levels:
+		var y0 := hb + 0.6 + i * 0.95
+		var y1 := y0 + 0.95
+		var r0 := lerpf(foot, neck, (y0 - hb) / (top - hb))
+		var r1 := lerpf(foot, neck, (y1 - hb) / (top - hb))
+		Meshes.box(st, Vector3(cx - r0, y0, cz - r0), Vector3(r0 * 2, 0.08, 0.08), TOWER_RED.lightened(0.08))
+		Meshes.box(st, Vector3(cx - r0, y0, cz + r0 - 0.08), Vector3(r0 * 2, 0.08, 0.08), TOWER_RED.lightened(0.08))
+		Meshes.box(st, Vector3(cx - r0, y0, cz - r0), Vector3(0.08, 0.08, r0 * 2), TOWER_RED)
+		Meshes.box(st, Vector3(cx + r0 - 0.08, y0, cz - r0), Vector3(0.08, 0.08, r0 * 2), TOWER_RED)
+		if y1 < top - 1.2:
+			# the lattice: a cross on the south face (the one you see), a single brace on the others
+			_strut(st, Vector3(cx - r0, y0, cz + r0), Vector3(cx + r1, y1, cz + r1), 0.06, TOWER_RED.darkened(0.1))
+			_strut(st, Vector3(cx + r0, y0, cz + r0), Vector3(cx - r1, y1, cz + r1), 0.06, TOWER_RED.darkened(0.1))
+			_strut(st, Vector3(cx - r0, y0, cz - r0), Vector3(cx - r1, y1, cz + r1), 0.06, TOWER_RED.darkened(0.15))
+			_strut(st, Vector3(cx + r0, y0, cz - r0), Vector3(cx + r1, y1, cz + r1), 0.06, TOWER_RED.darkened(0.15))
+		for c in legs:
+			Meshes.box(wst, Vector3(cx + c.x * r0 - 0.05, y0 + 0.3, cz + c.y * r0 + 0.02), Vector3(0.1, 0.1, 0.1), bulb)
+	# the old ballroom-level platform and the lookout near the top
+	var py := hb + 0.6
+	Meshes.box(st, Vector3(cx - foot - 0.15, py, cz - foot - 0.15), Vector3(foot * 2 + 0.3, 0.12, foot * 2 + 0.3), TOWER_RED.darkened(0.2))
+	var ly := top - 1.4
+	var lr := 0.75
+	Meshes.box(st, Vector3(cx - lr, ly, cz - lr), Vector3(lr * 2, 0.7, lr * 2), Color("e9dcc0"), TOWER_RED)
+	Meshes.box(st, Vector3(cx - lr - 0.08, ly - 0.08, cz - lr - 0.08), Vector3(lr * 2 + 0.16, 0.1, lr * 2 + 0.16), TOWER_RED.darkened(0.2))
+	for i in 4:
+		Meshes.box(wst, Vector3(cx - lr + 0.12 + i * 0.36, ly + 0.25, cz + lr + 0.005), Vector3(0.24, 0.3, 0.03), Color(1, 0.95, 0.75, 1))
+	# the cap: a short spire and a flagstaff with a little flag
+	Meshes.box(st, Vector3(cx - neck, top, cz - neck), Vector3(neck * 2, 0.5, neck * 2), TOWER_RED.lightened(0.05))
+	for i in 3:
+		var r := 0.26 - i * 0.08
+		Meshes.box(st, Vector3(cx - r, top + 0.5 + i * 0.3, cz - r), Vector3(r * 2, 0.3, r * 2), TOWER_RED.lightened(0.1 * i))
+	Meshes.box(st, Vector3(cx - 0.03, top + 1.4, cz - 0.03), Vector3(0.06, 1.0, 0.06), Color("dcdcdc"))
+	Meshes.box(st, Vector3(cx + 0.03, top + 2.0, cz - 0.02), Vector3(0.45, 0.28, 0.04), Color("c8102e"))
+	Meshes.box(wst, Vector3(cx - 0.07, top + 0.55, cz + neck), Vector3(0.14, 0.14, 0.05), bulb)
+
+## The Big One at the Pleasure Beach: a long white-legged steel coaster, a lift hill climbing from the west end to
+## the top, the famous drop, then a run of smaller camelback hills. Runs east-west along the footprint.
+static func _big_one(st: SurfaceTool, wst: SurfaceTool, w: int, d: int) -> void:
+	var track := Color("2f6fb3")
+	var leg := Color("e8e6df")
+	var cz := d * 0.5
+	# a height profile over the footprint: [x, height]
+	var prof := [[0.2, 0.6], [w * 0.28, 6.0], [w * 0.31, 6.2], [w * 0.42, 0.7], [w * 0.55, 3.6], [w * 0.66, 0.9],
+		[w * 0.76, 2.4], [w * 0.86, 0.8], [w - 0.3, 0.6]]
+	for i in prof.size() - 1:
+		var a := Vector3(prof[i][0], prof[i][1], cz)
+		var b := Vector3(prof[i + 1][0], prof[i + 1][1], cz)
+		var steps := maxi(1, int(a.distance_to(b) / 0.45))
+		for k in steps:
+			var p0 := a.lerp(b, float(k) / steps)
+			var p1 := a.lerp(b, float(k + 1) / steps)
+			# two rails and a spine, as thin slabs between the samples
+			for off in [-0.22, 0.22]:
+				_strut(st, p0 + Vector3(0, 0, off), p1 + Vector3(0, 0, off), 0.07, track)
+			_strut(st, p0 + Vector3(0, -0.12, 0), p1 + Vector3(0, -0.12, 0), 0.1, track.darkened(0.25))
+			if k % 2 == 0 and p0.y > 0.5:
+				_strut(st, Vector3(p0.x, 0, cz - 0.25), Vector3(p0.x, p0.y - 0.15, cz - 0.08), 0.08, leg)
+				_strut(st, Vector3(p0.x, 0, cz + 0.25), Vector3(p0.x, p0.y - 0.15, cz + 0.08), 0.08, leg)
+				if p0.y > 2.0:
+					Meshes.box(st, Vector3(p0.x - 0.04, p0.y * 0.5, cz - 0.22), Vector3(0.08, 0.06, 0.44), leg.darkened(0.1))
+			if k % 3 == 1:
+				Meshes.box(wst, Vector3(p0.x - 0.04, p0.y + 0.02, cz + 0.27), Vector3(0.08, 0.08, 0.04), Color(1, 0.85, 0.5, 1))
+	# a train of cars cresting the lift hill
+	var crest := Vector3(prof[1][0], prof[1][1], cz)
+	for i in 3:
+		var p := crest + Vector3(-0.45 * (i + 1), -0.45 * (i + 1) * 6.0 / (w * 0.28), 0)
+		Meshes.box(st, p + Vector3(-0.2, 0.05, -0.28), Vector3(0.4, 0.28, 0.56), Color("d8352a"), Color("f0c43a"))
+	# the station shed at the east end
+	Meshes.box(st, Vector3(w - 2.2, 0, 0.1), Vector3(2.0, 0.9, d - 0.2), Color("f2efe6"), Color("2f6fb3"))
+
+## A Blackpool Balloon tram: a double-decker in cream and green, on a footprint one tile wide and three long
+## (north-south), with its trolley pole up to the overhead wire.
+static func _blackpool_tram(st: SurfaceTool, wst: SurfaceTool, w: int, d: int) -> void:
+	var cream := Color("efe3c0")
+	var green := Color("3f7a4a")
+	var x0 := 0.12
+	var bw := w - 0.24
+	Meshes.box(st, Vector3(x0, 0.0, 0.1), Vector3(bw, 0.18, d - 0.2), Color("2a2a2a"))
+	Meshes.box(st, Vector3(x0, 0.18, 0.15), Vector3(bw, 0.55, d - 0.3), green, cream)
+	Meshes.box(st, Vector3(x0, 0.73, 0.15), Vector3(bw, 0.5, d - 0.3), cream)
+	Meshes.box(st, Vector3(x0, 1.23, 0.15), Vector3(bw, 0.1, d - 0.3), green)
+	Meshes.box(st, Vector3(x0, 1.33, 0.15), Vector3(bw, 0.5, d - 0.3), cream, cream.lightened(0.1))
+	# rounded-off ends, near enough
+	Meshes.box(st, Vector3(x0 + 0.08, 0.18, 0.05), Vector3(bw - 0.16, 1.6, 0.12), cream.darkened(0.05))
+	Meshes.box(st, Vector3(x0 + 0.08, 0.18, d - 0.17), Vector3(bw - 0.16, 1.6, 0.12), cream.darkened(0.05))
+	for deck in 2:
+		var y := 0.82 + deck * 0.6
+		for i in 4:
+			Meshes.box(wst, Vector3(x0 - 0.01, y, 0.35 + i * (d - 0.7) / 4.0), Vector3(0.02, 0.3, (d - 0.7) / 4.0 - 0.08), Color(1, 0.95, 0.8, 1))
+			Meshes.box(wst, Vector3(x0 + bw - 0.01, y, 0.35 + i * (d - 0.7) / 4.0), Vector3(0.02, 0.3, (d - 0.7) / 4.0 - 0.08), Color(1, 0.95, 0.8, 1))
+		Meshes.box(wst, Vector3(x0 + 0.15, y, d - 0.06), Vector3(bw - 0.3, 0.3, 0.02), Color(1, 0.95, 0.8, 1))
+	# headlamp and the destination blind
+	Meshes.box(wst, Vector3(w * 0.5 - 0.08, 0.4, d - 0.05), Vector3(0.16, 0.12, 0.03), Color(1, 1, 0.85, 1))
+	Meshes.box(st, Vector3(x0 + 0.15, 1.6, d - 0.07), Vector3(bw - 0.3, 0.14, 0.03), Color("1d1d1d"))
+	_strut(st, Vector3(w * 0.5, 1.83, d * 0.5), Vector3(w * 0.5, 2.5, d * 0.5 - 0.9), 0.05, Color("2a2a2a"))
+
+## A seaside pier pavilion at the end of the boards: white walls, a green dome on top, little pennants.
+static func _pier_pavilion(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int) -> void:
+	var white := Color("f3f0e6")
+	var green := Color("4f8f7a")
+	var hgt := 1.4
+	# stilts under the deck, so it reads as standing over the sea
+	for x in range(0, w + 1):
+		for z in [0.2, d - 0.3]:
+			Meshes.box(st, Vector3(minf(x, w - 0.15), -0.8, z), Vector3(0.12, 0.85, 0.12), Color("5a4a3a"))
+	Meshes.box(st, Vector3(-0.1, 0, -0.1), Vector3(w + 0.2, 0.12, d + 0.2), Color("8a6a4a"))
+	Meshes.box(st, Vector3(0.1, 0.12, 0.1), Vector3(w - 0.2, hgt, d - 0.2), white, white)
+	Meshes.box(st, Vector3(0.0, hgt + 0.12, 0.0), Vector3(w, 0.12, d), green)
+	var rng := Meshes._rng(4242 + w * 7 + d)
+	Meshes.cylinder(st, Vector3(w * 0.5, hgt + 0.24, d * 0.5), minf(w, d) * 0.32, 0.4, 8, white)
+	Meshes.cone(st, Vector3(w * 0.5, hgt + 0.64, d * 0.5), minf(w, d) * 0.34, 0.9, 8, green, rng)
+	Meshes.box(st, Vector3(w * 0.5 - 0.02, hgt + 1.5, d * 0.5 - 0.02), Vector3(0.04, 0.5, 0.04), Color("dcdcdc"))
+	Meshes.box(st, Vector3(w * 0.5 + 0.02, hgt + 1.8, d * 0.5), Vector3(0.3, 0.18, 0.03), Color("c8102e"))
+	for x in w:
+		if x == door_x:
+			continue
+		_window(st, wst, x + 0.25, 0.45, d - 0.1, 0.5, 0.6, green)
+	for x in range(0, w + 1):
+		Meshes.box(wst, Vector3(minf(x, w - 0.1), hgt + 0.18, d + 0.01), Vector3(0.1, 0.1, 0.04), Color(1, 0.9, 0.55, 1))
+	_door(st, door_x, d - 0.1, white, 1.0)
+
+## One of the hundred cast-iron men of Another Place on Crosby beach: life size, rust brown, gazing out to sea
+## (+z faces front: turn it with "rot" to face the water). Barnacles and weed darken the shins.
+static func iron_man() -> ArrayMesh:
+	var st := Meshes._st()
+	var rng := Meshes._rng(9603)
+	var iron := Color("6e4a36")
+	var weed := Color("3f4a32")
+	Meshes.box(st, Vector3(-0.13, 0, -0.06), Vector3(0.1, 0.32, 0.12), weed)
+	Meshes.box(st, Vector3(0.03, 0, -0.06), Vector3(0.1, 0.32, 0.12), weed)
+	Meshes.box(st, Vector3(-0.13, 0.32, -0.06), Vector3(0.1, 0.36, 0.12), iron.darkened(0.1))
+	Meshes.box(st, Vector3(0.03, 0.32, -0.06), Vector3(0.1, 0.36, 0.12), iron.darkened(0.1))
+	Meshes.box(st, Vector3(-0.15, 0.68, -0.08), Vector3(0.3, 0.5, 0.16), iron)
+	Meshes.box(st, Vector3(-0.22, 0.7, -0.05), Vector3(0.07, 0.46, 0.1), iron.darkened(0.05))
+	Meshes.box(st, Vector3(0.15, 0.7, -0.05), Vector3(0.07, 0.46, 0.1), iron.darkened(0.05))
+	Meshes.box(st, Vector3(-0.04, 1.18, -0.04), Vector3(0.08, 0.06, 0.08), iron)
+	Meshes.blob(st, Vector3(0, 1.32, 0), Vector3(0.09, 0.11, 0.1), iron.lightened(0.05), rng, 0.04)
+	Meshes.box(st, Vector3(-0.02, 1.3, 0.08), Vector3(0.04, 0.04, 0.04), iron.darkened(0.15))
+	return Meshes._finish(st)
+
+## Southport's Lord Street: two storeys of pale Victorian stone with an iron-and-glass veranda over the pavement,
+## held up on slim painted columns, the shop windows glowing underneath.
+static func _veranda_shop(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int, rng: RandomNumberGenerator) -> void:
+	var stone: Color = [Color("e6dcc6"), Color("d9cbb0"), Color("efe6d4")][rng.randi() % 3]
+	var iron: Color = [Color("2f4f46"), Color("3a3f5c"), Color("5a2f36")][rng.randi() % 3]
+	var hgt := 2.5
+	Meshes.box(st, Vector3(0.05, 0, 0.05), Vector3(w - 0.1, hgt, d - 0.1), stone)
+	Meshes.box(st, Vector3(0, 0, 0), Vector3(w, 0.16, d), stone.darkened(0.3))
+	Meshes.box(st, Vector3(-0.05, hgt - 0.12, -0.05), Vector3(w + 0.1, 0.18, d + 0.1), stone.lightened(0.1))
+	_roof(st, w, d, hgt, SLATE, stone, 0.3)
+	for x in w:
+		if x != door_x:
+			_window(st, wst, x + 0.12, 0.3, d, 0.76, 0.85, iron)
+		_window(st, wst, x + 0.3, 1.55, d, 0.4, 0.6, stone.darkened(0.1))
+	_door(st, door_x, d, stone, 1.0)
+	# the veranda: columns at the kerb, a glass roof sloping back to the wall, a fretwork valance
+	for x in range(0, w + 1):
+		Meshes.box(st, Vector3(minf(x, w - 0.08), 0, d + 0.78), Vector3(0.08, 1.25, 0.08), iron)
+	Meshes.box(st, Vector3(-0.05, 1.25, d - 0.02), Vector3(w + 0.1, 0.06, 0.9), Color("b9cfd4"), Color("cfe2e6"))
+	Meshes.box(st, Vector3(-0.05, 1.12, d + 0.8), Vector3(w + 0.1, 0.14, 0.05), iron)
+
+## A Blackpool guest house: a tall red-brick terrace with white bay windows on two floors, a painted porch and a
+## little board in the window. Seaside pastel trims vary house to house.
+static func _guest_house(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int, rng: RandomNumberGenerator) -> void:
+	var trims := [Color("f2efe6"), Color("bfe0dc"), Color("f4d6dc"), Color("f3e3a6")]
+	var hgt := 3.3
+	Meshes.box(st, Vector3(0.05, 0, 0.05), Vector3(w - 0.1, hgt, d - 0.1), BRICK)
+	Meshes.box(st, Vector3(0, 0, 0), Vector3(w, 0.16, d), DARK_BRICK)
+	_roof(st, w, d, hgt, SLATE, BRICK, 0.35)
+	for x in range(0, w, 2):
+		var trim: Color = trims[rng.randi() % trims.size()]
+		var bw := minf(1.3, w - x - 0.5)
+		var bx := float(x) + 0.35
+		if x <= door_x and door_x < x + 2:
+			# the porch: a painted surround and a fanlight over the door, a window beside it
+			Meshes.box(st, Vector3(door_x + 0.1, 0.16, d - 0.05), Vector3(0.8, 1.2, 0.14), trim)
+			var wx := float(x) + (1.25 if door_x == x else 0.2)
+			_window(st, wst, wx, 0.45, d, 0.5, 0.6, trim)
+		else:
+			# a two-storey bay, painted, with a window on each floor
+			Meshes.box(st, Vector3(bx, 0.16, d - 0.05), Vector3(bw, 2.2, 0.26), BRICK.lightened(0.04), trim)
+			Meshes.box(st, Vector3(bx - 0.04, 1.08, d - 0.05), Vector3(bw + 0.08, 0.1, 0.32), trim)
+			Meshes.box(st, Vector3(bx - 0.04, 2.36, d - 0.05), Vector3(bw + 0.08, 0.1, 0.32), trim)
+			_window(st, wst, bx + 0.12, 0.42, d + 0.28, bw - 0.24, 0.58, trim)
+			_window(st, wst, bx + 0.12, 1.42, d + 0.28, bw - 0.24, 0.58, trim)
+		_window(st, wst, bx + 0.25, 2.62, d, bw - 0.5, 0.45, trim)
+		Meshes.box(st, Vector3(x + 0.95, hgt + 0.3, d * 0.5 - 0.2), Vector3(0.35, 0.8, 0.4), BRICK.darkened(0.2))
+		_chimneys.append(Vector3(x + 1.12, hgt + 1.1, d * 0.5))
+	_door(st, door_x, d + 0.1, BRICK, 0.9)
 

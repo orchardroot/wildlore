@@ -56,7 +56,10 @@
     "forced_in_the_dark": {"name": "Forced in the Dark", "desc": "Grows best out of the light: hits harder at dusk and at night, and grows back 1/16 of its HP every turn.", "msg": "You can hear {name} creak as it grows.", "power_time": {"time": ["dusk", "night"], "mult": 1.2}, "heal": {"weather": [], "frac": 16}},
     "fired_hard": {"name": "Fired Hard", "desc": "Kiln-fired at 1,200 degrees: hearth and frost moves hurt it a quarter less.", "msg": "{name} is Fired Hard. It barely felt that!", "resist": {"types": ["hearth", "frost"], "mult": 0.75}},
     "ochre_water": {"name": "Ochre Water", "desc": "Lives in rusty water: it can't be soaked, and heals 1/16 of its HP each turn in drizzle or a downpour.", "msg": "{name} soaks up the orange water.", "block_status": ["soaked"], "heal": {"weather": ["drizzle", "downpour"], "frac": 16}},
-    "beheading_game": {"name": "Beheading Game", "desc": "Picks its head back up: from full HP a knockout blow leaves it on 1 HP, and its own-type moves hit half as hard again at a third of its HP or less.", "msg": "{name} picks its head back up!", "endure_full": true, "pinch": 1.5}
+    "beheading_game": {"name": "Beheading Game", "desc": "Picks its head back up: from full HP a knockout blow leaves it on 1 HP, and its own-type moves hit half as hard again at a third of its HP or less.", "msg": "{name} picks its head back up!", "endure_full": true, "pinch": 1.5},
+    "drag_you_under": {"name": "Drag You Under", "desc": "Its moves hit a third harder against a foe at half HP or less.", "finisher": 1.3},
+    "switched_on": {"name": "Switched On", "desc": "Lights up when it comes out at dusk or at night: its Lore rises.", "msg": "{name} is Switched On! The whole prom lights up.", "entry_stage": {"to": "self", "stat": "lore", "stages": 1, "time": ["dusk", "night"]}},
+    "another_tide": {"name": "Another Tide", "desc": "Brook and tide moves hurt it a quarter less, and foes can't lower its stats.", "msg": "{name} has stood through a thousand tides. It won't be moved!", "resist": {"types": ["brook", "tide"], "mult": 0.75}, "no_drops": true}
   },
   "species": {
     "bogglet": "mardy",
@@ -295,6 +298,11 @@
     "bottlekiln": "fired_hard",
     "rustelver": "ochre_water",
     "ochreel": "ochre_water",
-    "bertilak": "beheading_game"
+    "bertilak": "beheading_game",
+    "weedjen": "drag_you_under",
+    "greenteeth": "drag_you_under",
+    "bulbkin": "switched_on",
+    "illuminade": "switched_on",
+    "ironwatch": "another_tide"
   }
 }
