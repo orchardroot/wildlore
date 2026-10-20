@@ -764,9 +764,13 @@ func _grind_to(level: int, zone := "") -> void:
 				grind_zone = _pick_grind_zone()
 			_lead_with_weakest(_area_level(grind_zone))
 		else:
-			_lead_with_weakest()
+			# slice: when levels stop coming (the real-clock weather can favour wilds that outclass the lead),
+			# alternate the grind zone and let weaker creatures lead
+			var slow := (guard - stall_at) / 300
+			_lead_with_weakest(0, 3 * slow)
 			if zone == "":
-				grind_zone = "macc_forest" if _strongest().level < 9 else "cat_and_fiddle"
+				var hard := _strongest().level >= 9
+				grind_zone = "cat_and_fiddle" if hard != (slow % 2 == 1) else "macc_forest"
 		var spot := _grass_spot(grind_zone)
 		_walk_lost = false
 		if not await _walk_to(grind_zone, spot, mode != "full"):
@@ -838,12 +842,12 @@ func _team_level() -> int:
 ## Like a sensible player: put the lowest-level creature first while training, so the whole team keeps up.
 ## A creature far below the area's level would just faint, so it never leads more than 8 levels under the best.
 ## In full mode a creature may also lead if it is no more than 3 levels under the grass it is training in.
-func _lead_with_weakest(area_level := 0) -> void:
+func _lead_with_weakest(area_level := 0, slack := 0) -> void:
 	var party: Array = Game.data.party
 	if party.size() < 2:
 		return
 	var best := _strongest().level
-	var floor_lv := best - 8
+	var floor_lv := best - 8 - slack
 	if mode == "full" and area_level > 0:
 		floor_lv = mini(floor_lv, area_level - 3)
 	if mode == "full" and party.size() >= 4:
