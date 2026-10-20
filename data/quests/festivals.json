@@ -1,0 +1,280 @@
+{
+ "quests": [
+  {
+   "id": "festivals_bonfire",
+   "title": "Remember, Remember",
+   "region": "festivals",
+   "town": "york",
+   "giver": "Bonfire Bernard",
+   "summary": "York is ready for Bonfire Night, but needs a Fizzlet to light the bonfire. Only on in the first week of November.",
+   "start_flag": "q_festivals_bonfire_started",
+   "steps": [
+    {
+     "flag": "q_festivals_bonfire_1",
+     "text": "Catch a Fizzlet, a little firework of a creature that only turns up in York this week. Show it to Bonfire Bernard.",
+     "zone": "york"
+    },
+    {
+     "flag": "q_festivals_bonfire_2",
+     "text": "Answer Bonfire Bernard's question about the occasion.",
+     "zone": "york"
+    }
+   ],
+   "done_flag": "q_festivals_bonfire_done",
+   "reward": "A tin of sparklers and some parkin."
+  },
+  {
+   "id": "festivals_samhain",
+   "title": "Samhain on the Foyle",
+   "region": "festivals",
+   "town": "derry",
+   "giver": "Samhain Sinead",
+   "summary": "Derry's Halloween carnival needs a Pooka for the parade. On from 24 October to 1 November.",
+   "start_flag": "q_festivals_samhain_started",
+   "steps": [
+    {
+     "flag": "q_festivals_samhain_1",
+     "text": "Catch a Pooka, the shapeshifting Irish trickster, which only prowls Derry at Samhain. Show it to Samhain Sinead.",
+     "zone": "derry"
+    },
+    {
+     "flag": "q_festivals_samhain_2",
+     "text": "Answer Samhain Sinead's question about the occasion.",
+     "zone": "derry"
+    }
+   ],
+   "done_flag": "q_festivals_samhain_done",
+   "reward": "A turnip lantern and barmbrack."
+  },
+  {
+   "id": "festivals_burns",
+   "title": "A Burns Supper",
+   "region": "festivals",
+   "town": "glasgow",
+   "giver": "Haggis Hamish",
+   "summary": "A Glasgow Burns Supper needs a Thistlet for the table. Only around 25 January.",
+   "start_flag": "q_festivals_burns_started",
+   "steps": [
+    {
+     "flag": "q_festivals_burns_1",
+     "text": "Catch a Thistlet, which only turns up in Glasgow around Burns Night. Show it to Haggis Hamish.",
+     "zone": "glasgow"
+    },
+    {
+     "flag": "q_festivals_burns_2",
+     "text": "Answer Haggis Hamish's question about the occasion.",
+     "zone": "glasgow"
+    }
+   ],
+   "done_flag": "q_festivals_burns_done",
+   "reward": "A tartan ribbon and a dish of cranachan."
+  },
+  {
+   "id": "festivals_stdavids",
+   "title": "Dydd Gwyl Dewi",
+   "region": "festivals",
+   "town": "st_davids",
+   "giver": "Dewi the Daffodil",
+   "summary": "St Davids needs a Tylwyth for the St David's Day procession. On from 26 February to 2 March.",
+   "start_flag": "q_festivals_stdavids_started",
+   "steps": [
+    {
+     "flag": "q_festivals_stdavids_1",
+     "text": "Catch a Tylwyth, a Welsh fairy, which only comes out round St Davids at this time of year. Show it to Dewi the Daffodil.",
+     "zone": "st_davids"
+    },
+    {
+     "flag": "q_festivals_stdavids_2",
+     "text": "Answer Dewi the Daffodil's question about the occasion.",
+     "zone": "st_davids"
+    }
+   ],
+   "done_flag": "q_festivals_stdavids_done",
+   "reward": "A daffodil brooch and bara brith."
+  },
+  {
+   "id": "festivals_stpatricks",
+   "title": "The Paddy's Day Parade",
+   "region": "festivals",
+   "town": "dublin",
+   "giver": "Paddy Parade",
+   "summary": "Dublin's St Patrick's parade needs a Cluricaun. Only from 14 to 18 March.",
+   "start_flag": "q_festivals_stpatricks_started",
+   "steps": [
+    {
+     "flag": "q_festivals_stpatricks_1",
+     "text": "Catch a Cluricaun, a little fairy cobbler, which only turns up in Dublin around St Patrick's Day. Show it to Paddy Parade.",
+     "zone": "dublin"
+    },
+    {
+     "flag": "q_festivals_stpatricks_2",
+     "text": "Answer Paddy Parade's question about the occasion.",
+     "zone": "dublin"
+    }
+   ],
+   "done_flag": "q_festivals_stpatricks_done",
+   "reward": "A parade shamrock and soda bread."
+  },
+  {
+   "id": "festivals_hogmanay",
+   "title": "First-Footing at Hogmanay",
+   "region": "festivals",
+   "town": "edinburgh",
+   "giver": "Auld Angus",
+   "summary": "Edinburgh needs a Beaconet to light the Hogmanay torchlight procession. On from 28 December to 2 January.",
+   "start_flag": "q_festivals_hogmanay_started",
+   "steps": [
+    {
+     "flag": "q_festivals_hogmanay_1",
+     "text": "Catch a Beaconet, a small beacon of a creature, which only turns up in Edinburgh over Hogmanay. Show it to Auld Angus.",
+     "zone": "edinburgh"
+    },
+    {
+     "flag": "q_festivals_hogmanay_2",
+     "text": "Answer Auld Angus's question about the occasion.",
+     "zone": "edinburgh"
+    }
+   ],
+   "done_flag": "q_festivals_hogmanay_done",
+   "reward": "A lump of lucky coal and some tablet."
+  },
+  {
+   "id": "festivals_beltane",
+   "title": "Beltane Fires",
+   "region": "festivals",
+   "town": "glastonbury",
+   "giver": "May Morwenna",
+   "summary": "Glastonbury needs a Kindlet to light the Beltane fire. Only from 28 April to 2 May.",
+   "start_flag": "q_festivals_beltane_started",
+   "steps": [
+    {
+     "flag": "q_festivals_beltane_1",
+     "text": "Catch a Kindlet, a small spark of a creature, which only comes to Glastonbury around May Day. Show it to May Morwenna.",
+     "zone": "glastonbury"
+    },
+    {
+     "flag": "q_festivals_beltane_2",
+     "text": "Answer May Morwenna's question about the occasion.",
+     "zone": "glastonbury"
+    }
+   ],
+   "done_flag": "q_festivals_beltane_done",
+   "reward": "A May garland and a cream tea."
+  },
+  {
+   "id": "festivals_fringe",
+   "title": "The Fringe Flyerer",
+   "region": "festivals",
+   "town": "edinburgh",
+   "giver": "Flyer Fiona",
+   "summary": "An Edinburgh Fringe performer needs a Versling to heckle. Only in August.",
+   "start_flag": "q_festivals_fringe_started",
+   "steps": [
+    {
+     "flag": "q_festivals_fringe_1",
+     "text": "Catch a Versling, a street-wise little rhymer, which only haunts Edinburgh during the Fringe. Show it to Flyer Fiona.",
+     "zone": "edinburgh"
+    },
+    {
+     "flag": "q_festivals_fringe_2",
+     "text": "Answer Flyer Fiona's question about the occasion.",
+     "zone": "edinburgh"
+    }
+   ],
+   "done_flag": "q_festivals_fringe_done",
+   "reward": "A wad of flyers and two Irn Tonics."
+  },
+  {
+   "id": "festivals_cheese",
+   "title": "Chasing the Cheese",
+   "region": "festivals",
+   "town": "cotswolds",
+   "giver": "Cheese Cecil",
+   "summary": "Cooper's Hill needs a Gloucelet for luck before the cheese chase. Only from 24 to 31 May.",
+   "start_flag": "q_festivals_cheese_started",
+   "steps": [
+    {
+     "flag": "q_festivals_cheese_1",
+     "text": "Catch a Gloucelet, a stout little cheese-chaser, which only turns up in the Cotswolds at the end of May. Show it to Cheese Cecil.",
+     "zone": "cotswolds"
+    },
+    {
+     "flag": "q_festivals_cheese_2",
+     "text": "Answer Cheese Cecil's question about the occasion.",
+     "zone": "cotswolds"
+    }
+   ],
+   "done_flag": "q_festivals_cheese_done",
+   "reward": "A round of Double Gloucester and pork pies."
+  },
+  {
+   "id": "festivals_carnival",
+   "title": "Carnival Weekend",
+   "region": "festivals",
+   "town": "london",
+   "giver": "Carnival Carlton",
+   "summary": "Notting Hill Carnival wants a Parakit in the band. Only from 23 to 31 August.",
+   "start_flag": "q_festivals_carnival_started",
+   "steps": [
+    {
+     "flag": "q_festivals_carnival_1",
+     "text": "Catch a Parakit, a bright city bird, which flocks to London at carnival time. Show it to Carnival Carlton.",
+     "zone": "london"
+    },
+    {
+     "flag": "q_festivals_carnival_2",
+     "text": "Answer Carnival Carlton's question about the occasion.",
+     "zone": "london"
+    }
+   ],
+   "done_flag": "q_festivals_carnival_done",
+   "reward": "A carnival feather and flasks of tea."
+  },
+  {
+   "id": "festivals_welldressing",
+   "title": "Dressing the Well",
+   "region": "festivals",
+   "town": "buxton",
+   "giver": "Petal Peggy",
+   "summary": "Buxton's well dressing needs a Holtling for the blessing. Only from 4 to 19 July.",
+   "start_flag": "q_festivals_welldressing_started",
+   "steps": [
+    {
+     "flag": "q_festivals_welldressing_1",
+     "text": "Catch a Holtling, a little brook creature, which only comes to Buxton's well during dressing week. Show it to Petal Peggy.",
+     "zone": "buxton"
+    },
+    {
+     "flag": "q_festivals_welldressing_2",
+     "text": "Answer Petal Peggy's question about the occasion.",
+     "zone": "buxton"
+    }
+   ],
+   "done_flag": "q_festivals_welldressing_done",
+   "reward": "A pressed-petal panel and bottles of Buxton water."
+  },
+  {
+   "id": "festivals_marilwyd",
+   "title": "The Mari Lwyd Knocks",
+   "region": "festivals",
+   "town": "cardiff",
+   "giver": "Mari's Mate Mal",
+   "summary": "The Mari Lwyd is knocking on doors in Cardiff. Catch her for the sing-off. On from 20 December to 6 January.",
+   "start_flag": "q_festivals_marilwyd_started",
+   "steps": [
+    {
+     "flag": "q_festivals_marilwyd_1",
+     "text": "Catch a Mari Lwyd, the Grey Mare herself, who only walks Cardiff's streets at midwinter. Show it to Mari's Mate Mal.",
+     "zone": "cardiff"
+    },
+    {
+     "flag": "q_festivals_marilwyd_2",
+     "text": "Answer Mari's Mate Mal's question about the occasion.",
+     "zone": "cardiff"
+    }
+   ],
+   "done_flag": "q_festivals_marilwyd_done",
+   "reward": "A Mari Lwyd ribbon and bara brith."
+  }
+ ]
+}

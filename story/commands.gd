@@ -505,6 +505,8 @@ func _when(cond: String) -> bool:
 		return Calendar.season_today() == cond
 	if cond in Calendar.FESTIVALS:
 		return Calendar.festival_today() == cond
+	if Festivals.is_cond(cond):  # fest_<id>: one of data/festivals.json is on
+		return Festivals.cond(cond)
 	push_warning("Commands: unknown condition '%s'" % cond)
 	return false
 
