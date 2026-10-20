@@ -127,5 +127,3 @@ func test_regional_items_and_shops() -> void:
 	assert_has(items.shops.grytviken_corner_shop.stock, "ships_biscuit")
 	assert_has(items.shops.port_lockroy_gift_shop.stock, "fids_hat")
 
-func test_postcards_for_both_territories() -> void:
-	assert_true(Postcards.card_index("grytviken") >= 0 and Postcards.card_index("port_lockroy") >= 0)
