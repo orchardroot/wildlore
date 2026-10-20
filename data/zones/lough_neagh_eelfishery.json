@@ -1,0 +1,97 @@
+{
+ "id": "lough_neagh_eelfishery",
+ "name": "Lough Neagh Eel Fishery",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "rows": [
+  "xxxxxxxxxxx",
+  "x|||||||||x",
+  "x|CCC|||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x||||D||||x",
+  "xxxxxxxxxxx"
+ ],
+ "props": [
+  {
+   "type": "lobster_pots",
+   "x": 8,
+   "y": 1
+  },
+  {
+   "type": "lobster_pots",
+   "x": 9,
+   "y": 1
+  },
+  {
+   "type": "kitchen_dresser",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "wall_map",
+   "x": 6,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "table",
+   "x": 8,
+   "y": 4
+  },
+  {
+   "type": "wall_picture",
+   "x": 4,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  },
+  {
+   "type": "plant_stand",
+   "x": 9,
+   "y": 5
+  }
+ ],
+ "warps": [
+  {
+   "x": 5,
+   "y": 6,
+   "to": "lough_neagh",
+   "tx": 31,
+   "ty": 25,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "ln_coop_clerk",
+   "sprite": "shopkeeper",
+   "x": 3,
+   "y": 1,
+   "facing": "down",
+   "move": "still",
+   "script": "ln_coop_clerk",
+   "name": "Co-op Clerk"
+  },
+  {
+   "id": "ln_old_fisher",
+   "sprite": "fisherman_north",
+   "x": 8,
+   "y": 5,
+   "facing": "left",
+   "move": "still",
+   "script": "ln_old_fisher",
+   "name": "Old Eel Fisherman"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  5,
+  5
+ ]
+}

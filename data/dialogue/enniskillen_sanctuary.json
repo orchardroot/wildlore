@@ -1,0 +1,63 @@
+{
+ "nurse": [
+  {
+   "do": "say",
+   "who": "Nurse",
+   "text": "{greeting} Welcome to Enniskillen Sanctuary. Pop them on the counter there and I'll have them right as rain. Which, round here, is the default."
+  },
+  {
+   "do": "choice",
+   "text": "What can we do for you?",
+   "options": [
+    "Heal my team",
+    "Open the Ark",
+    "Just looking"
+   ],
+   "set": "_nurse_choice"
+  },
+  {
+   "do": "if",
+   "flag": "_nurse_choice",
+   "then": [
+    {
+     "do": "say",
+     "who": "Nurse",
+     "text": "There's a pot of tea on, and a plate of boxty if you're quick."
+    },
+    {
+     "do": "heal"
+    },
+    {
+     "do": "say",
+     "who": "Nurse",
+     "text": "All grand. Away you go, and mind the swans on the bridge. They think they own it. They might."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "_nurse_choice",
+     "then": [
+      {
+       "do": "say",
+       "who": "Nurse",
+       "text": "The Ark's in the corner. It's been on the lough so long it's half boat."
+      },
+      {
+       "do": "ark"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Nurse",
+       "text": "No bother at all. Come back any time."
+      }
+     ],
+     "eq": 1
+    }
+   ],
+   "eq": 0
+  }
+ ]
+}

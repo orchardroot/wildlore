@@ -16,7 +16,8 @@ const IRON := Color("3c4450")
 const GLASS := Color.WHITE
 
 ## Building styles handled here rather than by the generic house in Meshes.building.
-const SPECIAL := ["glass_tower", "gantry_crane", "cantilever_crane", "titanic", "mill", "castle", "cathedral", "liver_building", "station", "aqueduct", "chapel", "terrace", "tudor", "slate_cottage", "lighthouse_house", "round_tower", "passage_tomb", "field_barn"]
+const SPECIAL := ["glass_tower", "gantry_crane", "cantilever_crane", "titanic", "mill", "castle", "cathedral", "liver_building", "station", "aqueduct", "chapel", "terrace", "tudor", "slate_cottage", "lighthouse_house", "round_tower", "passage_tomb", "field_barn",
+	"erne_terrace", "watergate", "palladian", "monument_column", "cave_mouth"]
 
 ## Doors: where each style's door sits on its tile (see _door and friends), for the swing as you go in.
 ## {x, w, y, h, z}: left edge and width across the door column, bottom and height, z of the door's face from
@@ -34,6 +35,8 @@ const DOOR_RECTS := {
 	"castle": {"x": 0.2, "w": 0.6, "y": 0.0, "h": 1.1, "z": 0.11},
 	"cathedral": {"x": 0.15, "w": 0.7, "y": 0.0, "h": 1.3, "z": 0.03},
 	"glass_tower": {"x": 0.15, "w": 0.7, "y": 0.0, "h": 1.2, "z": 0.02},
+	"palladian": {"x": 0.2, "w": 0.6, "y": 0.15, "h": 1.2, "z": -0.78},
+	"cave_mouth": {"x": 0.12, "w": 0.76, "y": 0.0, "h": 1.05, "z": -0.1},
 }
 const DOOR_OPEN_ANGLE := -1.75     # radians about the hinge: swings out toward you, about 100 degrees
 const DOOR_SWING_SECS := 0.16
@@ -115,6 +118,16 @@ static func building(w: int, d: int, style: String, door_x: int, seed_value: int
 			_passage_tomb(st, w, d, door_x)
 		"field_barn":
 			_field_barn(st, w, d, rng)
+		"erne_terrace":
+			_erne_terrace(st, wst, w, d, door_x, rng)
+		"watergate":
+			_watergate(st, wst, w, d)
+		"palladian":
+			_palladian(st, wst, w, d, door_x)
+		"monument_column":
+			_monument_column(st, w, d)
+		"cave_mouth":
+			_cave_mouth(st, w, d, door_x)
 		"liver_building":
 			_liver(st, wst, w, d, door_x)
 		"station":
@@ -1041,3 +1054,133 @@ static func harp() -> ArrayMesh:
 	for i in 5:
 		Meshes.box(st, Vector3(-0.15 + i * 0.08, 0.12, -0.01), Vector3(0.012, 1.08 - i * 0.12, 0.012), Color("f2e2a0"))
 	return Meshes._finish(st)
+
+# --- Fermanagh and the Erne (3.0) --------------------------------------------------
+
+## Irish painted render: each bay of the terrace its own colour, as on an Ulster or Fermanagh main street.
+const ERNE_PAINTS := [Color("d9a441"), Color("8fb3c9"), Color("d68c86"), Color("9fb48a"), Color("e8dcb8"), Color("c0694a"),
+	Color("4f6f8f"), Color("b0a0c8")]
+const PORTLAND_STONE := Color("e2ddcf")
+
+## An Irish main-street terrace: two storeys of painted render, a bay of colour every two tiles, dark painted
+## shopfront fascias on the ground floor, sash windows above, slate roof and a chimney on each party wall.
+static func _erne_terrace(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int, rng: RandomNumberGenerator) -> void:
+	var hgt := 2.45
+	var bw := 2 if w >= 4 else 1
+	var i0 := rng.randi() % ERNE_PAINTS.size()
+	Meshes.box(st, Vector3(0, 0, 0), Vector3(w, 0.16, d), Color("5a5650"))
+	var bx := 0
+	var k := 0
+	var first: Color = ERNE_PAINTS[i0]
+	while bx < w:
+		var ww := mini(bw, w - bx)
+		var col: Color = ERNE_PAINTS[(i0 + k * 3) % ERNE_PAINTS.size()]
+		Meshes.box(st, Vector3(bx + 0.02, 0.16, 0.05), Vector3(ww - 0.04, hgt - 0.16, d - 0.1), col)
+		# the shopfront: a dark painted fascia, pilasters and a stall riser
+		var paint := col.darkened(0.55)
+		Meshes.box(st, Vector3(bx + 0.06, 1.02, d - 0.09), Vector3(ww - 0.12, 0.2, 0.07), paint)
+		Meshes.box(st, Vector3(bx + 0.06, 0.16, d - 0.08), Vector3(0.08, 0.86, 0.06), paint)
+		Meshes.box(st, Vector3(bx + ww - 0.14, 0.16, d - 0.08), Vector3(0.08, 0.86, 0.06), paint)
+		if bx > 0:
+			Meshes.box(st, Vector3(bx - 0.2, hgt + 0.25, d * 0.5 - 0.2), Vector3(0.4, 0.85, 0.4), col.darkened(0.25))
+			Meshes.box(st, Vector3(bx - 0.12, hgt + 1.1, d * 0.5 - 0.1), Vector3(0.1, 0.14, 0.1), Color("a0553c"))
+			Meshes.box(st, Vector3(bx + 0.03, hgt + 1.1, d * 0.5 - 0.1), Vector3(0.1, 0.14, 0.1), Color("a0553c"))
+			_chimneys.append(Vector3(bx, hgt + 1.24, d * 0.5 - 0.05))
+		bx += ww
+		k += 1
+	_roof(st, w, d, hgt, SLATE, first)
+	for x in w:
+		if x != door_x:
+			_window(st, wst, x + 0.2, 0.32, d, 0.6, 0.6, Color("f1ede2"))
+		_window(st, wst, x + 0.3, 1.45, d, 0.4, 0.66, Color("f4f1e8"))
+	_door(st, door_x, d, Color("f1ede2"))
+
+## Enniskillen Castle's Watergate: two round corbelled turrets with conical caps, joined by a crenellated
+## curtain wall with a dark arch, standing at the water's edge.
+static func _watergate(st: SurfaceTool, wst: SurfaceTool, w: int, d: int) -> void:
+	var stone := Color("a59c88")
+	var rng := Meshes._rng(77)
+	var zf := d * 0.75
+	Meshes.box(st, Vector3(0.6, 0, d * 0.3), Vector3(w - 1.2, 2.1, zf - d * 0.3), stone.darkened(0.04))
+	_merlons(st, 0.9, w - 0.9, d * 0.3, 2.1, stone, true)
+	Meshes.box(st, Vector3(w * 0.5 - 0.42, 0, zf - 0.02), Vector3(0.84, 1.25, 0.06), Color("1e1b18"))
+	Meshes.box(st, Vector3(w * 0.5 - 0.55, 1.25, zf - 0.04), Vector3(1.1, 0.16, 0.08), stone.lightened(0.12))
+	for cx in [0.8, w - 0.8]:
+		var c := Vector3(cx, 0, d * 0.55)
+		Meshes.cylinder(st, c, 0.78, 3.0, 12, stone)
+		Meshes.cylinder(st, c + Vector3(0, 2.75, 0), 0.86, 0.45, 12, stone.lightened(0.06))  # the corbelled top
+		Meshes.cone(st, c + Vector3(0, 3.18, 0), 0.9, 1.35, 12, SLATE, rng)
+		for y in [0.9, 1.9]:
+			Meshes.box(st, Vector3(cx - 0.06, y, c.z + 0.66), Vector3(0.12, 0.42, 0.06), Color("1e1b18"))
+		Meshes.box(wst, Vector3(cx - 0.12, 2.95, c.z + 0.74), Vector3(0.24, 0.26, 0.04), window_colour(_wr))
+
+## Castle Coole: a pale Portland-stone neoclassical house, a main block with a pedimented portico of four
+## columns, a balustraded roofline, and low colonnaded wings either side.
+static func _palladian(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int) -> void:
+	var stone := PORTLAND_STONE
+	var zf := d - 0.8
+	var x0 := 2.4
+	var x1 := w - 2.4
+	Meshes.box(st, Vector3(0, 0, 0.3), Vector3(w, 0.15, d - 0.3), stone.darkened(0.25))
+	Meshes.box(st, Vector3(x0, 0.15, 0.5), Vector3(x1 - x0, 2.65, zf - 0.5), stone)
+	Meshes.box(st, Vector3(x0 - 0.08, 2.8, 0.42), Vector3(x1 - x0 + 0.16, 0.14, zf - 0.34), stone.darkened(0.06))
+	Meshes.box(st, Vector3(x0, 2.94, zf - 0.14), Vector3(x1 - x0, 0.3, 0.12), stone.lightened(0.04))
+	Meshes.box(st, Vector3(x0, 2.94, 0.5), Vector3(x1 - x0, 0.3, 0.12), stone.lightened(0.04))
+	_roof_at(st, x0 + 0.15, x1 - 0.15, 0.7, zf - 0.25, 2.94, 0.45, SLATE, stone)
+	# windows: two rows across the main block
+	for x in range(int(ceil(x0)), int(floor(x1))):
+		_window(st, wst, x + 0.3, 1.75, zf, 0.4, 0.62, stone.lightened(0.1))
+		if x != door_x and absf(x + 0.5 - w * 0.5) > 1.6:
+			_window(st, wst, x + 0.28, 0.5, zf, 0.44, 0.85, stone.lightened(0.1))
+	# the portico: steps, four columns, entablature and pediment
+	var mx := w * 0.5
+	Meshes.box(st, Vector3(mx - 1.7, 0.15, zf), Vector3(3.4, 0.14, 0.72), stone.darkened(0.08))
+	for cx in [mx - 1.25, mx - 0.42, mx + 0.42, mx + 1.25]:
+		Meshes.cylinder(st, Vector3(cx, 0.29, d - 0.3), 0.15, 2.2, 8, stone.lightened(0.05))
+	Meshes.box(st, Vector3(mx - 1.55, 2.45, zf - 0.02), Vector3(3.1, 0.3, 0.75), stone)
+	var a := Vector3(mx - 1.6, 2.75, d - 0.08)
+	var b := Vector3(mx + 1.6, 2.75, d - 0.08)
+	var t := Vector3(mx, 3.35, d - 0.08)
+	Meshes._tri(st, a, t, b, stone.lightened(0.04))
+	var back := Vector3(0, 0, -0.75)
+	Meshes._quad(st, a, a + back, t + back, t, SLATE)
+	Meshes._quad(st, t, t + back, b + back, b, SLATE.darkened(0.12))
+	if door_x >= 0:
+		Meshes.box(st, Vector3(door_x + 0.2, 0.15, zf - 0.03), Vector3(0.6, 1.2, 0.06), Color("3b2a22"))
+	# colonnaded wings and their end pavilions
+	for side in [0, 1]:
+		var wx := 0.15 if side == 0 else x1 + 0.05
+		Meshes.box(st, Vector3(wx, 0.15, 1.3), Vector3(2.2, 1.45, d - 2.6), stone.darkened(0.03))
+		Meshes.box(st, Vector3(wx - 0.05, 1.6, 1.2), Vector3(2.3, 0.14, d - 2.0), stone.darkened(0.08))
+		for i in 4:
+			Meshes.cylinder(st, Vector3(wx + 0.25 + i * 0.57, 0.15, d - 0.95), 0.08, 1.45, 6, stone.lightened(0.05))
+		Meshes.box(st, Vector3(wx + (0.0 if side == 0 else 1.5), 0.15, 0.9), Vector3(0.7, 1.9, d - 1.8), stone)
+		_window(st, wst, wx + 0.9, 0.55, d - 1.3, 0.4, 0.7, stone.lightened(0.1))
+
+## Cole's Monument: a tall fluted Doric column on a plinth, with the general on top.
+static func _monument_column(st: SurfaceTool, w: int, d: int) -> void:
+	var stone := Color("b8b0a0")
+	var rng := Meshes._rng(1857)
+	var c := Vector3(w * 0.5, 0, d * 0.5)
+	Meshes.box(st, Vector3(c.x - 0.75, 0, c.z - 0.75), Vector3(1.5, 0.3, 1.5), stone.darkened(0.15))
+	Meshes.box(st, Vector3(c.x - 0.6, 0.3, c.z - 0.6), Vector3(1.2, 0.9, 1.2), stone)
+	Meshes.box(st, Vector3(c.x - 0.12, 0.3, c.z + 0.6), Vector3(0.24, 0.55, 0.03), Color("3b2a22"))  # the stair door
+	Meshes.cylinder(st, c + Vector3(0, 1.2, 0), 0.42, 4.6, 12, stone.lightened(0.04))
+	Meshes.box(st, Vector3(c.x - 0.5, 5.75, c.z - 0.5), Vector3(1.0, 0.22, 1.0), stone)
+	Meshes.box(st, Vector3(c.x - 0.25, 5.97, c.z - 0.25), Vector3(0.5, 0.2, 0.5), stone.darkened(0.08))
+	Meshes.box(st, Vector3(c.x - 0.13, 6.17, c.z - 0.1), Vector3(0.26, 0.6, 0.2), stone.darkened(0.12))
+	Meshes.blob(st, c + Vector3(0, 6.9, 0), Vector3(0.12, 0.14, 0.12), stone.darkened(0.12), rng, 0.03)
+
+## The way into the Marble Arch Caves: a grey limestone outcrop with turf on top and a dark mouth at the door.
+static func _cave_mouth(st: SurfaceTool, w: int, d: int, door_x: int) -> void:
+	var lime := Color("a8a294")
+	var rng := Meshes._rng(1895)
+	Meshes.blob(st, Vector3(w * 0.5, 0.7, d * 0.4), Vector3(w * 0.5, 1.3, d * 0.42), lime, rng, 0.16)
+	Meshes.blob(st, Vector3(w * 0.25, 0.5, d * 0.5), Vector3(w * 0.22, 0.9, d * 0.4), lime.darkened(0.06), rng, 0.2)
+	Meshes.blob(st, Vector3(w * 0.78, 0.45, d * 0.5), Vector3(w * 0.2, 0.8, d * 0.38), lime.darkened(0.1), rng, 0.2)
+	Meshes.blob(st, Vector3(w * 0.5, 1.85, d * 0.35), Vector3(w * 0.42, 0.35, d * 0.32), Color("5f8a3e"), rng, 0.12)
+	var mx := (door_x + 0.5) if door_x >= 0 else w * 0.5
+	Meshes.box(st, Vector3(mx - 0.75, 0, d - 0.7), Vector3(0.35, 1.35, 0.6), lime.lightened(0.05))
+	Meshes.box(st, Vector3(mx + 0.4, 0, d - 0.7), Vector3(0.35, 1.35, 0.6), lime.lightened(0.02))
+	Meshes.box(st, Vector3(mx - 0.8, 1.2, d - 0.75), Vector3(1.6, 0.35, 0.65), lime.lightened(0.08))
+	Meshes.box(st, Vector3(mx - 0.4, 0, d - 0.55), Vector3(0.8, 1.2, 0.4), Color("14120f"))

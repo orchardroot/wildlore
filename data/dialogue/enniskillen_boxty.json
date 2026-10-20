@@ -1,0 +1,49 @@
+{
+ "en_boxty_cook": [
+  {
+   "do": "say",
+   "who": "Boxty Cook",
+   "text": "{greeting} Boxty on the griddle, boxty in the pan, if you can't make boxty, you'll never get a man. My granny's rhyme. She was a wonderful cook and a terrible matchmaker."
+  },
+  {
+   "do": "say",
+   "who": "Boxty Cook",
+   "text": "Grate your raw potatoes, squeeze the water out, mix with mashed potato, a bit of flour, buttermilk, and onto the griddle. Some boil it in a loaf and slice it. Both are right. Fight about it later."
+  },
+  {
+   "do": "daily",
+   "key": "en_boxty_day",
+   "then": [
+    {
+     "do": "say",
+     "who": "Boxty Cook",
+     "text": "Here, one hot off the griddle. Mind your fingers."
+    },
+    {
+     "do": "give_item",
+     "item": "boxty",
+     "n": 1
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Boxty Cook",
+     "text": "You've had your boxty for today. I'm not made of potatoes. Well. Partly."
+    }
+   ]
+  }
+ ],
+ "en_bacon_man": [
+  {
+   "do": "say",
+   "who": "Pig Farmer",
+   "text": "{greeting} You'll be wanting the Fermanagh black bacon. Dry-cured, slow, with a dark, almost black rind from the cure. A wee bit of a rare breed revival, round here."
+  },
+  {
+   "do": "say",
+   "who": "Pig Farmer",
+   "text": "Fry it slow. If you rush it, the pig will know, and the pig will be disappointed in you. From beyond."
+  }
+ ]
+}

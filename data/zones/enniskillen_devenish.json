@@ -1,0 +1,100 @@
+{
+ "id": "enniskillen_devenish",
+ "name": "St Mary's Priory, Devenish",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "rows": [
+  "xxxxxxxxxxxxx",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++D+++++x",
+  "xxxxxxxxxxxxx"
+ ],
+ "props": [
+  {
+   "type": "crypt_arch",
+   "x": 6,
+   "y": 1
+  },
+  {
+   "type": "tomb_chest",
+   "x": 2,
+   "y": 3
+  },
+  {
+   "type": "tomb_chest",
+   "x": 10,
+   "y": 3
+  },
+  {
+   "type": "candelabra",
+   "x": 4,
+   "y": 1
+  },
+  {
+   "type": "candelabra",
+   "x": 8,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "table",
+   "x": 11,
+   "y": 6
+  },
+  {
+   "type": "rock",
+   "x": 1,
+   "y": 7,
+   "variant": 1
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 7,
+   "to": "enniskillen",
+   "tx": 37,
+   "ty": 7,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "en_monk",
+   "sprite": "druid",
+   "x": 6,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "en_monk",
+   "name": "Brother Fiachra"
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "x": 10,
+   "y": 1,
+   "plaque": "en_scriptorium",
+   "title": "The Scriptorium",
+   "text": "Irish monasteries copied gospels and psalms by hand, in ink made from oak galls and soot, on vellum made from calfskin. Monks sometimes scribbled notes in the margins: complaints about the cold, the light, or a cat."
+  }
+ ],
+ "spawn": [
+  6,
+  6
+ ],
+ "ambience": "none"
+}

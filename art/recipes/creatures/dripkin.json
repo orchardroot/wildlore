@@ -1,0 +1,24 @@
+{"id": "dripkin",
+ "anim": "squash", "bob": 2,
+ "palette": {"calcite": "#e6ecee", "calcite2": "#bcd0d8", "ice": "#9ccbe0", "stone": "#a89c84", "stone2": "#7e735e", "ink": "#22303a", "blush": "#f0b0b8", "pool": "#6a8ea0", "pool2": "#b6d6e2", "drop": "#d8f0fa"},
+ "layers": [
+  {"shape": "ellipse", "at": [48, 91], "size": [60, 8], "colour": "pool2", "rim": false, "shade": false},
+  {"shape": "ellipse", "at": [48, 91], "size": [44, 5], "colour": "pool", "rim": false, "shade": false},
+  {"shape": "ellipse", "at": [37, 86], "size": [12, 7], "colour": "calcite2", "mirror": true},
+  {"shape": "poly", "points": [[48, 22], [62, 46], [70, 64], [66, 80], [48, 87], [30, 80], [26, 64], [34, 46]], "colour": "calcite", "pattern": "stripes", "pcolour": "calcite2", "period": 9, "pangle": 0},
+  {"shape": "ellipse", "at": [48, 70], "size": [30, 22], "colour": "drop", "front_only": true, "rim": false},
+  {"shape": "ellipse", "at": [27, 66], "size": [7, 13], "colour": "calcite", "angle": 25, "mirror": true},
+  {"shape": "ellipse", "at": [48, 22], "size": [40, 10], "colour": "stone2"},
+  {"shape": "poly", "points": [[30, 22], [48, 0], [66, 22]], "colour": "stone", "pattern": "stripes", "pcolour": "stone2", "period": 5, "pangle": 0},
+  {"shape": "poly", "points": [[44, 2], [48, -8], [52, 2]], "colour": "stone2"},
+  {"shape": "ellipse", "at": [40, 40], "size": [6, 12], "colour": "ice", "shade": false, "rim": false, "front_only": true, "angle": 20},
+  {"shape": "circle", "at": [16, 40], "r": 2.5, "colour": "drop", "shade": false, "rim": false},
+  {"shape": "circle", "at": [80, 52], "r": 2, "colour": "drop", "shade": false, "rim": false},
+  {"shape": "circle", "at": [74, 30], "r": 1.5, "colour": "ice", "shade": false, "rim": false}
+ ],
+ "face_layers": [
+  {"shape": "line", "points": [[44, 67], [48, 70], [52, 67]], "width": 1.2, "colour": "ink", "shade": false},
+  {"shape": "ellipse", "at": [37, 64], "size": [6, 4], "colour": "blush", "shade": false, "mirror": true}
+ ],
+ "eyes": [{"at": [41, 56], "r": 4.5, "mirror": true}]
+}

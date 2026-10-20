@@ -1,0 +1,93 @@
+{
+ "quests": [
+  {
+   "id": "fermanagh_islands",
+   "title": "Through the Islands",
+   "region": "fermanagh",
+   "town": "enniskillen",
+   "giver": "Skipper Cathal",
+   "summary": "Steer Skipper Cathal's boat through the islands of Lower Lough Erne to Boa Island.",
+   "start_flag": "q_fermanagh_islands_started",
+   "steps": [
+    {
+     "flag": "q_fermanagh_islands_1",
+     "text": "Ask the curator in Enniskillen Castle about the islands of Lower Lough Erne.",
+     "zone": "enniskillen_castle"
+    },
+    {
+     "flag": "q_fermanagh_islands_2",
+     "text": "Back to Skipper Cathal on the north quay, and steer through the islands.",
+     "zone": "enniskillen"
+    },
+    {
+     "flag": "q_fermanagh_islands_3",
+     "text": "Meet the two-faced figure in Caldragh graveyard on Boa Island, and catch it.",
+     "zone": "enniskillen"
+    }
+   ],
+   "done_flag": "q_fermanagh_islands_done",
+   "reward": "Twaface, two slabs of Fermanagh Black Bacon and standing in Northern Ireland."
+  },
+  {
+   "id": "fermanagh_marble_arch",
+   "title": "Under the Marble Arch",
+   "region": "fermanagh",
+   "town": "enniskillen",
+   "giver": "Cave Guide Niamh",
+   "summary": "Take the boat along the underground river in the Marble Arch Caves, and stop a caver damaging the formations.",
+   "start_flag": "q_fermanagh_cave_started",
+   "steps": [
+    {
+     "flag": "q_fermanagh_cave_1",
+     "text": "Take the boat along the underground river.",
+     "zone": "enniskillen_marblearch"
+    },
+    {
+     "flag": "q_fermanagh_cave_2",
+     "text": "Stop the caver snapping stalactites in the Grand Gallery.",
+     "zone": "enniskillen_marblearch"
+    },
+    {
+     "flag": "q_fermanagh_cave_3",
+     "text": "Tell Niamh at the cave entrance.",
+     "zone": "enniskillen_marblearch"
+    }
+   ],
+   "done_flag": "q_fermanagh_cave_done",
+   "reward": "A Geopark Pin, some boxty and standing in Northern Ireland."
+  },
+  {
+   "id": "fermanagh_manuscript",
+   "title": "The Lost Manuscript",
+   "region": "fermanagh",
+   "town": "enniskillen",
+   "giver": "Brother Fiachra",
+   "summary": "Find the three pages of Brother Fiachra's gospel book, scattered by the wind from Devenish.",
+   "start_flag": "q_fermanagh_ms_started",
+   "steps": [
+    {
+     "flag": "q_fermanagh_ms_1",
+     "text": "Ask at Blakes of the Hollow: the publican found something blowing down the street.",
+     "zone": "enniskillen_blakes"
+    },
+    {
+     "flag": "q_fermanagh_ms_2",
+     "text": "A page blew up the hill to Portora Royal School. Ask the librarian.",
+     "zone": "enniskillen_portora"
+    },
+    {
+     "flag": "q_fermanagh_ms_3",
+     "text": "The last page went east on the wind, as far as the eel fishery on Lough Neagh.",
+     "zone": "lough_neagh_eelfishery"
+    },
+    {
+     "flag": "q_fermanagh_ms_4",
+     "text": "Take the pages back to Brother Fiachra on Devenish Island.",
+     "zone": "enniskillen_devenish"
+    }
+   ],
+   "done_flag": "q_fermanagh_ms_done",
+   "reward": "The Illuminated Page charm and standing in Northern Ireland."
+  }
+ ]
+}

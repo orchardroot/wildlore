@@ -1,0 +1,32 @@
+{
+ "id": "ln_grower",
+ "name": "Apple Grower Ruth",
+ "class": "Grower",
+ "sprite": "farmer",
+ "scaled_floor": 65,
+ "party": [
+  {
+   "species": "sulphurhen",
+   "level": 64
+  },
+  {
+   "species": "redbreast",
+   "level": 65
+  },
+  {
+   "species": "burrenbloom",
+   "level": 65
+  }
+ ],
+ "ai": "trainer",
+ "money": 2600,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Apple Grower Ruth",
+   "text": "Hands off the Bramleys! They're for tarts, not tourists."
+  }
+ ],
+ "win": "Fair enough. Take an apple, you've earned it. Not that one.",
+ "after": "A Bramley's too sour to eat raw. That's why we put it in a tart with half a bag of sugar. Balance."
+}

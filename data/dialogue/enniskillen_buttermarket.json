@@ -1,0 +1,49 @@
+{
+ "en_potter": [
+  {
+   "do": "say",
+   "who": "Potter",
+   "text": "{greeting} This was the town's butter market, back in the 1800s. Farmers brought their butter in from all round the county. Now it's craft studios. Same idea, less butter."
+  },
+  {
+   "do": "say",
+   "who": "Potter",
+   "text": "See that wee basket in the case? Belleek china. They make it down the lough at Belleek, since 1857, so thin you can see light through it, and woven like wicker out of strands of porcelain. One sneeze and it's a jigsaw."
+  }
+ ],
+ "en_lacemaker": [
+  {
+   "do": "say",
+   "who": "Lacemaker",
+   "text": "{greeting} Irish crochet lace. In the Famine years, the 1840s, women all over Ulster learned it to earn a few pennies. Some families got through on lace money."
+  },
+  {
+   "do": "say",
+   "who": "Lacemaker",
+   "text": "It's a slow craft. A collar might take me a week. My cat can unravel one in four minutes."
+  },
+  {
+   "do": "daily",
+   "key": "en_lace_day",
+   "then": [
+    {
+     "do": "say",
+     "who": "Lacemaker",
+     "text": "Here, a wee hank of flax off my shelf. Somebody might make something of it."
+    },
+    {
+     "do": "give_item",
+     "item": "scutched_flax",
+     "n": 1
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Lacemaker",
+     "text": "That's all I can spare today. Come back tomorrow."
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,587 @@
+{
+ "en_skipper": [
+  {
+   "do": "if",
+   "flag": "q_fermanagh_islands_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Skipper Cathal",
+     "text": "{greeting} My favourite navigator. Lough's calm today, if you fancy just sitting on it. That's half of what boats are for."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_fermanagh_islands_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_fermanagh_islands_1",
+       "then": [
+        {
+         "do": "if",
+         "flag": "q_fermanagh_islands_2",
+         "then": [
+          {
+           "do": "say",
+           "who": "Skipper Cathal",
+           "text": "The boat's still tied up at Boa. Away you go over and meet the old two-faced fella, then I'll run you back."
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Skipper Cathal",
+           "text": "You've been to see the curator? Good. Then you know your islands. Let's go."
+          },
+          {
+           "do": "say",
+           "who": "Skipper Cathal",
+           "text": "Right, navigator. Hand on the tiller. I'll tell you what I'm looking for, you tell me which island. Get it wrong and we'll be on a sandbar, and I'll be telling this story in Blakes for years."
+          },
+          {
+           "do": "choice",
+           "text": "First: the island where St Molaise built his monastery, with a round tower thirty metres tall.",
+           "options": [
+            "Devenish",
+            "Boa Island",
+            "White Island"
+           ],
+           "set": "_erne_pick"
+          },
+          {
+           "do": "if",
+           "flag": "_erne_pick",
+           "then": [
+            {
+             "do": "say",
+             "who": "Skipper Cathal",
+             "text": "Devenish it is. Look at that tower. Eight hundred years and not a crack in it. Keep her steady, past the island and on downstream."
+            },
+            {
+             "do": "choice",
+             "text": "Next: a ruined church with eight carved stone figures set in a row in its wall.",
+             "options": [
+              "Boa Island",
+              "White Island",
+              "Devenish"
+             ],
+             "set": "_erne_pick"
+            },
+            {
+             "do": "if",
+             "flag": "_erne_pick",
+             "then": [
+              {
+               "do": "say",
+               "who": "Skipper Cathal",
+               "text": "White Island. Eight wee stone fellas, carved a thousand years ago, and nobody's sure who any of them are. One of them's holding a bell. One of them looks like he's had a long week."
+              },
+              {
+               "do": "choice",
+               "text": "Last: the island with the two-faced stone in Caldragh graveyard.",
+               "options": [
+                "White Island",
+                "Devenish",
+                "Boa Island"
+               ],
+               "set": "_erne_pick"
+              },
+              {
+               "do": "if",
+               "flag": "_erne_pick",
+               "then": [
+                {
+                 "do": "say",
+                 "who": "Skipper Cathal",
+                 "text": "Boa Island! Bring her in gently. Gently. There. You're a natural, so you are."
+                },
+                {
+                 "do": "set",
+                 "flag": "q_fermanagh_islands_2"
+                },
+                {
+                 "do": "fade_out"
+                },
+                {
+                 "do": "warp",
+                 "zone": "enniskillen",
+                 "x": 8,
+                 "y": 6,
+                 "facing": "up"
+                },
+                {
+                 "do": "fade_in"
+                },
+                {
+                 "do": "say",
+                 "who": "",
+                 "text": "The boat noses into the reeds on Boa Island. Through the trees, among the old gravestones of Caldragh, something made of stone is looking at you. And at the lough behind you, at the same time."
+                },
+                {
+                 "do": "end"
+                }
+               ],
+               "else": [
+                {
+                 "do": "say",
+                 "who": "",
+                 "text": "Bump. The boat slides to a gentle stop on a sandbar."
+                },
+                {
+                 "do": "say",
+                 "who": "Skipper Cathal",
+                 "text": "That's not Boa. That's mud. Back to the quay and we'll try again."
+                }
+               ],
+               "eq": 2
+              }
+             ],
+             "else": [
+              {
+               "do": "say",
+               "who": "",
+               "text": "Bump. The boat slides to a gentle stop on a sandbar."
+              },
+              {
+               "do": "say",
+               "who": "Skipper Cathal",
+               "text": "Close, but that's the wrong island. We'll go back and start again. No harm done, bar my pride."
+              }
+             ],
+             "eq": 1
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "",
+             "text": "Bump. The boat slides to a gentle stop on a sandbar."
+            },
+            {
+             "do": "say",
+             "who": "Skipper Cathal",
+             "text": "Not that one. Back to the quay, navigator."
+            }
+           ],
+           "eq": 0
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Skipper Cathal",
+         "text": "Off you go to the castle first. The curator knows every island on the lough by name. I only know them by which ones I've hit."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Skipper Cathal",
+       "text": "{greeting} You look like someone who can read a map. My navigator's off sick, and I've a run down Lower Lough Erne to Boa Island. There's more islands in this lough than days in a month, and every one of them is in the way."
+      },
+      {
+       "do": "choice",
+       "text": "Will you be my navigator?",
+       "options": [
+        "Aye, go on",
+        "Not today"
+       ],
+       "set": "_cathal_pick"
+      },
+      {
+       "do": "if",
+       "flag": "_cathal_pick",
+       "then": [
+        {
+         "do": "say",
+         "who": "Skipper Cathal",
+         "text": "Grand. First, nip into Enniskillen Castle and ask the curator about the islands: Devenish, White Island and Boa. I'll not have you guessing out there."
+        },
+        {
+         "do": "set",
+         "flag": "q_fermanagh_islands_started"
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Skipper Cathal",
+         "text": "No bother. The lough's been here since the Ice Age. It'll wait."
+        }
+       ],
+       "eq": 0
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "en_boa_skipper": [
+  {
+   "do": "if",
+   "flag": "q_fermanagh_islands_3",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_fermanagh_islands_done",
+     "then": [],
+     "else": [
+      {
+       "do": "say",
+       "who": "Skipper Cathal",
+       "text": "You met him! And he came with you! Two faces and neither of them complaining. That's more than I can say for my crew."
+      },
+      {
+       "do": "say",
+       "who": "Skipper Cathal",
+       "text": "Here, for your trouble. Proper Fermanagh black bacon. Don't tell the pig."
+      },
+      {
+       "do": "give_item",
+       "item": "fermanagh_black_bacon",
+       "n": 2
+      },
+      {
+       "do": "standing",
+       "nation": "northern_ireland",
+       "amount": 2
+      },
+      {
+       "do": "set",
+       "flag": "q_fermanagh_islands_done"
+      }
+     ]
+    },
+    {
+     "do": "say",
+     "who": "Skipper Cathal",
+     "text": "Hop in, I'll run you back to the quay."
+    },
+    {
+     "do": "fade_out"
+    },
+    {
+     "do": "warp",
+     "zone": "enniskillen",
+     "x": 44,
+     "y": 14,
+     "facing": "down"
+    },
+    {
+     "do": "fade_in"
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_fermanagh_islands_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "Skipper Cathal",
+       "text": "He's just up there among the gravestones. Go on. He doesn't bite. He's never had the teeth for it."
+      },
+      {
+       "do": "choice",
+       "text": "Head back to the quay now?",
+       "options": [
+        "Not yet",
+        "Back to the quay"
+       ],
+       "set": "_boa_back"
+      },
+      {
+       "do": "if",
+       "flag": "_boa_back",
+       "then": [
+        {
+         "do": "fade_out"
+        },
+        {
+         "do": "warp",
+         "zone": "enniskillen",
+         "x": 44,
+         "y": 14,
+         "facing": "down"
+        },
+        {
+         "do": "fade_in"
+        }
+       ],
+       "else": [],
+       "eq": 1
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Skipper Cathal",
+       "text": "Taking the long way round, are you? Hop in, I'll run you back."
+      },
+      {
+       "do": "fade_out"
+      },
+      {
+       "do": "warp",
+       "zone": "enniskillen",
+       "x": 44,
+       "y": 14,
+       "facing": "down"
+      },
+      {
+       "do": "fade_in"
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "en_janus": [
+  {
+   "do": "if",
+   "flag": "q_fermanagh_islands_2",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_fermanagh_islands_janus_met",
+     "then": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "Two stone faces, back to back, both watching. The coins in the hollow of its head rattle very slightly."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "In the long grass of Caldragh graveyard stands a squat stone figure with a face on the front and another on the back. Its arms are crossed, as if it has been waiting a while."
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "There are coins in the hollow of its head, left by people who came before you. One face looks at you. The other looks at the lough. Then, very slowly, they swap."
+      },
+      {
+       "do": "music",
+       "id": "legend_green"
+      },
+      {
+       "do": "say",
+       "who": "Twaface",
+       "text": "Two thousand years, and they still can't agree which of us is the front."
+      },
+      {
+       "do": "say",
+       "who": "Twaface",
+       "text": "The skipper brought you the proper way, through the islands. So. One of us would like to come with you. The other would like to stay. Let's settle it the old way."
+      },
+      {
+       "do": "set",
+       "flag": "q_fermanagh_islands_janus_met"
+      }
+     ]
+    },
+    {
+     "do": "legend",
+     "species": "twaface",
+     "level": 66,
+     "flag": "q_fermanagh_islands_3",
+     "music": "legend_green"
+    },
+    {
+     "do": "if",
+     "flag": "q_fermanagh_islands_3",
+     "then": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "Twaface settles beside you, one face forward, one face back, keeping an eye on where you've been. Skipper Cathal is waiting by the boat."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "The stone figure stands just as it was, as if nothing happened. Perhaps nothing did. You could try again."
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "",
+     "text": "A squat stone figure with two faces, back to back, in the long grass of Caldragh graveyard. Coins glint in the hollow of its head."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "It doesn't move. Perhaps it would rather you came the proper way, by boat through the islands."
+    }
+   ]
+  }
+ ],
+ "en_ferryman": [
+  {
+   "do": "say",
+   "who": "Devenish Ferryman",
+   "text": "{greeting} Over to Devenish? Five minutes across, and a thousand years back."
+  },
+  {
+   "do": "choice",
+   "text": "Cross to Devenish Island?",
+   "options": [
+    "Aye",
+    "Not now"
+   ],
+   "set": "_dev_ferry"
+  },
+  {
+   "do": "if",
+   "flag": "_dev_ferry",
+   "then": [
+    {
+     "do": "fade_out"
+    },
+    {
+     "do": "warp",
+     "zone": "enniskillen",
+     "x": 37,
+     "y": 8,
+     "facing": "up"
+    },
+    {
+     "do": "fade_in"
+    },
+    {
+     "do": "say",
+     "who": "Devenish Ferryman",
+     "text": "Here we are. Mind the cowpats. The monks are long gone but the cows have kept the place up."
+    }
+   ],
+   "else": [],
+   "eq": 0
+  }
+ ],
+ "en_ferryman_back": [
+  {
+   "do": "choice",
+   "text": "Back to the town quay?",
+   "options": [
+    "Aye",
+    "Not yet"
+   ],
+   "set": "_dev_back"
+  },
+  {
+   "do": "if",
+   "flag": "_dev_back",
+   "then": [
+    {
+     "do": "fade_out"
+    },
+    {
+     "do": "warp",
+     "zone": "enniskillen",
+     "x": 27,
+     "y": 14,
+     "facing": "down"
+    },
+    {
+     "do": "fade_in"
+    }
+   ],
+   "else": [],
+   "eq": 0
+  }
+ ],
+ "en_cave_guide_out": [
+  {
+   "do": "say",
+   "who": "Cave Guide",
+   "text": "{greeting} The Marble Arch Caves! Tours are on, and the boat's running. In you go. Niamh's at the entrance and she'll look after you."
+  },
+  {
+   "do": "say",
+   "who": "Cave Guide",
+   "text": "The Marble Arch itself is outside, a natural bridge of limestone where the river comes roaring out of the hill. The caves were explored properly in 1895 by a French caver called Edouard-Alfred Martel, with a canvas boat and a candle."
+  }
+ ],
+ "en_local_wit": [
+  {
+   "do": "say",
+   "who": "Local",
+   "text": "{greeting} Welcome to Enniskillen. Inis Ceithleann, Ceithleann's island. You'll have noticed it's an island, because you had to cross a bridge to get anywhere."
+  },
+  {
+   "do": "say",
+   "who": "Local",
+   "text": "They say a third of Fermanagh is water. The other two thirds is waiting to be."
+  },
+  {
+   "do": "say",
+   "who": "Local",
+   "text": "We had two Nobel-standard writers at the one school up the hill there. Oscar Wilde and Samuel Beckett. One was the wittiest man in London and the other spent two acts waiting for a fella who never showed up. Both very Fermanagh, in their way."
+  }
+ ],
+ "en_canoeist": [
+  {
+   "do": "say",
+   "who": "Canoeist",
+   "text": "{greeting} There's a canoe trail runs the length of the Erne, with campsites on the islands. You can paddle from Belturbet nearly to the sea."
+  },
+  {
+   "do": "say",
+   "who": "Canoeist",
+   "text": "Best bit is the quiet. Just you, the herons, and a cruiser full of people from Dublin singing. Well. Mostly the quiet."
+  }
+ ],
+ "en_gardener": [
+  {
+   "do": "say",
+   "who": "Estate Gardener",
+   "text": "{greeting} That's Castle Coole. Finished in 1798, and nearly bankrupted the Earl who built it. The stone came all the way from Portland in Dorset, by sea and then by cart."
+  },
+  {
+   "do": "say",
+   "who": "Estate Gardener",
+   "text": "See the geese on the lake? Greylags. The story goes that if the geese ever leave Castle Coole, the family will lose the place. So we're very, very nice to the geese."
+  }
+ ],
+ "en_wilde_fan": [
+  {
+   "do": "say",
+   "who": "Literature Student",
+   "text": "{greeting} I'm doing my dissertation on Portora's famous old boys. Wilde said, \"We are all in the gutter, but some of us are looking at the stars.\" Beckett said, \"Try again. Fail again. Fail better.\""
+  },
+  {
+   "do": "say",
+   "who": "Literature Student",
+   "text": "Between the two of them, that's my whole approach to exams covered."
+  }
+ ],
+ "en_memorial_man": [
+  {
+   "do": "say",
+   "who": "Old Soldier",
+   "text": "{greeting} I come down most days. My grandfather was a Skin, a Royal Inniskilling Fusilier. Their names are on the memorial with all the others."
+  },
+  {
+   "do": "say",
+   "who": "Old Soldier",
+   "text": "In November the whole town gathers here. We remember the soldiers, and we remember our neighbours lost here in 1987. Folk hold on to each other a wee bit tighter on that morning."
+  },
+  {
+   "do": "say",
+   "who": "Old Soldier",
+   "text": "It's a kind town, this. You'll find that out. Away you go and enjoy it."
+  }
+ ]
+}
