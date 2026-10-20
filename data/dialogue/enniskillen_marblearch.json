@@ -1,0 +1,230 @@
+{
+ "en_cave_guide": [
+  {
+   "do": "if",
+   "flag": "q_fermanagh_cave_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Cave Guide Niamh",
+     "text": "{greeting} Back again? The caves never look the same twice. Well, they do. But the light's different."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_fermanagh_cave_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "Cave Guide Niamh",
+       "text": "You stopped him? Thank goodness. A stalactite that size took thousands of years to grow. Snap it and that's it, gone, forever, for a selfie."
+      },
+      {
+       "do": "say",
+       "who": "Cave Guide Niamh",
+       "text": "Here, this is for you. The Geopark Pin: we give them to our friends of the caves. And a bit of boxty from my lunchbox, because you've earned it."
+      },
+      {
+       "do": "set",
+       "flag": "q_fermanagh_cave_3"
+      },
+      {
+       "do": "give_item",
+       "item": "geopark_pin",
+       "n": 1
+      },
+      {
+       "do": "give_item",
+       "item": "boxty",
+       "n": 3
+      },
+      {
+       "do": "standing",
+       "nation": "northern_ireland",
+       "amount": 1
+      },
+      {
+       "do": "set",
+       "flag": "q_fermanagh_cave_done"
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_fermanagh_cave_started",
+       "then": [
+        {
+         "do": "say",
+         "who": "Cave Guide Niamh",
+         "text": "The boatman's down by the water. Over the river, and through to the Grand Gallery. Shout if you see anything you shouldn't. Like a caver with a hammer."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Cave Guide Niamh",
+         "text": "{greeting} I'm Niamh, I'll be your guide. Welcome to the Marble Arch Caves, under Cuilcagh mountain. Three rivers sink into the hill up there and meet down here, in the dark."
+        },
+        {
+         "do": "say",
+         "who": "Cave Guide Niamh",
+         "text": "We start with a boat ride on the underground river, then walk through to the Grand Gallery. Only, there's a problem. Somebody saw a caver go through with a hammer, and I've a horrible feeling about our stalactites."
+        },
+        {
+         "do": "choice",
+         "text": "Will you take the boat and have a look?",
+         "options": [
+          "Of course",
+          "Not now"
+         ],
+         "set": "_niamh_pick"
+        },
+        {
+         "do": "if",
+         "flag": "_niamh_pick",
+         "then": [
+          {
+           "do": "say",
+           "who": "Cave Guide Niamh",
+           "text": "Brilliant. The boatman's just through there. Keep your hands in the boat. The cave doesn't bite, but the roof is low."
+          },
+          {
+           "do": "set",
+           "flag": "q_fermanagh_cave_started"
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Cave Guide Niamh",
+           "text": "No bother. The cave's been here three hundred million years. It can wait."
+          }
+         ],
+         "eq": 0
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "en_boatman": [
+  {
+   "do": "say",
+   "who": "Cave Boatman",
+   "text": "{greeting} All aboard. Heads down for the low bit. And keep your voice down: the echo carries, and the bats are trying to sleep."
+  },
+  {
+   "do": "fade_out"
+  },
+  {
+   "do": "warp",
+   "zone": "enniskillen_marblearch",
+   "x": 13,
+   "y": 5,
+   "facing": "up"
+  },
+  {
+   "do": "fade_in"
+  },
+  {
+   "do": "say",
+   "who": "",
+   "text": "The boat glides along black water under a ceiling of hanging stone. Somewhere, water drips. Then drips again. Then, rudely, on your head."
+  },
+  {
+   "do": "if",
+   "flag": "q_fermanagh_cave_started",
+   "then": [
+    {
+     "do": "set",
+     "flag": "q_fermanagh_cave_1"
+    }
+   ],
+   "else": []
+  }
+ ],
+ "en_boatman_back": [
+  {
+   "do": "choice",
+   "text": "Back across the river?",
+   "options": [
+    "Aye",
+    "Not yet"
+   ],
+   "set": "_cave_back"
+  },
+  {
+   "do": "if",
+   "flag": "_cave_back",
+   "then": [
+    {
+     "do": "fade_out"
+    },
+    {
+     "do": "warp",
+     "zone": "enniskillen_marblearch",
+     "x": 12,
+     "y": 11,
+     "facing": "down"
+    },
+    {
+     "do": "fade_in"
+    }
+   ],
+   "else": [],
+   "eq": 0
+  }
+ ],
+ "en_caver_spot": [
+  {
+   "do": "if",
+   "flag": "trainer_en_caver",
+   "then": [
+    {
+     "do": "say",
+     "who": "Caver",
+     "text": "I'm leaving, I'm leaving. I've put the hammer away. I'm going to take up something safer. Like eels."
+    },
+    {
+     "do": "if",
+     "flag": "q_fermanagh_cave_started",
+     "then": [
+      {
+       "do": "set",
+       "flag": "q_fermanagh_cave_2"
+      }
+     ],
+     "else": []
+    }
+   ],
+   "else": [
+    {
+     "do": "battle",
+     "trainer": "en_caver",
+     "intro": true
+    },
+    {
+     "do": "if",
+     "flag": "trainer_en_caver",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_fermanagh_cave_started",
+       "then": [
+        {
+         "do": "set",
+         "flag": "q_fermanagh_cave_2"
+        }
+       ],
+       "else": []
+      }
+     ],
+     "else": []
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,28 @@
+{
+ "id": "ln_weaver",
+ "name": "Linen Weaver Hugh",
+ "class": "Weaver",
+ "sprite": "villager_6",
+ "scaled_floor": 65,
+ "party": [
+  {
+   "species": "linenwisp",
+   "level": 65
+  },
+  {
+   "species": "shuttlecog",
+   "level": 66
+  }
+ ],
+ "ai": "trainer",
+ "money": 2700,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Linen Weaver Hugh",
+   "text": "Warp and weft, warp and weft. You're the weft. Brace yourself."
+  }
+ ],
+ "win": "You've unpicked me, so you have.",
+ "after": "Irish linen is made from flax, and it gets softer every time you wash it. Unlike me."
+}

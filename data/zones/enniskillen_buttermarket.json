@@ -1,0 +1,112 @@
+{
+ "id": "enniskillen_buttermarket",
+ "name": "The Buttermarket",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "rows": [
+  "xxxxxxxxxxxxx",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++D+++++x",
+  "xxxxxxxxxxxxx"
+ ],
+ "props": [
+  {
+   "type": "market_stall",
+   "x": 2,
+   "y": 2
+  },
+  {
+   "type": "market_stall",
+   "x": 5,
+   "y": 2
+  },
+  {
+   "type": "market_stall",
+   "x": 8,
+   "y": 2
+  },
+  {
+   "type": "display_case",
+   "x": 11,
+   "y": 3,
+   "variant": 1
+  },
+  {
+   "type": "display_case",
+   "x": 1,
+   "y": 5,
+   "variant": 2
+  },
+  {
+   "type": "plant_stand",
+   "x": 11,
+   "y": 6
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 7
+  },
+  {
+   "type": "wall_picture",
+   "x": 6,
+   "y": 1,
+   "walk": true,
+   "variant": 0
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 7,
+   "to": "enniskillen",
+   "tx": 35,
+   "ty": 40,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "en_potter",
+   "sprite": "villager_5",
+   "x": 2,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "en_potter",
+   "name": "Potter"
+  },
+  {
+   "id": "en_lacemaker",
+   "sprite": "villager_4",
+   "x": 8,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "en_lacemaker",
+   "name": "Lacemaker"
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "x": 5,
+   "y": 1,
+   "plaque": "en_belleek",
+   "title": "Belleek Pottery",
+   "text": "Down the lough at Belleek, a pottery founded in 1857 makes a creamy, almost see-through porcelain, so fine the potters weave it into baskets of thin strands. Each piece carries the mark of an Irish wolfhound, a round tower and a harp."
+  }
+ ],
+ "spawn": [
+  6,
+  6
+ ]
+}

@@ -1,0 +1,32 @@
+{
+ "id": "ln_astronomer",
+ "name": "Astronomer Desmond",
+ "class": "Astronomer",
+ "sprite": "astronomer",
+ "scaled_floor": 65,
+ "party": [
+  {
+   "species": "lanternis",
+   "level": 65
+  },
+  {
+   "species": "hushwing",
+   "level": 65
+  },
+  {
+   "species": "stormswift",
+   "level": 66
+  }
+ ],
+ "ai": "trainer",
+ "money": 2800,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Astronomer Desmond",
+   "text": "Armagh Observatory has been watching the sky since 1789. Tonight I'm watching you."
+  }
+ ],
+ "win": "A shooting star, that. Very bright and very quick.",
+ "after": "On a dark night over the lough you can see the Andromeda Galaxy with your own eyes. It's two and a half million light years away, which is still nearer than Lurgan on a Friday."
+}

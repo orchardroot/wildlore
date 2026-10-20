@@ -15,6 +15,7 @@ const OVERRIDES := {
 	"london": "South East England", "stonehenge": "Wiltshire", "salisbury_plain": "Wiltshire", "lancaster": "Lancashire",
 	"belfast": "Northern Ireland", "bushmills": "Northern Ireland", "derry": "Northern Ireland",
 	"antrim_coast": "Northern Ireland", "causeway": "Northern Ireland", "mournes": "Northern Ireland",
+	"lough_neagh": "Northern Ireland", "enniskillen": "County Fermanagh",
 }
 const FADE_IN := 0.5
 const HOLD := 2.4

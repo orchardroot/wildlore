@@ -1,0 +1,91 @@
+{
+ "id": "lough_neagh_scutchmill",
+ "name": "Scutch Mill",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "rows": [
+  "xxxxxxxxxxx",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x||||D||||x",
+  "xxxxxxxxxxx"
+ ],
+ "props": [
+  {
+   "type": "steel_plates",
+   "x": 2,
+   "y": 2
+  },
+  {
+   "type": "slate_stack",
+   "x": 8,
+   "y": 2
+  },
+  {
+   "type": "table",
+   "x": 2,
+   "y": 4
+  },
+  {
+   "type": "washing_line",
+   "x": 7,
+   "y": 4,
+   "variant": 2,
+   "walk": true
+  },
+  {
+   "type": "wall_picture",
+   "x": 5,
+   "y": 1,
+   "walk": true,
+   "variant": 0
+  },
+  {
+   "type": "kettle_table",
+   "x": 9,
+   "y": 5
+  }
+ ],
+ "warps": [
+  {
+   "x": 5,
+   "y": 6,
+   "to": "lough_neagh",
+   "tx": 46,
+   "ty": 30,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "ln_scutcher",
+   "sprite": "villager_3",
+   "x": 5,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "ln_scutcher",
+   "name": "Scutcher"
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "x": 3,
+   "y": 1,
+   "plaque": "ln_scutching",
+   "title": "Scutching",
+   "text": "Scutching beats the woody stalk away from the flax fibres. Water wheels drove the wooden blades in mills like this one, and it was dusty, loud and dangerous work. The leftover woody bits, called shives, were burned or used as bedding."
+  }
+ ],
+ "spawn": [
+  5,
+  5
+ ]
+}

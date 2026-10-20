@@ -87,6 +87,7 @@ const ZONE_GREETINGS := {
 	# Northern Ireland
 	"belfast": "Bout ye?", "bushmills": "Bout ye?", "derry": "Bout ye?", "antrim_coast": "Bout ye?",
 	"causeway": "Bout ye?", "mournes": "Bout ye?",
+	"lough_neagh": "Bout ye?", "enniskillen": "Bout ye?",
 	# the Highlands and Skye, where you'll still hear Gaelic
 	"inverness": "Halò!", "fort_william": "Halò!", "portree": "Halò!", "skye": "Halò!", "faerie_glen": "Halò!",
 	"great_glen": "Halò!", "loch_ness": "Halò!", "glencoe": "Halò!", "cairngorms": "Halò!",

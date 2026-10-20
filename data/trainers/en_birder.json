@@ -1,0 +1,32 @@
+{
+ "id": "en_birder",
+ "name": "Heron Watcher Colm",
+ "class": "Birdwatcher",
+ "sprite": "birdwatcher",
+ "scaled_floor": 65,
+ "party": [
+  {
+   "species": "heronarch",
+   "level": 65
+  },
+  {
+   "species": "lochosprey",
+   "level": 65
+  },
+  {
+   "species": "polartern",
+   "level": 65
+  }
+ ],
+ "ai": "trainer",
+ "money": 2700,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Heron Watcher Colm",
+   "text": "Herons stand still for an hour and then strike. I've been standing here an hour. Strike!"
+  }
+ ],
+ "win": "Missed. Like the heron, usually.",
+ "after": "Grey herons nest in colonies called heronries, high in the trees. Imagine the noise. Imagine the smell. Now stop imagining it."
+}

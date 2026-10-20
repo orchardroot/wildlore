@@ -1,0 +1,32 @@
+{
+ "id": "ln_birder",
+ "name": "Birdwatcher Orla",
+ "class": "Birdwatcher",
+ "sprite": "birdwatcher",
+ "scaled_floor": 65,
+ "party": [
+  {
+   "species": "heronarch",
+   "level": 65
+  },
+  {
+   "species": "boomern",
+   "level": 64
+  },
+  {
+   "species": "murmurant",
+   "level": 65
+  }
+ ],
+ "ai": "trainer",
+ "money": 2600,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Birdwatcher Orla",
+   "text": "You walked right through my whooper swans. All forty-something of them. Battle, now, while I recount."
+  }
+ ],
+ "win": "Beaten, and I've lost count again.",
+ "after": "A whooper swan can fly from Iceland in a day if the wind's right. I can't get to Lurgan in a day."
+}

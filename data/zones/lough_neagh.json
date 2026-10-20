@@ -1,0 +1,837 @@
+{
+ "id": "lough_neagh",
+ "name": "Lough Neagh",
+ "region": "ireland",
+ "kind": "route",
+ "music": "route_ireland",
+ "weather": {
+  "drizzle": 30,
+  "clear": 20,
+  "sunshine": 16,
+  "fog": 12,
+  "gale": 12,
+  "downpour": 10
+ },
+ "edges": {
+  "east": {
+   "to": "belfast",
+   "offset": 0
+  },
+  "west": {
+   "to": "enniskillen",
+   "offset": 0
+  }
+ },
+ "spawn": [
+  60,
+  25
+ ],
+ "stage": "valley",
+ "scaled_floor": 65,
+ "legend_extra": {
+  "g": {
+   "tile": "grass",
+   "colour": "#6f9450"
+  },
+  "r": {
+   "tile": "tall_grass",
+   "colour": "#7b8550",
+   "prop": "reeds"
+  },
+  "q": {
+   "tile": "tall_grass",
+   "colour": "#6f86a8",
+   "prop": "short"
+  },
+  "a": {
+   "tile": "grass",
+   "colour": "#7fa452"
+  }
+ },
+ "rows": [
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTgggggggggggggggggggggggggwwwwwwwggggggggggggggggggggggggggggTT",
+  "TTggggggggggggggggwwwwwwwooooooooooowwwwwwwgggggggggggggggggggTT",
+  "TTggggggggggggwwwwooooooooooooooooooooooooowwwwgggggggggggggggTT",
+  "TTgggggggggwwwoooooo~~~~~~~~~~~~~~~~~~~~~oooooowwwggggggggggggTT",
+  "TTggggggwwwwoooo~~~~~~~~~~~~~~~~~~~~~~~~~~~~~oooowwwwgggggggggTT",
+  "TTgggggwwwoooo~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~oooowwwggggggggTT",
+  "TTgggwwwoooo~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ooo~oooowwwggggggTT",
+  "TTggwwwoooo~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~oogggoooooowwwgggggTT",
+  "TTggwwoooo~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~oogBBggoooooowwgggggTT",
+  "TTggwwoooo~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~oggBBggoooooowwgggggTT",
+  "TTrrwwoooo~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~oggggggoooooowwrrrggTT",
+  "TTrrwwoooo~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~oogggggoooooowwrrrggTT",
+  "TTrrwwwoooo~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~oogggoooooowwwrrgggTT",
+  "TTrrrwwwoooo~~~~~~~~~~~~~~~~~~~~~~~~_~~~~~~~~ooo~oooowwwrrrgggTT",
+  "TTgrrrrwwwoooo~~~~~~~~~~~~~~~~~~~~~~_~~~~~~~~~~oooowwwrrrrggggTT",
+  "TTgggrrrwwwwoooo~~~~~~~~~~~~~~~~~~~~_~~~~~~~~oooowwwwrrrggggggTT",
+  "TTgggggrrrrwwwoooooo~~~~~~~~~~~~~~~~_~~~~oooooowwwrrrrggggggggTT",
+  "TTgggggggrrrrrwwwwoooooooooooooooooo_oooooowwwwrrrrrggggggggggTT",
+  "TTgggggggggggrrrrrwwwwwwwooooooooooo_wwwwwwrrrrrggggggggggggggTT",
+  "TTgggggggggggggggrrrrrrrrrrwwwwwwwrr_rrrrrrrggggggggggggggggggTT",
+  "TTggggggggggggggggggggggggrrrBBBBBBg_gggggggggggggggggggggggggTT",
+  "TTgggggggggggggggggggggggggggBBBBBBg_gggggggggggggggggggggggggTT",
+  "TTgggggggggggggggggggggggggggBBDBBBg_ggggggggggggggggggggggggggg",
+  "TTgggggg########################################################",
+  "TTgggggg#ggggggggggggggggggggg#ggggggggggggggggggggg#ggggggggggg",
+  "TTgggggg#ggggggggggggggggggggg###########gggBBBBBggg#gggggggggTT",
+  "TTgggggg#ggg,,,,,,,,,,,,,,,,,,,ggggggggg#gggBBBBBggg#gggggggggTT",
+  "TTgggggg#ggg,,,,,,,,,,,,,,,,,,,ggggggggg#gggBBDBBggg#gggggggggTT",
+  "gggggggg#ggg,,,,,,,,,,,,,,,,,,,ggggggggg#gggg########gggggggggTT",
+  "#########ggg,,,,,,,,,,,,,,,,,,,ggggggggg#gggggggggggggggggggggTT",
+  "gggggggg#ggg,,,,,,,,,,,,,,,,,,,ggggggggH#HHHHHHHHHHHHHHHHHHHggTT",
+  "TTgggggg#ggg,,,,,,,,,,,,,,,,,,,ggggggggH#qqqqqqqqqqqqqqqqqqHggTT",
+  "TTgggggg#ggggggggggggggggggggggggggggggH#qqqqqqqqqqqqqqqqqqHggTT",
+  "TTg,,,,,#ggggggggggggggggggggggggggggggH#qqqqqqqqqqqqqqqqqqHggTT",
+  "TTg,,,,,#ggggggggggggggggggggggggggggggH#qqqqqqqqqqqqqqqqqqHggTT",
+  "TTg,,,,,#ggggggggggggggggggggggggggggggH#qqqqqqqqqqqqqqqqqqHggTT",
+  "TTg,,,,,#ggggggggggggggggggggggggggggggH#qqqqqqqqqqqqqqqqqqHggTT",
+  "TTg,,,,,#ggggggggggggggggggggggggggggggH#HHHHHHHHggHHHHHHHHHggTT",
+  "TTgggggg#ggggggggggggggggggggg###########gggggggggggggggggggggTT",
+  "TTgg****#g*******ggggggggggggg#gggggggggggggggggggggggggggggggTT",
+  "TTgg****#g*******ggg,,,,,,,,,,#,,,,,,gggggFFFFaaFFFFFFFFFFFFFgTT",
+  "TTgg****#g*******ggg,,,,,,,,,,#,,,,,,gggggFaaaaaaaaaaaaaaaaaagTT",
+  "TTgg****#g*******ggg,,,,,,,,,,#,,,,,,gggggFaaaaaaaaaaaaaaaaaagTT",
+  "TTgg****#g*******ggg,,,,,,,,,,#,,,,,,gggggFaaaaaaaaaaaaaaaaaagTT",
+  "TTgg****#g*******ggg,,,,,,,,,,#,,,,,,gggggFaaaaaaaaaaaaaaaaaagTT",
+  "TTgg****#g*******ggg,,,,,,,,,,#,,,,,,gggggFaaaaaaaaaaaaaaaaaagTT",
+  "TTgg****#g*******ggg,,,,,,,,,,#,,,,,,gggggFaaaaaaaaaaaaaaaaaagTT",
+  "TTgg****#g*******ggg,,,,,,,,,,#,,,,,,gggggFaaaaaaaaaaaaaaaaaagTT",
+  "TTgg****#g*******ggg,,,,,,,,,,#,,,,,,gggggFaaaaaaaaaaaaaaaaaagTT",
+  "TTgg****#g*******ggg,,,,,,,,,,#,,,,,,gggggFaaaaaaaaaaaaaaaaaagTT",
+  "TTgggggg#######################gggggggggggFaaaaaaaaaaaaaaaaaagTT",
+  "TTggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT"
+ ],
+ "props": [
+  {
+   "type": "building",
+   "style": "slate_cottage",
+   "x": 29,
+   "y": 22,
+   "w": 6,
+   "h": 3,
+   "label": "Lough Neagh Eel Fishery",
+   "kind": "mill"
+  },
+  {
+   "type": "boat",
+   "x": 35,
+   "y": 16,
+   "variant": 1
+  },
+  {
+   "type": "boat",
+   "x": 37,
+   "y": 18,
+   "variant": 1
+  },
+  {
+   "type": "boat",
+   "x": 35,
+   "y": 19,
+   "variant": 1
+  },
+  {
+   "type": "bollard",
+   "x": 37,
+   "y": 22
+  },
+  {
+   "type": "lobster_pots",
+   "x": 28,
+   "y": 24
+  },
+  {
+   "type": "building",
+   "style": "field_barn",
+   "x": 44,
+   "y": 27,
+   "w": 5,
+   "h": 3,
+   "label": "Scutch Mill",
+   "kind": "mill"
+  },
+  {
+   "type": "washing_line",
+   "x": 55,
+   "y": 28,
+   "variant": 2
+  },
+  {
+   "type": "washing_line",
+   "x": 57,
+   "y": 28,
+   "variant": 2
+  },
+  {
+   "type": "washing_line",
+   "x": 59,
+   "y": 28,
+   "variant": 2
+  },
+  {
+   "type": "washing_line",
+   "x": 55,
+   "y": 31,
+   "variant": 2
+  },
+  {
+   "type": "washing_line",
+   "x": 57,
+   "y": 31,
+   "variant": 2
+  },
+  {
+   "type": "washing_line",
+   "x": 59,
+   "y": 31,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 45,
+   "y": 44,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 48,
+   "y": 44,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 51,
+   "y": 44,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 54,
+   "y": 44,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 57,
+   "y": 44,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 45,
+   "y": 47,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 48,
+   "y": 47,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 51,
+   "y": 47,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 54,
+   "y": 47,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 57,
+   "y": 47,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 45,
+   "y": 50,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 48,
+   "y": 50,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 51,
+   "y": 50,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 54,
+   "y": 50,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 57,
+   "y": 50,
+   "variant": 2
+  },
+  {
+   "type": "telescope",
+   "x": 36,
+   "y": 47
+  },
+  {
+   "type": "bench",
+   "x": 34,
+   "y": 47
+  },
+  {
+   "type": "standing_stone",
+   "x": 15,
+   "y": 37,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 13,
+   "y": 38,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 17,
+   "y": 39,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 16,
+   "y": 36,
+   "variant": 0
+  },
+  {
+   "type": "building",
+   "style": "round_tower",
+   "x": 45,
+   "y": 10,
+   "w": 2,
+   "h": 2,
+   "label": "Ram's Island Round Tower",
+   "kind": "church"
+  },
+  {
+   "type": "oak",
+   "x": 44,
+   "y": 13,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 48,
+   "y": 12,
+   "variant": 0
+  },
+  {
+   "type": "birch",
+   "x": 47,
+   "y": 9
+  },
+  {
+   "type": "oak",
+   "x": 4,
+   "y": 26,
+   "variant": 0
+  },
+  {
+   "type": "birch",
+   "x": 6,
+   "y": 29,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 22,
+   "y": 36,
+   "variant": 1
+  },
+  {
+   "type": "birch",
+   "x": 26,
+   "y": 38,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 34,
+   "y": 31,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 20,
+   "y": 26,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 60,
+   "y": 36,
+   "variant": 0
+  },
+  {
+   "type": "birch",
+   "x": 61,
+   "y": 40,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 36,
+   "y": 35,
+   "variant": 2
+  },
+  {
+   "type": "pine",
+   "x": 5,
+   "y": 52,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 38,
+   "y": 50,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 27,
+   "y": 30,
+   "variant": 0
+  },
+  {
+   "type": "lamp_post",
+   "x": 33,
+   "y": 26
+  },
+  {
+   "type": "noticeboard",
+   "x": 27,
+   "y": 26
+  },
+  {
+   "type": "forage",
+   "variant": "blackthorn",
+   "x": 41,
+   "y": 26
+  },
+  {
+   "type": "forage",
+   "variant": "elder",
+   "x": 22,
+   "y": 40
+  },
+  {
+   "type": "forage",
+   "variant": "hazel",
+   "x": 58,
+   "y": 41
+  },
+  {
+   "type": "forage",
+   "variant": "wild_garlic",
+   "x": 11,
+   "y": 36
+  }
+ ],
+ "warps": [
+  {
+   "x": 31,
+   "y": 24,
+   "to": "lough_neagh_eelfishery",
+   "tx": 5,
+   "ty": 5,
+   "facing": "up"
+  },
+  {
+   "x": 46,
+   "y": 29,
+   "to": "lough_neagh_scutchmill",
+   "tx": 5,
+   "ty": 5,
+   "facing": "up"
+  }
+ ],
+ "npcs": [
+  {
+   "id": "ln_storyteller",
+   "sprite": "villager_3",
+   "x": 15,
+   "y": 40,
+   "facing": "up",
+   "move": "still",
+   "script": "ln_storyteller",
+   "name": "Storyteller"
+  },
+  {
+   "id": "ln_coop_fisher",
+   "sprite": "fisherman_north",
+   "x": 37,
+   "y": 26,
+   "facing": "down",
+   "move": "wander",
+   "script": "ln_coop_fisher",
+   "name": "Eel Fisherman",
+   "radius": 2
+  },
+  {
+   "id": "ln_swan_counter",
+   "sprite": "birdwatcher",
+   "x": 18,
+   "y": 25,
+   "facing": "up",
+   "move": "still",
+   "script": "ln_swan_counter",
+   "name": "Swan Counter"
+  },
+  {
+   "id": "ln_island_warden",
+   "sprite": "warden_grunt",
+   "x": 46,
+   "y": 13,
+   "facing": "down",
+   "move": "still",
+   "script": "ln_island_warden",
+   "name": "Island Volunteer"
+  },
+  {
+   "id": "ln_apple_lady",
+   "sprite": "farmer",
+   "x": 47,
+   "y": 43,
+   "facing": "down",
+   "move": "wander",
+   "script": "ln_apple_lady",
+   "name": "Orchard Keeper",
+   "radius": 2
+  },
+  {
+   "id": "ln_bleacher",
+   "sprite": "villager_5",
+   "x": 56,
+   "y": 30,
+   "facing": "left",
+   "move": "still",
+   "script": "ln_bleacher",
+   "name": "Linen Bleacher"
+  },
+  {
+   "id": "ln_eelman",
+   "sprite": "angler",
+   "x": 24,
+   "y": 26,
+   "facing": "up",
+   "move": "still",
+   "trainer": "ln_eelman"
+  },
+  {
+   "id": "ln_birder",
+   "sprite": "birdwatcher",
+   "x": 12,
+   "y": 30,
+   "facing": "right",
+   "move": "still",
+   "trainer": "ln_birder"
+  },
+  {
+   "id": "ln_weaver",
+   "sprite": "villager_6",
+   "x": 43,
+   "y": 31,
+   "facing": "down",
+   "move": "still",
+   "trainer": "ln_weaver"
+  },
+  {
+   "id": "ln_grower",
+   "sprite": "farmer",
+   "x": 44,
+   "y": 47,
+   "facing": "left",
+   "move": "still",
+   "trainer": "ln_grower"
+  },
+  {
+   "id": "ln_astronomer",
+   "sprite": "astronomer",
+   "x": 36,
+   "y": 46,
+   "facing": "down",
+   "move": "still",
+   "trainer": "ln_astronomer"
+  }
+ ],
+ "signs": [
+  {
+   "x": 61,
+   "y": 24,
+   "text": "EAST: Belfast. WEST: Enniskillen and the Erne lakes. Mind the flies in summer. They don't bite, they just want to be your friend."
+  },
+  {
+   "x": 2,
+   "y": 30,
+   "text": "WEST: Enniskillen, Inis Ceithleann, the town on the island. EAST: Belfast and the Lagan."
+  },
+  {
+   "x": 26,
+   "y": 24,
+   "plaque": "ln_lough",
+   "title": "Lough Neagh",
+   "text": "The largest lake in the British Isles, about 390 square kilometres, and so big that five of Northern Ireland's six counties touch its shore. It's only about nine metres deep for most of it, which is why a breeze can whip it up into proper waves. About four in ten of Northern Ireland's taps are filled from it."
+  },
+  {
+   "x": 34,
+   "y": 26,
+   "plaque": "ln_eels",
+   "title": "The Eel Fishery",
+   "text": "Lough Neagh's wild eels have had EU Protected Geographical Indication status since 2011, like Champagne but wigglier. They hatch in the Sargasso Sea and drift thousands of miles here as tiny glass eels. The fishermen's co-operative at Toomebridge, at the north end of the lough, has worked the eel fishery for decades."
+  },
+  {
+   "x": 14,
+   "y": 39,
+   "plaque": "ln_finn",
+   "title": "Finn McCool's Sod",
+   "text": "The story goes that the giant Fionn mac Cumhaill, Finn McCool, scooped up a great clod of earth to fling at a Scottish rival. He missed. The hole filled with water and became Lough Neagh, and the sod landed in the Irish Sea and became the Isle of Man. Look at the map: the shapes are close enough to make you wonder."
+  },
+  {
+   "x": 58,
+   "y": 16,
+   "plaque": "ln_rams_island",
+   "title": "Ram's Island",
+   "text": "The biggest island on the lough, wooded and quiet, with the stump of an early medieval round tower that tells you monks once lived out here. Volunteers have cleared paths and cared for the island. You'll need to wade the shallows to reach it, or borrow a boat."
+  },
+  {
+   "x": 20,
+   "y": 23,
+   "plaque": "ln_swans",
+   "title": "Winter Swans",
+   "text": "In winter, whooper swans fly in from Iceland to the lough's shallows, along with thousands of diving ducks. Lough Neagh and Lough Beg are protected as a wetland of international importance under the Ramsar Convention. The swans honk like an orchestra tuning up, and they do it at dawn."
+  },
+  {
+   "x": 49,
+   "y": 31,
+   "plaque": "ln_linen",
+   "title": "Flax and Linen",
+   "text": "Ulster was once famous the world over for Irish linen. Flax was pulled by hand, left to rot in water-filled lint holes to free the fibres (the smell could stop a horse), then beaten in scutch mills and spun and woven. The finished cloth was spread on bleach greens to whiten in the sun."
+  },
+  {
+   "x": 41,
+   "y": 45,
+   "plaque": "ln_armagh",
+   "title": "The Orchard County",
+   "text": "County Armagh is the Orchard County, and Armagh Bramley apples have had Protected Geographical Indication status since 2012. Each May the orchards fill with blossom. In Armagh city, the Observatory was founded in 1789 by Archbishop Richard Robinson, and it has been watching the sky ever since."
+  },
+  {
+   "x": 23,
+   "y": 23,
+   "plaque": "ln_hones",
+   "title": "Lough Neagh Hones",
+   "text": "An old belief held that the lough's water could turn wood to stone: stick a holly branch in the mud and come back in seven years to find it stone. Pieces of fossil wood do wash up on the shores, and they were once sold as whetstones, Lough Neagh hones, for sharpening scythes and razors."
+  },
+  {
+   "x": 33,
+   "y": 46,
+   "text": "STARGAZING SPOT. On a clear night over the lough you can see the Milky Way. Please do not point the telescope at the swans. They know."
+  },
+  {
+   "x": 37,
+   "y": 24,
+   "text": "EEL FISHERY JETTY. Boats out at dusk. No swimming, no fishing without a licence, and no stroking the eels."
+  },
+  {
+   "x": 9,
+   "y": 41,
+   "text": "BOGLAND. Wet, wobbly and full of things that like it that way. Bog-cross is the knack you need to walk it safely."
+  },
+  {
+   "x": 51,
+   "y": 40,
+   "text": "FLAX. Blue flowers for a few weeks in summer, then the long business of turning a plant into a shirt."
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "flaxling",
+    "min": 64,
+    "max": 66,
+    "weight": 16
+   },
+   {
+    "species": "stalklet",
+    "min": 64,
+    "max": 65,
+    "weight": 12
+   },
+   {
+    "species": "bittling",
+    "min": 64,
+    "max": 65,
+    "weight": 10
+   },
+   {
+    "species": "midgie",
+    "min": 64,
+    "max": 65,
+    "weight": 12,
+    "time": [
+     "day",
+     "dusk"
+    ]
+   },
+   {
+    "species": "volet",
+    "min": 64,
+    "max": 65,
+    "weight": 10
+   },
+   {
+    "species": "croakle",
+    "min": 64,
+    "max": 65,
+    "weight": 8,
+    "weather": [
+     "drizzle",
+     "downpour"
+    ]
+   },
+   {
+    "species": "leveret",
+    "min": 64,
+    "max": 66,
+    "weight": 8,
+    "time": [
+     "dawn",
+     "dusk"
+    ]
+   },
+   {
+    "species": "crexling",
+    "min": 64,
+    "max": 65,
+    "weight": 6,
+    "time": [
+     "dusk",
+     "night"
+    ]
+   },
+   {
+    "species": "hootlet",
+    "min": 64,
+    "max": 65,
+    "weight": 6,
+    "time": [
+     "night"
+    ]
+   },
+   {
+    "species": "flittermouse",
+    "min": 64,
+    "max": 65,
+    "weight": 6,
+    "time": [
+     "night"
+    ]
+   },
+   {
+    "species": "sphagnet",
+    "min": 64,
+    "max": 65,
+    "weight": 8
+   },
+   {
+    "species": "fionnling",
+    "min": 65,
+    "max": 66,
+    "weight": 3
+   },
+   {
+    "species": "neagheen",
+    "min": 64,
+    "max": 65,
+    "weight": 6,
+    "weather": [
+     "drizzle",
+     "downpour",
+     "fog"
+    ]
+   }
+  ],
+  "water": [
+   {
+    "species": "neagheen",
+    "min": 64,
+    "max": 66,
+    "weight": 22
+   },
+   {
+    "species": "pollanet",
+    "min": 64,
+    "max": 66,
+    "weight": 14
+   },
+   {
+    "species": "holtling",
+    "min": 64,
+    "max": 65,
+    "weight": 10
+   },
+   {
+    "species": "rillotter",
+    "min": 65,
+    "max": 66,
+    "weight": 6,
+    "time": [
+     "night",
+     "dusk"
+    ]
+   },
+   {
+    "species": "stalklet",
+    "min": 64,
+    "max": 65,
+    "weight": 10
+   },
+   {
+    "species": "parrlet",
+    "min": 64,
+    "max": 65,
+    "weight": 10
+   },
+   {
+    "species": "dipling",
+    "min": 64,
+    "max": 65,
+    "weight": 8
+   },
+   {
+    "species": "neaghmor",
+    "min": 66,
+    "max": 66,
+    "weight": 2,
+    "time": [
+     "night"
+    ],
+    "weather": [
+     "gale",
+     "downpour"
+    ]
+   }
+  ]
+ }
+}

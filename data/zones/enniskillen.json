@@ -1,0 +1,1181 @@
+{
+ "id": "enniskillen",
+ "name": "Enniskillen",
+ "region": "ireland",
+ "kind": "town",
+ "music": "town_ireland",
+ "weather": {
+  "drizzle": 30,
+  "clear": 20,
+  "sunshine": 14,
+  "fog": 14,
+  "downpour": 12,
+  "gale": 10
+ },
+ "edges": {
+  "east": {
+   "to": "lough_neagh",
+   "offset": 0
+  }
+ },
+ "spawn": [
+  46,
+  34
+ ],
+ "stage": "town",
+ "town_id": "enniskillen",
+ "scaled_floor": 65,
+ "legend_extra": {
+  "g": {
+   "tile": "grass",
+   "colour": "#6c9a4c"
+  },
+  "l": {
+   "tile": "grass",
+   "colour": "#82ad5a"
+  }
+ },
+ "rows": [
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
+  "~~~gggggggggg~~~~~~~~~~~~~~~~~ggBBgggggggg~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
+  "~~~gggggggggg~~~~~~~~~~~~~~~~~ggBBggBBBBgg~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
+  "~~~gggggggggg~~~~~~~~~~~~~~~~~ggBBggBBBBgg~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
+  "~~~gggggggggg~~~~~~~~~~~~~~~~~ggggggBDBBgg~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
+  "~~~gggggggggg~~~~~~~~~~~~~~~~~gggggggggggg~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
+  "~~~~~~~~o~~~~~~~~~~~~~~~~~~~~~gggggggggggg~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
+  "~~~~~~~~o~~~~~~~~~~~~~~~~~_~~~~~~~~~o~~~~~~~_~~~~~~~~~~~~~~~~~~~~~~~~~~~",
+  "~~~~~~~~o~~~~~~~~~~~~~~~~~_~~~~~~~~~o~~~~~~~_~~~~~~~~~~~~~~~~~~~~~~~~~~~",
+  "~~~~~~~~o~~~~~~~~~~~~~~~~~_~~~~~~~~~o~~~~~~~_~~~~~~~~~~~~~~~~~~~~~~~~~~~",
+  "~~oooooooooooooooo~~~ooooo_ooooooooooooooooo_ooooooo~~~ooooooooooooooo~~",
+  "TTssssssssssssssss~~~:::::::::::::::::::::::::::::::~~~sssssssssssssssTT",
+  "TTgggggggggggggggg~~~:::::::::::::::::::::::::::::::~~~gggggggggggggggTT",
+  "TTgggggggggggggggg~~~gggggggggggggggg:gggggggggggggg~~~gggggggggggggggTT",
+  "TTgggggggggggggggg~~~gggggggBBBBBBggg:BBBBBBggff##ff~~~gggggggggggggggTT",
+  "TTggBBBBBBBBBBBggg~~~gggggggBBBBBBggg:BBBBBBggff##ff~~~ggBBBBBBBBBBBggTT",
+  "TTggBBBBBBBBBBBggg~~~BBBBgggBBBDBBggg:BBBBBBggff##ff~~~ggBBBBBBBBBBBggTT",
+  "TTggBBBBBBBBBBBggg~~~BBBBgggggg:ggggg:ggggggggffBBff~~~ggBBBBBBBBBBBggTT",
+  "TTggBBBBBBBBBBBggg~~~BBBBgggggg:ggggg:ggggggggffBBff~~~ggBBBBBBBBBBBggTT",
+  "TTggBBBBBBBBBBBggg~~~gggggBBBBBBBBBBg:BBBBBBBgff##ff~~~ggBBBBBBBBBBBggTT",
+  "TTggBBBBBDBBBBBggg~~~gggggBBBBBBBBBBg:BBBBBBBgff##ff~~~ggBBBBBDBBBBBggTT",
+  "TTggggggg#gggggggg~~~gggggBBBBBBBBBBg:BBBBBBBgff##ff~~~ggggggg#gggggggTT",
+  "TT################===gggggggggggggggg:gggggggggg##gg~~~gllllll#llllllgTT",
+  "TTgggg#ggggggggggg===:::::::::::::::::::::::::::::::~~~gllllll#llllllgTT",
+  "TTgggg#ggggggggggg~~~gggggggggggggggg:gggggggggggggg~~~gllllll#llllllgTT",
+  "TTg,,g#gg,,,,,,,,g~~~gBBBBBBBBggggggg:gggggggggggggg~~~gllllll#llllllgTT",
+  "TTg,,g#gg,,,,,,,,g~~~gBBBBBBBBgBBBBBg:gggggggggggggg~~~gllllll#llllllgTT",
+  "TTg,,g#gg,,,,,,,,g~~~gBBBBBBBBgBBBBBg:BBBBBgBBBBBBgg~~~gllllll#llllllgTT",
+  "TTg,,g#gg,,,,,,,,g~~~gBBBBBBBBgBBBBBg:BBBBBgBBBBBBgg~~~ggggggg#ggggggggg",
+  "TTg,,g#gg,,,,,,,,g~~~gBBBBBBBBgBBBBBg:BBBBBgBBBBBBgg~~~#################",
+  "TTg,,g#gg,,,,,,,,g~~~gBBBDBBBBgBBBBBg:BBDBBgBBDBBBgg~~~#####gggggggggggg",
+  "TTg,,g#gg,,,,,,,,g~~~:::::::::::::::::::::::::::::::===#####ggggggggggTT",
+  "TTgggg#gg,,,,,,,,g~~~:::::::::::::::::::::::::::::::===#####ggggggggggTT",
+  "TTgggg#gg,,,,,,,,g~~~ggggggggg:gggggggggBBBBBBBBBBg:~~~gggggggggggggggTT",
+  "TTgggg#ggggggggggg~~~gBBBBBggg:gBBBBBBBgBBBBBBBBBBg:~~~g,,,,g,,,,,,,,gTT",
+  "TTgBBBBBBggggggggg~~~gBBBBBggg:gBBBBBBBgBBBBBBBBBBg:~~~g,,,,g,,,,,,,,gTT",
+  "TTgBBBBBBggggggggg~~~gBBBBBggg:gBBBBBBBgBBBBBBBBBBg:~~~g,,,,g,,,,,,,,gTT",
+  "TTgBBBDBBggggggggg~~~gBBDBBggg:gBBBDBBBgBBBBBDBBBBg:~~~g,,,,g,,,,,,,,gTT",
+  "TT################~~~:::::::::::::::::::::::::::::::~~~g,,,,g,,,,,,,,gTT",
+  "TT################~~~ggggggggg#ggggggggggggggggggggg~~~g,,,,g,,,,,,,,gTT",
+  "TTgggggggggggggggg~~~gg,,,,,,,#,,,,,,,,,,,,,,,,,,,gg~~~g,,,,g,,,,,,,,gTT",
+  "TTgggggggggggggggg~~~gg,,,,,,,#,,,,,,,,,,,,,,,,,,,gg~~~g,,,,g,,,,,,,,gTT",
+  "TTgggggggggggggggg~~~ggggggggg#ggggggggggggggggggggg~~~g,,,,g,,,,,,,,gTT",
+  "TTgggggggggggggggg~~~sssssssssssssssssssssssssssssss~~~gggggggggggggggTT",
+  "TTssssssssssssssss~~~sssssssssssssssssssssssssssssss~~~sssssssssssssssTT",
+  "~~oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo~~",
+  "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
+  "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
+  "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
+  "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
+  "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
+  "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT"
+ ],
+ "props": [
+  {
+   "type": "boat",
+   "x": 25,
+   "y": 10,
+   "variant": 1
+  },
+  {
+   "type": "boat",
+   "x": 43,
+   "y": 10,
+   "variant": 1
+  },
+  {
+   "type": "boat",
+   "x": 45,
+   "y": 9,
+   "variant": 1
+  },
+  {
+   "type": "boat",
+   "x": 6,
+   "y": 8,
+   "variant": 1
+  },
+  {
+   "type": "boat",
+   "x": 38,
+   "y": 9,
+   "variant": 1
+  },
+  {
+   "type": "bollard",
+   "x": 25,
+   "y": 13
+  },
+  {
+   "type": "bollard",
+   "x": 45,
+   "y": 13
+  },
+  {
+   "type": "buoy",
+   "x": 15,
+   "y": 7
+  },
+  {
+   "type": "buoy",
+   "x": 50,
+   "y": 6
+  },
+  {
+   "type": "building",
+   "style": "castle",
+   "x": 22,
+   "y": 27,
+   "w": 8,
+   "h": 6,
+   "label": "Enniskillen Castle",
+   "kind": "museum",
+   "pennant_region": "fermanagh"
+  },
+  {
+   "type": "building",
+   "style": "stone",
+   "x": 31,
+   "y": 28,
+   "w": 5,
+   "h": 5,
+   "label": "Town Hall",
+   "kind": "hall"
+  },
+  {
+   "type": "building",
+   "style": "erne_terrace",
+   "x": 38,
+   "y": 29,
+   "w": 5,
+   "h": 4,
+   "label": "Blakes of the Hollow Bar",
+   "kind": "cafe"
+  },
+  {
+   "type": "building",
+   "style": "sanctuary",
+   "x": 44,
+   "y": 29,
+   "w": 6,
+   "h": 4,
+   "label": "Sanctuary"
+  },
+  {
+   "type": "building",
+   "style": "shop",
+   "x": 22,
+   "y": 36,
+   "w": 5,
+   "h": 4,
+   "label": "Corner Shop"
+  },
+  {
+   "type": "building",
+   "style": "erne_terrace",
+   "x": 32,
+   "y": 36,
+   "w": 7,
+   "h": 4,
+   "label": "The Buttermarket Craft Centre",
+   "kind": "workshop"
+  },
+  {
+   "type": "building",
+   "style": "cathedral",
+   "x": 40,
+   "y": 35,
+   "w": 10,
+   "h": 5,
+   "label": "St Macartin's Cathedral",
+   "kind": "church"
+  },
+  {
+   "type": "building",
+   "style": "watergate",
+   "x": 21,
+   "y": 18,
+   "w": 4,
+   "h": 3,
+   "label": "The Watergate"
+  },
+  {
+   "type": "building",
+   "style": "erne_terrace",
+   "x": 26,
+   "y": 21,
+   "w": 10,
+   "h": 3,
+   "label": "Townhall Street",
+   "kind": "home"
+  },
+  {
+   "type": "building",
+   "style": "erne_terrace",
+   "x": 38,
+   "y": 21,
+   "w": 7,
+   "h": 3,
+   "label": "Church Street",
+   "kind": "home"
+  },
+  {
+   "type": "building",
+   "style": "erne_terrace",
+   "x": 38,
+   "y": 16,
+   "w": 6,
+   "h": 3,
+   "label": "East Bridge Street",
+   "kind": "home"
+  },
+  {
+   "type": "building",
+   "style": "white_render",
+   "x": 28,
+   "y": 16,
+   "w": 6,
+   "h": 3,
+   "label": "Boxty House",
+   "kind": "cafe"
+  },
+  {
+   "type": "building",
+   "style": "monument_column",
+   "x": 48,
+   "y": 19,
+   "w": 2,
+   "h": 2,
+   "label": "Cole's Monument"
+  },
+  {
+   "type": "statue",
+   "x": 47,
+   "y": 26,
+   "variant": 1
+  },
+  {
+   "type": "building",
+   "style": "stone",
+   "x": 4,
+   "y": 17,
+   "w": 11,
+   "h": 6,
+   "label": "Portora Royal School",
+   "kind": "school"
+  },
+  {
+   "type": "building",
+   "style": "cave_mouth",
+   "x": 3,
+   "y": 37,
+   "w": 6,
+   "h": 3,
+   "label": "Marble Arch Caves",
+   "kind": "museum"
+  },
+  {
+   "type": "building",
+   "style": "palladian",
+   "x": 57,
+   "y": 17,
+   "w": 11,
+   "h": 6,
+   "label": "Castle Coole",
+   "kind": "hall"
+  },
+  {
+   "type": "oak",
+   "x": 57,
+   "y": 25,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 67,
+   "y": 25,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 57,
+   "y": 28,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 67,
+   "y": 28,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 65,
+   "y": 38,
+   "variant": 1
+  },
+  {
+   "type": "birch",
+   "x": 58,
+   "y": 42,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 66,
+   "y": 42,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 3,
+   "y": 25,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 16,
+   "y": 22,
+   "variant": 2
+  },
+  {
+   "type": "birch",
+   "x": 3,
+   "y": 21,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 15,
+   "y": 37,
+   "variant": 1
+  },
+  {
+   "type": "birch",
+   "x": 12,
+   "y": 43,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 3,
+   "y": 43,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 16,
+   "y": 44,
+   "variant": 0
+  },
+  {
+   "type": "birch",
+   "x": 24,
+   "y": 44,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 49,
+   "y": 44,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 64,
+   "y": 34,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 68,
+   "y": 34,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 14,
+   "y": 25,
+   "variant": 0
+  },
+  {
+   "type": "birch",
+   "x": 46,
+   "y": 21,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 51,
+   "y": 17,
+   "variant": 2
+  },
+  {
+   "type": "lamp_post",
+   "x": 22,
+   "y": 24
+  },
+  {
+   "type": "lamp_post",
+   "x": 36,
+   "y": 24
+  },
+  {
+   "type": "lamp_post",
+   "x": 21,
+   "y": 35
+  },
+  {
+   "type": "lamp_post",
+   "x": 29,
+   "y": 35
+  },
+  {
+   "type": "lamp_post",
+   "x": 40,
+   "y": 34
+  },
+  {
+   "type": "lamp_post",
+   "x": 50,
+   "y": 35
+  },
+  {
+   "type": "lamp_post",
+   "x": 27,
+   "y": 15
+  },
+  {
+   "type": "lamp_post",
+   "x": 43,
+   "y": 15
+  },
+  {
+   "type": "lamp_post",
+   "x": 56,
+   "y": 30
+  },
+  {
+   "type": "lamp_post",
+   "x": 61,
+   "y": 30
+  },
+  {
+   "type": "lamp_post",
+   "x": 8,
+   "y": 25
+  },
+  {
+   "type": "lamp_post",
+   "x": 17,
+   "y": 23
+  },
+  {
+   "type": "bench",
+   "x": 46,
+   "y": 24
+  },
+  {
+   "type": "bench",
+   "x": 33,
+   "y": 15
+  },
+  {
+   "type": "bench",
+   "x": 26,
+   "y": 41
+  },
+  {
+   "type": "post_box",
+   "x": 27,
+   "y": 35
+  },
+  {
+   "type": "phone_box",
+   "x": 31,
+   "y": 35
+  },
+  {
+   "type": "hanging_basket",
+   "x": 38,
+   "y": 32,
+   "walk": true,
+   "rot": 0
+  },
+  {
+   "type": "hanging_basket",
+   "x": 42,
+   "y": 32,
+   "walk": true,
+   "rot": 180
+  },
+  {
+   "type": "bunting",
+   "x": 33,
+   "y": 35,
+   "variant": 2,
+   "walk": true
+  },
+  {
+   "type": "noticeboard",
+   "x": 36,
+   "y": 35
+  },
+  {
+   "type": "planter",
+   "x": 43,
+   "y": 26
+  },
+  {
+   "type": "planter",
+   "x": 50,
+   "y": 26
+  },
+  {
+   "type": "standing_stone",
+   "x": 4,
+   "y": 4,
+   "variant": 1
+  },
+  {
+   "type": "standing_stone",
+   "x": 6,
+   "y": 4,
+   "variant": 1
+  },
+  {
+   "type": "standing_stone",
+   "x": 4,
+   "y": 6,
+   "variant": 1
+  },
+  {
+   "type": "standing_stone",
+   "x": 10,
+   "y": 4,
+   "variant": 1
+  },
+  {
+   "type": "standing_stone",
+   "x": 11,
+   "y": 6,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 12,
+   "y": 3,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 3,
+   "y": 3,
+   "variant": 0
+  },
+  {
+   "type": "building",
+   "style": "round_tower",
+   "x": 32,
+   "y": 3,
+   "w": 2,
+   "h": 3,
+   "label": "Devenish Round Tower",
+   "kind": "church"
+  },
+  {
+   "type": "building",
+   "style": "chapel",
+   "x": 36,
+   "y": 4,
+   "w": 4,
+   "h": 3,
+   "label": "St Mary's Priory, Devenish",
+   "kind": "church"
+  },
+  {
+   "type": "standing_stone",
+   "x": 31,
+   "y": 7,
+   "variant": 2
+  },
+  {
+   "type": "standing_stone",
+   "x": 34,
+   "y": 7,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 41,
+   "y": 3,
+   "variant": 1
+  },
+  {
+   "type": "birch",
+   "x": 30,
+   "y": 4
+  }
+ ],
+ "warps": [
+  {
+   "x": 25,
+   "y": 32,
+   "to": "enniskillen_castle",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 40,
+   "y": 32,
+   "to": "enniskillen_blakes",
+   "tx": 6,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 46,
+   "y": 32,
+   "to": "enniskillen_sanctuary",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 24,
+   "y": 39,
+   "to": "enniskillen_shop",
+   "tx": 4,
+   "ty": 5,
+   "facing": "up"
+  },
+  {
+   "x": 35,
+   "y": 39,
+   "to": "enniskillen_buttermarket",
+   "tx": 6,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 45,
+   "y": 39,
+   "to": "enniskillen_cathedral",
+   "tx": 6,
+   "ty": 8,
+   "facing": "up"
+  },
+  {
+   "x": 31,
+   "y": 18,
+   "to": "enniskillen_boxty",
+   "tx": 6,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 9,
+   "y": 22,
+   "to": "enniskillen_portora",
+   "tx": 7,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 6,
+   "y": 39,
+   "to": "enniskillen_marblearch",
+   "tx": 13,
+   "ty": 19,
+   "facing": "up"
+  },
+  {
+   "x": 62,
+   "y": 22,
+   "to": "enniskillen_castlecoole",
+   "tx": 7,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 37,
+   "y": 6,
+   "to": "enniskillen_devenish",
+   "tx": 6,
+   "ty": 6,
+   "facing": "up",
+   "gate": "brook_wade"
+  }
+ ],
+ "npcs": [
+  {
+   "id": "en_skipper",
+   "sprite": "sailor",
+   "x": 44,
+   "y": 13,
+   "facing": "up",
+   "move": "still",
+   "script": "en_skipper",
+   "name": "Skipper Cathal"
+  },
+  {
+   "id": "en_ferryman",
+   "sprite": "currach_rower",
+   "x": 26,
+   "y": 13,
+   "facing": "up",
+   "move": "still",
+   "script": "en_ferryman",
+   "name": "Devenish Ferryman"
+  },
+  {
+   "id": "en_ferryman_back",
+   "sprite": "currach_rower",
+   "x": 35,
+   "y": 8,
+   "facing": "down",
+   "move": "still",
+   "script": "en_ferryman_back",
+   "name": "Devenish Ferryman"
+  },
+  {
+   "id": "en_boa_skipper",
+   "sprite": "sailor",
+   "x": 10,
+   "y": 7,
+   "facing": "up",
+   "move": "still",
+   "script": "en_boa_skipper",
+   "name": "Skipper Cathal"
+  },
+  {
+   "id": "twaface_spot",
+   "sprite": "creature:twaface",
+   "x": 7,
+   "y": 4,
+   "facing": "down",
+   "move": "still",
+   "script": "en_janus",
+   "name": "The Janus Figure",
+   "hide_if": "q_fermanagh_islands_3"
+  },
+  {
+   "id": "en_cave_guide_out",
+   "sprite": "hiker",
+   "x": 8,
+   "y": 41,
+   "facing": "up",
+   "move": "still",
+   "script": "en_cave_guide_out",
+   "name": "Cave Guide"
+  },
+  {
+   "id": "en_local_wit",
+   "sprite": "villager_1",
+   "x": 33,
+   "y": 33,
+   "facing": "down",
+   "move": "wander",
+   "script": "en_local_wit",
+   "name": "Local",
+   "radius": 1
+  },
+  {
+   "id": "en_canoeist",
+   "sprite": "surfer",
+   "x": 50,
+   "y": 14,
+   "facing": "left",
+   "move": "wander",
+   "script": "en_canoeist",
+   "name": "Canoeist",
+   "radius": 2,
+   "times": [
+    "dawn",
+    "day",
+    "dusk"
+   ]
+  },
+  {
+   "id": "en_gardener",
+   "sprite": "farmer",
+   "x": 64,
+   "y": 26,
+   "facing": "down",
+   "move": "wander",
+   "script": "en_gardener",
+   "name": "Estate Gardener",
+   "radius": 2,
+   "times": [
+    "day"
+   ]
+  },
+  {
+   "id": "en_wilde_fan",
+   "sprite": "student",
+   "x": 12,
+   "y": 24,
+   "facing": "up",
+   "move": "wander",
+   "script": "en_wilde_fan",
+   "name": "Literature Student",
+   "radius": 2
+  },
+  {
+   "id": "en_memorial_man",
+   "sprite": "villager_4",
+   "x": 47,
+   "y": 27,
+   "facing": "up",
+   "move": "still",
+   "script": "en_memorial_man",
+   "name": "Old Soldier"
+  },
+  {
+   "id": "en_cruiser",
+   "sprite": "sailor",
+   "x": 33,
+   "y": 14,
+   "facing": "down",
+   "move": "still",
+   "trainer": "en_cruiser"
+  },
+  {
+   "id": "en_fusilier",
+   "sprite": "villager_2",
+   "x": 28,
+   "y": 34,
+   "facing": "down",
+   "move": "still",
+   "trainer": "en_fusilier"
+  },
+  {
+   "id": "en_teacher",
+   "sprite": "poet",
+   "x": 10,
+   "y": 26,
+   "facing": "up",
+   "move": "still",
+   "trainer": "en_teacher"
+  },
+  {
+   "id": "en_cook",
+   "sprite": "villager_6",
+   "x": 41,
+   "y": 41,
+   "facing": "up",
+   "move": "still",
+   "trainer": "en_cook"
+  },
+  {
+   "id": "en_bridie",
+   "sprite": "currach_rower",
+   "x": 23,
+   "y": 16,
+   "facing": "down",
+   "move": "still",
+   "trainer": "en_bridie"
+  },
+  {
+   "id": "en_birder",
+   "sprite": "birdwatcher",
+   "x": 64,
+   "y": 40,
+   "facing": "left",
+   "move": "still",
+   "trainer": "en_birder"
+  }
+ ],
+ "signs": [
+  {
+   "x": 69,
+   "y": 30,
+   "text": "EAST: Lough Neagh and Belfast. Enniskillen: Inis Ceithleann, Ceithleann's island. Welcome to the island town."
+  },
+  {
+   "x": 7,
+   "y": 42,
+   "text": "MARBLE ARCH CAVES. In real life they're a wee drive south-west towards Cuilcagh mountain. Here, they're just over there. Boat trips on the underground river daily."
+  },
+  {
+   "x": 17,
+   "y": 25,
+   "text": "WEST BRIDGE. Up the hill: Portora Royal School. Down the road: the Marble Arch Caves."
+  },
+  {
+   "x": 23,
+   "y": 15,
+   "text": "NORTH QUAY. Boats for Devenish Island and cruises on Lower Lough Erne. Life jackets compulsory, swans optional."
+  },
+  {
+   "x": 21,
+   "y": 26,
+   "plaque": "en_name",
+   "title": "Inis Ceithleann",
+   "text": "Enniskillen comes from the Irish Inis Ceithleann, Ceithleann's island. The story goes that Ceithleann, a figure from Irish legend, swam here wounded after a great battle. The town sits on an island in the River Erne, between Upper and Lower Lough Erne, so most journeys start with a bridge."
+  },
+  {
+   "x": 28,
+   "y": 32,
+   "plaque": "en_castle",
+   "title": "Enniskillen Castle",
+   "text": "Built in the 1400s by the Maguires, the chieftains of Fermanagh, who ruled the lakes from here with a fleet of boats. It changed hands several times in the wars that followed. Today it holds the Fermanagh County Museum and the Inniskillings Museum.",
+   "kind": "plaque"
+  },
+  {
+   "x": 25,
+   "y": 19,
+   "plaque": "en_watergate",
+   "title": "The Watergate",
+   "text": "The castle's twin-turreted Watergate faces the river, and probably dates from the early 1600s, when Captain William Cole rebuilt the castle. Funnily enough, the river has moved: the water no longer laps the gate, but the name stuck, and so did the turrets."
+  },
+  {
+   "x": 36,
+   "y": 20,
+   "plaque": "en_inniskillings",
+   "title": "The Inniskillings",
+   "text": "Enniskillen gave its name to two famous regiments: the Royal Inniskilling Fusiliers on foot and the Inniskilling Dragoons on horseback. Both fought at Waterloo in 1815. Their story, their medals and their drums are kept at the castle museum."
+  },
+  {
+   "x": 40,
+   "y": 8,
+   "plaque": "en_devenish",
+   "title": "Devenish Island",
+   "text": "St Molaise founded a monastery here in the 500s, and it became one of the great centres of learning on the lough. Its 12th-century round tower stands about 30 metres tall and is one of the finest in Ireland. The Soiscél Molaise, the shrine made to hold the saint's gospel book, is now in the National Museum in Dublin."
+  },
+  {
+   "x": 9,
+   "y": 7,
+   "plaque": "en_boa",
+   "title": "Boa Island Janus",
+   "text": "In Caldragh graveyard on Boa Island stands a stone figure with two faces, back to back, carved perhaps 2,000 years ago. Nobody knows exactly who it shows. The island may take its name from Badhbh, a war goddess of Irish legend. People still leave coins in the hollow in its head."
+  },
+  {
+   "x": 68,
+   "y": 22,
+   "plaque": "en_castlecoole",
+   "title": "Castle Coole",
+   "text": "A neoclassical mansion designed by James Wyatt and finished in 1798 for the Earl Belmore. Its pale Portland stone came by ship from Dorset to Ballyshannon, then overland and across the lough. It cost so much it nearly ruined the family. The National Trust looks after it now."
+  },
+  {
+   "x": 15,
+   "y": 22,
+   "plaque": "en_portora",
+   "title": "Portora Royal School",
+   "text": "Founded under a royal charter of King James I in 1608, Portora moved up this hill in the 1770s. Oscar Wilde was a pupil in the 1860s and Samuel Beckett in the 1920s, which makes it the only school with two Nobel-worthy... well, one Nobel (Beckett, 1969) and one very good excuse (Wilde). Since 2016 it has been part of Enniskillen Royal Grammar School."
+  },
+  {
+   "x": 50,
+   "y": 21,
+   "plaque": "en_cole",
+   "title": "Cole's Monument",
+   "text": "A tall Doric column in Forthill Park, built between 1845 and 1857 to honour General Sir Galbraith Lowry Cole, a soldier of the Peninsular War. There's a spiral stair of over a hundred steps inside, and from the top you can see both loughs at once."
+  },
+  {
+   "x": 15,
+   "y": 39,
+   "plaque": "en_marblearch",
+   "title": "Marble Arch Caves",
+   "text": "A show cave in limestone under Cuilcagh mountain, where tours begin with a boat ride along an underground river. The caves sit in a UNESCO Global Geopark shared across the border with County Cavan. The Marble Arch itself is a natural limestone arch where the Cladagh river bursts out of the hill."
+  },
+  {
+   "x": 48,
+   "y": 27,
+   "plaque": "en_memorial",
+   "title": "The War Memorial",
+   "text": "Enniskillen gathers here every November to remember its dead. In 1987 a bomb went off at the Remembrance Sunday service, and twelve people lost their lives. The town's grief, and the words of forgiveness spoken by one bereaved father, Gordon Wilson, moved people right across these islands. A place for quiet."
+  },
+  {
+   "x": 34,
+   "y": 19,
+   "plaque": "en_boxty",
+   "title": "Boxty",
+   "text": "A Fermanagh potato pancake made from grated raw potato mixed with mashed, then cooked on a griddle or boiled in a loaf. The old rhyme goes: boxty on the griddle, boxty in the pan, if you can't make boxty, you'll never get a man. Opinions on the rhyme, these days, are mixed. Opinions on the boxty are not."
+  },
+  {
+   "x": 14,
+   "y": 14,
+   "plaque": "en_erne",
+   "title": "The Erne Lakes",
+   "text": "The River Erne runs north-west through Upper and Lower Lough Erne to the Atlantic at Ballyshannon, past scores of islands. It's a favourite with cruisers and canoeists, and the Shannon-Erne Waterway links it to the Shannon, so in theory you could sail to Limerick. In practice, there's a pub on the way."
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "pipkin",
+    "min": 64,
+    "max": 65,
+    "weight": 12
+   },
+   {
+    "species": "rooklet",
+    "min": 64,
+    "max": 65,
+    "weight": 10
+   },
+   {
+    "species": "starlet",
+    "min": 64,
+    "max": 65,
+    "weight": 8,
+    "time": [
+     "dusk",
+     "dawn"
+    ]
+   },
+   {
+    "species": "leveret",
+    "min": 64,
+    "max": 66,
+    "weight": 10
+   },
+   {
+    "species": "stoatlet",
+    "min": 64,
+    "max": 65,
+    "weight": 8
+   },
+   {
+    "species": "dozelet",
+    "min": 64,
+    "max": 65,
+    "weight": 8
+   },
+   {
+    "species": "binfox",
+    "min": 64,
+    "max": 65,
+    "weight": 6,
+    "time": [
+     "night",
+     "dusk"
+    ]
+   },
+   {
+    "species": "hootlet",
+    "min": 64,
+    "max": 65,
+    "weight": 6,
+    "time": [
+     "night"
+    ]
+   },
+   {
+    "species": "flittermouse",
+    "min": 64,
+    "max": 65,
+    "weight": 6,
+    "time": [
+     "night"
+    ]
+   },
+   {
+    "species": "flaxling",
+    "min": 64,
+    "max": 65,
+    "weight": 8
+   },
+   {
+    "species": "crexling",
+    "min": 64,
+    "max": 65,
+    "weight": 4,
+    "time": [
+     "dusk"
+    ]
+   },
+   {
+    "species": "dripkin",
+    "min": 64,
+    "max": 65,
+    "weight": 4,
+    "weather": [
+     "drizzle",
+     "downpour"
+    ]
+   }
+  ],
+  "water": [
+   {
+    "species": "neagheen",
+    "min": 64,
+    "max": 66,
+    "weight": 18
+   },
+   {
+    "species": "pollanet",
+    "min": 64,
+    "max": 66,
+    "weight": 10
+   },
+   {
+    "species": "parrlet",
+    "min": 64,
+    "max": 65,
+    "weight": 12
+   },
+   {
+    "species": "holtling",
+    "min": 64,
+    "max": 65,
+    "weight": 10
+   },
+   {
+    "species": "cranelet",
+    "min": 64,
+    "max": 65,
+    "weight": 8
+   },
+   {
+    "species": "pincray",
+    "min": 65,
+    "max": 66,
+    "weight": 6
+   },
+   {
+    "species": "stalklet",
+    "min": 64,
+    "max": 65,
+    "weight": 10
+   },
+   {
+    "species": "neaghmor",
+    "min": 66,
+    "max": 66,
+    "weight": 1,
+    "time": [
+     "night"
+    ],
+    "weather": [
+     "gale",
+     "downpour"
+    ]
+   }
+  ]
+ }
+}

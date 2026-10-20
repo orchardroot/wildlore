@@ -1,0 +1,86 @@
+[
+ {
+  "id": "boxty",
+  "name": "Boxty",
+  "kind": "heal",
+  "price": 220,
+  "battle": true,
+  "field": true,
+  "amount": 100,
+  "desc": "A Fermanagh potato pancake of grated raw and mashed potato, cooked on the griddle. Restores 100 HP. Boxty on the griddle, boxty in the pan."
+ },
+ {
+  "id": "fermanagh_black_bacon",
+  "name": "Fermanagh Black Bacon",
+  "kind": "heal",
+  "price": 420,
+  "battle": true,
+  "field": true,
+  "amount": 170,
+  "desc": "Slow dry-cured bacon from County Fermanagh with a dark, almost black rind. Restores 170 HP. Fry it slowly, out of respect."
+ },
+ {
+  "id": "smoked_eel",
+  "name": "Smoked Lough Neagh Eel",
+  "kind": "heal",
+  "price": 360,
+  "battle": true,
+  "field": true,
+  "amount": 150,
+  "desc": "Wild eel from Lough Neagh, protected by an EU geographical indication since 2011, smoked over hardwood. Restores 150 HP. Rich, smoky and very slightly judgemental."
+ },
+ {
+  "id": "armagh_bramley",
+  "name": "Armagh Bramley",
+  "kind": "heal",
+  "price": 90,
+  "battle": true,
+  "field": true,
+  "amount": 45,
+  "desc": "A sharp green cooking apple from the Orchard County, with protected status since 2012. Restores 45 HP. Better in a tart, but needs must."
+ },
+ {
+  "id": "illuminated_page",
+  "name": "Illuminated Page",
+  "kind": "charm",
+  "price": 0,
+  "battle": false,
+  "field": true,
+  "wild": true,
+  "desc": "A vellum page painted by a monk of Devenish, all birds and knotwork and real gold leaf. Mostly real.",
+  "effect_text": "Spirit moves hit 20% harder.",
+  "charm": {
+   "effect": "boost",
+   "type": "spirit",
+   "mult": 1.2
+  },
+  "msg": "{name}'s Illuminated Page glowed!"
+ },
+ {
+  "id": "geopark_pin",
+  "name": "Geopark Pin",
+  "kind": "charm",
+  "price": 0,
+  "battle": false,
+  "field": true,
+  "wild": true,
+  "desc": "A badge for friends of the Marble Arch Caves UNESCO Global Geopark. Solid as the limestone under Cuilcagh.",
+  "effect_text": "Stone moves hurt it 25% less.",
+  "charm": {
+   "effect": "resist",
+   "type": "stone",
+   "mult": 0.75
+  },
+  "msg": "{name}'s Geopark Pin took the edge off the blow!"
+ },
+ {
+  "id": "scutched_flax",
+  "name": "Scutched Flax",
+  "one": "a hank of Scutched Flax",
+  "kind": "material",
+  "price": 0,
+  "battle": false,
+  "field": false,
+  "desc": "Long, soft, pale-gold flax fibre beaten clean in a scutch mill. Spin it and weave it and you have Irish linen, eventually."
+ }
+]

@@ -588,7 +588,7 @@ static func _buildings(z: ZoneData, root: Node3D) -> void:
 		for x in range(bx, bx + w):
 			if z.tile_at(Vector2i(x, by + d - 1)) == "door":
 				door_x = x - bx
-		var meshes: Array = Meshes.building(w, d, str(pr.get("style", "red_brick")), door_x, hash(z.id) + bx * 31 + by, z.region)
+		var meshes: Array = Meshes.building(w, d, str(pr.get("style", "red_brick")), door_x, hash(z.id) + bx * 31 + by, str(pr.get("pennant_region", z.region)))  # a castle may fly its own colours
 		# stand on the door's ground, so on a slope the door meets the path rather than sinking into the hill
 		var gy := z.height_at(Vector2i(bx + door_x, by + d - 1) if door_x >= 0 else Vector2i(bx, by)) * LEVEL
 		var body := MeshInstance3D.new()
