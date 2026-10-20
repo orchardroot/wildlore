@@ -18,24 +18,25 @@ const GLASS := Color.WHITE
 ## Wider Isles, the Shannon and Limerick (see the Shannon section at the end of the file).
 const SHANNON_STYLES := ["shannon_tower_house", "king_johns", "clare_thatch", "limerick_georgian", "airport_terminal", "flying_boat", "hydro_station", "thomond_stadium", "milk_market"]
 ## Building styles handled here rather than by the generic house in Meshes.building.
-const SPECIAL := ["shannon_tower_house", "limerick_georgian", "martyrs_obelisk", "palace_pier", "marble_arch_cave", "swansea_market", "glass_tower", "gantry_crane", "cantilever_crane", "titanic", "mill", "castle", "cathedral", "liver_building", "station", "aqueduct", "chapel", "terrace", "tudor", "slate_cottage", "lighthouse_house", "round_tower", "passage_tomb", "field_barn", "casino", "grandstand", "bookmaker"]
+const SPECIAL := ["shannon_tower_house", "limerick_georgian", "martyrs_obelisk", "palace_pier", "marble_arch_cave",
+	"swansea_market", "glass_tower", "gantry_crane", "cantilever_crane", "titanic", "mill", "castle", "cathedral",
 	"liver_building", "station", "aqueduct", "chapel", "terrace", "tudor", "slate_cottage", "lighthouse_house",
-	"round_tower", "passage_tomb", "field_barn", "bottle_kiln", "potbank", "blackpool_tower", "big_one",
-	"blackpool_tram", "pier_pavilion", "veranda_shop", "guest_house", "suspension_bridge", "ss_great_britain",
-	"caravel", "hot_air_balloon", "painted_terrace", "bristol_byzantine", "tower_house", "tower_house_granite",
-	"thatch_cottage", "irish_shopfront", "turf_stack", "obelisk", "tau_cross", "oast_house", "weatherboard",
-	"flint_cottage", "regency", "pavilion", "i360", "canterbury_cathedral", "westgate", "windmill_black",
-	"windmill_white", "humber_bridge", "the_deep", "lincoln_cathedral", "tank_memorial", "monolith", "limestone_church",
-	"pantile_brick", "pantile_chalk", "georgian_brick", "limestone_house", "trawler", "spire_memorial", "canal_tunnel",
-	"leeds_town_hall", "corn_exchange", "market_hall", "abbey_ruin", "parsonage", "weavers_cottage", "pennine_church",
-	"football_stadium", "engine_house", "waterfront_museum", "pier", "cave_mouth", "three_cliffs", "smeaton_tower",
-	"exeter_cathedral", "city_wall", "cob_thatch", "football_ground", "aquarium", "mayflower_steps", "erne_terrace",
-	"watergate", "palladian", "monument_column", "magpie", "flax_mill", "blast_furnace", "gault", "flint",
-	"flint_gable", "thatch", "college", "kings_chapel", "portico", "ely_cathedral", "norwich_cathedral", "norman_keep",
-	"football_stand", "forth_bridge", "forth_approach", "road_bridge", "bridge_girder", "cable_stayed", "crow_step",
-	"culross_palace", "tenement", "st_andrews_ruin", "discovery_ship", "va_dundee", "tay_bridge"]
-	"caithness_flag", "flag_fence", "mey_castle", "dunrobin", "jog_signpost", "sea_stacks", "well_house", "kirk_ruin",
-	"surf_shack", "jog_inn", "flows_lookout"]
+	"round_tower", "passage_tomb", "field_barn", "casino", "grandstand", "bookmaker", "bottle_kiln", "potbank",
+	"blackpool_tower", "big_one", "blackpool_tram", "pier_pavilion", "veranda_shop", "guest_house", "suspension_bridge",
+	"ss_great_britain", "caravel", "hot_air_balloon", "painted_terrace", "bristol_byzantine", "tower_house",
+	"tower_house_granite", "thatch_cottage", "irish_shopfront", "turf_stack", "obelisk", "tau_cross", "oast_house",
+	"weatherboard", "flint_cottage", "regency", "pavilion", "i360", "canterbury_cathedral", "westgate",
+	"windmill_black", "windmill_white", "humber_bridge", "the_deep", "lincoln_cathedral", "tank_memorial", "monolith",
+	"limestone_church", "pantile_brick", "pantile_chalk", "georgian_brick", "limestone_house", "trawler",
+	"spire_memorial", "canal_tunnel", "leeds_town_hall", "corn_exchange", "market_hall", "abbey_ruin", "parsonage",
+	"weavers_cottage", "pennine_church", "football_stadium", "engine_house", "waterfront_museum", "pier", "cave_mouth",
+	"three_cliffs", "smeaton_tower", "exeter_cathedral", "city_wall", "cob_thatch", "football_ground", "aquarium",
+	"mayflower_steps", "erne_terrace", "watergate", "palladian", "monument_column", "magpie", "flax_mill",
+	"blast_furnace", "gault", "flint", "flint_gable", "thatch", "college", "kings_chapel", "portico", "ely_cathedral",
+	"norwich_cathedral", "norman_keep", "football_stand", "forth_bridge", "forth_approach", "road_bridge",
+	"bridge_girder", "cable_stayed", "crow_step", "culross_palace", "tenement", "st_andrews_ruin", "discovery_ship",
+	"va_dundee", "tay_bridge", "caithness_flag", "flag_fence", "mey_castle", "dunrobin", "jog_signpost", "sea_stacks",
+	"well_house", "kirk_ruin", "surf_shack", "jog_inn", "flows_lookout"]
 
 ## Doors: where each style's door sits on its tile (see _door and friends), for the swing as you go in.
 ## {x, w, y, h, z}: left edge and width across the door column, bottom and height, z of the door's face from

@@ -582,7 +582,8 @@ const VENUE_PROPS := ["stadium_stand", "rugby_posts", "floodlight", "puddle", "p
 	"steel_plates", "hall_stage", "tea_urn", "stacked_chairs", "currach", "lobster_pots", "harbour_arch", "fae_lantern",
 	"toadstool_ring", "clootie_tree", "curling_house", "curling_stones", "brick_arch", "band_kit", "stage_light",
 	"slate_stack", "slate_wagon", "crypt_arch", "candelabra", "tomb_chest", "brazier", "city_window",
-	"enclosure_banner", "creature_cage", "loom",
+	"enclosure_banner", "creature_cage", "loom", "slot_machine", "roulette_table", "card_table", "tote_board", "velvet_rope",
+	"horse_statue"]
 ## prop -> the glow mesh that goes with it (same tile, same variant).
 const VENUE_GLOWS := {"floodlight": "floodlight_glow", "fae_lantern": "fae_glow", "stage_light": "stage_glow",
 	"candelabra": "candle_glow", "brazier": "brazier_fire", "slot_machine": "slot_glow", "tote_board": "tote_glow"}

@@ -367,8 +367,7 @@ func _gauntlet(c: Dictionary) -> void:
 	if prize > 0:
 		var paid := Wallet.earn_here(host.data, prize, host.zone_id())
 		TrainerStats.earned(host.data, prize)
-		await host.say("", "%s collects £%d in prize money from %s." % [host.data.player_name, prize, str(c.get("prize_from", "the Moot"))])
-		await host.say("", "%s collects %s in prize money from the Moot." % [host.data.player_name, Wallet.fmt(int(paid.amount), str(paid.cur))])
+		await host.say("", "%s collects %s in prize money from %s." % [host.data.player_name, Wallet.fmt(int(paid.amount), str(paid.cur)), str(c.get("prize_from", "the Moot"))])
 	_set_flag(str(c.get("flag", "gauntlet_won")), true)
 
 ## A legendary encounter: a wild battle you can't run from, with its own music. Catching it sets `flag`;
