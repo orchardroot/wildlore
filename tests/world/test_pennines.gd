@@ -119,7 +119,7 @@ func test_new_species_are_placed() -> void:
 		for kind in all[zid].encounters:
 			for e in all[zid].encounters[kind]:
 				placed[str(e.species)] = true
-	for sp in ["tootlet", "bogglet", "forcelet", "boggart", "snowhare"]:
+	for sp in ["tootlet", "hobling", "forcelet", "hobthrust", "snowhare"]:
 		assert_true(placed.has(sp), sp)
 
 func test_zones_build() -> void:

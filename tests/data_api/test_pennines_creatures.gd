@@ -1,12 +1,12 @@
 extends TestCase
-## South Pennines / West Yorkshire appendix lines: Tootlet > Bombardon (brass bands), Bogglet > Boggart
-## (Pennine boggart lore) and Forcelet > Rhubarbarian (the Rhubarb Triangle).
+## South Pennines / West Yorkshire appendix lines: Tootlet > Bombardon (brass bands), Hobling > Hobthrust
+## (Pennine hob lore) and Forcelet > Rhubarbarian (the Rhubarb Triangle).
 
 const LINES := [
 	{"id": "tootlet", "types": ["iron"], "to": "bombardon", "knack": "brass_neck"},
 	{"id": "bombardon", "types": ["iron", "storm"], "to": null, "knack": "brass_neck"},
-	{"id": "bogglet", "types": ["spirit"], "to": "boggart", "knack": "we_are_flitting"},
-	{"id": "boggart", "types": ["spirit", "bog"], "to": null, "knack": "we_are_flitting"},
+	{"id": "hobling", "types": ["spirit"], "to": "hobthrust", "knack": "we_are_flitting"},
+	{"id": "hobthrust", "types": ["spirit", "bog"], "to": null, "knack": "we_are_flitting"},
 	{"id": "forcelet", "types": ["hearth", "hedgerow"], "to": "rhubarbarian", "knack": "forced_in_the_dark"},
 	{"id": "rhubarbarian", "types": ["hearth", "hedgerow"], "to": null, "knack": "forced_in_the_dark"},
 ]
@@ -35,7 +35,7 @@ func test_evolutions_chain() -> void:
 			assert_eq(str(evo.to), l.to, l.id)
 			assert_true(int(evo.level) >= 26 and int(evo.level) <= 34, "%s evolves at %d" % [l.id, evo.level])
 	assert_eq(int(dex.get_species("tootlet").evolves.level), 30)
-	assert_eq(int(dex.get_species("bogglet").evolves.level), 32)
+	assert_eq(int(dex.get_species("hobling").evolves.level), 32)
 	assert_eq(int(dex.get_species("forcelet").evolves.level), 28)
 
 func test_stat_totals_are_viable() -> void:
