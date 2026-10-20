@@ -1,0 +1,28 @@
+{
+ "id": "stoke_paintress",
+ "name": "Paintress Dot",
+ "class": "Paintress",
+ "sprite": "villager_6",
+ "scaled_floor": 8,
+ "party": [
+  {
+   "species": "pepperling",
+   "level": 10
+  },
+  {
+   "species": "saggit",
+   "level": 11
+  }
+ ],
+ "ai": "trainer",
+ "money": 420,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Paintress Dot",
+   "text": "Steady hand, quick brush, and I never miss a line. Let's see if your team's as tidy!"
+  }
+ ],
+ "win": "Smudged it. First time since 1974.",
+ "after": "Turn your mug over. If it says Stoke on the bottom, it's family."
+}

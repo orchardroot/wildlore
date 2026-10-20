@@ -1,0 +1,28 @@
+{
+ "id": "roaches_climber",
+ "name": "Climber Jess",
+ "class": "Climber",
+ "sprite": "fell_runner",
+ "scaled_floor": 8,
+ "party": [
+  {
+   "species": "gritling",
+   "level": 10
+  },
+  {
+   "species": "scuttlet",
+   "level": 9
+  }
+ ],
+ "ai": "trainer",
+ "money": 380,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Climber Jess",
+   "text": "Chalk on my hands, grit in my teeth. I've been on this crag since dawn. Let's see if you're as grippy as the gritstone!"
+  }
+ ],
+ "win": "Fell off. Metaphorically. Thankfully.",
+ "after": "Gritstone's like sandpaper. Lovely to climb, murder on your fingertips."
+}

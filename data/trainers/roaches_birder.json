@@ -1,0 +1,28 @@
+{
+ "id": "roaches_birder",
+ "name": "Birdwatcher Anjali",
+ "class": "Birdwatcher",
+ "sprite": "birdwatcher",
+ "scaled_floor": 8,
+ "party": [
+  {
+   "species": "kitelet",
+   "level": 9
+  },
+  {
+   "species": "stalklet",
+   "level": 10
+  }
+ ],
+ "ai": "trainer",
+ "money": 360,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Birdwatcher Anjali",
+   "text": "Shh, there's a great crested grebe on the reservoir doing its little dance. Oh, it's stopped. You scared it. Battle!"
+  }
+ ],
+ "win": "Well, that ruffled my feathers.",
+ "after": "Tittesworth gets ospreys passing through in spring. I've waited six years. Any day now."
+}

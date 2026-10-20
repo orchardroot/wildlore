@@ -1,0 +1,506 @@
+{
+ "fireman": [
+  {
+   "do": "if",
+   "flag": "q_potteries_firing_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Fireman",
+     "text": "Still warm, that oven. Three days to cool before you can draw the ware. Patience is half of potting."
+    },
+    {
+     "do": "say",
+     "who": "Fireman",
+     "text": "Look after that Saggit, duck. They're happiest near a warm hearth and a cup of tea, same as me."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_potteries_firing_3",
+     "then": [
+      {
+       "do": "say",
+       "who": "Fireman",
+       "text": "Saggars from Middleport, coal off Alf's boat, wad clay from Spode's. You've done the lot! Right, let's fire her."
+      },
+      {
+       "do": "say",
+       "who": "Fireman",
+       "text": "First the placers go in. They carry the saggars full of ware on their heads, on a little cloth pad, and stack them in columns called bungs, right up into the dome."
+      },
+      {
+       "do": "say",
+       "who": "Fireman",
+       "text": "Then the wad clay goes between the saggars so no smoke gets in. Then we brick up the doorway. That's the clammins. Daub it with clay. Done."
+      },
+      {
+       "do": "fade_out"
+      },
+      {
+       "do": "sfx",
+       "id": "heal"
+      },
+      {
+       "do": "wait",
+       "seconds": 0.6
+      },
+      {
+       "do": "fade_in"
+      },
+      {
+       "do": "say",
+       "who": "Fireman",
+       "text": "And now we feed the firemouths, round the clock, for two or three days. I'll pull out trial pieces through a spyhole to see how the ware's coming on. No thermometers in the old days. Just eyes and experience."
+      },
+      {
+       "do": "say",
+       "who": "Fireman",
+       "text": "Look at her smoke! First firing in this yard in years. The museum's thrilled, the council's furious, and the washing on every line in Longton's gone grey. Proper Potteries."
+      },
+      {
+       "do": "say",
+       "who": "Fireman",
+       "text": "Here. A firebrick from the oven floor, still warm. And something else was sitting in the ash pit, minding its own business. It's taken a shine to you."
+      },
+      {
+       "do": "give_item",
+       "item": "kiln_brick"
+      },
+      {
+       "do": "give_creature",
+       "species": "saggit",
+       "level": 10,
+       "scaled_floor": 8
+      },
+      {
+       "do": "standing",
+       "nation": "england",
+       "amount": 2
+      },
+      {
+       "do": "set",
+       "flag": "q_potteries_firing_done"
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_potteries_firing_started",
+       "then": [
+        {
+         "do": "if",
+         "flag": "q_potteries_firing_2",
+         "then": [
+          {
+           "do": "say",
+           "who": "Fireman",
+           "text": "Coal's in. Now some wad clay from the clay cellar at Spode Works, west end of the high street."
+          }
+         ],
+         "else": [
+          {
+           "do": "if",
+           "flag": "q_potteries_firing_1",
+           "then": [
+            {
+             "do": "say",
+             "who": "Fireman",
+             "text": "Saggars sorted? Grand. Now coal. Boatman Alf's moored on the canal towpath. He'll want paying in some way or other."
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Fireman",
+             "text": "First things first: saggars. Ask for the saggar maker's bottom knocker at Middleport Pottery, by the canal. Yes, that's a real job title."
+            }
+           ]
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Fireman",
+         "text": "Ow at, duck? That's 'how are you', round here. I'm the fireman. Not the hose kind. The kiln kind."
+        },
+        {
+         "do": "say",
+         "who": "Fireman",
+         "text": "These are bottle ovens. Once there were about two thousand of them across the six towns, all puffing away, and you couldn't see the end of your street for smoke."
+        },
+        {
+         "do": "say",
+         "who": "Fireman",
+         "text": "The museum wants a heritage firing, one day only, smokeless fuel. I've the oven. I've the know-how. What I haven't got is legs like yours."
+        },
+        {
+         "do": "say",
+         "who": "Fireman",
+         "text": "I need saggars from Middleport Pottery, a load of coal from Boatman Alf on the canal, and wad clay from the clay cellar at Spode's. Fetch them in that order and we'll fire her together."
+        },
+        {
+         "do": "set",
+         "flag": "q_potteries_firing_started"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "boatman": [
+  {
+   "do": "if",
+   "flag": "q_potteries_firing_2",
+   "then": [
+    {
+     "do": "say",
+     "who": "Boatman Alf",
+     "text": "That's the last of my coal you'll be getting. Fair fight, mind. Fair fight."
+    },
+    {
+     "do": "say",
+     "who": "Boatman Alf",
+     "text": "On this cut the boats once carried clay and flint in and crates of china out. Smooth water, fewer breakages. That was Wedgwood's whole idea."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_potteries_firing_1",
+     "then": [
+      {
+       "do": "if",
+       "flag": "trainer_stoke_alf",
+       "then": [
+        {
+         "do": "say",
+         "who": "Boatman Alf",
+         "text": "Right you are, a fair fight's a fair fight. Two sacks of coal, best smokeless. Tell the fireman not to waste it."
+        },
+        {
+         "do": "set",
+         "flag": "q_potteries_firing_2"
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Boatman Alf",
+         "text": "Coal for Gladstone? I don't just hand out coal, duck. On the canals you earn your keep. Let's have a scrap first."
+        },
+        {
+         "do": "battle",
+         "trainer": "stoke_alf",
+         "intro": false
+        },
+        {
+         "do": "if",
+         "flag": "trainer_stoke_alf",
+         "then": [
+          {
+           "do": "say",
+           "who": "Boatman Alf",
+           "text": "Well, I'll go to the foot of our stairs. Go on, then. Two sacks of coal, best smokeless."
+          },
+          {
+           "do": "set",
+           "flag": "q_potteries_firing_2"
+          }
+         ]
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Boatman Alf",
+       "text": "{greeting} This is the Trent and Mersey. Brindley's canal. North of here it goes through Harecastle Hill in a tunnel over two and a half kilometres long."
+      },
+      {
+       "do": "say",
+       "who": "Boatman Alf",
+       "text": "The water comes out of that tunnel orange as a satsuma. Iron, from the old mines. The little Rustelvers love it."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "oatcake_hatch": [
+  {
+   "do": "if",
+   "flag": "q_potteries_oatcakes_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Oatcake Lady",
+     "text": "My best delivery lad! Pop inside, the cook's on. And don't forget: an oatcake with cheese is a breakfast, two is a lunch, three is a lifestyle."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_potteries_oatcakes_3",
+     "then": [
+      {
+       "do": "say",
+       "who": "Oatcake Lady",
+       "text": "All three delivered, still warm? You're a natural, duck."
+      },
+      {
+       "do": "say",
+       "who": "Oatcake Lady",
+       "text": "Here: a dozen oatcakes, a bag of oatmeal, and the recipe. Don't tell anyone in Leek. They think theirs are better. They're wrong."
+      },
+      {
+       "do": "give_item",
+       "item": "staffordshire_oatcake",
+       "n": 3
+      },
+      {
+       "do": "give_item",
+       "item": "oatmeal",
+       "n": 4
+      },
+      {
+       "do": "recipe",
+       "id": "staffordshire_oatcakes"
+      },
+      {
+       "do": "standing",
+       "nation": "england",
+       "amount": 1
+      },
+      {
+       "do": "set",
+       "flag": "q_potteries_oatcakes_done"
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_potteries_oatcakes_started",
+       "then": [
+        {
+         "do": "if",
+         "flag": "q_potteries_oatcakes_2",
+         "then": [
+          {
+           "do": "say",
+           "who": "Oatcake Lady",
+           "text": "Last one's for the City fan by the Ground, south of the canal. Cheese and bacon, double."
+          }
+         ],
+         "else": [
+          {
+           "do": "if",
+           "flag": "q_potteries_oatcakes_1",
+           "then": [
+            {
+             "do": "say",
+             "who": "Oatcake Lady",
+             "text": "Next, the landlord at the Leopard, on the high street. Cheese and tomato."
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Oatcake Lady",
+             "text": "First stop, the attendant at the Potteries Museum, just along the high street. Plain, with butter."
+            }
+           ]
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Oatcake Lady",
+         "text": "Ow at, duck? Oatcakes! Hot off the plate! We used to sell them through this window, straight onto the street. Saved on doors."
+        },
+        {
+         "do": "say",
+         "who": "Oatcake Lady",
+         "text": "My delivery lad's off with a cold. I've three orders going cold. Could you run them round? Museum, the Leopard, then the City fan by the Ground."
+        },
+        {
+         "do": "set",
+         "flag": "q_potteries_oatcakes_started"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "city_fan": [
+  {
+   "do": "if",
+   "flag": "q_potteries_oatcakes_3",
+   "then": [
+    {
+     "do": "say",
+     "who": "City Fan",
+     "text": "Best oatcake I've had since we got promoted. Which I will not say when, as it's a sore point."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_potteries_oatcakes_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "City Fan",
+       "text": "Cheese and bacon, double? You beauty. That's matchday sorted."
+      },
+      {
+       "do": "say",
+       "who": "City Fan",
+       "text": "Stoke City. The Potters. One of the oldest professional clubs there is. And Sir Stanley Matthews played for us. Look at his statue and tell me football's ever been better."
+      },
+      {
+       "do": "set",
+       "flag": "q_potteries_oatcakes_3"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "City Fan",
+       "text": "Red and white stripes, duck. The Potters. We've been playing since the 1860s, and complaining about the referee for about as long."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "vale_fan": [
+  {
+   "do": "say",
+   "who": "Vale Fan",
+   "text": "Don't listen to that lot. Port Vale, duck. The Valiants. Burslem's club, the mother town's team."
+  },
+  {
+   "do": "say",
+   "who": "Vale Fan",
+   "text": "Two clubs, one city, and a derby where nobody speaks to their own brother-in-law for a week. Lovely."
+  }
+ ],
+ "bennett_fan": [
+  {
+   "do": "say",
+   "who": "Bookish Local",
+   "text": "Arnold Bennett. Born up the road in Hanley, 1867. Went off to London and Paris and got famous writing about here."
+  },
+  {
+   "do": "say",
+   "who": "Bookish Local",
+   "text": "He called them the Five Towns. There are six. He thought five sounded better and left Fenton out. Fenton has been cross for over a hundred years."
+  },
+  {
+   "do": "say",
+   "who": "Bookish Local",
+   "text": "Read Clayhanger. It's all chimneys and chapel and men in good coats being disappointed. Very relatable."
+  }
+ ],
+ "mitchell_fan": [
+  {
+   "do": "say",
+   "who": "Old Engineer",
+   "text": "Reginald Mitchell. Grew up in Longton, did his apprenticeship at a locomotive works in Fenton, then went off and designed seaplanes."
+  },
+  {
+   "do": "say",
+   "who": "Old Engineer",
+   "text": "Then the Spitfire. Those elliptical wings. First flew in 1936. He was ill by then and died the next year, aged forty-two. Never saw what it did."
+  },
+  {
+   "do": "say",
+   "who": "Old Engineer",
+   "text": "Go and see the one in the museum. Then tell me engineering isn't art."
+  }
+ ],
+ "paintress": [
+  {
+   "do": "say",
+   "who": "Retired Paintress",
+   "text": "{greeting} Forty years I painted pots. Freehand. Bands, sprigs, a little rose, ten thousand times a week."
+  },
+  {
+   "do": "say",
+   "who": "Retired Paintress",
+   "text": "We were paintresses, the women in the decorating shops. Clarice Cliff started out just like us and ended up with her own range, all bright oranges and jazzy triangles."
+  },
+  {
+   "do": "say",
+   "who": "Retired Paintress",
+   "text": "Turn a teacup over sometime. If it says Made in England and Stoke on the bottom, somebody like me had their hands on it."
+  }
+ ],
+ "six_towns": [
+  {
+   "do": "say",
+   "who": "Bus Driver",
+   "text": "Tunstall, Burslem, Hanley, Stoke, Fenton, Longton. North to south. Learn them and you'll never get lost, just slightly confused."
+  },
+  {
+   "do": "say",
+   "who": "Bus Driver",
+   "text": "Burslem's the mother town, where the potting started. Hanley's the city centre. Stoke has the station and gave the whole lot its name, which the other five find very annoying."
+  }
+ ],
+ "canal_kid": [
+  {
+   "do": "say",
+   "who": "Towpath Lad",
+   "text": "Me and me mates fish for Rustelvers off the towpath. You need a long stick and no sense of smell."
+  },
+  {
+   "do": "say",
+   "who": "Towpath Lad",
+   "text": "Brindley built this canal without proper maps or even writing much down. Did it all in his head, they say. My teacher says that's not an excuse for my homework."
+  }
+ ],
+ "kiln_gran": [
+  {
+   "do": "say",
+   "who": "Gran on a Bench",
+   "text": "When I were a girl you could count the bottle ovens from our back yard. Hundreds. Smoke so thick you'd hang your washing out white and fetch it in grey."
+  },
+  {
+   "do": "say",
+   "who": "Gran on a Bench",
+   "text": "Then in the fifties they passed the Clean Air Act and the coal firing stopped. Cleaner, mind. You could see the sky. Never knew it was blue."
+  },
+  {
+   "do": "say",
+   "who": "Gran on a Bench",
+   "text": "Have you had lobby? Stew, duck. Meat, spuds, carrots, onions, whatever's left. Staffordshire's answer to everything."
+  }
+ ],
+ "rail_guard": [
+  {
+   "do": "say",
+   "who": "Rail Guard",
+   "text": "Stoke-on-Trent. Change here for anywhere you've been and a fair few places you haven't."
+  },
+  {
+   "do": "say",
+   "who": "Rail Guard",
+   "text": "All aboard! Mind the gap, and mind the oatcake crumbs on seat 23."
+  },
+  {
+   "do": "rail"
+  }
+ ]
+}

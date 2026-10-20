@@ -1,0 +1,28 @@
+{
+ "id": "stoke_placer",
+ "name": "Placer Dennis",
+ "class": "Potter",
+ "sprite": "steelworker",
+ "scaled_floor": 8,
+ "party": [
+  {
+   "species": "saggit",
+   "level": 10
+  },
+  {
+   "species": "gritling",
+   "level": 10
+  }
+ ],
+ "ai": "trainer",
+ "money": 400,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Placer Dennis",
+   "text": "Twenty saggars on my head and I can still beat you. Steady, steady... battle!"
+  }
+ ],
+ "win": "Dropped the lot. That's a week's work.",
+ "after": "We carried them on a little cloth ring on the head. Kept you straight-backed. And bald."
+}

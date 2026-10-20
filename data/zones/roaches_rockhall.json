@@ -1,0 +1,92 @@
+{
+ "id": "roaches_rockhall",
+ "name": "Rockhall Cottage",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "fireplace",
+   "x": 5,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "bed",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "bed",
+   "x": 9,
+   "y": 1
+  },
+  {
+   "type": "table",
+   "x": 3,
+   "y": 3
+  },
+  {
+   "type": "kettle_table",
+   "x": 8,
+   "y": 4
+  },
+  {
+   "type": "wall_map",
+   "x": 3,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "bookshelf",
+   "x": 1,
+   "y": 4
+  },
+  {
+   "type": "rug",
+   "x": 5,
+   "y": 4,
+   "walk": true
+  }
+ ],
+ "warps": [
+  {
+   "x": 5,
+   "y": 6,
+   "to": "the_roaches",
+   "tx": 34,
+   "ty": 41,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "rockhall_warden",
+   "sprite": "hillwalker",
+   "x": 6,
+   "y": 2,
+   "facing": "down",
+   "move": "still",
+   "script": "rockhall_warden",
+   "name": "Hut Warden"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  5,
+  5
+ ],
+ "rows": [
+  "xxxxxxxxxxx",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x||||D||||x",
+  "xxxxxxxxxxx"
+ ]
+}

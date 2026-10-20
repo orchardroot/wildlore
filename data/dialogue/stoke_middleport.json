@@ -1,0 +1,78 @@
+{
+ "bottom_knocker": [
+  {
+   "do": "if",
+   "flag": "q_potteries_firing_1",
+   "then": [
+    {
+     "do": "say",
+     "who": "Saggar Maker's Bottom Knocker",
+     "text": "Saggars all good? Course they are. I knocked the bottoms out meself."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_potteries_firing_started",
+     "then": [
+      {
+       "do": "say",
+       "who": "Saggar Maker's Bottom Knocker",
+       "text": "From the fireman at Gladstone? Then you'll be after saggars. You've come to the right man. The only man, these days."
+      },
+      {
+       "do": "say",
+       "who": "Saggar Maker's Bottom Knocker",
+       "text": "A saggar's a fireclay box. The ware goes inside, safe from smoke and flame. I'm the bottom knocker: I beat out the clay for the base, flat and even, with a mallet in a metal ring."
+      },
+      {
+       "do": "say",
+       "who": "Saggar Maker's Bottom Knocker",
+       "text": "Proper job title, that. People think it's a joke. It's on the census!"
+      },
+      {
+       "do": "say",
+       "who": "Saggar Maker's Bottom Knocker",
+       "text": "Here's a stack of good ones. Tell the fireman to mind the third from the top, it's got a temper."
+      },
+      {
+       "do": "set",
+       "flag": "q_potteries_firing_1"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Saggar Maker's Bottom Knocker",
+       "text": "Yes, that's my job. Yes, really. No, I don't want to hear your joke. I've heard it."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "decorator": [
+  {
+   "do": "say",
+   "who": "Decorator",
+   "text": "See this? Transfer printing. Ink a copper plate, print onto tissue, then rub the tissue onto the pot. The pattern stays when you peel it off."
+  },
+  {
+   "do": "say",
+   "who": "Decorator",
+   "text": "Blue and white, a bit wobbly, every one slightly different. That's how you know a person made it."
+  }
+ ],
+ "engine_man": [
+  {
+   "do": "say",
+   "who": "Engine Man",
+   "text": "That's the steam engine. Drove the whole works, through belts and shafts, back in the day. We still fire it up on special days."
+  },
+  {
+   "do": "say",
+   "who": "Engine Man",
+   "text": "Boats used to tie up right outside to load crates for Liverpool and the world. The canal was the motorway, then."
+  }
+ ]
+}

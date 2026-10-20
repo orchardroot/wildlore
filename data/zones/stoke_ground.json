@@ -1,0 +1,202 @@
+{
+ "id": "stoke_ground",
+ "name": "The Potters' Ground",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "stadium_stand",
+   "x": 2,
+   "y": 1,
+   "variant": 0
+  },
+  {
+   "type": "stadium_stand",
+   "x": 3,
+   "y": 1,
+   "variant": 3
+  },
+  {
+   "type": "stadium_stand",
+   "x": 4,
+   "y": 1,
+   "variant": 6
+  },
+  {
+   "type": "stadium_stand",
+   "x": 5,
+   "y": 1,
+   "variant": 9
+  },
+  {
+   "type": "stadium_stand",
+   "x": 6,
+   "y": 1,
+   "variant": 12
+  },
+  {
+   "type": "stadium_stand",
+   "x": 7,
+   "y": 1,
+   "variant": 15
+  },
+  {
+   "type": "stadium_stand",
+   "x": 8,
+   "y": 1,
+   "variant": 18
+  },
+  {
+   "type": "stadium_stand",
+   "x": 9,
+   "y": 1,
+   "variant": 21
+  },
+  {
+   "type": "stadium_stand",
+   "x": 10,
+   "y": 1,
+   "variant": 24
+  },
+  {
+   "type": "stadium_stand",
+   "x": 11,
+   "y": 1,
+   "variant": 0
+  },
+  {
+   "type": "stadium_stand",
+   "x": 12,
+   "y": 1,
+   "variant": 3
+  },
+  {
+   "type": "stadium_stand",
+   "x": 13,
+   "y": 1,
+   "variant": 6
+  },
+  {
+   "type": "stadium_stand",
+   "x": 14,
+   "y": 1,
+   "variant": 9
+  },
+  {
+   "type": "stadium_stand",
+   "x": 15,
+   "y": 1,
+   "variant": 12
+  },
+  {
+   "type": "stadium_stand",
+   "x": 16,
+   "y": 1,
+   "variant": 15
+  },
+  {
+   "type": "stadium_stand",
+   "x": 17,
+   "y": 1,
+   "variant": 18
+  },
+  {
+   "type": "stadium_stand",
+   "x": 18,
+   "y": 1,
+   "variant": 21
+  },
+  {
+   "type": "floodlight",
+   "x": 1,
+   "y": 9
+  },
+  {
+   "type": "floodlight",
+   "x": 19,
+   "y": 9
+  },
+  {
+   "type": "pitch_line",
+   "x": 10,
+   "y": 4,
+   "variant": 15
+  }
+ ],
+ "warps": [
+  {
+   "x": 11,
+   "y": 11,
+   "to": "stoke",
+   "tx": 49,
+   "ty": 38,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "ground_steward",
+   "sprite": "rail_guard",
+   "x": 5,
+   "y": 9,
+   "facing": "up",
+   "move": "still",
+   "script": "ground_steward",
+   "name": "Steward"
+  },
+  {
+   "id": "ground_city",
+   "sprite": "villager_1",
+   "x": 14,
+   "y": 9,
+   "facing": "up",
+   "move": "still",
+   "script": "ground_city",
+   "name": "Season Ticket Holder"
+  },
+  {
+   "id": "ground_vale",
+   "sprite": "villager_2",
+   "x": 16,
+   "y": 10,
+   "facing": "left",
+   "move": "still",
+   "script": "ground_vale",
+   "name": "Away Fan"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  11,
+  10
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxxxxxxxxx",
+  "x|||||||||||||||||||x",
+  "x|bbbbbbbbbbbbbbbbb|x",
+  "x|aaaaaaaaaaaaaaaaa|x",
+  "x|bbbbbbbbbbbbbbbbb|x",
+  "x|aaaaaaaaaaaaaaaaa|x",
+  "x|bbbbbbbbbbbbbbbbb|x",
+  "x|aaaaaaaaaaaaaaaaa|x",
+  "x+++++++++++++++++++x",
+  "x|||||||||||||||||||x",
+  "x|||||||||||||||||||x",
+  "x||||||||||D||||||||x",
+  "xxxxxxxxxxxxxxxxxxxxx"
+ ],
+ "legend_extra": {
+  "a": {
+   "tile": "grass",
+   "colour": "#4f8a3a"
+  },
+  "b": {
+   "tile": "grass",
+   "colour": "#5c9a46"
+  }
+ }
+}

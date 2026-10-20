@@ -1,0 +1,230 @@
+{
+ "id": "luds_church",
+ "name": "Lud's Church",
+ "region": "",
+ "kind": "interior",
+ "music": "route_forest",
+ "weather": {},
+ "scaled_floor": 8,
+ "stage": "forest",
+ "ambience": "",
+ "props": [
+  {
+   "type": "standing_stone",
+   "x": 6,
+   "y": 1,
+   "variant": 0
+  },
+  {
+   "type": "toadstool_ring",
+   "x": 13,
+   "y": 19
+  }
+ ],
+ "warps": [
+  {
+   "x": 11,
+   "y": 31,
+   "to": "the_roaches",
+   "tx": 50,
+   "ty": 4,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "luds_pilgrim",
+   "sprite": "druid",
+   "x": 9,
+   "y": 4,
+   "facing": "down",
+   "move": "still",
+   "script": "luds_pilgrim",
+   "name": "Pilgrim"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "bertilak",
+    "min": 10,
+    "max": 11,
+    "weight": 6,
+    "time": [
+     "dusk",
+     "night"
+    ]
+   },
+   {
+    "species": "bertilak",
+    "min": 10,
+    "max": 11,
+    "weight": 6,
+    "weather": [
+     "fog"
+    ]
+   },
+   {
+    "species": "wispet",
+    "min": 9,
+    "max": 11,
+    "weight": 12
+   },
+   {
+    "species": "flyling",
+    "min": 8,
+    "max": 10,
+    "weight": 12,
+    "season": [
+     "autumn"
+    ]
+   },
+   {
+    "species": "sphagnet",
+    "min": 8,
+    "max": 10,
+    "weight": 14
+   },
+   {
+    "species": "pepperling",
+    "min": 8,
+    "max": 10,
+    "weight": 12
+   },
+   {
+    "species": "hootlet",
+    "min": 9,
+    "max": 11,
+    "weight": 10,
+    "time": [
+     "dusk",
+     "night"
+    ]
+   },
+   {
+    "species": "flittermouse",
+    "min": 9,
+    "max": 11,
+    "weight": 8,
+    "time": [
+     "dusk",
+     "night"
+    ]
+   },
+   {
+    "species": "croakle",
+    "min": 8,
+    "max": 10,
+    "weight": 8
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 10,
+   "y": 26,
+   "plaque": "potteries_luds_church",
+   "title": "Lud's Church",
+   "text": "A chasm about 100 metres long and 18 metres deep, torn open by a landslip and lined with moss and ferns. Lollards, followers of the reformer John Wycliffe, are said to have worshipped down here in secret in the 1400s, out of sight of the bishops."
+  },
+  {
+   "x": 12,
+   "y": 12,
+   "plaque": "potteries_green_chapel",
+   "title": "The Green Chapel",
+   "text": "Many think this is the Green Chapel of Sir Gawain and the Green Knight, a poem written in the late 1300s in a dialect from round here. A giant green knight lets Gawain cut off his head, picks it up, and tells him to come and take the return blow in a year."
+  }
+ ],
+ "spawn": [
+  11,
+  29
+ ],
+ "rows": [
+  "^^^^^^^^^^^^^^^^^^^^^^^^",
+  "^^^^MMMMMM^^^^^^^^^^^^^^",
+  "^^^^MMMMMM^^^^^^^^^^^^^^",
+  "^^^^^^eeM^^^^^^^^^^^^^^^",
+  "^^^^^^^MeM^^^^^^^^^^^^^^",
+  "^^^^^^^eeM^^^^^^^^^^^^^^",
+  "^^^^^^^^MeM^^^^^^^^^^^^^",
+  "^^^^^^^^eeM^^^^^^^^^^^^^",
+  "^^^^^^^^^MeM^^^^^^^^^^^^",
+  "^^^^^^^^^eeM^^^^^^^^^^^^",
+  "^^^^^^^^^Mee^^^^^^^^^^^^",
+  "^^^^^^^^^MeM^^^^^^^^^^^^",
+  "^^^^^^^^^eeM^^^^^^^^^^^^",
+  "^^^^^^^^^Mee^^^^^^^^^^^^",
+  "^^^^^^^^^MeM^^^^^^^^^^^^",
+  "^^^^^^^^^eeM^^^^^^^^^^^^",
+  "^^^^^^^^^^^eeM^^^^^^^^^^",
+  "^^^^^^^^^^^Mee^^^^^^^^^^",
+  "^^^^^^^^^^^MeM^^^^^^^^^^",
+  "^^^^^^^^^^^^Mee^^^^^^^^^",
+  "^^^^^^^^^^^^MeM^^^^^^^^^",
+  "^^^^^^^^^^^^eeM^^^^^^^^^",
+  "^^^^^^^^^^MeM^^^^^^^^^^^",
+  "^^^^^^^^^^eeM^^^^^^^^^^^",
+  "^^^^^^^^^^Mee^^^^^^^^^^^",
+  "^^^^^^^^^^MeM^^^^^^^^^^^",
+  "^^^^^^^^^^eeM^^^^^^^^^^^",
+  "^^^^^^^^^^Mee^^^^^^^^^^^",
+  "^^^^^^^^^^MeM^^^^^^^^^^^",
+  "^^^^^^^^^^eeM^^^^^^^^^^^",
+  "^^^^^^^^^^Mee^^^^^^^^^^^",
+  "^^^^^^^^^^^D^^^^^^^^^^^^"
+ ],
+ "heights": [
+  "333333333333333333333333",
+  "333300000033333333333333",
+  "333300000033333333333333",
+  "333333000333333333333333",
+  "333333300033333333333333",
+  "333333300033333333333333",
+  "333333330003333333333333",
+  "333333330003333333333333",
+  "333333333000333333333333",
+  "333333333000333333333333",
+  "333333333000333333333333",
+  "333333333000333333333333",
+  "333333333000333333333333",
+  "333333333000333333333333",
+  "333333333000333333333333",
+  "333333333000333333333333",
+  "333333333330003333333333",
+  "333333333330003333333333",
+  "333333333330003333333333",
+  "333333333333000333333333",
+  "333333333333000333333333",
+  "333333333333000333333333",
+  "333333333300033333333333",
+  "333333333300033333333333",
+  "333333333300033333333333",
+  "333333333300033333333333",
+  "333333333300033333333333",
+  "333333333300033333333333",
+  "333333333300033333333333",
+  "333333333300033333333333",
+  "333333333300033333333333",
+  "333333333330333333333333"
+ ],
+ "legend_extra": {
+  "M": {
+   "tile": "tall_grass",
+   "colour": "#3f6a32",
+   "prop": "short"
+  },
+  "e": {
+   "tile": "grass",
+   "colour": "#4f6a3a"
+  },
+  "R": {
+   "tile": "rock",
+   "colour": "#3d5a33"
+  },
+  "^": {
+   "tile": "cliff",
+   "colour": "#3f5e34"
+  }
+ }
+}

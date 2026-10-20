@@ -114,8 +114,9 @@ func _exec(c: Dictionary) -> void:
 				await host.sfx("item")
 				await host.say("", "%s received %s%s." % [data.player_name, nm, " x%d" % got if got > 1 else ""])
 		"give_creature":
-			var sp: Dictionary = host.dex.get_species(str(c.get("species", "")))
-			var cr := Creature.create(sp, int(c.get("level", 5)), host.rng, host.moves)
+			var given := _scaled(c, 5)  # [species id, level]
+			var sp: Dictionary = host.dex.get_species(str(given[0]))
+			var cr := Creature.create(sp, int(given[1]), host.rng, host.moves)
 			var where := data.add_creature(cr)
 			await host.sfx("catch")
 			if where == "party":
@@ -332,12 +333,13 @@ func _gauntlet(c: Dictionary) -> void:
 ## A legendary encounter: a wild battle you can't run from, with its own music. Catching it sets `flag`;
 ## knocking it out doesn't, so it can be met again. Losing whites out as usual.
 func _legend(c: Dictionary) -> void:
-	var sp: Dictionary = host.dex.get_species(str(c.get("species", "")))
+	var met := _scaled(c, 40)  # [species id, level]
+	var sp: Dictionary = host.dex.get_species(str(met[0]))
 	if sp.is_empty():
 		push_error("Commands: no legend species '%s'" % c.get("species", ""))
 		return
 	host.data.mark_seen(str(sp.id))
-	var foe := Creature.create(sp, int(c.get("level", 40)), host.rng, host.moves)
+	var foe := Creature.create(sp, int(met[1]), host.rng, host.moves)
 	var result: Dictionary = await host.battle([foe], {"kind": "wild", "no_run": true, "legend": true, "music": str(c.get("music", "legend"))})
 	match str(result.get("result", "")):
 		"caught":
@@ -346,6 +348,16 @@ func _legend(c: Dictionary) -> void:
 		"lose":
 			await whiteout()
 			_ended = true
+
+## A gift or one-off creature's [species id, level]. With "scaled_floor" (an area off the main line, see ParLevel)
+## the level lifts with the story's par and the species evolves to suit; without, it is as written.
+func _scaled(c: Dictionary, default_level: int) -> Array:
+	var id := str(c.get("species", ""))
+	var lv := int(c.get("level", default_level))
+	if not c.has("scaled_floor"):
+		return [id, lv]
+	lv = ParLevel.lift(lv, host.data.flags, int(c.scaled_floor))
+	return [ParLevel.stage(host.dex, id, lv), lv]
 
 ## {"do": "recipe", "id": "parkin"} or a list of ids: learn recipes (flags recipe_<id>), and one line naming the new ones.
 func _recipe(ids: Variant) -> void:

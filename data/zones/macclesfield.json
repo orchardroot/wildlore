@@ -484,6 +484,10 @@
   "east": {
    "to": "macc_forest",
    "offset": 0
+  },
+  "south": {
+   "to": "the_roaches",
+   "offset": 0
   }
  },
  "npcs": [
@@ -602,6 +606,28 @@
    "script": "gate",
    "name": "Morris Man",
    "hide_if": "starter"
+  },
+  {
+   "id": "potteries_gate_farmer",
+   "sprite": "farmer",
+   "x": 33,
+   "y": 36,
+   "facing": "up",
+   "move": "still",
+   "script": "potteries_gate",
+   "name": "Farmer",
+   "hide_if": "kit1_fought"
+  },
+  {
+   "id": "potteries_gate_neighbour",
+   "sprite": "villager_3",
+   "x": 34,
+   "y": 36,
+   "facing": "up",
+   "move": "still",
+   "script": "potteries_gate",
+   "name": "Mum's Neighbour",
+   "hide_if": "kit1_fought"
   }
  ],
  "encounters": {},
@@ -632,6 +658,11 @@
    "text": "BLUE PLAQUE: Macclesfield has woven silk since the 1700s and was one of the great silk towns of England. The Jacquard looms in this mill worked until 1981.",
    "kind": "plaque",
    "dx": 0.475
+  },
+  {
+   "x": 32,
+   "y": 36,
+   "text": "FOOTPATH. South: the Roaches, Rudyard Lake and Stoke-on-Trent. Please shut the gate behind you. The sheep have plans."
   }
  ],
  "spawn": [
@@ -675,8 +706,8 @@
   "TTT..............f......##...BBBBBBBBBBBBB.......TTT",
   "TTT.....f....f..........##f..BBBBBBDBBBBBB.......TTT",
   "TTTTTTTTTTTTTTTTTTTTTPTTT###########TTTTTTTTTTTTTTTT",
-  "TTTTTTTTTTTTTTTTTTTTTTTTPPTTTTT.........PTTTTTTTTTTT",
-  "TTTTTTTTTTPTTTTPTTTTTTTTPTTTTTT.........PTTTTTTTTTTT"
+  "TTTTTTTTTTTTTTTTTTTTTTTTPPTTTTTT.##HTTTTPTTTTTTTTTTT",
+  "TTTTTTTTTTPTTTTPTTTTTTTTPTTTTTTTH##HTTTTPTTTTTTTTTTT"
  ],
  "heights": [
   "0000000000000000000000000000000000000000000000000000",
