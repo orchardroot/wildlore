@@ -1,0 +1,181 @@
+{
+ "id": "stornoway_castle",
+ "name": "Museum nan Eilean",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "statue",
+   "x": 7,
+   "y": 3
+  },
+  {
+   "type": "bookshelf",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 13,
+   "y": 1
+  },
+  {
+   "type": "table",
+   "x": 3,
+   "y": 2
+  },
+  {
+   "type": "table",
+   "x": 3,
+   "y": 5
+  },
+  {
+   "type": "table",
+   "x": 11,
+   "y": 2
+  },
+  {
+   "type": "table",
+   "x": 11,
+   "y": 5
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 8
+  },
+  {
+   "type": "potted_plant",
+   "x": 13,
+   "y": 8
+  },
+  {
+   "type": "display_case",
+   "x": 2,
+   "y": 5,
+   "variant": 0
+  },
+  {
+   "type": "display_case",
+   "x": 12,
+   "y": 5,
+   "variant": 0
+  },
+  {
+   "type": "wall_picture",
+   "x": 6,
+   "y": 1,
+   "walk": true,
+   "variant": 0
+  },
+  {
+   "type": "wall_picture",
+   "x": 8,
+   "y": 1,
+   "walk": true,
+   "variant": 0
+  },
+  {
+   "type": "wall_picture",
+   "x": 4,
+   "y": 1,
+   "walk": true,
+   "variant": 2
+  },
+  {
+   "type": "clock",
+   "x": 7,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "telescope",
+   "x": 1,
+   "y": 7
+  },
+  {
+   "type": "plant_stand",
+   "x": 13,
+   "y": 7
+  },
+  {
+   "type": "display_case",
+   "x": 2,
+   "y": 3,
+   "variant": 1
+  },
+  {
+   "type": "display_case",
+   "x": 12,
+   "y": 3,
+   "variant": 2
+  },
+  {
+   "type": "display_case",
+   "x": 7,
+   "y": 2,
+   "variant": 1
+  }
+ ],
+ "warps": [
+  {
+   "x": 7,
+   "y": 9,
+   "to": "stornoway",
+   "tx": 11,
+   "ty": 9,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "sw_curator",
+   "sprite": "tour_guide",
+   "x": 6,
+   "y": 4,
+   "facing": "right",
+   "move": "still",
+   "script": "sw_curator",
+   "name": "Curator"
+  },
+  {
+   "id": "sw_chessmaster",
+   "sprite": "poet",
+   "x": 10,
+   "y": 4,
+   "facing": "left",
+   "move": "still",
+   "script": "sw_chessmaster",
+   "name": "Chess Master",
+   "show_if": "q_hebrides_chess_2"
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "x": 4,
+   "y": 6,
+   "text": "THE LEWIS CHESSMEN. Carved in Norway around 1150 to 1200, from walrus ivory, and buried in a sandbank at Uig, Lewis. These are some of the pieces on loan from the British Museum: a king, a queen, a bishop, a knight, a berserker rook."
+  }
+ ],
+ "spawn": [
+  7,
+  8
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxxx",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x++++++D++++++x",
+  "xxxxxxxxxxxxxxx"
+ ]
+}

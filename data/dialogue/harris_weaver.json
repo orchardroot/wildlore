@@ -1,0 +1,101 @@
+{
+ "hw_seonag": [
+  {
+   "do": "if",
+   "flag": "q_hebrides_tweed_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Seonag the Weaver",
+     "text": "Your length of tweed has the Orb on it now, and mine have too. You never forget the first one. I've kept my first for fifty years and I still check it for flaws."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_hebrides_tweed_3",
+     "then": [
+      {
+       "do": "say",
+       "who": "Seonag the Weaver",
+       "text": "The tweed is woven and waiting. Take it over the hills to Stornoway, to the Harris Tweed Authority. The Orb mark has to be stamped on by the inspector. Without it, it's only a nice bit of cloth."
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_hebrides_tweed_started",
+       "then": [
+        {
+         "do": "if",
+         "flag": "q_hebrides_tweed_2",
+         "then": [
+          {
+           "do": "say",
+           "who": "Seonag the Weaver",
+           "text": "The fleece, and a jar of crotal too. Peigi's very fast. Right. Warp the loom, thread the heddles, and weave."
+          },
+          {
+           "do": "choice",
+           "text": "Which weave will you set on the loom?",
+           "options": [
+            "Herringbone",
+            "A twill check",
+            "Plain weave"
+           ],
+           "set": "_hw_pattern"
+          },
+          {
+           "do": "say",
+           "who": "Seonag the Weaver",
+           "text": "Good choice. Treadle, shuttle, beat. Treadle, shuttle, beat. You'll feel it in your knees by teatime. It's the rhythm that keeps it even. Waulking songs, back in my granny's day, kept the rhythm for the women shrinking the cloth after."
+          },
+          {
+           "do": "say",
+           "who": "Seonag the Weaver",
+           "text": "There now. Four metres of tweed, off the loom. It must be inspected before it can be called Harris Tweed. Take it to Stornoway."
+          },
+          {
+           "do": "give_item",
+           "item": "tweed_bolt",
+           "n": 1
+          },
+          {
+           "do": "set",
+           "flag": "q_hebrides_tweed_3",
+           "value": true
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Seonag the Weaver",
+           "text": "Fleece from Murdo, dye from Peigi at Gearrannan. Get both and the loom is yours. I'll keep the kettle on, and I'll keep it on all day, because I know how far that is."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Seonag the Weaver",
+         "text": "F\u00e0ilte! Welcome. You've caught me mid-pick. You see this loom? Every length of Harris Tweed starts here or on one like it, in a croft shed, with the weaver at the treadles. That's the law, and it's a good law."
+        },
+        {
+         "do": "say",
+         "who": "Seonag the Weaver",
+         "text": "I'll show you how it's done if you fetch what I need: a fleece from Crofter Murdo, out on the machair, and a jar of crotal dye from Peigi, at Gearrannan. Then we'll weave a length. And when it's done, off to Stornoway for the Orb stamp."
+        },
+        {
+         "do": "set",
+         "flag": "q_hebrides_tweed_started",
+         "value": true
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

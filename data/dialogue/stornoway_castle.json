@@ -1,0 +1,136 @@
+{
+ "sw_curator": [
+  {
+   "do": "if",
+   "flag": "q_hebrides_chess_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Curator",
+     "text": "The five pieces are in their case, and the board's gathered a crowd. If you want to see ninety-three pieces in one place, go to the British Museum. If you want to see them near home, here. Hello again!"
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_hebrides_chess_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "Curator",
+       "text": "Ailsa, the chess master, is at the board, polishing a bishop. She plays with a full set of live creatures. I haven't asked how."
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_hebrides_chess_1",
+       "then": [
+        {
+         "do": "say",
+         "who": "Curator",
+         "text": "All five! Look at them. A king, a queen, a bishop, a knight and a warder, still biting its shield. I'll write them up in the register."
+        },
+        {
+         "do": "say",
+         "who": "Curator",
+         "text": "Right. Now, the chess club at Stornoway has been waiting for pieces like these. Ailsa's the champion. Show her you can think as well as pick up."
+        },
+        {
+         "do": "set",
+         "flag": "q_hebrides_chess_2",
+         "value": true
+        }
+       ],
+       "else": [
+        {
+         "do": "if",
+         "flag": "q_hebrides_chess_started",
+         "then": [
+          {
+           "do": "say",
+           "who": "Curator",
+           "text": "Five to find: a king by the stones at Callanish, a queen at Gearrannan, a bishop at Luskentyre, a knight by the Tarbert quay and a warder in the dune at Uig. They are in the landscape, looking out of place."
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Curator",
+           "text": "Welcome to Museum nan Eilean, in the castle. We're the home of the Lewis Chessmen, or some of them. The rest are in London and Edinburgh, which is a bit like leaving your family in two other cities."
+          },
+          {
+           "do": "say",
+           "who": "Curator",
+           "text": "The truth is, now and then new pieces turn up. Walkers report odd carved things at Uig, Callanish, Gearrannan, Luskentyre and Tarbert. They could be hoax, they could be hoard. They could also bite. Will you go and see?"
+          },
+          {
+           "do": "set",
+           "flag": "q_hebrides_chess_started",
+           "value": true
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "sw_chessmaster": [
+  {
+   "do": "if",
+   "flag": "q_hebrides_chess_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Chess Master Ailsa",
+     "text": "I've never lost to a Shieldbiter. I've never lost to a person who can do a Shieldbiter. Until you. I'm still working out how I feel."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Chess Master Ailsa",
+     "text": "So these are the pieces from the dune? Look at the queen. Chin in hand. That's the face of someone who has just worked out she is going to win."
+    },
+    {
+     "do": "say",
+     "who": "Chess Master Ailsa",
+     "text": "I'll play you, but with creatures. My board, my rules."
+    },
+    {
+     "do": "battle",
+     "trainer": "hebrides_chessmaster",
+     "intro": true
+    },
+    {
+     "do": "say",
+     "who": "Chess Master Ailsa",
+     "text": "A fair fight. Take this. It's a warder from my own set, carved from a walrus tusk. Or it's plastic. I forget which."
+    },
+    {
+     "do": "give_item",
+     "item": "ivory_warder",
+     "n": 1
+    },
+    {
+     "do": "standing",
+     "nation": "scotland",
+     "amount": 2
+    },
+    {
+     "do": "set",
+     "flag": "q_hebrides_chess_3",
+     "value": true
+    },
+    {
+     "do": "set",
+     "flag": "q_hebrides_chess_done",
+     "value": true
+    }
+   ]
+  }
+ ]
+}

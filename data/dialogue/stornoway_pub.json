@@ -1,0 +1,87 @@
+{
+ "sw_landlord": [
+  {
+   "do": "say",
+   "who": "Landlord",
+   "text": "F\u00e0ilte! Welcome to the Minch Arms. If you're wanting a quiz, Scottish questions, losers buy the crisps. If you're wanting a pint, be prepared to wait. The queue's a long one and the tap is a slow one."
+  },
+  {
+   "do": "quiz",
+   "pub": "stornoway_pub",
+   "region": "scotland",
+   "who": "Landlord"
+  }
+ ],
+ "sw_bard_npc": [
+  {
+   "do": "if",
+   "flag": "q_hebrides_rhyme_2",
+   "then": [
+    {
+     "do": "say",
+     "who": "The Bard",
+     "text": "Go well. And remember: in the Gaelic tradition a verse is a gift. Answer a Blue Man's verse with a good one, and he'll give you a gift back."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_hebrides_rhyme_1",
+     "then": [
+      {
+       "do": "say",
+       "who": "The Bard",
+       "text": "The Skipper sent you? About the Blue Men? Right. A rhyme has two halves. The Blue Man gives you the first. You answer in the same tune, ending on the same sound. If it ends well, it holds."
+      },
+      {
+       "do": "say",
+       "who": "The Bard",
+       "text": "Test: if he says 'tide', you say..."
+      },
+      {
+       "do": "choice",
+       "text": "Which rhymes with tide?",
+       "options": [
+        "Cat",
+        "Ride",
+        "Moon"
+       ],
+       "set": "_bard_1"
+      },
+      {
+       "do": "if",
+       "flag": "_bard_1",
+       "then": [
+        {
+         "do": "say",
+         "who": "The Bard",
+         "text": "Ride! Exactly. 'Tide' and 'ride'. Tide-wide-ride-guide. Easy as that. You've the ear. Away and catch a gale."
+        },
+        {
+         "do": "set",
+         "flag": "q_hebrides_rhyme_2",
+         "value": true
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "The Bard",
+         "text": "No, no. Listen to the ending. 'Tide'. Now think of something you do on a horse. Try again."
+        }
+       ],
+       "eq": 1
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "The Bard",
+       "text": "I'm the Bard of Stornoway. Mostly of the Minch Arms. I wrote a song about the weather and it's got forty verses. It's about the same weather, but I think of it as an epic."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -38,7 +38,8 @@ const SPECIAL := ["shannon_tower_house", "limerick_georgian", "martyrs_obelisk",
 	"va_dundee", "tay_bridge", "caithness_flag", "flag_fence", "mey_castle", "dunrobin", "jog_signpost", "sea_stacks",
 	"well_house", "kirk_ruin", "surf_shack", "jog_inn", "flows_lookout", "red_sandstone", "border_stone", "castle_red",
 	"painted_pink", "painted_yellow", "painted_blue", "painted_green", "painted_red", "painted_teal", "granite",
-	"distillery", "mccaig", "paddle_steamer"]
+	"distillery", "mccaig", "paddle_steamer", "blackhouse", "croft_house", "granite_house", "harbour_white",
+	"lews_castle"]
 
 ## Doors: where each style's door sits on its tile (see _door and friends), for the swing as you go in.
 ## {x, w, y, h, z}: left edge and width across the door column, bottom and height, z of the door's face from
@@ -243,6 +244,8 @@ static func building(w: int, d: int, style: String, door_x: int, seed_value: int
 			_grandstand(st, wst, w, d, door_x)
 		"bookmaker":
 			_bookmaker(st, wst, w, d, door_x, region)
+		"blackhouse", "croft_house", "granite_house", "harbour_white", "lews_castle":
+			_hebrides(st, wst, w, d, door_x, rng, style)
 		"liver_building":
 			_liver(st, wst, w, d, door_x)
 		"station":
@@ -5074,3 +5077,119 @@ static func _steamer(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: 
 	for x in range(2, w - 2, 1):
 		_window(st, wst, x + 0.27, 0.95, d - 0.53, 0.46, 0.4, white.darkened(0.15))
 	Meshes.box(st, Vector3(door_x + 0.22, 0.7, d - 0.66), Vector3(0.56, 0.9, 0.08), DOOR_WOOD)
+
+
+# --- the Outer Hebrides (Harris, Lewis, Stornoway) -------------------------------------------------------------
+
+const LEWIS_GREY := Color("8c8a84")
+const CROFT_BLACK := Color("34373d")
+
+static func _hebrides(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int, rng: RandomNumberGenerator, style: String) -> void:
+	match style:
+		"blackhouse":
+			_blackhouse(st, wst, w, d, door_x)
+		"croft_house":
+			_croft_house(st, wst, w, d, door_x, rng)
+		"granite_house":
+			_house(st, wst, w, d, door_x, rng, LEWIS_GREY.lightened(rng.randf_range(-0.04, 0.06)), SLATE, 2, false, false)
+		"harbour_white":
+			_house(st, wst, w, d, door_x, rng, HARLS[0].lightened(0.04), SLATE.darkened(0.1), 2, false, false)
+		"lews_castle":
+			_lews_castle(st, wst, w, d, door_x)
+
+## A blackhouse (taigh dubh): drystone walls a yard thick, rounded at the corners, with a hipped thatch roof set
+## on the wall head so the rain runs off outside the stone. Ropes weighted with stones hold the thatch down in the
+## gale, and there is no chimney: the peat smoke seeps up through the straw.
+static func _blackhouse(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int) -> void:
+	var stone := Color("7f7b70")
+	var thatch := Color("8e7545")
+	var rope := Color("4a3b2a")
+	var hgt := 0.95
+	Meshes.box(st, Vector3(0.12, 0, 0.12), Vector3(w - 0.24, hgt, d - 0.24), stone, stone.darkened(0.2))
+	for cx in [0.14, w - 0.14]:
+		for cz in [0.14, d - 0.14]:
+			Meshes.cylinder(st, Vector3(cx, 0, cz), 0.24, hgt, 7, stone.darkened(0.04))
+	var y := 0.28
+	while y < hgt - 0.1:
+		Meshes.box(st, Vector3(0.08, y, d - 0.16), Vector3(w - 0.16, 0.03, 0.05), stone.darkened(0.3))
+		y += 0.27
+	Meshes.box(st, Vector3(-0.02, hgt - 0.08, -0.02), Vector3(w + 0.04, 0.14, d + 0.04), stone.lightened(0.1))
+	var e := 0.2
+	var rh := hgt + minf(0.95, d * 0.4)
+	var r0 := Vector3(0.5, rh, d * 0.5)
+	var r1 := Vector3(w - 0.5, rh, d * 0.5)
+	var a := Vector3(-e, hgt - 0.05, -e)
+	var b := Vector3(w + e, hgt - 0.05, -e)
+	var c := Vector3(w + e, hgt - 0.05, d + e)
+	var dd := Vector3(-e, hgt - 0.05, d + e)
+	Meshes._quad(st, r0, r1, c, dd, thatch)
+	Meshes._quad(st, r1, r0, a, b, thatch.darkened(0.15))
+	Meshes._tri(st, r0, dd, a, thatch.darkened(0.08))
+	Meshes._tri(st, r1, b, c, thatch.darkened(0.2))
+	Meshes._quad(st, dd, c, b, a, thatch.darkened(0.5))
+	Meshes.box(st, Vector3(0.4, rh - 0.08, d * 0.5 - 0.12), Vector3(w - 0.8, 0.14, 0.24), thatch.darkened(0.1))  # ridge
+	var lift := Vector3(0, 0.02, 0.012)
+	var x := 0.3
+	while x < w - 0.1:
+		var tx := clampf(x, 0.5, w - 0.5)
+		Meshes._quad(st, Vector3(tx, rh, d * 0.5) + lift, Vector3(tx + 0.035, rh, d * 0.5) + lift, Vector3(x + 0.035, hgt - 0.05, d + e) + lift, Vector3(x, hgt - 0.05, d + e) + lift, rope)
+		Meshes.box(st, Vector3(x - 0.05, hgt - 0.3, d + e - 0.04), Vector3(0.12, 0.14, 0.1), stone.lightened(0.05))  # the weighting stone
+		x += 0.5
+	_chimneys.append(Vector3(w * 0.5, rh + 0.05, d * 0.5))  # the smoke finds its own way out
+	for i in w:
+		if i != door_x and i % 2 == 0:
+			_window(st, wst, i + 0.35, 0.45, d - 0.1, 0.28, 0.3, Color("d9d3c4"))
+	_door(st, door_x, d - 0.1, stone, 0.8)
+
+## A Hebridean croft house: a long white-harled cottage with a black felt roof, a chimney on each gable, a little
+## porch and small sash windows either side of the door.
+static func _croft_house(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int, rng: RandomNumberGenerator) -> void:
+	var wall := HARLS[0].lightened(0.05)
+	var hgt := 1.45
+	Meshes.box(st, Vector3(0.05, 0, 0.05), Vector3(w - 0.1, hgt, d - 0.1), wall, wall.darkened(0.1))
+	Meshes.box(st, Vector3(0, 0, 0), Vector3(w, 0.16, d), wall.darkened(0.3))
+	_roof(st, w, d, hgt, CROFT_BLACK, wall, 0.5)
+	for cx in [0.04, w - 0.4]:
+		Meshes.box(st, Vector3(cx, hgt - 0.1, d * 0.5 - 0.2), Vector3(0.36, 1.25, 0.4), wall.darkened(0.12))
+		Meshes.box(st, Vector3(cx - 0.03, hgt + 1.15, d * 0.5 - 0.23), Vector3(0.42, 0.07, 0.46), Color("8e887c"))
+		_chimneys.append(Vector3(cx + 0.18, hgt + 1.25, d * 0.5))
+	var trim: Color = [Color("2f5d8a"), Color("b03a2e"), Color("2f7a55"), Color("e8e2d2")][rng.randi() % 4]
+	for i in w:
+		if i != door_x:
+			_window(st, wst, i + 0.25, 0.5, d, 0.5, 0.6, trim)
+	if door_x >= 0:
+		Meshes.box(st, Vector3(door_x + 0.08, 0.0, d - 0.04), Vector3(0.84, 1.15, 0.32), wall)  # the porch
+		Meshes.box(st, Vector3(door_x + 0.02, 1.15, d - 0.06), Vector3(0.96, 0.1, 0.4), CROFT_BLACK)
+		Meshes.box(st, Vector3(door_x + 0.28, 0.0, d + 0.24), Vector3(0.44, 0.95, 0.06), trim)
+
+## Lews Castle, Stornoway: a Tudor-Gothic pile in grey stone with battlements, a tall corner tower, a gabled
+## entrance and rows of mullioned windows, built in the 1850s on the money from the Mathesons' China trade.
+static func _lews_castle(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int) -> void:
+	var stone := Color("8e8a80")
+	var hgt := 2.6
+	Meshes.box(st, Vector3(0.05, 0, 0.1), Vector3(w - 0.1, hgt, d - 0.2), stone, stone.darkened(0.25))
+	Meshes.box(st, Vector3(0, 0, 0.05), Vector3(w, 0.2, d - 0.1), stone.darkened(0.25))
+	Meshes.box(st, Vector3(-0.04, hgt - 0.08, 0.04), Vector3(w + 0.08, 0.14, d - 0.08), stone.lightened(0.12))
+	_merlons(st, 0, w, 0.04, hgt + 0.06, stone, true)
+	_merlons(st, 0, w, d - 0.64, hgt + 0.06, stone, true)
+	_merlons(st, 0, d, 0.0, hgt + 0.06, stone, false)
+	_merlons(st, 0, d, w - 0.6, hgt + 0.06, stone, false)
+	# the great tower at the west front corner, and a lesser one at the east, each ringed with merlons
+	for t in [Vector3(0.9, 0, d - 1.1), Vector3(w - 0.9, 0, d - 1.1)]:
+		var th := 4.4 if t.x < 2.0 else 3.6
+		Meshes.cylinder(st, t, 0.95, th, 8, stone.lightened(0.04))
+		Meshes.cylinder(st, t + Vector3(0, th, 0), 1.08, 0.28, 8, stone.lightened(0.14))
+		for k in 8:
+			var ang := TAU * k / 8.0
+			Meshes.box(st, t + Vector3(cos(ang) * 0.95 - 0.12, th + 0.28, sin(ang) * 0.95 - 0.12), Vector3(0.24, 0.26, 0.24), stone.lightened(0.18))
+	# the gabled entrance bay
+	var cx := door_x + 0.5
+	Meshes.box(st, Vector3(cx - 1.0, 0, d - 0.9), Vector3(2.0, hgt + 0.7, 0.95), stone.lightened(0.06))
+	Meshes._tri(st, Vector3(cx - 1.0, hgt + 0.7, d - 0.05), Vector3(cx + 1.0, hgt + 0.7, d - 0.05), Vector3(cx, hgt + 1.55, d - 0.05), stone.lightened(0.1))
+	Meshes.box(st, Vector3(cx - 0.35, 0.0, d + 0.04), Vector3(0.7, 1.35, 0.07), Color("2a221e"))
+	Meshes.box(st, Vector3(cx - 0.5, 1.35, d + 0.03), Vector3(1.0, 0.12, 0.1), stone.lightened(0.25))
+	for i in w:
+		if absi(i - door_x) > 1 and i > 1 and i < w - 2:
+			_window(st, wst, i + 0.3, 0.55, d - 0.1, 0.4, 0.7, stone.lightened(0.25))
+			_window(st, wst, i + 0.3, 1.65, d - 0.1, 0.4, 0.7, stone.lightened(0.25))
+	_window(st, wst, cx - 0.2, 1.9, d + 0.06, 0.4, 0.55, stone.lightened(0.25))
