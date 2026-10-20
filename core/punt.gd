@@ -10,6 +10,10 @@ extends RefCounted
 ## the moment a bet goes down; the screen saves as soon as it's settled. Reload a save from before the bet and the
 ## same bet gets the very same result, so there is nothing to gain from it.
 
+## What {"do": "casino", "game": ...} can open, and where the races are shown (see Commands._casino).
+const GAMES := ["cage", "fruit", "blackjack", "roulette", "hilo", "races", "novice"]
+const RACE_VENUES := ["aintree", "glasgow", "belfast"]
+
 const SEED_FLAG := "punt_seed"
 const COUNT_FLAG := "punt_n"
 const CHIPS_FLAG := "punt_chips"

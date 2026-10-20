@@ -191,9 +191,9 @@ static func validate_commands(cmds: Array, tag: String, dex: Dex, items: ItemDB,
 				if str(c.get("dir", "")) not in DIRS:
 					errors.append("%s: face with bad direction" % tag)
 			"casino":
-				if str(c.get("game", "")) not in Commands.CASINO_GAMES:
+				if str(c.get("game", "")) not in Punt.GAMES:
 					errors.append("%s: casino with unknown game '%s'" % [tag, c.get("game", "")])
-				if str(c.get("game", "")) == "races" and str(c.get("venue", "")) not in Commands.RACE_VENUES:
+				if str(c.get("game", "")) == "races" and str(c.get("venue", "")) not in Punt.RACE_VENUES:
 					errors.append("%s: races at unknown venue '%s'" % [tag, c.get("venue", "")])
 			"tournament":
 				if str(c.get("id", "")) not in ["show", "moot", "trade"]:

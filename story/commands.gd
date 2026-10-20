@@ -272,8 +272,8 @@ func _quiz(c: Dictionary) -> void:
 ## "fruit", "blackjack", "roulette" and "hilo" are the Palace's games (played with chips); "races" is the day's
 ## meeting at a venue ("aintree", "glasgow", "belfast"); "novice" runs one of your team in Aintree's novice race,
 ## once a real day. The screens take the stakes, settle and save (see Punt).
-const CASINO_GAMES := ["cage", "fruit", "blackjack", "roulette", "hilo", "races", "novice"]
-const RACE_VENUES := ["aintree", "glasgow", "belfast"]
+const CASINO_GAMES := Punt.GAMES
+const RACE_VENUES := Punt.RACE_VENUES
 
 func _casino(c: Dictionary) -> void:
 	var data: GameStateData = host.data
