@@ -314,7 +314,7 @@ def estuary():
     trainer(z, "est_pilot", "Pilot Eamon", "Pilot", "commuter", [("stormswift", 58), ("plungebeak", 59), ("railspark", 58)],
             20, 7, "down", ["Pre-flight checks: wings, wheels, a quick battle. Standard procedure."],
             "Turbulence. Seatbelts on, everybody.", "Flying in to Shannon over the estuary on a clear morning, you'd swear the whole country was green velvet.", 2450)
-    trainer(z, "est_cyclist", "Cyclist Aoife", "Cyclist", "jogger", [("selkie", 58), ("gealhare", 59), ("versling", 58)],
+    trainer(z, "shan_cyclist", "Cyclist Aoife", "Cyclist", "jogger", [("selkie", 58), ("gealhare", 59), ("versling", 58)],
             50, 44, "left", ["I'm doing the Shannon from source to sea. Three hundred and sixty kilometres. I'm on day nine. Battle me while my legs recover."],
             "Ah, my legs were the stronger half of my team.", "The Shannon rises in the Shannon Pot in County Cavan. It's a little round pool. You'd never guess.", 2420)
     trainer(z, "est_thatcher", "Thatcher Seosamh", "Thatcher", "farmer", [("rooklet", 58), ("strutcoo", 58), ("kidgruff", 59)],
