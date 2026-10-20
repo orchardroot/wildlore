@@ -121,7 +121,7 @@ def ascension(OUT):
     z.sign(35, 6, "NORTH: the road to Green Mountain, the Farm and Dampier's Drip.")
     # ---- trainers ----
     wild_set(z, [("cindershell", 14, {}), ("gannetling", 10, {}), ("ternlet", 10, {}), ("kidgruff", 10, {}), ("duneskink", 12, {}),
-                 ("petrelash", 8, {"weather": ["gale"]}), ("scorchbun", 8, {}), ("foalmoor", 8, {}), ("hootlet", 6, {"time": ["night"]})])
+                 ("petrelash", 8, {"weather": ["gale"]}), ("beaconet", 8, {}), ("foalmoor", 8, {}), ("hootlet", 6, {"time": ["night"]})])
     wild_set(z, [("cindershell", 14, {}), ("plungebeak", 10, {}), ("clownbill", 10, {}), ("dolphlet", 10, {}), ("greyhaul", 8, {})], "water")
     trainer(z, "asc_ranger_t", "Ranger Naomi", "Conservation Officer", "hiker",
             [("cindershell", 95), ("gannetling", 95), ("duneskink", 96), ("ternlet", 96)], 18, 44, "up",
@@ -224,7 +224,7 @@ def green_mountain(OUT):
     # ---- wild ----
     wild_set(z, [("mistfrond", 16, {}), ("kidgruff", 10, {}), ("billgruff", 8, {}), ("hootlet", 8, {"time": ["night"]}), ("flittermouse", 8, {"time": ["night"]}),
                  ("greenman", 8, {}), ("pixling", 8, {"weather": ["fog", "drizzle"]}), ("pepperling", 8, {}), ("midgie", 6, {})])
-    wild_set(z, [("mistfrond", 10, {}), ("holtling", 10, {}), ("rillotter", 10, {})], "water")
+    wild_set(z, [("mistfrond", 10, {}), ("pollanet", 10, {}), ("rillotter", 10, {})], "water")
     trainer(z, "asc_botanist_t", "Botanist Elsie", "Botanist", "birdwatcher",
             [("mistfrond", 96), ("greenman", 96), ("flaxling", 96), ("thornwyn", 96)], 28, 20, "down",
             ["I'm cataloguing the forest. Every plant, every pest, and an unhealthy number of weeds. Would you like to see how the pests do in battle?"],

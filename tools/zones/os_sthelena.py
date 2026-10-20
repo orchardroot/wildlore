@@ -210,8 +210,8 @@ def plantation(OUT):
          ["The Diana's Peak walk is the one. Up through the tree-fern forest, cool and green, past the endemic whitewood and the dogwood. Wear a coat. The cloud comes down suddenly.",
           "The tree ferns look like they walked out of a Jurassic picture book, and they've been here a lot longer than the Saints."], "down", "still")
     wild_set(z, [("wirefoot", 14, {}), ("plodlet", 10, {}), ("herdwick", 10, {}), ("flaxling", 10, {}), ("pixling", 10, {"weather": ["fog", "drizzle"]}),
-                 ("hootlet", 8, {"time": ["night"]}), ("legionette", 6, {"time": ["night"]}), ("ratty", 6, {}), ("holtling", 6, {})])
-    wild_set(z, [("holtling", 12, {}), ("ratty", 10, {}), ("rillotter", 10, {})], "water")
+                 ("hootlet", 8, {"time": ["night"]}), ("legionette", 6, {"time": ["night"]}), ("ratty", 6, {}), ("pollanet", 6, {})])
+    wild_set(z, [("pollanet", 12, {}), ("ratty", 10, {}), ("rillotter", 10, {})], "water")
     trainer(z, "sth_vet", "Vet Henrietta", "Vet", "keeper_hester",
             [("elderplod", 96), ("herdwick", 96), ("plodlet", 95), ("heilan", 96)], 18, 26, "right",
             ["Jonathan has had every ailment you can imagine, and several no one can. I'm told by the gardener that you were seen nearby. Care to show me how you handle your team?"],
@@ -335,9 +335,7 @@ def quest_data(OUT):
 
 def items_and_registry():
     return [heal_item("st_helena_fishcake", "St Helena Fishcake", 380, 140, "A flat, crisp-edged patty of tuna, potato and onion, pan-fried and served hot: the dish the Saints eat on every occasion, in at least a hundred slightly different versions. Restores 140 HP."),
-            {"id": "st_helena_coffee", "name": "St Helena Coffee", "kind": "meal", "price": 600, "battle": False, "field": True, "amount": 60, "meal": {"buff": "lure", "steps": 60},
-             "desc": "Green Tipped Bourbon Arabica, grown on the island's hills since the East India Company brought the first plants in 1733. A small harvest, picked and dried by hand. Restores 60 HP.",
-             "effect_text": "The smell carries: for 60 steps, wild creatures turn up more often."},
+            heal_item("st_helena_coffee", "St Helena Coffee", 600, 160, "Green Tipped Bourbon Arabica, grown on the island's hills since the East India Company brought the first plants in 1733. A small harvest, picked and dried by hand. Restores 160 HP."),
             charm_item("willow_sprig", "Willow Sprig", "A cutting from the willow trees that shade Napoleon's empty tomb in Sane Valley. Napoleon was buried here in 1821 and taken to Paris in 1840, and the willows stayed.",
                        "Spirit moves hurt it 25% less.", {"effect": "resist", "type": "spirit", "mult": 0.75}, "{name} felt the calm of the willows!")]
 
