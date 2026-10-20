@@ -319,50 +319,63 @@
  ],
  "nuckelavee": [
   {
-   "do": "say",
-   "who": "",
-   "text": "The sea goes flat and black. Then something walks out of it on the shingle: a horse, and a rider grown into the horse, and neither of them has any skin at all."
-  },
-  {
-   "do": "say",
-   "who": "",
-   "text": "Black blood runs in yellow veins. A single red eye burns in a head as wide as a barrel. Its breath rolls over the shore, and the grass at your feet goes brown and dies."
-  },
-  {
-   "do": "say",
-   "who": "Nuckelavee",
-   "text": "...hhhhhhhhh..."
-  },
-  {
-   "do": "say",
-   "who": "",
-   "text": "The old Orkney tales say only one thing stops it: fresh running water. There's no burn on this shore. Your team steps forward anyway."
-  },
-  {
-   "do": "legend",
-   "species": "nuckelavee",
-   "level": 82,
-   "flag": "q_farnorth_firth_3",
-   "music": "legend"
-  },
-  {
-   "do": "if",
-   "flag": "q_farnorth_firth_3",
-   "then": [
-    {
-     "do": "say",
-     "who": "",
-     "text": "The Nuckelavee is caught. The sea lets out a breath it seems to have been holding for a very long time. Skipper Morag will want to hear about this. Everyone in Thurso will want to hear about this."
-    },
-    {
-     "do": "end"
-    }
-   ],
+   "do": "when",
+   "cond": "night",
    "else": [
     {
      "do": "say",
      "who": "",
-     "text": "The thing sinks back into the sea, still burning. It will be back on another dark night. Patch up your team and try again."
+     "text": "Far out past the shore something dark turns in the water, and is gone. Whatever it is, it keeps to the night. Come back after dark."
+    }
+   ],
+   "then": [
+    {
+     "do": "say",
+     "who": "",
+     "text": "The sea goes flat and black. Then something walks out of it on the shingle: a horse, and a rider grown into the horse, and neither of them has any skin at all."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Black blood runs in yellow veins. A single red eye burns in a head as wide as a barrel. Its breath rolls over the shore, and the grass at your feet goes brown and dies."
+    },
+    {
+     "do": "say",
+     "who": "Nuckelavee",
+     "text": "...hhhhhhhhh..."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "The old Orkney tales say only one thing stops it: fresh running water. There's no burn on this shore. Your team steps forward anyway."
+    },
+    {
+     "do": "legend",
+     "species": "nuckelavee",
+     "level": 82,
+     "flag": "q_farnorth_firth_3",
+     "music": "legend"
+    },
+    {
+     "do": "if",
+     "flag": "q_farnorth_firth_3",
+     "then": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "The Nuckelavee is caught. The sea lets out a breath it seems to have been holding for a very long time. Skipper Morag will want to hear about this. Everyone in Thurso will want to hear about this."
+      },
+      {
+       "do": "end"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "The thing sinks back into the sea, still burning. It will be back on another dark night. Patch up your team and try again."
+      }
+     ]
     }
    ]
   }

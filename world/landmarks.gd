@@ -16,7 +16,9 @@ const IRON := Color("3c4450")
 const GLASS := Color.WHITE
 
 ## Building styles handled here rather than by the generic house in Meshes.building.
-const SPECIAL := ["glass_tower", "gantry_crane", "cantilever_crane", "titanic", "mill", "castle", "cathedral", "liver_building", "station", "aqueduct", "chapel", "terrace", "tudor", "slate_cottage", "lighthouse_house", "round_tower", "passage_tomb", "field_barn"]
+const SPECIAL := ["glass_tower", "gantry_crane", "cantilever_crane", "titanic", "mill", "castle", "cathedral", "liver_building", "station", "aqueduct", "chapel", "terrace", "tudor", "slate_cottage", "lighthouse_house", "round_tower", "passage_tomb", "field_barn",
+	"caithness_flag", "flag_fence", "mey_castle", "dunrobin", "jog_signpost", "sea_stacks", "well_house", "kirk_ruin",
+	"surf_shack", "jog_inn", "flows_lookout"]
 
 ## Doors: where each style's door sits on its tile (see _door and friends), for the swing as you go in.
 ## {x, w, y, h, z}: left edge and width across the door column, bottom and height, z of the door's face from
@@ -115,6 +117,9 @@ static func building(w: int, d: int, style: String, door_x: int, seed_value: int
 			_passage_tomb(st, w, d, door_x)
 		"field_barn":
 			_field_barn(st, w, d, rng)
+		"caithness_flag", "flag_fence", "mey_castle", "dunrobin", "jog_signpost", "sea_stacks", "well_house", "kirk_ruin", \
+				"surf_shack", "jog_inn", "flows_lookout":
+			_far_north(st, wst, style, w, d, door_x, rng)
 		"liver_building":
 			_liver(st, wst, w, d, door_x)
 		"station":
@@ -1041,3 +1046,196 @@ static func harp() -> ArrayMesh:
 	for i in 5:
 		Meshes.box(st, Vector3(-0.15 + i * 0.08, 0.12, -0.01), Vector3(0.012, 1.08 - i * 0.12, 0.012), Color("f2e2a0"))
 	return Meshes._finish(st)
+
+# --- the far north (Caithness and Sutherland) --------------------------------
+
+const CAITHNESS_FLAG := Color("8d8f8a")   # grey-blue Old Red Sandstone flags
+const CAITHNESS_ROOF := Color("5b5a55")   # flagstone roofs
+const HARL := Color("e2dccd")             # lime harling
+
+static func _far_north(st: SurfaceTool, wst: SurfaceTool, style: String, w: int, d: int, door_x: int, rng: RandomNumberGenerator) -> void:
+	match style:
+		"caithness_flag":
+			_flag_house(st, wst, w, d, door_x, rng)
+		"flag_fence":
+			_flag_fence(st, w, d, rng)
+		"mey_castle":
+			_mey_castle(st, wst, w, d, door_x)
+		"dunrobin":
+			_dunrobin(st, wst, w, d, door_x)
+		"jog_signpost":
+			_jog_signpost(st)
+		"sea_stacks":
+			_sea_stacks(st, w, d)
+		"well_house":
+			_well_house(st, w, d)
+		"kirk_ruin":
+			_kirk_ruin(st, w, d, door_x)
+		"surf_shack":
+			_house(st, wst, w, d, door_x, rng, Color("3f7f95"), Color("d8d2c2"), 1, false, false)
+			Meshes.box(st, Vector3(0.3, 0.2, d + 0.02), Vector3(0.18, 1.3, 0.06), Color("e8b030"))   # boards against the wall
+			Meshes.box(st, Vector3(w - 0.55, 0.2, d + 0.02), Vector3(0.18, 1.2, 0.06), Color("d84a3a"))
+		"jog_inn":
+			_jog_inn(st, wst, w, d, door_x, rng)
+		"flows_lookout":
+			_flows_lookout(st, w, d)
+
+## A Caithness house: walls of thin grey flags laid in courses, a stone-flag roof, crow-stepped gables.
+static func _flag_house(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int, rng: RandomNumberGenerator) -> void:
+	var hgt := 2.1 if w >= 5 else 1.3
+	for row in 7:
+		var y := row * hgt / 7.0
+		Meshes.box(st, Vector3(0.05, y, 0.05), Vector3(w - 0.1, hgt / 7.0, d - 0.1), CAITHNESS_FLAG.lightened(rng.randf_range(-0.07, 0.07)))
+	Meshes.box(st, Vector3(0, 0, 0), Vector3(w, 0.14, d), CAITHNESS_FLAG.darkened(0.35))
+	_roof(st, w, d, hgt, CAITHNESS_ROOF, CAITHNESS_FLAG, 0.42)
+	var rise := minf(1.2, d * 0.42)
+	for gx in [-0.12, w - 0.16]:  # crow steps up each gable
+		for k in 4:
+			var t := k / 4.0
+			Meshes.box(st, Vector3(gx, hgt + rise * t, d * 0.5 * t - 0.1), Vector3(0.28, rise * 0.25 + 0.05, d * (1.0 - t) + 0.2), CAITHNESS_FLAG.darkened(0.05))
+	Meshes.box(st, Vector3(-0.1, hgt + rise - 0.1, d * 0.5 - 0.25), Vector3(0.3, 0.75, 0.5), CAITHNESS_FLAG.darkened(0.15))  # gable chimney
+	_chimneys.append(Vector3(0.05, hgt + rise + 0.65, d * 0.5))
+	_door(st, door_x, d, CAITHNESS_FLAG)
+	for s in (2 if w >= 5 else 1):
+		for x in w:
+			if x == door_x and s == 0:
+				continue
+			_window(st, wst, x + 0.3, 0.4 + 1.0 * s, d, 0.4, 0.5, Color("ece6d8"))
+
+## A Caithness flagstone fence: tall slabs stood on end, edge to edge, no posts and no mortar.
+static func _flag_fence(st: SurfaceTool, w: int, d: int, rng: RandomNumberGenerator) -> void:
+	var along_x := w >= d
+	var n := maxi(w, d) * 2
+	for i in n:
+		var h := rng.randf_range(0.75, 1.0)
+		var c := CAITHNESS_FLAG.lightened(rng.randf_range(-0.1, 0.05))
+		if along_x:
+			Meshes.box(st, Vector3(i * 0.5 + 0.02, 0, d * 0.5 - 0.05), Vector3(0.46, h, 0.1), c)
+		else:
+			Meshes.box(st, Vector3(w * 0.5 - 0.05, 0, i * 0.5 + 0.02), Vector3(0.1, h, 0.46), c)
+
+## A four-sided spire (conical roofs, turret caps).
+static func _spire(st: SurfaceTool, c: Vector3, r: float, h: float, col: Color) -> void:
+	var a := c + Vector3(-r, 0, -r)
+	var b := c + Vector3(r, 0, -r)
+	var cc := c + Vector3(r, 0, r)
+	var dd := c + Vector3(-r, 0, r)
+	var top := c + Vector3(0, h, 0)
+	Meshes._tri(st, top, cc, dd, col)
+	Meshes._tri(st, top, b, cc, col.darkened(0.12))
+	Meshes._tri(st, top, a, b, col.darkened(0.25))
+	Meshes._tri(st, top, dd, a, col.darkened(0.08))
+
+## Castle of Mey: a harled tower house, a squat battlemented tower and corbelled corner turrets.
+static func _mey_castle(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int) -> void:
+	var slate := Color("4f5560")
+	Meshes.box(st, Vector3(0.3, 0, 0.3), Vector3(w - 0.6, 2.4, d - 0.6), HARL)
+	Meshes.box(st, Vector3(0.2, 0, 0.2), Vector3(w - 0.4, 0.2, d - 0.4), HARL.darkened(0.3))
+	_roof_at(st, 0.3, w - 0.3, 0.3, d - 0.3, 2.4, 1.0, slate, HARL)
+	var tx := w * 0.5 - 1.0
+	Meshes.box(st, Vector3(tx, 0, 0.6), Vector3(2.0, 3.9, 2.0), HARL.darkened(0.03))
+	_merlons(st, tx, tx + 2.0, 0.6, 3.9, HARL, true)
+	_merlons(st, tx, tx + 2.0, 2.4, 3.9, HARL, true)
+	for c in [Vector2(0.3, d - 0.3), Vector2(w - 0.3, d - 0.3), Vector2(0.3, 0.3), Vector2(w - 0.3, 0.3)]:
+		Meshes.cylinder(st, Vector3(c.x, 1.7, c.y), 0.38, 1.2, 8, HARL.lightened(0.03))
+		_spire(st, Vector3(c.x, 2.9, c.y), 0.42, 0.9, slate)
+	for x in w:
+		if x != door_x and x > 0 and x < w - 1:
+			_window(st, wst, x + 0.32, 0.6, d - 0.2, 0.36, 0.5, Color("f4efe2"))
+			_window(st, wst, x + 0.32, 1.6, d - 0.2, 0.36, 0.5, Color("f4efe2"))
+	if door_x >= 0:
+		Meshes.box(st, Vector3(door_x + 0.2, 0, d - 0.28), Vector3(0.6, 1.05, 0.06), DOOR_WOOD)
+		Meshes.box(st, Vector3(door_x + 0.1, 1.05, d - 0.3), Vector3(0.8, 0.12, 0.08), Color("b8ad98"))
+	_chimneys.append(Vector3(1.0, 3.4, d * 0.5))
+
+## Dunrobin: a pale chateau of a castle, tall pointed spires and steep roofs.
+static func _dunrobin(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int) -> void:
+	var wall := Color("ddd6c6")
+	var roof := Color("4a5260")
+	Meshes.box(st, Vector3(0.1, 0, 0.1), Vector3(w - 0.2, 2.8, d - 0.2), wall)
+	Meshes.box(st, Vector3(0, 0, 0), Vector3(w, 0.3, d), Color("a89d88"))
+	_roof_at(st, 0.1, w - 0.1, 0.1, d - 0.1, 2.8, 1.4, roof, wall)
+	var towers := [Vector2(0.6, d - 0.6), Vector2(w - 0.6, d - 0.6), Vector2(w * 0.5, 0.8), Vector2(0.6, 0.8), Vector2(w - 0.6, 0.8)]
+	var heights := [3.6, 3.6, 4.6, 3.2, 3.2]
+	for i in towers.size():
+		var t: Vector2 = towers[i]
+		var h: float = heights[i]
+		var sp := 2.2 if i == 2 else 1.6
+		Meshes.box(st, Vector3(t.x - 0.5, 0, t.y - 0.5), Vector3(1.0, h, 1.0), wall.lightened(0.02))
+		_spire(st, Vector3(t.x, h, t.y), 0.6, sp, roof)
+		Meshes.box(st, Vector3(t.x - 0.03, h + sp, t.y - 0.03), Vector3(0.06, 0.4, 0.06), Color("c8a040"))  # finial
+	for s in 2:
+		for x in w:
+			if x != door_x:
+				_window(st, wst, x + 0.3, 0.6 + 1.1 * s, d, 0.4, 0.7, Color("f4efe2"))
+	_door(st, door_x, d, wall, 1.2)
+
+## The John o' Groats signpost: a white pole with arms pointing off to far-away places.
+static func _jog_signpost(st: SurfaceTool) -> void:
+	var white := Color("f2f0ea")
+	Meshes.box(st, Vector3(0.38, 0, 0.38), Vector3(0.24, 0.15, 0.24), Color("6a6a66"))
+	Meshes.box(st, Vector3(0.45, 0, 0.45), Vector3(0.1, 2.3, 0.1), white)
+	var arms := [1.0, 1.4, 1.8, 2.1]
+	for i in arms.size():
+		var x0 := 0.5 if i % 2 == 0 else -0.25
+		Meshes.box(st, Vector3(x0, arms[i], 0.47), Vector3(0.75, 0.2, 0.06), white)
+		Meshes.box(st, Vector3(x0 + 0.06, arms[i] + 0.06, 0.53), Vector3(0.6, 0.06, 0.01), Color("2a2a2a"))  # the lettering
+	Meshes.box(st, Vector3(0.3, 2.3, 0.3), Vector3(0.4, 0.1, 0.4), white)
+
+## The Stacks of Duncansby: pointed sandstone towers on a skerry.
+static func _sea_stacks(st: SurfaceTool, w: int, d: int) -> void:
+	var rock := Color("8a5a44")
+	Meshes.box(st, Vector3(0, -0.4, 0), Vector3(w, 0.5, d), Color("4a3f38"))
+	var stacks := [[w * 0.3, d * 0.35, 0.8, 3.6], [w * 0.68, d * 0.55, 0.65, 2.9], [w * 0.45, d * 0.8, 0.45, 2.0]]
+	for s in stacks:
+		var c := Vector3(float(s[0]), 0, float(s[1]))
+		var r: float = s[2]
+		var h: float = s[3]
+		Meshes.box(st, c + Vector3(-r, 0, -r), Vector3(r * 2, h * 0.55, r * 2), rock)
+		Meshes.box(st, c + Vector3(-r * 0.7, h * 0.55, -r * 0.7), Vector3(r * 1.4, h * 0.25, r * 1.4), rock.lightened(0.06))
+		_spire(st, c + Vector3(0, h * 0.8, 0), r * 0.7, h * 0.35, rock.lightened(0.1))
+		Meshes.box(st, c + Vector3(-r, h * 0.3, r - 0.01), Vector3(r * 2, 0.06, 0.03), Color("f0ece0"))  # the guano line
+
+## The Meadow Well: a little round well-house with a conical stone roof.
+static func _well_house(st: SurfaceTool, w: int, d: int) -> void:
+	var c := Vector3(w * 0.5, 0, d * 0.5)
+	Meshes.cylinder(st, c, 0.85, 1.2, 10, CAITHNESS_FLAG)
+	_spire(st, c + Vector3(0, 1.2, 0), 1.0, 0.9, CAITHNESS_ROOF)
+	Meshes.box(st, Vector3(w * 0.5 - 0.25, 0.1, d * 0.5 + 0.8), Vector3(0.5, 0.8, 0.08), Color("2a2622"))
+
+## Old St Peter's: roofless walls, a broken south wall, a little bellcote.
+static func _kirk_ruin(st: SurfaceTool, w: int, d: int, door_x: int) -> void:
+	var stone := Color("9a9184")
+	var h := 2.2
+	Meshes.box(st, Vector3(0, 0, 0), Vector3(w, h, 0.35), stone)
+	Meshes.box(st, Vector3(0, 0, 0), Vector3(0.35, h + 0.8, d), stone.darkened(0.05))
+	Meshes.box(st, Vector3(w - 0.35, 0, 0), Vector3(0.35, h + 0.8, d), stone.darkened(0.05))
+	for x in w:
+		if x != door_x:
+			Meshes.box(st, Vector3(x, 0, d - 0.35), Vector3(1, h * (0.6 if x % 2 == 0 else 0.85), 0.35), stone)
+	Meshes.box(st, Vector3(w - 0.4, h + 0.8, d * 0.5 - 0.3), Vector3(0.45, 0.7, 0.6), stone)  # bellcote
+	Meshes.box(st, Vector3(0.35, 0.02, 0.35), Vector3(w - 0.7, 0.03, d - 0.7), Color("6f8a4c"))
+
+## John o' Groats Inn: a white hotel with an eight-sided tower (Jan de Groot's eight sons) and bright trim.
+static func _jog_inn(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int, rng: RandomNumberGenerator) -> void:
+	_house(st, wst, w, d, door_x, rng, Color("eeeae0"), SLATE, 2, false, false)
+	var c := Vector3(0.75, 0, d - 0.2)
+	Meshes.cylinder(st, c, 0.75, 3.6, 8, Color("eeeae0"))
+	for k in 3:
+		_window(st, wst, c.x - 0.18, 0.5 + k * 1.05, c.z + 0.74, 0.36, 0.5, Color("f4efe2"))
+	_spire(st, c + Vector3(0, 3.6, 0), 0.8, 1.1, SLATE)
+	var trim := [Color("d84a3a"), Color("2f7fb5"), Color("e8b030")]
+	for i in trim.size():
+		Meshes.box(st, Vector3(w - 1.0 - i, 2.2, d - 0.02), Vector3(0.9, 0.12, 0.06), trim[i])
+
+## The Flows Lookout at Forsinard: a timber tower with a slatted top, looking out over the bog.
+static func _flows_lookout(st: SurfaceTool, w: int, d: int) -> void:
+	var larch := Color("a07850")
+	for c in [Vector2(0.4, 0.4), Vector2(w - 0.4, 0.4), Vector2(0.4, d - 0.4), Vector2(w - 0.4, d - 0.4)]:
+		Meshes.box(st, Vector3(c.x - 0.1, 0, c.y - 0.1), Vector3(0.2, 2.6, 0.2), larch.darkened(0.2))
+	for k in 3:
+		Meshes.box(st, Vector3(0.2, 0.6 + k * 0.7, d - 0.3), Vector3(w - 0.4, 0.1, 0.1), larch)
+	Meshes.box(st, Vector3(0.1, 2.6, 0.1), Vector3(w - 0.2, 0.15, d - 0.2), larch)
+	for i in 6:
+		Meshes.box(st, Vector3(0.15 + i * (w - 0.3) / 6.0, 2.75, 0.1), Vector3(0.18, 1.0, d - 0.2), larch.lightened(0.08 * (i % 2)))
+	Meshes.box(st, Vector3(0.0, 3.75, 0.0), Vector3(w, 0.12, d), larch.darkened(0.3))
