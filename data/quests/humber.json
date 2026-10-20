@@ -1,0 +1,38 @@
+{"quests": [
+ {"id": "humber_imp", "title": "The Imp on the Loose", "region": "humber", "town": "lincoln", "giver": "Verger",
+  "summary": "The Lincoln Imp has hopped off his pillar in the Angel Choir. Follow his trail round Lincoln.",
+  "start_flag": "q_humber_imp_started",
+  "steps": [
+   {"flag": "q_humber_imp_1", "text": "Ask at the Strugglers Inn by the castle.", "zone": "lincoln_strugglers"},
+   {"flag": "q_humber_imp_2", "text": "Follow the sausage trail to the Sausage Makers on Steep Hill.", "zone": "lincoln_butcher"},
+   {"flag": "q_humber_imp_3", "text": "Catch the Imp on the wall of Minster Yard.", "zone": "lincoln"},
+   {"flag": "q_humber_imp_done", "text": "Tell the Verger in the cathedral.", "zone": "lincoln_cathedral"}],
+  "done_flag": "q_humber_imp_done", "reward": "The Lincoln Imp, a Lincoln Imp Pin, plum bread and standing in England."},
+ {"id": "humber_petition", "title": "Wilberforce's Petition", "region": "humber", "town": "hull", "giver": "Curator",
+  "summary": "Gather three names for a petition against the slave trade, as Hull and Yorkshire did in Wilberforce's day.",
+  "start_flag": "q_humber_petition_started",
+  "steps": [
+   {"flag": "q_humber_petition_1", "text": "Ask for a signature on Hessle Road.", "zone": "hull_hessle"},
+   {"flag": "q_humber_petition_2", "text": "Find the churchwarden at Rudston, on the Wolds.", "zone": "wolds_rudston"},
+   {"flag": "q_humber_petition_3", "text": "Win over the Parliamentary Clerk in Hull Minster.", "zone": "hull_minster"},
+   {"flag": "q_humber_petition_done", "text": "Take the petition back to Wilberforce House.", "zone": "hull_wilberforce"}],
+  "done_flag": "q_humber_petition_done", "reward": "A Four-Leaf Clover, Hull patties and standing in England."},
+ {"id": "humber_trawler", "title": "Deckie for a Day", "region": "humber", "town": "hull", "giver": "Skipper",
+  "summary": "Sign on with the Skipper of the Arctic Corsair for a trip down the Humber.",
+  "start_flag": "q_humber_trawler_started",
+  "steps": [
+   {"flag": "q_humber_trawler_1", "text": "Get a gansey from the knitter on Hessle Road.", "zone": "hull_hessle"},
+   {"flag": "q_humber_trawler_2", "text": "Pick up a patty for the voyage at Patty and Chips.", "zone": "hull_chippy"},
+   {"flag": "q_humber_trawler_3", "text": "Sail with the Skipper and pass the First Mate's test.", "zone": "hull_corsair"}],
+  "done_flag": "q_humber_trawler_done", "reward": "A Borelet, a Fisherman's Gansey and standing in England."},
+ {"id": "humber_magna", "title": "The Great Charter", "region": "humber", "town": "lincoln", "giver": "Castle Guide",
+  "summary": "Hear four clauses of Lincoln's 1215 Magna Carta in the castle vault, then pass the guide's test.",
+  "start_flag": "q_humber_magna_started",
+  "steps": [
+   {"flag": "q_humber_magna_1", "text": "Hear Clause 39.", "zone": "lincoln_castle"},
+   {"flag": "q_humber_magna_2", "text": "Hear Clause 40.", "zone": "lincoln_castle"},
+   {"flag": "q_humber_magna_3", "text": "Hear Clause 33.", "zone": "lincoln_castle"},
+   {"flag": "q_humber_magna_4", "text": "Hear Clause 35.", "zone": "lincoln_castle"},
+   {"flag": "q_humber_magna_done", "text": "Answer the Castle Guide's three questions.", "zone": "lincoln_castle"}],
+  "done_flag": "q_humber_magna_done", "reward": "Lincolnshire sausages, plum bread and standing in England."}
+]}

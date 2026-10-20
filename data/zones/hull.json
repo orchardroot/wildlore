@@ -1,0 +1,944 @@
+{
+ "id": "hull",
+ "name": "Hull",
+ "region": "yorkshire",
+ "kind": "town",
+ "music": "town_north",
+ "weather": {
+  "drizzle": 26,
+  "clear": 24,
+  "gale": 16,
+  "fog": 14,
+  "sunshine": 14,
+  "downpour": 6
+ },
+ "props": [
+  {
+   "type": "building",
+   "style": "station",
+   "x": 6,
+   "y": 10,
+   "w": 10,
+   "h": 2,
+   "label": "Hull Paragon Interchange"
+  },
+  {
+   "type": "buffer_stop",
+   "x": 16,
+   "y": 13
+  },
+  {
+   "type": "statue",
+   "x": 19,
+   "y": 9,
+   "variant": 1
+  },
+  {
+   "type": "bench",
+   "x": 21,
+   "y": 9
+  },
+  {
+   "type": "building",
+   "style": "sanctuary",
+   "x": 35,
+   "y": 6,
+   "w": 6,
+   "h": 4,
+   "label": "Sanctuary"
+  },
+  {
+   "type": "building",
+   "style": "shop",
+   "x": 43,
+   "y": 6,
+   "w": 5,
+   "h": 4,
+   "label": "Corner Shop"
+  },
+  {
+   "type": "statue",
+   "x": 23,
+   "y": 25,
+   "variant": 0
+  },
+  {
+   "type": "building",
+   "style": "stone",
+   "x": 17,
+   "y": 15,
+   "w": 9,
+   "h": 4,
+   "label": "Ferens Art Gallery",
+   "kind": "museum"
+  },
+  {
+   "type": "building",
+   "style": "stone",
+   "x": 34,
+   "y": 14,
+   "w": 10,
+   "h": 4,
+   "label": "Hull Maritime Museum",
+   "kind": "museum"
+  },
+  {
+   "type": "planter",
+   "x": 18,
+   "y": 27
+  },
+  {
+   "type": "planter",
+   "x": 28,
+   "y": 27
+  },
+  {
+   "type": "bunting",
+   "x": 20,
+   "y": 23
+  },
+  {
+   "type": "bunting",
+   "x": 26,
+   "y": 23
+  },
+  {
+   "type": "building",
+   "style": "trawler",
+   "x": 54,
+   "y": 24,
+   "w": 3,
+   "h": 8,
+   "label": "Arctic Corsair",
+   "kind": "museum"
+  },
+  {
+   "type": "building",
+   "style": "limestone_church",
+   "x": 36,
+   "y": 26,
+   "w": 11,
+   "h": 4,
+   "label": "Hull Minster",
+   "kind": "church"
+  },
+  {
+   "type": "building",
+   "style": "georgian_brick",
+   "x": 44,
+   "y": 34,
+   "w": 6,
+   "h": 3,
+   "label": "Wilberforce House",
+   "kind": "museum"
+  },
+  {
+   "type": "building",
+   "style": "pantile_brick",
+   "x": 35,
+   "y": 34,
+   "w": 6,
+   "h": 3,
+   "label": "Ye Olde White Harte"
+  },
+  {
+   "type": "building",
+   "style": "georgian_brick",
+   "x": 49,
+   "y": 24,
+   "w": 3,
+   "h": 3,
+   "label": "Old Town",
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "terrace",
+   "x": 2,
+   "y": 30,
+   "w": 5,
+   "h": 3,
+   "label": "Hessle Road",
+   "kind": "home"
+  },
+  {
+   "type": "building",
+   "style": "white_render",
+   "x": 10,
+   "y": 30,
+   "w": 6,
+   "h": 3,
+   "label": "Patty and Chips",
+   "kind": "cafe"
+  },
+  {
+   "type": "building",
+   "style": "terrace",
+   "x": 18,
+   "y": 30,
+   "w": 6,
+   "h": 3,
+   "label": "Hessle Road Terrace",
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "terrace",
+   "x": 10,
+   "y": 36,
+   "w": 14,
+   "h": 3,
+   "label": "Fish Dock Terrace",
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "humber_bridge",
+   "x": 3,
+   "y": 42,
+   "w": 3,
+   "h": 18,
+   "label": "Humber Bridge",
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "the_deep",
+   "x": 59,
+   "y": 38,
+   "w": 8,
+   "h": 5,
+   "label": "The Deep",
+   "kind": "museum"
+  },
+  {
+   "type": "phone_box",
+   "x": 29,
+   "y": 5,
+   "variant": 1
+  },
+  {
+   "type": "phone_box",
+   "x": 33,
+   "y": 24,
+   "variant": 1
+  },
+  {
+   "type": "phone_box",
+   "x": 29,
+   "y": 36,
+   "variant": 1
+  },
+  {
+   "type": "phone_box",
+   "x": 43,
+   "y": 33,
+   "variant": 1
+  },
+  {
+   "type": "phone_box",
+   "x": 15,
+   "y": 29,
+   "variant": 1
+  },
+  {
+   "type": "phone_box",
+   "x": 66,
+   "y": 31,
+   "variant": 1
+  },
+  {
+   "type": "phone_box",
+   "x": 9,
+   "y": 24,
+   "variant": 1
+  },
+  {
+   "type": "lamp_post",
+   "x": 29,
+   "y": 14
+  },
+  {
+   "type": "lamp_post",
+   "x": 33,
+   "y": 18
+  },
+  {
+   "type": "lamp_post",
+   "x": 29,
+   "y": 28
+  },
+  {
+   "type": "lamp_post",
+   "x": 33,
+   "y": 41
+  },
+  {
+   "type": "lamp_post",
+   "x": 12,
+   "y": 19
+  },
+  {
+   "type": "lamp_post",
+   "x": 24,
+   "y": 19
+  },
+  {
+   "type": "lamp_post",
+   "x": 40,
+   "y": 19
+  },
+  {
+   "type": "lamp_post",
+   "x": 36,
+   "y": 43
+  },
+  {
+   "type": "lamp_post",
+   "x": 48,
+   "y": 43
+  },
+  {
+   "type": "lamp_post",
+   "x": 62,
+   "y": 35
+  },
+  {
+   "type": "lamp_post",
+   "x": 14,
+   "y": 43
+  },
+  {
+   "type": "bench",
+   "x": 18,
+   "y": 24
+  },
+  {
+   "type": "bench",
+   "x": 28,
+   "y": 24
+  },
+  {
+   "type": "bench",
+   "x": 38,
+   "y": 39
+  },
+  {
+   "type": "bench",
+   "x": 46,
+   "y": 39
+  },
+  {
+   "type": "bench",
+   "x": 20,
+   "y": 43
+  },
+  {
+   "type": "bench",
+   "x": 26,
+   "y": 43
+  },
+  {
+   "type": "bench",
+   "x": 64,
+   "y": 35
+  },
+  {
+   "type": "bollard",
+   "x": 40,
+   "y": 43
+  },
+  {
+   "type": "bollard",
+   "x": 44,
+   "y": 43
+  },
+  {
+   "type": "boat",
+   "x": 55,
+   "y": 40,
+   "variant": 1
+  },
+  {
+   "type": "boat",
+   "x": 56,
+   "y": 44,
+   "variant": 1
+  },
+  {
+   "type": "boat",
+   "x": 20,
+   "y": 50,
+   "variant": 1
+  },
+  {
+   "type": "boat",
+   "x": 40,
+   "y": 52,
+   "variant": 1
+  },
+  {
+   "type": "boat",
+   "x": 62,
+   "y": 50,
+   "variant": 1
+  },
+  {
+   "type": "buoy",
+   "x": 30,
+   "y": 50
+  },
+  {
+   "type": "buoy",
+   "x": 48,
+   "y": 48,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 62,
+   "y": 19,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 59,
+   "y": 7,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 59,
+   "y": 20,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 68,
+   "y": 4,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 61,
+   "y": 20,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 66,
+   "y": 6,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 60,
+   "y": 5,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 66,
+   "y": 4,
+   "variant": 1
+  },
+  {
+   "type": "birch",
+   "x": 12,
+   "y": 4,
+   "variant": 2
+  },
+  {
+   "type": "birch",
+   "x": 6,
+   "y": 5,
+   "variant": 1
+  },
+  {
+   "type": "birch",
+   "x": 13,
+   "y": 7,
+   "variant": 2
+  }
+ ],
+ "warps": [
+  {
+   "x": 38,
+   "y": 9,
+   "to": "hull_sanctuary",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 45,
+   "y": 9,
+   "to": "hull_shop",
+   "tx": 4,
+   "ty": 5,
+   "facing": "up"
+  },
+  {
+   "x": 46,
+   "y": 36,
+   "to": "hull_wilberforce",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 37,
+   "y": 36,
+   "to": "hull_whiteharte",
+   "tx": 6,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 40,
+   "y": 29,
+   "to": "hull_minster",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 62,
+   "y": 42,
+   "to": "hull_deep",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 55,
+   "y": 31,
+   "to": "hull_corsair",
+   "tx": 6,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 4,
+   "y": 32,
+   "to": "hull_hessle",
+   "tx": 6,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 12,
+   "y": 32,
+   "to": "hull_chippy",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  }
+ ],
+ "edges": {
+  "north": {
+   "to": "yorkshire_wolds",
+   "offset": 0
+  }
+ },
+ "npcs": [
+  {
+   "id": "rail_guard",
+   "sprite": "rail_guard",
+   "x": 17,
+   "y": 12,
+   "facing": "left",
+   "move": "still",
+   "script": "rail_guard"
+  },
+  {
+   "id": "hul_fern",
+   "sprite": "villager_3",
+   "x": 28,
+   "y": 7,
+   "facing": "down",
+   "move": "still",
+   "script": "hul_fern"
+  },
+  {
+   "id": "hul_bobber",
+   "sprite": "fisherman_north",
+   "x": 13,
+   "y": 34,
+   "facing": "down",
+   "move": "still",
+   "script": "hul_bobber"
+  },
+  {
+   "id": "hul_culture",
+   "sprite": "festival_goer",
+   "x": 26,
+   "y": 28,
+   "facing": "up",
+   "move": "still",
+   "script": "hul_culture"
+  },
+  {
+   "id": "hul_ferryman",
+   "sprite": "sailor",
+   "x": 47,
+   "y": 43,
+   "facing": "down",
+   "move": "still",
+   "script": "hul_ferryman"
+  },
+  {
+   "id": "hul_patty_fan",
+   "sprite": "villager_6",
+   "x": 18,
+   "y": 34,
+   "facing": "left",
+   "move": "still",
+   "script": "hul_patty_fan"
+  },
+  {
+   "id": "hul_trawler",
+   "sprite": "fisherman_north",
+   "x": 24,
+   "y": 38,
+   "facing": "up",
+   "move": "still",
+   "trainer": "hul_trawler"
+  },
+  {
+   "id": "hul_aquarist",
+   "sprite": "student",
+   "x": 63,
+   "y": 36,
+   "facing": "left",
+   "move": "still",
+   "trainer": "hul_aquarist"
+  },
+  {
+   "id": "hul_rugby",
+   "sprite": "rugby_player",
+   "x": 9,
+   "y": 25,
+   "facing": "right",
+   "move": "still",
+   "trainer": "hul_rugby"
+  },
+  {
+   "id": "hul_poet",
+   "sprite": "poet",
+   "x": 22,
+   "y": 12,
+   "facing": "left",
+   "move": "still",
+   "trainer": "hul_poet"
+  },
+  {
+   "id": "hul_walt",
+   "sprite": "sailor",
+   "x": 38,
+   "y": 41,
+   "facing": "down",
+   "move": "still",
+   "trainer": "hul_walt"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "chipgull",
+    "min": 84,
+    "max": 84,
+    "weight": 18
+   },
+   {
+    "species": "cooplet",
+    "min": 84,
+    "max": 84,
+    "weight": 14
+   },
+   {
+    "species": "binfox",
+    "min": 84,
+    "max": 84,
+    "weight": 10,
+    "time": [
+     "night",
+     "dusk"
+    ]
+   },
+   {
+    "species": "grizzlet",
+    "min": 84,
+    "max": 84,
+    "weight": 10
+   },
+   {
+    "species": "starlet",
+    "min": 84,
+    "max": 84,
+    "weight": 10,
+    "time": [
+     "dusk",
+     "dawn",
+     "day"
+    ]
+   },
+   {
+    "species": "rooklet",
+    "min": 84,
+    "max": 84,
+    "weight": 8
+   },
+   {
+    "species": "peregrin",
+    "min": 84,
+    "max": 84,
+    "weight": 6,
+    "time": [
+     "day"
+    ]
+   },
+   {
+    "species": "flittermouse",
+    "min": 84,
+    "max": 84,
+    "weight": 6,
+    "time": [
+     "night"
+    ]
+   },
+   {
+    "species": "pepperling",
+    "min": 84,
+    "max": 84,
+    "weight": 6
+   }
+  ],
+  "water": [
+   {
+    "species": "borelet",
+    "min": 84,
+    "max": 84,
+    "weight": 18
+   },
+   {
+    "species": "chipgull",
+    "min": 84,
+    "max": 84,
+    "weight": 14
+   },
+   {
+    "species": "pinchkin",
+    "min": 84,
+    "max": 84,
+    "weight": 14
+   },
+   {
+    "species": "pupplash",
+    "min": 84,
+    "max": 84,
+    "weight": 12
+   },
+   {
+    "species": "gannetling",
+    "min": 84,
+    "max": 84,
+    "weight": 10
+   },
+   {
+    "species": "stalklet",
+    "min": 84,
+    "max": 84,
+    "weight": 10
+   },
+   {
+    "species": "glimmerjaw",
+    "min": 85,
+    "max": 85,
+    "weight": 6,
+    "time": [
+     "night"
+    ]
+   },
+   {
+    "species": "aegir",
+    "min": 85,
+    "max": 85,
+    "weight": 4,
+    "weather": [
+     "gale",
+     "downpour",
+     "drizzle"
+    ]
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 19,
+   "y": 10,
+   "text": "PHILIP LARKIN (1922 to 1985). Poet and, for thirty years, librarian at the University of Hull. His statue hurries for a train here, as in his poem 'The Whitsun Weddings', which starts on a slow train out of Hull one hot Saturday. He called the city 'in the world, yet sufficiently on the edge of it'.",
+   "plaque": "hull_larkin",
+   "title": "Philip Larkin"
+  },
+  {
+   "x": 21,
+   "y": 26,
+   "text": "UK CITY OF CULTURE 2017. Hull's year of culture opened with a light show on the waterfront and filled the city with art. 'Blade', a 75-metre wind turbine blade made in Hull, was laid across this square like a giant had dropped it. Nine in ten people in Hull went to at least one event.",
+   "plaque": "hull_city_of_culture",
+   "title": "City of Culture 2017"
+  },
+  {
+   "x": 25,
+   "y": 26,
+   "text": "KINGSTON UPON HULL. The town of Wyke was bought by Edward I in 1293, renamed the King's Town on the River Hull, and given its charter in 1299. Hardly anybody calls it that. It's Hull, or 'Ull, depending how many aitches you've got spare.",
+   "plaque": "hull_kingston",
+   "title": "Kingston upon Hull"
+  },
+  {
+   "x": 52,
+   "y": 31,
+   "text": "ARCTIC CORSAIR. A sidewinder trawler built in 1960, now the last of Hull's deep-sea fleet you can step aboard. Crews worked off Iceland and Norway for three weeks at a time, gutting fish on an open deck in Arctic gales. In the Cod War of 1976 she rammed an Icelandic gunboat.",
+   "plaque": "hull_arctic_corsair",
+   "title": "The Arctic Corsair"
+  },
+  {
+   "x": 47,
+   "y": 36,
+   "text": "BLUE PLAQUE: William Wilberforce (1759 to 1833) was born in this house. As MP he led the twenty-year fight in Parliament against the slave trade, which Britain abolished in 1807. The Slavery Abolition Act passed in 1833, three days before he died.",
+   "plaque": "hull_wilberforce",
+   "title": "William Wilberforce",
+   "kind": "plaque",
+   "dx": 0.5
+  },
+  {
+   "x": 41,
+   "y": 30,
+   "text": "HULL MINSTER. Holy Trinity, begun around 1300, is one of the earliest great buildings in England to use brick, made from Humber clay because stone was scarce. It is England's largest parish church by floor area, and became Hull Minster in 2017.",
+   "plaque": "hull_minster",
+   "title": "Hull Minster"
+  },
+  {
+   "x": 34,
+   "y": 30,
+   "text": "BEVERLEY GATE. In April 1642 King Charles I rode up to Hull's gate to claim the arsenal stored here, and the governor, Sir John Hotham, shut it in his face. It was one of the first acts of defiance of the Civil War. Hotham switched sides later and lost his head for it.",
+   "plaque": "hull_beverley_gate",
+   "title": "Beverley Gate, 1642"
+  },
+  {
+   "x": 12,
+   "y": 40,
+   "text": "THE BULLNOSE. At the old St Andrew's Dock, where Hessle Road's trawlers sailed from, a memorial remembers the 6,000 and more Hull fishermen lost at sea. After three trawlers sank in a few weeks in 1968, Lillian Bilocca and the Headscarf Revolutionaries of Hessle Road won new safety rules for every crew.",
+   "plaque": "hull_bullnose",
+   "title": "The Bullnose"
+  },
+  {
+   "x": 9,
+   "y": 41,
+   "text": "THE HUMBER BRIDGE. Opened in 1981, and for sixteen years the longest single-span suspension bridge in the world: 1,410 metres between the towers. The towers stand 155 metres tall, and are 36 millimetres further apart at the top than at the bottom, because the Earth is curved.",
+   "plaque": "hull_humber_bridge",
+   "title": "The Humber Bridge"
+  },
+  {
+   "x": 64,
+   "y": 43,
+   "text": "THE DEEP. An aquarium shaped like a shard of rock rearing out of the Humber, opened in 2002 at Sammy's Point, where the River Hull meets the estuary. Its tall main tank holds sharks and rays, and a glass lift rides up through the middle of it.",
+   "plaque": "hull_the_deep",
+   "title": "The Deep"
+  },
+  {
+   "x": 60,
+   "y": 31,
+   "text": "THE HUMBER. Not a river but an estuary, where the Trent and the Ouse meet and run out to the North Sea. Its water is brown with silt, not dirt: the tide churns up the mud twice a day. Ships have come up it to Hull for seven hundred years.",
+   "plaque": "hull_sammys_point",
+   "title": "The Humber"
+  },
+  {
+   "x": 28,
+   "y": 5,
+   "text": "CREAM PHONE BOXES. Hull's K6 kiosks are cream, not red, and wear no crown. From 1902 the city council ran its own telephone service, the only one in Britain to stay independent of the national network, and it still goes its own way. Locals will tell you it's not a 'phone', it's a 'fern'.",
+   "plaque": "hull_phone_boxes",
+   "title": "Cream Phone Boxes"
+  },
+  {
+   "x": 2,
+   "y": 35,
+   "text": "AMY JOHNSON (1903 to 1941). Born in Hull, she taught herself engineering and in 1930 became the first woman to fly solo from Britain to Australia, in a second-hand biplane called Jason. It took her nineteen days.",
+   "plaque": "hull_amy_johnson",
+   "title": "Amy Johnson"
+  }
+ ],
+ "spawn": [
+  31,
+  3
+ ],
+ "stage": "docks",
+ "town_id": "hull",
+ "scaled_floor": 84,
+ "station": {
+  "x": 11,
+  "y": 12
+ },
+ "rows": [
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT===TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT===TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TT............................===....................w~~~~w...........TT",
+  "TT...................,........===....................w~~~~w...........TT",
+  "TT.................,,,,,,,....===....................w~~~~w...........TT",
+  "TT................,,,,,,,,,...===....................w~~~~w...........TT",
+  "TT.................,,,,,,,....===..BBBBBB..BBBBB.....w~~~~w....,......TT",
+  "TT............................===..BBBBBB..BBBBB.....w~~~~w..,,,,,,,..TT",
+  "TT............................===..BBBBBB..BBBBB.....w~~~~w..,,,,,,,,.TT",
+  "TT............................===..BBBDBB..BBDBB.....w~~~~w.,,,,,,,,,.TT",
+  "TT....BBBBBBBBBB..............===::::::::::::::::::..w~~~~w,,,,,,,,,,.TT",
+  "TT....BBBBBDBBBB::::::::::::::===....................w~~~~w.,,,,,,,,,,TT",
+  "TT....__________:.............===....................w~~~~w.,,,,,,,,,.TT",
+  "!!!!!!!!!!!!!!!!!.............===....................w~~~~w.,,,,,,,,,.TT",
+  "TT............................===.BBBBBBBBBB.........w~~~~w.,,,,,,,,,.TT",
+  "TT...............BBBBBBBBB....===.BBBBBBBBBB.........w~~~~w.,,,,,,,,,.TT",
+  "TT...............BBBBBBBBB....===.BBBBBBBBBB.........w~~~~w.,,,,,,,,..TT",
+  "TT...............BBBBBBBBB....===.BBBBBBBBBB.........w~~~~w..,,,,,,...TT",
+  "TT...............BBBBBBBBB....===....................w~~~~w...........TT",
+  "TT............................===....................w~~~~w...........TT",
+  "TT===================================================w~~~~w...........TT",
+  "TT===================================================w~~~~w...........TT",
+  "TT=====::============================================w~~~~w...........TT",
+  "TT.....::.......::::::::::::::===::::::::::::::::::::w~~~~w...........TT",
+  "TT.....::.......::::::::::::::===................BBB.wBBB~w...........TT",
+  "TT.....::.......::::::::::::::===................BBB.wBBB~w...........TT",
+  "TT.....::.......::::::::::::::===...BBBBBBBBBBB..BBB.wBBB~w...........TT",
+  "TT.....::.......::::::::::::::===...BBBBBBBBBBB......wBBB~w...........TT",
+  "TT.....::.......::::::::::::::===...BBBBBBBBBBB......wBBB~w...........TT",
+  "TT.....::.....................===...BBBBDBBBBBB......wBBB~w...........TT",
+  "TTBBBBB::.BBBBBB..BBBBBB......===....................wBBB~w...........TT",
+  "TTBBBBB::.BBBBBB..BBBBBB......===::::::::::::::::::::wBDB~w...........TT",
+  "TTBBDBB::.BBDBBB..BBBBBB......===:::::::::::::::::::::::::::::::::::::TT",
+  "TT::::::::::::::::::::::::::::===:::::::::::::::::::::::::::::::::::::TT",
+  "TT::::::::::::::::::::::::::::===..BBBBBB...BBBBBB...w~~~~w.........::TT",
+  "TT.....::.....................===..BBBBBB...BBBBBB...w~~~~w.........::TT",
+  "TT.....::.BBBBBBBBBBBBBB......===..BBDBBB...BBDBBB...w~~~~w.........::TT",
+  "TT.....::.BBBBBBBBBBBBBB......===::::::::::::::::::::w~~~~w.........::TT",
+  "TT.....::.BBBBBBBBBBBBBB......===::::::::::::::::::::w~~~~wBBBBBBBB.::TT",
+  "TT::::::::::::::::::::::::::::===....................w~~~~wBBBBBBBB.::TT",
+  "TT.....::.....................===....................w~~~~wBBBBBBBB.::TT",
+  "TT.....::.....................===....................w~~~~wBBBBBBBB.::TT",
+  "TT.BBB.::.....................===....................w~~~~wBBBDBBBB.::TT",
+  "TT.BBB.::.....................===....................w~~~~w:::::::::::TT",
+  "TT.BBB.::::::::::::::::::::::::::::::::::::::::::::::w~~~~w:::::::::::TT",
+  "wwwBBBwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+  "~~~BBB~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
+  "~~~BBB~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
+  "~~~BBB~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
+  "~~~BBB~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
+  "~~~BBB~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
+  "~~~BBB~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
+  "~~~BBB~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
+  "~~~BBB~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
+  "~~~BBB~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
+  "~~~BBB~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
+  "~~~BBB~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
+  "~~~BBB~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
+  "~~~BBB~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
+  "~~~BBB~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+ ]
+}

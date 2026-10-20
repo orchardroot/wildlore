@@ -1,0 +1,49 @@
+{
+ "lin_land_girl": [
+  {
+   "do": "say",
+   "who": "Volunteer",
+   "text": "Lincolnshire grew the potatoes and the sugar beet, and sent the sausages. Half the country's food came off these flat fields."
+  },
+  {
+   "do": "say",
+   "who": "Volunteer",
+   "text": "There's a whole street of old shops in here: a chemist, a saddler, a wheelwright. Smells of polish and string."
+  }
+ ],
+ "lin_curator": [
+  {
+   "do": "say",
+   "who": "Curator",
+   "text": "That big iron box in the hall is a First World War tank, built in Lincoln. Fosters made agricultural machinery: traction engines, threshers. Then they made the first tanks."
+  },
+  {
+   "do": "if",
+   "flag": "humber_treadlet_given",
+   "then": [
+    {
+     "do": "say",
+     "who": "Curator",
+     "text": "How's your Treadlet? Still flattening hedges?"
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Curator",
+     "text": "And look what's turned up rattling round the yard. A Treadlet! Little Willie's spirit, I reckon. It wants to see the world. Take it."
+    },
+    {
+     "do": "give_creature",
+     "species": "treadlet",
+     "level": 33
+    },
+    {
+     "do": "set",
+     "flag": "humber_treadlet_given",
+     "value": true
+    }
+   ]
+  }
+ ]
+}

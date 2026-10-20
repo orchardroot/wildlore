@@ -1,0 +1,103 @@
+{
+ "hul_nan": [
+  {
+   "do": "if",
+   "flag": "q_humber_petition_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_humber_petition_1",
+     "then": [
+      {
+       "do": "say",
+       "who": "Hessle Road Nan",
+       "text": "I've signed, duck. Go on, get it to the Wolds."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Hessle Road Nan",
+       "text": "A petition against slavery? Course I'll sign. My husband went to sea at fourteen and worked like a slave half his life, and he'd tell you himself he was a free man. That's the difference that matters."
+      },
+      {
+       "do": "say",
+       "who": "Hessle Road Nan",
+       "text": "There. Mrs E. Fenwick, Hessle Road. Spelt right."
+      },
+      {
+       "do": "set",
+       "flag": "q_humber_petition_1",
+       "value": true
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "One name on the petition. Next: the churchwarden at Rudston, out on the Wolds."
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Hessle Road Nan",
+     "text": "Come in, duck, mind the step. Every house on this road had someone at sea."
+    },
+    {
+     "do": "say",
+     "who": "Hessle Road Nan",
+     "text": "When the trawlers came in, the whole road came out. When one didn't come in, the whole road knew by teatime."
+    }
+   ]
+  }
+ ],
+ "hul_knitter": [
+  {
+   "do": "if",
+   "flag": "q_humber_trawler_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_humber_trawler_1",
+     "then": [
+      {
+       "do": "say",
+       "who": "Knitter",
+       "text": "Wear it with the pattern facing out. It's a Hull pattern. Proud of it."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Knitter",
+       "text": "A gansey for a new deckie? I've one on the needles now. Oiled wool, close knit, so the spray runs off."
+      },
+      {
+       "do": "say",
+       "who": "Knitter",
+       "text": "Off you go. Mind you come back in it."
+      },
+      {
+       "do": "set",
+       "flag": "q_humber_trawler_1",
+       "value": true
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "You pull on the gansey. It smells faintly of sheep and the sea."
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Knitter",
+     "text": "Ganseys, they're called. Fishermen's jumpers. Every family had its own stitch, and every port its own pattern."
+    }
+   ]
+  }
+ ]
+}

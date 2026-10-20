@@ -371,9 +371,10 @@ static func planter(variant := 0) -> ArrayMesh:
 		box(st, Vector3(rng.randf_range(-0.25, 0.2), 0.62, rng.randf_range(-0.25, 0.2)), Vector3(0.07, 0.07, 0.07), [Color("d8566b"), Color("e8d34a")][i % 2])
 	return _finish(st)
 
-static func phone_box() -> ArrayMesh:
+## Variant 1 is Hull's: cream, from the city's own telephone company, and no crown on top.
+static func phone_box(variant := 0) -> ArrayMesh:
 	var st := _st()
-	var red := Color("c0302b")
+	var red := Color("c0302b") if variant != 1 else Color("ece3c4")
 	box(st, Vector3(-0.3, 0, -0.3), Vector3(0.6, 1.9, 0.6), red)
 	box(st, Vector3(-0.34, 1.9, -0.34), Vector3(0.68, 0.12, 0.68), red.darkened(0.1))
 	box(st, Vector3(-0.22, 0.5, 0.29), Vector3(0.44, 1.1, 0.02), Color("bfd4dc"))

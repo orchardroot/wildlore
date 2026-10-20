@@ -16,7 +16,7 @@ const IRON := Color("3c4450")
 const GLASS := Color.WHITE
 
 ## Building styles handled here rather than by the generic house in Meshes.building.
-const SPECIAL := ["glass_tower", "gantry_crane", "cantilever_crane", "titanic", "mill", "castle", "cathedral", "liver_building", "station", "aqueduct", "chapel", "terrace", "tudor", "slate_cottage", "lighthouse_house", "round_tower", "passage_tomb", "field_barn"]
+const SPECIAL := ["glass_tower", "gantry_crane", "cantilever_crane", "titanic", "mill", "castle", "cathedral", "liver_building", "station", "aqueduct", "chapel", "terrace", "tudor", "slate_cottage", "lighthouse_house", "round_tower", "passage_tomb", "field_barn", "humber_bridge", "the_deep", "lincoln_cathedral", "tank_memorial", "monolith", "limestone_church", "pantile_brick", "pantile_chalk", "georgian_brick", "limestone_house", "trawler", "spire_memorial"]
 
 ## Doors: where each style's door sits on its tile (see _door and friends), for the swing as you go in.
 ## {x, w, y, h, z}: left edge and width across the door column, bottom and height, z of the door's face from
@@ -34,6 +34,9 @@ const DOOR_RECTS := {
 	"castle": {"x": 0.2, "w": 0.6, "y": 0.0, "h": 1.1, "z": 0.11},
 	"cathedral": {"x": 0.15, "w": 0.7, "y": 0.0, "h": 1.3, "z": 0.03},
 	"glass_tower": {"x": 0.15, "w": 0.7, "y": 0.0, "h": 1.2, "z": 0.02},
+	"lincoln_cathedral": {"x": 0.15, "w": 0.7, "y": 0.0, "h": 1.3, "z": 0.03},
+	"limestone_church": {"x": 0.15, "w": 0.7, "y": 0.0, "h": 1.3, "z": 0.03},
+	"the_deep": {"x": 0.2, "w": 0.6, "y": 0.0, "h": 1.0, "z": 0.0},
 }
 const DOOR_OPEN_ANGLE := -1.75     # radians about the hinge: swings out toward you, about 100 degrees
 const DOOR_SWING_SECS := 0.16
@@ -115,6 +118,30 @@ static func building(w: int, d: int, style: String, door_x: int, seed_value: int
 			_passage_tomb(st, w, d, door_x)
 		"field_barn":
 			_field_barn(st, w, d, rng)
+		"humber_bridge":
+			_humber_bridge(st, w, d)
+		"the_deep":
+			_the_deep(st, wst, w, d, door_x)
+		"lincoln_cathedral":
+			_lincoln_cathedral(st, wst, w, d, door_x)
+		"tank_memorial":
+			_tank_memorial(st, w, d)
+		"monolith":
+			_monolith(st, w, d)
+		"limestone_church":
+			_cathedral(st, wst, w, d, door_x, LINCS_LIMESTONE.darkened(0.06))
+		"pantile_brick":
+			_house(st, wst, w, d, door_x, rng, BRICK.lightened(0.04), PANTILE, 2, false, false)
+		"pantile_chalk":
+			_house(st, wst, w, d, door_x, rng, CHALK, PANTILE, 1, false, false)
+		"georgian_brick":
+			_house(st, wst, w, d, door_x, rng, DARK_BRICK.lightened(0.06), SLATE, 3, true, false)
+		"limestone_house":
+			_house(st, wst, w, d, door_x, rng, LINCS_LIMESTONE, PANTILE.darkened(0.12), 2, false, false)
+		"trawler":
+			_trawler(st, wst, w, d, door_x)
+		"spire_memorial":
+			_spire_memorial(st, w, d)
 		"liver_building":
 			_liver(st, wst, w, d, door_x)
 		"station":
@@ -1041,3 +1068,236 @@ static func harp() -> ArrayMesh:
 	for i in 5:
 		Meshes.box(st, Vector3(-0.15 + i * 0.08, 0.12, -0.01), Vector3(0.012, 1.08 - i * 0.12, 0.012), Color("f2e2a0"))
 	return Meshes._finish(st)
+
+# --- the Humber and Lincoln ----------------------------------------------------
+
+const PANTILE := Color("b4532e")          # the red clay pantiles of East Yorkshire and Lincolnshire roofs
+const CHALK := Color("e6e0cf")            # Wolds chalk, limewashed
+const LINCS_LIMESTONE := Color("d4c497")  # Lincolnshire limestone, honey-pale
+
+## A rod from a to b with a square section that stays upright (for cables that run nearly level).
+static func _rod(st: SurfaceTool, a: Vector3, b: Vector3, t: float, col: Color) -> void:
+	var h := t * 0.5
+	var lo := [a + Vector3(-h, -h, 0), a + Vector3(h, -h, 0), a + Vector3(h, h, 0), a + Vector3(-h, h, 0)]
+	var hi := [b + Vector3(-h, -h, 0), b + Vector3(h, -h, 0), b + Vector3(h, h, 0), b + Vector3(-h, h, 0)]
+	for i in 4:
+		var j := (i + 1) % 4
+		Meshes._quad(st, lo[i], lo[j], hi[j], hi[i], col.darkened(0.08 * (i % 2)))
+		Meshes._quad(st, lo[i], hi[i], hi[j], lo[j], col.darkened(0.08 * (i % 2)))
+
+## The Humber Bridge (1981): the deck runs north-south across the plot, out over the estuary; two tall concrete
+## towers, each a pair of legs tied by crossbeams, and the main cables sagging between their tops on fine
+## hangers, then dropping to the deck at each end.
+static func _humber_bridge(st: SurfaceTool, w: int, d: int) -> void:
+	var conc := Color("cdcac0")
+	var cable := Color("eceae4")
+	var deck_y := 1.2
+	var cx := w * 0.5
+	var dw := minf(w - 0.6, 1.6)
+	Meshes.box(st, Vector3(cx - dw * 0.5, deck_y, 0), Vector3(dw, 0.24, d), Color("bdbcb6"), Color("5e6064"))
+	Meshes.box(st, Vector3(cx - 0.04, deck_y + 0.245, 0), Vector3(0.08, 0.01, d), Color("e8e2b0"))  # the white line
+	var th := 7.2
+	var tz := [1.4, d - 1.4]
+	var legs := [cx - dw * 0.5 - 0.2, cx + dw * 0.5 - 0.08]
+	for z in tz:
+		for lx in legs:
+			Meshes.box(st, Vector3(lx, -0.8, z - 0.22), Vector3(0.28, th + 0.8, 0.44), conc)
+		for y in [deck_y - 0.25, th * 0.5, th - 0.3]:
+			Meshes.box(st, Vector3(legs[0], y, z - 0.17), Vector3(legs[1] - legs[0] + 0.28, 0.3, 0.34), conc.darkened(0.06))
+	for lx in legs:
+		var x: float = lx + 0.14
+		var segs := 12
+		var prev := Vector3(x, th - 0.1, tz[0])
+		for i in range(1, segs + 1):
+			var u := float(i) / segs
+			var sag := 4.0 * u * (1.0 - u)
+			var p := Vector3(x, th - 0.1 - sag * (th - deck_y - 1.0), lerpf(tz[0], tz[1], u))
+			_rod(st, prev, p, 0.08, cable)
+			if i < segs:
+				Meshes.box(st, Vector3(x - 0.015, deck_y + 0.24, p.z - 0.015), Vector3(0.03, p.y - deck_y - 0.24, 0.03), cable.darkened(0.15))
+			prev = p
+		_rod(st, Vector3(x, th - 0.1, tz[0]), Vector3(x, deck_y + 0.3, 0.0), 0.08, cable)
+		_rod(st, Vector3(x, th - 0.1, tz[1]), Vector3(x, deck_y + 0.3, float(d)), 0.08, cable)
+	# piers under the deck between the towers and the shore
+	for z in [0.4, d - 0.4]:
+		Meshes.box(st, Vector3(cx - 0.3, -0.8, z - 0.2), Vector3(0.6, deck_y + 0.8, 0.4), conc.darkened(0.1))
+
+## One wall of an extruded outline: quads from each point to the next, between heights from `lo` and `hi`.
+## `pts` run clockwise seen from above with north up (x east, z south); faces point outward.
+static func _walls(st: SurfaceTool, pts: Array, lo: Array, hi: Array, col: Color) -> void:
+	for i in pts.size():
+		var j := (i + 1) % pts.size()
+		var p: Vector2 = pts[i]
+		var q: Vector2 = pts[j]
+		var shade := 0.12 * absf(q.x - p.x) / maxf(0.01, (q - p).length())
+		Meshes._quad(st, Vector3(q.x, hi[j], q.y), Vector3(p.x, hi[i], p.y), Vector3(p.x, lo[i], p.y), Vector3(q.x, lo[j], q.y),
+			col.darkened(0.12 - shade))
+
+## The Deep (2002): a grey, shard-like aquarium whose prow juts up and out over the Humber at the east end,
+## its flanks in slanting bands of aluminium and glass.
+static func _the_deep(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int) -> void:
+	var clad := Color("a2aab0")
+	var dark := Color("566068")
+	# outline seen from above, clockwise from the north-west corner
+	var pts := [Vector2(0.1, 0.7), Vector2(w - 1.8, 0.1), Vector2(w + 0.25, d * 0.55), Vector2(w - 1.1, d - 0.05), Vector2(0.1, d - 0.05)]
+	var lo := [0.0, 0.0, 0.9, 0.0, 0.0]
+	var hi := []
+	for p in pts:
+		hi.append(lerpf(1.3, 4.4, clampf(p.x / w, 0.0, 1.0)))
+	hi[2] = 5.3  # the prow's tip stands highest
+	_walls(st, pts, lo, hi, clad)
+	var c := Vector3.ZERO
+	for i in pts.size():
+		c += Vector3(pts[i].x, hi[i], pts[i].y)
+	c /= pts.size()
+	c.y += 0.25
+	for i in pts.size():
+		var j := (i + 1) % pts.size()
+		Meshes._tri(st, c, Vector3(pts[i].x, hi[i], pts[i].y), Vector3(pts[j].x, hi[j], pts[j].y), clad.lightened(0.1 if i % 2 == 0 else 0.0))
+	# the underside of the overhanging prow
+	Meshes._tri(st, Vector3(pts[1].x, 0.0, pts[1].y), Vector3(pts[3].x, 0.0, pts[3].y), Vector3(pts[2].x, 0.9, pts[2].y), dark)
+	# slanting bands of glass and dark panels climbing toward the prow
+	var south_z := d - 0.06
+	for i in 7:
+		var x := 0.5 + i * (w - 2.0) / 7.0
+		var y := 0.35 + i * 0.4
+		_window(st, wst, x, y, south_z, 0.7, 0.2, dark)
+		Meshes.box(st, Vector3(x, y + 0.42, south_z - 0.02), Vector3(0.7, 0.08, 0.04), dark)
+	_door(st, door_x, south_z, clad, 1.0)
+
+## Lincoln Cathedral: a long nave under a steep lead roof, a crossing tower and two west towers with pinnacles,
+## all in pale Lincolnshire limestone. Its central spire made it the tallest building in the world until it
+## blew down in 1548; the towers stand bare now.
+static func _lincoln_cathedral(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int) -> void:
+	var stone := LINCS_LIMESTONE
+	var lead := Color("6c7378")
+	var nave_h := 2.8
+	var west := 2.6
+	Meshes.box(st, Vector3(west, 0, 0.7), Vector3(w - west - 0.2, nave_h, d - 1.4), stone)
+	_roof_at(st, west, w - 0.2, 0.7, d - 0.7, nave_h, 1.3, lead, stone)
+	# buttresses and tall lancets down the south side
+	for x in range(int(west) + 1, w - 1):
+		Meshes.box(st, Vector3(x - 0.1, 0, d - 0.85), Vector3(0.2, nave_h - 0.2, 0.3), stone.darkened(0.08))
+		_window(st, wst, x + 0.3, 0.6, d - 0.7, 0.36, 1.5, stone.lightened(0.15))
+	# the transept and the crossing tower
+	var tx := west + (w - west) * 0.42
+	Meshes.box(st, Vector3(tx - 0.9, 0, 0.1), Vector3(1.8, nave_h, d - 0.2), stone.darkened(0.03))
+	_roof_at(st, tx - 0.9, tx + 0.9, 0.1, d - 0.1, nave_h, 1.0, lead, stone)
+	_window(st, wst, tx - 0.35, 0.8, d - 0.1, 0.7, 1.4, stone.lightened(0.15))
+	var ct := 2.0
+	var th := 8.2
+	var cz := d * 0.5 - ct * 0.5
+	Meshes.box(st, Vector3(tx - ct * 0.5, 0, cz), Vector3(ct, th, ct), stone.lightened(0.04))
+	for k in 2:
+		_window(st, wst, tx - 0.6 + k * 0.8, th - 2.8, cz + ct, 0.3, 1.8, stone.lightened(0.2))
+	for p in [Vector2(0, 0), Vector2(ct - 0.3, 0), Vector2(0, ct - 0.3), Vector2(ct - 0.3, ct - 0.3)]:
+		Meshes.box(st, Vector3(tx - ct * 0.5 + p.x, th, cz + p.y), Vector3(0.3, 1.1, 0.3), stone.lightened(0.08))
+		Meshes.box(st, Vector3(tx - ct * 0.5 + p.x + 0.08, th + 1.1, cz + p.y + 0.08), Vector3(0.14, 0.5, 0.14), stone.lightened(0.12))
+	_merlons(st, tx - ct * 0.5, tx + ct * 0.5, cz + ct - 0.6, th, stone, true)
+	# the west front: a wide screen wall with a tower rising behind each end
+	Meshes.box(st, Vector3(0, 0, 0.3), Vector3(west, nave_h + 0.9, d - 0.6), stone.lightened(0.02))
+	for z in [0.2, d - 1.5]:
+		Meshes.box(st, Vector3(0.4, 0, z), Vector3(1.3, 6.6, 1.3), stone.lightened(0.05))
+		for p in [Vector2(0, 0), Vector2(1.05, 0), Vector2(0, 1.05), Vector2(1.05, 1.05)]:
+			Meshes.box(st, Vector3(0.4 + p.x, 6.6, z + p.y), Vector3(0.25, 0.9, 0.25), stone.lightened(0.1))
+		_window(st, wst, 0.85, 4.6, z + 1.3, 0.4, 1.3, stone.lightened(0.2))
+	for k in 3:
+		_window(st, wst, 0.35 + k * 0.7, 1.6, d - 0.3, 0.3, 1.4, stone.lightened(0.2))
+	if door_x >= 0:
+		Meshes.box(st, Vector3(door_x + 0.15, 0, d - 0.73), Vector3(0.7, 1.3, 0.08), Color("3b2a22"))
+
+## A solid outline extruded along z (front cap at z1 faces south), for the tank's rhomboid sides.
+## `pts` (x, y) run clockwise seen from the south.
+static func _prism(st: SurfaceTool, pts: Array, z0: float, z1: float, col: Color) -> void:
+	for i in range(1, pts.size() - 1):
+		Meshes._tri(st, Vector3(pts[0].x, pts[0].y, z1), Vector3(pts[i].x, pts[i].y, z1), Vector3(pts[i + 1].x, pts[i + 1].y, z1), col)
+		Meshes._tri(st, Vector3(pts[0].x, pts[0].y, z0), Vector3(pts[i + 1].x, pts[i + 1].y, z0), Vector3(pts[i].x, pts[i].y, z0), col.darkened(0.1))
+	for i in pts.size():
+		var j := (i + 1) % pts.size()
+		Meshes._quad(st, Vector3(pts[i].x, pts[i].y, z0), Vector3(pts[j].x, pts[j].y, z0), Vector3(pts[j].x, pts[j].y, z1),
+			Vector3(pts[i].x, pts[i].y, z1), col.lightened(0.06) if pts[j].y >= pts[i].y - 0.01 and absf(pts[j].y - pts[i].y) < 0.05 else col.darkened(0.05))
+
+## The Lincoln tank memorial: a Mark IV on a stone plinth, its tracks running right round the rhomboid hull,
+## a gun sponson on each flank. The first tanks were built in Lincoln in 1915 and 1916.
+static func _tank_memorial(st: SurfaceTool, w: int, d: int) -> void:
+	var drab := Color("5f6648")
+	var track := Color("33312c")
+	Meshes.box(st, Vector3(0.15, 0, 0.2), Vector3(w - 0.3, 0.35, d - 0.4), LIMESTONE, LIMESTONE.lightened(0.1))
+	var y0 := 0.35
+	var prof := [Vector2(0.2, y0 + 0.45), Vector2(0.55, y0 + 1.05), Vector2(w - 0.5, y0 + 1.05), Vector2(w - 0.08, y0 + 0.4),
+		Vector2(w - 0.5, y0 + 0.02), Vector2(0.5, y0 + 0.02)]
+	var z0 := 0.3
+	var z1 := d - 0.3
+	_prism(st, prof, z0, z0 + 0.36, track)
+	_prism(st, prof, z1 - 0.36, z1, track)
+	var inner := [Vector2(0.6, y0 + 0.3), Vector2(0.8, y0 + 0.95), Vector2(w - 0.8, y0 + 0.95), Vector2(w - 0.5, y0 + 0.3)]
+	_prism(st, inner, z0 + 0.3, z1 - 0.3, drab)
+	Meshes.box(st, Vector3(w * 0.5 - 0.35, y0 + 0.95, d * 0.5 - 0.3), Vector3(0.7, 0.22, 0.6), drab.lightened(0.05))  # the cab
+	for z in [z0 - 0.12, z1 - 0.06]:  # sponsons with their stubby guns
+		Meshes.box(st, Vector3(w * 0.5 - 0.3, y0 + 0.35, z), Vector3(0.6, 0.4, 0.18), drab.darkened(0.05))
+	Meshes.box(st, Vector3(w * 0.5 - 0.04, y0 + 0.5, z1 + 0.1), Vector3(0.08, 0.08, 0.3), Color("2a2a26"))
+	for i in 6:  # track plates down the visible side
+		Meshes.box(st, Vector3(0.6 + i * (w - 1.2) / 6.0, y0 + 0.03, z1 + 0.005), Vector3(0.04, 0.3, 0.02), track.lightened(0.2))
+
+## The Rudston Monolith: Britain's tallest standing stone, a weathered slab of gritstone about 7.6 metres high,
+## lichened and slightly leaning, in a little fenced patch of churchyard grass.
+static func _monolith(st: SurfaceTool, w: int, d: int) -> void:
+	var rng := Meshes._rng(9177)
+	var g := Color("a49e8c")
+	var cx := w * 0.5
+	var cz := d * 0.5
+	Meshes.box(st, Vector3(0.05, 0, 0.05), Vector3(w - 0.1, 0.04, d - 0.1), Color("6f8d45"))
+	Meshes.box(st, Vector3(cx - 0.32, 0, cz - 0.16), Vector3(0.64, 1.6, 0.34), g)
+	Meshes.box(st, Vector3(cx - 0.28, 1.6, cz - 0.14), Vector3(0.55, 1.4, 0.3), g.lightened(0.04))
+	Meshes.box(st, Vector3(cx - 0.22, 3.0, cz - 0.12), Vector3(0.44, 0.7, 0.26), g.darkened(0.04))
+	Meshes.box(st, Vector3(cx - 0.12, 3.7, cz - 0.08), Vector3(0.24, 0.25, 0.18), Color("6d6a5e"))  # the lead cap
+	Meshes.blob(st, Vector3(cx + 0.12, 1.1, cz + 0.17), Vector3(0.14, 0.2, 0.04), Color("c2b45a"), rng)
+	Meshes.blob(st, Vector3(cx - 0.15, 2.4, cz + 0.15), Vector3(0.1, 0.14, 0.04), Color("9fae6a"), rng)
+
+## A Hull sidewinder trawler (the Arctic Corsair, 1960) moored bow to the north: a black hull with a rising
+## bow, white superstructure and wheelhouse aft, a buff funnel, a foremast and the trawl gallows along the side.
+## The door is a gangway in the stern.
+static func _trawler(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int) -> void:
+	var hull := Color("23262b")
+	var white := Color("e9e6dc")
+	var cx := w * 0.5
+	var pts := [Vector2(cx, 0.05), Vector2(w - 0.25, 1.8), Vector2(w - 0.3, d - 0.25), Vector2(0.3, d - 0.25), Vector2(0.25, 1.8)]
+	var lo := [-0.6, -0.6, -0.6, -0.6, -0.6]
+	var hi := [1.35, 0.9, 0.95, 0.95, 0.9]
+	_walls(st, pts, lo, hi, hull)
+	var deck := Color("8c7a62")
+	var c := Vector3(cx, 0.9, d * 0.5)
+	for i in pts.size():
+		var j := (i + 1) % pts.size()
+		Meshes._tri(st, c, Vector3(pts[i].x, hi[i] - 0.05, pts[i].y), Vector3(pts[j].x, hi[j] - 0.05, pts[j].y), deck)
+	Meshes.box(st, Vector3(0.28, 0.75, 1.8), Vector3(0.04, 0.12, d - 2.1), Color("a8322a"))  # a red line along the sheer
+	Meshes.box(st, Vector3(w - 0.32, 0.75, 1.8), Vector3(0.04, 0.12, d - 2.1), Color("a8322a"))
+	# superstructure aft, the wheelhouse on top
+	var sz := d * 0.5
+	Meshes.box(st, Vector3(0.45, 0.9, sz), Vector3(w - 0.9, 0.85, d * 0.32), white)
+	Meshes.box(st, Vector3(0.6, 1.75, sz + 0.1), Vector3(w - 1.2, 0.6, 1.0), white.lightened(0.04))
+	for k in 2:
+		_window(st, wst, 0.75 + k * (w - 1.5) * 0.5, 1.85, sz + 1.1, 0.4, 0.3, white)
+		_window(st, wst, 0.7 + k * (w - 1.4) * 0.5, 1.15, sz + d * 0.32, 0.35, 0.3, white)
+	Meshes.box(st, Vector3(cx - 0.25, 1.75, sz + d * 0.22), Vector3(0.5, 0.95, 0.5), Color("d6b04c"))  # the funnel
+	Meshes.box(st, Vector3(cx - 0.26, 2.5, sz + d * 0.22 - 0.01), Vector3(0.52, 0.2, 0.52), Color("1c1c1c"))
+	# foremast with a crosstree, and the trawl gallows on the starboard side
+	Meshes.box(st, Vector3(cx - 0.05, 0.9, d * 0.22), Vector3(0.1, 2.8, 0.1), Color("cfc8b8"))
+	Meshes.box(st, Vector3(cx - 0.5, 3.0, d * 0.22), Vector3(1.0, 0.07, 0.07), Color("cfc8b8"))
+	for gz in [d * 0.3, d * 0.8]:
+		Meshes.box(st, Vector3(w - 0.4, 0.9, gz), Vector3(0.08, 0.9, 0.08), Color("3d5a78"))
+		Meshes.box(st, Vector3(w - 0.4, 1.75, gz), Vector3(0.45, 0.08, 0.08), Color("3d5a78"))
+	if door_x >= 0:
+		Meshes.box(st, Vector3(door_x + 0.2, 0.0, d - 0.3), Vector3(0.6, 0.9, 0.06), Color("3b2a22"))
+
+## The Spire at the International Bomber Command Centre near Lincoln: a slim, tapering spire of weathering steel
+## as tall as a Lancaster's wings are wide, on a low stone base.
+static func _spire_memorial(st: SurfaceTool, w: int, d: int) -> void:
+	var steel := Color("8a4a2c")
+	var cx := w * 0.5
+	var cz := d * 0.5
+	Meshes.box(st, Vector3(0.1, 0, 0.1), Vector3(w - 0.2, 0.18, d - 0.2), LIMESTONE)
+	var n := 10
+	for i in n:
+		var r := 0.34 * (1.0 - float(i) / n) + 0.03
+		Meshes.box(st, Vector3(cx - r, 0.18 + i * 0.62, cz - r * 0.45), Vector3(r * 2.0, 0.62, r * 0.9), steel.lightened(0.04 * (i % 2)))

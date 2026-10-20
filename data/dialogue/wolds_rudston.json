@@ -1,0 +1,60 @@
+{
+ "wld_warden": [
+  {
+   "do": "if",
+   "flag": "q_humber_petition_1",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_humber_petition_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "Churchwarden",
+       "text": "Signed, sealed and on its way. Wilberforce rode out to the Wolds villages himself at election time, you know. Mind, it took him four days to get round."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Churchwarden",
+       "text": "A petition against the slave trade, from Hull? Give it here."
+      },
+      {
+       "do": "say",
+       "who": "Churchwarden",
+       "text": "Wilberforce was MP for all of Yorkshire from 1784, and that meant the Wolds too. Our farmers voted for him."
+      },
+      {
+       "do": "say",
+       "who": "Churchwarden",
+       "text": "There. My name, and the vicar's, and the woman who does the flowers, who has very firm opinions."
+      },
+      {
+       "do": "set",
+       "flag": "q_humber_petition_2",
+       "value": true
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "Two names down on the petition. One more to go, in Hull."
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Churchwarden",
+     "text": "Welcome to All Saints. Yes, the stone outside is older than the church. Older than the Romans. We've stopped arguing with it."
+    },
+    {
+     "do": "say",
+     "who": "Churchwarden",
+     "text": "Winifred Holtby, the writer, is buried in the churchyard here. She wrote 'South Riding', about East Yorkshire folk, and died young in 1935."
+    }
+   ]
+  }
+ ]
+}

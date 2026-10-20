@@ -1,0 +1,52 @@
+{
+ "id": "lin_nicola",
+ "name": "Re-enactor Nicola",
+ "class": "Castle Champion",
+ "sprite": "keeper_maud",
+ "party": [
+  {
+   "species": "centurion",
+   "level": 89,
+   "tea": "flask_of_tea"
+  },
+  {
+   "species": "landship",
+   "level": 89,
+   "held": "oak_acorn"
+  },
+  {
+   "species": "causewarden",
+   "level": 89
+  },
+  {
+   "species": "megalorn",
+   "level": 89
+  },
+  {
+   "species": "stagmajor",
+   "level": 89
+  },
+  {
+   "species": "pyredrey",
+   "level": 90,
+   "held": "horseshoe"
+  }
+ ],
+ "ai": "trainer",
+ "money": 10200,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Re-enactor Nicola",
+   "text": "I play Nicola de la Haye, who held Lincoln Castle twice against sieges, and was made Sheriff of Lincolnshire in 1216, in her sixties. A woman sheriff, eight hundred years ago."
+  },
+  {
+   "do": "say",
+   "who": "Re-enactor Nicola",
+   "text": "She didn't give up the castle. I won't give up this battle."
+  }
+ ],
+ "win": "Yielded! The castle's yours, for today. Nicola would have made you swear an oath first.",
+ "after": "In 1217 the Second Battle of Lincoln was fought right here in the streets, and Nicola's castle held. The French prince's army was routed, and Magna Carta was reissued that year.",
+ "scaled_floor": 88
+}

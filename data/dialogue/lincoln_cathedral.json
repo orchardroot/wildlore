@@ -1,0 +1,131 @@
+{
+ "lin_glass": [
+  {
+   "do": "say",
+   "who": "Stained-Glass Guide",
+   "text": "Look up at the two round windows: the Dean's Eye to the north and the Bishop's Eye to the south. The Dean watched for the Devil, the Bishop for the Holy Spirit. A sensible division of labour."
+  },
+  {
+   "do": "say",
+   "who": "Stained-Glass Guide",
+   "text": "The nave roof is so high a rainstorm once fell inside it as mist. Or so the vergers tell visitors."
+  }
+ ],
+ "lin_verger": [
+  {
+   "do": "if",
+   "flag": "q_humber_imp_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Verger",
+     "text": "The Angel Choir's very quiet without him. Too quiet. I almost miss the faces. Look after him."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_humber_imp_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_humber_imp_3",
+       "then": [
+        {
+         "do": "say",
+         "who": "Verger",
+         "text": "You caught him! The little horror. Look at that grin, not a shred of remorse."
+        },
+        {
+         "do": "say",
+         "who": "Verger",
+         "text": "Do you know, I think he'd be happier travelling. He's sat on that pillar since the 1200s. Take him, with the Chapter's blessing."
+        },
+        {
+         "do": "say",
+         "who": "Verger",
+         "text": "And take one of these. Lincoln jewellers have sold Imp pins for luck since Victorian times."
+        },
+        {
+         "do": "give_item",
+         "item": "lincoln_imp_pin",
+         "n": 1
+        },
+        {
+         "do": "give_item",
+         "item": "plum_bread",
+         "n": 2
+        },
+        {
+         "do": "standing",
+         "nation": "england",
+         "amount": 4
+        },
+        {
+         "do": "set",
+         "flag": "q_humber_imp_done",
+         "value": true
+        }
+       ],
+       "else": [
+        {
+         "do": "if",
+         "flag": "q_humber_imp_2",
+         "then": [
+          {
+           "do": "say",
+           "who": "Verger",
+           "text": "Minster Yard? On the wall? Go on then, before he makes off with the collection plate."
+          }
+         ],
+         "else": [
+          {
+           "do": "if",
+           "flag": "q_humber_imp_1",
+           "then": [
+            {
+             "do": "say",
+             "who": "Verger",
+             "text": "A stolen sausage, you say? Then ask the sausage makers on Steep Hill. Follow the grease."
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Verger",
+             "text": "Start at the Strugglers Inn by the castle. If there's mischief in Lincoln, the Strugglers hears about it first."
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Verger",
+       "text": "Oh, thank goodness, a sensible face. The Imp's gone! His pillar in the Angel Choir is empty."
+      },
+      {
+       "do": "say",
+       "who": "Verger",
+       "text": "Legend says an angel turned him to stone for smashing up the choir. Seems the stone has worn off."
+      },
+      {
+       "do": "set",
+       "flag": "q_humber_imp_started",
+       "value": true
+      },
+      {
+       "do": "say",
+       "who": "Verger",
+       "text": "Could you find him? Try the Strugglers Inn by the castle. If there's mischief in Lincoln, the Strugglers hears about it first."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

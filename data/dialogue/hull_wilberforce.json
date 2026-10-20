@@ -1,0 +1,176 @@
+{
+ "hul_equiano": [
+  {
+   "do": "say",
+   "who": "Museum Guide",
+   "text": "Wilberforce spoke in Parliament, but he didn't do it alone. Thomas Clarkson rode thousands of miles gathering evidence. Quakers started the first petitions."
+  },
+  {
+   "do": "say",
+   "who": "Museum Guide",
+   "text": "And Olaudah Equiano, who had been enslaved as a boy, bought his freedom and wrote his life story in 1789. Thousands read it. People who had suffered spoke up loudest of all."
+  }
+ ],
+ "hul_medallion": [
+  {
+   "do": "say",
+   "who": "Visitor",
+   "text": "Look at this little medallion: a kneeling man in chains, and the words 'Am I not a man and a brother?'. Josiah Wedgwood made them in 1787 and supporters wore them as brooches and hairpins."
+  },
+  {
+   "do": "say",
+   "who": "Visitor",
+   "text": "Like a campaign badge. Two hundred years before badges."
+  }
+ ],
+ "hul_curator": [
+  {
+   "do": "if",
+   "flag": "q_humber_petition_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Curator",
+     "text": "Your petition's framed in the back office. Three names, and yours. That's how it was done: one signature at a time."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_humber_petition_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_humber_petition_3",
+       "then": [
+        {
+         "do": "say",
+         "who": "Curator",
+         "text": "All three! The fisherman's widow, the Wolds churchwarden and even that clerk. Wonderful."
+        },
+        {
+         "do": "say",
+         "who": "Curator",
+         "text": "In 1792 more than five hundred petitions against the slave trade reached Parliament, the most ever sent on a single subject at the time. Ordinary people, writing their names, changed the law."
+        },
+        {
+         "do": "say",
+         "who": "Curator",
+         "text": "Please, take this. It was pressed in an old hymn book from the Minster, for luck."
+        },
+        {
+         "do": "give_item",
+         "item": "four_leaf_clover",
+         "n": 1
+        },
+        {
+         "do": "give_item",
+         "item": "hull_patty",
+         "n": 3
+        },
+        {
+         "do": "standing",
+         "nation": "england",
+         "amount": 4
+        },
+        {
+         "do": "set",
+         "flag": "q_humber_petition_done",
+         "value": true
+        }
+       ],
+       "else": [
+        {
+         "do": "if",
+         "flag": "q_humber_petition_2",
+         "then": [
+          {
+           "do": "say",
+           "who": "Curator",
+           "text": "Two names! Now for the hard one: the Parliamentary Clerk in Hull Minster says the form is wrong. Persuade him, firmly."
+          }
+         ],
+         "else": [
+          {
+           "do": "if",
+           "flag": "q_humber_petition_1",
+           "then": [
+            {
+             "do": "say",
+             "who": "Curator",
+             "text": "One name down. Next, out to the Wolds: the churchwarden at Rudston, by the great stone."
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Curator",
+             "text": "Start on Hessle Road. The fishing families knew all about hard lives. Ask in the terrace."
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Curator",
+       "text": "Welcome to Wilberforce House. William Wilberforce was born here in 1759, son of a Hull merchant."
+      },
+      {
+       "do": "say",
+       "who": "Curator",
+       "text": "He was elected MP for Hull at twenty-one, then for all Yorkshire. From 1787 he led the campaign in Parliament to end the slave trade: British ships had carried millions of enslaved Africans across the Atlantic."
+      },
+      {
+       "do": "say",
+       "who": "Curator",
+       "text": "The campaign worked because ordinary people joined it: they boycotted slave-grown sugar and signed petitions in their thousands."
+      },
+      {
+       "do": "choice",
+       "text": "Help gather names for a petition, as they did then?",
+       "options": [
+        "Gladly",
+        "Not now"
+       ],
+       "set": "_hul_pet"
+      },
+      {
+       "do": "if",
+       "flag": "_hul_pet",
+       "then": [
+        {
+         "do": "set",
+         "flag": "q_humber_petition_started",
+         "value": true
+        },
+        {
+         "do": "give_item",
+         "item": "abolition_petition",
+         "n": 1
+        },
+        {
+         "do": "say",
+         "who": "Curator",
+         "text": "Bless you. Three names: Hessle Road first, then Rudston on the Wolds, then that stubborn clerk at the Minster."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Curator",
+         "text": "Another time. The house isn't going anywhere. It's been here since the 1660s."
+        }
+       ],
+       "eq": 0
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

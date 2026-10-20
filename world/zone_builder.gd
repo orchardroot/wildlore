@@ -448,7 +448,7 @@ static func _ctor(name: String, variant: int) -> ArrayMesh:
 		"planter":
 			return Meshes.planter(variant)
 		"phone_box":
-			return Meshes.phone_box()
+			return Meshes.phone_box(variant)
 		"post_box":
 			return Meshes.post_box()
 		"counter":
