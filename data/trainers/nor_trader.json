@@ -1,0 +1,32 @@
+{
+ "id": "nor_trader",
+ "name": "Stallholder Dot",
+ "class": "Market Trader",
+ "sprite": "shopkeeper",
+ "scaled_floor": 94,
+ "party": [
+  {
+   "species": "pierlord",
+   "level": 94
+  },
+  {
+   "species": "raidtail",
+   "level": 95
+  },
+  {
+   "species": "mustardrake",
+   "level": 95
+  }
+ ],
+ "ai": "trainer",
+ "money": 4500,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Stallholder Dot",
+   "text": "Chips, sausages, mustard, battles! Two for a fiver! Well, one battle. Free."
+  }
+ ],
+ "win": "Cor, blast. That's me sold out.",
+ "after": "My stall's been in the family since my great-grandad. The stripy roof's newer. Only 1930s."
+}

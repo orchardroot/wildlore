@@ -1,0 +1,149 @@
+{
+ "carrow_fan": [
+  {
+   "do": "say",
+   "who": "Old Fan",
+   "text": "On the Ball, City! It's from the 1890s, older than the club. Probably the oldest football song still sung anywhere in the world."
+  },
+  {
+   "do": "say",
+   "who": "Old Fan",
+   "text": "Carrow Road's been home since 1935. Before that we played at a disused chalk pit called the Nest. Canaries, nest. You see?"
+  }
+ ],
+ "carrow_kitman": [
+  {
+   "do": "if",
+   "flag": "q_eastanglia_canary_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Kit Man",
+     "text": "You're an honorary Canary now, bor. Yellow suits you. Mostly."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_eastanglia_canary_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "Kit Man",
+       "text": "You beat Beryl? The Chorus is yours, then. One last thing: sing me the second line. On the ball, City..."
+      },
+      {
+       "do": "choice",
+       "text": "On the ball, City...",
+       "options": [
+        "...never mind the danger",
+        "...we've got the mustard",
+        "...keep the ball on the huh"
+       ],
+       "set": "_ea_song"
+      },
+      {
+       "do": "if",
+       "flag": "_ea_song",
+       "then": [
+        {
+         "do": "say",
+         "who": "Kit Man",
+         "text": "Never mind the danger! Steady on, now's your chance, hurrah, we've scored a goal! You're a proper Canary now."
+        },
+        {
+         "do": "say",
+         "who": "Kit Man",
+         "text": "Here, a scarf. Yellow and green. Wear it with pride, and wash it at thirty."
+        },
+        {
+         "do": "give_item",
+         "item": "canary_scarf"
+        },
+        {
+         "do": "give_item",
+         "item": "norfolk_dumpling",
+         "n": 3
+        },
+        {
+         "do": "standing",
+         "nation": "england",
+         "amount": 5
+        },
+        {
+         "do": "set",
+         "flag": "q_eastanglia_canary_done"
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Kit Man",
+         "text": "Ha! No. Ask the Chorus Leader again, or the old fan by the stand. You'll get it."
+        }
+       ],
+       "eq": 0
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_eastanglia_canary_started",
+       "then": [
+        {
+         "do": "say",
+         "who": "Kit Man",
+         "text": "Go and see the curator at Strangers' Hall, in the Lanes, then the Chorus Leader on the market."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Kit Man",
+         "text": "{greeting} Welcome to Carrow Road, home of Norwich City, the Canaries. Know why we're the Canaries? No? Half the new lads don't either. It's a disgrace."
+        },
+        {
+         "do": "say",
+         "who": "Kit Man",
+         "text": "Tell you what. The match-day Chorus need a new singer, and you look like you've got lungs. Learn where the canaries came from, earn the Chorus's blessing, then come back and sing me the song."
+        },
+        {
+         "do": "choice",
+         "text": "Become an honorary Canary?",
+         "options": [
+          "On the ball!",
+          "Not today"
+         ],
+         "set": "_ea_canary"
+        },
+        {
+         "do": "if",
+         "flag": "_ea_canary",
+         "then": [
+          {
+           "do": "say",
+           "who": "Kit Man",
+           "text": "Lovely. Start at Strangers' Hall in the Lanes. Ask the curator about the Strangers' birds."
+          },
+          {
+           "do": "set",
+           "flag": "q_eastanglia_canary_started"
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Kit Man",
+           "text": "Suit yourself. The yellow's a bold look; not everyone can carry it."
+          }
+         ],
+         "eq": 0
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

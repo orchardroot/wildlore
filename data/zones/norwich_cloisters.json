@@ -1,0 +1,163 @@
+{
+ "id": "norwich_cloisters",
+ "name": "Norwich Cathedral and Cloisters",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "candelabra",
+   "x": 5,
+   "y": 1
+  },
+  {
+   "type": "candelabra",
+   "x": 11,
+   "y": 1
+  },
+  {
+   "type": "statue",
+   "x": 8,
+   "y": 1
+  },
+  {
+   "type": "rug",
+   "x": 8,
+   "y": 2,
+   "w": 1,
+   "h": 7,
+   "variant": 1,
+   "walk": true
+  },
+  {
+   "type": "bench",
+   "x": 3,
+   "y": 3
+  },
+  {
+   "type": "bench",
+   "x": 4,
+   "y": 3
+  },
+  {
+   "type": "bench",
+   "x": 12,
+   "y": 3
+  },
+  {
+   "type": "bench",
+   "x": 13,
+   "y": 3
+  },
+  {
+   "type": "bench",
+   "x": 3,
+   "y": 5
+  },
+  {
+   "type": "bench",
+   "x": 4,
+   "y": 5
+  },
+  {
+   "type": "bench",
+   "x": 12,
+   "y": 5
+  },
+  {
+   "type": "bench",
+   "x": 13,
+   "y": 5
+  },
+  {
+   "type": "window",
+   "x": 1,
+   "y": 8,
+   "walk": true
+  },
+  {
+   "type": "window",
+   "x": 15,
+   "y": 8,
+   "walk": true
+  },
+  {
+   "type": "tomb_chest",
+   "x": 1,
+   "y": 2
+  },
+  {
+   "type": "potted_plant",
+   "x": 15,
+   "y": 2
+  },
+  {
+   "type": "display_case",
+   "x": 15,
+   "y": 5
+  }
+ ],
+ "warps": [
+  {
+   "x": 8,
+   "y": 9,
+   "to": "norwich",
+   "tx": 48,
+   "ty": 8,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "nor_verger",
+   "sprite": "tour_guide",
+   "x": 8,
+   "y": 2,
+   "facing": "down",
+   "move": "still",
+   "script": "nor_verger",
+   "name": "Verger"
+  },
+  {
+   "id": "nor_falconer",
+   "sprite": "birdwatcher",
+   "x": 13,
+   "y": 7,
+   "facing": "left",
+   "move": "still",
+   "script": "nor_falconer",
+   "name": "Peregrine Watcher"
+  },
+  {
+   "id": "nor_bosses",
+   "sprite": "villager_3",
+   "x": 3,
+   "y": 7,
+   "facing": "right",
+   "move": "still",
+   "script": "nor_bosses",
+   "name": "Roof Boss Spotter"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  8,
+  8
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxxxxx",
+  "x+++++++++++++++x",
+  "x+++++++++++++++x",
+  "x+++++++++++++++x",
+  "x+++++++++++++++x",
+  "x+++++++++++++++x",
+  "x+++++++++++++++x",
+  "x+++++++++++++++x",
+  "x+++++++++++++++x",
+  "x+++++++D+++++++x",
+  "xxxxxxxxxxxxxxxxx"
+ ]
+}

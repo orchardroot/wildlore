@@ -1,0 +1,137 @@
+{
+ "id": "norwich_castle",
+ "name": "Norwich Castle Museum",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "display_case",
+   "x": 3,
+   "y": 3
+  },
+  {
+   "type": "display_case",
+   "x": 5,
+   "y": 3
+  },
+  {
+   "type": "display_case",
+   "x": 9,
+   "y": 3
+  },
+  {
+   "type": "display_case",
+   "x": 11,
+   "y": 3
+  },
+  {
+   "type": "statue",
+   "x": 2,
+   "y": 1
+  },
+  {
+   "type": "statue",
+   "x": 12,
+   "y": 1
+  },
+  {
+   "type": "kitchen_dresser",
+   "x": 4,
+   "y": 1
+  },
+  {
+   "type": "kitchen_dresser",
+   "x": 10,
+   "y": 1
+  },
+  {
+   "type": "wall_picture",
+   "x": 7,
+   "y": 1,
+   "walk": true,
+   "variant": 0
+  },
+  {
+   "type": "crypt_arch",
+   "x": 1,
+   "y": 6
+  },
+  {
+   "type": "brazier",
+   "x": 13,
+   "y": 6
+  },
+  {
+   "type": "rug",
+   "x": 7,
+   "y": 2,
+   "w": 1,
+   "h": 6,
+   "variant": 1,
+   "walk": true
+  }
+ ],
+ "warps": [
+  {
+   "x": 7,
+   "y": 8,
+   "to": "norwich",
+   "tx": 30,
+   "ty": 24,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "castle_keeper",
+   "sprite": "tour_guide",
+   "x": 7,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "castle_keeper",
+   "name": "Castle Guide"
+  },
+  {
+   "id": "castle_teapots",
+   "sprite": "villager_4",
+   "x": 10,
+   "y": 6,
+   "facing": "left",
+   "move": "still",
+   "script": "castle_teapots",
+   "name": "Teapot Curator"
+  },
+  {
+   "id": "castle_gaoler",
+   "sprite": "warden_grunt",
+   "x": 3,
+   "y": 7,
+   "facing": "right",
+   "move": "still",
+   "script": "castle_gaoler",
+   "name": "Re-enactor"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  7,
+  7
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxxx",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x++++++D++++++x",
+  "xxxxxxxxxxxxxxx"
+ ]
+}

@@ -1,0 +1,95 @@
+{
+ "id": "cambridge_cycles",
+ "name": "Cycle Shop",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "specimen_shelf",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "specimen_shelf",
+   "x": 2,
+   "y": 1
+  },
+  {
+   "type": "kitchen_dresser",
+   "x": 8,
+   "y": 1
+  },
+  {
+   "type": "table",
+   "x": 2,
+   "y": 4
+  },
+  {
+   "type": "table",
+   "x": 8,
+   "y": 4
+  },
+  {
+   "type": "wall_map",
+   "x": 5,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "potted_plant",
+   "x": 9,
+   "y": 6
+  }
+ ],
+ "warps": [
+  {
+   "x": 5,
+   "y": 6,
+   "to": "cambridge",
+   "tx": 51,
+   "ty": 34,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "cycle_mechanic",
+   "sprite": "steelworker",
+   "x": 5,
+   "y": 1,
+   "facing": "down",
+   "move": "still",
+   "script": "cycle_mechanic",
+   "name": "Mechanic"
+  },
+  {
+   "id": "cycle_customer",
+   "sprite": "commuter",
+   "x": 8,
+   "y": 5,
+   "facing": "left",
+   "move": "still",
+   "script": "cycle_customer",
+   "name": "Customer"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  5,
+  5
+ ],
+ "rows": [
+  "xxxxxxxxxxx",
+  "x|||||||||x",
+  "x|||CCC|||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x||||D||||x",
+  "xxxxxxxxxxx"
+ ]
+}

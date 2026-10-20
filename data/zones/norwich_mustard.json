@@ -1,0 +1,101 @@
+{
+ "id": "norwich_mustard",
+ "name": "The Mustard Shop",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "specimen_shelf",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "specimen_shelf",
+   "x": 2,
+   "y": 1
+  },
+  {
+   "type": "specimen_shelf",
+   "x": 10,
+   "y": 1
+  },
+  {
+   "type": "specimen_shelf",
+   "x": 11,
+   "y": 1
+  },
+  {
+   "type": "display_case",
+   "x": 3,
+   "y": 4
+  },
+  {
+   "type": "display_case",
+   "x": 9,
+   "y": 4
+  },
+  {
+   "type": "wall_picture",
+   "x": 6,
+   "y": 1,
+   "walk": true,
+   "variant": 2
+  },
+  {
+   "type": "potted_plant",
+   "x": 11,
+   "y": 6
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 6,
+   "to": "norwich",
+   "tx": 7,
+   "ty": 36,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "mustard_keeper",
+   "sprite": "shopkeeper",
+   "x": 6,
+   "y": 1,
+   "facing": "down",
+   "move": "still",
+   "script": "mustard_keeper",
+   "name": "Mustard Seller"
+  },
+  {
+   "id": "mustard_taster",
+   "sprite": "villager_6",
+   "x": 2,
+   "y": 5,
+   "facing": "right",
+   "move": "still",
+   "script": "mustard_taster",
+   "name": "Brave Taster"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  6,
+  5
+ ],
+ "rows": [
+  "xxxxxxxxxxxxx",
+  "x|||||||||||x",
+  "x||||CCC||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||D|||||x",
+  "xxxxxxxxxxxxx"
+ ]
+}

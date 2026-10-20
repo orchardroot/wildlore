@@ -1,0 +1,183 @@
+{
+ "id": "cambridge_kings",
+ "name": "King's College Chapel",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "candelabra",
+   "x": 3,
+   "y": 1
+  },
+  {
+   "type": "candelabra",
+   "x": 11,
+   "y": 1
+  },
+  {
+   "type": "wall_picture",
+   "x": 7,
+   "y": 1,
+   "walk": true,
+   "variant": 2
+  },
+  {
+   "type": "rug",
+   "x": 7,
+   "y": 2,
+   "w": 1,
+   "h": 7,
+   "variant": 1,
+   "walk": true
+  },
+  {
+   "type": "bench",
+   "x": 2,
+   "y": 4
+  },
+  {
+   "type": "bench",
+   "x": 3,
+   "y": 4
+  },
+  {
+   "type": "bench",
+   "x": 4,
+   "y": 4
+  },
+  {
+   "type": "bench",
+   "x": 10,
+   "y": 4
+  },
+  {
+   "type": "bench",
+   "x": 11,
+   "y": 4
+  },
+  {
+   "type": "bench",
+   "x": 12,
+   "y": 4
+  },
+  {
+   "type": "bench",
+   "x": 2,
+   "y": 6
+  },
+  {
+   "type": "bench",
+   "x": 3,
+   "y": 6
+  },
+  {
+   "type": "bench",
+   "x": 4,
+   "y": 6
+  },
+  {
+   "type": "bench",
+   "x": 10,
+   "y": 6
+  },
+  {
+   "type": "bench",
+   "x": 11,
+   "y": 6
+  },
+  {
+   "type": "bench",
+   "x": 12,
+   "y": 6
+  },
+  {
+   "type": "piano",
+   "x": 1,
+   "y": 2,
+   "rot": 90
+  },
+  {
+   "type": "window",
+   "x": 1,
+   "y": 8,
+   "walk": true
+  },
+  {
+   "type": "window",
+   "x": 13,
+   "y": 8,
+   "walk": true
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 9
+  },
+  {
+   "type": "potted_plant",
+   "x": 13,
+   "y": 9
+  }
+ ],
+ "warps": [
+  {
+   "x": 7,
+   "y": 9,
+   "to": "cambridge",
+   "tx": 23,
+   "ty": 24,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "kings_chorister",
+   "sprite": "choir_singer",
+   "x": 6,
+   "y": 2,
+   "facing": "down",
+   "move": "still",
+   "script": "kings_chorister"
+  },
+  {
+   "id": "kings_guide",
+   "sprite": "tour_guide",
+   "x": 9,
+   "y": 7,
+   "facing": "left",
+   "move": "still",
+   "script": "kings_guide"
+  },
+  {
+   "id": "kings_visitor",
+   "sprite": "villager_3",
+   "x": 5,
+   "y": 8,
+   "facing": "up",
+   "move": "still",
+   "script": "kings_visitor"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  7,
+  8
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxxx",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x++++++D++++++x",
+  "xxxxxxxxxxxxxxx"
+ ]
+}
