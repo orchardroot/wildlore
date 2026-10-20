@@ -159,6 +159,7 @@ func _intro_lines() -> Array[String]:
 		out.append("%s wants to battle!" % t if not is_wild() else "Wild creatures appeared!")
 		out.append("%s sends out %s!" % [t, _names(battle.actives(Battle.FOE))])
 		out.append("Go! %s!" % _names(battle.actives(Battle.PLAYER)))
+		_weather_intro(out)
 		return out
 	var foe := battle.current(Battle.FOE)
 	var me := battle.current(Battle.PLAYER)
@@ -170,8 +171,15 @@ func _intro_lines() -> Array[String]:
 		var t := str(trainer.get("name", "A keeper"))
 		out.append("%s wants to battle!" % t)
 		out.append("%s sends out %s!" % [t, foe.display_name()])
+	_weather_intro(out)
 	out.append("Go! %s!" % me.display_name())
 	return out
+
+## The sky the battle starts under (the zone's own weather), if it is not plain clear.
+func _weather_intro(out: Array[String]) -> void:
+	var l := Weather.intro_line(battle.weather)
+	if l != "":
+		out.append(l)
 
 static func _names(cs: Array) -> String:
 	return " and ".join(cs.map(func(c): return c.display_name()))
