@@ -27,9 +27,14 @@ func test_hops_down_after_a_ledge() -> void:
 	assert_false(Follower.hops(Vector2i(3, 3), Vector2i(3, 9)), "far away: appear")
 	assert_false(Follower.hops(Vector2i(-1, -1), Vector2i(-1, 1)), "not placed yet")
 
-func test_move_time_matches_the_player() -> void:
-	assert_near(Follower.move_secs(false), 1.0 / Player.WALK_SPEED)
-	assert_near(Follower.move_secs(true), 1.0 / Player.RUN_SPEED)
+func test_stride_walks_straight_or_hops() -> void:
+	var a := Vector3(1.5, 0, 1.5)
+	var b := Vector3(1.5, 0, 3.5)
+	assert_eq(Follower.stride_pos(a, b, 0.0, false), a)
+	assert_eq(Follower.stride_pos(a, b, 1.0, false), b)
+	assert_eq(Follower.stride_pos(a, b, 0.5, false), Vector3(1.5, 0, 2.5), "walks in a straight line")
+	assert_true(Follower.stride_pos(a, b, 0.5, true).y > 0.2, "a hop lifts off in the middle")
+	assert_true(Follower.stride_pos(a, b, 1.0, true).distance_to(b) < 0.001, "and lands on the spot")
 
 func test_reappears_behind_the_player() -> void:
 	assert_eq(Follower.behind_tile(Vector2i(5, 5), "down", _open([])), Vector2i(5, 4))
