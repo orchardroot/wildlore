@@ -1,0 +1,161 @@
+{
+  "line": "steamlet",
+  "species": [
+    {
+      "id": "steamlet",
+      "name": "Steamlet",
+      "types": [
+        "iron",
+        "hearth"
+      ],
+      "base": {
+        "hp": 50,
+        "atk": 60,
+        "def": 60,
+        "lore": 58,
+        "ward": 42,
+        "spd": 38
+      },
+      "growth": "medium",
+      "catch_rate": 120,
+      "base_xp": 64,
+      "learnset": [
+        [
+          1,
+          "spark_shower"
+        ],
+        [
+          1,
+          "kindle"
+        ],
+        [
+          5,
+          "rivet"
+        ],
+        [
+          9,
+          "kettle_scald"
+        ],
+        [
+          13,
+          "coal_chuck"
+        ],
+        [
+          17,
+          "galvanise"
+        ],
+        [
+          21,
+          "forge_hammer"
+        ],
+        [
+          25,
+          "smoke_alarm"
+        ],
+        [
+          29,
+          "hull_clang"
+        ]
+      ],
+      "evolves": {
+        "to": "penydarren",
+        "level": 38
+      },
+      "habitat": [
+        "rhondda",
+        "merthyr",
+        "blaenavon"
+      ],
+      "appendix": true,
+      "dex": {
+        "text": "A small, furious boiler on iron wheels with a chimney too tall for its body. It chuffs along a rail it has no business being on and bets everyone it can pull more than they think.",
+        "fact": "On 21 February 1804 Richard Trevithick's engine hauled ten tons of iron, five wagons and about seventy men nearly ten miles along the Penydarren tramroad from Merthyr to Abercynon. It was the first journey by a steam locomotive on rails."
+      },
+      "sprite": "steamlet"
+    },
+    {
+      "id": "penydarren",
+      "name": "Penydarren",
+      "types": [
+        "iron",
+        "hearth"
+      ],
+      "base": {
+        "hp": 84,
+        "atk": 100,
+        "def": 98,
+        "lore": 84,
+        "ward": 66,
+        "spd": 50
+      },
+      "growth": "medium",
+      "catch_rate": 50,
+      "base_xp": 188,
+      "learnset": [
+        [
+          1,
+          "spark_shower"
+        ],
+        [
+          1,
+          "kindle"
+        ],
+        [
+          5,
+          "rivet"
+        ],
+        [
+          9,
+          "kettle_scald"
+        ],
+        [
+          13,
+          "coal_chuck"
+        ],
+        [
+          17,
+          "galvanise"
+        ],
+        [
+          21,
+          "forge_hammer"
+        ],
+        [
+          25,
+          "smoke_alarm"
+        ],
+        [
+          29,
+          "hull_clang"
+        ],
+        [
+          38,
+          "chimney_crash"
+        ],
+        [
+          42,
+          "blast_furnace"
+        ],
+        [
+          46,
+          "girder_sweep"
+        ],
+        [
+          50,
+          "aga_roast"
+        ]
+      ],
+      "evolves": null,
+      "habitat": [
+        "rhondda",
+        "merthyr"
+      ],
+      "appendix": true,
+      "dex": {
+        "text": "A great black locomotive-beast with a flywheel on its flank and a chimney that pours smoke like a promise. It is never late, only early in a way that makes the signal box nervous.",
+        "fact": "Trevithick's Penydarren locomotive was a wager: the Merthyr ironmaster Samuel Homfray bet 500 guineas that it could haul ten tons of iron along the tramroad, and it did. But the engine was heavy, the cast-iron plates cracked under it, and it was not used again."
+      },
+      "sprite": "penydarren"
+    }
+  ]
+}

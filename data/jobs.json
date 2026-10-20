@@ -2232,7 +2232,68 @@
     "items": {"mull_cheddar": 2}
    }
   },
-  {"id": "stornoway_seals", "nation": "scotland", "town": "stornoway", "badges": 9, "poster": "Stornoway Harbour Trust", "title": "Seal census", "text": "The harbour seals sunbathe on the skerries and refuse to be counted. Catch a grey seal for the register, and write down that it looked pleased with itself. They all do.", "step": {"type": "catch", "species": "greyhaul"}, "pay": 3},
-  {"id": "stornoway_bannocks", "nation": "scotland", "town": "stornoway", "badges": 9, "poster": "An Lanntair Ceilidh Committee", "title": "Bannocks for the ceilidh", "text": "Saturday's ceilidh is short of bannocks, and a ceilidh without a bannock is only a lot of people standing about. Two bere bannocks, please, from the corner shop. Mòran taing.", "step": {"type": "bring", "item": "bere_bannock", "n": 2}, "pay": 1}
+  {
+   "id": "stornoway_seals",
+   "nation": "scotland",
+   "town": "stornoway",
+   "badges": 9,
+   "poster": "Stornoway Harbour Trust",
+   "title": "Seal census",
+   "text": "The harbour seals sunbathe on the skerries and refuse to be counted. Catch a grey seal for the register, and write down that it looked pleased with itself. They all do.",
+   "step": {
+    "type": "catch",
+    "species": "greyhaul"
+   },
+   "pay": 3
+  },
+  {
+   "id": "stornoway_bannocks",
+   "nation": "scotland",
+   "town": "stornoway",
+   "badges": 9,
+   "poster": "An Lanntair Ceilidh Committee",
+   "title": "Bannocks for the ceilidh",
+   "text": "Saturday's ceilidh is short of bannocks, and a ceilidh without a bannock is only a lot of people standing about. Two bere bannocks, please, from the corner shop. Mòran taing.",
+   "step": {
+    "type": "bring",
+    "item": "bere_bannock",
+    "n": 2
+   },
+   "pay": 1
+  },
+  {
+   "id": "merthyr_engine",
+   "nation": "wales",
+   "town": "merthyr",
+   "badges": 3,
+   "poster": "Iron Heritage Centre",
+   "title": "Something chuffing round the tramroad",
+   "text": "A small iron boiler on wheels keeps escaping from the Ynysfach Engine House and puffing off along the old Penydarren tramroad. Catch it before it frightens the ducks.",
+   "step": {
+    "type": "catch",
+    "species": "steamlet"
+   },
+   "pay": 2,
+   "reward": {
+    "items": {"penydarren_pig": 1}
+   }
+  },
+  {
+   "id": "blaenavon_knocker",
+   "nation": "wales",
+   "town": "blaenavon",
+   "badges": 3,
+   "poster": "Big Pit Volunteers",
+   "title": "Knocking in the heather",
+   "text": "Something small in a yellow hat keeps knocking on the rocks above Big Pit, three taps at a time, and the sheep are getting nervous. Find out who it is.",
+   "step": {
+    "type": "catch",
+    "species": "cobblet"
+   },
+   "pay": 2,
+   "reward": {
+    "items": {"blaenavon_cheddar": 1}
+   }
+  }
  ]
 }

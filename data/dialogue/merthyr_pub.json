@@ -1,0 +1,96 @@
+{
+ "mer_landlord": [
+  {
+   "do": "if",
+   "flag": "q_valleys_choir_2",
+   "then": [
+    {
+     "do": "say",
+     "who": "Emlyn",
+     "text": "Saturday at Bethania. I've written it on the bar. Mind, it's written under a pint."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_valleys_choir_started",
+     "then": [
+      {
+       "do": "say",
+       "who": "Emlyn",
+       "text": "Second tenor? Me? Aye, I sing. But I'll be damned if I give my voice for free. Answer this: who wrote 'Myfanwy', Merthyr's own?"
+      },
+      {
+       "do": "choice",
+       "text": "Who wrote 'Myfanwy'?",
+       "options": [
+        "Joseph Parry",
+        "Ivor Novello",
+        "Daniel James",
+        "Edward Elgar"
+       ],
+       "set": "_emlyn_q"
+      },
+      {
+       "do": "if",
+       "flag": "_emlyn_q",
+       "eq": 0,
+       "then": [
+        {
+         "do": "say",
+         "who": "Emlyn",
+         "text": "Joseph Parry! Born a stone's throw from the bar. I'll sing. And I'll bring half the regulars, they'll sing too whether they like it or not."
+        },
+        {
+         "do": "set",
+         "flag": "q_valleys_choir_2",
+         "value": true
+        },
+        {
+         "do": "sfx",
+         "id": "item"
+        },
+        {
+         "do": "say",
+         "who": "",
+         "text": "You found a second tenor for the eisteddfod choir."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Emlyn",
+         "text": "No, bach. Elgar's English. Think of the busker outside the pub: he's humming it. Come back when you know."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Emlyn",
+       "text": "Y Dic Penderyn, the pub. Named for the Merthyr boy hanged in Cardiff in 1831. We don't have a statue in here, just a very big portrait and a very strong opinion."
+      },
+      {
+       "do": "say",
+       "who": "Emlyn",
+       "text": "I'm a second tenor on a good night. If there's ever a choir that needs one, ask."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "mer_regular": [
+  {
+   "do": "say",
+   "who": "Regular",
+   "text": "Chwarae teg, that's fair play, and you've not had a drink so you're playing fair. I'll have yours."
+  },
+  {
+   "do": "say",
+   "who": "Regular",
+   "text": "There's a pub quiz on Thursdays. Tough one. The local history round has a question about every single ironmaster and a different one about what they did to their workers."
+  }
+ ]
+}

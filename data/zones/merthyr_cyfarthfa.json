@@ -1,0 +1,146 @@
+{
+ "id": "merthyr_cyfarthfa",
+ "name": "Cyfarthfa Castle",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "bookshelf",
+   "x": 13,
+   "y": 1
+  },
+  {
+   "type": "table",
+   "x": 3,
+   "y": 5
+  },
+  {
+   "type": "table",
+   "x": 11,
+   "y": 5
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 8
+  },
+  {
+   "type": "potted_plant",
+   "x": 13,
+   "y": 8
+  },
+  {
+   "type": "display_case",
+   "x": 3,
+   "y": 2,
+   "variant": 1
+  },
+  {
+   "type": "display_case",
+   "x": 11,
+   "y": 2,
+   "variant": 2
+  },
+  {
+   "type": "wall_picture",
+   "x": 5,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "wall_picture",
+   "x": 9,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "wall_picture",
+   "x": 7,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "table",
+   "x": 3,
+   "y": 6
+  },
+  {
+   "type": "candelabra",
+   "x": 13,
+   "y": 5
+  },
+  {
+   "type": "clock",
+   "x": 12,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "fireplace",
+   "x": 1,
+   "y": 1
+  }
+ ],
+ "warps": [
+  {
+   "x": 7,
+   "y": 9,
+   "to": "merthyr",
+   "tx": 40,
+   "ty": 11,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "mer_curator",
+   "sprite": "poet",
+   "x": 7,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "mer_curator",
+   "name": "Curator Eleri"
+  },
+  {
+   "id": "mer_guard",
+   "sprite": "villager_3",
+   "x": 11,
+   "y": 6,
+   "facing": "left",
+   "move": "still",
+   "script": "mer_guard",
+   "name": "Attendant"
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "x": 5,
+   "y": 3,
+   "plaque": "merthyr_crawshay",
+   "title": "The Crawshays",
+   "text": "The Crawshay family owned Cyfarthfa for most of the nineteenth century. William Crawshay II built the castle; his son Robert Thompson Crawshay was the last of the 'Iron Kings'. The great furnaces had gone cold by the early twentieth century."
+  }
+ ],
+ "spawn": [
+  7,
+  8
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxxx",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x++++++D++++++x",
+  "xxxxxxxxxxxxxxx"
+ ]
+}

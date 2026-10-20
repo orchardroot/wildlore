@@ -1,0 +1,134 @@
+{
+ "id": "blaenavon_bigpit_below",
+ "name": "Big Pit: 90 metres down",
+ "region": "",
+ "kind": "interior",
+ "music": "dungeon_underground",
+ "weather": {},
+ "props": [
+  {
+   "type": "rock",
+   "x": 1,
+   "y": 8
+  },
+  {
+   "type": "rock",
+   "x": 13,
+   "y": 8
+  },
+  {
+   "type": "brick_arch",
+   "x": 7,
+   "y": 4
+  },
+  {
+   "type": "brick_arch",
+   "x": 7,
+   "y": 6
+  },
+  {
+   "type": "brazier",
+   "x": 4,
+   "y": 2
+  },
+  {
+   "type": "brazier",
+   "x": 11,
+   "y": 2
+  },
+  {
+   "type": "brazier",
+   "x": 4,
+   "y": 8
+  },
+  {
+   "type": "slate_heap",
+   "x": 9,
+   "y": 6
+  },
+  {
+   "type": "slate_heap",
+   "x": 12,
+   "y": 6,
+   "variant": 1
+  },
+  {
+   "type": "slate_heap",
+   "x": 5,
+   "y": 5,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 13,
+   "y": 1
+  },
+  {
+   "type": "rock",
+   "x": 1,
+   "y": 1
+  }
+ ],
+ "warps": [
+  {
+   "x": 7,
+   "y": 9,
+   "to": "blaenavon_bigpit",
+   "tx": 6,
+   "ty": 6,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "bla_idris",
+   "sprite": "tin_miner",
+   "x": 3,
+   "y": 3,
+   "facing": "right",
+   "move": "still",
+   "script": "bla_idris",
+   "name": "Idris, ex-miner"
+  },
+  {
+   "id": "pit_knock",
+   "sprite": "creature:cobblet",
+   "x": 12,
+   "y": 3,
+   "facing": "left",
+   "move": "still",
+   "script": "pit_knock",
+   "hide_if": "q_valleys_pit_caught"
+  },
+  {
+   "id": "pit_pony",
+   "sprite": "creature:foalmoor",
+   "x": 2,
+   "y": 6,
+   "facing": "right",
+   "move": "still",
+   "script": "pit_pony"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  7,
+  8
+ ],
+ "dark": true,
+ "rows": [
+  "xxxxxxxxxxxxxxx",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x++++++D++++++x",
+  "xxxxxxxxxxxxxxx"
+ ]
+}
