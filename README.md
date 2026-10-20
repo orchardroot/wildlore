@@ -6,6 +6,17 @@ A monster-catching RPG across the UK and Ireland. You start in Macclesfield, bec
 
 ![Title](docs/screens/t13-title.png)
 
+## What's new in 3.1: Seasons & Streets
+
+- **Towns look like where they are.** The original towns get their own architecture: Bath stone crescents, Manchester mill brick, York's jettied timber, Chester's Rows, Welsh slate terraces, Cornish granite, Edinburgh and Glasgow tenements, Aberdeen granite, Orkney flagstone, Portree's painted harbour and Dublin's Georgian doors.
+- **Festivals you can join**, on their real dates: Bonfire Night in York, Halloween and Samhain in Derry, Burns Night, Hogmanay, the Fringe, St David's Day, the Mari Lwyd, St Patrick's Day, Beltane on the Tor, cheese-rolling, well dressing and Notting Hill Carnival. Each one has a quest, a creature you can only catch while it's on, and a souvenir. The noticeboards now say what's coming up.
+- **Regional cooking.** Learn 23 dishes from the locals (scouse, cawl, Cullen skink, boxty, an Ulster fry, a proper Eccles cake) and cook them at Mum's or at a pub hob. Each one heals a bit and gives a small boost for the next fight or the next stretch of grass.
+- **Home is yours.** Collect a souvenir from each town and put it on Mum's shelves, watch the framed plaque boards fill up nation by nation, and keep an eye on the new bird table, bug hotel and pond, which bring in visitors that change with the seasons.
+- **Weather matters.** Rain brings out water and bog creatures, fog the ghostly and fae, frost the frost types; the battle tells you what the weather favours, and the radio forecast tells you what's coming.
+- Noticeboards now tell you why a job won't hand in (what it still needs, or which country's board it belongs to).
+
+Saves from 3.0 carry straight over.
+
 ## What's new in 3.0: Wider Isles
 
 The walls are down. Every edge that used to be a hedge you couldn't get through now goes somewhere: east out of Manchester over Saddleworth Moor to Leeds, south from Macclesfield to the Roaches and the Potteries, north from Liverpool to Blackpool, and on round the Isles until the map has 72 towns instead of 40.
