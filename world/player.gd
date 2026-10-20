@@ -227,6 +227,8 @@ func try_step(dir: String, running := false) -> bool:
 		if _bump_cooldown <= 0.0:
 			Audio.sfx("bump")
 			_bump_cooldown = 0.35
+		if overworld.has_method("blocked_hint"):
+			overworld.blocked_hint(target)
 		return false
 	if verdict == "ok" and overworld.has_method("door_ahead"):
 		overworld.door_ahead(target)  # a building's door swings open as you step up to it

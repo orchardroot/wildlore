@@ -27,3 +27,8 @@ func test_no_items_shuts_the_bag() -> void:
 	assert_true(open.battle_items().size() > 0, "a normal bout has the tea")
 	var shut := _flow([a], [Fixtures.creature("spikkin", 3)], FakeBattleUI.new(), {"kind": "trainer", "no_items": true}, bag)
 	assert_eq(shut.battle_items(), [])
+	assert_true(shut.empty_bag_text().contains("rules"), shut.empty_bag_text())
+	var snares := _flow([a], [Fixtures.creature("spikkin", 3)], FakeBattleUI.new(), {"kind": "trainer"}, {"wicker_snare": 2})
+	assert_true(snares.empty_bag_text().contains("another keeper"), snares.empty_bag_text())
+	var bare := _flow([a], [Fixtures.creature("spikkin", 3)], FakeBattleUI.new(), {"kind": "trainer"}, {})
+	assert_true(bare.empty_bag_text().contains("Nothing in your bag"), bare.empty_bag_text())

@@ -108,6 +108,20 @@ func battle_items() -> Array:
 			out.append(e)
 	return out
 
+## Why the bag has nothing to offer right now: the ruleset, snares held back from a keeper's creatures, or just an empty bag.
+func empty_bag_text() -> String:
+	if _no_items:
+		return "The rules for this one say no bag. Your creatures, your wits."
+	if not is_wild() and _holds_snares():
+		return "Your snares are no use against another keeper's creature."
+	return "Nothing in your bag is any use in a scrap."
+
+func _holds_snares() -> bool:
+	for id in items.ids():
+		if bag.count(id) > 0 and str(items.get_item(id).get("kind", "")) == "snare":
+			return true
+	return false
+
 ## Would this item do anything to that party member? Tries it on a copy, so nothing changes.
 func item_check(item_id: String, target: int) -> Dictionary:
 	var party: Array = battle.parties[Battle.PLAYER]

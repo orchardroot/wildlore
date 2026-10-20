@@ -32,7 +32,7 @@ func setup(arg: String) -> void:
 		_list.add_child(b)
 		buttons.append(b)
 	if buttons.is_empty():
-		var none := "No other towns visited yet. Bran's Raven only flies where you've been." if flying else "No other stations visited yet. Trains only go where you've been."
+		var none := Travel.rail_empty_text(Game.data, here, flying)
 		_list.add_child(UIKit.label(none, 26, UIKit.MUTED))
 		return
 	UIKit.wrap_focus(buttons)
