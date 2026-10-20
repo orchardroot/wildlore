@@ -647,6 +647,32 @@
    "type": "noticeboard",
    "x": 38,
    "y": 29
+  },
+  {
+   "type": "market_stall",
+   "x": 53,
+   "y": 2,
+   "variant": 1
+  },
+  {
+   "type": "lamp_post",
+   "x": 46,
+   "y": 3
+  },
+  {
+   "type": "lamp_post",
+   "x": 58,
+   "y": 3
+  },
+  {
+   "type": "bench",
+   "x": 49,
+   "y": 3
+  },
+  {
+   "type": "phone_box",
+   "x": 44,
+   "y": 3
   }
  ],
  "warps": [
@@ -891,6 +917,56 @@
    "times": [
     "night"
    ]
+  },
+  {
+   "id": "city_broker",
+   "sprite": "commuter",
+   "x": 47,
+   "y": 4,
+   "facing": "down",
+   "move": "still",
+   "script": "city_broker",
+   "name": "City Broker"
+  },
+  {
+   "id": "doggerel_kiosk",
+   "sprite": "student",
+   "x": 53,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "doggerel_kiosk",
+   "name": "Doggerel Kiosk"
+  },
+  {
+   "id": "moon_hoodie",
+   "sprite": "villager_5",
+   "x": 52,
+   "y": 5,
+   "facing": "up",
+   "move": "still",
+   "script": "moon_hoodie",
+   "name": "Man in a Hoodie"
+  },
+  {
+   "id": "moon_student",
+   "sprite": "student",
+   "x": 54,
+   "y": 5,
+   "facing": "up",
+   "move": "still",
+   "script": "moon_student",
+   "name": "Student"
+  },
+  {
+   "id": "moon_lady",
+   "sprite": "commuter",
+   "x": 56,
+   "y": 4,
+   "facing": "left",
+   "move": "still",
+   "script": "moon_lady",
+   "name": "Diamond Paws"
   }
  ],
  "encounters": {
@@ -1098,6 +1174,13 @@
    "text": "BLUE PLAQUE: Charles Dickens, novelist, lived at 48 Doughty Street from 1837 to 1839 and wrote Oliver Twist there.",
    "kind": "plaque",
    "dx": -0.475
+  },
+  {
+   "x": 45,
+   "y": 4,
+   "plaque": "london_city_exchange",
+   "title": "The City",
+   "text": "London's first stockbrokers did their deals in coffee houses, Jonathan's in Exchange Alley above all, after being thrown out of the Royal Exchange for bad manners. A proper Stock Exchange opened in 1801. The Square Mile still runs on coffee."
   }
  ],
  "spawn": [
