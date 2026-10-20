@@ -171,9 +171,10 @@ static func now_text(minutes: int, weather: String, indoors := false) -> String:
 static func ark_unlocked(d: GameStateData) -> bool:
 	return d.flag("_nurse_choice") != null or not d.ark.is_empty()
 
-## The pause menu's entries: the Ark once a Sanctuary nurse has shown you it, and always Close.
+## The pause menu's entries: the Ark once a Sanctuary nurse has shown you it, the Journal (quests and the
+## Gazetteer), and always Close.
 static func pause_entries(ark: bool) -> Array:
-	return ["Team", "Fieldbook", "Bag"] + (["Ark"] if ark else []) + ["Map", "Stats", "Save", "Settings", "Close"]
+	return ["Team", "Fieldbook", "Bag"] + (["Ark"] if ark else []) + ["Journal", "Map", "Stats", "Save", "Settings", "Close"]
 
 ## The height for each of `n` rows sharing `avail` px with `sep` between them, kept between `lo` and `hi`.
 static func row_height(avail: float, n: int, sep: int, lo: int, hi: int) -> int:
@@ -211,8 +212,10 @@ static func _done(d: GameStateData, key: String) -> bool:
 ## optional beat the player walked past never nags. After game_complete: a Fieldbook reward waiting, else the
 ## first post-game hint not done (the last, catch-all one gives way to the next Fieldbook milestone).
 ## `total` is the number of species (for {total}); `o` defaults to data/objectives.json. With nothing left but the
-## catch-all, a Keeper waiting with a side story of their own (SideStories; `sides` defaults to the real ones).
-static func next_objective(d: GameStateData, total := 0, o := {}, sides: Array = []) -> Dictionary:
+## catch-all, a Keeper waiting with a side story of their own (SideStories; `sides` defaults to the real ones), else a
+## rewilding site, else a quest under way near the last town (Quests; `quests` defaults to the real ones), else the
+## next Fieldbook milestone.
+static func next_objective(d: GameStateData, total := 0, o := {}, sides: Array = [], quests: Array = []) -> Dictionary:
 	if o.is_empty():
 		o = objectives()
 	var story: Array = o.get("story", [])
@@ -241,6 +244,8 @@ static func next_objective(d: GameStateData, total := 0, o := {}, sides: Array =
 			out = side
 		elif need.is_empty() and not Rewild.hint_entry(d).is_empty():  # or a rewilding site wants a hand
 			out = Rewild.hint_entry(d)
+		elif need.is_empty() and not quest_entry(d, quests).is_empty():  # or a quest under way near where you are
+			out = quest_entry(d, quests)
 		elif need.is_empty() and FieldbookGoals.hint(d) != "":  # or the next Fieldbook milestone
 			out = {"text": FieldbookGoals.hint(d), "town": "macclesfield"}
 		out["postgame"] = true
@@ -267,6 +272,22 @@ static func around_here(d: GameStateData, town: String, show := {}, sides: Array
 		if town != "" and str(s.get("zone", "")) == town and SideStories.waiting(d, s):
 			return str(s.get("hint", ""))
 	return ""
+
+## A quest under way near the last town you were in, as a "Where next?" entry {text, town}, or {}.
+static func quest_entry(d: GameStateData, quests: Array = []) -> Dictionary:
+	var town := str(d.flag("last_town")) if d.flag("last_town") != null else ""
+	var idx := ZoneIndex.get_index()
+	var q := Quests.nearby(d, town, idx, quests)
+	if q.is_empty():
+		return {}
+	return {"text": Quests.hint_line(d, town, idx, quests), "town": Quests.map_zone(str(Quests.current_step(d, q).get("zone", "")), idx)}
+
+## The pause card's quest line before the ending: one quest under way near `town` ("" for none). Short: its
+## title and the next step.
+static func quest_nearby(d: GameStateData, town: String, quests: Array = []) -> String:
+	if _done(d, "game_complete"):
+		return ""
+	return Quests.hint_line(d, town, ZoneIndex.get_index(), quests)
 
 ## Names of the people whose once-a-day rematch hasn't been fought today (post-game only).
 static func rematches_ready(d: GameStateData, o := {}) -> Array:

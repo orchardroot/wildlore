@@ -293,7 +293,10 @@ static func _props(z: ZoneData, root: Node3D, rng: RandomNumberGenerator) -> voi
 				_add(buckets, "plaque:%d" % int(bool(s.get("green", false))),
 					Transform3D(Basis(), Vector3(sp.x + 0.5 + float(s.get("dx", 0.0)), ground_y(z, sp), sp.y + 0.955)))
 			_:
-				_add(buckets, "sign_post:0", Transform3D(Basis(), Vector3(sp.x + 0.5, ground_y(z, sp), sp.y + 0.5)))
+				var post := "sign_post:0"
+				if str(s.get("plaque", "")) != "":  # a Gazetteer plaque: a heritage lectern, green in Ireland (PlaqueMeshes)
+					post = "lectern:%d" % int(Standing.nation_for_zone(z.id) == "ireland")
+				_add(buckets, post, Transform3D(Basis(), Vector3(sp.x + 0.5, ground_y(z, sp), sp.y + 0.5)))
 	for pr in z.props:
 		var pt: String = pr.get("type", "")
 		if pt in POINT_PROPS:
@@ -435,6 +438,8 @@ static func _ctor(name: String, variant: int) -> ArrayMesh:
 			return WirelessMeshes.radio(variant)
 		"plaque":
 			return WirelessMeshes.plaque(variant == 1)
+		"lectern":
+			return PlaqueMeshes.lectern(variant)
 		"market_stall":
 			return Meshes.market_stall(variant)
 		"bookshelf":

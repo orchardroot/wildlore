@@ -11,7 +11,7 @@ const MENUS := {
 	"map": "res://ui/world_map.tscn", "travel": "res://ui/travel_menu.tscn", "name": "res://ui/name_entry.tscn", "credits": "res://ui/credits_screen.tscn",
 	"relearn": "res://ui/relearn_screen.tscn", "quiz": "res://ui/quiz_screen.tscn", "stats": "res://ui/stats_screen.tscn",
 	"craft": "res://ui/craft_screen.tscn", "jobs": "res://ui/jobs_screen.tscn",
-	"postcard": "res://ui/postcard_screen.tscn", "cold_open": "res://ui/cold_open.tscn",
+	"postcard": "res://ui/postcard_screen.tscn", "quests": "res://ui/quests_screen.tscn", "cold_open": "res://ui/cold_open.tscn",
 }
 
 const DOOR_FADE := Vector2(0.15, 0.2)  # out, in: through a door in about a third of a second
