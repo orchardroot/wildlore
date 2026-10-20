@@ -8,6 +8,8 @@ A monster-catching RPG across the UK and Ireland. You start in Macclesfield, bec
 
 ## What's in 2.2
 
+**2.2.1:** your lead creature now keeps step right behind you when you hold a direction, on foot or on the bike, with no more lagging, stalling or snapping to catch up.
+
 All of it, start to finish, and then some. You leave home in Macclesfield with a hedgehog, a squirrel or an otter, and you walk (and cycle, and take the train, and catch the odd ferry) all the way round England, Wales, Scotland, Northern Ireland, Ireland and the Isle of Man, collecting ten Stones from ten Keepers while a heritage company with very good lanyards tries to buy the countryside. Then you go to Stonehenge for the Moot, find out who the Champion has been all along, and go to London to have a word with Lord Vane about his tower.
 
 - 40 towns, from Macclesfield to Kirkwall, Penzance to Derry~Londonderry
