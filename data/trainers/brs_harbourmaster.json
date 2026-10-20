@@ -1,0 +1,49 @@
+{
+ "id": "brs_harbourmaster",
+ "name": "Harbourmaster Absalom",
+ "class": "Local Legend",
+ "sprite": "shipwright",
+ "party": [
+  {
+   "species": "pierlord",
+   "level": 42
+  },
+  {
+   "species": "greyhaul",
+   "level": 42
+  },
+  {
+   "species": "samsonian",
+   "level": 43
+  },
+  {
+   "species": "heronarch",
+   "level": 42
+  },
+  {
+   "species": "severnshock",
+   "level": 43
+  },
+  {
+   "species": "stoopfalcon",
+   "level": 44
+  }
+ ],
+ "ai": "trainer",
+ "money": 4800,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Harbourmaster Absalom",
+   "text": "Forty years I've run this harbour. I've seen the tall ships come in, the Matthew sail out and a statue go in. I've never seen you beat me."
+  },
+  {
+   "do": "say",
+   "who": "Harbourmaster Absalom",
+   "text": "Full team, mind. Six. Bristol fashion."
+  }
+ ],
+ "win": "Well. You'll do. You'll do very nicely.",
+ "after": "Come back when the tall ships are in. You'll never see the harbour so full.",
+ "scaled_floor": 40
+}

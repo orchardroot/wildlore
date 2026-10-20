@@ -1,0 +1,37 @@
+{"quests": [
+ {"id": "bristol_fiesta", "title": "Fiesta", "region": "bristol", "town": "avon_gorge", "giver": "Pilot Gwen",
+  "summary": "Help a balloon pilot at Ashton Court get airborne: an envelope, a burner and a ground crew.",
+  "start_flag": "q_bristol_fiesta_started",
+  "steps": [
+   {"flag": "q_bristol_fiesta_1", "text": "Collect Gwen's mended envelope from the Balloon Works in Bristol.", "zone": "bristol"},
+   {"flag": "q_bristol_fiesta_2", "text": "Ask the engineers at Aerospace Bristol for a spare burner valve.", "zone": "bristol"},
+   {"flag": "q_bristol_fiesta_3", "text": "Win over Crew Chief Bex on the Harbourside to get a ground crew.", "zone": "bristol"},
+   {"flag": "q_bristol_fiesta_done", "text": "Go back to Gwen at Ashton Court and launch the balloon.", "zone": "avon_gorge"}],
+  "done_flag": "q_bristol_fiesta_done", "reward": "A Wickerling, Somerset Cider and the thanks of England."},
+ {"id": "bristol_brunel", "title": "Brunel's Notebook", "region": "bristol", "town": "bristol", "giver": "Engineer Prudence",
+  "summary": "Follow Isambard Kingdom Brunel's trail: the bridge, the ship and the station.",
+  "start_flag": "q_bristol_brunel_started",
+  "steps": [
+   {"flag": "q_bristol_brunel_1", "text": "Get the first page stamped by the toll keeper at the Clifton Suspension Bridge.", "zone": "avon_gorge"},
+   {"flag": "q_bristol_brunel_2", "text": "Get the second page stamped aboard the SS Great Britain.", "zone": "bristol"},
+   {"flag": "q_bristol_brunel_3", "text": "Answer Prudence's question at Temple Meads.", "zone": "bristol"}],
+  "done_flag": "q_bristol_brunel_done", "reward": "Brunel's Top Hat (an Iron charm) and a Gaugelet."},
+ {"id": "bristol_street_art", "title": "Writing on the Wall", "region": "bristol", "town": "bristol", "giver": "Gallery Keeper Saffron",
+  "summary": "Track down four new pieces of anonymous street art round Stokes Croft, then meet the painter.",
+  "start_flag": "q_bristol_art_started",
+  "steps": [
+   {"flag": "q_bristol_art_1", "text": "Find the gull in the flat cap.", "zone": "bristol"},
+   {"flag": "q_bristol_art_2", "text": "Find the falcon in the top hat.", "zone": "bristol"},
+   {"flag": "q_bristol_art_3", "text": "Find the tide gauge.", "zone": "bristol"},
+   {"flag": "q_bristol_art_4", "text": "Find the balloon made of apples.", "zone": "bristol"},
+   {"flag": "q_bristol_art_5", "text": "Meet the Night Painter behind Jamaica Street, after dark.", "zone": "bristol"}],
+  "done_flag": "q_bristol_art_done", "reward": "Chocolate, Silver Snares and Saffron's discretion."},
+ {"id": "bristol_peregrine", "title": "Peregrine Watch", "region": "bristol", "town": "avon_gorge", "giver": "Watch Leader Hal",
+  "summary": "Help with the peregrine watch over the Avon Gorge, then catch a peregrine to show Hal.",
+  "start_flag": "q_bristol_peregrine_started",
+  "steps": [
+   {"flag": "q_bristol_peregrine_1", "text": "Look through the telescope at the falcons' ledge.", "zone": "avon_gorge"},
+   {"flag": "q_bristol_peregrine_2", "text": "Ask the pigeon fancier on the Downs what peregrines eat.", "zone": "avon_gorge"},
+   {"flag": "q_bristol_peregrine_done", "text": "Catch a peregrine and show Hal.", "zone": "avon_gorge"}],
+  "done_flag": "q_bristol_peregrine_done", "reward": "A Peregrine Feather (a speed charm) and two Flasks of Tea."}
+]}

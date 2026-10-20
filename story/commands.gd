@@ -457,6 +457,8 @@ func _when(cond: String) -> bool:
 		return FieldbookGoals.caught_count(host.data) >= int(cond.substr(7))
 	if cond.begins_with(PARTY_HAS):  # showing someone a creature: party_has_<species>, or anything it grew into
 		return _party_has(cond.substr(PARTY_HAS.length()))
+	if cond.begins_with("has_"):  # a show-me check for a quest: you've caught one of these
+		return host.data.caught.has(cond.substr(4))
 	if cond in Calendar.SEASONS:
 		return Calendar.season_today() == cond
 	if cond in Calendar.FESTIVALS:

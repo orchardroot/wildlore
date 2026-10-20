@@ -1,0 +1,57 @@
+{
+ "aero_engineer": [
+  {
+   "do": "say",
+   "who": "Aerospace Engineer",
+   "text": "That's Alpha Foxtrot, the last Concorde ever to fly. She landed at Filton in 2003, right where she was built."
+  },
+  {
+   "do": "say",
+   "who": "Aerospace Engineer",
+   "text": "Concorde cruised at Mach 2, twice the speed of sound. The skin got so hot the plane stretched by about 20 centimetres in flight."
+  },
+  {
+   "do": "say",
+   "who": "Aerospace Engineer",
+   "text": "Bristol's built aircraft since 1910, when the Bristol Boxkite first flew. Biplanes, airliners, Concorde. Wings still get made round here."
+  },
+  {
+   "do": "if",
+   "flag": "q_bristol_fiesta_1",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_bristol_fiesta_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "Aerospace Engineer",
+       "text": "Burner valve all right? Tell Gwen she owes me a flight. A slow one."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Aerospace Engineer",
+       "text": "A burner valve for Gwen's balloon? We've built wings for jumbo jets here. I think we can manage a valve."
+      },
+      {
+       "do": "say",
+       "who": "Aerospace Engineer",
+       "text": "Propane burns at about 2,000 degrees. Heats the air inside the envelope to about 100. Mind your eyebrows."
+      },
+      {
+       "do": "set",
+       "flag": "q_bristol_fiesta_2"
+      },
+      {
+       "do": "sfx",
+       "id": "item"
+      }
+     ]
+    }
+   ],
+   "else": []
+  }
+ ]
+}

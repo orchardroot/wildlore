@@ -1,0 +1,63 @@
+{
+ "nurse": [
+  {
+   "do": "say",
+   "who": "Nurse",
+   "text": "Alright, my lover? Welcome to Bristol Sanctuary. Pop them on the counter, I'll sort them right out."
+  },
+  {
+   "do": "choice",
+   "text": "What can we do for you?",
+   "options": [
+    "Heal my team",
+    "Open the Ark",
+    "Just looking"
+   ],
+   "set": "_nurse_choice"
+  },
+  {
+   "do": "if",
+   "flag": "_nurse_choice",
+   "eq": 0,
+   "then": [
+    {
+     "do": "say",
+     "who": "Nurse",
+     "text": "There's tea in the pot and a slice of lardy cake if the seagulls haven't had it. Make yourself at home."
+    },
+    {
+     "do": "heal"
+    },
+    {
+     "do": "say",
+     "who": "Nurse",
+     "text": "There you go, gert lush! Fit as a fiddle, the lot of them. Cheers, drive. Sorry, habit."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "_nurse_choice",
+     "eq": 1,
+     "then": [
+      {
+       "do": "say",
+       "who": "Nurse",
+       "text": "The Ark's in the corner, my love. Someone's stuck a little stencil of a gull on it. Nobody owns up."
+      },
+      {
+       "do": "ark"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Nurse",
+       "text": "No bother at all. Mind how you go on the cobbles, they're lethal in the drizzle."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

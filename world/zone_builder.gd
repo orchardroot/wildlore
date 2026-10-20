@@ -24,6 +24,14 @@ const COPING := Color("d8d2c2")
 const SAFETY_LINE := Color("e3c02a")
 ## Paved tiles: darker and shinier in the rain (vertex alpha 0 in the ground mesh, see ground.gdshader).
 const HARD := ["road", "cobbles", "platform", "level_crossing", "door"]
+## A bridge deck (a legend_extra tile with "deck": n, the level of the water or ground n below it): its edges
+## are a slab this deep instead of an embankment, with the riverbed and the water drawn down at level n.
+const DECK_SLAB := 0.3
+const DECK_EDGE := Color("4a4f57")
+
+## The level below a bridge deck tile, or -1 for ordinary ground.
+static func deck_under(z: ZoneData, p: Vector2i) -> int:
+	return int(z.legend_extra.get(z.char_at(p), {}).get("deck", -1))
 
 ## Surface height of a tile's ground (water beds sit lower).
 static func ground_y(z: ZoneData, p: Vector2i) -> float:
@@ -99,6 +107,9 @@ static func _ground(z: ZoneData, rng: RandomNumberGenerator) -> MeshInstance3D:
 					continue
 				var side := SIDE_ROCK if t == "cliff" or gy - ny > LEVEL * 1.5 else SIDE_EARTH
 				var lip := col.darkened(0.15)
+				if ex.has("deck"):
+					ny = maxf(ny, gy - DECK_SLAB)
+					side = DECK_EDGE
 				if t == "platform":
 					side = Color("7a5a48")  # brick platform wall, white coping
 					lip = COPING
@@ -111,6 +122,10 @@ static func _ground(z: ZoneData, rng: RandomNumberGenerator) -> MeshInstance3D:
 						var hx := 0.5 if d.x == 0 else 0.05
 						var hz := 0.5 if d.y == 0 else 0.05
 						Meshes._quad(st, c + Vector3(-hx, 0, -hz), c + Vector3(hx, 0, -hz), c + Vector3(hx, 0, hz), c + Vector3(-hx, 0, hz), SAFETY_LINE)
+			if ex.has("deck"):  # the riverbed far below
+				var by := int(ex.deck) * LEVEL - 0.6
+				Meshes.quad4(st, Vector3(x0, by, z0), Vector3(x0 + 1, by, z0), Vector3(x0 + 1, by, z0 + 1), Vector3(x0, by, z0 + 1),
+					GROUND_COLOURS.deep_water, GROUND_COLOURS.deep_water, GROUND_COLOURS.deep_water, GROUND_COLOURS.deep_water)
 			if t == "ledge_south":
 				Meshes.box(st, Vector3(x0, gy - 0.18, z0 + 0.82), Vector3(1.0, 0.18, 0.18), SIDE_EARTH, col.darkened(0.1))
 	st.index()
@@ -182,10 +197,11 @@ static func _water(z: ZoneData, kinds: Array, deep_col: Color, shallow_col: Colo
 		for x in z.width:
 			var p := Vector2i(x, y)
 			var t := z.tile_at(p)
-			if t not in kinds:
+			var under := deck_under(z, p) if "water" in kinds else -1
+			if t not in kinds and under < 0:
 				continue
 			any = true
-			var wy := water_y(z, p)
+			var wy := water_y(z, p) if under < 0 else under * LEVEL - 0.1
 			Meshes._quad(st, Vector3(x, wy, y), Vector3(x + 1, wy, y), Vector3(x + 1, wy, y + 1), Vector3(x, wy, y + 1), Color.WHITE)
 	if not any:
 		return null
