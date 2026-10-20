@@ -1,0 +1,24 @@
+{"id": "peatling",
+ "palette": {"peat": "#6a4a32", "peat2": "#4a3222", "moss": "#5e8a3a", "moss2": "#8ab450", "cotton": "#f4f2ea", "stalk": "#7a8a4a", "gold": "#e0b040", "wisp": "#d4f0c8", "ink": "#1e140c", "eye": "#d4f0c8", "pool": "#3a3020"},
+ "layers": [
+  {"shape": "ellipse", "at": [48, 90], "size": [62, 8], "colour": "pool", "rim": false},
+  {"shape": "poly", "points": [[32, 76], [64, 76], [70, 90], [60, 84], [54, 92], [48, 84], [42, 92], [36, 84], [26, 90]], "colour": "peat2", "pattern": "speckle", "pcolour": "peat", "density": 20},
+  {"shape": "ellipse", "at": [22, 66], "size": [8, 18], "colour": "peat", "angle": 30, "mirror": true},
+  {"shape": "ellipse", "at": [48, 60], "size": [44, 42], "colour": "peat", "pattern": "speckle", "pcolour": "peat2", "density": 26},
+  {"shape": "ellipse", "at": [48, 44], "size": [40, 14], "colour": "moss", "rim": false, "pattern": "speckle", "pcolour": "moss2", "density": 30},
+  {"shape": "line", "points": [[38, 42], [34, 26]], "width": 1.2, "colour": "stalk", "shade": false},
+  {"shape": "line", "points": [[48, 40], [50, 20]], "width": 1.2, "colour": "stalk", "shade": false},
+  {"shape": "line", "points": [[58, 42], [64, 28]], "width": 1.2, "colour": "stalk", "shade": false},
+  {"shape": "circle", "at": [34, 24], "r": 4.5, "colour": "cotton", "rim": false},
+  {"shape": "circle", "at": [50, 18], "r": 5, "colour": "cotton", "rim": false},
+  {"shape": "circle", "at": [64, 26], "r": 4, "colour": "cotton", "rim": false},
+  {"shape": "circle", "at": [14, 40], "r": 2.5, "colour": "wisp", "shade": false, "rim": false},
+  {"shape": "circle", "at": [84, 48], "r": 2, "colour": "wisp", "shade": false, "rim": false}
+ ],
+ "face_layers": [
+  {"shape": "line", "points": [[43, 68], [48, 70], [53, 68]], "width": 1.2, "colour": "ink", "shade": false}
+ ],
+ "eyes": [
+  {"at": [40, 59], "r": 4, "colour": "eye", "pupil": [2, 3], "mirror": true}
+ ]
+}

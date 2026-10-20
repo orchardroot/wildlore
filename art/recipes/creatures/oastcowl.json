@@ -1,0 +1,27 @@
+{"id": "oastcowl",
+ "palette": {"b": "#b0503a", "b2": "#8a3a2a", "b3": "#cc6a4a", "roof": "#6a3a2e", "roof2": "#4e2a22", "cowl": "#f4f0e6", "cowl2": "#c8c2b2", "vane": "#2a2a30", "fire": "#ffb040", "fire2": "#f0702a", "hop": "#b8d468", "hop2": "#8aae40", "bine": "#4e7a2a", "ink": "#1e1410", "grass": "#5e8a38", "grass2": "#46702a", "smoke": "#c8c4bc"},
+ "layers": [
+  {"shape": "ellipse", "at": [48, 91], "size": [92, 10], "colour": "grass", "rim": false, "pattern": "speckle", "pcolour": "grass2", "density": 20},
+  {"shape": "ellipse", "at": [20, 80], "size": [14, 16], "colour": "b2"},
+  {"shape": "ellipse", "at": [76, 80], "size": [14, 16], "colour": "b2"},
+  {"shape": "rect", "at": [48, 66], "size": [56, 46], "round": 6, "colour": "b", "pattern": "stripes", "pcolour": "b2", "period": 5, "pangle": 0},
+  {"shape": "ellipse", "at": [48, 70], "size": [26, 20], "colour": "fire2", "rim": false, "front_only": true},
+  {"shape": "ellipse", "at": [48, 72], "size": [18, 12], "colour": "fire", "rim": false, "front_only": true, "shade": false},
+  {"shape": "rect", "at": [48, 82], "size": [24, 3], "colour": "b2", "rim": false, "front_only": true},
+  {"shape": "poly", "points": [[16, 46], [48, 18], [80, 46]], "colour": "roof", "pattern": "stripes", "pcolour": "roof2", "period": 4, "pangle": 0},
+  {"shape": "rect", "at": [48, 46], "size": [66, 5], "colour": "roof2", "rim": false},
+  {"shape": "poly", "points": [[38, 30], [40, 16], [50, 8], [60, 14], [60, 26], [50, 24], [44, 32]], "colour": "cowl", "pattern": "stripes", "pcolour": "cowl2", "period": 4, "pangle": 0},
+  {"shape": "poly", "points": [[60, 14], [74, 12], [72, 20], [60, 22]], "colour": "cowl"},
+  {"shape": "line", "points": [[50, 8], [50, 3]], "width": 1.5, "colour": "vane"},
+  {"shape": "line", "points": [[14, 50], [24, 54], [34, 50], [48, 56], [62, 50], [72, 54], [82, 50]], "width": 3, "colour": "bine", "rim": false},
+  {"shape": "circle", "at": [24, 56], "r": 4, "colour": "hop", "pattern": "speckle", "pcolour": "hop2", "density": 10},
+  {"shape": "circle", "at": [48, 60], "r": 4, "colour": "hop", "pattern": "speckle", "pcolour": "hop2", "density": 10},
+  {"shape": "circle", "at": [72, 56], "r": 4, "colour": "hop", "pattern": "speckle", "pcolour": "hop2", "density": 10},
+  {"shape": "circle", "at": [76, 8], "r": 3, "colour": "smoke", "shade": false, "rim": false},
+  {"shape": "circle", "at": [83, 4], "r": 2.4, "colour": "smoke", "shade": false, "rim": false}
+ ],
+ "face_layers": [
+  {"shape": "line", "points": [[30, 31], [40, 35]], "width": 2.4, "colour": "roof2", "shade": false, "mirror": true}
+ ],
+ "eyes": [{"at": [39, 39], "r": 4.2, "colour": "fire", "mirror": true, "pupil": [1.4, 4], "highlight": false}]
+}

@@ -1,0 +1,120 @@
+{
+ "id": "stoke_leopard",
+ "name": "The Leopard Inn",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "fireplace",
+   "x": 10,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "table",
+   "x": 9,
+   "y": 4
+  },
+  {
+   "type": "table",
+   "x": 12,
+   "y": 4
+  },
+  {
+   "type": "table",
+   "x": 9,
+   "y": 6
+  },
+  {
+   "type": "table",
+   "x": 12,
+   "y": 6
+  },
+  {
+   "type": "kitchen_dresser",
+   "x": 13,
+   "y": 1
+  },
+  {
+   "type": "wall_picture",
+   "x": 7,
+   "y": 1,
+   "walk": true,
+   "variant": 0
+  },
+  {
+   "type": "piano",
+   "x": 1,
+   "y": 6
+  }
+ ],
+ "warps": [
+  {
+   "x": 7,
+   "y": 8,
+   "to": "stoke",
+   "tx": 42,
+   "ty": 20,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "leopard_landlord",
+   "sprite": "shopkeeper",
+   "x": 3,
+   "y": 1,
+   "facing": "down",
+   "move": "still",
+   "script": "leopard_landlord",
+   "name": "Landlord"
+  },
+  {
+   "id": "leopard_quizmaster",
+   "sprite": "poet",
+   "x": 11,
+   "y": 5,
+   "facing": "left",
+   "move": "still",
+   "script": "leopard_quiz",
+   "name": "Quizmaster"
+  },
+  {
+   "id": "leopard_ghost",
+   "sprite": "villager_6",
+   "x": 5,
+   "y": 6,
+   "facing": "up",
+   "move": "still",
+   "script": "leopard_regular",
+   "name": "Old Regular"
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "x": 6,
+   "y": 1,
+   "text": "THE LEOPARD. Coaching inn, Burslem. Where the canal was talked into being over a pint, or so the plaque outside would like you to believe."
+  }
+ ],
+ "spawn": [
+  7,
+  7
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxxx",
+  "x|||||||||||||x",
+  "xCCCCC||||||||x",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x||||||D||||||x",
+  "xxxxxxxxxxxxxxx"
+ ]
+}

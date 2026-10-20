@@ -1,0 +1,51 @@
+{
+ "lin_hangman": [
+  {
+   "do": "say",
+   "who": "Old Regular",
+   "text": "The Strugglers is named for the poor souls hanged at the castle. The gallows was on the walls, and the crowds drank here after. Grim, but it's a lovely pint."
+  },
+  {
+   "do": "say",
+   "who": "Old Regular",
+   "text": "There's a little carving of a struggling man on the sign. Don't look too long."
+  }
+ ],
+ "lin_landlord": [
+  {
+   "do": "if",
+   "flag": "q_humber_imp_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_humber_imp_1",
+     "then": [],
+     "else": [
+      {
+       "do": "say",
+       "who": "Landlord",
+       "text": "Funny you should ask. Something small and stony nicked a Lincolnshire sausage off a plate at lunch. Ran off down Steep Hill, cackling."
+      },
+      {
+       "do": "set",
+       "flag": "q_humber_imp_1",
+       "value": true
+      }
+     ]
+    }
+   ],
+   "else": []
+  },
+  {
+   "do": "say",
+   "who": "Landlord",
+   "text": "Ey up, me duck. Quiz tonight, and every night. Fancy it?"
+  },
+  {
+   "do": "quiz",
+   "pub": "lincoln_strugglers",
+   "region": "england_north",
+   "who": "Landlord"
+  }
+ ]
+}

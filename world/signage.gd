@@ -260,6 +260,12 @@ static func front(style: String, w: int, d: int, door_x: int) -> Dictionary:
 			f.merge({"z": d + 0.16, "lo": 1.07, "hi": 1.47, "hang": 2.4}, true)
 		"slate_cottage":
 			f.merge({"z": d + 0.2, "lo": 1.07, "hi": 1.46, "hang": 1.42}, true)
+		"thatch_cottage":
+			f.merge({"z": d + 0.24, "lo": 0.95, "hi": 1.3, "hang": 1.3}, true)
+		"irish_shopfront":
+			f.merge({"z": d + 0.05, "lo": 1.08, "hi": 1.46, "hang": 2.3}, true)
+		"tower_house", "tower_house_granite":
+			f.mode = "stand"
 		"chapel":
 			f.merge({"lo": 2.08, "hi": 2.46, "x0": 0.25, "x1": w - 0.25}, true)
 		"cathedral":
@@ -268,7 +274,7 @@ static func front(style: String, w: int, d: int, door_x: int) -> Dictionary:
 				f.merge({"z": d - 0.3, "lo": 2.22, "hi": 3.0, "x0": tower_w + 0.15, "x1": w - 0.15}, true)
 			else:
 				f.merge({"lo": 1.4, "hi": 1.95, "x0": 0.15, "x1": tower_w - 0.15}, true)
-		"castle":
+		"castle", "castle_red":
 			if door_x >= 0:
 				f.merge({"z": d + 0.1, "lo": 1.22, "hi": 2.3, "x0": door_x - 0.32, "x1": door_x + 1.32}, true)
 			else:
@@ -277,6 +283,12 @@ static func front(style: String, w: int, d: int, door_x: int) -> Dictionary:
 			f.merge({"mode": "trough", "z": d * 0.5 + 0.5, "lo": 3.42, "hi": 3.78, "x0": w * 0.5 - 3.0, "x1": w * 0.5 + 3.0}, true)
 		"glass_tower", "titanic", "gantry_crane", "cantilever_crane", "round_tower", "passage_tomb", "field_barn":
 			f.mode = "stand"
+		"casino":  # the Palace: its name in claret on the gilded band along the parapet
+			f.merge({"mode": "parapet", "z": d + 0.1, "lo": 3.26, "hi": 3.74, "x0": 0.6, "x1": w - 0.6}, true)
+		"grandstand":  # on the striped valance under the roof
+			f.merge({"z": d + 0.33, "lo": 3.5, "hi": 3.86, "x0": 0.5, "x1": w - 0.5}, true)
+		"bookmaker":  # the shop's painted fascia
+			f.merge({"z": d + 0.085, "lo": 1.24, "hi": 1.62, "x0": 0.1, "x1": w - 0.1}, true)
 		_:
 			if style in Landmarks.SPECIAL:
 				f.mode = "stand"
@@ -756,7 +768,7 @@ static func _heritage(kit: Kit, label: String, f: Dictionary, w: int, door_x: in
 		face = SLATE
 		edge = SLATE.darkened(0.3)
 		ink = Color("e6e0cf")
-	elif style == "stone" or style == "cathedral" or style == "castle" or style == "chapel":
+	elif style == "stone" or style == "cathedral" or style == "castle" or style == "castle_red" or style == "chapel":
 		face = Color("e4dccb")
 		edge = Color("9b917e")
 	var text := label.to_upper() if fnt == font("caps") else label
@@ -861,10 +873,11 @@ static func _parapet(kit: Kit, label: String, f: Dictionary, style: String) -> v
 	var cx: float = (float(f.x0) + float(f.x1)) * 0.5
 	var y0: float = f.lo
 	var z0: float = float(f.z) - 0.22
-	var face := Landmarks.PORTLAND if stone else Landmarks.BRICK
+	var gold := style == "casino"
+	var face := Landmarks.PORTLAND if stone else (Color("d8b04a") if gold else Landmarks.BRICK)
 	kit.box(Vector3(cx - bw * 0.5, y0 - 0.02, z0), Vector3(bw, h, 0.22), face)
-	kit.box(Vector3(cx - bw * 0.5 - 0.05, y0 + h - 0.02, z0 - 0.03), Vector3(bw + 0.1, 0.07, 0.3), Landmarks.LIMESTONE)
-	var ink := INCISED if stone else Color("efe6cf")
+	kit.box(Vector3(cx - bw * 0.5 - 0.05, y0 + h - 0.02, z0 - 0.03), Vector3(bw + 0.1, 0.07, 0.3), Color("f6f1e4") if gold else Landmarks.LIMESTONE)
+	var ink := INCISED if stone else (Color("7a1624") if gold else Color("efe6cf"))
 	kit.text(Transform3D.IDENTITY, Vector3(cx, y0 + h * 0.48, z0 + 0.224), fit_w, fnt, ink)
 
 ## A cast-iron name plate on an aqueduct's or a bridge's trough: raised cream letters, beaded rim.

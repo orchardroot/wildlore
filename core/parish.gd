@@ -72,6 +72,8 @@ func _on_zone_entered(zone_id: String) -> void:
 	if str(z.get("kind", "")) == "town" and d.flag(SEEN_PREFIX + zone_id) != true:
 		d.set_flag(SEEN_PREFIX + zone_id, true)
 		standing(Standing.nation_for_zone(zone_id), Standing.FOR_FIRST_VISIT)
+	Markets.sync(d)  # the markets notice new Stones, story turns and rewilding from today
+	news("Euros", Wallet.take_welcome_line(d))  # an old save loaded in Ireland: the one-off conversion
 	_check_visits()
 
 ## Jobs that just became ready to hand in (forage, visit; bring and show are checked at the board).
@@ -91,7 +93,7 @@ func _finish_auto() -> void:
 
 ## "Count the bats: £450, 2 Sloes and 3 standing in Wales."
 static func reward_text(r: Dictionary, items: ItemDB) -> String:
-	var bits := [UIKit.money_text(int(r.get("money", 0)))]
+	var bits := [Wallet.fmt(int(r.get("money", 0)), str(r.get("cur", Wallet.GBP)))]
 	for id in r.get("got", {}):
 		var nm := str(items.get_item(str(id)).get("name", str(id).capitalize()))
 		bits.append("%d %s" % [int(r.got[id]), nm] if int(r.got[id]) > 1 else nm)

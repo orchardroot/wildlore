@@ -1,0 +1,110 @@
+{
+ "id": "blaenavon_bigpit",
+ "name": "Big Pit: Lamp Room",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 7
+  },
+  {
+   "type": "potted_plant",
+   "x": 11,
+   "y": 7
+  },
+  {
+   "type": "bookshelf",
+   "x": 2,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 3,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 9,
+   "y": 1
+  },
+  {
+   "type": "brick_arch",
+   "x": 10,
+   "y": 3
+  },
+  {
+   "type": "table",
+   "x": 2,
+   "y": 5
+  },
+  {
+   "type": "brazier",
+   "x": 11,
+   "y": 6
+  },
+  {
+   "type": "wall_picture",
+   "x": 6,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "slate_heap",
+   "x": 1,
+   "y": 6
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 8,
+   "to": "blaenavon",
+   "tx": 46,
+   "ty": 17,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "bla_gwilym",
+   "sprite": "tin_miner",
+   "x": 6,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "bla_gwilym",
+   "name": "Gwilym, ex-miner"
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "x": 4,
+   "y": 3,
+   "plaque": "blaenavon_lamproom",
+   "title": "The Lamp Room",
+   "text": "At the top of the shaft, visitors give up anything that could make a spark: lighters, matches, phones, watches. Methane, called firedamp, collects in pockets underground, and a single spark could set it off. Miners carried lamps designed so that they couldn't."
+  }
+ ],
+ "spawn": [
+  6,
+  7
+ ],
+ "rows": [
+  "xxxxxxxxxxxxx",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||D|||||x",
+  "xxxxxxxxxxxxx"
+ ]
+}

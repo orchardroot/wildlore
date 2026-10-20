@@ -1,0 +1,129 @@
+{
+ "id": "enniskillen_castlecoole",
+ "name": "Castle Coole",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "rows": [
+  "xxxxxxxxxxxxxxx",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x||||||D||||||x",
+  "xxxxxxxxxxxxxxx"
+ ],
+ "props": [
+  {
+   "type": "fireplace",
+   "x": 7,
+   "y": 1
+  },
+  {
+   "type": "piano",
+   "x": 2,
+   "y": 2
+  },
+  {
+   "type": "sofa",
+   "x": 10,
+   "y": 3
+  },
+  {
+   "type": "sofa",
+   "x": 12,
+   "y": 3
+  },
+  {
+   "type": "rug",
+   "x": 5,
+   "y": 3,
+   "w": 5,
+   "h": 3,
+   "variant": 1,
+   "walk": true
+  },
+  {
+   "type": "wall_picture",
+   "x": 4,
+   "y": 1,
+   "walk": true,
+   "variant": 0
+  },
+  {
+   "type": "wall_picture",
+   "x": 10,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  },
+  {
+   "type": "clock",
+   "x": 12,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "statue",
+   "x": 1,
+   "y": 7
+  },
+  {
+   "type": "statue",
+   "x": 13,
+   "y": 7
+  },
+  {
+   "type": "plant_stand",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "display_case",
+   "x": 13,
+   "y": 5,
+   "variant": 1
+  }
+ ],
+ "warps": [
+  {
+   "x": 7,
+   "y": 8,
+   "to": "enniskillen",
+   "tx": 62,
+   "ty": 23,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "en_nt_guide",
+   "sprite": "tour_guide",
+   "x": 7,
+   "y": 4,
+   "facing": "down",
+   "move": "still",
+   "script": "en_nt_guide",
+   "name": "House Guide"
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "x": 2,
+   "y": 1,
+   "plaque": "en_state_bed",
+   "title": "The State Bedroom",
+   "text": "Castle Coole's state bedroom was hung with red silk for a visit by King George IV in 1821. He never actually stayed the night, so the bed has been made up for him for two hundred years."
+  }
+ ],
+ "spawn": [
+  7,
+  7
+ ]
+}

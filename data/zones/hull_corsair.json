@@ -1,0 +1,183 @@
+{
+ "id": "hull_corsair",
+ "name": "Arctic Corsair",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "statue",
+   "x": 6,
+   "y": 3
+  },
+  {
+   "type": "bookshelf",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 11,
+   "y": 1
+  },
+  {
+   "type": "table",
+   "x": 3,
+   "y": 2
+  },
+  {
+   "type": "table",
+   "x": 3,
+   "y": 5
+  },
+  {
+   "type": "table",
+   "x": 9,
+   "y": 2
+  },
+  {
+   "type": "table",
+   "x": 9,
+   "y": 5
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 6
+  },
+  {
+   "type": "potted_plant",
+   "x": 11,
+   "y": 6
+  },
+  {
+   "type": "telescope",
+   "x": 10,
+   "y": 2
+  },
+  {
+   "type": "lobster_pots",
+   "x": 1,
+   "y": 2
+  },
+  {
+   "type": "display_case",
+   "x": 10,
+   "y": 3,
+   "variant": 0
+  },
+  {
+   "type": "display_case",
+   "x": 10,
+   "y": 5,
+   "variant": 0
+  },
+  {
+   "type": "display_case",
+   "x": 4,
+   "y": 4,
+   "variant": 2
+  },
+  {
+   "type": "display_case",
+   "x": 8,
+   "y": 4,
+   "variant": 0
+  },
+  {
+   "type": "wall_picture",
+   "x": 8,
+   "y": 1,
+   "walk": true,
+   "variant": 2
+  },
+  {
+   "type": "wall_picture",
+   "x": 6,
+   "y": 1,
+   "walk": true,
+   "variant": 2
+  },
+  {
+   "type": "wall_picture",
+   "x": 3,
+   "y": 1,
+   "walk": true,
+   "variant": 0
+  },
+  {
+   "type": "clock",
+   "x": 9,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "rug",
+   "x": 5,
+   "y": 4,
+   "w": 3,
+   "h": 3,
+   "variant": 3,
+   "walk": true
+  },
+  {
+   "type": "telescope",
+   "x": 1,
+   "y": 5
+  },
+  {
+   "type": "plant_stand",
+   "x": 11,
+   "y": 5
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 7,
+   "to": "hull",
+   "tx": 55,
+   "ty": 32,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "hul_skipper",
+   "sprite": "fisherman_north",
+   "x": 6,
+   "y": 2,
+   "facing": "down",
+   "move": "still",
+   "script": "hul_skipper"
+  },
+  {
+   "id": "hul_deckie",
+   "sprite": "sailor",
+   "x": 2,
+   "y": 4,
+   "facing": "right",
+   "move": "still",
+   "script": "hul_deckie"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  6,
+  6
+ ],
+ "rows": [
+  "xxxxxxxxxxxxx",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++D+++++x",
+  "xxxxxxxxxxxxx"
+ ]
+}

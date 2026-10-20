@@ -12,9 +12,11 @@ const REGION_NAMES := {
 	"cheshire": "Cheshire", "peak": "The Peak", "manchester": "Manchester", "merseyside": "Merseyside",
 	"north_wales": "North Wales", "mid_wales": "Mid Wales", "south_wales": "South Wales",
 	"south_england": "The West Country", "cornwall": "Cornwall", "midlands": "Midlands and London",
-	"yorkshire": "Yorkshire", "cumbria": "Cumbria and Lancashire", "north_east": "The North East",
+	"yorkshire": "Yorkshire", "cumbria": "Cumbria and Lancashire", "lancashire": "The Lancashire Coast", "north_east": "The North East",
 	"scotland": "Scotland", "man": "Isle of Man", "ireland": "Ireland", "ireland_west": "The West of Ireland",
 	"ireland_east": "The Boyne Valley",
+	"east_anglia": "East Anglia",
+	"south_east": "The South East",
 }
 
 static func region_name(r: String) -> String:

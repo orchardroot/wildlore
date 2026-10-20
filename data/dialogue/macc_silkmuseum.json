@@ -1,24 +1,155 @@
 {
  "macc_silkmuseum_0": [
   {
-   "do": "say",
-   "who": "Curator",
-   "text": "Welcome to the Silk Museum. Macclesfield made silk for centuries, and this is the town's memory of it."
-  },
-  {
-   "do": "say",
-   "who": "Curator",
-   "text": "Charles Roe opened the first big silk mill here in 1743. By Victorian times Macclesfield was one of the great silk towns of England."
-  },
-  {
-   "do": "say",
-   "who": "Curator",
-   "text": "One cocoon is a single thread, up to about a kilometre long. A silkworm is a very small, very patient knitter."
-  },
-  {
-   "do": "say",
-   "who": "Curator",
-   "text": "Silk was 'thrown' here. That does not mean tossed about. Throwing is twisting the raw threads together into yarn."
+   "do": "if",
+   "flag": "q_macclesfield_silk_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Curator",
+     "text": "Our Silk Square suits you. Mind the tart crumbs."
+    },
+    {
+     "do": "say",
+     "who": "Curator",
+     "text": "Charles Roe opened the first big silk mill here in 1743. By Victorian times Macclesfield was one of the great silk towns of England."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_macclesfield_silk_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_macclesfield_silk_1",
+       "then": [
+        {
+         "do": "if",
+         "flag": "plaque_macclesfield_paradise_mill",
+         "then": [
+          {
+           "do": "choice",
+           "text": "So. When did the Jacquard looms at Paradise Mill stop working?",
+           "options": [
+            "1881",
+            "1981",
+            "Last Tuesday"
+           ],
+           "set": "q_macclesfield_silk_answer"
+          },
+          {
+           "do": "if",
+           "flag": "q_macclesfield_silk_answer",
+           "eq": 1,
+           "then": [
+            {
+             "do": "say",
+             "who": "Curator",
+             "text": "1981! Within living memory. Silk was woven on those handlooms in Macclesfield into the age of the home computer, which, if you think about it, is just a Jacquard loom that sulks."
+            },
+            {
+             "do": "set",
+             "flag": "q_macclesfield_silk_3"
+            },
+            {
+             "do": "say",
+             "who": "Curator",
+             "text": "Here. A silk square from our own loom, and a Bakewell tart from the café, because history is hungry work."
+            },
+            {
+             "do": "give_item",
+             "item": "macc_silk_square"
+            },
+            {
+             "do": "give_item",
+             "item": "bakewell_tart"
+            },
+            {
+             "do": "standing",
+             "nation": "england",
+             "amount": 2
+            },
+            {
+             "do": "set",
+             "flag": "q_macclesfield_silk_done"
+            },
+            {
+             "do": "say",
+             "who": "Curator",
+             "text": "There are plaques like that all over the isles, you know. Read them as you go. Your Gazetteer will thank you, and so will I."
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Curator",
+             "text": "Not quite. Pop back down to the mill and read the plaque again. It's round and blue. You can't miss it, though people do."
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Curator",
+           "text": "Did the weaver like the card? Good. Now, did you read the blue plaque on the front of Paradise Mill? Go and have a look. There'll be a question. I'm like that."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Curator",
+         "text": "The weaver at Paradise Mill is waiting on that card. Down past the market, over the river. Unfolded, please."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Curator",
+       "text": "Welcome to the Silk Museum. Macclesfield made silk for centuries, and this is the town's memory of it."
+      },
+      {
+       "do": "say",
+       "who": "Curator",
+       "text": "Charles Roe opened the first big silk mill here in 1743. By Victorian times Macclesfield was one of the great silk towns of England."
+      },
+      {
+       "do": "say",
+       "who": "Curator",
+       "text": "One cocoon is a single thread, up to about a kilometre long. A silkworm is a very small, very patient knitter."
+      },
+      {
+       "do": "say",
+       "who": "Curator",
+       "text": "Silk was 'thrown' here. That does not mean tossed about. Throwing is twisting the raw threads together into yarn."
+      },
+      {
+       "do": "say",
+       "who": "Curator",
+       "text": "You've got the look of somebody with working legs. Could you run an errand for a museum? It's not glamorous. Museums rarely are."
+      },
+      {
+       "do": "say",
+       "who": "Curator",
+       "text": "This is a Jacquard card: a weaving pattern, punched as holes in stiff card. A loom reads it row by row. The weaver at Paradise Mill is expecting it."
+      },
+      {
+       "do": "set",
+       "flag": "q_macclesfield_silk_started"
+      },
+      {
+       "do": "say",
+       "who": "Curator",
+       "text": "Paradise Mill is down past the market and over the river. Don't fold it. Folding is how you end up with a tie that says HELP."
+      }
+     ]
+    }
+   ]
   }
  ],
  "macc_silkmuseum_1": [

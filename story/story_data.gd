@@ -77,16 +77,21 @@ static func trainer_script(id: String) -> Array:
 ## interiors use the town they're in, and Man's depends on the hour.
 const GREETINGS := {
 	"cheshire": "Alright!", "manchester": "Alright, our kid!", "merseyside": "Alright, la!", "yorkshire": "Ey up!",
-	"north_east": "Alreet, pet!", "midlands": "Alright, mate!", "peak": "Ay up, me duck!", "cumbria": "Now then!",
+	"north_east": "Alreet, pet!", "midlands": "Alright, mate!", "peak": "Ay up, me duck!", "cumbria": "Now then!", "lancashire": "Hiya, love!",
 	"south_england": "Alright, my lover!", "cornwall": "Dydh da!", "north_wales": "Shwmae!", "mid_wales": "Shwmae!",
 	"south_wales": "Shwmae!", "scotland": "Hiya!", "ireland": "How's the form?", "ireland_east": "How's the form?",
 	"ireland_west": "Dia dhuit!",
+	"east_anglia": "Alright, bor!",
+	"south_east": "Alright!",
 }
 const ZONE_GREETINGS := {
-	"birmingham": "Alright, bab!", "nottingham": "Ay up, me duck!", "aberdeen": "Fit like?",
+	"birmingham": "Alright, bab!", "nottingham": "Ay up, me duck!", "stoke": "Ow at, duck?", "aberdeen": "Fit like?",
+	"cambridge": "Alright?",
+	"oban": "Halò!", "tobermory": "Halò!", "loch_lomond": "Halò!",
 	# Northern Ireland
 	"belfast": "Bout ye?", "bushmills": "Bout ye?", "derry": "Bout ye?", "antrim_coast": "Bout ye?",
 	"causeway": "Bout ye?", "mournes": "Bout ye?",
+	"lough_neagh": "Bout ye?", "enniskillen": "Bout ye?",
 	# the Highlands and Skye, where you'll still hear Gaelic
 	"inverness": "Halò!", "fort_william": "Halò!", "portree": "Halò!", "skye": "Halò!", "faerie_glen": "Halò!",
 	"great_glen": "Halò!", "loch_ness": "Halò!", "glencoe": "Halò!", "cairngorms": "Halò!",

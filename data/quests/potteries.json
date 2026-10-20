@@ -1,0 +1,136 @@
+{
+ "quests": [
+  {
+   "id": "potteries_firing",
+   "title": "Firing Day",
+   "region": "potteries",
+   "town": "stoke",
+   "giver": "Fireman",
+   "summary": "Help the fireman at Gladstone fire a bottle oven for the museum, the old way.",
+   "start_flag": "q_potteries_firing_started",
+   "steps": [
+    {
+     "flag": "q_potteries_firing_1",
+     "text": "Get saggars from the saggar maker's bottom knocker at Middleport Pottery.",
+     "zone": "stoke_middleport"
+    },
+    {
+     "flag": "q_potteries_firing_2",
+     "text": "Get a load of coal from Boatman Alf on the canal towpath.",
+     "zone": "stoke"
+    },
+    {
+     "flag": "q_potteries_firing_3",
+     "text": "Fetch wad clay from the clay cellar at Spode Works.",
+     "zone": "stoke_spode"
+    },
+    {
+     "flag": "q_potteries_firing_done",
+     "text": "Take it all back to the fireman in the Gladstone yard and fire the oven.",
+     "zone": "stoke"
+    }
+   ],
+   "done_flag": "q_potteries_firing_done",
+   "reward": "A Kiln Brick charm, a Saggit of your own and standing in England."
+  },
+  {
+   "id": "potteries_wallaby",
+   "title": "The Wallaby of the Roaches",
+   "region": "potteries",
+   "town": "the_roaches",
+   "giver": "Wallaby Watcher",
+   "summary": "Follow the sightings and find the last wallaby of the Roaches.",
+   "start_flag": "q_potteries_wallaby_started",
+   "steps": [
+    {
+     "flag": "q_potteries_wallaby_1",
+     "text": "Ask the walker by the Hanging Stone.",
+     "zone": "the_roaches"
+    },
+    {
+     "flag": "q_potteries_wallaby_2",
+     "text": "Ask the ranger at Doxey Pool, up on the Roaches.",
+     "zone": "the_roaches"
+    },
+    {
+     "flag": "q_potteries_wallaby_3",
+     "text": "Ask at the boathouse on Rudyard Lake.",
+     "zone": "the_roaches"
+    },
+    {
+     "flag": "q_potteries_wallaby_4",
+     "text": "Catch the wallaby at Roach End, at dawn or dusk.",
+     "zone": "the_roaches"
+    },
+    {
+     "flag": "q_potteries_wallaby_done",
+     "text": "Tell the Wallaby Watcher by Rockhall Cottage.",
+     "zone": "the_roaches"
+    }
+   ],
+   "done_flag": "q_potteries_wallaby_done",
+   "reward": "A Staffordshire Knot, Kendal Mint Cake and standing in England."
+  },
+  {
+   "id": "potteries_oatcakes",
+   "title": "The Oatcake Round",
+   "region": "potteries",
+   "town": "stoke",
+   "giver": "Oatcake Lady",
+   "summary": "Deliver three oatcakes round Stoke while they're still warm.",
+   "start_flag": "q_potteries_oatcakes_started",
+   "steps": [
+    {
+     "flag": "q_potteries_oatcakes_1",
+     "text": "Deliver an oatcake to the attendant at the Potteries Museum.",
+     "zone": "stoke_museum"
+    },
+    {
+     "flag": "q_potteries_oatcakes_2",
+     "text": "Deliver an oatcake to the landlord of the Leopard Inn.",
+     "zone": "stoke_leopard"
+    },
+    {
+     "flag": "q_potteries_oatcakes_3",
+     "text": "Deliver an oatcake to the City fan by the Potters' Ground.",
+     "zone": "stoke"
+    },
+    {
+     "flag": "q_potteries_oatcakes_done",
+     "text": "Go back to the Oatcake Lady at the hatch.",
+     "zone": "stoke"
+    }
+   ],
+   "done_flag": "q_potteries_oatcakes_done",
+   "reward": "Oatcakes, oatmeal and the recipe to make your own."
+  },
+  {
+   "id": "potteries_hoard",
+   "title": "The Staffordshire Hoard",
+   "region": "potteries",
+   "town": "stoke",
+   "giver": "Curator",
+   "summary": "Learn the story of the largest Anglo-Saxon gold hoard ever found.",
+   "start_flag": "q_potteries_hoard_started",
+   "steps": [
+    {
+     "flag": "q_potteries_hoard_1",
+     "text": "Look at the Hoard cases with the Gallery Guide.",
+     "zone": "stoke_museum"
+    },
+    {
+     "flag": "q_potteries_hoard_2",
+     "text": "Find the detectorist in the fields below the Roaches.",
+     "zone": "the_roaches"
+    },
+    {
+     "flag": "q_potteries_hoard_done",
+     "text": "Answer the curator's question at the Potteries Museum.",
+     "zone": "stoke_museum"
+    }
+   ],
+   "done_flag": "q_potteries_hoard_done",
+   "reward": "A Hoard Garnet charm and standing in England."
+  }
+ ]
+}

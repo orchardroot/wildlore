@@ -1,0 +1,181 @@
+{
+ "ln_storyteller": [
+  {
+   "do": "say",
+   "who": "Storyteller",
+   "text": "{greeting} Sit yourself down on that rock there, it's warmer than it looks. Do you know how this lough came to be?"
+  },
+  {
+   "do": "say",
+   "who": "Storyteller",
+   "text": "Fionn mac Cumhaill, Finn McCool to his friends, was having a row with a Scottish giant. Benandonner, they say. Finn reaches down, scoops up a great sod of Ulster and flings it across the sea at him."
+  },
+  {
+   "do": "say",
+   "who": "Storyteller",
+   "text": "He missed, of course. Giants are desperate shots. The sod landed in the Irish Sea and became the Isle of Man, and the hole he left filled up with rain and became Lough Neagh."
+  },
+  {
+   "do": "say",
+   "who": "Storyteller",
+   "text": "Now. I've a cousin in Douglas who says that's nonsense. But I notice he's never once offered to give the land back."
+  },
+  {
+   "do": "if",
+   "flag": "ln_hones_told",
+   "then": [
+    {
+     "do": "say",
+     "who": "Storyteller",
+     "text": "Away and look for a hone on the shore. You'll know one when you see it: it's the stick that turned out to be a stone."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Storyteller",
+     "text": "Here's another one for you. The old people said the lough water turned wood to stone. Stick a holly branch in the mud, come back in seven years, and you'd have a whetstone."
+    },
+    {
+     "do": "say",
+     "who": "Storyteller",
+     "text": "And do you know, there is fossil wood on these shores. Folk sold it as Lough Neagh hones, for sharpening scythes. The story was wrong about the seven years, mind. It's more like a few million."
+    },
+    {
+     "do": "set",
+     "flag": "ln_hones_told"
+    }
+   ]
+  }
+ ],
+ "ln_coop_fisher": [
+  {
+   "do": "say",
+   "who": "Eel Fisherman",
+   "text": "{greeting} You'll be wanting to know about the eels. Everybody does. Nobody wants to touch one."
+  },
+  {
+   "do": "say",
+   "who": "Eel Fisherman",
+   "text": "We go out at night with long lines, a lot of baited hooks laid along the bottom, and lift them in the morning. The co-op at Toomebridge sells the catch, and a fair bit of it goes to Europe."
+  },
+  {
+   "do": "say",
+   "who": "Eel Fisherman",
+   "text": "Lough Neagh eels have protected status, same as Parma ham. Mind you, I've never seen anybody wrap an eel round a melon."
+  },
+  {
+   "do": "say",
+   "who": "Eel Fisherman",
+   "text": "Every one of them started life in the Sargasso Sea, on the far side of the Atlantic. They come all that way to sit in our mud for fifteen years. You'd have to admire the commitment."
+  }
+ ],
+ "ln_swan_counter": [
+  {
+   "do": "say",
+   "who": "Swan Counter",
+   "text": "Shh. Forty-one. Forty-two. Ach, you've made me lose count. Forty-something."
+  },
+  {
+   "do": "say",
+   "who": "Swan Counter",
+   "text": "In winter the whooper swans fly in from Iceland, a thousand miles, and land right there on the shallows. Hear them honking? Like a brass band warming up with no conductor."
+  },
+  {
+   "do": "say",
+   "who": "Swan Counter",
+   "text": "The lough and Lough Beg are a Ramsar site, a wetland of international importance. Diving ducks by the tens of thousands, too, though there's fewer than there were. The water's not as healthy as it should be, and the birds notice first."
+  }
+ ],
+ "ln_island_warden": [
+  {
+   "do": "say",
+   "who": "Island Volunteer",
+   "text": "{greeting} You waded out? Fair play to you. Most folk borrow a boat."
+  },
+  {
+   "do": "say",
+   "who": "Island Volunteer",
+   "text": "That's the stump of a round tower. Monks built towers like it all over Ireland, a thousand years ago, for bells and for keeping their treasures out of reach. The door was always well up off the ground. You climbed in with a ladder and pulled it up after you."
+  },
+  {
+   "do": "if",
+   "flag": "ln_island_tea",
+   "then": [
+    {
+     "do": "say",
+     "who": "Island Volunteer",
+     "text": "Mind the slippy bit on the way back. And the swans. Mostly the swans."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Island Volunteer",
+     "text": "Here, you'll be foundered after that wade. Have a cup out of the flask."
+    },
+    {
+     "do": "give_item",
+     "item": "flask_of_tea",
+     "n": 1
+    },
+    {
+     "do": "set",
+     "flag": "ln_island_tea"
+    }
+   ]
+  }
+ ],
+ "ln_apple_lady": [
+  {
+   "do": "say",
+   "who": "Orchard Keeper",
+   "text": "{greeting} Welcome to the Orchard County. Well, the edge of it. Armagh proper is a bit further south."
+  },
+  {
+   "do": "say",
+   "who": "Orchard Keeper",
+   "text": "Armagh Bramleys are a cooking apple, sharp as you like, and they've had protected status since 2012. Come in May and the whole county's pink and white with blossom."
+  },
+  {
+   "do": "daily",
+   "key": "ln_apple_day",
+   "then": [
+    {
+     "do": "say",
+     "who": "Orchard Keeper",
+     "text": "Take one. They're sour raw, mind, but your creatures won't care."
+    },
+    {
+     "do": "give_item",
+     "item": "armagh_bramley",
+     "n": 1
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Orchard Keeper",
+     "text": "That's your apple for today. Come back tomorrow and I'll have picked more, or the wasps will have."
+    }
+   ]
+  }
+ ],
+ "ln_bleacher": [
+  {
+   "do": "say",
+   "who": "Linen Bleacher",
+   "text": "{greeting} In the old days this field would have been white from end to end, with linen laid out in the sun to bleach. Bleach greens, they called them."
+  },
+  {
+   "do": "say",
+   "who": "Linen Bleacher",
+   "text": "Ulster linen went all over the world. Shirts, sheets, tablecloths for the grandest ships. Belfast was nicknamed Linenopolis. It all started with a wee blue flower like the ones in that field."
+  },
+  {
+   "do": "say",
+   "who": "Linen Bleacher",
+   "text": "Rain's the enemy. You can't bleach in a downpour. So, you know. We didn't bleach very often."
+  }
+ ]
+}

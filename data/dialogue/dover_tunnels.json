@@ -1,0 +1,121 @@
+{
+ "signaller": [
+  {
+   "do": "if",
+   "flag": "trainer_dv_signaller",
+   "then": [
+    {
+     "do": "say",
+     "who": "Wren Signaller Joan",
+     "text": "The Wrens ran the signals down here, round the clock: teleprinters, telephones, coded messages from the ships."
+    },
+    {
+     "do": "say",
+     "who": "Wren Signaller Joan",
+     "text": "Admiral Ramsay's operations room is at the back. Go and see Mr Ellis there."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_southeast_tunnels_started",
+     "then": [
+      {
+       "do": "say",
+       "who": "Wren Signaller Joan",
+       "text": "Halt! Who goes there? Password? No? Then you'll have to prove you're not a spy the old-fashioned way."
+      },
+      {
+       "do": "battle",
+       "trainer": "dv_signaller"
+      },
+      {
+       "do": "if",
+       "flag": "trainer_dv_signaller",
+       "then": [
+        {
+         "do": "set",
+         "flag": "q_southeast_tunnels_1",
+         "value": true
+        },
+        {
+         "do": "say",
+         "who": "Wren Signaller Joan",
+         "text": "Ops room's at the back of the tunnel. Mind the step."
+        }
+       ],
+       "else": []
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Wren Signaller Joan",
+       "text": "Restricted area. Unless you're with the guide, I'm afraid I can't let you any further."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "ops_historian": [
+  {
+   "do": "if",
+   "flag": "q_southeast_tunnels_2",
+   "then": [
+    {
+     "do": "say",
+     "who": "Mr Ellis",
+     "text": "There it is, back on the wall: the Channel, the beaches, the routes the ships took. Thank you."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_southeast_tunnels_1",
+     "then": [
+      {
+       "do": "say",
+       "who": "Mr Ellis",
+       "text": "You got past Joan? Then help me pin the map up. There. The beaches at Dunkirk, the three routes across, Y, X and Z, dodging the German guns and the sandbanks."
+      },
+      {
+       "do": "say",
+       "who": "Mr Ellis",
+       "text": "Ramsay worked in a room just like this with a handful of staff, almost without sleep, for nine days. They hoped to rescue 45,000 men. They brought back about 338,000."
+      },
+      {
+       "do": "say",
+       "who": "Mr Ellis",
+       "text": "Take the news to the Harbourmaster at the ferry terminal. He likes to hear it told."
+      },
+      {
+       "do": "set",
+       "flag": "q_southeast_tunnels_2",
+       "value": true
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Mr Ellis",
+       "text": "The operations room. Admiral Ramsay's desk stood here. There's a map that wants putting back up, if Joan lets you through."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "tunnel_medic": [
+  {
+   "do": "say",
+   "who": "Hospital Orderly",
+   "text": "There was an underground hospital in these tunnels during the war, with an operating theatre. Wounded airmen and soldiers were brought straight in from the harbour."
+  },
+  {
+   "do": "say",
+   "who": "Hospital Orderly",
+   "text": "Electric lights, generators and miles of passages. A whole little town in the chalk."
+  }
+ ]
+}

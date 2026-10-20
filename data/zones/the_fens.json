@@ -1,0 +1,815 @@
+{
+ "id": "the_fens",
+ "name": "The Fens",
+ "region": "east_anglia",
+ "kind": "route",
+ "music": "route_moor_south",
+ "weather": {
+  "clear": 26,
+  "sunshine": 18,
+  "fog": 18,
+  "drizzle": 16,
+  "gale": 10,
+  "frost": 8,
+  "downpour": 4
+ },
+ "props": [
+  {
+   "type": "building",
+   "style": "ely_cathedral",
+   "x": 31,
+   "y": 5,
+   "w": 13,
+   "h": 5,
+   "label": "Ely Cathedral",
+   "kind": "church"
+  },
+  {
+   "type": "building",
+   "style": "tudor",
+   "x": 26,
+   "y": 15,
+   "w": 6,
+   "h": 3,
+   "label": "Oliver Cromwell's House",
+   "kind": "museum"
+  },
+  {
+   "type": "building",
+   "style": "gault",
+   "x": 44,
+   "y": 15,
+   "w": 5,
+   "h": 3,
+   "label": "Eel Catcher's Cottage",
+   "kind": "cottage"
+  },
+  {
+   "type": "building",
+   "style": "gault",
+   "x": 39,
+   "y": 20,
+   "w": 6,
+   "h": 3,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "gault",
+   "x": 46,
+   "y": 20,
+   "w": 6,
+   "h": 3,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "flint_gable",
+   "x": 26,
+   "y": 21,
+   "w": 7,
+   "h": 3,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "thatch",
+   "x": 5,
+   "y": 33,
+   "w": 6,
+   "h": 3,
+   "label": "Wicken Fen Visitor Centre",
+   "kind": "museum"
+  },
+  {
+   "type": "windpump",
+   "x": 16,
+   "y": 38
+  },
+  {
+   "type": "windpump",
+   "x": 30,
+   "y": 36
+  },
+  {
+   "type": "windpump",
+   "x": 50,
+   "y": 38
+  },
+  {
+   "type": "windpump",
+   "x": 66,
+   "y": 35
+  },
+  {
+   "type": "windpump",
+   "x": 56,
+   "y": 54
+  },
+  {
+   "type": "windpump",
+   "x": 28,
+   "y": 54
+  },
+  {
+   "type": "windpump",
+   "x": 66,
+   "y": 12
+  },
+  {
+   "type": "windpump",
+   "x": 8,
+   "y": 28
+  },
+  {
+   "type": "brazier",
+   "x": 12,
+   "y": 6
+  },
+  {
+   "type": "standing_stone",
+   "x": 7,
+   "y": 5,
+   "variant": 0
+  },
+  {
+   "type": "standing_stone",
+   "x": 13,
+   "y": 9,
+   "variant": 1
+  },
+  {
+   "type": "standing_stone",
+   "x": 11,
+   "y": 5,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 27,
+   "y": 11,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 50,
+   "y": 11,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 52,
+   "y": 4,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 26,
+   "y": 4,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 57,
+   "y": 22,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 33,
+   "y": 26,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 44,
+   "y": 26,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 66,
+   "y": 26,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 3,
+   "y": 55,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 17,
+   "y": 52,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 66,
+   "y": 54,
+   "variant": 1
+  },
+  {
+   "type": "bollard",
+   "x": 47,
+   "y": 55
+  },
+  {
+   "type": "lamp_post",
+   "x": 35,
+   "y": 17
+  },
+  {
+   "type": "lamp_post",
+   "x": 38,
+   "y": 17
+  },
+  {
+   "type": "lamp_post",
+   "x": 35,
+   "y": 12
+  },
+  {
+   "type": "lamp_post",
+   "x": 38,
+   "y": 12
+  },
+  {
+   "type": "bench",
+   "x": 30,
+   "y": 12
+  },
+  {
+   "type": "bench",
+   "x": 44,
+   "y": 12
+  },
+  {
+   "type": "boat",
+   "x": 20,
+   "y": 20
+  },
+  {
+   "type": "boat",
+   "x": 62,
+   "y": 40
+  },
+  {
+   "type": "canal_boat",
+   "x": 30,
+   "y": 47
+  }
+ ],
+ "warps": [
+  {
+   "x": 37,
+   "y": 9,
+   "to": "fens_cathedral",
+   "tx": 7,
+   "ty": 8,
+   "facing": "up"
+  },
+  {
+   "x": 28,
+   "y": 17,
+   "to": "fens_cromwell",
+   "tx": 6,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 46,
+   "y": 17,
+   "to": "fens_eelhut",
+   "tx": 5,
+   "ty": 5,
+   "facing": "up"
+  },
+  {
+   "x": 8,
+   "y": 35,
+   "to": "fens_wicken",
+   "tx": 6,
+   "ty": 5,
+   "facing": "up"
+  }
+ ],
+ "edges": {
+  "south": {
+   "to": "cambridge",
+   "offset": 0
+  },
+  "east": {
+   "to": "norwich",
+   "offset": 0
+  }
+ },
+ "npcs": [
+  {
+   "id": "fen_ivo",
+   "sprite": "warden_grunt",
+   "x": 11,
+   "y": 18,
+   "facing": "left",
+   "move": "still",
+   "script": "fen_ivo",
+   "name": "Ivo de Taillebois"
+  },
+  {
+   "id": "hereward_spot",
+   "sprite": "creature:hereward",
+   "x": 10,
+   "y": 7,
+   "facing": "down",
+   "move": "still",
+   "script": "hereward",
+   "show_if": "q_eastanglia_hereward_2",
+   "hide_if": "caught_hereward"
+  },
+  {
+   "id": "fen_drainer",
+   "sprite": "farmer",
+   "x": 44,
+   "y": 29,
+   "facing": "down",
+   "move": "still",
+   "script": "fen_drainer",
+   "name": "Drainage Engineer"
+  },
+  {
+   "id": "fen_swanwatcher",
+   "sprite": "birdwatcher",
+   "x": 33,
+   "y": 44,
+   "facing": "down",
+   "move": "wander",
+   "script": "fen_swanwatcher",
+   "name": "Swan Watcher",
+   "radius": 2,
+   "times": [
+    "dawn",
+    "day",
+    "dusk"
+   ]
+  },
+  {
+   "id": "fen_tigerwitness",
+   "sprite": "villager_2",
+   "x": 58,
+   "y": 32,
+   "facing": "left",
+   "move": "still",
+   "script": "fen_tigerwitness",
+   "name": "Fenman"
+  },
+  {
+   "id": "crane_a",
+   "sprite": "creature:levelcrane",
+   "x": 5,
+   "y": 29,
+   "facing": "down",
+   "move": "still",
+   "script": "crane"
+  },
+  {
+   "id": "crane_b",
+   "sprite": "creature:cranelet",
+   "x": 57,
+   "y": 45,
+   "facing": "down",
+   "move": "wander",
+   "script": "crane",
+   "radius": 1
+  },
+  {
+   "id": "crane_c",
+   "sprite": "creature:levelcrane",
+   "x": 17,
+   "y": 34,
+   "facing": "left",
+   "move": "still",
+   "script": "crane"
+  },
+  {
+   "id": "fen_skater_t",
+   "sprite": "jogger",
+   "x": 29,
+   "y": 44,
+   "facing": "right",
+   "move": "still",
+   "trainer": "fen_skater"
+  },
+  {
+   "id": "fen_eeler_t",
+   "sprite": "angler",
+   "x": 21,
+   "y": 34,
+   "facing": "left",
+   "move": "still",
+   "trainer": "fen_eeler"
+  },
+  {
+   "id": "fen_birder_t",
+   "sprite": "birdwatcher",
+   "x": 3,
+   "y": 33,
+   "facing": "right",
+   "move": "still",
+   "trainer": "fen_birder"
+  },
+  {
+   "id": "fen_hunter_t",
+   "sprite": "fox_watcher",
+   "x": 50,
+   "y": 32,
+   "facing": "down",
+   "move": "still",
+   "trainer": "fen_tigerhunter"
+  },
+  {
+   "id": "fen_verger_t",
+   "sprite": "poet",
+   "x": 48,
+   "y": 12,
+   "facing": "left",
+   "move": "still",
+   "trainer": "fen_chorister"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "turvling",
+    "min": 94,
+    "max": 95,
+    "weight": 12
+   },
+   {
+    "species": "levelcrane",
+    "min": 94,
+    "max": 95,
+    "weight": 8
+   },
+   {
+    "species": "cranelet",
+    "min": 94,
+    "max": 95,
+    "weight": 4,
+    "time": [
+     "dawn"
+    ]
+   },
+   {
+    "species": "bittling",
+    "min": 94,
+    "max": 95,
+    "weight": 8
+   },
+   {
+    "species": "hushwing",
+    "min": 94,
+    "max": 96,
+    "weight": 8,
+    "time": [
+     "night"
+    ]
+   },
+   {
+    "species": "barnling",
+    "min": 94,
+    "max": 95,
+    "weight": 6,
+    "time": [
+     "dusk"
+    ]
+   },
+   {
+    "species": "murmurant",
+    "min": 94,
+    "max": 96,
+    "weight": 10,
+    "time": [
+     "dusk"
+    ]
+   },
+   {
+    "species": "sphagnet",
+    "min": 94,
+    "max": 95,
+    "weight": 8
+   },
+   {
+    "species": "croakle",
+    "min": 94,
+    "max": 95,
+    "weight": 6
+   },
+   {
+    "species": "volet",
+    "min": 94,
+    "max": 95,
+    "weight": 8
+   },
+   {
+    "species": "kitelet",
+    "min": 94,
+    "max": 95,
+    "weight": 6,
+    "time": [
+     "day"
+    ]
+   },
+   {
+    "species": "tickhopper",
+    "min": 94,
+    "max": 95,
+    "weight": 4
+   },
+   {
+    "species": "fentiger",
+    "min": 95,
+    "max": 96,
+    "weight": 2,
+    "time": [
+     "night"
+    ]
+   },
+   {
+    "species": "midgie",
+    "min": 94,
+    "max": 95,
+    "weight": 4,
+    "season": [
+     "summer"
+    ]
+   }
+  ],
+  "water": [
+   {
+    "species": "elverlet",
+    "min": 94,
+    "max": 96,
+    "weight": 25
+   },
+   {
+    "species": "turvling",
+    "min": 94,
+    "max": 95,
+    "weight": 15
+   },
+   {
+    "species": "volet",
+    "min": 94,
+    "max": 95,
+    "weight": 12
+   },
+   {
+    "species": "pollanet",
+    "min": 94,
+    "max": 95,
+    "weight": 10
+   },
+   {
+    "species": "stalklet",
+    "min": 94,
+    "max": 95,
+    "weight": 10
+   },
+   {
+    "species": "cranelet",
+    "min": 94,
+    "max": 95,
+    "weight": 10
+   },
+   {
+    "species": "minkshade",
+    "min": 94,
+    "max": 96,
+    "weight": 8,
+    "time": [
+     "night"
+    ]
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 38,
+   "y": 54,
+   "text": "THE FENS. Once a great wetland of reed, mere and bog, from Cambridge to the Wash. Drained over three hundred years into the richest farmland in England. Flat. Very flat. The sky is most of the view."
+  },
+  {
+   "x": 39,
+   "y": 10,
+   "text": "ELY CATHEDRAL, THE SHIP OF THE FENS. Seen for miles across the flat land, riding above the winter floods. When the central tower fell in 1322, they built the Octagon instead: eight great oaks hold up a timber lantern that seems to float.",
+   "plaque": "eastanglia_ely_octagon",
+   "title": "The Ship of the Fens"
+  },
+  {
+   "x": 34,
+   "y": 17,
+   "text": "ELY. The name means eel island. Monks paid their rents in eels, counted in sticks of twenty-five. Ely was a real island until the Fens were drained: you came by boat, or by a long wet causeway.",
+   "plaque": "eastanglia_ely_eels",
+   "title": "Eel Island"
+  },
+  {
+   "x": 12,
+   "y": 28,
+   "text": "THE ALDRETH CAUSEWAY. In 1071 William the Conqueror's army built a causeway of logs and sheep skins across the fen to reach Hereward and the rebels on the Isle of Ely. It sank under the weight of the armoured knights.",
+   "plaque": "eastanglia_aldreth",
+   "title": "Hereward the Wake"
+  },
+  {
+   "x": 11,
+   "y": 35,
+   "text": "WICKEN FEN. The National Trust's first nature reserve, from 1899, and one of the last scraps of wild fen. Its wooden windpump, the last of its kind still working, now pumps water in, not out.",
+   "plaque": "eastanglia_wicken",
+   "title": "Wicken Fen"
+  },
+  {
+   "x": 48,
+   "y": 55,
+   "text": "THE HOLME FEN POST. In 1851 an iron post was driven into the peat at Holme Fen, its top level with the ground. Drained peat dries and shrinks, and today the post stands about four metres out of the ground. The land sank; the post didn't.",
+   "plaque": "eastanglia_holme_post",
+   "title": "The Holme Fen Post"
+  },
+  {
+   "x": 35,
+   "y": 41,
+   "text": "THE OUSE WASHES. Between the Old and New Bedford Rivers, dug by Cornelius Vermuyden in the 1600s, lies a strip left to flood every winter. Half the wild swans in Britain come here for the season.",
+   "plaque": "eastanglia_ouse_washes",
+   "title": "The Ouse Washes"
+  },
+  {
+   "x": 38,
+   "y": 48,
+   "text": "FEN SKATING. When the washes froze, fenmen raced on long-bladed skates called fen runners, for prizes of meat and money. Fen champions were famous across England. The National Skating Association was founded in Cambridge in 1879.",
+   "plaque": "eastanglia_fen_skating",
+   "title": "Fen Skating"
+  },
+  {
+   "x": 63,
+   "y": 28,
+   "text": "THE COMMON CRANE. Gone from Britain as a breeding bird for about four hundred years, it came back to the Norfolk Broads in 1979, and now nests in the Fens again too. Tall, grey and loud, with a dance to match.",
+   "plaque": "eastanglia_cranes",
+   "title": "Cranes Return"
+  },
+  {
+   "x": 21,
+   "y": 29,
+   "text": "THE FEN TIGERS. When Dutch engineers came to drain the Fens in the 1600s, fenmen who lived by fishing and fowling broke the banks at night and fought the drainers. They were called Fen Tigers. Some say there's a real one still about.",
+   "plaque": "eastanglia_fen_tigers",
+   "title": "The Fen Tigers"
+  }
+ ],
+ "spawn": [
+  37,
+  56
+ ],
+ "stage": "bog",
+ "scaled_floor": 94,
+ "legend_extra": {
+  "k": {
+   "tile": "tall_grass",
+   "colour": "#5d5a30"
+  },
+  "r": {
+   "tile": "tall_grass",
+   "colour": "#a8985a",
+   "prop": "reeds"
+  },
+  "e": {
+   "tile": "path",
+   "colour": "#3b3026"
+  },
+  "g": {
+   "tile": "grass",
+   "colour": "#8aa45a"
+  }
+ },
+ "rows": [
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTrrrrrrrrrrrrrrrrrr~.........................................~.......TT",
+  "TTrrr***rrrrrrr***rr~...gggggggggggggggggggggggggggggggggggg..~.......TT",
+  "TTrrr*ggggggggg***rr~...gggggggggggggggggggggggggggggggggggg..~.......TT",
+  "TTrrrrggggggggg***rr~...gggggggBBBBBBBBBBBBBgggggggggggggggg..~.......TT",
+  "TTrrrrgggggggggrrrrr~...gggggggBBBBBBBBBBBBBgggggggggggggggg..~.......TT",
+  "TTrrrrgggggggggrrrrr~...gggggggBBBBBBBBBBBBBgggggggggggggggg..~.......TT",
+  "TTrrrrgggggggggrrrrr~...gggggggBBBBBBBBBBBBBgggggggggggggggg..~.......TT",
+  "TTrrrrgggggggggrrrrr~...gggggggBBBBBBDBBBBBBgggggggggggggggg..~.......TT",
+  "TTrrrrgggggggggrrrrr~...ggggggggggggeegggggggggggggggggggggg..~.......TT",
+  "TTrrrrrrr###rrrrrrrr~...ggggggggggggeegggggggggggggggggggggg..~.......TT",
+  "TTr******###rrrrrrrr~...ggggggggggggeegggggggggggggggggggggg..~.......TT",
+  "TTr******###******rr~...ggggggggggggeegggggggggggggggggggggg..~.......TT",
+  "TTr******###******rr~...ggggggggggggeegggggggggggggggggggggg..~.......TT",
+  "TTr******###******rr~...ggBBBBBBggggeeggggggBBBBBggggggggggg..~.......TT",
+  "TTr******###******rr~...ggBBBBBBggggeeggggggBBBBBggggggggggg..~.......TT",
+  "TTr******###******rr~...ggBBDBBBggggeeggggggBBDBBggggggggggg..~.......TT",
+  "TTrrrrrrr###rrrrrrrr~...::::::::::::::::::::::::::::::gggggg..~.......TT",
+  "TTrrrrrrr###rrrrrrrr~...::::::::::::::::::::::::::::::gggggg..~.......TT",
+  "TTrrrrrrr###rrrrrrrr~...ggggggggggggeegBBBBBBgBBBBBBgggggggg..~.......TT",
+  "TTr*****r###r******r~...ggBBBBBBBgggeegBBBBBBgBBBBBBgggggggg..~.......TT",
+  "TTr*****r###r******r~...ggBBBBBBBgggeegBBBBBBgBBBBBBgggggggg..~.......TT",
+  "TTr*****r###r******r~...ggBBBBBBBgggeegggggggggggggggggggggg..~.......TT",
+  "TTr*****r###r******r~...ggggggggggggeegggggggggggggggggggggg..~.......TT",
+  "TTr*****r###r******r~...ggggggggggggeegggggggggggggggggggggg..~.......TT",
+  "TTr*****r###r******r~...............ee........................~.......TT",
+  "TTrrrrrrr###rrrrrrrr~...............ee........................~.......TT",
+  "TTrrrrrrr###rrrrrrrr~...............ee........................~.......TT",
+  "TT.......###........~...............ee........................~.......TT",
+  "TTeeeeeeeeeeeeeeeeee|eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee|eeeeeeeee",
+  "TTeeeeeeeeeeeeeeeeee|eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee|eeeeeeeee",
+  "TTrrrrrrrrrr|****rr.~...............ee........................~.......TT",
+  "TTrrrBBBBBBr|****rr.~.kkkkkkkkkkkk..ee..kkkkkkkkkkkk...kkkkkkk~kkkkk..TT",
+  "TTrrrBBBBBBr|****rr.~.kkkkkkkkkkkk..ee..kkkkkkkkkkkk...kkkkkkk~kkkkk..TT",
+  "TTrrrBBBDBBr|rrrrrr.~.kkkkkkkkkkkk..ee..kkkkkkkkkkkk...kkkkkkk~kkkkk..TT",
+  "TT|||||||||||||||||.~.kkkkkkkkkkkk..ee..kkkkkkkkkkkk...kkkkkkk~kkkkk..TT",
+  "TTr****rrrrrrrrrrrr.~.kkkkkkkkkkkk..ee..kkkkkkkkkkkk...kkkkkkk~kkkkk..TT",
+  "TTr****rrrrrr*****r.~.kkkkkkkkkkkk..ee..kkkkkkkkkkkk...kkkkkkk~kkkkk..TT",
+  "TTr****rrrrrr*****r.~.kkkkkkkkkkkk..ee..kkkkkkkkkkkk...kkkkkkk~kkkkk..TT",
+  "TTrrrrrrrrrrrrrrrrr.~...............ee........................~.......TT",
+  "TT..................~...............ee........................~.......TT",
+  "TT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~||~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TT",
+  "TTwww,,,,,,wwwwwwwwwwwwwwwwwwwwwwwwweewwwwww,,,,,,wwwwwwwwwwwwwwwwwwwwTT",
+  "TTwww,,,,,,wwwwwwwwwwwwwwwwwwwwwwwwweewwwwww,,,,,,wwwwwwwwwwwwwwwwwwwwTT",
+  "TTwwwwwwwwwwwwwwwwwwwwww,,,,,,,,wwwweewwwwwwwwwwwwwwwwwwww,,,,,,wwwwwwTT",
+  "TTwwwwwwwwwwwwwwwwwwwwww,,,,,,,,wwwweewwwwwwwwwwwwwwwwwwww,,,,,,wwwwwwTT",
+  "TT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~||~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TT",
+  "TT..................~...............ee........................~.......TT",
+  "TT..................~...............ee........................~.......TT",
+  "TT..................~.kkkkkkkkkkkk..ee..kkkkkkkkkkkk...kkkkkkk~kkkkk..TT",
+  "TT..................~.kkkkkkkkkkkk..ee..kkkkkkkkkkkk...kkkkkkk~kkkkk..TT",
+  "TT..................~.kkkkkkkkkkkk..ee..kkkkkkkkkkkk...kkkkkkk~kkkkk..TT",
+  "TT..................~.kkkkkkkkkkkk..ee..kkkkkkkkkkkk...kkkkkkk~kkkkk..TT",
+  "TT..................~.kkkkkkkkkkkk..ee..kkkkkkkkkkkk...kkkkkkk~kkkkk..TT",
+  "TT..................~.kkkkkkkkkkkk..ee..kkkkkkkkkkkk...kkkkkkk~kkkkk..TT",
+  "TT..................~.kkkkkkkkkkkk..ee..kkkkkkkkkkkk...kkkkkkk~kkkkk..TT",
+  "TT..................~...............ee........................~.......TT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTeeTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTeeTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT"
+ ],
+ "heights": [
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000111111111111111111111111111111111111000000000000",
+  "000000000000000000000000111111111111111111111111111111111111000000000000",
+  "000000000000000000000000111111111111111111111111111111111111000000000000",
+  "000000000000000000000000111111111111111111111111111111111111000000000000",
+  "000000000000000000000000111111111111111111111111111111111111000000000000",
+  "000000000000000000000000111111111111111111111111111111111111000000000000",
+  "000000000000000000000000111111111111111111111111111111111111000000000000",
+  "000000000000000000000000111111111111111111111111111111111111000000000000",
+  "000000000000000000000000111111111111111111111111111111111111000000000000",
+  "000000000000000000000000111111111111111111111111111111111111000000000000",
+  "000000000000000000000000111111111111111111111111111111111111000000000000",
+  "000000000000000000000000111111111111111111111111111111111111000000000000",
+  "000000000000000000000000111111111111111111111111111111111111000000000000",
+  "000000000000000000000000111111111111111111111111111111111111000000000000",
+  "000000000000000000000000111111111111111111111111111111111111000000000000",
+  "000000000000000000000000111111111111111111111111111111111111000000000000",
+  "000000000000000000000000111111111111111111111111111111111111000000000000",
+  "000000000000000000000000111111111111111111111111111111111111000000000000",
+  "000000000000000000000000111111111111111111111111111111111111000000000000",
+  "000000000000000000000000111111111111111111111111111111111111000000000000",
+  "000000000000000000000000111111111111111111111111111111111111000000000000",
+  "000000000000000000000000111111111111111111111111111111111111000000000000",
+  "000000000000000000000000111111111111111111111111111111111111000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000"
+ ]
+}

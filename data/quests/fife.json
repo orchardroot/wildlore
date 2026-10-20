@@ -1,0 +1,32 @@
+{"quests": [
+ {"id": "fife_golf", "title": "A Round on the Old Course", "region": "fife", "town": "st_andrews", "giver": "The Starter",
+  "summary": "Earn a tee time on the Old Course at St Andrews, the home of golf, and win the round.",
+  "start_flag": "q_fife_golf_started",
+  "steps": [
+   {"flag": "q_fife_golf_1", "text": "Get the caddie's say-so: answer Old Tam's three questions about the course at the British Golf Museum. The plaques on the course know the answers.", "zone": "st_andrews_golf_museum"},
+   {"flag": "q_fife_golf_2", "text": "Tell the Starter at the first tee you're ready, then beat all four players from the 1st to the 18th.", "zone": "st_andrews"}
+  ],
+  "done_flag": "q_fife_golf_done",
+  "reward": "A Featherie (a charm: gale moves hit harder), the prize money, and standing in Scotland."},
+ {"id": "fife_discovery", "title": "Provisions for the Discovery", "region": "fife", "town": "dundee", "giver": "The Bosun",
+  "summary": "Help provision RRS Discovery, Scott's Dundee-built Antarctic ship, for a living history voyage.",
+  "start_flag": "q_fife_discovery_started",
+  "steps": [
+   {"flag": "q_fife_discovery_1", "text": "Fetch a crate of Dundee marmalade from Keiller's Jam Kitchen.", "zone": "dundee_keillers"},
+   {"flag": "q_fife_discovery_2", "text": "Get jute sacking from the Verdant Works mill.", "zone": "dundee_verdant"},
+   {"flag": "q_fife_discovery_3", "text": "Bring back an iron girdle, for oatcakes on the ice, from the Girdlesmith's Forge at Culross, over the Forth.", "zone": "forth_bridges_girdle"},
+   {"flag": "q_fife_discovery_4", "text": "Prove you're fit for the ice: beat the Ice Master on board the Discovery.", "zone": "dundee_discovery"}
+  ],
+  "done_flag": "q_fife_discovery_done",
+  "reward": "A Jamlet that stowed away in the marmalade, Dundee cake, cranachan, and standing in Scotland."},
+ {"id": "fife_poet", "title": "The McGonagall Night", "region": "fife", "town": "dundee", "giver": "The Landlady of the Silvery Tay",
+  "summary": "Write the worst poem in Dundee, in honour of William McGonagall, and beat the reigning champion.",
+  "start_flag": "q_fife_poet_started",
+  "steps": [
+   {"flag": "q_fife_poet_1", "text": "Find inspiration: see the Tay Whale at the McManus.", "zone": "dundee_mcmanus"},
+   {"flag": "q_fife_poet_2", "text": "Go down to the quay by the old bridge stumps at night, and catch whatever crosses the Tay.", "zone": "dundee"},
+   {"flag": "q_fife_poet_3", "text": "Back at the Silvery Tay: compose a truly dreadful poem and beat the Bard of Broughty Ferry.", "zone": "dundee_tay_inn"}
+  ],
+  "done_flag": "q_fife_poet_done",
+  "reward": "Dundee marmalade, Forfar bridies, your name on the board, and standing in Scotland."}
+]}

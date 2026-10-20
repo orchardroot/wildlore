@@ -1,0 +1,79 @@
+{
+ "tory_boatman": [
+  {
+   "do": "if",
+   "flag": "q_donegal_tory_started",
+   "then": [],
+   "else": [
+    {
+     "do": "say",
+     "who": "Tory Boatman",
+     "text": "{greeting} You'll be wanting Tory? Toraigh. The island's in a state, so it is. The old king has retired to his daughter's on the mainland and they can't agree on a new one."
+    },
+    {
+     "do": "say",
+     "who": "Tory Boatman",
+     "text": "It's a proper job, mind. The king of Tory meets every boat. He's no crown and no castle, but he's the face of the island. Go out and help them sort it, would you?"
+    },
+    {
+     "do": "set",
+     "flag": "q_donegal_tory_started"
+    }
+   ]
+  },
+  {
+   "do": "say",
+   "who": "Tory Boatman",
+   "text": "Fourteen kilometres of open Atlantic. Hold on to your hat and your breakfast."
+  },
+  {
+   "do": "ferry",
+   "route": "gweedore_tory"
+  }
+ ],
+ "gw_granny": [
+  {
+   "do": "say",
+   "who": "Máire Bheag",
+   "text": "Dia dhuit! That's 'God be with you'. And you say back 'Dia is Muire dhuit', 'God and Mary be with you'. You get an extra saint for answering."
+  },
+  {
+   "do": "say",
+   "who": "Máire Bheag",
+   "text": "I've had Irish all my life, and English for the tourists and the tax man. Both of them are very fond of the weather here."
+  }
+ ],
+ "gw_student": [
+  {
+   "do": "say",
+   "who": "Irish College Student",
+   "text": "Tá mé ag foghlaim Gaeilge! That means I'm learning Irish. If they hear me speak English I get sent home. I've been miming for three days."
+  }
+ ],
+ "gw_fisher": [
+  {
+   "do": "say",
+   "who": "Fisherman",
+   "text": "Bunbeg's a small harbour but a busy one. Crab, lobster, a bit of everything. Killybegs, down the coast, is the giant. Biggest fishing port in Ireland. Trawlers the size of churches."
+  }
+ ],
+ "gw_dunes": [
+  {
+   "do": "say",
+   "who": "Corncrake Counter",
+   "text": "I count corncrakes. Well, I listen for them. 'Crex crex', like someone running a thumbnail along a comb, all night long."
+  },
+  {
+   "do": "say",
+   "who": "Corncrake Counter",
+   "text": "They hide in the long grass and almost nobody sees one. Tory Island's the place for them. Bring earplugs and a lot of patience."
+  }
+ ],
+ "gw_errigal_view": [
+  {
+   "do": "say",
+   "who": "Walker",
+   "text": "On a clear day you get Errigal over there, pale as a sugar cone. Locals will tell you there's no such thing as a clear day. Locals are mostly right."
+  }
+ ]
+}

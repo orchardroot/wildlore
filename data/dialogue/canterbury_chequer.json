@@ -1,0 +1,193 @@
+{
+ "host": [
+  {
+   "do": "if",
+   "flag": "q_southeast_pilgrims_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Host",
+     "text": "The tales were told, the supper was eaten, and nobody's paid for the wine. Like the old days."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_southeast_pilgrims_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_southeast_pilgrims_1",
+       "then": [],
+       "else": [
+        {
+         "do": "say",
+         "who": "Host",
+         "text": "Still waiting on a tale or two. The Knight and the Miller are on the Pilgrims' Way in the Kent Downs; the Wife of Bath's in the precincts, the Pardoner's by the Westgate, the Nun's Priest is down by the river."
+        },
+        {
+         "do": "end"
+        }
+       ]
+      },
+      {
+       "do": "if",
+       "flag": "q_southeast_pilgrims_2",
+       "then": [],
+       "else": [
+        {
+         "do": "say",
+         "who": "Host",
+         "text": "Still waiting on a tale or two. The Knight and the Miller are on the Pilgrims' Way in the Kent Downs; the Wife of Bath's in the precincts, the Pardoner's by the Westgate, the Nun's Priest is down by the river."
+        },
+        {
+         "do": "end"
+        }
+       ]
+      },
+      {
+       "do": "if",
+       "flag": "q_southeast_pilgrims_3",
+       "then": [],
+       "else": [
+        {
+         "do": "say",
+         "who": "Host",
+         "text": "Still waiting on a tale or two. The Knight and the Miller are on the Pilgrims' Way in the Kent Downs; the Wife of Bath's in the precincts, the Pardoner's by the Westgate, the Nun's Priest is down by the river."
+        },
+        {
+         "do": "end"
+        }
+       ]
+      },
+      {
+       "do": "if",
+       "flag": "q_southeast_pilgrims_4",
+       "then": [],
+       "else": [
+        {
+         "do": "say",
+         "who": "Host",
+         "text": "Still waiting on a tale or two. The Knight and the Miller are on the Pilgrims' Way in the Kent Downs; the Wife of Bath's in the precincts, the Pardoner's by the Westgate, the Nun's Priest is down by the river."
+        },
+        {
+         "do": "end"
+        }
+       ]
+      },
+      {
+       "do": "if",
+       "flag": "q_southeast_pilgrims_5",
+       "then": [],
+       "else": [
+        {
+         "do": "say",
+         "who": "Host",
+         "text": "Still waiting on a tale or two. The Knight and the Miller are on the Pilgrims' Way in the Kent Downs; the Wife of Bath's in the precincts, the Pardoner's by the Westgate, the Nun's Priest is down by the river."
+        },
+        {
+         "do": "end"
+        }
+       ]
+      },
+      {
+       "do": "say",
+       "who": "Host",
+       "text": "Five tales heard, five pilgrims beaten, and every one of them thinks they won. That's a proper contest."
+      },
+      {
+       "do": "say",
+       "who": "Host",
+       "text": "Chaucer's Host promised a free supper to the best teller. You heard them all and beat them all: the supper's yours, and something for the road."
+      },
+      {
+       "do": "give_item",
+       "item": "gypsy_tart",
+       "n": 4
+      },
+      {
+       "do": "give_item",
+       "item": "kentish_hops",
+       "n": 3
+      },
+      {
+       "do": "standing",
+       "nation": "england",
+       "amount": 4
+      },
+      {
+       "do": "set",
+       "flag": "q_southeast_pilgrims_done",
+       "value": true
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Host",
+       "text": "{greeting} I'm Harry, the Host. Pilgrims stop here on the way to the cathedral, same as they have since Chaucer's day."
+      },
+      {
+       "do": "say",
+       "who": "Host",
+       "text": "In the Tales, the Host of the Tabard in Southwark sets a contest: each pilgrim tells stories on the road, and the best wins a free supper on the way home."
+      },
+      {
+       "do": "say",
+       "who": "Host",
+       "text": "I've got five pilgrims in town with tales to tell, and none of them will shut up. Go and hear them, and if they want a scrap after, give them one. Then come back and tell me who won."
+      },
+      {
+       "do": "set",
+       "flag": "q_southeast_pilgrims_started",
+       "value": true
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "quizmaster": [
+  {
+   "do": "say",
+   "who": "Quizmaster",
+   "text": "Pilgrims' quiz! Five questions on the islands. No relics allowed as prizes."
+  },
+  {
+   "do": "choice",
+   "text": "Fancy a round? Five questions.",
+   "options": [
+    "Go on then",
+    "Not tonight"
+   ],
+   "set": "_quiz_choice"
+  },
+  {
+   "do": "if",
+   "flag": "_quiz_choice",
+   "then": [
+    {
+     "do": "quiz",
+     "pub": "canterbury",
+     "region": "england_south",
+     "who": "Quizmaster"
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Quizmaster",
+     "text": "Another time, pilgrim."
+    }
+   ],
+   "eq": 0
+  }
+ ],
+ "ch_pilgrim": [
+  {
+   "do": "say",
+   "who": "Tired Pilgrim",
+   "text": "Walked from Southwark. Four days. My feet have their own pilgrimage now, to a bucket of hot water."
+  }
+ ]
+}

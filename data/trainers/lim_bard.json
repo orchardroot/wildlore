@@ -1,0 +1,36 @@
+{
+ "id": "lim_bard",
+ "name": "Bard Ruair\u00ed",
+ "class": "Bard",
+ "sprite": "poet",
+ "party": [
+  {
+   "species": "versling",
+   "level": 59
+  },
+  {
+   "species": "rhymerick",
+   "level": 60
+  },
+  {
+   "species": "cluricaun",
+   "level": 59
+  },
+  {
+   "species": "bansheen",
+   "level": 59
+  }
+ ],
+ "ai": "trainer",
+ "money": 3000,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Bard Ruair\u00ed",
+   "text": "A verse-off! Recite, and then we battle, and the crowd decides. Ready? 'There once was a bard of the market...' Your go. Then your team."
+  }
+ ],
+ "win": "The crowd's spoken. They want yours. I want a lie down.",
+ "after": "I've a limerick for every stall in this market. The cheese one's filthy. Ask me after the watershed.",
+ "scaled_floor": 58
+}

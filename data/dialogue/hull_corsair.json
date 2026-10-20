@@ -1,0 +1,178 @@
+{
+ "hul_deckie": [
+  {
+   "do": "say",
+   "who": "Old Deckhand",
+   "text": "Deckies worked the fish on the open deck: gutting, washing, packing in ice down the fishroom. Eighteen hours on, six off."
+  },
+  {
+   "do": "say",
+   "who": "Old Deckhand",
+   "text": "Sidewinders hauled the net over the side. The newer stern trawlers pulled it up a ramp at the back. Safer. Not much."
+  }
+ ],
+ "hul_skipper": [
+  {
+   "do": "if",
+   "flag": "q_humber_trawler_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Skipper",
+     "text": "Hope that little bore's treating you right. They follow the tide, not the boat, but that one took a shine to you."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_humber_trawler_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_humber_trawler_1",
+       "then": [
+        {
+         "do": "if",
+         "flag": "q_humber_trawler_2",
+         "then": [
+          {
+           "do": "say",
+           "who": "Skipper",
+           "text": "Gansey on, patty in your pocket. Right. Let go fore and aft! We're off down the Humber."
+          },
+          {
+           "do": "fade_out"
+          },
+          {
+           "do": "say",
+           "who": "",
+           "text": "The trawler slides out past The Deep and down the brown Humber. The land falls away flat on both sides. Out past Spurn Point the sea turns grey, and the swell lifts the bow."
+          },
+          {
+           "do": "fade_in"
+          },
+          {
+           "do": "say",
+           "who": "First Mate Tommy",
+           "text": "Skipper says every new deckie gets tested. Sea legs first, then manners!"
+          },
+          {
+           "do": "battle",
+           "trainer": "hul_mate",
+           "intro": false
+          },
+          {
+           "do": "set",
+           "flag": "q_humber_trawler_3",
+           "value": true
+          },
+          {
+           "do": "fade_out"
+          },
+          {
+           "do": "say",
+           "who": "",
+           "text": "By dusk you're back alongside in the River Hull, salt in your hair. Something small and brown has followed the boat all the way up the estuary."
+          },
+          {
+           "do": "fade_in"
+          },
+          {
+           "do": "say",
+           "who": "Skipper",
+           "text": "Well I never. A Borelet, riding the tide in behind us. They don't do that for just anybody."
+          },
+          {
+           "do": "give_creature",
+           "species": "borelet",
+           "level": 32
+          },
+          {
+           "do": "say",
+           "who": "Skipper",
+           "text": "And keep the gansey. Every port knitted its own pattern, so if the sea gave a man back, they'd know where he was from."
+          },
+          {
+           "do": "give_item",
+           "item": "hull_gansey",
+           "n": 1
+          },
+          {
+           "do": "standing",
+           "nation": "england",
+           "amount": 3
+          },
+          {
+           "do": "set",
+           "flag": "q_humber_trawler_done",
+           "value": true
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Skipper",
+           "text": "Gansey's grand. Now, no deckie sails hungry: fetch a patty from the chippy on Hessle Road."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Skipper",
+         "text": "You'll need a gansey. Knitted, oily wool, keeps the spray out. Ask on Hessle Road."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Skipper",
+       "text": "Welcome aboard the Arctic Corsair. Built 1960 at Beverley, just up the river, and she fished the Arctic for twenty-five years."
+      },
+      {
+       "do": "say",
+       "who": "Skipper",
+       "text": "I sailed in her sister ships. Fancy a turn on the water? Proper trawlerman style?"
+      },
+      {
+       "do": "choice",
+       "text": "Sign on as a deckie for a day?",
+       "options": [
+        "Aye, Skipper",
+        "Maybe later"
+       ],
+       "set": "_hul_trawl"
+      },
+      {
+       "do": "if",
+       "flag": "_hul_trawl",
+       "then": [
+        {
+         "do": "set",
+         "flag": "q_humber_trawler_started",
+         "value": true
+        },
+        {
+         "do": "say",
+         "who": "Skipper",
+         "text": "Good lad, good lass. First: a gansey from Hessle Road. Then a patty for the voyage. Then come back to me."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Skipper",
+         "text": "Tide waits for nobody. I do, though. Come back."
+        }
+       ],
+       "eq": 0
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

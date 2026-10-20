@@ -1,0 +1,125 @@
+{
+ "id": "merthyr_pub",
+ "name": "Y Dic Penderyn",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "table",
+   "x": 6,
+   "y": 3
+  },
+  {
+   "type": "table",
+   "x": 6,
+   "y": 5
+  },
+  {
+   "type": "table",
+   "x": 8,
+   "y": 3
+  },
+  {
+   "type": "table",
+   "x": 8,
+   "y": 5
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 6
+  },
+  {
+   "type": "potted_plant",
+   "x": 9,
+   "y": 6
+  },
+  {
+   "type": "table",
+   "x": 7,
+   "y": 3
+  },
+  {
+   "type": "kettle_table",
+   "x": 1,
+   "y": 5
+  },
+  {
+   "type": "menu_board",
+   "x": 6,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "tea_urn",
+   "x": 1,
+   "y": 3
+  },
+  {
+   "type": "wall_picture",
+   "x": 9,
+   "y": 1,
+   "walk": true
+  }
+ ],
+ "warps": [
+  {
+   "x": 5,
+   "y": 7,
+   "to": "merthyr",
+   "tx": 46,
+   "ty": 25,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "mer_landlord",
+   "sprite": "shopkeeper",
+   "x": 3,
+   "y": 1,
+   "facing": "down",
+   "move": "still",
+   "script": "mer_landlord",
+   "name": "Emlyn the landlord"
+  },
+  {
+   "id": "mer_regular",
+   "sprite": "tin_miner",
+   "x": 4,
+   "y": 5,
+   "facing": "left",
+   "move": "still",
+   "script": "mer_regular",
+   "name": "Regular"
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "x": 5,
+   "y": 2,
+   "plaque": "merthyr_pubrising",
+   "title": "The Landlord's Corner",
+   "text": "Every pub in Merthyr has a view on the Rising, and most of them are on the wall. The 1831 march ended in front of the Castle Inn, where the soldiers were lodged. The old inn is long gone, but the name, and the grievance, have stuck."
+  }
+ ],
+ "spawn": [
+  5,
+  6
+ ],
+ "rows": [
+  "xxxxxxxxxxx",
+  "x|||||||||x",
+  "x|CCCC||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x||||D||||x",
+  "xxxxxxxxxxx"
+ ]
+}

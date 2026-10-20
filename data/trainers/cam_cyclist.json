@@ -1,0 +1,32 @@
+{
+ "id": "cam_cyclist",
+ "name": "Courier Pip",
+ "class": "Bike Courier",
+ "sprite": "commuter",
+ "scaled_floor": 94,
+ "party": [
+  {
+   "species": "railspark",
+   "level": 94
+  },
+  {
+   "species": "stormswift",
+   "level": 95
+  },
+  {
+   "species": "tickhopper",
+   "level": 94
+  }
+ ],
+ "ai": "trainer",
+ "money": 4200,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Courier Pip",
+   "text": "Ding ding! Sorry, was that a red light? In Cambridge, a red light is more of a suggestion. Battle!"
+  }
+ ],
+ "win": "Puncture. Emotionally.",
+ "after": "Get a good lock. Get two. The bike thieves of Cambridge are the finest in the land."
+}

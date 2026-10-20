@@ -1,0 +1,49 @@
+{
+ "id": "en_bridie",
+ "name": "Bridie Maguire, Queen of the Erne",
+ "class": "Local Legend",
+ "sprite": "currach_rower",
+ "scaled_floor": 65,
+ "party": [
+  {
+   "species": "neaghmor",
+   "level": 68
+  },
+  {
+   "species": "stalaghast",
+   "level": 67
+  },
+  {
+   "species": "kelpie",
+   "level": 67
+  },
+  {
+   "species": "heronarch",
+   "level": 67
+  },
+  {
+   "species": "megalorn",
+   "level": 68
+  },
+  {
+   "species": "linenwisp",
+   "level": 67
+  }
+ ],
+ "ai": "trainer",
+ "money": 6000,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Bridie Maguire",
+   "text": "{greeting} I'm Bridie Maguire. My family ruled these lakes from a castle with a water gate, six hundred years ago. These days I just rule the regatta."
+  },
+  {
+   "do": "say",
+   "who": "Bridie Maguire",
+   "text": "Every keeper who comes through Enniskillen wants to test themselves against the Queen of the Erne. Come on, then. Mind the swans."
+  }
+ ],
+ "win": "Well. The Erne has a new favourite. Don't let it go to your head, there's not much room under the bridges.",
+ "after": "Come back any time and I'll take you out on the lough. Upper Lough Erne for the quiet, Lower for the wind. Both for the rain."
+}

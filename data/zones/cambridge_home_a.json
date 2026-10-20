@@ -1,0 +1,89 @@
+{
+ "id": "cambridge_home_a",
+ "name": "Gault Brick Terrace",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "sofa",
+   "x": 2,
+   "y": 2,
+   "variant": 3
+  },
+  {
+   "type": "table",
+   "x": 7,
+   "y": 2
+  },
+  {
+   "type": "bookshelf",
+   "x": 9,
+   "y": 1
+  },
+  {
+   "type": "fireplace",
+   "x": 5,
+   "y": 1
+  },
+  {
+   "type": "rug",
+   "x": 4,
+   "y": 4,
+   "w": 3,
+   "h": 2,
+   "variant": 0,
+   "walk": true
+  },
+  {
+   "type": "bed",
+   "x": 9,
+   "y": 5
+  },
+  {
+   "type": "cat_bowl",
+   "x": 1,
+   "y": 6
+  }
+ ],
+ "warps": [
+  {
+   "x": 5,
+   "y": 6,
+   "to": "cambridge",
+   "tx": 42,
+   "ty": 43,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "cam_landlady",
+   "sprite": "villager_6",
+   "x": 3,
+   "y": 4,
+   "facing": "right",
+   "move": "still",
+   "script": "cam_landlady",
+   "name": "Landlady"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  5,
+  5
+ ],
+ "rows": [
+  "xxxxxxxxxxx",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x||||D||||x",
+  "xxxxxxxxxxx"
+ ]
+}

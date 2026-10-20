@@ -1,0 +1,107 @@
+{
+ "id": "carlisle_statepub",
+ "name": "The State Pub",
+ "region": "",
+ "kind": "interior",
+ "music": "pub",
+ "weather": {},
+ "props": [
+  {
+   "type": "table",
+   "x": 2,
+   "y": 5
+  },
+  {
+   "type": "table",
+   "x": 8,
+   "y": 5
+  },
+  {
+   "type": "bench",
+   "x": 2,
+   "y": 6
+  },
+  {
+   "type": "bench",
+   "x": 8,
+   "y": 6
+  },
+  {
+   "type": "fireplace",
+   "x": 9,
+   "y": 1
+  },
+  {
+   "type": "menu_board",
+   "x": 3,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "wall_picture",
+   "x": 6,
+   "y": 1,
+   "walk": true,
+   "variant": 2
+  },
+  {
+   "type": "clock",
+   "x": 5,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 1
+  }
+ ],
+ "warps": [
+  {
+   "x": 5,
+   "y": 8,
+   "to": "carlisle",
+   "tx": 44,
+   "ty": 30,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "pub_landlady",
+   "sprite": "villager_2",
+   "x": 4,
+   "y": 2,
+   "facing": "down",
+   "move": "still",
+   "script": "pub_landlady"
+  },
+  {
+   "id": "pub_regular",
+   "sprite": "fisher",
+   "x": 8,
+   "y": 4,
+   "facing": "left",
+   "move": "still",
+   "script": "pub_regular"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  5,
+  7
+ ],
+ "rows": [
+  "xxxxxxxxxxx",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|CCCCCC||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "xxxxxDxxxxx"
+ ]
+}

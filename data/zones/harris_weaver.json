@@ -1,0 +1,136 @@
+{
+ "id": "harris_weaver",
+ "name": "The Weaver's Croft",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "table",
+   "x": 5,
+   "y": 3
+  },
+  {
+   "type": "bookshelf",
+   "x": 9,
+   "y": 1
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 6
+  },
+  {
+   "type": "potted_plant",
+   "x": 9,
+   "y": 6
+  },
+  {
+   "type": "fireplace",
+   "x": 5,
+   "y": 1
+  },
+  {
+   "type": "rug",
+   "x": 4,
+   "y": 2,
+   "w": 3,
+   "h": 2,
+   "variant": 2,
+   "walk": true
+  },
+  {
+   "type": "sofa",
+   "x": 1,
+   "y": 3,
+   "variant": 3,
+   "rot": 90
+  },
+  {
+   "type": "clock",
+   "x": 2,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "wall_picture",
+   "x": 6,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  },
+  {
+   "type": "plant_stand",
+   "x": 1,
+   "y": 5
+  },
+  {
+   "type": "kitchen_dresser",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "rug",
+   "x": 6,
+   "y": 4
+  },
+  {
+   "type": "fireplace",
+   "x": 8,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "table",
+   "x": 3,
+   "y": 6
+  }
+ ],
+ "warps": [
+  {
+   "x": 5,
+   "y": 7,
+   "to": "harris",
+   "tx": 24,
+   "ty": 40,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "hw_seonag",
+   "sprite": "villager_4",
+   "x": 4,
+   "y": 3,
+   "facing": "right",
+   "move": "still",
+   "script": "hw_seonag",
+   "name": "Seonag the Weaver"
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "x": 8,
+   "y": 4,
+   "text": "THE LOOM. A Hattersley double-width loom, a hundred years old and still going. Treadles below, shuttle across, beam forward, and again, thousands of times for one length of cloth. Harris Tweed is woven on looms like this in the islanders' own homes, often in a shed beside the house."
+  }
+ ],
+ "spawn": [
+  5,
+  6
+ ],
+ "rows": [
+  "xxxxxxxxxxx",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x||||D||||x",
+  "xxxxxxxxxxx"
+ ]
+}

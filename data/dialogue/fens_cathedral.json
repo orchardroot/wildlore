@@ -1,0 +1,73 @@
+{
+ "ely_glass": [
+  {
+   "do": "say",
+   "who": "Glass Restorer",
+   "text": "Upstairs is the Stained Glass Museum: eight hundred years of English glass, all in one gallery. I mend it. One tiny piece at a time, with tweezers and a lot of tea."
+  },
+  {
+   "do": "say",
+   "who": "Glass Restorer",
+   "text": "In the Lady Chapel next door, every one of the carved saints has lost its head. Smashed off at the Reformation in the 1500s by people who thought images were idolatry. The chapel is beautiful anyway. Quietly, defiantly."
+  }
+ ],
+ "ely_pilgrim": [
+  {
+   "do": "say",
+   "who": "Visitor",
+   "text": "Saint Etheldreda founded an abbey here in 673. She was a princess, married twice, and ran away from the second husband to become a nun. Ely has been honouring her ever since."
+  },
+  {
+   "do": "say",
+   "who": "Visitor",
+   "text": "Her feast day fair was called St Audrey's, and the cheap lace sold at it gave us the word tawdry. Which is a bit rude to a saint, really."
+  }
+ ],
+ "ely_verger": [
+  {
+   "do": "if",
+   "flag": "q_eastanglia_hereward_1",
+   "then": [
+    {
+     "do": "say",
+     "who": "Verger",
+     "text": "Mind the Norman on the causeway. Shake the reeds and see who answers."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_eastanglia_hereward_started",
+     "then": [
+      {
+       "do": "say",
+       "who": "Verger",
+       "text": "Hereward? Ah. In 1070 he and the Danes sacked Peterborough Abbey to keep its treasure from the Normans. Then he holed up here on the Isle with the rebels."
+      },
+      {
+       "do": "say",
+       "who": "Verger",
+       "text": "King William built a causeway at Aldreth, out in the west, and it sank under his knights. So he waited. Eventually the monks of Ely, tired of the siege, showed his men a secret way across the fen."
+      },
+      {
+       "do": "say",
+       "who": "Verger",
+       "text": "The Isle fell in 1071. Hereward escaped into the reeds. Nobody knows what became of him. That's what makes a legend, I find: a good ending nobody wrote down."
+      },
+      {
+       "do": "set",
+       "flag": "q_eastanglia_hereward_1"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Verger",
+       "text": "Welcome to Ely Cathedral. Do look up at the Octagon. In 1322 the old tower fell down in the night; the monks thought it was an earthquake. What they built instead is a marvel."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

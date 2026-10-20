@@ -1,0 +1,150 @@
+{
+ "id": "edinburgh_exchange",
+ "name": "Edinburgh Exchange",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "statue",
+   "x": 2,
+   "y": 1
+  },
+  {
+   "type": "statue",
+   "x": 10,
+   "y": 1
+  },
+  {
+   "type": "table",
+   "x": 5,
+   "y": 3
+  },
+  {
+   "type": "table",
+   "x": 7,
+   "y": 3
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 7
+  },
+  {
+   "type": "potted_plant",
+   "x": 11,
+   "y": 7
+  },
+  {
+   "type": "rug",
+   "x": 4,
+   "y": 2,
+   "w": 4,
+   "h": 3,
+   "variant": 2,
+   "walk": true
+  },
+  {
+   "type": "wall_picture",
+   "x": 7,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  },
+  {
+   "type": "wall_picture",
+   "x": 3,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  },
+  {
+   "type": "wall_picture",
+   "x": 9,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  },
+  {
+   "type": "clock",
+   "x": 6,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "plant_stand",
+   "x": 1,
+   "y": 6
+  },
+  {
+   "type": "bookshelf",
+   "x": 1,
+   "y": 3
+  },
+  {
+   "type": "bookshelf",
+   "x": 11,
+   "y": 3
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 8,
+   "to": "edinburgh",
+   "tx": 50,
+   "ty": 8,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "edi_broker",
+   "sprite": "commuter",
+   "x": 6,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "edi_broker",
+   "name": "Broker"
+  },
+  {
+   "id": "edi_saver",
+   "sprite": "villager_5",
+   "x": 9,
+   "y": 5,
+   "facing": "left",
+   "move": "still",
+   "script": "edi_saver",
+   "name": "Canny Saver"
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "x": 6,
+   "y": 6,
+   "plaque": "edinburgh_stock_exchange",
+   "title": "Scotland's Exchanges",
+   "text": "Edinburgh, Glasgow, Aberdeen and Dundee all once had their own stock exchanges. They merged into a single Scottish Stock Exchange in 1964, which joined the rest of Britain's exchanges in 1973."
+  }
+ ],
+ "spawn": [
+  6,
+  7
+ ],
+ "rows": [
+  "xxxxxxxxxxxxx",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++D+++++x",
+  "xxxxxxxxxxxxx"
+ ]
+}

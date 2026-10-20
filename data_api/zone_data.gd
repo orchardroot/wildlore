@@ -54,6 +54,7 @@ var town_id := ""              # world map and rail id; "" for routes and interi
 var station := Vector2i(-1, -1)  # rail stop tile, (-1, -1) for none
 var ferry: Dictionary = {}     # {x, y, route}
 var stub := false              # a placeholder another builder will replace
+var scaled_floor := -1        # off the main line: encounters authored at this par, lifted with the story (ParLevel); -1 = fixed
 var dark := false              # a cave: only a circle of light round the player (wider with the Lantern)
 var ambience := ""             # ambience bed override (an Ambience.BEDS id, or "none"); "" = pick from kind/stage
 
@@ -93,6 +94,7 @@ static func from_dict(d: Dictionary) -> ZoneData:
 	z.ferry = d.get("ferry", {})
 	z.stub = bool(d.get("stub", false))
 	z.dark = bool(d.get("dark", false))
+	z.scaled_floor = int(d.get("scaled_floor", -1))
 	z.ambience = str(d.get("ambience", ""))
 	var sp: Array = d.get("spawn", [0, 0])
 	z.spawn = Vector2i(int(sp[0]), int(sp[1]))
@@ -397,6 +399,8 @@ func validate(all: Dictionary) -> Array:
 			if enc.has("season") and (not (enc.season is Array) or enc.season.is_empty() \
 					or not enc.season.all(func(x): return x in ["spring", "summer", "autumn", "winter"])):
 				e.append(tag + "%s encounter '%s' has a bad season %s (a list of spring, summer, autumn, winter)" % [kind, enc.get("species", "?"), enc.season])
+	if scaled_floor != -1 and (scaled_floor < 2 or scaled_floor > Rules.MAX_LEVEL):
+		e.append(tag + "scaled_floor %d should be a par level, 2 to %d (or absent)" % [scaled_floor, Rules.MAX_LEVEL])
 	for s in signs:
 		if not in_bounds(Vector2i(int(s.x), int(s.y))):
 			e.append(tag + "sign at %d,%d is out of bounds" % [int(s.x), int(s.y)])

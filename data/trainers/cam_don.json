@@ -1,0 +1,41 @@
+{
+ "id": "cam_don",
+ "name": "Dr Quill",
+ "class": "College Fellow",
+ "sprite": "poet",
+ "scaled_floor": 94,
+ "party": [
+  {
+   "species": "lanternis",
+   "level": 94
+  },
+  {
+   "species": "hushwing",
+   "level": 95
+  },
+  {
+   "species": "coblynn",
+   "level": 95
+  },
+  {
+   "species": "chronophage",
+   "level": 96
+  }
+ ],
+ "ai": "trainer",
+ "money": 5600,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Dr Quill",
+   "text": "Ah, a visitor on the grass. Only fellows may walk on the grass. I am a fellow. You are, regrettably, on the grass."
+  },
+  {
+   "do": "say",
+   "who": "Dr Quill",
+   "text": "Shall we settle it like scholars? With a viva. A battle viva."
+  }
+ ],
+ "win": "Hmm. A first. With distinction. Do get off the grass now.",
+ "after": "The university's motto is Hinc lucem et pocula sacra: from here, light and sacred draughts. We have been arguing about what the draughts are for eight hundred years."
+}

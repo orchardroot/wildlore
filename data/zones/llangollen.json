@@ -15,58 +15,42 @@
     "max": 25.0,
     "min": 25.0,
     "species": "tylwyth",
-    "time": [
-     "dawn",
-     "dusk"
-    ],
+    "time": ["dawn", "dusk"],
     "weight": 25.0
    },
    {
     "max": 26.0,
     "min": 25.0,
     "species": "gwyllgi",
-    "time": [
-     "dusk",
-     "night"
-    ],
+    "time": ["dusk", "night"],
     "weight": 18.0
    },
    {
     "max": 25.0,
     "min": 25.0,
     "species": "martling",
-    "time": [
-     "night"
-    ],
+    "time": ["night"],
     "weight": 20.0
    },
    {
     "max": 25.0,
     "min": 25.0,
     "species": "brockling",
-    "time": [
-     "dawn",
-     "day"
-    ],
+    "time": ["dawn", "day"],
     "weight": 20.0
    },
    {
     "max": 25.0,
     "min": 25.0,
     "species": "elverlet",
-    "weather": [
-     "drizzle",
-     "downpour"
-    ],
+    "weather": ["drizzle", "downpour"],
     "weight": 15.0
    },
    {
     "max": 26.0,
     "min": 25.0,
     "species": "wispet",
-    "weather": [
-     "fog"
-    ],
+    "weather": ["fog"],
     "weight": 10.0
    }
   ],
@@ -88,6 +72,12 @@
     "min": 25.0,
     "species": "ratty",
     "weight": 40.0
+   },
+   {
+    "species": "ductling",
+    "min": 25,
+    "max": 25,
+    "weight": 20
    }
   ]
  },
@@ -953,7 +943,37 @@
    "y": 16,
    "text": "BLUE PLAQUE: Eleanor Butler and Sarah Ponsonby, the Ladies of Llangollen, made their home at Plas Newydd in 1780.",
    "kind": "plaque",
-   "dx": -0.475
+   "dx": -0.475,
+   "plaque": "llangollen_ladies",
+   "title": "Ladies of Llangollen"
+  },
+  {
+   "x": 11,
+   "y": 17,
+   "plaque": "llangollen_name",
+   "title": "Name: Llangollen",
+   "text": "Llangollen is the llan, or church, of St Collen. In legend Collen met Gwyn ap Nudd, king of the fairies, on Glastonbury Tor, sprinkled holy water about, and the whole fairy court vanished. After that he settled here, somewhere quieter."
+  },
+  {
+   "x": 19,
+   "y": 28,
+   "plaque": "llangollen_valle_crucis",
+   "title": "Valle Crucis Abbey",
+   "text": "Just north of town lie the ruins of Valle Crucis Abbey, founded in 1201 by Madog ap Gruffudd, prince of northern Powys, for Cistercian monks. The Latin name means 'valley of the cross', after Eliseg's Pillar, a cross raised nearby in the 800s. The monks kept a fishpond, which is still there."
+  },
+  {
+   "x": 29,
+   "y": 13,
+   "plaque": "llangollen_bridge",
+   "title": "Llangollen Bridge",
+   "text": "The old stone bridge over the Dee is one of the Seven Wonders of Wales, in a rhyme that also lists Snowdon, Pistyll Rhaeadr, Wrexham steeple, Overton yews, St Winefride's Well and Gresford bells. Most of them are in north east Wales. The poet may not have travelled much."
+  },
+  {
+   "x": 52,
+   "y": 23,
+   "plaque": "llangollen_glyndwr",
+   "title": "Owain Glyndŵr",
+   "text": "On 16 September 1400, at Glyndyfrdwy a few miles up the Dee, Owain Glyndŵr was proclaimed Prince of Wales and began the last great Welsh rising against English rule. His name comes from those lands, the glen of the Dee. 16 September is still Owain Glyndŵr Day."
   }
  ],
  "spawn": [

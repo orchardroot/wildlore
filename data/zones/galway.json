@@ -7,6 +7,10 @@
   "west": {
    "offset": 0.0,
    "to": "burren"
+  },
+  "south": {
+   "offset": 0.0,
+   "to": "shannon_estuary"
   }
  },
  "encounters": {
@@ -15,22 +19,15 @@
     "max": 57.0,
     "min": 56.0,
     "species": "merrow",
-    "time": [
-     "night"
-    ],
-    "weather": [
-     "fog"
-    ],
+    "time": ["night"],
+    "weather": ["fog"],
     "weight": 4.0
    },
    {
     "max": 57.0,
     "min": 56.0,
     "species": "selkie",
-    "time": [
-     "dusk",
-     "night"
-    ],
+    "time": ["dusk", "night"],
     "weight": 10.0
    },
    {
@@ -43,65 +40,49 @@
     "max": 57.0,
     "min": 56.0,
     "species": "dextera",
-    "time": [
-     "day"
-    ],
+    "time": ["day"],
     "weight": 6.0
    },
    {
     "max": 57.0,
     "min": 56.0,
     "species": "chipgull",
-    "time": [
-     "day"
-    ],
+    "time": ["day"],
     "weight": 14.0
    },
    {
     "max": 57.0,
     "min": 56.0,
     "species": "plungebeak",
-    "weather": [
-     "gale",
-     "clear"
-    ],
+    "weather": ["gale", "clear"],
     "weight": 10.0
    },
    {
     "max": 57.0,
     "min": 56.0,
     "species": "ternlet",
-    "weather": [
-     "frost"
-    ],
+    "weather": ["frost"],
     "weight": 6.0
    },
    {
     "max": 57.0,
     "min": 56.0,
     "species": "cluricaun",
-    "time": [
-     "night"
-    ],
+    "time": ["night"],
     "weight": 5.0
    },
    {
     "max": 57.0,
     "min": 56.0,
     "species": "polartern",
-    "weather": [
-     "sunshine"
-    ],
+    "weather": ["sunshine"],
     "weight": 8.0
    },
    {
     "max": 57.0,
     "min": 56.0,
     "species": "pierlord",
-    "time": [
-     "day",
-     "dusk"
-    ],
+    "time": ["day", "dusk"],
     "weight": 8.0
    }
   ],
@@ -704,11 +685,6 @@
   },
   {
    "type": "buoy",
-   "x": 36.0,
-   "y": 43.0
-  },
-  {
-   "type": "buoy",
    "x": 50.0,
    "y": 42.0
   },
@@ -1052,6 +1028,11 @@
    "type": "noticeboard",
    "x": 32,
    "y": 21
+  },
+  {
+   "type": "buoy",
+   "x": 39.0,
+   "y": 43.0
   }
  ],
  "region": "ireland_west",
@@ -1097,21 +1078,21 @@
   "TT...............................:===:BBBB.BDBBBBBBB~~~~::::::::::::::TT",
   "TT...............................:==:::::::::::::::::~~~..............TT",
   "TT::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::TT",
-  "TT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TT",
-  "TT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TT",
-  "TT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TT",
-  "TT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TT",
-  "TT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TT",
-  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
-  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
-  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
-  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
-  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
-  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
-  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
-  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
-  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
-  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
+  "TT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~W===W~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TT",
+  "TT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~W===W~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TT",
+  "TT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~W===W~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TT",
+  "TT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~W===W~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TT",
+  "TT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~W===W~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TT",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$W===W$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$W===W$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$W===W$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$W===W$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$W===W$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$W===W$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$W===W$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$W===W$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$W===W$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$W===W$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
  ],
  "signs": [
   {
@@ -1149,7 +1130,42 @@
    "y": 9,
    "text": "BLUE PLAQUE: Nora Barnacle, the wife of James Joyce, was born in Galway in 1884.",
    "kind": "plaque",
-   "dx": -0.475
+   "dx": -0.475,
+   "plaque": "galway_nora_barnacle",
+   "title": "Nora Barnacle"
+  },
+  {
+   "x": 47,
+   "y": 14,
+   "plaque": "galway_salmon_weir",
+   "title": "Salmon Weir Bridge",
+   "text": "Beside the cathedral, the Salmon Weir Bridge crosses the Corrib just below the weir. In spring and early summer you can look down and see wild salmon lined up in the clear water, waiting to swim up to Lough Corrib. They queue better than most people."
+  },
+  {
+   "x": 10,
+   "y": 23,
+   "plaque": "galway_st_nicholas",
+   "title": "St Nicholas' Church",
+   "text": "Founded in 1320, St Nicholas' Collegiate Church is the largest medieval parish church in Ireland still in use. Nicholas is the patron saint of sailors, which in a port town is just good sense. Cromwell's soldiers stabled horses inside."
+  },
+  {
+   "x": 65,
+   "y": 34,
+   "plaque": "galway_dun_aonghasa",
+   "title": "Dún Aonghasa",
+   "text": "Out in Galway Bay lie the Aran Islands: Inis Mór, Inis Meáin and Inis Oírr. On Inis Mór, Dún Aonghasa is a prehistoric stone fort on the very edge of a cliff about 100 metres above the Atlantic. There's no wall on the sea side. The sea is the wall."
+  },
+  {
+   "x": 13,
+   "y": 33,
+   "plaque": "galway_races",
+   "title": "The Galway Races",
+   "text": "Racing has been held at Ballybrit, on the edge of town, since 1869. Race week, at the end of July, is a seven-day festival of horses, hats and optimism. Some people come for the horses. Most come for the hats."
+  },
+  {
+   "text": "SOUTH TO CLARE, THE SHANNON AND LIMERICK. The old coast road. In real life it goes the long way round the bay by Oranmore and Ennis; the Wildlore causeway is a shortcut the Atlantic puts up with, mostly.",
+   "x": 33,
+   "y": 40
   }
  ],
  "spawn": [

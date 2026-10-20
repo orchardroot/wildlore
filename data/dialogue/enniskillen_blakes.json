@@ -1,0 +1,102 @@
+{
+ "en_publican": [
+  {
+   "do": "if",
+   "flag": "q_fermanagh_ms_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_fermanagh_ms_1",
+     "then": [
+      {
+       "do": "say",
+       "who": "Publican",
+       "text": "That's the only page I found. Unless you count the beer mats with phone numbers on them. Which I don't."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Publican",
+       "text": "A page of a monk's book? Funny you should say. This blew in the door on Tuesday on a gust and landed on the bar. I thought it was the menu."
+      },
+      {
+       "do": "say",
+       "who": "Publican",
+       "text": "Old Irish writing, little drawings of birds in the margins. Somebody's been doodling in church. Here, take it. Monks were always welcome at Blakes."
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "{player} tucks the vellum page carefully into the Fieldbook."
+      },
+      {
+       "do": "set",
+       "flag": "q_fermanagh_ms_1"
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Publican",
+     "text": "{greeting} Welcome to Blakes of the Hollow. The bar's hardly changed since the 1880s, and neither have some of the customers."
+    },
+    {
+     "do": "say",
+     "who": "Publican",
+     "text": "The Hollow's the dip in the street outside. When it rains, the street comes in to visit. We give it a stool."
+    }
+   ]
+  }
+ ],
+ "en_quizmaster": [
+  {
+   "do": "say",
+   "who": "Quizmaster",
+   "text": "{greeting} Quiz night at Blakes. Five questions, no phones, and no conferring with the fella at the end of the bar, because he's wrong."
+  },
+  {
+   "do": "choice",
+   "text": "Fancy a round?",
+   "options": [
+    "Count me in",
+    "Not tonight"
+   ],
+   "set": "_quiz_choice"
+  },
+  {
+   "do": "if",
+   "flag": "_quiz_choice",
+   "then": [
+    {
+     "do": "quiz",
+     "pub": "enniskillen",
+     "region": "ni",
+     "who": "Quizmaster"
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Quizmaster",
+     "text": "Fair enough. Come back when you've read up on your eels."
+    }
+   ],
+   "eq": 0
+  }
+ ],
+ "en_regular": [
+  {
+   "do": "say",
+   "who": "Regular",
+   "text": "{greeting} Boxty on the griddle, boxty in the pan. Have you had boxty yet? You haven't lived. You've existed, at most."
+  },
+  {
+   "do": "say",
+   "who": "Regular",
+   "text": "It's potato pancake. Grated raw spud and mashed spud together. Two kinds of potato in the one dish. That's how you know you're in Fermanagh."
+  }
+ ]
+}

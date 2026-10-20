@@ -1,0 +1,55 @@
+{
+ "cw_landlord": [
+  {
+   "do": "say",
+   "who": "Landlord",
+   "text": "Welcome to the Fleece. There's an old Cotswold rhyme about a wool pub for every mile. I don't know if that's true, but they all seem to have been called the Fleece or the Woolpack."
+  },
+  {
+   "do": "say",
+   "who": "Landlord",
+   "text": "Have a half of the local and a ploughman's. Cheese, pickle, bread. Double Gloucester, naturally."
+  }
+ ],
+ "cw_quizmaster": [
+  {
+   "do": "say",
+   "who": "Quizmaster",
+   "text": "Quiz night at the Fleece! Five questions, no phones, and no arguing about the Rollright count. We've had a stand-off."
+  },
+  {
+   "do": "say",
+   "who": "Quizmaster",
+   "text": "Rules: no phones, no shouting out and no arguing with the Quizmaster. He is always right, even when he is wrong."
+  },
+  {
+   "do": "choice",
+   "text": "Fancy a round? Five questions, no phones.",
+   "options": [
+    "Count me in",
+    "Not tonight"
+   ],
+   "set": "_quiz_choice"
+  },
+  {
+   "do": "if",
+   "flag": "_quiz_choice",
+   "eq": 0,
+   "then": [
+    {
+     "do": "quiz",
+     "pub": "cotswolds",
+     "region": "england_south",
+     "who": "Quizmaster"
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Quizmaster",
+     "text": "Suit yourself. The crisps are cheese and onion either way."
+    }
+   ]
+  }
+ ]
+}

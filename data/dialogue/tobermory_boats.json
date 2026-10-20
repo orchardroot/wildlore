@@ -1,0 +1,88 @@
+{
+ "tob_skipper": [
+  {
+   "do": "say",
+   "who": "Skipper",
+   "text": "Staffa, Fingal's Cave, the puffins if the season's right, and Iona on the same ticket. I'm the skipper. The boat is the Ocean Maid, which has been mistaken for a small ferry and a large dinghy."
+  },
+  {
+   "do": "say",
+   "who": "Skipper",
+   "text": "The Staffa boat sails at twelve. Not before, not after, because the cave is only open when the swell lets us. Three hours there and back."
+  },
+  {
+   "do": "if",
+   "flag": "q_westhighlands_hop_started",
+   "then": [
+    {
+     "do": "set",
+     "flag": "q_westhighlands_hop_2"
+    }
+   ],
+   "else": []
+  },
+  {
+   "do": "choice",
+   "text": "Where to?",
+   "options": [
+    "Staffa and Fingal's Cave",
+    "Iona and the abbey",
+    "Not today"
+   ],
+   "set": "_boat_choice"
+  },
+  {
+   "do": "if",
+   "flag": "_boat_choice",
+   "then": [
+    {
+     "do": "say",
+     "who": "",
+     "text": "The boat leaves the harbour into a long grey swell. Past Ulva, past the Treshnish isles, and then a small green-black island shapes up out of the water, with a great arched mouth in its side. The sea breathes in and out of it."
+    },
+    {
+     "do": "warp",
+     "zone": "staffa_cave",
+     "x": 8,
+     "y": 14,
+     "facing": "up"
+    },
+    {
+     "do": "end"
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "_boat_choice",
+     "then": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "The boat rounds Ardnamurchan's cousin, Mull's long west coast, and heads for a low green island with a white beach and a small stone abbey. Iona."
+      },
+      {
+       "do": "warp",
+       "zone": "iona_abbey",
+       "x": 7,
+       "y": 11,
+       "facing": "up"
+      },
+      {
+       "do": "end"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Skipper",
+       "text": "Fair enough. The sea'll be here tomorrow, and so will I."
+      }
+     ],
+     "eq": 1
+    }
+   ],
+   "eq": 0
+  }
+ ]
+}

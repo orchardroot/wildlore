@@ -112,7 +112,10 @@ static func award(data: GameStateData, items: ItemDB, pub: String, score: int, d
 			out.n = got
 		else:
 			out.money += 100  # a full bag: the landlord pays you in cash instead
-	data.money += int(out.money)
+	var cur := Wallet.currency_for_zone(pub)  # an Irish pub pays its kitty in euros
+	out.money = Wallet.localise(int(out.money), cur)
+	out["cur"] = cur
+	Wallet.earn(data, int(out.money), cur)
 	out.paid = out.item != "" or out.money > 0
 	return out
 

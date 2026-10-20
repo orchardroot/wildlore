@@ -1,0 +1,42 @@
+{
+ "ln_scutcher": [
+  {
+   "do": "say",
+   "who": "Scutcher",
+   "text": "{greeting} Mind your eyes. Scutching's dusty work."
+  },
+  {
+   "do": "say",
+   "who": "Scutcher",
+   "text": "First you pull the flax, roots and all. Then you rot it in a lint hole, a pond, for a couple of weeks, to loosen the fibres. The smell would knock a crow off a fence."
+  },
+  {
+   "do": "say",
+   "who": "Scutcher",
+   "text": "Then it comes here, and the wheel turns the blades and beats the woody bits off. What's left is long, soft fibre, ready for spinning. That's linen, before it knows it's linen."
+  },
+  {
+   "do": "daily",
+   "key": "ln_flax_day",
+   "then": [
+    {
+     "do": "say",
+     "who": "Scutcher",
+     "text": "Here, a hank of scutched flax. Somebody might make something of it."
+    },
+    {
+     "do": "give_item",
+     "item": "scutched_flax",
+     "n": 1
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Scutcher",
+     "text": "That's all the clean flax for today. Come back tomorrow."
+    }
+   ]
+  }
+ ]
+}

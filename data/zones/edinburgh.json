@@ -3,6 +3,14 @@
   "west": {
    "offset": 0.0,
    "to": "central_belt"
+  },
+  "north": {
+   "to": "forth_bridges",
+   "offset": -7
+  },
+  "south": {
+   "offset": 7,
+   "to": "scottish_borders"
   }
  },
  "encounters": {
@@ -23,68 +31,49 @@
     "max": 70.0,
     "min": 69.0,
     "species": "grizzlet",
-    "time": [
-     "dawn",
-     "day"
-    ],
+    "time": ["dawn", "day"],
     "weight": 8.0
    },
    {
     "max": 70.0,
     "min": 69.0,
     "species": "binfox",
-    "time": [
-     "night",
-     "dusk"
-    ],
+    "time": ["night", "dusk"],
     "weight": 10.0
    },
    {
     "max": 70.0,
     "min": 69.0,
     "species": "strutcoo",
-    "time": [
-     "day",
-     "dawn"
-    ],
+    "time": ["day", "dawn"],
     "weight": 8.0
    },
    {
     "max": 70.0,
     "min": 69.0,
     "species": "starlet",
-    "time": [
-     "dusk",
-     "dawn"
-    ],
+    "time": ["dusk", "dawn"],
     "weight": 8.0
    },
    {
     "max": 70.0,
     "min": 69.0,
     "species": "flittermouse",
-    "time": [
-     "night"
-    ],
+    "time": ["night"],
     "weight": 8.0
    },
    {
     "max": 70.0,
     "min": 69.0,
     "species": "hootlet",
-    "time": [
-     "night"
-    ],
+    "time": ["night"],
     "weight": 8.0
    },
    {
     "max": 70.0,
     "min": 69.0,
     "species": "sootwing",
-    "weather": [
-     "fog",
-     "drizzle"
-    ],
+    "weather": ["fog", "drizzle"],
     "weight": 8.0
    },
    {
@@ -97,10 +86,7 @@
     "max": 70.0,
     "min": 69.0,
     "species": "fawnlet",
-    "time": [
-     "dawn",
-     "dusk"
-    ],
+    "time": ["dawn", "dusk"],
     "weight": 6.0
    }
   ],
@@ -379,14 +365,6 @@
    "type": "building",
    "w": 9,
    "x": 36,
-   "y": 3
-  },
-  {
-   "h": 5,
-   "style": "cream_render",
-   "type": "building",
-   "w": 9,
-   "x": 46,
    "y": 3
   },
   {
@@ -969,18 +947,28 @@
    "type": "noticeboard",
    "x": 38,
    "y": 30
+  },
+  {
+   "h": 5,
+   "style": "cream_render",
+   "type": "building",
+   "w": 9,
+   "x": 46,
+   "y": 3,
+   "label": "Stock Exchange",
+   "kind": "hall"
   }
  ],
  "region": "scotland",
  "rows": [
-  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
-  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
-  "TT....................................................................TT",
-  "TT.BBBBBBBBBB...............BBBB....BBBBBBBBB.BBBBBBBBB.BBBBBBBBB.....TT",
-  "TT.BBBBBBBBBB.BBBBBB..BBBBB.BBBB....BBBBBBBBB.BBBBBBBBB.BBBBBBBBB.....TT",
-  "TT.BBBBBBBBBB.BBBBBB..BBBBB.BBBB....BBBBBBBBB.BBBBBBBBB.BBBBBBBBB.....TT",
-  "TT.BBBBBBBBBB.BBBBBB..BBBBB.BBBB....BBBBBBBBB.BBBBBBBBB.BBBBBBBBB.....TT",
-  "TT.BBBBBDBBBB.BBBDBB..BBDBB.BBBB....BBBBDBBBB.BBBBBBBBB.BBBBDBBBB.....TT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT:::TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT:::TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TT..............................:::...................................TT",
+  "TT.BBBBBBBBBB...............BBBB:::.BBBBBBBBB.BBBBBBBBB.BBBBBBBBB.....TT",
+  "TT.BBBBBBBBBB.BBBBBB..BBBBB.BBBB:::.BBBBBBBBB.BBBBBBBBB.BBBBBBBBB.....TT",
+  "TT.BBBBBBBBBB.BBBBBB..BBBBB.BBBB:::.BBBBBBBBB.BBBBBBBBB.BBBBBBBBB.....TT",
+  "TT.BBBBBBBBBB.BBBBBB..BBBBB.BBBB:::.BBBBBBBBB.BBBBBBBBB.BBBBBBBBB.....TT",
+  "TT.BBBBBDBBBB.BBBDBB..BBDBB.BBBB:::.BBBBDBBBB.BBBBDBBBB.BBBBDBBBB.....TT",
   "TT==============================:::===================================TT",
   "TT==============================:::===================================TT",
   "TT==============================:::===================================TT",
@@ -1034,7 +1022,7 @@
   "TT..BBBBBBBBBB.BBBBBBBB.BBBBBBB.......................................TT",
   "TT..BBBBBDBBBB.BBBBDBBB.BBBDBBB.......................................TT",
   "TTTTT..........................TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
-  "TTTTT..........................TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT"
+  "TTTTTTTTTTTTT...TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT"
  ],
  "signs": [
   {
@@ -1097,7 +1085,47 @@
    "y": 7,
    "text": "BLUE PLAQUE: Arthur Conan Doyle, creator of Sherlock Holmes, was born near here at 11 Picardy Place on 22 May 1859.",
    "kind": "plaque",
-   "dx": -0.475
+   "dx": -0.475,
+   "plaque": "edinburgh_conan_doyle",
+   "title": "Arthur Conan Doyle"
+  },
+  {
+   "x": 49,
+   "y": 39,
+   "plaque": "edinburgh_heart_of_midlothian",
+   "title": "Heart of Midlothian",
+   "text": "Outside St Giles' a heart is set into the cobbles. It marks the doorway of the Old Tolbooth, the town jail, which was pulled down in 1817. Locals spit on it, for luck or out of contempt for the old prison, depending on who you ask. Please admire it from a dry distance."
+  },
+  {
+   "x": 34,
+   "y": 49,
+   "plaque": "edinburgh_deacon_brodie",
+   "title": "Deacon Brodie",
+   "text": "William Brodie was a respected cabinetmaker and town councillor by day and a burglar by night, copying the keys of houses he worked in. He was hanged in 1788. Robert Louis Stevenson grew up with a cabinet Brodie had made, and later wrote Jekyll and Hyde. Mind who fits your locks."
+  },
+  {
+   "x": 54,
+   "y": 44,
+   "plaque": "edinburgh_adam_smith",
+   "title": "Adam Smith",
+   "text": "Adam Smith, author of The Wealth of Nations, spent his last years in the Canongate, the lower end of the Royal Mile, and is buried in the Canongate Kirkyard. The great champion of free trade worked here as a customs commissioner, collecting duties. Economists still find that very funny."
+  },
+  {
+   "x": 46,
+   "y": 39,
+   "plaque": "edinburgh_dolly_the_sheep",
+   "title": "Dolly the Sheep",
+   "text": "Dolly, born in July 1996 at the Roslin Institute just outside Edinburgh, was the first mammal cloned from an adult cell. She was named after Dolly Parton and had six lambs of her own. She now stands, stuffed and very patient, in the National Museum of Scotland."
+  },
+  {
+   "x": 35,
+   "y": 3,
+   "text": "NORTH TO THE FORTH. South Queensferry and the three Forth bridges, then the Kingdom of Fife: St Andrews and, over the Tay, Dundee."
+  },
+  {
+   "text": "FINGERPOST: SOUTH to the SCOTTISH BORDERS: the Tweed valley, Melrose and the Eildon Hills. Pack a raincoat and a good reason.",
+   "x": 17,
+   "y": 60
   }
  ],
  "spawn": [
@@ -1227,6 +1255,14 @@
    "x": 27,
    "y": 59,
    "to": "edinburgh_home_e",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 50,
+   "y": 7,
+   "to": "edinburgh_exchange",
    "tx": 6,
    "ty": 7,
    "facing": "up"

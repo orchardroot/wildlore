@@ -1,0 +1,95 @@
+{
+ "id": "donegal_books",
+ "name": "Four Masters Bookshop",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "bookshelf",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 2,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 8,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 9,
+   "y": 1
+  },
+  {
+   "type": "display_case",
+   "x": 5,
+   "y": 2,
+   "variant": 0
+  },
+  {
+   "type": "table",
+   "x": 2,
+   "y": 5
+  },
+  {
+   "type": "potted_plant",
+   "x": 9,
+   "y": 5
+  }
+ ],
+ "warps": [
+  {
+   "x": 5,
+   "y": 6,
+   "to": "donegal_town",
+   "tx": 18,
+   "ty": 17,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "db_bookseller",
+   "sprite": "student",
+   "x": 7,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "db_bookseller",
+   "name": "Bookseller"
+  },
+  {
+   "id": "db_reader",
+   "sprite": "poet",
+   "x": 3,
+   "y": 4,
+   "facing": "right",
+   "move": "still",
+   "script": "db_reader",
+   "name": "Reader"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  5,
+  5
+ ],
+ "rows": [
+  "xxxxxxxxxxx",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x||||D||||x",
+  "xxxxxxxxxxx"
+ ]
+}

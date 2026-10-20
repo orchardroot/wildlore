@@ -1,0 +1,100 @@
+{
+ "id": "fens_wicken",
+ "name": "Wicken Fen Visitor Centre",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "display_case",
+   "x": 3,
+   "y": 2
+  },
+  {
+   "type": "display_case",
+   "x": 9,
+   "y": 2
+  },
+  {
+   "type": "wall_map",
+   "x": 6,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "specimen_shelf",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "specimen_shelf",
+   "x": 11,
+   "y": 1
+  },
+  {
+   "type": "table",
+   "x": 3,
+   "y": 5
+  },
+  {
+   "type": "owl_perch",
+   "x": 11,
+   "y": 5
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 6
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 6,
+   "to": "the_fens",
+   "tx": 8,
+   "ty": 36,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "wicken_ranger",
+   "sprite": "birdwatcher",
+   "x": 6,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "wicken_ranger",
+   "name": "Ranger"
+  },
+  {
+   "id": "wicken_sedge",
+   "sprite": "farmer",
+   "x": 9,
+   "y": 5,
+   "facing": "left",
+   "move": "still",
+   "script": "wicken_sedge",
+   "name": "Sedge Cutter"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  6,
+  5
+ ],
+ "rows": [
+  "xxxxxxxxxxxxx",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||D|||||x",
+  "xxxxxxxxxxxxx"
+ ]
+}

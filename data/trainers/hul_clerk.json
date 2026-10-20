@@ -1,0 +1,32 @@
+{
+ "id": "hul_clerk",
+ "name": "Parliamentary Clerk Pemberton",
+ "class": "Clerk",
+ "sprite": "commuter",
+ "party": [
+  {
+   "species": "centurion",
+   "level": 85
+  },
+  {
+   "species": "stoopfalcon",
+   "level": 85
+  },
+  {
+   "species": "steelheart",
+   "level": 85
+  }
+ ],
+ "ai": "trainer",
+ "money": 3600,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Parliamentary Clerk Pemberton",
+   "text": "Point of order!"
+  }
+ ],
+ "win": "Point taken.",
+ "after": "Petitions must be on paper, in English, and polite. Yours was two out of three.",
+ "scaled_floor": 84
+}

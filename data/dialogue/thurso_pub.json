@@ -1,0 +1,62 @@
+{
+ "landlady": [
+  {
+   "do": "say",
+   "who": "Landlady",
+   "text": "Welcome in out of the wind! The floor is flagstone, the bar is flagstone, and if you ask nicely, the soup is not."
+  },
+  {
+   "do": "say",
+   "who": "Landlady",
+   "text": "On a winter night you can see the Northern Lights from the car park. The locals call them the Merry Dancers. Go out and look, and close the door behind you."
+  }
+ ],
+ "quizmaster": [
+  {
+   "do": "say",
+   "who": "Quizmaster",
+   "text": "Quiz night at the Flagstone! Scotland round tonight, and I wrote the questions myself, so complain to me directly."
+  },
+  {
+   "do": "choice",
+   "text": "Play the quiz?",
+   "options": [
+    "Go on then",
+    "Not tonight"
+   ],
+   "set": "_quiz_pick"
+  },
+  {
+   "do": "if",
+   "flag": "_quiz_pick",
+   "then": [
+    {
+     "do": "quiz",
+     "pub": "thurso",
+     "region": "scotland",
+     "who": "Quizmaster"
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Quizmaster",
+     "text": "Your loss. The prize is a voucher for the bakehouse, and that's not nothing."
+    }
+   ],
+   "eq": 0
+  }
+ ],
+ "dounreay_retiree": [
+  {
+   "do": "say",
+   "who": "Retired Engineer",
+   "text": "Forty years at Dounreay. When I came, Thurso was a wee fishing town. Then thousands of us arrived to build reactors, and suddenly there were new schools and housing schemes and a proper high street."
+  },
+  {
+   "do": "say",
+   "who": "Retired Engineer",
+   "text": "Now they're taking it all apart, very slowly and very carefully. My grandson works on the decommissioning. He's undoing my work. I've told him to be gentle with it."
+  }
+ ]
+}

@@ -1,0 +1,32 @@
+{
+ "id": "lin_sausage",
+ "name": "Sausage Maker Dot",
+ "class": "Butcher",
+ "sprite": "villager_6",
+ "party": [
+  {
+   "species": "thornsow",
+   "level": 88
+  },
+  {
+   "species": "grandpuff",
+   "level": 88
+  },
+  {
+   "species": "samsonian",
+   "level": 88
+  }
+ ],
+ "ai": "trainer",
+ "money": 3700,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Sausage Maker Dot",
+   "text": "Lincolnshire sausage: coarse pork and a fistful of sage. No rusk-heavy nonsense. Fight me, as the young ones say."
+  }
+ ],
+ "win": "Fair enough. I'll put you on the list for the Christmas order.",
+ "after": "Sage, that's the secret. Some add thyme. Some add rumours.",
+ "scaled_floor": 88
+}

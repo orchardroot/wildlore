@@ -1,0 +1,96 @@
+{
+ "id": "leeds_thackray",
+ "name": "Thackray Museum of Medicine",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "specimen_shelf",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "display_case",
+   "x": 4,
+   "y": 2
+  },
+  {
+   "type": "display_case",
+   "x": 8,
+   "y": 2
+  },
+  {
+   "type": "bed",
+   "x": 11,
+   "y": 2
+  },
+  {
+   "type": "kitchen_dresser",
+   "x": 11,
+   "y": 6
+  },
+  {
+   "type": "wall_picture",
+   "x": 6,
+   "y": 1,
+   "walk": true,
+   "variant": 0
+  },
+  {
+   "type": "table",
+   "x": 2,
+   "y": 6
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 8,
+   "to": "leeds",
+   "tx": 63,
+   "ty": 9,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "thackray_guide",
+   "sprite": "night_nurse",
+   "x": 6,
+   "y": 4,
+   "facing": "down",
+   "move": "still",
+   "script": "thackray_guide",
+   "name": "Museum Guide"
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "x": 2,
+   "y": 3,
+   "text": "The museum stands in the old Leeds Union Workhouse of 1861. One gallery rebuilds a Victorian Leeds street, smells and all, to show how cholera spread before the city had proper sewers.",
+   "plaque": "pennines_thackray",
+   "title": "The Workhouse Museum"
+  }
+ ],
+ "spawn": [
+  6,
+  7
+ ],
+ "rows": [
+  "xxxxxxxxxxxxx",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||D|||||x",
+  "xxxxxxxxxxxxx"
+ ]
+}

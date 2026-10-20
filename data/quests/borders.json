@@ -1,0 +1,126 @@
+{
+ "quests": [
+  {
+   "id": "borders_curse",
+   "title": "The Bishop's Curse",
+   "region": "borders",
+   "town": "carlisle",
+   "giver": "Curator Bell",
+   "summary": "Read the Cursing Stone of 1525 and find out what an Armstrong thinks of it.",
+   "start_flag": "q_borders_curse_started",
+   "steps": [
+    {
+     "flag": "q_borders_curse_1",
+     "text": "Read the Cursing Stone in the yard by Carlisle Castle.",
+     "zone": "carlisle"
+    },
+    {
+     "flag": "q_borders_curse_2",
+     "text": "Face the Armstrong of Gilnockie on the cross street.",
+     "zone": "carlisle"
+    },
+    {
+     "flag": "q_borders_curse_done",
+     "text": "Tell Curator Bell at Tullie House.",
+     "zone": "carlisle_tullie"
+    }
+   ],
+   "done_flag": "q_borders_curse_done",
+   "reward": "A Reiver's Bonnet and standing with England."
+  },
+  {
+   "id": "borders_heart",
+   "title": "Bruce's Heart",
+   "region": "borders",
+   "town": "borders_abbey",
+   "giver": "Abbey Warden",
+   "summary": "Find the bagpiping pig and speak to the Black Douglas, for the heart of Robert the Bruce.",
+   "start_flag": "q_borders_heart_started",
+   "steps": [
+    {
+     "flag": "q_borders_heart_1",
+     "text": "Find the bagpipe-playing pig on the roof of Melrose Abbey.",
+     "zone": "scottish_borders"
+    },
+    {
+     "flag": "q_borders_heart_2",
+     "text": "Face the Black Douglas in the abbey.",
+     "zone": "borders_abbey"
+    },
+    {
+     "flag": "q_borders_heart_done",
+     "text": "Report to the Abbey Warden.",
+     "zone": "borders_abbey"
+    }
+   ],
+   "done_flag": "q_borders_heart_done",
+   "reward": "The Heart of the Bruce charm and standing with Scotland."
+  },
+  {
+   "id": "borders_ride",
+   "title": "Ride the Common Riding",
+   "region": "borders",
+   "town": "borders_stables",
+   "giver": "The Cornet",
+   "summary": "Carry the Cornet's colours round the three marches of the town.",
+   "start_flag": "q_borders_ride_started",
+   "steps": [
+    {
+     "flag": "q_borders_ride_1",
+     "text": "Fetch the Cornet's colours from Ma Haig's Bakehouse.",
+     "zone": "borders_bakehouse"
+    },
+    {
+     "flag": "q_borders_ride_2",
+     "text": "Ride the first march at Scott's View.",
+     "zone": "scottish_borders"
+    },
+    {
+     "flag": "q_borders_ride_3",
+     "text": "Ride the second march at the Tweed ford.",
+     "zone": "scottish_borders"
+    },
+    {
+     "flag": "q_borders_ride_4",
+     "text": "Ride the third march at the Eildon Gate, and beat the rival rider.",
+     "zone": "scottish_borders"
+    },
+    {
+     "flag": "q_borders_ride_done",
+     "text": "Return the colours to the Cornet.",
+     "zone": "borders_stables"
+    }
+   ],
+   "done_flag": "q_borders_ride_done",
+   "reward": "The Cornet's Sash charm and standing with Scotland."
+  },
+  {
+   "id": "borders_thomas",
+   "title": "True Thomas",
+   "region": "borders",
+   "town": "scottish_borders",
+   "giver": "Thomas the Rhymer",
+   "summary": "Meet the Rhymer under the Eildon Tree and win the trust of the Queen of Elfland's white steed.",
+   "start_flag": "q_borders_thomas_started",
+   "steps": [
+    {
+     "flag": "q_borders_thomas_1",
+     "text": "Hear Thomas's story beneath the Eildon Hills.",
+     "zone": "scottish_borders"
+    },
+    {
+     "flag": "q_borders_thomas_2",
+     "text": "Catch the elfin steed at the Eildon Tree.",
+     "zone": "scottish_borders"
+    },
+    {
+     "flag": "q_borders_thomas_done",
+     "text": "Tell Thomas the steed has come to you.",
+     "zone": "scottish_borders"
+    }
+   ],
+   "done_flag": "q_borders_thomas_done",
+   "reward": "A Tweed Swatch and standing with Scotland."
+  }
+ ]
+}

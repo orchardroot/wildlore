@@ -1,0 +1,412 @@
+{
+ "hr_callanish_guide": [
+  {
+   "do": "say",
+   "who": "Stones Guide",
+   "text": "The ring is thirteen stones and the big one in the middle is nearly five metres tall. It's a gneiss, one of the oldest rocks on Earth, about three thousand million years old. The stones are younger than the rock."
+  },
+  {
+   "do": "say",
+   "who": "Stones Guide",
+   "text": "Somebody, five thousand years ago, dragged those about on rollers or sleds and stood them upright. Then, about a thousand years later, a burial cairn was put in the middle of the ring beside the big stone. Nobody left a note."
+  }
+ ],
+ "hr_peatcutter": [
+  {
+   "do": "say",
+   "who": "Peat Cutter",
+   "text": "Peat bank. My granda's. His granda's before that, give or take a flood. You cut the turves in spring, stand them up in wee heaps to dry, then bring them home by trailer in summer."
+  },
+  {
+   "do": "say",
+   "who": "Peat Cutter",
+   "text": "On a still evening the smell of a peat fire comes over the whole island. People have been known to cry. It's the smoke, or it's not."
+  }
+ ],
+ "hr_birder": [
+  {
+   "do": "say",
+   "who": "Corncrake Watcher",
+   "text": "Shhh. That's a corncrake. Crex crex, crex crex. It's in the grass right there. Do not step in the grass. You will not see it. Nobody sees it. We just stand here and are happy."
+  },
+  {
+   "do": "say",
+   "who": "Corncrake Watcher",
+   "text": "The Western Isles still have corncrakes because the crofters mow the machair late and from the middle outwards, so the chicks can run for the edge instead of being driven into a corner."
+  }
+ ],
+ "hr_walker": [
+  {
+   "do": "say",
+   "who": "Beach Walker",
+   "text": "Losgaintir. Luskentyre. Look at that! You'd think it was the Caribbean, if you ignored the sheep, the weather and the temperature. I'm in four layers and the sheep are in one."
+  },
+  {
+   "do": "say",
+   "who": "Beach Walker",
+   "text": "Hello is 'halo' and goodbye is 'mar sin leat'. I've got two phrases. I use them both on every sheep."
+  }
+ ],
+ "hr_murdo": [
+  {
+   "do": "if",
+   "flag": "q_hebrides_tweed_1",
+   "then": [
+    {
+     "do": "say",
+     "who": "Crofter Murdo",
+     "text": "Seonag has the wool already, so away with you. The Blackface sheep give a springy fleece, and the Cheviots a soft one. You want a bit of both for a good tweed."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_hebrides_tweed_started",
+     "then": [
+      {
+       "do": "say",
+       "who": "Crofter Murdo",
+       "text": "Seonag sent you for fleece? Aye, she would. I clipped these myself in July, the old way, with the hand shears. A good fleece is thick, clean and sweet-smelling, like a cold wet afternoon."
+      },
+      {
+       "do": "say",
+       "who": "Crofter Murdo",
+       "text": "Take this one, and tell her it's the best of the lot. It isn't, but she'll say it is."
+      },
+      {
+       "do": "give_item",
+       "item": "hebridean_fleece",
+       "n": 1
+      },
+      {
+       "do": "set",
+       "flag": "q_hebrides_tweed_1",
+       "value": true
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Crofter Murdo",
+       "text": "My sheep are Blackface mostly, a few Cheviots to keep them honest. Every croft has its stint on the common grazing. The sheep do not know where my bit stops and the neighbour's starts. Neither do I, some days."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "hr_peigi": [
+  {
+   "do": "if",
+   "flag": "q_hebrides_tweed_2",
+   "then": [
+    {
+     "do": "say",
+     "who": "Peigi the Dyer",
+     "text": "That's crotal, scraped off the rocks and simmered in the pot. It dyes wool a rusty orange-brown that smells of the hill after the rain. Away and weave it before it loses its smell."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_hebrides_tweed_1",
+     "then": [
+      {
+       "do": "say",
+       "who": "Peigi the Dyer",
+       "text": "Fleece from Murdo for Seonag's tweed? Good. Wool takes colour from whatever grows round it: heather, iris, and crotal, the lichen on the rocks. Crotal makes the brown of a wet hill."
+      },
+      {
+       "do": "say",
+       "who": "Peigi the Dyer",
+       "text": "Here, I've a jar of crotal dye ready. Hand it to Seonag with the fleece and she'll know what to do."
+      },
+      {
+       "do": "give_item",
+       "item": "crotal_dye",
+       "n": 1
+      },
+      {
+       "do": "set",
+       "flag": "q_hebrides_tweed_2",
+       "value": true
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Peigi the Dyer",
+       "text": "Gearrannan's blackhouses were lived in until 1974. Now they're a museum and a holiday let, and I show people how we used to dye. No one believes it can be so brown. It's the nicest brown there is."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "hr_ferryhand": [
+  {
+   "do": "say",
+   "who": "Ferry Hand",
+   "text": "Back over the water to Skye? The Little Minch is in a good mood today, which is to say it's only trying to kill you a bit."
+  },
+  {
+   "do": "ferry",
+   "route": "portree_tarbert"
+  }
+ ],
+ "hr_cm_warder": [
+  {
+   "do": "say",
+   "who": "Chessman",
+   "text": "A carved ivory warrior sits in the dune with its teeth clamped on the rim of its shield. It does not seem to have noticed you. It is very busy being furious."
+  },
+  {
+   "do": "give_item",
+   "item": "lewis_warder",
+   "n": 1
+  },
+  {
+   "do": "set",
+   "flag": "hebrides_cm_warder",
+   "value": true
+  },
+  {
+   "do": "if",
+   "flag": "hebrides_cm_knight",
+   "then": [
+    {
+     "do": "if",
+     "flag": "hebrides_cm_bishop",
+     "then": [
+      {
+       "do": "if",
+       "flag": "hebrides_cm_queen",
+       "then": [
+        {
+         "do": "if",
+         "flag": "hebrides_cm_king",
+         "then": [
+          {
+           "do": "set",
+           "flag": "q_hebrides_chess_1",
+           "value": true
+          },
+          {
+           "do": "say",
+           "who": "",
+           "text": "That is all five pieces. Back to the curator at Lews Castle with them."
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "hr_cm_king": [
+  {
+   "do": "say",
+   "who": "Chessman",
+   "text": "A tiny ivory king sits on a flat stone by the monolith with a sword across his knees, looking worried. Kings usually are."
+  },
+  {
+   "do": "give_item",
+   "item": "lewis_king",
+   "n": 1
+  },
+  {
+   "do": "set",
+   "flag": "hebrides_cm_king",
+   "value": true
+  },
+  {
+   "do": "if",
+   "flag": "hebrides_cm_warder",
+   "then": [
+    {
+     "do": "if",
+     "flag": "hebrides_cm_knight",
+     "then": [
+      {
+       "do": "if",
+       "flag": "hebrides_cm_bishop",
+       "then": [
+        {
+         "do": "if",
+         "flag": "hebrides_cm_queen",
+         "then": [
+          {
+           "do": "set",
+           "flag": "q_hebrides_chess_1",
+           "value": true
+          },
+          {
+           "do": "say",
+           "who": "",
+           "text": "That is all five pieces. Back to the curator at Lews Castle with them."
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "hr_cm_queen": [
+  {
+   "do": "say",
+   "who": "Chessman",
+   "text": "An ivory queen, chin in hand, sits on the wall at Gearrannan. Every Lewis Chessman queen rests her chin in her hand. They look as if they'd rather be home."
+  },
+  {
+   "do": "give_item",
+   "item": "lewis_queen",
+   "n": 1
+  },
+  {
+   "do": "set",
+   "flag": "hebrides_cm_queen",
+   "value": true
+  },
+  {
+   "do": "if",
+   "flag": "hebrides_cm_warder",
+   "then": [
+    {
+     "do": "if",
+     "flag": "hebrides_cm_knight",
+     "then": [
+      {
+       "do": "if",
+       "flag": "hebrides_cm_bishop",
+       "then": [
+        {
+         "do": "if",
+         "flag": "hebrides_cm_king",
+         "then": [
+          {
+           "do": "set",
+           "flag": "q_hebrides_chess_1",
+           "value": true
+          },
+          {
+           "do": "say",
+           "who": "",
+           "text": "That is all five pieces. Back to the curator at Lews Castle with them."
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "hr_cm_bishop": [
+  {
+   "do": "say",
+   "who": "Chessman",
+   "text": "An ivory bishop stands on the sand at Luskentyre with his crook, blessing the tide. The tide takes no notice."
+  },
+  {
+   "do": "give_item",
+   "item": "lewis_bishop",
+   "n": 1
+  },
+  {
+   "do": "set",
+   "flag": "hebrides_cm_bishop",
+   "value": true
+  },
+  {
+   "do": "if",
+   "flag": "hebrides_cm_warder",
+   "then": [
+    {
+     "do": "if",
+     "flag": "hebrides_cm_knight",
+     "then": [
+      {
+       "do": "if",
+       "flag": "hebrides_cm_queen",
+       "then": [
+        {
+         "do": "if",
+         "flag": "hebrides_cm_king",
+         "then": [
+          {
+           "do": "set",
+           "flag": "q_hebrides_chess_1",
+           "value": true
+          },
+          {
+           "do": "say",
+           "who": "",
+           "text": "That is all five pieces. Back to the curator at Lews Castle with them."
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "hr_cm_knight": [
+  {
+   "do": "say",
+   "who": "Chessman",
+   "text": "An ivory knight on a stocky pony. The pony has a face like someone has just told it a long story. The knight keeps hold of his spear."
+  },
+  {
+   "do": "give_item",
+   "item": "lewis_knight",
+   "n": 1
+  },
+  {
+   "do": "set",
+   "flag": "hebrides_cm_knight",
+   "value": true
+  },
+  {
+   "do": "if",
+   "flag": "hebrides_cm_warder",
+   "then": [
+    {
+     "do": "if",
+     "flag": "hebrides_cm_bishop",
+     "then": [
+      {
+       "do": "if",
+       "flag": "hebrides_cm_queen",
+       "then": [
+        {
+         "do": "if",
+         "flag": "hebrides_cm_king",
+         "then": [
+          {
+           "do": "set",
+           "flag": "q_hebrides_chess_1",
+           "value": true
+          },
+          {
+           "do": "say",
+           "who": "",
+           "text": "That is all five pieces. Back to the curator at Lews Castle with them."
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

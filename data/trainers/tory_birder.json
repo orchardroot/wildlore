@@ -1,0 +1,32 @@
+{
+ "id": "tory_birder",
+ "name": "Síle the Birder",
+ "class": "Birder",
+ "sprite": "birdwatcher",
+ "scaled_floor": 66,
+ "party": [
+  {
+   "species": "corncrake",
+   "level": 68
+  },
+  {
+   "species": "clownbill",
+   "level": 67
+  },
+  {
+   "species": "petrelash",
+   "level": 68
+  }
+ ],
+ "ai": "trainer",
+ "money": 3000,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Síle the Birder",
+   "text": "Crex crex! That's a corncrake. Or me, warming up. Let's battle while it's quiet."
+  }
+ ],
+ "win": "Well battled. Now whisper. The corncrakes are listening.",
+ "after": "Corncrakes winter in Africa and fly all the way back to Tory every spring. I can't even get to Letterkenny without a sandwich."
+}

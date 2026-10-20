@@ -1,0 +1,151 @@
+{
+ "whl_osprey": [
+  {
+   "do": "say",
+   "who": "",
+   "text": "An osprey hangs over the water on beating wings, folds up, and drops feet first. It comes up with a trout and a very smug expression."
+  }
+ ],
+ "whl_lek": [
+  {
+   "do": "say",
+   "who": "",
+   "text": "A lekling struts in a little ring of flattened grass, fanning its tail and clicking like a pair of knitting needles. It is practising for an audience of none."
+  }
+ ],
+ "whl_walker_talk": [
+  {
+   "do": "say",
+   "who": "Way Walker",
+   "text": "The West Highland Way opened in 1980, and I have been walking it in sections since. Section three is the one with the boulders. Section four is the one with the other boulders."
+  },
+  {
+   "do": "say",
+   "who": "Way Walker",
+   "text": "Rule one: no cotton socks. Rule two: no cotton socks. There is no rule three because I can't think past the pain."
+  }
+ ],
+ "whl_farmer": [
+  {
+   "do": "say",
+   "who": "Hill Farmer",
+   "text": "These sheep are Blackfaces, the commonest Scottish hill breed. Hardy, tough, and with an opinion about everything. They know where my gate is. They choose not to use it."
+  }
+ ],
+ "whl_redmac": [
+  {
+   "do": "if",
+   "flag": "q_westhighlands_rob_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Red Mac",
+     "text": "Rob Roy would have liked you. Not loved you, he loved no one who could count, but liked you."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_westhighlands_rob_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_westhighlands_rob_1",
+       "then": [
+        {
+         "do": "if",
+         "flag": "q_westhighlands_rob_2",
+         "then": [
+          {
+           "do": "if",
+           "flag": "trainer_whl_factor",
+           "then": [
+            {
+             "do": "say",
+             "who": "Red Mac",
+             "text": "The Factor beaten! Rob himself would raise a dram. Take this: an outlaw's sporran. It has carried worse than loose change, I promise."
+            },
+            {
+             "do": "give_item",
+             "item": "outlaws_sporran"
+            },
+            {
+             "do": "standing",
+             "nation": "scotland",
+             "amount": 3
+            },
+            {
+             "do": "set",
+             "flag": "q_westhighlands_rob_done"
+            },
+            {
+             "do": "say",
+             "who": "Red Mac",
+             "text": "Mind how you go. And if anyone asks, you never saw a MacGregor. You never saw a MacGregor, did you?"
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Red Mac",
+             "text": "Montrose's Factor is still sniffing about east of the cave, by the water. Show him the MacGregors don't take orders from a ledger."
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Red Mac",
+           "text": "The cave is done. Next, Balquhidder: the kirkyard to the south-west, where he lies. The sexton keeps the old stories."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Red Mac",
+         "text": "Start where he hid. The cave on the east shore, south of the loch. My cousin's inside, in a tartan you'll hear before you see."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Red Mac",
+       "text": "Halt! Are you a Campbell? No? Good. I'm Red Mac, I do the Rob Roy tours, and my moustache is real."
+      },
+      {
+       "do": "say",
+       "who": "Red Mac",
+       "text": "Rob Roy MacGregor (1671 to 1734): a drover, a cattle dealer, an outlaw, a hero, a nuisance. Walter Scott wrote a novel about him in 1817 and made him famous."
+      },
+      {
+       "do": "say",
+       "who": "Red Mac",
+       "text": "He borrowed money from the Duke of Montrose to buy cattle, his clerk ran off with the cash, and the Duke called him an outlaw. Rob never forgave him. Shall we walk his trail?"
+      },
+      {
+       "do": "set",
+       "flag": "q_westhighlands_rob_started"
+      },
+      {
+       "do": "say",
+       "who": "Red Mac",
+       "text": "Three stops. The cave. The kirkyard at Balquhidder. Then the Duke's Factor, who is lurking east of the cave with a ledger. Come back to me when it's all done."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "whl_clansman": [
+  {
+   "do": "say",
+   "who": "Clansman",
+   "text": "Don't mind the plaid, it's authentic wool, which is to say itchy. I'm Red Mac's cousin. We take it in turns to be fearsome."
+  }
+ ]
+}

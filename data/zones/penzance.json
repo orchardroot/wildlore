@@ -11,30 +11,21 @@
     "max": 47.0,
     "min": 46.0,
     "species": "gannetling",
-    "time": [
-     "day",
-     "dawn"
-    ],
+    "time": ["day", "dawn"],
     "weight": 14.0
    },
    {
     "max": 48.0,
     "min": 47.0,
     "species": "plungebeak",
-    "weather": [
-     "gale",
-     "clear"
-    ],
+    "weather": ["gale", "clear"],
     "weight": 10.0
    },
    {
     "max": 47.0,
     "min": 46.0,
     "species": "baskling",
-    "weather": [
-     "fog",
-     "drizzle"
-    ],
+    "weather": ["fog", "drizzle"],
     "weight": 6.0
    },
    {
@@ -47,57 +38,42 @@
     "max": 48.0,
     "min": 47.0,
     "species": "cassiterix",
-    "weather": [
-     "downpour"
-    ],
+    "weather": ["downpour"],
     "weight": 5.0
    },
    {
     "max": 47.0,
     "min": 46.0,
     "species": "chipgull",
-    "time": [
-     "day"
-    ],
+    "time": ["day"],
     "weight": 14.0
    },
    {
     "max": 48.0,
     "min": 47.0,
     "species": "pierlord",
-    "time": [
-     "day",
-     "dusk"
-    ],
+    "time": ["day", "dusk"],
     "weight": 8.0
    },
    {
     "max": 48.0,
     "min": 46.0,
     "species": "clownbill",
-    "time": [
-     "dawn",
-     "day"
-    ],
+    "time": ["dawn", "day"],
     "weight": 10.0
    },
    {
     "max": 47.0,
     "min": 46.0,
     "species": "polartern",
-    "weather": [
-     "frost",
-     "gale"
-    ],
+    "weather": ["frost", "gale"],
     "weight": 8.0
    },
    {
     "max": 48.0,
     "min": 46.0,
     "species": "petrelash",
-    "time": [
-     "night"
-    ],
+    "time": ["night"],
     "weight": 10.0
    }
   ],
@@ -282,6 +258,17 @@
    "trainer": "penz_busker",
    "x": 24.0,
    "y": 21.0
+  },
+  {
+   "id": "e2e_cornish",
+   "sprite": "jogger",
+   "x": 3,
+   "y": 24,
+   "facing": "up",
+   "move": "still",
+   "script": "e2e_cornish",
+   "name": "End to Ender",
+   "show_if": "q_farnorth_e2e_started"
   }
  ],
  "props": [
@@ -1008,7 +995,37 @@
    "y": 17,
    "text": "BLUE PLAQUE: Sir Humphry Davy, chemist and inventor of the miners' safety lamp, was born in Penzance in 1778.",
    "kind": "plaque",
-   "dx": -0.475
+   "dx": -0.475,
+   "plaque": "penzance_davy",
+   "title": "Sir Humphry Davy"
+  },
+  {
+   "x": 50,
+   "y": 18,
+   "plaque": "penzance_maria_branwell",
+   "title": "Maria Branwell",
+   "text": "Maria Branwell was born on Chapel Street in 1783. She married a curate called Patrick Bronte and became the mother of Charlotte, Emily and Anne. The Bronte sisters wrote about Yorkshire moors, but their mum grew up beside the sea."
+  },
+  {
+   "x": 38,
+   "y": 24,
+   "plaque": "penzance_dolly_pentreath",
+   "title": "Dolly Pentreath",
+   "text": "Dolly Pentreath of Mousehole, who died in 1777, is often called the last native speaker of Cornish, though a few others spoke it after her. The language never quite went away. Today Kernewek, Cornish in Cornish, is taught again in schools and evening classes."
+  },
+  {
+   "x": 43,
+   "y": 30,
+   "plaque": "penzance_newlyn_school",
+   "title": "The Newlyn School",
+   "text": "In the 1880s a band of painters led by Stanhope Forbes settled in Newlyn, just round the bay, to paint fishing families out of doors in the clear Cornish light. They became known as the Newlyn School. The light is still free. The paint costs extra."
+  },
+  {
+   "x": 23,
+   "y": 35,
+   "plaque": "penzance_zennor_mermaid",
+   "title": "Mermaid of Zennor",
+   "text": "Up the coast at Zennor, legend tells of a mermaid who fell for Mathew Trewella, the best singer in the church choir, and lured him into the sea. A carved mermaid still decorates an old bench end in the church. On calm evenings, they say, you can hear him singing."
   }
  ],
  "spawn": [

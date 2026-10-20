@@ -1,0 +1,102 @@
+{
+ "rail_guard": [
+  {
+   "do": "say",
+   "who": "Rail Guard",
+   "text": "Lincoln Central. The trains cross the High Street right in the middle of town, so half of Lincoln spends its life waiting at the barriers."
+  },
+  {
+   "do": "say",
+   "who": "Rail Guard",
+   "text": "All aboard! Trains run to any station you've been to."
+  },
+  {
+   "do": "rail"
+  }
+ ],
+ "imp_spot": [
+  {
+   "do": "say",
+   "who": "",
+   "text": "Up on the wall of Minster Yard a little stone figure sits cross-legged, grinning, with sausage grease on its chin."
+  },
+  {
+   "do": "legend",
+   "species": "lincolnimp",
+   "level": 88,
+   "music": "legend",
+   "flag": "caught_lincolnimp"
+  },
+  {
+   "do": "if",
+   "flag": "caught_lincolnimp",
+   "then": [
+    {
+     "do": "set",
+     "flag": "q_humber_imp_3",
+     "value": true
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "The Lincoln Imp is yours. Best tell the Verger before he calls the police."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "",
+     "text": "The Imp cackles and skitters off along the wall. He'll be back, he always is."
+    }
+   ]
+  }
+ ],
+ "lin_yellowbelly": [
+  {
+   "do": "say",
+   "who": "Lincolnshire Local",
+   "text": "Ey up, me duck! Born and bred in Lincolnshire, which makes me a Yellowbelly. Nobody agrees why. Some say the yellow waistcoats of the old county regiment, some say the frogs in the fens."
+  },
+  {
+   "do": "say",
+   "who": "Lincolnshire Local",
+   "text": "Either way, it's a compliment. Mostly."
+  }
+ ],
+ "lin_cyclist_fan": [
+  {
+   "do": "say",
+   "who": "Puffing Walker",
+   "text": "Steep Hill, they call it. Sounds like a description, not a name, doesn't it? That's because it's a warning."
+  },
+  {
+   "do": "say",
+   "who": "Puffing Walker",
+   "text": "Halfway up there's a shop selling tea. That is not a coincidence."
+  }
+ ],
+ "lin_swans": [
+  {
+   "do": "say",
+   "who": "Boater",
+   "text": "The Brayford's a proper harbour, right in the middle of the city. The Romans brought boats up the Fossdyke from the Trent, and I bring mine up it now. Same water, more swans."
+  },
+  {
+   "do": "say",
+   "who": "Boater",
+   "text": "Mind the swans. They know they own the place."
+  }
+ ],
+ "lin_spire_guide": [
+  {
+   "do": "say",
+   "who": "Memorial Guide",
+   "text": "Over 55,000 aircrew of Bomber Command were killed in the war, more than four in every ten who flew. Their average age was about twenty-two."
+  },
+  {
+   "do": "say",
+   "who": "Memorial Guide",
+   "text": "Every name is on the walls. Families come and find theirs, and touch the letters."
+  }
+ ]
+}

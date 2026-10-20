@@ -1,0 +1,1211 @@
+{
+ "id": "oban",
+ "name": "Oban",
+ "region": "scotland",
+ "kind": "town",
+ "music": "town_scotland",
+ "weather": {
+  "drizzle": 32,
+  "clear": 18,
+  "downpour": 14,
+  "fog": 8,
+  "gale": 8,
+  "sunshine": 20
+ },
+ "props": [
+  {
+   "type": "tunnel_portal",
+   "x": 57,
+   "y": 14
+  },
+  {
+   "type": "buffer_stop",
+   "x": 66,
+   "y": 14
+  },
+  {
+   "type": "building",
+   "style": "castle",
+   "x": 20,
+   "y": 3,
+   "w": 9,
+   "h": 5,
+   "label": "Dunollie Castle",
+   "kind": "castle"
+  },
+  {
+   "type": "building",
+   "style": "mccaig",
+   "x": 44,
+   "y": 2,
+   "w": 9,
+   "h": 9,
+   "label": "McCaig's Tower"
+  },
+  {
+   "type": "building",
+   "style": "cathedral",
+   "x": 19,
+   "y": 12,
+   "w": 10,
+   "h": 7,
+   "label": "St Columba's Cathedral",
+   "kind": "church"
+  },
+  {
+   "type": "building",
+   "style": "granite",
+   "x": 31,
+   "y": 15,
+   "w": 7,
+   "h": 4,
+   "label": "The Oban Inn"
+  },
+  {
+   "type": "building",
+   "style": "granite",
+   "x": 40,
+   "y": 15,
+   "w": 8,
+   "h": 4,
+   "label": "Oban War and Peace Museum",
+   "kind": "museum"
+  },
+  {
+   "type": "building",
+   "style": "sanctuary",
+   "x": 50,
+   "y": 15,
+   "w": 6,
+   "h": 4,
+   "label": "Oban Sanctuary"
+  },
+  {
+   "type": "building",
+   "style": "shop",
+   "x": 58,
+   "y": 15,
+   "w": 6,
+   "h": 4,
+   "label": "Oban Corner Shop"
+  },
+  {
+   "type": "building",
+   "style": "white_render",
+   "x": 66,
+   "y": 15,
+   "w": 4,
+   "h": 4,
+   "label": "Home",
+   "kind": "home"
+  },
+  {
+   "type": "building",
+   "style": "station",
+   "x": 58,
+   "y": 9,
+   "w": 8,
+   "h": 4,
+   "label": "Oban Station"
+  },
+  {
+   "type": "building",
+   "style": "granite",
+   "x": 19,
+   "y": 24,
+   "w": 7,
+   "h": 5,
+   "label": "Esplanade Guest House",
+   "kind": "home"
+  },
+  {
+   "type": "building",
+   "style": "white_render",
+   "x": 28,
+   "y": 24,
+   "w": 6,
+   "h": 5,
+   "label": "Corran Tea Room",
+   "kind": "cafe"
+  },
+  {
+   "type": "building",
+   "style": "distillery",
+   "x": 36,
+   "y": 24,
+   "w": 12,
+   "h": 5,
+   "label": "Oban Distillery",
+   "kind": "workshop"
+  },
+  {
+   "type": "building",
+   "style": "granite",
+   "x": 50,
+   "y": 24,
+   "w": 5,
+   "h": 5,
+   "label": "Home",
+   "kind": "home"
+  },
+  {
+   "type": "building",
+   "style": "cream_render",
+   "x": 57,
+   "y": 24,
+   "w": 6,
+   "h": 5,
+   "label": "Chocolate Shop",
+   "kind": "cafe"
+  },
+  {
+   "type": "building",
+   "style": "white_render",
+   "x": 7,
+   "y": 26,
+   "w": 5,
+   "h": 3,
+   "label": "Pier Seafood Shack",
+   "kind": "cafe"
+  },
+  {
+   "type": "building",
+   "style": "granite",
+   "x": 19,
+   "y": 40,
+   "w": 9,
+   "h": 5,
+   "label": "CalMac Ferry Terminal"
+  },
+  {
+   "type": "lamp_post",
+   "x": 17,
+   "y": 10
+  },
+  {
+   "type": "lamp_post",
+   "x": 17,
+   "y": 26
+  },
+  {
+   "type": "lamp_post",
+   "x": 17,
+   "y": 36
+  },
+  {
+   "type": "lamp_post",
+   "x": 17,
+   "y": 44
+  },
+  {
+   "type": "lamp_post",
+   "x": 30,
+   "y": 19
+  },
+  {
+   "type": "lamp_post",
+   "x": 38,
+   "y": 23
+  },
+  {
+   "type": "lamp_post",
+   "x": 60,
+   "y": 19
+  },
+  {
+   "type": "lamp_post",
+   "x": 60,
+   "y": 23
+  },
+  {
+   "type": "bench",
+   "x": 14,
+   "y": 14
+  },
+  {
+   "type": "bench",
+   "x": 14,
+   "y": 32
+  },
+  {
+   "type": "bench",
+   "x": 14,
+   "y": 40
+  },
+  {
+   "type": "bench",
+   "x": 15,
+   "y": 28
+  },
+  {
+   "type": "lobster_pots",
+   "x": 6,
+   "y": 29,
+   "variant": 1
+  },
+  {
+   "type": "lobster_pots",
+   "x": 13,
+   "y": 31,
+   "variant": 0
+  },
+  {
+   "type": "boat",
+   "x": 4,
+   "y": 31,
+   "variant": 1
+  },
+  {
+   "type": "boat",
+   "x": 3,
+   "y": 34,
+   "variant": 1
+  },
+  {
+   "type": "boat",
+   "x": 4,
+   "y": 47,
+   "variant": 0
+  },
+  {
+   "type": "buoy",
+   "x": 5,
+   "y": 24
+  },
+  {
+   "type": "buoy",
+   "x": 4,
+   "y": 38
+  },
+  {
+   "type": "bollard",
+   "x": 6,
+   "y": 31
+  },
+  {
+   "type": "bollard",
+   "x": 13,
+   "y": 26
+  },
+  {
+   "type": "bollard",
+   "x": 7,
+   "y": 48
+  },
+  {
+   "type": "bollard",
+   "x": 13,
+   "y": 48
+  },
+  {
+   "type": "rock",
+   "x": 24,
+   "y": 10,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 26,
+   "y": 10,
+   "variant": 1
+  },
+  {
+   "type": "flagpole",
+   "x": 47,
+   "y": 37
+  },
+  {
+   "type": "flagpole",
+   "x": 50,
+   "y": 37
+  },
+  {
+   "type": "market_stall",
+   "x": 44,
+   "y": 39
+  },
+  {
+   "type": "market_stall",
+   "x": 54,
+   "y": 39
+  },
+  {
+   "type": "bench",
+   "x": 42,
+   "y": 51
+  },
+  {
+   "type": "bench",
+   "x": 64,
+   "y": 51
+  },
+  {
+   "type": "bunting",
+   "x": 41,
+   "y": 40,
+   "variant": 6
+  },
+  {
+   "type": "hanging_basket",
+   "x": 33,
+   "y": 19
+  },
+  {
+   "type": "hanging_basket",
+   "x": 36,
+   "y": 19
+  },
+  {
+   "type": "planter",
+   "x": 59,
+   "y": 19
+  },
+  {
+   "type": "post_box",
+   "x": 29,
+   "y": 19
+  },
+  {
+   "type": "phone_box",
+   "x": 56,
+   "y": 19
+  },
+  {
+   "type": "bush",
+   "x": 66,
+   "y": 8,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 53,
+   "y": 6,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 47,
+   "y": 30,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 54,
+   "y": 40,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 52,
+   "y": 13,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 41,
+   "y": 39,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 35,
+   "y": 40,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 33,
+   "y": 36,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 60,
+   "y": 33,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 64,
+   "y": 39,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 39,
+   "y": 42,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 37,
+   "y": 39,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 55,
+   "y": 14,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 32,
+   "y": 35,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 40,
+   "y": 32,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 62,
+   "y": 42,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 35,
+   "y": 41,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 42,
+   "y": 12,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 27,
+   "y": 48,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 40,
+   "y": 45,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 32,
+   "y": 49,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 37,
+   "y": 32,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 63,
+   "y": 31,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 68,
+   "y": 27,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 66,
+   "y": 43,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 57,
+   "y": 48,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 19,
+   "y": 5,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 39,
+   "y": 15,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 62,
+   "y": 35,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 45,
+   "y": 35,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 68,
+   "y": 9,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 54,
+   "y": 37,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 42,
+   "y": 5,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 28,
+   "y": 50,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 62,
+   "y": 7,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 34,
+   "y": 46,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 34,
+   "y": 30,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 53,
+   "y": 29,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 61,
+   "y": 45,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 24,
+   "y": 11,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 27,
+   "y": 51,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 38,
+   "y": 15,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 65,
+   "y": 45,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 22,
+   "y": 39,
+   "variant": 2
+  }
+ ],
+ "warps": [
+  {
+   "x": 24,
+   "y": 7,
+   "to": "oban_dunollie",
+   "tx": 7,
+   "ty": 8,
+   "facing": "up"
+  },
+  {
+   "x": 48,
+   "y": 10,
+   "to": "oban_mccaig",
+   "tx": 6,
+   "ty": 9,
+   "facing": "up"
+  },
+  {
+   "x": 24,
+   "y": 18,
+   "to": "oban_cathedral",
+   "tx": 6,
+   "ty": 9,
+   "facing": "up"
+  },
+  {
+   "x": 34,
+   "y": 18,
+   "to": "oban_inn",
+   "tx": 7,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 44,
+   "y": 18,
+   "to": "oban_warmuseum",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 53,
+   "y": 18,
+   "to": "oban_sanctuary",
+   "tx": 5,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 61,
+   "y": 18,
+   "to": "oban_shop",
+   "tx": 4,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 67,
+   "y": 18,
+   "to": "oban_home_a",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 42,
+   "y": 28,
+   "to": "oban_distillery",
+   "tx": 7,
+   "ty": 8,
+   "facing": "up"
+  },
+  {
+   "x": 52,
+   "y": 28,
+   "to": "oban_home_b",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 9,
+   "y": 28,
+   "to": "oban_seafood",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 23,
+   "y": 44,
+   "to": "oban_calmac",
+   "tx": 7,
+   "ty": 8,
+   "facing": "up"
+  }
+ ],
+ "edges": {
+  "east": {
+   "to": "loch_lomond",
+   "offset": 0
+  }
+ },
+ "npcs": [
+  {
+   "id": "rail_guard",
+   "sprite": "rail_guard",
+   "x": 61,
+   "y": 13,
+   "facing": "right",
+   "move": "still",
+   "script": "rail_guard"
+  },
+  {
+   "id": "obn_marshal",
+   "sprite": "piper",
+   "x": 49,
+   "y": 41,
+   "facing": "up",
+   "move": "still",
+   "script": "obn_marshal",
+   "name": "Games Marshal"
+  },
+  {
+   "id": "obn_hamish",
+   "sprite": "fisherman_north",
+   "x": 12,
+   "y": 30,
+   "facing": "left",
+   "move": "still",
+   "script": "obn_hamish",
+   "name": "Old Hamish"
+  },
+  {
+   "id": "obn_cailleach",
+   "sprite": "creature:cailleach",
+   "x": 6,
+   "y": 30,
+   "facing": "right",
+   "move": "still",
+   "script": "obn_cailleach",
+   "show_if": "q_westhighlands_cail_1",
+   "hide_if": "caught_cailleach"
+  },
+  {
+   "id": "obn_gull",
+   "sprite": "creature:chipgull",
+   "x": 16,
+   "y": 28,
+   "facing": "down",
+   "move": "wander",
+   "script": "obn_gull",
+   "radius": 1
+  },
+  {
+   "id": "obn_guide",
+   "sprite": "tour_guide",
+   "x": 49,
+   "y": 14,
+   "facing": "down",
+   "move": "still",
+   "script": "obn_guide",
+   "name": "Tower Guide",
+   "times": [
+    "day",
+    "dusk"
+   ]
+  },
+  {
+   "id": "obn_porter",
+   "sprite": "sailor",
+   "x": 20,
+   "y": 46,
+   "facing": "right",
+   "move": "still",
+   "script": "obn_porter",
+   "name": "Pier Porter"
+  },
+  {
+   "id": "obn_walker",
+   "sprite": "hiker",
+   "x": 40,
+   "y": 21,
+   "facing": "down",
+   "move": "still",
+   "script": "obn_walker",
+   "name": "Visitor"
+  },
+  {
+   "id": "obn_shinty_fan",
+   "sprite": "shinty_player",
+   "x": 62,
+   "y": 41,
+   "facing": "down",
+   "move": "still",
+   "script": "obn_shinty_fan",
+   "name": "Shinty Player"
+  },
+  {
+   "id": "obn_caber",
+   "sprite": "rugby_player",
+   "x": 44,
+   "y": 43,
+   "facing": "right",
+   "move": "still",
+   "trainer": "obn_caber"
+  },
+  {
+   "id": "obn_hammer",
+   "sprite": "steelworker",
+   "x": 55,
+   "y": 43,
+   "facing": "left",
+   "move": "still",
+   "trainer": "obn_hammer"
+  },
+  {
+   "id": "obn_stones",
+   "sprite": "farmer",
+   "x": 50,
+   "y": 47,
+   "facing": "up",
+   "move": "still",
+   "trainer": "obn_stones"
+  },
+  {
+   "id": "obn_champ",
+   "sprite": "rugby_player",
+   "x": 60,
+   "y": 47,
+   "facing": "left",
+   "move": "still",
+   "trainer": "obn_champ",
+   "show_if": "q_westhighlands_games_done"
+  },
+  {
+   "id": "obn_piper",
+   "sprite": "piper",
+   "x": 49,
+   "y": 16,
+   "facing": "down",
+   "move": "still",
+   "trainer": "obn_piper"
+  },
+  {
+   "id": "obn_fisher",
+   "sprite": "fisher",
+   "x": 9,
+   "y": 31,
+   "facing": "right",
+   "move": "still",
+   "trainer": "obn_fisher"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "raidtail",
+    "min": 69,
+    "max": 70,
+    "weight": 8
+   },
+   {
+    "species": "binfox",
+    "min": 69,
+    "max": 70,
+    "weight": 8,
+    "time": [
+     "night",
+     "dusk"
+    ]
+   },
+   {
+    "species": "strutcoo",
+    "min": 69,
+    "max": 70,
+    "weight": 8,
+    "time": [
+     "day",
+     "dawn"
+    ]
+   },
+   {
+    "species": "cooplet",
+    "min": 69,
+    "max": 70,
+    "weight": 6,
+    "weather": [
+     "drizzle",
+     "downpour"
+    ]
+   },
+   {
+    "species": "chipgull",
+    "min": 69,
+    "max": 70,
+    "weight": 10
+   },
+   {
+    "species": "starlet",
+    "min": 69,
+    "max": 70,
+    "weight": 8,
+    "time": [
+     "dusk",
+     "dawn"
+    ]
+   },
+   {
+    "species": "lekling",
+    "min": 69,
+    "max": 70,
+    "weight": 8,
+    "time": [
+     "day",
+     "dawn"
+    ]
+   },
+   {
+    "species": "heilan",
+    "min": 69,
+    "max": 70,
+    "weight": 5
+   },
+   {
+    "species": "eaglet",
+    "min": 69,
+    "max": 70,
+    "weight": 5,
+    "time": [
+     "day"
+    ]
+   }
+  ],
+  "water": [
+   {
+    "species": "selklet",
+    "min": 69,
+    "max": 70,
+    "weight": 12
+   },
+   {
+    "species": "clownbill",
+    "min": 69,
+    "max": 70,
+    "weight": 12,
+    "time": [
+     "dawn",
+     "day"
+    ]
+   },
+   {
+    "species": "gannetling",
+    "min": 69,
+    "max": 70,
+    "weight": 10
+   },
+   {
+    "species": "dolphlet",
+    "min": 69,
+    "max": 70,
+    "weight": 10
+   },
+   {
+    "species": "greyhaul",
+    "min": 69,
+    "max": 70,
+    "weight": 8
+   },
+   {
+    "species": "baskling",
+    "min": 69,
+    "max": 70,
+    "weight": 6,
+    "time": [
+     "dusk",
+     "night"
+    ]
+   },
+   {
+    "species": "orcalet",
+    "min": 69,
+    "max": 70,
+    "weight": 3
+   },
+   {
+    "species": "minchman",
+    "min": 69,
+    "max": 70,
+    "weight": 4,
+    "weather": [
+     "gale",
+     "downpour"
+    ]
+   }
+  ]
+ },
+ "signs": [
+  {
+   "text": "FINGERPOST. East: Loch Lomond, the Trossachs and Glasgow. West: the sea, then the Isles. Please don't try the second one on foot.",
+   "x": 68,
+   "y": 23
+  },
+  {
+   "text": "GEORGE STREET. The high street, running up from the bay. Gift shops, fish and chips, wet waterproofs and a great many people eating ice cream in the rain.",
+   "x": 18,
+   "y": 21
+  },
+  {
+   "text": "MOSSFIELD. The Games ground. Heavy events at the east end, piping at the west, shinty on the green. Please do not throw anything unless a Marshal has told you to.",
+   "x": 47,
+   "y": 38
+  },
+  {
+   "text": "OBAN. An t-Oban in Gaelic, which means 'the little bay'. It is a small town on a big bay, tucked behind the island of Kerrera, and it has been the main port for the western isles for about two hundred years.",
+   "x": 22,
+   "y": 20,
+   "plaque": "obn_name",
+   "title": "Oban"
+  },
+  {
+   "text": "GATEWAY TO THE ISLES. Ferries leave from here for Mull, Coll, Tiree, Colonsay, Barra, South Uist and Lismore. The terminal is the busiest bit of town, with a lot of cars and a great deal of luggage.",
+   "x": 16,
+   "y": 41,
+   "plaque": "obn_gateway",
+   "title": "Gateway to the Isles"
+  },
+  {
+   "text": "MCCAIG'S TOWER. A banker called John Stuart McCaig had it built between 1897 and 1902 to give local stonemasons winter work and as a memorial to his family. He planned statues of the family for its arches, but died before they were made, so they are still waiting. It looks like the Colosseum and has never been finished.",
+   "x": 47,
+   "y": 12,
+   "plaque": "obn_mccaigs_tower",
+   "title": "McCaig's Tower"
+  },
+  {
+   "text": "OBAN DISTILLERY. Founded in 1794, it is one of the smallest in Scotland, and it stands in the middle of the town, squeezed between the cliff and the shops. Oban grew up around it, which is how a lot of Scottish towns are described, usually by the distillery.",
+   "x": 44,
+   "y": 29,
+   "plaque": "obn_distillery",
+   "title": "Oban Distillery"
+  },
+  {
+   "text": "DUNOLLIE CASTLE. The ruined keep on the headland was the stronghold of the MacDougalls, lords of Lorn. In 1306 they took the Brooch of Lorn from Robert the Bruce's cloak after a fight at Dalrigh, and the clan treasured it for centuries.",
+   "x": 25,
+   "y": 9,
+   "plaque": "obn_dunollie",
+   "title": "Dunollie Castle"
+  },
+  {
+   "text": "ST COLUMBA'S CATHEDRAL. Built of granite in the 1930s to a design by Sir Giles Gilbert Scott, who also designed Liverpool's Anglican cathedral and, rather less grandly, the red telephone box.",
+   "x": 24,
+   "y": 20,
+   "plaque": "obn_cathedral",
+   "title": "St Columba's Cathedral"
+  },
+  {
+   "text": "WAR AND PEACE MUSEUM. A small museum on the seafront full of photographs, medals and models. In the Second World War Oban was a flying boat base, and Catalinas and Sunderlands used to land in the bay.",
+   "x": 45,
+   "y": 19,
+   "plaque": "obn_war_peace",
+   "title": "War and Peace Museum"
+  },
+  {
+   "text": "KERRERA. The island across the bay that shelters Oban from the Atlantic. King Alexander II died there in 1249 while gathering a fleet to win back the Hebrides from the Norwegians.",
+   "x": 8,
+   "y": 21,
+   "plaque": "obn_kerrera",
+   "title": "Kerrera"
+  },
+  {
+   "text": "ARGYLLSHIRE GATHERING. The Oban Highland Games, held each summer for well over a century. Pipers, dancers and the heavy events: tossing the caber, throwing the hammer and putting the stone.",
+   "x": 46,
+   "y": 37,
+   "plaque": "obn_gathering",
+   "title": "Argyllshire Gathering"
+  },
+  {
+   "text": "SHINTY. A stick-and-ball game played with a curved caman, twelve a side, with the ball allowed in the air. It shares ancestors with Irish hurling, and the two sides play each other under compromise rules, mostly with great enthusiasm and some blood.",
+   "x": 60,
+   "y": 36,
+   "plaque": "obn_shinty",
+   "title": "Shinty"
+  },
+  {
+   "text": "SEAFOOD. Scallops, langoustines and crab come off the boats and straight into the huts on the pier, which makes it about the shortest supply chain in Scotland.",
+   "x": 8,
+   "y": 30,
+   "plaque": "obn_pier_seafood",
+   "title": "Pier Seafood"
+  },
+  {
+   "text": "OBAN STATION. The Callander and Oban Railway reached the harbour in 1880, and the line from Glasgow still ends here, as near the ferries as a train can get.",
+   "x": 57,
+   "y": 13,
+   "plaque": "obn_station",
+   "title": "Oban Station"
+  }
+ ],
+ "spawn": [
+  30,
+  21
+ ],
+ "stage": "coast",
+ "rows": [
+  "$$$$$$$$$$$$$TTTTTTTTTPTTTTTTTTTTPTTTTTTTTTTPTTTTTTTTTTPTTTTTTTTTTPTTTTT",
+  "$$$$$$$$$$$$$TTTTTTTPTTTTTTTTTTPTTTTTTTTTTPTTTTTTTTTTPTTTTTTTTTTPTTTTTTT",
+  "$$$$$$$$$$$$$s.................P...P......P.BBBBBBBBB...P.............TT",
+  "$$$$$$$$$$$$$s......BBBBBBBBB.,..PP.......P.BBBBBBBBB..........P......TP",
+  "$$$$$$$$$$$$$s......BBBBBBBBB,,,,,,....P....BBBBBBBBB.......P....P....TT",
+  "$$$$$$$$$$$$$s......BBBBBBBBB,,,,,,,..,.....BBBBBBBBBP...P........P...TT",
+  "$$$$$$$$$$$$$s:::...BBBBBBBBB,,,,,,.,,,,,...BBBBBBBBB..P.P....P..PPP..TT",
+  "$$$$$$$$$$$$$s:::...BBBBDBBBB.,P...,,,,,,,.PBBBBBBBBB.................TT",
+  "$$$$$$$$$$$$ws:::.......#...........,,,,,...BBBBBBBBB.....P...........TT",
+  "$$$$$$$$$$$$ws::#########.........P.PP,....PBBBBBBBBB....PBBBBBBBB....PT",
+  "$$$$$$$$$$$$ws:::...................P.P.....BBBBDBBBB.PP..BBBBBBBB....TT",
+  "$$$$$$$$$$$$ws:::...............................##........BBBBBBBB....TT",
+  "$$$$$$$$$$$$ws:::..BBBBBBBBBB...................##........BBBBDBBB....TT",
+  "$$$$$$$$$$$$ws:::..BBBBBBBBBB...................##........____####....TT",
+  "$$$$$$$$$$$$ws:::..BBBBBBBBBB...................##........!!!!!!&&....TP",
+  "$$$$$.$$$$$$ws:::..BBBBBBBBBB..BBBBBBB..BBBBBBBB##BBBBBB..BBBBBB##BBBBTT",
+  "$$$$...$$$$$ws:::..BBBBBBBBBB..BBBBBBB..BBBBBBBB##BBBBBB..BBBBBB##BBBBTT",
+  "$$$$...$$$$$ws:::..BBBBBBBBBB..BBBBBBB..BBBBBBBB##BBBBBB..BBBBBB##BBBBTT",
+  "$$$.T.P.$$$$ws:::..BBBBBDBBBB..BBBDBBB..BBBBDBBB##BBBDBB..BBBDBB##BDBBTT",
+  "$$$.....$$$$ws::::::::::::::::::::::::::::::::::::::::::::::::::::::::TT",
+  "$$$.....$$$$ws:::=======================================================",
+  "$$T......$$$ws:::=======================================================",
+  "$$.......$$$ws:::=======================================================",
+  "$$TT.....$$$ws::::::::::::::::::::::::::::::::::::::::::::::::::::::::TT",
+  "$$.......$$$ws:::..BBBBBBB..BBBBBB..BBBBBBBBBBBB##BBBBB..BBBBBB.......TT",
+  "$$TT....P$$$$s:::..BBBBBBB..BBBBBB..BBBBBBBBBBBB##BBBBB..BBBBBB.......TP",
+  "$$.T..:BBBBB:::::..BBBBBBB..BBBBBB..BBBBBBBBBBBB##BBBBB..BBBBBB.......TT",
+  "$$...P:BBBBB:::::..BBBBBBB..BBBBBB..BBBBBBBBBBBB##BBBBB..BBBBBB.......TT",
+  "$$....:BBDBB:::::..BBBBBBB..BBBBBB..BBBBBBDBBBBB##BBDBB..BBBBBB.......TT",
+  "$$P...:::::::::::...............................##....................TT",
+  "$$P..T:::::::::::...............................##....................TT",
+  "$$T...:::::::::::.........,.....................##....................PT",
+  "$$PT..T.T$$$$s:::.....,,,,,,,,,.................##....................TT",
+  "$$P......$$$ws:::....,,,,,,,,,,,................##....................TT",
+  "$$$.....$$$$ws:::...,,,,,,,,,,,,,...............##....................TT",
+  "$$$.....$$$$ws:::....,,,,,,,,,,,................##....................TT",
+  "$$$.T..P$$$$ws:::.....,,,,,,,,,.......FFFFFFFFFF##FFFFFFFFFFFFFFFFFFF.TP",
+  "$$$$...$$$$$ws:::.........,...........F.........##..................F.TT",
+  "$$$$.PP$$$$$ws:::.....................F.fffffff.##..fffffffffffffff.F.TT",
+  "$$$$$.$$$$$$ws:::.....................F.............................F.TT",
+  "$$$$$$$$$$$$ws:::..BBBBBBBBB..........F.............................F.TT",
+  "$$$$$$$$$$$$ws:::..BBBBBBBBB...P.....PF.............................F.TT",
+  "$$$$$$$$$$$$ws:::..BBBBBBBBB........P.F.............................F.PT",
+  "$$$$$$$$$$$$ws:::..BBBBBBBBB..........F.............................F.TT",
+  "$$$$$$$$$$$$ws:::..BBBBDBBBB......T...F.............................F.TT",
+  "$$$$$$$$$$$$$s:::::::::::::..P.P......F.........................,...F.TT",
+  "$$$$$$$::::::::::::::::::::...........F.......................,,,,,.F.TT",
+  "$$$$.$$::::::::::::::::::::.......T...F.,,,...................,,,,,.F.TP",
+  "$$$$$$$::::::::::::::::::::...........F,,,,,.................,,,,,,,F.TT",
+  "$$$$$$$$$$$$$s:::.....................F,,,,,..................,,,,,.F.TT",
+  "$$$$$$$$$$$$$s:::.....................F,,,,,..................,,,,,.F.TT",
+  "$$$$$$$$$$$$$s.......T..........T.....F.,,,.....................,...F.TT",
+  "$$$$$$$$$$$$$s............T......P...PFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF.TT",
+  "$$$$$$$$$$$$$s........................................................PT",
+  "$$$$$$$$$$$$$PTTTTTTTTTTPTTTTTTTTTTPTTTTTTTTTTPTTTTTTTTTTPTTTTTTTTTTPTTT",
+  "$$$$$$$$$$$$$TTTTTTTTTPTTTTTTTTTTPTTTTTTTTTTPTTTTTTTTTTPTTTTTTTTTTPTTTTT"
+ ],
+ "scaled_floor": 69,
+ "town_id": "oban",
+ "station": {
+  "x": 62,
+  "y": 13
+ },
+ "ferry": {
+  "x": 8,
+  "y": 47,
+  "route": "oban_tobermory"
+ }
+}

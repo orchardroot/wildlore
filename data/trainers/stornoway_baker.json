@@ -1,0 +1,36 @@
+{
+ "id": "stornoway_baker",
+ "name": "Pudding Maker Hamish",
+ "class": "Butcher",
+ "sprite": "shopkeeper",
+ "party": [
+  {
+   "species": "pigling",
+   "level": 74
+  },
+  {
+   "species": "billgruff",
+   "level": 75
+  },
+  {
+   "species": "heilan",
+   "level": 75
+  },
+  {
+   "species": "herdwick",
+   "level": 75
+  }
+ ],
+ "ai": "trainer",
+ "money": 3100,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Pudding Maker Hamish",
+   "text": "The recipe is a secret. Oatmeal, suet, onion, blood, pepper. And a pinch of something I'm not telling you. It's just more pepper. Fancy a battle?"
+  }
+ ],
+ "win": "A fair fight. Come in for a slice, on the house.",
+ "after": "The best black pudding is crisp on the outside, soft inside, and has not been left under the grill while the cook has a chat. That's the secret.",
+ "scaled_floor": 74
+}

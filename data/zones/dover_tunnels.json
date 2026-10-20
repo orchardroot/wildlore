@@ -1,0 +1,139 @@
+{
+ "id": "dover_tunnels",
+ "name": "Secret Wartime Tunnels",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "lamp_post",
+   "x": 2,
+   "y": 10
+  },
+  {
+   "type": "lamp_post",
+   "x": 20,
+   "y": 10
+  },
+  {
+   "type": "lamp_post",
+   "x": 3,
+   "y": 2
+  },
+  {
+   "type": "lamp_post",
+   "x": 19,
+   "y": 2
+  },
+  {
+   "type": "wall_map",
+   "x": 11,
+   "y": 2,
+   "walk": true
+  },
+  {
+   "type": "table",
+   "x": 9,
+   "y": 3
+  },
+  {
+   "type": "table",
+   "x": 13,
+   "y": 3
+  },
+  {
+   "type": "clock",
+   "x": 14,
+   "y": 2,
+   "walk": true
+  },
+  {
+   "type": "table",
+   "x": 4,
+   "y": 4
+  },
+  {
+   "type": "kettle_table",
+   "x": 18,
+   "y": 4
+  },
+  {
+   "type": "stacked_chairs",
+   "x": 19,
+   "y": 6
+  }
+ ],
+ "warps": [
+  {
+   "x": 11,
+   "y": 12,
+   "to": "dover",
+   "tx": 53,
+   "ty": 24,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "signaller",
+   "sprite": "wren",
+   "x": 4,
+   "y": 7,
+   "facing": "right",
+   "move": "still",
+   "script": "signaller",
+   "name": "Wren Signaller Joan"
+  },
+  {
+   "id": "ops_historian",
+   "sprite": "poet",
+   "x": 11,
+   "y": 4,
+   "facing": "down",
+   "move": "still",
+   "script": "ops_historian",
+   "name": "Mr Ellis"
+  },
+  {
+   "id": "tunnel_medic",
+   "sprite": "night_nurse",
+   "x": 18,
+   "y": 7,
+   "facing": "left",
+   "move": "still",
+   "script": "tunnel_medic",
+   "name": "Hospital Orderly"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  11,
+  11
+ ],
+ "dark": true,
+ "rows": [
+  "xxxxxxxxxxxxxxxxxxxxxxx",
+  "xxxxxxxxxxxxxxxxxxxxxxx",
+  "xxxcccxxcccccccxxcccxxx",
+  "xxxcccxxcccccccxxcccxxx",
+  "xxxcccxxcccccccxxcccxxx",
+  "xxxcccxxcccccccxxcccxxx",
+  "xxxcccxxxxcccxxxxcccxxx",
+  "xxxcccxxxxcccxxxxcccxxx",
+  "xxxcccxxxxcccxxxxcccxxx",
+  "xxcccccccccccccccccccxx",
+  "xxcccccccccccccccccccxx",
+  "xxcccccccccccccccccccxx",
+  "xxxxxxxxxxxDxxxxxxxxxxx",
+  "xxxxxxxxxxxxxxxxxxxxxxx"
+ ],
+ "legend_extra": {
+  "c": {
+   "tile": "floor_tile",
+   "colour": "#d8d2c0"
+  }
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "id": "shr_monk",
+ "name": "Novice Wilfrid",
+ "class": "Herbalist",
+ "sprite": "villager_3",
+ "party": [
+  {
+   "species": "sphagnet",
+   "level": 21
+  },
+  {
+   "species": "pixling",
+   "level": 21
+  },
+  {
+   "species": "squibbet",
+   "level": 22
+  }
+ ],
+ "ai": "trainer",
+ "money": 650,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Novice Wilfrid",
+   "text": "Brother Cadfael would have dosed me with comfrey and sent me to bed. I'm told a battle is better for the humours."
+  }
+ ],
+ "win": "Pax. Have some sage for your trouble. It's good for sore heads.",
+ "after": "Rue for regret, rosemary for remembrance, and a battle for a dull afternoon.",
+ "scaled_floor": 21
+}

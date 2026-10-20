@@ -1,0 +1,108 @@
+{
+ "quests": [
+  {
+   "id": "valleys_bigpit",
+   "title": "Down Big Pit",
+   "region": "valleys",
+   "town": "blaenavon",
+   "giver": "Gwilym, ex-miner",
+   "summary": "Ride the cage ninety metres down Big Pit and follow the knocking in the dark.",
+   "start_flag": "q_valleys_pit_started",
+   "steps": [
+    {
+     "flag": "q_valleys_pit_1",
+     "text": "Pass the lamp-room check with Gwilym at Big Pit and take a lamp.",
+     "zone": "blaenavon"
+    },
+    {
+     "flag": "q_valleys_pit_2",
+     "text": "Ride the cage down and find Idris at the coal face.",
+     "zone": "blaenavon"
+    },
+    {
+     "flag": "q_valleys_pit_3",
+     "text": "Follow the knocking at the east face, and catch the Cobblet making it.",
+     "zone": "blaenavon"
+    },
+    {
+     "flag": "q_valleys_pit_done",
+     "text": "Ride back up and tell Gwilym.",
+     "zone": "blaenavon"
+    }
+   ],
+   "done_flag": "q_valleys_pit_done",
+   "reward": "A Davy Lamp, three Pwll Mawr cheddars and standing in Wales."
+  },
+  {
+   "id": "valleys_choir",
+   "title": "Voices for the Eisteddfod",
+   "region": "valleys",
+   "town": "rhondda",
+   "giver": "Elwyn Prosser, conductor",
+   "summary": "Bethania's choir is four voices short with the Eisteddfod a fortnight away. Find a tenor, a second tenor, a baritone and a bass.",
+   "start_flag": "q_valleys_choir_started",
+   "steps": [
+    {
+     "flag": "q_valleys_choir_1",
+     "text": "Find a first tenor in the Rhondda bakehouse.",
+     "zone": "rhondda"
+    },
+    {
+     "flag": "q_valleys_choir_2",
+     "text": "Find a second tenor at the Dic Penderyn pub in Merthyr.",
+     "zone": "merthyr"
+    },
+    {
+     "flag": "q_valleys_choir_3",
+     "text": "Find a baritone at the Workmen's Hall in Blaenavon.",
+     "zone": "blaenavon"
+    },
+    {
+     "flag": "q_valleys_choir_4",
+     "text": "Find a bass at Big Pit, once you have been down it.",
+     "zone": "blaenavon"
+    },
+    {
+     "flag": "q_valleys_choir_done",
+     "text": "Take the four voices back to Elwyn at Bethania Chapel.",
+     "zone": "rhondda"
+    }
+   ],
+   "done_flag": "q_valleys_choir_done",
+   "reward": "An Eisteddfod Medal and standing in Wales."
+  },
+  {
+   "id": "valleys_wager",
+   "title": "Trevithick's Wager",
+   "region": "valleys",
+   "town": "merthyr",
+   "giver": "Bryn, Iron Heritage guide",
+   "summary": "Replay the 1804 wager: Rhondda coal, a Steamlet to fire the boiler, and a doubting agent to beat.",
+   "start_flag": "q_valleys_wager_started",
+   "steps": [
+    {
+     "flag": "q_valleys_wager_1",
+     "text": "Ask Dai at the Rhondda Heritage Park for a bucket of steam coal.",
+     "zone": "rhondda"
+    },
+    {
+     "flag": "q_valleys_wager_2",
+     "text": "Catch a Steamlet and show it to Bryn in Merthyr.",
+     "zone": "merthyr"
+    },
+    {
+     "flag": "q_valleys_wager_3",
+     "text": "Beat the ironmaster's agent at Trevithick's plinth on the main street.",
+     "zone": "merthyr"
+    },
+    {
+     "flag": "q_valleys_wager_done",
+     "text": "Report back to Bryn.",
+     "zone": "merthyr"
+    }
+   ],
+   "done_flag": "q_valleys_wager_done",
+   "reward": "A Wager Guinea, two bars of Penydarren pig iron and standing in Wales."
+  }
+ ]
+}

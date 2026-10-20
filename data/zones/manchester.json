@@ -1054,6 +1054,16 @@
    "type": "noticeboard",
    "x": 34,
    "y": 31
+  },
+  {
+   "type": "building",
+   "style": "stone",
+   "x": 31,
+   "y": 42,
+   "w": 8,
+   "h": 3,
+   "label": "Royal Exchange",
+   "kind": "hall"
   }
  ],
  "warps": [
@@ -1192,6 +1202,14 @@
    "tx": 5,
    "ty": 6,
    "facing": "up"
+  },
+  {
+   "x": 35,
+   "y": 44,
+   "to": "manchester_exchange",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
   }
  ],
  "edges": {
@@ -1201,6 +1219,10 @@
   },
   "west": {
    "to": "chat_moss",
+   "offset": 0
+  },
+  "east": {
+   "to": "saddleworth_moor",
    "offset": 0
   }
  },
@@ -1254,10 +1276,7 @@
    "move": "wander",
    "script": "student",
    "name": "Student",
-   "times": [
-    "day",
-    "dusk"
-   ]
+   "times": ["day", "dusk"]
   },
   {
    "id": "manc_busker",
@@ -1278,10 +1297,7 @@
    "move": "still",
    "script": "town_hall_guide",
    "name": "Tour Guide",
-   "times": [
-    "day",
-    "dusk"
-   ]
+   "times": ["day", "dusk"]
   },
   {
    "id": "manc_bee",
@@ -1312,9 +1328,7 @@
    "move": "still",
    "script": "manchester_night_nurse",
    "name": "Night Nurse",
-   "times": [
-    "night"
-   ]
+   "times": ["night"]
   },
   {
    "id": "manchester_fox_watcher",
@@ -1325,119 +1339,29 @@
    "move": "still",
    "script": "manchester_fox_watcher",
    "name": "Fox Watcher",
-   "times": [
-    "night"
-   ]
+   "times": ["night"]
   }
  ],
  "encounters": {
   "grass": [
-   {
-    "species": "starlet",
-    "min": 14,
-    "max": 16,
-    "weight": 22,
-    "time": [
-     "dawn",
-     "day",
-     "dusk"
-    ]
-   },
-   {
-    "species": "swiftlet",
-    "min": 14,
-    "max": 16,
-    "weight": 16,
-    "time": [
-     "day",
-     "dusk"
-    ],
-    "weather": [
-     "clear",
-     "sunshine",
-     "gale"
-    ]
-   },
-   {
-    "species": "cooplet",
-    "min": 14,
-    "max": 16,
-    "weight": 20
-   },
-   {
-    "species": "grizzlet",
-    "min": 14,
-    "max": 16,
-    "weight": 14,
-    "time": [
-     "dawn",
-     "dusk"
-    ]
-   },
-   {
-    "species": "binfox",
-    "min": 15,
-    "max": 16,
-    "weight": 16,
-    "time": [
-     "dusk",
-     "night"
-    ]
-   },
-   {
-    "species": "pepperling",
-    "min": 14,
-    "max": 16,
-    "weight": 14,
-    "time": [
-     "dusk",
-     "night"
-    ]
-   },
-   {
-    "species": "flittermouse",
-    "min": 14,
-    "max": 16,
-    "weight": 12,
-    "time": [
-     "night"
-    ],
-    "season": [
-     "spring",
-     "summer",
-     "autumn"
-    ]
-   },
-   {
-    "species": "croakle",
-    "min": 14,
-    "max": 16,
-    "weight": 10,
-    "weather": [
-     "drizzle",
-     "downpour"
-    ]
-   }
+   {"species": "starlet", "min": 14, "max": 16, "weight": 22, "time": ["dawn", "day", "dusk"]},
+   {"species": "swiftlet", "min": 14, "max": 16, "weight": 16, "time": ["day", "dusk"], "weather": ["clear", "sunshine", "gale"]},
+   {"species": "cooplet", "min": 14, "max": 16, "weight": 20},
+   {"species": "grizzlet", "min": 14, "max": 16, "weight": 14, "time": ["dawn", "dusk"]},
+   {"species": "binfox", "min": 15, "max": 16, "weight": 16, "time": ["dusk", "night"]},
+   {"species": "pepperling", "min": 14, "max": 16, "weight": 14, "time": ["dusk", "night"]},
+   {"species": "flittermouse", "min": 14, "max": 16, "weight": 12, "time": ["night"], "season": ["spring", "summer", "autumn"]},
+   {"species": "croakle", "min": 14, "max": 16, "weight": 10, "weather": ["drizzle", "downpour"]},
+   {"species": "graftling", "min": 14, "max": 16, "weight": 18, "time": ["dawn", "day", "dusk"]},
+   {"species": "bleeplet", "min": 14, "max": 16, "weight": 12, "time": ["dusk", "night"]},
+   {"species": "bogglet", "min": 14, "max": 16, "weight": 10, "time": ["night"]},
+   {"species": "fizzlet", "min": 15, "max": 16, "weight": 8, "time": ["dusk", "night"]},
+   {"species": "fizzlet", "min": 15, "max": 16, "weight": 14, "time": ["dusk", "night"], "season": ["autumn"]}
   ],
   "water": [
-   {
-    "species": "volet",
-    "min": 14,
-    "max": 16,
-    "weight": 35
-   },
-   {
-    "species": "dipling",
-    "min": 14,
-    "max": 16,
-    "weight": 30
-   },
-   {
-    "species": "croakle",
-    "min": 14,
-    "max": 16,
-    "weight": 20
-   }
+   {"species": "volet", "min": 14, "max": 16, "weight": 35},
+   {"species": "dipling", "min": 14, "max": 16, "weight": 30},
+   {"species": "croakle", "min": 14, "max": 16, "weight": 20}
   ]
  },
  "signs": [
@@ -1502,16 +1426,46 @@
    "text": "Road to Bolton closed for resurfacing. Again. Sorry for any inconvenience."
   },
   {
-   "x": 62,
-   "y": 24,
-   "text": "Road to Oldham closed for resurfacing. Again. Sorry for any inconvenience."
-  },
-  {
    "x": 49,
    "y": 10,
    "text": "BLUE PLAQUE: Alan Turing, mathematician and computing pioneer, worked at the University of Manchester from 1948 to 1954.",
    "kind": "plaque",
-   "dx": -0.475
+   "dx": -0.475,
+   "plaque": "manchester_alan_turing",
+   "title": "Alan Turing"
+  },
+  {
+   "x": 39,
+   "y": 16,
+   "plaque": "manchester_peterloo",
+   "title": "Peterloo",
+   "text": "On 16 August 1819 a huge, peaceful crowd met at St Peter's Field, close to here, to call for the vote. Cavalry charged into it with sabres; at least fifteen people died and hundreds were hurt. It was nicknamed Peterloo, after Waterloo, and it helped inspire the founding of the Manchester Guardian."
+  },
+  {
+   "x": 45,
+   "y": 11,
+   "plaque": "manchester_john_dalton",
+   "title": "John Dalton",
+   "text": "John Dalton, a Quaker teacher from Cumberland, did his great work in Manchester. He argued that every element is made of its own kind of atom. He was colour blind, and studied that too, so it was long called Daltonism. When he died in 1844, Manchester gave him a huge public funeral."
+  },
+  {
+   "x": 15,
+   "y": 34,
+   "plaque": "manchester_vimto",
+   "title": "Vimto",
+   "text": "Vimto was invented in Manchester in 1908 by John Noel Nichols, a wholesaler of herbs and spices, and sold first as a health tonic. It blends grape, raspberry and blackcurrant with a secret recipe that is still secret. It is hugely popular in the Middle East, especially during Ramadan."
+  },
+  {
+   "x": 10,
+   "y": 12,
+   "plaque": "manchester_peppered_moth",
+   "title": "The Peppered Moth",
+   "text": "The peppered moth is normally pale and speckled, invisible on a lichen-covered tree. In 1848 a black one was recorded in Manchester, and as soot darkened the city's trees the dark moths took over, because birds could not spot them. It became a famous example of evolution in plain sight."
+  },
+  {
+   "x": 62,
+   "y": 24,
+   "text": "EAST: Oldham, Saddleworth Moor and over the Pennines to Leeds. Open at last. Mind the hills."
   }
  ],
  "spawn": [
@@ -1549,9 +1503,9 @@
   "TTT#######################:=:.......fffffff.www.,,,,,,,......TTT",
   "TTT.fff#.....ffff.#.......:=:................#...............TTT",
   "TTT.fff#.....ffff.#.......:=:.:::::::::::::::#::::::::::::::.TTT",
-  ":::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::F",
-  "===============================================================F",
-  ":::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::F",
+  "::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::",
+  "================================================================",
+  "::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::",
   "TTT.......................:=:.::::::::::::::::::::...........TTT",
   "TTT..BBBBBB..BBBBB.BBBBBB.:=:.::::::::::::::::::::...........TTT",
   "TTT..BBBBBB..BBBBB.BBBBBB.:=:.::::::::::::::::::::...........TTT",
@@ -1567,9 +1521,9 @@
   "TTT.#####################.:=:.::::::::::BBBDBBBB:::::::::::::TTT",
   "TTT....#..........#.......:=:.::::::::________________:::::::TTT",
   "TTT....#..........#.......:=:.:::::::::!!!!!!!!!!!!!!!!!!&!!!!!!",
-  "TTT.BBBBBBBB..BBBBBBBB....:=:.:::::::::::::::::::::::::::::::TTT",
-  "TTT.BBBBBBBB..BBBBBBBB....:=:.:::::::::::::::::::::::::::::::TTT",
-  "TTT.BBBBBBBB..BBBBBBBB....:=:.:::::::::::::::::::::WWW..WWW::TTT",
+  "TTT.BBBBBBBB..BBBBBBBB....:=:.:BBBBBBBB::::::::::::::::::::::TTT",
+  "TTT.BBBBBBBB..BBBBBBBB....:=:.:BBBBBBBB::::::::::::::::::::::TTT",
+  "TTT.BBBBBBBB..BBBBBBBB....:=:.:BBBBDBBB::::::::::::WWW..WWW::TTT",
   "TTT.#####################.:=:......,...............W......W..TTT",
   "TTT....#..........#.......:=:....,,,,,.............W......W..TTT",
   "TTT.,,,#,,,.......#.......:=:......,...............W......W..TTT",

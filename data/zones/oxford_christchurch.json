@@ -1,0 +1,151 @@
+{
+ "id": "oxford_christchurch",
+ "name": "Christ Church",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "statue",
+   "x": 2,
+   "y": 1
+  },
+  {
+   "type": "statue",
+   "x": 12,
+   "y": 1
+  },
+  {
+   "type": "table",
+   "x": 6,
+   "y": 3
+  },
+  {
+   "type": "table",
+   "x": 8,
+   "y": 3
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 8
+  },
+  {
+   "type": "potted_plant",
+   "x": 13,
+   "y": 8
+  },
+  {
+   "type": "fireplace",
+   "x": 7,
+   "y": 1
+  },
+  {
+   "type": "rug",
+   "x": 6,
+   "y": 3,
+   "w": 4,
+   "h": 3,
+   "variant": 1,
+   "walk": true
+  },
+  {
+   "type": "wall_picture",
+   "x": 6,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  },
+  {
+   "type": "wall_picture",
+   "x": 8,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  },
+  {
+   "type": "wall_picture",
+   "x": 10,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  },
+  {
+   "type": "clock",
+   "x": 5,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "piano",
+   "x": 1,
+   "y": 3,
+   "rot": 90
+  },
+  {
+   "type": "sofa",
+   "x": 1,
+   "y": 4,
+   "variant": 3,
+   "rot": 90
+  },
+  {
+   "type": "plant_stand",
+   "x": 1,
+   "y": 7
+  }
+ ],
+ "warps": [
+  {
+   "x": 7,
+   "y": 9,
+   "to": "oxford",
+   "tx": 50,
+   "ty": 38,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "ox_dean_guide",
+   "sprite": "tour_guide",
+   "x": 8,
+   "y": 4,
+   "facing": "down",
+   "move": "still",
+   "script": "ox_dean_guide",
+   "name": "Guide"
+  },
+  {
+   "id": "ox_proctor",
+   "sprite": "gown_student",
+   "x": 4,
+   "y": 7,
+   "facing": "right",
+   "move": "still",
+   "script": "ox_proctor",
+   "name": "Senior Proctor Clementine"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  7,
+  8
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxxx",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x++++++D++++++x",
+  "xxxxxxxxxxxxxxx"
+ ]
+}

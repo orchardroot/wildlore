@@ -1,0 +1,175 @@
+{
+ "dun_bosun": [
+  {
+   "do": "if",
+   "flag": "q_fife_discovery_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Bosun",
+     "text": "Ship-shape, thanks to you. She's not sailing anywhere, mind. She's been in dock since 1986. But she could, if she had to."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_fife_discovery_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_fife_discovery_4",
+       "then": [
+        {
+         "do": "say",
+         "who": "Bosun",
+         "text": "The Ice Master says you'll do! Then the Discovery's provisioned and you're crew, honorary. Scott would be proud. Well. Scott would be busy. But proud."
+        },
+        {
+         "do": "give_item",
+         "item": "dundee_cake",
+         "n": 3
+        },
+        {
+         "do": "give_item",
+         "item": "cranachan",
+         "n": 2
+        },
+        {
+         "do": "standing",
+         "nation": "scotland",
+         "amount": 2
+        },
+        {
+         "do": "set",
+         "flag": "q_fife_discovery_done",
+         "value": true
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Bosun",
+         "text": "The list: a crate of Dundee marmalade from Keiller's jam kitchen, jute sacking from the Verdant Works, and an iron girdle from the smiths at Culross, over the Forth, for oatcakes on the ice."
+        },
+        {
+         "do": "say",
+         "who": "Bosun",
+         "text": "When the stores are in, the Ice Master wants a word. He's on deck. He's always on deck."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Bosun",
+       "text": "Welcome aboard the Discovery! Built right here in Dundee in 1901, because Dundee built the best whaling ships in the world and whalers knew ice."
+      },
+      {
+       "do": "say",
+       "who": "Bosun",
+       "text": "We're doing a living history day: provisioning her for the Antarctic, the way they did for Captain Scott. I need a hand. Marmalade from Keiller's, jute sacking from the Verdant Works, and a Culross girdle from over the Forth."
+      },
+      {
+       "do": "say",
+       "who": "Bosun",
+       "text": "Then you'll need to impress the Ice Master. He doesn't impress easy. He once called a blizzard 'bracing'."
+      },
+      {
+       "do": "set",
+       "flag": "q_fife_discovery_started",
+       "value": true
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "dun_icemaster": [
+  {
+   "do": "if",
+   "flag": "q_fife_discovery_4",
+   "then": [
+    {
+     "do": "say",
+     "who": "Ice Master",
+     "text": "You'd do fine on the ice. Mind your toes, mind your dogs, and never trust a crevasse that looks friendly."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_fife_discovery_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_fife_discovery_1",
+       "then": [
+        {
+         "do": "if",
+         "flag": "q_fife_discovery_2",
+         "then": [
+          {
+           "do": "if",
+           "flag": "q_fife_discovery_3",
+           "then": [
+            {
+             "do": "say",
+             "who": "Ice Master",
+             "text": "Provisions in, girdle and all. So the Bosun reckons you're crew. Before I sign you on for the ice, I want to see what you're made of."
+            },
+            {
+             "do": "battle",
+             "trainer": "dun_icemaster",
+             "intro": true
+            },
+            {
+             "do": "set",
+             "flag": "q_fife_discovery_4",
+             "value": true
+            },
+            {
+             "do": "say",
+             "who": "Ice Master",
+             "text": "Aye. You'll do. Go and tell the Bosun the Ice Master says you'll do."
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Ice Master",
+             "text": "Get the stores aboard first. The Bosun has a list."
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Ice Master",
+           "text": "Get the stores aboard first. The Bosun has a list."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Ice Master",
+         "text": "Get the stores aboard first. The Bosun has a list."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Ice Master",
+       "text": "Discovery was built strong for the ice: oak and elm and Riga fir, two feet thick at the bow. She was frozen in for two winters and came out fine. I've had worse flats."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

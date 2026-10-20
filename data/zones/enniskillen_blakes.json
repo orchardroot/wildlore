@@ -1,0 +1,134 @@
+{
+ "id": "enniskillen_blakes",
+ "name": "Blakes of the Hollow",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "rows": [
+  "xxxxxxxxxxxxx",
+  "x|||||||||||x",
+  "x|CCCCC|||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||D|||||x",
+  "xxxxxxxxxxxxx"
+ ],
+ "props": [
+  {
+   "type": "table",
+   "x": 9,
+   "y": 3
+  },
+  {
+   "type": "table",
+   "x": 9,
+   "y": 5
+  },
+  {
+   "type": "table",
+   "x": 11,
+   "y": 3
+  },
+  {
+   "type": "kitchen_dresser",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "fireplace",
+   "x": 11,
+   "y": 1
+  },
+  {
+   "type": "clock",
+   "x": 7,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "wall_picture",
+   "x": 3,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  },
+  {
+   "type": "menu_board",
+   "x": 5,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "sofa",
+   "x": 11,
+   "y": 6,
+   "variant": 1,
+   "rot": 270
+  },
+  {
+   "type": "piano",
+   "x": 1,
+   "y": 6
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 7,
+   "to": "enniskillen",
+   "tx": 40,
+   "ty": 33,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "en_publican",
+   "sprite": "shopkeeper",
+   "x": 4,
+   "y": 1,
+   "facing": "down",
+   "move": "still",
+   "script": "en_publican",
+   "name": "Publican"
+  },
+  {
+   "id": "en_quizmaster",
+   "sprite": "fiddler",
+   "x": 8,
+   "y": 4,
+   "facing": "left",
+   "move": "still",
+   "script": "en_quizmaster",
+   "name": "Quizmaster"
+  },
+  {
+   "id": "en_regular",
+   "sprite": "villager_3",
+   "x": 10,
+   "y": 4,
+   "facing": "left",
+   "move": "still",
+   "script": "en_regular",
+   "name": "Regular"
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "x": 9,
+   "y": 1,
+   "plaque": "en_blakes",
+   "title": "Blakes of the Hollow",
+   "text": "A Victorian pub that has hardly changed its bar since the 1880s: dark wood, snugs and mirrors. The Hollow is the dip in the main street it stands in. Every town on the Erne has a pub like it, and every town on the Erne swears theirs is the best."
+  }
+ ],
+ "spawn": [
+  6,
+  6
+ ]
+}

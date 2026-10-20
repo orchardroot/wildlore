@@ -3,7 +3,7 @@
   {
    "do": "say",
    "who": "Nurse",
-   "text": "Welcome to the Kilkenny Sanctuary. F\u00e1ilte, that's welcome. Pop your team on the counter, and don't sit on the cat."
+   "text": "Welcome to the Kilkenny Sanctuary. Fáilte, that's welcome. Pop your team on the counter, and don't sit on the cat."
   },
   {
    "do": "choice",
@@ -31,7 +31,7 @@
     {
      "do": "say",
      "who": "Nurse",
-     "text": "All set. Sl\u00e1n, that's goodbye. And mind the cobbles, they're a thousand years old and still tripping people."
+     "text": "All set. Slán, that's goodbye. And mind the cobbles, they're a thousand years old and still tripping people."
     }
    ],
    "else": [
@@ -58,6 +58,16 @@
      ]
     }
    ]
+  }
+ ],
+ "kilkenny_bureau": [
+  {
+   "do": "say",
+   "who": "Bureau Clerk",
+   "text": "Bureau de change counter. Sanctuary rates, which is to say, the same as everyone else's."
+  },
+  {
+   "do": "bureau"
   }
  ]
 }

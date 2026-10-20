@@ -1,0 +1,123 @@
+{
+ "id": "saddleworth_museum",
+ "name": "Saddleworth Museum",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "display_case",
+   "x": 2,
+   "y": 2
+  },
+  {
+   "type": "display_case",
+   "x": 4,
+   "y": 2
+  },
+  {
+   "type": "display_case",
+   "x": 8,
+   "y": 2
+  },
+  {
+   "type": "wall_map",
+   "x": 6,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "wall_picture",
+   "x": 2,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  },
+  {
+   "type": "wall_picture",
+   "x": 8,
+   "y": 1,
+   "walk": true,
+   "variant": 2
+  },
+  {
+   "type": "specimen_shelf",
+   "x": 1,
+   "y": 4
+  },
+  {
+   "type": "bookshelf",
+   "x": 9,
+   "y": 4
+  },
+  {
+   "type": "rug",
+   "x": 4,
+   "y": 4,
+   "w": 3,
+   "h": 2,
+   "walk": true,
+   "variant": 1
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 6
+  },
+  {
+   "type": "clock",
+   "x": 4,
+   "y": 1,
+   "walk": true
+  }
+ ],
+ "warps": [
+  {
+   "x": 5,
+   "y": 7,
+   "to": "saddleworth_moor",
+   "tx": 6,
+   "ty": 23,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "museum_curator",
+   "sprite": "tour_guide",
+   "x": 6,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "museum_curator",
+   "name": "Curator"
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "x": 9,
+   "y": 6,
+   "text": "Before the big mills, Saddleworth wove woollen cloth at home. The long rows of upstairs windows on the old cottages lit the handlooms in the weavers' top-floor workrooms.",
+   "plaque": "pennines_weavers_windows",
+   "title": "Weavers' Windows"
+  }
+ ],
+ "spawn": [
+  5,
+  6
+ ],
+ "rows": [
+  "xxxxxxxxxxx",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x||||D||||x",
+  "xxxxxxxxxxx"
+ ]
+}

@@ -1,0 +1,32 @@
+{
+ "id": "ib_apprentice",
+ "name": "Apprentice Ned",
+ "class": "Furnace Hand",
+ "sprite": "steelworker",
+ "party": [
+  {
+   "species": "pigling",
+   "level": 22
+  },
+  {
+   "species": "cutlet",
+   "level": 22
+  },
+  {
+   "species": "rivetling",
+   "level": 22
+  }
+ ],
+ "ai": "trainer",
+ "money": 700,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Apprentice Ned",
+   "text": "Master says nobody touches his pattern till they've beaten me. I've been beaten twice today. Third time lucky, for me."
+  }
+ ],
+ "win": "Hot work! Go on in, the master's expecting you.",
+ "after": "Coke, not charcoal. That's the whole secret, and now you know it too.",
+ "scaled_floor": 21
+}

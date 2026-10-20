@@ -1,0 +1,93 @@
+{
+ "id": "thurso_surf",
+ "name": "Thurso Surf Shack",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "wall_picture",
+   "x": 3,
+   "y": 1,
+   "walk": true,
+   "variant": 2
+  },
+  {
+   "type": "wall_picture",
+   "x": 7,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  },
+  {
+   "type": "display_case",
+   "x": 1,
+   "y": 3,
+   "variant": 0
+  },
+  {
+   "type": "display_case",
+   "x": 9,
+   "y": 3,
+   "variant": 2
+  },
+  {
+   "type": "sofa",
+   "x": 8,
+   "y": 5,
+   "variant": 0
+  },
+  {
+   "type": "kettle_table",
+   "x": 2,
+   "y": 5
+  },
+  {
+   "type": "washing_line",
+   "x": 5,
+   "y": 1,
+   "variant": 1,
+   "walk": true
+  }
+ ],
+ "warps": [
+  {
+   "x": 5,
+   "y": 6,
+   "to": "thurso",
+   "tx": 38,
+   "ty": 16,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "surf_owner",
+   "sprite": "surfer",
+   "x": 5,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "surf_owner",
+   "name": "Surf Shack Owner"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  5,
+  5
+ ],
+ "rows": [
+  "xxxxxxxxxxx",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x||||D||||x",
+  "xxxxxxxxxxx"
+ ]
+}

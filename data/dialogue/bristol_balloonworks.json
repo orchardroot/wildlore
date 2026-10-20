@@ -1,0 +1,86 @@
+{
+ "balloon_maker": [
+  {
+   "do": "say",
+   "who": "Balloon Maker",
+   "text": "Bristol's been making hot-air balloons since the 1960s. A lot of the world's balloons were stitched round here."
+  },
+  {
+   "do": "say",
+   "who": "Balloon Maker",
+   "text": "The first people to fly in one went up over Paris in 1783, in a balloon made by the Montgolfier brothers. Paper and silk, and a straw fire."
+  },
+  {
+   "do": "if",
+   "flag": "q_bristol_fiesta_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_bristol_fiesta_1",
+     "then": [
+      {
+       "do": "say",
+       "who": "Balloon Maker",
+       "text": "Envelope's with Gwen? Good. Tell her to stop landing in hawthorn hedges."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Balloon Maker",
+       "text": "Gwen's envelope! All patched. Two thousand square metres of rip-stop nylon, and she put a hole in it with a hedge."
+      },
+      {
+       "do": "say",
+       "who": "Balloon Maker",
+       "text": "Quick question before I hand it over: why does a hot-air balloon go up?"
+      },
+      {
+       "do": "choice",
+       "text": "Why does a hot-air balloon rise?",
+       "options": [
+        "Hot air is less dense",
+        "The burner pushes it",
+        "The basket is light"
+       ],
+       "set": "_bristol_balloon_q"
+      },
+      {
+       "do": "if",
+       "flag": "_bristol_balloon_q",
+       "eq": 0,
+       "then": [
+        {
+         "do": "say",
+         "who": "Balloon Maker",
+         "text": "Spot on! Hot air spreads out, so the envelope's full of air lighter than the air around it. It floats, like a cork in water."
+        },
+        {
+         "do": "set",
+         "flag": "q_bristol_fiesta_1"
+        },
+        {
+         "do": "sfx",
+         "id": "item"
+        },
+        {
+         "do": "say",
+         "who": "",
+         "text": "You received Gwen's balloon envelope. It's enormous, and somehow fits in the bag."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Balloon Maker",
+         "text": "Not quite! Think about what happens when you heat air. Try me again."
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "else": []
+  }
+ ]
+}

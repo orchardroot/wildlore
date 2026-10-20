@@ -1,0 +1,1512 @@
+{
+ "id": "cotswolds",
+ "name": "The Cotswolds",
+ "region": "midlands",
+ "kind": "route",
+ "music": "route_forest",
+ "weather": {
+  "clear": 28,
+  "sunshine": 24,
+  "drizzle": 24,
+  "fog": 10,
+  "gale": 6,
+  "downpour": 4,
+  "frost": 4
+ },
+ "props": [
+  {
+   "type": "building",
+   "style": "cotswold_house",
+   "x": 26,
+   "y": 24,
+   "w": 6,
+   "h": 5,
+   "label": "Sanctuary"
+  },
+  {
+   "type": "building",
+   "style": "cotswold_house",
+   "x": 33,
+   "y": 25,
+   "w": 5,
+   "h": 4,
+   "label": "Corner Shop"
+  },
+  {
+   "type": "building",
+   "style": "cotswold_house",
+   "x": 39,
+   "y": 23,
+   "w": 7,
+   "h": 5,
+   "label": "Wool Merchant's House",
+   "kind": "museum"
+  },
+  {
+   "type": "building",
+   "style": "wool_church",
+   "x": 47,
+   "y": 21,
+   "w": 9,
+   "h": 7,
+   "label": "St Edward's Church",
+   "kind": "church"
+  },
+  {
+   "type": "pine",
+   "x": 51,
+   "y": 29,
+   "variant": 1
+  },
+  {
+   "type": "pine",
+   "x": 55,
+   "y": 29,
+   "variant": 2
+  },
+  {
+   "type": "building",
+   "style": "cotswold_house",
+   "x": 28,
+   "y": 34,
+   "w": 7,
+   "h": 4,
+   "label": "The Fleece",
+   "kind": "cafe"
+  },
+  {
+   "type": "building",
+   "style": "cotswold_cottage",
+   "x": 40,
+   "y": 34,
+   "w": 6,
+   "h": 4,
+   "label": "The Model Village",
+   "kind": "museum"
+  },
+  {
+   "type": "building",
+   "style": "cotswold_house",
+   "x": 47,
+   "y": 34,
+   "w": 5,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "cotswold_cottage",
+   "x": 53,
+   "y": 34,
+   "w": 6,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "lamp_post",
+   "x": 31,
+   "y": 29
+  },
+  {
+   "type": "lamp_post",
+   "x": 45,
+   "y": 29
+  },
+  {
+   "type": "lamp_post",
+   "x": 57,
+   "y": 29
+  },
+  {
+   "type": "lamp_post",
+   "x": 31,
+   "y": 33
+  },
+  {
+   "type": "lamp_post",
+   "x": 45,
+   "y": 33
+  },
+  {
+   "type": "lamp_post",
+   "x": 57,
+   "y": 33
+  },
+  {
+   "type": "bunting",
+   "x": 41,
+   "y": 29,
+   "variant": 2,
+   "walk": true
+  },
+  {
+   "type": "bunting",
+   "x": 43,
+   "y": 29,
+   "variant": 3,
+   "walk": true
+  },
+  {
+   "type": "market_stall",
+   "x": 49,
+   "y": 33,
+   "variant": 0
+  },
+  {
+   "type": "planter",
+   "x": 37,
+   "y": 33,
+   "variant": 1
+  },
+  {
+   "type": "planter",
+   "x": 59,
+   "y": 33,
+   "variant": 1
+  },
+  {
+   "type": "post_box",
+   "x": 24,
+   "y": 33
+  },
+  {
+   "type": "building",
+   "style": "cotswold_cottage",
+   "x": 26,
+   "y": 49,
+   "w": 5,
+   "h": 3,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "cotswold_cottage",
+   "x": 32,
+   "y": 49,
+   "w": 6,
+   "h": 3,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "cotswold_cottage",
+   "x": 52,
+   "y": 49,
+   "w": 5,
+   "h": 3,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "cotswold_house",
+   "x": 58,
+   "y": 49,
+   "w": 6,
+   "h": 3,
+   "show_label": false
+  },
+  {
+   "type": "sheep",
+   "x": 42,
+   "y": 57,
+   "variant": 0
+  },
+  {
+   "type": "sheep",
+   "x": 47,
+   "y": 56,
+   "variant": 1
+  },
+  {
+   "type": "sheep",
+   "x": 44,
+   "y": 59,
+   "variant": 2
+  },
+  {
+   "type": "sheep",
+   "x": 48,
+   "y": 60,
+   "variant": 0
+  },
+  {
+   "type": "sheep",
+   "x": 42,
+   "y": 61,
+   "variant": 1
+  },
+  {
+   "type": "sheep",
+   "x": 46,
+   "y": 58,
+   "variant": 2
+  },
+  {
+   "type": "sheep",
+   "x": 49,
+   "y": 57,
+   "variant": 1
+  },
+  {
+   "type": "cheese_wheel",
+   "x": 12,
+   "y": 57,
+   "variant": 2
+  },
+  {
+   "type": "cheese_wheel",
+   "x": 15,
+   "y": 57,
+   "variant": 1
+  },
+  {
+   "type": "flagpole",
+   "x": 9,
+   "y": 57,
+   "variant": 4
+  },
+  {
+   "type": "flagpole",
+   "x": 17,
+   "y": 57,
+   "variant": 4
+  },
+  {
+   "type": "bunting",
+   "x": 11,
+   "y": 56,
+   "variant": 1,
+   "walk": true
+  },
+  {
+   "type": "bunting",
+   "x": 14,
+   "y": 56,
+   "variant": 2,
+   "walk": true
+  },
+  {
+   "type": "rock",
+   "x": 5,
+   "y": 41,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 5,
+   "y": 44,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 5,
+   "y": 47,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 5,
+   "y": 50,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 5,
+   "y": 53,
+   "variant": 2
+  },
+  {
+   "type": "building",
+   "style": "cotswold_cottage",
+   "x": 25,
+   "y": 55,
+   "w": 6,
+   "h": 3,
+   "label": "Cooper's Hill Dairy",
+   "kind": "cafe"
+  },
+  {
+   "type": "standing_stone",
+   "x": 80,
+   "y": 11,
+   "variant": 2
+  },
+  {
+   "type": "standing_stone",
+   "x": 80,
+   "y": 12,
+   "variant": 1
+  },
+  {
+   "type": "standing_stone",
+   "x": 80,
+   "y": 13,
+   "variant": 2
+  },
+  {
+   "type": "standing_stone",
+   "x": 79,
+   "y": 14,
+   "variant": 1
+  },
+  {
+   "type": "standing_stone",
+   "x": 78,
+   "y": 15,
+   "variant": 2
+  },
+  {
+   "type": "standing_stone",
+   "x": 77,
+   "y": 16,
+   "variant": 2
+  },
+  {
+   "type": "standing_stone",
+   "x": 71,
+   "y": 16,
+   "variant": 2
+  },
+  {
+   "type": "standing_stone",
+   "x": 70,
+   "y": 15,
+   "variant": 2
+  },
+  {
+   "type": "standing_stone",
+   "x": 69,
+   "y": 14,
+   "variant": 0
+  },
+  {
+   "type": "standing_stone",
+   "x": 68,
+   "y": 13,
+   "variant": 1
+  },
+  {
+   "type": "standing_stone",
+   "x": 68,
+   "y": 12,
+   "variant": 0
+  },
+  {
+   "type": "standing_stone",
+   "x": 68,
+   "y": 11,
+   "variant": 2
+  },
+  {
+   "type": "standing_stone",
+   "x": 68,
+   "y": 10,
+   "variant": 0
+  },
+  {
+   "type": "standing_stone",
+   "x": 68,
+   "y": 9,
+   "variant": 0
+  },
+  {
+   "type": "standing_stone",
+   "x": 69,
+   "y": 8,
+   "variant": 0
+  },
+  {
+   "type": "standing_stone",
+   "x": 70,
+   "y": 7,
+   "variant": 1
+  },
+  {
+   "type": "standing_stone",
+   "x": 71,
+   "y": 6,
+   "variant": 1
+  },
+  {
+   "type": "standing_stone",
+   "x": 72,
+   "y": 5,
+   "variant": 0
+  },
+  {
+   "type": "standing_stone",
+   "x": 73,
+   "y": 5,
+   "variant": 1
+  },
+  {
+   "type": "standing_stone",
+   "x": 75,
+   "y": 5,
+   "variant": 2
+  },
+  {
+   "type": "standing_stone",
+   "x": 76,
+   "y": 5,
+   "variant": 0
+  },
+  {
+   "type": "standing_stone",
+   "x": 77,
+   "y": 6,
+   "variant": 2
+  },
+  {
+   "type": "standing_stone",
+   "x": 78,
+   "y": 7,
+   "variant": 0
+  },
+  {
+   "type": "standing_stone",
+   "x": 79,
+   "y": 8,
+   "variant": 0
+  },
+  {
+   "type": "standing_stone",
+   "x": 80,
+   "y": 9,
+   "variant": 2
+  },
+  {
+   "type": "standing_stone",
+   "x": 80,
+   "y": 10,
+   "variant": 0
+  },
+  {
+   "type": "standing_stone",
+   "x": 63,
+   "y": 21,
+   "variant": 2
+  },
+  {
+   "type": "standing_stone",
+   "x": 80,
+   "y": 20,
+   "variant": 1
+  },
+  {
+   "type": "standing_stone",
+   "x": 81,
+   "y": 19,
+   "variant": 1
+  },
+  {
+   "type": "standing_stone",
+   "x": 82,
+   "y": 20,
+   "variant": 0
+  },
+  {
+   "type": "standing_stone",
+   "x": 81,
+   "y": 21,
+   "variant": 0
+  },
+  {
+   "type": "standing_stone",
+   "x": 83,
+   "y": 21,
+   "variant": 2
+  },
+  {
+   "type": "building",
+   "style": "castle",
+   "x": 11,
+   "y": 6,
+   "w": 4,
+   "h": 4,
+   "label": "Broadway Tower"
+  },
+  {
+   "type": "oak",
+   "x": 19,
+   "y": 5,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 10,
+   "y": 8,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 14,
+   "y": 14,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 19,
+   "y": 8,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 6,
+   "y": 9,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 14,
+   "y": 5,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 24,
+   "y": 3,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 6,
+   "y": 13,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 14,
+   "y": 3,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 45,
+   "y": 5,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 34,
+   "y": 10,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 48,
+   "y": 8,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 43,
+   "y": 5,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 47,
+   "y": 5,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 27,
+   "y": 10,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 43,
+   "y": 3,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 45,
+   "y": 13,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 45,
+   "y": 3,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 64,
+   "y": 7,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 70,
+   "y": 4,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 71,
+   "y": 4,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 70,
+   "y": 6,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 61,
+   "y": 13,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 71,
+   "y": 12,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 63,
+   "y": 13,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 80,
+   "y": 59,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 78,
+   "y": 61,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 73,
+   "y": 48,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 84,
+   "y": 60,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 81,
+   "y": 60,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 71,
+   "y": 53,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 73,
+   "y": 40,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 76,
+   "y": 61,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 84,
+   "y": 42,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 71,
+   "y": 58,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 61,
+   "y": 62,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 66,
+   "y": 61,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 66,
+   "y": 62,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 54,
+   "y": 62,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 67,
+   "y": 54,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 55,
+   "y": 56,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 56,
+   "y": 55,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 52,
+   "y": 59,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 27,
+   "y": 59,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 29,
+   "y": 62,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 28,
+   "y": 62,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 37,
+   "y": 60,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 28,
+   "y": 61,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 36,
+   "y": 55,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 16,
+   "y": 30,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 10,
+   "y": 28,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 10,
+   "y": 31,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 14,
+   "y": 24,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 6,
+   "y": 28,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 6,
+   "y": 31,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 5,
+   "y": 34,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 11,
+   "y": 28,
+   "variant": 0
+  }
+ ],
+ "warps": [
+  {
+   "x": 29,
+   "y": 28,
+   "to": "cotswolds_sanctuary",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 35,
+   "y": 28,
+   "to": "cotswolds_shop",
+   "tx": 4,
+   "ty": 5,
+   "facing": "up"
+  },
+  {
+   "x": 42,
+   "y": 27,
+   "to": "cotswolds_woolhouse",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 52,
+   "y": 27,
+   "to": "cotswolds_church",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 31,
+   "y": 37,
+   "to": "cotswolds_fleece",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 42,
+   "y": 37,
+   "to": "cotswolds_model",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 27,
+   "y": 57,
+   "to": "cotswolds_dairy",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  }
+ ],
+ "edges": {
+  "west": {
+   "to": "birmingham",
+   "offset": 0
+  },
+  "east": {
+   "to": "oxford",
+   "offset": 0
+  }
+ },
+ "npcs": [
+  {
+   "id": "cw_master",
+   "sprite": "tour_guide",
+   "x": 15,
+   "y": 37,
+   "facing": "down",
+   "move": "still",
+   "script": "cw_master",
+   "name": "Master of Ceremonies"
+  },
+  {
+   "id": "cw_marshal",
+   "sprite": "hillwalker",
+   "x": 11,
+   "y": 59,
+   "facing": "up",
+   "move": "still",
+   "script": "cw_marshal"
+  },
+  {
+   "id": "cw_shepherd",
+   "sprite": "farmer",
+   "x": 42,
+   "y": 53,
+   "facing": "right",
+   "move": "still",
+   "script": "cw_shepherd"
+  },
+  {
+   "id": "cw_duckman",
+   "sprite": "villager_4",
+   "x": 37,
+   "y": 39,
+   "facing": "down",
+   "move": "still",
+   "script": "cw_duckman"
+  },
+  {
+   "id": "cw_folly",
+   "sprite": "astronomer",
+   "x": 13,
+   "y": 13,
+   "facing": "down",
+   "move": "still",
+   "script": "cw_folly"
+  },
+  {
+   "id": "cw_morris_chat",
+   "sprite": "fiddler",
+   "x": 38,
+   "y": 31,
+   "facing": "down",
+   "move": "still",
+   "script": "cw_morris_chat"
+  },
+  {
+   "id": "cw_wool_chat",
+   "sprite": "villager_6",
+   "x": 56,
+   "y": 31,
+   "facing": "left",
+   "move": "still",
+   "script": "cw_wool_chat"
+  },
+  {
+   "id": "cots_shepherd",
+   "sprite": "farmer",
+   "x": 30,
+   "y": 20,
+   "facing": "down",
+   "move": "still",
+   "trainer": "cots_shepherd"
+  },
+  {
+   "id": "cots_morris",
+   "sprite": "festival_goer",
+   "x": 62,
+   "y": 36,
+   "facing": "left",
+   "move": "still",
+   "trainer": "cots_morris"
+  },
+  {
+   "id": "cots_walker",
+   "sprite": "hillwalker",
+   "x": 36,
+   "y": 12,
+   "facing": "down",
+   "move": "still",
+   "trainer": "cots_walker"
+  },
+  {
+   "id": "cots_waller",
+   "sprite": "tin_miner",
+   "x": 22,
+   "y": 19,
+   "facing": "right",
+   "move": "still",
+   "trainer": "cots_waller"
+  },
+  {
+   "id": "cots_beekeeper",
+   "sprite": "jam_maker",
+   "x": 74,
+   "y": 46,
+   "facing": "up",
+   "move": "still",
+   "trainer": "cots_beekeeper"
+  },
+  {
+   "id": "cots_quarryman",
+   "sprite": "steelworker",
+   "x": 56,
+   "y": 13,
+   "facing": "down",
+   "move": "still",
+   "trainer": "cots_quarryman"
+  },
+  {
+   "id": "cw_warden",
+   "sprite": "druid",
+   "x": 75,
+   "y": 19,
+   "facing": "left",
+   "move": "still",
+   "script": "cw_warden",
+   "name": "Stone Keeper"
+  },
+  {
+   "id": "cw_count_n",
+   "sprite": "hiker",
+   "x": 74,
+   "y": 6,
+   "facing": "down",
+   "move": "still",
+   "script": "cw_count_n",
+   "name": "Counter"
+  },
+  {
+   "id": "cw_count_e",
+   "sprite": "hillwalker",
+   "x": 79,
+   "y": 11,
+   "facing": "left",
+   "move": "still",
+   "script": "cw_count_e",
+   "name": "Counter"
+  },
+  {
+   "id": "cw_count_w",
+   "sprite": "birdwatcher",
+   "x": 69,
+   "y": 11,
+   "facing": "right",
+   "move": "still",
+   "script": "cw_count_w",
+   "name": "Counter"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "herdlet",
+    "min": 89,
+    "max": 91,
+    "weight": 14
+   },
+   {
+    "species": "loaghtan",
+    "min": 89,
+    "max": 91,
+    "weight": 10
+   },
+   {
+    "species": "leveret",
+    "min": 89,
+    "max": 91,
+    "weight": 10,
+    "time": [
+     "dawn",
+     "dusk"
+    ]
+   },
+   {
+    "species": "foalmoor",
+    "min": 89,
+    "max": 90,
+    "weight": 8
+   },
+   {
+    "species": "gloucelet",
+    "min": 89,
+    "max": 91,
+    "weight": 12
+   },
+   {
+    "species": "dozelet",
+    "min": 89,
+    "max": 90,
+    "weight": 8
+   },
+   {
+    "species": "moolet",
+    "min": 89,
+    "max": 90,
+    "weight": 10
+   },
+   {
+    "species": "starlet",
+    "min": 89,
+    "max": 90,
+    "weight": 8,
+    "time": [
+     "dawn",
+     "day",
+     "dusk"
+    ]
+   },
+   {
+    "species": "hootlet",
+    "min": 89,
+    "max": 91,
+    "weight": 6,
+    "time": [
+     "night"
+    ]
+   },
+   {
+    "species": "brockling",
+    "min": 89,
+    "max": 91,
+    "weight": 8,
+    "time": [
+     "dawn",
+     "dusk",
+     "night"
+    ]
+   },
+   {
+    "species": "flaxling",
+    "min": 89,
+    "max": 90,
+    "weight": 8
+   },
+   {
+    "species": "pixling",
+    "min": 89,
+    "max": 90,
+    "weight": 6,
+    "weather": [
+     "fog",
+     "drizzle"
+    ]
+   },
+   {
+    "species": "tapknock",
+    "min": 89,
+    "max": 91,
+    "weight": 6,
+    "weather": [
+     "fog"
+    ]
+   },
+   {
+    "species": "megalorn",
+    "min": 90,
+    "max": 92,
+    "weight": 2,
+    "time": [
+     "dusk",
+     "night"
+    ]
+   }
+  ],
+  "water": [
+   {
+    "species": "volet",
+    "min": 89,
+    "max": 90,
+    "weight": 20
+   },
+   {
+    "species": "pollanet",
+    "min": 89,
+    "max": 90,
+    "weight": 14
+   },
+   {
+    "species": "dipling",
+    "min": 89,
+    "max": 90,
+    "weight": 16
+   },
+   {
+    "species": "stalklet",
+    "min": 89,
+    "max": 90,
+    "weight": 12
+   },
+   {
+    "species": "cranelet",
+    "min": 89,
+    "max": 90,
+    "weight": 10,
+    "time": [
+     "dawn"
+    ]
+   },
+   {
+    "species": "rillotter",
+    "min": 89,
+    "max": 91,
+    "weight": 10,
+    "time": [
+     "dusk",
+     "night"
+    ]
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 4,
+   "y": 24,
+   "text": "WEST: Birmingham. EAST: Stow, Bourton and, beyond them, Oxford. SOUTH: Cooper's Hill, mind the slope. NORTH-EAST: the Rollright Stones, count them if you dare."
+  },
+  {
+   "x": 38,
+   "y": 29,
+   "plaque": "cotswolds_stow",
+   "title": "Stow-on-the-Wold",
+   "text": "At nearly 250 metres, Stow is the highest town in the Cotswolds, and the old rhyme says 'Stow-on-the-Wold, where the wind blows cold'. Several ancient roads meet here, the Fosse Way among them, and its great market square held sheep fairs where as many as twenty thousand animals could change hands in a day. The church's north door sits between two ancient yews and is said to have inspired a certain famous fictional door."
+  },
+  {
+   "x": 46,
+   "y": 29,
+   "plaque": "cotswolds_wool_church",
+   "title": "Wool Churches",
+   "text": "In the Middle Ages the Cotswolds grew rich on wool, and the merchants spent it on enormous, airy churches, far bigger than a village needs. At Chipping Campden the wool merchant William Grevel was remembered as 'the flower of the wool merchants of all England'. The churches are called wool churches, and they are the wool trade's biggest souvenirs."
+  },
+  {
+   "x": 36,
+   "y": 38,
+   "plaque": "cotswolds_honey_stone",
+   "title": "Honey-Coloured Stone",
+   "text": "Cotswold stone is oolitic limestone, made of tiny round grains of lime that formed in warm shallow seas about 167 million years ago in the Jurassic. The iron in it turns it honey-gold, deepest in the north near Chipping Campden and paler and greyer to the south. Every village is built of the same stone that lies beneath it, so each one seems to grow out of its field."
+  },
+  {
+   "x": 38,
+   "y": 40,
+   "plaque": "cotswolds_windrush",
+   "title": "The Windrush at Bourton",
+   "text": "Bourton-on-the-Water is called the Venice of the Cotswolds, because the shallow, clear River Windrush runs right down the middle of it under a string of low stone footbridges. The river is rarely more than knee deep, so children paddle in it and ducks hold the right of way. On the green stands a model of the village at one-ninth scale, built in 1937, which includes a model of itself, and so on."
+  },
+  {
+   "x": 46,
+   "y": 48,
+   "text": "THE MODEL VILLAGE is that way, north of the river. It is a very small village. Do not step on the vicar."
+  },
+  {
+   "x": 45,
+   "y": 53,
+   "plaque": "cotswolds_cotswold_lion",
+   "title": "The Cotswold Lion",
+   "text": "A big, long-woolled sheep with a shaggy forelock like a lion's mane, called the Cotswold Lion. Its heavy, lustrous fleece was the foundation of the wool trade that built the wool churches and the honey-coloured towns. The breed is now rare, kept by enthusiasts and rare-breed farms."
+  },
+  {
+   "x": 14,
+   "y": 38,
+   "plaque": "cotswolds_coopers_hill",
+   "title": "Cooper's Hill Cheese-Rolling",
+   "text": "Each spring bank holiday a round of Double Gloucester, about 3 to 4 kilograms, is sent rolling down this hill, which is so steep that the cheese can reach 70 mph and nobody can keep up on two feet. The runners tumble after it, and the first over the line at the bottom wins the cheese. The custom is at least two centuries old and probably much older; the winner's prize is the wheel itself."
+  },
+  {
+   "x": 69,
+   "y": 21,
+   "plaque": "cotswolds_rollright",
+   "title": "The Rollright Stones",
+   "text": "On the Oxfordshire border stand three monuments: the King's Men, a ring of about seventy-seven weathered limestone stones from around 2500 BC; the King Stone, a lone pillar across the road; and the Whispering Knights, the remains of a tomb some 5,000 years old. Legend says a king and his men were turned to stone by a witch, and that you can never count the stones the same twice. Nobody ever has, and a baker who tried with a bun on each stone is said to have failed."
+  },
+  {
+   "x": 64,
+   "y": 22,
+   "plaque": "cotswolds_king_stone",
+   "title": "The King Stone",
+   "text": "Legend says an invading king was told by a witch, 'Seven long strides shalt thou take, and if Long Compton thou canst see, King of England thou shalt be.' He took the seven strides, but a mound of earth rose up and hid the village. 'Rise up, stick, and stand still, stone, for King of England thou shalt be none,' said the witch, and she turned him to stone, with his men round him."
+  },
+  {
+   "x": 79,
+   "y": 20,
+   "plaque": "cotswolds_whispering_knights",
+   "title": "The Whispering Knights",
+   "text": "Five stones leaning together, the remains of a Neolithic burial chamber. Legend says they are knights who stood whispering their plots against the king, and were turned to stone for it. The stones lean as if they are still muttering."
+  },
+  {
+   "x": 67,
+   "y": 29,
+   "text": "THE ROLLRIGHT STONES. Up the lane. Honesty box for the upkeep: \u00a31. The King is not accepting visitors."
+  },
+  {
+   "x": 14,
+   "y": 11,
+   "plaque": "cotswolds_broadway_tower",
+   "title": "Broadway Tower",
+   "text": "A folly built in 1798 for the Countess of Coventry, so that a fire on top could be seen from her house at Worcester, thirty-odd miles away. It stands at the second-highest point of the Cotswold scarp, and on a clear day you can see as many as sixteen counties. William Morris holidayed here, and the Arts and Crafts movement liked the hill's views."
+  },
+  {
+   "x": 24,
+   "y": 23,
+   "plaque": "cotswolds_drystone",
+   "title": "Drystone Walls",
+   "text": "The Cotswolds are criss-crossed by thousands of kilometres of walls built without a drop of mortar. Wallers sort the stone, lay two faces that lean inwards, tie them across with long 'through stones', fill the heart with rubble and finish with upright coping stones. Most date from the enclosure of the open fields in the 1700s and 1800s, and a good wall will outlast the waller by centuries."
+  }
+ ],
+ "spawn": [
+  3,
+  26
+ ],
+ "stage": "forest",
+ "scaled_floor": 89,
+ "rows": [
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggTT",
+  "TTgggggggggggggggggggggggWggggggggggggggggggggggggWggggggggWggggggggggggggggggggggggggTT",
+  "TTgggggggggggggggggggggggWggggggggggggggggggggggggWggggggggWggggggggggggggggggggggggggTT",
+  "TTgggggggggggggggggggggggWggggggggggggggggggggggggWggggggggWggggggggggggggggggggggggggTT",
+  "TTgggggggggBBBBggggggggggWggggggggggggggggggggggggWggggggggWggggggggggggggggggggggggggTT",
+  "TTgggggggggBBBBggggggggggWg,,,,,,,ggggggggggggggggWggggggggWggggggggggggggggggggggggggTT",
+  "TTgggggggggBBBBggggggggggWg,,,,,,,ggggggggggggggggWggggggggWggggggggggggggggggggggggggTT",
+  "TTgggggggggBBBBggggggggggWg,,,,,,,ggggggggggg,ggggWgg,,,gggggggg,,,,,gggggggggggggggggTT",
+  "TTggggggggg####,,,,,,,,ggWgggg,gggggggggg,,,,,,,ggg,,,,,,ggggggg,,,,,gggggggggggggg,,,TT",
+  "TTgggggggggg#g,,,,,,,,,ggggggggggggg,ggg,,,,,,,,ggg,,,,,,,ggggg,,,,,,gggggggggggggg,,,TT",
+  "TTgggggggggg#,,,,,,,,,,ggggggggg,,,,,,,,,,,,,,,,ggW,,,,,,,gWgggg,,,,,,ggggggggggggg,,,TT",
+  "TTgggggggggg#,,,,,,,,,,gggggggg,,,,,,,,,,,,gggggggW,,,,,,,,Wgggg,,,,,,ggggggggggggg,,,TT",
+  "TTgggggggggg#gg,,,,,,,gggWggggg,,,,,,,,,,,,gggggggW,,,,,,ggWgggg,,,,,gggggggggggggg,,,TT",
+  "TTgggggggggg#ggggg,ggggggWggggg,,,,,,,,,,,ggggggggWggg,,gggWggggg,,,ggggggggggggggg,,,TT",
+  "TTggWWWWWWWW#gWWWWWWWWWWWWgggggg,,,,,,,,,gggggggggWggggggggWgggggggggggggg#gggggggg,,,TT",
+  "TTgggggggggggggggggggggggWgggggggg,g,gggggggggggggWggggggggWgggggggggggggg#gggggggg,,,TT",
+  "TTggggg,g,gggggggggggggggWWWWWWggWWWWWWWWWWWggWWWWWWWWWWWWWWWWWWWWgggggggg#gggggggg,,gTT",
+  "TTggg,,,,,,,gggggggggggggWggggggggggggggggggggggggggggggggggWggggggggggggg#ggggggggg,gTT",
+  "TTggg,,,,,,,gggggggggggggWggggggggggggggggggggggggggggggggggWggggg#########gggggggggggTP",
+  "TTggg,,,,,,,gggggggggggggWgggggggggggggggggggggBBBBBBBBBggggWggggg#gggggggggggggggggggTT",
+  "TTggWWWWWWggWWWWWgWWWWWWWWgggggggggggggggggggggBBBBBBBBBggggWggggg#gggggggggggggggggggTT",
+  "TTgggggggggggggggggggggggggggggggggggggBBBBBBBgBBBBBBBBBggggWggggg#gggggggggggggggggggTT",
+  "TTggggggggggggggggggggggggBBBBBBgggggggBBBBBBBgBBBBBBBBBggggWWWWWW#gggggggggggggggggggTT",
+  "=======================gggBBBBBBgBBBBBgBBBBBBBgBBBBBBBBBgggggggggg#gggggggggggggggggggTT",
+  "=======================gggBBBBBBgBBBBBgBBBBBBBgBBBBBBBBBgggggggggg#gggWWWWWWggWWWWWWWWTT",
+  "=======================gggBBBBBBgBBBBBgBBBDBBBgBBBBBDBBBgggggggggg#gggggggggggggggggggTT",
+  "TTgggggggggggggggggg===gggBBBDBBgBBDBBg::::::::::ggggggggggggggggg#gggggggggggggggggggTT",
+  "TTgggggggggggggggggg===g:::::::::::::::::::::::::::::::::::::ggggg#gggggggggg,,,,,,,ggTT",
+  "TTgggggggggggggggggg==============================================#=====================",
+  "TTgggggggggggggggggg====================================================================",
+  "TTgggggggggggggggggg====================================================================",
+  "TTgggggggggg###########g:::::::::::::::::::::::::::::::::::::gggggggggggggggggggggggggTT",
+  "TTgggggggggg##ggggggfgggggggBBBBBBBgggggBBBBBBgBBBBBgBBBBBBgggggggggggggggggggggggggggTT",
+  "TTgggggggggg##gggggfffggggggBBBBBBBgggggBBBBBBgBBBBBgBBBBBBgggggggggggggggggggggggggggTT",
+  "TTgggggggggggggggggffffgggggBBBBBBBgggggBBBBBBgBBBBBgBBBBBBgggggggggggggggggggggggggggTT",
+  "TTgggggggggggggggggfffggggggBBBDBBBgggggBBDBBBgBBBBBgBBBBBBgggggggggggggggggggggggggggTT",
+  "TTgggggggggggggggggggggggg::::::::::::::::::::::::::::::::::::ggggggggWWWWWWWWgggWWWWWTT",
+  "TTgggggggggggggggggggggggggggggggggg::gggggggggg::gggggggggg::ggggggggWgggggggggggggggTT",
+  "TTgggggggggggggggggggggggggggggggggg::gggggggggg::gggggggggg::ggggggggWgggggggggggggggTT",
+  "TTgggggggggg##ggggggggggggwwwwwwwwwwbbwwwwwwwwwwbbwwwwwwwwwwbbwwwwwwwgWgggggggg,ggggggTT",
+  "TTggggggggggggggggggggggggw~~~~~~~~~bb~~~~~~~~~~bb~~~~~~~~~~bb~~~~~~wgWgggg,,,,,,,ggggTT",
+  "TTggggg,,,ggggggggggggggggw~~~~~~~~~bb~~~~~~~~~~bb~~~~~~~~~~bb~~~~~~wgWggg,,,,,,,,,,ggTT",
+  "TTggggg,,,ggggggggggggggggwwwwwwwwwwbbwwwwwwwwwwbbwwwwwwwwwwbbwwwwwwwgWgg,,,,,,,,,,,ggTT",
+  "TTgggg,,,,gggggggggggggggggggggggggg::gggggggggg::gggggggggg::ggggggggWggg,,,,,,,,,gggTT",
+  "TTgggg,,,,gggggggggggggggggggggggggg::gggggggggg::gggggggggg::gggggfggWgggg,,,,,,,ggggTT",
+  "TTggggg,,,ggggg,gggggggggggggggggggg::gggggggggg::gggggggggg::ggfffffgWggggggg,,ggggggTT",
+  "TTggggg,,,gggg,,,,,ggggg::::::::::::::::::::::::::::::::::::::::::::fgWgggggggggggggggTT",
+  "TTggggg,,,gggg,,,,,gggggggBBBBBgBBBBBBggggggggggggggBBBBBgBBBBBBfffffgWgggggggggggggggTT",
+  "TTgggggggggggg,,,,,gggggggBBBBBgBBBBBBggggggggggggggBBBBBgBBBBBBggggggggggggggggggggggTT",
+  "TTgggggggggggg,,,,,gggggggBBBBBgBBBBBBggggggggggggggBBBBBgBBBBBBggggggggggggggggggggggTT",
+  "TTgggggggggggg,,,,,gggg:::::::::::::::::::::::::::::::::::::::::::::ggWgggggggg,g,ggggTT",
+  "TTggggggggggggggggggggg:::gggggggggggggggggg:::gggggggggggggggggggggggWggggggg,,,,,gggTT",
+  "TTggggggggggggggggggggg:::ggggggggggggggWWWWgggWWWWgggggggggggggggggggWgggggg,,,,,,,ggTT",
+  "TTgggggggggggggggggggggggBBBBBBgggggggggWgggggggggWffffgggggg,ggggggggWgggggg,,,,,,,,gTT",
+  "TTggggg#############gggggBBBBBBgggggggggWgggggggggWffffg,,,,,,,,,gggggWgggggg,,,,,,,ggTT",
+  "TTggggg#############gggggBBDBBBgggggggggWgggggggggWffff,,,,,,,,,,,ggggWggggggg,,,,,gggTT",
+  "TTgggggggggggggggggg######:::::gggggggggWgggggggggWgfg,,,,,,,,,,,,ggggWgggggggg,g,ggggTT",
+  "TTggggggggggggggggggggggggggggggggggggggWgggggggggWgggg,,,,,,,,,,,ggggWgggggggggggggggTT",
+  "TTggggggggggggggggggggggggggggggggggggggWgggggggggWggggg,,,,,,,,,gggggWgggggggggggggggTT",
+  "TTggggggggggggggggggggggggggggg,,,,,,,ggWgggggggggWggggggg,g,,,gggggggWgggggggggggggggTT",
+  "TTggWWWWWWWWggWWWWWWWWWWWgggggg,,,,,,,,gWWWWWWWWWWWgggggggggggggggggggWgggggggggggggggTT",
+  "TTggggggggggggggggggggggggggggg,,,,,,,ggggggggggggggggggggggggggggggggggggggggggggggggTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT"
+ ],
+ "heights": [
+  "0000011112222222111100000000000000000000000000000000000000000000001111111111111111100000",
+  "0000111222222222221110000000000000000000000000000000000000000000011111111111111111110000",
+  "0001112222233322222111000000000000000000000000000000000000000000111111112222211111111000",
+  "0011122223333333222211100000000000000000000000000000000000000001111111222222222111111100",
+  "0011222333333333332221100000000000000000000000000000000000000011111122222222222221111110",
+  "0111222333444443332221110000000000000000000000000000000000000011111222222222222222111110",
+  "0112223334444444333222110000000000000000000000000000000000000111111222222222222222111111",
+  "0112223344455544433222110000000000000000000000000000000000000111112222223333322222211111",
+  "0112233344555554433322110000000000000000000000000000000000000111112222233333332222211111",
+  "0112233344555554433322110000000000000000000000000000000000000111122222333333333222221111",
+  "0112233344555554433322110000000000000000000000000000000000000111122222333333333222221111",
+  "0112223344455544433222110000000000000000000000000000000000000111122222333333333222221111",
+  "0112223334444444333222110000000000000000000000000000000000000111122222333333333222221111",
+  "0111222333444443332221110000000000000000000000000000000000000111122222333333333222221111",
+  "0011222333333333332221100000000000000000000000000000000000000111112222233333332222211111",
+  "0011122223333333222211100000000000000000000000000000000000000111112222223333322222211111",
+  "0001112222233322222111000000000000000000000000000000000000000111111222222222222222111111",
+  "0000111222222222221110000000000000000000000000000000000000000011111222222222222222111110",
+  "0000011112222222111100000000000000000000000000000000000000000011111122222222222221111110",
+  "0000001111111111111000000000000000000000000000000000000000000001111111222222222111111100",
+  "0000000011111111100000000000000000000000000000000000000000000000111111112222211111111000",
+  "0000000000000000000000000000000000000000000000000000000000000000011111111111111111110000",
+  "0000000000000000000000000000000000000000000000000000000000000000001111111111111111100000",
+  "0000000000000000000000000000000000000000000000000000000000000000000111111111111111000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000001111111111100000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000111111111111111111100000000000000000000000000000000000000000000000000000000000000000",
+  "0000122222222222222222100000000000000000000000000000000000000000000000000000000000000000",
+  "0000123333333333333332100000000000000000000000000000000000000000000000000000000000000000",
+  "0000123444444444444432100000000000000000000000000000000000000000000000000000000000000000",
+  "0000123455555555555432100000000000000000000000000000000000000000000000000000000000000000",
+  "0000123456666666665432100000000000000000000000000000000000000000000000000000000000000000",
+  "0000123456777777765432100000000000000000000000000000000000000000000000000000000000000000",
+  "0000123456788888765432100000000000000000000000000000000000000000000000000000000000000000",
+  "0000123456777777765432100000000000000000000000000000000000000000000000000000000000000000",
+  "0000123456777777765432100000000000000000000000000000000000000000000000000000000000000000",
+  "0000123456666666665432100000000000000000000000000000000000000000000000000000000000000000",
+  "0000123456666666665432100000000000000000000000000000000000000000000000000000000000000000",
+  "0000123455555555555432100000000000000000000000000000000000000000000000000000000000000000",
+  "0000123455555555555432100000000000000000000000000000000000000000000000000000000000000000",
+  "0000123444444444444432100000000000000000000000000000000000000000000000000000000000000000",
+  "0000123444444444444432100000000000000000000000000000000000000000000000000000000000000000",
+  "0000123333333333333332100000000000000000000000000000000000000000000000000000000000000000",
+  "0000123333333333333332100000000000000000000000000000000000000000000000000000000000000000",
+  "0000122222222222222222100000000000000000000000000000000000000000000000000000000000000000",
+  "0000122222222222222222100000000000000000000000000000000000000000000000000000000000000000",
+  "0000111111111111111111100000000000000000000000000000000000000000000000000000000000000000",
+  "0000111111111111111111100000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+ ],
+ "legend_extra": {
+  "g": {
+   "tile": "grass",
+   "colour": "#a8b45f"
+  },
+  "k": {
+   "tile": "tall_grass",
+   "colour": "#97a652"
+  },
+  "b": {
+   "tile": "road",
+   "bridge": true,
+   "colour": "#9b8a68"
+  }
+ }
+}

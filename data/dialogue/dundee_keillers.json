@@ -1,0 +1,65 @@
+{
+ "dun_jammaker": [
+  {
+   "do": "if",
+   "flag": "q_fife_discovery_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_fife_discovery_1",
+     "then": [
+      {
+       "do": "say",
+       "who": "Jam Maker",
+       "text": "How's my wee Jamlet getting on? Feed it oranges. Not jam. It finds that confusing."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Jam Maker",
+       "text": "Marmalade for the Discovery? Scott's men took Dundee marmalade to the Antarctic, you know. It goes well with a frozen biscuit."
+      },
+      {
+       "do": "say",
+       "who": "Jam Maker",
+       "text": "Here, two jars, sealed tight. Now, hold still, there's something in the crate. Oh! It's one of the wee jam ones. It must have climbed in for the peel."
+      },
+      {
+       "do": "give_item",
+       "item": "dundee_marmalade",
+       "n": 2
+      },
+      {
+       "do": "give_creature",
+       "species": "jamlet",
+       "level": 60
+      },
+      {
+       "do": "say",
+       "who": "Jam Maker",
+       "text": "It's taken a shine to you. Keep it. It's very sticky, very loyal, and it'll grow into a proper crock one day."
+      },
+      {
+       "do": "set",
+       "flag": "q_fife_discovery_1",
+       "value": true
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Jam Maker",
+     "text": "The Keillers sold marmalade from Dundee from the 1790s. Folk say Janet Keiller invented it with a cheap shipload of Seville oranges. Lovely story. Marmalade's older, though. Don't tell the tourists."
+    },
+    {
+     "do": "say",
+     "who": "Jam Maker",
+     "text": "The trick is the peel: thick-cut, bitter and sweet. The Keillers put their spare peel into a fruit cake, and that's how Dundee cake got famous. Waste not."
+    }
+   ]
+  }
+ ]
+}

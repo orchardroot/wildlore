@@ -529,21 +529,6 @@
   },
   {
    "type": "oak",
-   "x": 47,
-   "y": 44
-  },
-  {
-   "type": "oak",
-   "x": 52,
-   "y": 44
-  },
-  {
-   "type": "oak",
-   "x": 56,
-   "y": 44
-  },
-  {
-   "type": "oak",
    "x": 45,
    "y": 52
   },
@@ -585,11 +570,6 @@
   {
    "type": "bush",
    "x": 13,
-   "y": 44
-  },
-  {
-   "type": "bush",
-   "x": 51,
    "y": 44
   },
   {
@@ -819,6 +799,16 @@
    "type": "noticeboard",
    "x": 30,
    "y": 33
+  },
+  {
+   "type": "building",
+   "style": "grandstand",
+   "x": 47,
+   "y": 42,
+   "w": 12,
+   "h": 3,
+   "label": "Aintree (not to scale)",
+   "kind": "hall"
   }
  ],
  "warps": [
@@ -957,6 +947,14 @@
    "tx": 6,
    "ty": 6,
    "facing": "up"
+  },
+  {
+   "x": 52,
+   "y": 44,
+   "to": "liverpool_aintree",
+   "tx": 8,
+   "ty": 9,
+   "facing": "up"
   }
  ],
  "edges": {
@@ -967,6 +965,10 @@
   "south": {
    "to": "wirral_way",
    "offset": 0
+  },
+  "north": {
+   "to": "sefton_coast",
+   "offset": -22
   }
  },
  "npcs": [
@@ -1147,11 +1149,7 @@
     "min": 18,
     "max": 20,
     "weight": 18,
-    "time": [
-     "dawn",
-     "day",
-     "dusk"
-    ]
+    "time": ["dawn", "day", "dusk"]
    },
    {
     "species": "cooplet",
@@ -1170,74 +1168,71 @@
     "min": 19,
     "max": 20,
     "weight": 16,
-    "weather": [
-     "clear",
-     "sunshine"
-    ]
+    "weather": ["clear", "sunshine"]
    },
    {
     "species": "natterjack",
     "min": 19,
     "max": 20,
     "weight": 12,
-    "weather": [
-     "drizzle",
-     "downpour",
-     "gale"
-    ]
+    "weather": ["drizzle", "downpour", "gale"]
    },
    {
     "species": "grizzlet",
     "min": 18,
     "max": 20,
     "weight": 12,
-    "time": [
-     "dawn",
-     "dusk"
-    ]
+    "time": ["dawn", "dusk"]
    },
    {
     "species": "binfox",
     "min": 18,
     "max": 20,
     "weight": 14,
-    "time": [
-     "dusk",
-     "night"
-    ]
+    "time": ["dusk", "night"]
    },
    {
     "species": "swiftlet",
     "min": 19,
     "max": 20,
     "weight": 10,
-    "weather": [
-     "gale",
-     "clear"
-    ]
+    "weather": ["gale", "clear"]
    },
    {
     "species": "flittermouse",
     "min": 18,
     "max": 20,
     "weight": 8,
-    "time": [
-     "night"
-    ],
-    "season": [
-     "spring",
-     "summer",
-     "autumn"
-    ]
+    "time": ["night"],
+    "season": ["spring", "summer", "autumn"]
    },
    {
     "species": "buntling",
     "min": 19,
     "max": 20,
     "weight": 8,
-    "season": [
-     "winter"
-    ]
+    "season": ["winter"]
+   },
+   {
+    "species": "dockling",
+    "min": 18,
+    "max": 20,
+    "weight": 18
+   },
+   {
+    "species": "fizzlet",
+    "min": 18,
+    "max": 20,
+    "weight": 10,
+    "time": ["dusk", "night"]
+   },
+   {
+    "species": "fizzlet",
+    "min": 18,
+    "max": 20,
+    "weight": 12,
+    "time": ["dusk", "night"],
+    "season": ["autumn"]
    }
   ],
   "water": [
@@ -1338,7 +1333,42 @@
    "y": 27,
    "text": "BLUE PLAQUE: The Beatles played at the Cavern Club in Mathew Street from 1961 to 1963, and the rest is history.",
    "kind": "plaque",
-   "dx": -0.475
+   "dx": -0.475,
+   "plaque": "liverpool_cavern_club",
+   "title": "The Cavern Club"
+  },
+  {
+   "x": 32,
+   "y": 15,
+   "plaque": "liverpool_name",
+   "title": "Name: Liverpool",
+   "text": "Liverpool comes from Old English 'lifer', thick or muddy water, and 'pol', a pool or creek: the muddy pool, an inlet off the Mersey that was later filled in and built over. The Liver Bird came much later and takes its name from the city, not the other way round. Do not tell Bella and Bertie."
+  },
+  {
+   "x": 34,
+   "y": 31,
+   "plaque": "liverpool_two_clubs",
+   "title": "Two Clubs, One Ground",
+   "text": "Everton were the first club to play at Anfield. In 1892, after a row with their landlord, John Houlding, they moved across Stanley Park to Goodison Park. Houlding, left with an empty ground, started a new club to fill it: Liverpool FC. Families have been arguing at Christmas ever since."
+  },
+  {
+   "x": 59,
+   "y": 13,
+   "plaque": "liverpool_slavery",
+   "title": "Liverpool and Slavery",
+   "text": "In the 1700s Liverpool became Britain's leading slave-trading port. Its ships carried well over a million enslaved Africans across the Atlantic, and much of the city's early wealth came from that trade. The International Slavery Museum, here on the waterfront, tells their story."
+  },
+  {
+   "x": 40,
+   "y": 9,
+   "plaque": "liverpool_mersey_wildlife",
+   "title": "The Mersey Comes Back",
+   "text": "In the 1980s the Mersey was called one of the most polluted rivers in Europe. After decades of clean-up, salmon swim back up it, and harbour porpoises and grey seals turn up off the waterfront. Not bad for a river that was once mostly sewage and old shoes."
+  },
+  {
+   "x": 59,
+   "y": 9,
+   "text": "NORTH: the Dock Road to Crosby's iron men, Formby's squirrels and Southport's pier. Keep going and it's Blackpool, the Tower and the lights. Bring a coat. Bring two."
   }
  ],
  "spawn": [
@@ -1357,17 +1387,17 @@
   "y": 38
  },
  "rows": [
-  "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
-  "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
-  "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
-  "~~~~~~~~~~~~~~~~~~~::~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
-  "~~~~~~~~~~~~~~~~~~~::~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
-  "~~~~~~~~~~~~~~~~~~~::~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
-  "~~~~~~~~~~~~~~~~~~~::~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
-  "~~~~~~~~~~~~~~~~~~~::~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
-  "~~~~~~~~~~~~~~~~~~::::~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
-  "TTT::::::::::::::::::::::::::::::::::::::::::::::::::::::::::TTT",
-  "TTT::::::::::::::::::::::::::::::::::::::::::::::::::::::::::TTT",
+  "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:::T",
+  "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:::T",
+  "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:::T",
+  "~~~~~~~~~~~~~~~~~~~::~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:::T",
+  "~~~~~~~~~~~~~~~~~~~::~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:::T",
+  "~~~~~~~~~~~~~~~~~~~::~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:::T",
+  "~~~~~~~~~~~~~~~~~~~::~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:::T",
+  "~~~~~~~~~~~~~~~~~~~::~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:::T",
+  "~~~~~~~~~~~~~~~~~~::::~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:::T",
+  "TTT::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::T",
+  "TTT::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::T",
   "TTT........::.BBBBBBBB..BBBBBBBBB..BBBBBBBB.:::BBBBBBB:BBBBB:TTT",
   "TTT........::.BBBBBBBB..BBBBBBBBB..BBBBBBBB.:::BBBDBBB:BBDBB:TTT",
   "TTT........::.BBBBBBBB..BBBBBBBBB..BBBBBBBB.:::::::::::::::::TTT",
@@ -1399,9 +1429,9 @@
   "!!!!!!!!!!!!!!!!!!!!!!!!!.:=:.:::::::::......................TTT",
   "TTT::::::::::::::::::::::.:=:.:::::::::......................TTT",
   "TTT.#####################.:=:.::::::::::::::::::::::::::::...TTT",
-  "TTT....#..........#.......:=:................................TTT",
-  "TTT....#..........#.......:=:..BBBBBBB......d................TTT",
-  "TTT.BBBBBBBB..BBBBBBBB....:=:..BBBBBBB....ddddd........d.....TTT",
+  "TTT....#..........#.......:=:..................BBBBBBBBBBBB..TTT",
+  "TTT....#..........#.......:=:..BBBBBBB......d..BBBBBBBBBBBB..TTT",
+  "TTT.BBBBBBBB..BBBBBBBB....:=:..BBBBBBB....dddddBBBBBDBBBBBB..TTT",
   "TTT.BBBBBBBB..BBBBBBBB....:=:..BBBDBBB...ddddddd......ddd....TTT",
   "TTT.BBBBDBBB..BBBBDBBB....:=:..::::::::...dddddsssss.ddddd...TTT",
   "TTT.#####################.:=:...............dsswwwwwssddd....TTT",

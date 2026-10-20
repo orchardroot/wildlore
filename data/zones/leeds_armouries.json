@@ -1,0 +1,127 @@
+{
+ "id": "leeds_armouries",
+ "name": "Royal Armouries",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "display_case",
+   "x": 2,
+   "y": 2
+  },
+  {
+   "type": "display_case",
+   "x": 4,
+   "y": 2
+  },
+  {
+   "type": "display_case",
+   "x": 10,
+   "y": 2
+  },
+  {
+   "type": "display_case",
+   "x": 12,
+   "y": 2
+  },
+  {
+   "type": "statue",
+   "x": 2,
+   "y": 6,
+   "variant": 1
+  },
+  {
+   "type": "statue",
+   "x": 12,
+   "y": 6,
+   "variant": 1
+  },
+  {
+   "type": "wall_picture",
+   "x": 7,
+   "y": 1,
+   "walk": true,
+   "variant": 3
+  },
+  {
+   "type": "brazier",
+   "x": 1,
+   "y": 8
+  },
+  {
+   "type": "brazier",
+   "x": 13,
+   "y": 8
+  },
+  {
+   "type": "rug",
+   "x": 5,
+   "y": 4,
+   "w": 5,
+   "h": 4,
+   "walk": true,
+   "variant": 0
+  }
+ ],
+ "warps": [
+  {
+   "x": 7,
+   "y": 9,
+   "to": "leeds",
+   "tx": 57,
+   "ty": 51,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "armouries_curator",
+   "sprite": "tour_guide",
+   "x": 9,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "armouries_curator",
+   "name": "Curator"
+  },
+  {
+   "id": "armouries_armourer",
+   "sprite": "steelworker",
+   "x": 7,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "trainer": "pennines_armourer"
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "x": 5,
+   "y": 2,
+   "text": "The elephant armour here, made in India around 1600, is thought to be the only near-complete armour for an elephant anywhere in the world, thousands of small steel plates riveted together. Try not to imagine the fitting.",
+   "plaque": "pennines_elephant_armour",
+   "title": "The Elephant Armour"
+  }
+ ],
+ "spawn": [
+  7,
+  8
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxxx",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x++++++D++++++x",
+  "xxxxxxxxxxxxxxx"
+ ]
+}

@@ -24,6 +24,14 @@ const COPING := Color("d8d2c2")
 const SAFETY_LINE := Color("e3c02a")
 ## Paved tiles: darker and shinier in the rain (vertex alpha 0 in the ground mesh, see ground.gdshader).
 const HARD := ["road", "cobbles", "platform", "level_crossing", "door"]
+## A bridge deck (a legend_extra tile with "deck": n, the level of the water or ground n below it): its edges
+## are a slab this deep instead of an embankment, with the riverbed and the water drawn down at level n.
+const DECK_SLAB := 0.3
+const DECK_EDGE := Color("4a4f57")
+
+## The level below a bridge deck tile, or -1 for ordinary ground.
+static func deck_under(z: ZoneData, p: Vector2i) -> int:
+	return int(z.legend_extra.get(z.char_at(p), {}).get("deck", -1))
 
 ## Surface height of a tile's ground (water beds sit lower).
 static func ground_y(z: ZoneData, p: Vector2i) -> float:
@@ -88,6 +96,8 @@ static func _ground(z: ZoneData, rng: RandomNumberGenerator) -> MeshInstance3D:
 			var a := 0.0 if t in HARD else 1.0
 			Meshes.quad4(st, Vector3(x0, gy, z0), Vector3(x0 + 1, gy, z0), Vector3(x0 + 1, gy, z0 + 1), Vector3(x0, gy, z0 + 1),
 				_paint(col, x0, z0, a), _paint(col, x0 + 1, z0, a), _paint(col, x0 + 1, z0 + 1, a), _paint(col, x0, z0 + 1, a))
+			if ex.get("bridge", false):
+				continue  # a bridge deck: no earth under it, the bridge prop draws its own sides
 			# side faces wherever the neighbour is lower (or missing: the diorama skirt)
 			for d in [Vector2i(0, 1), Vector2i(0, -1), Vector2i(1, 0), Vector2i(-1, 0)]:
 				var q: Vector2i = p + d
@@ -98,7 +108,12 @@ static func _ground(z: ZoneData, rng: RandomNumberGenerator) -> MeshInstance3D:
 				if ny >= gy - 0.001:
 					continue
 				var side := SIDE_ROCK if t == "cliff" or gy - ny > LEVEL * 1.5 else SIDE_EARTH
+				if ex.has("side"):
+					side = Color(str(ex.side))  # legend_extra: chalk cliffs and the like
 				var lip := col.darkened(0.15)
+				if ex.has("deck"):
+					ny = maxf(ny, gy - DECK_SLAB)
+					side = DECK_EDGE
 				if t == "platform":
 					side = Color("7a5a48")  # brick platform wall, white coping
 					lip = COPING
@@ -111,6 +126,10 @@ static func _ground(z: ZoneData, rng: RandomNumberGenerator) -> MeshInstance3D:
 						var hx := 0.5 if d.x == 0 else 0.05
 						var hz := 0.5 if d.y == 0 else 0.05
 						Meshes._quad(st, c + Vector3(-hx, 0, -hz), c + Vector3(hx, 0, -hz), c + Vector3(hx, 0, hz), c + Vector3(-hx, 0, hz), SAFETY_LINE)
+			if ex.has("deck"):  # the riverbed far below
+				var by := int(ex.deck) * LEVEL - 0.6
+				Meshes.quad4(st, Vector3(x0, by, z0), Vector3(x0 + 1, by, z0), Vector3(x0 + 1, by, z0 + 1), Vector3(x0, by, z0 + 1),
+					GROUND_COLOURS.deep_water, GROUND_COLOURS.deep_water, GROUND_COLOURS.deep_water, GROUND_COLOURS.deep_water)
 			if t == "ledge_south":
 				Meshes.box(st, Vector3(x0, gy - 0.18, z0 + 0.82), Vector3(1.0, 0.18, 0.18), SIDE_EARTH, col.darkened(0.1))
 	st.index()
@@ -182,10 +201,11 @@ static func _water(z: ZoneData, kinds: Array, deep_col: Color, shallow_col: Colo
 		for x in z.width:
 			var p := Vector2i(x, y)
 			var t := z.tile_at(p)
-			if t not in kinds:
+			var under := deck_under(z, p) if "water" in kinds else -1
+			if t not in kinds and under < 0:
 				continue
 			any = true
-			var wy := water_y(z, p)
+			var wy := water_y(z, p) if under < 0 else under * LEVEL - 0.1
 			Meshes._quad(st, Vector3(x, wy, y), Vector3(x + 1, wy, y), Vector3(x + 1, wy, y + 1), Vector3(x, wy, y + 1), Color.WHITE)
 	if not any:
 		return null
@@ -224,10 +244,19 @@ const POINT_PROPS := ["lamp_post", "bench", "bush", "birch", "oak", "pine", "roc
 	"stadium_stand", "rugby_posts", "floodlight", "puddle", "pitch_line", "gantry_crane", "ship_ribs", "steel_plates",
 	"hall_stage", "tea_urn", "stacked_chairs", "currach", "lobster_pots", "harbour_arch", "fae_lantern", "toadstool_ring",
 	"clootie_tree", "curling_house", "curling_stones", "brick_arch", "band_kit", "stage_light", "slate_stack", "slate_wagon",
-	"crypt_arch", "candelabra", "tomb_chest", "brazier", "city_window", "enclosure_banner", "creature_cage"]
+	"crypt_arch", "candelabra", "tomb_chest", "brazier", "city_window", "enclosure_banner", "creature_cage", "loom",
+	# Shropshire: the Iron Bridge over its "bridge" deck tiles, gliders over the Long Mynd
+	"iron_bridge", "glider",
+	# East Anglia (Landmarks.EA_PROPS)
+	"windpump", "punt", "maths_bridge", "wherry",
+	# the Cotswolds and Oxford (Landmarks.COTS_PROPS)
+	"sighs_bridge", "cheese_wheel",
+	# the South East
+	"pier_ruin",
+	"slot_machine", "roulette_table", "card_table", "tote_board", "velvet_rope", "horse_statue"]
 ## Cloth meshes that ripple (flutter shader) and glow meshes that add light (firelight shader).
 const CLOTH := ["bunting", "flag", "washing_line"]
-const FLOATING := ["boat", "canal_boat", "buoy"]
+const FLOATING := ["boat", "canal_boat", "buoy", "punt", "wherry"]
 
 ## Tall grass with "prop": "short" is cropped grass: low tufts, but still somewhere for a creature to hide.
 static func tuft_height(prop_name: String) -> float:
@@ -293,7 +322,10 @@ static func _props(z: ZoneData, root: Node3D, rng: RandomNumberGenerator) -> voi
 				_add(buckets, "plaque:%d" % int(bool(s.get("green", false))),
 					Transform3D(Basis(), Vector3(sp.x + 0.5 + float(s.get("dx", 0.0)), ground_y(z, sp), sp.y + 0.955)))
 			_:
-				_add(buckets, "sign_post:0", Transform3D(Basis(), Vector3(sp.x + 0.5, ground_y(z, sp), sp.y + 0.5)))
+				var post := "sign_post:0"
+				if str(s.get("plaque", "")) != "":  # a Gazetteer plaque: a heritage lectern, green in Ireland (PlaqueMeshes)
+					post = "lectern:%d" % int(Standing.nation_for_zone(z.id) == "ireland")
+				_add(buckets, post, Transform3D(Basis(), Vector3(sp.x + 0.5, ground_y(z, sp), sp.y + 0.5)))
 	for pr in z.props:
 		var pt: String = pr.get("type", "")
 		if pt in POINT_PROPS:
@@ -435,6 +467,8 @@ static func _ctor(name: String, variant: int) -> ArrayMesh:
 			return WirelessMeshes.radio(variant)
 		"plaque":
 			return WirelessMeshes.plaque(variant == 1)
+		"lectern":
+			return PlaqueMeshes.lectern(variant)
 		"market_stall":
 			return Meshes.market_stall(variant)
 		"bookshelf":
@@ -448,7 +482,7 @@ static func _ctor(name: String, variant: int) -> ArrayMesh:
 		"planter":
 			return Meshes.planter(variant)
 		"phone_box":
-			return Meshes.phone_box()
+			return Meshes.phone_box(variant)
 		"post_box":
 			return Meshes.post_box()
 		"counter":
@@ -495,6 +529,12 @@ static func _ctor(name: String, variant: int) -> ArrayMesh:
 			return Landmarks.clock_tower()
 		"shard":
 			return Landmarks.shard()
+		"iron_bridge":
+			return Landmarks.iron_bridge()
+		"glider":
+			return Landmarks.glider(variant)
+		"pier_ruin":
+			return Landmarks.pier_ruin()
 		"lamp_pool":
 			return Dressing.pool_quad()
 		"bunting":
@@ -545,6 +585,10 @@ static func _ctor(name: String, variant: int) -> ArrayMesh:
 			return Dressing.specimen_shelf(variant)
 		"wall_map":
 			return Dressing.wall_map()
+	if name in Landmarks.COTS_PROPS:
+		return Landmarks.cots_prop(name, variant)
+	if name in Landmarks.EA_PROPS:
+		return Landmarks.ea_prop(name, variant)
 	if name in Dressing.VENUE_PROPS or name in Dressing.VENUE_GLOWS.values():
 		return Dressing.venue_prop(name, variant)
 	push_warning("ZoneBuilder: unknown prop mesh '%s'" % name)
@@ -567,7 +611,7 @@ static func _buildings(z: ZoneData, root: Node3D) -> void:
 		for x in range(bx, bx + w):
 			if z.tile_at(Vector2i(x, by + d - 1)) == "door":
 				door_x = x - bx
-		var meshes: Array = Meshes.building(w, d, str(pr.get("style", "red_brick")), door_x, hash(z.id) + bx * 31 + by, z.region)
+		var meshes: Array = Meshes.building(w, d, str(pr.get("style", "red_brick")), door_x, hash(z.id) + bx * 31 + by, str(pr.get("pennant_region", z.region)))  # a castle may fly its own colours
 		# stand on the door's ground, so on a slope the door meets the path rather than sinking into the hill
 		var gy := z.height_at(Vector2i(bx + door_x, by + d - 1) if door_x >= 0 else Vector2i(bx, by)) * LEVEL
 		var body := MeshInstance3D.new()

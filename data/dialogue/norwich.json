@@ -1,0 +1,106 @@
+{
+ "nor_canary_leader": [
+  {
+   "do": "if",
+   "flag": "trainer_nor_canary",
+   "then": [
+    {
+     "do": "say",
+     "who": "Chorus Leader",
+     "text": "Steady on, now's your chance, hurrah! We've scored a goal! Every match, still gives me the shivers."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_eastanglia_canary_1",
+     "then": [
+      {
+       "do": "battle",
+       "trainer": "nor_canary",
+       "intro": true
+      },
+      {
+       "do": "if",
+       "flag": "trainer_nor_canary",
+       "then": [
+        {
+         "do": "set",
+         "flag": "q_eastanglia_canary_2"
+        },
+        {
+         "do": "say",
+         "who": "",
+         "text": "The Chorus burst into song. Back to the Kit Man at Carrow Road!"
+        }
+       ],
+       "else": []
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Chorus Leader",
+       "text": "Every match day we sing On the Ball, City, the oldest football song still going. I'm teaching the market. The fish man's flat but keen."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "rail_guard": [
+  {
+   "do": "say",
+   "who": "Rail Guard",
+   "text": "Norwich Station, by the river. Two hours from London, and Norwich folk will tell you that's exactly far enough."
+  },
+  {
+   "do": "say",
+   "who": "Rail Guard",
+   "text": "All aboard! The trains go everywhere you have been. Mind the gap, and the mustard."
+  },
+  {
+   "do": "rail"
+  }
+ ],
+ "nor_chipper": [
+  {
+   "do": "say",
+   "who": "Chip Stall",
+   "text": "Market chips! Best in Norwich. People queue from the bus station. Salt, vinegar, and a dab of mustard if you're from round here."
+  }
+ ],
+ "nor_cityguide": [
+  {
+   "do": "say",
+   "who": "City Guide",
+   "text": "{greeting} In the Middle Ages, Norwich was England's second city after London, rich from wool and cloth. It's got more medieval buildings than just about anywhere, because when the money moved north with the factories, nobody could afford to knock them down."
+  },
+  {
+   "do": "say",
+   "who": "City Guide",
+   "text": "Norwich: a fine city. It's on every sign coming in. We take it as a compliment to ourselves."
+  }
+ ],
+ "nor_kettfan": [
+  {
+   "do": "say",
+   "who": "Local Historian",
+   "text": "Robert Kett camped twenty thousand rebels on Mousehold Heath in 1549 and ran a sort of open-air parliament under an oak tree. Fair rents, common land for all. They lost. But folk round here still think he had a point."
+  }
+ ],
+ "nor_lanes1": [
+  {
+   "do": "say",
+   "who": "Shopper",
+   "text": "The Lanes! Every other door's a bookshop, a record shop or a cafe with a cat. I came for a pint of milk two hours ago."
+  }
+ ],
+ "nor_peregrine_kid": [
+  {
+   "do": "say",
+   "who": "Birdwatcher",
+   "text": "There! On the spire! The peregrine! Oh. That's a pigeon. Hang on. The pigeon is now inside the peregrine. Nature!"
+  }
+ ]
+}

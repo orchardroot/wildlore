@@ -1,0 +1,48 @@
+{
+ "tunnel_guide": [
+  {
+   "do": "say",
+   "who": "Boat Guide",
+   "text": "{greeting} Welcome aboard. Keep your hands inside the boat, the hill doesn't move for anybody."
+  },
+  {
+   "do": "say",
+   "who": "Boat Guide",
+   "text": "Over three miles of tunnel, and about six hundred feet of moor over your head at the deepest. No towpath in here. The leggers walked the boats through with their feet on the walls."
+  },
+  {
+   "do": "say",
+   "who": "Boat Guide",
+   "text": "If you hear a rumble, that's a train in the railway tunnels next door. If you hear a tuba, that's something else entirely."
+  }
+ ],
+ "whit_drummer": [
+  {
+   "do": "if",
+   "flag": "q_pennines_whit_started",
+   "then": [
+    {
+     "do": "say",
+     "who": "Drummer",
+     "text": "Is it Whit Friday already? I've been keeping time for the boat. Boom. Boom. The echo in here is unbelievable."
+    },
+    {
+     "do": "say",
+     "who": "Drummer",
+     "text": "The band needs me? Say no more. I'll hop off at the Marsden end and leg it round. Ha. Leg it. Tunnel humour."
+    },
+    {
+     "do": "set",
+     "flag": "q_pennines_whit_drum"
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Drummer",
+     "text": "{greeting} Best acoustics in the Pennines, this. I'm practising. Shh. Boom."
+    }
+   ]
+  }
+ ]
+}

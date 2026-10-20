@@ -1,0 +1,150 @@
+{
+ "rhn_conductor": [
+  {
+   "do": "if",
+   "flag": "q_valleys_choir_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Elwyn",
+     "text": "Practice is Thursday and Saturday. If you ever hear a roof coming off in the Rhondda, that's us."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_valleys_choir_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_valleys_choir_1",
+       "then": [
+        {
+         "do": "if",
+         "flag": "q_valleys_choir_2",
+         "then": [
+          {
+           "do": "if",
+           "flag": "q_valleys_choir_3",
+           "then": [
+            {
+             "do": "if",
+             "flag": "q_valleys_choir_4",
+             "then": [
+              {
+               "do": "say",
+               "who": "Elwyn",
+               "text": "Four parts at last: first tenor, second tenor, baritone and a proper bass. Four parts and one conductor with a very sore throat."
+              },
+              {
+               "do": "fade_out"
+              },
+              {
+               "do": "say",
+               "who": "",
+               "text": "The eisteddfod pavilion is packed to the rafters. Elwyn raises his baton. For a moment there is no sound at all."
+              },
+              {
+               "do": "say",
+               "who": "",
+               "text": "Then forty men breathe in together, and the roof lifts. The Cwm Rhondda goes up through the canvas like a rocket."
+              },
+              {
+               "do": "fade_in"
+              },
+              {
+               "do": "say",
+               "who": "Elwyn",
+               "text": "Second place! Second! We beat the Treorchy boys by a whisker and a bad key change. Here. Take the medal. It's yours as much as ours."
+              },
+              {
+               "do": "give_item",
+               "item": "eisteddfod_medal",
+               "n": 1
+              },
+              {
+               "do": "set",
+               "flag": "q_valleys_choir_done",
+               "value": true
+              },
+              {
+               "do": "standing",
+               "nation": "wales",
+               "amount": 6
+              }
+             ],
+             "else": [
+              {
+               "do": "say",
+               "who": "Elwyn",
+               "text": "We're still a voice short. Have you tried the baker, the Merthyr pub, the Workmen's Hall and Big Pit?"
+              }
+             ]
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Elwyn",
+             "text": "We're still a voice short. Have you tried the baker, the Merthyr pub, the Workmen's Hall and Big Pit?"
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Elwyn",
+           "text": "We're still a voice short. Have you tried the baker, the Merthyr pub, the Workmen's Hall and Big Pit?"
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Elwyn",
+         "text": "We're still a voice short. Have you tried the baker, the Merthyr pub, the Workmen's Hall and Big Pit?"
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Elwyn",
+       "text": "Bore da. Elwyn Prosser, conductor of the Bethania Male Voice Choir. We've got the National Eisteddfod in a fortnight and we're a quartet short."
+      },
+      {
+       "do": "say",
+       "who": "Elwyn",
+       "text": "I need four voices: a first tenor, a second tenor, a baritone and a bass. I've heard rumours of singers in the bakehouse over the road, in a pub in Merthyr, in the Workmen's Hall at Blaenavon, and underground in Big Pit."
+      },
+      {
+       "do": "say",
+       "who": "Elwyn",
+       "text": "Find them for me. And tell them they won't be paid, but there'll be tea."
+      },
+      {
+       "do": "set",
+       "flag": "q_valleys_choir_started",
+       "value": true
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "rhn_organist": [
+  {
+   "do": "say",
+   "who": "Organist",
+   "text": "Nineteen hymns, six anthems and a Welsh Wedding March. I could play any of them in my sleep, and I have, in the sermon."
+  },
+  {
+   "do": "say",
+   "who": "Organist",
+   "text": "A male voice choir needs four parts: first tenor, second tenor, baritone, bass. Miss any one and you can hear the hole in it, like a missing tooth."
+  }
+ ]
+}

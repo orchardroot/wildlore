@@ -1,0 +1,113 @@
+{
+ "rugby_historian": [
+  {
+   "do": "say",
+   "who": "Old Player",
+   "text": "Ask me about the Sevens. I'll answer, and then I'll tell you the story of my knee."
+  },
+  {
+   "do": "choice",
+   "text": "Ask about...",
+   "options": [
+    "Ned Haig and 1883",
+    "The Greenyards",
+    "Why seven?",
+    "That's plenty, thanks"
+   ],
+   "set": "_t_rugby"
+  },
+  {
+   "do": "if",
+   "flag": "_t_rugby",
+   "eq": 0,
+   "then": [
+    {
+     "do": "say",
+     "who": "Old Player",
+     "text": "Melrose RFC was short of money, so in 1883 Ned Haig, a local butcher and a club member, suggested a tournament of seven-a-side games, played in a single afternoon. The first Melrose Sevens was held in the spring of 1883."
+    },
+    {
+     "do": "say",
+     "who": "Old Player",
+     "text": "The idea spread across the world. It's the main format of rugby for the Olympic Games now, and it's all because a butcher needed some money."
+    }
+   ],
+   "else": []
+  },
+  {
+   "do": "if",
+   "flag": "_t_rugby",
+   "eq": 1,
+   "then": [
+    {
+     "do": "say",
+     "who": "Old Player",
+     "text": "The ground is called the Greenyards, and the Melrose Sevens is still held there every spring, so the whole town turns out in its best."
+    }
+   ],
+   "else": []
+  },
+  {
+   "do": "if",
+   "flag": "_t_rugby",
+   "eq": 2,
+   "then": [
+    {
+     "do": "say",
+     "who": "Old Player",
+     "text": "Seven-a-side is faster and more open than the fifteen-man game, with more space and fewer places to hide. A match is two halves of seven minutes. It is the most exhausting fourteen minutes of your life, and you'll want a pie after."
+    }
+   ],
+   "else": []
+  },
+  {
+   "do": "if",
+   "flag": "_t_rugby",
+   "eq": 3,
+   "then": [
+    {
+     "do": "say",
+     "who": "Old Player",
+     "text": "Come back any time. History keeps."
+    }
+   ],
+   "else": []
+  }
+ ],
+ "rugby_landlord": [
+  {
+   "do": "say",
+   "who": "Club Steward",
+   "text": "Welcome to the clubhouse. The bar's open, the soup's hot and the quiz is cold. Fancy a go?"
+  },
+  {
+   "do": "choice",
+   "text": "Join the quiz?",
+   "options": [
+    "Go on, then",
+    "Maybe later"
+   ],
+   "set": "_t_quiz"
+  },
+  {
+   "do": "if",
+   "flag": "_t_quiz",
+   "eq": 0,
+   "then": [
+    {
+     "do": "quiz",
+     "pub": "borders",
+     "region": "scotland",
+     "who": "Club Steward"
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Club Steward",
+     "text": "No rush. We've got the whole of the Borders to talk about."
+    }
+   ]
+  }
+ ]
+}

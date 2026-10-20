@@ -15,6 +15,7 @@ var skip_next_autosave := false  # set by the title: the first zone after New Ga
 var _in_battle := false
 var _toast: SaveToast
 var parish: Parish
+var quest_news: QuestNews
 
 ## Emitted after each autosave that really wrote the file (the "Saved" toast listens).
 signal autosaved
@@ -40,6 +41,7 @@ func _ready() -> void:
 	Bus.zone_entered.connect(_on_zone_entered)
 	TrainerStats.connect_bus(self)
 	parish = Parish.connect_bus(self)  # jobs off the noticeboards and standing with the nations
+	quest_news = QuestNews.connect_bus(self, parish)  # "New quest", "Quest complete" and the Gazetteer's toasts
 	Bus.creature_caught.connect(func(_id: String): TodaysWalk.note_catch(data, Forecast.current_weather()))
 	if "--quiet-window" in DevArgs.user_args():
 		# screenshot runs (tools/shot.sh): never grab focus, sit off-screen, make no sound
@@ -136,6 +138,8 @@ func zone_exists(id: String) -> bool:
 func _start_zone() -> String:
 	return "macc_home" if zone_exists("macc_home") else ("macclesfield" if zone_exists("macclesfield") else "testbed")
 
+var _cues_fired := false  # --set / --read have run (a screenshot waits for their toast)
+
 func _dev_boot() -> void:
 	if args.get("playtest", "") != "":
 		var bot: Node = load("res://tools/playtest/bot.gd").new()
@@ -152,6 +156,8 @@ func _dev_boot() -> void:
 		var party := [Creature.create(dex.get_species("kindlet"), 10, rng, moves)]
 		data.party = party
 		for a in DevArgs.user_args():
+			if a.begins_with("--lead=") and dex.has(a.substr(7)):  # dev: our lead is this species (back-sprite shots)
+				party[0] = Creature.create(dex.get_species(a.substr(7)), 10, rng, moves)
 			if a.begins_with("--held="):  # dev: the lead holds this charm (screenshots of charm messages)
 				party[0].held = a.substr(7)
 			if a == "--stress":  # dev: worst-case widths (see DevMenu.stress)
@@ -195,6 +201,7 @@ func _dev_boot() -> void:
 		await Router.goto_zone(args.boot_zone, args.boot_pos, "down")
 		if args.ride == "bike":
 			Router.overworld.player.set_bike(true)
+		_dev_cues()
 		if PhotoMode.dev_wanted():
 			await get_tree().create_timer(1.5).timeout
 			PhotoMode.start(Router.overworld)
@@ -205,8 +212,29 @@ func _dev_boot() -> void:
 			await get_tree().create_timer(0.8).timeout
 			BattleIntro.dev_show(Router, Router.overworld, str(args.intro), float(args.get("intro_at", 0.5)))
 
+## Dev --set=<flags> and --read=<plaque>: once the zone is up, set flags as a script would and read a plaque as if
+## from its lectern, so the quest and Gazetteer toasts can be screenshotted.
+func _dev_cues() -> void:
+	for a in DevArgs.user_args():
+		if a.begins_with("--set="):
+			for f in a.substr(6).split(",", false):
+				data.set_flag(f, true)
+				Bus.flag_changed.emit(f, true)
+		elif a.begins_with("--read="):
+			var id := a.substr(7)
+			var t := ""
+			for pl in Gazetteer.all():
+				if str(pl.id) == id:
+					t = str(pl.title)
+			quest_news.plaque_read(Gazetteer.record(data, id), t)
+	_cues_fired = true
+
 func _take_shot() -> void:
 	await get_tree().create_timer(float(args.shot_delay), true, false, true).timeout
+	if Array(DevArgs.user_args()).any(func(a): return str(a).begins_with("--set=") or str(a).begins_with("--read=")):
+		while not _cues_fired:  # a slow boot: wait for the zone, then give the toast time to slide in
+			await get_tree().process_frame
+		await get_tree().create_timer(2.0, true, false, true).timeout
 	await RenderingServer.frame_post_draw
 	var img := get_viewport().get_texture().get_image()
 	var path: String = args.shot

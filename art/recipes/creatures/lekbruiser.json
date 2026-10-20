@@ -1,0 +1,211 @@
+{
+ "id": "lekbruiser",
+ "palette": {
+  "body": "#2c3038",
+  "body2": "#444a56",
+  "breast": "#2e5a44",
+  "red": "#d02a24",
+  "beak": "#e8e0c8",
+  "tail": "#20242c",
+  "tail2": "#cfd3da",
+  "leg": "#8a5a3a",
+  "grass": "#6a8a3c",
+  "ink": "#0e1014",
+  "eye": "#f0f2f4"
+ },
+ "layers": [
+  {
+   "shape": "ellipse",
+   "at": [
+    48,
+    90
+   ],
+   "size": [
+    60,
+    6
+   ],
+   "colour": "grass",
+   "rim": false,
+   "shade": false
+  },
+  {
+   "shape": "poly",
+   "points": [
+    [
+     48,
+     64
+    ],
+    [
+     2,
+     30
+    ],
+    [
+     18,
+     4
+    ],
+    [
+     48,
+     0
+    ],
+    [
+     78,
+     4
+    ],
+    [
+     94,
+     30
+    ]
+   ],
+   "colour": "tail",
+   "pattern": "stripes",
+   "pcolour": "tail2",
+   "period": 6,
+   "pangle": 90
+  },
+  {
+   "shape": "line",
+   "points": [
+    [
+     40,
+     88
+    ],
+    [
+     38,
+     76
+    ]
+   ],
+   "width": 3,
+   "colour": "leg",
+   "shade": false,
+   "mirror": true
+  },
+  {
+   "shape": "ellipse",
+   "at": [
+    48,
+    68
+   ],
+   "size": [
+    64,
+    50
+   ],
+   "colour": "body",
+   "pattern": "speckle",
+   "pcolour": "body2",
+   "density": 16
+  },
+  {
+   "shape": "ellipse",
+   "at": [
+    48,
+    70
+   ],
+   "size": [
+    40,
+    34
+   ],
+   "colour": "breast",
+   "rim": false,
+   "front_only": true
+  },
+  {
+   "shape": "ellipse",
+   "at": [
+    48,
+    36
+   ],
+   "size": [
+    32,
+    28
+   ],
+   "colour": "body",
+   "pattern": "speckle",
+   "pcolour": "body2",
+   "density": 14
+  },
+  {
+   "shape": "ellipse",
+   "at": [
+    36,
+    30
+   ],
+   "size": [
+    11,
+    5
+   ],
+   "colour": "red",
+   "rim": false,
+   "front_only": true,
+   "mirror": true
+  },
+  {
+   "shape": "poly",
+   "points": [
+    [
+     40,
+     38
+    ],
+    [
+     48,
+     54
+    ],
+    [
+     56,
+     38
+    ]
+   ],
+   "colour": "beak",
+   "front_only": true
+  }
+ ],
+ "face_layers": [
+  {
+   "shape": "line",
+   "points": [
+    [
+     32,
+     33
+    ],
+    [
+     41,
+     38
+    ]
+   ],
+   "width": 3,
+   "colour": "ink",
+   "shade": false,
+   "mirror": true
+  }
+ ],
+ "eyes": [
+  {
+   "at": [
+    39,
+    33
+   ],
+   "r": 3.6,
+   "colour": "eye",
+   "pupil": [
+    2,
+    2
+   ],
+   "mirror": true
+  }
+ ],
+ "back_marks": [
+  {
+   "shape": "ellipse",
+   "at": [
+    48,
+    62
+   ],
+   "size": [
+    36,
+    32
+   ],
+   "colour": "body2",
+   "rim": false,
+   "under": true
+  }
+ ]
+}

@@ -1,0 +1,83 @@
+[
+ {
+  "id": "staffordshire_oatcake",
+  "name": "Staffordshire Oatcake",
+  "kind": "heal",
+  "price": 250,
+  "battle": true,
+  "field": true,
+  "amount": 60,
+  "desc": "Not the crunchy Scottish sort. A soft oatmeal pancake as big as a plate, rolled round cheese and bacon. Restores 60 HP."
+ },
+ {
+  "id": "lobby",
+  "name": "Lobby",
+  "kind": "heal",
+  "price": 400,
+  "battle": true,
+  "field": true,
+  "amount": 80,
+  "desc": "The Potteries' own stew: meat, potatoes, carrots and onions, simmered till you could stand a spoon in it. Restores 80 HP."
+ },
+ {
+  "id": "oatmeal",
+  "name": "Oatmeal",
+  "one": "a bag of Oatmeal",
+  "kind": "material",
+  "price": 0,
+  "battle": false,
+  "field": false,
+  "desc": "Fine Staffordshire oatmeal, the start of every oatcake. Mix with flour, yeast, milk and water, and wait."
+ },
+ {
+  "id": "kiln_brick",
+  "name": "Kiln Brick",
+  "kind": "charm",
+  "price": 0,
+  "battle": false,
+  "field": true,
+  "wild": false,
+  "desc": "A firebrick from the floor of a Longton bottle oven. It has been heated to over a thousand degrees more times than anyone counted, and it is still faintly warm.",
+  "effect_text": "Its Hearth moves hit 20% harder.",
+  "charm": {
+   "effect": "boost",
+   "type": "hearth",
+   "mult": 1.2
+  },
+  "msg": "{name}'s Kiln Brick glowed!"
+ },
+ {
+  "id": "staffordshire_knot",
+  "name": "Staffordshire Knot",
+  "kind": "charm",
+  "price": 3000,
+  "battle": false,
+  "field": true,
+  "wild": false,
+  "desc": "The county badge: a rope tied in three loops, so tight it never comes undone. You'll see it on pub signs, police badges and the county council's crest.",
+  "effect_text": "Ward up when it first comes out.",
+  "charm": {
+   "effect": "start_stage",
+   "stat": "ward",
+   "stages": 1
+  },
+  "msg": "{name} pulled its Staffordshire Knot tight!"
+ },
+ {
+  "id": "hoard_garnet",
+  "name": "Hoard Garnet",
+  "kind": "charm",
+  "price": 0,
+  "battle": false,
+  "field": true,
+  "wild": false,
+  "desc": "A replica of a garnet from the Staffordshire Hoard, set over gold foil the Saxon way. Made for a sword hilt, so it knows a thing or two about taking a blow.",
+  "effect_text": "Brawn moves hurt it 25% less.",
+  "charm": {
+   "effect": "resist",
+   "type": "brawn",
+   "mult": 0.75
+  },
+  "msg": "{name}'s Hoard Garnet turned the blow!"
+ }
+]

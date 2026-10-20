@@ -1,0 +1,667 @@
+{
+ "id": "the_roaches",
+ "name": "The Roaches",
+ "region": "peak",
+ "kind": "route",
+ "music": "route_moor",
+ "weather": {
+  "fog": 18,
+  "drizzle": 30,
+  "clear": 30,
+  "gale": 10,
+  "sunshine": 12
+ },
+ "scaled_floor": 8,
+ "stage": "moor",
+ "props": [
+  {
+   "type": "building",
+   "style": "gritstone",
+   "x": 33,
+   "y": 39,
+   "w": 4,
+   "h": 2,
+   "label": "Rockhall Cottage",
+   "kind": "cottage"
+  },
+  {
+   "type": "building",
+   "style": "white_render",
+   "x": 15,
+   "y": 25,
+   "w": 4,
+   "h": 3,
+   "label": "Rudyard Boathouse",
+   "kind": "cafe"
+  },
+  {
+   "type": "standing_stone",
+   "x": 53,
+   "y": 25,
+   "variant": 1
+  },
+  {
+   "type": "bench",
+   "x": 16,
+   "y": 21
+  },
+  {
+   "type": "bench",
+   "x": 22,
+   "y": 46
+  },
+  {
+   "type": "boat",
+   "x": 10,
+   "y": 27,
+   "variant": 0
+  },
+  {
+   "type": "boat",
+   "x": 5,
+   "y": 32,
+   "variant": 1
+  },
+  {
+   "type": "boat",
+   "x": 12,
+   "y": 50,
+   "variant": 1
+  },
+  {
+   "type": "sheep",
+   "x": 8,
+   "y": 9,
+   "variant": 0
+  },
+  {
+   "type": "sheep",
+   "x": 14,
+   "y": 3,
+   "variant": 2
+  },
+  {
+   "type": "sheep",
+   "x": 25,
+   "y": 3,
+   "variant": 0
+  },
+  {
+   "type": "sheep",
+   "x": 37,
+   "y": 11,
+   "variant": 2
+  },
+  {
+   "type": "forage",
+   "variant": "heather",
+   "x": 38,
+   "y": 34
+  },
+  {
+   "type": "forage",
+   "variant": "bramble",
+   "x": 25,
+   "y": 19
+  },
+  {
+   "type": "forage",
+   "variant": "elder",
+   "x": 17,
+   "y": 30
+  },
+  {
+   "type": "forage",
+   "variant": "blackthorn",
+   "x": 30,
+   "y": 13
+  },
+  {
+   "type": "forage",
+   "variant": "nettle_patch",
+   "x": 45,
+   "y": 43
+  }
+ ],
+ "warps": [
+  {
+   "x": 34,
+   "y": 40,
+   "to": "roaches_rockhall",
+   "tx": 5,
+   "ty": 5,
+   "facing": "up"
+  },
+  {
+   "x": 50,
+   "y": 3,
+   "to": "luds_church",
+   "tx": 11,
+   "ty": 30,
+   "facing": "up"
+  }
+ ],
+ "edges": {
+  "north": {
+   "to": "macclesfield",
+   "offset": 0
+  },
+  "south": {
+   "to": "stoke",
+   "offset": 10
+  }
+ },
+ "npcs": [
+  {
+   "id": "potteries_watcher",
+   "sprite": "birdwatcher",
+   "x": 38,
+   "y": 42,
+   "facing": "down",
+   "move": "still",
+   "script": "wallaby_watcher",
+   "name": "Wallaby Watcher"
+  },
+  {
+   "id": "potteries_wallaby",
+   "sprite": "creature:roachroo",
+   "x": 28,
+   "y": 24,
+   "facing": "right",
+   "move": "still",
+   "script": "wild_wallaby",
+   "name": "Wallaby",
+   "show_if": "q_potteries_wallaby_3",
+   "hide_if": "q_potteries_wallaby_done"
+  },
+  {
+   "id": "hanging_hiker",
+   "sprite": "hiker",
+   "x": 49,
+   "y": 18,
+   "facing": "right",
+   "move": "still",
+   "script": "hanging_hiker",
+   "name": "Walker"
+  },
+  {
+   "id": "doxey_ranger",
+   "sprite": "hillwalker",
+   "x": 49,
+   "y": 30,
+   "facing": "right",
+   "move": "still",
+   "script": "doxey_ranger",
+   "name": "Ranger"
+  },
+  {
+   "id": "rudyard_boater",
+   "sprite": "canal_boater",
+   "x": 16,
+   "y": 23,
+   "facing": "left",
+   "move": "still",
+   "script": "rudyard_boater",
+   "name": "Boathouse Keeper"
+  },
+  {
+   "id": "roaches_detectorist",
+   "sprite": "farmer",
+   "x": 9,
+   "y": 12,
+   "facing": "down",
+   "move": "still",
+   "script": "detectorist",
+   "name": "Detectorist"
+  },
+  {
+   "id": "roaches_luds_reader",
+   "sprite": "poet",
+   "x": 47,
+   "y": 9,
+   "facing": "up",
+   "move": "still",
+   "script": "luds_reader",
+   "name": "Walker with a Book"
+  },
+  {
+   "id": "roaches_farmer",
+   "sprite": "farmer",
+   "x": 31,
+   "y": 4,
+   "facing": "left",
+   "move": "wander",
+   "script": "roaches_farmer",
+   "name": "Hill Farmer",
+   "radius": 2
+  },
+  {
+   "id": "roaches_climber",
+   "sprite": "fell_runner",
+   "x": 41,
+   "y": 40,
+   "facing": "up",
+   "move": "still",
+   "trainer": "roaches_climber"
+  },
+  {
+   "id": "roaches_spotter",
+   "sprite": "birdwatcher",
+   "x": 37,
+   "y": 27,
+   "facing": "right",
+   "move": "still",
+   "trainer": "roaches_spotter"
+  },
+  {
+   "id": "roaches_birder",
+   "sprite": "birdwatcher",
+   "x": 25,
+   "y": 52,
+   "facing": "left",
+   "move": "still",
+   "trainer": "roaches_birder"
+  },
+  {
+   "id": "rudyard_rower",
+   "sprite": "angler",
+   "x": 16,
+   "y": 37,
+   "facing": "left",
+   "move": "still",
+   "trainer": "rudyard_rower"
+  },
+  {
+   "id": "roaches_runner",
+   "sprite": "jogger",
+   "x": 52,
+   "y": 34,
+   "facing": "left",
+   "move": "still",
+   "trainer": "roaches_runner"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "roachroo",
+    "min": 9,
+    "max": 11,
+    "weight": 10,
+    "time": [
+     "dawn",
+     "dusk"
+    ]
+   },
+   {
+    "species": "gritling",
+    "min": 9,
+    "max": 11,
+    "weight": 12
+   },
+   {
+    "species": "snowhare",
+    "min": 9,
+    "max": 11,
+    "weight": 10
+   },
+   {
+    "species": "scuttlet",
+    "min": 8,
+    "max": 10,
+    "weight": 14
+   },
+   {
+    "species": "pipkin",
+    "min": 8,
+    "max": 10,
+    "weight": 8,
+    "time": [
+     "dawn",
+     "day"
+    ]
+   },
+   {
+    "species": "kitelet",
+    "min": 9,
+    "max": 11,
+    "weight": 8,
+    "time": [
+     "day"
+    ]
+   },
+   {
+    "species": "hootlet",
+    "min": 9,
+    "max": 11,
+    "weight": 8,
+    "time": [
+     "dusk",
+     "night"
+    ]
+   },
+   {
+    "species": "wispet",
+    "min": 9,
+    "max": 11,
+    "weight": 10,
+    "weather": [
+     "fog"
+    ]
+   },
+   {
+    "species": "croakle",
+    "min": 8,
+    "max": 10,
+    "weight": 8,
+    "weather": [
+     "drizzle",
+     "downpour",
+     "fog"
+    ]
+   },
+   {
+    "species": "sphagnet",
+    "min": 8,
+    "max": 10,
+    "weight": 8
+   },
+   {
+    "species": "zigzlet",
+    "min": 9,
+    "max": 11,
+    "weight": 6,
+    "season": [
+     "spring",
+     "summer"
+    ]
+   },
+   {
+    "species": "pepperling",
+    "min": 8,
+    "max": 10,
+    "weight": 6,
+    "time": [
+     "dusk",
+     "night"
+    ]
+   },
+   {
+    "species": "buntling",
+    "min": 9,
+    "max": 11,
+    "weight": 6,
+    "season": [
+     "winter"
+    ]
+   }
+  ],
+  "water": [
+   {
+    "species": "rustelver",
+    "min": 9,
+    "max": 11,
+    "weight": 14
+   },
+   {
+    "species": "dipling",
+    "min": 9,
+    "max": 11,
+    "weight": 14
+   },
+   {
+    "species": "stalklet",
+    "min": 9,
+    "max": 11,
+    "weight": 10
+   },
+   {
+    "species": "elverlet",
+    "min": 9,
+    "max": 11,
+    "weight": 10
+   },
+   {
+    "species": "croakle",
+    "min": 8,
+    "max": 10,
+    "weight": 10
+   },
+   {
+    "species": "volet",
+    "min": 8,
+    "max": 10,
+    "weight": 8
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 35,
+   "y": 1,
+   "text": "PUBLIC FOOTPATH. South: the Roaches, Rudyard Lake and Leek, then the Potteries. Please close all gates. Sheep do not close gates."
+  },
+  {
+   "x": 28,
+   "y": 57,
+   "text": "SOUTH: Stoke-on-Trent, the six towns of the Potteries. NORTH: Macclesfield, 9 miles of hills."
+  },
+  {
+   "x": 51,
+   "y": 18,
+   "plaque": "potteries_hanging_stone",
+   "title": "The Hanging Stone",
+   "text": "A great block of gritstone jutting out over the hillside like a shelf nobody dares put anything on. Two memorial plaques are fixed to it: one to a Brocklehurst of Swythamley killed in the Second World War, and an older one to a much-loved dog."
+  },
+  {
+   "x": 32,
+   "y": 20,
+   "plaque": "potteries_the_roaches",
+   "title": "The Roaches",
+   "text": "The name comes from the French 'roches', rocks. The gritstone here was laid down by great rivers about 320 million years ago, then tilted up and worn into these edges. Today it is one of the best-loved climbing crags in England."
+  },
+  {
+   "x": 48,
+   "y": 31,
+   "plaque": "potteries_doxey_pool",
+   "title": "Doxey Pool",
+   "text": "A small dark pool on top of the Roaches that never seems to dry out. Local legend says a water spirit lives in it and drags the unwary under. A reasonable view of anyone who goes swimming up here in March."
+  },
+  {
+   "x": 15,
+   "y": 19,
+   "plaque": "potteries_rudyard_lake",
+   "title": "Rudyard Lake",
+   "text": "Built in the 1790s as a reservoir to top up the Caldon Canal. In 1863 John Kipling and Alice Macdonald met at a picnic here, married, and named their first son after the lake: Rudyard Kipling, author of The Jungle Book."
+  },
+  {
+   "x": 24,
+   "y": 46,
+   "plaque": "potteries_tittesworth",
+   "title": "Tittesworth Reservoir",
+   "text": "Holds water for the Potteries, and a great many ducks. Dammed in the 1850s and made much bigger in the 1960s. On a still day the Roaches stand upside down in it."
+  },
+  {
+   "x": 32,
+   "y": 41,
+   "plaque": "potteries_rockhall",
+   "title": "Rockhall Cottage",
+   "text": "A little cottage squeezed into the rocks at the foot of the crag. It is now a climbers' hut named after Don Whillans, one of the great gritstone climbers of the 1950s."
+  },
+  {
+   "x": 54,
+   "y": 26,
+   "text": "THE ROACHES. Trig point. On a clear day you can see Snowdonia, apparently. On a normal day you can see the next bit of fog."
+  },
+  {
+   "x": 51,
+   "y": 4,
+   "text": "LUD'S CHURCH. A deep cleft in the hillside. Mind your step, mind your head, and mind the gentleman in green if he offers you a game."
+  }
+ ],
+ "spawn": [
+  33,
+  2
+ ],
+ "legend_extra": {
+  "m": {
+   "tile": "grass",
+   "colour": "#7f7b49"
+  },
+  "g": {
+   "tile": "grass",
+   "colour": "#6c8644"
+  },
+  "e": {
+   "tile": "grass",
+   "colour": "#5f7a3c"
+  },
+  "h": {
+   "tile": "tall_grass",
+   "colour": "#655060",
+   "prop": "heather"
+  },
+  "k": {
+   "tile": "tall_grass",
+   "colour": "#6f7a3f",
+   "prop": "short"
+  },
+  "G": {
+   "tile": "rock",
+   "colour": "#6f6852",
+   "prop": "gritstone"
+  },
+  "W": {
+   "tile": "drystone_wall",
+   "colour": "#76734a"
+  },
+  "c": {
+   "tile": "door",
+   "colour": "#16161b"
+  }
+ },
+ "rows": [
+  "TPPPTPPPTPPPTPPPTPPPTPPPTPPPTPPPT##PTPPPTPPPTPPPTPPPTPPPTPPP",
+  "PPggggggggggggggggggWgggggggggggg##gggggggPPPPPTPPPPPPPPPPPT",
+  "PPgg,,,,,,,gggggggggWgggggggggggg##gkkkkkgPTPPPPPPPPPPPPPPTP",
+  "PPgg,,,,,,,gggggggggWgggggggggggg##gkkkkkgPPPGGGGGcGGGGGPPPP",
+  "PTgg,,,,,,,gggggggggWgggggggggggg##gkkkkkgPPPkkkkk#kkkkkPPPP",
+  "TPggggggggggggggggggWgggggggggggg##gkkkkkgPPPkeeee#eeeekPPPP",
+  "PPWWWWWWWWWWgWWWWWWWWWWWWWWgWWWgg##gkkkkkgPPPkeeee#eeeekTPPT",
+  "PPggggggggggggggggggWgggggggggggg##gggggggPPTkeeee#eeeekPPTP",
+  "PPggggggggggggggggggWg,,,,,,,,ggg##gggggggPPPkeeee#eeeekPPPP",
+  "PTgggggggggggggggggg#g,,,,,,,,ggg##################eeeekPPPP",
+  "TPgggggggggggggggggg#g,,,,,,,,ggg##gggggggPPPkeeeeeeeeekPPPP",
+  "PPggggggggggggggggggWg,,,,,,,,ggg##gggggggPPPkkkkkkkkkkkPPPT",
+  "PPggggggggggggggggggWg,,,,,,,,ggg##gggggggPPPPPPPPPPPPPPPPTP",
+  "PPggggggggggggggggggWgggTgggggggg##gggggggPPPTPPPPPPPPPPPPPP",
+  "PTWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW##WWWWWWWPPPPPPPPPPPPPTPPPP",
+  "TPmTmmmmmmmmmmmmTmmmmmmmmm#########mmmmmmmPPPPPPPPPPPPPPPPPP",
+  "PPmmmmmmmmmmmmmmmmmmmmmmmm#########mmmmmmmmmmmmmmmGGGGRmmmPT",
+  "PPP~~~~~~~~~~wwmmmmmmmmmmm##mmmmmmmmmmmmmmmmmmmmmmGGGGmmmmTP",
+  "PPP~~~~~~~~~~wwmmmm#mmmmmm##mTmmmmmmTmmmmmmmmmmmmmmmmmmmmmPP",
+  "PTP~~~oooo~~~wwmmmm#mmmmmm##mmmmmmmmmmmmTmmmmmmmmmmmmmmmmmPP",
+  "TPP~~~oooo~~~wwmmmm#mmmmmm##mmmmmmmmmmmmmmmmmmmm#mmmmmmmmmPP",
+  "PPP~~~oooo~~~wwmmmm#mmmmmm##TmGGGGGGGGGGGGGGGGGG#GGGGGGGGmPT",
+  "PPP~~~oooo~~~wwmmmm#mmmmmm##TmGmmmmmmmmmmmmmmmmm#mmmmmmmmmTP",
+  "PPP~~~oooo~~~wwmmmm#mmmmmm##mmGmmGmmmmmmGmmmmmmm#hhhhhhhmmPP",
+  "PTP~~~oooo~~~wwmmmm#mmmmmm##m####################hhhhhhhmmPP",
+  "TPP~~~oooo~~~wwBBBB#mmmmmm##mmGmmmmmmmmmmmmmmm#mmhhhhhhhmmPP",
+  "PPP~~~oooo~~~wwBBBB#mmmmmm##mmGmmhhhhhhhhhmmmm#mmhhhhhhhmmPT",
+  "PPP~~~oooo~~~wwBBBB#mmmmmm##mmGmmhhhhhhhhhmmmm#mmhhhhhhhmmTP",
+  "PPP~~~oooo~~~wwmmmm#mmmmmm##mmGmmhhhhhhhhhmmmm#mmmmmmmmmmmPP",
+  "PTP~~~oooo~~~wwmmmm#########mmGmmhhhhhhhhhmmmm#mmme~~~mGmmPP",
+  "TPP~~~oooo~~~wwmmmm#mmmmmm##mmGmmhhhhhhhhhmmmm#mmm~~~~mmmmPP",
+  "PPP~~~oooo~~~wwmmmm#mmmmmm##mmGmmhhhhhhhhhmmmm#mmm~~~ehhmmPT",
+  "PPP~~~oooo~~~wwmmmm#mmmmmm##mmGmmmmmmmmmmmGmmm#mmmhhhhhhmmTP",
+  "PPP~~~oooo~~~wwmmmm#mmmmmm##mmGmmmmmkkkkkkkkkm#mmmhhhhhGmmPP",
+  "PTP~~~oooo~~~wwm,,,#,,,,mm##mmGmmmmmkkkkkkkkkm#mmmhhhhhhmmPP",
+  "TPP~~~oooo~~~wwm,,,#,,,,mm##mmGmmmmmkkkkkkkkkm#mmmhhhhhhmmPP",
+  "PPP~~~oooo~~~wwm,,,#,,,,mm##mmGmmmmGkkkkkkkkkm#mmmhhhhhhmmPT",
+  "PPP~~~oooo~~~wwm,,,#,,,,mm##mmGmmmmmmmmmmmmmmm#mmmmmmmmmmmTP",
+  "PPP~~~oooo~~~wwm,,,#,,,,mm##mmGGGGGGGGGGGGGGGG#GGGGGGGGGGmPP",
+  "PTP~~~~~~~~~~wwm,,,#,,,,mm##mmmmmBBBBmmmmmmmmmmmmmmmmmmmmmPP",
+  "TPP~~~~~~~~~~wwm,,,#,,,,mm##mmmmmBDBBmmmmmmmmmmmmmmmmmmmmmPP",
+  "PPmmmmmmmmmmmmmmmmm#mmmmmm##mmmmmmmmmmkkkkkkkmmmmmmmmmmmmmPT",
+  "PPmmmmmmmmmmmmmmmmmmmmmmmm##mmmTmmmmmmkkkkkkkmmmmmmmmmmmmmTP",
+  "PPmmmTmmmmmmmmmTmmmmmmmTmm##mmmmmmmmmmkkkkkkkmmmmmmmmmmmmmPP",
+  "PTPmmmmmmmmmmmmmmmmmmmmmmm##mmmmmmmmmmkkkkkkkmTmmmmmmmmmmmPP",
+  "TPP~~~~~~~~~~~~~~~~~~wwwmm##mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmPP",
+  "PPP~~~~~~~~~~~~~~~~~~wwwmm##mkkkkkkkkkkkkmmmmmmmmWWWWWWWWWPT",
+  "PPP~~~oooooooooooo~~~wwwmm##mkkkkkkkkkkkkmhhhhhhhhhhhmmmmmTP",
+  "PPP~~~oooooooooooo~~~wwwmm##mkkkkkkkkkkkkmhhhhhhhhhhhmmmmmPP",
+  "PTP~~~oooooooooooo~~~wwwmm##mkkkkkkkkkkkkmhhhhhhhhhhhmmmmmPP",
+  "TPP~~~oooooooooooo~~~www####mkkkkkkkkkkkkmhhhhhhhhhhhmmmmmPP",
+  "PPP~~~oooooooooooo~~~wwwmm##mkkkkkkkkkkkkmhhhhhhhhhhhmmmmmPT",
+  "PPP~~~oooooooooooo~~~wwwmm##mkkkkkkkkkkkkmhhhhhhhhhhhmmmmmTP",
+  "PPP~~~oooooooooooo~~~wwwmm##mmmmmmmmmmmmmmhhhhhhhhhhhmmmmmPP",
+  "PTP~~~oooooooooooo~~~wwwmm##mm,,,,,,,,,,,mhhhhhhhhhhhmmmmmPP",
+  "TPP~~~~~~~~~~~~~~~~~~wwwmm##mm,,,,,,,,,,,mmmmmmmmmmmmmmmmmPP",
+  "PPP~~~~~~~~~~~~~~~~~~wwwmm##mm,,,,,,,,,,,mmmTmmmmmmmmmmmmmPT",
+  "PPPmmmmmmmmmmmmmmmmmmmmmmm##mm,,,,,,,,,,,mmmmmmmmmmmTmmmmmTP",
+  "PTPPPTPPPTPPPTPPPTPPPTPPPT##PTPPPTPPPTPPPTPPPTPPPTPPPTPPPTPP",
+  "TPPTPPTPPTPPTPPTPPTPPTPPTP##PPTPPTPPTPPTPPTPPTPPTPPTPPTPPTPP"
+ ],
+ "heights": [
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000222222222222222222122222222000",
+  "000000000000000000000000000000222222222222222222222222222000",
+  "000000000000000000000000000000222222222222222222222222222000",
+  "000000000000000000000000000000122222222222222222222222222000",
+  "000000000000000000000000000000222222222222222222222222222000",
+  "000000000000000000000000000000222222222222222222222222222000",
+  "000000000000000000000000000000222222222222222222222222222000",
+  "000000000000000000000000000000222222222222222222222222222000",
+  "000000000000000000000000000000222222222222222222222222222000",
+  "000000000000000000000000000000222222222222222222222222222000",
+  "000000000000000000000000000000222222222222222222222222222000",
+  "000000000000000000000000000000222222222222222222222222222000",
+  "000000000000000000000000000000222222222222222222222222222000",
+  "000000000000000000000000000000222222222222222222222222222000",
+  "000000000000000000000000000000222222222222222222222222222000",
+  "000000000000000000000000000000222222222222222222222222222000",
+  "000000000000000000000000000000222222222222222222222222222000",
+  "000000000000000000000000000000222222222222222212222222222000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000"
+ ]
+}

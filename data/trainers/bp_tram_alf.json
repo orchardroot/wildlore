@@ -1,0 +1,32 @@
+{
+ "id": "bp_tram_alf",
+ "name": "Tram Driver Alf",
+ "class": "Tram Driver",
+ "sprite": "rail_guard",
+ "party": [
+  {
+   "species": "swiftlet",
+   "level": 19
+  },
+  {
+   "species": "bulbkin",
+   "level": 20
+  },
+  {
+   "species": "strutcoo",
+   "level": 20
+  }
+ ],
+ "ai": "trainer",
+ "money": 1100,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Tram Driver Alf",
+   "text": "Ding ding! All aboard the battle tram!"
+  }
+ ],
+ "win": "Terminus! Fair enough, you've got the fuses.",
+ "after": "Mind the tram lines on your bike. Everyone falls off once. Once.",
+ "scaled_floor": 18
+}

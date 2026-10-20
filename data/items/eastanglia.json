@@ -1,0 +1,150 @@
+[
+ {
+  "id": "chelsea_bun",
+  "name": "Chelsea Bun",
+  "kind": "heal",
+  "price": 520,
+  "battle": true,
+  "field": true,
+  "amount": 160,
+  "desc": "A sticky spiral of currants and spice, glazed in syrup. Cambridge has queued for them on Trumpington Street since 1920. Restores 160 HP."
+ },
+ {
+  "id": "fen_smoked_eel",
+  "name": "Smoked Fen Eel",
+  "kind": "heal",
+  "price": 650,
+  "battle": true,
+  "field": true,
+  "amount": 200,
+  "desc": "Ely means eel island, and the monks once took their rent in eels. Rich, smoky and oily. Restores 200 HP."
+ },
+ {
+  "id": "norfolk_dumpling",
+  "name": "Norfolk Dumpling",
+  "kind": "heal",
+  "price": 450,
+  "battle": true,
+  "field": true,
+  "amount": 150,
+  "desc": "No suet, just flour, water and a little yeast. Norfolk folk call them swimmers, because they float. Restores 150 HP."
+ },
+ {
+  "id": "norwich_mustard",
+  "name": "Norwich Mustard",
+  "kind": "cure",
+  "price": 240,
+  "battle": true,
+  "field": true,
+  "cures": [
+   "asleep",
+   "chilled",
+   "muddled",
+   "soaked"
+  ],
+  "desc": "Bright yellow, milled in Norwich since 1814. One dab up the nose and nobody stays asleep, cold or confused for long."
+ },
+ {
+  "id": "fen_runners",
+  "name": "Fen Runners",
+  "kind": "charm",
+  "price": 3200,
+  "battle": false,
+  "field": true,
+  "wild": true,
+  "desc": "Long, flat-bladed skates strapped to your boots, as raced on the frozen Fens for prizes of a leg of mutton.",
+  "effect_text": "Its Frost moves hit 20% harder.",
+  "charm": {
+   "effect": "boost",
+   "type": "frost",
+   "mult": 1.2
+  },
+  "msg": "{name} came skating in on its Fen Runners!"
+ },
+ {
+  "id": "punt_pole",
+  "name": "Punt Pole Tip",
+  "kind": "charm",
+  "price": 0,
+  "battle": false,
+  "field": true,
+  "wild": false,
+  "desc": "The lucky ash tip off a Cambridge punt pole, given by the Punt Captain. Stand on the till end, like a civilised person.",
+  "effect_text": "Its Brook moves hit 20% harder.",
+  "charm": {
+   "effect": "boost",
+   "type": "brook",
+   "mult": 1.2
+  },
+  "msg": "{name}'s Punt Pole Tip pushed it along!"
+ },
+ {
+  "id": "trinity_pippin",
+  "name": "Trinity Pippin",
+  "kind": "charm",
+  "price": 0,
+  "battle": false,
+  "field": true,
+  "wild": false,
+  "desc": "A small, hard apple from the orchard at Trinity. Not Newton's, but it has clearly been thinking about gravity.",
+  "effect_text": "Lore up when it first comes out.",
+  "charm": {
+   "effect": "start_stage",
+   "stat": "lore",
+   "stages": 1
+  },
+  "msg": "{name}'s Trinity Pippin gave it a bright idea!"
+ },
+ {
+  "id": "double_helix",
+  "name": "Double Helix Pin",
+  "kind": "charm",
+  "price": 0,
+  "battle": false,
+  "field": true,
+  "wild": false,
+  "desc": "A little gold twisted ladder from behind the bar at the Eagle. Each strand can rebuild the other: that's how life mends itself.",
+  "effect_text": "Heals 1/16 HP every turn.",
+  "charm": {
+   "effect": "regen",
+   "frac": 16
+  },
+  "msg": "{name}'s Double Helix Pin knitted it back together a bit."
+ },
+ {
+  "id": "canary_scarf",
+  "name": "Canary Scarf",
+  "kind": "charm",
+  "price": 0,
+  "battle": false,
+  "field": true,
+  "wild": false,
+  "desc": "Yellow and green, for Norwich City and the canaries the Strangers brought in 1565. On the ball, City.",
+  "effect_text": "Speed up when it first comes out.",
+  "charm": {
+   "effect": "start_stage",
+   "stat": "spd",
+   "stages": 1
+  },
+  "msg": "{name}'s Canary Scarf had it off like a shot!"
+ },
+ {
+  "id": "norfolk_reed",
+  "name": "Norfolk Reed",
+  "one": "a Bundle of Norfolk Reed",
+  "kind": "material",
+  "price": 0,
+  "battle": false,
+  "field": false,
+  "desc": "Cut from the Broads and the Fens in winter. The finest thatching reed in Britain: a good roof lasts fifty years or more."
+ },
+ {
+  "id": "newtons_apple",
+  "name": "Newton's Apple",
+  "kind": "key",
+  "price": 0,
+  "battle": false,
+  "field": true,
+  "desc": "Fallen from the tree outside Trinity, grown from Newton's own tree at Woolsthorpe. It did not hit anybody on the head."
+ }
+]

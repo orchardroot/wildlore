@@ -1,0 +1,98 @@
+{
+ "id": "stoke_spode",
+ "name": "Spode Works",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "display_case",
+   "x": 2,
+   "y": 2
+  },
+  {
+   "type": "display_case",
+   "x": 4,
+   "y": 2
+  },
+  {
+   "type": "kitchen_dresser",
+   "x": 1,
+   "y": 5
+  },
+  {
+   "type": "slate_stack",
+   "x": 12,
+   "y": 6
+  },
+  {
+   "type": "slate_stack",
+   "x": 13,
+   "y": 6
+  },
+  {
+   "type": "table",
+   "x": 4,
+   "y": 6
+  },
+  {
+   "type": "wall_picture",
+   "x": 7,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  }
+ ],
+ "warps": [
+  {
+   "x": 7,
+   "y": 8,
+   "to": "stoke",
+   "tx": 6,
+   "ty": 20,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "spode_clay",
+   "sprite": "farmer",
+   "x": 11,
+   "y": 2,
+   "facing": "down",
+   "move": "still",
+   "script": "clay_cellar",
+   "name": "Clay Cellar Worker"
+  },
+  {
+   "id": "spode_blue",
+   "sprite": "villager_3",
+   "x": 3,
+   "y": 4,
+   "facing": "up",
+   "move": "still",
+   "script": "blue_italian",
+   "name": "China Collector"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  7,
+  7
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxxx",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x++++++++CCCCCx",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x++++++D++++++x",
+  "xxxxxxxxxxxxxxx"
+ ]
+}

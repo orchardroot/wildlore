@@ -1,0 +1,56 @@
+{
+ "clay_cellar": [
+  {
+   "do": "if",
+   "flag": "q_potteries_firing_3",
+   "then": [
+    {
+     "do": "say",
+     "who": "Clay Cellar Worker",
+     "text": "Wad clay all used up? Good. That's what it's for."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_potteries_firing_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "Clay Cellar Worker",
+       "text": "Wad clay for the bungs? Here, a good soft roll. Squash it between the saggars and it seals the joints, so the smoke can't get in and spoil the glaze."
+      },
+      {
+       "do": "say",
+       "who": "Clay Cellar Worker",
+       "text": "Bone china's a different beast. Cornish china clay, china stone and ground-up cattle bone, about half and half. Spode got the mix right around 1800."
+      },
+      {
+       "do": "set",
+       "flag": "q_potteries_firing_3"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Clay Cellar Worker",
+       "text": "Clay cellar. Cold, damp and very, very brown. Perfect conditions. For clay. Not for people."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "blue_italian": [
+  {
+   "do": "say",
+   "who": "China Collector",
+   "text": "Spode's Blue Italian. An Italian landscape, a ruined castle, cows having a paddle. It's been made since 1816."
+  },
+  {
+   "do": "say",
+   "who": "China Collector",
+   "text": "My nan had it, my mum had it, I have it. One day somebody will inherit forty-two side plates and wonder why."
+  }
+ ]
+}

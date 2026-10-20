@@ -1,0 +1,104 @@
+{
+ "id": "leeds_headingley",
+ "name": "Headingley Pavilion",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "wall_picture",
+   "x": 3,
+   "y": 1,
+   "walk": true,
+   "variant": 0
+  },
+  {
+   "type": "wall_picture",
+   "x": 9,
+   "y": 1,
+   "walk": true,
+   "variant": 3
+  },
+  {
+   "type": "display_case",
+   "x": 2,
+   "y": 3
+  },
+  {
+   "type": "display_case",
+   "x": 10,
+   "y": 3
+  },
+  {
+   "type": "tea_urn",
+   "x": 1,
+   "y": 6
+  },
+  {
+   "type": "bench",
+   "x": 4,
+   "y": 5
+  },
+  {
+   "type": "bench",
+   "x": 8,
+   "y": 5
+  },
+  {
+   "type": "clock",
+   "x": 6,
+   "y": 1,
+   "walk": true
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 7,
+   "to": "leeds",
+   "tx": 10,
+   "ty": 20,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "headingley_legend",
+   "sprite": "rugby_player",
+   "x": 6,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "trainer": "pennines_legend"
+  },
+  {
+   "id": "headingley_scorer",
+   "sprite": "poet",
+   "x": 11,
+   "y": 6,
+   "facing": "down",
+   "move": "still",
+   "script": "headingley_scorer",
+   "name": "Scorer"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  6,
+  6
+ ],
+ "rows": [
+  "xxxxxxxxxxxxx",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||D|||||x",
+  "xxxxxxxxxxxxx"
+ ]
+}

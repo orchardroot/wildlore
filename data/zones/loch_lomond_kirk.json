@@ -1,0 +1,92 @@
+{
+ "id": "loch_lomond_kirk",
+ "name": "Balquhidder Kirk",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "bench",
+   "x": 3,
+   "y": 3
+  },
+  {
+   "type": "bench",
+   "x": 3,
+   "y": 5
+  },
+  {
+   "type": "bench",
+   "x": 7,
+   "y": 3
+  },
+  {
+   "type": "bench",
+   "x": 7,
+   "y": 5
+  },
+  {
+   "type": "statue",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "candelabra",
+   "x": 5,
+   "y": 1
+  },
+  {
+   "type": "wall_picture",
+   "x": 8,
+   "y": 1,
+   "walk": true,
+   "variant": 2
+  },
+  {
+   "type": "potted_plant",
+   "x": 9,
+   "y": 7
+  }
+ ],
+ "warps": [
+  {
+   "x": 5,
+   "y": 8,
+   "to": "loch_lomond",
+   "tx": 21,
+   "ty": 42,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "whl_sexton",
+   "sprite": "poet",
+   "x": 5,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "whl_sexton",
+   "name": "Sexton"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  5,
+  7
+ ],
+ "rows": [
+  "xxxxxxxxxxx",
+  "x+++++++++x",
+  "x+++++++++x",
+  "x+++++++++x",
+  "x+++++++++x",
+  "x+++++++++x",
+  "x+++++++++x",
+  "x+++++++++x",
+  "xxxxxDxxxxx"
+ ]
+}

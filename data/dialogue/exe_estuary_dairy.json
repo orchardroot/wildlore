@@ -1,0 +1,65 @@
+{
+ "dairy_farmer": [
+  {
+   "do": "if",
+   "flag": "q_devon_creamtea_1",
+   "then": [
+    {
+     "do": "say",
+     "who": "Dairy Farmer",
+     "text": "Hope Hilda's happy. Tell her the cows send their love."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_devon_creamtea_started",
+     "then": [
+      {
+       "do": "say",
+       "who": "Dairy Farmer",
+       "text": "Hilda's run out? On a Saturday? Here, take a pot. Made this morning."
+      },
+      {
+       "do": "say",
+       "who": "Dairy Farmer",
+       "text": "You take good creamy milk, heat it gently in a shallow pan for hours, then leave it to cool overnight. The cream rises and clots into that golden crust. No shortcuts."
+      },
+      {
+       "do": "give_item",
+       "item": "clotted_cream"
+      },
+      {
+       "do": "set",
+       "flag": "q_devon_creamtea_1"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Dairy Farmer",
+       "text": "{greeting} Clotted cream, made here the old way. Devon cows, Devon grass, Devon rain. Mostly Devon rain."
+      },
+      {
+       "do": "say",
+       "who": "Dairy Farmer",
+       "text": "The South Devon is our breed, the biggest of the native British cattle. Gentle as you like. Golden-red coats. Milk like silk."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "dairy_cow": [
+  {
+   "do": "say",
+   "who": "Moolet",
+   "text": "Mooo."
+  },
+  {
+   "do": "say",
+   "who": "",
+   "text": "It looks at you with enormous, patient eyes, then goes back to thinking about grass."
+  }
+ ]
+}

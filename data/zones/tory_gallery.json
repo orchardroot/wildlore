@@ -1,0 +1,93 @@
+{
+ "id": "tory_gallery",
+ "name": "Dánlann Thoraí (Tory Gallery)",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "wall_picture",
+   "x": 2,
+   "y": 1,
+   "walk": true,
+   "variant": 0
+  },
+  {
+   "type": "wall_picture",
+   "x": 4,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  },
+  {
+   "type": "wall_picture",
+   "x": 8,
+   "y": 1,
+   "walk": true,
+   "variant": 0
+  },
+  {
+   "type": "wall_picture",
+   "x": 10,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  },
+  {
+   "type": "display_case",
+   "x": 6,
+   "y": 3,
+   "variant": 0
+  },
+  {
+   "type": "table",
+   "x": 2,
+   "y": 5
+  },
+  {
+   "type": "potted_plant",
+   "x": 11,
+   "y": 5
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 6,
+   "to": "tory_island",
+   "tx": 9,
+   "ty": 19,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "tg_keeper",
+   "sprite": "poet",
+   "x": 9,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "tg_keeper",
+   "name": "Gallery Keeper"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  6,
+  5
+ ],
+ "rows": [
+  "xxxxxxxxxxxxx",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++D+++++x",
+  "xxxxxxxxxxxxx"
+ ]
+}

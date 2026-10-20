@@ -1,0 +1,501 @@
+{
+ "bord_pig": [
+  {
+   "do": "if",
+   "flag": "q_borders_heart_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_borders_heart_1",
+     "then": [
+      {
+       "do": "say",
+       "who": "Pig",
+       "text": "A stone pig playing the bagpipes, looking down from the abbey roof. Even a gargoyle has a hobby."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "You look up at the nave roof, along a row of carved gargoyles. Among the gargoyles sits a stone pig, playing the bagpipes with enormous seriousness."
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "Whoever carved it had never heard a bagpipe, or had heard far too many. It has been there for centuries, and survived three English armies, which is more than the bagpipes would have done."
+      },
+      {
+       "do": "set",
+       "flag": "q_borders_heart_1"
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "",
+     "text": "High on the abbey roof, a stone pig plays the bagpipes. Nobody knows who carved it, or why. The warden inside may know more."
+    }
+   ]
+  }
+ ],
+ "bord_painter": [
+  {
+   "do": "say",
+   "who": "Painter",
+   "text": "I'm trying to capture the light on the Eildons, which has not stayed still since breakfast. Ask me anything. I won't paint any faster."
+  },
+  {
+   "do": "choice",
+   "text": "Ask about...",
+   "options": [
+    "Sir Walter's view",
+    "The three hills",
+    "Dryburgh",
+    "That's plenty, thanks"
+   ],
+   "set": "_t_painter"
+  },
+  {
+   "do": "if",
+   "flag": "_t_painter",
+   "eq": 0,
+   "then": [
+    {
+     "do": "say",
+     "who": "Painter",
+     "text": "Scott said that the view from here was his best, and that when he was in trouble he came here to get it back. When his funeral cortege went by in 1832, the horses, it's said, stopped here on their own, as they had on so many walks with him."
+    },
+    {
+     "do": "say",
+     "who": "Painter",
+     "text": "The path is real. The horses are legend. I'm trusting a lot of people's word."
+    }
+   ],
+   "else": []
+  },
+  {
+   "do": "if",
+   "flag": "_t_painter",
+   "eq": 1,
+   "then": [
+    {
+     "do": "say",
+     "who": "Painter",
+     "text": "From here the Eildons make three peaks in a row, like a sleeping giant. Rhymer's tale has the Queen of Elfland riding underneath. Arthur and his knights are said to be asleep under there, too, waiting for the right moment. It's a wonder anyone gets a seat."
+    }
+   ],
+   "else": []
+  },
+  {
+   "do": "if",
+   "flag": "_t_painter",
+   "eq": 2,
+   "then": [
+    {
+     "do": "say",
+     "who": "Painter",
+     "text": "Scott's grave is at Dryburgh Abbey, a few miles down the Tweed, in a ruined chapel. Field Marshal Haig is buried there, too. It's a very peaceful place to be dead in, and a very good place to have a scone."
+    }
+   ],
+   "else": []
+  },
+  {
+   "do": "if",
+   "flag": "_t_painter",
+   "eq": 3,
+   "then": [
+    {
+     "do": "say",
+     "who": "Painter",
+     "text": "Come back any time. History keeps."
+    }
+   ],
+   "else": []
+  }
+ ],
+ "bord_angler_talk": [
+  {
+   "do": "say",
+   "who": "Angler",
+   "text": "Tweed salmon. The best in Britain, the wardens say. The beats are fished by rotation, the rods are expensive, and the fish are famously unimpressed."
+  }
+ ],
+ "bord_local": [
+  {
+   "do": "say",
+   "who": "Local",
+   "text": "You'll want to see the abbey, then the pig, then the Sevens ground. In that order. If you do it the other way, the pig gets jealous."
+  },
+  {
+   "do": "say",
+   "who": "Local",
+   "text": "Melrose is the 'home' of the Sevens, you know. A butcher called Ned Haig did it. In 1883. We've been grateful, and slightly bruised, ever since."
+  }
+ ],
+ "bord_rider": [
+  {
+   "do": "say",
+   "who": "Horse",
+   "text": "A Common Riding horse, plaited and polished for the day. It is exactly as proud as it looks."
+  }
+ ],
+ "bord_steward1": [
+  {
+   "do": "if",
+   "flag": "q_borders_ride_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_borders_ride_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "Steward",
+       "text": "Aye, you're ticked off. Off to the Ford."
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_borders_ride_1",
+       "then": [
+        {
+         "do": "say",
+         "who": "Steward",
+         "text": "The Cornet's colours! Splendid. This is the first of the marches: Scott's View, the high ground with the best prospect in the Borders. From here, in the old days, you could see your neighbours coming. Or going, with your cattle."
+        },
+        {
+         "do": "say",
+         "who": "Steward",
+         "text": "That's the first march ridden. The second is the Ford at the Tweed, east along the river. Mind the water."
+        },
+        {
+         "do": "set",
+         "flag": "q_borders_ride_2"
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Steward",
+         "text": "You'll want the Cornet's colours before you ride the marches. Ma Haig at the bakehouse keeps them safe."
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Steward",
+     "text": "I'm a marches steward. We make sure the boundary's where it should be. It's mostly sheep, to be fair."
+    }
+   ]
+  }
+ ],
+ "bord_steward2": [
+  {
+   "do": "if",
+   "flag": "q_borders_ride_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_borders_ride_3",
+     "then": [
+      {
+       "do": "say",
+       "who": "Steward",
+       "text": "Ford's done. The last march is at the foot of the Eildons. Mind the Rhymer's tree."
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_borders_ride_2",
+       "then": [
+        {
+         "do": "say",
+         "who": "Steward",
+         "text": "The Ford. The marches ran straight across the river, you see, and the Border riders knew every stone in it. We still ride it, with the water to the horse's knees, as the horses love, and I'm told so does the Cornet. Most of it."
+        },
+        {
+         "do": "say",
+         "who": "Steward",
+         "text": "Second march ridden. For the third, make for the foot of the Eildon Hills, south of the bridge."
+        },
+        {
+         "do": "set",
+         "flag": "q_borders_ride_3"
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Steward",
+         "text": "Not yet, friend. The first march is at Scott's View. Start there."
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Steward",
+     "text": "There's a ford here. Rather it than the bridge, if the water's low and the horse is keen."
+    }
+   ]
+  }
+ ],
+ "bord_steward3": [
+  {
+   "do": "if",
+   "flag": "q_borders_ride_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_borders_ride_4",
+     "then": [
+      {
+       "do": "say",
+       "who": "Steward",
+       "text": "All done. Go and tell the Cornet. And mind the Rhymer."
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_borders_ride_3",
+       "then": [
+        {
+         "do": "say",
+         "who": "Steward",
+         "text": "The last march. The Eildon Gate! And here comes trouble. Somebody's been telling the other town that the colours are up for grabs."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Steward",
+         "text": "Not yet. Scott's View and the Ford first."
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Steward",
+     "text": "The marches. At the foot of the Eildons, a gate. Pass through it on horseback and you've ridden the lot."
+    }
+   ]
+  }
+ ],
+ "bord_rival": [
+  {
+   "do": "if",
+   "flag": "q_borders_ride_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_borders_ride_4",
+     "then": [
+      {
+       "do": "say",
+       "who": "Rival Rider",
+       "text": "Beaten fair. A rider from the next town, and I've been told to let you through. Keep the colours safe."
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_borders_ride_3",
+       "then": [
+        {
+         "do": "say",
+         "who": "Rival Rider",
+         "text": "Hold it right there. Those colours look good enough for my town's lamp-post. Hand them over, or I'll have to take them in the old way."
+        },
+        {
+         "do": "battle",
+         "trainer": "bord_rival",
+         "intro": true
+        },
+        {
+         "do": "if",
+         "flag": "trainer_bord_rival",
+         "then": [
+          {
+           "do": "set",
+           "flag": "q_borders_ride_4"
+          }
+         ],
+         "else": []
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Rival Rider",
+         "text": "I'm just here to look at the hills. Honest."
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Rival Rider",
+     "text": "I ride for the next town along. We've been in dispute about a hill for 400 years. It's going well."
+    }
+   ]
+  }
+ ],
+ "bord_rhymer": [
+  {
+   "do": "if",
+   "flag": "q_borders_thomas_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "True Thomas",
+     "text": "Well met again. The steed is yours and the truth is yours. Mind how you use them. It is a far greater thing than a prophecy to say what you mean."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_borders_thomas_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "True Thomas",
+       "text": "So the steed let you near, and let you take it? It is not often it chooses. The Queen of Elfland would have been proud. Or cross. She was often both."
+      },
+      {
+       "do": "say",
+       "who": "True Thomas",
+       "text": "Take this. A swatch of tweed, the old cloth of the Tweed valley. In a hundred years they'll say it was a misprint. It wasn't. It's a promise."
+      },
+      {
+       "do": "give_item",
+       "item": "tweed_swatch"
+      },
+      {
+       "do": "standing",
+       "nation": "scotland",
+       "amount": 3
+      },
+      {
+       "do": "set",
+       "flag": "q_borders_thomas_done"
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_borders_thomas_1",
+       "then": [
+        {
+         "do": "say",
+         "who": "True Thomas",
+         "text": "Stand by the Eildon Tree and be gentle. She'll know. The steed won't come if you've been lying to yourself."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "True Thomas",
+         "text": "Good morrow. I'm Thomas of Erceldoune, which is Earlston down the road. True Thomas, they call me, because I once spent seven years in Elfland and came back unable to say a thing that isn't true."
+        },
+        {
+         "do": "say",
+         "who": "True Thomas",
+         "text": "I lay under that tree one day and the Queen of Elfland herself came by on a white horse with silver bells in its mane. She took me under the hill. It was a wonderful place and I've told nobody what I saw. It's very hard to lie, afterwards."
+        },
+        {
+         "do": "say",
+         "who": "True Thomas",
+         "text": "The Queen's white steed still comes round the Eildon Tree at dusk, when it's quiet. If you'd like to meet it, ask the tree, nicely. Don't lie to it. It has rather a long memory."
+        },
+        {
+         "do": "set",
+         "flag": "q_borders_thomas_started"
+        },
+        {
+         "do": "set",
+         "flag": "q_borders_thomas_1"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "bord_steed": [
+  {
+   "do": "if",
+   "flag": "caught_eildonmare",
+   "then": [
+    {
+     "do": "say",
+     "who": "",
+     "text": "The ground by the Eildon Tree is empty, apart from a ring of paler grass and, very faintly, the sound of a small silver bell."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_borders_thomas_1",
+     "then": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "Between the roots of the Eildon Tree stands a white horse with a mane the colour of wet moss, hung with little silver bells. It looks at you with very old, very quiet eyes."
+      },
+      {
+       "do": "legend",
+       "species": "eildonmare",
+       "level": 72,
+       "flag": "caught_eildonmare",
+       "music": "legend"
+      },
+      {
+       "do": "if",
+       "flag": "caught_eildonmare",
+       "then": [
+        {
+         "do": "say",
+         "who": "",
+         "text": "The bells ring once, softly, as though a great many people were applauding from a long way off."
+        },
+        {
+         "do": "set",
+         "flag": "q_borders_thomas_2"
+        }
+       ],
+       "else": []
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "A white horse stands by the tree, bells in its mane, and it looks right through you. It seems to be waiting for someone, and it isn't you. Perhaps the old man by the stone knows who."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

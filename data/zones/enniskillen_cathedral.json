@@ -1,0 +1,144 @@
+{
+ "id": "enniskillen_cathedral",
+ "name": "St Macartin's Cathedral",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "rows": [
+  "xxxxxxxxxxxxx",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++D+++++x",
+  "xxxxxxxxxxxxx"
+ ],
+ "props": [
+  {
+   "type": "bench",
+   "x": 2,
+   "y": 4
+  },
+  {
+   "type": "bench",
+   "x": 3,
+   "y": 4
+  },
+  {
+   "type": "bench",
+   "x": 4,
+   "y": 4
+  },
+  {
+   "type": "bench",
+   "x": 8,
+   "y": 4
+  },
+  {
+   "type": "bench",
+   "x": 9,
+   "y": 4
+  },
+  {
+   "type": "bench",
+   "x": 10,
+   "y": 4
+  },
+  {
+   "type": "bench",
+   "x": 2,
+   "y": 6
+  },
+  {
+   "type": "bench",
+   "x": 3,
+   "y": 6
+  },
+  {
+   "type": "bench",
+   "x": 4,
+   "y": 6
+  },
+  {
+   "type": "bench",
+   "x": 8,
+   "y": 6
+  },
+  {
+   "type": "bench",
+   "x": 9,
+   "y": 6
+  },
+  {
+   "type": "bench",
+   "x": 10,
+   "y": 6
+  },
+  {
+   "type": "candelabra",
+   "x": 4,
+   "y": 1
+  },
+  {
+   "type": "candelabra",
+   "x": 8,
+   "y": 1
+  },
+  {
+   "type": "hall_stage",
+   "x": 6,
+   "y": 1
+  },
+  {
+   "type": "rug",
+   "x": 6,
+   "y": 3,
+   "w": 1,
+   "h": 6,
+   "variant": 2,
+   "walk": true
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 9,
+   "to": "enniskillen",
+   "tx": 45,
+   "ty": 40,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "en_verger",
+   "sprite": "choir_singer",
+   "x": 6,
+   "y": 2,
+   "facing": "down",
+   "move": "still",
+   "script": "en_verger",
+   "name": "Verger"
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "x": 2,
+   "y": 1,
+   "plaque": "en_macartin",
+   "title": "St Macartin",
+   "text": "Macartin, Aedh Mac Cairthinn, is said to have been a companion of St Patrick and the first bishop of Clogher. The cathedral that bears his name was built in the 1840s on an older church site, and the regimental colours of the Inniskillings hang inside it."
+  }
+ ],
+ "spawn": [
+  6,
+  8
+ ]
+}

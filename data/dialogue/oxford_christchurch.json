@@ -1,0 +1,49 @@
+{
+ "ox_dean_guide": [
+  {
+   "do": "say",
+   "who": "Guide",
+   "text": "Christ Church, founded by Cardinal Wolsey in 1525 and refounded by Henry VIII in 1546. It's a college and a cathedral at the same time, the only place in the world that can say that, and the smallest cathedral in England."
+  },
+  {
+   "do": "say",
+   "who": "Guide",
+   "text": "Alice Liddell was the Dean's daughter. Charles Dodgson, who wrote as Lewis Carroll, was the mathematics tutor. In 1862 he rowed her up the river and told the story of Alice's Adventures in Wonderland. There's a stained glass window with Alice in it, in the hall."
+  },
+  {
+   "do": "say",
+   "who": "Guide",
+   "text": "And the Great Hall's portraits include thirteen prime ministers. The staircase to it is the one in all the films, and in none of them is it as steep as it is in real life."
+  }
+ ],
+ "ox_proctor": [
+  {
+   "do": "if",
+   "flag": "trainer_ox_proctor",
+   "then": [
+    {
+     "do": "say",
+     "who": "Senior Proctor Clementine",
+     "text": "Splendid. I shall report that the Proctors have been defeated. That will be the first time in living memory. I'll put it in the Gazette."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Senior Proctor Clementine",
+     "text": "Do you see the bow tie? The black gown? The two men in bowler hats standing behind me? They are the Bulldogs, and I am the Senior Proctor, and I have the power to fine you. Possibly arrest you."
+    },
+    {
+     "do": "say",
+     "who": "Senior Proctor Clementine",
+     "text": "It's an old power, from the 1200s, when the University was in constant argument with the townspeople. It's still law, and still used. We carry it on a good day with a smile."
+    },
+    {
+     "do": "battle",
+     "trainer": "ox_proctor",
+     "intro": true
+    }
+   ]
+  }
+ ]
+}

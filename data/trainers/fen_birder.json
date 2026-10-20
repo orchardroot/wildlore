@@ -1,0 +1,36 @@
+{
+ "id": "fen_birder",
+ "name": "Twitcher Ros",
+ "class": "Birder",
+ "sprite": "birdwatcher",
+ "scaled_floor": 94,
+ "party": [
+  {
+   "species": "boomern",
+   "level": 94
+  },
+  {
+   "species": "levelcrane",
+   "level": 95
+  },
+  {
+   "species": "hushwing",
+   "level": 95
+  },
+  {
+   "species": "forkwing",
+   "level": 94
+  }
+ ],
+ "ai": "trainer",
+ "money": 4600,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Twitcher Ros",
+   "text": "Shh! A marsh harrier! No, a crow. Since you've spoilt it, battle me."
+  }
+ ],
+ "win": "Dipped. That's birder for missed it.",
+ "after": "Four hundred years without cranes, and now they're back on the fens. I cried. Then I wrote it in my notebook. Then I cried on my notebook."
+}

@@ -1,0 +1,76 @@
+{
+ "en_curator": [
+  {
+   "do": "say",
+   "who": "Curator",
+   "text": "{greeting} Welcome to Enniskillen Castle. The Maguires built it in the 1400s. They were the lords of Fermanagh, and they ruled from the water: on these lakes a boat beat a horse every time."
+  },
+  {
+   "do": "if",
+   "flag": "q_fermanagh_islands_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_fermanagh_islands_1",
+     "then": [
+      {
+       "do": "say",
+       "who": "Curator",
+       "text": "Remember: Devenish for St Molaise and the round tower, White Island for the eight stone figures, Boa for the two-faced fellow. In that order, going downstream."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Curator",
+       "text": "Skipper Cathal sent you? Then you'll want the islands. Write this down."
+      },
+      {
+       "do": "say",
+       "who": "Curator",
+       "text": "Devenish, just downstream: St Molaise founded a monastery there in the 500s, and its round tower is one of the finest in Ireland."
+      },
+      {
+       "do": "say",
+       "who": "Curator",
+       "text": "Further on, White Island: a ruined church with eight carved stone figures in a row along one wall. Early Christian, a thousand years old, and still a puzzle."
+      },
+      {
+       "do": "say",
+       "who": "Curator",
+       "text": "And Boa Island, the biggest, at the far end: in Caldragh graveyard stands the Janus figure, a stone with two faces back to back. Older than any church on the lough."
+      },
+      {
+       "do": "say",
+       "who": "Curator",
+       "text": "Devenish, White Island, Boa. Off you go. And tell Cathal he still owes the museum a lifebelt."
+      },
+      {
+       "do": "set",
+       "flag": "q_fermanagh_islands_1"
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Curator",
+     "text": "The other half of the castle is the Inniskillings Museum: two regiments named after one town. Have a look at the drums. Mind, they're louder than they look."
+    }
+   ]
+  }
+ ],
+ "en_drummer": [
+  {
+   "do": "say",
+   "who": "Museum Volunteer",
+   "text": "{greeting} The Royal Inniskilling Fusiliers on foot and the Inniskilling Dragoons on horseback. Both fought at Waterloo. Not bad for a town you can walk round in half an hour."
+  },
+  {
+   "do": "say",
+   "who": "Museum Volunteer",
+   "text": "The castle sign on their badges is our castle. So when you see it on a badge in a museum in Belgium, that's this building. Small world, big history."
+  }
+ ]
+}

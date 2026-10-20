@@ -1,0 +1,125 @@
+{
+ "id": "stoke_middleport",
+ "name": "Middleport Pottery",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "slate_stack",
+   "x": 12,
+   "y": 2
+  },
+  {
+   "type": "slate_stack",
+   "x": 13,
+   "y": 2
+  },
+  {
+   "type": "slate_stack",
+   "x": 14,
+   "y": 2
+  },
+  {
+   "type": "table",
+   "x": 3,
+   "y": 6
+  },
+  {
+   "type": "table",
+   "x": 5,
+   "y": 6
+  },
+  {
+   "type": "kitchen_dresser",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "kitchen_dresser",
+   "x": 15,
+   "y": 5
+  },
+  {
+   "type": "brazier",
+   "x": 14,
+   "y": 7
+  },
+  {
+   "type": "wall_picture",
+   "x": 8,
+   "y": 1,
+   "walk": true,
+   "variant": 2
+  }
+ ],
+ "warps": [
+  {
+   "x": 8,
+   "y": 9,
+   "to": "stoke",
+   "tx": 51,
+   "ty": 25,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "bottom_knocker",
+   "sprite": "steelworker",
+   "x": 12,
+   "y": 4,
+   "facing": "down",
+   "move": "still",
+   "script": "bottom_knocker",
+   "name": "Saggar Maker's Bottom Knocker"
+  },
+  {
+   "id": "middleport_decorator",
+   "sprite": "villager_5",
+   "x": 4,
+   "y": 4,
+   "facing": "up",
+   "move": "still",
+   "script": "decorator",
+   "name": "Decorator"
+  },
+  {
+   "id": "middleport_engine",
+   "sprite": "villager_4",
+   "x": 14,
+   "y": 8,
+   "facing": "left",
+   "move": "still",
+   "script": "engine_man",
+   "name": "Engine Man"
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "x": 4,
+   "y": 1,
+   "text": "BURLEIGH WARE. Patterns printed from engraved copper rollers onto tissue, then rubbed onto each pot by hand. It takes years to get quick at it."
+  }
+ ],
+ "spawn": [
+  8,
+  8
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxxxxx",
+  "x+++++++++++++++x",
+  "x+++++++++++++++x",
+  "x+CCCCC+++++++++x",
+  "x+++++++++++++++x",
+  "x+++++++++++++++x",
+  "x+++++++++++++++x",
+  "x+++++++++++++++x",
+  "x+++++++++++++++x",
+  "x+++++++D+++++++x",
+  "xxxxxxxxxxxxxxxxx"
+ ]
+}

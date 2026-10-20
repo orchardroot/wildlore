@@ -6,6 +6,21 @@ A monster-catching RPG across the UK and Ireland. You start in Macclesfield, bec
 
 ![Title](docs/screens/t13-title.png)
 
+## What's new in 3.0: Wider Isles
+
+The walls are down. Every edge that used to be a hedge you couldn't get through now goes somewhere: east out of Manchester over Saddleworth Moor to Leeds, south from Macclesfield to the Roaches and the Potteries, north from Liverpool to Blackpool, and on round the Isles until the map has 72 towns instead of 40.
+
+- **New places to go**, each hanging off the old road so the story still runs the way it did: Leeds and Haworth, Stoke, Blackpool, Bristol, Swansea and Gower, the Welsh Valleys, Plymouth and Exeter, Oxford and the Cotswolds, Shrewsbury and Ironbridge, Cambridge and Norwich, Brighton, Canterbury and Dover, Hull and Lincoln, Carlisle and the Borders, St Andrews and Dundee, Oban and Mull, Thurso and John o' Groats, Harris and Stornoway, Enniskillen, Donegal and Limerick.
+- **They grow with you.** Creatures and trainers off the main line scale to how far through the story you are, so a detour is worth taking whenever you take it.
+- **78 quests** in a new Quest Log: switch on the Blackpool Illuminations, fire a bottle kiln, roll a cheese down Cooper's Hill, out-rhyme the Blue Men of the Minch.
+- **924 heritage plaques** to read and collect in the Gazetteer. You will learn things. Sorry.
+- **131 new creatures** in the Fieldbook appendix, from local lore and wildlife: the Lincoln Imp, a boggart, Lindow Man, the Nuckelavee, the Cailleach, a dodo, a wheel of Double Gloucester. The early routes get proper variety, so your one good creature no longer has to carry the team to Liverpool.
+- **Money gets complicated.** The Republic of Ireland uses euros and the rate moves every day. There's a stock exchange in Manchester, Edinburgh, Dublin and the City, and a crypto coin called Doggerel that you should not buy.
+- **And you can lose it all** at the Palace casino in Douglas, or on the creature races at Aintree.
+- Your lead creature keeps step behind you properly now.
+
+Saves from 2.x carry straight over.
+
 ## What's in 2.2
 
 **2.2.1:** your lead creature now keeps step right behind you when you hold a direction, on foot or on the bike, with no more lagging, stalling or snapping to catch up.

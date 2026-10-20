@@ -29,7 +29,8 @@ const FOR_FIRST_VISIT := 1
 const FOR_QUIZ_WIN := 2
 
 ## Zones in the island of Ireland's north (their region says "ireland"), and their rooms by id prefix.
-const NI_ZONES := ["belfast", "bushmills", "derry", "antrim_coast", "causeway", "mournes"]
+const NI_ZONES := ["belfast", "bushmills", "derry", "antrim_coast", "causeway", "mournes",
+	"lough_neagh", "enniskillen"]
 
 ## At Regular, each nation's shops stock one or two things you can't buy elsewhere: [item id, price].
 const EXTRA_STOCK := {

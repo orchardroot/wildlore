@@ -1,0 +1,22 @@
+{"id": "ductling",
+ "palette": {"iron": "#4a4e58", "iron2": "#30343c", "rivet": "#9aa0aa", "beak": "#f0a030", "beak2": "#c87818", "water": "#5a9ac0", "water2": "#a8d4ec", "ink": "#121418", "eye": "#f0f2f4"},
+ "layers": [
+  {"shape": "ellipse", "at": [48, 88], "size": [80, 10], "colour": "water", "rim": false, "shade": false, "pattern": "stripes", "pcolour": "water2", "period": 4, "pangle": 90},
+  {"shape": "poly", "points": [[72, 64], [88, 52], [84, 70]], "colour": "iron"},
+  {"shape": "ellipse", "at": [52, 70], "size": [56, 30], "colour": "iron", "pattern": "stripes", "pcolour": "iron2", "period": 8, "pangle": 0},
+  {"shape": "ellipse", "at": [58, 66], "size": [26, 14], "colour": "iron2", "rim": false, "angle": -10, "pattern": "speckle", "pcolour": "rivet", "density": 10},
+  {"shape": "circle", "at": [38, 42], "r": 16, "colour": "iron", "pattern": "speckle", "pcolour": "iron2", "density": 12},
+  {"shape": "ellipse", "at": [20, 46], "size": [16, 8], "colour": "beak", "pattern": "stripes", "pcolour": "beak2", "period": 4, "pangle": 90},
+  {"shape": "line", "points": [[30, 34], [46, 30]], "width": 1, "colour": "rivet", "shade": false, "front_only": true},
+  {"shape": "circle", "at": [28, 60], "r": 1.5, "colour": "rivet", "rim": false, "shade": false},
+  {"shape": "circle", "at": [44, 80], "r": 1.5, "colour": "rivet", "rim": false, "shade": false},
+  {"shape": "circle", "at": [66, 80], "r": 1.5, "colour": "rivet", "rim": false, "shade": false}
+ ],
+ "face_layers": [
+  {"shape": "line", "points": [[14, 47], [26, 47]], "width": 1, "colour": "beak2", "shade": false}
+ ],
+ "eyes": [
+  {"at": [34, 40], "r": 4, "colour": "eye", "pupil": [2, 3]},
+  {"at": [46, 40], "r": 3.5, "colour": "eye", "pupil": [2, 3]}
+ ]
+}

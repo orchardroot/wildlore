@@ -1,0 +1,110 @@
+{
+ "id": "exeter_tearoom",
+ "name": "Tea Rooms",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "tea_urn",
+   "x": 7,
+   "y": 1
+  },
+  {
+   "type": "kitchen_dresser",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "table",
+   "x": 7,
+   "y": 3
+  },
+  {
+   "type": "table",
+   "x": 7,
+   "y": 5
+  },
+  {
+   "type": "table",
+   "x": 9,
+   "y": 4
+  },
+  {
+   "type": "sofa",
+   "x": 9,
+   "y": 6,
+   "variant": 2,
+   "rot": 270
+  },
+  {
+   "type": "clock",
+   "x": 5,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "wall_picture",
+   "x": 9,
+   "y": 1,
+   "walk": true,
+   "variant": 2
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 6
+  }
+ ],
+ "warps": [
+  {
+   "x": 5,
+   "y": 7,
+   "to": "exeter",
+   "tx": 43,
+   "ty": 14,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "tea_owner",
+   "sprite": "shopkeeper",
+   "x": 3,
+   "y": 3,
+   "facing": "up",
+   "move": "still",
+   "script": "tea_owner",
+   "name": "Mrs Endacott"
+  },
+  {
+   "id": "tea_jory",
+   "sprite": "surfer",
+   "x": 8,
+   "y": 4,
+   "facing": "left",
+   "move": "still",
+   "script": "tea_jory",
+   "name": "Jory"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  5,
+  6
+ ],
+ "rows": [
+  "xxxxxxxxxxx",
+  "x|||||||||x",
+  "x|CCCC||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x||||D||||x",
+  "xxxxxxxxxxx"
+ ]
+}

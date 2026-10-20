@@ -1,0 +1,234 @@
+{
+ "dun_landlady": [
+  {
+   "do": "choice",
+   "text": "What'll it be?",
+   "options": [
+    "The pub quiz",
+    "The McGonagall Night",
+    "Just the view"
+   ],
+   "set": "_fife_inn"
+  },
+  {
+   "do": "if",
+   "flag": "_fife_inn",
+   "then": [
+    {
+     "do": "quiz",
+     "pub": "dundee_tay_inn",
+     "region": "scotland",
+     "who": "Landlady"
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "_fife_inn",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_fife_poet_done",
+       "then": [
+        {
+         "do": "say",
+         "who": "Landlady",
+         "text": "Your name's on the board, champion. Nobody's beaten your poem for sheer awfulness. Nobody's tried very hard."
+        }
+       ],
+       "else": [
+        {
+         "do": "if",
+         "flag": "q_fife_poet_2",
+         "then": [
+          {
+           "do": "say",
+           "who": "Landlady",
+           "text": "Right. Your poem. The worse it is, the better it is. Pick the worst line every time, and I mean the worst."
+          },
+          {
+           "do": "choice",
+           "text": "Your first line:",
+           "options": [
+            "Beautiful river, the silvery Tay, I saw you yesterday and also today",
+            "O Tay, thou glittering ribbon of the north",
+            "The river shone beneath a pewter sky"
+           ],
+           "set": "_fife_poem_1"
+          },
+          {
+           "do": "if",
+           "flag": "_fife_poem_1",
+           "then": [
+            {
+             "do": "choice",
+             "text": "Your second line:",
+             "options": [
+              "And the wind it did blow, which was very bad, and made the people of Dundee feel sad",
+              "The wind came howling down the firth that night",
+              "Grief, like the tide, came in and would not leave"
+             ],
+             "set": "_fife_poem_2"
+            },
+            {
+             "do": "if",
+             "flag": "_fife_poem_2",
+             "then": [
+              {
+               "do": "choice",
+               "text": "Your last line:",
+               "options": [
+                "So I end my poem, here on this page, and it is the finest poem of this age",
+                "And still the river runs, and still we grieve",
+                "The lamps went dark. The bridge was gone. The end."
+               ],
+               "set": "_fife_poem_3"
+              },
+              {
+               "do": "if",
+               "flag": "_fife_poem_3",
+               "then": [
+                {
+                 "do": "say",
+                 "who": "Landlady",
+                 "text": "Oh, that's dreadful. That's magnificent. McGonagall himself would have read that out and been hit with a pea for it. Now: the Bard wants a word."
+                },
+                {
+                 "do": "battle",
+                 "trainer": "dun_bard",
+                 "intro": true
+                },
+                {
+                 "do": "set",
+                 "flag": "q_fife_poet_3",
+                 "value": true
+                },
+                {
+                 "do": "say",
+                 "who": "Landlady",
+                 "text": "Ladies and gentlemen, the new champion of the McGonagall Night! Here, it's tradition: a jar, a bridie, and your name chalked on the board till next year."
+                },
+                {
+                 "do": "give_item",
+                 "item": "dundee_marmalade",
+                 "n": 2
+                },
+                {
+                 "do": "give_item",
+                 "item": "forfar_bridie",
+                 "n": 3
+                },
+                {
+                 "do": "standing",
+                 "nation": "scotland",
+                 "amount": 2
+                },
+                {
+                 "do": "set",
+                 "flag": "q_fife_poet_done",
+                 "value": true
+                }
+               ],
+               "else": [
+                {
+                 "do": "say",
+                 "who": "Landlady",
+                 "text": "No. That's far too good. Somebody might be moved by that. Start again."
+                }
+               ],
+               "eq": 0
+              }
+             ],
+             "else": [
+              {
+               "do": "say",
+               "who": "Landlady",
+               "text": "No, no. That's actually quite good. Start again, and be worse."
+              }
+             ],
+             "eq": 0
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Landlady",
+             "text": "No, no. That's actually quite good. Start again, and be worse."
+            }
+           ],
+           "eq": 0
+          }
+         ],
+         "else": [
+          {
+           "do": "if",
+           "flag": "q_fife_poet_started",
+           "then": [
+            {
+             "do": "say",
+             "who": "Landlady",
+             "text": "You need inspiration first. Go and see the Tay Whale at the McManus, and then go and see what crosses the Tay at night. McGonagall wrote about both."
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Landlady",
+             "text": "Every year we hold a McGonagall Night, in honour of William McGonagall, Dundee's own and the worst poet who ever lived. He was very proud of it. Of the poems. Not the worst bit."
+            },
+            {
+             "do": "say",
+             "who": "Landlady",
+             "text": "Write the worst poem in the room and beat the reigning champion, and you'll have your name on the board. But you'll need inspiration. Start with the Tay Whale at the McManus."
+            },
+            {
+             "do": "set",
+             "flag": "q_fife_poet_started",
+             "value": true
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Landlady",
+       "text": "The silvery Tay, just there. That's what McGonagall called it. Mostly it's grey. Silvery on a good day."
+      }
+     ],
+     "eq": 1
+    }
+   ],
+   "eq": 0
+  }
+ ],
+ "dun_bard_npc": [
+  {
+   "do": "if",
+   "flag": "q_fife_poet_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "The Bard",
+     "text": "Defeated. By a better worse poet. I am humbled. I shall write an ode about it, and it will be dreadful, in your honour."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "The Bard",
+     "text": "I am the reigning champion of the McGonagall Night. My poem about a bus shelter in Broughty Ferry made a grown man weep. Not in a good way."
+    },
+    {
+     "do": "say",
+     "who": "The Bard",
+     "text": "William McGonagall once walked from Dundee to Balmoral to ask Queen Victoria to make him her poet. They turned him away at the gate. He walked home. That's commitment."
+    }
+   ]
+  }
+ ]
+}

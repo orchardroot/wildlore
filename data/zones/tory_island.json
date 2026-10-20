@@ -1,0 +1,431 @@
+{
+ "id": "tory_island",
+ "name": "Toraigh (Tory Island)",
+ "region": "ireland_west",
+ "kind": "route",
+ "music": "route_coast",
+ "stage": "coast",
+ "weather": {
+  "drizzle": 26,
+  "fog": 14,
+  "clear": 18,
+  "gale": 22,
+  "sunshine": 12,
+  "downpour": 8
+ },
+ "scaled_floor": 66,
+ "props": [
+  {
+   "type": "boat",
+   "x": 12,
+   "y": 25,
+   "variant": 0
+  },
+  {
+   "type": "boat",
+   "x": 16,
+   "y": 25,
+   "variant": 1
+  },
+  {
+   "type": "bollard",
+   "x": 10,
+   "y": 22
+  },
+  {
+   "type": "bollard",
+   "x": 18,
+   "y": 22
+  },
+  {
+   "type": "lobster_pots",
+   "x": 17,
+   "y": 23
+  },
+  {
+   "type": "building",
+   "style": "white_render",
+   "x": 7,
+   "y": 15,
+   "w": 5,
+   "h": 4,
+   "label": "Dánlann",
+   "kind": "museum"
+  },
+  {
+   "type": "building",
+   "style": "cream_render",
+   "x": 19,
+   "y": 15,
+   "w": 7,
+   "h": 4,
+   "label": "Club Sóisialta",
+   "kind": "hall"
+  },
+  {
+   "type": "building",
+   "style": "thatch_cottage",
+   "x": 13,
+   "y": 16,
+   "w": 5,
+   "h": 3,
+   "label": "Cottage",
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "thatch_cottage",
+   "x": 27,
+   "y": 16,
+   "w": 5,
+   "h": 3,
+   "label": "Cottage",
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "thatch_cottage",
+   "x": 33,
+   "y": 16,
+   "w": 4,
+   "h": 3,
+   "label": "Cottage",
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "round_tower",
+   "x": 22,
+   "y": 11,
+   "w": 2,
+   "h": 3,
+   "label": "Round Tower",
+   "kind": "church",
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "tau_cross",
+   "x": 18,
+   "y": 13,
+   "w": 1,
+   "h": 1,
+   "label": "Tau Cross",
+   "show_label": false
+  },
+  {
+   "type": "lighthouse",
+   "x": 4,
+   "y": 15
+  },
+  {
+   "type": "standing_stone",
+   "x": 44,
+   "y": 12,
+   "variant": 2
+  },
+  {
+   "type": "standing_stone",
+   "x": 46,
+   "y": 12,
+   "variant": 2
+  }
+ ],
+ "warps": [
+  {
+   "x": 9,
+   "y": 18,
+   "to": "tory_gallery",
+   "tx": 6,
+   "ty": 5,
+   "facing": "up"
+  },
+  {
+   "x": 22,
+   "y": 18,
+   "to": "tory_club",
+   "tx": 7,
+   "ty": 6,
+   "facing": "up"
+  }
+ ],
+ "npcs": [
+  {
+   "id": "tory_boatman",
+   "sprite": "sailor",
+   "x": 15,
+   "y": 22,
+   "facing": "up",
+   "move": "still",
+   "script": "tory_boatman",
+   "name": "Tory Boatman"
+  },
+  {
+   "id": "tory_king_npc",
+   "sprite": "fisherman_north",
+   "x": 13,
+   "y": 21,
+   "facing": "down",
+   "move": "still",
+   "script": "tory_king",
+   "name": "Séamus of the Pier"
+  },
+  {
+   "id": "tory_painter",
+   "sprite": "poet",
+   "x": 9,
+   "y": 20,
+   "facing": "up",
+   "move": "still",
+   "trainer": "tory_painter"
+  },
+  {
+   "id": "tory_elder",
+   "sprite": "villager_2",
+   "x": 29,
+   "y": 20,
+   "facing": "up",
+   "move": "still",
+   "script": "tory_elder",
+   "name": "Island Storyteller"
+  },
+  {
+   "id": "tory_pretender",
+   "sprite": "tour_guide",
+   "x": 23,
+   "y": 14,
+   "facing": "down",
+   "move": "still",
+   "script": "tory_pretender",
+   "name": "Mainland Pretender",
+   "hide_if": "q_donegal_tory_done"
+  },
+  {
+   "id": "tory_birder",
+   "sprite": "birdwatcher",
+   "x": 33,
+   "y": 12,
+   "facing": "up",
+   "move": "still",
+   "trainer": "tory_birder"
+  },
+  {
+   "id": "balor_spot",
+   "sprite": "creature:balor",
+   "x": 45,
+   "y": 13,
+   "facing": "left",
+   "move": "still",
+   "script": "balor",
+   "name": "Balor",
+   "hide_if": "caught_balor"
+  }
+ ],
+ "signs": [
+  {
+   "x": 19,
+   "y": 22,
+   "text": "TORAIGH, TORY ISLAND. Fourteen kilometres off the Donegal coast, about five long and one wide, with fewer than a hundred and fifty people, no trees and a great deal of weather. Irish is the language here.",
+   "plaque": "donegal_tory",
+   "title": "Tory Island"
+  },
+  {
+   "x": 17,
+   "y": 14,
+   "text": "AN TAU, THE TAU CROSS. A rare T-shaped stone cross, very old, standing by the harbour road. Nobody is quite sure who carved it. Everybody is quite sure it is theirs.",
+   "plaque": "donegal_tau_cross",
+   "title": "The Tau Cross"
+  },
+  {
+   "x": 25,
+   "y": 13,
+   "text": "THE ROUND TOWER. Part of the monastery that tradition says St Colmcille founded here in the sixth century. Tory clay from the saint's grave was said to keep rats away, and the island has famously had none.",
+   "plaque": "donegal_tory_tower",
+   "title": "Colmcille's Tower"
+  },
+  {
+   "x": 10,
+   "y": 19,
+   "text": "THE TORY PAINTERS. In the 1950s the painter Derek Hill came to Tory to paint. A fisherman, James Dixon, looked over his shoulder, said he could do better, and did: islanders painting the sea and the cliffs became famous as the Tory school.",
+   "plaque": "donegal_tory_painters",
+   "title": "The Tory Painters"
+  },
+  {
+   "x": 26,
+   "y": 20,
+   "text": "RÍ THORAÍ, THE KING OF TORY. The island has a king, chosen by the islanders rather than born to it. He has no crown and no palace. His job is to welcome visitors off the boat and speak up for Tory.",
+   "plaque": "donegal_tory_king",
+   "title": "The King of Tory"
+  },
+  {
+   "x": 41,
+   "y": 13,
+   "text": "DÚN BHALOIR, BALOR'S FORT. A promontory fort on the cliffs of the east end, cut off by ditches across the neck of the headland. The legends say it was the stronghold of Balor of the Evil Eye, king of the Fomorians.",
+   "plaque": "donegal_balors_fort",
+   "title": "Balor's Fort"
+  },
+  {
+   "x": 30,
+   "y": 13,
+   "text": "THE CORNCRAKE. Tory's long meadows are one of the last places in Ireland where you can hear the corncrake's dry 'crex crex' at night. You will almost never see one. They do not care to be seen.",
+   "plaque": "donegal_corncrake",
+   "title": "The Corncrake"
+  }
+ ],
+ "rows": [
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$RRR$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$RR$RRRRRRRRRRg,gRRRRRRR$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$RRR,gR,ggggggggg,,,,,gggggRR^^^^$$$$$$$$$$$$$",
+  "$$$$RRR,gg,g,,,gggggggg,,,,,,ggg,,,ggg^$$$$$$$$$$$$$",
+  "$$RRgggggg,ggggg,ggg,,g,,,,ggggg,,,gffg^^$$$$$$$$$$$",
+  "$$Rggggggggggggggg,g,,BBggggggggggggggfgg^^^^^$$$$$$",
+  "$$Rggg,ggggggggggg,gg,BBggfggfgggggggggggggggggg$$$$",
+  "$$Rgg,,gggggggggggB,ggBBggggggggggggggggggg,,,,g^$$$",
+  "$$R,,,,,,,ggggggggggggggggggggggggg,,gg###g,,,,g^$$$",
+  "$$Rgg##BBBBBggggg,,BBBBBBBggg,,,,,,g,,g###gggggg^$$$",
+  "$$Rg,##BBBBBgBBBBB,BBBBBBB,BBBBB,BBBB,g##^^$^^$$$$$$",
+  "$$Rg,##BBBBBgBBBBBgBBBBBBB,BBBBBgBBBBgg##$$$$$$$$$$$",
+  "$$Rgg##BBDBBgBBBBBgBBBDBBB,BBBBBgBBBBg^##$$$$$$$$$$$",
+  "$$Rg,,###################################$$$$$$$$$$$",
+  "$$Rgg,##################################$$$$$$$$$$$$",
+  "$$RgR,,,,,::::##:::gggffgggggggggggggg^$$$$$$$$$$$$$",
+  "$$RR$RRRRR:::::::::,ggggggg,ggggggR^^^^$$$$$$$$$$$$$",
+  "$$$$$$$$$$:::::::::RRRRRRRRRRRRRRR$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$o~~~~~~~o$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$ooooooooo$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$ooooooooo$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
+ ],
+ "edges": {},
+ "encounters": {
+  "grass": [
+   {
+    "species": "crexling",
+    "min": 66,
+    "max": 67,
+    "weight": 14
+   },
+   {
+    "species": "corncrake",
+    "min": 66,
+    "max": 67,
+    "weight": 6,
+    "time": [
+     "dusk",
+     "night"
+    ]
+   },
+   {
+    "species": "puffling",
+    "min": 66,
+    "max": 67,
+    "weight": 10,
+    "time": [
+     "dawn",
+     "day"
+    ]
+   },
+   {
+    "species": "gannetling",
+    "min": 66,
+    "max": 67,
+    "weight": 8
+   },
+   {
+    "species": "liagling",
+    "min": 66,
+    "max": 67,
+    "weight": 12
+   },
+   {
+    "species": "chipgull",
+    "min": 66,
+    "max": 67,
+    "weight": 10
+   },
+   {
+    "species": "petrelash",
+    "min": 66,
+    "max": 67,
+    "weight": 6,
+    "time": [
+     "night"
+    ]
+   },
+   {
+    "species": "leveret",
+    "min": 66,
+    "max": 67,
+    "weight": 6
+   }
+  ],
+  "water": [
+   {
+    "species": "pupplash",
+    "min": 66,
+    "max": 67,
+    "weight": 16
+   },
+   {
+    "species": "greyhaul",
+    "min": 66,
+    "max": 67,
+    "weight": 8
+   },
+   {
+    "species": "dolphlet",
+    "min": 66,
+    "max": 67,
+    "weight": 8,
+    "time": [
+     "day"
+    ]
+   },
+   {
+    "species": "gannetling",
+    "min": 66,
+    "max": 67,
+    "weight": 10
+   },
+   {
+    "species": "pinchkin",
+    "min": 66,
+    "max": 67,
+    "weight": 10
+   },
+   {
+    "species": "plungebeak",
+    "min": 66,
+    "max": 67,
+    "weight": 6
+   }
+  ]
+ },
+ "spawn": [
+  14,
+  20
+ ],
+ "ferry": {
+  "x": 14,
+  "y": 22,
+  "route": "gweedore_tory"
+ },
+ "legend_extra": {
+  "g": {
+   "tile": "grass",
+   "colour": "#7c9150"
+  },
+  ",": {
+   "tile": "tall_grass",
+   "colour": "#8a9a52"
+  }
+ }
+}

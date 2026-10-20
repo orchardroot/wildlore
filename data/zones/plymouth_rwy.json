@@ -1,0 +1,130 @@
+{
+ "id": "plymouth_rwy",
+ "name": "Royal William Yard",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "table",
+   "x": 3,
+   "y": 3
+  },
+  {
+   "type": "table",
+   "x": 3,
+   "y": 6
+  },
+  {
+   "type": "table",
+   "x": 6,
+   "y": 3
+  },
+  {
+   "type": "table",
+   "x": 6,
+   "y": 6
+  },
+  {
+   "type": "bench",
+   "x": 3,
+   "y": 4
+  },
+  {
+   "type": "bench",
+   "x": 6,
+   "y": 4
+  },
+  {
+   "type": "bench",
+   "x": 3,
+   "y": 7
+  },
+  {
+   "type": "bench",
+   "x": 6,
+   "y": 7
+  },
+  {
+   "type": "kitchen_dresser",
+   "x": 11,
+   "y": 1
+  },
+  {
+   "type": "tea_urn",
+   "x": 12,
+   "y": 3
+  },
+  {
+   "type": "display_case",
+   "x": 12,
+   "y": 6,
+   "variant": 1
+  },
+  {
+   "type": "wall_picture",
+   "x": 8,
+   "y": 1,
+   "walk": true,
+   "variant": 2
+  },
+  {
+   "type": "clock",
+   "x": 5,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "potted_plant",
+   "x": 13,
+   "y": 8
+  }
+ ],
+ "warps": [
+  {
+   "x": 7,
+   "y": 8,
+   "to": "plymouth",
+   "tx": 10,
+   "ty": 26,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "rwy_baker",
+   "sprite": "villager_6",
+   "x": 10,
+   "y": 4,
+   "facing": "down",
+   "move": "still",
+   "script": "rwy_baker",
+   "name": "Baker"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  7,
+  7
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxxx",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x++++++D++++++x",
+  "xxxxxxxxxxxxxxx"
+ ]
+}

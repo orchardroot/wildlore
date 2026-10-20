@@ -145,5 +145,56 @@
     }
    ]
   }
+ ],
+ "est_box_cranmere": [
+  {
+   "do": "if",
+   "flag": "q_devon_letterbox_3",
+   "then": [
+    {
+     "do": "say",
+     "who": "Letterboxer Tom",
+     "text": "The oldest box on Dartmoor. You've stamped it, so you're one of us now. Mind the bog on the way down."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_devon_letterbox_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "Letterboxer Tom",
+       "text": "Cranmere Pool! You made it. Took me three goes and a sock full of bog. The box is in that cairn there, by the visitors' book."
+      },
+      {
+       "do": "sfx",
+       "id": "item"
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "You stamp your book: a little bottle with a card in it, and the date 1854."
+      },
+      {
+       "do": "set",
+       "flag": "q_devon_letterbox_3"
+      },
+      {
+       "do": "say",
+       "who": "Letterboxer Tom",
+       "text": "That's the set. Go and tell the letterboxer on the B3212. Mind, she'll have another job for you. She always does."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Letterboxer Tom",
+       "text": "Cranmere Pool, the first letterbox of them all. Find the two down by the Exe first, then come back up. It's tradition, and also I'm having my sandwiches."
+      }
+     ]
+    }
+   ]
+  }
  ]
 }

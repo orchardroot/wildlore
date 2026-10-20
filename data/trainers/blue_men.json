@@ -1,0 +1,36 @@
+{
+ "id": "blue_men",
+ "name": "The Blue Men of the Minch",
+ "class": "Sea Spirits",
+ "sprite": "creature:skaldwake",
+ "party": [
+  {
+   "species": "minchman",
+   "level": 75
+  },
+  {
+   "species": "skaldling",
+   "level": 74
+  },
+  {
+   "species": "skaldwake",
+   "level": 76
+  },
+  {
+   "species": "minchman",
+   "level": 76
+  }
+ ],
+ "ai": "trainer",
+ "money": 3500,
+ "intro": [
+  {
+   "do": "say",
+   "who": "The Blue Men of the Minch",
+   "text": "'We rhymed, you rhymed, but can you swim?' says the chief, and the sea stands up on its hind legs."
+  }
+ ],
+ "win": "A rhyme for the end: 'You win, we bow, our work's done now.'",
+ "after": "The foam winks.",
+ "scaled_floor": 74
+}

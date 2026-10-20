@@ -1,0 +1,912 @@
+{
+ "id": "lincoln",
+ "name": "Lincoln",
+ "region": "midlands",
+ "kind": "town",
+ "music": "town_cheshire",
+ "weather": {
+  "clear": 28,
+  "drizzle": 24,
+  "sunshine": 18,
+  "fog": 14,
+  "gale": 10,
+  "downpour": 6
+ },
+ "props": [
+  {
+   "type": "building",
+   "style": "castle",
+   "x": 5,
+   "y": 3,
+   "w": 14,
+   "h": 8,
+   "label": "Lincoln Castle",
+   "kind": "castle"
+  },
+  {
+   "type": "building",
+   "style": "lincoln_cathedral",
+   "x": 38,
+   "y": 3,
+   "w": 18,
+   "h": 7,
+   "label": "Lincoln Cathedral",
+   "kind": "church"
+  },
+  {
+   "type": "building",
+   "style": "limestone_house",
+   "x": 3,
+   "y": 12,
+   "w": 6,
+   "h": 3,
+   "label": "The Strugglers Inn"
+  },
+  {
+   "type": "building",
+   "style": "limestone_house",
+   "x": 24,
+   "y": 18,
+   "w": 6,
+   "h": 3,
+   "label": "The Jew's House"
+  },
+  {
+   "type": "building",
+   "style": "limestone_house",
+   "x": 24,
+   "y": 22,
+   "w": 6,
+   "h": 3,
+   "label": "Steep Hill Tea Room"
+  },
+  {
+   "type": "building",
+   "style": "limestone_house",
+   "x": 24,
+   "y": 26,
+   "w": 6,
+   "h": 3,
+   "label": "Steep Hill Books"
+  },
+  {
+   "type": "building",
+   "style": "limestone_house",
+   "x": 34,
+   "y": 18,
+   "w": 6,
+   "h": 3,
+   "label": "Sausage Makers"
+  },
+  {
+   "type": "building",
+   "style": "limestone_house",
+   "x": 34,
+   "y": 22,
+   "w": 6,
+   "h": 3,
+   "label": "Imp Jewellers"
+  },
+  {
+   "type": "building",
+   "style": "limestone_house",
+   "x": 34,
+   "y": 26,
+   "w": 6,
+   "h": 3,
+   "label": "Steep Hill Galleries"
+  },
+  {
+   "type": "building",
+   "style": "sanctuary",
+   "x": 35,
+   "y": 40,
+   "w": 6,
+   "h": 4,
+   "label": "Sanctuary"
+  },
+  {
+   "type": "building",
+   "style": "shop",
+   "x": 43,
+   "y": 40,
+   "w": 5,
+   "h": 4,
+   "label": "Corner Shop"
+  },
+  {
+   "type": "building",
+   "style": "stone",
+   "x": 4,
+   "y": 29,
+   "w": 9,
+   "h": 4,
+   "label": "Museum of Lincolnshire Life",
+   "kind": "museum"
+  },
+  {
+   "type": "building",
+   "style": "tank_memorial",
+   "x": 57,
+   "y": 32,
+   "w": 3,
+   "h": 2,
+   "label": "Tank Memorial",
+   "show_label": false
+  },
+  {
+   "type": "canal_boat",
+   "x": 8,
+   "y": 44,
+   "variant": 2
+  },
+  {
+   "type": "canal_boat",
+   "x": 14,
+   "y": 47,
+   "variant": 2
+  },
+  {
+   "type": "canal_boat",
+   "x": 19,
+   "y": 45,
+   "variant": 1
+  },
+  {
+   "type": "boat",
+   "x": 11,
+   "y": 49,
+   "variant": 1
+  },
+  {
+   "type": "building",
+   "style": "station",
+   "x": 36,
+   "y": 48,
+   "w": 8,
+   "h": 2,
+   "label": "Lincoln Central"
+  },
+  {
+   "type": "building",
+   "style": "glass_tower",
+   "x": 52,
+   "y": 52,
+   "w": 9,
+   "h": 3,
+   "label": "International Bomber Command Centre",
+   "kind": "museum"
+  },
+  {
+   "type": "building",
+   "style": "spire_memorial",
+   "x": 63,
+   "y": 52,
+   "w": 1,
+   "h": 1,
+   "label": "The Spire",
+   "show_label": false
+  },
+  {
+   "type": "oak",
+   "x": 66,
+   "y": 18,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 58,
+   "y": 28,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 66,
+   "y": 28,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 57,
+   "y": 26,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 56,
+   "y": 17,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 56,
+   "y": 25,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 67,
+   "y": 27,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 68,
+   "y": 17,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 57,
+   "y": 18,
+   "variant": 1
+  },
+  {
+   "type": "birch",
+   "x": 4,
+   "y": 21,
+   "variant": 2
+  },
+  {
+   "type": "birch",
+   "x": 7,
+   "y": 24,
+   "variant": 1
+  },
+  {
+   "type": "birch",
+   "x": 6,
+   "y": 24,
+   "variant": 2
+  },
+  {
+   "type": "birch",
+   "x": 18,
+   "y": 17,
+   "variant": 2
+  },
+  {
+   "type": "lamp_post",
+   "x": 29,
+   "y": 16
+  },
+  {
+   "type": "lamp_post",
+   "x": 33,
+   "y": 20
+  },
+  {
+   "type": "lamp_post",
+   "x": 29,
+   "y": 33
+  },
+  {
+   "type": "lamp_post",
+   "x": 34,
+   "y": 39
+  },
+  {
+   "type": "lamp_post",
+   "x": 27,
+   "y": 39
+  },
+  {
+   "type": "lamp_post",
+   "x": 48,
+   "y": 39
+  },
+  {
+   "type": "lamp_post",
+   "x": 14,
+   "y": 39
+  },
+  {
+   "type": "lamp_post",
+   "x": 38,
+   "y": 11
+  },
+  {
+   "type": "lamp_post",
+   "x": 56,
+   "y": 11
+  },
+  {
+   "type": "lamp_post",
+   "x": 24,
+   "y": 11
+  },
+  {
+   "type": "bench",
+   "x": 42,
+   "y": 11
+  },
+  {
+   "type": "bench",
+   "x": 50,
+   "y": 15
+  },
+  {
+   "type": "bench",
+   "x": 17,
+   "y": 15
+  },
+  {
+   "type": "bench",
+   "x": 26,
+   "y": 41
+  },
+  {
+   "type": "bench",
+   "x": 52,
+   "y": 44
+  },
+  {
+   "type": "phone_box",
+   "x": 29,
+   "y": 35
+  },
+  {
+   "type": "phone_box",
+   "x": 51,
+   "y": 39
+  },
+  {
+   "type": "post_box",
+   "x": 33,
+   "y": 35
+  }
+ ],
+ "warps": [
+  {
+   "x": 38,
+   "y": 43,
+   "to": "lincoln_sanctuary",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 45,
+   "y": 43,
+   "to": "lincoln_shop",
+   "tx": 4,
+   "ty": 5,
+   "facing": "up"
+  },
+  {
+   "x": 47,
+   "y": 9,
+   "to": "lincoln_cathedral",
+   "tx": 7,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 12,
+   "y": 10,
+   "to": "lincoln_castle",
+   "tx": 7,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 6,
+   "y": 14,
+   "to": "lincoln_strugglers",
+   "tx": 6,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 36,
+   "y": 20,
+   "to": "lincoln_butcher",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 27,
+   "y": 24,
+   "to": "lincoln_tearoom",
+   "tx": 6,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 27,
+   "y": 20,
+   "to": "lincoln_jewshouse",
+   "tx": 6,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 8,
+   "y": 32,
+   "to": "lincoln_lincslife",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 56,
+   "y": 54,
+   "to": "lincoln_ibcc",
+   "tx": 6,
+   "ty": 6,
+   "facing": "up"
+  }
+ ],
+ "edges": {
+  "west": {
+   "to": "nottingham",
+   "offset": -4
+  }
+ },
+ "npcs": [
+  {
+   "id": "rail_guard",
+   "sprite": "rail_guard",
+   "x": 45,
+   "y": 50,
+   "facing": "left",
+   "move": "still",
+   "script": "rail_guard"
+  },
+  {
+   "id": "lincoln_imp_spot",
+   "sprite": "creature:lincolnimp",
+   "x": 54,
+   "y": 13,
+   "facing": "down",
+   "move": "still",
+   "script": "imp_spot",
+   "show_if": "q_humber_imp_2",
+   "hide_if": "caught_lincolnimp"
+  },
+  {
+   "id": "lin_yellowbelly",
+   "sprite": "villager_2",
+   "x": 28,
+   "y": 14,
+   "facing": "down",
+   "move": "still",
+   "script": "lin_yellowbelly"
+  },
+  {
+   "id": "lin_cyclist_fan",
+   "sprite": "jogger",
+   "x": 33,
+   "y": 32,
+   "facing": "left",
+   "move": "wander",
+   "script": "lin_cyclist_fan"
+  },
+  {
+   "id": "lin_swans",
+   "sprite": "canal_boater",
+   "x": 26,
+   "y": 42,
+   "facing": "down",
+   "move": "still",
+   "script": "lin_swans"
+  },
+  {
+   "id": "lin_spire_guide",
+   "sprite": "tour_guide",
+   "x": 57,
+   "y": 56,
+   "facing": "up",
+   "move": "still",
+   "script": "lin_spire_guide"
+  },
+  {
+   "id": "lin_ringer",
+   "sprite": "choir_singer",
+   "x": 40,
+   "y": 13,
+   "facing": "down",
+   "move": "still",
+   "trainer": "lin_ringer"
+  },
+  {
+   "id": "lin_imps",
+   "sprite": "rugby_player",
+   "x": 18,
+   "y": 37,
+   "facing": "up",
+   "move": "still",
+   "trainer": "lin_imps"
+  },
+  {
+   "id": "lin_cyclist",
+   "sprite": "jogger",
+   "x": 33,
+   "y": 24,
+   "facing": "left",
+   "move": "still",
+   "trainer": "lin_cyclist"
+  },
+  {
+   "id": "lin_raf",
+   "sprite": "astronomer",
+   "x": 47,
+   "y": 56,
+   "facing": "up",
+   "move": "still",
+   "trainer": "lin_raf"
+  },
+  {
+   "id": "lin_sausage",
+   "sprite": "villager_6",
+   "x": 40,
+   "y": 45,
+   "facing": "up",
+   "move": "still",
+   "trainer": "lin_sausage"
+  },
+  {
+   "id": "lin_nicola",
+   "sprite": "keeper_maud",
+   "x": 14,
+   "y": 13,
+   "facing": "down",
+   "move": "still",
+   "trainer": "lin_nicola"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "rooklet",
+    "min": 88,
+    "max": 88,
+    "weight": 14
+   },
+   {
+    "species": "cooplet",
+    "min": 88,
+    "max": 88,
+    "weight": 14
+   },
+   {
+    "species": "peregrin",
+    "min": 88,
+    "max": 88,
+    "weight": 8,
+    "time": [
+     "day"
+    ]
+   },
+   {
+    "species": "binfox",
+    "min": 88,
+    "max": 88,
+    "weight": 10,
+    "time": [
+     "night",
+     "dusk"
+    ]
+   },
+   {
+    "species": "starlet",
+    "min": 88,
+    "max": 88,
+    "weight": 10
+   },
+   {
+    "species": "legionette",
+    "min": 88,
+    "max": 88,
+    "weight": 8,
+    "time": [
+     "night",
+     "dusk"
+    ]
+   },
+   {
+    "species": "glowmite",
+    "min": 88,
+    "max": 88,
+    "weight": 8,
+    "time": [
+     "night"
+    ]
+   },
+   {
+    "species": "hootlet",
+    "min": 88,
+    "max": 88,
+    "weight": 6,
+    "time": [
+     "night"
+    ]
+   },
+   {
+    "species": "spikkin",
+    "min": 88,
+    "max": 88,
+    "weight": 8
+   },
+   {
+    "species": "pipkin",
+    "min": 88,
+    "max": 88,
+    "weight": 8
+   }
+  ],
+  "water": [
+   {
+    "species": "stalklet",
+    "min": 88,
+    "max": 88,
+    "weight": 20
+   },
+   {
+    "species": "dipling",
+    "min": 88,
+    "max": 88,
+    "weight": 18
+   },
+   {
+    "species": "elverlet",
+    "min": 88,
+    "max": 88,
+    "weight": 14
+   },
+   {
+    "species": "pollanet",
+    "min": 88,
+    "max": 88,
+    "weight": 14
+   },
+   {
+    "species": "cranelet",
+    "min": 88,
+    "max": 88,
+    "weight": 10
+   },
+   {
+    "species": "minkshade",
+    "min": 88,
+    "max": 88,
+    "weight": 8,
+    "time": [
+     "night",
+     "dusk"
+    ]
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 45,
+   "y": 11,
+   "text": "LINCOLN CATHEDRAL. When its central spire was finished, around 1311, this was the tallest building in the world, taller than the Great Pyramid, and it stayed so for over two hundred years until the spire blew down in a storm in 1548. Nobody built it back. The towers are still enormous, as your neck will tell you.",
+   "plaque": "lincoln_cathedral_spire",
+   "title": "The Tallest Building in the World"
+  },
+  {
+   "x": 52,
+   "y": 11,
+   "text": "THE LINCOLN IMP. Inside, high in the Angel Choir, sits a little stone imp with one leg crossed. The story goes the Devil sent two imps to make mischief; one smashed up the choir until an angel turned it to stone. The other is said to wait outside for it, which is why the wind always blows round the cathedral.",
+   "plaque": "lincoln_imp",
+   "title": "The Lincoln Imp"
+  },
+  {
+   "x": 13,
+   "y": 15,
+   "text": "LINCOLN CASTLE. Built by William the Conqueror from 1068 on top of the Roman city. It has two mottes, the mounds under its towers, which only one other English castle can match. It was a prison into the 1870s, and you can still walk the full circuit of its walls.",
+   "plaque": "lincoln_castle",
+   "title": "Lincoln Castle"
+  },
+  {
+   "x": 23,
+   "y": 15,
+   "text": "MAGNA CARTA. Four original copies of the charter King John sealed at Runnymede in June 1215 survive, and one of them is here in the castle, as it has been in Lincoln almost from the start. The Pope annulled it within ten weeks, but it was reissued, and three of its clauses are still law in England and Wales.",
+   "plaque": "lincoln_magna_carta",
+   "title": "Magna Carta"
+  },
+  {
+   "x": 36,
+   "y": 15,
+   "text": "LINCOLN GREEN. In the Middle Ages Lincoln was rich on wool and cloth, and its dyers were famous for a green made by dyeing woad blue over weld yellow. Robin Hood's men wore Lincoln green in the old ballads, which Nottingham is welcome to.",
+   "plaque": "lincoln_lincoln_green",
+   "title": "Lincoln Green"
+  },
+  {
+   "x": 26,
+   "y": 6,
+   "text": "NEWPORT ARCH. Up Bailgate stands the north gate of Roman Lincoln, Lindum Colonia, built in the 3rd century. It is the only Roman arch in Britain that traffic still drives through, though in 1964 a lorry got stuck in it and everybody held their breath.",
+   "plaque": "lincoln_newport_arch",
+   "title": "Newport Arch"
+  },
+  {
+   "x": 60,
+   "y": 11,
+   "text": "PEREGRINES. A pair of peregrine falcons nest high on the cathedral, the fastest animal on Earth in a dive. Look for pigeon feathers drifting down on Minster Yard, and a lot of nervous pigeons.",
+   "plaque": "lincoln_peregrines",
+   "title": "Cathedral Peregrines"
+  },
+  {
+   "x": 26,
+   "y": 20,
+   "text": "BLUE PLAQUE: The Jew's House, built around 1160, is one of the oldest houses in England still lived in. Lincoln had a large medieval Jewish community; Aaron of Lincoln was the richest man in England in his day. In 1290 Edward I expelled every Jew from the kingdom.",
+   "plaque": "lincoln_jews_house",
+   "title": "The Jew's House",
+   "kind": "plaque",
+   "dx": 0.475
+  },
+  {
+   "x": 33,
+   "y": 30,
+   "text": "STEEP HILL. It is. The cobbled street joining downhill to uphill climbs so sharply there are handrails, and in 2012 it was named Britain's best street. Cyclists in the Lincoln Grand Prix race up the cobbles nearby on Michaelgate, and some of them walk.",
+   "plaque": "lincoln_steep_hill",
+   "title": "Steep Hill"
+  },
+  {
+   "x": 58,
+   "y": 35,
+   "text": "THE FIRST TANKS. William Foster and Co. of Lincoln built Little Willie, the first tank, in 1915, then 'Mother', the shape of all the tanks that fought in the First World War. Workers were told they were making water carriers, so they were called tanks. The memorial is a Mark IV, built here too.",
+   "plaque": "lincoln_tanks",
+   "title": "The First Tanks"
+  },
+  {
+   "x": 25,
+   "y": 40,
+   "text": "BRAYFORD POOL. A natural lake on the River Witham, and the reason Lincoln is here at all. The Romans dug the Fossdyke from here to the Trent, about AD 120, and it is the oldest canal in England still in use. Swans run the place now.",
+   "plaque": "lincoln_brayford",
+   "title": "Brayford Pool"
+  },
+  {
+   "x": 63,
+   "y": 54,
+   "text": "BOMBER COUNTY. Lincolnshire, flat and close to the North Sea, held dozens of RAF bomber airfields in the Second World War. The Dambusters flew from Scampton, just north of here, in May 1943. Crews coming home looked for the cathedral on its hill. This spire is as tall as a Lancaster's wings are wide, and the walls round it list more than 57,000 names.",
+   "plaque": "lincoln_bomber_county",
+   "title": "Bomber County"
+  },
+  {
+   "x": 56,
+   "y": 28,
+   "text": "THE ARBORETUM. A Victorian park opened in 1872 for the people of Lincoln, with a maze, a bandstand and a lion statue that has seen generations of children climb on it.",
+   "plaque": "lincoln_arboretum",
+   "title": "Lincoln Arboretum"
+  }
+ ],
+ "spawn": [
+  3,
+  37
+ ],
+ "stage": "castle",
+ "town_id": "lincoln",
+ "scaled_floor": 88,
+ "station": {
+  "x": 40,
+  "y": 50
+ },
+ "rows": [
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TT....................................................................TT",
+  "TT...BBBBBBBBBBBBBB.:::...............BBBBBBBBBBBBBBBBBB..............TT",
+  "TT...BBBBBBBBBBBBBB.:::...............BBBBBBBBBBBBBBBBBB..............TT",
+  "TT...BBBBBBBBBBBBBB.:::...............BBBBBBBBBBBBBBBBBB..............TT",
+  "TT...BBBBBBBBBBBBBB.:::...............BBBBBBBBBBBBBBBBBB..............TT",
+  "TT...BBBBBBBBBBBBBB.:::...............BBBBBBBBBBBBBBBBBB..............TT",
+  "TT...BBBBBBBBBBBBBB.:::...............BBBBBBBBBBBBBBBBBB..............TT",
+  "TT...BBBBBBBBBBBBBB.:::...............BBBBBBBBBDBBBBBBBB..............TT",
+  "TT...BBBBBBBDBBBBBB.:::........................:......................TT",
+  "TT..........:.......:::........................:......................TT",
+  "TT:BBBBBB:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::..TT",
+  "TT:BBBBBB:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::..TT",
+  "TT:BBBDBB:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::..TT",
+  "TT::::::::::::................:::.....................................TT",
+  "TT............................:::.....................................TT",
+  "TT............................:::............................,.,......TT",
+  "TT......................BBBBBB:::.BBBBBB..................,.,,,,,,....TT",
+  "TT......................BBBBBB:::.BBBBBB..................,,,,,,,,,...TT",
+  "TT......................BBBDBB:::.BBDBBB.................,,,,,,,,,,,..TT",
+  "TT......................:::::::::.::::::................,,,,,,,,,,,,..TT",
+  "TT......................BBBBBB:::.BBBBBB................,,,,,,,,,,,,,.TT",
+  "TT......................BBBBBB:::.BBBBBB.................,,,,,,,,,,,,.TT",
+  "TT......................BBBDBB:::.BBBBBB.................,,,,,,,,,,,..TT",
+  "TT......................:::::::::.::::::..................,,,,,,,,,...TT",
+  "TT......................BBBBBB:::.BBBBBB....................,,,,,,,...TT",
+  "TT......................BBBBBB:::.BBBBBB......................,,......TT",
+  "TT......................BBBBBB:::.BBBBBB..............................TT",
+  "TT..BBBBBBBBB...........:::::::::.::::::..............................TT",
+  "TT..BBBBBBBBB.................:::.....................................TT",
+  "TT..BBBBBBBBB.................:::.....................................TT",
+  "TT..BBBBDBBBB.................:::........................BBB..........TT",
+  "TT......:.....................:::........................BBB..........TT",
+  "TT......:.....................:::......................:::::::........TT",
+  "TT......:.....................:::......................:::::::........TT",
+  "==================================================================....TT",
+  "==================================================================....TT",
+  "==================================================================....TT",
+  "TT............................===.....................................TT",
+  "TT............................===..BBBBBB..BBBBB......................TT",
+  "TT.wwwwwwwwwwwwwwwwwwwww::::::===..BBBBBB..BBBBB......................TT",
+  "TT.w~~~~~~~~~~~~~~~~~~~w......===..BBBBBB..BBBBB......................TT",
+  "TT.w~~~~~~~~~~~~~~~~~~~w......===..BBBDBB..BBDBB......................TT",
+  "TT.w~~~~~~~~~~~~~~~~~~~w......===.:::::::::::::::::...................TT",
+  "~~~w~~~~~~~~~~~~~~~~~~~w......===.....................................TT",
+  "~~~w~~~~~~~~~~~~~~~~~~~w......===.....................................TT",
+  "TT.w~~~~~~~~~~~~~~~~~~~w......===.....................................TT",
+  "TT.w~~~~~~~~~~~~~~~~~~~w......===...BBBBBBBB..........................TT",
+  "TT.w~~~~~~~~~~~~~~~~~~~w......===..:BBBBDBBB:.........................TT",
+  "TT.w~~~~~~~~~~~~~~~~~~~w......===..:________:.........................TT",
+  "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!&&&!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",
+  "TT............................===...................BBBBBBBBB..B......TT",
+  "TT............................===...................BBBBBBBBB.........TT",
+  "TT............................===...................BBBBDBBBB.........TT",
+  "TT............................===::::::::::::::::::::::::::::::::::...TT",
+  "TT............................===.....................................TT",
+  "TT............................===.....................................TT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT"
+ ],
+ "heights": [
+  "333333333333333333333333333333333333333333333333333333333333333333333333",
+  "333333333333333333333333333333333333333333333333333333333333333333333333",
+  "333333333333333333333333333333333333333333333333333333333333333333333333",
+  "333333333333333333333333333333333333333333333333333333333333333333333333",
+  "333333333333333333333333333333333333333333333333333333333333333333333333",
+  "333333333333333333333333333333333333333333333333333333333333333333333333",
+  "333333333333333333333333333333333333333333333333333333333333333333333333",
+  "333333333333333333333333333333333333333333333333333333333333333333333333",
+  "333333333333333333333333333333333333333333333333333333333333333333333333",
+  "333333333333333333333333333333333333333333333333333333333333333333333333",
+  "333333333333333333333333333333333333333333333333333333333333333333333333",
+  "333333333333333333333333333333333333333333333333333333333333333333333333",
+  "333333333333333333333333333333333333333333333333333333333333333333333333",
+  "333333333333333333333333333333333333333333333333333333333333333333333333",
+  "333333333333333333333333333333333333333333333333333333333333333333333333",
+  "333333333333333333333333333333333333333333333333333333333333333333333333",
+  "333333333333333333333333333333333333333333333333333333333333333333333333",
+  "333333333333333333333333333333333333333333333333333333333333333333333333",
+  "222222222222222222222222222222222222222222222222222222222222222222222222",
+  "222222222222222222222222222222222222222222222222222222222222222222222222",
+  "222222222222222222222222222222222222222222222222222222222222222222222222",
+  "222222222222222222222222222222222222222222222222222222222222222222222222",
+  "222222222222222222222222222222222222222222222222222222222222222222222222",
+  "111111111111111111111111111111111111111111111111111111111111111111111111",
+  "111111111111111111111111111111111111111111111111111111111111111111111111",
+  "111111111111111111111111111111111111111111111111111111111111111111111111",
+  "111111111111111111111111111111111111111111111111111111111111111111111111",
+  "111111111111111111111111111111111111111111111111111111111111111111111111",
+  "111111111111111111111111111111111111111111111111111111111111111111111111",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000"
+ ]
+}

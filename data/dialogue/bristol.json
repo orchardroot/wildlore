@@ -1,0 +1,576 @@
+{
+ "bristol_l": [
+  {
+   "do": "say",
+   "who": "Clifton Linguist",
+   "text": "Listen for the Bristol L. Bristolians add an L to words that end in a vowel. An idea becomes an ideal; the area is an areal."
+  },
+  {
+   "do": "say",
+   "who": "Clifton Linguist",
+   "text": "Some say the city's own name caught it. Bristol was once Brycgstow, Old English for the place at the bridge. Then Bristow. Then, well, Bristol."
+  }
+ ],
+ "rail_guard": [
+  {
+   "do": "say",
+   "who": "Rail Guard",
+   "text": "Bristol Temple Meads! Brunel's station for his Great Western Railway, from London to Bristol, opened in 1840 and 1841."
+  },
+  {
+   "do": "say",
+   "who": "Rail Guard",
+   "text": "All aboard! Trains to everywhere you've been. Mind the gap, and mind the man with the bike."
+  },
+  {
+   "do": "rail"
+  }
+ ],
+ "brs_dockhand": [
+  {
+   "do": "say",
+   "who": "Harbour Hand",
+   "text": "They call it the Floating Harbour because the water's kept in behind lock gates, so the ships float even when the tide's out."
+  },
+  {
+   "do": "say",
+   "who": "Harbour Hand",
+   "text": "Before 1809 ships here sat on the mud twice a day at low tide. Built 'shipshape and Bristol fashion', they had to be, to take it."
+  }
+ ],
+ "brs_cider": [
+  {
+   "do": "say",
+   "who": "Cider Drinker",
+   "text": "Ooh arr! No, nobody says that. Not really. Well, I do, but only after my second cider."
+  },
+  {
+   "do": "say",
+   "who": "Cider Drinker",
+   "text": "Where's it to? That's Bristolian for 'where is it?'. And when you get off the bus you say 'cheers, drive'. Manners, see."
+  }
+ ],
+ "brs_student": [
+  {
+   "do": "say",
+   "who": "Student",
+   "text": "The Wills Memorial Building up Park Street is the university. Built with tobacco money, by the Wills family, in the 1920s."
+  },
+  {
+   "do": "say",
+   "who": "Student",
+   "text": "Bristol's chocolate too: J. S. Fry and Sons made the first chocolate bar you could eat, here, in 1847. Science, that is."
+  }
+ ],
+ "brs_market": [
+  {
+   "do": "say",
+   "who": "Market Trader",
+   "text": "St Nick's! Pies, falafel, vintage records, a man who'll fix your watch and a woman who'll read your palm. Sometimes it's the same stall."
+  },
+  {
+   "do": "say",
+   "who": "Market Trader",
+   "text": "The Corn Exchange was built in 1743. Them bronze pillars outside are the Nails. Pay on the nail, my lover."
+  }
+ ],
+ "brs_fox": [
+  {
+   "do": "say",
+   "who": "Fox Watcher",
+   "text": "Bristol's famous for its urban foxes. Scientists at the university have studied them for decades, garden by garden."
+  },
+  {
+   "do": "say",
+   "who": "Fox Watcher",
+   "text": "They curl up on shed roofs in the sun. Absolute bin-raiding menaces. I love them."
+  }
+ ],
+ "brs_gromit": [
+  {
+   "do": "say",
+   "who": "Animator",
+   "text": "I work at one of the animation studios. Bristol's a big place for wildlife films and stop-motion. Plasticine everywhere."
+  },
+  {
+   "do": "say",
+   "who": "Animator",
+   "text": "Twenty-four frames a second. A week's work for a few seconds of a dog raising an eyebrow. Worth it."
+  }
+ ],
+ "brunel_fan": [
+  {
+   "do": "if",
+   "flag": "q_bristol_brunel_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Engineer Prudence",
+     "text": "Isambard Kingdom Brunel: bridges, tunnels, railways, ships. Died at 53. Did more than most would in three lifetimes."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_bristol_brunel_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "Engineer Prudence",
+       "text": "Two stamps! The bridge and the ship. Last page is right here: Temple Meads, his station."
+      },
+      {
+       "do": "say",
+       "who": "Engineer Prudence",
+       "text": "He designed the whole line from London, the Great Western Railway, with this old station at the Bristol end. One last question."
+      },
+      {
+       "do": "choice",
+       "text": "Prudence's question: why did Brunel use a broad gauge?",
+       "options": [
+        "Faster, smoother trains",
+        "It was cheaper",
+        "The Queen asked him"
+       ],
+       "set": "_bristol_brunel_q"
+      },
+      {
+       "do": "if",
+       "flag": "_bristol_brunel_q",
+       "eq": 0,
+       "then": [
+        {
+         "do": "say",
+         "who": "Engineer Prudence",
+         "text": "Exactly! Seven feet and a quarter of an inch between the rails. Wider track, steadier carriages, higher speeds."
+        },
+        {
+         "do": "say",
+         "who": "Engineer Prudence",
+         "text": "He was right, too. It just lost the argument: most lines were already narrower. In 1892 the whole Great Western was changed over in one weekend."
+        },
+        {
+         "do": "say",
+         "who": "Engineer Prudence",
+         "text": "Here. You've earned the notebook, and a little friend from the engine sheds who's been following me about all week."
+        },
+        {
+         "do": "give_item",
+         "item": "brunels_top_hat"
+        },
+        {
+         "do": "give_creature",
+         "species": "gaugelet",
+         "level": 40
+        },
+        {
+         "do": "standing",
+         "nation": "england",
+         "amount": 2
+        },
+        {
+         "do": "set",
+         "flag": "q_bristol_brunel_3"
+        },
+        {
+         "do": "set",
+         "flag": "q_bristol_brunel_done"
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Engineer Prudence",
+         "text": "Not quite. Think of the trains themselves. Have another go."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_bristol_brunel_started",
+       "then": [
+        {
+         "do": "say",
+         "who": "Engineer Prudence",
+         "text": "First page: the Clifton Suspension Bridge, up the Avon Gorge. Then the SS Great Britain, at the harbour. Then back here."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Engineer Prudence",
+         "text": "Brunel! Isambard Kingdom Brunel! Greatest engineer Britain ever had. I've found a copy of his notebook. Well, a facsimile."
+        },
+        {
+         "do": "say",
+         "who": "Engineer Prudence",
+         "text": "Fancy following his trail? The bridge, the ship and this very station. Get each page stamped and come back."
+        },
+        {
+         "do": "set",
+         "flag": "q_bristol_brunel_started"
+        },
+        {
+         "do": "say",
+         "who": "",
+         "text": "Prudence hands you a battered copy of Brunel's notebook."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "gallery_keeper": [
+  {
+   "do": "if",
+   "flag": "q_bristol_art_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Gallery Keeper Saffron",
+     "text": "Another new piece went up on Picton Street last night. Nobody saw a thing. They never do."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_bristol_art_started",
+     "then": [
+      {
+       "do": "say",
+       "who": "Gallery Keeper Saffron",
+       "text": "Four new pieces round Stokes Croft and St Pauls. Find them all and come back to me."
+      },
+      {
+       "do": "if",
+       "flag": "q_bristol_art_4",
+       "then": [
+        {
+         "do": "if",
+         "flag": "q_bristol_art_3",
+         "then": [
+          {
+           "do": "if",
+           "flag": "q_bristol_art_2",
+           "then": [
+            {
+             "do": "if",
+             "flag": "q_bristol_art_1",
+             "then": [
+              {
+               "do": "if",
+               "flag": "q_bristol_art_5",
+               "then": [
+                {
+                 "do": "say",
+                 "who": "Gallery Keeper Saffron",
+                 "text": "You found all four AND met the painter? Nobody meets the painter! Here, from the gallery. Keep it quiet."
+                },
+                {
+                 "do": "give_item",
+                 "item": "bristol_chocolate",
+                 "n": 3
+                },
+                {
+                 "do": "give_item",
+                 "item": "silver_snare",
+                 "n": 5
+                },
+                {
+                 "do": "standing",
+                 "nation": "england",
+                 "amount": 2
+                },
+                {
+                 "do": "set",
+                 "flag": "q_bristol_art_done"
+                }
+               ],
+               "else": [
+                {
+                 "do": "say",
+                 "who": "Gallery Keeper Saffron",
+                 "text": "All four! Brilliant. Now, the painter always comes back to check on new work. Tonight, round the back of Jamaica Street."
+                },
+                {
+                 "do": "say",
+                 "who": "Gallery Keeper Saffron",
+                 "text": "Don't ask their name. Just... say hello. They like a challenge."
+                }
+               ]
+              }
+             ],
+             "else": []
+            }
+           ],
+           "else": []
+          }
+         ],
+         "else": []
+        }
+       ],
+       "else": []
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Gallery Keeper Saffron",
+       "text": "Someone's been painting again. Four new pieces overnight, all signed with a little spray can. Nobody knows who."
+      },
+      {
+       "do": "say",
+       "who": "Gallery Keeper Saffron",
+       "text": "Fancy a treasure hunt? Find all four round Stokes Croft and Picton Street, take a good look, and come and tell me."
+      },
+      {
+       "do": "set",
+       "flag": "q_bristol_art_started"
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "crew_chief_npc": [
+  {
+   "do": "if",
+   "flag": "q_bristol_fiesta_3",
+   "then": [
+    {
+     "do": "say",
+     "who": "Crew Chief Bex",
+     "text": "Crew's ready when Gwen is. Gloves on, hats on, and nobody hold on to the rope when she lifts."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_bristol_fiesta_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "Crew Chief Bex",
+       "text": "Gwen wants a ground crew? We're the best in Bristol. But we only work for someone who can beat me. Ready?"
+      },
+      {
+       "do": "battle",
+       "trainer": "brs_crew_chief",
+       "intro": true
+      },
+      {
+       "do": "set",
+       "flag": "q_bristol_fiesta_3"
+      },
+      {
+       "do": "say",
+       "who": "Crew Chief Bex",
+       "text": "Right, crew! Up to Ashton Court! We'll meet you at Gwen's basket."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Crew Chief Bex",
+       "text": "Balloon crew, us. We hold the ropes, fill the envelope with a big fan and chase the balloon across Somerset in a van."
+      },
+      {
+       "do": "say",
+       "who": "Crew Chief Bex",
+       "text": "Best job in the world. Worst job in a hedge."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "art_gull": [
+  {
+   "do": "say",
+   "who": "",
+   "text": "Painted on the wall: a huge herring gull in a flat cap, sneaking a chip off a sleeping pigeon."
+  },
+  {
+   "do": "say",
+   "who": "",
+   "text": "Underneath, in neat little letters: 'BRISTOL FASHION'."
+  },
+  {
+   "do": "if",
+   "flag": "q_bristol_art_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_bristol_art_1",
+     "then": [],
+     "else": [
+      {
+       "do": "set",
+       "flag": "q_bristol_art_1"
+      },
+      {
+       "do": "sfx",
+       "id": "item"
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "You make a note of it for Saffron. (Piece 1 of 4.)"
+      }
+     ]
+    }
+   ],
+   "else": []
+  }
+ ],
+ "art_falcon": [
+  {
+   "do": "say",
+   "who": "",
+   "text": "Painted on the wall: a peregrine in a top hat and tails, diving on a startled pigeon over a tiny bridge."
+  },
+  {
+   "do": "say",
+   "who": "",
+   "text": "Someone's tagged it 'IKB WOZ ERE'. Brunel would have been delighted."
+  },
+  {
+   "do": "if",
+   "flag": "q_bristol_art_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_bristol_art_2",
+     "then": [],
+     "else": [
+      {
+       "do": "set",
+       "flag": "q_bristol_art_2"
+      },
+      {
+       "do": "sfx",
+       "id": "item"
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "You make a note of it for Saffron. (Piece 2 of 4.)"
+      }
+     ]
+    }
+   ],
+   "else": []
+  }
+ ],
+ "art_tide": [
+  {
+   "do": "say",
+   "who": "",
+   "text": "Painted on the wall: a giant tide gauge with sea creatures climbing it, the numbers going up to 14 metres."
+  },
+  {
+   "do": "say",
+   "who": "",
+   "text": "A note says the Severn's tide is one of the highest in the world. Art, with a fact attached."
+  },
+  {
+   "do": "if",
+   "flag": "q_bristol_art_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_bristol_art_3",
+     "then": [],
+     "else": [
+      {
+       "do": "set",
+       "flag": "q_bristol_art_3"
+      },
+      {
+       "do": "sfx",
+       "id": "item"
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "You make a note of it for Saffron. (Piece 3 of 4.)"
+      }
+     ]
+    }
+   ],
+   "else": []
+  }
+ ],
+ "art_balloon": [
+  {
+   "do": "say",
+   "who": "",
+   "text": "Painted on the wall: a hot-air balloon made of apples, carrying a cow, a goat and a very surprised vicar."
+  },
+  {
+   "do": "say",
+   "who": "",
+   "text": "It's signed with a little stencil of a spray can. Nobody knows whose."
+  },
+  {
+   "do": "if",
+   "flag": "q_bristol_art_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_bristol_art_4",
+     "then": [],
+     "else": [
+      {
+       "do": "set",
+       "flag": "q_bristol_art_4"
+      },
+      {
+       "do": "sfx",
+       "id": "item"
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "You make a note of it for Saffron. (Piece 4 of 4.)"
+      }
+     ]
+    }
+   ],
+   "else": []
+  }
+ ],
+ "night_painter": [
+  {
+   "do": "when",
+   "cond": "night",
+   "then": [
+    {
+     "do": "battle",
+     "trainer": "brs_night_painter",
+     "intro": true
+    },
+    {
+     "do": "set",
+     "flag": "q_bristol_art_5"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "When you look back, there's only a fresh stencil of a spray can on the wall, still wet."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Hooded Figure",
+     "text": "Not now. Come back after dark."
+    }
+   ]
+  }
+ ]
+}

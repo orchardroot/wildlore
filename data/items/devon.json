@@ -1,0 +1,75 @@
+[
+ {
+  "id": "devon_scone",
+  "name": "Devon Scone",
+  "kind": "heal",
+  "price": 450,
+  "battle": true,
+  "field": true,
+  "amount": 120,
+  "desc": "Split while warm, clotted cream first, then strawberry jam on top. That's the Devon way. Restores 120 HP."
+ },
+ {
+  "id": "scrumpy",
+  "name": "Scrumpy",
+  "kind": "pp",
+  "price": 380,
+  "battle": true,
+  "field": true,
+  "amount": 8,
+  "desc": "Cloudy farmhouse cider from a Devon orchard, pressed from apples with names like Slack-ma-Girdle. Restores 8 PP to every move."
+ },
+ {
+  "id": "turned_coat",
+  "name": "Turned Coat",
+  "kind": "charm",
+  "price": 3500,
+  "battle": false,
+  "field": true,
+  "wild": true,
+  "desc": "Pixie-led on the moor? Old Devon folk turned their coats inside out to break the spell. A little patch of inside-out tweed, for luck.",
+  "effect_text": "Fae moves hurt it 25% less.",
+  "charm": {
+   "effect": "resist",
+   "type": "fae",
+   "mult": 0.75
+  },
+  "msg": "{name}'s Turned Coat confused the pixies!"
+ },
+ {
+  "id": "drakes_drum",
+  "name": "Drake's Drum",
+  "kind": "charm",
+  "price": 0,
+  "battle": false,
+  "field": true,
+  "wild": false,
+  "desc": "A copy of the snare drum Drake took round the world. The legend says beat it when England is in danger and he will come back up Plymouth Sound.",
+  "effect_text": "Its Storm moves hit 20% harder.",
+  "charm": {
+   "effect": "boost",
+   "type": "storm",
+   "mult": 1.2
+  },
+  "msg": "{name}'s Drake's Drum rolled like thunder!"
+ },
+ {
+  "id": "clotted_cream",
+  "name": "Clotted Cream",
+  "one": "a pot of Clotted Cream",
+  "kind": "material",
+  "price": 0,
+  "battle": false,
+  "field": false,
+  "desc": "Rich milk warmed slowly for hours and left to cool, so the cream rises into a thick golden crust. A spoon stands up in it."
+ },
+ {
+  "id": "stamp_book",
+  "name": "Stamp Book",
+  "kind": "key",
+  "price": 0,
+  "battle": false,
+  "field": true,
+  "desc": "A letterboxer's notebook for the stamps from boxes hidden on Dartmoor. Some pages are inky, some are boggy, all are proudly earned."
+ }
+]

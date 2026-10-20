@@ -1,0 +1,32 @@
+{
+ "id": "ct_chorister",
+ "name": "Chorister Benedict",
+ "class": "Chorister",
+ "sprite": "choir_singer",
+ "party": [
+  {
+   "species": "lanternis",
+   "level": 94
+  },
+  {
+   "species": "wispet",
+   "level": 94
+  },
+  {
+   "species": "coblynn",
+   "level": 94
+  }
+ ],
+ "ai": "trainer",
+ "money": 4000,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Chorister Benedict",
+   "text": "Evensong's at half five, and I've got a solo. I'll warm up on you."
+  }
+ ],
+ "win": "Hit a bum note there. Don't tell the Precentor.",
+ "after": "The choir has sung here every day for centuries. Even on Christmas Day. Especially on Christmas Day.",
+ "scaled_floor": 94
+}

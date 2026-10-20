@@ -1,0 +1,32 @@
+{
+ "id": "exe_legion",
+ "name": "Re-enactor Marcus",
+ "class": "Legionary",
+ "sprite": "tour_guide",
+ "party": [
+  {
+   "species": "centurion",
+   "level": 45
+  },
+  {
+   "species": "legionette",
+   "level": 44
+  },
+  {
+   "species": "coblynn",
+   "level": 44
+  }
+ ],
+ "ai": "trainer",
+ "money": 1320,
+ "scaled_floor": 43,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Re-enactor Marcus",
+   "text": "Halt! Isca Dumnoniorum is under the protection of the Second Augustan Legion. And me. On weekends."
+  }
+ ],
+ "win": "Defeated! I shall fall on my sword. It's foam. Give me a minute.",
+ "after": "The legion built a fortress here about AD 55. Later the town grew up inside the wall you can still walk round today."
+}

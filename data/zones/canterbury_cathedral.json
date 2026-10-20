@@ -1,0 +1,240 @@
+{
+ "id": "canterbury_cathedral",
+ "name": "Canterbury Cathedral",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "bench",
+   "x": 2,
+   "y": 3
+  },
+  {
+   "type": "bench",
+   "x": 3,
+   "y": 3
+  },
+  {
+   "type": "bench",
+   "x": 4,
+   "y": 3
+  },
+  {
+   "type": "bench",
+   "x": 5,
+   "y": 3
+  },
+  {
+   "type": "bench",
+   "x": 6,
+   "y": 3
+  },
+  {
+   "type": "bench",
+   "x": 10,
+   "y": 3
+  },
+  {
+   "type": "bench",
+   "x": 11,
+   "y": 3
+  },
+  {
+   "type": "bench",
+   "x": 12,
+   "y": 3
+  },
+  {
+   "type": "bench",
+   "x": 2,
+   "y": 5
+  },
+  {
+   "type": "bench",
+   "x": 3,
+   "y": 5
+  },
+  {
+   "type": "bench",
+   "x": 4,
+   "y": 5
+  },
+  {
+   "type": "bench",
+   "x": 5,
+   "y": 5
+  },
+  {
+   "type": "bench",
+   "x": 6,
+   "y": 5
+  },
+  {
+   "type": "bench",
+   "x": 10,
+   "y": 5
+  },
+  {
+   "type": "bench",
+   "x": 11,
+   "y": 5
+  },
+  {
+   "type": "bench",
+   "x": 12,
+   "y": 5
+  },
+  {
+   "type": "bench",
+   "x": 13,
+   "y": 5
+  },
+  {
+   "type": "bench",
+   "x": 14,
+   "y": 5
+  },
+  {
+   "type": "table",
+   "x": 8,
+   "y": 1
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 8
+  },
+  {
+   "type": "potted_plant",
+   "x": 15,
+   "y": 8
+  },
+  {
+   "type": "rug",
+   "x": 8,
+   "y": 2,
+   "w": 1,
+   "h": 5,
+   "variant": 3,
+   "walk": true
+  },
+  {
+   "type": "wall_picture",
+   "x": 7,
+   "y": 1,
+   "walk": true,
+   "variant": 0
+  },
+  {
+   "type": "wall_picture",
+   "x": 9,
+   "y": 1,
+   "walk": true,
+   "variant": 0
+  },
+  {
+   "type": "clock",
+   "x": 8,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "plant_stand",
+   "x": 1,
+   "y": 7,
+   "variant": 1
+  },
+  {
+   "type": "candelabra",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "candelabra",
+   "x": 4,
+   "y": 1
+  },
+  {
+   "type": "candelabra",
+   "x": 12,
+   "y": 1
+  },
+  {
+   "type": "tomb_chest",
+   "x": 10,
+   "y": 8
+  }
+ ],
+ "warps": [
+  {
+   "x": 8,
+   "y": 9,
+   "to": "canterbury",
+   "tx": 33,
+   "ty": 15,
+   "facing": "down"
+  },
+  {
+   "x": 15,
+   "y": 2,
+   "to": "canterbury_crypt",
+   "tx": 9,
+   "ty": 3,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "archivist",
+   "sprite": "poet",
+   "x": 8,
+   "y": 2,
+   "facing": "down",
+   "move": "still",
+   "script": "archivist",
+   "name": "Archivist"
+  },
+  {
+   "id": "martyr_verger",
+   "sprite": "choir_singer",
+   "x": 2,
+   "y": 2,
+   "facing": "down",
+   "move": "still",
+   "script": "martyr_verger",
+   "name": "Verger"
+  },
+  {
+   "id": "cat_windows",
+   "sprite": "villager_2",
+   "x": 15,
+   "y": 5,
+   "facing": "left",
+   "move": "still",
+   "script": "cat_windows",
+   "name": "Glass Restorer"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  8,
+  8
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxxxxx",
+  "x+++++++++++++++x",
+  "x++++++++++++++Dx",
+  "x+++++++++++++++x",
+  "x+++++++++++++++x",
+  "x+++++++++++++++x",
+  "x+++++++++++++++x",
+  "x+++++++++++++++x",
+  "x+++++++++++++++x",
+  "x+++++++D+++++++x",
+  "xxxxxxxxxxxxxxxxx"
+ ]
+}

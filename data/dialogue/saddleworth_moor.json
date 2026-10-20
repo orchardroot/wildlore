@@ -1,0 +1,164 @@
+{
+ "whit_cornet": [
+  {
+   "do": "if",
+   "flag": "q_pennines_whit_started",
+   "then": [
+    {
+     "do": "say",
+     "who": "Cornet Player",
+     "text": "Oh, it's you from the band. Did she send you? I split a top note on Whit Friday last year, right in front of the judge, and I've been hiding at Dovestone ever since."
+    },
+    {
+     "do": "say",
+     "who": "Cornet Player",
+     "text": "You can't see the judge, you know. They sit in a car or a back room so they can't tell which band's which. Somehow that makes it worse."
+    },
+    {
+     "do": "choice",
+     "text": "Talk her round?",
+     "options": [
+      "Everyone splits a note.",
+      "The band's nowhere without you."
+     ],
+     "set": "pennines_cornet_pep"
+    },
+    {
+     "do": "say",
+     "who": "Cornet Player",
+     "text": "...You're right. And it's only a march. Cornet up. I'll see you at the Band Room."
+    },
+    {
+     "do": "set",
+     "flag": "q_pennines_whit_cornet"
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Cornet Player",
+     "text": "{greeting} Lovely and quiet at Dovestone. Just me, the reservoir and the occasional man with a very big camera lens."
+    },
+    {
+     "do": "say",
+     "who": "Cornet Player",
+     "text": "Can't play down here though. The sheep get opinions."
+    }
+   ]
+  }
+ ],
+ "whit_tuba": [
+  {
+   "do": "if",
+   "flag": "q_pennines_whit_started",
+   "then": [
+    {
+     "do": "say",
+     "who": "Tuba Player",
+     "text": "Is this Saddleworth or Kinder? I've been walking the Pennine Way in this fog since Tuesday. The tuba is heavier than it looks, and it looks very heavy."
+    },
+    {
+     "do": "when",
+     "cond": "party_has_snowhare",
+     "then": [
+      {
+       "do": "say",
+       "who": "Tuba Player",
+       "text": "A mountain hare! Now I know where I am. The only wild ones in England live round here. Right, downhill it is. Tell them I'm coming."
+      },
+      {
+       "do": "set",
+       "flag": "q_pennines_whit_tuba"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Tuba Player",
+       "text": "Show me a mountain hare and I'll believe you. They only live wild on these moors in all of England. Find one in the heather and bring it here."
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Tuba Player",
+     "text": "{greeting} Don't mind me. Just carrying a tuba along the Pennine Way. For training. It's a long story with a lot of hills in it."
+    }
+   ]
+  }
+ ],
+ "moor_ranger": [
+  {
+   "do": "say",
+   "who": "RSPB Warden",
+   "text": "{greeting} Hear that bubbling call? Curlew. Back on the moor every spring. Biggest wading bird in Europe, that one, with a beak like a sickle."
+  },
+  {
+   "do": "say",
+   "who": "RSPB Warden",
+   "text": "Twenty years ago the peat up here was bare and black and washing away. We've been blocking the gullies and planting sphagnum moss by the hand-ful. It holds water like a sponge."
+  },
+  {
+   "do": "say",
+   "who": "RSPB Warden",
+   "text": "Wet peat stores carbon and slows the floods down in the valleys. Dry peat just blows away. So, please, keep to the flags."
+  }
+ ],
+ "moor_weaver": [
+  {
+   "do": "say",
+   "who": "Retired Weaver",
+   "text": "{greeting} I started at the mill at fourteen. You learnt to lip-read, because you'd never hear a word over the looms. Some of us still do it in the pub."
+  },
+  {
+   "do": "say",
+   "who": "Retired Weaver",
+   "text": "We wore clogs. Wooden soles, iron caulkers underneath. Sparked on the cobbles on a dark morning. Lovely sound, a street full of clogs at six o'clock."
+  }
+ ],
+ "moor_yorkie": [
+  {
+   "do": "say",
+   "who": "Saddleworth Farmer",
+   "text": "{greeting} Manchester, the sign says. Yorkshire, I say. My postcode can say what it likes."
+  },
+  {
+   "do": "say",
+   "who": "Saddleworth Farmer",
+   "text": "The Saddleworth Rushbearing's in August. We pull a cart piled with rushes round the villages, with a man sat on top. Sounds daft. It is daft. It's grand."
+  }
+ ],
+ "moor_poet": [
+  {
+   "do": "say",
+   "who": "Walker",
+   "text": "{greeting} First proper walk on the Pennine Way? Mind the bogs. If the ground wobbles, it's not the ground's fault."
+  },
+  {
+   "do": "say",
+   "who": "Walker",
+   "text": "Golden plover up by the edge this morning. Little sad whistle. They sound like they've lost their keys."
+  }
+ ],
+ "moor_leggers": [
+  {
+   "do": "say",
+   "who": "Narrowboater",
+   "text": "{greeting} Leggers used to take boats through Standedge lying on their backs on boards, walking the roof of the tunnel. Three miles of that. Hours of it."
+  },
+  {
+   "do": "say",
+   "who": "Narrowboater",
+   "text": "The horses went over the top on the Boat Lane, with a lad, and met the boat at the other end. Better view. Fewer bats."
+  }
+ ],
+ "moor_hare_spot": [
+  {
+   "do": "say",
+   "who": "",
+   "text": "A mountain hare sits up in the heather, ears like two exclamation marks. It looks at you. It decides you are not a fox, and goes back to eating."
+  }
+ ]
+}

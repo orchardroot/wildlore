@@ -1,0 +1,101 @@
+{
+ "rail_guard": [
+  {
+   "do": "say",
+   "who": "Rail Guard",
+   "text": "Dover Priory. Trains to London, Canterbury and everywhere you've been. Boats are down the hill."
+  },
+  {
+   "do": "say",
+   "who": "Rail Guard",
+   "text": "All aboard! Mind the gap, and the seagulls, in that order."
+  },
+  {
+   "do": "rail"
+  }
+ ],
+ "dv_ferry_fan": [
+  {
+   "do": "say",
+   "who": "Lorry Spotter",
+   "text": "Ten thousand lorries a day through here, some days. Strawberries from Spain, cheese from France, car parts from everywhere."
+  },
+  {
+   "do": "say",
+   "who": "Lorry Spotter",
+   "text": "When the port stops, Kent stops. They park the lorries on the motorway. Operation Stack, they called it. Nobody enjoyed it."
+  }
+ ],
+ "dv_birder": [
+  {
+   "do": "say",
+   "who": "Cliff Birder",
+   "text": "Kittiwakes! Hear them? They say their own name. Kitti-waaake. There are thousands on these cliffs every spring."
+  },
+  {
+   "do": "say",
+   "who": "Cliff Birder",
+   "text": "And there goes a fulmar: stiff wings, glides like a little albatross. They can spit a nasty oil at you if you get too near the nest. Ask me how I know."
+  }
+ ],
+ "dv_old_soldier": [
+  {
+   "do": "say",
+   "who": "Old Gunner",
+   "text": "My dad was on a little ship at Dunkirk. A Thames pleasure boat, the sort you'd take to Margate for the day. He went back four times."
+  },
+  {
+   "do": "say",
+   "who": "Old Gunner",
+   "text": "When he got home he never talked about it, except once, to say the beach went on for ever."
+  }
+ ],
+ "dv_tunnel_guide": [
+  {
+   "do": "if",
+   "flag": "q_southeast_tunnels_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Tunnel Guide",
+     "text": "Thanks for helping out. Ramsay's map is back up, and the Harbourmaster's buying the teas."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_southeast_tunnels_started",
+     "then": [
+      {
+       "do": "say",
+       "who": "Tunnel Guide",
+       "text": "In you go. Find the signaller on duty, then Admiral Ramsay's operations room at the back. Mind your head: the Napoleonic diggers were short."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Tunnel Guide",
+       "text": "{greeting} These tunnels were dug into the chalk in the Napoleonic Wars as barracks. In 1940 the Navy took them over."
+      },
+      {
+       "do": "say",
+       "who": "Tunnel Guide",
+       "text": "It was here, in the cliffs, that Vice-Admiral Ramsay planned the Dunkirk evacuation. We're opening the operations room again, but the signals post has gone quiet and the map needs putting back."
+      },
+      {
+       "do": "say",
+       "who": "Tunnel Guide",
+       "text": "Give us a hand? It's dark, so keep a light handy. Find our signaller first: she won't let anyone past without a challenge."
+      },
+      {
+       "do": "set",
+       "flag": "q_southeast_tunnels_started",
+       "value": true
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

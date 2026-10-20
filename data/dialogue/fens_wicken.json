@@ -1,0 +1,49 @@
+{
+ "wicken_ranger": [
+  {
+   "do": "say",
+   "who": "Ranger",
+   "text": "Wicken Fen was the National Trust's very first nature reserve. The first scrap of it was bought in 1899 for ten pounds, mostly because Victorian naturalists were desperate to save the insects."
+  },
+  {
+   "do": "say",
+   "who": "Ranger",
+   "text": "It's one of the last bits of the old undrained fen left. Nearly all the rest has been drained and ploughed. That's why we're now buying farmland back and letting it get wet again."
+  },
+  {
+   "do": "say",
+   "who": "Ranger",
+   "text": "Over seven thousand species live here. Nine thousand, if you count the ones we're arguing about."
+  }
+ ],
+ "wicken_sedge": [
+  {
+   "do": "say",
+   "who": "Sedge Cutter",
+   "text": "Saw-sedge, for thatching ridges. It's been cut on this fen in rotation for hundreds of years. Cut it every three or four summers and the fen stays a fen. Leave it and it turns to woodland."
+  },
+  {
+   "do": "daily",
+   "key": "eastanglia_reed_daily",
+   "then": [
+    {
+     "do": "say",
+     "who": "Sedge Cutter",
+     "text": "Here, take a bundle of reed. Thatchers pay well for it, and crafters even better."
+    },
+    {
+     "do": "give_item",
+     "item": "norfolk_reed",
+     "n": 3
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Sedge Cutter",
+     "text": "That's your bundle for today. The sedge grows back, but not that fast."
+    }
+   ]
+  }
+ ]
+}

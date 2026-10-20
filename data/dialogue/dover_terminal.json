@@ -1,0 +1,77 @@
+{
+ "harbourmaster": [
+  {
+   "do": "if",
+   "flag": "q_southeast_tunnels_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Harbourmaster",
+     "text": "Thousands of ships a year in and out of here, and every one of them will tell you about Dunkirk if you buy them a tea."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_southeast_tunnels_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "Harbourmaster",
+       "text": "Ramsay's plan, back on the wall? Good. Let me tell you what happened next, from the harbour's side."
+      },
+      {
+       "do": "say",
+       "who": "Harbourmaster",
+       "text": "Day and night for nine days, ships came in here packed with soldiers, more than 200,000 of them landed at Dover alone. Trains took them inland from the quay, one after another."
+      },
+      {
+       "do": "say",
+       "who": "Harbourmaster",
+       "text": "Among them came the little ships, owned by ordinary people, some sailed by their owners. Many are still afloat. They fly a special flag, a St George's Cross with the arms of Dunkirk."
+      },
+      {
+       "do": "say",
+       "who": "Harbourmaster",
+       "text": "Here, take this. A Dover keepsake: a brooch with a bluebird on it. There are no bluebirds in Britain, but there are a lot of brooches."
+      },
+      {
+       "do": "set",
+       "flag": "q_southeast_tunnels_3",
+       "value": true
+      },
+      {
+       "do": "give_item",
+       "item": "bluebird_brooch",
+       "n": 1
+      },
+      {
+       "do": "standing",
+       "nation": "england",
+       "amount": 3
+      },
+      {
+       "do": "set",
+       "flag": "q_southeast_tunnels_done",
+       "value": true
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Harbourmaster",
+       "text": "The port's never quiet. Ferries to Calais and Dunkirk all day and all night. Dunkirk. Funny how a name stays with a place."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "ft_family": [
+  {
+   "do": "say",
+   "who": "Holidaymaker",
+   "text": "We're off to France for the day. Hypermarket, a baguette, back by teatime. The kids want to see the cliffs from the sea. So do I, honestly."
+  }
+ ]
+}

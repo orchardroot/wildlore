@@ -1,0 +1,27 @@
+{"id": "forcelet",
+ "palette": {"stalk": "#f6c4cc", "stalk2": "#e07a90", "base": "#f2c8c8", "leaf": "#ecd858", "leaf2": "#c8b030", "wax": "#fbf2dc", "wax2": "#d8c8a0", "flame": "#ffb030", "core": "#fff4b0", "ink": "#3a1820", "blush": "#ee8090", "soil": "#3a2a20", "soil2": "#5a4430"},
+ "layers": [
+  {"shape": "ellipse", "at": [48, 90], "size": [56, 9], "colour": "soil", "rim": false, "pattern": "speckle", "pcolour": "soil2", "density": 45},
+  {"shape": "rect", "at": [28, 70], "size": [9, 34], "round": 4, "angle": -14, "colour": "stalk", "pattern": "stripes", "pcolour": "stalk2", "period": 4, "pangle": -14, "mirror": true},
+  {"shape": "spikes", "at": [24, 52], "size": [12, 6], "count": 5, "len": 3, "from": -200, "to": 20, "seed": 2, "colour": "leaf", "rim": false, "mirror": true},
+  {"shape": "ellipse", "at": [24, 53], "size": [12, 6], "colour": "leaf", "mirror": true},
+  {"shape": "ellipse", "at": [40, 88], "size": [10, 6], "colour": "base", "mirror": true},
+  {"shape": "rect", "at": [48, 65], "size": [28, 46], "round": 12, "colour": "stalk", "pattern": "stripes", "pcolour": "stalk2", "period": 6, "pangle": 0},
+  {"shape": "ellipse", "at": [48, 85], "size": [22, 6], "colour": "base", "rim": false},
+  {"shape": "ellipse", "at": [34, 66], "size": [7, 11], "angle": 25, "colour": "stalk"},
+  {"shape": "rect", "at": [69, 66], "size": [6, 13], "round": 1, "colour": "wax"},
+  {"shape": "line", "points": [[69, 60], [69, 57]], "width": 1, "colour": "ink", "shade": false},
+  {"shape": "ellipse", "at": [69, 53], "size": [6, 10], "colour": "flame", "rim": false, "shade": false},
+  {"shape": "ellipse", "at": [69, 55], "size": [3, 5], "colour": "core", "rim": false, "shade": false},
+  {"shape": "ellipse", "at": [63, 68], "size": [7, 11], "angle": -25, "colour": "stalk"},
+  {"shape": "spikes", "at": [48, 39], "size": [32, 13], "count": 9, "len": 6, "from": -205, "to": 25, "seed": 5, "colour": "leaf", "rim": false},
+  {"shape": "ellipse", "at": [48, 42], "size": [34, 13], "colour": "leaf", "pattern": "speckle", "pcolour": "leaf2", "density": 25},
+  {"shape": "line", "points": [[48, 36], [48, 46]], "width": 1.2, "colour": "leaf2", "shade": false},
+  {"shape": "line", "points": [[39, 39], [45, 44]], "width": 1, "colour": "leaf2", "shade": false, "mirror": true}
+ ],
+ "face_layers": [
+  {"shape": "ellipse", "at": [39, 63], "size": [6, 3.5], "colour": "blush", "shade": false, "mirror": true},
+  {"shape": "line", "points": [[45, 64], [48, 66], [51, 64]], "width": 1.2, "colour": "ink", "shade": false}
+ ],
+ "eyes": [{"at": [42, 57], "r": 4, "mirror": true}]
+}

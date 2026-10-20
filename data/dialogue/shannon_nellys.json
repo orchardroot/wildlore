@@ -1,0 +1,69 @@
+{
+ "nellys_barman": [
+  {
+   "do": "if",
+   "flag": "q_limerick_banquet_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_limerick_banquet_1",
+     "then": [
+      {
+       "do": "say",
+       "who": "Barman",
+       "text": "Another jug for the castle? The Butler's lucky I'm fond of him. What'll you have yourself?"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Barman",
+       "text": "The Butler sent you. Of course he did. Here: a jug of Bunratty mead, honey wine, the way the old earls drank it."
+      },
+      {
+       "do": "say",
+       "who": "Barman",
+       "text": "Mead's the oldest drink there is, they say. Honey, water and patience."
+      },
+      {
+       "do": "set",
+       "flag": "q_limerick_banquet_1"
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "You've got a jug of mead for the banquet."
+      }
+     ]
+    }
+   ],
+   "else": []
+  },
+  {
+   "do": "say",
+   "who": "Barman",
+   "text": "Welcome to Nelly's. Mead, coffee, tea, and a fire that's not been out since about the Famine."
+  },
+  {
+   "do": "shop",
+   "id": "shannon_nellys_bar"
+  },
+  {
+   "do": "say",
+   "who": "Barman",
+   "text": "Sl\u00e1n abhaile. Safe home."
+  }
+ ],
+ "nellys_trad": [
+  {
+   "do": "say",
+   "who": "Session Fiddler",
+   "text": "Tuesday's the trad session. Thursday's the trad session. Every day's the trad session if enough fiddles turn up."
+  },
+  {
+   "do": "say",
+   "who": "Session Fiddler",
+   "text": "Clare music is slow and sweet, they say. They've never heard me after the third pint."
+  }
+ ]
+}

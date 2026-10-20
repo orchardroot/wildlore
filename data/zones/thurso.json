@@ -1,0 +1,898 @@
+{
+ "id": "thurso",
+ "name": "Thurso",
+ "region": "scotland",
+ "kind": "town",
+ "music": "town_scotland",
+ "weather": {
+  "clear": 18,
+  "drizzle": 28,
+  "fog": 14,
+  "gale": 20,
+  "sunshine": 12,
+  "downpour": 8
+ },
+ "legend_extra": {
+  "k": {
+   "tile": "grass",
+   "colour": "#7f8f52"
+  },
+  "v": {
+   "tile": "cobbles",
+   "colour": "#8a8c8a"
+  },
+  "j": {
+   "tile": "tall_grass",
+   "colour": "#8a8a50"
+  },
+  "e": {
+   "tile": "rock",
+   "colour": "#56504a"
+  }
+ },
+ "props": [
+  {
+   "type": "building",
+   "style": "caithness_flag",
+   "x": 15,
+   "y": 11,
+   "w": 7,
+   "h": 5,
+   "label": "Swanson Gallery & Library",
+   "kind": "library"
+  },
+  {
+   "type": "building",
+   "style": "kirk_ruin",
+   "x": 23,
+   "y": 11,
+   "w": 6,
+   "h": 5,
+   "label": "Old St Peter's Kirk (ruins)",
+   "kind": "church"
+  },
+  {
+   "type": "building",
+   "style": "surf_shack",
+   "x": 36,
+   "y": 12,
+   "w": 6,
+   "h": 4,
+   "label": "Thurso Surf Shack",
+   "kind": "shop"
+  },
+  {
+   "type": "building",
+   "style": "sanctuary",
+   "x": 15,
+   "y": 19,
+   "w": 6,
+   "h": 4,
+   "label": "Sanctuary"
+  },
+  {
+   "type": "building",
+   "style": "shop",
+   "x": 22,
+   "y": 19,
+   "w": 5,
+   "h": 4,
+   "label": "Corner Shop"
+  },
+  {
+   "type": "building",
+   "style": "well_house",
+   "x": 27,
+   "y": 20,
+   "w": 2,
+   "h": 2,
+   "label": "Meadow Well"
+  },
+  {
+   "type": "building",
+   "style": "caithness_flag",
+   "x": 34,
+   "y": 19,
+   "w": 6,
+   "h": 4,
+   "label": "Robert Dick's Bakehouse",
+   "kind": "cafe"
+  },
+  {
+   "type": "building",
+   "style": "caithness_flag",
+   "x": 41,
+   "y": 19,
+   "w": 5,
+   "h": 4,
+   "label": "The Flagstone Bar",
+   "kind": "cafe"
+  },
+  {
+   "type": "building",
+   "style": "caithness_flag",
+   "x": 15,
+   "y": 28,
+   "w": 6,
+   "h": 3,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "caithness_flag",
+   "x": 22,
+   "y": 28,
+   "w": 6,
+   "h": 3,
+   "label": "Sinclair Street",
+   "show_label": false,
+   "kind": "home"
+  },
+  {
+   "type": "building",
+   "style": "caithness_flag",
+   "x": 34,
+   "y": 28,
+   "w": 5,
+   "h": 3,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "caithness_flag",
+   "x": 40,
+   "y": 28,
+   "w": 5,
+   "h": 3,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "caithness_flag",
+   "x": 4,
+   "y": 28,
+   "w": 6,
+   "h": 3,
+   "label": "Pennyland House",
+   "kind": "home"
+  },
+  {
+   "type": "building",
+   "style": "white_render",
+   "x": 2,
+   "y": 18,
+   "w": 6,
+   "h": 4,
+   "label": "Scrabster Ferry Terminal",
+   "kind": "hall"
+  },
+  {
+   "type": "boat",
+   "x": 7,
+   "y": 12,
+   "variant": 0
+  },
+  {
+   "type": "bollard",
+   "x": 13,
+   "y": 10
+  },
+  {
+   "type": "bollard",
+   "x": 13,
+   "y": 14
+  },
+  {
+   "type": "bollard",
+   "x": 13,
+   "y": 18
+  },
+  {
+   "type": "bollard",
+   "x": 13,
+   "y": 22
+  },
+  {
+   "type": "building",
+   "style": "station",
+   "x": 3,
+   "y": 38,
+   "w": 6,
+   "h": 2,
+   "label": "Thurso Station"
+  },
+  {
+   "type": "buffer_stop",
+   "x": 5,
+   "y": 41
+  },
+  {
+   "type": "building",
+   "style": "flag_fence",
+   "x": 34,
+   "y": 36,
+   "w": 5,
+   "h": 1,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "flag_fence",
+   "x": 40,
+   "y": 36,
+   "w": 6,
+   "h": 1,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "flag_fence",
+   "x": 33,
+   "y": 36,
+   "w": 1,
+   "h": 15,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "flag_fence",
+   "x": 34,
+   "y": 50,
+   "w": 12,
+   "h": 1,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "flag_fence",
+   "x": 14,
+   "y": 42,
+   "w": 7,
+   "h": 1,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "flag_fence",
+   "x": 22,
+   "y": 42,
+   "w": 7,
+   "h": 1,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "flag_fence",
+   "x": 14,
+   "y": 50,
+   "w": 15,
+   "h": 1,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "castle",
+   "x": 53,
+   "y": 11,
+   "w": 6,
+   "h": 4,
+   "label": "Thurso Castle (ruins)",
+   "kind": "castle"
+  },
+  {
+   "type": "building",
+   "style": "caithness_flag",
+   "x": 50,
+   "y": 40,
+   "w": 5,
+   "h": 3,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "caithness_flag",
+   "x": 56,
+   "y": 40,
+   "w": 5,
+   "h": 3,
+   "show_label": false
+  },
+  {
+   "type": "lamp_post",
+   "x": 16,
+   "y": 9
+  },
+  {
+   "type": "lamp_post",
+   "x": 22,
+   "y": 9
+  },
+  {
+   "type": "lamp_post",
+   "x": 28,
+   "y": 9
+  },
+  {
+   "type": "lamp_post",
+   "x": 34,
+   "y": 9
+  },
+  {
+   "type": "lamp_post",
+   "x": 40,
+   "y": 9
+  },
+  {
+   "type": "lamp_post",
+   "x": 44,
+   "y": 9
+  },
+  {
+   "type": "bench",
+   "x": 19,
+   "y": 10
+  },
+  {
+   "type": "bench",
+   "x": 25,
+   "y": 10
+  },
+  {
+   "type": "bench",
+   "x": 37,
+   "y": 10
+  },
+  {
+   "type": "bench",
+   "x": 43,
+   "y": 10
+  },
+  {
+   "type": "lamp_post",
+   "x": 29,
+   "y": 23
+  },
+  {
+   "type": "lamp_post",
+   "x": 33,
+   "y": 23
+  },
+  {
+   "type": "lamp_post",
+   "x": 21,
+   "y": 23
+  },
+  {
+   "type": "lamp_post",
+   "x": 40,
+   "y": 23
+  },
+  {
+   "type": "lamp_post",
+   "x": 12,
+   "y": 27
+  },
+  {
+   "type": "lamp_post",
+   "x": 35,
+   "y": 27
+  },
+  {
+   "type": "lamp_post",
+   "x": 45,
+   "y": 27
+  },
+  {
+   "type": "phone_box",
+   "x": 27,
+   "y": 23
+  },
+  {
+   "type": "post_box",
+   "x": 33,
+   "y": 18
+  },
+  {
+   "type": "noticeboard",
+   "x": 29,
+   "y": 18
+  },
+  {
+   "type": "bench",
+   "x": 51,
+   "y": 9
+  },
+  {
+   "type": "bench",
+   "x": 55,
+   "y": 9
+  },
+  {
+   "type": "planter",
+   "x": 26,
+   "y": 23
+  },
+  {
+   "type": "bunting",
+   "x": 41,
+   "y": 23,
+   "variant": 4,
+   "walk": true
+  },
+  {
+   "type": "hanging_basket",
+   "x": 40,
+   "y": 23,
+   "variant": 1,
+   "walk": true
+  },
+  {
+   "type": "hanging_basket",
+   "x": 21,
+   "y": 23,
+   "rot": 180,
+   "walk": true
+  }
+ ],
+ "warps": [
+  {
+   "x": 18,
+   "y": 15,
+   "to": "thurso_gallery",
+   "tx": 6,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 25,
+   "y": 15,
+   "to": "thurso_kirk",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 38,
+   "y": 15,
+   "to": "thurso_surf",
+   "tx": 5,
+   "ty": 5,
+   "facing": "up"
+  },
+  {
+   "x": 17,
+   "y": 22,
+   "to": "thurso_sanctuary",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 24,
+   "y": 22,
+   "to": "thurso_shop",
+   "tx": 4,
+   "ty": 5,
+   "facing": "up"
+  },
+  {
+   "x": 36,
+   "y": 22,
+   "to": "thurso_bakehouse",
+   "tx": 5,
+   "ty": 5,
+   "facing": "up"
+  },
+  {
+   "x": 43,
+   "y": 22,
+   "to": "thurso_pub",
+   "tx": 6,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 24,
+   "y": 30,
+   "to": "thurso_cottage",
+   "tx": 5,
+   "ty": 5,
+   "facing": "up"
+  },
+  {
+   "x": 6,
+   "y": 30,
+   "to": "thurso_pennyland",
+   "tx": 5,
+   "ty": 5,
+   "facing": "up"
+  },
+  {
+   "x": 4,
+   "y": 21,
+   "to": "scrabster_terminal",
+   "tx": 5,
+   "ty": 5,
+   "facing": "up"
+  }
+ ],
+ "npcs": [
+  {
+   "id": "scrabster_skipper",
+   "sprite": "sailor",
+   "x": 10,
+   "y": 12,
+   "facing": "left",
+   "move": "still",
+   "script": "skipper",
+   "name": "Skipper Morag"
+  },
+  {
+   "id": "th_fisher",
+   "sprite": "fisherman_north",
+   "x": 12,
+   "y": 16,
+   "facing": "left",
+   "move": "still",
+   "trainer": "th_fisher"
+  },
+  {
+   "id": "rail_guard",
+   "sprite": "rail_guard",
+   "x": 9,
+   "y": 41,
+   "facing": "left",
+   "move": "still",
+   "script": "rail_guard"
+  },
+  {
+   "id": "th_surfer",
+   "sprite": "surfer",
+   "x": 52,
+   "y": 10,
+   "facing": "up",
+   "move": "still",
+   "trainer": "th_surfer"
+  },
+  {
+   "id": "th_surfer2",
+   "sprite": "surfer",
+   "x": 58,
+   "y": 10,
+   "facing": "up",
+   "move": "still",
+   "trainer": "th_surfer2"
+  },
+  {
+   "id": "th_mason",
+   "sprite": "steelworker",
+   "x": 21,
+   "y": 32,
+   "facing": "down",
+   "move": "still",
+   "script": "flagstone_mason",
+   "name": "Drystone Mason"
+  },
+  {
+   "id": "th_kid",
+   "sprite": "student",
+   "x": 26,
+   "y": 33,
+   "facing": "up",
+   "move": "wander",
+   "script": "nc500_kid",
+   "name": "Bored Teenager",
+   "radius": 1
+  },
+  {
+   "id": "th_tourist",
+   "sprite": "festival_goer",
+   "x": 36,
+   "y": 10,
+   "facing": "down",
+   "move": "wander",
+   "script": "nc500_tourist",
+   "name": "NC500 Driver",
+   "radius": 1
+  },
+  {
+   "id": "th_birder",
+   "sprite": "birdwatcher",
+   "x": 56,
+   "y": 33,
+   "facing": "left",
+   "move": "still",
+   "trainer": "th_birder"
+  },
+  {
+   "id": "th_runner",
+   "sprite": "jogger",
+   "x": 31,
+   "y": 45,
+   "facing": "down",
+   "move": "still",
+   "script": "flow_runner",
+   "name": "Runner"
+  }
+ ],
+ "signs": [
+  {
+   "x": 29,
+   "y": 21,
+   "text": "For generations Thurso drew its water from the Meadow Well, and the queue at the well was where the town swapped its news. The little round well-house still stands, though the gossip has moved to the pub.",
+   "plaque": "farnorth_meadow_well",
+   "title": "The Meadow Well"
+  },
+  {
+   "x": 52,
+   "y": 23,
+   "text": "Thurso East is a flat flagstone reef at the mouth of the river, and on a big northerly swell it throws up one of the finest right-hand waves in Europe. International surf contests have been held here. The water is about nine degrees. Bring a hood.",
+   "plaque": "farnorth_thurso_east",
+   "title": "Thurso East"
+  },
+  {
+   "x": 20,
+   "y": 23,
+   "text": "THURSO (Inbhir Theòrsa). The name comes from the Old Norse for 'Thor's river', or so most folk say. For centuries this was Norse country, ruled from Orkney, and the place names still remember it. Fàilte, that's 'welcome'.",
+   "plaque": "farnorth_thurso_name",
+   "title": "Thurso"
+  },
+  {
+   "x": 32,
+   "y": 33,
+   "text": "Caithness flagstone splits into flat, tough slabs, so the county built everything from it: houses, roofs, byres, and fences of upright slabs like the ones round the fields here. It was shipped south by the boatload to pave city streets.",
+   "plaque": "farnorth_flagstone",
+   "title": "Caithness Flagstone"
+  },
+  {
+   "x": 23,
+   "y": 16,
+   "text": "Old St Peter's Kirk. Parts of the walls go back to the 1200s, when it was built for the Bishops of Caithness, and it served the town until the 1830s. Now it is roofless, and the gulls take the services.",
+   "plaque": "farnorth_old_st_peters",
+   "title": "Old St Peter's Kirk"
+  },
+  {
+   "x": 11,
+   "y": 31,
+   "text": "Sir William Alexander Smith was born at Pennyland House in 1854. In Glasgow in 1883 he founded the Boys' Brigade, the first uniformed youth organisation of its kind, and it spread round the world.",
+   "plaque": "farnorth_pennyland",
+   "title": "Pennyland House"
+  },
+  {
+   "x": 11,
+   "y": 41,
+   "text": "Thurso is the most northerly railway station in Britain. Trains run south across the Flow Country to Inverness, which is a long way, but the view does all the work.",
+   "plaque": "farnorth_thurso_station",
+   "title": "Thurso Station"
+  },
+  {
+   "x": 8,
+   "y": 23,
+   "text": "Scrabster harbour. The ferry runs across the Pentland Firth to Stromness on Orkney, about an hour and a half, and passes the Old Man of Hoy, a sea stack 137 metres tall. Wave at him. He has been standing there a long time.",
+   "plaque": "farnorth_scrabster",
+   "title": "Scrabster"
+  },
+  {
+   "x": 17,
+   "y": 16,
+   "text": "Robert Dick (1811 to 1866) baked bread in Thurso, then walked the county at night and on his days off collecting plants, fossils and beetles. The geologist Hugh Miller sang his praises. He never went to a university. He never needed to.",
+   "plaque": "farnorth_robert_dick",
+   "title": "Robert Dick"
+  },
+  {
+   "x": 45,
+   "y": 33,
+   "text": "Dounreay, nine miles west, was built in the 1950s to try out fast breeder reactors, under its famous white dome. Thurso's population roughly tripled with the engineers and their families. Today the site is being taken apart, very carefully.",
+   "plaque": "farnorth_dounreay",
+   "title": "Dounreay"
+  },
+  {
+   "x": 61,
+   "y": 23,
+   "text": "To DUNNET HEAD, the CASTLE OF MEY and JOHN O' GROATS. The road east along the Pentland Firth. It is windy. It is always windy."
+  },
+  {
+   "x": 29,
+   "y": 50,
+   "text": "INVERNESS 110 miles, by the A9 over the Flow Country."
+  }
+ ],
+ "rows": [
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$ssssssssssssssssssssssssssssssss~~~wwewwwwwewewwee",
+  "$$$$$$$$$$$$$$ssssssssssssssssssssssssssssssss~~~wwwewewwwwwewee",
+  "$$$$$$$$$:::::vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv~~~sssssssssssssTT",
+  "$$$$$$$$$:::::vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv~~~kkkkkkkkkkkkkTT",
+  "$$$$$$$$$:::::vBBBBBBBkBBBBBBk===kkkkkkkkkkkkk~~~kkkkBBBBBBkkkTT",
+  "$$$$$$$$$:::::vBBBBBBBkBBBBBBk===kkkBBBBBBkkkk~~~kkkkBBBBBBkkkTT",
+  "$$$$$$$$$:::::vBBBBBBBkBBBBBBk===kkkBBBBBBkkkk~~~kkkkBBBBBBkkkTT",
+  "$$$$$$$$$:::::vBBBBBBBkBBBBBBk===kkkBBBBBBkkkk~~~kkkkBBBBBBkkkTT",
+  "$$$$$$$$$:::::vBBBDBBBkBBDBBBk===kkkBBDBBBkkkk~~~kkkkkkkkkkkkkTT",
+  "$$$$$$$$$:::::vkkkkkkkkkkkkkkk===kkkkkkkkkkkkk~~~kkkkkkkkkkkkkTT",
+  "$$$$$$$$$:::::vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv~~~kkkkkkkkkkkkkTT",
+  "TTBBBBBBk:::::vkkkkkkkkkkkkkkk===kkkkkkkkkkkkk~~~kkkkkkkkkkkkkTT",
+  "TTBBBBBBk:::::vBBBBBBkBBBBBkkk===kBBBBBBkBBBBB~~~kkkkkkkkkkkkkTT",
+  "TTBBBBBBk:::::vBBBBBBkBBBBBBBk===kBBBBBBkBBBBB~~~kkkkkkkkkkkkkTT",
+  "TTBBDBBBk:::::vBBBBBBkBBBBBBBk===kBBBBBBkBBBBB~~~kkkkkkkkkkkkkTT",
+  "TT::::::::::::vBBDBBBkBBDBBkkk===kBBDBBBkBBDBB~~~kkkkkkkkkkkkkTT",
+  "TT::::::::::::vkkkkkkkkkkkkkkk===kkkkkkkkkkkkk~~~kkkkkkkkkkkkkTT",
+  "TTkkkkkkk=====v=================================================",
+  "TTkkkkkkk=====v=================================================",
+  "TTkkkkkkk=====v=================================================",
+  "TTkkkkkkkkkkkkvkkkkkkkkkkkkkkk===kkkkkkkkkkkkk~~~kkkkkkkkkkkkkTT",
+  "TTkkBBBBBBkkkkvBBBBBBkBBBBBBkk===kBBBBBkBBBBBk~~~kkkkkkkkkkkkkTT",
+  "TTkkBBBBBBkkkkvBBBBBBkBBBBBBkk===kBBBBBkBBBBBk~~~kkkkkkkkkkkkkTT",
+  "TTkkBBDBBBkkkkvBBBBBBkBBDBBBkk===kBBBBBkBBBBBk~~~kjjjjjjjjjjkkTT",
+  "TTkkkkkkkkkkkkvkkkkkkkkkkkkkkk===kkkkkkkkkkkkk~~~kjjjjjjjjjjkkTT",
+  "TTkkkkkkkkkkkkvkkkkkkkkkkkkkkk===kkkkkkkkkkkkk~~~kjjjjjjjjjjkkTT",
+  "TTkkkkkkkkkkkkvkkkkkkkkkkkkkkk===kkkkkkkkkkkkk~~~kjjjjjjjjjjkkTT",
+  "TTvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv~~~kjjjjjjjjjjkkTT",
+  "TTkkkkkkkkkkkkkkkkkkkkkkkkkkkk===kkkkkkkkkkkkk~~~kjjjjjjjjjjkkTT",
+  "TTkkkkkkkkkkkkkkkkkkkkkkkkkkkk===BBBBBBkBBBBBB~~~kjjjjjjjjjjkkTT",
+  "TTkkkkkkkkkkkkkkkkkkkkkkkkkkkk===Bjjjjjjjjjjjj~~~kjjjjjjjjjjkkTT",
+  "TTkBBBBBBkkkkkkkkkkkkkkkkkkkkk===Bjjjjjjjjjjjj~~~kkkkkkkkkkkkkTT",
+  "TTkBBBDBBkkkkkkkkkkkkkkkkkkkkk===Bjjjjjjjjjjjj~~~kkkkkkkkkkkkkTT",
+  "TT_________vvvvvvvvvvvvvvvvvvv===Bjjjjjjjjjjjj~~~kBBBBBkBBBBBkTT",
+  "TT_________kkkkkkkkkkkkkkkkkkk===Bjjjjjjjjjjjj~~~kBBBBBkBBBBBkTT",
+  "TTTTT!_kkkkkkkBBBBBBBkBBBBBBBk===Bjjjjjjjjjjjj~~~kBBBBBkBBBBBkTT",
+  "TTTTT!_kkkkkkkkjjjjjjjjjjjjjjk===Bjjjjjjjjjjjj~~~kkkkkkkkkkkkkTT",
+  "TTTTT!_kkkkkkkkjjjjjjjjjjjjjjk===Bjjjjjjjjjjjj~~~kkkkkkkkkkkkkTT",
+  "TTTTT!_kkkkkkkkjjjjjjjjjjjjjjk===Bjjjjjjjjjjjj~~~kkkkkkkkkkkkkTT",
+  "TTTTT!_kkkkkkkkjjjjjjjjjjjjjjk===Bjjjjjjjjjjjj~~~kkkkkkkkkkkkkTT",
+  "TTTTT!_kkkkkkkkjjjjjjjjjjjjjjk===Bjjjjjjjjjjjj~~~kkkkkkkkkkkkkTT",
+  "TTTTT!_kkkkkkkkjjjjjjjjjjjjjjk===Bjjjjjjjjjjjj~~~kkkkkkkkkkkkkTT",
+  "TTTTT!_kkkkkkkkjjjjjjjjjjjjjjk===Bjjjjjjjjjjjj~~~kkkkkkkkkkkkkTT",
+  "TTTTT!_kkkkkkkBBBBBBBBBBBBBBBk===BBBBBBBBBBBBB~~~kkkkkkkkkkkkkTT",
+  "TTTTT!TTTTTTTTTTTTTTTTTTTTTTTT===TTTTTTTTTTTTT~~~TTTTTTTTTTTTTTT"
+ ],
+ "edges": {
+  "south": {
+   "to": "flow_country",
+   "offset": -1
+  },
+  "east": {
+   "to": "pentland_coast",
+   "offset": 6
+  }
+ },
+ "encounters": {
+  "grass": [
+   {
+    "species": "chipgull",
+    "min": 76,
+    "max": 77,
+    "weight": 14
+   },
+   {
+    "species": "puffling",
+    "min": 76,
+    "max": 77,
+    "weight": 8,
+    "season": [
+     "spring",
+     "summer"
+    ]
+   },
+   {
+    "species": "ternlet",
+    "min": 76,
+    "max": 77,
+    "weight": 8,
+    "season": [
+     "spring",
+     "summer"
+    ]
+   },
+   {
+    "species": "stoatlet",
+    "min": 76,
+    "max": 77,
+    "weight": 10
+   },
+   {
+    "species": "rooklet",
+    "min": 76,
+    "max": 77,
+    "weight": 10
+   },
+   {
+    "species": "starlet",
+    "min": 76,
+    "max": 77,
+    "weight": 8,
+    "time": [
+     "dusk",
+     "dawn"
+    ]
+   },
+   {
+    "species": "hootlet",
+    "min": 76,
+    "max": 77,
+    "weight": 6,
+    "time": [
+     "night"
+    ]
+   },
+   {
+    "species": "dubhlet",
+    "min": 76,
+    "max": 77,
+    "weight": 6
+   }
+  ],
+  "water": [
+   {
+    "species": "swelklet",
+    "min": 76,
+    "max": 77,
+    "weight": 16
+   },
+   {
+    "species": "greyhaul",
+    "min": 76,
+    "max": 77,
+    "weight": 14
+   },
+   {
+    "species": "pupplash",
+    "min": 76,
+    "max": 77,
+    "weight": 12
+   },
+   {
+    "species": "orcalet",
+    "min": 77,
+    "max": 78,
+    "weight": 6,
+    "time": [
+     "day"
+    ]
+   },
+   {
+    "species": "pinchkin",
+    "min": 76,
+    "max": 77,
+    "weight": 12
+   },
+   {
+    "species": "gannetling",
+    "min": 76,
+    "max": 77,
+    "weight": 10
+   },
+   {
+    "species": "bradan",
+    "min": 76,
+    "max": 78,
+    "weight": 8,
+    "weather": [
+     "drizzle",
+     "downpour"
+    ]
+   }
+  ]
+ },
+ "spawn": [
+  31,
+  27
+ ],
+ "stage": "coast",
+ "scaled_floor": 76,
+ "town_id": "thurso",
+ "station": {
+  "x": 6,
+  "y": 43
+ },
+ "ferry": {
+  "x": 9,
+  "y": 12,
+  "route": "thurso_kirkwall"
+ }
+}

@@ -3,10 +3,13 @@ extends RefCounted
 ## Checks dialogue scripts, trainers and the NPCs that use them against the rest of the data.
 
 const COMMANDS := ["say", "choice", "if", "set", "give_item", "give_creature", "heal", "battle", "move", "face",
-	"face_player", "wait", "warp", "shop", "starter", "fade_out", "fade_in", "music", "sfx", "badge", "end", "whiteout", "ark", "rail", "ferry", "legend", "gauntlet", "credits", "daily", "when", "relearn", "sachet_worn", "quiz", "craft", "recipe", "fieldbook_news", "rewild", "standing", "tournament"]
+	"face_player", "wait", "warp", "shop", "starter", "fade_out", "fade_in", "music", "sfx", "badge", "end", "whiteout", "ark", "rail", "ferry", "legend", "gauntlet", "credits", "daily", "when", "relearn", "sachet_worn", "quiz", "craft", "recipe", "fieldbook_news", "rewild", "standing", "tournament", "bureau", "exchange", "crypto", "casino"]
 const CONDITIONS := ["dawn", "day", "dusk", "night", "rain", "fog", "gale", "frost", "sunshine", "caught_all",
 	"caught_25", "caught_50", "caught_100", "caught_150", "caught_200",
 	"spring", "summer", "autumn", "winter", "halloween", "bonfire_night", "christmas", "st_patricks", "st_davids", "burns_night"]
+## `when` "party_has_<species>" (Commands._party_has): the species must exist. Spelt out here, not read from
+## Commands, so the validator stays free of the UI scripts Commands pulls in.
+const PARTY_HAS := "party_has_"
 const MOVE_MODES := ["still", "wander", "pace"]
 const PHASES := ["dawn", "day", "dusk", "night"]
 ## An NPC with a `times` schedule may only chat: any other command makes it part of the story.
@@ -137,7 +140,16 @@ static func validate_commands(cmds: Array, tag: String, dex: Dex, items: ItemDB,
 				errors.append_array(validate_commands(c.get("then", []), tag, dex, items, zones))
 				errors.append_array(validate_commands(c.get("else", []), tag, dex, items, zones))
 			"when":
-				if str(c.get("cond", "")) not in CONDITIONS:
+				var cond := str(c.get("cond", ""))
+				if cond.begins_with(PARTY_HAS):
+					if not dex.has(cond.substr(PARTY_HAS.length())):
+						errors.append("%s: when %s names an unknown species" % [tag, cond])
+				elif cond.begins_with("has_"):
+					if not dex.has(cond.substr(4)):
+						errors.append("%s: when has_ names an unknown species '%s'" % [tag, cond.substr(4)])
+				elif cond.begins_with("caught_") and dex.has(cond.substr(7)):
+					pass
+				elif cond not in CONDITIONS:
 					errors.append("%s: when with unknown cond '%s'" % [tag, c.get("cond", "")])
 				errors.append_array(validate_commands(c.get("then", []), tag, dex, items, zones))
 				errors.append_array(validate_commands(c.get("else", []), tag, dex, items, zones))
@@ -162,6 +174,9 @@ static func validate_commands(cmds: Array, tag: String, dex: Dex, items: ItemDB,
 			"shop":
 				if not items.shops.has(str(c.get("id", ""))):
 					errors.append("%s: shop '%s' does not exist" % [tag, c.get("id", "")])
+			"exchange":
+				if Markets.board(str(c.get("board", ""))).is_empty():
+					errors.append("%s: no Stock Exchange board '%s'" % [tag, c.get("board", "")])
 			"quiz":
 				if str(c.get("pub", "")) == "":
 					errors.append("%s: quiz with no pub id" % tag)
@@ -190,6 +205,11 @@ static func validate_commands(cmds: Array, tag: String, dex: Dex, items: ItemDB,
 			"face":
 				if str(c.get("dir", "")) not in DIRS:
 					errors.append("%s: face with bad direction" % tag)
+			"casino":
+				if str(c.get("game", "")) not in Punt.GAMES:
+					errors.append("%s: casino with unknown game '%s'" % [tag, c.get("game", "")])
+				if str(c.get("game", "")) == "races" and str(c.get("venue", "")) not in Punt.RACE_VENUES:
+					errors.append("%s: races at unknown venue '%s'" % [tag, c.get("venue", "")])
 			"tournament":
 				if str(c.get("id", "")) not in ["show", "moot", "trade"]:
 					errors.append("%s: tournament with unknown id '%s'" % [tag, c.get("id", "")])
@@ -237,6 +257,8 @@ static func _validate_trainer(tid: String, dex: Dex, moves: MoveDB, items: ItemD
 		errors.append("%s: a double battle needs a party of at least 2" % tag)
 	if int(raw.get("money", 0)) < 0:
 		errors.append("%s: negative money" % tag)
+	if raw.has("scaled_floor") and (int(raw.scaled_floor) < 2 or int(raw.scaled_floor) > Rules.MAX_LEVEL):
+		errors.append("%s: scaled_floor %s should be a par level, 2 to %d" % [tag, raw.scaled_floor, Rules.MAX_LEVEL])
 	for m in raw.get("party", []):
 		var sp := str(m.get("species", ""))
 		if not dex.has(sp):

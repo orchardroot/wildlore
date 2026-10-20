@@ -647,6 +647,32 @@
    "type": "noticeboard",
    "x": 38,
    "y": 29
+  },
+  {
+   "type": "market_stall",
+   "x": 53,
+   "y": 2,
+   "variant": 1
+  },
+  {
+   "type": "lamp_post",
+   "x": 46,
+   "y": 3
+  },
+  {
+   "type": "lamp_post",
+   "x": 58,
+   "y": 3
+  },
+  {
+   "type": "bench",
+   "x": 49,
+   "y": 3
+  },
+  {
+   "type": "phone_box",
+   "x": 44,
+   "y": 3
   }
  ],
  "warps": [
@@ -719,6 +745,18 @@
   "west": {
    "to": "stonehenge",
    "offset": 0
+  },
+  "north": {
+   "to": "cambridge",
+   "offset": -8
+  },
+  "south": {
+   "to": "south_downs",
+   "offset": -21
+  },
+  "east": {
+   "to": "kent_downs",
+   "offset": -6
   }
  },
  "npcs": [
@@ -739,10 +777,7 @@
    "facing": "down",
    "move": "still",
    "script": "lon_beefeater",
-   "times": [
-    "day",
-    "dusk"
-   ]
+   "times": ["day", "dusk"]
   },
   {
    "id": "lon_ravenmaster",
@@ -770,10 +805,7 @@
    "facing": "right",
    "move": "wander",
    "script": "lon_local",
-   "times": [
-    "day",
-    "dusk"
-   ]
+   "times": ["day", "dusk"]
   },
   {
    "id": "lon_tourist",
@@ -783,10 +815,7 @@
    "facing": "down",
    "move": "wander",
    "script": "lon_tourist",
-   "times": [
-    "day",
-    "dusk"
-   ],
+   "times": ["day", "dusk"],
    "radius": 1
   },
   {
@@ -875,9 +904,7 @@
    "move": "still",
    "script": "london_lamplighter",
    "name": "Lamplighter",
-   "times": [
-    "night"
-   ]
+   "times": ["night"]
   },
   {
    "id": "london_fox_watcher",
@@ -888,142 +915,146 @@
    "move": "still",
    "script": "london_fox_watcher",
    "name": "Fox Watcher",
-   "times": [
-    "night"
-   ]
+   "times": ["night"]
+  },
+  {
+   "id": "london_south_gate_0",
+   "sprite": "steelworker",
+   "x": 51,
+   "y": 62,
+   "facing": "up",
+   "move": "still",
+   "text": "Road closed, I'm afraid. Every coach in the South East is booked to Stonehenge for the Moot. Come back once the Moot's been won and the roads are clear.",
+   "name": "Highways Officer",
+   "hide_if": "moot_won"
+  },
+  {
+   "id": "london_south_gate_1",
+   "sprite": "steelworker",
+   "x": 52,
+   "y": 62,
+   "facing": "up",
+   "move": "still",
+   "text": "Road closed, I'm afraid. Every coach in the South East is booked to Stonehenge for the Moot. Come back once the Moot's been won and the roads are clear.",
+   "name": "Highways Officer",
+   "hide_if": "moot_won"
+  },
+  {
+   "id": "london_south_gate_2",
+   "sprite": "steelworker",
+   "x": 53,
+   "y": 62,
+   "facing": "up",
+   "move": "still",
+   "text": "Road closed, I'm afraid. Every coach in the South East is booked to Stonehenge for the Moot. Come back once the Moot's been won and the roads are clear.",
+   "name": "Highways Officer",
+   "hide_if": "moot_won"
+  },
+  {
+   "id": "london_east_gate_0",
+   "sprite": "steelworker",
+   "x": 79,
+   "y": 26,
+   "facing": "left",
+   "move": "still",
+   "text": "Sorry, the Kent road's shut while the Moot's on. The Channel's not going anywhere. Come back when the Moot's been won.",
+   "name": "Highways Officer",
+   "hide_if": "moot_won"
+  },
+  {
+   "id": "london_east_gate_1",
+   "sprite": "steelworker",
+   "x": 79,
+   "y": 27,
+   "facing": "left",
+   "move": "still",
+   "text": "Sorry, the Kent road's shut while the Moot's on. The Channel's not going anywhere. Come back when the Moot's been won.",
+   "name": "Highways Officer",
+   "hide_if": "moot_won"
+  },
+  {
+   "id": "london_east_gate_2",
+   "sprite": "steelworker",
+   "x": 79,
+   "y": 28,
+   "facing": "left",
+   "move": "still",
+   "text": "Sorry, the Kent road's shut while the Moot's on. The Channel's not going anywhere. Come back when the Moot's been won.",
+   "name": "Highways Officer",
+   "hide_if": "moot_won"
+  },
+  {
+   "id": "city_broker",
+   "sprite": "commuter",
+   "x": 47,
+   "y": 4,
+   "facing": "down",
+   "move": "still",
+   "script": "city_broker",
+   "name": "City Broker"
+  },
+  {
+   "id": "doggerel_kiosk",
+   "sprite": "student",
+   "x": 53,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "doggerel_kiosk",
+   "name": "Doggerel Kiosk"
+  },
+  {
+   "id": "moon_hoodie",
+   "sprite": "villager_5",
+   "x": 52,
+   "y": 5,
+   "facing": "up",
+   "move": "still",
+   "script": "moon_hoodie",
+   "name": "Man in a Hoodie"
+  },
+  {
+   "id": "moon_student",
+   "sprite": "student",
+   "x": 54,
+   "y": 5,
+   "facing": "up",
+   "move": "still",
+   "script": "moon_student",
+   "name": "Student"
+  },
+  {
+   "id": "moon_lady",
+   "sprite": "commuter",
+   "x": 56,
+   "y": 4,
+   "facing": "left",
+   "move": "still",
+   "script": "moon_lady",
+   "name": "Diamond Paws"
   }
  ],
  "encounters": {
   "grass": [
-   {
-    "species": "parakit",
-    "min": 94,
-    "max": 95,
-    "weight": 14
-   },
-   {
-    "species": "squawkster",
-    "min": 94,
-    "max": 96,
-    "weight": 10,
-    "time": [
-     "day",
-     "dusk"
-    ]
-   },
-   {
-    "species": "stagbeet",
-    "min": 94,
-    "max": 95,
-    "weight": 12
-   },
-   {
-    "species": "stagmajor",
-    "min": 95,
-    "max": 96,
-    "weight": 6,
-    "time": [
-     "night",
-     "dusk"
-    ]
-   },
-   {
-    "species": "tubemole",
-    "min": 94,
-    "max": 95,
-    "weight": 10
-   },
-   {
-    "species": "binfox",
-    "min": 94,
-    "max": 95,
-    "weight": 12,
-    "time": [
-     "night",
-     "dusk"
-    ]
-   },
-   {
-    "species": "raidtail",
-    "min": 94,
-    "max": 95,
-    "weight": 10
-   },
-   {
-    "species": "strutcoo",
-    "min": 94,
-    "max": 95,
-    "weight": 10,
-    "time": [
-     "day"
-    ]
-   },
-   {
-    "species": "stoopfalcon",
-    "min": 94,
-    "max": 96,
-    "weight": 5,
-    "time": [
-     "day"
-    ]
-   },
-   {
-    "species": "flittermouse",
-    "min": 94,
-    "max": 95,
-    "weight": 8,
-    "time": [
-     "night"
-    ]
-   },
-   {
-    "species": "rookery",
-    "min": 94,
-    "max": 95,
-    "weight": 8
-   },
-   {
-    "species": "glisglis",
-    "min": 94,
-    "max": 95,
-    "weight": 3,
-    "time": [
-     "dusk",
-     "night"
-    ]
-   }
+   {"species": "parakit", "min": 94, "max": 95, "weight": 14},
+   {"species": "squawkster", "min": 94, "max": 96, "weight": 10, "time": ["day", "dusk"]},
+   {"species": "stagbeet", "min": 94, "max": 95, "weight": 12},
+   {"species": "stagmajor", "min": 95, "max": 96, "weight": 6, "time": ["night", "dusk"]},
+   {"species": "tubemole", "min": 94, "max": 95, "weight": 10},
+   {"species": "binfox", "min": 94, "max": 95, "weight": 12, "time": ["night", "dusk"]},
+   {"species": "raidtail", "min": 94, "max": 95, "weight": 10},
+   {"species": "strutcoo", "min": 94, "max": 95, "weight": 10, "time": ["day"]},
+   {"species": "stoopfalcon", "min": 94, "max": 96, "weight": 5, "time": ["day"]},
+   {"species": "flittermouse", "min": 94, "max": 95, "weight": 8, "time": ["night"]},
+   {"species": "rookery", "min": 94, "max": 95, "weight": 8},
+   {"species": "glisglis", "min": 94, "max": 95, "weight": 3, "time": ["dusk", "night"]}
   ],
   "water": [
-   {
-    "species": "spatelord",
-    "min": 94,
-    "max": 95,
-    "weight": 14
-   },
-   {
-    "species": "pierlord",
-    "min": 94,
-    "max": 95,
-    "weight": 14
-   },
-   {
-    "species": "rillotter",
-    "min": 94,
-    "max": 95,
-    "weight": 12
-   },
-   {
-    "species": "heronarch",
-    "min": 94,
-    "max": 96,
-    "weight": 10
-   },
-   {
-    "species": "chipgull",
-    "min": 94,
-    "max": 95,
-    "weight": 14
-   }
+   {"species": "spatelord", "min": 94, "max": 95, "weight": 14},
+   {"species": "pierlord", "min": 94, "max": 95, "weight": 14},
+   {"species": "rillotter", "min": 94, "max": 95, "weight": 12},
+   {"species": "heronarch", "min": 94, "max": 96, "weight": 10},
+   {"species": "chipgull", "min": 94, "max": 95, "weight": 14}
   ]
  },
  "signs": [
@@ -1097,7 +1128,59 @@
    "y": 25,
    "text": "BLUE PLAQUE: Charles Dickens, novelist, lived at 48 Doughty Street from 1837 to 1839 and wrote Oliver Twist there.",
    "kind": "plaque",
-   "dx": -0.475
+   "dx": -0.475,
+   "plaque": "london_dickens",
+   "title": "Charles Dickens"
+  },
+  {
+   "x": 66,
+   "y": 12,
+   "plaque": "london_great_fire",
+   "title": "The Great Fire",
+   "text": "The Great Fire of London began in Thomas Farriner's bakery on Pudding Lane on 2 September 1666 and burned for four days, destroying old St Paul's and most of the City. The Monument stands 202 feet tall, and 202 feet from where the bakery stood."
+  },
+  {
+   "x": 8,
+   "y": 14,
+   "plaque": "london_bazalgette",
+   "title": "Bazalgette's Sewers",
+   "text": "After the Great Stink of 1858, the engineer Joseph Bazalgette gave London a new sewer system, much of it hidden inside the Victoria Embankment. He made the pipes bigger than anyone thought necessary, just in case. London kept growing, and he was right."
+  },
+  {
+   "x": 9,
+   "y": 25,
+   "plaque": "london_bow_bells",
+   "title": "Bow Bells",
+   "text": "A true Cockney is said to be born within the sound of Bow Bells, the bells of St Mary-le-Bow in the City. Rhyming slang swaps a word for a rhyme, then drops the rhyme: apples and pears are stairs, and use your loaf means use your head, loaf of bread."
+  },
+  {
+   "x": 23,
+   "y": 29,
+   "plaque": "london_frost_fairs",
+   "title": "Frost Fairs",
+   "text": "In the bitterest winters the Thames froze hard enough for Frost Fairs, with stalls, games and printing presses out on the ice. At the last one, in 1814, an elephant was led across the river below Blackfriars Bridge. The river has not frozen like that since."
+  },
+  {
+   "x": 43,
+   "y": 4,
+   "text": "NORTH: CAMBRIDGE, THE FENS, NORWICH AND THE BROADS. Up the old road to East Anglia: colleges, cathedrals, big skies and a great deal of mustard."
+  },
+  {
+   "x": 55,
+   "y": 62,
+   "text": "SOUTH: THE SOUTH DOWNS AND BRIGHTON. The London to Brighton road, 54 miles, mostly downhill once you're over the Downs."
+  },
+  {
+   "x": 77,
+   "y": 25,
+   "text": "EAST: THE KENT DOWNS, CANTERBURY AND DOVER. The old road to the Channel, walked by pilgrims, Romans and lorries."
+  },
+  {
+   "x": 45,
+   "y": 4,
+   "plaque": "london_city_exchange",
+   "title": "The City",
+   "text": "London's first stockbrokers did their deals in coffee houses, Jonathan's in Exchange Alley above all, after being thrown out of the Royal Exchange for bad manners. A proper Stock Exchange opened in 1801. The Square Mile still runs on coffee."
   }
  ],
  "spawn": [
@@ -1111,20 +1194,20 @@
   "y": 23
  },
  "rows": [
-  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
-  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
-  "TT............................................................................TT",
-  "TT............................................................................TT",
-  "TT............................................................................TT",
-  "TT..........................................................BBBBBBBBBBBBBBBBB.TT",
-  "TT.BBBBBBBBBBBBBBB..........................................BBBBBBBBBBBBBBBBB.TT",
-  "TT.BBBBBBBBBBBBBBB..........................................BBBBBBBBBBBBBBBBB.TT",
-  "TT.BBBBBBBBBBBBBBB..........................................BBBBBBBBBBBBBBBBB.TT",
-  "TT.BBBBBBBBBBBBBBB..........................................BBBBBBBBBBBBBBBBB.TT",
-  "TT.BBBBBBBBBBBBBBB..........................................BBBBBBBBBBBBBBBBB.TT",
-  "TT.BBBBBBBBBBBBBBB..........................................BBBBBBBBDBBBBBBBB.TT",
-  "TT.BBBBBBBBBBBBBBB...............BBBBBBBBB...............:::::::::::::::::::::TT",
-  "TT.BBBBBBBDBBBBBBB...............BBBBBBBBB...............:FFFFFFFF:::FFFFFFFFFTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT::TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT::TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TT..........................................::................................TT",
+  "TT..........................................::................................TT",
+  "TT..........................................::................................TT",
+  "TT..........................................::..............BBBBBBBBBBBBBBBBB.TT",
+  "TT.BBBBBBBBBBBBBBB..........................::..............BBBBBBBBBBBBBBBBB.TT",
+  "TT.BBBBBBBBBBBBBBB..........................::..............BBBBBBBBBBBBBBBBB.TT",
+  "TT.BBBBBBBBBBBBBBB..........................::..............BBBBBBBBBBBBBBBBB.TT",
+  "TT.BBBBBBBBBBBBBBB..........................::..............BBBBBBBBBBBBBBBBB.TT",
+  "TT.BBBBBBBBBBBBBBB..........................::..............BBBBBBBBBBBBBBBBB.TT",
+  "TT.BBBBBBBBBBBBBBB..........................::..............BBBBBBBBDBBBBBBBB.TT",
+  "TT.BBBBBBBBBBBBBBB...............BBBBBBBBB..::...........:::::::::::::::::::::TT",
+  "TT.BBBBBBBDBBBBBBB...............BBBBBBBBB..::...........:FFFFFFFF:::FFFFFFFFFTT",
   "TT.::::::::::::::::::::::.....:::BBBBBBBBB.:::...........:F.......###........FTT",
   "TT.::::::::::::::::::::::.....:::BBBBBBBBB.:::...........:F.......###........FTT",
   "TT.::::::::::::::::::::::.....:::BBBBBBBBB.:::...........:F.......###........FTT",
@@ -1137,9 +1220,9 @@
   "TT.BBBBBB.BBBBB...::::BBBBB...:::::::::::::::::_________.:F.......###........FTT",
   "TT.BBBBBB.BBBBB...::::BBBBB...:::::::::::::::::!!!!!!!!!!:FFFFFFFF:::FFFFFFFFFTT",
   "TT.BBBDBB.BBDBB...::::BBDBB...:::::::::::::::::..........:........:::.........TT",
-  "TT=============================================================================F",
-  "TT=============================================================================F",
-  "===============================================================================F",
+  "TT==============================================================================",
+  "TT==============================================================================",
+  "================================================================================",
   "==:::::::::::::===:::::::::::::::::::::::::::::::::===:::::::::::::::::::::::::F",
   "==:::::::::::::===:::::::::::::::::::::::::::::::::===::::::::::::::::::::::::TT",
   "TT~~~~~~~~~~~~W===W~~~~~~~~~~F||F~~~~~~~~~~~~~~~~~W===W~~~~~~~~~~~~~~~~~~~~~~~TT",
@@ -1172,10 +1255,10 @@
   "TT...,,,,,,,,,,,#,,,,,,............................===.:::::::::::::::::::::..TT",
   "TT...,,,,,,,,,,,#,,,,,,............................===.:::::::::::::::::::::..TT",
   "TT..............#..................................===.:::::::::::::::::::::..TT",
-  "TT..............#.............................................................TT",
-  "TT............................................................................TT",
-  "TT............................................................................TT",
-  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
-  "TTTTTTTTTTTTTTTTTTTTTTPTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT"
+  "TT..............#..................................===........................TT",
+  "TT.................................................===........................TT",
+  "TT.................................................===........................TT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT===TTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTPTTTTTTTTTTTTTTTTTTTTTTTTTTTT===TTTTTTTTTTTTTTTTTTTTTTTTTT"
  ]
 }

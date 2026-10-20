@@ -1,0 +1,180 @@
+{
+ "id": "saddleworth_bandroom",
+ "name": "Band Room",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "band_kit",
+   "x": 4,
+   "y": 2,
+   "variant": 0
+  },
+  {
+   "type": "band_kit",
+   "x": 8,
+   "y": 2,
+   "variant": 1
+  },
+  {
+   "type": "band_kit",
+   "x": 10,
+   "y": 2,
+   "variant": 2
+  },
+  {
+   "type": "hall_stage",
+   "x": 5,
+   "y": 1,
+   "variant": 0
+  },
+  {
+   "type": "hall_stage",
+   "x": 6,
+   "y": 1,
+   "variant": 1
+  },
+  {
+   "type": "hall_stage",
+   "x": 7,
+   "y": 1,
+   "variant": 2
+  },
+  {
+   "type": "stacked_chairs",
+   "x": 1,
+   "y": 7
+  },
+  {
+   "type": "stacked_chairs",
+   "x": 11,
+   "y": 7,
+   "variant": 1
+  },
+  {
+   "type": "tea_urn",
+   "x": 1,
+   "y": 4
+  },
+  {
+   "type": "wall_picture",
+   "x": 2,
+   "y": 1,
+   "walk": true,
+   "variant": 0
+  },
+  {
+   "type": "wall_picture",
+   "x": 10,
+   "y": 1,
+   "walk": true,
+   "variant": 3
+  },
+  {
+   "type": "clock",
+   "x": 11,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "flagpole",
+   "x": 11,
+   "y": 4,
+   "variant": 0
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 8,
+   "to": "saddleworth_moor",
+   "tx": 13,
+   "ty": 23,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "band_secretary",
+   "sprite": "villager_3",
+   "x": 6,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "band_secretary",
+   "name": "Band Secretary"
+  },
+  {
+   "id": "band_cornet",
+   "sprite": "villager_4",
+   "x": 3,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "name": "Cornet Player",
+   "show_if": "q_pennines_whit_cornet",
+   "text": "I've had a word with myself. And a cup of tea. Mostly the tea. Lead on."
+  },
+  {
+   "id": "band_tuba",
+   "sprite": "hillwalker",
+   "x": 9,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "name": "Tuba Player",
+   "show_if": "q_pennines_whit_tuba",
+   "text": "Found my way down by following the hare. Wise creatures, hares. Never once got lost in a fog on Standedge."
+  },
+  {
+   "id": "band_drum",
+   "sprite": "student",
+   "x": 9,
+   "y": 5,
+   "facing": "down",
+   "move": "still",
+   "name": "Drummer",
+   "show_if": "q_pennines_whit_drum",
+   "text": "Three miles in the dark on a narrowboat and I kept time the whole way. The echo was cracking."
+  },
+  {
+   "id": "band_kettle",
+   "sprite": "villager_6",
+   "x": 2,
+   "y": 5,
+   "facing": "down",
+   "move": "still",
+   "script": "band_tealady",
+   "name": "Tea Lady"
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "x": 3,
+   "y": 1,
+   "text": "Brass bands grew up alongside the mills and pits of the North in the 1800s. Firms and villages paid for instruments and uniforms, and workers rehearsed after their shifts. Many village bands still play in contests today.",
+   "plaque": "pennines_brass_bands",
+   "title": "Mill Town Brass"
+  }
+ ],
+ "spawn": [
+  6,
+  7
+ ],
+ "rows": [
+  "xxxxxxxxxxxxx",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||D|||||x",
+  "xxxxxxxxxxxxx"
+ ]
+}

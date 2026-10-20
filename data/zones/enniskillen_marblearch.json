@@ -1,0 +1,243 @@
+{
+ "id": "enniskillen_marblearch",
+ "name": "Marble Arch Caves",
+ "region": "ireland",
+ "kind": "interior",
+ "music": "dungeon_underground",
+ "weather": {},
+ "rows": [
+  "xxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "xxxxxxeeeeeeeeeeeeeexxxxxx",
+  "xxxxeeeemmmmeeeemmmmeexxxx",
+  "xxxxeeeemmmmeeeemmmmeexxxx",
+  "xxxeeeeeeeeeeeeeeeeeeexxxx",
+  "xxxeeeeeeeeeeeeeeeeeeeexxx",
+  "xxxxxeeeeeeeeeeeeeeeexxxxx",
+  "xxxxxooooooooooooooooxxxxx",
+  "xxxxxooooooooooooooooxxxxx",
+  "xxxxxooooooooooooooooxxxxx",
+  "xxxxxeeeeeeeeeeeeeeeexxxxx",
+  "xxeeeeemmmmeeeeemmmmeeeexx",
+  "xxeeeeemmmmeeeeemmmmeeeexx",
+  "xxeeeeeeeeeeeeeeeeeeeeeexx",
+  "xxxxxeeeeeeeeeeeeeeeexxxxx",
+  "xxxxxxxxxxxxeeexxxxxxxxxxx",
+  "xxxxxxxxxxxxeeexxxxxxxxxxx",
+  "xxxxxxxxxxxxeeexxxxxxxxxxx",
+  "xxxxxxxxxxxxeeexxxxxxxxxxx",
+  "xxxxxxxxxxxxeeexxxxxxxxxxx",
+  "xxxxxxxxxxxxeDexxxxxxxxxxx",
+  "xxxxxxxxxxxxxxxxxxxxxxxxxx"
+ ],
+ "stage": "cave",
+ "dark": true,
+ "scaled_floor": 65,
+ "legend_extra": {
+  "e": {
+   "tile": "path",
+   "colour": "#8a8676"
+  },
+  "m": {
+   "tile": "tall_grass",
+   "colour": "#6b6a5c",
+   "prop": "none"
+  },
+  "o": {
+   "tile": "deep_water",
+   "colour": "#2b3a40"
+  }
+ },
+ "props": [
+  {
+   "type": "standing_stone",
+   "x": 6,
+   "y": 4,
+   "variant": 1
+  },
+  {
+   "type": "standing_stone",
+   "x": 20,
+   "y": 4,
+   "variant": 2
+  },
+  {
+   "type": "standing_stone",
+   "x": 4,
+   "y": 12,
+   "variant": 1
+  },
+  {
+   "type": "standing_stone",
+   "x": 22,
+   "y": 12,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 3,
+   "y": 5,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 22,
+   "y": 5,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 13,
+   "y": 1,
+   "variant": 2
+  },
+  {
+   "type": "boat",
+   "x": 12,
+   "y": 9,
+   "variant": 1
+  },
+  {
+   "type": "boat",
+   "x": 14,
+   "y": 7,
+   "variant": 1
+  },
+  {
+   "type": "lamp_post",
+   "x": 14,
+   "y": 13
+  }
+ ],
+ "warps": [
+  {
+   "x": 13,
+   "y": 20,
+   "to": "enniskillen",
+   "tx": 6,
+   "ty": 40,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "en_cave_guide",
+   "sprite": "hiker",
+   "x": 12,
+   "y": 17,
+   "facing": "down",
+   "move": "still",
+   "script": "en_cave_guide",
+   "name": "Cave Guide"
+  },
+  {
+   "id": "en_boatman",
+   "sprite": "currach_rower",
+   "x": 11,
+   "y": 10,
+   "facing": "up",
+   "move": "still",
+   "script": "en_boatman",
+   "name": "Cave Boatman"
+  },
+  {
+   "id": "en_boatman_back",
+   "sprite": "currach_rower",
+   "x": 14,
+   "y": 6,
+   "facing": "down",
+   "move": "still",
+   "script": "en_boatman_back",
+   "name": "Cave Boatman"
+  },
+  {
+   "id": "en_caver",
+   "sprite": "hiker",
+   "x": 13,
+   "y": 2,
+   "facing": "down",
+   "move": "still",
+   "script": "en_caver_spot",
+   "name": "Caver"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "dripkin",
+    "min": 64,
+    "max": 66,
+    "weight": 22
+   },
+   {
+    "species": "flittermouse",
+    "min": 64,
+    "max": 65,
+    "weight": 14
+   },
+   {
+    "species": "glowmite",
+    "min": 64,
+    "max": 65,
+    "weight": 12
+   },
+   {
+    "species": "gritling",
+    "min": 64,
+    "max": 65,
+    "weight": 10
+   },
+   {
+    "species": "stalaghast",
+    "min": 66,
+    "max": 66,
+    "weight": 3
+   }
+  ],
+  "water": [
+   {
+    "species": "pincray",
+    "min": 64,
+    "max": 66,
+    "weight": 20
+   },
+   {
+    "species": "neagheen",
+    "min": 64,
+    "max": 65,
+    "weight": 10
+   },
+   {
+    "species": "dripkin",
+    "min": 64,
+    "max": 65,
+    "weight": 10
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 14,
+   "y": 19,
+   "text": "MARBLE ARCH CAVES. Keep to the path, mind your head, and please don't touch the formations: the grease from one finger can stop a stalactite growing."
+  },
+  {
+   "x": 16,
+   "y": 14,
+   "plaque": "en_cave_river",
+   "title": "The Underground River",
+   "text": "Three streams run off Cuilcagh mountain and vanish into the limestone, carving these caves as they go. Here they meet as an underground river, and tours glide along it by boat before anyone sets foot in the deeper chambers."
+  },
+  {
+   "x": 5,
+   "y": 5,
+   "plaque": "en_grand_gallery",
+   "title": "The Grand Gallery",
+   "text": "Stalactites hang from the roof and stalagmites rise from the floor, each grown drop by drop as water leaves a little calcite behind. They grow so slowly that the ones you see took thousands of years. Look, but please don't touch."
+  }
+ ],
+ "spawn": [
+  13,
+  19
+ ]
+}

@@ -1,0 +1,122 @@
+[
+ {
+  "id": "carrs_biscuits",
+  "name": "Carr's Table Water",
+  "kind": "heal",
+  "price": 130,
+  "battle": true,
+  "field": true,
+  "amount": 55,
+  "desc": "Crisp, plain and thin as a roof slate, baked in Carlisle since the 1850s. Meant for cheese, eaten with anything. Restores 55 HP."
+ },
+ {
+  "id": "rum_nicky",
+  "name": "Rum Nicky",
+  "kind": "heal",
+  "price": 310,
+  "battle": true,
+  "field": true,
+  "amount": 130,
+  "desc": "A Cumbrian tart of dates, ginger, butter and a good glug of rum, in a shortcrust case. Born of the old port trade at Whitehaven. Restores 130 HP."
+ },
+ {
+  "id": "cumberland_sausage",
+  "name": "Cumberland Sausage",
+  "kind": "heal",
+  "price": 430,
+  "battle": true,
+  "field": true,
+  "amount": 180,
+  "desc": "Coiled in a ring and sold by the length, peppery and coarse, with a protected name. Don't cut it into links. Restores 180 HP."
+ },
+ {
+  "id": "selkirk_bannock",
+  "name": "Selkirk Bannock",
+  "kind": "heal",
+  "price": 290,
+  "battle": true,
+  "field": true,
+  "amount": 120,
+  "desc": "A rich, buttery fruit bread, first sold in Selkirk in the 1800s, and said to be a favourite of Queen Victoria. Restores 120 HP."
+ },
+ {
+  "id": "border_tart",
+  "name": "Border Tart",
+  "kind": "heal",
+  "price": 360,
+  "battle": true,
+  "field": true,
+  "amount": 150,
+  "desc": "Sweet pastry packed with raisins, nuts and cherry, which has stopped many a hill walker dead in the doorway. Restores 150 HP."
+ },
+ {
+  "id": "tweed_swatch",
+  "name": "Tweed Swatch",
+  "one": "a Tweed Swatch",
+  "kind": "material",
+  "price": 0,
+  "battle": false,
+  "field": false,
+  "desc": "A swatch of Border tweed, rough, thick and made to turn a shower. Its name, they say, began as a clerk's misspelling of 'tweel'. The weavers are too polite to say so."
+ },
+ {
+  "id": "cornets_colours",
+  "name": "Cornet's Colours",
+  "kind": "key",
+  "price": 0,
+  "battle": false,
+  "field": true,
+  "desc": "The town's silk standard, folded in a tea-towel. Carry it across the marches, and for goodness' sake don't let a rival rider near it."
+ },
+ {
+  "id": "reiver_bonnet",
+  "name": "Reiver's Bonnet",
+  "kind": "charm",
+  "price": 0,
+  "battle": false,
+  "field": true,
+  "wild": false,
+  "desc": "A steel cap dented at every border since the 1500s. The wearer always seems to be out after dark.",
+  "effect_text": "Its Night moves hit 20% harder.",
+  "charm": {
+   "effect": "boost",
+   "type": "night",
+   "mult": 1.2
+  },
+  "msg": "{name}'s Reiver's Bonnet gleamed in the dark!"
+ },
+ {
+  "id": "cornets_sash",
+  "name": "Cornet's Sash",
+  "kind": "charm",
+  "price": 0,
+  "battle": false,
+  "field": true,
+  "wild": false,
+  "desc": "Red, white and blue silk, worn across the chest by the rider who carries the town's colours. It makes the wearer sit a little straighter.",
+  "effect_text": "Speed up when it first comes out.",
+  "charm": {
+   "effect": "start_stage",
+   "stat": "spd",
+   "stages": 1
+  },
+  "msg": "{name}'s Cornet's Sash made it feel ready to ride!"
+ },
+ {
+  "id": "bruces_heart",
+  "name": "Heart of the Bruce",
+  "kind": "charm",
+  "price": 0,
+  "battle": false,
+  "field": true,
+  "wild": false,
+  "desc": "A little silver pin in the shape of a crowned heart, like the one on the stone at Melrose. Brave deeds are said to follow it.",
+  "effect_text": "Brawn moves hurt it 25% less.",
+  "charm": {
+   "effect": "resist",
+   "type": "brawn",
+   "mult": 0.75
+  },
+  "msg": "{name}'s Heart of the Bruce took the sting out of it!"
+ }
+]

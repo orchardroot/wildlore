@@ -1,0 +1,97 @@
+{
+ "id": "thurso_kirk",
+ "name": "Old St Peter's Kirk",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "standing_stone",
+   "x": 2,
+   "y": 2,
+   "variant": 2
+  },
+  {
+   "type": "standing_stone",
+   "x": 8,
+   "y": 2,
+   "variant": 2
+  },
+  {
+   "type": "standing_stone",
+   "x": 2,
+   "y": 5,
+   "variant": 2
+  },
+  {
+   "type": "standing_stone",
+   "x": 8,
+   "y": 4,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 1,
+   "y": 6,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 9,
+   "y": 6,
+   "variant": 2
+  },
+  {
+   "type": "candelabra",
+   "x": 5,
+   "y": 1
+  }
+ ],
+ "warps": [
+  {
+   "x": 5,
+   "y": 7,
+   "to": "thurso",
+   "tx": 25,
+   "ty": 16,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "kirk_historian",
+   "sprite": "tour_guide",
+   "x": 5,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "kirk_historian",
+   "name": "Kirk Historian"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  5,
+  6
+ ],
+ "rows": [
+  "xxxxxxxxxxx",
+  "xkkkkkkkkkx",
+  "xkkkkkkkkkx",
+  "xkkkkkkkkkx",
+  "xkkkkkkkkkx",
+  "xkkkkkkkkkx",
+  "xkkkkkkkkkx",
+  "xkkkkDkkkkx",
+  "xxxxxxxxxxx"
+ ],
+ "legend_extra": {
+  "k": {
+   "tile": "grass",
+   "colour": "#6f8a4c"
+  }
+ }
+}

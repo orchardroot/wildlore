@@ -1,0 +1,317 @@
+{
+ "bla_gwilym": [
+  {
+   "do": "if",
+   "flag": "q_valleys_pit_done",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_valleys_choir_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_valleys_choir_4",
+       "then": [
+        {
+         "do": "say",
+         "who": "Gwilym",
+         "text": "Mind how you go. And never whistle underground."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Gwilym",
+         "text": "Sing for the Eisteddfod? Me? Bass, forty years, down the pit and up the chapel. Right. One question first: which hymn, a favourite of choirs and rugby crowds, asks for a pure heart?"
+        },
+        {
+         "do": "choice",
+         "text": "Which song asks for a 'pure heart'?",
+         "options": [
+          "Calon Lan",
+          "Myfanwy",
+          "Cwm Rhondda",
+          "Delilah"
+         ],
+         "set": "_gwilym_q"
+        },
+        {
+         "do": "if",
+         "flag": "_gwilym_q",
+         "eq": 0,
+         "then": [
+          {
+           "do": "say",
+           "who": "Gwilym",
+           "text": "Calon Lan! 'Nid wy'n gofyn bywyd moethus': I do not ask for a life of luxury. Man after my own heart. Right, I'll sing."
+          },
+          {
+           "do": "set",
+           "flag": "q_valleys_choir_4",
+           "value": true
+          },
+          {
+           "do": "sfx",
+           "id": "item"
+          },
+          {
+           "do": "say",
+           "who": "",
+           "text": "You found a bass for the eisteddfod choir."
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Gwilym",
+           "text": "Not that one, bach. Think of the rugby crowd. Think of the second verse that nobody knows. Come back."
+          }
+         ]
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Gwilym",
+       "text": "Ah, the one who went down on her own two feet. I mean theirs. Anyway, any time you want to see the pit again, I'm here."
+      },
+      {
+       "do": "say",
+       "who": "Gwilym",
+       "text": "Big Pit, the National Coal Museum. We do tours with ex-miners. We're the only place in Wales where the exhibits tell you off."
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_valleys_pit_3",
+     "then": [
+      {
+       "do": "say",
+       "who": "Gwilym",
+       "text": "You've been down, you've heard them, you've even got one in the bag. Not many can do that. Most visitors just hear the guide."
+      },
+      {
+       "do": "say",
+       "who": "Gwilym",
+       "text": "Here, a Davy lamp. Not a working one. A charm. Sir Humphry Davy made the first in 1815 so a flame couldn't ignite the gas. You've got the sense of a collier."
+      },
+      {
+       "do": "say",
+       "who": "Gwilym",
+       "text": "And a wedge of Pwll Mawr, from the cheese, down the pit. It tastes better after you've been down."
+      },
+      {
+       "do": "give_item",
+       "item": "davy_lamp",
+       "n": 1
+      },
+      {
+       "do": "give_item",
+       "item": "blaenavon_cheddar",
+       "n": 3
+      },
+      {
+       "do": "standing",
+       "nation": "wales",
+       "amount": 8
+      },
+      {
+       "do": "set",
+       "flag": "q_valleys_pit_done",
+       "value": true
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_valleys_pit_started",
+       "then": [
+        {
+         "do": "if",
+         "flag": "q_valleys_pit_1",
+         "then": [
+          {
+           "do": "say",
+           "who": "Gwilym",
+           "text": "Lamp on? Helmet on? Mind your head. The roof is lower than you think."
+          },
+          {
+           "do": "choice",
+           "text": "Ride the cage down 90 metres?",
+           "options": [
+            "Go down",
+            "Not just yet"
+           ],
+           "set": "_pit_go"
+          },
+          {
+           "do": "if",
+           "flag": "_pit_go",
+           "eq": 0,
+           "then": [
+            {
+             "do": "fade_out"
+            },
+            {
+             "do": "say",
+             "who": "",
+             "text": "The cage doors clatter shut. The daylight shrinks to a postage stamp, then goes out. Ninety metres is a long way down, and it feels longer."
+            },
+            {
+             "do": "warp",
+             "zone": "blaenavon_bigpit_below",
+             "x": 7,
+             "y": 8,
+             "facing": "up"
+            },
+            {
+             "do": "fade_in"
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Gwilym",
+             "text": "No rush. The coal's not going anywhere. It's had a few hundred million years."
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Gwilym",
+           "text": "First, the lamp room rules. It's the rules or nothing. What do you hand in before you go down the shaft?"
+          },
+          {
+           "do": "choice",
+           "text": "What do you hand in at the lamp room?",
+           "options": [
+            "Nothing, I'll be fine",
+            "Anything that could make a spark: matches, lighters, phones",
+            "My sandwiches",
+            "My boots"
+           ],
+           "set": "_pit_q"
+          },
+          {
+           "do": "if",
+           "flag": "_pit_q",
+           "eq": 1,
+           "then": [
+            {
+             "do": "say",
+             "who": "Gwilym",
+             "text": "Spot on. Methane collects in the roof and one spark in the wrong place is the end of the shift and then some."
+            },
+            {
+             "do": "say",
+             "who": "Gwilym",
+             "text": "Here's your lamp, and a hard hat, and a self-rescuer in case the air turns. You won't need it. Probably."
+            },
+            {
+             "do": "set",
+             "flag": "q_valleys_pit_1",
+             "value": true
+            },
+            {
+             "do": "give_item",
+             "item": "big_pit_lamp",
+             "n": 1
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Gwilym",
+             "text": "No, no, no. Think about what's underground with you. Gas. What does gas hate? A spark. Try again."
+            }
+           ]
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Gwilym",
+         "text": "Bore da! Gwilym. I worked in this pit until it closed in 1980. Now I show people down it. Same pit, different hat."
+        },
+        {
+         "do": "say",
+         "who": "Gwilym",
+         "text": "Big Pit was sunk in 1860. Down the shaft, 90 metres, and a mile or more of tunnels. We go down in the cage with a lamp and a helmet. I won't lie to you: it's dark."
+        },
+        {
+         "do": "say",
+         "who": "Gwilym",
+         "text": "They say there are knockers down there: the coblynau, little men in the rock who tap out the way to the best seams. I've never seen one. I've heard something, mind. Fancy a look?"
+        },
+        {
+         "do": "set",
+         "flag": "q_valleys_pit_started",
+         "value": true
+        },
+        {
+         "do": "say",
+         "who": "Gwilym",
+         "text": "First, the lamp room rules. It's the rules or nothing. What do you hand in before you go down the shaft?"
+        },
+        {
+         "do": "choice",
+         "text": "What do you hand in at the lamp room?",
+         "options": [
+          "Nothing, I'll be fine",
+          "Anything that could make a spark: matches, lighters, phones",
+          "My sandwiches",
+          "My boots"
+         ],
+         "set": "_pit_q"
+        },
+        {
+         "do": "if",
+         "flag": "_pit_q",
+         "eq": 1,
+         "then": [
+          {
+           "do": "say",
+           "who": "Gwilym",
+           "text": "Spot on. Methane collects in the roof and one spark in the wrong place is the end of the shift and then some."
+          },
+          {
+           "do": "say",
+           "who": "Gwilym",
+           "text": "Here's your lamp, and a hard hat, and a self-rescuer in case the air turns. You won't need it. Probably."
+          },
+          {
+           "do": "set",
+           "flag": "q_valleys_pit_1",
+           "value": true
+          },
+          {
+           "do": "give_item",
+           "item": "big_pit_lamp",
+           "n": 1
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Gwilym",
+           "text": "No, no, no. Think about what's underground with you. Gas. What does gas hate? A spark. Try again."
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

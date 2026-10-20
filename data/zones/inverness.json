@@ -11,138 +11,31 @@
   "west": {
    "offset": 0.0,
    "to": "skye"
+  },
+  "north": {
+   "offset": -20,
+   "to": "flow_country"
   }
  },
  "encounters": {
   "grass": [
-   {
-    "max": 74.0,
-    "min": 74.0,
-    "species": "brownie",
-    "time": [
-     "dusk",
-     "night"
-    ],
-    "weight": 14.0
-   },
-   {
-    "max": 74.0,
-    "min": 73.0,
-    "species": "redbreast",
-    "time": [
-     "dawn",
-     "day"
-    ],
-    "weight": 14.0
-   },
-   {
-    "max": 74.0,
-    "min": 73.0,
-    "species": "warrender",
-    "weight": 12.0
-   },
-   {
-    "max": 74.0,
-    "min": 73.0,
-    "species": "strutcoo",
-    "time": [
-     "day",
-     "dawn"
-    ],
-    "weight": 12.0
-   },
-   {
-    "max": 74.0,
-    "min": 73.0,
-    "species": "hootlet",
-    "time": [
-     "night"
-    ],
-    "weight": 8.0
-   },
-   {
-    "max": 74.0,
-    "min": 73.0,
-    "species": "flittermouse",
-    "time": [
-     "night"
-    ],
-    "weight": 8.0
-   },
-   {
-    "max": 74.0,
-    "min": 73.0,
-    "species": "pierlord",
-    "time": [
-     "day",
-     "dusk"
-    ],
-    "weight": 10.0
-   },
-   {
-    "max": 74.0,
-    "min": 74.0,
-    "species": "lochosprey",
-    "time": [
-     "day"
-    ],
-    "weight": 8.0
-   },
-   {
-    "max": 74.0,
-    "min": 73.0,
-    "species": "rillotter",
-    "weather": [
-     "drizzle",
-     "downpour"
-    ],
-    "weight": 6.0
-   }
+   {"max": 74.0, "min": 74.0, "species": "brownie", "time": ["dusk", "night"], "weight": 14.0},
+   {"max": 74.0, "min": 73.0, "species": "redbreast", "time": ["dawn", "day"], "weight": 14.0},
+   {"max": 74.0, "min": 73.0, "species": "warrender", "weight": 12.0},
+   {"max": 74.0, "min": 73.0, "species": "strutcoo", "time": ["day", "dawn"], "weight": 12.0},
+   {"max": 74.0, "min": 73.0, "species": "hootlet", "time": ["night"], "weight": 8.0},
+   {"max": 74.0, "min": 73.0, "species": "flittermouse", "time": ["night"], "weight": 8.0},
+   {"max": 74.0, "min": 73.0, "species": "pierlord", "time": ["day", "dusk"], "weight": 10.0},
+   {"max": 74.0, "min": 74.0, "species": "lochosprey", "time": ["day"], "weight": 8.0},
+   {"max": 74.0, "min": 73.0, "species": "rillotter", "weather": ["drizzle", "downpour"], "weight": 6.0}
   ],
   "water": [
-   {
-    "max": 74.0,
-    "min": 73.0,
-    "species": "rillotter",
-    "weight": 24.0
-   },
-   {
-    "max": 74.0,
-    "min": 73.0,
-    "species": "pierlord",
-    "weight": 18.0
-   },
-   {
-    "max": 74.0,
-    "min": 73.0,
-    "species": "bradan",
-    "weather": [
-     "drizzle",
-     "downpour"
-    ],
-    "weight": 18.0
-   },
-   {
-    "max": 74.0,
-    "min": 73.0,
-    "species": "spatelord",
-    "weight": 16.0
-   },
-   {
-    "max": 74.0,
-    "min": 74.0,
-    "species": "bayrunner",
-    "time": [
-     "day"
-    ],
-    "weight": 8.0
-   },
-   {
-    "max": 74.0,
-    "min": 73.0,
-    "species": "heronarch",
-    "weight": 12.0
-   }
+   {"max": 74.0, "min": 73.0, "species": "rillotter", "weight": 24.0},
+   {"max": 74.0, "min": 73.0, "species": "pierlord", "weight": 18.0},
+   {"max": 74.0, "min": 73.0, "species": "bradan", "weather": ["drizzle", "downpour"], "weight": 18.0},
+   {"max": 74.0, "min": 73.0, "species": "spatelord", "weight": 16.0},
+   {"max": 74.0, "min": 74.0, "species": "bayrunner", "time": ["day"], "weight": 8.0},
+   {"max": 74.0, "min": 73.0, "species": "heronarch", "weight": 12.0}
   ]
  },
  "heights": [
@@ -223,10 +116,7 @@
    "sprite": "villager_5",
    "x": 8.0,
    "y": 31.0,
-   "times": [
-    "day",
-    "dusk"
-   ]
+   "times": ["day", "dusk"]
   },
   {
    "facing": "up",
@@ -236,10 +126,7 @@
    "sprite": "villager_2",
    "x": 51.0,
    "y": 33.0,
-   "times": [
-    "day",
-    "dusk"
-   ],
+   "times": ["day", "dusk"],
    "radius": 1
   },
   {
@@ -250,14 +137,8 @@
    "sprite": "birdwatcher",
    "x": 18.0,
    "y": 7.0,
-   "times": [
-    "day",
-    "dusk"
-   ],
-   "path": [
-    "left",
-    "left"
-   ]
+   "times": ["day", "dusk"],
+   "path": ["left", "left"]
   },
   {
    "facing": "down",
@@ -370,9 +251,7 @@
    "move": "still",
    "script": "inverness_astronomer",
    "name": "Astronomer",
-   "times": [
-    "night"
-   ]
+   "times": ["night"]
   },
   {
    "id": "inverness_fox_watcher",
@@ -383,9 +262,40 @@
    "move": "still",
    "script": "inverness_fox_watcher",
    "name": "Fox Watcher",
-   "times": [
-    "night"
-   ]
+   "times": ["night"]
+  },
+  {
+   "id": "kessock_a",
+   "sprite": "steelworker",
+   "x": 49,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "name": "Bridge Engineer",
+   "script": "kessock_works",
+   "hide_if": "badge_frost"
+  },
+  {
+   "id": "kessock_b",
+   "sprite": "steelworker",
+   "x": 50,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "name": "Bridge Engineer",
+   "script": "kessock_works",
+   "hide_if": "badge_frost"
+  },
+  {
+   "id": "kessock_c",
+   "sprite": "steelworker",
+   "x": 51,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "name": "Bridge Engineer",
+   "script": "kessock_works",
+   "hide_if": "badge_frost"
   }
  ],
  "props": [
@@ -1023,17 +933,37 @@
    "type": "noticeboard",
    "x": 26,
    "y": 25
+  },
+  {
+   "type": "lamp_post",
+   "x": 48,
+   "y": 3
+  },
+  {
+   "type": "lamp_post",
+   "x": 52,
+   "y": 3
+  },
+  {
+   "type": "lamp_post",
+   "x": 48,
+   "y": 0
+  },
+  {
+   "type": "lamp_post",
+   "x": 52,
+   "y": 0
   }
  ],
  "region": "scotland",
  "rows": [
-  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
-  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
-  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
-  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
-  "TTwwwwwwwwwwwwwwwwwwww~~~~wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwTT",
-  "TTssssssssssssssssssss~~~~ssssssssssssssssssssssssssssssssssssTT",
-  "TTssssssssssssssssssss~~~~ssssssssssssssssssssssssssssssssssssTT",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$=====$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$=====$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$=====$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$=====$$$$$$$$$$$",
+  "TTwwwwwwwwwwwwwwwwwwww~~~~wwwwwwwwwwwwwwwwwwwwww=====wwwwwwwwwTT",
+  "TTssssssssssssssssssss~~~~ssssssssssssssssssssss=====sssssssssTT",
+  "TTssssssssssssssssssss~~~~ssssssssssssssssssssss=====sssssssssTT",
   "TTkkkkkkkkkkkkkkkkkk::~~~~::kkkkBBBBBBBBBBkkkk::::::::::::::kkTT",
   "TTkBBBBBBBBkkBBBBBBk::~~~~::kkkkBBBBBBBBBBkkkk::::::::::::::kkTT",
   "TTkBBBBBBBBkkBBBBBBk::~~~~::kkkkBBBBBBBBBBkkkkkkkkkkkkkkkkkkkkTT",
@@ -1127,7 +1057,42 @@
    "y": 19,
    "text": "BLUE PLAQUE: In February 1746 Jacobite troops blew up the fort at Inverness, a few weeks before the Battle of Culloden.",
    "kind": "plaque",
-   "dx": -0.475
+   "dx": -0.475,
+   "plaque": "inverness_old_fort",
+   "title": "The Old Fort"
+  },
+  {
+   "x": 38,
+   "y": 12,
+   "plaque": "inverness_macbeth",
+   "title": "The Real Macbeth",
+   "text": "Shakespeare set King Duncan's murder in Macbeth's castle at Inverness. The real Macbeth killed Duncan in battle in 1040, near Elgin, then ruled Scotland for seventeen years and even made a pilgrimage to Rome. History has been trying to show his good side ever since."
+  },
+  {
+   "x": 45,
+   "y": 41,
+   "plaque": "inverness_culloden",
+   "title": "Culloden",
+   "text": "On 16 April 1746, on Drumossie Moor east of town, the Jacobite army of Charles Edward Stuart met the Duke of Cumberland's government troops. It was over in about an hour. Stones on the field still mark the graves of the clans, and people still leave flowers beside them."
+  },
+  {
+   "x": 12,
+   "y": 7,
+   "plaque": "inverness_red_kites",
+   "title": "Red Kites",
+   "text": "Red kites were persecuted to extinction in Scotland more than a century ago. From 1989, birds from Sweden were released on the Black Isle, just across the firth, and they settled in. Look for a forked tail and a lazy, tilting glide. They are scavengers, and they have opinions about your picnic."
+  },
+  {
+   "x": 4,
+   "y": 28,
+   "plaque": "inverness_tomnahurich",
+   "title": "Tomnahurich",
+   "text": "The wooded hill by the canal is Tomnahurich, from the Gaelic Tom na h-Iubhraich: 'hill of the yew wood', or perhaps 'of the boat', for its upturned-hull shape. Legend says the fairies lived inside it, and that fiddlers who went in for one night came out a hundred years later. It is a cemetery now."
+  },
+  {
+   "x": 47,
+   "y": 6,
+   "text": "THE KESSOCK BRIDGE. North over the firth to the Black Isle, the Flow Country, Thurso and John o' Groats. The bridge opened in 1982 and is a favourite spot for watching the dolphins, if you can stop to look."
   }
  ],
  "spawn": [

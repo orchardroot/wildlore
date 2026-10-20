@@ -1,0 +1,141 @@
+{
+  "quests": [
+    {
+      "id": "devon_armada",
+      "title": "Bowls and Beacons",
+      "region": "devon",
+      "town": "plymouth",
+      "giver": "'Sir Francis'",
+      "summary": "Finish Drake's game of bowls on the Hoe, then light the Armada beacons and warn Exeter.",
+      "start_flag": "q_devon_armada_started",
+      "steps": [
+        {
+          "flag": "q_devon_armada_1",
+          "text": "Finish Drake's game: beat the Bowls Captain on the Hoe.",
+          "zone": "plymouth"
+        },
+        {
+          "flag": "q_devon_armada_2",
+          "text": "Light the beacon on Plymouth Hoe.",
+          "zone": "plymouth"
+        },
+        {
+          "flag": "q_devon_armada_3",
+          "text": "Carry the warning to the beacon on Haldon Hill.",
+          "zone": "exe_estuary"
+        },
+        {
+          "flag": "q_devon_armada_4",
+          "text": "Find the Town Crier on Exeter's High Street.",
+          "zone": "exeter"
+        },
+        {
+          "flag": "q_devon_armada_done",
+          "text": "Report back to 'Sir Francis' on the Hoe.",
+          "zone": "plymouth"
+        }
+      ],
+      "done_flag": "q_devon_armada_done",
+      "reward": "Drake's Drum (a charm), a Beaconet and standing in England."
+    },
+    {
+      "id": "devon_mayflower",
+      "title": "Last Night in England",
+      "region": "devon",
+      "town": "plymouth",
+      "giver": "Barbican Historian",
+      "summary": "Gather the story of the Mayflower's sailing for a display at the Mayflower Steps.",
+      "start_flag": "q_devon_mayflower_started",
+      "steps": [
+        {
+          "flag": "q_devon_mayflower_1",
+          "text": "Ask the curator of the Elizabethan House about life in 1620.",
+          "zone": "plymouth"
+        },
+        {
+          "flag": "q_devon_mayflower_2",
+          "text": "Hear the Black Friars story at the gin distillery.",
+          "zone": "plymouth"
+        },
+        {
+          "flag": "q_devon_mayflower_3",
+          "text": "Ask the Old Salt on the Barbican quay about the voyage.",
+          "zone": "plymouth"
+        },
+        {
+          "flag": "q_devon_mayflower_done",
+          "text": "Take it all back to the historian by the Mayflower Steps.",
+          "zone": "plymouth"
+        }
+      ],
+      "done_flag": "q_devon_mayflower_done",
+      "reward": "Sea glass, flasks of tea and standing in England."
+    },
+    {
+      "id": "devon_creamtea",
+      "title": "The Cream Tea War",
+      "region": "devon",
+      "town": "exeter",
+      "giver": "Mrs Endacott",
+      "summary": "Cream first or jam first? Fetch clotted cream for an Exeter tea room and settle it with a Cornish visitor.",
+      "start_flag": "q_devon_creamtea_started",
+      "steps": [
+        {
+          "flag": "q_devon_creamtea_1",
+          "text": "Fetch clotted cream from the dairy off the B3212.",
+          "zone": "exe_estuary"
+        },
+        {
+          "flag": "q_devon_creamtea_2",
+          "text": "Bring the cream back to the tea room in Exeter.",
+          "zone": "exeter"
+        },
+        {
+          "flag": "q_devon_creamtea_3",
+          "text": "Beat Jory, who puts his jam on first.",
+          "zone": "exeter"
+        }
+      ],
+      "done_flag": "q_devon_creamtea_done",
+      "reward": "Devon Scones, Scrumpy and standing in England."
+    },
+    {
+      "id": "devon_letterbox",
+      "title": "Letterboxing",
+      "region": "devon",
+      "town": "exe_estuary",
+      "giver": "Letterboxer",
+      "summary": "Hunt for letterboxes on the edge of Dartmoor, from the stunted oaks to Cranmere Pool, then face the Hairy Hands.",
+      "start_flag": "q_devon_letterbox_started",
+      "steps": [
+        {
+          "flag": "q_devon_letterbox_1",
+          "text": "Find the letterbox among the stunted oaks south of the B3212.",
+          "zone": "exe_estuary"
+        },
+        {
+          "flag": "q_devon_letterbox_2",
+          "text": "Find the letterbox by the Belvedere on Haldon Hill.",
+          "zone": "exe_estuary"
+        },
+        {
+          "flag": "q_devon_letterbox_3",
+          "text": "Find the first letterbox of all, at Cranmere Pool on Dartmoor.",
+          "zone": "dartmoor"
+        },
+        {
+          "flag": "q_devon_letterbox_4",
+          "text": "After dark, catch the Hairy Hands on the B3212.",
+          "zone": "exe_estuary"
+        },
+        {
+          "flag": "q_devon_letterbox_done",
+          "text": "Show your stamp book to the letterboxer.",
+          "zone": "exe_estuary"
+        }
+      ],
+      "done_flag": "q_devon_letterbox_done",
+      "reward": "A Turned Coat (a charm) and standing in England."
+    }
+  ]
+}

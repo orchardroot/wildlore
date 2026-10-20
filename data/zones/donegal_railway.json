@@ -1,0 +1,100 @@
+{
+ "id": "donegal_railway",
+ "name": "Donegal Railway Heritage Centre",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "display_case",
+   "x": 2,
+   "y": 2,
+   "variant": 0
+  },
+  {
+   "type": "display_case",
+   "x": 12,
+   "y": 2,
+   "variant": 1
+  },
+  {
+   "type": "wall_map",
+   "x": 7,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "specimen_shelf",
+   "x": 1,
+   "y": 5,
+   "variant": 1
+  },
+  {
+   "type": "clock",
+   "x": 4,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "bench",
+   "x": 10,
+   "y": 5
+  },
+  {
+   "type": "table",
+   "x": 4,
+   "y": 5
+  }
+ ],
+ "warps": [
+  {
+   "x": 7,
+   "y": 7,
+   "to": "donegal_town",
+   "tx": 38,
+   "ty": 37,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "dr_volunteer",
+   "sprite": "rail_guard",
+   "x": 7,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "dr_volunteer",
+   "name": "Volunteer"
+  },
+  {
+   "id": "dr_trainspotter",
+   "sprite": "commuter",
+   "x": 11,
+   "y": 6,
+   "facing": "left",
+   "move": "still",
+   "script": "dr_trainspotter",
+   "name": "Enthusiast"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  7,
+  6
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxxx",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x||||||D||||||x",
+  "xxxxxxxxxxxxxxx"
+ ]
+}

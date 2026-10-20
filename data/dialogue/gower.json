@@ -1,0 +1,687 @@
+{
+ "gow_ponyman": [
+  {
+   "do": "say",
+   "who": "Commoner",
+   "text": "Commoners' ponies, these. My family's had grazing rights on Cefn Bryn since before anyone wrote it down."
+  },
+  {
+   "do": "say",
+   "who": "Commoner",
+   "text": "They're hardy. Gorse for breakfast, wind for dinner. Don't feed them crisps, it gives them ideas."
+  }
+ ],
+ "gow_birder": [
+  {
+   "do": "say",
+   "who": "Birdwatcher",
+   "text": "Choughs! Red beak, red legs. They came back to breed on Gower in the 1990s after a century away. I nearly dropped my flask."
+  },
+  {
+   "do": "say",
+   "who": "Birdwatcher",
+   "text": "Grey seals haul out on the Worm, and the gannets from Grassholm fish off the point. Bring binoculars and a lot of patience."
+  }
+ ],
+ "gow_surfer": [
+  {
+   "do": "say",
+   "who": "Llangennith Surfer",
+   "text": "Swell's coming in from the Atlantic, nothing between here and America but a few fishing boats. Lush."
+  },
+  {
+   "do": "say",
+   "who": "Llangennith Surfer",
+   "text": "Rhossili means something like 'Sili's moor', they reckon. I'm no linguist. I'm a surfer. I know what 'gnarly' means, though."
+  }
+ ],
+ "gow_dilys": [
+  {
+   "do": "if",
+   "flag": "q_swansea_cockles_2",
+   "then": [
+    {
+     "do": "say",
+     "who": "Dilys",
+     "text": "Off you go to Megan, then. Keep them cool and wet. Cockles are like grandchildren: lovely, but they don't travel well."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_swansea_cockles_started",
+     "then": [
+      {
+       "do": "say",
+       "who": "Dilys",
+       "text": "Megan sent you? Course she did. Here, take the rake. The trick's in the riddle, the sieve. Watch."
+      },
+      {
+       "do": "set",
+       "flag": "q_swansea_cockles_1",
+       "value": true
+      },
+      {
+       "do": "choice",
+       "text": "Dilys shakes the riddle. Which cockles go in the bag?",
+       "options": [
+        "Every last one you can find",
+        "Only the ones too big to fall through the riddle",
+        "Only the shiny ones"
+       ],
+       "set": "_cockle"
+      },
+      {
+       "do": "if",
+       "flag": "_cockle",
+       "eq": 1,
+       "then": [
+        {
+         "do": "say",
+         "who": "Dilys",
+         "text": "That's it! The little ones drop back through to grow on for next year. That's why there are still cockles here after hundreds of years."
+        },
+        {
+         "do": "set",
+         "flag": "q_swansea_cockles_1",
+         "value": true
+        },
+        {
+         "do": "set",
+         "flag": "q_swansea_cockles_2",
+         "value": true
+        },
+        {
+         "do": "give_item",
+         "item": "penclawdd_cockles",
+         "n": 1
+        },
+        {
+         "do": "say",
+         "who": "Dilys",
+         "text": "A bag of Penclawdd's finest. Take them to Megan. Tell her she owes me a bara brith."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Dilys",
+         "text": "Duw, no! Take them all and there's none next year. Look at the riddle again. Have another go."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Dilys",
+       "text": "Cockling, love. Rake, riddle, bag. My mam did it with a donkey. I do it with a tractor and a bad back."
+      },
+      {
+       "do": "say",
+       "who": "Dilys",
+       "text": "The Burry Inlet, this is. Tide goes out for miles. You get to know it like your own kitchen."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "gow_coastguard": [
+  {
+   "do": "if",
+   "flag": "q_swansea_worm_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Coastwatch Volunteer",
+     "text": "The Worm's quiet today. Tide table's on the board if you fancy another stroll. Mind the time, mind the time, mind the time."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_swansea_worm_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_swansea_worm_caught",
+       "then": [
+        {
+         "do": "say",
+         "who": "Coastwatch Volunteer",
+         "text": "You caught it? The Worm's own wyrm? I've watched that blowhole for twenty years and never seen more than spray."
+        },
+        {
+         "do": "set",
+         "flag": "q_swansea_worm_done",
+         "value": true
+        },
+        {
+         "do": "say",
+         "who": "Coastwatch Volunteer",
+         "text": "Here, have this. A hag stone off Rhossili beach, a pebble with a hole worn right through. Sailors hung them up for luck. Seems you've got the knack already."
+        },
+        {
+         "do": "give_item",
+         "item": "hag_stone",
+         "n": 1
+        },
+        {
+         "do": "give_item",
+         "item": "laverbread",
+         "n": 2
+        },
+        {
+         "do": "standing",
+         "nation": "wales",
+         "amount": 5
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Coastwatch Volunteer",
+         "text": "Back again? Want another go at the crossing?"
+        },
+        {
+         "do": "say",
+         "who": "Coastwatch Volunteer",
+         "text": "Today's tide table: low water at two in the afternoon. The causeway's open from two and a half hours before low water to two and a half hours after."
+        },
+        {
+         "do": "say",
+         "who": "Coastwatch Volunteer",
+         "text": "It's a good hour's scramble from the causeway out to the Outer Head, and an hour back. So, when are you going?"
+        },
+        {
+         "do": "choice",
+         "text": "Plan your crossing.",
+         "options": [
+          "Leave at 10am, back by noon",
+          "Leave at 11.30am, turn back at 2.30pm",
+          "Leave at 2pm, picnic, turn back at 4pm",
+          "Whenever. It's only water."
+         ],
+         "set": "_worm_plan"
+        },
+        {
+         "do": "if",
+         "flag": "_worm_plan",
+         "eq": 1,
+         "then": [
+          {
+           "do": "say",
+           "who": "Coastwatch Volunteer",
+           "text": "Spot on. Causeway opens at half eleven, you're back on it by half three, and it's covered by half four. An hour to spare. Off you go, and say hello to Gwen."
+          },
+          {
+           "do": "set",
+           "flag": "q_swansea_worm_1",
+           "value": true
+          },
+          {
+           "do": "set",
+           "flag": "q_swansea_worm_safe",
+           "value": true
+          },
+          {
+           "do": "fade_out"
+          },
+          {
+           "do": "say",
+           "who": "",
+           "text": "You pick your way over the barnacled rocks and mussel beds of the causeway as the last of the sea drains off it."
+          },
+          {
+           "do": "warp",
+           "zone": "gower",
+           "x": 24,
+           "y": 40,
+           "facing": "left"
+          },
+          {
+           "do": "fade_in"
+          }
+         ],
+         "else": [
+          {
+           "do": "if",
+           "flag": "_worm_plan",
+           "eq": 2,
+           "then": [
+            {
+             "do": "say",
+             "who": "Coastwatch Volunteer",
+             "text": "Hmm. You'll get over all right. Getting back's another matter. Still, you're old enough to learn the hard way."
+            },
+            {
+             "do": "set",
+             "flag": "q_swansea_worm_1",
+             "value": true
+            },
+            {
+             "do": "set",
+             "flag": "q_swansea_worm_safe",
+             "value": false
+            },
+            {
+             "do": "fade_out"
+            },
+            {
+             "do": "say",
+             "who": "",
+             "text": "You cross the causeway with a picnic and a song in your heart."
+            },
+            {
+             "do": "warp",
+             "zone": "gower",
+             "x": 24,
+             "y": 40,
+             "facing": "left"
+            },
+            {
+             "do": "fade_in"
+            }
+           ],
+           "else": [
+            {
+             "do": "if",
+             "flag": "_worm_plan",
+             "eq": 0,
+             "then": [
+              {
+               "do": "say",
+               "who": "Coastwatch Volunteer",
+               "text": "At ten the causeway's still a yard under the sea. You'd be swimming with the conger eels. Have another look at the table."
+              }
+             ],
+             "else": [
+              {
+               "do": "say",
+               "who": "Coastwatch Volunteer",
+               "text": "'It's only water.' That's what everybody says before we ring the lifeboat. Sit down and do the sums."
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Coastwatch Volunteer",
+       "text": "Bore da! Good morning. That's Worm's Head out there. The Vikings called it 'ormr', the dragon, and on a stormy day you'll see why: the Outer Head lifts its head and the blowhole roars."
+      },
+      {
+       "do": "say",
+       "who": "Coastwatch Volunteer",
+       "text": "There's a story it's no story at all. Gwen, who's walked out there for fifty years, swears something lives by the blowhole. You'd need to cross the causeway on the tide to see."
+      },
+      {
+       "do": "set",
+       "flag": "q_swansea_worm_started",
+       "value": true
+      },
+      {
+       "do": "say",
+       "who": "Coastwatch Volunteer",
+       "text": "Today's tide table: low water at two in the afternoon. The causeway's open from two and a half hours before low water to two and a half hours after."
+      },
+      {
+       "do": "say",
+       "who": "Coastwatch Volunteer",
+       "text": "It's a good hour's scramble from the causeway out to the Outer Head, and an hour back. So, when are you going?"
+      },
+      {
+       "do": "choice",
+       "text": "Plan your crossing.",
+       "options": [
+        "Leave at 10am, back by noon",
+        "Leave at 11.30am, turn back at 2.30pm",
+        "Leave at 2pm, picnic, turn back at 4pm",
+        "Whenever. It's only water."
+       ],
+       "set": "_worm_plan"
+      },
+      {
+       "do": "if",
+       "flag": "_worm_plan",
+       "eq": 1,
+       "then": [
+        {
+         "do": "say",
+         "who": "Coastwatch Volunteer",
+         "text": "Spot on. Causeway opens at half eleven, you're back on it by half three, and it's covered by half four. An hour to spare. Off you go, and say hello to Gwen."
+        },
+        {
+         "do": "set",
+         "flag": "q_swansea_worm_1",
+         "value": true
+        },
+        {
+         "do": "set",
+         "flag": "q_swansea_worm_safe",
+         "value": true
+        },
+        {
+         "do": "fade_out"
+        },
+        {
+         "do": "say",
+         "who": "",
+         "text": "You pick your way over the barnacled rocks and mussel beds of the causeway as the last of the sea drains off it."
+        },
+        {
+         "do": "warp",
+         "zone": "gower",
+         "x": 24,
+         "y": 40,
+         "facing": "left"
+        },
+        {
+         "do": "fade_in"
+        }
+       ],
+       "else": [
+        {
+         "do": "if",
+         "flag": "_worm_plan",
+         "eq": 2,
+         "then": [
+          {
+           "do": "say",
+           "who": "Coastwatch Volunteer",
+           "text": "Hmm. You'll get over all right. Getting back's another matter. Still, you're old enough to learn the hard way."
+          },
+          {
+           "do": "set",
+           "flag": "q_swansea_worm_1",
+           "value": true
+          },
+          {
+           "do": "set",
+           "flag": "q_swansea_worm_safe",
+           "value": false
+          },
+          {
+           "do": "fade_out"
+          },
+          {
+           "do": "say",
+           "who": "",
+           "text": "You cross the causeway with a picnic and a song in your heart."
+          },
+          {
+           "do": "warp",
+           "zone": "gower",
+           "x": 24,
+           "y": 40,
+           "facing": "left"
+          },
+          {
+           "do": "fade_in"
+          }
+         ],
+         "else": [
+          {
+           "do": "if",
+           "flag": "_worm_plan",
+           "eq": 0,
+           "then": [
+            {
+             "do": "say",
+             "who": "Coastwatch Volunteer",
+             "text": "At ten the causeway's still a yard under the sea. You'd be swimming with the conger eels. Have another look at the table."
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Coastwatch Volunteer",
+             "text": "'It's only water.' That's what everybody says before we ring the lifeboat. Sit down and do the sums."
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "gow_warden": [
+  {
+   "do": "if",
+   "flag": "q_swansea_worm_safe",
+   "then": [
+    {
+     "do": "say",
+     "who": "Island Warden",
+     "text": "Good timing, you. The causeway's clear for a while yet."
+    },
+    {
+     "do": "choice",
+     "text": "Head back over the causeway?",
+     "options": [
+      "Back to the mainland",
+      "Stay a while"
+     ],
+     "set": "_worm_back"
+    },
+    {
+     "do": "if",
+     "flag": "_worm_back",
+     "eq": 0,
+     "then": [
+      {
+       "do": "fade_out"
+      },
+      {
+       "do": "warp",
+       "zone": "gower",
+       "x": 31,
+       "y": 38,
+       "facing": "up"
+      },
+      {
+       "do": "fade_in"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Island Warden",
+       "text": "Keep half an eye on your watch."
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Island Warden",
+     "text": "Oh dear. Look at the causeway. That's the sea racing over it, that is, and it won't be back down for hours. You're cut off."
+    },
+    {
+     "do": "choice",
+     "text": "You're stranded on the Worm.",
+     "options": [
+      "Wait for the next low tide",
+      "Swim for it"
+     ],
+     "set": "_worm_stuck"
+    },
+    {
+     "do": "if",
+     "flag": "_worm_stuck",
+     "eq": 1,
+     "then": [
+      {
+       "do": "say",
+       "who": "Island Warden",
+       "text": "Swim? In that rip? No chance. People have drowned trying. If you'd come with waders and the sense to wade the shallow bit at low water, fair enough. Not now. We wait."
+      }
+     ]
+    },
+    {
+     "do": "say",
+     "who": "Island Warden",
+     "text": "We'll sit by the cairn. I've got a flask. The tide turns roughly every six hours and a bit."
+    },
+    {
+     "do": "fade_out"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "You count gulls, then seals, then stars. Dylan Thomas did this once, and wrote about it. You compose a strongly worded postcard to yourself."
+    },
+    {
+     "do": "set",
+     "flag": "q_swansea_worm_safe",
+     "value": true
+    },
+    {
+     "do": "say",
+     "who": "Island Warden",
+     "text": "There, the causeway's up. Lesson learned: always do the sums. Off you go."
+    },
+    {
+     "do": "warp",
+     "zone": "gower",
+     "x": 31,
+     "y": 38,
+     "facing": "up"
+    },
+    {
+     "do": "fade_in"
+    }
+   ]
+  }
+ ],
+ "gow_gwen": [
+  {
+   "do": "if",
+   "flag": "trainer_gow_gwen",
+   "then": [
+    {
+     "do": "say",
+     "who": "Gwen of the Worm",
+     "text": "The Outer Head's beyond the Devil's Bridge, the stone arch. Listen at the blowhole."
+    },
+    {
+     "do": "if",
+     "flag": "q_swansea_worm_1",
+     "then": [
+      {
+       "do": "set",
+       "flag": "q_swansea_worm_2",
+       "value": true
+      }
+     ],
+     "else": []
+    }
+   ],
+   "else": [
+    {
+     "do": "battle",
+     "trainer": "gow_gwen",
+     "intro": true
+    },
+    {
+     "do": "if",
+     "flag": "trainer_gow_gwen",
+     "then": [
+      {
+       "do": "set",
+       "flag": "q_swansea_worm_2",
+       "value": true
+      }
+     ],
+     "else": []
+    }
+   ]
+  }
+ ],
+ "gow_wyrm": [
+  {
+   "do": "if",
+   "flag": "q_swansea_worm_2",
+   "then": [
+    {
+     "do": "say",
+     "who": "",
+     "text": "The swell comes in. The blowhole booms like a cannon, and out of the spray rises a long grey-green head, crested like a breaking wave."
+    },
+    {
+     "do": "music",
+     "id": "legend_sea"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "The Worm's own wyrm. It looks at you, then at the tide, as if it's checking your sums."
+    },
+    {
+     "do": "legend",
+     "species": "ormwyrm",
+     "level": 36,
+     "scaled_floor": 33,
+     "music": "legend_sea",
+     "flag": "q_swansea_worm_caught"
+    },
+    {
+     "do": "if",
+     "flag": "q_swansea_worm_caught",
+     "then": [
+      {
+       "do": "set",
+       "flag": "q_swansea_worm_3",
+       "value": true
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "Tell the coastguard. Nobody's going to believe you, but tell them."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "The wyrm slips back into the sea with a slap of its tail. It'll be back with the next swell."
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "",
+     "text": "The blowhole booms. Something long and grey-green shifts in the spray, then is gone. Gwen, on the Low Neck, would know what you're looking at."
+    }
+   ]
+  }
+ ],
+ "c_foalmoor": [
+  {
+   "do": "say",
+   "who": "Gower Pony",
+   "text": "The pony looks at you, looks at your pockets, and looks disappointed."
+  }
+ ],
+ "c_greyhaul": [
+  {
+   "do": "say",
+   "who": "Grey Seal",
+   "text": "A grey seal hauled out on the rock. It regards you the way a duchess regards a draught."
+  }
+ ]
+}

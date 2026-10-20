@@ -1,0 +1,49 @@
+{
+ "tg_keeper": [
+  {
+   "do": "if",
+   "flag": "q_donegal_tory_2",
+   "then": [
+    {
+     "do": "say",
+     "who": "Gallery Keeper",
+     "text": "Séamus. Everyone says Séamus, they just won't say it first. Now you need a céilí band for the crowning. A fiddler in Gaoth Dobhair and a box player in Donegal Town, if you can get them."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_donegal_tory_1",
+     "then": [
+      {
+       "do": "say",
+       "who": "Gallery Keeper",
+       "text": "Who should be king? Ah. I've counted, unofficially, the way you count on an island: by who gets mentioned in the shop. It's Séamus. The man on the pier. He's met every boat for twenty years without being asked."
+      },
+      {
+       "do": "say",
+       "who": "Gallery Keeper",
+       "text": "But a crowning needs music. Get a fiddler from Gaoth Dobhair and a box player from Donegal Town and we'll have a proper céilí."
+      },
+      {
+       "do": "set",
+       "flag": "q_donegal_tory_2"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Gallery Keeper",
+       "text": "{greeting} These are by islanders. The sea, the cliffs, the boats, the lighthouse. Painted on whatever they had: board, card, the back of a door once."
+      },
+      {
+       "do": "say",
+       "who": "Gallery Keeper",
+       "text": "An English painter came out in the fifties, and the fishermen watched him and decided they'd have a go. They were better at the sea than he was. He said so himself."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,119 @@
+{
+ "cw_cheesemaker": [
+  {
+   "do": "if",
+   "flag": "q_cotswolds_cheese_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Cheesemaker",
+     "text": "Double Gloucester, cloth-bound, turned every day. It's the colour of a good sunset and goes with everything except a diet."
+    },
+    {
+     "do": "say",
+     "who": "Cheesemaker",
+     "text": "The 'double' means a double-size wheel, made from full-cream milk, so it matures into a rich, nutty cheese. The orange colour was originally added so that it looked like the richer cheese. Annatto. It's from a seed."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_cotswolds_cheese_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "Cheesemaker",
+       "text": "Off you go to the Master. And do me a favour: let the cheese win now and then. It's good for its self-esteem."
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_cotswolds_cheese_1",
+       "then": [
+        {
+         "do": "when",
+         "cond": "has_gloucelet",
+         "then": [
+          {
+           "do": "say",
+           "who": "Cheesemaker",
+           "text": "Look at that! A Gloucelet, round as a good wheel and twice as stubborn. It is, as far as anyone knows, made of mostly cheese and a bit of attitude."
+          },
+          {
+           "do": "say",
+           "who": "Cheesemaker",
+           "text": "Right. You're ready. The Master's waiting at the top of the hill."
+          },
+          {
+           "do": "set",
+           "flag": "q_cotswolds_cheese_2"
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Cheesemaker",
+           "text": "You need to have a Gloucelet to show first. They live in the tall grass on the wold and on the hill. Look for something round, orange and furious. It rolls when it's cross."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "if",
+         "flag": "q_cotswolds_cheese_started",
+         "then": [
+          {
+           "do": "say",
+           "who": "Cheesemaker",
+           "text": "The rules of the race? Easy. There aren't any. A round of Double Gloucester, about three to four kilos in a wooden case, is launched at the top; it gets a start, and everyone follows. First to the bottom wins the cheese."
+          },
+          {
+           "do": "say",
+           "who": "Cheesemaker",
+           "text": "Nobody catches the cheese. It moves faster than a car on a motorway. The winner is the one who crosses the line first, which is usually the one who didn't fall over."
+          },
+          {
+           "do": "say",
+           "who": "Cheesemaker",
+           "text": "Now, the creature version. You'll need a Gloucelet: the wheel of Double Gloucester that learned to roll for itself. Catch one on the hill or the wold and show me."
+          },
+          {
+           "do": "set",
+           "flag": "q_cotswolds_cheese_1"
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Cheesemaker",
+           "text": "Cooper's Hill Dairy. Double Gloucester made as it was in the vale: full-cream milk, a cloth, a press and patience."
+          },
+          {
+           "do": "say",
+           "who": "Cheesemaker",
+           "text": "If you're after the cheese-rolling, the Master of Ceremonies is at the top of the hill."
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "cw_dairyshop": [
+  {
+   "do": "say",
+   "who": "Dairy Hand",
+   "text": "We make the wheels, then we turn them every day for weeks. If we stop turning, the rind goes wrong. There's a rhyme: turn it, brush it, leave it alone. I don't remember the rest, I've been turning."
+  },
+  {
+   "do": "say",
+   "who": "Dairy Hand",
+   "text": "A Double Gloucester that's rolled down Cooper's Hill is never for eating. They use a lookalike wheel for the race, and a lovely real one for the winner."
+  }
+ ]
+}

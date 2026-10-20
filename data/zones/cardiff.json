@@ -4,6 +4,10 @@
    "offset": 0.0,
    "to": "severn_crossing"
   },
+  "north": {
+   "offset": -16.0,
+   "to": "rhondda"
+  },
   "west": {
    "offset": 0.0,
    "to": "beacons"
@@ -680,8 +684,8 @@
  ],
  "region": "south_wales",
  "rows": [
-  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
-  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTPTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT...TTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTPTTTTTTTTTTTTTTT...TTTTTTTTTTTTTTTT",
   "TT............................................................TT",
   "TT................WWWWWWWWWWWWWWWWWWWWWWWWW~....T..T........T.TT",
   "TT................WBBBB..............BBBBBW~..................TT",
@@ -731,6 +735,11 @@
  ],
  "signs": [
   {
+   "text": "THE VALLEYS. North: the Rhondda, then Merthyr Tydfil and Blaenavon. Coal, iron, chapels, choirs, and rain that goes sideways. Croeso!",
+   "x": 44.0,
+   "y": 2.0
+  },
+  {
    "text": "CARDIFF CASTLE. Roman fort, then Norman keep, then Victorian fantasy. The Marquess of Bute spent a fortune on towers.",
    "x": 28.0,
    "y": 15.0
@@ -770,7 +779,37 @@
    "y": 30,
    "text": "BLUE PLAQUE: Roald Dahl, author, was born in Llandaff in 1916 and baptised in the Norwegian Church.",
    "kind": "plaque",
-   "dx": -0.475
+   "dx": -0.475,
+   "plaque": "cardiff_roald_dahl",
+   "title": "Roald Dahl"
+  },
+  {
+   "x": 27,
+   "y": 11,
+   "plaque": "cardiff_name",
+   "title": "Name: Caerdydd",
+   "text": "Cardiff's Welsh name is Caerdydd. Caer is Welsh for a fort, which fits, since the Romans built one where the castle now stands. The second half is usually linked to the River Taff, though scholars still argue over it, as scholars do."
+  },
+  {
+   "x": 48,
+   "y": 31,
+   "plaque": "cardiff_coal_exchange",
+   "title": "The Coal Exchange",
+   "text": "In the Coal Exchange in Butetown, traders once agreed coal prices for much of the world. The story goes that the first cheque for a million pounds was signed there in 1904. The coal came down from the valleys by rail; the cheque just needed a lot of noughts."
+  },
+  {
+   "x": 56,
+   "y": 32,
+   "plaque": "cardiff_terra_nova",
+   "title": "Scott's Terra Nova",
+   "text": "In June 1910 Captain Scott's ship Terra Nova sailed from Cardiff for the Antarctic, stocked with coal and money given by the city. Scott reached the South Pole in 1912, but his polar party never came home. A memorial lighthouse in Roath Park still remembers them."
+  },
+  {
+   "x": 13,
+   "y": 10,
+   "plaque": "cardiff_glamorgan_sausage",
+   "title": "Glamorgan Sausage",
+   "text": "Selsig Morgannwg, the Glamorgan sausage, contains no meat at all: it is cheese, leeks and breadcrumbs rolled into a sausage and fried. Caerphilly is the traditional cheese. The Victorian travel writer George Borrow praised them, and vegetarians have been smug ever since."
   }
  ],
  "spawn": [

@@ -876,6 +876,10 @@
   "west": {
    "to": "dee_valley",
    "offset": 0
+  },
+  "south": {
+   "to": "shrewsbury",
+   "offset": 0
   }
  },
  "npcs": [
@@ -1005,74 +1009,49 @@
     "min": 21,
     "max": 23,
     "weight": 16,
-    "weather": [
-     "drizzle",
-     "downpour",
-     "fog"
-    ]
+    "weather": ["drizzle", "downpour", "fog"]
    },
    {
     "species": "brockling",
     "min": 21,
     "max": 23,
     "weight": 16,
-    "time": [
-     "dawn",
-     "dusk",
-     "night"
-    ]
+    "time": ["dawn", "dusk", "night"]
    },
    {
     "species": "starlet",
     "min": 21,
     "max": 23,
     "weight": 20,
-    "time": [
-     "dawn",
-     "day",
-     "dusk"
-    ]
+    "time": ["dawn", "day", "dusk"]
    },
    {
     "species": "swiftlet",
     "min": 21,
     "max": 23,
     "weight": 14,
-    "weather": [
-     "clear",
-     "sunshine",
-     "gale"
-    ]
+    "weather": ["clear", "sunshine", "gale"]
    },
    {
     "species": "grizzlet",
     "min": 21,
     "max": 22,
     "weight": 14,
-    "time": [
-     "dawn",
-     "dusk"
-    ]
+    "time": ["dawn", "dusk"]
    },
    {
     "species": "binfox",
     "min": 21,
     "max": 23,
     "weight": 14,
-    "time": [
-     "dusk",
-     "night"
-    ]
+    "time": ["dusk", "night"]
    },
    {
     "species": "hootlet",
     "min": 21,
     "max": 23,
     "weight": 12,
-    "time": [
-     "dusk",
-     "night"
-    ]
+    "time": ["dusk", "night"]
    },
    {
     "species": "cooplet",
@@ -1085,9 +1064,27 @@
     "min": 22,
     "max": 23,
     "weight": 10,
-    "time": [
-     "night"
-    ]
+    "time": ["night"]
+   },
+   {
+    "species": "brinelet",
+    "min": 21,
+    "max": 23,
+    "weight": 16
+   },
+   {
+    "species": "fizzlet",
+    "min": 21,
+    "max": 23,
+    "weight": 8,
+    "time": ["dusk", "night"]
+   },
+   {
+    "species": "grinalkin",
+    "min": 22,
+    "max": 23,
+    "weight": 5,
+    "time": ["dusk", "night"]
    }
   ],
   "water": [
@@ -1193,7 +1190,42 @@
    "y": 11,
    "text": "BLUE PLAQUE: Charles Kingsley, author of The Water-Babies, was Canon of Chester and founded the Chester Society of Natural Science in 1871.",
    "kind": "plaque",
-   "dx": 0.475
+   "dx": 0.475,
+   "plaque": "chester_charles_kingsley",
+   "title": "Charles Kingsley"
+  },
+  {
+   "x": 38,
+   "y": 18,
+   "plaque": "chester_name",
+   "title": "Name: Chester",
+   "text": "Chester comes from the Latin 'castra', a fort, by way of Old English 'ceaster'. Plenty of English towns got a slice of the same word: Lancaster, Manchester, Leicester. In Welsh the city is simply Caer, 'the fort', as if there were only ever one worth mentioning."
+  },
+  {
+   "x": 39,
+   "y": 12,
+   "plaque": "chester_king_charles_tower",
+   "title": "King Charles' Tower",
+   "text": "In September 1645, during the Civil War, King Charles I is said to have stood on a tower of the city walls to watch his army fight at Rowton Moor, just outside Chester. It went badly. The tower has been called King Charles' Tower ever since: a poor day out for him, a good name for it."
+  },
+  {
+   "x": 32,
+   "y": 15,
+   "plaque": "chester_mystery_plays",
+   "title": "The Mystery Plays",
+   "text": "In the Middle Ages Chester's trade guilds put on the Mystery Plays, Bible stories acted on wagons wheeled round the streets, each guild taking a scene. The Waterleaders, who carried water from the Dee, did Noah's Flood. Stopped under Elizabeth I, the plays were revived in the twentieth century."
+  },
+  {
+   "x": 33,
+   "y": 13,
+   "plaque": "chester_st_werburgh",
+   "title": "St Werburgh's Geese",
+   "text": "St Werburgh, a Mercian princess and abbess, is the saint the abbey here was built for, and her shrine still stands inside. Legend says she ordered a flock of wild geese to stop stealing the crops, and they obeyed. When a servant cooked one, she brought it back to life. Geese have been smug ever since."
+  },
+  {
+   "x": 25,
+   "y": 52,
+   "text": "SOUTH: the old road to Shrewsbury, the Severn and the Shropshire hills. Mind the pronunciation."
   }
  ],
  "spawn": [
@@ -1259,8 +1291,8 @@
   "~~~~~~~~~~~~~~~~~~~~~~~~~~===~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
   "~~~~~~~~~~~~~~~~~~~~~~~~~~===~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
   "TTTsssssssssssssssssssssss===ssssssssssssssssssssssssssssssssTTT",
-  "TTTTTTTTTTTTTTTTTTTTTTTTTT:=:TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
-  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT"
+  "TTTTTTTTTTTTTTTTTTTTTTTTT.:=:TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTT:=:TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT"
  ],
  "heights": [
   "0000000000000000000000000000000000000000000000000000000000000000",

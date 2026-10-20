@@ -1,0 +1,31 @@
+{"id": "quayhulk",
+ "palette": {"sea": "#466676", "sea2": "#2a4452", "belly": "#a4b8c0", "mussel": "#2a2a44", "mussel2": "#4a4a70", "barn": "#e8e4d8", "hat": "#c83a30", "hat2": "#8a2420", "crate": "#b88a50", "crate2": "#7a5a30", "skin": "#7890a0", "ink": "#0e161e", "eye": "#f0f4f8"},
+ "layers": [
+  {"shape": "ellipse", "at": [34, 88], "size": [20, 10], "colour": "sea2", "mirror": true},
+  {"shape": "ellipse", "at": [12, 58], "size": [20, 40], "colour": "sea", "angle": -10, "mirror": true, "pattern": "speckle", "pcolour": "sea2", "density": 14},
+  {"shape": "circle", "at": [10, 80], "r": 9, "colour": "skin", "mirror": true},
+  {"shape": "poly", "points": [[14, 40], [30, 30], [66, 30], [82, 40], [74, 88], [22, 88]], "colour": "sea", "pattern": "speckle", "pcolour": "sea2", "density": 16},
+  {"shape": "ellipse", "at": [48, 66], "size": [34, 34], "colour": "belly", "rim": false, "front_only": true},
+  {"shape": "ellipse", "at": [24, 40], "size": [12, 6], "colour": "mussel", "angle": -20, "rim": false, "pattern": "stripes", "pcolour": "mussel2", "period": 2, "pangle": 0},
+  {"shape": "ellipse", "at": [72, 42], "size": [10, 5], "colour": "mussel", "angle": 20, "rim": false},
+  {"shape": "circle", "at": [22, 60], "r": 2.5, "colour": "barn", "rim": false},
+  {"shape": "circle", "at": [74, 64], "r": 3, "colour": "barn", "rim": false},
+  {"shape": "circle", "at": [70, 80], "r": 2, "colour": "barn", "rim": false},
+  {"shape": "ellipse", "at": [48, 31], "size": [32, 24], "colour": "sea", "pattern": "speckle", "pcolour": "sea2", "density": 16},
+  {"shape": "ellipse", "at": [48, 17], "size": [30, 12], "colour": "hat", "pattern": "stripes", "pcolour": "hat2", "period": 4, "pangle": 0},
+  {"shape": "rect", "at": [48, 22], "size": [32, 4], "colour": "hat2", "round": 2},
+  {"shape": "rect", "at": [76, 25], "size": [24, 20], "colour": "crate", "round": 1, "pattern": "stripes", "pcolour": "crate2", "period": 6, "pangle": 0}
+ ],
+ "face_layers": [
+  {"shape": "line", "points": [[42, 40], [48, 42], [54, 40]], "width": 1.4, "colour": "ink", "shade": false},
+  {"shape": "line", "points": [[36, 27], [44, 30]], "width": 2.2, "colour": "ink", "shade": false, "mirror": true}
+ ],
+ "eyes": [
+  {"at": [42, 33], "r": 3, "colour": "eye", "pupil": [2, 2], "mirror": true}
+ ],
+ "back_marks": [
+  {"shape": "ellipse", "at": [48, 52], "size": [40, 30], "colour": "mussel", "rim": false, "pattern": "stripes", "pcolour": "mussel2", "period": 3, "pangle": 20, "under": true},
+  {"shape": "circle", "at": [34, 62], "r": 2.5, "colour": "barn", "rim": false},
+  {"shape": "circle", "at": [60, 46], "r": 2.5, "colour": "barn", "rim": false}
+ ]
+}

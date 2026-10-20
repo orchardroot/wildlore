@@ -618,6 +618,16 @@
    "type": "noticeboard",
    "x": 26,
    "y": 31
+  },
+  {
+   "type": "building",
+   "style": "casino",
+   "x": 35,
+   "y": 32,
+   "w": 7,
+   "h": 3,
+   "label": "The Palace",
+   "kind": "casino"
   }
  ],
  "warps": [
@@ -692,6 +702,14 @@
    "tx": 6,
    "ty": 6,
    "facing": "up"
+  },
+  {
+   "x": 38,
+   "y": 34,
+   "to": "douglas_palace",
+   "tx": 8,
+   "ty": 9,
+   "facing": "up"
   }
  ],
  "edges": {},
@@ -756,10 +774,7 @@
    "move": "still",
    "script": "kipper_man",
    "name": "Kipper Seller",
-   "times": [
-    "day",
-    "dusk"
-   ]
+   "times": ["day", "dusk"]
   },
   {
    "id": "doug_tynwald",
@@ -770,10 +785,7 @@
    "move": "wander",
    "script": "tynwald_guide",
    "name": "Guide",
-   "times": [
-    "day",
-    "dusk"
-   ]
+   "times": ["day", "dusk"]
   },
   {
    "id": "rail_guard",
@@ -860,87 +872,19 @@
  ],
  "encounters": {
   "grass": [
-   {
-    "species": "loaghtan",
-    "min": 20,
-    "max": 24,
-    "weight": 38
-   },
-   {
-    "species": "chipgull",
-    "min": 20,
-    "max": 22,
-    "weight": 18
-   },
-   {
-    "species": "pinchkin",
-    "min": 20,
-    "max": 22,
-    "weight": 14
-   },
-   {
-    "species": "cooplet",
-    "min": 21,
-    "max": 23,
-    "weight": 12,
-    "weather": [
-     "clear",
-     "sunshine"
-    ]
-   },
-   {
-    "species": "pupplash",
-    "min": 21,
-    "max": 23,
-    "weight": 12
-   },
-   {
-    "species": "starlet",
-    "min": 20,
-    "max": 22,
-    "weight": 10,
-    "time": [
-     "dawn",
-     "day",
-     "dusk"
-    ]
-   },
-   {
-    "species": "swiftlet",
-    "min": 21,
-    "max": 23,
-    "weight": 8,
-    "weather": [
-     "gale",
-     "clear"
-    ]
-   },
-   {
-    "species": "pipkin",
-    "min": 21,
-    "max": 23,
-    "weight": 8
-   }
+   {"species": "loaghtan", "min": 20, "max": 24, "weight": 38},
+   {"species": "chipgull", "min": 20, "max": 22, "weight": 18},
+   {"species": "pinchkin", "min": 20, "max": 22, "weight": 14},
+   {"species": "cooplet", "min": 21, "max": 23, "weight": 12, "weather": ["clear", "sunshine"]},
+   {"species": "pupplash", "min": 21, "max": 23, "weight": 12},
+   {"species": "starlet", "min": 20, "max": 22, "weight": 10, "time": ["dawn", "day", "dusk"]},
+   {"species": "swiftlet", "min": 21, "max": 23, "weight": 8, "weather": ["gale", "clear"]},
+   {"species": "pipkin", "min": 21, "max": 23, "weight": 8}
   ],
   "water": [
-   {
-    "species": "chipgull",
-    "min": 20,
-    "max": 22,
-    "weight": 35
-   },
-   {
-    "species": "pinchkin",
-    "min": 20,
-    "max": 22,
-    "weight": 30
-   },
-   {
-    "species": "pupplash",
-    "min": 21,
-    "max": 23,
-    "weight": 25
-   }
+   {"species": "chipgull", "min": 20, "max": 22, "weight": 35},
+   {"species": "pinchkin", "min": 20, "max": 22, "weight": 30},
+   {"species": "pupplash", "min": 21, "max": 23, "weight": 25}
   ]
  },
  "signs": [
@@ -1004,7 +948,46 @@
    "y": 17,
    "text": "BLUE PLAQUE: Sir William Hillary, who founded the RNLI in 1824, lived in Douglas. His Tower of Refuge stands on Conister Rock.",
    "kind": "plaque",
-   "dx": -0.475
+   "dx": -0.475,
+   "plaque": "douglas_hillary",
+   "title": "Sir William Hillary"
+  },
+  {
+   "x": 10,
+   "y": 32,
+   "plaque": "douglas_name",
+   "title": "Name: Douglas",
+   "text": "Douglas, Doolish in Manx, is named after two rivers that meet here, the Dhoo and the Glass. In Manx Gaelic, as in Irish, dhoo means black and glass means green or grey. So the island's capital is named after the colour of its water, which is very honest of it."
+  },
+  {
+   "x": 32,
+   "y": 18,
+   "plaque": "douglas_three_legs",
+   "title": "The Three Legs of Man",
+   "text": "The three armoured legs on the Manx flag, a triskelion, have stood for the island since the Middle Ages. The Latin motto is Quocunque Jeceris Stabit: whichever way you throw it, it will stand. Ellan Vannin, the Isle of Man, is nothing if not stubborn."
+  },
+  {
+   "x": 42,
+   "y": 23,
+   "plaque": "douglas_manannan",
+   "title": "Manannan's Cloak",
+   "text": "In Manx legend the island belongs to Manannan mac Lir, the sea god, who throws a cloak of mist around it to hide it from raiders. Some say Mannin, the island's name, comes from him. Tradition says he was paid his rent in bundles of rushes on Midsummer Eve. A very reasonable landlord."
+  },
+  {
+   "x": 44,
+   "y": 34,
+   "plaque": "douglas_basking_sharks",
+   "title": "Basking Sharks",
+   "text": "Most summers basking sharks cruise the Manx coast, feeding with their huge mouths wide open. They are the second largest fish on Earth, as long as a bus, and eat nothing but plankton. Harmless, unhurried and best admired from a boat that keeps its distance."
+  },
+  {
+   "x": 37,
+   "y": 34,
+   "plaque": "man_palace_casino",
+   "title": "The Palace, Douglas",
+   "kind": "plaque",
+   "text": "BLUE PLAQUE: The Palace. The Isle of Man isn't part of the United Kingdom: it's a Crown Dependency with its own parliament, Tynwald, which writes its own laws, gambling included. The island prints its own pound notes too, each worth exactly a pound sterling.",
+   "dx": 0.475
   }
  ],
  "spawn": [
@@ -1051,9 +1034,9 @@
   "TTT:::BBBDBBBB::::::::::::BBBDBBBB::BBBBB::!:::sds$$$$$$$$$$",
   "TTT:_________________:::::::::::::::BBDBB::!:::sds$$$$$$$$$$",
   "!!!!!!!!!!!!!!!!!!!!!::::::::::::::::::::::!:::sss$$$$$$$$$$",
-  "TTT.................:::::::::::::::::::::::!:::sss$RRR$$$$$$",
-  "TTT.................:::::::::::::::::::::::!:::sssRsssR$$$$$",
-  "TTT.................:::::::::::::::::::::::!:::sssRsssRR$$$$",
+  "TTT.................:::::::::::::::BBBBBBB:!:::sss$RRR$$$$$$",
+  "TTT.................:::::::::::::::BBBBBBB:!:::sssRsssR$$$$$",
+  "TTT.................:::::::::::::::BBBDBBB:!:::sssRsssRR$$$$",
   "TTT.................:::::::::::::::::::::::!:::sssRsssR$$$$$",
   "TTT========================================&:::sss$RRR$$$$$$",
   "TTT..................:::...................!:::sss$$$$$$$$$$",

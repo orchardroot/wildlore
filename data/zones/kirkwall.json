@@ -580,6 +580,16 @@
    "script": "brodgar_night",
    "name": "Night Warden",
    "show_if": "game_complete"
+  },
+  {
+   "id": "pentland_skipper",
+   "sprite": "fisherman_north",
+   "x": 44,
+   "y": 6,
+   "facing": "right",
+   "move": "still",
+   "script": "pentland_skipper",
+   "name": "Pentland Skipper"
   }
  ],
  "encounters": {
@@ -589,9 +599,7 @@
     "min": 80,
     "max": 80,
     "weight": 14,
-    "time": [
-     "day"
-    ]
+    "time": ["day"]
    },
    {
     "species": "polartern",
@@ -604,38 +612,28 @@
     "min": 80,
     "max": 80,
     "weight": 10,
-    "weather": [
-     "frost",
-     "fog"
-    ]
+    "weather": ["frost", "fog"]
    },
    {
     "species": "goldeneyrie",
     "min": 80,
     "max": 80,
     "weight": 8,
-    "time": [
-     "day"
-    ]
+    "time": ["day"]
    },
    {
     "species": "haarling",
     "min": 80,
     "max": 80,
     "weight": 10,
-    "weather": [
-     "fog"
-    ]
+    "weather": ["fog"]
    },
    {
     "species": "midgeswarm",
     "min": 80,
     "max": 80,
     "weight": 10,
-    "time": [
-     "dawn",
-     "dusk"
-    ]
+    "time": ["dawn", "dusk"]
    },
    {
     "species": "cragchough",
@@ -648,28 +646,21 @@
     "min": 80,
     "max": 80,
     "weight": 8,
-    "time": [
-     "day"
-    ]
+    "time": ["day"]
    },
    {
     "species": "hushwing",
     "min": 80,
     "max": 80,
     "weight": 6,
-    "time": [
-     "night"
-    ]
+    "time": ["night"]
    },
    {
     "species": "selkie",
     "min": 80,
     "max": 80,
     "weight": 6,
-    "time": [
-     "dusk",
-     "night"
-    ]
+    "time": ["dusk", "night"]
    }
   ],
   "water": [
@@ -684,20 +675,14 @@
     "min": 80,
     "max": 80,
     "weight": 8,
-    "time": [
-     "dawn",
-     "dusk"
-    ]
+    "time": ["dawn", "dusk"]
    },
    {
     "species": "selkie",
     "min": 80,
     "max": 80,
     "weight": 12,
-    "time": [
-     "dusk",
-     "night"
-    ]
+    "time": ["dusk", "night"]
    },
    {
     "species": "bayrunner",
@@ -716,9 +701,7 @@
     "min": 80,
     "max": 80,
     "weight": 12,
-    "weather": [
-     "fog"
-    ]
+    "weather": ["fog"]
    },
    {
     "species": "pierlord",
@@ -769,7 +752,37 @@
    "y": 21,
    "text": "BLUE PLAQUE: St Magnus Cathedral, just up the street, was founded in 1137 by Earl Rognvald in memory of his uncle Magnus.",
    "kind": "plaque",
-   "dx": -0.475
+   "dx": -0.475,
+   "plaque": "kirkwall_st_magnus",
+   "title": "St Magnus Cathedral"
+  },
+  {
+   "x": 44,
+   "y": 24,
+   "plaque": "kirkwall_name_orkney",
+   "title": "Name: Orkney",
+   "text": "The Romans and Greeks called these islands the Orcades, probably from a Celtic word for a young pig or boar, perhaps a tribe's emblem. The Norse heard their own word orkn, a seal, and added ey, islands. So: Seal Islands. The seals have never accepted the pig theory."
+  },
+  {
+   "x": 10,
+   "y": 28,
+   "plaque": "kirkwall_maeshowe",
+   "title": "Maeshowe Runes",
+   "text": "Maeshowe, a great chambered tomb nearly 5,000 years old, is lined up so the midwinter sunset shines down its passage. In the 1100s Norsemen broke in and covered the walls in runes: names, boasts and claims of hidden treasure. It is some of the finest Viking graffiti in the world."
+  },
+  {
+   "x": 14,
+   "y": 20,
+   "plaque": "kirkwall_italian_chapel",
+   "title": "The Italian Chapel",
+   "text": "In 1939 a U-boat slipped into Scapa Flow and sank HMS Royal Oak, and over 800 men died. Barriers were built to seal the channels, partly by Italian prisoners of war, who also turned two Nissen huts on Lamb Holm into a beautifully painted chapel. It still stands, and still takes your breath away."
+  },
+  {
+   "x": 34,
+   "y": 22,
+   "plaque": "kirkwall_john_rae",
+   "title": "John Rae",
+   "text": "John Rae, born in Orkney in 1813, became one of the great Arctic explorers by travelling as the Inuit did, on foot and on snowshoes. In 1854 he brought back the first news of the lost Franklin expedition. Victorian London did not like what he reported, and it was a very long time before he got proper credit."
   }
  ],
  "spawn": [

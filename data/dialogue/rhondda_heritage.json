@@ -1,0 +1,72 @@
+{
+ "rhn_heritage_guide": [
+  {
+   "do": "if",
+   "flag": "q_valleys_wager_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_valleys_wager_1",
+     "then": [
+      {
+       "do": "say",
+       "who": "Dai",
+       "text": "Coal for Trevithick's engine, is it? You've had your bucket already, bach. Don't waste it. It's the good stuff."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Dai",
+       "text": "Merthyr, is it? An engine to fire for the wager? Hah. Take this, then."
+      },
+      {
+       "do": "say",
+       "who": "Dai",
+       "text": "Best Rhondda steam coal. Dry, hard, burns hot and nearly smokeless, which is why the Navy bought it by the shipload."
+      },
+      {
+       "do": "set",
+       "flag": "q_valleys_wager_1",
+       "value": true
+      },
+      {
+       "do": "give_item",
+       "item": "steam_coal",
+       "n": 1
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Dai",
+     "text": "Bore da! I was fifteen when I first went underground. We called it 'going down the hole', as if it was a hobby."
+    },
+    {
+     "do": "say",
+     "who": "Dai",
+     "text": "Rhondda steam coal was the best in the world. Low in smoke, hot as a dragon's breath. The Royal Navy ran on it."
+    },
+    {
+     "do": "say",
+     "who": "Dai",
+     "text": "Lewis Merthyr, this was. The shafts are still down there. Mind the display cases; they're older than I am."
+    }
+   ]
+  }
+ ],
+ "rhn_heritage_visitor": [
+  {
+   "do": "say",
+   "who": "Visitor",
+   "text": "I came for the winding gear and I stayed for the tea. The man at the till says the lamp was only ever a flame behind a wire gauze. The Davy lamp, they call it."
+  },
+  {
+   "do": "say",
+   "who": "Visitor",
+   "text": "Sir Humphry Davy designed it in 1815 so a flame couldn't ignite the gas, and the colour of the flame told a miner whether the air was bad."
+  }
+ ]
+}

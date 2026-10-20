@@ -1,0 +1,44 @@
+{
+ "id": "dt_annalist",
+ "name": "Brother Cormac the Annalist",
+ "class": "Local Legend",
+ "sprite": "druid",
+ "scaled_floor": 66,
+ "party": [
+  {
+   "species": "rookery",
+   "level": 69
+  },
+  {
+   "species": "hushwing",
+   "level": 69
+  },
+  {
+   "species": "gealhare",
+   "level": 70
+  },
+  {
+   "species": "turfclamp",
+   "level": 70
+  },
+  {
+   "species": "finnmacool",
+   "level": 70
+  },
+  {
+   "species": "liagmor",
+   "level": 71
+  }
+ ],
+ "ai": "trainer",
+ "money": 5600,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Brother Cormac the Annalist",
+   "text": "I keep the town's annals, like the Four Masters before me. This year's entry is blank. Let us give it something worth writing down."
+  }
+ ],
+ "win": "Ink and quill! This goes in the annals: 'In this year a great battle on the Diamond, and the Annalist was well beaten, and was gracious about it, mostly.'",
+ "after": "The Four Masters wrote 'a great wind this year' more times than I can count. In Donegal, that's just called a year."
+}

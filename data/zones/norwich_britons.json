@@ -1,0 +1,123 @@
+{
+ "id": "norwich_britons",
+ "name": "The Britons Arms",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "table",
+   "x": 8,
+   "y": 3
+  },
+  {
+   "type": "table",
+   "x": 10,
+   "y": 3
+  },
+  {
+   "type": "table",
+   "x": 8,
+   "y": 6
+  },
+  {
+   "type": "table",
+   "x": 10,
+   "y": 6
+  },
+  {
+   "type": "fireplace",
+   "x": 11,
+   "y": 1
+  },
+  {
+   "type": "kitchen_dresser",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "menu_board",
+   "x": 4,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "tea_urn",
+   "x": 6,
+   "y": 2
+  },
+  {
+   "type": "clock",
+   "x": 8,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "plant_stand",
+   "x": 1,
+   "y": 7,
+   "variant": 1
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 7,
+   "to": "norwich",
+   "tx": 25,
+   "ty": 12,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "britons_owner",
+   "sprite": "shopkeeper",
+   "x": 3,
+   "y": 1,
+   "facing": "down",
+   "move": "still",
+   "script": "britons_owner",
+   "name": "Cafe Owner"
+  },
+  {
+   "id": "britons_regular",
+   "sprite": "villager_1",
+   "x": 9,
+   "y": 5,
+   "facing": "up",
+   "move": "still",
+   "script": "britons_regular",
+   "name": "Regular"
+  },
+  {
+   "id": "norwich_quizmaster",
+   "sprite": "ceilidh_caller",
+   "x": 4,
+   "y": 5,
+   "facing": "down",
+   "move": "still",
+   "script": "norwich_quizmaster",
+   "name": "Quizmaster"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  6,
+  6
+ ],
+ "rows": [
+  "xxxxxxxxxxxxx",
+  "x|||||||||||x",
+  "x|CCC|||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||D|||||x",
+  "xxxxxxxxxxxxx"
+ ]
+}

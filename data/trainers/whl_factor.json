@@ -1,0 +1,36 @@
+{
+ "id": "whl_factor",
+ "name": "Montrose's Factor",
+ "class": "Factor",
+ "sprite": "commuter",
+ "party": [
+  {
+   "species": "rookery",
+   "level": 70
+  },
+  {
+   "species": "highlynx",
+   "level": 70
+  },
+  {
+   "species": "adderking",
+   "level": 71
+  },
+  {
+   "species": "raidtail",
+   "level": 70
+  }
+ ],
+ "ai": "trainer",
+ "money": 3300,
+ "scaled_floor": 69,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Montrose's Factor",
+   "text": "Good day. I act for the Duke of Montrose. I'm to inform you that a certain cattle dealer owes my employer a sum of money, and I'm awfully keen to find him. You haven't seen a MacGregor?"
+  }
+ ],
+ "win": "Hmph. I shall make a note in my ledger: 'lost, but with great dignity'.",
+ "after": "Do remind your friend the outlaw that the Duke is a patient man. The Duke is not a patient man."
+}

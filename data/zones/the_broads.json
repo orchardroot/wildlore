@@ -1,0 +1,610 @@
+{
+ "id": "the_broads",
+ "name": "The Norfolk Broads",
+ "region": "east_anglia",
+ "kind": "route",
+ "music": "route_lakes",
+ "weather": {
+  "clear": 26,
+  "sunshine": 22,
+  "drizzle": 20,
+  "fog": 12,
+  "gale": 12,
+  "downpour": 4,
+  "frost": 4
+ },
+ "props": [
+  {
+   "type": "building",
+   "style": "thatch",
+   "x": 6,
+   "y": 10,
+   "w": 6,
+   "h": 3,
+   "label": "Reed Cutter's Hut",
+   "kind": "cottage"
+  },
+  {
+   "type": "building",
+   "style": "thatch",
+   "x": 10,
+   "y": 22,
+   "w": 7,
+   "h": 3,
+   "label": "The Staithe Inn",
+   "kind": "cafe"
+  },
+  {
+   "type": "building",
+   "style": "flint_gable",
+   "x": 4,
+   "y": 15,
+   "w": 6,
+   "h": 3,
+   "show_label": false
+  },
+  {
+   "type": "wherry",
+   "x": 16,
+   "y": 39,
+   "variant": 0,
+   "rot": 90
+  },
+  {
+   "type": "wherry",
+   "x": 46,
+   "y": 39,
+   "variant": 1,
+   "rot": 90
+  },
+  {
+   "type": "wherry",
+   "x": 56,
+   "y": 39,
+   "variant": 0,
+   "rot": 90
+  },
+  {
+   "type": "windpump",
+   "x": 52,
+   "y": 32
+  },
+  {
+   "type": "windpump",
+   "x": 8,
+   "y": 34
+  },
+  {
+   "type": "windpump",
+   "x": 22,
+   "y": 46
+  },
+  {
+   "type": "windpump",
+   "x": 58,
+   "y": 27
+  },
+  {
+   "type": "windpump",
+   "x": 6,
+   "y": 4
+  },
+  {
+   "type": "standing_stone",
+   "x": 40,
+   "y": 44,
+   "variant": 2
+  },
+  {
+   "type": "standing_stone",
+   "x": 47,
+   "y": 44,
+   "variant": 2
+  },
+  {
+   "type": "standing_stone",
+   "x": 40,
+   "y": 48,
+   "variant": 2
+  },
+  {
+   "type": "standing_stone",
+   "x": 47,
+   "y": 48,
+   "variant": 2
+  },
+  {
+   "type": "standing_stone",
+   "x": 43,
+   "y": 44,
+   "variant": 2
+  },
+  {
+   "type": "standing_stone",
+   "x": 43,
+   "y": 48,
+   "variant": 2
+  },
+  {
+   "type": "standing_stone",
+   "x": 40,
+   "y": 46,
+   "variant": 2
+  },
+  {
+   "type": "windpump",
+   "x": 44,
+   "y": 46
+  },
+  {
+   "type": "boat",
+   "x": 27,
+   "y": 12,
+   "variant": 1
+  },
+  {
+   "type": "boat",
+   "x": 30,
+   "y": 17,
+   "variant": 0
+  },
+  {
+   "type": "boat",
+   "x": 36,
+   "y": 6,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 3,
+   "y": 27,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 34,
+   "y": 28,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 48,
+   "y": 29,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 60,
+   "y": 31,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 12,
+   "y": 47,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 26,
+   "y": 48,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 58,
+   "y": 48,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 22,
+   "y": 4,
+   "variant": 1
+  },
+  {
+   "type": "bench",
+   "x": 15,
+   "y": 14
+  },
+  {
+   "type": "bollard",
+   "x": 20,
+   "y": 15
+  },
+  {
+   "type": "bollard",
+   "x": 27,
+   "y": 15
+  },
+  {
+   "type": "lamp_post",
+   "x": 14,
+   "y": 26
+  }
+ ],
+ "warps": [
+  {
+   "x": 8,
+   "y": 12,
+   "to": "broads_reedcutter",
+   "tx": 5,
+   "ty": 5,
+   "facing": "up"
+  },
+  {
+   "x": 13,
+   "y": 24,
+   "to": "broads_inn",
+   "tx": 6,
+   "ty": 6,
+   "facing": "up"
+  }
+ ],
+ "edges": {
+  "west": {
+   "to": "norwich",
+   "offset": 0
+  }
+ },
+ "npcs": [
+  {
+   "id": "crane_d",
+   "sprite": "creature:levelcrane",
+   "x": 22,
+   "y": 27,
+   "facing": "down",
+   "move": "still",
+   "script": "crane"
+  },
+  {
+   "id": "crane_e",
+   "sprite": "creature:cranelet",
+   "x": 54,
+   "y": 46,
+   "facing": "left",
+   "move": "wander",
+   "script": "crane",
+   "radius": 1
+  },
+  {
+   "id": "broads_boater",
+   "sprite": "canal_boater",
+   "x": 22,
+   "y": 13,
+   "facing": "right",
+   "move": "still",
+   "script": "broads_boater",
+   "name": "Holiday Boater",
+   "times": [
+    "day",
+    "dusk"
+   ]
+  },
+  {
+   "id": "broads_peat",
+   "sprite": "poet",
+   "x": 33,
+   "y": 31,
+   "facing": "down",
+   "move": "still",
+   "script": "broads_peat",
+   "name": "Botanist"
+  },
+  {
+   "id": "broads_sailor_t",
+   "sprite": "sailor",
+   "x": 25,
+   "y": 14,
+   "facing": "left",
+   "move": "still",
+   "trainer": "broads_sailor"
+  },
+  {
+   "id": "broads_lep_t",
+   "sprite": "birdwatcher",
+   "x": 33,
+   "y": 36,
+   "facing": "up",
+   "move": "still",
+   "trainer": "broads_lepidopterist"
+  },
+  {
+   "id": "broads_otter_t",
+   "sprite": "angler",
+   "x": 8,
+   "y": 31,
+   "facing": "right",
+   "move": "still",
+   "trainer": "broads_otterwatcher"
+  },
+  {
+   "id": "broads_jem_t",
+   "sprite": "fisherman_north",
+   "x": 37,
+   "y": 45,
+   "facing": "right",
+   "move": "still",
+   "trainer": "broads_jem"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "turvling",
+    "min": 94,
+    "max": 95,
+    "weight": 14
+   },
+   {
+    "species": "bittling",
+    "min": 94,
+    "max": 95,
+    "weight": 10
+   },
+   {
+    "species": "cranelet",
+    "min": 94,
+    "max": 95,
+    "weight": 6
+   },
+   {
+    "species": "levelcrane",
+    "min": 95,
+    "max": 96,
+    "weight": 4
+   },
+   {
+    "species": "mustling",
+    "min": 94,
+    "max": 95,
+    "weight": 4
+   },
+   {
+    "species": "volet",
+    "min": 94,
+    "max": 95,
+    "weight": 10
+   },
+   {
+    "species": "croakle",
+    "min": 94,
+    "max": 95,
+    "weight": 8
+   },
+   {
+    "species": "hushwing",
+    "min": 94,
+    "max": 96,
+    "weight": 8,
+    "time": [
+     "night"
+    ]
+   },
+   {
+    "species": "stalklet",
+    "min": 94,
+    "max": 95,
+    "weight": 8
+   },
+   {
+    "species": "swiftlet",
+    "min": 94,
+    "max": 95,
+    "weight": 6,
+    "time": [
+     "day"
+    ]
+   },
+   {
+    "species": "natterjack",
+    "min": 94,
+    "max": 95,
+    "weight": 4,
+    "weather": [
+     "drizzle",
+     "downpour"
+    ]
+   },
+   {
+    "species": "minkshade",
+    "min": 94,
+    "max": 96,
+    "weight": 6,
+    "time": [
+     "night"
+    ]
+   },
+   {
+    "species": "kitelet",
+    "min": 94,
+    "max": 95,
+    "weight": 6,
+    "time": [
+     "day"
+    ]
+   }
+  ],
+  "water": [
+   {
+    "species": "turvling",
+    "min": 94,
+    "max": 95,
+    "weight": 20
+   },
+   {
+    "species": "elverlet",
+    "min": 94,
+    "max": 96,
+    "weight": 15
+   },
+   {
+    "species": "pollanet",
+    "min": 94,
+    "max": 95,
+    "weight": 15
+   },
+   {
+    "species": "stalklet",
+    "min": 94,
+    "max": 95,
+    "weight": 10
+   },
+   {
+    "species": "cranelet",
+    "min": 94,
+    "max": 95,
+    "weight": 10
+   },
+   {
+    "species": "spatelord",
+    "min": 95,
+    "max": 96,
+    "weight": 6
+   },
+   {
+    "species": "pupplash",
+    "min": 94,
+    "max": 95,
+    "weight": 4
+   },
+   {
+    "species": "turfmere",
+    "min": 95,
+    "max": 96,
+    "weight": 4
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 2,
+   "y": 29,
+   "text": "THE NORFOLK BROADS. Rivers, reedbeds and about sixty shallow lakes called broads, with the same protection as a national park. East to St Benet's and the River Bure."
+  },
+  {
+   "x": 21,
+   "y": 15,
+   "text": "WHERE THE BROADS CAME FROM. For centuries everyone thought the broads were natural lakes. In the 1950s the botanist Joyce Lambert showed they were medieval peat diggings: turves cut for fuel, millions of tonnes, which flooded as the sea rose.",
+   "plaque": "eastanglia_broads_peat",
+   "title": "Medieval Peat Diggings"
+  },
+  {
+   "x": 25,
+   "y": 20,
+   "text": "HICKLING BROAD. The biggest of the Broads, and one of the best places in Britain for marsh harriers, bitterns and cranes. Waist-deep in most places. Do not test this.",
+   "plaque": "eastanglia_hickling",
+   "title": "Hickling Broad"
+  },
+  {
+   "x": 32,
+   "y": 33,
+   "text": "THE SWALLOWTAIL. Britain's largest butterfly, yellow and black with little tails. Our own kind lives nowhere but the Broads, because its caterpillars eat only milk parsley, a fen plant.",
+   "plaque": "eastanglia_swallowtail",
+   "title": "The Swallowtail"
+  },
+  {
+   "x": 38,
+   "y": 46,
+   "text": "ST BENET'S ABBEY. A Saxon abbey that was never closed by Henry VIII: the Bishop of Norwich is still its abbot and comes by boat once a year to preach. In the 1700s a farmer built a windmill inside the ruined gatehouse.",
+   "plaque": "eastanglia_st_benets",
+   "title": "St Benet's Abbey"
+  },
+  {
+   "x": 29,
+   "y": 34,
+   "text": "WHERRIES. Norfolk's cargo boats, with one huge black sail and a mast you could lower to slip under bridges. They carried coal, grain and reed along the rivers until the railways and lorries came.",
+   "plaque": "eastanglia_wherries",
+   "title": "Norfolk Wherries"
+  },
+  {
+   "x": 53,
+   "y": 34,
+   "text": "DRAINAGE MILLS. Tall tarred brick towers with white sails, built to pump water off the marshes into the rivers. Dozens still stand along the Broads. Few still turn.",
+   "plaque": "eastanglia_windpumps",
+   "title": "Drainage Mills"
+  },
+  {
+   "x": 15,
+   "y": 26,
+   "text": "THE BITTERN. A secret brown heron that hides in the reeds with its beak pointed at the sky. In spring the male booms like someone blowing over a bottle, and you can hear it miles away. In 1997 there were only eleven booming in Britain.",
+   "plaque": "eastanglia_bittern",
+   "title": "The Booming Bittern"
+  }
+ ],
+ "spawn": [
+  2,
+  31
+ ],
+ "stage": "bog",
+ "scaled_floor": 94,
+ "legend_extra": {
+  "r": {
+   "tile": "tall_grass",
+   "colour": "#b0a060",
+   "prop": "reeds"
+  },
+  "e": {
+   "tile": "path",
+   "colour": "#6b5a44"
+  },
+  "g": {
+   "tile": "grass",
+   "colour": "#86a85a"
+  }
+ },
+ "rows": [
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTrrrrrrrrrrrrrrggggggggrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrTT",
+  "TTrrrrrrrrrrrrrrggggggggrrwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwTT",
+  "TTrrrrrrrrrrrrrrggggggggrrww~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TT",
+  "TTrrrrrrrrrrrrrrggggggggrrww~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TT",
+  "TTrrrrrrrrrrrrrrggggggggrrww~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TT",
+  "TTrrrrrrrrrrrrrrggggggggrrww~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TT",
+  "TTrrrrrrrrrrrrrrggeeggggrrww~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TT",
+  "TTggggggggggggggggeeggggrrww~~~~~~~~~~~~rrrr~~~~~~~~~~~~~~~~~~TT",
+  "TTggggBBBBBBggggggeeggggrrww~~~~~~~~~~~~rrrr~~~~~~~~~~~~~~~~~~TT",
+  "TTggggBBBBBBggggggeeggggrrww~~~~~~~~~~~~rrrr~~~~~~~~~~~~~~~~~~TT",
+  "TTggggBBDBBBggggggeeggggrrww~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TT",
+  "TTggggeeeeeeeeeeeeeeeeeeeeee~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TT",
+  "TTggggggggggggggggee||||||||~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TT",
+  "TTggBBBBBBggggggggeeggggrrww~~~~~~~~~~~~~~~~~~~~~~rrr~~~~~~~~~TT",
+  "TTggBBBBBBggggggggeeggggrrww~~~~~~~~~~~~~~~~~~~~~~rrr~~~~~~~~~TT",
+  "TTggBBBBBBggggggggeeggggrrww~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TT",
+  "TTggggggggggggggggeeggggrrww~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TT",
+  "TTggggggggggggggggeeggggrrww~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TT",
+  "TTggggggggggggggggeeggggrrww~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TT",
+  "TTggggggggggggggggeeggggrrww~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TT",
+  "TTggggggggBBBBBBBgeeggggrrww~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TT",
+  "TTggggggggBBBBBBBgeeggggrrwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwTT",
+  "TTggggggggBBBDBBBgeeggggrrwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwTT",
+  "TTgggggggggggeggggeeggggrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrTT",
+  "TTgggggggggggeggggeeggggggggggggggggggggggggggggggggggggggggggTT",
+  "TTgggggggggggeggggeerrrrrrrrrrggggggggggggggggggggggggggggggggTT",
+  "TTgggggggggggeggggeerrrrrrrrrrggggggggggggggggggggggggggggggggTT",
+  "TTgggggggggggeggggeeggggggggggggggggggggggggggggggggggggggggggTT",
+  "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeegggggggggggggggggggggTT",
+  "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeegggggggggggggggggggggTT",
+  "TTggggggggggggggggggggggggggggeeggggggggggggggggggggggggggggggTT",
+  "TTggggggggggggggggggggggggggggeeggggggggggggggggggggggggggggggTT",
+  "TTggggggggggggggggggggggggggggeeggggggggggggggggggggggggggggggTT",
+  "TTrrrrrrrrrrrrrrrrrrrrrrrrrrrreerrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr",
+  "TTrrrrrrrrrrrrrrrrrrrrrrrrrrrreerrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr",
+  "TTrrrrrrrrrrrrrrrrrrrrrrrrrrrreerrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr",
+  "TT~~~~~~~~~~~~~~~~~~~~~~~~~~~~||~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
+  "TT~~~~~~~~~~~~~~~~~~~~~~~~~~~~||~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
+  "TT~~~~~~~~~~~~~~~~~~~~~~~~~~~~||~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
+  "TTrrrrrrrrrrrrrrrrrrrrrrrrrrrreerrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr",
+  "TTrrrrrrrrrrrrrrrrrrrrrrrrrrrreerrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr",
+  "TTrrrrrrrrrrrrrrrrrrrrrrrrrrrreerrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr",
+  "TTggggggggggggggggggggggggggggeeggggggggggggggggggggggggggggggTT",
+  "TTggrrrrrrrrrrggggggggggggggggeeeeeeeeeeeeeeeeggggrrrrrrrrrrggTT",
+  "TTggrrrrrrrrrrggggggggggggggggggggggggggggggggggggrrrrrrrrrrggTT",
+  "TTggrrrrrrrrrrggggggggggggggggggggggggggggggggggggrrrrrrrrrrggTT",
+  "TTggrrrrrrrrrrggggggggggggggggggggggggggggggggggggrrrrrrrrrrggTT",
+  "TTggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT"
+ ]
+}

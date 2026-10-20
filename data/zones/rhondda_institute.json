@@ -1,0 +1,184 @@
+{
+ "id": "rhondda_institute",
+ "name": "Miners' Institute",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "bookshelf",
+   "x": 2,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 3,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 4,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 8,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 9,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 10,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 11,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 2,
+   "y": 4
+  },
+  {
+   "type": "bookshelf",
+   "x": 3,
+   "y": 4
+  },
+  {
+   "type": "bookshelf",
+   "x": 9,
+   "y": 4
+  },
+  {
+   "type": "bookshelf",
+   "x": 10,
+   "y": 4
+  },
+  {
+   "type": "table",
+   "x": 4,
+   "y": 5
+  },
+  {
+   "type": "table",
+   "x": 8,
+   "y": 5
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 7
+  },
+  {
+   "type": "potted_plant",
+   "x": 11,
+   "y": 7
+  },
+  {
+   "type": "table",
+   "x": 4,
+   "y": 6
+  },
+  {
+   "type": "table",
+   "x": 8,
+   "y": 6
+  },
+  {
+   "type": "wall_picture",
+   "x": 5,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "wall_picture",
+   "x": 8,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "clock",
+   "x": 6,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 1
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 8,
+   "to": "rhondda",
+   "tx": 36,
+   "ty": 33,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "rhn_librarian",
+   "sprite": "poet",
+   "x": 6,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "rhn_librarian",
+   "name": "Librarian"
+  },
+  {
+   "id": "rhn_reader",
+   "sprite": "villager_3",
+   "x": 3,
+   "y": 6,
+   "facing": "right",
+   "move": "still",
+   "script": "rhn_reader",
+   "name": "Reader"
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "x": 8,
+   "y": 3,
+   "plaque": "rhondda_medical",
+   "title": "The Medical Aid Society",
+   "text": "Miners' institutes ran libraries, reading rooms and, in some towns, medical aid societies. In Tredegar, a few miles from here, workers paid a few pence a week out of their wages for a doctor, nurses, medicine and hospital care for the whole family. A young Tredegar miner called Aneurin Bevan sat on its committee."
+  },
+  {
+   "x": 4,
+   "y": 3,
+   "plaque": "rhondda_nhs",
+   "title": "5 July 1948",
+   "text": "The National Health Service began on 5 July 1948, with Aneurin Bevan, a miner's son from Tredegar, as Minister of Health. He later said the NHS was the Tredegar society's idea scaled up to the whole country: everyone pays in, anyone who needs care gets it."
+  }
+ ],
+ "spawn": [
+  6,
+  7
+ ],
+ "rows": [
+  "xxxxxxxxxxxxx",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||D|||||x",
+  "xxxxxxxxxxxxx"
+ ]
+}

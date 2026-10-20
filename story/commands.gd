@@ -114,8 +114,9 @@ func _exec(c: Dictionary) -> void:
 				await host.sfx("item")
 				await host.say("", "%s received %s%s." % [data.player_name, nm, " x%d" % got if got > 1 else ""])
 		"give_creature":
-			var sp: Dictionary = host.dex.get_species(str(c.get("species", "")))
-			var cr := Creature.create(sp, int(c.get("level", 5)), host.rng, host.moves)
+			var given := _scaled(c, 5)  # [species id, level]
+			var sp: Dictionary = host.dex.get_species(str(given[0]))
+			var cr := Creature.create(sp, int(given[1]), host.rng, host.moves)
 			var where := data.add_creature(cr)
 			await host.sfx("catch")
 			if where == "party":
@@ -153,6 +154,12 @@ func _exec(c: Dictionary) -> void:
 			await host.warp(str(c.get("zone", "")), int(c.get("x", 0)), int(c.get("y", 0)), str(c.get("facing", "down")))
 		"shop":
 			await host.open_menu("shop:" + str(c.get("id", "")))
+		"bureau":
+			await host.open_menu("bureau")  # a bureau de change (see Forex)
+		"exchange":
+			await host.open_menu("exchange:" + str(c.get("board", "london")))  # a Stock Exchange terminal (see Markets)
+		"crypto":
+			await host.open_menu("crypto")  # the Doggerel kiosk
 		"starter":
 			var picked = await host.open_menu("starter")
 			if picked is String and picked != "" and host.dex.has(picked):
@@ -191,6 +198,8 @@ func _exec(c: Dictionary) -> void:
 			await _recipe(c.get("id", []))
 		"quiz":
 			await _quiz(c)
+		"casino":
+			await _casino(c)
 		"legend":
 			await _legend(c)
 		"rail":
@@ -262,9 +271,40 @@ func _quiz(c: Dictionary) -> void:
 		await host.sfx("item")
 		if str(paid.item) != "":
 			var nm: String = host.items.get_item(str(paid.item)).get("name", str(paid.item))
-			await host.say("", "%s wins %s%s." % [data.player_name, nm, (" and " + UIKit.money_text(int(paid.money))) if int(paid.money) > 0 else ""])
+			await host.say("", "%s wins %s%s." % [data.player_name, nm, (" and " + Wallet.fmt(int(paid.money), str(paid.get("cur", Wallet.GBP)))) if int(paid.money) > 0 else ""])
 		else:
-			await host.say("", "%s wins %s." % [data.player_name, UIKit.money_text(int(paid.money))])
+			await host.say("", "%s wins %s." % [data.player_name, Wallet.fmt(int(paid.money), str(paid.get("cur", Wallet.GBP)))])
+
+## The Palace casino and the bookies: {"do": "casino", "game": id, "venue": venue}. "cage" buys and cashes chips;
+## "fruit", "blackjack", "roulette" and "hilo" are the Palace's games (played with chips); "races" is the day's
+## meeting at a venue ("aintree", "glasgow", "belfast"); "novice" runs one of your team in Aintree's novice race,
+## once a real day. The screens take the stakes, settle and save (see Punt).
+const CASINO_GAMES := Punt.GAMES
+const RACE_VENUES := Punt.RACE_VENUES
+
+func _casino(c: Dictionary) -> void:
+	var data: GameStateData = host.data
+	var game := str(c.get("game", ""))
+	var who := _sub(str(c.get("who", "")))
+	match game:
+		"cage":
+			await host.open_menu("cage")
+		"fruit", "blackjack", "roulette", "hilo":
+			if Punt.chips(data) <= 0:
+				await host.say(who, "You'll want some chips first, love. The cage is just there, by the door.")
+				return
+			await host.open_menu(game)
+			if Punt.chips(data) > 0:
+				await host.say(who, "Chips are cashed at the cage whenever you're ready. Good luck, or better luck.")
+		"races":
+			await host.open_menu("races:" + str(c.get("venue", "aintree")))
+		"novice":
+			if Racing.novice_run_today(data):
+				await host.say(who, "You've had your run today. Same time tomorrow, and bring the same legs.")
+				return
+			await host.open_menu("races:novice")
+		_:
+			push_warning("Commands: unknown casino game '%s'" % game)
 
 func _battle(trainer_id: String) -> void:
 	var def := StoryData.trainer(trainer_id)
@@ -284,7 +324,7 @@ func _battle(trainer_id: String) -> void:
 
 ## Builds a trainer's party and runs the battle; returns the battle result.
 func _fight(def: Dictionary) -> Dictionary:
-	var foes := TrainerParty.build(def, host.dex, host.rng, host.moves)  # fixed moves, a held charm, a keeper's tea
+	var foes := TrainerParty.build(def, host.dex, host.rng, host.moves, 0, host.data.flags)  # fixed moves, a held charm, a keeper's tea
 	var opts := {"kind": "trainer", "ai": def.ai, "trainer": def}
 	if str(def.get("music", "")) != "":
 		opts["music"] = str(def.music)
@@ -294,6 +334,7 @@ func _fight(def: Dictionary) -> Dictionary:
 
 ## The Moot: several trainers back to back with no Sanctuary in between. Winning them all sets `flag`.
 ## Losing any one sends you back to the entrance (`exit`), healed and poorer, with nothing half-won.
+## Other gauntlets (a round on the Old Course) may reword it: optional `lose_line`, `next_line`, `prize_from`.
 func _gauntlet(c: Dictionary) -> void:
 	var ids: Array = c.get("trainers", [])
 	var prize := 0  # paid only once the whole gauntlet is won, so retries can't farm it
@@ -311,33 +352,34 @@ func _gauntlet(c: Dictionary) -> void:
 		var result := await _fight(fight_def)
 		if str(result.get("result", "")) != "win":
 			var ex: Dictionary = c.get("exit", {})
-			host.data.money = host.data.money / 2
+			Wallet.halve_all(host.data)
 			host.data.heal_party()
 			await host.warp(str(ex.get("zone", host.zone_id())), int(ex.get("x", -1)), int(ex.get("y", -1)), "down")
-			await host.say("", "You come round at the edge of the stones, patched up and a little humbled. The Moot will wait.")
+			await host.say("", str(c.get("lose_line", "You come round at the edge of the stones, patched up and a little humbled. The Moot will wait.")))
 			_ended = true
 			return
 		if def.win != "":
 			await host.say(def.name, _sub(def.win))
 		if i < ids.size() - 1:
-			await host.say("", "No rest at the Moot. The next challenger steps forward.")
+			await host.say("", str(c.get("next_line", "No rest at the Moot. The next challenger steps forward.")))
 			while await host.choice("Anything to sort out before the next challenger?", ["Open your bag", "Carry on"]) == 0:
 				await host.open_menu("bag")
 	if prize > 0:
-		host.data.money += prize
+		var paid := Wallet.earn_here(host.data, prize, host.zone_id())
 		TrainerStats.earned(host.data, prize)
-		await host.say("", "%s collects £%d in prize money from the Moot." % [host.data.player_name, prize])
+		await host.say("", "%s collects %s in prize money from %s." % [host.data.player_name, Wallet.fmt(int(paid.amount), str(paid.cur)), str(c.get("prize_from", "the Moot"))])
 	_set_flag(str(c.get("flag", "gauntlet_won")), true)
 
 ## A legendary encounter: a wild battle you can't run from, with its own music. Catching it sets `flag`;
 ## knocking it out doesn't, so it can be met again. Losing whites out as usual.
 func _legend(c: Dictionary) -> void:
-	var sp: Dictionary = host.dex.get_species(str(c.get("species", "")))
+	var met := _scaled(c, 40)  # [species id, level]
+	var sp: Dictionary = host.dex.get_species(str(met[0]))
 	if sp.is_empty():
 		push_error("Commands: no legend species '%s'" % c.get("species", ""))
 		return
 	host.data.mark_seen(str(sp.id))
-	var foe := Creature.create(sp, int(c.get("level", 40)), host.rng, host.moves)
+	var foe := Creature.create(sp, int(met[1]), host.rng, host.moves)
 	var result: Dictionary = await host.battle([foe], {"kind": "wild", "no_run": true, "legend": true, "music": str(c.get("music", "legend"))})
 	match str(result.get("result", "")):
 		"caught":
@@ -346,6 +388,16 @@ func _legend(c: Dictionary) -> void:
 		"lose":
 			await whiteout()
 			_ended = true
+
+## A gift or one-off creature's [species id, level]. With "scaled_floor" (an area off the main line, see ParLevel)
+## the level lifts with the story's par and the species evolves to suit; without, it is as written.
+func _scaled(c: Dictionary, default_level: int) -> Array:
+	var id := str(c.get("species", ""))
+	var lv := int(c.get("level", default_level))
+	if not c.has("scaled_floor"):
+		return [id, lv]
+	lv = ParLevel.lift(lv, host.data.flags, int(c.scaled_floor))
+	return [ParLevel.stage(host.dex, id, lv), lv]
 
 ## {"do": "recipe", "id": "parkin"} or a list of ids: learn recipes (flags recipe_<id>), and one line naming the new ones.
 func _recipe(ids: Variant) -> void:
@@ -421,7 +473,7 @@ func _journey_out(kind: String, info: Dictionary) -> bool:
 ## Lost a battle: lose half the money, heal up, back to the last Sanctuary.
 func whiteout() -> void:
 	var data: GameStateData = host.data
-	data.money = data.money / 2
+	Wallet.halve_all(data)
 	data.heal_party()
 	var ls: Dictionary = data.last_sanctuary
 	await host.warp(str(ls.zone), int(ls.pos[0]), int(ls.pos[1]), "down")
@@ -433,7 +485,7 @@ const WEATHER_CONDS := {"rain": ["drizzle", "downpour"], "fog": ["fog"], "gale":
 
 ## Conditions that aren't flags: the time of day ("dawn", "day", "dusk", "night", from the in-game clock), the
 ## weather ("rain" is drizzle or a downpour; "fog", "gale", "frost", "sunshine"), "caught_all" (every species
-## in the Fieldbook proper caught; the appendix is a bonus), "caught_<n>" (at least n caught), and from the real date the season ("spring".."winter") or a festival (Calendar.FESTIVALS).
+## in the Fieldbook proper caught; the appendix is a bonus), "caught_<n>" (at least n caught), "party_has_<species>", "caught_<species>" (one in the party, or what it evolved into), and from the real date the season ("spring".."winter") or a festival (Calendar.FESTIVALS).
 func _when(cond: String) -> bool:
 	if cond in PHASE_CONDS:
 		return GameClock.phase(host.data.clock_minutes) == cond
@@ -443,11 +495,34 @@ func _when(cond: String) -> bool:
 		return FieldbookGoals.caught_count(host.data) >= host.dex.core_ids().size()
 	if cond.begins_with("caught_") and cond.substr(7).is_valid_int():  # a Fieldbook milestone: caught_25 and so on
 		return FieldbookGoals.caught_count(host.data) >= int(cond.substr(7))
+	if cond.begins_with(PARTY_HAS):  # showing someone a creature: party_has_<species>, or anything it grew into
+		return _party_has(cond.substr(PARTY_HAS.length()))
+	if cond.begins_with("has_"):  # a show-me check for a quest: you've caught one of these
+		return host.data.caught.has(cond.substr(4))
+	if cond.begins_with("caught_") and host.dex.has(cond.substr(7)):  # caught_<species>: one ever caught
+		return host.data.caught.has(cond.substr(7))
 	if cond in Calendar.SEASONS:
 		return Calendar.season_today() == cond
 	if cond in Calendar.FESTIVALS:
 		return Calendar.festival_today() == cond
 	push_warning("Commands: unknown condition '%s'" % cond)
+	return false
+
+const PARTY_HAS := "party_has_"
+
+## Is a `species_id` in the party, or a creature that evolved from one (level, item or friendship evolutions)?
+func _party_has(species_id: String) -> bool:
+	var line := {}
+	var id := species_id
+	for _guard in 4:
+		line[id] = true
+		var evo: Variant = host.dex.get_species(id).get("evolves") if host.dex.has(id) else null
+		if not (evo is Dictionary) or str(evo.get("to", "")) == "":
+			break
+		id = str(evo.to)
+	for c in host.data.party:
+		if c != null and line.has(str(c.species.get("id", ""))):
+			return true
 	return false
 
 ## The outdoor weather: the overworld's sky when the host has one, otherwise the saved outdoor weather

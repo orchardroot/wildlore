@@ -21,8 +21,9 @@ const REGION_COLOURS := {
 	"cheshire": Color("c9a24a"), "peak": Color("8c6b4a"), "manchester": Color("b8433a"), "merseyside": Color("3f6fb5"),
 	"north_wales": Color("c8303a"), "mid_wales": Color("3d8b4f"), "south_wales": Color("d0583a"), "midlands": Color("7a5aa8"),
 	"south_england": Color("5aa08a"), "cornwall": Color("e0b84a"), "yorkshire": Color("4a86c8"), "north_east": Color("2f3f8f"),
-	"cumbria": Color("6f9a5a"), "scotland": Color("2a62b8"), "ireland": Color("2f9e5f"), "ireland_west": Color("5fb06a"),
+	"cumbria": Color("6f9a5a"), "lancashire": Color("c8452f"), "scotland": Color("2a62b8"), "ireland": Color("2f9e5f"), "ireland_west": Color("5fb06a"),
 	"ireland_east": Color("1f7a52"), "man": Color("a3283c"),
+	"east_anglia": Color("e0c020"),
 }
 const DEFAULT_COLOUR := Color("b08a4a")
 

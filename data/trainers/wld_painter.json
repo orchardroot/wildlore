@@ -1,0 +1,32 @@
+{
+ "id": "wld_painter",
+ "name": "Painter Iris",
+ "class": "Painter",
+ "sprite": "poet",
+ "party": [
+  {
+   "species": "pixiedell",
+   "level": 84
+  },
+  {
+   "species": "murmurant",
+   "level": 84
+  },
+  {
+   "species": "roodstone",
+   "level": 85
+  }
+ ],
+ "ai": "trainer",
+ "money": 3500,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Painter Iris",
+   "text": "I'm doing what Hockney did: painting the same lane in every season. This is the battle season, apparently."
+  }
+ ],
+ "win": "You've a good eye. I'll paint you in. Small, in the corner, losing.",
+ "after": "Hockney painted the trees here on dozens of canvases at once, then stood the panels together like a jigsaw.",
+ "scaled_floor": 84
+}

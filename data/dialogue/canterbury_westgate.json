@@ -1,0 +1,50 @@
+{
+ "wg_curator": [
+  {
+   "do": "if",
+   "flag": "q_southeast_becket_2",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_southeast_becket_3",
+     "then": [
+      {
+       "do": "say",
+       "who": "Curator",
+       "text": "Enjoy the view from the roof. On a clear day you can see the cathedral, the university and three people arguing about parking."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Curator",
+       "text": "For the Becket exhibition? Here: a pilgrim badge, found in the Stour in the 1980s. A tiny tin Becket's head in a mitre, with a pin on the back for your hat."
+      },
+      {
+       "do": "say",
+       "who": "Curator",
+       "text": "Pilgrims bought them by the thousand. They were the medieval fridge magnet."
+      },
+      {
+       "do": "set",
+       "flag": "q_southeast_becket_3",
+       "value": true
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Curator",
+     "text": "This was the city gaol for centuries, right up to the 1820s and beyond. The cells are still here. The prisoners weren't keen on the view."
+    },
+    {
+     "do": "say",
+     "who": "Curator",
+     "text": "The gun ports on the towers are some of the earliest built for cannon in England. Very modern. For 1380."
+    }
+   ]
+  }
+ ]
+}

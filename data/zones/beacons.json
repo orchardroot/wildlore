@@ -277,6 +277,10 @@
   "east": {
    "to": "cardiff",
    "offset": 0
+  },
+  "south": {
+   "to": "swansea",
+   "offset": 11
   }
  },
  "npcs": [
@@ -379,50 +383,35 @@
     "min": 34,
     "max": 36,
     "weight": 22,
-    "time": [
-     "dusk",
-     "night"
-    ]
+    "time": ["dusk", "night"]
    },
    {
     "species": "kitelet",
     "min": 33,
     "max": 35,
     "weight": 26,
-    "time": [
-     "dawn",
-     "day"
-    ]
+    "time": ["dawn", "day"]
    },
    {
     "species": "sphagnet",
     "min": 33,
     "max": 35,
     "weight": 24,
-    "weather": [
-     "drizzle",
-     "downpour",
-     "fog"
-    ]
+    "weather": ["drizzle", "downpour", "fog"]
    },
    {
     "species": "zigzlet",
     "min": 34,
     "max": 36,
     "weight": 18,
-    "time": [
-     "dusk",
-     "night"
-    ]
+    "time": ["dusk", "night"]
    },
    {
     "species": "kitelet",
     "min": 34,
     "max": 36,
     "weight": 16,
-    "weather": [
-     "gale"
-    ]
+    "weather": ["gale"]
    },
    {
     "species": "sphagnet",
@@ -435,37 +424,36 @@
     "min": 35,
     "max": 36,
     "weight": 10,
-    "weather": [
-     "fog"
-    ]
+    "weather": ["fog"]
    },
    {
     "species": "zigzlet",
     "min": 33,
     "max": 35,
     "weight": 10,
-    "time": [
-     "dawn",
-     "day"
-    ]
+    "time": ["dawn", "day"]
    },
    {
     "species": "puffkin",
     "min": 33,
     "max": 35,
     "weight": 8,
-    "season": [
-     "autumn"
-    ]
+    "season": ["autumn"]
    },
    {
     "species": "scorchbun",
     "min": 33,
     "max": 35,
     "weight": 8,
-    "season": [
-     "autumn"
-    ]
+    "season": ["autumn"]
+   },
+   {
+    "species": "marilwyd",
+    "min": 35,
+    "max": 36,
+    "weight": 8,
+    "time": ["night"],
+    "season": ["winter"]
    }
   ]
  },
@@ -509,6 +497,25 @@
    "x": 2,
    "y": 15,
    "text": "ST DAVIDS 40 miles. Behind you. Good luck with that."
+  },
+  {
+   "x": 40,
+   "y": 20,
+   "plaque": "beacons_old_red_sandstone",
+   "title": "Old Red Sandstone",
+   "text": "These hills are Old Red Sandstone, laid down by rivers around 400 million years ago in the Devonian period. It gives the paths their rusty colour, and a tough layer of it makes the flat tops of Pen y Fan and Corn Du. The ice ages did the sculpting."
+  },
+  {
+   "x": 30,
+   "y": 27,
+   "plaque": "beacons_cwm_llwch",
+   "title": "Llyn Cwm Llwch",
+   "text": "Below Corn Du lies the little lake of Llyn Cwm Llwch. Legend says that every May Day a door opened in a rock by the water onto a fairy island, where visitors were feasted, until one guest pocketed a flower and the door shut for good. Moral: leave the flowers."
+  },
+  {
+   "x": 25,
+   "y": 36,
+   "text": "ABERTAWE / SWANSEA 25 miles. Down the old drovers' lane to the sea, the market and the Mumbles. Gower beyond."
   }
  ],
  "spawn": [
@@ -545,18 +552,18 @@
   "RRkkRkkkkk##kkkkkkRkkk##kkkkkkkkkkkkkkkkkkRkkkk#############hhhhhhhkRR",
   "RRkkRkkkkk##kkkkkkkRkk##kkkkkkkkkkkkkkkkRkkkkkkkkkkkkkkkkkkkkkWWWWWWRR",
   "RRkkkkkkkk##############kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkRkkkkkRkRkkkRR",
-  "RRkkkPkkkk##############kkkkkkkkkkkkkkkRRkkkhhhhhhhhkssssssssskkkkkkRR",
-  "RRkhhhhhhhhhhhhhhkkkkkkkkkkkkkkkkkkRRkkRkkkkhhhhhhhhks~~~~~~~skkkkkkRR",
-  "RRkhhhhhhhhhhhWWWWWWWWWWkkhhhhhhhhhhWWWWWWWWWWWWhhhhks~~~~~~~skkkkkkRR",
-  "RRPhhhhhhhhhhhWhhkkkkkkkkkhhhhhhhhhhhhkkkkkkhhhhWhhhks~~~~~~~skkkkkkRR",
-  "RRkhhhhhhhhhhhWhhkkkkkkkkkhhhhhhhhhhhhkkkkkkhhhhWhhhks~~~~~~~skRkkkkRR",
-  "RRkhhhhhhhhhhhWhhkkkkkkkkkhhhhhhhhhhhhkkkkkkhhhhWhhhkssssssssskkkkkkRR",
-  "RRkhhhhhhhhhhhWhhkkkRRkkkkhhhhhhhhhhhhkkkkkkRRhhWhhhkkkkkkkkkkkRkkkRRR",
-  "RRPhhhhhhhhhhhWhhkkkRRkkkkhhhhhhhhhhhhkkkkkkhRhhWhhhkkkkkkkkRkkkkkkkRR",
-  "RRkkkkkkkkkkkPkkkkkkkkkkkkkkkkkkRkkkkkRkkkkRkkRkkkkkkkkkkkkkkkRkkkkkRR",
-  "RRkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkRkkkkRkkkkkkkkkkRkkkkkRkkkkkkkkkkRR",
-  "RRRRRRRRRRRRRRRRRRRRRRRRRRRPRRRRPRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR",
-  "RRRRRRRRRRRRRRRRRRRRRPRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR"
+  "RRkkkPkkkk###############kkkkkkkkkkkkkkRRkkkhhhhhhhhkssssssssskkkkkkRR",
+  "RRkhhhhhhhhhhhhhhkkkkkkk#kkkkkkkkkkRRkkRkkkkhhhhhhhhks~~~~~~~skkkkkkRR",
+  "RRkhhhhhhhhhhhWWWWWWWWWW#khhhhhhhhhhWWWWWWWWWWWWhhhhks~~~~~~~skkkkkkRR",
+  "RRPhhhhhhhhhhhWhhkkkkkkk#khhhhhhhhhhhhkkkkkkhhhhWhhhks~~~~~~~skkkkkkRR",
+  "RRkhhhhhhhhhhhWhhkkkkkkk#khhhhhhhhhhhhkkkkkkhhhhWhhhks~~~~~~~skRkkkkRR",
+  "RRkhhhhhhhhhhhWhhkkkkkkk#khhhhhhhhhhhhkkkkkkhhhhWhhhkssssssssskkkkkkRR",
+  "RRkhhhhhhhhhhhWhhkkkRRkk#khhhhhhhhhhhhkkkkkkRRhhWhhhkkkkkkkkkkkRkkkRRR",
+  "RRPhhhhhhhhhhhWhhkkkRRkk#khhhhhhhhhhhhkkkkkkhRhhWhhhkkkkkkkkRkkkkkkkRR",
+  "RRkkkkkkkkkkkPkkkkkkkkkk#kkkkkkkRkkkkkRkkkkRkkRkkkkkkkkkkkkkkkRkkkkkRR",
+  "RRkkkkkkkkkkkkkkkkkkkkkk#kkkkkkkkkkRkkkkRkkkkkkkkkkRkkkkkRkkkkkkkkkkRR",
+  "RRRRRRRRRRRRRRRRRRRRRRR###RPRRRRPRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR",
+  "RRRRRRRRRRRRRRRRRRRRRPR###RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR"
  ],
  "heights": [
   "0000000000000000000011111122222223333333333333333333222222211111100000",

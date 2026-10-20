@@ -1,0 +1,70 @@
+{
+ "ln_coop_clerk": [
+  {
+   "do": "say",
+   "who": "Co-op Clerk",
+   "text": "{greeting} Smoked eel, fresh off the smoker. Tea, if you'd rather. And snares for the water, if you're going after the eels yourself."
+  },
+  {
+   "do": "shop",
+   "id": "lough_neagh_eel_coop"
+  },
+  {
+   "do": "say",
+   "who": "Co-op Clerk",
+   "text": "Good luck to you. Mind the jetty, it's slippy as an eel. Funny that."
+  }
+ ],
+ "ln_old_fisher": [
+  {
+   "do": "if",
+   "flag": "q_fermanagh_ms_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_fermanagh_ms_3",
+     "then": [
+      {
+       "do": "say",
+       "who": "Old Eel Fisherman",
+       "text": "I've nothing else of the monk's, I'm afraid. Just eels. Lots and lots of eels."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Old Eel Fisherman",
+       "text": "A page off Devenish? Well now. One of the lines came up this morning with a fine big eel on it, and wrapped round the eel was this."
+      },
+      {
+       "do": "say",
+       "who": "Old Eel Fisherman",
+       "text": "It's dried out grand. Calfskin, that, not paper. Lasts a thousand years. I've wellies that haven't lasted three."
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "{player} tucks the vellum page carefully into the Fieldbook."
+      },
+      {
+       "do": "set",
+       "flag": "q_fermanagh_ms_3"
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Old Eel Fisherman",
+     "text": "Sixty years I've fished this lough. My father before me, and his before him. The eels haven't changed. The boats have got engines, which my knees appreciate."
+    },
+    {
+     "do": "say",
+     "who": "Old Eel Fisherman",
+     "text": "You know they found a giant's footprint on the shore once? It was a cow's. But it was a very big cow."
+    }
+   ]
+  }
+ ]
+}

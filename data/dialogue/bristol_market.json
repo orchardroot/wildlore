@@ -1,0 +1,43 @@
+{
+ "market_pieman": [
+  {
+   "do": "say",
+   "who": "Pie Seller",
+   "text": "Hot pies! Steak and cider, cheese and onion, mushroom! Built for the drizzle."
+  },
+  {
+   "do": "daily",
+   "key": "bristol_pie_day",
+   "then": [
+    {
+     "do": "say",
+     "who": "Pie Seller",
+     "text": "First time today? Have one on the house. Go on, you look peaky."
+    },
+    {
+     "do": "give_item",
+     "item": "market_pie"
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Pie Seller",
+     "text": "You've had your free one. The stall's got bills to pay, my lover."
+    }
+   ]
+  }
+ ],
+ "market_cidershop": [
+  {
+   "do": "say",
+   "who": "Cider Stall",
+   "text": "Cider's been made round here for centuries. Farm workers were once paid partly in cider. Bet that made the afternoons interesting."
+  },
+  {
+   "do": "say",
+   "who": "Cider Stall",
+   "text": "Wassailing's in January: you sing to the apple trees, dip toast in cider and hang it in the branches for the robins. Good luck for the harvest."
+  }
+ ]
+}

@@ -1,0 +1,511 @@
+{
+ "sw_gaelic_kid": [
+  {
+   "do": "say",
+   "who": "Schoolkid",
+   "text": "Madainn mhath! That's good morning. Feasgar math is good afternoon. Oidhche mhath is good night. We have lessons in Gaelic and then English. I'm better at one than the other, and I'm not telling you which."
+  },
+  {
+   "do": "say",
+   "who": "Schoolkid",
+   "text": "My granny only speaks Gaelic to the cat. The cat understands. The dog, we think, is learning."
+  }
+ ],
+ "sw_harbour_hand": [
+  {
+   "do": "say",
+   "who": "Harbour Hand",
+   "text": "Everything comes in here: the boat from Ullapool, fishing boats, creels, big crates of langoustines. The prawns go to Spain. Spain! We eat the haddock."
+  },
+  {
+   "do": "say",
+   "who": "Harbour Hand",
+   "text": "In the old herring days, the harbour was so full of boats you could walk across the water. I'm told. I'm not that old."
+  }
+ ],
+ "sw_castle_gardener": [
+  {
+   "do": "say",
+   "who": "Castle Gardener",
+   "text": "These are the trees the Mathesons planted. Sycamore, ash, beech. In a place where the wind takes your hat in March. Somebody had a lot of money and a great deal of optimism."
+  },
+  {
+   "do": "say",
+   "who": "Castle Gardener",
+   "text": "If you hear a thud in the night, it's a branch. If you hear two, it's a branch and a laird's idea."
+  }
+ ],
+ "sw_sabbath_visitor": [
+  {
+   "do": "say",
+   "who": "Local Woman",
+   "text": "Sundays here are quiet. The shops are shut, the washing stays in, and many go to church twice. If you're visiting, walk by the shore, have a cup of tea. Folk are kind about it."
+  },
+  {
+   "do": "say",
+   "who": "Local Woman",
+   "text": "My granny remembers when the swings in the park were chained on a Sunday. It's different now, and not everybody likes it. We all agree about the black pudding."
+  }
+ ],
+ "sw_pudding_fan": [
+  {
+   "do": "say",
+   "who": "Pudding Fan",
+   "text": "Stornoway black pudding. It's got protected status, like Champagne. If you make a black pudding in Glasgow you can call it a black pudding, but you can't call it a Stornoway one. And you wouldn't want to. It's just not the same."
+  }
+ ],
+ "sw_skipper": [
+  {
+   "do": "if",
+   "flag": "q_hebrides_rhyme_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Old Skipper",
+     "text": "You answered the Blue Men and they let you by. That makes you the first in this harbour since my granda. Have a seat. Nobody will believe you, but I will."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_hebrides_rhyme_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "Old Skipper",
+       "text": "You have the verses. Go to the end of the quay when the weather's bad, in a gale or a fog or at night, and listen. The Blue Men don't come on a calm day. Calm days are for people with no stories."
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_hebrides_rhyme_1",
+       "then": [
+        {
+         "do": "say",
+         "who": "Old Skipper",
+         "text": "A Skaldling! That's a Blue Man's wee one. They'll only come for those who've befriended one. Now go and see the Bard at the Minch Arms. He'll teach you how a rhyme goes."
+        }
+       ],
+       "else": [
+        {
+         "do": "if",
+         "flag": "q_hebrides_rhyme_started",
+         "then": [
+          {
+           "do": "when",
+           "cond": "has_skaldling",
+           "then": [
+            {
+             "do": "say",
+             "who": "Old Skipper",
+             "text": "You've one in your Fieldbook? Good lad, good lass. Then they'll know you. Away and see the Bard at the Minch Arms, he'll teach you the verses."
+            },
+            {
+             "do": "set",
+             "flag": "q_hebrides_rhyme_1",
+             "value": true
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Old Skipper",
+             "text": "Not yet. Find a Skaldling in the shallows on the Harris coast or out at the end of the Skye quays. A wee blue thing in a foam crown, singing under its breath. Catch it."
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Old Skipper",
+           "text": "The Blue Men of the Minch. Everyone knows them, and nobody has ever met them and lived to say so, except me. They come up alongside the boat in a storm and call a line of verse. If you can finish the rhyme, off you go. If you can't, over you go."
+          },
+          {
+           "do": "say",
+           "who": "Old Skipper",
+           "text": "They don't ask much. But they only talk to those who have the ear. Catch me a Skaldling, one of their little ones, and I'll show you how it's done."
+          },
+          {
+           "do": "set",
+           "flag": "q_hebrides_rhyme_started",
+           "value": true
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "sw_bluemen": [
+  {
+   "do": "when",
+   "cond": "gale",
+   "then": [
+    {
+     "do": "say",
+     "who": "Blue Man",
+     "text": "A voice comes out of the spray, wet and amused: 'Skipper, skipper, in the stout little boat, if you can finish my rhyme you will float.'"
+    },
+    {
+     "do": "choice",
+     "text": "Finish the Blue Man's rhyme: 'The wind is wild and the waves are high,'",
+     "options": [
+      "And still I'll sail beneath the sky",
+      "So I'll be home for a cup of tea",
+      "Which is why I stayed in bed today"
+     ],
+     "set": "_rhyme_0"
+    },
+    {
+     "do": "if",
+     "flag": "_rhyme_0",
+     "then": [
+      {
+       "do": "choice",
+       "text": "Finish the Blue Man's rhyme: 'Oh, the Minch is grey and the Minch is wide,'",
+       "options": [
+        "And I would rather be in Leeds",
+        "But a brave heart rides the turning tide",
+        "So I've brought sandwiches and a flask"
+       ],
+       "set": "_rhyme_1"
+      },
+      {
+       "do": "if",
+       "flag": "_rhyme_1",
+       "then": [
+        {
+         "do": "choice",
+         "text": "Finish the Blue Man's rhyme: 'Blue Man, Blue Man, under the foam,'",
+         "options": [
+          "I rather think I left the oven on",
+          "Is that a haddock or an alarm clock?",
+          "I'll answer your rhyme, then sail for home"
+         ],
+         "set": "_rhyme_2"
+        },
+        {
+         "do": "if",
+         "flag": "_rhyme_2",
+         "then": [
+          {
+           "do": "say",
+           "who": "Blue Man",
+           "text": "A cheer goes up from the waves. 'A skipper with an ear! The Minch is yours. But a Blue Man likes to see how you fight as well as how you rhyme.'"
+          },
+          {
+           "do": "battle",
+           "trainer": "blue_men",
+           "intro": true
+          },
+          {
+           "do": "say",
+           "who": "Blue Man",
+           "text": "'Well rhymed, and well fought. Take this. The sea only gives away one in a hundred years.'"
+          },
+          {
+           "do": "give_item",
+           "item": "blue_man_pebble",
+           "n": 1
+          },
+          {
+           "do": "standing",
+           "nation": "scotland",
+           "amount": 2
+          },
+          {
+           "do": "set",
+           "flag": "q_hebrides_rhyme_3",
+           "value": true
+          },
+          {
+           "do": "set",
+           "flag": "q_hebrides_rhyme_done",
+           "value": true
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Blue Man",
+           "text": "'No! That doesn't scan! The sea takes your hat.' A wave arrives and takes your hat. Fortunately you weren't wearing one. Start again."
+          }
+         ],
+         "eq": 2
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Blue Man",
+         "text": "'No! That doesn't scan! The sea takes your hat.' A wave arrives and takes your hat. Fortunately you weren't wearing one. Start again."
+        }
+       ],
+       "eq": 1
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Blue Man",
+       "text": "'No! That doesn't scan! The sea takes your hat.' A wave arrives and takes your hat. Fortunately you weren't wearing one. Start again."
+      }
+     ],
+     "eq": 0
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "fog",
+     "then": [
+      {
+       "do": "say",
+       "who": "Blue Man",
+       "text": "A voice comes out of the spray, wet and amused: 'Skipper, skipper, in the stout little boat, if you can finish my rhyme you will float.'"
+      },
+      {
+       "do": "choice",
+       "text": "Finish the Blue Man's rhyme: 'The wind is wild and the waves are high,'",
+       "options": [
+        "And still I'll sail beneath the sky",
+        "So I'll be home for a cup of tea",
+        "Which is why I stayed in bed today"
+       ],
+       "set": "_rhyme_0"
+      },
+      {
+       "do": "if",
+       "flag": "_rhyme_0",
+       "then": [
+        {
+         "do": "choice",
+         "text": "Finish the Blue Man's rhyme: 'Oh, the Minch is grey and the Minch is wide,'",
+         "options": [
+          "And I would rather be in Leeds",
+          "But a brave heart rides the turning tide",
+          "So I've brought sandwiches and a flask"
+         ],
+         "set": "_rhyme_1"
+        },
+        {
+         "do": "if",
+         "flag": "_rhyme_1",
+         "then": [
+          {
+           "do": "choice",
+           "text": "Finish the Blue Man's rhyme: 'Blue Man, Blue Man, under the foam,'",
+           "options": [
+            "I rather think I left the oven on",
+            "Is that a haddock or an alarm clock?",
+            "I'll answer your rhyme, then sail for home"
+           ],
+           "set": "_rhyme_2"
+          },
+          {
+           "do": "if",
+           "flag": "_rhyme_2",
+           "then": [
+            {
+             "do": "say",
+             "who": "Blue Man",
+             "text": "A cheer goes up from the waves. 'A skipper with an ear! The Minch is yours. But a Blue Man likes to see how you fight as well as how you rhyme.'"
+            },
+            {
+             "do": "battle",
+             "trainer": "blue_men",
+             "intro": true
+            },
+            {
+             "do": "say",
+             "who": "Blue Man",
+             "text": "'Well rhymed, and well fought. Take this. The sea only gives away one in a hundred years.'"
+            },
+            {
+             "do": "give_item",
+             "item": "blue_man_pebble",
+             "n": 1
+            },
+            {
+             "do": "standing",
+             "nation": "scotland",
+             "amount": 2
+            },
+            {
+             "do": "set",
+             "flag": "q_hebrides_rhyme_3",
+             "value": true
+            },
+            {
+             "do": "set",
+             "flag": "q_hebrides_rhyme_done",
+             "value": true
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Blue Man",
+             "text": "'No! That doesn't scan! The sea takes your hat.' A wave arrives and takes your hat. Fortunately you weren't wearing one. Start again."
+            }
+           ],
+           "eq": 2
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Blue Man",
+           "text": "'No! That doesn't scan! The sea takes your hat.' A wave arrives and takes your hat. Fortunately you weren't wearing one. Start again."
+          }
+         ],
+         "eq": 1
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Blue Man",
+         "text": "'No! That doesn't scan! The sea takes your hat.' A wave arrives and takes your hat. Fortunately you weren't wearing one. Start again."
+        }
+       ],
+       "eq": 0
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "night",
+       "then": [
+        {
+         "do": "say",
+         "who": "Blue Man",
+         "text": "A voice comes out of the spray, wet and amused: 'Skipper, skipper, in the stout little boat, if you can finish my rhyme you will float.'"
+        },
+        {
+         "do": "choice",
+         "text": "Finish the Blue Man's rhyme: 'The wind is wild and the waves are high,'",
+         "options": [
+          "And still I'll sail beneath the sky",
+          "So I'll be home for a cup of tea",
+          "Which is why I stayed in bed today"
+         ],
+         "set": "_rhyme_0"
+        },
+        {
+         "do": "if",
+         "flag": "_rhyme_0",
+         "then": [
+          {
+           "do": "choice",
+           "text": "Finish the Blue Man's rhyme: 'Oh, the Minch is grey and the Minch is wide,'",
+           "options": [
+            "And I would rather be in Leeds",
+            "But a brave heart rides the turning tide",
+            "So I've brought sandwiches and a flask"
+           ],
+           "set": "_rhyme_1"
+          },
+          {
+           "do": "if",
+           "flag": "_rhyme_1",
+           "then": [
+            {
+             "do": "choice",
+             "text": "Finish the Blue Man's rhyme: 'Blue Man, Blue Man, under the foam,'",
+             "options": [
+              "I rather think I left the oven on",
+              "Is that a haddock or an alarm clock?",
+              "I'll answer your rhyme, then sail for home"
+             ],
+             "set": "_rhyme_2"
+            },
+            {
+             "do": "if",
+             "flag": "_rhyme_2",
+             "then": [
+              {
+               "do": "say",
+               "who": "Blue Man",
+               "text": "A cheer goes up from the waves. 'A skipper with an ear! The Minch is yours. But a Blue Man likes to see how you fight as well as how you rhyme.'"
+              },
+              {
+               "do": "battle",
+               "trainer": "blue_men",
+               "intro": true
+              },
+              {
+               "do": "say",
+               "who": "Blue Man",
+               "text": "'Well rhymed, and well fought. Take this. The sea only gives away one in a hundred years.'"
+              },
+              {
+               "do": "give_item",
+               "item": "blue_man_pebble",
+               "n": 1
+              },
+              {
+               "do": "standing",
+               "nation": "scotland",
+               "amount": 2
+              },
+              {
+               "do": "set",
+               "flag": "q_hebrides_rhyme_3",
+               "value": true
+              },
+              {
+               "do": "set",
+               "flag": "q_hebrides_rhyme_done",
+               "value": true
+              }
+             ],
+             "else": [
+              {
+               "do": "say",
+               "who": "Blue Man",
+               "text": "'No! That doesn't scan! The sea takes your hat.' A wave arrives and takes your hat. Fortunately you weren't wearing one. Start again."
+              }
+             ],
+             "eq": 2
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Blue Man",
+             "text": "'No! That doesn't scan! The sea takes your hat.' A wave arrives and takes your hat. Fortunately you weren't wearing one. Start again."
+            }
+           ],
+           "eq": 1
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Blue Man",
+           "text": "'No! That doesn't scan! The sea takes your hat.' A wave arrives and takes your hat. Fortunately you weren't wearing one. Start again."
+          }
+         ],
+         "eq": 0
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "",
+         "text": "The quay is quiet. A calm day, just the water slapping the stones. The Blue Men only come in a gale, in fog or in the dark."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

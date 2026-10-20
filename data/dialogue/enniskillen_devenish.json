@@ -1,0 +1,144 @@
+{
+ "en_monk": [
+  {
+   "do": "if",
+   "flag": "q_fermanagh_ms_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Brother Fiachra",
+     "text": "{greeting} The book is whole again, thanks to you. I've added a wee drawing of you in the margin. You've a cat on your head. Artistic licence."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_fermanagh_ms_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_fermanagh_ms_1",
+       "then": [
+        {
+         "do": "if",
+         "flag": "q_fermanagh_ms_2",
+         "then": [
+          {
+           "do": "if",
+           "flag": "q_fermanagh_ms_3",
+           "then": [
+            {
+             "do": "say",
+             "who": "Brother Fiachra",
+             "text": "All three pages! The one from the alehouse smells of stout, and the one from the lough smells of eel, but they're all here."
+            },
+            {
+             "do": "say",
+             "who": "Brother Fiachra",
+             "text": "Molaise's gospel book had a shrine made for it, the Soiscél Molaise, of bronze and silver, nine hundred years ago. It's in the National Museum in Dublin now. They say it's very well looked after. I've written to complain about the lighting."
+            },
+            {
+             "do": "say",
+             "who": "Brother Fiachra",
+             "text": "Take this. A page I illuminated myself, for luck. The gold is real. Mostly."
+            },
+            {
+             "do": "set",
+             "flag": "q_fermanagh_ms_4"
+            },
+            {
+             "do": "give_item",
+             "item": "illuminated_page",
+             "n": 1
+            },
+            {
+             "do": "standing",
+             "nation": "northern_ireland",
+             "amount": 2
+            },
+            {
+             "do": "set",
+             "flag": "q_fermanagh_ms_done"
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Brother Fiachra",
+             "text": "Any sign of my pages? One down the town at the alehouse, one up the hill at the school, and one, I fear, gone east to the great lough. The wind here has no respect for scholarship."
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Brother Fiachra",
+           "text": "Any sign of my pages? One down the town at the alehouse, one up the hill at the school, and one, I fear, gone east to the great lough. The wind here has no respect for scholarship."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Brother Fiachra",
+         "text": "Any sign of my pages? One down the town at the alehouse, one up the hill at the school, and one, I fear, gone east to the great lough. The wind here has no respect for scholarship."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Brother Fiachra",
+       "text": "{greeting} Oh! A visitor. Don't mind me. I'm a bit faint round the edges these days. Eight hundred years will do that."
+      },
+      {
+       "do": "say",
+       "who": "Brother Fiachra",
+       "text": "St Molaise founded this place in the 500s. Scholars came from all over to learn here. I was copying out a gospel when a gust took three pages clean out of the window."
+      },
+      {
+       "do": "say",
+       "who": "Brother Fiachra",
+       "text": "One went down to the town, to some sort of alehouse in a hollow. One went up the hill to the school with the clever boys. And one went east, all the way to the great lough. Would you find them for me?"
+      },
+      {
+       "do": "choice",
+       "text": "Help Brother Fiachra find his pages?",
+       "options": [
+        "Of course",
+        "Not just now"
+       ],
+       "set": "_fiachra_pick"
+      },
+      {
+       "do": "if",
+       "flag": "_fiachra_pick",
+       "then": [
+        {
+         "do": "say",
+         "who": "Brother Fiachra",
+         "text": "God bless you. Calfskin, about so big, covered in birds. You can't miss them."
+        },
+        {
+         "do": "set",
+         "flag": "q_fermanagh_ms_started"
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Brother Fiachra",
+         "text": "No bother. I've waited eight hundred years. What's another afternoon?"
+        }
+       ],
+       "eq": 0
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

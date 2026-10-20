@@ -1,0 +1,113 @@
+{
+ "id": "oban_calmac",
+ "name": "CalMac Ferry Terminal",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "wall_map",
+   "x": 4,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "clock",
+   "x": 7,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "menu_board",
+   "x": 10,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "bench",
+   "x": 2,
+   "y": 6
+  },
+  {
+   "type": "bench",
+   "x": 3,
+   "y": 6
+  },
+  {
+   "type": "bench",
+   "x": 11,
+   "y": 6
+  },
+  {
+   "type": "bench",
+   "x": 12,
+   "y": 6
+  },
+  {
+   "type": "potted_plant",
+   "x": 13,
+   "y": 8
+  },
+  {
+   "type": "rug",
+   "x": 6,
+   "y": 4,
+   "w": 3,
+   "h": 3,
+   "variant": 1,
+   "walk": true
+  }
+ ],
+ "warps": [
+  {
+   "x": 7,
+   "y": 9,
+   "to": "oban",
+   "tx": 23,
+   "ty": 45,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "obn_morag",
+   "sprite": "student",
+   "x": 7,
+   "y": 2,
+   "facing": "down",
+   "move": "still",
+   "script": "obn_morag",
+   "name": "Morag"
+  },
+  {
+   "id": "obn_ferry_kid",
+   "sprite": "villager_3",
+   "x": 4,
+   "y": 7,
+   "facing": "up",
+   "move": "still",
+   "script": "obn_ferry_kid",
+   "name": "Traveller"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  7,
+  8
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxxx",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x||CCCCCCCCC||x",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "xxxxxxxDxxxxxxx"
+ ]
+}

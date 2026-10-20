@@ -3,7 +3,7 @@
   {
    "do": "say",
    "who": "Nurse",
-   "text": "C\u00e9ad m\u00edle f\u00e1ilte to the Dingle Sanctuary. A hundred thousand welcomes, and no extra charge for the draught. Pop your team on the counter."
+   "text": "Céad míle fáilte to the Dingle Sanctuary. A hundred thousand welcomes, and no extra charge for the draught. Pop your team on the counter."
   },
   {
    "do": "choice",
@@ -31,7 +31,7 @@
     {
      "do": "say",
      "who": "Nurse",
-     "text": "They're right as rain. Sl\u00e1n abhaile, safe home, and mind the wind off the harbour."
+     "text": "They're right as rain. Slán abhaile, safe home, and mind the wind off the harbour."
     }
    ],
    "else": [
@@ -58,6 +58,16 @@
      ]
     }
    ]
+  }
+ ],
+ "dingle_bureau": [
+  {
+   "do": "say",
+   "who": "Bureau Clerk",
+   "text": "Bureau de change counter. Sanctuary rates, which is to say, the same as everyone else's."
+  },
+  {
+   "do": "bureau"
   }
  ]
 }

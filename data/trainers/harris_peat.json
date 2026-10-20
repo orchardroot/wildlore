@@ -1,0 +1,32 @@
+{
+ "id": "harris_peat",
+ "name": "Peat Cutter Angus",
+ "class": "Peat Cutter",
+ "sprite": "farmer",
+ "party": [
+  {
+   "species": "peatmonarch",
+   "level": 75
+  },
+  {
+   "species": "midgeswarm",
+   "level": 74
+  },
+  {
+   "species": "sphagnet",
+   "level": 74
+  }
+ ],
+ "ai": "trainer",
+ "money": 3100,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Peat Cutter Angus",
+   "text": "Don't trample the bank, I've a month of work in there. If you want to stand on something, stand on me. Shall we?"
+  }
+ ],
+ "win": "Fair enough. You've the touch for it.",
+ "after": "A peat bank takes years to build and one wet summer to spoil. Don't ask me about the midges. Midges are not my fault.",
+ "scaled_floor": 74
+}

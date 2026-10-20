@@ -1,0 +1,178 @@
+{
+ "fen_ivo": [
+  {
+   "do": "if",
+   "flag": "trainer_fen_ivo",
+   "then": [
+    {
+     "do": "say",
+     "who": "Ivo de Taillebois",
+     "text": "I am resting. In the mud. Do not tell the King."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_eastanglia_hereward_1",
+     "then": [
+      {
+       "do": "battle",
+       "trainer": "fen_ivo",
+       "intro": true
+      },
+      {
+       "do": "if",
+       "flag": "trainer_fen_ivo",
+       "then": [
+        {
+         "do": "set",
+         "flag": "q_eastanglia_hereward_2"
+        },
+        {
+         "do": "say",
+         "who": "",
+         "text": "Out at the end of the causeway, on the old camp island, a beacon flares in the reeds."
+        }
+       ],
+       "else": []
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Ivo de Taillebois",
+       "text": "This causeway is closed by order of King William. Unless you know something of the rebels, peasant, move along."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "hereward": [
+  {
+   "do": "if",
+   "flag": "caught_hereward",
+   "then": [],
+   "else": [
+    {
+     "do": "if",
+     "flag": "hereward_met",
+     "then": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "A tall figure waits by the beacon, half reed, half mail, wholly unbothered by a thousand years."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "The beacon roars up. Out of the reeds steps a warrior caked in fen mud, mail glinting, a long axe on his shoulder and a grin like a man who has never once lost an argument."
+      },
+      {
+       "do": "music",
+       "id": "legend"
+      },
+      {
+       "do": "say",
+       "who": "Hereward",
+       "text": "So. You beat Ivo. Good. I never managed it properly; I just kept escaping, which annoyed him more."
+      },
+      {
+       "do": "say",
+       "who": "Hereward",
+       "text": "They call me Hereward the Wake. For a year I held this island against William the Conqueror with a few hundred fenmen and some very cross monks."
+      },
+      {
+       "do": "say",
+       "who": "Hereward",
+       "text": "In the end the abbot showed the Normans a secret path. I slipped away into the reeds and was never caught. The fen keeps its own. Shall we see if you can keep me?"
+      },
+      {
+       "do": "set",
+       "flag": "hereward_met"
+      }
+     ]
+    },
+    {
+     "do": "legend",
+     "species": "hereward",
+     "level": 96,
+     "flag": "caught_hereward",
+     "music": "legend"
+    },
+    {
+     "do": "set",
+     "flag": "q_eastanglia_hereward_done"
+    },
+    {
+     "do": "if",
+     "flag": "caught_hereward",
+     "then": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "Hereward shoulders his axe and falls in beside you, as if he'd been waiting for a decent excuse to leave the island."
+      },
+      {
+       "do": "give_item",
+       "item": "fen_smoked_eel",
+       "n": 3
+      },
+      {
+       "do": "standing",
+       "nation": "england",
+       "amount": 5
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "Hereward laughs, steps back into the reeds, and is simply gone. The beacon still burns. He'll be back; he always was."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "fen_drainer": [
+  {
+   "do": "say",
+   "who": "Drainage Engineer",
+   "text": "{greeting} In the 1630s the Earl of Bedford hired a Dutchman, Cornelius Vermuyden, to drain the Fens. He cut great straight rivers, like the Old and New Bedford, to rush the water out to the sea."
+  },
+  {
+   "do": "say",
+   "who": "Drainage Engineer",
+   "text": "Windpumps did the lifting for two hundred years, then steam, then diesel, now electric. If the pumps all stopped, a lot of this would be under water again within a winter. No pressure on the pumps."
+  }
+ ],
+ "crane": [
+  {
+   "do": "say",
+   "who": "Crane",
+   "text": "A grey crane with a red cap struts through the reeds, bows to nobody in particular, and does a little dance. Four hundred years they were gone. It has a lot of dancing to catch up on."
+  }
+ ],
+ "fen_swanwatcher": [
+  {
+   "do": "say",
+   "who": "Swan Watcher",
+   "text": "Whooper swans from Iceland, Bewick's from Siberia. Every winter thousands land here on the washes. They fly further for their holidays than I do."
+  }
+ ],
+ "fen_tigerwitness": [
+  {
+   "do": "say",
+   "who": "Fenman",
+   "text": "Big skies round here. Folk say we've got more sky than anywhere in England, on account of having nothing in the way of it."
+  },
+  {
+   "do": "say",
+   "who": "Fenman",
+   "text": "I seen it once, the tiger. In the sugar beet. Big as a calf, stripy tail. My wife says it was the neighbour's ginger tom. My wife wasn't there."
+  }
+ ]
+}

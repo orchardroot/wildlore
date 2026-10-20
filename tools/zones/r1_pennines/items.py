@@ -1,0 +1,22 @@
+from lib import write_json
+
+write_json("data/items/pennines.json", [
+    {"id": "curd_tart", "name": "Yorkshire Curd Tart", "kind": "heal", "price": 320, "battle": True, "field": True, "amount": 120,
+     "desc": "Sweet curd, currants and a whisper of nutmeg in a short pastry case, a Yorkshire teatime staple for centuries. Restores 120 HP."},
+    {"id": "havercake", "name": "Havercake", "kind": "heal", "price": 160, "battle": True, "field": True, "amount": 75,
+     "desc": "A floppy Pennine oatcake, 'haver' being the old northern word for oats. A West Riding regiment was nicknamed the Havercake Lads after the oatcakes its recruiters carried. Restores 75 HP."},
+    {"id": "forced_rhubarb", "name": "Forced Rhubarb", "kind": "cure", "price": 240, "battle": True, "field": True, "cures": ["chilled", "muddled", "asleep"],
+     "desc": "A pale pink stalk from the Rhubarb Triangle, grown in the dark and picked by candlelight. Sharp enough to wake the drowsy. Cures chills, muddles and sleep."},
+    {"id": "cornet_mouthpiece", "name": "Cornet Mouthpiece", "kind": "charm", "price": 0, "battle": False, "field": True, "wild": False,
+     "desc": "A silver-plated mouthpiece from a Saddleworth band cornet, polished by a lot of Whit Fridays. Blow down it and the whole valley knows.",
+     "effect_text": "Its Storm moves hit 20% harder.", "charm": {"effect": "boost", "type": "storm", "mult": 1.2},
+     "msg": "{name}'s Cornet Mouthpiece rang out!"},
+    {"id": "whit_rosette", "name": "Whit Friday Rosette", "kind": "key", "price": 0, "battle": False, "field": True,
+     "desc": "First prize, Whit Friday march contest, won with a cornet, a tuba, a drum and you. The ribbon still smells faintly of the tea urn."},
+    {"id": "penny_bazaar_tin", "name": "Penny Bazaar Tin", "kind": "key", "price": 0, "battle": False, "field": True,
+     "desc": "A little tin from Kirkgate Market, stamped 'Don't ask the price, it's a penny', the sign over Michael Marks's stall in 1884."},
+    {"id": "keepers_collar", "name": "Keeper's Collar", "kind": "charm", "price": 0, "battle": False, "field": True, "wild": False,
+     "desc": "A copy of the brass collar worn by Keeper, Emily Brontë's faithful dog, who followed her coffin to church and lay outside her door for weeks.",
+     "effect_text": "Night moves hurt it 25% less.", "charm": {"effect": "resist", "type": "night", "mult": 0.75},
+     "msg": "{name}'s Keeper's Collar stood guard!"},
+])

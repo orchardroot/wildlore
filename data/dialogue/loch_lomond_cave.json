@@ -1,0 +1,35 @@
+{
+ "whl_cave_guide": [
+  {
+   "do": "say",
+   "who": "MacGregor Clansman",
+   "text": "Mind your head. Rob Roy MacGregor is said to have hidden in caves like this one along the shore, away from the Duke's men and the Duke's lawyers, who were worse."
+  },
+  {
+   "do": "say",
+   "who": "MacGregor Clansman",
+   "text": "Cattle drover, they called him. He moved herds from the glens down to the trysts, the great cattle markets. Then he borrowed against the herd, and his clerk made off with the money."
+  },
+  {
+   "do": "say",
+   "who": "MacGregor Clansman",
+   "text": "The Duke of Montrose took his lands. Rob took to the hills. For years he led the redcoats a dance. In the end he was pardoned, and died in his bed at Balquhidder in 1734."
+  },
+  {
+   "do": "say",
+   "who": "MacGregor Clansman",
+   "text": "Seek out his grave. It's in the kirkyard at Balquhidder, south-west of here. Tell the sexton the MacGregors sent you."
+  },
+  {
+   "do": "if",
+   "flag": "q_westhighlands_rob_started",
+   "then": [
+    {
+     "do": "set",
+     "flag": "q_westhighlands_rob_1"
+    }
+   ],
+   "else": []
+  }
+ ]
+}

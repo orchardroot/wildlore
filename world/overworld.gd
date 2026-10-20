@@ -329,6 +329,8 @@ func _on_step(p: Vector2i) -> void:
 		return
 	var enc := Encounters.roll(zone, tile, Game.phase(), weather, Game.rng, TodaysWalk.featured_in(Game.data, zone.id), Game.data.flags)
 	if not enc.is_empty() and Game.data.first_able() != null and not Repel.blocks(Game.data, int(enc.level)):
+		if enc.get("scaled", false):  # off the main line: grown up to suit the level
+			enc.species = ParLevel.stage(Game.dex, str(enc.species), int(enc.level))
 		var foe := Creature.create(Game.dex.get_species(enc.species), enc.level, Game.rng, Game.moves)
 		Charms.maybe_wild(foe, Game.rng)  # now and then one is carrying a charm
 		foe.variant = Coats.roll(Game.rng, Calendar.today().x, weather, Game.phase())  # about 1 in 96: an uncommon coat
@@ -430,6 +432,11 @@ func interact(p: Vector2i) -> void:
 	if not s.is_empty():
 		if s.get("kind", "") == "radio":  # the Shipping Forecast, then Today's Walk (which may pay a weather bounty)
 			await say(Forecast.for_radio(s, Forecast.current_weather(), Game.data.day_count) + TodaysWalk.radio_lines(Game.data, Game.dex, Game.items))
+		elif str(s.get("plaque", "")) != "":  # a heritage plaque: read it, and the first time it goes in the Gazetteer
+			await say([str(s.text)], str(s.get("title", "")))
+			var res := Gazetteer.record(Game.data, str(s.plaque))
+			Bus.flag_changed.emit(Gazetteer.flag_key(str(s.plaque)), true)  # a quest step may have wanted it read
+			Game.quest_news.plaque_read(res, str(s.get("title", "")))
 		else:
 			await say([str(s.text)])
 		return

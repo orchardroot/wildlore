@@ -73,9 +73,9 @@ func test_postmark_date_reads_like_a_postmark() -> void:
 
 # --- the real cards -------------------------------------------------------------
 
-func test_sixteen_cards_with_unique_ids() -> void:
+func test_seventeen_cards_with_unique_ids() -> void:
 	var cards := Postcards.cards()
-	assert_eq(cards.size(), 16, "about sixteen cards")
+	assert_eq(cards.size(), 17, "sixteen story cards and one for the Gazetteer")
 	var ids := {}
 	for c in cards:
 		assert_false(ids.has(str(c.id)), "duplicate card id %s" % c.id)
@@ -107,6 +107,8 @@ func test_every_card_follows_a_beat_the_story_really_sets() -> void:
 	for tid in StoryData.trainer_ids():
 		stack.append(StoryData.trainer(tid).get("intro", []))
 		set_by_story["trainer_" + tid] = true
+	for m in Gazetteer.MILESTONES:  # the Gazetteer pays its milestones in code (core/gazetteer.gd)
+		set_by_story[str(m.flag)] = true
 	while not stack.is_empty():
 		for c in stack.pop_back():
 			if not c is Dictionary:

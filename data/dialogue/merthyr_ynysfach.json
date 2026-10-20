@@ -1,0 +1,137 @@
+{
+ "mer_ironguide": [
+  {
+   "do": "if",
+   "flag": "q_valleys_wager_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Bryn",
+     "text": "A fine wager, and a fine win, and in two hundred years we've yet to stop telling it."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_valleys_wager_3",
+     "then": [
+      {
+       "do": "say",
+       "who": "Bryn",
+       "text": "Beat Crawshay's man at his own game! The engine made it to Abercynon, the iron's all delivered, and I'd say the bet's won. Five hundred guineas. Here, a keepsake for you."
+      },
+      {
+       "do": "say",
+       "who": "Bryn",
+       "text": "And a bar of Penydarren pig iron, cast right here. It's heavy, mind. Put it in the right pocket."
+      },
+      {
+       "do": "give_item",
+       "item": "wager_guinea",
+       "n": 1
+      },
+      {
+       "do": "give_item",
+       "item": "penydarren_pig",
+       "n": 2
+      },
+      {
+       "do": "standing",
+       "nation": "wales",
+       "amount": 8
+      },
+      {
+       "do": "set",
+       "flag": "q_valleys_wager_done",
+       "value": true
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_valleys_wager_2",
+       "then": [
+        {
+         "do": "say",
+         "who": "Bryn",
+         "text": "Steam, coal and a creature to fire it. Now the wager. Go and find Crawshay's agent at the tramroad plinth by the main street. He's the one who doesn't believe in engines."
+        }
+       ],
+       "else": [
+        {
+         "do": "if",
+         "flag": "q_valleys_wager_1",
+         "then": [
+          {
+           "do": "when",
+           "cond": "has_steamlet",
+           "then": [
+            {
+             "do": "say",
+             "who": "Bryn",
+             "text": "A Steamlet! And in good fettle too. It'll do. They're all over the valley, chuffing around the old tramroad. Right: coal, check. Creature, check."
+            },
+            {
+             "do": "say",
+             "who": "Bryn",
+             "text": "Now for the agent. Crawshay's man will say it can't be done. Go and show him. He's waiting at the plinth by the main street, next to Trevithick's locomotive."
+            },
+            {
+             "do": "set",
+             "flag": "q_valleys_wager_2",
+             "value": true
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Bryn",
+             "text": "You've got the coal. Now you need something to burn it. Steamlets live around the old tramroad and the park. Catch one and come back."
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "if",
+           "flag": "q_valleys_wager_started",
+           "then": [
+            {
+             "do": "say",
+             "who": "Bryn",
+             "text": "Coal first. Dai at the Rhondda Heritage Park in the valley has the best Rhondda steam coal. Ask him, tell him it's for Trevithick's wager."
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Bryn",
+             "text": "Bore da. Bryn, Iron Heritage guide. I'll tell you a story. On 21 February 1804 a Cornishman named Trevithick took a steam locomotive from Penydarren ironworks along the tramroad to Abercynon."
+            },
+            {
+             "do": "say",
+             "who": "Bryn",
+             "text": "It hauled ten tons of iron, five wagons and seventy men, nearly ten miles, in about four hours. Samuel Homfray, the Penydarren ironmaster, had bet 500 guineas that it could. And it did."
+            },
+            {
+             "do": "say",
+             "who": "Bryn",
+             "text": "I want to see it done again. Not with real iron. With a real creature. We'll need three things: steam coal from the Rhondda, a Steamlet to fire the boiler, and somebody to see off the doubting agent. Interested?"
+            },
+            {
+             "do": "set",
+             "flag": "q_valleys_wager_started",
+             "value": true
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

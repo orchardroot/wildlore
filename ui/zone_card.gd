@@ -7,14 +7,17 @@ const REGIONS := {
 	"cheshire": "Cheshire", "peak": "The Peak District", "manchester": "Greater Manchester", "merseyside": "Merseyside",
 	"north_wales": "North Wales", "mid_wales": "Mid Wales", "south_wales": "South Wales", "midlands": "The Midlands",
 	"south_england": "The West Country", "cornwall": "Cornwall", "yorkshire": "Yorkshire", "north_east": "North East England",
-	"cumbria": "Cumbria", "scotland": "Scotland", "ireland": "Ireland", "ireland_west": "The West of Ireland",
+	"cumbria": "Cumbria", "lancashire": "Lancashire", "scotland": "Scotland", "ireland": "Ireland", "ireland_west": "The West of Ireland",
 	"ireland_east": "The East of Ireland", "man": "Isle of Man",
+	"east_anglia": "East Anglia",
+	"south_east": "South East England",
 }
 ## Zones whose region id doesn't name them well.
 const OVERRIDES := {
 	"london": "South East England", "stonehenge": "Wiltshire", "salisbury_plain": "Wiltshire", "lancaster": "Lancashire",
 	"belfast": "Northern Ireland", "bushmills": "Northern Ireland", "derry": "Northern Ireland",
 	"antrim_coast": "Northern Ireland", "causeway": "Northern Ireland", "mournes": "Northern Ireland",
+	"lough_neagh": "Northern Ireland", "enniskillen": "County Fermanagh",
 }
 const FADE_IN := 0.5
 const HOLD := 2.4

@@ -11,6 +11,10 @@
   "south": {
    "offset": 0.0,
    "to": "galloway"
+  },
+  "west": {
+   "to": "loch_lomond",
+   "offset": 0.0
   }
  },
  "encounters": {
@@ -25,40 +29,28 @@
     "max": 70.0,
     "min": 69.0,
     "species": "grizzlet",
-    "time": [
-     "dawn",
-     "day"
-    ],
+    "time": ["dawn", "day"],
     "weight": 10.0
    },
    {
     "max": 70.0,
     "min": 69.0,
     "species": "binfox",
-    "time": [
-     "night",
-     "dusk"
-    ],
+    "time": ["night", "dusk"],
     "weight": 12.0
    },
    {
     "max": 70.0,
     "min": 69.0,
     "species": "strutcoo",
-    "time": [
-     "day",
-     "dawn"
-    ],
+    "time": ["day", "dawn"],
     "weight": 10.0
    },
    {
     "max": 70.0,
     "min": 69.0,
     "species": "cooplet",
-    "weather": [
-     "drizzle",
-     "downpour"
-    ],
+    "weather": ["drizzle", "downpour"],
     "weight": 6.0
    },
    {
@@ -71,29 +63,21 @@
     "max": 70.0,
     "min": 69.0,
     "species": "starlet",
-    "time": [
-     "dusk",
-     "dawn"
-    ],
+    "time": ["dusk", "dawn"],
     "weight": 8.0
    },
    {
     "max": 70.0,
     "min": 69.0,
     "species": "flittermouse",
-    "time": [
-     "night"
-    ],
+    "time": ["night"],
     "weight": 8.0
    },
    {
     "max": 70.0,
     "min": 69.0,
     "species": "sootwing",
-    "weather": [
-     "fog",
-     "drizzle"
-    ],
+    "weather": ["fog", "drizzle"],
     "weight": 8.0
    },
    {
@@ -106,9 +90,7 @@
     "max": 70.0,
     "min": 69.0,
     "species": "cluricaun",
-    "time": [
-     "night"
-    ],
+    "time": ["night"],
     "weight": 4.0
    }
   ],
@@ -141,10 +123,7 @@
     "max": 70.0,
     "min": 69.0,
     "species": "bradan",
-    "weather": [
-     "drizzle",
-     "downpour"
-    ],
+    "weather": ["drizzle", "downpour"],
     "weight": 10.0
    },
    {
@@ -884,6 +863,16 @@
    "type": "noticeboard",
    "x": 33,
    "y": 31
+  },
+  {
+   "type": "building",
+   "style": "bookmaker",
+   "x": 30,
+   "y": 32,
+   "w": 5,
+   "h": 3,
+   "label": "Clydeside Betting Shop",
+   "kind": "shop"
   }
  ],
  "region": "scotland",
@@ -916,13 +905,13 @@
   "TT........#...BBBBBB..#BBBBB::::::::::::::::::::..BBBBBBB..BBBBBBBBB..TT",
   "TT........#...BBBBBB..#BBBBB::::::::::::::::::::..BBBDBBB..BBBBDBBBB..TT",
   "TT........#...BBBDBB..#BBDBB..===..........................:::::::::..TT",
+  "======================================================================TT",
+  "======================================================================TT",
+  "======================================================================TT",
   "TT====================================================================TT",
-  "TT====================================================================TT",
-  "TT====================================================================TT",
-  "TT====================================================================TT",
-  "TT:::::::::::::::::::::::::::::::::::::::::::::::::BBBBBBB::::::::::::TT",
-  "TT:::::::::::::::::::::::::::::::::::::::::::::::::BBBBBBB::::::::::::TT",
-  "TT:::::::::::::::::::::::::::::::::::::::::::::::::BBBBBBB::::::::::::TT",
+  "TT::::::::::::::::::::::::::::BBBBB::::::::::::::::BBBBBBB::::::::::::TT",
+  "TT::::::::::::::::::::::::::::BBBBB::::::::::::::::BBBBBBB::::::::::::TT",
+  "TT::::::::::::::::::::::::::::BBDBB::::::::::::::::BBBBBBB::::::::::::TT",
   "TT::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::TT",
   "TT~~~~~~~~~~~~~~~~~~~W:::W~~~~~~~~~~~~~~F||F~~~~~~~~~~~~~~~~~~~~~~~~~~TT",
   "TT~~~~~~~~~~~~~~~~~~~W:::W~~~~~~~~~~~~~~F||F~~~~~~~~~~~~~~~~~~~~~~~~~~TT",
@@ -995,7 +984,42 @@
    "y": 16,
    "text": "BLUE PLAQUE: Charles Rennie Mackintosh, architect and designer, studied in Glasgow and designed the School of Art, begun in 1897.",
    "kind": "plaque",
-   "dx": -0.475
+   "dx": -0.475,
+   "plaque": "glasgow_mackintosh",
+   "title": "Charles Rennie Mackintosh"
+  },
+  {
+   "x": 8,
+   "y": 12,
+   "plaque": "glasgow_lord_kelvin",
+   "title": "Lord Kelvin",
+   "text": "William Thomson taught at Glasgow University for over fifty years and helped lay the first transatlantic telegraph cable. Made a lord, he took his title from the River Kelvin, which runs past the university. The Kelvin temperature scale is named after him, and by way of the river, so is this gallery."
+  },
+  {
+   "x": 58,
+   "y": 10,
+   "plaque": "glasgow_strathclyde",
+   "title": "Kingdom of Strathclyde",
+   "text": "For centuries the Clyde valley was a kingdom of Britons, who spoke a Brittonic language close to Old Welsh. Its stronghold was Dumbarton Rock, Alt Clut, 'rock of the Clyde'. St Mungo is said to have been its bishop, and Glasgow's own name is probably Brittonic too."
+  },
+  {
+   "x": 31,
+   "y": 51,
+   "plaque": "glasgow_first_international",
+   "title": "The First International",
+   "text": "On 30 November 1872 Scotland played England at a cricket ground in Partick, in the West End, in the first official international football match. It finished 0 to 0, in front of about 4,000 people. Both sides have been arguing about it ever since."
+  },
+  {
+   "x": 21,
+   "y": 26,
+   "plaque": "glasgow_irn_bru",
+   "title": "Irn-Bru",
+   "text": "A.G. Barr, a soft drinks firm that started in Falkirk and moved to Glasgow, launched a bright orange fizzy drink called Iron Brew in 1901. It later became Irn-Bru, and in Scotland it has long outsold Coca-Cola, which very few countries can say. The recipe is a secret. The colour is not."
+  },
+  {
+   "text": "WEST ROAD. Loch Lomond, the Trossachs and on to Oban, Gateway to the Isles. Take the high road. Or the low road. The low road has fewer cyclists.",
+   "x": 3,
+   "y": 27
   }
  ],
  "spawn": [
@@ -1109,6 +1133,14 @@
    "x": 61,
    "y": 49,
    "to": "glasgow_home_e",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 32,
+   "y": 34,
+   "to": "glasgow_bookies",
    "tx": 6,
    "ty": 7,
    "facing": "up"

@@ -1,0 +1,214 @@
+{
+ "id": "plymouth_homepark",
+ "name": "Home Park",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "stadium_stand",
+   "x": 1,
+   "y": 1,
+   "variant": 3
+  },
+  {
+   "type": "stadium_stand",
+   "x": 2,
+   "y": 1,
+   "variant": 6
+  },
+  {
+   "type": "stadium_stand",
+   "x": 3,
+   "y": 1,
+   "variant": 9
+  },
+  {
+   "type": "stadium_stand",
+   "x": 4,
+   "y": 1,
+   "variant": 12
+  },
+  {
+   "type": "stadium_stand",
+   "x": 5,
+   "y": 1,
+   "variant": 15
+  },
+  {
+   "type": "stadium_stand",
+   "x": 6,
+   "y": 1,
+   "variant": 18
+  },
+  {
+   "type": "stadium_stand",
+   "x": 7,
+   "y": 1,
+   "variant": 21
+  },
+  {
+   "type": "stadium_stand",
+   "x": 8,
+   "y": 1,
+   "variant": 24
+  },
+  {
+   "type": "stadium_stand",
+   "x": 9,
+   "y": 1,
+   "variant": 0
+  },
+  {
+   "type": "stadium_stand",
+   "x": 10,
+   "y": 1,
+   "variant": 3
+  },
+  {
+   "type": "stadium_stand",
+   "x": 11,
+   "y": 1,
+   "variant": 6
+  },
+  {
+   "type": "stadium_stand",
+   "x": 12,
+   "y": 1,
+   "variant": 9
+  },
+  {
+   "type": "stadium_stand",
+   "x": 13,
+   "y": 1,
+   "variant": 12
+  },
+  {
+   "type": "stadium_stand",
+   "x": 14,
+   "y": 1,
+   "variant": 15
+  },
+  {
+   "type": "stadium_stand",
+   "x": 15,
+   "y": 1,
+   "variant": 18
+  },
+  {
+   "type": "pitch_line",
+   "x": 2,
+   "y": 2,
+   "variant": 13
+  },
+  {
+   "type": "pitch_line",
+   "x": 2,
+   "y": 5,
+   "variant": 13
+  },
+  {
+   "type": "pitch_line",
+   "x": 2,
+   "y": 8,
+   "variant": 13
+  },
+  {
+   "type": "floodlight",
+   "x": 2,
+   "y": 2
+  },
+  {
+   "type": "floodlight",
+   "x": 14,
+   "y": 2
+  },
+  {
+   "type": "flagpole",
+   "x": 1,
+   "y": 10,
+   "variant": 4
+  },
+  {
+   "type": "flagpole",
+   "x": 15,
+   "y": 10,
+   "variant": 4
+  },
+  {
+   "type": "bench",
+   "x": 3,
+   "y": 10
+  },
+  {
+   "type": "bench",
+   "x": 13,
+   "y": 10
+  }
+ ],
+ "warps": [
+  {
+   "x": 8,
+   "y": 11,
+   "to": "plymouth",
+   "tx": 44,
+   "ty": 15,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "hp_steward",
+   "sprite": "warden_grunt",
+   "x": 6,
+   "y": 10,
+   "facing": "up",
+   "move": "still",
+   "script": "hp_steward",
+   "name": "Steward"
+  },
+  {
+   "id": "hp_kitman",
+   "sprite": "villager_1",
+   "x": 11,
+   "y": 9,
+   "facing": "left",
+   "move": "still",
+   "script": "hp_kitman",
+   "name": "Kit Man"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  8,
+  10
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxxxxx",
+  "x|||||||||||||||x",
+  "x|aaaaaaaaaaaaa|x",
+  "x|bbbbbbbbbbbbb|x",
+  "x|aaaaaaaaaaaaa|x",
+  "x|bbbbbbbbbbbbb|x",
+  "x|aaaaaaaaaaaaa|x",
+  "x|bbbbbbbbbbbbb|x",
+  "x|aaaaaaaaaaaaa|x",
+  "x|+++++++++++++|x",
+  "x|||||||||||||||x",
+  "x|||||||D|||||||x",
+  "xxxxxxxxxxxxxxxxx"
+ ],
+ "legend_extra": {
+  "a": {
+   "tile": "grass",
+   "colour": "#335a2c"
+  },
+  "b": {
+   "tile": "grass",
+   "colour": "#3b6332"
+  }
+ }
+}

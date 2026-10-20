@@ -1,0 +1,778 @@
+{
+ "id": "dover",
+ "name": "Dover",
+ "region": "south_east",
+ "kind": "town",
+ "music": "town_north",
+ "weather": {
+  "clear": 26,
+  "drizzle": 22,
+  "gale": 18,
+  "sunshine": 16,
+  "fog": 12,
+  "downpour": 6
+ },
+ "props": [
+  {
+   "type": "building",
+   "style": "station",
+   "x": 17,
+   "y": 5,
+   "w": 8,
+   "h": 2,
+   "label": "Dover Priory"
+  },
+  {
+   "type": "tunnel_portal",
+   "x": 16,
+   "y": 8
+  },
+  {
+   "type": "buffer_stop",
+   "x": 25,
+   "y": 8
+  },
+  {
+   "type": "building",
+   "style": "sanctuary",
+   "x": 16,
+   "y": 11,
+   "w": 6,
+   "h": 4,
+   "label": "Sanctuary"
+  },
+  {
+   "type": "building",
+   "style": "shop",
+   "x": 23,
+   "y": 11,
+   "w": 5,
+   "h": 4,
+   "label": "Corner Shop"
+  },
+  {
+   "type": "lamp_post",
+   "x": 22,
+   "y": 16
+  },
+  {
+   "type": "bench",
+   "x": 18,
+   "y": 18
+  },
+  {
+   "type": "bench",
+   "x": 26,
+   "y": 18
+  },
+  {
+   "type": "market_stall",
+   "x": 22,
+   "y": 20,
+   "variant": 1
+  },
+  {
+   "type": "building",
+   "style": "stone",
+   "x": 15,
+   "y": 23,
+   "w": 7,
+   "h": 3,
+   "label": "Dover Museum"
+  },
+  {
+   "type": "building",
+   "style": "flint_cottage",
+   "x": 23,
+   "y": 23,
+   "w": 6,
+   "h": 3,
+   "label": "Roman Painted House"
+  },
+  {
+   "type": "building",
+   "style": "weatherboard",
+   "x": 15,
+   "y": 28,
+   "w": 7,
+   "h": 3,
+   "label": "The White Horse Inn"
+  },
+  {
+   "type": "building",
+   "style": "weatherboard",
+   "x": 23,
+   "y": 28,
+   "w": 6,
+   "h": 3,
+   "label": "Castle Street"
+  },
+  {
+   "type": "building",
+   "style": "regency",
+   "x": 3,
+   "y": 28,
+   "w": 10,
+   "h": 3,
+   "label": "Waterloo Crescent"
+  },
+  {
+   "type": "lighthouse",
+   "x": 4,
+   "y": 51
+  },
+  {
+   "type": "lighthouse",
+   "x": 37,
+   "y": 50
+  },
+  {
+   "type": "building",
+   "style": "white_render",
+   "x": 24,
+   "y": 36,
+   "w": 10,
+   "h": 3,
+   "label": "Ferry Terminal"
+  },
+  {
+   "type": "boat",
+   "x": 10,
+   "y": 45,
+   "variant": 1
+  },
+  {
+   "type": "boat",
+   "x": 26,
+   "y": 47,
+   "variant": 0
+  },
+  {
+   "type": "boat",
+   "x": 31,
+   "y": 44,
+   "variant": 0
+  },
+  {
+   "type": "boat",
+   "x": 12,
+   "y": 50,
+   "variant": 0
+  },
+  {
+   "type": "boat",
+   "x": 28,
+   "y": 51,
+   "variant": 1
+  },
+  {
+   "type": "bollard",
+   "x": 6,
+   "y": 40
+  },
+  {
+   "type": "bollard",
+   "x": 11,
+   "y": 40
+  },
+  {
+   "type": "bollard",
+   "x": 16,
+   "y": 40
+  },
+  {
+   "type": "bollard",
+   "x": 21,
+   "y": 40
+  },
+  {
+   "type": "bollard",
+   "x": 26,
+   "y": 40
+  },
+  {
+   "type": "bollard",
+   "x": 31,
+   "y": 40
+  },
+  {
+   "type": "statue",
+   "x": 10,
+   "y": 36,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 4,
+   "y": 6,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 6,
+   "y": 5,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 8,
+   "y": 6,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 4,
+   "y": 9,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 8,
+   "y": 9,
+   "variant": 1
+  },
+  {
+   "type": "building",
+   "style": "castle",
+   "x": 43,
+   "y": 5,
+   "w": 12,
+   "h": 7,
+   "label": "Dover Castle"
+  },
+  {
+   "type": "building",
+   "style": "round_tower",
+   "x": 39,
+   "y": 7,
+   "w": 2,
+   "h": 2,
+   "label": "Roman Pharos"
+  },
+  {
+   "type": "building",
+   "style": "stone",
+   "x": 52,
+   "y": 22,
+   "w": 4,
+   "h": 2,
+   "label": "Secret Wartime Tunnels"
+  }
+ ],
+ "warps": [
+  {
+   "x": 19,
+   "y": 14,
+   "to": "dover_sanctuary",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 25,
+   "y": 14,
+   "to": "dover_shop",
+   "tx": 4,
+   "ty": 5,
+   "facing": "up"
+  },
+  {
+   "x": 49,
+   "y": 11,
+   "to": "dover_castle",
+   "tx": 7,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 18,
+   "y": 25,
+   "to": "dover_museum",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 25,
+   "y": 25,
+   "to": "dover_painted_house",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 18,
+   "y": 30,
+   "to": "dover_white_horse",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 28,
+   "y": 38,
+   "to": "dover_terminal",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 53,
+   "y": 23,
+   "to": "dover_tunnels",
+   "tx": 11,
+   "ty": 11,
+   "facing": "up"
+  }
+ ],
+ "edges": {
+  "north": {
+   "to": "canterbury",
+   "offset": 10
+  }
+ },
+ "npcs": [
+  {
+   "id": "rail_guard",
+   "sprite": "rail_guard",
+   "x": 23,
+   "y": 7,
+   "facing": "left",
+   "move": "still",
+   "script": "rail_guard"
+  },
+  {
+   "id": "dv_ferry_fan",
+   "sprite": "villager_1",
+   "x": 34,
+   "y": 34,
+   "facing": "down",
+   "move": "wander",
+   "script": "dv_ferry_fan"
+  },
+  {
+   "id": "dv_birder",
+   "sprite": "birdwatcher",
+   "x": 50,
+   "y": 28,
+   "facing": "left",
+   "move": "still",
+   "script": "dv_birder"
+  },
+  {
+   "id": "dv_old_soldier",
+   "sprite": "villager_2",
+   "x": 21,
+   "y": 21,
+   "facing": "down",
+   "move": "still",
+   "script": "dv_old_soldier"
+  },
+  {
+   "id": "dv_trucker",
+   "sprite": "villager_1",
+   "x": 12,
+   "y": 37,
+   "facing": "right",
+   "move": "still",
+   "trainer": "dv_trucker"
+  },
+  {
+   "id": "dv_swimmer",
+   "sprite": "surfer",
+   "x": 20,
+   "y": 39,
+   "facing": "up",
+   "move": "still",
+   "trainer": "dv_swimmer"
+  },
+  {
+   "id": "dv_ranger",
+   "sprite": "hiker",
+   "x": 58,
+   "y": 27,
+   "facing": "left",
+   "move": "still",
+   "trainer": "dv_ranger"
+  },
+  {
+   "id": "dv_tunnel_guide",
+   "sprite": "tour_guide",
+   "x": 55,
+   "y": 25,
+   "facing": "left",
+   "move": "still",
+   "script": "dv_tunnel_guide",
+   "name": "Tunnel Guide"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "flintling",
+    "min": 94,
+    "max": 96,
+    "weight": 16
+   },
+   {
+    "species": "flintwarden",
+    "min": 96,
+    "max": 96,
+    "weight": 3,
+    "weather": [
+     "gale"
+    ]
+   },
+   {
+    "species": "peregrin",
+    "min": 94,
+    "max": 96,
+    "weight": 8
+   },
+   {
+    "species": "chipgull",
+    "min": 94,
+    "max": 96,
+    "weight": 12
+   },
+   {
+    "species": "ternlet",
+    "min": 94,
+    "max": 96,
+    "weight": 8
+   },
+   {
+    "species": "petrelash",
+    "min": 94,
+    "max": 96,
+    "weight": 8,
+    "weather": [
+     "gale",
+     "drizzle"
+    ]
+   },
+   {
+    "species": "kitelet",
+    "min": 94,
+    "max": 96,
+    "weight": 6,
+    "time": [
+     "day"
+    ]
+   },
+   {
+    "species": "leveret",
+    "min": 94,
+    "max": 96,
+    "weight": 8
+   },
+   {
+    "species": "rooklet",
+    "min": 94,
+    "max": 96,
+    "weight": 8
+   },
+   {
+    "species": "starlet",
+    "min": 94,
+    "max": 96,
+    "weight": 8
+   },
+   {
+    "species": "chalkling",
+    "min": 94,
+    "max": 96,
+    "weight": 6
+   },
+   {
+    "species": "barnling",
+    "min": 94,
+    "max": 96,
+    "weight": 6,
+    "time": [
+     "night"
+    ]
+   }
+  ],
+  "water": [
+   {
+    "species": "chipgull",
+    "min": 94,
+    "max": 96,
+    "weight": 18
+   },
+   {
+    "species": "pupplash",
+    "min": 94,
+    "max": 96,
+    "weight": 14
+   },
+   {
+    "species": "gannetling",
+    "min": 94,
+    "max": 96,
+    "weight": 12
+   },
+   {
+    "species": "pinchkin",
+    "min": 94,
+    "max": 96,
+    "weight": 14
+   },
+   {
+    "species": "greyhaul",
+    "min": 96,
+    "max": 96,
+    "weight": 6
+   },
+   {
+    "species": "dolphlet",
+    "min": 94,
+    "max": 96,
+    "weight": 8,
+    "time": [
+     "day"
+    ]
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 22,
+   "y": 22,
+   "text": "Dover's market square has seen Romans, Saxons, Normans, smugglers and day-trippers. Under it lie the remains of the Roman port of Dubris, whose harbour sat at the mouth of the River Dour where the town is now.",
+   "plaque": "dover_market_square",
+   "title": "The Market Square"
+  },
+  {
+   "x": 29,
+   "y": 26,
+   "text": "Part of a Roman hotel for officials crossing the Channel, built about 200 AD and found in 1970. Its walls still carry painted plaster, the best preserved of their kind in Britain, and it has underfloor heating. The Romans would have hated to be cold in Kent too.",
+   "plaque": "dover_painted_house",
+   "title": "The Roman Painted House"
+  },
+  {
+   "x": 22,
+   "y": 27,
+   "text": "In 1992 roadworkers found a boat buried in the mud, made of oak planks sewn together with yew withies, about 3,500 years old. It is one of the oldest seagoing boats ever found, and it may have crossed the Channel. It is in the museum now, in a very large glass case.",
+   "plaque": "dover_bronze_age_boat",
+   "title": "The Dover Bronze Age Boat"
+  },
+  {
+   "x": 14,
+   "y": 31,
+   "text": "One of Dover's oldest pubs. By tradition, swimmers who make it across the Channel sign their names on its walls and ceiling, and there are thousands now, from all over the world. You can only sign if you've swum it. Being thirsty does not count.",
+   "plaque": "dover_white_horse",
+   "title": "The White Horse"
+  },
+  {
+   "x": 12,
+   "y": 36,
+   "text": "On 24 August 1875 Captain Webb walked into the sea here, covered in porpoise oil, and swam to France: the first person to swim the Channel without help. It took him nearly 22 hours, because the tide kept pushing him back. The memorial on the seafront remembers him.",
+   "plaque": "dover_captain_webb",
+   "title": "Captain Matthew Webb"
+  },
+  {
+   "x": 35,
+   "y": 39,
+   "text": "The narrowest crossing to the continent, only 21 miles to Cap Gris-Nez, and the busiest ferry port in Britain, with millions of passengers and lorries a year. On a clear day you can see France from the cliffs, and France can see you.",
+   "plaque": "dover_port",
+   "title": "The Port of Dover"
+  },
+  {
+   "x": 8,
+   "y": 34,
+   "text": "Dover was one of the Cinque Ports, said 'sink', a league of Kent and Sussex harbours that gave the medieval kings ships in return for privileges. Their head is the Lord Warden of the Cinque Ports, an honour given to people such as Winston Churchill and the Queen Mother.",
+   "plaque": "dover_cinque_ports",
+   "title": "The Cinque Ports"
+  },
+  {
+   "x": 10,
+   "y": 12,
+   "text": "Huge forts dug into the hill against a French invasion that never came, begun during the Napoleonic Wars. The Grand Shaft is a triple spiral staircase cut down through the cliff in 1806 so soldiers could reach the town fast: three staircases, twisting round each other.",
+   "plaque": "dover_western_heights",
+   "title": "The Western Heights"
+  },
+  {
+   "x": 47,
+   "y": 13,
+   "text": "Called the Key of England: whoever held it held the shortest way in. Henry II built the great keep in the 1180s, and the castle was garrisoned for over 800 years, right up to 1958. It has seen sieges, Napoleonic barracks and the Second World War.",
+   "plaque": "dover_castle",
+   "title": "Dover Castle"
+  },
+  {
+   "x": 41,
+   "y": 10,
+   "text": "Next to the castle church stands a Roman lighthouse, built in the first or second century AD to guide ships into Dubris. It is one of the tallest Roman structures left standing in Britain. Its partner on the Western Heights has all but gone.",
+   "plaque": "dover_pharos",
+   "title": "The Roman Pharos"
+  },
+  {
+   "x": 56,
+   "y": 24,
+   "text": "In May 1940 the British army was trapped at Dunkirk. From tunnels in these cliffs, Vice-Admiral Bertram Ramsay planned the evacuation, Operation Dynamo. Between 26 May and 4 June about 338,000 soldiers were brought home, helped by hundreds of little ships: ferries, fishing boats, pleasure steamers and private yachts.",
+   "plaque": "dover_operation_dynamo",
+   "title": "Operation Dynamo"
+  },
+  {
+   "x": 58,
+   "y": 4,
+   "text": "On 25 July 1909 Louis Bleriot flew across the Channel from Calais in his little monoplane and crash-landed in a meadow just north of the castle: the first flight across the sea between two countries. A memorial in the grass is shaped like his aeroplane.",
+   "plaque": "dover_bleriot",
+   "title": "Bleriot's Landing"
+  },
+  {
+   "x": 44,
+   "y": 31,
+   "text": "Chalk, up to 110 metres high, made from the limy skeletons of tiny sea algae that settled on a warm sea floor between about 100 and 66 million years ago. Fulmars and kittiwakes nest on the ledges, and peregrines hunt along them. For returning sailors and soldiers, they were the first sight of home.",
+   "plaque": "dover_white_cliffs",
+   "title": "The White Cliffs"
+  },
+  {
+   "x": 52,
+   "y": 27,
+   "text": "In 1942 Vera Lynn sang that there would be bluebirds over the White Cliffs of Dover. It is a beautiful song, and there are no bluebirds in Britain at all: they are American birds, and the song was written by Americans. Swallows, perhaps.",
+   "plaque": "dover_bluebirds",
+   "title": "Bluebirds over the White Cliffs?"
+  }
+ ],
+ "spawn": [
+  31,
+  2
+ ],
+ "stage": "coast",
+ "town_id": "dover",
+ "station": {
+  "x": 21,
+  "y": 7
+ },
+ "scaled_floor": 94,
+ "rows": [
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT===TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT===TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTgggggggggggg................===.....ggggggggggggggggggggggggTT",
+  "TTgggggggggggg................===.....ggggggggggggggggggggggggTT",
+  "TTgggggggggggg................===.....ggggggggggggggggggggggggTT",
+  "TTgggggggggggg...BBBBBBBB.....===.....gggggBBBBBBBBBBBBgggggggTT",
+  "TTgggggggggggg...BBBBDBBB.....===.....gggggBBBBBBBBBBBBgggggggTT",
+  "TTgg:::::ggggg...________:::::===.....gBBggBBBBBBBBBBBBgggggggTT",
+  "TTgg:::::ggggg..!!!!!!!!!!....===.....gBBggBBBBBBBBBBBBgggggggTT",
+  "TTgggggggggggg................===.....gggggBBBBBBBBBBBBgggggggTT",
+  "TTgggggggggggg.:::::::::::::::===.....gggggBBBBBBBBBBBBgggggggTT",
+  "TTgggggggggggg.:BBBBBB:BBBBB::===.....gggggBBBBBBDBBBBBgggggggTT",
+  "TTggggggggggg##:BBBBBB:BBBBB::===.....gggggggggg#gggggggggggggTT",
+  "TTgggggggggggg.:BBBBBB:BBBBB::===.....gggggggggg#gggggggggggggTT",
+  "TTgggggggggggg.:BBBDBB:BBDBB::===.....gggggggggg#gggggggggggggTT",
+  "TTgggggggggggg.:::::::::::::::===.....gggggggggg#gggggggggggggTT",
+  "TTgggggggggggg.:::::::::::::::===.....gggggggggg#gggggggggggggTT",
+  "TTgggggggggggg.:::::::::::::::===################gggggggggggggTT",
+  "TTgggggggggggg.:::::::::::::::===.....gggggggggg#gggggggggggggTT",
+  "TTgggggggggggg.:::::::::::::::===.....gggggggggg#gggggggggggggTT",
+  "PTgggggggggggg.:::::::::::::::===.....gggggggggg#gggggggggggggTT",
+  "TTgggggggggggg.:::::::::::::::===.....gggggggggg#gggggggggggggTT",
+  "TTgggggggggggg.:::::::::::::::===.....gggggggggg#gggBBBBggggggTT",
+  "TTgggggggggggg.BBBBBBB:BBBBBB:===.....gggggggggg#gggBDBBggggggTT",
+  "TTgggggggggggg.BBBBBBB:BBBBBB:===.....ggggqqgqqq########qqqgqqTT",
+  "TTgggggggggggg.BBBDBBB:BBDBBB:===.....ggggqqqgqqqqgqqqqgqqqqgqTT",
+  "TTgggggggggggg.:::::::::::::::===.....ggggqqqqgqqqqgqqqqgqqqqgTT",
+  "TTgggggggggggg.:::::::::::::::===.....gggggqqqqgqqqqgqqqqgqqqqTT",
+  "TT.BBBBBBBBBB..BBBBBBB:BBBBBB:===.....ggggqgqqqqgqqqqgqqqqgqqqTT",
+  "TT.BBBBBBBBBB..BBBBBBB:BBBBBB:===.....ggggqqgqqqqgqqqqgqqqqgqqTT",
+  "TT.BBBBBBBBBB..BBBDBBB:BBBBBB:===.....ggggqqqgqqqqgqqqqgqqqqgqTT",
+  "TT.............:::::::::::::::===.....ggggqqqqgqqqqgqqqqgqqqqgTT",
+  "TT.............:::::::::::::::===.....gggggqqqqgqqqqgqqqqgqqqqTT",
+  "TT====================================kkkkkkkkkkkkkkkkkkkkkkkkkk",
+  "TT====================================kkkkkkkkkkkkkkkkkkkkkkkkkk",
+  "TT::::::::::::::::::::::::::::::::::::kkkkkkkkkkkkkkkkkkkkkkkkkk",
+  "TT::::::::::::::::::::::BBBBBBBBBB::::$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "TT::::::::::::::::::::::BBBBBBBBBB::::$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "TT::::::::::::::::::::::BBBBDBBBBB::::$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "TT::::::::::::::::::::::::::::::::::::$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "TT::::::::::::::::::::::::::::::::::::$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "TTw::wwwwwwwwwwwww::wwwwwwwwwwwwwwww::$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "TT$::$$$$$$$$$$$$$::$$$$$$$$$$$$$$$$::$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "TT$::$$$$$$$$$$$$$::$$$$$$$$$$$$$$$$::$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "TT$::$$$$$$$$$$$$$::$$$$$$$$$$$$$$$$::$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "TT$::$$$$$$$$$$$$$::$$$$$$$$$$$$$$$$::$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "TT$::$$$$$$$$$$$$$::$$$$$$$$$$$$$$$$::$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "TT$::$$$$$$$$$$$$$::$$$$$$$$$$$$$$$$::$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "TT$::$$$$$$$$$$$$$::$$$$$$$$$$$$$$$$::$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "TT$::$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$::$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "TT$::$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$::$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "TT$::$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "TT$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "TT$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
+ ],
+ "heights": [
+  "3333333333222200000000000000000000000012345555555555555555555555",
+  "3333333333222200000000000000000000000012345555555555555555555555",
+  "3333333333222100000000000000000000000012345555555555555555555555",
+  "3333333333222100000000000000000000000012345555555555555555555555",
+  "3333333333222100000000000000000000000012345555555555555555555555",
+  "3333333333222100000000000000000000000012345555555555555555555555",
+  "3333333333222100000000000000000000000012345555555555555555555555",
+  "3333333333222100000000000000000000000012345555555555555555555555",
+  "3333333333222100000000000000000000000012345555555555555555555555",
+  "3333333333222100000000000000000000000012345555555555555555555555",
+  "3333333333222100000000000000000000000012345555555555555555555555",
+  "3333333333222100000000000000000000000012345555555555555555555555",
+  "3333333333222100000000000000000000000012345555555555555555555555",
+  "3333333333222100000000000000000000000012345555555555555555555555",
+  "3333333333222100000000000000000000000012345555555555555555555555",
+  "3333333333222100000000000000000000000012345555555555555555555555",
+  "3333333333222100000000000000000000000012345555555555555555555555",
+  "3333333333222100000000000000000000000012345555555555555555555555",
+  "3333333333222100000000000000000000000012345555555555555555555555",
+  "3333333333222100000000000000000000000012345555555555555555555555",
+  "3333333333222100000000000000000000000012345555555555555555555555",
+  "3333333333222100000000000000000000000012345555555555555555555555",
+  "3333333333222100000000000000000000000012345555555555555555555555",
+  "3333333333222100000000000000000000000012345555555555555555555555",
+  "3333333333222100000000000000000000000012345555555555555555555555",
+  "3333333333222100000000000000000000000012345555555555555555555555",
+  "3333333333222100000000000000000000000012345555555555555555555555",
+  "3333333333222100000000000000000000000012345555555555555555555555",
+  "3333333333222100000000000000000000000012345555555555555555555555",
+  "3333333333222100000000000000000000000012345555555555555555555555",
+  "3333333333222100000000000000000000000012345555555555555555555555",
+  "3322222222222100000000000000000000000012345555555555555555555555",
+  "3311111111111100000000000000000000000012345555555555555555555555",
+  "0000000000000000000000000000000000000055555555555555555555555555",
+  "0000000000000000000000000000000000000055555555555555555555555555",
+  "0000000000000000000000000000000000000055555555555555555555555555",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000"
+ ],
+ "legend_extra": {
+  "g": {
+   "tile": "grass",
+   "colour": "#7f9f52"
+  },
+  "k": {
+   "tile": "cliff",
+   "colour": "#e8e4d6",
+   "side": "#efece2"
+  },
+  "q": {
+   "tile": "tall_grass",
+   "colour": "#7a9a4c",
+   "prop": "short"
+  }
+ }
+}

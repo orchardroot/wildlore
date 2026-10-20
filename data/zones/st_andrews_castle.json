@@ -1,0 +1,160 @@
+{
+ "id": "st_andrews_castle",
+ "name": "St Andrews Castle",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "rock",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "rock",
+   "x": 1,
+   "y": 8
+  },
+  {
+   "type": "rock",
+   "x": 13,
+   "y": 1
+  },
+  {
+   "type": "rock",
+   "x": 13,
+   "y": 8
+  },
+  {
+   "type": "table",
+   "x": 7,
+   "y": 2
+  },
+  {
+   "type": "bench",
+   "x": 5,
+   "y": 4
+  },
+  {
+   "type": "bench",
+   "x": 9,
+   "y": 4
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 8
+  },
+  {
+   "type": "potted_plant",
+   "x": 13,
+   "y": 8
+  },
+  {
+   "type": "fireplace",
+   "x": 7,
+   "y": 1
+  },
+  {
+   "type": "rug",
+   "x": 6,
+   "y": 2,
+   "w": 2,
+   "h": 5,
+   "variant": 3,
+   "walk": true
+  },
+  {
+   "type": "wall_picture",
+   "x": 5,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  },
+  {
+   "type": "wall_picture",
+   "x": 8,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  },
+  {
+   "type": "wall_picture",
+   "x": 10,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  },
+  {
+   "type": "display_case",
+   "x": 2,
+   "y": 5,
+   "variant": 2
+  },
+  {
+   "type": "clock",
+   "x": 6,
+   "y": 1,
+   "walk": true
+  }
+ ],
+ "warps": [
+  {
+   "x": 7,
+   "y": 9,
+   "to": "st_andrews",
+   "tx": 52,
+   "ty": 14,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "sta_castle_guide",
+   "sprite": "tour_guide",
+   "x": 3,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "sta_castle_guide",
+   "name": "Castle Guide"
+  },
+  {
+   "id": "sta_mine_digger",
+   "sprite": "tin_miner",
+   "x": 12,
+   "y": 2,
+   "facing": "down",
+   "move": "still",
+   "script": "sta_mine_digger",
+   "name": "Mine Guide"
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "x": 4,
+   "y": 6,
+   "text": "THE BOTTLE DUNGEON. A pit cut down into the rock, narrow at the neck and wide at the bottom, like a bottle. Prisoners were lowered in on a rope. Once in, you weren't climbing out."
+  }
+ ],
+ "spawn": [
+  7,
+  8
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxxx",
+  "x++++++++x++++x",
+  "x++++++++x++++x",
+  "x++++++++x++++x",
+  "x++++++++x++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x++++++D++++++x",
+  "xxxxxxxxxxxxxxx"
+ ]
+}

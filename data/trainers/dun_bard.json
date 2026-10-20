@@ -1,0 +1,36 @@
+{
+ "id": "dun_bard",
+ "name": "The Bard of Broughty Ferry",
+ "class": "Poet",
+ "sprite": "bard",
+ "party": [
+  {
+   "species": "murmurant",
+   "level": 70
+  },
+  {
+   "species": "lanternis",
+   "level": 70
+  },
+  {
+   "species": "taywraith",
+   "level": 71
+  },
+  {
+   "species": "hushwing",
+   "level": 71
+  }
+ ],
+ "ai": "trainer",
+ "money": 3300,
+ "intro": [
+  {
+   "do": "say",
+   "who": "The Bard of Broughty Ferry",
+   "text": "Your poem. My poem. Then our creatures settle it, as McGonagall would have wished. Probably. He never said."
+  }
+ ],
+ "win": "'Twas in the year of this very night, that I was beaten in a fight.",
+ "after": "Defeated, but undaunted.",
+ "scaled_floor": 69
+}

@@ -1,0 +1,41 @@
+{
+ "id": "fen_tigerhunter",
+ "name": "Cryptozoologist Clive",
+ "class": "Big Cat Hunter",
+ "sprite": "fox_watcher",
+ "scaled_floor": 94,
+ "party": [
+  {
+   "species": "highlynx",
+   "level": 95
+  },
+  {
+   "species": "bodminax",
+   "level": 95
+  },
+  {
+   "species": "shuck",
+   "level": 95
+  },
+  {
+   "species": "fentiger",
+   "level": 96
+  }
+ ],
+ "ai": "trainer",
+ "money": 6200,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Cryptozoologist Clive",
+   "text": "Footprints! Big ones! In 1982 folk round Cottenham saw a great striped cat in the fields, and the papers called it the Fen Tiger."
+  },
+  {
+   "do": "say",
+   "who": "Cryptozoologist Clive",
+   "text": "I've waited thirty years for it. You'll do for practice."
+  }
+ ],
+ "win": "Blimey. You've a touch of the tiger yourself.",
+ "after": "The police searched for the Fen Tiger with marksmen and a helicopter. They found nothing. That's exactly what a tiger would want them to find."
+}

@@ -1,0 +1,510 @@
+{
+ "id": "shropshire_hills",
+ "name": "Shropshire Hills",
+ "region": "midlands",
+ "kind": "route",
+ "music": "route_moor",
+ "weather": {
+  "drizzle": 28,
+  "fog": 22,
+  "clear": 20,
+  "sunshine": 14,
+  "gale": 10,
+  "downpour": 6
+ },
+ "props": [
+  {
+   "type": "building",
+   "style": "slate_cottage",
+   "x": 28,
+   "y": 16,
+   "w": 6,
+   "h": 3,
+   "label": "Carding Mill Tea Room",
+   "kind": "cafe"
+  },
+  {
+   "type": "building",
+   "style": "field_barn",
+   "x": 48,
+   "y": 18,
+   "w": 8,
+   "h": 3,
+   "label": "Midland Gliding Club"
+  },
+  {
+   "type": "glider",
+   "x": 52,
+   "y": 12,
+   "variant": 0,
+   "walk": true
+  },
+  {
+   "type": "glider",
+   "x": 40,
+   "y": 15,
+   "variant": 1,
+   "walk": true
+  },
+  {
+   "type": "glider",
+   "x": 57,
+   "y": 33,
+   "variant": 0,
+   "walk": true
+  },
+  {
+   "type": "glider",
+   "x": 45,
+   "y": 40,
+   "variant": 1,
+   "walk": true
+  },
+  {
+   "type": "building",
+   "style": "stone",
+   "x": 16,
+   "y": 48,
+   "w": 6,
+   "h": 3,
+   "label": "Snailbeach Engine House"
+  },
+  {
+   "type": "oak",
+   "x": 30,
+   "y": 12,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 30,
+   "y": 3,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 31,
+   "y": 8,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 26,
+   "y": 4,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 27,
+   "y": 12,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 31,
+   "y": 7,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 16,
+   "y": 9,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 30,
+   "y": 6,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 32,
+   "y": 46,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 29,
+   "y": 49,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 33,
+   "y": 55,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 30,
+   "y": 47,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 26,
+   "y": 40,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 33,
+   "y": 40,
+   "variant": 0
+  }
+ ],
+ "warps": [
+  {
+   "x": 31,
+   "y": 18,
+   "to": "hills_tearoom",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  }
+ ],
+ "edges": {
+  "north": {
+   "to": "shrewsbury",
+   "offset": 0
+  }
+ },
+ "npcs": [
+  {
+   "id": "hills_chair",
+   "sprite": "creature:diaboulder",
+   "x": 10,
+   "y": 32,
+   "facing": "down",
+   "move": "still",
+   "script": "hills_chair",
+   "hide_if": "caught_diaboulder"
+  },
+  {
+   "id": "hills_quartz",
+   "sprite": "tin_miner",
+   "x": 14,
+   "y": 38,
+   "facing": "left",
+   "move": "still",
+   "script": "hills_quartz",
+   "name": "Rock Hound"
+  },
+  {
+   "id": "hills_pony",
+   "sprite": "farmer",
+   "x": 50,
+   "y": 30,
+   "facing": "left",
+   "move": "wander",
+   "script": "hills_pony"
+  },
+  {
+   "id": "hills_miner",
+   "sprite": "tin_miner",
+   "x": 19,
+   "y": 52,
+   "facing": "left",
+   "move": "still",
+   "script": "hills_miner"
+  },
+  {
+   "id": "hills_pilot",
+   "sprite": "hiker",
+   "x": 52,
+   "y": 22,
+   "facing": "down",
+   "move": "still",
+   "trainer": "hills_pilot"
+  },
+  {
+   "id": "hills_runner",
+   "sprite": "fell_runner",
+   "x": 37,
+   "y": 25,
+   "facing": "left",
+   "move": "still",
+   "trainer": "hills_runner"
+  },
+  {
+   "id": "hills_walker",
+   "sprite": "hillwalker",
+   "x": 16,
+   "y": 33,
+   "facing": "right",
+   "move": "still",
+   "trainer": "hills_walker"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "foalmoor",
+    "min": 21,
+    "max": 23,
+    "weight": 14
+   },
+   {
+    "species": "squibbet",
+    "min": 21,
+    "max": 23,
+    "weight": 12
+   },
+   {
+    "species": "tapknock",
+    "min": 21,
+    "max": 23,
+    "weight": 10,
+    "weather": [
+     "fog",
+     "drizzle"
+    ]
+   },
+   {
+    "species": "slatelet",
+    "min": 21,
+    "max": 23,
+    "weight": 10
+   },
+   {
+    "species": "kitelet",
+    "min": 21,
+    "max": 23,
+    "weight": 10,
+    "time": [
+     "day"
+    ]
+   },
+   {
+    "species": "ptarmlet",
+    "min": 21,
+    "max": 22,
+    "weight": 8
+   },
+   {
+    "species": "leveret",
+    "min": 21,
+    "max": 23,
+    "weight": 10,
+    "time": [
+     "dawn",
+     "dusk"
+    ]
+   },
+   {
+    "species": "bittling",
+    "min": 21,
+    "max": 22,
+    "weight": 8,
+    "weather": [
+     "drizzle",
+     "downpour"
+    ]
+   }
+  ],
+  "water": [
+   {
+    "species": "dipling",
+    "min": 21,
+    "max": 23,
+    "weight": 20
+   },
+   {
+    "species": "volet",
+    "min": 21,
+    "max": 23,
+    "weight": 16
+   },
+   {
+    "species": "pollanet",
+    "min": 21,
+    "max": 22,
+    "weight": 10
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 35,
+   "y": 19,
+   "plaque": "shropshire_carding_mill",
+   "title": "Carding Mill Valley",
+   "text": "Named after a mill that carded wool, combing the fibres straight for spinning, in the 1800s. The stream tumbles off the Long Mynd past a reservoir and a waterfall called the Lightspout. Victorians who came to take the air called Church Stretton 'Little Switzerland'."
+  },
+  {
+   "x": 47,
+   "y": 21,
+   "plaque": "shropshire_long_mynd",
+   "title": "The Long Mynd",
+   "text": "A heather plateau about eleven kilometres long and over five hundred metres high, made of some of the oldest rocks in England. Gliders have soared off it since the 1930s, riding the wind that hits the hill and goes up. Wild hill ponies graze the tops."
+  },
+  {
+   "x": 12,
+   "y": 32,
+   "plaque": "shropshire_devils_chair",
+   "title": "The Devil's Chair",
+   "text": "The biggest of the Stiperstones tors. The Devil, they say, sat here to rest while carrying an apron full of rocks; the strings broke and the stones spilled down the hill. When the mist covers the ridge, he is in his chair. If the Stiperstones ever sink into the ground, England will fall."
+  },
+  {
+   "x": 9,
+   "y": 44,
+   "plaque": "shropshire_stiperstones",
+   "title": "The Stiperstones",
+   "text": "A ridge of quartzite, about 480 million years old, shattered into tors by the frost of the Ice Ages. Below it, the Snailbeach lead mines were worked from Roman times until 1955, one of the richest lead mines in Europe in its day."
+  },
+  {
+   "x": 22,
+   "y": 50,
+   "plaque": "shropshire_wild_edric",
+   "title": "Wild Edric",
+   "text": "Edric was a real Saxon lord who held out against the Normans after 1066. Legend says he married a fairy wife, Godda, and still rides over these hills with her and his men before a war; lead miners swore they heard them knocking in the rock."
+  },
+  {
+   "x": 22,
+   "y": 15,
+   "text": "WEST: the Stiperstones and the Devil's Chair. EAST: Carding Mill Valley and the Long Mynd. NORTH: Shrewsbury."
+  }
+ ],
+ "spawn": [
+  24,
+  3
+ ],
+ "stage": "moor",
+ "scaled_floor": 21,
+ "rows": [
+  "TTTTTTTTTTTTTTTTTTTTTTT###TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTT###TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TT.....................###....................................TT",
+  "TT.....................###....................................TT",
+  "TT.....................###....................................TT",
+  "TT.....................###....................................TT",
+  "TT.....................###....................................TT",
+  "TT.....................###....................................TT",
+  "TT.....................###....................................TT",
+  "TT.....................###....................................TT",
+  "TT.....................###....................................TT",
+  "TT.....................###....................................TT",
+  "TT.....................###....................................TT",
+  "TT................####################........................TT",
+  "TT................####################........................TT",
+  "TT......................##....................................TT",
+  "TP......................##..BBBBBB...........hhhhh............TT",
+  "TT......................##..BBBBBB........hhhhhhhhhhh.........TT",
+  "TT......................##..BBBDBB.......hhhhhhhBBBBBBBB......TT",
+  "TT......................##.#########....hhhhhhhhBBBBBBBB......TT",
+  "TT......................##############.hhhhhhhhhBBBBBBBB......TT",
+  "TT......................##############hhhhhhkkkkkkkkkkkkkk....TT",
+  "TT.....R................##..........##hhhhhhkkkkkkkkkkkkkk....TT",
+  "TT......R...............##.wwwwwwww.##hhhhhhkkkkkkkkkkkkkk....TT",
+  "TT......................##.wwwwww~w.##hhhhhhhhhhhhhhhhhhhh....TT",
+  "TT.../..................##.......ww.##hhhhhhhhhhhhhhhhhhhhh...TT",
+  "TT..../.................##.......ww.##hhhhhhhhhhhhhhhhhhhhh...TT",
+  "TT......hhhhRR..........##.......ww.##hhhhhhhhhhhhhhhhhhhhh...TT",
+  "TT....hhhhhhhh..........##.......ww.##########hhhhhhhhhhhhh...TT",
+  "TT.....hhhhhhhh.........##.......ww.##########hhhhhhhhhhhhh...TT",
+  "TT...hhhhRRRhhhh........##.......ww..hhhhhhhhhhhhhhhhhhhhh....TT",
+  "TT....hhhRhRhhh.........##.......w~wwwwwwwwhhhhhhhhhhhhhhh....TT",
+  "TT...hhhhhhhhhhh........##.......wwwwwwwwwwhhhhhhhhhhhhhhh....TT",
+  "TT...hhhhh#######.......##............hhhhhhhhhhhhhhhhhhh.....TT",
+  "TT..hhhhhh#hhhhh##########.............hhhhhhhhhhhhhhhhh......TT",
+  "TT..hhhhhh#hhh/h........##..............hhhhhhhhhhhhhhh.......TT",
+  "TT..hhhhhh#hhhh/........##...............hhhhhhhhhhhhh........TT",
+  "TT...hhhhh#hhhhhh.......##................hhhhhhhhhhh.........TT",
+  "TT...hRRhh#hhhhhh.,,,,,.##...................hhhhh............TT",
+  "TT...hhhhh#hhhhhh.,,,,,.##....................................TT",
+  "TT..hhhhhh#hhhh..,,,,,,,##....................................TT",
+  "TT...hhhhh#hhRhh..,,,,,.##....................................TT",
+  "TT.../hhhh#hhhR...,,,,,.##....................................TT",
+  "TT.....hhh#hhhh.....,...##....................................TT",
+  "TT....hhhh#hh...........##....................................TT",
+  "TT.....hhhhh.h..........##....................................TT",
+  "TT.....RR.hh............##....................................TT",
+  "TT........./............##....................................TT",
+  "TT........../...BBBBBB..##....................................TT",
+  "TT..............BBBBBB..##....,...............................TT",
+  "TT..............BBBBBB..##.,,,,,,,............................TT",
+  "TT.............###########,,,,,,,,,...........................TT",
+  "TT........................,,,,,,,,,...........................TT",
+  "TT........................,,,,,,,,,...........................TT",
+  "TT........................,,,,,,,,............................TT",
+  "TT...........................,................................TT",
+  "TT............................................................TT",
+  "TT............................................................TT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTPTTTTTTTTTTTTTTTTT"
+ ],
+ "heights": [
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000001111111111100000000000",
+  "0000000000000000000000000000000000000000111111111111111000000000",
+  "0000000000000000000000000000000000000001111111111111111100000000",
+  "0000000000000000000000000000000000000111111112222211111111000000",
+  "0000000000000000000000000000000000001111112222222222211111100000",
+  "0000000000000000000000000000000000001111122222222222221111100000",
+  "0000000000000000000000000000000000011111222222222222222111110000",
+  "0000000000000000000000000000000000111112222223333322222211111000",
+  "0000000000000000000000000000000000111122222333333333222221111000",
+  "0000001111111110000000000000000001111222223333333333322222111100",
+  "0000111111111111100000000000000001111222233333333333332222111100",
+  "0011111122222111111000000000000001111222233334444433332222111100",
+  "0111122222222222111100000000000001112222333344444443333222211100",
+  "1111222222222222211110000000000001112222333344444443333222211100",
+  "1112222333333322221110000000000001112222333344444443333222211100",
+  "1122223333333332222111000000000001112222333344444443333222211100",
+  "1222233334443333222211000000000001112222333344444443333222211100",
+  "1222333444444433322211100000000001111222233334444433332222111100",
+  "1223334444444443332211100000000001111222233333333333332222111100",
+  "2223334445554443332221100000000001111222223333333333322222111100",
+  "2223344455555444332221100000000000111122222333333333222221111000",
+  "2223344455555444332221100000000000111112222223333322222211111000",
+  "2223344455555444332221100000000000011111222222222222222111110000",
+  "2223334445554443332221100000000000001111122222222222221111100000",
+  "1223334444444443332211100000000000001111112222222222211111100000",
+  "1222333444444433322211100000000000000111111112222211111111000000",
+  "1222233334443333222211000000000000000001111111111111111100000000",
+  "1122223333333332222111000000000000000000111111111111111000000000",
+  "1112222333333322221110000000000000000000001111111111100000000000",
+  "1111222222222222211110000000000000000000000000000000000000000000",
+  "0111122222222222111100000000000000000000000000000000000000000000",
+  "0011111122222111111000000000000000000000000000000000000000000000",
+  "0000111111111111100000000000000000000000000000000000000000000000",
+  "0000001111111110000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000"
+ ],
+ "legend_extra": {
+  "h": {
+   "tile": "tall_grass",
+   "prop": "heather",
+   "colour": "#7d6a52"
+  },
+  "k": {
+   "tile": "grass",
+   "colour": "#8a8a5a"
+  }
+ }
+}

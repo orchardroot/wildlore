@@ -58,6 +58,8 @@ static func boot(game: Node, menu: String) -> void:
 		"wicker_snare": 8, "iron_snare": 2, "lavender_sachet": 3, "map": 1, "fieldbook": 1,
 		"rowan_sprig": 1, "leek": 1}
 	d.money = 1840
+	if menu.split(":")[0] in ["cage", "fruit", "blackjack", "roulette", "hilo", "races"]:  # the Palace and the bookies
+		d.set_flag(Punt.CHIPS_FLAG, 640)
 	if menu.begins_with("stats"):
 		d.stats.merge({"steps": 48213, "wins_wild": 187, "wins_trainer": 41, "caught": 52, "train_trips": 9, "rail_miles": 1180,
 			"ferry_trips": 3, "flights": 4, "money_earned": 96450, "teas": 63, "rained_on": 28, "started": "2026-10-03"}, true)
@@ -108,6 +110,18 @@ static func boot(game: Node, menu: String) -> void:
 			Jobs.accept(d, id, "macclesfield")
 		Jobs.note_win(d, "macc_forest")
 		d.bag["blackberries"] = 4
+	if menu.begins_with("quests") or menu == "pause" or menu.begins_with("map:quest") or menu.begins_with("stats"):
+		# the Journal: the silk errand under way (card delivered) and a good few plaques read, all of Macclesfield's
+		d.set_flag("q_macclesfield_silk_started")
+		d.set_flag("q_macclesfield_silk_1")
+		d.set_flag("last_town", "macclesfield")
+		var n := 0
+		for p in Gazetteer.all():
+			if str(p.town) == "macclesfield" or n % 4 == 0:
+				d.set_flag(Gazetteer.flag_key(str(p.id)))
+			n += 1
+		for m in Gazetteer.MILESTONES.slice(0, 3):
+			d.set_flag(str(m.flag))
 	if "--stress" in DevArgs.user_args():  # dev: worst-case widths, a 12-letter name and nicknames and a full purse
 		stress(d)
 	if menu.begins_with("relearn"):
@@ -117,6 +131,19 @@ static func boot(game: Node, menu: String) -> void:
 			d.set_flag(Postcards.flag_key(str(pc.id)), "2026-10-%02d" % (2 + Postcards.card_index(str(pc.id))))
 	if menu.begins_with("shop") and not menu.contains(":"):
 		menu = "shop:macc_corner_shop"
+	if menu.begins_with("bureau") or menu.begins_with("exchange") or menu.begins_with("crypto") or menu == "pause:euros":
+		# a few weeks into a journey with both purses, some shares, a Doggerel punt and a Stone or two
+		d.day_count = 46
+		d.money = 6840
+		d.euros = 640
+		d.set_flag("badge_stone", true)
+		Markets.sync(d)
+		for deal in [["PNM", 120], ["KTL", 150], ["VNI", 20], ["GVC", 40]]:
+			Markets.buy(d, deal[0], deal[1])
+		Markets.coin_buy(d, mini(150, Markets.coin_max_buy(d)))
+		d.day_count = 52
+		if menu == "pause:euros":
+			menu = "pause"
 	await game.get_tree().process_frame
 	var cur := game.get_tree().current_scene
 	if cur:

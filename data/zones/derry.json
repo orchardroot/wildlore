@@ -3,6 +3,10 @@
   "east": {
    "offset": 0.0,
    "to": "bushmills"
+  },
+  "west": {
+   "offset": 0,
+   "to": "glenveagh"
   }
  },
  "encounters": {
@@ -29,29 +33,21 @@
     "max": 67.0,
     "min": 67.0,
     "species": "starlet",
-    "time": [
-     "dawn",
-     "dusk"
-    ],
+    "time": ["dawn", "dusk"],
     "weight": 10.0
    },
    {
     "max": 67.0,
     "min": 67.0,
     "species": "cooplet",
-    "weather": [
-     "drizzle",
-     "downpour"
-    ],
+    "weather": ["drizzle", "downpour"],
     "weight": 8.0
    },
    {
     "max": 67.0,
     "min": 67.0,
     "species": "strutcoo",
-    "time": [
-     "day"
-    ],
+    "time": ["day"],
     "weight": 10.0
    },
    {
@@ -64,27 +60,21 @@
     "max": 67.0,
     "min": 67.0,
     "species": "pooka",
-    "time": [
-     "night"
-    ],
+    "time": ["night"],
     "weight": 8.0
    },
    {
     "max": 67.0,
     "min": 67.0,
     "species": "hootlet",
-    "time": [
-     "night"
-    ],
+    "time": ["night"],
     "weight": 6.0
    },
    {
     "max": 67.0,
     "min": 67.0,
     "species": "stagmor",
-    "time": [
-     "dawn"
-    ],
+    "time": ["dawn"],
     "weight": 8.0
    },
    {
@@ -97,9 +87,7 @@
     "max": 67.0,
     "min": 67.0,
     "species": "bansheen",
-    "weather": [
-     "fog"
-    ],
+    "weather": ["fog"],
     "weight": 4.0
    }
   ],
@@ -138,9 +126,7 @@
     "max": 67.0,
     "min": 67.0,
     "species": "selklet",
-    "time": [
-     "dusk"
-    ],
+    "time": ["dusk"],
     "weight": 10.0
    }
   ]
@@ -853,9 +839,9 @@
   "TT......W_...BBBBB:::::::::::............_W.::::::::w~ooooo~w:BBDBB...TT",
   "TT......W_...BBBBB:::::::::::............_W:::::::::w~ooooo~w:::::::::TT",
   "TT......W_...BBDBB:::::::::::............_W:::::::::WWWWWWWWW:::::::::TT",
-  "TT:::::::::::::::::::::::::::::::::::::::::=========:::::::::===========",
-  "TT:::::::::::::::::::::::::::::::::::::::::=========:::::::::===========",
-  "TT:::::::::::::::::::::::::::::::::::::::::=========:::::::::===========",
+  "==:::::::::::::::::::::::::::::::::::::::::=========:::::::::===========",
+  "==:::::::::::::::::::::::::::::::::::::::::=========:::::::::===========",
+  "==:::::::::::::::::::::::::::::::::::::::::=========:::::::::===========",
   "TT......W_........:::::::::::............_W:::::::::WWWWWWWWW:::::::::TT",
   "TT......W_........:::::::::::............_W:::::::::w~ooooo~w:::::::::TT",
   "TT......W_.BBBBB..:::::::::::............_W.........w~ooooo~w.........TT",
@@ -920,9 +906,44 @@
   {
    "x": 31,
    "y": 13,
-   "text": "BLUE PLAQUE: The city walls were built between 1613 and 1618, and they are still complete.",
+   "text": "BLUE PLAQUE: The city walls were built between 1613 and 1619, and they are still complete.",
    "kind": "plaque",
-   "dx": -0.475
+   "dx": -0.475,
+   "plaque": "derry_city_walls",
+   "title": "The City Walls"
+  },
+  {
+   "x": 30,
+   "y": 33,
+   "plaque": "derry_st_columb",
+   "title": "St Columb's Cathedral",
+   "text": "Colmcille, also called Columba, is said to have founded a monastery in the oak grove here in the 6th century, before sailing off to Iona. St Columb's Cathedral, finished in 1633, was the first cathedral built in these islands after the Reformation. It is named after him."
+  },
+  {
+   "x": 12,
+   "y": 14,
+   "plaque": "derry_siege_1689",
+   "title": "The Siege of 1689",
+   "text": "In December 1688 thirteen apprentice boys shut the city gates against King James II's army. The siege that followed in 1689 lasted 105 days, and people inside ate rats and tallow. It ended when ships broke through a boom across the Foyle and brought food."
+  },
+  {
+   "x": 29,
+   "y": 31,
+   "plaque": "derry_londonderry_air",
+   "title": "The Londonderry Air",
+   "text": "In the 1850s Jane Ross of Limavady, in County Londonderry, wrote down a tune she heard played in the street. It was published as the Londonderry Air. In 1913 an English lawyer, Fred Weatherly, set words to it, and it became 'Danny Boy'."
+  },
+  {
+   "x": 69,
+   "y": 12,
+   "plaque": "derry_amelia_earhart",
+   "title": "Amelia Earhart",
+   "text": "On 21 May 1932 Amelia Earhart landed in a field at Culmore, just north of the city, and became the first woman to fly solo across the Atlantic. She had been aiming for Paris. A farmhand asked where she had come from. 'America,' she said."
+  },
+  {
+   "x": 4,
+   "y": 17,
+   "text": "FINGERPOST. West over the border into County Donegal: Glenveagh, Errigal, Gaoth Dobhair and Donegal Town. The speed limits will be in kilometres; the welcome will be the same."
   }
  ],
  "spawn": [

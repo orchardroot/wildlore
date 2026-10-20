@@ -1,0 +1,25 @@
+{"id": "shivertor",
+ "palette": {"shale": "#76695e", "shale2": "#564a42", "sand": "#a8927a", "grass": "#5e8236", "grass2": "#86a64c", "bj1": "#6a3c8c", "bj2": "#3c5cb0", "bj3": "#e8c048", "ink": "#1c1612", "eye": "#c8a8f0"},
+ "layers": [
+  {"shape": "ellipse", "at": [16, 78], "size": [22, 20], "colour": "shale", "mirror": true, "pattern": "stripes", "pcolour": "shale2", "period": 5, "pangle": 96},
+  {"shape": "poly", "points": [[8, 92], [18, 52], [34, 22], [48, 14], [62, 22], [78, 52], [88, 92]], "colour": "shale", "pattern": "stripes", "pcolour": "shale2", "period": 6, "pangle": 98},
+  {"shape": "poly", "points": [[22, 46], [34, 22], [48, 14], [62, 22], [74, 46], [62, 40], [48, 44], [34, 40]], "colour": "sand", "rim": false, "pattern": "stripes", "pcolour": "shale", "period": 5, "pangle": 94},
+  {"shape": "poly", "points": [[30, 28], [38, 18], [48, 13], [58, 18], [66, 28], [56, 24], [48, 26], [40, 24]], "colour": "grass", "rim": false, "pattern": "speckle", "pcolour": "grass2", "density": 30},
+  {"shape": "poly", "points": [[18, 50], [22, 32], [28, 48]], "colour": "bj1"},
+  {"shape": "poly", "points": [[24, 52], [30, 38], [33, 54]], "colour": "bj2"},
+  {"shape": "poly", "points": [[20, 56], [26, 46], [29, 58]], "colour": "bj3", "rim": false},
+  {"shape": "poly", "points": [[70, 54], [76, 34], [80, 56]], "colour": "bj2"},
+  {"shape": "poly", "points": [[64, 56], [70, 44], [72, 58]], "colour": "bj1"},
+  {"shape": "poly", "points": [[38, 88], [42, 70], [47, 88]], "colour": "bj1", "front_only": true},
+  {"shape": "poly", "points": [[45, 88], [50, 64], [56, 88]], "colour": "bj2", "front_only": true},
+  {"shape": "poly", "points": [[54, 88], [59, 74], [62, 88]], "colour": "bj3", "front_only": true},
+  {"shape": "line", "points": [[49, 68], [48, 84]], "width": 1, "colour": "bj3", "shade": false, "front_only": true}
+ ],
+ "face_layers": [
+  {"shape": "line", "points": [[34, 46], [44, 50]], "width": 2.5, "colour": "ink", "shade": false, "mirror": true},
+  {"shape": "line", "points": [[40, 64], [48, 61], [56, 64]], "width": 1.6, "colour": "ink", "shade": false}
+ ],
+ "eyes": [
+  {"at": [40, 54], "r": 4, "colour": "eye", "pupil": [2, 3], "mirror": true}
+ ]
+}

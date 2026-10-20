@@ -1,0 +1,650 @@
+{
+ "id": "kent_downs",
+ "name": "Kent Downs",
+ "region": "south_east",
+ "kind": "route",
+ "music": "route_forest",
+ "weather": {
+  "clear": 30,
+  "sunshine": 26,
+  "drizzle": 22,
+  "fog": 10,
+  "gale": 6,
+  "downpour": 6
+ },
+ "props": [
+  {
+   "type": "standing_stone",
+   "x": 15,
+   "y": 12,
+   "variant": 0
+  },
+  {
+   "type": "standing_stone",
+   "x": 17,
+   "y": 12,
+   "variant": 1
+  },
+  {
+   "type": "standing_stone",
+   "x": 16,
+   "y": 11,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 16,
+   "y": 12
+  },
+  {
+   "type": "building",
+   "style": "oast_house",
+   "x": 27,
+   "y": 26,
+   "w": 7,
+   "h": 3,
+   "label": "Hop Farm Oast"
+  },
+  {
+   "type": "building",
+   "style": "oast_house",
+   "x": 27,
+   "y": 31,
+   "w": 5,
+   "h": 3,
+   "label": "Oast Cottage"
+  },
+  {
+   "type": "building",
+   "style": "oast_house",
+   "x": 58,
+   "y": 26,
+   "w": 7,
+   "h": 3,
+   "label": "Little Oast"
+  },
+  {
+   "type": "oak",
+   "x": 37,
+   "y": 26,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 40,
+   "y": 26,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 43,
+   "y": 26,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 46,
+   "y": 26,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 49,
+   "y": 26,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 52,
+   "y": 26,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 37,
+   "y": 29,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 40,
+   "y": 29,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 43,
+   "y": 29,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 46,
+   "y": 29,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 49,
+   "y": 29,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 52,
+   "y": 29,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 37,
+   "y": 32,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 40,
+   "y": 32,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 43,
+   "y": 32,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 46,
+   "y": 32,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 49,
+   "y": 32,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 52,
+   "y": 32,
+   "variant": 0
+  },
+  {
+   "type": "pitch_line",
+   "x": 12,
+   "y": 44,
+   "rot": 90
+  },
+  {
+   "type": "building",
+   "style": "weatherboard",
+   "x": 4,
+   "y": 41,
+   "w": 4,
+   "h": 2,
+   "label": "Pavilion"
+  },
+  {
+   "type": "building",
+   "style": "castle",
+   "x": 51,
+   "y": 37,
+   "w": 9,
+   "h": 5,
+   "label": "Leeds Castle"
+  },
+  {
+   "type": "boat",
+   "x": 46,
+   "y": 40,
+   "variant": 0
+  },
+  {
+   "type": "boat",
+   "x": 63,
+   "y": 39,
+   "variant": 0
+  },
+  {
+   "type": "boat",
+   "x": 60,
+   "y": 46,
+   "variant": 0
+  }
+ ],
+ "warps": [
+  {
+   "x": 28,
+   "y": 28,
+   "to": "kent_oast",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 55,
+   "y": 41,
+   "to": "kent_leeds_castle",
+   "tx": 7,
+   "ty": 7,
+   "facing": "up"
+  }
+ ],
+ "edges": {
+  "west": {
+   "to": "london",
+   "offset": 6
+  },
+  "east": {
+   "to": "canterbury",
+   "offset": 6
+  }
+ },
+ "npcs": [
+  {
+   "id": "kd_walker",
+   "sprite": "hiker",
+   "x": 40,
+   "y": 21,
+   "facing": "down",
+   "move": "wander",
+   "script": "kd_walker"
+  },
+  {
+   "id": "kd_hop_farmer",
+   "sprite": "farmer",
+   "x": 25,
+   "y": 27,
+   "facing": "down",
+   "move": "still",
+   "script": "kd_hop_farmer"
+  },
+  {
+   "id": "kd_cobnut_seller",
+   "sprite": "villager_3",
+   "x": 53,
+   "y": 23,
+   "facing": "down",
+   "move": "still",
+   "script": "kd_cobnut_seller"
+  },
+  {
+   "id": "kd_hop_picker",
+   "sprite": "villager_5",
+   "x": 13,
+   "y": 33,
+   "facing": "up",
+   "move": "still",
+   "trainer": "kd_hop_picker"
+  },
+  {
+   "id": "kd_cricketer",
+   "sprite": "rugby_player",
+   "x": 16,
+   "y": 43,
+   "facing": "left",
+   "move": "still",
+   "trainer": "kd_cricketer"
+  },
+  {
+   "id": "kd_orchard",
+   "sprite": "farmer",
+   "x": 46,
+   "y": 28,
+   "facing": "down",
+   "move": "still",
+   "trainer": "kd_orchard"
+  },
+  {
+   "id": "kd_guide",
+   "sprite": "tour_guide",
+   "x": 55,
+   "y": 30,
+   "facing": "down",
+   "move": "still",
+   "trainer": "kd_guide"
+  },
+  {
+   "id": "kd_knight_talk",
+   "sprite": "pilgrim",
+   "x": 22,
+   "y": 21,
+   "facing": "down",
+   "move": "still",
+   "script": "kd_knight_talk",
+   "name": "The Knight"
+  },
+  {
+   "id": "kd_miller_talk",
+   "sprite": "farmer",
+   "x": 31,
+   "y": 30,
+   "facing": "down",
+   "move": "still",
+   "script": "kd_miller_talk",
+   "name": "Robin the Miller"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "hoplet",
+    "min": 94,
+    "max": 96,
+    "weight": 16
+   },
+   {
+    "species": "chalkling",
+    "min": 94,
+    "max": 96,
+    "weight": 8
+   },
+   {
+    "species": "dozelet",
+    "min": 94,
+    "max": 96,
+    "weight": 8
+   },
+   {
+    "species": "pipkin",
+    "min": 94,
+    "max": 96,
+    "weight": 10
+   },
+   {
+    "species": "spikkin",
+    "min": 94,
+    "max": 96,
+    "weight": 8
+   },
+   {
+    "species": "fawnlet",
+    "min": 94,
+    "max": 96,
+    "weight": 8
+   },
+   {
+    "species": "brockling",
+    "min": 94,
+    "max": 96,
+    "weight": 6,
+    "time": [
+     "dusk",
+     "night"
+    ]
+   },
+   {
+    "species": "rooklet",
+    "min": 94,
+    "max": 96,
+    "weight": 8
+   },
+   {
+    "species": "puffkin",
+    "min": 94,
+    "max": 96,
+    "weight": 6,
+    "season": [
+     "autumn"
+    ]
+   },
+   {
+    "species": "oastcowl",
+    "min": 96,
+    "max": 96,
+    "weight": 3,
+    "weather": [
+     "sunshine"
+    ]
+   },
+   {
+    "species": "hootlet",
+    "min": 94,
+    "max": 96,
+    "weight": 6,
+    "time": [
+     "night"
+    ]
+   },
+   {
+    "species": "glowmite",
+    "min": 94,
+    "max": 96,
+    "weight": 5,
+    "time": [
+     "night"
+    ]
+   }
+  ],
+  "water": [
+   {
+    "species": "pollanet",
+    "min": 94,
+    "max": 96,
+    "weight": 14
+   },
+   {
+    "species": "volet",
+    "min": 94,
+    "max": 96,
+    "weight": 14
+   },
+   {
+    "species": "stalklet",
+    "min": 94,
+    "max": 96,
+    "weight": 12
+   },
+   {
+    "species": "croakle",
+    "min": 94,
+    "max": 96,
+    "weight": 14
+   },
+   {
+    "species": "cranelet",
+    "min": 94,
+    "max": 96,
+    "weight": 8
+   },
+   {
+    "species": "dipling",
+    "min": 94,
+    "max": 96,
+    "weight": 10
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 18,
+   "y": 13,
+   "text": "Three great upright stones and a capstone across the top: all that is left of a Neolithic long barrow, a burial mound built here over 5,000 years ago. The earth that covered it has long since been ploughed away. Nobody knows who Kit was.",
+   "plaque": "kentdowns_kits_coty",
+   "title": "Kit's Coty House"
+  },
+  {
+   "x": 34,
+   "y": 18,
+   "text": "An ancient trackway along the foot of the North Downs, high enough to stay out of the mud and low enough to stay out of the wind. From the 1170s pilgrims walked this way to Thomas Becket's shrine at Canterbury, and the Victorians named it after them.",
+   "plaque": "kentdowns_pilgrims_way",
+   "title": "The Pilgrims' Way"
+  },
+  {
+   "x": 2,
+   "y": 19,
+   "text": "WEST TO LONDON. You'll know it when you see it. You'll hear it first."
+  },
+  {
+   "x": 66,
+   "y": 19,
+   "text": "EAST TO CANTERBURY. The pilgrims did it on foot in a few days. Please don't take as long."
+  },
+  {
+   "x": 3,
+   "y": 25,
+   "text": "Hops climb strings up to wires on tall poles, five metres and more by late summer. Picking used to be done by hand, and every September whole families came down from London's East End for 'hopping': hard work, a hut to sleep in, and the nearest thing many had to a holiday.",
+   "plaque": "kentdowns_hop_garden",
+   "title": "The Hop Garden"
+  },
+  {
+   "x": 34,
+   "y": 29,
+   "text": "Freshly picked hops are wet and would rot, so they were dried in oasts: a fire below, a slatted floor above, and the round or square kiln drawing hot air up through the hops and out of the white cowl, which swings with the wind. Most Kentish oasts are homes now, and very nice ones.",
+   "plaque": "kentdowns_oast_houses",
+   "title": "Oast Houses"
+  },
+  {
+   "x": 35,
+   "y": 25,
+   "text": "Kent's soils and mild weather made it the Garden of England: apples, pears and cherries, hops and cobnuts. Henry VIII's fruiterer planted the first big orchards of new apple and cherry trees near Teynham in the 1530s. The National Fruit Collection at Brogdale still grows thousands of varieties.",
+   "plaque": "kentdowns_garden_of_england",
+   "title": "The Garden of England"
+  },
+  {
+   "x": 9,
+   "y": 43,
+   "text": "Kent and Sussex both claim to have invented cricket, and both have a good case: the earliest records of the game come from the Weald, played by shepherd boys with a crooked stick. Kent's first-class county club is one of the oldest anywhere.",
+   "plaque": "kentdowns_cricket",
+   "title": "Village Cricket"
+  },
+  {
+   "x": 54,
+   "y": 34,
+   "text": "A castle built on islands in a lake, first in stone by the Normans in 1119. It was a royal palace for six medieval queens, and Henry VIII spent a fortune on it. Despite the name it is in Kent, near Maidstone, not in Leeds. Its black swans have been here since the 1930s.",
+   "plaque": "kentdowns_leeds_castle",
+   "title": "Leeds Castle"
+  }
+ ],
+ "spawn": [
+  3,
+  21
+ ],
+ "stage": "grass",
+ "scaled_floor": 94,
+ "rows": [
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggTT",
+  "TTggPgggggggggggggggggPgggggggggggggggPggggggPggggggggggggPgggggggggTT",
+  "TTgggPgggqqggggggggggggPggggggggggggggggggggPgqqqqqqqqqggggggggggPggTT",
+  "TTggggqqqqqqqqqgggggggggggggggggggggggggggggggqqqqqqqqqqggggggggPgggTT",
+  "TTggggqqqqqqqqqgggggggggggggqqqqqqggggggggggggqqqqqqqqqgggggggggggggTT",
+  "PTggggqqqqqqqqqggggggggggqqqqqqqqqqqggggggggggggqqqqqgggggggggggggggTT",
+  "TTggggggggggqggggggggggggqqqqqqqqqqqggggggggggggggggggggggggggggggggTT",
+  "TTgggggggggggggggggggggggqqqqqqqqqqgggggggggggggggggggPgggggggggggggTT",
+  "TTgggggggggggggggggggggggggqqqqqqqgggggggggggggggggggggggggggqggggggTT",
+  "TTggggggggggggggggggPggggggggggggggggggggggggggggggggggggqqqqqqqggggTT",
+  "TTggggggggggggggggggggggggggggggggggggggggggggggggggggggqqqqqqqqggggTT",
+  "TTgggggggggggggggggggggggggggggggggggqqqqqqqgggggggggggggqqqqqqqggggTT",
+  "TTggggggggggggggggggggggggggggggggggqqqqqqqqqqggggggggggggggggggggggTT",
+  "TTggggggggggggggggggggggggggggggggggqqqqqqqqggggggggggggggggggggggggTT",
+  "TTggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggTT",
+  "TTggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggTT",
+  "TTggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggTT",
+  "TT..................................................................TT",
+  "######################################################################",
+  "######################################################################",
+  "######################################################################",
+  "TT..........#.................#........................#............TT",
+  "TT........,,#,,,,.............#........................#............TT",
+  "TT....,,,,,,#,,,,,,...........#........................#............TT",
+  "TT.#######################.BBBBBBB.....................#..BBBBBBB...TT",
+  "TT..hhhhhhhhh#.hhhhhhhhhh..BBBBBBB...,..,..,..,..,..,..#..BBBBBBB...TT",
+  "TT..,,,,,,,,,#,,,,,,,,,,,..BDBBBBB.....................#..BBBBBBB...TT",
+  "TT..hhhhhhhhh#.hhhhhhhhhh.....#........................#............TT",
+  "TT..,,,,,,,,,#,,,,,,,,,,,.....#......,..,..,..,..,..,..#............TT",
+  "TT..hhhhhhhhh#.hhhhhhhhhh..BBBBB.......................#............TT",
+  "TT..,,,,,,,,,#,,,,,,,,,,,..BBBBB.......................#............TT",
+  "TT..hhhhhhhhh#.hhhhhhhhhh..BBBBB.....,..,..,..,..,..,..#............TT",
+  "TT..,,,,,,,,,#,,,,,,,,,,,.....#...................######............TT",
+  "TT..hhhhhhhhh#.hhhhhhhhhh.....#...........wwwwwwww#wwwwwwwwwwwwwwww.TT",
+  "TT..,,,,,,,,,#,,,,,,,,,,,.....#...........w~~~~~~~#~~~~~~~~~~~~~~~~.TT",
+  "TT..hhhhhhhhh#.hhhhhhhhhh.....#...........w~~~~~~ggBBBBBBBBBgg~~~~~.TT",
+  "TT..,,,,,,,,,#,,,,,,,,,,,.....#...........w~~~~~~ggBBBBBBBBBgg~~~~~.TT",
+  "TT..hhhhhhhhh#.hhhhhhhhhh.....#...........w~~~~~~ggBBBBBBBBBgg~~~~~.TT",
+  "TT..,,,,,,,,##,,,,,,,,,,,.....#...........w~~~~~~ggBBBBBBBBBgg~~~~~.TT",
+  "TT..BBBB....#.................#...........w~~~~~~ggBBBBDBBBBgg~~~~~.TT",
+  "TT..BBBB......................#...........w~~~~~~ggggg###ggggg~~~~~.TT",
+  "TT............................#...........w~~~~~~ggggg###ggggg~~~~~.TT",
+  "TT............................#...........w~~~~~~ggggg###ggggg~~~~~.TT",
+  "TT............#################...........w~~~~~~~~~~~~~~~~~~~~~~~~.TT",
+  "TT........................................w~~~~~~~~~~~~~~~~~~~~~~~~.TT",
+  "TT........................................w~~~~~~~~~~~~~~~~~~~~~~~~.TT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT"
+ ],
+ "heights": [
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0033333333333333333333333333333333333333333333333333333333333333333300",
+  "0033333333333333333333333333333333333333333333333333333333333333333300",
+  "0033333333333333333333333333333333333333333333333333333333333333333300",
+  "0033333333333333333333333333333333333333333333333333333333333333333300",
+  "0033333333333333333333333333333333333333333333333333333333333333333300",
+  "0033333333333333333333333333333333333333333333333333333333333333333300",
+  "0033333333333333333333333333333333333333333333333333333333333333333300",
+  "0033333333333333333333333333333333333333333333333333333333333333333300",
+  "0022222222222222222222222222222222222222222222222222222222222222222200",
+  "0022222222222222222222222222222222222222222222222222222222222222222200",
+  "0022222222222222222222222222222222222222222222222222222222222222222200",
+  "0011111111111111111111111111111111111111111111111111111111111111111100",
+  "0011111111111111111111111111111111111111111111111111111111111111111100",
+  "0011111111111111111111111111111111111111111111111111111111111111111100",
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000",
+  "0000000000000000000000000000000000000000000000000000000000000000000000"
+ ],
+ "legend_extra": {
+  "g": {
+   "tile": "grass",
+   "colour": "#7f9f52"
+  },
+  "q": {
+   "tile": "tall_grass",
+   "colour": "#7a9a4c",
+   "prop": "short"
+  },
+  "h": {
+   "tile": "hedge",
+   "colour": "#5d8a34"
+  },
+  "c": {
+   "tile": "path",
+   "colour": "#ece7da"
+  }
+ }
+}

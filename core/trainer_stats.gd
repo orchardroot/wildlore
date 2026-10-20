@@ -86,6 +86,7 @@ static func lines(data: GameStateData) -> Array:
 		["Land rewilded", "%d of %d sites Wild" % [Rewild.wild_count(data), Rewild.sites().size()]],
 	]
 	out.append_array(Tournament.stat_lines(data))  # County Shows and the Open Moot
+	out.append_array(Punt.stat_lines(data))  # the Palace and the bookies, once you've had a flutter
 	return out
 
 ## "20 rooms, 1 town complete": rooms walked into, and towns whose every room you've seen (see VisitorsBook).

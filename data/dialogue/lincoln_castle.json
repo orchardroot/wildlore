@@ -1,0 +1,323 @@
+{
+ "lin_c39": [
+  {
+   "do": "say",
+   "who": "Clause 39 Volunteer",
+   "text": "Clause 39: 'No free man shall be seized or imprisoned, or stripped of his rights or possessions... except by the lawful judgement of his equals or by the law of the land.'"
+  },
+  {
+   "do": "say",
+   "who": "Clause 39 Volunteer",
+   "text": "That's the root of trial by jury and of habeas corpus. Even the king can't just lock you up."
+  },
+  {
+   "do": "if",
+   "flag": "q_humber_magna_started",
+   "then": [
+    {
+     "do": "set",
+     "flag": "q_humber_magna_1",
+     "value": true
+    }
+   ],
+   "else": []
+  }
+ ],
+ "lin_c40": [
+  {
+   "do": "say",
+   "who": "Clause 40 Volunteer",
+   "text": "Clause 40: 'To no one will we sell, to no one deny or delay right or justice.'"
+  },
+  {
+   "do": "say",
+   "who": "Clause 40 Volunteer",
+   "text": "No buying a verdict, no waiting forever for a trial. It's carved on courthouses around the world."
+  },
+  {
+   "do": "if",
+   "flag": "q_humber_magna_started",
+   "then": [
+    {
+     "do": "set",
+     "flag": "q_humber_magna_2",
+     "value": true
+    }
+   ],
+   "else": []
+  }
+ ],
+ "lin_c33": [
+  {
+   "do": "say",
+   "who": "Clause 33 Volunteer",
+   "text": "Clause 33: 'All fish-weirs shall be removed from the Thames, the Medway and throughout all England, except on the sea coast.'"
+  },
+  {
+   "do": "say",
+   "who": "Clause 33 Volunteer",
+   "text": "Weirs blocked the boats. Not every clause was grand. Some were about fish."
+  },
+  {
+   "do": "if",
+   "flag": "q_humber_magna_started",
+   "then": [
+    {
+     "do": "set",
+     "flag": "q_humber_magna_3",
+     "value": true
+    }
+   ],
+   "else": []
+  }
+ ],
+ "lin_c35": [
+  {
+   "do": "say",
+   "who": "Clause 35 Volunteer",
+   "text": "Clause 35: 'Let there be one measure of wine throughout our kingdom, and one measure of ale, and one measure of corn, namely the London quarter.'"
+  },
+  {
+   "do": "say",
+   "who": "Clause 35 Volunteer",
+   "text": "One set of measures for everyone, so nobody could be cheated with a small pint. Pubs, take note."
+  },
+  {
+   "do": "if",
+   "flag": "q_humber_magna_started",
+   "then": [
+    {
+     "do": "set",
+     "flag": "q_humber_magna_4",
+     "value": true
+    }
+   ],
+   "else": []
+  }
+ ],
+ "lin_guide": [
+  {
+   "do": "if",
+   "flag": "q_humber_magna_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Castle Guide",
+     "text": "You know Magna Carta better than most lawyers now. Don't tell them."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_humber_magna_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_humber_magna_4",
+       "then": [
+        {
+         "do": "if",
+         "flag": "q_humber_magna_3",
+         "then": [
+          {
+           "do": "if",
+           "flag": "q_humber_magna_2",
+           "then": [
+            {
+             "do": "if",
+             "flag": "q_humber_magna_1",
+             "then": [
+              {
+               "do": "say",
+               "who": "Castle Guide",
+               "text": "Read all four? Then let's see what stuck."
+              },
+              {
+               "do": "choice",
+               "text": "Clause 39: nobody may be imprisoned except by...?",
+               "options": [
+                "The king's say-so",
+                "Lawful judgement of their equals",
+                "A vote of the barons"
+               ],
+               "set": "_lin_q1"
+              },
+              {
+               "do": "if",
+               "flag": "_lin_q1",
+               "then": [
+                {
+                 "do": "choice",
+                 "text": "Clause 40: to no one will we sell, deny or delay...?",
+                 "options": [
+                  "Right or justice",
+                  "Ale or bread",
+                  "Land or titles"
+                 ],
+                 "set": "_lin_q2"
+                },
+                {
+                 "do": "if",
+                 "flag": "_lin_q2",
+                 "then": [
+                  {
+                   "do": "choice",
+                   "text": "Clause 35: the one measure of corn for the whole kingdom was...?",
+                   "options": [
+                    "The Lincoln bushel",
+                    "The York peck",
+                    "The London quarter"
+                   ],
+                   "set": "_lin_q3"
+                  },
+                  {
+                   "do": "if",
+                   "flag": "_lin_q3",
+                   "then": [
+                    {
+                     "do": "say",
+                     "who": "Castle Guide",
+                     "text": "Three out of three. You've read it properly, which is more than King John did."
+                    },
+                    {
+                     "do": "say",
+                     "who": "Castle Guide",
+                     "text": "Here: a facsimile seal, and a bit of Lincolnshire to go with it."
+                    },
+                    {
+                     "do": "give_item",
+                     "item": "lincolnshire_sausage",
+                     "n": 3
+                    },
+                    {
+                     "do": "give_item",
+                     "item": "plum_bread",
+                     "n": 2
+                    },
+                    {
+                     "do": "standing",
+                     "nation": "england",
+                     "amount": 4
+                    },
+                    {
+                     "do": "set",
+                     "flag": "q_humber_magna_done",
+                     "value": true
+                    }
+                   ],
+                   "else": [
+                    {
+                     "do": "say",
+                     "who": "Castle Guide",
+                     "text": "Not quite. Have another look at the clauses and come back. The charter's waited 800 years, it'll wait for you."
+                    }
+                   ],
+                   "eq": 2
+                  }
+                 ],
+                 "else": [
+                  {
+                   "do": "say",
+                   "who": "Castle Guide",
+                   "text": "Not quite. Have another look at the clauses and come back. The charter's waited 800 years, it'll wait for you."
+                  }
+                 ],
+                 "eq": 0
+                }
+               ],
+               "else": [
+                {
+                 "do": "say",
+                 "who": "Castle Guide",
+                 "text": "Not quite. Have another look at the clauses and come back. The charter's waited 800 years, it'll wait for you."
+                }
+               ],
+               "eq": 1
+              }
+             ],
+             "else": [
+              {
+               "do": "say",
+               "who": "Castle Guide",
+               "text": "Have you heard about Clause 39 yet? Our volunteer by the far wall knows it by heart."
+              }
+             ]
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Castle Guide",
+             "text": "Clause 40 is the one on the other side. Short, but it bites."
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Castle Guide",
+           "text": "Don't skip Clause 33. It's about fish weirs. Trust me."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Castle Guide",
+         "text": "Four volunteers, four clauses. Hear them all, then come to me."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Castle Guide",
+       "text": "Welcome to the vault. This is Lincoln's Magna Carta, one of four originals from 1215, written in Latin on sheepskin by a royal clerk in a hurry."
+      },
+      {
+       "do": "say",
+       "who": "Castle Guide",
+       "text": "It has 63 clauses. Most are about medieval taxes and forests, but a few changed the world."
+      },
+      {
+       "do": "choice",
+       "text": "Read four of its clauses with the volunteers?",
+       "options": [
+        "Go on then",
+        "Not today"
+       ],
+       "set": "_lin_mag"
+      },
+      {
+       "do": "if",
+       "flag": "_lin_mag",
+       "then": [
+        {
+         "do": "set",
+         "flag": "q_humber_magna_started",
+         "value": true
+        },
+        {
+         "do": "say",
+         "who": "Castle Guide",
+         "text": "Lovely. Our volunteers each know one clause: 39, 40, 33 and 35. Then come back to me for a little test."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Castle Guide",
+         "text": "Fair enough. It's not going anywhere. It's behind very thick glass."
+        }
+       ],
+       "eq": 0
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

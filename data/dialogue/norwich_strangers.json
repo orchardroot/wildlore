@@ -1,0 +1,43 @@
+{
+ "strangers_child": [
+  {
+   "do": "say",
+   "who": "Young Visitor",
+   "text": "There's a whole room of old toys upstairs. Dolls' houses and rocking horses. I'm not allowed to ride the rocking horse. I asked four times."
+  }
+ ],
+ "strangers_curator": [
+  {
+   "do": "say",
+   "who": "Curator",
+   "text": "Strangers' Hall is a merchant's house, some parts six hundred years old. It's named after the Strangers: the Flemish and Walloon weavers Norwich invited in 1565."
+  },
+  {
+   "do": "if",
+   "flag": "q_eastanglia_canary_started",
+   "then": [
+    {
+     "do": "say",
+     "who": "Curator",
+     "text": "You've come about the canaries? Ah. The Strangers brought caged canaries from the Low Countries, and Norwich went canary-mad. Weavers bred them at their looms. The Norwich canary is still a breed: big, plump and golden."
+    },
+    {
+     "do": "say",
+     "who": "Curator",
+     "text": "When the football club changed to yellow and green in 1907, there was only ever going to be one nickname. Here: take the chorus leader a word from me. She's out on the market."
+    },
+    {
+     "do": "set",
+     "flag": "q_eastanglia_canary_1"
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Curator",
+     "text": "They made bombazine, a fine silk-and-wool cloth, and thousands of other new fabrics. Norwich got very rich, very fast. They also got the canaries. Ask at Carrow Road about those."
+    }
+   ]
+  }
+ ]
+}

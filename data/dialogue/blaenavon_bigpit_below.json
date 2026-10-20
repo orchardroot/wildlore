@@ -1,0 +1,118 @@
+{
+ "bla_idris": [
+  {
+   "do": "if",
+   "flag": "q_valleys_pit_caught",
+   "then": [
+    {
+     "do": "say",
+     "who": "Idris",
+     "text": "You've got a Cobblet in your pocket. That's the first time I've seen one caught. Don't tell the others, they'll want one each."
+    },
+    {
+     "do": "say",
+     "who": "Idris",
+     "text": "Off you go back up. Tell Gwilym. Mind how you go. And take care of the little knocker."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_valleys_pit_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "Idris",
+       "text": "Over there, east, by the new face. Listen for it. Tap, tap, tap. Three knocks and a wait."
+      },
+      {
+       "do": "say",
+       "who": "Idris",
+       "text": "Don't whistle. Don't shout. Coblynau don't like noise. They like a polite visitor."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Idris",
+       "text": "Good, you made it. Thirty years I worked down here, and the dark never frightened me. The quiet did."
+      },
+      {
+       "do": "say",
+       "who": "Idris",
+       "text": "That's the pony stable, on the west side. Ponies lived down here, nearly three hundred of them, working the trams. The last pit ponies in Wales retired when machines took over. Fine animals."
+      },
+      {
+       "do": "say",
+       "who": "Idris",
+       "text": "Now hush. Do you hear it? Three little knocks. That's the coblynau. They tapped to lead a miner to the rich seam. Follow your ears: the knocking comes from the east face. Go on."
+      },
+      {
+       "do": "set",
+       "flag": "q_valleys_pit_2",
+       "value": true
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "pit_knock": [
+  {
+   "do": "if",
+   "flag": "q_valleys_pit_2",
+   "then": [
+    {
+     "do": "say",
+     "who": "",
+     "text": "Three little knocks from the coal face, and a tiny yellow hard hat bobs out from behind a slab of rock."
+    },
+    {
+     "do": "legend",
+     "species": "cobblet",
+     "level": 35,
+     "scaled_floor": 36,
+     "music": "legend",
+     "flag": "q_valleys_pit_caught"
+    },
+    {
+     "do": "if",
+     "flag": "q_valleys_pit_caught",
+     "then": [
+      {
+       "do": "set",
+       "flag": "q_valleys_pit_3",
+       "value": true
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "The knocking stops, and a little cheer goes up somewhere down the tunnel. Idris will want to hear about this."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "The coblyn slips away behind the coal. It will knock again."
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "",
+     "text": "Tap. Tap. Tap. Something is knocking in the rock, faint and quite polite. Perhaps you should have a word with Idris first."
+    }
+   ]
+  }
+ ],
+ "pit_pony": [
+  {
+   "do": "say",
+   "who": "Pit pony",
+   "text": "The pony snorts, flicks an ear and carries on chewing. It has seen a lot of visitors. It has not been impressed by any."
+  }
+ ]
+}

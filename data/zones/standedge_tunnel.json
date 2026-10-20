@@ -1,0 +1,105 @@
+{
+ "id": "standedge_tunnel",
+ "name": "Standedge Tunnel",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "canal_boat",
+   "x": 6,
+   "y": 4,
+   "variant": 0
+  },
+  {
+   "type": "canal_boat",
+   "x": 18,
+   "y": 1,
+   "variant": 1
+  },
+  {
+   "type": "canal_boat",
+   "x": 28,
+   "y": 4,
+   "variant": 1
+  },
+  {
+   "type": "bollard",
+   "x": 2,
+   "y": 5
+  }
+ ],
+ "warps": [
+  {
+   "x": 1,
+   "y": 6,
+   "to": "saddleworth_moor",
+   "tx": 19,
+   "ty": 8,
+   "facing": "down"
+  },
+  {
+   "x": 34,
+   "y": 6,
+   "to": "saddleworth_moor",
+   "tx": 51,
+   "ty": 8,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "tunnel_guide",
+   "sprite": "canal_boater",
+   "x": 4,
+   "y": 2,
+   "facing": "right",
+   "move": "still",
+   "script": "tunnel_guide",
+   "name": "Boat Guide"
+  },
+  {
+   "id": "whit_drummer",
+   "sprite": "student",
+   "x": 22,
+   "y": 2,
+   "facing": "down",
+   "move": "still",
+   "script": "whit_drummer",
+   "name": "Drummer",
+   "hide_if": "q_pennines_whit_drum"
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "x": 12,
+   "y": 1,
+   "text": "Building the tunnel took the best part of seventeen years. It was dug from both portals and from shafts sunk down from the moor above, and the headings did not quite meet in line, so the bore has kinks you can see from the boat.",
+   "plaque": "pennines_tunnel_dig",
+   "title": "Digging Standedge"
+  },
+  {
+   "x": 27,
+   "y": 1,
+   "text": "Three railway tunnels run alongside the canal tunnel, linked to it by cross passages. The tunnel was shut to boats in 1944 and reopened in 2001 after the canal was restored."
+  }
+ ],
+ "spawn": [
+  1,
+  5
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "x~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~x",
+  "x||||||||||||||||||||||||||||||||||x",
+  "x||||||||||||||||||||||||||||||||||x",
+  "x|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|x",
+  "x|xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|x",
+  "xDxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxDx",
+  "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+ ],
+ "dark": true
+}

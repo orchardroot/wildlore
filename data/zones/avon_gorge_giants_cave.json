@@ -1,0 +1,142 @@
+{
+ "id": "avon_gorge_giants_cave",
+ "name": "Giant's Cave",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "rock",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "rock",
+   "x": 1,
+   "y": 6
+  },
+  {
+   "type": "rock",
+   "x": 9,
+   "y": 1
+  },
+  {
+   "type": "rock",
+   "x": 9,
+   "y": 6
+  },
+  {
+   "type": "table",
+   "x": 5,
+   "y": 2
+  },
+  {
+   "type": "bench",
+   "x": 3,
+   "y": 4
+  },
+  {
+   "type": "bench",
+   "x": 7,
+   "y": 4
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 6
+  },
+  {
+   "type": "potted_plant",
+   "x": 9,
+   "y": 6
+  },
+  {
+   "type": "fireplace",
+   "x": 3,
+   "y": 1
+  },
+  {
+   "type": "rug",
+   "x": 4,
+   "y": 2,
+   "w": 2,
+   "h": 3,
+   "variant": 1,
+   "walk": true
+  },
+  {
+   "type": "wall_picture",
+   "x": 5,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  },
+  {
+   "type": "wall_picture",
+   "x": 2,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  },
+  {
+   "type": "wall_picture",
+   "x": 7,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  },
+  {
+   "type": "display_case",
+   "x": 2,
+   "y": 3,
+   "variant": 2
+  },
+  {
+   "type": "clock",
+   "x": 4,
+   "y": 1,
+   "walk": true
+  }
+ ],
+ "warps": [
+  {
+   "x": 5,
+   "y": 7,
+   "to": "avon_gorge_observatory",
+   "tx": 10,
+   "ty": 3,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "cave_guide",
+   "sprite": "tour_guide",
+   "x": 5,
+   "y": 1,
+   "facing": "down",
+   "move": "still",
+   "script": "cave_guide"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  5,
+  6
+ ],
+ "dark": true,
+ "rows": [
+  "xxxxxxxxxxx",
+  "x+++++++++x",
+  "x+++++++++x",
+  "x+++++++++x",
+  "x+++++++++x",
+  "x+++++++++x",
+  "x+++++++++x",
+  "x++++D++++x",
+  "xxxxxxxxxxx"
+ ]
+}

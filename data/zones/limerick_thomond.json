@@ -1,0 +1,129 @@
+{
+ "id": "limerick_thomond",
+ "name": "Thomond Park",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "statue",
+   "x": 2,
+   "y": 1
+  },
+  {
+   "type": "statue",
+   "x": 14,
+   "y": 1
+  },
+  {
+   "type": "table",
+   "x": 7,
+   "y": 3
+  },
+  {
+   "type": "table",
+   "x": 9,
+   "y": 3
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 9
+  },
+  {
+   "type": "potted_plant",
+   "x": 15,
+   "y": 9
+  },
+  {
+   "type": "rugby_posts",
+   "x": 8,
+   "y": 2
+  },
+  {
+   "type": "floodlight",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "floodlight",
+   "x": 15,
+   "y": 1
+  },
+  {
+   "type": "stadium_stand",
+   "x": 1,
+   "y": 5
+  },
+  {
+   "type": "stadium_stand",
+   "x": 15,
+   "y": 5
+  },
+  {
+   "type": "pitch_line",
+   "x": 8,
+   "y": 4,
+   "walk": true
+  }
+ ],
+ "warps": [
+  {
+   "x": 8,
+   "y": 10,
+   "to": "limerick",
+   "tx": 9,
+   "ty": 9,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "thomond_groundsman",
+   "sprite": "farmer",
+   "x": 3,
+   "y": 8,
+   "facing": "right",
+   "move": "still",
+   "script": "thomond_groundsman",
+   "name": "Groundsman"
+  },
+  {
+   "id": "lim_prop",
+   "sprite": "rugby_player",
+   "x": 8,
+   "y": 5,
+   "facing": "down",
+   "move": "still",
+   "trainer": "lim_prop"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  8,
+  9
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxxxxx",
+  "x+++++++++++++++x",
+  "x+ggggggggggggg+x",
+  "x+ggggggggggggg+x",
+  "x+ggggggggggggg+x",
+  "x+ggggggggggggg+x",
+  "x+ggggggggggggg+x",
+  "x+ggggggggggggg+x",
+  "x+++++++++++++++x",
+  "x+++++++++++++++x",
+  "x+++++++D+++++++x",
+  "xxxxxxxxxxxxxxxxx"
+ ],
+ "legend_extra": {
+  "g": {
+   "tile": "grass",
+   "colour": "#4f8a3a"
+  }
+ }
+}

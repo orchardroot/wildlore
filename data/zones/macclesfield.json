@@ -484,6 +484,10 @@
   "east": {
    "to": "macc_forest",
    "offset": 0
+  },
+  "south": {
+   "to": "the_roaches",
+   "offset": 0
   }
  },
  "npcs": [
@@ -495,10 +499,7 @@
    "facing": "down",
    "move": "pace",
    "script": "silk_fan",
-   "path": [
-    "left",
-    "left"
-   ]
+   "path": ["left", "left"]
   },
   {
    "id": "steps_man",
@@ -508,10 +509,7 @@
    "facing": "right",
    "move": "pace",
    "script": "steps_man",
-   "path": [
-    "left",
-    "left"
-   ]
+   "path": ["left", "left"]
   },
   {
    "id": "pigeon_lady",
@@ -521,10 +519,7 @@
    "facing": "down",
    "move": "wander",
    "script": "pigeon_lady",
-   "times": [
-    "day",
-    "dusk"
-   ]
+   "times": ["day", "dusk"]
   },
   {
    "id": "weather_man",
@@ -534,10 +529,7 @@
    "facing": "up",
    "move": "pace",
    "script": "weather_man",
-   "path": [
-    "left",
-    "left"
-   ]
+   "path": ["left", "left"]
   },
   {
    "id": "jogger_flav",
@@ -547,10 +539,7 @@
    "facing": "right",
    "move": "wander",
    "script": "jogger_flav",
-   "times": [
-    "day",
-    "dusk"
-   ]
+   "times": ["day", "dusk"]
   },
   {
    "id": "hiker_flav",
@@ -602,6 +591,28 @@
    "script": "gate",
    "name": "Morris Man",
    "hide_if": "starter"
+  },
+  {
+   "id": "potteries_gate_farmer",
+   "sprite": "farmer",
+   "x": 33,
+   "y": 36,
+   "facing": "up",
+   "move": "still",
+   "script": "potteries_gate",
+   "name": "Farmer",
+   "hide_if": "kit1_fought"
+  },
+  {
+   "id": "potteries_gate_neighbour",
+   "sprite": "villager_3",
+   "x": 34,
+   "y": 36,
+   "facing": "up",
+   "move": "still",
+   "script": "potteries_gate",
+   "name": "Mum's Neighbour",
+   "hide_if": "kit1_fought"
   }
  ],
  "encounters": {},
@@ -631,7 +642,42 @@
    "y": 34,
    "text": "BLUE PLAQUE: Macclesfield has woven silk since the 1700s and was one of the great silk towns of England. The Jacquard looms in this mill worked until 1981.",
    "kind": "plaque",
-   "dx": 0.475
+   "dx": 0.475,
+   "plaque": "macclesfield_paradise_mill",
+   "title": "Paradise Mill"
+  },
+  {
+   "x": 38,
+   "y": 27,
+   "plaque": "macclesfield_name",
+   "title": "Name: Macclesfield",
+   "text": "Macclesfield comes from Old English: the 'feld', or open land, of a man called Maccel. The place was already in the Domesday Book in 1086. Nobody knows anything else about Maccel, which seems a shame, as he got a whole town named after him."
+  },
+  {
+   "x": 15,
+   "y": 16,
+   "plaque": "macclesfield_treacle_town",
+   "title": "Treacle Town",
+   "text": "Macclesfield's old nickname is Treacle Town. The story goes that a cart of treacle overturned in the street and the townsfolk, never ones to waste a gift, scooped it up off the cobbles. True or not, the Treacle Market still fills the town on the last Sunday of the month."
+  },
+  {
+   "x": 42,
+   "y": 8,
+   "plaque": "macclesfield_108_steps",
+   "title": "The 108 Steps",
+   "text": "The 108 Steps climb from Waters Green, down by the river and the railway, up to St Michael's and the Market Place. The old town sits on top of a steep bank, which is why Macclesfield has hills where other towns have streets. Bring breath."
+  },
+  {
+   "x": 16,
+   "y": 12,
+   "plaque": "macclesfield_silk_buttons",
+   "title": "Silk Buttons",
+   "text": "Before the big mills, Macclesfield's silk went into buttons. In the 1600s and 1700s families covered button moulds with silk thread by hand, at home, and sold them far beyond Cheshire. The humble button is how silk got its foot in the door here."
+  },
+  {
+   "x": 32,
+   "y": 36,
+   "text": "FOOTPATH. South: the Roaches, Rudyard Lake and Stoke-on-Trent. Please shut the gate behind you. The sheep have plans."
   }
  ],
  "spawn": [
@@ -675,8 +721,8 @@
   "TTT..............f......##...BBBBBBBBBBBBB.......TTT",
   "TTT.....f....f..........##f..BBBBBBDBBBBBB.......TTT",
   "TTTTTTTTTTTTTTTTTTTTTPTTT###########TTTTTTTTTTTTTTTT",
-  "TTTTTTTTTTTTTTTTTTTTTTTTPPTTTTT.........PTTTTTTTTTTT",
-  "TTTTTTTTTTPTTTTPTTTTTTTTPTTTTTT.........PTTTTTTTTTTT"
+  "TTTTTTTTTTTTTTTTTTTTTTTTPPTTTTTT.##HTTTTPTTTTTTTTTTT",
+  "TTTTTTTTTTPTTTTPTTTTTTTTPTTTTTTTH##HTTTTPTTTTTTTTTTT"
  ],
  "heights": [
   "0000000000000000000000000000000000000000000000000000",

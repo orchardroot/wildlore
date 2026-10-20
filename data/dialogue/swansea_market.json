@@ -1,0 +1,116 @@
+{
+ "mkt_megan": [
+  {
+   "do": "if",
+   "flag": "q_swansea_cockles_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Megan Laverbread",
+     "text": "My best customer! Laverbread's laver seaweed, picked off the rocks, boiled for hours till it's a black pur\u00e9e. Richard Burton called it Welshman's caviar."
+    },
+    {
+     "do": "say",
+     "who": "Megan Laverbread",
+     "text": "Fry it in a little cake with oatmeal, next to cockles and bacon. That's a Swansea breakfast. Anything else is just toast."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_swansea_cockles_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "Megan Laverbread",
+       "text": "Penclawdd cockles! Proper ones, the size of a thumbnail, raked off the sands this morning. Look at you. A natural."
+      },
+      {
+       "do": "set",
+       "flag": "q_swansea_cockles_done",
+       "value": true
+      },
+      {
+       "do": "say",
+       "who": "Megan Laverbread",
+       "text": "Sit down there. Cockles, laverbread, bacon, a fried egg, a pot of tea. Proper Swansea breakfast. Then take some for the road."
+      },
+      {
+       "do": "give_item",
+       "item": "laverbread",
+       "n": 4
+      },
+      {
+       "do": "give_item",
+       "item": "welsh_cake",
+       "n": 6
+      },
+      {
+       "do": "standing",
+       "nation": "wales",
+       "amount": 5
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_swansea_cockles_started",
+       "then": [
+        {
+         "do": "say",
+         "who": "Megan Laverbread",
+         "text": "Out west on the north shore of Gower, past the salt marsh. Penclawdd. Ask for Dilys on the cockle beds."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Megan Laverbread",
+         "text": "Shwmae! Laverbread, cockles, the finest stall in the market. Only I'm out of cockles, and the boy who fetches them has gone to Tenerife."
+        },
+        {
+         "do": "say",
+         "who": "Megan Laverbread",
+         "text": "Could you nip out to Penclawdd on the Gower and fetch me a bag? Dilys on the sands will see you right. I'll do you a breakfast you'll tell your grandchildren about."
+        },
+        {
+         "do": "set",
+         "flag": "q_swansea_cockles_started",
+         "value": true
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "mkt_baker": [
+  {
+   "do": "say",
+   "who": "Welsh Cake Stall",
+   "text": "Picau ar y maen, cakes on the stone. Flour, butter, sugar, currants, cooked on a hot bakestone. Never an oven. An oven is for English people and scones."
+  },
+  {
+   "do": "shop",
+   "id": "swansea_market_stall"
+  },
+  {
+   "do": "say",
+   "who": "Welsh Cake Stall",
+   "text": "Diolch, bach. Eat them warm with a bit of sugar on, and don't tell your dentist."
+  }
+ ],
+ "mkt_shopper": [
+  {
+   "do": "say",
+   "who": "Shopper",
+   "text": "I come in for a pound of cockles and come out with a Welsh cake, a bag of bara brith, a plant and a new kettle. Every week."
+  },
+  {
+   "do": "say",
+   "who": "Shopper",
+   "text": "The roof's all glass. On a sunny day it's like shopping in a greenhouse full of gossip."
+  }
+ ]
+}

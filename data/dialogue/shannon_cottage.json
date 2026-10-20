@@ -1,0 +1,65 @@
+{
+ "bean_an_ti": [
+  {
+   "do": "if",
+   "flag": "q_limerick_banquet_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_limerick_banquet_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "Bean an T\u00ed",
+       "text": "Mind the bread doesn't get dropped in the moat."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Bean an T\u00ed",
+       "text": "Brown bread for the Butler? It's just out of the bastable. That's a pot oven, on the turf fire, with coals heaped on the lid."
+      },
+      {
+       "do": "say",
+       "who": "Bean an T\u00ed",
+       "text": "Buttermilk, wholemeal, soda, salt. No yeast. And a cross cut on top to let the fairies out."
+      },
+      {
+       "do": "set",
+       "flag": "q_limerick_banquet_2"
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "You've got a warm loaf of brown bread for the banquet."
+      }
+     ]
+    }
+   ],
+   "else": []
+  },
+  {
+   "do": "say",
+   "who": "Bean an T\u00ed",
+   "text": "Bean an t\u00ed, that's 'woman of the house'. Sit in by the fire. The kettle's always on the crane."
+  },
+  {
+   "do": "say",
+   "who": "Bean an T\u00ed",
+   "text": "In the old days the fire never went out. It was raked over with ashes at night and blown back to life in the morning. Two hundred years, some hearths."
+  }
+ ],
+ "cottage_settle": [
+  {
+   "do": "say",
+   "who": "Old Farmer",
+   "text": "That's a settle bed. A bench by day, a bed by night, for whichever child lost the argument."
+  },
+  {
+   "do": "say",
+   "who": "Old Farmer",
+   "text": "The half-door? Top open for light and chat, bottom shut for the hens and the pig. Very civilised."
+  }
+ ]
+}

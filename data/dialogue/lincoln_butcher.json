@@ -1,0 +1,37 @@
+{
+ "lin_butcher": [
+  {
+   "do": "if",
+   "flag": "q_humber_imp_1",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_humber_imp_2",
+     "then": [],
+     "else": [
+      {
+       "do": "say",
+       "who": "Sausage Maker",
+       "text": "A little stone lad? Ha! He was in here, licking the window. Then he legged it up to Minster Yard and sat on the wall pulling faces at the tourists."
+      },
+      {
+       "do": "set",
+       "flag": "q_humber_imp_2",
+       "value": true
+      }
+     ]
+    }
+   ],
+   "else": []
+  },
+  {
+   "do": "say",
+   "who": "Sausage Maker",
+   "text": "Lincolnshire sausages: coarse-chopped pork, plenty of sage, nothing daft. Want some?"
+  },
+  {
+   "do": "shop",
+   "id": "lincoln_butcher"
+  }
+ ]
+}

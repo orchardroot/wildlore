@@ -1,0 +1,32 @@
+{
+ "id": "bp_lifeguard",
+ "name": "Lifeguard Shannon",
+ "class": "Lifeguard",
+ "sprite": "surfer",
+ "party": [
+  {
+   "species": "pupplash",
+   "level": 19
+  },
+  {
+   "species": "pinchkin",
+   "level": 19
+  },
+  {
+   "species": "gannetling",
+   "level": 20
+  }
+ ],
+ "ai": "trainer",
+ "money": 860,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Lifeguard Shannon",
+   "text": "Red flag's up, so nobody's swimming. That leaves me with plenty of time to battle you!"
+  }
+ ],
+ "win": "Rescued! I mean, beaten. Same feeling.",
+ "after": "The Irish Sea's cold even in August. Locals call it bracing. Visitors call it a mistake.",
+ "scaled_floor": 18
+}

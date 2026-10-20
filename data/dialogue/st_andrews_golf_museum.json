@@ -1,0 +1,122 @@
+{
+ "sta_caddie": [
+  {
+   "do": "if",
+   "flag": "q_fife_golf_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_fife_golf_1",
+     "then": [
+      {
+       "do": "say",
+       "who": "Old Tam",
+       "text": "You've my say-so already. Away to the first tee and give them a fright."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Old Tam",
+       "text": "So the Starter sent you. Right. Three questions. Get them right and you've my say-so. Get them wrong and go and read the plaques on the course like everybody else."
+      },
+      {
+       "do": "choice",
+       "text": "Which hole is the Road Hole?",
+       "options": [
+        "The 1st",
+        "The 17th",
+        "The 18th"
+       ],
+       "set": "_fife_tam_1"
+      },
+      {
+       "do": "if",
+       "flag": "_fife_tam_1",
+       "then": [
+        {
+         "do": "choice",
+         "text": "What crosses the Swilcan Burn on the 1st and 18th?",
+         "options": [
+          "A ford",
+          "The Swilcan Bridge",
+          "A wee ferry"
+         ],
+         "set": "_fife_tam_2"
+        },
+        {
+         "do": "if",
+         "flag": "_fife_tam_2",
+         "then": [
+          {
+           "do": "choice",
+           "text": "And Hell Bunker. Which hole?",
+           "options": [
+            "The 14th",
+            "The 9th",
+            "The 3rd"
+           ],
+           "set": "_fife_tam_3"
+          },
+          {
+           "do": "if",
+           "flag": "_fife_tam_3",
+           "then": [
+            {
+             "do": "say",
+             "who": "Old Tam",
+             "text": "Spot on, all three. You've been reading. Tell the Starter Old Tam says you'll do."
+            },
+            {
+             "do": "set",
+             "flag": "q_fife_golf_1",
+             "value": true
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Old Tam",
+             "text": "No. Away and look at the plaque by the big bunker, then come back."
+            }
+           ],
+           "eq": 0
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Old Tam",
+           "text": "No. The plaque by the burn will put you right."
+          }
+         ],
+         "eq": 1
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Old Tam",
+         "text": "No. Seventeen is the Road Hole. Go and read the plaque by its bunker and come back."
+        }
+       ],
+       "eq": 1
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Old Tam",
+     "text": "In here you'll see featheries: leather balls stuffed with boiled goose feathers. A good ball maker managed a few a day. Then in the 1840s came the gutty, made of gutta-percha, and everybody could afford to lose a ball."
+    },
+    {
+     "do": "say",
+     "who": "Old Tam",
+     "text": "And the old clubs had names, not numbers: the niblick, the mashie, the cleek, the spoon. A spoon! Imagine telling your mother you're off out with your spoon."
+    }
+   ]
+  }
+ ]
+}

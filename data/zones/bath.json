@@ -7,6 +7,10 @@
   "west": {
    "offset": 0.0,
    "to": "severn_crossing"
+  },
+  "north": {
+   "to": "avon_gorge",
+   "offset": 0
   }
  },
  "encounters": {
@@ -21,10 +25,7 @@
     "max": 40.0,
     "min": 40.0,
     "species": "sulisa",
-    "weather": [
-     "drizzle",
-     "fog"
-    ],
+    "weather": ["drizzle", "fog"],
     "weight": 6.0
    },
    {
@@ -37,28 +38,21 @@
     "max": 40.0,
     "min": 39.0,
     "species": "murmurant",
-    "time": [
-     "dusk"
-    ],
+    "time": ["dusk"],
     "weight": 16.0
    },
    {
     "max": 40.0,
     "min": 39.0,
     "species": "stormswift",
-    "time": [
-     "dawn",
-     "day"
-    ],
+    "time": ["dawn", "day"],
     "weight": 14.0
    },
    {
     "max": 40.0,
     "min": 38.0,
     "species": "flittermouse",
-    "time": [
-     "night"
-    ],
+    "time": ["night"],
     "weight": 14.0
    },
    {
@@ -90,8 +84,8 @@
   ]
  },
  "heights": [
-  "000000000000000000000000000000000000000000000000000000000000",
-  "000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000002220000000000000000000000000000000000000",
+  "000000000000000000002220000000000000000000000000000000000000",
   "002222222222222222222222222222000000000000000000000000000000",
   "002222222222222222222222222222000000000000000000000000000000",
   "002222222222222222222222222222000000000000000000000000000000",
@@ -923,9 +917,9 @@
  ],
  "region": "south_england",
  "rows": [
-  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
-  "TTTTTTTTTTTTTTPTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTPTTTT",
-  "TT........................................................TT",
+  "TTTTTTTTTTTTTTTTTTTT.#.TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTPTTTTT.#.TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTPTTTT",
+  "TT...................#....................................TT",
   "TT...HHHHHHHHHHHHHHHHHHHHHH................s~~~~~~s.......TT",
   "TT.........................................s~~~~~~s.......TT",
   "TT...........BBBBB.........................s~~~~~~s.,,,,,.TT",
@@ -1013,7 +1007,42 @@
    "y": 17,
    "text": "BLUE PLAQUE: Jane Austen, novelist, lived in Bath from 1801 to 1806, first at 4 Sydney Place.",
    "kind": "plaque",
-   "dx": -0.475
+   "dx": -0.475,
+   "plaque": "bath_austen",
+   "title": "Jane Austen"
+  },
+  {
+   "x": 13,
+   "y": 8,
+   "plaque": "bath_circus",
+   "title": "The Circus",
+   "text": "Up the hill from the Crescent is the Circus, a ring of grand townhouses begun in 1754 by John Wood the Elder and finished by his son. Wood was fascinated by Stonehenge and the Druids, and stone acorns line the roof. Bath does love a circle."
+  },
+  {
+   "x": 42,
+   "y": 18,
+   "plaque": "bath_ralph_allen",
+   "title": "Ralph Allen",
+   "text": "Ralph Allen made one fortune reforming the postal service and another from his stone mines at Combe Down, south of the city. His limestone built much of Georgian Bath, and he built the mansion of Prior Park on the hillside to show it off."
+  },
+  {
+   "x": 9,
+   "y": 38,
+   "plaque": "bath_box_tunnel",
+   "title": "Box Tunnel",
+   "text": "When Brunel's Great Western Railway opened all the way from London to Bristol in 1841, the last piece was Box Tunnel, east of Bath, nearly two miles long. Legend says the rising sun shines straight through it on 9 April, Brunel's birthday."
+  },
+  {
+   "x": 37,
+   "y": 35,
+   "plaque": "bath_bladud",
+   "title": "King Bladud",
+   "text": "Legend says Bladud, a prince with leprosy, was cured by the hot mud here and founded Bath. Geoffrey of Monmouth made him the father of King Lear, and says he died trying to fly over London on wings he had made himself. Ambitious family."
+  },
+  {
+   "x": 23,
+   "y": 2,
+   "text": "FOOTPATH. North to the Avon Gorge, Clifton and Bristol. Twelve miles, give or take a goat."
   }
  ],
  "spawn": [

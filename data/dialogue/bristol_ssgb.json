@@ -1,0 +1,75 @@
+{
+ "ssgb_guide": [
+  {
+   "do": "say",
+   "who": "Ship Guide",
+   "text": "Welcome aboard the SS Great Britain! This is the first-class dining saloon. White and gold, pillars, mirrors: very swish."
+  },
+  {
+   "do": "say",
+   "who": "Ship Guide",
+   "text": "When she was launched in 1843 she was the longest ship in the world, and the first big iron ship with a propeller to cross the Atlantic."
+  },
+  {
+   "do": "say",
+   "who": "Ship Guide",
+   "text": "Down below, the dry dock's sealed under a glass 'sea' so you can walk under her hull. Dry air keeps the old iron from rusting away."
+  },
+  {
+   "do": "if",
+   "flag": "q_bristol_brunel_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_bristol_brunel_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "Ship Guide",
+       "text": "Back to Temple Meads with that notebook! Prudence will want to hear all about it."
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_bristol_brunel_1",
+       "then": [
+        {
+         "do": "say",
+         "who": "Ship Guide",
+         "text": "Brunel's notebook? Page two: 'Great Britain. Iron hull. Screw propeller.' He changed his mind from paddle wheels halfway through building her."
+        },
+        {
+         "do": "say",
+         "who": "Ship Guide",
+         "text": "Paddles were the old way. A screw propeller sits under the water, out of harm's way. The navy took note, I can tell you."
+        },
+        {
+         "do": "say",
+         "who": "Ship Guide",
+         "text": "There, the ship's stamp. Off to Temple Meads to finish the trail."
+        },
+        {
+         "do": "set",
+         "flag": "q_bristol_brunel_2"
+        },
+        {
+         "do": "sfx",
+         "id": "item"
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Ship Guide",
+         "text": "Brunel's notebook! But you've skipped a page. Start at the bridge, up the gorge. Brunel would want it done in order."
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "else": []
+  }
+ ]
+}

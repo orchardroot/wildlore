@@ -1,0 +1,170 @@
+{
+ "id": "belfast_bookies",
+ "name": "Lagan Betting Shop",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "tote_board",
+   "x": 1,
+   "y": 1,
+   "variant": 21,
+   "walk": true
+  },
+  {
+   "type": "tote_board",
+   "x": 2,
+   "y": 1,
+   "variant": 22,
+   "walk": true
+  },
+  {
+   "type": "tote_board",
+   "x": 10,
+   "y": 1,
+   "variant": 30,
+   "walk": true
+  },
+  {
+   "type": "tote_board",
+   "x": 11,
+   "y": 1,
+   "variant": 31,
+   "walk": true
+  },
+  {
+   "type": "clock",
+   "x": 9,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "table",
+   "x": 1,
+   "y": 5
+  },
+  {
+   "type": "table",
+   "x": 11,
+   "y": 5
+  },
+  {
+   "type": "slot_machine",
+   "x": 11,
+   "y": 3,
+   "variant": 1
+  },
+  {
+   "type": "wall_picture",
+   "x": 5,
+   "y": 1,
+   "walk": true,
+   "variant": 3
+  },
+  {
+   "type": "rug",
+   "x": 5,
+   "y": 3,
+   "w": 3,
+   "h": 1,
+   "variant": 1,
+   "walk": true
+  },
+  {
+   "type": "menu_board",
+   "x": 2,
+   "y": 7
+  },
+  {
+   "type": "table",
+   "x": 1,
+   "y": 3
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 8,
+   "to": "belfast",
+   "tx": 20,
+   "ty": 41,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "belfast_bookies_clerk",
+   "sprite": "villager_2",
+   "x": 6,
+   "y": 1,
+   "facing": "down",
+   "move": "still",
+   "name": "Counter Clerk",
+   "script": "clerk"
+  },
+  {
+   "id": "belfast_bookies_punter",
+   "sprite": "villager_4",
+   "x": 3,
+   "y": 5,
+   "facing": "up",
+   "move": "still",
+   "name": "Punter",
+   "text": "What about ye? (That's hello, by the way.) I've a wee double on. If the first one comes in I'm buying the fish suppers."
+  },
+  {
+   "id": "belfast_bookies_regular",
+   "sprite": "fisherman_north",
+   "x": 9,
+   "y": 6,
+   "facing": "left",
+   "move": "still",
+   "name": "Regular",
+   "text": "Thon horse is a dead cert. (Thon: that one there.) Mind you, so was the last one, and it's still running."
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "plaque": "belfast_fractional_odds",
+   "title": "Fractional Odds",
+   "text": "FRACTIONAL ODDS. Bookies in Britain and Ireland quote odds as fractions. At 5/2 a £2 bet wins £5, and you get your £2 back. Evens doubles your money. And 100/30, the oddest price on the board, is just a shade better than 3/1.",
+   "x": 3,
+   "y": 0
+  }
+ ],
+ "spawn": [
+  6,
+  7
+ ],
+ "stage": "city",
+ "legend_extra": {
+  "c": {
+   "tile": "floor_tile",
+   "colour": "#5a5e66"
+  },
+  "e": {
+   "tile": "floor_tile",
+   "colour": "#50545c"
+  },
+  "n": {
+   "tile": "floor_wood",
+   "colour": "#6a4a32"
+  }
+ },
+ "rows": [
+  "xxxxxxxxxxxxx",
+  "xnnnnnnnnnnnx",
+  "xeccCCCCCccex",
+  "xcccecccceccx",
+  "xcecccceccccx",
+  "xcccceccccecx",
+  "xcceccccecccx",
+  "xecccceccccex",
+  "xcccecDcceccx",
+  "xxxxxxxxxxxxx"
+ ]
+}

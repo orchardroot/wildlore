@@ -1,0 +1,22 @@
+{"id": "hellbunker",
+ "palette": {"turf": "#5e8a34", "turf2": "#3e6222", "soil": "#7a5a34", "sand": "#e4d098", "sand2": "#c8b070", "pit": "#6a5636", "cloud": "#6a7380", "cloud2": "#8a94a2", "bolt": "#ffe24a", "ball": "#f6f6f0", "ink": "#1e1a12", "eye": "#f4e36a", "rake": "#a87a44"},
+ "layers": [
+  {"shape": "ellipse", "at": [48, 90], "size": [88, 10], "colour": "turf2", "rim": false},
+  {"shape": "poly", "points": [[10, 44], [86, 44], [92, 88], [4, 88]], "colour": "turf", "pattern": "stripes", "pcolour": "soil", "period": 6, "pangle": 90},
+  {"shape": "ellipse", "at": [48, 42], "size": [88, 24], "colour": "sand", "pattern": "speckle", "pcolour": "sand2", "density": 30},
+  {"shape": "ellipse", "at": [48, 43], "size": [58, 11], "colour": "pit", "rim": false},
+  {"shape": "circle", "at": [70, 39], "r": 3.5, "colour": "ball"},
+  {"shape": "line", "points": [[16, 40], [8, 20]], "width": 2.4, "colour": "rake", "shade": false},
+  {"shape": "rect", "at": [8, 19], "size": [12, 3], "colour": "rake", "rim": false},
+  {"shape": "ellipse", "at": [56, 14], "size": [38, 14], "colour": "cloud", "pattern": "speckle", "pcolour": "cloud2", "density": 20},
+  {"shape": "ellipse", "at": [72, 10], "size": [24, 12], "colour": "cloud2"},
+  {"shape": "poly", "points": [[62, 18], [56, 28], [61, 28], [55, 38], [67, 25], [62, 25], [67, 18]], "colour": "bolt", "shade": false}
+ ],
+ "face_layers": [
+  {"shape": "line", "points": [[28, 54], [42, 60]], "width": 3, "colour": "ink", "shade": false, "mirror": true},
+  {"shape": "rect", "at": [48, 76], "size": [36, 9], "round": 3, "colour": "ink", "rim": false},
+  {"shape": "rect", "at": [42, 74], "size": [4, 3], "colour": "sand", "rim": false, "shade": false},
+  {"shape": "rect", "at": [54, 74], "size": [4, 3], "colour": "sand", "rim": false, "shade": false}
+ ],
+ "eyes": [{"at": [37, 64], "r": 4.5, "mirror": true, "colour": "eye"}]
+}

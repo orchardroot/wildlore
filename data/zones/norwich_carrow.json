@@ -1,0 +1,115 @@
+{
+ "id": "norwich_carrow",
+ "name": "Carrow Road",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "stadium_stand",
+   "x": 3,
+   "y": 1,
+   "variant": 0
+  },
+  {
+   "type": "stadium_stand",
+   "x": 13,
+   "y": 1,
+   "variant": 0
+  },
+  {
+   "type": "pitch_line",
+   "x": 8,
+   "y": 5
+  },
+  {
+   "type": "floodlight",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "floodlight",
+   "x": 15,
+   "y": 1
+  },
+  {
+   "type": "enclosure_banner",
+   "x": 8,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "bench",
+   "x": 3,
+   "y": 7
+  },
+  {
+   "type": "bench",
+   "x": 4,
+   "y": 7
+  },
+  {
+   "type": "bench",
+   "x": 12,
+   "y": 7
+  },
+  {
+   "type": "bench",
+   "x": 13,
+   "y": 7
+  }
+ ],
+ "warps": [
+  {
+   "x": 8,
+   "y": 9,
+   "to": "norwich",
+   "tx": 67,
+   "ty": 44,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "carrow_kitman",
+   "sprite": "steelworker",
+   "x": 8,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "carrow_kitman",
+   "name": "Kit Man"
+  },
+  {
+   "id": "carrow_fan",
+   "sprite": "festival_goer",
+   "x": 13,
+   "y": 5,
+   "facing": "left",
+   "move": "still",
+   "script": "carrow_fan",
+   "name": "Old Fan"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  8,
+  8
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxxxxx",
+  "x+++++++++++++++x",
+  "x+++++++++++++++x",
+  "x+++++++++++++++x",
+  "x+++++++++++++++x",
+  "x+++++++++++++++x",
+  "x+++++++++++++++x",
+  "x+++++++++++++++x",
+  "x+++++++++++++++x",
+  "x+++++++D+++++++x",
+  "xxxxxxxxxxxxxxxxx"
+ ]
+}

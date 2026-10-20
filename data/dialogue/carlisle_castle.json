@@ -1,0 +1,99 @@
+{
+ "castle_warden": [
+  {
+   "do": "say",
+   "who": "Castle Warden",
+   "text": "Mind your head. Mind your feet. Mind the Jacobite graffiti, it is older than your nan."
+  },
+  {
+   "do": "choice",
+   "text": "Ask about...",
+   "options": [
+    "The keep",
+    "Border reivers",
+    "Carved prisoners",
+    "That's plenty, thanks"
+   ],
+   "set": "_t_warden"
+  },
+  {
+   "do": "if",
+   "flag": "_t_warden",
+   "eq": 0,
+   "then": [
+    {
+     "do": "say",
+     "who": "Castle Warden",
+     "text": "The keep dates from the 1100s and its walls are thick enough to lose a family in. It was the northern wall of England for centuries, and the Scots took it, the English took it back, and a lot of local families took whatever was loose."
+    },
+    {
+     "do": "say",
+     "who": "Castle Warden",
+     "text": "The castle sits on a rock above the River Eden. The north side has a drop that would make a goat think twice."
+    }
+   ],
+   "else": []
+  },
+  {
+   "do": "if",
+   "flag": "_t_warden",
+   "eq": 1,
+   "then": [
+    {
+     "do": "say",
+     "who": "Castle Warden",
+     "text": "On both sides of the Border, whole families lived by raiding each other, from the 1300s to 1603, when James VI and I took the crowns of both and tidied the frontier into 'the Middle Shires'. This castle was where many ended up in the dungeon."
+    },
+    {
+     "do": "say",
+     "who": "Castle Warden",
+     "text": "Reivers rode light, in steel bonnets and quilted jacks, and could cover a great deal of country in a night. They knew every ford and bog, which is why catching them took so long."
+    }
+   ],
+   "else": []
+  },
+  {
+   "do": "if",
+   "flag": "_t_warden",
+   "eq": 2,
+   "then": [
+    {
+     "do": "say",
+     "who": "Castle Warden",
+     "text": "Prisoners carved the walls, mostly their names, dates and clever pictures of ships and of Scots pipers, with nothing else to do. 'The Licking Stones' mark where prisoners are said to have licked moisture off the wall to survive. We keep them dry now, for safety."
+    },
+    {
+     "do": "say",
+     "who": "Castle Warden",
+     "text": "I always find the little ships the most touching."
+    }
+   ],
+   "else": []
+  },
+  {
+   "do": "if",
+   "flag": "_t_warden",
+   "eq": 3,
+   "then": [
+    {
+     "do": "say",
+     "who": "Castle Warden",
+     "text": "Come back any time. History keeps."
+    }
+   ],
+   "else": []
+  }
+ ],
+ "castle_prisoner": [
+  {
+   "do": "say",
+   "who": "Re-enactor",
+   "text": "I'm in character as a prisoner. It's the most realistic job in the castle. The pay is also authentic."
+  },
+  {
+   "do": "say",
+   "who": "Re-enactor",
+   "text": "Fun fact: in 1568 Mary Queen of Scots turned up with hardly a thing to her name, and the castle was not warned."
+  }
+ ]
+}

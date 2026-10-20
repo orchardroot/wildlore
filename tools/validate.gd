@@ -20,6 +20,8 @@ func _initialize() -> void:
 				var path := ("res://art/sprites/creatures/%s_icon.png" % sid.substr(9)) if sid.begins_with("creature:") else ("res://art/sprites/chars/%s.png" % sid)
 				if not FileAccess.file_exists(path):
 					errors.append("zone %s: npc '%s' sprite '%s' has no art" % [zid, n.get("id", ""), sid])
+	errors.append_array(Quests.validate(Quests.all(), zones, Quests.all_settable()))  # data/quests: zones, flags set somewhere
+	errors.append_array(Gazetteer.validate(Gazetteer.all()))  # heritage plaques: unique ids, titles, no em-dashes
 	errors.append_array(Knacks.check(dex))  # every line has a knack, legends their own
 	errors.append_array(Coverage.check(dex, zones))
 	errors.append_array(Coverage.reachability(zones, JsonUtil.read("res://data/ferries.json"), Coverage.script_warp_targets()))

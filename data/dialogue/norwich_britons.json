@@ -1,0 +1,62 @@
+{
+ "britons_owner": [
+  {
+   "do": "say",
+   "who": "Cafe Owner",
+   "text": "The Britons Arms is the only thatched building left in the middle of Norwich. It's six hundred years old and survived the great fire of 1507 that burnt most of Elm Hill."
+  },
+  {
+   "do": "say",
+   "who": "Cafe Owner",
+   "text": "It may once have been a house for beguines: religious women living together, without being nuns. Now it's tea and cake. Still a sort of religion."
+  }
+ ],
+ "britons_regular": [
+  {
+   "do": "say",
+   "who": "Regular",
+   "text": "They say Norwich had a church for every week of the year and a pub for every day. Thirty-one medieval churches still stand inside the old city walls. More than any city north of the Alps."
+  },
+  {
+   "do": "say",
+   "who": "Regular",
+   "text": "Pubs, we've lost a few. Churches, too, but those just turn into puppet theatres and climbing walls. Norwich doesn't waste a building."
+  }
+ ],
+ "norwich_quizmaster": [
+  {
+   "do": "say",
+   "who": "Quizmaster",
+   "text": "Quiz time! It's a tea-room quiz, so no shouting, and the prize is cake."
+  },
+  {
+   "do": "choice",
+   "text": "Fancy a round? Five questions, no phones.",
+   "options": [
+    "Count me in",
+    "Not tonight"
+   ],
+   "set": "_quiz_choice"
+  },
+  {
+   "do": "if",
+   "flag": "_quiz_choice",
+   "then": [
+    {
+     "do": "quiz",
+     "pub": "norwich_britons",
+     "region": "england_south",
+     "who": "Quizmaster"
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Quizmaster",
+     "text": "Fare you well, then. The cake will keep. It's very dense."
+    }
+   ],
+   "eq": 0
+  }
+ ]
+}

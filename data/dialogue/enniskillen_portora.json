@@ -1,0 +1,61 @@
+{
+ "en_librarian": [
+  {
+   "do": "if",
+   "flag": "q_fermanagh_ms_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_fermanagh_ms_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "School Librarian",
+       "text": "That was the only page. The rest of the shelves are a disgrace, but they're our disgrace."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "School Librarian",
+       "text": "A vellum page? Yes! It came in through the window on the wind and landed in the Classics section. I very nearly catalogued it."
+      },
+      {
+       "do": "say",
+       "who": "School Librarian",
+       "text": "Beautiful hand. There's a note in the margin in Old Irish. I think it says the ink's gone thick and the light is bad. Teachers have been saying that for a thousand years."
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "{player} tucks the vellum page carefully into the Fieldbook."
+      },
+      {
+       "do": "set",
+       "flag": "q_fermanagh_ms_2"
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "School Librarian",
+     "text": "{greeting} Portora Royal School, founded under King James I in 1608. Oscar Wilde won a gold medal for Classics here. Samuel Beckett was better at cricket than at French, and then went off to write plays in French. Go figure."
+    },
+    {
+     "do": "say",
+     "who": "School Librarian",
+     "text": "Since 2016 the school has been part of Enniskillen Royal Grammar School. The ghosts of the old boys complain about the paperwork."
+    }
+   ]
+  }
+ ],
+ "en_pupil": [
+  {
+   "do": "say",
+   "who": "Pupil",
+   "text": "{greeting} Our English teacher makes us read Waiting for Godot every year. Two men wait for somebody who never comes. It's basically the school bus."
+  }
+ ]
+}

@@ -1,0 +1,90 @@
+{
+ "queens_student": [
+  {
+   "do": "say",
+   "who": "Student",
+   "text": "Queens' with the apostrophe after the s, because it was founded by two queens: Margaret of Anjou in 1448 and Elizabeth Woodville in 1465."
+  },
+  {
+   "do": "say",
+   "who": "Student",
+   "text": "They were on opposite sides of the Wars of the Roses. Our college is basically a very old, very polite argument."
+  }
+ ],
+ "queens_porter": [
+  {
+   "do": "if",
+   "flag": "q_eastanglia_punt_1",
+   "then": [
+    {
+     "do": "say",
+     "who": "Porter",
+     "text": "Off you go, then. And if anyone says Newton built that bridge, you know what to tell them."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_eastanglia_punt_started",
+     "then": [
+      {
+       "do": "say",
+       "who": "Porter",
+       "text": "A pole for the Punt Captain? Right you are. Before I hand it over, though: the wooden bridge out there. Who built it?"
+      },
+      {
+       "do": "choice",
+       "text": "Who built the Mathematical Bridge?",
+       "options": [
+        "Isaac Newton, without any bolts",
+        "James Essex, in 1749",
+        "The Romans"
+       ],
+       "set": "_ea_bridge"
+      },
+      {
+       "do": "if",
+       "flag": "_ea_bridge",
+       "then": [
+        {
+         "do": "say",
+         "who": "Porter",
+         "text": "Correct! James Essex, 1749, to William Etheridge's design. Newton had been dead twenty-two years by then."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Porter",
+         "text": "Ah, the old story. Newton built it with no bolts, the students pulled it apart and had to bolt it back. Lovely tale. But it was built in 1749 by James Essex, and Newton died in 1727."
+        }
+       ],
+       "eq": 1
+      },
+      {
+       "do": "say",
+       "who": "Porter",
+       "text": "It only looks clever because every timber sits on a line touching the arch. Tangents. That's the maths. It's had bolts from the start, and it's been rebuilt twice, in 1866 and 1905."
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "The porter hands over a long ash punt pole, very carefully, past three tourists and a cello."
+      },
+      {
+       "do": "set",
+       "flag": "q_eastanglia_punt_1"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Porter",
+       "text": "Queens' College. Founded twice, by two queens, which is why the apostrophe goes after the s. Please don't move the apostrophe. People have tried."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

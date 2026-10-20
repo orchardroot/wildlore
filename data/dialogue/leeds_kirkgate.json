@@ -1,0 +1,135 @@
+{
+ "bazaar_trader": [
+  {
+   "do": "if",
+   "flag": "q_pennines_bazaar_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Market Trader",
+     "text": "{greeting} The display's up by the clock. People come and look, then buy a penny chew. History in action."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_pennines_bazaar_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_pennines_bazaar_armouries",
+       "then": [
+        {
+         "do": "if",
+         "flag": "q_pennines_bazaar_abbey",
+         "then": [
+          {
+           "do": "if",
+           "flag": "q_pennines_bazaar_thackray",
+           "then": [
+            {
+             "do": "say",
+             "who": "Market Trader",
+             "text": "A toy knight from the Armouries, a fleece from Kirkstall and a pill tin from the Thackray. That's Leeds in a box, that."
+            },
+            {
+             "do": "say",
+             "who": "Market Trader",
+             "text": "Marks started with a tray round his neck and a penny sign. This'll go by the clock where his stall stood. Here, something for your trouble."
+            },
+            {
+             "do": "give_item",
+             "item": "penny_bazaar_tin"
+            },
+            {
+             "do": "give_item",
+             "item": "forced_rhubarb",
+             "n": 3
+            },
+            {
+             "do": "give_creature",
+             "species": "bobbin",
+             "level": 15
+            },
+            {
+             "do": "say",
+             "who": "Market Trader",
+             "text": "That Bobbin's been living in the old wool stall since the 1970s. It wants to see the world. Or at least Bradford."
+            },
+            {
+             "do": "standing",
+             "nation": "england",
+             "amount": 3
+            },
+            {
+             "do": "set",
+             "flag": "q_pennines_bazaar_done"
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Market Trader",
+             "text": "Still need summat from the Thackray Museum, up the top end past Briggate. Something medical. Nothing squelchy."
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Market Trader",
+           "text": "Still need summat from Kirkstall Abbey, over the river. The monks were wool men, like this market."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Market Trader",
+         "text": "Still need summat from the Royal Armouries down by the dock. Mind the armourer, he likes a scrap."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Market Trader",
+       "text": "{greeting} You're stood near where Marks and Spencer began. Michael Marks, 1884, a stall and a sign: Don't ask the price, it's a penny."
+      },
+      {
+       "do": "say",
+       "who": "Market Trader",
+       "text": "We're doing a display for the market's birthday. Leeds in a box. I need three things: something from the Royal Armouries, something from Kirkstall Abbey, and something from the Thackray Museum."
+      },
+      {
+       "do": "set",
+       "flag": "q_pennines_bazaar_started"
+      },
+      {
+       "do": "say",
+       "who": "Market Trader",
+       "text": "Off you pop. And don't ask the price. It's a favour."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "kirkgate_butcher": [
+  {
+   "do": "say",
+   "who": "Butcher",
+   "text": "{greeting} Butchers' Row used to be all one long line of us. Tripe, pies, black pudding. Now try saying 'no thanks' to a pork pie in a Leeds accent."
+  }
+ ],
+ "kirkgate_fish": [
+  {
+   "do": "say",
+   "who": "Fishmonger",
+   "text": "{greeting} Haddock, not cod, round here. And chips in beef dripping if you go to the right chippy. Don't tell the vegetarians."
+  }
+ ]
+}

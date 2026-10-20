@@ -1,0 +1,53 @@
+{
+ "obn_curator": [
+  {
+   "do": "say",
+   "who": "Curator",
+   "text": "Welcome to the museum. It's small, but it has a lot of heart, and a model of a Sunderland flying boat that I'm very proud of."
+  },
+  {
+   "do": "say",
+   "who": "Curator",
+   "text": "Oban was a flying boat base in the Second World War. Sunderlands and Catalinas used to land in the bay, which must have been a sight: planes landing on the water, for the herring gulls' benefit."
+  },
+  {
+   "do": "if",
+   "flag": "q_westhighlands_cail_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_westhighlands_cail_1",
+     "then": [
+      {
+       "do": "say",
+       "who": "Curator",
+       "text": "The Corryvreckan? Hamish's tale. You've heard the lot already."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Curator",
+       "text": "Ah, Hamish sent you about the Cailleach? Between Jura and Scarba the tide squeezes through a narrow strait and whips up the Corryvreckan, the third largest whirlpool in the world, so they say. You can hear the roar ten miles away."
+      },
+      {
+       "do": "say",
+       "who": "Curator",
+       "text": "The old story says the Cailleach, a hag of winter, washes her great plaid in it before the cold season. When it comes out pure white, the snow is on its way. George Orwell nearly drowned there in 1947, when his boat was sucked into it. He survived, and wrote 1984 afterwards, which says something."
+      },
+      {
+       "do": "say",
+       "who": "Curator",
+       "text": "If you'd like to meet her, she'll be waiting at the end of the North Pier. Be polite. Bring a warm coat."
+      },
+      {
+       "do": "set",
+       "flag": "q_westhighlands_cail_1"
+      }
+     ]
+    }
+   ],
+   "else": []
+  }
+ ]
+}

@@ -1,0 +1,198 @@
+{
+ "id": "brighton_pavilion",
+ "name": "The Royal Pavilion",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "statue",
+   "x": 2,
+   "y": 1
+  },
+  {
+   "type": "statue",
+   "x": 14,
+   "y": 1
+  },
+  {
+   "type": "table",
+   "x": 7,
+   "y": 3
+  },
+  {
+   "type": "table",
+   "x": 9,
+   "y": 3
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 8
+  },
+  {
+   "type": "potted_plant",
+   "x": 15,
+   "y": 8
+  },
+  {
+   "type": "fireplace",
+   "x": 8,
+   "y": 1
+  },
+  {
+   "type": "rug",
+   "x": 6,
+   "y": 3,
+   "w": 4,
+   "h": 3,
+   "variant": 1,
+   "walk": true
+  },
+  {
+   "type": "wall_picture",
+   "x": 9,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  },
+  {
+   "type": "wall_picture",
+   "x": 7,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  },
+  {
+   "type": "clock",
+   "x": 10,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "piano",
+   "x": 1,
+   "y": 3,
+   "rot": 90
+  },
+  {
+   "type": "sofa",
+   "x": 1,
+   "y": 4,
+   "variant": 5,
+   "rot": 90
+  },
+  {
+   "type": "plant_stand",
+   "x": 1,
+   "y": 7
+  },
+  {
+   "type": "candelabra",
+   "x": 6,
+   "y": 2
+  },
+  {
+   "type": "candelabra",
+   "x": 10,
+   "y": 2
+  },
+  {
+   "type": "table",
+   "x": 7,
+   "y": 4
+  },
+  {
+   "type": "table",
+   "x": 8,
+   "y": 4
+  },
+  {
+   "type": "table",
+   "x": 9,
+   "y": 4
+  },
+  {
+   "type": "piano",
+   "x": 14,
+   "y": 2
+  },
+  {
+   "type": "display_case",
+   "x": 1,
+   "y": 6
+  },
+  {
+   "type": "display_case",
+   "x": 15,
+   "y": 6
+  },
+  {
+   "type": "wall_picture",
+   "x": 4,
+   "y": 1,
+   "walk": true,
+   "variant": 2
+  },
+  {
+   "type": "wall_picture",
+   "x": 12,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  }
+ ],
+ "warps": [
+  {
+   "x": 8,
+   "y": 9,
+   "to": "brighton",
+   "tx": 22,
+   "ty": 15,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "pav_guide",
+   "sprite": "tour_guide",
+   "x": 8,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "pav_guide",
+   "name": "Pavilion Guide"
+  },
+  {
+   "id": "pav_cook",
+   "sprite": "shopkeeper",
+   "x": 3,
+   "y": 5,
+   "facing": "right",
+   "move": "still",
+   "script": "pav_cook",
+   "name": "Kitchen Historian"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  8,
+  8
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxxxxx",
+  "x+++++++++++++++x",
+  "x+++++++++++++++x",
+  "x+++++++++++++++x",
+  "x+++++++++++++++x",
+  "x+++++++++++++++x",
+  "x+++++++++++++++x",
+  "x+++++++++++++++x",
+  "x+++++++++++++++x",
+  "x+++++++D+++++++x",
+  "xxxxxxxxxxxxxxxxx"
+ ]
+}

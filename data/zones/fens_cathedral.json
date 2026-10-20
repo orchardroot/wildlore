@@ -1,0 +1,167 @@
+{
+ "id": "fens_cathedral",
+ "name": "Ely Cathedral",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "candelabra",
+   "x": 4,
+   "y": 1
+  },
+  {
+   "type": "candelabra",
+   "x": 10,
+   "y": 1
+  },
+  {
+   "type": "rug",
+   "x": 6,
+   "y": 3,
+   "w": 3,
+   "h": 3,
+   "variant": 1,
+   "walk": true
+  },
+  {
+   "type": "rug",
+   "x": 7,
+   "y": 6,
+   "w": 1,
+   "h": 3,
+   "variant": 1,
+   "walk": true
+  },
+  {
+   "type": "bench",
+   "x": 2,
+   "y": 4
+  },
+  {
+   "type": "bench",
+   "x": 3,
+   "y": 4
+  },
+  {
+   "type": "bench",
+   "x": 11,
+   "y": 4
+  },
+  {
+   "type": "bench",
+   "x": 12,
+   "y": 4
+  },
+  {
+   "type": "bench",
+   "x": 2,
+   "y": 6
+  },
+  {
+   "type": "bench",
+   "x": 3,
+   "y": 6
+  },
+  {
+   "type": "bench",
+   "x": 11,
+   "y": 6
+  },
+  {
+   "type": "bench",
+   "x": 12,
+   "y": 6
+  },
+  {
+   "type": "window",
+   "x": 1,
+   "y": 8,
+   "walk": true
+  },
+  {
+   "type": "window",
+   "x": 13,
+   "y": 8,
+   "walk": true
+  },
+  {
+   "type": "display_case",
+   "x": 13,
+   "y": 2
+  },
+  {
+   "type": "tomb_chest",
+   "x": 1,
+   "y": 2
+  },
+  {
+   "type": "statue",
+   "x": 7,
+   "y": 1
+  }
+ ],
+ "warps": [
+  {
+   "x": 7,
+   "y": 9,
+   "to": "the_fens",
+   "tx": 37,
+   "ty": 10,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "ely_verger",
+   "sprite": "tour_guide",
+   "x": 7,
+   "y": 2,
+   "facing": "down",
+   "move": "still",
+   "script": "ely_verger",
+   "name": "Verger"
+  },
+  {
+   "id": "ely_glass",
+   "sprite": "villager_4",
+   "x": 12,
+   "y": 7,
+   "facing": "left",
+   "move": "still",
+   "script": "ely_glass",
+   "name": "Glass Restorer"
+  },
+  {
+   "id": "ely_pilgrim",
+   "sprite": "villager_3",
+   "x": 4,
+   "y": 8,
+   "facing": "up",
+   "move": "still",
+   "script": "ely_pilgrim",
+   "name": "Visitor"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  7,
+  8
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxxx",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x++++++D++++++x",
+  "xxxxxxxxxxxxxxx"
+ ]
+}

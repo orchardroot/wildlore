@@ -1,0 +1,198 @@
+{
+ "tea_owner": [
+  {
+   "do": "if",
+   "flag": "q_devon_creamtea_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Mrs Endacott",
+     "text": "Cream first, my lover. Always. Have a scone on the house. Well, not literally on the house. The gulls would have it."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_devon_creamtea_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "Mrs Endacott",
+       "text": "Now go and settle it with Jory. Politely. With creatures."
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_devon_creamtea_1",
+       "then": [
+        {
+         "do": "say",
+         "who": "Mrs Endacott",
+         "text": "The cream! Look at that crust. You can stand a spoon in it."
+        },
+        {
+         "do": "set",
+         "flag": "q_devon_creamtea_2"
+        },
+        {
+         "do": "say",
+         "who": "Mrs Endacott",
+         "text": "Clotted cream is just good milk, warmed slowly for hours and left to cool, so the cream rises and sets into a golden crust. Simple. Like most perfect things."
+        },
+        {
+         "do": "say",
+         "who": "Mrs Endacott",
+         "text": "Now, Jory says jam first and he says it loud. Go and show him how we do things in Devon."
+        }
+       ],
+       "else": [
+        {
+         "do": "if",
+         "flag": "q_devon_creamtea_started",
+         "then": [
+          {
+           "do": "say",
+           "who": "Mrs Endacott",
+           "text": "The dairy's off the B3212, just before the moor. Go on, before the scones go cold."
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Mrs Endacott",
+           "text": "{greeting} Welcome to my tea room. Sit you down. Now. Do you know how to dress a scone?"
+          },
+          {
+           "do": "say",
+           "who": "Mrs Endacott",
+           "text": "In Devon it's cream first, then jam. The cream's the butter, see. In Cornwall, they put the jam on first. That young man by the window is from Bodmin and he's been doing it in front of the regulars."
+          },
+          {
+           "do": "say",
+           "who": "Mrs Endacott",
+           "text": "And I've run out of clotted cream! On a Saturday! Would you fetch me a pot from the dairy off the B3212, by the edge of the moor?"
+          },
+          {
+           "do": "choice",
+           "text": "Fetch the cream?",
+           "options": [
+            "Of course",
+            "Not now"
+           ],
+           "set": "_tea_choice"
+          },
+          {
+           "do": "if",
+           "flag": "_tea_choice",
+           "then": [
+            {
+             "do": "set",
+             "flag": "q_devon_creamtea_started"
+            },
+            {
+             "do": "say",
+             "who": "Mrs Endacott",
+             "text": "Bless you. Down the road past the canal, then west towards the moor. Tell them Hilda sent you."
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Mrs Endacott",
+             "text": "Then I shall serve jam on its own and tell everyone it's minimalist."
+            }
+           ],
+           "eq": 0
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "tea_jory": [
+  {
+   "do": "if",
+   "flag": "q_devon_creamtea_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Jory",
+     "text": "Fine. Cream first, in Devon. But across the Tamar, it's jam first, and that's the law. Not a real law. A pasty law."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_devon_creamtea_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "Jory",
+       "text": "You want to tell me how to eat a scone? Jam first, like a Cornish gentleman. Cream on top, like a crown. Let's settle it."
+      },
+      {
+       "do": "battle",
+       "trainer": "exe_jory"
+      },
+      {
+       "do": "if",
+       "flag": "trainer_exe_jory",
+       "then": [
+        {
+         "do": "set",
+         "flag": "q_devon_creamtea_3"
+        },
+        {
+         "do": "say",
+         "who": "Jory",
+         "text": "All right, all right. In Devon I'll do it your way. Don't tell my mother."
+        },
+        {
+         "do": "say",
+         "who": "Mrs Endacott",
+         "text": "Peace in the tea room! Here, my lover, a box of scones for your trouble, and a bottle of the dairy's scrumpy."
+        },
+        {
+         "do": "give_item",
+         "item": "devon_scone",
+         "n": 5
+        },
+        {
+         "do": "give_item",
+         "item": "scrumpy",
+         "n": 2
+        },
+        {
+         "do": "standing",
+         "nation": "england",
+         "amount": 2
+        },
+        {
+         "do": "set",
+         "flag": "q_devon_creamtea_done"
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Jory",
+       "text": "Dreckly I'll have another scone. Jam first. You can't stop me."
+      },
+      {
+       "do": "say",
+       "who": "Jory",
+       "text": "Well, you could. But you'd have to fetch some cream first. They've run out."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

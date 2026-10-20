@@ -378,12 +378,14 @@ func _conclude() -> void:
 			var defeat := str(trainer.get("defeat", ""))
 			if defeat != "":
 				await _say([defeat])
+			var cur := Wallet.local(data)  # euros in the Republic, sterling everywhere else
 			if money > 0:
-				data.money += money
-				TrainerStats.earned(data, money)
-				await _say(["%s got £%d for winning!" % [who, money]], 0.4)
+				money = Wallet.localise(money, cur)
+				Wallet.earn(data, money, cur)
+				TrainerStats.earned(data, Wallet.in_sterling(money, cur))
+				await _say(["%s got %s for winning!" % [who, Wallet.fmt(money, cur)]], 0.4)
 			for l in (Gleaning.after_wild_win(bag, battle.parties[Battle.FOE], battle.rng, items) if is_wild() else []): await _say([l])
-			result = {"result": "win", "caught": null, "money": money}
+			result = {"result": "win", "caught": null, "money": money, "cur": cur}
 		Battle.FOE:
 			await _say(["%s is out of creatures that can fight!" % who], 0.5)
 			result = {"result": "lose", "caught": null, "money": 0}

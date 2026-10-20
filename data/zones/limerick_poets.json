@@ -1,0 +1,145 @@
+{
+ "id": "limerick_poets",
+ "name": "The Poet's Rest",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "table",
+   "x": 8,
+   "y": 3
+  },
+  {
+   "type": "table",
+   "x": 8,
+   "y": 5
+  },
+  {
+   "type": "table",
+   "x": 10,
+   "y": 3
+  },
+  {
+   "type": "table",
+   "x": 10,
+   "y": 5
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 7
+  },
+  {
+   "type": "potted_plant",
+   "x": 11,
+   "y": 7
+  },
+  {
+   "type": "menu_board",
+   "x": 6,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "kitchen_dresser",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "clock",
+   "x": 8,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "wall_picture",
+   "x": 4,
+   "y": 1,
+   "walk": true,
+   "variant": 0
+  },
+  {
+   "type": "wall_picture",
+   "x": 11,
+   "y": 1,
+   "walk": true,
+   "variant": 0
+  },
+  {
+   "type": "plant_stand",
+   "x": 1,
+   "y": 6,
+   "variant": 1
+  },
+  {
+   "type": "sofa",
+   "x": 11,
+   "y": 3,
+   "variant": 1,
+   "rot": 270
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 8,
+   "to": "limerick",
+   "tx": 46,
+   "ty": 35,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "poet_maire",
+   "sprite": "sean_nos_singer",
+   "x": 9,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "poet_maire",
+   "name": "Poet M\u00e1ire"
+  },
+  {
+   "id": "poets_quizmaster",
+   "sprite": "ceilidh_caller",
+   "x": 3,
+   "y": 5,
+   "facing": "right",
+   "move": "still",
+   "script": "poets_quizmaster",
+   "name": "Quizmaster"
+  },
+  {
+   "id": "poets_regular",
+   "sprite": "villager_1",
+   "x": 11,
+   "y": 5,
+   "facing": "left",
+   "move": "still",
+   "script": "poets_regular",
+   "name": "Old Regular"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  6,
+  7
+ ],
+ "rows": [
+  "xxxxxxxxxxxxx",
+  "x|||||||||||x",
+  "x|CCCC||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||D|||||x",
+  "xxxxxxxxxxxxx"
+ ]
+}

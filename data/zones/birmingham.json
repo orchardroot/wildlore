@@ -851,6 +851,10 @@
   "south": {
    "to": "salisbury_plain",
    "offset": 0
+  },
+  "east": {
+   "to": "cotswolds",
+   "offset": 0
   }
  },
  "npcs": [
@@ -1161,16 +1165,46 @@
    "text": "Road to Wolverhampton closed for resurfacing. Again. Sorry for any inconvenience."
   },
   {
-   "x": 62,
-   "y": 25,
-   "text": "Road to Coventry closed for resurfacing. Again. Sorry for any inconvenience."
+   "x": 61,
+   "y": 28,
+   "text": "EAST: the A44 to the Cotswolds and Oxford. (Coventry is closed for resurfacing. Again. Sorry for any inconvenience.)"
   },
   {
    "x": 14,
    "y": 10,
    "text": "BLUE PLAQUE: J. R. R. Tolkien, author of The Hobbit, grew up in Birmingham from 1895, and the Shire owes a lot to Sarehole Mill.",
    "kind": "plaque",
-   "dx": -0.475
+   "dx": -0.475,
+   "plaque": "birmingham_tolkien",
+   "title": "J. R. R. Tolkien"
+  },
+  {
+   "x": 56,
+   "y": 17,
+   "plaque": "birmingham_name",
+   "title": "Name: Birmingham",
+   "text": "Old English Beormingaham: the homestead of the people of Beorma, a Saxon leader we know nothing else about. In local speech it wore down over the centuries to Brummagem, which is where Brum and Brummie come from."
+  },
+  {
+   "x": 10,
+   "y": 11,
+   "plaque": "birmingham_lunar_society",
+   "title": "The Lunar Society",
+   "text": "In the late 1700s a club of thinkers met around Birmingham: Matthew Boulton, James Watt, Erasmus Darwin, Joseph Priestley and Josiah Wedgwood among them. They met near the full moon so they could ride home by its light, and called themselves the Lunaticks."
+  },
+  {
+   "x": 39,
+   "y": 48,
+   "plaque": "birmingham_chamberlain",
+   "title": "Joseph Chamberlain",
+   "text": "As mayor in the 1870s, Joseph Chamberlain bought out the town's gas and water companies, cleared slums and built Corporation Street. Admirers called it gas and water socialism. The Chamberlain Clock in the Jewellery Quarter was put up in his honour."
+  },
+  {
+   "x": 29,
+   "y": 24,
+   "plaque": "birmingham_heavy_metal",
+   "title": "Birth of Heavy Metal",
+   "text": "Black Sabbath formed in Aston, Birmingham, in 1968, and are widely credited with inventing heavy metal. Their guitarist had lost two fingertips in a sheet metal factory and played on homemade thimbles. Birmingham industry, turned up to eleven."
   }
  ],
  "spawn": [
@@ -1209,9 +1243,9 @@
   "TT..BBBBB.BBBBBB.BBBBB.BBBBBB.===.BBBBBBB.BBBBBB.BBBBBB.BBBBBBTT",
   "TT..BBBBB.BBBBBB.BBBBB.BBBBBB.===.BBBBBBB.BBBBBB.BBBBBB.BBBBBBTT",
   "TT..BBDBB.BBBDBB.BBDBB.BBBDBB.===.BBBDBBB.BBBDBB.BBBBBB.BBBDBBTT",
-  "F==============================================================F",
-  "F==============================================================F",
-  "F==============================================================F",
+  "F===============================================================",
+  "F===============================================================",
+  "F===============================================================",
   "TT............................===.............................TT",
   "TT::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::TT",
   "TT~~~~~~~~~~~F|F~~~~~~~~~~~~~W===W~~~~~~~~~~~~~F|F~~~~~~~~~~~~TT",

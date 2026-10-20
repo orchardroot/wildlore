@@ -1,0 +1,96 @@
+{
+ "id": "standedge_visitor",
+ "name": "Standedge Visitor Centre",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "display_case",
+   "x": 2,
+   "y": 2
+  },
+  {
+   "type": "display_case",
+   "x": 8,
+   "y": 2
+  },
+  {
+   "type": "wall_map",
+   "x": 5,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "kettle_table",
+   "x": 1,
+   "y": 5
+  },
+  {
+   "type": "table",
+   "x": 8,
+   "y": 5
+  },
+  {
+   "type": "potted_plant",
+   "x": 9,
+   "y": 6
+  },
+  {
+   "type": "wall_picture",
+   "x": 3,
+   "y": 1,
+   "walk": true,
+   "variant": 2
+  }
+ ],
+ "warps": [
+  {
+   "x": 5,
+   "y": 7,
+   "to": "saddleworth_moor",
+   "tx": 57,
+   "ty": 13,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "visitor_volunteer",
+   "sprite": "canal_boater",
+   "x": 5,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "visitor_volunteer",
+   "name": "Volunteer"
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "x": 2,
+   "y": 6,
+   "text": "The visitor centre is an old canal warehouse at Tunnel End, where goods were swapped between boats and carts. The Huddersfield Narrow Canal climbs to 645 feet above sea level here, the highest canal summit in Britain.",
+   "plaque": "pennines_tunnel_end",
+   "title": "Tunnel End"
+  }
+ ],
+ "spawn": [
+  5,
+  6
+ ],
+ "rows": [
+  "xxxxxxxxxxx",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x||||D||||x",
+  "xxxxxxxxxxx"
+ ]
+}

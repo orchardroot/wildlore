@@ -1,0 +1,23 @@
+{"id": "catherwheel",
+ "palette": {"red": "#d8342c", "red2": "#a01c1c", "gold": "#ffd040", "spark": "#fff4b0", "flame": "#f08a2c", "post": "#7a5a3a", "post2": "#5a4028", "pin": "#8a8a94", "ink": "#2a0e08", "eye": "#2a0e08", "smoke": "#a8a4a0"},
+ "layers": [
+  {"shape": "rect", "at": [48, 78], "size": [12, 30], "colour": "post", "round": 2, "pattern": "stripes", "pcolour": "post2", "period": 4, "pangle": 0},
+  {"shape": "rect", "at": [48, 90], "size": [40, 6], "colour": "post2", "round": 2},
+  {"shape": "spikes", "at": [48, 42], "size": [64, 64], "colour": "spark", "count": 16, "len": 12, "rim": false, "from": -180, "to": 180},
+  {"shape": "spikes", "at": [48, 42], "size": [62, 62], "colour": "flame", "count": 12, "len": 6, "rim": false, "from": -165, "to": 195},
+  {"shape": "circle", "at": [48, 42], "r": 30, "colour": "red", "pattern": "stripes", "pcolour": "gold", "period": 8, "pangle": 35},
+  {"shape": "circle", "at": [48, 42], "r": 20, "colour": "gold", "pattern": "stripes", "pcolour": "red2", "period": 7, "pangle": -35, "rim": false},
+  {"shape": "circle", "at": [48, 42], "r": 13, "colour": "red", "rim": false},
+  {"shape": "circle", "at": [10, 82], "r": 2.5, "colour": "spark", "shade": false, "rim": false},
+  {"shape": "circle", "at": [84, 86], "r": 2, "colour": "spark", "shade": false, "rim": false},
+  {"shape": "circle", "at": [88, 72], "r": 3, "colour": "smoke", "shade": false, "rim": false}
+ ],
+ "face_layers": [
+  {"shape": "circle", "at": [48, 42], "r": 2.5, "colour": "pin", "rim": false},
+  {"shape": "line", "points": [[41, 48], [48, 52], [55, 48]], "width": 1.4, "colour": "ink", "shade": false},
+  {"shape": "line", "points": [[38, 33], [44, 36]], "width": 1.6, "colour": "ink", "shade": false, "mirror": true}
+ ],
+ "eyes": [
+  {"at": [42, 40], "r": 3.5, "colour": "eye", "mirror": true}
+ ]
+}

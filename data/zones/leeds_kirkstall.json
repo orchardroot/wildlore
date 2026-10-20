@@ -1,0 +1,102 @@
+{
+ "id": "leeds_kirkstall",
+ "name": "Kirkstall Abbey",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "crypt_arch",
+   "x": 2,
+   "y": 1,
+   "variant": 0
+  },
+  {
+   "type": "crypt_arch",
+   "x": 10,
+   "y": 1,
+   "variant": 1
+  },
+  {
+   "type": "tomb_chest",
+   "x": 6,
+   "y": 3
+  },
+  {
+   "type": "candelabra",
+   "x": 3,
+   "y": 5
+  },
+  {
+   "type": "candelabra",
+   "x": 9,
+   "y": 5
+  },
+  {
+   "type": "oak",
+   "x": 1,
+   "y": 8
+  },
+  {
+   "type": "bush",
+   "x": 11,
+   "y": 8
+  },
+  {
+   "type": "bench",
+   "x": 6,
+   "y": 7
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 9,
+   "to": "leeds",
+   "tx": 26,
+   "ty": 51,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "abbey_volunteer",
+   "sprite": "poet",
+   "x": 4,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "abbey_volunteer",
+   "name": "Abbey Volunteer"
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "x": 9,
+   "y": 3,
+   "text": "The Cistercians were known as the white monks, from their undyed wool habits. They built in remote valleys, ran great sheep farms, and their lay brothers did much of the farm work.",
+   "plaque": "pennines_white_monks",
+   "title": "The White Monks"
+  }
+ ],
+ "spawn": [
+  6,
+  8
+ ],
+ "rows": [
+  "xxxxxxxxxxxxx",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++D+++++x",
+  "xxxxxxxxxxxxx"
+ ]
+}

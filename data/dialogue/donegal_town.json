@@ -1,0 +1,104 @@
+{
+ "dt_guide": [
+  {
+   "do": "say",
+   "who": "Castle Guide",
+   "text": "{greeting} Donegal Castle. The O'Donnells built the tower in the 1400s. When they fled to Europe in 1607, the Flight of the Earls, the English moved in and Sir Basil Brooke built himself a fine manor on the side."
+  },
+  {
+   "do": "say",
+   "who": "Castle Guide",
+   "text": "Go on in. Mind the fireplace; it's carved with Brooke's coat of arms, and he was not a modest man."
+  }
+ ],
+ "dt_waterbus": [
+  {
+   "do": "say",
+   "who": "Waterbus Skipper",
+   "text": "The Waterbus! Round Donegal Bay with the seals and the islands, and a running commentary from me, whether you like it or not."
+  },
+  {
+   "do": "say",
+   "who": "Waterbus Skipper",
+   "text": "Out west there's Killybegs, Ireland's biggest fishing port, and past that the cliffs of Slieve League, near six hundred metres straight down to the sea. Taller than three Blackpool Towers."
+  }
+ ],
+ "dt_farmer": [
+  {
+   "do": "say",
+   "who": "Fair Day Farmer",
+   "text": "The Diamond was the market square. Fair days, the whole county came in with cattle and sheep and opinions, and left with less of all three."
+  }
+ ],
+ "dt_teen": [
+  {
+   "do": "say",
+   "who": "Teenager",
+   "text": "There's nothing to do in Donegal Town. Except the castle. And the bay. And the waterbus. And the chipper. Fine, there's a few things."
+  }
+ ],
+ "dt_box_player": [
+  {
+   "do": "if",
+   "flag": "q_donegal_tory_box",
+   "then": [
+    {
+     "do": "say",
+     "who": "Box Player",
+     "text": "I'll be on the Tory boat. My grandmother says I'll be sick the whole way. My grandmother is usually right."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_donegal_tory_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "Box Player",
+       "text": "A crowning on Tory? With a céilí? Say no more. Well, say a bit more, what are they paying? Nothing? Grand, I'm in."
+      },
+      {
+       "do": "set",
+       "flag": "q_donegal_tory_box"
+      },
+      {
+       "do": "if",
+       "flag": "q_donegal_tory_fiddle",
+       "then": [
+        {
+         "do": "set",
+         "flag": "q_donegal_tory_3"
+        },
+        {
+         "do": "say",
+         "who": "Box Player",
+         "text": "And the fiddler from Gaoth Dobhair's coming too? Then we're a band. Away and tell them on Tory."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Box Player",
+         "text": "You'll need a fiddler too. There's one in the pub in Gaoth Dobhair who plays mazurkas like the floor's on fire."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Box Player",
+       "text": "This is a button accordion. Push for one note, pull for another. It's like a conversation with a very loud lung."
+      },
+      {
+       "do": "say",
+       "who": "Box Player",
+       "text": "In Donegal we had the fiddle first, the box came later, and they've been arguing about tempo ever since."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
