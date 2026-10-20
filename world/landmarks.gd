@@ -40,7 +40,8 @@ const SPECIAL := ["edinburgh_tenement", "glasgow_tenement", "aberdeen_granite", 
 	"painted_pink", "painted_yellow", "painted_blue", "painted_green", "painted_red", "painted_teal", "granite",
 	"distillery", "mccaig", "paddle_steamer", "blackhouse", "croft_house", "granite_house", "harbour_white",
 	"lews_castle", "cotswold_house", "cotswold_cottage", "wool_church", "oxford_college", "oxford_tower",
-	"oxford_church", "radcliffe_camera"]
+	"oxford_church", "radcliffe_camera",
+	"pitcairn_house", "boat_shed", "base_hangar", "control_tower", "base_block", "plantation_ruin", "island_church"]
 
 ## Doors: where each style's door sits on its tile (see _door and friends), for the swing as you go in.
 ## {x, w, y, h, z}: left edge and width across the door column, bottom and height, z of the door's face from
@@ -345,6 +346,20 @@ static func building(w: int, d: int, style: String, door_x: int, seed_value: int
 			ValleyStyles.steam_loco(st, wst, w, d, door_x)
 		"ironworks":
 			ValleyStyles.ironworks(st, wst, w, d, door_x)
+		"pitcairn_house":
+			PacificStyles.house(st, wst, w, d, door_x, rng)
+		"boat_shed":
+			PacificStyles.boat_shed(st, wst, w, d, door_x)
+		"base_hangar":
+			PacificStyles.base_hangar(st, wst, w, d, door_x)
+		"control_tower":
+			PacificStyles.control_tower(st, wst, w, d, door_x)
+		"base_block":
+			PacificStyles.base_block(st, wst, w, d, door_x, rng)
+		"plantation_ruin":
+			PacificStyles.plantation_ruin(st, wst, w, d, door_x, rng)
+		"island_church":
+			PacificStyles.island_church(st, wst, w, d, door_x)
 		"blast_furnace":
 			_blast_furnace(st, wst, w, d, door_x)
 		"gault", "flint", "flint_gable", "thatch", "college", "kings_chapel", "portico", "ely_cathedral", "norwich_cathedral", "norman_keep", "football_stand":

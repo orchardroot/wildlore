@@ -1,0 +1,83 @@
+{
+ "id": "biot_tower",
+ "name": "Control Tower",
+ "region": "overseas_biot",
+ "kind": "interior",
+ "music": "town_cornwall",
+ "weather": {},
+ "props": [
+  {
+   "type": "table",
+   "x": 2,
+   "y": 2
+  },
+  {
+   "type": "table",
+   "x": 6,
+   "y": 2
+  },
+  {
+   "type": "telescope",
+   "x": 4,
+   "y": 1
+  },
+  {
+   "type": "wall_map",
+   "x": 4,
+   "y": 0
+  },
+  {
+   "type": "clock",
+   "x": 7,
+   "y": 0
+  }
+ ],
+ "warps": [
+  {
+   "x": 4,
+   "y": 7,
+   "to": "diego_garcia",
+   "tx": 13,
+   "ty": 12,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "biot_atc",
+   "sprite": "commuter",
+   "x": 4,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "biot_atc",
+   "name": "Air Traffic Controller"
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "x": 6,
+   "y": 5,
+   "plaque": "biot_raf",
+   "title": "RAF Flights",
+   "text": "THE RAF AIRBRIDGE. RAF air transport serves the Overseas Territories from RAF Brize Norton in Oxfordshire, and long-range flights reach Diego Garcia in a day or so. From the control room you can see the whole runway, the lagoon and a good deal of weather."
+  }
+ ],
+ "spawn": [
+  4,
+  6
+ ],
+ "rows": [
+  "xxxxxxxxx",
+  "x+++++++x",
+  "x+++++++x",
+  "x+++++++x",
+  "x+++++++x",
+  "x+++++++x",
+  "x+++++++x",
+  "x+++D+++x",
+  "xxxxxxxxx"
+ ]
+}

@@ -1,0 +1,74 @@
+{
+ "id": "biot_copra",
+ "name": "Copra Drying Shed",
+ "region": "overseas_biot",
+ "kind": "interior",
+ "music": "town_cornwall",
+ "weather": {},
+ "props": [
+  {
+   "type": "table",
+   "x": 3,
+   "y": 3
+  },
+  {
+   "type": "table",
+   "x": 7,
+   "y": 3
+  },
+  {
+   "type": "steel_plates",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "lobster_pots",
+   "x": 9,
+   "y": 1
+  },
+  {
+   "type": "wall_picture",
+   "x": 5,
+   "y": 0
+  }
+ ],
+ "warps": [
+  {
+   "x": 5,
+   "y": 6,
+   "to": "east_point",
+   "tx": 29,
+   "ty": 20,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "biot_copra_worker",
+   "sprite": "farmer",
+   "x": 5,
+   "y": 2,
+   "facing": "down",
+   "move": "still",
+   "script": "biot_copra_worker",
+   "name": "Old Hand"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  5,
+  5
+ ],
+ "rows": [
+  "xxxxxxxxxxx",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x||||D||||x",
+  "xxxxxxxxxxx"
+ ]
+}

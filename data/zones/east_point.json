@@ -1,0 +1,416 @@
+{
+ "id": "east_point",
+ "name": "East Point",
+ "region": "overseas_biot",
+ "kind": "route",
+ "music": "route_coast",
+ "weather": {
+  "sunshine": 34,
+  "clear": 24,
+  "drizzle": 8,
+  "downpour": 14,
+  "gale": 8,
+  "fog": 2
+ },
+ "stage": "coast",
+ "scaled_floor": 95,
+ "legend_extra": {
+  "g": {
+   "tile": "grass",
+   "colour": "#6aa646"
+  },
+  "h": {
+   "tile": "tall_grass",
+   "colour": "#4f9a3c"
+  },
+  "r": {
+   "tile": "path",
+   "colour": "#d6c9a0"
+  },
+  "p": {
+   "tile": "tree_oak",
+   "prop": "palm"
+  },
+  "m": {
+   "tile": "tree_oak",
+   "prop": "palm"
+  },
+  "e": {
+   "tile": "rock",
+   "colour": "#dcd4bf"
+  },
+  "s": {
+   "tile": "sand",
+   "colour": "#f2ead2"
+  },
+  "w": {
+   "tile": "shallow",
+   "colour": "#8fe0d4"
+  },
+  "=": {
+   "tile": "road",
+   "colour": "#5d6066"
+  },
+  ":": {
+   "tile": "cobbles",
+   "colour": "#cfc6aa"
+  }
+ },
+ "props": [
+  {
+   "type": "building",
+   "style": "island_church",
+   "x": 20,
+   "y": 9,
+   "w": 5,
+   "h": 4,
+   "label": "East Point Chapel",
+   "kind": "church"
+  },
+  {
+   "type": "building",
+   "style": "plantation_ruin",
+   "x": 8,
+   "y": 15,
+   "w": 7,
+   "h": 4,
+   "label": "The Manager's House",
+   "kind": "ruin"
+  },
+  {
+   "type": "building",
+   "style": "plantation_ruin",
+   "x": 26,
+   "y": 16,
+   "w": 6,
+   "h": 4,
+   "label": "Copra Drying Shed",
+   "kind": "mill"
+  },
+  {
+   "type": "standing_stone",
+   "x": 32,
+   "y": 6
+  },
+  {
+   "type": "standing_stone",
+   "x": 34,
+   "y": 6
+  },
+  {
+   "type": "standing_stone",
+   "x": 36,
+   "y": 6
+  },
+  {
+   "type": "standing_stone",
+   "x": 32,
+   "y": 8
+  },
+  {
+   "type": "standing_stone",
+   "x": 34,
+   "y": 8
+  },
+  {
+   "type": "standing_stone",
+   "x": 36,
+   "y": 8
+  },
+  {
+   "type": "standing_stone",
+   "x": 38,
+   "y": 6
+  },
+  {
+   "type": "standing_stone",
+   "x": 38,
+   "y": 8
+  },
+  {
+   "type": "boat",
+   "x": 7,
+   "y": 8
+  },
+  {
+   "type": "bollard",
+   "x": 38,
+   "y": 17
+  },
+  {
+   "type": "lamp_post",
+   "x": 21,
+   "y": 14
+  }
+ ],
+ "warps": [
+  {
+   "x": 22,
+   "y": 12,
+   "to": "biot_chapel",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 11,
+   "y": 18,
+   "to": "biot_manager",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 29,
+   "y": 19,
+   "to": "biot_copra",
+   "tx": 5,
+   "ty": 5,
+   "facing": "up"
+  }
+ ],
+ "edges": {
+  "south": {
+   "to": "diego_garcia",
+   "offset": 30
+  }
+ },
+ "npcs": [
+  {
+   "id": "biot_warden",
+   "sprite": "keeper_isla",
+   "x": 34,
+   "y": 12,
+   "facing": "up",
+   "move": "still",
+   "script": "biot_warden",
+   "name": "Heritage Warden"
+  },
+  {
+   "id": "biot_birder",
+   "sprite": "birdwatcher",
+   "x": 18,
+   "y": 22,
+   "facing": "right",
+   "move": "still",
+   "trainer": "biot_birder"
+  },
+  {
+   "id": "biot_diver",
+   "sprite": "surfer",
+   "x": 24,
+   "y": 28,
+   "facing": "left",
+   "move": "still",
+   "trainer": "biot_diver"
+  },
+  {
+   "id": "biot_east_movements",
+   "sprite": "rail_guard",
+   "x": 29,
+   "y": 33,
+   "facing": "left",
+   "move": "still",
+   "script": "raf_home",
+   "name": "Duty Boatman"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "ravanne",
+    "min": 93,
+    "max": 95,
+    "weight": 7,
+    "time": [
+     "dusk",
+     "night"
+    ]
+   },
+   {
+    "species": "cocoshell",
+    "min": 93,
+    "max": 95,
+    "weight": 14,
+    "time": [
+     "dusk",
+     "night",
+     "dawn"
+    ]
+   },
+   {
+    "species": "coconabber",
+    "min": 93,
+    "max": 95,
+    "weight": 6,
+    "time": [
+     "night"
+    ]
+   },
+   {
+    "species": "wideling",
+    "min": 93,
+    "max": 95,
+    "weight": 14
+   },
+   {
+    "species": "wideawake",
+    "min": 93,
+    "max": 95,
+    "weight": 5,
+    "time": [
+     "day"
+    ]
+   },
+   {
+    "species": "gannetling",
+    "min": 93,
+    "max": 95,
+    "weight": 10,
+    "time": [
+     "day"
+    ]
+   },
+   {
+    "species": "pinchkin",
+    "min": 93,
+    "max": 95,
+    "weight": 12
+   },
+   {
+    "species": "plungebeak",
+    "min": 93,
+    "max": 95,
+    "weight": 8,
+    "time": [
+     "day"
+    ]
+   },
+   {
+    "species": "petrelash",
+    "min": 93,
+    "max": 95,
+    "weight": 8,
+    "weather": [
+     "gale",
+     "downpour"
+    ]
+   }
+  ],
+  "water": [
+   {
+    "species": "dolfeen",
+    "min": 93,
+    "max": 95,
+    "weight": 12
+   },
+   {
+    "species": "baskling",
+    "min": 93,
+    "max": 95,
+    "weight": 10
+   },
+   {
+    "species": "dolphlet",
+    "min": 93,
+    "max": 95,
+    "weight": 10
+   },
+   {
+    "species": "pinchkin",
+    "min": 93,
+    "max": 95,
+    "weight": 10
+   },
+   {
+    "species": "merrow",
+    "min": 93,
+    "max": 95,
+    "weight": 4,
+    "time": [
+     "dusk",
+     "night"
+    ]
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 19,
+   "y": 14,
+   "plaque": "biot_east_point",
+   "title": "East Point",
+   "text": "EAST POINT. For almost two centuries East Point was a plantation village at the north-east tip of Diego Garcia, with a church, a school, a store and rows of homes among the coconut palms. Its people made their living from copra, dried coconut flesh pressed for oil."
+  },
+  {
+   "x": 33,
+   "y": 12,
+   "plaque": "biot_cemetery",
+   "title": "The Cemetery",
+   "text": "THE CEMETERY. Generations of Chagossians are buried here. The graves are looked after by those who work on the island, and by former residents on organised heritage visits, who come to tend family graves and lay flowers on their ancestors."
+  },
+  {
+   "x": 15,
+   "y": 24,
+   "plaque": "biot_removal",
+   "title": "The Removal",
+   "text": "THE REMOVAL. Between 1967 and 1973 the British government removed the people of the Chagos Islands to make way for the defence facility, and the plantations were closed. Most were taken to Mauritius or Seychelles, where many found life very hard. Chagossians have campaigned ever since for the right to return, and the islands' future is still discussed."
+  },
+  {
+   "x": 36,
+   "y": 23,
+   "plaque": "biot_sega",
+   "title": "Sega",
+   "text": "SEGA. Sega is the music and dance of the Chagossians, played on the ravanne, a goatskin drum, with a rattle and a triangle, and sung in Chagossian Creole. It was the music of evenings and holidays on the islands, and it still holds the community together."
+  },
+  {
+   "x": 12,
+   "y": 22,
+   "plaque": "biot_copra",
+   "title": "Copra",
+   "text": "COPRA. Coconut meat was cut, dried in the sun or in a drying shed, and pressed for oil. It was the Chagos economy for generations, and the work was hard and the pay was small. The palms that fill the island today are the descendants of those plantings."
+  }
+ ],
+ "spawn": [
+  29,
+  31
+ ],
+ "rows": [
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$www$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$wwwwwwwswwwwwww$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$wwwwsssssshssssssweeeeeeeeee$$$$",
+  "$$$$$$$$$$wwwssshgpggghphghggsegggggggge$$$$",
+  "$$$$$$$$$wwsspgggggghhgghphhpgegggggggge$$$$",
+  "$$$$$$$wwwsgghgggggpggghhhgphhegggggggge$$$$",
+  "$$$$$$wwsshgggghgpgghghghhhgggegggggggge$$$$",
+  "$$$$$$wsgghgggphphggBBBBBgggggegggggggge$$$$",
+  "$$$$$wwspggphpghgghgBBBBBggpggeeeerreeee$$$$",
+  "$$$$wwsgggghggghggggBBBBBgggghgghhrrggsww$$$",
+  "$$$$wsgggggghhhgggghBBDBBghghgggggrrhhgsw$$$",
+  "$$$$wspggghggghhhgggggrrgggghgggggrrgggsw$$$",
+  "$$$$wspgggggrrrrrrrrrrrrrrrrrrrrrhrrgggsw$$$",
+  "$$$wwshgBBBBBBBgggggggrrgghhhhgghggghggsww$$",
+  "$$$wsgggBBBBBBBhhghhggrrghBBBBBBhhggghghsw$$",
+  "$$$wwsghBBBBBBBgggggggrrghBBBBBBggggphgsww$$",
+  "$$$$wspgBBBDBBBhghggghrrggBBBBBBhggggggsw$$$",
+  "$$$$wsgggghrggghggggggrrhhBBBDBBhghggggsw$$$",
+  "$$$$wsghggrhgggghgghggrrggghrrggggggpggsw$$$",
+  "$$$$wwspggrghgrrrrrrrrrrrrrrrrrggghgggsww$$$",
+  "$$$$$wwsgghghhrrrrrrrrrrrrrrrrrggghggsww$$$$",
+  "$$$$$$wsggghgggggggggggggggggggggghpgsw$$$$$",
+  "$$$$$$wwsshghhghggggghggggggghgggggssww$$$$$",
+  "$$$$$$$wwwsggggghgggghhggggggghgggswww$$$$$$",
+  "$$$$$$$$$wwssghhgpggphgggpghpgpgpsww$$$$$$$$",
+  "$$$$$$$$$$wwwsssphggggggpggggghhsww$$$$$$$$$",
+  "$$$$$$$$$$$$wwwwssssssgssshprrrgsw$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$wwwwwwwswwwsgrrrgsw$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$www$wshrrrpsw$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$wshrrrgsw$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$wsgrrrgsw$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$wsprrrpsw$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$wshrrrgsw$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$wsgrrrgsw$$$$$$$$$$"
+ ]
+}

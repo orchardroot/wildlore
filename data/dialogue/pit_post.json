@@ -1,0 +1,63 @@
+{
+ "pit_postmaster": [
+  {
+   "do": "if",
+   "flag": "q_overseas_pitcairn_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Postmaster",
+     "text": "I'll hold the cover for the ship. It's nice to see a quest completed on time. Have a stamp. No charge."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_overseas_pitcairn_1",
+     "then": [
+      {
+       "do": "say",
+       "who": "Postmaster",
+       "text": "The cover's in the bag, and so is the stamp. Rua is at the bay, I think he's waiting."
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_overseas_pitcairn_started",
+       "then": [
+        {
+         "do": "say",
+         "who": "Postmaster",
+         "text": "From the Elder? Good. Pitcairn stamps have been our own since 1940, and the postmark is half the price."
+        },
+        {
+         "do": "say",
+         "who": "Postmaster",
+         "text": "Here's a first-day cover, for the ship. Take it to Rua at Bounty Bay. He'll want to know you're serious."
+        },
+        {
+         "do": "give_item",
+         "item": "first_day_cover",
+         "n": 1
+        },
+        {
+         "do": "set",
+         "flag": "q_overseas_pitcairn_1",
+         "value": true
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Postmaster",
+         "text": "Stamps, postcards, and a great deal of waiting for the ship. Stamps are what bring collectors, and income, from all over the world. You can send a card from here, if you like."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -37,7 +37,7 @@ static func dress(z: ZoneData, zone_node: Node3D, follow_node: Node3D) -> void:
 	s.follow = follow_node
 	s._rng.seed = hash(z.id)
 	var low := Settings.quality == "low"
-	if season == "autumn" and not low and tree_count(z) >= WOODED_TREES:
+	if season == "autumn" and not low and tree_count(z) >= WOODED_TREES and not z.region.begins_with("overseas_"):  # palms drop no leaves
 		s._add_leaves()
 	if z.kind == "town" and Calendar.festival_here(festival, z.region):
 		match festival:

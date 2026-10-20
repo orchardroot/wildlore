@@ -1,0 +1,93 @@
+{
+ "id": "pit_boathouse",
+ "name": "Longboat House",
+ "region": "overseas_pitcairn",
+ "kind": "interior",
+ "music": "route_coast",
+ "weather": {},
+ "props": [
+  {
+   "type": "lobster_pots",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "lobster_pots",
+   "x": 11,
+   "y": 1
+  },
+  {
+   "type": "bollard",
+   "x": 3,
+   "y": 5
+  },
+  {
+   "type": "bollard",
+   "x": 9,
+   "y": 5
+  },
+  {
+   "type": "table",
+   "x": 6,
+   "y": 2
+  },
+  {
+   "type": "steel_plates",
+   "x": 10,
+   "y": 5
+  },
+  {
+   "type": "wall_map",
+   "x": 6,
+   "y": 0
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 7,
+   "to": "adamstown",
+   "tx": 45,
+   "ty": 29,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "pit_old_cox",
+   "sprite": "fisherman_north",
+   "x": 4,
+   "y": 3,
+   "facing": "right",
+   "move": "still",
+   "script": "pit_old_cox",
+   "name": "Old Boatman"
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "x": 8,
+   "y": 3,
+   "plaque": "pitcairn_longboat",
+   "title": "The Longboats",
+   "text": "LONGBOATS. Pitcairn's longboats are built for the surf: long, narrow and rowed or motored through the gap at Bounty Bay to meet visiting ships. Boat crews are an island institution, and being chosen for one means you have been paying attention."
+  }
+ ],
+ "spawn": [
+  6,
+  6
+ ],
+ "rows": [
+  "xxxxxxxxxxxxx",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||D|||||x",
+  "xxxxxxxxxxxxx"
+ ]
+}

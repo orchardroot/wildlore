@@ -1,0 +1,77 @@
+{
+ "id": "biot_hut",
+ "name": "Conservation Hut",
+ "region": "overseas_biot",
+ "kind": "interior",
+ "music": "town_cornwall",
+ "weather": {},
+ "props": [
+  {
+   "type": "specimen_shelf",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "specimen_shelf",
+   "x": 7,
+   "y": 1
+  },
+  {
+   "type": "table",
+   "x": 2,
+   "y": 4
+  },
+  {
+   "type": "wall_map",
+   "x": 4,
+   "y": 0
+  }
+ ],
+ "warps": [
+  {
+   "x": 4,
+   "y": 6,
+   "to": "diego_garcia",
+   "tx": 46,
+   "ty": 37,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "biot_scientist",
+   "sprite": "explorer",
+   "x": 4,
+   "y": 2,
+   "facing": "down",
+   "move": "still",
+   "script": "biot_scientist",
+   "name": "Conservation Officer"
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "x": 7,
+   "y": 4,
+   "plaque": "biot_mpa",
+   "title": "The Marine Protected Area",
+   "text": "THE MARINE PROTECTED AREA. No commercial fishing has been allowed in the Chagos waters since 2010. Reef sharks, turtles, manta rays and huge shoals of fish make the reef a rare place to measure what a healthy Indian Ocean looks like."
+  }
+ ],
+ "spawn": [
+  4,
+  5
+ ],
+ "rows": [
+  "xxxxxxxxx",
+  "x|||||||x",
+  "x|||||||x",
+  "x|||||||x",
+  "x|||||||x",
+  "x|||||||x",
+  "x|||D|||x",
+  "xxxxxxxxx"
+ ]
+}

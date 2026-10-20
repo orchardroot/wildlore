@@ -1,0 +1,77 @@
+{
+ "id": "pit_honey",
+ "name": "Honey Shed",
+ "region": "overseas_pitcairn",
+ "kind": "interior",
+ "music": "town_cornwall",
+ "weather": {},
+ "props": [
+  {
+   "type": "display_case",
+   "x": 7,
+   "y": 2
+  },
+  {
+   "type": "plant_stand",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "plant_stand",
+   "x": 7,
+   "y": 5
+  },
+  {
+   "type": "table",
+   "x": 2,
+   "y": 5
+  }
+ ],
+ "warps": [
+  {
+   "x": 4,
+   "y": 6,
+   "to": "adamstown",
+   "tx": 31,
+   "ty": 27,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "pit_honey_keeper",
+   "sprite": "jam_maker",
+   "x": 3,
+   "y": 1,
+   "facing": "down",
+   "move": "still",
+   "script": "pit_honey_keeper",
+   "name": "Honey Keeper"
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "x": 6,
+   "y": 4,
+   "plaque": "pitcairn_honey",
+   "title": "Pitcairn Honey",
+   "text": "PITCAIRN HONEY. The island's bees make honey from tropical flowers, and the colonies have never had the varroa mite that troubles hives elsewhere. Jars go out on the supply ship, with a label that includes the word Pitcairn and a great deal of pride."
+  }
+ ],
+ "spawn": [
+  4,
+  5
+ ],
+ "rows": [
+  "xxxxxxxxx",
+  "x|||||||x",
+  "x|CCCC||x",
+  "x|||||||x",
+  "x|||||||x",
+  "x|||||||x",
+  "x|||D|||x",
+  "xxxxxxxxx"
+ ]
+}

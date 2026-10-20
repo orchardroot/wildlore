@@ -1,0 +1,50 @@
+{
+ "biot_officer": [
+  {
+   "do": "if",
+   "flag": "q_overseas_biot_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Staff Officer",
+     "text": "The warden sent word. The chapel looks lovely, apparently. That's the best report I'll get all year."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_overseas_biot_started",
+     "then": [
+      {
+       "do": "say",
+       "who": "Staff Officer",
+       "text": "The Chief at the Marina Boathouse has the whitewash. Then East Point, and the warden. Be respectful, won't you."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Staff Officer",
+       "text": "Welcome. I'm the Staff Officer for Naval Party 1002. We run the Territory's affairs on the spot, with a small team and a lot of paperwork."
+      },
+      {
+       "do": "say",
+       "who": "Staff Officer",
+       "text": "The history of these islands isn't a comfortable one. Between 1967 and 1973 the Chagossian people were removed, mostly to Mauritius and Seychelles, and many have been fighting to return ever since. We don't pretend otherwise."
+      },
+      {
+       "do": "say",
+       "who": "Staff Officer",
+       "text": "There's a heritage visit coming, and the chapel and cemetery at East Point want tidying. Would you collect whitewash and brushes from the Chief at the Marina, and take them to the Heritage Warden?"
+      },
+      {
+       "do": "set",
+       "flag": "q_overseas_biot_started",
+       "value": true
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

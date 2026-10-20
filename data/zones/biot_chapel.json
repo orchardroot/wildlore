@@ -1,0 +1,93 @@
+{
+ "id": "biot_chapel",
+ "name": "East Point Chapel",
+ "region": "overseas_biot",
+ "kind": "interior",
+ "music": "church",
+ "weather": {},
+ "props": [
+  {
+   "type": "bench",
+   "x": 3,
+   "y": 4
+  },
+  {
+   "type": "bench",
+   "x": 4,
+   "y": 4
+  },
+  {
+   "type": "bench",
+   "x": 6,
+   "y": 4
+  },
+  {
+   "type": "bench",
+   "x": 7,
+   "y": 4
+  },
+  {
+   "type": "candelabra",
+   "x": 3,
+   "y": 1
+  },
+  {
+   "type": "candelabra",
+   "x": 7,
+   "y": 1
+  },
+  {
+   "type": "wall_picture",
+   "x": 5,
+   "y": 0
+  }
+ ],
+ "warps": [
+  {
+   "x": 5,
+   "y": 7,
+   "to": "east_point",
+   "tx": 22,
+   "ty": 13,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "biot_chapel_keeper",
+   "sprite": "pilgrim",
+   "x": 5,
+   "y": 2,
+   "facing": "down",
+   "move": "still",
+   "script": "biot_chapel_keeper",
+   "name": "Chapel Keeper"
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "x": 3,
+   "y": 6,
+   "plaque": "biot_chapel",
+   "title": "The Chapel",
+   "text": "THE CHAPEL. The chapel at East Point was the centre of the village's life: Mass, weddings, christenings and funerals. It has been kept standing by people who care for it, and former residents bring flowers on heritage visits."
+  }
+ ],
+ "spawn": [
+  5,
+  6
+ ],
+ "rows": [
+  "xxxxxxxxxxx",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x||||D||||x",
+  "xxxxxxxxxxx"
+ ]
+}

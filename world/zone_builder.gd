@@ -253,6 +253,8 @@ const POINT_PROPS := ["lamp_post", "bench", "bush", "birch", "oak", "pine", "roc
 	"sighs_bridge", "cheese_wheel",
 	# the South East
 	"pier_ruin",
+	# the Pacific and Indian Ocean
+	"palm",
 	"slot_machine", "roulette_table", "card_table", "tote_board", "velvet_rope", "horse_statue"]
 ## Cloth meshes that ripple (flutter shader) and glow meshes that add light (firelight shader).
 const CLOTH := ["bunting", "flag", "washing_line"]
@@ -283,6 +285,8 @@ static func _props(z: ZoneData, root: Node3D, rng: RandomNumberGenerator) -> voi
 				if not TILE_PROPS.has(t):
 					continue
 				spec = TILE_PROPS[t]
+				if prop_name == "palm":
+					spec = ["palm", 3, true]  # a tree tile drawn as a coconut palm (the Pacific and Indian Ocean atolls)
 			var variant := rng.randi() % int(spec[1])
 			var basis := Basis()
 			if t in ZoneData.RAIL_TILES:
@@ -437,6 +441,8 @@ static func _ctor(name: String, variant: int) -> ArrayMesh:
 			return Meshes.birch(variant)
 		"bush":
 			return Meshes.bush(variant)
+		"palm":
+			return Meshes.palm(variant)
 		"rock":
 			return Meshes.rock(variant)
 		"hedge_segment":

@@ -1,0 +1,32 @@
+{
+ "quests": [
+  {
+   "id": "overseas_biot_voices",
+   "title": "Before the Visit",
+   "region": "overseas_biot",
+   "town": "diego_garcia",
+   "giver": "The Staff Officer, Naval Party 1002",
+   "summary": "A heritage visit is coming. The chapel and graves at East Point need tending, and someone should listen to the island.",
+   "start_flag": "q_overseas_biot_started",
+   "steps": [
+    {
+     "flag": "q_overseas_biot_1",
+     "text": "Collect whitewash and brushes from Chief Stoker Marsh at the Marina Boathouse.",
+     "zone": "diego_garcia"
+    },
+    {
+     "flag": "q_overseas_biot_2",
+     "text": "Take them to the Heritage Warden at East Point, and stay until dusk.",
+     "zone": "east_point"
+    },
+    {
+     "flag": "q_overseas_biot_3",
+     "text": "Catch a Ravanne near East Point at dusk and show it to the warden.",
+     "zone": "east_point"
+    }
+   ],
+   "done_flag": "q_overseas_biot_done",
+   "reward": "A Miniature Ravanne, fish curry, and the warden's thanks."
+  }
+ ]
+}

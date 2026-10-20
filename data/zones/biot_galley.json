@@ -1,0 +1,70 @@
+{
+ "id": "biot_galley",
+ "name": "Galley",
+ "region": "overseas_biot",
+ "kind": "interior",
+ "music": "town_cornwall",
+ "weather": {},
+ "props": [
+  {
+   "type": "table",
+   "x": 2,
+   "y": 5
+  },
+  {
+   "type": "table",
+   "x": 7,
+   "y": 5
+  },
+  {
+   "type": "stacked_chairs",
+   "x": 9,
+   "y": 1
+  },
+  {
+   "type": "tea_urn",
+   "x": 8,
+   "y": 2
+  }
+ ],
+ "warps": [
+  {
+   "x": 5,
+   "y": 7,
+   "to": "diego_garcia",
+   "tx": 19,
+   "ty": 24,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "biot_cook",
+   "sprite": "jam_maker",
+   "x": 4,
+   "y": 1,
+   "facing": "down",
+   "move": "still",
+   "script": "biot_cook",
+   "name": "Galley Cook"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  5,
+  6
+ ],
+ "rows": [
+  "xxxxxxxxxxx",
+  "x|||||||||x",
+  "x|CCCCC|||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x||||D||||x",
+  "xxxxxxxxxxx"
+ ]
+}

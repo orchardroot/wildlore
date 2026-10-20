@@ -1,0 +1,67 @@
+{
+ "pit_henderson_boat": [
+  {
+   "do": "say",
+   "who": "Longboat Hand",
+   "text": "Henderson's for looking, not staying. There's no fresh water except the spring on this beach, and it's cold and slightly salty."
+  },
+  {
+   "do": "choice",
+   "text": "Sail back to Pitcairn?",
+   "options": [
+    "Yes, please",
+    "Not yet"
+   ],
+   "set": "_back_pit"
+  },
+  {
+   "do": "if",
+   "flag": "_back_pit",
+   "then": [
+    {
+     "do": "say",
+     "who": "Longboat Hand",
+     "text": "Aboard, then. Mind the plastic."
+    },
+    {
+     "do": "fade_out"
+    },
+    {
+     "do": "warp",
+     "zone": "adamstown",
+     "x": 47,
+     "y": 31,
+     "facing": "down"
+    },
+    {
+     "do": "fade_in"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Bounty Bay, Pitcairn."
+    }
+   ],
+   "eq": 0,
+   "else": [
+    {
+     "do": "say",
+     "who": "Longboat Hand",
+     "text": "Stay a bit. The birds like an audience."
+    }
+   ]
+  }
+ ],
+ "pit_henderson_scientist": [
+  {
+   "do": "say",
+   "who": "Conservation Scientist",
+   "text": "We count the birds, the crabs and the plastic. The plastic is easiest and the most depressing, because it keeps going up."
+  },
+  {
+   "do": "say",
+   "who": "Conservation Scientist",
+   "text": "Henderson's four land birds are found nowhere else: the Henderson crake, the fruit-dove, the lorikeet and the reed warbler. That is exactly why it matters."
+  }
+ ]
+}

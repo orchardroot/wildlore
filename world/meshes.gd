@@ -181,6 +181,27 @@ static func birch(variant := 0) -> ArrayMesh:
 	blob(st, Vector3(0, 1.6, 0), Vector3(0.42, 0.55, 0.42), Color("7fa24a"), rng)
 	return _finish(st)
 
+## A coconut palm: a leaning trunk, a crown of drooping fronds and a cluster of nuts.
+static func palm(variant := 0) -> ArrayMesh:
+	var rng := _rng(4500 + variant)
+	var st := _st()
+	var lean := 0.06 + 0.05 * (variant % 3)
+	for i in 4:
+		cylinder(st, Vector3(lean * i * 0.5, i * 0.42, 0), 0.1 - 0.012 * i, 0.44, 5, Color("8a6a4a").darkened(0.05 * (i % 2)))
+	var top := Vector3(lean * 2.0, 1.68, 0)
+	var g := Color("4d8a3a").lightened(0.04 * variant)
+	for k in 6:
+		var a := TAU * k / 6.0 + variant
+		var dir := Vector3(cos(a), 0, sin(a))
+		var tip := top + dir * 0.75 + Vector3(0, -0.28, 0)
+		var mid := top + dir * 0.38 + Vector3(0, 0.1, 0)
+		var side := Vector3(-dir.z, 0, dir.x) * 0.13
+		Meshes.quad4(st, top, mid + side, tip, mid - side, g.darkened(0.1), g, g.darkened(0.15), g)
+		Meshes.quad4(st, top, mid - side, tip, mid + side, g.darkened(0.1), g, g.darkened(0.15), g)
+	for k in 3:
+		blob(st, top + Vector3(0.07 * (k - 1), -0.12, 0.07 * (k % 2)), Vector3(0.08, 0.08, 0.08), Color("6a4a2a"), rng)
+	return _finish(st)
+
 static func bush(variant := 0) -> ArrayMesh:
 	var rng := _rng(4000 + variant)
 	var st := _st()
