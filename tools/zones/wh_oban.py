@@ -142,8 +142,8 @@ def build():
     o.prop("bollard", 13, 48)
     for x, y in ((24, 10), (26, 10)):
         o.prop("rock", x, y, variant=1)
-    o.prop("flagpole", 47, 37)
-    o.prop("flagpole", 50, 37)
+    o.prop("flagpole", 47, 37, variant=1)
+    o.prop("flagpole", 50, 37, variant=1)
     o.prop("market_stall", 44, 39)
     o.prop("market_stall", 54, 39)
     o.prop("bench", 42, 51)

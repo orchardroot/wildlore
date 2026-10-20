@@ -27,7 +27,8 @@ WASHING = ["manchester", "liverpool", "sheffield", "newcastle", "cardiff", "aber
 FLAG = {"wales": 0, "scotland": 1, "ireland_rep": 2, "man": 3, "england": 4, "cornwall": 5}
 REGION_FLAG = {"mid_wales": 0, "south_wales": 0, "north_wales": 0, "scotland": 1, "ireland_west": 2, "ireland_east": 2,
                "man": 3, "cornwall": 5, "cheshire": 4, "cumbria": 4, "south_england": 4, "midlands": 4, "manchester": 4,
-               "merseyside": 4, "north_east": 4, "yorkshire": 4, "peak": 4}
+               "merseyside": 4, "north_east": 4, "yorkshire": 4, "peak": 4, "south_east": 4, "east_anglia": 4,
+               "lancashire": 4, "humber": 4, "potteries": 4}
 NO_FLAG = {"belfast", "derry", "bushmills"}          # Northern Ireland
 REPUBLIC = {"dublin", "cork", "kilkenny", "galway", "sligo", "dingle", "newgrange"}  # region "ireland" is mixed
 FLAG_SITES = re.compile(r"castle|town hall|city hall|guildhall|moot hall|council house|ferry terminal|market hall|memorial hall|tower of london", re.I)
