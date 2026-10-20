@@ -1,0 +1,32 @@
+{
+ "id": "est_birder",
+ "name": "Birdwatcher Clodagh",
+ "class": "Birdwatcher",
+ "sprite": "birdwatcher",
+ "party": [
+  {
+   "species": "heronarch",
+   "level": 59
+  },
+  {
+   "species": "corncrake",
+   "level": 58
+  },
+  {
+   "species": "polartern",
+   "level": 58
+  }
+ ],
+ "ai": "trainer",
+ "money": 2400,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Birdwatcher Clodagh",
+   "text": "Twitcher's honour, I was here first. There's a black-tailed godwit on the mud. Battle quietly."
+  }
+ ],
+ "win": "Shh! You've scared the godwit. And me.",
+ "after": "Black-tailed godwits fly in from Iceland for the winter. Iceland! For this mud!",
+ "scaled_floor": 58
+}

@@ -1,0 +1,498 @@
+{
+ "id": "lough_gur",
+ "name": "Lough Gur",
+ "region": "ireland_west",
+ "kind": "route",
+ "music": "route_ireland",
+ "weather": {
+  "drizzle": 26,
+  "clear": 22,
+  "sunshine": 14,
+  "fog": 16,
+  "gale": 8,
+  "downpour": 14
+ },
+ "props": [
+  {
+   "type": "standing_stone",
+   "x": 56,
+   "y": 26,
+   "variant": 0
+  },
+  {
+   "type": "standing_stone",
+   "x": 56,
+   "y": 27,
+   "variant": 1
+  },
+  {
+   "type": "standing_stone",
+   "x": 54,
+   "y": 29,
+   "variant": 2
+  },
+  {
+   "type": "standing_stone",
+   "x": 53,
+   "y": 29,
+   "variant": 0
+  },
+  {
+   "type": "standing_stone",
+   "x": 51,
+   "y": 29,
+   "variant": 1
+  },
+  {
+   "type": "standing_stone",
+   "x": 50,
+   "y": 29,
+   "variant": 2
+  },
+  {
+   "type": "standing_stone",
+   "x": 48,
+   "y": 25,
+   "variant": 2
+  },
+  {
+   "type": "standing_stone",
+   "x": 50,
+   "y": 23,
+   "variant": 0
+  },
+  {
+   "type": "standing_stone",
+   "x": 51,
+   "y": 23,
+   "variant": 1
+  },
+  {
+   "type": "standing_stone",
+   "x": 53,
+   "y": 23,
+   "variant": 2
+  },
+  {
+   "type": "standing_stone",
+   "x": 54,
+   "y": 23,
+   "variant": 0
+  },
+  {
+   "type": "standing_stone",
+   "x": 56,
+   "y": 25,
+   "variant": 1
+  },
+  {
+   "type": "building",
+   "style": "clare_thatch",
+   "x": 30,
+   "y": 2,
+   "w": 7,
+   "h": 3,
+   "label": "Lough Gur Visitor Centre",
+   "kind": "museum"
+  },
+  {
+   "type": "building",
+   "style": "tower_house",
+   "x": 10,
+   "y": 2,
+   "w": 5,
+   "h": 4,
+   "label": "Bourchier's Castle"
+  },
+  {
+   "type": "bush",
+   "x": 20,
+   "y": 11,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 46,
+   "y": 3,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 35,
+   "y": 32,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 8,
+   "y": 24,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 13,
+   "y": 31,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 30,
+   "y": 13,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 49,
+   "y": 29,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 54,
+   "y": 5,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 48,
+   "y": 3,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 34,
+   "y": 11,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 15,
+   "y": 15,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 3,
+   "y": 8,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 12,
+   "y": 36,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 36,
+   "y": 36,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 54,
+   "y": 8,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 4,
+   "y": 20,
+   "variant": 0
+  }
+ ],
+ "warps": [
+  {
+   "x": 33,
+   "y": 4,
+   "to": "loughgur_centre",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  }
+ ],
+ "edges": {
+  "north": {
+   "to": "limerick",
+   "offset": 0
+  }
+ },
+ "npcs": [
+  {
+   "id": "lg_folklorist",
+   "sprite": "druid",
+   "x": 30,
+   "y": 33,
+   "facing": "down",
+   "move": "still",
+   "script": "lg_folklorist",
+   "name": "Folklorist N\u00f3ra"
+  },
+  {
+   "id": "lg_circle_keeper",
+   "sprite": "hillwalker",
+   "x": 48,
+   "y": 27,
+   "facing": "right",
+   "move": "still",
+   "script": "lg_circle_keeper",
+   "name": "Circle Walker"
+  },
+  {
+   "id": "silvershod_mist",
+   "sprite": "creature:silvershod",
+   "x": 24,
+   "y": 31,
+   "facing": "up",
+   "move": "still",
+   "script": "silvershod_mist",
+   "name": "Mist on the Water",
+   "hide_if": "caught_silvershod"
+  },
+  {
+   "id": "lg_archaeologist",
+   "sprite": "tour_guide",
+   "x": 44,
+   "y": 7,
+   "facing": "down",
+   "move": "still",
+   "trainer": "lg_archaeologist"
+  },
+  {
+   "id": "lg_angler",
+   "sprite": "angler",
+   "x": 8,
+   "y": 22,
+   "facing": "right",
+   "move": "still",
+   "trainer": "lg_angler"
+  },
+  {
+   "id": "lg_walker",
+   "sprite": "hillwalker",
+   "x": 47,
+   "y": 31,
+   "facing": "left",
+   "move": "still",
+   "trainer": "lg_walker"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "gealhare",
+    "min": 58,
+    "max": 59,
+    "weight": 12
+   },
+   {
+    "species": "stagmor",
+    "min": 58,
+    "max": 59,
+    "weight": 8,
+    "time": [
+     "dawn",
+     "dusk"
+    ]
+   },
+   {
+    "species": "megalorn",
+    "min": 58,
+    "max": 59,
+    "weight": 4,
+    "weather": [
+     "fog"
+    ],
+    "time": [
+     "dawn",
+     "dusk"
+    ]
+   },
+   {
+    "species": "pooka",
+    "min": 58,
+    "max": 59,
+    "weight": 8,
+    "time": [
+     "night"
+    ]
+   },
+   {
+    "species": "bansheen",
+    "min": 58,
+    "max": 59,
+    "weight": 5,
+    "time": [
+     "night"
+    ],
+    "weather": [
+     "fog",
+     "drizzle"
+    ]
+   },
+   {
+    "species": "corncrake",
+    "min": 58,
+    "max": 59,
+    "weight": 8,
+    "time": [
+     "dawn",
+     "dusk"
+    ]
+   },
+   {
+    "species": "rooklet",
+    "min": 58,
+    "max": 59,
+    "weight": 12
+   },
+   {
+    "species": "horseshoe",
+    "min": 58,
+    "max": 59,
+    "weight": 6,
+    "time": [
+     "night"
+    ]
+   },
+   {
+    "species": "moolet",
+    "min": 58,
+    "max": 59,
+    "weight": 10
+   },
+   {
+    "species": "cluricaun",
+    "min": 58,
+    "max": 59,
+    "weight": 4,
+    "time": [
+     "night"
+    ]
+   }
+  ],
+  "water": [
+   {
+    "species": "bradan",
+    "min": 58,
+    "max": 59,
+    "weight": 16
+   },
+   {
+    "species": "rillotter",
+    "min": 58,
+    "max": 59,
+    "weight": 14
+   },
+   {
+    "species": "heronarch",
+    "min": 58,
+    "max": 59,
+    "weight": 14
+   },
+   {
+    "species": "spatelord",
+    "min": 58,
+    "max": 59,
+    "weight": 8,
+    "time": [
+     "night"
+    ]
+   },
+   {
+    "species": "parrlet",
+    "min": 58,
+    "max": 59,
+    "weight": 10
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 47,
+   "y": 24,
+   "text": "GRANGE STONE CIRCLE. The largest stone circle in Ireland, raised about four thousand years ago, more than a hundred stones set edge to edge round a level floor. At the summer solstice the sun rises in line with the entrance.",
+   "plaque": "limerick_grange_stone_circle",
+   "title": "Grange Stone Circle"
+  },
+  {
+   "x": 24,
+   "y": 33,
+   "text": "LOUGH GUR. People have lived round this lake for six thousand years. The remains of Neolithic houses, crann\u00f3gs, forts and tombs crowd its shores, which makes it one of the richest archaeological places in Ireland.",
+   "plaque": "limerick_lough_gur",
+   "title": "Lough Gur"
+  },
+  {
+   "x": 30,
+   "y": 34,
+   "text": "GEAR\u00d3ID IARLA. Gerald FitzGerald, Earl of Desmond, was a fourteenth-century poet in Irish and, they said, a magician. Legend says he sleeps under Lough Gur and rides out over the water every seven years on a horse shod with silver. When the shoes wear through, he will return.",
+   "plaque": "limerick_gearoid_iarla",
+   "title": "Gear\u00f3id Iarla"
+  },
+  {
+   "x": 41,
+   "y": 8,
+   "text": "THE LOUGH GUR SHIELD. A Bronze Age shield of beaten bronze, about 2,700 years old, found near the lake. Its rings of studs still shine. It's in the National Museum in Dublin now; the lake would like it back.",
+   "plaque": "limerick_lough_gur_shield",
+   "title": "The Lough Gur Shield"
+  }
+ ],
+ "spawn": [
+  41,
+  2
+ ],
+ "stage": "moor",
+ "scaled_floor": 58,
+ "rows": [
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTPT###TTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT###TTTTTTTTTTTTTTTTT",
+  "TTkkkkkkkkBBBBBkkkkkkkkkkkkkkkBBBBBBBkkk###kkkkkkkkkkkkkkkTT",
+  "TTkkkkkkkkBBBBBkkkkkkkkkkkkkkkBBBBBBBkkk###kkkkkkkkkkkkkkkTT",
+  "TTkkkkkkkkBBBBBkkkkkkkkkkkkkkkBBBDBBBkkk###kkkkkkkkkkkkkkkTT",
+  "TTkkkkkkkkBBBBBkkkkkkkkkkkkkkkkkk#kkkkkk###kkkkkkkkkkkkkkkTT",
+  "TTkkkk##################################################kkTT",
+  "TTkkkk##################################################kkTT",
+  "TTkkkk##kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk##kkkkkkkkkkTT",
+  "TTkkkk##k,,,,,,kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk##kk,,,,,,,kTT",
+  "TTkkkk##k,,,,,,kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk##kk,,,,,,,kTT",
+  "TTkkkk##k,,,,,,kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk##kk,,,,,,,kTT",
+  "TTkkkk##k,,,,,,kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk##kk,,,,,,,kTT",
+  "TTkkkk##k,,,,,,kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk##kk,,,,,,,kTT",
+  "TTkkkk##k,,,,,,kkkkkkkkkwkkkkkkkkkkkkkkkkkkkkk##kk,,,,,,,kTT",
+  "TTkkkk##k,,,,,,kkwwwwowwowwwwwwwkkkkkkkkkkkkkk##kk,,,,,,,kTT",
+  "TTkkkk##k,,,,,,wwoooooooooooooowwwwkkkkkkkkkkk##kk,,,,,,,kTT",
+  "TTkkkk##kkkkkwwooooo~~~~~~~~~~ooooowkkkkkkkkkk##kk,,,,,,,kTT",
+  "TTkkkk##kkkwooooo~~~~~~~~~~~~~~~~oooowkkkkkkkk##kk,,,,,,,kTT",
+  "TTkkkk##kkwoooo~~~~~~~~~~~~~~~~~~~ooowwkkkkkkk##kk,,,,,,,kTT",
+  "TTkkkk##kwwoo~~~~~~~~~~~~~~~~~~~~~~~oowwkkkkkk##kk,,,,,,,kTT",
+  "TTkkkk##kwoo~~~~~~~~~~w~~~~~~~~~~~~~~oowkkkkkk##kkkkkkkkkkTT",
+  "TTkkkk##kwoo~~~~~~~wwwwwww~~~~~~~~~~~oookkkkkk##kkkkkkkkkkTT",
+  "TTkkkk##wwoo~~~~~~wwwwwwwww~~~~~~~~~~~oowkkkkk##kkkkkkkkkkTT",
+  "TTkkkk##koo~~~~~~wwwwwwwwwww~~~~~~~~~oookkkkkk##kfffffffkkTT",
+  "TTkkkk##kwoo~~~~~~wwwwwwwww~~~~~~~~~~oowkkkkkk###fffffffkkTT",
+  "TTkkkk##kwwoo~~~~~~wwwwwww~~~~~~~~~~ooowkkkkkk###fffffffkkTT",
+  "TTkkkk##kkwooo~~~~~~~~##~~~~~~~~~~~oowwkkkkkkk###fffffffkkTT",
+  "TTkkkk##kkkwwooo~~~~~~##~~~~~~~~oooowwkkkkkkkk##kfffffffkkTT",
+  "TTkkkk##kkkkkwooooo~~~##~~~~~oooooowkkkkkkkkkk##kkkkkkkkkkTT",
+  "TTkkkk##kkkkkkwwowoooo##oooooooowwwkkkkkkkkkkk##kkkkkkkkkkPT",
+  "TTkkkk##kkkkkkkkkwwwww##wwwwwwwwkkkkkkkkkkkkkk##kkkkkkkkkkTT",
+  "TTkkkk##kkkkkkkkkkkkkk##wkkkkkkkkkkkkkkkkkkkkk##kkkkkkkkkkTT",
+  "TTkkkk##kkkkkkkkkkkkkk##kkkkkkkkkkkkkkkkkkkkkk##kkkkkkkkkkTT",
+  "TTkkkk##########################################kkkkkkkkkkTT",
+  "TTkkkk##########################################kkkkkkkkkkTT",
+  "TTkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkTT",
+  "TTkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkTT",
+  "TTkkkkkkk,,,,,,,,,,,,,,,,,,kkk,,,,,,,,,,,,,,,,,,,,,,,,kkkkTT",
+  "TTkkkkkkk,,,,,,,,,,,,,,,,,,kkk,,,,,,,,,,,,,,,,,,,,,,,,kkkkTT",
+  "TTkkkkkkk,,,,,,,,,,,,,,,,,,kkk,,,,,,,,,,,,,,,,,,,,,,,,kkkkTT",
+  "TTkkkkkkk,,,,,,,,,,,,,,,,,,kkk,,,,,,,,,,,,,,,,,,,,,,,,kkkkTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT"
+ ],
+ "legend_extra": {
+  "k": {
+   "tile": "grass",
+   "colour": "#6e8f48"
+  }
+ }
+}

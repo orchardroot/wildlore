@@ -1,0 +1,818 @@
+{
+ "id": "shannon_estuary",
+ "name": "Shannon Estuary",
+ "region": "ireland_west",
+ "kind": "route",
+ "music": "route_ireland",
+ "weather": {
+  "drizzle": 28,
+  "clear": 20,
+  "sunshine": 12,
+  "gale": 16,
+  "fog": 10,
+  "downpour": 14
+ },
+ "props": [
+  {
+   "type": "building",
+   "style": "airport_terminal",
+   "x": 5,
+   "y": 8,
+   "w": 12,
+   "h": 3,
+   "label": "Shannon Airport",
+   "kind": "hall"
+  },
+  {
+   "type": "building",
+   "style": "field_barn",
+   "x": 26,
+   "y": 12,
+   "w": 5,
+   "h": 3,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "tower_house",
+   "x": 46,
+   "y": 3,
+   "w": 8,
+   "h": 6,
+   "label": "Bunratty Castle",
+   "kind": "castle"
+  },
+  {
+   "type": "building",
+   "style": "clare_thatch",
+   "x": 38,
+   "y": 3,
+   "w": 5,
+   "h": 3,
+   "label": "Folk Park Cottage",
+   "kind": "cottage"
+  },
+  {
+   "type": "building",
+   "style": "clare_thatch",
+   "x": 38,
+   "y": 10,
+   "w": 4,
+   "h": 3,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "clare_thatch",
+   "x": 43,
+   "y": 12,
+   "w": 4,
+   "h": 3,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "white_render",
+   "x": 60,
+   "y": 7,
+   "w": 7,
+   "h": 3,
+   "label": "Durty Nelly's",
+   "kind": "cafe"
+  },
+  {
+   "type": "building",
+   "style": "clare_thatch",
+   "x": 64,
+   "y": 3,
+   "w": 4,
+   "h": 3,
+   "show_label": false
+  },
+  {
+   "type": "lamp_post",
+   "x": 44,
+   "y": 10
+  },
+  {
+   "type": "lamp_post",
+   "x": 55,
+   "y": 10
+  },
+  {
+   "type": "lamp_post",
+   "x": 67,
+   "y": 11
+  },
+  {
+   "type": "bench",
+   "x": 47,
+   "y": 11
+  },
+  {
+   "type": "bench",
+   "x": 53,
+   "y": 11
+  },
+  {
+   "type": "bollard",
+   "x": 9,
+   "y": 22
+  },
+  {
+   "type": "bollard",
+   "x": 9,
+   "y": 33
+  },
+  {
+   "type": "boat",
+   "x": 16,
+   "y": 27,
+   "variant": 1
+  },
+  {
+   "type": "boat",
+   "x": 40,
+   "y": 25,
+   "variant": 0
+  },
+  {
+   "type": "boat",
+   "x": 52,
+   "y": 29,
+   "variant": 1
+  },
+  {
+   "type": "boat",
+   "x": 28,
+   "y": 30,
+   "variant": 1
+  },
+  {
+   "type": "buoy",
+   "x": 22,
+   "y": 26
+  },
+  {
+   "type": "buoy",
+   "x": 46,
+   "y": 28
+  },
+  {
+   "type": "buoy",
+   "x": 34,
+   "y": 24
+  },
+  {
+   "type": "building",
+   "style": "cream_render",
+   "x": 18,
+   "y": 37,
+   "w": 9,
+   "h": 4,
+   "label": "Foynes Flying Boat Museum",
+   "kind": "museum"
+  },
+  {
+   "type": "building",
+   "style": "flying_boat",
+   "x": 29,
+   "y": 37,
+   "w": 9,
+   "h": 4,
+   "label": "Yankee Clipper"
+  },
+  {
+   "type": "building",
+   "style": "cream_render",
+   "x": 41,
+   "y": 37,
+   "w": 5,
+   "h": 3,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "white_render",
+   "x": 47,
+   "y": 37,
+   "w": 5,
+   "h": 3,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "clare_thatch",
+   "x": 53,
+   "y": 37,
+   "w": 5,
+   "h": 3,
+   "show_label": false
+  },
+  {
+   "type": "lamp_post",
+   "x": 17,
+   "y": 40
+  },
+  {
+   "type": "lamp_post",
+   "x": 39,
+   "y": 40
+  },
+  {
+   "type": "lamp_post",
+   "x": 52,
+   "y": 41
+  },
+  {
+   "type": "lamp_post",
+   "x": 30,
+   "y": 36
+  }
+ ],
+ "warps": [
+  {
+   "x": 10,
+   "y": 10,
+   "to": "shannon_airport",
+   "tx": 7,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 50,
+   "y": 8,
+   "to": "shannon_bunratty",
+   "tx": 7,
+   "ty": 8,
+   "facing": "up"
+  },
+  {
+   "x": 40,
+   "y": 5,
+   "to": "shannon_cottage",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 62,
+   "y": 9,
+   "to": "shannon_nellys",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 22,
+   "y": 40,
+   "to": "shannon_foynes",
+   "tx": 7,
+   "ty": 7,
+   "facing": "up"
+  }
+ ],
+ "edges": {
+  "north": {
+   "to": "galway",
+   "offset": 0
+  },
+  "east": {
+   "to": "limerick",
+   "offset": 0
+  }
+ },
+ "npcs": [
+  {
+   "id": "c_heronarch_6_20",
+   "sprite": "creature:heronarch",
+   "x": 6,
+   "y": 20,
+   "facing": "down",
+   "move": "still",
+   "script": "c_heronarch"
+  },
+  {
+   "id": "c_moolet_20_14",
+   "sprite": "creature:moolet",
+   "x": 20,
+   "y": 14,
+   "facing": "down",
+   "move": "still",
+   "script": "c_moolet"
+  },
+  {
+   "id": "c_moolet_21_13",
+   "sprite": "creature:moolet",
+   "x": 21,
+   "y": 13,
+   "facing": "down",
+   "move": "still",
+   "script": "c_moolet"
+  },
+  {
+   "id": "dolphin_skipper",
+   "sprite": "sailor",
+   "x": 13,
+   "y": 20,
+   "facing": "down",
+   "move": "still",
+   "script": "dolphin_skipper",
+   "name": "Skipper Gr\u00e1inne"
+  },
+  {
+   "id": "dolphin_a",
+   "sprite": "creature:dolfeen",
+   "x": 30,
+   "y": 21,
+   "facing": "down",
+   "move": "still",
+   "script": "dolphin_a",
+   "name": "Bottlenose Dolphin"
+  },
+  {
+   "id": "dolphin_b",
+   "sprite": "creature:dolfeen",
+   "x": 59,
+   "y": 34,
+   "facing": "down",
+   "move": "still",
+   "script": "dolphin_b",
+   "name": "Bottlenose Dolphin"
+  },
+  {
+   "id": "dolphin_c",
+   "sprite": "creature:dolfeen",
+   "x": 20,
+   "y": 34,
+   "facing": "down",
+   "move": "still",
+   "script": "dolphin_c",
+   "name": "Bottlenose Dolphin"
+  },
+  {
+   "id": "speedboat_donal",
+   "sprite": "surfer",
+   "x": 14,
+   "y": 35,
+   "facing": "up",
+   "move": "still",
+   "script": "speedboat_donal",
+   "name": "Speedboat D\u00f3nal"
+  },
+  {
+   "id": "dairy_farmer",
+   "sprite": "farmer",
+   "x": 24,
+   "y": 16,
+   "facing": "down",
+   "move": "still",
+   "script": "dairy_farmer",
+   "name": "Dairy Farmer P\u00e1draig"
+  },
+  {
+   "id": "folk_harpist",
+   "sprite": "harpist",
+   "x": 44,
+   "y": 7,
+   "facing": "down",
+   "move": "still",
+   "script": "folk_harpist",
+   "name": "Harpist S\u00edle"
+  },
+  {
+   "id": "ferry_north",
+   "sprite": "sailor",
+   "x": 10,
+   "y": 22,
+   "facing": "down",
+   "move": "still",
+   "script": "ferry_north",
+   "name": "Ferryman"
+  },
+  {
+   "id": "ferry_south",
+   "sprite": "sailor",
+   "x": 10,
+   "y": 33,
+   "facing": "up",
+   "move": "still",
+   "script": "ferry_south",
+   "name": "Ferryman"
+  },
+  {
+   "id": "est_plane_spotter",
+   "sprite": "student",
+   "x": 28,
+   "y": 7,
+   "facing": "down",
+   "move": "wander",
+   "script": "est_plane_spotter",
+   "name": "Plane Spotter",
+   "radius": 2
+  },
+  {
+   "id": "est_folk_guide",
+   "sprite": "tour_guide",
+   "x": 41,
+   "y": 7,
+   "facing": "right",
+   "move": "still",
+   "script": "est_folk_guide",
+   "name": "Folk Park Guide"
+  },
+  {
+   "id": "est_mudlarker",
+   "sprite": "birdwatcher",
+   "x": 47,
+   "y": 20,
+   "facing": "down",
+   "move": "wander",
+   "script": "est_mudlarker",
+   "name": "Wader Counter",
+   "radius": 3
+  },
+  {
+   "id": "est_foynes_local",
+   "sprite": "villager_3",
+   "x": 45,
+   "y": 41,
+   "facing": "down",
+   "move": "still",
+   "script": "est_foynes_local",
+   "name": "Foynes Local",
+   "times": [
+    "dawn",
+    "day",
+    "dusk"
+   ]
+  },
+  {
+   "id": "est_cattle_jobber",
+   "sprite": "farmer",
+   "x": 66,
+   "y": 18,
+   "facing": "left",
+   "move": "still",
+   "script": "est_cattle_jobber",
+   "name": "Cattle Jobber",
+   "times": [
+    "dawn",
+    "day"
+   ]
+  },
+  {
+   "id": "est_birder",
+   "sprite": "birdwatcher",
+   "x": 25,
+   "y": 20,
+   "facing": "down",
+   "move": "still",
+   "trainer": "est_birder"
+  },
+  {
+   "id": "est_pilot",
+   "sprite": "commuter",
+   "x": 20,
+   "y": 7,
+   "facing": "down",
+   "move": "still",
+   "trainer": "est_pilot"
+  },
+  {
+   "id": "shan_cyclist",
+   "sprite": "jogger",
+   "x": 50,
+   "y": 44,
+   "facing": "left",
+   "move": "still",
+   "trainer": "shan_cyclist"
+  },
+  {
+   "id": "est_thatcher",
+   "sprite": "farmer",
+   "x": 42,
+   "y": 16,
+   "facing": "up",
+   "move": "still",
+   "trainer": "est_thatcher"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "moolet",
+    "min": 58,
+    "max": 59,
+    "weight": 14
+   },
+   {
+    "species": "corncrake",
+    "min": 58,
+    "max": 59,
+    "weight": 8,
+    "time": [
+     "dawn",
+     "dusk"
+    ]
+   },
+   {
+    "species": "crexling",
+    "min": 58,
+    "max": 58,
+    "weight": 6,
+    "time": [
+     "night",
+     "dawn"
+    ]
+   },
+   {
+    "species": "rooklet",
+    "min": 58,
+    "max": 59,
+    "weight": 12
+   },
+   {
+    "species": "gealhare",
+    "min": 58,
+    "max": 59,
+    "weight": 10,
+    "time": [
+     "dawn",
+     "dusk"
+    ]
+   },
+   {
+    "species": "versling",
+    "min": 58,
+    "max": 59,
+    "weight": 6,
+    "time": [
+     "dusk",
+     "night"
+    ]
+   },
+   {
+    "species": "cuppeen",
+    "min": 58,
+    "max": 58,
+    "weight": 4,
+    "weather": [
+     "drizzle",
+     "downpour",
+     "fog"
+    ]
+   },
+   {
+    "species": "redbreast",
+    "min": 58,
+    "max": 59,
+    "weight": 10
+   },
+   {
+    "species": "starlet",
+    "min": 58,
+    "max": 59,
+    "weight": 8,
+    "time": [
+     "dusk"
+    ]
+   },
+   {
+    "species": "chipgull",
+    "min": 58,
+    "max": 59,
+    "weight": 10,
+    "time": [
+     "day"
+    ]
+   },
+   {
+    "species": "cluricaun",
+    "min": 58,
+    "max": 59,
+    "weight": 4,
+    "time": [
+     "night"
+    ]
+   },
+   {
+    "species": "sheridram",
+    "min": 59,
+    "max": 59,
+    "weight": 2,
+    "weather": [
+     "fog"
+    ],
+    "time": [
+     "night"
+    ]
+   }
+  ],
+  "water": [
+   {
+    "species": "dolfeen",
+    "min": 58,
+    "max": 59,
+    "weight": 20
+   },
+   {
+    "species": "selkie",
+    "min": 58,
+    "max": 59,
+    "weight": 12
+   },
+   {
+    "species": "bradan",
+    "min": 58,
+    "max": 59,
+    "weight": 10
+   },
+   {
+    "species": "heronarch",
+    "min": 58,
+    "max": 59,
+    "weight": 12
+   },
+   {
+    "species": "plungebeak",
+    "min": 58,
+    "max": 59,
+    "weight": 10,
+    "weather": [
+     "gale",
+     "clear"
+    ]
+   },
+   {
+    "species": "parrlet",
+    "min": 58,
+    "max": 58,
+    "weight": 8
+   },
+   {
+    "species": "merrow",
+    "min": 58,
+    "max": 59,
+    "weight": 4,
+    "time": [
+     "night"
+    ],
+    "weather": [
+     "fog"
+    ]
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 33,
+   "y": 12,
+   "text": "SHANNON AIRPORT. In 1947 it opened the world's first duty-free shop, the idea of its catering boss, Brendan O'Regan. Before jets could cross the Atlantic in one hop, almost every transatlantic flight stopped here to refuel.",
+   "plaque": "limerick_shannon_airport",
+   "title": "Shannon Airport"
+  },
+  {
+   "x": 45,
+   "y": 10,
+   "text": "BUNRATTY CASTLE. A great tower house built around 1425 by the MacNamaras and later held by the O'Briens, Earls of Thomond. It was restored in the 1950s, and it has been serving medieval banquets since the 1960s.",
+   "plaque": "limerick_bunratty_castle",
+   "title": "Bunratty Castle"
+  },
+  {
+   "x": 39,
+   "y": 9,
+   "text": "BUNRATTY FOLK PARK. Farmhouses, a forge and a village street rebuilt as they stood in nineteenth-century Ireland. The thatch is real and so is the turf smoke, which gets into your coat and stays.",
+   "plaque": "limerick_bunratty_folk_park",
+   "title": "Bunratty Folk Park"
+  },
+  {
+   "x": 59,
+   "y": 11,
+   "text": "DURTY NELLY'S. A pub at the castle bridge said to date from 1620, named for a woman who kept the toll on the bridge and a pot of something on the fire. The name has outlived any record of whether she was durty.",
+   "plaque": "limerick_durty_nellys",
+   "title": "Durty Nelly's"
+  },
+  {
+   "x": 30,
+   "y": 20,
+   "text": "THE SHANNON DOLPHINS. Over a hundred bottlenose dolphins live in the Shannon estuary all year round, Ireland's only known resident group. They hunt the channels on the tide. Please don't chase them; they're faster than you anyway.",
+   "plaque": "limerick_shannon_dolphins",
+   "title": "The Shannon Dolphins"
+  },
+  {
+   "x": 12,
+   "y": 23,
+   "text": "THE SHANNON FERRY. Since 1969 a car ferry has crossed the estuary between Killimer in Clare and Tarbert in Kerry, about twenty minutes over and saving a long drive round by Limerick.",
+   "plaque": "limerick_killimer_ferry",
+   "title": "The Killimer Ferry"
+  },
+  {
+   "x": 17,
+   "y": 41,
+   "text": "FOYNES. From 1937 to 1945 this small port was one of the biggest civil airports in Europe: great flying boats landed on the estuary on their way across the Atlantic. The museum keeps a full-size replica of a Boeing 314 Clipper.",
+   "plaque": "limerick_foynes_flying_boats",
+   "title": "Foynes Flying Boats"
+  },
+  {
+   "x": 27,
+   "y": 41,
+   "text": "IRISH COFFEE. One winter night in 1943 a flying boat to America turned back to Foynes in bad weather. The chef, Joe Sheridan, warmed the frozen passengers with coffee, whiskey, sugar and cream. Asked if it was Brazilian coffee, he said it was Irish coffee.",
+   "plaque": "limerick_irish_coffee",
+   "title": "The Birth of Irish Coffee"
+  },
+  {
+   "x": 62,
+   "y": 36,
+   "text": "THE ROAD ROUND. There's no bridge across the lower Shannon: drivers take the ferry, or go round by Limerick, where a tunnel has run under the river since 2010. This crossing is a Wildlore liberty. The dolphins don't mind it."
+  },
+  {
+   "x": 38,
+   "y": 2,
+   "text": "BUNRATTY AND LIMERICK, EAST. GALWAY, NORTH. SHANNON AIRPORT, WEST. FOYNES, OVER THE WATER."
+  },
+  {
+   "x": 67,
+   "y": 16,
+   "text": "LIMERICK CITY, EAST. Mind the cattle trucks."
+  }
+ ],
+ "spawn": [
+  35,
+  3
+ ],
+ "stage": "coast",
+ "scaled_floor": 58,
+ "rows": [
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT===TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT===TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk:===:kkkkkkkkkkkkkkkkkkk~~kkkkkkkkkkkTT",
+  "TTkaaaaaaaaaaaaaaaaaaaaaaaaaaaaak:===:BBBBBkkkBBBBBBBBkkk~~kkkkkBBBBkkTT",
+  "TTkabbabbabbabbabbabbabbabbabbaak:===:BBBBBkkkBBBBBBBBkkk~~kkkkkBBBBkkTT",
+  "TTkaaaaaaaaaaaaaaaaaaaaaaaaaaaaak:===:BBDBBkkkBBBBBBBBkkk~~kkkkkBBBBkkTT",
+  "TTkk:::::::::::::::::::::::::::kk:===:::::::kkBBBBBBBBkkk~~kkkkkkkkkkkTT",
+  "TTkk:::::::::::::::::::::::::::kk:===:::::::kkBBBBBBBBkkk~~kBBBBBBBkkkTT",
+  "TTkkkBBBBBBBBBBBBkkkkkkkkkkkkkkkk:===:kkkkkkkkBBBBDBBBkkk~~kBBBBBBBkkkTP",
+  "TTkkkBBBBBBBBBBBBkkkkkkkkkkkkkkkk:===:kkkkk:::::::::::::k~~kBBDBBBBkkkTT",
+  "TTkkkBBBBBDBBBBBBkkkkkkkkkkkkkkkk:===:BBBBk:::::::::::::k:::::::::::kkTT",
+  "TTkk::::::::::::::::::::::::::::::===:BBBBkkkkkkkk:kkkkkk~~kkkk:kkkkkkTT",
+  "TTkkkkkkkkkkkkkkkk,,,,,,,,BBBBB,k:===:BBBBkBBBBkkk:kkkkkk~~k,,,,,,,,,kTT",
+  "TTkk,,,,,,,,,,,,kk,,,,,,,,BBBBB,k:===:kkkkkBBBBkkk:kkkkkk~~k,,,,,,,,,kTT",
+  "TTkk,,,,,,,,,,,,kk,,,,,,,,BBBBB,k:===:kkkkkBBBBkkk:kkkkkk~~k,,,,,,,,,kTT",
+  "TTkk,,,,,,,,,,,,kk,,,,,,,,,,,,,,k:===::::::::::::::kkkkkk~~k,,,,,,,,,kTT",
+  "TTkkkkkkkkkkkkkkkkFFFFFFkFFFFFFFk:===:kkkkkkkkkkkk:kkkkkk~~kkkk:kkkkkkTT",
+  "TTkkkk==================================================================",
+  "TTkkkk==================================================================",
+  "TTkkkk==================================================================",
+  "$$mmmmmmm:::mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm===mmmmTT",
+  "$$wwwwwww:::wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwW===WwwwTT",
+  "$$ooooooo:::ooooooooooooooooooooooooooooooooooooooooooooooooooW===WoooTT",
+  "$$ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooW===WoooTT",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$W===W$$$TT",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$W===W$$$TT",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$W===W$$$TT",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$W===W$$$TT",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$W===W$$$TT",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$W===W$$$TT",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$W===W$$$TT",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$W===W$$$TT",
+  "$$ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooW===WoooTT",
+  "$$ooooooo:::ooooooooooooooooooooooooooooooooooooooooooooooooooW===WoooTT",
+  "$$wwwwwww:::wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwW===WwwwTT",
+  "$$mmmmmmm:::mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm===mmmmTT",
+  "TTkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk===kkkkTT",
+  "TTkkkkkkkkkkkkkkkkBBBBBBBBBkkBBBBBBBBBkkkBBBBBkBBBBBkBBBBBkkkkk===kkkkTT",
+  "TTkkkkkkkkkkkkkkkkBBBBBBBBBkkBBBBBBBBBkkkBBBBBkBBBBBkBBBBBkkkkk===kkkkTT",
+  "TTkkkkkkkkkkkkkkkkBBBBBBBBBkkBBBBBBBBBkkkBBBBBkBBBBBkBBBBBkkkkk===kkkkTT",
+  "TTkkkkkkkkkkkkkkkkBBBBDBBBBkkBBBBBBBBBkk:::::::::::::::::::kkkk===kkkkTT",
+  "TTkkkkkkkkkkkkkkk::::::::::::::::::::::k:::::::::::::::::::kkkk===kkkkTT",
+  "TTkk==============================================================kkkkTT",
+  "TTkk==============================================================kkkkTT",
+  "TTkk==============================================================kkkkTT",
+  "TTkk,,,,,,,,,,,,,,,,,,,,,,kkffffffffffffkk,,,,,,,,,,,,,,,,,,,,,,kkkkkkTT",
+  "TTkk,,,,,,,,,,,,,,,,,,,,,,kkffffffffffffkk,,,,,,,,,,,,,,,,,,,,,,kkkkkkTT",
+  "TTkk,,,,,,,,,,,,,,,,,,,,,,kkffffffffffffkk,,,,,,,,,,,,,,,,,,,,,,kkkkkkTT",
+  "TTkk,,,,,,,,,,,,,,,,,,,,,,kkffffffffffffkk,,,,,,,,,,,,,,,,,,,,,,kkkkkkTT",
+  "TTkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT"
+ ],
+ "legend_extra": {
+  "a": {
+   "tile": "road",
+   "colour": "#55585c"
+  },
+  "b": {
+   "tile": "road",
+   "colour": "#d9d8cc"
+  },
+  "m": {
+   "tile": "sand",
+   "colour": "#7f7560"
+  },
+  "k": {
+   "tile": "grass",
+   "colour": "#6e8f48"
+  }
+ }
+}

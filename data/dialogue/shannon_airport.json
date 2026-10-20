@@ -1,0 +1,68 @@
+{
+ "duty_free": [
+  {
+   "do": "if",
+   "flag": "q_limerick_coffee_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_limerick_coffee_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "Duty Free Assistant",
+       "text": "Enjoy the coffee! Tell Br\u00edd we said hello."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Duty Free Assistant",
+       "text": "Brown sugar for Chef Br\u00edd? Coming up. It's on the house: we owe Foynes, really. Shannon took over when the flying boats stopped."
+      },
+      {
+       "do": "set",
+       "flag": "q_limerick_coffee_2"
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "You've got a bag of brown sugar for the Irish coffee."
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Duty Free Assistant",
+     "text": "Welcome to the world's first duty-free shop! Opened 1947. Whiskey, perfume, cheese, a remarkable number of leprechauns."
+    }
+   ]
+  },
+  {
+   "do": "say",
+   "who": "Duty Free Assistant",
+   "text": "Brendan O'Regan thought it up: let the transatlantic passengers buy without tax while the plane refuels. Now every airport has one. You're welcome, world."
+  }
+ ],
+ "airport_announcer": [
+  {
+   "do": "say",
+   "who": "Gate Agent",
+   "text": "Shannon has US preclearance: you go through American immigration here, before you fly. You land in America like a domestic passenger. Very handy."
+  },
+  {
+   "do": "say",
+   "who": "Gate Agent",
+   "text": "Before the jets, nearly every flight between Europe and North America stopped here for fuel. Shannon was the doorway to the New World. Now it's a doorway with a very good shop."
+  }
+ ],
+ "airport_child": [
+  {
+   "do": "say",
+   "who": "Excited Child",
+   "text": "I'm going to Boston to see my aunties! There are more Irish people in America than in Ireland, my da says. They all want to see me."
+  }
+ ]
+}

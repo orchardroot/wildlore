@@ -1,0 +1,147 @@
+{
+ "id": "limerick_milkmarket",
+ "name": "The Milk Market",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "statue",
+   "x": 2,
+   "y": 1
+  },
+  {
+   "type": "statue",
+   "x": 14,
+   "y": 1
+  },
+  {
+   "type": "table",
+   "x": 7,
+   "y": 3
+  },
+  {
+   "type": "table",
+   "x": 9,
+   "y": 3
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 8
+  },
+  {
+   "type": "potted_plant",
+   "x": 15,
+   "y": 8
+  },
+  {
+   "type": "market_stall",
+   "x": 2,
+   "y": 2,
+   "variant": 0
+  },
+  {
+   "type": "market_stall",
+   "x": 4,
+   "y": 2,
+   "variant": 1
+  },
+  {
+   "type": "market_stall",
+   "x": 12,
+   "y": 2,
+   "variant": 2
+  },
+  {
+   "type": "market_stall",
+   "x": 14,
+   "y": 2,
+   "variant": 0
+  },
+  {
+   "type": "market_stall",
+   "x": 3,
+   "y": 6,
+   "variant": 1
+  },
+  {
+   "type": "market_stall",
+   "x": 13,
+   "y": 6,
+   "variant": 2
+  }
+ ],
+ "warps": [
+  {
+   "x": 8,
+   "y": 9,
+   "to": "limerick",
+   "tx": 55,
+   "ty": 29,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "milk_bard",
+   "sprite": "poet",
+   "x": 8,
+   "y": 2,
+   "facing": "down",
+   "move": "still",
+   "script": "milk_bard",
+   "name": "Bard Ruair\u00ed"
+  },
+  {
+   "id": "milk_cheese",
+   "sprite": "shopkeeper",
+   "x": 3,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "milk_cheese",
+   "name": "Cheesemonger"
+  },
+  {
+   "id": "milk_baker",
+   "sprite": "villager_4",
+   "x": 13,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "milk_baker",
+   "name": "Baker"
+  },
+  {
+   "id": "lim_stallholder",
+   "sprite": "farmer",
+   "x": 12,
+   "y": 6,
+   "facing": "down",
+   "move": "still",
+   "trainer": "lim_stallholder"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  8,
+  8
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxxxxx",
+  "x+++++++++++++++x",
+  "x+++++++++++++++x",
+  "x+++++++++++++++x",
+  "x+++++++++++++++x",
+  "x+++++++++++++++x",
+  "x+++++++++++++++x",
+  "x+++++++++++++++x",
+  "x+++++++++++++++x",
+  "x+++++++D+++++++x",
+  "xxxxxxxxxxxxxxxxx"
+ ]
+}

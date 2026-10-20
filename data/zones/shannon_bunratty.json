@@ -1,0 +1,219 @@
+{
+ "id": "shannon_bunratty",
+ "name": "Bunratty Castle Great Hall",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "rock",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "rock",
+   "x": 1,
+   "y": 8
+  },
+  {
+   "type": "rock",
+   "x": 13,
+   "y": 1
+  },
+  {
+   "type": "rock",
+   "x": 13,
+   "y": 8
+  },
+  {
+   "type": "table",
+   "x": 7,
+   "y": 2
+  },
+  {
+   "type": "bench",
+   "x": 5,
+   "y": 4
+  },
+  {
+   "type": "bench",
+   "x": 9,
+   "y": 4
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 8
+  },
+  {
+   "type": "potted_plant",
+   "x": 13,
+   "y": 8
+  },
+  {
+   "type": "table",
+   "x": 4,
+   "y": 6
+  },
+  {
+   "type": "table",
+   "x": 5,
+   "y": 6
+  },
+  {
+   "type": "table",
+   "x": 9,
+   "y": 6
+  },
+  {
+   "type": "table",
+   "x": 10,
+   "y": 6
+  },
+  {
+   "type": "bench",
+   "x": 4,
+   "y": 5
+  },
+  {
+   "type": "bench",
+   "x": 10,
+   "y": 5
+  },
+  {
+   "type": "candelabra",
+   "x": 3,
+   "y": 6
+  },
+  {
+   "type": "candelabra",
+   "x": 11,
+   "y": 6
+  },
+  {
+   "type": "harp",
+   "x": 1,
+   "y": 3
+  },
+  {
+   "type": "brazier",
+   "x": 13,
+   "y": 3
+  },
+  {
+   "type": "tomb_chest",
+   "x": 13,
+   "y": 7
+  },
+  {
+   "type": "fireplace",
+   "x": 7,
+   "y": 1
+  },
+  {
+   "type": "rug",
+   "x": 7,
+   "y": 2,
+   "w": 2,
+   "h": 5,
+   "variant": 3,
+   "walk": true
+  },
+  {
+   "type": "wall_picture",
+   "x": 6,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  },
+  {
+   "type": "wall_picture",
+   "x": 8,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  },
+  {
+   "type": "wall_picture",
+   "x": 11,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  },
+  {
+   "type": "display_case",
+   "x": 12,
+   "y": 3,
+   "variant": 2
+  },
+  {
+   "type": "clock",
+   "x": 10,
+   "y": 1,
+   "walk": true
+  }
+ ],
+ "warps": [
+  {
+   "x": 7,
+   "y": 9,
+   "to": "shannon_estuary",
+   "tx": 50,
+   "ty": 9,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "bunratty_butler",
+   "sprite": "tour_guide",
+   "x": 7,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "bunratty_butler",
+   "name": "The Butler"
+  },
+  {
+   "id": "bunratty_wench",
+   "sprite": "villager_5",
+   "x": 3,
+   "y": 3,
+   "facing": "right",
+   "move": "still",
+   "script": "bunratty_wench",
+   "name": "Banquet Singer"
+  },
+  {
+   "id": "bunratty_historian",
+   "sprite": "poet",
+   "x": 11,
+   "y": 5,
+   "facing": "left",
+   "move": "still",
+   "script": "bunratty_historian",
+   "name": "Castle Historian"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  7,
+  8
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxxx",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x++++++D++++++x",
+  "xxxxxxxxxxxxxxx"
+ ]
+}

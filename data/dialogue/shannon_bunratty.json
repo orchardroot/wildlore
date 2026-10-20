@@ -1,0 +1,151 @@
+{
+ "bunratty_butler": [
+  {
+   "do": "if",
+   "flag": "q_limerick_banquet_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "The Butler",
+     "text": "My lady, my lord, the mead is poured and the champion is sulking. A fine banquet. Come back any night."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_limerick_banquet_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_limerick_banquet_1",
+       "then": [
+        {
+         "do": "if",
+         "flag": "q_limerick_banquet_2",
+         "then": [
+          {
+           "do": "if",
+           "flag": "q_limerick_banquet_3",
+           "then": [
+            {
+             "do": "say",
+             "who": "The Butler",
+             "text": "Mead, bread and a harper! Then let the banquet begin. Be upstanding for the Earl of Thomond!"
+            },
+            {
+             "do": "say",
+             "who": "The Butler",
+             "text": "Tradition demands a guest be found guilty of some crime and thrown in the dungeon. Tonight's accused is... you. The crime: eating soup without a spoon. Unless you can best the Earl's champion."
+            },
+            {
+             "do": "battle",
+             "trainer": "est_champion",
+             "intro": true
+            },
+            {
+             "do": "if",
+             "flag": "trainer_est_champion",
+             "then": [
+              {
+               "do": "say",
+               "who": "The Butler",
+               "text": "Acquitted! The court rises. Mead all round, and a jug for our guest, and the Earl's thanks."
+              },
+              {
+               "do": "give_item",
+               "item": "bunratty_mead",
+               "n": 3
+              },
+              {
+               "do": "standing",
+               "nation": "ireland",
+               "amount": 3
+              },
+              {
+               "do": "set",
+               "flag": "q_limerick_banquet_4"
+              },
+              {
+               "do": "set",
+               "flag": "q_limerick_banquet_done"
+              },
+              {
+               "do": "say",
+               "who": "The Butler",
+               "text": "No forks at a medieval banquet, mind. A knife, your fingers and a great deal of confidence."
+              }
+             ]
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "The Butler",
+             "text": "We have mead and bread. But a banquet without music is just a big dinner. Find the harpist in the Folk Park."
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "The Butler",
+           "text": "Mead, yes. Bread, no. The bean an t\u00ed in the Folk Park cottage bakes the best brown bread in Clare. Ask her nicely."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "The Butler",
+         "text": "First, the mead. Durty Nelly's, over the bridge. Tell the barman the Butler sent you; he'll sigh, but he'll do it."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "The Butler",
+       "text": "Welcome to Bunratty! I am the Butler. Tonight there is a medieval banquet in the Great Hall, as there has been most nights since the 1960s."
+      },
+      {
+       "do": "say",
+       "who": "The Butler",
+       "text": "But I am short of three things: mead from Durty Nelly's, brown bread from the Folk Park, and a harpist. Could you fetch them? There'll be a seat at the high table in it."
+      },
+      {
+       "do": "set",
+       "flag": "q_limerick_banquet_started"
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "bunratty_wench": [
+  {
+   "do": "say",
+   "who": "Banquet Singer",
+   "text": "We sing between courses. The songs are old and the jokes are older. Grace before meat is sung in Latin, mostly to stop people starting on the bread."
+  },
+  {
+   "do": "say",
+   "who": "Banquet Singer",
+   "text": "The tapestries are mostly from the fifteenth and sixteenth centuries. Lord Gort bought the castle in 1954 and filled it with medieval furniture. Very good furniture. Nobody's allowed to sit on it."
+  }
+ ],
+ "bunratty_historian": [
+  {
+   "do": "say",
+   "who": "Castle Historian",
+   "text": "There's been a fort on this spot since the Vikings had a trading post here. This castle is the fourth on the site, built around 1425."
+  },
+  {
+   "do": "say",
+   "who": "Castle Historian",
+   "text": "The O'Briens took it in the 1500s and held it as Earls of Thomond. In 1646 Cromwell's side... well, Parliament's side, took it after a siege. The castle's seen a few dinners go badly."
+  }
+ ]
+}

@@ -1,0 +1,45 @@
+{"quests": [
+ {"id": "limerick_verse", "title": "There Was a Young Trainer...", "region": "limerick", "town": "limerick", "giver": "Poet Máire",
+  "summary": "Write a limerick for limerick night at the Poet's Rest, and try it on the Milk Market crowd.",
+  "start_flag": "q_limerick_verse_started",
+  "steps": [
+   {"flag": "q_limerick_verse_1", "text": "Get a first line from the guide at King John's Castle.", "zone": "limerick_kingjohn"},
+   {"flag": "q_limerick_verse_2", "text": "Finish the limerick with Poet Máire at the Poet's Rest: pick the lines that rhyme.", "zone": "limerick_poets"},
+   {"flag": "q_limerick_verse_3", "text": "Recite it at the Milk Market and beat Bard Ruairí in a verse-off.", "zone": "limerick_milkmarket"},
+   {"flag": "q_limerick_verse_done", "text": "Tell Máire how it went.", "zone": "limerick_poets"}],
+  "done_flag": "q_limerick_verse_done", "reward": "A Thomond Scrum Cap, two pieces of Limerick Lace and standing in Ireland."},
+ {"id": "limerick_banquet", "title": "A Medieval Banquet", "region": "limerick", "town": "shannon_estuary", "giver": "The Butler",
+  "summary": "Help the Butler of Bunratty Castle lay on tonight's medieval banquet.",
+  "start_flag": "q_limerick_banquet_started",
+  "steps": [
+   {"flag": "q_limerick_banquet_1", "text": "Fetch a jug of mead from the barman at Durty Nelly's.", "zone": "shannon_nellys"},
+   {"flag": "q_limerick_banquet_2", "text": "Ask the bean an tí in the Folk Park cottage for brown bread.", "zone": "shannon_cottage"},
+   {"flag": "q_limerick_banquet_3", "text": "Find a harpist in the Bunratty Folk Park.", "zone": "shannon_estuary"},
+   {"flag": "q_limerick_banquet_4", "text": "Back to the Butler for the banquet, and face the Earl's champion.", "zone": "shannon_bunratty"}],
+  "done_flag": "q_limerick_banquet_done", "reward": "Three jugs of Bunratty Mead and standing in Ireland."},
+ {"id": "limerick_coffee", "title": "The Foynes Coffee", "region": "limerick", "town": "shannon_estuary", "giver": "Chef Bríd",
+  "summary": "Make a proper Irish coffee where it was invented, at the Foynes flying-boat terminal.",
+  "start_flag": "q_limerick_coffee_started",
+  "steps": [
+   {"flag": "q_limerick_coffee_1", "text": "Get cream from the dairy farmer north of the river.", "zone": "shannon_estuary"},
+   {"flag": "q_limerick_coffee_2", "text": "Get brown sugar from the duty-free shop at Shannon Airport.", "zone": "shannon_airport"},
+   {"flag": "q_limerick_coffee_3", "text": "Make the coffee with Chef Bríd at the Foynes museum, in the right order.", "zone": "shannon_foynes"}],
+  "done_flag": "q_limerick_coffee_done", "reward": "A Cuppeen, three Irish Coffees and standing in Ireland."},
+ {"id": "limerick_dolphins", "title": "Dolphin Watch", "region": "limerick", "town": "shannon_estuary", "giver": "Skipper Gráinne",
+  "summary": "Count the Shannon estuary's resident bottlenose dolphins for the survey.",
+  "start_flag": "q_limerick_dolphins_started",
+  "steps": [
+   {"flag": "q_limerick_dolphins_1", "text": "Spot the pod off the Bunratty mud.", "zone": "shannon_estuary"},
+   {"flag": "q_limerick_dolphins_2", "text": "Spot the pod by the crossing at the head of the estuary.", "zone": "shannon_estuary"},
+   {"flag": "q_limerick_dolphins_3", "text": "Spot the pod off Foynes on the south shore.", "zone": "shannon_estuary"},
+   {"flag": "q_limerick_dolphins_4", "text": "Have a firm word with Speedboat Dónal at the Foynes slip.", "zone": "shannon_estuary"},
+   {"flag": "q_limerick_dolphins_done", "text": "Report back to Skipper Gráinne at the Killimer slip.", "zone": "shannon_estuary"}],
+  "done_flag": "q_limerick_dolphins_done", "reward": "Water Snares, Limerick Ham and standing in Ireland."},
+ {"id": "limerick_iarla", "title": "The Earl Beneath the Lake", "region": "limerick", "town": "lough_gur", "giver": "Folklorist Nóra",
+  "summary": "Wait at Lough Gur for the silver-shod horse of Gearóid Iarla.",
+  "start_flag": "q_limerick_iarla_started",
+  "steps": [
+   {"flag": "q_limerick_iarla_1", "text": "Walk into the Grange Stone Circle the way the midsummer sun does.", "zone": "lough_gur"},
+   {"flag": "q_limerick_iarla_done", "text": "Wait by the lake shore at night for the silver-shod horse.", "zone": "lough_gur"}],
+  "done_flag": "q_limerick_iarla_done", "reward": "A meeting with Silvershod, and standing in Ireland."}
+]}

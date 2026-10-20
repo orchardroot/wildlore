@@ -15,6 +15,8 @@ const PORTLAND := Color("d8d2c2")    # Liver Building granite and Portland stone
 const IRON := Color("3c4450")
 const GLASS := Color.WHITE
 
+## Wider Isles, the Shannon and Limerick (see the Shannon section at the end of the file).
+const SHANNON_STYLES := ["tower_house", "king_johns", "clare_thatch", "georgian_brick", "airport_terminal", "flying_boat", "hydro_station", "thomond_stadium", "milk_market"]
 ## Building styles handled here rather than by the generic house in Meshes.building.
 const SPECIAL := ["glass_tower", "gantry_crane", "cantilever_crane", "titanic", "mill", "castle", "cathedral", "liver_building", "station", "aqueduct", "chapel", "terrace", "tudor", "slate_cottage", "lighthouse_house", "round_tower", "passage_tomb", "field_barn", "bottle_kiln", "potbank", "blackpool_tower", "big_one", "blackpool_tram", "pier_pavilion", "veranda_shop", "guest_house", "suspension_bridge", "ss_great_britain", "caravel", "hot_air_balloon", "painted_terrace", "bristol_byzantine", "tower_house", "tower_house_granite", "thatch_cottage", "irish_shopfront", "turf_stack", "obelisk", "tau_cross"]
 	"canal_tunnel", "leeds_town_hall", "corn_exchange", "market_hall", "abbey_ruin", "parsonage", "weavers_cottage", "pennine_church"]
@@ -131,6 +133,8 @@ static func building(w: int, d: int, style: String, door_x: int, seed_value: int
 			_round_tower(st, wst, w, d, door_x)
 		"passage_tomb":
 			_passage_tomb(st, w, d, door_x)
+		"tower_house", "king_johns", "clare_thatch", "georgian_brick", "airport_terminal", "flying_boat", "hydro_station", "thomond_stadium", "milk_market":
+			_shannon(st, wst, w, d, style, door_x, rng, region)
 		"field_barn":
 			_field_barn(st, w, d, rng)
 		"smeaton_tower":
@@ -2677,3 +2681,257 @@ static func _tau_cross(st: SurfaceTool, w: int, d: int) -> void:
 	Meshes.box(st, c + Vector3(-0.36, 1.12, -0.07), Vector3(0.72, 0.17, 0.14), stone.lightened(0.05))
 	Meshes.box(st, c + Vector3(-0.06, 0.5, 0.06), Vector3(0.09, 0.07, 0.02), Color("b8b24a"))  # lichen
 	Meshes.box(st, c + Vector3(0.12, 1.15, 0.06), Vector3(0.1, 0.06, 0.02), Color("c9a640"))
+# --- the Shannon and Limerick (Wider Isles) -----------------------------------------------------------------
+
+const CLARE_LIME := Color("f2eee4")     # whitewash
+const THATCH := Color("a8844a")
+const LIMERICK_BRICK := Color("8e4a38")
+const LIMESTONE_GREY := Color("aaa499")  # Limerick's grey limestone
+
+static func _shannon(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, style: String, door_x: int, rng: RandomNumberGenerator, region: String) -> void:
+	match style:
+		"tower_house":
+			_tower_house(st, wst, w, d, door_x)
+		"king_johns":
+			_king_johns(st, wst, w, d, door_x, region)
+		"clare_thatch":
+			_clare_thatch(st, wst, w, d, door_x, rng)
+		"georgian_brick":
+			_georgian(st, wst, w, d, door_x, rng)
+		"airport_terminal":
+			_airport(st, wst, w, d, door_x)
+		"flying_boat":
+			_flying_boat(st, w, d)
+		"hydro_station":
+			_hydro(st, wst, w, d, door_x)
+		"thomond_stadium":
+			_stadium(st, w, d, door_x)
+		"milk_market":
+			_milk_market(st, w, d, door_x)
+
+## Bunratty: a tall grey keep with a square tower at each corner, the towers joined high up on the long faces
+## by a great arch, and battlements all round.
+static func _tower_house(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int) -> void:
+	var stone := LIMESTONE_GREY
+	var t := minf(1.5, w * 0.22)
+	var keep_h := 4.0 if w >= 6 else 3.2
+	var tower_h := keep_h + 1.1
+	Meshes.box(st, Vector3(t * 0.5, 0, t * 0.5), Vector3(w - t, keep_h, d - t), stone)
+	for c in [Vector2(0, 0), Vector2(w - t, 0), Vector2(0, d - t), Vector2(w - t, d - t)]:
+		Meshes.box(st, Vector3(c.x, 0, c.y), Vector3(t, tower_h, t), stone.lightened(0.04))
+		_merlons(st, c.x, c.x + t, c.y + t - 0.6, tower_h, stone, true)
+	# the arch: a deep recess between the front towers, bridged at the top
+	Meshes.box(st, Vector3(t, keep_h - 0.9, d - t * 0.5), Vector3(w - 2 * t, 0.9, t * 0.5), stone.darkened(0.05))
+	Meshes.box(st, Vector3(t + 0.1, keep_h - 2.0, d - t * 0.5 - 0.02), Vector3(w - 2 * t - 0.2, 1.1, 0.04), stone.darkened(0.3))
+	_merlons(st, t, w - t, d - 0.6, keep_h, stone, true)
+	_merlons(st, t, w - t, 0.0, keep_h, stone, true)
+	for y in [1.3, 2.4, 3.4]:
+		if y + 0.5 < tower_h:
+			_window(st, wst, 0.3, y, d, 0.16, 0.42, stone.lightened(0.15))
+			_window(st, wst, w - 0.46, y, d, 0.16, 0.42, stone.lightened(0.15))
+	_window(st, wst, w * 0.5 - 0.15, keep_h - 1.6, d - t * 0.5, 0.3, 0.5, stone.lightened(0.15))
+	if door_x >= 0:
+		Meshes.box(st, Vector3(door_x + 0.2, 0, d - t * 0.5 + 0.01), Vector3(0.6, 1.1, 0.06), Color("2e241e"))
+		Meshes.box(st, Vector3(door_x + 0.1, 1.1, d - t * 0.5), Vector3(0.8, 0.12, 0.1), stone.lightened(0.18))
+
+## King John's Castle: a Norman curtain wall on the river with great drum towers at the corners and a
+## twin-towered gatehouse in the middle of the front.
+static func _king_johns(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int, region: String) -> void:
+	var stone := Color("9e988a")
+	var wall_h := 2.6
+	var t := 0.7
+	Meshes.box(st, Vector3(0, 0, d - t - 0.4), Vector3(w, wall_h, t), stone)
+	Meshes.box(st, Vector3(0, 0, 0.4), Vector3(w, wall_h, t), stone.darkened(0.05))
+	Meshes.box(st, Vector3(0.4, 0, 0), Vector3(t, wall_h, d), stone.darkened(0.04))
+	Meshes.box(st, Vector3(w - t - 0.4, 0, 0), Vector3(t, wall_h, d), stone.darkened(0.04))
+	Meshes.box(st, Vector3(t, 0, t), Vector3(w - 2 * t, 0.05, d - 2 * t), Color("7d8658"))
+	_merlons(st, 0.8, w - 0.8, d - t - 0.4, wall_h, stone, true)
+	_merlons(st, 0.8, w - 0.8, 0.4, wall_h, stone, true)
+	var rr := minf(1.35, d * 0.24)
+	for c in [Vector2(rr, rr), Vector2(w - rr, rr), Vector2(rr, d - rr), Vector2(w - rr, d - rr)]:
+		Meshes.cylinder(st, Vector3(c.x, 0, c.y), rr, wall_h + 1.6, 10, stone.lightened(0.05))
+		for i in 8:
+			var a := TAU * i / 8.0
+			Meshes.box(st, Vector3(c.x + cos(a) * rr * 0.72 - 0.15, wall_h + 1.6, c.y + sin(a) * rr * 0.72 - 0.15), Vector3(0.3, 0.32, 0.3), stone.lightened(0.08))
+		_window(st, wst, c.x - 0.08, 1.8, c.y + rr * 0.9, 0.16, 0.45, stone.lightened(0.2))
+	var gx := float(door_x) + 0.5 if door_x >= 0 else w * 0.5
+	for s in [-1.0, 1.0]:
+		Meshes.cylinder(st, Vector3(gx + s * 1.0, 0, d - 0.9), 0.75, wall_h + 1.2, 8, stone.lightened(0.08))
+		_merlons(st, gx + s * 1.0 - 0.6, gx + s * 1.0 + 0.6, d - 1.2, wall_h + 1.2, stone, true)
+	Meshes.box(st, Vector3(gx - 0.6, 0, d - 1.1), Vector3(1.2, wall_h + 0.6, 0.9), stone.lightened(0.04))
+	if door_x >= 0:
+		Meshes.box(st, Vector3(gx - 0.32, 0, d - 0.18), Vector3(0.64, 1.25, 0.06), Color("2a221e"))
+		_window(st, wst, gx - 0.15, wall_h - 0.2, d - 0.2, 0.3, 0.4, stone.lightened(0.2))
+	Meshes.box(st, Vector3(rr - 0.025, wall_h + 1.9, rr - 0.025), Vector3(0.05, 1.0, 0.05), Color("3b2a22"))
+	_pennant(st, Vector3(rr + 0.03, wall_h + 2.85, rr), region)
+
+## A Clare cottage: long and low, whitewashed, a deep golden thatch with a rolled ridge, a red half-door and
+## a chimney at each gable.
+static func _clare_thatch(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int, rng: RandomNumberGenerator) -> void:
+	var wall := CLARE_LIME
+	var h := 1.15
+	Meshes.box(st, Vector3(0.08, 0, 0.12), Vector3(w - 0.16, h, d - 0.24), wall)
+	Meshes.box(st, Vector3(0.02, 0, 0.06), Vector3(w - 0.04, 0.14, d - 0.12), Color("8a8478"))
+	var straw := THATCH.lightened(rng.randf_range(-0.05, 0.05))
+	_roof(st, w, d, h, straw, wall, 0.5)
+	var rise := minf(1.2, d * 0.5)
+	Meshes.box(st, Vector3(-0.1, h + rise - 0.12, d * 0.5 - 0.16), Vector3(w + 0.2, 0.22, 0.32), straw.darkened(0.12))
+	for cx in [0.25, w - 0.65]:
+		Meshes.box(st, Vector3(cx, h, d * 0.5 - 0.2), Vector3(0.4, rise + 0.4, 0.4), wall.darkened(0.05))
+		_chimneys.append(Vector3(cx + 0.2, h + rise + 0.45, d * 0.5))
+	if door_x >= 0:
+		Meshes.box(st, Vector3(door_x + 0.24, 0.14, d - 0.15), Vector3(0.52, 0.45, 0.05), Color("b8322a"))
+		Meshes.box(st, Vector3(door_x + 0.24, 0.59, d - 0.14), Vector3(0.52, 0.45, 0.04), Color("9a2a24"))
+	for x in w:
+		if x != door_x:
+			_window(st, wst, x + 0.32, 0.42, d - 0.12, 0.36, 0.42, Color("b8322a"))
+
+## A Georgian terrace of Newtown Pery: four storeys of red brick behind a parapet, tall sash windows, and a
+## bright front door under a fanlight on every other bay.
+static func _georgian(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int, rng: RandomNumberGenerator) -> void:
+	var brick := LIMERICK_BRICK.lightened(rng.randf_range(-0.05, 0.04))
+	var storeys := 4
+	var fh := 0.95
+	var hgt := fh * storeys + 0.35
+	Meshes.box(st, Vector3(0.05, 0, 0.05), Vector3(w - 0.1, hgt, d - 0.1), brick, Color("4a4e58"))
+	Meshes.box(st, Vector3(0, 0, 0), Vector3(w, 0.5, d), LIMESTONE_GREY)        # limestone plinth
+	Meshes.box(st, Vector3(-0.04, hgt - 0.12, d - 0.12), Vector3(w + 0.08, 0.16, 0.16), LIMESTONE_GREY)
+	for i in range(0, w + 1, 2):
+		var sx := minf(float(i), w - 0.4)
+		Meshes.box(st, Vector3(sx, hgt, d * 0.5 - 0.25), Vector3(0.4, 0.55, 0.5), brick.darkened(0.15))
+		_chimneys.append(Vector3(sx + 0.2, hgt + 0.6, d * 0.5))
+	var doors := [Color("b8322a"), Color("1f4f8a"), Color("2d6a3e"), Color("e0b030"), Color("1c1c22")]
+	for x in w:
+		for s in storeys:
+			var tall := 0.62 if s == 1 else (0.52 if s == 0 else 0.42)
+			if s == 0 and (x == door_x or (door_x < 0 and x % 2 == 0)):
+				var dc: Color = doors[rng.randi_range(0, doors.size() - 1)]
+				Meshes.box(st, Vector3(x + 0.26, 0.05, d - 0.06), Vector3(0.48, 0.78, 0.05), dc)
+				Meshes.box(st, Vector3(x + 0.22, 0.83, d - 0.07), Vector3(0.56, 0.16, 0.06), Color("f0ead8"))   # fanlight
+				Meshes.box(wst, Vector3(x + 0.3, 0.85, d - 0.065), Vector3(0.4, 0.1, 0.04), window_colour(_wr))
+				continue
+			_window(st, wst, x + 0.33, 0.3 + fh * s + (0.0 if s > 0 else 0.1), d, 0.34, tall, Color("f2eee4"))
+
+## Shannon Airport: a long low terminal with a glass front, and the control tower at the east end.
+static func _airport(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int) -> void:
+	var wall := Color("dcdad2")
+	var h := 1.6
+	Meshes.box(st, Vector3(0.05, 0, 0.05), Vector3(w - 0.1, h, d - 0.1), wall, Color("8a8e94"))
+	Meshes.box(st, Vector3(-0.1, h - 0.15, -0.1), Vector3(w + 0.2, 0.18, d + 0.4), Color("f4f4f0"))  # canopy edge
+	for x in w:
+		if x != door_x:
+			_window(st, wst, x + 0.06, 0.3, d, 0.88, 1.0, Color("6a7480"))
+	if door_x >= 0:
+		Meshes.box(st, Vector3(door_x + 0.1, 0.05, d - 0.06), Vector3(0.8, 1.1, 0.05), Color("4a5a68"))
+	var tx := w - 1.2
+	var tz := d * 0.4
+	Meshes.cylinder(st, Vector3(tx, h, tz), 0.42, 2.6, 8, wall)
+	Meshes.box(st, Vector3(tx - 0.7, h + 2.6, tz - 0.7), Vector3(1.4, 0.7, 1.4), Color("3e4c5a"))
+	Meshes.box(wst, Vector3(tx - 0.72, h + 2.7, tz - 0.72), Vector3(1.44, 0.45, 1.44), window_colour(_wr))
+	Meshes.box(st, Vector3(tx - 0.85, h + 3.3, tz - 0.85), Vector3(1.7, 0.12, 1.7), Color("eceae4"))
+	Meshes.box(st, Vector3(tx - 0.03, h + 3.42, tz - 0.03), Vector3(0.06, 0.6, 0.06), Color("c83030"))
+	Meshes.box(st, Vector3(1.0, h, d * 0.5 - 0.1), Vector3(0.1, 0.8, 0.1), Color("eceae4"))   # flagpole and tricolour
+	Meshes.box(st, Vector3(1.1, h + 0.5, d * 0.5 - 0.1), Vector3(0.15, 0.28, 0.02), Color("169b62"))
+	Meshes.box(st, Vector3(1.25, h + 0.5, d * 0.5 - 0.1), Vector3(0.15, 0.28, 0.02), Color("f4f1e8"))
+	Meshes.box(st, Vector3(1.4, h + 0.5, d * 0.5 - 0.1), Vector3(0.15, 0.28, 0.02), Color("ff883e"))
+
+## The Foynes Clipper: a Boeing 314 flying boat on its cradle, deep hull, high wing with four engines and the
+## triple tail, in silver with a blue cheat line.
+static func _flying_boat(st: SurfaceTool, w: int, d: int) -> void:
+	var silver := Color("c9ced4")
+	var blue := Color("2c4c8c")
+	var zc := d * 0.5
+	var hull_y := 0.55
+	for i in 3:   # cradle
+		Meshes.box(st, Vector3(1.2 + i * (w - 2.8) / 2.0, 0, zc - 0.5), Vector3(0.3, hull_y, 1.0), Color("4a4038"))
+	Meshes.box(st, Vector3(1.0, hull_y, zc - 0.6), Vector3(w - 2.6, 1.15, 1.2), silver)
+	Meshes.box(st, Vector3(0.4, hull_y + 0.2, zc - 0.5), Vector3(0.7, 0.85, 1.0), silver.lightened(0.05))   # the nose
+	Meshes.box(st, Vector3(0.15, hull_y + 0.45, zc - 0.35), Vector3(0.3, 0.5, 0.7), silver.lightened(0.08))
+	Meshes.box(st, Vector3(w - 1.6, hull_y + 0.45, zc - 0.4), Vector3(1.2, 0.6, 0.8), silver)                # tail cone
+	Meshes.box(st, Vector3(0.4, hull_y + 0.55, zc + 0.5), Vector3(w - 1.6, 0.1, 0.12), blue)
+	Meshes.box(st, Vector3(0.4, hull_y + 0.55, zc - 0.62), Vector3(w - 1.6, 0.1, 0.12), blue)
+	Meshes.box(st, Vector3(0.55, hull_y + 0.95, zc - 0.36), Vector3(0.45, 0.22, 0.72), Color("2a3442"))     # cockpit glass
+	for x in range(2, w - 2):
+		Meshes.box(st, Vector3(x + 0.2, hull_y + 0.75, zc + 0.6), Vector3(0.22, 0.18, 0.02), Color("2a3442"))
+	var wx := w * 0.36
+	Meshes.box(st, Vector3(wx, hull_y + 1.15, zc - 0.6), Vector3(1.0, 0.25, 1.2), silver.darkened(0.05))      # wing root
+	Meshes.box(st, Vector3(wx, hull_y + 1.4, -1.8), Vector3(1.2, 0.12, d + 3.6), silver.lightened(0.04))
+	for z in [-1.0, 0.3, d - 0.3, d + 1.0]:
+		Meshes.box(st, Vector3(wx - 0.45, hull_y + 1.2, z - 0.2), Vector3(0.75, 0.38, 0.4), silver.darkened(0.12))
+		Meshes.box(st, Vector3(wx - 0.5, hull_y + 1.16, z - 0.35), Vector3(0.04, 0.7, 0.7), Color("2a2a2e"))  # propeller
+	for z in [-1.4, d + 1.4]:   # wing floats
+		Meshes.box(st, Vector3(wx + 0.3, hull_y + 0.85, z - 0.2), Vector3(0.5, 0.25, 0.4), silver.darkened(0.08))
+	Meshes.box(st, Vector3(w - 1.0, hull_y + 1.05, zc - 1.4), Vector3(0.7, 0.1, 2.8), silver)                # tailplane
+	for z in [zc - 1.35, zc - 0.05, zc + 1.25]:
+		Meshes.box(st, Vector3(w - 0.95, hull_y + 1.15, z), Vector3(0.6, 0.85, 0.1), silver.darkened(0.04))
+
+## Ardnacrusha: the Shannon Scheme's power house, a tall pale block with tall windows, the higher intake
+## building behind and three great penstocks stepping down to it.
+static func _hydro(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int) -> void:
+	var conc := Color("d8d0bc")
+	var h := 2.6
+	Meshes.box(st, Vector3(0.05, 0, d * 0.4), Vector3(w - 0.1, h, d * 0.6 - 0.05), conc, Color("8a8478"))
+	Meshes.box(st, Vector3(0.6, 0, 0.05), Vector3(w - 1.2, h + 1.4, d * 0.32), conc.darkened(0.06), Color("7a7468"))
+	for i in 3:
+		var px := w * (0.25 + 0.25 * i) - 0.3
+		for s in 4:
+			Meshes.box(st, Vector3(px, h + 1.0 - s * 0.32, d * 0.3 + s * 0.22), Vector3(0.6, 0.45, 0.32), Color("5a5e64"))
+	for x in w:
+		if x != door_x:
+			_window(st, wst, x + 0.32, 0.4, d, 0.36, 1.8, conc.lightened(0.1))
+	Meshes.box(st, Vector3(0, h - 0.2, d - 0.08), Vector3(w, 0.25, 0.1), conc.darkened(0.15))
+	if door_x >= 0:
+		Meshes.box(st, Vector3(door_x + 0.15, 0, d - 0.06), Vector3(0.7, 1.2, 0.05), Color("3a4048"))
+
+## Thomond Park: stands round a green pitch, cantilever roofs over the long sides trimmed in Munster red.
+static func _stadium(st: SurfaceTool, w: int, d: int, door_x: int) -> void:
+	var conc := Color("b8b4aa")
+	var red := Color("c8102e")
+	Meshes.box(st, Vector3(1.0, 0, 1.0), Vector3(w - 2.0, 0.06, d - 2.0), Color("4f8a3a"))
+	for i in 3:   # long stands, stepped
+		var y := 0.45 * (i + 1)
+		Meshes.box(st, Vector3(0.4, 0, d - 1.0 + i * 0.3), Vector3(w - 0.8, y, 0.32), conc.darkened(0.04 * i))
+		Meshes.box(st, Vector3(0.4, 0, 0.1 + (2 - i) * 0.3), Vector3(w - 0.8, y, 0.32), conc.darkened(0.04 * i))
+	for i in 2:   # end terraces
+		Meshes.box(st, Vector3(0.1 + (1 - i) * 0.4, 0, 1.0), Vector3(0.4, 0.4 * (i + 1), d - 2.0), conc)
+		Meshes.box(st, Vector3(w - 0.9 + i * 0.4, 0, 1.0), Vector3(0.4, 0.4 * (i + 1), d - 2.0), conc)
+	for z in [d - 1.3, 0.0]:
+		Meshes.box(st, Vector3(0.3, 2.1, z), Vector3(w - 0.6, 0.12, 1.3), Color("e8e6e0"))
+		Meshes.box(st, Vector3(0.3, 2.0, z + (0.0 if z > 0.0 else 1.2)), Vector3(w - 0.6, 0.14, 0.1), red)
+	for x in [0.5, w - 0.7]:
+		for z in [d - 0.2, 0.2]:
+			Meshes.box(st, Vector3(x, 0, z), Vector3(0.12, 2.1, 0.12), Color("7a7a80"))
+	for x in [w * 0.5 - 1.4, w * 0.5 + 1.2]:   # the posts
+		Meshes.box(st, Vector3(x, 0, d * 0.5 - 0.05), Vector3(0.06, 1.6, 0.06), Color("f4f4f0"))
+	Meshes.box(st, Vector3(w * 0.5 - 1.4, 0.5, d * 0.5 - 0.04), Vector3(2.66, 0.05, 0.05), Color("f4f4f0"))
+	if door_x >= 0:
+		Meshes.box(st, Vector3(door_x + 0.15, 0, d - 0.04), Vector3(0.7, 1.1, 0.06), red.darkened(0.35))
+
+## The Milk Market: a low limestone market house with open arches under a great white peaked canopy.
+static func _milk_market(st: SurfaceTool, w: int, d: int, door_x: int) -> void:
+	var stone := LIMESTONE_GREY
+	var h := 1.1
+	Meshes.box(st, Vector3(0.05, 0, 0.05), Vector3(w - 0.1, 0.06, d - 0.1), Color("9a948a"))
+	for x in w:
+		if x == door_x:
+			continue
+		Meshes.box(st, Vector3(x, 0, d - 0.3), Vector3(0.22, h, 0.25), stone)
+		Meshes.box(st, Vector3(x, 0, 0.05), Vector3(0.22, h, 0.25), stone)
+	Meshes.box(st, Vector3(0, h, d - 0.32), Vector3(w, 0.25, 0.3), stone.lightened(0.05))
+	Meshes.box(st, Vector3(0, h, 0.05), Vector3(w, 0.25, 0.3), stone.lightened(0.05))
+	Meshes.box(st, Vector3(0.05, 0, 0.05), Vector3(0.25, h + 0.25, d - 0.1), stone)
+	Meshes.box(st, Vector3(w - 0.3, 0, 0.05), Vector3(0.25, h + 0.25, d - 0.1), stone)
+	var canvas := Color("f2f2ec")
+	var top := h + 0.25
+	var peaks := maxi(1, int(round(w / 4.0)))
+	var pw := float(w) / peaks
+	for i in peaks:
+		var x0 := i * pw
+		var c := Vector3(x0 + pw * 0.5, top + 1.5, d * 0.5)
+		var corners := [Vector3(x0 - 0.1, top, -0.15), Vector3(x0 + pw + 0.1, top, -0.15), Vector3(x0 + pw + 0.1, top, d + 0.15), Vector3(x0 - 0.1, top, d + 0.15)]
+		for k in 4:
+			Meshes._tri(st, corners[k], corners[(k + 1) % 4], c, canvas.darkened(0.04 * k))
+			Meshes._tri(st, corners[(k + 1) % 4], corners[k], c, canvas.darkened(0.25))
+		Meshes.box(st, Vector3(c.x - 0.04, top, c.z - 0.04), Vector3(0.08, 1.8, 0.08), Color("8a8e94"))
+	if door_x >= 0:
+		Meshes.box(st, Vector3(door_x + 0.1, h - 0.05, d - 0.33), Vector3(0.8, 0.12, 0.32), Color("2d6a3e"))

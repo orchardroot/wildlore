@@ -1,0 +1,511 @@
+{
+ "c_heronarch": [
+  {
+   "do": "say",
+   "who": "Heron",
+   "text": "A grey heron stands in the mud as still as a fence post. It has been here since breakfast. It will be here at tea."
+  }
+ ],
+ "c_moolet": [
+  {
+   "do": "say",
+   "who": "Dairy Cow",
+   "text": "This one is called Daisy. Every cow on this farm is called Daisy. It saves time."
+  }
+ ],
+ "dolphin_skipper": [
+  {
+   "do": "if",
+   "flag": "q_limerick_dolphins_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Skipper Gr\u00e1inne",
+     "text": "The pods are grand. Somebody's got their dorsal fins all catalogued, you know. Each one's notched different, like a fingerprint."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_limerick_dolphins_4",
+     "then": [
+      {
+       "do": "say",
+       "who": "Skipper Gr\u00e1inne",
+       "text": "You saw him off? D\u00f3nal and his speedboat? Fair play to you. Here, take these. And thank you, from me and from about a hundred and forty dolphins."
+      },
+      {
+       "do": "give_item",
+       "item": "water_snare",
+       "n": 5
+      },
+      {
+       "do": "give_item",
+       "item": "limerick_ham",
+       "n": 2
+      },
+      {
+       "do": "standing",
+       "nation": "ireland",
+       "amount": 3
+      },
+      {
+       "do": "set",
+       "flag": "q_limerick_dolphins_done"
+      },
+      {
+       "do": "say",
+       "who": "Skipper Gr\u00e1inne",
+       "text": "Go easy, look, don't chase, let them come to you. That's the whole of dolphin watching."
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_limerick_dolphins_started",
+       "then": [
+        {
+         "do": "say",
+         "who": "Skipper Gr\u00e1inne",
+         "text": "Three pods: off the mud east of here, down by the crossing, and off Foynes on the far shore. Then if you see a fella in a speedboat buzzing them, D\u00f3nal, have a word. A firm word."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Skipper Gr\u00e1inne",
+         "text": "Dia dhuit! I run the dolphin watch. The Shannon's got its own dolphins, did you know? Over a hundred, here all year, the only resident pod in Ireland."
+        },
+        {
+         "do": "say",
+         "who": "Skipper Gr\u00e1inne",
+         "text": "I'm counting them for the survey. Will you spot three pods for me? Off the mud east of the slip, by the crossing, and off Foynes. Wade out if you've the legs for it, but don't crowd them."
+        },
+        {
+         "do": "set",
+         "flag": "q_limerick_dolphins_started"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "dolphin_a": [
+  {
+   "do": "if",
+   "flag": "q_limerick_dolphins_1",
+   "then": [
+    {
+     "do": "say",
+     "who": "Dolphin",
+     "text": "The dolphin rolls, blows a fine spray, and pretends it hasn't seen you. It has."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_limerick_dolphins_started",
+     "then": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "A fin, then another, then a whole family arcing through the water off the Bunratty mud. You note the pod for Skipper Gr\u00e1inne's survey."
+      },
+      {
+       "do": "set",
+       "flag": "q_limerick_dolphins_1"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Dolphin",
+       "text": "A bottlenose dolphin surfaces with a pfff and looks you over. It's a lot bigger than it looks from the road."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "dolphin_b": [
+  {
+   "do": "if",
+   "flag": "q_limerick_dolphins_2",
+   "then": [
+    {
+     "do": "say",
+     "who": "Dolphin",
+     "text": "The dolphin rolls, blows a fine spray, and pretends it hasn't seen you. It has."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_limerick_dolphins_started",
+     "then": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "A fin, then another, then a whole family arcing through the water by the crossing. You note the pod for Skipper Gr\u00e1inne's survey."
+      },
+      {
+       "do": "set",
+       "flag": "q_limerick_dolphins_2"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Dolphin",
+       "text": "A bottlenose dolphin surfaces with a pfff and looks you over. It's a lot bigger than it looks from the road."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "dolphin_c": [
+  {
+   "do": "if",
+   "flag": "q_limerick_dolphins_3",
+   "then": [
+    {
+     "do": "say",
+     "who": "Dolphin",
+     "text": "The dolphin rolls, blows a fine spray, and pretends it hasn't seen you. It has."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_limerick_dolphins_started",
+     "then": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "A fin, then another, then a whole family arcing through the water off Foynes. You note the pod for Skipper Gr\u00e1inne's survey."
+      },
+      {
+       "do": "set",
+       "flag": "q_limerick_dolphins_3"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Dolphin",
+       "text": "A bottlenose dolphin surfaces with a pfff and looks you over. It's a lot bigger than it looks from the road."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "speedboat_donal": [
+  {
+   "do": "if",
+   "flag": "q_limerick_dolphins_4",
+   "then": [
+    {
+     "do": "say",
+     "who": "Speedboat D\u00f3nal",
+     "text": "I've taken up kayaking. It's very quiet. I hate it. The dolphins love it."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_limerick_dolphins_3",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_limerick_dolphins_2",
+       "then": [
+        {
+         "do": "if",
+         "flag": "q_limerick_dolphins_1",
+         "then": [
+          {
+           "do": "battle",
+           "trainer": "est_speedboat",
+           "intro": true
+          },
+          {
+           "do": "if",
+           "flag": "trainer_est_speedboat",
+           "then": [
+            {
+             "do": "set",
+             "flag": "q_limerick_dolphins_4"
+            },
+            {
+             "do": "say",
+             "who": "",
+             "text": "D\u00f3nal ties up his speedboat. The dolphins, somewhere out on the channel, carry on regardless."
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Speedboat D\u00f3nal",
+           "text": "Dolphins? Haven't seen any. Have you looked?"
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Speedboat D\u00f3nal",
+         "text": "Dolphins? Haven't seen any. Have you looked?"
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Speedboat D\u00f3nal",
+       "text": "Lovely day for a blast down the estuary. Vroom."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "dairy_farmer": [
+  {
+   "do": "if",
+   "flag": "q_limerick_coffee_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_limerick_coffee_1",
+     "then": [
+      {
+       "do": "say",
+       "who": "Dairy Farmer P\u00e1draig",
+       "text": "Float it, mind. Never stir an Irish coffee. You drink the hot through the cold. That's the magic."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Dairy Farmer P\u00e1draig",
+       "text": "Cream for the Foynes coffee? Of course. Golden Vale cream, the richest grass in Ireland goes into that."
+      },
+      {
+       "do": "say",
+       "who": "Dairy Farmer P\u00e1draig",
+       "text": "Lightly whipped, so it'll float. Not stiff. Stiff cream sits on top like a hat."
+      },
+      {
+       "do": "set",
+       "flag": "q_limerick_coffee_1"
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "You've got a jug of cream for the chef at Foynes."
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Dairy Farmer P\u00e1draig",
+     "text": "This is the Golden Vale, or the edge of it, the best dairy land in Ireland. Limestone under the grass, rain on top. The cows are very pleased with themselves."
+    },
+    {
+     "do": "say",
+     "who": "Dairy Farmer P\u00e1draig",
+     "text": "Half the butter on Irish tables starts with cows like these. The other half's lying."
+    }
+   ]
+  }
+ ],
+ "folk_harpist": [
+  {
+   "do": "if",
+   "flag": "q_limerick_banquet_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_limerick_banquet_3",
+     "then": [
+      {
+       "do": "say",
+       "who": "Harpist S\u00edle",
+       "text": "I'll be there, tuned and fed. The harp's the national symbol, you know. It's on the coins and the passports. And the stout, which I don't mention at the banquet."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Harpist S\u00edle",
+       "text": "Play for the banquet tonight? I will, of course. The Butler always forgets to ask till the soup's on."
+      },
+      {
+       "do": "say",
+       "who": "Harpist S\u00edle",
+       "text": "Turlough O'Carolan wrote two hundred tunes for the big houses, and he was blind from the age of eighteen. I play his Planxty for the toast."
+      },
+      {
+       "do": "set",
+       "flag": "q_limerick_banquet_3"
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "S\u00edle the harpist will play at the banquet."
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Harpist S\u00edle",
+     "text": "The wire-strung harp is older in Ireland than anyone can say for sure. I play gut strings. My great-great-grandmother would have something to say about that."
+    }
+   ]
+  }
+ ],
+ "ferry_north": [
+  {
+   "do": "say",
+   "who": "Ferryman",
+   "text": "Killimer to Tarbert, twenty minutes, all aboard. The dolphins race us most days."
+  },
+  {
+   "do": "choice",
+   "text": "Cross to the Foynes side?",
+   "options": [
+    "All aboard",
+    "Not today"
+   ],
+   "set": "_shannon_ferry"
+  },
+  {
+   "do": "if",
+   "flag": "_shannon_ferry",
+   "then": [],
+   "else": [
+    {
+     "do": "fade_out"
+    },
+    {
+     "do": "warp",
+     "zone": "shannon_estuary",
+     "x": 11,
+     "y": 34,
+     "facing": "down"
+    },
+    {
+     "do": "fade_in"
+    }
+   ]
+  }
+ ],
+ "ferry_south": [
+  {
+   "do": "say",
+   "who": "Ferryman",
+   "text": "Tarbert to Killimer, back over to Clare. Mind the step, it's wet. It's always wet."
+  },
+  {
+   "do": "choice",
+   "text": "Cross to the Clare side?",
+   "options": [
+    "All aboard",
+    "Not today"
+   ],
+   "set": "_shannon_ferry"
+  },
+  {
+   "do": "if",
+   "flag": "_shannon_ferry",
+   "then": [],
+   "else": [
+    {
+     "do": "fade_out"
+    },
+    {
+     "do": "warp",
+     "zone": "shannon_estuary",
+     "x": 11,
+     "y": 21,
+     "facing": "up"
+    },
+    {
+     "do": "fade_in"
+    }
+   ]
+  }
+ ],
+ "est_plane_spotter": [
+  {
+   "do": "say",
+   "who": "Plane Spotter",
+   "text": "Shannon's runway is over three kilometres long. It was a NASA emergency landing site for the Space Shuttle, you know. It never came. I waited anyway."
+  },
+  {
+   "do": "say",
+   "who": "Plane Spotter",
+   "text": "Charles Lindbergh flew in to look at Foynes before the war. Everybody who was anybody came through here on the way to New York."
+  }
+ ],
+ "est_folk_guide": [
+  {
+   "do": "say",
+   "who": "Folk Park Guide",
+   "text": "Those cottages are Clare and Limerick farmhouses, saved and moved here stone by stone. The half-door keeps the hens out and lets the news in."
+  },
+  {
+   "do": "say",
+   "who": "Folk Park Guide",
+   "text": "The thatch is reed and straw. A good thatch lasts twenty years if the jackdaws behave. They don't."
+  }
+ ],
+ "est_mudlarker": [
+  {
+   "do": "say",
+   "who": "Wader Counter",
+   "text": "The estuary mud's the richest larder in Ireland at low tide. Dunlin, godwits, curlew, lapwing, thousands of them, every winter."
+  },
+  {
+   "do": "say",
+   "who": "Wader Counter",
+   "text": "It's a Special Protection Area for the birds and a Special Area of Conservation for the dolphins. Very special, all round."
+  }
+ ],
+ "est_foynes_local": [
+  {
+   "do": "say",
+   "who": "Foynes Local",
+   "text": "My granny served tea to film stars off the flying boats. Maureen O'Hara's husband flew them, you know. Charles Blair. She ran the museum's honour after, God rest her."
+  },
+  {
+   "do": "say",
+   "who": "Foynes Local",
+   "text": "In the war, Ireland was neutral, so Foynes had passengers from both sides through the same lounge. My granny said the tea was strictly neutral too."
+  }
+ ],
+ "est_cattle_jobber": [
+  {
+   "do": "say",
+   "who": "Cattle Jobber",
+   "text": "Off to the mart in Limerick. Grand city. King John's Castle, the Treaty Stone, and the best rugby supporters on God's earth. Ask them."
+  },
+  {
+   "do": "say",
+   "who": "Cattle Jobber",
+   "text": "Don't ask them in the middle of a match, mind."
+  }
+ ]
+}

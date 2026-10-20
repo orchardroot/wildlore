@@ -1,0 +1,89 @@
+{
+ "milk_bard": [
+  {
+   "do": "if",
+   "flag": "q_limerick_verse_3",
+   "then": [
+    {
+     "do": "say",
+     "who": "Bard Ruair\u00ed",
+     "text": "Your verse is going round the market already. Somebody's put it on a tea towel."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_limerick_verse_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "Bard Ruair\u00ed",
+       "text": "M\u00e1ire sent you? With a new limerick? Then stand up on that crate and give it to the crowd. Then you face me."
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "You recite: 'A young trainer who came to King John's / Brought a team made of ducks and of swans. / They hissed at the gate, / And a guard yelled, \"Ye're late!\" / And they guard it themselves now with wands.'"
+      },
+      {
+       "do": "say",
+       "who": "Market Crowd",
+       "text": "Ha! Wands! Go on, Ruair\u00ed, top that!"
+      },
+      {
+       "do": "battle",
+       "trainer": "lim_bard",
+       "intro": true
+      },
+      {
+       "do": "if",
+       "flag": "trainer_lim_bard",
+       "then": [
+        {
+         "do": "set",
+         "flag": "q_limerick_verse_3"
+        },
+        {
+         "do": "say",
+         "who": "",
+         "text": "The Milk Market gives you a round of applause and a free scone. Back to M\u00e1ire at the Poet's Rest."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Bard Ruair\u00ed",
+       "text": "Market day's for verse and cheese. Come back when you've a limerick of your own. M\u00e1ire at the Poet's Rest will set you right."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "milk_cheese": [
+  {
+   "do": "say",
+   "who": "Cheesemonger",
+   "text": "Farmhouse cheese from Clare and Limerick and Cork. This one's washed in cider. This one's washed in sea water. This one, I'd rather not say."
+  },
+  {
+   "do": "say",
+   "who": "Cheesemonger",
+   "text": "Saturday's the big day. The whole county's in here by nine. By ten there's no parking from here to Ennis."
+  }
+ ],
+ "milk_baker": [
+  {
+   "do": "say",
+   "who": "Baker",
+   "text": "Brown soda bread, white soda farls, barmbrack, and a tart that'll make your granny jealous."
+  },
+  {
+   "do": "say",
+   "who": "Baker",
+   "text": "The market's been here since 1852. The canopy's newer. The rain is the original."
+  }
+ ]
+}
