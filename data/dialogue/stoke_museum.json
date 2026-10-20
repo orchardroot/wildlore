@@ -1,0 +1,218 @@
+{
+ "curator": [
+  {
+   "do": "if",
+   "flag": "q_potteries_hoard_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Curator",
+     "text": "Come back any time. The Hoard isn't going anywhere, which is rather the point of a museum."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_potteries_hoard_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "Curator",
+       "text": "You found our detectorist? Wonderful. Then a quick question, to make sure it all went in."
+      },
+      {
+       "do": "choice",
+       "text": "What was most of the Staffordshire Hoard?",
+       "options": [
+        "Gold coins",
+        "Sword and helmet fittings",
+        "Church plate and jewellery"
+       ],
+       "set": "_hoard_answer"
+      },
+      {
+       "do": "if",
+       "flag": "_hoard_answer",
+       "then": [
+        {
+         "do": "say",
+         "who": "Curator",
+         "text": "Exactly right! Fittings stripped from swords and helmets: war gear, made by the finest craftsmen of the 600s and 700s. Why it was buried, nobody knows."
+        },
+        {
+         "do": "say",
+         "who": "Curator",
+         "text": "Take this. A garnet, set in gold the way the Saxon smiths did it, over a little piece of patterned gold foil so it sparkles. A replica, before you ask."
+        },
+        {
+         "do": "give_item",
+         "item": "hoard_garnet"
+        },
+        {
+         "do": "standing",
+         "nation": "england",
+         "amount": 2
+        },
+        {
+         "do": "set",
+         "flag": "q_potteries_hoard_done"
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Curator",
+         "text": "Not quite. Have another look at the cases with the Gallery Guide, and think about what a warrior would carry."
+        }
+       ],
+       "eq": 1
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_potteries_hoard_started",
+       "then": [
+        {
+         "do": "if",
+         "flag": "q_potteries_hoard_1",
+         "then": [
+          {
+           "do": "say",
+           "who": "Curator",
+           "text": "Now go and find out how it was found. There's a detectorist who sweeps the fields below the Roaches. He knows the story backwards."
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Curator",
+           "text": "Start with the cases. The Gallery Guide by the Hoard will talk you through them."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Curator",
+         "text": "Welcome to the Potteries Museum! We've the finest collection of Staffordshire ceramics in the world, a Spitfire, and the Staffordshire Hoard."
+        },
+        {
+         "do": "say",
+         "who": "Curator",
+         "text": "Thousands of pieces of Anglo-Saxon gold and silver, found in a field in 2009. Would you like to really understand it? Then let's make a little project of it."
+        },
+        {
+         "do": "say",
+         "who": "Curator",
+         "text": "Look at the cases with the Gallery Guide, then find out how it was found. When you're done, I'll ask you one question."
+        },
+        {
+         "do": "set",
+         "flag": "q_potteries_hoard_started"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "hoard_guide": [
+  {
+   "do": "if",
+   "flag": "q_potteries_hoard_1",
+   "then": [
+    {
+     "do": "say",
+     "who": "Gallery Guide",
+     "text": "Don't forget to look at the folded cross. Somebody bent it on purpose before it was buried."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_potteries_hoard_started",
+     "then": [
+      {
+       "do": "say",
+       "who": "Gallery Guide",
+       "text": "Right, the cases. Look at all these little gold fittings with red garnets: they're from the hilts of swords. There are dozens of them."
+      },
+      {
+       "do": "say",
+       "who": "Gallery Guide",
+       "text": "Garnets came from as far away as India and Sri Lanka. Each one was cut to shape by hand and set over gold foil to catch the light."
+      },
+      {
+       "do": "say",
+       "who": "Gallery Guide",
+       "text": "There's a helmet, pieced back together from hundreds of fragments, and a strip of gold with a Latin prayer asking God to scatter the enemy. Bit of a theme, really."
+      },
+      {
+       "do": "set",
+       "flag": "q_potteries_hoard_1"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Gallery Guide",
+       "text": "Mind the glass, it's been polished. By me. Twice."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "museum_attendant": [
+  {
+   "do": "if",
+   "flag": "q_potteries_oatcakes_1",
+   "then": [
+    {
+     "do": "say",
+     "who": "Museum Attendant",
+     "text": "Lovely oatcake, that. I'll be guarding the Spitfire with renewed vigour."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_potteries_oatcakes_started",
+     "then": [
+      {
+       "do": "say",
+       "who": "Museum Attendant",
+       "text": "An oatcake, plain with butter? Oh, you are an angel. Not in front of the exhibits, mind. Crumbs."
+      },
+      {
+       "do": "say",
+       "who": "Museum Attendant",
+       "text": "The Spitfire's a Mark 16, built near the end of the war. Kids always ask if it still flies. I tell them only on Tuesdays."
+      },
+      {
+       "do": "set",
+       "flag": "q_potteries_oatcakes_1"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Museum Attendant",
+       "text": "No flash photography of the Hoard, please. It's been in the dark for thirteen hundred years. It gets headaches."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "museum_kid": [
+  {
+   "do": "say",
+   "who": "School Trip",
+   "text": "Miss says the Hoard's worth millions but we're not allowed to touch it. What's the point of gold you can't touch?"
+  }
+ ]
+}

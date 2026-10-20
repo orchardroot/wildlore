@@ -16,7 +16,7 @@ const IRON := Color("3c4450")
 const GLASS := Color.WHITE
 
 ## Building styles handled here rather than by the generic house in Meshes.building.
-const SPECIAL := ["glass_tower", "gantry_crane", "cantilever_crane", "titanic", "mill", "castle", "cathedral", "liver_building", "station", "aqueduct", "chapel", "terrace", "tudor", "slate_cottage", "lighthouse_house", "round_tower", "passage_tomb", "field_barn",
+const SPECIAL := ["glass_tower", "gantry_crane", "cantilever_crane", "titanic", "mill", "castle", "cathedral", "liver_building", "station", "aqueduct", "chapel", "terrace", "tudor", "slate_cottage", "lighthouse_house", "round_tower", "passage_tomb", "field_barn", "bottle_kiln", "potbank"]
 	"canal_tunnel", "leeds_town_hall", "corn_exchange", "market_hall", "abbey_ruin", "parsonage", "weavers_cottage", "pennine_church"]
 
 ## Doors: where each style's door sits on its tile (see _door and friends), for the swing as you go in.
@@ -157,6 +157,10 @@ static func building(w: int, d: int, style: String, door_x: int, seed_value: int
 			_weavers_cottage(st, wst, w, d, door_x, rng)
 		"pennine_church":
 			_cathedral(st, wst, w, d, door_x, GRIT_SOOT.lightened(0.08))
+		"bottle_kiln":
+			_bottle_kiln(st, w, d, door_x)
+		"potbank":
+			_potbank(st, wst, w, d, door_x, rng)
 		_:
 			_house(st, wst, w, d, door_x, rng, BRICK, SLATE, 2, false, false)
 	return [Meshes._finish(st), Meshes._finish(wst), _chimneys]
@@ -1316,3 +1320,54 @@ static func _weavers_cottage(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, 
 		for k in 3:
 			Meshes.box(wst, Vector3(x + 0.08 + k * 0.3, 2.24, d - 0.065), Vector3(0.22, 0.48, 0.04), window_colour(_wr))
 	_door(st, door_x, d, wall)
+# --- the Potteries ---------------------------------------------------------------
+
+const POT_BRICK := Color("9c5640")   # Staffordshire red brick, a touch more orange than the mill towns'
+
+## A bottle oven seen whole: the brick hovel swells out from a firemouth plinth and draws in to a neck, held
+## by iron hoops (bonts). Stands at the middle of its plot; a door column gives it the dark clammins opening.
+static func _bottle_kiln(st: SurfaceTool, w: int, d: int, door_x: int) -> void:
+	var r := minf(w, d) * 0.46
+	var c := Vector3(w * 0.5, 0, d * 0.5)
+	Meshes.cylinder(st, c, r * 1.04, 0.3, 12, POT_BRICK.darkened(0.3))  # plinth
+	_bottle(st, c, r, 1.0, POT_BRICK)
+	# a brick porch round the clammins (the oven door), standing proud of the swell of the hovel
+	var front := c.z + r * 1.14
+	Meshes.box(st, Vector3(c.x - 0.45, 0.0, c.z + r * 0.7), Vector3(0.9, 1.15, front - (c.z + r * 0.7)), POT_BRICK.darkened(0.12))
+	Meshes.box(st, Vector3(c.x - 0.5, 1.15, c.z + r * 0.7), Vector3(1.0, 0.1, front - (c.z + r * 0.7) + 0.05), LIMESTONE.darkened(0.15))
+	Meshes.box(st, Vector3(c.x - 0.25, 0.0, front - 0.01), Vector3(0.5, 0.8, 0.03), Color("221612"))  # the clammins
+	if door_x < 0:
+		Meshes.box(st, Vector3(c.x - 0.18, 0.02, front), Vector3(0.36, 0.3, 0.03), Color("9a4426"))  # embers, banked low
+
+## The bottle itself: a lathe of brick rings, radius `r` at the waist, `k` scales the height.
+static func _bottle(st: SurfaceTool, c: Vector3, r: float, k: float, brick: Color) -> void:
+	var prof := [[1.0, 0.0], [1.06, 0.9], [1.0, 2.0], [0.78, 3.0], [0.46, 3.9], [0.36, 4.5], [0.38, 4.85], [0.46, 4.9], [0.46, 5.1], [0.36, 5.12]]
+	var sides := 12
+	for i in prof.size() - 1:
+		var lo := Meshes._ring(c, r * float(prof[i][0]), c.y + float(prof[i][1]) * k, sides)
+		var hi := Meshes._ring(c, r * float(prof[i + 1][0]), c.y + float(prof[i + 1][1]) * k, sides)
+		var col: Color = brick.darkened(0.05 * (i % 2))
+		if i >= 6:
+			col = brick.darkened(0.3)
+		for j in sides:
+			var n := (j + 1) % sides
+			Meshes._quad(st, lo[j], lo[n], hi[n], hi[j], col.darkened(0.06 * (j % 2)))
+	for y in [1.1, 2.3, 3.3]:  # the bonts
+		var rr := r * (1.07 if y < 2.0 else (0.98 if y < 3.0 else 0.72)) + 0.02
+		Meshes.cylinder(st, c + Vector3(0, y * k, 0), rr, 0.1 * k, sides, Color("34363c"))
+
+## A potbank: a two-storey Potteries works front in red brick, a round-headed cart arch on the door, and a bottle
+## oven rising out of the yard behind the roof.
+static func _potbank(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int, rng: RandomNumberGenerator) -> void:
+	_house(st, wst, w, d, door_x, rng, POT_BRICK, SLATE, 2, false, false)
+	Meshes.box(st, Vector3(0, 2.38, d - 0.06), Vector3(w, 0.1, 0.1), LIMESTONE)  # cornice
+	if door_x >= 0:  # the arch: a stone surround with a stepped round head
+		var x0 := float(door_x)
+		Meshes.box(st, Vector3(x0 + 0.08, 0.16, d - 0.05), Vector3(0.1, 1.0, 0.08), LIMESTONE)
+		Meshes.box(st, Vector3(x0 + 0.82, 0.16, d - 0.05), Vector3(0.1, 1.0, 0.08), LIMESTONE)
+		Meshes.box(st, Vector3(x0 + 0.14, 1.12, d - 0.05), Vector3(0.72, 0.1, 0.08), LIMESTONE)
+		Meshes.box(st, Vector3(x0 + 0.26, 1.22, d - 0.05), Vector3(0.48, 0.08, 0.08), LIMESTONE)
+		Meshes.box(st, Vector3(x0 + 0.4, 1.3, d - 0.05), Vector3(0.2, 0.08, 0.08), LIMESTONE.darkened(0.1))  # keystone
+	var kx := (w - 1.2) if door_x < w * 0.5 else 1.2
+	_bottle(st, Vector3(kx, 0, minf(1.0, d * 0.35)), minf(0.95, d * 0.32), 0.95, POT_BRICK.darkened(0.08))
+

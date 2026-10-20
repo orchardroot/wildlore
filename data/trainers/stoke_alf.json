@@ -1,0 +1,32 @@
+{
+ "id": "stoke_alf",
+ "name": "Boatman Alf",
+ "class": "Boater",
+ "sprite": "canal_boater",
+ "scaled_floor": 8,
+ "party": [
+  {
+   "species": "rustelver",
+   "level": 10
+  },
+  {
+   "species": "elverlet",
+   "level": 10
+  },
+  {
+   "species": "croakle",
+   "level": 10
+  }
+ ],
+ "ai": "trainer",
+ "money": 420,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Boatman Alf",
+   "text": "Coal's earned, not given. Let's see what you've got, duck."
+  }
+ ],
+ "win": "Well, I'll go to the foot of our stairs.",
+ "after": "Two and a half miles an hour, that's canal speed. Same as walking, only with a kettle."
+}

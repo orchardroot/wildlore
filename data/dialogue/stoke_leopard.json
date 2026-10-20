@@ -1,0 +1,92 @@
+{
+ "leopard_landlord": [
+  {
+   "do": "if",
+   "flag": "q_potteries_oatcakes_2",
+   "then": [
+    {
+     "do": "say",
+     "who": "Landlord",
+     "text": "Best cheese and tomato oatcake I've had all week. And I've had a few."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_potteries_oatcakes_1",
+     "then": [
+      {
+       "do": "say",
+       "who": "Landlord",
+       "text": "Cheese and tomato, from the hatch? Champion. Put it on the bar, duck, I'll have it with a pint of mild."
+      },
+      {
+       "do": "say",
+       "who": "Landlord",
+       "text": "Wedgwood and Brindley sat in this pub in 1765, so they say, and planned the canal. I like to think they had oatcakes too. History doesn't record it."
+      },
+      {
+       "do": "set",
+       "flag": "q_potteries_oatcakes_2"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Landlord",
+       "text": "{greeting} What'll it be? We've mild, bitter, and a fire that's been lit since about 1765."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "leopard_quiz": [
+  {
+   "do": "say",
+   "who": "Quizmaster",
+   "text": "Quiz night at the Leopard! Five questions. Pottery, football and anything else I can think of. Fancy it, duck?"
+  },
+  {
+   "do": "choice",
+   "text": "Play the quiz?",
+   "options": [
+    "Go on then",
+    "Not tonight"
+   ],
+   "set": "_leopard_quiz"
+  },
+  {
+   "do": "if",
+   "flag": "_leopard_quiz",
+   "then": [
+    {
+     "do": "quiz",
+     "pub": "stoke",
+     "region": "england_north",
+     "who": "Quizmaster"
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Quizmaster",
+     "text": "Your loss, duck. The crisps are good tonight."
+    }
+   ],
+   "eq": 0
+  }
+ ],
+ "leopard_regular": [
+  {
+   "do": "say",
+   "who": "Old Regular",
+   "text": "They say this place is haunted. Doors opening by themselves, footsteps on the stairs, a chill on the landing."
+  },
+  {
+   "do": "say",
+   "who": "Old Regular",
+   "text": "I've been coming here forty years and never seen a ghost. Mind you, I've never been upstairs. I'm not daft."
+  }
+ ]
+}

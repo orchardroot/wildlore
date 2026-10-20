@@ -36,6 +36,7 @@ func test_travel_arrival_walkable() -> void:
 func test_world_map_has_all_spec_towns() -> void:
 	var m := Travel.world_map()
 	assert_true(m.towns.size() >= 42, "the 40 spec towns plus the ferry ports Holyhead and Cairnryan, and the Wider Isles towns")
+	assert_eq(m.towns.size(), 43, "the 40 spec towns plus the ferry ports Holyhead and Cairnryan, and Stoke (wave 21)")
 	for t in ["macclesfield", "london", "cardiff", "kirkwall", "dingle", "douglas", "newgrange", "bushmills"]:
 		assert_true(m.towns.has(t), t)
 	assert_true(m.outlines.gb.size() >= 60)

@@ -1,0 +1,70 @@
+{
+ "oatcake_cook": [
+  {
+   "do": "say",
+   "who": "Oatcake Cook",
+   "text": "Oatmeal, flour, yeast, water and milk. Leave it to bubble, pour it on the hot plate, flip it. That's it. That's the secret. Don't tell anyone."
+  },
+  {
+   "do": "choice",
+   "text": "What can I get you, duck?",
+   "options": [
+    "Buy some",
+    "Borrow the hot plate",
+    "Nothing, ta"
+   ],
+   "set": "_oat_choice"
+  },
+  {
+   "do": "if",
+   "flag": "_oat_choice",
+   "then": [
+    {
+     "do": "shop",
+     "id": "stoke_oatcake_shop"
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "_oat_choice",
+     "then": [
+      {
+       "do": "if",
+       "flag": "recipe_staffordshire_oatcakes",
+       "then": [
+        {
+         "do": "craft",
+         "bench": "borrowed"
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Oatcake Cook",
+         "text": "You'll want the recipe first. Help out at the hatch and the lady might teach you."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Oatcake Cook",
+       "text": "Tara-a-bit!"
+      }
+     ],
+     "eq": 1
+    }
+   ],
+   "eq": 0
+  }
+ ],
+ "oatcake_regular": [
+  {
+   "do": "say",
+   "who": "Regular",
+   "text": "Cheese, bacon and brown sauce, rolled. I've had the same order every Saturday for thirty years. My doctor knows. My doctor has the same."
+  }
+ ]
+}

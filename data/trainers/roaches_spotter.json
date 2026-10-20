@@ -1,0 +1,28 @@
+{
+ "id": "roaches_spotter",
+ "name": "Wallaby Spotter Clive",
+ "class": "Birdwatcher",
+ "sprite": "birdwatcher",
+ "scaled_floor": 8,
+ "party": [
+  {
+   "species": "roachroo",
+   "level": 10
+  },
+  {
+   "species": "pipkin",
+   "level": 9
+  }
+ ],
+ "ai": "trainer",
+ "money": 360,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Wallaby Spotter Clive",
+   "text": "I've had binoculars on this moor for twenty years. Twenty years! Saw a wallaby once. Might have been a bin bag. Battle me!"
+  }
+ ],
+ "win": "Beaten by someone who's been here ten minutes. Typical.",
+ "after": "If you see a wallaby, tell the Watcher by Rockhall. Not me. I'll only cry."
+}

@@ -1,0 +1,36 @@
+{
+ "lobby_nan": [
+  {
+   "do": "say",
+   "who": "Nan",
+   "text": "Come in, duck, sit down. You'll have some lobby. No, you will. Everyone has lobby."
+  },
+  {
+   "do": "say",
+   "who": "Nan",
+   "text": "Arnold Bennett grew up round here, you know. He wrote about women like my nan. Hard work, chapel on Sunday, a pot of something on the hob."
+  },
+  {
+   "do": "daily",
+   "key": "potteries_lobby_day",
+   "then": [
+    {
+     "do": "say",
+     "who": "Nan",
+     "text": "Here, take some for the road. And a spoon. Bring the spoon back."
+    },
+    {
+     "do": "give_item",
+     "item": "lobby"
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Nan",
+     "text": "You had your lobby today. Come back tomorrow, I'll do another pan."
+    }
+   ]
+  }
+ ]
+}

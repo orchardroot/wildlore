@@ -1,0 +1,160 @@
+{
+ "id": "stoke_museum",
+ "name": "Potteries Museum",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "display_case",
+   "x": 2,
+   "y": 2
+  },
+  {
+   "type": "display_case",
+   "x": 4,
+   "y": 2
+  },
+  {
+   "type": "display_case",
+   "x": 6,
+   "y": 2
+  },
+  {
+   "type": "display_case",
+   "x": 2,
+   "y": 5
+  },
+  {
+   "type": "display_case",
+   "x": 4,
+   "y": 5
+  },
+  {
+   "type": "statue",
+   "x": 11,
+   "y": 2,
+   "variant": 1
+  },
+  {
+   "type": "wall_picture",
+   "x": 9,
+   "y": 1,
+   "walk": true,
+   "variant": 2
+  },
+  {
+   "type": "wall_picture",
+   "x": 13,
+   "y": 1,
+   "walk": true,
+   "variant": 0
+  },
+  {
+   "type": "specimen_shelf",
+   "x": 13,
+   "y": 5
+  },
+  {
+   "type": "bench",
+   "x": 10,
+   "y": 7
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 9
+  },
+  {
+   "type": "potted_plant",
+   "x": 13,
+   "y": 9
+  }
+ ],
+ "warps": [
+  {
+   "x": 7,
+   "y": 10,
+   "to": "stoke",
+   "tx": 9,
+   "ty": 12,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "museum_curator",
+   "sprite": "tour_guide",
+   "x": 6,
+   "y": 4,
+   "facing": "down",
+   "move": "still",
+   "script": "curator",
+   "name": "Curator"
+  },
+  {
+   "id": "museum_guide",
+   "sprite": "student",
+   "x": 3,
+   "y": 7,
+   "facing": "up",
+   "move": "still",
+   "script": "hoard_guide",
+   "name": "Gallery Guide"
+  },
+  {
+   "id": "museum_attendant",
+   "sprite": "villager_4",
+   "x": 11,
+   "y": 5,
+   "facing": "left",
+   "move": "still",
+   "script": "museum_attendant",
+   "name": "Museum Attendant"
+  },
+  {
+   "id": "museum_kid",
+   "sprite": "villager_6",
+   "x": 11,
+   "y": 8,
+   "facing": "up",
+   "move": "wander",
+   "script": "museum_kid",
+   "name": "School Trip",
+   "radius": 1
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "x": 11,
+   "y": 3,
+   "text": "SPITFIRE. A real one, wings and all, here in honour of Reginald Mitchell, the Potteries lad who designed it. Please do not try to start it. People have asked."
+  },
+  {
+   "x": 8,
+   "y": 2,
+   "text": "THE STAFFORDSHIRE HOARD. Gold and garnet sword fittings, a folded gold cross and pieces of a helmet, all made in the 600s and 700s and buried for reasons nobody knows."
+  }
+ ],
+ "spawn": [
+  7,
+  9
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxxx",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x++++++D++++++x",
+  "xxxxxxxxxxxxxxx"
+ ]
+}

@@ -1,0 +1,146 @@
+{
+ "id": "stoke_gladstone",
+ "name": "Gladstone Pottery Museum",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "brazier",
+   "x": 8,
+   "y": 2
+  },
+  {
+   "type": "slate_stack",
+   "x": 5,
+   "y": 2
+  },
+  {
+   "type": "slate_stack",
+   "x": 11,
+   "y": 2
+  },
+  {
+   "type": "slate_stack",
+   "x": 6,
+   "y": 3
+  },
+  {
+   "type": "slate_stack",
+   "x": 10,
+   "y": 3
+  },
+  {
+   "type": "display_case",
+   "x": 2,
+   "y": 6
+  },
+  {
+   "type": "display_case",
+   "x": 2,
+   "y": 8
+  },
+  {
+   "type": "display_case",
+   "x": 14,
+   "y": 6
+  },
+  {
+   "type": "display_case",
+   "x": 14,
+   "y": 8
+  },
+  {
+   "type": "table",
+   "x": 12,
+   "y": 4
+  },
+  {
+   "type": "kitchen_dresser",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "wall_picture",
+   "x": 15,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  }
+ ],
+ "warps": [
+  {
+   "x": 8,
+   "y": 10,
+   "to": "stoke",
+   "tx": 9,
+   "ty": 41,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "gladstone_guide",
+   "sprite": "tour_guide",
+   "x": 4,
+   "y": 4,
+   "facing": "down",
+   "move": "still",
+   "script": "kiln_guide",
+   "name": "Museum Guide"
+  },
+  {
+   "id": "gladstone_loo",
+   "sprite": "villager_5",
+   "x": 13,
+   "y": 7,
+   "facing": "left",
+   "move": "still",
+   "script": "loo_guide",
+   "name": "Toilet Gallery Volunteer"
+  },
+  {
+   "id": "gladstone_thrower",
+   "sprite": "villager_2",
+   "x": 12,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "thrower",
+   "name": "Potter at the Wheel"
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "x": 8,
+   "y": 1,
+   "text": "INSIDE THE OVEN. Saggars of ware were stacked in columns called bungs, right up into the dome. Then the doorway was bricked up and the fires lit for two or three days."
+  },
+  {
+   "x": 1,
+   "y": 7,
+   "text": "FLUSHED WITH PRIDE. The story of the toilet, from chamber pot to pedestal. In 1883 Thomas Twyford of Hanley made one of the first one-piece china toilets, the Unitas. The Potteries made the nation's loos."
+  }
+ ],
+ "spawn": [
+  8,
+  9
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxxxxx",
+  "x+++++++++++++++x",
+  "x+++++++++++++++x",
+  "x+++++++++++++++x",
+  "x+++++++++++++++x",
+  "x+++++++++++++++x",
+  "x+++++++++++++++x",
+  "x+++++++++++++++x",
+  "x+++++++++++++++x",
+  "x+++++++++++++++x",
+  "x+++++++D+++++++x",
+  "xxxxxxxxxxxxxxxxx"
+ ]
+}

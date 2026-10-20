@@ -53,7 +53,10 @@
     "shelf_life": {"name": "Shelf Life", "desc": "Brackets last for years: from full health it hangs on at 1 HP.", "msg": "{name} hangs on to its shelf!", "endure_full": true},
     "brass_neck": {"name": "Brass Neck", "desc": "Has the brass neck to carry on regardless: foes can't lower its stats, and it can't be muddled.", "msg": "{name} has a right Brass Neck and carries on regardless!", "no_drops": true, "block_status": ["muddled"]},
     "we_are_flitting": {"name": "Aye, We're Flitting", "desc": "Gets under everyone's feet when it arrives, lowering the foes' Speed, and comes along for the ride when it switches out, healing 1/8 of its HP.", "msg": "{name} gets under everyone's feet. What a nuisance!", "msg_switch": "A voice from the milk churn: \"Aye, we're flitting!\" {name} perks up.", "entry_stage": {"to": "foes", "stat": "spd", "stages": -1}, "switch_heal": 8},
-    "forced_in_the_dark": {"name": "Forced in the Dark", "desc": "Grows best out of the light: hits harder at dusk and at night, and grows back 1/16 of its HP every turn.", "msg": "You can hear {name} creak as it grows.", "power_time": {"time": ["dusk", "night"], "mult": 1.2}, "heal": {"weather": [], "frac": 16}}
+    "forced_in_the_dark": {"name": "Forced in the Dark", "desc": "Grows best out of the light: hits harder at dusk and at night, and grows back 1/16 of its HP every turn.", "msg": "You can hear {name} creak as it grows.", "power_time": {"time": ["dusk", "night"], "mult": 1.2}, "heal": {"weather": [], "frac": 16}},
+    "fired_hard": {"name": "Fired Hard", "desc": "Kiln-fired at 1,200 degrees: hearth and frost moves hurt it a quarter less.", "msg": "{name} is Fired Hard. It barely felt that!", "resist": {"types": ["hearth", "frost"], "mult": 0.75}},
+    "ochre_water": {"name": "Ochre Water", "desc": "Lives in rusty water: it can't be soaked, and heals 1/16 of its HP each turn in drizzle or a downpour.", "msg": "{name} soaks up the orange water.", "block_status": ["soaked"], "heal": {"weather": ["drizzle", "downpour"], "frac": 16}},
+    "beheading_game": {"name": "Beheading Game", "desc": "Picks its head back up: from full HP a knockout blow leaves it on 1 HP, and its own-type moves hit half as hard again at a third of its HP or less.", "msg": "{name} picks its head back up!", "endure_full": true, "pinch": 1.5}
   },
   "species": {
     "bogglet": "mardy",
@@ -287,6 +290,11 @@
     "wessexwyrm": "sun_seeker",
     "wildkit": "backs_to_wall",
     "wispet": "pea_souper",
-    "zigzlet": "cocky"
+    "zigzlet": "cocky",
+    "saggit": "fired_hard",
+    "bottlekiln": "fired_hard",
+    "rustelver": "ochre_water",
+    "ochreel": "ochre_water",
+    "bertilak": "beheading_game"
   }
 }

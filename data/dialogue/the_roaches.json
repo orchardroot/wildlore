@@ -1,0 +1,426 @@
+{
+ "wallaby_watcher": [
+  {
+   "do": "if",
+   "flag": "q_potteries_wallaby_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Wallaby Watcher",
+     "text": "My wallaby! In a real team! I've told the whole club. Twice. They've asked me to stop."
+    },
+    {
+     "do": "say",
+     "who": "Wallaby Watcher",
+     "text": "Mind you, there's still the odd one about in the bracken at dawn and dusk. Wild ones. Allegedly."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_potteries_wallaby_4",
+     "then": [
+      {
+       "do": "say",
+       "who": "Wallaby Watcher",
+       "text": "You CAUGHT it? The last wallaby of the Roaches, in your very own team? Oh, I could cry. I am crying. It's the wind."
+      },
+      {
+       "do": "say",
+       "who": "Wallaby Watcher",
+       "text": "Here, take these. The knot's the county badge: three loops, tied tight, so nothing comes undone."
+      },
+      {
+       "do": "give_item",
+       "item": "staffordshire_knot"
+      },
+      {
+       "do": "give_item",
+       "item": "kendal_mint_cake",
+       "n": 2
+      },
+      {
+       "do": "standing",
+       "nation": "england",
+       "amount": 2
+      },
+      {
+       "do": "set",
+       "flag": "q_potteries_wallaby_done"
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_potteries_wallaby_3",
+       "then": [
+        {
+         "do": "say",
+         "who": "Wallaby Watcher",
+         "text": "Three sightings, all heading for Roach End. That's the west end of the ridge, by the steps up."
+        },
+        {
+         "do": "say",
+         "who": "Wallaby Watcher",
+         "text": "Wallabies come out at dawn and dusk. Get over there then, quiet as you can, and you might just meet it."
+        }
+       ],
+       "else": [
+        {
+         "do": "if",
+         "flag": "q_potteries_wallaby_started",
+         "then": [
+          {
+           "do": "say",
+           "who": "Wallaby Watcher",
+           "text": "Sightings so far? Check with the walker by the Hanging Stone first, then the ranger up at Doxey Pool, then the boathouse at Rudyard Lake. In that order. The club has a system."
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Wallaby Watcher",
+           "text": "Shh! Don't move. I thought I saw... no. A sheep. It's always a sheep."
+          },
+          {
+           "do": "say",
+           "who": "Wallaby Watcher",
+           "text": "I'm with the Roaches Wallaby Watch. Back in the 1930s the Brocklehursts kept a little private zoo near here, and when the war came a handful of wallabies were let out onto the moor."
+          },
+          {
+           "do": "say",
+           "who": "Wallaby Watcher",
+           "text": "And they LIVED. Through the snow, the fog, the lot. There were dozens at one point. Folk saw them for sixty-odd years."
+          },
+          {
+           "do": "say",
+           "who": "Wallaby Watcher",
+           "text": "The last good sightings were years ago now. But there've been whispers this week. Will you help me check them?"
+          },
+          {
+           "do": "say",
+           "who": "Wallaby Watcher",
+           "text": "Start with the walker at the Hanging Stone, then the ranger at Doxey Pool on top, then the boathouse at Rudyard Lake. Report back. Discreetly."
+          },
+          {
+           "do": "set",
+           "flag": "q_potteries_wallaby_started"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "hanging_hiker": [
+  {
+   "do": "if",
+   "flag": "q_potteries_wallaby_1",
+   "then": [
+    {
+     "do": "say",
+     "who": "Walker",
+     "text": "The wallaby went up towards the top, I'm telling you. Ask the ranger at Doxey Pool."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_potteries_wallaby_started",
+     "then": [
+      {
+       "do": "say",
+       "who": "Walker",
+       "text": "A wallaby? Funny you should say. Yesterday, at dusk, something bounced past the Hanging Stone. Bounced, mind. Sheep don't bounce."
+      },
+      {
+       "do": "say",
+       "who": "Walker",
+       "text": "It went up the steps onto the Roaches, towards Doxey Pool. I'd ask the ranger up there."
+      },
+      {
+       "do": "set",
+       "flag": "q_potteries_wallaby_1"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Walker",
+       "text": "That's the Hanging Stone. Sticks right out over nothing. I had my sandwiches under it once and I've never eaten faster."
+      },
+      {
+       "do": "say",
+       "who": "Walker",
+       "text": "There's a plaque to a dog on it, you know. Somebody loved that dog a great deal."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "doxey_ranger": [
+  {
+   "do": "if",
+   "flag": "q_potteries_wallaby_2",
+   "then": [
+    {
+     "do": "say",
+     "who": "Ranger",
+     "text": "Down to Rudyard Lake, I reckon. The boathouse keeper sees everything that goes by."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_potteries_wallaby_1",
+     "then": [
+      {
+       "do": "say",
+       "who": "Ranger",
+       "text": "The Hanging Stone lot sent you? Aye, I found these this morning: big back feet, little front ones, and a tail mark in the mud. That's no hare."
+      },
+      {
+       "do": "say",
+       "who": "Ranger",
+       "text": "The tracks went off west, downhill towards Rudyard Lake. Try the boathouse."
+      },
+      {
+       "do": "set",
+       "flag": "q_potteries_wallaby_2"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Ranger",
+       "text": "Doxey Pool. They say there's a water spirit in it that pulls walkers in. I say don't paddle in a peat pool in March, and you won't need a legend to explain what happens."
+      },
+      {
+       "do": "say",
+       "who": "Ranger",
+       "text": "Keep an eye out for mountain hares up here. The Peak is the only place in England they live wild, and they turn white in winter whether there's snow or not."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "rudyard_boater": [
+  {
+   "do": "if",
+   "flag": "q_potteries_wallaby_3",
+   "then": [
+    {
+     "do": "say",
+     "who": "Boathouse Keeper",
+     "text": "Roach End, at dawn or dusk. That's where it was heading. Good luck!"
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_potteries_wallaby_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "Boathouse Keeper",
+       "text": "A wallaby? Last night, on the dam. Sat up on its back legs, looked at me as if I owed it money, and hopped off east, back up towards Roach End."
+      },
+      {
+       "do": "say",
+       "who": "Boathouse Keeper",
+       "text": "Go and tell the Watcher by Rockhall. She'll be beside herself."
+      },
+      {
+       "do": "set",
+       "flag": "q_potteries_wallaby_3"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Boathouse Keeper",
+       "text": "{greeting} Rudyard Lake was dug to feed the canal, back in the 1790s. Then the Victorians came by train for boating and brass bands and made it a holiday spot."
+      },
+      {
+       "do": "say",
+       "who": "Boathouse Keeper",
+       "text": "A young couple courted here in 1863 and named their boy after it. Rudyard Kipling. Could've been worse. Could've been Tittesworth Kipling."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "wild_wallaby": [
+  {
+   "do": "if",
+   "flag": "q_potteries_wallaby_4",
+   "then": [
+    {
+     "do": "say",
+     "who": "",
+     "text": "Just a rustle in the bracken, and a sheep looking smug."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "dawn",
+     "then": [],
+     "else": [
+      {
+       "do": "when",
+       "cond": "dusk",
+       "then": [],
+       "else": [
+        {
+         "do": "say",
+         "who": "",
+         "text": "Deep in the bracken something is curled up asleep, long ears folded flat. Wallabies come out at dawn and dusk. Best come back then."
+        },
+        {
+         "do": "end"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Something sits up in the bracken: long ears, long feet, a tail like a walking stick. A wallaby, on a Staffordshire moor."
+    },
+    {
+     "do": "legend",
+     "species": "roachroo",
+     "level": 10,
+     "scaled_floor": 8,
+     "music": "legend",
+     "flag": "q_potteries_wallaby_4"
+    },
+    {
+     "do": "if",
+     "flag": "q_potteries_wallaby_4",
+     "then": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "The last wallaby of the Roaches is part of your team! The Wallaby Watcher will want to hear about this."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "It bounds off over the heather, quick as a rumour. It'll be back at the next dawn or dusk."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "detectorist": [
+  {
+   "do": "if",
+   "flag": "q_potteries_hoard_2",
+   "then": [
+    {
+     "do": "say",
+     "who": "Detectorist",
+     "text": "Ring pulls, mostly, today. And a tractor bolt. It's the hope that keeps you going."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_potteries_hoard_1",
+     "then": [
+      {
+       "do": "say",
+       "who": "Detectorist",
+       "text": "The Hoard? Oh, the Hoard. Every detectorist in England dreams about that field near Lichfield."
+      },
+      {
+       "do": "say",
+       "who": "Detectorist",
+       "text": "July 2009. A chap's sweeping a freshly ploughed field and gets a signal, then another, and another. Five days later he's still digging up gold."
+      },
+      {
+       "do": "say",
+       "who": "Detectorist",
+       "text": "He did it right, mind: reported it straight away, as the law says. Archaeologists came in and found thousands of pieces. It went to the museums, and he and the farmer split the reward."
+      },
+      {
+       "do": "say",
+       "who": "Detectorist",
+       "text": "Most of it was war gear: hilt fittings, pommel caps, bits of a helmet, all prised off and bundled up. No coins, no jewellery to speak of. Somebody's trophies, maybe. Tell the curator I said hello."
+      },
+      {
+       "do": "set",
+       "flag": "q_potteries_hoard_2"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Detectorist",
+       "text": "Shh. Listening. Beep... beep... that's either Saxon gold or a crisp packet. Ninety-nine times out of a hundred, it's the crisp packet."
+      },
+      {
+       "do": "say",
+       "who": "Detectorist",
+       "text": "If you ever find anything old, you report it to the finds officer. That's how history gets into museums instead of attics."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "luds_reader": [
+  {
+   "do": "say",
+   "who": "Walker with a Book",
+   "text": "Sir Gawain and the Green Knight. Written in the late 1300s, in a dialect from these very hills, by somebody whose name we never learned."
+  },
+  {
+   "do": "say",
+   "who": "Walker with a Book",
+   "text": "A green giant rides into King Arthur's hall at Christmas, offers a game: strike me once, and I strike you back in a year and a day. Gawain takes his head clean off."
+  },
+  {
+   "do": "say",
+   "who": "Walker with a Book",
+   "text": "The giant picks it up, and the head says, see you at the Green Chapel. Many folk reckon that chapel is Lud's Church, just through there. I'm not going in after dark. I've read the ending."
+  }
+ ],
+ "roaches_farmer": [
+  {
+   "do": "say",
+   "who": "Hill Farmer",
+   "text": "{greeting} You'll be wanting the Roaches. Up the lane, over the stile, and mind the ewes. They're Staffordshire sheep. They've opinions."
+  },
+  {
+   "do": "when",
+   "cond": "fog",
+   "then": [
+    {
+     "do": "say",
+     "who": "Hill Farmer",
+     "text": "Fog's down on the top. On days like this I've lost a whole flock and found it again at teatime, sat in a line like a choir."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Hill Farmer",
+     "text": "Wallabies? Aye, my granddad saw them. Said they'd come down to the road in hard winters and look in the car windows like customs officers."
+    }
+   ]
+  }
+ ]
+}

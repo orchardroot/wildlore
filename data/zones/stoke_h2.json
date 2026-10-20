@@ -1,0 +1,82 @@
+{
+ "id": "stoke_h2",
+ "name": "Moorland Road",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "sofa",
+   "x": 2,
+   "y": 3
+  },
+  {
+   "type": "table",
+   "x": 9,
+   "y": 3
+  },
+  {
+   "type": "wall_picture",
+   "x": 4,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "bookshelf",
+   "x": 11,
+   "y": 1
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "rug",
+   "x": 6,
+   "y": 4,
+   "walk": true
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 7,
+   "to": "stoke",
+   "tx": 61,
+   "ty": 20,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "h2_dad",
+   "sprite": "villager_4",
+   "x": 5,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "valiant_dad",
+   "name": "Dad"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  6,
+  6
+ ],
+ "rows": [
+  "xxxxxxxxxxxxx",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||D|||||x",
+  "xxxxxxxxxxxxx"
+ ]
+}
