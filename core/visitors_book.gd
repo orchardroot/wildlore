@@ -26,9 +26,9 @@ static func note(data: GameStateData, zone_id: String, kind: String, idx: Dictio
 	if c.x < c.y:
 		return {}
 	data.set_flag(BOARD_PREFIX + town)
-	data.money += MONEY
+	var paid := Wallet.earn_here(data, MONEY, town)  # an Irish tourist board pays in euros
 	Bag.new(data.bag).add(FOOD, 1)
-	return {"town": town, "money": MONEY, "item": FOOD}
+	return {"town": town, "money": int(paid.amount), "cur": str(paid.cur), "item": FOOD}
 
 ## Rooms seen and rooms in all, for a town: Vector2i(seen, total).
 static func count(data: GameStateData, town: String, idx: Dictionary) -> Vector2i:
@@ -54,9 +54,9 @@ static func towns_complete(data: GameStateData) -> int:
 			n += 1
 	return n
 
-static func payout_lines(town_name: String, item_name: String, money: int) -> Array:
+static func payout_lines(town_name: String, item_name: String, money: int, cur := Wallet.GBP) -> Array:
 	return ["You've seen every room in %s. The tourist board would like a word, and a scone." % town_name,
-		"The tourist board sends £%d and a %s, with their compliments. Do tell your friends." % [money, item_name]]
+		"The tourist board sends %s and a %s, with their compliments. Do tell your friends." % [Wallet.fmt(money, cur), item_name]]
 
 ## Shows the payout once the door's fade has finished (the overworld's say() is the dialogue box).
 static func announce(ow: Node, tour: Dictionary, town_name: String, item_name: String) -> void:
@@ -66,4 +66,4 @@ static func announce(ow: Node, tour: Dictionary, town_name: String, item_name: S
 			break
 		await ow.get_tree().process_frame
 	if is_instance_valid(ow) and ow.is_inside_tree():
-		await ow.say(payout_lines(town_name, item_name, int(tour.money)))
+		await ow.say(payout_lines(town_name, item_name, int(tour.money), str(tour.get("cur", Wallet.GBP))))

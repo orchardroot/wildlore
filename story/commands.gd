@@ -154,6 +154,12 @@ func _exec(c: Dictionary) -> void:
 			await host.warp(str(c.get("zone", "")), int(c.get("x", 0)), int(c.get("y", 0)), str(c.get("facing", "down")))
 		"shop":
 			await host.open_menu("shop:" + str(c.get("id", "")))
+		"bureau":
+			await host.open_menu("bureau")  # a bureau de change (see Forex)
+		"exchange":
+			await host.open_menu("exchange:" + str(c.get("board", "london")))  # a Stock Exchange terminal (see Markets)
+		"crypto":
+			await host.open_menu("crypto")  # the Doggerel kiosk
 		"starter":
 			var picked = await host.open_menu("starter")
 			if picked is String and picked != "" and host.dex.has(picked):
@@ -263,9 +269,9 @@ func _quiz(c: Dictionary) -> void:
 		await host.sfx("item")
 		if str(paid.item) != "":
 			var nm: String = host.items.get_item(str(paid.item)).get("name", str(paid.item))
-			await host.say("", "%s wins %s%s." % [data.player_name, nm, (" and " + UIKit.money_text(int(paid.money))) if int(paid.money) > 0 else ""])
+			await host.say("", "%s wins %s%s." % [data.player_name, nm, (" and " + Wallet.fmt(int(paid.money), str(paid.get("cur", Wallet.GBP)))) if int(paid.money) > 0 else ""])
 		else:
-			await host.say("", "%s wins %s." % [data.player_name, UIKit.money_text(int(paid.money))])
+			await host.say("", "%s wins %s." % [data.player_name, Wallet.fmt(int(paid.money), str(paid.get("cur", Wallet.GBP)))])
 
 func _battle(trainer_id: String) -> void:
 	var def := StoryData.trainer(trainer_id)
@@ -313,7 +319,7 @@ func _gauntlet(c: Dictionary) -> void:
 		var result := await _fight(fight_def)
 		if str(result.get("result", "")) != "win":
 			var ex: Dictionary = c.get("exit", {})
-			host.data.money = host.data.money / 2
+			Wallet.halve_all(host.data)
 			host.data.heal_party()
 			await host.warp(str(ex.get("zone", host.zone_id())), int(ex.get("x", -1)), int(ex.get("y", -1)), "down")
 			await host.say("", str(c.get("lose_line", "You come round at the edge of the stones, patched up and a little humbled. The Moot will wait.")))
@@ -326,9 +332,10 @@ func _gauntlet(c: Dictionary) -> void:
 			while await host.choice("Anything to sort out before the next challenger?", ["Open your bag", "Carry on"]) == 0:
 				await host.open_menu("bag")
 	if prize > 0:
-		host.data.money += prize
+		var paid := Wallet.earn_here(host.data, prize, host.zone_id())
 		TrainerStats.earned(host.data, prize)
 		await host.say("", "%s collects £%d in prize money from %s." % [host.data.player_name, prize, str(c.get("prize_from", "the Moot"))])
+		await host.say("", "%s collects %s in prize money from the Moot." % [host.data.player_name, Wallet.fmt(int(paid.amount), str(paid.cur))])
 	_set_flag(str(c.get("flag", "gauntlet_won")), true)
 
 ## A legendary encounter: a wild battle you can't run from, with its own music. Catching it sets `flag`;
@@ -434,7 +441,7 @@ func _journey_out(kind: String, info: Dictionary) -> bool:
 ## Lost a battle: lose half the money, heal up, back to the last Sanctuary.
 func whiteout() -> void:
 	var data: GameStateData = host.data
-	data.money = data.money / 2
+	Wallet.halve_all(data)
 	data.heal_party()
 	var ls: Dictionary = data.last_sanctuary
 	await host.warp(str(ls.zone), int(ls.pos[0]), int(ls.pos[1]), "down")

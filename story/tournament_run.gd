@@ -65,14 +65,15 @@ func _show() -> void:
 		return
 	await _say(STEWARD, "Three rounds, knockout, three a side. We patch everyone up between rounds, and nobody's creature comes home any worse, or any wiser. It's for the rosettes, not the experience.")
 	var who: Array = el.picks.map(func(i): return data.party[i].display_name())
-	var pick: int = await host.choice("Enter %s for £%d?" % [_names(who), Tournament.FEE], ["Enter", "Not today"])
+	var cur := Wallet.local(data)  # an Irish show takes its fee in euros
+	var fee := Wallet.localise(Tournament.FEE, cur)
+	var pick: int = await host.choice("Enter %s for %s?" % [_names(who), Wallet.fmt(fee, cur)], ["Enter", "Not today"])
 	if pick != 0:
 		await _say(STEWARD, "Right you are. The cake tent's that way if you change your mind.")
 		return
-	if data.money < Tournament.FEE:
-		await _say(STEWARD, "Entry's £%d, and your purse says otherwise. Come back when you're flush." % Tournament.FEE)
+	if not Wallet.spend(data, fee, cur):
+		await _say(STEWARD, "Entry's %s, and your purse says otherwise. Come back when you're flush." % Wallet.fmt(fee, cur))
 		return
-	data.money -= Tournament.FEE
 	var top := 1
 	for i in el.picks:
 		top = maxi(top, mini(data.party[i].level, cap))

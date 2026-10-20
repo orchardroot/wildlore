@@ -3,7 +3,7 @@ extends RefCounted
 ## Checks dialogue scripts, trainers and the NPCs that use them against the rest of the data.
 
 const COMMANDS := ["say", "choice", "if", "set", "give_item", "give_creature", "heal", "battle", "move", "face",
-	"face_player", "wait", "warp", "shop", "starter", "fade_out", "fade_in", "music", "sfx", "badge", "end", "whiteout", "ark", "rail", "ferry", "legend", "gauntlet", "credits", "daily", "when", "relearn", "sachet_worn", "quiz", "craft", "recipe", "fieldbook_news", "rewild", "standing", "tournament"]
+	"face_player", "wait", "warp", "shop", "starter", "fade_out", "fade_in", "music", "sfx", "badge", "end", "whiteout", "ark", "rail", "ferry", "legend", "gauntlet", "credits", "daily", "when", "relearn", "sachet_worn", "quiz", "craft", "recipe", "fieldbook_news", "rewild", "standing", "tournament", "bureau", "exchange", "crypto"]
 const CONDITIONS := ["dawn", "day", "dusk", "night", "rain", "fog", "gale", "frost", "sunshine", "caught_all",
 	"caught_25", "caught_50", "caught_100", "caught_150", "caught_200",
 	"spring", "summer", "autumn", "winter", "halloween", "bonfire_night", "christmas", "st_patricks", "st_davids", "burns_night"]
@@ -174,6 +174,9 @@ static func validate_commands(cmds: Array, tag: String, dex: Dex, items: ItemDB,
 			"shop":
 				if not items.shops.has(str(c.get("id", ""))):
 					errors.append("%s: shop '%s' does not exist" % [tag, c.get("id", "")])
+			"exchange":
+				if Markets.board(str(c.get("board", ""))).is_empty():
+					errors.append("%s: no Stock Exchange board '%s'" % [tag, c.get("board", "")])
 			"quiz":
 				if str(c.get("pub", "")) == "":
 					errors.append("%s: quiz with no pub id" % tag)

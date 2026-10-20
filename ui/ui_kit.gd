@@ -223,13 +223,9 @@ static func kind_name(kind: String) -> String:
 	return {"heal": "Healing", "cure": "Remedies", "revive": "Revivals", "pp": "Pudding", "snare": "Snares",
 		"repel": "Sachets", "evo": "Curios", "charm": "Charms", "key": "Key Items", "material": "Materials"}.get(kind, kind.capitalize())
 
-static func money_text(n: int) -> String:
-	var s := str(absi(n))
-	var out := ""
-	while s.length() > 3:
-		out = "," + s.substr(s.length() - 3) + out
-		s = s.substr(0, s.length() - 3)
-	return "£" + s + out
+## "£1,234", or in euros with cur "eur" (see Wallet).
+static func money_text(n: int, cur := "gbp") -> String:
+	return Wallet.fmt(absi(n), cur)
 
 ## Focuses a control next frame, if it is still around by then.
 ## (A weak reference, because a lambda capturing a freed node is itself an engine error.)
