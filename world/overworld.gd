@@ -15,6 +15,7 @@ var _zone_node: Node3D
 var _tilt: ColorRect
 var _dark: ColorRect
 var traffic: RailTraffic
+var _hinted := {}       # ability-gated tiles already explained this visit
 var _rode_in := false   # on the bike when we went indoors (session memory only, not saved)
 var ambient: AmbientLife
 var follower: Follower
@@ -192,6 +193,14 @@ func can_enter(p: Vector2i, dir: Vector2i) -> String:
 	if traffic and traffic.closed(p):
 		return "blocked"  # the level crossing is shut: a train is coming
 	return "ok"
+
+## Bumped into a tile that wants an ability you lack: say which, once per tile per visit.
+func blocked_hint(p: Vector2i) -> void:
+	var why := FieldMoves.block_hint(Game.data, zone, p)
+	if why == "" or _hinted.has(p):
+		return
+	_hinted[p] = true
+	await say([why])
 
 ## Hedge-lay: clear the bramble for good and rebuild the scenery.
 func cut_bramble(p: Vector2i) -> void:

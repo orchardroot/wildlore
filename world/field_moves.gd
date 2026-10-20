@@ -40,6 +40,14 @@ static func verdict(data: GameStateData, zone: ZoneData, p: Vector2i) -> String:
 		return "blocked"
 	return {"bramble": "cut", "deep_water": "wade", "scree": "scramble", "bog": "squelch"}[t]
 
+## Why p won't let you through when it wants an ability you haven't got, or "".
+static func block_hint(data: GameStateData, zone: ZoneData, p: Vector2i) -> String:
+	if verdict(data, zone, p) != "blocked":
+		return ""
+	var t := zone.tile_at(p)
+	var what: String = {"bramble": "Brambles too thick to push through", "deep_water": "Too deep to wade", "scree": "Loose scree, too steep to climb", "bog": "Bog too soft to cross"}.get(t, "Not passable")
+	return "%s. You'd need %s, which comes with a gym badge. Not yet, then." % [what, NAMES.get(TILE_ABILITY[t], "a field skill")]
+
 ## How far you can see in a dark zone.
 static func light_radius(data: GameStateData) -> float:
 	return LIGHT_LANTERN if has(data, "lantern") else LIGHT_DIM

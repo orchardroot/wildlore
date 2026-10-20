@@ -88,6 +88,17 @@ func test_craft_makes_batches_and_respects_full_stacks() -> void:
 	assert_eq(res.text, "You made Cup of Tea x2.")
 	assert_eq(int(d.bag.cup_of_tea), 3)
 
+func test_craft_says_which_ingredient_is_missing() -> void:
+	var d := GameStateData.new()
+	var items := ItemDB.load_default()
+	d.bag = {"blackberries": 1}
+	var r := Crafting.get_recipe("bakewell_tart")
+	var res := Crafting.craft(d, r, items)
+	assert_false(res.ok)
+	assert_true(str(res.text).contains("Blackberries"), str(res.text))
+	assert_true(str(res.text).contains("Hazelnuts"), str(res.text))
+	assert_false(Crafting.missing(d, r, items).is_empty())
+
 func test_recipe_command_teaches() -> void:
 	var h := FakeStoryHost.new()
 	await Commands.new(h).run([{"do": "recipe", "id": ["parkin", "bakewell_tart"]}])

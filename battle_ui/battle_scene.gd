@@ -313,7 +313,7 @@ func choose_action(f: BattleFlow) -> Dictionary:
 			"bag":
 				var entries := f.battle_items()
 				if entries.is_empty():
-					await msg.say("Nothing in your bag is any use in a scrap.")
+					await msg.say(f.empty_bag_text())
 					continue
 				var i := await menus.bag(entries)
 				if i < 0:

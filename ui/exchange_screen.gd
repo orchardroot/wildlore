@@ -394,6 +394,7 @@ func _describe_portfolio() -> void:
 func _pick(id: String) -> void:
 	if id == PORTFOLIO:
 		Audio.sfx("bump")
+		_say.text = "That's just your holdings. Pick a company to deal in."
 		return
 	_sel = id
 	_mode = "act"
