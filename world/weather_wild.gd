@@ -4,7 +4,9 @@ extends RefCounted
 ## table are favoured (their weight is multiplied), so nothing turns up out of region and a zone with no fitting
 ## type is simply unchanged. Interiors and caves run on "clear" (their weather table is empty), so they never shift.
 
-const BOOST := 2.5
+## How much more often favoured species turn up. Drizzle is the commonest sky in the game, so it only nudges; the
+## rarer, wilder weathers shift things more.
+const BOOST := {"drizzle": 1.4, "downpour": 2.0, "fog": 2.0, "frost": 2.0, "sunshine": 1.6, "gale": 2.0}
 ## Weather -> the types it brings out.
 const AFFINITY := {
 	"drizzle": ["brook", "tide", "bog"],
@@ -42,7 +44,7 @@ static func shift(list: Array, weather: String, types_of: Callable) -> Array:
 	for e in list:
 		if favours(weather, types_of.call(str(e.get("species", "")))):
 			var b: Dictionary = e.duplicate()
-			b["weight"] = float(e.get("weight", 1)) * BOOST
+			b["weight"] = float(e.get("weight", 1)) * float(BOOST.get(weather, 1.5))
 			out.append(b)
 			changed = true
 		else:

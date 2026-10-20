@@ -16,13 +16,13 @@ func _types(id: String) -> Array:
 
 func test_rain_favours_water() -> void:
 	var l := WeatherWild.shift(_list(), "downpour", _types)
-	assert_eq(_w(l, "a"), 25.0)
+	assert_eq(_w(l, "a"), 20.0)
 	assert_eq(_w(l, "b"), 10.0)
 
 func test_fog_frost_and_sun() -> void:
-	assert_eq(_w(WeatherWild.shift(_list(), "fog", _types), "c"), 25.0)
-	assert_eq(_w(WeatherWild.shift(_list(), "frost", _types), "d"), 25.0)
-	assert_eq(_w(WeatherWild.shift(_list(), "sunshine", _types), "e"), 25.0)
+	assert_eq(_w(WeatherWild.shift(_list(), "fog", _types), "c"), 20.0)
+	assert_eq(_w(WeatherWild.shift(_list(), "frost", _types), "d"), 20.0)
+	assert_eq(_w(WeatherWild.shift(_list(), "sunshine", _types), "e"), 16.0)
 
 func test_clear_and_unmatched_change_nothing() -> void:
 	var src := _list()
@@ -38,7 +38,7 @@ func test_real_zone_table_leans_wet_in_rain() -> void:
 	var wet := Encounters.candidates(z, "grass", "day", "downpour")
 	assert_eq(dry.size(), wet.size())
 	assert_eq(_w(dry, "afanc"), 30.0)
-	assert_eq(_w(wet, "afanc"), 75.0, "afanc is a brook type")
+	assert_eq(_w(wet, "afanc"), 60.0, "afanc is a brook type")
 
 func test_battle_intro_and_radio_name_the_weather() -> void:
 	assert_eq(Weather.intro_line("clear"), "")
@@ -48,3 +48,7 @@ func test_battle_intro_and_radio_name_the_weather() -> void:
 	assert_true(o[0].contains("Wet weather"))
 	assert_true(o[1].contains("about 3 hours") and o[1].contains("clear skies"))
 	assert_eq(Forecast.outlook("clear", -1, {}), [])
+
+func test_drizzle_only_nudges() -> void:
+	# drizzle is the commonest sky; a fire starter shouldn't face a wall of water types every damp morning
+	assert_eq(_w(WeatherWild.shift(_list(), "drizzle", _types), "a"), 14.0)
