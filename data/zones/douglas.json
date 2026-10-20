@@ -618,6 +618,16 @@
    "type": "noticeboard",
    "x": 26,
    "y": 31
+  },
+  {
+   "type": "building",
+   "style": "casino",
+   "x": 35,
+   "y": 32,
+   "w": 7,
+   "h": 3,
+   "label": "The Palace",
+   "kind": "casino"
   }
  ],
  "warps": [
@@ -691,6 +701,14 @@
    "to": "douglas_home3",
    "tx": 6,
    "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 38,
+   "y": 34,
+   "to": "douglas_palace",
+   "tx": 8,
+   "ty": 9,
    "facing": "up"
   }
  ],
@@ -1005,6 +1023,15 @@
    "text": "BLUE PLAQUE: Sir William Hillary, who founded the RNLI in 1824, lived in Douglas. His Tower of Refuge stands on Conister Rock.",
    "kind": "plaque",
    "dx": -0.475
+  },
+  {
+   "x": 36,
+   "y": 34,
+   "plaque": "man_palace_casino",
+   "title": "The Palace, Douglas",
+   "kind": "plaque",
+   "text": "THE PALACE. The Isle of Man isn't part of the United Kingdom: it's a Crown Dependency with its own parliament, Tynwald, which writes its own laws, gambling included. The island prints its own pound notes too, each worth exactly a pound sterling.",
+   "dx": -0.5
   }
  ],
  "spawn": [
@@ -1051,9 +1078,9 @@
   "TTT:::BBBDBBBB::::::::::::BBBDBBBB::BBBBB::!:::sds$$$$$$$$$$",
   "TTT:_________________:::::::::::::::BBDBB::!:::sds$$$$$$$$$$",
   "!!!!!!!!!!!!!!!!!!!!!::::::::::::::::::::::!:::sss$$$$$$$$$$",
-  "TTT.................:::::::::::::::::::::::!:::sss$RRR$$$$$$",
-  "TTT.................:::::::::::::::::::::::!:::sssRsssR$$$$$",
-  "TTT.................:::::::::::::::::::::::!:::sssRsssRR$$$$",
+  "TTT.................:::::::::::::::BBBBBBB:!:::sss$RRR$$$$$$",
+  "TTT.................:::::::::::::::BBBBBBB:!:::sssRsssR$$$$$",
+  "TTT.................:::::::::::::::BBBDBBB:!:::sssRsssRR$$$$",
   "TTT.................:::::::::::::::::::::::!:::sssRsssR$$$$$",
   "TTT========================================&:::sss$RRR$$$$$$",
   "TTT..................:::...................!:::sss$$$$$$$$$$",

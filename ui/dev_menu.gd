@@ -58,6 +58,8 @@ static func boot(game: Node, menu: String) -> void:
 		"wicker_snare": 8, "iron_snare": 2, "lavender_sachet": 3, "map": 1, "fieldbook": 1,
 		"rowan_sprig": 1, "leek": 1}
 	d.money = 1840
+	if menu.split(":")[0] in ["cage", "fruit", "blackjack", "roulette", "hilo", "races"]:  # the Palace and the bookies
+		d.set_flag(Punt.CHIPS_FLAG, 640)
 	if menu.begins_with("stats"):
 		d.stats.merge({"steps": 48213, "wins_wild": 187, "wins_trainer": 41, "caught": 52, "train_trips": 9, "rail_miles": 1180,
 			"ferry_trips": 3, "flights": 4, "money_earned": 96450, "teas": 63, "rained_on": 28, "started": "2026-10-03"}, true)

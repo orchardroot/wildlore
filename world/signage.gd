@@ -277,6 +277,12 @@ static func front(style: String, w: int, d: int, door_x: int) -> Dictionary:
 			f.merge({"mode": "trough", "z": d * 0.5 + 0.5, "lo": 3.42, "hi": 3.78, "x0": w * 0.5 - 3.0, "x1": w * 0.5 + 3.0}, true)
 		"glass_tower", "titanic", "gantry_crane", "cantilever_crane", "round_tower", "passage_tomb", "field_barn":
 			f.mode = "stand"
+		"casino":  # the Palace: its name in claret on the gilded band along the parapet
+			f.merge({"mode": "parapet", "z": d + 0.1, "lo": 3.26, "hi": 3.74, "x0": 0.6, "x1": w - 0.6}, true)
+		"grandstand":  # on the striped valance under the roof
+			f.merge({"z": d + 0.33, "lo": 3.5, "hi": 3.86, "x0": 0.5, "x1": w - 0.5}, true)
+		"bookmaker":  # the shop's painted fascia
+			f.merge({"z": d + 0.085, "lo": 1.24, "hi": 1.62, "x0": 0.1, "x1": w - 0.1}, true)
 		_:
 			if style in Landmarks.SPECIAL:
 				f.mode = "stand"
@@ -861,10 +867,11 @@ static func _parapet(kit: Kit, label: String, f: Dictionary, style: String) -> v
 	var cx: float = (float(f.x0) + float(f.x1)) * 0.5
 	var y0: float = f.lo
 	var z0: float = float(f.z) - 0.22
-	var face := Landmarks.PORTLAND if stone else Landmarks.BRICK
+	var gold := style == "casino"
+	var face := Landmarks.PORTLAND if stone else (Color("d8b04a") if gold else Landmarks.BRICK)
 	kit.box(Vector3(cx - bw * 0.5, y0 - 0.02, z0), Vector3(bw, h, 0.22), face)
-	kit.box(Vector3(cx - bw * 0.5 - 0.05, y0 + h - 0.02, z0 - 0.03), Vector3(bw + 0.1, 0.07, 0.3), Landmarks.LIMESTONE)
-	var ink := INCISED if stone else Color("efe6cf")
+	kit.box(Vector3(cx - bw * 0.5 - 0.05, y0 + h - 0.02, z0 - 0.03), Vector3(bw + 0.1, 0.07, 0.3), Color("f6f1e4") if gold else Landmarks.LIMESTONE)
+	var ink := INCISED if stone else (Color("7a1624") if gold else Color("efe6cf"))
 	kit.text(Transform3D.IDENTITY, Vector3(cx, y0 + h * 0.48, z0 + 0.224), fit_w, fnt, ink)
 
 ## A cast-iron name plate on an aqueduct's or a bridge's trough: raised cream letters, beaded rim.

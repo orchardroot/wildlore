@@ -1,0 +1,97 @@
+{
+ "doorman": [
+  {
+   "do": "say",
+   "who": "Doorman",
+   "text": "Evening. Welcome to the Palace. You're old enough, aren't you?"
+  },
+  {
+   "do": "choice",
+   "text": "Well, are you?",
+   "options": [
+    "Course I am",
+    "Define old"
+   ],
+   "set": "man_palace_doorman"
+  },
+  {
+   "do": "if",
+   "flag": "man_palace_doorman",
+   "eq": 0,
+   "then": [
+    {
+     "do": "say",
+     "who": "Doorman",
+     "text": "Course you are. I've an eye for these things. (He winks.) In you go, and mind the carpet. It's older than both of us."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Doorman",
+     "text": "(He winks.) I'll take that as a yes. Nobody gets carded on my shift, they get a word to the wise."
+    }
+   ]
+  },
+  {
+   "do": "say",
+   "who": "Doorman",
+   "text": "Chips from the cage, games on the floor, and if you're losing, the sea air outside is free."
+  }
+ ],
+ "cashier": [
+  {
+   "do": "say",
+   "who": "Cashier",
+   "text": "Buying or cashing in? Notes through the gap, chips back under. Lovely."
+  },
+  {
+   "do": "casino",
+   "game": "cage"
+  }
+ ],
+ "change_attendant": [
+  {
+   "do": "say",
+   "who": "Change Attendant",
+   "text": "The fruit machines. Hold the ones you like, nudge the ones you don't, and never trust a lemon."
+  },
+  {
+   "do": "casino",
+   "game": "fruit"
+  }
+ ],
+ "croupier": [
+  {
+   "do": "say",
+   "who": "Croupier",
+   "text": "Single zero, European wheel. Place your bets, and no touching the ball, it's shy."
+  },
+  {
+   "do": "casino",
+   "game": "roulette"
+  }
+ ],
+ "dealer": [
+  {
+   "do": "say",
+   "who": "Dealer",
+   "text": "Blackjack pays three to two, and I stand on seventeen. Pull up a stool."
+  },
+  {
+   "do": "casino",
+   "game": "blackjack"
+  }
+ ],
+ "hilo_host": [
+  {
+   "do": "say",
+   "who": "Higher or Lower Host",
+   "text": "Higher or lower! Guess right and the pot grows. Guess wrong and, well. Didn't they do well?"
+  },
+  {
+   "do": "casino",
+   "game": "hilo"
+  }
+ ]
+}

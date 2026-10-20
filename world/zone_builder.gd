@@ -224,7 +224,8 @@ const POINT_PROPS := ["lamp_post", "bench", "bush", "birch", "oak", "pine", "roc
 	"stadium_stand", "rugby_posts", "floodlight", "puddle", "pitch_line", "gantry_crane", "ship_ribs", "steel_plates",
 	"hall_stage", "tea_urn", "stacked_chairs", "currach", "lobster_pots", "harbour_arch", "fae_lantern", "toadstool_ring",
 	"clootie_tree", "curling_house", "curling_stones", "brick_arch", "band_kit", "stage_light", "slate_stack", "slate_wagon",
-	"crypt_arch", "candelabra", "tomb_chest", "brazier", "city_window", "enclosure_banner", "creature_cage"]
+	"crypt_arch", "candelabra", "tomb_chest", "brazier", "city_window", "enclosure_banner", "creature_cage",
+	"slot_machine", "roulette_table", "card_table", "tote_board", "velvet_rope", "horse_statue"]
 ## Cloth meshes that ripple (flutter shader) and glow meshes that add light (firelight shader).
 const CLOTH := ["bunting", "flag", "washing_line"]
 const FLOATING := ["boat", "canal_boat", "buoy"]

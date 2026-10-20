@@ -1,0 +1,171 @@
+{
+ "id": "glasgow_bookies",
+ "name": "Clydeside Betting Shop",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "tote_board",
+   "x": 1,
+   "y": 1,
+   "variant": 21,
+   "walk": true
+  },
+  {
+   "type": "tote_board",
+   "x": 2,
+   "y": 1,
+   "variant": 22,
+   "walk": true
+  },
+  {
+   "type": "tote_board",
+   "x": 10,
+   "y": 1,
+   "variant": 30,
+   "walk": true
+  },
+  {
+   "type": "tote_board",
+   "x": 11,
+   "y": 1,
+   "variant": 31,
+   "walk": true
+  },
+  {
+   "type": "clock",
+   "x": 9,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "table",
+   "x": 1,
+   "y": 5
+  },
+  {
+   "type": "table",
+   "x": 11,
+   "y": 5
+  },
+  {
+   "type": "slot_machine",
+   "x": 11,
+   "y": 3,
+   "variant": 1
+  },
+  {
+   "type": "wall_picture",
+   "x": 5,
+   "y": 1,
+   "walk": true,
+   "variant": 3
+  },
+  {
+   "type": "rug",
+   "x": 5,
+   "y": 3,
+   "w": 3,
+   "h": 1,
+   "variant": 1,
+   "walk": true
+  },
+  {
+   "type": "menu_board",
+   "x": 2,
+   "y": 7
+  },
+  {
+   "type": "table",
+   "x": 1,
+   "y": 3
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 8,
+   "to": "glasgow",
+   "tx": 32,
+   "ty": 35,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "glasgow_bookies_clerk",
+   "sprite": "villager_6",
+   "x": 6,
+   "y": 1,
+   "facing": "down",
+   "move": "still",
+   "name": "Counter Clerk",
+   "script": "clerk"
+  },
+  {
+   "id": "glasgow_bookies_punter",
+   "sprite": "villager_3",
+   "x": 3,
+   "y": 5,
+   "facing": "up",
+   "move": "still",
+   "name": "Punter",
+   "text": "Ah've had a wee flutter every Saturday since 1979. Ah'm up eleven quid. Don't tell the wife, she thinks it's a fortune."
+  },
+  {
+   "id": "glasgow_bookies_regular",
+   "sprite": "steelworker",
+   "x": 9,
+   "y": 6,
+   "facing": "left",
+   "move": "still",
+   "name": "Regular",
+   "text": "See that number four? Couldnae run a bath. (Couldn't, he means.) Ah'm on it anyway. Loyalty, pal."
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "kind": "plaque",
+   "plaque": "glasgow_betting_shops",
+   "title": "Betting Shops",
+   "text": "BETTING SHOPS. Before 1961, betting on horses away from the course was mostly against the law, and bookies' runners took bets on street corners with one eye out for the polis. The Betting and Gaming Act 1960 changed that, and Britain's first legal betting shops opened on 1 May 1961.",
+   "x": 3,
+   "y": 0
+  }
+ ],
+ "spawn": [
+  6,
+  7
+ ],
+ "stage": "city",
+ "legend_extra": {
+  "c": {
+   "tile": "floor_tile",
+   "colour": "#5a5e66"
+  },
+  "e": {
+   "tile": "floor_tile",
+   "colour": "#50545c"
+  },
+  "n": {
+   "tile": "floor_wood",
+   "colour": "#6a4a32"
+  }
+ },
+ "rows": [
+  "xxxxxxxxxxxxx",
+  "xnnnnnnnnnnnx",
+  "xeccCCCCCccex",
+  "xcccecccceccx",
+  "xcecccceccccx",
+  "xcccceccccecx",
+  "xcceccccecccx",
+  "xecccceccccex",
+  "xcccecDcceccx",
+  "xxxxxxxxxxxxx"
+ ]
+}

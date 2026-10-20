@@ -16,7 +16,7 @@ const IRON := Color("3c4450")
 const GLASS := Color.WHITE
 
 ## Building styles handled here rather than by the generic house in Meshes.building.
-const SPECIAL := ["glass_tower", "gantry_crane", "cantilever_crane", "titanic", "mill", "castle", "cathedral", "liver_building", "station", "aqueduct", "chapel", "terrace", "tudor", "slate_cottage", "lighthouse_house", "round_tower", "passage_tomb", "field_barn"]
+const SPECIAL := ["glass_tower", "gantry_crane", "cantilever_crane", "titanic", "mill", "castle", "cathedral", "liver_building", "station", "aqueduct", "chapel", "terrace", "tudor", "slate_cottage", "lighthouse_house", "round_tower", "passage_tomb", "field_barn", "casino", "grandstand", "bookmaker"]
 
 ## Doors: where each style's door sits on its tile (see _door and friends), for the swing as you go in.
 ## {x, w, y, h, z}: left edge and width across the door column, bottom and height, z of the door's face from
@@ -115,6 +115,12 @@ static func building(w: int, d: int, style: String, door_x: int, seed_value: int
 			_passage_tomb(st, w, d, door_x)
 		"field_barn":
 			_field_barn(st, w, d, rng)
+		"casino":
+			_casino(st, wst, w, d, door_x)
+		"grandstand":
+			_grandstand(st, wst, w, d, door_x)
+		"bookmaker":
+			_bookmaker(st, wst, w, d, door_x, region)
 		"liver_building":
 			_liver(st, wst, w, d, door_x)
 		"station":
@@ -1041,3 +1047,139 @@ static func harp() -> ArrayMesh:
 	for i in 5:
 		Meshes.box(st, Vector3(-0.15 + i * 0.08, 0.12, -0.01), Vector3(0.012, 1.08 - i * 0.12, 0.012), Color("f2e2a0"))
 	return Meshes._finish(st)
+
+# --- the Palace, Aintree and the bookies ---------------------------------------------
+
+## A lit bulb or neon strip: into the windows mesh, burning all night.
+static func _bulb(wst: SurfaceTool, o: Vector3, s: Vector3, b := 1.0) -> void:
+	Meshes.box(wst, o, s, Color(b, b, b, 1.0))
+
+## The Palace on Douglas promenade: a 1960s seaside hotel-casino in cream render, ribbon windows, a gilt sign band
+## along the parapet, a vertical neon blade at the corner and a red canopy over the door, lit underneath.
+static func _casino(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int) -> void:
+	var cream := Color("ece2c8")
+	var band := Color("f6f1e4")
+	var gold := Color("d8b04a")
+	var claret := Color("8a1f2c")
+	var storeys := 3
+	var hgt := 0.95 * storeys + 0.35
+	Meshes.box(st, Vector3(0.05, 0, 0.05), Vector3(w - 0.1, hgt, d - 0.1), cream, Color("b8b0a0"))
+	Meshes.box(st, Vector3(0, 0, 0), Vector3(w, 0.2, d), Color("6a645a"))
+	# the ground floor: tall plate-glass bays in gilt frames, with cream piers between (room for a blue plaque)
+	for x in w:
+		if x == door_x:
+			continue
+		_window(st, wst, x + 0.24, 0.3, d, 0.52, 0.72, gold.darkened(0.25))
+	# ribbon windows above, one long band per floor with slim mullions
+	for s in range(1, storeys):
+		var wy := 0.35 + 0.95 * s
+		Meshes.box(st, Vector3(0.0, wy - 0.12, d - 0.04), Vector3(w, 0.08, 0.08), band)
+		for x in w:
+			_window(st, wst, x + 0.1, wy, d, 0.8, 0.5, band)
+	# the parapet; the name goes up on a gilded band above it (Signage.front), with a row of bulbs along the cornice
+	Meshes.box(st, Vector3(-0.04, hgt - 0.05, -0.04), Vector3(w + 0.08, 0.14, d + 0.08), band)
+	for k in w * 3:
+		_bulb(wst, Vector3(0.1 + k * (w - 0.2) / float(w * 3), hgt - 0.02, d + 0.04), Vector3(0.05, 0.05, 0.03))
+	# the rooftop plant room
+	Meshes.box(st, Vector3(w * 0.5 - 1.0, hgt, 0.3), Vector3(2.0, 0.5, 1.0), cream.darkened(0.12))
+	# a neon blade on the east corner: CASINO, top to bottom, in a claret case
+	var bx := w - 0.3
+	Meshes.box(st, Vector3(bx, 1.2, d - 0.1), Vector3(0.16, 2.0, 0.5), claret)
+	for k in 6:
+		_bulb(wst, Vector3(bx + 0.17, 1.35 + k * 0.3, d + 0.02), Vector3(0.02, 0.2, 0.26), 1.0 if k % 2 == 0 else 0.8)
+	# the canopy over the door: claret, gilt edged, on brass posts, lit along its underside
+	if door_x >= 0:
+		var cx0 := maxf(0.0, door_x - 0.9)
+		var cx1 := minf(float(w), door_x + 1.9)
+		var cy := 1.25
+		Meshes.box(st, Vector3(cx0, cy, d - 0.05), Vector3(cx1 - cx0, 0.14, 0.95), claret, claret.lightened(0.1))
+		Meshes.box(st, Vector3(cx0, cy - 0.04, d + 0.86), Vector3(cx1 - cx0, 0.06, 0.06), gold)
+		for px in [cx0 + 0.08, cx1 - 0.14]:
+			Meshes.box(st, Vector3(px, 0.0, d + 0.78), Vector3(0.06, cy, 0.06), gold.darkened(0.15))
+		var n := int((cx1 - cx0) / 0.25)
+		for k in n:
+			_bulb(wst, Vector3(cx0 + 0.1 + k * 0.25, cy - 0.03, d + 0.8), Vector3(0.05, 0.03, 0.05))
+		Meshes.box(st, Vector3(door_x + 0.12, 0.005, d - 0.02), Vector3(0.76, 0.02, 1.0), Color("a8202e"))  # the red carpet
+		_door(st, door_x, d, cream, 0.95)
+		Meshes.box(wst, Vector3(door_x + 0.28, 0.24, d - 0.055), Vector3(0.44, 0.78, 0.03), Color(0.95, 0.8, 0.5, 1.0))  # lit lobby
+
+## A racecourse grandstand, "not to scale": a bar along the ground floor, tiers of green seats climbing to the back,
+## a white cantilever roof edged with a green and white striped valance, a cupola with a clock, and a white rail.
+static func _grandstand(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int) -> void:
+	var white := Color("f2efe6")
+	var stone := Color("d6cfbd")
+	var green := Color("2f6a45")
+	var base := 1.15
+	Meshes.box(st, Vector3(0.05, 0, 0.05), Vector3(w - 0.1, base, d - 0.1), stone)
+	Meshes.box(st, Vector3(0, 0, 0), Vector3(w, 0.16, d), stone.darkened(0.3))
+	for x in w:
+		if x != door_x:
+			_window(st, wst, x + 0.2, 0.32, d, 0.6, 0.6, white)
+	Meshes.box(st, Vector3(-0.05, base, -0.05), Vector3(w + 0.1, 0.1, d + 0.1), white)
+	# the tiers: rows of green seats with white gangways, climbing to the back wall
+	var tiers := 5
+	var step := (d - 0.3) / tiers
+	for k in tiers:
+		var z0 := d - 0.15 - (k + 1) * step
+		var y := base + 0.1 + k * 0.28
+		Meshes.box(st, Vector3(0.1, base, z0), Vector3(w - 0.2, y - base + 0.28, step), stone.darkened(0.05), green.darkened(0.08 * (k % 2)))
+		for x in range(2, w - 1, 3):  # a gangway every few tiles
+			Meshes.box(st, Vector3(x, y + 0.27, z0), Vector3(0.22, 0.02, step), white)
+	var top := base + 0.1 + tiers * 0.28
+	Meshes.box(st, Vector3(0.05, base, 0.05), Vector3(w - 0.1, top + 0.9 - base, 0.2), stone.darkened(0.1))  # the back wall
+	for x in [0.05, w - 0.25]:  # side screens
+		Meshes.box(st, Vector3(x, base, 0.05), Vector3(0.2, top + 0.7 - base, d - 0.2), white)
+	# the roof, cantilevered from the back, a little higher at the front
+	var ry := top + 0.95
+	Meshes._quad(st, Vector3(-0.1, ry + 0.25, d + 0.3), Vector3(w + 0.1, ry + 0.25, d + 0.3), Vector3(w + 0.1, ry, -0.1), Vector3(-0.1, ry, -0.1), white)
+	Meshes._quad(st, Vector3(-0.1, ry - 0.06, -0.1), Vector3(w + 0.1, ry - 0.06, -0.1), Vector3(w + 0.1, ry + 0.19, d + 0.3), Vector3(-0.1, ry + 0.19, d + 0.3), Color("c9c4b8"))
+	for x in range(0, w + 1, 3):  # slim white columns
+		Meshes.box(st, Vector3(minf(x, w - 0.08), base, d - 0.25), Vector3(0.08, ry - base + 0.15, 0.08), white)
+	var stripes := int(w / 0.5)
+	for k in stripes:  # the valance
+		Meshes.box(st, Vector3(-0.1 + k * (w + 0.2) / stripes, ry - 0.08, d + 0.28), Vector3((w + 0.2) / stripes, 0.3, 0.04), green if k % 2 == 0 else white)
+	# the cupola and its clock, and a flag
+	var cx := w * 0.5
+	Meshes.box(st, Vector3(cx - 0.45, ry + 0.2, 0.6), Vector3(0.9, 0.7, 0.9), white)
+	Meshes.box(st, Vector3(cx - 0.25, ry + 0.38, 1.51), Vector3(0.5, 0.42, 0.02), Color("1d2a22"))
+	Meshes.box(st, Vector3(cx - 0.02, ry + 0.58, 1.53), Vector3(0.04, 0.16, 0.01), white)
+	Meshes.box(st, Vector3(cx - 0.02, ry + 0.58, 1.53), Vector3(0.12, 0.03, 0.01), white)
+	Meshes.box(st, Vector3(cx - 0.55, ry + 0.9, 0.5), Vector3(1.1, 0.08, 1.1), green)
+	Meshes.box(st, Vector3(cx - 0.35, ry + 0.98, 0.7), Vector3(0.7, 0.15, 0.7), green.darkened(0.15))
+	Meshes.box(st, Vector3(cx - 0.02, ry + 1.13, 1.03), Vector3(0.04, 0.8, 0.04), white)
+	Meshes.box(st, Vector3(cx + 0.02, ry + 1.6, 1.04), Vector3(0.45, 0.28, 0.02), green)
+	# a white running rail along the front, with a gap at the door
+	for x in w:
+		if x == door_x:
+			continue
+		Meshes.box(st, Vector3(x, 0.55, d + 0.12), Vector3(1.0, 0.06, 0.05), white)
+		Meshes.box(st, Vector3(x + 0.45, 0.0, d + 0.12), Vector3(0.05, 0.6, 0.05), white)
+	_door(st, door_x, d, stone, 0.95)
+
+## A betting shop on a high street: a brick terrace with a coloured fascia, a dark plate-glass window of posters,
+## flats above and a slate roof. The fascia's colour depends on the region.
+static func _bookmaker(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int, region := "") -> void:
+	var brick := Color("8e4a3a") if region != "scotland" else Color("9a6a5a")  # Glasgow's red sandstone, near enough
+	var fascia := Color("1f5a3a") if region == "scotland" else (Color("b8262c") if region in ["ireland", "ni"] else Color("2f5fb0"))
+	var hgt := 2.6
+	Meshes.box(st, Vector3(0.05, 0, 0.05), Vector3(w - 0.1, hgt, d - 0.1), brick)
+	Meshes.box(st, Vector3(0, 0, 0), Vector3(w, 0.16, d), brick.darkened(0.35))
+	_roof(st, w, d, hgt, SLATE, brick, 0.34)
+	var chim := w - 1.2
+	Meshes.box(st, Vector3(chim, hgt + 0.3, d * 0.5 - 0.2), Vector3(0.4, 0.95, 0.4), brick.darkened(0.2))
+	_chimneys.append(Vector3(chim + 0.2, hgt + 1.25, d * 0.5))
+	# the shopfront: pilasters, a dark window of posters and odds, and the fascia board with its lettering
+	Meshes.box(st, Vector3(0.05, 0.16, d - 0.06), Vector3(w - 0.1, 1.1, 0.08), Color("1d1d22"))
+	for x in [0.0, w - 0.16]:
+		Meshes.box(st, Vector3(x, 0.0, d - 0.1), Vector3(0.16, 1.45, 0.16), fascia.darkened(0.25))
+	for x in w:
+		if x == door_x:
+			continue
+		Meshes.box(wst, Vector3(x + 0.12, 0.3, d - 0.01), Vector3(0.76, 0.85, 0.03), Color(0.75, 0.75, 0.75, 0.9))
+		Meshes.box(st, Vector3(x + 0.2, 0.55, d + 0.025), Vector3(0.22, 0.3, 0.01), Color("f2e2a0"))   # a poster
+		Meshes.box(st, Vector3(x + 0.5, 0.45, d + 0.025), Vector3(0.24, 0.44, 0.01), fascia.lightened(0.35))
+	Meshes.box(st, Vector3(-0.02, 1.2, d - 0.06), Vector3(w + 0.04, 0.46, 0.14), fascia, fascia.lightened(0.1))  # the name is painted on (Signage)
+	# flats upstairs
+	for x in w:
+		_window(st, wst, x + 0.28, 1.75, d, 0.44, 0.6, Color("e8e2d4"))
+	_door(st, door_x, d, fascia, 0.95)

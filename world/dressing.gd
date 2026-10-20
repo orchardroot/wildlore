@@ -582,10 +582,10 @@ const VENUE_PROPS := ["stadium_stand", "rugby_posts", "floodlight", "puddle", "p
 	"steel_plates", "hall_stage", "tea_urn", "stacked_chairs", "currach", "lobster_pots", "harbour_arch", "fae_lantern",
 	"toadstool_ring", "clootie_tree", "curling_house", "curling_stones", "brick_arch", "band_kit", "stage_light",
 	"slate_stack", "slate_wagon", "crypt_arch", "candelabra", "tomb_chest", "brazier", "city_window",
-	"enclosure_banner", "creature_cage"]
+	"enclosure_banner", "creature_cage", "slot_machine", "roulette_table", "card_table", "tote_board", "velvet_rope", "horse_statue"]
 ## prop -> the glow mesh that goes with it (same tile, same variant).
 const VENUE_GLOWS := {"floodlight": "floodlight_glow", "fae_lantern": "fae_glow", "stage_light": "stage_glow",
-	"candelabra": "candle_glow", "brazier": "brazier_fire"}
+	"candelabra": "candle_glow", "brazier": "brazier_fire", "slot_machine": "slot_glow", "tote_board": "tote_glow"}
 
 static func venue_prop(name: String, variant: int) -> ArrayMesh:
 	match name:
@@ -625,6 +625,14 @@ static func venue_prop(name: String, variant: int) -> ArrayMesh:
 		"city_window": return city_window(variant)
 		"enclosure_banner": return enclosure_banner()
 		"creature_cage": return creature_cage(variant)
+		"slot_machine": return slot_machine(variant)
+		"slot_glow": return slot_glow(variant)
+		"roulette_table": return roulette_table(variant)
+		"card_table": return card_table(variant)
+		"tote_board": return tote_board(variant)
+		"tote_glow": return tote_glow(variant)
+		"velvet_rope": return velvet_rope(variant)
+		"horse_statue": return horse_statue(variant)
 	return null
 
 ## A flat panel at depth z facing the camera (+z), from (x0, y0) to (x1, y1).
@@ -1341,4 +1349,203 @@ static func creature_cage(variant := 0) -> ArrayMesh:
 		Meshes.box(st, Vector3(c.x, 0.5, c.y), Vector3(0.02, 0.62, 0.02), BRASS)
 	Meshes.box(st, Vector3(-0.3, 1.12, -0.3), Vector3(0.6, 0.03, 0.6), BRASS)
 	Meshes.box(st, Vector3(-0.1, 0.2, 0.32), Vector3(0.2, 0.08, 0.01), BRASS)  # the plaque
+	return Meshes._finish(st)
+
+# --- the Palace, Aintree and the bookies ---------------------------------------------
+# A casino floor and a betting ring: fruit machines that glow, the roulette wheel, the baize, a wall of race screens.
+
+const BAIZE := Color("2f6a45")
+const CHIPS := [Color("c8323a"), Color("2f5fb0"), Color("e8e2d4"), Color("2d3138"), Color("e0b83a")]
+const SLOT_COLOURS := [Color("c8323a"), Color("2f5fb0"), Color("7a3fa0"), Color("d8902a")]
+
+## A pub-style fruit machine against the wall: cabinet, a lit top box, three reels behind glass, the nudge buttons
+## and the chrome handle. Variant: the cabinet's livery.
+static func slot_machine(variant := 0) -> ArrayMesh:
+	var st := Meshes._st()
+	var body: Color = SLOT_COLOURS[variant % SLOT_COLOURS.size()]
+	var chrome := Color("c9ccd2")
+	Meshes.box(st, Vector3(-0.34, 0, -0.42), Vector3(0.68, 0.62, 0.5), Color("1d1d22"))           # plinth
+	Meshes.box(st, Vector3(-0.34, 0.62, -0.42), Vector3(0.68, 0.78, 0.42), body, body.darkened(0.3))
+	Meshes.box(st, Vector3(-0.36, 0.58, -0.42), Vector3(0.72, 0.08, 0.56), chrome)                 # the button deck
+	for k in 4:  # hold and nudge buttons
+		Meshes.box(st, Vector3(-0.26 + k * 0.14, 0.66, 0.04), Vector3(0.08, 0.03, 0.06), Color("e04a3a") if k == 3 else Color("f0d040"))
+	_panel(st, -0.27, 0.86, 0.27, 1.18, 0.005, Color("101015"))                                      # the reel window
+	for r in 3:
+		var x := -0.24 + r * 0.17
+		_panel(st, x, 0.89, x + 0.14, 1.15, 0.008, Color("f4efe2"))
+		Meshes.box(st, Vector3(x + 0.04, 0.99, 0.01), Vector3(0.06, 0.06, 0.01), CHIPS[(r + variant) % 3])  # a symbol
+	_panel(st, -0.3, 1.24, 0.3, 1.34, 0.005, body.lightened(0.35))                                   # the win line
+	Meshes.box(st, Vector3(-0.36, 1.4, -0.44), Vector3(0.72, 0.36, 0.46), Color("1d1d22"))           # top box
+	_panel(st, -0.32, 1.44, 0.32, 1.72, 0.025, body.lightened(0.2))
+	Meshes.box(st, Vector3(0.34, 0.95, -0.12), Vector3(0.04, 0.06, 0.06), chrome)                    # the handle
+	_bar(st, Vector3(0.39, 0.98, -0.09), Vector3(0.41, 1.32, -0.09), 0.014, chrome)
+	Meshes.blob(st, Vector3(0.41, 1.36, -0.09), Vector3(0.045, 0.045, 0.045), Color("c8323a"), Meshes._rng(5), 0.02)
+	return Meshes._finish(st)
+
+## The fruit machine's lights: the top box, the win line and a coloured spill on the carpet.
+static func slot_glow(variant := 0) -> ArrayMesh:
+	var st := Meshes._st()
+	var col: Color = SLOT_COLOURS[variant % SLOT_COLOURS.size()].lightened(0.45)
+	_panel(st, -0.3, 1.46, 0.3, 1.7, 0.03, Color(col.r, col.g, col.b, 0.8))
+	_panel(st, -0.28, 1.25, 0.28, 1.33, 0.01, Color(1.0, 0.9, 0.55, 0.7))
+	_glow_pool(st, Vector3(0, 0.02, 0.35), 0.55, 0.45, col, 0.35)
+	return Meshes._finish(st)
+
+## Half of a roulette table, two tiles long east-west. 0: the wheel end (a turned bowl of red and black pockets,
+## one green, and a gilt spindle). 1: the layout end (the numbers in their red and black, the zero at the top).
+static func roulette_table(variant := 0) -> ArrayMesh:
+	var st := Meshes._st()
+	var wood := Color("5a3424")
+	var left := variant % 2 == 0
+	var x0 := -0.42 if left else -0.5
+	var x1 := 0.5 if left else 0.42
+	var px := x0 + 0.06 if left else x1 - 0.13
+	for pz in [-0.32, 0.24]:
+		Meshes.box(st, Vector3(px, 0, pz), Vector3(0.07, 0.72, 0.07), wood)
+	Meshes.box(st, Vector3(x0, 0.68, -0.42), Vector3(x1 - x0, 0.08, 0.84), wood, wood.lightened(0.15))  # the rail
+	Meshes.box(st, Vector3(x0 + 0.05, 0.7, -0.37), Vector3(x1 - x0 - 0.1, 0.07, 0.74), BAIZE, BAIZE)
+	if left:
+		var c := Vector3(-0.02, 0.77, 0.0)
+		Meshes.cylinder(st, c, 0.36, 0.08, 16, wood.lightened(0.1))
+		var n := 18
+		for i in n:
+			var a0 := TAU * i / n
+			var a1 := TAU * (i + 1) / n
+			var col := Color("1a8a3a") if i == 0 else (Color("b8262c") if i % 2 == 1 else Color("1d1d22"))
+			var am := (a0 + a1) * 0.5
+			Meshes._tri(st, c + Vector3(cos(a0) * 0.29, 0.07, sin(a0) * 0.29),
+				Vector3(c.x + cos(am) * 0.16, c.y + 0.07, c.z + sin(am) * 0.16),
+				c + Vector3(cos(a1) * 0.29, 0.07, sin(a1) * 0.29), col)
+		Meshes.cylinder(st, c + Vector3(0, 0.07, 0), 0.16, 0.03, 12, Color("8a6a3a"))
+		Meshes.cylinder(st, c + Vector3(0, 0.1, 0), 0.04, 0.1, 6, BRASS)
+		Meshes.box(st, c + Vector3(-0.1, 0.19, -0.01), Vector3(0.2, 0.02, 0.02), BRASS)
+		Meshes.box(st, c + Vector3(0.2, 0.08, 0.12), Vector3(0.03, 0.03, 0.03), Color("f4efe2"))  # the ball
+	else:
+		var y := 0.775
+		Meshes.box(st, Vector3(-0.44, y, -0.3), Vector3(0.1, 0.004, 0.36), Color("1a8a3a"))
+		for i in 9:
+			for j in 3:
+				var red := (i + j) % 2 == 0
+				Meshes.box(st, Vector3(-0.32 + i * 0.075, y, -0.3 + j * 0.12), Vector3(0.068, 0.004, 0.11), Color("b8262c") if red else Color("1d1d22"))
+		for k in 3:  # the dozens along the front
+			Meshes.box(st, Vector3(-0.32 + k * 0.225, y, 0.07), Vector3(0.215, 0.004, 0.08), Color("e8e2d4").darkened(0.25))
+		for k in 4:  # a few stacks of chips
+			Meshes.cylinder(st, Vector3(-0.25 + k * 0.17, y, 0.24), 0.035, 0.03 + 0.02 * (k % 3), 8, CHIPS[k])
+	return Meshes._finish(st)
+
+## A card table. 0 and 1: the left and right halves of a blackjack table (a half-moon of baize with a padded rim,
+## the dealer's shoe and chip float, cards dealt to the boxes). 2: a small round table with a big card on a stand,
+## for Higher or Lower.
+static func card_table(variant := 0) -> ArrayMesh:
+	var st := Meshes._st()
+	var wood := Color("5a3424")
+	var pad := Color("3a2a22")
+	var card := Color("f6f2e6")
+	if variant % 3 == 2:
+		Meshes.cylinder(st, Vector3(0, 0, 0), 0.08, 0.68, 8, wood)
+		Meshes.cylinder(st, Vector3(0, 0.66, 0), 0.4, 0.06, 14, pad)
+		Meshes.cylinder(st, Vector3(0, 0.71, 0), 0.34, 0.02, 14, BAIZE)
+		Meshes.box(st, Vector3(-0.16, 0.73, -0.14), Vector3(0.32, 0.02, 0.06), BRASS)
+		Meshes.box(st, Vector3(-0.15, 0.75, -0.13), Vector3(0.3, 0.42, 0.02), card)                    # the big card
+		Meshes.box(st, Vector3(-0.07, 0.88, -0.105), Vector3(0.14, 0.16, 0.01), Color("b8262c"))       # its pip
+		Meshes.box(st, Vector3(-0.12, 1.08, -0.105), Vector3(0.05, 0.05, 0.01), Color("b8262c"))
+		Meshes.box(st, Vector3(0.05, 0.73, 0.02), Vector3(0.12, 0.012, 0.17), Color("2f4a8a"))        # the next one, face down
+		Meshes.cylinder(st, Vector3(-0.18, 0.73, 0.12), 0.035, 0.06, 8, CHIPS[4])
+		return Meshes._finish(st)
+	var right := variant % 3 == 1
+	var sgn := 1.0 if right else -1.0
+	for pz in [-0.3, 0.12]:
+		Meshes.box(st, Vector3(sgn * 0.3 - 0.035, 0, pz), Vector3(0.07, 0.72, 0.07), wood)
+	# the table: a slab on the dealer's side (north), stepping round in a curve to the players' side
+	var x0 := -0.5 if right else -0.44
+	Meshes.box(st, Vector3(x0, 0.68, -0.38), Vector3(0.94, 0.07, 0.5), pad)
+	Meshes.box(st, Vector3(x0 + (0.0 if right else 0.04), 0.7, -0.36), Vector3(0.9, 0.06, 0.46), BAIZE, BAIZE)
+	for k in 4:
+		var w := 0.9 - k * 0.2
+		var x := -0.5 if right else 0.5 - w
+		Meshes.box(st, Vector3(x, 0.68, 0.12 + k * 0.07), Vector3(w, 0.07, 0.07), pad)
+		Meshes.box(st, Vector3(x + (0.0 if right else 0.03), 0.7, 0.1 + k * 0.07), Vector3(w - 0.03, 0.065, 0.05), BAIZE, BAIZE)
+	for k in 2:  # cards dealt to a box or two
+		var cx := sgn * (0.06 + k * 0.22)
+		Meshes.box(st, Vector3(cx - 0.05, 0.77, 0.0 + k * 0.06), Vector3(0.1, 0.008, 0.14), card)
+		Meshes.box(st, Vector3(cx - 0.02, 0.779, 0.03 + k * 0.06), Vector3(0.04, 0.004, 0.04), Color("b8262c") if k == 0 else Color("1d1d22"))
+	if right:  # the shoe
+		Meshes.box(st, Vector3(0.18, 0.76, -0.32), Vector3(0.18, 0.12, 0.2), Color("1d1d22"))
+		Meshes.box(st, Vector3(0.2, 0.8, -0.13), Vector3(0.14, 0.04, 0.02), Color("2f4a8a"))
+	else:  # the chip float, in neat columns
+		for k in 5:
+			Meshes.cylinder(st, Vector3(-0.3 + k * 0.08, 0.76, -0.26), 0.032, 0.05 + 0.02 * (k % 2), 8, CHIPS[k])
+	return Meshes._finish(st)
+
+## A bank of race screens on the north wall over an odds board in amber lights.
+static func tote_board(_variant := 0) -> ArrayMesh:
+	var st := Meshes._st()
+	var frame := Color("1a1c22")
+	Meshes.box(st, Vector3(-0.5, 0.5, -0.5), Vector3(1.0, 1.42, 0.08), frame)
+	_panel(st, -0.46, 0.56, 0.46, 0.8, -0.415, Color("120f0a"))  # the odds board
+	for i in 2:
+		var x := -0.46 + i * 0.47
+		_panel(st, x, 0.88, x + 0.45, 1.86, -0.418, Color("0e1014"))
+	Meshes.box(st, Vector3(-0.5, 1.92, -0.5), Vector3(1.0, 0.06, 0.12), Color("2f6a45"))  # a green pelmet
+	return Meshes._finish(st)
+
+## What's on the screens, lit: turf, a white rail, runners in their silks, and the odds in amber.
+static func tote_glow(variant := 0) -> ArrayMesh:
+	var st := Meshes._st()
+	var rng := Meshes._rng(42400 + variant)
+	for i in 2:
+		var x := -0.44 + i * 0.47
+		var z := -0.405
+		_panel(st, x, 0.9, x + 0.41, 1.3, z, Color(0.35, 0.65, 0.35, 0.85))    # turf
+		_panel(st, x, 1.3, x + 0.41, 1.84, z, Color(0.55, 0.7, 0.9, 0.7))      # sky
+		_panel(st, x, 1.24, x + 0.41, 1.26, z + 0.002, Color(1, 1, 1, 0.9))    # the running rail
+		for k in 4:
+			var rx := x + 0.04 + rng.randf() * 0.33
+			var ry := 0.96 + rng.randf() * 0.22
+			var silk: Color = CLOTH[rng.randi() % CLOTH.size()]
+			_panel(st, rx, ry, rx + 0.04, ry + 0.04, z + 0.004, Color(silk.r, silk.g, silk.b, 1.0))
+	for k in 8:  # the odds, in dot-matrix amber
+		var w := 0.03 + rng.randf() * 0.06
+		var ox := -0.42 + k * 0.105
+		_panel(st, ox, 0.6 + (k % 2) * 0.1, ox + w, 0.64 + (k % 2) * 0.1, -0.41, Color(1.0, 0.62, 0.15, 0.9))
+	return Meshes._finish(st)
+
+## Two brass posts and a sagging rope between them, across the tile east-west. Variant: red or royal blue.
+static func velvet_rope(variant := 0) -> ArrayMesh:
+	var st := Meshes._st()
+	var rope := Color("8a1f2c") if variant % 2 == 0 else Color("2a3a6a")
+	for px in [-0.4, 0.4]:
+		Meshes.cylinder(st, Vector3(px, 0, 0), 0.1, 0.04, 10, BRASS.darkened(0.2))
+		Meshes.cylinder(st, Vector3(px, 0.04, 0), 0.025, 0.72, 6, BRASS)
+		Meshes.blob(st, Vector3(px, 0.8, 0), Vector3(0.045, 0.045, 0.045), BRASS.lightened(0.2), Meshes._rng(7), 0.02)
+	var prev := Vector3(-0.4, 0.72, 0)
+	for k in range(1, 7):
+		var t := float(k) / 6.0
+		var p := Vector3(-0.4 + 0.8 * t, 0.72 - sin(t * PI) * 0.16, 0)
+		_bar(st, prev, p, 0.022, rope)
+		prev = p
+	return Meshes._finish(st)
+
+## A bronze racehorse on a stone plinth, mid-stride, head up: Aintree's statue of Red Rum, more or less.
+static func horse_statue(_variant := 0) -> ArrayMesh:
+	var st := Meshes._st()
+	var rng := Meshes._rng(42500)
+	var bronze := Color("6a5038")
+	var stone := Color("c9c0aa")
+	Meshes.box(st, Vector3(-0.42, 0, -0.3), Vector3(0.84, 0.42, 0.6), stone, stone.lightened(0.08))
+	Meshes.box(st, Vector3(-0.46, 0.42, -0.34), Vector3(0.92, 0.05, 0.68), stone.lightened(0.1))
+	Meshes.box(st, Vector3(-0.16, 0.16, 0.301), Vector3(0.32, 0.14, 0.01), BRASS)  # the name plate
+	var y := 0.47
+	Meshes.blob(st, Vector3(0, y + 0.54, 0), Vector3(0.32, 0.17, 0.14), bronze, rng, 0.03)         # body
+	Meshes.blob(st, Vector3(0.2, y + 0.53, 0), Vector3(0.14, 0.16, 0.13), bronze.lightened(0.05), rng, 0.03)  # chest
+	Meshes.blob(st, Vector3(-0.22, y + 0.55, 0), Vector3(0.13, 0.15, 0.13), bronze.darkened(0.05), rng, 0.03)  # quarters
+	_bar(st, Vector3(0.24, y + 0.6, 0), Vector3(0.36, y + 0.86, 0), 0.075, bronze)                 # neck
+	Meshes.blob(st, Vector3(0.4, y + 0.84, 0), Vector3(0.11, 0.05, 0.05), bronze, rng, 0.03)       # head
+	_bar(st, Vector3(0.3, y + 0.86, 0.02), Vector3(0.3, y + 0.94, 0.03), 0.012, bronze)           # ears
+	_bar(st, Vector3(0.3, y + 0.86, -0.02), Vector3(0.3, y + 0.94, -0.03), 0.012, bronze)
+	for leg in [[0.2, 0.05, 0.12], [0.16, -0.05, -0.08], [-0.2, 0.05, -0.1], [-0.22, -0.05, 0.12]]:
+		var top := Vector3(float(leg[0]), y + 0.44, float(leg[1]))
+		var foot := Vector3(float(leg[0]) + float(leg[2]), y, float(leg[1]))
+		_bar(st, top, foot, 0.035, bronze.darkened(0.1))
+	_bar(st, Vector3(-0.28, y + 0.56, 0), Vector3(-0.38, y + 0.36, 0), 0.03, bronze.darkened(0.15))  # tail
 	return Meshes._finish(st)
