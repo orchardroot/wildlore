@@ -3,6 +3,10 @@
   "west": {
    "offset": 0.0,
    "to": "central_belt"
+  },
+  "north": {
+   "to": "forth_bridges",
+   "offset": -7
   }
  },
  "encounters": {
@@ -973,14 +977,14 @@
  ],
  "region": "scotland",
  "rows": [
-  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
-  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
-  "TT....................................................................TT",
-  "TT.BBBBBBBBBB...............BBBB....BBBBBBBBB.BBBBBBBBB.BBBBBBBBB.....TT",
-  "TT.BBBBBBBBBB.BBBBBB..BBBBB.BBBB....BBBBBBBBB.BBBBBBBBB.BBBBBBBBB.....TT",
-  "TT.BBBBBBBBBB.BBBBBB..BBBBB.BBBB....BBBBBBBBB.BBBBBBBBB.BBBBBBBBB.....TT",
-  "TT.BBBBBBBBBB.BBBBBB..BBBBB.BBBB....BBBBBBBBB.BBBBBBBBB.BBBBBBBBB.....TT",
-  "TT.BBBBBDBBBB.BBBDBB..BBDBB.BBBB....BBBBDBBBB.BBBBBBBBB.BBBBDBBBB.....TT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT:::TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT:::TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TT..............................:::...................................TT",
+  "TT.BBBBBBBBBB...............BBBB:::.BBBBBBBBB.BBBBBBBBB.BBBBBBBBB.....TT",
+  "TT.BBBBBBBBBB.BBBBBB..BBBBB.BBBB:::.BBBBBBBBB.BBBBBBBBB.BBBBBBBBB.....TT",
+  "TT.BBBBBBBBBB.BBBBBB..BBBBB.BBBB:::.BBBBBBBBB.BBBBBBBBB.BBBBBBBBB.....TT",
+  "TT.BBBBBBBBBB.BBBBBB..BBBBB.BBBB:::.BBBBBBBBB.BBBBBBBBB.BBBBBBBBB.....TT",
+  "TT.BBBBBDBBBB.BBBDBB..BBDBB.BBBB:::.BBBBDBBBB.BBBBBBBBB.BBBBDBBBB.....TT",
   "TT==============================:::===================================TT",
   "TT==============================:::===================================TT",
   "TT==============================:::===================================TT",
@@ -1037,6 +1041,7 @@
   "TTTTT..........................TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT"
  ],
  "signs": [
+  {"x": 35, "y": 3, "text": "NORTH TO THE FORTH. South Queensferry and the three Forth bridges, then the Kingdom of Fife: St Andrews and, over the Tay, Dundee."},
   {
    "text": "THE FLORAL CLOCK. A working clock made from thousands of plants, laid out afresh every spring, and the oldest in the world. It keeps good time. It also keeps its hands, very tidily, in the border.",
    "x": 10.0,

@@ -1,0 +1,828 @@
+{
+ "id": "dundee",
+ "name": "Dundee",
+ "region": "scotland",
+ "kind": "town",
+ "music": "town_scotland",
+ "weather": {
+  "drizzle": 30,
+  "clear": 22,
+  "fog": 16,
+  "gale": 12,
+  "sunshine": 14,
+  "downpour": 6
+ },
+ "props": [
+  {
+   "type": "statue",
+   "x": 12,
+   "y": 4,
+   "variant": 1
+  },
+  {
+   "type": "building",
+   "style": "station",
+   "x": 12,
+   "y": 39,
+   "w": 8,
+   "h": 2,
+   "label": "Dundee Station"
+  },
+  {
+   "type": "buffer_stop",
+   "x": 31,
+   "y": 42
+  },
+  {
+   "type": "building",
+   "style": "tay_bridge",
+   "x": 0,
+   "y": 45,
+   "w": 18,
+   "h": 2,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "bridge_girder",
+   "x": 39,
+   "y": 45,
+   "w": 1,
+   "h": 19,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "bridge_girder",
+   "x": 43,
+   "y": 45,
+   "w": 1,
+   "h": 19,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "va_dundee",
+   "x": 45,
+   "y": 39,
+   "w": 10,
+   "h": 4,
+   "label": "V&A Dundee"
+  },
+  {
+   "type": "building",
+   "style": "discovery_ship",
+   "x": 58,
+   "y": 38,
+   "w": 11,
+   "h": 3,
+   "label": "RRS Discovery"
+  },
+  {
+   "type": "building",
+   "style": "stone",
+   "x": 32,
+   "y": 16,
+   "w": 14,
+   "h": 5,
+   "label": "Caird Hall"
+  },
+  {
+   "type": "statue",
+   "x": 34,
+   "y": 27,
+   "variant": 0
+  },
+  {
+   "type": "bench",
+   "x": 38,
+   "y": 27
+  },
+  {
+   "type": "bench",
+   "x": 44,
+   "y": 27
+  },
+  {
+   "type": "building",
+   "style": "mill",
+   "x": 6,
+   "y": 20,
+   "w": 10,
+   "h": 5,
+   "label": "Verdant Works"
+  },
+  {
+   "type": "building",
+   "style": "red_brick",
+   "x": 18,
+   "y": 24,
+   "w": 8,
+   "h": 4,
+   "label": "Keiller's Jam Kitchen"
+  },
+  {
+   "type": "building",
+   "style": "cathedral",
+   "x": 52,
+   "y": 21,
+   "w": 10,
+   "h": 5,
+   "label": "The McManus"
+  },
+  {
+   "type": "building",
+   "style": "stone",
+   "x": 52,
+   "y": 14,
+   "w": 8,
+   "h": 5,
+   "label": "Courier Building"
+  },
+  {
+   "type": "building",
+   "style": "sanctuary",
+   "x": 4,
+   "y": 34,
+   "w": 6,
+   "h": 4,
+   "label": "Sanctuary"
+  },
+  {
+   "type": "building",
+   "style": "shop",
+   "x": 11,
+   "y": 34,
+   "w": 5,
+   "h": 4,
+   "label": "Corner Shop"
+  },
+  {
+   "type": "building",
+   "style": "crow_step",
+   "x": 22,
+   "y": 34,
+   "w": 7,
+   "h": 4,
+   "label": "The Silvery Tay"
+  },
+  {
+   "type": "building",
+   "style": "tenement",
+   "x": 26,
+   "y": 13,
+   "w": 6,
+   "h": 3,
+   "label": "Hilltown"
+  },
+  {
+   "type": "building",
+   "style": "tenement",
+   "x": 2,
+   "y": 27,
+   "w": 5,
+   "h": 3,
+   "label": "Lochee Road"
+  },
+  {
+   "type": "building",
+   "style": "tenement",
+   "x": 62,
+   "y": 27,
+   "w": 7,
+   "h": 3,
+   "label": "Seagate"
+  },
+  {
+   "type": "building",
+   "style": "tenement",
+   "x": 63,
+   "y": 14,
+   "w": 7,
+   "h": 3,
+   "label": "Murraygate"
+  },
+  {
+   "type": "building",
+   "style": "tenement",
+   "x": 33,
+   "y": 34,
+   "w": 6,
+   "h": 3,
+   "label": "Nethergate"
+  },
+  {
+   "type": "lamp_post",
+   "x": 5,
+   "y": 30
+  },
+  {
+   "type": "lamp_post",
+   "x": 18,
+   "y": 30
+  },
+  {
+   "type": "lamp_post",
+   "x": 29,
+   "y": 30
+  },
+  {
+   "type": "lamp_post",
+   "x": 49,
+   "y": 30
+  },
+  {
+   "type": "lamp_post",
+   "x": 60,
+   "y": 30
+  },
+  {
+   "type": "lamp_post",
+   "x": 34,
+   "y": 37
+  },
+  {
+   "type": "lamp_post",
+   "x": 46,
+   "y": 37
+  },
+  {
+   "type": "lamp_post",
+   "x": 24,
+   "y": 42
+  },
+  {
+   "type": "oak",
+   "x": 32,
+   "y": 7,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 39,
+   "y": 10,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 36,
+   "y": 10,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 61,
+   "y": 3,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 65,
+   "y": 9,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 41,
+   "y": 3,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 37,
+   "y": 9,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 36,
+   "y": 5,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 61,
+   "y": 5,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 62,
+   "y": 7,
+   "variant": 2
+  }
+ ],
+ "warps": [
+  {
+   "x": 50,
+   "y": 42,
+   "to": "dundee_vanda",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 63,
+   "y": 40,
+   "to": "dundee_discovery",
+   "tx": 7,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 10,
+   "y": 24,
+   "to": "dundee_verdant",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 21,
+   "y": 27,
+   "to": "dundee_keillers",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 57,
+   "y": 25,
+   "to": "dundee_mcmanus",
+   "tx": 7,
+   "ty": 8,
+   "facing": "up"
+  },
+  {
+   "x": 56,
+   "y": 18,
+   "to": "dundee_courier",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 7,
+   "y": 37,
+   "to": "dundee_sanctuary",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 13,
+   "y": 37,
+   "to": "dundee_shop",
+   "tx": 4,
+   "ty": 5,
+   "facing": "up"
+  },
+  {
+   "x": 25,
+   "y": 37,
+   "to": "dundee_tay_inn",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  }
+ ],
+ "edges": {
+  "south": {
+   "to": "st_andrews",
+   "offset": -36
+  }
+ },
+ "npcs": [
+  {
+   "id": "dun_dolphins",
+   "sprite": "birdwatcher",
+   "x": 66,
+   "y": 43,
+   "facing": "down",
+   "move": "still",
+   "script": "dun_dolphins"
+  },
+  {
+   "id": "dun_comic_fan",
+   "sprite": "student",
+   "x": 42,
+   "y": 24,
+   "facing": "left",
+   "move": "wander",
+   "script": "dun_comic_fan"
+  },
+  {
+   "id": "dun_millworker",
+   "sprite": "villager_5",
+   "x": 12,
+   "y": 28,
+   "facing": "down",
+   "move": "still",
+   "script": "dun_millworker"
+  },
+  {
+   "id": "dun_law_walker",
+   "sprite": "hillwalker",
+   "x": 15,
+   "y": 8,
+   "facing": "down",
+   "move": "wander",
+   "script": "dun_law_walker"
+  },
+  {
+   "id": "taywraith_spot",
+   "sprite": "creature:taywraith",
+   "x": 8,
+   "y": 43,
+   "facing": "down",
+   "move": "still",
+   "script": "taywraith",
+   "show_if": "q_fife_poet_1",
+   "hide_if": "caught_taywraith"
+  },
+  {
+   "id": "dun_spinner",
+   "sprite": "villager_6",
+   "x": 22,
+   "y": 29,
+   "facing": "down",
+   "move": "still",
+   "trainer": "dun_spinner"
+  },
+  {
+   "id": "dun_artist",
+   "sprite": "student",
+   "x": 46,
+   "y": 29,
+   "facing": "left",
+   "move": "still",
+   "trainer": "dun_artist"
+  },
+  {
+   "id": "dun_designer",
+   "sprite": "festival_goer",
+   "x": 52,
+   "y": 37,
+   "facing": "up",
+   "move": "still",
+   "trainer": "dun_designer"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "jamlet",
+    "min": 69,
+    "max": 70,
+    "weight": 12
+   },
+   {
+    "species": "grizzlet",
+    "min": 69,
+    "max": 70,
+    "weight": 12
+   },
+   {
+    "species": "binfox",
+    "min": 69,
+    "max": 70,
+    "weight": 10,
+    "time": [
+     "night",
+     "dusk"
+    ]
+   },
+   {
+    "species": "cooplet",
+    "min": 69,
+    "max": 70,
+    "weight": 10
+   },
+   {
+    "species": "strutcoo",
+    "min": 69,
+    "max": 70,
+    "weight": 8
+   },
+   {
+    "species": "chipgull",
+    "min": 69,
+    "max": 70,
+    "weight": 10
+   },
+   {
+    "species": "starlet",
+    "min": 69,
+    "max": 70,
+    "weight": 8,
+    "time": [
+     "dusk",
+     "dawn"
+    ]
+   },
+   {
+    "species": "flittermouse",
+    "min": 69,
+    "max": 70,
+    "weight": 8,
+    "time": [
+     "night"
+    ]
+   },
+   {
+    "species": "railspark",
+    "min": 69,
+    "max": 70,
+    "weight": 8
+   },
+   {
+    "species": "rooklet",
+    "min": 69,
+    "max": 70,
+    "weight": 8
+   },
+   {
+    "species": "marmalord",
+    "min": 69,
+    "max": 70,
+    "weight": 3
+   }
+  ],
+  "water": [
+   {
+    "species": "dolphlet",
+    "min": 69,
+    "max": 70,
+    "weight": 18,
+    "time": [
+     "day",
+     "dawn"
+    ]
+   },
+   {
+    "species": "pupplash",
+    "min": 69,
+    "max": 70,
+    "weight": 16
+   },
+   {
+    "species": "orcalet",
+    "min": 69,
+    "max": 70,
+    "weight": 6
+   },
+   {
+    "species": "gannetling",
+    "min": 69,
+    "max": 70,
+    "weight": 14
+   },
+   {
+    "species": "stalklet",
+    "min": 69,
+    "max": 70,
+    "weight": 12
+   },
+   {
+    "species": "chipgull",
+    "min": 69,
+    "max": 70,
+    "weight": 12
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 56,
+   "y": 42,
+   "plaque": "fife_discovery",
+   "title": "RRS Discovery",
+   "text": "Built here in Dundee and launched in 1901 to carry Captain Scott and Ernest Shackleton on their first Antarctic expedition, with a hull nearly two feet thick to stand the ice. She came home to Dundee in 1986."
+  },
+  {
+   "x": 44,
+   "y": 43,
+   "plaque": "fife_vanda",
+   "title": "V&A Dundee",
+   "text": "Scotland's design museum opened in 2018. The Japanese architect Kengo Kuma based it on the cliffs of the north-east coast. Inside is a whole tearoom by Charles Rennie Mackintosh, the Oak Room, rebuilt piece by piece."
+  },
+  {
+   "x": 2,
+   "y": 41,
+   "plaque": "fife_tay_disaster",
+   "title": "The Tay Bridge Disaster",
+   "text": "On the stormy night of 28 December 1879 the middle of the first Tay Bridge blew down while a train was crossing. Nobody aboard survived. The stumps of its piers still stand in the water beside the second bridge."
+  },
+  {
+   "x": 24,
+   "y": 41,
+   "plaque": "fife_tay_rail_bridge",
+   "title": "The Tay Bridge",
+   "text": "The second Tay Bridge opened in 1887, built much more strongly beside the line of the first. It's over three kilometres long, the longest railway bridge in Britain."
+  },
+  {
+   "x": 44,
+   "y": 36,
+   "plaque": "fife_tay_road_bridge",
+   "title": "The Tay Road Bridge",
+   "text": "Opened in 1966, more than two kilometres of road from Fife into Dundee, with a footpath running down the middle between the two carriageways."
+  },
+  {
+   "x": 30,
+   "y": 29,
+   "plaque": "fife_mcgonagall",
+   "title": "William McGonagall",
+   "text": "Dundee's own poet, often called the worst in the English language. His poem about the bridge disaster ends 'the strength of the bridge would not have been so frail'. He gave readings; audiences threw peas. He carried on."
+  },
+  {
+   "x": 17,
+   "y": 25,
+   "plaque": "fife_jute",
+   "title": "Juteopolis",
+   "text": "Dundee spun jute from India, softened with whale oil from the town's own whaling ships, into sacks, sandbags and carpet backing. Most of the mill workers were women, and the town was nicknamed Juteopolis."
+  },
+  {
+   "x": 26,
+   "y": 28,
+   "plaque": "fife_jam",
+   "title": "Jute, Jam and Journalism",
+   "text": "Keiller's of Dundee made marmalade famous across the world. With the jute and DC Thomson's papers and comics, it gave the city its old motto: jute, jam and journalism."
+  },
+  {
+   "x": 36,
+   "y": 28,
+   "plaque": "fife_comics",
+   "title": "The Comics",
+   "text": "DC Thomson in Dundee has published The Dandy and The Beano since the 1930s. That's Desperate Dan in bronze, striding across the City Square since 2001, with his dog Dawg at his heels."
+  },
+  {
+   "x": 14,
+   "y": 5,
+   "plaque": "fife_law",
+   "title": "Dundee Law",
+   "text": "The Law, 174 metres high, is the stump of an old volcano, with a war memorial on top and the best view of the Tay. 'Law' is the Scots word for a hill."
+  },
+  {
+   "x": 47,
+   "y": 22,
+   "plaque": "fife_city_of_design",
+   "title": "City of Design",
+   "text": "In 2014 Dundee became the UK's first UNESCO City of Design. The city also gave the world a lot of video games: Lemmings and Grand Theft Auto both started here."
+  },
+  {
+   "x": 50,
+   "y": 27,
+   "plaque": "fife_mary_shelley",
+   "title": "Mary Shelley",
+   "text": "As a teenager, Mary Shelley spent two summers in Dundee, round about 1812. She later wrote that it was here, by the Tay, that her imagination first ran free. A few years after, she wrote Frankenstein."
+  },
+  {
+   "x": 44,
+   "y": 61,
+   "text": "DUNDEE. The City of Discovery. Over the bridge, south: St Andrews and Fife."
+  }
+ ],
+ "spawn": [
+  41,
+  40
+ ],
+ "stage": "city",
+ "town_id": "dundee",
+ "scaled_floor": 69,
+ "station": {
+  "x": 16,
+  "y": 41
+ },
+ "rows": [
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTPTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TT....................................................................TT",
+  "TT.........###........................................................TT",
+  "TT.........###........,,.,,....................,.,,,,.................TT",
+  "TT.........###.....,,,,,,,,,,,...............,,,,,,,,,,,..............TT",
+  "TT..........#.....,,,,,,,,,,,,,..........,,,,,,,,,,,,,,,,,,...........TT",
+  "TT..........#....,,,,,,,,,,,,,,,..........,,,,,,,,,,,,,,,,,,..........TT",
+  "TT..........#.....,,,,,,,,,,,,,...........,,,,,,,,,,,,,,,,,...........TT",
+  "TT..........#......,,,,,,,,,,,.............,,,,,,,,,,,,,,,............TT",
+  "TT..........#..........,,,........................,...................TT",
+  "TT..........#.........................................................TT",
+  "TT..........#.........................................................TT",
+  "TT..........###########...BBBBBB......................................TT",
+  "TT........................BBBBBB....................BBBBBBBB...BBBBBBBTT",
+  "TT........................BBBBBB....................BBBBBBBB...BBBBBBBTT",
+  "TT..............................BBBBBBBBBBBBBB......BBBBBBBB...BBBBBBBTT",
+  "TT..............................BBBBBBBBBBBBBB......BBBBBBBB..........TT",
+  "TT..............................BBBBBBBBBBBBBB......BBBBDBBB..........TT",
+  "TT..............................BBBBBBBBBBBBBB..::::::::::::::........TT",
+  "TT....BBBBBBBBBB................BBBBBBBBBBBBBB..:.....................TT",
+  "TT....BBBBBBBBBB................................:...BBBBBBBBBB........TT",
+  "TT....BBBBBBBBBB..............:::::::::::::::::::...BBBBBBBBBB........TT",
+  "TT....BBBBBBBBBB..............:::::::::::::::::::...BBBBBBBBBB........TP",
+  "TT....BBBBDBBBBB..BBBBBBBB....:::::::::::::::::::...BBBBBBBBBB........TT",
+  "TT................BBBBBBBB....:::::::::::::::::::...BBBBBDBBBB........TT",
+  "TT................BBBBBBBB....::::::::::::::::::::::::::::::::::......TT",
+  "TTBBBBB...........BBBDBBBB....::::::::::::::::::..............BBBBBBB.TT",
+  "TTBBBBB.......................::::::::::::::::::..............BBBBBBB.TT",
+  "TTBBBBB.......................::::::::::::::::::..............BBBBBBB.TT",
+  "TT......................................===...........................TT",
+  "TT====================================================================TT",
+  "TT====================================================================TT",
+  "TT......................................===...........................TT",
+  "TT..BBBBBB.BBBBB......BBBBBBB....BBBBBB.===.............~~~~~~~~~~~~~~TT",
+  "TT..BBBBBB.BBBBB......BBBBBBB....BBBBBB.===.............~~~~~~~~~~~~~~TT",
+  "TT..BBBBBB.BBBBB......BBBBBBB....BBBBBB.===.............~~~~~~~~~~~~~~TT",
+  "TT..BBBDBB.BBDBB......BBBDBBB...........===.............~~~~~~~~~~~~~~TT",
+  "TT::::::::::::::::::::::::::::::::::::::::::::::::::::::~~BBBBBBBBBBB~TT",
+  "TT..........BBBBBBBB............:::::::::::::BBBBBBBBBB:~~BBBBBBBBBBB~TT",
+  "TT..........BBBBDBBB............:::::::::::::BBBBBBBBBB:~~BBBBBDBBBBB~TT",
+  "TT..........________............:::::::::::::BBBBBBBBBB:::::::::::::::TT",
+  "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!.:::::::::::::BBBBBDBBBB:::::::::::::::TT",
+  "TT::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::TT",
+  "TTwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww===wwwwwwwwwwwwwwwwwwwwwwwwwwwTT",
+  "BBBBBBBBBBBBBBBBBB$$$$$$$$$$$$$$$$$$$$$B===B$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "BBBBBBBBBBBBBBBBBB$$$$$$$$$$$$$$$$$$$$$B===B$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$B===B$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$B===B$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$B===B$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$B===B$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$B===B$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$B===B$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$B===B$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$B===B$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$B===B$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$B===B$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$B===B$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$B===B$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$B===B$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$B===B$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$B===B$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$B===B$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$B===B$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
+ ],
+ "heights": [
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000001111111110000000000000000000000000000000000000000000000000000000",
+  "000000011111111111000000000000000000000000000000000000000000000000000000",
+  "000000111222222211100000000000000000000000000000000000000000000000000000",
+  "000001112222222221110000000000000000000000000000000000000000000000000000",
+  "000011122233333222111000000000000000000000000000000000000000000000000000",
+  "000011222333333322211000000000000000000000000000000000000000000000000000",
+  "000011223334443332211000000000000000000000000000000000000000000000000000",
+  "000011223344444332211000000000000000000000000000000000000000000000000000",
+  "000011223344444332211000000000000000000000000000000000000000000000000000",
+  "000011223344444332211000000000000000000000000000000000000000000000000000",
+  "000011223334443332211000000000000000000000000000000000000000000000000000",
+  "000011222333333322211000000000000000000000000000000000000000000000000000",
+  "000011122233333222111000000000000000000000000000000000000000000000000000",
+  "000001112222222221110000000000000000000000000000000000000000000000000000",
+  "000000111222222211100000000000000000000000000000000000000000000000000000",
+  "000000011111111111000000000000000000000000000000000000000000000000000000",
+  "000000001111111110000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000",
+  "000000000000000000000000000000000000000000000000000000000000000000000000"
+ ]
+}

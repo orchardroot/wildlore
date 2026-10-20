@@ -16,7 +16,10 @@ const IRON := Color("3c4450")
 const GLASS := Color.WHITE
 
 ## Building styles handled here rather than by the generic house in Meshes.building.
-const SPECIAL := ["glass_tower", "gantry_crane", "cantilever_crane", "titanic", "mill", "castle", "cathedral", "liver_building", "station", "aqueduct", "chapel", "terrace", "tudor", "slate_cottage", "lighthouse_house", "round_tower", "passage_tomb", "field_barn"]
+const SPECIAL := ["glass_tower", "gantry_crane", "cantilever_crane", "titanic", "mill", "castle", "cathedral", "liver_building", "station", "aqueduct", "chapel", "terrace", "tudor", "slate_cottage", "lighthouse_house", "round_tower", "passage_tomb", "field_barn",
+	# Fife and the Forth (3.0 Wider Isles)
+	"forth_bridge", "forth_approach", "road_bridge", "bridge_girder", "cable_stayed", "crow_step", "culross_palace", "tenement",
+	"st_andrews_ruin", "obelisk", "discovery_ship", "va_dundee", "tay_bridge"]
 
 ## Doors: where each style's door sits on its tile (see _door and friends), for the swing as you go in.
 ## {x, w, y, h, z}: left edge and width across the door column, bottom and height, z of the door's face from
@@ -115,6 +118,9 @@ static func building(w: int, d: int, style: String, door_x: int, seed_value: int
 			_passage_tomb(st, w, d, door_x)
 		"field_barn":
 			_field_barn(st, w, d, rng)
+		"forth_bridge", "forth_approach", "road_bridge", "bridge_girder", "cable_stayed", "crow_step", "culross_palace", "tenement", \
+				"st_andrews_ruin", "obelisk", "discovery_ship", "va_dundee", "tay_bridge":
+			_fife(st, wst, w, d, door_x, rng, style)
 		"liver_building":
 			_liver(st, wst, w, d, door_x)
 		"station":
@@ -1041,3 +1047,412 @@ static func harp() -> ArrayMesh:
 	for i in 5:
 		Meshes.box(st, Vector3(-0.15 + i * 0.08, 0.12, -0.01), Vector3(0.012, 1.08 - i * 0.12, 0.012), Color("f2e2a0"))
 	return Meshes._finish(st)
+
+# --- Fife and the Forth (3.0 Wider Isles) -------------------------------------
+
+const FORTH_RED := Color("a8382a")     # the Forth Bridge's famous red oxide
+const GRANITE := Color("9a958c")
+const PANTILE := Color("b4552f")       # Fife's orange clay pantiles
+const HARLS := [Color("ece6d8"), Color("e6d3a8"), Color("dcb8a4"), Color("e9dfc8")]
+const CULROSS_OCHRE := Color("d6a548")  # "Culross yellow"
+const DUNDEE_STONE := Color("a98d72")
+const FORTH_DECK := 1.7                # rail deck height of the Forth Bridge
+
+static func _fife(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int, rng: RandomNumberGenerator, style: String) -> void:
+	match style:
+		"forth_bridge":
+			_forth_bridge(st, w, d)
+		"forth_approach":
+			_forth_approach(st, w, d)
+		"road_bridge":
+			_bridge_girder(st, w, d)
+			_suspension(st, d)
+		"bridge_girder":
+			_bridge_girder(st, w, d)
+		"cable_stayed":
+			_cable_stayed(st)
+		"crow_step":
+			_crow_step(st, wst, w, d, door_x, rng, HARLS[rng.randi() % HARLS.size()], 2)
+		"culross_palace":
+			_crow_step(st, wst, w, d, door_x, rng, CULROSS_OCHRE, 2)
+		"tenement":
+			_house(st, wst, w, d, door_x, rng, DUNDEE_STONE, SLATE, 3, true, false)
+			for s in [1, 2]:
+				Meshes.box(st, Vector3(0, 1.15 * s + 0.2, d - 0.03), Vector3(w, 0.07, 0.06), DUNDEE_STONE.lightened(0.15))
+		"st_andrews_ruin":
+			_st_andrews_ruin(st, w, d, door_x, rng)
+		"obelisk":
+			_obelisk(st, w, d)
+		"discovery_ship":
+			_discovery(st, wst, w, d, door_x)
+		"va_dundee":
+			_va_dundee(st, wst, w, d, door_x)
+		"tay_bridge":
+			_tay_bridge(st, w, d)
+
+## A box turned `yaw` radians about its own vertical centre line (for the V&A's twisting slabs).
+static func _rbox(st: SurfaceTool, c: Vector3, s: Vector3, yaw: float, col: Color) -> void:
+	var hx := s.x * 0.5
+	var hz := s.z * 0.5
+	var b := Basis(Vector3.UP, yaw)
+	var lo := []
+	var hi := []
+	for k in [Vector2(-hx, -hz), Vector2(hx, -hz), Vector2(hx, hz), Vector2(-hx, hz)]:
+		var o: Vector3 = b * Vector3(k.x, 0, k.y)
+		lo.append(c + o)
+		hi.append(c + o + Vector3(0, s.y, 0))
+	for i in 4:
+		var j := (i + 1) % 4
+		Meshes._quad(st, lo[i], lo[j], hi[j], hi[i], col.darkened(0.06 * (i % 2)))
+	Meshes._quad(st, hi[3], hi[2], hi[1], hi[0], col.lightened(0.08))
+
+## A straight member from a to b with a square section (any direction).
+static func _beam(st: SurfaceTool, a: Vector3, b: Vector3, t: float, col: Color) -> void:
+	var dir := (b - a).normalized()
+	var side := dir.cross(Vector3.UP)
+	if side.length() < 0.1:
+		side = dir.cross(Vector3.RIGHT)
+	side = side.normalized() * t * 0.5
+	var up := side.cross(dir).normalized() * t * 0.5
+	var c := [side + up, -side + up, -side - up, side - up]
+	for i in 4:
+		var j := (i + 1) % 4
+		Meshes._quad(st, a + c[i], a + c[j], b + c[j], b + c[i], col.darkened(0.08 * (i % 2)))
+
+## One of the Forth Bridge's three double cantilevers (1890): a tall red tower on granite caissons, tapering to the
+## top, with a cantilever arm reaching north and south (straight top ties, curved bottom tubes) and half of the
+## suspended span that joins it to the next tower. Towers sit 12 tiles apart, north-south.
+static func _forth_bridge(st: SurfaceTool, w: int, d: int) -> void:
+	var cx := w * 0.5
+	var cz := d * 0.5
+	var top := 6.2
+	var reach := 4.6
+	var half := 6.0
+	Meshes.box(st, Vector3(0.1, -0.8, 0.1), Vector3(w - 0.2, 1.05, d - 0.2), GRANITE, GRANITE.lightened(0.05))
+	for c in [Vector2(-1.3, -0.5), Vector2(1.3, -0.5), Vector2(-1.3, 0.5), Vector2(1.3, 0.5)]:
+		Meshes.cylinder(st, Vector3(cx + c.x, 0.2, cz + c.y), 0.42, 0.3, 8, GRANITE.lightened(0.08))
+	var red := FORTH_RED
+	var lit := red.lightened(0.12)
+	# the tower: four legs leaning in, braced with Xs on the faces
+	var base := [Vector2(-1.3, -0.5), Vector2(1.3, -0.5), Vector2(1.3, 0.5), Vector2(-1.3, 0.5)]
+	var crown := [Vector2(-0.45, -0.3), Vector2(0.45, -0.3), Vector2(0.45, 0.3), Vector2(-0.45, 0.3)]
+	var legs := []
+	for i in 4:
+		legs.append([Vector3(cx + base[i].x, 0.3, cz + base[i].y), Vector3(cx + crown[i].x, top, cz + crown[i].y)])
+		_beam(st, legs[i][0], legs[i][1], 0.24, red)
+	var levels := [0.3, 2.2, 4.2, top]
+	for li in 3:
+		var y0: float = levels[li]
+		var y1: float = levels[li + 1]
+		for pair in [[0, 1], [3, 2]]:
+			_beam(st, _leg_at(legs[pair[0]], y0, top), _leg_at(legs[pair[1]], y1, top), 0.11, lit)
+			_beam(st, _leg_at(legs[pair[1]], y0, top), _leg_at(legs[pair[0]], y1, top), 0.11, lit)
+	for y in [2.2, 4.2, top]:
+		for i in 4:
+			_beam(st, _leg_at(legs[i], y, top), _leg_at(legs[(i + 1) % 4], y, top), 0.1, lit)
+	# the arms, north (-1) and south (+1)
+	for s in [-1.0, 1.0]:
+		for side in [-1.0, 1.0]:
+			var tip_x: float = cx + side * 0.7
+			var tip_z: float = cz + s * reach
+			# the bottom tube: a sagging curve from the caisson out to the tip
+			var prev := Vector3(cx + side * 1.3, 0.35, cz + s * 0.5)
+			for k in [0.3, 0.6, 1.0]:
+				var p := Vector3(lerpf(cx + side * 1.3, tip_x, k), lerpf(0.35, FORTH_DECK - 0.15, k * k), lerpf(cz + s * 0.5, tip_z, k))
+				_beam(st, prev, p, 0.26, red)
+				prev = p
+			# the top tie, from the crown down to the tip
+			_beam(st, Vector3(cx + side * 0.45, top, cz + s * 0.3), Vector3(tip_x, FORTH_DECK + 0.35, tip_z), 0.16, red)
+			# web posts between tie and tube
+			for k in [0.35, 0.65]:
+				var zz := lerpf(cz + s * 0.5, tip_z, k)
+				var yt := lerpf(top, FORTH_DECK + 0.35, k)
+				var yb := lerpf(0.35, FORTH_DECK - 0.15, k * k)
+				var xx := lerpf(cx + side * 1.3, tip_x, k)
+				_beam(st, Vector3(xx, yb, zz), Vector3(xx, yt, zz), 0.09, lit)
+			# the suspended half span's top chord and its braces
+			_beam(st, Vector3(tip_x, FORTH_DECK + 0.35, tip_z), Vector3(tip_x, FORTH_DECK + 0.35, cz + s * half), 0.12, red)
+			for k in 3:
+				var zz := lerpf(tip_z, cz + s * half, (k + 0.5) / 3.0)
+				_beam(st, Vector3(tip_x, FORTH_DECK - 0.1, zz), Vector3(tip_x, FORTH_DECK + 0.35, zz + s * 0.3), 0.07, lit)
+		# the deck through the arm and the suspended half span
+		Meshes.box(st, Vector3(cx - 0.75, FORTH_DECK - 0.2, minf(cz, cz + s * half)), Vector3(1.5, 0.25, half), red.darkened(0.25))
+	# the two rails along the top of the deck
+	for rx in [-0.25, 0.25]:
+		Meshes.box(st, Vector3(cx + rx - 0.03, FORTH_DECK + 0.05, cz - half), Vector3(0.06, 0.05, half * 2), Color("5a5048"))
+
+## A point on a tower leg ([bottom, top]) at height y.
+static func _leg_at(leg: Array, y: float, top: float) -> Vector3:
+	var a: Vector3 = leg[0]
+	var b: Vector3 = leg[1]
+	return a.lerp(b, clampf((y - a.y) / (top - a.y), 0.0, 1.0))
+
+## The Forth Bridge's approach viaduct: tall granite piers carrying a red lattice girder at the bridge's deck height.
+static func _forth_approach(st: SurfaceTool, w: int, d: int) -> void:
+	var cx := w * 0.5
+	var z := 0.6
+	while z < d:
+		Meshes.box(st, Vector3(cx - 0.45, -0.2, z - 0.3), Vector3(0.9, FORTH_DECK - 0.1, 0.6), GRANITE)
+		Meshes.box(st, Vector3(cx - 0.55, FORTH_DECK - 0.35, z - 0.38), Vector3(1.1, 0.12, 0.76), GRANITE.lightened(0.1))
+		z += 1.5
+	Meshes.box(st, Vector3(cx - 0.75, FORTH_DECK - 0.2, -0.2), Vector3(1.5, 0.25, d + 0.4), FORTH_RED.darkened(0.25))
+	for side in [-1.0, 1.0]:
+		_beam(st, Vector3(cx + side * 0.7, FORTH_DECK + 0.35, -0.2), Vector3(cx + side * 0.7, FORTH_DECK + 0.35, d + 0.2), 0.12, FORTH_RED)
+		var k := 0.0
+		while k < d:
+			_beam(st, Vector3(cx + side * 0.7, FORTH_DECK - 0.1, k), Vector3(cx + side * 0.7, FORTH_DECK + 0.35, k + 0.4), 0.07, FORTH_RED.lightened(0.12))
+			k += 0.8
+
+## A road bridge's side girder (the Forth and Tay road bridges): a deep grey box beside the deck, down into the
+## water, with a parapet rail on top. One tile wide, running north-south.
+static func _bridge_girder(st: SurfaceTool, w: int, d: int) -> void:
+	var grey := Color("7f868c")
+	Meshes.box(st, Vector3(0.0, -0.75, -0.02), Vector3(w, 0.95, d + 0.04), grey, grey.lightened(0.1))
+	Meshes.box(st, Vector3(0.0, 0.2, -0.02), Vector3(w, 0.06, d + 0.04), Color("c8c4b8"))  # footway kerb
+	for side in [0.08, w - 0.14]:
+		Meshes.box(st, Vector3(side, 0.26, -0.02), Vector3(0.06, 0.45, d + 0.04), Color("4c5258"))
+	var z := 0.5
+	while z < d:
+		Meshes.box(st, Vector3(w * 0.5 - 0.3, -0.75, z - 0.2), Vector3(0.6, 0.2, 0.4), grey.darkened(0.2))
+		z += 2.0
+
+## The Forth Road Bridge (1964): two tall portal towers across the deck and the main cables sagging between them,
+## with hangers down to both girders. Drawn from the west girder; the deck is three tiles, the east girder at x + 4.
+static func _suspension(st: SurfaceTool, d: int) -> void:
+	var grey := Color("8d9499")
+	var xs := [0.5, 4.5]
+	var t1 := d * 0.27
+	var t2 := d * 0.73
+	var top := 6.4
+	for tz in [t1, t2]:
+		for x in xs:
+			Meshes.box(st, Vector3(x - 0.22, -0.7, tz - 0.25), Vector3(0.44, top + 0.7, 0.5), grey)
+		for y in [2.6, 4.6, top - 0.2]:
+			Meshes.box(st, Vector3(xs[0], y, tz - 0.18), Vector3(xs[1] - xs[0], 0.3, 0.36), grey.darkened(0.08))
+	for x in xs:
+		var pts := []
+		var n := 24
+		for i in n + 1:
+			var z := d * float(i) / n
+			var y := 0.0
+			if z < t1:
+				y = lerpf(0.7, top, pow(z / t1, 1.6))
+			elif z > t2:
+				y = lerpf(0.7, top, pow((d - z) / (d - t2), 1.6))
+			else:
+				var u := (z - t1) / (t2 - t1) * 2.0 - 1.0
+				y = lerpf(1.3, top, u * u)
+			pts.append(Vector3(x, y, z))
+		for i in n:
+			_beam(st, pts[i], pts[i + 1], 0.12, Color("5c6268"))
+			if pts[i].y > 0.9:
+				Meshes.box(st, Vector3(x - 0.02, 0.25, pts[i].z - 0.02), Vector3(0.04, pts[i].y - 0.25, 0.04), Color("6a7076"))
+
+## The Queensferry Crossing (2017): a slim single tower with fans of stay cables both ways along the deck.
+## One tile footprint; the deck reaches six tiles north and south to meet the next tower.
+static func _cable_stayed(st: SurfaceTool) -> void:
+	var pale := Color("c9cdd0")
+	var top := 7.4
+	var deck := 1.5
+	Meshes.box(st, Vector3(0.05, -0.8, 0.05), Vector3(0.9, deck + 0.8, 0.9), pale.darkened(0.15))
+	Meshes.box(st, Vector3(0.28, deck, 0.2), Vector3(0.44, top - deck, 0.6), pale)
+	Meshes.box(st, Vector3(0.33, top, 0.25), Vector3(0.34, 0.25, 0.5), pale.lightened(0.05))
+	Meshes.box(st, Vector3(-0.45, deck - 0.25, -5.5), Vector3(1.9, 0.28, 12.0), pale.darkened(0.25), pale.darkened(0.05))
+	for side in [-0.35, 1.35]:
+		for k in 5:
+			var off := 1.0 + k * 1.1
+			for s in [-1.0, 1.0]:
+				_beam(st, Vector3(0.5, top - 0.3 - k * 0.45, 0.5), Vector3(side, deck, 0.5 + s * off), 0.035, Color("e8ecee"))
+
+## A Fife house: harled walls, an orange pantiled roof and crow-stepped gables, two storeys, a chimney on a gable.
+static func _crow_step(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int, rng: RandomNumberGenerator, wall: Color, storeys: int) -> void:
+	_house(st, wst, w, d, door_x, rng, wall, PANTILE, storeys, false, false)
+	var hgt := 1.15 * storeys + 0.2
+	var rise := minf(1.2, d * 0.38)
+	var steps := 3
+	var s := (d * 0.5 + 0.18) / steps
+	var stone := wall.darkened(0.12)
+	for gx in [-0.2, w - 0.12]:
+		for k in steps:
+			var y := hgt + rise * float(k + 1) / steps + 0.14
+			Meshes.box(st, Vector3(gx, hgt - 0.05, d + 0.18 - (k + 1) * s), Vector3(0.32, y - hgt + 0.05, s), stone, stone.lightened(0.15))
+			Meshes.box(st, Vector3(gx, hgt - 0.05, -0.18 + k * s), Vector3(0.32, y - hgt + 0.05, s), stone, stone.lightened(0.15))
+		Meshes.box(st, Vector3(gx - 0.02, hgt + rise, d * 0.5 - 0.25), Vector3(0.36, 0.55, 0.5), stone.darkened(0.05))
+	Meshes.box(st, Vector3(-0.18, hgt + rise - 0.04, d * 0.5 - 0.07), Vector3(w + 0.36, 0.1, 0.14), PANTILE.darkened(0.2))
+
+## St Andrews Cathedral's ruins: the east gable with its two pinnacled turrets and tall empty lancets (turned to face
+## the street), stumps of the nave walls behind, and St Rule's Tower standing whole at the back.
+static func _st_andrews_ruin(st: SurfaceTool, w: int, d: int, door_x: int, rng: RandomNumberGenerator) -> void:
+	var stone := Color("a39a88")
+	var dark := Color("2a2622")
+	var gx0 := maxf(0.4, door_x - 1.5)
+	var gx1 := minf(float(w) - 0.4, door_x + 2.5)
+	var gh := 5.2
+	Meshes.box(st, Vector3(gx0, 0, d - 0.55), Vector3(gx1 - gx0, gh, 0.45), stone)
+	var mid := (gx0 + gx1) * 0.5
+	Meshes._tri(st, Vector3(gx0, gh, d - 0.1), Vector3(gx1, gh, d - 0.1), Vector3(mid, gh + 1.0, d - 0.1), stone.lightened(0.04))
+	Meshes._tri(st, Vector3(gx1, gh, d - 0.55), Vector3(gx0, gh, d - 0.55), Vector3(mid, gh + 1.0, d - 0.55), stone.darkened(0.06))
+	Meshes._quad(st, Vector3(gx0, gh, d - 0.55), Vector3(gx0, gh, d - 0.1), Vector3(mid, gh + 1.0, d - 0.1), Vector3(mid, gh + 1.0, d - 0.55), stone)
+	Meshes._quad(st, Vector3(gx1, gh, d - 0.1), Vector3(gx1, gh, d - 0.55), Vector3(mid, gh + 1.0, d - 0.55), Vector3(mid, gh + 1.0, d - 0.1), stone.darkened(0.04))
+	for x in [gx0 - 0.35, gx1 - 0.35]:
+		Meshes.box(st, Vector3(x, 0, d - 0.7), Vector3(0.7, gh + 1.4, 0.7), stone.darkened(0.04))
+		var c := Vector3(x + 0.35, gh + 2.7, d - 0.35)
+		var r := [Vector3(x, gh + 1.4, d), Vector3(x + 0.7, gh + 1.4, d), Vector3(x + 0.7, gh + 1.4, d - 0.7), Vector3(x, gh + 1.4, d - 0.7)]
+		for i in 4:
+			Meshes._tri(st, r[i], r[(i + 1) % 4], c, stone.lightened(0.06) if i == 0 else stone.darkened(0.05 * i))
+	# tall lancets in two tiers, open to the sky
+	var span := gx1 - gx0
+	for i in 3:
+		var lx := gx0 + span * (0.2 + 0.3 * i) - 0.2
+		Meshes.box(st, Vector3(lx, 0.9, d - 0.08), Vector3(0.4, 1.7, 0.04), dark)
+		Meshes.box(st, Vector3(lx, 3.0, d - 0.08), Vector3(0.4, 1.5, 0.04), dark)
+	Meshes.box(st, Vector3(mid - 0.35, 4.75, d - 0.08), Vector3(0.7, 0.7, 0.04), dark)
+	if door_x >= 0:
+		Meshes.box(st, Vector3(door_x + 0.18, 0, d - 0.08), Vector3(0.64, 0.75, 0.04), dark)
+	# the ruined nave walls running back, broken off at random heights
+	for side in [gx0 + 0.1, gx1 - 0.5]:
+		var z := d - 0.6
+		while z > 0.4:
+			Meshes.box(st, Vector3(side, 0, z - 0.8), Vector3(0.4, rng.randf_range(0.5, 2.6), 0.8), stone.darkened(rng.randf_range(0.0, 0.1)))
+			z -= 0.9
+	# St Rule's Tower: tall, square, plain and older than the rest
+	var tx := 0.3 if gx0 > 2.5 else w - 2.0
+	Meshes.box(st, Vector3(tx, 0, 0.3), Vector3(1.6, 7.6, 1.6), stone.lightened(0.06))
+	Meshes.box(st, Vector3(tx - 0.08, 7.6, 0.22), Vector3(1.76, 0.18, 1.76), stone.lightened(0.12))
+	for y in [5.6, 6.6]:
+		Meshes.box(st, Vector3(tx + 0.6, y, 1.88), Vector3(0.4, 0.6, 0.04), dark)
+
+## The Martyrs' Monument (1842): an obelisk on a stepped base.
+static func _obelisk(st: SurfaceTool, w: int, d: int) -> void:
+	var stone := Color("c2b8a4")
+	var c := Vector3(w * 0.5, 0, d * 0.5)
+	Meshes.box(st, c + Vector3(-0.48, 0, -0.48), Vector3(0.96, 0.2, 0.96), stone.darkened(0.15))
+	Meshes.box(st, c + Vector3(-0.36, 0.2, -0.36), Vector3(0.72, 0.5, 0.72), stone.darkened(0.05))
+	var b := 0.24
+	var t := 0.13
+	var h0 := 0.7
+	var h1 := 4.2
+	var lo := [c + Vector3(-b, h0, -b), c + Vector3(b, h0, -b), c + Vector3(b, h0, b), c + Vector3(-b, h0, b)]
+	var hi := [c + Vector3(-t, h1, -t), c + Vector3(t, h1, -t), c + Vector3(t, h1, t), c + Vector3(-t, h1, t)]
+	var apex := c + Vector3(0, h1 + 0.35, 0)
+	for i in 4:
+		var j := (i + 1) % 4
+		Meshes._quad(st, lo[i], lo[j], hi[j], hi[i], stone.darkened(0.06 * (i % 2)))
+		Meshes._tri(st, hi[i], hi[j], apex, stone.lightened(0.05))
+
+## RRS Discovery (built in Dundee, 1901): a black wooden barque with a buff funnel, three masts with furled sails
+## and a bowsprit, bow to the east. A gangway comes down to the quay on the south side at the door.
+static func _discovery(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int) -> void:
+	var hull := Color("1f1d1e")
+	var band := Color("e6dcc4")
+	var deck := Color("b08a5c")
+	var spar := Color("b98e52")
+	var rope := Color("2a2420")
+	var cz := d * 0.5
+	var hw := d * 0.5 - 0.12
+	var top := 1.25
+	var bot := -0.6
+	var s0 := 1.4
+	var s1 := w - 2.2
+	Meshes.box(st, Vector3(s0, bot, cz - hw), Vector3(s1 - s0, top - bot, hw * 2), hull, deck)
+	Meshes.box(st, Vector3(s0, top - 0.32, cz + hw - 0.01), Vector3(s1 - s0, 0.1, 0.03), band)
+	# bow (east): the sides close to a stem; stern (west): a rounded counter
+	var bow := Vector3(w - 0.1, top + 0.15, cz)
+	var bowk := Vector3(w - 0.9, bot, cz)
+	for s in [-1.0, 1.0]:
+		var a := Vector3(s1, top, cz + s * hw)
+		var b := Vector3(s1, bot, cz + s * hw)
+		if s > 0:
+			Meshes._quad(st, a, b, bowk, bow, hull)
+		else:
+			Meshes._quad(st, bow, bowk, b, a, hull.darkened(0.1))
+		var sa := Vector3(s0, top, cz + s * hw)
+		var sb := Vector3(s0, bot, cz + s * hw)
+		var ta := Vector3(0.25, top + 0.1, cz + s * hw * 0.55)
+		var tb := Vector3(0.8, bot + 0.2, cz + s * hw * 0.4)
+		if s > 0:
+			Meshes._quad(st, sb, sa, ta, tb, hull.darkened(0.05))
+		else:
+			Meshes._quad(st, tb, ta, sa, sb, hull.darkened(0.12))
+	Meshes._tri(st, Vector3(s1, top, cz - hw), Vector3(s1, top, cz + hw), bow, deck)
+	Meshes._quad(st, Vector3(0.25, top + 0.1, cz - hw * 0.55), Vector3(0.25, top + 0.1, cz + hw * 0.55), Vector3(s0, top, cz + hw), Vector3(s0, top, cz - hw), deck)
+	Meshes.box(st, Vector3(0.2, bot + 0.2, cz - hw * 0.55), Vector3(0.12, top - bot - 0.1, hw * 1.1), hull.darkened(0.1))
+	# bulwark rail and the deckhouse
+	Meshes.box(st, Vector3(s0, top, cz + hw - 0.08), Vector3(s1 - s0, 0.25, 0.08), hull.lightened(0.08))
+	Meshes.box(st, Vector3(s0, top, cz - hw), Vector3(s1 - s0, 0.25, 0.08), hull.lightened(0.08))
+	Meshes.box(st, Vector3(w * 0.36, top, cz - 0.45), Vector3(2.2, 0.55, 0.9), Color("c9b48c"))
+	_window(st, wst, w * 0.36 + 0.4, top + 0.15, cz + 0.45, 0.3, 0.25, Color("8a6a44"))
+	_window(st, wst, w * 0.36 + 1.4, top + 0.15, cz + 0.45, 0.3, 0.25, Color("8a6a44"))
+	# the funnel between fore and main masts
+	Meshes.cylinder(st, Vector3(w * 0.47, top, cz), 0.32, 1.9, 10, Color("d8b85a"))
+	Meshes.cylinder(st, Vector3(w * 0.47, top + 1.85, cz), 0.3, 0.25, 10, Color("1e1e1e"))
+	# masts, yards with furled sails, and some rigging
+	var masts := [[w * 0.74, 6.6], [w * 0.57, 7.1], [w * 0.24, 6.2]]
+	for mi in masts.size():
+		var mx: float = masts[mi][0]
+		var mh: float = masts[mi][1]
+		Meshes.cylinder(st, Vector3(mx, top, cz), 0.11, mh, 6, spar)
+		var yards := [0.35, 0.58, 0.8] if mi < 2 else [0.55]
+		for f in yards:
+			var y: float = top + mh * f
+			var half: float = 1.25 * (1.15 - f * 0.6)
+			Meshes.box(st, Vector3(mx - 0.05, y, cz - half), Vector3(0.1, 0.08, half * 2), spar.darkened(0.1))
+			Meshes.box(st, Vector3(mx - 0.09, y + 0.07, cz - half * 0.9), Vector3(0.18, 0.13, half * 1.8), Color("ece4cc"))
+		for s in [-1.0, 1.0]:
+			_beam(st, Vector3(mx, top + mh * 0.85, cz), Vector3(mx - 0.5, top + 0.2, cz + s * hw), 0.03, rope)
+	var mizzen: float = masts[2][0]
+	Meshes.box(st, Vector3(mizzen - 1.6, top + 2.4, cz - 0.04), Vector3(1.6, 0.07, 0.08), spar)  # the gaff boom
+	Meshes.box(st, Vector3(mizzen - 1.5, top + 0.9, cz - 0.03), Vector3(1.4, 1.4, 0.06), Color("e6dcc2"))  # spanker, brailed
+	_beam(st, Vector3(w - 0.3, top + 0.2, cz), Vector3(w + 1.4, top + 1.0, cz), 0.12, spar)  # bowsprit
+	_beam(st, Vector3(w + 1.3, top + 0.95, cz), Vector3(w * 0.74, top + 6.4, cz), 0.03, rope)
+	_beam(st, Vector3(w * 0.74, top + 6.4, cz), Vector3(w * 0.57, top + 6.9, cz), 0.03, rope)
+	_beam(st, Vector3(w * 0.57, top + 6.9, cz), Vector3(w * 0.24, top + 6.0, cz), 0.03, rope)
+	# the gangway down to the quay
+	if door_x >= 0:
+		_beam(st, Vector3(door_x + 0.5, 0.15, d + 0.3), Vector3(door_x + 0.5, top, cz + hw - 0.1), 0.5, Color("8a6a44"))
+
+## V&A Dundee (2018): two inverted, stepped pyramids of horizontal precast slabs, twisting as they rise and
+## meeting at the top over a glazed entrance, like a cliff on the Tay.
+static func _va_dundee(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int) -> void:
+	var concrete := Color("a7a39a")
+	var gap := Color("3e3c3a")
+	var cz := d * 0.5
+	var layers := 9
+	var lh := 0.52
+	for side in [-1.0, 1.0]:
+		var bx: float = w * 0.5 + side * w * 0.22
+		for i in layers:
+			var k := float(i) / (layers - 1)
+			var sw := lerpf(w * 0.32, w * 0.5, k)
+			var sd := lerpf(d * 0.55, d * 0.95, k)
+			var yaw: float = side * lerpf(-0.12, 0.2, k)
+			var c := Vector3(bx - side * k * w * 0.06, i * lh, cz)
+			_rbox(st, c, Vector3(sw * 0.94, lh * 0.55, sd * 0.94), yaw, gap)
+			_rbox(st, c + Vector3(0, lh * 0.5, 0), Vector3(sw, lh * 0.5, sd), yaw, concrete.lightened(0.04 * (i % 2)))
+	# the glazed gap and entrance between the two
+	Meshes.box(st, Vector3(w * 0.5 - 1.0, 0, cz - 0.6), Vector3(2.0, 2.4, 1.4), Color("2c3e48"))
+	Meshes.box(wst, Vector3(w * 0.5 - 0.9, 0.2, cz + 0.79), Vector3(1.8, 2.0, 0.04), window_colour(_wr))
+	Meshes.box(st, Vector3(w * 0.5 - 1.6, layers * lh - 0.1, cz - d * 0.3), Vector3(3.2, 0.3, d * 0.6), concrete)
+	if door_x >= 0:
+		Meshes.box(st, Vector3(door_x + 0.2, 0.0, d - 0.08), Vector3(0.6, 1.0, 0.06), Color("1e2a30"))
+
+## The Tay Rail Bridge (1887) running in along the shore on its paired piers, and beside it the stumps of the
+## first bridge, which fell in a storm on 28 December 1879 with a train on it.
+static func _tay_bridge(st: SurfaceTool, w: int, d: int) -> void:
+	var iron := Color("5e6266")
+	var brick := Color("7a5a48")
+	var x := 0.5
+	while x < w:
+		for zz in [0.25, 0.75]:
+			Meshes.cylinder(st, Vector3(x, -0.8, zz), 0.13, 2.0, 6, iron)
+		Meshes.box(st, Vector3(x - 0.2, 1.1, 0.15), Vector3(0.4, 0.12, 0.7), iron.darkened(0.1))
+		Meshes.cylinder(st, Vector3(x + 0.1, -0.8, d - 0.45), 0.26, 1.0, 7, brick)  # the old bridge's stump
+		x += 1.6
+	Meshes.box(st, Vector3(0, 1.2, 0.1), Vector3(w, 0.35, 0.8), iron, iron.lightened(0.1))
+	for zz in [0.1, 0.84]:
+		var k := 0.0
+		while k < w - 0.5:
+			_beam(st, Vector3(k, 1.55, zz), Vector3(k + 0.4, 2.05, zz), 0.06, iron.lightened(0.15))
+			_beam(st, Vector3(k + 0.4, 2.05, zz), Vector3(k + 0.8, 1.55, zz), 0.06, iron.lightened(0.15))
+			k += 0.8
+		Meshes.box(st, Vector3(0, 2.0, zz - 0.03), Vector3(w, 0.08, 0.08), iron.lightened(0.1))

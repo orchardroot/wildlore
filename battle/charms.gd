@@ -20,11 +20,17 @@ static var _table: Dictionary = {}
 ## id -> the charm's item entry.
 static func table() -> Dictionary:
 	if _table.is_empty():
-		var arr = JsonUtil.read(PATH)
-		if arr is Array:
-			for it in arr:
-				if it is Dictionary and str(it.get("kind", "")) == "charm":
-					_table[str(it.id)] = it
+		# charms.json first, then any regional item file (data/items/<region>.json) that carries a local charm
+		var paths: Array = [PATH]
+		for p in JsonUtil.list_json(PATH.get_base_dir()):
+			if p != PATH:
+				paths.append(p)
+		for path in paths:
+			var arr = JsonUtil.read(path)
+			if arr is Array:
+				for it in arr:
+					if it is Dictionary and str(it.get("kind", "")) == "charm" and not _table.has(str(it.id)):
+						_table[str(it.id)] = it
 	return _table
 
 static func is_charm(id: String) -> bool:

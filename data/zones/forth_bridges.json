@@ -1,0 +1,759 @@
+{
+ "id": "forth_bridges",
+ "name": "The Forth Bridges",
+ "region": "scotland",
+ "kind": "route",
+ "music": "route_coast",
+ "weather": {
+  "drizzle": 30,
+  "clear": 22,
+  "fog": 16,
+  "gale": 12,
+  "sunshine": 14,
+  "downpour": 6
+ },
+ "props": [
+  {
+   "type": "building",
+   "style": "road_bridge",
+   "x": 24,
+   "y": 14,
+   "w": 1,
+   "h": 32,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "bridge_girder",
+   "x": 28,
+   "y": 14,
+   "w": 1,
+   "h": 32,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "forth_bridge",
+   "x": 42,
+   "y": 16,
+   "w": 4,
+   "h": 2,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "forth_bridge",
+   "x": 42,
+   "y": 40,
+   "w": 4,
+   "h": 2,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "forth_bridge",
+   "x": 42,
+   "y": 28,
+   "w": 4,
+   "h": 2,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "forth_approach",
+   "x": 43,
+   "y": 3,
+   "w": 2,
+   "h": 8,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "forth_approach",
+   "x": 43,
+   "y": 47,
+   "w": 2,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "cable_stayed",
+   "x": 17,
+   "y": 18,
+   "w": 1,
+   "h": 1,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "cable_stayed",
+   "x": 17,
+   "y": 29,
+   "w": 1,
+   "h": 1,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "cable_stayed",
+   "x": 17,
+   "y": 40,
+   "w": 1,
+   "h": 1,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "chapel",
+   "x": 54,
+   "y": 23,
+   "w": 5,
+   "h": 3,
+   "label": "Inchcolm Abbey"
+  },
+  {
+   "type": "building",
+   "style": "culross_palace",
+   "x": 4,
+   "y": 4,
+   "w": 8,
+   "h": 4,
+   "label": "Culross Palace"
+  },
+  {
+   "type": "building",
+   "style": "crow_step",
+   "x": 13,
+   "y": 4,
+   "w": 4,
+   "h": 4,
+   "label": "The Study"
+  },
+  {
+   "type": "building",
+   "style": "crow_step",
+   "x": 18,
+   "y": 4,
+   "w": 5,
+   "h": 4,
+   "label": "Girdlesmith's Forge"
+  },
+  {
+   "type": "building",
+   "style": "crow_step",
+   "x": 3,
+   "y": 10,
+   "w": 5,
+   "h": 3,
+   "label": "Mid Causeway"
+  },
+  {
+   "type": "statue",
+   "x": 11,
+   "y": 11,
+   "variant": 2
+  },
+  {
+   "type": "bench",
+   "x": 13,
+   "y": 11
+  },
+  {
+   "type": "lamp_post",
+   "x": 9,
+   "y": 10
+  },
+  {
+   "type": "lamp_post",
+   "x": 22,
+   "y": 10
+  },
+  {
+   "type": "bush",
+   "x": 51,
+   "y": 4,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 50,
+   "y": 4,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 34,
+   "y": 2,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 56,
+   "y": 4,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 41,
+   "y": 5,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 50,
+   "y": 3,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 47,
+   "y": 4,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 42,
+   "y": 4,
+   "variant": 2
+  },
+  {
+   "type": "building",
+   "style": "crow_step",
+   "x": 36,
+   "y": 47,
+   "w": 7,
+   "h": 4,
+   "label": "The Hawes Inn"
+  },
+  {
+   "type": "building",
+   "style": "stone",
+   "x": 10,
+   "y": 47,
+   "w": 7,
+   "h": 4,
+   "label": "Queensferry Museum"
+  },
+  {
+   "type": "building",
+   "style": "crow_step",
+   "x": 4,
+   "y": 55,
+   "w": 6,
+   "h": 4,
+   "label": "Hopetoun Road"
+  },
+  {
+   "type": "building",
+   "style": "crow_step",
+   "x": 30,
+   "y": 55,
+   "w": 7,
+   "h": 4,
+   "label": "Shore Road"
+  },
+  {
+   "type": "building",
+   "style": "crow_step",
+   "x": 46,
+   "y": 55,
+   "w": 6,
+   "h": 4,
+   "label": "East Terrace"
+  },
+  {
+   "type": "building",
+   "style": "crow_step",
+   "x": 53,
+   "y": 55,
+   "w": 6,
+   "h": 4,
+   "label": "Plewlands"
+  },
+  {
+   "type": "lamp_post",
+   "x": 8,
+   "y": 51
+  },
+  {
+   "type": "lamp_post",
+   "x": 20,
+   "y": 51
+  },
+  {
+   "type": "lamp_post",
+   "x": 34,
+   "y": 51
+  },
+  {
+   "type": "lamp_post",
+   "x": 48,
+   "y": 51
+  },
+  {
+   "type": "lamp_post",
+   "x": 58,
+   "y": 51
+  },
+  {
+   "type": "bench",
+   "x": 22,
+   "y": 51
+  },
+  {
+   "type": "bench",
+   "x": 46,
+   "y": 51
+  },
+  {
+   "type": "oak",
+   "x": 16,
+   "y": 60,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 50,
+   "y": 60,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 18,
+   "y": 60,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 59,
+   "y": 62,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 32,
+   "y": 65,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 28,
+   "y": 64,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 58,
+   "y": 65,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 49,
+   "y": 68,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 17,
+   "y": 67,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 34,
+   "y": 61,
+   "variant": 1
+  }
+ ],
+ "warps": [
+  {
+   "x": 7,
+   "y": 7,
+   "to": "forth_bridges_palace",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 20,
+   "y": 7,
+   "to": "forth_bridges_girdle",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 39,
+   "y": 50,
+   "to": "forth_bridges_hawes",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 13,
+   "y": 50,
+   "to": "forth_bridges_museum",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  }
+ ],
+ "edges": {
+  "south": {
+   "to": "edinburgh",
+   "offset": 7
+  },
+  "north": {
+   "to": "st_andrews",
+   "offset": 5
+  }
+ },
+ "npcs": [
+  {
+   "id": "fb_burryman",
+   "sprite": "villager_3",
+   "x": 23,
+   "y": 55,
+   "facing": "down",
+   "move": "still",
+   "script": "fb_burryman"
+  },
+  {
+   "id": "fb_seal_watcher",
+   "sprite": "birdwatcher",
+   "x": 51,
+   "y": 11,
+   "facing": "right",
+   "move": "still",
+   "script": "fb_seal_watcher"
+  },
+  {
+   "id": "fb_culross_guide",
+   "sprite": "tour_guide",
+   "x": 15,
+   "y": 10,
+   "facing": "down",
+   "move": "still",
+   "script": "fb_culross_guide"
+  },
+  {
+   "id": "fb_seal_1",
+   "sprite": "creature:greyhaul",
+   "x": 49,
+   "y": 12,
+   "facing": "down",
+   "move": "still",
+   "script": "fb_seal_1"
+  },
+  {
+   "id": "fb_seal_2",
+   "sprite": "creature:pupplash",
+   "x": 57,
+   "y": 12,
+   "facing": "down",
+   "move": "still",
+   "script": "fb_seal_2"
+  },
+  {
+   "id": "fb_painter",
+   "sprite": "bridge_painter",
+   "x": 40,
+   "y": 52,
+   "facing": "up",
+   "move": "still",
+   "trainer": "fb_painter"
+  },
+  {
+   "id": "fb_walker",
+   "sprite": "hiker",
+   "x": 40,
+   "y": 11,
+   "facing": "left",
+   "move": "still",
+   "trainer": "fb_walker"
+  },
+  {
+   "id": "fb_skipper",
+   "sprite": "fisher",
+   "x": 30,
+   "y": 49,
+   "facing": "left",
+   "move": "still",
+   "trainer": "fb_skipper"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "railspark",
+    "min": 69,
+    "max": 70,
+    "weight": 10
+   },
+   {
+    "species": "cooplet",
+    "min": 69,
+    "max": 70,
+    "weight": 10
+   },
+   {
+    "species": "ternlet",
+    "min": 69,
+    "max": 70,
+    "weight": 12
+   },
+   {
+    "species": "gannetling",
+    "min": 69,
+    "max": 70,
+    "weight": 10
+   },
+   {
+    "species": "chipgull",
+    "min": 69,
+    "max": 70,
+    "weight": 10
+   },
+   {
+    "species": "starlet",
+    "min": 69,
+    "max": 70,
+    "weight": 8,
+    "time": [
+     "dusk",
+     "dawn"
+    ]
+   },
+   {
+    "species": "haarling",
+    "min": 69,
+    "max": 70,
+    "weight": 10,
+    "weather": [
+     "fog",
+     "drizzle"
+    ]
+   },
+   {
+    "species": "flittermouse",
+    "min": 69,
+    "max": 70,
+    "weight": 8,
+    "time": [
+     "night"
+    ]
+   },
+   {
+    "species": "thistlet",
+    "min": 69,
+    "max": 70,
+    "weight": 8
+   },
+   {
+    "species": "divotling",
+    "min": 69,
+    "max": 70,
+    "weight": 4
+   }
+  ],
+  "water": [
+   {
+    "species": "pupplash",
+    "min": 69,
+    "max": 70,
+    "weight": 22
+   },
+   {
+    "species": "selklet",
+    "min": 69,
+    "max": 70,
+    "weight": 12
+   },
+   {
+    "species": "gannetling",
+    "min": 69,
+    "max": 70,
+    "weight": 16
+   },
+   {
+    "species": "puffling",
+    "min": 69,
+    "max": 70,
+    "weight": 12
+   },
+   {
+    "species": "dolphlet",
+    "min": 69,
+    "max": 70,
+    "weight": 8,
+    "time": [
+     "day"
+    ]
+   },
+   {
+    "species": "stalklet",
+    "min": 69,
+    "max": 70,
+    "weight": 10
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 41,
+   "y": 46,
+   "plaque": "fife_forth_bridge",
+   "title": "The Forth Bridge",
+   "text": "Opened on 4 March 1890: a cantilever railway bridge about two and a half kilometres long, built from some 54,000 tonnes of steel. For years it had the longest spans in the world, and since 2015 it has been a UNESCO World Heritage Site."
+  },
+  {
+   "x": 47,
+   "y": 46,
+   "plaque": "fife_painting_forth",
+   "title": "Painting the Forth Bridge",
+   "text": "A job that never ends, says the saying: by the time the painters reached one end, the other end needed doing again. A new coat finished in 2011 should last at least twenty-five years, so the saying is having a rest."
+  },
+  {
+   "x": 29,
+   "y": 46,
+   "plaque": "fife_road_bridge",
+   "title": "The Forth Road Bridge",
+   "text": "A suspension bridge opened by the Queen in 1964, for a while the longest of its kind outside America. Since the Queensferry Crossing opened beside it in 2017 it carries buses, bikes and people on foot. Like you."
+  },
+  {
+   "x": 19,
+   "y": 46,
+   "plaque": "fife_queensferry_crossing",
+   "title": "The Queensferry Crossing",
+   "text": "Opened in 2017, the longest three-tower cable-stayed bridge in the world. Stand here and you can see bridges from three different centuries, all doing the same job."
+  },
+  {
+   "x": 59,
+   "y": 46,
+   "plaque": "fife_inchcolm",
+   "title": "Inchcolm",
+   "text": "The island out in the firth holds Inchcolm Abbey, sometimes called the Iona of the East, the best-preserved medieval monastery in Scotland. Grey seals haul out on the rocks round it."
+  },
+  {
+   "x": 2,
+   "y": 9,
+   "plaque": "fife_culross",
+   "title": "Culross",
+   "text": "In the 1500s and 1600s Culross grew rich on coal and salt, then trade moved away and the little town went quiet, which is why its cobbled wynds and red-roofed houses survive. The National Trust for Scotland has cared for it since the 1930s."
+  },
+  {
+   "x": 12,
+   "y": 10,
+   "plaque": "fife_crown_causey",
+   "title": "The Crown of the Causey",
+   "text": "The raised strip down the middle of Culross's cobbled street was kept for the gentry. Everyone else walked at the sides, nearer the gutter. Walk where you like; nobody is checking."
+  },
+  {
+   "x": 29,
+   "y": 10,
+   "plaque": "fife_coastal_path",
+   "title": "The Fife Coastal Path",
+   "text": "Over a hundred miles of footpath round the Kingdom of Fife, from the Forth bridges to the Tay. Fife has called itself the Kingdom for centuries, and Robert the Bruce is buried in Dunfermline Abbey."
+  },
+  {
+   "x": 24,
+   "y": 54,
+   "plaque": "fife_burry_man",
+   "title": "The Burry Man",
+   "text": "On the second Friday in August a South Queensferry man is covered head to toe in sticky burdock burrs and walks round the town all day, sipping whisky through a straw. Nobody knows quite why, which is the best kind of custom."
+  },
+  {
+   "x": 28,
+   "y": 69,
+   "text": "NORTH: The Forth Road Bridge, Fife, St Andrews. SOUTH: Edinburgh."
+  },
+  {
+   "x": 28,
+   "y": 2,
+   "text": "SOUTH: The Forth bridges, Edinburgh. NORTH: St Andrews, then over the Tay to Dundee."
+  }
+ ],
+ "spawn": [
+  26,
+  66
+ ],
+ "stage": "coast",
+ "scaled_floor": 69,
+ "rows": [
+  "TTTTTTTTTTTTTTTTTTTTTTTTT===TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTT===TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TT.......................===..................................TT",
+  "TT.......................===......,........BB.................TT",
+  "TT..BBBBBBBB.BBBB.BBBBB..===..,,,,,,,,,....BB.......,..,......TT",
+  "TT..BBBBBBBB.BBBB.BBBBB..===,,,,,,,,,,,,,..BB...,,,,,,,,,,,...TT",
+  "TT..BBBBBBBB.BBBB.BBBBB..===.,,,,,,,,,,,,..BB.,,,,,,,,,,,,,...TT",
+  "TT..BBBDBBBB.BBBB.BBDBB..===.,,,,,,,,,,,...BB,,,,,,,,,,,,,,,..TT",
+  "TT.::::::::::::::::::::::===..,,,,,,,,,,...BB.,,,,,,,,,,,,,...TT",
+  "TT.::::::::::::::::::::::===......,,.......BB..,,,,,,,,,,,....TT",
+  "TT.BBBBB.................===...............BB.......,.........TT",
+  "TT.BBBBB.................===##################################TT",
+  "TT.BBBBB.................===..................ssssssssssssssRsTT",
+  "TTsssssssssssssssssssssss===ssssssssssssssssssssRssssssRssssssTT",
+  "TTwwwwwwwwwwwwwwwwwwwwwwB===BwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwTT",
+  "$$$$$$$$$$$$$$$$$$$$$$$$B===B$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$B===B$$$$$$$$$$$$$BBBB$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$B===B$$$$$$$$$$$$$BBBB$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$B$$$$$$B===B$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$B===B$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$B===B$$$$$$$$$$$$$$$$$$$$$R$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$B===B$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$B===B$$$$$$$$$$$$$$$$$$$$$$$ssssssssss$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$B===B$$$$$$$$$$$$$$$$$$$$$$$s.BBBBB..s$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$B===B$$$$$$$$$$$$$$$$$$$$R$$s.BBBBB..s$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$B===B$$$$$$$$$$$$$$$$$$$$$$$s.BBBBB..s$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$B===B$$$$$$$$$$$RssssssR$$$$s........s$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$B===B$$$$$$$$$$$ssssssss$$$$s........s$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$B===B$$$$$$$$$$$ssBBBBss$$$$s........s$$",
+  "$$$$$$$$$$$$$$$$$B$$$$$$B===B$$$$$$$$$$$ssBBBBss$$$$ssssssssss$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$B===B$$$$$$$$$$$ssssssss$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$B===B$$$$$$$$$$$sssssssR$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$B===B$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$R$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$B===B$$$$$$$$$$$$$$$$$$$$$$R$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$B===B$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$B===B$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$B===B$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$B===B$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$B===B$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$B===B$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$B$$$$$$B===B$$$$$$$$$$$$$BBBB$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$B===B$$$$$$$$$$$$$BBBB$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$B===B$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$B===B$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$B===B$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "TTwwwwwwwwwwwwwwwwwwwwwwB===BwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwTT",
+  "TTsssssssssssssssssssssss===ssssssssssssssssssssssssssssssssssTT",
+  "TT........BBBBBBB........===........BBBBBBBBB.................TT",
+  "TT........BBBBBBB........===........BBBBBBBBB.................TT",
+  "TT........BBBBBBB........===........BBBBBBBBB.................TT",
+  "TT........BBBDBBB........===........BBBDBBBBB.................TT",
+  "TT........:::::::........===........:::::::...................TT",
+  "TT.::::::::::::::::::::::::::::::::::::::::::::::::::::::::::.TT",
+  "TT.::::::::::::::::::::::::::::::::::::::::::::::::::::::::::.TT",
+  "TT.......................===..................................TT",
+  "TT..BBBBBB...............===..BBBBBBB.........BBBBBB.BBBBBB...TT",
+  "TT..BBBBBB...............===..BBBBBBB.........BBBBBB.BBBBBB...TT",
+  "TT..BBBBBB...............===..BBBBBBB.........BBBBBB.BBBBBB...TT",
+  "TT..BBBBBB...............===..BBBBBBB.........BBBBBB.BBBBBB...TT",
+  "TT.......................===..................................TT",
+  "TT.......................===..................................TT",
+  "TT.........,.,...........===...............,.,.,,.............TT",
+  "TT....,,,,,,,,,,,,.......===...........,,,,,,,,,,,,,,.........TT",
+  "TT...,,,,,,,,,,,,,,,.....===...........,,,,,,,,,,,,,,,........TT",
+  "TT..,,,,,,,,,,,,,,,,.....===..........,,,,,,,,,,,,,,,,,.......TT",
+  "TT...,,,,,,,,,,,,,,,.....===..........,,,,,,,,,,,,,,,,,.......TT",
+  "TT.....,,,,,,,,,,,.......===............,,,,,,,,,,,,,.........TT",
+  "TT........,..,...........===...............,,.,,..............TT",
+  "TT.......................===..................................TT",
+  "TT.......................===..................................TT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTT===TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTT===TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT"
+ ]
+}

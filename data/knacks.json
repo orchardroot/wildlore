@@ -50,10 +50,16 @@
     "spore_cloud": {"name": "Spore Cloud", "desc": "Every raindrop sets off a puff, so it's harder to hit in drizzle or a downpour.", "msg": "{name} vanishes in a Spore Cloud!", "evade": {"weather": ["drizzle", "downpour"], "mult": 0.85}},
     "right_pong": {"name": "Right Pong", "desc": "Arrives reeking. Foes lose Attack holding their noses.", "msg": "{name} brings a Right Pong with it. Everyone is holding their nose!", "entry_stage": {"to": "foes", "stat": "atk", "stages": -1}},
     "already_burnt": {"name": "Already Burnt", "desc": "Hearth moves do less to it. You can't burn what's already charcoal.", "msg": "{name} is Already Burnt. It hardly notices!", "resist": {"types": ["hearth"], "mult": 0.75}},
-    "shelf_life": {"name": "Shelf Life", "desc": "Brackets last for years: from full health it hangs on at 1 HP.", "msg": "{name} hangs on to its shelf!", "endure_full": true}
+    "shelf_life": {"name": "Shelf Life", "desc": "Brackets last for years: from full health it hangs on at 1 HP.", "msg": "{name} hangs on to its shelf!", "endure_full": true},
+    "high_girders": {"name": "The High Girders", "desc": "Comes in on a gale that lasts 5 turns, and is half as fast again in a gale.", "msg": "{name} rattles in on the storm, lamps blazing!", "entry_weather": "gale", "speed": {"weather": ["gale"], "mult": 1.5}}
   },
   "species": {
     "sulphurhen": "shelf_life",
+    "divotling": "gale_rider",
+    "hellbunker": "gale_rider",
+    "jamlet": "hearty_appetite",
+    "marmalord": "hearty_appetite",
+    "taywraith": "high_girders",
     "scorchbun": "already_burnt",
     "whiffhorn": "right_pong",
     "grandpuff": "spore_cloud",

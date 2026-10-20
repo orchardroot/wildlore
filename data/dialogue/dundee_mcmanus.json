@@ -1,0 +1,50 @@
+{
+ "dun_curator": [
+  {
+   "do": "if",
+   "flag": "q_fife_poet_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_fife_poet_1",
+     "then": [
+      {
+       "do": "say",
+       "who": "Curator",
+       "text": "Down by the old bridge stumps, at night. That's where folk say they see the lamps. Take a snare. Take a scarf."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Curator",
+       "text": "Inspiration for the McGonagall Night? The Tay Whale's over there. He wrote 'The Famous Tay Whale' about it: 'Twas in the month of December, and in the year 1883'. You see the style."
+      },
+      {
+       "do": "say",
+       "who": "Curator",
+       "text": "But his most famous poem is the Tay Bridge Disaster. And if you want to know about the bridge, go down to the quay at night where the old stumps are. People say a train still crosses there."
+      },
+      {
+       "do": "set",
+       "flag": "q_fife_poet_1",
+       "value": true
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Curator",
+     "text": "The McManus opened in 1867, built in the Gothic style to remember Prince Albert. Dundee's own art, history and natural history, all under one very pointy roof."
+    },
+    {
+     "do": "say",
+     "who": "Curator",
+     "text": "The whale skeleton is the Tay Whale, from 1883. It's the one the children ask about. The grown-ups ask where the cafe is."
+    }
+   ]
+  }
+ ]
+}

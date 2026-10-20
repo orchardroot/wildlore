@@ -1,0 +1,60 @@
+{
+ "fb_girdlesmith": [
+  {
+   "do": "if",
+   "flag": "q_fife_discovery_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_fife_discovery_3",
+     "then": [
+      {
+       "do": "say",
+       "who": "Girdlesmith",
+       "text": "Mind and season that girdle before the Antarctic. A wee bit of fat, a good heat. Oatcakes on the ice! I'm jealous, and I don't even like the cold."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Girdlesmith",
+       "text": "A girdle for the Discovery? For oatcakes at the bottom of the world? Oh, that's the best order I've had all year."
+      },
+      {
+       "do": "say",
+       "who": "Girdlesmith",
+       "text": "In 1599 King James the Sixth gave the hammermen of Culross the sole right to make girdles in Scotland. Every girdle in every kitchen came from this wee town."
+      },
+      {
+       "do": "say",
+       "who": "Girdlesmith",
+       "text": "Here. Hammered round, flat as the Forth on a good day. Take it to the Bosun with my compliments."
+      },
+      {
+       "do": "give_item",
+       "item": "culross_girdle",
+       "n": 1
+      },
+      {
+       "do": "set",
+       "flag": "q_fife_discovery_3",
+       "value": true
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Girdlesmith",
+     "text": "A girdle is a flat iron plate you bake on over the fire: oatcakes, scones, drop scones, pancakes. Up here we say girdle. Down south they say griddle. They're wrong, nicely."
+    },
+    {
+     "do": "say",
+     "who": "Girdlesmith",
+     "text": "Culross had the monopoly on them from 1599. A royal monopoly. On a frying pan. It was a big deal at the time."
+    }
+   ]
+  }
+ ]
+}
