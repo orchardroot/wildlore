@@ -1,0 +1,10 @@
+{"quests": [
+ {"id": "oxford_bodleian", "title": "The Bodleian Declaration", "region": "oxford", "town": "oxford", "giver": "Librarian", "summary": "Swear the Bodleian oath, never to kindle fire or flame, then find the bestiary leaf a don has borrowed.", "start_flag": "q_oxford_bodleian_started",
+  "steps": [
+   {"flag": "q_oxford_bodleian_1", "text": "Make the Declaration to the Librarian at the Bodleian, and ask about the missing leaf.", "zone": "oxford_bodleian"},
+   {"flag": "q_oxford_bodleian_2", "text": "Ask the clerk in the Radcliffe Camera which way the reader went.", "zone": "oxford_camera"},
+   {"flag": "q_oxford_bodleian_3", "text": "Find the don in the back of the Eagle and Child, and win the leaf back.", "zone": "oxford_eagle"},
+   {"flag": "q_oxford_bodleian_4", "text": "Return the leaf to the Librarian at the Bodleian.", "zone": "oxford_bodleian"}
+  ],
+  "done_flag": "q_oxford_bodleian_done", "reward": "The Reader's Ticket (a Lore charm), two Banbury Cakes and standing in England."}
+]}

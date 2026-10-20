@@ -1,0 +1,454 @@
+{
+ "cw_marshal": [
+  {
+   "do": "say",
+   "who": "Hill Marshal",
+   "text": "I stand at the bottom with a very large bag of bandages and a very large sense of occasion."
+  },
+  {
+   "do": "say",
+   "who": "Hill Marshal",
+   "text": "Nobody has ever caught the cheese on foot. They catch the bottom of the hill. The cheese is going at about 70 mph and has a head start."
+  }
+ ],
+ "cw_shepherd": [
+  {
+   "do": "say",
+   "who": "Shepherd",
+   "text": "Cotswold Lions. See the forelock? That's a fringe, and it's the reason for the name. Nothing to do with a roar. They are terribly polite."
+  },
+  {
+   "do": "say",
+   "who": "Shepherd",
+   "text": "In the Middle Ages their wool was the best in Europe, long and lustrous, and it paid for every church in the district. The saying was that the golden fleece was a Cotswold one."
+  }
+ ],
+ "cw_duckman": [
+  {
+   "do": "say",
+   "who": "Duck Feeder",
+   "text": "The Windrush is never more than knee deep and the ducks know it. They hold the right of way on all five bridges, and they enforce it."
+  },
+  {
+   "do": "say",
+   "who": "Duck Feeder",
+   "text": "Don't be tempted to paddle in your good shoes. The water is clear, cold and a good deal colder than it looks."
+  }
+ ],
+ "cw_folly": [
+  {
+   "do": "say",
+   "who": "Folly Keeper",
+   "text": "Broadway Tower was built as a folly in 1798, so that a beacon lit on top could be seen from the Countess of Coventry's house, thirty-odd miles away. She never checked."
+  },
+  {
+   "do": "say",
+   "who": "Folly Keeper",
+   "text": "On a clear day you can see sixteen counties from the top. On a cloudy day, you can see the inside of a cloud, which has its charms."
+  }
+ ],
+ "cw_morris_chat": [
+  {
+   "do": "say",
+   "who": "Fiddler",
+   "text": "There are Cotswold Morris sides in nearly every village. White shirts, bells on the shins and sticks that clack. It's much more athletic than it looks."
+  },
+  {
+   "do": "say",
+   "who": "Fiddler",
+   "text": "It's said morris dancing came from the Moors, which is why it's called morris. Folklorists doubt it, but it's a nice theory, and the dancers are not going to argue."
+  }
+ ],
+ "cw_wool_chat": [
+  {
+   "do": "say",
+   "who": "Wool Trader",
+   "text": "The Cotswold wool trade made this whole district rich. Sheep walked in from miles around to Stow fair, tens of thousands in a day."
+  },
+  {
+   "do": "say",
+   "who": "Wool Trader",
+   "text": "The old wool churches are the proof. The merchants wanted heaven to know where their money had gone."
+  }
+ ],
+ "cw_master": [
+  {
+   "do": "if",
+   "flag": "q_cotswolds_cheese_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Master of Ceremonies",
+     "text": "Our champion! Your name will be called down the hill every spring, and nobody will remember it. That's how the glory works."
+    },
+    {
+     "do": "say",
+     "who": "Master of Ceremonies",
+     "text": "Mind the cheese. It's in the dairy. It has a mind of its own, and a very good lawyer."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_cotswolds_cheese_2",
+     "then": [
+      {
+       "do": "choice",
+       "text": "Take your place at the top of Cooper's Hill? Three chasers, back to back, no rest between.",
+       "options": [
+        "On my marks",
+        "Not yet"
+       ],
+       "set": "_cheese_choice"
+      },
+      {
+       "do": "if",
+       "flag": "_cheese_choice",
+       "eq": 0,
+       "then": [
+        {
+         "do": "say",
+         "who": "Master of Ceremonies",
+         "text": "Ladies and gentlemen! Down the hill, after the cheese! On the count of three... One, two, THREE!"
+        },
+        {
+         "do": "gauntlet",
+         "trainers": [
+          "cots_chaser_a",
+          "cots_chaser_b",
+          "cots_legend"
+         ],
+         "flag": "q_cotswolds_cheese_3",
+         "prize_from": "the Hill",
+         "exit": {
+          "zone": "cotswolds",
+          "x": 12,
+          "y": 55
+         },
+         "lose_line": "You come round at the bottom of the hill, covered in grass and mud. The cheese is long gone. So is your dignity, but it comes back."
+        },
+        {
+         "do": "if",
+         "flag": "q_cotswolds_cheese_3",
+         "then": [
+          {
+           "do": "say",
+           "who": "Master of Ceremonies",
+           "text": "First to the bottom! The cheese is yours, and it has rolled itself into your bag, which is a first."
+          },
+          {
+           "do": "say",
+           "who": "Master of Ceremonies",
+           "text": "A Double Gloucester is made from the milk of the Gloucester cow, which is a rare breed with a white stripe over the back. The cheese is pressed, turned and left to ripen for months, and then thrown down a hill. It's a great respect."
+          },
+          {
+           "do": "say",
+           "who": "Master of Ceremonies",
+           "text": "Take this wheel, and this one, from the dairy. And the Cooper's Hill ribbon. A lovely thing to wear to a funeral."
+          },
+          {
+           "do": "set",
+           "flag": "q_cotswolds_cheese_done"
+          },
+          {
+           "do": "give_item",
+           "item": "double_gloucester",
+           "n": 3
+          },
+          {
+           "do": "give_item",
+           "item": "coopers_wheel",
+           "n": 1
+          },
+          {
+           "do": "standing",
+           "nation": "england",
+           "amount": 5
+          }
+         ],
+         "else": []
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Master of Ceremonies",
+         "text": "No hurry. The hill has waited since before records began. Take a breath, and a flask of tea."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_cotswolds_cheese_started",
+       "then": [
+        {
+         "do": "say",
+         "who": "Master of Ceremonies",
+         "text": "See the cheesemaker at the Dairy, at the bottom of the hill. She knows the rules. I only know the shouting."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Master of Ceremonies",
+         "text": "Welcome to Cooper's Hill! Each spring bank holiday, a round of Double Gloucester is rolled down this slope and anyone who dares chases it. The first to the bottom wins the cheese."
+        },
+        {
+         "do": "say",
+         "who": "Master of Ceremonies",
+         "text": "The hill is so steep that the cheese reaches 70 mph and the people reach the ground in a variety of ways. They've been doing it for at least two hundred years."
+        },
+        {
+         "do": "say",
+         "who": "Master of Ceremonies",
+         "text": "We're short of a competitor for the creature version. Would you take part? See the cheesemaker at the Dairy first: she'll tell you the rules and want to see a Gloucelet."
+        },
+        {
+         "do": "set",
+         "flag": "q_cotswolds_cheese_started"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "cw_count_n": [
+  {
+   "do": "if",
+   "flag": "q_cotswolds_stones_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_cotswolds_stones_1",
+     "then": [
+      {
+       "do": "say",
+       "who": "Counter",
+       "text": "I've written down seventy-seven. If it changes by the time I get home, I'm blaming the stones."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Counter",
+       "text": "From up here... that's seventy-seven. No, seventy-six, one has a lichen that looks like a stone. Right, seventy-seven. I'm writing it down before it changes."
+      },
+      {
+       "do": "set",
+       "flag": "q_cotswolds_stones_1"
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Counter",
+     "text": "I'm counting the stones. It's harder than it looks. Do you know, I think I've got the same number twice? No. That can't be right."
+    }
+   ]
+  }
+ ],
+ "cw_count_e": [
+  {
+   "do": "if",
+   "flag": "q_cotswolds_stones_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_cotswolds_stones_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "Counter",
+       "text": "Seventy-three, and nothing you can say will change my mind. The stones can try."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Counter",
+       "text": "On this side I make it seventy-three! Wait. Did we start at that one? Hmm. Seventy-three. Perhaps it was the other way round."
+      },
+      {
+       "do": "set",
+       "flag": "q_cotswolds_stones_2"
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Counter",
+     "text": "I'm counting the stones. It's harder than it looks. Do you know, I think I've got the same number twice? No. That can't be right."
+    }
+   ]
+  }
+ ],
+ "cw_count_w": [
+  {
+   "do": "if",
+   "flag": "q_cotswolds_stones_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_cotswolds_stones_3",
+     "then": [
+      {
+       "do": "say",
+       "who": "Counter",
+       "text": "Seventy-nine, I tell you. There's a mound. There's a root. There's a stone in a hat. It's fine."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Counter",
+       "text": "Seventy-nine! Are there more of them than there were this morning? There's a stone in the bushes that wasn't there when I counted on the other side."
+      },
+      {
+       "do": "set",
+       "flag": "q_cotswolds_stones_3"
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Counter",
+     "text": "I'm counting the stones. It's harder than it looks. Do you know, I think I've got the same number twice? No. That can't be right."
+    }
+   ]
+  }
+ ],
+ "cw_warden": [
+  {
+   "do": "if",
+   "flag": "q_cotswolds_stones_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Stone Keeper",
+     "text": "The King's Men have let you count them. That doesn't happen often. Most people go away muttering a number and not quite sure of it, which is the correct response."
+    },
+    {
+     "do": "say",
+     "who": "Stone Keeper",
+     "text": "If you ever do count the same number three times, come and tell me. I'll tell the King. He'll be thrilled."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_cotswolds_stones_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_cotswolds_stones_1",
+       "then": [
+        {
+         "do": "if",
+         "flag": "q_cotswolds_stones_2",
+         "then": [
+          {
+           "do": "if",
+           "flag": "q_cotswolds_stones_3",
+           "then": [
+            {
+             "do": "say",
+             "who": "Stone Keeper",
+             "text": "Seventy-seven, seventy-three and seventy-nine! Three counts, three answers. Quite right. You can't count them the same twice. Nobody has, in as long as we've been keeping the legend."
+            },
+            {
+             "do": "say",
+             "who": "Stone Keeper",
+             "text": "The usual number they give is seventy-seven, but it's an estimate. Some stones have fallen, some are buried and some are only stumps, and the ring is a circle, which is a terrible shape to count round. Well done."
+            },
+            {
+             "do": "say",
+             "who": "Stone Keeper",
+             "text": "The old way was to put a bun on each stone, and a baker did just that, and got the number wrong. Take this pebble. It has been standing about with the King's Men since 2500 BC, so it knows how to hold its position."
+            },
+            {
+             "do": "set",
+             "flag": "q_cotswolds_stones_4"
+            },
+            {
+             "do": "set",
+             "flag": "q_cotswolds_stones_done"
+            },
+            {
+             "do": "give_item",
+             "item": "rollright_pebble",
+             "n": 1
+            },
+            {
+             "do": "give_item",
+             "item": "banbury_cake",
+             "n": 2
+            },
+            {
+             "do": "standing",
+             "nation": "england",
+             "amount": 5
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Stone Keeper",
+             "text": "One more count to go. Try the west side of the ring."
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Stone Keeper",
+           "text": "Two counts to go. East side of the ring next."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Stone Keeper",
+         "text": "Count them from the north side, from the east and from the west. Three counters are already out there. Ask each how many they get."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Stone Keeper",
+       "text": "Welcome to the Rollright Stones. The King's Men are the circle, the King is the stone across the road, and the Whispering Knights are the leaning ones over there, plotting."
+      },
+      {
+       "do": "say",
+       "who": "Stone Keeper",
+       "text": "The legend: a king and his men were marching on England when a witch told him, 'Seven long strides shalt thou take, and if Long Compton thou canst see, King of England thou shalt be.' A mound rose up, he couldn't see the village, and she turned him to stone."
+      },
+      {
+       "do": "say",
+       "who": "Stone Keeper",
+       "text": "You can't count the stones the same twice. They won't let you. Would you have a go? Three counts, from three sides, and let me know what numbers you get."
+      },
+      {
+       "do": "set",
+       "flag": "q_cotswolds_stones_started"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

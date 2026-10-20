@@ -1,0 +1,63 @@
+{
+ "nurse": [
+  {
+   "do": "say",
+   "who": "Nurse",
+   "text": "Hello, my lovely! Welcome to the Cotswolds Sanctuary. Mind the step; it's been here since the wool trade and it has opinions."
+  },
+  {
+   "do": "choice",
+   "text": "What can we do for you?",
+   "options": [
+    "Heal my team",
+    "Open the Ark",
+    "Just looking"
+   ],
+   "set": "_nurse_choice"
+  },
+  {
+   "do": "if",
+   "flag": "_nurse_choice",
+   "eq": 0,
+   "then": [
+    {
+     "do": "say",
+     "who": "Nurse",
+     "text": "Pop your team on the counter. There's tea, and honey from the hives out the back, which has the same colour as the walls and the same sort of sweetness."
+    },
+    {
+     "do": "heal"
+    },
+    {
+     "do": "say",
+     "who": "Nurse",
+     "text": "There we are. Right as rain, and the rain is mostly lovely too."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "_nurse_choice",
+     "eq": 1,
+     "then": [
+      {
+       "do": "say",
+       "who": "Nurse",
+       "text": "The Ark is in the corner. A lovely bit of oak, from a barn that blew down in the last gale."
+      },
+      {
+       "do": "ark"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Nurse",
+       "text": "No hurry. Have a look at the walls; there's no wall in this village that hasn't been photographed."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

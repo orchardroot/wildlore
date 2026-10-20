@@ -1,0 +1,26 @@
+{"id": "gloucelet",
+ "palette": {"rind": "#c4741f", "rind2": "#a85e18", "paste": "#e99a2e", "paste2": "#f3b84e", "bite": "#f7d27a", "cloth": "#ede2c8", "ink": "#3a1e0c", "boot": "#5a3a20", "steam": "#fff6e0"},
+ "layers": [
+  {"shape": "ellipse", "at": [48, 91], "size": [48, 6], "colour": "#3a2a18", "rim": false, "shade": false},
+  {"shape": "ellipse", "at": [37, 86], "size": [13, 10], "colour": "boot", "mirror": true},
+  {"shape": "ellipse", "at": [48, 56], "size": [68, 68], "colour": "rind", "pattern": "stripes", "pcolour": "rind2", "period": 5, "pangle": 0},
+  {"shape": "ellipse", "at": [48, 54], "size": [56, 56], "colour": "paste", "front_only": true, "pattern": "speckle", "pcolour": "paste2", "density": 14},
+  {"shape": "ellipse", "at": [48, 54], "size": [52, 52], "colour": "rind", "back_only": true},
+  {"shape": "poly", "points": [[60, 22], [76, 22], [76, 38], [62, 40]], "colour": "bite", "front_only": true, "rim": false},
+  {"shape": "ellipse", "at": [16, 60], "size": [13, 13], "colour": "paste", "mirror": true},
+  {"shape": "line", "points": [[22, 54], [30, 58]], "width": 4, "colour": "rind", "mirror": true, "rim": false}
+ ],
+ "face_layers": [
+  {"shape": "line", "points": [[31, 44], [41, 49]], "width": 3, "colour": "ink", "shade": false, "mirror": true},
+  {"shape": "ellipse", "at": [39, 54], "size": [7, 8], "colour": "#fff6e0", "shade": false, "mirror": true},
+  {"shape": "ellipse", "at": [40, 55], "size": [3, 5], "colour": "ink", "shade": false, "mirror": true},
+  {"shape": "line", "points": [[38, 70], [48, 74], [58, 70]], "width": 2.4, "colour": "ink", "shade": false},
+  {"shape": "circle", "at": [36, 63], "r": 3, "colour": "#f08a3a", "shade": false, "rim": false, "mirror": true},
+  {"shape": "circle", "at": [60, 8], "r": 2.2, "colour": "steam", "shade": false, "rim": false},
+  {"shape": "circle", "at": [66, 4], "r": 1.6, "colour": "steam", "shade": false, "rim": false}
+ ],
+ "eyes": [],
+ "back_marks": [
+  {"shape": "line", "points": [[20, 56], [48, 44], [76, 56]], "width": 4, "colour": "cloth", "shade": false}
+ ]
+}

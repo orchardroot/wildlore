@@ -1,0 +1,36 @@
+{
+ "id": "cots_walker",
+ "name": "Rambler Dorothea",
+ "class": "Rambler",
+ "sprite": "hillwalker",
+ "party": [
+  {
+   "species": "kitelet",
+   "level": 89
+  },
+  {
+   "species": "ptarmlet",
+   "level": 90
+  },
+  {
+   "species": "tapknock",
+   "level": 90
+  },
+  {
+   "species": "slatelet",
+   "level": 90
+  }
+ ],
+ "ai": "trainer",
+ "money": 4000,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Rambler Dorothea",
+   "text": "I am doing the Cotswold Way, a hundred miles from Chipping Campden to Bath. Pause, fight, resume, in that order."
+  }
+ ],
+ "win": "Not bad. Lunch time, I think. There's a pub at Broadway with scones.",
+ "after": "The Cotswold Way starts at Chipping Campden, runs along the western scarp over Broadway Hill and ends at Bath Abbey. About a hundred miles. Most people take a week, and most people take a taxi for the last bit.",
+ "scaled_floor": 89
+}
