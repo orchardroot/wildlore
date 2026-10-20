@@ -208,6 +208,7 @@ func _build_zone_node() -> void:
 	Seasonal.dress(zone, _zone_node, player)  # festivals and falling leaves from the real date
 	Forage.dress(zone, _zone_node, Game.data)  # hedgerow pickings and crafting benches
 	HomeBase.dress(zone, _zone_node, Game.data)  # Mum's trophy shelf, the garden and its visitors
+	HomeExtrasScene.dress(zone, _zone_node, Game.data)  # souvenir shelves, plaque boards, bird table, bug hotel, pond
 	Noticeboard.dress(zone, _zone_node)  # the parish noticeboard (jobs)
 	RewildScene.dress(zone, _zone_node, Game.data)  # rewilding sites: stumps, saplings, pools, marked spots
 	ShowRing.dress(zone, _zone_node, Game.data)  # today's County Show, if it's here
@@ -263,7 +264,7 @@ func _spawn_npcs() -> void:
 
 ## Keepers waiting in this zone with a side story, each on their spot or the nearest free tile to it.
 func _side_npcs() -> Array:
-	var out := SideStories.npcs_for(zone.id, Game.data)
+	var out := SideStories.npcs_for(zone.id, Game.data) + Festivals.npcs_for(zone.id)  # plus whoever's festival is on
 	var taken := {}
 	for d in out:
 		var p := SideStories.nearest_free(zone, Vector2i(int(d.x), int(d.y)), taken)
@@ -324,6 +325,7 @@ func _on_step(p: Vector2i) -> void:
 	if Repel.step(Game.data):  # a Lavender Sachet just ran out
 		await ScriptRunner.start(self, [{"do": "sachet_worn"}])
 		return
+	Meals.step(Game.data)  # a lure dish counts its steps down
 	if encounters.in_grace():
 		encounters.stepped()
 		return
@@ -422,6 +424,8 @@ func interact(p: Vector2i) -> void:
 		return
 	if await HomeBase.interact(self, p):  # the trophy shelf, a garden plot or a visitor
 		return
+	if await HomeExtrasScene.interact(self, p):  # souvenirs, plaque boards, garden visitors
+		return
 	if await Noticeboard.interact(self, p):
 		return
 	if await RewildScene.interact(self, p):  # a marked spot on a rewilding site
@@ -431,7 +435,8 @@ func interact(p: Vector2i) -> void:
 	var s := zone.sign_at(p)
 	if not s.is_empty():
 		if s.get("kind", "") == "radio":  # the Shipping Forecast, then Today's Walk (which may pay a weather bounty)
-			await say(Forecast.for_radio(s, Forecast.current_weather(), Game.data.day_count) + TodaysWalk.radio_lines(Game.data, Game.dex, Game.items))
+			var outlook := Forecast.outlook(Forecast.current_weather(), Game.data.weather_until - Game.data.world_minutes() if Game.data.weather != "" else -1, Forecast.area_table(str(s.get("areas", [""])[0])))
+			await say(Forecast.for_radio(s, Forecast.current_weather(), Game.data.day_count) + outlook + TodaysWalk.radio_lines(Game.data, Game.dex, Game.items))
 		elif str(s.get("plaque", "")) != "":  # a heritage plaque: read it, and the first time it goes in the Gazetteer
 			await say([str(s.text)], str(s.get("title", "")))
 			var res := Gazetteer.record(Game.data, str(s.plaque))

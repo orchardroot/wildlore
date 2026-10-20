@@ -73,3 +73,23 @@ static func pick(table: Dictionary, rng: Rng) -> String:
 		if float(table[w]) > 0.0:
 			return w
 	return "clear"
+
+const INTRO := {
+	"drizzle": "A fine drizzle is falling.", "downpour": "It's tipping it down.", "fog": "Fog hangs over everything.",
+	"gale": "A gale is blowing.", "frost": "There's a hard frost underfoot.", "sunshine": "The sun is out, against all odds.",
+}
+
+## The line as a battle opens in the overworld's weather ("" under clear skies): what it is and what it does.
+static func intro_line(weather: String) -> String:
+	if not INTRO.has(weather):
+		return ""
+	var ups := []
+	for e in effects(weather):
+		if e.up:
+			ups.append(str(e.type).capitalize())
+	var tail := ""
+	if not ups.is_empty():
+		tail = " %s moves hit harder." % " and ".join(ups)
+	elif note(weather) != "":
+		tail = " " + note(weather) + "."
+	return str(INTRO[weather]) + tail

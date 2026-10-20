@@ -1,0 +1,329 @@
+{
+ "_doc": "Festival events (see core/festivals.gd): a festival NPC in a town, only in its real-date window (Calendar, --date=MM-DD), with a quest (data/quests/festivals.json), a script in data/dialogue/festivals.json and a limited-time creature. window is [month, day, month, day] and may wrap the new year.",
+ "events": [
+  {
+   "id": "bonfire",
+   "name": "Remember, Remember",
+   "town": "york",
+   "window": [
+    11,
+    1,
+    11,
+    7
+   ],
+   "when": "1 to 7 November",
+   "whatson": "Bonfire Night, with bonfires and parkin",
+   "who": "Bonfire Bernard",
+   "sprite": "villager_3",
+   "x": 18,
+   "y": 16,
+   "facing": "left",
+   "script": "fest_bonfire",
+   "quest": "festivals_bonfire",
+   "spawn": {
+    "species": "fizzlet",
+    "kinds": [
+     "grass"
+    ],
+    "share": 0.18
+   }
+  },
+  {
+   "id": "samhain",
+   "name": "Samhain on the Foyle",
+   "town": "derry",
+   "window": [
+    10,
+    24,
+    11,
+    1
+   ],
+   "when": "24 October to 1 November",
+   "whatson": "The Halloween carnival and Samhain fires",
+   "who": "Samhain Sinead",
+   "sprite": "festival_goer",
+   "x": 49,
+   "y": 22,
+   "facing": "left",
+   "script": "fest_samhain",
+   "quest": "festivals_samhain",
+   "spawn": {
+    "species": "pooka",
+    "kinds": [
+     "grass"
+    ],
+    "share": 0.18
+   }
+  },
+  {
+   "id": "burns",
+   "name": "A Burns Supper",
+   "town": "glasgow",
+   "window": [
+    1,
+    20,
+    1,
+    26
+   ],
+   "when": "20 to 26 January",
+   "whatson": "Burns Suppers and haggis",
+   "who": "Haggis Hamish",
+   "sprite": "piper",
+   "x": 33,
+   "y": 19,
+   "facing": "down",
+   "script": "fest_burns",
+   "quest": "festivals_burns",
+   "spawn": {
+    "species": "thistlet",
+    "kinds": [
+     "grass"
+    ],
+    "share": 0.18
+   }
+  },
+  {
+   "id": "stdavids",
+   "name": "Dydd Gwyl Dewi",
+   "town": "st_davids",
+   "window": [
+    2,
+    26,
+    3,
+    2
+   ],
+   "when": "26 February to 2 March",
+   "whatson": "St David's Day, with a procession",
+   "who": "Dewi the Daffodil",
+   "sprite": "harpist",
+   "x": 24,
+   "y": 17,
+   "facing": "left",
+   "script": "fest_stdavids",
+   "quest": "festivals_stdavids",
+   "spawn": {
+    "species": "tylwyth",
+    "kinds": [
+     "grass"
+    ],
+    "share": 0.18
+   }
+  },
+  {
+   "id": "stpatricks",
+   "name": "The Paddy's Day Parade",
+   "town": "dublin",
+   "window": [
+    3,
+    14,
+    3,
+    18
+   ],
+   "when": "14 to 18 March",
+   "whatson": "The St Patrick's Festival parade",
+   "who": "Paddy Parade",
+   "sprite": "fiddler",
+   "x": 33,
+   "y": 19,
+   "facing": "down",
+   "script": "fest_stpatricks",
+   "quest": "festivals_stpatricks",
+   "spawn": {
+    "species": "cluricaun",
+    "kinds": [
+     "grass"
+    ],
+    "share": 0.18
+   }
+  },
+  {
+   "id": "hogmanay",
+   "name": "First-Footing at Hogmanay",
+   "town": "edinburgh",
+   "window": [
+    12,
+    28,
+    1,
+    2
+   ],
+   "when": "28 December to 2 January",
+   "whatson": "Hogmanay torchlight and first-footing",
+   "who": "Auld Angus",
+   "sprite": "lamplighter",
+   "x": 30,
+   "y": 23,
+   "facing": "right",
+   "script": "fest_hogmanay",
+   "quest": "festivals_hogmanay",
+   "spawn": {
+    "species": "beaconet",
+    "kinds": [
+     "grass"
+    ],
+    "share": 0.18
+   }
+  },
+  {
+   "id": "beltane",
+   "name": "Beltane Fires",
+   "town": "glastonbury",
+   "window": [
+    4,
+    28,
+    5,
+    2
+   ],
+   "when": "28 April to 2 May",
+   "whatson": "Beltane fires and the May procession",
+   "who": "May Morwenna",
+   "sprite": "druid",
+   "x": 27,
+   "y": 24,
+   "facing": "up",
+   "script": "fest_beltane",
+   "quest": "festivals_beltane",
+   "spawn": {
+    "species": "kindlet",
+    "kinds": [
+     "grass"
+    ],
+    "share": 0.18
+   }
+  },
+  {
+   "id": "fringe",
+   "name": "The Fringe Flyerer",
+   "town": "edinburgh",
+   "window": [
+    8,
+    1,
+    8,
+    25
+   ],
+   "when": "1 to 25 August",
+   "whatson": "The Fringe, the world's biggest arts festival",
+   "who": "Flyer Fiona",
+   "sprite": "poet",
+   "x": 36,
+   "y": 28,
+   "facing": "left",
+   "script": "fest_fringe",
+   "quest": "festivals_fringe",
+   "spawn": {
+    "species": "versling",
+    "kinds": [
+     "grass"
+    ],
+    "share": 0.18
+   }
+  },
+  {
+   "id": "cheese",
+   "name": "Chasing the Cheese",
+   "town": "cotswolds",
+   "window": [
+    5,
+    24,
+    5,
+    31
+   ],
+   "when": "24 to 31 May",
+   "whatson": "The cheese chase at Cooper's Hill",
+   "who": "Cheese Cecil",
+   "sprite": "farmer",
+   "x": 6,
+   "y": 24,
+   "facing": "left",
+   "script": "fest_cheese",
+   "quest": "festivals_cheese",
+   "spawn": {
+    "species": "gloucelet",
+    "kinds": [
+     "grass"
+    ],
+    "share": 0.18
+   }
+  },
+  {
+   "id": "carnival",
+   "name": "Carnival Weekend",
+   "town": "london",
+   "window": [
+    8,
+    23,
+    8,
+    31
+   ],
+   "when": "23 to 31 August",
+   "whatson": "Notting Hill Carnival",
+   "who": "Carnival Carlton",
+   "sprite": "festival_goer",
+   "x": 33,
+   "y": 30,
+   "facing": "up",
+   "script": "fest_carnival",
+   "quest": "festivals_carnival",
+   "spawn": {
+    "species": "parakit",
+    "kinds": [
+     "grass"
+    ],
+    "share": 0.18
+   }
+  },
+  {
+   "id": "welldressing",
+   "name": "Dressing the Well",
+   "town": "buxton",
+   "window": [
+    7,
+    4,
+    7,
+    19
+   ],
+   "when": "4 to 19 July",
+   "whatson": "Well dressing, a Peak District custom",
+   "who": "Petal Peggy",
+   "sprite": "choir_singer",
+   "x": 6,
+   "y": 24,
+   "facing": "up",
+   "script": "fest_welldressing",
+   "quest": "festivals_welldressing",
+   "spawn": {
+    "species": "holtling",
+    "kinds": [
+     "grass"
+    ],
+    "share": 0.18
+   }
+  },
+  {
+   "id": "marilwyd",
+   "name": "The Mari Lwyd Knocks",
+   "town": "cardiff",
+   "window": [
+    12,
+    20,
+    1,
+    6
+   ],
+   "when": "20 December to 6 January",
+   "whatson": "The Mari Lwyd knocking on doors",
+   "who": "Mari's Mate Mal",
+   "sprite": "choir_singer",
+   "x": 34,
+   "y": 22,
+   "facing": "left",
+   "script": "fest_marilwyd",
+   "quest": "festivals_marilwyd",
+   "spawn": {
+    "species": "marilwyd",
+    "kinds": [
+     "grass"
+    ],
+    "share": 0.18
+   }
+  }
+ ]
+}

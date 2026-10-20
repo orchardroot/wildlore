@@ -1,0 +1,2546 @@
+{
+ "fest_bonfire": [
+  {
+   "do": "if",
+   "flag": "q_festivals_bonfire_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Bonfire Bernard",
+     "text": "Parkin and sparklers, the York way. Mind your eyebrows."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_festivals_bonfire_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_festivals_bonfire_1",
+       "then": [
+        {
+         "do": "say",
+         "who": "Bonfire Bernard",
+         "text": "Back for the big question?"
+        },
+        {
+         "do": "choice",
+         "text": "Quick, before the match is struck. What year was the Gunpowder Plot?",
+         "options": [
+          "1605",
+          "1066",
+          "1666"
+         ],
+         "set": "festivals_bonfire_ans"
+        },
+        {
+         "do": "if",
+         "flag": "festivals_bonfire_ans",
+         "eq": 0,
+         "then": [
+          {
+           "do": "say",
+           "who": "Bonfire Bernard",
+           "text": "1605, the fifth of November. Remember, remember, and all that. The Plot failed and we've been burning things ever since."
+          },
+          {
+           "do": "say",
+           "who": "Bonfire Bernard",
+           "text": "Right, light it! And have some parkin. It's a Yorkshire thing, ginger and oats and a bit of black treacle. Goes with every bonfire."
+          },
+          {
+           "do": "set",
+           "flag": "q_festivals_bonfire_2"
+          },
+          {
+           "do": "give_item",
+           "item": "fest_sparkler_tin"
+          },
+          {
+           "do": "give_item",
+           "item": "parkin",
+           "n": 2
+          },
+          {
+           "do": "set",
+           "flag": "q_festivals_bonfire_done"
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Bonfire Bernard",
+           "text": "Not quite. It was 1605, on the fifth of November. Think of the rhyme."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "when",
+         "cond": "has_fizzlet",
+         "then": [
+          {
+           "do": "say",
+           "who": "Bonfire Bernard",
+           "text": "A Fizzlet! Look at it spit. That's the spirit of the night, that is."
+          },
+          {
+           "do": "set",
+           "flag": "q_festivals_bonfire_1"
+          },
+          {
+           "do": "choice",
+           "text": "Quick, before the match is struck. What year was the Gunpowder Plot?",
+           "options": [
+            "1605",
+            "1066",
+            "1666"
+           ],
+           "set": "festivals_bonfire_ans"
+          },
+          {
+           "do": "if",
+           "flag": "festivals_bonfire_ans",
+           "eq": 0,
+           "then": [
+            {
+             "do": "say",
+             "who": "Bonfire Bernard",
+             "text": "1605, the fifth of November. Remember, remember, and all that. The Plot failed and we've been burning things ever since."
+            },
+            {
+             "do": "say",
+             "who": "Bonfire Bernard",
+             "text": "Right, light it! And have some parkin. It's a Yorkshire thing, ginger and oats and a bit of black treacle. Goes with every bonfire."
+            },
+            {
+             "do": "set",
+             "flag": "q_festivals_bonfire_2"
+            },
+            {
+             "do": "give_item",
+             "item": "fest_sparkler_tin"
+            },
+            {
+             "do": "give_item",
+             "item": "parkin",
+             "n": 2
+            },
+            {
+             "do": "set",
+             "flag": "q_festivals_bonfire_done"
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Bonfire Bernard",
+             "text": "Not quite. It was 1605, on the fifth of November. Think of the rhyme."
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Bonfire Bernard",
+           "text": "Catch me a Fizzlet and I'll know the night is in safe hands."
+          },
+          {
+           "do": "say",
+           "who": "Bonfire Bernard",
+           "text": "Catch a Fizzlet, a little firework of a creature that only turns up in York this week."
+          }
+         ]
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Bonfire Bernard",
+       "text": "Remember, remember! Bonfire Night's coming and York's got the best claim on it going. Guy Fawkes was born right here in 1570 and went to school at St Peter's, you know."
+      },
+      {
+       "do": "say",
+       "who": "Bonfire Bernard",
+       "text": "We've a bonfire to light and not one spark to light it with. Things that fizz and crackle turn up round the town this week."
+      },
+      {
+       "do": "say",
+       "who": "Bonfire Bernard",
+       "text": "Catch me a Fizzlet and I'll know the night is in safe hands."
+      },
+      {
+       "do": "choice",
+       "text": "Help with Remember, Remember?",
+       "options": [
+        "Count me in",
+        "Not just now"
+       ],
+       "set": "festivals_bonfire_ans"
+      },
+      {
+       "do": "if",
+       "flag": "festivals_bonfire_ans",
+       "eq": 0,
+       "then": [
+        {
+         "do": "set",
+         "flag": "q_festivals_bonfire_started"
+        },
+        {
+         "do": "say",
+         "who": "Bonfire Bernard",
+         "text": "Catch a Fizzlet, a little firework of a creature that only turns up in York this week."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Bonfire Bernard",
+         "text": "No bother. I'll be here while it lasts."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "fest_samhain": [
+  {
+   "do": "if",
+   "flag": "q_festivals_samhain_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Samhain Sinead",
+     "text": "Happy Samhain! Mind the Pooka. It's still looking at your hat."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_festivals_samhain_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_festivals_samhain_1",
+       "then": [
+        {
+         "do": "say",
+         "who": "Samhain Sinead",
+         "text": "Back for the big question?"
+        },
+        {
+         "do": "choice",
+         "text": "Halloween began as an old Gaelic festival. Which one?",
+         "options": [
+          "Samhain",
+          "Beltane",
+          "Lughnasa"
+         ],
+         "set": "festivals_samhain_ans"
+        },
+        {
+         "do": "if",
+         "flag": "festivals_samhain_ans",
+         "eq": 0,
+         "then": [
+          {
+           "do": "say",
+           "who": "Samhain Sinead",
+           "text": "Samhain! The end of harvest and the start of winter. The turnip lanterns came first, and the pumpkins turned up much later."
+          },
+          {
+           "do": "say",
+           "who": "Samhain Sinead",
+           "text": "You're on the float. Take a turnip lantern, and a slice of barmbrack. There's a ring baked in one. If you get it, you're getting married. Allegedly."
+          },
+          {
+           "do": "set",
+           "flag": "q_festivals_samhain_2"
+          },
+          {
+           "do": "give_item",
+           "item": "fest_turnip_lantern"
+          },
+          {
+           "do": "give_item",
+           "item": "barmbrack",
+           "n": 2
+          },
+          {
+           "do": "set",
+           "flag": "q_festivals_samhain_done"
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Samhain Sinead",
+           "text": "Close, but no. Beltane is the summer one. The winter one is Samhain."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "when",
+         "cond": "has_pooka",
+         "then": [
+          {
+           "do": "say",
+           "who": "Samhain Sinead",
+           "text": "A Pooka! It's wearing the same grin as my uncle Declan. Perfect."
+          },
+          {
+           "do": "set",
+           "flag": "q_festivals_samhain_1"
+          },
+          {
+           "do": "choice",
+           "text": "Halloween began as an old Gaelic festival. Which one?",
+           "options": [
+            "Samhain",
+            "Beltane",
+            "Lughnasa"
+           ],
+           "set": "festivals_samhain_ans"
+          },
+          {
+           "do": "if",
+           "flag": "festivals_samhain_ans",
+           "eq": 0,
+           "then": [
+            {
+             "do": "say",
+             "who": "Samhain Sinead",
+             "text": "Samhain! The end of harvest and the start of winter. The turnip lanterns came first, and the pumpkins turned up much later."
+            },
+            {
+             "do": "say",
+             "who": "Samhain Sinead",
+             "text": "You're on the float. Take a turnip lantern, and a slice of barmbrack. There's a ring baked in one. If you get it, you're getting married. Allegedly."
+            },
+            {
+             "do": "set",
+             "flag": "q_festivals_samhain_2"
+            },
+            {
+             "do": "give_item",
+             "item": "fest_turnip_lantern"
+            },
+            {
+             "do": "give_item",
+             "item": "barmbrack",
+             "n": 2
+            },
+            {
+             "do": "set",
+             "flag": "q_festivals_samhain_done"
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Samhain Sinead",
+             "text": "Close, but no. Beltane is the summer one. The winter one is Samhain."
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Samhain Sinead",
+           "text": "Catch a Pooka for the parade and you're on the float."
+          },
+          {
+           "do": "say",
+           "who": "Samhain Sinead",
+           "text": "Catch a Pooka, the shapeshifting Irish trickster, which only prowls Derry at Samhain."
+          }
+         ]
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Samhain Sinead",
+       "text": "Derry does Halloween properly. Costumes, fireworks, a carnival on the banks of the Foyle, and half the town dressed as something with too many teeth."
+      },
+      {
+       "do": "say",
+       "who": "Samhain Sinead",
+       "text": "It all goes back to Samhain, when the dark half of the year begins and the wall between worlds gets thin. The old stories say the Pooka likes that time best, and it never could resist a costume party."
+      },
+      {
+       "do": "say",
+       "who": "Samhain Sinead",
+       "text": "Catch a Pooka for the parade and you're on the float."
+      },
+      {
+       "do": "choice",
+       "text": "Help with Samhain on the Foyle?",
+       "options": [
+        "Count me in",
+        "Not just now"
+       ],
+       "set": "festivals_samhain_ans"
+      },
+      {
+       "do": "if",
+       "flag": "festivals_samhain_ans",
+       "eq": 0,
+       "then": [
+        {
+         "do": "set",
+         "flag": "q_festivals_samhain_started"
+        },
+        {
+         "do": "say",
+         "who": "Samhain Sinead",
+         "text": "Catch a Pooka, the shapeshifting Irish trickster, which only prowls Derry at Samhain."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Samhain Sinead",
+         "text": "No bother. I'll be here while it lasts."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "fest_burns": [
+  {
+   "do": "if",
+   "flag": "q_festivals_burns_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Haggis Hamish",
+     "text": "Slainte! Have you tried the neeps? Nobody's asking if you liked the haggis."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_festivals_burns_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_festivals_burns_1",
+       "then": [
+        {
+         "do": "say",
+         "who": "Haggis Hamish",
+         "text": "Back for the big question?"
+        },
+        {
+         "do": "choice",
+         "text": "Which poem does the host recite to the haggis?",
+         "options": [
+          "Address to a Haggis",
+          "Tam o' Shanter",
+          "Ode to a Pie"
+         ],
+         "set": "festivals_burns_ans"
+        },
+        {
+         "do": "if",
+         "flag": "festivals_burns_ans",
+         "eq": 0,
+         "then": [
+          {
+           "do": "say",
+           "who": "Haggis Hamish",
+           "text": "Address to a Haggis. 'Great chieftain o' the puddin'-race!' Then the knife goes in, with gestures."
+          },
+          {
+           "do": "say",
+           "who": "Haggis Hamish",
+           "text": "Pull up a chair. Tatties, neeps, haggis, and the ribbon is yours. Mind and clap at the right points."
+          },
+          {
+           "do": "set",
+           "flag": "q_festivals_burns_2"
+          },
+          {
+           "do": "give_item",
+           "item": "fest_tartan_ribbon"
+          },
+          {
+           "do": "give_item",
+           "item": "cranachan",
+           "n": 1
+          },
+          {
+           "do": "set",
+           "flag": "q_festivals_burns_done"
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Haggis Hamish",
+           "text": "Tam o' Shanter is a fine poem, but it's about a drunk man and some witches. The haggis one is Address to a Haggis."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "when",
+         "cond": "has_thistlet",
+         "then": [
+          {
+           "do": "say",
+           "who": "Haggis Hamish",
+           "text": "A Thistlet, on the day itself! It's got more attitude than the Provost."
+          },
+          {
+           "do": "set",
+           "flag": "q_festivals_burns_1"
+          },
+          {
+           "do": "choice",
+           "text": "Which poem does the host recite to the haggis?",
+           "options": [
+            "Address to a Haggis",
+            "Tam o' Shanter",
+            "Ode to a Pie"
+           ],
+           "set": "festivals_burns_ans"
+          },
+          {
+           "do": "if",
+           "flag": "festivals_burns_ans",
+           "eq": 0,
+           "then": [
+            {
+             "do": "say",
+             "who": "Haggis Hamish",
+             "text": "Address to a Haggis. 'Great chieftain o' the puddin'-race!' Then the knife goes in, with gestures."
+            },
+            {
+             "do": "say",
+             "who": "Haggis Hamish",
+             "text": "Pull up a chair. Tatties, neeps, haggis, and the ribbon is yours. Mind and clap at the right points."
+            },
+            {
+             "do": "set",
+             "flag": "q_festivals_burns_2"
+            },
+            {
+             "do": "give_item",
+             "item": "fest_tartan_ribbon"
+            },
+            {
+             "do": "give_item",
+             "item": "cranachan",
+             "n": 1
+            },
+            {
+             "do": "set",
+             "flag": "q_festivals_burns_done"
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Haggis Hamish",
+             "text": "Tam o' Shanter is a fine poem, but it's about a drunk man and some witches. The haggis one is Address to a Haggis."
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Haggis Hamish",
+           "text": "Catch a Thistlet and the Supper can start."
+          },
+          {
+           "do": "say",
+           "who": "Haggis Hamish",
+           "text": "Catch a Thistlet, which only turns up in Glasgow around Burns Night."
+          }
+         ]
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Haggis Hamish",
+       "text": "Burns Night is the twenty-fifth of January, the poet's birthday. He was born in 1759 in Alloway, in Ayrshire, and Scotland has been eating haggis in his honour ever since."
+      },
+      {
+       "do": "say",
+       "who": "Haggis Hamish",
+       "text": "We're short a thistle for the table. A Thistlet will do. Don't pick it up by the wrong end."
+      },
+      {
+       "do": "say",
+       "who": "Haggis Hamish",
+       "text": "Catch a Thistlet and the Supper can start."
+      },
+      {
+       "do": "choice",
+       "text": "Help with A Burns Supper?",
+       "options": [
+        "Count me in",
+        "Not just now"
+       ],
+       "set": "festivals_burns_ans"
+      },
+      {
+       "do": "if",
+       "flag": "festivals_burns_ans",
+       "eq": 0,
+       "then": [
+        {
+         "do": "set",
+         "flag": "q_festivals_burns_started"
+        },
+        {
+         "do": "say",
+         "who": "Haggis Hamish",
+         "text": "Catch a Thistlet, which only turns up in Glasgow around Burns Night."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Haggis Hamish",
+         "text": "No bother. I'll be here while it lasts."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "fest_stdavids": [
+  {
+   "do": "if",
+   "flag": "q_festivals_stdavids_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Dewi the Daffodil",
+     "text": "Dydd Gwyl Dewi Hapus! Pin that daffodil on and be cheerful."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_festivals_stdavids_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_festivals_stdavids_1",
+       "then": [
+        {
+         "do": "say",
+         "who": "Dewi the Daffodil",
+         "text": "Back for the big question?"
+        },
+        {
+         "do": "choice",
+         "text": "What is St David called in Welsh?",
+         "options": [
+          "Dewi Sant",
+          "Dafydd Bach",
+          "Sant Dai Ddraig"
+         ],
+         "set": "festivals_stdavids_ans"
+        },
+        {
+         "do": "if",
+         "flag": "festivals_stdavids_ans",
+         "eq": 0,
+         "then": [
+          {
+           "do": "say",
+           "who": "Dewi the Daffodil",
+           "text": "Dewi Sant! He's the patron saint of Wales, and we wear a daffodil or a leek for him. Take your pick. The leek is for the brave."
+          },
+          {
+           "do": "say",
+           "who": "Dewi the Daffodil",
+           "text": "Here, a daffodil brooch and a slice of bara brith. Bara brith means speckled bread, and it's very good with butter."
+          },
+          {
+           "do": "set",
+           "flag": "q_festivals_stdavids_2"
+          },
+          {
+           "do": "give_item",
+           "item": "fest_daffodil_brooch"
+          },
+          {
+           "do": "give_item",
+           "item": "bara_brith",
+           "n": 2
+          },
+          {
+           "do": "set",
+           "flag": "q_festivals_stdavids_done"
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Dewi the Daffodil",
+           "text": "Nice try, but no. It's Dewi Sant. Dewi is the Welsh form of David."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "when",
+         "cond": "has_tylwyth",
+         "then": [
+          {
+           "do": "say",
+           "who": "Dewi the Daffodil",
+           "text": "A Tylwyth! A proper one, with the mischief right there in its eyes. Lovely."
+          },
+          {
+           "do": "set",
+           "flag": "q_festivals_stdavids_1"
+          },
+          {
+           "do": "choice",
+           "text": "What is St David called in Welsh?",
+           "options": [
+            "Dewi Sant",
+            "Dafydd Bach",
+            "Sant Dai Ddraig"
+           ],
+           "set": "festivals_stdavids_ans"
+          },
+          {
+           "do": "if",
+           "flag": "festivals_stdavids_ans",
+           "eq": 0,
+           "then": [
+            {
+             "do": "say",
+             "who": "Dewi the Daffodil",
+             "text": "Dewi Sant! He's the patron saint of Wales, and we wear a daffodil or a leek for him. Take your pick. The leek is for the brave."
+            },
+            {
+             "do": "say",
+             "who": "Dewi the Daffodil",
+             "text": "Here, a daffodil brooch and a slice of bara brith. Bara brith means speckled bread, and it's very good with butter."
+            },
+            {
+             "do": "set",
+             "flag": "q_festivals_stdavids_2"
+            },
+            {
+             "do": "give_item",
+             "item": "fest_daffodil_brooch"
+            },
+            {
+             "do": "give_item",
+             "item": "bara_brith",
+             "n": 2
+            },
+            {
+             "do": "set",
+             "flag": "q_festivals_stdavids_done"
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Dewi the Daffodil",
+             "text": "Nice try, but no. It's Dewi Sant. Dewi is the Welsh form of David."
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Dewi the Daffodil",
+           "text": "Catch a Tylwyth for the procession and I'll find you a seat at the front."
+          },
+          {
+           "do": "say",
+           "who": "Dewi the Daffodil",
+           "text": "Catch a Tylwyth, a Welsh fairy, which only comes out round St Davids at this time of year."
+          }
+         ]
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Dewi the Daffodil",
+       "text": "Dydd Gwyl Dewi Hapus! Happy St David's Day. This is his city, and the smallest one in Britain, which we consider a feature. He's buried in the cathedral down the hill."
+      },
+      {
+       "do": "say",
+       "who": "Dewi the Daffodil",
+       "text": "The children parade in costume and the Tylwyth, the Welsh fair folk, are said to like a parade. We've a gap in the programme where one should be."
+      },
+      {
+       "do": "say",
+       "who": "Dewi the Daffodil",
+       "text": "Catch a Tylwyth for the procession and I'll find you a seat at the front."
+      },
+      {
+       "do": "choice",
+       "text": "Help with Dydd Gwyl Dewi?",
+       "options": [
+        "Count me in",
+        "Not just now"
+       ],
+       "set": "festivals_stdavids_ans"
+      },
+      {
+       "do": "if",
+       "flag": "festivals_stdavids_ans",
+       "eq": 0,
+       "then": [
+        {
+         "do": "set",
+         "flag": "q_festivals_stdavids_started"
+        },
+        {
+         "do": "say",
+         "who": "Dewi the Daffodil",
+         "text": "Catch a Tylwyth, a Welsh fairy, which only comes out round St Davids at this time of year."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Dewi the Daffodil",
+         "text": "No bother. I'll be here while it lasts."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "fest_stpatricks": [
+  {
+   "do": "if",
+   "flag": "q_festivals_stpatricks_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Paddy Parade",
+     "text": "Happy Paddy's Day! Mind the hat, it's a long way down."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_festivals_stpatricks_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_festivals_stpatricks_1",
+       "then": [
+        {
+         "do": "say",
+         "who": "Paddy Parade",
+         "text": "Back for the big question?"
+        },
+        {
+         "do": "choice",
+         "text": "Legend says St Patrick used which plant to explain the Holy Trinity?",
+         "options": [
+          "Shamrock",
+          "Dandelion",
+          "Nettle"
+         ],
+         "set": "festivals_stpatricks_ans"
+        },
+        {
+         "do": "if",
+         "flag": "festivals_stpatricks_ans",
+         "eq": 0,
+         "then": [
+          {
+           "do": "say",
+           "who": "Paddy Parade",
+           "text": "The shamrock! Three leaves, one stem. He'd have made a decent teacher."
+          },
+          {
+           "do": "say",
+           "who": "Paddy Parade",
+           "text": "Now take a shamrock for your lapel and a slice of soda bread. No yeast, just buttermilk and a cross cut in the top to let the fairies out."
+          },
+          {
+           "do": "set",
+           "flag": "q_festivals_stpatricks_2"
+          },
+          {
+           "do": "give_item",
+           "item": "fest_shamrock_badge"
+          },
+          {
+           "do": "give_item",
+           "item": "soda_bread",
+           "n": 2
+          },
+          {
+           "do": "set",
+           "flag": "q_festivals_stpatricks_done"
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Paddy Parade",
+           "text": "Not the nettle, they'd never have forgiven him. It was the shamrock."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "when",
+         "cond": "has_cluricaun",
+         "then": [
+          {
+           "do": "say",
+           "who": "Paddy Parade",
+           "text": "A Cluricaun! Keep your eyes on it, they vanish the moment you blink. Well done!"
+          },
+          {
+           "do": "set",
+           "flag": "q_festivals_stpatricks_1"
+          },
+          {
+           "do": "choice",
+           "text": "Legend says St Patrick used which plant to explain the Holy Trinity?",
+           "options": [
+            "Shamrock",
+            "Dandelion",
+            "Nettle"
+           ],
+           "set": "festivals_stpatricks_ans"
+          },
+          {
+           "do": "if",
+           "flag": "festivals_stpatricks_ans",
+           "eq": 0,
+           "then": [
+            {
+             "do": "say",
+             "who": "Paddy Parade",
+             "text": "The shamrock! Three leaves, one stem. He'd have made a decent teacher."
+            },
+            {
+             "do": "say",
+             "who": "Paddy Parade",
+             "text": "Now take a shamrock for your lapel and a slice of soda bread. No yeast, just buttermilk and a cross cut in the top to let the fairies out."
+            },
+            {
+             "do": "set",
+             "flag": "q_festivals_stpatricks_2"
+            },
+            {
+             "do": "give_item",
+             "item": "fest_shamrock_badge"
+            },
+            {
+             "do": "give_item",
+             "item": "soda_bread",
+             "n": 2
+            },
+            {
+             "do": "set",
+             "flag": "q_festivals_stpatricks_done"
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Paddy Parade",
+             "text": "Not the nettle, they'd never have forgiven him. It was the shamrock."
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Paddy Parade",
+           "text": "Catch a Cluricaun and the parade has a mascot."
+          },
+          {
+           "do": "say",
+           "who": "Paddy Parade",
+           "text": "Catch a Cluricaun, a little fairy cobbler, which only turns up in Dublin around St Patrick's Day."
+          }
+         ]
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Paddy Parade",
+       "text": "The whole city goes green for the seventeenth. The parade, the music, and half of Europe in a plastic hat."
+      },
+      {
+       "do": "say",
+       "who": "Paddy Parade",
+       "text": "The organisers swear a Cluricaun has been seen on the route. A wee fairy cobbler in a green coat who knows where the gold is. I'd settle for a chat."
+      },
+      {
+       "do": "say",
+       "who": "Paddy Parade",
+       "text": "Catch a Cluricaun and the parade has a mascot."
+      },
+      {
+       "do": "choice",
+       "text": "Help with The Paddy's Day Parade?",
+       "options": [
+        "Count me in",
+        "Not just now"
+       ],
+       "set": "festivals_stpatricks_ans"
+      },
+      {
+       "do": "if",
+       "flag": "festivals_stpatricks_ans",
+       "eq": 0,
+       "then": [
+        {
+         "do": "set",
+         "flag": "q_festivals_stpatricks_started"
+        },
+        {
+         "do": "say",
+         "who": "Paddy Parade",
+         "text": "Catch a Cluricaun, a little fairy cobbler, which only turns up in Dublin around St Patrick's Day."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Paddy Parade",
+         "text": "No bother. I'll be here while it lasts."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "fest_hogmanay": [
+  {
+   "do": "if",
+   "flag": "q_festivals_hogmanay_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Auld Angus",
+     "text": "A guid New Year to ye! Auld Lang Syne, and all that. Burns wrote it down, you know."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_festivals_hogmanay_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_festivals_hogmanay_1",
+       "then": [
+        {
+         "do": "say",
+         "who": "Auld Angus",
+         "text": "Back for the big question?"
+        },
+        {
+         "do": "choice",
+         "text": "What does a first-foot traditionally carry for luck?",
+         "options": [
+          "A lump of coal",
+          "A wet umbrella",
+          "A pickled onion"
+         ],
+         "set": "festivals_hogmanay_ans"
+        },
+        {
+         "do": "if",
+         "flag": "festivals_hogmanay_ans",
+         "eq": 0,
+         "then": [
+          {
+           "do": "say",
+           "who": "Auld Angus",
+           "text": "A lump of coal, and often shortbread and a dram to go with it. Dark-haired visitors are best, they say. Don't ask me why."
+          },
+          {
+           "do": "say",
+           "who": "Auld Angus",
+           "text": "Take a lump of coal, and some tablet for the road. Happy New Year, and may your luck be good, your feet dry and your hat on."
+          },
+          {
+           "do": "set",
+           "flag": "q_festivals_hogmanay_2"
+          },
+          {
+           "do": "give_item",
+           "item": "fest_lucky_coal"
+          },
+          {
+           "do": "give_item",
+           "item": "tablet",
+           "n": 2
+          },
+          {
+           "do": "set",
+           "flag": "q_festivals_hogmanay_done"
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Auld Angus",
+           "text": "You'd be turned away at the door! It's coal, for a warm house all year."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "when",
+         "cond": "has_beaconet",
+         "then": [
+          {
+           "do": "say",
+           "who": "Auld Angus",
+           "text": "A Beaconet, glowing like a lantern. The procession will be the better for it."
+          },
+          {
+           "do": "set",
+           "flag": "q_festivals_hogmanay_1"
+          },
+          {
+           "do": "choice",
+           "text": "What does a first-foot traditionally carry for luck?",
+           "options": [
+            "A lump of coal",
+            "A wet umbrella",
+            "A pickled onion"
+           ],
+           "set": "festivals_hogmanay_ans"
+          },
+          {
+           "do": "if",
+           "flag": "festivals_hogmanay_ans",
+           "eq": 0,
+           "then": [
+            {
+             "do": "say",
+             "who": "Auld Angus",
+             "text": "A lump of coal, and often shortbread and a dram to go with it. Dark-haired visitors are best, they say. Don't ask me why."
+            },
+            {
+             "do": "say",
+             "who": "Auld Angus",
+             "text": "Take a lump of coal, and some tablet for the road. Happy New Year, and may your luck be good, your feet dry and your hat on."
+            },
+            {
+             "do": "set",
+             "flag": "q_festivals_hogmanay_2"
+            },
+            {
+             "do": "give_item",
+             "item": "fest_lucky_coal"
+            },
+            {
+             "do": "give_item",
+             "item": "tablet",
+             "n": 2
+            },
+            {
+             "do": "set",
+             "flag": "q_festivals_hogmanay_done"
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Auld Angus",
+             "text": "You'd be turned away at the door! It's coal, for a warm house all year."
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Auld Angus",
+           "text": "Bring me a Beaconet and we'll have a light to lead the procession."
+          },
+          {
+           "do": "say",
+           "who": "Auld Angus",
+           "text": "Catch a Beaconet, a small beacon of a creature, which only turns up in Edinburgh over Hogmanay."
+          }
+         ]
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Auld Angus",
+       "text": "Hogmanay in Edinburgh! There's a torchlight procession through the Old Town and a street party that you can hear from Fife."
+      },
+      {
+       "do": "say",
+       "who": "Auld Angus",
+       "text": "At midnight the first person over your door is your first-foot, and they decide your luck for the year. I need someone to light the way. A creature with a bit of a glow would do it."
+      },
+      {
+       "do": "say",
+       "who": "Auld Angus",
+       "text": "Bring me a Beaconet and we'll have a light to lead the procession."
+      },
+      {
+       "do": "choice",
+       "text": "Help with First-Footing at Hogmanay?",
+       "options": [
+        "Count me in",
+        "Not just now"
+       ],
+       "set": "festivals_hogmanay_ans"
+      },
+      {
+       "do": "if",
+       "flag": "festivals_hogmanay_ans",
+       "eq": 0,
+       "then": [
+        {
+         "do": "set",
+         "flag": "q_festivals_hogmanay_started"
+        },
+        {
+         "do": "say",
+         "who": "Auld Angus",
+         "text": "Catch a Beaconet, a small beacon of a creature, which only turns up in Edinburgh over Hogmanay."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Auld Angus",
+         "text": "No bother. I'll be here while it lasts."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "fest_beltane": [
+  {
+   "do": "if",
+   "flag": "q_festivals_beltane_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "May Morwenna",
+     "text": "Blessings of the May! Dance for the sun, if you've the knees."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_festivals_beltane_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_festivals_beltane_1",
+       "then": [
+        {
+         "do": "say",
+         "who": "May Morwenna",
+         "text": "Back for the big question?"
+        },
+        {
+         "do": "choice",
+         "text": "At Beltane, what were cattle traditionally driven between, for luck?",
+         "options": [
+          "Two bonfires",
+          "Two rivers",
+          "Two haystacks"
+         ],
+         "set": "festivals_beltane_ans"
+        },
+        {
+         "do": "if",
+         "flag": "festivals_beltane_ans",
+         "eq": 0,
+         "then": [
+          {
+           "do": "say",
+           "who": "May Morwenna",
+           "text": "Two fires! A bit of smoke to keep sickness away from the herd. Sensible, if you were a cow with a good coat."
+          },
+          {
+           "do": "say",
+           "who": "May Morwenna",
+           "text": "Take a May garland, and a cream tea from the stall. Jam first or cream first, I won't say. I'm not that brave."
+          },
+          {
+           "do": "set",
+           "flag": "q_festivals_beltane_2"
+          },
+          {
+           "do": "give_item",
+           "item": "fest_may_garland"
+          },
+          {
+           "do": "give_item",
+           "item": "cream_tea",
+           "n": 1
+          },
+          {
+           "do": "set",
+           "flag": "q_festivals_beltane_done"
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "May Morwenna",
+           "text": "Not quite. The fires were the point, and the smoke and the flames were thought to bless the herd."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "when",
+         "cond": "has_kindlet",
+         "then": [
+          {
+           "do": "say",
+           "who": "May Morwenna",
+           "text": "A Kindlet, warm as a cup of tea! The fires will catch beautifully."
+          },
+          {
+           "do": "set",
+           "flag": "q_festivals_beltane_1"
+          },
+          {
+           "do": "choice",
+           "text": "At Beltane, what were cattle traditionally driven between, for luck?",
+           "options": [
+            "Two bonfires",
+            "Two rivers",
+            "Two haystacks"
+           ],
+           "set": "festivals_beltane_ans"
+          },
+          {
+           "do": "if",
+           "flag": "festivals_beltane_ans",
+           "eq": 0,
+           "then": [
+            {
+             "do": "say",
+             "who": "May Morwenna",
+             "text": "Two fires! A bit of smoke to keep sickness away from the herd. Sensible, if you were a cow with a good coat."
+            },
+            {
+             "do": "say",
+             "who": "May Morwenna",
+             "text": "Take a May garland, and a cream tea from the stall. Jam first or cream first, I won't say. I'm not that brave."
+            },
+            {
+             "do": "set",
+             "flag": "q_festivals_beltane_2"
+            },
+            {
+             "do": "give_item",
+             "item": "fest_may_garland"
+            },
+            {
+             "do": "give_item",
+             "item": "cream_tea",
+             "n": 1
+            },
+            {
+             "do": "set",
+             "flag": "q_festivals_beltane_done"
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "May Morwenna",
+             "text": "Not quite. The fires were the point, and the smoke and the flames were thought to bless the herd."
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "May Morwenna",
+           "text": "Catch a Kindlet and you're our fire-bringer."
+          },
+          {
+           "do": "say",
+           "who": "May Morwenna",
+           "text": "Catch a Kindlet, a small spark of a creature, which only comes to Glastonbury around May Day."
+          }
+         ]
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "May Morwenna",
+       "text": "Beltane, the first of May, the old Celtic festival that starts the summer half of the year. Glastonbury has a procession to the Tor every year with fire and flowers and a great deal of drumming."
+      },
+      {
+       "do": "say",
+       "who": "May Morwenna",
+       "text": "A fire needs a spark. Round here, we find that a Kindlet is the best sort."
+      },
+      {
+       "do": "say",
+       "who": "May Morwenna",
+       "text": "Catch a Kindlet and you're our fire-bringer."
+      },
+      {
+       "do": "choice",
+       "text": "Help with Beltane Fires?",
+       "options": [
+        "Count me in",
+        "Not just now"
+       ],
+       "set": "festivals_beltane_ans"
+      },
+      {
+       "do": "if",
+       "flag": "festivals_beltane_ans",
+       "eq": 0,
+       "then": [
+        {
+         "do": "set",
+         "flag": "q_festivals_beltane_started"
+        },
+        {
+         "do": "say",
+         "who": "May Morwenna",
+         "text": "Catch a Kindlet, a small spark of a creature, which only comes to Glastonbury around May Day."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "May Morwenna",
+         "text": "No bother. I'll be here while it lasts."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "fest_fringe": [
+  {
+   "do": "if",
+   "flag": "q_festivals_fringe_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Flyer Fiona",
+     "text": "Come to my show! It's in a cupboard! Bring a coat!"
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_festivals_fringe_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_festivals_fringe_1",
+       "then": [
+        {
+         "do": "say",
+         "who": "Flyer Fiona",
+         "text": "Back for the big question?"
+        },
+        {
+         "do": "choice",
+         "text": "In which year did the Edinburgh Fringe begin?",
+         "options": [
+          "1947",
+          "1999",
+          "1812"
+         ],
+         "set": "festivals_fringe_ans"
+        },
+        {
+         "do": "if",
+         "flag": "festivals_fringe_ans",
+         "eq": 0,
+         "then": [
+          {
+           "do": "say",
+           "who": "Flyer Fiona",
+           "text": "1947! Eight theatre companies turned up without an invitation, and the Fringe was born. Gatecrashing has never been so well rewarded."
+          },
+          {
+           "do": "say",
+           "who": "Flyer Fiona",
+           "text": "You're our first audience member in a week who isn't related to me. Take a wad of flyers and an Irn Tonic. Five stars, anywhere you like."
+          },
+          {
+           "do": "set",
+           "flag": "q_festivals_fringe_2"
+          },
+          {
+           "do": "give_item",
+           "item": "fest_fringe_flyers"
+          },
+          {
+           "do": "give_item",
+           "item": "irn_tonic",
+           "n": 2
+          },
+          {
+           "do": "set",
+           "flag": "q_festivals_fringe_done"
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Flyer Fiona",
+           "text": "Older than that, and younger than the castle. It was 1947."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "when",
+         "cond": "has_versling",
+         "then": [
+          {
+           "do": "say",
+           "who": "Flyer Fiona",
+           "text": "A Versling! It has already given me a bad review. Marvellous."
+          },
+          {
+           "do": "set",
+           "flag": "q_festivals_fringe_1"
+          },
+          {
+           "do": "choice",
+           "text": "In which year did the Edinburgh Fringe begin?",
+           "options": [
+            "1947",
+            "1999",
+            "1812"
+           ],
+           "set": "festivals_fringe_ans"
+          },
+          {
+           "do": "if",
+           "flag": "festivals_fringe_ans",
+           "eq": 0,
+           "then": [
+            {
+             "do": "say",
+             "who": "Flyer Fiona",
+             "text": "1947! Eight theatre companies turned up without an invitation, and the Fringe was born. Gatecrashing has never been so well rewarded."
+            },
+            {
+             "do": "say",
+             "who": "Flyer Fiona",
+             "text": "You're our first audience member in a week who isn't related to me. Take a wad of flyers and an Irn Tonic. Five stars, anywhere you like."
+            },
+            {
+             "do": "set",
+             "flag": "q_festivals_fringe_2"
+            },
+            {
+             "do": "give_item",
+             "item": "fest_fringe_flyers"
+            },
+            {
+             "do": "give_item",
+             "item": "irn_tonic",
+             "n": 2
+            },
+            {
+             "do": "set",
+             "flag": "q_festivals_fringe_done"
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Flyer Fiona",
+             "text": "Older than that, and younger than the castle. It was 1947."
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Flyer Fiona",
+           "text": "Catch a Versling and the show's a hit. Possibly."
+          },
+          {
+           "do": "say",
+           "who": "Flyer Fiona",
+           "text": "Catch a Versling, a street-wise little rhymer, which only haunts Edinburgh during the Fringe."
+          }
+         ]
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Flyer Fiona",
+       "text": "It's August, so Edinburgh is mostly comedians, mime artists and people handing out leaflets. This is the Fringe. It started in 1947, when some uninvited theatre groups turned up at the first International Festival and performed anyway."
+      },
+      {
+       "do": "say",
+       "who": "Flyer Fiona",
+       "text": "I've a show on in a cupboard at ten past midnight. All I need is a Versling to heckle the right bits. They love a rhyme."
+      },
+      {
+       "do": "say",
+       "who": "Flyer Fiona",
+       "text": "Catch a Versling and the show's a hit. Possibly."
+      },
+      {
+       "do": "choice",
+       "text": "Help with The Fringe Flyerer?",
+       "options": [
+        "Count me in",
+        "Not just now"
+       ],
+       "set": "festivals_fringe_ans"
+      },
+      {
+       "do": "if",
+       "flag": "festivals_fringe_ans",
+       "eq": 0,
+       "then": [
+        {
+         "do": "set",
+         "flag": "q_festivals_fringe_started"
+        },
+        {
+         "do": "say",
+         "who": "Flyer Fiona",
+         "text": "Catch a Versling, a street-wise little rhymer, which only haunts Edinburgh during the Fringe."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Flyer Fiona",
+         "text": "No bother. I'll be here while it lasts."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "fest_cheese": [
+  {
+   "do": "if",
+   "flag": "q_festivals_cheese_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Cheese Cecil",
+     "text": "Mind the hill! And don't look down!"
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_festivals_cheese_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_festivals_cheese_1",
+       "then": [
+        {
+         "do": "say",
+         "who": "Cheese Cecil",
+         "text": "Back for the big question?"
+        },
+        {
+         "do": "choice",
+         "text": "Which cheese is chased down Cooper's Hill?",
+         "options": [
+          "Double Gloucester",
+          "Stilton",
+          "Cheddar"
+         ],
+         "set": "festivals_cheese_ans"
+        },
+        {
+         "do": "if",
+         "flag": "festivals_cheese_ans",
+         "eq": 0,
+         "then": [
+          {
+           "do": "say",
+           "who": "Cheese Cecil",
+           "text": "Double Gloucester. Round, hard enough to bounce, and delicious at the bottom. Mind you, nobody's enjoyed it at the top."
+          },
+          {
+           "do": "say",
+           "who": "Cheese Cecil",
+           "text": "Right, hold the cheese. You're in the front row, and the ambulance is on standby. Here's a Double Gloucester of your own and a pork pie. Mind the hill."
+          },
+          {
+           "do": "set",
+           "flag": "q_festivals_cheese_2"
+          },
+          {
+           "do": "give_item",
+           "item": "fest_cheese_round"
+          },
+          {
+           "do": "give_item",
+           "item": "pork_pie",
+           "n": 2
+          },
+          {
+           "do": "set",
+           "flag": "q_festivals_cheese_done"
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Cheese Cecil",
+           "text": "Tasty guesses, but it's Double Gloucester. It has to be a round one, you see."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "when",
+         "cond": "has_gloucelet",
+         "then": [
+          {
+           "do": "say",
+           "who": "Cheese Cecil",
+           "text": "A Gloucelet! It's the right shape for a hill. Roly-poly, but with intent."
+          },
+          {
+           "do": "set",
+           "flag": "q_festivals_cheese_1"
+          },
+          {
+           "do": "choice",
+           "text": "Which cheese is chased down Cooper's Hill?",
+           "options": [
+            "Double Gloucester",
+            "Stilton",
+            "Cheddar"
+           ],
+           "set": "festivals_cheese_ans"
+          },
+          {
+           "do": "if",
+           "flag": "festivals_cheese_ans",
+           "eq": 0,
+           "then": [
+            {
+             "do": "say",
+             "who": "Cheese Cecil",
+             "text": "Double Gloucester. Round, hard enough to bounce, and delicious at the bottom. Mind you, nobody's enjoyed it at the top."
+            },
+            {
+             "do": "say",
+             "who": "Cheese Cecil",
+             "text": "Right, hold the cheese. You're in the front row, and the ambulance is on standby. Here's a Double Gloucester of your own and a pork pie. Mind the hill."
+            },
+            {
+             "do": "set",
+             "flag": "q_festivals_cheese_2"
+            },
+            {
+             "do": "give_item",
+             "item": "fest_cheese_round"
+            },
+            {
+             "do": "give_item",
+             "item": "pork_pie",
+             "n": 2
+            },
+            {
+             "do": "set",
+             "flag": "q_festivals_cheese_done"
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Cheese Cecil",
+             "text": "Tasty guesses, but it's Double Gloucester. It has to be a round one, you see."
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Cheese Cecil",
+           "text": "Catch a Gloucelet and I'll let you hold the cheese. Nobody else gets to."
+          },
+          {
+           "do": "say",
+           "who": "Cheese Cecil",
+           "text": "Catch a Gloucelet, a stout little cheese-chaser, which only turns up in the Cotswolds at the end of May."
+          }
+         ]
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Cheese Cecil",
+       "text": "Up at Cooper's Hill, on the edge of the Cotswolds near Brockworth, every spring bank holiday people have chased a round of Double Gloucester down a hill so steep it ought to be a cliff."
+      },
+      {
+       "do": "say",
+       "who": "Cheese Cecil",
+       "text": "The cheese gets a head start and goes about seventy miles an hour. Nobody has ever caught it. First to the bottom wins it anyway. I'd like to be ready, and I'd like a Gloucelet as my lucky mascot."
+      },
+      {
+       "do": "say",
+       "who": "Cheese Cecil",
+       "text": "Catch a Gloucelet and I'll let you hold the cheese. Nobody else gets to."
+      },
+      {
+       "do": "choice",
+       "text": "Help with Chasing the Cheese?",
+       "options": [
+        "Count me in",
+        "Not just now"
+       ],
+       "set": "festivals_cheese_ans"
+      },
+      {
+       "do": "if",
+       "flag": "festivals_cheese_ans",
+       "eq": 0,
+       "then": [
+        {
+         "do": "set",
+         "flag": "q_festivals_cheese_started"
+        },
+        {
+         "do": "say",
+         "who": "Cheese Cecil",
+         "text": "Catch a Gloucelet, a stout little cheese-chaser, which only turns up in the Cotswolds at the end of May."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Cheese Cecil",
+         "text": "No bother. I'll be here while it lasts."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "fest_carnival": [
+  {
+   "do": "if",
+   "flag": "q_festivals_carnival_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Carnival Carlton",
+     "text": "Keep dancing! The road's still full of music."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_festivals_carnival_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_festivals_carnival_1",
+       "then": [
+        {
+         "do": "say",
+         "who": "Carnival Carlton",
+         "text": "Back for the big question?"
+        },
+        {
+         "do": "choice",
+         "text": "Which instrument, made from oil drums, is a carnival favourite?",
+         "options": [
+          "Steel pan",
+          "Bagpipes",
+          "Harp"
+         ],
+         "set": "festivals_carnival_ans"
+        },
+        {
+         "do": "if",
+         "flag": "festivals_carnival_ans",
+         "eq": 0,
+         "then": [
+          {
+           "do": "say",
+           "who": "Carnival Carlton",
+           "text": "The steel pan! Invented in Trinidad, and it sounds like sunshine. You'll hear it three streets away."
+          },
+          {
+           "do": "say",
+           "who": "Carnival Carlton",
+           "text": "Welcome to the band. Take a feather, and a flask of tea for the long walk. Pace yourself, it's a long route."
+          },
+          {
+           "do": "set",
+           "flag": "q_festivals_carnival_2"
+          },
+          {
+           "do": "give_item",
+           "item": "fest_carnival_feather"
+          },
+          {
+           "do": "give_item",
+           "item": "flask_of_tea",
+           "n": 2
+          },
+          {
+           "do": "set",
+           "flag": "q_festivals_carnival_done"
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Carnival Carlton",
+           "text": "A fine instrument, but not the one for this. The steel pan, made from oil drums."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "when",
+         "cond": "has_parakit",
+         "then": [
+          {
+           "do": "say",
+           "who": "Carnival Carlton",
+           "text": "A Parakit! Look at it, it's already in costume. Come and dance."
+          },
+          {
+           "do": "set",
+           "flag": "q_festivals_carnival_1"
+          },
+          {
+           "do": "choice",
+           "text": "Which instrument, made from oil drums, is a carnival favourite?",
+           "options": [
+            "Steel pan",
+            "Bagpipes",
+            "Harp"
+           ],
+           "set": "festivals_carnival_ans"
+          },
+          {
+           "do": "if",
+           "flag": "festivals_carnival_ans",
+           "eq": 0,
+           "then": [
+            {
+             "do": "say",
+             "who": "Carnival Carlton",
+             "text": "The steel pan! Invented in Trinidad, and it sounds like sunshine. You'll hear it three streets away."
+            },
+            {
+             "do": "say",
+             "who": "Carnival Carlton",
+             "text": "Welcome to the band. Take a feather, and a flask of tea for the long walk. Pace yourself, it's a long route."
+            },
+            {
+             "do": "set",
+             "flag": "q_festivals_carnival_2"
+            },
+            {
+             "do": "give_item",
+             "item": "fest_carnival_feather"
+            },
+            {
+             "do": "give_item",
+             "item": "flask_of_tea",
+             "n": 2
+            },
+            {
+             "do": "set",
+             "flag": "q_festivals_carnival_done"
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Carnival Carlton",
+             "text": "A fine instrument, but not the one for this. The steel pan, made from oil drums."
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Carnival Carlton",
+           "text": "Catch a Parakit and I'll get you a spot in the band."
+          },
+          {
+           "do": "say",
+           "who": "Carnival Carlton",
+           "text": "Catch a Parakit, a bright city bird, which flocks to London at carnival time."
+          }
+         ]
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Carnival Carlton",
+       "text": "Notting Hill Carnival! The August bank holiday weekend, a million people in the streets, steel bands, sound systems and costumes bigger than the houses. It grew out of the Caribbean community of west London in the 1960s and it still belongs to them."
+      },
+      {
+       "do": "say",
+       "who": "Carnival Carlton",
+       "text": "Everyone loves the colour. The parakeets are in on it too. London's green ones are the same bright as the costumes, and they turn up whenever there's a party."
+      },
+      {
+       "do": "say",
+       "who": "Carnival Carlton",
+       "text": "Catch a Parakit and I'll get you a spot in the band."
+      },
+      {
+       "do": "choice",
+       "text": "Help with Carnival Weekend?",
+       "options": [
+        "Count me in",
+        "Not just now"
+       ],
+       "set": "festivals_carnival_ans"
+      },
+      {
+       "do": "if",
+       "flag": "festivals_carnival_ans",
+       "eq": 0,
+       "then": [
+        {
+         "do": "set",
+         "flag": "q_festivals_carnival_started"
+        },
+        {
+         "do": "say",
+         "who": "Carnival Carlton",
+         "text": "Catch a Parakit, a bright city bird, which flocks to London at carnival time."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Carnival Carlton",
+         "text": "No bother. I'll be here while it lasts."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "fest_welldressing": [
+  {
+   "do": "if",
+   "flag": "q_festivals_welldressing_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Petal Peggy",
+     "text": "Blessings on the water! Don't touch the petals, they're drying."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_festivals_welldressing_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_festivals_welldressing_1",
+       "then": [
+        {
+         "do": "say",
+         "who": "Petal Peggy",
+         "text": "Back for the big question?"
+        },
+        {
+         "do": "choice",
+         "text": "What are well dressing pictures made from?",
+         "options": [
+          "Flower petals pressed into clay",
+          "Knitted wool",
+          "Cheese"
+         ],
+         "set": "festivals_welldressing_ans"
+        },
+        {
+         "do": "if",
+         "flag": "festivals_welldressing_ans",
+         "eq": 0,
+         "then": [
+          {
+           "do": "say",
+           "who": "Petal Peggy",
+           "text": "Petals into wet clay! No paint, no glue. Everything natural, and gone by the next week."
+          },
+          {
+           "do": "say",
+           "who": "Petal Peggy",
+           "text": "Here's a petal panel of your own, and a bottle of the water itself. Straight from the spring, and warm, which is a surprise to everyone."
+          },
+          {
+           "do": "set",
+           "flag": "q_festivals_welldressing_2"
+          },
+          {
+           "do": "give_item",
+           "item": "fest_petal_panel"
+          },
+          {
+           "do": "give_item",
+           "item": "buxton_water",
+           "n": 2
+          },
+          {
+           "do": "set",
+           "flag": "q_festivals_welldressing_done"
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Petal Peggy",
+           "text": "Knitted wool would be warm but the well is already wet. It's petals, pressed into clay."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "when",
+         "cond": "has_holtling",
+         "then": [
+          {
+           "do": "say",
+           "who": "Petal Peggy",
+           "text": "A Holtling! Perfectly damp. The well will be delighted."
+          },
+          {
+           "do": "set",
+           "flag": "q_festivals_welldressing_1"
+          },
+          {
+           "do": "choice",
+           "text": "What are well dressing pictures made from?",
+           "options": [
+            "Flower petals pressed into clay",
+            "Knitted wool",
+            "Cheese"
+           ],
+           "set": "festivals_welldressing_ans"
+          },
+          {
+           "do": "if",
+           "flag": "festivals_welldressing_ans",
+           "eq": 0,
+           "then": [
+            {
+             "do": "say",
+             "who": "Petal Peggy",
+             "text": "Petals into wet clay! No paint, no glue. Everything natural, and gone by the next week."
+            },
+            {
+             "do": "say",
+             "who": "Petal Peggy",
+             "text": "Here's a petal panel of your own, and a bottle of the water itself. Straight from the spring, and warm, which is a surprise to everyone."
+            },
+            {
+             "do": "set",
+             "flag": "q_festivals_welldressing_2"
+            },
+            {
+             "do": "give_item",
+             "item": "fest_petal_panel"
+            },
+            {
+             "do": "give_item",
+             "item": "buxton_water",
+             "n": 2
+            },
+            {
+             "do": "set",
+             "flag": "q_festivals_welldressing_done"
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Petal Peggy",
+             "text": "Knitted wool would be warm but the well is already wet. It's petals, pressed into clay."
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Petal Peggy",
+           "text": "Catch a Holtling and you can help me press the petals."
+          },
+          {
+           "do": "say",
+           "who": "Petal Peggy",
+           "text": "Catch a Holtling, a little brook creature, which only comes to Buxton's well during dressing week."
+          }
+         ]
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Petal Peggy",
+       "text": "The Peak District has been dressing its wells since at least the seventeenth century. Wooden frames, wet clay, and a huge picture pressed out of flower petals, bark, seeds and moss. It's a way of saying thank you for the water."
+      },
+      {
+       "do": "say",
+       "who": "Petal Peggy",
+       "text": "Water's our whole business in Buxton. Something shy and wet should be at the well for the blessing. A Holtling, I think."
+      },
+      {
+       "do": "say",
+       "who": "Petal Peggy",
+       "text": "Catch a Holtling and you can help me press the petals."
+      },
+      {
+       "do": "choice",
+       "text": "Help with Dressing the Well?",
+       "options": [
+        "Count me in",
+        "Not just now"
+       ],
+       "set": "festivals_welldressing_ans"
+      },
+      {
+       "do": "if",
+       "flag": "festivals_welldressing_ans",
+       "eq": 0,
+       "then": [
+        {
+         "do": "set",
+         "flag": "q_festivals_welldressing_started"
+        },
+        {
+         "do": "say",
+         "who": "Petal Peggy",
+         "text": "Catch a Holtling, a little brook creature, which only comes to Buxton's well during dressing week."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Petal Peggy",
+         "text": "No bother. I'll be here while it lasts."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "fest_marilwyd": [
+  {
+   "do": "if",
+   "flag": "q_festivals_marilwyd_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Mari's Mate Mal",
+     "text": "Nos Galan Dda! Mind the horse, she bites. Only a little."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_festivals_marilwyd_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_festivals_marilwyd_1",
+       "then": [
+        {
+         "do": "say",
+         "who": "Mari's Mate Mal",
+         "text": "Back for the big question?"
+        },
+        {
+         "do": "choice",
+         "text": "What does the Mari Lwyd party try to do at your door?",
+         "options": [
+          "Win a rhyming contest to be let in",
+          "Sell you insurance",
+          "Steal your sprouts"
+         ],
+         "set": "festivals_marilwyd_ans"
+        },
+        {
+         "do": "if",
+         "flag": "festivals_marilwyd_ans",
+         "eq": 0,
+         "then": [
+          {
+           "do": "say",
+           "who": "Mari's Mate Mal",
+           "text": "A rhyming contest, sung back and forth. If the household runs out of verses, in comes the horse. And if the party loses, off they go."
+          },
+          {
+           "do": "say",
+           "who": "Mari's Mate Mal",
+           "text": "You've the gift. Have a ribbon off her bridle, and some bara brith to warm up. Nos Galan Dda, and a happy New Year!"
+          },
+          {
+           "do": "set",
+           "flag": "q_festivals_marilwyd_2"
+          },
+          {
+           "do": "give_item",
+           "item": "fest_mari_ribbon"
+          },
+          {
+           "do": "give_item",
+           "item": "bara_brith",
+           "n": 2
+          },
+          {
+           "do": "set",
+           "flag": "q_festivals_marilwyd_done"
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Mari's Mate Mal",
+           "text": "Sprouts are safe. It's a verse-for-verse contest, with the horse trying to win her way inside."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "when",
+         "cond": "has_marilwyd",
+         "then": [
+          {
+           "do": "say",
+           "who": "Mari's Mate Mal",
+           "text": "The Mari Lwyd, ribbons and all! Right then, who's first with a verse?"
+          },
+          {
+           "do": "set",
+           "flag": "q_festivals_marilwyd_1"
+          },
+          {
+           "do": "choice",
+           "text": "What does the Mari Lwyd party try to do at your door?",
+           "options": [
+            "Win a rhyming contest to be let in",
+            "Sell you insurance",
+            "Steal your sprouts"
+           ],
+           "set": "festivals_marilwyd_ans"
+          },
+          {
+           "do": "if",
+           "flag": "festivals_marilwyd_ans",
+           "eq": 0,
+           "then": [
+            {
+             "do": "say",
+             "who": "Mari's Mate Mal",
+             "text": "A rhyming contest, sung back and forth. If the household runs out of verses, in comes the horse. And if the party loses, off they go."
+            },
+            {
+             "do": "say",
+             "who": "Mari's Mate Mal",
+             "text": "You've the gift. Have a ribbon off her bridle, and some bara brith to warm up. Nos Galan Dda, and a happy New Year!"
+            },
+            {
+             "do": "set",
+             "flag": "q_festivals_marilwyd_2"
+            },
+            {
+             "do": "give_item",
+             "item": "fest_mari_ribbon"
+            },
+            {
+             "do": "give_item",
+             "item": "bara_brith",
+             "n": 2
+            },
+            {
+             "do": "set",
+             "flag": "q_festivals_marilwyd_done"
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Mari's Mate Mal",
+             "text": "Sprouts are safe. It's a verse-for-verse contest, with the horse trying to win her way inside."
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Mari's Mate Mal",
+           "text": "Find the Mari Lwyd herself, and we'll have a proper sing-off."
+          },
+          {
+           "do": "say",
+           "who": "Mari's Mate Mal",
+           "text": "Catch a Mari Lwyd, the Grey Mare herself, who only walks Cardiff's streets at midwinter."
+          }
+         ]
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Mari's Mate Mal",
+       "text": "At midwinter in south Wales, a party goes from door to door with a horse's skull on a pole, dressed in a white sheet and ribbons. That's the Mari Lwyd, the Grey Mare. She asks to be let in, in rhyme."
+      },
+      {
+       "do": "say",
+       "who": "Mari's Mate Mal",
+       "text": "You have to answer in rhyme, and so on, and whoever runs out of verses loses. They call it pwnco. It can go on for an hour and nobody gets any sleep."
+      },
+      {
+       "do": "say",
+       "who": "Mari's Mate Mal",
+       "text": "Find the Mari Lwyd herself, and we'll have a proper sing-off."
+      },
+      {
+       "do": "choice",
+       "text": "Help with The Mari Lwyd Knocks?",
+       "options": [
+        "Count me in",
+        "Not just now"
+       ],
+       "set": "festivals_marilwyd_ans"
+      },
+      {
+       "do": "if",
+       "flag": "festivals_marilwyd_ans",
+       "eq": 0,
+       "then": [
+        {
+         "do": "set",
+         "flag": "q_festivals_marilwyd_started"
+        },
+        {
+         "do": "say",
+         "who": "Mari's Mate Mal",
+         "text": "Catch a Mari Lwyd, the Grey Mare herself, who only walks Cardiff's streets at midwinter."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Mari's Mate Mal",
+         "text": "No bother. I'll be here while it lasts."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -20,5 +20,61 @@
    "who": "Mr Ibbotson",
    "text": "If a peregrin is on the Minster tower, stop and watch. They love a tall tower, and they are the fastest bird in the world."
   }
+ ],
+ "teach_cook_yorkshire_pudding": [
+  {
+   "do": "if",
+   "flag": "recipe_yorkshire_pudding",
+   "then": [
+    {
+     "do": "say",
+     "who": "Mrs Hartley",
+     "text": "Back for the Yorkshire Pudding? Kitchen's yours."
+    },
+    {
+     "do": "choice",
+     "text": "Borrow the kitchen?",
+     "options": [
+      "Yes, please",
+      "No, ta"
+     ],
+     "set": "_borrow_bench"
+    },
+    {
+     "do": "if",
+     "flag": "_borrow_bench",
+     "eq": 0,
+     "then": [
+      {
+       "do": "craft",
+       "bench": "borrowed"
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Mrs Hartley",
+     "text": "Never open the oven door. Never. I'll know."
+    },
+    {
+     "do": "say",
+     "who": "Mrs Hartley",
+     "text": "Fat smoking hot, batter straight in. Traditionally you eat it first, with gravy, so you fill up before the meat. Thrifty, Yorkshire."
+    },
+    {
+     "do": "recipe",
+     "id": [
+      "yorkshire_pudding"
+     ]
+    },
+    {
+     "do": "say",
+     "who": "Mrs Hartley",
+     "text": "Pop in whenever you've got the makings. Use my kitchen."
+    }
+   ]
+  }
  ]
 }

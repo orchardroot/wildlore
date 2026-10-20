@@ -383,3 +383,4 @@ static func dev_setup(data: GameStateData, mode: String, dex: Dex) -> void:
 		data.set_flag(Tournament.MOOT_WINS, Tournament.TITLE_WINS)
 		for nation in ["england", "wales", "scotland", "ireland"]:
 			Standing.add(data, nation, Standing.TIER_POINTS[Standing.PILLAR])
+		HomeExtras.dev_setup(data)

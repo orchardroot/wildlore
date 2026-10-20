@@ -109,7 +109,7 @@ static func _check_species(sp: Dictionary, chart: TypeChart, dex: Dex, moves: Mo
 		e.append("species %s: needs Creaturepedia text and a real-world fact" % id)
 	return e
 
-const ITEM_KINDS := ["heal", "cure", "revive", "pp", "snare", "evo", "charm", "repel", "key", "material"]
+const ITEM_KINDS := ["heal", "meal", "cure", "revive", "pp", "snare", "evo", "charm", "repel", "key", "material"]
 const EXTRA_SNARES := ["night", "water", "fae", "hazel", "creel"]
 
 static func _check_items(db: ItemDB, dex: Dex) -> Array:
@@ -138,6 +138,11 @@ static func _check_item(it: Dictionary, dex: Dex) -> Array:
 		"heal", "pp":
 			if int(it.get("amount", 0)) < 1:
 				e.append("item %s: %s item needs amount >= 1" % [id, kind])
+		"meal":
+			for p in Meals.problems(it):
+				e.append("item %s: %s" % [id, p])
+			if str(it.get("effect_text", "")) == "":
+				e.append("item %s: a dish documents its effect (effect_text)" % id)
 		"revive":
 			var a := int(it.get("amount", 0))
 			if a < 1 or a > 100:

@@ -213,3 +213,17 @@ func test_step_text_reads_well() -> void:
 	assert_eq(Jobs.step_text(Jobs.get_job("j_beat"), {}, items, dex), "Win 2 wild battles in Macclesfield Forest")
 	assert_eq(Jobs.step_text(Jobs.get_job("j_show"), {"lvl": 20}, items, dex), "Show a Brook-type at level 20 or above")
 	_done()
+
+func test_board_says_why_a_job_wont_hand_in() -> void:
+	var d := _data()
+	var items := ItemDB.load_default()
+	Jobs.accept(d, "j_bring", "macclesfield")
+	Jobs.accept(d, "j_wales", "llanberis")
+	Jobs.note_catch(d, "slatelet", Fixtures.dex())
+	assert_eq(Jobs.progress_text(d, 1, Fixtures.dex()), "Have 0 of 3")
+	var why := Jobs.held_back(d, "england", items, Fixtures.dex())
+	assert_eq(why.size(), 2)
+	assert_true("still needs 3 Blackberries" in str(why[0]), str(why[0]))
+	assert_true("hand it in at a board in Wales" in str(why[1]), str(why[1]))
+	assert_eq(Jobs.held_back(d, "wales", items, Fixtures.dex()).size(), 1, "the Welsh job hands in there, so only the jam is held back")
+	_done()

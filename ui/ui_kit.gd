@@ -220,7 +220,7 @@ static func clear(node: Node) -> void:
 		c.queue_free()
 
 static func kind_name(kind: String) -> String:
-	return {"heal": "Healing", "cure": "Remedies", "revive": "Revivals", "pp": "Pudding", "snare": "Snares",
+	return {"heal": "Healing", "meal": "Dishes", "cure": "Remedies", "revive": "Revivals", "pp": "Pudding", "snare": "Snares",
 		"repel": "Sachets", "evo": "Curios", "charm": "Charms", "key": "Key Items", "material": "Materials"}.get(kind, kind.capitalize())
 
 ## "£1,234", or in euros with cur "eur" (see Wallet).

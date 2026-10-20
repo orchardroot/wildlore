@@ -444,6 +444,8 @@ const ROOFS := {
 static func building(w: int, d: int, style: String, door_x := -1, seed_value := 0, region := "") -> Array:
 	if style in Landmarks.SPECIAL:
 		return Landmarks.building(w, d, style, door_x, seed_value, region)
+	if StreetsEW.has_style(style):  # England/Wales/Isle of Man local street styles (world/landmarks_streets_ew.gd)
+		return StreetsEW.building(w, d, style, door_x, seed_value)
 	var rng := _rng(seed_value)
 	var st := _st()
 	var wall: Color = WALLS.get(style, WALLS.red_brick)

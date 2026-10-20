@@ -22,5 +22,61 @@
    "who": "Mair",
    "text": "He has a boat in a bottle on every shelf. I counted eleven. I have given up counting."
   }
+ ],
+ "teach_cook_welsh_cakes": [
+  {
+   "do": "if",
+   "flag": "recipe_welsh_cakes",
+   "then": [
+    {
+     "do": "say",
+     "who": "Mrs Evans",
+     "text": "Back for the Welsh Cakes? Kitchen's yours."
+    },
+    {
+     "do": "choice",
+     "text": "Borrow the kitchen?",
+     "options": [
+      "Yes, please",
+      "No, ta"
+     ],
+     "set": "_borrow_bench"
+    },
+    {
+     "do": "if",
+     "flag": "_borrow_bench",
+     "eq": 0,
+     "then": [
+      {
+       "do": "craft",
+       "bench": "borrowed"
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Mrs Evans",
+     "text": "Always warm, never for long. Have one. Have two. Go on."
+    },
+    {
+     "do": "say",
+     "who": "Mrs Evans",
+     "text": "Bakestone nice and hot, no grease, flip them once. Sugar while they're warm. You'll smell them half down the street, which is the point."
+    },
+    {
+     "do": "recipe",
+     "id": [
+      "welsh_cakes"
+     ]
+    },
+    {
+     "do": "say",
+     "who": "Mrs Evans",
+     "text": "Pop in whenever you've got the makings. Use my kitchen."
+    }
+   ]
+  }
  ]
 }

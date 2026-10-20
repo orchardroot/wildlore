@@ -21,6 +21,7 @@ func _initialize() -> void:
 				if not FileAccess.file_exists(path):
 					errors.append("zone %s: npc '%s' sprite '%s' has no art" % [zid, n.get("id", ""), sid])
 	errors.append_array(Quests.validate(Quests.all(), zones, Quests.all_settable()))  # data/quests: zones, flags set somewhere
+	errors.append_array(Festivals.validate(zones, dex, Quests.all()))  # data/festivals.json: towns, scripts, quests, creatures
 	errors.append_array(Gazetteer.validate(Gazetteer.all()))  # heritage plaques: unique ids, titles, no em-dashes
 	errors.append_array(Knacks.check(dex))  # every line has a knack, legends their own
 	errors.append_array(Coverage.check(dex, zones))

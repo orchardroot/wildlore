@@ -27,7 +27,7 @@ func _talkable(z: ZoneData) -> Dictionary:
 	for s in z.signs:
 		out[Vector2i(int(s.x), int(s.y))] = "sign"
 	for p in z.props:
-		if str(p.get("type", "")) in ["noticeboard", "post_box", "forage", "craft_bench", "garden_plot", "trophy_shelf"]:
+		if str(p.get("type", "")) in ["noticeboard", "post_box", "forage", "craft_bench", "garden_plot", "trophy_shelf", "souvenir_shelf", "plaque_board", "bird_table", "bug_hotel", "pond"]:
 			out[Vector2i(int(p.x), int(p.y))] = "prop " + str(p.type)
 	for n in z.npcs:
 		if str(n.get("move", "still")) == "still":

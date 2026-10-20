@@ -17,6 +17,7 @@ signal species_caught(species_id: String)
 
 var battle: Battle
 var data: GameStateData
+var _meal_pct := 0  # prize money bonus from a dish (Meals), this battle only
 var dex: Dex
 var move_db: MoveDB
 var items: ItemDB
@@ -123,6 +124,7 @@ func run() -> Dictionary:
 	await ui.intro(self)
 	if foe != null and not battle.over:
 		await _say(_intro_lines())
+	await _meal_buff()
 	if not battle.opening.is_empty():  # charms that act as the battle starts
 		await _play(battle.opening)
 	while not battle.over:
@@ -134,6 +136,22 @@ func run() -> Dictionary:
 	await _conclude()
 	return result
 
+## A dish eaten before this battle: a stat stage for the lead, or a note that snares / prize money are lucky.
+func _meal_buff() -> void:
+	var b := Meals.take_battle_buff(data, items, battle.kind)
+	if b.is_empty():
+		return
+	var lead := battle.current(Battle.PLAYER)
+	match str(b.buff):
+		"stat":
+			if lead == null or lead.change_stage(str(b.stat), 1) == 0:
+				return
+		"catch":
+			battle.meal_catch = float(b.mult)
+		"purse":
+			_meal_pct = int(b.pct)
+	await _say([str(b.text).replace("{name}", lead.display_name() if lead != null else "your lead")])
+
 func _intro_lines() -> Array[String]:
 	var out: Array[String] = []
 	if battle.double:
@@ -141,6 +159,7 @@ func _intro_lines() -> Array[String]:
 		out.append("%s wants to battle!" % t if not is_wild() else "Wild creatures appeared!")
 		out.append("%s sends out %s!" % [t, _names(battle.actives(Battle.FOE))])
 		out.append("Go! %s!" % _names(battle.actives(Battle.PLAYER)))
+		_weather_intro(out)
 		return out
 	var foe := battle.current(Battle.FOE)
 	var me := battle.current(Battle.PLAYER)
@@ -152,8 +171,15 @@ func _intro_lines() -> Array[String]:
 		var t := str(trainer.get("name", "A keeper"))
 		out.append("%s wants to battle!" % t)
 		out.append("%s sends out %s!" % [t, foe.display_name()])
+	_weather_intro(out)
 	out.append("Go! %s!" % me.display_name())
 	return out
+
+## The sky the battle starts under (the zone's own weather), if it is not plain clear.
+func _weather_intro(out: Array[String]) -> void:
+	var l := Weather.intro_line(battle.weather)
+	if l != "":
+		out.append(l)
 
 static func _names(cs: Array) -> String:
 	return " and ".join(cs.map(func(c): return c.display_name()))
@@ -380,6 +406,7 @@ func _conclude() -> void:
 				await _say([defeat])
 			var cur := Wallet.local(data)  # euros in the Republic, sterling everywhere else
 			if money > 0:
+				money += money * _meal_pct / 100
 				money = Wallet.localise(money, cur)
 				Wallet.earn(data, money, cur)
 				TrainerStats.earned(data, Wallet.in_sterling(money, cur))

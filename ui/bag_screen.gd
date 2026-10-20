@@ -2,7 +2,7 @@ extends MenuBase
 ## Bag: tabs by item kind, use on a party member via Bag.use_on. With arg "for:<n>" it targets party member n directly;
 ## "hold:<n>" shows only charms, to give party member n one to hold. Food is shared (it heals and they like you more).
 
-const KIND_ORDER := ["heal", "cure", "revive", "pp", "snare", "repel", "evo", "charm", "material", "key"]
+const KIND_ORDER := ["heal", "meal", "cure", "revive", "pp", "snare", "repel", "evo", "charm", "material", "key"]
 const USABLE := ["heal", "cure", "revive", "pp", "evo"]
 
 var _bag: Bag
@@ -180,6 +180,9 @@ func _show_desc(id: String) -> void:
 	_desc.add_child(UIKit.fill())
 	if str(it.get("kind", "")) == "repel" and Repel.active(Game.data):
 		_desc.add_child(UIKit.label("%d steps of lavender left" % Repel.steps_left(Game.data), 22, UIKit.GOLD))
+	if str(it.get("kind", "")) == "meal" and Meals.active(Game.data) == id:
+		var left := Meals.steps_left(Game.data)
+		_desc.add_child(UIKit.label("Still working%s" % (" (%d steps left)" % left if left > 0 else ""), 22, UIKit.GOLD))
 	var price := int(it.get("price", 0))
 	if price > 0:
 		var cur := Wallet.local(Game.data)  # what a shop here would give for it
@@ -199,6 +202,13 @@ func _item_pressed(id: String) -> void:
 	if kind == "repel":
 		var r := Repel.use(Game.data, id, Game.items)
 		Audio.sfx("confirm" if r.ok else "bump")
+		_note.text = str(r.text)
+		if r.ok:
+			_rebuild_keep_note()
+		return
+	if kind == "meal":  # a dish: eaten by you, no one to pick
+		var r := Meals.eat(Game.data, id, Game.items)
+		Audio.sfx("heal" if r.ok else "bump")
 		_note.text = str(r.text)
 		if r.ok:
 			_rebuild_keep_note()

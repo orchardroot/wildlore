@@ -490,7 +490,7 @@ static func _build(variant: String, part: String) -> ArrayMesh:
 static func _bench_mesh(bench: String) -> ArrayMesh:
 	var rng := Meshes._rng(hash(bench))
 	var st := Meshes._st()
-	if bench == "kitchen":
+	if bench == "kitchen" or bench == "hob":
 		# a mixing bowl, a rolling pin and a jar of something purple
 		Meshes.cylinder(st, Vector3(-0.15, 0, 0), 0.16, 0.12, 8, Color("e8e0cc"))
 		Meshes.blob(st, Vector3(-0.15, 0.1, 0), Vector3(0.12, 0.03, 0.12), Color("c8a070"), rng, 0.1)

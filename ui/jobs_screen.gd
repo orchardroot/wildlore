@@ -79,6 +79,7 @@ func setup(arg: String) -> void:
 		news.append("A parcel from the landlord is pinned up with your name on it: %s. On the house." % Game.items.get_item(parcel).get("name", parcel))
 	if not news.is_empty():
 		Audio.sfx("item")
+	news.append_array(Jobs.held_back(Game.data, _nation, Game.items, Game.dex))
 	_say.text = " ".join(news) if not news.is_empty() else _greeting()
 	_refresh()
 
@@ -98,6 +99,12 @@ func _refresh() -> void:
 		_rows.append({"kind": "held", "job": a[2], "slot": a[0]})
 	UIKit.clear(_list_col)
 	_buttons.clear()
+	var on := Festivals.whats_on()  # real-date festivals on now or soon (data/festivals.json)
+	if not on.is_empty():
+		_list_col.add_child(_heading("What's on"))
+		for line in on:
+			_list_col.add_child(_note(line))
+		_list_col.add_child(UIKit.spacer(8))
 	_list_col.add_child(_heading("Today's notices"))
 	var offers := _rows.filter(func(r): return r.kind == "offer")
 	if offers.is_empty():

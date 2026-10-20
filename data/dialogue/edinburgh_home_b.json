@@ -10,5 +10,61 @@
    "who": "Mr Ferguson",
    "text": "The Old Town built up and up because it was squeezed inside the city wall. Some of the tenements climbed ten or eleven storeys, long before anyone said skyscraper."
   }
+ ],
+ "teach_cook_haggis_neeps_tatties": [
+  {
+   "do": "if",
+   "flag": "recipe_haggis_neeps_tatties",
+   "then": [
+    {
+     "do": "say",
+     "who": "Mr Fraser",
+     "text": "Back for the Haggis, Neeps and Tatties? Kitchen's yours."
+    },
+    {
+     "do": "choice",
+     "text": "Borrow the kitchen?",
+     "options": [
+      "Yes, please",
+      "No, ta"
+     ],
+     "set": "_borrow_bench"
+    },
+    {
+     "do": "if",
+     "flag": "_borrow_bench",
+     "eq": 0,
+     "then": [
+      {
+       "do": "craft",
+       "bench": "borrowed"
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Mr Fraser",
+     "text": "Is it Burns Night? It's always Burns Night in this house."
+    },
+    {
+     "do": "say",
+     "who": "Mr Fraser",
+     "text": "Neeps are swede, not turnip, whatever the shop says. Mash them with plenty of butter and pepper. Then a wee dram of gravy over the lot."
+    },
+    {
+     "do": "recipe",
+     "id": [
+      "haggis_neeps_tatties"
+     ]
+    },
+    {
+     "do": "say",
+     "who": "Mr Fraser",
+     "text": "Pop in whenever you've got the makings. Use my kitchen."
+    }
+   ]
+  }
  ]
 }

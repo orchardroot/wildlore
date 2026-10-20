@@ -16,7 +16,7 @@ static func roll(zone: ZoneData, tile: String, phase: String, weather: String, r
 	var kind: String = {"tall_grass": "grass", "deep_water": "water", "bog": "grass"}.get(tile, "")
 	if kind == "":
 		return {}
-	if not rng.chance(step_chance(tile)):
+	if not rng.chance(step_chance(tile) * Meals.lure_mult(flags)):
 		return {}
 	var list := featured(candidates(zone, kind, phase, weather, flags), featured_species)
 	if list.is_empty():
@@ -61,7 +61,8 @@ static func candidates(zone: ZoneData, kind: String, phase: String, weather: Str
 		var weathers: Array = e.get("weather", [])
 		if (times.is_empty() or phase in times) and (weathers.is_empty() or weather in weathers):
 			out.append(e)
-	return out
+	out.append_array(Festivals.extra_encounters(zone.id, kind, zone.encounters.get(kind, [])))  # a festival creature, while it is on
+	return WeatherWild.shift(out, weather, WeatherWild.dex_types)  # the sky favours some types (3.1)
 
 ## The list with `species`' weight tripled (copies; the zone's own table is untouched). "" or absent: unchanged.
 static func featured(list: Array, species: String) -> Array:

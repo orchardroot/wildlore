@@ -15,5 +15,61 @@
    "who": "Nan Kelleher",
    "text": "If something is squealing by the bins at night, that is a Binfox. Foxes see in the dark with cat-like pupils, so a torch is no use for sneaking."
   }
+ ],
+ "teach_cook_colcannon": [
+  {
+   "do": "if",
+   "flag": "recipe_colcannon",
+   "then": [
+    {
+     "do": "say",
+     "who": "Mam Deasy",
+     "text": "Back for the Colcannon? Kitchen's yours."
+    },
+    {
+     "do": "choice",
+     "text": "Borrow the kitchen?",
+     "options": [
+      "Yes, please",
+      "No, ta"
+     ],
+     "set": "_borrow_bench"
+    },
+    {
+     "do": "if",
+     "flag": "_borrow_bench",
+     "eq": 0,
+     "then": [
+      {
+       "do": "craft",
+       "bench": "borrowed"
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Mam Deasy",
+     "text": "Mind your teeth, there's a ring in the colcannon every Hallowe'en. Not yet, though."
+    },
+    {
+     "do": "say",
+     "who": "Mam Deasy",
+     "text": "Mash the spuds, wilt the greens, fold it together, and dig a hole on top for the butter. You eat from the outside in, dipping."
+    },
+    {
+     "do": "recipe",
+     "id": [
+      "colcannon"
+     ]
+    },
+    {
+     "do": "say",
+     "who": "Mam Deasy",
+     "text": "Pop in whenever you've got the makings. Use my kitchen."
+    }
+   ]
+  }
  ]
 }
