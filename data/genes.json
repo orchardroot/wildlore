@@ -1,0 +1,424 @@
+{
+ "_doc": "Good Stock genetics (docs/design/2026-10-21-breeding.md, section 2). 'loci' must match Genetics.LOCI (alleles per locus; validator-checked). 'lines' gives every evolution line its kindred. Kindreds that do not breed still get a genome so nothing special-cases them.",
+ "loci": {
+  "coat": {
+   "alleles": [
+    "+",
+    "c"
+   ],
+   "mode": "recessive",
+   "note": "cc wears an uncommon coat; +c carries"
+  },
+  "tint": {
+   "alleles": [
+    "W",
+    "R",
+    "G",
+    "S",
+    "D",
+    "M"
+   ],
+   "mode": "codominant",
+   "note": "only read when coat is cc; two tints make a roan"
+  },
+  "mark": {
+   "alleles": [
+    "B",
+    "b"
+   ],
+   "mode": "incomplete",
+   "note": "BB strong, Bb medium, bb none"
+  },
+  "knack": {
+   "alleles": [
+    "K",
+    "k",
+    "f"
+   ],
+   "mode": "recessive",
+   "note": "kk shows the line's second knack; ff is the fault"
+  },
+  "ginger": {
+   "alleles": [
+    "O",
+    "o"
+   ],
+   "mode": "sex_linked",
+   "note": "O is ginger; Oo in the two-copy sex is tortoiseshell"
+  },
+  "frame1": {
+   "alleles": [
+    "+",
+    "-"
+   ],
+   "mode": "additive"
+  },
+  "frame2": {
+   "alleles": [
+    "+",
+    "-"
+   ],
+   "mode": "additive"
+  },
+  "frame3": {
+   "alleles": [
+    "+",
+    "-"
+   ],
+   "mode": "additive"
+  },
+  "frame4": {
+   "alleles": [
+    "+",
+    "-"
+   ],
+   "mode": "additive"
+  }
+ },
+ "tints": {
+  "W": "winter",
+  "R": "autumn",
+  "G": "summer",
+  "S": "spring",
+  "D": "storm",
+  "M": "moonlit"
+ },
+ "wild": {
+  "carrier_coat": 0.125,
+  "carrier_knack": 0.1,
+  "ginger": 0.1,
+  "bold_given_k": 0.85,
+  "bold": 0.5,
+  "frame_plus": 0.5
+ },
+ "linkage": {
+  "loci": [
+   "mark",
+   "knack"
+  ],
+  "recombination": 0.15
+ },
+ "sport_one_in": 64,
+ "inbreeding": {
+  "refuse_at": 0.25,
+  "depression_at": 0.125
+ },
+ "kindreds": {
+  "beast": {
+   "sex": "xy",
+   "breeds": true,
+   "steps": [
+    1500,
+    3000
+   ],
+   "season": "spring"
+  },
+  "fowl": {
+   "sex": "zw",
+   "breeds": true,
+   "steps": [
+    1500,
+    3000
+   ],
+   "season": "spring"
+  },
+  "scale": {
+   "sex": "xy",
+   "breeds": true,
+   "steps": [
+    2000,
+    3500
+   ],
+   "season": "summer"
+  },
+  "fin": {
+   "sex": "xy",
+   "breeds": true,
+   "steps": [
+    2000,
+    3500
+   ],
+   "season": "any"
+  },
+  "shell": {
+   "sex": "xy",
+   "breeds": true,
+   "steps": [
+    2500,
+    4000
+   ],
+   "season": "any"
+  },
+  "wing": {
+   "sex": "xy",
+   "breeds": true,
+   "steps": [
+    2000,
+    3500
+   ],
+   "season": "any"
+  },
+  "green": {
+   "sex": "none",
+   "breeds": false
+  },
+  "uncanny": {
+   "sex": "none",
+   "breeds": false
+  },
+  "forged": {
+   "sex": "none",
+   "breeds": false
+  },
+  "legend": {
+   "sex": "none",
+   "breeds": false
+  }
+ },
+ "lines": {
+  "afanc": "uncanny",
+  "azurana": "uncanny",
+  "balor": "uncanny",
+  "bansheen": "uncanny",
+  "barkdeer": "beast",
+  "barnling": "fowl",
+  "basaltling": "uncanny",
+  "baskling": "fin",
+  "bathlet": "uncanny",
+  "beaconet": "forged",
+  "bertilak": "uncanny",
+  "binfox": "beast",
+  "bittling": "wing",
+  "bleeplet": "forged",
+  "bobbin": "forged",
+  "bodminax": "beast",
+  "bogglet": "uncanny",
+  "borelet": "uncanny",
+  "bran": "forged",
+  "brinelet": "uncanny",
+  "brineling": "shell",
+  "brockling": "beast",
+  "brownie": "uncanny",
+  "bulbkin": "uncanny",
+  "buntling": "fowl",
+  "cahowl": "fowl",
+  "cailleach": "uncanny",
+  "calfrein": "beast",
+  "caperling": "fowl",
+  "chalkling": "uncanny",
+  "charkeel": "uncanny",
+  "chipgull": "fowl",
+  "churrjar": "fowl",
+  "cinderling": "uncanny",
+  "cindershell": "shell",
+  "clearfin": "fin",
+  "cluricaun": "uncanny",
+  "cobblet": "uncanny",
+  "cocoshell": "forged",
+  "conchling": "shell",
+  "connie": "beast",
+  "coolet": "beast",
+  "cooplet": "fowl",
+  "cragchough": "fowl",
+  "crakeling": "fowl",
+  "cranelet": "fowl",
+  "crawfisher": "shell",
+  "crexling": "fowl",
+  "croakle": "scale",
+  "crockling": "uncanny",
+  "crumblet": "uncanny",
+  "cuppeen": "uncanny",
+  "cusith": "beast",
+  "cutlet": "forged",
+  "ddraig": "scale",
+  "deliverling": "forged",
+  "diaboulder": "uncanny",
+  "dipling": "fin",
+  "divotling": "forged",
+  "dockling": "forged",
+  "dodo": "fowl",
+  "dolfeen": "beast",
+  "dolphlet": "beast",
+  "downlet": "uncanny",
+  "dozelet": "beast",
+  "driftmaw": "uncanny",
+  "dripkin": "uncanny",
+  "dubhlet": "uncanny",
+  "ductling": "forged",
+  "duneskink": "scale",
+  "eaglet": "fowl",
+  "eildonmare": "uncanny",
+  "elverlet": "fin",
+  "enbarr": "uncanny",
+  "fawnlet": "beast",
+  "fentiger": "beast",
+  "fionnling": "uncanny",
+  "fizzlet": "uncanny",
+  "flamingale": "uncanny",
+  "flaxling": "green",
+  "flintling": "uncanny",
+  "flittermouse": "beast",
+  "flyling": "green",
+  "foalmoor": "beast",
+  "forcelet": "green",
+  "gannetling": "fowl",
+  "gaugelet": "forged",
+  "gentlet": "green",
+  "glimmerjaw": "fin",
+  "glisglis": "beast",
+  "gloucelet": "forged",
+  "glowmite": "uncanny",
+  "graftling": "forged",
+  "greenman": "green",
+  "grinalkin": "uncanny",
+  "gritling": "uncanny",
+  "grizzlet": "beast",
+  "gwyllgi": "beast",
+  "haarling": "uncanny",
+  "hairyhands": "uncanny",
+  "herdlet": "beast",
+  "hereward": "forged",
+  "herne": "uncanny",
+  "hobling": "uncanny",
+  "holtling": "beast",
+  "hootlet": "fowl",
+  "hoplet": "green",
+  "hopperlet": "fowl",
+  "horselet": "beast",
+  "ironwatch": "forged",
+  "jamlet": "uncanny",
+  "jetling": "uncanny",
+  "johnnyrook": "fowl",
+  "kelpie": "uncanny",
+  "kerryspot": "beast",
+  "kidgruff": "beast",
+  "kindlet": "scale",
+  "kitelet": "fowl",
+  "knucker": "scale",
+  "lambton": "beast",
+  "legionette": "uncanny",
+  "lekling": "fowl",
+  "levanter": "uncanny",
+  "leveret": "beast",
+  "liagling": "uncanny",
+  "lincolnimp": "uncanny",
+  "loaghtan": "beast",
+  "macaquet": "beast",
+  "marilwyd": "uncanny",
+  "martling": "beast",
+  "megalorn": "uncanny",
+  "merrow": "uncanny",
+  "midgie": "wing",
+  "minchman": "uncanny",
+  "minkshade": "beast",
+  "mistfrond": "green",
+  "moldiwarp": "beast",
+  "moolet": "beast",
+  "morrigan": "uncanny",
+  "mustling": "uncanny",
+  "natterjack": "scale",
+  "neagheen": "uncanny",
+  "nessie": "uncanny",
+  "nuckelavee": "uncanny",
+  "oakling": "uncanny",
+  "orcalet": "beast",
+  "oriolet": "fowl",
+  "ospret": "fowl",
+  "pandolph": "uncanny",
+  "parakit": "fowl",
+  "parrlet": "fin",
+  "peatling": "uncanny",
+  "pepperling": "wing",
+  "peregrin": "fowl",
+  "petrelash": "fowl",
+  "pigling": "beast",
+  "pinchkin": "shell",
+  "pincray": "shell",
+  "pipkin": "fowl",
+  "pixling": "uncanny",
+  "plodlet": "beast",
+  "pollanet": "fin",
+  "pooka": "uncanny",
+  "prinny": "uncanny",
+  "prismite": "green",
+  "ptarmlet": "fowl",
+  "puffkin": "green",
+  "puffling": "fowl",
+  "pupplash": "beast",
+  "railspark": "forged",
+  "ravanne": "uncanny",
+  "raylette": "fin",
+  "reivling": "beast",
+  "rhonewraith": "legend",
+  "rivetling": "forged",
+  "roachroo": "beast",
+  "roodstone": "uncanny",
+  "rooklet": "fowl",
+  "rustelver": "forged",
+  "saggit": "uncanny",
+  "saltcrust": "uncanny",
+  "sapperling": "forged",
+  "sarsenite": "uncanny",
+  "scorchbun": "uncanny",
+  "scuttlet": "beast",
+  "selklet": "uncanny",
+  "shieldbiter": "forged",
+  "shuck": "beast",
+  "sikawhistle": "beast",
+  "silvershod": "forged",
+  "skaldling": "uncanny",
+  "slabpup": "beast",
+  "slatelet": "uncanny",
+  "sloopling": "uncanny",
+  "smeltling": "uncanny",
+  "snowhare": "beast",
+  "sodling": "uncanny",
+  "sphagnet": "uncanny",
+  "spikkin": "beast",
+  "squibbet": "wing",
+  "staffling": "uncanny",
+  "stagbeet": "wing",
+  "stalklet": "fowl",
+  "starlet": "fowl",
+  "steamlet": "forged",
+  "stencilette": "forged",
+  "stoatlet": "beast",
+  "stoorworm": "scale",
+  "sulisa": "fowl",
+  "sulphurhen": "fowl",
+  "swelklet": "uncanny",
+  "swiftlet": "fowl",
+  "tapknock": "uncanny",
+  "taywraith": "uncanny",
+  "tchian": "uncanny",
+  "ternlet": "fowl",
+  "tesserite": "uncanny",
+  "thistlet": "green",
+  "thornwyn": "green",
+  "thumbrail": "uncanny",
+  "tickhopper": "forged",
+  "tinnet": "forged",
+  "tootlet": "forged",
+  "treadlet": "forged",
+  "tubemole": "beast",
+  "turvling": "uncanny",
+  "tussipit": "green",
+  "twaface": "uncanny",
+  "tylwyth": "uncanny",
+  "versling": "uncanny",
+  "volet": "beast",
+  "vraicling": "uncanny",
+  "warrah": "beast",
+  "weedjen": "uncanny",
+  "wessexwyrm": "scale",
+  "whiffhorn": "uncanny",
+  "wickerling": "uncanny",
+  "wideling": "uncanny",
+  "wildkit": "beast",
+  "wirefoot": "uncanny",
+  "wishtling": "uncanny",
+  "wispet": "uncanny",
+  "wurmlet": "scale",
+  "zigzlet": "scale"
+ }
+}
