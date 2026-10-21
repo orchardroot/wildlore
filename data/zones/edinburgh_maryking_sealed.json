@@ -1,0 +1,103 @@
+{
+ "id": "edinburgh_maryking_sealed",
+ "name": "The Sealed Close",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "brazier",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "brazier",
+   "x": 7,
+   "y": 1
+  },
+  {
+   "type": "wall_picture",
+   "x": 4,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  },
+  {
+   "type": "table",
+   "x": 3,
+   "y": 3
+  },
+  {
+   "type": "slate_heap",
+   "x": 7,
+   "y": 5
+  },
+  {
+   "type": "tomb_chest",
+   "x": 1,
+   "y": 5
+  }
+ ],
+ "warps": [
+  {
+   "x": 4,
+   "y": 7,
+   "to": "edinburgh_maryking",
+   "tx": 3,
+   "ty": 1,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  4,
+  6
+ ],
+ "rows": [
+  "xxxxxxxxx",
+  "x+++++++x",
+  "x+++++++x",
+  "x+++++++x",
+  "x+++++++x",
+  "x+++++++x",
+  "x+++++++x",
+  "x+++D+++x",
+  "xxxxxxxxx"
+ ],
+ "examine": [
+  {
+   "x": 4,
+   "y": 1,
+   "text": [
+    "Plague came to Edinburgh in 1645, and killed a great many people in these crowded closes.",
+    "The story of victims bricked up alive is a later legend. The truth is sad enough without extra ghosts."
+   ]
+  },
+  {
+   "x": 3,
+   "y": 4,
+   "text": [
+    "A heavy table with a candle stub and a clay pipe. Somebody has been through here recently, and not in the 1600s.",
+    "Under the pipe is a pouch of coins, most of them very old and very small."
+   ],
+   "money": 5,
+   "flag": "maryking_sealed_coins"
+  },
+  {
+   "x": 1,
+   "y": 4,
+   "text": [
+    "A chest of old household things: pewter, a cracked jug, a lump of fuel the Close once burned.",
+    "The Close was cold. Edinburgh in winter has never been polite."
+   ],
+   "find": {
+    "item": "peat",
+    "n": 1
+   }
+  }
+ ]
+}
