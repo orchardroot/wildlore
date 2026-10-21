@@ -99,6 +99,17 @@
    "tx": 18,
    "ty": 53,
    "facing": "down"
+  },
+  {
+   "x": 7,
+   "y": 1,
+   "to": "liverpool_williamson",
+   "tx": 11,
+   "ty": 11,
+   "facing": "up",
+   "hidden": {
+    "reveal": "liverpool_williamson_found"
+   }
   }
  ],
  "edges": {},
@@ -129,5 +140,16 @@
   "x||||||||||x",
   "x|||||D||||x",
   "xxxxxxxxxxxx"
+ ],
+ "examine": [
+  {
+   "x": 6,
+   "y": 1,
+   "text": [
+    "Nan's chimney breast sounds hollow when you knock. A cold draught comes up from behind it, and there is a gap where a brick should be.",
+    "Edge Hill is riddled with tunnels dug by Joseph Williamson, a tobacco merchant who paid men to dig for years and never said why. A stair leads down."
+   ],
+   "flag": "liverpool_williamson_found"
+  }
  ]
 }
