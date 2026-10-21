@@ -1,0 +1,41 @@
+{
+ "id": "angu_skipper",
+ "name": "Skipper Rey",
+ "class": "Sloop Skipper",
+ "sprite": "sailor",
+ "party": [
+  {
+   "species": "clownbill",
+   "level": 96
+  },
+  {
+   "species": "sloopracer",
+   "level": 96
+  },
+  {
+   "species": "bayrunner",
+   "level": 96
+  },
+  {
+   "species": "pierlord",
+   "level": 96
+  }
+ ],
+ "ai": "trainer",
+ "money": 4500,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Skipper Rey",
+   "text": "Racing sloops are built by hand, without plans, from memory. Mine's called Sheer Luck. I've never had any."
+  },
+  {
+   "do": "say",
+   "who": "Skipper Rey",
+   "text": "Let's have a go."
+  }
+ ],
+ "win": "Fair wind, fair fight.",
+ "after": "A good skipper reads the wind and ignores the crew.",
+ "scaled_floor": 95
+}

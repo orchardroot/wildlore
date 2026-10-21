@@ -1,0 +1,41 @@
+{
+ "id": "bm_collector",
+ "name": "Collector Pell",
+ "class": "Egg Collector",
+ "sprite": "explorer",
+ "party": [
+  {
+   "species": "hushwing",
+   "level": 96
+  },
+  {
+   "species": "gwyllgi",
+   "level": 96
+  },
+  {
+   "species": "fentiger",
+   "level": 97
+  },
+  {
+   "species": "hootlet",
+   "level": 95
+  }
+ ],
+ "ai": "trainer",
+ "money": 4800,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Collector Pell",
+   "text": "Nothing illegal in looking at a nest, is there? I only wanted a look. And possibly a souvenir. And possibly a quick sale."
+  },
+  {
+   "do": "say",
+   "who": "Collector Pell",
+   "text": "Oh, you're the one the warden sent. Lovely."
+  }
+ ],
+ "win": "Fine, fine. I'll go and look at a postcard instead.",
+ "after": "Turns out that a cahow egg is worth precisely nothing to anyone but the cahow.",
+ "scaled_floor": 95
+}

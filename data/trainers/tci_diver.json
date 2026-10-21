@@ -1,0 +1,41 @@
+{
+ "id": "tci_diver",
+ "name": "Diver Handfield",
+ "class": "Reef Diver",
+ "sprite": "surfer",
+ "party": [
+  {
+   "species": "dolfeen",
+   "level": 96
+  },
+  {
+   "species": "estuarch",
+   "level": 96
+  },
+  {
+   "species": "orcaird",
+   "level": 96
+  },
+  {
+   "species": "baskarr",
+   "level": 96
+  }
+ ],
+ "ai": "trainer",
+ "money": 4500,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Diver Handfield",
+   "text": "The Turks Island Passage is a rough one: deep water, strong current, three centuries of wrecks. I dive it for fun."
+  },
+  {
+   "do": "say",
+   "who": "Diver Handfield",
+   "text": "Join me?"
+  }
+ ],
+ "win": "A decent dive. I'd go again.",
+ "after": "You'll find old anchors down there, and even older opinions.",
+ "scaled_floor": 95
+}

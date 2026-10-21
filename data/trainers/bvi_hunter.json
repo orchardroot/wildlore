@@ -1,0 +1,41 @@
+{
+ "id": "bvi_hunter",
+ "name": "Treasure Hunter Scrope",
+ "class": "Rival Treasure Hunter",
+ "sprite": "explorer",
+ "party": [
+  {
+   "species": "hushwing",
+   "level": 96
+  },
+  {
+   "species": "gwyllgi",
+   "level": 96
+  },
+  {
+   "species": "fentiger",
+   "level": 96
+  },
+  {
+   "species": "hootlet",
+   "level": 96
+  }
+ ],
+ "ai": "trainer",
+ "money": 4800,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Treasure Hunter Scrope",
+   "text": "I've got a map, a shovel and a metal detector, and I will tell you with total honesty that I have found nothing."
+  },
+  {
+   "do": "say",
+   "who": "Treasure Hunter Scrope",
+   "text": "You've got a map too? Sorry, that was my line."
+  }
+ ],
+ "win": "Fine. Keep your treasure. I'll keep my hat.",
+ "after": "Norman Island's caves are meant to hide pirate treasure. They hide very good snorkelling. I've had to settle.",
+ "scaled_floor": 95
+}

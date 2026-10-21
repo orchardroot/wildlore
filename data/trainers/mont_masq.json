@@ -1,0 +1,41 @@
+{
+ "id": "mont_masq",
+ "name": "Masquerader Caines",
+ "class": "Masquerader",
+ "sprite": "festival_goer",
+ "party": [
+  {
+   "species": "skaldwake",
+   "level": 96
+  },
+  {
+   "species": "murmurant",
+   "level": 96
+  },
+  {
+   "species": "railspark",
+   "level": 96
+  },
+  {
+   "species": "stormswift",
+   "level": 97
+  }
+ ],
+ "ai": "trainer",
+ "money": 4500,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Masquerader Caines",
+   "text": "Masquerade dancers at Christmas and St Patrick's: ribbons, mirrors, a very tall hat. I'm a Mocko Jumbie in my spare time."
+  },
+  {
+   "do": "say",
+   "who": "Masquerader Caines",
+   "text": "Dance or fight?"
+  }
+ ],
+ "win": "Fair play. The ribbons are yours.",
+ "after": "A Mocko Jumbie is a stilt-walker, meant to look down on evil spirits. Also on people. It's very hard to be modest at three metres.",
+ "scaled_floor": 95
+}

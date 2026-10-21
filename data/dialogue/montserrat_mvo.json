@@ -1,0 +1,151 @@
+{
+ "mont_scientist": [
+  {
+   "do": "if",
+   "flag": "q_overseas_montserrat_ash_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Volcanologist",
+     "text": "The ash from the boundary shows fine glassy shards and small crystals. The dome is steady. Thanks to you, the lab's a bit happier."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_overseas_montserrat_ash_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_overseas_montserrat_ash_1",
+       "then": [
+        {
+         "do": "if",
+         "flag": "q_overseas_montserrat_ash_2",
+         "then": [
+          {
+           "do": "if",
+           "flag": "q_overseas_montserrat_ash_3",
+           "then": [
+            {
+             "do": "if",
+             "flag": "trainer_mont_trespass",
+             "then": [
+              {
+               "do": "say",
+               "who": "Volcanologist",
+               "text": "Mallon's been seen off. The boundary's clear, and my sample is in the lab. A good day's work."
+              },
+              {
+               "do": "set",
+               "flag": "q_overseas_montserrat_ash_4"
+              },
+              {
+               "do": "give_item",
+               "item": "pumice_charm"
+              },
+              {
+               "do": "set",
+               "flag": "q_overseas_montserrat_ash_done"
+              },
+              {
+               "do": "say",
+               "who": "Volcanologist",
+               "text": "Take this pumice. It's from a flow. It's so light it floats. Hold it and think of the island: tough, young and not done yet."
+              }
+             ],
+             "else": [
+              {
+               "do": "say",
+               "who": "Volcanologist",
+               "text": "One more job: a tourist named Mallon keeps jumping the boundary to get a photo of Plymouth. He's near the old town. Persuade him to leave. With creatures, if necessary."
+              }
+             ]
+            }
+           ],
+           "else": [
+            {
+             "do": "when",
+             "cond": "has_cinderling",
+             "then": [
+              {
+               "do": "say",
+               "who": "Volcanologist",
+               "text": "A cinderling! Look at the glow in the crack. That's a young one that was born of the volcano."
+              },
+              {
+               "do": "set",
+               "flag": "q_overseas_montserrat_ash_3"
+              }
+             ],
+             "else": [
+              {
+               "do": "say",
+               "who": "Volcanologist",
+               "text": "Now a cinderling, please: catch one on the south slopes, and show me. They live where the ground's warm."
+              }
+             ]
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Volcanologist",
+           "text": "That's the ash: fine, glassy and still a touch warm. Into the lab with it. Thank you."
+          },
+          {
+           "do": "set",
+           "flag": "q_overseas_montserrat_ash_2"
+          },
+          {
+           "do": "say",
+           "who": "Volcanologist",
+           "text": "Next, a cinderling: a baby of the volcano, ash and spark. Catch one on the warm southern slopes and show me."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Volcanologist",
+         "text": "Ash sample first. Go to the ash drift near the Exclusion Zone boundary below Garibaldi Hill and scoop some in the jar. Don't go past the line. Ever."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Volcanologist",
+       "text": "I'm the duty volcanologist. The volcano's been active since 1995. We monitor it day and night: seismographs, cameras, GPS and gas."
+      },
+      {
+       "do": "say",
+       "who": "Volcanologist",
+       "text": "Would you help? I need an ash sample from the boundary, a cinderling to examine, and someone to keep a tourist from jumping the zone. There's a good lunch in it."
+      },
+      {
+       "do": "set",
+       "flag": "q_overseas_montserrat_ash_started"
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "mont_intern": [
+  {
+   "do": "say",
+   "who": "Intern",
+   "text": "I've been here three weeks. I've learned that a quiet volcano is a loud problem and a loud volcano is a very loud problem."
+  },
+  {
+   "do": "say",
+   "who": "Intern",
+   "text": "The seismograph draws wiggles. I'm not allowed to say they're pretty. They are, though."
+  }
+ ]
+}

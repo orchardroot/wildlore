@@ -1,0 +1,41 @@
+{
+ "id": "bvi_barman_t",
+ "name": "Barman Cass",
+ "class": "Beach Barman",
+ "sprite": "shopkeeper",
+ "party": [
+  {
+   "species": "jamlet",
+   "level": 96
+  },
+  {
+   "species": "marmalord",
+   "level": 96
+  },
+  {
+   "species": "scorchbun",
+   "level": 96
+  },
+  {
+   "species": "mustardrake",
+   "level": 96
+  }
+ ],
+ "ai": "trainer",
+ "money": 4500,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Barman Cass",
+   "text": "A Painkiller is one part rum, four parts pineapple, a splash of orange, two of coconut cream, a grating of nutmeg. I'm not telling you the rest."
+  },
+  {
+   "do": "say",
+   "who": "Barman Cass",
+   "text": "Have a go?"
+  }
+ ],
+ "win": "On the house. The drink, I mean, not the fight.",
+ "after": "Nutmeg on top. Always nutmeg. Anything else is just juice with ideas.",
+ "scaled_floor": 95
+}

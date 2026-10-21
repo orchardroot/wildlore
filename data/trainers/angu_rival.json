@@ -1,0 +1,41 @@
+{
+ "id": "angu_rival",
+ "name": "Rival Skipper Kincaid",
+ "class": "Rival Skipper",
+ "sprite": "sailor",
+ "party": [
+  {
+   "species": "sloopracer",
+   "level": 97
+  },
+  {
+   "species": "plungebeak",
+   "level": 96
+  },
+  {
+   "species": "stoopfalcon",
+   "level": 96
+  },
+  {
+   "species": "orcaird",
+   "level": 96
+  }
+ ],
+ "ai": "trainer",
+ "money": 4800,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Rival Skipper Kincaid",
+   "text": "Race day, and I've the fastest sloop in Road Bay. I've never been beaten by anyone with a bucket."
+  },
+  {
+   "do": "say",
+   "who": "Rival Skipper Kincaid",
+   "text": "Is that a bucket? Never mind. Let's race."
+  }
+ ],
+ "win": "Fine. You can borrow the plank. I'll find another.",
+ "after": "I'll be back next year. The sloop's not got any younger but my excuses have.",
+ "scaled_floor": 95
+}

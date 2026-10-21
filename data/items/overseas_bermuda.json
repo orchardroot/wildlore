@@ -1,0 +1,49 @@
+[
+ {
+  "id": "bm_fish_chowder",
+  "name": "Bermuda Fish Chowder",
+  "kind": "heal",
+  "price": 480,
+  "battle": true,
+  "field": true,
+  "amount": 190,
+  "desc": "Fish, tomato, onion, thyme, a dash of black rum and sherry peppers at the table. So thick a spoon stands up. Restores 190 HP."
+ },
+ {
+  "id": "bm_fish_sandwich",
+  "name": "Bermuda Fish Sandwich",
+  "kind": "heal",
+  "price": 380,
+  "battle": true,
+  "field": true,
+  "amount": 150,
+  "desc": "Fried fish and tartare sauce between two slices of raisin bread, which is the correct way and no, you cannot argue. Restores 150 HP."
+ },
+ {
+  "id": "bm_rum_cake",
+  "name": "Bermuda Rum Cake",
+  "kind": "heal",
+  "price": 420,
+  "battle": true,
+  "field": true,
+  "amount": 165,
+  "desc": "A dense, buttery rum cake, sold in a tin to people who then eat it before they get home. Restores 165 HP."
+ },
+ {
+  "id": "longtail_feather",
+  "name": "Longtail Feather",
+  "kind": "charm",
+  "price": 0,
+  "battle": false,
+  "field": true,
+  "wild": false,
+  "desc": "A single white tail streamer dropped by a longtail, Bermuda's tropicbird, which arrives in spring and dives like a thrown spoon.",
+  "effect_text": "Gale moves hurt it 25% less.",
+  "charm": {
+   "effect": "resist",
+   "type": "gale",
+   "mult": 0.75
+  },
+  "msg": "{name}'s Longtail Feather took the wind out of it!"
+ }
+]

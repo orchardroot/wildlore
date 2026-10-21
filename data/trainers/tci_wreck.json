@@ -1,0 +1,49 @@
+{
+ "id": "tci_wreck",
+ "name": "Captain of the Molasses Reef",
+ "class": "Local Legend",
+ "sprite": "sailor",
+ "party": [
+  {
+   "species": "conchord",
+   "level": 99
+  },
+  {
+   "species": "flamingale",
+   "level": 98
+  },
+  {
+   "species": "seaventure",
+   "level": 99
+  },
+  {
+   "species": "sandbarray",
+   "level": 98
+  },
+  {
+   "species": "aegir",
+   "level": 99
+  },
+  {
+   "species": "estuarch",
+   "level": 98
+  }
+ ],
+ "ai": "trainer",
+ "money": 9500,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Captain of the Molasses Reef",
+   "text": "I sank on the Molasses Reef about five hundred years ago, and not a soul on land noticed until a diver found my cannon in the nineteen-seventies."
+  },
+  {
+   "do": "say",
+   "who": "Captain of the Molasses Reef",
+   "text": "I have been waiting since 1513 for a decent fight. You'll do."
+  }
+ ],
+ "win": "A fair fight. I'll go back to my reef.",
+ "after": "They put my cannon in a museum. It's better lit there than it ever was in my day.",
+ "scaled_floor": 95
+}

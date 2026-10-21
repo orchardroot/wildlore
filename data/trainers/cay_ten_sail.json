@@ -1,0 +1,54 @@
+{
+ "id": "cay_ten_sail",
+ "name": "Commodore of the Ten Sail",
+ "class": "Local Legend",
+ "sprite": "sailor",
+ "party": [
+  {
+   "species": "sandbarray",
+   "level": 99
+  },
+  {
+   "species": "seaventure",
+   "level": 98
+  },
+  {
+   "species": "estuarch",
+   "level": 99
+  },
+  {
+   "species": "bayrunner",
+   "level": 98
+  },
+  {
+   "species": "aegir",
+   "level": 99
+  },
+  {
+   "species": "orcaird",
+   "level": 98
+  }
+ ],
+ "ai": "trainer",
+ "money": 9500,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Commodore of the Ten Sail",
+   "text": "I was the man in command of the convoy that did not manage the reef in 1794. Did I warn them? I did. Did they listen? Eventually."
+  },
+  {
+   "do": "say",
+   "who": "Commodore of the Ten Sail",
+   "text": "Ten ships on the rocks, and the crews saved by the finest rowers in the Caribbean."
+  },
+  {
+   "do": "say",
+   "who": "Commodore of the Ten Sail",
+   "text": "They tell me the King gave the island no taxes for it. I wouldn't know. I was busy being dead."
+  }
+ ],
+ "win": "A fine fleet you have there. Fair winds.",
+ "after": "The reef is quiet now. Mind the East End. It remembers.",
+ "scaled_floor": 95
+}
