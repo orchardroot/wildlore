@@ -1,0 +1,50 @@
+{
+ "aillwee_guide": [
+  {
+   "do": "if",
+   "flag": "dp_aillwee_haven_hollow",
+   "then": [
+    {
+     "do": "say",
+     "who": "Maeve",
+     "text": "You got to the hollow! Most people stop at the water and ask if there's a cafe. There is, but that's not the point."
+    },
+    {
+     "do": "say",
+     "who": "Maeve",
+     "text": "Jack McGann's dog never had it this good. He found the cave in 1944 and the dog found it first."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "dp_aillwee_entry_gate",
+     "then": [
+      {
+       "do": "say",
+       "who": "Maeve",
+       "text": "Gate's open. Down the steps, then follow the water. The passage floods, but there is a sluice wheel on the near bank."
+      },
+      {
+       "do": "say",
+       "who": "Maeve",
+       "text": "Bring a lantern: some things only show in proper light. At the bottom there is a bear's hollow behind a slab. Roll the boulder onto the plate, in straight lines. If it sticks, step out and in again. The cave tidies itself."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Maeve",
+       "text": "Welcome to Aillwee. Mind your head, mind the drips, and don't touch the stalactites. They are older than your gran."
+      },
+      {
+       "do": "say",
+       "who": "Maeve",
+       "text": "The gate to the steps is locked from my side. There's a big iron lever by the table. Give it a good heave."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
