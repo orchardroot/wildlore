@@ -31,7 +31,7 @@ static func dress(z: ZoneData, zone_node: Node3D, data: GameStateData) -> void:
 	var root := Node3D.new()
 	root.name = NODE
 	zone_node.add_child(root)
-	var show := not Postcards.waiting(data).is_empty()
+	var show := not Postcards.waiting(data).is_empty() or not BuildingSociety.letters_waiting(data).is_empty()
 	for p in boxes:
 		var n := envelope()
 		n.name = "E_%d_%d" % [p.x, p.y]
@@ -52,6 +52,14 @@ static func show_waiting(zone_node: Node, waiting: bool) -> void:
 static func interact(ow: Node, p: Vector2i) -> bool:
 	if not Postcards.is_post_box(ow.zone, p):
 		return false
+	var mail := BuildingSociety.collect_letters(Game.data)  # Pat when you're behind, Mum's sub
+	if not mail.is_empty():
+		Audio.sfx("item")
+		for id in mail:
+			await ow.say(BuildingSociety.letter_lines(str(id)))
+		if Postcards.waiting(Game.data).is_empty():
+			show_waiting(ow._zone_node, false)
+			return true
 	var had_album := int(Game.data.bag.get(Postcards.ALBUM, 0)) > 0
 	var got := Postcards.collect(Game.data, [], Calendar.today_key())
 	if got.is_empty():

@@ -31,49 +31,68 @@
     "max": 70.0,
     "min": 69.0,
     "species": "grizzlet",
-    "time": ["dawn", "day"],
+    "time": [
+     "dawn",
+     "day"
+    ],
     "weight": 8.0
    },
    {
     "max": 70.0,
     "min": 69.0,
     "species": "binfox",
-    "time": ["night", "dusk"],
+    "time": [
+     "night",
+     "dusk"
+    ],
     "weight": 10.0
    },
    {
     "max": 70.0,
     "min": 69.0,
     "species": "strutcoo",
-    "time": ["day", "dawn"],
+    "time": [
+     "day",
+     "dawn"
+    ],
     "weight": 8.0
    },
    {
     "max": 70.0,
     "min": 69.0,
     "species": "starlet",
-    "time": ["dusk", "dawn"],
+    "time": [
+     "dusk",
+     "dawn"
+    ],
     "weight": 8.0
    },
    {
     "max": 70.0,
     "min": 69.0,
     "species": "flittermouse",
-    "time": ["night"],
+    "time": [
+     "night"
+    ],
     "weight": 8.0
    },
    {
     "max": 70.0,
     "min": 69.0,
     "species": "hootlet",
-    "time": ["night"],
+    "time": [
+     "night"
+    ],
     "weight": 8.0
    },
    {
     "max": 70.0,
     "min": 69.0,
     "species": "sootwing",
-    "weather": ["fog", "drizzle"],
+    "weather": [
+     "fog",
+     "drizzle"
+    ],
     "weight": 8.0
    },
    {
@@ -86,7 +105,10 @@
     "max": 70.0,
     "min": 69.0,
     "species": "fawnlet",
-    "time": ["dawn", "dusk"],
+    "time": [
+     "dawn",
+     "dusk"
+    ],
     "weight": 6.0
    }
   ],
@@ -957,6 +979,16 @@
    "y": 3,
    "label": "Stock Exchange",
    "kind": "hall"
+  },
+  {
+   "type": "building",
+   "style": "edinburgh_tenement",
+   "x": 52,
+   "y": 12,
+   "w": 5,
+   "h": 3,
+   "label": "Building Society",
+   "kind": "hall"
   }
  ],
  "region": "scotland",
@@ -973,9 +1005,9 @@
   "TT==============================:::===================================TT",
   "TT==============================:::===================================TT",
   "TT..............................:::...::::::::::::....................TT",
-  "TT................#.......BBB...:::...................................TT",
-  "TT.......ffffff...#...~ww.BBB...:::...BBBBBBBBBBBB.::::::.............TT",
-  "TT.......f,,,,f...#...www.BBB...:::...BBBBBBDBBBBB.::::::.............TT",
+  "TT................#.......BBB...:::.................BBBBB.............TT",
+  "TT.......ffffff...#...~ww.BBB...:::...BBBBBBBBBBBB.:BBBBB.............TT",
+  "TT.......f,,,,f...#...www.BBB...:::...BBBBBBDBBBBB.:BBDBB.............TT",
   "TT.......ffffff...#.......BDB...::::::____________.::::::.............TT",
   "TT................#.............:::..!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",
   "TT..############################:::..,,,,,,,,,,,,,,...................TT",
@@ -1265,6 +1297,14 @@
    "to": "edinburgh_exchange",
    "tx": 6,
    "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 54,
+   "y": 14,
+   "to": "edinburgh_society",
+   "tx": 5,
+   "ty": 5,
    "facing": "up"
   }
  ],
