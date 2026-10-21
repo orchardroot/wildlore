@@ -245,6 +245,8 @@ func _exec(c: Dictionary) -> void:
 				await host.say("", line + ".")
 		"regular":
 			await RegularTalk.run(self, c)  # one of the Regulars (story/regular_talk.gd)
+		"breed":
+			await BreedTalk.run(self, c)  # the farm gate and the lab bench (story/breed_talk.gd)
 		"rewild":
 			await RewildTalk.run(self, c)  # a rewilding site's warden (story/rewild_talk.gd)
 		_:

@@ -25,6 +25,7 @@ func _initialize() -> void:
 	errors.append_array(Gazetteer.validate(Gazetteer.all()))  # heritage plaques: unique ids, titles, no em-dashes
 	errors.append_array(MarketHall.check_files())  # data/market_halls.json: rooms, stall-holders, plaques
 	errors.append_array(Knacks.check(dex))  # every line has a knack, legends their own
+	errors.append_array(Breeding.check(dex))  # data/breeding.json: the conservation goals name real breeding lines
 	errors.append_array(Genetics.check(dex))  # data/genes.json: loci match the code, every line has a kindred
 	errors.append_array(Overseas.validate(func(zid): return zones.has(zid)))  # data/overseas: the departures board registry
 	errors.append_array(Coverage.check(dex, zones))

@@ -1,0 +1,170 @@
+{
+ "id": "roslin_lab",
+ "name": "The Roslin Institute",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "wall_picture",
+   "x": 3,
+   "y": 1,
+   "walk": true,
+   "variant": 2
+  },
+  {
+   "type": "wall_picture",
+   "x": 5,
+   "y": 1,
+   "walk": true,
+   "variant": 2
+  },
+  {
+   "type": "wall_picture",
+   "x": 7,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  },
+  {
+   "type": "wall_picture",
+   "x": 11,
+   "y": 1,
+   "walk": true,
+   "variant": 0
+  },
+  {
+   "type": "clock",
+   "x": 9,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "specimen_shelf",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 13,
+   "y": 1
+  },
+  {
+   "type": "table",
+   "x": 3,
+   "y": 5
+  },
+  {
+   "type": "table",
+   "x": 11,
+   "y": 5
+  },
+  {
+   "type": "display_case",
+   "x": 7,
+   "y": 4,
+   "variant": 2
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 8
+  },
+  {
+   "type": "potted_plant",
+   "x": 13,
+   "y": 8
+  },
+  {
+   "type": "telescope",
+   "x": 13,
+   "y": 4
+  }
+ ],
+ "warps": [
+  {
+   "x": 7,
+   "y": 9,
+   "to": "edinburgh",
+   "tx": 62,
+   "ty": 31,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "breed_keir",
+   "sprite": "astronomer",
+   "x": 6,
+   "y": 6,
+   "facing": "right",
+   "move": "still",
+   "script": "breed_keir",
+   "name": "Dr Keir"
+  },
+  {
+   "id": "breed_roslin_guide",
+   "sprite": "tour_guide",
+   "x": 9,
+   "y": 7,
+   "facing": "left",
+   "move": "still",
+   "script": "breed_roslin_guide",
+   "name": "Visitor Guide"
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "x": 3,
+   "y": 1,
+   "plaque": "breed_franklin",
+   "title": "Rosalind Franklin and Photo 51",
+   "text": "Rosalind Franklin was an expert in X-ray crystallography who worked at King's College London in the early 1950s. In 1952 she and her student Raymond Gosling took the X-ray photograph of DNA known as Photo 51, whose clear cross shape showed a helix. It was shown to James Watson without her say-so, and her measurements helped Watson and Crick build their model in 1953. She died in 1958, aged 37. The Nobel Prize for the structure of DNA went in 1962 to Crick, Watson and Maurice Wilkins, and it is not given after death."
+  },
+  {
+   "x": 5,
+   "y": 1,
+   "plaque": "breed_crick_watson",
+   "title": "The Double Helix",
+   "text": "Francis Crick and James Watson, working at the Cavendish Laboratory in Cambridge, built the double helix model of DNA in 1953 and published it in Nature on 25 April that year. Pub legend says Crick walked into the Eagle in Cambridge at lunchtime and told the bar they had found the secret of life. It is a good story, told so often that nobody can swear to the words. What is certain is the paper, which says with perfect restraint that the pairing they propose 'immediately suggests a possible copying mechanism for the genetic material'."
+  },
+  {
+   "x": 7,
+   "y": 1,
+   "plaque": "breed_dolly",
+   "title": "Dolly the Sheep",
+   "text": "Dolly was born at the Roslin Institute on 5 July 1996 and announced to the world in February 1997, the first mammal cloned from an adult cell. A team led by Ian Wilmut and Keith Campbell took the nucleus from a cell of an adult Finn Dorset ewe, put it into an egg cell with its own nucleus removed, and let it grow. Dolly was a genetic copy of that ewe: copying, not breeding. She lived to six and had six lambs the ordinary way. She is now in the National Museum of Scotland on Chambers Street. Roslin's day job, then and now, is animal health and genetics."
+  },
+  {
+   "x": 11,
+   "y": 1,
+   "plaque": "breed_wildcat",
+   "title": "The Scottish Wildcat",
+   "text": "The Scottish wildcat is the last wild cat in Britain, stockier than a tabby, with a thick, blunt, ringed tail. It has been gone from England and Wales since the nineteenth century. Its trouble today is not hunting but interbreeding with domestic and feral cats, which waters down the wild genes. Saving Wildcats, a partnership that includes the Royal Zoological Society of Scotland, breeds wildcats in captivity with their pedigree in mind and, from 2023, has released them into the Cairngorms."
+  },
+  {
+   "x": 7,
+   "y": 4,
+   "text": "VISITOR ROOM. A model of a sheep, a model of a double helix and a very large model of a cell, none of which will let you touch the real thing. The real thing is next door and is cleaner than your house."
+  }
+ ],
+ "spawn": [
+  7,
+  8
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxxx",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "xxxxxxxDxxxxxxx"
+ ]
+}
