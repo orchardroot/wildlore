@@ -1,0 +1,77 @@
+{
+ "ga_ranger": [
+  {
+   "do": "when",
+   "cond": "spring",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Ranger Ciar\u00e1n",
+     "text": "Spring. Primroses on the bank and a hare in every field. Thank you for the lease. It is giddy out here."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "summer",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Ranger Ciar\u00e1n",
+       "text": "Summer. The ferns are shoulder high and the whole glen smells of wet green. Thank you, from the bottom of my boots."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "autumn",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Ranger Ciar\u00e1n",
+         "text": "Autumn, and the beech and oak are going copper. Thank you. Bring a flask. It's cold in the glen and warm in the heart."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Ranger Ciar\u00e1n",
+         "text": "Winter. The burn is brown and loud and the hills are white. Thank you for the lease, and the quiet."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "ga_farmer": [
+  {
+   "do": "say",
+   "who": "Hill Farmer",
+   "text": "My family had the sheep on that hill for four generations. We'd a few good years. The lease isn't mine to complain about now."
+  },
+  {
+   "do": "say",
+   "who": "Hill Farmer",
+   "text": "Leave the gate how you find it. That's the only rule worth having."
+  }
+ ],
+ "c_leveret": [
+  {
+   "do": "say",
+   "who": "Leveret",
+   "text": "An Irish hare, the only hare that belongs here, freezes with its ears flat in the grass."
+  }
+ ],
+ "c_pixling": [
+  {
+   "do": "say",
+   "who": "Pixling",
+   "text": "Something small peers out of the ferns. When you look again, there are only ferns."
+  }
+ ]
+}

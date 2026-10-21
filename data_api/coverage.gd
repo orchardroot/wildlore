@@ -79,9 +79,17 @@ static func reachability(zones: Dictionary, ferries: Dictionary, script_warps: D
 				queue.append(n)
 	var errors := []
 	for zid in zones:
-		if not seen.has(zid) and zid not in DEV_ZONES and not zones[zid].stub:
+		if not seen.has(zid) and zid not in DEV_ZONES and not zones[zid].stub and not _lease_off_reached(zones[zid], seen):
 			errors.append("zone %s can't be reached from Macclesfield" % zid)
 	return errors
+
+## A lease zone is a cul-de-sac whose one edge leads back to its anchor; the anchor's edge opens when the lease is
+## owned (core/leases.gd), so the zone counts as reached once its anchor is.
+static func _lease_off_reached(z: ZoneData, seen: Dictionary) -> bool:
+	for side in z.edges:
+		if z.edges[side].has("lease") and seen.has(str(z.edges[side].get("to", ""))):
+			return true
+	return false
 
 ## Zone ids each zone's dialogue can warp to (story warps count as ways in).
 static func script_warp_targets() -> Dictionary:

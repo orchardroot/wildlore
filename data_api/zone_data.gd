@@ -442,6 +442,8 @@ func validate(all: Dictionary) -> Array:
 			e.append(tag + "unknown edge '%s'" % side)
 		elif not all.has(target):
 			e.append(tag + "%s edge goes to unknown zone '%s'" % [side, target])
+		elif edges[side].has("lease"):
+			pass  # a lease zone's way back: the anchor's edge only opens once the lease is owned (core/leases.gd)
 		elif not all[target].edges.has(OPPOSITE[side]) or all[target].edges[OPPOSITE[side]].get("to") != id:
 			e.append(tag + "%s edge to '%s' has no %s edge back" % [side, target, OPPOSITE[side]])
 		else:

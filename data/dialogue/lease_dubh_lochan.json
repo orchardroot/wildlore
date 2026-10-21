@@ -1,0 +1,77 @@
+{
+ "dl_ranger": [
+  {
+   "do": "when",
+   "cond": "spring",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Ranger Calum",
+     "text": "Spring. The golden plover are back on the tops and shouting about it. Thank you for the lease."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "summer",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Ranger Calum",
+       "text": "Summer. Look at the cotton grass. The whole flow is nodding. Thank you for this, from every midge."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "autumn",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Ranger Calum",
+         "text": "Autumn, and the sphagnum is red and gold. It's the best colour on the bog, and nobody ever believes me."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Ranger Calum",
+         "text": "Winter. The pools freeze and the bog sleeps. It's still storing carbon, mind. It never clocks off. Thank you."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "dl_surveyor": [
+  {
+   "do": "say",
+   "who": "Surveyor",
+   "text": "I count the pools. The more water, the better the bog is doing."
+  },
+  {
+   "do": "say",
+   "who": "Surveyor",
+   "text": "Four years ago this strip was a drain. Now look at it. It's learned to be wet again."
+  }
+ ],
+ "c_dubhlet": [
+  {
+   "do": "say",
+   "who": "Dubhlet",
+   "text": "It sits in the sphagnum like a very old sponge that has opinions."
+  }
+ ],
+ "c_midgie": [
+  {
+   "do": "say",
+   "who": "Midgie",
+   "text": "A small, furious cloud. You are, at the moment, its entire world."
+  }
+ ]
+}
