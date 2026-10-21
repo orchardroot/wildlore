@@ -14,7 +14,7 @@ static func haul(deed: Dictionary, season: String, day: int, lost := false) -> D
 		return out
 	var rng := RandomNumberGenerator.new()
 	rng.seed = hash("%s|%s|%d" % [deed.get("id", ""), season, day])
-	var picks := mini(lines.size(), 2 + rng.randi_range(0, 1))
+	var picks := mini(lines.size(), int(deed.get("picks", 2 + rng.randi_range(0, 1))))
 	var pool := lines.duplicate()
 	for _i in picks:
 		var line: Dictionary = pool.pop_at(rng.randi_range(0, pool.size() - 1))
