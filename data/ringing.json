@@ -1,0 +1,22 @@
+{
+ "_doc": "Change ringing pieces (core/ringing.gd). calls[i] is a list of 0-based places a whose bells swap (a and a+1) between row i and row i+1; the first row is rounds. bell is the one you ring (1 = treble, 6 = tenor). tip is whole pounds, paid once a real day per piece.",
+ "pieces": [
+  {"id": "rounds", "name": "Rounds", "bell": 3, "tip": 0,
+   "calls": [[], [], [], [], [], []],
+   "fact": "Rounds are every bell in order, treble to tenor, over and over. Every ringer learns them first, and it is harder than it sounds to keep them even."},
+  {"id": "call_changes", "name": "Call Changes", "bell": 4, "tip": 2,
+   "calls": [[], [2], [], [0, 4], [3], [], [1, 3]],
+   "fact": "In call changes the conductor names the bells to swap and the ringers move on the next row. It is how most new bands learn to ring places other than their own."},
+  {"id": "plain_hunt", "name": "Plain Hunt", "bell": 5, "tip": 3,
+   "calls": [[0, 2, 4], [1, 3], [0, 2, 4], [1, 3], [0, 2, 4], [1, 3], [0, 2, 4]],
+   "fact": "Plain Hunt is the foundation of most methods: each bell swaps with a neighbour on every row, working up to the back and down to the front again. Nobody has to be told what to do, only what to remember."},
+  {"id": "queens", "name": "Queens", "bell": 2, "tip": 4,
+   "calls": [[1], [3], [2], [], [2], [3], [1]],
+   "fact": "Queens is a well-known row on six bells. The bells sound in the order 1 3 5 2 4 6, the odd bells first and then the even."}
+ ],
+ "plaque": {
+  "id": "ringing_english_change",
+  "title": "English Change Ringing",
+  "text": "English change ringing is rung on bells hung to swing full circle, each pulled by one ringer on a rope. The bells are not played as a tune: they are rung in a changing order, called a row, with no bell repeating inside it. Rounds is 1 to 6 in order. A peal is at least 5,000 changes without a repeat or a break, which takes about three hours. The art grew in England from the 1600s, when Fabian Stedman and others wrote down the first methods in Tintinnalogia (1668)."
+ }
+}
