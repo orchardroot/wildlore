@@ -178,7 +178,7 @@ func _pair() -> void:
 	var v := _verdict()
 	if not v.ok:
 		return
-	var r := Breeding.start(Game.data, v.sire, v.dam, Game.data.zone_id)
+	var r := Breeding.start(Game.data, v.sire, v.dam, Game.data.zone_id, Game.dex, Game.moves, Rng.new(int(Time.get_ticks_usec())), Calendar.season_today())
 	_msg = "Right, I'll ring you when it's due." if r.ok else str(r.why)
 	_a = null
 	_b = null

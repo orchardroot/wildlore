@@ -102,7 +102,7 @@ static func basket_line(data: GameStateData) -> String:
 		return ""
 	var nearest := -1
 	for b in bs:
-		var left := Breeding.steps_to_go(data, b)
+		var left := maxi(0, int(b.get("steps_due", 0)) - Breeding.steps_now(data))
 		nearest = left if nearest < 0 else mini(nearest, left)
 	if bs.size() == 1:
 		return "Basket: ready to hatch" if nearest == 0 else "Basket: %s steps to go" % commas(nearest)
