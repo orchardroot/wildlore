@@ -25,7 +25,7 @@ func _build() -> void:
 	v.add_theme_constant_override("separation", 2)
 	p.add_child(v)
 	var buttons := []
-	for def in [["text_speed", "Text speed"], ["battle_speed", "Battle speed"], ["travel_scenes", "Travel scenes"], ["quality", "Graphics quality"], ["music_volume", "Music volume"], ["sfx_volume", "Effects volume"], ["ambience_volume", "Ambience volume"], ["run_mode", "Run key"], ["follower", "Follower"], ["colour_blind", "Colour-blind friendly"], ["reduce_flashing", "Reduce flashing"], ["damage_numbers", "Damage numbers"], ["easy_fishing", "Easier fishing and sheepdogs"], ["easy_darts", "Easier pub games and crafts"]]:
+	for def in [["text_speed", "Text speed"], ["battle_speed", "Battle speed"], ["travel_scenes", "Travel scenes"], ["quality", "Graphics quality"], ["music_volume", "Music volume"], ["sfx_volume", "Effects volume"], ["ambience_volume", "Ambience volume"], ["run_mode", "Run key"], ["follower", "Follower"], ["colour_blind", "Colour-blind friendly"], ["reduce_flashing", "Reduce flashing"], ["damage_numbers", "Damage numbers"], ["local_languages", "Local languages"], ["easy_fishing", "Easier fishing and sheepdogs"], ["easy_darts", "Easier pub games and crafts"]]:
 		var b := Button.new()
 		b.custom_minimum_size = Vector2(0, 26)  # rows are tight: the preview panel must clear the hint line
 		UIKit.compact(b, 2)
@@ -161,6 +161,8 @@ func _change(key: String, d: int) -> void:
 			Settings.reduce_flashing = not Settings.reduce_flashing
 		"damage_numbers":
 			Settings.damage_numbers = not Settings.damage_numbers
+		"local_languages":
+			Settings.local_languages = "off" if Settings.local_languages == "on" else "on"
 		"easy_fishing":
 			Settings.easy_fishing = not Settings.easy_fishing
 		"easy_darts":
@@ -203,6 +205,8 @@ func _paint_row(r: Dictionary) -> void:
 			l.text = "<  %s  >" % ("On" if Settings.reduce_flashing else "Off")
 		"damage_numbers":
 			l.text = "<  %s  >" % ("On" if Settings.damage_numbers else "Off")
+		"local_languages":
+			l.text = "<  %s  >" % ("On" if Settings.local_languages == "on" else "Off")
 		"easy_fishing":
 			l.text = "<  %s  >" % ("On" if Settings.easy_fishing else "Off")
 		"easy_darts":

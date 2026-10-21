@@ -12,7 +12,7 @@ static var _filter := "all"    # all | caught | seen | rumours | studbook, also 
 
 const PAGE := 10
 const MAX_PLACES := 3  # the rest are on the map, so a long list can't push the entry off the bottom
-const FILTER_NAMES := {"all": "All", "caught": "Caught", "seen": "Seen", "rumours": "Rumours", "studbook": "Stud Book", "casebook": "Casebook"}
+const FILTER_NAMES := {"all": "All", "caught": "Caught", "seen": "Seen", "rumours": "Rumours", "studbook": "Stud Book", "casebook": "Casebook", "words": "Words of the Isles"}
 
 var _all: Array = []           # every species id, Dex order
 var _no: Dictionary = {}       # id -> Dex number as shown: "045", or "A01" in the appendix after the 200
@@ -81,6 +81,8 @@ func _fill_list() -> void:
 		_ids = StudBookTab.ids()
 	elif _filter == "casebook":
 		_ids = CasebookTab.ids()
+	elif _filter == "words":
+		_ids = WordsTab.ids()
 	else:
 		_ids = MenuLogic.fieldbook_filter(_all, d.seen, d.caught, _filter)
 	header_right.text = "%s    Seen %d    Caught %d / %d" % [FILTER_NAMES[_filter], d.seen.size(), FieldbookGoals.caught_count(d), _core]
@@ -92,7 +94,7 @@ func _fill_list() -> void:
 	UIKit.clear(_list_col)
 	_buttons.clear()
 	for i in _ids.size():
-		var b := _rumour_button(i) if _filter == "rumours" else (_book_button(i) if _filter in ["studbook", "casebook"] else _entry_button(i))
+		var b := _rumour_button(i) if _filter == "rumours" else (_book_button(i) if _filter in ["studbook", "casebook", "words"] else _entry_button(i))
 		_list_col.add_child(b)
 		_buttons.append(b)
 	UIKit.wrap_focus(_buttons)
@@ -115,7 +117,7 @@ func _scroll_to_later(b: Control) -> void:
 ## setup("<species id>") opens on that entry (the filter goes back to All if it would hide it);
 ## setup("rumours") or setup("stamps") opens the Rumours tab.
 func setup(arg: String) -> void:
-	if arg in ["studbook", "casebook"]:  # straight to the Stud Book or Casebook tab
+	if arg in ["studbook", "casebook", "words"]:  # straight to the Stud Book, Casebook or Words tab
 		_filter = arg
 		_fill_list()
 		return
@@ -148,12 +150,12 @@ func _input(event: InputEvent) -> void:
 		return
 	if event.is_action_pressed("bike"):
 		get_viewport().set_input_as_handled()
-		if not _ids.is_empty() and _filter not in ["studbook", "casebook"]:
+		if not _ids.is_empty() and _filter not in ["studbook", "casebook", "words"]:
 			play_cry(_ids[_cur])
 		return
 	if event.is_action_pressed("run"):
 		get_viewport().set_input_as_handled()
-		_filter = MenuLogic.next_filter(_filter, StudBookTab.visible(Game.data), CasebookTab.visible(Game.data))
+		_filter = MenuLogic.next_filter(_filter, StudBookTab.visible(Game.data), CasebookTab.visible(Game.data), WordsTab.visible(Game.data))
 		Audio.sfx("cursor")
 		_fill_list()
 		return
@@ -237,6 +239,8 @@ func _book_button(i: int) -> Button:
 		_last_id = id
 		if _filter == "casebook":
 			CasebookTab.show(id, _detail)
+		elif _filter == "words":
+			WordsTab.show(id, _detail)
 		else:
 			StudBookTab.show(id, _detail))
 	var h := HBoxContainer.new()
@@ -247,6 +251,8 @@ func _book_button(i: int) -> Button:
 	b.add_child(h)
 	if _filter == "casebook":
 		CasebookTab.row(id, h)
+	elif _filter == "words":
+		WordsTab.row(id, h)
 	else:
 		StudBookTab.row(id, h)
 	for c in h.get_children():

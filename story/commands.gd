@@ -731,5 +731,10 @@ func _sub(s: String) -> String:
 ## {greeting}: the local hello, and once you're a Pillar of the Community here, a word about what you sorted out.
 func _greeting() -> String:
 	var g := StoryData.greeting(host.data.zone_id, host.data.clock_minutes)
+	var idx := ZoneIndex.get_index()
+	var local := Langs.greeting(host.data.zone_id, host.data.clock_minutes / 30, Langs.enabled, idx)
+	if local != "" and (host.data.clock_minutes / 30) % 2 == 0:  # half the hellos are the local language's
+		g = local
+		Langs.note_text(host.data, Langs.code_for(host.data.zone_id, idx), local)
 	var extra := Standing.greeting_extra(host.data, host.data.zone_id)
 	return g + (" " + extra if extra != "" else "")
