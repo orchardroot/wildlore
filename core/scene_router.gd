@@ -7,7 +7,7 @@ const BATTLE := "res://battle_ui/battle_scene.tscn"
 const MENUS := {
 	"pause": "res://ui/pause_menu.tscn", "party": "res://ui/party_screen.tscn", "bag": "res://ui/bag_screen.tscn",
 	"pedia": "res://ui/pedia_screen.tscn", "shop": "res://ui/shop_screen.tscn", "starter": "res://ui/starter_picker.tscn",
-	"settings": "res://ui/settings_screen.tscn", "controls": "res://ui/controls_screen.tscn", "report": "res://ui/report_screen.tscn", "save": "res://ui/save_screen.tscn", "ark": "res://ui/ark_screen.tscn",
+	"settings": "res://ui/settings_screen.tscn", "controls": "res://ui/controls_screen.tscn", "accessibility": "res://ui/accessibility_screen.tscn", "report": "res://ui/report_screen.tscn", "save": "res://ui/save_screen.tscn", "ark": "res://ui/ark_screen.tscn",
 	"map": "res://ui/world_map.tscn", "travel": "res://ui/travel_menu.tscn", "name": "res://ui/name_entry.tscn", "credits": "res://ui/credits_screen.tscn",
 	"relearn": "res://ui/relearn_screen.tscn", "quiz": "res://ui/quiz_screen.tscn", "stats": "res://ui/stats_screen.tscn",
 	"craft": "res://ui/craft_screen.tscn", "jobs": "res://ui/jobs_screen.tscn",
