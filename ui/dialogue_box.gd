@@ -72,6 +72,7 @@ func _build_box() -> void:
 	_box.offset_top = -176
 	_box.offset_bottom = -28
 	_box.add_theme_stylebox_override("panel", _panel_style(SLATE, CREAM))
+	_box.grow_vertical = Control.GROW_DIRECTION_BEGIN  # a fourth line grows the box upwards, never off the bottom
 	_ui.add_child(_box)
 	_label = Label.new()
 	_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
@@ -147,22 +148,73 @@ func show_text(text: String, who := "") -> void:
 		Engine.get_meta("autopilot").log_line(who, text)
 		await get_tree().create_timer(0.05).timeout
 		return
-	_begin(text, who)
-	_choice_after_typing = false
-	await _advanced
+	for page in _pages(text):
+		_begin(page, who)
+		_choice_after_typing = false
+		await _advanced
 
 ## Types `text`, then offers `options`. Returns the chosen index.
 func show_choice(text: String, options: Array, who := "") -> int:
 	if Engine.has_meta("autopilot"):
 		await get_tree().create_timer(0.05).timeout
 		return Engine.get_meta("autopilot").choose_option(text, options)
-	_begin(text, who)
+	var pages := _pages(text)
+	for i in pages.size() - 1:  # everything but the last page reads like ordinary dialogue
+		_begin(pages[i], who)
+		_choice_after_typing = false
+		await _advanced
+	_begin(pages.back(), who)
 	_choice_after_typing = true
 	_decline = decline_index(options)
 	_fill_choices(options)
 	var idx: int = await _chosen
 	_choice_panel.visible = false
 	return idx
+
+## Splits `text` into pages that each pass `fits`: whole sentences where they fit, words where a sentence alone is
+## too long. Joining the pages with spaces gives the text back.
+static func paginate(text: String, fits: Callable) -> Array:
+	text = text.strip_edges()
+	if text == "" or fits.call(text):
+		return [text]
+	var units := []
+	var re := RegEx.new()
+	re.compile("[^.!?]+[.!?]+[\"')]*|[^.!?]+$")
+	for m in re.search_all(text):
+		var sentence := m.get_string().strip_edges()
+		if sentence == "":
+			continue
+		if fits.call(sentence):
+			units.append(sentence)
+		else:
+			units.append_array(sentence.split(" ", false))
+	var pages := []
+	var cur := ""
+	for u in units:
+		var trial: String = u if cur == "" else cur + " " + u
+		if cur != "" and not fits.call(trial):
+			pages.append(cur)
+			cur = u
+		else:
+			cur = trial
+	if cur != "":
+		pages.append(cur)
+	return pages
+
+const MAX_LINES := 4
+const SIZES := [30, 26]  # try the usual size, then a touch smaller, before splitting into pages
+
+## Fits the text to the box: the usual size if it fits in MAX_LINES, else a little smaller, else pages at that size.
+func _pages(text: String) -> Array:
+	var font := _label.get_theme_font("font")
+	var width := maxf(_box.size.x, get_viewport().get_visible_rect().size.x - 96.0) - 52.0
+	for fs in SIZES:
+		var fits := func(t: String) -> bool:
+			return font.get_multiline_string_size(t, HORIZONTAL_ALIGNMENT_LEFT, width, fs).y <= font.get_height(fs) * MAX_LINES + 2.0
+		if fits.call(text) or fs == SIZES.back():
+			_label.add_theme_font_size_override("font_size", fs)
+			return paginate(text, fits)
+	return [text]
 
 func close() -> void:
 	queue_free()
