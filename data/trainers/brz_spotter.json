@@ -1,0 +1,37 @@
+{
+ "id": "brz_spotter",
+ "name": "Planespotter",
+ "class": "Planespotter",
+ "sprite": "birdwatcher",
+ "party": [
+  {
+   "species": "polartern",
+   "level": 95
+  },
+  {
+   "species": "goldeneyrie",
+   "level": 95
+  },
+  {
+   "species": "stoopfalcon",
+   "level": 95
+  }
+ ],
+ "ai": "trainer",
+ "money": 3800,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Planespotter",
+   "text": "Don't move. There's an Atlas due on finals and I've never got the nose-gear shot."
+  },
+  {
+   "do": "say",
+   "who": "Planespotter",
+   "text": "Oh, a battle. Fine. But the light is going."
+  }
+ ],
+ "win": "That's a lovely Peregrin, though. Don't tell my mum I said so.",
+ "after": "I have a hundred and twelve photos of the same aircraft. They are all different. Nobody believes me.",
+ "scaled_floor": 95
+}

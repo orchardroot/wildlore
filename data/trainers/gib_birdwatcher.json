@@ -1,0 +1,37 @@
+{
+ "id": "gib_birdwatcher",
+ "name": "Raptor Watcher",
+ "class": "Birdwatcher",
+ "sprite": "birdwatcher",
+ "party": [
+  {
+   "species": "eaglet",
+   "level": 95
+  },
+  {
+   "species": "goldeneyrie",
+   "level": 95
+  },
+  {
+   "species": "ospret",
+   "level": 95
+  }
+ ],
+ "ai": "trainer",
+ "money": 4000,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Raptor Watcher",
+   "text": "Don't breathe. There's a short-toed eagle over the ridge. I've waited nine years."
+  },
+  {
+   "do": "say",
+   "who": "Raptor Watcher",
+   "text": "Fine, fine. But when it comes, you're counting."
+  }
+ ],
+ "win": "Fair play. And it flew off while we were at it.",
+ "after": "A good raptor day is when the sky goes dark and your neck goes stiff.",
+ "scaled_floor": 95
+}

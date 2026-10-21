@@ -1,0 +1,37 @@
+{
+ "id": "gib_librarian",
+ "name": "Librarian",
+ "class": "Librarian",
+ "sprite": "gown_student",
+ "party": [
+  {
+   "species": "rhymerick",
+   "level": 95
+  },
+  {
+   "species": "longman",
+   "level": 95
+  },
+  {
+   "species": "chronophage",
+   "level": 95
+  }
+ ],
+ "ai": "trainer",
+ "money": 3900,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Librarian",
+   "text": "Silence. Or, rather, a very specific amount of noise."
+  },
+  {
+   "do": "say",
+   "who": "Librarian",
+   "text": "This is a library, not a battlefield. Though the Siege reading group is getting close."
+  }
+ ],
+ "win": "I stand corrected. Please return that to the shelf.",
+ "after": "The librarian's rule: you can borrow a book, but a book can't borrow you.",
+ "scaled_floor": 95
+}

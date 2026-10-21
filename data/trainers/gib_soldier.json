@@ -1,0 +1,37 @@
+{
+ "id": "gib_soldier",
+ "name": "Gibraltar Soldier",
+ "class": "Soldier",
+ "sprite": "hurler",
+ "party": [
+  {
+   "species": "shieldbiter",
+   "level": 95
+  },
+  {
+   "species": "steelheart",
+   "level": 95
+  },
+  {
+   "species": "legionette",
+   "level": 95
+  }
+ ],
+ "ai": "trainer",
+ "money": 4300,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Gibraltar Soldier",
+   "text": "I'm on parade, so I'll make this quick."
+  },
+  {
+   "do": "say",
+   "who": "Gibraltar Soldier",
+   "text": "En garde, in the proper order."
+  }
+ ],
+ "win": "Well fought. I'll have to tell the Sergeant-Major.",
+ "after": "In the Great Siege they once fired red-hot cannonballs at the Spanish floating batteries. We stick to the polite sort now.",
+ "scaled_floor": 95
+}

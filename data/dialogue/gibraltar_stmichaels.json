@@ -1,0 +1,115 @@
+{
+ "gib_cavern": [
+  {
+   "do": "if",
+   "flag": "q_overseas_gibraltar_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Cave Warden",
+     "text": "The Neanderthal chapter is closed, and the macaque chapter is open. Mind the stalactites."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_overseas_gibraltar_2",
+     "then": [
+      {
+       "do": "if",
+       "flag": "trainer_gib_keeper",
+       "then": [
+        {
+         "do": "say",
+         "who": "Cave Warden",
+         "text": "You've spoken to the Curator and beaten the Ape Keeper in a fair fight. The Rock's scientific committee is satisfied. Take this, it's a cannonball from the Great Siege, found in a tunnel."
+        },
+        {
+         "do": "set",
+         "flag": "q_overseas_gibraltar_3"
+        },
+        {
+         "do": "set",
+         "flag": "q_overseas_gibraltar_done"
+        },
+        {
+         "do": "give_item",
+         "item": "siege_cannonball",
+         "n": 1
+        },
+        {
+         "do": "give_item",
+         "item": "calentita",
+         "n": 3
+        },
+        {
+         "do": "give_item",
+         "item": "gib_rosto",
+         "n": 2
+        },
+        {
+         "do": "standing",
+         "nation": "overseas",
+         "amount": 10
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Cave Warden",
+         "text": "Now go and challenge the Ape Keeper at the Den. He says no one fights a Barbary macaque and wins. I'd like to see that."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_overseas_gibraltar_1",
+       "then": [
+        {
+         "do": "say",
+         "who": "Cave Warden",
+         "text": "The Curator sent you? Excellent. The ancient people of the Rock lived in caves much like this one. The truth is the Rock's whole story is under our feet. Go on and find the Ape Keeper at the Den and fight him."
+        },
+        {
+         "do": "set",
+         "flag": "q_overseas_gibraltar_2"
+        }
+       ],
+       "else": [
+        {
+         "do": "if",
+         "flag": "q_overseas_gibraltar_started",
+         "then": [
+          {
+           "do": "say",
+           "who": "Cave Warden",
+           "text": "Ask the Curator at the Gibraltar Museum in town about the Neanderthal skull. Then come back and I'll teach you the rest."
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Cave Warden",
+           "text": "Welcome to St Michael's Cave. It is full of stalactites, a few bats and a pretty good echo. I'm looking for someone to take the Rock's history seriously, and I can't make the macaques do it."
+          },
+          {
+           "do": "say",
+           "who": "Cave Warden",
+           "text": "Could you go and see the Curator at the museum in town? They know about the Neanderthals. Then come back."
+          },
+          {
+           "do": "set",
+           "flag": "q_overseas_gibraltar_started"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

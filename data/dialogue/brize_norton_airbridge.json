@@ -1,0 +1,114 @@
+{
+ "brz_duty": [
+  {
+   "do": "if",
+   "flag": "q_overseas_brize_norton_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Duty Officer",
+     "text": "Our friend with the manifest! Every flight since has run on time, or near enough. I'd bet it was your clean handwriting."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_overseas_brize_norton_2",
+     "then": [
+      {
+       "do": "if",
+       "flag": "trainer_brz_loadmaster",
+       "then": [
+        {
+         "do": "say",
+         "who": "Duty Officer",
+         "text": "Signed by the Loadmaster, and the distances from the Tower? Splendid. That's the Airbridge manifest done, and my phone has finally stopped ringing."
+        },
+        {
+         "do": "say",
+         "who": "Duty Officer",
+         "text": "Have a few supplies from the stores, and the station's thanks. We don't hand out medals for paperwork, so you'll have to settle for tea."
+        },
+        {
+         "do": "set",
+         "flag": "q_overseas_brize_norton_3"
+        },
+        {
+         "do": "set",
+         "flag": "q_overseas_brize_norton_done"
+        },
+        {
+         "do": "give_item",
+         "item": "flask_of_tea",
+         "n": 3
+        },
+        {
+         "do": "give_item",
+         "item": "cup_of_tea",
+         "n": 3
+        },
+        {
+         "do": "standing",
+         "nation": "overseas",
+         "amount": 10
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Duty Officer",
+         "text": "The Tower gave you the distances? Lovely. Now the Loadmaster on the apron has to sign the manifest, and he only signs for people who can beat him in a fair fight. Don't ask me why."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_overseas_brize_norton_started",
+       "then": [
+        {
+         "do": "say",
+         "who": "Duty Officer",
+         "text": "Ask the Duty Controller in the Tower about the Airbridge distances, then have a word with the Loadmaster on the apron. Then come back."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Duty Officer",
+         "text": "Ah, a Champion with time on their hands. The Airbridge flies to the Falklands and back with a stop at Ascension, and every one of those flights is a mountain of paperwork."
+        },
+        {
+         "do": "say",
+         "who": "Duty Officer",
+         "text": "Could you walk the manifest round for me? Tower first for the distances, then the Loadmaster on the apron for a signature. I'd do it myself, but I've got a phone that won't stop."
+        },
+        {
+         "do": "set",
+         "flag": "q_overseas_brize_norton_started"
+        },
+        {
+         "do": "set",
+         "flag": "q_overseas_brize_norton_1"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "brz_loadsheet": [
+  {
+   "do": "say",
+   "who": "Load Planner",
+   "text": "Every aircraft has a weight and a balance. Passengers are weighed with their bags. Aid is weighed in tonnes. Post is weighed on a kitchen scale in the corner."
+  },
+  {
+   "do": "say",
+   "who": "Load Planner",
+   "text": "The Atlas can lift about thirty tonnes. The Voyager can carry nearly three hundred passengers or a lot of fuel. We try not to mix them."
+  }
+ ]
+}

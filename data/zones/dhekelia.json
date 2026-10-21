@@ -1,0 +1,920 @@
+{
+ "id": "dhekelia",
+ "name": "Dhekelia",
+ "region": "overseas_akrotiri_dhekelia",
+ "kind": "town",
+ "music": "route_coast",
+ "weather": {
+  "clear": 38,
+  "sunshine": 38,
+  "fog": 2,
+  "drizzle": 6,
+  "gale": 6,
+  "downpour": 6
+ },
+ "props": [
+  {
+   "type": "building",
+   "style": "raf_block",
+   "x": 40,
+   "y": 14,
+   "w": 8,
+   "h": 4,
+   "label": "Sanctuary"
+  },
+  {
+   "type": "building",
+   "style": "raf_block",
+   "x": 50,
+   "y": 14,
+   "w": 8,
+   "h": 4,
+   "label": "Garrison Shop"
+  },
+  {
+   "type": "building",
+   "style": "raf_block",
+   "x": 40,
+   "y": 22,
+   "w": 8,
+   "h": 4,
+   "label": "Garrison Hall"
+  },
+  {
+   "type": "building",
+   "style": "raf_block",
+   "x": 50,
+   "y": 22,
+   "w": 6,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "flagpole",
+   "x": 39,
+   "y": 19,
+   "variant": 6
+  },
+  {
+   "type": "flagpole",
+   "x": 59,
+   "y": 19,
+   "variant": 6
+  },
+  {
+   "type": "building",
+   "style": "flat_house",
+   "x": 8,
+   "y": 14,
+   "w": 6,
+   "h": 4,
+   "label": "Kafeneio"
+  },
+  {
+   "type": "building",
+   "style": "flat_house",
+   "x": 16,
+   "y": 14,
+   "w": 6,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "flat_house",
+   "x": 8,
+   "y": 22,
+   "w": 6,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "flat_house",
+   "x": 16,
+   "y": 22,
+   "w": 6,
+   "h": 4,
+   "label": "Village Church"
+  },
+  {
+   "type": "lamp_post",
+   "x": 10,
+   "y": 19
+  },
+  {
+   "type": "lamp_post",
+   "x": 18,
+   "y": 19
+  },
+  {
+   "type": "lamp_post",
+   "x": 10,
+   "y": 27
+  },
+  {
+   "type": "lamp_post",
+   "x": 18,
+   "y": 27
+  },
+  {
+   "type": "oak",
+   "x": 29,
+   "y": 42,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 8,
+   "y": 40,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 27,
+   "y": 41,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 36,
+   "y": 35,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 9,
+   "y": 38,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 9,
+   "y": 40,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 7,
+   "y": 41,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 18,
+   "y": 42,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 41,
+   "y": 32,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 41,
+   "y": 38,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 18,
+   "y": 32,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 38,
+   "y": 33,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 23,
+   "y": 40,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 15,
+   "y": 33,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 27,
+   "y": 33,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 49,
+   "y": 33,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 17,
+   "y": 39,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 38,
+   "y": 38,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 33,
+   "y": 41,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 48,
+   "y": 35,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 40,
+   "y": 36,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 35,
+   "y": 37,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 42,
+   "y": 33,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 36,
+   "y": 38,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 52,
+   "y": 37,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 35,
+   "y": 38,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 46,
+   "y": 33,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 40,
+   "y": 37,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 48,
+   "y": 37,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 28,
+   "y": 12,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 49,
+   "y": 6,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 17,
+   "y": 29,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 5,
+   "y": 33,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 33,
+   "y": 28,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 57,
+   "y": 29,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 52,
+   "y": 5,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 21,
+   "y": 37,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 50,
+   "y": 11,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 20,
+   "y": 10,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 28,
+   "y": 43,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 10,
+   "y": 7,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 19,
+   "y": 9,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 45,
+   "y": 37,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 41,
+   "y": 13,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 8,
+   "y": 38,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 35,
+   "y": 16,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 59,
+   "y": 41,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 50,
+   "y": 41,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 22,
+   "y": 39,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 58,
+   "y": 31,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 14,
+   "y": 42,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 38,
+   "y": 24,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 36,
+   "y": 43,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 23,
+   "y": 13,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 37,
+   "y": 22,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 46,
+   "y": 8,
+   "variant": 2
+  },
+  {
+   "type": "bush",
+   "x": 48,
+   "y": 38,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 26,
+   "y": 19,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 22,
+   "y": 25,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 21,
+   "y": 6,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 20,
+   "y": 28,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 57,
+   "y": 30,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 46,
+   "y": 29,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 14,
+   "y": 5,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 23,
+   "y": 11,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 54,
+   "y": 28,
+   "variant": 1
+  },
+  {
+   "type": "bush",
+   "x": 40,
+   "y": 31,
+   "variant": 0
+  },
+  {
+   "type": "bush",
+   "x": 12,
+   "y": 30,
+   "variant": 2
+  }
+ ],
+ "warps": [
+  {
+   "x": 44,
+   "y": 17,
+   "to": "dhekelia_sanctuary",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 54,
+   "y": 17,
+   "to": "dhekelia_shop",
+   "tx": 4,
+   "ty": 5,
+   "facing": "up"
+  },
+  {
+   "x": 44,
+   "y": 25,
+   "to": "dhekelia_hall",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 11,
+   "y": 17,
+   "to": "dhekelia_kafeneio",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 19,
+   "y": 25,
+   "to": "dhekelia_chapel",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  }
+ ],
+ "edges": {
+  "west": {
+   "to": "akrotiri",
+   "offset": 0
+  }
+ },
+ "npcs": [
+  {
+   "id": "dhk_grower",
+   "sprite": "farmer",
+   "x": 28,
+   "y": 38,
+   "facing": "right",
+   "move": "still",
+   "script": "dhk_grower"
+  },
+  {
+   "id": "dhk_kafe",
+   "sprite": "villager_2",
+   "x": 12,
+   "y": 19,
+   "facing": "down",
+   "move": "still",
+   "script": "dhk_kafe"
+  },
+  {
+   "id": "dhk_fisher",
+   "sprite": "fisherman_north",
+   "x": 40,
+   "y": 42,
+   "facing": "right",
+   "move": "still",
+   "script": "dhk_fisher"
+  },
+  {
+   "id": "dhk_kid",
+   "sprite": "villager_6",
+   "x": 34,
+   "y": 24,
+   "facing": "down",
+   "move": "still",
+   "script": "dhk_kid"
+  },
+  {
+   "id": "dhk_peacekeeper",
+   "sprite": "rail_guard",
+   "x": 5,
+   "y": 32,
+   "facing": "right",
+   "move": "still",
+   "script": "dhk_peacekeeper"
+  },
+  {
+   "id": "dhk_sergeant",
+   "sprite": "hurler",
+   "x": 32,
+   "y": 22,
+   "facing": "right",
+   "move": "still",
+   "trainer": "dhk_sergeant"
+  },
+  {
+   "id": "dhk_grove",
+   "sprite": "farmer",
+   "x": 22,
+   "y": 34,
+   "facing": "right",
+   "move": "still",
+   "trainer": "dhk_grove"
+  },
+  {
+   "id": "dhk_beach",
+   "sprite": "surfer",
+   "x": 44,
+   "y": 43,
+   "facing": "up",
+   "move": "still",
+   "trainer": "dhk_beach"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "duneskink",
+    "min": 95,
+    "max": 97,
+    "weight": 14
+   },
+   {
+    "species": "scuttlet",
+    "min": 95,
+    "max": 97,
+    "weight": 10
+   },
+   {
+    "species": "wildkit",
+    "min": 95,
+    "max": 97,
+    "weight": 6,
+    "time": [
+     "dusk",
+     "night"
+    ]
+   },
+   {
+    "species": "dozelet",
+    "min": 95,
+    "max": 97,
+    "weight": 8
+   },
+   {
+    "species": "tesserite",
+    "min": 95,
+    "max": 97,
+    "weight": 6
+   },
+   {
+    "species": "kitelet",
+    "min": 95,
+    "max": 97,
+    "weight": 8,
+    "time": [
+     "day"
+    ]
+   },
+   {
+    "species": "swiftlet",
+    "min": 95,
+    "max": 97,
+    "weight": 8,
+    "time": [
+     "day",
+     "dawn"
+    ]
+   },
+   {
+    "species": "hootlet",
+    "min": 95,
+    "max": 97,
+    "weight": 6,
+    "time": [
+     "night"
+    ]
+   },
+   {
+    "species": "greenman",
+    "min": 95,
+    "max": 97,
+    "weight": 4
+   },
+   {
+    "species": "thornwyn",
+    "min": 95,
+    "max": 97,
+    "weight": 4
+   },
+   {
+    "species": "brineling",
+    "min": 95,
+    "max": 97,
+    "weight": 4
+   },
+   {
+    "species": "sapperling",
+    "min": 95,
+    "max": 97,
+    "weight": 4
+   },
+   {
+    "species": "flittermouse",
+    "min": 95,
+    "max": 97,
+    "weight": 6,
+    "time": [
+     "night"
+    ]
+   }
+  ],
+  "water": [
+   {
+    "species": "dolphlet",
+    "min": 95,
+    "max": 97,
+    "weight": 14
+   },
+   {
+    "species": "bayrunner",
+    "min": 95,
+    "max": 97,
+    "weight": 10
+   },
+   {
+    "species": "gannetling",
+    "min": 95,
+    "max": 97,
+    "weight": 10
+   },
+   {
+    "species": "pinchkin",
+    "min": 95,
+    "max": 97,
+    "weight": 10
+   },
+   {
+    "species": "glimmerjaw",
+    "min": 95,
+    "max": 97,
+    "weight": 4
+   },
+   {
+    "species": "puffling",
+    "min": 95,
+    "max": 97,
+    "weight": 6
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 36,
+   "y": 20,
+   "plaque": "akrotiri_dhekelia_garrison",
+   "title": "Dhekelia Garrison",
+   "text": "Dhekelia is the eastern Sovereign Base Area, a stretch of coast on Larnaca Bay, with a British garrison and a number of Cypriot villages inside its boundary. The garrison has existed since the 1950s, and it houses soldiers, families, schools and, like every British garrison, a very good NAAFI."
+  },
+  {
+   "x": 32,
+   "y": 40,
+   "plaque": "akrotiri_dhekelia_carob",
+   "title": "The Carob Tree",
+   "text": "Cyprus has grown carobs for thousands of years, and the dark, sticky pods were once the island's best-known export. The tiny seeds were so regular in weight that people used them to weigh gold, and the word 'carat' comes from the Greek name for a carob seed. The tree is still all over the island, usually looking contentedly crooked."
+  },
+  {
+   "x": 24,
+   "y": 38,
+   "plaque": "akrotiri_dhekelia_olive",
+   "title": "The Olive Groves",
+   "text": "Olive trees on Cyprus live for centuries and look it, with trunks twisted like rope. The fruit is picked by hand in autumn, and the oil is pressed within a day. A Cypriot lunch is a plate of olives, a bit of halloumi, some bread and a lot of time."
+  },
+  {
+   "x": 54,
+   "y": 40,
+   "plaque": "akrotiri_dhekelia_bay",
+   "title": "Larnaca Bay",
+   "text": "The sea in front of Dhekelia is Larnaca Bay, warm and shallow with a bottom of fine sand. The water is clear enough to see your toes, and the beach is lined with tamarisk trees that have learned to put up with salt and wind. In the distance lies the coast of the island."
+  },
+  {
+   "x": 4,
+   "y": 20,
+   "plaque": "akrotiri_dhekelia_green_line",
+   "title": "The Green Line",
+   "text": "Since the 1974 division of Cyprus, a United Nations buffer zone known as the Green Line has run across the island from sea to sea, patrolled by UN peacekeepers. Dhekelia lies close to the buffer zone in the east. Many Cypriots on both sides hope for a peaceful settlement, and the UN has been there for decades to help keep the peace."
+  }
+ ],
+ "spawn": [
+  4,
+  35
+ ],
+ "scaled_floor": 95,
+ "stage": "coast",
+ "rows": [
+  "PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP",
+  "PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP",
+  "PPggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggPP",
+  "PPggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggPP",
+  "PPggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggPP",
+  "PPgggggggkkkkgggggggggggggggggggggggggggggggggggggggggggkkggggPP",
+  "PPggggkkkkkkkkkggggggggggggggggggggggggggggggggggggggkkkkkkkggPP",
+  "PPgggkkkkkkkkkkkgggggggggggggggggggggggggggggggggggkkkkkkkkkkgPP",
+  "PPggkkkkkkkkkkkkggggggggggggggggggggggggggggggggggggkkkkkkkkkkPP",
+  "PPggkkkkkkkkkkkkggggggggggggggggggggggggggggggggggggkkkkkkkkkgPP",
+  "PPggggkkkkkkkkgkggggggggggggggggggggggggggggggggggggkkkkkkkkggPP",
+  "PPgggggggggkgggggggggggggggggggggggggggggggggggggggggggkkgggggPP",
+  "PPgggggggggggggggggggggggggggg===gggggggggggggggggggggggggggggPP",
+  "PPgggggggggggggggggggggggggggg===gggggggggggggggggggggggggggggPP",
+  "PPggggggBBBBBBggBBBBBBgggggggg===gggggggBBBBBBBBggBBBBBBBBggggPP",
+  "PPggggggBBBBBBggBBBBBBgggggggg===gggggggBBBBBBBBggBBBBBBBBggggPP",
+  "PPggggggBBBBBBggBBBBBBgggggggg===gggggggBBBBBBBBggBBBBBBBBggggPP",
+  "PPggggggBBBDBBggBBBBBBgggggggg===gggggggBBBBDBBBggBBBBDBBBggggPP",
+  "PPggggccccccccccccccccccgggggg===gccccccccccccccccccccccccggggPP",
+  "PPgggggggggggggggggggggggggggg===gccggggggggggggggggggggggggggPP",
+  "PPgggggggggggggggggggggggggggg===gccggggggggggggggggggggggggggPP",
+  "PPgggggggggggggggggggggggggggg===gccggggggggggggggggggggggggggPP",
+  "PPggggggBBBBBBggBBBBBBgggggggg===gccggggBBBBBBBBggBBBBBBggggggPP",
+  "PPggggggBBBBBBggBBBBBBgggggggg===gccggggBBBBBBBBggBBBBBBggggggPP",
+  "PPggggggBBBBBBggBBBBBBgggggggg===gccggggBBBBBBBBggBBBBBBggggggPP",
+  "PPggggggBBBBBBggBBBDBBgggggggg===gccggggBBBBDBBBggBBBBBBggggggPP",
+  "PPggggccccccccccccccccccgggggg===gccccccccccccccccccccccccggggPP",
+  "PPgggggggggggggggggggggggggggg===gccggggggggggggggggggggggggggPP",
+  "PPgggggggggggggggggggggggggggg===gccgggggggggggggggggggkgkggggPP",
+  "PPgggggggggggggggggggggggggggg===gccggggggggggggggggggkkkkkkggPP",
+  "PPgggggggggggggggggggggggggggg===gccggggggggggggggggkkkkkkkkggPP",
+  "PPgggggggggggggggggggggggggggg===gggggggggggggggggggkkkkkkkkkgPP",
+  "PPgggggggggggggggggggggggggggg===ggggggggggggggggggkkkkkkkkkkkPP",
+  "..gggggggggggggggggggggggggggg===ggggggggggggggggggkkkkkkkkkkgPP",
+  "..============================aa=ggggggggggggkggggggkkkkkkkkkgPP",
+  "..============================aa=ggggggggkkkkkkkkkkkgkkkkkkkggPP",
+  "PP============================aa=ggggggkkkkkkkkkkkkkkggkkgggggPP",
+  "PPgggggkkkkkkkkkkkkgggggggggggaagggggggkkkkkkkkkkkkkkkggggggggPP",
+  "PPPgggkkkkkkkkkkkkggggggggggggaagggggggkkkkkkkkkkkkkkkggggggggPP",
+  "PPPggggkkkkkkkkkkkggggggggggggaagggggggkkkkkkkkkkkkkkkggggggggPP",
+  "PPPggggkkkkkkkkkkkggggggggggggaaggggggggkkkkkkkkkkkkkkggggggggPP",
+  "PPPggggggkkkkkkkggggggggggggggaagggggggggkkkkkkkkkkkggggggggggPP",
+  "PPPgggggggggkkggggggggggggggggaaggggggggggggggkgggggggggggggggPP",
+  "PPPgggggggggggggggggggggggggggaaggggggggggggggggggggggggggggggPP",
+  "PPPsssssssssssssssssssssssssssaassssssssssssssssssssssssssssssPP",
+  "PPPsssssssssssssssssssssssssssaassssssssssssssssssssssssssssssPP",
+  "PPPsssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss",
+  "PPPsssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss",
+  "PPPwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+  "PPP$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "PPP$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "PPP$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "PPP$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "PPP$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "PPP$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "PPP$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
+ ],
+ "legend_extra": {
+  "g": {
+   "tile": "grass",
+   "colour": "#cbb870"
+  },
+  "k": {
+   "tile": "tall_grass",
+   "colour": "#b0a05a"
+  },
+  "c": {
+   "tile": "cobbles",
+   "colour": "#dcd0b4"
+  },
+  "a": {
+   "tile": "path",
+   "colour": "#e8dcbc"
+  },
+  "l": {
+   "tile": "sand",
+   "colour": "#f3eee2"
+  },
+  "L": {
+   "tile": "sand",
+   "colour": "#eab3c0"
+  },
+  "M": {
+   "tile": "tall_grass",
+   "colour": "#dc92aa",
+   "prop": "none"
+  }
+ }
+}

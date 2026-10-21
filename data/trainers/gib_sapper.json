@@ -1,0 +1,37 @@
+{
+ "id": "gib_sapper",
+ "name": "Royal Engineer",
+ "class": "Sapper",
+ "sprite": "steelworker",
+ "party": [
+  {
+   "species": "sapperling",
+   "level": 95
+  },
+  {
+   "species": "rustelver",
+   "level": 95
+  },
+  {
+   "species": "tinnet",
+   "level": 95
+  }
+ ],
+ "ai": "trainer",
+ "money": 4300,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Royal Engineer",
+   "text": "I dig tunnels. Today I'm digging in for a battle."
+  },
+  {
+   "do": "say",
+   "who": "Royal Engineer",
+   "text": "The Rock's already full of holes. Let me make one in your plan."
+  }
+ ],
+ "win": "You tunnelled right under me. Good dig.",
+ "after": "A good sapper never goes round a problem. He goes under it.",
+ "scaled_floor": 95
+}

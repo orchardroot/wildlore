@@ -1,0 +1,9 @@
+{"quests": [
+ {"id": "overseas_brize_norton_manifest", "title": "The Airbridge Manifest", "region": "overseas_brize_norton", "town": "brize_norton_airbridge", "giver": "Duty Officer", "summary": "The Airbridge runs on paperwork. Collect the distances from the Control Tower and a signature from the Loadmaster, and bring the manifest back.", "start_flag": "q_overseas_brize_norton_started",
+  "steps": [
+   {"flag": "q_overseas_brize_norton_1", "text": "Take the manifest from the Duty Officer at Airbridge Operations.", "zone": "brize_norton_airbridge"},
+   {"flag": "q_overseas_brize_norton_2", "text": "Ask the Duty Controller in the Control Tower how far the Airbridge flies.", "zone": "brize_norton_tower"},
+   {"flag": "q_overseas_brize_norton_3", "text": "Get the Loadmaster on the apron to sign it (he only signs for people who can beat him), then report back.", "zone": "brize_norton"}
+  ],
+  "done_flag": "q_overseas_brize_norton_done", "reward": "Three flasks of tea, three cups of tea and standing with the Overseas Territories."}
+]}

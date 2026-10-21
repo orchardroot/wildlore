@@ -1,0 +1,61 @@
+{
+ "gib_curator": [
+  {
+   "do": "if",
+   "flag": "q_overseas_gibraltar_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_overseas_gibraltar_1",
+     "then": [
+      {
+       "do": "say",
+       "who": "Curator",
+       "text": "You've got the Neanderthal facts. Take them up to the Upper Rock and tell the Cave Warden."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Curator",
+       "text": "The skull found in Forbes' Quarry in 1848 is called Gibraltar 1. It was the first adult Neanderthal skull ever found, and nobody knew what it was for eight years."
+      },
+      {
+       "do": "say",
+       "who": "Curator",
+       "text": "The Neanderthals lived on the Rock for a very long time, some say until around 30,000 years ago. Gorham's Cave has their hearths, and a patch of rock they scratched with a pattern that looks like hashtags. Go and tell the Cave Warden at St Michael's Cave that you've seen it."
+      },
+      {
+       "do": "set",
+       "flag": "q_overseas_gibraltar_1"
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Curator",
+     "text": "Welcome to the Gibraltar Museum. Mind the baths: they are 14th century, very old and very arched, and they've got a lot of steps down."
+    },
+    {
+     "do": "say",
+     "who": "Curator",
+     "text": "If you'd like a project, the Cave Warden at St Michael's Cave is looking for someone who knows the Rock's early story. Have a look round, then go and see them."
+    }
+   ]
+  }
+ ],
+ "gib_baths": [
+  {
+   "do": "say",
+   "who": "Attendant",
+   "text": "The Moorish baths were hidden under later buildings for centuries. They were uncovered when the house above was being rebuilt."
+  },
+  {
+   "do": "say",
+   "who": "Attendant",
+   "text": "The arches are horseshoe-shaped. If you're going to look at one thing, look at the roof. It has little star-shaped holes for the steam to escape."
+  }
+ ]
+}

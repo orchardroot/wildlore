@@ -1,0 +1,37 @@
+{
+ "id": "gib_dolphin",
+ "name": "Dolphin Guide",
+ "class": "Dolphin Guide",
+ "sprite": "sailor",
+ "party": [
+  {
+   "species": "dolfeen",
+   "level": 95
+  },
+  {
+   "species": "bayrunner",
+   "level": 95
+  },
+  {
+   "species": "plungebeak",
+   "level": 95
+  }
+ ],
+ "ai": "trainer",
+ "money": 4000,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Dolphin Guide",
+   "text": "The dolphins aren't on a leash, and nor am I."
+  },
+  {
+   "do": "say",
+   "who": "Dolphin Guide",
+   "text": "Let's see how you handle a bit of Strait swell!"
+  }
+ ],
+ "win": "Smooth sailing. I'll tell the dolphins you said hello.",
+ "after": "The common dolphin can reach 60 km an hour. I can reach the harbour wall. Barely.",
+ "scaled_floor": 95
+}

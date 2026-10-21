@@ -54,7 +54,7 @@ func test_boards_count_plaques_read_per_nation() -> void:
 	d.set_flag(Gazetteer.flag_key("a"))
 	d.set_flag(Gazetteer.flag_key("d"))
 	var b := HomeExtras.boards(d, _plaques())
-	assert_eq(b.size(), 6)
+	assert_eq(b.size(), Standing.NATIONS.size())
 	var eng: Dictionary = b.filter(func(x): return x.nation == "england")[0]
 	assert_eq([eng.read, eng.total], [1, 2])
 	var sco: Dictionary = b.filter(func(x): return x.nation == "scotland")[0]

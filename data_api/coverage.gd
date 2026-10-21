@@ -53,6 +53,11 @@ static func reachability(zones: Dictionary, ferries: Dictionary, script_warps: D
 	if zones.has("macc_home"):
 		seen["macc_home"] = true
 		queue.append("macc_home")
+	for e in Overseas.all():  # the departures board lands you at each territory's arrival zone
+		var az := str(e.get("arrival", {}).get("zone", ""))
+		if az != "" and not seen.has(az):
+			seen[az] = true
+			queue.append(az)
 	while not queue.is_empty():
 		var zid: String = queue.pop_front()
 		if not zones.has(zid):
