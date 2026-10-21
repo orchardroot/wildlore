@@ -106,3 +106,20 @@ func test_marble_arch_caves_floors() -> void:
 	var h := _applied("marblearch_deep", d)
 	assert_eq(h.tile_at(Vector2i(14, 5)), "fence")
 	assert_eq(ZoneData.load_id("enniskillen_marblearch").tile_at(Vector2i(8, 1)), "door")
+
+func test_aillwee_cave_is_wired_and_solvable() -> void:
+	var d := _data()
+	var burren := ZoneData.load_id("burren")
+	var linked := false
+	for w in burren.warps:
+		if w.get("to", "") == "aillwee_entry":
+			linked = true
+	assert_true(linked, "Aillwee door on the Burren")
+	var haven := _applied("aillwee_haven", d)
+	assert_eq(haven.tile_at(Vector2i(14, 4)), "fence", "slab shut until the plate is pressed")
+	var gallery := _applied("aillwee_gallery", d)
+	assert_eq(gallery.tile_at(Vector2i(9, 5)), "deep_water")
+	DeepPlace.pull(d, gallery.id, DeepPlace.lever_at(gallery, Vector2i(8, 3)))
+	DeepPlace.apply(d, gallery, {})
+	assert_eq(gallery.tile_at(Vector2i(9, 5)), "shallow")
+	assert_false(DeepPlace.can_find(d, gallery, DeepPlace.lever_at(gallery, Vector2i(6, 2))), "the crack needs the lantern")

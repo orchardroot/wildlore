@@ -1,0 +1,159 @@
+{
+ "id": "aillwee_haven",
+ "name": "Aillwee Cave: Bear Haven",
+ "region": "",
+ "kind": "interior",
+ "music": "dungeon_underground",
+ "weather": {},
+ "props": [],
+ "legend_extra": {
+  "e": {
+   "tile": "path",
+   "colour": "#5a5f66"
+  },
+  "m": {
+   "tile": "tall_grass",
+   "colour": "#445a58",
+   "prop": "none"
+  },
+  "g": {
+   "tile": "path",
+   "colour": "#6f7078"
+  }
+ },
+ "warps": [
+  {
+   "x": 1,
+   "y": 3,
+   "to": "aillwee_gallery",
+   "tx": 17,
+   "ty": 7,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [],
+ "encounters": {
+  "grass": [
+   {
+    "species": "bathlet",
+    "min": 55,
+    "max": 57,
+    "weight": 16
+   },
+   {
+    "species": "flittermouse",
+    "min": 55,
+    "max": 57,
+    "weight": 16
+   },
+   {
+    "species": "dripkin",
+    "min": 56,
+    "max": 57,
+    "weight": 14
+   },
+   {
+    "species": "gritling",
+    "min": 56,
+    "max": 57,
+    "weight": 12
+   },
+   {
+    "species": "horseshoe",
+    "min": 56,
+    "max": 57,
+    "weight": 8,
+    "time": [
+     "night",
+     "dusk"
+    ]
+   },
+   {
+    "species": "bansheen",
+    "min": 56,
+    "max": 57,
+    "weight": 4,
+    "time": [
+     "night"
+    ]
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 5,
+   "y": 3,
+   "text": "A boulder, a rut worn in the floor and a flat plate set in the stone. Whoever lived here once rolled things about. The plate looks as if it wants something heavy."
+  },
+  {
+   "x": 17,
+   "y": 6,
+   "plaque": "aillwee_bears",
+   "title": "Brown Bears",
+   "text": "Brown bears once lived in Ireland, and their bones turn up in caves in the Burren. Aillwee has a hollow where a bear hibernated, and the bones of bears were found in it. Bears are long gone from Ireland, though the cave still keeps the story."
+  },
+  {
+   "x": 13,
+   "y": 6,
+   "plaque": "aillwee_hibernation",
+   "title": "Winter Sleep",
+   "text": "A bear in hibernation lives off the fat it stored through autumn and does not eat or drink for months. A dry, quiet cave with a steady temperature is a good place for it. This one stays cool all year, which is better for bears than for visitors."
+  }
+ ],
+ "spawn": [
+  2,
+  3
+ ],
+ "stage": "cave",
+ "dark": true,
+ "rows": [
+  "xxxxxxxxxxxxxxxxxxxxxx",
+  "xxxxxxxxxxxxxxxxxxxxxx",
+  "xxxxxxxxxxxxxxxxxxxxxx",
+  "xDeeeeeeeeeeexxeeeeexx",
+  "xeeeeeeeeeeeeegeeeeexx",
+  "xeeeeeeeeeeeeexeeeeexx",
+  "xeeeeeeeeeeemmxeeeeexx",
+  "xeeeeeeeeeeeeexxeeexxx",
+  "xxxxxxxxxxxxxxxxxxxxxx"
+ ],
+ "deep": {
+  "plates": [
+   {
+    "id": "plate",
+    "x": 10,
+    "y": 5
+   }
+  ],
+  "crates": [
+   {
+    "id": "boulder",
+    "x": 4,
+    "y": 6
+   }
+  ],
+  "gates": [
+   {
+    "x": 14,
+    "y": 4,
+    "by": [
+     "plate:plate"
+    ],
+    "line": "A rock slab blocks the way, with a plate in the floor in front of it."
+   }
+  ],
+  "levers": [
+   {
+    "id": "hollow",
+    "x": 18,
+    "y": 4,
+    "on": "In the old hibernation hollow, among the cave's long memory, you find a bear's heavy jawbone, fossilised and surprisingly handsome.",
+    "off": "The hollow is empty now.",
+    "find": {
+     "item": "aillwee_bear_jaw"
+    }
+   }
+  ]
+ }
+}

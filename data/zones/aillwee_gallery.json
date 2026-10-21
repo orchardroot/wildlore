@@ -1,0 +1,169 @@
+{
+ "id": "aillwee_gallery",
+ "name": "Aillwee Cave: The Waterfall Passage",
+ "region": "",
+ "kind": "interior",
+ "music": "dungeon_underground",
+ "weather": {},
+ "props": [],
+ "legend_extra": {
+  "e": {
+   "tile": "path",
+   "colour": "#5a5f66"
+  },
+  "m": {
+   "tile": "tall_grass",
+   "colour": "#445a58",
+   "prop": "none"
+  },
+  "g": {
+   "tile": "path",
+   "colour": "#6f7078"
+  }
+ },
+ "warps": [
+  {
+   "x": 2,
+   "y": 1,
+   "to": "aillwee_entry",
+   "tx": 10,
+   "ty": 1,
+   "facing": "down"
+  },
+  {
+   "x": 17,
+   "y": 8,
+   "to": "aillwee_haven",
+   "tx": 2,
+   "ty": 3,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [],
+ "encounters": {
+  "grass": [
+   {
+    "species": "bathlet",
+    "min": 55,
+    "max": 57,
+    "weight": 16
+   },
+   {
+    "species": "flittermouse",
+    "min": 55,
+    "max": 57,
+    "weight": 16
+   },
+   {
+    "species": "dripkin",
+    "min": 56,
+    "max": 57,
+    "weight": 14
+   },
+   {
+    "species": "gritling",
+    "min": 56,
+    "max": 57,
+    "weight": 12
+   },
+   {
+    "species": "horseshoe",
+    "min": 56,
+    "max": 57,
+    "weight": 8,
+    "time": [
+     "night",
+     "dusk"
+    ]
+   },
+   {
+    "species": "bansheen",
+    "min": 56,
+    "max": 57,
+    "weight": 4,
+    "time": [
+     "night"
+    ]
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 3,
+   "y": 3,
+   "plaque": "aillwee_water",
+   "title": "The Water Below",
+   "text": "A cave stream is how the Burren drains. Rainwater sinks through the limestone, gathers into streams underground and comes out as springs far from where it fell. After heavy rain the passage here can run fast, which is why the valve exists."
+  },
+  {
+   "x": 9,
+   "y": 3,
+   "plaque": "aillwee_stalactites",
+   "title": "Stalactites",
+   "text": "A stalactite is a stone icicle made by dripping water. Each drop leaves behind a trace of calcite, and most stalactites add only a fraction of a millimetre a year. The big ones took a very long time, and a touch can stop the growth, so look and keep your hands to yourself."
+  }
+ ],
+ "spawn": [
+  3,
+  2
+ ],
+ "stage": "cave",
+ "dark": true,
+ "rows": [
+  "xxxxxxxxxxxxxxxxxxxxxx",
+  "xxDeeexxxxxxxxxxxxxxxx",
+  "xxeemmexxxxxxxxxxxxxxx",
+  "xxeeeeeeeexxxxxxxxxxxx",
+  "xxxxxxxxeeexxxxxxxxxxx",
+  "xxxxxxxxwwwxxxxxxxxxxx",
+  "xxxxxxxxeeeeeexxxxxxxx",
+  "xxxxxxxxxxxxeeeemmexxx",
+  "xxxxxxxxxxxxxxxxxDxxxx",
+  "xxxxxxxxxxxxxxxxxxxxxx"
+ ],
+ "deep": {
+  "levers": [
+   {
+    "id": "valve",
+    "x": 8,
+    "y": 3,
+    "on": "You turn the rusty sluice wheel. The water in the passage drains away and the floor shows through.",
+    "off": "You close the sluice. The water creeps back across the passage."
+   },
+   {
+    "id": "pocket",
+    "x": 6,
+    "y": 2,
+    "needs_light": true,
+    "on": "Your lantern picks out a shape in a crack. You work it loose: a big, worn tooth, still sound after a very long time.",
+    "off": "There is nothing more in the crack.",
+    "find": {
+     "item": "aillwee_bear_tooth"
+    }
+   }
+  ],
+  "floods": [
+   {
+    "id": "stream",
+    "by": [
+     "lever:valve"
+    ],
+    "tiles": [
+     [
+      8,
+      5
+     ],
+     [
+      9,
+      5
+     ],
+     [
+      10,
+      5
+     ]
+    ]
+   }
+  ]
+ }
+}
