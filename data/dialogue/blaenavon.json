@@ -34,5 +34,179 @@
    "who": "Hiker",
    "text": "The old tramroads cross the hills like pencil lines. You can follow them for miles, and the ponies' hooves wore the stones smooth."
   }
+ ],
+ "arc_cerys": [
+  {
+   "do": "if",
+   "flag": "q_arc_wales_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Cerys",
+     "text": "The Hall's open and the Trust has gone quiet. Quiet is the nicest thing a committee ever does for you."
+    },
+    {
+     "do": "say",
+     "who": "Cerys",
+     "text": "The guides stay, by the way. It's in the minutes now. I put it in the minutes myself, in capitals."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_arc_wales_10",
+     "then": [
+      {
+       "do": "say",
+       "who": "Cerys",
+       "text": "Go and see the Hall. Mair has the keys, and you've got the other set, which she'll pretend she didn't know about."
+      },
+      {
+       "do": "say",
+       "who": "Cerys",
+       "text": "West end of town, the red brick one with the new padlock-shaped hole in its reputation."
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_arc_wales_9",
+       "then": [
+        {
+         "do": "say",
+         "who": "Cerys",
+         "text": "Prys rang. Three right or better, and in public, in a pub. He's furious. He's also, privately, thrilled."
+        },
+        {
+         "do": "say",
+         "who": "Cerys",
+         "text": "The board sat this morning. Motion: no Experience. Instead we reopen the old lodge hall as the valley's own heritage centre, run by the guides, with the choirs in the diary."
+        },
+        {
+         "do": "say",
+         "who": "Cerys",
+         "text": "Carried, seven to two. The two have been given a lanyard each to cope. Here's the key to the Miners' Hall. It's been shut since the eighties, and the valley has been tutting at it ever since."
+        },
+        {
+         "do": "give_item",
+         "item": "miners_hall_key",
+         "n": 1
+        },
+        {
+         "do": "standing",
+         "nation": "wales",
+         "amount": 20
+        },
+        {
+         "do": "set",
+         "flag": "q_arc_wales_10",
+         "value": true
+        },
+        {
+         "do": "sfx",
+         "id": "item"
+        },
+        {
+         "do": "say",
+         "who": "",
+         "text": "The choirs have started to gather by the pithead."
+        }
+       ],
+       "else": [
+        {
+         "do": "if",
+         "flag": "q_arc_wales_1",
+         "then": [
+          {
+           "do": "say",
+           "who": "Cerys",
+           "text": "Still at it? Right. You want the Trust to drop the Experience, so you need four things: the history, the visitors, the voices, and a seat at the table."
+          },
+          {
+           "do": "say",
+           "who": "Cerys",
+           "text": "Gwilym's down the pit, he's got opinions about the history. After that it's the Fed's old workings, the library at Merthyr, the visitor book at the Rhondda, a choir, and Prys Gittins in the Merthyr pub for the vote."
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Cerys",
+           "text": "Cerys Vaughan, Heritage Trust. Surveyor, keeper of a lanyard and, this morning, bearer of good news."
+          },
+          {
+           "do": "say",
+           "who": "Cerys",
+           "text": "Big Pit: The Experience. We widen the roadway, put a cage ride in that drops ten metres with a scream track, add a gift hall the size of a hangar and light the whole thing up in colours not found in coal."
+          },
+          {
+           "do": "say",
+           "who": "Cerys",
+           "text": "Visitors up fourfold, the board says. Phase three retires the guides, who are expensive and keep telling people things."
+          },
+          {
+           "do": "choice",
+           "text": "What do you make of that?",
+           "options": [
+            "It sounds loud",
+            "The guides are the point",
+            "Show me the figures"
+           ],
+           "set": "_cerys_q"
+          },
+          {
+           "do": "say",
+           "who": "Cerys",
+           "text": "Everyone says one of those. The board says 'Show me the figures' back, in a different voice, and goes for lunch."
+          },
+          {
+           "do": "say",
+           "who": "Cerys",
+           "text": "Between us, I grew up three streets from here. My grandad cut coal at this very pit. I can't be seen to say so. You, however, are a visitor, and visitors can ask awkward questions."
+          },
+          {
+           "do": "say",
+           "who": "Cerys",
+           "text": "Find out what Big Pit really is. Start with Gwilym in the lamp room. If you can show the board that the valley wants the real thing, I'll take it to the vote."
+          },
+          {
+           "do": "set",
+           "flag": "q_arc_wales_started",
+           "value": true
+          },
+          {
+           "do": "set",
+           "flag": "q_arc_wales_1",
+           "value": true
+          },
+          {
+           "do": "sfx",
+           "id": "item"
+          },
+          {
+           "do": "say",
+           "who": "",
+           "text": "New quest: Whose Pit Is It?"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "arc_choir": [
+  {
+   "do": "say",
+   "who": "Chorister",
+   "text": "Calon Lan. Everyone knows the tune and nobody knows past verse two. We have a man with the words on a card, and he's our most important tenor."
+  },
+  {
+   "do": "say",
+   "who": "Chorister",
+   "text": "Daniel James wrote the words, and John Hughes the tune, a hundred years or so ago. It's the hymn the crowd at the rugby sings with its hand on its heart and its mouth full of pie."
+  }
  ]
 }

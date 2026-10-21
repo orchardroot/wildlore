@@ -1,0 +1,132 @@
+{
+ "id": "blaenavon_bigpit_east",
+ "name": "Big Pit: The Old Lodge Workings",
+ "region": "",
+ "kind": "interior",
+ "music": "dungeon_underground",
+ "weather": {},
+ "props": [
+  {
+   "type": "table",
+   "x": 15,
+   "y": 2
+  },
+  {
+   "type": "brazier",
+   "x": 13,
+   "y": 1
+  },
+  {
+   "type": "brazier",
+   "x": 16,
+   "y": 5
+  },
+  {
+   "type": "slate_heap",
+   "x": 14,
+   "y": 4
+  },
+  {
+   "type": "brick_arch",
+   "x": 11,
+   "y": 2
+  }
+ ],
+ "legend_extra": {
+  "e": {
+   "tile": "path",
+   "colour": "#565d69"
+  },
+  "g": {
+   "tile": "path",
+   "colour": "#6b6f7a"
+  }
+ },
+ "warps": [
+  {
+   "x": 1,
+   "y": 3,
+   "to": "blaenavon_bigpit_below",
+   "tx": 12,
+   "ty": 5,
+   "facing": "left"
+  }
+ ],
+ "edges": {},
+ "npcs": [],
+ "encounters": {},
+ "signs": [
+  {
+   "x": 13,
+   "y": 3,
+   "plaque": "blaenavon_fed_lodge",
+   "title": "The Fed",
+   "text": "THE FED. The South Wales Miners' Federation was founded in 1898, after a lock-out that lasted about six months. Its lodges ran institutes, libraries and medical aid societies that no company would pay for, and a lodge's banner was carried at the front of any march."
+  },
+  {
+   "x": 6,
+   "y": 3,
+   "text": "A tram of 1936 timber stacked against the wall. Beyond it a crate on rails, and in the floor a plate, rusted but sound. A gate at the far end is held shut by something that wants weight."
+  }
+ ],
+ "spawn": [
+  2,
+  3
+ ],
+ "stage": "cave",
+ "dark": true,
+ "deep": {
+  "plates": [
+   {
+    "id": "plate",
+    "x": 9,
+    "y": 4
+   }
+  ],
+  "crates": [
+   {
+    "id": "tram",
+    "x": 4,
+    "y": 2
+   }
+  ],
+  "gates": [
+   {
+    "x": 11,
+    "y": 3,
+    "by": [
+     "plate:plate"
+    ],
+    "line": "A timber gate blocks the road, and a plate in the floor looks as if it was meant to lift it."
+   }
+  ]
+ },
+ "rows": [
+  "xxxxxxxxxxxxxxxxxx",
+  "xeeeeeeeeeexeeeeex",
+  "xeeeeeeeeeexeeeeex",
+  "xDeeeeeeeeegeeeeex",
+  "xeeeeeeeeeexeeeeex",
+  "xeeeeeeeeeexeeeeex",
+  "xxxxxxxxxxxxxxxxxx"
+ ],
+ "examine": [
+  {
+   "x": 15,
+   "y": 2,
+   "flag": "q_arc_wales_4",
+   "text": [
+    "The lodge minute book, damp but legible. The last entry: 'Resolved: that the lodge hall, the library and the baths be held in trust for the men of this valley for as long as there is coal under it, and after.'",
+    "The signature underneath is a cross-hatched scrawl and the date is 1936. There is a ring on the page where somebody once put a mug of tea down."
+   ]
+  },
+  {
+   "x": 16,
+   "y": 1,
+   "text": [
+    "A lodge banner, folded on a shelf. Moth has had the red but the gold lettering holds: UNITY IS STRENGTH.",
+    "Banners like this were carried at the head of marches, and nobody carried one for show."
+   ]
+  }
+ ]
+}

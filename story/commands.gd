@@ -635,8 +635,25 @@ func _when(cond: String) -> bool:
 		return Calendar.festival_today() == cond
 	if Festivals.is_cond(cond):  # fest_<id>: one of data/festivals.json is on
 		return Festivals.cond(cond)
+	var arc := _arc_cond(cond)
+	if arc != "":
+		return arc == "yes"
 	push_warning("Commands: unknown condition '%s'" % cond)
 	return false
+
+## `guild_<id>_<n>` (a rank of at least n in that guild, see Guilds.rank) and `regular_<id>_<n>` (favour of at least n
+## with that Regular, see Regulars.favour): the long arcs test them. "yes" or "no", or "" when cond is neither.
+func _arc_cond(cond: String) -> String:
+	var cut := cond.rfind("_")
+	if cut < 0 or not cond.substr(cut + 1).is_valid_int():
+		return ""
+	var n := int(cond.substr(cut + 1))
+	var head := cond.substr(0, cut)
+	if head.begins_with("guild_") and Guilds.IDS.has(head.substr(6)):
+		return "yes" if Guilds.rank(host.data, head.substr(6)) >= n else "no"
+	if head.begins_with("regular_") and Regulars.ids().has(head.substr(8)):
+		return "yes" if Regulars.favour(host.data, head.substr(8)) >= n else "no"
+	return ""
 
 ## A guild secretary's desk: what the guild counts, your rank, the perks, and joining or resigning (with the Ramblers
 ## and the Trust warning you first, since they cannot both have your top rank).

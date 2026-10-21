@@ -1,0 +1,130 @@
+{
+ "id": "blaenavon_miners_hall",
+ "name": "Blaenavon Miners' Hall",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "bookshelf",
+   "x": 2,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 3,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 9,
+   "y": 1
+  },
+  {
+   "type": "table",
+   "x": 3,
+   "y": 5
+  },
+  {
+   "type": "table",
+   "x": 9,
+   "y": 5
+  },
+  {
+   "type": "wall_picture",
+   "x": 6,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 7
+  },
+  {
+   "type": "potted_plant",
+   "x": 11,
+   "y": 7
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 8,
+   "to": "blaenavon",
+   "tx": 7,
+   "ty": 30,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "arc_mair",
+   "sprite": "villager_5",
+   "x": 6,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "arc_mair",
+   "name": "Mair, hall keeper"
+  },
+  {
+   "id": "arc_hall_elwyn",
+   "sprite": "choir_singer",
+   "x": 4,
+   "y": 4,
+   "facing": "right",
+   "move": "still",
+   "script": "arc_hall_choir",
+   "show_if": "q_arc_wales_done"
+  },
+  {
+   "id": "arc_hall_gwen",
+   "sprite": "choir_singer",
+   "x": 8,
+   "y": 4,
+   "facing": "left",
+   "move": "still",
+   "script": "arc_hall_choir",
+   "show_if": "q_arc_wales_done"
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "x": 10,
+   "y": 3,
+   "plaque": "blaenavon_miners_hall",
+   "title": "The Miners' Hall",
+   "text": "Halls like this were built by the miners themselves, a few pence a week from every pay packet. They held a library, a stage, a billiard table and, on a good night, a choir and a quarrel. When the pits closed many were shut, sold or left to rot. This one was lent back to the valley."
+  }
+ ],
+ "spawn": [
+  6,
+  7
+ ],
+ "rows": [
+  "xxxxxxxxxxxxx",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||D|||||x",
+  "xxxxxxxxxxxxx"
+ ],
+ "examine": [
+  {
+   "x": 6,
+   "y": 1,
+   "text": [
+    "A framed photograph of the lodge committee, 1920s, in caps and mufflers, none of them smiling. Photographers said hold still, and they did, for ever.",
+    "Under it, a new brass plate: RE-OPENED BY THE VALLEY."
+   ]
+  }
+ ]
+}
