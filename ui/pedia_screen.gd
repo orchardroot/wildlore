@@ -18,6 +18,7 @@ var _all: Array = []           # every species id, Dex order
 var _no: Dictionary = {}       # id -> Dex number as shown: "045", or "A01" in the appendix after the 200
 var _core := 0                 # how many are in the Fieldbook proper (the appendix is a bonus)
 var _extra := 0                # how many in the appendix
+var _hybrids := 0              # how many hybrids the book lists (none until you have met one)
 var _ids: Array = []           # the ids the current filter shows
 var _cur := 0
 var _scroll: ScrollContainer
@@ -37,6 +38,13 @@ func _build() -> void:
 		else:
 			_core += 1
 			_no[id] = "%03d" % _core
+	var dd: GameStateData = Game.data  # the Hybrids section, H01 onwards: shown once you have bred or met one
+	var met := Game.dex.hybrid_ids().any(func(id): return dd.seen.has(id) or dd.caught.has(id))
+	if met:
+		for id in Game.dex.hybrid_ids():
+			_hybrids += 1
+			_no[id] = "H%02d" % _hybrids
+			_all.append(id)
 	set_hints([["updown", "Browse"], ["shoulders", "Jump 10"], ["run", "Filter"], ["bike", "Cry"], ["confirm", "Map"], ["cancel", "Back"]])
 	var row := HBoxContainer.new()
 	row.set_anchors_preset(Control.PRESET_FULL_RECT)
@@ -74,7 +82,9 @@ func _fill_list() -> void:
 	header_right.text = "%s    Seen %d    Caught %d / %d" % [FILTER_NAMES[_filter], d.seen.size(), FieldbookGoals.caught_count(d), _core]
 	var extra_seen := d.seen.keys().filter(func(id): return Dex.in_appendix(id)).size()
 	if extra_seen > 0:  # the appendix shows up once you've met something from it
-		header_right.text += "    Appendix %d / %d" % [d.caught.size() - FieldbookGoals.caught_count(d), _extra]
+		header_right.text += "    Appendix %d / %d" % [d.caught.keys().filter(func(id): return Dex.in_appendix(id)).size(), _extra]
+	if _hybrids > 0:
+		header_right.text += "    Hybrids %d / %d" % [d.caught.keys().filter(func(id): return Dex.is_hybrid(id)).size(), _hybrids]
 	UIKit.clear(_list_col)
 	_buttons.clear()
 	for i in _ids.size():
@@ -256,7 +266,7 @@ func _show(id: String) -> void:
 	info.alignment = BoxContainer.ALIGNMENT_CENTER
 	info.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	top.add_child(info)
-	info.add_child(UIKit.label(("Appendix %s" if Dex.in_appendix(id) else "No. %s") % str(_no.get(id, "")), 22, UIKit.MUTED))
+	info.add_child(UIKit.label(("Hybrid %s" if Dex.is_hybrid(id) else "Appendix %s" if Dex.in_appendix(id) else "No. %s") % str(_no.get(id, "")), 22, UIKit.MUTED))
 	info.add_child(UIKit.label(str(sp.get("name", id)) if st != "unseen" else "???", 40))
 	if st != "unseen":
 		var type_row := HBoxContainer.new()  # the types, and the Cry button beside them (the Bike key does it too)
@@ -303,7 +313,12 @@ func _show(id: String) -> void:
 	var where := ", ".join(zones.slice(0, MAX_PLACES))
 	if zones.size() > MAX_PLACES:
 		where += " and %d more" % (zones.size() - MAX_PLACES)
-	UIKit.add_words(words, "Found in: " + (where if not zones.is_empty() else "somewhere secret"), -4, Color("d8cfb4"))
+	if Dex.is_hybrid(id):  # never found in the wild: what it is, and whether it can have young of its own
+		var h: Dictionary = Genetics.hybrids().get(id, {})
+		var how: String = {"real": "A real cross.", "folklore": "Folklore: they say.", "invented": "A game invention."}.get(str(h.get("real", "")), "")
+		UIKit.add_words(words, "Bred, never found. %s %s" % [how, "Fertile." if h.get("fertile", true) == true else "Cannot have young."], -4, Color("d8cfb4"))
+	else:
+		UIKit.add_words(words, "Found in: " + (where if not zones.is_empty() else "somewhere secret"), -4, Color("d8cfb4"))
 	var dex: Dictionary = sp.get("dex", {})
 	if st == "caught":
 		UIKit.add_words(words, str(dex.get("text", "")), 0)
