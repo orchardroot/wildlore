@@ -3196,5 +3196,2174 @@
     }
    ]
   }
+ ],
+ "fest_whitbygoth": [
+  {
+   "do": "if",
+   "flag": "q_festivals_whitbygoth_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Count Cuthbert",
+     "text": "Lovely to see you again. Enjoy the day."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_festivals_whitbygoth_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_festivals_whitbygoth_1",
+       "then": [
+        {
+         "do": "say",
+         "who": "Count Cuthbert",
+         "text": "Back for the big question?"
+        },
+        {
+         "do": "choice",
+         "text": "Quick, before dusk. Which writer set part of Dracula in Whitby?",
+         "options": [
+          "Bram Stoker",
+          "Charles Dickens",
+          "Mary Shelley"
+         ],
+         "set": "festivals_whitbygoth_ans"
+        },
+        {
+         "do": "if",
+         "flag": "festivals_whitbygoth_ans",
+         "eq": 0,
+         "then": [
+          {
+           "do": "say",
+           "who": "Count Cuthbert",
+           "text": "Bram Stoker, who stayed on the West Cliff in 1890 and borrowed the town's wrecked ships and its churchyard. He never saw a single goth in his life, which is a great pity."
+          },
+          {
+           "do": "say",
+           "who": "Count Cuthbert",
+           "text": "Right, tuck in! That's a kipper roll. Smoked herring, a soft bap and a squeeze of lemon, the proper Whitby breakfast, whatever you are wearing."
+          },
+          {
+           "do": "set",
+           "flag": "q_festivals_whitbygoth_2"
+          },
+          {
+           "do": "if",
+           "flag": "festivals_souv_whitbygoth",
+           "then": [
+            {
+             "do": "say",
+             "who": "Count Cuthbert",
+             "text": "You've kept my souvenir from a past year, so I won't hand you another. The food, though, is fresh every year. Tuck in."
+            }
+           ],
+           "else": [
+            {
+             "do": "give_item",
+             "item": "fest_goth_rose"
+            },
+            {
+             "do": "set",
+             "flag": "festivals_souv_whitbygoth"
+            }
+           ]
+          },
+          {
+           "do": "give_item",
+           "item": "whitby_kipper_roll",
+           "n": 2
+          },
+          {
+           "do": "set",
+           "flag": "q_festivals_whitbygoth_done"
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Count Cuthbert",
+           "text": "Not quite. Think of the man with the cape and the neck habit. His name is on the pub quiz sheet."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "when",
+         "cond": "has_flittermouse",
+         "then": [
+          {
+           "do": "say",
+           "who": "Count Cuthbert",
+           "text": "A Flittermouse! Now that's the real thing."
+          },
+          {
+           "do": "set",
+           "flag": "q_festivals_whitbygoth_1"
+          },
+          {
+           "do": "choice",
+           "text": "Quick, before dusk. Which writer set part of Dracula in Whitby?",
+           "options": [
+            "Bram Stoker",
+            "Charles Dickens",
+            "Mary Shelley"
+           ],
+           "set": "festivals_whitbygoth_ans"
+          },
+          {
+           "do": "if",
+           "flag": "festivals_whitbygoth_ans",
+           "eq": 0,
+           "then": [
+            {
+             "do": "say",
+             "who": "Count Cuthbert",
+             "text": "Bram Stoker, who stayed on the West Cliff in 1890 and borrowed the town's wrecked ships and its churchyard. He never saw a single goth in his life, which is a great pity."
+            },
+            {
+             "do": "say",
+             "who": "Count Cuthbert",
+             "text": "Right, tuck in! That's a kipper roll. Smoked herring, a soft bap and a squeeze of lemon, the proper Whitby breakfast, whatever you are wearing."
+            },
+            {
+             "do": "set",
+             "flag": "q_festivals_whitbygoth_2"
+            },
+            {
+             "do": "if",
+             "flag": "festivals_souv_whitbygoth",
+             "then": [
+              {
+               "do": "say",
+               "who": "Count Cuthbert",
+               "text": "You've kept my souvenir from a past year, so I won't hand you another. The food, though, is fresh every year. Tuck in."
+              }
+             ],
+             "else": [
+              {
+               "do": "give_item",
+               "item": "fest_goth_rose"
+              },
+              {
+               "do": "set",
+               "flag": "festivals_souv_whitbygoth"
+              }
+             ]
+            },
+            {
+             "do": "give_item",
+             "item": "whitby_kipper_roll",
+             "n": 2
+            },
+            {
+             "do": "set",
+             "flag": "q_festivals_whitbygoth_done"
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Count Cuthbert",
+             "text": "Not quite. Think of the man with the cape and the neck habit. His name is on the pub quiz sheet."
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Count Cuthbert",
+           "text": "Not yet? I'll be here while it lasts."
+          },
+          {
+           "do": "say",
+           "who": "Count Cuthbert",
+           "text": "Catch a Flittermouse, a bat that haunts Whitby's rooftops in this week."
+          }
+         ]
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Count Cuthbert",
+       "text": "Whitby Goth Weekend! Twice a year the town fills with velvet, top hats and very good eyeliner, and the chip shop does a roaring trade. We come because Bram Stoker did: he stayed here in 1890 and Dracula comes ashore on a ship wrecked below the abbey."
+      },
+      {
+       "do": "say",
+       "who": "Count Cuthbert",
+       "text": "The Count's been looking for a bat to hang about the abbey and none of them will oblige. Flittermice turn up round the harbour in this week."
+      },
+      {
+       "do": "choice",
+       "text": "Help out?",
+       "options": [
+        "Count me in",
+        "Not just now"
+       ],
+       "set": "festivals_whitbygoth_ans"
+      },
+      {
+       "do": "if",
+       "flag": "festivals_whitbygoth_ans",
+       "eq": 0,
+       "then": [
+        {
+         "do": "set",
+         "flag": "q_festivals_whitbygoth_started"
+        },
+        {
+         "do": "say",
+         "who": "Count Cuthbert",
+         "text": "Catch a Flittermouse, a bat that haunts Whitby's rooftops in this week."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Count Cuthbert",
+         "text": "No bother. I'll be here while it lasts."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "fest_llangollen": [
+  {
+   "do": "if",
+   "flag": "q_festivals_llangollen_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Cerys the Chorister",
+     "text": "Lovely to see you again. Enjoy the day."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_festivals_llangollen_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_festivals_llangollen_1",
+       "then": [
+        {
+         "do": "say",
+         "who": "Cerys the Chorister",
+         "text": "Back for the big question?"
+        },
+        {
+         "do": "choice",
+         "text": "Quick, before the first choir starts. In which year did the first Llangollen International Eisteddfod take place?",
+         "options": [
+          "1947",
+          "1847",
+          "1977"
+         ],
+         "set": "festivals_llangollen_ans"
+        },
+        {
+         "do": "if",
+         "flag": "festivals_llangollen_ans",
+         "eq": 0,
+         "then": [
+          {
+           "do": "say",
+           "who": "Cerys the Chorister",
+           "text": "1947, just after the Second World War, as a way of bringing people back together through song. Quite a lot of nations have been trying to out-sing each other ever since."
+          },
+          {
+           "do": "say",
+           "who": "Cerys the Chorister",
+           "text": "Right, tuck in! That's welsh cakes. Flat little griddle cakes with currants, baked on a bakestone and eaten while still too hot to hold."
+          },
+          {
+           "do": "set",
+           "flag": "q_festivals_llangollen_2"
+          },
+          {
+           "do": "if",
+           "flag": "festivals_souv_llangollen",
+           "then": [
+            {
+             "do": "say",
+             "who": "Cerys the Chorister",
+             "text": "You've kept my souvenir from a past year, so I won't hand you another. The food, though, is fresh every year. Tuck in."
+            }
+           ],
+           "else": [
+            {
+             "do": "give_item",
+             "item": "fest_eisteddfod_ribbon"
+            },
+            {
+             "do": "set",
+             "flag": "festivals_souv_llangollen"
+            }
+           ]
+          },
+          {
+           "do": "give_item",
+           "item": "welsh_cakes_tin",
+           "n": 2
+          },
+          {
+           "do": "set",
+           "flag": "q_festivals_llangollen_done"
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Cerys the Chorister",
+           "text": "Not quite. It began just after the war ended, in the late 1940s."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "when",
+         "cond": "has_tootlet",
+         "then": [
+          {
+           "do": "say",
+           "who": "Cerys the Chorister",
+           "text": "A Tootlet! Now that's the real thing."
+          },
+          {
+           "do": "set",
+           "flag": "q_festivals_llangollen_1"
+          },
+          {
+           "do": "choice",
+           "text": "Quick, before the first choir starts. In which year did the first Llangollen International Eisteddfod take place?",
+           "options": [
+            "1947",
+            "1847",
+            "1977"
+           ],
+           "set": "festivals_llangollen_ans"
+          },
+          {
+           "do": "if",
+           "flag": "festivals_llangollen_ans",
+           "eq": 0,
+           "then": [
+            {
+             "do": "say",
+             "who": "Cerys the Chorister",
+             "text": "1947, just after the Second World War, as a way of bringing people back together through song. Quite a lot of nations have been trying to out-sing each other ever since."
+            },
+            {
+             "do": "say",
+             "who": "Cerys the Chorister",
+             "text": "Right, tuck in! That's welsh cakes. Flat little griddle cakes with currants, baked on a bakestone and eaten while still too hot to hold."
+            },
+            {
+             "do": "set",
+             "flag": "q_festivals_llangollen_2"
+            },
+            {
+             "do": "if",
+             "flag": "festivals_souv_llangollen",
+             "then": [
+              {
+               "do": "say",
+               "who": "Cerys the Chorister",
+               "text": "You've kept my souvenir from a past year, so I won't hand you another. The food, though, is fresh every year. Tuck in."
+              }
+             ],
+             "else": [
+              {
+               "do": "give_item",
+               "item": "fest_eisteddfod_ribbon"
+              },
+              {
+               "do": "set",
+               "flag": "festivals_souv_llangollen"
+              }
+             ]
+            },
+            {
+             "do": "give_item",
+             "item": "welsh_cakes_tin",
+             "n": 2
+            },
+            {
+             "do": "set",
+             "flag": "q_festivals_llangollen_done"
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Cerys the Chorister",
+             "text": "Not quite. It began just after the war ended, in the late 1940s."
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Cerys the Chorister",
+           "text": "Not yet? I'll be here while it lasts."
+          },
+          {
+           "do": "say",
+           "who": "Cerys the Chorister",
+           "text": "Catch a Tootlet, a little piper that follows the choirs about Llangollen in this week."
+          }
+         ]
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Cerys the Chorister",
+       "text": "The International Eisteddfod! It began in 1947, when Wales invited choirs and dancers from a Europe that had just stopped fighting, and Llangollen has welcomed the world every July since. Thousands of singers and dancers, and nobody sits quietly."
+      },
+      {
+       "do": "say",
+       "who": "Cerys the Chorister",
+       "text": "Our conductor wants a bit of piping to start the opening parade. A Tootlet will do nicely, and they follow the choirs about in this week."
+      },
+      {
+       "do": "choice",
+       "text": "Help out?",
+       "options": [
+        "Count me in",
+        "Not just now"
+       ],
+       "set": "festivals_llangollen_ans"
+      },
+      {
+       "do": "if",
+       "flag": "festivals_llangollen_ans",
+       "eq": 0,
+       "then": [
+        {
+         "do": "set",
+         "flag": "q_festivals_llangollen_started"
+        },
+        {
+         "do": "say",
+         "who": "Cerys the Chorister",
+         "text": "Catch a Tootlet, a little piper that follows the choirs about Llangollen in this week."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Cerys the Chorister",
+         "text": "No bother. I'll be here while it lasts."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "fest_tynwald": [
+  {
+   "do": "if",
+   "flag": "q_festivals_tynwald_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Moddey Mona",
+     "text": "Lovely to see you again. Enjoy the day."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_festivals_tynwald_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_festivals_tynwald_1",
+       "then": [
+        {
+         "do": "say",
+         "who": "Moddey Mona",
+         "text": "Back for the big question?"
+        },
+        {
+         "do": "choice",
+         "text": "Quick, before the laws are read. What is the name of the Isle of Man's parliament?",
+         "options": [
+          "Tynwald",
+          "Stormont",
+          "The Senedd"
+         ],
+         "set": "festivals_tynwald_ans"
+        },
+        {
+         "do": "if",
+         "flag": "festivals_tynwald_ans",
+         "eq": 0,
+         "then": [
+          {
+           "do": "say",
+           "who": "Moddey Mona",
+           "text": "Tynwald, which is claimed as one of the oldest continuous parliaments in the world. Laws still have to be read aloud on the hill to count, which saves a lot of paper."
+          },
+          {
+           "do": "say",
+           "who": "Moddey Mona",
+           "text": "Right, tuck in! That's a queenie pie. Queenies are the little Manx scallops, creamed and put under pastry, and the Island's pride."
+          },
+          {
+           "do": "set",
+           "flag": "q_festivals_tynwald_2"
+          },
+          {
+           "do": "if",
+           "flag": "festivals_souv_tynwald",
+           "then": [
+            {
+             "do": "say",
+             "who": "Moddey Mona",
+             "text": "You've kept my souvenir from a past year, so I won't hand you another. The food, though, is fresh every year. Tuck in."
+            }
+           ],
+           "else": [
+            {
+             "do": "give_item",
+             "item": "fest_tynwald_rush"
+            },
+            {
+             "do": "set",
+             "flag": "festivals_souv_tynwald"
+            }
+           ]
+          },
+          {
+           "do": "give_item",
+           "item": "manx_queenie_pie",
+           "n": 2
+          },
+          {
+           "do": "set",
+           "flag": "q_festivals_tynwald_done"
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Moddey Mona",
+           "text": "Not quite. It's named for a Norse word for a parliament field. The clue is in the day."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "when",
+         "cond": "has_loaghtan",
+         "then": [
+          {
+           "do": "say",
+           "who": "Moddey Mona",
+           "text": "A Loaghtan! Now that's the real thing."
+          },
+          {
+           "do": "set",
+           "flag": "q_festivals_tynwald_1"
+          },
+          {
+           "do": "choice",
+           "text": "Quick, before the laws are read. What is the name of the Isle of Man's parliament?",
+           "options": [
+            "Tynwald",
+            "Stormont",
+            "The Senedd"
+           ],
+           "set": "festivals_tynwald_ans"
+          },
+          {
+           "do": "if",
+           "flag": "festivals_tynwald_ans",
+           "eq": 0,
+           "then": [
+            {
+             "do": "say",
+             "who": "Moddey Mona",
+             "text": "Tynwald, which is claimed as one of the oldest continuous parliaments in the world. Laws still have to be read aloud on the hill to count, which saves a lot of paper."
+            },
+            {
+             "do": "say",
+             "who": "Moddey Mona",
+             "text": "Right, tuck in! That's a queenie pie. Queenies are the little Manx scallops, creamed and put under pastry, and the Island's pride."
+            },
+            {
+             "do": "set",
+             "flag": "q_festivals_tynwald_2"
+            },
+            {
+             "do": "if",
+             "flag": "festivals_souv_tynwald",
+             "then": [
+              {
+               "do": "say",
+               "who": "Moddey Mona",
+               "text": "You've kept my souvenir from a past year, so I won't hand you another. The food, though, is fresh every year. Tuck in."
+              }
+             ],
+             "else": [
+              {
+               "do": "give_item",
+               "item": "fest_tynwald_rush"
+              },
+              {
+               "do": "set",
+               "flag": "festivals_souv_tynwald"
+              }
+             ]
+            },
+            {
+             "do": "give_item",
+             "item": "manx_queenie_pie",
+             "n": 2
+            },
+            {
+             "do": "set",
+             "flag": "q_festivals_tynwald_done"
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Moddey Mona",
+             "text": "Not quite. It's named for a Norse word for a parliament field. The clue is in the day."
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Moddey Mona",
+           "text": "Not yet? I'll be here while it lasts."
+          },
+          {
+           "do": "say",
+           "who": "Moddey Mona",
+           "text": "Catch a Loaghtan, a four-horned Manx sheep that is wandering Douglas in this week."
+          }
+         ]
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Moddey Mona",
+       "text": "Tynwald Day, the fifth of July! The Isle of Man has run its own parliament for over a thousand years, and once a year the whole thing goes out to a hill and reads its new laws aloud, in English and in Manx, to anyone passing."
+      },
+      {
+       "do": "say",
+       "who": "Moddey Mona",
+       "text": "I need a Loaghtan to hold the crowd. The four-horned Manx sheep turn up round Douglas in this week, and they never look away from a camera."
+      },
+      {
+       "do": "choice",
+       "text": "Help out?",
+       "options": [
+        "Count me in",
+        "Not just now"
+       ],
+       "set": "festivals_tynwald_ans"
+      },
+      {
+       "do": "if",
+       "flag": "festivals_tynwald_ans",
+       "eq": 0,
+       "then": [
+        {
+         "do": "set",
+         "flag": "q_festivals_tynwald_started"
+        },
+        {
+         "do": "say",
+         "who": "Moddey Mona",
+         "text": "Catch a Loaghtan, a four-horned Manx sheep that is wandering Douglas in this week."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Moddey Mona",
+         "text": "No bother. I'll be here while it lasts."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "fest_liberation_jersey": [
+  {
+   "do": "if",
+   "flag": "q_festivals_liberation_jersey_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Madame Marais",
+     "text": "Lovely to see you again. Enjoy the day."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_festivals_liberation_jersey_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_festivals_liberation_jersey_1",
+       "then": [
+        {
+         "do": "say",
+         "who": "Madame Marais",
+         "text": "Back for the big question?"
+        },
+        {
+         "do": "choice",
+         "text": "Quick, before the speeches. On what date is Liberation Day celebrated in Jersey?",
+         "options": [
+          "9 May",
+          "6 June",
+          "8 August"
+         ],
+         "set": "festivals_liberation_jersey_ans"
+        },
+        {
+         "do": "if",
+         "flag": "festivals_liberation_jersey_ans",
+         "eq": 0,
+         "then": [
+          {
+           "do": "say",
+           "who": "Madame Marais",
+           "text": "The ninth of May, 1945. The people had lived through five years of occupation. We still celebrate it every year."
+          },
+          {
+           "do": "say",
+           "who": "Madame Marais",
+           "text": "Right, tuck in! That's Jersey bean crock. Haricot beans with pork and beef, cooked slowly overnight in the baker's oven, and best on a cold morning."
+          },
+          {
+           "do": "set",
+           "flag": "q_festivals_liberation_jersey_2"
+          },
+          {
+           "do": "if",
+           "flag": "festivals_souv_liberation_jersey",
+           "then": [
+            {
+             "do": "say",
+             "who": "Madame Marais",
+             "text": "You've kept my souvenir from a past year, so I won't hand you another. The food, though, is fresh every year. Tuck in."
+            }
+           ],
+           "else": [
+            {
+             "do": "give_item",
+             "item": "fest_jersey_flag"
+            },
+            {
+             "do": "set",
+             "flag": "festivals_souv_liberation_jersey"
+            }
+           ]
+          },
+          {
+           "do": "give_item",
+           "item": "jersey_bean_crock",
+           "n": 2
+          },
+          {
+           "do": "set",
+           "flag": "q_festivals_liberation_jersey_done"
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Madame Marais",
+           "text": "Not quite. It's in the spring, and the date is a number you could say in one breath. It's a May date."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "when",
+         "cond": "has_vraicling",
+         "then": [
+          {
+           "do": "say",
+           "who": "Madame Marais",
+           "text": "A Vraicling! Now that's the real thing."
+          },
+          {
+           "do": "set",
+           "flag": "q_festivals_liberation_jersey_1"
+          },
+          {
+           "do": "choice",
+           "text": "Quick, before the speeches. On what date is Liberation Day celebrated in Jersey?",
+           "options": [
+            "9 May",
+            "6 June",
+            "8 August"
+           ],
+           "set": "festivals_liberation_jersey_ans"
+          },
+          {
+           "do": "if",
+           "flag": "festivals_liberation_jersey_ans",
+           "eq": 0,
+           "then": [
+            {
+             "do": "say",
+             "who": "Madame Marais",
+             "text": "The ninth of May, 1945. The people had lived through five years of occupation. We still celebrate it every year."
+            },
+            {
+             "do": "say",
+             "who": "Madame Marais",
+             "text": "Right, tuck in! That's Jersey bean crock. Haricot beans with pork and beef, cooked slowly overnight in the baker's oven, and best on a cold morning."
+            },
+            {
+             "do": "set",
+             "flag": "q_festivals_liberation_jersey_2"
+            },
+            {
+             "do": "if",
+             "flag": "festivals_souv_liberation_jersey",
+             "then": [
+              {
+               "do": "say",
+               "who": "Madame Marais",
+               "text": "You've kept my souvenir from a past year, so I won't hand you another. The food, though, is fresh every year. Tuck in."
+              }
+             ],
+             "else": [
+              {
+               "do": "give_item",
+               "item": "fest_jersey_flag"
+              },
+              {
+               "do": "set",
+               "flag": "festivals_souv_liberation_jersey"
+              }
+             ]
+            },
+            {
+             "do": "give_item",
+             "item": "jersey_bean_crock",
+             "n": 2
+            },
+            {
+             "do": "set",
+             "flag": "q_festivals_liberation_jersey_done"
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Madame Marais",
+             "text": "Not quite. It's in the spring, and the date is a number you could say in one breath. It's a May date."
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Madame Marais",
+           "text": "Not yet? I'll be here while it lasts."
+          },
+          {
+           "do": "say",
+           "who": "Madame Marais",
+           "text": "Catch a Vraicling, a seaweed creature washed up round St Helier in this week."
+          }
+         ]
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Madame Marais",
+       "text": "Liberation Day, the ninth of May! The Channel Islands were the only part of the British Isles occupied in the Second World War, and on this day in 1945 the Island was freed. The whole of St Helier comes down to the Weighbridge to wave flags and cheer."
+      },
+      {
+       "do": "say",
+       "who": "Madame Marais",
+       "text": "Bring me a Vraicling. The seaweed tide hasn't been the same since the war, and it's washing up round the harbour in this week."
+      },
+      {
+       "do": "choice",
+       "text": "Help out?",
+       "options": [
+        "Count me in",
+        "Not just now"
+       ],
+       "set": "festivals_liberation_jersey_ans"
+      },
+      {
+       "do": "if",
+       "flag": "festivals_liberation_jersey_ans",
+       "eq": 0,
+       "then": [
+        {
+         "do": "set",
+         "flag": "q_festivals_liberation_jersey_started"
+        },
+        {
+         "do": "say",
+         "who": "Madame Marais",
+         "text": "Catch a Vraicling, a seaweed creature washed up round St Helier in this week."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Madame Marais",
+         "text": "No bother. I'll be here while it lasts."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "fest_liberation_guernsey": [
+  {
+   "do": "if",
+   "flag": "q_festivals_liberation_guernsey_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Constable Le Page",
+     "text": "Lovely to see you again. Enjoy the day."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_festivals_liberation_guernsey_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_festivals_liberation_guernsey_1",
+       "then": [
+        {
+         "do": "say",
+         "who": "Constable Le Page",
+         "text": "Back for the big question?"
+        },
+        {
+         "do": "choice",
+         "text": "Quick, before the bunting goes up. How many years of occupation did the Channel Islands endure?",
+         "options": [
+          "Five",
+          "One",
+          "Ten"
+         ],
+         "set": "festivals_liberation_guernsey_ans"
+        },
+        {
+         "do": "if",
+         "flag": "festivals_liberation_guernsey_ans",
+         "eq": 0,
+         "then": [
+          {
+           "do": "say",
+           "who": "Constable Le Page",
+           "text": "Five years, from the summer of 1940 to the ninth of May, 1945. It's a long time to go without proper bacon."
+          },
+          {
+           "do": "say",
+           "who": "Constable Le Page",
+           "text": "Right, tuck in! That's gache. A dense, buttered Guernsey fruit bread, rich with currants, and absolutely delicious with a cup of tea."
+          },
+          {
+           "do": "set",
+           "flag": "q_festivals_liberation_guernsey_2"
+          },
+          {
+           "do": "if",
+           "flag": "festivals_souv_liberation_guernsey",
+           "then": [
+            {
+             "do": "say",
+             "who": "Constable Le Page",
+             "text": "You've kept my souvenir from a past year, so I won't hand you another. The food, though, is fresh every year. Tuck in."
+            }
+           ],
+           "else": [
+            {
+             "do": "give_item",
+             "item": "fest_guernsey_flag"
+            },
+            {
+             "do": "set",
+             "flag": "festivals_souv_liberation_guernsey"
+            }
+           ]
+          },
+          {
+           "do": "give_item",
+           "item": "guernsey_gache_loaf",
+           "n": 2
+          },
+          {
+           "do": "set",
+           "flag": "q_festivals_liberation_guernsey_done"
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Constable Le Page",
+           "text": "Not quite. It began in the summer of 1940 and ended in May 1945."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "when",
+         "cond": "has_pincray",
+         "then": [
+          {
+           "do": "say",
+           "who": "Constable Le Page",
+           "text": "A Pincray! Now that's the real thing."
+          },
+          {
+           "do": "set",
+           "flag": "q_festivals_liberation_guernsey_1"
+          },
+          {
+           "do": "choice",
+           "text": "Quick, before the bunting goes up. How many years of occupation did the Channel Islands endure?",
+           "options": [
+            "Five",
+            "One",
+            "Ten"
+           ],
+           "set": "festivals_liberation_guernsey_ans"
+          },
+          {
+           "do": "if",
+           "flag": "festivals_liberation_guernsey_ans",
+           "eq": 0,
+           "then": [
+            {
+             "do": "say",
+             "who": "Constable Le Page",
+             "text": "Five years, from the summer of 1940 to the ninth of May, 1945. It's a long time to go without proper bacon."
+            },
+            {
+             "do": "say",
+             "who": "Constable Le Page",
+             "text": "Right, tuck in! That's gache. A dense, buttered Guernsey fruit bread, rich with currants, and absolutely delicious with a cup of tea."
+            },
+            {
+             "do": "set",
+             "flag": "q_festivals_liberation_guernsey_2"
+            },
+            {
+             "do": "if",
+             "flag": "festivals_souv_liberation_guernsey",
+             "then": [
+              {
+               "do": "say",
+               "who": "Constable Le Page",
+               "text": "You've kept my souvenir from a past year, so I won't hand you another. The food, though, is fresh every year. Tuck in."
+              }
+             ],
+             "else": [
+              {
+               "do": "give_item",
+               "item": "fest_guernsey_flag"
+              },
+              {
+               "do": "set",
+               "flag": "festivals_souv_liberation_guernsey"
+              }
+             ]
+            },
+            {
+             "do": "give_item",
+             "item": "guernsey_gache_loaf",
+             "n": 2
+            },
+            {
+             "do": "set",
+             "flag": "q_festivals_liberation_guernsey_done"
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Constable Le Page",
+             "text": "Not quite. It began in the summer of 1940 and ended in May 1945."
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Constable Le Page",
+           "text": "Not yet? I'll be here while it lasts."
+          },
+          {
+           "do": "say",
+           "who": "Constable Le Page",
+           "text": "Catch a Pincray, a harbour crab that scuttles about St Peter Port in this week."
+          }
+         ]
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Constable Le Page",
+       "text": "Liberation Day! The ninth of May, 1945, is the day Guernsey was freed after five years of occupation. St Peter Port fills with flags, and every year the crowd gathers on the front for a service and a cheer."
+      },
+      {
+       "do": "say",
+       "who": "Constable Le Page",
+       "text": "Find me a Pincray. The harbour is full of them in this week, and we think they're celebrating too."
+      },
+      {
+       "do": "choice",
+       "text": "Help out?",
+       "options": [
+        "Count me in",
+        "Not just now"
+       ],
+       "set": "festivals_liberation_guernsey_ans"
+      },
+      {
+       "do": "if",
+       "flag": "festivals_liberation_guernsey_ans",
+       "eq": 0,
+       "then": [
+        {
+         "do": "set",
+         "flag": "q_festivals_liberation_guernsey_started"
+        },
+        {
+         "do": "say",
+         "who": "Constable Le Page",
+         "text": "Catch a Pincray, a harbour crab that scuttles about St Peter Port in this week."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Constable Le Page",
+         "text": "No bother. I'll be here while it lasts."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "fest_liberation_falklands": [
+  {
+   "do": "if",
+   "flag": "q_festivals_liberation_falklands_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Sergeant Ellis",
+     "text": "Lovely to see you again. Enjoy the day."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_festivals_liberation_falklands_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_festivals_liberation_falklands_1",
+       "then": [
+        {
+         "do": "say",
+         "who": "Sergeant Ellis",
+         "text": "Back for the big question?"
+        },
+        {
+         "do": "choice",
+         "text": "Quick, before the service. In what year did the Falklands War end?",
+         "options": [
+          "1982",
+          "1945",
+          "1991"
+         ],
+         "set": "festivals_liberation_falklands_ans"
+        },
+        {
+         "do": "if",
+         "flag": "festivals_liberation_falklands_ans",
+         "eq": 0,
+         "then": [
+          {
+           "do": "say",
+           "who": "Sergeant Ellis",
+           "text": "1982, the fourteenth of June, when the Argentine forces surrendered at Stanley. We remember those who fell on both sides."
+          },
+          {
+           "do": "say",
+           "who": "Sergeant Ellis",
+           "text": "Right, tuck in! That's diddle-dee jam. It's made from the small red berries that grow wild across the camp, and you'll find it on every Islander's table."
+          },
+          {
+           "do": "set",
+           "flag": "q_festivals_liberation_falklands_2"
+          },
+          {
+           "do": "if",
+           "flag": "festivals_souv_liberation_falklands",
+           "then": [
+            {
+             "do": "say",
+             "who": "Sergeant Ellis",
+             "text": "You've kept my souvenir from a past year, so I won't hand you another. The food, though, is fresh every year. Tuck in."
+            }
+           ],
+           "else": [
+            {
+             "do": "give_item",
+             "item": "fest_falklands_poppy"
+            },
+            {
+             "do": "set",
+             "flag": "festivals_souv_liberation_falklands"
+            }
+           ]
+          },
+          {
+           "do": "give_item",
+           "item": "falklands_diddle_dee_jam",
+           "n": 2
+          },
+          {
+           "do": "set",
+           "flag": "q_festivals_liberation_falklands_done"
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Sergeant Ellis",
+           "text": "Not quite. It was in the early eighties, in the southern winter."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "when",
+         "cond": "has_warrah",
+         "then": [
+          {
+           "do": "say",
+           "who": "Sergeant Ellis",
+           "text": "A Warrah! Now that's the real thing."
+          },
+          {
+           "do": "set",
+           "flag": "q_festivals_liberation_falklands_1"
+          },
+          {
+           "do": "choice",
+           "text": "Quick, before the service. In what year did the Falklands War end?",
+           "options": [
+            "1982",
+            "1945",
+            "1991"
+           ],
+           "set": "festivals_liberation_falklands_ans"
+          },
+          {
+           "do": "if",
+           "flag": "festivals_liberation_falklands_ans",
+           "eq": 0,
+           "then": [
+            {
+             "do": "say",
+             "who": "Sergeant Ellis",
+             "text": "1982, the fourteenth of June, when the Argentine forces surrendered at Stanley. We remember those who fell on both sides."
+            },
+            {
+             "do": "say",
+             "who": "Sergeant Ellis",
+             "text": "Right, tuck in! That's diddle-dee jam. It's made from the small red berries that grow wild across the camp, and you'll find it on every Islander's table."
+            },
+            {
+             "do": "set",
+             "flag": "q_festivals_liberation_falklands_2"
+            },
+            {
+             "do": "if",
+             "flag": "festivals_souv_liberation_falklands",
+             "then": [
+              {
+               "do": "say",
+               "who": "Sergeant Ellis",
+               "text": "You've kept my souvenir from a past year, so I won't hand you another. The food, though, is fresh every year. Tuck in."
+              }
+             ],
+             "else": [
+              {
+               "do": "give_item",
+               "item": "fest_falklands_poppy"
+              },
+              {
+               "do": "set",
+               "flag": "festivals_souv_liberation_falklands"
+              }
+             ]
+            },
+            {
+             "do": "give_item",
+             "item": "falklands_diddle_dee_jam",
+             "n": 2
+            },
+            {
+             "do": "set",
+             "flag": "q_festivals_liberation_falklands_done"
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Sergeant Ellis",
+             "text": "Not quite. It was in the early eighties, in the southern winter."
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Sergeant Ellis",
+           "text": "Not yet? I'll be here while it lasts."
+          },
+          {
+           "do": "say",
+           "who": "Sergeant Ellis",
+           "text": "Catch a Warrah, a ghostly Falkland wolf that prowls Stanley in this week."
+          }
+         ]
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Sergeant Ellis",
+       "text": "Liberation Day, the fourteenth of June. In 1982 the Argentine surrender at Stanley ended the Falklands War, and every year the Islands pause for a memorial service and a few quiet words. It's a day for remembering, but also for gratitude."
+      },
+      {
+       "do": "say",
+       "who": "Sergeant Ellis",
+       "text": "Show me a Warrah. The old Falkland wolf died out in the 1870s, but at this time of year the Islands seem to remember it."
+      },
+      {
+       "do": "choice",
+       "text": "Help out?",
+       "options": [
+        "Count me in",
+        "Not just now"
+       ],
+       "set": "festivals_liberation_falklands_ans"
+      },
+      {
+       "do": "if",
+       "flag": "festivals_liberation_falklands_ans",
+       "eq": 0,
+       "then": [
+        {
+         "do": "set",
+         "flag": "q_festivals_liberation_falklands_started"
+        },
+        {
+         "do": "say",
+         "who": "Sergeant Ellis",
+         "text": "Catch a Warrah, a ghostly Falkland wolf that prowls Stanley in this week."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Sergeant Ellis",
+         "text": "No bother. I'll be here while it lasts."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "fest_cupmatch": [
+  {
+   "do": "if",
+   "flag": "q_festivals_cupmatch_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Skipper Dill",
+     "text": "Lovely to see you again. Enjoy the day."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_festivals_cupmatch_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_festivals_cupmatch_1",
+       "then": [
+        {
+         "do": "say",
+         "who": "Skipper Dill",
+         "text": "Back for the big question?"
+        },
+        {
+         "do": "choice",
+         "text": "Quick, before the first ball. What two parishes play in Cup Match?",
+         "options": [
+          "Somerset and St George's",
+          "Hamilton and Paget",
+          "Sandys and Warwick"
+         ],
+         "set": "festivals_cupmatch_ans"
+        },
+        {
+         "do": "if",
+         "flag": "festivals_cupmatch_ans",
+         "eq": 0,
+         "then": [
+          {
+           "do": "say",
+           "who": "Skipper Dill",
+           "text": "Somerset and St George's, one at each end of the Island, and there's a rivalry that never quite stops. Emancipation is marked with a lot of cricket and a lot of fish chowder."
+          },
+          {
+           "do": "say",
+           "who": "Skipper Dill",
+           "text": "Right, tuck in! That's fish chowder. Dark and peppery, with a dash of sherry peppers and a splash of black rum."
+          },
+          {
+           "do": "set",
+           "flag": "q_festivals_cupmatch_2"
+          },
+          {
+           "do": "if",
+           "flag": "festivals_souv_cupmatch",
+           "then": [
+            {
+             "do": "say",
+             "who": "Skipper Dill",
+             "text": "You've kept my souvenir from a past year, so I won't hand you another. The food, though, is fresh every year. Tuck in."
+            }
+           ],
+           "else": [
+            {
+             "do": "give_item",
+             "item": "fest_cupmatch_flag"
+            },
+            {
+             "do": "set",
+             "flag": "festivals_souv_cupmatch"
+            }
+           ]
+          },
+          {
+           "do": "give_item",
+           "item": "bermuda_fish_chowder_cup",
+           "n": 2
+          },
+          {
+           "do": "set",
+           "flag": "q_festivals_cupmatch_done"
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Skipper Dill",
+           "text": "Not quite. They sit at the far west and the far east ends of the Island."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "when",
+         "cond": "has_cahowl",
+         "then": [
+          {
+           "do": "say",
+           "who": "Skipper Dill",
+           "text": "A Cahow! Now that's the real thing."
+          },
+          {
+           "do": "set",
+           "flag": "q_festivals_cupmatch_1"
+          },
+          {
+           "do": "choice",
+           "text": "Quick, before the first ball. What two parishes play in Cup Match?",
+           "options": [
+            "Somerset and St George's",
+            "Hamilton and Paget",
+            "Sandys and Warwick"
+           ],
+           "set": "festivals_cupmatch_ans"
+          },
+          {
+           "do": "if",
+           "flag": "festivals_cupmatch_ans",
+           "eq": 0,
+           "then": [
+            {
+             "do": "say",
+             "who": "Skipper Dill",
+             "text": "Somerset and St George's, one at each end of the Island, and there's a rivalry that never quite stops. Emancipation is marked with a lot of cricket and a lot of fish chowder."
+            },
+            {
+             "do": "say",
+             "who": "Skipper Dill",
+             "text": "Right, tuck in! That's fish chowder. Dark and peppery, with a dash of sherry peppers and a splash of black rum."
+            },
+            {
+             "do": "set",
+             "flag": "q_festivals_cupmatch_2"
+            },
+            {
+             "do": "if",
+             "flag": "festivals_souv_cupmatch",
+             "then": [
+              {
+               "do": "say",
+               "who": "Skipper Dill",
+               "text": "You've kept my souvenir from a past year, so I won't hand you another. The food, though, is fresh every year. Tuck in."
+              }
+             ],
+             "else": [
+              {
+               "do": "give_item",
+               "item": "fest_cupmatch_flag"
+              },
+              {
+               "do": "set",
+               "flag": "festivals_souv_cupmatch"
+              }
+             ]
+            },
+            {
+             "do": "give_item",
+             "item": "bermuda_fish_chowder_cup",
+             "n": 2
+            },
+            {
+             "do": "set",
+             "flag": "q_festivals_cupmatch_done"
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Skipper Dill",
+             "text": "Not quite. They sit at the far west and the far east ends of the Island."
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Skipper Dill",
+           "text": "Not yet? I'll be here while it lasts."
+          },
+          {
+           "do": "say",
+           "who": "Skipper Dill",
+           "text": "Catch a Cahow, a rare Bermuda petrel on the wing in this week."
+          }
+         ]
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Skipper Dill",
+       "text": "Cup Match! The two-day cricket classic between Somerset and St George's, played on the Thursday and Friday before the first Monday of August. It began in the 1900s as a celebration of Emancipation, and the whole Island takes the days off. Do not ask who is winning in the wrong parish."
+      },
+      {
+       "do": "say",
+       "who": "Skipper Dill",
+       "text": "Fetch me a Cahow. The petrel was thought extinct for three hundred years and showed up again in 1951, and it still turns up round the Island in this week."
+      },
+      {
+       "do": "choice",
+       "text": "Help out?",
+       "options": [
+        "Count me in",
+        "Not just now"
+       ],
+       "set": "festivals_cupmatch_ans"
+      },
+      {
+       "do": "if",
+       "flag": "festivals_cupmatch_ans",
+       "eq": 0,
+       "then": [
+        {
+         "do": "set",
+         "flag": "q_festivals_cupmatch_started"
+        },
+        {
+         "do": "say",
+         "who": "Skipper Dill",
+         "text": "Catch a Cahow, a rare Bermuda petrel on the wing in this week."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Skipper Dill",
+         "text": "No bother. I'll be here while it lasts."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "fest_braemar": [
+  {
+   "do": "if",
+   "flag": "q_festivals_braemar_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Caber Callum",
+     "text": "Lovely to see you again. Enjoy the day."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_festivals_braemar_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_festivals_braemar_1",
+       "then": [
+        {
+         "do": "say",
+         "who": "Caber Callum",
+         "text": "Back for the big question?"
+        },
+        {
+         "do": "choice",
+         "text": "Quick, before the caber is thrown. What do you do with a caber?",
+         "options": [
+          "Toss it",
+          "Eat it",
+          "Ride it"
+         ],
+         "set": "festivals_braemar_ans"
+        },
+        {
+         "do": "if",
+         "flag": "festivals_braemar_ans",
+         "eq": 0,
+         "then": [
+          {
+           "do": "say",
+           "who": "Caber Callum",
+           "text": "You toss it, end over end, and the judge cares more about the straightness than the distance. It's a very large tree trunk, mind."
+          },
+          {
+           "do": "say",
+           "who": "Caber Callum",
+           "text": "Right, tuck in! That's shortbread. Butter, sugar and flour, in a Scottish ratio, and enough of it to keep you going up a hill."
+          },
+          {
+           "do": "set",
+           "flag": "q_festivals_braemar_2"
+          },
+          {
+           "do": "if",
+           "flag": "festivals_souv_braemar",
+           "then": [
+            {
+             "do": "say",
+             "who": "Caber Callum",
+             "text": "You've kept my souvenir from a past year, so I won't hand you another. The food, though, is fresh every year. Tuck in."
+            }
+           ],
+           "else": [
+            {
+             "do": "give_item",
+             "item": "fest_braemar_caber"
+            },
+            {
+             "do": "set",
+             "flag": "festivals_souv_braemar"
+            }
+           ]
+          },
+          {
+           "do": "give_item",
+           "item": "deeside_shortbread",
+           "n": 2
+          },
+          {
+           "do": "set",
+           "flag": "q_festivals_braemar_done"
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Caber Callum",
+           "text": "Not quite. It's a long pole, and you do not eat it. It's the one Highland sport most tourists try."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "when",
+         "cond": "has_ptarmlet",
+         "then": [
+          {
+           "do": "say",
+           "who": "Caber Callum",
+           "text": "A Ptarmlet! Now that's the real thing."
+          },
+          {
+           "do": "set",
+           "flag": "q_festivals_braemar_1"
+          },
+          {
+           "do": "choice",
+           "text": "Quick, before the caber is thrown. What do you do with a caber?",
+           "options": [
+            "Toss it",
+            "Eat it",
+            "Ride it"
+           ],
+           "set": "festivals_braemar_ans"
+          },
+          {
+           "do": "if",
+           "flag": "festivals_braemar_ans",
+           "eq": 0,
+           "then": [
+            {
+             "do": "say",
+             "who": "Caber Callum",
+             "text": "You toss it, end over end, and the judge cares more about the straightness than the distance. It's a very large tree trunk, mind."
+            },
+            {
+             "do": "say",
+             "who": "Caber Callum",
+             "text": "Right, tuck in! That's shortbread. Butter, sugar and flour, in a Scottish ratio, and enough of it to keep you going up a hill."
+            },
+            {
+             "do": "set",
+             "flag": "q_festivals_braemar_2"
+            },
+            {
+             "do": "if",
+             "flag": "festivals_souv_braemar",
+             "then": [
+              {
+               "do": "say",
+               "who": "Caber Callum",
+               "text": "You've kept my souvenir from a past year, so I won't hand you another. The food, though, is fresh every year. Tuck in."
+              }
+             ],
+             "else": [
+              {
+               "do": "give_item",
+               "item": "fest_braemar_caber"
+              },
+              {
+               "do": "set",
+               "flag": "festivals_souv_braemar"
+              }
+             ]
+            },
+            {
+             "do": "give_item",
+             "item": "deeside_shortbread",
+             "n": 2
+            },
+            {
+             "do": "set",
+             "flag": "q_festivals_braemar_done"
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Caber Callum",
+             "text": "Not quite. It's a long pole, and you do not eat it. It's the one Highland sport most tourists try."
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Caber Callum",
+           "text": "Not yet? I'll be here while it lasts."
+          },
+          {
+           "do": "say",
+           "who": "Caber Callum",
+           "text": "Catch a Ptarmlet, a little hill bird that shows up in Deeside in this week."
+          }
+         ]
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Caber Callum",
+       "text": "The Braemar Gathering! The first Saturday of September, every year, with a pipe band, hill running, hammer throwing and the caber. They have held a Gathering at Braemar for centuries, and since Queen Victoria's time the Royal Family often come to watch."
+      },
+      {
+       "do": "say",
+       "who": "Caber Callum",
+       "text": "Show me a Ptarmlet. The hill birds come down in this week, and we like to think they follow the pipes."
+      },
+      {
+       "do": "choice",
+       "text": "Help out?",
+       "options": [
+        "Count me in",
+        "Not just now"
+       ],
+       "set": "festivals_braemar_ans"
+      },
+      {
+       "do": "if",
+       "flag": "festivals_braemar_ans",
+       "eq": 0,
+       "then": [
+        {
+         "do": "set",
+         "flag": "q_festivals_braemar_started"
+        },
+        {
+         "do": "say",
+         "who": "Caber Callum",
+         "text": "Catch a Ptarmlet, a little hill bird that shows up in Deeside in this week."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Caber Callum",
+         "text": "No bother. I'll be here while it lasts."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "fest_oysters": [
+  {
+   "do": "if",
+   "flag": "q_festivals_oysters_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Shucker Sean",
+     "text": "Lovely to see you again. Enjoy the day."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_festivals_oysters_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_festivals_oysters_1",
+       "then": [
+        {
+         "do": "say",
+         "who": "Shucker Sean",
+         "text": "Back for the big question?"
+        },
+        {
+         "do": "choice",
+         "text": "Quick, before the first oyster. What does 'shucking' mean?",
+         "options": [
+          "Opening an oyster",
+          "Boiling an egg",
+          "Peeling a potato"
+         ],
+         "set": "festivals_oysters_ans"
+        },
+        {
+         "do": "if",
+         "flag": "festivals_oysters_ans",
+         "eq": 0,
+         "then": [
+          {
+           "do": "say",
+           "who": "Shucker Sean",
+           "text": "Opening an oyster with a short, stubby knife, and the champions can do one in a few seconds. Please do not try it on your own hand."
+          },
+          {
+           "do": "say",
+           "who": "Shucker Sean",
+           "text": "Right, tuck in! That's oysters. Galway Bay ones, on ice with a squeeze of lemon, and a glass of stout beside them if you're doing it properly."
+          },
+          {
+           "do": "set",
+           "flag": "q_festivals_oysters_2"
+          },
+          {
+           "do": "if",
+           "flag": "festivals_souv_oysters",
+           "then": [
+            {
+             "do": "say",
+             "who": "Shucker Sean",
+             "text": "You've kept my souvenir from a past year, so I won't hand you another. The food, though, is fresh every year. Tuck in."
+            }
+           ],
+           "else": [
+            {
+             "do": "give_item",
+             "item": "fest_oyster_shell"
+            },
+            {
+             "do": "set",
+             "flag": "festivals_souv_oysters"
+            }
+           ]
+          },
+          {
+           "do": "give_item",
+           "item": "galway_oysters",
+           "n": 2
+          },
+          {
+           "do": "set",
+           "flag": "q_festivals_oysters_done"
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Shucker Sean",
+           "text": "Not quite. It's what you do to a shellfish with a knife and a bit of care."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "when",
+         "cond": "has_conchling",
+         "then": [
+          {
+           "do": "say",
+           "who": "Shucker Sean",
+           "text": "A Conchling! Now that's the real thing."
+          },
+          {
+           "do": "set",
+           "flag": "q_festivals_oysters_1"
+          },
+          {
+           "do": "choice",
+           "text": "Quick, before the first oyster. What does 'shucking' mean?",
+           "options": [
+            "Opening an oyster",
+            "Boiling an egg",
+            "Peeling a potato"
+           ],
+           "set": "festivals_oysters_ans"
+          },
+          {
+           "do": "if",
+           "flag": "festivals_oysters_ans",
+           "eq": 0,
+           "then": [
+            {
+             "do": "say",
+             "who": "Shucker Sean",
+             "text": "Opening an oyster with a short, stubby knife, and the champions can do one in a few seconds. Please do not try it on your own hand."
+            },
+            {
+             "do": "say",
+             "who": "Shucker Sean",
+             "text": "Right, tuck in! That's oysters. Galway Bay ones, on ice with a squeeze of lemon, and a glass of stout beside them if you're doing it properly."
+            },
+            {
+             "do": "set",
+             "flag": "q_festivals_oysters_2"
+            },
+            {
+             "do": "if",
+             "flag": "festivals_souv_oysters",
+             "then": [
+              {
+               "do": "say",
+               "who": "Shucker Sean",
+               "text": "You've kept my souvenir from a past year, so I won't hand you another. The food, though, is fresh every year. Tuck in."
+              }
+             ],
+             "else": [
+              {
+               "do": "give_item",
+               "item": "fest_oyster_shell"
+              },
+              {
+               "do": "set",
+               "flag": "festivals_souv_oysters"
+              }
+             ]
+            },
+            {
+             "do": "give_item",
+             "item": "galway_oysters",
+             "n": 2
+            },
+            {
+             "do": "set",
+             "flag": "q_festivals_oysters_done"
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Shucker Sean",
+             "text": "Not quite. It's what you do to a shellfish with a knife and a bit of care."
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Shucker Sean",
+           "text": "Not yet? I'll be here while it lasts."
+          },
+          {
+           "do": "say",
+           "who": "Shucker Sean",
+           "text": "Catch a Conchling, a little shellfish creature in Galway Bay in this week."
+          }
+         ]
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Shucker Sean",
+       "text": "The Galway Oyster Festival! It's held in the last weekend of September, when the native oysters are in season, and has run since 1954. There's a World Oyster Opening Championship, a lot of stout, and a very friendly queue."
+      },
+      {
+       "do": "say",
+       "who": "Shucker Sean",
+       "text": "Find me a Conchling. Galway Bay is full of them in this week, and the shuckers could use a lucky one."
+      },
+      {
+       "do": "choice",
+       "text": "Help out?",
+       "options": [
+        "Count me in",
+        "Not just now"
+       ],
+       "set": "festivals_oysters_ans"
+      },
+      {
+       "do": "if",
+       "flag": "festivals_oysters_ans",
+       "eq": 0,
+       "then": [
+        {
+         "do": "set",
+         "flag": "q_festivals_oysters_started"
+        },
+        {
+         "do": "say",
+         "who": "Shucker Sean",
+         "text": "Catch a Conchling, a little shellfish creature in Galway Bay in this week."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Shucker Sean",
+         "text": "No bother. I'll be here while it lasts."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
  ]
 }

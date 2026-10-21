@@ -51,7 +51,7 @@ func test_whats_on_lists_now_then_soon() -> void:
 	assert_true("York" in lines[0])
 	var soon := Festivals.whats_on(Vector2i(10, 30))
 	assert_true(soon.any(func(l): return l.begins_with("Coming up:") and "York" in l and "in 2 days" in l))
-	assert_eq(Festivals.whats_on(Vector2i(6, 1)), [], "nothing near in early June")
+	assert_eq(Festivals.whats_on(Vector2i(11, 10)), [], "nothing near in mid November")
 	assert_true(Festivals.whats_on(Vector2i(11, 3), 2).size() <= 2)
 
 func test_when_condition() -> void:
