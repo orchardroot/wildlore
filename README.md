@@ -21,6 +21,15 @@ It started life as a monster-catching game. It's turned into something closer to
 
 Whatever's newest is below; older notes are further down.
 
+## What's new in 3.6: Good Stock
+
+- **Breeding, done properly.** Every creature now carries its makings: genes for coat, tint, markings, a hidden knack, size and build, two copies of each, one from each parent. Pair two fond creatures at Guiting Rare Breeds Farm in the Cotswolds, walk the basket off, and see what hatches.
+- **It's real genetics.** Dominant and recessive, carriers, co-dominant roans, incomplete dominance, sex-linked tortoiseshells (XY in beasts, ZW in birds, as in life), linked genes, the odd mutation, hybrid vigour, and what happens if you breed too close. A Punnett square shows the odds before you pair, and the Stud Book fills in as you see the results for yourself.
+- **Hybrids, where they'd really happen.** The wildcat and the moggy (a real problem in Scotland), red and sika deer, mountain and brown hares, mules and hinnies (sterile, as they are), a wholphin, and a couple from folklore. They get their own section of the Fieldbook and sprites drawn from both parents.
+- **The Roslin Institute** near Edinburgh, home of Dolly the sheep, where Dr Keir explains the clever bits; conservation quests for rare breeds; a Breed Class at the County Shows, stud fees, a genotype test, and a paddock you can buy.
+
+Your creatures already have their makings, worked out from who they are, so old saves just carry on.
+
 ## What's new in 3.5: Open for Business
 
 - **Buy a business.** A chippy in Whitby or Blackpool, a B&B in Keswick or Portree, a fishing boat out of Whitby or Dingle, a market stall in Bath or Carlisle, or an allotment in York or Lancaster. Keep it stocked (your own catch, your own veg, what you buy at the market), upgrade it, and empty the till when you pass. Coach parties, storms and gluts happen.
