@@ -15,5 +15,67 @@
    "who": "Intern",
    "text": "The real columns are a World Heritage Site, as it happens. Somebody has to tell Lord Vane. It will not be me."
   }
+ ],
+ "case_caterer": [
+  {
+   "do": "if",
+   "flag": "case_causeway_stone_briefed",
+   "then": [
+    {
+     "do": "say",
+     "who": "Seamus the Caterer",
+     "text": "My sack trolley? Aye, it went out Tuesday teatime. Signed for by Mrs Crozier. Came back Wednesday with grit in the wheels, and I'm not paying for the cleaning of it."
+    },
+    {
+     "do": "say",
+     "who": "Seamus the Caterer",
+     "text": "Do you know she asked me to make a cloth for 'Table 1' long enough to hide a pig? A pig! Weddings, I tell you."
+    },
+    {
+     "do": "evidence",
+     "id": "hire_slip"
+    },
+    {
+     "do": "set",
+     "flag": "case_causeway_stone_caterer"
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Seamus the Caterer",
+     "text": "Seamus Hanlon, canapes and consequences. If it's not in a vol-au-vent I don't know about it."
+    }
+   ]
+  }
+ ],
+ "case_fidelma": [
+  {
+   "do": "if",
+   "flag": "case_causeway_stone_briefed",
+   "then": [
+    {
+     "do": "say",
+     "who": "Fidelma Crozier",
+     "text": "A missing stone? Heavens. At the Causeway? Isn't that terrible. Terrible. I'm very busy, I have a wedding on Saturday."
+    },
+    {
+     "do": "say",
+     "who": "Fidelma Crozier",
+     "text": "No, I haven't seen it. And no, I have nothing under any tablecloths. Why would you look at the tablecloths? Stop looking at the tablecloths."
+    },
+    {
+     "do": "set",
+     "flag": "case_causeway_stone_fidelma"
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Fidelma Crozier",
+     "text": "Fidelma Crozier, Events. Vane Estates. Weddings, conferences, bat mitzvahs, one memorable dog christening."
+    }
+   ]
+  }
  ]
 }
