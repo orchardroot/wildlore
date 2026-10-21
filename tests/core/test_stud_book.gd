@@ -152,7 +152,7 @@ func test_verdict_needs_fondness_one_a_day_and_room_in_the_baskets() -> void:
 	assert_false(PairingLogic.verdict(d, "farm", m, f).ok)
 	f.friendship = 200
 	assert_eq(PairingLogic.verdict(d, "farm", m, null).why, "Pick two.")
-	assert_true(Breeding.start(d, m, f, "farm").ok)
+	assert_true(Breeding.start(d, m, f, "farm", Fixtures.dex(), Fixtures.moves(), Rng.new(5), "spring").ok)
 	var again := PairingLogic.verdict(d, "farm", m, f)
 	assert_false(again.ok)
 	assert_true(again.why.contains("One pairing a day"))
