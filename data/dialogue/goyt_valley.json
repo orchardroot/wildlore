@@ -226,11 +226,7 @@
           }
          ],
          "else": [
-          {
-           "do": "say",
-           "who": "Ezra",
-           "text": "There's a tin box in the Blue John caves at Castleton. I put it there in nineteen-sixty-something, thinking it would be safe from the Enclosure. Mind the stream. Mind the stalactites. Mind everything."
-          }
+          {"do": "if", "flag": "arc_england_tin_found", "then": [{"do": "say", "who": "Ezra", "text": "You found it! Still dry. I hid it in the Blue John caves in the sixties, and was half sure the damp had had it. Good. That's the first proof."}, {"do": "set", "flag": "q_arc_england_tin"}], "else": [{"do": "say", "who": "Ezra", "text": "There's a tin box in the Blue John caves at Castleton. I put it there in nineteen-sixty-something, thinking it would be safe from the Enclosure. Mind the stream. Mind the stalactites. Mind everything."}]}
          ]
         }
        ],
