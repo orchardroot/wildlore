@@ -1,0 +1,160 @@
+{
+ "id": "causeway_stone",
+ "title": "The Stone That Walked",
+ "nation": "northern_ireland",
+ "start_flag": "case_causeway_stone_start",
+ "evidence": [
+  {
+   "id": "plinth_smears",
+   "name": "Two Clean Smears",
+   "text": "The plinth in the visitor centre is dusty except for two long, tidy smears, as if a trolley's lip had slid the stone off. No scratches anywhere. Whoever took it cared about not damaging it.",
+   "red_herring": false
+  },
+  {
+   "id": "trolley_track",
+   "name": "Trolley Track",
+   "text": "On the path from the centre, narrow rubber wheel marks, deep from a load. They head for the Vane Estates marquee, not the car park.",
+   "red_herring": false
+  },
+  {
+   "id": "confetti",
+   "name": "White Petals",
+   "text": "Scraps of white paper confetti by the plinth. The biodegradable kind that venues insist on. Not the sort of thing you sell in a keyring shop.",
+   "red_herring": false
+  },
+  {
+   "id": "stall_receipts",
+   "name": "Corky's Receipts",
+   "text": "Corky Dunlop's stall books show 200 'genuine Causeway' keyring stones delivered from a Ballymoney gravel yard on Tuesday. Rounded pebbles, not hexagons. Shabby, but he has no use for a 60 kilo column.",
+   "red_herring": true
+  },
+  {
+   "id": "library_slip",
+   "name": "Coleraine Library Slip",
+   "text": "A late-fee slip in Dr Gault's notebook, stamped in Coleraine at 8.40 on Tuesday evening, for a book on columnar jointing. The stone went missing while she was queueing to pay 40p.",
+   "red_herring": true
+  },
+  {
+   "id": "doorstep_letter",
+   "name": "The Doorstep Request",
+   "text": "The ranger's log: in March, Gerard Mullan asked to buy one basalt column 'for a doorstep'. Refused. Suspicious on paper, but his guest book has a Tuesday night complaint about his snoring until two, so he was in all night.",
+   "red_herring": true
+  },
+  {
+   "id": "run_sheet",
+   "name": "Saturday's Run Sheet",
+   "text": "A wedding run sheet pinned in the marquee: '3pm, Item 4: bride and groom touch the Stone of Fionn for luck, photographs. Provide stone.' Signed F. Crozier, Events.",
+   "red_herring": false
+  },
+  {
+   "id": "hire_slip",
+   "name": "Trolley Hire Slip",
+   "text": "The caterer's sack trolley was signed out on Tuesday teatime by F. Crozier and came back on Wednesday with grit in the wheels.",
+   "red_herring": false
+  },
+  {
+   "id": "table_one",
+   "name": "Table One",
+   "text": "Under a long white cloth on the bride's table, a hexagonal basalt column about knee high, with a luggage label tied round it: 'TABLE 1. DO NOT USE AS A CHAIR.'",
+   "red_herring": false
+  }
+ ],
+ "suspects": [
+  {
+   "id": "corky",
+   "name": "Corky Dunlop",
+   "zone": "causeway",
+   "wrong": "A stone? Me? I sell keyrings! If I could carry sixty kilos I'd be in the army, not standing in a wind tunnel selling pebbles to Germans. I'm telling Mammy.",
+   "right": ""
+  },
+  {
+   "id": "hilary",
+   "name": "Dr Hilary Gault",
+   "zone": "causeway",
+   "wrong": "I measured the thing, I did not abduct it. Columnar jointing is a lifelong love, not a criminal tendency. I shall be writing to the Geological Society, and they write back slowly and with footnotes.",
+   "right": ""
+  },
+  {
+   "id": "gerard",
+   "name": "Gerard Mullan",
+   "zone": "bushmills",
+   "wrong": "I only ASKED for one! In March! And I was told no, politely, which is how I knew it was serious. I have a guest book with a complaint about my snoring. I'd say that's an alibi, wouldn't you?",
+   "right": ""
+  },
+  {
+   "id": "fidelma",
+   "name": "Fidelma Crozier",
+   "zone": "causeway_marquee",
+   "wrong": "",
+   "right": "Oh, for goodness' sake. Saturday's bride wanted the Stone of Fionn in the photographs and I could not get a quote for a prop in under three weeks. I was going to put it back on Sunday. On a trolley. With a blanket. I'll pay for the trolley, and the apology, and the wedding will have to have a very nice plastic one."
+  }
+ ],
+ "culprit": "fidelma",
+ "steps": [
+  {
+   "flag": "case_causeway_stone_briefed",
+   "text": "Speak to Ranger Boyle in the visitor centre at the Giant's Causeway.",
+   "zone": "causeway_centre"
+  },
+  {
+   "flag": "case_causeway_stone_plinth",
+   "text": "Examine the empty plinth in the visitor centre.",
+   "zone": "causeway_centre"
+  },
+  {
+   "flag": "case_causeway_stone_track",
+   "text": "Follow the wheel marks on the path outside the centre.",
+   "zone": "causeway"
+  },
+  {
+   "flag": "case_causeway_stone_corky",
+   "text": "Question Corky Dunlop at his stall at the Causeway.",
+   "zone": "causeway"
+  },
+  {
+   "flag": "case_causeway_stone_hilary",
+   "text": "Question Dr Hilary Gault, the geologist, at the Causeway.",
+   "zone": "causeway"
+  },
+  {
+   "flag": "case_causeway_stone_gerard",
+   "text": "Question Gerard Mullan in Bushmills.",
+   "zone": "bushmills"
+  },
+  {
+   "flag": "case_causeway_stone_caterer",
+   "text": "Ask the caterer in the Vane Estates marquee about Tuesday night.",
+   "zone": "causeway_marquee"
+  },
+  {
+   "flag": "case_causeway_stone_runsheet",
+   "text": "Read the wedding run sheet in the marquee.",
+   "zone": "causeway_marquee"
+  },
+  {
+   "flag": "case_causeway_stone_fidelma",
+   "text": "Talk to the events manager in the marquee.",
+   "zone": "causeway_marquee"
+  },
+  {
+   "flag": "case_causeway_stone_cloth",
+   "text": "Look under the cloth on the bride's table in the marquee.",
+   "zone": "causeway_marquee"
+  },
+  {
+   "flag": "case_causeway_stone_report",
+   "text": "Report back to Ranger Boyle in the visitor centre.",
+   "zone": "causeway_centre"
+  }
+ ],
+ "done_flag": "case_causeway_stone_done",
+ "reward": {
+  "money": 1300,
+  "standing": 6,
+  "items": {
+   "ulster_fry": 2
+  }
+ },
+ "accuse_hint": "Ranger Boyle is waiting in the visitor centre at the Giant's Causeway.",
+ "closed": "The Stone of Fionn is back on its plinth, with a new sign asking visitors not to use it as a chair. Most of them will."
+}

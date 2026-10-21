@@ -20,5 +20,109 @@
    "who": "Causeway Guide",
    "text": "It became a World Heritage Site in 1986. Wear shoes with grip. The columns are slippy and the sea is not sorry."
   }
+ ],
+ "case_boyle": [
+  {
+   "do": "if",
+   "flag": "case_causeway_stone_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Ranger Boyle",
+     "text": "The Stone of Fionn is back on its plinth, and the wedding had a lovely plastic one. Thank you. The Causeway has been drawing visitors since the 1700s, and I'd like it to be there for another sixty million years."
+    },
+    {
+     "do": "say",
+     "who": "Ranger Boyle",
+     "text": "Do remember: the stones are protected. Look, climb, photograph. Please don't pocket."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "case_causeway_stone_briefed",
+     "then": [
+      {
+       "do": "if",
+       "flag": "case_causeway_stone_report",
+       "then": [
+        {
+         "do": "say",
+         "who": "Ranger Boyle",
+         "text": "Well? Who has my stone?"
+        },
+        {
+         "do": "casebook",
+         "id": "causeway_stone"
+        }
+       ],
+       "else": [
+        {
+         "do": "if",
+         "flag": "case_causeway_stone_cloth",
+         "then": [
+          {
+           "do": "say",
+           "who": "Ranger Boyle",
+           "text": "You've seen the plinth, the track, the stall, the geologist, Bushmills, the caterer, the run sheet, the events manager and that tablecloth. That's the lot. Who is it?"
+          },
+          {
+           "do": "set",
+           "flag": "case_causeway_stone_report"
+          },
+          {
+           "do": "casebook",
+           "id": "causeway_stone"
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Ranger Boyle",
+           "text": "Still gathering? Good. Detectives who rush end up apologising to geologists."
+          },
+          {
+           "do": "say",
+           "who": "Ranger Boyle",
+           "text": "Check the Casebook in your Fieldbook for the next lead. Come back when you've followed every lead."
+          }
+         ]
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Ranger Boyle",
+       "text": "Nuala Boyle, ranger. I've worked here eleven years and never lost a stone. Until this morning."
+      },
+      {
+       "do": "say",
+       "who": "Ranger Boyle",
+       "text": "The Stone of Fionn was a loose basalt column that lives on that plinth for visitors to touch for luck. Sixty kilos, give or take a sermon. Someone has taken it overnight."
+      },
+      {
+       "do": "say",
+       "who": "Ranger Boyle",
+       "text": "I have four people I'd like you to look at. A keyring seller, a geologist, a B&B owner in Bushmills, and, well, whoever else turns up. Ask around, look at things, and write it down. A wrong name will cost you standing."
+      },
+      {
+       "do": "set",
+       "flag": "case_causeway_stone_start"
+      },
+      {
+       "do": "set",
+       "flag": "case_causeway_stone_briefed"
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "Case opened: The Stone That Walked."
+      }
+     ]
+    }
+   ]
+  }
  ]
 }
