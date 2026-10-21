@@ -1,4 +1,228 @@
 {
+ "case_bell": [
+  {
+   "do": "if",
+   "flag": "case_mersey_otters_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Warden Bell",
+     "text": "The brook's clear and the fish are back. There's an otter on the far bank right now, looking pleased with itself. You did that."
+    },
+    {
+     "do": "say",
+     "who": "Warden Bell",
+     "text": "Otters were all but gone from most of England by the 1970s. Pesticides and dirty water did it. Now they are back in nearly every county. Let's keep it that way."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "case_mersey_otters_briefed",
+     "then": [
+      {
+       "do": "if",
+       "flag": "case_mersey_otters_outfall",
+       "then": [
+        {
+         "do": "if",
+         "flag": "case_mersey_otters_mavis",
+         "then": [
+          {
+           "do": "if",
+           "flag": "case_mersey_otters_docket",
+           "then": [
+            {
+             "do": "if",
+             "flag": "case_mersey_otters_rooke",
+             "then": [
+              {
+               "do": "if",
+               "flag": "case_mersey_otters_dennis",
+               "then": [
+                {
+                 "do": "if",
+                 "flag": "case_mersey_otters_culvert",
+                 "then": [
+                  {
+                   "do": "say",
+                   "who": "Warden Bell",
+                   "text": "You've seen the outfall, the angler, the docks, the Director, the launderette and the culvert. That's the lot. Who is it?"
+                  },
+                  {
+                   "do": "set",
+                   "flag": "case_mersey_otters_report"
+                  },
+                  {
+                   "do": "casebook",
+                   "id": "mersey_otters"
+                  }
+                 ],
+                 "else": [
+                  {
+                   "do": "say",
+                   "who": "Warden Bell",
+                   "text": "Still gathering? Good. Detectives who rush end up apologising to bowling clubs."
+                  },
+                  {
+                   "do": "say",
+                   "who": "Warden Bell",
+                   "text": "Check the Casebook in your Fieldbook (Run cycles the tabs) for the next lead. Come back when you've followed them all."
+                  }
+                 ]
+                }
+               ],
+               "else": [
+                {
+                 "do": "say",
+                 "who": "Warden Bell",
+                 "text": "Still gathering? Good. Detectives who rush end up apologising to bowling clubs."
+                },
+                {
+                 "do": "say",
+                 "who": "Warden Bell",
+                 "text": "Check the Casebook in your Fieldbook (Run cycles the tabs) for the next lead. Come back when you've followed them all."
+                }
+               ]
+              }
+             ],
+             "else": [
+              {
+               "do": "say",
+               "who": "Warden Bell",
+               "text": "Still gathering? Good. Detectives who rush end up apologising to bowling clubs."
+              },
+              {
+               "do": "say",
+               "who": "Warden Bell",
+               "text": "Check the Casebook in your Fieldbook (Run cycles the tabs) for the next lead. Come back when you've followed them all."
+              }
+             ]
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Warden Bell",
+             "text": "Still gathering? Good. Detectives who rush end up apologising to bowling clubs."
+            },
+            {
+             "do": "say",
+             "who": "Warden Bell",
+             "text": "Check the Casebook in your Fieldbook (Run cycles the tabs) for the next lead. Come back when you've followed them all."
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Warden Bell",
+           "text": "Still gathering? Good. Detectives who rush end up apologising to bowling clubs."
+          },
+          {
+           "do": "say",
+           "who": "Warden Bell",
+           "text": "Check the Casebook in your Fieldbook (Run cycles the tabs) for the next lead. Come back when you've followed them all."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Warden Bell",
+         "text": "Still gathering? Good. Detectives who rush end up apologising to bowling clubs."
+        },
+        {
+         "do": "say",
+         "who": "Warden Bell",
+         "text": "Check the Casebook in your Fieldbook (Run cycles the tabs) for the next lead. Come back when you've followed them all."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Warden Bell",
+       "text": "Hazel Bell, otter warden. Volunteer, kettle-carrier, professional squinter at brooks."
+      },
+      {
+       "do": "say",
+       "who": "Warden Bell",
+       "text": "Otters were all but gone from most of England by the 1970s. Pesticides and dirty rivers did it. They've crept back up the Mersey basin, and now something nasty is getting into the water here and the fish are floating."
+      },
+      {
+       "do": "say",
+       "who": "Warden Bell",
+       "text": "It's being tipped in. I want to know who. There are three likely people: a loud Director, an angler, and a man with a van. I'll not say which is which."
+      },
+      {
+       "do": "say",
+       "who": "Warden Bell",
+       "text": "Look at things, ask folk, write it down. Your Fieldbook has a Casebook tab now; press Run on the Fieldbook until you find it. When you're sure, come back and name them. A wrong name will cost you standing, and rightly."
+      },
+      {
+       "do": "set",
+       "flag": "case_mersey_otters_start"
+      },
+      {
+       "do": "set",
+       "flag": "case_mersey_otters_briefed"
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "Case opened: The Mersey Otters."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "case_mavis": [
+  {
+   "do": "if",
+   "flag": "case_mersey_otters_briefed",
+   "then": [
+    {
+     "do": "say",
+     "who": "Mavis Crabtree",
+     "text": "Mavis Crabtree, secretary of the angling club, and I have never once left a fish in a worse state than I found it."
+    },
+    {
+     "do": "say",
+     "who": "Mavis Crabtree",
+     "text": "These waders? Green to the knee. I've been testing the brook for the club since March. Pondweed, mud, a very surprised newt. It is not a crime."
+    },
+    {
+     "do": "say",
+     "who": "Mavis Crabtree",
+     "text": "And I'll tell you something useful. The fish only turn up on Wednesdays. Whatever goes in, goes in on Tuesday evening, on the ebb, so the tide whisks it away."
+    },
+    {
+     "do": "evidence",
+     "id": "waders"
+    },
+    {
+     "do": "evidence",
+     "id": "tide_note"
+    },
+    {
+     "do": "set",
+     "flag": "case_mersey_otters_mavis"
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Mavis Crabtree",
+     "text": "Lovely brook, this. Mind the newts."
+    }
+   ]
+  }
+ ],
  "lighthouse_fan": [
   {
    "do": "say",

@@ -678,7 +678,49 @@
    "offset": 0
   }
  },
+ "examine": [
+  {
+   "x": 9,
+   "y": 25,
+   "text": [
+    "The brook's outfall. A rainbow film swirls on the water, and the air smells like a freshly pressed suit.",
+    "That is not weedkiller. It's something you'd get at a dry cleaner's."
+   ],
+   "flag": "case_mersey_otters_outfall",
+   "evidence": "sheen"
+  },
+  {
+   "x": 13,
+   "y": 24,
+   "text": [
+    "The culvert under the path. The mud has been churned up lately.",
+    "Small van tyres, and a flattened carrier bag marked POLLITT'S LAUNDERETTE AND DRY CLEANING. Subtle as a brick."
+   ],
+   "flag": "case_mersey_otters_culvert",
+   "evidence": "van_tracks"
+  }
+ ],
  "npcs": [
+  {
+   "id": "case_bell",
+   "sprite": "villager_6",
+   "x": 25,
+   "y": 28,
+   "facing": "left",
+   "move": "still",
+   "script": "case_bell",
+   "name": "Warden Bell"
+  },
+  {
+   "id": "case_mavis",
+   "sprite": "angler",
+   "x": 12,
+   "y": 26,
+   "facing": "right",
+   "move": "still",
+   "script": "case_mavis",
+   "name": "Mavis Crabtree"
+  },
   {
    "id": "wirral_keeper",
    "sprite": "villager_4",

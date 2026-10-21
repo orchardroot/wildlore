@@ -1,4 +1,38 @@
 {
+ "case_dennis": [
+  {
+   "do": "if",
+   "flag": "case_mersey_otters_briefed",
+   "then": [
+    {
+     "do": "say",
+     "who": "Dennis Pollitt",
+     "text": "Pollitt's Launderette and Dry Cleaning. Alterations while you wait. Questions while you don't."
+    },
+    {
+     "do": "say",
+     "who": "Dennis Pollitt",
+     "text": "The brook? I've never been near it. Why would I? I have a very nice machine. Tuesday? Tuesday I do the, er, tablecloths. Not anywhere near a brook."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "He is sweating through a freshly pressed shirt."
+    },
+    {
+     "do": "set",
+     "flag": "case_mersey_otters_dennis"
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Dennis Pollitt",
+     "text": "Shirt? Trousers? Alterations while you wait."
+    }
+   ]
+  }
+ ],
  "wirral_h2_0": [
   {
    "do": "say",

@@ -245,6 +245,10 @@ func _exec(c: Dictionary) -> void:
 				await host.say("", line + ".")
 		"regular":
 			await RegularTalk.run(self, c)  # one of the Regulars (story/regular_talk.gd)
+		"evidence":
+			await CasebookTalk.evidence(self, c)  # a clue for the Casebook (story/casebook_talk.gd)
+		"casebook":
+			await CasebookTalk.run(self, c)  # the accusation prompt
 		"breed":
 			await BreedTalk.run(self, c)  # the farm gate and the lab bench (story/breed_talk.gd)
 		"rewild":

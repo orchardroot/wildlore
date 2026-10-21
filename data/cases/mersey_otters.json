@@ -1,0 +1,126 @@
+{
+ "id": "mersey_otters",
+ "title": "The Mersey Otters",
+ "nation": "england",
+ "start_flag": "case_mersey_otters_start",
+ "evidence": [
+  {
+   "id": "sheen",
+   "name": "Rainbow Sheen",
+   "text": "An oily rainbow film at the brook's outfall, and a smell like a freshly pressed suit. That is solvent, not weedkiller.",
+   "red_herring": false
+  },
+  {
+   "id": "docket",
+   "name": "Delivery Docket",
+   "text": "From the dockside porter: four drums of cleaning solvent signed for by 'D.P.', for a yard on the Wirral. Last delivery a fortnight ago.",
+   "red_herring": false
+  },
+  {
+   "id": "tide_note",
+   "name": "Tuesday at Dusk",
+   "text": "The fish only turn up belly-up on Wednesdays. Something goes in on Tuesday evening, on the ebb, when the tide carries it out of sight.",
+   "red_herring": false
+  },
+  {
+   "id": "rooke_letter",
+   "name": "Rooke's Complaint",
+   "text": "A stiff letter to the council: otters have rooted up Director Rooke's bowling green and he wants 'something done'. Shouty, but about turf, not tins.",
+   "red_herring": true
+  },
+  {
+   "id": "waders",
+   "name": "Green Waders",
+   "text": "Mavis Crabtree's waders are stained green-black to the knee. Pondweed and brook mud. She has been sampling the water for the angling club since March.",
+   "red_herring": true
+  },
+  {
+   "id": "season_ticket",
+   "name": "Chester Season Ticket",
+   "text": "Director Rooke holds a season ticket for Chester Racecourse, and Tuesdays are race days. He is rarely home before ten.",
+   "red_herring": false
+  },
+  {
+   "id": "van_tracks",
+   "name": "Van Tracks",
+   "text": "By the culvert: tyre marks of a small van, and a flattened carrier bag printed POLLITT'S LAUNDERETTE AND DRY CLEANING. Not subtle.",
+   "red_herring": false
+  }
+ ],
+ "suspects": [
+  {
+   "id": "rooke",
+   "name": "Director Rooke",
+   "zone": "liverpool_portbuilding",
+   "wrong": "Me? I fence things. I do not tip things. I do not even like the word 'tip'. I wrote to the council about my bowling green, and that is the full extent of my war on otters. I shall be writing to your mother.",
+   "right": ""
+  },
+  {
+   "id": "mavis",
+   "name": "Mavis Crabtree",
+   "zone": "wirral_way",
+   "wrong": "Me?! Forty years I've fished that brook! I've put more fish back than you've had hot dinners! Right, that's it, I'm taking this to the committee. There will be minutes.",
+   "right": ""
+  },
+  {
+   "id": "dennis",
+   "name": "Dennis Pollitt",
+   "zone": "wirral_h2",
+   "wrong": "",
+   "right": "Alright, alright. It's the dry-cleaning solvent. The disposal firm wants ninety quid a drum and I thought, it's a brook, it's big, it'll mind itself. I never gave the otters a thought. I'll pay for the clean-up. And, er, the fish."
+  }
+ ],
+ "culprit": "dennis",
+ "steps": [
+  {
+   "flag": "case_mersey_otters_briefed",
+   "text": "Speak to Warden Bell on the Wirral Way.",
+   "zone": "wirral_way"
+  },
+  {
+   "flag": "case_mersey_otters_outfall",
+   "text": "Look at the brook's outfall on the Wirral Way for anything unusual.",
+   "zone": "wirral_way"
+  },
+  {
+   "flag": "case_mersey_otters_mavis",
+   "text": "Ask Mavis Crabtree of the angling club, on the Wirral Way.",
+   "zone": "wirral_way"
+  },
+  {
+   "flag": "case_mersey_otters_docket",
+   "text": "Ask the dockside porter in Liverpool what the sheen could be.",
+   "zone": "liverpool"
+  },
+  {
+   "flag": "case_mersey_otters_rooke",
+   "text": "Question Director Rooke at the Port Building in Liverpool.",
+   "zone": "liverpool_portbuilding"
+  },
+  {
+   "flag": "case_mersey_otters_dennis",
+   "text": "Call on Dennis Pollitt in Wirral.",
+   "zone": "wirral_h2"
+  },
+  {
+   "flag": "case_mersey_otters_culvert",
+   "text": "Check the culvert by the Wirral Way for tracks.",
+   "zone": "wirral_way"
+  },
+  {
+   "flag": "case_mersey_otters_report",
+   "text": "Report back to Warden Bell on the Wirral Way.",
+   "zone": "wirral_way"
+  }
+ ],
+ "done_flag": "case_mersey_otters_done",
+ "reward": {
+  "money": 1200,
+  "standing": 6,
+  "items": {
+   "flask_of_tea": 1
+  }
+ },
+ "accuse_hint": "Warden Bell is waiting on the Wirral Way.",
+ "closed": "The brook runs clear again, and an otter has been seen on the Wirral Way, looking smug."
+}

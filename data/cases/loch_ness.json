@@ -1,0 +1,120 @@
+{
+ "id": "loch_ness",
+ "title": "The Photograph",
+ "nation": "scotland",
+ "start_flag": "case_loch_ness_start",
+ "evidence": [
+  {
+   "id": "plastic_wood",
+   "name": "Tub of Plastic Wood",
+   "text": "In the reeds by the jetty: a lidless tub of plastic wood with a thumbprint in it, and a snapped bit of brass wire. The famous 1934 photograph was a toy submarine with a sculpted head. Same trick, newer tub.",
+   "red_herring": false
+  },
+  {
+   "id": "wee_ripples",
+   "name": "Wee Ripples",
+   "text": "The old boatman reads the photograph's ripples like small print. They are the wake of something a foot long, not forty. 'A big beast makes a big fuss. This made a wee one.'",
+   "red_herring": false
+  },
+  {
+   "id": "card_stock",
+   "name": "Postcard Stock",
+   "text": "The photograph is printed on glossy cream stock with a scalloped edge: exactly the postcards sold from one stall in Inverness.",
+   "red_herring": false
+  },
+  {
+   "id": "till_roll",
+   "name": "Till Roll",
+   "text": "The ironmonger's till roll: plastic wood, brass wire and a tin of grey paint, bought on one day by 'G. Mackie, cash'. Receipts are the detective's friend and the faker's regret.",
+   "red_herring": false
+  },
+  {
+   "id": "hunters_notebook",
+   "name": "Hunter's Notebook",
+   "text": "Page after page of drawn necks, dated and numbered, with notes like 'definitely a log, but what a log'. He is earnest, not crafty. The man cannot fold a map.",
+   "red_herring": true
+  },
+  {
+   "id": "box_camera",
+   "name": "Boatman's Box Camera",
+   "text": "An old box camera in the boatman's cabin, wrong film for the photograph. Also full of spiders. Nobody has taken a picture with it since the 1970s.",
+   "red_herring": true
+  }
+ ],
+ "suspects": [
+  {
+   "id": "hunter",
+   "name": "The Monster Hunter",
+   "zone": "loch_ness",
+   "wrong": "Fake it? I've spent thirty years hoping it was real! If I'd made a fake, I'd have made a better one. Not that I'm saying I could. Don't write that down.",
+   "right": ""
+  },
+  {
+   "id": "boatman",
+   "name": "The Old Boatman",
+   "zone": "loch_ness",
+   "wrong": "I've sailed this loch since before you could walk and never needed a trick. The monster's real enough when the tourists book. I'll thank you to keep your fingers off my tiller.",
+   "right": ""
+  },
+  {
+   "id": "gillian",
+   "name": "Gillian Mackie",
+   "zone": "inverness",
+   "wrong": "",
+   "right": "Alright, you've got me. Plastic wood, a toy boat from a car boot sale and a very good neck. The mugs were going to be gorgeous. Could I still sell it as 'The Famous Fake'? People love a fake. I'll refund every mug."
+  }
+ ],
+ "culprit": "gillian",
+ "steps": [
+  {
+   "flag": "case_loch_ness_briefed",
+   "text": "Speak to Ailsa Munro, the archivist, at Loch Ness.",
+   "zone": "loch_ness"
+  },
+  {
+   "flag": "case_loch_ness_shore",
+   "text": "Search the reeds by the jetty at Loch Ness for the photographer's props.",
+   "zone": "loch_ness"
+  },
+  {
+   "flag": "case_loch_ness_boatman",
+   "text": "Show the photograph to the old boatman at Loch Ness.",
+   "zone": "loch_ness"
+  },
+  {
+   "flag": "case_loch_ness_hunter",
+   "text": "Ask the Monster Hunter at Loch Ness.",
+   "zone": "loch_ness"
+  },
+  {
+   "flag": "case_loch_ness_stall",
+   "text": "Look at the postcard rack on the Inverness market stalls.",
+   "zone": "inverness"
+  },
+  {
+   "flag": "case_loch_ness_ironmonger",
+   "text": "Ask the ironmonger in Inverness about the plastic wood.",
+   "zone": "inverness"
+  },
+  {
+   "flag": "case_loch_ness_gillian",
+   "text": "Have a word with Gillian Mackie on her Inverness stall.",
+   "zone": "inverness"
+  },
+  {
+   "flag": "case_loch_ness_report",
+   "text": "Report back to Ailsa Munro at Loch Ness.",
+   "zone": "loch_ness"
+  }
+ ],
+ "done_flag": "case_loch_ness_done",
+ "reward": {
+  "money": 1500,
+  "standing": 8,
+  "items": {
+   "tablet": 2
+  }
+ },
+ "accuse_hint": "Ailsa Munro is waiting at Loch Ness.",
+ "closed": "The mugs have been withdrawn. The Famous Fake now has its own display case, which is the best fate a fake can hope for."
+}

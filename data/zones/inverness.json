@@ -98,7 +98,39 @@
  },
  "music": "town_scotland",
  "name": "Inverness",
+ "examine": [
+  {
+   "x": 52,
+   "y": 32,
+   "text": [
+    "A rack of postcards: cream stock, scalloped edge, 'NESSIE KNITWEAR AND CARDS' in the corner.",
+    "Hold the photograph beside one. Same stock, same edge. That's a lead and a half."
+   ],
+   "flag": "case_loch_ness_stall",
+   "evidence": "card_stock"
+  }
+ ],
  "npcs": [
+  {
+   "id": "case_gillian",
+   "sprite": "villager_5",
+   "x": 50,
+   "y": 32,
+   "facing": "down",
+   "move": "still",
+   "script": "case_gillian",
+   "name": "Gillian Mackie"
+  },
+  {
+   "id": "case_ironmonger",
+   "sprite": "farmer",
+   "x": 53,
+   "y": 33,
+   "facing": "left",
+   "move": "still",
+   "script": "case_ironmonger",
+   "name": "Ironmonger"
+  },
   {
    "facing": "left",
    "id": "rail_guard",

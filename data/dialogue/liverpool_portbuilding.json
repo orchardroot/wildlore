@@ -1,4 +1,46 @@
 {
+ "case_rooke": [
+  {
+   "do": "if",
+   "flag": "case_mersey_otters_briefed",
+   "then": [
+    {
+     "do": "say",
+     "who": "Director Rooke",
+     "text": "Yes, I'm an Enclosure Director. I fence things off. It's a calling. I'm told the otters are ruining the Wirral and I am prepared to say it was me."
+    },
+    {
+     "do": "say",
+     "who": "Director Rooke",
+     "text": "Not that I did it. But I have written to the council. Here, read the letter. It's very firm."
+    },
+    {
+     "do": "say",
+     "who": "Director Rooke",
+     "text": "And I'm never home on a Tuesday. Chester races. Season ticket. Splendid ham sandwiches in the Tattersalls. Ask anyone. Don't ask my wife."
+    },
+    {
+     "do": "evidence",
+     "id": "rooke_letter"
+    },
+    {
+     "do": "evidence",
+     "id": "season_ticket"
+    },
+    {
+     "do": "set",
+     "flag": "case_mersey_otters_rooke"
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Director Rooke",
+     "text": "I am extremely busy. This is my busy face."
+    }
+   ]
+  }
+ ],
  "keeper": [
   {
    "do": "say",
