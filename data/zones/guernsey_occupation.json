@@ -143,6 +143,17 @@
    "move": "still",
    "script": "gue_occ_curator",
    "name": "Curator"
+  },
+  {
+   "id": "arc_volunteer",
+   "sprite": "villager_5",
+   "x": 4,
+   "y": 4,
+   "facing": "right",
+   "move": "still",
+   "script": "arc_volunteer",
+   "name": "Museum Volunteer",
+   "show_if": "game_complete"
   }
  ],
  "encounters": {},
@@ -162,5 +173,17 @@
   "x+++++++++++++x",
   "x++++++D++++++x",
   "xxxxxxxxxxxxxxx"
+ ],
+ "examine": [
+  {
+   "x": 9,
+   "y": 1,
+   "evidence": "repair_receipt",
+   "flag": "q_arc_islands_7",
+   "text": [
+    "On the curator's desk blotter, a receipt: 'Channel Islands sheets, four, sent by post to Mr Halcrow, Binder, Lerwick, for re-sewing. Stamped, Guernsey.'",
+    "They were not stolen. They were posted onward on purpose, with a receipt, to a man who said he would take care of them."
+   ]
+  }
  ]
 }

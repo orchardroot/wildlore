@@ -15,5 +15,52 @@
    "who": "Tram Driver",
    "text": "The horses get a rest in the afternoon. The timetable does not, I'm afraid."
   }
+ ],
+ "arc_clerk": [
+  {
+   "do": "if",
+   "flag": "q_arc_islands_1",
+   "then": [
+    {
+     "do": "say",
+     "who": "Clerk of Tynwald",
+     "text": "Back for more? There is no more. Tynwald is a court on a hill, and we have been at it for a thousand years. Go and see the Gaiety, Miss Quayle will be fretting."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_arc_islands_started",
+     "then": [
+      {
+       "do": "say",
+       "who": "Clerk of Tynwald",
+       "text": "Tynwald, our parliament, is one of the oldest in the world still meeting. People say since 979, which is the sort of round number historians treat with suspicion. It is a lot of years, whichever way you cut it."
+      },
+      {
+       "do": "say",
+       "who": "Clerk of Tynwald",
+       "text": "On Tynwald Day, 5 July, the court meets at St John's on a hill of four tiers. The new laws are read out in Manx and in English before they are signed, so the people can hear what is done in their name. The Keys, our lower house, have twenty-four members."
+      },
+      {
+       "do": "say",
+       "who": "Clerk of Tynwald",
+       "text": "And in the second week of June the same Tynwald shuts the island's roads for the TT, so a few hundred riders can race round thirty-seven miles of them. That is the island: very old rules, very fast motorbikes."
+      },
+      {
+       "do": "set",
+       "flag": "q_arc_islands_1"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Clerk of Tynwald",
+       "text": "The trams run on time, the horses do not, and Tynwald meets every year on the fifth of July. That is the whole of the Manx constitution, give or take a few centuries."
+      }
+     ]
+    }
+   ]
+  }
  ]
 }
