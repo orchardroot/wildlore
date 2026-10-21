@@ -42,4 +42,4 @@ func test_zones_validate_and_trainer_is_scaled() -> void:
 
 func test_reward_charm_exists() -> void:
 	var items := ItemDB.load_default()
-	assert_true(items.has_item("right_of_way_boots"))
+	assert_true(items.has("right_of_way_boots"))
