@@ -1,0 +1,49 @@
+{
+ "_doc": "Regional forms (wave 42). {species id: {form id: {name (the suffix: 'Spikkin (Shetland)'), regions [zone regions], zones [optional zone ids that narrow the regions], types [optional replacement types, one change at most], stat_lean {stat: delta, net zero, +/-6}, knack (optional knack id), move (optional signature move id), look {palette {hue, sat, val, tint, tint_amount}, features [crest, ears, speckle, belly, stripe]}, fact}}}. Contract and rules: core/forms.gd. A form of an evolving line should be authored for each stage that spawns it (and the baby stage, so breeding can pass it down) under the same form id.",
+ "snowhare": {
+  "irish": {
+   "name": "Irish", "regions": ["ireland", "ireland_east", "ireland_west"],
+   "types": ["kin"], "stat_lean": {"spd": 4, "def": -4},
+   "look": {"palette": {"hue": 14, "sat": -0.25, "val": -0.05, "tint": "#a8703c", "tint_amount": 0.45}, "features": ["belly"]},
+   "fact": "The Irish hare is a subspecies of the mountain hare found nowhere else, and unlike its Scottish cousin it mostly keeps a brown coat through the winter."
+  }
+ },
+ "stoatlet": {
+  "irish": {
+   "name": "Irish", "regions": ["ireland", "ireland_east", "ireland_west"],
+   "types": ["kin", "hedgerow"], "stat_lean": {"def": 4, "atk": -4},
+   "look": {"palette": {"hue": 8, "sat": -0.1, "val": -0.08, "tint": "#8a5a30", "tint_amount": 0.4}, "features": ["belly"]},
+   "fact": "The Irish stoat is its own subspecies, and its winter coat seldom turns fully white."
+  }
+ },
+ "herdlet": {
+  "shetland": {
+   "name": "Shetland", "regions": ["scotland"], "zones": ["lerwick", "shetland_mainland"],
+   "stat_lean": {"spd": 4, "def": -4},
+   "look": {"palette": {"hue": -10, "sat": -0.3, "val": -0.1, "tint": "#6b5a4a", "tint_amount": 0.35}, "features": ["speckle"]},
+   "fact": "Shetland sheep are a small, hardy breed that come in a wide range of natural colours and markings."
+  },
+  "hebridean": {
+   "name": "Hebridean", "regions": ["scotland"], "zones": ["harris"],
+   "stat_lean": {"atk": 4, "spd": -4},
+   "look": {"palette": {"hue": 0, "sat": -0.4, "val": -0.3, "tint": "#1f1a1a", "tint_amount": 0.5}, "features": ["crest"]},
+   "fact": "Hebridean sheep are a small, dark, hardy breed, and many carry two or four horns."
+  }
+ },
+ "moolet": {
+  "guernsey": {
+   "name": "Guernsey", "regions": ["channel_islands"],
+   "stat_lean": {"hp": 4, "spd": -4},
+   "look": {"palette": {"hue": 10, "sat": 0.15, "val": 0.05, "tint": "#d9a14a", "tint_amount": 0.5}, "features": ["belly"]},
+   "fact": "Guernsey cattle are golden-fawn, and their milk is a rich golden colour too, thanks to the carotene in the grass."
+  }
+ },
+ "duneskink": {
+  "bermuda": {
+   "name": "Bermuda", "regions": ["overseas_bermuda"],
+   "stat_lean": {"def": 4, "spd": -4},
+   "look": {"palette": {"hue": -8, "sat": -0.1, "val": -0.1, "tint": "#5a4a32", "tint_amount": 0.4}, "features": ["stripe"]},
+   "fact": "Bermuda's only native land reptile is the Bermuda skink, which lives nowhere else on Earth."
+  }
+ }
+}

@@ -135,6 +135,7 @@ func run() -> Dictionary:
 	for c in battle.actives(Battle.FOE):
 		data.mark_seen(c.species.id)
 		Coats.record_seen(data, c)
+		Forms.record_seen(data, c)
 	await ui.intro(self)
 	if foe != null and not battle.over:
 		await _say(_intro_lines())
@@ -179,6 +180,8 @@ func _intro_lines() -> Array[String]:
 	var me := battle.current(Battle.PLAYER)
 	if is_wild():
 		out.append("A wild %s appeared!" % foe.display_name())
+		if foe.form != "":
+			out.append(Forms.intro_line(str(foe.species.id), foe.form))  # a regional form
 		if foe.variant != "":
 			out.append(Coats.intro_line(foe.variant))  # an uncommon coat
 	else:
@@ -456,6 +459,7 @@ func _after_catch(c: Creature) -> void:
 		else:
 			where = data.add_creature(c)
 	Coats.record_caught(data, c)
+	Forms.record_caught(data, c)
 	species_caught.emit(c.species.id)
 	var target := nickname_arg(data, c)
 	if target != "":

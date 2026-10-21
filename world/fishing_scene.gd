@@ -47,6 +47,7 @@ static func _creature(ow: Node, e: Dictionary) -> void:
 		return
 	var lv := Game.rng.roll_int(int(e.min), maxi(int(e.min), int(e.max)))
 	var foe := Creature.create(Game.dex.get_species(str(e.species)), lv, Game.rng, Game.moves)
+	Forms.assign_wild(foe, ow.zone.region, str(ow.zone.id), Game.moves)
 	Game.data.mark_seen(str(e.species))
 	await ow.say(["That's no fish. It's looking back at you."])
 	var result: Dictionary = await Router.battle([foe], {"kind": "wild", "weather": ow.weather, "time": Game.phase(), "stage": ow._stage()})

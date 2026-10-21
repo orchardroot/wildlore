@@ -361,6 +361,7 @@ func _on_step(p: Vector2i) -> void:
 			enc.species = ParLevel.stage(Game.dex, str(enc.species), int(enc.level))
 		var foe := Creature.create(Game.dex.get_species(enc.species), enc.level, Game.rng, Game.moves)
 		Charms.maybe_wild(foe, Game.rng)  # now and then one is carrying a charm
+		Forms.assign_wild(foe, zone.region, str(zone.id), Game.moves)  # the regional form of where it was met
 		foe.variant = Coats.roll(Game.rng, Calendar.today().x, weather, Game.phase())  # about 1 in 96: an uncommon coat
 		Game.data.mark_seen(enc.species)
 		var result: Dictionary = await Router.battle([foe], {"kind": "wild", "weather": weather, "time": Game.phase(), "stage": _stage()})

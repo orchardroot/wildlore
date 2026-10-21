@@ -59,7 +59,8 @@ static func _blob_texture() -> GradientTexture2D:
 	return _blob
 
 func show_creature(c: Creature, is_back: bool) -> void:
-	sprite.texture = CoatArt.texture(CreatureArt.texture(c.species, is_back), "%s/%s" % [c.species.id, is_back], c.variant)
+	var base_tex := FormArt.texture(CreatureArt.texture(c.species, is_back), "%s/%s" % [c.species.id, is_back], str(c.species.id), c.form)
+	sprite.texture = CoatArt.texture(base_tex, "%s/%s#%s" % [c.species.id, is_back, c.form], c.variant)
 	coat = c.variant
 	sprite.visible = true
 	sprite.modulate = Color(1.12, 1.12, 1.12)

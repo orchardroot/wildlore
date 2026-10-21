@@ -45,7 +45,13 @@ static func id_for_species(sp: Dictionary) -> String:
 	return str(data().species.get(str(sp.get("id", "")), ""))
 
 static func id_of(c: Creature) -> String:
-	return id_for_species(c.species) if c != null else ""
+	if c == null:
+		return ""
+	if c.form != "":  # a regional form may have its own knack
+		var fk := Forms.knack_for(str(c.species.get("id", "")), c.form)
+		if fk != "":
+			return fk
+	return id_for_species(c.species)
 
 static func get_def(id: String) -> Dictionary:
 	return data().knacks.get(id, {})

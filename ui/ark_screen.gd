@@ -135,7 +135,7 @@ func _creature_button(c: Creature, wide: bool) -> Button:
 	box.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	b.add_child(box)
 	var s := AnimSprite.new()
-	s.show_species(c.species.id, "icon", 2, false, c.variant)
+	s.show_species(c.species.id, "icon", 2, false, c.variant, c.form)
 	if c.is_fainted():
 		s.modulate = Color(0.5, 0.5, 0.5)
 	if wide:  # the team list: icon, name, and the level lined up on the right
