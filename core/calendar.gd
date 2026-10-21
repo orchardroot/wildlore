@@ -90,6 +90,12 @@ static func today_key() -> String:
 static func year() -> int:
 	return _override_year if _override_year > 0 else int(Time.get_date_dict_from_system().year)
 
+## Today's day of the week, 0 = Sunday (honours --date).
+static func weekday_today() -> int:
+	var t := today()
+	var y := _override_year if _override_year > 0 else int(Time.get_date_dict_from_system().year)
+	return int(Time.get_datetime_dict_from_unix_time(int(Time.get_unix_time_from_datetime_dict({"year": y, "month": t.x, "day": t.y, "hour": 12, "minute": 0, "second": 0}))).weekday)
+
 static func season_today() -> String:
 	var t := today()
 	return season_for(t.x, t.y)
