@@ -21,6 +21,15 @@ It started life as a monster-catching game. It's turned into something closer to
 
 Whatever's newest is below; older notes are further down.
 
+## What's new in 4.1: Voices of the Isles
+
+- **The local language, where it's spoken.** Welsh across Wales, Irish in the Republic (the Gaeltacht first), Scottish Gaelic in the Highlands and Islands, Manx on Mann, Cornish in Cornwall, Jèrriais and Guernésiais in the Channel Islands: town names on the arrival banner, signs on the buildings that matter, greetings from the locals, all with English alongside. Every word you meet goes into "Words of the Isles" in the Fieldbook. You can turn it off in Settings. (We've stuck to official place names and standard phrases; if you speak one of these and spot a mistake, please tell us.)
+- **Each place sounds like itself.** A male voice choir feel in the Valleys, a session in an Irish pub, pipes in the Highlands, a brass band up north, an air for Mann and for Cornwall, and steel pan in the Caribbean.
+- **Accessibility.** Larger text sizes, the Atkinson Hyperlegible font for easier reading, and an easier mode for every timing minigame (fishing, darts, bells, shanties, the caber...).
+- **Share it.** Save your postcards and photos as pictures with captions, and try the weekly challenge: a fixed seed and a set of rules, with a result code to compare with everyone else.
+
+Saves from 3.9 carry straight over.
+
 ## What's new in 3.9: Long Roads (and 3.8: The Long Game)
 
 **A long road in every nation**, each pulling together the businesses, Regulars, mysteries, guilds, caves and minigames from the last few releases, and each ending with something in the world changed for good:
