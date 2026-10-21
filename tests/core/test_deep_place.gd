@@ -92,3 +92,17 @@ func test_the_reward_is_there_and_is_once_only() -> void:
 	assert_true(int(items.get_item("blue_john").price) > int(items.get_item("blue_john_chip").price))
 	var z := ZoneData.load_id("blue_john_chamber")
 	assert_eq(z.npcs[0].hide_if, "bluejohn_caught", "the creature is gone once caught")
+
+func test_marble_arch_caves_floors() -> void:
+	var d := _data()
+	var z := _applied("marblearch_cladagh", d)
+	assert_false(z.walkable(Vector2i(12, 4)), "flooded until the weir is lifted")
+	assert_eq(z.tile_at(Vector2i(17, 4)), "fence", "the grille is down")
+	DeepPlace.pull(d, z.id, DeepPlace.lever_at(z, Vector2i(7, 3)))
+	DeepPlace.pull(d, z.id, DeepPlace.lever_at(z, Vector2i(16, 2)))
+	DeepPlace.apply(d, z, {})
+	assert_true(z.reachable(z.spawn).has(Vector2i(19, 8)), "on foot to the stairs down")
+	assert_false(DeepPlace.can_find(d, z, DeepPlace.lever_at(z, Vector2i(2, 3))), "pearls want a lantern")
+	var h := _applied("marblearch_deep", d)
+	assert_eq(h.tile_at(Vector2i(14, 5)), "fence")
+	assert_eq(ZoneData.load_id("enniskillen_marblearch").tile_at(Vector2i(8, 1)), "path")
