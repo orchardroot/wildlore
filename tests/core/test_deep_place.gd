@@ -105,4 +105,4 @@ func test_marble_arch_caves_floors() -> void:
 	assert_false(DeepPlace.can_find(d, z, DeepPlace.lever_at(z, Vector2i(2, 3))), "pearls want a lantern")
 	var h := _applied("marblearch_deep", d)
 	assert_eq(h.tile_at(Vector2i(14, 5)), "fence")
-	assert_eq(ZoneData.load_id("enniskillen_marblearch").tile_at(Vector2i(8, 1)), "path")
+	assert_eq(ZoneData.load_id("enniskillen_marblearch").tile_at(Vector2i(8, 1)), "door")
