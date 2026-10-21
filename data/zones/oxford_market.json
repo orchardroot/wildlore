@@ -137,10 +137,28 @@
    "move": "still",
    "script": "ox_marmaladier",
    "name": "Marmalade Stall"
+  },
+  {
+   "id": "hall_stallholder",
+   "sprite": "villager_1",
+   "x": 6,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "hall_stallholder",
+   "name": "Covered Market Trader"
   }
  ],
  "encounters": {},
- "signs": [],
+ "signs": [
+  {
+   "x": 3,
+   "y": 1,
+   "text": "Oxford's Covered Market, off the High Street, opened in 1774. It was built to tidy the street stalls away, and it has been selling meat, cheese, pies and flowers ever since.",
+   "plaque": "market_oxford_market",
+   "title": "The Covered Market"
+  }
+ ],
  "spawn": [
   6,
   7

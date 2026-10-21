@@ -123,10 +123,28 @@
    "move": "still",
    "script": "mkt_shopper",
    "name": "Shopper"
+  },
+  {
+   "id": "hall_stallholder",
+   "sprite": "villager_4",
+   "x": 6,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "hall_stallholder",
+   "name": "Market Stallholder"
   }
  ],
  "encounters": {},
- "signs": [],
+ "signs": [
+  {
+   "x": 5,
+   "y": 1,
+   "text": "Swansea Market is the largest indoor market in Wales. The first hall opened in 1897 and the present one went up after the wartime bombing, in 1961. Laverbread and cockles are still sold here.",
+   "plaque": "market_swansea_market",
+   "title": "Swansea Market"
+  }
+ ],
  "spawn": [
   6,
   7
