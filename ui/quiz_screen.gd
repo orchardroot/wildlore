@@ -1,7 +1,8 @@
 extends MenuBase
 ## The pub quiz (story command {"do": "quiz"}): five multiple-choice questions, a fact after each answer, then the score.
 ## Closes with {"score": n, "total": n}, or null if the player walks out. The prize is handled by the command.
-## setup arg: "<pub id>:<region>"; dev/screenshot arg adds ":answered" to show a question already answered (wrongly).
+## setup arg: "<pub id>:<region>"; dev/screenshot arg adds ":answered" to show a question already answered (wrongly);
+## "<pub id>:<region>::final" is the cup final (QuizLeague.final_size() questions).
 
 const CORRECT_BG := Color("2f5d3a")
 const CORRECT_EDGE := Color("8fd19e")
@@ -29,14 +30,15 @@ func setup(arg: String) -> void:
 	var parts := arg.split(":")
 	var region := parts[1] if parts.size() > 1 and parts[1] != "" else "all"
 	var dev := parts.size() > 2 and parts[2] == "answered"
-	_begin(region, Rng.new(7) if dev else Rng.new(int(Time.get_ticks_usec())))
+	var size := QuizLeague.final_size() if parts.size() > 3 and parts[3] == "final" else PubQuiz.ROUND_SIZE
+	_begin(region, Rng.new(7) if dev else Rng.new(int(Time.get_ticks_usec())), size)
 	if dev:
 		_answer(0 if _questions[0].answer != 0 else 1)
 
-func _begin(region: String, rng: Rng) -> void:
+func _begin(region: String, rng: Rng, size := PubQuiz.ROUND_SIZE) -> void:
 	_rng = rng
 	_questions = []
-	for q in PubQuiz.pick_round(PubQuiz.load_bank(), region, rng):
+	for q in PubQuiz.pick_round(PubQuiz.load_bank(), region, rng, size):
 		_questions.append(PubQuiz.build(q, rng))
 	_index = 0
 	_score = 0

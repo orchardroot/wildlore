@@ -137,7 +137,7 @@ All of it, start to finish, and then some. You leave home in Macclesfield with a
 - Your lead creature walks along behind you, and has opinions about the weather if you ask it
 - The seasons follow the real calendar: the trees turn in autumn and blossom in spring, there are pumpkins on doorsteps at Halloween, fireworks for Bonfire Night, and a tree in the square at Christmas
 - A wireless in the front room reads the Shipping Forecast, off the game's own weather, so it's actually useful. And a blue plaque in every town, because somebody famous lived everywhere
-- Pub quizzes in nine pubs, a hundred and fifty questions, and a prize once a day if you're sharp. Phones away
+- Pub quizzes in nine pubs, a hundred and fifty questions, and a prize once a day if you're sharp.  Each nation now has a quiz league table (six fixtures, a title, and a cup final in Dublin for two-time champions), and the paper on the bar has a daily crossword built from the Gazetteer. Phones away
 - Photo mode (P, or click the right stick) and a Stats page that counts your steps, your trains and your cups of tea
 - The Hedgerow Year: forage blackberries, sloes, mushrooms and seaweed along every route (what you find depends on the season and the weather), then cook them up in Mum's kitchen. Gran's recipe book gets you started, and folk all over the isles will teach you the rest
 - Folk charms to hold: a hag stone, a horseshoe, St Brigid's cross, a sprig of rowan and more, each with a small effect in battle. Craft them, find them, buy a few, or catch a creature that's already carrying one

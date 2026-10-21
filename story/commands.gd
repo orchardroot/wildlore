@@ -207,6 +207,8 @@ func _exec(c: Dictionary) -> void:
 			await _recipe(c.get("id", []))
 		"quiz":
 			await _quiz(c)
+		"crossword":
+			await _crossword(c)
 		"darts":
 			await PubSportRun.new(self).darts(c)
 		"crab_comp":
@@ -274,10 +276,19 @@ func _fieldbook_news(who: String) -> void:
 ## The pub quiz: {"do": "quiz", "pub": id, "region": region, "who": quizmaster name, "set": flag (the score, or -1)}.
 ## The round itself is the quiz screen; the prize is once per real day per pub (see PubQuiz).
 func _quiz(c: Dictionary) -> void:
+	await _quiz_round(c)
+	if not Crossword.done_today(host.data) and await host.choice("Today's paper is folded open on the bar, crossword up.", ["Have a go at the crossword", "Not now"]) == 0:
+		await _crossword({"who": str(c.get("who", "Quizmaster"))})
+
+func _quiz_round(c: Dictionary) -> void:
 	var data: GameStateData = host.data
 	var pub := str(c.get("pub", host.zone_id()))
 	var who := str(c.get("who", "Quizmaster"))
 	var bonus := TodaysWalk.bonus_pub(data) == pub
+	if pub == QuizLeague.final_pub() and QuizLeague.cup_open(data):
+		if await host.choice("The league's two-time champions are here for the cup final. Seven questions, five to win.", ["Play the cup final", "Just the usual round"]) == 0:
+			await _quiz_final(c)
+			return
 	if PubQuiz.claimed_today(data, pub):
 		await host.say(who, "You've had tonight's prize already. Play for glory if you like, but the kitty's shut until tomorrow.")
 	elif bonus:
@@ -291,6 +302,13 @@ func _quiz(c: Dictionary) -> void:
 	var score := int(res.get("score", 0))
 	var total := int(res.get("total", PubQuiz.ROUND_SIZE))
 	await host.say(who, "%d out of %d. %s" % [score, total, PubQuiz.reaction(score, total)])
+	var nation := Standing.nation_for_zone(pub if FileAccess.file_exists("res://data/zones/%s.json" % pub) else host.zone_id())
+	var lg := QuizLeague.record(data, nation, pub, score, pub if FileAccess.file_exists("res://data/zones/%s.json" % pub) else host.zone_id())
+	if lg.counted:
+		await host.say(who, lg.line)
+		if int(lg.money) > 0:
+			await host.sfx("item")
+			await host.say("", "%s lifts the league trophy and takes %s." % [data.player_name, Wallet.fmt(int(lg.money), str(lg.cur))])
 	var paid := PubQuiz.award(data, host.items, pub, score, bonus)
 	if bool(paid.paid) and score >= 3:  # a quiz win: the pub's nation thinks a bit better of you
 		var line := Standing.add(data, Standing.nation_for_zone(pub if FileAccess.file_exists("res://data/zones/%s.json" % pub) else host.zone_id()), Standing.FOR_QUIZ_WIN)
@@ -303,6 +321,38 @@ func _quiz(c: Dictionary) -> void:
 			await host.say("", "%s wins %s%s." % [data.player_name, nm, (" and " + Wallet.fmt(int(paid.money), str(paid.get("cur", Wallet.GBP)))) if int(paid.money) > 0 else ""])
 		else:
 			await host.say("", "%s wins %s." % [data.player_name, Wallet.fmt(int(paid.money), str(paid.get("cur", Wallet.GBP)))])
+
+## The cup final in Dublin: needs two nation titles, seven questions, five to win; paid once (see QuizLeague).
+func _quiz_final(c: Dictionary) -> void:
+	var data: GameStateData = host.data
+	var who := str(c.get("who", "Quizmaster"))
+	var pub := QuizLeague.final_pub()
+	var res = await host.open_menu("quiz:%s:%s::final" % [pub, str(c.get("region", "all"))])
+	if not (res is Dictionary):
+		await host.say(who, "Walking out of the final? Brave. The cup will keep.")
+		return
+	var r := QuizLeague.cup_result(data, int(res.get("score", 0)), int(res.get("total", QuizLeague.final_size())))
+	await host.say(who, r.line)
+	if bool(r.won):
+		await host.sfx("item")
+		await host.say("", "%s lifts the Pub Quiz Cup and takes %s." % [data.player_name, Wallet.fmt(int(r.money), str(r.cur))])
+		var line := Standing.add(data, Standing.nation_for_zone(pub), Standing.FOR_QUIZ_WIN * 2)
+		if line != "":
+			await host.say("", line + ".")
+
+## Today's crossword, from the paper on the bar: {"do": "crossword", "who": name}. One prize per real day.
+func _crossword(c: Dictionary) -> void:
+	var data: GameStateData = host.data
+	var who := str(c.get("who", ""))
+	var res = await host.open_menu("crossword")
+	if not (res is Dictionary):
+		return
+	var paid := Crossword.complete(data, host.zone_id())
+	if bool(paid.paid):
+		await host.sfx("item")
+		await host.say(who, "Solved! The paper's prize is %s." % Wallet.fmt(int(paid.money), str(paid.cur)))
+	else:
+		await host.say(who, "Solved again. No prize twice in a day, but you can have the satisfaction.")
 
 ## The Palace casino and the bookies: {"do": "casino", "game": id, "venue": venue}. "cage" buys and cashes chips;
 ## "fruit", "blackjack", "roulette" and "hilo" are the Palace's games (played with chips); "races" is the day's
