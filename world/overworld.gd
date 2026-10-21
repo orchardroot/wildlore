@@ -446,7 +446,7 @@ func interact(p: Vector2i) -> void:
 	if not s.is_empty():
 		if s.get("kind", "") == "radio":  # the Shipping Forecast, then Today's Walk (which may pay a weather bounty)
 			var outlook := Forecast.outlook(Forecast.current_weather(), Game.data.weather_until - Game.data.world_minutes() if Game.data.weather != "" else -1, Forecast.area_table(str(s.get("areas", [""])[0])))
-			await say(Forecast.for_radio(s, Forecast.current_weather(), Game.data.day_count) + outlook + TodaysWalk.radio_lines(Game.data, Game.dex, Game.items))
+			await say(Forecast.for_radio(s, Forecast.current_weather(), Game.data.day_count) + outlook + Trade.money_box(Game.data, str(Game.data.zone_id)) + TodaysWalk.radio_lines(Game.data, Game.dex, Game.items))
 		elif str(s.get("plaque", "")) != "":  # a heritage plaque: read it, and the first time it goes in the Gazetteer
 			await say([str(s.text)], str(s.get("title", "")))
 			var res := Gazetteer.record(Game.data, str(s.plaque))
