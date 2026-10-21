@@ -191,24 +191,35 @@ func _describe(id: String) -> void:
 	var d := UIKit.label(str(it.get("desc", "")), 26)
 	d.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	_desc.add_child(d)
+	var note := Trade.price_note(Game.data, id, str(Game.data.zone_id))
+	if note != "":
+		_desc.add_child(UIKit.label("Here: %s" % note, 24, UIKit.GOLD))
 	_desc.add_child(UIKit.fill())
 	_desc.add_child(UIKit.label("You have %d" % _bag.count(id), 24, UIKit.MUTED))
 
 ## What an item costs you here: the standing discount, and the under-the-counter price for a regular's extras.
 func _buy_price(id: String) -> int:
-	var base := int(Game.items.get_item(id).get("price", 0))
+	var base := Trade.buy_price(Game.data, id, str(Game.data.zone_id))  # regional: cheap where made, dear far away
 	var extra := Standing.extra_price(_nation, id)
 	if extra > 0 and (base <= 0 or id not in _shop.get("stock", [])):
 		base = extra
 	return Wallet.localise(Standing.price(Game.data, _nation, base), _mc)
 
 func _sell_price(id: String) -> int:
-	return MenuLogic.sell_price(Wallet.localise(int(Game.items.get_item(id).get("price", 0)), _mc))
+	return Wallet.localise(Trade.sell_price(Game.data, id, str(Game.data.zone_id)), _mc)
+
+## What `qty` of the current item fetch in all: each sale poorer than the last when the town is glutted.
+func _sell_total(qty: int) -> int:
+	return Wallet.localise(Trade.sell_total(Game.data, _cur, str(Game.data.zone_id), qty), _mc)
+
+## Room to carry: trade goods stop at the Trader's Pannier cap, everything else keeps the bag's own limit.
+func _owned_for_cap(id: String) -> int:
+	return _bag.count(id) + Bag.MAX_STACK - Trade.carry_cap(Game.data, id)
 
 func _pick(id: String) -> void:
 	_cur = id
 	var price := _buy_price(id)
-	var most := MenuLogic.max_buy(_budget(), price, _bag.count(id)) if _side == "buy" else _bag.count(id)
+	var most := MenuLogic.max_buy(_budget(), price, _owned_for_cap(id)) if _side == "buy" else _bag.count(id)
 	if most < 1:
 		_say.text = "You'd need a bit more cash for that one." if _side == "buy" and _budget() < price else "You can't carry any more of those."
 		Audio.sfx("bump")
@@ -223,7 +234,7 @@ func _pick(id: String) -> void:
 func _max_qty() -> int:
 	var price := _buy_price(_cur)
 	if _side == "buy":
-		return MenuLogic.max_buy(_budget(), price, _bag.count(_cur))
+		return MenuLogic.max_buy(_budget(), price, _owned_for_cap(_cur))
 	return _bag.count(_cur)
 
 func _unit() -> int:
@@ -232,20 +243,24 @@ func _unit() -> int:
 func _refresh_qty() -> void:
 	_qty = clampi(_qty, 1, maxi(1, _max_qty()))
 	_qty_label.text = "%s  x %d" % [Game.items.get_item(_cur).get("name", _cur), _qty]
-	var total := _unit() * _qty
+	var total := _total_for(_qty)
 	_total_label.text = "%s %s" % ["Total" if _side == "buy" else "You get", UIKit.money_text(total, _mc)]
 	var short := total - Wallet.balance(Game.data, _mc)
 	if _side == "buy" and short > 0 and Wallet.other(_mc) != "" and not _mc in Wallet.PAR_POUNDS:  # the rest from the other purse, at the tourist rate
 		_total_label.text += "  (%s at the tourist rate)" % UIKit.money_text(Wallet.foreign_cost(short, _mc, _mid), Wallet.other(_mc))
 
+func _total_for(qty: int) -> int:
+	return _unit() * qty if _side == "buy" else _sell_total(qty)
+
 func _commit() -> void:
-	var total := _unit() * _qty
+	var total := _total_for(_qty)
 	if _side == "buy":
 		var paid := Wallet.pay(Game.data, total, _mc, _mid)
 		if not paid.ok:
 			_say.text = "Not enough cash for that many."
 			Audio.sfx("bump")
 			return
+		Trade.stamp(Game.data, _cur, _bag.count(_cur), _qty)
 		_bag.add(_cur, _qty)
 		_say.text = "Lovely. %d x %s, that's %s." % [_qty, Game.items.get_item(_cur).name, UIKit.money_text(total, _mc)]
 		if int(paid.foreign) > 0:
@@ -253,6 +268,7 @@ func _commit() -> void:
 	else:
 		if not _bag.remove(_cur, _qty):
 			return
+		Trade.record_sale(Game.data, _cur, str(Game.data.zone_id), _qty)
 		Wallet.earn(Game.data, total, _mc)
 		TrainerStats.earned(Game.data, Wallet.in_sterling(total, _mc))
 		_say.text = "Cheers. %s for the %s." % [UIKit.money_text(total, _mc), Game.items.get_item(_cur).name]
