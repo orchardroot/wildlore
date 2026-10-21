@@ -33,6 +33,7 @@ var _last := ""
 var _panel: PanelContainer
 var _name: Label
 var _sub: Label
+var _local: Label
 var _tween: Tween
 
 static func subtitle(zone_id: String, region: String) -> String:
@@ -72,6 +73,10 @@ func _ready() -> void:
 	_name = UIKit.label("", 38, UIKit.CREAM)
 	_name.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	v.add_child(_name)
+	_local = UIKit.label("", 26, Langs.LOCAL_INK)  # the place's own name where it has one (see Langs)
+	_local.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	_local.visible = false
+	v.add_child(_local)
 	var rule := ColorRect.new()
 	rule.color = UIKit.HEATHER
 	rule.custom_minimum_size = Vector2(0, 2)
@@ -90,10 +95,16 @@ func _on_zone_entered(zone_id: String) -> void:
 		z = ZoneData.load_id(zone_id)
 	if z == null or not note(z.kind, zone_id):
 		return
-	show_card(z.name, subtitle(zone_id, z.region))
+	var idx := ZoneIndex.get_index()
+	var b := Langs.banner(zone_id, z.name, Settings.languages_on(), idx)
+	if str(b[1]) != "":
+		Langs.note_place(Game.data, zone_id, z.name, idx)
+	show_card(z.name, subtitle(zone_id, z.region), str(b[1]))
 
-func show_card(title: String, sub: String) -> void:
+func show_card(title: String, sub: String, local := "") -> void:
 	_name.text = title
+	_local.text = local
+	_local.visible = local != ""
 	_sub.text = sub
 	_sub.visible = sub != ""
 	if _tween:

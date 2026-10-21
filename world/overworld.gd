@@ -476,12 +476,12 @@ func interact(p: Vector2i) -> void:
 			var outlook := Forecast.outlook(Forecast.current_weather(), Game.data.weather_until - Game.data.world_minutes() if Game.data.weather != "" else -1, Forecast.area_table(str(s.get("areas", [""])[0])))
 			await say(Forecast.for_radio(s, Forecast.current_weather(), Game.data.day_count) + outlook + Trade.money_box(Game.data, str(Game.data.zone_id)) + TodaysWalk.radio_lines(Game.data, Game.dex, Game.items))
 		elif str(s.get("plaque", "")) != "":  # a heritage plaque: read it, and the first time it goes in the Gazetteer
-			await say([str(s.text)], str(s.get("title", "")))
+			await say([str(s.text)], _sign_title(s))
 			var res := Gazetteer.record(Game.data, str(s.plaque))
 			Bus.flag_changed.emit(Gazetteer.flag_key(str(s.plaque)), true)  # a quest step may have wanted it read
 			Game.quest_news.plaque_read(res, str(s.get("title", "")))
 		else:
-			await say([str(s.text)])
+			await say(_sign_lines(s))
 		return
 	var n := npc_at(p)
 	if n == null and zone.tile_at(p) == "counter":
@@ -490,6 +490,22 @@ func interact(p: Vector2i) -> void:
 		await n.interact(player)
 	elif follower and follower.is_at(p):
 		await follower.talk()
+
+## A sign's lines, with the local language beside the English where the sign carries it (see Langs).
+func _sign_lines(s: Dictionary) -> Array:
+	var idx := ZoneIndex.get_index()
+	var r := Langs.sign_lines(s, str(zone.id), Settings.languages_on(), idx)
+	if str(r[1]) != "":
+		Langs.note_text(Game.data, Langs.code_for(str(zone.id), idx), str(r[1]))
+	return r[0]
+
+func _sign_title(s: Dictionary) -> String:
+	var idx := ZoneIndex.get_index()
+	var on := Settings.languages_on()
+	var loc := Langs.local_for(s, str(zone.id), on, idx)
+	if loc != "":
+		Langs.note_text(Game.data, Langs.code_for(str(zone.id), idx), loc)
+	return Langs.sign_title(s, str(zone.id), on, idx)
 
 func open_pause() -> void:
 	Audio.sfx("confirm")
