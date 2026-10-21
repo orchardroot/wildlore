@@ -145,5 +145,71 @@
     }
    ]
   }
+ ],
+ "arc_ie_hooker": [
+  {
+   "do": "if",
+   "flag": "q_arc_ireland_3",
+   "then": [
+    {
+     "do": "say",
+     "who": "Pádraig",
+     "text": "There are four classes of hooker: the Bád Mór, the Leathbhád, the Gleoteog and the Púcán. Every August the hookers gather at Kinvara for Cruinniú na mBád, and the whole bay turns black and tan."
+    },
+    {
+     "do": "if",
+     "flag": "q_arc_ireland_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_arc_ireland_4",
+       "then": [],
+       "else": [
+        {
+         "do": "say",
+         "who": "Pádraig",
+         "text": "Race of the Waves? 1931, was it? My granda talked about it. A hooker will sail it, as a committee boat, if the Gaeltacht crews can be got to row. Try the Irish college at Gweedore."
+        },
+        {
+         "do": "set",
+         "flag": "q_arc_ireland_4",
+         "value": true
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Pádraig",
+     "text": "I only take a lad's word on a boat after he has looked it over. Have a look at the old hooker on the water first, and read what is on her tiller."
+    }
+   ]
+  }
+ ],
+ "arc_ie_steward": [
+  {
+   "do": "say",
+   "who": "Regatta Steward",
+   "text": "Rás na dTonnta, the Race of the Waves. A hooker is the committee boat now, and I am the committee. The committee is me."
+  },
+  {
+   "do": "daily",
+   "key": "arc_ie_steward_gift",
+   "then": [
+    {
+     "do": "say",
+     "who": "Regatta Steward",
+     "text": "For the crew that gathered us. Eat it before the gulls notice."
+    },
+    {
+     "do": "give_item",
+     "item": "smoked_mackerel",
+     "n": 1
+    }
+   ]
+  }
  ]
 }

@@ -101,10 +101,29 @@
    "facing": "down",
    "move": "still",
    "script": "marina_skipper"
+  },
+  {
+   "id": "arc_ie_marshal",
+   "sprite": "fisher",
+   "x": 4,
+   "y": 5,
+   "facing": "down",
+   "move": "still",
+   "script": "arc_ie_marshal",
+   "name": "Race Marshal",
+   "show_if": "q_arc_ireland_started"
   }
  ],
  "encounters": {},
- "signs": [],
+ "signs": [
+  {
+   "x": 3,
+   "y": 1,
+   "text": "The Wild Atlantic Way is a signposted coastal route of about 2,500 kilometres, launched in 2014, from Malin Head in Donegal to Kinsale in Cork. It passes Tory, Connemara, the Cliffs of Moher and the Dingle peninsula.",
+   "plaque": "arc_ie_waytrail",
+   "title": "The Wild Atlantic Way"
+  }
+ ],
  "spawn": [
   6,
   6

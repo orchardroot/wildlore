@@ -15,5 +15,39 @@
    "who": "Fiddler",
    "text": "At a session you wait until a tune has ended before you join in. It is polite, and it saves the fiddlers a headache."
   }
+ ],
+ "arc_ie_singer": [
+  {
+   "do": "say",
+   "who": "Pier Singer",
+   "text": "A crew that cannot keep time will row in circles. Sing with the bar and the word goes up and down the coast by Friday."
+  },
+  {
+   "do": "sing",
+   "who": "Pier Singer"
+  },
+  {
+   "do": "if",
+   "flag": "q_arc_ireland_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_arc_ireland_2",
+     "then": [],
+     "else": [
+      {
+       "do": "say",
+       "who": "Pier Singer",
+       "text": "That will carry. The bar will tell the boats."
+      },
+      {
+       "do": "set",
+       "flag": "q_arc_ireland_2",
+       "value": true
+      }
+     ]
+    }
+   ]
+  }
  ]
 }

@@ -243,8 +243,8 @@ static func settable_flags(dialogue: Dictionary, zones: Dictionary, extra: Array
 		for s in zones[zid].get("signs", []):
 			if str(s.get("plaque", "")) != "":
 				out[Gazetteer.flag_key(str(s.plaque))] = true
-		for ex in zones[zid].get("examine", []):  # an examine spot's named flag is set when it is read
-			if str(ex.get("flag", "")) != "":
+		for ex in zones[zid].get("examine", []):  # a look-closer spot with its own flag ticks a quest step
+			if ex is Dictionary and str(ex.get("flag", "")) != "":
 				out[str(ex.flag)] = true
 	while not lists.is_empty():
 		for c in lists.pop_back():

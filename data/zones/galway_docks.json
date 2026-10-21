@@ -304,6 +304,28 @@
    "move": "still",
    "text": "The gannets stopped diving to watch you. That has never happened. I've written it down.",
    "show_if": "trainer_keeper_nuala"
+  },
+  {
+   "id": "arc_ie_hooker",
+   "sprite": "sailor",
+   "x": 11,
+   "y": 11,
+   "facing": "down",
+   "move": "still",
+   "script": "arc_ie_hooker",
+   "name": "Pádraig",
+   "show_if": "q_arc_ireland_started"
+  },
+  {
+   "id": "arc_ie_steward",
+   "sprite": "fisherman_north",
+   "x": 7,
+   "y": 11,
+   "facing": "down",
+   "move": "still",
+   "script": "arc_ie_steward",
+   "name": "Regatta Steward",
+   "show_if": "q_arc_ireland_done"
   }
  ],
  "encounters": {},
@@ -312,6 +334,13 @@
    "x": 7,
    "y": 12,
    "text": "THE SPANISH ARCH. Built in 1584 to keep the sea out of the town. The sea has views on this. Keeper Nuala, Tide Stone, on the quay."
+  },
+  {
+   "x": 8,
+   "y": 11,
+   "text": "The Galway hooker is a black-hulled sailing boat with tan sails, built to carry turf, cattle and cargo across Galway Bay and round Connemara. The four classes are the Bád Mór, the Leathbhád, the Gleoteog and the Púcán.",
+   "plaque": "arc_ie_hooker",
+   "title": "The Galway Hooker"
   }
  ],
  "spawn": [
@@ -334,5 +363,16 @@
   "x|||||||||||||||||x",
   "x||||||||D||||||||x",
   "xxxxxxxxxxxxxxxxxxx"
+ ],
+ "examine": [
+  {
+   "x": 4,
+   "y": 4,
+   "flag": "q_arc_ireland_3",
+   "text": [
+    "A Galway hooker sits in the water: black hull, tan sails, a bow like a plough. Hookers carried turf, cattle and Guinness across Galway Bay for generations.",
+    "Carved on the tiller, in a careful hand: 'Rás na dTonnta, 1931.' Someone raced here once. That might be the proof Nóra needs."
+   ]
+  }
  ]
 }

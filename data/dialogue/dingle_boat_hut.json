@@ -1,6 +1,29 @@
 {
  "dingle_skipper": [
   {
+   "do": "if",
+   "flag": "q_arc_ireland_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_arc_ireland_1",
+     "then": [],
+     "else": [
+      {
+       "do": "say",
+       "who": "Skipper",
+       "text": "Nóra sent you? About the race? A Deed for the boat is a sort of promise to keep a boat on the water, and she wants boats on the water. Look at the counter, and mind the rates."
+      },
+      {
+       "do": "set",
+       "flag": "q_arc_ireland_1",
+       "value": true
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Skipper",
    "text": "An Faoileán Beag. The little gull. She is small, but she has never once let me down on a Tuesday."
@@ -25,6 +48,151 @@
    "do": "say",
    "who": "Old Hand",
    "text": "Pollack off the rocks in spring and mackerel in the summer. Bring a flask."
+  }
+ ],
+ "arc_ie_nora": [
+  {
+   "do": "if",
+   "flag": "q_arc_ireland_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Nóra",
+     "text": "Rás na dTonnta, the Race of the Waves, ran again this summer. Three naomhógs, a Galway hooker for a committee boat and the whole Atlantic as the course. I have not stopped smiling. It is unsettling the harbour."
+    },
+    {
+     "do": "say",
+     "who": "Nóra",
+     "text": "Your oar hangs on my wall. Visitors ask which of us it belongs to. I say whichever of us is rowing."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_arc_ireland_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_arc_ireland_10",
+       "then": [
+        {
+         "do": "say",
+         "who": "Nóra",
+         "text": "Back in one piece! I heard it from the shore before you landed. Come here and let me look at you."
+        },
+        {
+         "do": "say",
+         "who": "Nóra",
+         "text": "The race is on the water again, and the Way has a crew from end to end. Here: a blade from the first naomhóg we built for it, and the thanks of the whole Wild Atlantic Way."
+        },
+        {
+         "do": "give_item",
+         "item": "naomhog_oar",
+         "n": 1
+        },
+        {
+         "do": "standing",
+         "nation": "ireland",
+         "amount": 400
+        },
+        {
+         "do": "set",
+         "flag": "q_arc_ireland_done",
+         "value": true
+        },
+        {
+         "do": "say",
+         "who": "",
+         "text": "Dingle quay has bunting up for Rás na dTonnta, and the crews are already arguing about next year."
+        }
+       ],
+       "else": [
+        {
+         "do": "if",
+         "flag": "q_arc_ireland_8",
+         "then": [
+          {
+           "do": "say",
+           "who": "Nóra",
+           "text": "Go to the marina. The marshal will take your entry, and there is a crew from Dún Chaoin who say the Race of the Waves is theirs by right. Show them where the sea is."
+          }
+         ],
+         "else": [
+          {
+           "do": "if",
+           "flag": "q_arc_ireland_7",
+           "then": [
+            {
+             "do": "say",
+             "who": "Nóra",
+             "text": "Cork's hurlers will cheer the Kinsale end, Tory will row, Galway will sail and Seán will pull stroke. That is the Wild Atlantic Way, boat by boat, and for the first time in forty years it is all one race."
+            },
+            {
+             "do": "set",
+             "flag": "q_arc_ireland_8",
+             "value": true
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Nóra",
+             "text": "How are the crews coming? Skipper's Deed, pier song, the Galway tiller, the hooker's captain, a Gaeltacht crew on Tory and a cheer from Cork. I shall be here, sanding."
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Nóra",
+       "text": "A naomhóg is a Kerry curragh, a boat of tarred canvas on a lath frame, and my grandmother could carry one on her back. I build them. Nobody has raced them on the Way since I was a girl."
+      },
+      {
+       "do": "say",
+       "who": "Nóra",
+       "text": "The Wild Atlantic Way runs about 2,500 kilometres from Malin Head in Donegal to Kinsale in Cork. I would like one race down the whole of it, boat by boat. Will you gather the crews?"
+      },
+      {
+       "do": "choice",
+       "text": "Gather the crews for the Race of the Waves?",
+       "options": [
+        "Yes",
+        "Not yet"
+       ],
+       "set": "arc_ie_pick"
+      },
+      {
+       "do": "if",
+       "flag": "arc_ie_pick",
+       "eq": 0,
+       "then": [
+        {
+         "do": "say",
+         "who": "Nóra",
+         "text": "Grand. Start with the skipper next door. Ask about the boat, and ask like you might want to buy one."
+        },
+        {
+         "do": "set",
+         "flag": "q_arc_ireland_started",
+         "value": true
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Nóra",
+         "text": "Take your time. The sea is not going anywhere. Mostly."
+        }
+       ]
+      }
+     ]
+    }
+   ]
   }
  ]
 }
