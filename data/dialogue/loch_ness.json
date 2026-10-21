@@ -1,5 +1,221 @@
 {
+ "case_ailsa": [
+  {
+   "do": "if",
+   "flag": "case_loch_ness_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Ailsa Munro",
+     "text": "The Famous Fake is in a glass case by the door, with a card that says exactly what it is. Visitors adore it. People always prefer an honest fake to a dishonest legend."
+    },
+    {
+     "do": "say",
+     "who": "Ailsa Munro",
+     "text": "The sightings go back to the year 565, when St Columba is said to have seen off a beast in the River Ness. The loch keeps its secrets. We shall keep the receipts."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "case_loch_ness_briefed",
+     "then": [
+      {
+       "do": "if",
+       "flag": "case_loch_ness_shore",
+       "then": [
+        {
+         "do": "if",
+         "flag": "case_loch_ness_boatman",
+         "then": [
+          {
+           "do": "if",
+           "flag": "case_loch_ness_hunter",
+           "then": [
+            {
+             "do": "if",
+             "flag": "case_loch_ness_stall",
+             "then": [
+              {
+               "do": "if",
+               "flag": "case_loch_ness_ironmonger",
+               "then": [
+                {
+                 "do": "if",
+                 "flag": "case_loch_ness_gillian",
+                 "then": [
+                  {
+                   "do": "say",
+                   "who": "Ailsa Munro",
+                   "text": "Shore, boatman, hunter, stall, ironmonger and the lady herself. Right. That's all my leads. Who made the photograph?"
+                  },
+                  {
+                   "do": "set",
+                   "flag": "case_loch_ness_report"
+                  },
+                  {
+                   "do": "casebook",
+                   "id": "loch_ness"
+                  }
+                 ],
+                 "else": [
+                  {
+                   "do": "say",
+                   "who": "Ailsa Munro",
+                   "text": "Still looking? Take your time. The 1934 photograph fooled people for sixty years, and it only took a toy submarine."
+                  },
+                  {
+                   "do": "say",
+                   "who": "Ailsa Munro",
+                   "text": "Check the Casebook in your Fieldbook (Run cycles the tabs) for the next lead."
+                  }
+                 ]
+                }
+               ],
+               "else": [
+                {
+                 "do": "say",
+                 "who": "Ailsa Munro",
+                 "text": "Still looking? Take your time. The 1934 photograph fooled people for sixty years, and it only took a toy submarine."
+                },
+                {
+                 "do": "say",
+                 "who": "Ailsa Munro",
+                 "text": "Check the Casebook in your Fieldbook (Run cycles the tabs) for the next lead."
+                }
+               ]
+              }
+             ],
+             "else": [
+              {
+               "do": "say",
+               "who": "Ailsa Munro",
+               "text": "Still looking? Take your time. The 1934 photograph fooled people for sixty years, and it only took a toy submarine."
+              },
+              {
+               "do": "say",
+               "who": "Ailsa Munro",
+               "text": "Check the Casebook in your Fieldbook (Run cycles the tabs) for the next lead."
+              }
+             ]
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Ailsa Munro",
+             "text": "Still looking? Take your time. The 1934 photograph fooled people for sixty years, and it only took a toy submarine."
+            },
+            {
+             "do": "say",
+             "who": "Ailsa Munro",
+             "text": "Check the Casebook in your Fieldbook (Run cycles the tabs) for the next lead."
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Ailsa Munro",
+           "text": "Still looking? Take your time. The 1934 photograph fooled people for sixty years, and it only took a toy submarine."
+          },
+          {
+           "do": "say",
+           "who": "Ailsa Munro",
+           "text": "Check the Casebook in your Fieldbook (Run cycles the tabs) for the next lead."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Ailsa Munro",
+         "text": "Still looking? Take your time. The 1934 photograph fooled people for sixty years, and it only took a toy submarine."
+        },
+        {
+         "do": "say",
+         "who": "Ailsa Munro",
+         "text": "Check the Casebook in your Fieldbook (Run cycles the tabs) for the next lead."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Ailsa Munro",
+       "text": "Ailsa Munro, archivist. I look after the Centre's photographs and my nerves."
+      },
+      {
+       "do": "say",
+       "who": "Ailsa Munro",
+       "text": "A 'new' photograph of the monster has turned up, a long neck in black and white, very arty. We are about to put it on four thousand mugs."
+      },
+      {
+       "do": "say",
+       "who": "Ailsa Munro",
+       "text": "You'll remember the famous one from 1934. It was exposed in the 1990s as a toy submarine with a head made of plastic wood. I'd like to be sure this one isn't the same joke told twice."
+      },
+      {
+       "do": "say",
+       "who": "Ailsa Munro",
+       "text": "Three people had reason and chance. Have a look about. Your Fieldbook has a Casebook tab; press Run on the Fieldbook until it appears. A wrong accusation costs you standing."
+      },
+      {
+       "do": "set",
+       "flag": "case_loch_ness_start"
+      },
+      {
+       "do": "set",
+       "flag": "case_loch_ness_briefed"
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "Case opened: The Photograph."
+      }
+     ]
+    }
+   ]
+  }
+ ],
  "monster_hunter": [
+  {
+   "do": "if",
+   "flag": "case_loch_ness_hunter",
+   "then": [],
+   "else": [
+    {
+     "do": "if",
+     "flag": "case_loch_ness_briefed",
+     "then": [
+      {
+       "do": "say",
+       "who": "Monster Hunter",
+       "text": "A fake photograph? Oh, no. No no no. Who would do such a thing? I'm broken. Here, look at my notebook. I've drawn four hundred necks and not one of them was on purpose."
+      },
+      {
+       "do": "say",
+       "who": "Monster Hunter",
+       "text": "'Definitely a log, but what a log.' That's my professional opinion. I want the truth. The truth is out there. Somewhere. Probably in the loch."
+      },
+      {
+       "do": "evidence",
+       "id": "hunters_notebook"
+      },
+      {
+       "do": "set",
+       "flag": "case_loch_ness_hunter"
+      },
+      {
+       "do": "end"
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Monster Hunter",
@@ -36,6 +252,44 @@
   }
  ],
  "old_boatman": [
+  {
+   "do": "if",
+   "flag": "case_loch_ness_boatman",
+   "then": [],
+   "else": [
+    {
+     "do": "if",
+     "flag": "case_loch_ness_briefed",
+     "then": [
+      {
+       "do": "say",
+       "who": "Old Boatman",
+       "text": "That the photograph? Aye. Look at the ripples, hen. Wee. Wee as a bath toy. A beast forty feet long makes a big fuss, and this made a polite one."
+      },
+      {
+       "do": "say",
+       "who": "Old Boatman",
+       "text": "And that's my box camera in the cabin, if you're wondering. Wrong film, full of spiders. I took one picture with it in 1974 and it was of my thumb."
+      },
+      {
+       "do": "evidence",
+       "id": "wee_ripples"
+      },
+      {
+       "do": "evidence",
+       "id": "box_camera"
+      },
+      {
+       "do": "set",
+       "flag": "case_loch_ness_boatman"
+      },
+      {
+       "do": "end"
+      }
+     ]
+    }
+   ]
+  },
   {
    "do": "say",
    "who": "Old Boatman",

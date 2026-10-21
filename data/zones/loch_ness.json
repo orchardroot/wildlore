@@ -582,7 +582,29 @@
    "offset": 0
   }
  },
+ "examine": [
+  {
+   "x": 40,
+   "y": 25,
+   "text": [
+    "The reeds by the jetty. Something has been left here, tucked under the bank.",
+    "A lidless tub of plastic wood with a thumbprint in it, and a bent bit of brass wire. Somebody has been modelling."
+   ],
+   "flag": "case_loch_ness_shore",
+   "evidence": "plastic_wood"
+  }
+ ],
  "npcs": [
+  {
+   "id": "case_ailsa",
+   "sprite": "student",
+   "x": 48,
+   "y": 25,
+   "facing": "left",
+   "move": "still",
+   "script": "case_ailsa",
+   "name": "Ailsa Munro"
+  },
   {
    "id": "monster_hunter",
    "sprite": "villager_3",

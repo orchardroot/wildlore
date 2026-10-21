@@ -1,4 +1,84 @@
 {
+ "case_gillian": [
+  {
+   "do": "if",
+   "flag": "case_loch_ness_briefed",
+   "then": [
+    {
+     "do": "say",
+     "who": "Gillian Mackie",
+     "text": "Gillian Mackie, Nessie Knitwear and Cards. Tea cosies, woolly monsters, and the finest scalloped-edge postcards in the Highlands."
+    },
+    {
+     "do": "say",
+     "who": "Gillian Mackie",
+     "text": "A photograph of the monster? Never heard of it. I print my own cards, you know. Very good stock. Cream. Scalloped. Everyone comments."
+    },
+    {
+     "do": "say",
+     "who": "Gillian Mackie",
+     "text": "I haven't been near the loch in weeks. Weeks. Just so you know. I wasn't asked, but I'm telling you."
+    },
+    {
+     "do": "set",
+     "flag": "case_loch_ness_gillian"
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Gillian Mackie",
+     "text": "Woolly monster? Tea cosy? Both? I do a bundle."
+    }
+   ]
+  }
+ ],
+ "case_ironmonger": [
+  {
+   "do": "if",
+   "flag": "case_loch_ness_briefed",
+   "then": [
+    {
+     "do": "if",
+     "flag": "case_loch_ness_shore",
+     "then": [
+      {
+       "do": "say",
+       "who": "Ironmonger",
+       "text": "Plastic wood and brass wire? The only one who buys that together is... hold on. Let me check the till roll."
+      },
+      {
+       "do": "say",
+       "who": "Ironmonger",
+       "text": "Plastic wood, brass wire, one tin of grey paint, same day, cash. 'G. Mackie.' She said it was for a nativity scene. In August."
+      },
+      {
+       "do": "evidence",
+       "id": "till_roll"
+      },
+      {
+       "do": "set",
+       "flag": "case_loch_ness_ironmonger"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Ironmonger",
+       "text": "Plastic wood? We sell plenty. Come back with a reason and I'll go through the till."
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Ironmonger",
+     "text": "Nails, screws, hooks, hinges. All sold by the pound and the opinion."
+    }
+   ]
+  }
+ ],
  "kessock_works": [
   {
    "do": "say",
