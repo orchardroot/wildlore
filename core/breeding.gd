@@ -265,7 +265,8 @@ static func hatch(data: GameStateData, slot: int, dex: Dex, moves: MoveDB = null
 		return null
 	var db := moves if moves != null else MoveDB.load_default()
 	var c := Creature.create(dex.get_species(str(b.species)), int(b.get("level", HATCH_LEVEL)), Rng.new(int(b.uid)), db)
-	c.ivs = b.ivs.duplicate()
+	for st in Rules.STATS:  # a basket read back from the save file holds floats
+		c.ivs[st] = int(b.ivs.get(st, 0))
 	c.nature = str(b.temper)
 	c.genome = b.genome.duplicate(true)
 	c.sex = str(b.sex)
