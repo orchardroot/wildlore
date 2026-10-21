@@ -1,0 +1,92 @@
+{
+ "id": "bnb_keswick",
+ "kind": "bnb",
+ "name": "The Herdwick Rest",
+ "zone": "keswick",
+ "door": {
+  "x": 24,
+  "y": 40
+ },
+ "interior": "keswick_guesthouse",
+ "cost": [
+  6000,
+  14000,
+  40000
+ ],
+ "unlock_flag": "badge_brook",
+ "inputs": [
+  {
+   "item": "soda_bread",
+   "per_day": 3
+  }
+ ],
+ "output": {
+  "base": 300,
+  "per_input": 156
+ },
+ "rates": 0.08,
+ "tiers": [
+  {
+   "name": "Three rooms and a kettle",
+   "cost": 0,
+   "mult": 1.0
+  },
+  {
+   "name": "Ensuite, with a view of Skiddaw",
+   "cost": 6000,
+   "mult": 1.4
+  },
+  {
+   "name": "Drying room for wet boots",
+   "cost": 14000,
+   "mult": 1.8
+  },
+  {
+   "name": "Conservatory breakfast room",
+   "cost": 28000,
+   "mult": 2.2
+  }
+ ],
+ "events": [
+  {
+   "id": "fell_runners",
+   "chance": 0.06,
+   "mult": 1.6,
+   "line": "A fell-running club has booked every room and will eat everything, twice."
+  },
+  {
+   "id": "lakes_rain",
+   "chance": 0.08,
+   "mult": 1.2,
+   "season": "autumn",
+   "line": "It has rained for three days, nobody can face the fells, and your guests are on their fourth pot of tea."
+  },
+  {
+   "id": "summer_walkers",
+   "chance": 0.08,
+   "mult": 1.5,
+   "season": "summer",
+   "line": "Walkers from three countries, all asking whether the lake is always that colour."
+  },
+  {
+   "id": "burst_pipe",
+   "chance": 0.03,
+   "mult": 0.0,
+   "line": "A pipe burst in the night. The plumber is on his way and wants a lot of tea and some of your time."
+  },
+  {
+   "id": "snowed_in",
+   "chance": 0.04,
+   "mult": 0.5,
+   "season": "winter",
+   "line": "Snow has closed the pass. Two guests stayed on. Nobody else could get in."
+  },
+  {
+   "id": "inspector",
+   "chance": 0.03,
+   "mult": 0.8,
+   "line": "A breakfast inspector tried your black pudding, nodded gravely and left a form."
+  }
+ ],
+ "manager_slot": true
+}
