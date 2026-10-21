@@ -17,6 +17,11 @@ var friendship := 70    # 0..255; grows with levels and walking together
 var held := ""          # the charm it is holding (an item id), or ""
 var stages := {}       # Rules.STAGE_STATS -> -6..6, reset on switch-out
 var variant := ""      # an uncommon coat (see Coats), "" for the usual one; only a look
+var genome := {}       # Good Stock makings {locus: [a, b]}, see Genetics; derived from the creature itself when absent
+var sex := ""          # "m", "f" or "" (kindreds that do not breed)
+var uid := 0           # 0 until it needs an identity (kinship); not yet assigned anywhere
+var pedigree := {}     # {sire: node, dam: node}, a node being {uid, sire, dam}
+var hybrid := ""       # the Hybrid id if it is one (data/hybrids.json), else ""
 
 static func create(sp: Dictionary, lvl: int, rng: Rng, move_db: MoveDB) -> Creature:
 	var c := Creature.new()
@@ -59,6 +64,16 @@ static func from_dict(d: Dictionary, dex: Dex) -> Creature:
 	c.friendship = int(d.get("friendship", 70))
 	c.held = str(d.get("held", ""))
 	c.variant = str(d.get("variant", ""))
+	c.genome = d.get("genome", {}).duplicate(true)
+	c.sex = str(d.get("sex", ""))
+	c.uid = int(d.get("uid", 0))
+	c.pedigree = d.get("pedigree", {}).duplicate(true)
+	c.hybrid = str(d.get("hybrid", ""))
+	if c.genome.is_empty() and not c.species.is_empty():
+		var made := Genetics.derive(c)
+		c.genome = made.genome
+		if c.sex == "":
+			c.sex = made.sex
 	c.reset_stages()
 	c.hp = mini(c.hp, c.max_hp())  # base stats can change between versions; never above the (new) max
 	return c
@@ -66,7 +81,8 @@ static func from_dict(d: Dictionary, dex: Dex) -> Creature:
 func to_dict() -> Dictionary:
 	return {"species": species.id, "nickname": nickname, "level": level, "xp": xp, "nature": nature,
 		"ivs": ivs.duplicate(), "training": training.duplicate(), "hp": hp,
-		"moves": moves.duplicate(true), "status": status, "status_turns": status_turns, "friendship": friendship, "held": held, "variant": variant}
+		"moves": moves.duplicate(true), "status": status, "status_turns": status_turns, "friendship": friendship, "held": held, "variant": variant,
+		"genome": genome.duplicate(true), "sex": sex, "uid": uid, "pedigree": pedigree.duplicate(true), "hybrid": hybrid}
 
 func make_move_slot(id: String, move_db: MoveDB) -> Dictionary:
 	var pp := int(move_db.get_move(id).get("pp", 10))

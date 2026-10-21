@@ -39,7 +39,10 @@ static func load_dir(dir: String) -> Dex:
 	for path in JsonUtil.list_json(dir):
 		var line = JsonUtil.read(path)
 		if line is Dictionary:
-			all.append_array(line.get("species", []))
+			for sp in line.get("species", []):
+				if sp is Dictionary and line.has("line"):
+					sp["line"] = str(line.line)  # the evolution line, for Genetics (evolving never changes it)
+				all.append(sp)
 	return from_array(all)
 
 static func from_array(arr: Array) -> Dex:
