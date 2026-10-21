@@ -514,7 +514,7 @@ static func tax_so_far(data: GameStateData, cur: String) -> int:
 
 ## What the money-sinks of owning a Deed cost per in-game day, in sterling: rates at the Deed's rate on a full day.
 static func daily_rates(data: GameStateData, id: String) -> int:
-	return roundi(daily_estimate(data, id) * float(get_deed(id).get("rates", 0.0)))
+	return roundi(daily_estimate(data, id) * float(get_deed(id).get("rates", 0.0)) * Guilds.rates_mult(data))   # the Heritage Trust
 
 ## A line for the Deed screen: the state of the till, store and manager.
 static func summary(data: GameStateData, id: String) -> Array:

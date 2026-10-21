@@ -109,14 +109,15 @@ static func hit(m: float, centre_at: float, half: float) -> bool:
 
 ## Casts left today. Old saves, and a new day, start full.
 static func casts_left(data: GameStateData) -> int:
+	var total := daily_casts() + Guilds.cast_bonus(data)   # the Anglers
 	if int(data.flags.get(FLAG_DAY, -1)) != data.day_count:
-		return daily_casts()
-	return maxi(0, daily_casts() - int(data.flags.get(FLAG_CASTS, 0)))
+		return total
+	return maxi(0, total - int(data.flags.get(FLAG_CASTS, 0)))
 
 static func spend_cast(data: GameStateData) -> void:
 	var left := casts_left(data)
 	data.set_flag(FLAG_DAY, data.day_count)
-	data.set_flag(FLAG_CASTS, daily_casts() - left + 1)
+	data.set_flag(FLAG_CASTS, daily_casts() + Guilds.cast_bonus(data) - left + 1)
 
 ## A fish comes ashore: into the bag and onto the tally.
 static func land(data: GameStateData, id: String) -> void:
