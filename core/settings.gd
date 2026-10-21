@@ -22,6 +22,7 @@ var easy_darts := false     # darts: a steadier reticle and the checkout shown; 
 var local_languages := "on"  # on | off: the local language (Welsh, Irish...) beside English where the place uses it (see Langs)
 var text_size := "normal"   # normal | large | largest: UI text scale (see Access)
 var readable_font := false  # a dyslexia-friendly typeface (Atkinson Hyperlegible) for the interface
+var hints := true          # first-time introductions to each system (see Intros)
 var damage_numbers := true  # battle: the damage taken drifts up beside the plate
 var bindings := {}        # action -> {"key": [physical keycodes], "pad": [joypad buttons]}, see InputSetup
 
@@ -73,6 +74,7 @@ func load_settings() -> void:
 			if not Access.TEXT_SIZES.has(text_size):
 				text_size = "normal"
 			readable_font = bool(d.get("readable_font", readable_font))
+			hints = bool(d.get("hints", hints))
 			travel_scenes = str(d.get("travel_scenes", travel_scenes))
 			if travel_scenes not in ["on", "short", "off"]:
 				travel_scenes = "on"
@@ -89,7 +91,7 @@ func save_settings() -> void:
 	if f:
 		f.store_string(JSON.stringify({"text_speed": text_speed, "battle_speed": battle_speed, "quality": quality, "music_volume": music_volume,
 			"sfx_volume": sfx_volume, "ambience_volume": ambience_volume, "run_mode": run_mode, "colour_blind": colour_blind, "reduce_flashing": reduce_flashing,
-			"travel_scenes": travel_scenes, "follower": follower, "damage_numbers": damage_numbers, "local_languages": local_languages, "easy_fishing": easy_fishing, "easy_darts": easy_darts, "text_size": text_size, "readable_font": readable_font, "bindings": bindings}))
+			"travel_scenes": travel_scenes, "follower": follower, "damage_numbers": damage_numbers, "local_languages": local_languages, "hints": hints, "easy_fishing": easy_fishing, "easy_darts": easy_darts, "text_size": text_size, "readable_font": readable_font, "bindings": bindings}))
 	_sync_languages()
 	Bus.settings_changed.emit()
 

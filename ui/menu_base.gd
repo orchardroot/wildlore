@@ -113,7 +113,29 @@ func set_hints(entries: Array) -> void:
 	hint_label.text = UIKit.hint(entries)
 	_fit_hint()
 
+const TIP_SECONDS := 9.0
+var _tip_until := 0
+
+## A one-line introduction in the hint bar for a few seconds (see Intros), then the usual prompts come back.
+func show_tip(text: String) -> void:
+	if not is_instance_valid(hint_label):
+		return
+	var stamp := Time.get_ticks_msec() + int(TIP_SECONDS * 1000.0)
+	_tip_until = stamp
+	hint_label.text = text
+	hint_label.add_theme_color_override("font_color", UIKit.GOLD)
+	_fit_hint()
+	get_tree().create_timer(TIP_SECONDS).timeout.connect(_end_tip.bind(stamp))
+
+func _end_tip(stamp: int) -> void:
+	if _tip_until == stamp:
+		_tip_until = 0
+		hint_label.remove_theme_color_override("font_color")
+		_redraw_hint()
+
 func _redraw_hint() -> void:
+	if _tip_until != 0 and Time.get_ticks_msec() < _tip_until:
+		return  # the tip has the bar for now
 	if not _hint_entries.is_empty() and is_instance_valid(hint_label):
 		hint_label.text = UIKit.hint(_hint_entries)
 		_fit_hint()

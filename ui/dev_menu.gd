@@ -82,7 +82,7 @@ static func boot(game: Node, menu: String) -> void:
 	d.badges = [] if first_day else ["a", "b"]
 	if first_day:
 		menu = "jobs:macclesfield"
-	d.play_seconds = 4980.0
+	d.play_seconds = 100.0 if "--tip" in DevArgs.user_args() else 4980.0  # `--tip` lets the first-time introductions show
 	for t in ["macclesfield", "buxton"]:
 		d.set_flag("visited_" + t)
 		d.set_flag("station_" + t)
@@ -196,6 +196,23 @@ static func boot(game: Node, menu: String) -> void:
 			d.day_count += 14
 			Deeds.tick(d, d.day_count)
 			menu = menu.trim_suffix(":owned")
+	if menu.begins_with("almanac"):  # `--menu=almanac[:ledger:guilds|deeds|society]`: every page sprouted (a guild, a Deed with a till, a loan, a basket)
+		d.day_count = 120
+		d.money = 20000
+		for i in 4:
+			d.badges.append("b%d" % i)
+		d.set_flag("badge_stone", true)
+		d.seen["holtling"] = true
+		d.set_flag("book_ideas", {"a": true, "b": true})
+		Guilds.join(d, "ramblers")
+		Guilds.join(d, "naturalists")
+		var did := str(Deeds.all()[0].id)
+		Deeds.buy(d, did)
+		d.day_count += 14
+		d.set_flag("deed_" + did, Deeds.state(d, did).merged({"owned": true, "till": 340}, true))
+		BuildingSociety.settle(d)
+		BuildingSociety.borrow(d, "manchester_society", 2000, 12)
+		BuildingSociety.deposit(d, "gbp", 600)
 	if menu.begins_with("bureau") or menu.begins_with("exchange") or menu.begins_with("crypto") or menu == "pause:euros":
 		# a few weeks into a journey with both purses, some shares, a Doggerel punt and a Stone or two
 		d.day_count = 46
