@@ -109,7 +109,7 @@ func test_win_climbs_a_rung_and_loss_breaks_it() -> void:
 	assert_eq(b.prize, 0, "prize once a day per rival")
 	var c := Conkers.finish(data, r, false)
 	assert_eq(c.wins, 0)
-	assert_eq(int(data.flag(Conkers.FLAG_ONER)), 0)
+	assert_eq(int(data.flags.get(Conkers.FLAG_ONER, 0)), 0)
 	assert_true(TrainerStats.get_count(data, "conkers_won") == 2)
 
 func test_conker_items_exist() -> void:
