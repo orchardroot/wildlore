@@ -91,7 +91,7 @@ static func should_spawn(d: Dictionary, data: GameStateData, phase: String) -> b
 
 ## The def with their routine's spot for now applied (the def itself for anyone without a routine).
 static func placed(d: Dictionary) -> Dictionary:
-	return Routines.placed(d, Calendar.weekday_today(), Calendar.season_today(), Game.data.clock_minutes)
+	return Routines.placed(d, Calendar.weekday_today(), Calendar.season_today(), Game.local_minutes())
 
 ## Close enough to catch a still NPC's eye.
 static func notices(at: Vector2i, player_pos: Vector2i) -> bool:
@@ -102,7 +102,7 @@ static func notices(at: Vector2i, player_pos: Vector2i) -> bool:
 ## away not to see them pop. Cheap; the overworld calls it now and then. Retries until everyone is settled.
 static func sync_schedule(ow: Node) -> void:
 	var phase := Game.phase()
-	var stamp := phase + Routines.stamp(Calendar.weekday_today(), Calendar.season_today(), Game.data.clock_minutes)
+	var stamp := phase + Routines.stamp(Calendar.weekday_today(), Calendar.season_today(), Game.local_minutes())
 	if ow.zone == null or Router.busy or str(ow.get_meta("npc_phase", "")) == stamp:
 		return
 	var settled := true

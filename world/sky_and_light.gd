@@ -206,7 +206,7 @@ func set_weather(w: String, is_interior: bool, smooth := false) -> void:
 	var want := maxi(_rain_amount(_from), _rain_amount(w))
 	if want > 0 and _rain.amount != want:
 		_rain.amount = want  # changing the amount restarts the emitter, so only when it must
-	apply_time(Game.data.clock_minutes)
+	apply_time(Game.local_minutes())
 
 func _rain_amount(w: String) -> int:
 	var r: float = FX.get(w, NO_FX)[FX_RAIN]
@@ -353,10 +353,10 @@ func _process(delta: float) -> void:
 		_splash.global_position = at + Vector3(0, 0.03, 0)
 	if _blend < 1.0:
 		_blend = minf(1.0, _blend + delta / BLEND_SECONDS)
-		apply_time(Game.data.clock_minutes)
+		apply_time(Game.local_minutes())
 	elif Engine.get_process_frames() % 30 == 0:
 		_check_expiry()
-		apply_time(Game.data.clock_minutes)
+		apply_time(Game.local_minutes())
 
 ## Low: no shadows or glow, half the rain, no leaves, flecks or splashes. Medium: 2-split shadows and glow.
 ## High: 4-split shadows. Safe to call live.

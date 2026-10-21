@@ -113,7 +113,7 @@ func setup(foe_party: Array, p_opts: Dictionary) -> void:
 	if "--battle-caught" in DevArgs.user_args():  # screenshots: the foe counts as caught (mark and type hints)
 		for c in foe_party:
 			Game.data.mark_caught(c.species.id)
-	opts["time"] = opts.get("time", GameClock.phase(Game.data.clock_minutes))
+	opts["time"] = opts.get("time", Game.phase())
 	if bool(opts.get("double", false)):
 		dio.set_double(true)
 		hud.set_double(true)
