@@ -6,9 +6,11 @@ func _initialize() -> void:
 	var errors := DataValidator.validate(TypeChart.load_default(), dex, MoveDB.load_default(), ItemDB.load_default())
 	var zones := ZoneData.load_all()
 	errors.append_array(StoryValidator.validate(dex, MoveDB.load_default(), ItemDB.load_default(), zones))
+	var items_db := ItemDB.load_default()
 	for zid in zones:
 		var z: ZoneData = zones[zid]
 		errors.append_array(z.validate(zones))
+		errors.append_array(CreatureJobs.errors(z, items_db))  # creature job spots
 		for kind in z.encounters:
 			for enc in z.encounters[kind]:
 				if not dex.has(str(enc.get("species", ""))):
