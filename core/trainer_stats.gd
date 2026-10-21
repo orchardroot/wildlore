@@ -99,7 +99,12 @@ static func lines(data: GameStateData) -> Array:
 		out.append(["Bell rows rung in time", _n(c.call("rows_rung"))])
 	if c.call("walls_built") > 0:
 		out.append(["Drystone walls mended", _n(c.call("walls_built"))])
-	if c.call("games_won", "Highland games, hurling and shinty won", "games_won", "pulls_sung", "Shanty pulls in time", "conkers_won", "Conker matches won"
+	if c.call("games_won") > 0:
+		out.append(["Highland games, hurling and shinty won", _n(c.call("games_won"))])
+	if c.call("pulls_sung") > 0:
+		out.append(["Shanty pulls in time", _n(c.call("pulls_sung"))])
+	if c.call("conkers_won") > 0:
+		out.append(["Conker matches won", _n(c.call("conkers_won"))])
 	out.append_array(Tournament.stat_lines(data))  # County Shows and the Open Moot
 	out.append_array(Punt.stat_lines(data))  # the Palace and the bookies, once you've had a flutter
 	return out
