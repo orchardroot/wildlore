@@ -166,11 +166,11 @@ static func buy_price(_data: GameStateData, item_id: String, zone_id: String) ->
 	return maxi(1, int(round(base * regional(item_id, group_of(zone_id)))))
 
 static func sell_price(data: GameStateData, item_id: String, zone_id: String) -> int:
-	return _sell_unit(item_id, zone_id, freshness(data, item_id), glut_factor(data, item_id, zone_id))
+	return _sell_unit(item_id, zone_id, freshness(data, item_id) * Trades.sell_mult(data), glut_factor(data, item_id, zone_id))
 
 ## What n units fetch in all, each sale poorer than the last. Nothing is recorded: follow with record_sale.
 static func sell_total(data: GameStateData, item_id: String, zone_id: String, n: int) -> int:
-	var fresh := freshness(data, item_id)
+	var fresh := freshness(data, item_id) * Trades.sell_mult(data)  # the Trader perks
 	var step := float(config().get("glut_step", 0.92))
 	var g := glut_factor(data, item_id, zone_id)
 	var total := 0
