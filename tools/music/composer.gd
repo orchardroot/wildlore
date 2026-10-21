@@ -11,13 +11,13 @@ const MODES := {
 	"aeolian": [0, 2, 3, 5, 7, 8, 10],
 	"ionian": [0, 2, 4, 5, 7, 9, 11],
 }
-const GAINS := {"fiddle": 1.0, "whistle": 1.0, "harp": 0.8, "guitar": 0.7, "bass": 0.9, "thump": 1.0, "tick": 0.8, "shaker": 0.6, "drone": 0.45, "brass": 0.9, "surf": 0.5, "reed": 0.9, "pipe": 1.0, "bouzouki": 0.75, "chanter": 0.85, "bell": 0.7}
+const GAINS := {"fiddle": 1.0, "whistle": 1.0, "harp": 0.8, "guitar": 0.7, "bass": 0.9, "thump": 1.0, "tick": 0.8, "shaker": 0.6, "drone": 0.45, "brass": 0.9, "surf": 0.5, "reed": 0.9, "pipe": 1.0, "bouzouki": 0.75, "chanter": 0.85, "bell": 0.7, "choir": 0.9, "pan": 0.9, "bodhran": 1.0}
 const TARGET_RMS_DB := -12.0  ## every track is levelled to this RMS (plus level_db), so tracks sit together
 const PEAK_CEIL := 0.89  ## about -1 dBFS; a track whose crest factor needs more than this stays a little quieter
 const SEAM_RIDE_SEC := 2.0
 const SEAM_FLOOR := 0.8  ## the tail is lifted to at least this fraction of the track RMS
 const SEAM_MAX_BOOST := 4.0
-const LOOSE := ["harp", "guitar", "bouzouki", "thump", "tick", "shaker"]  # voices that get a hint of human timing
+const LOOSE := ["harp", "guitar", "bouzouki", "thump", "tick", "shaker", "bodhran", "pan"]  # voices that get a hint of human timing
 
 var tonic := 62
 var mode: Array = MODES["dorian"]
@@ -147,6 +147,10 @@ func drums(pattern: String, bar: int, nbars: int, vel := 0.8) -> void:
 				_add("tick", t, 0.5, 60, vel)
 			elif c == "s":
 				_add("shaker", t, 0.5, 60, vel * 0.8)
+			elif c == "b":
+				_add("bodhran", t, 1.0, 60, vel)
+			elif c == "d":
+				_add("bodhran", t, 1.0, 60, vel * 0.5)
 
 ## Drone on tonic (two octaves down) and fifth for nbars bars.
 func drone(bar: int, nbars: int, vel := 0.5) -> void:
