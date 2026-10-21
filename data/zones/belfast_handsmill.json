@@ -1,0 +1,169 @@
+{
+ "id": "belfast_handsmill",
+ "name": "The Hands Mill",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "bookshelf",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 2,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 10,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 11,
+   "y": 1
+  },
+  {
+   "type": "display_case",
+   "x": 4,
+   "y": 2,
+   "variant": 0
+  },
+  {
+   "type": "display_case",
+   "x": 8,
+   "y": 2,
+   "variant": 1
+  },
+  {
+   "type": "table",
+   "x": 3,
+   "y": 5
+  },
+  {
+   "type": "table",
+   "x": 9,
+   "y": 5
+  },
+  {
+   "type": "kitchen_dresser",
+   "x": 7,
+   "y": 1
+  },
+  {
+   "type": "clock",
+   "x": 6,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "wall_picture",
+   "x": 4,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  },
+  {
+   "type": "wall_picture",
+   "x": 8,
+   "y": 1,
+   "walk": true,
+   "variant": 0
+  },
+  {
+   "type": "rug",
+   "x": 5,
+   "y": 3,
+   "w": 3,
+   "h": 3,
+   "variant": 1,
+   "walk": true
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 7
+  },
+  {
+   "type": "potted_plant",
+   "x": 11,
+   "y": 7
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 8,
+   "to": "belfast",
+   "tx": 12,
+   "ty": 53,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "arcni_mill_nuala",
+   "sprite": "tour_guide",
+   "x": 6,
+   "y": 4,
+   "facing": "down",
+   "move": "still",
+   "script": "arcni_mill_nuala"
+  },
+  {
+   "id": "arcni_mill_loom",
+   "sprite": "villager_2",
+   "x": 2,
+   "y": 4,
+   "facing": "down",
+   "move": "still",
+   "script": "arcni_mill_loom"
+  },
+  {
+   "id": "arcni_mill_wall",
+   "sprite": "farmer",
+   "x": 10,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "arcni_mill_wall"
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "x": 4,
+   "y": 6,
+   "plaque": "arc_ni_linenopolis",
+   "title": "Linenopolis",
+   "text": "By the late 1800s Belfast had so many linen mills that it was nicknamed Linenopolis. Flax was grown across Ulster, rotted in dams, beaten, spun and woven, and the cloth went round the world. Most of the mill workers were women and girls."
+  },
+  {
+   "x": 8,
+   "y": 6,
+   "plaque": "arc_ni_samson_goliath",
+   "title": "Samson and Goliath",
+   "text": "The two yellow gantry cranes over the old Harland and Wolff yard are Goliath, built in 1969, and Samson, built in 1974. They stand about 96 and 106 metres tall and can be seen from most of Belfast. The ships they served are mostly gone, but the cranes are listed as landmarks of the city."
+  }
+ ],
+ "spawn": [
+  6,
+  7
+ ],
+ "rows": [
+  "xxxxxxxxxxxxx",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||D|||||x",
+  "xxxxxxxxxxxxx"
+ ]
+}

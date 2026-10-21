@@ -1,0 +1,104 @@
+{
+ "arcni_mill_nuala": [
+  {
+   "do": "if",
+   "flag": "q_arc_ni_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Nuala Orr",
+     "text": "A whole mill of hands, and not one of them a tea towel. Thank you, {player}. It looks like it was always going to be here."
+    },
+    {
+     "do": "say",
+     "who": "Nuala Orr",
+     "text": "Mervyn has been round three times to check the rivets are straight. There are no rivets. He checks anyway."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "",
+     "text": "Sunlight through high windows. Bolts of linen on one table, a ship's rivet bucket on another, a stone from the Wall on the third. The air smells of oil and wet wool."
+    },
+    {
+     "do": "say",
+     "who": "Nuala Orr",
+     "text": "That's it, {player}. The heater boys, the doffers and the wallers. Three trades with their own names on the wall. It's not much, and it's everything."
+    },
+    {
+     "do": "say",
+     "who": "Nuala Orr",
+     "text": "A mill that's open is a mill that gets looked after. The Council has stopped talking about the bulldozer, and the kettle has stopped being the most important thing in the building."
+    },
+    {
+     "do": "say",
+     "who": "Nuala Orr",
+     "text": "Take this. It's a tally. Hold it up in any Ulster shop and they'll know you for one of ours."
+    },
+    {
+     "do": "give_item",
+     "item": "ulster_hands_token"
+    },
+    {
+     "do": "give_item",
+     "item": "ulster_fry",
+     "n": 2
+    },
+    {
+     "do": "give_item",
+     "item": "soda_farl",
+     "n": 4
+    },
+    {
+     "do": "say",
+     "who": "Nuala Orr",
+     "text": "And one more. A flaxling was living in the old dye shed. It's been following me around for weeks. I think it prefers you."
+    },
+    {
+     "do": "give_creature",
+     "species": "flaxling",
+     "level": 40,
+     "scaled_floor": 66
+    },
+    {
+     "do": "standing",
+     "nation": "northern_ireland",
+     "amount": 8
+    },
+    {
+     "do": "set",
+     "flag": "q_arc_ni_12"
+    },
+    {
+     "do": "set",
+     "flag": "q_arc_ni_done"
+    }
+   ]
+  }
+ ],
+ "arcni_mill_loom": [
+  {
+   "do": "say",
+   "who": "Mrs Quinn",
+   "text": "That loom's from before my time, and it still works. I demonstrate on Saturdays. The first thing they ask is how I stood the noise. The answer's I didn't. I just got used to it."
+  },
+  {
+   "do": "say",
+   "who": "Mrs Quinn",
+   "text": "Plain linen. Damask is fancier: that's the pattern woven in. I wove a lot of tablecloths in my day and never once saw one on a table I could afford."
+  }
+ ],
+ "arcni_mill_wall": [
+  {
+   "do": "say",
+   "who": "Old Hugh",
+   "text": "They gave me a corner of the hall for a stretch of dry-stone to show visitors. A wall on a floor. It feels like a fish in a bath, but folk like it."
+  },
+  {
+   "do": "say",
+   "who": "Old Hugh",
+   "text": "Come the summer, I'll teach the young lads to put a throughstone in. If the sheep can do without it, so can they. No: they can't."
+  }
+ ]
+}

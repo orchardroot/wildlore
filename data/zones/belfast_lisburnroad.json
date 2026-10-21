@@ -79,8 +79,18 @@
    "facing": "down",
    "move": "still",
    "script": "bel_linen_seller"
-  }
- ],
+  },
+{
+ "id": "arcni_weaver",
+ "sprite": "villager_2",
+ "x": 9,
+ "y": 5,
+ "facing": "down",
+ "move": "still",
+ "script": "arcni_weaver",
+ "show_if": "q_arc_ni_started"
+}
+],
  "encounters": {},
  "signs": [],
  "spawn": [
@@ -98,5 +108,17 @@
   "x|||||||||||x",
   "x|||||D|||||x",
   "xxxxxxxxxxxxx"
+ ],
+"examine": [
+{
+ "x": 11,
+ "y": 5,
+ "needs": "q_arc_ni_started",
+ "flag": "q_arc_ni_6",
+ "text": [
+  "A bolt of Irish linen, its end stamped with a mill number and a date. Heavy, cool and faintly smelling of the last century.",
+  "Linen is spun from flax, which was pulled by hand and soaked in dams to loosen the fibre, then beaten, combed, spun and woven. In the 1800s Belfast was nicknamed Linenopolis."
  ]
+}
+]
 }
