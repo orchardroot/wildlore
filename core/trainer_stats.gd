@@ -5,7 +5,7 @@ extends RefCounted
 
 const COUNTERS := ["steps", "wins_wild", "wins_trainer", "caught", "train_trips", "ferry_trips", "flights",
 	"rail_miles", "money_earned", "teas", "rained_on", "fish_caught",
-	"goods_sold", "dishes_cooked", "darts_won", "crabs_caught", "show_rosettes", "sheepdog_trials", "rows_rung", "walls_built", "games_won"]
+	"goods_sold", "dishes_cooked", "darts_won", "crabs_caught", "show_rosettes", "sheepdog_trials", "rows_rung", "walls_built", "games_won", "pulls_sung", "conkers_won"]
 const TEA_ITEMS := ["cup_of_tea", "flask_of_tea", "cream_tea"]
 const MILES_PER_MAP_UNIT := 0.45   # the world map is 1000 x 1300 for roughly 450 x 600 miles of Britain
 
@@ -99,8 +99,7 @@ static func lines(data: GameStateData) -> Array:
 		out.append(["Bell rows rung in time", _n(c.call("rows_rung"))])
 	if c.call("walls_built") > 0:
 		out.append(["Drystone walls mended", _n(c.call("walls_built"))])
-	if c.call("games_won") > 0:
-		out.append(["Highland games, hurling and shinty won", _n(c.call("games_won"))])
+	if c.call("games_won", "Highland games, hurling and shinty won", "games_won", "pulls_sung", "Shanty pulls in time", "conkers_won", "Conker matches won"
 	out.append_array(Tournament.stat_lines(data))  # County Shows and the Open Moot
 	out.append_array(Punt.stat_lines(data))  # the Palace and the bookies, once you've had a flutter
 	return out

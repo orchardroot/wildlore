@@ -18,7 +18,7 @@ var reduce_flashing := false  # gentle hit flashes, less shake, no strobing evol
 var follower := true        # the party lead walks behind you in the overworld (see Follower)
 var travel_scenes := "on"   # on | short | off: the little scenes for trains, ferries and the Raven (see Journey)
 var easy_fishing := false   # fishing: a wider, slower sweet spot on the bite bar
-var easy_darts := false     # darts: a steadier reticle and the checkout shown; crabbing: slower nibbles, a longer wait to haul; ringing: a slower beat, wider timing; walling: shows where each stone goes
+var easy_darts := false     # darts: a steadier reticle and the checkout shown; crabbing: slower nibbles, a longer wait to haul; ringing: a slower beat, wider timing; walling: shows where each stone goes; shanties: a slower beat; conkers: a wider sweet spot
 var damage_numbers := true  # battle: the damage taken drifts up beside the plate
 var bindings := {}        # action -> {"key": [physical keycodes], "pad": [joypad buttons]}, see InputSetup
 

@@ -1,0 +1,41 @@
+{
+ "_doc": "Sea shanties (core/shanties.gd). Public-domain traditional songs, a line or two each. Each line is sung over 4 beats; pulls are the beats (0 to 3) on which the crew heaves together. tip is whole pounds, paid once a real day per shanty.",
+ "pubs": ["poole_pub", "lerwick_pub", "holyhead_ferryinn", "cairnryan_arms"],
+ "shanties": [
+  {"id": "drunken_sailor", "name": "Drunken Sailor", "kind": "Hauling", "tip": 0,
+   "lines": [
+    {"text": "What shall we do with the drunken sailor?", "pulls": [0, 2]},
+    {"text": "What shall we do with the drunken sailor?", "pulls": [0, 2]},
+    {"text": "Early in the morning!", "pulls": [1, 3]},
+    {"text": "Way hay and up she rises!", "pulls": [0, 1, 2, 3]}
+   ],
+   "fact": "Nobody knows exactly where this one began, but it was sung aboard ships in the 1800s, and the tune still gets sung at football grounds. A shanty is a work song: the shantyman led the line and the crew answered, so everyone pulled at the same moment."},
+  {"id": "haul_away_joe", "name": "Haul Away, Joe", "kind": "Halyard", "tip": 2,
+   "lines": [
+    {"text": "Way, haul away, we'll haul for better weather.", "pulls": [1, 3]},
+    {"text": "Way, haul away, we'll haul away together.", "pulls": [1, 3]},
+    {"text": "Way, haul away, haul away, Joe!", "pulls": [0, 1, 3]}
+   ],
+   "fact": "A halyard shanty, sung to hoist the heavy sails. The crew rested on the short beats and heaved on the long one, and the hardest pull was saved for the last word of the line."},
+  {"id": "blow_the_man_down", "name": "Blow the Man Down", "kind": "Halyard", "tip": 3,
+   "lines": [
+    {"text": "Oh, blow the man down, bullies, blow the man down!", "pulls": [1, 3]},
+    {"text": "To me way-ay, blow the man down.", "pulls": [0, 2, 3]},
+    {"text": "Give me some time to blow the man down!", "pulls": [1, 2, 3]}
+   ],
+   "fact": "Here 'blow down' means knock down, not a gale. The song was sung on merchant sailing ships in the 1800s, and the words changed from ship to ship, with a different verse for every shantyman."},
+  {"id": "leave_her_johnny", "name": "Leave Her, Johnny", "kind": "Pumping", "tip": 4,
+   "lines": [
+    {"text": "Leave her, Johnny, leave her!", "pulls": [0, 2]},
+    {"text": "Oh, leave her, Johnny, leave her!", "pulls": [1, 2, 3]},
+    {"text": "For the voyage is done and the winds don't blow,", "pulls": [0, 2]},
+    {"text": "And it's time for us to leave her!", "pulls": [0, 1, 2, 3]}
+   ],
+   "fact": "Sung at the pumps on the last day of a voyage, when it was the one time a crew was allowed to grumble about the ship, the food and the officers. It was a way of letting off steam before everyone was paid off."}
+ ],
+ "plaque": {
+  "id": "shanties_work_songs",
+  "title": "Sea Shanties",
+  "text": "A sea shanty is a work song from the age of sail. A shantyman sang the lines and the crew answered with the chorus, pulling on the beat so that a dozen sailors hauled as one. Different jobs had different shanties: short-haul for quick tugs, halyard for hoisting sails, capstan for the slow walk round the winch, pumping for the bilges. They belong to merchant ships of the 1800s, and many were collected and written down by singers and folklorists in the following century."
+ }
+}
