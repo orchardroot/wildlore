@@ -1,0 +1,179 @@
+{
+ "region": "",
+ "kind": "interior",
+ "music": "dungeon_underground",
+ "weather": {},
+ "edges": {},
+ "stage": "cave",
+ "id": "wookey_river",
+ "name": "Wookey Hole: The River Axe Passage",
+ "props": [
+  {
+   "type": "brazier",
+   "x": 3,
+   "y": 2,
+   "walk": false
+  }
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "xxDeeexxxxxxxxxxxxxxxxxxxxxx",
+  "xxeeeeeexxxxxxxxxxxxxxxxxxxx",
+  "xxeemmeeexxxxxxxxxxxxxxxxxxx",
+  "xxeeeeeeeeewwwwweeeeexxxxxxx",
+  "xxxxeeeeeeexxxxxeeeemmexxxxx",
+  "xxxxxxxxxxxxxxxxeeeeeeeexxxx",
+  "xxxxxxxxxxxxxxxxxxeeeeeeDxxx",
+  "xxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+ ],
+ "legend_extra": {
+  "e": {
+   "tile": "path",
+   "colour": "#565d69"
+  },
+  "m": {
+   "tile": "tall_grass",
+   "colour": "#3f565a",
+   "prop": "none"
+  }
+ },
+ "dark": true,
+ "spawn": [
+  2,
+  2
+ ],
+ "warps": [
+  {
+   "x": 2,
+   "y": 1,
+   "to": "wookey_hole",
+   "tx": 4,
+   "ty": 17,
+   "facing": "down"
+  },
+  {
+   "x": 24,
+   "y": 7,
+   "to": "wookey_chamber",
+   "tx": 2,
+   "ty": 2,
+   "facing": "down"
+  }
+ ],
+ "npcs": [
+  {
+   "id": "wk_diver",
+   "sprite": "angler",
+   "x": 7,
+   "y": 4,
+   "facing": "right",
+   "move": "still",
+   "script": "wk_diver",
+   "name": "Cave diver"
+  }
+ ],
+ "signs": [
+  {
+   "x": 5,
+   "y": 3,
+   "plaque": "wookey_cave_diving",
+   "title": "Cave Diving at Wookey",
+   "text": "Wookey Hole is a landmark in British cave diving. In the 1930s early divers in heavy rubber suits and hard hats followed the Axe upstream into the dark, and every chamber they reached was a new one. Divers now number the chambers past twenty-five."
+  },
+  {
+   "x": 8,
+   "y": 3,
+   "text": "A brass sluice wheel, green with age. The water to the east is waist-deep and it is very cold."
+  }
+ ],
+ "deep": {
+  "levers": [
+   {
+    "id": "sluice",
+    "x": 9,
+    "y": 3,
+    "on": "You spin the sluice wheel. The Axe backs off along the passage and leaves the floor shining.",
+    "off": "You close the sluice. The river creeps back across the floor."
+   },
+   {
+    "id": "niche",
+    "x": 4,
+    "y": 5,
+    "needs_light": true,
+    "on": "Your lantern picks out a gleam in a crack. Behind a loose flake of rock is a hyena's tooth, brown with age.",
+    "off": "There is nothing more in the niche.",
+    "find": {
+     "item": "hyena_tooth"
+    }
+   }
+  ],
+  "floods": [
+   {
+    "id": "axe",
+    "by": [
+     "lever:sluice"
+    ],
+    "tiles": [
+     [
+      11,
+      4
+     ],
+     [
+      12,
+      4
+     ],
+     [
+      13,
+      4
+     ],
+     [
+      14,
+      4
+     ],
+     [
+      15,
+      4
+     ]
+    ]
+   }
+  ]
+ },
+ "encounters": {
+  "grass": [
+   {
+    "species": "flittermouse",
+    "min": 38,
+    "max": 40,
+    "weight": 18
+   },
+   {
+    "species": "pincray",
+    "min": 38,
+    "max": 41,
+    "weight": 16
+   },
+   {
+    "species": "glowmite",
+    "min": 38,
+    "max": 40,
+    "weight": 14
+   },
+   {
+    "species": "parrlet",
+    "min": 38,
+    "max": 40,
+    "weight": 12
+   },
+   {
+    "species": "lanternis",
+    "min": 39,
+    "max": 41,
+    "weight": 8,
+    "time": [
+     "night",
+     "dusk"
+    ]
+   }
+  ]
+ }
+}
