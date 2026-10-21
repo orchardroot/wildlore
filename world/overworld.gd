@@ -271,13 +271,13 @@ func _spawn_npcs() -> void:
 	if not ResourceLoader.exists("res://world/npc.gd"):
 		return
 	var npc_script: Script = load("res://world/npc.gd")
-	set_meta("npc_phase", Game.phase())
+	set_meta("npc_phase", Game.phase() + Routines.stamp(Calendar.weekday_today(), Calendar.season_today(), Game.data.clock_minutes))
 	for def in zone.npcs + _side_npcs():  # plus a Keeper out in town with a side story (SideStories)
 		if not Npc.should_spawn(def, Game.data, Game.phase()):  # flag gating and hours ("times")
 			continue
 		var n: Node3D = npc_script.new()
 		add_child(n)
-		n.setup(def, self)
+		n.setup(Npc.placed(def), self)  # at their routine's spot for now, if they keep one
 		npcs.append(n)
 
 ## Keepers waiting in this zone with a side story, each on their spot or the nearest free tile to it.

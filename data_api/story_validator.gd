@@ -53,6 +53,9 @@ static func validate(dex: Dex, moves: MoveDB, items: ItemDB, zones: Dictionary) 
 			var tr := str(n.get("trainer", ""))
 			if tr != "" and not StoryData.trainer_exists(tr):
 				errors.append(tag + "trainer '%s' does not exist" % tr)
+			if n.has("routine"):
+				for e in routine_errors(n, StoryData.script(zid, sc) if sc != "" else [], targets, z, Routines.blocked_tiles_except(z, n)):
+					errors.append(tag + e)
 			if n.has("times"):
 				for e in times_errors(n, StoryData.script(zid, sc) if sc != "" else [], targets):
 					errors.append(tag + e)
@@ -78,6 +81,22 @@ static func times_errors(n: Dictionary, cmds: Array, npc_targets: Dictionary) ->
 	var story := _story_commands(cmds)
 	if not story.is_empty():
 		errors.append("story-critical script (%s) can't have times" % ", ".join(story))
+	return errors
+
+## A routine (core/routines.gd) has the same limits as `times`, a still NPC only, and slots on plain tiles clear of doors.
+static func routine_errors(n: Dictionary, cmds: Array, npc_targets: Dictionary, z: ZoneData, blocked: Dictionary) -> Array:
+	var errors := Routines.errors(n, z, blocked)
+	if str(n.get("move", "still")) != "still":
+		errors.append("a routine needs move still")
+	if str(n.get("trainer", "")) != "":
+		errors.append("a trainer can't keep a routine")
+	if str(n.get("sprite", "")) in ALWAYS_OUT_SPRITES:
+		errors.append("'%s' must always be at their post (no routine)" % n.get("sprite"))
+	if npc_targets.has(str(n.get("id", ""))):
+		errors.append("a story beat moves this NPC, so it can't keep a routine")
+	var story := _story_commands(cmds)
+	if not story.is_empty():
+		errors.append("story-critical script (%s) can't have a routine" % ", ".join(story))
 	return errors
 
 static func _story_commands(cmds: Array, out: Array = []) -> Array:
