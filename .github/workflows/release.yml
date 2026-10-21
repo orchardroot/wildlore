@@ -19,12 +19,17 @@ jobs:
         run: tools/test.sh
       - name: Export
         run: tools/export.sh
+      - name: Launch the Linux build headless and quit
+        run: |
+          sudo apt-get install -y libgl1 libxcursor1 libxinerama1 libxi6 libxrandr2 >/dev/null
+          timeout 120 build/linux/Wildlore.x86_64 --headless --quit-after 60 2>&1 | tee launch.log
+          ! grep -q "SCRIPT ERROR" launch.log
       - name: Publish release
         env:
           GH_TOKEN: ${{ github.token }}
         run: >
           gh release create "$GITHUB_REF_NAME"
-          build/Wildlore-mac.zip build/Wildlore-windows.zip
+          build/Wildlore-mac.zip build/Wildlore-windows.zip build/Wildlore-linux.zip
           --title "Wildlore: These Isles $GITHUB_REF_NAME"
-          --notes "Unsigned builds. Mac: right-click Wildlore.app, Open. Windows: More info, Run anyway."
+          --notes "Unsigned builds. Mac: right-click Wildlore.app, Open. Windows: More info, Run anyway. Linux: unzip, then run ./Wildlore.x86_64."
           --prerelease
