@@ -92,6 +92,7 @@ func _fill_list() -> void:
 		h.add_child(ic)
 		var nm := UIKit.fit_label(c.nickname if c.nickname != "" else str(c.species.name), 220, 24, 16)
 		nm.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		nm.custom_minimum_size.x = 220  # a clipped label has no width of its own in an HBox
 		h.add_child(nm)
 		h.add_child(UIKit.fill())
 		var tag := "Ark" if _cands[i].where == "ark" else "Team"
