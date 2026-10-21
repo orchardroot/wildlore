@@ -221,6 +221,8 @@ func _exec(c: Dictionary) -> void:
 			await RingingRun.new(self).ring(c)
 		"wall":
 			await RingingRun.new(self).wall(c)
+		"games":
+			await GamesRun.new(self).play(c)
 		"casino":
 			await _casino(c)
 		"legend":
