@@ -123,10 +123,28 @@
    "facing": "down",
    "move": "still",
    "trainer": "lim_stallholder"
+  },
+  {
+   "id": "hall_stallholder",
+   "sprite": "villager_6",
+   "x": 6,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "hall_stallholder",
+   "name": "Milk Market Trader"
   }
  ],
  "encounters": {},
- "signs": [],
+ "signs": [
+  {
+   "x": 6,
+   "y": 1,
+   "text": "Limerick's Milk Market has been trading since 1852. The curved canopy over the square is modern, but the Saturday crowd, the cheese and the bakers are very much the old tradition.",
+   "plaque": "market_limerick_milkmarket",
+   "title": "The Milk Market"
+  }
+ ],
  "spawn": [
   8,
   8

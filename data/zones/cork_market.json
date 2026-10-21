@@ -101,10 +101,28 @@
    "facing": "down",
    "move": "still",
    "script": "market_stallholder"
+  },
+  {
+   "id": "hall_stallholder",
+   "sprite": "villager_5",
+   "x": 6,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "hall_stallholder",
+   "name": "English Market Trader"
   }
  ],
  "encounters": {},
- "signs": [],
+ "signs": [
+  {
+   "x": 6,
+   "y": 1,
+   "text": "Cork's English Market has traded since 1788 and the covered hall you walk into dates from the 1860s. In 2011 Queen Elizabeth II strolled round it, which the stall-holders still bring up.",
+   "plaque": "market_cork_market",
+   "title": "The English Market"
+  }
+ ],
  "spawn": [
   7,
   7

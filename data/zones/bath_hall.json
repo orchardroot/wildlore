@@ -1,0 +1,119 @@
+{
+ "id": "bath_hall",
+ "name": "Guildhall Market",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "market_stall",
+   "x": 2,
+   "y": 2,
+   "variant": 0
+  },
+  {
+   "type": "market_stall",
+   "x": 4,
+   "y": 2,
+   "variant": 1
+  },
+  {
+   "type": "market_stall",
+   "x": 8,
+   "y": 2,
+   "variant": 2
+  },
+  {
+   "type": "market_stall",
+   "x": 10,
+   "y": 2,
+   "variant": 0
+  },
+  {
+   "type": "market_stall",
+   "x": 2,
+   "y": 5,
+   "variant": 1
+  },
+  {
+   "type": "market_stall",
+   "x": 10,
+   "y": 5,
+   "variant": 2
+  },
+  {
+   "type": "bunting",
+   "x": 3,
+   "y": 1,
+   "variant": 1,
+   "walk": true
+  },
+  {
+   "type": "bunting",
+   "x": 9,
+   "y": 1,
+   "variant": 2,
+   "walk": true
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 7
+  },
+  {
+   "type": "potted_plant",
+   "x": 11,
+   "y": 7
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 8,
+   "to": "bath",
+   "tx": 32,
+   "ty": 31,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "hall_stallholder",
+   "sprite": "villager_4",
+   "x": 6,
+   "y": 4,
+   "facing": "down",
+   "move": "still",
+   "script": "hall_stallholder",
+   "name": "Guildhall Market Trader"
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "x": 6,
+   "y": 1,
+   "text": "Bath's Guildhall was designed by Thomas Baldwin and finished in 1775. The covered Guildhall Market is tucked behind it, a stone's throw from the Pump Room, which is a lot of hot water to be next to.",
+   "plaque": "market_bath_hall",
+   "title": "Bath Guildhall"
+  }
+ ],
+ "spawn": [
+  6,
+  7
+ ],
+ "rows": [
+  "xxxxxxxxxxxxx",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++D+++++x",
+  "xxxxxxxxxxxxx"
+ ]
+}
