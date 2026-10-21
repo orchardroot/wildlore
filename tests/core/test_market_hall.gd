@@ -26,15 +26,35 @@ func test_board_lists_only_trade_goods() -> void:
 	assert_eq(b[0].id, mats[0])
 	assert_eq(b[0].n, 3)
 
-func test_payout_is_ledger_price_times_quantity() -> void:
+func _a_trade_good() -> String:
 	var db := _items()
-	var d := GameStateData.new()
 	for id in db.ids():
-		if MarketHall.is_trade_good(db.get_item(id)):
-			assert_eq(MarketHall.payout(d, "swansea_market", id, 4), 4 * Trade.sell_price(d, id, "swansea"))
-			assert_eq(MarketHall.payout(d, "swansea_market", id, 0), 0)
-			return
-	assert_true(false, "no trade good found")
+		if MarketHall.is_trade_good(db.get_item(id)) and Trade.sell_price(GameStateData.new(), id, "swansea") >= 20:
+			return id
+	return ""
+
+func test_payout_follows_the_ledger_stack_price() -> void:
+	var id := _a_trade_good()
+	var d := GameStateData.new()
+	assert_true(id != "", "a trade good worth selling")
+	assert_eq(MarketHall.payout(d, "swansea_market", id, 1), Trade.sell_price(d, id, "swansea"))
+	assert_eq(MarketHall.payout(d, "swansea_market", id, 4), Trade.sell_total(d, id, "swansea", 4))
+	assert_eq(MarketHall.payout(d, "swansea_market", id, 0), 0)
+
+func test_a_big_stack_does_not_fetch_the_top_price_for_every_unit() -> void:
+	var id := _a_trade_good()
+	var d := GameStateData.new()
+	assert_true(MarketHall.payout(d, "swansea_market", id, 30) < 30 * Trade.sell_price(d, id, "swansea"), "each sale makes the next poorer")
+
+func test_selling_at_the_hall_builds_a_glut_that_the_next_visit_feels() -> void:
+	var id := _a_trade_good()
+	var d := GameStateData.new()
+	d.day_count = 10
+	var first := MarketHall.settle(d, "swansea_market", id, 20)
+	var second := MarketHall.settle(d, "swansea_market", id, 20)
+	assert_true(second < first, "flooding the hall twice in a day pays less the second time: %d then %d" % [first, second])
+	d.day_count = 14
+	assert_eq(MarketHall.payout(d, "swansea_market", id, 20), first, "three days on the market has recovered")
 
 func test_no_loop_prints_money() -> void:
 	var db := _items()

@@ -39,9 +39,16 @@ static func board(data: GameStateData, store: Dictionary, lookup: Callable, hall
 			"sell": Trade.sell_price(data, id, town), "note": Trade.price_note(data, id, town)})
 	return out
 
-## What a stall-holder pays for a stack, in sterling.
+## What a stall-holder pays for a stack, in sterling: each unit sold makes the next poorer (Trade.sell_total), as at a shop.
 static func payout(data: GameStateData, hall_id: String, item_id: String, qty: int) -> int:
-	return Trade.sell_price(data, item_id, str(hall(hall_id).get("town", hall_id))) * maxi(0, qty)
+	return Trade.sell_total(data, item_id, str(hall(hall_id).get("town", hall_id)), maxi(0, qty))
+
+## The payout for a stack, with the sale noted so the glut builds in that town (and fades over in-game days). The caller
+## takes the stack from the bag and pays the purse. Without this the halls were a tap: every unit at the top price.
+static func settle(data: GameStateData, hall_id: String, item_id: String, qty: int) -> int:
+	var total := payout(data, hall_id, item_id, qty)
+	Trade.record_sale(data, item_id, str(hall(hall_id).get("town", hall_id)), qty)
+	return total
 
 ## problems() for the files on disk: only the halls' rooms and towns are read.
 static func check_files() -> Array:
