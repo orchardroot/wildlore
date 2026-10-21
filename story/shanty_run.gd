@@ -109,7 +109,7 @@ func _match(who: String) -> void:
 	var r: Dictionary = rs[i]
 	var seasoned := Conkers.bag_count(data, Conkers.ITEM_SEASONED) > 0
 	var id: String = Conkers.ITEM_SEASONED if seasoned else Conkers.ITEM_FRESH
-	var wins := int(data.flag(Conkers.FLAG_ONER))
+	var wins := int(data.flags.get(Conkers.FLAG_ONER, 0))
 	var ner := Conkers.ner_name(wins)
 	Bag.new(data.bag).remove(id, 1)
 	await host.say(who, "%s'll take you on. %s Strings out, one swing each, no stamping on them." % [str(r.who), ("Your conker's a %s." % ner) if ner != "" else "Your first match, then."])

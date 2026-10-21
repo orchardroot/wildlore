@@ -78,7 +78,7 @@ static func start_cure(data: GameStateData) -> bool:
 static func days_left(data: GameStateData) -> int:
 	if not curing(data):
 		return 0
-	return maxi(0, season_days() - (data.day_count - int(data.flag(FLAG_CURING))))
+	return maxi(0, season_days() - (data.day_count - int(data.flags.get(FLAG_CURING, 0))))
 
 ## Takes a finished conker out of the drawer into the bag. Returns false if it is not ready or the bag is full.
 static func collect(data: GameStateData) -> bool:
@@ -119,7 +119,7 @@ static func finish(data: GameStateData, r: Dictionary, won: bool) -> Dictionary:
 		data.flags.erase(FLAG_ONER)
 		return out
 	TrainerStats.add(data, "conkers_won")
-	out.wins = int(data.flag(FLAG_ONER)) + 1
+	out.wins = int(data.flags.get(FLAG_ONER, 0)) + 1
 	data.set_flag(FLAG_ONER, out.wins)
 	var key: String = FLAG_DONE + str(r.id)
 	if not DailyKey.done_today(data, key):
