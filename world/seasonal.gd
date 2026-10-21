@@ -376,5 +376,5 @@ func _process(delta: float) -> void:
 	if _burst_wait > 0.0:
 		return
 	_burst_wait = _rng.randf_range(0.5, 1.6)
-	if GameClock.phase(Game.data.clock_minutes) in ["dusk", "night"]:
+	if GameClock.phase(Game.local_minutes()) in ["dusk", "night"]:
 		_launch()

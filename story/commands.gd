@@ -125,6 +125,7 @@ func _exec(c: Dictionary) -> void:
 				await host.say("", "%s was sent to the Ark, as your team is full." % cr.display_name())
 		"heal":
 			data.heal_party()
+			data.flags.erase("jet_lag")  # a nap at the Sanctuary clears it
 			var t: Vector2i = host.heal_anchor(str(c.get("npc", npc_id)))
 			data.last_sanctuary = {"zone": host.zone_id(), "pos": [t.x, t.y]}
 			await host.sfx("heal")
@@ -584,12 +585,33 @@ func _overseas_trip(e: Dictionary, a: Dictionary, outbound: bool) -> void:
 	var scene := await _journey_out(kind, info)
 	if not scene:
 		await host.say("", str(e.get("flight_line", "")) if outbound else "The wheels go down, and England looks very green.")
+	# the clock runs on through the flight; jet lag is the gap between the zones you leave and land in
+	var abroad := Timezones.zone_for_region(ZoneData.load_id(str(Overseas.arrival(e).zone)).region)
+	var lag := Timezones.difference(host.data, abroad)
+	_advance_clock(Timezones.flight_minutes(str(e.id)))
 	await host.warp(str(a.zone), a.pos.x, a.pos.y, "down")
+	var lag_line := Timezones.jet_lag_line(lag if outbound else -lag)
+	if lag_line != "":
+		host.data.set_flag("jet_lag")
 	if scene:
 		await host.journey_in(kind, info)
 	if outbound and scene:
 		await host.say("", str(e.get("flight_line", "")))
+	if lag_line != "":
+		await host.say("", lag_line)
 	_ended = true
+
+## Move the UK clock on (a long flight), with the midnight chores if it crosses one.
+func _advance_clock(minutes: int) -> void:
+	var d: GameStateData = host.data
+	var t := d.clock_minutes + minutes
+	while t >= GameClock.DAY:
+		t -= GameClock.DAY
+		d.day_count += 1
+		BuildingSociety.settle(d)
+		Deeds.tick(d, d.day_count)
+		Leases.tick(d, d.day_count)
+	d.clock_minutes = t
 
 ## A travel scene on the way out (see Journey), if the host plays them: true when one played. The warp to the
 ## usual arrival tile is still ours to do either way.
@@ -616,7 +638,7 @@ const WEATHER_CONDS := {"rain": ["drizzle", "downpour"], "fog": ["fog"], "gale":
 ## in the Fieldbook proper caught; the appendix is a bonus), "caught_<n>" (at least n caught), "party_has_<species>", "caught_<species>" (one in the party, or what it evolved into), and from the real date the season ("spring".."winter") or a festival (Calendar.FESTIVALS).
 func _when(cond: String) -> bool:
 	if cond in PHASE_CONDS:
-		return GameClock.phase(host.data.clock_minutes) == cond
+		return GameClock.phase(Timezones.local_minutes(host.data, host.data.tz_zone)) == cond  # local time abroad
 	if WEATHER_CONDS.has(cond):
 		return _weather() in WEATHER_CONDS[cond]
 	if cond == "caught_all":

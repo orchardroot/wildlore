@@ -160,7 +160,8 @@ func _now() -> String:
 		indoors = ow.zone.kind == "interior"
 	elif Game.args.get("weather", "") != "":
 		weather = str(Game.args.weather)
-	return MenuLogic.now_text(Game.data.clock_minutes, weather, indoors)
+	var clock := Timezones.clock_text(Game.data, Game.data.tz_zone) if Timezones.is_abroad(Game.data.tz_zone) else ""
+	return MenuLogic.now_text(Game.local_minutes(), weather, indoors, clock)
 
 func _stat(k: String, v: String) -> HBoxContainer:
 	var h := HBoxContainer.new()

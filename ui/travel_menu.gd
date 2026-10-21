@@ -55,7 +55,9 @@ func _setup_departures() -> void:
 		b.alignment = HORIZONTAL_ALIGNMENT_LEFT
 		b.custom_minimum_size = Vector2(0, 64)
 		b.add_theme_font_size_override("font_size", 28)
-		b.focus_entered.connect(func(): blurb.text = str(e.get("blurb", "")))
+		var zone := Timezones.zone_for_region(ZoneData.load_id(str(Overseas.arrival(e).zone)).region)
+		var arrive := Timezones.arrival_text(Game.data, str(e.id), zone)
+		b.focus_entered.connect(func(): blurb.text = str(e.get("blurb", "")) + ("\n" + arrive if arrive != "" else ""))
 		_list.add_child(b)
 		buttons.append(b)
 	if buttons.is_empty():

@@ -22,6 +22,7 @@ var caught: Dictionary = {}
 var badges: Array = []
 var play_seconds := 0.0
 var clock_minutes := 480
+var tz_zone := "uk"  # runtime only (not saved): the Timezones zone you stand in; interiors keep the street's
 var day_count := 0  # in-game midnights passed; drives once-a-day things
 var last_sanctuary: Dictionary = {"zone": "macclesfield", "pos": [-1, -1]}  # (-1, -1) = the zone's spawn
 var rng_seed := 0
