@@ -1,28 +1,51 @@
-# Wildlore roadmap
+# Wildlore: These Isles, roadmap
 
-The game is meant to be looked after for years. This is the running to-do list beyond whatever release is in progress.
+The game is meant to be looked after for years. This is the running plan beyond whatever release is in progress. The
+reasoning behind it (what the game is now, the economy design, depth, minigames, the name) is in
+[docs/design/2026-10-21-deeper-wildlore.md](design/2026-10-21-deeper-wildlore.md). Work items for the next release are
+GitHub issues labelled with its milestone.
 
-## Now: 3.0 "Wider Isles"
-- Open the walled-off edges and add new towns and routes as quest areas (Pennines and Leeds, the Potteries, the Lancashire
-  coast, Bristol, Swansea and Gower, Devon, Fife and Dundee, Fermanagh, Donegal, Limerick, Shropshire, East Anglia, the
-  South East, the far north of Scotland, Hull and Lincoln, Carlisle and the Borders).
-- Areas off the main line scale with the story (core/par_level.gd), so the progression line stays intact.
-- Quest Log, heritage plaques and the Gazetteer: learn about the UK and Ireland as you go.
-- Regional creatures from local lore, wildlife and events, with more type variety early on.
-- Follower creature keeps step when a direction is held.
+The identity line everything is judged against: **a walking holiday round the real Isles that turns into a life
+there.** A feature belongs if it makes a place more knowable, makes the player more of a local, or makes the land
+richer.
 
-## Medium term
-- **Regional items.** Every region gets its own things to find, buy and use: food and drink (Eccles cakes, Bara brith,
-  Arbroath smokies, soda bread, Stilton...), crafts and materials, local charms. Regional shop stock, so what you can buy
-  depends on where you are.
-- **Local curiosities.** Small oddities to discover in each place: follies, odd museums, holy wells, strange customs and
-  festivals (cheese rolling, Up Helly Aa, well dressing, Bonfire Night, Puck Fair), collectable and tied into the
-  Gazetteer.
-- **Localised buildings.** Towns look too alike from region to region. Building styles per region and town: Cotswold
-  limestone, Pennine gritstone mills, Welsh slate and whitewash, Scottish harled tenements and crow-stepped gables, Irish
-  painted shopfronts, Georgian terraces in Bath and Dublin, Tudor timber in Chester and York, flint in East Anglia,
-  red-brick back-to-backs in Manchester and Birmingham, granite in Aberdeen. Region-specific roofs, chimneys, colours,
-  signs and street furniture (post boxes, phone boxes, bilingual signs in Wales, green post boxes in Ireland).
+## Done
+- **3.0 Wider Isles**: the walled-off edges opened, 72 towns, quests, 900+ plaques and the Gazetteer, 131 regional
+  creatures, euros and markets, the casino and Aintree, par-level scaling.
+- **3.1 Seasons & Streets**: local architecture for the original towns, real-date festivals, regional cooking, home
+  souvenirs and garden, weather that matters.
+- **3.2 Shetland and Small Mercies**: Shetland and Up Helly Aa, yearly festivals, the game says why it won't do things,
+  visual fixes.
+- **3.3 Overseas**: RAF Brize Norton and 18 overseas destinations, Jersey, Guernsey and Sark, real currencies; the game
+  renamed Wildlore: These Isles.
+
+## Next: 3.4 Market Day (the economy's floor)
+- **Trade Ledger**: place-set prices for materials, dishes and regional items, gluts, perishables, a pannier; the Money
+  Box on the wireless and a Monday market report.
+- **Market Halls**: 25 real halls as rooms with a stall-holder, a price board and a sell flow.
+- **The Building Society**: loans with honest compound interest, letters, Mum's sub.
+- **Trades**: the player's own progression (Rambler, Trader, Cook and more) read off the stats you already earn, with
+  small perks.
+- **Fishing**: on water tiles, rods, fish as items, creatures only found on a line.
+
+## Then
+- **3.5 Open for Business**: Deeds you buy, supply, upgrade and pay rates on (a chippy, a B&B, a boat, a market stall,
+  an allotment), twelve recurring characters who remember you, the HMRC envelope, darts, crabbing, the allotment show and
+  sheepdog trials.
+- **3.6 Behind Doors**: examine spots and hidden rooms, Deep Places (puzzle caves and mines, Blue John first), the
+  Casebook of mysteries, guilds with one real choice, your lead creature doing a job in the overworld, bell ringing and
+  drystone walling.
+- **3.7 The Long Game**: the Enclosure leases (buying back fenced land after the story opens new small zones), a pub
+  quiz league, Highland games, hurling and shinty, sea shanties, NPC routines, a long arc for each nation, a Year in the
+  Isles epilogue.
+
+## Alongside, whenever there's room
+- Windows and Linux builds checked in the Release workflow, and an in-game "report a bug" button.
+- A fresh-eyes audit of the first hour for new players, and a scan for anything too close to Pokémon.
+- Contributor docs: CONTRIBUTING.md, issue templates, "good first issue" labels.
+
+## Parked
+- **Android**: Godot exports it easily, but it needs touch controls and a UI pass for small screens first.
 
 ## Long term (not in the current version)
 - **Multiplayer.** A PvP battle server: link battles between friends, ranked play with sensible rules (level caps, banned
