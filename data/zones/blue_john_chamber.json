@@ -1,0 +1,105 @@
+{
+ "id": "blue_john_chamber",
+ "name": "Blue John Cavern: The Crystal Chamber",
+ "region": "",
+ "kind": "interior",
+ "music": "dungeon_underground",
+ "weather": {},
+ "props": [],
+ "legend_extra": {
+  "e": {
+   "tile": "path",
+   "colour": "#565d69"
+  },
+  "m": {
+   "tile": "tall_grass",
+   "colour": "#3f565a",
+   "prop": "none"
+  },
+  "g": {
+   "tile": "path",
+   "colour": "#6b6f7a"
+  }
+ },
+ "warps": [
+  {
+   "x": 1,
+   "y": 3,
+   "to": "blue_john_stream",
+   "tx": 18,
+   "ty": 8,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "bj_shivertor",
+   "sprite": "creature:shivertor",
+   "x": 18,
+   "y": 5,
+   "facing": "left",
+   "move": "still",
+   "script": "bj_shivertor",
+   "hide_if": "bluejohn_caught"
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "x": 6,
+   "y": 3,
+   "text": "A slab, a rail and a plate set in the floor. Someone with more patience than most miners once rolled stone along here. The plate looks like it wants something heavy."
+  },
+  {
+   "x": 17,
+   "y": 6,
+   "plaque": "blue_john_vein",
+   "title": "The Vein",
+   "text": "BLUE JOHN VEIN. Blue John is fluorite, a mineral of calcium and fluorine, which forms in bands as hot mineral water seeps through cracks in limestone. The colours come from tiny flaws in the crystal. It is soft enough to carve and pretty enough to be worth the bother."
+  }
+ ],
+ "spawn": [
+  2,
+  3
+ ],
+ "stage": "cave",
+ "dark": true,
+ "rows": [
+  "xxxxxxxxxxxxxxxxxxxxxx",
+  "xxxxxxxxxxxxxxxxxxxxxx",
+  "xxxxxxxxxxxxxxxxxxxxxx",
+  "xDeeeeeeeeeeexxeeeeexx",
+  "xeeeeeeeeeeeeegeeeeexx",
+  "xeeeeeeeeeeeeexeeeeexx",
+  "xeeeeeeeeeeeeexeeeeexx",
+  "xeeeeeeeeeeeeexxeeexxx",
+  "xxxxxxxxxxxxxxxxxxxxxx"
+ ],
+ "deep": {
+  "plates": [
+   {
+    "id": "plate",
+    "x": 11,
+    "y": 4
+   }
+  ],
+  "crates": [
+   {
+    "id": "slab",
+    "x": 5,
+    "y": 6
+   }
+  ],
+  "gates": [
+   {
+    "x": 14,
+    "y": 4,
+    "by": [
+     "plate:plate"
+    ],
+    "line": "A stone slab blocks the way, with a plate in the floor in front of it."
+   }
+  ]
+ }
+}

@@ -1,0 +1,161 @@
+{
+ "id": "blue_john_stream",
+ "name": "Blue John Cavern: The Stream Passage",
+ "region": "",
+ "kind": "interior",
+ "music": "dungeon_underground",
+ "weather": {},
+ "props": [],
+ "legend_extra": {
+  "e": {
+   "tile": "path",
+   "colour": "#565d69"
+  },
+  "m": {
+   "tile": "tall_grass",
+   "colour": "#3f565a",
+   "prop": "none"
+  },
+  "g": {
+   "tile": "path",
+   "colour": "#6b6f7a"
+  }
+ },
+ "warps": [
+  {
+   "x": 2,
+   "y": 1,
+   "to": "blue_john_entry",
+   "tx": 10,
+   "ty": 1,
+   "facing": "down"
+  },
+  {
+   "x": 19,
+   "y": 8,
+   "to": "blue_john_chamber",
+   "tx": 3,
+   "ty": 3,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [],
+ "encounters": {
+  "grass": [
+   {
+    "species": "flittermouse",
+    "min": 9,
+    "max": 11,
+    "weight": 16
+   },
+   {
+    "species": "crumblet",
+    "min": 9,
+    "max": 12,
+    "weight": 18
+   },
+   {
+    "species": "scuttlet",
+    "min": 9,
+    "max": 11,
+    "weight": 14
+   },
+   {
+    "species": "gritling",
+    "min": 10,
+    "max": 12,
+    "weight": 12
+   },
+   {
+    "species": "lanternis",
+    "min": 10,
+    "max": 12,
+    "weight": 6,
+    "time": [
+     "night",
+     "dusk"
+    ]
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 4,
+   "y": 2,
+   "plaque": "blue_john_stream",
+   "title": "The Stream Passage",
+   "text": "A cave stream and its passage were made by water, which does most of the work in limestone country. Rain sinks into the hill and finds its own way down. The cave is only the part of the route that happens to be big enough to walk."
+  }
+ ],
+ "spawn": [
+  3,
+  2
+ ],
+ "stage": "cave",
+ "dark": true,
+ "rows": [
+  "xxxxxxxxxxxxxxxxxxxxxx",
+  "xxDeeeexxxxxxxxxxxxxxx",
+  "xxeemmeexxxxxxxxxxxxxx",
+  "xxeeeeeexxxxxxxxxxxxxx",
+  "xxeeeeeeexxxxxxxxxxxxx",
+  "xxxeeeeeeewwwwweeeexxx",
+  "xxxxxxxxxxxxxxxxeemmex",
+  "xxxxxxxxxxxxxxxxeeeeex",
+  "xxxxxxxxxxxxxxxxeeeDxx",
+  "xxxxxxxxxxxxxxxxxxxxxx"
+ ],
+ "deep": {
+  "levers": [
+   {
+    "id": "valve",
+    "x": 8,
+    "y": 4,
+    "on": "You turn the old sluice valve. The water in the passage gurgles away and the floor shows through.",
+    "off": "You close the valve. The water creeps back across the passage."
+   },
+   {
+    "id": "pocket",
+    "x": 4,
+    "y": 3,
+    "needs_light": true,
+    "on": "Your lantern catches a glint in the wall. A loose slab shifts, and behind it is a pocket of banded purple stone.",
+    "off": "There is nothing more in the pocket.",
+    "find": {
+     "item": "blue_john_chip"
+    }
+   }
+  ],
+  "floods": [
+   {
+    "id": "stream",
+    "by": [
+     "lever:valve"
+    ],
+    "tiles": [
+     [
+      10,
+      5
+     ],
+     [
+      11,
+      5
+     ],
+     [
+      12,
+      5
+     ],
+     [
+      13,
+      5
+     ],
+     [
+      14,
+      5
+     ]
+    ]
+   }
+  ]
+ }
+}

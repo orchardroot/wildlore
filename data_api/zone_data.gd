@@ -56,6 +56,8 @@ var ferry: Dictionary = {}     # {x, y, route}
 var stub := false              # a placeholder another builder will replace
 var scaled_floor := -1        # off the main line: encounters authored at this par, lifted with the story (ParLevel); -1 = fixed
 var dark := false              # a cave: only a circle of light round the player (wider with the Lantern)
+var deep_solid: Array = []    # tiles DeepPlace made solid (levers, crates), cleared on each re-apply
+var deep: Dictionary = {}     # a Deep Place's puzzle pieces (see DeepPlace)
 var ambience := ""             # ambience bed override (an Ambience.BEDS id, or "none"); "" = pick from kind/stage
 
 static func load_id(zone_id: String) -> ZoneData:
@@ -94,6 +96,7 @@ static func from_dict(d: Dictionary) -> ZoneData:
 	z.ferry = d.get("ferry", {})
 	z.stub = bool(d.get("stub", false))
 	z.dark = bool(d.get("dark", false))
+	z.deep = d.get("deep", {})
 	z.scaled_floor = int(d.get("scaled_floor", -1))
 	z.ambience = str(d.get("ambience", ""))
 	var sp: Array = d.get("spawn", [0, 0])
@@ -407,6 +410,7 @@ func validate(all: Dictionary) -> Array:
 	for n in npcs:
 		if not walkable(Vector2i(int(n.x), int(n.y))):
 			e.append(tag + "npc '%s' stands on an unwalkable tile" % n.get("id", "?"))
+	e.append_array(DeepPlace.problems(self))
 	# ability gates: every warp and edge must be reachable from the spawn, using only the ability its "gate" names
 	if walkable(spawn):
 		var cache := {}

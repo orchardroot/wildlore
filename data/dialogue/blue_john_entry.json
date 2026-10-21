@@ -1,0 +1,55 @@
+{
+ "bj_guide": [
+  {
+   "do": "if",
+   "flag": "bluejohn_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Gwen",
+     "text": "You found it, then. The vein. Half the visitors turn back at the water and buy a fudge instead. Respect."
+    },
+    {
+     "do": "say",
+     "who": "Gwen",
+     "text": "Mind the steps on the way out. Dozens of people have said they will. I've watched all of them not."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "dp_blue_john_entry_gate",
+     "then": [
+      {
+       "do": "say",
+       "who": "Gwen",
+       "text": "Gate's open. Down the steps at the far end, then follow the stream. There are three levels, and each wants something different from you."
+      },
+      {
+       "do": "say",
+       "who": "Gwen",
+       "text": "The stream passage floods. There's an old sluice valve on the near bank. Or you could wade it, if you've been taught how. And bring a lantern: some things only show in proper light."
+      },
+      {
+       "do": "say",
+       "who": "Gwen",
+       "text": "At the bottom there's a slab you'll need to roll onto a plate. Straight lines, mostly. If you jam it in a corner, step out and come back in: the cave tidies itself."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Gwen",
+       "text": "Welcome to Blue John Cavern. I'd say mind your head, but the cave doesn't care what I say."
+      },
+      {
+       "do": "say",
+       "who": "Gwen",
+       "text": "The gate to the steps is locked from my side. The lever by the desk works it. Give it a good pull; it's been pulled by worse."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
