@@ -8,11 +8,11 @@ const ZONE_DIR := "res://data/zones"
 static var _habitats: Dictionary = {}
 static var _habitats_loaded := false
 static var _last_id := ""      # reopens on the entry you left it on (this session only)
-static var _filter := "all"    # all | caught | seen | rumours, also kept for the session
+static var _filter := "all"    # all | caught | seen | rumours | studbook, also kept for the session
 
 const PAGE := 10
 const MAX_PLACES := 3  # the rest are on the map, so a long list can't push the entry off the bottom
-const FILTER_NAMES := {"all": "All", "caught": "Caught", "seen": "Seen", "rumours": "Rumours"}
+const FILTER_NAMES := {"all": "All", "caught": "Caught", "seen": "Seen", "rumours": "Rumours", "studbook": "Stud Book"}
 
 var _all: Array = []           # every species id, Dex order
 var _no: Dictionary = {}       # id -> Dex number as shown: "045", or "A01" in the appendix after the 200
@@ -69,6 +69,8 @@ func _fill_list() -> void:
 	if _filter == "rumours":
 		_rumours = RumoursTab.entries()
 		_ids = _rumours.map(func(r): return str(r.species))
+	elif _filter == "studbook":
+		_ids = StudBookTab.ids()
 	else:
 		_ids = MenuLogic.fieldbook_filter(_all, d.seen, d.caught, _filter)
 	header_right.text = "%s    Seen %d    Caught %d / %d" % [FILTER_NAMES[_filter], d.seen.size(), FieldbookGoals.caught_count(d), _core]
@@ -78,7 +80,7 @@ func _fill_list() -> void:
 	UIKit.clear(_list_col)
 	_buttons.clear()
 	for i in _ids.size():
-		var b := _rumour_button(i) if _filter == "rumours" else _entry_button(i)
+		var b := _rumour_button(i) if _filter == "rumours" else (_book_button(i) if _filter == "studbook" else _entry_button(i))
 		_list_col.add_child(b)
 		_buttons.append(b)
 	UIKit.wrap_focus(_buttons)
@@ -101,6 +103,10 @@ func _scroll_to_later(b: Control) -> void:
 ## setup("<species id>") opens on that entry (the filter goes back to All if it would hide it);
 ## setup("rumours") or setup("stamps") opens the Rumours tab.
 func setup(arg: String) -> void:
+	if arg == "studbook":  # straight to the Stud Book tab
+		_filter = "studbook"
+		_fill_list()
+		return
 	if arg in ["rumours", "stamps"]:  # straight to the Rumours tab (on its first rumour, or on the stamps)
 		_filter = "rumours"
 		_fill_list()
@@ -130,12 +136,12 @@ func _input(event: InputEvent) -> void:
 		return
 	if event.is_action_pressed("bike"):
 		get_viewport().set_input_as_handled()
-		if not _ids.is_empty():
+		if not _ids.is_empty() and _filter != "studbook":
 			play_cry(_ids[_cur])
 		return
 	if event.is_action_pressed("run"):
 		get_viewport().set_input_as_handled()
-		_filter = MenuLogic.next_filter(_filter)
+		_filter = MenuLogic.next_filter(_filter, StudBookTab.visible(Game.data))
 		Audio.sfx("cursor")
 		_fill_list()
 		return
@@ -204,6 +210,27 @@ func _entry_button(i: int) -> Button:
 	else:
 		dot.visible = false
 	h.add_child(dot)
+	for c in h.get_children():
+		c.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	return b
+
+## A Stud Book tab row: an idea (or the Crosses log).
+func _book_button(i: int) -> Button:
+	var id := str(_ids[i])
+	var b := Button.new()
+	b.custom_minimum_size = Vector2(0, 58)
+	b.focus_entered.connect(func():
+		Audio.sfx("cursor")
+		_cur = i
+		_last_id = id
+		StudBookTab.show(id, _detail))
+	var h := HBoxContainer.new()
+	h.set_anchors_preset(Control.PRESET_FULL_RECT)
+	h.offset_left = 10
+	h.offset_right = -10
+	h.add_theme_constant_override("separation", 10)
+	b.add_child(h)
+	StudBookTab.row(id, h)
 	for c in h.get_children():
 		c.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	return b

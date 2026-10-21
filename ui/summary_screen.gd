@@ -11,6 +11,7 @@ var _move_rows: Array = []
 var _move_info: Label
 var _moves_of: Creature
 var _swap_from := -1  # the move picked to be swapped, or -1
+var _genome := false  # the genome page instead of the stats and moves
 var _in_ark := false  # summarising the Ark's creatures instead of the team
 
 func _build() -> void:
@@ -28,6 +29,8 @@ func setup(arg: String) -> void:
 		arg = arg.substr(4)
 	var parts := arg.split(":")
 	_index = clampi(int(parts[0]), 0, maxi(0, _list().size() - 1))
+	if parts.size() > 1 and parts[1] == "genome":  # `--menu=summary:0:genome` (screenshots)
+		_genome = true
 	if parts.size() > 1 and parts[1] == "swap":
 		_swap_from = 0
 		_move = 2
@@ -85,6 +88,13 @@ func _input(event: InputEvent) -> void:
 			Audio.sfx("cursor")
 			_paint_moves()
 		return
+	if event.is_action_pressed("run"):  # Run turns to the genome page and back
+		get_viewport().set_input_as_handled()
+		_genome = not _genome
+		_swap_from = -1
+		Audio.sfx("cursor")
+		_show()
+		return
 	var d := 0
 	if event.is_action_pressed("move_left"):
 		d = -1
@@ -112,6 +122,10 @@ func _show() -> void:
 	_moves_of = c
 	_set_hint()
 	_body.add_child(_left(c))
+	if _genome:
+		_move_rows = []
+		_body.add_child(GenomePage.build(Game.data, c))
+		return
 	_body.add_child(_middle(c))
 	_body.add_child(_right(c))
 
@@ -121,8 +135,8 @@ func _set_hint() -> void:
 	if _swap_from >= 0:
 		set_hints([["updown", "Pick a spot"], ["confirm", "Swap here"], ["cancel", "Cancel"]])
 		return
-	var many := _moves_of.moves.size() > 1
-	set_hints(([["updown", "Moves"], ["confirm", "Reorder"]] if many else []) + ([["leftright", "Next creature"]] if _list().size() > 1 else []) + [["cancel", "Back"]])
+	var many := _moves_of.moves.size() > 1 and not _genome
+	set_hints(([["updown", "Moves"], ["confirm", "Reorder"]] if many else []) + [["run", "Makings" if not _genome else "Stats"]] + ([["leftright", "Next creature"]] if _list().size() > 1 else []) + [["cancel", "Back"]])
 
 const LEFT_W := 336
 const MID_W := 392
@@ -296,7 +310,7 @@ func _middle(c: Creature) -> Control:
 		row.add_child(vl)
 		v.add_child(row)
 	v.add_child(UIKit.spacer(6))
-	var nl := UIKit.label("%s nature" % c.nature.capitalize(), 26, UIKit.GOLD)
+	var nl := UIKit.label("%s temper" % c.nature.capitalize(), 26, UIKit.GOLD)
 	v.add_child(nl)
 	if nat.size() == 2:
 		v.add_child(UIKit.label("Likes %s, less keen on %s" % [STAT_NAMES[nat[0]], STAT_NAMES[nat[1]]], 20, UIKit.MUTED))
