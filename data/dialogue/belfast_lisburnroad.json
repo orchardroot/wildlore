@@ -15,5 +15,57 @@
    "who": "Shopkeeper",
    "text": "In the 1690s a Huguenot called Louis Crommelin set up near Lisburn and improved the trade. His name is still on a few things."
   }
- ]
+ ],
+"arcni_weaver": [
+ {
+  "do": "if",
+  "flag": "q_arc_ni_7",
+  "then": [
+   {
+    "do": "say",
+    "who": "Mrs Quinn",
+    "text": "Mind you tell Nuala the girls' names are in the back of the order books. She'll find them if she looks."
+   }
+  ],
+  "else": [
+   {
+    "do": "if",
+    "flag": "q_arc_ni_6",
+    "then": [
+     {
+      "do": "say",
+      "who": "Mrs Quinn",
+      "text": "I went in at fourteen, the same as my mother. Before that the half-timers did mornings in the mill and afternoons at school, or the other way round."
+     },
+     {
+      "do": "say",
+      "who": "Mrs Quinn",
+      "text": "The sheds were so loud you learned to talk without a sound. Everybody could lip-read by Friday. You'd a whole conversation going across forty looms and the foreman never heard a word."
+     },
+     {
+      "do": "say",
+      "who": "Mrs Quinn",
+      "text": "The doffers were the wee ones. They swapped the full bobbins for empty ones, fast, under the frames. The mills ran on small hands and big wages for somebody else."
+     },
+     {
+      "do": "say",
+      "who": "Mrs Quinn",
+      "text": "Tell Nuala to write the doffers down. And then go to the Wall. That's a different kind of hands, but they were hands."
+     },
+     {
+      "do": "set",
+      "flag": "q_arc_ni_7"
+     }
+    ],
+    "else": [
+     {
+      "do": "say",
+      "who": "Mrs Quinn",
+      "text": "Have a look at the bolt on the table first, love. The cloth will tell you what I'd only waffle about."
+     }
+    ]
+   }
+  ]
+ }
+]
 }

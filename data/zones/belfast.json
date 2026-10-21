@@ -844,8 +844,18 @@
    "h": 3,
    "label": "Building Society",
    "kind": "hall"
-  }
- ],
+  },
+{
+ "type": "building",
+ "style": "mill",
+ "x": 10,
+ "y": 50,
+ "w": 6,
+ "h": 3,
+ "label": "The Hands Mill",
+ "kind": "museum"
+}
+],
  "region": "ireland",
  "rows": [
   "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT===TTTTTTT$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
@@ -898,9 +908,9 @@
   "TT..::::::::::::::::::::::::::....:===:.wooow.::BBBBBBBBB.....$$$$$$$$$$",
   "TT................................:===:.wooow.::BBBBBBBBB.....$$$$$$$$$$",
   "TT................................:===:.wooow.::BBBBDBBBB.....$$$$$$$$$$",
-  "TT................................:===:.wooow.::::::::::::::..$$$$$$$$$$",
-  "TT................................:===:.wooow.................$$$$$$$$$$",
-  "TT................................:===:.wooow.................$$$$$$$$$$",
+  "TT........BBBBBB..................:===:.wooow.::::::::::::::..$$$$$$$$$$",
+  "TT........BBBBBB..................:===:.wooow.................$$$$$$$$$$",
+  "TT........BBDBBB..................:===:.wooow.................$$$$$$$$$$",
   "TT................................:===:.wooow.................$$$$$$$$$$",
   "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT===TTTTTTTTTTTTTTTTTTTTTTTT$$$$$$$$$$",
   "TTTTPTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT===TTTTTTTTTTTTTTTTTTTTTTTT$$$$$$$$$$"
@@ -1140,8 +1150,20 @@
    "tx": 5,
    "ty": 5,
    "facing": "up"
-  }
- ],
+  },
+{
+ "x": 12,
+ "y": 52,
+ "to": "belfast_handsmill",
+ "tx": 6,
+ "ty": 7,
+ "facing": "up",
+ "locked": {
+  "needs": "q_arc_ni_hands_open",
+  "line": "The mill gates are chained. A card in the window says THE HANDS MILL: OPENING WHEN THE STORIES ARE IN. Nuala Orr's handwriting, by the look."
+ }
+}
+],
  "weather": {
   "clear": 20.0,
   "downpour": 10.0,

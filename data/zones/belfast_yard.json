@@ -181,16 +181,43 @@
    "move": "still",
    "text": "Still on my break. Didn't want to miss you beating the gaffer. Worth it.",
    "show_if": "trainer_keeper_ruairi"
-  }
- ],
+  },
+{
+ "id": "arcni_mervyn",
+ "sprite": "steelworker",
+ "x": 11,
+ "y": 9,
+ "facing": "down",
+ "move": "still",
+ "script": "arcni_mervyn",
+ "show_if": "q_arc_ni_started"
+},
+{
+ "id": "arcni_yardsong",
+ "sprite": "villager_5",
+ "x": 5,
+ "y": 9,
+ "facing": "down",
+ "move": "still",
+ "script": "arcni_yardsong",
+ "show_if": "q_arc_ni_started"
+}
+],
  "encounters": {},
  "signs": [
   {
    "x": 6,
    "y": 12,
    "text": "QUEEN'S ISLAND YARD. Keeper Ruairí. Hard hats past this point. The cranes are called Samson and Goliath and they will not be told otherwise."
-  }
- ],
+  },
+{
+ "x": 10,
+ "y": 12,
+ "plaque": "arc_ni_1907",
+ "title": "The 1907 Strike",
+ "text": "In the summer of 1907 Belfast's dockers and carters struck together under the union organiser Jim Larkin. Protestant and Catholic workers marched side by side, and for a few months the old divisions did not hold on the quays. The strike ended without winning everything, but Belfast has not forgotten it."
+}
+],
  "spawn": [
   8,
   11

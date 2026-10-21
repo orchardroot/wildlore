@@ -53,5 +53,85 @@
    "who": "Rambler",
    "text": "The trick is snacks. Soda farl, a flask, and a heart full of denial."
   }
- ]
+ ],
+"arcni_waller": [
+ {
+  "do": "if",
+  "flag": "q_arc_ni_9",
+  "then": [
+   {
+    "do": "say",
+    "who": "Old Hugh",
+    "text": "A good job. Anyone who passes will think it was always there. That's the highest praise a wall gets."
+   }
+  ],
+  "else": [
+   {
+    "do": "if",
+    "flag": "q_arc_ni_7",
+    "then": [
+     {
+      "do": "if",
+      "flag": "q_arc_ni_8",
+      "then": [
+       {
+        "do": "say",
+        "who": "Old Hugh",
+        "text": "There's the gap by the old stile. The sheep have been widening it for weeks. Fill it with what's lying about."
+       },
+       {
+        "do": "wall",
+        "who": "Old Hugh",
+        "level": "normal"
+       },
+       {
+        "do": "if",
+        "flag": "wall_done_mournes",
+        "then": [
+         {
+          "do": "set",
+          "flag": "q_arc_ni_9"
+         },
+         {
+          "do": "say",
+          "who": "Old Hugh",
+          "text": "Read the plaque there when you're done. Then take word back to Nuala."
+         }
+        ]
+       }
+      ],
+      "else": [
+       {
+        "do": "say",
+        "who": "Old Hugh",
+        "text": "The Wall took from 1904 to 1922. The Belfast Water Commissioners wanted the sheep and cattle off the ground that drains into the Silent Valley, so the water would stay clean."
+       },
+       {
+        "do": "say",
+        "who": "Old Hugh",
+        "text": "It crosses fifteen summits and it's about twenty-two miles long. No mortar. Big stones low, joints covered, a throughstone to tie it. Same as a team: no clever bits, only well fitted."
+       },
+       {
+        "do": "say",
+        "who": "Old Hugh",
+        "text": "Men from round here built it, a summer at a time, with granite off the hillside. Nobody carved their name on it. You can find it in the way each length sits."
+       },
+       {
+        "do": "set",
+        "flag": "q_arc_ni_8"
+       }
+      ]
+     }
+    ],
+    "else": [
+     {
+      "do": "say",
+      "who": "Old Hugh",
+      "text": "A wall's no good to anyone who hasn't heard about the people. Have a word with the weaver in Belfast first. She knows what hands are for."
+     }
+    ]
+   }
+  ]
+ }
+]
 }

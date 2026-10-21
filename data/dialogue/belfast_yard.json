@@ -169,5 +169,108 @@
     }
    ]
   }
- ]
+ ],
+"arcni_mervyn": [
+ {
+  "do": "regular",
+  "id": "mervyn"
+ },
+ {
+  "do": "if",
+  "flag": "q_arc_ni_started",
+  "then": [
+   {
+    "do": "if",
+    "flag": "q_arc_ni_3",
+    "then": [
+     {
+      "do": "say",
+      "who": "Mervyn Hanna",
+      "text": "Go on and sing with the lads. A song carries a yard better than a siren."
+     }
+    ],
+    "else": [
+     {
+      "do": "if",
+      "flag": "reg_mervyn",
+      "then": [
+       {
+        "do": "say",
+        "who": "Mervyn Hanna",
+        "text": "Nuala's at it again. Grand woman. Sit down till I tell you how a hull goes together."
+       },
+       {
+        "do": "say",
+        "who": "Mervyn Hanna",
+        "text": "A riveting squad was four lads. The heater boy kept the rivets glowing and threw them up. The catcher caught them in a bucket. The holder-on pressed the head, and the riveter hammered the other end flat."
+       },
+       {
+        "do": "say",
+        "who": "Mervyn Hanna",
+        "text": "Nobody asked the heater boy's name. He might have been fourteen. That's what Nuala wants written down, and I'll not argue."
+       },
+       {
+        "do": "say",
+        "who": "Mervyn Hanna",
+        "text": "Go and sing with the lads before you leave. Then read the plaque by the door. The 1907 one. That's the part they leave off the tea towels."
+       },
+       {
+        "do": "set",
+        "flag": "q_arc_ni_3"
+       }
+      ],
+      "else": [
+       {
+        "do": "say",
+        "who": "Mervyn Hanna",
+        "text": "Nuala sent you? Then we'd better be properly introduced first. I'm usually about the streets of Belfast, near the cranes. Find me out there and bring a bowl of champ."
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ }
+],
+"arcni_yardsong": [
+ {
+  "do": "if",
+  "flag": "q_arc_ni_3",
+  "then": [
+   {
+    "do": "if",
+    "flag": "q_arc_ni_4",
+    "then": [
+     {
+      "do": "say",
+      "who": "Yard Singer",
+      "text": "Dinner-hour songs, that's the yard. Fifty men and one tune, and not a note in common. Come back any time."
+     }
+    ],
+    "else": [
+     {
+      "do": "say",
+      "who": "Yard Singer",
+      "text": "We sang on the way out of the gates, the whole shift at once. The tune's older than the yard. Give us a hand with the chorus."
+     },
+     {
+      "do": "sing",
+      "who": "Yard Singer"
+     },
+     {
+      "do": "set",
+      "flag": "q_arc_ni_4"
+     }
+    ]
+   }
+  ],
+  "else": [
+   {
+    "do": "say",
+    "who": "Yard Singer",
+    "text": "Mervyn'll have my head if I sing before he's finished talking. Have a word with him first."
+   }
+  ]
+ }
+]
 }

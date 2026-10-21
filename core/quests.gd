@@ -224,7 +224,7 @@ static func all_settable() -> Dictionary:
 
 ## Flags something in the data sets: `set`, a choice's or relearn's or quiz's `set`, a legend's or gauntlet's
 ## `flag`, a daily `key`, "trainer_<id>" for every battle and trainer NPC, "badge_<id>", and "plaque_<id>" for
-## every Gazetteer plaque. `dialogue` is file -> {script -> commands}, `zones` id -> raw zone, `extra` more
+## every Gazetteer plaque and every examine spot's flag. `dialogue` is file -> {script -> commands}, `zones` id -> raw zone, `extra` more
 ## command lists.
 static func settable_flags(dialogue: Dictionary, zones: Dictionary, extra: Array = []) -> Dictionary:
 	var out := {}
