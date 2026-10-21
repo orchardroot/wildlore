@@ -9,20 +9,23 @@ var _page := 0
 
 ## "stats:trades" or "stats:standing" opens on that page (handy for screenshots).
 func setup(arg: Variant = null) -> void:
-	_page = {"standing": 1, "trades": 2}.get(str(arg), 0)
+	_page = {"standing": 1, "trades": 2, "weekly": 3}.get(str(arg), 0)
 	if content != null:  # already built (the router calls this after adding the scene)
 		_show_page()
 
 func _build() -> void:
 	set_title("Stats")
 	header_right.text = Game.data.player_name
-	set_hints([["leftright", "Tallies / Standing / Trades"], ["cancel", "Back"]])
+	set_hints([["leftright", "Tallies / Standing / Trades / Weekly"], ["cancel", "Back"]])
 	_show_page()
 
 func _show_page() -> void:
 	for c in content.get_children():
 		content.remove_child(c)
 		c.queue_free()
+	if _page == 3:
+		_show_weekly()
+		return
 	if _page == 2:
 		var trades := TradesPanel.build(Game.data)  # the six Trades and their titles
 		trades.set_anchors_preset(Control.PRESET_FULL_RECT)
@@ -64,8 +67,25 @@ func _show_page() -> void:
 func _input(event: InputEvent) -> void:
 	if not _locked and not _done and (event.is_action_pressed("move_left") or event.is_action_pressed("move_right")):
 		get_viewport().set_input_as_handled()
-		_page = posmod(_page + (1 if event.is_action_pressed("move_right") else -1), 3)
+		_page = posmod(_page + (1 if event.is_action_pressed("move_right") else -1), 4)
 		Audio.sfx("cursor")
 		_show_page()
 		return
 	super._input(event)
+
+## The weekly challenge: this week's rules and the result code for the tallies so far.
+func _show_weekly() -> void:
+	var week := WeeklyChallenge.this_week()
+	var r := WeeklyChallenge.rules(week)
+	var card := UIKit.panel(Color("1d2230f0"), 14)
+	card.set_anchors_preset(Control.PRESET_FULL_RECT)
+	content.add_child(card)
+	var col := VBoxContainer.new()
+	col.add_theme_constant_override("separation", 10)
+	card.add_child(col)
+	col.add_child(UIKit.label("Challenge of the week %d" % week, 30, UIKit.GOLD))
+	col.add_child(UIKit.label(WeeklyChallenge.describe(r), 26, UIKit.CREAM))
+	col.add_child(UIKit.label("Everyone gets the same rules this week. Play by them, then compare codes.", 22, UIKit.MUTED))
+	col.add_child(UIKit.spacer(10))
+	col.add_child(UIKit.label("Your result code", 22, UIKit.MUTED))
+	col.add_child(UIKit.label(WeeklyChallenge.result_code(week, WeeklyChallenge.tallies(Game.data)), 36, UIKit.CREAM))
