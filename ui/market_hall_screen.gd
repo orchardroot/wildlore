@@ -166,16 +166,17 @@ func _pick(i: int) -> void:
 func _refresh_qty() -> void:
 	_qty = clampi(_qty, 1, maxi(1, int(_cur.n)))
 	_qty_label.text = "%s  x %d" % [_cur.name, _qty]
-	_total_label.text = "You get %s" % UIKit.money_text(_local(int(_cur.sell)) * _qty, _mc)
+	_total_label.text = "You get %s" % UIKit.money_text(_local(MarketHall.payout(Game.data, _hall, str(_cur.id), _qty)), _mc)
 
 func _commit() -> void:
 	var id := str(_cur.id)
 	if not _bag.remove(id, _qty):
 		return
-	var gbp := MarketHall.payout(Game.data, _hall, id, _qty)
-	var paid := _local(int(_cur.sell)) * _qty
+	var gbp := MarketHall.settle(Game.data, _hall, id, _qty)   # the glut builds, so a big stack is not a tap
+	var paid := _local(gbp)
 	Wallet.earn(Game.data, paid, _mc)
 	TrainerStats.earned(Game.data, gbp)
+	TrainerStats.sold(Game.data, gbp)
 	_say.text = "Done. %s for the %s." % [UIKit.money_text(paid, _mc), _cur.name]
 	Audio.sfx("confirm")
 	_money()
