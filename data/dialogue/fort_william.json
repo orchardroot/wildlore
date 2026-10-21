@@ -311,5 +311,55 @@
     "shinty"
    ]
   }
+ ],
+ "arc_scot_captain": [
+  {
+   "do": "if",
+   "flag": "q_arc_scotland_6",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_arc_scotland_7",
+     "then": [
+      {
+       "do": "say",
+       "who": "Captain",
+       "text": "Good game. The lads say you hit it like a Highlander, which on this pitch is an insult and a medal."
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "games_first_shinty",
+       "then": [
+        {
+         "do": "say",
+         "who": "Captain",
+         "text": "You beat the keeper? Right, you're an honorary Camanachd lad. The Braes can have our blessing, and a letter for Calum."
+        },
+        {
+         "do": "set",
+         "flag": "q_arc_scotland_7"
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Captain",
+         "text": "Shinty, camanachd in Gaelic, is older than the Union and rougher than hurling's cousin. Prove you're worth a letter: beat the keeper at the goal over there. Five shots, and he leans the wrong way when he's feeling mean."
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Captain",
+     "text": "I'm the captain of the Fort William lads. Come back when you've seen the court in Inverness."
+    }
+   ]
+  }
  ]
 }
