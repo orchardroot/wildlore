@@ -13,6 +13,26 @@
   {
    "do": "shop",
    "id": "blackpool_chippy"
+  },
+  {
+   "do": "choice",
+   "text": "Talk about the business?",
+   "options": [
+    "Let's talk business",
+    "Just a bag of chips, ta"
+   ],
+   "set": "deed_talk_chippy_blackpool"
+  },
+  {
+   "do": "if",
+   "flag": "deed_talk_chippy_blackpool",
+   "eq": 0,
+   "then": [
+    {
+     "do": "deed",
+     "id": "chippy_blackpool"
+    }
+   ]
   }
  ]
 }

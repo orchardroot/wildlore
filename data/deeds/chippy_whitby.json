@@ -1,0 +1,98 @@
+{
+ "id": "chippy_whitby",
+ "kind": "chippy",
+ "name": "The Haddock Lantern",
+ "zone": "whitby",
+ "door": {
+  "x": 43,
+  "y": 36
+ },
+ "interior": "whitby_chippy",
+ "cost": [
+  4000,
+  9000,
+  25000
+ ],
+ "unlock_flag": "badge_stone",
+ "inputs": [
+  {
+   "item": "haddock",
+   "per_day": 1
+  },
+  {
+   "item": "whiting",
+   "per_day": 2
+  },
+  {
+   "item": "potatoes",
+   "per_day": 6
+  }
+ ],
+ "output": {
+  "base": 220,
+  "per_input": 45
+ },
+ "rates": 0.08,
+ "tiers": [
+  {
+   "name": "Second-hand fryer",
+   "cost": 0,
+   "mult": 1.0
+  },
+  {
+   "name": "New fryer",
+   "cost": 2400,
+   "mult": 1.3
+  },
+  {
+   "name": "Seating for twenty",
+   "cost": 3600,
+   "mult": 1.6
+  },
+  {
+   "name": "Takeaway window on the quay",
+   "cost": 6000,
+   "mult": 2.0
+  }
+ ],
+ "events": [
+  {
+   "id": "coach_party",
+   "chance": 0.025,
+   "mult": 2.0,
+   "line": "A coach party from Barnsley descends, all hungry, all wanting to know if the peas are mushy. They are. Double takings."
+  },
+  {
+   "id": "storm",
+   "chance": 0.015,
+   "mult": 0.0,
+   "line": "A storm takes the power out for the day. You sell nothing and eat the leftovers by torchlight."
+  },
+  {
+   "id": "gulls",
+   "chance": 0.02,
+   "mult": 0.8,
+   "line": "The gulls get at the queue. Customers leave quicker than the chips do."
+  },
+  {
+   "id": "critic",
+   "chance": 0.015,
+   "mult": 1.4,
+   "line": "A man with a notebook orders cod and chips and says 'hm' four times. Word gets around: a good day."
+  },
+  {
+   "id": "bank_holiday",
+   "chance": 0.02,
+   "mult": 1.6,
+   "season": "summer",
+   "line": "A summer bank holiday. The queue goes round the corner and stops to ask what the queue is for."
+  },
+  {
+   "id": "rival",
+   "chance": 0.015,
+   "mult": 0.6,
+   "line": "A rival chippy opens at the end of the road with a banner and a free scraps offer. Trade is down until the novelty wears off."
+  }
+ ],
+ "manager_slot": true
+}

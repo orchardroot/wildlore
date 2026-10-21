@@ -14,6 +14,26 @@
    "do": "say",
    "who": "Chip Shop Owner",
    "text": "Climb the 199 steps up to the Abbey afterwards. It helps. Slightly. You'll want a sit down at the top."
+  },
+  {
+   "do": "choice",
+   "text": "Talk about the business?",
+   "options": [
+    "Let's talk business",
+    "Just a bag of chips, ta"
+   ],
+   "set": "deed_talk_chippy_whitby"
+  },
+  {
+   "do": "if",
+   "flag": "deed_talk_chippy_whitby",
+   "eq": 0,
+   "then": [
+    {
+     "do": "deed",
+     "id": "chippy_whitby"
+    }
+   ]
   }
  ]
 }
