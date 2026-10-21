@@ -111,7 +111,7 @@ func _show_menu() -> void:
 	if s.is_empty() or str(s.town) != str(host.zone_id()):
 		await _show()
 		return
-	var pick: int = await host.choice("Which class, then?", ["Battling class", "Produce class", "Sheepdog trials", "Just looking"])
+	var pick: int = await host.choice("Which class, then?", ["Battling class", "Produce class", "Sheepdog trials", "Breed class", "Just looking"])
 	match pick:
 		0:
 			await _show()
@@ -119,6 +119,8 @@ func _show_menu() -> void:
 			await _produce(s)
 		2:
 			await _sheepdog(s)
+		3:
+			await _breed(s)
 		_:
 			await _say(STEWARD, "Look all you like. The cake tent's that way.")
 
@@ -176,6 +178,32 @@ func _sheepdog(s: Dictionary) -> void:
 	await _say(STEWARD, "%d of %d in the pen." % [n, Sheepdog.SHEEP])
 	await _placed(ShowClasses.DOG, Sheepdog.place_for(st), "dog")
 	await _plaque(ShowClasses.DOG)
+
+## The Breed Class: one creature a day, judged on coat, frame, markings and pedigree against four breeders. No battle.
+func _breed(s: Dictionary) -> void:
+	var data: GameStateData = host.data
+	if ShowClasses.entered_today(data, ShowClasses.BREED):
+		await _say(STEWARD, "You've shown in the breed ring today already. The judge has gone to look at some sheep and refuses to be moved.")
+		return
+	var ents := Stud.entrants(data)
+	if ents.is_empty():
+		await _say(STEWARD, "The breed ring wants stock with a sex and a pedigree to show: a ewe, a bull, a hen. Bring one of those and we'll see.")
+		await _plaque(ShowClasses.BREED)
+		return
+	var options: Array = ents.map(func(e): return str(e.name))
+	options.append("Not today")
+	var pick: int = await host.choice("Who's going in the ring?", options)
+	if pick < 0 or pick >= ents.size():
+		await _say(STEWARD, "Righto. They'll keep.")
+		return
+	var c: Creature = data.party[int(ents[pick].index)]
+	ShowClasses.mark_entered(data, ShowClasses.BREED)
+	var seed := "%s/%s" % [Calendar.today_key(), s.id]
+	var j := Stud.judge(c, seed)
+	await _say("Judge", "Coat %d, frame %d, markings %d, pedigree %d, and manners %d. Let's see how that stacks up." % [int(j.coat), int(j.frame), int(j.markings), int(j.pedigree), int(j.manners)])
+	var p := ShowClasses.place(int(j.score), ShowClasses.rivals(seed + "/breed"))
+	await _placed(ShowClasses.BREED, p, "breed")
+	await _plaque(ShowClasses.BREED)
 
 func _placed(cls: String, p: int, what: String) -> void:
 	var data: GameStateData = host.data
