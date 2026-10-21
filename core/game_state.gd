@@ -67,6 +67,7 @@ func _process(delta: float) -> void:
 			if data.clock_minutes == 0:
 				data.day_count += 1
 				BuildingSociety.settle(data)  # instalments, savings interest, post from the Building Society
+				Deeds.tick(data, data.day_count)  # takings, rates and the post for any Deeds you own
 	if args.get("fps", false):
 		_fps_acc += delta
 		if _fps_acc >= 1.0:

@@ -1,0 +1,58 @@
+{
+ "_doc": "The post for Deeds (core/deeds.gd): placeholders {deed} {amount} {day}. Real facts: the UK tax year ends on 5 April, online self assessment returns are due by 31 January, there is a personal allowance before any tax, and a late return costs a fixed 100 pound penalty. Game money is scaled down, which the letters admit.",
+ "letters": {
+  "rates": {
+   "from": "the Borough Council, Business Rates Department",
+   "text": [
+    "Dear Proprietor of {deed}. We are delighted to write with this week's business rates: {amount} now outstanding.",
+    "It is taken from your till when you next collect, so there is no need to do anything at all. Our records show a lot of people do nothing very well.",
+    "Your rates help to fund the bins, the bandstand and the lamp post that nobody will admit to hitting. Yours sincerely, a Council Officer who is very proud of the bandstand."
+   ]
+  },
+  "rates_eur": {
+   "from": "the County Council, Commercial Rates Section",
+   "text": [
+    "A Chara. Commercial rates for {deed}: {amount} outstanding, collected out of your till on your next visit.",
+    "The rates pay for the roads, the library and the lights on the harbour wall. We do appreciate your custom, so to speak."
+   ]
+  },
+  "statement": {
+   "from": "your accountant, Mr Bellamy",
+   "text": [
+    "Monthly statement for {deed} as of day {day}: {amount} sitting in the till.",
+    "A till is a lovely thing but it does not earn interest. Do collect it. I say this with the warmth of a man whose fee is by the hour."
+   ]
+  },
+  "statement_eur": {
+   "from": "your accountant, Ms Doyle",
+   "text": [
+    "Monthly statement for {deed} as of day {day}: {amount} sitting in the till. A till is a lovely thing, but it earns no interest."
+   ]
+  },
+  "tax": {
+   "from": "His Majesty's Revenue and Creatures",
+   "text": [
+    "Self assessment. The tax year ended on 5 April and so, regrettably, has the fun. On last year's takings, after a personal allowance everybody gets, you owe {amount}.",
+    "In real life the online return is due by 31 January and a late one costs a flat 100 pounds. We've done it for you, because we are lovely, and the money here is a tenth the size so it only half stings.",
+    "Settled from your purse as you open this. Thank you for your custom, and for your honesty, which we appreciate and shall never mention again."
+   ]
+  },
+  "tax_eur": {
+   "from": "the Revenue Commissioners (Green Envelope)",
+   "text": [
+    "Your return, via ROS as is the way these days, comes to {amount} on last year's takings after your credits and allowances.",
+    "We have settled it from your purse and we thank you for your prompt payment. The envelope is green because we are in Ireland, and we like to be seen to be fair about it."
+   ]
+  }
+ },
+ "talk": {
+  "tax_paid": "The taxman has taken {paid} and left you a receipt with a smiley face on it.",
+  "tax_short": "You couldn't cover all of it. The taxman will take the other {left} when you've got it. No bailiffs. He sends a nice card.",
+  "tax_none": "A letter that says you owe nothing. You frame it.",
+  "buy": "Sign here, and here, and... that's it. It's yours. Mind the fryer, it has opinions.",
+  "welcome": "The place is yours. Stock the store, collect the till, and keep an eye on the rates.",
+  "closed": "Come back when you've a few more Stones. Folk don't sell a going concern to a stranger.",
+  "sell": "Sold, and glad to see it go to someone who loves it. Well. Sixty pence in the pound. Business is business.",
+  "manager": "A manager runs the place when you're away and keeps the till filling for longer, for a cut. Befriend a Regular and ask them."
+ }
+}
