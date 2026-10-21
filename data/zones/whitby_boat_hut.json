@@ -1,0 +1,123 @@
+{
+ "id": "whitby_boat_hut",
+ "name": "The Boat Hut",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "lobster_pots",
+   "x": 1,
+   "y": 6
+  },
+  {
+   "type": "lobster_pots",
+   "x": 2,
+   "y": 7
+  },
+  {
+   "type": "buoy",
+   "x": 11,
+   "y": 7
+  },
+  {
+   "type": "boat",
+   "x": 10,
+   "y": 4
+  },
+  {
+   "type": "telescope",
+   "x": 11,
+   "y": 2
+  },
+  {
+   "type": "noticeboard",
+   "x": 8,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "clock",
+   "x": 7,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "kettle_table",
+   "x": 9,
+   "y": 6
+  },
+  {
+   "type": "bench",
+   "x": 4,
+   "y": 6
+  },
+  {
+   "type": "wall_picture",
+   "x": 3,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 8,
+   "to": "whitby",
+   "tx": 23,
+   "ty": 38,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "whitby_skipper",
+   "sprite": "fisherman_north",
+   "x": 3,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "whitby_skipper",
+   "name": "Skipper"
+  },
+  {
+   "id": "whitby_hand",
+   "sprite": "sailor",
+   "x": 8,
+   "y": 5,
+   "facing": "down",
+   "move": "still",
+   "script": "whitby_hand",
+   "name": "Old Hand"
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "x": 6,
+   "y": 1,
+   "text": "HMS Endeavour began as a Whitby collier, the Earl of Pembroke, launched in 1764. The town built sturdy ships for sturdy cargoes, and still lands fish on the same quay.",
+   "plaque": "deed_boat_whitby",
+   "title": "Whitby's Boats"
+  }
+ ],
+ "spawn": [
+  6,
+  7
+ ],
+ "rows": [
+  "xxxxxxxxxxxxx",
+  "x|||||||||||x",
+  "x|CCCC||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||D|||||x",
+  "xxxxxxxxxxxxx"
+ ]
+}

@@ -1,0 +1,189 @@
+{
+ "id": "allotment_york",
+ "kind": "allotment",
+ "name": "Rhubarb Rise Allotments",
+ "zone": "york",
+ "door": {
+  "x": 33,
+  "y": 18
+ },
+ "interior": "york_allotment_shed",
+ "cost": [
+  800,
+  1400,
+  2400
+ ],
+ "inputs": [
+  {
+   "item": "carrot_seeds",
+   "per_day": 1,
+   "season": "spring"
+  },
+  {
+   "item": "runner_bean_seeds",
+   "per_day": 1,
+   "season": "summer"
+  },
+  {
+   "item": "leek_seeds",
+   "per_day": 1,
+   "season": "autumn"
+  },
+  {
+   "item": "sprout_seeds",
+   "per_day": 1,
+   "season": "winter"
+  }
+ ],
+ "output": {
+  "base": 45,
+  "per_input": 14
+ },
+ "rates": 0.06,
+ "tiers": [
+  {
+   "name": "Bare plot",
+   "cost": 0,
+   "mult": 1.0
+  },
+  {
+   "name": "Cold frame and water butt",
+   "cost": 250,
+   "mult": 1.25
+  },
+  {
+   "name": "Second-hand greenhouse",
+   "cost": 600,
+   "mult": 1.5
+  },
+  {
+   "name": "Polytunnel and raised beds",
+   "cost": 1100,
+   "mult": 1.8
+  }
+ ],
+ "events": [
+  {
+   "id": "late_frost",
+   "chance": 0.06,
+   "mult": 0.5,
+   "line": "A late frost caught the seedlings. Fleece would have saved them, as everyone said afterwards.",
+   "season": "spring"
+  },
+  {
+   "id": "slugs",
+   "chance": 0.07,
+   "mult": 0.7,
+   "line": "The slugs held a banquet overnight. Beer traps, eggshells, language: nothing worked."
+  },
+  {
+   "id": "glut",
+   "chance": 0.08,
+   "mult": 1.5,
+   "line": "A glut of courgettes. You left carrier bags on doorsteps and rang no bells.",
+   "season": "summer"
+  },
+  {
+   "id": "hosepipe_ban",
+   "chance": 0.04,
+   "mult": 0.6,
+   "line": "A hosepipe ban. The water butt did its best.",
+   "season": "summer"
+  },
+  {
+   "id": "show_day",
+   "chance": 0.06,
+   "mult": 1.4,
+   "line": "Autumn show day. Your beetroot took a card and the neighbours took notes.",
+   "season": "autumn"
+  },
+  {
+   "id": "blight",
+   "chance": 0.03,
+   "mult": 0.6,
+   "line": "Blight got the maincrop potatoes after a damp week. Out came the bonfire.",
+   "season": "autumn"
+  },
+  {
+   "id": "pigeons",
+   "chance": 0.04,
+   "mult": 0.8,
+   "line": "Pigeons discovered the brassicas and told their friends.",
+   "season": "winter"
+  },
+  {
+   "id": "rhubarb_forcing",
+   "chance": 0.05,
+   "mult": 1.4,
+   "line": "The forcing shed paid off: pink rhubarb stalks in the dark, picked by candlelight, and top price at the gate.",
+   "season": "winter"
+  }
+ ],
+ "manager_slot": true,
+ "yield": {
+  "spring": [
+   {
+    "item": "rhubarb",
+    "n": 2
+   },
+   {
+    "item": "broad_beans",
+    "n": 2
+   },
+   {
+    "item": "carrots",
+    "n": 2
+   }
+  ],
+  "summer": [
+   {
+    "item": "runner_beans",
+    "n": 3
+   },
+   {
+    "item": "courgettes",
+    "n": 3
+   },
+   {
+    "item": "peas",
+    "n": 2
+   },
+   {
+    "item": "king_edward_potatoes",
+    "n": 2
+   }
+  ],
+  "autumn": [
+   {
+    "item": "parsnips",
+    "n": 2
+   },
+   {
+    "item": "beetroot",
+    "n": 2
+   },
+   {
+    "item": "onions",
+    "n": 3
+   },
+   {
+    "item": "king_edward_potatoes",
+    "n": 2
+   }
+  ],
+  "winter": [
+   {
+    "item": "leeks",
+    "n": 3
+   },
+   {
+    "item": "brussels_sprouts",
+    "n": 3
+   },
+   {
+    "item": "parsnips",
+    "n": 2
+   }
+  ]
+ }
+}
