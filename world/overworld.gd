@@ -15,6 +15,8 @@ var _zone_node: Node3D
 var _tilt: ColorRect
 var _dark: ColorRect
 var traffic: RailTraffic
+var deep_pressed := false  # a crate just latched a plate; the next step says so
+var deep_crates := {}   # Deep Places: crate id -> tile now (session only; they reset when you come back in)
 var _hinted := {}       # ability-gated tiles already explained this visit
 var _rode_in := false   # on the bike when we went indoors (session memory only, not saved)
 var ambient: AmbientLife
@@ -77,6 +79,8 @@ func load_zone(zone_id: String, pos: Vector2i, facing: String) -> void:
 	zone = ZoneData.load_id(zone_id)
 	FieldMoves.apply_cuts(Game.data, zone)
 	Rewild.apply(Game.data, zone)  # rewilding sites take their stage's shape
+	deep_crates = DeepPlace.crates_start(zone)
+	DeepPlace.apply(Game.data, zone, deep_crates)  # Deep Places: gates, floods and crates as the flags say
 	if _zone_node:
 		_zone_node.queue_free()
 	_build_zone_node()
@@ -181,6 +185,8 @@ func can_enter(p: Vector2i, dir: Vector2i) -> String:
 	if zone.tile_at(p) == "ledge_south":
 		var landing := p + Vector2i(0, 1)
 		return "ledge" if dir == Vector2i(0, 1) and zone.walkable(landing) and not occupied(landing) else "blocked"
+	if DeepPlace.can_push(zone, deep_crates, p, dir):
+		return "push"
 	var fv := FieldMoves.verdict(Game.data, zone, p)
 	if fv == "blocked":
 		return "blocked"
@@ -336,6 +342,7 @@ func _on_step(p: Vector2i) -> void:
 		Audio.sfx("scramble")
 	elif tile == "bog":
 		Audio.sfx("bog_squelch")
+	await DeepScene.stepped(self, p)  # a plate may have taken your weight
 	_check_trainers()
 	if Router.busy:
 		return
@@ -437,6 +444,8 @@ func _after_battle(result: Dictionary) -> void:
 
 func interact(p: Vector2i) -> void:
 	Audio.interaction(self, p)
+	if await DeepScene.interact(self, p):  # a lever in a Deep Place
+		return
 	if await Forage.interact(self, p):  # a forage prop or a crafting bench
 		return
 	if await HomeBase.interact(self, p):  # the trophy shelf, a garden plot or a visitor
@@ -519,3 +528,17 @@ func say(lines: Array, who := "") -> void:
 		await box.show_text(str(l), who)
 	box.queue_free()
 	Router.busy = was
+
+## Deep Places: shove the crate at `p` one tile on and rebuild the scenery (the player then steps into its place).
+func push_crate(p: Vector2i, dir: Vector2i) -> void:
+	DeepPlace.push(zone, deep_crates, p, dir)
+	deep_pressed = deep_pressed or not DeepPlace.press_plates(Game.data, zone, deep_crates, player.grid_pos).is_empty()
+	Audio.sfx("scramble")
+	rebuild_scenery()
+
+## The zone's gates, floods and crates changed: re-apply them and rebuild the meshes.
+func rebuild_scenery() -> void:
+	DeepPlace.apply(Game.data, zone, deep_crates)
+	if _zone_node:
+		_zone_node.queue_free()
+	_build_zone_node()

@@ -1,0 +1,225 @@
+{
+ "id": "castleton",
+ "name": "Castleton",
+ "region": "peak",
+ "kind": "route",
+ "music": "route_mountain",
+ "weather": {},
+ "props": [
+  {
+   "type": "building",
+   "style": "grit_terrace",
+   "x": 6,
+   "y": 6,
+   "w": 4,
+   "h": 3,
+   "label": "Ye Olde Nags Head",
+   "kind": "cafe"
+  },
+  {
+   "type": "building",
+   "style": "grit_terrace",
+   "x": 14,
+   "y": 6,
+   "w": 5,
+   "h": 3,
+   "label": "Garland Cottage",
+   "kind": "hall"
+  },
+  {
+   "type": "building",
+   "style": "grit_terrace",
+   "x": 32,
+   "y": 10,
+   "w": 6,
+   "h": 3,
+   "label": "The Cheese Shop",
+   "kind": "cafe"
+  },
+  {
+   "type": "building",
+   "style": "grit_terrace",
+   "x": 42,
+   "y": 10,
+   "w": 6,
+   "h": 3,
+   "label": "Peak Cavern Tea Rooms",
+   "kind": "cafe"
+  },
+  {
+   "type": "building",
+   "style": "grit_terrace",
+   "x": 8,
+   "y": 17,
+   "w": 5,
+   "h": 3,
+   "label": "Hope Valley Cottage",
+   "kind": "hall"
+  },
+  {
+   "type": "building",
+   "style": "grit_terrace",
+   "x": 16,
+   "y": 17,
+   "w": 5,
+   "h": 3,
+   "label": "Mam Tor Outfitters",
+   "kind": "hall"
+  },
+  {
+   "type": "building",
+   "style": "grit_terrace",
+   "x": 34,
+   "y": 17,
+   "w": 5,
+   "h": 3,
+   "label": "Crystal Gift Shop",
+   "kind": "hall"
+  },
+  {
+   "type": "building",
+   "style": "grit_terrace",
+   "x": 43,
+   "y": 17,
+   "w": 6,
+   "h": 3,
+   "label": "Blue John Cavern",
+   "kind": "hall"
+  },
+  {
+   "type": "lamp_post",
+   "x": 25,
+   "y": 15
+  },
+  {
+   "type": "lamp_post",
+   "x": 29,
+   "y": 15
+  },
+  {
+   "type": "bench",
+   "x": 24,
+   "y": 13
+  },
+  {
+   "type": "bunting",
+   "x": 30,
+   "y": 14,
+   "walk": true
+  },
+  {
+   "type": "oak",
+   "x": 4,
+   "y": 12
+  },
+  {
+   "type": "oak",
+   "x": 21,
+   "y": 22
+  },
+  {
+   "type": "oak",
+   "x": 38,
+   "y": 22
+  }
+ ],
+ "warps": [
+  {
+   "x": 45,
+   "y": 19,
+   "to": "blue_john_entry",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  }
+ ],
+ "edges": {
+  "north": {
+   "to": "buxton",
+   "offset": 0
+  }
+ },
+ "npcs": [
+  {
+   "id": "castleton_garland",
+   "sprite": "villager_1",
+   "x": 24,
+   "y": 16,
+   "facing": "down",
+   "move": "wander",
+   "script": "castleton_garland"
+  },
+  {
+   "id": "castleton_walker",
+   "sprite": "hiker",
+   "x": 30,
+   "y": 21,
+   "facing": "up",
+   "move": "still",
+   "script": "castleton_walker"
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "x": 44,
+   "y": 20,
+   "plaque": "blue_john_stone",
+   "title": "Blue John",
+   "text": "BLUE JOHN. A banded fluorite, purple and blue and yellow, found naturally only at Castleton. It was dug from the hill by hand for ornaments, and the veins are still worked in tiny amounts. The name is often said to come from the French for blue and yellow. Nobody has ever shouted 'John' at it."
+  },
+  {
+   "x": 37,
+   "y": 8,
+   "plaque": "castleton_peveril",
+   "title": "Peveril Castle",
+   "text": "PEVERIL CASTLE. A Norman castle on the crag above the village, begun by William Peveril. The village below it, Castleton, takes its name from it. Climb up for the view and a sit down."
+  },
+  {
+   "x": 27,
+   "y": 11,
+   "plaque": "castleton_garland",
+   "title": "Garland Day",
+   "text": "GARLAND DAY. Each 29th of May, Castleton's Garland King rides through the village on horseback buried under a tall bell of flowers. At the end the garland is hoisted up the church tower. The King is relieved of it first, which he reports is a great relief."
+  },
+  {
+   "x": 40,
+   "y": 15,
+   "text": "CASTLETON. Peak Cavern, Speedwell, Treak Cliff and Blue John: four show caves round one village. Peak Cavern has the largest natural cave entrance in Britain. The geology is, frankly, showing off."
+  }
+ ],
+ "spawn": [
+  27,
+  2
+ ],
+ "rows": [
+  "TTTTTTTTTTTTTTTTTTTTTTTTTT###TTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTT###TTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTT###TTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTT.......................###........................TTT",
+  "TTT.......................###.......^^^^^^^^^^.......TTT",
+  "TTT.......................###.......^^^^^^^^^^.......TTT",
+  "TTT...BBBB....BBBBB.......###.....RRRRRRRRRRRRRR.....TTT",
+  "TTT...BBBB....BBBBB.......###........................TTT",
+  "TTT...BBBB....BBBBB.......###........................TTT",
+  "TTT.......................###........................TTT",
+  "TTT.......................###...BBBBBB....BBBBBB.....TTT",
+  "TTT.......................###...BBBBBB....BBBBBB.....TTT",
+  "TTT.......................###...BBBBBB....BBBBBB.....TTT",
+  "TTT.......................###........................TTT",
+  "TTT::::::::::::::::::::::::::::::::::::::::::::::::::TTT",
+  "TTT.......................###........................TTT",
+  "TTT.......................###........................TTT",
+  "TTT.....BBBBB...BBBBB.....###.....BBBBB....BBBBBB....TTT",
+  "TTT.....BBBBB...BBBBB.....###.....BBBBB....BBBBBB....TTT",
+  "TTT.....BBBBB...BBBBB.....###.....BBBBB....BBDBBB....TTT",
+  "TTT.......................###........................TTT",
+  "TTT.......................###........................TTT",
+  "TTT.......................###........................TTT",
+  "TTT.......................###........................TTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT"
+ ]
+}

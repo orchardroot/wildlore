@@ -222,6 +222,9 @@ func try_step(dir: String, running := false) -> bool:
 	if verdict == "cut":
 		overworld.cut_bramble(target)
 		return false
+	if verdict == "push":
+		overworld.push_crate(target, GridMotion.dir_vec(dir))  # then the tile is free to step into
+		verdict = "ok"
 	if verdict == "blocked":
 		sprite.walking = false
 		if _bump_cooldown <= 0.0:
