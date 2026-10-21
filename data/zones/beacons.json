@@ -257,6 +257,16 @@
    "variant": "heather",
    "x": 9,
    "y": 28
+  },
+  {
+   "type": "building",
+   "style": "grit_terrace",
+   "x": 3,
+   "y": 11,
+   "w": 5,
+   "h": 3,
+   "label": "Dan yr Ogof Show Caves",
+   "kind": "hall"
   }
  ],
  "warps": [
@@ -264,6 +274,14 @@
    "x": 6,
    "y": 23,
    "to": "beacons_storeyarms",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 5,
+   "y": 13,
+   "to": "dyo_entry",
    "tx": 6,
    "ty": 7,
    "facing": "up"
@@ -388,35 +406,50 @@
     "min": 34,
     "max": 36,
     "weight": 22,
-    "time": ["dusk", "night"]
+    "time": [
+     "dusk",
+     "night"
+    ]
    },
    {
     "species": "kitelet",
     "min": 33,
     "max": 35,
     "weight": 26,
-    "time": ["dawn", "day"]
+    "time": [
+     "dawn",
+     "day"
+    ]
    },
    {
     "species": "sphagnet",
     "min": 33,
     "max": 35,
     "weight": 24,
-    "weather": ["drizzle", "downpour", "fog"]
+    "weather": [
+     "drizzle",
+     "downpour",
+     "fog"
+    ]
    },
    {
     "species": "zigzlet",
     "min": 34,
     "max": 36,
     "weight": 18,
-    "time": ["dusk", "night"]
+    "time": [
+     "dusk",
+     "night"
+    ]
    },
    {
     "species": "kitelet",
     "min": 34,
     "max": 36,
     "weight": 16,
-    "weather": ["gale"]
+    "weather": [
+     "gale"
+    ]
    },
    {
     "species": "sphagnet",
@@ -429,36 +462,49 @@
     "min": 35,
     "max": 36,
     "weight": 10,
-    "weather": ["fog"]
+    "weather": [
+     "fog"
+    ]
    },
    {
     "species": "zigzlet",
     "min": 33,
     "max": 35,
     "weight": 10,
-    "time": ["dawn", "day"]
+    "time": [
+     "dawn",
+     "day"
+    ]
    },
    {
     "species": "puffkin",
     "min": 33,
     "max": 35,
     "weight": 8,
-    "season": ["autumn"]
+    "season": [
+     "autumn"
+    ]
    },
    {
     "species": "scorchbun",
     "min": 33,
     "max": 35,
     "weight": 8,
-    "season": ["autumn"]
+    "season": [
+     "autumn"
+    ]
    },
    {
     "species": "marilwyd",
     "min": 35,
     "max": 36,
     "weight": 8,
-    "time": ["night"],
-    "season": ["winter"]
+    "time": [
+     "night"
+    ],
+    "season": [
+     "winter"
+    ]
    }
   ]
  },
@@ -521,6 +567,11 @@
    "x": 25,
    "y": 36,
    "text": "ABERTAWE / SWANSEA 25 miles. Down the old drovers' lane to the sea, the market and the Mumbles. Gower beyond."
+  },
+  {
+   "x": 4,
+   "y": 15,
+   "text": "DAN YR OGOF SHOW CAVES. Cathedral Cave, the Bone Cave and a river that rather fancies itself. Hard hats not provided. Sense of wonder, free."
   }
  ],
  "spawn": [
@@ -540,9 +591,9 @@
   "RRkkhhhhhhhhhhhhWWWWWWWWhhhhkkkkkk^^^^^^^^^^^^^^hhhhhhhhhhhhhhhhhhhkRR",
   "RRkkhhhhhhhhhhhhkkhhhhhhhhhhkkkkkk^^^^^^^^^^^^^^^^^hhhhhhhhhhhhhhhhkRR",
   "RRkkhhhhhhhhhhhhkkhhhhhhhhhhkk^^^^k//////////kRk^^^hhhhhhhhhWhhhhhhkRR",
-  "RRkkkkkkkkkkkkkkkkkkkkkkkkkkkk^^^^kR//////kkkkkk^^^kkkRkkkkkWhhhhhhkRR",
-  "RPkkkkkkkkRkhhhhhhhhhhkkkkkkkkkkkkkkkRkkkkkkkkkkkkkkkkkkPkRkWhhhhhhkRR",
-  "RRkkkkkkkkkkhhhhhhhhhhkkkkkkkkkkkkkkkkkkkkkRkkkkkkkkkkkkkPkkWhhhhhhkRR",
+  "RRkBBBBBkkkkkkkkkkkkkkkkkkkkkk^^^^kR//////kkkkkk^^^kkkRkkkkkWhhhhhhkRR",
+  "RPkBBBBBkkRkhhhhhhhhhhkkkkkkkkkkkkkkkRkkkkkkkkkkkkkkkkkkPkRkWhhhhhhkRR",
+  "RRkBBDBBkkkkhhhhhhhhhhkkkkkkkkkkkkkkkkkkkkkRkkkkkkkkkkkkkPkkWhhhhhhkRR",
   "RRkkkkRkkkkkhhhhhhhhhhkkkkkkkkkRkkkkkkkkkkkkkkkkkkkkWkkkkkkkWhRRhhhRRR",
   "RRkkkkkkkkkkhhhhhhhhhhkkkkkkkkkkkkkkkkkk#########kkkWkkkkkkkWhhhhhhkRR",
   "RRkkkkkkkkkkkkkkkkkkkRkkkkkkkkkkkkkkRkkk#########kkkWkRkkkkkWkkkkkRkRR",
