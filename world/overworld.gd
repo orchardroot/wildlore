@@ -79,6 +79,7 @@ func load_zone(zone_id: String, pos: Vector2i, facing: String) -> void:
 	zone = ZoneData.load_id(zone_id)
 	FieldMoves.apply_cuts(Game.data, zone)
 	Rewild.apply(Game.data, zone)  # rewilding sites take their stage's shape
+	Leases.apply(Game.data, zone)  # unowned lease land is fenced off with the Enclosure's sign
 	deep_crates = DeepPlace.crates_start(zone)
 	DeepPlace.apply(Game.data, zone, deep_crates)  # Deep Places: gates, floods and crates as the flags say
 	if _zone_node:

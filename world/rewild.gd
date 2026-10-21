@@ -35,6 +35,8 @@ static func site(id: String) -> Dictionary:
 	for s in sites():
 		if str(s.id) == id:
 			return s
+	if id.begins_with("lease_"):  # an Enclosure lease's land is a site too (Leases.rewild_site)
+		return Leases.rewild_site(Leases.get_lease(id.substr(6)))
 	return {}
 
 static func sites_in(zone_id: String) -> Array:
@@ -288,7 +290,7 @@ static func apply(data: GameStateData, z: ZoneData) -> void:
 	settle(data)
 	var lays := []
 	var n := 0
-	for s in sites_in(z.id):
+	for s in sites_in(z.id) + Leases.rewild_sites_in(z.id):  # a lease zone's land is a site too
 		var id := str(s.id)
 		z.set_meta("rewild_spots_" + id, spots(z, s))
 		var lay := layout(z, s, stage(data, id), KEY_BASE + n * 32)

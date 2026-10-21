@@ -68,6 +68,7 @@ func _process(delta: float) -> void:
 				data.day_count += 1
 				BuildingSociety.settle(data)  # instalments, savings interest, post from the Building Society
 				Deeds.tick(data, data.day_count)  # takings, rates and the post for any Deeds you own
+				Leases.tick(data, data.day_count)  # upkeep and the post for any Enclosure leases you hold
 	if args.get("fps", false):
 		_fps_acc += delta
 		if _fps_acc >= 1.0:
@@ -195,6 +196,13 @@ func _dev_boot() -> void:
 			if a.begins_with("--rewild="):  # dev: every rewilding site at this stage, 0..3 (screenshots)
 				for s in Rewild.sites():
 					data.set_flag(Rewild.flag_key(str(s.id)), int(a.substr(9)))
+				for l in Leases.all():  # and every lease's land, if it is held (see --lease=)
+					data.set_flag(Rewild.flag_key(Leases.site_id(str(l.id))), int(a.substr(9)))
+		for a in DevArgs.user_args():
+			if a.begins_with("--lease="):  # dev: hold these leases (comma separated ids), post-game
+				data.set_flag("game_complete", true)
+				for id in a.substr(8).split(",", false):
+					data.set_flag(Leases.key_of(id), {"since": data.day_count, "paid": 0, "next": data.day_count + Leases.WEEK, "arrears": 0, "due": 0})
 		for a in DevArgs.user_args():
 			if a.begins_with("--flag="):  # dev: story flags set before the zone loads (a postcard waiting, a side story)
 				for f in a.substr(7).split(",", false):

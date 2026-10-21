@@ -1,0 +1,32 @@
+{
+ "id": "pennine_grouse_moor",
+ "name": "Saddleworth High Moor",
+ "nation": "england",
+ "kind": "grouse_moor",
+ "anchor": "saddleworth_moor",
+ "side": "north",
+ "gap": {"at": 29, "width": 3, "offset": -15},
+ "zone": "pennine_grouse_moor",
+ "reserve": 40000,
+ "upkeep": 300,
+ "unlock_flag": "game_complete",
+ "trust_wants": true,
+ "blurb": "Four thousand acres of heather, drained for grouse and fenced against walkers. The keepers' hut has a stuffed fox in it with a look of lasting resentment.",
+ "rewild": {
+  "biome": "moss",
+  "rect": [3, 4, 34, 26],
+  "encounters": [
+   [{"kind": "grass", "species": "sphagnet", "min": 86, "max": 88, "weight": 12}],
+   [{"kind": "grass", "species": "peregrin", "min": 87, "max": 89, "weight": 6, "time": ["day", "dawn"]},
+    {"kind": "grass", "species": "kitelet", "min": 87, "max": 88, "weight": 8, "time": ["day"]}],
+   [{"kind": "grass", "species": "ptarmlet", "min": 88, "max": 90, "weight": 3},
+    {"kind": "grass", "species": "snowhare", "min": 88, "max": 90, "weight": 10}]
+  ]
+ },
+ "ranger": [
+  "Don't touch the gate. Actually, do. It's yours. The previous owner's keepers will have left the gate in a state of loud disapproval.",
+  "There's green coming through where the grips were blocked. The water is staying put, which is more than the last keeper did.",
+  "Peregrines, if you can believe it. Up on the edge, looking at the hares like a man looking at a menu. The old shoot would have had a word.",
+  "Listen to that. Curlew, grouse and nobody shooting at either. Thank you. The walkers will want a plaque, and they'll want it to say something rude about the Enclosure."
+ ]
+}

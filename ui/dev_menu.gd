@@ -161,6 +161,23 @@ static func boot(game: Node, menu: String) -> void:
 			BuildingSociety.settle(d)
 			d.money = 1840
 			menu = menu.trim_suffix(":loan")
+	if menu.begins_with("lease"):  # `--menu=lease[:<id>][:owned|:trust|:ramblers]`: post-game, rich, optionally a guild or a lease already won
+		d.set_flag("game_complete", true)
+		d.day_count = 400
+		d.money = 400000
+		d.euros = 400000
+		for i in 4:
+			d.badges.append("b%d" % i)
+		var parts := menu.split(":")
+		if "trust" in parts:
+			Guilds.join(d, "trust")
+		if "ramblers" in parts:
+			Guilds.join(d, "ramblers")
+		if "owned" in parts:
+			var sit := Leases.auction_open(d, parts[1])
+			while not bool(sit.over):
+				Leases.bid(sit, d)
+		menu = "lease" + ((":" + parts[1]) if parts.size() > 1 and parts[1] not in ["owned", "trust", "ramblers"] else "")
 	if menu.begins_with("deed"):  # `--menu=deed:<id>[:owned]`: a few Stones in with cash and stock; `:owned` buys it, stocks it and lets a fortnight pass
 		d.day_count = 120
 		d.money = 20000
