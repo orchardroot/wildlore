@@ -33,6 +33,22 @@ func battle(foe_party: Array, opts: Dictionary) -> Dictionary:
 	last_battle = {"foes": foe_party, "opts": opts}
 	return battle_results.pop_front() if not battle_results.is_empty() else {"result": "win", "caught": null}
 
+var easy := false
+
+func easy_trial() -> bool:
+	return easy
+
+var sheepdog_results: Array = []   # queued finished Sheepdog states; default is a clean sweep
+
+func sheepdog(lead_speed: int, easy: bool, seed_text: String, _label: String) -> Dictionary:
+	if not sheepdog_results.is_empty():
+		return sheepdog_results.pop_front()
+	var st := Sheepdog.start(seed_text, lead_speed, easy)
+	for s in st.sheep:
+		s.stage = Sheepdog.GATES.size()
+		s.p = Vector2(Sheepdog.PEN_X + 0.5, 3.5)
+	return st
+
 func move_npc(npc: String, path: Array) -> void:
 	log.append(["move", npc, path])
 
