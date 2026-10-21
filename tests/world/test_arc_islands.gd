@@ -71,12 +71,11 @@ func test_the_gathering_appears_only_after_the_case() -> void:
 		if str(n.id) == "arc_reader":
 			reader = n
 	assert_false(reader.is_empty())
-	assert_false(bool(d.flag(str(reader.show_if))))
+	assert_false(ZoneData.flag_on(d.flag(str(reader.show_if))))
 	d.set_flag("q_arc_islands_11", true)
-	assert_true(bool(d.flag(str(reader.show_if))))
+	assert_true(ZoneData.flag_on(d.flag(str(reader.show_if))))
 
 func test_the_ribbon_is_a_real_charm() -> void:
-	var items := ItemDB.new()
-	items.load_all()
+	var items := ItemDB.load_default()
 	assert_true(items.has("roll_ribbon"))
 	assert_eq(str(items.get_item("roll_ribbon").kind), "charm")

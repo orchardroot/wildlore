@@ -14,6 +14,16 @@
  "arc_volunteer": [
   {
    "do": "if",
+   "flag": "arc_isl_ex_receipt",
+   "then": [
+    {
+     "do": "set",
+     "flag": "q_arc_islands_7"
+    }
+   ]
+  },
+  {
+   "do": "if",
    "flag": "q_arc_islands_8",
    "then": [
     {
