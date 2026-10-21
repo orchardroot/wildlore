@@ -80,17 +80,19 @@ static func has_perk(data: GameStateData, perk_id: String) -> bool:
 
 ## Steps a sachet runs for, with the Rambler perks.
 static func repel_steps(data: GameStateData, base: int) -> int:
+	var guild := Guilds.repel_bonus(data, base)   # the Ramblers
 	if has_perk(data, "rambler_repel_more"):
-		return base + base / 2
+		return base + base / 2 + guild
 	if has_perk(data, "rambler_repel"):
-		return base + base / 4
-	return base
+		return base + base / 4 + guild
+	return base + guild
 
 ## Selling top-up for the Trader perks (see the integrator hook above).
 static func sell_mult(data: GameStateData) -> float:
+	var guild := Guilds.sell_bonus(data)   # the Traders' Guild
 	if has_perk(data, "trader_haggle_more"):
-		return 1.10
-	return 1.05 if has_perk(data, "trader_haggle") else 1.0
+		return 1.10 + guild
+	return (1.05 if has_perk(data, "trader_haggle") else 1.0) + guild
 
 ## Extra portions for the dish just counted (call after dishes_cooked has gone up): a fixed rhythm, not luck.
 static func extra_portions(data: GameStateData) -> int:
@@ -101,9 +103,10 @@ static func extra_portions(data: GameStateData) -> int:
 
 ## The Naturalist's extra pull for rarer weather (0, 0.15 or 0.3).
 static func sky_boost(data: GameStateData) -> float:
+	var guild := Guilds.sky_bonus(data)   # the Naturalists
 	if has_perk(data, "naturalist_sky_more"):
-		return 0.3
-	return 0.15 if has_perk(data, "naturalist_sky") else 0.0
+		return 0.3 + guild
+	return (0.15 if has_perk(data, "naturalist_sky") else 0.0) + guild
 
 ## Keeps the one perk the encounter roll reads from plain flags up to date (called on entering a zone).
 static func refresh(data: GameStateData) -> void:

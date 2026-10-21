@@ -1,0 +1,118 @@
+{
+ "id": "liverpool_williamson",
+ "name": "The Williamson Tunnels",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "dark": true,
+ "legend_extra": {
+  "c": {
+   "tile": "floor_tile",
+   "colour": "#b9a58a"
+  }
+ },
+ "props": [
+  {
+   "type": "brick_arch",
+   "x": 4,
+   "y": 2,
+   "walk": true
+  },
+  {
+   "type": "brick_arch",
+   "x": 18,
+   "y": 2,
+   "walk": true
+  },
+  {
+   "type": "brick_arch",
+   "x": 11,
+   "y": 5,
+   "walk": true
+  },
+  {
+   "type": "lamp_post",
+   "x": 3,
+   "y": 8
+  },
+  {
+   "type": "lamp_post",
+   "x": 19,
+   "y": 8
+  },
+  {
+   "type": "lamp_post",
+   "x": 9,
+   "y": 3
+  },
+  {
+   "type": "lamp_post",
+   "x": 13,
+   "y": 3
+  },
+  {
+   "type": "table",
+   "x": 4,
+   "y": 5
+  },
+  {
+   "type": "table",
+   "x": 18,
+   "y": 6
+  }
+ ],
+ "warps": [
+  {
+   "x": 11,
+   "y": 12,
+   "to": "liverpool_h5",
+   "tx": 7,
+   "ty": 2,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  11,
+  11
+ ],
+ "examine": [
+  {
+   "x": 4,
+   "y": 5,
+   "text": [
+    "Joseph Williamson was a tobacco merchant who made a fortune and spent it on tunnels. Under Edge Hill there are miles of brick arches, vaults and passages, and nobody knows why he dug them.",
+    "One theory is that it was work for returning soldiers after the Napoleonic wars. Another is that he enjoyed it."
+   ]
+  },
+  {
+   "x": 18,
+   "y": 6,
+   "text": [
+    "A chamber of bricked-up arches. The tunnels were largely filled with rubbish and rubble after Williamson died in 1840, and volunteers have been digging them out again for years.",
+    "In a gap in the rubble, a few coins. Someone's lucky day."
+   ],
+   "money": 8,
+   "flag": "liverpool_williamson_visited"
+  }
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxxxxxxxxxxx",
+  "xxxxxxxxxxxxxxxxxxxxxxx",
+  "xxxcccxxcccccccxxcccxxx",
+  "xxxcccxxcccccccxxcccxxx",
+  "xxxcccxxcccccccxxcccxxx",
+  "xxxcccxxxxcccxxxxcccxxx",
+  "xxxcccxxxxcccxxxxcccxxx",
+  "xxxcccxxxxcccxxxxcccxxx",
+  "xxxcccxxxxcccxxxxcccxxx",
+  "xxxcccccccccccccccccxxx",
+  "xxxcccccccccccccccccxxx",
+  "xxxcccccccccccccccccxxx",
+  "xxxxxxxxxxxDxxxxxxxxxxx",
+  "xxxxxxxxxxxxxxxxxxxxxxx"
+ ]
+}

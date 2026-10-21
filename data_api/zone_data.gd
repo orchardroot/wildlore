@@ -42,6 +42,7 @@ var heights: Array = []    # rows of ints
 var legend_extra: Dictionary = {}
 var props: Array = []
 var warps: Array = []
+var examine: Array = []        # [{x, y, text, find?, money?, flag?, needs?, evidence?}] see Examine
 var edges: Dictionary = {}
 var npcs: Array = []
 var encounters: Dictionary = {}
@@ -56,6 +57,8 @@ var ferry: Dictionary = {}     # {x, y, route}
 var stub := false              # a placeholder another builder will replace
 var scaled_floor := -1        # off the main line: encounters authored at this par, lifted with the story (ParLevel); -1 = fixed
 var dark := false              # a cave: only a circle of light round the player (wider with the Lantern)
+var deep_solid: Array = []    # tiles DeepPlace made solid (levers, crates), cleared on each re-apply
+var deep: Dictionary = {}     # a Deep Place's puzzle pieces (see DeepPlace)
 var ambience := ""             # ambience bed override (an Ambience.BEDS id, or "none"); "" = pick from kind/stage
 
 static func load_id(zone_id: String) -> ZoneData:
@@ -82,6 +85,7 @@ static func from_dict(d: Dictionary) -> ZoneData:
 	z.legend_extra = d.get("legend_extra", {})
 	z.props = d.get("props", [])
 	z.warps = d.get("warps", [])
+	z.examine = d.get("examine", [])
 	z.edges = d.get("edges", {})
 	z.npcs = d.get("npcs", [])
 	z.encounters = d.get("encounters", {})
@@ -94,6 +98,7 @@ static func from_dict(d: Dictionary) -> ZoneData:
 	z.ferry = d.get("ferry", {})
 	z.stub = bool(d.get("stub", false))
 	z.dark = bool(d.get("dark", false))
+	z.deep = d.get("deep", {})
 	z.scaled_floor = int(d.get("scaled_floor", -1))
 	z.ambience = str(d.get("ambience", ""))
 	var sp: Array = d.get("spawn", [0, 0])
@@ -341,6 +346,31 @@ func warp_at(p: Vector2i) -> Dictionary:
 			return w
 	return {}
 
+## "open", "locked" or "hidden" for a warp: a "hidden" warp ({"reveal": flag}) isn't there until the flag is set, a
+## "locked" one ({"needs": flag or item id, "line"}) says its line until you have the key. Old warps are always open.
+static func warp_state(w: Dictionary, data: GameStateData) -> String:
+	var h = w.get("hidden")
+	if h is Dictionary and not flag_on(data.flag(str(h.get("reveal", "")))):
+		return "hidden"
+	var l = w.get("locked")
+	if l is Dictionary and not has_key(data, str(l.get("needs", ""))):
+		return "locked"
+	return "open"
+
+## A flag that is set, or an item in the bag.
+static func has_key(data: GameStateData, need: String) -> bool:
+	return need == "" or flag_on(data.flag(need)) or int(data.bag.get(need, 0)) > 0
+
+static func flag_on(v: Variant) -> bool:
+	return false if v == null else (v if v is bool else (v != 0 if v is int else true))
+
+## The examine spot on tile `p`, or {}.
+func examine_at(p: Vector2i) -> Dictionary:
+	for ex in examine:
+		if int(ex.x) == p.x and int(ex.y) == p.y:
+			return ex
+	return {}
+
 func sign_at(p: Vector2i) -> Dictionary:
 	for s in signs:
 		if int(s.x) == p.x and int(s.y) == p.y:
@@ -376,6 +406,34 @@ func validate(all: Dictionary) -> Array:
 		elif not all[target].warp_at(Vector2i(int(w.tx), int(w.ty))).is_empty():
 			# step out on to the doorstep, not into the doorway (a moved building leaves stale arrivals)
 			e.append(tag + "warp arrival %d,%d in '%s' lands on a warp" % [int(w.tx), int(w.ty), target])
+	for w in warps:
+		for k in ["locked", "hidden"]:
+			if w.has(k) and not (w[k] is Dictionary):
+				e.append(tag + "warp at %d,%d: '%s' must be an object" % [int(w.x), int(w.y), k])
+		if w.get("locked") is Dictionary and str(w.locked.get("needs", "")) == "":
+			e.append(tag + "warp at %d,%d is locked but names nothing it needs" % [int(w.x), int(w.y)])
+		if w.get("hidden") is Dictionary and str(w.hidden.get("reveal", "")) == "":
+			e.append(tag + "warp at %d,%d is hidden but names no reveal flag" % [int(w.x), int(w.y)])
+	var seen_ex := {}
+	var ex_reach: Dictionary = reachable(spawn, GATE_ABILITIES) if walkable(spawn) and not examine.is_empty() else {}
+	for ex in examine:
+		var ep := Vector2i(int(ex.get("x", -1)), int(ex.get("y", -1)))
+		if not in_bounds(ep):
+			e.append(tag + "examine spot %d,%d is out of bounds" % [ep.x, ep.y])
+			continue
+		if seen_ex.has(ep):
+			e.append(tag + "two examine spots at %d,%d" % [ep.x, ep.y])
+		seen_ex[ep] = true
+		if not (ex.get("text") is Array) or ex.text.is_empty():
+			e.append(tag + "examine spot %d,%d has no text lines" % [ep.x, ep.y])
+		if not warp_at(ep).is_empty():
+			e.append(tag + "examine spot %d,%d is on a warp" % [ep.x, ep.y])
+		# you face it from a neighbouring tile (or stand on it), so something next to it must be reachable
+		var ok: bool = ex_reach.has(ep)
+		for d in [Vector2i(0, 1), Vector2i(0, -1), Vector2i(1, 0), Vector2i(-1, 0)]:
+			ok = ok or ex_reach.has(ep + d)
+		if not ok:
+			e.append(tag + "examine spot %d,%d is blocked off (nowhere to stand to face it)" % [ep.x, ep.y])
 	var edge_reach_cache := {}
 	for side in edges:
 		var target: String = edges[side].get("to", "")
@@ -407,6 +465,7 @@ func validate(all: Dictionary) -> Array:
 	for n in npcs:
 		if not walkable(Vector2i(int(n.x), int(n.y))):
 			e.append(tag + "npc '%s' stands on an unwalkable tile" % n.get("id", "?"))
+	e.append_array(DeepPlace.problems(self))
 	# ability gates: every warp and edge must be reachable from the spawn, using only the ability its "gate" names
 	if walkable(spawn):
 		var cache := {}

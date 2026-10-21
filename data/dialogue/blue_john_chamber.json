@@ -1,0 +1,42 @@
+{
+ "bj_shivertor": [
+  {
+   "do": "say",
+   "who": "",
+   "text": "The vein glitters purple and gold in your light. Then a piece of the wall shifts, and looks at you."
+  },
+  {
+   "do": "legend",
+   "species": "shivertor",
+   "level": 22,
+   "music": "legend",
+   "flag": "bluejohn_caught"
+  },
+  {
+   "do": "if",
+   "flag": "bluejohn_caught",
+   "then": [
+    {
+     "do": "if",
+     "flag": "bluejohn_done",
+     "else": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "It shrugs, and a lump of banded stone drops into your hands. The cave goes very still. Then, quite clearly, the hill sighs."
+      },
+      {
+       "do": "give_item",
+       "item": "blue_john"
+      },
+      {
+       "do": "set",
+       "flag": "bluejohn_done",
+       "value": true
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

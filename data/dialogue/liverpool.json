@@ -1,4 +1,50 @@
 {
+ "case_porter": [
+  {
+   "do": "if",
+   "flag": "case_mersey_otters_briefed",
+   "then": [
+    {
+     "do": "if",
+     "flag": "case_mersey_otters_outfall",
+     "then": [
+      {
+       "do": "say",
+       "who": "Dock Porter",
+       "text": "A rainbow sheen and a smell like a suit? That's solvent, that is. Dry-cleaning fluid. We had four drums come through last month."
+      },
+      {
+       "do": "say",
+       "who": "Dock Porter",
+       "text": "I'm not supposed to show you the docket. I'm showing you the docket. Signed 'D.P.', delivered to a yard on the Wirral. Don't tell the foreman. Or do. He's got a bad back."
+      },
+      {
+       "do": "evidence",
+       "id": "docket"
+      },
+      {
+       "do": "set",
+       "flag": "case_mersey_otters_docket"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Dock Porter",
+       "text": "Detective, are you? Come back when you've got something specific. I've got eleven hundred crates and I'm not guessing which one you mean."
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Dock Porter",
+     "text": "Mind your feet. The cranes don't."
+    }
+   ]
+  }
+ ],
  "kit_pier": [
   {
    "do": "if",

@@ -21,6 +21,18 @@ It started life as a monster-catching game. It's turned into something closer to
 
 Whatever's newest is below; older notes are further down.
 
+## What's new in 3.7: Behind Doors
+
+- **Rooms worth a second look.** Face almost anything indoors and press confirm: the clock, the dresser, the noticeboard in the vestry. Most just have something to say; a few hide a coin, a key or a clue.
+- **Locked doors and secret places.** Keys open doors you've walked past for years, and some places only appear once you know where to look, including the Williamson Tunnels under Liverpool and Mary King's Close under Edinburgh's Royal Mile.
+- **Deep Places**, starting with the Blue John Cavern at Castleton: dark levels for your lantern, levers and gates, pressure plates and rising water.
+- **The Casebook.** Two proper mysteries, the Mersey otters and Loch Ness: gather evidence, question people, spot the red herrings, and accuse someone (be sure: getting it wrong costs you).
+- **Guilds.** The Ramblers, the Anglers, the Naturalists, the Folk Club, the Traders' Guild and the Heritage Trust, each with ranks you earn by doing. The Ramblers and the Trust don't get on, and you'll have to pick a side.
+- **Your lead creature lends a hand**: fording streams, fetching from ledges, nudging boulders, sniffing out forage, showing you hidden paths.
+- **Bell ringing** in church towers and **drystone walling** on the land you've rewilded.
+
+Saves from 3.6 carry straight over.
+
 ## What's new in 3.6: Good Stock
 
 - **Breeding, done properly.** Every creature now carries its makings: genes for coat, tint, markings, a hidden knack, size and build, two copies of each, one from each parent. Pair two fond creatures at Guiting Rare Breeds Farm in the Cotswolds, walk the basket off, and see what hatches.

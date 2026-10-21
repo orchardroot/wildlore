@@ -199,7 +199,7 @@ static func price_note(data: GameStateData, item_id: String, zone_id: String) ->
 static func carry_cap(data: GameStateData, item_id: String) -> int:
 	if not is_trade_good(item_id) or int(data.bag.get(str(config().get("pannier", "")), 0)) > 0:
 		return Bag.MAX_STACK
-	return mini(Bag.MAX_STACK, int(config().get("carry_cap", 30)))
+	return mini(Bag.MAX_STACK, int(config().get("carry_cap", 30)) + Guilds.carry_bonus(data))   # the Traders' Guild
 
 ## How many more you may take on (0 when over the cap already, e.g. a stack from before).
 static func room(data: GameStateData, item_id: String) -> int:
