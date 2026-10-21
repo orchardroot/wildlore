@@ -237,6 +237,9 @@ static func settable_flags(dialogue: Dictionary, zones: Dictionary, extra: Array
 		for n in zones[zid].get("npcs", []):
 			if str(n.get("trainer", "")) != "":
 				out["trainer_" + str(n.trainer)] = true
+		for e in zones[zid].get("examine", []):
+			if str(e.get("flag", "")) != "":  # a look-closer spot sets its flag once (see Examine.read)
+				out[str(e.flag)] = true
 		for s in zones[zid].get("signs", []):
 			if str(s.get("plaque", "")) != "":
 				out[Gazetteer.flag_key(str(s.plaque))] = true
