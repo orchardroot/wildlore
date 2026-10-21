@@ -1,0 +1,31 @@
+{
+ "id": "armboth_forest",
+ "name": "Armboth Forestry Block",
+ "nation": "england",
+ "kind": "forestry",
+ "anchor": "lake_district",
+ "side": "west",
+ "zone": "armboth_forest",
+ "reserve": 85000,
+ "upkeep": 500,
+ "unlock_flag": "game_complete",
+ "trust_wants": true,
+ "blurb": "A Lakeland plantation of Sitka spruce in tidy rows, with firebreaks, a clearfell and an osprey-shaped gap in the market.",
+ "rewild": {
+  "biome": "pinewood",
+  "flag": "lease_armboth_forest_stage",
+  "stages": [
+   "Dense Sitka in rows, dark underneath.",
+   "Rows thinned; native trees along the becks.",
+   "Open rides; red squirrel and kite.",
+   "Mixed wood with an osprey on the tarn."
+  ],
+  "returns": [
+   "starlet",
+   "kitelet",
+   "slatelet",
+   "ospret",
+   "herdlet"
+  ]
+ }
+}

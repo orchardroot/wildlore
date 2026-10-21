@@ -1,0 +1,73 @@
+{
+ "leemoor_ranger": [
+  {
+   "do": "say",
+   "who": "Moor Ranger",
+   "text": "You bought the Lee Moor lease! Thank you. It's been a company works for longer than anyone alive, and today it's yours to put right."
+  },
+  {
+   "do": "say",
+   "who": "Moor Ranger",
+   "text": "I'm the ranger. Which is to say, I'm the one who gets rung when a pony falls in the pit."
+  },
+  {
+   "do": "if",
+   "flag": "lease_lee_moor_stage",
+   "eq": 0,
+   "then": [
+    {
+     "do": "say",
+     "who": "Moor Ranger",
+     "text": "Mind the lip of the pit and the notices. The notices are mostly about the lip of the pit."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "lease_lee_moor_stage",
+     "eq": 1,
+     "then": [
+      {
+       "do": "say",
+       "who": "Moor Ranger",
+       "text": "Topsoil's down on the old tips and the gorse is in. Gorse smells of coconut, which nobody expects on a quarry."
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "lease_lee_moor_stage",
+       "eq": 2,
+       "then": [
+        {
+         "do": "say",
+         "who": "Moor Ranger",
+         "text": "Heather's taking and the pit's gone that silly green. The ponies come down to drink and look smug about it."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Moor Ranger",
+         "text": "Look at it. A hole in a hill and it's a nature reserve. Don't tell the clay company, they'll want royalties."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "leemoor_digger": [
+  {
+   "do": "say",
+   "who": "Retired Clay Worker",
+   "text": "Thirty-one years on the monitors, washing the hill into the pipe. You never get the white out of your boots. My wife says it's in the marriage, too."
+  },
+  {
+   "do": "say",
+   "who": "Retired Clay Worker",
+   "text": "They say you're putting it back. Good. I dug it, I'd quite like to see it grow something."
+  }
+ ]
+}
