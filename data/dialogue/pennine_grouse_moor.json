@@ -184,23 +184,36 @@
      "flag": "q_arc_england_hare",
      "then": [
       {
-       "do": "say",
-       "who": "",
-       "text": "Dawn on the High Moor. The mist is lifting off the heather, and a curlew is going up the hill ahead of you."
-      },
-      {
-       "do": "say",
-       "who": "Walker in Plus-fours",
-       "text": "There you are. I'd hoped someone would come. We were four hundred, and now I'm only one. Keep the gate open for us, would you?"
-      },
-      {
-       "do": "say",
-       "who": "",
-       "text": "A hundred voices, faint over the ridge, are singing. Then there's only the wind in the heather, and nobody there at all."
-      },
-      {
-       "do": "set",
-       "flag": "q_arc_england_dawn"
+       "do": "when",
+       "cond": "dawn",
+       "then": [
+        {
+         "do": "say",
+         "who": "",
+         "text": "Dawn on the High Moor. The mist is lifting off the heather, and a curlew is going up the hill ahead of you."
+        },
+        {
+         "do": "say",
+         "who": "Walker in Plus-fours",
+         "text": "There you are. I'd hoped someone would come. We were four hundred, and now I'm only one. Keep the gate open for us, would you?"
+        },
+        {
+         "do": "say",
+         "who": "",
+         "text": "A hundred voices, faint over the ridge, are singing. Then there's only the wind in the heather, and nobody there at all."
+        },
+        {
+         "do": "set",
+         "flag": "q_arc_england_dawn"
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Walker in Plus-fours",
+         "text": "Not yet. We start at first light, and the keepers are still about. Come back at dawn."
+        }
+       ]
       }
      ],
      "else": [
