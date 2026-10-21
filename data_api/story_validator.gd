@@ -3,7 +3,7 @@ extends RefCounted
 ## Checks dialogue scripts, trainers and the NPCs that use them against the rest of the data.
 
 const COMMANDS := ["say", "choice", "if", "set", "give_item", "give_creature", "heal", "battle", "move", "face",
-	"face_player", "wait", "warp", "shop", "starter", "fade_out", "fade_in", "music", "sfx", "badge", "end", "whiteout", "ark", "rail", "ferry", "legend", "gauntlet", "credits", "daily", "when", "relearn", "sachet_worn", "quiz", "craft", "recipe", "fieldbook_news", "rewild", "standing", "tournament", "bureau", "exchange", "crypto", "casino"]
+	"face_player", "wait", "warp", "shop", "starter", "fade_out", "fade_in", "music", "sfx", "badge", "end", "whiteout", "ark", "rail", "ferry", "legend", "gauntlet", "credits", "daily", "when", "relearn", "sachet_worn", "quiz", "craft", "recipe", "fieldbook_news", "rewild", "standing", "overseas", "overseas_home", "tournament", "bureau", "exchange", "crypto", "casino"]
 const CONDITIONS := ["dawn", "day", "dusk", "night", "rain", "fog", "gale", "frost", "sunshine", "caught_all",
 	"caught_25", "caught_50", "caught_100", "caught_150", "caught_200",
 	"spring", "summer", "autumn", "winter", "halloween", "bonfire_night", "christmas", "st_patricks", "st_davids", "burns_night"]
@@ -171,6 +171,9 @@ static func validate_commands(cmds: Array, tag: String, dex: Dex, items: ItemDB,
 			"warp":
 				if not zones.has(str(c.get("zone", ""))):
 					errors.append("%s: warp to unknown zone '%s'" % [tag, c.get("zone", "")])
+			"overseas_home":
+				if Overseas.get_entry(str(c.get("territory", ""))).is_empty():
+					errors.append("%s: overseas_home territory '%s' is not in data/overseas" % [tag, c.get("territory", "")])
 			"shop":
 				if not items.shops.has(str(c.get("id", ""))):
 					errors.append("%s: shop '%s' does not exist" % [tag, c.get("id", "")])

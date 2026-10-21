@@ -1,0 +1,41 @@
+{
+ "id": "cay_banker_t",
+ "name": "Accountant Reid",
+ "class": "Man in a Suit",
+ "sprite": "commuter",
+ "party": [
+  {
+   "species": "binfox",
+   "level": 96
+  },
+  {
+   "species": "rhymerick",
+   "level": 96
+  },
+  {
+   "species": "stencilette",
+   "level": 96
+  },
+  {
+   "species": "tubemole",
+   "level": 97
+  }
+ ],
+ "ai": "trainer",
+ "money": 4500,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Accountant Reid",
+   "text": "I work in financial services. I'd tell you more, but I would then have to charge you."
+  },
+  {
+   "do": "say",
+   "who": "Accountant Reid",
+   "text": "Meeting's at three. Battle's at five past."
+  }
+ ],
+ "win": "I'll bill your creatures for the inconvenience.",
+ "after": "George Town has more registered companies than people. I'm not sure that's a boast. I'm certain it's a fact.",
+ "scaled_floor": 95
+}

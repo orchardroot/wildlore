@@ -1,0 +1,50 @@
+{
+ "spp_landlord": [
+  {
+   "do": "say",
+   "who": "Landlord",
+   "text": "The G\u00e2che and Donkey. Our sign has both. The g\u00e2che is a fruit loaf, and the donkey is you. Come in, sit down, and take your boots off if the steps were too much."
+  },
+  {
+   "do": "say",
+   "who": "Landlord",
+   "text": "We do a bean jar on the weekend. It's a slow-cooked stew of beans, pork and a trotter. The recipe's older than the pub, and the pub's been here since before Hugo."
+  }
+ ],
+ "spp_quiz": [
+  {
+   "do": "say",
+   "who": "Quizmaster",
+   "text": "Warm-up: what do they call a Guernseyman? A donkey, an \u00e2ne. No offence intended. You can ask what a Jerseyman gets called later."
+  },
+  {
+   "do": "choice",
+   "text": "Fancy a round? Five questions, no phones.",
+   "options": [
+    "Count me in",
+    "Not tonight"
+   ],
+   "set": "_quiz_choice"
+  },
+  {
+   "do": "if",
+   "flag": "_quiz_choice",
+   "eq": 0,
+   "then": [
+    {
+     "do": "quiz",
+     "pub": "st_peter_port",
+     "region": "england_south",
+     "who": "Quizmaster"
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Quizmaster",
+     "text": "Fair enough. The offer stands, and so does the bar."
+    }
+   ]
+  }
+ ]
+}

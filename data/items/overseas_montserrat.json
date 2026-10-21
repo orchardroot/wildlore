@@ -1,0 +1,58 @@
+[
+ {
+  "id": "mont_goat_water",
+  "name": "Goat Water",
+  "kind": "heal",
+  "price": 520,
+  "battle": true,
+  "field": true,
+  "amount": 200,
+  "desc": "Montserrat's national dish: a thick, spicy goat stew with cloves, thyme and hot pepper, served with a bread roll. More broth than stew. Restores 200 HP."
+ },
+ {
+  "id": "mont_soursop_juice",
+  "name": "Soursop Juice",
+  "kind": "heal",
+  "price": 340,
+  "battle": true,
+  "field": true,
+  "amount": 130,
+  "desc": "Cold, creamy juice from the soursop, a spiny green fruit that tastes of strawberry, pineapple and a nap. Restores 130 HP."
+ },
+ {
+  "id": "mont_bush_tea",
+  "name": "Bush Tea",
+  "kind": "heal",
+  "price": 300,
+  "battle": true,
+  "field": true,
+  "amount": 110,
+  "desc": "A cup of herbal tea brewed from leaves picked on the hill, believed to cure anything from a cold to a bad mood. Restores 110 HP."
+ },
+ {
+  "id": "mont_ash_sample",
+  "name": "Jar of Ash",
+  "kind": "key",
+  "price": 0,
+  "battle": false,
+  "field": true,
+  "desc": "A jar of fine grey ash from the Exclusion Zone boundary, soft as flour, with tiny glassy specks that catch the light. It is still very slightly warm."
+ },
+ {
+  "id": "pumice_charm",
+  "name": "Piece of Pumice",
+  "kind": "charm",
+  "price": 0,
+  "battle": false,
+  "field": true,
+  "wild": false,
+  "desc": "A light, pale rock full of bubbles, thrown out by the volcano. It floats in water. Tough, young and not done yet.",
+  "effect_text": "Hearth moves hurt it 25% less.",
+  "charm": {
+   "effect": "resist",
+   "type": "hearth",
+   "mult": 0.75
+  },
+  "msg": "{name}'s Pumice took the heat out of it!"
+ }
+]

@@ -1,0 +1,121 @@
+{
+ "fal_baker": [
+  {
+   "do": "if",
+   "flag": "q_overseas_falklands_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Stanley Baker",
+     "text": "I heard you took the hamper to the peat bank and fought the Camp Manager himself! I don't believe a word of it, but it's a good story, and I'll say so at the Globe."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_overseas_falklands_started",
+     "then": [
+      {
+       "do": "say",
+       "who": "Stanley Baker",
+       "text": "Hamper's with you, I think? Take it out to Camp, to the peat cutters at the banks, west of the track. Then find the farm. And show the Camp Manager a Johnny Rook if you can catch one. It'll make his day."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Stanley Baker",
+       "text": "Smoko. That's the word for the break in the morning, about eleven, when you stop everything and have tea and cake. If you are going to Camp, take a hamper. Would you take one to the peat cutters? I'll never get there with the shop to mind."
+      },
+      {
+       "do": "give_item",
+       "item": "smoko_hamper",
+       "n": 1
+      },
+      {
+       "do": "set",
+       "flag": "q_overseas_falklands_started",
+       "value": true
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "fal_pilot": [
+  {
+   "do": "say",
+   "who": "RAF Airman",
+   "text": "RAF Mount Pleasant is about thirty-five miles west of here. The Airbridge from Brize Norton takes about eighteen hours with a stop at Ascension, and I do the lot in a mood."
+  },
+  {
+   "do": "say",
+   "who": "RAF Airman",
+   "text": "Stanley's lovely. You come in off the plane and it's like arriving in a very windy village that has been told it's a capital."
+  }
+ ],
+ "fal_birder": [
+  {
+   "do": "say",
+   "who": "Birdwatcher",
+   "text": "Gypsy Cove, a few miles east. Magellanic penguins, in burrows, braying like donkeys. You'll hear them before you see them. They stand at the entrance and give you a look."
+  },
+  {
+   "do": "say",
+   "who": "Birdwatcher",
+   "text": "Jackass penguins, we call them. Because of the noise. It's affectionate. Or it was in my family."
+  }
+ ],
+ "fal_wreckwatcher": [
+  {
+   "do": "say",
+   "who": "Old Salt",
+   "text": "That's the Lady Elizabeth, out there. She came in for repairs in 1913 and was never repaired. She is a hulk now, a floating warehouse that stopped floating. I'm told she's the best-preserved old sailing ship in the world, which is not a high bar."
+  },
+  {
+   "do": "say",
+   "who": "Old Salt",
+   "text": "At low tide you can walk to some of them. Don't. The mud has been waiting a long time."
+  }
+ ],
+ "fal_kid": [
+  {
+   "do": "say",
+   "who": "Stanley Kid",
+   "text": "Everyone knows everyone here. I know the Governor's dog, the vicar's cat and the name of every sheep on Dairy Paddock. If someone moves in I know their bus route by the end of the week."
+  },
+  {
+   "do": "say",
+   "who": "Stanley Kid",
+   "text": "When the weather's bad the whole school stops and we look at the sky. We've a name for each sort of wind. The name for the worst is not in the dictionary."
+  }
+ ],
+ "falklands_stanley_return": [
+  {
+   "do": "say",
+   "who": "Airport Rep",
+   "text": "The Mount Pleasant bus leaves from here, and takes about an hour and a bit. The plane takes a long time to get home. I can book you on the next flight. It's the Airbridge: one stop, Ascension, and a lot of tea."
+  }
+ ],
+ "falklands_stanley_bureau": [
+  {
+   "do": "say",
+   "who": "Bureau Clerk",
+   "text": "Falkland pounds are at par with sterling. Shops here take your sterling gladly, but we pay out in our own notes, and nobody in England will take those."
+  },
+  {
+   "do": "bureau"
+  }
+ ],
+ "falklands_stanley_homebound": [
+  {
+   "do": "say",
+   "who": "Movements Clerk",
+   "text": "Heading back to the mainland? Passage to RAF Brize Norton can be arranged whenever you like. Bring your own sandwiches."
+  },
+  {
+   "do": "overseas_home",
+   "territory": "falklands"
+  }
+ ]
+}

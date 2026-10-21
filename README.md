@@ -1,16 +1,37 @@
-# Wildlore
+# Wildlore: These Isles
 
-[![CI](https://github.com/orchardroot/wildlore/actions/workflows/ci.yml/badge.svg)](https://github.com/orchardroot/wildlore/actions/workflows/ci.yml)
+[![CI](https://github.com/orchardroot/wildlore-these-isles-these-isles/actions/workflows/ci.yml/badge.svg)](https://github.com/orchardroot/wildlore-these-isles-these-isles/actions/workflows/ci.yml)
 
-A monster-catching RPG across the UK and Ireland. You start in Macclesfield, because somebody has to, and the plan is forty towns, ten Keepers and two hundred creatures, most of which you could see on a decent walk if you got up early enough. The rest are legends, and the legends are waking up.
+A walking holiday round the real Isles that turns into a life there.
+
+You leave Mum's house in Macclesfield with a hedgehog, a squirrel or an otter and a vague sense that you ought to see a bit of the world. The world turns out to be England, Wales, Scotland, Ireland, Northern Ireland and Mann, then Shetland and the Channel Islands, and eventually anywhere an RAF flight out of Brize Norton will take you, from Gibraltar to the Falklands to a research station in Antarctica. There are creatures to catch (most of which you could see on a decent walk if you got up early enough; the rest are legends, and the legends are waking up), Keepers to beat, and a story about someone fencing off the countryside. But mostly there are places: real towns and real history, nine hundred plaques of it, the right currency in your pocket and the wrong one at the bureau.
+
+It started life as a monster-catching game. It's turned into something closer to a love letter with a battle system.
 
 ![Title](docs/screens/t13-title.png)
 
-## What's new in 3.2
+## What's in it
 
-- **Festivals come round every year.** Do each one again next year: the quest starts afresh, the log shows this year's run, the food is yours every time, and the souvenir only the first. Finished a 3.1 festival? It still counts for its year.
-- **Shetland.** Take the boat from Kirkwall to Lerwick: the Shetland Museum, Fort Charlotte, the Galley Shed, a pub with a session, Fair Isle knitwear, Clickimin Broch, and the road south past ponies, Jarlshof and the runway to Sumburgh Head's puffins. Two quests, eight trainers and a lot of plaques.
-- **Up Helly Aa** in Lerwick, on its real date (the last Tuesday of January): help Guizer Magnus light the galley.
+- **77 towns and over 80 routes and wild places** across the UK and Ireland, plus **18 overseas destinations**: the Overseas Territories, Jersey, Guernsey and Sark. Each one built from the real place: its buildings, its food, its weather and its wildlife.
+- **Nearly 400 creatures**, every one with a real fact about the animal or the legend behind it.
+- **Ten Keepers, a Moot at Stonehenge, a rival who turns out to be your best mate**, and a villain who complains about his deposit.
+- **Over 900 heritage plaques** for the Gazetteer, a pub quiz, postcards and a Fieldbook. You will learn things. Sorry.
+- **Money that behaves like money**: sterling, euros, US and New Zealand dollars, at-par island pounds the mainland won't take, a daily exchange rate, stock exchanges, a crypto coin you should not buy, a casino and the races at Aintree.
+- **A life**: odd jobs off parish noticeboards, regional cooking, a garden and a souvenir shelf at Mum's, real-date festivals from Burns Night to Up Helly Aa, seasons, and weather that changes what's in the grass.
+
+Whatever's newest is below; older notes are further down.
+
+## What's new in 3.3: Overseas, and a new name
+
+The game is now **Wildlore: These Isles**, because that's what it's about. Your saves don't notice.
+
+- **RAF Brize Norton.** Win the Moot and an RAF movements officer at Brize Norton, south of the Cotswolds, signs you up for the departures board.
+- **Fly to the Overseas Territories**: Gibraltar and its macaques, the Sovereign Base Areas on Cyprus, Ascension, St Helena (say hello to Jonathan), Tristan da Cunha, the Falklands, South Georgia, a research station in the British Antarctic Territory, Bermuda, the Cayman Islands, Turks and Caicos, the British Virgin Islands, Anguilla, Montserrat, Pitcairn and Diego Garcia. Each has its own landscape, wildlife, plaques, trainers and a quest, and the territories have new creatures of their own.
+- **Jersey, Guernsey and Sark** by ferry from Poole Quay, open once you've won four Stones.
+- **Real money for every one of them.** US dollars on the BVI, Turks and Caicos and Diego Garcia, Bermudian and Cayman dollars pegged to the US dollar, Eastern Caribbean dollars on Anguilla and Montserrat, New Zealand dollars on Pitcairn, euros on the Sovereign Bases. Gibraltar, the Falklands, St Helena, Jersey and Guernsey print their own pounds at par: they'll take your sterling, pay you in theirs, and the mainland won't touch it. There's a bureau in every territory and at Brize Norton.
+- The right flags on the right flagpoles, and no puffins in Bermuda.
+
+Saves from 3.2 carry straight over.
 
 ## What's new in 3.2: Shetland and Small Mercies
 
@@ -135,17 +156,26 @@ From source: install nothing, run `tools/get_godot.sh` (it fetches the pinned Go
 Godot 4, GDScript, the Compatibility renderer. Everything is generated: the 3D world is built from text maps by `world/zone_builder.gd`, the creature and character sprites are drawn by `tools/spritegen.gd` from JSON recipes, and the music is composed as note lists in `tools/music/`. No downloaded art or audio.
 
 ```
-tools/test.sh              # over 500 unit tests plus the data validator
+tools/test.sh              # nearly 1,900 unit tests plus the data validator
 tools/playtest.sh slice 2  # a headless bot plays the slice and must win the Brook Stone
 tools/playtest.sh m2 2     # ...or carries on to Cardiff and must win all four
 tools/playtest.sh fuzz 7 600   # random walking, talking and battling, looking for soft-locks
-tools/playtest.sh full 1   # the whole story, Macclesfield to the credits (about 20 minutes)
+tools/playtest.sh full 1   # the whole story, Macclesfield to the credits (over an hour)
+tools/playtest.sh from underground/reunion_a   # start at any story beat and play just that bit
 ```
 
 CI runs the tests and the bot on every push, and three fuzz runs every night. Design and plans live in `docs/superpowers/`.
 
 ## Status
 
-Done. 1.0 is the whole game, polished, levelled and play-tested by a robot that walked from Macclesfield to London and found three places it could get stuck (it can't any more). If you find a fourth, the issues page is [here](../../issues). The board is [here](https://github.com/users/orchardroot/projects/2).
+Playable start to finish and then some: the story, the post-game, the Overseas flights. It's a hobby project that got out of hand, written largely with AI help (Claude) and checked by nearly 1,900 tests and a robot that plays the whole thing. If you find somewhere it breaks, the issues page is [here](../../issues).
+
+It's free. If you enjoy it and want to say thanks, the best place for a few quid is the [Electronic Frontier Foundation](https://www.eff.org/donate). Or you can tip in Ethereum: 67% of whatever lands there goes on to the EFF, and 33% goes on coffee and cat food (Meadow has been very patient).
+
+```
+0xd2b4d9707563d238974ca0fe401becf9122a4c11
+```
+
+Want to help? Brilliant. The design notes in `docs/design/` and the briefs in `docs/briefs/` are where the next things are planned, and they double as a decent guide to how the game hangs together. House rules: UK English, real facts only (if you're not sure, leave it out), 60 fps on a 2013 iMac, and never, ever break anyone's save.
 
 *orchardroot, made in Cheshire, under the supervision of two cats. Neither of them is in this one. Yet.*

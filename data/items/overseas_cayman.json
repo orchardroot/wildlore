@@ -1,0 +1,58 @@
+[
+ {
+  "id": "cay_conch_fritters",
+  "name": "Conch Fritters",
+  "kind": "heal",
+  "price": 460,
+  "battle": true,
+  "field": true,
+  "amount": 180,
+  "desc": "Chopped queen conch in a spiced batter, fried until golden and served with a dipping sauce nobody will give you the recipe for. Restores 180 HP."
+ },
+ {
+  "id": "cay_fish_rundown",
+  "name": "Fish Rundown",
+  "kind": "heal",
+  "price": 500,
+  "battle": true,
+  "field": true,
+  "amount": 200,
+  "desc": "Fish simmered in coconut milk with onion, thyme and scotch bonnet until it falls apart. Cayman's slow, patient comfort food. Restores 200 HP."
+ },
+ {
+  "id": "cay_heavy_cake",
+  "name": "Cassava Heavy Cake",
+  "kind": "heal",
+  "price": 400,
+  "battle": true,
+  "field": true,
+  "amount": 160,
+  "desc": "Grated cassava, sugar and coconut baked into a dense, sweet slab. It lives up to its name. Restores 160 HP."
+ },
+ {
+  "id": "cay_squid",
+  "name": "Bucket of Squid",
+  "kind": "key",
+  "price": 0,
+  "battle": false,
+  "field": true,
+  "desc": "Cleaned, chopped squid in a bucket. The smell is something you'll remember. Southern stingrays will cross a lagoon for it."
+ },
+ {
+  "id": "silver_thatch_bracelet",
+  "name": "Silver Thatch Bracelet",
+  "kind": "charm",
+  "price": 0,
+  "battle": false,
+  "field": true,
+  "wild": false,
+  "desc": "A bracelet woven from the silver thatch palm, the Cayman national tree. Caymanians have woven rope, baskets and hats from it for centuries.",
+  "effect_text": "Storm moves hurt it 25% less.",
+  "charm": {
+   "effect": "resist",
+   "type": "storm",
+   "mult": 0.75
+  },
+  "msg": "{name}'s Silver Thatch Bracelet turned the storm aside!"
+ }
+]

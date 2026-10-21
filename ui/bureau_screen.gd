@@ -1,5 +1,5 @@
 extends MenuBase
-## A bureau de change: today's pound to euro rate, the last fortnight on a chart, and a counter to change money
+## A bureau de change: today's pound to local money rate (euros, or the territory's own: "bureau:usd"), the last fortnight on a chart, and a counter to change money
 ## either way at the bureau's spread (see Forex). Opened as "bureau" from the counters at Holyhead, Dublin port,
 ## Belfast and every Irish Sanctuary.
 
@@ -9,6 +9,7 @@ const DOWN := Color("e9998c")
 
 var _mode := "root"     # root | qty
 var _from := "gbp"      # the purse being changed
+var _fx := "eur"        # the local money this bureau changes against sterling
 var _amount := 0
 var _mid := 1.175
 var _buttons: Array = []
@@ -26,6 +27,8 @@ var _say: Label
 
 func _build() -> void:
 	set_title("Bureau de Change")
+	var here := Wallet.local(Game.data)
+	_fx = here if here != Wallet.GBP else Wallet.EUR
 	var row := HBoxContainer.new()
 	row.set_anchors_preset(Control.PRESET_FULL_RECT)
 	row.add_theme_constant_override("separation", 22)
@@ -67,7 +70,7 @@ func _build() -> void:
 	right.add_child(bp)
 	var bc := VBoxContainer.new()
 	bp.add_child(bc)
-	for e in [["Pounds into euros", func(): _open_qty("gbp")], ["Euros into pounds", func(): _open_qty("eur")], ["Leave", func(): close(null)]]:
+	for e in [["", func(): _open_qty("gbp")], ["", func(): _open_qty(_fx)], ["Leave", func(): close(null)]]:
 		var b := make_button(e[0], e[1])
 		b.add_theme_font_size_override("font_size", 30)
 		bc.add_child(b)
@@ -92,22 +95,39 @@ func _build() -> void:
 	UIKit.focus_later(_buttons[0])
 	_set_hint()
 
+## "bureau:<currency>" names the local money when the zone's own isn't the one to change (e.g. a UK departures hall).
+func setup(arg: String) -> void:
+	if arg != Wallet.GBP and Wallet.CURRENCIES.has(arg):
+		_fx = arg
+	_refresh()
+
 func _refresh() -> void:
 	var d: GameStateData = Game.data
 	Markets.sync(d)
 	var ev := Markets.events_of(d)
-	_mid = Forex.mid_for(d)
-	_rate_big.text = "€%.4f" % _mid
-	var y := Forex.mid(d.rng_seed, maxi(0, d.day_count - 1), ev)
+	var sym := Wallet.symbol(_fx)
+	var sp := Forex.spread_for(_fx)
+	_mid = Forex.per_gbp(_fx, d.rng_seed, d.day_count, ev)
+	_buttons[0].text = "Sterling into %s" % Wallet.name_of(_fx)
+	_buttons[1].text = "%s into sterling" % (Wallet.name_of(_fx).substr(0, 1).to_upper() + Wallet.name_of(_fx).substr(1))
+	_rate_big.text = "%s%.4f" % [sym, _mid]
+	var y := Forex.per_gbp(_fx, d.rng_seed, maxi(0, d.day_count - 1), ev)
 	var mv := (_mid / y - 1.0) * 100.0 if d.day_count > 0 else 0.0
 	_rate_move.text = "%s%.2f%% today" % ["+" if mv >= 0.0 else "", mv]
 	_rate_move.add_theme_color_override("font_color", UP if mv >= 0.0 else DOWN)
-	_buy_line.text = "We buy your pounds at €%.3f each" % Forex.bureau_buy_eur(_mid)
-	_sell_line.text = "We sell you pounds at €%.3f each" % Forex.bureau_sell_eur(_mid)
-	_tourist_line.text = "A shop taking the wrong money gives the tourist rate: €%.3f" % Forex.tourist_eur_per_gbp(_mid, true)
-	_chart.set_values(Forex.history(d.rng_seed, d.day_count, DAYS, ev), func(v: float) -> String: return "€%.3f" % v)
+	_buy_line.text = "We buy your pounds at %s%.3f each" % [sym, _mid * (1.0 - sp)]
+	_sell_line.text = "We sell you pounds at %s%.3f each" % [sym, _mid * (1.0 + sp)]
+	if _fx in Wallet.PAR_POUNDS:
+		_tourist_line.text = "Shops here take sterling at par, but the mainland won't take these pounds, so change them here."
+	else:
+		_tourist_line.text = "A shop taking the wrong money gives the tourist rate: %s%.3f" % [sym, _mid * (1.0 - Forex.TOURIST)]
+	_chart.set_values(Forex.history_of(_fx, d.rng_seed, d.day_count, DAYS, ev), func(v: float) -> String: return "%s%.3f" % [sym, v])
 	_news.text = Forex.news(d.rng_seed, d.day_count, Markets.news_templates())
-	header_right.text = "%s   %s" % [UIKit.money_text(d.money), UIKit.money_text(d.euros, Wallet.EUR)]
+	header_right.text = "%s   %s" % [UIKit.money_text(d.money), Wallet.fmt_tagged(Wallet.balance(d, _fx), _fx)]
+
+## The purse a change lands in: sterling becomes the local money and the local money becomes sterling.
+func _to(from: String) -> String:
+	return _fx if from == Wallet.GBP else Wallet.GBP
 
 func _set_hint() -> void:
 	if _mode == "qty":
@@ -117,8 +137,8 @@ func _set_hint() -> void:
 
 func _open_qty(from: String) -> void:
 	var have := Wallet.balance(Game.data, from)
-	if Forex.quote(have, from, _mid) <= 0:
-		_say.text = "You've no %s to change. Lovely to see you all the same." % Wallet.NAMES[from]
+	if Forex.quote_pair(have, from, _to(from), Game.data) <= 0:
+		_say.text = "You've no %s to change. Lovely to see you all the same." % Wallet.name_of(from)
 		Audio.sfx("bump")
 		return
 	_from = from
@@ -132,10 +152,10 @@ func _open_qty(from: String) -> void:
 func _refresh_qty() -> void:
 	_amount = clampi(_amount, 1, maxi(1, Wallet.balance(Game.data, _from)))
 	_qty_label.text = "Change %s" % UIKit.money_text(_amount, _from)
-	_get_label.text = "You get %s" % UIKit.money_text(Forex.quote(_amount, _from, _mid), Wallet.other(_from))
+	_get_label.text = "You get %s" % UIKit.money_text(Forex.quote_pair(_amount, _from, _to(_from), Game.data), _to(_from))
 
 func _commit() -> void:
-	var r := Forex.exchange(Game.data, _amount, _from)
+	var r := Forex.exchange(Game.data, _amount, _from, _to(_from))
 	if not r.ok:
 		_say.text = "That won't buy so much as a cent. Try a bit more."
 		Audio.sfx("bump")

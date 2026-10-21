@@ -1,0 +1,36 @@
+{
+ "id": "sth_fisher",
+ "name": "Fisherman Lionel",
+ "class": "Fisherman",
+ "sprite": "fisherman_north",
+ "party": [
+  {
+   "species": "greyhaul",
+   "level": 95
+  },
+  {
+   "species": "baskling",
+   "level": 96
+  },
+  {
+   "species": "dolphlet",
+   "level": 96
+  },
+  {
+   "species": "clawcastle",
+   "level": 96
+  }
+ ],
+ "ai": "trainer",
+ "money": 5600,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Fisherman Lionel",
+   "text": "Tuna on a line, one at a time, from a small boat. No nets, no drift. That's how it's done here. Same for the battles."
+  }
+ ],
+ "win": "Fair fight. The tuna agrees.",
+ "after": "St Helena fishermen still catch tuna one at a time, by pole and line, which is gentler on the sea than a net.",
+ "scaled_floor": 95
+}

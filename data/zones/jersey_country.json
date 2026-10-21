@@ -1,0 +1,656 @@
+{
+ "id": "jersey_country",
+ "name": "Jersey Countryside",
+ "region": "channel_islands",
+ "kind": "route",
+ "music": "route_coast",
+ "weather": {
+  "drizzle": 22,
+  "clear": 28,
+  "sunshine": 24,
+  "fog": 10,
+  "gale": 8,
+  "downpour": 8
+ },
+ "props": [
+  {
+   "type": "building",
+   "style": "stone",
+   "x": 8,
+   "y": 19,
+   "w": 10,
+   "h": 4,
+   "label": "Jersey War Tunnels"
+  },
+  {
+   "type": "building",
+   "style": "passage_tomb",
+   "x": 36,
+   "y": 25,
+   "w": 9,
+   "h": 5,
+   "label": "La Hougue Bie"
+  },
+  {
+   "type": "building",
+   "style": "castle",
+   "x": 46,
+   "y": 40,
+   "w": 11,
+   "h": 7,
+   "label": "Mont Orgueil Castle"
+  },
+  {
+   "type": "building",
+   "style": "harbour_row",
+   "x": 46,
+   "y": 30,
+   "w": 9,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "stone",
+   "x": 44,
+   "y": 9,
+   "w": 10,
+   "h": 4,
+   "label": "Durrell Wildlife Park"
+  },
+  {
+   "type": "statue",
+   "x": 54,
+   "y": 14,
+   "variant": 3
+  },
+  {
+   "type": "building",
+   "style": "jersey_granite",
+   "x": 9,
+   "y": 28,
+   "w": 9,
+   "h": 4,
+   "label": "Le Brocq's Farm"
+  },
+  {
+   "type": "building",
+   "style": "field_barn",
+   "x": 20,
+   "y": 28,
+   "w": 6,
+   "h": 3,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "jersey_tower",
+   "x": 52,
+   "y": 20,
+   "w": 3,
+   "h": 3,
+   "show_label": false
+  },
+  {
+   "type": "oak",
+   "x": 5,
+   "y": 11,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 17,
+   "y": 16,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 22,
+   "y": 16,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 9,
+   "y": 10,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 4,
+   "y": 12,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 8,
+   "y": 11,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 47,
+   "y": 49,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 49,
+   "y": 39,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 41,
+   "y": 49,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 43,
+   "y": 45,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 44,
+   "y": 40,
+   "variant": 2
+  },
+  {
+   "type": "lamp_post",
+   "x": 29,
+   "y": 40
+  },
+  {
+   "type": "lamp_post",
+   "x": 29,
+   "y": 28
+  },
+  {
+   "type": "lamp_post",
+   "x": 33,
+   "y": 8
+  },
+  {
+   "type": "lamp_post",
+   "x": 47,
+   "y": 35
+  }
+ ],
+ "warps": [
+  {
+   "x": 13,
+   "y": 22,
+   "to": "jersey_tunnels",
+   "tx": 7,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 40,
+   "y": 29,
+   "to": "jersey_hougue",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 51,
+   "y": 46,
+   "to": "jersey_orgueil",
+   "tx": 7,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 49,
+   "y": 12,
+   "to": "jersey_durrell",
+   "tx": 7,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 13,
+   "y": 31,
+   "to": "jersey_farm",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  }
+ ],
+ "edges": {
+  "south": {
+   "to": "st_helier",
+   "offset": 0
+  }
+ },
+ "npcs": [
+  {
+   "id": "jer_tchian",
+   "sprite": "creature:tchian",
+   "x": 20,
+   "y": 7,
+   "facing": "down",
+   "move": "still",
+   "script": "tchian_spot",
+   "hide_if": "caught_tchian"
+  },
+  {
+   "id": "jer_cow_23",
+   "sprite": "creature:moolet",
+   "x": 23,
+   "y": 33,
+   "facing": "down",
+   "move": "wander",
+   "script": "jer_cow"
+  },
+  {
+   "id": "jer_cow_26",
+   "sprite": "creature:moolet",
+   "x": 26,
+   "y": 34,
+   "facing": "down",
+   "move": "wander",
+   "script": "jer_cow"
+  },
+  {
+   "id": "jer_cow_28",
+   "sprite": "creature:moolet",
+   "x": 28,
+   "y": 28,
+   "facing": "down",
+   "move": "wander",
+   "script": "jer_cow"
+  },
+  {
+   "id": "jer_farmer_old",
+   "sprite": "farmer",
+   "x": 16,
+   "y": 35,
+   "facing": "right",
+   "move": "still",
+   "script": "jer_farmer_old"
+  },
+  {
+   "id": "jer_guide",
+   "sprite": "tour_guide",
+   "x": 36,
+   "y": 31,
+   "facing": "left",
+   "move": "still",
+   "script": "jer_guide"
+  },
+  {
+   "id": "jer_keeper",
+   "sprite": "explorer",
+   "x": 52,
+   "y": 15,
+   "facing": "left",
+   "move": "still",
+   "script": "jer_keeper"
+  },
+  {
+   "id": "jer_dairyman",
+   "sprite": "farmer",
+   "x": 20,
+   "y": 34,
+   "facing": "right",
+   "move": "still",
+   "trainer": "jer_dairyman"
+  },
+  {
+   "id": "jer_surfer",
+   "sprite": "surfer",
+   "x": 55,
+   "y": 18,
+   "facing": "left",
+   "move": "still",
+   "trainer": "jer_surfer"
+  },
+  {
+   "id": "jer_keeper_t",
+   "sprite": "explorer",
+   "x": 46,
+   "y": 14,
+   "facing": "up",
+   "move": "still",
+   "trainer": "jer_keeper_t"
+  },
+  {
+   "id": "jer_walker",
+   "sprite": "hillwalker",
+   "x": 24,
+   "y": 8,
+   "facing": "down",
+   "move": "still",
+   "trainer": "jer_walker"
+  },
+  {
+   "id": "jer_legend",
+   "sprite": "farmer",
+   "x": 13,
+   "y": 34,
+   "facing": "down",
+   "move": "still",
+   "trainer": "jer_legend"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "moolet",
+    "min": 40,
+    "max": 42,
+    "weight": 14
+   },
+   {
+    "species": "herdlet",
+    "min": 40,
+    "max": 41,
+    "weight": 10
+   },
+   {
+    "species": "duneskink",
+    "min": 40,
+    "max": 42,
+    "weight": 8,
+    "time": [
+     "dawn",
+     "dusk"
+    ]
+   },
+   {
+    "species": "tchian",
+    "min": 41,
+    "max": 42,
+    "weight": 1,
+    "time": [
+     "night"
+    ],
+    "weather": [
+     "fog"
+    ]
+   },
+   {
+    "species": "flittermouse",
+    "min": 40,
+    "max": 41,
+    "weight": 8,
+    "time": [
+     "day"
+    ]
+   },
+   {
+    "species": "swiftlet",
+    "min": 40,
+    "max": 41,
+    "weight": 8,
+    "time": [
+     "dawn",
+     "dusk"
+    ]
+   },
+   {
+    "species": "dozelet",
+    "min": 40,
+    "max": 41,
+    "weight": 8
+   },
+   {
+    "species": "starlet",
+    "min": 40,
+    "max": 41,
+    "weight": 8
+   },
+   {
+    "species": "stoopfalcon",
+    "min": 41,
+    "max": 42,
+    "weight": 6,
+    "time": [
+     "dusk",
+     "night"
+    ]
+   },
+   {
+    "species": "hootlet",
+    "min": 41,
+    "max": 42,
+    "weight": 6,
+    "time": [
+     "night"
+    ]
+   },
+   {
+    "species": "ternlet",
+    "min": 40,
+    "max": 42,
+    "weight": 8,
+    "time": [
+     "dawn",
+     "dusk",
+     "night"
+    ]
+   },
+   {
+    "species": "crockling",
+    "min": 40,
+    "max": 41,
+    "weight": 5
+   },
+   {
+    "species": "beancrock",
+    "min": 41,
+    "max": 42,
+    "weight": 2,
+    "time": [
+     "night"
+    ]
+   }
+  ],
+  "water": [
+   {
+    "species": "pinchkin",
+    "min": 40,
+    "max": 41,
+    "weight": 16
+   },
+   {
+    "species": "puffling",
+    "min": 40,
+    "max": 41,
+    "weight": 12,
+    "season": [
+     "spring",
+     "summer"
+    ]
+   },
+   {
+    "species": "vraicling",
+    "min": 41,
+    "max": 43,
+    "weight": 10
+   },
+   {
+    "species": "pupplash",
+    "min": 40,
+    "max": 42,
+    "weight": 10
+   },
+   {
+    "species": "gannetling",
+    "min": 40,
+    "max": 42,
+    "weight": 8
+   },
+   {
+    "species": "baskling",
+    "min": 40,
+    "max": 42,
+    "weight": 8
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 19,
+   "y": 23,
+   "plaque": "channel_islands_tunnels",
+   "title": "The War Tunnels",
+   "text": "Begun in 1941 as an artillery barracks and workshop, a maze of tunnels dug into the hill at St Lawrence by forced labourers brought from across occupied Europe, many of them starved and badly treated. Late in the war the tunnels became an emergency hospital. Today they are a museum of the Occupation, and a memorial to the workers who died."
+  },
+  {
+   "x": 35,
+   "y": 30,
+   "plaque": "channel_islands_hougue",
+   "title": "La Hougue Bie",
+   "text": "A great Neolithic passage tomb under a grassy mound, built about 6,000 years ago, among the largest in Europe. At the spring and autumn equinox the sunrise lights the passage right to the back. A medieval chapel stands on top, and the Germans built a bunker beside it."
+  },
+  {
+   "x": 45,
+   "y": 47,
+   "plaque": "channel_islands_orgueil",
+   "title": "Mont Orgueil",
+   "text": "Built after 1204, when King John lost Normandy and the Channel Islands became England's front line, to guard Gorey harbour and the French coast just fifteen miles away. Mont Orgueil means Mount Pride. It stood for four centuries until cannon made it out of date, and Elizabeth Castle replaced it."
+  },
+  {
+   "x": 53,
+   "y": 14,
+   "plaque": "channel_islands_durrell",
+   "title": "Durrell Wildlife Park",
+   "text": "Gerald Durrell, the writer of My Family and Other Animals, founded the zoo at Les Augr\u00e8s Manor in 1959 to breed endangered species and save them from extinction. The Durrell Trust's logo is a dodo, as a reminder of what happens when nobody tries. It has helped save the pink pigeon, the mountain chicken frog and golden lion tamarins."
+  },
+  {
+   "x": 7,
+   "y": 33,
+   "plaque": "channel_islands_cow",
+   "title": "The Jersey Cow",
+   "text": "Small, fawn-coloured, with huge dark eyes, and a milk so rich in cream it makes the best butter in the world. The island has kept the breed pure for more than two centuries: bringing in cattle of any other kind has been banned since 1789."
+  },
+  {
+   "x": 51,
+   "y": 23,
+   "plaque": "channel_islands_towers",
+   "title": "The Round Towers",
+   "text": "Jersey is ringed with granite round towers, built from the 1780s to guard against the French. Some stand on the shore, some on the tidal flats, and at low water you can walk to Seymour Tower across a mile of sand, if you check the tide first."
+  },
+  {
+   "x": 27,
+   "y": 43,
+   "plaque": "channel_islands_royals",
+   "title": "Jersey Royals",
+   "text": "The island's first potatoes of the season, grown in steep, south-facing fields and picked by hand from April, long before anywhere else. The seaweed called vraic is traditionally spread on the fields as fertiliser. The Jersey Royal has protected status, like champagne or Stilton."
+  },
+  {
+   "x": 17,
+   "y": 8,
+   "plaque": "channel_islands_bouley",
+   "title": "Bouley Bay",
+   "text": "A steep bay on the north coast, where old Jersey stories put a ghostly black dog that walks the cliff path after dark. In J\u00e8rriais, tchian means dog. The hillclimb road above the bay is also used for motor racing, which is quite loud for a ghost to compete with."
+  },
+  {
+   "x": 56,
+   "y": 14,
+   "plaque": "channel_islands_grouville",
+   "title": "Royal Bay of Grouville",
+   "text": "The long sweep of sand on the east coast, where the tide goes out a mile or more on the biggest days. The shore is also home to oyster beds. Oysters have been farmed in Gorey since the nineteenth century, and Jersey ones are sold fresh on the harbour."
+  },
+  {
+   "x": 38,
+   "y": 36,
+   "plaque": "channel_islands_jersey_lanes",
+   "title": "Green Lanes",
+   "text": "Jersey has a network of narrow green lanes, signed with a speed limit of 15 miles an hour, where walkers, cyclists and horses have priority over cars. The lanes were traced by farmers' carts and hardly any have a straight line."
+  },
+  {
+   "x": 29,
+   "y": 52,
+   "text": "SOUTH: St Helier. EAST at the crossroads: Gorey and Mont Orgueil. NORTH: Durrell, and the cliff path along the north coast."
+  },
+  {
+   "x": 29,
+   "y": 24,
+   "text": "WEST: the Jersey War Tunnels at St Lawrence. EAST: La Hougue Bie, the great mound."
+  }
+ ],
+ "spawn": [
+  31,
+  52
+ ],
+ "stage": "coast",
+ "scaled_floor": 40,
+ "rows": [
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww$$$$$",
+  "TTssssssssssssssssssssssssssssssssssssssssssssssssssssssssw$$$$$",
+  "TTssssssssssssssssssssssssssssssssssssssssssssssssssssssssw$$$$$",
+  "TT....##################################################ssw$$$$$",
+  "TT..........ssssssssssssss....###......................sssw$$$$$",
+  "TT.....................,......###...........BBBBBBBBBB.sssw$$$$$",
+  "TT.................,,,,,,,,,,,###...........BBBBBBBBBB.sssw$$$$$",
+  "TT................,,,,,,,,,,,,###...........BBBBBBBBBB.sssw$$$$$",
+  "TT.....,.........,,,,,,,,,,,,,##############BBBBBDBBBB.sssw$$$$$",
+  "TT..,,,,,,........,,,,,,,,,,,,########################.sssw$$$$$",
+  "TT.,,,,,,,,.........,,,,,,,,,,###......................sssw$$$$$",
+  "TT.,,,,,,,,,...........,.,....###......................sssw$$$$$",
+  "TT..,,,,,,,...................###......................sssw$$$$$",
+  "TT..,,,,,,,...................###.......,..............sssw$$$$$",
+  "TT.....,,.....................###...,,,,,,,,,..........sssw$$$$$",
+  "TT......BBBBBBBBBB............###..,,,,,,,,,,,.........sssw$$$$$",
+  "TT......BBBBBBBBBB............###.,,,,,,,,,,,,,.....BBBsssw$$$$$",
+  "TT......BBBBBBBBBB............###..,,,,,,,,,,,......BBBsssw$$$$$",
+  "TT......BBBBBDBBBB............###...,,,,,,,,,.......BBBsssw$$$$$",
+  "TT......##########............###.....,,...............sssw$$$$$",
+  "TT......#########################......................sssw$$$$$",
+  "TT......#########################...BBBBBBBBB..........sssw$$$$$",
+  "TT............................###...BBBBBBBBB..........sssw$$$$$",
+  "TT............................###...BBBBBBBBB..........sssw$$$$$",
+  "TT.......BBBBBBBBB..BBBBBB....###...BBBBBBBBB..........sssw$$$$$",
+  "TT.......BBBBBBBBB..BBBBBB....###...BBBBDBBBB..........sssw$$$$$",
+  "TT.......BBBBBBBBB,.BBBBBB....###...#########.BBBBBBBBBsssw$$$$$",
+  "TT.......BBBBDBBBB............###.............BBBBBBBBBsssw$$$$$",
+  "TT.......##########...........###.............BBBBBBBBBsssw$$$$$",
+  "TT............,...............###.............BBBBBBBBBsssw$$$$$",
+  "TT............................###......................sssw$$$$$",
+  "TT............................###......................sssw$$$$$",
+  "TT............................###########################sw$$$$$",
+  "TT............................###########################sw$$$$$",
+  "TT...ppppppppppppppppppppp....###......................sssw$$$$$",
+  "TT...qqqqqqqqqqqqqqqqqqqqq....###......................sssw$$$$$",
+  "TT...ppppppppppppppppppppp....###.............BBBBBBBBBBBsw$$$$$",
+  "TT...qqqqqqqqqqqqqqqqqqqqq....###.............BBBBBBBBBBBsw$$$$$",
+  "TT...ppppppppppppppppppppp....###.............BBBBBBBBBBBsw$$$$$",
+  "TT...qqqqqqqqqqqqqqqqqqqqq....###....,,.......BBBBBBBBBBBsw$$$$$",
+  "TT...ppppppppppppppppppppp....###..,,,,,,,....BBBBBBBBBBBsw$$$$$",
+  "TT...qqqqqqqqqqqqqqqqqqqqq....###.,,,,,,,,,...BBBBBBBBBBBsw$$$$$",
+  "TT...ppppppppppppppppppppp....###,,,,,,,,,,...BBBBBDBBBBBsw$$$$$",
+  "TT...qqqqqqqqqqqqqqqqqqqqq....###.,,,,,,,,,...############w$$$$$",
+  "TT...ppppppppppppppppppppp....###..,,,,,,,.............sssw$$$$$",
+  "TT...qqqqqqqqqqqqqqqqqqqqq....###....,,................sssw$$$$$",
+  "TT...ppppppppppppppppppppp....###......................sssw$$$$$",
+  "TT...qqqqqqqqqqqqqqqqqqqqq....###......................sssw$$$$$",
+  "TT............................###......................sssw$$$$$",
+  "TT............................###......................sssw$$$$$",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT###TTTTTTTTTTTTTTTTTTTTTTTTT$$$$$$",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT###TTTTTTTTTTTTTTTTTTTTTTTTTT$$$$$"
+ ],
+ "legend_extra": {
+  "p": {
+   "tile": "grass",
+   "colour": "#5f8f3a"
+  },
+  "q": {
+   "tile": "grass",
+   "colour": "#7ba548"
+  },
+  "g": {
+   "tile": "grass",
+   "colour": "#6f9447"
+  }
+ }
+}

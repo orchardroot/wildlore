@@ -2295,24 +2295,507 @@
     "items": {"blaenavon_cheddar": 1}
    }
   },
-  {"id": "plym_hoe", "nation": "england", "town": "plymouth", "badges": 0, "poster": "Plymouth Hoe Bowls Club", "title": "Drake would have finished the game", "text": "Legend has it Drake finished his game of bowls before seeing off the Armada. Our members have never finished a game in under four hours. Go to the Elizabethan House at dusk and soak up some of that composure.", "step": {"type": "visit", "zone": "plymouth_elizabethan", "time": ["dusk"]}, "pay": 1},
-  {"id": "exe_underground", "nation": "england", "town": "exeter", "badges": 0, "poster": "Exeter Underground Passages", "title": "Passages in daylight", "text": "The medieval water passages are the only ones in Britain you can walk through, and the only ones where the guide has lost a school group. Pop down and check the torches are lit. Count heads on the way out.", "step": {"type": "visit", "zone": "exeter_passages", "time": ["day"]}, "pay": 1},
-  {"id": "ennis_castle", "nation": "northern_ireland", "town": "enniskillen", "badges": 0, "poster": "Fermanagh Heritage Society", "title": "Castle by lamplight", "text": "Enniskillen Castle sits on the water like it's waiting for a bus. Visit at dusk and tell us if the swans are still running the place.", "step": {"type": "visit", "zone": "enniskillen_castle", "time": ["dusk"]}, "pay": 1, "reward": {"items": {"hazelnuts": 2}}},
-  {"id": "gwee_radio", "nation": "ireland", "town": "gweedore", "badges": 0, "poster": "Raidio na Gaeltachta (Gaoth Dobhair)", "title": "Dead air at the studio", "text": "Our lad on the late shift swears the studio kettle has a better Irish accent than the weatherman. Call into the studio at night and keep him company. Bring biscuits if you have any.", "step": {"type": "visit", "zone": "gweedore_radio", "time": ["night"]}, "pay": 1},
-  {"id": "dongl_diamond", "nation": "ireland", "town": "donegal_town", "badges": 0, "poster": "Donegal Town Chamber of Commerce", "title": "Tea for the Diamond", "text": "The Diamond is the heart of town and the heart is a bit chilly. Bring us a flask of tea for the market stallholders and we will say nice things about you at the next meeting.", "step": {"type": "bring", "item": "flask_of_tea", "n": 1}, "pay": 1},
-  {"id": "lim_thomond", "nation": "ireland", "town": "limerick", "badges": 0, "poster": "Limerick Rugby Heads", "title": "Thomond Park pilgrimage", "text": "The home of Munster rugby, where the grass is sacred and the chips are better. Visit Thomond Park at dawn to check the pitch before the groundsman gets there. He will never know.", "step": {"type": "visit", "zone": "limerick_thomond", "time": ["dawn"]}, "pay": 1, "reward": {"items": {"hazelnuts": 2}}},
-  {"id": "shrews_darwin", "nation": "england", "town": "shrewsbury", "badges": 0, "poster": "Shrewsbury Town Walks", "title": "Darwin was a local lad", "text": "Charles Darwin was born here and wandered the riverbank looking at beetles. Visit the Abbey at dusk and see if anything crawls out worth looking at. Do not take notes on the finches.", "step": {"type": "visit", "zone": "shrewsbury_abbey", "time": ["dusk"]}, "pay": 1},
-  {"id": "camb_punts", "nation": "england", "town": "cambridge", "badges": 0, "poster": "Cambridge Punting Company", "title": "Stranded punt on the Cam", "text": "A first-year has punted into the same willow for the third time. We need someone to check Trinity College is still standing and the pole is where it should be. Mind the swans.", "step": {"type": "visit", "zone": "cambridge_trinity", "time": ["day"]}, "pay": 1},
-  {"id": "norw_mustard", "nation": "england", "town": "norwich", "badges": 0, "poster": "Mustard Shop Volunteers", "title": "Mustard for the Lanes", "text": "A busy week and we are out of the hot stuff. Pop into the mustard shop and see whether anyone is queuing. Norwich takes its mustard seriously and so do we.", "step": {"type": "visit", "zone": "norwich_mustard", "time": ["day"]}, "pay": 1},
-  {"id": "brigh_pier", "nation": "england", "town": "brighton", "badges": 0, "poster": "Brighton Pier Amusements", "title": "The pier at twilight", "text": "The pier lights come on at dusk and the gulls get ideas about chips. Go down and see what's lurking under the boards. Hold onto your sandwich.", "step": {"type": "visit", "zone": "brighton_pier", "time": ["dusk"]}, "pay": 1},
-  {"id": "cant_pilgrim", "nation": "england", "town": "canterbury", "badges": 0, "poster": "Canterbury Pilgrims Society", "title": "Pilgrims, but make it brisk", "text": "Chaucer's lot took weeks. We'd like you to take a quiet minute in the Cathedral at night and report on the stillness. No tales, please. We have enough of those.", "step": {"type": "visit", "zone": "canterbury_cathedral", "time": ["night"]}, "pay": 1},
-  {"id": "dov_tunnels", "nation": "england", "town": "dover", "badges": 0, "poster": "Dover Harbour Board", "title": "The tunnels after hours", "text": "The Secret Wartime Tunnels run under the Castle and the lights keep flickering. Check the tunnels and make sure no one has been left behind in the cold. Wartime biscuits are optional.", "step": {"type": "visit", "zone": "dover_tunnels", "time": ["night"]}, "pay": 1},
-  {"id": "hull_deep", "nation": "england", "town": "hull", "badges": 0, "poster": "The Deep Aquarium", "title": "A hush in Hull", "text": "Hull has a lot of fish and a lot of opinions about them. Check The Deep is quiet at night and the sharks are asleep. Tell the shark we said hello.", "step": {"type": "visit", "zone": "hull_deep", "time": ["night"]}, "pay": 1},
-  {"id": "linc_steep", "nation": "england", "town": "lincoln", "badges": 0, "poster": "Steep Hill Traders", "title": "Up the steep hill, down the pub", "text": "The hill is so steep the pies arrive cold from the bottom. Visit the Cathedral at dawn and see if the Imp is still up to no good in the stonework.", "step": {"type": "visit", "zone": "lincoln_cathedral", "time": ["dawn"]}, "pay": 1},
-  {"id": "stand_links", "nation": "scotland", "town": "st_andrews", "badges": 0, "poster": "St Andrews Links Trust", "title": "First on the sand", "text": "The oldest golf course in the world, and not one person knows who owns the divots. Wander the Cathedral grounds at dawn and be first through before the first tee time.", "step": {"type": "visit", "zone": "st_andrews_cathedral", "time": ["dawn"]}, "pay": 1},
-  {"id": "dund_jam", "nation": "scotland", "town": "dundee", "badges": 0, "poster": "Dundee Marmalade Society", "title": "Marmalade, jute and journalism", "text": "We make marmalade. We make jute. We make newspapers. We do not make sense at six in the morning. Visit Keiller's at the start of the day and tell us the recipe is still safe.", "step": {"type": "visit", "zone": "dundee_keillers", "time": ["dawn"]}, "pay": 1},
-  {"id": "oxf_dreaming", "nation": "england", "town": "oxford", "badges": 0, "poster": "Oxford Dreaming Spires Tours", "title": "Spires at midnight", "text": "The Bodleian never sleeps, only the students do. Step into the library after dark and see whether anything reads over your shoulder. Quiet, please.", "step": {"type": "visit", "zone": "oxford_bodleian", "time": ["night"]}, "pay": 1},
-  {"id": "lerwick_otters", "nation": "scotland", "town": "lerwick", "badges": 9, "poster": "Shetland Amenity Trust", "title": "Otter count", "text": "The otters of the voes are shy, nocturnal and extremely good at not being counted. Catch a Rillotter for the survey, and do not, under any circumstances, tell it that it is on a list.", "step": {"type": "catch", "species": "rillotter"}, "pay": 3},
-  {"id": "lerwick_bannocks", "nation": "scotland", "town": "lerwick", "badges": 9, "poster": "Up Helly Aa Hall Committee", "title": "Bannocks for the hall", "text": "A squad that has marched all night will eat anything, and we would rather it ate bannocks than the furniture. Two Shetland bannocks, please, from the corner shop.", "step": {"type": "bring", "item": "shetland_bannock", "n": 2}, "pay": 1}
+  {
+   "id": "plym_hoe",
+   "nation": "england",
+   "town": "plymouth",
+   "badges": 0,
+   "poster": "Plymouth Hoe Bowls Club",
+   "title": "Drake would have finished the game",
+   "text": "Legend has it Drake finished his game of bowls before seeing off the Armada. Our members have never finished a game in under four hours. Go to the Elizabethan House at dusk and soak up some of that composure.",
+   "step": {
+    "type": "visit",
+    "zone": "plymouth_elizabethan",
+    "time": ["dusk"]
+   },
+   "pay": 1
+  },
+  {
+   "id": "exe_underground",
+   "nation": "england",
+   "town": "exeter",
+   "badges": 0,
+   "poster": "Exeter Underground Passages",
+   "title": "Passages in daylight",
+   "text": "The medieval water passages are the only ones in Britain you can walk through, and the only ones where the guide has lost a school group. Pop down and check the torches are lit. Count heads on the way out.",
+   "step": {
+    "type": "visit",
+    "zone": "exeter_passages",
+    "time": ["day"]
+   },
+   "pay": 1
+  },
+  {
+   "id": "ennis_castle",
+   "nation": "northern_ireland",
+   "town": "enniskillen",
+   "badges": 0,
+   "poster": "Fermanagh Heritage Society",
+   "title": "Castle by lamplight",
+   "text": "Enniskillen Castle sits on the water like it's waiting for a bus. Visit at dusk and tell us if the swans are still running the place.",
+   "step": {
+    "type": "visit",
+    "zone": "enniskillen_castle",
+    "time": ["dusk"]
+   },
+   "pay": 1,
+   "reward": {
+    "items": {"hazelnuts": 2}
+   }
+  },
+  {
+   "id": "gwee_radio",
+   "nation": "ireland",
+   "town": "gweedore",
+   "badges": 0,
+   "poster": "Raidio na Gaeltachta (Gaoth Dobhair)",
+   "title": "Dead air at the studio",
+   "text": "Our lad on the late shift swears the studio kettle has a better Irish accent than the weatherman. Call into the studio at night and keep him company. Bring biscuits if you have any.",
+   "step": {
+    "type": "visit",
+    "zone": "gweedore_radio",
+    "time": ["night"]
+   },
+   "pay": 1
+  },
+  {
+   "id": "dongl_diamond",
+   "nation": "ireland",
+   "town": "donegal_town",
+   "badges": 0,
+   "poster": "Donegal Town Chamber of Commerce",
+   "title": "Tea for the Diamond",
+   "text": "The Diamond is the heart of town and the heart is a bit chilly. Bring us a flask of tea for the market stallholders and we will say nice things about you at the next meeting.",
+   "step": {
+    "type": "bring",
+    "item": "flask_of_tea",
+    "n": 1
+   },
+   "pay": 1
+  },
+  {
+   "id": "lim_thomond",
+   "nation": "ireland",
+   "town": "limerick",
+   "badges": 0,
+   "poster": "Limerick Rugby Heads",
+   "title": "Thomond Park pilgrimage",
+   "text": "The home of Munster rugby, where the grass is sacred and the chips are better. Visit Thomond Park at dawn to check the pitch before the groundsman gets there. He will never know.",
+   "step": {
+    "type": "visit",
+    "zone": "limerick_thomond",
+    "time": ["dawn"]
+   },
+   "pay": 1,
+   "reward": {
+    "items": {"hazelnuts": 2}
+   }
+  },
+  {
+   "id": "shrews_darwin",
+   "nation": "england",
+   "town": "shrewsbury",
+   "badges": 0,
+   "poster": "Shrewsbury Town Walks",
+   "title": "Darwin was a local lad",
+   "text": "Charles Darwin was born here and wandered the riverbank looking at beetles. Visit the Abbey at dusk and see if anything crawls out worth looking at. Do not take notes on the finches.",
+   "step": {
+    "type": "visit",
+    "zone": "shrewsbury_abbey",
+    "time": ["dusk"]
+   },
+   "pay": 1
+  },
+  {
+   "id": "camb_punts",
+   "nation": "england",
+   "town": "cambridge",
+   "badges": 0,
+   "poster": "Cambridge Punting Company",
+   "title": "Stranded punt on the Cam",
+   "text": "A first-year has punted into the same willow for the third time. We need someone to check Trinity College is still standing and the pole is where it should be. Mind the swans.",
+   "step": {
+    "type": "visit",
+    "zone": "cambridge_trinity",
+    "time": ["day"]
+   },
+   "pay": 1
+  },
+  {
+   "id": "norw_mustard",
+   "nation": "england",
+   "town": "norwich",
+   "badges": 0,
+   "poster": "Mustard Shop Volunteers",
+   "title": "Mustard for the Lanes",
+   "text": "A busy week and we are out of the hot stuff. Pop into the mustard shop and see whether anyone is queuing. Norwich takes its mustard seriously and so do we.",
+   "step": {
+    "type": "visit",
+    "zone": "norwich_mustard",
+    "time": ["day"]
+   },
+   "pay": 1
+  },
+  {
+   "id": "brigh_pier",
+   "nation": "england",
+   "town": "brighton",
+   "badges": 0,
+   "poster": "Brighton Pier Amusements",
+   "title": "The pier at twilight",
+   "text": "The pier lights come on at dusk and the gulls get ideas about chips. Go down and see what's lurking under the boards. Hold onto your sandwich.",
+   "step": {
+    "type": "visit",
+    "zone": "brighton_pier",
+    "time": ["dusk"]
+   },
+   "pay": 1
+  },
+  {
+   "id": "cant_pilgrim",
+   "nation": "england",
+   "town": "canterbury",
+   "badges": 0,
+   "poster": "Canterbury Pilgrims Society",
+   "title": "Pilgrims, but make it brisk",
+   "text": "Chaucer's lot took weeks. We'd like you to take a quiet minute in the Cathedral at night and report on the stillness. No tales, please. We have enough of those.",
+   "step": {
+    "type": "visit",
+    "zone": "canterbury_cathedral",
+    "time": ["night"]
+   },
+   "pay": 1
+  },
+  {
+   "id": "dov_tunnels",
+   "nation": "england",
+   "town": "dover",
+   "badges": 0,
+   "poster": "Dover Harbour Board",
+   "title": "The tunnels after hours",
+   "text": "The Secret Wartime Tunnels run under the Castle and the lights keep flickering. Check the tunnels and make sure no one has been left behind in the cold. Wartime biscuits are optional.",
+   "step": {
+    "type": "visit",
+    "zone": "dover_tunnels",
+    "time": ["night"]
+   },
+   "pay": 1
+  },
+  {
+   "id": "hull_deep",
+   "nation": "england",
+   "town": "hull",
+   "badges": 0,
+   "poster": "The Deep Aquarium",
+   "title": "A hush in Hull",
+   "text": "Hull has a lot of fish and a lot of opinions about them. Check The Deep is quiet at night and the sharks are asleep. Tell the shark we said hello.",
+   "step": {
+    "type": "visit",
+    "zone": "hull_deep",
+    "time": ["night"]
+   },
+   "pay": 1
+  },
+  {
+   "id": "linc_steep",
+   "nation": "england",
+   "town": "lincoln",
+   "badges": 0,
+   "poster": "Steep Hill Traders",
+   "title": "Up the steep hill, down the pub",
+   "text": "The hill is so steep the pies arrive cold from the bottom. Visit the Cathedral at dawn and see if the Imp is still up to no good in the stonework.",
+   "step": {
+    "type": "visit",
+    "zone": "lincoln_cathedral",
+    "time": ["dawn"]
+   },
+   "pay": 1
+  },
+  {
+   "id": "stand_links",
+   "nation": "scotland",
+   "town": "st_andrews",
+   "badges": 0,
+   "poster": "St Andrews Links Trust",
+   "title": "First on the sand",
+   "text": "The oldest golf course in the world, and not one person knows who owns the divots. Wander the Cathedral grounds at dawn and be first through before the first tee time.",
+   "step": {
+    "type": "visit",
+    "zone": "st_andrews_cathedral",
+    "time": ["dawn"]
+   },
+   "pay": 1
+  },
+  {
+   "id": "dund_jam",
+   "nation": "scotland",
+   "town": "dundee",
+   "badges": 0,
+   "poster": "Dundee Marmalade Society",
+   "title": "Marmalade, jute and journalism",
+   "text": "We make marmalade. We make jute. We make newspapers. We do not make sense at six in the morning. Visit Keiller's at the start of the day and tell us the recipe is still safe.",
+   "step": {
+    "type": "visit",
+    "zone": "dundee_keillers",
+    "time": ["dawn"]
+   },
+   "pay": 1
+  },
+  {
+   "id": "oxf_dreaming",
+   "nation": "england",
+   "town": "oxford",
+   "badges": 0,
+   "poster": "Oxford Dreaming Spires Tours",
+   "title": "Spires at midnight",
+   "text": "The Bodleian never sleeps, only the students do. Step into the library after dark and see whether anything reads over your shoulder. Quiet, please.",
+   "step": {
+    "type": "visit",
+    "zone": "oxford_bodleian",
+    "time": ["night"]
+   },
+   "pay": 1
+  },
+  {
+   "id": "lerwick_otters",
+   "nation": "scotland",
+   "town": "lerwick",
+   "badges": 9,
+   "poster": "Shetland Amenity Trust",
+   "title": "Otter count",
+   "text": "The otters of the voes are shy, nocturnal and extremely good at not being counted. Catch a Rillotter for the survey, and do not, under any circumstances, tell it that it is on a list.",
+   "step": {
+    "type": "catch",
+    "species": "rillotter"
+   },
+   "pay": 3
+  },
+  {
+   "id": "lerwick_bannocks",
+   "nation": "scotland",
+   "town": "lerwick",
+   "badges": 9,
+   "poster": "Up Helly Aa Hall Committee",
+   "title": "Bannocks for the hall",
+   "text": "A squad that has marched all night will eat anything, and we would rather it ate bannocks than the furniture. Two Shetland bannocks, please, from the corner shop.",
+   "step": {
+    "type": "bring",
+    "item": "shetland_bannock",
+    "n": 2
+   },
+   "pay": 1
+  },
+  {
+   "id": "eng_poole_quay",
+   "nation": "england",
+   "town": "poole",
+   "badges": 0,
+   "poster": "Poole Quay Harbour Office",
+   "title": "Gulls on the quay",
+   "text": "The gulls on Poole Quay have learned to open chip bags. Catch a gale creature before they learn the lids on the bins.",
+   "step": {
+    "type": "catch",
+    "ctype": "gale"
+   },
+   "pay": 1
+  },
+  {
+   "id": "ci_jersey_cows",
+   "nation": "channel_islands",
+   "town": "st_helier",
+   "badges": 5,
+   "poster": "Jersey Cattle Society",
+   "title": "Show a proper Jersey",
+   "text": "The Jersey cow is the island's pride and its best-kept secret. Show us a kin creature with the same sleepy confidence.",
+   "step": {
+    "type": "show",
+    "ctype": "kin"
+   },
+   "pay": 1
+  },
+  {
+   "id": "ci_jersey_tide",
+   "nation": "channel_islands",
+   "town": "st_helier",
+   "badges": 5,
+   "poster": "St Helier Harbour Master",
+   "title": "Mind the tides",
+   "text": "Jersey has one of the biggest tides in the world, and the harbour empties twice a day. Catch a tide creature and prove you can keep up.",
+   "step": {
+    "type": "catch",
+    "ctype": "tide"
+   },
+   "pay": 1
+  },
+  {
+   "id": "ci_guernsey_fae",
+   "nation": "channel_islands",
+   "town": "st_peter_port",
+   "badges": 5,
+   "poster": "Victor Hugo's Housekeeper",
+   "title": "Fairies at Hauteville",
+   "text": "Victor Hugo wrote half of Les Miserables here and left a lot of ghosts behind. Show us a fae creature for the visitors' book.",
+   "step": {
+    "type": "show",
+    "ctype": "fae"
+   },
+   "pay": 1
+  },
+  {
+   "id": "ci_guernsey_tomato",
+   "nation": "channel_islands",
+   "town": "st_peter_port",
+   "badges": 5,
+   "poster": "Guernsey Tomato Growers",
+   "title": "Greenhouse lookout",
+   "text": "The greenhouses have a visitor and he's not paying. Catch a kin creature before the next harvest.",
+   "step": {
+    "type": "catch",
+    "ctype": "kin"
+   },
+   "pay": 1
+  },
+  {
+   "id": "ci_sark_gale",
+   "nation": "channel_islands",
+   "town": "sark",
+   "badges": 5,
+   "poster": "Dame of Sark's Office",
+   "title": "Dark sky, strong wind",
+   "text": "Sark has no cars and very little light. Show us a gale creature to keep the lanterns honest.",
+   "step": {
+    "type": "show",
+    "ctype": "gale"
+   },
+   "pay": 1
+  },
+  {
+   "id": "ci_sark_tide",
+   "nation": "channel_islands",
+   "town": "sark",
+   "badges": 5,
+   "poster": "Sark Boatmen's Cooperative",
+   "title": "Low tide at the Gouliot",
+   "text": "The Gouliot caves are only open at low tide. Catch a tide creature while you wait.",
+   "step": {
+    "type": "catch",
+    "ctype": "tide"
+   },
+   "pay": 1
+  },
+  {
+   "id": "eng_poole_ferry",
+   "nation": "england",
+   "town": "poole",
+   "badges": 0,
+   "poster": "Poole Quay Ferry Office",
+   "title": "Something for the crossing",
+   "text": "The Jersey boat leaves in an hour and the galley has run out of pastry. Bring a pork pie and we will say no more about it.",
+   "step": {
+    "type": "bring",
+    "item": "pork_pie",
+    "n": 2
+   },
+   "pay": 1,
+   "reward": {
+    "items": {"hazelnuts": 2}
+   }
+  },
+  {
+   "id": "ci_jsy_royals",
+   "nation": "channel_islands",
+   "town": "st_helier",
+   "badges": 4,
+   "poster": "Jersey Royal Growers",
+   "title": "Royals, if you please",
+   "text": "It is only a Jersey Royal if it grew on a Jersey slope, and we are checking everybody's. Bring four to the market stall for the judges.",
+   "step": {
+    "type": "bring",
+    "item": "jersey_royal",
+    "n": 4
+   },
+   "pay": 1,
+   "reward": {
+    "items": {"jersey_black_butter": 1}
+   }
+  },
+  {
+   "id": "ci_jsy_gale",
+   "nation": "channel_islands",
+   "town": "st_helier",
+   "badges": 4,
+   "poster": "St Helier Harbour Office",
+   "title": "Tide tables, tested",
+   "text": "Jersey has one of the biggest tides in the world. We would like a gale creature on the slipway to prove the wind agrees.",
+   "step": {
+    "type": "show",
+    "ctype": "gale"
+   },
+   "pay": 2
+  },
+  {
+   "id": "ci_gsy_gache",
+   "nation": "channel_islands",
+   "town": "st_peter_port",
+   "badges": 4,
+   "poster": "Guernsey Bakers' Guild",
+   "title": "Gache for the Castle",
+   "text": "Castle Cornet's tea room has run out of gache. Bring two loaves and the Guild will call it a favour.",
+   "step": {
+    "type": "bring",
+    "item": "guernsey_gache",
+    "n": 2
+   },
+   "pay": 1,
+   "reward": {
+    "items": {"golden_guernsey_milk": 1}
+   }
+  },
+  {
+   "id": "ci_gsy_gale",
+   "nation": "channel_islands",
+   "town": "st_peter_port",
+   "badges": 4,
+   "poster": "Guernsey Ferry Users' Group",
+   "title": "Weather for the boat",
+   "text": "The Herm boat only sails if somebody keeps an eye on the wind. Show us a gale creature and we shall call it a survey.",
+   "step": {
+    "type": "show",
+    "ctype": "gale"
+   },
+   "pay": 2
+  },
+  {
+   "id": "ci_sark_gache",
+   "nation": "channel_islands",
+   "town": "sark",
+   "badges": 4,
+   "poster": "Sark Dairy",
+   "title": "Cows and no cars",
+   "text": "Everything on Sark arrives by tractor or cart. Bring us golden milk for the cheese and we will not ask how you got it here.",
+   "step": {
+    "type": "bring",
+    "item": "golden_guernsey_milk",
+    "n": 2
+   },
+   "pay": 1,
+   "reward": {
+    "items": {"guernsey_gache": 1}
+   }
+  },
+  {
+   "id": "ci_sark_stars",
+   "nation": "channel_islands",
+   "town": "sark",
+   "badges": 4,
+   "poster": "Dark Sky Island Society",
+   "title": "Star counting",
+   "text": "With no street lights, the Milky Way is clear. Bring a gale creature to the Window in the Wall and we will do the rest.",
+   "step": {
+    "type": "show",
+    "ctype": "gale"
+   },
+   "pay": 2
+  }
  ]
 }

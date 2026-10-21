@@ -1,0 +1,32 @@
+{
+ "id": "jer_dairyman",
+ "name": "Dairyman Le Quesne",
+ "class": "Dairy Farmer",
+ "sprite": "farmer",
+ "party": [
+  {
+   "species": "moolet",
+   "level": 40
+  },
+  {
+   "species": "herdlet",
+   "level": 41
+  },
+  {
+   "species": "fawnlet",
+   "level": 41
+  }
+ ],
+ "ai": "trainer",
+ "money": 800,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Dairyman Le Quesne",
+   "text": "My Jersey cows give the richest milk you'll ever taste. And the nastiest looks, when they decide you're in the wrong field."
+  }
+ ],
+ "win": "Fair. You can have a pint of cream for that.",
+ "after": "A Jersey will give about a hundred pints of milk a day, and the cream rises on it so thick you could stand a spoon in it.",
+ "scaled_floor": 40
+}

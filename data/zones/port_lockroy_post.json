@@ -1,0 +1,64 @@
+{
+ "id": "port_lockroy_post",
+ "name": "Penguin Post Office",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "post_box",
+   "x": 7,
+   "y": 4
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 4
+  },
+  {
+   "type": "display_case",
+   "x": 7,
+   "y": 1,
+   "variant": 1
+  }
+ ],
+ "warps": [
+  {
+   "x": 4,
+   "y": 5,
+   "to": "port_lockroy",
+   "tx": 17,
+   "ty": 15,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "bat_postmistress",
+   "sprite": "villager_3",
+   "x": 4,
+   "y": 1,
+   "facing": "down",
+   "move": "still",
+   "script": "bat_postmistress",
+   "name": "Postmistress"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  4,
+  4
+ ],
+ "rows": [
+  "xxxxxxxxx",
+  "x|||||||x",
+  "x|CCCCC|x",
+  "x|||||||x",
+  "x|||||||x",
+  "x|||D|||x",
+  "xxxxxxxxx"
+ ]
+}

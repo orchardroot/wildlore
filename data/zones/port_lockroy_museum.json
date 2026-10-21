@@ -1,0 +1,106 @@
+{
+ "id": "port_lockroy_museum",
+ "name": "Bransfield House",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "bed",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "bed",
+   "x": 1,
+   "y": 3
+  },
+  {
+   "type": "kitchen_dresser",
+   "x": 11,
+   "y": 1
+  },
+  {
+   "type": "table",
+   "x": 9,
+   "y": 4
+  },
+  {
+   "type": "kettle_table",
+   "x": 11,
+   "y": 4
+  },
+  {
+   "type": "display_case",
+   "x": 3,
+   "y": 5,
+   "variant": 0
+  },
+  {
+   "type": "wall_picture",
+   "x": 4,
+   "y": 1,
+   "walk": true,
+   "variant": 0
+  },
+  {
+   "type": "wall_picture",
+   "x": 7,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  },
+  {
+   "type": "wall_map",
+   "x": 9,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "fireplace",
+   "x": 6,
+   "y": 1
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 7,
+   "to": "port_lockroy",
+   "tx": 11,
+   "ty": 15,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "bat_curator",
+   "sprite": "explorer",
+   "x": 6,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "bat_curator",
+   "name": "Base Curator"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  6,
+  6
+ ],
+ "rows": [
+  "xxxxxxxxxxxxx",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||D|||||x",
+  "xxxxxxxxxxxxx"
+ ]
+}

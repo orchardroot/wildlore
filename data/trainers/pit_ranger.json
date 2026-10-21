@@ -1,0 +1,36 @@
+{
+ "id": "pit_ranger",
+ "name": "Ranger Kit",
+ "class": "Conservation Ranger",
+ "sprite": "birdwatcher",
+ "party": [
+  {
+   "species": "hendercrake",
+   "level": 95
+  },
+  {
+   "species": "driftmaw",
+   "level": 94
+  },
+  {
+   "species": "plungebeak",
+   "level": 94
+  },
+  {
+   "species": "starlet",
+   "level": 93
+  }
+ ],
+ "ai": "trainer",
+ "money": 7600,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Ranger Kit",
+   "text": "Shh, you'll scare the crake. Henderson is a World Heritage Site and I am the only person here with a clipboard. Prepare to be audited."
+  }
+ ],
+ "win": "You were careful, I'll give you that. Mind the rubbish on the way back.",
+ "after": "Pick up three pieces on your way off the beach. It won't make a dent, but it makes a difference to you.",
+ "scaled_floor": 95
+}

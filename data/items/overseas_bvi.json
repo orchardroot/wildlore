@@ -1,0 +1,58 @@
+[
+ {
+  "id": "bvi_painkiller",
+  "name": "Painkiller",
+  "kind": "heal",
+  "price": 520,
+  "battle": true,
+  "field": true,
+  "amount": 210,
+  "desc": "Rum, pineapple, orange and cream of coconut, with nutmeg grated on top. Said to have been invented at the Soggy Dollar Bar on Jost Van Dyke. Restores 210 HP and takes the edge off most things."
+ },
+ {
+  "id": "bvi_fungi_plate",
+  "name": "Fungi and Fish",
+  "kind": "heal",
+  "price": 420,
+  "battle": true,
+  "field": true,
+  "amount": 170,
+  "desc": "A dome of cornmeal and okra, stirred stiff, served with fish and hot sauce. The BVI's national dish, named the same as its folk music. Restores 170 HP."
+ },
+ {
+  "id": "bvi_pusser_tot",
+  "name": "Navy Rum Tot",
+  "kind": "pp",
+  "price": 650,
+  "battle": true,
+  "field": true,
+  "amount": 15,
+  "desc": "A measure of dark Navy-style rum, a nod to the tot that sailors had until Black Tot Day in 1970. Restores 15 PP to every move, and a little over the limit."
+ },
+ {
+  "id": "bvi_map",
+  "name": "Pub Map",
+  "kind": "key",
+  "price": 0,
+  "battle": false,
+  "field": true,
+  "desc": "A map on the back of a beer mat, in a hand that got shakier the further south it went. It shows a pub, a rock and a very large X, which could be a kiss."
+ },
+ {
+  "id": "doubloon_charm",
+  "name": "Doubloon",
+  "kind": "charm",
+  "price": 0,
+  "battle": false,
+  "field": true,
+  "wild": false,
+  "desc": "A battered gold coin from the pub's tin. Not Spanish and not gold. But the landlady swears it came out of a pirate's boot, and she's sticking to it.",
+  "effect_text": "Spirit moves hurt it 25% less.",
+  "charm": {
+   "effect": "resist",
+   "type": "spirit",
+   "mult": 0.75
+  },
+  "msg": "{name}'s Doubloon turned the spirits away!"
+ }
+]

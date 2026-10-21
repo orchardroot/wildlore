@@ -1,0 +1,32 @@
+{
+ "id": "sg_biosec",
+ "name": "Biosecurity Officer",
+ "class": "Biosecurity",
+ "sprite": "warden_grunt",
+ "scaled_floor": 95,
+ "party": [
+  {
+   "species": "tussipit",
+   "level": 95
+  },
+  {
+   "species": "kingwalker",
+   "level": 96
+  },
+  {
+   "species": "orcaird",
+   "level": 96
+  }
+ ],
+ "ai": "trainer",
+ "money": 3000,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Biosecurity Officer",
+   "text": "Your pockets look innocent. That's how they all look. I'm going to run your team through the boot wash and see."
+  }
+ ],
+ "win": "Clean as a whistle. Which is a rare, and worrying, phrase here.",
+ "after": "Do not feed the seals. They have an agent."
+}

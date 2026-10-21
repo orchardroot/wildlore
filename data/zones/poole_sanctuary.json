@@ -1,0 +1,79 @@
+{
+ "id": "poole_sanctuary",
+ "name": "Poole Sanctuary",
+ "region": "",
+ "kind": "interior",
+ "music": "sanctuary",
+ "weather": {},
+ "props": [
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "potted_plant",
+   "x": 9,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 1,
+   "y": 4
+  },
+  {
+   "type": "table",
+   "x": 9,
+   "y": 4
+  }
+ ],
+ "warps": [
+  {
+   "x": 5,
+   "y": 7,
+   "to": "poole",
+   "tx": 7,
+   "ty": 11,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "nurse",
+   "sprite": "sanctuary_nurse",
+   "x": 5,
+   "y": 2,
+   "facing": "down",
+   "move": "still",
+   "script": "nurse"
+  },
+  {
+   "id": "memory_coach",
+   "sprite": "poet",
+   "x": 8,
+   "y": 4,
+   "facing": "down",
+   "move": "still",
+   "script": "memory_coach",
+   "name": "Retired Keeper"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  5,
+  6
+ ],
+ "rows": [
+  "xxxxxxxxxxx",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x||CCCCC||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x++|||||++x",
+  "x||||D||||x",
+  "xxxxxxxxxxx"
+ ]
+}

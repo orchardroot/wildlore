@@ -1,0 +1,60 @@
+{
+ "tci_raker": [
+  {
+   "do": "if",
+   "flag": "q_overseas_turks_caicos_ripsaw_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_overseas_turks_caicos_ripsaw_1",
+     "then": [
+      {
+       "do": "say",
+       "who": "Salt Raker",
+       "text": "Saw's gone to the band? Good. It was wasted on me."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Salt Raker",
+       "text": "A saw for the band? Here. It's the one my grandad scraped his screwdriver on. It's got a good ring."
+      },
+      {
+       "do": "give_item",
+       "item": "tci_saw"
+      },
+      {
+       "do": "set",
+       "flag": "q_overseas_turks_caicos_ripsaw_1"
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Salt Raker",
+     "text": "Salt ponds are filled by the sea and baked by the sun. We rake the crust into heaps, shovel it into barrows and send it all over the world."
+    },
+    {
+     "do": "say",
+     "who": "Salt Raker",
+     "text": "A day on the ponds is a sunburn you can taste."
+    }
+   ]
+  }
+ ],
+ "tci_bermudian": [
+  {
+   "do": "say",
+   "who": "Visiting Historian",
+   "text": "Bermudians were the main salt rakers on the Turks for generations. They came each season, raked the salt and sailed home. Eventually many stayed."
+  },
+  {
+   "do": "say",
+   "who": "Visiting Historian",
+   "text": "If you want evidence, look at the houses. The limestone, the stepped roofs. A bit of Bermuda, a long way south."
+  }
+ ]
+}

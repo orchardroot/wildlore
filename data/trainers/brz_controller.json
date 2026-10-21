@@ -1,0 +1,37 @@
+{
+ "id": "brz_controller",
+ "name": "Air Traffic Controller",
+ "class": "Controller",
+ "sprite": "astronomer",
+ "party": [
+  {
+   "species": "stormswift",
+   "level": 95
+  },
+  {
+   "species": "skyharker",
+   "level": 95
+  },
+  {
+   "species": "peregrin",
+   "level": 95
+  }
+ ],
+ "ai": "trainer",
+ "money": 4300,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Air Traffic Controller",
+   "text": "Cleared for take-off, if you will excuse me. Or rather, you may begin your approach."
+  },
+  {
+   "do": "say",
+   "who": "Air Traffic Controller",
+   "text": "Bring it in, slowly, and mind your separation."
+  }
+ ],
+ "win": "Cleared. Report to the ground for debrief.",
+ "after": "I've talked down a Voyager in fog before. It's a talk-down I'd give anyone: nice and slow.",
+ "scaled_floor": 95
+}

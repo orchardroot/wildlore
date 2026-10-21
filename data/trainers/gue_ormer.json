@@ -1,0 +1,32 @@
+{
+ "id": "gue_ormer",
+ "name": "Ormer-Gatherer Mauger",
+ "class": "Ormer Gatherer",
+ "sprite": "fisherman_north",
+ "party": [
+  {
+   "species": "pinchkin",
+   "level": 40
+  },
+  {
+   "species": "baskling",
+   "level": 41
+  },
+  {
+   "species": "vraicling",
+   "level": 41
+  }
+ ],
+ "ai": "trainer",
+ "money": 780,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Ormer-Gatherer Mauger",
+   "text": "Ormers, it's a shell with a pearly inside. You can only gather them at the lowest spring tides, in season, and by hand. No diving. It's a good rule, and a lot of fun, and I'm not sharing my spots."
+  }
+ ],
+ "win": "That's me cleaned out. Have an ormer. Don't tell the warden.",
+ "after": "Ormers are a type of abalone and very slow to grow. They've been taken at certain tides since the old days. If the rules weren't strict, there'd be none left.",
+ "scaled_floor": 40
+}

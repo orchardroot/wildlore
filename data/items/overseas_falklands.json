@@ -1,0 +1,48 @@
+[
+ {
+  "id": "diddle_dee_jam",
+  "name": "Diddle-Dee Jam",
+  "kind": "heal",
+  "price": 300,
+  "battle": true,
+  "field": true,
+  "amount": 120,
+  "desc": "Jam from diddle-dee berries, the little red heath fruit that colours the Falkland hills. Tart and sweet, spread on a warm scone at smoko. Restores 120 HP."
+ },
+ {
+  "id": "smoko_scone",
+  "name": "Smoko Scone",
+  "kind": "heal",
+  "price": 260,
+  "battle": true,
+  "field": true,
+  "amount": 110,
+  "desc": "A warm scone with butter, the centrepiece of smoko, the mid-morning tea break that stops every Falkland farm and office at eleven. Restores 110 HP."
+ },
+ {
+  "id": "smoko_hamper",
+  "name": "Smoko Hamper",
+  "kind": "key",
+  "price": 0,
+  "battle": false,
+  "field": true,
+  "desc": "A wicker hamper of tea, scones and diddle-dee jam, packed by the Stanley baker for the peat cutters out in Camp. It is a very good hamper and a very long walk."
+ },
+ {
+  "id": "gentoo_pebble",
+  "name": "Gentoo Pebble",
+  "kind": "charm",
+  "price": 0,
+  "battle": false,
+  "field": true,
+  "wild": false,
+  "desc": "A smooth pebble of the sort a gentoo penguin gives to its mate. A nest is a heap of stones, and a good pebble is a courtship gift. This one is a keepsake from the Falklands.",
+  "effect_text": "Frost moves hit 20% harder.",
+  "charm": {
+   "effect": "boost",
+   "type": "frost",
+   "mult": 1.2
+  },
+  "msg": "{name}'s Gentoo Pebble gleamed in the cold!"
+ }
+]

@@ -94,9 +94,9 @@ func setup(arg: String) -> void:
 		return
 	set_title(str(_shop.get("name", "Shop")))
 	_nation = Standing.nation_for_zone(str(Game.data.zone_id))
-	_mc = Wallet.currency_of_nation(_nation)
+	_mc = Wallet.local(Game.data)  # euros in the Republic, the territory's own money overseas
 	Markets.sync(Game.data)
-	_mid = Forex.mid_for(Game.data)
+	_mid = Wallet.shop_rate(Game.data, _mc)
 	_money()
 	var t := Standing.tier(Game.data, _nation)
 	_say.text = "Welcome in. Mind the cat." if t == Standing.STRANGER else \
@@ -235,7 +235,7 @@ func _refresh_qty() -> void:
 	var total := _unit() * _qty
 	_total_label.text = "%s %s" % ["Total" if _side == "buy" else "You get", UIKit.money_text(total, _mc)]
 	var short := total - Wallet.balance(Game.data, _mc)
-	if _side == "buy" and short > 0:  # the rest from the other purse, at the tourist rate
+	if _side == "buy" and short > 0 and Wallet.other(_mc) != "" and not _mc in Wallet.PAR_POUNDS:  # the rest from the other purse, at the tourist rate
 		_total_label.text += "  (%s at the tourist rate)" % UIKit.money_text(Wallet.foreign_cost(short, _mc, _mid), Wallet.other(_mc))
 
 func _commit() -> void:
@@ -267,6 +267,8 @@ func _commit() -> void:
 
 ## The shopkeeper on being paid in the wrong money.
 func _tourist_line(paid: Dictionary) -> String:
+	if _mc != Wallet.GBP and _mc != Wallet.EUR:
+		return "Short of %s? Sterling will do, at the tourist rate mind: %s." % [Wallet.name_of(_mc), UIKit.money_text(int(paid.foreign), Wallet.GBP)]
 	if _mc == Wallet.EUR:
 		return "Short on euros? Sterling's grand, at the tourist rate mind: %s." % UIKit.money_text(int(paid.foreign), Wallet.GBP)
 	return "Euros? Go on then, at the tourist rate: %s. Don't tell the bank." % UIKit.money_text(int(paid.foreign), Wallet.EUR)

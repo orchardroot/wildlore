@@ -1,0 +1,797 @@
+{
+ "id": "poole",
+ "name": "Poole Quay",
+ "region": "south_england",
+ "kind": "town",
+ "music": "town_cornwall",
+ "weather": {
+  "drizzle": 22,
+  "clear": 30,
+  "sunshine": 24,
+  "fog": 6,
+  "gale": 10,
+  "downpour": 8
+ },
+ "props": [
+  {
+   "type": "building",
+   "style": "station",
+   "x": 34,
+   "y": 3,
+   "w": 8,
+   "h": 2,
+   "label": "Poole Station"
+  },
+  {
+   "type": "buffer_stop",
+   "x": 32,
+   "y": 6
+  },
+  {
+   "type": "building",
+   "style": "sanctuary",
+   "x": 4,
+   "y": 7,
+   "w": 6,
+   "h": 4,
+   "label": "Sanctuary"
+  },
+  {
+   "type": "building",
+   "style": "shop",
+   "x": 11,
+   "y": 7,
+   "w": 5,
+   "h": 4,
+   "label": "Corner Shop"
+  },
+  {
+   "type": "building",
+   "style": "stone",
+   "x": 18,
+   "y": 7,
+   "w": 8,
+   "h": 4,
+   "label": "RNLI Headquarters"
+  },
+  {
+   "type": "building",
+   "style": "terrace",
+   "x": 27,
+   "y": 7,
+   "w": 4,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "red_brick",
+   "x": 35,
+   "y": 8,
+   "w": 10,
+   "h": 3,
+   "label": "Poole Pottery"
+  },
+  {
+   "type": "building",
+   "style": "red_brick",
+   "x": 4,
+   "y": 15,
+   "w": 8,
+   "h": 4,
+   "label": "The Poole Arms"
+  },
+  {
+   "type": "building",
+   "style": "georgian_brick",
+   "x": 13,
+   "y": 15,
+   "w": 7,
+   "h": 4,
+   "label": "Custom House"
+  },
+  {
+   "type": "building",
+   "style": "terrace",
+   "x": 25,
+   "y": 15,
+   "w": 6,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "white_render",
+   "x": 32,
+   "y": 15,
+   "w": 6,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "guest_house",
+   "x": 39,
+   "y": 15,
+   "w": 6,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "waterfront_museum",
+   "x": 4,
+   "y": 21,
+   "w": 9,
+   "h": 4,
+   "label": "Poole Museum"
+  },
+  {
+   "type": "building",
+   "style": "harbour_row",
+   "x": 14,
+   "y": 21,
+   "w": 6,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "red_brick",
+   "x": 26,
+   "y": 21,
+   "w": 10,
+   "h": 4,
+   "label": "Ferry Terminal"
+  },
+  {
+   "type": "building",
+   "style": "harbour_row",
+   "x": 38,
+   "y": 21,
+   "w": 7,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "bollard",
+   "x": 29,
+   "y": 30
+  },
+  {
+   "type": "bollard",
+   "x": 33,
+   "y": 30
+  },
+  {
+   "type": "boat",
+   "x": 10,
+   "y": 31,
+   "variant": 2
+  },
+  {
+   "type": "boat",
+   "x": 15,
+   "y": 33,
+   "variant": 0
+  },
+  {
+   "type": "boat",
+   "x": 38,
+   "y": 31,
+   "variant": 0
+  },
+  {
+   "type": "boat",
+   "x": 43,
+   "y": 34,
+   "variant": 2
+  },
+  {
+   "type": "boat",
+   "x": 22,
+   "y": 35,
+   "variant": 0
+  },
+  {
+   "type": "boat",
+   "x": 6,
+   "y": 35,
+   "variant": 2
+  },
+  {
+   "type": "buoy",
+   "x": 8,
+   "y": 29
+  },
+  {
+   "type": "buoy",
+   "x": 24,
+   "y": 30
+  },
+  {
+   "type": "buoy",
+   "x": 40,
+   "y": 30
+  },
+  {
+   "type": "lobster_pots",
+   "x": 12,
+   "y": 26
+  },
+  {
+   "type": "lobster_pots",
+   "x": 24,
+   "y": 26
+  },
+  {
+   "type": "lobster_pots",
+   "x": 37,
+   "y": 26
+  },
+  {
+   "type": "bollard",
+   "x": 6,
+   "y": 27
+  },
+  {
+   "type": "bollard",
+   "x": 16,
+   "y": 27
+  },
+  {
+   "type": "bollard",
+   "x": 27,
+   "y": 27
+  },
+  {
+   "type": "bollard",
+   "x": 36,
+   "y": 27
+  },
+  {
+   "type": "lamp_post",
+   "x": 3,
+   "y": 14
+  },
+  {
+   "type": "lamp_post",
+   "x": 21,
+   "y": 12
+  },
+  {
+   "type": "lamp_post",
+   "x": 30,
+   "y": 14
+  },
+  {
+   "type": "lamp_post",
+   "x": 44,
+   "y": 13
+  },
+  {
+   "type": "lamp_post",
+   "x": 9,
+   "y": 19
+  },
+  {
+   "type": "lamp_post",
+   "x": 25,
+   "y": 20
+  },
+  {
+   "type": "lamp_post",
+   "x": 38,
+   "y": 20
+  },
+  {
+   "type": "lamp_post",
+   "x": 12,
+   "y": 25
+  },
+  {
+   "type": "lamp_post",
+   "x": 22,
+   "y": 26
+  },
+  {
+   "type": "bench",
+   "x": 6,
+   "y": 20
+  },
+  {
+   "type": "bench",
+   "x": 28,
+   "y": 26
+  },
+  {
+   "type": "bench",
+   "x": 34,
+   "y": 26
+  },
+  {
+   "type": "bunting",
+   "x": 22,
+   "y": 12,
+   "variant": 1,
+   "walk": true
+  },
+  {
+   "type": "bunting",
+   "x": 22,
+   "y": 20,
+   "variant": 3,
+   "walk": true
+  },
+  {
+   "type": "flagpole",
+   "x": 26,
+   "y": 12,
+   "variant": 4
+  },
+  {
+   "type": "post_box",
+   "x": 3,
+   "y": 12
+  },
+  {
+   "type": "oak",
+   "x": 4,
+   "y": 5,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 7,
+   "y": 6,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 24,
+   "y": 3,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 22,
+   "y": 6,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 3,
+   "y": 6,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 14,
+   "y": 6,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 19,
+   "y": 6,
+   "variant": 0
+  }
+ ],
+ "warps": [
+  {
+   "x": 7,
+   "y": 10,
+   "to": "poole_sanctuary",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 13,
+   "y": 10,
+   "to": "poole_shop",
+   "tx": 4,
+   "ty": 5,
+   "facing": "up"
+  },
+  {
+   "x": 22,
+   "y": 10,
+   "to": "poole_rnli",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 8,
+   "y": 18,
+   "to": "poole_pub",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 16,
+   "y": 18,
+   "to": "poole_customs",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 8,
+   "y": 24,
+   "to": "poole_museum",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 31,
+   "y": 24,
+   "to": "poole_terminal",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  }
+ ],
+ "edges": {
+  "west": {
+   "to": "exe_estuary",
+   "offset": 0
+  }
+ },
+ "npcs": [
+  {
+   "id": "rail_guard",
+   "sprite": "rail_guard",
+   "x": 38,
+   "y": 5,
+   "facing": "down",
+   "move": "still",
+   "script": "rail_guard"
+  },
+  {
+   "id": "poole_fisher",
+   "sprite": "fisherman_north",
+   "x": 17,
+   "y": 27,
+   "facing": "left",
+   "move": "still",
+   "script": "poole_fisher"
+  },
+  {
+   "id": "poole_scout",
+   "sprite": "student",
+   "x": 24,
+   "y": 24,
+   "facing": "right",
+   "move": "still",
+   "script": "poole_scout"
+  },
+  {
+   "id": "poole_yachtie",
+   "sprite": "villager_5",
+   "x": 42,
+   "y": 27,
+   "facing": "left",
+   "move": "still",
+   "script": "poole_yachtie"
+  },
+  {
+   "id": "poole_sailor_je",
+   "sprite": "sailor",
+   "x": 29,
+   "y": 31,
+   "facing": "right",
+   "move": "still",
+   "script": "poole_sailor_je",
+   "name": "Ferry Hand"
+  },
+  {
+   "id": "poole_sailor_gu",
+   "sprite": "sailor",
+   "x": 33,
+   "y": 31,
+   "facing": "left",
+   "move": "still",
+   "script": "poole_sailor_gu",
+   "name": "Ferry Hand"
+  },
+  {
+   "id": "poo_lifeboat",
+   "sprite": "sailor",
+   "x": 8,
+   "y": 26,
+   "facing": "down",
+   "move": "still",
+   "trainer": "poo_lifeboat"
+  },
+  {
+   "id": "poo_scout",
+   "sprite": "student",
+   "x": 34,
+   "y": 12,
+   "facing": "left",
+   "move": "still",
+   "trainer": "poo_scout"
+  },
+  {
+   "id": "poo_sandbanks",
+   "sprite": "villager_5",
+   "x": 36,
+   "y": 26,
+   "facing": "left",
+   "move": "still",
+   "trainer": "poo_sandbanks"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "chipgull",
+    "min": 40,
+    "max": 42,
+    "weight": 14
+   },
+   {
+    "species": "ternlet",
+    "min": 40,
+    "max": 41,
+    "weight": 12
+   },
+   {
+    "species": "starlet",
+    "min": 40,
+    "max": 41,
+    "weight": 10,
+    "time": [
+     "dawn",
+     "day",
+     "dusk"
+    ]
+   },
+   {
+    "species": "cooplet",
+    "min": 40,
+    "max": 41,
+    "weight": 10
+   },
+   {
+    "species": "grizzlet",
+    "min": 40,
+    "max": 41,
+    "weight": 8
+   },
+   {
+    "species": "pinchkin",
+    "min": 40,
+    "max": 41,
+    "weight": 10
+   },
+   {
+    "species": "rivetling",
+    "min": 40,
+    "max": 42,
+    "weight": 8
+   },
+   {
+    "species": "binfox",
+    "min": 41,
+    "max": 42,
+    "weight": 6,
+    "time": [
+     "dusk",
+     "night"
+    ]
+   },
+   {
+    "species": "hootlet",
+    "min": 41,
+    "max": 42,
+    "weight": 6,
+    "time": [
+     "night"
+    ]
+   },
+   {
+    "species": "gannetling",
+    "min": 40,
+    "max": 42,
+    "weight": 6,
+    "weather": [
+     "gale",
+     "clear"
+    ]
+   }
+  ],
+  "water": [
+   {
+    "species": "pinchkin",
+    "min": 40,
+    "max": 41,
+    "weight": 18
+   },
+   {
+    "species": "baskling",
+    "min": 40,
+    "max": 42,
+    "weight": 14
+   },
+   {
+    "species": "selklet",
+    "min": 40,
+    "max": 42,
+    "weight": 10
+   },
+   {
+    "species": "dolphlet",
+    "min": 40,
+    "max": 42,
+    "weight": 10
+   },
+   {
+    "species": "puffling",
+    "min": 40,
+    "max": 41,
+    "weight": 10,
+    "season": [
+     "spring",
+     "summer"
+    ]
+   },
+   {
+    "species": "pupplash",
+    "min": 40,
+    "max": 42,
+    "weight": 12
+   },
+   {
+    "species": "orcalet",
+    "min": 41,
+    "max": 42,
+    "weight": 4
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 40,
+   "y": 5,
+   "plaque": "channel_islands_station",
+   "title": "Poole Station",
+   "text": "The line reached Poole in 1847 and the town has been the end of the railway ever since, with the harbour just a short walk off. The ferries to Jersey, Guernsey and, in summer, Cherbourg tie in with the trains."
+  },
+  {
+   "x": 4,
+   "y": 14,
+   "text": "WEST: the Exe Estuary, Exeter and Dartmoor. SOUTH: the Quay, the museum and the boats to the islands."
+  },
+  {
+   "x": 28,
+   "y": 29,
+   "text": "FERRIES. East pier: JERSEY (St Helier) and GUERNSEY (St Peter Port). Tickets from the terminal, which is the big brick shed behind you."
+  },
+  {
+   "x": 16,
+   "y": 14,
+   "plaque": "channel_islands_harbour",
+   "title": "Poole Harbour",
+   "text": "One of the largest natural harbours in the world, a drowned river valley full of mudflats, islands and reedbeds. It has an unusual double high tide, so the water stays up for hours, which helped the port work its ships in and out for centuries."
+  },
+  {
+   "x": 18,
+   "y": 26,
+   "plaque": "channel_islands_newfoundland",
+   "title": "The Newfoundland Trade",
+   "text": "In the 1600s and 1700s Poole merchants sent ships to Newfoundland every spring to fish for cod, then sold the salted catch round the Mediterranean. Poole grew rich on it, and many of the quay's old warehouses and fine houses were built on cod."
+  },
+  {
+   "x": 12,
+   "y": 20,
+   "plaque": "channel_islands_customs",
+   "title": "The Custom House",
+   "text": "In October 1747 a gang of smugglers broke into Poole's Custom House to take back a cargo of tea that the customs men had seized. The building you see now dates from 1813. Smuggling was a way of life along this coast, and the tea was not the only thing that arrived by moonlight."
+  },
+  {
+   "x": 5,
+   "y": 26,
+   "plaque": "channel_islands_rnli",
+   "title": "RNLI Headquarters",
+   "text": "The Royal National Lifeboat Institution has had its headquarters in Poole for decades. It began in 1824, set up by Sir William Hillary, who lived in Douglas on the Isle of Man and later helped crew the lifeboats himself. Its crews are volunteers, and its lifeboats are paid for by public donations."
+  },
+  {
+   "x": 14,
+   "y": 26,
+   "plaque": "channel_islands_logboat",
+   "title": "The Poole Logboat",
+   "text": "An Iron Age dugout canoe, hollowed from one huge oak about 2,200 years ago, found in the harbour mud in 1964 and now in Poole Museum. At about ten metres long it is one of the largest of its kind found in Britain."
+  },
+  {
+   "x": 37,
+   "y": 20,
+   "plaque": "channel_islands_pottery",
+   "title": "Poole Pottery",
+   "text": "Jesse Carter began a tile and pottery works on the quay in 1873. As Poole Pottery, its brightly hand-painted dishes and vases were Art Deco favourites between the wars. Pieces are still much collected."
+  },
+  {
+   "x": 45,
+   "y": 23,
+   "plaque": "channel_islands_sandbanks",
+   "title": "Sandbanks and the Chain Ferry",
+   "text": "The sandy spit across the harbour mouth is Sandbanks, among the most expensive land per acre in the world. A chain ferry has hauled cars across the mouth to Studland since 1926, pulling itself along on huge chains laid on the harbour bed. The crossing takes only a few minutes."
+  },
+  {
+   "x": 45,
+   "y": 12,
+   "plaque": "channel_islands_marconi",
+   "title": "Marconi at Sandbanks",
+   "text": "In 1898 Guglielmo Marconi set up wireless equipment at the Haven Hotel on Sandbanks and talked over the water to his station on the Isle of Wight, in the early days of radio. The mast has long gone, but a plaque at the hotel remembers it."
+  },
+  {
+   "x": 22,
+   "y": 27,
+   "plaque": "channel_islands_brownsea",
+   "title": "Brownsea Island",
+   "text": "The wooded island in the middle of the harbour. In August 1907 Robert Baden-Powell took twenty boys camping there, the experiment that grew into the Scout movement. It is also one of the few places in southern England where red squirrels still live wild. The National Trust looks after it."
+  }
+ ],
+ "spawn": [
+  4,
+  12
+ ],
+ "stage": "docks",
+ "town_id": "poole",
+ "scaled_floor": 40,
+ "station": {
+  "x": 37,
+  "y": 5
+ },
+ "ferry": {
+  "x": 31,
+  "y": 33,
+  "route": "poole_st_helier"
+ },
+ "rows": [
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TT........,,.,................................TT",
+  "TT...,,,,,,,,,,,,,,...............BBBBBBBB....TT",
+  "TT...,,,,,,,,,,,,,,,..............BBBDBBBB....TT",
+  "TT....,,,,,,,,,,,,,............:::________....TT",
+  "TT.........,.,.................:.!!!!!!!!!!!!!!!",
+  "TT..BBBBBB.BBBBB..BBBBBBBB.BBBB:..............TT",
+  "TT..BBBBBB.BBBBB..BBBBBBBB.BBBB:...BBBBBBBBBB.TT",
+  "TT..BBBBBB.BBBBB..BBBBBBBB.BBBB:...BBBBBBBBBB.TT",
+  "TT..BBBDBB.BBDBB..BBBBDBBB.BBBB:...BBBBBBBBBB.TT",
+  "======================::::::::::::::::::::::::TT",
+  "======================::::::::::::::::::::::::TT",
+  "======================::::::::::::::::::::::::TT",
+  "TT====================::::::::::::::::::::::::TT",
+  "TT..BBBBBBBB.BBBBBBB.:::.BBBBBB.BBBBBB.BBBBBB.TT",
+  "TT..BBBBBBBB.BBBBBBB.:::.BBBBBB.BBBBBB.BBBBBB.TT",
+  "TT..BBBBBBBB.BBBBBBB.:::.BBBBBB.BBBBBB.BBBBBB.TT",
+  "TT..BBBBDBBB.BBBDBBB.:::.BBBBBB.BBBBBB.BBBBBB.TT",
+  "TT..:::::::::::::::::::::::::::::::::::::::::.TT",
+  "TT..:::::::::::::::::::::::::::::::::::::::::.TT",
+  "TT..BBBBBBBBB.BBBBBB.:::..BBBBBBBBBB..BBBBBBB.TT",
+  "TT..BBBBBBBBB.BBBBBB.:::..BBBBBBBBBB..BBBBBBB.TP",
+  "TT..BBBBBBBBB.BBBBBB.:::..BBBBBBBBBB..BBBBBBB.TT",
+  "TT..BBBBDBBBB.BBBBBB.:::..BBBBBDBBBB..BBBBBBB.TT",
+  "TT..::::::::::::::::::::::::::::::::::::ssssssTT",
+  "TT..::::::::::::::::::::::::::::::::::::ssssssTT",
+  "TT..::::::::::::::::::::::::::::::::::::ssssssTT",
+  "$$wwwwwwwwwwwwwwwwwwwwwwwwwww:::::wwwwwwwwwwww$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$.:::::$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$:::::$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$:::::$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$:::::$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$:::::$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$:::::$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
+ ]
+}

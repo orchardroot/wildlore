@@ -1,0 +1,32 @@
+{
+ "quests": [
+  {
+   "id": "falklands_smoko",
+   "title": "Smoko",
+   "region": "overseas_falklands",
+   "town": "falklands_stanley",
+   "giver": "Stanley Baker",
+   "summary": "Carry the baker's smoko hamper out to Camp, show the manager a Johnny Rook, and win a friendly fight.",
+   "start_flag": "q_overseas_falklands_started",
+   "steps": [
+    {
+     "flag": "q_overseas_falklands_1",
+     "text": "Take the smoko hamper to the peat cutters in Camp.",
+     "zone": "falklands_camp"
+    },
+    {
+     "flag": "q_overseas_falklands_2",
+     "text": "Show the Camp Manager a Johnny Rook.",
+     "zone": "falklands_camp"
+    },
+    {
+     "flag": "q_overseas_falklands_done",
+     "text": "Beat the Camp Manager in a friendly smoko fight.",
+     "zone": "falklands_camp"
+    }
+   ],
+   "done_flag": "q_overseas_falklands_done",
+   "reward": "The Gentoo Pebble (a Frost charm), three jars of Diddle-Dee Jam and standing in the Overseas Territories."
+  }
+ ]
+}

@@ -1,0 +1,63 @@
+{
+ "nurse": [
+  {
+   "do": "say",
+   "who": "Nurse",
+   "text": "Hello, love. Poole Sanctuary: ferry sick, sea sick, sick of seagulls, we treat the lot. Pop your team on the counter."
+  },
+  {
+   "do": "choice",
+   "text": "What can we do for you?",
+   "options": [
+    "Heal my team",
+    "Open the Ark",
+    "Just looking"
+   ],
+   "set": "_nurse_choice"
+  },
+  {
+   "do": "if",
+   "flag": "_nurse_choice",
+   "eq": 0,
+   "then": [
+    {
+     "do": "say",
+     "who": "Nurse",
+     "text": "There you go, dear, have a sit. There's tea, and a lifeboat-shaped biscuit tin the volunteers keep topped up."
+    },
+    {
+     "do": "heal"
+    },
+    {
+     "do": "say",
+     "who": "Nurse",
+     "text": "All done. Fit as a fiddle, and a lot fitter than anyone coming off the Guernsey boat in a swell."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "_nurse_choice",
+     "eq": 1,
+     "then": [
+      {
+       "do": "say",
+       "who": "Nurse",
+       "text": "The Ark's by the window. It's got a lovely view of the harbour and an unreasonable amount of salt on the glass."
+      },
+      {
+       "do": "ark"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Nurse",
+       "text": "Right you are. Mind the gulls on the quay, they've taken three of my sandwiches this year alone."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

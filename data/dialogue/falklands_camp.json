@@ -1,0 +1,190 @@
+{
+ "fal_peatcutter": [
+  {
+   "do": "if",
+   "flag": "q_overseas_falklands_1",
+   "then": [
+    {
+     "do": "say",
+     "who": "Peat Cutter",
+     "text": "Cut, stack, dry, carry. And never miss smoko."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_overseas_falklands_started",
+     "then": [
+      {
+       "do": "say",
+       "who": "Peat Cutter",
+       "text": "A hamper! From the baker. That's a fine thing to see on the bank. Tea, scones, and diddle-dee jam. I'll say a good word for you. Go on to the farm, and show the Camp Manager what you've got."
+      },
+      {
+       "do": "set",
+       "flag": "q_overseas_falklands_1",
+       "value": true
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Peat Cutter",
+       "text": "Cut, stack, dry, carry. We do it every summer and the weather gives us about four good days. The rest is fog. Smoko's the best part, and I'd be grateful for a flask."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "fal_penguinwarden": [
+  {
+   "do": "say",
+   "who": "Penguin Warden",
+   "text": "A king penguin takes over a year to raise one chick, so there are always chicks. A fluffy brown ball, which people call an 'oakum boy', after the brown fibre used to caulk ships."
+  },
+  {
+   "do": "say",
+   "who": "Penguin Warden",
+   "text": "Keep two metres back, don't block the way to the sea, and nobody gets pecked."
+  }
+ ],
+ "fal_pilot_camp": [
+  {
+   "do": "say",
+   "who": "Land Rover Driver",
+   "text": "The road's a track and the track's a bog. If you're stuck in Camp, the rule is you sit tight and wait for a passer-by, and there will be one before dark. Everyone will stop and everyone will have a flask."
+  },
+  {
+   "do": "say",
+   "who": "Land Rover Driver",
+   "text": "Bring a flask, a spare tyre and a sense of humour, and in that order."
+  }
+ ],
+ "fal_johnny_kid": [
+  {
+   "do": "say",
+   "who": "Farm Kid",
+   "text": "A Johnny rook took my sandwich and I'd got halfway through telling it off when it took the other half. Johnny rooks are clever. They'll follow your Land Rover and open the door if you let them."
+  },
+  {
+   "do": "say",
+   "who": "Farm Kid",
+   "text": "Darwin said they were so bold they'd peck the kettle off the fire. I'd say that's about right."
+  }
+ ],
+ "fal_penguin0": [
+  {
+   "do": "say",
+   "who": "Hopperlet",
+   "text": "A penguin stands quite still, looks you up and down, and goes back to what it was doing, which is nothing at all, but with great purpose."
+  }
+ ],
+ "fal_penguin1": [
+  {
+   "do": "say",
+   "who": "Hopperlet",
+   "text": "A penguin stands quite still, looks you up and down, and goes back to what it was doing, which is nothing at all, but with great purpose."
+  }
+ ],
+ "fal_penguin2": [
+  {
+   "do": "say",
+   "who": "Hopperlet",
+   "text": "A penguin stands quite still, looks you up and down, and goes back to what it was doing, which is nothing at all, but with great purpose."
+  }
+ ],
+ "fal_penguin3": [
+  {
+   "do": "say",
+   "who": "Hopperlet",
+   "text": "A penguin stands quite still, looks you up and down, and goes back to what it was doing, which is nothing at all, but with great purpose."
+  }
+ ],
+ "fal_legend_talk": [
+  {
+   "do": "if",
+   "flag": "q_overseas_falklands_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Camp Manager Fergus",
+     "text": "You're welcome at any farm in Camp. And the scones. And the dog."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_overseas_falklands_1",
+     "then": [
+      {
+       "do": "when",
+       "cond": "has_johnnyrook",
+       "then": [
+        {
+         "do": "say",
+         "who": "Camp Manager Fergus",
+         "text": "A Johnny Rook in your Fieldbook! They've had my sandwiches for years. Right. If you can look after that, you can look after yourself. One friendly fight, and then smoko."
+        },
+        {
+         "do": "set",
+         "flag": "q_overseas_falklands_2",
+         "value": true
+        },
+        {
+         "do": "battle",
+         "trainer": "fal_legend",
+         "intro": true
+        },
+        {
+         "do": "say",
+         "who": "Camp Manager Fergus",
+         "text": "That was a belter. Come in, have tea, have a scone, and take this: a pebble from the gentoos' nest, and a pot of diddle-dee jam. The jam's the better gift."
+        },
+        {
+         "do": "give_item",
+         "item": "gentoo_pebble",
+         "n": 1
+        },
+        {
+         "do": "give_item",
+         "item": "diddle_dee_jam",
+         "n": 3
+        },
+        {
+         "do": "standing",
+         "nation": "overseas",
+         "amount": 10
+        },
+        {
+         "do": "set",
+         "flag": "q_overseas_falklands_done",
+         "value": true
+        },
+        {
+         "do": "standing",
+         "nation": "overseas",
+         "amount": 10
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Camp Manager Fergus",
+         "text": "Come back with a Johnny Rook. There are plenty about, and they'll find you, the minute your sandwich is out."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Camp Manager Fergus",
+       "text": "Morning. I'm the manager here. If the baker sent you with a hamper, take it to the peat cutters first. They are west of the track."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

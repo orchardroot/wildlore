@@ -1,0 +1,67 @@
+[
+ {
+  "id": "angu_lobster",
+  "name": "Grilled Anguilla Lobster",
+  "kind": "heal",
+  "price": 560,
+  "battle": true,
+  "field": true,
+  "amount": 220,
+  "desc": "Spiny lobster grilled over coals with garlic butter, eaten with fingers on a beach. Anguilla's pride. Restores 220 HP."
+ },
+ {
+  "id": "angu_peas_rice",
+  "name": "Peas and Rice",
+  "kind": "heal",
+  "price": 360,
+  "battle": true,
+  "field": true,
+  "amount": 150,
+  "desc": "Pigeon peas and rice cooked in coconut milk with thyme. The most popular side dish in the Caribbean, and often the main. Restores 150 HP."
+ },
+ {
+  "id": "angu_tamarind",
+  "name": "Tamarind Balls",
+  "kind": "heal",
+  "price": 300,
+  "battle": true,
+  "field": true,
+  "amount": 120,
+  "desc": "Sticky tamarind pulp rolled in sugar, sweet and sour in one go. Sold in paper bags by people who know when you need one. Restores 120 HP."
+ },
+ {
+  "id": "angu_sail",
+  "name": "Sloop Sail",
+  "kind": "key",
+  "price": 0,
+  "battle": false,
+  "field": true,
+  "desc": "A triangular mainsail in patched white Dacron. Sloop sails are enormous for the boat, which is the entire point."
+ },
+ {
+  "id": "angu_plank",
+  "name": "Crew Plank",
+  "kind": "key",
+  "price": 0,
+  "battle": false,
+  "field": true,
+  "desc": "A long teak plank, worn smooth by a hundred crews. It sticks out over the water to balance the sloop. The crew's business is to sit on it and not to fall off."
+ },
+ {
+  "id": "race_pennant",
+  "name": "Race Pennant",
+  "kind": "charm",
+  "price": 0,
+  "battle": false,
+  "field": true,
+  "wild": false,
+  "desc": "A small triangular flag in the colours of a winning sloop, flown from the mast on Anguilla Day. It has seen rum, rain and the occasional protest.",
+  "effect_text": "Tide moves hurt it 25% less.",
+  "charm": {
+   "effect": "resist",
+   "type": "tide",
+   "mult": 0.75
+  },
+  "msg": "{name}'s Race Pennant cut the tide aside!"
+ }
+]

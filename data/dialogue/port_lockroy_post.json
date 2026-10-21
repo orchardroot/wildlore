@@ -1,0 +1,76 @@
+{
+ "bat_postmistress": [
+  {
+   "do": "if",
+   "flag": "q_overseas_antarctic_post_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Postmistress",
+     "text": "Our best delivery of the season! Every card in the sack is franked now, and they'll go out on the next ship. The next ship is in March. It's the world's slowest postcard."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_overseas_antarctic_post_3",
+     "then": [
+      {
+       "do": "say",
+       "who": "Postmistress",
+       "text": "You've got the mail sack, signed and scanned? Marvellous! Let me see. Penguin stamp, penguin stamp, a stamp with a penguin on it. Hand over the sack. Your reward is a Clearfin and two midwinter dinners. Don't ask where the Clearfin came from. It was in a bucket."
+      },
+      {
+       "do": "give_item",
+       "item": "midwinter_dinner",
+       "n": 2
+      },
+      {
+       "do": "give_creature",
+       "species": "clearfin",
+       "level": 95,
+       "scaled_floor": 95
+      },
+      {
+       "do": "set",
+       "flag": "q_overseas_antarctic_post_4"
+      },
+      {
+       "do": "set",
+       "flag": "q_overseas_antarctic_post_done"
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_overseas_antarctic_post_started",
+       "then": [
+        {
+         "do": "say",
+         "who": "Postmistress",
+         "text": "Hangar at Rothera for the mail sack, the Bonner Laboratory for a Clearfin check, and Halley for the glaciologist's signature. East, then east again. It's all east. I don't want to hear about the weather."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Postmistress",
+         "text": "Welcome to the Penguin Post Office! I stamp every card by hand. The postmark has a penguin on it. The penguin is a rubber stamp. The postmaster is not."
+        },
+        {
+         "do": "say",
+         "who": "Postmistress",
+         "text": "I'm in a bind. A sack of cards has been sitting at Rothera for a month, and the Heritage Trust needs it signed off by a scientist and the glaciologist at Halley before it can be franked. Would you fetch it? East along the ice."
+        },
+        {
+         "do": "set",
+         "flag": "q_overseas_antarctic_post_started"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

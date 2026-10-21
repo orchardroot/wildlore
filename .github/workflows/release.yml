@@ -25,6 +25,6 @@ jobs:
         run: >
           gh release create "$GITHUB_REF_NAME"
           build/Wildlore-mac.zip build/Wildlore-windows.zip
-          --title "Wildlore $GITHUB_REF_NAME"
+          --title "Wildlore: These Isles $GITHUB_REF_NAME"
           --notes "Unsigned builds. Mac: right-click Wildlore.app, Open. Windows: More info, Run anyway."
           --prerelease

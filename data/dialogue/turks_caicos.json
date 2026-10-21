@@ -1,0 +1,277 @@
+{
+ "tci_leader": [
+  {
+   "do": "if",
+   "flag": "q_overseas_turks_caicos_ripsaw_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Band Manager",
+     "text": "The band's back on stage, and your saw's still in the corner, being sentimental. We'll play your tune for as long as you like."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_overseas_turks_caicos_ripsaw_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_overseas_turks_caicos_ripsaw_1",
+       "then": [
+        {
+         "do": "if",
+         "flag": "q_overseas_turks_caicos_ripsaw_2",
+         "then": [
+          {
+           "do": "if",
+           "flag": "q_overseas_turks_caicos_ripsaw_3",
+           "then": [
+            {
+             "do": "if",
+             "flag": "trainer_tci_heckler",
+             "then": [
+              {
+               "do": "say",
+               "who": "Band Manager",
+               "text": "A heckler in the crowd and you put him in his place. That's the best bit of stage management I've ever seen."
+              },
+              {
+               "do": "set",
+               "flag": "q_overseas_turks_caicos_ripsaw_4"
+              },
+              {
+               "do": "give_item",
+               "item": "conch_shell_horn"
+              },
+              {
+               "do": "set",
+               "flag": "q_overseas_turks_caicos_ripsaw_done"
+              },
+              {
+               "do": "say",
+               "who": "Band Manager",
+               "text": "Take this: a conch horn. Blown for centuries to call boats home. It'll keep the storm off you, or at least make the storm feel out-honked."
+              }
+             ],
+             "else": [
+              {
+               "do": "say",
+               "who": "Band Manager",
+               "text": "Instruments, all there! Only a heckler left: Heckler Sands, by the Ripsaw Bar. He says the saw's out of tune. Prove him wrong, politely."
+              }
+             ]
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Band Manager",
+             "text": "Saw, drum, now the gourd shaker from the museum volunteer. Then the band can play."
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Band Manager",
+           "text": "The goatskin drum belongs to the Old Fisher. He keeps it in his boat. He's very protective."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Band Manager",
+         "text": "The saw. The salt raker at the Salt Works keeps one. He doesn't use it for anything, he just likes it."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Band Manager",
+       "text": "Disaster! Our ripsaw band's lost all its instruments to a hurricane party. We need a carpenter's saw, a goatskin drum and a gourd shaker."
+      },
+      {
+       "do": "say",
+       "who": "Band Manager",
+       "text": "Ripsaw's our national music. The saw is scraped with a screwdriver. It's louder than it sounds. Which is saying something."
+      },
+      {
+       "do": "set",
+       "flag": "q_overseas_turks_caicos_ripsaw_started"
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "tci_fisher": [
+  {
+   "do": "if",
+   "flag": "q_overseas_turks_caicos_ripsaw_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_overseas_turks_caicos_ripsaw_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "Old Fisher",
+       "text": "Look after that drum. It's been through two hurricanes and a wedding."
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_overseas_turks_caicos_ripsaw_1",
+       "then": [
+        {
+         "do": "say",
+         "who": "Old Fisher",
+         "text": "Band's short a drum? Here, take mine. Goatskin, made by my grandfather. It's seen more parties than a bishop."
+        },
+        {
+         "do": "give_item",
+         "item": "tci_drum"
+        },
+        {
+         "do": "set",
+         "flag": "q_overseas_turks_caicos_ripsaw_2"
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Old Fisher",
+         "text": "Drum? Not till the band has a saw. I'm not giving it up for nothing."
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Old Fisher",
+     "text": "Johnny cake with fish, that's breakfast here. Johnny cake is a sweet fried bread. The name might come from 'journey cake' but nobody agrees on that either."
+    }
+   ]
+  }
+ ],
+ "tci_salter": [
+  {
+   "do": "say",
+   "who": "Salt Heap Boss",
+   "text": "Look at that heap. Fresh sea salt, raked by hand. Grand Turk and Salt Cay shipped it all over the Atlantic."
+  },
+  {
+   "do": "say",
+   "who": "Salt Heap Boss",
+   "text": "The ponds are pink because of tiny algae and brine shrimp. Flamingos eat the shrimp and turn pink themselves. It's all very efficient, if you're a flamingo."
+  }
+ ],
+ "tci_birder": [
+  {
+   "do": "say",
+   "who": "Birdwatcher",
+   "text": "That's a Caribbean flamingo. Brine shrimp and algae turn them pink: no shrimp, no pink."
+  },
+  {
+   "do": "say",
+   "who": "Birdwatcher",
+   "text": "They stand on one leg to save body heat. They nest on mud mounds in shallow water, and they're thoroughly shy. Shh."
+  }
+ ],
+ "tci_donkey": [
+  {
+   "do": "say",
+   "who": "Donkey",
+   "text": "A donkey regards you with the patience of a creature that has been on this island longer than the roads."
+  }
+ ],
+ "tci_pilot": [
+  {
+   "do": "say",
+   "who": "Runway Jogger",
+   "text": "I jog along the airstrip. It's the only flat bit of Grand Turk. A plane landed last week. I had to stop for it. Annoying."
+  },
+  {
+   "do": "say",
+   "who": "Runway Jogger",
+   "text": "There's a replica of John Glenn's space capsule down there. Locals say he'd have preferred somewhere less warm for splashdown."
+  }
+ ],
+ "tci_home": [
+  {
+   "do": "say",
+   "who": "Airport Official",
+   "text": "The flight home to Brize Norton? It goes when the runway's clear of donkeys."
+  },
+  {
+   "do": "choice",
+   "text": "Head home to RAF Brize Norton?",
+   "options": [
+    "Yes, take me home",
+    "Not yet"
+   ],
+   "set": "_home_choice"
+  },
+  {
+   "do": "if",
+   "flag": "_home_choice",
+   "then": [
+    {
+     "do": "say",
+     "who": "Airport Official",
+     "text": "Lovely. Please keep hold of your hat and your donkey."
+    },
+    {
+     "do": "set",
+     "flag": "overseas_return",
+     "value": "turks_caicos"
+    },
+    {
+     "do": "fade_out"
+    },
+    {
+     "do": "end"
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Airport Official",
+     "text": "Take your time. We'll be here."
+    }
+   ],
+   "eq": 0
+  }
+ ],
+ "turks_caicos_bureau": [
+  {
+   "do": "say",
+   "who": "Bureau Clerk",
+   "text": "Welcome to the bureau de change. Local money in, sterling out, or the other way round. A small fee, and a very small queue."
+  },
+  {
+   "do": "bureau"
+  }
+ ],
+ "turks_caicos_homebound": [
+  {
+   "do": "say",
+   "who": "Movements Clerk",
+   "text": "Heading back to the mainland? Passage to RAF Brize Norton can be arranged whenever you like. Bring your own sandwiches."
+  },
+  {
+   "do": "overseas_home",
+   "territory": "turks_caicos"
+  }
+ ]
+}

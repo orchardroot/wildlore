@@ -1,0 +1,55 @@
+{
+ "quests": [
+  {
+   "id": "overseas_antarctic_post",
+   "title": "The Slowest Postcards",
+   "region": "overseas_antarctic",
+   "town": "port_lockroy",
+   "giver": "The Postmistress",
+   "summary": "Fetch a sack of postcards from Rothera, get it signed by a biologist and a glaciologist, and bring it back to the Penguin Post Office.",
+   "start_flag": "q_overseas_antarctic_post_started",
+   "steps": [
+    {
+     "flag": "q_overseas_antarctic_post_1",
+     "text": "Collect the mail sack from the hangar at Rothera.",
+     "zone": "rothera"
+    },
+    {
+     "flag": "q_overseas_antarctic_post_2",
+     "text": "Show a Clearfin to the marine biologist at the Bonner Laboratory.",
+     "zone": "rothera"
+    },
+    {
+     "flag": "q_overseas_antarctic_post_3",
+     "text": "Beat the glaciologist on the Brunt Ice Shelf, then see the scientist in Halley VI.",
+     "zone": "brunt_shelf"
+    },
+    {
+     "flag": "q_overseas_antarctic_post_4",
+     "text": "Take the sack back to the Penguin Post Office at Port Lockroy.",
+     "zone": "port_lockroy"
+    }
+   ],
+   "done_flag": "q_overseas_antarctic_post_done",
+   "reward": "A Clearfin and two Midwinter Dinners."
+  },
+  {
+   "id": "overseas_antarctic_census",
+   "title": "The Emperor Census",
+   "region": "overseas_antarctic",
+   "town": "brunt_shelf",
+   "giver": "The Penguin Counter",
+   "summary": "Catch a Downlet and show it to the penguin counter on the Brunt Ice Shelf.",
+   "start_flag": "q_overseas_antarctic_census_started",
+   "steps": [
+    {
+     "flag": "q_overseas_antarctic_census_1",
+     "text": "Catch a Downlet and show the counter.",
+     "zone": "brunt_shelf"
+    }
+   ],
+   "done_flag": "q_overseas_antarctic_census_done",
+   "reward": "Pemmican and a Midwinter Dinner."
+  }
+ ]
+}

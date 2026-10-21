@@ -18,7 +18,7 @@ const GLASS := Color.WHITE
 ## Wider Isles, the Shannon and Limerick (see the Shannon section at the end of the file).
 const SHANNON_STYLES := ["shannon_tower_house", "king_johns", "clare_thatch", "limerick_georgian", "airport_terminal", "flying_boat", "hydro_station", "thomond_stadium", "milk_market"]
 ## Building styles handled here rather than by the generic house in Meshes.building.
-const SPECIAL := ["edinburgh_tenement", "glasgow_tenement", "aberdeen_granite", "orkney_flagstone", "highland_sandstone", "harled_cottage", "harbour_row", "dublin_georgian", "ulster_terrace", "kilkenny_limestone", "winding_gear", "valley_terrace", "steam_loco", "ironworks", "shannon_tower_house", "limerick_georgian", "martyrs_obelisk", "palace_pier", "marble_arch_cave",
+const SPECIAL := ["edinburgh_tenement", "glasgow_tenement", "aberdeen_granite", "orkney_flagstone", "highland_sandstone", "harled_cottage", "harbour_row", "dublin_georgian", "ulster_terrace", "kilkenny_limestone", "winding_gear", "valley_terrace", "steam_loco", "ironworks", "whaling_shed", "whaling_tanks", "whalers_church", "whaler_villa", "polar_hut", "research_station", "halley_module", "hangar", "shannon_tower_house", "limerick_georgian", "martyrs_obelisk", "palace_pier", "marble_arch_cave",
 	"swansea_market", "glass_tower", "gantry_crane", "cantilever_crane", "titanic", "mill", "castle", "cathedral",
 	"liver_building", "station", "aqueduct", "chapel", "terrace", "tudor", "slate_cottage", "lighthouse_house",
 	"round_tower", "passage_tomb", "field_barn", "casino", "grandstand", "bookmaker", "bottle_kiln", "potbank",
@@ -40,7 +40,11 @@ const SPECIAL := ["edinburgh_tenement", "glasgow_tenement", "aberdeen_granite", 
 	"painted_pink", "painted_yellow", "painted_blue", "painted_green", "painted_red", "painted_teal", "granite",
 	"distillery", "mccaig", "paddle_steamer", "blackhouse", "croft_house", "granite_house", "harbour_white",
 	"lews_castle", "cotswold_house", "cotswold_cottage", "wool_church", "oxford_college", "oxford_tower",
-	"oxford_church", "radcliffe_camera"]
+	"oxford_church", "radcliffe_camera", "raf_hangar", "control_tower", "raf_aircraft", "raf_block", "gib_house", "gib_rock",
+	"europa_lighthouse", "flat_house", "greek_theatre", "raf_terminal",
+	"sa_colonial", "jacobs_ladder", "radome", "tin_cottage", "whalebone_arch",
+	"pitcairn_house", "boat_shed", "base_hangar", "base_tower", "base_block", "plantation_ruin", "island_church",
+	"jersey_granite", "guernsey_granite", "jersey_tower", "little_chapel"]
 
 ## Doors: where each style's door sits on its tile (see _door and friends), for the swing as you go in.
 ## {x, w, y, h, z}: left edge and width across the door column, bottom and height, z of the door's face from
@@ -337,6 +341,28 @@ static func building(w: int, d: int, style: String, door_x: int, seed_value: int
 			_flax_mill(st, wst, w, d, door_x)
 		"edinburgh_tenement", "glasgow_tenement", "aberdeen_granite", "orkney_flagstone", "highland_sandstone", "harled_cottage", "harbour_row", "dublin_georgian", "ulster_terrace", "kilkenny_limestone":
 			StreetsSI.build(st, wst, w, d, door_x, rng, style)
+		"raf_hangar":
+			OverseasStyles.raf_hangar(st, wst, w, d, door_x)
+		"control_tower":
+			OverseasStyles.control_tower(st, wst, w, d, door_x)
+		"raf_aircraft":
+			OverseasStyles.raf_aircraft(st, w, d)
+		"raf_block":
+			OverseasStyles.raf_block(st, wst, w, d, door_x, rng)
+		"raf_terminal":
+			OverseasStyles.raf_terminal(st, wst, w, d, door_x)
+		"gib_house":
+			OverseasStyles.gib_house(st, wst, w, d, door_x, rng)
+		"gib_rock":
+			OverseasStyles.gib_rock(st, wst, w, d, door_x, rng)
+		"europa_lighthouse":
+			OverseasStyles.europa_lighthouse(st, wst, w, d, door_x)
+		"flat_house":
+			OverseasStyles.flat_house(st, wst, w, d, door_x, rng)
+		"greek_theatre":
+			OverseasStyles.greek_theatre(st, wst, w, d, door_x)
+		"whaling_shed", "whaling_tanks", "whalers_church", "whaler_villa", "polar_hut", "research_station", "halley_module", "hangar":
+			IceStyles.build(st, wst, w, d, door_x, rng, style)
 		"winding_gear":
 			ValleyStyles.winding_gear(st, wst, w, d, door_x)
 		"valley_terrace":
@@ -345,6 +371,38 @@ static func building(w: int, d: int, style: String, door_x: int, seed_value: int
 			ValleyStyles.steam_loco(st, wst, w, d, door_x)
 		"ironworks":
 			ValleyStyles.ironworks(st, wst, w, d, door_x)
+		"sa_colonial":
+			SouthAtlanticStyles.colonial(st, wst, w, d, door_x, rng)
+		"jacobs_ladder":
+			SouthAtlanticStyles.ladder(st, w, d)
+		"radome":
+			SouthAtlanticStyles.radome(st, wst, w, d, door_x, rng)
+		"tin_cottage":
+			SouthAtlanticStyles.tin_cottage(st, wst, w, d, door_x, rng)
+		"whalebone_arch":
+			SouthAtlanticStyles.whalebone_arch(st, w, d)
+		"pitcairn_house":
+			PacificStyles.house(st, wst, w, d, door_x, rng)
+		"boat_shed":
+			PacificStyles.boat_shed(st, wst, w, d, door_x)
+		"base_hangar":
+			PacificStyles.base_hangar(st, wst, w, d, door_x)
+		"base_tower":
+			PacificStyles.control_tower(st, wst, w, d, door_x)
+		"base_block":
+			PacificStyles.base_block(st, wst, w, d, door_x, rng)
+		"plantation_ruin":
+			PacificStyles.plantation_ruin(st, wst, w, d, door_x, rng)
+		"island_church":
+			PacificStyles.island_church(st, wst, w, d, door_x)
+		"jersey_granite":
+			IslandStyles.jersey_granite(st, wst, w, d, door_x, rng)
+		"guernsey_granite":
+			IslandStyles.guernsey_granite(st, wst, w, d, door_x, rng)
+		"jersey_tower":
+			IslandStyles.jersey_tower(st, wst, w, d, door_x)
+		"little_chapel":
+			IslandStyles.little_chapel(st, wst, w, d, door_x, rng)
 		"blast_furnace":
 			_blast_furnace(st, wst, w, d, door_x)
 		"gault", "flint", "flint_gable", "thatch", "college", "kings_chapel", "portico", "ely_cathedral", "norwich_cathedral", "norman_keep", "football_stand":

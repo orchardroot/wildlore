@@ -1,0 +1,20 @@
+{"id": "beachmaster",
+ "palette": {"hide": "#7c7a86", "hide2": "#a09eac", "scar": "#bfa9a4", "belly": "#cfcabc", "nose": "#4a3e46", "eye": "#0e0c12", "snow": "#eef4fa"},
+ "layers": [
+  {"shape": "ellipse", "at": [48, 76], "size": [92, 38], "colour": "hide", "pattern": "speckle", "pcolour": "hide2", "density": 12},
+  {"shape": "ellipse", "at": [48, 88], "size": [76, 12], "colour": "belly", "front_only": true, "rim": false},
+  {"shape": "ellipse", "at": [14, 82], "size": [20, 12], "colour": "hide2", "mirror": true},
+  {"shape": "ellipse", "at": [48, 52], "size": [56, 50], "colour": "hide", "pattern": "speckle", "pcolour": "hide2", "density": 12},
+  {"shape": "ellipse", "at": [48, 66], "size": [40, 22], "colour": "scar", "front_only": true, "rim": false},
+  {"shape": "ellipse", "at": [48, 36], "size": [30, 36], "colour": "hide2", "angle": 0}
+ ],
+ "face_layers": [
+  {"shape": "ellipse", "at": [48, 48], "size": [18, 26], "colour": "hide2", "rim": true},
+  {"shape": "ellipse", "at": [48, 56], "size": [14, 9], "colour": "nose", "rim": false},
+  {"shape": "line", "points": [[40, 36], [38, 56]], "width": 1.2, "colour": "scar", "shade": false},
+  {"shape": "line", "points": [[56, 38], [58, 52]], "width": 1.2, "colour": "scar", "shade": false},
+  {"shape": "poly", "points": [[18, 66], [22, 60], [26, 66], [22, 72]], "colour": "snow", "shade": false},
+  {"shape": "poly", "points": [[72, 70], [75, 65], [78, 70], [75, 75]], "colour": "snow", "shade": false}
+ ],
+ "eyes": [{"at": [40, 33], "r": 3.6, "colour": "eye", "mirror": true}]
+}

@@ -1,0 +1,775 @@
+{
+ "id": "adamstown",
+ "name": "Adamstown, Pitcairn",
+ "region": "overseas_pitcairn",
+ "kind": "town",
+ "music": "route_coast",
+ "weather": {
+  "sunshine": 28,
+  "clear": 22,
+  "drizzle": 14,
+  "downpour": 16,
+  "gale": 10,
+  "fog": 6
+ },
+ "stage": "coast",
+ "town_id": "adamstown",
+ "scaled_floor": 95,
+ "legend_extra": {
+  "g": {
+   "tile": "grass",
+   "colour": "#5c9a3a"
+  },
+  "h": {
+   "tile": "tall_grass",
+   "colour": "#4a8a34"
+  },
+  "r": {
+   "tile": "path",
+   "colour": "#a8643c"
+  },
+  "p": {
+   "tile": "tree_oak",
+   "prop": "palm"
+  },
+  "m": {
+   "tile": "tree_oak",
+   "prop": "palm"
+  },
+  "e": {
+   "tile": "rock",
+   "colour": "#cfc6b0"
+  },
+  "^": {
+   "tile": "cliff",
+   "colour": "#4c4642",
+   "side": "#3d3836"
+  },
+  "s": {
+   "tile": "sand",
+   "colour": "#e6d9b8"
+  },
+  ":": {
+   "tile": "cobbles",
+   "colour": "#b9b09a"
+  },
+  "w": {
+   "tile": "shallow",
+   "colour": "#8fd6cc"
+  }
+ },
+ "props": [
+  {
+   "type": "building",
+   "style": "island_church",
+   "x": 29,
+   "y": 11,
+   "w": 5,
+   "h": 3,
+   "label": "Seventh-day Adventist Church",
+   "kind": "church"
+  },
+  {
+   "type": "building",
+   "style": "pitcairn_house",
+   "x": 20,
+   "y": 11,
+   "w": 6,
+   "h": 3,
+   "label": "Public Hall",
+   "kind": "hall"
+  },
+  {
+   "type": "building",
+   "style": "pitcairn_house",
+   "x": 36,
+   "y": 12,
+   "w": 5,
+   "h": 3,
+   "label": "Post Office",
+   "kind": "post"
+  },
+  {
+   "type": "building",
+   "style": "pitcairn_house",
+   "x": 14,
+   "y": 24,
+   "w": 5,
+   "h": 3,
+   "label": "Adamstown Clinic",
+   "kind": "clinic"
+  },
+  {
+   "type": "building",
+   "style": "pitcairn_house",
+   "x": 21,
+   "y": 24,
+   "w": 6,
+   "h": 3,
+   "label": "The Store",
+   "kind": "shop"
+  },
+  {
+   "type": "building",
+   "style": "pitcairn_house",
+   "x": 29,
+   "y": 24,
+   "w": 5,
+   "h": 3,
+   "label": "Honey Shed",
+   "kind": "cottage"
+  },
+  {
+   "type": "building",
+   "style": "boat_shed",
+   "x": 42,
+   "y": 26,
+   "w": 6,
+   "h": 3,
+   "label": "Longboat House",
+   "kind": "boathouse"
+  },
+  {
+   "type": "building",
+   "style": "cave_mouth",
+   "x": 11,
+   "y": 29,
+   "w": 4,
+   "h": 3,
+   "label": "Christian's Cave",
+   "kind": "cave"
+  },
+  {
+   "type": "building",
+   "style": "pitcairn_house",
+   "x": 14,
+   "y": 11,
+   "w": 4,
+   "h": 3,
+   "label": "Home",
+   "kind": "cottage"
+  },
+  {
+   "type": "building",
+   "style": "pitcairn_house",
+   "x": 14,
+   "y": 16,
+   "w": 4,
+   "h": 3,
+   "label": "Home",
+   "kind": "cottage"
+  },
+  {
+   "type": "building",
+   "style": "pitcairn_house",
+   "x": 38,
+   "y": 17,
+   "w": 4,
+   "h": 3,
+   "label": "Home",
+   "kind": "cottage"
+  },
+  {
+   "type": "building",
+   "style": "pitcairn_house",
+   "x": 36,
+   "y": 22,
+   "w": 4,
+   "h": 3,
+   "label": "Home",
+   "kind": "cottage"
+  },
+  {
+   "type": "ship_ribs",
+   "x": 52,
+   "y": 33
+  },
+  {
+   "type": "boat",
+   "x": 52,
+   "y": 29
+  },
+  {
+   "type": "boat",
+   "x": 51,
+   "y": 36
+  },
+  {
+   "type": "buoy",
+   "x": 54,
+   "y": 31
+  },
+  {
+   "type": "lobster_pots",
+   "x": 46,
+   "y": 33
+  },
+  {
+   "type": "flagpole",
+   "x": 22,
+   "y": 18, "variant": 6},
+  {
+   "type": "statue",
+   "x": 26,
+   "y": 19
+  },
+  {
+   "type": "bench",
+   "x": 29,
+   "y": 18
+  },
+  {
+   "type": "bench",
+   "x": 29,
+   "y": 21
+  },
+  {
+   "type": "lamp_post",
+   "x": 20,
+   "y": 17
+  },
+  {
+   "type": "lamp_post",
+   "x": 33,
+   "y": 17
+  },
+  {
+   "type": "noticeboard",
+   "x": 24,
+   "y": 20
+  },
+  {
+   "type": "lamp_post",
+   "x": 38,
+   "y": 21
+  },
+  {
+   "type": "planter",
+   "x": 21,
+   "y": 22
+  },
+  {
+   "type": "planter",
+   "x": 32,
+   "y": 22
+  },
+  {
+   "type": "telescope",
+   "x": 13,
+   "y": 28
+  },
+  {
+   "type": "bollard",
+   "x": 47,
+   "y": 33
+  },
+  {
+   "type": "bollard",
+   "x": 44,
+   "y": 30
+  }
+ ],
+ "warps": [
+  {
+   "x": 31,
+   "y": 13,
+   "to": "pit_church",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 23,
+   "y": 13,
+   "to": "pit_hall",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 38,
+   "y": 14,
+   "to": "pit_post",
+   "tx": 4,
+   "ty": 5,
+   "facing": "up"
+  },
+  {
+   "x": 16,
+   "y": 26,
+   "to": "pit_clinic",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 24,
+   "y": 26,
+   "to": "pit_store",
+   "tx": 4,
+   "ty": 5,
+   "facing": "up"
+  },
+  {
+   "x": 31,
+   "y": 26,
+   "to": "pit_honey",
+   "tx": 4,
+   "ty": 5,
+   "facing": "up"
+  },
+  {
+   "x": 45,
+   "y": 28,
+   "to": "pit_boathouse",
+   "tx": 6,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 12,
+   "y": 31,
+   "to": "pit_cave",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "pit_elder",
+   "sprite": "villager_6",
+   "x": 25,
+   "y": 21,
+   "facing": "right",
+   "move": "still",
+   "script": "pit_elder",
+   "name": "Island Elder"
+  },
+  {
+   "id": "pit_ship",
+   "sprite": "sailor",
+   "x": 47,
+   "y": 29,
+   "facing": "left",
+   "move": "still",
+   "script": "pit_ship",
+   "name": "Longboat Cox"
+  },
+  {
+   "id": "pit_boat_hand",
+   "sprite": "fisher",
+   "x": 49,
+   "y": 33,
+   "facing": "down",
+   "move": "still",
+   "script": "pit_boat_hand",
+   "name": "Boat Hand"
+  },
+  {
+   "id": "pit_gardener",
+   "sprite": "farmer",
+   "x": 17,
+   "y": 28,
+   "facing": "down",
+   "move": "still",
+   "script": "pit_gardener",
+   "name": "Gardener"
+  },
+  {
+   "id": "pit_teacher",
+   "sprite": "student",
+   "x": 22,
+   "y": 15,
+   "facing": "down",
+   "move": "still",
+   "script": "pit_teacher",
+   "name": "Schoolteacher"
+  },
+  {
+   "id": "pit_movements",
+   "sprite": "rail_guard",
+   "x": 46,
+   "y": 32,
+   "facing": "up",
+   "move": "still",
+   "script": "raf_home",
+   "name": "Movements Officer"
+  },
+  {
+   "id": "pit_coxswain",
+   "sprite": "sailor",
+   "x": 44,
+   "y": 31,
+   "facing": "right",
+   "move": "still",
+   "trainer": "pit_coxswain"
+  },
+  {
+   "id": "pit_beekeeper",
+   "sprite": "jam_maker",
+   "x": 35,
+   "y": 27,
+   "facing": "left",
+   "move": "still",
+   "trainer": "pit_beekeeper"
+  },
+  {
+   "id": "pit_carver",
+   "sprite": "shipwright",
+   "x": 12,
+   "y": 19,
+   "facing": "right",
+   "move": "still",
+   "trainer": "pit_carver"
+  },
+  {
+   "id": "pit_ham",
+   "sprite": "astronomer",
+   "x": 37,
+   "y": 20,
+   "facing": "left",
+   "move": "still",
+   "trainer": "pit_ham"
+  },
+  {
+   "id": "pit_legend",
+   "sprite": "villager_2",
+   "x": 14,
+   "y": 33,
+   "facing": "right",
+   "move": "still",
+   "trainer": "pit_legend"
+  },
+  {
+   "id": "adamstown_bureau",
+   "sprite": "commuter",
+   "x": 48,
+   "y": 29,
+   "facing": "down",
+   "move": "still",
+   "script": "adamstown_bureau",
+   "name": "Bureau Clerk"
+  },
+  {
+   "id": "adamstown_homebound",
+   "sprite": "sailor",
+   "x": 46,
+   "y": 30,
+   "facing": "down",
+   "move": "still",
+   "script": "adamstown_homebound",
+   "name": "Movements Clerk"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "charkeel",
+    "min": 93,
+    "max": 95,
+    "weight": 14,
+    "time": [
+     "dusk",
+     "night"
+    ]
+   },
+   {
+    "species": "bountyflame",
+    "min": 93,
+    "max": 95,
+    "weight": 3,
+    "time": [
+     "night"
+    ]
+   },
+   {
+    "species": "wideawake",
+    "min": 93,
+    "max": 95,
+    "weight": 14,
+    "time": [
+     "dawn",
+     "day",
+     "dusk"
+    ]
+   },
+   {
+    "species": "pinchkin",
+    "min": 93,
+    "max": 95,
+    "weight": 12
+   },
+   {
+    "species": "gannetling",
+    "min": 93,
+    "max": 95,
+    "weight": 8,
+    "time": [
+     "day"
+    ]
+   },
+   {
+    "species": "petrelash",
+    "min": 93,
+    "max": 95,
+    "weight": 8,
+    "weather": [
+     "gale",
+     "downpour",
+     "drizzle"
+    ]
+   },
+   {
+    "species": "clawcastle",
+    "min": 93,
+    "max": 95,
+    "weight": 6
+   },
+   {
+    "species": "plungebeak",
+    "min": 93,
+    "max": 95,
+    "weight": 6,
+    "time": [
+     "day"
+    ]
+   },
+   {
+    "species": "wideling",
+    "min": 93,
+    "max": 95,
+    "weight": 6,
+    "time": [
+     "day"
+    ],
+    "weather": [
+     "sunshine",
+     "clear"
+    ]
+   }
+  ],
+  "water": [
+   {
+    "species": "dolphlet",
+    "min": 93,
+    "max": 95,
+    "weight": 14
+   },
+   {
+    "species": "baskling",
+    "min": 93,
+    "max": 95,
+    "weight": 8
+   },
+   {
+    "species": "glimmerjaw",
+    "min": 93,
+    "max": 95,
+    "weight": 6,
+    "time": [
+     "night"
+    ]
+   },
+   {
+    "species": "merrow",
+    "min": 93,
+    "max": 95,
+    "weight": 4,
+    "time": [
+     "dusk",
+     "night"
+    ]
+   },
+   {
+    "species": "pinchkin",
+    "min": 93,
+    "max": 95,
+    "weight": 12
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 27,
+   "y": 20,
+   "plaque": "pitcairn_anchor",
+   "title": "The Bounty Anchor",
+   "text": "BOUNTY ANCHOR. One of the Bounty's anchors, raised from the cove, stands in the Square. The ship was stripped and burned in Bounty Bay on 23 January 1790, a week after the mutineers arrived, so that no passing sail would spot her."
+  },
+  {
+   "x": 23,
+   "y": 18,
+   "plaque": "pitcairn_name",
+   "title": "Pitcairn",
+   "text": "PITCAIRN. The island is named for Midshipman Robert Pitcairn, the lookout aboard HMS Swallow who sighted it on 2 July 1767. Carteret's chart then put it in the wrong place, which later suited some people very well indeed."
+  },
+  {
+   "x": 34,
+   "y": 18,
+   "plaque": "pitcairn_mutiny",
+   "title": "The Mutiny",
+   "text": "THE MUTINY. On 28 April 1789 Fletcher Christian and others took the Bounty from Lieutenant William Bligh near Tonga. Bligh and eighteen men were cast adrift in a launch and sailed about 3,600 nautical miles to Timor, which is the more remarkable half of the story."
+  },
+  {
+   "x": 19,
+   "y": 20,
+   "plaque": "pitcairn_adamstown",
+   "title": "Adamstown",
+   "text": "ADAMSTOWN. Named for John Adams, born Alexander Smith, the last surviving mutineer. He taught the island's children to read from the Bounty's Bible and led the little community until he died in 1829. It is the only settlement on Pitcairn."
+  },
+  {
+   "x": 41,
+   "y": 24,
+   "plaque": "pitcairn_hill",
+   "title": "The Hill of Difficulty",
+   "text": "THE HILL OF DIFFICULTY. The steep track from Bounty Bay up to Adamstown is named with an honest tongue. Nowadays islanders ride it on quad bikes, and the road is concrete in the worst places."
+  },
+  {
+   "x": 28,
+   "y": 9,
+   "plaque": "pitcairn_pool",
+   "title": "St Paul's Pool",
+   "text": "ST PAUL'S POOL. A natural rock pool on the north coast of the island, filled and refreshed by the swell, and used by islanders for a swim. The path down is steep, and the sea outside it is not for swimming."
+  },
+  {
+   "x": 9,
+   "y": 24,
+   "plaque": "pitcairn_downrope",
+   "title": "Down Rope",
+   "text": "DOWN ROPE. On the cliffs a fixed rope helps you down to the rocks and the sea, where islanders fish and swim. Pitcairn has no beach and no harbour, so you take what the island gives you and are grateful."
+  },
+  {
+   "x": 15,
+   "y": 20,
+   "plaque": "pitcairn_miro",
+   "title": "Miro",
+   "text": "MIRO. The island's carving wood is miro, the tree called milo or portia elsewhere in the Pacific, with a dark, close grain. Islanders turn it into bowls, sharks and little model longboats, and sell them to visiting ships."
+  },
+  {
+   "x": 48,
+   "y": 27,
+   "plaque": "pitcairn_bay",
+   "title": "Bounty Bay",
+   "text": "BOUNTY BAY. There is no harbour on Pitcairn. Ships lie offshore, and the islanders go out to them in longboats and bring the cargo through the surf at Bounty Bay. The Bounty burned in this very cove."
+  },
+  {
+   "x": 19,
+   "y": 36,
+   "plaque": "pitcairn_settlers",
+   "title": "The First Settlers",
+   "text": "THE FIRST SETTLERS. Nine mutineers, six Polynesian men and a group of Tahitian and Polynesian women made Pitcairn their home in 1790. Their descendants, and some later arrivals, are the island's people today, and the island's family names are still the old ones."
+  },
+  {
+   "x": 40,
+   "y": 36,
+   "plaque": "pitcairn_reserve",
+   "title": "The Marine Reserve",
+   "text": "MARINE RESERVE. In 2016 the Pitcairn Islands Marine Reserve was created around the group: about 830,000 square kilometres of Pacific, one of the largest fully protected marine areas in the world. Pitcairn's sea is bigger than the island's people can count."
+  },
+  {
+   "x": 27,
+   "y": 24,
+   "plaque": "pitcairn_pitkern",
+   "title": "Pitkern",
+   "text": "PITKERN. Islanders speak English and Pitkern, a language that grew out of the 18th-century English of the mutineers and the Tahitian of their wives. Wut a way yu? is how you say hello: roughly, 'what way are you?'."
+  }
+ ],
+ "spawn": [
+  47,
+  31
+ ],
+ "rows": [
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$^$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$^^^^^^^^^^^^^^^$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$^^^^hhhggwwwwwggg^^^^$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$^^^^hhghhhgww~~~wwgpghh^^^^$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$^^^hghghhhphgpwrrrwgggghghhh^^^$$$$$$$$$$$$",
+  "$$$$$$$$$$$$^^gggphhghghggggrrrgggggghphhhh^^$$$$$$$$$$$",
+  "$$$$$$$$$$$^^ggghhghhghhhggggrggggggghhhhhhh^^$$$$$$$$$$",
+  "$$$$$$$$$$^^ggBBBBggBBBBBBggrBBBBBggghhhhhhhh^^$$$$$$$$$",
+  "$$$$$$$$$^^mggBBBBggBBBBBBrrgBBBBBggBBBBBhhhhg^^$$$$$$$$",
+  "$$$$$$$$^^ggggBBBBggBBBDBBgggBBDBBggBBBBBgggggg^^$$$$$$$",
+  "$$$$$$$^^gggmgggggggggggrggggggrggggBBDBBgggpggg^^$$$$$$",
+  "$$$$$$^^mgmgggggggggggggrggggggrggggggrgggggggggg^^$$$$$",
+  "$$$$$$^gggggggBBBBggggggrggggggrggggggrggggggggggg^$$$$$",
+  "$$$$$^^mgmggmgBBBBgg::::r::::::r::ggggBBBBhhgghghg^^$$$$",
+  "$$$$$^ggggggggBBBBgg::::::::::::::ggggBBBBhhhhhhggp^$$$$",
+  "$$$$$^gmggmggggggggg::::::::::::::ggggBBBBhhhghhggg^$$$$",
+  "$$$$$^gpgggggggggggg:::::::::::::rrgggrgggghhhgphgg^$$$$",
+  "$$$$$^gggmpgmgmggggg::::::::::::::grrggggghhhgghggg^$$$$",
+  "$$$$^^gmggggggrrrrrrrrrrrrrrrrrrrrrrBBBBrghhphhhggg^^$$$",
+  "$$$$$^ggggggggggrgggggggrggggggrggggBBBBgggggggpggg^$$$$",
+  "$$$$$^ggggggggBBBBBggBBBBBBggBBBBBggBBBBrgggggggggg^$$$$",
+  "$$$$$^ggggggggBBBBBggBBBBBBggBBBBBgggggggrggggggggp^$$$$",
+  "$$$$$^gpggggggBBDBBggBBBDBBggBBDBBggggggggBBBBBBggg^w$$$",
+  "$$$$$^^ggggrrrrrrrrrrrrrrggggggrggggggggggBBBBBBsg^^www$",
+  "$$$$$$^ghhhrrrgggggpgggggggggggggggpggggpgBBBDBBsssswwww",
+  "$$$$$$^^hhgBBBBgggggggggggggggggggggggggggggsrrrssssswww",
+  "$$$$$$$^^hhBBBBggggggggggpggggggpghghhghhgggsrrrssssswww",
+  "$$$$$$$$^^hBDBBggggggggggggggggggghhhhhhhgpsssssssssssww",
+  "$$$$$$$$$^^rrrgggggggggggggggggggghghhhhhgggssssssssswww",
+  "$$$$$$$$$$^rrrgggpgggggggggggggggghhhphhhgggssssssssswww",
+  "$$$$$$$$$$$^^gghhhggghghpgggggpggphhhghhhgggsssssssswwww",
+  "$$$$$$$$$$$$^^hgghghgphhhgggggggggggggggggg^^$$wswwwwww$",
+  "$$$$$$$$$$$$$^^^ghhhhhhghgggggggggggggggg^^^$$wwwwwww$$$",
+  "$$$$$$$$$$$$$$$^^^^hhhhghgggggggpgggpg^^^^$$$$$wwwww$$$$",
+  "$$$$$$$$$$$$$$$$$$^^^^ghgggpggggggg^^^^$$$$$$$$$$w$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$^^^^^^^^^^^^^^^$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$^$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
+ ],
+ "heights": [
+  "00000000000000000000000000000000000000000000000000000000",
+  "00000000000000000000000000000000000000000000000000000000",
+  "00000000000000000000000000000000000000000000000000000000",
+  "00000000000000000000000000000000000000000000000000000000",
+  "00000000000000000000000000000000000000000000000000000000",
+  "00000000000000000000000000000000000000000000000000000000",
+  "00000000000000000000000000100000000000000000000000000000",
+  "00000000000000000001111111111111110000000000000000000000",
+  "00000000000000001111111111111111111110000000000000000000",
+  "00000000000000111111111112111111111111100000000000000000",
+  "00000000000001111112222222222222111111110000000000000000",
+  "00000000000111111222222222222222221111111100000000000000",
+  "00000000001111122222222222222222222211111110000000000000",
+  "00000000011111222222222222222222222221111111000000000000",
+  "00000000111112222222222222222222222222111111100000000000",
+  "00000000111122222222222222222222222222211111100000000000",
+  "00000001111122222222222222222222222222211111110000000000",
+  "00000001111122222222222222222222222222211111110000000000",
+  "00000001111222222222222222222222222222221111110000000000",
+  "00000001111122222222222222222222222222211111110000000000",
+  "00000011111122222222222222222222222222211111111000000000",
+  "00000001111122222222222222222222222222211111110000000000",
+  "00000001111112222222222222222222222222111111110000000000",
+  "00000001111111222222222222222222222221111111110000000000",
+  "00000001111111122222222222222222222211111111110000000000",
+  "00000000111111111222222222222222221111111111100000000000",
+  "00000000111111111112222222222222111111111111100000000000",
+  "00000000011111111111111112111111111111111110000000000000",
+  "00000000001111111111111121111111111111111110000000000000",
+  "00000000000111111112222222222211111111111100000000000000",
+  "00000000000001111122222222222221111111110000000000000000",
+  "00000000000000111222222222222222111111100000000000000000",
+  "00000000000000002222222222222222211110000000000000000000",
+  "00000000000000000222222222222222110000000000000000000000",
+  "00000000000000000022222222222220000000000000000000000000",
+  "00000000000000000002222222222200000000000000000000000000",
+  "00000000000000000000000020000000000000000000000000000000",
+  "00000000000000000000000000000000000000000000000000000000",
+  "00000000000000000000000000000000000000000000000000000000",
+  "00000000000000000000000000000000000000000000000000000000",
+  "00000000000000000000000000000000000000000000000000000000",
+  "00000000000000000000000000000000000000000000000000000000",
+  "00000000000000000000000000000000000000000000000000000000",
+  "00000000000000000000000000000000000000000000000000000000"
+ ]
+}

@@ -1,0 +1,125 @@
+{
+ "id": "guernsey_chapel",
+ "name": "The Little Chapel",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "bench",
+   "x": 2,
+   "y": 3
+  },
+  {
+   "type": "bench",
+   "x": 6,
+   "y": 3
+  },
+  {
+   "type": "bench",
+   "x": 2,
+   "y": 5
+  },
+  {
+   "type": "bench",
+   "x": 6,
+   "y": 5
+  },
+  {
+   "type": "table",
+   "x": 4,
+   "y": 1
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 5
+  },
+  {
+   "type": "potted_plant",
+   "x": 7,
+   "y": 5
+  },
+  {
+   "type": "rug",
+   "x": 4,
+   "y": 2,
+   "w": 1,
+   "h": 2,
+   "variant": 3,
+   "walk": true
+  },
+  {
+   "type": "piano",
+   "x": 1,
+   "y": 2,
+   "rot": 90
+  },
+  {
+   "type": "wall_picture",
+   "x": 4,
+   "y": 1,
+   "walk": true,
+   "variant": 0
+  },
+  {
+   "type": "wall_picture",
+   "x": 6,
+   "y": 1,
+   "walk": true,
+   "variant": 0
+  },
+  {
+   "type": "clock",
+   "x": 3,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "plant_stand",
+   "x": 7,
+   "y": 4,
+   "variant": 1
+  }
+ ],
+ "warps": [
+  {
+   "x": 4,
+   "y": 6,
+   "to": "guernsey_country",
+   "tx": 28,
+   "ty": 13,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "gue_chapel_guide",
+   "sprite": "villager_3",
+   "x": 4,
+   "y": 2,
+   "facing": "down",
+   "move": "still",
+   "script": "gue_chapel_guide",
+   "name": "Chapel Guide"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  4,
+  5
+ ],
+ "rows": [
+  "xxxxxxxxx",
+  "x+++++++x",
+  "x+++++++x",
+  "x+++++++x",
+  "x+++++++x",
+  "x+++++++x",
+  "x+++D+++x",
+  "xxxxxxxxx"
+ ]
+}

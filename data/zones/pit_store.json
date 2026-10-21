@@ -1,0 +1,80 @@
+{
+ "id": "pit_store",
+ "name": "The Store",
+ "region": "overseas_pitcairn",
+ "kind": "interior",
+ "music": "town_cornwall",
+ "weather": {},
+ "props": [
+  {
+   "type": "bookshelf",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 8,
+   "y": 1
+  },
+  {
+   "type": "potted_plant",
+   "x": 9,
+   "y": 5
+  },
+  {
+   "type": "display_case",
+   "x": 8,
+   "y": 3
+  },
+  {
+   "type": "lobster_pots",
+   "x": 1,
+   "y": 5
+  }
+ ],
+ "warps": [
+  {
+   "x": 4,
+   "y": 6,
+   "to": "adamstown",
+   "tx": 24,
+   "ty": 27,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "shopkeeper",
+   "sprite": "shopkeeper",
+   "x": 4,
+   "y": 1,
+   "facing": "down",
+   "move": "still",
+   "script": "shopkeeper",
+   "name": "Storekeeper"
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "x": 8,
+   "y": 5,
+   "text": "THE STORE. The shelves are stocked from the supply ship, so what's on them was ordered months ago and believed in. Bills are paid in New Zealand dollars. Island honey and fruit come from out the back."
+  }
+ ],
+ "spawn": [
+  4,
+  5
+ ],
+ "rows": [
+  "xxxxxxxxxxx",
+  "x|||||||||x",
+  "x|CCCCC|||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||D|||||x",
+  "xxxxxxxxxxx"
+ ]
+}

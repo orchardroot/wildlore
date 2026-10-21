@@ -1,0 +1,144 @@
+{
+ "akr_centre_warden": [
+  {
+   "do": "if",
+   "flag": "q_overseas_akrotiri_dhekelia_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Centre Warden",
+     "text": "The flamingo census is on the wall. Your name is at the bottom, in small print, where the real heroes go."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_overseas_akrotiri_dhekelia_2",
+     "then": [
+      {
+       "do": "if",
+       "flag": "trainer_akr_warden",
+       "then": [
+        {
+         "do": "say",
+         "who": "Centre Warden",
+         "text": "You've caught a Brineling and beaten the Flamingo Warden? That's the whole census done. Here, a feather from the lake, and some supplies from the Centre cupboard."
+        },
+        {
+         "do": "set",
+         "flag": "q_overseas_akrotiri_dhekelia_3"
+        },
+        {
+         "do": "set",
+         "flag": "q_overseas_akrotiri_dhekelia_done"
+        },
+        {
+         "do": "give_item",
+         "item": "flamingo_feather",
+         "n": 1
+        },
+        {
+         "do": "give_item",
+         "item": "halloumi",
+         "n": 3
+        },
+        {
+         "do": "give_item",
+         "item": "loukoumi",
+         "n": 2
+        },
+        {
+         "do": "standing",
+         "nation": "overseas",
+         "amount": 10
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Centre Warden",
+         "text": "A Brineling in your Ark, lovely. Now the Flamingo Warden at the lake wants to meet you in a fair match. He says flamingos are not for sharing."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_overseas_akrotiri_dhekelia_1",
+       "then": [
+        {
+         "do": "when",
+         "cond": "caught_brineling",
+         "then": [
+          {
+           "do": "say",
+           "who": "Centre Warden",
+           "text": "A Brineling! Look at the pink on it. That's the shrimp. You've done the hard part: now the Flamingo Warden at the lake wants a word."
+          },
+          {
+           "do": "set",
+           "flag": "q_overseas_akrotiri_dhekelia_2"
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Centre Warden",
+           "text": "I need you to catch a Brineling on the lake shore. They stand on one leg in the shallows. Bring one back, and don't scare the flock."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "if",
+         "flag": "q_overseas_akrotiri_dhekelia_started",
+         "then": [
+          {
+           "do": "say",
+           "who": "Centre Warden",
+           "text": "Walk out to the lake and see what you can catch."
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Centre Warden",
+           "text": "Welcome to the Akrotiri Environmental Centre. The lake is our job: the flamingos, the ducks, the waders and the one very confused heron."
+          },
+          {
+           "do": "say",
+           "who": "Centre Warden",
+           "text": "We're counting this winter's birds, and I'm short of hands. Could you catch a Brineling out on the shore? It's the little pink one."
+          },
+          {
+           "do": "set",
+           "flag": "q_overseas_akrotiri_dhekelia_started"
+          },
+          {
+           "do": "set",
+           "flag": "q_overseas_akrotiri_dhekelia_1"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "akr_centre_birder": [
+  {
+   "do": "say",
+   "who": "Birder",
+   "text": "Winter is the best time. You get thousands of flamingos on the lake, and the whole shore smells like a very expensive pond."
+  },
+  {
+   "do": "say",
+   "who": "Birder",
+   "text": "The flamingos' pink colour comes from what they eat. A flamingo that eats nothing but toast goes white. I've never tested it."
+  }
+ ]
+}

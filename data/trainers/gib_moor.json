@@ -1,0 +1,41 @@
+{
+ "id": "gib_moor",
+ "name": "Castle Warden",
+ "class": "Castle Warden",
+ "sprite": "ravenmaster",
+ "party": [
+  {
+   "species": "legionette",
+   "level": 95
+  },
+  {
+   "species": "centurion",
+   "level": 95
+  },
+  {
+   "species": "ironwatch",
+   "level": 95
+  },
+  {
+   "species": "hellbunker",
+   "level": 95
+  }
+ ],
+ "ai": "trainer",
+ "money": 6400,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Castle Warden",
+   "text": "I guard the Tower of Homage. It's been standing since 1333, and I've been standing next to it since breakfast."
+  },
+  {
+   "do": "say",
+   "who": "Castle Warden",
+   "text": "Tariq took this Rock in 711. You'll have to do better than a Tuesday."
+  }
+ ],
+ "win": "The tower stands, but not for long if you keep that up.",
+ "after": "The walls are six hundred years old, and so is my back.",
+ "scaled_floor": 95
+}

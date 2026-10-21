@@ -1,0 +1,434 @@
+{
+ "id": "sark",
+ "name": "Sark",
+ "region": "channel_islands",
+ "kind": "town",
+ "music": "town_york",
+ "weather": {
+  "drizzle": 20,
+  "clear": 32,
+  "sunshine": 26,
+  "fog": 8,
+  "gale": 8,
+  "downpour": 6
+ },
+ "props": [
+  {
+   "type": "building",
+   "style": "regency",
+   "x": 8,
+   "y": 4,
+   "w": 9,
+   "h": 5,
+   "label": "La Seigneurie"
+  },
+  {
+   "type": "building",
+   "style": "windmill_white",
+   "x": 19,
+   "y": 4,
+   "w": 4,
+   "h": 4,
+   "label": "Sark Windmill"
+  },
+  {
+   "type": "building",
+   "style": "stone",
+   "x": 27,
+   "y": 4,
+   "w": 6,
+   "h": 4,
+   "label": "La Tour Prison"
+  },
+  {
+   "type": "building",
+   "style": "jersey_granite",
+   "x": 10,
+   "y": 15,
+   "w": 7,
+   "h": 4,
+   "label": "The Tea Garden"
+  },
+  {
+   "type": "building",
+   "style": "sanctuary",
+   "x": 29,
+   "y": 15,
+   "w": 6,
+   "h": 4,
+   "label": "Sanctuary"
+  },
+  {
+   "type": "building",
+   "style": "jersey_granite",
+   "x": 4,
+   "y": 15,
+   "w": 5,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "bench",
+   "x": 24,
+   "y": 13
+  },
+  {
+   "type": "bench",
+   "x": 24,
+   "y": 19
+  },
+  {
+   "type": "bunting",
+   "x": 25,
+   "y": 14,
+   "variant": 2,
+   "walk": true
+  },
+  {
+   "type": "oak",
+   "x": 6,
+   "y": 20,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 36,
+   "y": 12,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 30,
+   "y": 26,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 15,
+   "y": 26,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 6,
+   "y": 10,
+   "variant": 1
+  }
+ ],
+ "warps": [
+  {
+   "x": 12,
+   "y": 8,
+   "to": "sark_seigneurie",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 29,
+   "y": 7,
+   "to": "sark_prison",
+   "tx": 4,
+   "ty": 5,
+   "facing": "up"
+  },
+  {
+   "x": 13,
+   "y": 18,
+   "to": "sark_tearoom",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 32,
+   "y": 18,
+   "to": "sark_sanctuary",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "srk_cyclist",
+   "sprite": "hiker",
+   "x": 24,
+   "y": 17,
+   "facing": "right",
+   "move": "still",
+   "script": "srk_cyclist"
+  },
+  {
+   "id": "srk_astronomer",
+   "sprite": "astronomer",
+   "x": 33,
+   "y": 10,
+   "facing": "left",
+   "move": "still",
+   "script": "srk_astronomer"
+  },
+  {
+   "id": "srk_dame",
+   "sprite": "villager_3",
+   "x": 16,
+   "y": 12,
+   "facing": "right",
+   "move": "still",
+   "script": "srk_dame"
+  },
+  {
+   "id": "srk_farmer",
+   "sprite": "farmer",
+   "x": 32,
+   "y": 12,
+   "facing": "left",
+   "move": "still",
+   "trainer": "srk_farmer"
+  },
+  {
+   "id": "srk_diver",
+   "sprite": "fisher",
+   "x": 20,
+   "y": 36,
+   "facing": "up",
+   "move": "still",
+   "trainer": "srk_diver"
+  },
+  {
+   "id": "srk_sailor",
+   "sprite": "sailor",
+   "x": 40,
+   "y": 20,
+   "facing": "right",
+   "move": "still",
+   "script": "srk_sailor",
+   "name": "Boatman"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "moolet",
+    "min": 40,
+    "max": 41,
+    "weight": 10
+   },
+   {
+    "species": "herdlet",
+    "min": 40,
+    "max": 41,
+    "weight": 8
+   },
+   {
+    "species": "duneskink",
+    "min": 40,
+    "max": 41,
+    "weight": 10,
+    "time": [
+     "dawn",
+     "dusk"
+    ]
+   },
+   {
+    "species": "dozelet",
+    "min": 40,
+    "max": 41,
+    "weight": 10
+   },
+   {
+    "species": "puffling",
+    "min": 40,
+    "max": 41,
+    "weight": 8
+   },
+   {
+    "species": "glowmite",
+    "min": 40,
+    "max": 41,
+    "weight": 8,
+    "time": [
+     "night"
+    ]
+   },
+   {
+    "species": "hootlet",
+    "min": 41,
+    "max": 42,
+    "weight": 8,
+    "time": [
+     "night"
+    ]
+   },
+   {
+    "species": "flittermouse",
+    "min": 40,
+    "max": 41,
+    "weight": 8,
+    "time": [
+     "day"
+    ]
+   },
+   {
+    "species": "starlet",
+    "min": 40,
+    "max": 41,
+    "weight": 8
+   },
+   {
+    "species": "crockling",
+    "min": 40,
+    "max": 41,
+    "weight": 4
+   }
+  ],
+  "water": [
+   {
+    "species": "pinchkin",
+    "min": 40,
+    "max": 41,
+    "weight": 16
+   },
+   {
+    "species": "puffling",
+    "min": 40,
+    "max": 41,
+    "weight": 12,
+    "season": [
+     "spring",
+     "summer"
+    ]
+   },
+   {
+    "species": "gannetling",
+    "min": 40,
+    "max": 42,
+    "weight": 10
+   },
+   {
+    "species": "baskling",
+    "min": 40,
+    "max": 42,
+    "weight": 8
+   },
+   {
+    "species": "vraicling",
+    "min": 41,
+    "max": 43,
+    "weight": 8
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 21,
+   "y": 23,
+   "plaque": "channel_islands_nocars",
+   "title": "No Cars on Sark",
+   "text": "There are no cars on Sark, the only island in Europe where nobody drives, apart from tractors, bikes and horse-drawn carriages. The ambulance is a tractor. The sensible way to get about is by bicycle or on foot, and the island's rule is that everybody waves."
+  },
+  {
+   "x": 24,
+   "y": 9,
+   "plaque": "channel_islands_darksky",
+   "title": "A Dark Sky Island",
+   "text": "In January 2011 Sark was named the world's first Dark Sky Island by the International Dark-Sky Association. There are no street lights, so on a clear night the Milky Way is a brilliant band across the sky and you can see the stars as people did before electricity."
+  },
+  {
+   "x": 14,
+   "y": 10,
+   "plaque": "channel_islands_seigneur",
+   "title": "The Seigneurie",
+   "text": "Queen Elizabeth I granted Sark in 1565 to Helier de Carteret of Jersey, who settled forty families here, and his successors held the island as seigneurs for centuries. The Seigneur ruled under feudal law until reforms in 2008 brought elected government. The Seigneurie's gardens are still a delight."
+  },
+  {
+   "x": 28,
+   "y": 9,
+   "plaque": "channel_islands_prison",
+   "title": "The Prison",
+   "text": "A tiny two-cell prison of 1856, for the island's rare offenders. It was built from the island's granite and rarely used. The cells are about the size of a large cupboard, which is a very good reason to behave."
+  },
+  {
+   "x": 20,
+   "y": 9,
+   "plaque": "channel_islands_mill",
+   "title": "Sark Windmill",
+   "text": "The windmill was built in 1571 and is the oldest on the island, and it belonged to the Seigneur, who made everyone grind their corn there. Sark has a wonderful legacy of old rules, some dating from that time. The mill has lost its sails but kept its dignity."
+  },
+  {
+   "x": 22,
+   "y": 31,
+   "plaque": "channel_islands_coupee",
+   "title": "La Coup\u00e9e",
+   "text": "A narrow isthmus, about eighty metres above the sea, joining Greater Sark to Little Sark. It was once a bare path with no rail on either side, and islanders crossed it with their eyes shut in a gale. Today it has railings. Do not walk it in a gale anyway."
+  },
+  {
+   "x": 20,
+   "y": 40,
+   "plaque": "channel_islands_silver",
+   "title": "The Silver Mines",
+   "text": "In the 1830s and 1840s miners dug silver from Little Sark, tunnelling under the sea, and the mines were closed after a flood in 1847. The ruined engine house still stands on the cliffs. The mine promised a fortune and delivered a very large hole in the ground."
+  }
+ ],
+ "spawn": [
+  41,
+  22
+ ],
+ "stage": "coast",
+ "town_id": "sark",
+ "scaled_floor": 40,
+ "ferry": {
+  "x": 41,
+  "y": 21,
+  "route": "st_peter_port_sark"
+ },
+ "rows": [
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww$$",
+  "$$w......................................w$$",
+  "$$w.....BBBBBBBBB..BBBB....BBBBBB........w$$",
+  "$$w.....BBBBBBBBB..BBBB....BBBBBB........w$$",
+  "$$w.....BBBBBBBBB..BBBB....BBBBBB........w$$",
+  "$$w.....BBBBBBBBB..BBBB....BBDBBB........w$$",
+  "$$w.....BBBBDBBBB###################.....w$$",
+  "$$w.....############################.....w$$",
+  "$$w........................,,,,,,,.......w$$",
+  "$$w...........................,..........w$$",
+  "$$w..################################....w$$",
+  "$$w..################################....w$$",
+  "$$w..................##..##..............w$$",
+  "$$w.BBBBB.BBBBBBB....##..##..BBBBBB......w$$",
+  "$$w.BBBBB.BBBBBBB....##..##..BBBBBB......w$$",
+  "$$w.BBBBB.BBBBBBB....##..##..BBBBBB......w$$",
+  "$$w.BBBBB.BBBDBBB....##..##..BBBDBB......w$$",
+  "$$w.......#######....##..##..######......w$$",
+  "$$w..................##..##...........:::::$",
+  "$$w.........,,.......##..##...........:::::$",
+  "$$w.....,,,,,,,,,....##..##############::::$",
+  "$$w....,,,,,,,,,,,...##..##############::::$",
+  "$$w...,,,,,,,,,,,,,..##...........ssssssss$$",
+  "$$w....,,,,,,,,,,,...##...........ssssssss$$",
+  "$$w.....,,,,,,,,,....##...........ssssssss$$",
+  "$$w.........,,.......##...........ssssssss$$",
+  "$$w..................##..................w$$",
+  "$$wwwwwwwwwwwwwwwwww.::.wwwwwwwwwwwwwwwwww$$",
+  "$$$$$$$$$$$$$$$$$$$w.::.w$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$w.::.w$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$w.::.w$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$w.::.w$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$wwwwwwwwwwwwwwwwww$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$w.....,..........w$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$w...,,,,,,,,,....w$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$w..,,,,,,,,,,,,..w$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$w..,,,,,,,,,,,...w$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$w.,,,,,,,,,,,,...w$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$w...,,,,,,,,,,...w$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$w.......,........w$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$w................w$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$wwwwwwwwwwwwwwwwww$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
+ ]
+}

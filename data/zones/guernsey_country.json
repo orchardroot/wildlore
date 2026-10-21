@@ -1,0 +1,558 @@
+{
+ "id": "guernsey_country",
+ "name": "Guernsey Coast and Lanes",
+ "region": "channel_islands",
+ "kind": "route",
+ "music": "route_coast",
+ "weather": {
+  "drizzle": 22,
+  "clear": 28,
+  "sunshine": 24,
+  "fog": 10,
+  "gale": 8,
+  "downpour": 8
+ },
+ "props": [
+  {
+   "type": "building",
+   "style": "little_chapel",
+   "x": 26,
+   "y": 9,
+   "w": 5,
+   "h": 4,
+   "label": "The Little Chapel"
+  },
+  {
+   "type": "building",
+   "style": "stone",
+   "x": 10,
+   "y": 14,
+   "w": 10,
+   "h": 4,
+   "label": "German Occupation Museum"
+  },
+  {
+   "type": "building",
+   "style": "jersey_tower",
+   "x": 8,
+   "y": 34,
+   "w": 5,
+   "h": 4,
+   "label": "Fort Grey"
+  },
+  {
+   "type": "building",
+   "style": "field_barn",
+   "x": 34,
+   "y": 30,
+   "w": 8,
+   "h": 3,
+   "label": "Glasshouses",
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "field_barn",
+   "x": 44,
+   "y": 30,
+   "w": 8,
+   "h": 3,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "field_barn",
+   "x": 34,
+   "y": 35,
+   "w": 8,
+   "h": 3,
+   "show_label": false
+  },
+  {
+   "type": "oak",
+   "x": 40,
+   "y": 14,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 32,
+   "y": 14,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 22,
+   "y": 7,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 12,
+   "y": 10,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 36,
+   "y": 7,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 28,
+   "y": 15,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 14,
+   "y": 9,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 14,
+   "y": 10,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 39,
+   "y": 41,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 25,
+   "y": 38,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 14,
+   "y": 43,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 43,
+   "y": 40,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 21,
+   "y": 40,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 40,
+   "y": 43,
+   "variant": 2
+  },
+  {
+   "type": "lamp_post",
+   "x": 31,
+   "y": 26
+  },
+  {
+   "type": "lamp_post",
+   "x": 31,
+   "y": 22
+  },
+  {
+   "type": "lamp_post",
+   "x": 45,
+   "y": 23
+  },
+  {
+   "type": "lamp_post",
+   "x": 13,
+   "y": 26
+  }
+ ],
+ "warps": [
+  {
+   "x": 28,
+   "y": 12,
+   "to": "guernsey_chapel",
+   "tx": 4,
+   "ty": 5,
+   "facing": "up"
+  },
+  {
+   "x": 15,
+   "y": 17,
+   "to": "guernsey_occupation",
+   "tx": 7,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 10,
+   "y": 37,
+   "to": "guernsey_fortgrey",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  }
+ ],
+ "edges": {
+  "east": {
+   "to": "st_peter_port",
+   "offset": 0
+  }
+ },
+ "npcs": [
+  {
+   "id": "gue_beachcomber",
+   "sprite": "angler",
+   "x": 9,
+   "y": 28,
+   "facing": "right",
+   "move": "still",
+   "script": "gue_beachcomber"
+  },
+  {
+   "id": "gue_brother",
+   "sprite": "druid",
+   "x": 29,
+   "y": 14,
+   "facing": "down",
+   "move": "still",
+   "script": "gue_brother"
+  },
+  {
+   "id": "gue_gannet",
+   "sprite": "birdwatcher",
+   "x": 15,
+   "y": 41,
+   "facing": "down",
+   "move": "still",
+   "script": "gue_gannet"
+  },
+  {
+   "id": "gue_dgernesiais",
+   "sprite": "villager_4",
+   "x": 40,
+   "y": 24,
+   "facing": "left",
+   "move": "still",
+   "script": "gue_dgernesiais"
+  },
+  {
+   "id": "gue_ormer",
+   "sprite": "fisherman_north",
+   "x": 12,
+   "y": 31,
+   "facing": "down",
+   "move": "still",
+   "trainer": "gue_ormer"
+  },
+  {
+   "id": "gue_cyclist",
+   "sprite": "jogger",
+   "x": 36,
+   "y": 25,
+   "facing": "left",
+   "move": "still",
+   "trainer": "gue_cyclist"
+  },
+  {
+   "id": "gue_monk",
+   "sprite": "pilgrim",
+   "x": 30,
+   "y": 15,
+   "facing": "up",
+   "move": "still",
+   "trainer": "gue_monk"
+  },
+  {
+   "id": "gue_legend",
+   "sprite": "villager_3",
+   "x": 52,
+   "y": 24,
+   "facing": "left",
+   "move": "still",
+   "trainer": "gue_legend"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "moolet",
+    "min": 40,
+    "max": 42,
+    "weight": 14
+   },
+   {
+    "species": "herdlet",
+    "min": 40,
+    "max": 41,
+    "weight": 10
+   },
+   {
+    "species": "duneskink",
+    "min": 40,
+    "max": 42,
+    "weight": 8,
+    "time": [
+     "dawn",
+     "dusk"
+    ]
+   },
+   {
+    "species": "flittermouse",
+    "min": 40,
+    "max": 41,
+    "weight": 8,
+    "time": [
+     "day"
+    ]
+   },
+   {
+    "species": "swiftlet",
+    "min": 40,
+    "max": 41,
+    "weight": 8,
+    "time": [
+     "dawn",
+     "dusk"
+    ]
+   },
+   {
+    "species": "starlet",
+    "min": 40,
+    "max": 41,
+    "weight": 8
+   },
+   {
+    "species": "zigzlet",
+    "min": 40,
+    "max": 41,
+    "weight": 6,
+    "time": [
+     "day"
+    ]
+   },
+   {
+    "species": "hootlet",
+    "min": 41,
+    "max": 42,
+    "weight": 6,
+    "time": [
+     "night"
+    ]
+   },
+   {
+    "species": "stoopfalcon",
+    "min": 40,
+    "max": 42,
+    "weight": 8,
+    "time": [
+     "dawn",
+     "dusk",
+     "night"
+    ]
+   },
+   {
+    "species": "pepperling",
+    "min": 40,
+    "max": 41,
+    "weight": 6
+   },
+   {
+    "species": "crockling",
+    "min": 40,
+    "max": 41,
+    "weight": 6
+   },
+   {
+    "species": "beancrock",
+    "min": 41,
+    "max": 42,
+    "weight": 3,
+    "time": [
+     "dusk",
+     "night"
+    ]
+   }
+  ],
+  "water": [
+   {
+    "species": "pinchkin",
+    "min": 40,
+    "max": 41,
+    "weight": 16
+   },
+   {
+    "species": "puffling",
+    "min": 40,
+    "max": 41,
+    "weight": 12,
+    "season": [
+     "spring",
+     "summer"
+    ]
+   },
+   {
+    "species": "vraicling",
+    "min": 41,
+    "max": 43,
+    "weight": 12
+   },
+   {
+    "species": "pupplash",
+    "min": 40,
+    "max": 42,
+    "weight": 10
+   },
+   {
+    "species": "gannetling",
+    "min": 40,
+    "max": 42,
+    "weight": 8
+   },
+   {
+    "species": "baskling",
+    "min": 40,
+    "max": 42,
+    "weight": 8
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 32,
+   "y": 13,
+   "plaque": "channel_islands_chapel",
+   "title": "The Little Chapel",
+   "text": "One of the smallest consecrated churches in the world, in the grounds of a Christian Brothers' school at Les Vauxbelets. Brother D\u00e9odat began it in 1914 as a model of the grotto at Lourdes, and decorated every surface with pebbles, seashells and bits of broken china that islanders brought him. Visitors still add to it."
+  },
+  {
+   "x": 21,
+   "y": 18,
+   "plaque": "channel_islands_gue_occupation_museum",
+   "title": "The Occupation Museum",
+   "text": "A private museum at Forest, founded from one man's collection of wartime objects: ration books, forged papers, a hidden radio, a reconstructed kitchen from 1944. Everything on show was used by islanders, or left by the soldiers who occupied the island between 1940 and 1945."
+  },
+  {
+   "x": 14,
+   "y": 38,
+   "plaque": "channel_islands_fortgrey",
+   "title": "Fort Grey",
+   "text": "A round tower at Rocquaine Bay, built in 1804 against the threat of a French invasion, on a rock off the shore. It was called the Cup and Saucer for its shape. Today it is a museum of shipwrecks, and these shores have seen a great many, among the rockiest in the Channel."
+  },
+  {
+   "x": 38,
+   "y": 33,
+   "plaque": "channel_islands_glasshouses",
+   "title": "The Glasshouses",
+   "text": "In the twentieth century Guernsey was covered in glasshouses, long low barns of glass called vineries, growing tomatoes and grapes and flowers for the mainland. The island's tomatoes were shipped out by the shipload. Many have gone, but their ghosts still sparkle in the sun."
+  },
+  {
+   "x": 22,
+   "y": 30,
+   "plaque": "channel_islands_trepied",
+   "title": "Le Tr\u00e9pied",
+   "text": "A Neolithic passage tomb on the west coast, about 5,000 years old, called Le Tr\u00e9pied after its three-footed shape. Island folklore says witches met here for their sabbath on Friday nights, and in the sixteenth and seventeenth centuries some Guernsey women paid dearly for stories like that."
+  },
+  {
+   "x": 8,
+   "y": 20,
+   "plaque": "channel_islands_cobo",
+   "title": "Cobo Bay",
+   "text": "A broad sandy bay on the west coast, famous for its sunsets. At low tide the sand runs out for hundreds of yards among rock pools. Islanders gather ormers here in the right season, at the lowest tides, and keep the rules to the letter."
+  },
+  {
+   "x": 44,
+   "y": 26,
+   "plaque": "channel_islands_guernsey_lanes",
+   "title": "The Guernsey Lanes",
+   "text": "Guernsey's lanes are narrow and winding, and the cars crawl behind tractors. Some lanes are marked as Ruettes Tranquilles, quiet lanes where walkers, cyclists and riders have priority over drivers, with a speed limit of 15 miles an hour."
+  },
+  {
+   "x": 44,
+   "y": 20,
+   "plaque": "channel_islands_sausmarez",
+   "title": "Sausmarez Manor",
+   "text": "A house in the south of the island, where the Sausmarez family have lived for centuries. The Queen Anne part dates from 1714. Its garden has subtropical plants, and a sculpture park, because Guernsey's mild climate lets palms and ferns thrive where you might expect only cabbages."
+  },
+  {
+   "x": 36,
+   "y": 12,
+   "plaque": "channel_islands_sark",
+   "title": "A Nod to Sark",
+   "text": "Sark lies a few miles east of Guernsey, a rock island with no cars. In 2011 it was named the world's first Dark Sky Island, with no street lights and a sky full of stars. The boat from St Peter Port takes about an hour."
+  },
+  {
+   "x": 55,
+   "y": 23,
+   "text": "EAST: St Peter Port. NORTH from the crossroads: the Little Chapel. SOUTH: the glasshouses and the south coast. WEST: the bays and Fort Grey."
+  }
+ ],
+ "spawn": [
+  56,
+  25
+ ],
+ "stage": "coast",
+ "scaled_floor": 40,
+ "rows": [
+  "$$$$$TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "$$$$$TTTTTTTTTTTTTTTTTTTTTTTTTPTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "$$$$w.....................................................TT",
+  "$$$$wsss..................................................TT",
+  "$$$$wsss..................................................TT",
+  "$$$$wsss..................................................TT",
+  "$$$$wsss..................................................TT",
+  "$$$$wsss..................................................TT",
+  "$$$$wsss........,,,,,,,,,.....##..........................TT",
+  "$$$$wsss.......,,,,,,,,,,,BBBBB#..........................TT",
+  "$$$$wsss.......,,,,,,,,,,,BBBBB#..........................TT",
+  "$$$$wsss.......,,,,,,,,,,,BBBBB#..............,...........TT",
+  "$$$$wsss........,,,,,,,,,.BBDBB#..........,,,,,,,,,.......TT",
+  "$$$$wsss...........,,,....######..........,,,,,,,,,.......TT",
+  "$$$$wsss..BBBBBBBBBB..........##..........,,,,,,,,,,......TT",
+  "$$$$wsss..BBBBBBBBBB..........##..........,,,,,,,,,.......TT",
+  "$$$$wsss..BBBBBBBBBB..........##...........,,,,,,,,.......TT",
+  "$$$$wsss..BBBBBDBBBB..........##..........................TT",
+  "$$$$wsss..##########..........##..........................TT",
+  "$$$$wsss......................##..........................TT",
+  "$$$$wsss......................##..........................TT",
+  "$$$$wsss......................##..........................TT",
+  "$$$$wsss......................##..........................TT",
+  "$$$$wsss......................##..........................TT",
+  "$$$$wsss..##..##############################################",
+  "$$$$wsss..##..##############################################",
+  "$$$$wsss..##..##############################################",
+  "$$$$wsss..##..................##..........................TT",
+  "$$$$wsss..##..................##..........................TT",
+  "$$$$wsss..##........,.........##..........................TT",
+  "$$$$wsss..##.....,,,,,,,......##..BBBBBBBB..BBBBBBBB......TT",
+  "$$$$wsss..##....,,,,,,,,,,....##..BBBBBBBB..BBBBBBBB......TT",
+  "$$$$wsss..##....,,,,,,,,,.....##..BBBBBBBB..BBBBBBBB......TT",
+  "$$$$wsss..##....,,,,,,,,,.....##..........................TT",
+  "$$$$wsssBBBBB...,,,,,,,,......##..........................TT",
+  "$$$$wsssBBBBB......,.,........##..BBBBBBBB................TT",
+  "$$$$wsssBBBBB.................##..BBBBBBBB.....,,,,,,,....TT",
+  "$$$$wsssBBDBB.................##..BBBBBBBB....,,,,,,,,,...TT",
+  "$$$$wsss#####.................##..............,,,,,,,,,,..TT",
+  "$$$$wsss......................##..............,,,,,,,,,...TT",
+  "$$$$wsss......................##...............,,,,,,,....TT",
+  "$$$$wsss......................##.................,........TT",
+  "$$$$wsss..............,..,................................TT",
+  "$$$$wsss..........,,,,,,,,,,,,,,..........................TT",
+  "$$$$wsss........,,,,,,,,,,,,,,,,,.........................TT",
+  "$$$$w.............,,,,,,,,,,,,,,..........................TT",
+  "$$$$$TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "$$$$$TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT"
+ ],
+ "legend_extra": {
+  "g": {
+   "tile": "grass",
+   "colour": "#6f9447"
+  }
+ }
+}

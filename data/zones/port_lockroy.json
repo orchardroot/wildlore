@@ -1,0 +1,541 @@
+{
+ "id": "port_lockroy",
+ "name": "Port Lockroy",
+ "region": "overseas_antarctic",
+ "kind": "town",
+ "music": "route_mountain",
+ "weather": {
+  "frost": 30,
+  "gale": 20,
+  "clear": 20,
+  "fog": 10,
+  "sunshine": 12,
+  "drizzle": 4,
+  "downpour": 4
+ },
+ "props": [
+  {
+   "type": "building",
+   "style": "polar_hut",
+   "x": 8,
+   "y": 10,
+   "w": 7,
+   "h": 5,
+   "label": "Bransfield House",
+   "kind": "museum"
+  },
+  {
+   "type": "building",
+   "style": "polar_hut",
+   "x": 16,
+   "y": 12,
+   "w": 4,
+   "h": 3,
+   "label": "Penguin Post Office"
+  },
+  {
+   "type": "building",
+   "style": "shop",
+   "x": 21,
+   "y": 12,
+   "w": 4,
+   "h": 3,
+   "label": "Gift Shop"
+  },
+  {
+   "type": "building",
+   "style": "sanctuary",
+   "x": 26,
+   "y": 11,
+   "w": 6,
+   "h": 4,
+   "label": "Sick Bay"
+  },
+  {
+   "type": "building",
+   "style": "polar_hut",
+   "x": 34,
+   "y": 12,
+   "w": 5,
+   "h": 3,
+   "label": "Boathouse",
+   "show_label": false
+  },
+  {
+   "type": "penguin",
+   "x": 32,
+   "y": 17,
+   "variant": 1
+  },
+  {
+   "type": "penguin",
+   "x": 27,
+   "y": 20,
+   "variant": 1
+  },
+  {
+   "type": "penguin",
+   "x": 24,
+   "y": 17,
+   "variant": 1
+  },
+  {
+   "type": "penguin",
+   "x": 35,
+   "y": 17,
+   "variant": 1
+  },
+  {
+   "type": "penguin",
+   "x": 20,
+   "y": 21,
+   "variant": 1
+  },
+  {
+   "type": "penguin",
+   "x": 19,
+   "y": 21,
+   "variant": 1
+  },
+  {
+   "type": "penguin",
+   "x": 40,
+   "y": 20,
+   "variant": 1
+  },
+  {
+   "type": "penguin",
+   "x": 30,
+   "y": 18,
+   "variant": 1
+  },
+  {
+   "type": "penguin",
+   "x": 37,
+   "y": 17,
+   "variant": 1
+  },
+  {
+   "type": "penguin",
+   "x": 33,
+   "y": 21,
+   "variant": 1
+  },
+  {
+   "type": "penguin",
+   "x": 40,
+   "y": 18,
+   "variant": 1
+  },
+  {
+   "type": "penguin",
+   "x": 19,
+   "y": 17,
+   "variant": 1
+  },
+  {
+   "type": "penguin",
+   "x": 35,
+   "y": 21,
+   "variant": 3
+  },
+  {
+   "type": "penguin",
+   "x": 35,
+   "y": 20,
+   "variant": 3
+  },
+  {
+   "type": "penguin",
+   "x": 36,
+   "y": 17,
+   "variant": 3
+  },
+  {
+   "type": "penguin",
+   "x": 26,
+   "y": 18,
+   "variant": 1
+  },
+  {
+   "type": "penguin",
+   "x": 34,
+   "y": 20,
+   "variant": 3
+  },
+  {
+   "type": "penguin",
+   "x": 9,
+   "y": 20,
+   "variant": 1
+  },
+  {
+   "type": "penguin",
+   "x": 30,
+   "y": 17,
+   "variant": 1
+  },
+  {
+   "type": "penguin",
+   "x": 15,
+   "y": 17,
+   "variant": 1
+  },
+  {
+   "type": "flagpole",
+   "x": 15,
+   "y": 14,
+   "variant": 6
+  },
+  {
+   "type": "bollard",
+   "x": 40,
+   "y": 17
+  },
+  {
+   "type": "bollard",
+   "x": 40,
+   "y": 20
+  },
+  {
+   "type": "boat",
+   "x": 44,
+   "y": 11,
+   "variant": 0
+  },
+  {
+   "type": "boat",
+   "x": 46,
+   "y": 20,
+   "variant": 1
+  },
+  {
+   "type": "iceberg",
+   "x": 3,
+   "y": 10,
+   "variant": 2
+  },
+  {
+   "type": "iceberg",
+   "x": 45,
+   "y": 8,
+   "variant": 1
+  },
+  {
+   "type": "iceberg",
+   "x": 20,
+   "y": 27,
+   "variant": 0
+  },
+  {
+   "type": "iceberg",
+   "x": 36,
+   "y": 28,
+   "variant": 2
+  },
+  {
+   "type": "iceberg",
+   "x": 8,
+   "y": 29,
+   "variant": 1
+  },
+  {
+   "type": "skidoo",
+   "x": 30,
+   "y": 19
+  }
+ ],
+ "warps": [
+  {
+   "x": 11,
+   "y": 14,
+   "to": "port_lockroy_museum",
+   "tx": 6,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 17,
+   "y": 14,
+   "to": "port_lockroy_post",
+   "tx": 4,
+   "ty": 4,
+   "facing": "up"
+  },
+  {
+   "x": 22,
+   "y": 14,
+   "to": "port_lockroy_shop",
+   "tx": 4,
+   "ty": 5,
+   "facing": "up"
+  },
+  {
+   "x": 29,
+   "y": 14,
+   "to": "port_lockroy_sanctuary",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  }
+ ],
+ "edges": {
+  "east": {
+   "to": "rothera",
+   "offset": 0
+  }
+ },
+ "npcs": [
+  {
+   "id": "bat_fid",
+   "sprite": "explorer",
+   "x": 12,
+   "y": 18,
+   "facing": "down",
+   "move": "still",
+   "trainer": "bat_fid"
+  },
+  {
+   "id": "bat_volunteer",
+   "sprite": "student",
+   "x": 25,
+   "y": 18,
+   "facing": "down",
+   "move": "still",
+   "trainer": "bat_volunteer"
+  },
+  {
+   "id": "bat_zodiac",
+   "sprite": "sailor",
+   "x": 39,
+   "y": 16,
+   "facing": "right",
+   "move": "still",
+   "script": "bat_zodiac",
+   "name": "Zodiac Driver",
+   "departure": true
+  },
+  {
+   "id": "bat_visitor",
+   "sprite": "hillwalker",
+   "x": 20,
+   "y": 19,
+   "facing": "down",
+   "move": "still",
+   "script": "bat_visitor",
+   "name": "Cruise Visitor"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "downlet",
+    "min": 95,
+    "max": 96,
+    "weight": 18
+   },
+   {
+    "species": "clearfin",
+    "min": 95,
+    "max": 96,
+    "weight": 6
+   },
+   {
+    "species": "polartern",
+    "min": 95,
+    "max": 96,
+    "weight": 10
+   },
+   {
+    "species": "petrelash",
+    "min": 95,
+    "max": 96,
+    "weight": 8,
+    "time": [
+     "dusk",
+     "night"
+    ]
+   },
+   {
+    "species": "chipgull",
+    "min": 95,
+    "max": 96,
+    "weight": 10
+   },
+   {
+    "species": "haarling",
+    "min": 95,
+    "max": 96,
+    "weight": 6,
+    "weather": [
+     "fog"
+    ]
+   }
+  ],
+  "water": [
+   {
+    "species": "selklet",
+    "min": 95,
+    "max": 96,
+    "weight": 12
+   },
+   {
+    "species": "orcalet",
+    "min": 95,
+    "max": 96,
+    "weight": 8
+   },
+   {
+    "species": "clearfin",
+    "min": 95,
+    "max": 96,
+    "weight": 8
+   },
+   {
+    "species": "pupplash",
+    "min": 95,
+    "max": 96,
+    "weight": 8
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 10,
+   "y": 17,
+   "text": "PORT LOCKROY. A natural harbour on the Antarctic Peninsula, at Wiencke Island, named by the French explorer Jean-Baptiste Charcot after Edouard Lockroy, a politician who helped pay for his expedition. Whalers used it too, long before the huts.",
+   "plaque": "antarctic_port_lockroy",
+   "title": "Port Lockroy"
+  },
+  {
+   "x": 13,
+   "y": 17,
+   "text": "BASE A. Bransfield House was built in 1944 as part of Operation Tabarin, a secret wartime mission to keep an eye on the Antarctic Peninsula and to put the British there to stay. It was a research base until 1962. Now it is a museum, kept as it was, with tins of beans in the cupboard.",
+   "plaque": "antarctic_base_a",
+   "title": "Base A"
+  },
+  {
+   "x": 18,
+   "y": 17,
+   "text": "THE PENGUIN POST OFFICE. The most southerly post office in the world, so it says. Staff hand-stamp cards with the Port Lockroy postmark and send them out with the ships, and they take weeks, or sometimes months, to reach home. All the sales help pay for the upkeep of the huts.",
+   "plaque": "antarctic_post_office",
+   "title": "The Penguin Post Office"
+  },
+  {
+   "x": 23,
+   "y": 17,
+   "text": "THE GENTOOS. Hundreds of gentoo penguins nest around the base each summer, on and between the huts. Scientists have counted nests here for years, comparing the part of the island visitors can see with a part they can't. Rather reassuringly, the penguins don't seem to mind us.",
+   "plaque": "antarctic_gentoo",
+   "title": "Gentoo Penguins"
+  },
+  {
+   "x": 28,
+   "y": 17,
+   "text": "THE ANTARCTIC TREATY. Signed in 1959 and in force from 1961, it says that Antarctica is for peaceful, scientific use, not for armies, not for rubbish and not for mines. Dozens of countries have signed. Britain, Argentina and Chile disagree about who owns what, and have politely agreed to set the quarrel aside.",
+   "plaque": "antarctic_treaty",
+   "title": "The Antarctic Treaty"
+  },
+  {
+   "x": 32,
+   "y": 17,
+   "text": "THE BRITISH ANTARCTIC TERRITORY. Everything south of 60 degrees south between 20 and 80 degrees west: about seven times the size of the United Kingdom, with no permanent residents, only scientists, and a postcode that makes courier firms weep. It became a territory in its own right in 1962.",
+   "plaque": "antarctic_bat",
+   "title": "British Antarctic Territory"
+  },
+  {
+   "x": 36,
+   "y": 17,
+   "text": "THE FIDS. The Falkland Islands Dependencies Survey, started in the war, became the British Antarctic Survey in 1962. Its young men, called Fids, wintered in huts like Base A, surveyed by dog sledge and kept diaries, often for years. They came back with beards. Some forgot the way to a shower.",
+   "plaque": "antarctic_fids",
+   "title": "The Fids"
+  },
+  {
+   "x": 11,
+   "y": 9,
+   "text": "EDWARD BRANSFIELD. An Irish-born Royal Navy officer who, in January 1820, sailed these waters and sighted the Antarctic mainland: one of the first people to do so. The strait between here and the South Shetland Islands is named for him, and so is the house. Nobody has named a biscuit for him. Yet.",
+   "plaque": "antarctic_bransfield",
+   "title": "Edward Bransfield"
+  }
+ ],
+ "spawn": [
+  22,
+  16
+ ],
+ "stage": "mountain",
+ "town_id": "port_lockroy",
+ "legend_extra": {
+  "n": {
+   "tile": "grass",
+   "colour": "#eef3f8"
+  },
+  "N": {
+   "tile": "tall_grass",
+   "colour": "#dce8f0",
+   "prop": "none"
+  },
+  "e": {
+   "tile": "path",
+   "colour": "#c9d3d9"
+  },
+  "i": {
+   "tile": "path",
+   "colour": "#b4d6e6"
+  },
+  "a": {
+   "tile": "path",
+   "colour": "#8f918f"
+  },
+  "r": {
+   "tile": "grass",
+   "colour": "#7b7d7e"
+  },
+  "G": {
+   "tile": "cliff",
+   "colour": "#d4e6f0",
+   "side": "#a8c8da"
+  },
+  "M": {
+   "tile": "rock",
+   "colour": "#e6ecf1"
+  },
+  "w": {
+   "tile": "shallow",
+   "colour": "#8fb4c8"
+  }
+ },
+ "scaled_floor": 95,
+ "rows": [
+  "GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGM",
+  "GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGM",
+  "GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGM",
+  "GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGM",
+  "GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGM",
+  "GGGGGGMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM",
+  "GGGGGGnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn$$$$$$",
+  "$$$$$$nMnnMMnMnMnnMnnMnnnnnnnMnnnMMnnMMMnn$$$$$$",
+  "$$$$$$MMMNnNnnnnMNMMnnNnMnMMMMMNMnnnNNMNNM$$$$$$",
+  "$$$$$$nNnNNnNMNMMMNnMnNnnnMMMnnNMnnnnMMnNM$$$$$$",
+  "$$$$$$nnBBBBBBBnnnnNNnNNnNNNnnnNNNNnnnNnnn$$$$$$",
+  "$$$$$$nNBBBBBBBNnNNnnnnnNNBBBBBBnnnnnnnNnn$$$$$$",
+  "$$$$$$nnBBBBBBBnBBBBnBBBBnBBBBBBnnBBBBBnnn$$$$$$",
+  "$$$$$$nnBBBBBBBnBBBBnBBBBnBBBBBBnnBBBBBnnn$$$$$$",
+  "$$$$$$nnBBBDBBBnBDBBnBDBBnBBBDBBnnBBBBBnnn$$$$$$",
+  "$$$$$$eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeiiiiii",
+  "$$$$$$eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeiiiiii",
+  "$$$$$$nnnnNNnNNNnNNnNnNnnNNnnNNnNnNnNNNnnn$$$$$$",
+  "$$$$$$nnrNrNnNnNnrNNnnrnNNNnnnNNNNNNNnnnnn$$$$$$",
+  "$$$$$$nnrrNNNrNnNnrrNNrNnNNNnnNNnnNNNrNrNn$$$$$$",
+  "$$$$$$nnnnNNnNNNrnNNNNrnrNNNNNrrNrNnNnNNNr$$$$$$",
+  "$$$$$$nrnNNnnNrNnNNNNnNNNNnnNNnNNnrnrNNrrn$$$$$$",
+  "$$$$$$rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr$$$$$$",
+  "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwM",
+  "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwM",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
+ ]
+}

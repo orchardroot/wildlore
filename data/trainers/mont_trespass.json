@@ -1,0 +1,41 @@
+{
+ "id": "mont_trespass",
+ "name": "Ash Tourist Mallon",
+ "class": "Boundary Hopper",
+ "sprite": "explorer",
+ "party": [
+  {
+   "species": "shivertor",
+   "level": 96
+  },
+  {
+   "species": "hellbunker",
+   "level": 96
+  },
+  {
+   "species": "basaltling",
+   "level": 96
+  },
+  {
+   "species": "liagmor",
+   "level": 96
+  }
+ ],
+ "ai": "trainer",
+ "money": 4800,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Ash Tourist Mallon",
+   "text": "I've a perfect right to look at the ash. I'm a tourist. I've got a camera. I've also got a long lens, just in case."
+  },
+  {
+   "do": "say",
+   "who": "Ash Tourist Mallon",
+   "text": "Move along? No. Make me."
+  }
+ ],
+ "win": "Fine. I'll take the picture from Garibaldi Hill like everyone else.",
+ "after": "The signs say 'No entry'. I've always found that to be a bit of a challenge. I'll stop now.",
+ "scaled_floor": 95
+}

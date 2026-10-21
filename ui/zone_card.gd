@@ -8,9 +8,14 @@ const REGIONS := {
 	"north_wales": "North Wales", "mid_wales": "Mid Wales", "south_wales": "South Wales", "midlands": "The Midlands",
 	"south_england": "The West Country", "cornwall": "Cornwall", "yorkshire": "Yorkshire", "north_east": "North East England",
 	"cumbria": "Cumbria", "lancashire": "Lancashire", "scotland": "Scotland", "ireland": "Ireland", "ireland_west": "The West of Ireland",
-	"ireland_east": "The East of Ireland", "man": "Isle of Man",
+	"ireland_east": "The East of Ireland", "man": "Isle of Man", "channel_islands": "The Channel Islands",
+	"overseas_south_georgia": "South Georgia", "overseas_antarctic": "British Antarctic Territory",
 	"east_anglia": "East Anglia",
 	"south_east": "South East England",
+	"overseas_ascension": "Ascension Island", "overseas_st_helena": "St Helena", "overseas_tristan": "Tristan da Cunha",
+	"overseas_falklands": "Falkland Islands",
+	"overseas_bermuda": "Bermuda", "overseas_cayman": "Cayman Islands", "overseas_turks_caicos": "Turks and Caicos Islands",
+	"overseas_bvi": "British Virgin Islands", "overseas_anguilla": "Anguilla", "overseas_montserrat": "Montserrat",
 }
 ## Zones whose region id doesn't name them well.
 const OVERRIDES := {
@@ -18,6 +23,7 @@ const OVERRIDES := {
 	"belfast": "Northern Ireland", "bushmills": "Northern Ireland", "derry": "Northern Ireland",
 	"antrim_coast": "Northern Ireland", "causeway": "Northern Ireland", "mournes": "Northern Ireland",
 	"lough_neagh": "Northern Ireland", "enniskillen": "County Fermanagh",
+	"brize_norton": "Oxfordshire", "akrotiri": "Akrotiri Sovereign Base Area", "dhekelia": "Dhekelia Sovereign Base Area",
 }
 const FADE_IN := 0.5
 const HOLD := 2.4
@@ -30,6 +36,8 @@ var _sub: Label
 var _tween: Tween
 
 static func subtitle(zone_id: String, region: String) -> String:
+	if not OVERRIDES.has(zone_id) and not REGIONS.has(region) and region.begins_with("overseas_"):
+		return Overseas.name_of(region.trim_prefix("overseas_"))  # a registered territory's own name (data/overseas)
 	return OVERRIDES.get(zone_id, REGIONS.get(region, ""))
 
 ## Records arriving in a zone; true when the card should show. Interiors never count, and don't reset

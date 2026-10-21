@@ -1,0 +1,57 @@
+{
+ "bvi_diver_guide": [
+  {
+   "do": "if",
+   "flag": "q_overseas_bvi_treasure_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_overseas_bvi_treasure_2",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_overseas_bvi_treasure_3",
+       "then": [
+        {
+         "do": "say",
+         "who": "Dive Guide",
+         "text": "The caves behind Norman Island. Good luck. Mind the snorkellers."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Dive Guide",
+         "text": "Third clue? Go to Norman Island, the south islet. There's a treasure hunter sat on a rock who's been there three years. He knows the spot."
+        },
+        {
+         "do": "set",
+         "flag": "q_overseas_bvi_treasure_3"
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Dive Guide",
+       "text": "Find the crab in the Baths first. He's got the next clue. Don't ask. He tells everyone."
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Dive Guide",
+     "text": "The Rhone: a Royal Mail steamer, sunk 29 October 1867 in a hurricane. Two halves, bow and stern, and one of the best dives anywhere. The film The Deep was shot partly here."
+    },
+    {
+     "do": "say",
+     "who": "Dive Guide",
+     "text": "Please don't take anything from the wreck. Not even a bolt. We know who you are."
+    }
+   ]
+  }
+ ]
+}

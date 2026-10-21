@@ -1,0 +1,74 @@
+{
+ "bat_counter": [
+  {
+   "do": "if",
+   "flag": "q_overseas_antarctic_census_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Penguin Counter",
+     "text": "Chicks all present and accounted for. There's a new one of yours in the book. It's the one in the middle. They're all the one in the middle."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_overseas_antarctic_census_started",
+     "then": [
+      {
+       "do": "when",
+       "cond": "has_downlet",
+       "then": [
+        {
+         "do": "say",
+         "who": "Penguin Counter",
+         "text": "A Downlet! A chick with the lot: grey down, black mask, a plan to stay in the middle of the huddle for a year. That's the census done. Take these, the cook made too many."
+        },
+        {
+         "do": "give_item",
+         "item": "pemmican",
+         "n": 3
+        },
+        {
+         "do": "give_item",
+         "item": "midwinter_dinner"
+        },
+        {
+         "do": "set",
+         "flag": "q_overseas_antarctic_census_1"
+        },
+        {
+         "do": "set",
+         "flag": "q_overseas_antarctic_census_done"
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Penguin Counter",
+         "text": "A chick for the census, please. A Downlet, caught properly, in the book. They like to stand in the middle, so you'll want snares and patience."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Penguin Counter",
+       "text": "Emperor census. Emperors huddle, to get through the winter. The ones in the middle get warm, the ones at the edge don't, and then they swap round so everyone's fair. It's the most civilised thing in Antarctica."
+      },
+      {
+       "do": "say",
+       "who": "Penguin Counter",
+       "text": "I need one more chick on the census for my tally. Could you find a Downlet and show it to me? Penguins do the huddling, I do the counting. I'm very much the cold edge."
+      },
+      {
+       "do": "set",
+       "flag": "q_overseas_antarctic_census_started"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

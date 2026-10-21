@@ -1,0 +1,32 @@
+{
+ "id": "bat_diver",
+ "name": "BAS Diver",
+ "class": "Diver",
+ "sprite": "surfer",
+ "scaled_floor": 95,
+ "party": [
+  {
+   "species": "selkie",
+   "level": 96
+  },
+  {
+   "species": "clearfin",
+   "level": 96
+  },
+  {
+   "species": "orcaird",
+   "level": 96
+  }
+ ],
+ "ai": "trainer",
+ "money": 3200,
+ "intro": [
+  {
+   "do": "say",
+   "who": "BAS Diver",
+   "text": "I dive under the ice for a living, which is a thing I tell people at parties and then I get left alone. Want a splash?"
+  }
+ ],
+ "win": "Oh, that's a drowning. That's what it is. That's a drowning, in a drysuit.",
+ "after": "The water's minus one and a half. Seawater doesn't freeze till it's colder than fresh. Brilliant, until you get out."
+}

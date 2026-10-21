@@ -1,7 +1,7 @@
 extends TestCase
 
 func test_six_nations() -> void:
-	assert_eq(Standing.NATIONS, ["england", "wales", "scotland", "northern_ireland", "ireland", "mann"])
+	assert_eq(Standing.NATIONS, ["england", "wales", "scotland", "northern_ireland", "ireland", "mann", "overseas", "channel_islands"])
 
 func test_nation_for_zone_splits_ni_and_mann() -> void:
 	assert_eq(Standing.nation_for_zone("macclesfield"), "england")
@@ -105,7 +105,7 @@ func test_lines_for_stats() -> void:
 	var d := GameStateData.new()
 	Standing.add(d, "wales", 31)
 	var rows := Standing.lines(d)
-	assert_eq(rows.size(), 6)
+	assert_eq(rows.size(), Standing.NATIONS.size())
 	assert_eq(rows[1][0], "Wales")
 	assert_eq(rows[1][1], "Regular")
 	assert_eq(rows[1][2], 31)

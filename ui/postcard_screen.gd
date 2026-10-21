@@ -13,7 +13,7 @@ const HAND := preload("res://art/fonts/caveat/Caveat.ttf")
 const SERIF := preload("res://art/fonts/libre_baskerville/LibreBaskerville.ttf")
 ## Stamp panels by the nation the card was posted in.
 const STAMP_COLOURS := {"england": Color("b23a3a"), "wales": Color("2f7a4a"), "scotland": Color("2f5c9a"),
-	"ireland": Color("2f8a6a"), "northern_ireland": Color("6a4a8a"), "mann": Color("a8742a")}
+	"ireland": Color("2f8a6a"), "northern_ireland": Color("6a4a8a"), "mann": Color("a8742a"), "overseas": Color("2f5fa8"), "channel_islands": Color("b8892a")}
 
 var _ids: Array = []
 var _i := 0

@@ -1,0 +1,335 @@
+{
+ "cay_captain": [
+  {
+   "do": "if",
+   "flag": "q_overseas_cayman_stingray_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Captain Mac",
+     "text": "Best sandbar crew in the Sound, thanks to you. The rays have been waving at your boat. I think. It's hard to tell with rays."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_overseas_cayman_stingray_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_overseas_cayman_stingray_1",
+       "then": [
+        {
+         "do": "if",
+         "flag": "q_overseas_cayman_stingray_2",
+         "then": [
+          {
+           "do": "if",
+           "flag": "q_overseas_cayman_stingray_3",
+           "then": [
+            {
+             "do": "if",
+             "flag": "trainer_cay_rival",
+             "then": [
+              {
+               "do": "say",
+               "who": "Captain Mac",
+               "text": "You've shown my rival who's boss. And the rays like you. That's the only vote I've ever cared about."
+              },
+              {
+               "do": "set",
+               "flag": "q_overseas_cayman_stingray_4"
+              },
+              {
+               "do": "give_item",
+               "item": "silver_thatch_bracelet"
+              },
+              {
+               "do": "set",
+               "flag": "q_overseas_cayman_stingray_done"
+              },
+              {
+               "do": "say",
+               "who": "Captain Mac",
+               "text": "Take this: a bracelet of silver thatch, woven by my aunt. The thatch palm's the national tree, and she's the national treasure."
+              }
+             ],
+             "else": [
+              {
+               "do": "say",
+               "who": "Captain Mac",
+               "text": "Last job: my rival diver, Nasir, has been telling the tourists he's the rays' favourite. He's pacing the shore of the Sound. Put him right."
+              }
+             ]
+            }
+           ],
+           "else": [
+            {
+             "do": "when",
+             "cond": "has_raylette",
+             "then": [
+              {
+               "do": "say",
+               "who": "Captain Mac",
+               "text": "A raylette! Look at the little flaps. That's a stingray in the making."
+              },
+              {
+               "do": "set",
+               "flag": "q_overseas_cayman_stingray_3"
+              }
+             ],
+             "else": [
+              {
+               "do": "say",
+               "who": "Captain Mac",
+               "text": "The rays are happy. Now catch one yourself, a raylette, and show me. They live in the shallows of the Sound. Gently does it."
+              }
+             ]
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Captain Mac",
+           "text": "The squid goes to the stingray on the sandbar. Out through the shallows, beyond the boats. Don't drop it. They'll never forgive you."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Captain Mac",
+         "text": "Old Fisher on the quay has a bucket of squid with your name on it. Fetch it, then feed the stingray on the sandbar."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Captain Mac",
+       "text": "Welcome aboard. Stingray City is a sandbar in the North Sound. Southern stingrays started gathering there because the fishermen cleaned their catch on it. Now the tourists feed them squid."
+      },
+      {
+       "do": "say",
+       "who": "Captain Mac",
+       "text": "The rays know my boat engine from a mile off. Do me a favour: bring squid out to the sandbar, then catch a raylette to show me, and see off my rival. Old Fisher has the squid."
+      },
+      {
+       "do": "set",
+       "flag": "q_overseas_cayman_stingray_started"
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "cay_fisher": [
+  {
+   "do": "if",
+   "flag": "q_overseas_cayman_stingray_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_overseas_cayman_stingray_1",
+     "then": [
+      {
+       "do": "say",
+       "who": "Old Fisher",
+       "text": "Squid delivered. Now go and put it in the stingray's face. In a nice way."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Old Fisher",
+       "text": "Mac sent you? Here, a bucket of squid. Cleaned, chopped and slightly smelly. They love it."
+      },
+      {
+       "do": "give_item",
+       "item": "cay_squid"
+      },
+      {
+       "do": "set",
+       "flag": "q_overseas_cayman_stingray_1"
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Old Fisher",
+     "text": "Fish rundown, that's what my mother made. Fish simmered in coconut milk till it falls apart. Cayman food is about patience and coconut."
+    }
+   ]
+  }
+ ],
+ "cay_sandbar": [
+  {
+   "do": "if",
+   "flag": "q_overseas_cayman_stingray_1",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_overseas_cayman_stingray_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "Friendly Stingray",
+       "text": "The stingray glides between your ankles and flaps off, content."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Friendly Stingray",
+       "text": "You hold out the squid. A southern stingray as wide as a doormat slides up, takes it, and drapes itself against your leg. It is velvet. It is very gentle. It is also looking for more squid."
+      },
+      {
+       "do": "set",
+       "flag": "q_overseas_cayman_stingray_2"
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Friendly Stingray",
+     "text": "A stingray ripples past, hopeful. It's wondering if you have squid. You do not."
+    }
+   ]
+  }
+ ],
+ "cay_banker": [
+  {
+   "do": "say",
+   "who": "Man in a Suit",
+   "text": "The Cayman dollar is worth more than the US dollar, about 1.20 to one. It's pegged. It does not move. Neither do I, after lunch."
+  },
+  {
+   "do": "say",
+   "who": "Man in a Suit",
+   "text": "George Town's a financial centre. We have the weather and the paperwork."
+  }
+ ],
+ "cay_cook": [
+  {
+   "do": "say",
+   "who": "Fritter Seller",
+   "text": "Conch fritters! Chopped queen conch in a spiced batter, fried till golden. Dip in the sauce. Not the other sauce. The orange one."
+  },
+  {
+   "do": "say",
+   "who": "Fritter Seller",
+   "text": "Cassava heavy cake is the real Cayman treat. Grated cassava, sugar, coconut. It lives up to its name."
+  }
+ ],
+ "cay_ranger2": [
+  {
+   "do": "say",
+   "who": "Park Ranger",
+   "text": "The blue iguanas weren't blue when they were hatched; they get bluer as they get older and, in the breeding season, the males go properly sapphire."
+  },
+  {
+   "do": "say",
+   "who": "Park Ranger",
+   "text": "Twenty years ago there were maybe a couple of dozen left in the wild. We have more now. Not enough, but more. Keep your dog on a lead and a wide berth round the road."
+  }
+ ],
+ "cay_turtle": [
+  {
+   "do": "say",
+   "who": "Turtle Volunteer",
+   "text": "The Turtle Centre breeds green turtles and releases some every year. It started because people ate turtles for centuries, which is why Columbus called the islands Las Tortugas."
+  },
+  {
+   "do": "say",
+   "who": "Turtle Volunteer",
+   "text": "A green turtle can live for decades and cross oceans to come back to the very beach it hatched on. I can't find my car keys."
+  }
+ ],
+ "cay_pirate": [
+  {
+   "do": "say",
+   "who": "Pirates Week Fan",
+   "text": "Pirates Week is in November! There's a mock invasion, a parade, and everybody is a pirate. You're a pirate too. You just don't know it yet."
+  },
+  {
+   "do": "say",
+   "who": "Pirates Week Fan",
+   "text": "Arr."
+  }
+ ],
+ "cay_home": [
+  {
+   "do": "say",
+   "who": "Airport Official",
+   "text": "Heading back to Brize Norton? The RAF flight leaves Owen Roberts when the pilot's finished his coffee."
+  },
+  {
+   "do": "choice",
+   "text": "Head home to RAF Brize Norton?",
+   "options": [
+    "Yes, take me home",
+    "Not yet"
+   ],
+   "set": "_home_choice"
+  },
+  {
+   "do": "if",
+   "flag": "_home_choice",
+   "then": [
+    {
+     "do": "say",
+     "who": "Airport Official",
+     "text": "Right-o. Seatbelts, sunscreen and stowaway iguanas are all checked."
+    },
+    {
+     "do": "set",
+     "flag": "overseas_return",
+     "value": "cayman"
+    },
+    {
+     "do": "fade_out"
+    },
+    {
+     "do": "end"
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Airport Official",
+     "text": "Take your time. We'll be here."
+    }
+   ],
+   "eq": 0
+  }
+ ],
+ "cayman_bureau": [
+  {
+   "do": "say",
+   "who": "Bureau Clerk",
+   "text": "Welcome to the bureau de change. Local money in, sterling out, or the other way round. A small fee, and a very small queue."
+  },
+  {
+   "do": "bureau"
+  }
+ ],
+ "cayman_homebound": [
+  {
+   "do": "say",
+   "who": "Movements Clerk",
+   "text": "Heading back to the mainland? Passage to RAF Brize Norton can be arranged whenever you like. Bring your own sandwiches."
+  },
+  {
+   "do": "overseas_home",
+   "territory": "cayman"
+  }
+ ]
+}

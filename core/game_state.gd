@@ -20,8 +20,13 @@ var quest_news: QuestNews
 ## Emitted after each autosave that really wrote the file (the "Saved" toast listens).
 signal autosaved
 
+## The game's full title. The project's config/name stays "Wildlore" because Godot names the user:// folder
+## (and so every save) after it.
+const TITLE := "Wildlore: These Isles"
+
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
+	DisplayServer.window_set_title(TITLE)  # config/name stays "Wildlore": it names the save folder
 	dex = Dex.load_default()
 	moves = MoveDB.load_default()
 	chart = TypeChart.load_default()

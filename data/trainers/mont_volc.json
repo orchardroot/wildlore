@@ -1,0 +1,41 @@
+{
+ "id": "mont_volc",
+ "name": "Volcanologist Hart",
+ "class": "Volcanologist",
+ "sprite": "astronomer",
+ "party": [
+  {
+   "species": "cinderling",
+   "level": 96
+  },
+  {
+   "species": "soufrilla",
+   "level": 97
+  },
+  {
+   "species": "diaboulder",
+   "level": 96
+  },
+  {
+   "species": "flintwarden",
+   "level": 96
+  }
+ ],
+ "ai": "trainer",
+ "money": 4500,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Volcanologist Hart",
+   "text": "The volcano's quiet today. That's not good. Quiet is when I worry. Loud is when I know what it's doing."
+  },
+  {
+   "do": "say",
+   "who": "Volcanologist Hart",
+   "text": "Let me show you what I've learned."
+  }
+ ],
+ "win": "A good fight. Excellent results. I'll log it.",
+ "after": "I've watched the dome for years. It's never boring. It's occasionally bored of me.",
+ "scaled_floor": 95
+}

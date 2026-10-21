@@ -1,0 +1,123 @@
+{
+ "id": "sark_prison",
+ "name": "La Tour Prison",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "bed",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "table",
+   "x": 4,
+   "y": 3
+  },
+  {
+   "type": "bench",
+   "x": 3,
+   "y": 3
+  },
+  {
+   "type": "bookshelf",
+   "x": 7,
+   "y": 1
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 5
+  },
+  {
+   "type": "potted_plant",
+   "x": 7,
+   "y": 5
+  },
+  {
+   "type": "fireplace",
+   "x": 5,
+   "y": 1
+  },
+  {
+   "type": "kitchen_dresser",
+   "x": 6,
+   "y": 1
+  },
+  {
+   "type": "rug",
+   "x": 3,
+   "y": 2,
+   "w": 3,
+   "h": 2,
+   "variant": 0,
+   "walk": true
+  },
+  {
+   "type": "sofa",
+   "x": 1,
+   "y": 3,
+   "variant": 3,
+   "rot": 90
+  },
+  {
+   "type": "clock",
+   "x": 4,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "wall_picture",
+   "x": 2,
+   "y": 1,
+   "walk": true,
+   "variant": 0
+  },
+  {
+   "type": "plant_stand",
+   "x": 1,
+   "y": 4
+  }
+ ],
+ "warps": [
+  {
+   "x": 4,
+   "y": 6,
+   "to": "sark",
+   "tx": 29,
+   "ty": 8,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "srk_constable",
+   "sprite": "warden_grunt",
+   "x": 5,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "srk_constable",
+   "name": "Constable"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  4,
+  5
+ ],
+ "rows": [
+  "xxxxxxxxx",
+  "x|||||||x",
+  "x|||||||x",
+  "x|||||||x",
+  "x|||||||x",
+  "x|||||||x",
+  "x|||D|||x",
+  "xxxxxxxxx"
+ ]
+}

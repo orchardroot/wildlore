@@ -13,10 +13,12 @@ const REGION_NAMES := {
 	"north_wales": "North Wales", "mid_wales": "Mid Wales", "south_wales": "South Wales",
 	"south_england": "The West Country", "cornwall": "Cornwall", "midlands": "Midlands and London",
 	"yorkshire": "Yorkshire", "cumbria": "Cumbria and Lancashire", "lancashire": "The Lancashire Coast", "north_east": "The North East",
-	"scotland": "Scotland", "man": "Isle of Man", "ireland": "Ireland", "ireland_west": "The West of Ireland",
+	"scotland": "Scotland", "man": "Isle of Man", "channel_islands": "The Channel Islands", "ireland": "Ireland", "ireland_west": "The West of Ireland",
 	"ireland_east": "The Boyne Valley",
 	"east_anglia": "East Anglia",
 	"south_east": "The South East",
+	"overseas_bermuda": "Bermuda", "overseas_cayman": "The Cayman Islands", "overseas_turks_caicos": "Turks and Caicos",
+	"overseas_bvi": "The British Virgin Islands", "overseas_anguilla": "Anguilla", "overseas_montserrat": "Montserrat",
 }
 
 static func region_name(r: String) -> String:

@@ -1,0 +1,37 @@
+{
+ "quests": [
+  {
+   "id": "overseas_anguilla_race",
+   "title": "Race Day",
+   "region": "overseas_anguilla",
+   "town": "anguilla",
+   "giver": "Boat Builder",
+   "summary": "Get a racing sloop ready for Anguilla Day: a sail, a plank, a sloopling for luck, and a rival to beat.",
+   "start_flag": "q_overseas_anguilla_race_started",
+   "steps": [
+    {
+     "flag": "q_overseas_anguilla_race_1",
+     "text": "Collect a sail from the Sailmaker near the boats.",
+     "zone": "anguilla"
+    },
+    {
+     "flag": "q_overseas_anguilla_race_2",
+     "text": "Borrow a plank from the Carpenter by the harbour.",
+     "zone": "anguilla"
+    },
+    {
+     "flag": "q_overseas_anguilla_race_3",
+     "text": "Catch a sloopling and show the Boat Builder.",
+     "zone": "anguilla"
+    },
+    {
+     "flag": "q_overseas_anguilla_race_4",
+     "text": "Beat Rival Skipper Kincaid in Road Bay, then tell the Boat Builder.",
+     "zone": "anguilla"
+    }
+   ],
+   "done_flag": "q_overseas_anguilla_race_done",
+   "reward": "A Race Pennant (a charm: tide moves hurt less)."
+  }
+ ]
+}

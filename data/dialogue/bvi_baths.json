@@ -1,0 +1,51 @@
+{
+ "bvi_crab": [
+  {
+   "do": "if",
+   "flag": "q_overseas_bvi_treasure_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_overseas_bvi_treasure_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "Crab",
+       "text": "The crab nods slowly and returns to a rock."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Crab",
+       "text": "A hermit crab pushes a folded, damp bit of paper out from under a rock with one claw, and clacks. It reads: 'Ask the dive shop.'"
+      },
+      {
+       "do": "set",
+       "flag": "q_overseas_bvi_treasure_2"
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Crab",
+     "text": "A crab regards you with the unbothered air of a creature that lives between boulders the size of houses."
+    }
+   ]
+  }
+ ],
+ "bvi_climber": [
+  {
+   "do": "say",
+   "who": "Visitor, Wet",
+   "text": "I've crawled through four tunnels, waded two pools and lost a flip-flop. I'm told Devil's Bay is wonderful. I'm told I'll know when I'm there. I don't."
+  },
+  {
+   "do": "say",
+   "who": "Visitor, Wet",
+   "text": "The rocks are granite, formed underground and exposed by weathering. Don't push one over. Please."
+  }
+ ]
+}

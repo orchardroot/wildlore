@@ -1,0 +1,37 @@
+{
+ "id": "akr_warden",
+ "name": "Flamingo Warden",
+ "class": "Warden",
+ "sprite": "ghillie",
+ "party": [
+  {
+   "species": "heronarch",
+   "level": 95
+  },
+  {
+   "species": "levelcrane",
+   "level": 95
+  },
+  {
+   "species": "brineflame",
+   "level": 95
+  }
+ ],
+ "ai": "trainer",
+ "money": 4400,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Flamingo Warden",
+   "text": "Keep your voice down: one cough and the whole flock goes up like pink fireworks."
+  },
+  {
+   "do": "say",
+   "who": "Flamingo Warden",
+   "text": "We'll have to do this in whispers."
+  }
+ ],
+ "win": "Not a feather out of place. Well done.",
+ "after": "A hide at dawn, with the lake turning from grey to pink: nothing else is like it.",
+ "scaled_floor": 95
+}

@@ -1,0 +1,37 @@
+{
+ "id": "akr_gunner",
+ "name": "RAF Regiment Gunner",
+ "class": "RAF Regiment",
+ "sprite": "hurler",
+ "party": [
+  {
+   "species": "shieldbiter",
+   "level": 95
+  },
+  {
+   "species": "bombardon",
+   "level": 95
+  },
+  {
+   "species": "steelheart",
+   "level": 95
+  }
+ ],
+ "ai": "trainer",
+ "money": 4300,
+ "intro": [
+  {
+   "do": "say",
+   "who": "RAF Regiment Gunner",
+   "text": "I'm RAF Regiment. Our motto is 'Per ardua', and our other motto is 'Mind that fence'."
+  },
+  {
+   "do": "say",
+   "who": "RAF Regiment Gunner",
+   "text": "Defending an airfield means never taking your eye off the sky."
+  }
+ ],
+ "win": "Right, right. You'd have made a decent Airman.",
+ "after": "My grandad was in this regiment. He said the heat was the only enemy that never retreated.",
+ "scaled_floor": 95
+}

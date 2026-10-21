@@ -155,7 +155,8 @@ func _exec(c: Dictionary) -> void:
 		"shop":
 			await host.open_menu("shop:" + str(c.get("id", "")))
 		"bureau":
-			await host.open_menu("bureau")  # a bureau de change (see Forex)
+			# a bureau de change (see Forex); "currency" names the local money when the zone doesn't (e.g. "usd")
+			await host.open_menu("bureau" + ((":" + str(c.currency)) if str(c.get("currency", "")) != "" else ""))
 		"exchange":
 			await host.open_menu("exchange:" + str(c.get("board", "london")))  # a Stock Exchange terminal (see Markets)
 		"crypto":
@@ -217,6 +218,10 @@ func _exec(c: Dictionary) -> void:
 				host.autosave()
 		"ferry":
 			await _ferry(str(c.get("route", "")))
+		"overseas":
+			await _overseas_board()  # the departures board at RAF Brize Norton
+		"overseas_home":
+			await _overseas_home(str(c.get("territory", "")))
 		"whiteout":
 			await whiteout()
 			_ended = true
@@ -461,6 +466,45 @@ func _ferry(route: String) -> void:
 	await host.warp(str(a.zone), a.pos.x, a.pos.y, "down")
 	if scene:
 		await host.journey_in("ferry", info)
+	_ended = true
+
+## The departures board: pick an overseas territory from the registry (core/overseas.gd) and fly (or sail) there.
+func _overseas_board() -> void:
+	var dest = await host.open_menu("travel:overseas")
+	if dest == null or str(dest) == "":
+		return
+	var e := Overseas.get_entry(str(dest))
+	if e.is_empty():
+		return
+	await _overseas_trip(e, Overseas.arrival(e), true)
+
+## The way home from a territory's airfield or harbour: Brize Norton, or the UK port for a ferry territory.
+func _overseas_home(territory: String) -> void:
+	var e := Overseas.get_entry(territory)
+	if e.is_empty():
+		push_error("Commands: no overseas territory '%s'" % territory)
+		return
+	var verb := "Sail home" if Overseas.is_ferry(e) else "Fly home to RAF Brize Norton"
+	if await host.choice(verb + "?", ["Yes please", "Not yet"]) != 0:
+		return
+	await _overseas_trip(e, Overseas.home(e), false)
+
+func _overseas_trip(e: Dictionary, a: Dictionary, outbound: bool) -> void:
+	var ferry := Overseas.is_ferry(e)
+	var kind := "ferry" if ferry else "fly"
+	var info := {"from": host.zone_id(), "to": str(e.id) if outbound else "brize_norton", "card": str(e.get("flight_line", ""))}
+	if not outbound and ferry:
+		info.to = str(e.get("port", ""))
+	if outbound:
+		TrainerStats.add(host.data, "ferry_trips" if ferry else "flights")
+	var scene := await _journey_out(kind, info)
+	if not scene:
+		await host.say("", str(e.get("flight_line", "")) if outbound else "The wheels go down, and England looks very green.")
+	await host.warp(str(a.zone), a.pos.x, a.pos.y, "down")
+	if scene:
+		await host.journey_in(kind, info)
+	if outbound and scene:
+		await host.say("", str(e.get("flight_line", "")))
 	_ended = true
 
 ## A travel scene on the way out (see Journey), if the host plays them: true when one played. The warp to the

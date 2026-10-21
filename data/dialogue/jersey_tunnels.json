@@ -1,0 +1,66 @@
+{
+ "jer_tunnel_guide": [
+  {
+   "do": "say",
+   "who": "Tunnels Guide",
+   "text": "These tunnels were dug by the Germans from 1941 into the hill at St Lawrence. The work was done by forced labourers brought from across Europe, among them Russians, Poles, Spaniards and North Africans. Many were underfed, overworked and cruelly treated, and some died here."
+  },
+  {
+   "do": "say",
+   "who": "Tunnels Guide",
+   "text": "The tunnels were meant to shelter troops and guns. At the end of the war they were an emergency hospital. Some of what's on show was left lying where it fell. Please walk quietly. It's a place to learn, not a place to be loud."
+  }
+ ],
+ "jer_tunnel_keeper": [
+  {
+   "do": "if",
+   "flag": "q_channel_islands_liberation_1",
+   "then": [
+    {
+     "do": "say",
+     "who": "Archivist",
+     "text": "Wireless sets were confiscated in 1942, but people hid them in chimneys, inside clocks, under the floors. Listening to the BBC was a punishable offence. A good many went to prison, or were sent away, for the crime of hearing the news."
+    },
+    {
+     "do": "say",
+     "who": "Archivist",
+     "text": "Tell the Tapestry Guide that. Every household that kept a crystal set was an island of hope."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_channel_islands_liberation_started",
+     "then": [
+      {
+       "do": "say",
+       "who": "Archivist",
+       "text": "The Tapestry Guide sent you? Good. Here's what to tell her. Jersey was occupied for five years from 1 July 1940. Islanders were short of food, fuel and news. In 1942 the Germans ordered every wireless to be handed in."
+      },
+      {
+       "do": "say",
+       "who": "Archivist",
+       "text": "Many hid theirs, and the news from the BBC went from house to house in whispers. The Red Cross ship Vega arrived in December 1944 with parcels. The day the island was liberated was 9 May 1945."
+      },
+      {
+       "do": "set",
+       "flag": "q_channel_islands_liberation_1"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Archivist",
+       "text": "Jersey was occupied for five years, from 1 July 1940. Islanders were short of food and fuel by the end. In December 1944 the Red Cross ship Vega brought parcels, and everyone remembers what was in them."
+      },
+      {
+       "do": "say",
+       "who": "Archivist",
+       "text": "Wireless sets were confiscated in 1942. Many were hidden, and people listened in secret to the BBC. Liberation Day was 9 May 1945. We keep it as a public holiday still."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

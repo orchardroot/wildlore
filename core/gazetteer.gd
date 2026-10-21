@@ -139,7 +139,7 @@ static func validate(list: Array) -> Array:
 			errors.append(tag + " has an em-dash")
 	return errors
 
-const NATION_ORDER := ["england", "wales", "scotland", "northern_ireland", "ireland", "mann"]
+const NATION_ORDER := ["england", "wales", "scotland", "northern_ireland", "ireland", "mann", "overseas", "channel_islands"]
 
 ## [{nation, name, read, total, towns: [{town, name, read, total, plaques: [plaque]}]}]: nations in the game's
 ## usual order, places by name, plaques in the order they stand in their zones.

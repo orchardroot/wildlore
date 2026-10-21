@@ -1,0 +1,960 @@
+{
+ "id": "gibraltar",
+ "name": "Gibraltar",
+ "region": "overseas_gibraltar",
+ "kind": "town",
+ "music": "town_city",
+ "weather": {
+  "clear": 34,
+  "sunshine": 34,
+  "fog": 8,
+  "drizzle": 6,
+  "gale": 10,
+  "downpour": 4
+ },
+ "props": [
+  {
+   "type": "building",
+   "style": "raf_block",
+   "x": 24,
+   "y": 4,
+   "w": 7,
+   "h": 3,
+   "label": "Frontier"
+  },
+  {
+   "type": "building",
+   "style": "raf_terminal",
+   "x": 34,
+   "y": 13,
+   "w": 12,
+   "h": 5,
+   "label": "Air Terminal"
+  },
+  {
+   "type": "building",
+   "style": "gib_house",
+   "x": 14,
+   "y": 19,
+   "w": 6,
+   "h": 5,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "gib_house",
+   "x": 44,
+   "y": 19,
+   "w": 6,
+   "h": 5,
+   "show_label": false
+  },
+  {
+   "type": "lamp_post",
+   "x": 24,
+   "y": 21
+  },
+  {
+   "type": "lamp_post",
+   "x": 28,
+   "y": 21
+  },
+  {
+   "type": "lamp_post",
+   "x": 36,
+   "y": 21
+  },
+  {
+   "type": "lamp_post",
+   "x": 40,
+   "y": 21
+  },
+  {
+   "type": "lamp_post",
+   "x": 24,
+   "y": 25
+  },
+  {
+   "type": "lamp_post",
+   "x": 40,
+   "y": 25
+  },
+  {
+   "type": "planter",
+   "x": 31,
+   "y": 22,
+   "variant": 1
+  },
+  {
+   "type": "planter",
+   "x": 33,
+   "y": 22,
+   "variant": 1
+  },
+  {
+   "type": "planter",
+   "x": 31,
+   "y": 25,
+   "variant": 1
+  },
+  {
+   "type": "planter",
+   "x": 33,
+   "y": 25,
+   "variant": 1
+  },
+  {
+   "type": "bench",
+   "x": 35,
+   "y": 26
+  },
+  {
+   "type": "bench",
+   "x": 29,
+   "y": 26
+  },
+  {
+   "type": "flagpole",
+   "x": 22,
+   "y": 20,
+   "variant": 6
+  },
+  {
+   "type": "flagpole",
+   "x": 42,
+   "y": 20,
+   "variant": 6
+  },
+  {
+   "type": "building",
+   "style": "gib_house",
+   "x": 22,
+   "y": 29,
+   "w": 8,
+   "h": 4,
+   "label": "Fish and Chips"
+  },
+  {
+   "type": "building",
+   "style": "gib_house",
+   "x": 22,
+   "y": 34,
+   "w": 8,
+   "h": 4,
+   "label": "Gibraltar Museum"
+  },
+  {
+   "type": "building",
+   "style": "limestone_church",
+   "x": 22,
+   "y": 39,
+   "w": 8,
+   "h": 4,
+   "label": "Cathedral of St Mary the Crowned"
+  },
+  {
+   "type": "building",
+   "style": "gib_house",
+   "x": 22,
+   "y": 44,
+   "w": 8,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "gib_house",
+   "x": 34,
+   "y": 29,
+   "w": 8,
+   "h": 4,
+   "label": "Sanctuary"
+  },
+  {
+   "type": "building",
+   "style": "gib_house",
+   "x": 34,
+   "y": 34,
+   "w": 8,
+   "h": 4,
+   "label": "Corner Shop"
+  },
+  {
+   "type": "building",
+   "style": "gib_house",
+   "x": 34,
+   "y": 39,
+   "w": 8,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "gib_house",
+   "x": 34,
+   "y": 44,
+   "w": 8,
+   "h": 4,
+   "label": "Garrison Library"
+  },
+  {
+   "type": "building",
+   "style": "gib_house",
+   "x": 43,
+   "y": 29,
+   "w": 6,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "gib_house",
+   "x": 43,
+   "y": 34,
+   "w": 6,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "gib_house",
+   "x": 43,
+   "y": 39,
+   "w": 6,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "gib_house",
+   "x": 14,
+   "y": 29,
+   "w": 7,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "gib_house",
+   "x": 14,
+   "y": 34,
+   "w": 7,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "palladian",
+   "x": 26,
+   "y": 54,
+   "w": 14,
+   "h": 6,
+   "label": "The Convent"
+  },
+  {
+   "type": "lamp_post",
+   "x": 31,
+   "y": 30
+  },
+  {
+   "type": "lamp_post",
+   "x": 31,
+   "y": 36
+  },
+  {
+   "type": "lamp_post",
+   "x": 31,
+   "y": 41
+  },
+  {
+   "type": "lamp_post",
+   "x": 31,
+   "y": 46
+  },
+  {
+   "type": "lamp_post",
+   "x": 32,
+   "y": 51
+  },
+  {
+   "type": "boat",
+   "x": 10,
+   "y": 41,
+   "variant": 0
+  },
+  {
+   "type": "boat",
+   "x": 9,
+   "y": 44,
+   "variant": 2
+  },
+  {
+   "type": "boat",
+   "x": 10,
+   "y": 47,
+   "variant": 0
+  },
+  {
+   "type": "boat",
+   "x": 8,
+   "y": 50,
+   "variant": 1
+  },
+  {
+   "type": "bollard",
+   "x": 13,
+   "y": 42
+  },
+  {
+   "type": "bollard",
+   "x": 13,
+   "y": 46
+  },
+  {
+   "type": "bollard",
+   "x": 13,
+   "y": 50
+  },
+  {
+   "type": "building",
+   "style": "gib_rock",
+   "x": 54,
+   "y": 4,
+   "w": 24,
+   "h": 12
+  },
+  {
+   "type": "building",
+   "style": "gib_rock",
+   "x": 54,
+   "y": 18,
+   "w": 24,
+   "h": 14
+  },
+  {
+   "type": "building",
+   "style": "gib_rock",
+   "x": 54,
+   "y": 40,
+   "w": 24,
+   "h": 16
+  }
+ ],
+ "warps": [
+  {
+   "x": 40,
+   "y": 17,
+   "to": "gibraltar_terminal",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 26,
+   "y": 32,
+   "to": "gibraltar_chippy",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 25,
+   "y": 37,
+   "to": "gibraltar_museum",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 26,
+   "y": 42,
+   "to": "gibraltar_cathedral",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 37,
+   "y": 32,
+   "to": "gibraltar_sanctuary",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 36,
+   "y": 37,
+   "to": "gibraltar_shop",
+   "tx": 4,
+   "ty": 5,
+   "facing": "up"
+  },
+  {
+   "x": 38,
+   "y": 47,
+   "to": "gibraltar_library",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 33,
+   "y": 59,
+   "to": "gibraltar_convent",
+   "tx": 7,
+   "ty": 8,
+   "facing": "up"
+  }
+ ],
+ "edges": {
+  "east": {
+   "to": "gibraltar_rock",
+   "offset": 0
+  }
+ },
+ "npcs": [
+  {
+   "id": "gib_airfield",
+   "sprite": "rail_guard",
+   "x": 42,
+   "y": 19,
+   "facing": "down",
+   "move": "still",
+   "script": "gib_airfield",
+   "name": "RAF Movements"
+  },
+  {
+   "id": "gib_cop",
+   "sprite": "rail_guard",
+   "x": 27,
+   "y": 13,
+   "facing": "down",
+   "move": "still",
+   "script": "gib_cop"
+  },
+  {
+   "id": "gib_llanito",
+   "sprite": "villager_2",
+   "x": 38,
+   "y": 24,
+   "facing": "down",
+   "move": "still",
+   "script": "gib_llanito"
+  },
+  {
+   "id": "gib_calentita",
+   "sprite": "shopkeeper",
+   "x": 33,
+   "y": 36,
+   "facing": "left",
+   "move": "still",
+   "script": "gib_calentita"
+  },
+  {
+   "id": "gib_regiment",
+   "sprite": "hurler",
+   "x": 36,
+   "y": 20,
+   "facing": "down",
+   "move": "still",
+   "script": "gib_regiment"
+  },
+  {
+   "id": "gib_fisher",
+   "sprite": "fisherman_north",
+   "x": 16,
+   "y": 41,
+   "facing": "right",
+   "move": "still",
+   "script": "gib_fisher"
+  },
+  {
+   "id": "gib_dolphin_watcher",
+   "sprite": "tour_guide",
+   "x": 17,
+   "y": 51,
+   "facing": "right",
+   "move": "still",
+   "script": "gib_dolphin_watcher"
+  },
+  {
+   "id": "gib_pilot",
+   "sprite": "sailor",
+   "x": 46,
+   "y": 18,
+   "facing": "down",
+   "move": "still",
+   "script": "gib_pilot"
+  },
+  {
+   "id": "gib_gardener",
+   "sprite": "hiker",
+   "x": 18,
+   "y": 59,
+   "facing": "right",
+   "move": "still",
+   "script": "gib_gardener"
+  },
+  {
+   "id": "gib_guard",
+   "sprite": "rail_guard",
+   "x": 28,
+   "y": 53,
+   "facing": "up",
+   "move": "still",
+   "script": "gib_guard"
+  },
+  {
+   "id": "gib_scholar",
+   "sprite": "gown_student",
+   "x": 44,
+   "y": 46,
+   "facing": "down",
+   "move": "still",
+   "script": "gib_scholar"
+  },
+  {
+   "id": "gib_customs",
+   "sprite": "rail_guard",
+   "x": 33,
+   "y": 7,
+   "facing": "down",
+   "move": "still",
+   "trainer": "gib_customs"
+  },
+  {
+   "id": "gib_dolphin",
+   "sprite": "sailor",
+   "x": 18,
+   "y": 55,
+   "facing": "up",
+   "move": "still",
+   "trainer": "gib_dolphin"
+  },
+  {
+   "id": "gib_soldier",
+   "sprite": "hurler",
+   "x": 32,
+   "y": 26,
+   "facing": "left",
+   "move": "still",
+   "trainer": "gib_soldier"
+  },
+  {
+   "id": "gib_librarian",
+   "sprite": "gown_student",
+   "x": 43,
+   "y": 47,
+   "facing": "left",
+   "move": "still",
+   "trainer": "gib_librarian"
+  },
+  {
+   "id": "gib_ceremonial",
+   "sprite": "rail_guard",
+   "x": 36,
+   "y": 53,
+   "facing": "left",
+   "move": "still",
+   "trainer": "gib_ceremonial"
+  },
+  {
+   "id": "gibraltar_bureau",
+   "sprite": "commuter",
+   "x": 40,
+   "y": 12,
+   "facing": "down",
+   "move": "still",
+   "script": "gibraltar_bureau",
+   "name": "Bureau Clerk"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "chipgull",
+    "min": 95,
+    "max": 97,
+    "weight": 14
+   },
+   {
+    "species": "pierlord",
+    "min": 95,
+    "max": 97,
+    "weight": 6
+   },
+   {
+    "species": "kitelet",
+    "min": 95,
+    "max": 97,
+    "weight": 10,
+    "time": [
+     "dawn",
+     "day"
+    ]
+   },
+   {
+    "species": "peregrin",
+    "min": 95,
+    "max": 97,
+    "weight": 8,
+    "time": [
+     "day"
+    ]
+   },
+   {
+    "species": "parakit",
+    "min": 95,
+    "max": 97,
+    "weight": 8
+   },
+   {
+    "species": "squawkster",
+    "min": 95,
+    "max": 97,
+    "weight": 6
+   },
+   {
+    "species": "binfox",
+    "min": 95,
+    "max": 97,
+    "weight": 8,
+    "time": [
+     "dusk",
+     "night"
+    ]
+   },
+   {
+    "species": "tunneller",
+    "min": 95,
+    "max": 97,
+    "weight": 6
+   },
+   {
+    "species": "graftling",
+    "min": 95,
+    "max": 97,
+    "weight": 6
+   },
+   {
+    "species": "levanter",
+    "min": 95,
+    "max": 97,
+    "weight": 4,
+    "weather": [
+     "fog",
+     "gale"
+    ]
+   },
+   {
+    "species": "macaquet",
+    "min": 95,
+    "max": 97,
+    "weight": 5
+   },
+   {
+    "species": "sapperling",
+    "min": 95,
+    "max": 97,
+    "weight": 4
+   }
+  ],
+  "water": [
+   {
+    "species": "dolfeen",
+    "min": 95,
+    "max": 97,
+    "weight": 12
+   },
+   {
+    "species": "dolphlet",
+    "min": 95,
+    "max": 97,
+    "weight": 14
+   },
+   {
+    "species": "bayrunner",
+    "min": 95,
+    "max": 97,
+    "weight": 10
+   },
+   {
+    "species": "plungebeak",
+    "min": 95,
+    "max": 97,
+    "weight": 8
+   },
+   {
+    "species": "gannetling",
+    "min": 95,
+    "max": 97,
+    "weight": 10
+   },
+   {
+    "species": "pinchkin",
+    "min": 95,
+    "max": 97,
+    "weight": 8
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 32,
+   "y": 5,
+   "text": "SPAIN. The land frontier is just north of the runway. It was shut by General Franco in 1969, the pedestrian gate reopened in 1982 and the whole frontier only in 1985, which is a long time to wait for a cup of coffee."
+  },
+  {
+   "x": 29,
+   "y": 7,
+   "text": "RUNWAY CROSSING. When a plane is landing the road is closed, the barriers come down and you wait. It's the only road in the world, we're told, that has to give way to a Hercules."
+  },
+  {
+   "x": 52,
+   "y": 12,
+   "plaque": "gibraltar_runway",
+   "title": "The Runway and the Road",
+   "text": "Gibraltar's airfield is RAF Gibraltar and the civil airport together, with a runway that is only about 1,800 metres long and ends in the sea at both ends. The main road into town, Winston Churchill Avenue, crosses the runway on the level. When a plane lands or takes off the barriers go down, and the traffic waits for it."
+  },
+  {
+   "x": 30,
+   "y": 19,
+   "plaque": "gibraltar_casemates",
+   "title": "Casemates Square",
+   "text": "The square is named after the Grand Casemates, a barracks of vaulted rooms built by the British in the 1700s for the garrison. The old gate of the town stands at one end. It was once a place for parades, markets and a drum-beat at the end of the day. Today it is cafes, children and a very polite pigeon."
+  },
+  {
+   "x": 32,
+   "y": 33,
+   "plaque": "gibraltar_main_street",
+   "title": "Main Street",
+   "text": "Main Street has been the heart of the town since the Moors. It runs almost the whole length of the old town, from Casemates Square at the north to the Convent at the south, and everyone, from sailors to governors, has walked along it. The shops sell sterling and euros; the road itself has a British letterbox and a Spanish siesta."
+  },
+  {
+   "x": 30,
+   "y": 40,
+   "plaque": "gibraltar_cathedral",
+   "title": "St Mary the Crowned",
+   "text": "The Roman Catholic cathedral stands on the site of a mosque that the Moors built here. The Spanish consecrated it as a church after they retook the Rock in 1462, and it was rebuilt after damage in the 1700s. The Gothic arches inside are dwarfed by the voices of a very large congregation on feast days."
+  },
+  {
+   "x": 30,
+   "y": 35,
+   "plaque": "gibraltar_museum",
+   "title": "The Gibraltar Museum",
+   "text": "The museum stands over a set of Moorish baths from around the 1300s, still in beautifully arched condition. It is also the keeper of the Rock's deep past: a Neanderthal skull found in Forbes' Quarry in 1848 was the first adult Neanderthal skull ever found, eight years before the creature got its name in the Neander Valley. The caves of Gorham's, on the Rock's far side, are a World Heritage Site."
+  },
+  {
+   "x": 33,
+   "y": 45,
+   "plaque": "gibraltar_library",
+   "title": "The Garrison Library",
+   "text": "Founded in 1793, the Garrison Library was built for the officers of the garrison, who after the Great Siege had a great deal of time and not much to read. It held maps, histories and a fine collection of old Spanish and English books, and it is still a library today."
+  },
+  {
+   "x": 31,
+   "y": 53,
+   "plaque": "gibraltar_convent",
+   "title": "The Convent",
+   "text": "The official residence of the Governor since the 1700s began as a Franciscan friary in the early 1500s, hence the name. The Royal Gibraltar Regiment mounts a Changing of the Guard outside it. The Governor's house also has a ghost, said to be a friar, which is not unusual in a convent."
+  },
+  {
+   "x": 24,
+   "y": 53,
+   "plaque": "gibraltar_utrecht",
+   "title": "1704 and 1713",
+   "text": "An Anglo-Dutch fleet under Admiral Sir George Rooke took Gibraltar in 1704 in the War of the Spanish Succession. In 1713 the Treaty of Utrecht ceded the Rock to Great Britain 'in perpetuity'. In 1967 the Gibraltarians voted in a referendum, 12,138 to 44, to stay British, and 10 September is now Gibraltar National Day."
+  },
+  {
+   "x": 17,
+   "y": 45,
+   "plaque": "gibraltar_marina",
+   "title": "The Bay of Gibraltar",
+   "text": "The Bay is one of the busiest anchorages in the Mediterranean, with ships waiting to take on fuel, and it is home to groups of common dolphins that follow the fishing boats and the ferries. Dolphin-watching boats leave from the marina; the dolphins have a remarkable sense of timing and no interest in appointments."
+  },
+  {
+   "x": 42,
+   "y": 55,
+   "plaque": "gibraltar_trafalgar",
+   "title": "Trafalgar Cemetery",
+   "text": "Just outside the old walls lies the Trafalgar Cemetery, where sailors who died of their wounds after the Battle of Trafalgar in 1805 were buried. HMS Victory, with the body of Admiral Nelson aboard, was brought into Gibraltar for repairs. The cemetery is a quiet place of old stones in the sun."
+  },
+  {
+   "x": 47,
+   "y": 51,
+   "plaque": "gibraltar_flora",
+   "title": "The Gibraltar Candytuft",
+   "text": "The Rock has about 600 kinds of plant, and one of them grows nowhere else in the world: the Gibraltar candytuft, with clusters of pale-pink flowers on the cliffs. It is the national flower of Gibraltar. Barbary partridges and peregrines nest on the same cliffs."
+  },
+  {
+   "x": 51,
+   "y": 36,
+   "text": "THE UPPER ROCK. The Apes' Den, St Michael's Cave and the Great Siege Tunnels are this way, up the path. Please do not feed the Barbary macaques: they are very good at asking, and they know where you keep your sandwiches."
+  },
+  {
+   "x": 15,
+   "y": 28,
+   "text": "THE MARINA and the Bay. SOUTH: Main Street, Trafalgar, and Europa Point beyond."
+  }
+ ],
+ "spawn": [
+  40,
+  19
+ ],
+ "scaled_floor": 95,
+ "stage": "coast",
+ "rows": [
+  "HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH",
+  "HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH",
+  "HHggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggHH",
+  "HHggggggggggFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFggggggggggggggggggggggggggHH",
+  "HHgggggggggggsggggggggggBBBBBBBgggggggggggggggggggggggBBBBBBBBBBBBBBBBBBBBBBBBHH",
+  "HHgggggggggggsggggggggggBBBBBBBgggggggggggggggggggggggBBBBBBBBBBBBBBBBBBBBBBBBHH",
+  "HHgggggggggggsggggggggggBBBBBBBgggggggggggggggggggggggBBBBBBBBBBBBBBBBBBBBBBBBHH",
+  "HHgggggggggggsgggggggggggg===gggggggggggggggggggggggggBBBBBBBBBBBBBBBBBBBBBBBBHH",
+  "HH$$$$$$$$$$w=======================================ggBBBBBBBBBBBBBBBBBBBBBBBBHH",
+  "HH$$$$$$$$$$w=======================================ggBBBBBBBBBBBBBBBBBBBBBBBBHH",
+  "HH$$$$$$$$$$w=======================================ggBBBBBBBBBBBBBBBBBBBBBBBBHH",
+  "HH$$$$$$$$$$wskkkkkkgggggg===g::::::::::::::::::::::ggBBBBBBBBBBBBBBBBBBBBBBBBHH",
+  "HH$$$$$$$$$$wskkkkkkgggggg===g::::::::::::::::::::::ggBBBBBBBBBBBBBBBBBBBBBBBBHH",
+  "HH$$$$$$$$$$wskkkkkkgggggg===gggggBBBBBBBBBBBBggggggggBBBBBBBBBBBBBBBBBBBBBBBBHH",
+  "HH$$$$$$$$$$wsgggggggggggg===gggggBBBBBBBBBBBBggggggggBBBBBBBBBBBBBBBBBBBBBBBBHH",
+  "HH$$$$$$$$$$wsgggggggggggg===gggggBBBBBBBBBBBBggggggggBBBBBBBBBBBBBBBBBBBBBBBBHH",
+  "HH$$$$$$$$$$wsgggggggggggg===gggggBBBBBBBBBBBBggggggggggggggggggggggggggggggggHH",
+  "HH$$$$$$$$$$wsgggggggggggg===gggggBBBBBBDBBBBBggggggggggggggggggggggggggggggggHH",
+  "HH$$$$$$$$$$wsgggggggggggg===g::::::::::::::::::::::ggBBBBBBBBBBBBBBBBBBBBBBBBHH",
+  "HH$$$$$$$$$$wsBBBBBBccccccccccccccccccccccccBBBBBBggggBBBBBBBBBBBBBBBBBBBBBBBBHH",
+  "HH$$$$$$$$$$wsBBBBBBccccccccccccccccccccccccBBBBBBggggBBBBBBBBBBBBBBBBBBBBBBBBHH",
+  "HH$$$$$$$$$$wsBBBBBBccccccccccccccccccccccccBBBBBBggggBBBBBBBBBBBBBBBBBBBBBBBBHH",
+  "HH$$$$$$$$$$wsBBBBBBccccccccccccccccccccccccBBBBBBggggBBBBBBBBBBBBBBBBBBBBBBBBHH",
+  "HH$$$$$$$$$$wsBBBBBBccccccccccccccccccccccccBBBBBBggggBBBBBBBBBBBBBBBBBBBBBBBBHH",
+  "HH$$$$$$$$$$wsggggggccccccccccccccccccccccccgkkkggggggBBBBBBBBBBBBBBBBBBBBBBBBHH",
+  "HH$$$$$$$$$$wsggggggccccccccccccccccccccccccggkgggggggBBBBBBBBBBBBBBBBBBBBBBBBHH",
+  "HH$$$$$$$$$$wsggggggccccccccccccccccccccccccggggggggggBBBBBBBBBBBBBBBBBBBBBBBBHH",
+  "HH$$$$$$$$$$wsggggggccccccccccccccccccccccccggggggggggBBBBBBBBBBBBBBBBBBBBBBBBHH",
+  "HH$$$$$$$$$$wsgggggggggggg===gccccggggggggggggggggggggBBBBBBBBBBBBBBBBBBBBBBBBHH",
+  "HH$$$$$$$$$$wsBBBBBBBgBBBBBBBBccccBBBBBBBBgBBBBBBgggggBBBBBBBBBBBBBBBBBBBBBBBBHH",
+  "HH$$$$$$$$$$wsBBBBBBBgBBBBBBBBccccBBBBBBBBgBBBBBBgggggBBBBBBBBBBBBBBBBBBBBBBBBHH",
+  "HH$$$$$$$$$$wsBBBBBBBgBBBBBBBBccccBBBBBBBBgBBBBBBgggggBBBBBBBBBBBBBBBBBBBBBBBBHH",
+  "HH$$$$$$$$$$wsBBBBBBBgBBBBDBBBccccBBBDBBBBgBBBBBBgggggggggggggggggggggggggggggHH",
+  "HH$$$$$$$$$$wsggggggccccccccccccccccccccccccccccccggggggggggggggggggggggggggggHH",
+  "HH$$$$$$$$$$wsBBBBBBBgBBBBBBBBccccBBBBBBBBgBBBBBBgaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "HH$$$$$$$$$$wsBBBBBBBgBBBBBBBBccccBBBBBBBBgBBBBBBgaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "HH$$$$$$$$$$wsBBBBBBBgBBBBBBBBccccBBBBBBBBgBBBBBBgaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "HH$$$$$$$$$$wsBBBBBBBgBBBDBBBBccccBBDBBBBBgBBBBBBgggggggggggggggggggggggggggggHH",
+  "HH$$$$$$$$$$wsggggggccccccccccccccccccccccccccccccggggggggggggggggggggggggggggHH",
+  "HH$$$$$$$$$$wsggggggggBBBBBBBBccccBBBBBBBBgBBBBBBgggggggggggggggggggggggggggggHH",
+  "HH$$$$$$$$$$wscccccccgBBBBBBBBccccBBBBBBBBgBBBBBBgggggBBBBBBBBBBBBBBBBBBBBBBBBHH",
+  "HH$$$$$$$$$$wscccccccgBBBBBBBBccccBBBBBBBBgBBBBBBkggggBBBBBBBBBBBBBBBBBBBBBBBBHH",
+  "HH$$$$$$$$$$wscccccccgBBBBDBBBccccBBBBBBBBgBBBBBBkggggBBBBBBBBBBBBBBBBBBBBBBBBHH",
+  "HH$$$$$$$$$$wscccccccccccccccccccccccccccccccccccckgggBBBBBBBBBBBBBBBBBBBBBBBBHH",
+  "HH$$$$$$$$$$wscccccccgBBBBBBBBccccBBBBBBBBggggkkkkkgggBBBBBBBBBBBBBBBBBBBBBBBBHH",
+  "HH$$$$$$$$$$wscccccccgBBBBBBBBccccBBBBBBBBgggggkkkggggBBBBBBBBBBBBBBBBBBBBBBBBHH",
+  "HH$$$$$$$$$$wscccccccgBBBBBBBBccccBBBBBBBBgggggkkkggggBBBBBBBBBBBBBBBBBBBBBBBBHH",
+  "HH$$$$$$$$$$wscccccccgBBBBBBBBccccBBBBDBBBgggggkkkggggBBBBBBBBBBBBBBBBBBBBBBBBHH",
+  "HH$$$$$$$$$$wsccccccccccccccccccccccccccccccccccccggggBBBBBBBBBBBBBBBBBBBBBBBBHH",
+  "HH$$$$$$$$$$wscccccccgggggggggccccggggggggggggggggggggBBBBBBBBBBBBBBBBBBBBBBBBHH",
+  "HH$$$$$$$$$$wscccccccgggggggggccccggggggggggggggggggggBBBBBBBBBBBBBBBBBBBBBBBBHH",
+  "HH$$$$$$$$$$wscccccccgggggggggccccggggggggggggggggggggBBBBBBBBBBBBBBBBBBBBBBBBHH",
+  "HH$$$$$$$$$$wscccccccgggggggggccccggggggggggggggggggggBBBBBBBBBBBBBBBBBBBBBBBBHH",
+  "HH$$$$$$$$$$wsccccccccccccccccccccccccccccccccccccggggBBBBBBBBBBBBBBBBBBBBBBBBHH",
+  "HH$$$$$$$$$$wsggggggggggggBBBBBBBBBBBBBBggggggggggggggBBBBBBBBBBBBBBBBBBBBBBBBHH",
+  "HH$$$$$$$$$$wsggggggggggggBBBBBBBBBBBBBBggggggggggggggBBBBBBBBBBBBBBBBBBBBBBBBHH",
+  "HH$$$$$$$$$$wsffffffffffggBBBBBBBBBBBBBBgfffffffggggggggggggggggggggggggggggggHH",
+  "HH$$$$$$$$$$wsffffffffffggBBBBBBBBBBBBBBfffffffffgggggggggggggggggggggggggggggHH",
+  "HH$$$$$$$$$$wsffffffffffggBBBBBBBBBBBBBBfffffffffgggggggggggggggggggggggggggggHH",
+  "HH$$$$$$$$$$wsffffffffffggBBBBBBBDBBBBBBfffffffffgggggggggggggggggggggggggggggHH",
+  "HH$$$$$$$$$$wsffffffffffkgccccccccccccccgfffffffggggggggggggggggggggggggggggggHH",
+  "HH$$$$$$$$$$wsffffffffffggggggggggggggggggggfgggggggggggggggggggggggggggggggggHH",
+  "HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHggggggggggggggggggggggggggHH",
+  "HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHggggggggggggggggggggggggggHH"
+ ],
+ "heights": [
+  "00000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "00000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "00000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "00000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "00000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "00000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "00000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "00000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "00000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "00000000000000000000000000000000000000000000000000000000000111111111111111000000",
+  "00000000000000000000000000000000000000000000000000000000011111111111111111110000",
+  "00000000000000000000000000000000000000000000000000000011111111111111111111111110",
+  "00000000000000000000000000000000000000000000000000000111111111111111111111111111",
+  "00000000000000000000000000000000000000000000000000011111111111111111111111111111",
+  "00000000000000000000000000000000000000000000000000111111111111111111111111111111",
+  "00000000000000000000000000000000000000000000000000111111111111222222222111111111",
+  "00000000000000000000000000000000000000000000000000111111111222222222222222111111",
+  "00000000000000000000000000000000000000000000000000111111122222222222222222221111",
+  "00000000000000000000000000000000000000000000000000111112222222222222222222222211",
+  "00000000000000000000000000000000000000000000000000111122222222222222222222222221",
+  "00000000000000000000000000000000000000000000000000111222222222222222222222222222",
+  "00000000000000000000000000000000000000000000000000112222222222222222222222222222",
+  "00000000000000000000000000000000000000000000000000122222222222333333333222222222",
+  "00000000000000000000000000000000000000000000000000122222222233333333333332222222",
+  "00000000000000000000000000000000000000000000000000122222223333333333333333322222",
+  "00000000000000000000000000000000000000000000000000122222233333333333333333332222",
+  "00000000000000000000000000000000000000000000000000122222333333333333333333333222",
+  "00000000000000000000000000000000000000000000000000122222333333333333333333333222",
+  "00000000000000000000000000000000000000000000000000122223333333334444433333333322",
+  "00000000000000000000000000000000000000000000000000122223333333444444444333333322",
+  "00000000000000000000000000000000000000000000000000122233333334444444444433333332",
+  "00000000000000000000000000000000000000000000000000122233333334444444444433333332",
+  "00000000000000000000000000000000000000000000000000122233333344444444444443333332",
+  "00000000000000000000000000000000000000000000000000122233333344444444444443333332",
+  "00000000000000000000000000000000000000000000000000122233333344444444444443333332",
+  "00000000000000000000000000000000000000000000000000122233333344444444444443333332",
+  "00000000000000000000000000000000000000000000000000122233333344444444444443333332",
+  "00000000000000000000000000000000000000000000000000122233333334444444444433333332",
+  "00000000000000000000000000000000000000000000000000122233333334444444444433333332",
+  "00000000000000000000000000000000000000000000000000122223333333444444444333333322",
+  "00000000000000000000000000000000000000000000000000122223333333334444433333333322",
+  "00000000000000000000000000000000000000000000000000122222333333333333333333333222",
+  "00000000000000000000000000000000000000000000000000122222333333333333333333333222",
+  "00000000000000000000000000000000000000000000000000122222233333333333333333332222",
+  "00000000000000000000000000000000000000000000000000122222223333333333333333322222",
+  "00000000000000000000000000000000000000000000000000122222222233333333333332222222",
+  "00000000000000000000000000000000000000000000000000122222222222333333333222222222",
+  "00000000000000000000000000000000000000000000000000112222222222222222222222222222",
+  "00000000000000000000000000000000000000000000000000111222222222222222222222222222",
+  "00000000000000000000000000000000000000000000000000111122222222222222222222222221",
+  "00000000000000000000000000000000000000000000000000111112222222222222222222222211",
+  "00000000000000000000000000000000000000000000000000111111122222222222222222221111",
+  "00000000000000000000000000000000000000000000000000111111111222222222222222111111",
+  "00000000000000000000000000000000000000000000000000111111111111222222222111111111",
+  "00000000000000000000000000000000000000000000000000111111111111111111111111111111",
+  "00000000000000000000000000000000000000000000000000011111111111111111111111111111",
+  "00000000000000000000000000000000000000000000000000000111111111111111111111111111",
+  "00000000000000000000000000000000000000000000000000000011111111111111111111111110",
+  "00000000000000000000000000000000000000000000000000000000011111111111111111110000",
+  "00000000000000000000000000000000000000000000000000000000000111111111111111000000",
+  "00000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "00000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "00000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "00000000000000000000000000000000000000000000000000000000000000000000000000000000"
+ ],
+ "legend_extra": {
+  "g": {
+   "tile": "grass",
+   "colour": "#aaa564"
+  },
+  "k": {
+   "tile": "tall_grass",
+   "colour": "#939050"
+  },
+  "q": {
+   "tile": "cliff",
+   "colour": "#c2bca8"
+  },
+  "c": {
+   "tile": "cobbles",
+   "colour": "#d4c9ae"
+  },
+  "a": {
+   "tile": "path",
+   "colour": "#e4dabc"
+  }
+ }
+}

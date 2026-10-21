@@ -1,0 +1,77 @@
+{
+ "brz_movements": [
+  {
+   "do": "if",
+   "flag": "champion",
+   "then": [
+    {
+     "do": "say",
+     "who": "Movements Officer",
+     "text": "Champion! Welcome to Air Movements. Passport? Ha, no, not for the territories. They're all ours."
+    },
+    {
+     "do": "choice",
+     "text": "Where to?",
+     "options": [
+      "Departures board",
+      "Not today"
+     ],
+     "set": "_dep_choice"
+    },
+    {
+     "do": "if",
+     "flag": "_dep_choice",
+     "eq": 0,
+     "then": [
+      {
+       "do": "overseas"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Movements Officer",
+       "text": "No rush. The next flight is always about to leave."
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Movements Officer",
+     "text": "Sorry, civilians can't fly the Airbridge. It's the Champion's privilege: you need to have won the Open Moot, and the paperwork says you haven't yet."
+    },
+    {
+     "do": "say",
+     "who": "Movements Officer",
+     "text": "Come back with a title, and I'll find you a seat. The Airbridge always has a seat. The tea is another matter."
+    }
+   ]
+  }
+ ],
+ "brz_lounge": [
+  {
+   "do": "say",
+   "who": "Passenger",
+   "text": "I've been on the Airbridge twice and I still can't sleep on it. There's a bit in the middle where it's just sea, for nine hours."
+  },
+  {
+   "do": "say",
+   "who": "Passenger",
+   "text": "Take a cardigan. It's warm on the ground and cold on the plane, and there's a rule that the tea is never hot enough."
+  }
+ ],
+ "brz_steward": [
+  {
+   "do": "say",
+   "who": "Terminal Steward",
+   "text": "Hot drinks at the counter, toilets by the door, departures straight ahead."
+  },
+  {
+   "do": "say",
+   "who": "Terminal Steward",
+   "text": "Every territory on the board has a flight line. The pilots read them out on landing. I've heard them all."
+  }
+ ]
+}

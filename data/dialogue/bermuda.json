@@ -1,0 +1,377 @@
+{
+ "bm_warden": [
+  {
+   "do": "if",
+   "flag": "q_overseas_bermuda_cahow_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Cahow Warden",
+     "text": "Every cahow fledgling counts. Thank you. Come back in spring and you might hear them calling at night: it sounds like a ghost with a head cold."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_overseas_bermuda_cahow_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_overseas_bermuda_cahow_3",
+       "then": [
+        {
+         "do": "if",
+         "flag": "q_overseas_bermuda_cahow_4",
+         "then": [
+          {
+           "do": "if",
+           "flag": "trainer_bm_collector",
+           "then": [
+            {
+             "do": "say",
+             "who": "Cahow Warden",
+             "text": "Collector Pell has had a word with himself, I hear, and your cahowl's a credit to the colony."
+            },
+            {
+             "do": "set",
+             "flag": "q_overseas_bermuda_cahow_5"
+            },
+            {
+             "do": "give_item",
+             "item": "longtail_feather"
+            },
+            {
+             "do": "set",
+             "flag": "q_overseas_bermuda_cahow_done"
+            },
+            {
+             "do": "say",
+             "who": "Cahow Warden",
+             "text": "Take this. A longtail's feather, found on the cliff, not plucked. Longtails arrive in spring and are the first thing you notice about Bermuda."
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Cahow Warden",
+             "text": "A man's been prowling Nonsuch's shore with a net and a shifty look. Pell, I think. Out on the bar. Would you have a word? Politely, with creatures."
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "when",
+           "cond": "has_cahowl",
+           "then": [
+            {
+             "do": "say",
+             "who": "Cahow Warden",
+             "text": "A cahowl! A real one, on your team. I haven't seen one on a lead before. She's beautiful. Look at the way she sulks."
+            },
+            {
+             "do": "set",
+             "flag": "q_overseas_bermuda_cahow_4"
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Cahow Warden",
+             "text": "Burrows all counted. Now: a cahowl. They come out at night on the grass round the island, shy as anything. Catch one, and show me."
+            }
+           ]
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Cahow Warden",
+         "text": "Three burrow markers to check: the beach by the Moongate, the Dockyard shore, and the Crystal Caves path. Just have a look at each. No touching."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Cahow Warden",
+       "text": "Morning. I'm counting cahows. They were thought extinct for about three hundred years. Then in 1951 a few turned up on a rock. Now there's a few hundred."
+      },
+      {
+       "do": "say",
+       "who": "Cahow Warden",
+       "text": "Would you check three burrow markers for me? I can't leave the nests. One by the beach, one on the Dockyard shore, one on the cave path."
+      },
+      {
+       "do": "say",
+       "who": "Cahow Warden",
+       "text": "Then, if you can find one of the cahowl, I'd like to see it. And keep an eye out for anyone with a net."
+      },
+      {
+       "do": "set",
+       "flag": "q_overseas_bermuda_cahow_started"
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "bm_burrow1": [
+  {
+   "do": "if",
+   "flag": "q_overseas_bermuda_cahow_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_overseas_bermuda_cahow_1",
+     "then": [
+      {
+       "do": "say",
+       "who": "Burrow Marker",
+       "text": "The burrow has been checked. The chick inside is snoring in a very small way."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Burrow Marker",
+       "text": "You peer in with a torch. A grey chick looks back. It is one of the rarest seabirds on Earth and it looks deeply unimpressed."
+      },
+      {
+       "do": "set",
+       "flag": "q_overseas_bermuda_cahow_1"
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Burrow Marker",
+     "text": "A white marker stake and a hole in the ground. A bird is in there, sulking."
+    }
+   ]
+  }
+ ],
+ "bm_burrow2": [
+  {
+   "do": "if",
+   "flag": "q_overseas_bermuda_cahow_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_overseas_bermuda_cahow_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "Burrow Marker",
+       "text": "The burrow has been checked. The chick inside is snoring in a very small way."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Burrow Marker",
+       "text": "The burrow's mouth is a perfect little arch of limestone. Inside, a cahow chick does the stare of a creature who has already outlived three centuries of rumours."
+      },
+      {
+       "do": "set",
+       "flag": "q_overseas_bermuda_cahow_2"
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Burrow Marker",
+     "text": "A white marker stake and a hole in the ground. A bird is in there, sulking."
+    }
+   ]
+  }
+ ],
+ "bm_burrow3": [
+  {
+   "do": "if",
+   "flag": "q_overseas_bermuda_cahow_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_overseas_bermuda_cahow_3",
+     "then": [
+      {
+       "do": "say",
+       "who": "Burrow Marker",
+       "text": "The burrow has been checked. The chick inside is snoring in a very small way."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Burrow Marker",
+       "text": "Two eggs' worth of fluff and a warden's tag. The burrow has a little baffle to keep the larger birds out. The chick is smug about this."
+      },
+      {
+       "do": "set",
+       "flag": "q_overseas_bermuda_cahow_3"
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Burrow Marker",
+     "text": "A white marker stake and a hole in the ground. A bird is in there, sulking."
+    }
+   ]
+  }
+ ],
+ "bm_shorts": [
+  {
+   "do": "say",
+   "who": "Man in Shorts",
+   "text": "Bermuda shorts are proper business wear here, you know. Worn with a jacket, tie, knee socks and shoes. I do not think it is funny."
+  },
+  {
+   "do": "say",
+   "who": "Man in Shorts",
+   "text": "Every cruise passenger says it is funny. It is a little bit funny. I'll give them that."
+  }
+ ],
+ "bm_gombey": [
+  {
+   "do": "say",
+   "who": "Gombey Drummer",
+   "text": "Gombeys dance at Christmas, Boxing Day and New Year. Masks, feathers, whistle, drum. My granddad's troupe, my dad's troupe, now mine."
+  },
+  {
+   "do": "say",
+   "who": "Gombey Drummer",
+   "text": "You dance to the drum, not the tune. There is no tune. The drum is the tune."
+  },
+  {
+   "do": "say",
+   "who": "Gombey Drummer",
+   "text": "The whips are for show, mostly. The kids always want to hold one. The kids never get one."
+  }
+ ],
+ "bm_kid": [
+  {
+   "do": "say",
+   "who": "Beach Kid",
+   "text": "The sand's pink because of tiny shells. Teacher said. I told her it's because the beach is shy."
+  },
+  {
+   "do": "say",
+   "who": "Beach Kid",
+   "text": "I've been told not to take a bucket of it home. I took a pocket's worth. It's in my sock."
+  }
+ ],
+ "bm_vendor": [
+  {
+   "do": "say",
+   "who": "Cedar Carver",
+   "text": "Bermuda cedar. The first colonists built ships out of it, you know. Whole thing nearly died out in the forties when a bug got in."
+  },
+  {
+   "do": "say",
+   "who": "Cedar Carver",
+   "text": "I carve a little cedar longtail bird, if you want one. Not for sale today, I'm having a moment with it."
+  }
+ ],
+ "bm_fisher": [
+  {
+   "do": "say",
+   "who": "Old Fisher",
+   "text": "Fish chowder, proper Bermudian: fish, tomato, onion, thyme, a splash of black rum and a few drops of sherry peppers at the table."
+  },
+  {
+   "do": "say",
+   "who": "Old Fisher",
+   "text": "The sherry peppers are a hot sauce steeped in sherry. Don't put in more than three drops. You will anyway."
+  }
+ ],
+ "bm_tourist": [
+  {
+   "do": "say",
+   "who": "Cruise Passenger",
+   "text": "We have six hours ashore! The guide said Bermuda is in the Atlantic, nowhere near the Caribbean, and about a thousand kilometres off North Carolina."
+  },
+  {
+   "do": "say",
+   "who": "Cruise Passenger",
+   "text": "I thought it'd be hot. It's lovely. It's also, I'm told, the northernmost coral reef in the world. A coral reef, in a jumper climate."
+  }
+ ],
+ "bm_home": [
+  {
+   "do": "say",
+   "who": "Harbour Master",
+   "text": "The Brize Norton flight? Next one's whenever the weather and the RAF agree, which is rarely the same time."
+  },
+  {
+   "do": "choice",
+   "text": "Head home to RAF Brize Norton?",
+   "options": [
+    "Yes, take me home",
+    "Not yet"
+   ],
+   "set": "_home_choice"
+  },
+  {
+   "do": "if",
+   "flag": "_home_choice",
+   "then": [
+    {
+     "do": "say",
+     "who": "Harbour Master",
+     "text": "Right-o. Mind the gap on the way in."
+    },
+    {
+     "do": "set",
+     "flag": "overseas_return",
+     "value": "bermuda"
+    },
+    {
+     "do": "fade_out"
+    },
+    {
+     "do": "end"
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Harbour Master",
+     "text": "Take your time. We'll be here."
+    }
+   ],
+   "eq": 0
+  }
+ ],
+ "bermuda_bureau": [
+  {
+   "do": "say",
+   "who": "Bureau Clerk",
+   "text": "Welcome to the bureau de change. Local money in, sterling out, or the other way round. A small fee, and a very small queue."
+  },
+  {
+   "do": "bureau"
+  }
+ ],
+ "bermuda_homebound": [
+  {
+   "do": "say",
+   "who": "Movements Clerk",
+   "text": "Heading back to the mainland? Passage to RAF Brize Norton can be arranged whenever you like. Bring your own sandwiches."
+  },
+  {
+   "do": "overseas_home",
+   "territory": "bermuda"
+  }
+ ]
+}

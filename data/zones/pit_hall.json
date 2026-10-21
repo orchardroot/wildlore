@@ -1,0 +1,97 @@
+{
+ "id": "pit_hall",
+ "name": "Public Hall",
+ "region": "overseas_pitcairn",
+ "kind": "interior",
+ "music": "town_cornwall",
+ "weather": {},
+ "props": [
+  {
+   "type": "table",
+   "x": 3,
+   "y": 4
+  },
+  {
+   "type": "table",
+   "x": 9,
+   "y": 4
+  },
+  {
+   "type": "tea_urn",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "stacked_chairs",
+   "x": 11,
+   "y": 1
+  },
+  {
+   "type": "wall_picture",
+   "x": 6,
+   "y": 0
+  },
+  {
+   "type": "flagpole",
+   "x": 2,
+   "y": 7, "variant": 6},
+  {
+   "type": "flagpole",
+   "x": 10,
+   "y": 7, "variant": 6},
+  {
+   "type": "clock",
+   "x": 4,
+   "y": 0
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 8,
+   "to": "adamstown",
+   "tx": 23,
+   "ty": 14,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "pit_mayor",
+   "sprite": "poet",
+   "x": 6,
+   "y": 2,
+   "facing": "down",
+   "move": "still",
+   "script": "pit_mayor",
+   "name": "Mayor"
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "x": 6,
+   "y": 5,
+   "plaque": "pitcairn_council",
+   "title": "The Island Council",
+   "text": "THE ISLAND COUNCIL. Pitcairn is governed by an Island Council with an elected Mayor. The Governor is the British High Commissioner to New Zealand, who lives a very long way off and visits when the ships allow."
+  }
+ ],
+ "spawn": [
+  6,
+  7
+ ],
+ "rows": [
+  "xxxxxxxxxxxxx",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||D|||||x",
+  "xxxxxxxxxxxxx"
+ ]
+}

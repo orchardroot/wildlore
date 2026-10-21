@@ -1,0 +1,36 @@
+{
+ "id": "pit_longboat",
+ "name": "Coxswain Rua",
+ "class": "Coxswain",
+ "sprite": "sailor",
+ "party": [
+  {
+   "species": "clawcastle",
+   "level": 95
+  },
+  {
+   "species": "baskarr",
+   "level": 95
+  },
+  {
+   "species": "greyhaul",
+   "level": 95
+  },
+  {
+   "species": "bountyflame",
+   "level": 95
+  }
+ ],
+ "ai": "trainer",
+ "money": 9000,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Coxswain Rua",
+   "text": "A first-day cover for the ship! Good. But the longboat crew has a custom: you row, I bail, and then we see who can stand up on the sand. Hands up!"
+  }
+ ],
+ "win": "On your feet, bow oar. The ship will get your stamp.",
+ "after": "You'll do.",
+ "scaled_floor": 95
+}

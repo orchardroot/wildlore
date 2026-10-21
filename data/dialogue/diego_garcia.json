@@ -1,0 +1,93 @@
+{
+ "raf_home": [
+  {
+   "do": "say",
+   "who": "Movements Officer",
+   "text": "Diego Garcia's a long way from anywhere, and I like it that way. The RAF flight out is booked whenever you are."
+  },
+  {
+   "do": "choice",
+   "text": "Head home to RAF Brize Norton?",
+   "options": [
+    "Yes, take me home",
+    "Not yet"
+   ],
+   "set": "_home"
+  },
+  {
+   "do": "if",
+   "flag": "_home",
+   "then": [
+    {
+     "do": "say",
+     "who": "Movements Officer",
+     "text": "Right-o. A long hop, a short brew and then Oxfordshire."
+    },
+    {
+     "do": "set",
+     "flag": "overseas_return",
+     "value": "biot"
+    },
+    {
+     "do": "fade_out"
+    },
+    {
+     "do": "end"
+    }
+   ],
+   "eq": 0,
+   "else": [
+    {
+     "do": "say",
+     "who": "Movements Officer",
+     "text": "No rush. The runway isn't going anywhere, and neither is the lagoon."
+    }
+   ]
+  }
+ ],
+ "biot_sailor": [
+  {
+   "do": "say",
+   "who": "Sailor",
+   "text": "I've been to every ocean and this lagoon is the only one I've not wanted to leave. It's also the only one I'm not allowed to fish."
+  },
+  {
+   "do": "say",
+   "who": "Sailor",
+   "text": "Mind the coconut crabs after dark. They can take a coconut apart, and they've no particular reason to like your fingers."
+  }
+ ],
+ "biot_guide": [
+  {
+   "do": "say",
+   "who": "Duty Officer",
+   "text": "Welcome to Diego Garcia. Rules are simple: no fishing, no picking up coral, no feeding the wildlife and no wandering into the parts with fences."
+  },
+  {
+   "do": "say",
+   "who": "Duty Officer",
+   "text": "You're the visitor the RAF flew in. The Staff Officer at Naval Party 1002 will want a word. HQ is the building with the flagpole."
+  }
+ ],
+ "diego_garcia_bureau": [
+  {
+   "do": "say",
+   "who": "Bureau Clerk",
+   "text": "Welcome to the bureau de change. Local money in, sterling out, or the other way round. A small fee, and a very small queue."
+  },
+  {
+   "do": "bureau"
+  }
+ ],
+ "diego_garcia_homebound": [
+  {
+   "do": "say",
+   "who": "Movements Clerk",
+   "text": "Heading back to the mainland? Passage to RAF Brize Norton can be arranged whenever you like. Bring your own sandwiches."
+  },
+  {
+   "do": "overseas_home",
+   "territory": "biot"
+  }
+ ]
+}

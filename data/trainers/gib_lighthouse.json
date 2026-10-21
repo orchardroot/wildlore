@@ -1,0 +1,37 @@
+{
+ "id": "gib_lighthouse",
+ "name": "Lighthouse Keeper",
+ "class": "Keeper",
+ "sprite": "lamplighter",
+ "party": [
+  {
+   "species": "beaconblaze",
+   "level": 95
+  },
+  {
+   "species": "petrelash",
+   "level": 95
+  },
+  {
+   "species": "aegir",
+   "level": 95
+  }
+ ],
+ "ai": "trainer",
+ "money": 4200,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Lighthouse Keeper",
+   "text": "I tend the light at Europa Point. It has been lit since 1841. I'm only the latest in a long line of people bored in a very nice place."
+  },
+  {
+   "do": "say",
+   "who": "Lighthouse Keeper",
+   "text": "A fight? A change from counting ships."
+  }
+ ],
+ "win": "Fair enough. I'll count you as one of the good ones.",
+ "after": "A light's not for the ship that's passing. It's for the ship that isn't.",
+ "scaled_floor": 95
+}

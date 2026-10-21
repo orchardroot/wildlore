@@ -1,0 +1,368 @@
+{
+ "id": "henderson_island",
+ "name": "Henderson Island",
+ "region": "overseas_pitcairn",
+ "kind": "route",
+ "music": "route_coast",
+ "weather": {
+  "sunshine": 30,
+  "clear": 24,
+  "drizzle": 10,
+  "downpour": 14,
+  "gale": 12,
+  "fog": 4
+ },
+ "stage": "coast",
+ "scaled_floor": 95,
+ "legend_extra": {
+  "g": {
+   "tile": "grass",
+   "colour": "#5c9a3a"
+  },
+  "h": {
+   "tile": "tall_grass",
+   "colour": "#4a8a34"
+  },
+  "r": {
+   "tile": "path",
+   "colour": "#a8643c"
+  },
+  "p": {
+   "tile": "tree_oak",
+   "prop": "palm"
+  },
+  "m": {
+   "tile": "tree_oak",
+   "prop": "palm"
+  },
+  "e": {
+   "tile": "rock",
+   "colour": "#cfc6b0"
+  },
+  "^": {
+   "tile": "cliff",
+   "colour": "#4c4642",
+   "side": "#3d3836"
+  },
+  "s": {
+   "tile": "sand",
+   "colour": "#e6d9b8"
+  },
+  ":": {
+   "tile": "cobbles",
+   "colour": "#b9b09a"
+  },
+  "w": {
+   "tile": "shallow",
+   "colour": "#8fd6cc"
+  }
+ },
+ "props": [
+  {
+   "type": "buoy",
+   "x": 28,
+   "y": 5,
+   "walk": true
+  },
+  {
+   "type": "buoy",
+   "x": 19,
+   "y": 5,
+   "walk": true
+  },
+  {
+   "type": "buoy",
+   "x": 27,
+   "y": 6,
+   "walk": true
+  },
+  {
+   "type": "buoy",
+   "x": 18,
+   "y": 6,
+   "walk": true
+  },
+  {
+   "type": "buoy",
+   "x": 22,
+   "y": 5,
+   "walk": true
+  },
+  {
+   "type": "buoy",
+   "x": 24,
+   "y": 5,
+   "walk": true
+  },
+  {
+   "type": "buoy",
+   "x": 26,
+   "y": 6,
+   "walk": true
+  },
+  {
+   "type": "boat",
+   "x": 22,
+   "y": 2
+  },
+  {
+   "type": "bollard",
+   "x": 26,
+   "y": 7
+  }
+ ],
+ "warps": [],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "pit_henderson_boat",
+   "sprite": "sailor",
+   "x": 24,
+   "y": 6,
+   "facing": "left",
+   "move": "still",
+   "script": "pit_henderson_boat",
+   "name": "Longboat Hand"
+  },
+  {
+   "id": "pit_ranger",
+   "sprite": "birdwatcher",
+   "x": 21,
+   "y": 10,
+   "facing": "down",
+   "move": "still",
+   "trainer": "pit_ranger"
+  },
+  {
+   "id": "pit_castaway",
+   "sprite": "sailor",
+   "x": 14,
+   "y": 14,
+   "facing": "right",
+   "move": "still",
+   "trainer": "pit_castaway"
+  },
+  {
+   "id": "pit_henderson_scientist",
+   "sprite": "explorer",
+   "x": 28,
+   "y": 16,
+   "facing": "left",
+   "move": "still",
+   "script": "pit_henderson_scientist",
+   "name": "Conservation Scientist"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "crakeling",
+    "min": 93,
+    "max": 95,
+    "weight": 18
+   },
+   {
+    "species": "hendercrake",
+    "min": 93,
+    "max": 95,
+    "weight": 8,
+    "time": [
+     "dusk",
+     "night"
+    ]
+   },
+   {
+    "species": "driftmaw",
+    "min": 93,
+    "max": 95,
+    "weight": 6
+   },
+   {
+    "species": "wideawake",
+    "min": 93,
+    "max": 95,
+    "weight": 12,
+    "time": [
+     "dawn",
+     "day",
+     "dusk"
+    ]
+   },
+   {
+    "species": "pinchkin",
+    "min": 93,
+    "max": 95,
+    "weight": 12
+   },
+   {
+    "species": "wideling",
+    "min": 93,
+    "max": 95,
+    "weight": 10,
+    "time": [
+     "dawn",
+     "day"
+    ]
+   },
+   {
+    "species": "petrelash",
+    "min": 93,
+    "max": 95,
+    "weight": 8,
+    "weather": [
+     "gale",
+     "downpour",
+     "drizzle"
+    ]
+   },
+   {
+    "species": "plungebeak",
+    "min": 93,
+    "max": 95,
+    "weight": 6,
+    "time": [
+     "day"
+    ]
+   }
+  ],
+  "water": [
+   {
+    "species": "dolphlet",
+    "min": 93,
+    "max": 95,
+    "weight": 12
+   },
+   {
+    "species": "baskling",
+    "min": 93,
+    "max": 95,
+    "weight": 8
+   },
+   {
+    "species": "pinchkin",
+    "min": 93,
+    "max": 95,
+    "weight": 12
+   },
+   {
+    "species": "driftmaw",
+    "min": 93,
+    "max": 95,
+    "weight": 6
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 19,
+   "y": 6,
+   "plaque": "pitcairn_henderson",
+   "title": "Henderson Island",
+   "text": "HENDERSON ISLAND. A raised coral atoll about 190 kilometres from Pitcairn, Henderson was listed as a UNESCO World Heritage Site in 1988 because its plants and birds are close to untouched. It is uninhabited, and visits are for the careful."
+  },
+  {
+   "x": 26,
+   "y": 6,
+   "plaque": "pitcairn_plastic",
+   "title": "The Plastic",
+   "text": "THE PLASTIC. Winds and currents carry rubbish across the South Pacific, and Henderson sits where it piles up. A 2017 study counted tens of millions of pieces on its beaches, among the highest densities of plastic debris ever recorded. Most of it came from somewhere else."
+  },
+  {
+   "x": 22,
+   "y": 12,
+   "plaque": "pitcairn_crake",
+   "title": "The Henderson Crake",
+   "text": "THE HENDERSON CRAKE. This small black flightless rail lives only on Henderson. It runs through the scrub on the ground, and it survives alongside Pacific rats that arrived with people long ago. A 2011 attempt to remove the rats did not succeed."
+  },
+  {
+   "x": 14,
+   "y": 16,
+   "plaque": "pitcairn_essex",
+   "title": "The Essex",
+   "text": "ESSEX. In December 1820 survivors of the whaleship Essex, sunk by a sperm whale far out in the Pacific, landed on Henderson Island. Water was hard to find and the island could not feed them for long. Three men chose to stay on while the others sailed on in the boats."
+  },
+  {
+   "x": 30,
+   "y": 18,
+   "plaque": "pitcairn_polynesian",
+   "title": "The First Voyagers",
+   "text": "FIRST VOYAGERS. Polynesian people lived on Henderson and on Pitcairn, and traded with Mangareva across hundreds of kilometres of ocean, until the islands were abandoned some time in the 1400s. They left tools and the reason has been argued over ever since."
+  }
+ ],
+ "spawn": [
+  22,
+  8
+ ],
+ "rows": [
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$wwwwwwwwwww$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$wwwwwwwwwwwwwww$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$wwwssssswww$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$sssssssssss$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$sssssssssssss$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$^^sssssssssss^^$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$^^^hhghssssshhhh^^^$$$$$$$$$$$$",
+  "$$$$$$$$$$$^^^hhhhhhhrrrghhhhhg^^^$$$$$$$$$$",
+  "$$$$$$$$$^^^ehhhgghhhrrrhhhhghhhh^^^$$$$$$$$",
+  "$$$$$$$$^^hmhghhhhhggrrrhhhghhhhhhh^^$$$$$$$",
+  "$$$$$$$^^hhhghmgghgmhrrrhhhhhhhmghgh^^$$$$$$",
+  "$$$$$$^^hhhhhhhghghhhrrrhhhhhhhhehhhh^^$$$$$",
+  "$$$$$$^ghmhhehhphhghhrrrhhphhhhhhghhgh^$$$$$",
+  "$$$$$^^hhhhhghhhhehgrrrrrrrgghhhhmhhhg^^$$$$",
+  "$$$$$^hghhhhmhghhhhhrrrrrrrhhhhhhhhhhhh^$$$$",
+  "$$$$$^hhghhhhhhhghgghhhmhhhhhhhhhhhghgg^$$$$",
+  "$$$$^^gghhhhhhphghphhhhehhggmghhhghehhh^^$$$",
+  "$$$$$^ghmhhheghehhhhhghhhphhhhhhghhhhhg^$$$$",
+  "$$$$$^hhhehhhhgghhhhhpghhghghhhhphhhhhh^$$$$",
+  "$$$$$^^ghhhhhhhhhhhghghhhhhghhgghhmhhh^^$$$$",
+  "$$$$$$^hhhmghhhhhhhhghhhghphhghghhhghh^$$$$$",
+  "$$$$$$^^ghehhhhhmhhhhhhhhhhghhmghgghh^^$$$$$",
+  "$$$$$$$^^ghhhhhhhhephehghhhhhhhghhhh^^$$$$$$",
+  "$$$$$$$$^^phghhhhhhhhhhhhmhhphghhhh^^$$$$$$$",
+  "$$$$$$$$$^^^hhghhhhhhhmhhghhhhheh^^^$$$$$$$$",
+  "$$$$$$$$$$$^^^hhhehghhhphhgghhh^^^$$$$$$$$$$",
+  "$$$$$$$$$$$$$^^^hhghghhhhhhgh^^^$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$^^^^^^^^^^^^^^^$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$^$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
+ ],
+ "heights": [
+  "00000000000000000000000000000000000000000000",
+  "00000000000000000000000000000000000000000000",
+  "00000000000000000000000000000000000000000000",
+  "00000000000000000000000000000000000000000000",
+  "00000000000000000000000000000000000000000000",
+  "00000000000000000000000000000000000000000000",
+  "00000000000000011000000000001100000000000000",
+  "00000000000001111111000001111111000000000000",
+  "00000000000111111111111111111111110000000000",
+  "00000000011111111111111111111111111100000000",
+  "00000000111111111111111111111111111110000000",
+  "00000001111111111111111111111111111111000000",
+  "00000011111111111111111111111111111111100000",
+  "00000011111111111111111111111111111111100000",
+  "00000111111111111111111111111111111111110000",
+  "00000111111111111111111111111111111111110000",
+  "00000111111111111111111111111111111111110000",
+  "00001111111111111111111111111111111111111000",
+  "00000111111111111111111111111111111111110000",
+  "00000111111111111111111111111111111111110000",
+  "00000111111111111111111111111111111111110000",
+  "00000011111111111111111111111111111111100000",
+  "00000011111111111111111111111111111111100000",
+  "00000001111111111111111111111111111111000000",
+  "00000000111111111111111111111111111110000000",
+  "00000000011111111111111111111111111100000000",
+  "00000000000111111111111111111111110000000000",
+  "00000000000001111111111111111111000000000000",
+  "00000000000000011111111111111100000000000000",
+  "00000000000000000000001000000000000000000000",
+  "00000000000000000000000000000000000000000000",
+  "00000000000000000000000000000000000000000000",
+  "00000000000000000000000000000000000000000000",
+  "00000000000000000000000000000000000000000000"
+ ]
+}

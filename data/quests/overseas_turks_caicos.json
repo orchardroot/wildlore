@@ -1,0 +1,37 @@
+{
+ "quests": [
+  {
+   "id": "overseas_tci_ripsaw",
+   "title": "The Ripsaw Band",
+   "region": "overseas_turks_caicos",
+   "town": "turks_caicos",
+   "giver": "Band Manager",
+   "summary": "A hurricane party has left the ripsaw band with no instruments. Find a saw, a goatskin drum and a gourd shaker, then silence a heckler.",
+   "start_flag": "q_overseas_turks_caicos_ripsaw_started",
+   "steps": [
+    {
+     "flag": "q_overseas_turks_caicos_ripsaw_1",
+     "text": "Get a carpenter's saw from the Salt Raker at the Salt Works.",
+     "zone": "turks_caicos"
+    },
+    {
+     "flag": "q_overseas_turks_caicos_ripsaw_2",
+     "text": "Get the goatskin drum from the Old Fisher by the boats.",
+     "zone": "turks_caicos"
+    },
+    {
+     "flag": "q_overseas_turks_caicos_ripsaw_3",
+     "text": "Get the gourd shaker from the volunteer at the museum.",
+     "zone": "turks_caicos"
+    },
+    {
+     "flag": "q_overseas_turks_caicos_ripsaw_4",
+     "text": "Beat Heckler Sands outside the Ripsaw Bar, then tell the Band Manager.",
+     "zone": "turks_caicos"
+    }
+   ],
+   "done_flag": "q_overseas_turks_caicos_ripsaw_done",
+   "reward": "A Conch Shell Horn (a charm: tide moves hurt less)."
+  }
+ ]
+}

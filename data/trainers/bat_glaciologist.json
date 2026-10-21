@@ -1,0 +1,36 @@
+{
+ "id": "bat_glaciologist",
+ "name": "Glaciologist",
+ "class": "Glaciologist",
+ "sprite": "astronomer",
+ "scaled_floor": 95,
+ "party": [
+  {
+   "species": "stalaghast",
+   "level": 96
+  },
+  {
+   "species": "orcaird",
+   "level": 97
+  },
+  {
+   "species": "marilwyd",
+   "level": 96
+  },
+  {
+   "species": "emperyn",
+   "level": 96
+  }
+ ],
+ "ai": "trainer",
+ "money": 3600,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Glaciologist",
+   "text": "I study ice for a living, and ice has taught me one thing. Everything moves, slowly. Except me. I'm not moving till you've beaten me."
+  }
+ ],
+ "win": "Fine. Take the stamp. I've been standing here for a month, and I've enjoyed every second.",
+ "after": "Ice flows. It takes hundreds of years to get from here to the sea. In the meantime, I'm making the tea."
+}

@@ -1,0 +1,599 @@
+{
+ "id": "diego_garcia",
+ "name": "Diego Garcia",
+ "region": "overseas_biot",
+ "kind": "town",
+ "music": "route_coast",
+ "weather": {
+  "sunshine": 34,
+  "clear": 24,
+  "drizzle": 8,
+  "downpour": 14,
+  "gale": 8,
+  "fog": 2
+ },
+ "stage": "coast",
+ "town_id": "diego_garcia",
+ "scaled_floor": 95,
+ "legend_extra": {
+  "g": {
+   "tile": "grass",
+   "colour": "#6aa646"
+  },
+  "h": {
+   "tile": "tall_grass",
+   "colour": "#4f9a3c"
+  },
+  "r": {
+   "tile": "path",
+   "colour": "#d6c9a0"
+  },
+  "p": {
+   "tile": "tree_oak",
+   "prop": "palm"
+  },
+  "m": {
+   "tile": "tree_oak",
+   "prop": "palm"
+  },
+  "e": {
+   "tile": "rock",
+   "colour": "#dcd4bf"
+  },
+  "s": {
+   "tile": "sand",
+   "colour": "#f2ead2"
+  },
+  "w": {
+   "tile": "shallow",
+   "colour": "#8fe0d4"
+  },
+  "=": {
+   "tile": "road",
+   "colour": "#5d6066"
+  },
+  ":": {
+   "tile": "cobbles",
+   "colour": "#cfc6aa"
+  }
+ },
+ "props": [
+  {
+   "type": "building",
+   "style": "base_tower",
+   "x": 12,
+   "y": 8,
+   "w": 4,
+   "h": 4,
+   "label": "Control Tower",
+   "kind": "tower"
+  },
+  {
+   "type": "building",
+   "style": "base_hangar",
+   "x": 14,
+   "y": 3,
+   "w": 8,
+   "h": 4,
+   "label": "Hangar",
+   "kind": "hangar"
+  },
+  {
+   "type": "building",
+   "style": "base_block",
+   "x": 13,
+   "y": 21,
+   "w": 6,
+   "h": 3,
+   "label": "Naval Party 1002",
+   "kind": "gov"
+  },
+  {
+   "type": "building",
+   "style": "base_block",
+   "x": 13,
+   "y": 27,
+   "w": 5,
+   "h": 3,
+   "label": "Sick Bay",
+   "kind": "clinic"
+  },
+  {
+   "type": "building",
+   "style": "base_block",
+   "x": 18,
+   "y": 27,
+   "w": 6,
+   "h": 3,
+   "label": "Mess Store",
+   "kind": "shop"
+  },
+  {
+   "type": "building",
+   "style": "base_block",
+   "x": 18,
+   "y": 21,
+   "w": 4,
+   "h": 3,
+   "label": "Galley",
+   "kind": "cafe"
+  },
+  {
+   "type": "building",
+   "style": "boat_shed",
+   "x": 30,
+   "y": 33,
+   "w": 6,
+   "h": 4,
+   "label": "Marina Boathouse",
+   "kind": "boathouse"
+  },
+  {
+   "type": "building",
+   "style": "pitcairn_house",
+   "x": 44,
+   "y": 33,
+   "w": 5,
+   "h": 4,
+   "label": "Conservation Hut",
+   "kind": "cottage"
+  },
+  {
+   "type": "flagpole",
+   "x": 17,
+   "y": 13, "variant": 6},
+  {
+   "type": "lamp_post",
+   "x": 15,
+   "y": 13
+  },
+  {
+   "type": "lamp_post",
+   "x": 20,
+   "y": 13
+  },
+  {
+   "type": "bench",
+   "x": 15,
+   "y": 17
+  },
+  {
+   "type": "bench",
+   "x": 20,
+   "y": 19
+  },
+  {
+   "type": "planter",
+   "x": 13,
+   "y": 20
+  },
+  {
+   "type": "planter",
+   "x": 19,
+   "y": 20
+  },
+  {
+   "type": "noticeboard",
+   "x": 21,
+   "y": 20
+  },
+  {
+   "type": "boat",
+   "x": 33,
+   "y": 31
+  },
+  {
+   "type": "boat",
+   "x": 36,
+   "y": 30
+  },
+  {
+   "type": "buoy",
+   "x": 40,
+   "y": 29
+  },
+  {
+   "type": "buoy",
+   "x": 28,
+   "y": 26
+  }
+ ],
+ "warps": [
+  {
+   "x": 13,
+   "y": 11,
+   "to": "biot_tower",
+   "tx": 4,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 16,
+   "y": 23,
+   "to": "biot_hq",
+   "tx": 6,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 15,
+   "y": 29,
+   "to": "biot_sick",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 20,
+   "y": 29,
+   "to": "biot_store",
+   "tx": 4,
+   "ty": 5,
+   "facing": "up"
+  },
+  {
+   "x": 19,
+   "y": 23,
+   "to": "biot_galley",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 33,
+   "y": 36,
+   "to": "biot_marina",
+   "tx": 6,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 46,
+   "y": 36,
+   "to": "biot_hut",
+   "tx": 4,
+   "ty": 5,
+   "facing": "up"
+  }
+ ],
+ "edges": {
+  "north": {
+   "to": "east_point",
+   "offset": -30
+  }
+ },
+ "npcs": [
+  {
+   "id": "biot_movements",
+   "sprite": "rail_guard",
+   "x": 11,
+   "y": 16,
+   "facing": "right",
+   "move": "still",
+   "script": "raf_home",
+   "name": "RAF Movements"
+  },
+  {
+   "id": "biot_flight",
+   "sprite": "mod",
+   "x": 9,
+   "y": 20,
+   "facing": "right",
+   "move": "still",
+   "trainer": "biot_flight"
+  },
+  {
+   "id": "biot_marine",
+   "sprite": "warden_grunt",
+   "x": 26,
+   "y": 33,
+   "facing": "up",
+   "move": "still",
+   "trainer": "biot_marine"
+  },
+  {
+   "id": "biot_chief",
+   "sprite": "shipwright",
+   "x": 34,
+   "y": 38,
+   "facing": "up",
+   "move": "still",
+   "trainer": "biot_chief"
+  },
+  {
+   "id": "biot_legend",
+   "sprite": "sailor",
+   "x": 56,
+   "y": 33,
+   "facing": "left",
+   "move": "still",
+   "trainer": "biot_legend"
+  },
+  {
+   "id": "biot_sailor",
+   "sprite": "fisher",
+   "x": 38,
+   "y": 32,
+   "facing": "down",
+   "move": "still",
+   "script": "biot_sailor",
+   "name": "Sailor"
+  },
+  {
+   "id": "biot_mp",
+   "sprite": "keeper_ray",
+   "x": 20,
+   "y": 16,
+   "facing": "left",
+   "move": "still",
+   "script": "biot_guide",
+   "name": "Duty Officer"
+  },
+  {
+   "id": "diego_garcia_bureau",
+   "sprite": "commuter",
+   "x": 15,
+   "y": 15,
+   "facing": "down",
+   "move": "still",
+   "script": "diego_garcia_bureau",
+   "name": "Bureau Clerk"
+  },
+  {
+   "id": "diego_garcia_homebound",
+   "sprite": "sailor",
+   "x": 12,
+   "y": 15,
+   "facing": "down",
+   "move": "still",
+   "script": "diego_garcia_homebound",
+   "name": "Movements Clerk"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "cocoshell",
+    "min": 93,
+    "max": 95,
+    "weight": 16,
+    "time": [
+     "dusk",
+     "night",
+     "dawn"
+    ]
+   },
+   {
+    "species": "coconabber",
+    "min": 93,
+    "max": 95,
+    "weight": 6,
+    "time": [
+     "night"
+    ]
+   },
+   {
+    "species": "wideling",
+    "min": 93,
+    "max": 95,
+    "weight": 14
+   },
+   {
+    "species": "wideawake",
+    "min": 93,
+    "max": 95,
+    "weight": 5,
+    "time": [
+     "day"
+    ],
+    "weather": [
+     "clear",
+     "sunshine"
+    ]
+   },
+   {
+    "species": "gannetling",
+    "min": 93,
+    "max": 95,
+    "weight": 10,
+    "time": [
+     "day"
+    ]
+   },
+   {
+    "species": "plungebeak",
+    "min": 93,
+    "max": 95,
+    "weight": 8,
+    "time": [
+     "day"
+    ]
+   },
+   {
+    "species": "pinchkin",
+    "min": 93,
+    "max": 95,
+    "weight": 12
+   },
+   {
+    "species": "clawcastle",
+    "min": 93,
+    "max": 95,
+    "weight": 6
+   },
+   {
+    "species": "petrelash",
+    "min": 93,
+    "max": 95,
+    "weight": 8,
+    "weather": [
+     "gale",
+     "downpour"
+    ]
+   },
+   {
+    "species": "swiftlet",
+    "min": 93,
+    "max": 95,
+    "weight": 6,
+    "time": [
+     "day"
+    ]
+   }
+  ],
+  "water": [
+   {
+    "species": "dolfeen",
+    "min": 93,
+    "max": 95,
+    "weight": 12
+   },
+   {
+    "species": "baskling",
+    "min": 93,
+    "max": 95,
+    "weight": 10
+   },
+   {
+    "species": "dolphlet",
+    "min": 93,
+    "max": 95,
+    "weight": 10
+   },
+   {
+    "species": "plungebeak",
+    "min": 93,
+    "max": 95,
+    "weight": 6
+   },
+   {
+    "species": "glimmerjaw",
+    "min": 93,
+    "max": 95,
+    "weight": 6,
+    "time": [
+     "night"
+    ]
+   },
+   {
+    "species": "pinchkin",
+    "min": 93,
+    "max": 95,
+    "weight": 10
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 12,
+   "y": 19,
+   "plaque": "biot_territory",
+   "title": "The Territory",
+   "text": "BRITISH INDIAN OCEAN TERRITORY. The Territory was created on 8 November 1965 from the Chagos Archipelago, which had been governed from Mauritius, and three islands that were later returned to Seychelles. Diego Garcia, the biggest island of the Chagos, is the only one with a permanent population today."
+  },
+  {
+   "x": 26,
+   "y": 17,
+   "plaque": "biot_chagos",
+   "title": "The Chagos Archipelago",
+   "text": "CHAGOS. The Chagos Archipelago is more than sixty low coral islands in a handful of atolls, in the middle of the Indian Ocean, about 500 kilometres south of the Maldives. Diego Garcia is the largest and the southernmost of its atolls."
+  },
+  {
+   "x": 34,
+   "y": 36,
+   "plaque": "biot_atoll",
+   "title": "The Atoll",
+   "text": "THE ATOLL. Diego Garcia is a horseshoe of low coral land round a big lagoon that opens to the north. The ground is mostly a few metres above the sea, which is why the palms look so tall."
+  },
+  {
+   "x": 21,
+   "y": 31,
+   "plaque": "biot_airfield",
+   "title": "The Airfield",
+   "text": "THE AIRFIELD. A long runway on the west arm of the atoll is the reason there is a base here at all. British and American forces share the island, under a 1966 agreement between the two governments, and the runway has taken everything from patrol aircraft to the RAF's long-range tankers."
+  },
+  {
+   "x": 14,
+   "y": 19,
+   "plaque": "biot_np1002",
+   "title": "Naval Party 1002",
+   "text": "NAVAL PARTY 1002. A small Royal Navy detachment, Naval Party 1002, is based on the island. Its commander is the Territory's British Representative, who represents the Commissioner on the spot, in a place where the nearest town is a very long way off."
+  },
+  {
+   "x": 48,
+   "y": 30,
+   "plaque": "biot_reef",
+   "title": "The Reefs",
+   "text": "THE REEFS. The lagoon and reefs around the Chagos are among the cleanest and healthiest in the Indian Ocean, with big fish and a great deal of coral. In 2010 the surrounding waters became a Marine Protected Area of some 640,000 square kilometres, with no commercial fishing."
+  },
+  {
+   "x": 58,
+   "y": 12,
+   "plaque": "biot_crab",
+   "title": "Coconut Crabs",
+   "text": "COCONUT CRABS. Diego Garcia has one of the best populations of the coconut crab, the largest land-living arthropod. It is shy by day, climbs palms by night and has a claw that can break into a coconut. It is protected, and the best advice is to enjoy it from a polite distance."
+  },
+  {
+   "x": 60,
+   "y": 25,
+   "plaque": "biot_birds",
+   "title": "Seabirds",
+   "text": "SEABIRDS. Red-footed boobies nest in the low trees of Diego Garcia and the other Chagos islands, and sooty terns breed in great colonies on Chagos islands elsewhere. The Chagos holds some of the best seabird colonies in the Indian Ocean."
+  },
+  {
+   "x": 39,
+   "y": 35,
+   "plaque": "biot_settlers",
+   "title": "The Plantations",
+   "text": "THE FIRST SETTLERS. Diego Garcia was settled in the 1780s, when French planters brought enslaved people from Africa and Madagascar to work coconut plantations. Their descendants became the Chagossians, who built their own language, music and families here over many generations."
+  }
+ ],
+ "spawn": [
+  12,
+  17
+ ],
+ "rows": [
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$wsgggggsw",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$wsgrrrgsw",
+  "$$$$$$$$$$$$$www$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$wsgrrrgsw",
+  "$$$wwwwwwwwwwwBBBBBBBBwwww$$$$$$$$$$$$$$$$$$$$$$$$$$$$$wsgrrrpsw",
+  "$$$wgggsssssssBBBBBBBBsssw$$$$$$$$$$$$$$$$$$$$$$$$$$$$$wsprrrhsw",
+  "$$$wggg===ggggBBBBBBBBggsw$$$$$$$$$$$$$$$$$$$$$$$$$$$$$wsgrrrgsw",
+  "$$$wggp===ggggBBBBBBBBggsw$$$$$$$$$$$$$$$$$$$$$$$$$$$$$wshrrrpsw",
+  "$$$wggg===ggggggggggggggsw$$$$$$$$$$$$$$$$$$$$$$$$$$$$$wsprrrhsw",
+  "$$$wghg===ggBBBBgggggggggw~~~~~~~~~~~~~~~~~~~~~~~~~~~~~wghrrrhsw",
+  "$$$whmg===ggBBBBgggggg==gw~~~~~~~~~~~~~~~~~~~~~~~~~~~~~whhrrrpsw",
+  "$$$wphh===ggBBBBgggggg==gw~~~~~~~~~~~~~~~~~~~~~~~~~~~~~whprrrhsw",
+  "$$$wghh===ggBDBBgggggg==gw~~~~~~~~~~~~~~~~~~~~~~~~~~~~~whhrrrhsw",
+  "$$$wmhg===gg===ggggggg==gw~~~~~~~~~~~~~~~~~~~~~~~~~~~~~whhrrrgsw",
+  "$$$wpgg===gg=ggggggggg==gw~~~~~~~~~~~~~~~~~~~~~~~~~~~~~wphrrrpsw",
+  "$$$whhh===gg=gg::::::g==gw~~~~~~~~~~~~~~~~~~~~~~~~~~~~~whhrrrhsw",
+  "$$$whmh===gg=gg::::::g==gw~~~~~~~~~~~~~~~~~~~~~~~~~~~~~whhrrrhsw",
+  "$$$whhh===gg=gg::::::g==gw~~~~~~~~~~~~~~~~~~~~~~~~~~~~~whprrrpsw",
+  "$$$whhp==================w~~~~~~~~~~~~~~~~~~~~~~~~~~~~~whhrrrhsw",
+  "$$$whhh==================w~~~~~~~~~~~~~~~~~~~~~~~~~~~~~wghrrrhsw",
+  "$$wwhgh===gggggggggggg==gw~~~~~~~~~~~~~~~~~~~~~~~~~~~~~whprrrpsw",
+  "$$wsmph===gggggggggggg==gw~~~~~~~~~~~~~~~~~~~~~~~~~~~~~whhrrrhsw",
+  "$$wwhhg===gggBBBBBBBBB==gw~~~~~~~~~~~~~~~~~~~~~~~~~~~~~whhrrrhsw",
+  "$$$wghh===gggBBBBBBBBB==gw~~~~~~~~~~~~~~~~~~~~~~~~~~~~~wghrrrpsw",
+  "$$$wmhg===gggBBBDBBDBB==gw~~~~~~~~~~~~~~~~~~~~~~~~~~~~~whgrrrhsw",
+  "$$$whph===gggg=g=g==gg==gw~~~~~~~~~~~~~~~~~~~~~~~~~~~~~wphrrrhsw",
+  "$$$whhh===ggg============w~~~~~~~~~~~~~~~~~~~~~~~~~~~~~whhrrrhsw",
+  "$$$whhh===ggg============w~~~~~~~~~~~~~~~~~~~~~~~~~~~~~whhrrrpsw",
+  "$$$whmh===gggBBBBBBBBBBBgw~~~~~~~~~~~~~~~~~~~~~~~~~~~~~whhrrrgsw",
+  "$$$whhh===gggBBBBBBBBBBBgw~~~~~~~~~~~~~~~~~~~~~~~~~~~~~whhrrrhsw",
+  "$$$whhp===gggBBDBBBBDBBBgw~~~~~~~~~~~~~~~~~~~~~~~~~~~~~whprrrgsw",
+  "$$$wghh===ggggg=gggg=g==gw~~~~~~~~~~~~~~~~~~~~~~~~~~~~~whhrrrpsw",
+  "$$$wgmg===ggggggggggg====wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwggrrrgsw",
+  "$$$wggggggggggggggggg====gpggggggggggpgggpggggggggggpgggpgrrrgsw",
+  "$$$whhprrrrrrrrrrrrrr====rrrrrBBBBBBrrrrrrrrBBBBBrrrrrrrrrrrrrrw",
+  "$$$whhgrrrrrrrrrrrrrr====rrrrrBBBBBBrrrrrrrrBBBBBrrrrrrrrrrrrrrw",
+  "$$$whhmhhhhhhhhghhhghgggggggggBBBBBBggggggggBBBBBgpgggggggpgggsw",
+  "$$$wghghphghhhhhhghhgggggggpggBBBDBBghhphhphBBDBBghhhhhhhgghhpsw",
+  "$$$wspghhhhghhggghhhhgggggggggrggrgghghhhhhhrrrggggghhphggghhhsw",
+  "$$$wssssssssssssssssssssssssssrssssssssssssssssssssssssssssssssw",
+  "$$$wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
+ ]
+}

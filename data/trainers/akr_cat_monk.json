@@ -1,0 +1,41 @@
+{
+ "id": "akr_cat_monk",
+ "name": "Cat Monk",
+ "class": "Legend of Akrotiri",
+ "sprite": "pilgrim",
+ "party": [
+  {
+   "species": "wildkit",
+   "level": 95
+  },
+  {
+   "species": "highlynx",
+   "level": 95
+  },
+  {
+   "species": "cusith",
+   "level": 95
+  },
+  {
+   "species": "grinalkin",
+   "level": 95
+  }
+ ],
+ "ai": "trainer",
+ "money": 6400,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Cat Monk",
+   "text": "There are more cats here than monks, and more of both than snakes."
+  },
+  {
+   "do": "say",
+   "who": "Cat Monk",
+   "text": "You'll find the cats here are of a martial persuasion. Please take care."
+  }
+ ],
+ "win": "The cats approve. I can tell by how they're not looking at you.",
+ "after": "They do not belong to us. We belong to them. It is an old and happy arrangement.",
+ "scaled_floor": 95
+}
