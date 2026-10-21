@@ -75,7 +75,12 @@ static func ensure_uid(data: GameStateData, c: Creature) -> int:
 
 static func tested(data: GameStateData, c: Creature) -> bool:
 	var v: Variant = data.flag(FLAG_TESTED)
-	return c.uid != 0 and v is Array and (v as Array).has(c.uid)
+	if c.uid == 0 or not (v is Array):
+		return false
+	for u in v:  # JSON hands uids back as floats, and Array.has(1) does not find 1.0
+		if int(u) == c.uid:
+			return true
+	return false
 
 ## Pays Roslin to read the full genome. "" on success, else the reason.
 static func genotype_test(data: GameStateData, c: Creature, cur: String) -> String:
