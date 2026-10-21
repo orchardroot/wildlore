@@ -36,7 +36,7 @@ static func favours(weather: String, types: Array) -> bool:
 
 ## The list with favoured species' weight multiplied (copies; the zone's own table is untouched).
 ## `types_of`: Callable(species id) -> Array of type ids.
-static func shift(list: Array, weather: String, types_of: Callable) -> Array:
+static func shift(list: Array, weather: String, types_of: Callable, extra := 0.0) -> Array:
 	if not AFFINITY.has(weather) or list.is_empty():
 		return list
 	var out := []
@@ -44,12 +44,17 @@ static func shift(list: Array, weather: String, types_of: Callable) -> Array:
 	for e in list:
 		if favours(weather, types_of.call(str(e.get("species", "")))):
 			var b: Dictionary = e.duplicate()
-			b["weight"] = float(e.get("weight", 1)) * float(BOOST.get(weather, 1.5))
+			b["weight"] = float(e.get("weight", 1)) * _boost(weather, extra)
 			out.append(b)
 			changed = true
 		else:
 			out.append(e)
 	return out if changed else list
+
+## The weather's multiplier; `extra` (the Naturalist trade) stretches it, except for plain drizzle.
+static func _boost(weather: String, extra: float) -> float:
+	var b := float(BOOST.get(weather, 1.5))
+	return b if weather == "drizzle" else 1.0 + (b - 1.0) * (1.0 + extra)
 
 ## Species id -> types, from the live dex (empty before it exists, e.g. in bare unit tests).
 static func dex_types(id: String) -> Array:

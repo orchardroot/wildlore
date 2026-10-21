@@ -24,7 +24,7 @@ static func use(data: GameStateData, id: String, items: ItemDB) -> Dictionary:
 	if active(data):
 		return {"ok": false, "text": "The last one's still going strong (%d steps left)." % steps_left(data)}
 	bag.remove(id)
-	data.set_flag(FLAG, int(it.get("steps", DEFAULT_STEPS)))
+	data.set_flag(FLAG, Trades.repel_steps(data, int(it.get("steps", DEFAULT_STEPS))))
 	return {"ok": true, "text": "You tuck the %s in a pocket. Weaker wild creatures will keep their distance." % it.get("name", id)}
 
 ## One step taken. True on the step it wears off.
