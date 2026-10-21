@@ -4,7 +4,8 @@ extends RefCounted
 ## counters plus a "started" date, so old saves just start at 0. Hooks elsewhere are one-liners calling in here.
 
 const COUNTERS := ["steps", "wins_wild", "wins_trainer", "caught", "train_trips", "ferry_trips", "flights",
-	"rail_miles", "money_earned", "teas", "rained_on", "fish_caught"]
+	"rail_miles", "money_earned", "teas", "rained_on", "fish_caught",
+	"goods_sold", "dishes_cooked"]
 const TEA_ITEMS := ["cup_of_tea", "flask_of_tea", "cream_tea"]
 const MILES_PER_MAP_UNIT := 0.45   # the world map is 1000 x 1300 for roughly 450 x 600 miles of Britain
 
@@ -40,6 +41,11 @@ static func get_count(data: GameStateData, key: String) -> int:
 
 static func add(data: GameStateData, key: String, n := 1) -> void:
 	data.stats[key] = get_count(data, key) + n
+
+## Goods sold to a shopkeeper, in pounds sterling (feeds the Trader trade; market halls call this too).
+static func sold(data: GameStateData, amount: int) -> void:
+	if amount > 0:
+		add(data, "goods_sold", amount)
 
 static func earned(data: GameStateData, amount: int) -> void:
 	if amount > 0:
@@ -114,6 +120,7 @@ static func connect_bus(game: Node) -> void:
 	bus.battle_ended.connect(func(result: Dictionary): record_battle(game.data, _kind, result))
 	bus.creature_caught.connect(func(_id: String): add(game.data, "caught"))
 	bus.zone_entered.connect(func(_zone_id: String): _on_zone_entered(game))
+	bus.zone_entered.connect(func(_zone_id: String): Trades.refresh(game.data))
 
 ## Walking into an outdoor zone while it rains (drizzle or downpour) counts as being rained on.
 static func _on_zone_entered(game: Node) -> void:

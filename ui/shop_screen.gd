@@ -271,6 +271,7 @@ func _commit() -> void:
 		Trade.record_sale(Game.data, _cur, str(Game.data.zone_id), _qty)
 		Wallet.earn(Game.data, total, _mc)
 		TrainerStats.earned(Game.data, Wallet.in_sterling(total, _mc))
+		TrainerStats.sold(Game.data, Wallet.in_sterling(total, _mc))
 		_say.text = "Cheers. %s for the %s." % [UIKit.money_text(total, _mc), Game.items.get_item(_cur).name]
 	Audio.sfx("confirm")
 	_money()

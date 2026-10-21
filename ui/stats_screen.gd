@@ -7,16 +7,27 @@ const DAFT_ONES := 9     # the first of the daft ones (cups of tea and so on)
 
 var _page := 0
 
+## "stats:trades" or "stats:standing" opens on that page (handy for screenshots).
+func setup(arg: Variant = null) -> void:
+	_page = {"standing": 1, "trades": 2}.get(str(arg), 0)
+	if content != null:  # already built (the router calls this after adding the scene)
+		_show_page()
+
 func _build() -> void:
 	set_title("Stats")
 	header_right.text = Game.data.player_name
-	set_hints([["leftright", "Tallies / Standing"], ["cancel", "Back"]])
+	set_hints([["leftright", "Tallies / Standing / Trades"], ["cancel", "Back"]])
 	_show_page()
 
 func _show_page() -> void:
 	for c in content.get_children():
 		content.remove_child(c)
 		c.queue_free()
+	if _page == 2:
+		var trades := TradesPanel.build(Game.data)  # the six Trades and their titles
+		trades.set_anchors_preset(Control.PRESET_FULL_RECT)
+		content.add_child(trades)
+		return
 	if _page == 1:
 		var panel := StandingPanel.build(Game.data, Game.dex)  # standing with the six nations, and jobs in hand
 		panel.set_anchors_preset(Control.PRESET_FULL_RECT)
@@ -53,7 +64,7 @@ func _show_page() -> void:
 func _input(event: InputEvent) -> void:
 	if not _locked and not _done and (event.is_action_pressed("move_left") or event.is_action_pressed("move_right")):
 		get_viewport().set_input_as_handled()
-		_page = 1 - _page
+		_page = posmod(_page + (1 if event.is_action_pressed("move_right") else -1), 3)
 		Audio.sfx("cursor")
 		_show_page()
 		return
