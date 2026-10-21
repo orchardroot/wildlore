@@ -1,0 +1,80 @@
+{
+ "id": "biot_hq",
+ "name": "Naval Party 1002",
+ "region": "overseas_biot",
+ "kind": "interior",
+ "music": "town_cornwall",
+ "weather": {},
+ "props": [
+  {
+   "type": "table",
+   "x": 3,
+   "y": 3
+  },
+  {
+   "type": "table",
+   "x": 9,
+   "y": 3
+  },
+  {
+   "type": "flagpole",
+   "x": 2,
+   "y": 1
+  },
+  {
+   "type": "flagpole",
+   "x": 10,
+   "y": 1
+  },
+  {
+   "type": "wall_map",
+   "x": 6,
+   "y": 0
+  },
+  {
+   "type": "bookshelf",
+   "x": 4,
+   "y": 1
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 7,
+   "to": "diego_garcia",
+   "tx": 16,
+   "ty": 24,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "biot_officer",
+   "sprite": "keeper_ray",
+   "x": 6,
+   "y": 2,
+   "facing": "down",
+   "move": "still",
+   "script": "biot_officer",
+   "name": "Staff Officer"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  6,
+  6
+ ],
+ "rows": [
+  "xxxxxxxxxxxxx",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++D+++++x",
+  "xxxxxxxxxxxxx"
+ ]
+}

@@ -1,0 +1,308 @@
+{
+ "pit_elder": [
+  {
+   "do": "if",
+   "flag": "q_overseas_pitcairn_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "The Island Elder",
+     "text": "The ship will carry the cover and the island's good name. That's more than most of us manage in a year, so well done."
+    },
+    {
+     "do": "say",
+     "who": "The Island Elder",
+     "text": "Keep the carving. And keep your hat on. The sun here is the island's other mutineer."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_overseas_pitcairn_started",
+     "then": [
+      {
+       "do": "when",
+       "cond": "has_charkeel",
+       "then": [
+        {
+         "do": "say",
+         "who": "The Island Elder",
+         "text": "That's a Charkeel, and no mistake. A bit of the Bounty, still warm. Burned in 1790 and it still won't go out entirely."
+        },
+        {
+         "do": "say",
+         "who": "The Island Elder",
+         "text": "Take this. A carved shark, a jar of honey and the thanks of the island."
+        },
+        {
+         "do": "give_item",
+         "item": "miro_carving",
+         "n": 1
+        },
+        {
+         "do": "give_item",
+         "item": "pitcairn_honey",
+         "n": 3
+        },
+        {
+         "do": "set",
+         "flag": "q_overseas_pitcairn_3",
+         "value": true
+        },
+        {
+         "do": "set",
+         "flag": "q_overseas_pitcairn_done",
+         "value": true
+        }
+       ],
+       "else": [
+        {
+         "do": "if",
+         "flag": "q_overseas_pitcairn_2",
+         "then": [
+          {
+           "do": "say",
+           "who": "The Island Elder",
+           "text": "Rua has you on the crew, I hear. Now the last bit: a Charkeel on the shingle at Bounty Bay, after dark. Bring it and show me."
+          }
+         ],
+         "else": [
+          {
+           "do": "if",
+           "flag": "q_overseas_pitcairn_1",
+           "then": [
+            {
+             "do": "say",
+             "who": "The Island Elder",
+             "text": "Rua will be at the bay. Take the cover to him, and mind the Hill of Difficulty. It earned its name honestly."
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "The Island Elder",
+             "text": "The Postmaster is at the Post Office. He's expecting you, in the way that people on an island always are."
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "The Island Elder",
+       "text": "{greeting} Wut a way yu? That's Pitkern for 'how are you?', give or take. You'll be the one the movements people sent."
+      },
+      {
+       "do": "say",
+       "who": "The Island Elder",
+       "text": "I'm the island's memory, which is mostly a matter of being old. Pitcairn was found in 1767 by a midshipman called Pitcairn, and lost again by a chart that put it in the wrong place."
+      },
+      {
+       "do": "say",
+       "who": "The Island Elder",
+       "text": "That suited the Bounty's men. They landed in January 1790, stripped the ship and burned her in the bay. You can still find pieces, and the odd ember, if you know where to look."
+      },
+      {
+       "do": "say",
+       "who": "The Island Elder",
+       "text": "The supply ship is due and I'd like a Bounty cover on it, a proper stamped envelope. Would you take my note to the Postmaster? He's a patient man, in a patient place."
+      },
+      {
+       "do": "set",
+       "flag": "q_overseas_pitcairn_started",
+       "value": true
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "pit_ship": [
+  {
+   "do": "if",
+   "flag": "q_overseas_pitcairn_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Longboat Cox",
+     "text": "Bounty Bay was kind to us today. Long may it last. The cover went out on the ship, with a postmark you could see from space, if space had eyes."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_overseas_pitcairn_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "Longboat Cox",
+       "text": "You're on the crew, and your Charkeel is waiting somewhere in the shingle after dark. They like the broken planks by the cove."
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_overseas_pitcairn_1",
+       "then": [
+        {
+         "do": "say",
+         "who": "Longboat Cox",
+         "text": "A first-day cover? Ha. That's for the ship, and you're for the surf. Put it down. First, let's see how you handle yourself on wet sand."
+        },
+        {
+         "do": "battle",
+         "trainer": "pit_longboat",
+         "intro": true
+        },
+        {
+         "do": "say",
+         "who": "Longboat Cox",
+         "text": "Right. The cover's in good hands. You're on the crew whenever you want, and the Elder will want to see a Charkeel. Catch one at the bay after dark."
+        },
+        {
+         "do": "set",
+         "flag": "q_overseas_pitcairn_2",
+         "value": true
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Longboat Cox",
+         "text": "Bounty Bay. No harbour, no jetty, a wall of surf and a stubborn longboat. It's how we've done it since 1790, and it has only been wrong about eight times in living memory."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "pit_boat_hand": [
+  {
+   "do": "say",
+   "who": "Boat Hand",
+   "text": "The ships come every few months and we go out to them in longboats. It's best to be ready the night before, and better still not to talk about the swell."
+  },
+  {
+   "do": "choice",
+   "text": "Take the longboat to Henderson Island?",
+   "options": [
+    "Yes, please",
+    "Not yet"
+   ],
+   "set": "_to_henderson"
+  },
+  {
+   "do": "if",
+   "flag": "_to_henderson",
+   "then": [
+    {
+     "do": "say",
+     "who": "Boat Hand",
+     "text": "Right. Hold on. It's a long row and a longer talk about it afterwards."
+    },
+    {
+     "do": "fade_out"
+    },
+    {
+     "do": "warp",
+     "zone": "henderson_island",
+     "x": 22,
+     "y": 8,
+     "facing": "down"
+    },
+    {
+     "do": "fade_in"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Henderson Island, about 190 kilometres east of Pitcairn."
+    }
+   ],
+   "eq": 0,
+   "else": [
+    {
+     "do": "say",
+     "who": "Boat Hand",
+     "text": "Whenever you like. Henderson isn't going anywhere, though everything on it is being watched very closely."
+    }
+   ]
+  }
+ ],
+ "pit_gardener": [
+  {
+   "do": "say",
+   "who": "Gardener",
+   "text": "Volcanic soil, rain and sun: what grows here is amazed at its luck. Bananas, pineapples, citrus, pawpaw and sweet potato."
+  },
+  {
+   "do": "say",
+   "who": "Gardener",
+   "text": "Ships stop for fruit. Some years the fruit is the best part of the ship."
+  }
+ ],
+ "pit_teacher": [
+  {
+   "do": "say",
+   "who": "Schoolteacher",
+   "text": "Every child here learns two languages: English, and Pitkern. Pitkern grew from the English of the mutineers and the Tahitian of their wives, and has words nobody else would recognise."
+  },
+  {
+   "do": "say",
+   "who": "Schoolteacher",
+   "text": "Wut a way yu? is how you ask how someone is. And yorlye means all of you. You'll hear it a lot at community days."
+  }
+ ],
+ "raf_home": [
+  {
+   "do": "say",
+   "who": "Movements Officer",
+   "text": "Pitcairn's not got an airstrip. The Voyager meets the supply ship at Mangareva, and I'm here to book you onto it."
+  },
+  {
+   "do": "choice",
+   "text": "Head home to RAF Brize Norton?",
+   "options": [
+    "Yes, take me home",
+    "Not yet"
+   ],
+   "set": "_home"
+  },
+  {
+   "do": "if",
+   "flag": "_home",
+   "then": [
+    {
+     "do": "say",
+     "who": "Movements Officer",
+     "text": "Right-o. The ship, the Voyager and a cup of tea at Brize Norton. In that order."
+    },
+    {
+     "do": "set",
+     "flag": "overseas_return",
+     "value": "pitcairn"
+    },
+    {
+     "do": "fade_out"
+    },
+    {
+     "do": "end"
+    }
+   ],
+   "eq": 0,
+   "else": [
+    {
+     "do": "say",
+     "who": "Movements Officer",
+     "text": "No rush. The ship isn't, either."
+    }
+   ]
+  }
+ ]
+}

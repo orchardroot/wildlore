@@ -1,0 +1,32 @@
+{
+ "quests": [
+  {
+   "id": "overseas_pitcairn_bounty",
+   "title": "A Cover for the Ship",
+   "region": "overseas_pitcairn",
+   "town": "adamstown",
+   "giver": "The Island Elder",
+   "summary": "The supply ship is due and the Elder wants a Bounty commemorative cover on it. A little errand around Adamstown.",
+   "start_flag": "q_overseas_pitcairn_started",
+   "steps": [
+    {
+     "flag": "q_overseas_pitcairn_1",
+     "text": "Take the Elder's request to the Postmaster at the Post Office.",
+     "zone": "adamstown"
+    },
+    {
+     "flag": "q_overseas_pitcairn_2",
+     "text": "Bring the First-Day Cover to Coxswain Rua at Bounty Bay and win your place in the longboat.",
+     "zone": "adamstown"
+    },
+    {
+     "flag": "q_overseas_pitcairn_3",
+     "text": "Catch a Charkeel on the shingle at Bounty Bay after dark, and show it to the Elder.",
+     "zone": "adamstown"
+    }
+   ],
+   "done_flag": "q_overseas_pitcairn_done",
+   "reward": "A Miro Carving, Pitcairn honey, and the island's good opinion."
+  }
+ ]
+}

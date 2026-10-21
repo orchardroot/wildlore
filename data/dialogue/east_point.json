@@ -1,0 +1,201 @@
+{
+ "raf_home": [
+  {
+   "do": "say",
+   "who": "Movements Officer",
+   "text": "There's a vehicle back to the airfield whenever you want. The track is rough and I apologise for all of it."
+  },
+  {
+   "do": "choice",
+   "text": "Head home to RAF Brize Norton?",
+   "options": [
+    "Yes, take me home",
+    "Not yet"
+   ],
+   "set": "_home"
+  },
+  {
+   "do": "if",
+   "flag": "_home",
+   "then": [
+    {
+     "do": "say",
+     "who": "Movements Officer",
+     "text": "Right-o. A long hop, a short brew and then Oxfordshire."
+    },
+    {
+     "do": "set",
+     "flag": "overseas_return",
+     "value": "biot"
+    },
+    {
+     "do": "fade_out"
+    },
+    {
+     "do": "end"
+    }
+   ],
+   "eq": 0,
+   "else": [
+    {
+     "do": "say",
+     "who": "Movements Officer",
+     "text": "No rush. The runway isn't going anywhere, and neither is the lagoon."
+    }
+   ]
+  }
+ ],
+ "biot_warden": [
+  {
+   "do": "if",
+   "flag": "q_overseas_biot_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Heritage Warden",
+     "text": "The chapel's whitewashed and the graves are tended. The drum was playing again last night. I think it likes you."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_overseas_biot_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_overseas_biot_2",
+       "then": [
+        {
+         "do": "when",
+         "cond": "has_ravanne",
+         "then": [
+          {
+           "do": "say",
+           "who": "Heritage Warden",
+           "text": "A Ravanne. A little drum with a rattle behind it. Sega, on its own, in the dark. I never tire of hearing it."
+          },
+          {
+           "do": "say",
+           "who": "Heritage Warden",
+           "text": "Take this. A tiny ravanne for luck. Please remember that this island was a home first, and that its people want to come back, and say so."
+          },
+          {
+           "do": "give_item",
+           "item": "ravanne_charm",
+           "n": 1
+          },
+          {
+           "do": "give_item",
+           "item": "chagos_fish_curry",
+           "n": 3
+          },
+          {
+           "do": "set",
+           "flag": "q_overseas_biot_3",
+           "value": true
+          },
+          {
+           "do": "set",
+           "flag": "q_overseas_biot_done",
+           "value": true
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Heritage Warden",
+           "text": "You've heard the drum. Now catch the Ravanne that plays it, near the old copra floor at dusk or after dark, and bring it to me."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "if",
+         "flag": "q_overseas_biot_1",
+         "then": [
+          {
+           "do": "say",
+           "who": "Heritage Warden",
+           "text": "Whitewash and brushes. Marvellous. We'll do the chapel wall and the graves' markers, a little at a time."
+          },
+          {
+           "do": "say",
+           "who": "Heritage Warden",
+           "text": "Please stay until dusk. There's something here you should hear."
+          },
+          {
+           "do": "when",
+           "cond": "dusk",
+           "then": [
+            {
+             "do": "say",
+             "who": "",
+             "text": "The light turns gold. From the old copra floor comes the slow beat of a drum, and a rattle behind it, and a triangle."
+            },
+            {
+             "do": "set",
+             "flag": "q_overseas_biot_2",
+             "value": true
+            }
+           ],
+           "else": [
+            {
+             "do": "when",
+             "cond": "night",
+             "then": [
+              {
+               "do": "say",
+               "who": "",
+               "text": "The stars are out over the lagoon. From the old copra floor comes the slow beat of a drum, and a rattle behind it, and a triangle."
+              },
+              {
+               "do": "set",
+               "flag": "q_overseas_biot_2",
+               "value": true
+              }
+             ],
+             "else": [
+              {
+               "do": "say",
+               "who": "Heritage Warden",
+               "text": "It's too early for the music. Come back around dusk, when the light goes gold, and wait by the old copra floor."
+              }
+             ]
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Heritage Warden",
+           "text": "The Chief at the Marina has the brushes and the whitewash. He'll want to see you fight first. It's an old Navy ritual, I think, and entirely made up."
+          }
+         ]
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Heritage Warden",
+       "text": "{greeting} I look after the chapel and the cemetery for the community. It's an honour, and not an easy job."
+      },
+      {
+       "do": "say",
+       "who": "Heritage Warden",
+       "text": "East Point was a village. People were born here and baptised here, they worked here, danced here and were buried here. And then they were taken away."
+      },
+      {
+       "do": "say",
+       "who": "Heritage Warden",
+       "text": "If you want to help, speak to the Staff Officer at Naval Party 1002. Ask what's needed before the next visit."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

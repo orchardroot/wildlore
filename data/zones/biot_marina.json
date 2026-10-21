@@ -1,0 +1,80 @@
+{
+ "id": "biot_marina",
+ "name": "Marina Boathouse",
+ "region": "overseas_biot",
+ "kind": "interior",
+ "music": "route_coast",
+ "weather": {},
+ "props": [
+  {
+   "type": "lobster_pots",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "lobster_pots",
+   "x": 11,
+   "y": 1
+  },
+  {
+   "type": "bollard",
+   "x": 3,
+   "y": 5
+  },
+  {
+   "type": "bollard",
+   "x": 9,
+   "y": 5
+  },
+  {
+   "type": "wall_map",
+   "x": 6,
+   "y": 0
+  },
+  {
+   "type": "table",
+   "x": 6,
+   "y": 2
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 7,
+   "to": "diego_garcia",
+   "tx": 33,
+   "ty": 37,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "biot_boat_keeper",
+   "sprite": "angler",
+   "x": 4,
+   "y": 3,
+   "facing": "right",
+   "move": "still",
+   "script": "biot_boat_keeper",
+   "name": "Boat Keeper"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  6,
+  6
+ ],
+ "rows": [
+  "xxxxxxxxxxxxx",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||D|||||x",
+  "xxxxxxxxxxxxx"
+ ]
+}

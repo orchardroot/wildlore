@@ -1,0 +1,126 @@
+{
+ "id": "pit_church",
+ "name": "Adventist Church",
+ "region": "overseas_pitcairn",
+ "kind": "interior",
+ "music": "church",
+ "weather": {},
+ "props": [
+  {
+   "type": "bench",
+   "x": 3,
+   "y": 4
+  },
+  {
+   "type": "bench",
+   "x": 4,
+   "y": 4
+  },
+  {
+   "type": "bench",
+   "x": 8,
+   "y": 4
+  },
+  {
+   "type": "bench",
+   "x": 9,
+   "y": 4
+  },
+  {
+   "type": "bench",
+   "x": 3,
+   "y": 6
+  },
+  {
+   "type": "bench",
+   "x": 4,
+   "y": 6
+  },
+  {
+   "type": "bench",
+   "x": 8,
+   "y": 6
+  },
+  {
+   "type": "bench",
+   "x": 9,
+   "y": 6
+  },
+  {
+   "type": "candelabra",
+   "x": 2,
+   "y": 1
+  },
+  {
+   "type": "candelabra",
+   "x": 10,
+   "y": 1
+  },
+  {
+   "type": "display_case",
+   "x": 6,
+   "y": 1
+  },
+  {
+   "type": "wall_picture",
+   "x": 6,
+   "y": 0
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 8,
+   "to": "adamstown",
+   "tx": 31,
+   "ty": 14,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "pit_pastor",
+   "sprite": "pilgrim",
+   "x": 6,
+   "y": 2,
+   "facing": "down",
+   "move": "still",
+   "script": "pit_pastor",
+   "name": "Church Warden"
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "x": 7,
+   "y": 1,
+   "plaque": "pitcairn_bible",
+   "title": "The Bounty Bible",
+   "text": "THE BOUNTY BIBLE. The Bible the mutineers brought ashore was carried off to America by a whaler and kept there for generations. It came home to Pitcairn in 1949, and it lies in this case, with its pages faded and its Tahitian-era story intact."
+  },
+  {
+   "x": 5,
+   "y": 1,
+   "plaque": "pitcairn_church",
+   "title": "The Church",
+   "text": "THE CHURCH. In 1886 an Adventist missionary arrived on Pitcairn and the whole community soon joined the Seventh-day Adventist Church. Saturday is the Sabbath, and a boat does not leave on it. Services and community days here follow that rhythm still."
+  }
+ ],
+ "spawn": [
+  6,
+  7
+ ],
+ "rows": [
+  "xxxxxxxxxxxxx",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||D|||||x",
+  "xxxxxxxxxxxxx"
+ ]
+}

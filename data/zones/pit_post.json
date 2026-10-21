@@ -1,0 +1,77 @@
+{
+ "id": "pit_post",
+ "name": "Post Office",
+ "region": "overseas_pitcairn",
+ "kind": "interior",
+ "music": "town_cornwall",
+ "weather": {},
+ "props": [
+  {
+   "type": "display_case",
+   "x": 7,
+   "y": 1
+  },
+  {
+   "type": "wall_map",
+   "x": 4,
+   "y": 0
+  },
+  {
+   "type": "post_box",
+   "x": 1,
+   "y": 5
+  },
+  {
+   "type": "noticeboard",
+   "x": 7,
+   "y": 5
+  }
+ ],
+ "warps": [
+  {
+   "x": 4,
+   "y": 6,
+   "to": "adamstown",
+   "tx": 38,
+   "ty": 15,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "pit_postmaster",
+   "sprite": "commuter",
+   "x": 4,
+   "y": 1,
+   "facing": "down",
+   "move": "still",
+   "script": "pit_postmaster",
+   "name": "Postmaster"
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "x": 3,
+   "y": 5,
+   "plaque": "pitcairn_stamps",
+   "title": "Pitcairn Stamps",
+   "text": "PITCAIRN STAMPS. The island has issued its own stamps since 15 October 1940, and a good share of its income still comes from collectors who would like a Pitcairn postmark on something. Mail leaves on the supply ship, so patience is a form of postage."
+  }
+ ],
+ "spawn": [
+  4,
+  5
+ ],
+ "rows": [
+  "xxxxxxxxx",
+  "x|||||||x",
+  "x|CCCCC|x",
+  "x|||||||x",
+  "x|||||||x",
+  "x|||||||x",
+  "x|||D|||x",
+  "xxxxxxxxx"
+ ]
+}

@@ -1,0 +1,80 @@
+{
+ "id": "pit_clinic",
+ "name": "Adamstown Clinic",
+ "region": "overseas_pitcairn",
+ "kind": "interior",
+ "music": "sanctuary",
+ "weather": {},
+ "props": [
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "potted_plant",
+   "x": 9,
+   "y": 1
+  },
+  {
+   "type": "table",
+   "x": 2,
+   "y": 5
+  },
+  {
+   "type": "wall_picture",
+   "x": 5,
+   "y": 0
+  }
+ ],
+ "warps": [
+  {
+   "x": 5,
+   "y": 7,
+   "to": "adamstown",
+   "tx": 16,
+   "ty": 27,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "nurse",
+   "sprite": "sanctuary_nurse",
+   "x": 5,
+   "y": 2,
+   "facing": "down",
+   "move": "still",
+   "script": "nurse",
+   "name": "Nurse"
+  },
+  {
+   "id": "pit_clinic_visitor",
+   "sprite": "fisher",
+   "x": 8,
+   "y": 5,
+   "facing": "left",
+   "move": "still",
+   "script": "pit_clinic_visitor",
+   "name": "Boat Hand"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  5,
+  6
+ ],
+ "rows": [
+  "xxxxxxxxxxx",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x||CCCCC||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x||||D||||x",
+  "xxxxxxxxxxx"
+ ]
+}

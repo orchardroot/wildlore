@@ -1,0 +1,68 @@
+{
+ "biot_boat_keeper": [
+  {
+   "do": "if",
+   "flag": "q_overseas_biot_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Boat Keeper",
+     "text": "Marsh says you did well. I'd say well done, but I don't want it going to your head."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_overseas_biot_1",
+     "then": [
+      {
+       "do": "say",
+       "who": "Boat Keeper",
+       "text": "Marsh gave you the kit? That's a first. Look after it."
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_overseas_biot_started",
+       "then": [
+        {
+         "do": "say",
+         "who": "Boat Keeper",
+         "text": "You'll be after the Chief's whitewash. He's outside on the jetty, and in a mood. Win him over and it's yours."
+        },
+        {
+         "do": "say",
+         "who": "Chief Stoker Marsh",
+         "text": "Hold on. You want the kit? You'll fight for it."
+        },
+        {
+         "do": "battle",
+         "trainer": "biot_stores",
+         "intro": true
+        },
+        {
+         "do": "give_item",
+         "item": "grave_kit",
+         "n": 1
+        },
+        {
+         "do": "set",
+         "flag": "q_overseas_biot_1",
+         "value": true
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Boat Keeper",
+         "text": "Marina's quiet. Mostly it's boats that never leave, and fish that never get caught. It's perfectly sensible."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

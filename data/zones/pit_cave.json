@@ -1,0 +1,88 @@
+{
+ "id": "pit_cave",
+ "name": "Christian's Cave",
+ "region": "overseas_pitcairn",
+ "kind": "interior",
+ "music": "route_coast",
+ "weather": {},
+ "props": [
+  {
+   "type": "rock",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "rock",
+   "x": 9,
+   "y": 1
+  },
+  {
+   "type": "rock",
+   "x": 1,
+   "y": 5
+  },
+  {
+   "type": "rock",
+   "x": 9,
+   "y": 5
+  },
+  {
+   "type": "telescope",
+   "x": 5,
+   "y": 1
+  },
+  {
+   "type": "candelabra",
+   "x": 3,
+   "y": 1
+  }
+ ],
+ "warps": [
+  {
+   "x": 5,
+   "y": 7,
+   "to": "adamstown",
+   "tx": 12,
+   "ty": 32,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "pit_cave_guide",
+   "sprite": "hiker",
+   "x": 7,
+   "y": 3,
+   "facing": "left",
+   "move": "still",
+   "script": "pit_cave_guide",
+   "name": "Island Guide"
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "x": 3,
+   "y": 5,
+   "plaque": "pitcairn_cave",
+   "title": "Christian's Cave",
+   "text": "CHRISTIAN'S CAVE. Islanders say Fletcher Christian kept watch from a high lookout above Adamstown for sails he did not wish to meet. The cave and its view are the island's most visited spot, mostly by islanders, who like it."
+  }
+ ],
+ "spawn": [
+  5,
+  6
+ ],
+ "rows": [
+  "xxxxxxxxxxx",
+  "x+++++++++x",
+  "x+++++++++x",
+  "x+++++++++x",
+  "x+++++++++x",
+  "x+++++++++x",
+  "x+++++++++x",
+  "x++++D++++x",
+  "xxxxxxxxxxx"
+ ]
+}
