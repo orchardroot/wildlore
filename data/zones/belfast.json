@@ -25,14 +25,20 @@
     "max": 66.0,
     "min": 64.0,
     "species": "chipgull",
-    "time": ["day", "dawn"],
+    "time": [
+     "day",
+     "dawn"
+    ],
     "weight": 14.0
    },
    {
     "max": 66.0,
     "min": 65.0,
     "species": "pierlord",
-    "time": ["day", "dusk"],
+    "time": [
+     "day",
+     "dusk"
+    ],
     "weight": 10.0
    },
    {
@@ -45,28 +51,39 @@
     "max": 66.0,
     "min": 64.0,
     "species": "binfox",
-    "time": ["night", "dusk"],
+    "time": [
+     "night",
+     "dusk"
+    ],
     "weight": 8.0
    },
    {
     "max": 65.0,
     "min": 64.0,
     "species": "cooplet",
-    "weather": ["drizzle", "downpour"],
+    "weather": [
+     "drizzle",
+     "downpour"
+    ],
     "weight": 10.0
    },
    {
     "max": 66.0,
     "min": 64.0,
     "species": "sootwing",
-    "time": ["night"],
+    "time": [
+     "night"
+    ],
     "weight": 8.0
    },
    {
     "max": 65.0,
     "min": 64.0,
     "species": "strutcoo",
-    "time": ["day", "dawn"],
+    "time": [
+     "day",
+     "dawn"
+    ],
     "weight": 8.0
    },
    {
@@ -79,7 +96,9 @@
     "max": 65.0,
     "min": 64.0,
     "species": "hushwing",
-    "time": ["night"],
+    "time": [
+     "night"
+    ],
     "weight": 6.0
    },
    {
@@ -92,7 +111,9 @@
     "max": 65.0,
     "min": 64.0,
     "species": "starlet",
-    "time": ["dusk"],
+    "time": [
+     "dusk"
+    ],
     "weight": 8.0
    }
   ],
@@ -131,7 +152,10 @@
     "max": 66.0,
     "min": 65.0,
     "species": "bradan",
-    "weather": ["drizzle", "downpour"],
+    "weather": [
+     "drizzle",
+     "downpour"
+    ],
     "weight": 10.0
    }
   ]
@@ -834,6 +858,16 @@
    "h": 3,
    "label": "Lagan Betting Shop",
    "kind": "shop"
+  },
+  {
+   "type": "building",
+   "style": "ulster_terrace",
+   "x": 4,
+   "y": 30,
+   "w": 5,
+   "h": 3,
+   "label": "Building Society",
+   "kind": "hall"
   }
  ],
  "region": "ireland",
@@ -868,9 +902,9 @@
   "TT..ffffffff..#...,,,,,,,,...:===:......wooow.::::::::::::::::$$$$$$$$$$",
   "TT..ffffffff..#...,,,,,,,,...:===:......wooow.::::::::::::::::$$$$$$$$$$",
   "TT............#..............:===:......wooow.::::::::::::::::$$$$$$$$$$",
-  "TT..........BBBBB...BBBBBB...:===:......wooow.::::::::::::::::$$$$$$$$$$",
-  "TT..........BBBBB...BBBBBB...:===:......wooow.::::::::::::::::$$$$$$$$$$",
-  "TT..........BBBBB...BBBBBB...:===:......wooow.::::::::::::::::$$$$$$$$$$",
+  "TT..BBBBB...BBBBB...BBBBBB...:===:......wooow.::::::::::::::::$$$$$$$$$$",
+  "TT..BBBBB...BBBBB...BBBBBB...:===:......wooow.::::::::::::::::$$$$$$$$$$",
+  "TT..BBDBB...BBBBB...BBBBBB...:===:......wooow.::::::::::::::::$$$$$$$$$$",
   "TT::::::::::BBDBB:::BBBDBB::::===:......WWWWW.::::::::::::::::$$$$$$$$$$",
   "TT======================================:::::=================$$$$$$$$$$",
   "TT======================================:::::=================$$$$$$$$$$",
@@ -1113,6 +1147,14 @@
    "to": "belfast_bookies",
    "tx": 6,
    "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 6,
+   "y": 32,
+   "to": "belfast_society",
+   "tx": 5,
+   "ty": 5,
    "facing": "up"
   }
  ],

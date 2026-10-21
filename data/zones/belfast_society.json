@@ -1,0 +1,104 @@
+{
+ "id": "belfast_society",
+ "name": "Building Society, Belfast",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "clock",
+   "x": 7,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "wall_picture",
+   "x": 2,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  },
+  {
+   "type": "wall_picture",
+   "x": 8,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  },
+  {
+   "type": "rug",
+   "x": 3,
+   "y": 3,
+   "w": 5,
+   "h": 2,
+   "variant": 2,
+   "walk": true
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 5
+  },
+  {
+   "type": "potted_plant",
+   "x": 9,
+   "y": 5
+  },
+  {
+   "type": "plant_stand",
+   "x": 1,
+   "y": 1
+  }
+ ],
+ "warps": [
+  {
+   "x": 5,
+   "y": 6,
+   "to": "belfast",
+   "tx": 6,
+   "ty": 33,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "pat_belfast",
+   "sprite": "shopkeeper",
+   "x": 5,
+   "y": 1,
+   "facing": "down",
+   "move": "still",
+   "script": "pat_belfast",
+   "name": "Pat"
+  },
+  {
+   "id": "saver_belfast",
+   "sprite": "villager_4",
+   "x": 3,
+   "y": 5,
+   "facing": "right",
+   "move": "still",
+   "script": "saver_belfast",
+   "name": "Customer"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  5,
+  5
+ ],
+ "stage": "town",
+ "rows": [
+  "xxxxxxxxxxx",
+  "x|||||||||x",
+  "x||CCCCC||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x||||D||||x",
+  "xxxxxxxxxxx"
+ ]
+}
