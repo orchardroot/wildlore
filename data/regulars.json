@@ -1,0 +1,487 @@
+{
+ "_doc": "The Regulars (core/regulars.gd): twelve recurring characters. home: the town they live in (an NPC all the time); away: a second town where they turn up once favour is 2; likes: the item that wins them over; intro / meet / letter / offer / chat / thanks: the lines for each beat ({player} is you). Flag reg_<id> holds {favour, pts, gift_day, met, letter, manager}.",
+ "regulars": [
+  {
+   "id": "ned",
+   "name": "Ned Corrigan",
+   "sprite": "fisherman_north",
+   "home": "whitby",
+   "away": "hull",
+   "likes": "haddock",
+   "hint": "Ned says a haddock, fresh, is the only conversation he needs.",
+   "intro": [
+    "A man in a yellow oilskin is sitting on a bollard, staring at the harbour as though it owes him money.",
+    "Ned: Thirty-one years on trawlers out of this port. Now I sit here and tell the gulls how it used to be. They've heard it. They stay for the chips.",
+    "Ned: Name's Ned. You look like someone who walks places. Bring me a haddock some day and I'll tell you a thing or two about the North Sea."
+   ],
+   "meet": [
+    "Ned is leaning on a railing in Hull, watching the Humber go past with deep suspicion.",
+    "Ned: Funny. Everyone assumes a trawlerman knows every port. I've been to Hull four times and got lost on three of them.",
+    "Ned: Still. Good to see a face. Get yourself back to Whitby; I'm saving you the good bollard."
+   ],
+   "letter": [
+    "Dear {player},",
+    "I'm told you're meant to put your address at the top. I haven't got one, I've got a bollard. The gulls send their regards, and want it noted that they still don't like you.",
+    "Yours, Ned (Corrigan)"
+   ],
+   "offer": [
+    "Ned: I'll say it plain, {player}. Your business wants someone to keep an eye on it while you're off walking. I've kept an eye on worse. A whole fleet, once. Most of it came back.",
+    "Ned: Give me the keys and a flask and I'll mind it."
+   ],
+   "chat": [
+    "Ned: Tide's turning. It does that.",
+    "Ned: Never trust a gull that's been to college."
+   ],
+   "thanks": [
+    "Ned takes the fish, sniffs it professionally and nods once.",
+    "Ned: That's a proper one. Nobody's brought me a proper one since 1998."
+   ],
+   "x": 11,
+   "y": 31,
+   "ax": 34,
+   "ay": 3
+  },
+  {
+   "id": "gwenllian",
+   "name": "Gwenllian Pugh",
+   "sprite": "choir_singer",
+   "home": "swansea",
+   "away": "cardiff",
+   "likes": "welsh_cakes",
+   "hint": "Gwenllian will do almost anything for a plate of Welsh cakes still warm from the bakestone.",
+   "intro": [
+    "A woman with a tuning fork and the posture of a very small general is rehearsing nobody in particular.",
+    "Gwenllian: Gwenllian Pugh, choir mistress. Forty voices, three of them in tune on a good night. The altos are the problem. Don't tell the altos.",
+    "Gwenllian: You've the look of a baritone. No? Pity. Come back with Welsh cakes and I'll forgive you."
+   ],
+   "meet": [
+    "Gwenllian is in Cardiff, standing in front of a statue, conducting it.",
+    "Gwenllian: Competition's tomorrow. We're going to lose to Pontypridd again and I'm going to be gracious about it through gritted teeth.",
+    "Gwenllian: You'll come and listen? Row C. Clap at the right bits. Row C knows when."
+   ],
+   "letter": [
+    "Dear {player},",
+    "We came second. Pontypridd came first. I was gracious. I have since broken a biro.",
+    "The altos hit the high note, which is a miracle I shall be citing at the next Eisteddfod. Come and hear us. Bring cakes.",
+    "Gwenllian"
+   ],
+   "offer": [
+    "Gwenllian: Listen. Between rehearsals I've nothing to do but disapprove of people, and I'm running out of people.",
+    "Gwenllian: Let me run one of your businesses. I'll keep it tidy, on time and in four-part harmony."
+   ],
+   "chat": [
+    "Gwenllian: Chin up. Shoulders back. Now sing.",
+    "Gwenllian: Nobody ever regretted learning a hymn."
+   ],
+   "thanks": [
+    "Gwenllian: Welsh cakes! Still warm? Oh, you've been dear to me, {player}.",
+    "She eats three, with the tuning fork under her arm, and tells you it was for the altos."
+   ],
+   "x": 38,
+   "y": 4,
+   "ax": 34,
+   "ay": 19
+  },
+  {
+   "id": "mervyn",
+   "name": "Mervyn Hanna",
+   "sprite": "steelworker",
+   "home": "belfast",
+   "away": "liverpool",
+   "likes": "champ",
+   "hint": "Mervyn lights up at a bowl of champ, spring onions and all.",
+   "intro": [
+    "A big man in a flat cap is holding a tea flask like a tiller, gazing at the cranes by the water.",
+    "Mervyn: Forty-four years in the yard. Riveter, then foreman, then the man who knew where the tea was. Same thing, in the end.",
+    "Mervyn: Pull up a wall. I'll tell you how a hull goes together. Or champ, if you've any. I'd talk for a week for a bowl of champ."
+   ],
+   "meet": [
+    "Mervyn is on the Liverpool waterfront, comparing the cranes to the ones at home. Home wins.",
+    "Mervyn: Visiting my sister. She's got opinions on my driving. I came on the ferry, so she's got opinions on that too.",
+    "Mervyn: Lovely city. Not enough Belfast in it, but nobody's perfect."
+   ],
+   "letter": [
+    "Dear {player},",
+    "Sister's put me out for putting milk in first. Back in Belfast now and the tea's right again.",
+    "The cranes say hello. They don't, but I do. Come by when you're passing.",
+    "Mervyn"
+   ],
+   "offer": [
+    "Mervyn: I managed forty men for forty years. One business is a doddle.",
+    "Mervyn: Show me the books and the kettle and I'll have it running like a launch day."
+   ],
+   "chat": [
+    "Mervyn: Everything's built the same way. One plate at a time.",
+    "Mervyn: Never rush a weld. Never rush a pot of tea either."
+   ],
+   "thanks": [
+    "Mervyn: Champ! With the butter well in the middle, the way it should be. You're a credit, {player}.",
+    "He eats it from the bowl, with a spoon, in total silence, which you understand is the highest praise."
+   ],
+   "x": 34,
+   "y": 30,
+   "ax": 30,
+   "ay": 24
+  },
+  {
+   "id": "dessie",
+   "name": "Dessie Nolan",
+   "sprite": "villager_3",
+   "home": "dublin",
+   "away": "galway",
+   "likes": "dublin_coddle",
+   "hint": "Dessie will stop doing sums for a hot plate of Dublin coddle.",
+   "intro": [
+    "A man in a waistcoat is working a pencil stub behind a counter with a very sincere face.",
+    "Dessie: Dessie Nolan. I take a small interest in horses and the horses take a large interest in me. Don't ask what the odds are on the weather. Depends who's asking.",
+    "Dessie: Sit down. I won't tell you a tip. I'll tell you a story, which is better, because it's free."
+   ],
+   "meet": [
+    "Dessie is in Galway for the races, wearing the same waistcoat in a slightly different mood.",
+    "Dessie: Day three. I've lost on the grey, won on the bay, and I'm even. Even's a good place. Nobody gets robbed at even.",
+    "Dessie: Don't put a euro on anything you can't pat. That's my one rule. It's why I'm still here."
+   ],
+   "letter": [
+    "Dear {player},",
+    "Won a little, lost a little, a perfectly respectable week. I put a fiver on you getting the next Stone and you didn't let me down.",
+    "Mind yourself. Dessie"
+   ],
+   "offer": [
+    "Dessie: A man who can add can run anything. I can add. It's a quiet talent.",
+    "Dessie: Let me mind your business, {player}. I'll give it the same care I give a treble, which is a great deal, with a wee prayer."
+   ],
+   "chat": [
+    "Dessie: The house always wins. I am the house. Don't tell me that's a conflict of interest.",
+    "Dessie: Never chase a loss. Walk to the chipper instead."
+   ],
+   "thanks": [
+    "Dessie: Coddle! Sausage, bacon, potato, all in the one pot, like a family at Christmas. Good lad.",
+    "He eats it and recalculates three bets in his head, all in your favour, for the first time."
+   ],
+   "x": 34,
+   "y": 22,
+   "ax": 38,
+   "ay": 25
+  },
+  {
+   "id": "morag",
+   "name": "Morag MacLeod",
+   "sprite": "villager_5",
+   "home": "stornoway",
+   "away": "inverness",
+   "likes": "clootie_dumpling",
+   "hint": "Morag has a soft spot for a slice of clootie dumpling.",
+   "intro": [
+    "A woman at a loom the size of a small van is weaving something grey and enormous.",
+    "Morag: Morag. The tweed. You'll have heard of me, if you've heard of anyone. It takes me a month to make a coat and a week to forgive whoever buys it.",
+    "Morag: Sit. Mind the shuttle. You've good hands, I can tell, like a person who carries too much."
+   ],
+   "meet": [
+    "Morag is in Inverness with a bale of wool, looking at the shops as if they were sheep.",
+    "Morag: They want me to make it thinner. Thinner! In this weather! I said it'll keep the rain out or it's a scarf.",
+    "Morag: Come north when the days are long. There's more light than you can use."
+   ],
+   "letter": [
+    "Dear {player},",
+    "The tweed is finished. It is, I'm told, 'a statement'. It is a coat. Someone in London paid a ridiculous amount and I've bought a new loom.",
+    "Come and see it. It weighs about the same as you. Morag"
+   ],
+   "offer": [
+    "Morag: I can weave for twelve hours and never lose a stitch. Counting takings is no different.",
+    "Morag: Hand me one of your businesses and I'll keep it in order, with a flask."
+   ],
+   "chat": [
+    "Morag: Slow is a speed.",
+    "Morag: The wool tells you when it's ready. So does the weather."
+   ],
+   "thanks": [
+    "Morag: A clootie dumpling! Spiced and boiled in a cloth the old way. You've the manners of a laird, {player}.",
+    "She cuts it in two even slices without looking, which seems to be the way she does everything."
+   ],
+   "x": 33,
+   "y": 22,
+   "ax": 38,
+   "ay": 23
+  },
+  {
+   "id": "pauline",
+   "name": "Pauline Fogg",
+   "sprite": "villager_6",
+   "home": "blackpool",
+   "away": "manchester",
+   "likes": "lancashire_hotpot",
+   "hint": "Pauline will always make room for a bowl of Lancashire hotpot.",
+   "intro": [
+    "A woman in a pinny and a flowered tabard is sweeping a doorstep that doesn't need sweeping.",
+    "Pauline: Pauline Fogg. Guesthouse, forty years, one star I haven't been told about. We've a vacancy and an opinion about everyone who's ever had one.",
+    "Pauline: Come in for a cuppa, love. Breakfast is eight till eight-oh-two. Don't be late, I'll know."
+   ],
+   "meet": [
+    "Pauline is in Manchester at a conference on guesthouses. It's a very small conference.",
+    "Pauline: There was a talk on 'guest experience'. I've been giving guests an experience since before they had the word.",
+    "Pauline: Come and stay. There's a kettle in every room. Behave and you can have two."
+   ],
+   "letter": [
+    "Dear {player},",
+    "Had a lovely week. A man from Doncaster asked for a vegan sausage. I gave him a look. He had the bacon.",
+    "Come and see me. There's a room, and it's yours. Pauline xx"
+   ],
+   "offer": [
+    "Pauline: I've run a house of eleven rooms with one hand and a tea towel. I can run your business.",
+    "Pauline: I'll treat it like a guest, love. Fussed over and fed."
+   ],
+   "chat": [
+    "Pauline: Never trust a man who puts ketchup on a full English before he's tasted it.",
+    "Pauline: Keep the kettle on. It solves everything except the roof."
+   ],
+   "thanks": [
+    "Pauline: Hotpot! Proper lamb and sliced potatoes on top, all crispy! You're a darling, {player}.",
+    "She takes the bowl straight to the kitchen and comes back with a plate of her own, which she insists is 'just a taste'."
+   ],
+   "x": 34,
+   "y": 62,
+   "ax": 30,
+   "ay": 29
+  },
+  {
+   "id": "barnaby",
+   "name": "Barnaby Quill",
+   "sprite": "villager_2",
+   "home": "norwich",
+   "away": "cambridge",
+   "likes": "oxford_marmalade",
+   "hint": "Barnaby's weakness is a good jar of Oxford marmalade.",
+   "intro": [
+    "A thin old gentleman in a woolly hat is taking notes on a pigeon.",
+    "Barnaby: Barnaby Quill, retired verger. Ring bells on Thursdays. Sit on a bench on all the other days and take the town's pulse. Today it is slightly irregular.",
+    "Barnaby: Do you take your toast with marmalade? A man can judge you on that. I'll wait."
+   ],
+   "meet": [
+    "Barnaby is on a bench in Cambridge, recording the punt traffic in a small, neat ledger.",
+    "Barnaby: Eleven punts in the first hour and only two sank. It's an improvement. In my day it was a bloodbath.",
+    "Barnaby: The bells in this town are very clean. I resent it, slightly."
+   ],
+   "letter": [
+    "Dear {player},",
+    "I got a rope burn from a Grandsire Triples touch and I'm rather pleased with it. It is the closest I've come to a wound.",
+    "Marmalade still welcome. Barnaby"
+   ],
+   "offer": [
+    "Barnaby: I keep a ledger of everything. A business is a bigger ledger with more shouting.",
+    "Barnaby: Give me yours to manage, {player}. I'll keep the sums as tidy as the bell frames."
+   ],
+   "chat": [
+    "Barnaby: Patience is the only thing worth ringing.",
+    "Barnaby: The pigeon, I regret to say, is not what it seems."
+   ],
+   "thanks": [
+    "Barnaby: Marmalade! Thick-cut, I trust? Oh, bless you. Bitter, orange and just slightly smug, like me.",
+    "He opens the jar, smells it and puts the lid back on with the air of a man saving something for later."
+   ],
+   "x": 6,
+   "y": 31,
+   "ax": 40,
+   "ay": 52
+  },
+  {
+   "id": "fiona",
+   "name": "Fiona Gunn",
+   "sprite": "fiddler",
+   "home": "portree",
+   "away": "glasgow",
+   "likes": "scotch_broth",
+   "hint": "Fiona will stop a reel mid-bar for a bowl of Scotch broth.",
+   "intro": [
+    "A woman with a fiddle under her chin is playing three tunes at once and hoping nobody counts them.",
+    "Fiona: Fiona. I play at every wedding on Skye and a few funerals, and the funerals pay better. It's the sandwiches.",
+    "Fiona: Sit. The next one's a reel and I'll need a witness."
+   ],
+   "meet": [
+    "Fiona is in Glasgow, busking outside a pub that's pretending not to hear.",
+    "Fiona: Gallus lot, the Glaswegians. They tell you you're rubbish and then put a fiver in the case, which is a kind of love.",
+    "Fiona: Come up to the island in September. We've a ceilidh. Wear shoes you can lose."
+   ],
+   "letter": [
+    "Dear {player},",
+    "The ceilidh is September. The band is me, my cousin and a man called Archie who plays the spoons and does not take notes.",
+    "Bring a partner. Or don't. We'll find you one. Fiona"
+   ],
+   "offer": [
+    "Fiona: I can fiddle and count at the same time, which is more than most accountants.",
+    "Fiona: Let me look after one of your businesses and I'll play the staff a tune to keep their spirits up."
+   ],
+   "chat": [
+    "Fiona: A reel is just a question. You answer it with your feet.",
+    "Fiona: Never tune in front of the bride."
+   ],
+   "thanks": [
+    "Fiona: Scotch broth! Barley and neep and a bit of mutton. Perfect for the cold. Cheers, {player}.",
+    "She tucks a napkin in her collar, props the fiddle on her knee and eats like a woman who has played four hours straight."
+   ],
+   "x": 30,
+   "y": 18,
+   "ax": 34,
+   "ay": 22
+  },
+  {
+   "id": "dot",
+   "name": "Dot Armitage",
+   "sprite": "fell_runner",
+   "home": "keswick",
+   "away": "carlisle",
+   "likes": "home_cumberland_sausage",
+   "hint": "Dot is partial to a Cumberland sausage, the longer the better.",
+   "intro": [
+    "A wiry woman in a bright anorak is stretching against a lamp post with the intensity of a cat.",
+    "Dot: Dot. Seventy-one. Fell runner, the old school. I ran Skiddaw every Sunday for fifty years and haven't worn a watch since the first. I know the time by my knees.",
+    "Dot: You walk a lot. Good. Don't stop. Once you stop the knees notice."
+   ],
+   "meet": [
+    "Dot is in Carlisle, in a hurry, for no reason she's willing to explain.",
+    "Dot: Market day. I've got a list: sausages, a bag of sticky toffee and a pair of socks. In that order.",
+    "Dot: I did ten miles to get here. The bus was full. That's the Lake District for you."
+   ],
+   "letter": [
+    "Dear {player},",
+    "I went up Helvellyn with a sprained ankle. It turned out to be a very small sprain. I was wrong, and a bit embarrassed about it, but I got the view.",
+    "See you on the hill. Dot"
+   ],
+   "offer": [
+    "Dot: The thing about running fells is you can't see the finish. Running a business is the same, so I'd say I'm qualified.",
+    "Dot: Give it here, {player}. I'll run it up the hill and back before breakfast."
+   ],
+   "chat": [
+    "Dot: If you can talk, you're not going fast enough.",
+    "Dot: Weather's a rumour until you're wet."
+   ],
+   "thanks": [
+    "Dot: A proper Cumberland! Coiled like a snake and peppery enough to wake you. You're alright, {player}.",
+    "She eats it standing up, mid-stretch, without once breaking a sweat."
+   ],
+   "x": 34,
+   "y": 32,
+   "ax": 34,
+   "ay": 45
+  },
+  {
+   "id": "sean",
+   "name": "Seán Ó Súilleabháin",
+   "sprite": "currach_rower",
+   "home": "dingle",
+   "away": "cork",
+   "likes": "irish_stew",
+   "hint": "Seán brightens up for a bowl of Irish stew.",
+   "intro": [
+    "A man in a cap and a jumper nobody could unpick is coiling a rope on a quay with great tenderness.",
+    "Seán: Seán. I take people out to see the dolphin. Fungie's long gone but the tourists don't know yet and I'm not going to be the one to tell them.",
+    "Seán: You've a good face for the sea. Don't look at it like that, it's sensitive."
+   ],
+   "meet": [
+    "Seán is in Cork for a funeral, a christening and a pint, in that order, and enjoying all three.",
+    "Seán: Everyone I've ever met is related to someone in Cork. It's a county-sized family and we're all very polite about it.",
+    "Seán: Come west when you can. I'll show you the sea. She loves company."
+   ],
+   "letter": [
+    "Dear {player},",
+    "I took the boat out in a swell the size of a small hill and came back with all my fingers. I count that a week well spent.",
+    "Come and visit. The tea's strong. Seán"
+   ],
+   "offer": [
+    "Seán: A boat teaches you to look after a place. Nobody sleeps till it's tied up.",
+    "Seán: Let me mind one of yours, {player}. I'll keep it afloat, and I'll sing at it."
+   ],
+   "chat": [
+    "Seán: The sea doesn't do grudges. She does moods.",
+    "Seán: A kind word costs nothing, and it floats."
+   ],
+   "thanks": [
+    "Seán: Irish stew! Mutton, spuds and onion, not a carrot in sight. A man of good taste, {player}.",
+    "He eats it with the gravity of a man at Mass, and wipes the bowl with bread."
+   ],
+   "x": 32,
+   "y": 22,
+   "ax": 34,
+   "ay": 25
+  },
+  {
+   "id": "tamsin",
+   "name": "Tamsin Penrose",
+   "sprite": "jam_maker",
+   "home": "penzance",
+   "away": "plymouth",
+   "likes": "mackerel",
+   "hint": "Tamsin always has a use for a fresh mackerel.",
+   "intro": [
+    "A woman in a fisherman's smock is gutting a mackerel faster than you can follow.",
+    "Tamsin: Tamsin. I run the fish stall at the quay, and I've never lost a seagull fight. I've drawn a few.",
+    "Tamsin: A fish tells you everything if you look it in the eye. This one says it's very sorry."
+   ],
+   "meet": [
+    "Tamsin is in Plymouth, looking over the Barbican with the confidence of someone selling you the harbour.",
+    "Tamsin: They sell fish here. Pah. Good fish, mind. But it's not my fish.",
+    "Tamsin: Come to Newlyn when the boats are in. It's the best theatre in Cornwall and the seats are free."
+   ],
+   "letter": [
+    "Dear {player},",
+    "The mackerel are running. It's a glorious thing. A thousand silver bodies, and every one of them is a lunch.",
+    "Come down when you can. I'll save you a bag. Tamsin"
+   ],
+   "offer": [
+    "Tamsin: Selling's my whole life. I can charm a stone out of a gull.",
+    "Tamsin: Let me work for you, {player}, and I'll have the takings up before you've had your tea."
+   ],
+   "chat": [
+    "Tamsin: Never haggle with a woman holding a knife. Obvious really.",
+    "Tamsin: If it smells of fish, it's fresh. If it smells of nothing, run."
+   ],
+   "thanks": [
+    "Tamsin: Mackerel! Fresh as a daisy and shining like a coin. You're a good sort, {player}.",
+    "She turns it over in her palm, approving, and tosses it into a bucket labelled 'for the cat, (me)'."
+   ],
+   "x": 32,
+   "y": 21,
+   "ax": 38,
+   "ay": 7
+  },
+  {
+   "id": "hilda",
+   "name": "Hilda Pickles",
+   "sprite": "commuter",
+   "home": "york",
+   "away": "leeds",
+   "likes": "home_yorkshire_pudding",
+   "hint": "Hilda's fondness for a home-made Yorkshire pudding is well known.",
+   "intro": [
+    "A neat woman in a headscarf is jotting down train numbers on a clipboard at the edge of a platform.",
+    "Hilda: Hilda Pickles. Thirty-eight years in the signal box, now retired, which means I do it unpaid. It's the same job with less shouting.",
+    "Hilda: Eleven forty-two to Leeds is late. It was late in 1987, too. Some things never change, and I'm told that's reassuring."
+   ],
+   "meet": [
+    "Hilda is on a platform in Leeds, timing a train against her own wristwatch and tutting.",
+    "Hilda: Four seconds late. Four. In my day we'd have had a word with the driver. We'd have had a very quiet word.",
+    "Hilda: Don't look so worried, pet. The railway's grand. It's the people on it."
+   ],
+   "letter": [
+    "Dear {player},",
+    "The 11.42 was on time yesterday. I wrote to the company to say so. They have not replied. I assume they're sending flowers.",
+    "Yours punctually, Hilda"
+   ],
+   "offer": [
+    "Hilda: I ran a whole junction on a lever and a prayer. A bit of tea-shop bookkeeping is nothing.",
+    "Hilda: Hand it over, {player}. It'll run to the timetable. My timetable."
+   ],
+   "chat": [
+    "Hilda: A minute late is a minute stolen.",
+    "Hilda: Always close the door. You don't know who's behind it."
+   ],
+   "thanks": [
+    "Hilda: Yorkshire pudding! Home-made and risen like a church steeple. Well done, {player}. You'd make a good signalwoman.",
+    "She eats it with gravy from a flask she was, you realise, already carrying."
+   ],
+   "x": 18,
+   "y": 14,
+   "ax": 7,
+   "ay": 25
+  }
+ ]
+}
