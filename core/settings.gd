@@ -20,6 +20,8 @@ var travel_scenes := "on"   # on | short | off: the little scenes for trains, fe
 var easy_fishing := false   # fishing: a wider, slower sweet spot on the bite bar
 var easy_darts := false     # darts: a steadier reticle and the checkout shown; crabbing: slower nibbles, a longer wait to haul; ringing: a slower beat, wider timing; walling: shows where each stone goes; shanties: a slower beat; conkers: a wider sweet spot
 var local_languages := "on"  # on | off: the local language (Welsh, Irish...) beside English where the place uses it (see Langs)
+var text_size := "normal"   # normal | large | largest: UI text scale (see Access)
+var readable_font := false  # a dyslexia-friendly typeface (Atkinson Hyperlegible) for the interface
 var damage_numbers := true  # battle: the damage taken drifts up beside the plate
 var bindings := {}        # action -> {"key": [physical keycodes], "pad": [joypad buttons]}, see InputSetup
 
@@ -67,19 +69,27 @@ func load_settings() -> void:
 			local_languages = str(d.get("local_languages", local_languages))
 			if local_languages not in ["on", "off"]:
 				local_languages = "on"
+			text_size = str(d.get("text_size", text_size))
+			if not Access.TEXT_SIZES.has(text_size):
+				text_size = "normal"
+			readable_font = bool(d.get("readable_font", readable_font))
 			travel_scenes = str(d.get("travel_scenes", travel_scenes))
 			if travel_scenes not in ["on", "short", "off"]:
 				travel_scenes = "on"
 			bindings = InputSetup.sanitise(d.get("bindings", {}))
 	InputSetup.apply(bindings)
 	_sync_languages()
+	apply_access()
+
+func apply_access() -> void:
+	Access.apply_theme(load("res://ui/theme.tres"), text_size, readable_font)
 
 func save_settings() -> void:
 	var f := FileAccess.open(path, FileAccess.WRITE)
 	if f:
 		f.store_string(JSON.stringify({"text_speed": text_speed, "battle_speed": battle_speed, "quality": quality, "music_volume": music_volume,
 			"sfx_volume": sfx_volume, "ambience_volume": ambience_volume, "run_mode": run_mode, "colour_blind": colour_blind, "reduce_flashing": reduce_flashing,
-			"travel_scenes": travel_scenes, "follower": follower, "damage_numbers": damage_numbers, "local_languages": local_languages, "easy_fishing": easy_fishing, "easy_darts": easy_darts, "bindings": bindings}))
+			"travel_scenes": travel_scenes, "follower": follower, "damage_numbers": damage_numbers, "local_languages": local_languages, "easy_fishing": easy_fishing, "easy_darts": easy_darts, "text_size": text_size, "readable_font": readable_font, "bindings": bindings}))
 	_sync_languages()
 	Bus.settings_changed.emit()
 

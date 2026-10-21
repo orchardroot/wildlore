@@ -25,7 +25,7 @@ static func box(bg: Color, border := Color(0, 0, 0, 0), bw := 0, radius := 6, ma
 static func label(text: String, size := 28, colour := CREAM) -> Label:
 	var l := Label.new()
 	l.text = text
-	l.add_theme_font_size_override("font_size", size)
+	l.add_theme_font_size_override("font_size", Access.scaled(size, Settings.text_size))
 	l.add_theme_color_override("font_color", colour)
 	return l
 
@@ -190,7 +190,7 @@ static func button(text: String, min_w := 0) -> Button:
 static func pill_button(text: String, size := 20) -> Button:
 	var b := Button.new()
 	b.text = text
-	b.add_theme_font_size_override("font_size", size)
+	b.add_theme_font_size_override("font_size", Access.scaled(size, Settings.text_size))
 	b.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
 	b.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 	var rest := box(Color("2c3446"), Color("5a5f6e"), 2, 12, 4)
