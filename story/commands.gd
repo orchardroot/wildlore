@@ -161,6 +161,8 @@ func _exec(c: Dictionary) -> void:
 			await host.open_menu("exchange:" + str(c.get("board", "london")))  # a Stock Exchange terminal (see Markets)
 		"market":
 			await host.open_menu("market:" + str(c.get("hall", "")))  # a Market Hall stall (see MarketHall)
+		"deed":
+			await host.open_menu("deed:" + str(c.get("id", "")))  # a Deed counter (see Deeds)
 		"society":
 			await host.open_menu("society:" + host.zone_id())  # a Building Society branch (see BuildingSociety)
 		"crypto":
