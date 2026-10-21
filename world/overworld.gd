@@ -155,6 +155,8 @@ func _process(_delta: float) -> void:
 	for w in zone.warps:
 		if lights.size() >= 8:
 			break
+		if ZoneData.warp_state(w, Game.data) == "hidden":
+			continue
 		var wp := Vector3(int(w.x) + 0.5, ground_y(Vector2i(int(w.x), int(w.y))) + 0.3, int(w.y) + 0.5)
 		var sp := cam.unproject_position(wp)
 		var sr := sp.distance_to(cam.unproject_position(wp + Vector3(1.2, 0, 0)))
@@ -298,7 +300,12 @@ func _on_step(p: Vector2i) -> void:
 		_cross_edge(p)
 		return
 	var w := zone.warp_at(p)
-	if not w.is_empty():
+	var wstate := ZoneData.warp_state(w, Game.data) if not w.is_empty() else "open"
+	if wstate == "locked":
+		await say([str(w.locked.get("line", "It's locked."))])
+		player.try_step(GridMotion.facing_from(GridMotion.dir_vec(player.facing) * -1))  # back off the doorstep
+		return
+	if not w.is_empty() and wstate == "open":
 		var indoors := zone.tile_at(p) == "door" or zone.kind == "interior"
 		if not _door_opened:
 			Audio.sfx("door")
@@ -445,6 +452,8 @@ func interact(p: Vector2i) -> void:
 	if await FishingScene.interact(self, p):  # open water and a rod
 		return
 	if await CrabbingScene.interact(self, p):  # a harbour wall and a crabbing kit
+		return
+	if await ExamineScene.interact(self, p):  # a look-closer spot in a room
 		return
 	var s := zone.sign_at(p)
 	if not s.is_empty():
