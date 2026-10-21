@@ -274,7 +274,7 @@ func _spawn_npcs() -> void:
 ## Keepers waiting in this zone with a side story, each on their spot or the nearest free tile to it.
 func _side_npcs() -> Array:
 	Festivals.rollover(Game.data)  # a festival that has come round again starts its quest afresh
-	var out := SideStories.npcs_for(zone.id, Game.data) + Festivals.npcs_for(zone.id)  # plus whoever's festival is on
+	var out := SideStories.npcs_for(zone.id, Game.data) + Festivals.npcs_for(zone.id) + Regulars.npcs_for(zone.id, Game.data)  # plus whoever's festival is on, and the Regulars
 	var taken := {}
 	for d in out:
 		var p := SideStories.nearest_free(zone, Vector2i(int(d.x), int(d.y)), taken)
