@@ -1,0 +1,32 @@
+{
+ "id": "spp_herdsman",
+ "name": "Herdsman Falla",
+ "class": "Cattleman",
+ "sprite": "farmer",
+ "party": [
+  {
+   "species": "moolet",
+   "level": 40
+  },
+  {
+   "species": "herdlet",
+   "level": 41
+  },
+  {
+   "species": "brockling",
+   "level": 41
+  }
+ ],
+ "ai": "trainer",
+ "money": 800,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Herdsman Falla",
+   "text": "Golden Guernsey milk, from the cows I talk to every morning. They never talk back, which is why I like them."
+  }
+ ],
+ "win": "Oh well. The cows won't be pleased with me, but there it is.",
+ "after": "My great-grandfather kept Guernseys on this headland. We've never let any other cow through the gate, and we've been pestered about it.",
+ "scaled_floor": 40
+}

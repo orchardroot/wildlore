@@ -1,0 +1,145 @@
+{
+ "id": "st_peter_port_hauteville",
+ "name": "Hauteville House",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "bed",
+   "x": 10,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "table",
+   "x": 3,
+   "y": 3
+  },
+  {
+   "type": "bench",
+   "x": 3,
+   "y": 4
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 7
+  },
+  {
+   "type": "potted_plant",
+   "x": 11,
+   "y": 7
+  },
+  {
+   "type": "fireplace",
+   "x": 6,
+   "y": 1
+  },
+  {
+   "type": "rug",
+   "x": 5,
+   "y": 3,
+   "w": 3,
+   "h": 2,
+   "variant": 0,
+   "walk": true
+  },
+  {
+   "type": "sofa",
+   "x": 1,
+   "y": 3,
+   "variant": 4,
+   "rot": 90
+  },
+  {
+   "type": "sofa",
+   "x": 11,
+   "y": 3,
+   "variant": 1,
+   "rot": 270
+  },
+  {
+   "type": "clock",
+   "x": 5,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "wall_picture",
+   "x": 7,
+   "y": 1,
+   "walk": true,
+   "variant": 2
+  },
+  {
+   "type": "wall_picture",
+   "x": 3,
+   "y": 1,
+   "walk": true,
+   "variant": 0
+  },
+  {
+   "type": "plant_stand",
+   "x": 1,
+   "y": 6,
+   "variant": 0
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 8,
+   "to": "st_peter_port",
+   "tx": 27,
+   "ty": 13,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "spp_hugo_guide",
+   "sprite": "tour_guide",
+   "x": 8,
+   "y": 3,
+   "facing": "left",
+   "move": "still",
+   "script": "spp_hugo_guide",
+   "name": "House Guide"
+  },
+  {
+   "id": "spp_hugo_study",
+   "sprite": "poet",
+   "x": 4,
+   "y": 5,
+   "facing": "right",
+   "move": "still",
+   "script": "spp_hugo_study",
+   "name": "Hugo Scholar"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  6,
+  7
+ ],
+ "rows": [
+  "xxxxxxxxxxxxx",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||CCC|x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||D|||||x",
+  "xxxxxxxxxxxxx"
+ ]
+}

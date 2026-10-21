@@ -1,0 +1,160 @@
+{
+ "gue_beachcomber": [
+  {
+   "do": "if",
+   "flag": "q_channel_islands_chapel_1",
+   "then": [
+    {
+     "do": "say",
+     "who": "Beachcomber",
+     "text": "Hello again. I've your shell in my pocket still, did you want it twice? No, I see. Right. Tell the Brother the ormer rules are the same as ever."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_channel_islands_chapel_started",
+     "then": [
+      {
+       "do": "when",
+       "cond": "caught_pinchkin",
+       "then": [
+        {
+         "do": "say",
+         "who": "Beachcomber",
+         "text": "A Pinchkin! Lovely creature. They're a small crab that thinks it's a castle. You've earned a shell. Here it is: a little pearly one, a bit of the ormer, which is a sea snail with a mother-of-pearl inside."
+        },
+        {
+         "do": "say",
+         "who": "Beachcomber",
+         "text": "Tell the Brother it's from Cobo, where the sunsets are the best in the Channel. And mind how you gather ormers. Only on certain tides, never by diving, and by hand."
+        },
+        {
+         "do": "set",
+         "flag": "q_channel_islands_chapel_1"
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Beachcomber",
+         "text": "Shells for the Little Chapel? I've dozens, but I'll only swap with someone who's befriended a crab. Catch me a Pinchkin in the shallows and I'll give you my best."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Beachcomber",
+       "text": "I walk this beach every day. Cobo's sunsets are the best in the Channel, and the tide goes out so far you could walk to Alderney, almost. Not quite."
+      },
+      {
+       "do": "say",
+       "who": "Beachcomber",
+       "text": "I pick up shells, glass and bits of china. Some of them end up in the Little Chapel. Ormer shells are the best. Mother-of-pearl inside, and only found where the rules are kept."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "gue_brother": [
+  {
+   "do": "if",
+   "flag": "q_channel_islands_chapel_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Chapel Keeper",
+     "text": "That blue shard has gone into the east wall, just above the door. You can see it from the lane. Every time the sun hits it, I smile. M\u00e8rcie, my friend. That's thank you, in the old tongue."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_channel_islands_chapel_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_channel_islands_chapel_2",
+       "then": [
+        {
+         "do": "say",
+         "who": "Chapel Keeper",
+         "text": "A shell from Cobo Bay and a bit of blue-and-white china? Wonderful. Brother D\u00e9odat would have wept. He collected every piece with his own hands, and visitors still bring us their cracked plates."
+        },
+        {
+         "do": "say",
+         "who": "Chapel Keeper",
+         "text": "Please take this pebble. It came off the wall long ago and it's been in the keeper's pocket ever since. It has the Little Chapel's own good luck."
+        },
+        {
+         "do": "set",
+         "flag": "q_channel_islands_chapel_done"
+        },
+        {
+         "do": "give_item",
+         "item": "chapel_pebble",
+         "n": 1
+        },
+        {
+         "do": "standing",
+         "nation": "channel_islands",
+         "amount": 4
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Chapel Keeper",
+         "text": "A shell from the beachcomber at Cobo Bay, and a bit of blue-and-white china from the baker in St Peter Port. That's all I'm after. The chapel's always being mended, one fragment at a time."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Chapel Keeper",
+       "text": "Welcome to the Little Chapel. The walls are covered with pebbles, shells and bits of broken china, and people keep bringing more. We've a bare patch above the door, and I've been waiting for just the right pieces."
+      },
+      {
+       "do": "say",
+       "who": "Chapel Keeper",
+       "text": "Could you fetch me a pretty shell from the beachcomber at Cobo Bay, to the west, and a piece of blue-and-white china from the baker in St Peter Port? I'd go myself, but I have the gardens."
+      },
+      {
+       "do": "set",
+       "flag": "q_channel_islands_chapel_started"
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "gue_gannet": [
+  {
+   "do": "say",
+   "who": "Gannet Watcher",
+   "text": "Alderney's gannets are the big draw for me. Thousands of pairs on the rocks of Les Etacs and Ortac, so thick the rocks look white. They dive from high above at more than fifty miles an hour."
+  },
+  {
+   "do": "say",
+   "who": "Gannet Watcher",
+   "text": "Guernsey's not bad for birds either. The cliffs are good for stonechats and fulmars. Alderney has puffins, too. Over on Burhou, with their little orange feet."
+  }
+ ],
+ "gue_dgernesiais": [
+  {
+   "do": "say",
+   "who": "Lane Walker",
+   "text": "In Dg\u00e8rn\u00e9siais, the Guernsey language, a fruit loaf is a g\u00e2che. Seaweed's vraic, same as in Jersey. And ormers are a shellfish that people stop their cars for."
+  },
+  {
+   "do": "say",
+   "who": "Lane Walker",
+   "text": "Very few people speak it now, but it's taught in schools and sung in choirs. Our own little language on our own little rock."
+  }
+ ]
+}

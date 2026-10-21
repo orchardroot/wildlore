@@ -1,0 +1,32 @@
+{
+ "id": "sth_fishmonger",
+ "name": "Fishmonger Vibert",
+ "class": "Fishmonger",
+ "sprite": "fisherman_north",
+ "party": [
+  {
+   "species": "pinchkin",
+   "level": 40
+  },
+  {
+   "species": "baskling",
+   "level": 41
+  },
+  {
+   "species": "selklet",
+   "level": 41
+  }
+ ],
+ "ai": "trainer",
+ "money": 780,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Fishmonger Vibert",
+   "text": "Spider crab, lobster, scallops and ormers, if you're lucky and licensed. I'd rather sell you a fish than fight you, but I'll do either."
+  }
+ ],
+ "win": "Oh, you've netted me. Have a scallop on the house.",
+ "after": "Ormers are a kind of abalone, a shell like a mother-of-pearl ear. You may only gather them on a few days a year, at the very lowest spring tides. Don't ask me where I get mine.",
+ "scaled_floor": 40
+}

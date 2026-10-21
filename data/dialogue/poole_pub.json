@@ -1,0 +1,50 @@
+{
+ "poo_landlord": [
+  {
+   "do": "say",
+   "who": "Landlord",
+   "text": "Welcome to the Poole Arms. This pub's been on the Quay for well over two hundred years, and we've fed a good many sailors who'd just come in from Newfoundland. We still have plenty of fish."
+  },
+  {
+   "do": "say",
+   "who": "Landlord",
+   "text": "We do a crab sandwich that will change your life. Or at least stop it feeling quite so long until teatime."
+  }
+ ],
+ "poo_quiz": [
+  {
+   "do": "say",
+   "who": "Quizmaster",
+   "text": "Quiz night's tonight, if you fancy it. Warm-up question: which island in Poole Harbour did the Scouts begin on? Brownsea! Not hard, to be fair."
+  },
+  {
+   "do": "choice",
+   "text": "Fancy a round? Five questions, no phones.",
+   "options": [
+    "Count me in",
+    "Not tonight"
+   ],
+   "set": "_quiz_choice"
+  },
+  {
+   "do": "if",
+   "flag": "_quiz_choice",
+   "eq": 0,
+   "then": [
+    {
+     "do": "quiz",
+     "pub": "poole",
+     "region": "england_south",
+     "who": "Quizmaster"
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Quizmaster",
+     "text": "Fair enough. The offer stands, and so does the bar."
+    }
+   ]
+  }
+ ]
+}

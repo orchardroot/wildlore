@@ -1,0 +1,101 @@
+[
+ {
+  "id": "jersey_royal",
+  "name": "Jersey Royals",
+  "kind": "heal",
+  "price": 480,
+  "battle": true,
+  "field": true,
+  "amount": 130,
+  "desc": "The island's first new potatoes of the year, dug from steep south-facing fields and fertilised with seaweed. Boiled with mint and eaten with butter, nothing else. Restores 130 HP."
+ },
+ {
+  "id": "jersey_black_butter",
+  "name": "Jersey Black Butter",
+  "kind": "pp",
+  "price": 420,
+  "battle": true,
+  "field": true,
+  "amount": 8,
+  "desc": "Not butter at all: apples, cider, sugar and spice stirred slowly for hours until it turns black and sticky. A spread for bread, and a tradition that brings whole villages together. Restores 8 PP to every move."
+ },
+ {
+  "id": "jersey_wonder",
+  "name": "Jersey Wonder",
+  "kind": "heal",
+  "price": 300,
+  "battle": true,
+  "field": true,
+  "amount": 100,
+  "desc": "A twisted, fried doughnut with a slit in the middle, made on the island for generations. Jersey wonders were a Monday treat. Restores 100 HP."
+ },
+ {
+  "id": "guernsey_gache",
+  "name": "Guernsey Gâche",
+  "kind": "heal",
+  "price": 520,
+  "battle": true,
+  "field": true,
+  "amount": 160,
+  "desc": "A dense fruit loaf of raisins and peel, cut thick and spread thicker with butter. Gâche is the island's name for it, and the island's idea of a good tea. Restores 160 HP."
+ },
+ {
+  "id": "golden_guernsey_milk",
+  "name": "Golden Guernsey Milk",
+  "kind": "heal",
+  "price": 360,
+  "battle": true,
+  "field": true,
+  "amount": 110,
+  "desc": "Rich, creamy milk from a Guernsey cow, the colour of buttercups because of the carotene in the grass. The island's cattle have been kept pure for two centuries. Restores 110 HP."
+ },
+ {
+  "id": "guernsey_gansey",
+  "name": "Guernsey Gansey",
+  "kind": "charm",
+  "price": 3500,
+  "battle": false,
+  "field": true,
+  "wild": false,
+  "desc": "A tight-knit navy jumper of oiled wool, knitted in the island pattern that gave the garment its name. Fishermen wore them, and each village had its own stitch. Jersey has a jersey as well.",
+  "effect_text": "Frost moves hurt it 25% less.",
+  "charm": {
+   "effect": "resist",
+   "type": "frost",
+   "mult": 0.75
+  },
+  "msg": "{name}'s Gansey kept the cold out!"
+ },
+ {
+  "id": "chapel_pebble",
+  "name": "Chapel Pebble",
+  "kind": "charm",
+  "price": 0,
+  "battle": false,
+  "field": true,
+  "wild": true,
+  "desc": "A small bright pebble from a wall of the Little Chapel at Les Vauxbelets, a church decorated with pebbles, seashells and broken china. It is said to bring good luck to anyone who holds on to it.",
+  "effect_text": "Survives one knockout a battle.",
+  "charm": {
+   "effect": "endure"
+  },
+  "msg": "{name} held on thanks to its Chapel Pebble!"
+ },
+ {
+  "id": "liberation_flag",
+  "name": "Liberation Flag",
+  "kind": "charm",
+  "price": 0,
+  "battle": false,
+  "field": true,
+  "wild": false,
+  "desc": "A small Union Flag on a stick of the kind islanders waved on 9 May 1945, when five years of German Occupation ended. Many had spent the war under floorboards and in chimneys. It is no longer hidden.",
+  "effect_text": "Ward up when it first comes out.",
+  "charm": {
+   "effect": "start_stage",
+   "stat": "ward",
+   "stages": 1
+  },
+  "msg": "{name} stands firm, with the flag held high!"
+ }
+]

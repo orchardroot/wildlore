@@ -1,0 +1,49 @@
+{
+ "spp_baker": [
+  {
+   "do": "if",
+   "flag": "q_channel_islands_chapel_2",
+   "then": [
+    {
+     "do": "say",
+     "who": "Baker",
+     "text": "Hello again. Mind the oven, and have a slice of g\u00e2che on the house. Are you still collecting for the chapel? Marvellous."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_channel_islands_chapel_1",
+     "then": [
+      {
+       "do": "say",
+       "who": "Baker",
+       "text": "For the Little Chapel? Of course. I've a saucer that cracked in the oven, blue and white, a good one. Brother D\u00e9odat used to collect broken crockery from every house on the island. A bit of my own was in there before I was born."
+      },
+      {
+       "do": "say",
+       "who": "Baker",
+       "text": "Here you are. Give it to the Brother with my love, and tell him he still owes me for the last tray of g\u00e2che."
+      },
+      {
+       "do": "set",
+       "flag": "q_channel_islands_chapel_2"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Baker",
+       "text": "G\u00e2che, hot out of the oven. Raisins, peel and a lot of butter. You cut it thick and spread it thicker. And if you want something to wash it down, we've a pot of tea going."
+      },
+      {
+       "do": "say",
+       "who": "Baker",
+       "text": "The old bakers used to bake everyone's bean jar in the cooling oven on a Saturday night. We keep that spirit alive, at higher prices."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

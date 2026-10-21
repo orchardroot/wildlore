@@ -1,0 +1,32 @@
+{
+ "id": "spp_fisher",
+ "name": "Fisherman Ozanne",
+ "class": "Fisherman",
+ "sprite": "fisherman_north",
+ "party": [
+  {
+   "species": "baskling",
+   "level": 40
+  },
+  {
+   "species": "selklet",
+   "level": 41
+  },
+  {
+   "species": "clownbill",
+   "level": 41
+  }
+ ],
+ "ai": "trainer",
+ "money": 780,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Fisherman Ozanne",
+   "text": "Ormers, lobsters, spider crab, bass. Take your pick, or take a battle. I have the day off and a very good net."
+  }
+ ],
+ "win": "Ah, you've hooked me. Have a mackerel.",
+ "after": "A good fisherman knows the tides, the rocks and the weather. I know two out of three. The weather doesn't count.",
+ "scaled_floor": 40
+}
