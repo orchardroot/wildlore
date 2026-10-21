@@ -99,6 +99,9 @@ static func _i(d: Dictionary, k: String) -> int:
 static func key_of(id: String) -> String:
 	return FLAG_PREFIX + id
 
+static func flag_key(id: String) -> String:
+	return key_of(id)
+
 static func state(data: GameStateData, id: String) -> Dictionary:
 	var v: Variant = data.flag(key_of(id))
 	return v if v is Dictionary else {}
@@ -493,6 +496,10 @@ static func _dig(z: ZoneData, l: Dictionary) -> void:
 				return
 			dug[p] = true
 	for p in dug:
+		if z.tiles[p.y][p.x] in ZoneData.RAIL_TILES:  # a track across a railway is a level crossing, the line stays whole
+			z.tiles[p.y][p.x] = "level_crossing"
+			z.chars[p.y][p.x] = "&"
+			continue
 		z.tiles[p.y][p.x] = "path"
 		z.chars[p.y][p.x] = "#"
 		z.heights[p.y][p.x] = level

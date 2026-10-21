@@ -11,9 +11,12 @@ func test_edges_join_galway_as_a_cul_de_sac() -> void:
 	assert_eq(str(all["shannon_estuary"].edges.east.to), "limerick")
 	assert_eq(str(all["limerick"].edges.west.to), "shannon_estuary")
 	assert_eq(str(all["limerick"].edges.south.to), "lough_gur")
-	assert_eq(all["lough_gur"].edges.size(), 1, "Lough Gur is the end of the line")
+	var gur_edges: Array = all["lough_gur"].edges.keys().filter(func(k): return not all["lough_gur"].edges[k].has("lease"))
+	assert_eq(gur_edges.size(), 1, "Lough Gur is the end of the line (a lease gap only opens when owned)")
 	for zid in ZONES:
 		for side in all[zid].edges:
+			if all[zid].edges[side].has("lease"):
+				continue
 			assert_true(str(all[zid].edges[side].to) in ZONES + ["galway"], "%s only joins its own zones and Galway" % zid)
 		assert_true(all[zid].validate(all).is_empty(), "%s validates: %s" % [zid, all[zid].validate(all)])
 

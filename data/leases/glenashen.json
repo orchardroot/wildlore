@@ -2,7 +2,7 @@
  "id": "glenashen",
  "name": "Glenashen",
  "nation": "northern_ireland",
- "kind": "glen_estate",
+ "kind": "glen",
  "anchor": "antrim_coast",
  "side": "west",
  "zone": "lease_glenashen",
@@ -12,10 +12,13 @@
  "trust_wants": true,
  "blurb": "One of the quieter Antrim glens: a sheep-walled hill, a ruined cottage, a river in a hurry and a sporting lease the Trust would very much like back. Nobody has walked it in a generation.",
  "gap": {
+  "at": 34,
+  "width": 3,
+  "offset": 0,
   "from": 33,
   "len": 3
  },
- "stage_flag": "lease_glenashen_stage",
+ "stage_flag": "rewild_lease_glenashen",
  "rewild": {
   "biome": "heath",
   "rect": [
@@ -29,6 +32,17 @@
    "The sheep gone, the fences down, and the first rowan up in the gully.",
    "Heather and gorse, ferns on the river bank, a hare in the open field.",
    "Wild glen, birch and hazel in the gullies, and a hare in every field."
+  ],
+  "encounters": [
+   [],
+   [],
+   []
   ]
- }
+ },
+ "ranger": [
+  "Sheep-bitten grass and bracken. A glen with the life taken out of it, and not a hare in sight.",
+  "The sheep are gone, the fences are down, and there's a rowan up in the gully.",
+  "Heather and gorse, ferns on the river bank. I saw a hare in the open field yesterday.",
+  "A wild glen, birch and hazel in the gully, and every bird in Antrim, it seems."
+ ]
 }
