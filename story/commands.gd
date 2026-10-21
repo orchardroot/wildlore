@@ -215,6 +215,10 @@ func _exec(c: Dictionary) -> void:
 			await RingingRun.new(self).ring(c)
 		"wall":
 			await RingingRun.new(self).wall(c)
+		"sing":
+			await ShantyRun.new(self).sing(c)
+		"conkers":
+			await ShantyRun.new(self).conkers(c)
 		"casino":
 			await _casino(c)
 		"legend":
