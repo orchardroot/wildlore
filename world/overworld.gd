@@ -442,6 +442,8 @@ func interact(p: Vector2i) -> void:
 		return
 	if await PostBox.interact(self, p):  # post from Kit (or just a post box)
 		return
+	if await FishingScene.interact(self, p):  # open water and a rod
+		return
 	var s := zone.sign_at(p)
 	if not s.is_empty():
 		if s.get("kind", "") == "radio":  # the Shipping Forecast, then Today's Walk (which may pay a weather bounty)

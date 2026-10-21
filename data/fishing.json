@@ -1,0 +1,543 @@
+{
+ "rods": {
+  "fishing_rod": {
+   "tier": 1
+  },
+  "match_rod": {
+   "tier": 2
+  }
+ },
+ "daily_casts": 10,
+ "regions": {
+  "cheshire": "britain",
+  "cornwall": "britain",
+  "cumbria": "britain",
+  "east_anglia": "britain",
+  "lancashire": "britain",
+  "man": "britain",
+  "manchester": "britain",
+  "merseyside": "britain",
+  "mid_wales": "britain",
+  "midlands": "britain",
+  "north_east": "britain",
+  "north_wales": "britain",
+  "peak": "britain",
+  "south_east": "britain",
+  "south_england": "britain",
+  "south_wales": "britain",
+  "yorkshire": "britain",
+  "overseas_brize_norton": "britain",
+  "dev": "britain",
+  "": "britain",
+  "scotland": "scotland",
+  "ireland": "ireland",
+  "ireland_east": "ireland",
+  "ireland_west": "ireland",
+  "channel_islands": "channel",
+  "overseas_gibraltar": "med",
+  "overseas_akrotiri_dhekelia": "med",
+  "overseas_anguilla": "caribbean",
+  "overseas_bermuda": "caribbean",
+  "overseas_bvi": "caribbean",
+  "overseas_cayman": "caribbean",
+  "overseas_montserrat": "caribbean",
+  "overseas_turks_caicos": "caribbean",
+  "overseas_st_helena": "tropical_atlantic",
+  "overseas_ascension": "tropical_atlantic",
+  "overseas_biot": "indo_pacific",
+  "overseas_pitcairn": "indo_pacific",
+  "overseas_tristan": "tristan",
+  "overseas_falklands": "falklands",
+  "overseas_south_georgia": "south_georgia",
+  "overseas_antarctic": "antarctic"
+ },
+ "groups": {
+  "britain": {
+   "fresh": [
+    {
+     "id": "brown_trout",
+     "weight": 25
+    },
+    {
+     "id": "roach",
+     "weight": 25
+    },
+    {
+     "id": "perch",
+     "weight": 18
+    },
+    {
+     "id": "pike",
+     "weight": 8
+    },
+    {
+     "id": "chub",
+     "weight": 12
+    },
+    {
+     "id": "european_eel",
+     "weight": 8
+    },
+    {
+     "id": "rudd",
+     "weight": 10
+    },
+    {
+     "id": "tench",
+     "weight": 8
+    },
+    {
+     "id": "atlantic_salmon",
+     "weight": 5,
+     "season": [
+      "autumn"
+     ]
+    },
+    {
+     "id": "sea_trout",
+     "weight": 3
+    },
+    {
+     "id": "grayling",
+     "weight": 6
+    },
+    {
+     "species": "holtling",
+     "weight": 3,
+     "min": 8,
+     "max": 14,
+     "badges": 0
+    },
+    {
+     "species": "aqueduck",
+     "weight": 1,
+     "min": 30,
+     "max": 36,
+     "badges": 4
+    }
+   ],
+   "salt": [
+    {
+     "id": "mackerel",
+     "weight": 25,
+     "season": [
+      "summer",
+      "autumn"
+     ]
+    },
+    {
+     "id": "herring",
+     "weight": 14
+    },
+    {
+     "id": "whiting",
+     "weight": 14
+    },
+    {
+     "id": "cod",
+     "weight": 8
+    },
+    {
+     "id": "haddock",
+     "weight": 8
+    },
+    {
+     "id": "pollack",
+     "weight": 12
+    },
+    {
+     "id": "plaice",
+     "weight": 10
+    },
+    {
+     "id": "european_bass",
+     "weight": 6
+    },
+    {
+     "id": "conger_eel",
+     "weight": 4
+    },
+    {
+     "id": "thick_lipped_mullet",
+     "weight": 8,
+     "season": [
+      "summer",
+      "autumn"
+     ]
+    },
+    {
+     "id": "ballan_wrasse",
+     "weight": 8
+    },
+    {
+     "species": "swelkie",
+     "weight": 1,
+     "min": 36,
+     "max": 42,
+     "badges": 5
+    }
+   ]
+  },
+  "scotland": {
+   "fresh": [
+    {
+     "id": "brown_trout",
+     "weight": 25
+    },
+    {
+     "id": "arctic_charr",
+     "weight": 8
+    },
+    {
+     "id": "atlantic_salmon",
+     "weight": 8,
+     "season": [
+      "autumn"
+     ]
+    },
+    {
+     "id": "pike",
+     "weight": 8
+    },
+    {
+     "id": "perch",
+     "weight": 14
+    },
+    {
+     "id": "sea_trout",
+     "weight": 4
+    },
+    {
+     "species": "holtling",
+     "weight": 3,
+     "min": 8,
+     "max": 14,
+     "badges": 0
+    },
+    {
+     "species": "aqueduck",
+     "weight": 1,
+     "min": 30,
+     "max": 36,
+     "badges": 4
+    }
+   ],
+   "salt": [
+    {
+     "id": "haddock",
+     "weight": 14
+    },
+    {
+     "id": "cod",
+     "weight": 10
+    },
+    {
+     "id": "herring",
+     "weight": 14
+    },
+    {
+     "id": "mackerel",
+     "weight": 25,
+     "season": [
+      "summer",
+      "autumn"
+     ]
+    },
+    {
+     "id": "pollack",
+     "weight": 12
+    },
+    {
+     "id": "whiting",
+     "weight": 12
+    },
+    {
+     "species": "swelkie",
+     "weight": 1,
+     "min": 36,
+     "max": 42,
+     "badges": 5
+    }
+   ]
+  },
+  "ireland": {
+   "fresh": [
+    {
+     "id": "brown_trout",
+     "weight": 25
+    },
+    {
+     "id": "pike",
+     "weight": 12
+    },
+    {
+     "id": "perch",
+     "weight": 14
+    },
+    {
+     "id": "rudd",
+     "weight": 10
+    },
+    {
+     "id": "roach",
+     "weight": 10
+    },
+    {
+     "id": "european_eel",
+     "weight": 8
+    },
+    {
+     "id": "arctic_charr",
+     "weight": 4
+    },
+    {
+     "id": "atlantic_salmon",
+     "weight": 6,
+     "season": [
+      "autumn"
+     ]
+    },
+    {
+     "species": "holtling",
+     "weight": 3,
+     "min": 8,
+     "max": 14,
+     "badges": 0
+    }
+   ],
+   "salt": [
+    {
+     "id": "mackerel",
+     "weight": 25,
+     "season": [
+      "summer",
+      "autumn"
+     ]
+    },
+    {
+     "id": "pollack",
+     "weight": 14
+    },
+    {
+     "id": "plaice",
+     "weight": 10
+    },
+    {
+     "id": "european_bass",
+     "weight": 6
+    },
+    {
+     "id": "cod",
+     "weight": 8
+    },
+    {
+     "id": "conger_eel",
+     "weight": 5
+    },
+    {
+     "id": "ballan_wrasse",
+     "weight": 8
+    },
+    {
+     "id": "herring",
+     "weight": 10
+    },
+    {
+     "species": "swelkie",
+     "weight": 1,
+     "min": 36,
+     "max": 42,
+     "badges": 5
+    }
+   ]
+  },
+  "channel": {
+   "salt": [
+    {
+     "id": "european_bass",
+     "weight": 10
+    },
+    {
+     "id": "thick_lipped_mullet",
+     "weight": 12
+    },
+    {
+     "id": "ballan_wrasse",
+     "weight": 12
+    },
+    {
+     "id": "conger_eel",
+     "weight": 6
+    },
+    {
+     "id": "mackerel",
+     "weight": 20,
+     "season": [
+      "summer",
+      "autumn"
+     ]
+    },
+    {
+     "id": "pollack",
+     "weight": 12
+    },
+    {
+     "id": "plaice",
+     "weight": 8
+    },
+    {
+     "id": "sardine",
+     "weight": 12
+    }
+   ]
+  },
+  "med": {
+   "salt": [
+    {
+     "id": "gilthead_bream",
+     "weight": 14
+    },
+    {
+     "id": "sardine",
+     "weight": 25
+    },
+    {
+     "id": "european_bass",
+     "weight": 8
+    },
+    {
+     "id": "thick_lipped_mullet",
+     "weight": 12
+    },
+    {
+     "id": "mackerel",
+     "weight": 14,
+     "season": [
+      "summer",
+      "autumn"
+     ]
+    }
+   ]
+  },
+  "caribbean": {
+   "salt": [
+    {
+     "id": "yellowtail_snapper",
+     "weight": 20
+    },
+    {
+     "id": "great_barracuda",
+     "weight": 14
+    },
+    {
+     "id": "bonefish",
+     "weight": 10
+    },
+    {
+     "id": "mahi_mahi",
+     "weight": 12
+    },
+    {
+     "id": "wahoo",
+     "weight": 6
+    },
+    {
+     "id": "yellowfin_tuna",
+     "weight": 5
+    },
+    {
+     "id": "blue_marlin",
+     "weight": 1
+    }
+   ]
+  },
+  "tropical_atlantic": {
+   "salt": [
+    {
+     "id": "yellowfin_tuna",
+     "weight": 16
+    },
+    {
+     "id": "wahoo",
+     "weight": 14
+    },
+    {
+     "id": "mahi_mahi",
+     "weight": 14
+    },
+    {
+     "id": "blue_marlin",
+     "weight": 2
+    }
+   ]
+  },
+  "indo_pacific": {
+   "salt": [
+    {
+     "id": "yellowfin_tuna",
+     "weight": 14
+    },
+    {
+     "id": "wahoo",
+     "weight": 12
+    },
+    {
+     "id": "giant_trevally",
+     "weight": 14
+    },
+    {
+     "id": "mahi_mahi",
+     "weight": 12
+    },
+    {
+     "id": "blue_marlin",
+     "weight": 2
+    }
+   ]
+  },
+  "tristan": {
+   "salt": [
+    {
+     "id": "patagonian_toothfish",
+     "weight": 10
+    },
+    {
+     "id": "yellowfin_tuna",
+     "weight": 8
+    }
+   ]
+  },
+  "falklands": {
+   "salt": [
+    {
+     "id": "patagonian_toothfish",
+     "weight": 1
+    }
+   ]
+  },
+  "south_georgia": {
+   "salt": [
+    {
+     "id": "patagonian_toothfish",
+     "weight": 10
+    },
+    {
+     "id": "mackerel_icefish",
+     "weight": 14
+    }
+   ]
+  },
+  "antarctic": {
+   "salt": [
+    {
+     "id": "antarctic_toothfish",
+     "weight": 8
+    },
+    {
+     "id": "mackerel_icefish",
+     "weight": 14
+    }
+   ]
+  }
+ }
+}

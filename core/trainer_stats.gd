@@ -4,7 +4,7 @@ extends RefCounted
 ## counters plus a "started" date, so old saves just start at 0. Hooks elsewhere are one-liners calling in here.
 
 const COUNTERS := ["steps", "wins_wild", "wins_trainer", "caught", "train_trips", "ferry_trips", "flights",
-	"rail_miles", "money_earned", "teas", "rained_on"]
+	"rail_miles", "money_earned", "teas", "rained_on", "fish_caught"]
 const TEA_ITEMS := ["cup_of_tea", "flask_of_tea", "cream_tea"]
 const MILES_PER_MAP_UNIT := 0.45   # the world map is 1000 x 1300 for roughly 450 x 600 miles of Britain
 
