@@ -22,5 +22,67 @@
    "who": "Student",
    "text": "That's essay-writing: three paragraphs of passion and one of footnotes."
   }
+ ],
+ "arc_haf": [
+  {
+   "do": "if",
+   "flag": "q_arc_wales_5",
+   "then": [
+    {
+     "do": "say",
+     "who": "Haf",
+     "text": "Visitor book at the Rhondda Heritage Park is your next stop. Numbers are persuasive, but people writing things down in biro are more persuasive still."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_arc_wales_4",
+     "then": [
+      {
+       "do": "say",
+       "who": "Haf",
+       "text": "That's the Blaenavon lodge minute book? Gently. Gently! Give it here, I'll hold it as if it were a baby that might sue."
+      },
+      {
+       "do": "say",
+       "who": "Haf",
+       "text": "'Held in trust for the men of this valley.' The Miners' Hall is exactly that, it was bought with pennies out of wages, and the deeds went to the Trust when the lodge folded. Nobody asked the valley. Nobody ever does."
+      },
+      {
+       "do": "say",
+       "who": "Haf",
+       "text": "Workmen's institutes and libraries like this one were paid for by miners, a few pence a week from every packet, long before any council would buy a book. Tredegar's even gave Aneurin Bevan the idea for a health service."
+      },
+      {
+       "do": "say",
+       "who": "Haf",
+       "text": "So the Hall belongs to the valley in all but paperwork. You'll need numbers to move a board, though. The visitor book at the Rhondda Heritage Park will show you what visitors actually want."
+      },
+      {
+       "do": "set",
+       "flag": "q_arc_wales_5",
+       "value": true
+      },
+      {
+       "do": "sfx",
+       "id": "item"
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "Haf copies the minute book for the Trust, and hands it back with a bookmark in it."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Haf",
+       "text": "Archivist. Quiet, please. Unless you've brought something with a date on it, in which case, noisy and delighted."
+      }
+     ]
+    }
+   ]
+  }
  ]
 }

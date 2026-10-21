@@ -168,6 +168,8 @@ static func validate_commands(cmds: Array, tag: String, dex: Dex, items: ItemDB,
 						errors.append("%s: when has_ names an unknown species '%s'" % [tag, cond.substr(4)])
 				elif cond.begins_with("caught_") and dex.has(cond.substr(7)):
 					pass
+				elif (cond.begins_with("guild_") or cond.begins_with("regular_")) and cond.rsplit("_", true, 1)[1].is_valid_int():
+					pass
 				elif cond not in CONDITIONS and not Festivals.is_cond(cond):
 					errors.append("%s: when with unknown cond '%s'" % [tag, c.get("cond", "")])
 				errors.append_array(validate_commands(c.get("then", []), tag, dex, items, zones))
