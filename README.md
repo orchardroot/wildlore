@@ -170,7 +170,7 @@ CI runs the tests and the bot on every push, and three fuzz runs every night. De
 
 Playable start to finish and then some: the story, the post-game, the Overseas flights. It's a hobby project that got out of hand, written largely with AI help (Claude) and checked by nearly 1,900 tests and a robot that plays the whole thing. If you find somewhere it breaks, the issues page is [here](../../issues).
 
-It's free. If you enjoy it and want to say thanks, the best place for a few quid is the [Electronic Frontier Foundation](https://www.eff.org/donate). Or you can tip in Ethereum: 67% of whatever lands there goes on to the EFF, and 33% goes on coffee and cat food (Meadow and Bigboy have been very patient).
+It's free. If you enjoy it and want to say thanks, the best place for a few quid is the [Electronic Frontier Foundation](https://www.eff.org/donate). Or you can tip in Ethereum: 67% of whatever lands there goes on to the EFF, and 33% goes on coffee and cat food (Meadow has been very patient).
 
 ```
 0xd2b4d9707563d238974ca0fe401becf9122a4c11
