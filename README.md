@@ -54,6 +54,8 @@ Saves from 3.7 carry straight over.
 
 Saves from 3.6 carry straight over.
 
+**3.7.1:** the bike turns with you when you ride up and down; buildings standing between you and the camera go see-through while you're behind them (so you can always see yourself and the doors tucked behind a front row); and Castlefield's railway viaduct now strides the whole width of Manchester over the canal instead of stopping short.
+
 ## What's new in 3.6: Good Stock
 
 - **Breeding, done properly.** Every creature now carries its makings: genes for coat, tint, markings, a hidden knack, size and build, two copies of each, one from each parent. Pair two fond creatures at Guiting Rare Breeds Farm in the Cotswolds, walk the basket off, and see what hatches.

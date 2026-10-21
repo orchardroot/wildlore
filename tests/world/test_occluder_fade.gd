@@ -1,0 +1,9 @@
+extends TestCase
+
+func test_a_building_hides_what_is_just_behind_it() -> void:
+	var r := Rect2(10, 10, 6, 3)  # x 10..16, z 10..13
+	assert_true(OccluderFade.hides(r, Vector2(12.5, 9.5)), "right behind the back wall")
+	assert_true(OccluderFade.hides(r, Vector2(12.5, 7.0)), "a couple of tiles further back, under the roofline")
+	assert_false(OccluderFade.hides(r, Vector2(12.5, 5.0)), "far enough back to see over it")
+	assert_false(OccluderFade.hides(r, Vector2(12.5, 13.5)), "in front of it")
+	assert_false(OccluderFade.hides(r, Vector2(20.5, 9.5)), "off to the side")

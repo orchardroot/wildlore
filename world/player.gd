@@ -60,7 +60,7 @@ func setup(ow: Node, sprite_id: String) -> void:
 	add_child(_coracle)
 	_refresh_ride()
 
-## A little bicycle under the sprite: two wheels and a frame, side-on to the camera.
+## A little bicycle under the sprite: two wheels and a frame, turned with the rider (see face).
 func _make_bike() -> Node3D:
 	var root := Node3D.new()
 	var mat := StandardMaterial3D.new()
@@ -107,6 +107,8 @@ func face(dir: String) -> void:
 	facing = dir
 	if sprite:
 		sprite.set_facing(dir)
+	if _bike:
+		_bike.rotation_degrees.y = 90.0 if dir in ["up", "down"] else 0.0  # end-on up and down the screen, side-on across it
 
 ## Run mode "toggle": a fresh press of the run key flips the latch. "hold" never latches.
 static func next_run_latch(mode: String, latched: bool, pressed: bool) -> bool:

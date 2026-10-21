@@ -55,6 +55,7 @@ var town_id := ""              # world map and rail id; "" for routes and interi
 var station := Vector2i(-1, -1)  # rail stop tile, (-1, -1) for none
 var ferry: Dictionary = {}     # {x, y, route}
 var stub := false              # a placeholder another builder will replace
+var viaducts: Array = []      # scenery viaducts across the zone (see Viaduct)
 var scaled_floor := -1        # off the main line: encounters authored at this par, lifted with the story (ParLevel); -1 = fixed
 var dark := false              # a cave: only a circle of light round the player (wider with the Lantern)
 var deep_solid: Array = []    # tiles DeepPlace made solid (levers, crates), cleared on each re-apply
@@ -100,6 +101,7 @@ static func from_dict(d: Dictionary) -> ZoneData:
 	z.dark = bool(d.get("dark", false))
 	z.deep = d.get("deep", {})
 	z.scaled_floor = int(d.get("scaled_floor", -1))
+	z.viaducts = d.get("viaducts", [])
 	z.ambience = str(d.get("ambience", ""))
 	var sp: Array = d.get("spawn", [0, 0])
 	z.spawn = Vector2i(int(sp[0]), int(sp[1]))
