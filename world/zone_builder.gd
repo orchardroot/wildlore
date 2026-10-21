@@ -646,11 +646,18 @@ static func _buildings(z: ZoneData, root: Node3D) -> void:
 
 # --- interiors -----------------------------------------------------------------
 
+## Cave interiors (a dark zone or the "cave" stage) get rough rock walls and stalactites, not plaster.
+static func is_cave(z: ZoneData) -> bool:
+	return z.kind == "interior" and (z.dark or z.stage == "cave")
+
 static func _interior_walls(z: ZoneData) -> MeshInstance3D:
 	var st := SurfaceTool.new()
 	st.begin(Mesh.PRIMITIVE_TRIANGLES)
-	var plaster := Color("cfc3a8")
-	var skirting := Color("6b4a32")
+	var cave := is_cave(z)
+	var plaster := Color("6f685d") if cave else Color("cfc3a8")
+	var skirting := Color("4a443c") if cave else Color("6b4a32")
+	var rng := RandomNumberGenerator.new()
+	rng.seed = hash(z.id + "_rock")
 	for y in z.height:
 		for x in z.width:
 			var p := Vector2i(x, y)
@@ -664,6 +671,9 @@ static func _interior_walls(z: ZoneData) -> MeshInstance3D:
 			var floor_n := north != "" and north != "void"
 			var floor_e := east != "" and east != "void"
 			var floor_w := west != "" and west != "void"
+			if cave and (floor_s or floor_e or floor_w or floor_n):
+				_rock(st, p, rng, plaster)
+				continue
 			if floor_s:
 				Meshes.box(st, Vector3(x, 0, y + 0.6), Vector3(1, 2.4, 0.4), plaster, plaster.darkened(0.3))
 				Meshes.box(st, Vector3(x, 0, y + 0.95), Vector3(1, 0.2, 0.06), skirting)
@@ -672,9 +682,34 @@ static func _interior_walls(z: ZoneData) -> MeshInstance3D:
 				Meshes.box(st, Vector3(ox, 0, y), Vector3(0.3, 1.2, 1), plaster.darkened(0.08), plaster.darkened(0.3))
 			elif floor_n:
 				Meshes.box(st, Vector3(x, 0, y), Vector3(1, 0.25, 0.3), plaster.darkened(0.1), skirting)
+	if cave:
+		_stalactites(st, z, rng)
 	st.index()
 	var mi := MeshInstance3D.new()
 	mi.name = "Walls"
 	mi.mesh = st.commit()
 	mi.material_override = Meshes.solid
 	return mi
+
+## One tile of cave wall: uneven stacked blocks of stone, a different height and tint each.
+static func _rock(st: SurfaceTool, p: Vector2i, rng: RandomNumberGenerator, base: Color) -> void:
+	for i in 3:
+		var w := rng.randf_range(0.35, 0.6)
+		var h := rng.randf_range(1.6, 2.6)
+		var ox := rng.randf_range(0.0, 1.0 - w)
+		var oz := rng.randf_range(0.0, 1.0 - w)
+		var c := base.lightened(rng.randf_range(-0.12, 0.1))
+		Meshes.box(st, Vector3(p.x + ox, 0, p.y + oz), Vector3(w, h, w), c, c.lightened(0.1))
+
+## Cones of rock hanging over scattered floor tiles, a few tiles per room.
+static func _stalactites(st: SurfaceTool, z: ZoneData, rng: RandomNumberGenerator) -> void:
+	for y in z.height:
+		for x in z.width:
+			var t := z.tile_at(Vector2i(x, y))
+			if t == "void" or t == "" or rng.randf() > 0.07:
+				continue
+			var c := Color("857d70")
+			for k in 3:
+				var half := 0.12 - k * 0.04
+				var length := 0.3 + rng.randf() * 0.15
+				Meshes.box(st, Vector3(x + 0.5 - half, 2.5 - (k + 1) * length, y + 0.5 - half), Vector3(half * 2, length, half * 2), c.darkened(k * 0.08))
