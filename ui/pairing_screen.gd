@@ -87,7 +87,7 @@ func _fill_list() -> void:
 		sex.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		h.add_child(sex)
 		var ic := AnimSprite.new()
-		ic.show_species(c.species.id, "icon", 1, false, c.variant)
+		ic.show_species(c.species.id, "icon", 1, false, c.variant, c.form)
 		ic.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		h.add_child(ic)
 		var nm := UIKit.fit_label(c.nickname if c.nickname != "" else str(c.species.name), 220, 24, 16)
@@ -154,7 +154,7 @@ func _refresh() -> void:
 		var c: Creature = pair[0]
 		if c != null:
 			var s := AnimSprite.new()
-			s.show_species(c.species.id, "front", 1, false, c.variant)
+			s.show_species(c.species.id, "front", 1, false, c.variant, c.form)
 			col.add_child(s)
 			var fl := UIKit.fit_label(c.nickname if c.nickname != "" else str(c.species.name), 220, 24, 16)
 			col.add_child(fl)

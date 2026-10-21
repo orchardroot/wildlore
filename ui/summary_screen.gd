@@ -152,7 +152,7 @@ func _left(c: Creature) -> Control:
 	holder.custom_minimum_size = Vector2(288, 262)
 	holder.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
 	var s := AnimSprite.new()
-	s.show_species(c.species.id, "front", 3, false, c.variant)
+	s.show_species(c.species.id, "front", 3, false, c.variant, c.form)
 	s.position = Vector2(0, -18)
 	holder.add_child(s)
 	v.add_child(holder)
@@ -177,6 +177,8 @@ func _left(c: Creature) -> Control:
 		var chip := UIKit.type_chip(str(t), 20)
 		chip.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 		(lv_row if c.types().size() == 1 else tags).add_child(chip)
+	if c.form != "":
+		tags.add_child(UIKit.chip(Forms.name_of(str(c.species.id), c.form) + " form", Color("3a4a3a"), Color("dfe8d0"), 20))
 	if c.variant != "":
 		tags.add_child(CoatArt.coat_chip(c.variant))
 	var st: Control = UIKit.chip("fainted", Color("6b2f2f")) if c.is_fainted() else UIKit.status_chip(c.status, 20)

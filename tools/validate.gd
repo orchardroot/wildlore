@@ -28,6 +28,7 @@ func _initialize() -> void:
 	errors.append_array(Langs.check(func(zid): return zones.has(zid)))  # data/lang: places are zones, shape, no em-dashes
 	errors.append_array(MarketHall.check_files())  # data/market_halls.json: rooms, stall-holders, plaques
 	errors.append_array(Knacks.check(dex))  # every line has a knack, legends their own
+	errors.append_array(Forms.check(dex, MoveDB.load_default(), _regions(zones), TypeChart.load_default()))  # data/forms.json: regional forms
 	errors.append_array(Breeding.check(dex))  # data/breeding.json: the conservation goals name real breeding lines
 	errors.append_array(Genetics.check(dex))  # data/genes.json: loci match the code, every line has a kindred
 	errors.append_array(Genetics.check_hybrids(dex, MoveDB.load_default()))  # data/hybrids.json: parents, types, caps, sprites
@@ -43,3 +44,12 @@ func _initialize() -> void:
 		printerr("DATA: " + e)
 	print("validate: %d error(s)" % errors.size())
 	quit(1 if errors.size() > 0 else 0)
+
+## Every region id some zone carries.
+func _regions(zones: Dictionary) -> Array:
+	var out := []
+	for zid in zones:
+		var r := str(zones[zid].region)
+		if r != "" and r not in out:
+			out.append(r)
+	return out

@@ -242,6 +242,7 @@ static func start(data: GameStateData, sire: Creature, dam: Creature, zone: Stri
 		"hybrid": str(sp.id) if str(can.kind) == "hybrid" else "", "level": level,
 		"genome": kit.genome, "sex": kit.sex, "ivs": kit.ivs, "temper": kit.temper, "pedigree": kit.pedigree,
 		"uid": _next_uid(data), "heirlooms": heirlooms(sire, dam, sp, moves, level),
+		"dam_form": dam.form if str(can.kind) != "hybrid" else "",
 		"sport": kit.sport, "sport_locus": kit.sport_locus, "kinship": kit.kinship,
 		"parents": {"sire": _hands(sire), "dam": _hands(dam)},
 		"steps_due": steps_now(data) + int(walk.steps), "started_day": data.day_count,
@@ -274,6 +275,7 @@ static func hatch(data: GameStateData, slot: int, dex: Dex, moves: MoveDB = null
 	c.hybrid = str(b.get("hybrid", ""))
 	c.friendship = HATCH_FRIENDSHIP
 	c.variant = str(Genetics.showing(c).variant)
+	Forms.inherit(c, str(b.get("dam_form", "")), db)  # maternal, a simplification (see the Stud Book)
 	for m in b.get("heirlooms", []):
 		if c.moves.size() >= Rules.MAX_MOVES:
 			c.moves.remove_at(0)
