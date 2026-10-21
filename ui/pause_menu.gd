@@ -1,5 +1,5 @@
 extends MenuBase
-## Pause menu: Team, Fieldbook, Bag, Ark (once you've met a Sanctuary nurse), Journal, Map, Stats, Save, Settings and Close,
+## Pause menu: Team, Fieldbook, Bag, Ark (once you've met a Sanctuary nurse), Journal, Almanac (every page of the book, Stats included), Map, Save, Settings and Close,
 ## with the Keeper card, the time and weather, and "Where next?" beside it.
 
 const ROW_GAP := 6
@@ -27,8 +27,8 @@ func _build() -> void:
 	var menu := VBoxContainer.new()
 	menu.add_theme_constant_override("separation", ROW_GAP)
 	left.add_child(menu)
-	var actions := {"Team": _open_team, "Fieldbook": _open_pedia, "Bag": _open_bag, "Ark": _open_ark, "Journal": _open_journal, "Map": _open_map,
-		"Stats": _open_stats, "Save": _save, "Settings": _open_settings, "Close": func(): close(null)}
+	var actions := {"Team": _open_team, "Fieldbook": _open_pedia, "Bag": _open_bag, "Ark": _open_ark, "Journal": _open_journal, "Almanac": _open_almanac, "Map": _open_map,
+		"Save": _save, "Settings": _open_settings, "Close": func(): close(null)}
 	for nm in MenuLogic.pause_entries(MenuLogic.ark_unlocked(Game.data)):
 		var b := make_button(nm, actions[nm])
 		b.add_theme_font_size_override("font_size", 32)
@@ -129,20 +129,14 @@ func _refresh_next() -> void:
 		var head := HBoxContainer.new()
 		head.add_child(UIKit.label("Still to do" if o.get("postgame", false) else "Where next?", 22, UIKit.MUTED))
 		head.add_child(UIKit.fill())
-		head.add_child(UIKit.label(Jobs.summary(d, Game.dex), 20, UIKit.GOLD))  # odd jobs off the noticeboards (the Stats page lists them)
+		head.add_child(UIKit.label(Jobs.summary(d, Game.dex), 20, UIKit.GOLD))  # odd jobs off the noticeboards (the Almanac lists them)
 		_next.add_child(head)
 	var wb := UIKit.words_box([24, 22, 20, 18], 6)  # however much there is to say, it shrinks to fit the card
 	_next.add_child(wb[0])
-	if not o.is_empty():
-		UIKit.add_words(wb[1], str(o.get("text", "")))
-	if d.flag("game_complete") != true:  # what's going on near you: a job to hand in, a show, a site, a side story
-		var town := str(d.flag("last_town")) if d.flag("last_town") != null else ""
-		var near := MenuLogic.around_here(d, town, Tournament.today(d))
-		if near != "":
-			UIKit.add_words(wb[1], "Around here: " + near, -2, UIKit.GOLD)
-		var quest := MenuLogic.quest_nearby(d, town)  # one quest under way nearby, if any
-		if quest != "":
-			UIKit.add_words(wb[1], quest, -2, Color("c9b3e0"))
+	var town := str(d.flag("last_town")) if d.flag("last_town") != null else ""
+	var colours := {"story": UIKit.CREAM, "quest": Color("c9b3e0"), "here": UIKit.GOLD, "festival": UIKit.GOLD, "deed": UIKit.GOLD, "basket": UIKit.GOLD}
+	for s in WhereNext.suggest(d, Game.dex.core_ids().size(), town, {"show": Tournament.today(d)}):  # up to three, the story first
+		UIKit.add_words(wb[1], "- " + str(s.text), 0 if s.kind == "story" else -2, colours.get(s.kind, UIKit.CREAM))
 	var walk := TodaysWalk.summary(d, Game.dex)
 	if walk != "":
 		UIKit.add_words(wb[1], walk, -6, UIKit.MUTED)
@@ -189,9 +183,9 @@ func _open_journal() -> void:
 	await open_child("quests")
 	_after_child("Journal")
 
-func _open_stats() -> void:
-	await open_child("stats")
-	_after_child("Stats")
+func _open_almanac() -> void:
+	await open_child("almanac")
+	_after_child("Almanac")
 
 func _open_settings() -> void:
 	await open_child("settings")

@@ -19,13 +19,13 @@ func _build() -> void:
 	col.set_anchors_preset(Control.PRESET_FULL_RECT)
 	col.add_theme_constant_override("separation", 10)
 	content.add_child(col)
-	var p := UIKit.panel(Color("1d2230f0"), 14)
+	var p := UIKit.panel(Color("1d2230f0"), 8)
 	col.add_child(p)
 	var v := VBoxContainer.new()
-	v.add_theme_constant_override("separation", 2)
+	v.add_theme_constant_override("separation", 0)
 	p.add_child(v)
 	var buttons := []
-	for def in [["text_speed", "Text speed"], ["battle_speed", "Battle speed"], ["travel_scenes", "Travel scenes"], ["quality", "Graphics quality"], ["music_volume", "Music volume"], ["sfx_volume", "Effects volume"], ["ambience_volume", "Ambience volume"], ["run_mode", "Run key"], ["follower", "Follower"], ["colour_blind", "Colour-blind friendly"], ["reduce_flashing", "Reduce flashing"], ["damage_numbers", "Damage numbers"], ["easy_fishing", "Easier fishing and sheepdogs"], ["easy_darts", "Easier pub games and crafts"]]:
+	for def in [["text_speed", "Text speed"], ["battle_speed", "Battle speed"], ["travel_scenes", "Travel scenes"], ["quality", "Graphics quality"], ["music_volume", "Music volume"], ["sfx_volume", "Effects volume"], ["ambience_volume", "Ambience volume"], ["run_mode", "Run key"], ["follower", "Follower"], ["colour_blind", "Colour-blind friendly"], ["reduce_flashing", "Reduce flashing"], ["damage_numbers", "Damage numbers"], ["hints", "Hints"], ["easy_fishing", "Easier fishing and sheepdogs"], ["easy_darts", "Easier pub games and crafts"]]:
 		var b := Button.new()
 		b.custom_minimum_size = Vector2(0, 26)  # rows are tight: the preview panel must clear the hint line
 		UIKit.compact(b, 2)
@@ -65,7 +65,7 @@ func _build() -> void:
 		v.add_child(b)
 		buttons.append(b)
 		_rows.append({"key": key, "button": b, "value": val, "bar": bar})
-	v.add_child(UIKit.spacer(6))
+	v.add_child(UIKit.spacer(0))
 	var bottom := HBoxContainer.new()  # Controls... and Back side by side, so the page fits with room to spare
 	bottom.add_theme_constant_override("separation", 10)
 	v.add_child(bottom)
@@ -74,7 +74,7 @@ func _build() -> void:
 	var back := make_button("Back", func(): close(null), 200)
 	for b in [controls, report, back]:
 		UIKit.compact(b, 6)
-		b.custom_minimum_size.y = 40
+		b.custom_minimum_size.y = 34
 		b.add_theme_font_size_override("font_size", 25)
 		bottom.add_child(b)
 		buttons.append(b)
@@ -161,6 +161,8 @@ func _change(key: String, d: int) -> void:
 			Settings.reduce_flashing = not Settings.reduce_flashing
 		"damage_numbers":
 			Settings.damage_numbers = not Settings.damage_numbers
+		"hints":
+			Settings.hints = not Settings.hints
 		"easy_fishing":
 			Settings.easy_fishing = not Settings.easy_fishing
 		"easy_darts":
@@ -203,6 +205,8 @@ func _paint_row(r: Dictionary) -> void:
 			l.text = "<  %s  >" % ("On" if Settings.reduce_flashing else "Off")
 		"damage_numbers":
 			l.text = "<  %s  >" % ("On" if Settings.damage_numbers else "Off")
+		"hints":
+			l.text = "<  %s  >" % ("On" if Settings.hints else "Off")
 		"easy_fishing":
 			l.text = "<  %s  >" % ("On" if Settings.easy_fishing else "Off")
 		"easy_darts":

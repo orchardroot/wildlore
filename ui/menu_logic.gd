@@ -173,9 +173,9 @@ static func ark_unlocked(d: GameStateData) -> bool:
 	return d.flag("_nurse_choice") != null or not d.ark.is_empty()
 
 ## The pause menu's entries: the Ark once a Sanctuary nurse has shown you it, the Journal (quests and the
-## Gazetteer), and always Close.
+## Gazetteer), the Almanac (every page in one place), and always Close.
 static func pause_entries(ark: bool) -> Array:
-	return ["Team", "Fieldbook", "Bag"] + (["Ark"] if ark else []) + ["Journal", "Map", "Stats", "Save", "Settings", "Close"]
+	return ["Team", "Fieldbook", "Bag"] + (["Ark"] if ark else []) + ["Journal", "Almanac", "Map", "Save", "Settings", "Close"]
 
 ## The height for each of `n` rows sharing `avail` px with `sep` between them, kept between `lo` and `hi`.
 static func row_height(avail: float, n: int, sep: int, lo: int, hi: int) -> int:
