@@ -1,0 +1,77 @@
+{
+ "cd_ranger": [
+  {
+   "do": "when",
+   "cond": "spring",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Ranger Iona",
+     "text": "Thank you for the lease. Spring, and the burn is loud with snowmelt. The deer are thin after winter, so give them room."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "summer",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Ranger Iona",
+       "text": "Summer. The deer have gone up the hill for the breeze, and the seedlings are up in their cages. Thank you."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "autumn",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Ranger Iona",
+         "text": "Autumn, and the stags are roaring on the tops. It's loud, and it's the best week of my year. Thank you for this."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Ranger Iona",
+         "text": "Winter. The deer come down to the shelter of the pines. Thank you for the lease, and for the quiet."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "cd_walker": [
+  {
+   "do": "say",
+   "who": "Hillwalker",
+   "text": "I came for a bit of a stravaig and I've been asked to sign a visitors' book. Sort of. I like it."
+  },
+  {
+   "do": "say",
+   "who": "Hillwalker",
+   "text": "Under the Land Reform Act we can walk almost anywhere in Scotland, if we behave. Here, somebody finally asked us to."
+  }
+ ],
+ "c_stagmor": [
+  {
+   "do": "say",
+   "who": "Stagmor",
+   "text": "A red deer stag stands on the skyline with the whole glen's attention on him."
+  }
+ ],
+ "c_caperling": [
+  {
+   "do": "say",
+   "who": "Caperling",
+   "text": "It clatters up into a pine and looks insulted that you noticed."
+  }
+ ]
+}

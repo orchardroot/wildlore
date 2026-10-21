@@ -1,0 +1,77 @@
+{
+ "cb_ranger": [
+  {
+   "do": "when",
+   "cond": "spring",
+   "chat": true,
+   "then": [
+    {
+     "do": "say",
+     "who": "Ranger Siobhan",
+     "text": "Spring, and the lapwings are tumbling over the field. Thank you for the lease. It sounds like a school playground."
+    }
+   ],
+   "else": [
+    {
+     "do": "when",
+     "cond": "summer",
+     "chat": true,
+     "then": [
+      {
+       "do": "say",
+       "who": "Ranger Siobhan",
+       "text": "Summer, and look at it. Bog cotton, birch scrub, a lake where there was a pit. Thank you, truly."
+      }
+     ],
+     "else": [
+      {
+       "do": "when",
+       "cond": "autumn",
+       "chat": true,
+       "then": [
+        {
+         "do": "say",
+         "who": "Ranger Siobhan",
+         "text": "Autumn. The whooper swans will be in soon, up from Iceland. They always know before we do."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Ranger Siobhan",
+         "text": "Winter. The birds come in their thousands to the new wetlands. Thank you for giving them the room."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "cb_cutter": [
+  {
+   "do": "say",
+   "who": "Turf Cutter",
+   "text": "I cut turf by hand every spring, the old way, for the home fire. Nobody minds that. It's the machines that took the lot."
+  },
+  {
+   "do": "say",
+   "who": "Turf Cutter",
+   "text": "Is it true you can't make a decent fire with a birch? You can. It's a different fire, that's all."
+  }
+ ],
+ "c_sodling": [
+  {
+   "do": "say",
+   "who": "Sodling",
+   "text": "It heaves itself out of the cutaway like a dropped clod and looks around sadly."
+  }
+ ],
+ "c_crexling": [
+  {
+   "do": "say",
+   "who": "Crexling",
+   "text": "A rasping call comes from somewhere in the grass, and it is, annoyingly, this one."
+  }
+ ]
+}

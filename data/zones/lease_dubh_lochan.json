@@ -1,0 +1,301 @@
+{
+ "id": "lease_dubh_lochan",
+ "name": "Dubh Lochan Flow",
+ "region": "scotland",
+ "kind": "route",
+ "music": "route_highlands",
+ "weather": {
+  "drizzle": 30,
+  "fog": 24,
+  "clear": 18,
+  "downpour": 12,
+  "gale": 8,
+  "sunshine": 8
+ },
+ "props": [
+  {
+   "type": "rock",
+   "x": 19,
+   "y": 21,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 46,
+   "y": 14,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 17,
+   "y": 12,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 44,
+   "y": 14,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 16,
+   "y": 21,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 46,
+   "y": 3,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 12,
+   "y": 8,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 31,
+   "y": 30,
+   "variant": 0
+  }
+ ],
+ "warps": [],
+ "edges": {
+  "east": {
+   "to": "flow_country",
+   "offset": 0,
+   "lease": "dubh_lochan"
+  }
+ },
+ "npcs": [
+  {
+   "id": "dl_ranger",
+   "sprite": "birdwatcher",
+   "x": 35,
+   "y": 22,
+   "facing": "down",
+   "move": "still",
+   "script": "dl_ranger"
+  },
+  {
+   "id": "dl_surveyor",
+   "sprite": "fox_watcher",
+   "x": 28,
+   "y": 26,
+   "facing": "down",
+   "move": "still",
+   "script": "dl_surveyor"
+  },
+  {
+   "id": "c_dubhlet_20_12",
+   "sprite": "creature:dubhlet",
+   "x": 20,
+   "y": 12,
+   "facing": "down",
+   "move": "wander",
+   "script": "c_dubhlet"
+  },
+  {
+   "id": "c_midgie_12_30",
+   "sprite": "creature:midgie",
+   "x": 12,
+   "y": 30,
+   "facing": "down",
+   "move": "still",
+   "script": "c_midgie"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "dubhlet",
+    "min": 76,
+    "max": 77,
+    "weight": 16
+   },
+   {
+    "species": "midgie",
+    "min": 76,
+    "max": 77,
+    "weight": 10,
+    "weather": [
+     "clear",
+     "drizzle",
+     "fog",
+     "sunshine"
+    ]
+   },
+   {
+    "species": "squibbet",
+    "min": 76,
+    "max": 77,
+    "weight": 10
+   },
+   {
+    "species": "sphagnet",
+    "min": 76,
+    "max": 77,
+    "weight": 10,
+    "requires_flag": "lease_dubh_lochan_stage",
+    "flag_at_least": 1
+   },
+   {
+    "species": "croakle",
+    "min": 76,
+    "max": 77,
+    "weight": 8,
+    "weather": [
+     "drizzle",
+     "downpour"
+    ],
+    "requires_flag": "lease_dubh_lochan_stage",
+    "flag_at_least": 1
+   },
+   {
+    "species": "crakeling",
+    "min": 76,
+    "max": 77,
+    "weight": 8,
+    "time": [
+     "dusk",
+     "night"
+    ],
+    "requires_flag": "lease_dubh_lochan_stage",
+    "flag_at_least": 2
+   },
+   {
+    "species": "eaglet",
+    "min": 76,
+    "max": 77,
+    "weight": 6,
+    "requires_flag": "lease_dubh_lochan_stage",
+    "flag_at_least": 2
+   },
+   {
+    "species": "peatmonarch",
+    "min": 76,
+    "max": 77,
+    "weight": 4,
+    "requires_flag": "lease_dubh_lochan_stage",
+    "flag_at_least": 3
+   },
+   {
+    "species": "goldeneyrie",
+    "min": 76,
+    "max": 77,
+    "weight": 3,
+    "requires_flag": "lease_dubh_lochan_stage",
+    "flag_at_least": 3
+   }
+  ],
+  "water": [
+   {
+    "species": "flowmoor",
+    "min": 76,
+    "max": 77,
+    "weight": 14,
+    "requires_flag": "lease_dubh_lochan_stage",
+    "flag_at_least": 1
+   },
+   {
+    "species": "dubhlet",
+    "min": 76,
+    "max": 77,
+    "weight": 16
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 34,
+   "y": 24,
+   "text": "THE FLOW COUNTRY. In Caithness and Sutherland lies one of the largest areas of blanket bog in Europe, about 4,000 square kilometres. The peat has been building up since the end of the last ice age, one thin layer of dead sphagnum moss at a time, and it holds a great deal of carbon.",
+   "plaque": "lease_dubh_lochan_flow",
+   "title": "The Flow Country"
+  },
+  {
+   "x": 38,
+   "y": 20,
+   "text": "TREES ON A BOG. In the 1980s tax relief on forestry led to large parts of the Flow Country being drained and planted with non-native conifers, which dried the peat. The relief ended in 1988 after a campaign by conservationists. Now the work is pulling the trees out and blocking the drains so the bog can re-wet.",
+   "plaque": "lease_dubh_lochan_trees",
+   "title": "Trees on a Bog"
+  },
+  {
+   "x": 37,
+   "y": 26,
+   "text": "A WORLD HERITAGE BOG. In 2024 the peatlands of Caithness and Sutherland were inscribed as a UNESCO World Heritage Site, recognising a landscape that was nearly planted over. Peatland covers only a small part of the Earth's land, but it stores more carbon than all the world's forests.",
+   "plaque": "lease_dubh_lochan_heritage",
+   "title": "A World Heritage Bog"
+  }
+ ],
+ "spawn": [
+  35,
+  23
+ ],
+ "stage": "bog",
+ "rows": [
+  "PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP",
+  "PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP",
+  "PPmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmPP",
+  "PPmmmmmmmm*mmm**mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmPP",
+  "PPmmmm~mmmm*mmm~mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmPP",
+  "PPmm~~~~~mym~~~~~~~mmmmm*mmmmmmmmmmmmmmmmm*mmmmmmmPP",
+  "PPmmmm~myyy~~~~~~~~~mmmmmmmmm*mmmmmmmmmmmmmmmmmmmmPP",
+  "PPmmmmmyyyyy~~~~~~~mmmmmmmmmm*mmmmmmmmmm*mmmmmmmmmPP",
+  "PPm*mmyyyyyyyyy~mmmmmmmmmmmmm*FFFFFFFFFFFFm*mmmmmmPP",
+  "PPmmmmmyyyyyyymmmmmmmmmmmmmmmmFmmmmmmmmmmmmmmmmmmmPP",
+  "PPmmmm*myyyyymmmmmmmmmmmmmmmmmFqqqqqqqqqqmmmmmmmmmPP",
+  "PPmmmmmmmmymmmmmmmmm*mmmmmmmmmFm~~~yymmmmmmmmmmmmmPP",
+  "PPmmmm~mmmmmmmmmmmmmmmmmmmmmmmFqqqqqqqqqqmmmmmm*mmPP",
+  "PP~~~~~~~~~mmmmmmmmmmmmmmmm*mmFy~~~yyyymmmmmmmmmmmPP",
+  "PPmmmm~mmmmmmmmmmmmmmmmmmmmmmmmqqqqqqqqqqmmmmmmmmmPP",
+  "PPmmmmmmmm*mmmmmmmmmmmmmmmmm*mmmyyyyy*mmmmmmmmmmmmPP",
+  "PPmmmmmmmmmmmmm~mmym*mmmmmmmmmmmmmymmmmmmmmmmmmmmmPP",
+  "PPmmmmmmmmmmm~~~~~yyymmmmmmmmmmmmmmmmmmmmmmmmmmmmmPP",
+  "PPmmmmmmmmmm~~~~~~~yyymm~mmmmmmmmmmmmmmmmmmmmmmmmmPP",
+  "PPmmmmmmmmmmm~~~~~yyyy~~~~~mmmmmmmmmmmmmmmmmmmmmmmPP",
+  "PPmmmm*mmmmmmmm~yyyyyymm~mmm*mmmkkkkkkkkkmmmmmmmmmPP",
+  "PPmmmmmmm*mmmmmmyyyyymmmmmmmmmmmkkkkkkkkkmymmmmmmmPP",
+  "PPmmmmmmmmmmmmmmmmymmmmmmmmmmmmmkkkkkkkkkyyyymmmmmkk",
+  "PPmmmkkkkkkkkkkkkkkkkkkkkkmmmmmmkkkk##############kk",
+  "PPmmmP~PmPmPmPmPmPmPmPmPmPmmmmmmkkkkkkkkkyyyyyymmmkk",
+  "PPm~~P~P~PmPmP~P~PmPmPmPmPmmmmmmkkkkkkkkkyyyyymmmmPP",
+  "PPmmmP~PmPmPmP~P~PmPmPmPmPmmmmmmkkkkkkkkkyyyymmmmmPP",
+  "PPmmmPmPmPmPmP~P~PmPmPmPmPymmmmmmmmmmmmmmmymmmm*mmPP",
+  "PPmmmPmPmPmPmPmPmPmPmPmPyPyyymmmmmmmmmmmmmmmmmmmmmPP",
+  "PPmmmPmPmPmPmPmPmPmPmPmPyPyyyymmmmmmmmmmmmmmmmmmmmPP",
+  "PPmmmPmPmPmPmPmPmP*PmPyP~Pyyyyymm~mmmmmmmmmmmmmmmmPP",
+  "PPmmmPmPmPmPmPmPmPmP~P~P~P~~~ym~~~~~mmmmmmmmmmmm*mPP",
+  "PPmmmPmPmPmPmPmPyPmPmPmP~Pyyym~~~~~~~mmmmmmmmmmmmmPP",
+  "PPmmmPmPmPmPmPyPyPyPmPmPmPymmmm~~~~~mmmmmmmmmmmmmmPP",
+  "PPmmmPmP*PmPmPyPyPyPmPmPmPm*mmmmm~mmmmmmmmmmmmmmmmPP",
+  "PPmm*PmPmPmPyPyPyPyPyPmP*PmmmmmmmmmmmmmmmmmmmmmmmmPP",
+  "PPmmmPmPmPmPmPyPyPyPmPmPmPmmmmmmmmmmmmmmmmmmmmmmmmPP",
+  "PPmmmPmPmPmPmPyPyPyPmPmPmPmmmmmmmmmmmmmmmmmmmmmmmmPP",
+  "PPmmmmmmmmmmmmmmymmmmmmm*mmmmmmmmmmmmmmmmmmmmmmmmmPP",
+  "PPmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmPP",
+  "PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP",
+  "PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP"
+ ],
+ "legend_extra": {
+  "m": {
+   "tile": "tall_grass",
+   "colour": "#9a8448"
+  },
+  "k": {
+   "tile": "grass",
+   "colour": "#7d8a50"
+  },
+  "y": {
+   "tile": "grass",
+   "colour": "#6b7444"
+  },
+  "q": {
+   "tile": "path",
+   "colour": "#6a5a3c"
+  }
+ }
+}
