@@ -1,0 +1,946 @@
+{
+ "_doc": "Hybrids (docs/design/2026-10-21-breeding.md, section 3). sire_lines x dam_lines are evolution-line ids; base is authored (average of the parents' final stages x0.92 with the two shared best stats lifted 5%, always under the better parent's total). real: real|folklore|invented, and dex.fact says plainly which. odds (optional, default 1) is the chance a listed cross takes.",
+ "hybrids": [
+  {
+   "id": "wildcat_hybrid",
+   "sire_lines": [
+    "wildkit",
+    "moggle"
+   ],
+   "dam_lines": [
+    "wildkit",
+    "moggle"
+   ],
+   "name": "Hybrid Wildcat",
+   "types": [
+    "night",
+    "kin"
+   ],
+   "base": {
+    "hp": 67,
+    "atk": 101,
+    "def": 82,
+    "lore": 55,
+    "ward": 70,
+    "spd": 75
+   },
+   "growth": "medium",
+   "catch_rate": 0,
+   "base_xp": 176,
+   "learnset": [
+    [
+     1,
+     "owl_swoop"
+    ],
+    [
+     1,
+     "shadow_nip"
+    ],
+    [
+     5,
+     "vixen_scream"
+    ],
+    [
+     9,
+     "scrum_push"
+    ],
+    [
+     13,
+     "moth_dust"
+    ],
+    [
+     17,
+     "moonlit_pounce"
+    ],
+    [
+     21,
+     "glower"
+    ],
+    [
+     26,
+     "dark_of_the_moon"
+    ],
+    [
+     26,
+     "out_of_the_murk"
+    ],
+    [
+     31,
+     "shove"
+    ],
+    [
+     37,
+     "haymaker"
+    ],
+    [
+     43,
+     "battle_crow"
+    ],
+    [
+     49,
+     "strongmans_yell"
+    ]
+   ],
+   "knack": "backs_to_wall",
+   "fertile": true,
+   "real": "real",
+   "dex": {
+    "text": "Tabby, but not quite the right tabby. The tail is too thin, the stripes are too few and it will come when called, which settles it.",
+    "fact": "Decades of crossing with domestic cats mean most wildcats left in Scotland are hybrids. Saving Wildcats, a conservation partnership, breeds and releases cats scored for how wild their genes are."
+   },
+   "sprite": {
+    "body": "highlynx",
+    "face": "moggle",
+    "palette": "mix"
+   }
+  },
+  {
+   "id": "sika_red",
+   "sire_lines": [
+    "fawnlet",
+    "sikawhistle"
+   ],
+   "dam_lines": [
+    "fawnlet",
+    "sikawhistle"
+   ],
+   "name": "Sika-red",
+   "types": [
+    "kin",
+    "gale"
+   ],
+   "base": {
+    "hp": 86,
+    "atk": 93,
+    "def": 78,
+    "lore": 55,
+    "ward": 72,
+    "spd": 72
+   },
+   "growth": "medium",
+   "catch_rate": 0,
+   "base_xp": 150,
+   "learnset": [
+    [
+     1,
+     "scrap"
+    ],
+    [
+     1,
+     "glare"
+    ],
+    [
+     5,
+     "shove"
+    ],
+    [
+     9,
+     "quick_nip"
+    ],
+    [
+     13,
+     "flex"
+    ],
+    [
+     18,
+     "ceilidh_stomp"
+    ],
+    [
+     23,
+     "barge"
+    ],
+    [
+     29,
+     "scrum_push"
+    ],
+    [
+     35,
+     "haymaker"
+    ],
+    [
+     41,
+     "terrace_roar"
+    ],
+    [
+     48,
+     "strongmans_yell"
+    ],
+    [
+     54,
+     "bouncers_verdict"
+    ]
+   ],
+   "knack": "shake_it_off",
+   "fertile": true,
+   "real": "real",
+   "dex": {
+    "text": "Bigger than a sika, spottier than a red, and nobody asked it which it would rather be. Whistles when it is cross.",
+    "fact": "Sika deer were brought from Japan in the 1800s and breed freely with native red deer. Hybrids are now widespread in Scotland and Ireland, and they threaten the purity of the red deer."
+   },
+   "sprite": {
+    "body": "stagmor",
+    "face": "sikawhistle",
+    "palette": "mix"
+   }
+  },
+  {
+   "id": "blue_brown_hare",
+   "sire_lines": [
+    "leveret",
+    "snowhare"
+   ],
+   "dam_lines": [
+    "leveret",
+    "snowhare"
+   ],
+   "name": "Blue-brown Hare",
+   "types": [
+    "kin",
+    "frost"
+   ],
+   "base": {
+    "hp": 70,
+    "atk": 72,
+    "def": 65,
+    "lore": 82,
+    "ward": 75,
+    "spd": 86
+   },
+   "growth": "medium",
+   "catch_rate": 0,
+   "base_xp": 150,
+   "learnset": [
+    [
+     1,
+     "scrap"
+    ],
+    [
+     1,
+     "pixie_prick"
+    ],
+    [
+     4,
+     "quick_nip"
+    ],
+    [
+     8,
+     "glamour"
+    ],
+    [
+     12,
+     "hunker"
+    ],
+    [
+     16,
+     "fairy_pinch"
+    ],
+    [
+     21,
+     "barge"
+    ],
+    [
+     26,
+     "gaelic_puck_out"
+    ],
+    [
+     32,
+     "sidhe_shimmer"
+    ],
+    [
+     38,
+     "hurley_swing"
+    ],
+    [
+     46,
+     "hobs_mischief"
+    ],
+    [
+     52,
+     "shinty_sweep"
+    ]
+   ],
+   "knack": "shake_it_off",
+   "fertile": true,
+   "real": "real",
+   "dex": {
+    "text": "Half the long ears of the brown hare and half the winter coat of the mountain hare, and it cannot decide when to change into it.",
+    "fact": "Brown hares and mountain hares can hybridise, though it is rare. Brown hare genes have turned up in mountain hares in Sweden."
+   },
+   "sprite": {
+    "body": "gealhare",
+    "face": "snowhare",
+    "palette": "mix"
+   },
+   "odds": 0.35
+  },
+  {
+   "id": "mule",
+   "sire_lines": [
+    "donkey"
+   ],
+   "dam_lines": [
+    "connie",
+    "foalmoor"
+   ],
+   "name": "Mule",
+   "types": [
+    "kin",
+    "hearth"
+   ],
+   "base": {
+    "hp": 71,
+    "atk": 68,
+    "def": 75,
+    "lore": 46,
+    "ward": 63,
+    "spd": 62
+   },
+   "growth": "medium",
+   "catch_rate": 0,
+   "base_xp": 150,
+   "learnset": [
+    [
+     1,
+     "scrap"
+    ],
+    [
+     1,
+     "glare"
+    ],
+    [
+     1,
+     "brine_spray"
+    ],
+    [
+     5,
+     "hunker"
+    ],
+    [
+     9,
+     "kindle"
+    ],
+    [
+     9,
+     "crab_pinch"
+    ],
+    [
+     14,
+     "barge"
+    ],
+    [
+     18,
+     "ceilidh_stomp"
+    ],
+    [
+     19,
+     "put_the_kettle_on"
+    ],
+    [
+     24,
+     "pantomime_horse"
+    ],
+    [
+     28,
+     "rip_current"
+    ],
+    [
+     30,
+     "hob_sizzle"
+    ],
+    [
+     36,
+     "mums_look"
+    ],
+    [
+     42,
+     "bank_holiday_sun"
+    ]
+   ],
+   "knack": "grazer",
+   "fertile": false,
+   "real": "real",
+   "dex": {
+    "text": "Takes after its father in the ears and its mother in the opinions. Strong, sure-footed and absolutely not to be hurried.",
+    "fact": "A mule has a donkey father and a horse mother. Its 63 chromosomes cannot pair up, so it is almost always sterile. The reverse cross, with a horse father, is a hinny."
+   },
+   "sprite": {
+    "body": "connemarr",
+    "face": "donkey",
+    "palette": "mix"
+   }
+  },
+  {
+   "id": "hinny",
+   "sire_lines": [
+    "connie",
+    "foalmoor"
+   ],
+   "dam_lines": [
+    "donkey"
+   ],
+   "name": "Hinny",
+   "types": [
+    "kin",
+    "tide"
+   ],
+   "base": {
+    "hp": 71,
+    "atk": 68,
+    "def": 75,
+    "lore": 46,
+    "ward": 63,
+    "spd": 62
+   },
+   "growth": "medium",
+   "catch_rate": 0,
+   "base_xp": 100,
+   "learnset": [
+    [
+     1,
+     "scrap"
+    ],
+    [
+     1,
+     "brine_spray"
+    ],
+    [
+     1,
+     "glare"
+    ],
+    [
+     5,
+     "hunker"
+    ],
+    [
+     9,
+     "crab_pinch"
+    ],
+    [
+     9,
+     "kindle"
+    ],
+    [
+     14,
+     "barge"
+    ],
+    [
+     18,
+     "ceilidh_stomp"
+    ],
+    [
+     19,
+     "put_the_kettle_on"
+    ],
+    [
+     24,
+     "pantomime_horse"
+    ],
+    [
+     28,
+     "rip_current"
+    ],
+    [
+     30,
+     "hob_sizzle"
+    ],
+    [
+     33,
+     "sheepdog_herd"
+    ],
+    [
+     36,
+     "mums_look"
+    ]
+   ],
+   "knack": "stiff_upper_lip",
+   "fertile": false,
+   "real": "real",
+   "dex": {
+    "text": "Rarer than a mule and a touch smaller, with the horse's ears and the donkey's patience, in that order of usefulness.",
+    "fact": "A hinny has a horse father and a donkey mother. Hinnies are rarer than mules and, like them, are almost always sterile."
+   },
+   "sprite": {
+    "body": "donkey",
+    "face": "connemarr",
+    "palette": "mix"
+   }
+  },
+  {
+   "id": "wholphin",
+   "sire_lines": [
+    "orcalet"
+   ],
+   "dam_lines": [
+    "dolphlet"
+   ],
+   "name": "Wholphin",
+   "types": [
+    "tide",
+    "frost"
+   ],
+   "base": {
+    "hp": 85,
+    "atk": 88,
+    "def": 75,
+    "lore": 76,
+    "ward": 69,
+    "spd": 60
+   },
+   "growth": "medium",
+   "catch_rate": 0,
+   "base_xp": 170,
+   "learnset": [
+    [
+     1,
+     "brine_spray"
+    ],
+    [
+     1,
+     "frozen_nip"
+    ],
+    [
+     1,
+     "crab_pinch"
+    ],
+    [
+     5,
+     "sea_fret"
+    ],
+    [
+     9,
+     "eddy_ripple"
+    ],
+    [
+     13,
+     "snow_flick"
+    ],
+    [
+     13,
+     "rip_current"
+    ],
+    [
+     17,
+     "tidal_surge"
+    ],
+    [
+     21,
+     "moon_pull"
+    ],
+    [
+     21,
+     "haar_chill"
+    ],
+    [
+     26,
+     "undertow"
+    ],
+    [
+     30,
+     "hard_frost"
+    ],
+    [
+     31,
+     "hoarfrost"
+    ],
+    [
+     36,
+     "spate_surge"
+    ]
+   ],
+   "knack": "sea_legs",
+   "fertile": true,
+   "real": "invented",
+   "dex": {
+    "text": "An orca's patience and a dolphin's sense of humour, neither of which it can be trusted with. Surfaces to look at you.",
+    "fact": "This pairing is a game invention. The real wholphin was a false killer whale crossed with a bottlenose dolphin, born in Hawaii in 1985, and it was fertile. An orca and a bottlenose cross is not documented."
+   },
+   "sprite": {
+    "body": "orcaird",
+    "face": "bayrunner",
+    "palette": "mix"
+   },
+   "odds": 0.2
+  },
+  {
+   "id": "loch_foal",
+   "sire_lines": [
+    "kelpie"
+   ],
+   "dam_lines": [
+    "connie",
+    "foalmoor"
+   ],
+   "name": "Loch Foal",
+   "types": [
+    "brook",
+    "kin"
+   ],
+   "base": {
+    "hp": 73,
+    "atk": 86,
+    "def": 75,
+    "lore": 64,
+    "ward": 72,
+    "spd": 82
+   },
+   "growth": "medium",
+   "catch_rate": 0,
+   "base_xp": 150,
+   "learnset": [
+    [
+     1,
+     "paddle_poke"
+    ],
+    [
+     1,
+     "scrap"
+    ],
+    [
+     1,
+     "whisper"
+    ],
+    [
+     1,
+     "brine_spray"
+    ],
+    [
+     5,
+     "eddy_ripple"
+    ],
+    [
+     5,
+     "glare"
+    ],
+    [
+     9,
+     "crab_pinch"
+    ],
+    [
+     10,
+     "keening"
+    ],
+    [
+     13,
+     "hunker"
+    ],
+    [
+     14,
+     "chain_rattle"
+    ],
+    [
+     18,
+     "ceilidh_stomp"
+    ],
+    [
+     19,
+     "spate_surge"
+    ],
+    [
+     23,
+     "barge"
+    ],
+    [
+     24,
+     "rap_on_pane"
+    ]
+   ],
+   "knack": "grazer",
+   "fertile": false,
+   "real": "folklore",
+   "dex": {
+    "text": "Damp at all hours, and its mane is never quite dry. Do not, whatever you do, let a child on its back near a loch.",
+    "fact": "Highland tales say the water-horse, the kelpie, can father foals on mares. They say. The details vary with the teller, and the story is folklore."
+   },
+   "sprite": {
+    "body": "connemarr",
+    "face": "kelpie",
+    "palette": "mix"
+   }
+  },
+  {
+   "id": "selkie_pup",
+   "sire_lines": [
+    "selklet"
+   ],
+   "dam_lines": [
+    "pupplash"
+   ],
+   "name": "Selkie Pup",
+   "types": [
+    "tide",
+    "fae"
+   ],
+   "base": {
+    "hp": 75,
+    "atk": 80,
+    "def": 85,
+    "lore": 65,
+    "ward": 84,
+    "spd": 64
+   },
+   "growth": "medium",
+   "catch_rate": 0,
+   "base_xp": 160,
+   "learnset": [
+    [
+     1,
+     "brine_spray"
+    ],
+    [
+     1,
+     "glamour"
+    ],
+    [
+     1,
+     "crab_pinch"
+    ],
+    [
+     4,
+     "barnacle_glue"
+    ],
+    [
+     9,
+     "sea_fret"
+    ],
+    [
+     12,
+     "rip_current"
+    ],
+    [
+     13,
+     "fairy_pinch"
+    ],
+    [
+     16,
+     "tidal_surge"
+    ],
+    [
+     20,
+     "undertow"
+    ],
+    [
+     22,
+     "the_haar"
+    ],
+    [
+     23,
+     "changeling_swap"
+    ],
+    [
+     24,
+     "moon_pull"
+    ],
+    [
+     30,
+     "spring_tide"
+    ],
+    [
+     33,
+     "fairy_ring"
+    ]
+   ],
+   "knack": "waterproof",
+   "fertile": true,
+   "real": "folklore",
+   "dex": {
+    "text": "Sleek, shy and dark-eyed. Sits at the water's edge at dusk and looks as if it is listening for something.",
+    "fact": "In Orkney and Shetland folklore selkies, seals that can take human form, have children with people. The stories are old and the pup is a legend."
+   },
+   "sprite": {
+    "body": "greyhaul",
+    "face": "selkie",
+    "palette": "mix"
+   }
+  },
+  {
+   "id": "puck_hare",
+   "sire_lines": [
+    "pooka"
+   ],
+   "dam_lines": [
+    "leveret"
+   ],
+   "name": "Puck Hare",
+   "types": [
+    "fae",
+    "kin"
+   ],
+   "base": {
+    "hp": 70,
+    "atk": 72,
+    "def": 65,
+    "lore": 82,
+    "ward": 75,
+    "spd": 83
+   },
+   "growth": "medium",
+   "catch_rate": 0,
+   "base_xp": 150,
+   "learnset": [
+    [
+     1,
+     "shadow_nip"
+    ],
+    [
+     1,
+     "scrap"
+    ],
+    [
+     1,
+     "glamour"
+    ],
+    [
+     1,
+     "pixie_prick"
+    ],
+    [
+     4,
+     "quick_nip"
+    ],
+    [
+     5,
+     "moth_dust"
+    ],
+    [
+     9,
+     "hoot_lullaby"
+    ],
+    [
+     12,
+     "hunker"
+    ],
+    [
+     13,
+     "hobs_mischief"
+    ],
+    [
+     16,
+     "fairy_pinch"
+    ],
+    [
+     18,
+     "moonlit_pounce"
+    ],
+    [
+     21,
+     "barge"
+    ],
+    [
+     23,
+     "changeling_swap"
+    ],
+    [
+     28,
+     "out_of_the_murk"
+    ]
+   ],
+   "knack": "shake_it_off",
+   "fertile": false,
+   "real": "invented",
+   "dex": {
+    "text": "Looks like a hare on the second glance and only on the second. Leads walkers across the field the wrong way, for fun.",
+    "fact": "A game invention. In Irish folklore the pooka takes the shape of a hare among other animals, and real hares and fairy creatures cannot interbreed."
+   },
+   "sprite": {
+    "body": "gealhare",
+    "face": "pooka",
+    "palette": "mix"
+   }
+  },
+  {
+   "id": "beast_kitten",
+   "sire_lines": [
+    "bodminax"
+   ],
+   "dam_lines": [
+    "moggle"
+   ],
+   "name": "Beast Kitten",
+   "types": [
+    "night",
+    "urban"
+   ],
+   "base": {
+    "hp": 64,
+    "atk": 74,
+    "def": 61,
+    "lore": 51,
+    "ward": 56,
+    "spd": 76
+   },
+   "growth": "medium",
+   "catch_rate": 0,
+   "base_xp": 96,
+   "learnset": [
+    [
+     1,
+     "shadow_nip"
+    ],
+    [
+     1,
+     "scrap"
+    ],
+    [
+     1,
+     "shove"
+    ],
+    [
+     1,
+     "quick_nip"
+    ],
+    [
+     5,
+     "glower"
+    ],
+    [
+     5,
+     "glare"
+    ],
+    [
+     9,
+     "owl_swoop"
+    ],
+    [
+     9,
+     "bin_lid_bash"
+    ],
+    [
+     14,
+     "flex"
+    ],
+    [
+     19,
+     "pitch_black"
+    ],
+    [
+     19,
+     "chip_shop_sizzle"
+    ],
+    [
+     24,
+     "scrum_push"
+    ],
+    [
+     24,
+     "mums_look"
+    ],
+    [
+     30,
+     "vixen_scream"
+    ]
+   ],
+   "knack": "backs_to_wall",
+   "fertile": false,
+   "real": "invented",
+   "dex": {
+    "text": "Every sighting is blurry and every witness is certain. It would like you to know it is, strictly, only a cat.",
+    "fact": "A rumour in game form. A 1995 government report on the Beast of Bodmin Moor found no evidence that a big cat lives there, so this cross is invented."
+   },
+   "sprite": {
+    "body": "bodminax",
+    "face": "moggle",
+    "palette": "mix"
+   }
+  }
+ ]
+}

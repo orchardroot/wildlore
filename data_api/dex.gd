@@ -14,6 +14,10 @@ const ORDER_PATH := "res://data/dex_order.json"
 ## the Fieldbook and catchable, but the milestones, the diploma and the region stamps only count the rest.
 ## Kept static (ids are global) so code holding only the save, like FieldbookGoals, can ask.
 static var _appendix := {}
+## Hybrids (data/hybrids.json, Good Stock) are real species a cross can hatch, kept out of the dex order, the
+## original-200 counts and the appendix: the Fieldbook lists them as a third section, H01 onwards.
+static var _hybrid := {}
+var _hybrid_order: Array = []
 
 static func load_default() -> Dex:
 	var dex := load_dir(DEFAULT_DIR)
@@ -21,7 +25,15 @@ static func load_default() -> Dex:
 		var order = JsonUtil.read(ORDER_PATH)
 		if order is Array:
 			dex.apply_order(order)
+	dex._load_hybrids()
 	return dex
+
+func _load_hybrids() -> void:
+	for id in Genetics.hybrids():
+		_species[id] = normalise(Genetics.hybrid_species(Genetics.hybrids()[id]))
+		_hybrid[id] = true
+		if id not in _hybrid_order:
+			_hybrid_order.append(id)
 
 ## Creaturepedia numbering: listed ids first in this order, anything unlisted after, in load order.
 func apply_order(order: Array) -> void:
@@ -109,10 +121,17 @@ func appendix_ids() -> Array:
 static func in_appendix(id: String) -> bool:
 	return _appendix.has(id)
 
+## The hybrid species, in the order data/hybrids.json lists them (H01 onwards in the Fieldbook).
+func hybrid_ids() -> Array:
+	return _hybrid_order.duplicate()
+
+static func is_hybrid(id: String) -> bool:
+	return _hybrid.has(id)
+
 ## How many of a caught (or seen) set are in the Fieldbook proper.
 static func core_count(ids: Dictionary) -> int:
 	var n := 0
 	for id in ids:
-		if not _appendix.has(id):
+		if not _appendix.has(id) and not _hybrid.has(id):
 			n += 1
 	return n
