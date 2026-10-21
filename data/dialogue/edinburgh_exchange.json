@@ -24,6 +24,36 @@
  ],
  "guild_traders": [
   {
+   "do": "if",
+   "flag": "guild_traders",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_arc_scotland_3",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_arc_scotland_4",
+       "then": [],
+       "else": [
+        {
+         "do": "say",
+         "who": "Clerk",
+         "text": "A member and a Scot with a plan. A business plan for a community buyout? Splendid. Sums first, sentiment second. Ask the auctioneer how the Enclosure sells."
+        },
+        {
+         "do": "set",
+         "flag": "q_arc_scotland_4"
+        }
+       ]
+      }
+     ],
+     "else": []
+    }
+   ],
+   "else": []
+  },
+  {
    "do": "face_player"
   },
   {
@@ -38,6 +68,38 @@
   }
  ],
  "edi_auctioneer": [
+  {
+   "do": "if",
+   "flag": "q_arc_scotland_4",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_arc_scotland_5",
+     "then": [],
+     "else": [
+      {
+       "do": "say",
+       "who": "Auctioneer",
+       "text": "A Highland estate called Dunmaol? Ben Lee grazing, a lodge, a township with a roof or two. The Enclosure's liquidator is selling it and has not mentioned the community right to buy. Funny that."
+      },
+      {
+       "do": "say",
+       "who": "Auctioneer",
+       "text": "You can watch a sale for the price of a seat. Take a look."
+      },
+      {
+       "do": "set",
+       "flag": "q_arc_scotland_5"
+      },
+      {
+       "do": "lease",
+       "id": ""
+      }
+     ]
+    }
+   ],
+   "else": []
+  },
   {
    "do": "face_player"
   },

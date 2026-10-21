@@ -185,12 +185,12 @@
   {
    "do": "say",
    "who": "Gaelic Pupil",
-   "text": "Gaelic's spoken here every day, on Skye. I'm learning. 'Madainn mhath' is 'good morning', 'tapadh leibh' is 'thank you', and 'sl\u00e0inte mhath' is 'good health'. I can say all three while sneezing."
+   "text": "Gaelic's spoken here every day, on Skye. I'm learning. 'Madainn mhath' is 'good morning', 'tapadh leibh' is 'thank you', and 'slàinte mhath' is 'good health'. I can say all three while sneezing."
   },
   {
    "do": "say",
    "who": "Gaelic Pupil",
-   "text": "Skye has a Gaelic college, Sabhal M\u00f2r Ostaig, down in Sleat. People come from all over to learn. They say the grammar is easy. It is not."
+   "text": "Skye has a Gaelic college, Sabhal Mòr Ostaig, down in Sleat. People come from all over to learn. They say the grammar is easy. It is not."
   }
  ],
  "por_creel": [
@@ -278,6 +278,103 @@
   {
    "do": "ferry",
    "route": "portree_tarbert"
+  }
+ ],
+ "arc_scot_seonag": [
+  {
+   "do": "if",
+   "flag": "q_arc_scotland_2",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_arc_scotland_3",
+     "then": [
+      {
+       "do": "say",
+       "who": "Seonag",
+       "text": "Edinburgh next. The traders' desk and the auction. You can't buy a hill without knowing what a hill costs."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Seonag",
+       "text": "The session book. Good. The Napier Commission, appointed in 1883, held its very first sitting at the Braes, and took evidence from crofters in their own words, a startling idea for the time."
+      },
+      {
+       "do": "say",
+       "who": "Seonag",
+       "text": "Before that, in Sutherland, the Clearances emptied whole straths for sheep. People were moved to the coast or put on ships. It was not weather, and it was not fate; it was rent. Some places are green now where the houses stood, and anyone who knows why will not walk across them lightly."
+      },
+      {
+       "do": "say",
+       "who": "Seonag",
+       "text": "A buyout needs a business plan or the bank laughs. Go to the Traders' desk at the Edinburgh Exchange and become a member, then ask about the auction rooms."
+      },
+      {
+       "do": "set",
+       "flag": "q_arc_scotland_3"
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Seonag",
+     "text": "If Calum sent you, the kirk book is in the church. Look for the page with the pencil."
+    }
+   ]
+  }
+ ],
+ "arc_scot_organiser": [
+  {
+   "do": "if",
+   "flag": "q_arc_scotland_8",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_arc_scotland_9",
+     "then": [
+      {
+       "do": "say",
+       "who": "Organiser",
+       "text": "Fiona says you're a good egg. High praise, from Fiona."
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "reg_fiona",
+       "then": [
+        {
+         "do": "say",
+         "who": "Organiser",
+         "text": "You know Fiona already? Marvellous. She's doing the baking for the count and she says you're welcome in her kitchen. That counts as a reference, in the Highlands."
+        },
+        {
+         "do": "set",
+         "flag": "q_arc_scotland_9"
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Organiser",
+         "text": "The ballot needs a catered night, and Fiona does the baking. She has a stall about the island and a face like a customs officer. Introduce yourself to her first; she'll know you when you do."
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Organiser",
+     "text": "I'm organising the count night. Not until you've the proof, though. The proof is first."
+    }
+   ]
   }
  ]
 }
