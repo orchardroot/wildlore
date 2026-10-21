@@ -2313,6 +2313,104 @@
   {"id": "dund_jam", "nation": "scotland", "town": "dundee", "badges": 0, "poster": "Dundee Marmalade Society", "title": "Marmalade, jute and journalism", "text": "We make marmalade. We make jute. We make newspapers. We do not make sense at six in the morning. Visit Keiller's at the start of the day and tell us the recipe is still safe.", "step": {"type": "visit", "zone": "dundee_keillers", "time": ["dawn"]}, "pay": 1},
   {"id": "oxf_dreaming", "nation": "england", "town": "oxford", "badges": 0, "poster": "Oxford Dreaming Spires Tours", "title": "Spires at midnight", "text": "The Bodleian never sleeps, only the students do. Step into the library after dark and see whether anything reads over your shoulder. Quiet, please.", "step": {"type": "visit", "zone": "oxford_bodleian", "time": ["night"]}, "pay": 1},
   {"id": "lerwick_otters", "nation": "scotland", "town": "lerwick", "badges": 9, "poster": "Shetland Amenity Trust", "title": "Otter count", "text": "The otters of the voes are shy, nocturnal and extremely good at not being counted. Catch a Rillotter for the survey, and do not, under any circumstances, tell it that it is on a list.", "step": {"type": "catch", "species": "rillotter"}, "pay": 3},
-  {"id": "lerwick_bannocks", "nation": "scotland", "town": "lerwick", "badges": 9, "poster": "Up Helly Aa Hall Committee", "title": "Bannocks for the hall", "text": "A squad that has marched all night will eat anything, and we would rather it ate bannocks than the furniture. Two Shetland bannocks, please, from the corner shop.", "step": {"type": "bring", "item": "shetland_bannock", "n": 2}, "pay": 1}
+  {"id": "lerwick_bannocks", "nation": "scotland", "town": "lerwick", "badges": 9, "poster": "Up Helly Aa Hall Committee", "title": "Bannocks for the hall", "text": "A squad that has marched all night will eat anything, and we would rather it ate bannocks than the furniture. Two Shetland bannocks, please, from the corner shop.", "step": {"type": "bring", "item": "shetland_bannock", "n": 2}, "pay": 1},
+  {
+   "id": "eng_poole_quay",
+   "nation": "england",
+   "town": "poole",
+   "badges": 0,
+   "poster": "Poole Quay Harbour Office",
+   "title": "Gulls on the quay",
+   "text": "The gulls on Poole Quay have learned to open chip bags. Catch a gale creature before they learn the lids on the bins.",
+   "step": {
+    "type": "catch",
+    "ctype": "gale"
+   },
+   "pay": 1
+  },
+  {
+   "id": "ci_jersey_cows",
+   "nation": "channel_islands",
+   "town": "st_helier",
+   "badges": 5,
+   "poster": "Jersey Cattle Society",
+   "title": "Show a proper Jersey",
+   "text": "The Jersey cow is the island's pride and its best-kept secret. Show us a kin creature with the same sleepy confidence.",
+   "step": {
+    "type": "show",
+    "ctype": "kin"
+   },
+   "pay": 1
+  },
+  {
+   "id": "ci_jersey_tide",
+   "nation": "channel_islands",
+   "town": "st_helier",
+   "badges": 5,
+   "poster": "St Helier Harbour Master",
+   "title": "Mind the tides",
+   "text": "Jersey has one of the biggest tides in the world, and the harbour empties twice a day. Catch a tide creature and prove you can keep up.",
+   "step": {
+    "type": "catch",
+    "ctype": "tide"
+   },
+   "pay": 1
+  },
+  {
+   "id": "ci_guernsey_fae",
+   "nation": "channel_islands",
+   "town": "st_peter_port",
+   "badges": 5,
+   "poster": "Victor Hugo's Housekeeper",
+   "title": "Fairies at Hauteville",
+   "text": "Victor Hugo wrote half of Les Miserables here and left a lot of ghosts behind. Show us a fae creature for the visitors' book.",
+   "step": {
+    "type": "show",
+    "ctype": "fae"
+   },
+   "pay": 1
+  },
+  {
+   "id": "ci_guernsey_tomato",
+   "nation": "channel_islands",
+   "town": "st_peter_port",
+   "badges": 5,
+   "poster": "Guernsey Tomato Growers",
+   "title": "Greenhouse lookout",
+   "text": "The greenhouses have a visitor and he's not paying. Catch a kin creature before the next harvest.",
+   "step": {
+    "type": "catch",
+    "ctype": "kin"
+   },
+   "pay": 1
+  },
+  {
+   "id": "ci_sark_gale",
+   "nation": "channel_islands",
+   "town": "sark",
+   "badges": 5,
+   "poster": "Dame of Sark's Office",
+   "title": "Dark sky, strong wind",
+   "text": "Sark has no cars and very little light. Show us a gale creature to keep the lanterns honest.",
+   "step": {
+    "type": "show",
+    "ctype": "gale"
+   },
+   "pay": 1
+  },
+  {
+   "id": "ci_sark_tide",
+   "nation": "channel_islands",
+   "town": "sark",
+   "badges": 5,
+   "poster": "Sark Boatmen's Cooperative",
+   "title": "Low tide at the Gouliot",
+   "text": "The Gouliot caves are only open at low tide. Catch a tide creature while you wait.",
+   "step": {
+    "type": "catch",
+    "ctype": "tide"
+   },
+   "pay": 1
+  }
  ]
 }

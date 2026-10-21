@@ -9,7 +9,7 @@ const SPECIES := ["tchian", "crockling", "beancrock", "vraicling"]
 const STYLES := ["jersey_granite", "guernsey_granite", "jersey_tower", "little_chapel"]
 const TRAINERS := {
 	"poole": ["poo_lifeboat", "poo_scout", "poo_sandbanks"],
-	"st_helier": ["sth_fishmonger", "sth_centenier", "sth_banker", "sth_swimmer"],
+	"st_helier": ["jsy_fishmonger", "jsy_centenier", "jsy_banker", "jsy_swimmer"],
 	"jersey_country": ["jer_dairyman", "jer_surfer", "jer_keeper_t", "jer_walker", "jer_legend"],
 	"st_peter_port": ["spp_fisher", "spp_douzaine", "spp_herdsman", "spp_tomato"],
 	"guernsey_country": ["gue_ormer", "gue_cyclist", "gue_monk", "gue_legend"],

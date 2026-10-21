@@ -108,23 +108,23 @@ def st_helier():
          ["Lillie Langtry was born at St Saviour in 1853, the Dean's daughter. She became one of the most photographed women in England, an actress, a friend of the Prince of Wales and, I'm told, the owner of a racehorse called Merman.",
           "Millais painted her holding a lily in 1878 and called it 'A Jersey Lily'. A lily, that is, not an actual lily. The name stuck to her for life."], "left")
     # trainers
-    trainer(z, "sth_fishmonger", "Fishmonger Vibert", "Fishmonger", "fisherman_north",
+    trainer(z, "jsy_fishmonger", "Fishmonger Vibert", "Fishmonger", "fisherman_north",
             [("pinchkin", 40), ("baskling", 41), ("selklet", 41)], 22, 30, "down",
             ["Spider crab, lobster, scallops and ormers, if you're lucky and licensed. I'd rather sell you a fish than fight you, but I'll do either."],
             "Oh, you've netted me. Have a scallop on the house.", "Ormers are a kind of abalone, a shell like a mother-of-pearl ear. You may only gather them on a few days a year, at the very lowest spring tides. Don't ask me where I get mine.", 780)
-    trainer(z, "sth_centenier", "Centenier Mauger", "Honorary Police", "warden_grunt",
+    trainer(z, "jsy_centenier", "Centenier Mauger", "Honorary Police", "warden_grunt",
             [("barkdeer", 41), ("ratty", 41), ("hazeldoze", 42)], 38, 29, "left",
             ["Honorary Police, that is. I'm elected by the parish and I'm not paid a penny, and I have the power to charge you. Don't tempt me."],
             "Fair do's. I'll not take you in.", "Every parish elects its own Honorary Police, a unique system the islands have kept for hundreds of years. We're volunteers, and we're nosy.", 800)
-    trainer(z, "sth_banker", "Financier Le Poidevin", "Financier", "commuter",
+    trainer(z, "jsy_banker", "Financier Le Poidevin", "Financier", "commuter",
             [("rivetling", 40), ("cooplet", 41), ("binfox", 42)], 57, 25, "left",
             ["I work in finance. Don't ask what I do, I'd have to charge you. The islands do very nicely on trust, funds and good lawyers."],
             "Dear me. A loss. I'll write that off against something.", "Jersey sets its own taxes and has done for centuries. We're not part of the UK and not part of the EU, but we're awfully good at paperwork.", 960)
-    trainer(z, "sth_swimmer", "Swimmer Gwen", "Sea Swimmer", "jogger",
+    trainer(z, "jsy_swimmer", "Swimmer Gwen", "Sea Swimmer", "jogger",
             [("dolphlet", 41), ("orcalet", 41), ("puffling", 40)], 36, 38, "right",
             ["I swim in the bay every day of the year. It's eight degrees in January and I feel marvellous. That's the cold talking."],
             "Fair play. I'm off for a hot chocolate and a lie down.", "The tides here are some of the biggest in Europe, up to twelve metres between low and high. Sandy beaches turn into a mile of rock pools twice a day.", 740)
-    scale(["sth_fishmonger", "sth_centenier", "sth_banker", "sth_swimmer"])
+    scale(["jsy_fishmonger", "jsy_centenier", "jsy_banker", "jsy_swimmer"])
     wild(z, [("chipgull", 40, 42, 14, {}), ("ternlet", 40, 41, 12, {}), ("starlet", 40, 41, 8, {"time": ["dawn", "day", "dusk"]}),
              ("moolet", 40, 42, 10, {}), ("herdlet", 40, 41, 8, {}), ("pinchkin", 40, 41, 10, {}),
              ("crockling", 40, 41, 6, {}), ("beancrock", 41, 42, 3, {"time": ["dusk", "night"]}),

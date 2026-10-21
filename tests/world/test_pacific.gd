@@ -158,7 +158,7 @@ func test_landmarks_and_zones_build() -> void:
 	for style in STYLES:
 		var out: Array = Meshes.building(7, 5, style, 3, 7, "overseas_pitcairn")
 		assert_true(out[0] is ArrayMesh and (out[0] as ArrayMesh).get_surface_count() > 0, style + " has a mesh")
-	var palm := Meshes.palm(1)
+	var palm := CaribStyles.palm(1)
 	assert_true(palm.get_surface_count() > 0, "the palm has a mesh")
 	for id in PIT + BIOT:
 		var root := ZoneBuilder.build(ZoneData.load_id(id))
