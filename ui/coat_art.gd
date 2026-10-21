@@ -15,7 +15,7 @@ static var _cache := {}
 
 ## The coated version of `tex` (any sheet: front, back or icon). `key` names the source for the cache.
 static func texture(tex: Texture2D, key: String, variant: String) -> Texture2D:
-	if variant == "" or tex == null or not Coats.PALETTES.has(variant):
+	if variant == "" or tex == null or not parse(variant).valid:
 		return tex
 	var ck := key + "|" + variant
 	if _cache.has(ck):
@@ -32,10 +32,29 @@ static func texture(tex: Texture2D, key: String, variant: String) -> Texture2D:
 	_cache[ck] = out
 	return out
 
-## Recolours an RGBA8 image in place.
+## "winter" -> one coat; "winter+storm" -> a roan of both; "tortie" (alone or after coats) -> warm patches on top.
+static func parse(variant: String) -> Dictionary:
+	var coats: Array = []
+	var tortie := false
+	for t in variant.split("+", false):
+		if t == "tortie":
+			tortie = true
+		elif Coats.PALETTES.has(t):
+			coats.append(t)
+		else:
+			return {"valid": false, "coats": [], "tortie": false}
+	return {"valid": not coats.is_empty() or tortie, "coats": coats, "tortie": tortie}
+
+const FRAME_W := 96        # sheets are two 96 px frames: noise repeats per frame so the idle bob doesn't shimmer
+const TORTIE := [Color("2a1410"), Color("9a4a1c"), Color("e08a3a"), Color("ffd9a0")]
+const TORTIE_STRENGTH := 0.8
+const PATCH := 7           # tortoiseshell patches, in pixels across
+
+## Recolours an RGBA8 image in place. A roan interleaves its two coats pixel by pixel (both palettes in the one
+## animal, as in roan cattle); tortoiseshell lays warm patches over whatever coat there is.
 static func recolour(img: Image, variant: String) -> void:
-	var pal: Array = Coats.PALETTES[variant]
-	var k: float = STRENGTH.get(variant, 0.8)
+	var p := parse(variant)
+	var coats: Array = p.coats
 	var w := img.get_width()
 	var h := img.get_height()
 	for y in h:
@@ -43,7 +62,36 @@ static func recolour(img: Image, variant: String) -> void:
 			var c := img.get_pixel(x, y)
 			if c.a <= 0.01:
 				continue
-			img.set_pixel(x, y, shade(c, pal, k))
+			var fx := x % FRAME_W
+			if not coats.is_empty():
+				var v: String = coats[0]
+				if coats.size() > 1 and _hash(fx, y, 3) & 1 == 1:
+					v = coats[1]
+				c = shade(c, Coats.PALETTES[v], STRENGTH.get(v, 0.8))
+			if p.tortie and _patch(fx, y):
+				c = shade(c, TORTIE, TORTIE_STRENGTH)
+			img.set_pixel(x, y, c)
+
+static func _hash(x: int, y: int, seed_v: int) -> int:
+	var n := x * 374761393 + y * 668265263 + seed_v * 2147483647
+	n = (n ^ (n >> 13)) * 1274126177
+	return (n ^ (n >> 16)) & 0x7fffffff
+
+## Patches: value noise on a PATCH-pixel grid, smoothly blended, half the animal.
+static func _patch(x: int, y: int) -> bool:
+	var gx := float(x) / PATCH
+	var gy := float(y) / PATCH
+	var ix := int(floor(gx))
+	var iy := int(floor(gy))
+	var fx := gx - ix
+	var fy := gy - iy
+	fx = fx * fx * (3.0 - 2.0 * fx)
+	fy = fy * fy * (3.0 - 2.0 * fy)
+	var a := float(_hash(ix, iy, 11) % 1000)
+	var b := float(_hash(ix + 1, iy, 11) % 1000)
+	var c := float(_hash(ix, iy + 1, 11) % 1000)
+	var d := float(_hash(ix + 1, iy + 1, 11) % 1000)
+	return lerpf(lerpf(a, b, fx), lerpf(c, d, fx), fy) > 500.0
 
 ## One pixel through the coat: outline kept; everything else mapped by brightness and blended by `k`.
 static func shade(c: Color, pal: Array, k: float) -> Color:
