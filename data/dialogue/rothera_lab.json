@@ -1,0 +1,57 @@
+{
+ "bat_scientist": [
+  {
+   "do": "if",
+   "flag": "q_overseas_antarctic_post_2",
+   "then": [
+    {
+     "do": "say",
+     "who": "Marine Biologist",
+     "text": "Signed and sealed. Mind the Clearfin. They're nicer than they look, and see-through, which is rather fine for a fish."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_overseas_antarctic_post_1",
+     "then": [
+      {
+       "do": "when",
+       "cond": "has_clearfin",
+       "then": [
+        {
+         "do": "say",
+         "who": "Marine Biologist",
+         "text": "A Clearfin! Look at that clear blood. No haemoglobin. It sounds like a fault, and it's actually the best thing about them: they get by on cold, oxygen-rich water. Signed. Off you go."
+        },
+        {
+         "do": "set",
+         "flag": "q_overseas_antarctic_post_2"
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Marine Biologist",
+         "text": "Show me a Clearfin and I'll sign your sack. Catch one by the water, or in the snow, if you like to take your time."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Marine Biologist",
+       "text": "The Bonner Laboratory. We dive under the sea ice, count what lives down there and photograph the lot. It's a lot of cold water for a lot of small stuff."
+      },
+      {
+       "do": "say",
+       "who": "Marine Biologist",
+       "text": "Icefish are my favourites. Clear blood, white gills, a mouth like a duck. We'd name one after you, but you haven't done anything yet."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

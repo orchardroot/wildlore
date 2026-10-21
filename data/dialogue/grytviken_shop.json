@@ -1,0 +1,44 @@
+{
+ "shopkeeper": [
+  {
+   "do": "if",
+   "flag": "q_overseas_south_georgia_toast_1",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_overseas_south_georgia_toast_2",
+     "then": [],
+     "else": [
+      {
+       "do": "say",
+       "who": "Shopkeeper",
+       "text": "Biosecurity let you through? Then you'll be wanting a tot for the Boss. Here. It's the good stuff: a measure of whisky in a little flask. Not for you. For the grave. I will be checking."
+      },
+      {
+       "do": "give_item",
+       "item": "boss_tot"
+      },
+      {
+       "do": "set",
+       "flag": "q_overseas_south_georgia_toast_2"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "do": "say",
+   "who": "Shopkeeper",
+   "text": "Welcome to the museum shop: the only shop on the island, which has done wonders for our reviews. Penguin things, ship's biscuit and a soup the whalers swore by."
+  },
+  {
+   "do": "shop",
+   "id": "grytviken_corner_shop"
+  },
+  {
+   "do": "say",
+   "who": "Shopkeeper",
+   "text": "Thank you. Mind the penguin on the way out. It's a toy. Probably."
+  }
+ ]
+}

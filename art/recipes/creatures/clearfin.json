@@ -1,0 +1,19 @@
+{"id": "clearfin",
+ "palette": {"glass": "#d8eef2", "glass2": "#f4fcfe", "bone": "#b8d4dc", "gill": "#e8a8b0", "fin": "#bfe0ea", "eye": "#14202a", "mouth": "#8aaab6", "ice": "#ffffff", "belly": "#e6f2f4"},
+ "layers": [
+  {"shape": "ellipse", "at": [48, 88], "size": [60, 8], "colour": "ice", "rim": false, "pattern": "speckle", "pcolour": "fin", "density": 30},
+  {"shape": "poly", "points": [[10, 62], [30, 58], [30, 78], [10, 86], [18, 74]], "colour": "fin"},
+  {"shape": "poly", "points": [[40, 50], [52, 30], [64, 50]], "colour": "fin"},
+  {"shape": "ellipse", "at": [52, 62], "size": [66, 36], "colour": "glass", "pattern": "speckle", "pcolour": "glass2", "density": 14},
+  {"shape": "ellipse", "at": [48, 70], "size": [44, 16], "colour": "belly", "rim": false},
+  {"shape": "ellipse", "at": [62, 72], "size": [20, 8], "colour": "fin", "angle": -20},
+  {"shape": "ellipse", "at": [70, 56], "size": [34, 28], "colour": "glass"}
+ ],
+ "face_layers": [
+  {"shape": "poly", "points": [[80, 58], [92, 62], [80, 68]], "colour": "mouth"},
+  {"shape": "line", "points": [[52, 52], [50, 70]], "width": 1.4, "colour": "gill", "shade": false},
+  {"shape": "line", "points": [[56, 52], [54, 70]], "width": 1.4, "colour": "gill", "shade": false},
+  {"shape": "line", "points": [[26, 64], [48, 62], [64, 60]], "width": 1, "colour": "bone", "shade": false}
+ ],
+ "eyes": [{"at": [72, 53], "r": 5, "colour": "eye"}]
+}

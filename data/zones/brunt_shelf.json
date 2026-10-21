@@ -1,0 +1,465 @@
+{
+ "id": "brunt_shelf",
+ "name": "Brunt Ice Shelf",
+ "region": "overseas_antarctic",
+ "kind": "route",
+ "music": "route_mountain",
+ "weather": {
+  "frost": 30,
+  "gale": 20,
+  "clear": 20,
+  "fog": 10,
+  "sunshine": 12,
+  "drizzle": 4,
+  "downpour": 4
+ },
+ "props": [
+  {
+   "type": "building",
+   "style": "halley_module",
+   "x": 14,
+   "y": 10,
+   "w": 6,
+   "h": 5,
+   "label": "Halley VI",
+   "kind": "workshop"
+  },
+  {
+   "type": "building",
+   "style": "halley_module",
+   "x": 22,
+   "y": 10,
+   "w": 3,
+   "h": 5,
+   "label": "Sleeping Module",
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "halley_module",
+   "x": 26,
+   "y": 10,
+   "w": 3,
+   "h": 5,
+   "label": "Sleeping Module",
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "halley_module",
+   "x": 30,
+   "y": 10,
+   "w": 3,
+   "h": 5,
+   "label": "Sleeping Module",
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "halley_module",
+   "x": 10,
+   "y": 10,
+   "w": 3,
+   "h": 5,
+   "label": "Science Module",
+   "show_label": false
+  },
+  {
+   "type": "penguin",
+   "x": 6,
+   "y": 21,
+   "variant": 2
+  },
+  {
+   "type": "penguin",
+   "x": 33,
+   "y": 21,
+   "variant": 2
+  },
+  {
+   "type": "penguin",
+   "x": 33,
+   "y": 23,
+   "variant": 3
+  },
+  {
+   "type": "penguin",
+   "x": 42,
+   "y": 19,
+   "variant": 3
+  },
+  {
+   "type": "penguin",
+   "x": 40,
+   "y": 21,
+   "variant": 3
+  },
+  {
+   "type": "penguin",
+   "x": 29,
+   "y": 20,
+   "variant": 2
+  },
+  {
+   "type": "penguin",
+   "x": 10,
+   "y": 19,
+   "variant": 3
+  },
+  {
+   "type": "penguin",
+   "x": 13,
+   "y": 19,
+   "variant": 2
+  },
+  {
+   "type": "penguin",
+   "x": 36,
+   "y": 22,
+   "variant": 2
+  },
+  {
+   "type": "penguin",
+   "x": 28,
+   "y": 23,
+   "variant": 2
+  },
+  {
+   "type": "penguin",
+   "x": 40,
+   "y": 20,
+   "variant": 3
+  },
+  {
+   "type": "penguin",
+   "x": 8,
+   "y": 19,
+   "variant": 2
+  },
+  {
+   "type": "penguin",
+   "x": 15,
+   "y": 19,
+   "variant": 2
+  },
+  {
+   "type": "penguin",
+   "x": 22,
+   "y": 21,
+   "variant": 2
+  },
+  {
+   "type": "penguin",
+   "x": 37,
+   "y": 23,
+   "variant": 2
+  },
+  {
+   "type": "penguin",
+   "x": 41,
+   "y": 24,
+   "variant": 2
+  },
+  {
+   "type": "penguin",
+   "x": 10,
+   "y": 23,
+   "variant": 3
+  },
+  {
+   "type": "penguin",
+   "x": 25,
+   "y": 21,
+   "variant": 3
+  },
+  {
+   "type": "penguin",
+   "x": 14,
+   "y": 20,
+   "variant": 2
+  },
+  {
+   "type": "penguin",
+   "x": 24,
+   "y": 19,
+   "variant": 2
+  },
+  {
+   "type": "penguin",
+   "x": 27,
+   "y": 24,
+   "variant": 2
+  },
+  {
+   "type": "penguin",
+   "x": 39,
+   "y": 24,
+   "variant": 2
+  },
+  {
+   "type": "seal",
+   "x": 12,
+   "y": 22,
+   "variant": 1
+  },
+  {
+   "type": "seal",
+   "x": 34,
+   "y": 21,
+   "variant": 1
+  },
+  {
+   "type": "skidoo",
+   "x": 8,
+   "y": 17
+  },
+  {
+   "type": "skidoo",
+   "x": 38,
+   "y": 14
+  },
+  {
+   "type": "flagpole",
+   "x": 13,
+   "y": 14,
+   "variant": 0
+  },
+  {
+   "type": "iceberg",
+   "x": 10,
+   "y": 30,
+   "variant": 1
+  },
+  {
+   "type": "iceberg",
+   "x": 36,
+   "y": 30,
+   "variant": 2
+  }
+ ],
+ "warps": [
+  {
+   "x": 17,
+   "y": 14,
+   "to": "brunt_hub",
+   "tx": 5,
+   "ty": 5,
+   "facing": "up"
+  }
+ ],
+ "edges": {
+  "west": {
+   "to": "rothera",
+   "offset": 0
+  }
+ },
+ "npcs": [
+  {
+   "id": "bat_glaciologist",
+   "sprite": "astronomer",
+   "x": 28,
+   "y": 18,
+   "facing": "down",
+   "move": "still",
+   "trainer": "bat_glaciologist"
+  },
+  {
+   "id": "bat_oldfid",
+   "sprite": "ravenmaster",
+   "x": 47,
+   "y": 20,
+   "facing": "down",
+   "move": "still",
+   "trainer": "bat_oldfid"
+  },
+  {
+   "id": "bat_counter",
+   "sprite": "fisher",
+   "x": 20,
+   "y": 20,
+   "facing": "down",
+   "move": "still",
+   "script": "bat_counter",
+   "name": "Penguin Counter"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "downlet",
+    "min": 95,
+    "max": 96,
+    "weight": 18
+   },
+   {
+    "species": "emperyn",
+    "min": 95,
+    "max": 96,
+    "weight": 5
+   },
+   {
+    "species": "clearfin",
+    "min": 95,
+    "max": 96,
+    "weight": 8
+   },
+   {
+    "species": "polartern",
+    "min": 95,
+    "max": 96,
+    "weight": 5
+   },
+   {
+    "species": "stalaghast",
+    "min": 95,
+    "max": 96,
+    "weight": 4
+   },
+   {
+    "species": "haarling",
+    "min": 95,
+    "max": 96,
+    "weight": 6,
+    "weather": [
+     "fog"
+    ]
+   }
+  ],
+  "water": [
+   {
+    "species": "selklet",
+    "min": 95,
+    "max": 96,
+    "weight": 12
+   },
+   {
+    "species": "clearfin",
+    "min": 95,
+    "max": 96,
+    "weight": 10
+   },
+   {
+    "species": "orcalet",
+    "min": 95,
+    "max": 96,
+    "weight": 8
+   },
+   {
+    "species": "orcaird",
+    "min": 95,
+    "max": 96,
+    "weight": 4
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 7,
+   "y": 14,
+   "text": "HALLEY VI. The sixth British base on the Brunt Ice Shelf, opened in 2012. It's a string of bright modules on hydraulic legs and big skis, so it can rise out of the snow, and be towed away if the ice shelf cracks. It cracked. In 2016 and 2017 the whole station was hauled, module by module, about twenty kilometres inland to safety.",
+   "plaque": "antarctic_halley",
+   "title": "Halley VI"
+  },
+  {
+   "x": 24,
+   "y": 17,
+   "text": "THE OZONE HOLE. In 1985, three British Antarctic Survey scientists, Joe Farman, Brian Gardiner and Jonathan Shanklin, reported a huge hole in the ozone layer above Halley, in measurements made over years. It made the world ban the chemicals responsible, and two years later the Montreal Protocol was signed. It worked.",
+   "plaque": "antarctic_ozone",
+   "title": "The Ozone Hole"
+  },
+  {
+   "x": 35,
+   "y": 17,
+   "text": "EMPEROR PENGUINS. The emperor is the biggest penguin: about a metre tall. The male keeps the egg warm on his feet through the Antarctic winter, in temperatures of minus forty and in winds that would take your hat off, then your head. A colony near Halley was one of the biggest, until the sea ice broke up in 2016 and most breeding failed. The birds have moved.",
+   "plaque": "antarctic_emperors",
+   "title": "Emperor Penguins"
+  },
+  {
+   "x": 41,
+   "y": 17,
+   "text": "WEDDELL SEALS. These seals live farther south than any other mammal. They keep breathing holes open in the ice with their teeth, dive hundreds of metres, and sing underwater in chirps, trills and whistles that sound like a spaceship being sorry. Please don't stand on their hole.",
+   "plaque": "antarctic_weddell",
+   "title": "Weddell Seals"
+  }
+ ],
+ "spawn": [
+  10,
+  16
+ ],
+ "stage": "mountain",
+ "legend_extra": {
+  "n": {
+   "tile": "grass",
+   "colour": "#eef3f8"
+  },
+  "N": {
+   "tile": "tall_grass",
+   "colour": "#dce8f0",
+   "prop": "none"
+  },
+  "e": {
+   "tile": "path",
+   "colour": "#c9d3d9"
+  },
+  "i": {
+   "tile": "path",
+   "colour": "#b4d6e6"
+  },
+  "a": {
+   "tile": "path",
+   "colour": "#8f918f"
+  },
+  "r": {
+   "tile": "grass",
+   "colour": "#7b7d7e"
+  },
+  "G": {
+   "tile": "cliff",
+   "colour": "#d4e6f0",
+   "side": "#a8c8da"
+  },
+  "M": {
+   "tile": "rock",
+   "colour": "#e6ecf1"
+  },
+  "w": {
+   "tile": "shallow",
+   "colour": "#8fb4c8"
+  }
+ },
+ "scaled_floor": 95,
+ "rows": [
+  "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM",
+  "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM",
+  "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM",
+  "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM",
+  "MGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG",
+  "MnnnnnnnnnnnnnnnNnnnnNnnnnnNNnnnnnnNNnNnNnnNnnNNNNNN",
+  "MnninnnnnnnnnNnnnnNnnnnnnnnnnnnnnnNnnnNiNnnnGGNNNNNN",
+  "MnNnnnNNnNnnnnnNNnnNnnnNnNnNnNNnNnnnNnnnNnnnGGNNNNNN",
+  "MnnnnnniNnNnnnnNnninnnnnnNnnNnnnnnnnNnnnnnnnGGNNNNNN",
+  "MnNnnnnnninnNnnnnNnnNnnNniNnnNNnnnninnNnNNnNGGNNNNNN",
+  "MnNnnnNnnnBBBnBBBBBBnNBBBNBBBnBBBNnnnNNnnnNnGGNNNNNN",
+  "MiNNnnNnnnBBBnBBBBBBnnBBBnBBBnBBBnnNnnninnnnGGNNNNNN",
+  "MNNnnNiNNnBBBnBBBBBBnNBBBnBBBNBBBnnniinnnnnNGGNNNNNN",
+  "MnniNnNnnnBBBnBBBBBBnnBBBnBBBnBBBnNNNnnnnNnNGGNNNNNN",
+  "MnNnNnnNnnBBBnBBBDBBNnBBBiBBBiBBBnnnnnninnniGGNNNNNN",
+  "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeN",
+  "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeN",
+  "MnnnnnnnnnninnNnnnNnnnniNnnnNnNnnnNNnNnnNNnnGGNNNNNN",
+  "MnnNnnninnnnNnnNnnnnninnNnnnnnnnNnnnnnnnnnnnGGNNNNNN",
+  "MNNnnninnnnnNnnnnnNNnnnNNnnnnnnnnnnnnnnNnnnNGGNNNNNN",
+  "MnninnnnnnniNnnnnnNnnnnnnnNNNnnnNnnnNnnnnnnNGGNNNNNN",
+  "MNnNnnNNnnnnnnnnNnnnnnnNnnnnnnnnnNnnnnnNNnnnGGNNNNNN",
+  "MnNnnnnnNNnnnnNiNnnnnnnnnnNnNnnnnnnnnNnnnnnnGGNNNNNN",
+  "MnNnnnNnNnnnnnnnnNnnnNnnNNnnnnnnnNnnNnnNNinnGGNNNNNN",
+  "MnnnNnnnnnNnnnnnnnNnnnnnnNnNnNnNnnnnnnnnnNNNnnNNNNNN",
+  "MGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG",
+  "MGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG",
+  "Mwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
+ ]
+}

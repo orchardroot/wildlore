@@ -1,0 +1,68 @@
+{
+ "id": "salisbury_hut",
+ "name": "Field Hut",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "bed",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "table",
+   "x": 6,
+   "y": 2
+  },
+  {
+   "type": "kettle_table",
+   "x": 7,
+   "y": 4
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 4
+  }
+ ],
+ "warps": [
+  {
+   "x": 4,
+   "y": 5,
+   "to": "sg_salisbury",
+   "tx": 12,
+   "ty": 19,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "sg_ranger",
+   "sprite": "explorer",
+   "x": 4,
+   "y": 2,
+   "facing": "down",
+   "move": "still",
+   "script": "sg_ranger",
+   "name": "Field Ranger"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  4,
+  4
+ ],
+ "rows": [
+  "xxxxxxxxx",
+  "x|||||||x",
+  "x|||||||x",
+  "x|||||||x",
+  "x|||||||x",
+  "x|||D|||x",
+  "xxxxxxxxx"
+ ]
+}

@@ -1,0 +1,96 @@
+{
+ "sg_guide": [
+  {
+   "do": "if",
+   "flag": "q_overseas_south_georgia_toast_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Museum Guide",
+     "text": "The one who toasted the Boss! The whole island's heard. All thirty of us. Come and look at the model of the James Caird again. It's only seven metres long. Seven. Across the Southern Ocean. In June."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_overseas_south_georgia_toast_4",
+     "then": [
+      {
+       "do": "say",
+       "who": "Museum Guide",
+       "text": "The penguin counter says you showed a chick and the book's one entry longer. And you drank to the Boss? Then you're one of us, and you can have this. Everyone's got one, it came with the museum."
+      },
+      {
+       "do": "give_item",
+       "item": "hip_flask"
+      },
+      {
+       "do": "give_item",
+       "item": "hot_blackcurrant",
+       "n": 3
+      },
+      {
+       "do": "set",
+       "flag": "q_overseas_south_georgia_toast_5"
+      },
+      {
+       "do": "set",
+       "flag": "q_overseas_south_georgia_toast_done"
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "The Guide gives you a battered flask. It holds hot blackcurrant now. In the old days it held something rather stronger."
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_overseas_south_georgia_toast_started",
+       "then": [
+        {
+         "do": "say",
+         "who": "Museum Guide",
+         "text": "Boots, then the tot, then the toast at the grave, then show a king penguin chick to the counter on Salisbury Plain. The Boss would want it done properly. And a little late."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Museum Guide",
+         "text": "Welcome to the South Georgia Museum! It's in the old whaling station manager's villa, which is why the sitting room is bigger than the whole of a sealer's hut. Whalers, sealers, Shackleton and penguins, all under one roof."
+        },
+        {
+         "do": "say",
+         "who": "Museum Guide",
+         "text": "There's a tradition. Every visitor drinks a toast to the Boss, Sir Ernest Shackleton, at his grave. It's our way of thanking him for bringing every single man of the Endurance expedition home alive."
+        },
+        {
+         "do": "say",
+         "who": "Museum Guide",
+         "text": "Mind, first the biosecurity officer must clear your boots. Then the museum shop will give you a tot. Then the grave. Then a chick, for the penguin count. Off you go."
+        },
+        {
+         "do": "set",
+         "flag": "q_overseas_south_georgia_toast_started"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "sg_postie": [
+  {
+   "do": "say",
+   "who": "Postmaster",
+   "text": "South Georgia has its own stamps, its own postmark and, as of this morning, one customer. Cards go home on the next ship. The next ship might be in March."
+  },
+  {
+   "do": "say",
+   "who": "Postmaster",
+   "text": "Pop your cards in the box if you like. There are only so many penguins who'll take a letter, and they're not licensed."
+  }
+ ]
+}

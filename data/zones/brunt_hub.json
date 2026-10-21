@@ -1,0 +1,77 @@
+{
+ "id": "brunt_hub",
+ "name": "Halley VI",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "wall_map",
+   "x": 5,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "telescope",
+   "x": 9,
+   "y": 5
+  },
+  {
+   "type": "table",
+   "x": 2,
+   "y": 5
+  },
+  {
+   "type": "specimen_shelf",
+   "x": 1,
+   "y": 2,
+   "variant": 1
+  },
+  {
+   "type": "specimen_shelf",
+   "x": 9,
+   "y": 2,
+   "variant": 0
+  }
+ ],
+ "warps": [
+  {
+   "x": 5,
+   "y": 6,
+   "to": "brunt_shelf",
+   "tx": 17,
+   "ty": 15,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "bat_halley",
+   "sprite": "astronomer",
+   "x": 5,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "bat_halley",
+   "name": "Station Scientist"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  5,
+  5
+ ],
+ "rows": [
+  "xxxxxxxxxxx",
+  "x+++++++++x",
+  "x+++++++++x",
+  "x+++++++++x",
+  "x+++++++++x",
+  "x+++++++++x",
+  "x++++D++++x",
+  "xxxxxxxxxxx"
+ ]
+}

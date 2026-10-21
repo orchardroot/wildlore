@@ -1,0 +1,65 @@
+{
+ "quests": [
+  {
+   "id": "overseas_south_georgia_toast",
+   "title": "A Toast to the Boss",
+   "region": "overseas_south_georgia",
+   "town": "grytviken",
+   "giver": "The Museum Guide",
+   "summary": "Get your boots past biosecurity, collect a tot, toast Shackleton at his grave and show a king penguin chick to the counter.",
+   "start_flag": "q_overseas_south_georgia_toast_started",
+   "steps": [
+    {
+     "flag": "q_overseas_south_georgia_toast_1",
+     "text": "Get your boots cleared by the biosecurity officer on the street.",
+     "zone": "grytviken"
+    },
+    {
+     "flag": "q_overseas_south_georgia_toast_2",
+     "text": "Collect a tot for the Boss from the museum shop.",
+     "zone": "grytviken"
+    },
+    {
+     "flag": "q_overseas_south_georgia_toast_3",
+     "text": "Toast Shackleton at his grave in the whalers' cemetery.",
+     "zone": "grytviken"
+    },
+    {
+     "flag": "q_overseas_south_georgia_toast_4",
+     "text": "Catch an Oakling and show it to the penguin counter on Salisbury Plain.",
+     "zone": "sg_salisbury"
+    },
+    {
+     "flag": "q_overseas_south_georgia_toast_5",
+     "text": "Tell the museum guide how it went.",
+     "zone": "grytviken"
+    }
+   ],
+   "done_flag": "q_overseas_south_georgia_toast_done",
+   "reward": "A Hip Flask (survives one knockout a battle) and three Hot Blackcurrants."
+  },
+  {
+   "id": "overseas_south_georgia_pipit",
+   "title": "Pipit Patrol",
+   "region": "overseas_south_georgia",
+   "town": "sg_salisbury",
+   "giver": "The Field Ranger",
+   "summary": "Find a Tussipit in the tussac grass and show it to the scientist at King Edward Point.",
+   "start_flag": "q_overseas_south_georgia_pipit_started",
+   "steps": [
+    {
+     "flag": "q_overseas_south_georgia_pipit_1",
+     "text": "Catch a Tussipit in the tussac grass and show the ranger.",
+     "zone": "sg_salisbury"
+    },
+    {
+     "flag": "q_overseas_south_georgia_pipit_done",
+     "text": "Show the scientist at the King Edward Point research station.",
+     "zone": "grytviken"
+    }
+   ],
+   "done_flag": "q_overseas_south_georgia_pipit_done",
+   "reward": "Pemmican and ship's biscuits."
+  }
+ ]
+}

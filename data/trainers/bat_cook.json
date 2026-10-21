@@ -1,0 +1,32 @@
+{
+ "id": "bat_cook",
+ "name": "Station Cook",
+ "class": "Cook",
+ "sprite": "jam_maker",
+ "scaled_floor": 95,
+ "party": [
+  {
+   "species": "emperyn",
+   "level": 96
+  },
+  {
+   "species": "polartern",
+   "level": 96
+  },
+  {
+   "species": "snowbunting",
+   "level": 96
+  }
+ ],
+ "ai": "trainer",
+ "money": 3000,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Station Cook",
+   "text": "Right. You eat my food for a week and now you want to fight me as well? Fair enough. Mind the soup."
+  }
+ ],
+ "win": "Oh, that's a very fair result. Are you stopping for pudding?",
+ "after": "Midwinter dinner for a hundred with a freezer and a hand mixer. And I did the speeches."
+}

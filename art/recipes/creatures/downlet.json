@@ -1,0 +1,18 @@
+{"id": "downlet",
+ "palette": {"down": "#a4a8b0", "down2": "#c6cad2", "mask": "#2a2a34", "bill": "#2a2630", "pink": "#e6a0a8", "foot": "#2a2228", "eye": "#14101a", "glow": "#f6c870"},
+ "layers": [
+  {"shape": "ellipse", "at": [37, 91], "size": [16, 6], "colour": "foot", "mirror": true, "rim": false},
+  {"shape": "ellipse", "at": [48, 66], "size": [60, 52], "colour": "down", "pattern": "speckle", "pcolour": "down2", "density": 20},
+  {"shape": "ellipse", "at": [24, 68], "size": [12, 24], "colour": "down2", "angle": 10, "mirror": true},
+  {"shape": "ellipse", "at": [48, 72], "size": [34, 28], "colour": "down2", "front_only": true, "rim": false},
+  {"shape": "ellipse", "at": [48, 42], "size": [50, 44], "colour": "down", "pattern": "speckle", "pcolour": "down2", "density": 20},
+  {"shape": "ellipse", "at": [48, 42], "size": [44, 36], "colour": "mask", "front_only": true, "rim": false},
+  {"shape": "ellipse", "at": [48, 46], "size": [28, 22], "colour": "down2", "front_only": true, "rim": false}
+ ],
+ "face_layers": [
+  {"shape": "poly", "points": [[43, 44], [53, 44], [48, 55]], "colour": "bill"},
+  {"shape": "ellipse", "at": [31, 48], "size": [6, 4], "colour": "pink", "shade": false, "mirror": true},
+  {"shape": "ellipse", "at": [48, 80], "size": [10, 6], "colour": "glow", "shade": false}
+ ],
+ "eyes": [{"at": [39, 40], "r": 4.2, "colour": "eye", "mirror": true}]
+}

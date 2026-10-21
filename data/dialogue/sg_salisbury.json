@@ -1,0 +1,65 @@
+{
+ "sg_counter": [
+  {
+   "do": "if",
+   "flag": "q_overseas_south_georgia_toast_5",
+   "then": [
+    {
+     "do": "say",
+     "who": "Penguin Counter",
+     "text": "Sixty thousand and one. The one's your chick. I've given it a number. Don't tell the others."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_overseas_south_georgia_toast_4",
+     "then": [
+      {
+       "do": "say",
+       "who": "Penguin Counter",
+       "text": "Go and tell the museum guide. She'll be insufferable about it."
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_overseas_south_georgia_toast_3",
+       "then": [
+        {
+         "do": "when",
+         "cond": "has_oakling",
+         "then": [
+          {
+           "do": "say",
+           "who": "Penguin Counter",
+           "text": "That's a king penguin chick, all right! The brown fluff gave them the name oakum boys: the sealers thought they looked like unpicked rope. Thank you. The count's one up."
+          },
+          {
+           "do": "set",
+           "flag": "q_overseas_south_georgia_toast_4"
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Penguin Counter",
+           "text": "I'm counting kings. One, two, three, four. A chick would be a fine help, for the numbers. A Fieldbook entry would do. Catch an Oakling and show me."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Penguin Counter",
+         "text": "Counting penguins. I'm on nine thousand and something. If you talk to me I'll lose count and have to start again. I don't mind. It's relaxing."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,32 @@
+{
+ "id": "bat_volunteer",
+ "name": "Heritage Volunteer",
+ "class": "Volunteer",
+ "sprite": "student",
+ "scaled_floor": 95,
+ "party": [
+  {
+   "species": "downlet",
+   "level": 95
+  },
+  {
+   "species": "clearfin",
+   "level": 96
+  },
+  {
+   "species": "kingwalker",
+   "level": 96
+  }
+ ],
+ "ai": "trainer",
+ "money": 2800,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Heritage Volunteer",
+   "text": "I counted two hundred and twelve gentoo nests this morning. Nothing's more satisfying. I'd like to count your team as well."
+  }
+ ],
+ "win": "Right. That's lost me my place in the count. Never mind, I'll start again.",
+ "after": "The best bit's the stamp. It has a picture of a penguin on it. A little penguin, for a little postcard."
+}

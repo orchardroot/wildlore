@@ -1,0 +1,60 @@
+[
+ {
+  "id": "ships_biscuit",
+  "name": "Ship's Biscuit",
+  "kind": "heal",
+  "price": 220,
+  "battle": true,
+  "field": true,
+  "amount": 100,
+  "desc": "Hard tack, as eaten on every polar expedition since the first sailing ship: flour and water baked until it could stop a bullet. Dunk it in tea. Restores 100 HP, and cracks a tooth if you don't."
+ },
+ {
+  "id": "whalers_pea_soup",
+  "name": "Pea and Ham Soup",
+  "kind": "heal",
+  "price": 320,
+  "battle": true,
+  "field": true,
+  "amount": 150,
+  "desc": "A thick pea soup with ham, the sort that kept the Grytviken whalers going through winter nights. You could stand a spoon in it. People have. Restores 150 HP."
+ },
+ {
+  "id": "hot_blackcurrant",
+  "name": "Hot Blackcurrant",
+  "kind": "cure",
+  "price": 200,
+  "battle": true,
+  "field": true,
+  "cures": [
+   "chilled",
+   "soaked",
+   "muddled"
+  ],
+  "desc": "Blackcurrant cordial in a flask of hot water: the cold-weather drink of every hut in the south. Tastes like a jam sandwich in a mug. Cures chilled, soaked and muddled."
+ },
+ {
+  "id": "hip_flask",
+  "name": "Hip Flask",
+  "kind": "charm",
+  "price": 0,
+  "battle": false,
+  "field": true,
+  "wild": true,
+  "desc": "A dented tin flask from the Grytviken museum, in the style of the one the Boss carried. It has survived a great deal and so, apparently, will you.",
+  "effect_text": "Survives one knockout a battle.",
+  "charm": {
+   "effect": "endure"
+  },
+  "msg": "{name} held on thanks to its Hip Flask!"
+ },
+ {
+  "id": "boss_tot",
+  "name": "Tot for the Boss",
+  "kind": "key",
+  "price": 0,
+  "battle": false,
+  "field": false,
+  "desc": "A small flask of whisky from the museum shop, for the toast at Shackleton's grave. It is not for you, however cold you get."
+ }
+]
