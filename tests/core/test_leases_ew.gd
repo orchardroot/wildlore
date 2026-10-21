@@ -71,6 +71,6 @@ func test_every_zone_has_plaques_and_plain_text() -> void:
 
 func test_the_stub_says_not_owned_until_the_flag() -> void:
 	var d := GameStateData.new()
-	assert_false(Leases.owned(d, "lee_moor"))
-	d.set_flag("lease_lee_moor", true)
-	assert_true(Leases.owned(d, "lee_moor"))
+	assert_false(Leases.is_owned(d, "lee_moor"))
+	d.set_flag("lease_lee_moor", {"since": 1, "next": 99999})
+	assert_true(Leases.is_owned(d, "lee_moor"))

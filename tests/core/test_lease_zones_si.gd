@@ -28,7 +28,8 @@ func test_zone_is_a_cul_de_sac_off_a_free_anchor_edge() -> void:
 		var zone := ZoneData.load_id(str(l.zone))
 		assert_true(anchor != null and zone != null, "%s zones load" % id)
 		assert_true(anchor.kind != "interior", "%s anchors on an outdoor zone" % id)
-		assert_false(anchor.edges.has(str(l.side)), "%s: the anchor's %s edge is free today" % [id, l.side])
+		var raw = JsonUtil.read("res://data/zones/%s.json" % l.anchor)
+		assert_false(raw.get("edges", {}).has(str(l.side)), "%s: the anchor's %s edge is free today" % [id, l.side])
 		assert_eq(zone.edges.keys(), [OPPOSITE[str(l.side)]], "%s has exactly one way out" % id)
 		var back: Dictionary = zone.edges[OPPOSITE[str(l.side)]]
 		assert_eq(str(back.to), str(l.anchor))
