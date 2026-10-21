@@ -6,7 +6,7 @@ extends RefCounted
 
 const PATH := "res://data/market_halls.json"
 ## What a stall-holder will take: produce, dishes and fish. Kit, charms and key items stay in your pocket.
-const GOODS_KINDS := ["material", "meal", "fish"]
+const GOODS_KINDS := ["material", "meal", "fish", "produce"]
 
 static var _db: Dictionary = {}
 
