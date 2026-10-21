@@ -157,3 +157,57 @@ func test_a_save_mid_show_keeps_the_real_team() -> void:
 		assert_eq(party[0], a.to_dict())
 		assert_eq(party[1], b.to_dict())
 	assert_true(h.data.real_party.is_empty(), "nothing held back once the show is over")
+
+# ---------------------------------------------------------------- the gentler classes
+
+func _produce_host() -> RecHost:
+	var h := _host(0)
+	h.items = ItemDB.from_array([{"id": "marrow", "name": "Marrow", "kind": "produce", "price": 60}])
+	h.data.bag = {"marrow": 2}
+	h.data.money = 0
+	return h
+
+func test_menu_battling_class_is_the_old_flow() -> void:
+	var h := _host(1)
+	_give(h, "pipkin", 10)
+	h.choices = [0, 0]
+	await _run(h, "show_menu")
+	assert_eq(h.fights.size(), 0, "under two badges the battling class turns you away, as before")
+
+func test_produce_class_takes_the_item_and_pays_once_a_day() -> void:
+	var h := _produce_host()
+	h.choices = [1, 0]
+	await _run(h, "show_menu")
+	assert_eq(int(h.data.bag.get("marrow", 0)), 1, "one marrow went to the tea tent")
+	assert_true(ShowClasses.entered_today(h.data, ShowClasses.PRODUCE))
+	var after := int(h.data.bag.get("marrow", 0))
+	h.choices = [1, 0]
+	await _run(h, "show_menu")
+	assert_eq(int(h.data.bag.get("marrow", 0)), after, "a second entry the same day is refused")
+	assert_true(h.data.money <= ShowClasses.PRODUCE_PRIZE[0])
+
+func test_produce_class_without_produce_explains() -> void:
+	var h := _produce_host()
+	h.data.bag = {}
+	h.choices = [1]
+	await _run(h, "show_menu")
+	assert_eq(h.data.money, 0)
+	assert_false(ShowClasses.entered_today(h.data, ShowClasses.PRODUCE))
+
+func test_sheepdog_clean_sweep_wins_red() -> void:
+	var h := _host(0)
+	_give(h, "pipkin", 10)
+	h.choices = [2, 0]
+	await _run(h, "show_menu")
+	assert_eq(h.data.money, 1000 + ShowClasses.DOG_PRIZE[0])
+	assert_eq(ShowClasses.wins(h.data, ShowClasses.DOG), 1)
+	assert_eq(TrainerStats.get_count(h.data, "sheepdog_trials"), 1)
+	h.choices = [2, 0]
+	await _run(h, "show_menu")
+	assert_eq(h.data.money, 1000 + ShowClasses.DOG_PRIZE[0], "one run a day")
+
+func test_sheepdog_needs_a_creature() -> void:
+	var h := _host(0)
+	h.choices = [2, 0]
+	await _run(h, "show_menu")
+	assert_false(ShowClasses.entered_today(h.data, ShowClasses.DOG))

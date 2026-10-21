@@ -80,6 +80,15 @@ class Host extends RefCounted:
 		Router.busy = true
 		return result
 
+	func easy_trial() -> bool:
+		return Settings.easy_fishing  # one "easier timing" option covers fishing and the sheepdog trials
+
+	func sheepdog(lead_speed: int, easy: bool, seed_text: String, label: String) -> Dictionary:
+		close_box()
+		var st: Dictionary = await SheepdogTrial.play(_ow, lead_speed, easy, seed_text, label)
+		Router.busy = true
+		return st
+
 	func autosave() -> void:
 		Game.autosave()
 

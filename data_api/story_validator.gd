@@ -217,7 +217,7 @@ static func validate_commands(cmds: Array, tag: String, dex: Dex, items: ItemDB,
 				if str(c.get("game", "")) == "races" and str(c.get("venue", "")) not in Punt.RACE_VENUES:
 					errors.append("%s: races at unknown venue '%s'" % [tag, c.get("venue", "")])
 			"tournament":
-				if str(c.get("id", "")) not in ["show", "moot", "trade"]:
+				if str(c.get("id", "")) not in ["show", "show_menu", "moot", "trade"]:
 					errors.append("%s: tournament with unknown id '%s'" % [tag, c.get("id", "")])
 	return errors
 
