@@ -224,6 +224,7 @@ func _build_zone_node() -> void:
 	add_child(_zone_node)
 	Seasonal.dress(zone, _zone_node, player)  # festivals and falling leaves from the real date
 	Forage.dress(zone, _zone_node, Game.data)  # hedgerow pickings and crafting benches
+	CreatureJobsScene.dress(zone, _zone_node, Game.data)  # spots where your lead creature can do a job
 	HomeBase.dress(zone, _zone_node, Game.data)  # Mum's trophy shelf, the garden and its visitors
 	HomeExtrasScene.dress(zone, _zone_node, Game.data)  # souvenir shelves, plaque boards, bird table, bug hotel, pond
 	Noticeboard.dress(zone, _zone_node)  # the parish noticeboard (jobs)
@@ -447,6 +448,8 @@ func interact(p: Vector2i) -> void:
 	if await DeepScene.interact(self, p):  # a lever in a Deep Place
 		return
 	if await Forage.interact(self, p):  # a forage prop or a crafting bench
+		return
+	if await CreatureJobsScene.interact(self, p):  # a job spot for the lead creature
 		return
 	if await HomeBase.interact(self, p):  # the trophy shelf, a garden plot or a visitor
 		return
