@@ -345,6 +345,8 @@ static func _props(z: ZoneData, root: Node3D, rng: RandomNumberGenerator) -> voi
 				if not pr.has("rot"):
 					rot = cap_angle(z.cap_inward(pos))
 			var tr := Transform3D(Basis(Vector3.UP, rot), Vector3(pos.x + 0.5, py, pos.y + 0.5))
+			if pt in CONTACT_SHADOWED:  # a soft shadow on the floor, so furniture sits on it rather than hovering
+				_add(buckets, "contact_shadow:0", Transform3D(Basis.from_scale(Vector3(1.0, 1.0, 0.8)), Vector3(pos.x + 0.5, py + 0.012, pos.y + 0.5)))
 			if pt == "rug":
 				# w x h tiles from the anchor tile's north-west corner, flat on the floor
 				var rw := float(pr.get("w", 1))
@@ -379,7 +381,10 @@ static func _props(z: ZoneData, root: Node3D, rng: RandomNumberGenerator) -> voi
 		for tname in TILE_PROPS:
 			if TILE_PROPS[tname][0] == parts[0]:
 				foliage = TILE_PROPS[tname][2]
-		if parts[0] == "lamp_bulb":
+		if parts[0] == "contact_shadow":
+			mmi.material_override = _contact_material()
+			mmi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		elif parts[0] == "lamp_bulb":
 			mmi.material_override = Meshes.glow
 			mmi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 		elif parts[0] == "lamp_pool":
@@ -435,8 +440,34 @@ static func _add(buckets: Dictionary, key: String, tr: Transform3D) -> void:
 		buckets[key] = []
 	buckets[key].append(tr)
 
+## Furniture that gets a soft contact shadow on the floor (characters have their own blob).
+const CONTACT_SHADOWED := ["table", "bench", "sofa", "bed", "bookshelf", "kitchen_dresser", "piano", "display_case",
+	"specimen_shelf", "plant_stand", "potted_plant", "kettle_table", "fryer", "telescope", "stacked_chairs", "tea_urn",
+	"market_stall", "statue", "tomb_chest", "loom", "harp"]
+
+static var contact_material: StandardMaterial3D
+
+static func _contact_shadow_mesh() -> ArrayMesh:
+	var q := QuadMesh.new()
+	q.size = Vector2(1.0, 1.0)
+	q.orientation = PlaneMesh.FACE_Y
+	var am := ArrayMesh.new()
+	am.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, q.get_mesh_arrays())
+	return am
+
+static func _contact_material() -> StandardMaterial3D:
+	if contact_material == null:
+		contact_material = StandardMaterial3D.new()
+		contact_material.albedo_texture = CharSprite._blob_tex()
+		contact_material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+		contact_material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+		contact_material.albedo_color = Color(0, 0, 0, 0.38)
+	return contact_material
+
 static func _ctor(name: String, variant: int) -> ArrayMesh:
 	match name:
+		"contact_shadow":
+			return _contact_shadow_mesh()
 		"oak":
 			return Meshes.oak(variant)
 		"pine":
