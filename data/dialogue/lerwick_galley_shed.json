@@ -26,6 +26,16 @@
  "arc_halcrow": [
   {
    "do": "if",
+   "flag": "arc_isl_ex_thread",
+   "then": [
+    {
+     "do": "set",
+     "flag": "q_arc_islands_5"
+    }
+   ]
+  },
+  {
+   "do": "if",
    "flag": "q_arc_islands_6",
    "then": [
     {
