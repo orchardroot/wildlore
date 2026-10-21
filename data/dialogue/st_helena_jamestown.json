@@ -65,5 +65,26 @@
    "who": "Airport Rep",
    "text": "The flight home goes from the new airport at Prosperous Bay, about a drive up and over the hill. They run a minibus. I'll sort you a seat."
   }
+ ],
+ "st_helena_jamestown_bureau": [
+  {
+   "do": "say",
+   "who": "Bureau Clerk",
+   "text": "Saint Helena pounds are at par with sterling. Shops here take your sterling, but everything paid out here comes in our own notes, which the mainland won't touch."
+  },
+  {
+   "do": "bureau"
+  }
+ ],
+ "st_helena_jamestown_homebound": [
+  {
+   "do": "say",
+   "who": "Movements Clerk",
+   "text": "Heading back to the mainland? Passage to RAF Brize Norton can be arranged whenever you like. Bring your own sandwiches."
+  },
+  {
+   "do": "overseas_home",
+   "territory": "st_helena"
+  }
  ]
 }

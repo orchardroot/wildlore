@@ -6,11 +6,12 @@ extends RefCounted
 ## Tiers bring perks: a discount in that nation's shops, a little extra stock, a landlord's parcel, a trophy.
 ## Pure logic (no autoload names): the story validator loads it through Jobs.
 
-const NATIONS := ["england", "wales", "scotland", "northern_ireland", "ireland", "mann", "overseas"]
+const NATIONS := ["england", "wales", "scotland", "northern_ireland", "ireland", "mann", "overseas", "channel_islands"]
 const NAMES := {"england": "England", "wales": "Wales", "scotland": "Scotland", "northern_ireland": "Northern Ireland",
-	"ireland": "Ireland", "mann": "Isle of Man", "overseas": "Britain Overseas"}
+	"ireland": "Ireland", "mann": "Isle of Man", "overseas": "Britain Overseas",
+	"channel_islands": "The Channel Islands"}
 ## How a nation reads at the start of a sentence ("The Isle of Man now counts you as...").
-const SENTENCE_NAMES := {"mann": "The Isle of Man", "overseas": "Britain Overseas"}
+const SENTENCE_NAMES := {"mann": "The Isle of Man", "overseas": "Britain Overseas", "channel_islands": "The Channel Islands"}
 const FLAG_PREFIX := "standing_"
 
 const STRANGER := 0
@@ -41,13 +42,14 @@ const EXTRA_STOCK := {
 	"ireland": [["brigid_cross", 3200], ["four_leaf_clover", 3600]],
 	"mann": [["selkie_pearl", 3400], ["hazel_snare", 450]],
 	"overseas": [["hazel_snare", 450], ["creel_snare", 700]],
+	"channel_islands": [["hazel_snare", 450], ["creel_snare", 700]],
 }
 ## At Local, the landlord leaves a parcel of the local food on the noticeboard once a real day.
 const LANDLORD_FOOD := {"england": "pork_pie", "wales": "bara_brith", "scotland": "tablet",
-	"northern_ireland": "ulster_fry", "ireland": "barmbrack", "mann": "soda_bread", "overseas": "cup_of_tea"}
+	"northern_ireland": "ulster_fry", "ireland": "barmbrack", "mann": "soda_bread", "overseas": "cup_of_tea", "channel_islands": "jersey_royal"}
 ## At Pillar of the Community: a trophy for the bag (data/items/parish.json) ...
 const TROPHY := {"england": "parish_rose", "wales": "parish_lovespoon", "scotland": "parish_quaich",
-	"northern_ireland": "parish_linen", "ireland": "parish_claddagh", "mann": "parish_triskelion", "overseas": "parish_airbridge"}
+	"northern_ireland": "parish_linen", "ireland": "parish_claddagh", "mann": "parish_triskelion", "overseas": "parish_airbridge", "channel_islands": "parish_gache"}
 ## ... and folk greet you as the one who sorted something out.
 const PILLAR_LINES := {
 	"england": "You're the one who sorted the Herdwicks, aren't you?",
@@ -57,6 +59,7 @@ const PILLAR_LINES := {
 	"ireland": "You're the one who settled the hurling row, aren't you?",
 	"mann": "You're the one who said hello to the fairies on the bridge. Every time, they say.",
 	"overseas": "You're the one who flew all the way out here with the post. Twice.",
+	"channel_islands": "You're the one who got the cows back on the right side of the Channel. Jersey and Guernsey both say it was theirs.",
 }
 
 static var _zone_nation := {}
@@ -89,6 +92,8 @@ static func _work_out(id: String) -> String:
 	var region := str(zi.zones.get(id, {}).get("region", ""))
 	if region.begins_with("overseas_"):
 		return "overseas"
+	if region == "channel_islands":
+		return "channel_islands"
 	return "mann" if region == "man" else Calendar.nation_for_region(region)
 
 static func is_nation(n: String) -> bool:

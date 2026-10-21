@@ -16,7 +16,7 @@ const PAPER := Color("f3ecd6")
 const LIT := Color("ffd166")
 const PIN := Color("e0574f")
 const LAND := {"england": Color("b4bf87"), "wales": Color("9db87c"), "scotland": Color("a9b38e"),
-	"northern_ireland": Color("a6bb88"), "ireland": Color("97b97b"), "mann": Color("c1bc88"), "overseas": Color("8c9aa8"), "abroad": Color("8c9784")}
+	"northern_ireland": Color("a6bb88"), "ireland": Color("97b97b"), "mann": Color("c1bc88"), "overseas": Color("8c9aa8"), "channel_islands": Color("c4a46a"), "abroad": Color("8c9784")}
 const UPLAND := Color(0.42, 0.37, 0.2, 0.09)
 
 var highlight: Array = []   # zone ids to ring in heather purple

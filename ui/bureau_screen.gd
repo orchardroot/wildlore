@@ -117,8 +117,8 @@ func _refresh() -> void:
 	_rate_move.add_theme_color_override("font_color", UP if mv >= 0.0 else DOWN)
 	_buy_line.text = "We buy your pounds at %s%.3f each" % [sym, _mid * (1.0 - sp)]
 	_sell_line.text = "We sell you pounds at %s%.3f each" % [sym, _mid * (1.0 + sp)]
-	if Wallet.other(_fx) == "":
-		_tourist_line.text = "Shops won't take the wrong pounds, so change them here."
+	if _fx in Wallet.PAR_POUNDS:
+		_tourist_line.text = "Shops here take sterling at par, but the mainland won't take these pounds, so change them here."
 	else:
 		_tourist_line.text = "A shop taking the wrong money gives the tourist rate: %s%.3f" % [sym, _mid * (1.0 - Forex.TOURIST)]
 	_chart.set_values(Forex.history_of(_fx, d.rng_seed, d.day_count, DAYS, ev), func(v: float) -> String: return "%s%.3f" % [sym, v])

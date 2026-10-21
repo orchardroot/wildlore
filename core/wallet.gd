@@ -6,7 +6,8 @@ extends RefCounted
 ## earn and spend goes through here, so a new shop, trainer or job just works by its zone. Prices are authored in
 ## sterling and shown in the local currency at the shops' own list rate (list_rate); the bureau and the tourist rate
 ## float with Forex. The Crown Dependency and South Atlantic pounds are at par with sterling, but a shop on the other
-## side of the sea won't take them (and the mainland won't take Jersey notes either).
+## side of the sea won't take them (and the mainland won't take Jersey notes either), while their own shops take
+## sterling at par.
 ## Pure logic (no autoload names): the save data, the story commands and the validator's tools all load it.
 
 const GBP := "gbp"
@@ -27,7 +28,7 @@ const CURRENCIES := {
 	"jep": {"symbol": "£", "name": "Jersey pounds", "list": 1.0, "tag": "Jersey"},
 	"ggp": {"symbol": "£", "name": "Guernsey pounds", "list": 1.0, "tag": "Guernsey"},
 }
-## Pounds at par with sterling: a fixed 1:1, a small fee at the bureau, and no taking each other's notes.
+## Pounds at par with sterling: a fixed 1:1, a small fee at the bureau. Their shops take sterling at par, but the mainland won't take their notes.
 const PAR_POUNDS := ["gip", "fkp", "shp", "jep", "ggp"]
 ## Zone region (or, in the Channel Islands, zone) text to currency, first match wins. Overseas regions are named
 ## `overseas_<territory>`; matching is by substring so every spelling of a territory id works. Tristan da Cunha,
@@ -93,10 +94,9 @@ static func local(data: GameStateData) -> String:
 	return currency_for_zone(str(data.zone_id))
 
 ## The one other money a shop dealing in `cur` will take, at the tourist rate: euros on the British mainland,
-## sterling for the rest, and nothing ("") for a pound at par, which only its own islands accept.
+## sterling for the rest (at par, with no tourist penalty, where the local money is a pound at par). The mainland never
+## takes a local pound: the other money there is euros.
 static func other(cur: String) -> String:
-	if cur in PAR_POUNDS:
-		return ""
 	return GBP if cur != GBP else EUR
 
 static func symbol(cur: String) -> String:
@@ -215,6 +215,8 @@ static func shop_rate(data: GameStateData, cur: String) -> float:
 static func foreign_cost(short: int, cur: String, mid: float) -> int:
 	if short <= 0:
 		return 0
+	if cur in PAR_POUNDS:  # sterling is welcome at par on the islands with their own pound
+		return short
 	if cur != GBP:  # pounds for euros (or dollars): you get fewer per pound than the bureau gives
 		return ceili(short / Forex.tourist_eur_per_gbp(mid, true) - 0.000001)
 	return ceili(short * Forex.tourist_eur_per_gbp(mid, false) - 0.000001)  # euros for pounds
@@ -225,6 +227,8 @@ static func spendable(data: GameStateData, cur: String, mid: float) -> int:
 	var foreign := balance(data, other(cur))
 	if other(cur) == "" or foreign <= 0:
 		return own
+	if cur in PAR_POUNDS:
+		return own + foreign
 	var extra := 0
 	if cur != GBP:
 		extra = floori(foreign * Forex.tourist_eur_per_gbp(mid, true) + 0.000001)
@@ -259,9 +263,10 @@ static func paid_text(res: Dictionary, cur: String) -> String:
 	if int(res.get("foreign", 0)) <= 0:
 		return fmt(int(res.get("local", 0)), cur)
 	var f := fmt(int(res.foreign), str(res.foreign_cur))
+	var rate := "" if cur in PAR_POUNDS else " at the tourist rate"  # sterling is taken at par on the pound islands
 	if int(res.get("local", 0)) <= 0:
-		return "%s at the tourist rate" % f
-	return "%s and %s at the tourist rate" % [fmt(int(res.local), cur), f]
+		return f + rate
+	return "%s and %s%s" % [fmt(int(res.local), cur), f, rate]
 
 # --- old saves ------------------------------------------------------------------------------------
 

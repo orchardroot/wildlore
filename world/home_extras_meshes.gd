@@ -10,7 +10,7 @@ const BACK := Color("e4d6b4")
 const BRASS := Color("c9a54a")
 const CREAM := Color("f2ead2")
 const NATION_COLOURS := {"england": Color("d04040"), "wales": Color("3f9a4a"), "scotland": Color("2f6fb0"),
-	"northern_ireland": Color("c8a040"), "ireland": Color("2fa070"), "mann": Color("9a4a9a"), "overseas": Color("2f5fa8")}
+	"northern_ireland": Color("c8a040"), "ireland": Color("2fa070"), "mann": Color("9a4a9a"), "overseas": Color("2f5fa8"), "channel_islands": Color("b8892a")}
 ## Shelf boards: surface heights of the two tiers, and the x of the three places on each.
 const TIERS := [0.4, 0.86]
 const PLACES := [-0.26, 0.0, 0.26]

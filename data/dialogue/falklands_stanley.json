@@ -96,5 +96,26 @@
    "who": "Airport Rep",
    "text": "The Mount Pleasant bus leaves from here, and takes about an hour and a bit. The plane takes a long time to get home. I can book you on the next flight. It's the Airbridge: one stop, Ascension, and a lot of tea."
   }
+ ],
+ "falklands_stanley_bureau": [
+  {
+   "do": "say",
+   "who": "Bureau Clerk",
+   "text": "Falkland pounds are at par with sterling. Shops here take your sterling gladly, but we pay out in our own notes, and nobody in England will take those."
+  },
+  {
+   "do": "bureau"
+  }
+ ],
+ "falklands_stanley_homebound": [
+  {
+   "do": "say",
+   "who": "Movements Clerk",
+   "text": "Heading back to the mainland? Passage to RAF Brize Norton can be arranged whenever you like. Bring your own sandwiches."
+  },
+  {
+   "do": "overseas_home",
+   "territory": "falklands"
+  }
  ]
 }

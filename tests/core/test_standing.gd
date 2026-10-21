@@ -1,7 +1,7 @@
 extends TestCase
 
 func test_six_nations() -> void:
-	assert_eq(Standing.NATIONS, ["england", "wales", "scotland", "northern_ireland", "ireland", "mann", "overseas"])
+	assert_eq(Standing.NATIONS, ["england", "wales", "scotland", "northern_ireland", "ireland", "mann", "overseas", "channel_islands"])
 
 func test_nation_for_zone_splits_ni_and_mann() -> void:
 	assert_eq(Standing.nation_for_zone("macclesfield"), "england")

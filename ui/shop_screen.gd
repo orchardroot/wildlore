@@ -235,7 +235,7 @@ func _refresh_qty() -> void:
 	var total := _unit() * _qty
 	_total_label.text = "%s %s" % ["Total" if _side == "buy" else "You get", UIKit.money_text(total, _mc)]
 	var short := total - Wallet.balance(Game.data, _mc)
-	if _side == "buy" and short > 0 and Wallet.other(_mc) != "":  # the rest from the other purse, at the tourist rate
+	if _side == "buy" and short > 0 and Wallet.other(_mc) != "" and not _mc in Wallet.PAR_POUNDS:  # the rest from the other purse, at the tourist rate
 		_total_label.text += "  (%s at the tourist rate)" % UIKit.money_text(Wallet.foreign_cost(short, _mc, _mid), Wallet.other(_mc))
 
 func _commit() -> void:

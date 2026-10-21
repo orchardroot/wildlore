@@ -181,12 +181,15 @@ func test_wrong_money_at_the_tourist_rate() -> void:
 func test_the_mainland_wont_take_jersey_notes_and_vice_versa() -> void:
 	var d := _data()
 	Wallet.earn(d, 500, "jep")
-	assert_eq(Wallet.other("jep"), "", "no tourist rate for a pound at par")
 	assert_eq(Wallet.spendable(d, "gbp", 1.175), 1000, "the shop in England won't take Jersey pounds")
-	assert_eq(Wallet.spendable(d, "jep", 1.175), 500, "and Jersey won't take sterling")
-	assert_false(Wallet.pay(d, 600, "jep", 1.175).ok)
-	assert_eq(Wallet.balance(d, "jep"), 500, "nothing taken from a failed payment")
-	assert_eq(d.money, 1000)
+	assert_eq(Wallet.spendable(d, "jep", 1.175), 1500, "but Jersey takes sterling at par")
+	assert_eq(Wallet.foreign_cost(100, "jep", 1.175), 100, "no tourist penalty")
+	var res := Wallet.pay(d, 600, "jep", 1.175)
+	assert_true(res.ok)
+	assert_eq(Wallet.balance(d, "jep"), 0, "local pounds first")
+	assert_eq(d.money, 900, "the rest in sterling, one for one")
+	assert_false(Wallet.pay(d, 5000, "jep", 1.175).ok)
+	assert_eq(d.money, 900, "nothing taken from a failed payment")
 
 func test_purse_text_lists_local_and_sterling() -> void:
 	var d := _data()
