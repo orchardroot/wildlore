@@ -1,6 +1,44 @@
 {
  "ls_wool_dyer": [
   {
+   "do": "if",
+   "flag": "case_fair_isle_dyer",
+   "then": [],
+   "else": [
+    {
+     "do": "if",
+     "flag": "case_fair_isle_briefed",
+     "then": [
+      {
+       "do": "say",
+       "who": "Dyer",
+       "text": "The museum's chart? Oh, I know it. Moorit, sea blue, madder red, white. Beautiful. Here, look at my order book if you doubt me. I sold a good deal of exactly those yarns last week, mind. Wool's wool."
+      },
+      {
+       "do": "say",
+       "who": "Dyer",
+       "text": "And that jumper on my needles has three colours in one row. I know. It's a style. It's not a mistake. It's a bold interpretation."
+      },
+      {
+       "do": "evidence",
+       "id": "dye_order"
+      },
+      {
+       "do": "evidence",
+       "id": "triple_band"
+      },
+      {
+       "do": "set",
+       "flag": "case_fair_isle_dyer"
+      },
+      {
+       "do": "end"
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Dyer",
    "text": "Shetland has eleven natural sheep colours, from white through fawn and moorit to grey and black, and most of them come off the animal that way. Traditional dyes came from the land: crottle lichen from rocks, madder, indigo, heather for yellow."

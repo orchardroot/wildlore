@@ -14,6 +14,35 @@
  ],
  "ls_fiddle_pub": [
   {
+   "do": "if",
+   "flag": "case_fair_isle_fiddler",
+   "then": [],
+   "else": [
+    {
+     "do": "if",
+     "flag": "case_fair_isle_briefed",
+     "then": [
+      {
+       "do": "say",
+       "who": "Session Fiddler",
+       "text": "A stolen chart? I read music, not knitting. My squared paper is a tune called 'The Knitter's Revenge', which is a coincidence and a good title."
+      },
+      {
+       "do": "evidence",
+       "id": "tune_sheet"
+      },
+      {
+       "do": "set",
+       "flag": "case_fair_isle_fiddler"
+      },
+      {
+       "do": "end"
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Session Fiddler",
    "text": "A session is when a lot of folk with fiddles sit in a corner and play the same tune at different speeds, and it works. The tunes are named for places and boats and people who annoyed the composer."

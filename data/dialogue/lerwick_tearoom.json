@@ -1,6 +1,42 @@
 {
  "ls_tea_lady": [
   {
+   "do": "if",
+   "flag": "case_fair_isle_tea",
+   "then": [],
+   "else": [
+    {
+     "do": "if",
+     "flag": "case_fair_isle_briefed",
+     "then": [
+      {
+       "do": "if",
+       "flag": "case_fair_isle_paper",
+       "then": [
+        {
+         "do": "say",
+         "who": "Tea Room Lady",
+         "text": "Marjory Tulloch. Soup, bannocks, a pot of tea. The chart? Gone, is it? Well. Goodness. Tragic. More tea?"
+        },
+        {
+         "do": "say",
+         "who": "Tea Room Lady",
+         "text": "I've not been near the museum in weeks. Weeks. Mind the counter, there's a lot of paper under it. Napkin stock. Ahem."
+        },
+        {
+         "do": "set",
+         "flag": "case_fair_isle_tea"
+        },
+        {
+         "do": "end"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Tea Room Lady",
    "text": "Soup, bannocks and a pot of tea strong enough to stand a spoon in. The Shetland bannock is a soft round loaf, cooked on a girdle, good with butter and jam. We do a lot of reestit mutton soup in winter, if you're after something proper."

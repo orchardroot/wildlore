@@ -1,0 +1,138 @@
+{
+ "id": "fair_isle",
+ "title": "The Missing Chart",
+ "nation": "scotland",
+ "start_flag": "case_fair_isle_start",
+ "evidence": [
+  {
+   "id": "tea_ring",
+   "name": "Tea Ring on the Velvet",
+   "text": "A damp brown ring on the velvet where the chart lay, with a crumb of shortbread beside it. The museum has a strict rule: no food, no drink, no exceptions. Whoever lifted the chart had been in a tea room first.",
+   "red_herring": false
+  },
+  {
+   "id": "visitors_book",
+   "name": "Visitors' Book",
+   "text": "The last signature before closing, in a neat round hand: 'M. Tulloch, Lerwick. Just looking.' Beside it, a tiny doodle of an OXO motif. Plenty of people sign this book. Few of them doodle in knitting.",
+   "red_herring": false
+  },
+  {
+   "id": "dye_order",
+   "name": "Dyer's Order Book",
+   "text": "Last week's order: four skeins each of moorit, sea blue, madder red and white, 'M. Tulloch, for a cosy'. That is a great deal of cosy. It is also, to the skein, the colours on the missing chart.",
+   "red_herring": false
+  },
+  {
+   "id": "squared_paper",
+   "name": "Squared Paper",
+   "text": "Under the tea-room counter: squared paper with a half-coloured chart in wax crayon. The border is the museum chart's border, cross for cross. This is a copy in progress, and the copyist has got as far as the snowflakes.",
+   "red_herring": false
+  },
+  {
+   "id": "triple_band",
+   "name": "The Dyer's Jumper",
+   "text": "A jumper on the dyer's needles with three colours in one row. A true Fair Isle never uses more than two in a row, so this is not the chart's work, merely the dyer's enthusiasm. Lovely, wrong and entirely her own.",
+   "red_herring": true
+  },
+  {
+   "id": "tune_sheet",
+   "name": "Fiddler's Manuscript",
+   "text": "Squared lines of black dots on ruled paper: at a glance, a chart. In fact a reel called 'The Knitter's Revenge'. The fiddler writes his tunes on whatever is to hand, which this week is the back of a ferry timetable.",
+   "red_herring": true
+  },
+  {
+   "id": "sawdust",
+   "name": "Shavings by the Case",
+   "text": "A scatter of pale shavings by the display case. The boat builder works in the hall next door and sheds wood the way a spaniel sheds hair. Suspicious only if you have never met a boat builder.",
+   "red_herring": true
+  }
+ ],
+ "suspects": [
+  {
+   "id": "builder",
+   "name": "The Boat Builder",
+   "zone": "lerwick_museum",
+   "wrong": "A knitting chart? I build boats, not jumpers! The only thing I have ever stolen is a march on the weather. Away and look again.",
+   "right": ""
+  },
+  {
+   "id": "dyer",
+   "name": "The Dyer",
+   "zone": "lerwick_wool",
+   "wrong": "Me? I'd never take a chart. I can read one on sight, which is a good deal safer than nicking it. And three colours in a row is a style, thank you.",
+   "right": ""
+  },
+  {
+   "id": "fiddler",
+   "name": "The Session Fiddler",
+   "zone": "lerwick_pub",
+   "wrong": "Pinch a pattern? I can't even pinch a tune without apologising. That is a reel, not a chart. Mostly.",
+   "right": ""
+  },
+  {
+   "id": "marjory",
+   "name": "Marjory Tulloch",
+   "zone": "lerwick_tearoom",
+   "wrong": "",
+   "right": "Oh, you've found me out. Ingrid said the chart was too fragile to lend, and it's fading, and I only wanted to knit the museum a copy for the shop window. It's in my knitting bag. I was going to put it back on Friday. I was going to put it back so nicely."
+  }
+ ],
+ "culprit": "marjory",
+ "steps": [
+  {
+   "flag": "case_fair_isle_briefed",
+   "text": "Speak to Registrar Elsie Nicolson in the Shetland Museum.",
+   "zone": "lerwick_museum"
+  },
+  {
+   "flag": "case_fair_isle_case",
+   "text": "Look at the empty display case in the Shetland Museum.",
+   "zone": "lerwick_museum"
+  },
+  {
+   "flag": "case_fair_isle_book",
+   "text": "Check the visitors' book on the table in the Shetland Museum.",
+   "zone": "lerwick_museum"
+  },
+  {
+   "flag": "case_fair_isle_builder",
+   "text": "Ask the Boat Builder in the Shetland Museum.",
+   "zone": "lerwick_museum"
+  },
+  {
+   "flag": "case_fair_isle_dyer",
+   "text": "Ask the Dyer at Fair Isle Knitwear.",
+   "zone": "lerwick_wool"
+  },
+  {
+   "flag": "case_fair_isle_fiddler",
+   "text": "Ask the Session Fiddler at The Lounge.",
+   "zone": "lerwick_pub"
+  },
+  {
+   "flag": "case_fair_isle_paper",
+   "text": "Search the tables at the Harbour Tea Room.",
+   "zone": "lerwick_tearoom"
+  },
+  {
+   "flag": "case_fair_isle_tea",
+   "text": "Have a word with the Tea Room Lady at the Harbour Tea Room.",
+   "zone": "lerwick_tearoom"
+  },
+  {
+   "flag": "case_fair_isle_report",
+   "text": "Report back to Registrar Elsie Nicolson in the Shetland Museum.",
+   "zone": "lerwick_museum"
+  }
+ ],
+ "done_flag": "case_fair_isle_done",
+ "reward": {
+  "money": 1200,
+  "standing": 6,
+  "items": {
+   "fair_isle_tammy": 1
+  }
+ },
+ "accuse_hint": "Registrar Elsie Nicolson is waiting at the Shetland Museum.",
+ "closed": "The chart is back in its case, a faded copy hangs in the shop window, and Marjory has been appointed Honorary Keeper of the Squared Paper. The tea room is now, officially, a museum annexe."
+}
