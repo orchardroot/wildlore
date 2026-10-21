@@ -163,6 +163,8 @@ func _exec(c: Dictionary) -> void:
 			await host.open_menu("market:" + str(c.get("hall", "")))  # a Market Hall stall (see MarketHall)
 		"society":
 			await host.open_menu("society:" + host.zone_id())  # a Building Society branch (see BuildingSociety)
+		"guild":
+			await _guild(str(c.get("id", "")), _sub(str(c.get("who", "Secretary"))))  # a guild hall desk (see Guilds)
 		"deed":
 			await host.open_menu("deed:" + str(c.get("id", "")))  # a Deed counter (see Deeds)
 		"crypto":
@@ -571,6 +573,39 @@ func _when(cond: String) -> bool:
 		return Festivals.cond(cond)
 	push_warning("Commands: unknown condition '%s'" % cond)
 	return false
+
+## A guild secretary's desk: what the guild counts, your rank, the perks, and joining or resigning (with the Ramblers
+## and the Trust warning you first, since they cannot both have your top rank).
+func _guild(id: String, who: String) -> void:
+	var d: GameStateData = host.data
+	if not Guilds.IDS.has(id):
+		return
+	var nm: String = Guilds.NAMES[id]
+	var more := Guilds.to_next(d, id)
+	var count := "You have %s %s." % [TrainerStats._n(Guilds.measure(d, id)), Guilds.SOURCE[id].unit]
+	if not Guilds.is_member(d, id):
+		await host.say(who, "%s. Three ranks, earned by doing. %s" % [nm, count])
+		var rival: String = Guilds.RIVALS.get(id, "")
+		var warn := ""
+		if rival != "":
+			warn = " Fair warning: %s and %s want opposite things of the moor, so while you belong to one the other's top rank is closed." % [Guilds.NAMES[id], Guilds.NAMES[rival]]
+		var fee := Guilds.join_fee(d, id)
+		var ask := "Join%s?%s" % [" (£%d, they remember)" % fee if fee > 0 else "", warn]
+		if await host.choice(ask, ["Join", "Not today"]) == 0:
+			var why := Guilds.join(d, id)
+			await host.say(who, "Welcome aboard." if why == "" else why)
+		return
+	var r := Guilds.rank(d, id)
+	var line := "%s. You are %s." % [nm, Guilds.rank_title(d, id) if r > 0 else "a new member"]
+	if Guilds.blocked_by(d, id) != "" and Guilds.earned(d, id) >= Guilds.MAX_RANK:
+		line += " Your top rank is held back while you belong to %s." % Guilds.NAMES[Guilds.blocked_by(d, id)]
+	await host.say(who, line + " " + count + (" %s more for the next rank." % TrainerStats._n(more) if more > 0 else ""))
+	for p in Guilds.perk_lines(d, id):
+		await host.say(who, str(p))
+	if await host.choice("Anything else?", ["Resign (£%d)" % Guilds.RESIGN_FEE, "No, thanks"]) == 0:
+		if await host.choice("They will remember. Sure?", ["Resign", "Stay"]) == 0:
+			var why := Guilds.resign(d, id)
+			await host.say(who, "Sorry to see you go." if why == "" else why)
 
 const PARTY_HAS := "party_has_"
 

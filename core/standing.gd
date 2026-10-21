@@ -129,6 +129,7 @@ static func to_next(data: GameStateData, nation: String) -> int:
 static func add(data: GameStateData, nation: String, n: int) -> String:
 	if not is_nation(nation) or n <= 0:
 		return ""
+	n += Guilds.standing_bonus(data, n)   # the Folk Club
 	var before := tier(data, nation)
 	data.set_flag(FLAG_PREFIX + nation, points(data, nation) + n)
 	var after := tier(data, nation)
