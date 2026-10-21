@@ -15,5 +15,223 @@
    "who": "Host",
    "text": "Locals say the charges were really about her money. Some swear her ghost tidies the cellar, which is more than I do."
   }
+ ],
+ "case_nuala": [
+  {
+   "do": "if",
+   "flag": "case_kilkenny_hex_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Nuala",
+     "text": "The pot's back on its hook, smelling faintly of leek and potato. The tourists think it adds to the atmosphere. Thank you."
+    },
+    {
+     "do": "say",
+     "who": "Nuala",
+     "text": "Dame Alice was accused in 1324, with her maid Petronilla de Meath, who was burnt that November. It was the first witchcraft burning in Ireland. The pot is a prop, mind. I checked."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "case_kilkenny_hex_briefed",
+     "then": [
+      {
+       "do": "if",
+       "flag": "case_kilkenny_hex_plinth",
+       "then": [
+        {
+         "do": "if",
+         "flag": "case_kilkenny_hex_trolley",
+         "then": [
+          {
+           "do": "if",
+           "flag": "case_kilkenny_hex_curator",
+           "then": [
+            {
+             "do": "if",
+             "flag": "case_kilkenny_hex_rothe_book",
+             "then": [
+              {
+               "do": "if",
+               "flag": "case_kilkenny_hex_verger",
+               "then": [
+                {
+                 "do": "if",
+                 "flag": "case_kilkenny_hex_clerk",
+                 "then": [
+                  {
+                   "do": "if",
+                   "flag": "case_kilkenny_hex_hurling",
+                   "then": [
+                    {
+                     "do": "if",
+                     "flag": "case_kilkenny_hex_kitchen",
+                     "then": [
+                      {
+                       "do": "say",
+                       "who": "Nuala",
+                       "text": "Well? Have you seen everything? Right then. Who took Petronilla's Pot?"
+                      },
+                      {
+                       "do": "set",
+                       "flag": "case_kilkenny_hex_report"
+                      },
+                      {
+                       "do": "casebook",
+                       "id": "kilkenny_hex"
+                      }
+                     ],
+                     "else": [
+                      {
+                       "do": "say",
+                       "who": "Nuala",
+                       "text": "Not yet. A good detective checks twice and accuses once. Look at the Casebook in your Fieldbook for the next lead."
+                      },
+                      {
+                       "do": "say",
+                       "who": "Nuala",
+                       "text": "Wrong name, wrong face, and I'll never hear the end of it from the other landlords."
+                      }
+                     ]
+                    }
+                   ],
+                   "else": [
+                    {
+                     "do": "say",
+                     "who": "Nuala",
+                     "text": "Not yet. A good detective checks twice and accuses once. Look at the Casebook in your Fieldbook for the next lead."
+                    },
+                    {
+                     "do": "say",
+                     "who": "Nuala",
+                     "text": "Wrong name, wrong face, and I'll never hear the end of it from the other landlords."
+                    }
+                   ]
+                  }
+                 ],
+                 "else": [
+                  {
+                   "do": "say",
+                   "who": "Nuala",
+                   "text": "Not yet. A good detective checks twice and accuses once. Look at the Casebook in your Fieldbook for the next lead."
+                  },
+                  {
+                   "do": "say",
+                   "who": "Nuala",
+                   "text": "Wrong name, wrong face, and I'll never hear the end of it from the other landlords."
+                  }
+                 ]
+                }
+               ],
+               "else": [
+                {
+                 "do": "say",
+                 "who": "Nuala",
+                 "text": "Not yet. A good detective checks twice and accuses once. Look at the Casebook in your Fieldbook for the next lead."
+                },
+                {
+                 "do": "say",
+                 "who": "Nuala",
+                 "text": "Wrong name, wrong face, and I'll never hear the end of it from the other landlords."
+                }
+               ]
+              }
+             ],
+             "else": [
+              {
+               "do": "say",
+               "who": "Nuala",
+               "text": "Not yet. A good detective checks twice and accuses once. Look at the Casebook in your Fieldbook for the next lead."
+              },
+              {
+               "do": "say",
+               "who": "Nuala",
+               "text": "Wrong name, wrong face, and I'll never hear the end of it from the other landlords."
+              }
+             ]
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Nuala",
+             "text": "Not yet. A good detective checks twice and accuses once. Look at the Casebook in your Fieldbook for the next lead."
+            },
+            {
+             "do": "say",
+             "who": "Nuala",
+             "text": "Wrong name, wrong face, and I'll never hear the end of it from the other landlords."
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Nuala",
+           "text": "Not yet. A good detective checks twice and accuses once. Look at the Casebook in your Fieldbook for the next lead."
+          },
+          {
+           "do": "say",
+           "who": "Nuala",
+           "text": "Wrong name, wrong face, and I'll never hear the end of it from the other landlords."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Nuala",
+         "text": "Not yet. A good detective checks twice and accuses once. Look at the Casebook in your Fieldbook for the next lead."
+        },
+        {
+         "do": "say",
+         "who": "Nuala",
+         "text": "Wrong name, wrong face, and I'll never hear the end of it from the other landlords."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Nuala",
+       "text": "Nuala, landlady. Eighteen years behind this bar and I have never lost a thing bigger than a corkscrew."
+      },
+      {
+       "do": "say",
+       "who": "Nuala",
+       "text": "Till Tuesday. Petronilla's Pot is gone from over the hearth. Black iron, sixty litres, hung there longer than I have. The tourists say it was Dame Alice's own cauldron. I say it was a very large stew pot with good PR."
+      },
+      {
+       "do": "say",
+       "who": "Nuala",
+       "text": "Four people had reason to care about it: the steward at Rothe House, the verger at St Canice's, the clerk at the Tholsel, and a certain lady with a cafe in the Butter Slip. I'll not say who is who."
+      },
+      {
+       "do": "say",
+       "who": "Nuala",
+       "text": "Look at things, ask about, and read your Fieldbook's Casebook tab (Run cycles the tabs). Come back when you're sure. A wrong name costs you standing, and I will be sorry, but not very."
+      },
+      {
+       "do": "set",
+       "flag": "case_kilkenny_hex_start"
+      },
+      {
+       "do": "set",
+       "flag": "case_kilkenny_hex_briefed"
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "Case opened: The Kilkenny Hex."
+      }
+     ]
+    }
+   ]
+  }
  ]
 }

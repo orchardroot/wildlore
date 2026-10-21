@@ -15,7 +15,7 @@ func _finish_steps(d: GameStateData, c: Dictionary) -> void:
 		d.set_flag(str(s.flag), true)
 
 func test_two_cases_that_validate() -> void:
-	assert_eq(Casebook.all().size(), 2)
+	assert_true(Casebook.all().size() >= 2)
 	assert_true(Casebook.get_case("mersey_otters").size() > 0)
 	assert_true(Casebook.get_case("loch_ness").size() > 0)
 	var zones := func(z): return FileAccess.file_exists("res://data/zones/%s.json" % z)
@@ -147,3 +147,17 @@ func test_tab_filter_only_appears_with_a_case() -> void:
 	assert_eq(MenuLogic.next_filter("rumours", false, true), "casebook")
 	assert_eq(MenuLogic.next_filter("casebook", true, true), "studbook")
 	assert_eq(MenuLogic.next_filter("casebook", false, true), "all")
+
+func test_kilkenny_hex_is_fair_and_solvable() -> void:
+	var c := Casebook.get_case("kilkenny_hex")
+	assert_eq(str(c.nation), "ireland")
+	assert_true(c.steps.size() >= 8 and c.steps.size() <= 12)
+	var d := _data()
+	_open(d, "kilkenny_hex")
+	Examine.read(d, "kilkenny_kyteler", {"x": 1, "y": 3, "text": ["x"], "evidence": "trolley"}, null)
+	assert_true(Casebook.has_evidence(d, c, "trolley"))
+	_finish_steps(d, c)
+	assert_false(Casebook.accuse(d, "kilkenny_hex", "declan").correct)
+	var r := Casebook.accuse(d, "kilkenny_hex", "maeve")
+	assert_true(r.correct)
+	assert_eq(r.money, 1125)

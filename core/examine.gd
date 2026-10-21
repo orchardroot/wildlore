@@ -47,6 +47,7 @@ static func read(data: GameStateData, zone_id: String, ex: Dictionary, items) ->
 	var ev := str(ex.get("evidence", ""))
 	if ev != "":
 		data.set_flag(evidence_flag(ev), true)
+		Casebook.collect(data, ev)
 		lines.append("That might be evidence. It goes in your Casebook.")
 		gave = true
 	data.set_flag(flag, true)

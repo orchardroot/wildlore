@@ -15,5 +15,38 @@
    "who": "Curator",
    "text": "It is one of the best Tudor merchant houses left in Ireland, which is a lot of 'best' for one building."
   }
+ ],
+ "case_declan": [
+  {
+   "do": "if",
+   "flag": "case_kilkenny_hex_briefed",
+   "then": [
+    {
+     "do": "say",
+     "who": "Declan",
+     "text": "Declan, steward of Rothe House. Yes, I wrote to Nuala. Yes, I would love the pot. It is the finest piece of dubious provenance in the county."
+    },
+    {
+     "do": "say",
+     "who": "Declan",
+     "text": "But I was here Tuesday night for the Tudor Garden evening. Sixty guests, one orchard, a lot of cider. Check the visitors' book, over by the shelf."
+    },
+    {
+     "do": "evidence",
+     "id": "curator_offer"
+    },
+    {
+     "do": "set",
+     "flag": "case_kilkenny_hex_curator"
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Declan",
+     "text": "Lovely old building, this. Ask me again if you ever hear there's trouble."
+    }
+   ]
+  }
  ]
 }

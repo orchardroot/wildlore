@@ -142,6 +142,15 @@
    "facing": "down",
    "move": "still",
    "script": "rothe_curator"
+  },
+  {
+   "id": "rothe_declan",
+   "sprite": "poet",
+   "x": 4,
+   "y": 4,
+   "facing": "down",
+   "move": "still",
+   "script": "case_declan"
   }
  ],
  "encounters": {},
@@ -170,6 +179,16 @@
     "Rothe House was built in 1594 for a merchant family, and has three houses and three courtyards.",
     "The garden is Tudor. The rain is eternal."
    ]
+  },
+  {
+   "x": 1,
+   "y": 2,
+   "text": [
+    "The visitors' book. Tuesday evening: 'Declan F., steward, in 7pm, out midnight', and a page of guests who saw him all night. The orchard was mostly eaten by him."
+   ],
+   "flag": "case_kilkenny_hex_rothe_book",
+   "evidence": "visitors_book",
+   "needs": "case_kilkenny_hex_start"
   }
  ]
 }

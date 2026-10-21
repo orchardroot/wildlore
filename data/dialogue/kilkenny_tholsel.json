@@ -15,5 +15,38 @@
    "who": "Clerk",
    "text": "People walk through its arches every day without looking up. Do look up."
   }
+ ],
+ "case_brennan": [
+  {
+   "do": "if",
+   "flag": "case_kilkenny_hex_briefed",
+   "then": [
+    {
+     "do": "say",
+     "who": "Brennan",
+     "text": "Brennan, Tholsel. I stamp the permits. The Tholsel is where Kilkenny used to collect its tolls, so I am keeping up a fine tradition of bureaucracy."
+    },
+    {
+     "do": "say",
+     "who": "Brennan",
+     "text": "Permits? Only one this month for anything large: the soup tent at the hurling. Applicant, the Butter Slip Cafe. A 60-litre pot, 'to be sourced'. I underlined it, because I wanted to see who'd source it."
+    },
+    {
+     "do": "evidence",
+     "id": "permit"
+    },
+    {
+     "do": "set",
+     "flag": "case_kilkenny_hex_clerk"
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Brennan",
+     "text": "Lovely old building, this. Ask me again if you ever hear there's trouble."
+    }
+   ]
+  }
  ]
 }
