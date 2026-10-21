@@ -1,0 +1,43 @@
+{
+ "staffa_pipe": [
+  {
+   "do": "say",
+   "who": "",
+   "text": "The far wall is all columns, tall and tidy as organ pipes. One of them is a shade too round. Then it breathes out, and the whole cave hums a low, slow note."
+  },
+  {
+   "do": "legend",
+   "species": "fingalith",
+   "level": 72,
+   "scaled_floor": 69,
+   "music": "legend",
+   "flag": "staffa_pipe_caught"
+  },
+  {
+   "do": "if",
+   "flag": "staffa_pipe_caught",
+   "then": [
+    {
+     "do": "if",
+     "flag": "staffa_pipe_done",
+     "else": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "The note fades. At the foot of the column lies a short length of basalt, a perfect six-sided pipe, as if the cave had finally finished a thought."
+      },
+      {
+       "do": "give_item",
+       "item": "fingals_organ_pipe"
+      },
+      {
+       "do": "set",
+       "flag": "staffa_pipe_done",
+       "value": true
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
