@@ -1,0 +1,32 @@
+{
+ "dyo_keeper": [
+  {
+   "do": "say",
+   "who": "Dr Elin",
+   "text": "Mind where you tread. Three thousand years of other people's belongings is down here, and the cave doesn't do lost property."
+  },
+  {
+   "do": "say",
+   "who": "Dr Elin",
+   "text": "In 1912 two brothers paddled a coracle up the river with candles. They didn't know what they'd found. That is the best way to find anything."
+  },
+  {
+   "do": "if",
+   "flag": "dyo_reward",
+   "then": [
+    {
+     "do": "say",
+     "who": "Dr Elin",
+     "text": "You've been in the hollow, I see. Cave pearls grow round because the drip keeps turning them. Rather like some of my colleagues."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Dr Elin",
+     "text": "There's a hollow in the flowstone at the back with a few cave pearls in it. Take one for your trouble. One. They take longer to grow than a degree."
+    }
+   ]
+  }
+ ]
+}

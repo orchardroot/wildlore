@@ -1,0 +1,50 @@
+{
+ "dyo_guide": [
+  {
+   "do": "if",
+   "flag": "dyo_reward",
+   "then": [
+    {
+     "do": "say",
+     "who": "Rhian",
+     "text": "You found the pearls. Most people stop at the cathedral and ask where the toilets are. Respect."
+    },
+    {
+     "do": "say",
+     "who": "Rhian",
+     "text": "Mind the steps on the way out. I say it forty times a day and I have yet to be believed."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "dp_dyo_entry_gate",
+     "then": [
+      {
+       "do": "say",
+       "who": "Rhian",
+       "text": "Barrier's up. Through to the river first. It floods, and there's a weir board on the far bank to drain it, if you can reach it. Or wade, if somebody's taught you how."
+      },
+      {
+       "do": "say",
+       "who": "Rhian",
+       "text": "Bring a lantern. Some things in this cave only show in proper light. Then it's the Cathedral Cave: a block to push onto a plate. Straight lines. If you jam it in a corner, step out and come back in. The cave tidies itself."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Rhian",
+       "text": "Welcome to Dan yr Ogof. That's 'under the cave' in Welsh, which is not a mystery, only a description."
+      },
+      {
+       "do": "say",
+       "who": "Rhian",
+       "text": "The barrier is locked from my side. The handle by the desk works it. Give it a proper pull. It's been pulled by worse."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
