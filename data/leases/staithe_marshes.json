@@ -1,0 +1,31 @@
+{
+ "id": "staithe_marshes",
+ "name": "Staithe Marshes Estate",
+ "nation": "england",
+ "kind": "estate",
+ "anchor": "the_broads",
+ "side": "north",
+ "zone": "staithe_marshes",
+ "reserve": 45000,
+ "upkeep": 300,
+ "unlock_flag": "game_complete",
+ "trust_wants": true,
+ "blurb": "Drained grazing marsh in the Broads, kept for the shooting and the tax position. A dyke, a windpump and a lot of potential reed.",
+ "rewild": {
+  "biome": "fen",
+  "flag": "lease_staithe_marshes_stage",
+  "stages": [
+   "Fenced grazing, drained and dull.",
+   "Sluices open; shallow flood across the field.",
+   "Reedbed thickening; booming at dusk.",
+   "Wet fen; cranes on the pools."
+  ],
+  "returns": [
+   "volet",
+   "bittling",
+   "hushwing",
+   "levelcrane",
+   "minkshade"
+  ]
+ }
+}

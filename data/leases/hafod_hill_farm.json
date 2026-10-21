@@ -1,0 +1,31 @@
+{
+ "id": "hafod_hill_farm",
+ "name": "Hafod Hill Farm",
+ "nation": "wales",
+ "kind": "hill_farm",
+ "anchor": "beacons",
+ "side": "north",
+ "zone": "hafod_cwm",
+ "reserve": 38000,
+ "upkeep": 250,
+ "unlock_flag": "game_complete",
+ "trust_wants": false,
+ "blurb": "A walled hill farm in mid Wales, up above a drowned valley, with hefted ewes and a kite or two overhead if the grazing is right.",
+ "rewild": {
+  "biome": "upland",
+  "flag": "lease_hafod_hill_farm_stage",
+  "stages": [
+   "Heavily grazed, drained and sprayed.",
+   "Fewer sheep; trees planted along the becks.",
+   "Hawthorn and rowan in the ffridd.",
+   "Mosaic hill; kites over the cwm."
+  ],
+  "returns": [
+   "wispet",
+   "tylwyth",
+   "kitelet",
+   "gwyllgi",
+   "cragchough"
+  ]
+ }
+}

@@ -1,0 +1,73 @@
+{
+ "armboth_ranger": [
+  {
+   "do": "say",
+   "who": "Forest Ranger",
+   "text": "You're the new leaseholder? Thank you, truly. Enclosure Ltd had this down as 'a forestry asset'. I always thought it was a wood."
+  },
+  {
+   "do": "say",
+   "who": "Forest Ranger",
+   "text": "Take your time. A forest isn't a thing you fix. It's a thing you stop interrupting."
+  },
+  {
+   "do": "if",
+   "flag": "lease_armboth_forest_stage",
+   "eq": 0,
+   "then": [
+    {
+     "do": "say",
+     "who": "Forest Ranger",
+     "text": "Rows of spruce as far as you can see and not a bird in them. It's like a car park, but for trees."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "lease_armboth_forest_stage",
+     "eq": 1,
+     "then": [
+      {
+       "do": "say",
+       "who": "Forest Ranger",
+       "text": "We've thinned the rows and put in oak, rowan and birch along the becks. It looks a bit scruffy. That's the point."
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "lease_armboth_forest_stage",
+       "eq": 2,
+       "then": [
+        {
+         "do": "say",
+         "who": "Forest Ranger",
+         "text": "Red squirrels are using the new trees, and I've seen a kite over the ride. A KITE, in the Lakes. I rang my mother."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Forest Ranger",
+         "text": "Mixed wood, open rides, an osprey on the tarn. The timber company would call it unproductive. I'd call it the best wood in Cumbria."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "armboth_forester": [
+  {
+   "do": "say",
+   "who": "Forester",
+   "text": "Sitka grows to harvest in about forty years. An oak takes three hundred. You can see why the accountants picked the Sitka."
+  },
+  {
+   "do": "say",
+   "who": "Forester",
+   "text": "Don't lean on the stacked logs. I say that to everyone. About one in ten leans anyway."
+  }
+ ]
+}
