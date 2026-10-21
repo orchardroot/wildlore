@@ -9,10 +9,11 @@ Base: `origin/polish-4.0`. Branch: claude/w40-<letter>-<name>. Write a failing t
 - **A. The whole story, end to end**: run `tools/playtest.sh full 2` (over an hour; the only session allowed to) and
   `tools/playtest.sh from <beat>` for any beat it trips on; fix every soft-lock, crash and dead end it finds (real
   ones, not bot quirks: check each against the map and NPC data). Report the bot's last lines.
-- **B. Performance on a 2013 iMac**: profile the busiest places (Liverpool, London, Edinburgh, Dublin, a Market Hall,
-  a lease zone, a Deep Place, a town during a festival with NPC routines running) with the --fps dev switch and Godot's
-  profiler headless where possible; cut per-frame allocations, node counts and draw calls; target 60 fps on Intel HD /
-  Kepler-class GPUs with the Compatibility renderer. Report before/after numbers.
+- **B. A light performance check only**: the game runs comfortably on the owner's 2013 iMac, so don't optimise for
+  its own sake. Just confirm nothing added since 3.4 regressed badly (boot Liverpool, a Market Hall, a lease zone, a Deep
+  Place and a festival town with --fps; fix only clear outliers, e.g. a per-frame allocation or an unbounded node count),
+  then spend the rest of the session on polish: any UI text that overflows at 1280x720, any screen that's missing
+  controller focus, any rough edges you spot along the way.
 - **C. Saves across versions**: build save fixtures for 2.0, 2.2, 3.0, 3.3, 3.5 and 3.8 shapes (generate them by
   checking out those tags' core/game_state_data.gd to_dict, or by hand from the code history), and a test that each
   loads, plays a scripted hour (the bot's from mode), saves and reloads with nothing lost. Fix what breaks.
