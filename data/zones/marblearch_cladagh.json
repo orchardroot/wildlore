@@ -1,0 +1,217 @@
+{
+ "id": "marblearch_cladagh",
+ "name": "Marble Arch Caves: The Cladagh Passage",
+ "region": "ireland",
+ "kind": "interior",
+ "music": "dungeon_underground",
+ "weather": {},
+ "rows": [
+  "xxxxxxxxxxxxxxxxxxxxxxxx",
+  "xxDeeeexxxxxxxxxxxxxxxxx",
+  "xxeemmeexxxxxxeeeexxxxxx",
+  "xxeeeeeexxxxxxeeeexxxxxx",
+  "xxeeeeeeeeewwwweeeeeeexx",
+  "xxxxxxxxxxxxxxxxxeeeeexx",
+  "xxxxxxxxxxxxxxxxxeemmexx",
+  "xxxxxxxxxxxxxxxxxeeeeexx",
+  "xxxxxxxxxxxxxxxxxxeDexxx",
+  "xxxxxxxxxxxxxxxxxxxxxxxx"
+ ],
+ "stage": "cave",
+ "dark": true,
+ "scaled_floor": 65,
+ "legend_extra": {
+  "e": {
+   "tile": "path",
+   "colour": "#8a8676"
+  },
+  "m": {
+   "tile": "tall_grass",
+   "colour": "#6b6a5c",
+   "prop": "none"
+  },
+  "g": {
+   "tile": "path",
+   "colour": "#7d796a"
+  },
+  "o": {
+   "tile": "deep_water",
+   "colour": "#2b3a40"
+  }
+ },
+ "props": [],
+ "warps": [
+  {
+   "x": 2,
+   "y": 1,
+   "to": "enniskillen_marblearch",
+   "tx": 8,
+   "ty": 1,
+   "facing": "down"
+  },
+  {
+   "x": 19,
+   "y": 8,
+   "to": "marblearch_deep",
+   "tx": 1,
+   "ty": 3,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "mac_surveyor",
+   "sprite": "hiker",
+   "x": 5,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "mac_surveyor",
+   "name": "Surveyor"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "dripkin",
+    "min": 65,
+    "max": 67,
+    "weight": 22
+   },
+   {
+    "species": "flittermouse",
+    "min": 65,
+    "max": 66,
+    "weight": 14
+   },
+   {
+    "species": "glowmite",
+    "min": 65,
+    "max": 66,
+    "weight": 12
+   },
+   {
+    "species": "gritling",
+    "min": 65,
+    "max": 66,
+    "weight": 10
+   },
+   {
+    "species": "stalaghast",
+    "min": 67,
+    "max": 67,
+    "weight": 3
+   }
+  ],
+  "water": [
+   {
+    "species": "pincray",
+    "min": 65,
+    "max": 67,
+    "weight": 20
+   },
+   {
+    "species": "neagheen",
+    "min": 65,
+    "max": 66,
+    "weight": 10
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 6,
+   "y": 1,
+   "plaque": "mac_martel",
+   "title": "Martel, 1895",
+   "text": "In 1895 the French cave explorer Edouard-Alfred Martel came to Fermanagh and explored these streams by boat. His accounts helped put the caves of Cuilcagh on the map, and the underground river remains the way in for visitors today."
+  },
+  {
+   "x": 20,
+   "y": 5,
+   "plaque": "mac_cladagh",
+   "title": "The Cladagh Passage",
+   "text": "The Cladagh river drains the mountain and runs under it. Water rising after rain can fill passages like this one in hours, which is why the tours are cancelled when the weather turns and the guides are so firm about it."
+  }
+ ],
+ "spawn": [
+  3,
+  2
+ ],
+ "examine": [
+  {
+   "x": 4,
+   "y": 1,
+   "text": [
+    "A cave survey board, hung on a nail. Someone has drawn a passage, a winch and a very small arrow marked 'you are wet'."
+   ]
+  }
+ ],
+ "deep": {
+  "levers": [
+   {
+    "id": "weir",
+    "x": 7,
+    "y": 3,
+    "on": "You lift the old weir board. The water in the passage drains away down a crack, and the floor shows through.",
+    "off": "You drop the board back. The water creeps across the passage again."
+   },
+   {
+    "id": "winch",
+    "x": 16,
+    "y": 2,
+    "on": "You wind the surveyors' winch. Further along, a rusty grille rattles up into the roof.",
+    "off": "You wind the winch back. The grille drops again."
+   },
+   {
+    "id": "pocket",
+    "x": 2,
+    "y": 3,
+    "needs_light": true,
+    "on": "Your lantern catches a pale gleam in a crack. You work out a handful of cave pearls, round as peas and smooth as eggs.",
+    "off": "The crack is empty now.",
+    "find": {
+     "item": "cave_pearl",
+     "n": 2
+    }
+   }
+  ],
+  "gates": [
+   {
+    "x": 17,
+    "y": 4,
+    "by": [
+     "lever:winch"
+    ],
+    "line": "A surveyors' grille bars the passage. There is a winch somewhere nearby."
+   }
+  ],
+  "floods": [
+   {
+    "id": "stream",
+    "by": [
+     "lever:weir"
+    ],
+    "tiles": [
+     [
+      11,
+      4
+     ],
+     [
+      12,
+      4
+     ],
+     [
+      13,
+      4
+     ],
+     [
+      14,
+      4
+     ]
+    ]
+   }
+  ]
+ }
+}
