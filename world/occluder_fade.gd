@@ -33,6 +33,9 @@ static func dress(zone: ZoneData, zone_node: Node3D, player: Node3D) -> void:
 		var body := zone_node.get_node_or_null("Building_%d_%d" % [int(pr.x), int(pr.y)])
 		if body:
 			f._items.append({"body": body, "rect": Rect2(int(pr.x), int(pr.y), int(pr.w), int(pr.h)), "faded": false})
+	for c in zone_node.get_children():
+		if c is MeshInstance3D and c.has_meta("occluder_rect"):
+			f._items.append({"body": c, "rect": c.get_meta("occluder_rect"), "faded": false})
 	if not f._items.is_empty():
 		zone_node.add_child(f)
 
