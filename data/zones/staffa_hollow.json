@@ -1,0 +1,204 @@
+{
+ "id": "staffa_hollow",
+ "name": "Fingal's Cave: The Sea Hollow",
+ "region": "",
+ "kind": "interior",
+ "music": "dungeon_underground",
+ "weather": {},
+ "props": [],
+ "legend_extra": {
+  "e": {
+   "tile": "path",
+   "colour": "#4c4f58"
+  },
+  "m": {
+   "tile": "tall_grass",
+   "colour": "#3b4651",
+   "prop": "none"
+  }
+ },
+ "warps": [
+  {
+   "x": 1,
+   "y": 1,
+   "to": "staffa_columns",
+   "tx": 20,
+   "ty": 4,
+   "facing": "up"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "staffa_pipe",
+   "sprite": "creature:fingalith",
+   "x": 19,
+   "y": 3,
+   "facing": "left",
+   "move": "still",
+   "script": "staffa_pipe",
+   "name": "The Organ Pipe",
+   "hide_if": "staffa_pipe_caught"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "staffling",
+    "min": 70,
+    "max": 72,
+    "weight": 14
+   },
+   {
+    "species": "fingalith",
+    "min": 70,
+    "max": 72,
+    "weight": 6
+   },
+   {
+    "species": "selklet",
+    "min": 69,
+    "max": 71,
+    "weight": 10
+   },
+   {
+    "species": "flittermouse",
+    "min": 69,
+    "max": 71,
+    "weight": 14
+   },
+   {
+    "species": "scuttlet",
+    "min": 69,
+    "max": 71,
+    "weight": 12
+   },
+   {
+    "species": "minchman",
+    "min": 69,
+    "max": 71,
+    "weight": 4
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 3,
+   "y": 4,
+   "plaque": "staffa_banks",
+   "title": "Sir Joseph Banks, 1772",
+   "text": "SIR JOSEPH BANKS. The naturalist Sir Joseph Banks, who had sailed round the world with Captain Cook, landed on Staffa in 1772 on his way to Iceland. His account of the cave made it famous. Its old Gaelic name is An t-Uamh Bhinn, the Melodious Cave, and Fingal's Cave was the name that stuck."
+  },
+  {
+   "x": 13,
+   "y": 2,
+   "plaque": "staffa_turner",
+   "title": "Turner's Storm",
+   "text": "TURNER. The painter J. M. W. Turner visited Staffa in 1831 and showed a painting of it the next year, with a steamship rocking in a storm and the cave a dark mouth in the cliff. People still say you hear the sea breathe in there, and the organ-pipe columns are why."
+  },
+  {
+   "x": 7,
+   "y": 4,
+   "text": "Another winch, bolted to the rock. The channel beyond is full of black water, in no hurry."
+  },
+  {
+   "x": 13,
+   "y": 5,
+   "text": "A hollow column here, narrower than the rest. Hold a light to it and listen."
+  }
+ ],
+ "spawn": [
+  2,
+  2
+ ],
+ "stage": "cave",
+ "dark": true,
+ "scaled_floor": 69,
+ "rows": [
+  "xxxxxxxxxxxxxxxxxxxxxx",
+  "xDeeeeeeexxxeeeexemmex",
+  "xeeemmeeewwweeeexemeex",
+  "xeeemmeeewwweeeeeeeeex",
+  "xeeeeeeeewwweeeexeeeex",
+  "xeeeeeeeexxxeeeexeeeex",
+  "xxxxxxxxxxxxxxxxxxxxxx"
+ ],
+ "deep": {
+  "levers": [
+   {
+    "id": "tide",
+    "x": 6,
+    "y": 4,
+    "on": "You turn the winch. Somewhere beyond the wall a timber baulk lifts, the sea runs out of the channel, and the floor shows through.",
+    "off": "You let the winch go. The sea creeps back into the channel."
+   },
+   {
+    "id": "echo",
+    "x": 14,
+    "y": 4,
+    "needs_light": true,
+    "on": "Your lantern shows a hollow in the column, and you tap it. The note rings through the whole cave, and a slab at the far end shifts aside.",
+    "off": "The column hums quietly to itself.",
+    "find": {
+     "item": "staffa_basalt_chip"
+    }
+   }
+  ],
+  "floods": [
+   {
+    "id": "channel",
+    "by": [
+     "lever:tide"
+    ],
+    "tiles": [
+     [
+      9,
+      2
+     ],
+     [
+      10,
+      2
+     ],
+     [
+      11,
+      2
+     ],
+     [
+      9,
+      3
+     ],
+     [
+      10,
+      3
+     ],
+     [
+      11,
+      3
+     ],
+     [
+      9,
+      4
+     ],
+     [
+      10,
+      4
+     ],
+     [
+      11,
+      4
+     ]
+    ]
+   }
+  ],
+  "gates": [
+   {
+    "x": 16,
+    "y": 3,
+    "by": [
+     "lever:echo"
+    ],
+    "line": "A slab of basalt shuts off the far end. Something in this chamber must make it ring."
+   }
+  ]
+ }
+}

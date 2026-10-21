@@ -1,0 +1,183 @@
+{
+ "id": "staffa_columns",
+ "name": "Fingal's Cave: The Columns",
+ "region": "",
+ "kind": "interior",
+ "music": "dungeon_underground",
+ "weather": {},
+ "props": [],
+ "legend_extra": {
+  "e": {
+   "tile": "path",
+   "colour": "#4c4f58"
+  },
+  "m": {
+   "tile": "tall_grass",
+   "colour": "#3b4651",
+   "prop": "none"
+  }
+ },
+ "warps": [
+  {
+   "x": 1,
+   "y": 1,
+   "to": "staffa_cave",
+   "tx": 8,
+   "ty": 3,
+   "facing": "down"
+  },
+  {
+   "x": 20,
+   "y": 5,
+   "to": "staffa_hollow",
+   "tx": 2,
+   "ty": 1,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "staffa_columns_puffin",
+   "sprite": "creature:puffling",
+   "x": 6,
+   "y": 2,
+   "facing": "down",
+   "move": "still",
+   "script": "staffa_columns_puffin",
+   "name": "Puffin"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "staffling",
+    "min": 69,
+    "max": 71,
+    "weight": 16
+   },
+   {
+    "species": "clownbill",
+    "min": 69,
+    "max": 71,
+    "weight": 14,
+    "time": [
+     "dawn",
+     "day"
+    ]
+   },
+   {
+    "species": "selklet",
+    "min": 69,
+    "max": 71,
+    "weight": 10
+   },
+   {
+    "species": "polartern",
+    "min": 69,
+    "max": 71,
+    "weight": 8
+   },
+   {
+    "species": "gannetling",
+    "min": 69,
+    "max": 71,
+    "weight": 6
+   },
+   {
+    "species": "fingalith",
+    "min": 70,
+    "max": 72,
+    "weight": 3
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 3,
+   "y": 5,
+   "plaque": "staffa_mendelssohn",
+   "title": "Mendelssohn on Staffa",
+   "text": "MENDELSSOHN. The composer Felix Mendelssohn, aged twenty, visited Staffa in 1829 on a tour of Scotland and was sick on the boat. He wrote down the opening tune of what became The Hebrides, also called Fingal's Cave, and sent it to his sister Fanny. The finished overture was first played in London in 1832."
+  },
+  {
+   "x": 12,
+   "y": 5,
+   "plaque": "staffa_victoria",
+   "title": "A Royal Visit",
+   "text": "A ROYAL VISIT. Queen Victoria and Prince Albert came to Staffa in 1847 aboard the royal yacht and were rowed into Fingal's Cave in small boats. By then the cave was already a stop on the Hebridean tourist trail, and had been for decades."
+  },
+  {
+   "x": 7,
+   "y": 4,
+   "text": "A boatman's winch bolted to the rock, with a handle worn smooth by generations of hands. Something beyond the next wall is waiting on it."
+  },
+  {
+   "x": 19,
+   "y": 4,
+   "plaque": "staffa_clamshell",
+   "title": "The Clamshell Cave",
+   "text": "CLAMSHELL CAVE. A smaller cave on Staffa where the basalt columns curve like the ribs of an upturned boat. Staffa's columns formed as lava cooled and cracked about 60 million years ago, and not all of them grew straight."
+  }
+ ],
+ "spawn": [
+  2,
+  2
+ ],
+ "stage": "cave",
+ "dark": true,
+ "scaled_floor": 69,
+ "rows": [
+  "xxxxxxxxxxxxxxxxxxxxxx",
+  "xDeemmeexeeeemmeeexmex",
+  "xeeemmeexeeeemmmeexmex",
+  "xeeeeeeeeeeeeeeeeeeeex",
+  "xeeeeeeexeeeeeeeeexeex",
+  "xeeeeeeexeeeeeeeeexeDx",
+  "xxxxxxxxxxxxxxxxxxxxxx"
+ ],
+ "deep": {
+  "levers": [
+   {
+    "id": "winch",
+    "x": 6,
+    "y": 4,
+    "on": "You heave on the winch. Beyond the wall, a heavy gate of old timber lifts clear with a long groan.",
+    "off": "You let the winch run back. The gate thumps down."
+   }
+  ],
+  "plates": [
+   {
+    "id": "stone",
+    "x": 16,
+    "y": 3,
+    "weight": "crate"
+   }
+  ],
+  "crates": [
+   {
+    "id": "block",
+    "x": 10,
+    "y": 3
+   }
+  ],
+  "gates": [
+   {
+    "x": 8,
+    "y": 3,
+    "by": [
+     "lever:winch"
+    ],
+    "line": "A timber gate across the passage, chained shut. There is a winch on this side of it."
+   },
+   {
+    "x": 18,
+    "y": 3,
+    "by": [
+     "plate:stone"
+    ],
+    "line": "A slab of basalt blocks the passage. There is a plate in the floor before it, and a loose column-end that looks about the right weight."
+   }
+  ]
+ }
+}
