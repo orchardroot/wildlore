@@ -27,6 +27,12 @@ func _ready() -> void:
 	logo.add_theme_constant_override("shadow_offset_y", 6)
 	logo.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	col.add_child(logo)
+	var isles := Label.new()
+	isles.text = "These Isles"
+	isles.add_theme_font_size_override("font_size", 48)
+	isles.add_theme_color_override("font_color", UIKit.GOLD)
+	isles.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	col.add_child(isles)
 	var sub := Label.new()
 	sub.text = _subtitle()
 	sub.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# Idempotent: creates labels, milestones and the plan 1 issues on orchardroot/wildlore.
+# Idempotent: creates labels, milestones and the plan 1 issues on orchardroot/wildlore-these-isles.
 set -euo pipefail
-REPO="orchardroot/wildlore"
+REPO="orchardroot/wildlore-these-isles"
 
 label() { gh label create "$1" --repo "$REPO" --color "$2" --description "$3" --force >/dev/null; }
 label battle "d73a4a" "Battle engine and battle UI"

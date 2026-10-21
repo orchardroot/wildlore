@@ -2,8 +2,8 @@ extends MenuBase
 ## The end credits: a slow scroll over the world map, then back to the game. Confirm skips.
 
 const LINES := [
-	"WILDLORE", "",
-	"A monster-catching journey across the islands of Britain and Ireland", "",
+	"WILDLORE", "These Isles", "",
+	"A walking holiday round the real Isles that turns into a life there", "",
 	"Made by orchardroot", "in Cheshire", "under the supervision of two cats", "",
 	"Made with the Godot Engine", "",
 	"Every creature, character, building and tune was generated from scratch.", "No downloaded art. No downloaded music.", "",
