@@ -146,6 +146,24 @@ static func boot(game: Node, menu: String) -> void:
 			BuildingSociety.settle(d)
 			d.money = 1840
 			menu = menu.trim_suffix(":loan")
+	if menu.begins_with("deed"):  # `--menu=deed:<id>[:owned]`: a few Stones in with cash and stock; `:owned` buys it, stocks it and lets a fortnight pass
+		d.day_count = 120
+		d.money = 20000
+		for i in 4:
+			d.badges.append("b%d" % i)
+		d.set_flag("badge_stone", true)
+		d.bag["haddock"] = 8
+		d.bag["whiting"] = 8
+		d.bag["potatoes"] = 40
+		if menu.ends_with(":owned"):
+			var did := menu.split(":")[1]
+			Deeds.buy(d, did)
+			for inp in Deeds.get_deed(did).inputs:
+				d.bag[str(inp.item)] = 40
+				Deeds.supply(d, did, str(inp.item), 40)
+			d.day_count += 14
+			Deeds.tick(d, d.day_count)
+			menu = menu.trim_suffix(":owned")
 	if menu.begins_with("bureau") or menu.begins_with("exchange") or menu.begins_with("crypto") or menu == "pause:euros":
 		# a few weeks into a journey with both purses, some shares, a Doggerel punt and a Stone or two
 		d.day_count = 46

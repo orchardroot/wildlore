@@ -18,6 +18,7 @@ var reduce_flashing := false  # gentle hit flashes, less shake, no strobing evol
 var follower := true        # the party lead walks behind you in the overworld (see Follower)
 var travel_scenes := "on"   # on | short | off: the little scenes for trains, ferries and the Raven (see Journey)
 var easy_fishing := false   # fishing: a wider, slower sweet spot on the bite bar
+var easy_darts := false     # darts: a steadier reticle and the checkout shown; crabbing: slower nibbles, a longer wait to haul
 var damage_numbers := true  # battle: the damage taken drifts up beside the plate
 var bindings := {}        # action -> {"key": [physical keycodes], "pad": [joypad buttons]}, see InputSetup
 
@@ -60,6 +61,7 @@ func load_settings() -> void:
 			reduce_flashing = bool(d.get("reduce_flashing", reduce_flashing))
 			follower = bool(d.get("follower", follower))
 			easy_fishing = bool(d.get("easy_fishing", easy_fishing))
+			easy_darts = bool(d.get("easy_darts", easy_darts))
 			damage_numbers = bool(d.get("damage_numbers", damage_numbers))
 			travel_scenes = str(d.get("travel_scenes", travel_scenes))
 			if travel_scenes not in ["on", "short", "off"]:
@@ -72,7 +74,7 @@ func save_settings() -> void:
 	if f:
 		f.store_string(JSON.stringify({"text_speed": text_speed, "battle_speed": battle_speed, "quality": quality, "music_volume": music_volume,
 			"sfx_volume": sfx_volume, "ambience_volume": ambience_volume, "run_mode": run_mode, "colour_blind": colour_blind, "reduce_flashing": reduce_flashing,
-			"travel_scenes": travel_scenes, "follower": follower, "damage_numbers": damage_numbers, "easy_fishing": easy_fishing, "bindings": bindings}))
+			"travel_scenes": travel_scenes, "follower": follower, "damage_numbers": damage_numbers, "easy_fishing": easy_fishing, "easy_darts": easy_darts, "bindings": bindings}))
 	Bus.settings_changed.emit()
 
 ## Rebinds one slot. `device` is "key" or "pad"; `code` a physical keycode or joypad button.

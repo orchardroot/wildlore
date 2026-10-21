@@ -1,0 +1,192 @@
+class_name Regulars
+extends RefCounted
+## The Regulars (data/regulars.json): twelve recurring characters who remember you. Each lives in a home town and
+## turns up again in a second town once you've got to know them. Favour runs 0 to 5 and is earned with a gift they
+## like (one a day, see GIFT_PTS): 0 is a stranger, 1 you've met, 2 they turn up in another town, 3 they write to you
+## through the post box, 4 they offer to manage one of your Deeds (see Deeds.set_manager), 5 a lifelong friend.
+## State lives in the flag `reg_<id>` = {favour, pts, gift_day, meet, letter, manager}; a save without it means
+## strangers, so old saves are fine. Nothing here touches money. Pure logic, no autoloads.
+
+const PATH := "res://data/regulars.json"
+const PREFIX := "reg_"
+const SCRIPT_FILE := "regulars"   # data/dialogue/regulars.json, script regular_<id>
+const MAX_FAVOUR := 5
+## Gifts (points) needed in all to reach favour 2, 3, 4 and 5. Favour 1 is just meeting them.
+const GIFTS_FOR := {2: 1, 3: 3, 4: 5, 5: 8}
+
+static var _regs: Array = []
+
+static func all() -> Array:
+	if _regs.is_empty():
+		var d = JsonUtil.read(PATH)
+		_regs = d.get("regulars", []) if d is Dictionary else []
+	return _regs
+
+static func ids() -> Array:
+	return all().map(func(r): return str(r.id))
+
+static func get_reg(id: String) -> Dictionary:
+	for r in all():
+		if str(r.id) == id:
+			return r
+	return {}
+
+static func flag_key(id: String) -> String:
+	return PREFIX + id
+
+static func _peek(data: GameStateData, id: String) -> Dictionary:
+	var v: Variant = data.flag(flag_key(id))
+	return v if v is Dictionary else {}
+
+static func _st(data: GameStateData, id: String) -> Dictionary:
+	var v: Variant = data.flag(flag_key(id))
+	if not (v is Dictionary):
+		v = {}
+		data.set_flag(flag_key(id), v)
+	return v
+
+static func favour(data: GameStateData, id: String) -> int:
+	return clampi(int(_peek(data, id).get("favour", 0)), 0, MAX_FAVOUR)
+
+static func met(data: GameStateData, id: String) -> bool:
+	return favour(data, id) >= 1
+
+static func points(data: GameStateData, id: String) -> int:
+	return int(_peek(data, id).get("pts", 0))
+
+static func liked_item(id: String) -> String:
+	return str(get_reg(id).get("likes", ""))
+
+## Gifts still needed for the next favour level, or 0 at the top.
+static func gifts_to_next(data: GameStateData, id: String) -> int:
+	var f := favour(data, id)
+	if f < 1 or f >= MAX_FAVOUR:
+		return 0
+	return maxi(0, int(GIFTS_FOR[f + 1]) - points(data, id))
+
+## Can they be handed their favourite today? Met, not at the top, nothing given yet today, and it's in the bag.
+static func can_gift(data: GameStateData, id: String) -> bool:
+	var f := favour(data, id)
+	if f < 1 or f >= MAX_FAVOUR or liked_item(id) == "":
+		return false
+	if int(_peek(data, id).get("gift_day", -1)) == data.day_count:
+		return false
+	return int(data.bag.get(liked_item(id), 0)) > 0
+
+## Hand over the favourite: takes it from the bag, adds a point, and returns the new favour (or -1 if they can't).
+static func give_gift(data: GameStateData, id: String) -> int:
+	if not can_gift(data, id):
+		return -1
+	var item := liked_item(id)
+	var left := int(data.bag.get(item, 0)) - 1
+	if left <= 0:
+		data.bag.erase(item)
+	else:
+		data.bag[item] = left
+	var st := _st(data, id)
+	st["pts"] = int(st.get("pts", 0)) + 1
+	st["gift_day"] = data.day_count
+	for lv in range(MAX_FAVOUR, 1, -1):
+		if int(st.pts) >= int(GIFTS_FOR[lv]):
+			st["favour"] = maxi(int(st.get("favour", 0)), lv)
+			break
+	return favour(data, id)
+
+## Which scene is waiting for you here: "intro" (first time, home), "meet" (favour 2, in their second town),
+## "offer" (favour 4, home, with a Deed that has a free manager slot) or "".
+static func next_beat(data: GameStateData, id: String, zone_id: String) -> String:
+	var r := get_reg(id)
+	if r.is_empty():
+		return ""
+	var st := _peek(data, id)
+	var f := favour(data, id)
+	if zone_id == str(r.home):
+		if f < 1:
+			return "intro"
+		if f >= 4 and str(st.get("manager", "")) == "" and not eligible_deeds(data).is_empty():
+			return "offer"
+	elif zone_id == str(r.away) and f >= 2 and st.get("meet") != true:
+		return "meet"
+	return ""
+
+## The scene's been played.
+static func complete(data: GameStateData, id: String, beat: String) -> void:
+	var st := _st(data, id)
+	match beat:
+		"intro":
+			st["favour"] = maxi(1, int(st.get("favour", 0)))
+		"meet":
+			st["meet"] = true
+
+## NPC definitions for the regulars standing in this zone: each at home, and in their second town while the
+## meeting is waiting. Positions (x, y at home, ax, ay away) are nudged to a free tile by the overworld, like side stories.
+static func npcs_for(zone_id: String, data: GameStateData, list: Array = []) -> Array:
+	var out := []
+	for r in (list if not list.is_empty() else all()):
+		var id := str(r.id)
+		var here: bool = str(r.get("home", "")) == zone_id
+		var away: bool = str(r.get("away", "")) == zone_id and favour(data, id) >= 2 and _peek(data, id).get("meet") != true
+		if not (here or away):
+			continue
+		out.append({"id": "reg_" + id + ("" if here else "_away"), "sprite": str(r.get("sprite", "villager_1")),
+			"name": str(r.get("name", "")), "x": int(r.get("x" if here else "ax", 0)), "y": int(r.get("y" if here else "ay", 0)), "facing": "down",
+			"move": "still", "script": "regular_" + id, "script_file": SCRIPT_FILE})
+	return out
+
+## Chat for a visit with nothing else on: rotates by day, and moves on from the "stranger" lines as favour grows.
+static func chat_line(data: GameStateData, id: String) -> String:
+	var lines: Array = get_reg(id).get("chat", [])
+	return "" if lines.is_empty() else str(lines[posmod(data.day_count + favour(data, id), lines.size())])
+
+## Letters waiting at the post box: one from each regular at favour 3 or more who hasn't been read.
+static func letters_waiting(data: GameStateData) -> Array:
+	var out := []
+	for id in ids():
+		if favour(data, id) >= 3 and _peek(data, id).get("letter") != true:
+			out.append(id)
+	return out
+
+## Take the post: marks each letter read and returns the regular ids.
+static func collect_letters(data: GameStateData) -> Array:
+	var got := letters_waiting(data)
+	for id in got:
+		_st(data, id)["letter"] = true
+	return got
+
+static func letter_lines(id: String, player: String) -> Array:
+	var r := get_reg(id)
+	if r.is_empty():
+		return []
+	var out := ["A letter from %s." % str(r.name)]
+	for t in r.get("letter", []):
+		out.append(str(t).replace("{player}", player))
+	return out
+
+# --- the manager hook (Deeds is session A's) ---------------------------------------------------------------
+
+static func _deed_id(e: Variant) -> String:
+	return str(e.get("id", "")) if e is Dictionary else str(e)
+
+## Owned Deeds with a manager slot that nobody is managing yet.
+static func eligible_deeds(data: GameStateData) -> Array:
+	var out := []
+	for e in Deeds.owned(data):
+		var did := _deed_id(e)
+		var st: Variant = data.flag("deed_" + did)
+		if did == "" or not Deeds.get_deed(did).get("manager_slot", false):
+			continue
+		if st is Dictionary and str(st.get("manager", "")) != "":
+			continue
+		out.append(did)
+	return out
+
+static func manager_of(data: GameStateData, id: String) -> String:
+	return str(_peek(data, id).get("manager", ""))
+
+## They take the job: records it and tells the Deed. False if that Deed isn't free or they're already busy.
+static func appoint(data: GameStateData, id: String, deed_id: String) -> bool:
+	if favour(data, id) < 4 or manager_of(data, id) != "" or deed_id not in eligible_deeds(data):
+		return false
+	Deeds.set_manager(data, deed_id, id)
+	_st(data, id)["manager"] = deed_id
+	return true

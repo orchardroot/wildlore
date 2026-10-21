@@ -1,0 +1,29 @@
+{
+ "spots": ["whitby", "aberystwyth", "holyhead", "dundee", "lerwick", "donegal_town", "galway", "dingle", "cork", "newcastle", "northumberland_coast", "cardiff", "hull", "liverpool"],
+ "bucket": 14,
+ "comp": {
+  "hauls": 8,
+  "fee": 5,
+  "prizes": [120, 70, 40],
+  "rivals": [
+   {"who": "Little Alfie, aged seven", "mean": 9, "spread": 3},
+   {"who": "Nan Pritchard", "mean": 12, "spread": 3},
+   {"who": "The harbourmaster's nephew", "mean": 14, "spread": 3}
+  ],
+  "hosts": ["whitby", "aberystwyth", "dingle"]
+ },
+ "species": [
+  {"id": "shore_crab", "name": "Shore Crab", "weight": 50, "min": 25, "max": 60,
+   "fact": "Carcinus maenas, the green shore crab. Found on every British and Irish coast, and it will eat nearly anything, including your bait."},
+  {"id": "edible_crab", "name": "Edible Crab", "weight": 14, "min": 30, "max": 90,
+   "fact": "Cancer pagurus, with the pie-crust edge to its shell. Young ones shelter in harbours. Adults must be at least 130 to 150 mm across, depending on where you are, to be landed legally, so these little ones always go back."},
+  {"id": "velvet_crab", "name": "Velvet Swimming Crab", "weight": 12, "min": 30, "max": 80,
+   "fact": "Necora puber, with red eyes and a blue-lined fuzz of hairs. Quick, bad-tempered and known as the devil crab. Keep fingers well back."},
+  {"id": "hermit_crab", "name": "Hermit Crab", "weight": 12, "min": 15, "max": 40,
+   "fact": "Pagurus bernhardus. Not a true crab at all, but a soft-bodied relative that moves into empty whelk shells and trades up as it grows."},
+  {"id": "porcelain_crab", "name": "Porcelain Crab", "weight": 7, "min": 8, "max": 15,
+   "fact": "Porcellana platycheles, a small, hairy, flat-backed crab. If it loses a claw to a predator it simply drops it and gets away."},
+  {"id": "spider_crab", "name": "Spider Crab", "weight": 5, "min": 40, "max": 110, "season": ["summer", "autumn"],
+   "fact": "Maja brachydactyla, long-legged and knobbly. Hundreds gather in shallow water in late summer to moult together."}
+ ]
+}

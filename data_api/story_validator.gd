@@ -3,7 +3,7 @@ extends RefCounted
 ## Checks dialogue scripts, trainers and the NPCs that use them against the rest of the data.
 
 const COMMANDS := ["say", "choice", "if", "set", "give_item", "give_creature", "heal", "battle", "move", "face",
-	"face_player", "wait", "warp", "shop", "starter", "fade_out", "fade_in", "music", "sfx", "badge", "end", "whiteout", "ark", "rail", "ferry", "legend", "gauntlet", "credits", "daily", "when", "relearn", "sachet_worn", "quiz", "craft", "recipe", "fieldbook_news", "rewild", "standing", "overseas", "overseas_home", "tournament", "bureau", "exchange", "market", "crypto", "casino", "society"]
+	"face_player", "wait", "warp", "shop", "starter", "fade_out", "fade_in", "music", "sfx", "badge", "end", "whiteout", "ark", "rail", "ferry", "legend", "gauntlet", "credits", "daily", "when", "relearn", "sachet_worn", "quiz", "craft", "recipe", "fieldbook_news", "rewild", "standing", "overseas", "overseas_home", "tournament", "bureau", "exchange", "market", "crypto", "casino", "society", "deed", "regular", "darts", "crab_comp"]
 const CONDITIONS := ["dawn", "day", "dusk", "night", "rain", "fog", "gale", "frost", "sunshine", "caught_all",
 	"caught_25", "caught_50", "caught_100", "caught_150", "caught_200",
 	"spring", "summer", "autumn", "winter", "halloween", "bonfire_night", "christmas", "st_patricks", "st_davids", "burns_night"]
@@ -180,6 +180,9 @@ static func validate_commands(cmds: Array, tag: String, dex: Dex, items: ItemDB,
 			"market":
 				if MarketHall.hall(str(c.get("hall", ""))).is_empty():
 					errors.append("%s: market hall '%s' is not in data/market_halls.json" % [tag, c.get("hall", "")])
+			"deed":
+				if Deeds.get_deed(str(c.get("id", ""))).is_empty():
+					errors.append("%s: deed '%s' is not in data/deeds" % [tag, c.get("id", "")])
 			"exchange":
 				if Markets.board(str(c.get("board", ""))).is_empty():
 					errors.append("%s: no Stock Exchange board '%s'" % [tag, c.get("board", "")])
@@ -188,9 +191,18 @@ static func validate_commands(cmds: Array, tag: String, dex: Dex, items: ItemDB,
 					errors.append("%s: quiz with no pub id" % tag)
 				if str(c.get("region", "all")) not in PubQuiz.REGIONS:
 					errors.append("%s: quiz with unknown region '%s'" % [tag, c.get("region", "")])
+			"darts":
+				if Darts.league(str(c.get("nation", ""))).is_empty():
+					errors.append("%s: darts with no league for nation '%s'" % [tag, c.get("nation", "")])
+			"crab_comp":
+				if not Crabbing.is_spot(str(c.get("harbour", ""))):
+					errors.append("%s: crab_comp at '%s', which is not a crabbing spot" % [tag, c.get("harbour", "")])
 			"craft":
 				if str(c.get("bench", "")) not in Crafting.BENCHES:
 					errors.append("%s: craft at unknown bench '%s'" % [tag, c.get("bench", "")])
+			"regular":
+				if Regulars.get_reg(str(c.get("id", ""))).is_empty():
+					errors.append("%s: regular with unknown id '%s'" % [tag, c.get("id", "")])
 			"standing":
 				if not Standing.is_nation(str(c.get("nation", ""))):
 					errors.append("%s: standing with unknown nation '%s'" % [tag, c.get("nation", "")])
@@ -217,7 +229,7 @@ static func validate_commands(cmds: Array, tag: String, dex: Dex, items: ItemDB,
 				if str(c.get("game", "")) == "races" and str(c.get("venue", "")) not in Punt.RACE_VENUES:
 					errors.append("%s: races at unknown venue '%s'" % [tag, c.get("venue", "")])
 			"tournament":
-				if str(c.get("id", "")) not in ["show", "moot", "trade"]:
+				if str(c.get("id", "")) not in ["show", "show_menu", "moot", "trade"]:
 					errors.append("%s: tournament with unknown id '%s'" % [tag, c.get("id", "")])
 	return errors
 

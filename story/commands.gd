@@ -163,6 +163,8 @@ func _exec(c: Dictionary) -> void:
 			await host.open_menu("market:" + str(c.get("hall", "")))  # a Market Hall stall (see MarketHall)
 		"society":
 			await host.open_menu("society:" + host.zone_id())  # a Building Society branch (see BuildingSociety)
+		"deed":
+			await host.open_menu("deed:" + str(c.get("id", "")))  # a Deed counter (see Deeds)
 		"crypto":
 			await host.open_menu("crypto")  # the Doggerel kiosk
 		"starter":
@@ -203,6 +205,10 @@ func _exec(c: Dictionary) -> void:
 			await _recipe(c.get("id", []))
 		"quiz":
 			await _quiz(c)
+		"darts":
+			await PubSportRun.new(self).darts(c)
+		"crab_comp":
+			await PubSportRun.new(self).crab_comp(c)
 		"casino":
 			await _casino(c)
 		"legend":
@@ -237,6 +243,8 @@ func _exec(c: Dictionary) -> void:
 			if line != "":
 				await host.sfx("badge")
 				await host.say("", line + ".")
+		"regular":
+			await RegularTalk.run(self, c)  # one of the Regulars (story/regular_talk.gd)
 		"rewild":
 			await RewildTalk.run(self, c)  # a rewilding site's warden (story/rewild_talk.gd)
 		_:

@@ -1,0 +1,92 @@
+{
+ "id": "stall_carlisle",
+ "kind": "stall",
+ "name": "The Border Pantry",
+ "zone": "carlisle",
+ "door": {
+  "x": 36,
+  "y": 35
+ },
+ "interior": "carlisle_hall",
+ "cost": [
+  1500,
+  2500,
+  4000
+ ],
+ "inputs": [
+  {
+   "item": "havercake",
+   "per_day": 3
+  }
+ ],
+ "output": {
+  "base": 20,
+  "per_input": 88
+ },
+ "rates": 0.05,
+ "tiers": [
+  {
+   "name": "A trestle and a tablecloth",
+   "cost": 0,
+   "mult": 1.0
+  },
+  {
+   "name": "A striped awning",
+   "cost": 1200,
+   "mult": 1.4
+  },
+  {
+   "name": "A glass cabinet",
+   "cost": 3000,
+   "mult": 1.6
+  },
+  {
+   "name": "A second pitch beside the first",
+   "cost": 6000,
+   "mult": 1.9
+  }
+ ],
+ "events": [
+  {
+   "id": "market_day",
+   "chance": 0.08,
+   "mult": 1.5,
+   "line": "It was a proper market day and the whole county turned up."
+  },
+  {
+   "id": "cattle_mart",
+   "chance": 0.06,
+   "mult": 1.4,
+   "season": "autumn",
+   "line": "The cattle mart let out and every farmer in Cumberland came for a bite."
+  },
+  {
+   "id": "scots_day_trippers",
+   "chance": 0.05,
+   "mult": 1.3,
+   "season": "summer",
+   "line": "Day trippers from over the border, all very polite and all carrying carrier bags."
+  },
+  {
+   "id": "flooded_car_park",
+   "chance": 0.03,
+   "mult": 0.0,
+   "season": "winter",
+   "line": "The car park flooded and nobody could reach the hall."
+  },
+  {
+   "id": "cold_snap",
+   "chance": 0.05,
+   "mult": 0.7,
+   "season": "winter",
+   "line": "A cold snap kept the shoppers at home with the fire on."
+  },
+  {
+   "id": "new_neighbour",
+   "chance": 0.04,
+   "mult": 1.2,
+   "line": "The new cheese stall next door sent people over for something sweet."
+  }
+ ],
+ "manager_slot": true
+}

@@ -1,0 +1,123 @@
+{
+ "id": "dingle_boat_hut",
+ "name": "The Harbour Hut",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "lobster_pots",
+   "x": 1,
+   "y": 6
+  },
+  {
+   "type": "lobster_pots",
+   "x": 2,
+   "y": 7
+  },
+  {
+   "type": "buoy",
+   "x": 11,
+   "y": 7
+  },
+  {
+   "type": "boat",
+   "x": 10,
+   "y": 4
+  },
+  {
+   "type": "telescope",
+   "x": 11,
+   "y": 2
+  },
+  {
+   "type": "noticeboard",
+   "x": 8,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "clock",
+   "x": 7,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "kettle_table",
+   "x": 9,
+   "y": 6
+  },
+  {
+   "type": "bench",
+   "x": 4,
+   "y": 6
+  },
+  {
+   "type": "wall_picture",
+   "x": 3,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 8,
+   "to": "dingle",
+   "tx": 8,
+   "ty": 15,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "dingle_skipper",
+   "sprite": "fisherman_north",
+   "x": 3,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "dingle_skipper",
+   "name": "Skipper"
+  },
+  {
+   "id": "dingle_hand",
+   "sprite": "sailor",
+   "x": 8,
+   "y": 5,
+   "facing": "down",
+   "move": "still",
+   "script": "dingle_hand",
+   "name": "Old Hand"
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "x": 6,
+   "y": 1,
+   "text": "Dingle harbour is sheltered by the Slea Head peninsula, and for decades a bottlenose dolphin called Fungie met the boats at its mouth. He vanished in 2020 and the town still talks about him.",
+   "plaque": "deed_boat_dingle",
+   "title": "Dingle's Boats"
+  }
+ ],
+ "spawn": [
+  6,
+  7
+ ],
+ "rows": [
+  "xxxxxxxxxxxxx",
+  "x|||||||||||x",
+  "x|CCCC||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||D|||||x",
+  "xxxxxxxxxxxxx"
+ ]
+}

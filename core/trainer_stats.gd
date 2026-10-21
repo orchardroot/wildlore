@@ -5,7 +5,7 @@ extends RefCounted
 
 const COUNTERS := ["steps", "wins_wild", "wins_trainer", "caught", "train_trips", "ferry_trips", "flights",
 	"rail_miles", "money_earned", "teas", "rained_on", "fish_caught",
-	"goods_sold", "dishes_cooked"]
+	"goods_sold", "dishes_cooked", "darts_won", "crabs_caught", "show_rosettes", "sheepdog_trials"]
 const TEA_ITEMS := ["cup_of_tea", "flask_of_tea", "cream_tea"]
 const MILES_PER_MAP_UNIT := 0.45   # the world map is 1000 x 1300 for roughly 450 x 600 miles of Britain
 
@@ -91,6 +91,10 @@ static func lines(data: GameStateData) -> Array:
 		["Visitor's Book", _visitors_book(data)],
 		["Land rewilded", "%d of %d sites Wild" % [Rewild.wild_count(data), Rewild.sites().size()]],
 	]
+	if c.call("darts_won") > 0:
+		out.append(["Darts legs won", _n(c.call("darts_won"))])
+	if c.call("crabs_caught") > 0:
+		out.append(["Crabs caught and released", _n(c.call("crabs_caught"))])
 	out.append_array(Tournament.stat_lines(data))  # County Shows and the Open Moot
 	out.append_array(Punt.stat_lines(data))  # the Palace and the bookies, once you've had a flutter
 	return out

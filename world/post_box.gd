@@ -31,7 +31,8 @@ static func dress(z: ZoneData, zone_node: Node3D, data: GameStateData) -> void:
 	var root := Node3D.new()
 	root.name = NODE
 	zone_node.add_child(root)
-	var show := not Postcards.waiting(data).is_empty() or not BuildingSociety.letters_waiting(data).is_empty()
+	var show := not Postcards.waiting(data).is_empty() or not BuildingSociety.letters_waiting(data).is_empty() \
+			or not Deeds.letters_waiting(data).is_empty() or not Regulars.letters_waiting(data).is_empty()
 	for p in boxes:
 		var n := envelope()
 		n.name = "E_%d_%d" % [p.x, p.y]
@@ -57,6 +58,21 @@ static func interact(ow: Node, p: Vector2i) -> bool:
 		Audio.sfx("item")
 		for id in mail:
 			await ow.say(BuildingSociety.letter_lines(str(id)))
+		if Postcards.waiting(Game.data).is_empty():
+			show_waiting(ow._zone_node, false)
+			return true
+	var business := Deeds.collect_letters(Game.data)  # rates bills, statements, the taxman
+	if not business.is_empty():
+		Audio.sfx("item")
+		await ow.say(business)
+		if Postcards.waiting(Game.data).is_empty():
+			show_waiting(ow._zone_node, false)
+			return true
+	var friends := Regulars.collect_letters(Game.data)  # a Regular's letter once favour is 3
+	if not friends.is_empty():
+		Audio.sfx("item")
+		for id in friends:
+			await ow.say(Regulars.letter_lines(str(id), Game.data.player_name))
 		if Postcards.waiting(Game.data).is_empty():
 			show_waiting(ow._zone_node, false)
 			return true

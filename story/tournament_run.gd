@@ -24,6 +24,8 @@ func run(c: Dictionary) -> void:
 	match str(c.get("id", "")):
 		"show":
 			await _show()
+		"show_menu":
+			await _show_menu()
 		"moot":
 			await _moot()
 		"trade":
@@ -101,6 +103,91 @@ func _show() -> void:
 		await _say("", "%s received %s." % [data.player_name, "a Show Rosette" if paid == 1 else "%d Show Rosettes" % paid])
 	elif wins > 0:
 		await _say(STEWARD, "You've had today's rosettes already, mind. The glory's free.")
+
+## The Steward's class list: the battling class (_show) and the gentler ones (ShowClasses), open to everyone.
+func _show_menu() -> void:
+	var data: GameStateData = host.data
+	var s := Tournament.today(data)
+	if s.is_empty() or str(s.town) != str(host.zone_id()):
+		await _show()
+		return
+	var pick: int = await host.choice("Which class, then?", ["Battling class", "Produce class", "Sheepdog trials", "Just looking"])
+	match pick:
+		0:
+			await _show()
+		1:
+			await _produce(s)
+		2:
+			await _sheepdog(s)
+		_:
+			await _say(STEWARD, "Look all you like. The cake tent's that way.")
+
+func _plaque(cls: String) -> void:
+	var text := str(Tournament.config().get("plaques", {}).get(cls, ""))
+	if text != "":
+		await _say("", text)
+
+## The produce class: one item of kind "produce" a day, marked for size and condition against four growers.
+func _produce(s: Dictionary) -> void:
+	var data: GameStateData = host.data
+	if ShowClasses.entered_today(data, ShowClasses.PRODUCE):
+		await _say(STEWARD, "You've entered the produce class today already. The judges have gone for a lie-down.")
+		return
+	var ents := ShowClasses.entrants(data, host.items)
+	if ents.is_empty():
+		await _say(STEWARD, "The produce tent wants something from the soil: vegetables, fruit, anything you've grown. Bring it back and we'll see.")
+		await _plaque(ShowClasses.PRODUCE)
+		return
+	var options: Array = ents.map(func(e): return "%s (%d)" % [e.name, e.n])
+	options.append("Not today")
+	var pick: int = await host.choice("What are you entering? It goes to the tea tent afterwards, win or lose.", options)
+	if pick < 0 or pick >= ents.size():
+		await _say(STEWARD, "Righto. The marrows will keep.")
+		return
+	var item: Dictionary = host.items.get_item(str(ents[pick].id))
+	Bag.new(data.bag).remove(str(ents[pick].id), 1)
+	ShowClasses.mark_entered(data, ShowClasses.PRODUCE)
+	var seed := "%s/%s" % [Calendar.today_key(), s.id]
+	var j := ShowClasses.judge(item, seed)
+	await _say("Judge", "Size %d out of a hundred, condition %d. Let's see how that stacks up." % [int(j.size), int(j.condition)])
+	var p := ShowClasses.place(int(j.score), ShowClasses.rivals(seed))
+	await _placed(ShowClasses.PRODUCE, p, "produce")
+	await _plaque(ShowClasses.PRODUCE)
+
+## The sheepdog trials: your lead creature herds four sheep through two gates; the Settings easy option widens them.
+func _sheepdog(s: Dictionary) -> void:
+	var data: GameStateData = host.data
+	if ShowClasses.entered_today(data, ShowClasses.DOG):
+		await _say(STEWARD, "One run each, I'm afraid. The sheep have had enough of you for one day.")
+		return
+	var lead := data.first_able()
+	if lead == null:
+		await _say(STEWARD, "You'll need a creature on its feet to be your dog. This lot are all poorly.")
+		return
+	await _say(STEWARD, "Four sheep, two gates, one pen, and the clock. %s will do the running; you do the pointing." % lead.display_name())
+	if await host.choice("Take your run?", ["Start", "Not today"]) != 0:
+		await _say(STEWARD, "Righto. The sheep will be grateful.")
+		return
+	ShowClasses.mark_entered(data, ShowClasses.DOG)
+	TrainerStats.add(data, "sheepdog_trials")
+	var easy: bool = host.easy_trial()
+	var st: Dictionary = await host.sheepdog(lead.calc_stat("spd"), easy, "%s/%s" % [Calendar.today_key(), s.id], str(s.name).capitalize())
+	var n := Sheepdog.penned(st)
+	await _say(STEWARD, "%d of %d in the pen." % [n, Sheepdog.SHEEP])
+	await _placed(ShowClasses.DOG, Sheepdog.place_for(st), "dog")
+	await _plaque(ShowClasses.DOG)
+
+func _placed(cls: String, p: int, what: String) -> void:
+	var data: GameStateData = host.data
+	var cur := Wallet.local(data)
+	var pr := ShowClasses.award(data, cls, p, cur)
+	if pr.is_empty():
+		await _say(STEWARD, "Not placed this time. Nothing to be ashamed of; there's always next year, and the year after.")
+		return
+	await host.sfx("badge" if p == 1 else "item")
+	var place_name: String = ["", "first", "second", "third"][p]
+	await _say(STEWARD, "That's %s place in the %s class, and a %s rosette." % [place_name, what, str(pr.colour)])
+	await _say("", "%s received a %s rosette and %s." % [data.player_name, str(pr.colour), Wallet.fmt(Wallet.localise(int(pr.money), cur), cur)])
 
 ## The Steward's welcome: the show, then its blurb (one line would overrun the dialogue box).
 static func welcome_lines(s: Dictionary) -> Array:

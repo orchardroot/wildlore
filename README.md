@@ -21,6 +21,16 @@ It started life as a monster-catching game. It's turned into something closer to
 
 Whatever's newest is below; older notes are further down.
 
+## What's new in 3.5: Open for Business
+
+- **Buy a business.** A chippy in Whitby or Blackpool, a B&B in Keswick or Portree, a fishing boat out of Whitby or Dingle, a market stall in Bath or Carlisle, or an allotment in York or Lancaster. Keep it stocked (your own catch, your own veg, what you buy at the market), upgrade it, and empty the till when you pass. Coach parties, storms and gluts happen.
+- **And pay for it.** Business rates come weekly, statements monthly, and once a year a brown envelope from HMRC that explains self assessment better than HMRC does.
+- **Twelve Regulars** who remember you: a retired trawlerman, a Welsh choir mistress, a Belfast shipyard pensioner, a Dublin bookie and more. Win them round and they write, turn up in other towns, and one day offer to mind one of your businesses for you.
+- **Darts** in the pubs, with a league in each nation, and **crabbing** off harbour walls with a summer competition.
+- **The allotment show and sheepdog trials** at the County Shows.
+
+Saves from 3.4 carry straight over.
+
 ## What's new in 3.4: Market Day
 
 - **Prices depend on where you are.** Things are cheap where they're made and dear a long way off, so a pannier of Bakewell puddings bought in the Peak fetches more in Cardiff. Sell too much in one place and you'll flood the market; fresh things go off. The radio's Money Box tells you who's paying what, and there's a market report on Mondays.

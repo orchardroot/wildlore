@@ -1,0 +1,159 @@
+{
+ "id": "boat_whitby",
+ "kind": "boat",
+ "name": "The Saucy Kittiwake",
+ "zone": "whitby",
+ "door": {
+  "x": 23,
+  "y": 37
+ },
+ "interior": "whitby_boat_hut",
+ "cost": [
+  8000,
+  18000,
+  50000
+ ],
+ "inputs": [
+  {
+   "item": "seaweed",
+   "per_day": 2
+  },
+  {
+   "item": "nettles",
+   "per_day": 1
+  }
+ ],
+ "output": {
+  "base": 420,
+  "per_input": 55
+ },
+ "rates": 0.08,
+ "tiers": [
+  {
+   "name": "Open coble",
+   "cost": 0,
+   "mult": 1.0
+  },
+  {
+   "name": "Cuddy and a winch",
+   "cost": 3500,
+   "mult": 1.3
+  },
+  {
+   "name": "Echo sounder and new nets",
+   "cost": 4500,
+   "mult": 1.6
+  },
+  {
+   "name": "Trawl gear",
+   "cost": 6000,
+   "mult": 1.9
+  }
+ ],
+ "events": [
+  {
+   "id": "gale",
+   "chance": 0.05,
+   "mult": 0.0,
+   "line": "A gale kept every boat on the quay and the day's catch with it.",
+   "season": "winter"
+  },
+  {
+   "id": "storm",
+   "chance": 0.03,
+   "mult": 0.0,
+   "line": "A squall came up out of nowhere. You lost the day's catch, never the boat."
+  },
+  {
+   "id": "mackerel_shoal",
+   "chance": 0.07,
+   "mult": 1.8,
+   "line": "A shoal of mackerel came through so thick the skipper reckoned you could walk across it.",
+   "season": "summer"
+  },
+  {
+   "id": "seal_in_the_nets",
+   "chance": 0.04,
+   "mult": 0.6,
+   "line": "A seal helped itself to the best of the catch and looked entirely unrepentant."
+  },
+  {
+   "id": "day_trippers",
+   "chance": 0.06,
+   "mult": 1.3,
+   "line": "Day trippers paid for a trip round the bay and left a tip, mostly in fudge.",
+   "season": "summer"
+  },
+  {
+   "id": "engine_trouble",
+   "chance": 0.04,
+   "mult": 0.5,
+   "line": "The engine coughed twice and quit. Half a day's fishing with the oars and a lot of language."
+  },
+  {
+   "id": "endeavour_tourists",
+   "chance": 0.04,
+   "mult": 1.4,
+   "line": "A coach of Captain Cook enthusiasts wanted a boat to photograph. You were the prettiest."
+  }
+ ],
+ "manager_slot": true,
+ "yield": {
+  "winter": [
+   {
+    "item": "cod",
+    "n": 1
+   },
+   {
+    "item": "haddock",
+    "n": 2
+   },
+   {
+    "item": "whiting",
+    "n": 2
+   }
+  ],
+  "spring": [
+   {
+    "item": "plaice",
+    "n": 1
+   },
+   {
+    "item": "pollack",
+    "n": 1
+   },
+   {
+    "item": "herring",
+    "n": 3
+   }
+  ],
+  "summer": [
+   {
+    "item": "mackerel",
+    "n": 3
+   },
+   {
+    "item": "european_bass",
+    "n": 1
+   },
+   {
+    "item": "sardine",
+    "n": 3
+   }
+  ],
+  "autumn": [
+   {
+    "item": "herring",
+    "n": 3
+   },
+   {
+    "item": "haddock",
+    "n": 1
+   },
+   {
+    "item": "conger_eel",
+    "n": 1
+   }
+  ]
+ }
+}
