@@ -2,6 +2,8 @@ extends TestCase
 ## Wave 33 integration: every registry arrival zone loads, the arrival tile is walkable, the town has a way home
 ## (a movements clerk, or a ferry quay for the Channel Islands) and, wherever the money isn't sterling, a bureau.
 
+## The hub builds these two with the airfield as its own zone.
+const TERMINALS := {"gibraltar": "gibraltar_terminal", "akrotiri_dhekelia": "akrotiri_terminal"}
 const STERLING_ONLY := ["tristan", "south_georgia", "antarctic"]
 
 func _npc_runs(z: ZoneData, command: String) -> bool:
@@ -28,7 +30,7 @@ func test_every_arrival_zone_loads_walkable_with_a_way_home() -> void:
 		if Overseas.is_ferry(e):
 			assert_true(z.ferry.has("route"), "%s: a quay to sail home from" % e.id)
 		else:
-			assert_true(_npc_runs(z, "overseas_home"), "%s: a way home at the arrival town" % e.id)
+			assert_true(_npc_runs(ZoneData.load_id(TERMINALS.get(str(e.id), z.id)), "overseas_home"), "%s: a way home at the arrival town" % e.id)
 
 func test_bureaus_where_the_money_is_not_sterling() -> void:
 	Overseas.reset()

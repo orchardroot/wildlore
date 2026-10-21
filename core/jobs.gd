@@ -31,7 +31,7 @@ const PHASE_WORDS := {"night": "after dark", "dawn": "at dawn", "dusk": "at dusk
 const WEATHER_WORDS := {"rain": "in the rain", "fog": "in the fog", "gale": "in a gale", "frost": "on a frosty day",
 	"sunshine": "in the sunshine", "clear": "on a clear day"}
 ## Badges you'll usually have on first walking into each nation (tests check every town has work by then).
-const ARRIVAL_BADGES := {"england": 0, "wales": 3, "mann": 5, "ireland": 6, "northern_ireland": 7, "scotland": 8}
+const ARRIVAL_BADGES := {"england": 0, "wales": 3, "mann": 5, "ireland": 6, "northern_ireland": 7, "scotland": 8, "channel_islands": 4}
 
 static var _cache: Array = []
 static var _by_id: Dictionary = {}

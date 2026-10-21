@@ -2313,6 +2313,128 @@
   {"id": "dund_jam", "nation": "scotland", "town": "dundee", "badges": 0, "poster": "Dundee Marmalade Society", "title": "Marmalade, jute and journalism", "text": "We make marmalade. We make jute. We make newspapers. We do not make sense at six in the morning. Visit Keiller's at the start of the day and tell us the recipe is still safe.", "step": {"type": "visit", "zone": "dundee_keillers", "time": ["dawn"]}, "pay": 1},
   {"id": "oxf_dreaming", "nation": "england", "town": "oxford", "badges": 0, "poster": "Oxford Dreaming Spires Tours", "title": "Spires at midnight", "text": "The Bodleian never sleeps, only the students do. Step into the library after dark and see whether anything reads over your shoulder. Quiet, please.", "step": {"type": "visit", "zone": "oxford_bodleian", "time": ["night"]}, "pay": 1},
   {"id": "lerwick_otters", "nation": "scotland", "town": "lerwick", "badges": 9, "poster": "Shetland Amenity Trust", "title": "Otter count", "text": "The otters of the voes are shy, nocturnal and extremely good at not being counted. Catch a Rillotter for the survey, and do not, under any circumstances, tell it that it is on a list.", "step": {"type": "catch", "species": "rillotter"}, "pay": 3},
-  {"id": "lerwick_bannocks", "nation": "scotland", "town": "lerwick", "badges": 9, "poster": "Up Helly Aa Hall Committee", "title": "Bannocks for the hall", "text": "A squad that has marched all night will eat anything, and we would rather it ate bannocks than the furniture. Two Shetland bannocks, please, from the corner shop.", "step": {"type": "bring", "item": "shetland_bannock", "n": 2}, "pay": 1}
+  {"id": "lerwick_bannocks", "nation": "scotland", "town": "lerwick", "badges": 9, "poster": "Up Helly Aa Hall Committee", "title": "Bannocks for the hall", "text": "A squad that has marched all night will eat anything, and we would rather it ate bannocks than the furniture. Two Shetland bannocks, please, from the corner shop.", "step": {"type": "bring", "item": "shetland_bannock", "n": 2}, "pay": 1},
+  {
+   "id": "eng_poole_ferry",
+   "nation": "england",
+   "town": "poole",
+   "badges": 0,
+   "poster": "Poole Quay Ferry Office",
+   "title": "Something for the crossing",
+   "text": "The Jersey boat leaves in an hour and the galley has run out of pastry. Bring a pork pie and we will say no more about it.",
+   "step": {
+    "type": "bring",
+    "item": "pork_pie",
+    "n": 2
+   },
+   "pay": 1,
+   "reward": {
+    "items": {
+     "hazelnuts": 2
+    }
+   }
+  },
+  {
+   "id": "ci_jsy_royals",
+   "nation": "channel_islands",
+   "town": "st_helier",
+   "badges": 4,
+   "poster": "Jersey Royal Growers",
+   "title": "Royals, if you please",
+   "text": "It is only a Jersey Royal if it grew on a Jersey slope, and we are checking everybody's. Bring four to the market stall for the judges.",
+   "step": {
+    "type": "bring",
+    "item": "jersey_royal",
+    "n": 4
+   },
+   "pay": 1,
+   "reward": {
+    "items": {
+     "jersey_black_butter": 1
+    }
+   }
+  },
+  {
+   "id": "ci_jsy_gale",
+   "nation": "channel_islands",
+   "town": "st_helier",
+   "badges": 4,
+   "poster": "St Helier Harbour Office",
+   "title": "Tide tables, tested",
+   "text": "Jersey has one of the biggest tides in the world. We would like a gale creature on the slipway to prove the wind agrees.",
+   "step": {
+    "type": "show",
+    "ctype": "gale"
+   },
+   "pay": 2
+  },
+  {
+   "id": "ci_gsy_gache",
+   "nation": "channel_islands",
+   "town": "st_peter_port",
+   "badges": 4,
+   "poster": "Guernsey Bakers' Guild",
+   "title": "Gache for the Castle",
+   "text": "Castle Cornet's tea room has run out of gache. Bring two loaves and the Guild will call it a favour.",
+   "step": {
+    "type": "bring",
+    "item": "guernsey_gache",
+    "n": 2
+   },
+   "pay": 1,
+   "reward": {
+    "items": {
+     "golden_guernsey_milk": 1
+    }
+   }
+  },
+  {
+   "id": "ci_gsy_gale",
+   "nation": "channel_islands",
+   "town": "st_peter_port",
+   "badges": 4,
+   "poster": "Guernsey Ferry Users' Group",
+   "title": "Weather for the boat",
+   "text": "The Herm boat only sails if somebody keeps an eye on the wind. Show us a gale creature and we shall call it a survey.",
+   "step": {
+    "type": "show",
+    "ctype": "gale"
+   },
+   "pay": 2
+  },
+  {
+   "id": "ci_sark_gache",
+   "nation": "channel_islands",
+   "town": "sark",
+   "badges": 4,
+   "poster": "Sark Dairy",
+   "title": "Cows and no cars",
+   "text": "Everything on Sark arrives by tractor or cart. Bring us golden milk for the cheese and we will not ask how you got it here.",
+   "step": {
+    "type": "bring",
+    "item": "golden_guernsey_milk",
+    "n": 2
+   },
+   "pay": 1,
+   "reward": {
+    "items": {
+     "guernsey_gache": 1
+    }
+   }
+  },
+  {
+   "id": "ci_sark_stars",
+   "nation": "channel_islands",
+   "town": "sark",
+   "badges": 4,
+   "poster": "Dark Sky Island Society",
+   "title": "Star counting",
+   "text": "With no street lights, the Milky Way is clear. Bring a gale creature to the Window in the Wall and we will do the rest.",
+   "step": {
+    "type": "show",
+    "ctype": "gale"
+   },
+   "pay": 2
+  }
  ]
 }
