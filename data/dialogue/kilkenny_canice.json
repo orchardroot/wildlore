@@ -15,5 +15,38 @@
    "who": "Verger",
    "text": "It is one of the longest cathedrals in Ireland. The round tower beside it is older still. Climb it if your knees agree."
   }
+ ],
+ "case_verger": [
+  {
+   "do": "if",
+   "flag": "case_kilkenny_hex_briefed",
+   "then": [
+    {
+     "do": "say",
+     "who": "Mooney",
+     "text": "Mooney, verger. Yes, that's my cloak, yes, it's muddy, and yes, I was outside Kyteler's at midnight."
+    },
+    {
+     "do": "say",
+     "who": "Mooney",
+     "text": "Petronilla de Meath was burnt in Kilkenny in 1324, and nobody has said a word for her since. So every year I light a candle on the inn step. I did not touch any pot."
+    },
+    {
+     "do": "evidence",
+     "id": "verger_cloak"
+    },
+    {
+     "do": "set",
+     "flag": "case_kilkenny_hex_verger"
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Mooney",
+     "text": "Lovely old building, this. Ask me again if you ever hear there's trouble."
+    }
+   ]
+  }
  ]
 }

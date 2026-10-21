@@ -1,0 +1,143 @@
+{
+ "id": "kilkenny_hex",
+ "title": "The Kilkenny Hex",
+ "nation": "ireland",
+ "start_flag": "case_kilkenny_hex_start",
+ "evidence": [
+  {
+   "id": "pad_sheet",
+   "name": "Torn Order Pad",
+   "text": "Under the plinth: a sheet from a green-lined order pad, 'BACK BY SUNDAY, SORRY!' in a rush, a tea ring and a smell of leeks. Half of Kilkenny's kitchens use that pad.",
+   "red_herring": false
+  },
+  {
+   "id": "trolley",
+   "name": "Trolley Tracks",
+   "text": "Two thin wheel tracks and a smear of grease out of the back door and into the Butter Slip, the narrow lane to the High Street. Whoever it was had a hand trolley, and a squeaky wheel.",
+   "red_herring": false
+  },
+  {
+   "id": "visitors_book",
+   "name": "Visitors' Book",
+   "text": "Rothe House's night book: Declan the steward signed the Tudor Garden evening in at seven and out at midnight, with sixty witnesses and an orchard of apples. He was here the whole time.",
+   "red_herring": false
+  },
+  {
+   "id": "permit",
+   "name": "Soup Tent Permit",
+   "text": "The Tholsel stamped a permit for the Hurling Museum's soup tent. Applicant: the Butter Slip Cafe. Equipment: 'one 60-litre iron pot, to be sourced'. Underlined twice.",
+   "red_herring": false
+  },
+  {
+   "id": "hurling_soup",
+   "name": "Soup Tent Notice",
+   "text": "The Hurling Museum is running a soup tent for Sunday's final and wants 'big pots, 60 litres a go'. The permits are done at the Tholsel.",
+   "red_herring": false
+  },
+  {
+   "id": "curator_offer",
+   "name": "Declan's Letter",
+   "text": "A letter from Rothe House offering Nuala a handsome sum for 'an authentic Kyteler artefact'. Declan is very keen. He is also very polite, and has not been near the inn since.",
+   "red_herring": true
+  },
+  {
+   "id": "verger_cloak",
+   "name": "Muddy Cloak",
+   "text": "The verger's black cloak hem is muddy and he was seen outside the inn at midnight. He lights a candle on the doorstep every year for Petronilla, burnt in 1324. He did not take the pot.",
+   "red_herring": true
+  }
+ ],
+ "suspects": [
+  {
+   "id": "declan",
+   "name": "Declan Fitzpatrick",
+   "zone": "kilkenny_rothe",
+   "wrong": "I wrote a letter, not a ransom note! I was signed in at Rothe House all night, there is a book! I shall be writing to the Heritage Council. In Latin.",
+   "right": ""
+  },
+  {
+   "id": "mooney",
+   "name": "Verger Mooney",
+   "zone": "kilkenny_canice",
+   "wrong": "A candle for Petronilla is not a crime, I'll have you know. It is the only thing the Church has done for her in seven hundred years. I think you should go and apologise to somebody.",
+   "right": ""
+  },
+  {
+   "id": "brennan",
+   "name": "Clerk Brennan",
+   "zone": "kilkenny_tholsel",
+   "wrong": "I stamp. That is what I do. I stamped for a tent, not a heist. The stamp is not a suspect. I am not a suspect. Form 14B for apologies, in triplicate.",
+   "right": ""
+  },
+  {
+   "id": "maeve",
+   "name": "Maeve Dunne",
+   "zone": "kilkenny_butterslip",
+   "wrong": "",
+   "right": "Ah, would you stop. The hurling soup tent wanted sixty litres and my pot cracked on Thursday. I was going to put it back Monday and I left a note! It must have blown off the plinth. I'll bring it back myself, scrubbed. And there's soup in it for the whole town. Sorry, Nuala."
+  }
+ ],
+ "culprit": "maeve",
+ "steps": [
+  {
+   "flag": "case_kilkenny_hex_briefed",
+   "text": "Speak to Nuala, the landlady of Kyteler's Inn, Kilkenny.",
+   "zone": "kilkenny_kyteler"
+  },
+  {
+   "flag": "case_kilkenny_hex_plinth",
+   "text": "Look at the empty hook and plinth by the hearth in Kyteler's.",
+   "zone": "kilkenny_kyteler"
+  },
+  {
+   "flag": "case_kilkenny_hex_trolley",
+   "text": "Check the back door at Kyteler's for marks.",
+   "zone": "kilkenny_kyteler"
+  },
+  {
+   "flag": "case_kilkenny_hex_curator",
+   "text": "Question Declan, the steward of Rothe House.",
+   "zone": "kilkenny_rothe"
+  },
+  {
+   "flag": "case_kilkenny_hex_rothe_book",
+   "text": "Look at the visitors' book in Rothe House.",
+   "zone": "kilkenny_rothe"
+  },
+  {
+   "flag": "case_kilkenny_hex_verger",
+   "text": "Question the verger at St Canice's Cathedral.",
+   "zone": "kilkenny_canice"
+  },
+  {
+   "flag": "case_kilkenny_hex_clerk",
+   "text": "Ask the clerk at the Tholsel about permits.",
+   "zone": "kilkenny_tholsel"
+  },
+  {
+   "flag": "case_kilkenny_hex_hurling",
+   "text": "Read the notice at the Hurling Museum.",
+   "zone": "kilkenny_hurling"
+  },
+  {
+   "flag": "case_kilkenny_hex_kitchen",
+   "text": "Look at the kitchen door of the Butter Slip Cafe.",
+   "zone": "kilkenny_butterslip"
+  },
+  {
+   "flag": "case_kilkenny_hex_report",
+   "text": "Report back to Nuala at Kyteler's Inn.",
+   "zone": "kilkenny_kyteler"
+  }
+ ],
+ "done_flag": "case_kilkenny_hex_done",
+ "reward": {
+  "money": 1500,
+  "standing": 6,
+  "items": {
+   "cup_of_tea": 3
+  }
+ },
+ "accuse_hint": "Nuala is waiting at Kyteler's Inn.",
+ "closed": "Petronilla's pot is back on its hook, scrubbed, and the hurling soup tent sold out by half one."
+}

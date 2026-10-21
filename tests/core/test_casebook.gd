@@ -164,3 +164,17 @@ func test_fair_isle_case_is_solvable_by_its_chain() -> void:
 	assert_false(Casebook.accuse(d, "fair_isle", "dyer").correct)
 	assert_true(Casebook.accuse(d, "fair_isle", "marjory").correct)
 	assert_true(Casebook.solved(d, c))
+
+func test_kilkenny_hex_is_fair_and_solvable() -> void:
+	var c := Casebook.get_case("kilkenny_hex")
+	assert_eq(str(c.nation), "ireland")
+	assert_true(c.steps.size() >= 8 and c.steps.size() <= 12)
+	var d := _data()
+	_open(d, "kilkenny_hex")
+	Examine.read(d, "kilkenny_kyteler", {"x": 1, "y": 3, "text": ["x"], "evidence": "trolley"}, null)
+	assert_true(Casebook.has_evidence(d, c, "trolley"))
+	_finish_steps(d, c)
+	assert_false(Casebook.accuse(d, "kilkenny_hex", "declan").correct)
+	var r := Casebook.accuse(d, "kilkenny_hex", "maeve")
+	assert_true(r.correct)
+	assert_eq(r.money, 1125)
