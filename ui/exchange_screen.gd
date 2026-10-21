@@ -420,7 +420,7 @@ func _open_qty(side: String) -> void:
 		elif floori(_held(_sel) * _price(_sel)) >= _limit() - ceili(_price(_sel)):
 			_say.text = "That's your limit for one company. Win another Stone and the brokers will trust you with more."
 		else:
-			_say.text = "You'd need more %s for even one." % Wallet.NAMES[_cur]
+			_say.text = "You'd need more %s for even one." % Wallet.name_of(_cur)
 		return
 	_side = side
 	_qty = mini(most, 10)

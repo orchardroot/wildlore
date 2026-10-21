@@ -11,6 +11,7 @@ var ark: Array = []
 var bag: Dictionary = {}
 var money := 500          # sterling (see Wallet)
 var euros := 0            # the Republic of Ireland's money (see Wallet)
+var purses := {}          # the overseas territories' own money: {currency code: whole units}, only non-zero ones
 var markets: Dictionary = Markets.fresh()  # shares, Doggerel and the days the markets noticed things (see Markets)
 var flags: Dictionary = {}
 var zone_id := "macclesfield"
@@ -174,7 +175,7 @@ func to_dict() -> Dictionary:
 		"play_seconds": play_seconds, "clock_minutes": clock_minutes, "day_count": day_count,
 		"last_sanctuary": last_sanctuary.duplicate(true), "rng_seed": rng_seed,
 		"weather": weather, "weather_region": weather_region, "weather_until": weather_until,
-		"stats": stats.duplicate(), "euros": euros, "markets": markets.duplicate(true),
+		"stats": stats.duplicate(), "euros": euros, "purses": purses.duplicate(), "markets": markets.duplicate(true),
 	}
 
 static func from_dict(d: Dictionary, dex: Dex) -> GameStateData:
@@ -212,6 +213,7 @@ static func from_dict(d: Dictionary, dex: Dex) -> GameStateData:
 	s.weather_until = int(d.get("weather_until", 0))
 	s.stats = TrainerStats.sanitise(d.get("stats"))
 	s.euros = maxi(0, int(d.get("euros", 0)))
+	s.purses = Wallet.sanitise_purses(d.get("purses"))
 	s.markets = Markets.sanitise(d.get("markets"))
 	if not d.has("euros"):
 		Wallet.welcome_old_save(s)  # a save from before euros, made in Ireland: a friendly one-off conversion
