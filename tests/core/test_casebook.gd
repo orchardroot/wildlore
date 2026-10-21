@@ -19,6 +19,8 @@ func test_the_cases_validate() -> void:
 
 func test_two_cases_that_validate() -> void:
 	assert_true(Casebook.all().size() >= 3)
+
+	assert_true(Casebook.all().size() >= 2)
 	assert_true(Casebook.get_case("mersey_otters").size() > 0)
 	assert_true(Casebook.get_case("loch_ness").size() > 0)
 	assert_true(Casebook.get_case("eisteddfod_chair").size() > 0)
@@ -151,3 +153,14 @@ func test_tab_filter_only_appears_with_a_case() -> void:
 	assert_eq(MenuLogic.next_filter("rumours", false, true), "casebook")
 	assert_eq(MenuLogic.next_filter("casebook", true, true), "studbook")
 	assert_eq(MenuLogic.next_filter("casebook", false, true), "all")
+
+func test_fair_isle_case_is_solvable_by_its_chain() -> void:
+	var c := Casebook.get_case("fair_isle")
+	assert_eq(str(c.culprit), "marjory")
+	var d := _data()
+	_open(d, "fair_isle")
+	assert_false(Casebook.ready(d, c))
+	_finish_steps(d, c)
+	assert_false(Casebook.accuse(d, "fair_isle", "dyer").correct)
+	assert_true(Casebook.accuse(d, "fair_isle", "marjory").correct)
+	assert_true(Casebook.solved(d, c))
