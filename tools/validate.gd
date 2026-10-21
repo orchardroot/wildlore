@@ -31,6 +31,7 @@ func _initialize() -> void:
 	errors.append_array(Genetics.check(dex))  # data/genes.json: loci match the code, every line has a kindred
 	errors.append_array(Genetics.check_hybrids(dex, MoveDB.load_default()))  # data/hybrids.json: parents, types, caps, sprites
 	errors.append_array(Overseas.validate(func(zid): return zones.has(zid)))  # data/overseas: the departures board registry
+	errors.append_array(Leases.problems(zones, dex))  # data/leases: anchors, cul-de-sac zones, rewild blocks, letters
 	errors.append_array(Coverage.check(dex, zones))
 	errors.append_array(Coverage.reachability(zones, JsonUtil.read("res://data/ferries.json"), Coverage.script_warp_targets()))
 	for e in errors:

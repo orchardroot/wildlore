@@ -29,7 +29,8 @@ func test_joined_at_manchester_only() -> void:
 	for zid in OUTDOOR:
 		for side in all[zid].edges:
 			var to: String = all[zid].edges[side].to
-			assert_true(to in OUTDOOR or to == "manchester", "%s %s edge goes to %s" % [zid, side, to])
+			var lease := not Leases.in_zone(to).is_empty()  # an Enclosure lease is a cul-de-sac off the moor (Leases)
+			assert_true(to in OUTDOOR or to == "manchester" or lease, "%s %s edge goes to %s" % [zid, side, to])
 
 func test_scaled_to_manchester_band() -> void:
 	var all := _all()

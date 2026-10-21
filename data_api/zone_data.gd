@@ -140,6 +140,7 @@ static func from_dict(d: Dictionary) -> ZoneData:
 		for x in z.width:
 			hrow.append(int(src[x]) if x < src.length() and src[x].is_valid_int() else int(d.get("ground_height", 0)))
 		z.heights.append(hrow)
+	Leases.shape(z)  # an Enclosure lease anchored here: its gap in the border and the edge into the lease zone
 	return z
 
 func _tile_for_char(c: String) -> String:

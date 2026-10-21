@@ -167,6 +167,10 @@ func _exec(c: Dictionary) -> void:
 			await _guild(str(c.get("id", "")), _sub(str(c.get("who", "Secretary"))))  # a guild hall desk (see Guilds)
 		"deed":
 			await host.open_menu("deed:" + str(c.get("id", "")))  # a Deed counter (see Deeds)
+		"lease":
+			if str(c.get("id", "")) != "" and c.has("who"):  # a ranger on your own land says how it is, then the estate office opens
+				await host.say(_sub(str(c.who)), Leases.ranger_line(data, str(c.id)))
+			await host.open_menu("lease:" + str(c.get("id", "")))  # the lease auction ("" id) or a lease's estate office (see Leases)
 		"crypto":
 			await host.open_menu("crypto")  # the Doggerel kiosk
 		"starter":

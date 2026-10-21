@@ -32,7 +32,7 @@ static func dress(z: ZoneData, zone_node: Node3D, data: GameStateData) -> void:
 	root.name = NODE
 	zone_node.add_child(root)
 	var show := not Postcards.waiting(data).is_empty() or not BuildingSociety.letters_waiting(data).is_empty() \
-			or not Deeds.letters_waiting(data).is_empty() or not Regulars.letters_waiting(data).is_empty()
+			or not Deeds.letters_waiting(data).is_empty() or not Leases.letters_waiting(data).is_empty() or not Regulars.letters_waiting(data).is_empty()
 	for p in boxes:
 		var n := envelope()
 		n.name = "E_%d_%d" % [p.x, p.y]
@@ -65,6 +65,13 @@ static func interact(ow: Node, p: Vector2i) -> bool:
 	if not business.is_empty():
 		Audio.sfx("item")
 		await ow.say(business)
+		if Postcards.waiting(Game.data).is_empty():
+			show_waiting(ow._zone_node, false)
+			return true
+	var estate := Leases.collect_letters(Game.data)  # upkeep, arrears and stages from the Enclosure's solicitors
+	if not estate.is_empty():
+		Audio.sfx("item")
+		await ow.say(estate)
 		if Postcards.waiting(Game.data).is_empty():
 			show_waiting(ow._zone_node, false)
 			return true

@@ -1,0 +1,214 @@
+{
+ "id": "welsh_conifer_plantation",
+ "name": "Hendre Forest",
+ "region": "north_wales",
+ "kind": "route",
+ "music": "route_forest",
+ "weather": {
+  "drizzle": 38,
+  "clear": 24,
+  "fog": 14,
+  "sunshine": 16,
+  "downpour": 8
+ },
+ "stage": "forest",
+ "legend_extra": {
+  "r": {
+   "tile": "shallow",
+   "prop": "reeds"
+  },
+  ".": {
+   "tile": "grass",
+   "colour": "#6f6a46"
+  },
+  "m": {
+   "tile": "grass",
+   "colour": "#66714a"
+  },
+  "n": {
+   "tile": "grass",
+   "colour": "#7a6a46"
+  },
+  "T": {
+   "tile": "tree_pine",
+   "colour": "#4e5a3a"
+  }
+ },
+ "props": [
+  {
+   "type": "bench",
+   "x": 24,
+   "y": 3
+  },
+  {
+   "type": "bollard",
+   "x": 20,
+   "y": 6
+  },
+  {
+   "type": "bollard",
+   "x": 24,
+   "y": 6
+  },
+  {
+   "type": "rock",
+   "x": 18,
+   "y": 14
+  },
+  {
+   "type": "rock",
+   "x": 36,
+   "y": 30
+  }
+ ],
+ "warps": [],
+ "edges": {
+  "north": {
+   "to": "dee_valley",
+   "offset": 28
+  }
+ },
+ "npcs": [
+  {
+   "id": "forest_ranger",
+   "sprite": "villager_2",
+   "x": 24,
+   "y": 8,
+   "facing": "left",
+   "move": "still",
+   "script": "forest_ranger",
+   "name": "Forester"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "kidgruff",
+    "min": 84,
+    "max": 86,
+    "weight": 14
+   },
+   {
+    "species": "scuttlet",
+    "min": 84,
+    "max": 85,
+    "weight": 14,
+    "time": [
+     "dawn",
+     "day",
+     "dusk"
+    ]
+   },
+   {
+    "species": "fawnlet",
+    "min": 84,
+    "max": 86,
+    "weight": 10
+   },
+   {
+    "species": "hootlet",
+    "min": 85,
+    "max": 86,
+    "weight": 8,
+    "time": [
+     "night",
+     "dusk"
+    ]
+   },
+   {
+    "species": "dozelet",
+    "min": 84,
+    "max": 85,
+    "weight": 10
+   },
+   {
+    "species": "flittermouse",
+    "min": 84,
+    "max": 85,
+    "weight": 6,
+    "time": [
+     "night"
+    ]
+   }
+  ],
+  "water": [
+   {
+    "species": "volet",
+    "min": 84,
+    "max": 86,
+    "weight": 24
+   },
+   {
+    "species": "rillotter",
+    "min": 85,
+    "max": 86,
+    "weight": 8
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 22,
+   "y": 4,
+   "text": "HENDRE FOREST. Formerly Enclosure Ltd's timber block. Felling in progress, replanting in progress, opinions in progress."
+  },
+  {
+   "x": 15,
+   "y": 9,
+   "plaque": "lease_forestry_commission",
+   "title": "The Forestry Commission, 1919",
+   "text": "Britain came out of the First World War short of timber, having cut much of its own to feed the trenches and the pits. The Forestry Act of 1919 set up the Forestry Commission to plant fast-growing trees on cheap upland. The upland of Wales, rather than the lowland, took a great deal of it, and the commonest tree was Sitka spruce, a native of the Pacific coast of North America that David Douglas sent to Britain in the 1830s."
+  },
+  {
+   "x": 15,
+   "y": 25,
+   "plaque": "lease_paws",
+   "title": "Plantations on Ancient Woodland Sites",
+   "text": "Many Welsh conifer plantations were planted over older woodland of oak, ash and birch, and a few scraps of the old woodland flora hang on under the spruce. Restoring a plantation on an ancient woodland site means thinning the conifers gradually, leaving the seed trees, and letting the native broadleaves come back in the light. The wet west of Britain is where lichens and ferns of this kind do best, and it is called Atlantic woodland, or sometimes Celtic rainforest."
+  }
+ ],
+ "spawn": [
+  22,
+  3
+ ],
+ "rows": [
+  "PPPPPPPPPPPPPPPPPPPPP===PPPPPPPPPPPPPPPPPPPP",
+  "PPPPPPPPPPPPPPPPPPPPP===PPPPPPPPPPPPPPPPPPPP",
+  "PPPPPPPPPPPPPPPPPPPPP===PPPPPPPPPPPPPPPPPPPP",
+  "PPPPPPPPPPPPPPPPPPPPP===PPPPPPPPPPPPPPPPPPPP",
+  "PPPPPPPPPPPPPPPPPPPPP===PPPPPPPPPPPPPPPPPPPP",
+  "PPPPPPPPPPPPP#m.,....===..n....m..,.m...mPPP",
+  "PPPPPPPPPPPPP#..,..,.===m,..mn..,........PPP",
+  "PPPPPPPPPPPPP#,.n,mn.===...mmn.m.n..,.nnmPPP",
+  "PPPPPPPPPPPPP#....T.,===m.m.m.rr......n,mPPP",
+  "PPPPPPPPPPPPP#nn..n.m===T.....rr.n..n.m.,PPP",
+  "PPP###########.,m.n,.===nT...,rr,.,n....mPPP",
+  "PPPPPPPPPPPPP#nnm.n..===n,n.nnrr.,.,m.m,nPPP",
+  "PPPPPPPPPPPPP#...,..m===......rr.m...nnmmPPP",
+  "PPPPPPPPPPPPP#m.nn..n===..nnn.rr,nm...,,.PPP",
+  "PPPPPPPPPPPPP#,..T..n===..n...rr.nm..m..nPPP",
+  "PPPPPPPPPPPPP#m.,n...===.nn,..rrm,.m.n...PPP",
+  "PPP###########n.,.mn.===...n..rrn....n.m,PPP",
+  "PPPPPPPPPPPPP#,.m.,,.===n.,.m.rr,.n,..,n.PPP",
+  "PPPPPPPPPPPPP#.....m.===,n.nnnrr,...,....PPP",
+  "PPPPPPPPPPPPP#.,m.Tm.===n.,...rr,m..m...mPPP",
+  "PPPPPPPPPPPPP#n,....,===.,m.nnrr,m....T..PPP",
+  "PPPPPPPPPPPPP#m..m.nm===.,nn..rr,...nn.,.PPP",
+  "PPP###########..mnn.m===.,..,,rrnmnn.n..nPPP",
+  "PPPPPPPPPPPPP#......T===.nT,,nrrnn.,n...,PPP",
+  "PPPPPPPPPPPPP#n.n....===,,.n.,rr.n...,..mPPP",
+  "PPPPPPPPPPPPP#n.,n,..===..,,T.rr.n,,.m...PPP",
+  "PPPPPPPPPPPPP#.m.nmn.===.....nrrnm.nm..nnPPP",
+  "PPPPPPPPPPPPP#n..m...===..n,n.rrn,.,...,nPPP",
+  "PPP###########n..,.T.===m.,,,.rrn...,mm.nPPP",
+  "PPPPPPPPPPPPP#n..nn..===m...m.rr,.nn,.m..PPP",
+  "PPPPPPPP################################.PPP",
+  "PPPPPPPPPPPPP#m.nn..m===.nTmm.rr,,.,nn..nPPP",
+  "PPPPPPPPPPPPP#..n.m...m..n.n..rr.,.mn.m..PPP",
+  "PPPPPPPPPPPPP#,...n...,,..m...rr...m.m.m.PPP",
+  "PPPPPPPPPPPPP#..,.,..,mm...mn..,..n..,n..PPP",
+  "PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP",
+  "PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP",
+  "PxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxP"
+ ]
+}
