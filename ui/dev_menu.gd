@@ -50,6 +50,21 @@ static func boot(game: Node, menu: String) -> void:
 	if menu.begins_with("ark"):  # a fuller Ark, so sorting shows
 		for sp in ["bramblehog", "emberdrey", "redbreast", "snowhare", "gritling", "wispet", "cooplet", "raidtail", "bran"]:
 			d.ark.append(mk.call(sp, 3 + d.ark.size() * 4 % 23))
+	if menu.begins_with("pairing") or menu in ["pedia:studbook", "pause:basket"]:  # a fond pair of one line, a stranger and a basket under way
+		var m: Creature = mk.call("spikkin", 12)
+		var f2: Creature = mk.call("spikkin", 11)
+		m.sex = "m"
+		m.uid = 101
+		f2.sex = "f"
+		f2.uid = 102
+		m.friendship = 200
+		f2.friendship = 200
+		m.genome = Genetics.derive(m).genome
+		f2.genome = Genetics.derive(f2).genome
+		d.party = [m, f2, a, b]
+		d.set_flag("breed_basket_0", {"sire_uid": 101, "dam_uid": 102, "genome": {}, "species": "spikkin", "steps_due": 1240, "started_day": 0})
+		d.set_flag("book_ideas", {"dominance": true, "breed": true})
+		d.set_flag("book_loci", {"mark": true})
 	for sp in ["spikkin", "kindlet", "holtling", "binfox", "hootlet", "pipkin", "scuttlet", "croakle"]:
 		d.mark_caught(sp)
 	for sp in ["dipling", "wispet", "snowhare"]:
