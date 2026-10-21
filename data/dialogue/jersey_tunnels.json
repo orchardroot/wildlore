@@ -62,5 +62,52 @@
     }
    ]
   }
+ ],
+ "arc_historian": [
+  {
+   "do": "if",
+   "flag": "q_arc_islands_9",
+   "then": [
+    {
+     "do": "say",
+     "who": "Tunnel Historian",
+     "text": "It is cold in here even in July. That is deliberate. The cold is part of the exhibit."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_arc_islands_started",
+     "then": [
+      {
+       "do": "say",
+       "who": "Tunnel Historian",
+       "text": "These were dug as artillery tunnels, with a network of galleries inside the hill, by forced labourers brought from across occupied Europe. Russians, Poles, Spanish Republicans, French North Africans. Many were starved and beaten, and some died."
+      },
+      {
+       "do": "say",
+       "who": "Tunnel Historian",
+       "text": "Later the Germans fitted them out as a hospital. It saw little use. The tunnels are in the island's story, and the labourers should be, too. Most of the island knew very little about them for decades."
+      },
+      {
+       "do": "say",
+       "who": "Tunnel Historian",
+       "text": "That is the thing about an Occupation: it is a long list of small choices, and nobody remembers them the same way. We keep the Roll's page open in the visitors' book. It would be a shame if it went missing again."
+      },
+      {
+       "do": "set",
+       "flag": "q_arc_islands_9"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Tunnel Historian",
+       "text": "Mind the damp. The museum has dried out better than the visitors."
+      }
+     ]
+    }
+   ]
+  }
  ]
 }

@@ -153,6 +153,17 @@
    "move": "still",
    "script": "jer_tunnel_keeper",
    "name": "Archivist"
+  },
+  {
+   "id": "arc_historian",
+   "sprite": "explorer",
+   "x": 11,
+   "y": 6,
+   "facing": "left",
+   "move": "still",
+   "script": "arc_historian",
+   "name": "Tunnel Historian",
+   "show_if": "game_complete"
   }
  ],
  "encounters": {},
@@ -172,5 +183,16 @@
   "x+++++++++++++x",
   "x++++++D++++++x",
   "xxxxxxxxxxxxxxx"
+ ],
+ "examine": [
+  {
+   "x": 3,
+   "y": 1,
+   "evidence": "collector_card",
+   "text": [
+    "Pinned inside the visitors' book: a business card. 'Cregeen: Postcards and Paper. Manx collector, buyer of old ledgers.'",
+    "A man who buys old ledgers has been in the tunnels. It is a visitors' book, though, not a confession."
+   ]
+  }
  ]
 }
