@@ -15,5 +15,39 @@
    "who": "Resident",
    "text": "Steam trains use coal to heat water that makes steam that pushes pistons. Simple. Hard to get right."
   }
+ ],
+ "case_emrys": [
+  {
+   "do": "if",
+   "flag": "case_eisteddfod_chair_briefed",
+   "then": [
+    {
+     "do": "say",
+     "who": "Emrys Bowen",
+     "text": "Emrys Bowen. Joiner. I do doors, I do cabinets, I do a lovely coffin and I don't talk about the chair."
+    },
+    {
+     "do": "say",
+     "who": "Emrys Bowen",
+     "text": "I do not know anything about any chair. I was in bed. Quite late. Humming? I never hum."
+    },
+    {
+     "do": "say",
+     "who": "Emrys Bowen",
+     "text": "...Have a look at the bench if you like. It's only a bench."
+    },
+    {
+     "do": "set",
+     "flag": "case_eisteddfod_chair_emrys"
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Emrys Bowen",
+     "text": "Mind the sawdust, it gets everywhere."
+    }
+   ]
+  }
  ]
 }

@@ -20,5 +20,43 @@
    "who": "Organist",
    "text": "It started to bring people from the war-torn world together through music. A fine thing to do with a song."
   }
+ ],
+ "case_rhodri": [
+  {
+   "do": "if",
+   "flag": "case_eisteddfod_chair_briefed",
+   "then": [
+    {
+     "do": "say",
+     "who": "Rhodri Pugh",
+     "text": "Rhodri Pugh, conductor of Cor y Dyffryn, three times runner-up and counting."
+    },
+    {
+     "do": "say",
+     "who": "Rhodri Pugh",
+     "text": "Did I say I would happily see that Chair in the Dee? I say that about everything. The shield, the raffle, a game of dominoes on Tuesday."
+    },
+    {
+     "do": "say",
+     "who": "Rhodri Pugh",
+     "text": "Wherever it is, I haven't got it. I've got a choir, a cold and a grudge, and not one of them is chair-shaped."
+    },
+    {
+     "do": "evidence",
+     "id": "rival"
+    },
+    {
+     "do": "set",
+     "flag": "case_eisteddfod_chair_rhodri"
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Rhodri Pugh",
+     "text": "Hush now, we're between hymns."
+    }
+   ]
+  }
  ]
 }
