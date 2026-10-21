@@ -1,0 +1,185 @@
+{
+ "id": "guiting_barn",
+ "name": "The Lambing Shed",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "wall_picture",
+   "x": 2,
+   "y": 1,
+   "walk": true,
+   "variant": 0
+  },
+  {
+   "type": "wall_picture",
+   "x": 4,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  },
+  {
+   "type": "wall_picture",
+   "x": 6,
+   "y": 1,
+   "walk": true,
+   "variant": 2
+  },
+  {
+   "type": "wall_picture",
+   "x": 8,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  },
+  {
+   "type": "wall_picture",
+   "x": 10,
+   "y": 1,
+   "walk": true,
+   "variant": 0
+  },
+  {
+   "type": "clock",
+   "x": 12,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "display_case",
+   "x": 2,
+   "y": 4,
+   "variant": 0
+  },
+  {
+   "type": "display_case",
+   "x": 2,
+   "y": 6,
+   "variant": 0
+  },
+  {
+   "type": "display_case",
+   "x": 4,
+   "y": 4,
+   "variant": 0
+  },
+  {
+   "type": "table",
+   "x": 10,
+   "y": 4
+  },
+  {
+   "type": "bookshelf",
+   "x": 13,
+   "y": 1
+  },
+  {
+   "type": "potted_plant",
+   "x": 13,
+   "y": 7
+  },
+  {
+   "type": "rug",
+   "x": 6,
+   "y": 4,
+   "w": 3,
+   "h": 3,
+   "variant": 1,
+   "walk": true
+  },
+  {
+   "type": "brazier",
+   "x": 1,
+   "y": 8
+  }
+ ],
+ "warps": [
+  {
+   "x": 7,
+   "y": 9,
+   "to": "guiting_farm",
+   "tx": 5,
+   "ty": 4,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "breed_hand",
+   "sprite": "villager_4",
+   "x": 11,
+   "y": 5,
+   "facing": "left",
+   "move": "still",
+   "script": "breed_hand",
+   "name": "Farm Hand"
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "x": 2,
+   "y": 1,
+   "plaque": "breed_mendel",
+   "title": "Mendel and His Peas",
+   "text": "Gregor Mendel was an Augustinian friar in Brno, now in the Czech Republic. For about eight years from 1856 he grew and counted tens of thousands of pea plants, crossing tall with short and round with wrinkled, and found the same pattern every time: three to one in the second generation. He read his results to the Natural History Society of Brno in 1865 and published them in 1866. Hardly anyone noticed. In 1900 botanists in three countries rediscovered his rules, and genetics began."
+  },
+  {
+   "x": 4,
+   "y": 1,
+   "plaque": "breed_bateson",
+   "title": "William Bateson",
+   "text": "William Bateson, at Cambridge, read Mendel's paper in 1900 and spent the rest of his career defending it. The new science of heredity needed a name, and Bateson used the word 'genetics' in a letter in 1905 and in public in 1906. He also coined 'allelomorph', later shortened to 'allele': one of the versions of a gene, like the usual coat and the coloured one."
+  },
+  {
+   "x": 6,
+   "y": 1,
+   "plaque": "breed_punnett",
+   "title": "Punnett's Square",
+   "text": "Reginald Punnett, Bateson's colleague at Cambridge, gave his name to the grid that turns inheritance into counting: one parent's possible gametes along the top, the other's down the side, the young in the squares. Between the wars he and Michael Pease also bred chickens whose day-old chicks could be sexed by the colour of their down, using a sex-linked barring gene. They were called auto-sexing breeds, and a farmer could sort the pullets from the cockerels on the first day."
+  },
+  {
+   "x": 8,
+   "y": 1,
+   "plaque": "breed_saunders",
+   "title": "Saunders and the Sweet Peas",
+   "text": "Edith Rebecca Saunders (1865 to 1945) worked with William Bateson at Cambridge, breeding stocks and other plants to test whether Mendel's rules held for more than peas. In 1905 Bateson, Saunders and Punnett reported sweet peas in which two traits, flower colour and the shape of the pollen, did not shuffle independently: they tended to travel together. It was the first sign of linkage, genes that sit near each other on the same chromosome and are inherited as a pair."
+  },
+  {
+   "x": 10,
+   "y": 1,
+   "plaque": "breed_ancon",
+   "title": "The Ancon Sheep",
+   "text": "In 1791, on a farm in Massachusetts, a ewe had a lamb with short, bowed legs. The farmer, Seth Wright, reasoned that a sheep which could not jump the fences would be easier to keep, and bred from the ram. The result was the Ancon, or Otter, sheep. It was one of the first times anyone bred on purpose from a new inherited change, what old breeders called a sport and a modern geneticist calls a mutation. The breed faded away in the following century, when merinos took over."
+  },
+  {
+   "x": 2,
+   "y": 4,
+   "text": "THE INCUBATOR ROOM. A heat lamp over each basket, and room for three at a time. Nothing in here hatches until it has been walked off outside, which Dot says is the only fair way to do it."
+  },
+  {
+   "x": 4,
+   "y": 4,
+   "text": "BASKET LOG. In Dot's handwriting: 'Spring is best for fur and feather, summer for scale. Out of season it takes twice the walking and a lamp, and the lamp is not free.'"
+  }
+ ],
+ "spawn": [
+  7,
+  8
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxxx",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "xxxxxxxDxxxxxxx"
+ ]
+}

@@ -1,0 +1,42 @@
+{
+ "_doc": "Good Stock breeding (core/breeding.gd, docs/design/2026-10-21-breeding.md section 4). 'goals' are the three conservation goals: 'line' is the evolution line (a data/genes.json line), 'need' how many bred creatures of that line (born at the farm, not caught, from a pure same-line pairing) you must hold in the party or Ark, 'rule' what the group must also be: 'spread' (no more than two from any one pairing, and at least three pairings: a flock is not one family), 'pairings' (the young come from at least 'pairs' unrelated pairings) or 'pure' (no hybrid blood). 'base' and 'per_badge' are the breed society's one-off grant in sterling pounds: base + per_badge x badges. 'nation' is where the standing goes (the dialogue pays it).",
+ "goals": [
+  {
+   "id": "soay",
+   "title": "A Flock for Hirta",
+   "line": "loaghtan",
+   "need": 4,
+   "rule": "spread",
+   "base": 400,
+   "per_badge": 150,
+   "nation": "scotland",
+   "item": "cream_tea",
+   "items": 2
+  },
+  {
+   "id": "kerry",
+   "title": "The Kerry Herd",
+   "line": "moolet",
+   "need": 4,
+   "rule": "pairings",
+   "pairs": 2,
+   "base": 500,
+   "per_badge": 200,
+   "nation": "ireland",
+   "item": "cream_tea",
+   "items": 2
+  },
+  {
+   "id": "wildcat",
+   "title": "Wildcats, Pure and Plenty",
+   "line": "wildkit",
+   "need": 3,
+   "rule": "pure",
+   "base": 600,
+   "per_badge": 250,
+   "nation": "scotland",
+   "item": "cream_tea",
+   "items": 2
+  }
+ ]
+}

@@ -1,0 +1,73 @@
+{
+ "quests": [
+  {
+   "id": "breed_soay",
+   "title": "A Flock for Hirta",
+   "region": "breed",
+   "town": "cotswolds",
+   "giver": "Dot Tallis",
+   "summary": "Dot wants a flock of Loaghtan lambs, bred from three different pairings, like the sheep of Hirta: a flock is not a family.",
+   "start_flag": "q_breed_soay_started",
+   "steps": [
+    {
+     "flag": "q_breed_soay_1",
+     "text": "Ask Dr Keir at the Roslin Institute, in Edinburgh, why a flock needs founders.",
+     "zone": "roslin_lab"
+    },
+    {
+     "flag": "q_breed_soay_2",
+     "text": "Breed four Loaghtan lambs from at least three pairings, no more than two counted from one, and show Dot.",
+     "zone": "guiting_farm"
+    }
+   ],
+   "done_flag": "q_breed_soay_done",
+   "reward": "The breed society's grant, two Cream Teas and standing in Scotland."
+  },
+  {
+   "id": "breed_kerry",
+   "title": "The Kerry Herd",
+   "region": "breed",
+   "town": "cotswolds",
+   "giver": "Dot Tallis",
+   "summary": "Dot's cousin Bríd needs a herd for her Kerry yard that is not one family: four young Moolets from unrelated pairings.",
+   "start_flag": "q_breed_kerry_started",
+   "steps": [
+    {
+     "flag": "q_breed_kerry_1",
+     "text": "Ask Dr Keir how to tell cousins from strangers in a pedigree.",
+     "zone": "roslin_lab"
+    },
+    {
+     "flag": "q_breed_kerry_2",
+     "text": "Breed four young Moolets from at least two pairings that share no parent, and show Dot.",
+     "zone": "guiting_farm"
+    }
+   ],
+   "done_flag": "q_breed_kerry_done",
+   "reward": "The breed society's grant, two Cream Teas and standing in Ireland."
+  },
+  {
+   "id": "breed_wildcat",
+   "title": "Wildcats, Pure and Plenty",
+   "region": "breed",
+   "town": "edinburgh",
+   "giver": "Dr Keir",
+   "summary": "Dr Keir wants three young Wildkits from pure pairs, with no hybrid blood in the pedigree, for the sake of the Scottish wildcat.",
+   "start_flag": "q_breed_wildcat_started",
+   "steps": [
+    {
+     "flag": "q_breed_wildcat_1",
+     "text": "Hear from Dr Keir why interbreeding is the wildcat's trouble.",
+     "zone": "roslin_lab"
+    },
+    {
+     "flag": "q_breed_wildcat_2",
+     "text": "Breed three young Wildkits from pure Wildkit pairs and show Dr Keir.",
+     "zone": "roslin_lab"
+    }
+   ],
+   "done_flag": "q_breed_wildcat_done",
+   "reward": "The breed society's grant, two Cream Teas and standing in Scotland."
+  }
+ ]
+}

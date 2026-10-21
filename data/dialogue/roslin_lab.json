@@ -1,0 +1,441 @@
+{
+ "breed_keir": [
+  {
+   "do": "if",
+   "flag": "breed_met_keir",
+   "then": [],
+   "else": [
+    {
+     "do": "say",
+     "who": "Dr Keir",
+     "text": "Morag Keir. I'm a geneticist, which is to say I count things that other people find messy. Dot sends people, mostly with a note."
+    },
+    {
+     "do": "say",
+     "who": "Dr Keir",
+     "text": "This is the Roslin Institute's visitor room. The real work is next door, and it's mostly about keeping animals healthy and understanding their genes. It's also where Dolly was born, which we have learned to say calmly."
+    },
+    {
+     "do": "say",
+     "who": "Dr Keir",
+     "text": "Ask me anything. I'll give you the why. Dot's the one who knows the how, by feel, and she's usually right."
+    },
+    {
+     "do": "set",
+     "flag": "breed_met_keir",
+     "value": true
+    }
+   ]
+  },
+  {
+   "do": "choice",
+   "text": "What would you like to know?",
+   "options": [
+    "Why won't Dot take close kin?",
+    "How does a Punnett square work?",
+    "What's a sport?",
+    "Dolly, then?",
+    "Mules and hybrids",
+    "The conservation lists",
+    "Nothing, thanks"
+   ],
+   "set": "tmp_keir_pick"
+  },
+  {
+   "do": "if",
+   "flag": "tmp_keir_pick",
+   "then": [
+    {
+     "do": "say",
+     "who": "Dr Keir",
+     "text": "Kinship is a number from Sewall Wright's work in the 1920s: the chance that a gene picked from one animal and a gene picked from another are copies of the same gene from a shared ancestor."
+    },
+    {
+     "do": "say",
+     "who": "Dr Keir",
+     "text": "Parent and child, a quarter. Full siblings, a quarter. Half-siblings, an eighth. First cousins, a sixteenth. The young of close kin get two copies of the same old gene far more often, and that's how rare harmful recessives come out."
+    },
+    {
+     "do": "say",
+     "who": "Dr Keir",
+     "text": "Dot refuses a quarter and above, which is a good rule of thumb. The Florida panther had to be rescued in the nineties with a handful of Texas pumas, because it had run out of unrelated mates. Variety is a thing a population spends, and cannot easily buy back."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "tmp_keir_pick",
+     "then": [
+      {
+       "do": "say",
+       "who": "Dr Keir",
+       "text": "A Punnett square is a way of counting. Put one parent's possible gametes down the side and the other's along the top, and each square is a possible young one, equally likely."
+      },
+      {
+       "do": "say",
+       "who": "Dr Keir",
+       "text": "Two carriers of a recessive coat, one allele plain, one coloured: a quarter coloured, half carriers like themselves, a quarter wholly plain. That's the odds for each baby, not for a litter. Four lambs won't give you the quarter, any more than four coin tosses give you two heads."
+      },
+      {
+       "do": "say",
+       "who": "Dr Keir",
+       "text": "Mendel's three to one is only visible if you count enough. He counted tens of thousands of peas. You can count your own, and the Stud Book will keep the tally."
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "tmp_keir_pick",
+       "then": [
+        {
+         "do": "say",
+         "who": "Dr Keir",
+         "text": "Once in a long while a young one has an allele neither parent carried. A copying slip, a mutation. The old breeders called it a sport."
+        },
+        {
+         "do": "say",
+         "who": "Dr Keir",
+         "text": "Most are harmless or bad, a few are useful. In 1791 a Massachusetts farmer had a short-legged lamb, saw that a sheep that couldn't jump fences was a gift, and bred from it: the Ancon. That's selection on purpose."
+        },
+        {
+         "do": "say",
+         "who": "Dr Keir",
+         "text": "In your game, about one hatchling in sixty-four. In real animals it's far rarer, which is why the old stud books are so treasured."
+        }
+       ],
+       "else": [
+        {
+         "do": "if",
+         "flag": "tmp_keir_pick",
+         "then": [
+          {
+           "do": "say",
+           "who": "Dr Keir",
+           "text": "Dolly was born here in July 1996 and announced in February 1997. She was made by taking the nucleus from an adult ewe's cell and putting it into an egg cell with its own nucleus removed, so she was a genetic copy of that one ewe."
+          },
+          {
+           "do": "say",
+           "who": "Dr Keir",
+           "text": "That's copying, not breeding. Breeding shuffles two parents' genes and makes something new. Dolly had no new combination in her at all."
+          },
+          {
+           "do": "say",
+           "who": "Dr Keir",
+           "text": "She lived to six and had six lambs the ordinary way. She's in the National Museum of Scotland on Chambers Street, in Edinburgh, if you want to say hello. The Roslin Institute's day job is animal health and genetics, and the sheep was a spectacular side effect."
+          }
+         ],
+         "else": [
+          {
+           "do": "if",
+           "flag": "tmp_keir_pick",
+           "then": [
+            {
+             "do": "if",
+             "flag": "q_breed_kerry_done",
+             "then": [
+              {
+               "do": "say",
+               "who": "Dr Keir",
+               "text": "Different species can sometimes have young, if they're close enough. A horse and a donkey give you a mule. A mule is strong and clever and it can't have foals of its own."
+              },
+              {
+               "do": "say",
+               "who": "Dr Keir",
+               "text": "The horse has 64 chromosomes and the donkey 62, so the mule has 63. Chromosomes have to pair up to make eggs and sperm, and 63 is an odd number with nothing to pair with."
+              },
+              {
+               "do": "say",
+               "who": "Dr Keir",
+               "text": "So some crosses are fertile, some are sterile, and a few are folklore. Dot keeps the list in her book. Ask her which ones she'll try."
+              }
+             ],
+             "else": [
+              {
+               "do": "say",
+               "who": "Dr Keir",
+               "text": "That's a conversation for when you've seen what Dot's lists teach. Come back after the Kerry herd."
+              }
+             ]
+            }
+           ],
+           "else": [
+            {
+             "do": "if",
+             "flag": "tmp_keir_pick",
+             "then": [
+              {
+               "do": "choice",
+               "text": "Which list?",
+               "options": [
+                "The Hirta flock (Soay)",
+                "The Kerry herd",
+                "The Scottish wildcat",
+                "Never mind"
+               ],
+               "set": "tmp_keir_list"
+              },
+              {
+               "do": "if",
+               "flag": "tmp_keir_list",
+               "then": [
+                {
+                 "do": "if",
+                 "flag": "q_breed_soay_started",
+                 "then": [
+                  {
+                   "do": "if",
+                   "flag": "q_breed_soay_1",
+                   "then": [
+                    {
+                     "do": "say",
+                     "who": "Dr Keir",
+                     "text": "The Hirta flock again? Keep your four unrelated, and remember: a flock is a bank of variety and a hard winter is a withdrawal."
+                    }
+                   ],
+                   "else": [
+                    {
+                     "do": "say",
+                     "who": "Dr Keir",
+                     "text": "Ah, Dot's sent you about the Soays. The Hirta study is wonderful. Someone has known nearly every sheep on the island, one by one, for decades, and counted them each year."
+                    },
+                    {
+                     "do": "say",
+                     "who": "Dr Keir",
+                     "text": "They've shown that who survives a hard winter isn't random, and that some of the genes in the flock are doing different jobs in different years. A population with lots of variety has something to draw on."
+                    },
+                    {
+                     "do": "say",
+                     "who": "Dr Keir",
+                     "text": "A small flock from one pair has at most four versions of each gene between them. That's the whole bank. Pick founders from different families, three at least, and you keep more of the bank. That's what Dot's counting."
+                    },
+                    {
+                     "do": "say",
+                     "who": "Dr Keir",
+                     "text": "So breed four lambs from different pairings, and take them back to her."
+                    },
+                    {
+                     "do": "set",
+                     "flag": "q_breed_soay_1",
+                     "value": true
+                    }
+                   ]
+                  }
+                 ],
+                 "else": [
+                  {
+                   "do": "say",
+                   "who": "Dr Keir",
+                   "text": "Soay sheep? Dot has the list, ask her. She keeps the founders. I keep the numbers."
+                  }
+                 ]
+                }
+               ],
+               "else": [
+                {
+                 "do": "if",
+                 "flag": "tmp_keir_list",
+                 "then": [
+                  {
+                   "do": "if",
+                   "flag": "q_breed_kerry_started",
+                   "then": [
+                    {
+                     "do": "if",
+                     "flag": "q_breed_kerry_1",
+                     "then": [
+                      {
+                       "do": "say",
+                       "who": "Dr Keir",
+                       "text": "Four Moolets, two or more pairings with no parent in common. Check the pedigree before you walk them over. A name on the page is cheaper than a mistake in the field."
+                      }
+                     ],
+                     "else": [
+                      {
+                       "do": "say",
+                       "who": "Dr Keir",
+                       "text": "Pedigree. That's how a Kerry herd stays a herd. Every animal's parents are written down, and the book tells you which are cousins before the young are born."
+                      },
+                      {
+                       "do": "say",
+                       "who": "Dr Keir",
+                       "text": "The game does this for you: it looks back three generations, and if two animals share a grandparent, kinship goes up. Dot reads it off her clipboard."
+                      },
+                      {
+                       "do": "say",
+                       "who": "Dr Keir",
+                       "text": "For Bríd's herd you want young from two pairings that share no parent at all, so the herd starts with at least two sets of founders. Take it slowly. Pedigree rewards patience."
+                      },
+                      {
+                       "do": "set",
+                       "flag": "q_breed_kerry_1",
+                       "value": true
+                      }
+                     ]
+                    }
+                   ],
+                   "else": [
+                    {
+                     "do": "say",
+                     "who": "Dr Keir",
+                     "text": "Kerry cattle? Dot's list. I'll be here when she's finished with you."
+                    }
+                   ]
+                  }
+                 ],
+                 "else": [
+                  {
+                   "do": "if",
+                   "flag": "tmp_keir_list",
+                   "then": [
+                    {
+                     "do": "if",
+                     "flag": "q_breed_wildcat_done",
+                     "then": [
+                      {
+                       "do": "say",
+                       "who": "Dr Keir",
+                       "text": "Three pure wildkits, and the pedigree to prove it. The Cairngorms thank you, and so do I. Please don't tell Dot I said so."
+                      }
+                     ],
+                     "else": [
+                      {
+                       "do": "if",
+                       "flag": "q_breed_kerry_done",
+                       "then": [
+                        {
+                         "do": "if",
+                         "flag": "q_breed_wildcat_started",
+                         "then": [
+                          {
+                           "do": "breed",
+                           "act": "goal",
+                           "id": "wildcat",
+                           "who": "Dr Keir",
+                           "set": "tmp_breed_paid"
+                          },
+                          {
+                           "do": "if",
+                           "flag": "tmp_breed_paid",
+                           "then": [
+                            {
+                             "do": "set",
+                             "flag": "q_breed_wildcat_2",
+                             "value": true
+                            },
+                            {
+                             "do": "set",
+                             "flag": "q_breed_wildcat_done",
+                             "value": true
+                            },
+                            {
+                             "do": "say",
+                             "who": "Dr Keir",
+                             "text": "Three young wildkits, from pure pairs, with no hybrid blood anywhere in the book. This is exactly the work: keep the pedigree clean, keep the founders varied, and put the young back where they belong."
+                            },
+                            {
+                             "do": "say",
+                             "who": "Dr Keir",
+                             "text": "The grant is yours. And the Cairngorms are a little less lonely."
+                            },
+                            {
+                             "do": "standing",
+                             "nation": "scotland",
+                             "amount": 5
+                            },
+                            {
+                             "do": "give_item",
+                             "item": "cream_tea",
+                             "n": 2
+                            }
+                           ],
+                           "else": []
+                          }
+                         ],
+                         "else": [
+                          {
+                           "do": "say",
+                           "who": "Dr Keir",
+                           "text": "Now the one I care about. The Scottish wildcat is the same species as the European wildcat and is the last wild cat in Britain. Its trouble today isn't hunting. It's interbreeding with domestic and feral cats. Do that for long enough and the wild genes thin out until there's not much wild left."
+                          },
+                          {
+                           "do": "say",
+                           "who": "Dr Keir",
+                           "text": "That's hybridisation, and conservation breeders fight it by pairing animals so as to keep what's left of the wild lines, and by keeping the pedigree clean. The Saving Wildcats partnership has been releasing captive-bred wildcats into the Cairngorms since 2023."
+                          },
+                          {
+                           "do": "say",
+                           "who": "Dr Keir",
+                           "text": "In the game, Dot has a quiet yard for the wildkits. Three young from pure Wildkit pairs, no hybrids. Bring them back to me."
+                          },
+                          {
+                           "do": "set",
+                           "flag": "q_breed_wildcat_started",
+                           "value": true
+                          },
+                          {
+                           "do": "set",
+                           "flag": "q_breed_wildcat_1",
+                           "value": true
+                          }
+                         ]
+                        }
+                       ],
+                       "else": [
+                        {
+                         "do": "say",
+                         "who": "Dr Keir",
+                         "text": "There's a conservation list for the Scottish wildcat, but it's an advanced one. Finish Dot's lists first, the flock and the Kerry herd, and then come and see me."
+                        }
+                       ]
+                      }
+                     ]
+                    }
+                   ],
+                   "else": [],
+                   "eq": 2
+                  }
+                 ],
+                 "eq": 1
+                }
+               ],
+               "eq": 0
+              }
+             ],
+             "else": [
+              {
+               "do": "say",
+               "who": "Dr Keir",
+               "text": "Come back whenever. The counting never stops."
+              }
+             ],
+             "eq": 5
+            }
+           ],
+           "eq": 4
+          }
+         ],
+         "eq": 3
+        }
+       ],
+       "eq": 2
+      }
+     ],
+     "eq": 1
+    }
+   ],
+   "eq": 0
+  }
+ ],
+ "breed_roslin_guide": [
+  {
+   "do": "say",
+   "who": "Visitor Guide",
+   "text": "Welcome to the Roslin Institute. It's part of the University of Edinburgh, and it works on animal health and genetics: how animals fight disease, how their genes work, and how that helps farming and veterinary medicine."
+  },
+  {
+   "do": "say",
+   "who": "Visitor Guide",
+   "text": "It's best known for Dolly, born here on 5 July 1996. The plaque by the window tells the rest. Please do not feed the model sheep. It's very patient, but the management is not."
+  }
+ ]
+}
