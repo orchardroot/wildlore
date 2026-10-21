@@ -1,0 +1,37 @@
+{
+ "wk_cheesemaker": [
+  {
+   "do": "if",
+   "flag": "wookey_cheddar_given",
+   "then": [
+    {
+     "do": "say",
+     "who": "Affineur",
+     "text": "Come back in a year and I'll have more. Cheese does not respond to being rushed, and neither do I."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Affineur",
+     "text": "You rolled the block! Nobody does on the first try. The cheeses in here are cloth-bound cheddars, turned by hand and left in the dark to think about things."
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "The Affineur wraps three wedges of cave-aged cheddar and presses them into your hands."
+    },
+    {
+     "do": "give_item",
+     "item": "wookey_cheddar",
+     "n": 3
+    },
+    {
+     "do": "set",
+     "flag": "wookey_cheddar_given",
+     "value": true
+    }
+   ]
+  }
+ ]
+}

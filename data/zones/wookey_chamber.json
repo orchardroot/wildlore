@@ -1,0 +1,159 @@
+{
+ "region": "",
+ "kind": "interior",
+ "music": "dungeon_underground",
+ "weather": {},
+ "edges": {},
+ "stage": "cave",
+ "id": "wookey_chamber",
+ "name": "Wookey Hole: The Cheese Store",
+ "props": [
+  {
+   "type": "barrel",
+   "x": 19,
+   "y": 2
+  },
+  {
+   "type": "barrel",
+   "x": 20,
+   "y": 2
+  },
+  {
+   "type": "barrel",
+   "x": 22,
+   "y": 4
+  },
+  {
+   "type": "brazier",
+   "x": 17,
+   "y": 5,
+   "walk": false
+  }
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "xxDeeeeeeeeeeeexxxxxxxxxxx",
+  "xeeeeeeeeeeeeeexxeeeeeexxx",
+  "xeeeeeeeeeeeeeegeeeeeeexxx",
+  "xeeeeeeeeeeeeeexxeeeeeexxx",
+  "xeeeeeeeeeeeeeexxeeeeeexxx",
+  "xxxxxxxxxxxxxxxxxxxxxxxxxx"
+ ],
+ "legend_extra": {
+  "e": {
+   "tile": "path",
+   "colour": "#565d69"
+  },
+  "m": {
+   "tile": "tall_grass",
+   "colour": "#3f565a",
+   "prop": "none"
+  },
+  "g": {
+   "tile": "path",
+   "colour": "#6b6f7a"
+  }
+ },
+ "dark": true,
+ "spawn": [
+  2,
+  1
+ ],
+ "warps": [
+  {
+   "x": 2,
+   "y": 1,
+   "to": "wookey_river",
+   "tx": 23,
+   "ty": 7,
+   "facing": "down"
+  }
+ ],
+ "npcs": [
+  {
+   "id": "wk_cheesemaker",
+   "sprite": "tour_guide",
+   "x": 21,
+   "y": 3,
+   "facing": "left",
+   "move": "still",
+   "script": "wk_cheesemaker",
+   "name": "Affineur"
+  }
+ ],
+ "signs": [
+  {
+   "x": 5,
+   "y": 2,
+   "text": "A stone block on a wooden skid, a groove in the floor, and a plate set in front of the cheese store's door. Cheesemakers have clearly been rolling things in here for a while."
+  },
+  {
+   "x": 18,
+   "y": 3,
+   "plaque": "wookey_cheddar",
+   "title": "Cave-Aged Cheddar",
+   "text": "CAVE-AGED CHEDDAR. Cheddar is matured in the cool, damp, steady air of Wookey Hole. The temperature hardly changes, which is just what a slow cheese wants. Cheddar the village is a few miles away, and takes the name rather seriously."
+  },
+  {
+   "x": 13,
+   "y": 4,
+   "plaque": "wookey_great_chamber",
+   "title": "The Great Chamber",
+   "text": "CHAMBER BY CHAMBER. The show cave is a string of chambers linked by passages, with the river flowing through. Beyond the part that visitors walk, divers count more chambers that nobody can reach on foot."
+  }
+ ],
+ "deep": {
+  "plates": [
+   {
+    "id": "plate",
+    "x": 11,
+    "y": 3
+   }
+  ],
+  "crates": [
+   {
+    "id": "block",
+    "x": 3,
+    "y": 4
+   }
+  ],
+  "gates": [
+   {
+    "x": 15,
+    "y": 3,
+    "by": [
+     "plate:plate"
+    ],
+    "line": "A heavy oak door, banded in iron, with a plate in the floor in front of it. It wants something heavy."
+   }
+  ]
+ },
+ "encounters": {
+  "grass": [
+   {
+    "species": "crumblet",
+    "min": 38,
+    "max": 40,
+    "weight": 16
+   },
+   {
+    "species": "gritling",
+    "min": 38,
+    "max": 41,
+    "weight": 14
+   },
+   {
+    "species": "flittermouse",
+    "min": 38,
+    "max": 40,
+    "weight": 16
+   },
+   {
+    "species": "glowmite",
+    "min": 38,
+    "max": 40,
+    "weight": 10
+   }
+  ]
+ }
+}
