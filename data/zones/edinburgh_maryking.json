@@ -104,6 +104,18 @@
    "tx": 36,
    "ty": 49,
    "facing": "down"
+  },
+  {
+   "x": 3,
+   "y": 0,
+   "to": "edinburgh_maryking_sealed",
+   "tx": 4,
+   "ty": 6,
+   "facing": "up",
+   "locked": {
+    "needs": "maryking_key",
+    "line": "A low iron-bound door, firmly locked. Someone on the tour must know where the key is kept."
+   }
   }
  ],
  "edges": {},
@@ -134,7 +146,7 @@
   7
  ],
  "rows": [
-  "xxxxxxxxxxxxx",
+  "xxxDxxxxxxxxx",
   "x+++++++++++x",
   "x+++++++++++x",
   "x+++++++++++x",
@@ -144,5 +156,25 @@
   "x+++++++++++x",
   "x+++++D+++++x",
   "xxxxxxxxxxxxx"
+ ],
+ "examine": [
+  {
+   "x": 4,
+   "y": 1,
+   "text": [
+    "Behind the clock, wedged in a gap between two stones, is a small iron key on a loop of string.",
+    "It has a paper tag: 'Sealed Close. Not for tourists. Not for you, either, but here we are.'"
+   ],
+   "flag": "maryking_key"
+  },
+  {
+   "x": 8,
+   "y": 1,
+   "text": [
+    "The tour guide's rota is pinned up here. Today's entry reads 'Be brave, tell the ghost stories, mention the Exchange.'",
+    "A coin has slipped behind the frame. You may as well have it."
+   ],
+   "money": 2
+  }
  ]
 }
