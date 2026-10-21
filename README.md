@@ -170,7 +170,11 @@ CI runs the tests and the bot on every push, and three fuzz runs every night. De
 
 Playable start to finish and then some: the story, the post-game, the Overseas flights. It's a hobby project that got out of hand, written largely with AI help (Claude) and checked by nearly 1,900 tests and a robot that plays the whole thing. If you find somewhere it breaks, the issues page is [here](../../issues).
 
-It's free. If you enjoy it and want to say thanks, give a few quid to the [Electronic Frontier Foundation](https://www.eff.org/donate) instead of me.
+It's free. If you enjoy it and want to say thanks, the best place for a few quid is the [Electronic Frontier Foundation](https://www.eff.org/donate). If you'd rather tip me directly, my Ethereum address is:
+
+```
+0xd2b4d9707563d238974ca0fe401becf9122a4c11
+```
 
 Want to help? Brilliant. The design notes in `docs/design/` and the briefs in `docs/briefs/` are where the next things are planned, and they double as a decent guide to how the game hangs together. House rules: UK English, real facts only (if you're not sure, leave it out), 60 fps on a 2013 iMac, and never, ever break anyone's save.
 
