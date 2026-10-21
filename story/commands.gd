@@ -203,6 +203,10 @@ func _exec(c: Dictionary) -> void:
 			await _recipe(c.get("id", []))
 		"quiz":
 			await _quiz(c)
+		"darts":
+			await PubSportRun.new(self).darts(c)
+		"crab_comp":
+			await PubSportRun.new(self).crab_comp(c)
 		"casino":
 			await _casino(c)
 		"legend":
