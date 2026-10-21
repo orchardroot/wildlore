@@ -30,7 +30,7 @@ func test_data_is_sound() -> void:
 	assert_true(Deeds.all().size() >= 2, "the chippies exist")
 	for d in Deeds.all():
 		var id := str(d.id)
-		assert_true(["chippy", "bnb", "boat", "stall", "allotment"].has(str(d.kind)), id + " kind")
+		assert_true(["chippy", "bnb", "boat", "stall", "allotment", "paddock"].has(str(d.kind)), id + " kind")
 		assert_true(zones.has(str(d.zone)), id + " zone")
 		assert_true(zones.has(str(d.interior)), id + " interior")
 		assert_eq((d.cost as Array).size(), 3, id + " three price bands")
