@@ -1,0 +1,131 @@
+{
+ "id": "eisteddfod_chair",
+ "title": "The Stolen Eisteddfod Chair",
+ "nation": "wales",
+ "start_flag": "case_eisteddfod_chair_start",
+ "evidence": [
+  {
+   "id": "shavings",
+   "name": "Fresh Oak Shavings",
+   "text": "Curls of pale, seasoned oak on the floor by the Chair's plinth, still sweet-smelling. Someone has been carving or trimming, and recently. Not a thing a choir does.",
+   "red_herring": false
+  },
+  {
+   "id": "barrow",
+   "name": "Barrow Tracks",
+   "text": "A narrow wheelbarrow rut along the towpath, deep and even, as if carrying something heavy but careful. It heads off towards Station Terrace and does not wobble.",
+   "red_herring": false
+  },
+  {
+   "id": "hymn",
+   "name": "A Hymn at 3 a.m.",
+   "text": "Nia saw a lamp lit in a workshop window at three in the morning, with tapping and a man humming 'Calon Lân' very badly. The same man hums it at every Eisteddfod.",
+   "red_herring": false
+  },
+  {
+   "id": "wobble",
+   "name": "The Wobbly Leg",
+   "text": "Eirlys says the Chair has never sat true: the back left leg is a hair short, and the carver has apologised for it every July since 1998.",
+   "red_herring": false
+  },
+  {
+   "id": "rival",
+   "name": "Rhodri's Grumble",
+   "text": "Rhodri Pugh told the whole bar he would 'happily see that Chair in the Dee'. He says it about everything he loses to. He lost the choral shield, the raffle and a game of dominoes this week alone.",
+   "red_herring": true
+  },
+  {
+   "id": "cloths",
+   "name": "Cloth-Covered Trays",
+   "text": "Nia Vaughan was seen at dawn carrying something large under a tea towel. It was four dozen Welsh cakes for the choir's early rehearsal, and she is quite put out at being asked.",
+   "red_herring": true
+  },
+  {
+   "id": "glue",
+   "name": "Warm Glue Pot",
+   "text": "In the workshop: a pot of animal glue still warm, a clamp, a plane, and a short leg-shaped offcut that matches the Chair's back left leg exactly.",
+   "red_herring": false
+  }
+ ],
+ "suspects": [
+  {
+   "id": "rhodri",
+   "name": "Rhodri Pugh",
+   "zone": "llangollen_bethel",
+   "wrong": "Me? I conduct. I do not carry. I have not lifted anything heavier than a baton since 1994. I shall be telling the Eisteddfod committee, and the choir, and the Dee.",
+   "right": ""
+  },
+  {
+   "id": "nia",
+   "name": "Nia Vaughan",
+   "zone": "llangollen_tearooms",
+   "wrong": "Me?! I was up at four baking! If I'd stolen the Chair, I'd have sat on it. Go on, out. Take a Welsh cake and think about what you've done.",
+   "right": ""
+  },
+  {
+   "id": "emrys",
+   "name": "Emrys Bowen",
+   "zone": "llangollen_stationterrace",
+   "wrong": "",
+   "right": "Ah. Well. It rocked, see, and I made it, and every July I watch the chairman sit on it with that look. So I borrowed it at night to shave the leg. Then the glue wouldn't set, and then I couldn't face telling anyone. I'll bring it back now. Dry, level, and I'll hum quietly."
+  }
+ ],
+ "culprit": "emrys",
+ "steps": [
+  {
+   "flag": "case_eisteddfod_chair_briefed",
+   "text": "Speak to Eirlys Mathias, the Eisteddfod secretary, in the Pavilion.",
+   "zone": "llangollen_pavilion"
+  },
+  {
+   "flag": "case_eisteddfod_chair_plinth",
+   "text": "Look at the Chair's empty plinth in the Pavilion.",
+   "zone": "llangollen_pavilion"
+  },
+  {
+   "flag": "case_eisteddfod_chair_wobble_asked",
+   "text": "Ask Eirlys what she can tell you about the Chair itself.",
+   "zone": "llangollen_pavilion"
+  },
+  {
+   "flag": "case_eisteddfod_chair_towpath",
+   "text": "Look along the Llangollen towpath for tracks.",
+   "zone": "llangollen"
+  },
+  {
+   "flag": "case_eisteddfod_chair_nia",
+   "text": "Ask Nia Vaughan at Plas Newydd Tearooms.",
+   "zone": "llangollen_tearooms"
+  },
+  {
+   "flag": "case_eisteddfod_chair_rhodri",
+   "text": "Question Rhodri Pugh, the rival conductor, at Bethel Chapel.",
+   "zone": "llangollen_bethel"
+  },
+  {
+   "flag": "case_eisteddfod_chair_emrys",
+   "text": "Call on Emrys Bowen at Station Terrace.",
+   "zone": "llangollen_stationterrace"
+  },
+  {
+   "flag": "case_eisteddfod_chair_workshop",
+   "text": "Look at Emrys's workshop bench at Station Terrace.",
+   "zone": "llangollen_stationterrace"
+  },
+  {
+   "flag": "case_eisteddfod_chair_report",
+   "text": "Report back to Eirlys in the Pavilion.",
+   "zone": "llangollen_pavilion"
+  }
+ ],
+ "done_flag": "case_eisteddfod_chair_done",
+ "reward": {
+  "money": 1200,
+  "standing": 6,
+  "items": {
+   "welsh_cake": 2
+  }
+ },
+ "accuse_hint": "Eirlys Mathias is waiting in the Eisteddfod Pavilion.",
+ "closed": "The Chair is back on its plinth, and it sits dead level. A faint rendition of 'Calon Lân' can be heard through the wall."
+}

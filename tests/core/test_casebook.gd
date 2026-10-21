@@ -15,9 +15,10 @@ func _finish_steps(d: GameStateData, c: Dictionary) -> void:
 		d.set_flag(str(s.flag), true)
 
 func test_two_cases_that_validate() -> void:
-	assert_eq(Casebook.all().size(), 2)
+	assert_true(Casebook.all().size() >= 3)
 	assert_true(Casebook.get_case("mersey_otters").size() > 0)
 	assert_true(Casebook.get_case("loch_ness").size() > 0)
+	assert_true(Casebook.get_case("eisteddfod_chair").size() > 0)
 	var zones := func(z): return FileAccess.file_exists("res://data/zones/%s.json" % z)
 	assert_eq(Casebook.validate(zones), [])
 

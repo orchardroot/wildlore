@@ -20,5 +20,208 @@
    "who": "Pavilion Steward",
    "text": "The Pavilion holds thousands. When they all sing, you can feel it in your teeth."
   }
+ ],
+ "case_eirlys": [
+  {
+   "do": "if",
+   "flag": "case_eisteddfod_chair_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Eirlys Mathias",
+     "text": "The Chair's back, level as a snooker table. Emrys has been in twice to check it. He sits on it very gently."
+    },
+    {
+     "do": "say",
+     "who": "Eirlys Mathias",
+     "text": "The Eisteddfod has run in Llangollen since 1947, and the town sings through it. Thank you for letting us keep the chair, and the peace."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "case_eisteddfod_chair_briefed",
+     "then": [
+      {
+       "do": "if",
+       "flag": "case_eisteddfod_chair_plinth",
+       "then": [
+        {
+         "do": "if",
+         "flag": "case_eisteddfod_chair_wobble_asked",
+         "then": [
+          {
+           "do": "if",
+           "flag": "case_eisteddfod_chair_towpath",
+           "then": [
+            {
+             "do": "if",
+             "flag": "case_eisteddfod_chair_nia",
+             "then": [
+              {
+               "do": "if",
+               "flag": "case_eisteddfod_chair_rhodri",
+               "then": [
+                {
+                 "do": "if",
+                 "flag": "case_eisteddfod_chair_emrys",
+                 "then": [
+                  {
+                   "do": "if",
+                   "flag": "case_eisteddfod_chair_workshop",
+                   "then": [
+                    {
+                     "do": "say",
+                     "who": "Eirlys Mathias",
+                     "text": "The plinth, the towpath, the tearooms, the chapel, the terrace and the bench. That's every lead. Who took it?"
+                    },
+                    {
+                     "do": "set",
+                     "flag": "case_eisteddfod_chair_report"
+                    },
+                    {
+                     "do": "casebook",
+                     "id": "eisteddfod_chair"
+                    }
+                   ],
+                   "else": [
+                    {
+                     "do": "say",
+                     "who": "Eirlys Mathias",
+                     "text": "Still gathering? Good. A rushed accusation in Llangollen ends with someone being hurt, and then the choir takes sides."
+                    },
+                    {
+                     "do": "say",
+                     "who": "Eirlys Mathias",
+                     "text": "Check the Casebook in your Fieldbook (Run cycles the tabs) for the next lead."
+                    }
+                   ]
+                  }
+                 ],
+                 "else": [
+                  {
+                   "do": "say",
+                   "who": "Eirlys Mathias",
+                   "text": "Still gathering? Good. A rushed accusation in Llangollen ends with someone being hurt, and then the choir takes sides."
+                  },
+                  {
+                   "do": "say",
+                   "who": "Eirlys Mathias",
+                   "text": "Check the Casebook in your Fieldbook (Run cycles the tabs) for the next lead."
+                  }
+                 ]
+                }
+               ],
+               "else": [
+                {
+                 "do": "say",
+                 "who": "Eirlys Mathias",
+                 "text": "Still gathering? Good. A rushed accusation in Llangollen ends with someone being hurt, and then the choir takes sides."
+                },
+                {
+                 "do": "say",
+                 "who": "Eirlys Mathias",
+                 "text": "Check the Casebook in your Fieldbook (Run cycles the tabs) for the next lead."
+                }
+               ]
+              }
+             ],
+             "else": [
+              {
+               "do": "say",
+               "who": "Eirlys Mathias",
+               "text": "Still gathering? Good. A rushed accusation in Llangollen ends with someone being hurt, and then the choir takes sides."
+              },
+              {
+               "do": "say",
+               "who": "Eirlys Mathias",
+               "text": "Check the Casebook in your Fieldbook (Run cycles the tabs) for the next lead."
+              }
+             ]
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Eirlys Mathias",
+             "text": "Still gathering? Good. A rushed accusation in Llangollen ends with someone being hurt, and then the choir takes sides."
+            },
+            {
+             "do": "say",
+             "who": "Eirlys Mathias",
+             "text": "Check the Casebook in your Fieldbook (Run cycles the tabs) for the next lead."
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Eirlys Mathias",
+           "text": "The Chair has never sat true, you know. Back left leg a hair short, ever since it was made. Emrys Bowen carved it in 1998, and he apologises every July."
+          },
+          {
+           "do": "say",
+           "who": "Eirlys Mathias",
+           "text": "He'd never take it, mind. Too shy. I'm only saying it rocks."
+          },
+          {
+           "do": "evidence",
+           "id": "wobble"
+          },
+          {
+           "do": "set",
+           "flag": "case_eisteddfod_chair_wobble_asked"
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Eirlys Mathias",
+         "text": "Have a look at the plinth first. Right there, on the dais. Go on, I'll not touch it."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Eirlys Mathias",
+       "text": "Eirlys Mathias, Eisteddfod secretary, keeper of the schedule, the keys and the biscuit tin."
+      },
+      {
+       "do": "say",
+       "who": "Eirlys Mathias",
+       "text": "The Eisteddfod Chair has vanished from its plinth overnight. A carved oak chair, awarded at the closing concert. Not the bardic Chair of the National Eisteddfod, which is another thing entirely and another town every August, but ours, and it matters."
+      },
+      {
+       "do": "say",
+       "who": "Eirlys Mathias",
+       "text": "Three people have been muttering: a rival conductor, a caterer, and, well, I'd rather not say. Look, ask, write it down. Your Fieldbook has a Casebook tab; press Run on the Fieldbook until you find it."
+      },
+      {
+       "do": "say",
+       "who": "Eirlys Mathias",
+       "text": "When you're sure, come back and name them. A wrong name will cost you standing, and rightly."
+      },
+      {
+       "do": "set",
+       "flag": "case_eisteddfod_chair_start"
+      },
+      {
+       "do": "set",
+       "flag": "case_eisteddfod_chair_briefed"
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "Case opened: The Stolen Eisteddfod Chair."
+      }
+     ]
+    }
+   ]
+  }
  ]
 }
