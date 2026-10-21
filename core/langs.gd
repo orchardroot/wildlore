@@ -14,6 +14,12 @@ const REGION_LANG := {"north_wales": "cy", "mid_wales": "cy", "south_wales": "cy
 	"ireland_east": "ga", "scotland": "gd", "man": "gv", "cornwall": "kw"}
 ## The Channel Islands share one region, so their zones are told apart by id (an interior borrows its town's).
 const ZONE_LANG := {"st_helier": "jer", "jersey_country": "jer", "st_peter_port": "nrf_gg", "guernsey_country": "nrf_gg"}
+## Places in a language's region where it isn't the everyday local tongue, so no greeting or banner in it: Northern
+## Ireland (its towns share the "ireland" region; Irish there is used sparingly, by choice, not by default) and the
+## Scottish Lowlands and east coast (Gaelic is a Highlands and Islands language).
+const NOT_LOCAL := {"ga": ["belfast", "bushmills", "derry", "enniskillen", "lough_neagh", "mourne", "giants_causeway"],
+	"gd": ["edinburgh", "glasgow", "aberdeen", "dundee", "st_andrews", "cairnryan", "scottish_borders", "forth_bridges",
+		"galloway", "kirkwall", "lerwick", "shetland_mainland"]}
 ## Languages whose signs lead with the local language (Welsh and Irish signs show it first).
 const LOCAL_FIRST := ["cy", "ga"]
 const LOCAL_INK := Color("e8c872")  # a touch warmer than the English text, on a sign or the town banner
@@ -37,7 +43,11 @@ static func code_for(zone_id: String, index: Dictionary) -> String:
 	if ZONE_LANG.has(id):
 		return ZONE_LANG[id]
 	var region := str(index.get("zones", {}).get(id, {}).get("region", ""))
-	return str(REGION_LANG.get(region, ""))
+	var code := str(REGION_LANG.get(region, ""))
+	for prefix in NOT_LOCAL.get(code, []):
+		if id == prefix or id.begins_with(prefix + "_"):
+			return ""
+	return code
 
 static func data(code: String) -> Dictionary:
 	if code == "":
