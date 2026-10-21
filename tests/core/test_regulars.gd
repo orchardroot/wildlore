@@ -26,8 +26,8 @@ func test_twelve_sound_regulars() -> void:
 		seen[id] = true
 		assert_true(FileAccess.file_exists("res://data/zones/%s.json" % r.home), id + " home zone")
 		assert_true(FileAccess.file_exists("res://data/zones/%s.json" % r.away), id + " away zone")
-		assert_ne(str(r.home), str(r.away))
-		assert_true(items.has_item(str(r.likes)), id + " likes a real item " + str(r.likes))
+		assert_true(str(r.home) != str(r.away))
+		assert_true(items.has(str(r.likes)), id + " likes a real item " + str(r.likes))
 		for k in ["intro", "meet", "letter", "offer", "chat", "thanks"]:
 			assert_false((r.get(k, []) as Array).is_empty(), id + " has " + k)
 		assert_true((r.chat as Array).size() >= 2)
@@ -143,7 +143,6 @@ func test_validator_knows_the_command_and_the_scripts() -> void:
 	var bad := StoryValidator.validate_commands([{"do": "regular", "id": "nobody"}], "t", Fixtures.dex(), ItemDB.load_default(), {})
 	assert_eq(bad.size(), 1)
 	for r in Regulars.all():
-		assert_false(StoryData.script("x", "x").size() > 0 and false)
 		var cmds := StoryData.script(Regulars.SCRIPT_FILE, "regular_" + str(r.id))
 		assert_eq(cmds.size(), 1, str(r.id) + " script")
 
