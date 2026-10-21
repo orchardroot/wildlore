@@ -148,7 +148,10 @@ func _take() -> void:
 	_hint.modulate.a = 0.0
 	await RenderingServer.frame_post_draw
 	var img := get_viewport().get_texture().get_image()
-	var path := save_image(img, OS.get_system_dir(OS.SYSTEM_DIR_PICTURES), DevArgs.is_dev_session(Game.args, DevArgs.user_args()))
+	var place := str(_ow.zone.name)
+	var today := Calendar.today_key()
+	var path := await Share.export_image(self, img, PhotoMode.photo_name(Time.get_datetime_dict_from_system()), Share.caption(place, today),
+		OS.get_system_dir(OS.SYSTEM_DIR_PICTURES), DevArgs.is_dev_session(Game.args, DevArgs.user_args()))
 	Audio.sfx("confirm" if path != "" else "bump")
 	_toast.flash("Photo saved" if path != "" else "Couldn't save the photo")
 	_hint_left = 2.0

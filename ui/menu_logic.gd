@@ -115,8 +115,8 @@ static func page_index(i: int, delta: int, n: int) -> int:
 
 const FILTERS := ["all", "caught", "seen", "rumours"]  # the last is the Fieldbook's Rumours tab
 
-static func next_filter(f: String, book := false, cases := false) -> String:
-	var all := FILTERS + (["casebook"] if cases else []) + (["studbook"] if book else [])  # the Stud Book tab follows Rumours once there is something in it
+static func next_filter(f: String, book := false, cases := false, words := false) -> String:
+	var all := FILTERS + (["casebook"] if cases else []) + (["studbook"] if book else []) + (["words"] if words else [])  # the Stud Book tab follows Rumours once there is something in it
 	return all[(all.find(f) + 1) % all.size()]
 
 ## The Fieldbook's ids for a filter: "all", "caught", or "seen" (which includes caught).

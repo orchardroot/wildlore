@@ -91,7 +91,7 @@ func _show() -> void:
 func _set_hints() -> void:
 	var turn := "Read it" if not _back else "Look at the picture"
 	if _album:
-		set_hints([["leftright", "Browse"], ["confirm", turn], ["cancel", "Back"]])
+		set_hints([["leftright", "Browse"], ["confirm", turn], ["photo", "Save picture"], ["cancel", "Back"]])
 	elif _back and _i < _ids.size() - 1:
 		set_hints([["confirm", "Next card"], ["cancel", "Close"]])
 	elif _back:
@@ -101,6 +101,10 @@ func _set_hints() -> void:
 
 func _input(event: InputEvent) -> void:
 	if _locked or _done or _turning:
+		return
+	if event.is_action_pressed("photo") and _album and not _ids.is_empty():
+		get_viewport().set_input_as_handled()
+		_export()
 		return
 	if event.is_action_pressed("confirm"):
 		get_viewport().set_input_as_handled()
@@ -131,6 +135,19 @@ func _input(event: InputEvent) -> void:
 			_show()
 			return
 	super._input(event)
+
+## Saves the picture side as a PNG with its caption (see Share).
+func _export() -> void:
+	var tex: Texture2D = _picture.texture
+	if tex == null:
+		Audio.sfx("bump")
+		return
+	var c := Postcards.card(str(_ids[_i]))
+	var place := str(c.get("place", ""))
+	var day := Calendar.today_key()
+	var path := await Share.export_image(self, tex.get_image(), Share.file_name("postcard", place, day), "Greetings from " + Share.caption(place, day),
+		OS.get_system_dir(OS.SYSTEM_DIR_PICTURES), DevArgs.is_dev_session(Game.args, DevArgs.user_args()))
+	Audio.sfx("confirm" if path != "" else "bump")
 
 ## Turns the card over: squash to an edge, swap sides, open out again.
 func _turn() -> void:

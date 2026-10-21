@@ -23,6 +23,9 @@ static func render(name: String, midi: int, dur: float, sr: int, vel: float) -> 
 		"bouzouki": return bouzouki(hz(midi), dur, sr, vel)
 		"chanter": return chanter(hz(midi), dur, sr, vel)
 		"bell": return bell(hz(midi), sr, vel)
+		"choir": return choir(hz(midi), dur, sr, vel)
+		"pan": return pan(hz(midi), dur, sr, vel)
+		"bodhran": return bodhran(hz(midi), sr, vel)
 	push_error("unknown instrument " + name)
 	return Synth.make(1)
 
@@ -215,4 +218,43 @@ static func bell(f: float, sr: int, vel: float) -> PackedFloat32Array:
 		Synth.mix_into(a, h, 0, float(p[1]))
 	Synth.pluck_env(a, sr, 0.002, 2.2)
 	Synth.scale(a, 0.5 * vel)
+	return a
+
+## Male voice choir: two detuned saws through a vowel-ish low-pass, a slow swell and a wide vibrato, an octave of body below.
+static func choir(f: float, dur: float, sr: int, vel: float) -> PackedFloat32Array:
+	var rel := 0.3
+	var total := dur + rel
+	var a := Synth.osc(Synth.SAW, f, f, total, sr, 0.5, 5.2, 14.0, 0.3)
+	var b := Synth.osc(Synth.SAW, f * 1.005, f * 1.005, total, sr, 0.5, 4.8, 14.0, 0.3)
+	var c := Synth.osc(Synth.SINE, f * 0.5, f * 0.5, total, sr)
+	Synth.mix_into(a, b, 0, 0.8)
+	Synth.mix_into(a, c, 0, 0.5)
+	Synth.lowpass(a, clampf(f * 3.2, 500.0, 1100.0), sr)
+	Synth.lowpass(a, clampf(f * 3.2, 500.0, 1100.0), sr)
+	Synth.adsr(a, sr, 0.22, 0.15, 0.85, rel)
+	Synth.scale(a, 0.42 * vel)
+	return a
+
+## Steel pan: a bright sine with a strong octave and a ringing fifth-ish partial, plucked, a little tremolo in the ring.
+static func pan(f: float, dur: float, sr: int, vel: float) -> PackedFloat32Array:
+	var total := maxf(dur, 0.3) + 0.35
+	var a := Synth.osc(Synth.SINE, f, f, total, sr)
+	var o := Synth.osc(Synth.SINE, f * 2.0, f * 2.0, total, sr)
+	var p := Synth.osc(Synth.SINE, f * 3.01, f * 3.01, total, sr)
+	Synth.mix_into(a, o, 0, 0.6)
+	Synth.mix_into(a, p, 0, 0.18)
+	Synth.pluck_env(a, sr, 0.002, 4.0)
+	Synth.scale(a, 0.5 * vel)
+	return a
+
+## Bodhran: a deep skin with a short, dry stick knock. The pitch is ignored.
+static func bodhran(f: float, sr: int, vel: float) -> PackedFloat32Array:
+	var total := 0.3
+	var a := Synth.osc(Synth.SINE, 150.0, 85.0, total, sr)
+	Synth.pluck_env(a, sr, 0.002, 11.0)
+	var n := Synth.noise(total, sr, 5 + int(f))
+	Synth.bandpass(n, 700.0, 1.2, sr)
+	Synth.pluck_env(n, sr, 0.001, 55.0)
+	Synth.mix_into(a, n, 0, 0.45)
+	Synth.scale(a, 0.9 * vel)
 	return a
