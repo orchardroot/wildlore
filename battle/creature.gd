@@ -32,6 +32,9 @@ static func create(sp: Dictionary, lvl: int, rng: Rng, move_db: MoveDB) -> Creat
 		c.ivs[s] = rng.roll_int(0, Rules.IV_MAX)
 		c.training[s] = 0
 	c.nature = rng.pick(Rules.NATURES.keys())
+	var made := Genetics.derive(c)  # what it already is, so loading it later gives the same answer
+	c.genome = made.genome
+	c.sex = made.sex
 	for id in default_moves(sp, c.level):
 		c.moves.append(c.make_move_slot(id, move_db))
 	c.reset_stages()
