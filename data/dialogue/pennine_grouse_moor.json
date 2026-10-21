@@ -8,5 +8,281 @@
    "id": "pennine_grouse_moor",
    "who": "Ranger"
   }
+ ],
+ "arc_england_waller": [
+  {
+   "do": "if",
+   "flag": "q_arc_england_wall",
+   "then": [
+    {
+     "do": "say",
+     "who": "Waller",
+     "text": "That'll stand a hundred years. Mind you, the keepers built it to keep people off. I'm mending it so you can see over it."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_arc_england_lease",
+     "then": [
+      {
+       "do": "say",
+       "who": "Waller",
+       "text": "The keepers' wall's come down at the gate. No mortar, no nonsense: stones by size and shape, and gravity does the rest."
+      },
+      {
+       "do": "wall",
+       "who": "Waller",
+       "level": "normal"
+      },
+      {
+       "do": "if",
+       "flag": "wall_done_pennine_grouse_moor",
+       "then": [
+        {
+         "do": "set",
+         "flag": "q_arc_england_wall"
+        }
+       ],
+       "else": []
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Waller",
+       "text": "Not my moor to touch until it's someone's to mend. Whose is it, you wonder? Not mine."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "arc_england_agent": [
+  {
+   "do": "if",
+   "flag": "q_arc_england_agent",
+   "then": [
+    {
+     "do": "say",
+     "who": "Enclosure Agent",
+     "text": "Go on. Walk it. I haven't the heart. I have a pension, and a pension is a very short fence."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_arc_england_wall",
+     "then": [
+      {
+       "do": "say",
+       "who": "Enclosure Agent",
+       "text": "This is a private moor, and I'll thank you to take your boots elsewhere."
+      },
+      {
+       "do": "say",
+       "who": "Enclosure Agent",
+       "text": "Oh. You bought it. From the Enclosure's receiver. That is... well. I still draw my wages from the old shoot."
+      },
+      {
+       "do": "battle",
+       "trainer": "arc_england_agent",
+       "intro": true
+      },
+      {
+       "do": "if",
+       "flag": "trainer_arc_england_agent",
+       "then": [
+        {
+         "do": "set",
+         "flag": "q_arc_england_agent"
+        }
+       ],
+       "else": []
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Enclosure Agent",
+       "text": "Keep out. These are the Enclosure's moors. Mind the gate, it bites."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "arc_england_hare": [
+  {
+   "do": "if",
+   "flag": "q_arc_england_hare",
+   "then": [
+    {
+     "do": "say",
+     "who": "Curlew Counter",
+     "text": "Hare, curlew, golden plover. All of them back. The sphagnum's holding the water. You did that."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_arc_england_agent",
+     "then": [
+      {
+       "do": "say",
+       "who": "Curlew Counter",
+       "text": "Seven curlew pairs, and a merlin. Good for a moor that was heather and nothing else five years ago."
+      },
+      {
+       "do": "when",
+       "cond": "party_has_snowhare",
+       "then": [
+        {
+         "do": "say",
+         "who": "Curlew Counter",
+         "text": "A mountain hare! Look at the ears on it. The only wild ones in England live on these moors, and now the moor has you."
+        },
+        {
+         "do": "set",
+         "flag": "q_arc_england_hare"
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Curlew Counter",
+         "text": "Bring me a mountain hare and I'll sign the survey. The only wild ones in England live on the Peak moors. They go white in winter."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Curlew Counter",
+       "text": "I count curlews. Bring a mountain hare some day and I'll count that too."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "arc_england_gate": [
+  {
+   "do": "if",
+   "flag": "q_arc_england_dawn",
+   "then": [
+    {
+     "do": "say",
+     "who": "Walker in Plus-fours",
+     "text": "Shh. Don't tell the keepers. We start at first light, you know."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_arc_england_hare",
+     "then": [
+      {
+       "do": "say",
+       "who": "",
+       "text": "Dawn on the High Moor. The mist is lifting off the heather, and a curlew is going up the hill ahead of you."
+      },
+      {
+       "do": "say",
+       "who": "Walker in Plus-fours",
+       "text": "There you are. I'd hoped someone would come. We were four hundred, and now I'm only one. Keep the gate open for us, would you?"
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "A hundred voices, faint over the ridge, are singing. Then there's only the wind in the heather, and nobody there at all."
+      },
+      {
+       "do": "set",
+       "flag": "q_arc_england_dawn"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Walker in Plus-fours",
+       "text": "Morning. I'm not meant to be here yet. Come back when the moor's alive."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "arc_england_ezra_moor": [
+  {
+   "do": "if",
+   "flag": "q_arc_england_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Ezra",
+     "text": "Look at them go. Three prams, a spaniel and a man in a kilt. Nobody has asked them for a ticket."
+    },
+    {
+     "do": "say",
+     "who": "Ezra",
+     "text": "Walk it again some time. It's yours. It's everybody's."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Ezra",
+     "text": "Here it is. The path's on the Definitive Map, in ink, and the gate won't be shut. A right of way, in perpetuity."
+    },
+    {
+     "do": "say",
+     "who": "Ezra",
+     "text": "There were four hundred of them in 1932. I'd like to think they'd have enjoyed the morning."
+    },
+    {
+     "do": "say",
+     "who": "Ezra",
+     "text": "Here. Take these boots. They were my father's, and they have walked every moor in the Peak. Wear them out."
+    },
+    {
+     "do": "give_item",
+     "item": "right_of_way_boots",
+     "n": 1
+    },
+    {
+     "do": "give_item",
+     "item": "bakewell_pudding",
+     "n": 3
+    },
+    {
+     "do": "give_item",
+     "item": "flask_of_tea",
+     "n": 3
+    },
+    {
+     "do": "standing",
+     "nation": "england",
+     "amount": 10
+    },
+    {
+     "do": "set",
+     "flag": "q_arc_england_done"
+    }
+   ]
+  }
+ ],
+ "arc_england_walker": [
+  {
+   "do": "say",
+   "who": "Walker",
+   "text": "Public footpath, it says. Public! I've been looking at this moor from the road for forty years."
+  },
+  {
+   "do": "say",
+   "who": "Walker",
+   "text": "I read the sign twice, just to be sure. Then I walked past it."
+  }
  ]
 }

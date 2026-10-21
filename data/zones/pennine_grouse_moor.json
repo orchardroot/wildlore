@@ -113,6 +113,98 @@
    "move": "still",
    "script": "moor_ranger",
    "name": "Ranger"
+  },
+  {
+   "id": "arc_waller",
+   "sprite": "villager_4",
+   "x": 18,
+   "y": 29,
+   "facing": "right",
+   "move": "still",
+   "script": "arc_england_waller",
+   "name": "Waller",
+   "show_if": "game_complete"
+  },
+  {
+   "id": "arc_agent",
+   "sprite": "villager_2",
+   "x": 20,
+   "y": 27,
+   "facing": "down",
+   "move": "still",
+   "script": "arc_england_agent",
+   "name": "Enclosure Agent",
+   "show_if": "q_arc_england_wall",
+   "hide_if": "trainer_arc_england_agent"
+  },
+  {
+   "id": "arc_curlew",
+   "sprite": "birdwatcher",
+   "x": 24,
+   "y": 24,
+   "facing": "left",
+   "move": "still",
+   "script": "arc_england_hare",
+   "name": "Curlew Counter",
+   "show_if": "q_arc_england_agent"
+  },
+  {
+   "id": "arc_ghost",
+   "sprite": "hiker",
+   "x": 19,
+   "y": 31,
+   "facing": "up",
+   "move": "still",
+   "script": "arc_england_gate",
+   "name": "Walker in Plus-fours",
+   "show_if": "q_arc_england_hare",
+   "times": [
+    "dawn"
+   ]
+  },
+  {
+   "id": "arc_ezra",
+   "sprite": "hillwalker",
+   "x": 21,
+   "y": 31,
+   "facing": "left",
+   "move": "still",
+   "script": "arc_england_ezra_moor",
+   "name": "Ezra",
+   "show_if": "q_arc_england_order"
+  },
+  {
+   "id": "arc_walker1",
+   "sprite": "hiker",
+   "x": 22,
+   "y": 29,
+   "facing": "up",
+   "move": "still",
+   "script": "arc_england_walker",
+   "name": "Walker",
+   "show_if": "q_arc_england_done"
+  },
+  {
+   "id": "arc_walker2",
+   "sprite": "jogger",
+   "x": 25,
+   "y": 29,
+   "facing": "left",
+   "move": "still",
+   "script": "arc_england_walker",
+   "name": "Walker",
+   "show_if": "q_arc_england_done"
+  },
+  {
+   "id": "arc_walker3",
+   "sprite": "villager_1",
+   "x": 18,
+   "y": 26,
+   "facing": "right",
+   "move": "still",
+   "script": "arc_england_walker",
+   "name": "Walker",
+   "show_if": "q_arc_england_done"
   }
  ],
  "encounters": {
