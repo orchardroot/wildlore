@@ -33,9 +33,36 @@ static func get_event(id: String) -> Dictionary:
 static func _doy(m: int, d: int) -> int:
 	return MONTH_DAYS[clampi(m, 1, 12) - 1] + d - 1
 
+## The event's window as [month, day, month, day] for a year. Most are fixed dates; one with a `rule` moves with the
+## calendar (Up Helly Aa: the last Tuesday of January): {"nth": "last", "weekday": 2, "month": 1, "from": -3, "to": 1}
+## is the window from 3 days before to 1 day after that weekday (0 = Sunday).
+static func window_of(e: Dictionary, year := -1) -> Array:
+	var r: Variant = e.get("rule")
+	if not r is Dictionary:
+		return e.get("window", [])
+	var y := year if year > 0 else Calendar.year()
+	var m := int(r.get("month", 1))
+	var last := _month_length(m, y)
+	var d := last
+	while _weekday(y, m, d) != int(r.get("weekday", 0)):
+		d -= 1
+	var a := Time.get_date_dict_from_unix_time(_unix(y, m, d) + int(r.get("from", 0)) * 86400)
+	var b := Time.get_date_dict_from_unix_time(_unix(y, m, d) + int(r.get("to", 0)) * 86400)
+	return [int(a.month), int(a.day), int(b.month), int(b.day)]
+
+static func _unix(y: int, m: int, d: int) -> int:
+	return int(Time.get_unix_time_from_datetime_dict({"year": y, "month": m, "day": d, "hour": 12, "minute": 0, "second": 0}))
+
+static func _weekday(y: int, m: int, d: int) -> int:
+	return int(Time.get_date_dict_from_unix_time(_unix(y, m, d)).weekday)
+
+static func _month_length(m: int, y: int) -> int:
+	var next := Time.get_date_dict_from_unix_time(_unix(y + (1 if m == 12 else 0), 1 if m == 12 else m + 1, 1) - 86400)
+	return int(next.day)
+
 ## Is (month, day) inside the event's window? A window may wrap the new year.
-static func in_window(e: Dictionary, month: int, day: int) -> bool:
-	var w: Array = e.get("window", [])
+static func in_window(e: Dictionary, month: int, day: int, year := -1) -> bool:
+	var w: Array = window_of(e, year)
 	if w.size() != 4:
 		return false
 	var s := _doy(int(w[0]), int(w[1]))
@@ -57,7 +84,7 @@ static func days_until(e: Dictionary, today := Vector2i(-1, -1)) -> int:
 	var t := today if today.x > 0 else Calendar.today()
 	if in_window(e, t.x, t.y):
 		return 0
-	var w: Array = e.window
+	var w: Array = window_of(e)
 	return posmod(_doy(int(w[0]), int(w[1])) - _doy(t.x, t.y), 365)
 
 static func _date_text(m: int, d: int) -> String:
@@ -76,7 +103,7 @@ static func whats_on(today := Vector2i(-1, -1), limit := 4) -> Array:
 	for r in rows.slice(0, limit):
 		var e: Dictionary = r[1]
 		var town := Travel.town_name(str(e.town))
-		var w: Array = e.window
+		var w: Array = window_of(e)
 		if r[0] == 0:
 			out.append("On now: %s in %s, until %s." % [str(e.whatson), town, _date_text(int(w[2]), int(w[3]))])
 		else:
@@ -118,6 +145,86 @@ static func cond(c: String) -> bool:
 static func is_cond(c: String) -> bool:
 	return c.begins_with(COND_PREFIX) and not get_event(c.substr(COND_PREFIX.length())).is_empty()
 
+## --- Every year -----------------------------------------------------------------------------------------------
+## Each occasion comes round again. The quest flags (`q_festivals_<id>_*`) hold this year's run; a ledger flag
+## `festivals_year_<id>` says which year's run they are. When the occasion is on and the ledger is behind, the run is
+## put away (the souvenir flag keeps what was kept for good) and the quest starts afresh. Saves from 3.1 have no ledger:
+## their flags count as the 2026 run, so a quest finished then stays done that year.
+const LEDGER := "festivals_year_"
+const SOUVENIR := "festivals_souv_"
+const LEGACY_YEAR := 2026
+const DONE_PREFIX := "festivals_done_"  # festivals_done_<id>_<year>: a record of each year finished
+
+## The year an occasion running today belongs to: a window across New Year (Hogmanay) belongs to the year it opened.
+static func run_year(e: Dictionary, today := Vector2i(-1, -1), year := -1) -> int:
+	var t := today if today.x > 0 else Calendar.today()
+	var y := year if year > 0 else Calendar.year()
+	var w: Array = window_of(e, y)
+	if w.size() == 4 and _doy(int(w[0]), int(w[1])) > _doy(int(w[2]), int(w[3])) and t.x <= int(w[2]):
+		return y - 1
+	return y
+
+static func quest_of(e: Dictionary) -> Dictionary:
+	return Quests.get_quest(str(e.get("quest", "")))
+
+## Flags that belong to one run: the quest's own and the answer to its question.
+static func run_flags(e: Dictionary) -> Array:
+	var out: Array = Quests.flags_of(quest_of(e))
+	out.append("festivals_%s_ans" % str(e.id))
+	return out
+
+static func souvenir_flag(id: String) -> String:
+	return SOUVENIR + id
+
+## Brings a save up to the year for every occasion that is on today: the old run is archived and cleared. Returns the
+## ids that started a new year. Safe to call every time a zone loads.
+static func rollover(d: GameStateData, today := Vector2i(-1, -1), year := -1) -> Array:
+	var out := []
+	for e in events():
+		if not is_active(e, today):
+			continue
+		var id := str(e.id)
+		var run := run_year(e, today, year)
+		var done_flag := str(quest_of(e).get("done_flag", ""))
+		var led: Variant = d.flag(LEDGER + id)
+		var had := int(led) if led != null else LEGACY_YEAR
+		if led == null and done_flag != "" and d.flag(done_flag) == true:  # a 3.1 run: its souvenir is already yours
+			d.set_flag(souvenir_flag(id))
+		if run <= had:
+			if led == null:
+				d.set_flag(LEDGER + id, had)
+			continue
+		if done_flag != "" and d.flag(done_flag) == true:
+			d.set_flag(souvenir_flag(id))
+			d.set_flag("%s%s_%d" % [DONE_PREFIX, id, had])
+		for f in run_flags(e):
+			d.flags.erase(f)
+		d.set_flag(LEDGER + id, run)
+		out.append(id)
+	return out
+
+## The year a festival quest's log entry is about, or 0 for any other quest.
+static func quest_year(d: GameStateData, q: Dictionary) -> int:
+	for e in events():
+		if str(e.get("quest", "")) == str(q.get("id", "")):
+			var led: Variant = d.flag(LEDGER + str(e.id))
+			return int(led) if led != null else LEGACY_YEAR
+	return 0
+
+## How many years you have finished this occasion, the 3.1 one-shot included.
+static func years_done(d: GameStateData, e: Dictionary) -> int:
+	var n := 0
+	var id := str(e.id)
+	for k in d.flags:
+		if str(k).begins_with("%s%s_" % [DONE_PREFIX, id]):
+			n += 1
+	var done_flag := str(quest_of(e).get("done_flag", ""))
+	if done_flag != "" and d.flag(done_flag) == true:
+		var led: Variant = d.flag(LEDGER + id)
+		if not d.flags.has("%s%s_%d" % [DONE_PREFIX, id, int(led) if led != null else LEGACY_YEAR]):
+			n += 1
+	return n
+
 ## Problems with the data (the validator's job).
 static func validate(zones: Dictionary, dex: Dex, quests: Array) -> Array:
 	var errors := []
@@ -130,7 +237,7 @@ static func validate(zones: Dictionary, dex: Dex, quests: Array) -> Array:
 		ids[id] = true
 		if not zones.has(str(e.get("town", ""))):
 			errors.append(tag + ": unknown town")
-		var w: Array = e.get("window", [])
+		var w: Array = window_of(e)
 		if w.size() != 4 or int(w[0]) < 1 or int(w[0]) > 12 or int(w[2]) < 1 or int(w[2]) > 12:
 			errors.append(tag + ": bad window")
 		if StoryData.script(SCRIPT_FILE, str(e.get("script", ""))).is_empty():

@@ -1,0 +1,134 @@
+{
+ "id": "lerwick_home_a",
+ "name": "Fiddler's House",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "bed",
+   "x": 8,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "table",
+   "x": 3,
+   "y": 3
+  },
+  {
+   "type": "bench",
+   "x": 3,
+   "y": 4
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 6
+  },
+  {
+   "type": "potted_plant",
+   "x": 9,
+   "y": 6
+  },
+  {
+   "type": "fireplace",
+   "x": 5,
+   "y": 1
+  },
+  {
+   "type": "rug",
+   "x": 4,
+   "y": 2,
+   "w": 3,
+   "h": 2,
+   "variant": 2,
+   "walk": true
+  },
+  {
+   "type": "sofa",
+   "x": 1,
+   "y": 3,
+   "variant": 2,
+   "rot": 90
+  },
+  {
+   "type": "sofa",
+   "x": 9,
+   "y": 3,
+   "variant": 1,
+   "rot": 270
+  },
+  {
+   "type": "clock",
+   "x": 6,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "wall_picture",
+   "x": 4,
+   "y": 1,
+   "walk": true,
+   "variant": 0
+  },
+  {
+   "type": "wall_picture",
+   "x": 2,
+   "y": 1,
+   "walk": true,
+   "variant": 2
+  },
+  {
+   "type": "plant_stand",
+   "x": 1,
+   "y": 5,
+   "variant": 1
+  }
+ ],
+ "warps": [
+  {
+   "x": 5,
+   "y": 7,
+   "to": "lerwick",
+   "tx": 7,
+   "ty": 34,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "ls_fiddler_home",
+   "sprite": "fiddler",
+   "x": 4,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "ls_fiddler_home",
+   "name": "Old Fiddler"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  5,
+  6
+ ],
+ "rows": [
+  "xxxxxxxxxxx",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||CCC|x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x||||D||||x",
+  "xxxxxxxxxxx"
+ ]
+}

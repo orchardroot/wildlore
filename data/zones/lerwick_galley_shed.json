@@ -1,0 +1,173 @@
+{
+ "id": "lerwick_galley_shed",
+ "name": "Up Helly Aa Galley Shed",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "statue",
+   "x": 2,
+   "y": 1
+  },
+  {
+   "type": "statue",
+   "x": 12,
+   "y": 1
+  },
+  {
+   "type": "table",
+   "x": 6,
+   "y": 3
+  },
+  {
+   "type": "table",
+   "x": 8,
+   "y": 3
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 8
+  },
+  {
+   "type": "potted_plant",
+   "x": 13,
+   "y": 8
+  },
+  {
+   "type": "fireplace",
+   "x": 7,
+   "y": 1
+  },
+  {
+   "type": "rug",
+   "x": 6,
+   "y": 3,
+   "w": 4,
+   "h": 3,
+   "variant": 2,
+   "walk": true
+  },
+  {
+   "type": "wall_picture",
+   "x": 6,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  },
+  {
+   "type": "wall_picture",
+   "x": 8,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  },
+  {
+   "type": "wall_picture",
+   "x": 11,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  },
+  {
+   "type": "clock",
+   "x": 4,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "piano",
+   "x": 1,
+   "y": 3,
+   "rot": 90
+  },
+  {
+   "type": "sofa",
+   "x": 1,
+   "y": 4,
+   "variant": 3,
+   "rot": 90
+  },
+  {
+   "type": "plant_stand",
+   "x": 1,
+   "y": 7
+  },
+  {
+   "type": "table",
+   "x": 3,
+   "y": 2
+  },
+  {
+   "type": "table",
+   "x": 11,
+   "y": 2
+  },
+  {
+   "type": "boat",
+   "x": 7,
+   "y": 3,
+   "variant": 1
+  }
+ ],
+ "warps": [
+  {
+   "x": 7,
+   "y": 9,
+   "to": "lerwick",
+   "tx": 25,
+   "ty": 16,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "ls_galley_builder",
+   "sprite": "shipwright",
+   "x": 5,
+   "y": 4,
+   "facing": "right",
+   "move": "still",
+   "script": "ls_galley_builder",
+   "name": "Galley Builder"
+  },
+  {
+   "id": "ls_jarl_squad",
+   "sprite": "ghillie",
+   "x": 10,
+   "y": 4,
+   "facing": "left",
+   "move": "still",
+   "script": "ls_jarl_squad",
+   "name": "Jarl Squad Member"
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "x": 7,
+   "y": 6,
+   "text": "THE GALLEY. Every year the Jarl Squad builds a new Viking longship here, with a dragon head, about ten metres long. It stands in the shed, then in the town, then on the field. For about twenty minutes, in January, it is the finest thing in Shetland."
+  }
+ ],
+ "spawn": [
+  7,
+  8
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxxx",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x+++++++++++++x",
+  "x++++++D++++++x",
+  "xxxxxxxxxxxxxxx"
+ ]
+}

@@ -42,6 +42,15 @@ func test_wade_needs_ability() -> void:
 	assert_eq(FieldMoves.verdict(d, z2, Vector2i(1, 0)), "cut")
 	assert_eq(FieldMoves.verdict(d, z2, Vector2i(2, 0)), "blocked", "scree needs the Stone Stone")
 
+func test_blocked_tile_says_what_is_missing() -> void:
+	var d := GameStateData.new()
+	var z := _zone([".o%"])
+	assert_true(FieldMoves.block_hint(d, z, Vector2i(1, 0)).contains("Brook-wade"), FieldMoves.block_hint(d, z, Vector2i(1, 0)))
+	assert_true(FieldMoves.block_hint(d, z, Vector2i(2, 0)).contains("Hedge-lay"))
+	assert_eq(FieldMoves.block_hint(d, z, Vector2i(0, 0)), "", "plain ground needs no excuse")
+	d.badges = ["brook", "urban"]
+	assert_eq(FieldMoves.block_hint(d, z, Vector2i(1, 0)), "")
+
 func test_water_encounters_on_deep_water() -> void:
 	var z := _zone([".o."])
 	var hit := {}

@@ -81,6 +81,7 @@ static func reachability(zones: Dictionary, ferries: Dictionary, script_warps: D
 ## Zone ids each zone's dialogue can warp to (story warps count as ways in).
 static func script_warp_targets() -> Dictionary:
 	var out := {}
+	var ferries: Variant = JsonUtil.read("res://data/ferries.json")
 	for f in DirAccess.get_files_at("res://data/dialogue"):
 		if not f.ends_with(".json"):
 			continue
@@ -91,4 +92,12 @@ static func script_warp_targets() -> Dictionary:
 			if not out.has(zid):
 				out[zid] = []
 			out[zid].append(m.get_string(1))
+		# a ferry hand in a zone with two boats (Kirkwall) links it to both ends of the route they sail
+		var fx := RegEx.create_from_string('"do":\\s*"ferry"[^}]*?"route":\\s*"([a-z0-9_]+)"')
+		for m in fx.search_all(text):
+			var r: Variant = ferries.get(m.get_string(1), {}) if ferries is Dictionary else {}
+			if r is Dictionary and not r.is_empty():
+				if not out.has(zid):
+					out[zid] = []
+				out[zid].append_array([str(r.get("a", "")), str(r.get("b", ""))])
 	return out

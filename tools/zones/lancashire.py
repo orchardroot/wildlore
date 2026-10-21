@@ -130,7 +130,7 @@ def sefton(OUT):
     z.building(49, 84, 4, 3, "terrace", show_label=False)
     z.building(43, 92, 9, 3, "red_brick", "Crosby Coastguard Station", door=4)
     z.warp(47, 94, "crosby_coastguard", 6, 7, "up")
-    z.prop("flagpole", 52, 95, variant=0)
+    z.prop("flagpole", 52, 95, variant=4)
     for y in range(80, 102, 4):
         z.prop("lamp_post", 30, y)
     z.prop("bench", 30, 86); z.prop("bench", 30, 94)

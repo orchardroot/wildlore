@@ -15,6 +15,7 @@ var _zone_node: Node3D
 var _tilt: ColorRect
 var _dark: ColorRect
 var traffic: RailTraffic
+var _hinted := {}       # ability-gated tiles already explained this visit
 var _rode_in := false   # on the bike when we went indoors (session memory only, not saved)
 var ambient: AmbientLife
 var follower: Follower
@@ -193,6 +194,14 @@ func can_enter(p: Vector2i, dir: Vector2i) -> String:
 		return "blocked"  # the level crossing is shut: a train is coming
 	return "ok"
 
+## Bumped into a tile that wants an ability you lack: say which, once per tile per visit.
+func blocked_hint(p: Vector2i) -> void:
+	var why := FieldMoves.block_hint(Game.data, zone, p)
+	if why == "" or _hinted.has(p):
+		return
+	_hinted[p] = true
+	await say([why])
+
 ## Hedge-lay: clear the bramble for good and rebuild the scenery.
 func cut_bramble(p: Vector2i) -> void:
 	FieldMoves.cut(Game.data, zone, p)
@@ -264,6 +273,7 @@ func _spawn_npcs() -> void:
 
 ## Keepers waiting in this zone with a side story, each on their spot or the nearest free tile to it.
 func _side_npcs() -> Array:
+	Festivals.rollover(Game.data)  # a festival that has come round again starts its quest afresh
 	var out := SideStories.npcs_for(zone.id, Game.data) + Festivals.npcs_for(zone.id)  # plus whoever's festival is on
 	var taken := {}
 	for d in out:

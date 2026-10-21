@@ -49,6 +49,16 @@ static func rail_destinations(data: GameStateData, here: String) -> Array:
 			out.append(town)
 	return out
 
+## What the station or the Raven says when there's nowhere to go. Stations on another island get a ferry mention.
+static func rail_empty_text(data: GameStateData, here: String, flying: bool) -> String:
+	if flying:
+		return "No other towns visited yet. Bran's Raven only flies where you've been."
+	var isle := island_of(here)
+	for town in world_map().get("towns", {}):
+		if town != here and island_of(town) != isle and data.flag(station_flag(town)):
+			return "Trains don't do the sea. Nowhere else on this island yet; the other stations you know need a ferry."
+	return "No other stations visited yet. Trains only go where you've been."
+
 static func rail_arrival(town: String) -> Dictionary:
 	var z := ZoneData.load_id(town)
 	return {"zone": town, "pos": z.station if z.station != Vector2i(-1, -1) else Vector2i(-1, -1)}

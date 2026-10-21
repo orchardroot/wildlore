@@ -427,7 +427,7 @@ func _sachet_worn() -> void:
 
 func _rail() -> void:
 	if int(host.data.bag.get("rail_pass", 0)) <= 0:
-		await host.say("", "The ticket barrier beeps sadly. You'll need a Rail Pass.")
+		await host.say("", "The ticket barrier beeps sadly. You'll need a Rail Pass. Prof. Garside posts one out once you've beaten the Liverpool club.")
 		return
 	var dest = await host.open_menu("travel:rail")
 	if dest == null or str(dest) == "":

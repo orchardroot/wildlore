@@ -324,6 +324,40 @@
     ],
     "share": 0.18
    }
+  },
+  {
+   "id": "uphellyaa",
+   "name": "Up Helly Aa",
+   "town": "lerwick",
+   "window": [
+    1,
+    24,
+    1,
+    28
+   ],
+   "rule": {
+    "nth": "last",
+    "weekday": 2,
+    "month": 1,
+    "from": -3,
+    "to": 1
+   },
+   "when": "the last Tuesday of January (and the days around it)",
+   "whatson": "Up Helly Aa, the fire festival and burning of a Viking galley",
+   "who": "Guizer Magnus",
+   "sprite": "festival_goer",
+   "x": 26,
+   "y": 17,
+   "facing": "left",
+   "script": "fest_uphellyaa",
+   "quest": "festivals_uphellyaa",
+   "spawn": {
+    "species": "kindlet",
+    "kinds": [
+     "grass"
+    ],
+    "share": 0.18
+   }
   }
  ]
 }

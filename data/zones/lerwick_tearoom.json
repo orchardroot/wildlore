@@ -1,0 +1,128 @@
+{
+ "id": "lerwick_tearoom",
+ "name": "Harbour Tea Room",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "table",
+   "x": 8,
+   "y": 3
+  },
+  {
+   "type": "table",
+   "x": 8,
+   "y": 5
+  },
+  {
+   "type": "table",
+   "x": 10,
+   "y": 3
+  },
+  {
+   "type": "table",
+   "x": 10,
+   "y": 5
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 7
+  },
+  {
+   "type": "potted_plant",
+   "x": 11,
+   "y": 7
+  },
+  {
+   "type": "kitchen_dresser",
+   "x": 11,
+   "y": 1
+  },
+  {
+   "type": "clock",
+   "x": 7,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "wall_picture",
+   "x": 1,
+   "y": 1,
+   "walk": true,
+   "variant": 2
+  },
+  {
+   "type": "plant_stand",
+   "x": 1,
+   "y": 6,
+   "variant": 1
+  },
+  {
+   "type": "sofa",
+   "x": 11,
+   "y": 3,
+   "variant": 1,
+   "rot": 270
+  },
+  {
+   "type": "fireplace",
+   "x": 6,
+   "y": 1,
+   "walk": true
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 8,
+   "to": "lerwick",
+   "tx": 29,
+   "ty": 25,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "ls_tea_lady",
+   "sprite": "villager_4",
+   "x": 3,
+   "y": 1,
+   "facing": "down",
+   "move": "still",
+   "script": "ls_tea_lady",
+   "name": "Tea Room Lady"
+  },
+  {
+   "id": "ls_soup_fan",
+   "sprite": "fisherman_north",
+   "x": 9,
+   "y": 3,
+   "facing": "left",
+   "move": "still",
+   "script": "ls_soup_fan",
+   "name": "Fisherman"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  6,
+  7
+ ],
+ "rows": [
+  "xxxxxxxxxxxxx",
+  "x|||||||||||x",
+  "x|CCCC||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||D|||||x",
+  "xxxxxxxxxxxxx"
+ ]
+}

@@ -40,7 +40,7 @@ const LOOKS := {
 		"storeys": 2, "string": true, "stacks": true, "doors": [Color("a33a2a"), Color("1f3a5a"), Color("2f5a3a"), Color("20202a")]},
 }
 
-const PAINTS := [Color("e8a2b4"), Color("f0cf6a"), Color("6fa4d2"), Color("8cc48c"), Color("d4605a"), Color("5fb4ac"), Color("e9936a"), Color("b7a2d6")]
+const PASTELS := [Color("eab6c4"), Color("a9c8e2"), Color("f3dd9c"), Color("b4d9b0"), Color("f1ede3"), Color("f0c3a2"), Color("c9b9de")]
 
 static func build(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int, rng: RandomNumberGenerator, style: String) -> void:
 	var look: Dictionary = LOOKS[style]
@@ -87,16 +87,25 @@ static func build(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int
 			var sy: float = 0.25 + rng.randf() * (hgt - 0.5)
 			var tone: float = rng.randf_range(-0.16, 0.14)
 			Meshes.box(st, Vector3(sx, sy, d - 0.07), Vector3(0.13, 0.09, 0.03), wall.lightened(tone) if tone > 0.0 else wall.darkened(-tone))
-	# painted harbour row: each house its own colour, a pale divider between
+	# painted harbour row: houses two tiles wide, each its own pastel, a pale party wall between them that
+	# breaks the roofline. The colour sits proud of the limewash body, so windows and door are set in front of it.
+	var fz := float(d)
 	if painted:
-		var start := rng.randi() % PAINTS.size()
-		for x in w:
-			var col: Color = PAINTS[(start + x * 3) % PAINTS.size()]
-			Meshes.box(st, Vector3(x + 0.02, 0.16, d - 0.08), Vector3(0.96, hgt - 0.16, 0.06), col)
-			if x > 0:
-				Meshes.box(st, Vector3(x - 0.03, 0.0, d - 0.1), Vector3(0.06, hgt, 0.1), WHITE)
-		Meshes.box(st, Vector3(-0.02, 0.0, d - 0.04), Vector3(w + 0.04, 0.2, 0.08), WHITE)
-		Meshes.box(st, Vector3(-0.02, hgt - 0.1, d - 0.04), Vector3(w + 0.04, 0.1, 0.08), WHITE)
+		fz = d + 0.06
+		var start := rng.randi() % PASTELS.size()
+		var k := 0
+		var x0 := 0
+		while x0 < w:
+			var hw := 2 if w - x0 != 3 else 3
+			var col: Color = PASTELS[(start + k * 3) % PASTELS.size()]
+			Meshes.box(st, Vector3(x0 + 0.03, 0.16, d - 0.08), Vector3(hw - 0.06, hgt - 0.16, 0.06), col)
+			Meshes.box(st, Vector3(x0 + 0.03, 0.16, d - 0.09), Vector3(hw - 0.06, 0.34, 0.07), col.darkened(0.18))  # painted skirting
+			if x0 > 0:
+				Meshes.box(st, Vector3(x0 - 0.06, 0.0, d - 0.1), Vector3(0.12, hgt + 0.2, 0.2), WHITE)  # party wall, proud of the eaves
+			x0 += hw
+			k += 1
+		Meshes.box(st, Vector3(-0.02, 0.0, d - 0.04), Vector3(w + 0.04, 0.16, 0.08), WHITE)
+		Meshes.box(st, Vector3(-0.02, hgt - 0.08, d - 0.04), Vector3(w + 0.04, 0.08, 0.08), WHITE)
 	# chimney stacks: on the gable ends, or one per two terrace houses with pots
 	if look.get("stacks", false):
 		var top := hgt + rise
@@ -146,10 +155,10 @@ static func build(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int
 				continue
 			if bay_tiles.has(x) and (s == 0 or (storeys >= 3 and s == 1)):
 				continue
-			Landmarks._window(st, wst, x + 0.27, wy, d, 0.46, wh, trim)
+			Landmarks._window(st, wst, x + 0.27, wy, fz, 0.46, wh, trim)
 			if look.get("georgian", false):
 				Meshes.box(st, Vector3(x + 0.24, wy + wh + 0.05, d - 0.06), Vector3(0.52, 0.06, 0.06), trim)  # lintel
-	_door(st, door_x, d, door_col, trim, look)
+	_door(st, door_x, fz, door_col, trim, look)
 	if look.get("railings", false):
 		_railings(st, w, d, door_x)
 

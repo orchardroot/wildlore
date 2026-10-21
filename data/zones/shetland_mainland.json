@@ -1,0 +1,640 @@
+{
+ "id": "shetland_mainland",
+ "name": "Mainland and Sumburgh",
+ "region": "scotland",
+ "kind": "route",
+ "music": "route_coast",
+ "weather": {
+  "gale": 24,
+  "fog": 18,
+  "drizzle": 22,
+  "clear": 16,
+  "sunshine": 10,
+  "downpour": 10
+ },
+ "props": [
+  {
+   "type": "rock",
+   "x": 39,
+   "y": 57,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 13,
+   "y": 11,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 10,
+   "y": 6,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 21,
+   "y": 15,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 27,
+   "y": 8,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 30,
+   "y": 22,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 20,
+   "y": 33,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 22,
+   "y": 55,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 18,
+   "y": 5,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 9,
+   "y": 51,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 30,
+   "y": 27,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 19,
+   "y": 38,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 38,
+   "y": 32,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 28,
+   "y": 31,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 16,
+   "y": 51,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 40,
+   "y": 38,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 44,
+   "y": 11,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 31,
+   "y": 31,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 10,
+   "y": 45,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 38,
+   "y": 40,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 21,
+   "y": 20,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 14,
+   "y": 23,
+   "variant": 0
+  },
+  {
+   "type": "sheep",
+   "x": 12,
+   "y": 24
+  },
+  {
+   "type": "sheep",
+   "x": 20,
+   "y": 27
+  },
+  {
+   "type": "sheep",
+   "x": 28,
+   "y": 28
+  },
+  {
+   "type": "sheep",
+   "x": 14,
+   "y": 54
+  },
+  {
+   "type": "sheep",
+   "x": 24,
+   "y": 52
+  },
+  {
+   "type": "sheep",
+   "x": 46,
+   "y": 36
+  },
+  {
+   "type": "sheep",
+   "x": 47,
+   "y": 10
+  },
+  {
+   "type": "building",
+   "style": "kirk_ruin",
+   "x": 14,
+   "y": 30,
+   "w": 8,
+   "h": 4,
+   "label": "Jarlshof"
+  },
+  {
+   "type": "standing_stone",
+   "x": 12,
+   "y": 29
+  },
+  {
+   "type": "standing_stone",
+   "x": 22,
+   "y": 36
+  },
+  {
+   "type": "standing_stone",
+   "x": 10,
+   "y": 35
+  },
+  {
+   "type": "standing_stone",
+   "x": 18,
+   "y": 37
+  },
+  {
+   "type": "building",
+   "style": "airport_terminal",
+   "x": 10,
+   "y": 42,
+   "w": 11,
+   "h": 4,
+   "label": "Sumburgh Airport"
+  },
+  {
+   "type": "building",
+   "style": "kirk_ruin",
+   "x": 51,
+   "y": 26,
+   "w": 2,
+   "h": 2,
+   "label": "Mousa Broch"
+  },
+  {
+   "type": "lighthouse",
+   "x": 38,
+   "y": 58
+  }
+ ],
+ "warps": [],
+ "edges": {
+  "north": {
+   "to": "lerwick",
+   "offset": 0
+  }
+ },
+ "npcs": [
+  {
+   "id": "sm_pony_14_8",
+   "sprite": "creature:foalmoor",
+   "x": 14,
+   "y": 8,
+   "facing": "down",
+   "move": "wander",
+   "script": "sm_pony",
+   "name": "Shetland Pony"
+  },
+  {
+   "id": "sm_pony_19_10",
+   "sprite": "creature:foalmoor",
+   "x": 19,
+   "y": 10,
+   "facing": "down",
+   "move": "wander",
+   "script": "sm_pony",
+   "name": "Shetland Pony"
+  },
+  {
+   "id": "sm_pony_24_7",
+   "sprite": "creature:foalmoor",
+   "x": 24,
+   "y": 7,
+   "facing": "down",
+   "move": "wander",
+   "script": "sm_pony",
+   "name": "Shetland Pony"
+  },
+  {
+   "id": "sm_pony_26_12",
+   "sprite": "creature:foalmoor",
+   "x": 26,
+   "y": 12,
+   "facing": "down",
+   "move": "wander",
+   "script": "sm_pony",
+   "name": "Shetland Pony"
+  },
+  {
+   "id": "sm_breeder",
+   "sprite": "farmer",
+   "x": 32,
+   "y": 10,
+   "facing": "left",
+   "move": "still",
+   "script": "sm_breeder",
+   "name": "Gudrun the Breeder"
+  },
+  {
+   "id": "sm_judge",
+   "sprite": "shipwright",
+   "x": 32,
+   "y": 13,
+   "facing": "left",
+   "move": "still",
+   "script": "sm_judge",
+   "name": "Show Judge",
+   "show_if": "q_shetland_ponies_1",
+   "hide_if": "q_shetland_ponies_done"
+  },
+  {
+   "id": "sm_archaeologist",
+   "sprite": "prof_garside",
+   "x": 20,
+   "y": 35,
+   "facing": "up",
+   "move": "still",
+   "script": "sm_archaeologist",
+   "name": "Archaeologist"
+  },
+  {
+   "id": "sm_marshal",
+   "sprite": "rail_guard",
+   "x": 38,
+   "y": 46,
+   "facing": "down",
+   "move": "still",
+   "script": "sm_marshal",
+   "name": "Airport Marshal"
+  },
+  {
+   "id": "sm_warden",
+   "sprite": "warden_grunt",
+   "x": 36,
+   "y": 55,
+   "facing": "up",
+   "move": "still",
+   "script": "sm_warden",
+   "name": "Head Warden"
+  },
+  {
+   "id": "mainland_crofter",
+   "sprite": "farmer",
+   "x": 26,
+   "y": 20,
+   "facing": "down",
+   "move": "still",
+   "trainer": "mainland_crofter"
+  },
+  {
+   "id": "mainland_diver",
+   "sprite": "surfer",
+   "x": 10,
+   "y": 20,
+   "facing": "down",
+   "move": "still",
+   "trainer": "mainland_diver"
+  },
+  {
+   "id": "mainland_ranger",
+   "sprite": "hillwalker",
+   "x": 40,
+   "y": 52,
+   "facing": "left",
+   "move": "still",
+   "trainer": "mainland_ranger"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "foalmoor",
+    "min": 80,
+    "max": 81,
+    "weight": 14
+   },
+   {
+    "species": "herdlet",
+    "min": 80,
+    "max": 81,
+    "weight": 10
+   },
+   {
+    "species": "puffling",
+    "min": 80,
+    "max": 81,
+    "weight": 10,
+    "time": [
+     "day"
+    ]
+   },
+   {
+    "species": "cragchough",
+    "min": 80,
+    "max": 81,
+    "weight": 8
+   },
+   {
+    "species": "polartern",
+    "min": 80,
+    "max": 81,
+    "weight": 10
+   },
+   {
+    "species": "gannetling",
+    "min": 80,
+    "max": 81,
+    "weight": 6,
+    "time": [
+     "day"
+    ]
+   },
+   {
+    "species": "snowbunting",
+    "min": 80,
+    "max": 81,
+    "weight": 6,
+    "weather": [
+     "frost",
+     "fog"
+    ]
+   },
+   {
+    "species": "midgeswarm",
+    "min": 80,
+    "max": 81,
+    "weight": 8,
+    "time": [
+     "dawn",
+     "dusk"
+    ]
+   },
+   {
+    "species": "hushwing",
+    "min": 80,
+    "max": 81,
+    "weight": 6,
+    "time": [
+     "night"
+    ]
+   },
+   {
+    "species": "haarling",
+    "min": 80,
+    "max": 81,
+    "weight": 6,
+    "weather": [
+     "fog"
+    ]
+   },
+   {
+    "species": "crexling",
+    "min": 80,
+    "max": 81,
+    "weight": 6
+   }
+  ],
+  "water": [
+   {
+    "species": "rillotter",
+    "min": 80,
+    "max": 81,
+    "weight": 16
+   },
+   {
+    "species": "selklet",
+    "min": 80,
+    "max": 81,
+    "weight": 12
+   },
+   {
+    "species": "greyhaul",
+    "min": 80,
+    "max": 81,
+    "weight": 12
+   },
+   {
+    "species": "gannetling",
+    "min": 80,
+    "max": 81,
+    "weight": 12
+   },
+   {
+    "species": "plungebeak",
+    "min": 80,
+    "max": 81,
+    "weight": 10
+   },
+   {
+    "species": "dolphlet",
+    "min": 80,
+    "max": 81,
+    "weight": 8,
+    "time": [
+     "day"
+    ]
+   },
+   {
+    "species": "orcaird",
+    "min": 80,
+    "max": 81,
+    "weight": 6,
+    "time": [
+     "dawn",
+     "dusk"
+    ]
+   },
+   {
+    "species": "skaldling",
+    "min": 80,
+    "max": 81,
+    "weight": 6,
+    "weather": [
+     "gale",
+     "fog"
+    ]
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 35,
+   "y": 56,
+   "plaque": "shetland_sumburgh",
+   "title": "Sumburgh Head",
+   "text": "Sumburgh Head lighthouse was built in 1821 to a design by Robert Stevenson, one of the famous family of lighthouse engineers, to guard the dangerous waters where the North Sea meets the Atlantic. Today it is a nature reserve, and from May to August the cliffs are crowded with puffins, guillemots and fulmars."
+  },
+  {
+   "x": 24,
+   "y": 33,
+   "plaque": "shetland_jarlshof",
+   "title": "Jarlshof",
+   "text": "Jarlshof was a settlement for about four thousand years, from Bronze Age round houses to Iron Age brochs, Norse longhouses and a medieval farm. A storm in the 1890s stripped away the dune and revealed it all. The name comes from Walter Scott's 1822 novel The Pirate, and it stuck."
+  },
+  {
+   "x": 44,
+   "y": 26,
+   "plaque": "shetland_mousa",
+   "title": "Mousa Broch",
+   "text": "On the little island of Mousa across the sound stands the best-preserved broch in the world, about thirteen metres tall, built over two thousand years ago. It is mentioned in a Norse saga, where two runaway lovers hole up inside. Today storm petrels nest in the stonework on summer nights."
+  },
+  {
+   "x": 8,
+   "y": 17,
+   "plaque": "shetland_st_ninians",
+   "title": "St Ninian's Isle",
+   "text": "St Ninian's Isle is joined to the Mainland by a tombolo, a curving ridge of sand, one of the finest in Britain. In 1958 a schoolboy found a hoard of silver under a slab in the ruined chapel: bowls, brooches and a sword chape, probably hidden around 800 AD. The originals are in Edinburgh."
+  },
+  {
+   "x": 38,
+   "y": 45,
+   "plaque": "shetland_runway",
+   "title": "The Runway Crossing",
+   "text": "At Sumburgh, the main road across the south of the Mainland crosses the airport runway. When a plane is due, barriers come down and the road is closed. It is one of the few roads in Britain where you can be held up by a Saab."
+  },
+  {
+   "x": 35,
+   "y": 3,
+   "text": "NORTH: Lerwick, the museum and the Victoria Pier. SOUTH: Jarlshof, Sumburgh Airport and Sumburgh Head. Please close the gate; ponies have no sense of direction."
+  }
+ ],
+ "spawn": [
+  35,
+  6
+ ],
+ "stage": "coast",
+ "scaled_floor": 80,
+ "rows": [
+  "$$$$$$$$RRRRRRRRRRRRRRRRRRRRRRRRRR===RRRRRRRRR$$$$$$$$$$",
+  "$$$$$$$$RRRRRRRRRRRRRRRRRRRRRRRRRR===RRRRRRRRR$$$$$$$$$$",
+  "$$$$$$wkkkkkkkkkkkkkkkkkkkkkkkkkkk===kkkkkkkkkkkkw$$$$$$",
+  "$$$$$$wkkkkkkkkkkkkkkkkkkkkkkkkkkk===kkkkkkkkkkkkw$$$$$$",
+  "$$$$$$wkkkhkkkkkhkkkkkkhkkkkhkkkkk===kkkkkkkkkkkkw$$$$$$",
+  "$$$$$$wkkWWWWWWWWWWWWWWWWWWWWWWkkk===kkkkkkkkkkkkw$$$$$$",
+  "$$$$$$$wkWkkhkhkkkkhkkkkkkhkkkWkkk===kkkkkkkkkkkkkw$$$$$",
+  "$$$$$$$wkWkhhkkkkkkhhkkhkkkkkkWkkk===kkkkkkkkkkkkkw$$$$$",
+  "$$$$$$$wkWkkkkkkkkkhkkkkkkkkkkWkkk===kkkkkkkkkkkkkw$$$$$",
+  "$$$$$$$wkWkkkkkhhkhkkkhhkkkhkkkkkk===kkkkkkkkkkkkkw$$$$$",
+  "$$$$$$$wkWhkkkkkkkhkkhkhkhkkkkkkkk===kkkkkkkkkkkkkw$$$$$",
+  "$$$$$$$wkWkkkhkkhkkkkhkkkkkkkkWkkk===kkkkkkkkkkkkkw$$$$$",
+  "$$$$$$$wkWkkkkkkkkkkkhkkkkhkkkWkkk===kkkkkkkkkkkkkw$$$$$",
+  "$$$$$$$wkWkkkhhkkhhkkkkkkkkkkkWkkk===kkkkkkkkkkkkkw$$$$$",
+  "$$$$$$$wkWWWWWWWWWWWWWWWWWWWWWWkkk===kkkkkkkkkkkkw$$$$$$",
+  "$$$k$$$wkhkkkkkkkkkkhkhkhkhkkkkkkk===kkkkkkkkkkkkw$$$$$$",
+  "$$kkssssskkkkkkkkkkkkhkkkhkhkkhkkk===kkkkkkkkkkkkw$$$$$$",
+  "$kkksssss#########################===kkkkkkkkkkkkw$$$$$$",
+  "$$kkssssskkkkkkkkkkkkkkkkkkkkkkkkk===kkkkkkkkkkkw$$$$$$$",
+  "$$$$$$wkkkkkkkkkkkkkkkkkkkkkkkkkkk===kkkkkkkkkkkw$$$$$$$",
+  "$$$$$$wkkkkkkkkkkkkkkkkkkkkkkkkkkk===kkkkkkkkkkkw$$$$$$$",
+  "$$$$$wkkkkkkkkkkkkkkkkkkkkkkkkkkkk==========kkkw$$$$$$$$",
+  "$$$$$wkkkkkkkkkkkkkkkkkkkkkkkkkkkk==========kkkw$$$$$$$$",
+  "$$$$$wkkkkkkkkkkkkkkkkkkkkkkkkkkkk==========kkkw$$$$$$$$",
+  "$$$$wkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk===kkw$$$$$$$$$",
+  "$$$$wkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk===kkw$$$$$k$$$",
+  "$$$$wkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk===kkw$$$kBBkk$",
+  "$$$$wkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk===kkw$$$kBBkk$",
+  "$$$wkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk===kkw$$$$kkkk$",
+  "$$$wkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk===kkw$$$$$k$$$",
+  "$$$wkkkkkkkkkkBBBBBBBBkkkkkkkkkkkkkkkkkkk===kkw$$$$$$$$$",
+  "$$$wkkkkkkkkkkBBBBBBBBkkkkkkkkkkkkkkkkkkk===kkw$$$$$$$$$",
+  "$$$wkkkkkkkkkkBBBBBBBBkkkkkkkkkkkkkkkkkkk===kkw$$$$$$$$$",
+  "$$$wkkkkkkkkkkBBBBBBBBkkkkkkkkkkkkkkkkkkk===kkkw$$$$$$$$",
+  "$$$wkkkkkkk###############################==kkkw$$$$$$$$",
+  "$$$wkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk===kkkw$$$$$$$$",
+  "$$$wkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk===kkkw$$$$$$$$",
+  "$$$wkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk===kkkkw$$$$$$$",
+  "$$$wkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk===kkkkw$$$$$$$",
+  "$$$$wkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk===kkkkw$$$$$$$",
+  "$$$$wkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk===kkkkkw$$$$$$",
+  "$$$$wkkkkkkkkkkkkkkkkkkkkkkkkkkkkk==========kkkkkw$$$$$$",
+  "$$$$wkkkkkBBBBBBBBBBBkkkkkkkkkkkkk==========kkkkkw$$$$$$",
+  "$$$$$wkkkkBBBBBBBBBBBkkkkkkkkkkkkk==========kkkkkkw$$$$$",
+  "$$$$$wkkkkBBBBBBBBBBBkkkkkkkkkkkkk===kkkkkkkkkkkkkw$$$$$",
+  "$$$$$wkkkkBBBBBBBBBBBkkkkkkkkkkkkk===kkkkkkkkkkkkkw$$$$$",
+  "$$$$$$wkkkkkkkkkkkkkkkkkkkkkkkkkkk===kkkkkkkkkkkkkw$$$$$",
+  "$$$$$$w___________________________===____________kw$$$$$",
+  "$$$$$$w___________________________===____________kw$$$$$",
+  "$$$$$$w___________________________===____________kw$$$$$",
+  "$$$$$$$wkkkkkhhkhhkkkkkkkkkkkkkkkk===kkkkkkkkkkkkkw$$$$$",
+  "$$$$$$$wkkkkkkkkkkkhkkkhkkkkkkkkkk===kkkkkkkkkkkkkw$$$$$",
+  "$$$$$$$wkkkkkhkkhkkkkkkkkhkkkkkkkk===kkkkkkkkkkkkw$$$$$$",
+  "$$$$$$$wkkkhkkkkkkkkkkkkkkkkkkkkkk===kkkkkkkkkkkkw$$$$$$",
+  "$$$$$$$wkkkkkkhkkkkhkkkkhkkkkkkkkk===kkkkkkkkkkkkw$$$$$$",
+  "$$$$$$$wkkhkkkkhkkkkkkkkkhkkkkkkkk===kkkkkkkkkkkkw$$$$$$",
+  "$$$$$$$wkhkkkkkkkhkkkhkkkkkkkkkkkkkkkkkkkkkkkkkkw$$$$$$$",
+  "$$$$$$$wkkhhhkkkkkkhkkkkkhkkkkkkkkkkkkkkkkkkkkkkw$$$$$$$",
+  "$$$$$$$wkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkw$$$$$$$",
+  "$$$$$$$wkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkw$$$$$$$$",
+  "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
+ ],
+ "legend_extra": {
+  "k": {
+   "tile": "grass",
+   "colour": "#7d8c55"
+  },
+  "h": {
+   "tile": "tall_grass",
+   "colour": "#7a5c6a",
+   "prop": "heather"
+  }
+ }
+}

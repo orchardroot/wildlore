@@ -41,7 +41,7 @@ func test_world_map_has_all_spec_towns() -> void:
 	assert_true(m.towns.size() >= 42, "the 40 spec towns plus the ferry ports Holyhead and Cairnryan (and the Wider Isles towns)")
 	assert_true(m.towns.size() >= 42, "the 40 spec towns plus the ferry ports Holyhead and Cairnryan, and the wider isles")
 	assert_true(m.towns.size() >= 42, "the 40 spec towns plus the ferry ports Holyhead and Cairnryan")
-	assert_eq(m.towns.size(), 72, "the 40 spec towns, the ferry ports, the Wider Isles and every region since")
+	assert_eq(m.towns.size(), 73, "the 40 spec towns, the ferry ports, the Wider Isles and every region since")
 	for t in ["macclesfield", "london", "cardiff", "kirkwall", "dingle", "douglas", "newgrange", "bushmills"]:
 		assert_true(m.towns.has(t), t)
 	assert_true(m.outlines.gb.size() >= 60)
@@ -55,6 +55,14 @@ func test_rail_stays_on_island() -> void:
 	assert_eq(Travel.island_of("cardiff"), "gb")
 	assert_false("dublin" in Travel.rail_destinations(d, "liverpool"), "no train across the Irish Sea")
 	assert_false("cardiff" in Travel.rail_destinations(d, "dublin"))
+
+func test_rail_empty_text_names_the_sea() -> void:
+	var d := GameStateData.new()
+	assert_true(Travel.rail_empty_text(d, "liverpool", false).contains("Trains only go where you've been"))
+	d.set_flag(Travel.station_flag("liverpool"))
+	d.set_flag(Travel.station_flag("dublin"))
+	assert_true(Travel.rail_empty_text(d, "liverpool", false).contains("ferry"), Travel.rail_empty_text(d, "liverpool", false))
+	assert_true(Travel.rail_empty_text(d, "liverpool", true).contains("Raven"))
 
 func test_northern_islands() -> void:
 	assert_eq(Travel.island_of("belfast"), "ireland")

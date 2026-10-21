@@ -6,6 +6,22 @@ A monster-catching RPG across the UK and Ireland. You start in Macclesfield, bec
 
 ![Title](docs/screens/t13-title.png)
 
+## What's new in 3.2
+
+- **Festivals come round every year.** Do each one again next year: the quest starts afresh, the log shows this year's run, the food is yours every time, and the souvenir only the first. Finished a 3.1 festival? It still counts for its year.
+- **Shetland.** Take the boat from Kirkwall to Lerwick: the Shetland Museum, Fort Charlotte, the Galley Shed, a pub with a session, Fair Isle knitwear, Clickimin Broch, and the road south past ponies, Jarlshof and the runway to Sumburgh Head's puffins. Two quests, eight trainers and a lot of plaques.
+- **Up Helly Aa** in Lerwick, on its real date (the last Tuesday of January): help Guizer Magnus light the galley.
+
+## What's new in 3.2: Shetland and Small Mercies
+
+- **Shetland.** Take the ferry from Kirkwall to Lerwick: the Shetland Museum, the Up Helly Aa galley shed, Fort Charlotte, the road south down the Mainland, and 13 more plaques. Up Helly Aa itself burns on the last Tuesday of January.
+- **Festivals come round every year** now, not once a save. The souvenir is a one-off; the food is yearly.
+- **The game says why.** Crafting tells you which ingredients you're short of, the battle bag says why it's empty, blocked paths say which skill they want, and the stations tell you where to get a rail pass.
+- Portree's harbour front is a row of proper pastel houses, flagpoles fly the right nation's flag, and Lekbruiser's tail no longer looks like a hat.
+- The Underground corridors are wider, so a beaten trainer can't box you out of the reunion fights.
+
+Saves from 3.1 carry straight over.
+
 ## What's new in 3.1: Seasons & Streets
 
 - **Towns look like where they are.** The original towns get their own architecture: Bath stone crescents, Manchester mill brick, York's jettied timber, Chester's Rows, Welsh slate terraces, Cornish granite, Edinburgh and Glasgow tenements, Aberdeen granite, Orkney flagstone, Portree's painted harbour and Dublin's Georgian doors.

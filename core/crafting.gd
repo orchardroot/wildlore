@@ -62,6 +62,23 @@ static func blocker(data: GameStateData, r: Dictionary) -> String:
 		return "full"
 	return ""
 
+## What's still short for `r`, as "2 more Hazelnuts" style strings.
+static func missing(data: GameStateData, r: Dictionary, items: ItemDB) -> Array:
+	var bag := Bag.new(data.bag)
+	var ins: Dictionary = r.get("in", {})
+	var out := []
+	for id in ins:
+		var lack := int(ins[id]) - bag.count(str(id))
+		if lack > 0:
+			var nm := str(items.get_item(str(id)).get("name", str(id).capitalize()))
+			out.append("%d more %s" % [lack, nm] if lack > 1 else "1 more %s" % nm)
+	return out
+
+static func _list_text(parts: Array) -> String:
+	if parts.size() <= 1:
+		return "".join(parts)
+	return ", ".join(parts.slice(0, parts.size() - 1)) + " and " + str(parts[-1])
+
 static func can_make(data: GameStateData, r: Dictionary) -> bool:
 	return blocker(data, r) == ""
 
@@ -72,7 +89,7 @@ static func craft(data: GameStateData, r: Dictionary, items: ItemDB) -> Dictiona
 		return {"ok": false, "text": "Nobody's quite sure how the %s goes yet." % out_name}
 	match blocker(data, r):
 		"short":
-			return {"ok": false, "text": "You're short of something for the %s." % out_name}
+			return {"ok": false, "text": "Not quite enough for the %s. You still need %s." % [out_name, _list_text(missing(data, r, items))]}
 		"money":
 			return {"ok": false, "text": "You'll need %s for the rest of the ingredients." % Wallet.fmt(cost(data, r), Wallet.local(data))}
 		"full":

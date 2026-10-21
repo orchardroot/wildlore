@@ -1,0 +1,291 @@
+{
+ "sm_pony": [
+  {
+   "do": "say",
+   "who": "",
+   "text": "A Shetland pony, about the size of a large dog, chewing with great concentration. It looks at you as if you were a delivery it hadn't ordered."
+  }
+ ],
+ "sm_breeder": [
+  {
+   "do": "if",
+   "flag": "q_shetland_ponies_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Gudrun the Breeder",
+     "text": "The rosette's on the kitchen wall. Between the ponies and the knitting, you'd think my house was a county fair. Come back any time. Mind the biting one."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_shetland_ponies_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "Gudrun the Breeder",
+       "text": "You beat the judge! Nobody beats the judge. He's been judging for thirty years, and has decided against everyone on principle. Here: the show rosette, and a word of thanks from the ponies, who can't give you one themselves."
+      },
+      {
+       "do": "give_item",
+       "item": "pony_rosette",
+       "n": 1
+      },
+      {
+       "do": "standing",
+       "nation": "scotland",
+       "amount": 2
+      },
+      {
+       "do": "set",
+       "flag": "q_shetland_ponies_done",
+       "value": true
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_shetland_ponies_1",
+       "then": [
+        {
+         "do": "say",
+         "who": "Gudrun the Breeder",
+         "text": "A Foalmoor, in your Fieldbook! A fine pony. The judge is at the gate. He's strict, so mind your manners. Go on."
+        }
+       ],
+       "else": [
+        {
+         "do": "if",
+         "flag": "q_shetland_ponies_started",
+         "then": [
+          {
+           "do": "when",
+           "cond": "has_foalmoor",
+           "then": [
+            {
+             "do": "say",
+             "who": "Gudrun the Breeder",
+             "text": "That's a Foalmoor, right enough. Stocky, handsome and inclined to bite. A proper Shetland. The show judge is by the gate. He'll test your nerve, and your team's."
+            },
+            {
+             "do": "set",
+             "flag": "q_shetland_ponies_1",
+             "value": true
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Gudrun the Breeder",
+             "text": "Not yet. The small stocky ones on the heath, they're Foalmoors. Catch one and bring it to show me."
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Gudrun the Breeder",
+           "text": "Ponies! Shetland ponies, the real thing. Small, strong, clever, and with the tact of a brick. We've a show coming and I need someone to take part. A good show needs a pony and a proper fight."
+          },
+          {
+           "do": "say",
+           "who": "Gudrun the Breeder",
+           "text": "Catch a Foalmoor on the hill, and show me. Then the judge will want a word. Will you?"
+          },
+          {
+           "do": "choice",
+           "text": "Join the pony show?",
+           "options": [
+            "Count me in",
+            "Not just now"
+           ],
+           "set": "_pony_ans"
+          },
+          {
+           "do": "if",
+           "flag": "_pony_ans",
+           "then": [
+            {
+             "do": "set",
+             "flag": "q_shetland_ponies_started",
+             "value": true
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Gudrun the Breeder",
+             "text": "The ponies will wait. They're good at it."
+            }
+           ],
+           "eq": 0
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "sm_judge": [
+  {
+   "do": "say",
+   "who": "Show Judge",
+   "text": "I've judged this show for thirty years. A good pony stands square, holds its head high, and has that look of someone who's just remembered an appointment. Let's see your team stand up. Your creatures, I mean. Not the ponies."
+  },
+  {
+   "do": "battle",
+   "trainer": "shetland_ponyjudge",
+   "intro": true
+  },
+  {
+   "do": "say",
+   "who": "Show Judge",
+   "text": "Well. I may have been too harsh with the last lot. Ten out of ten. Tell Gudrun I said 'adequate', which is as high as I go."
+  },
+  {
+   "do": "set",
+   "flag": "q_shetland_ponies_2",
+   "value": true
+  }
+ ],
+ "sm_archaeologist": [
+  {
+   "do": "if",
+   "flag": "q_shetland_survey_1",
+   "then": [
+    {
+     "do": "say",
+     "who": "Archaeologist",
+     "text": "Back again? The pot's still a pot. Take the road south to the lighthouse. And mind the runway. They stop the road for aeroplanes, it's the only place in the country where you can be late for a flight and early for a ferry."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_shetland_survey_started",
+     "then": [
+      {
+       "do": "say",
+       "who": "Archaeologist",
+       "text": "A visitor, with a clipboard from the museum! Excellent. Jarlshof is four thousand years of settlement in one place: Bronze Age houses, an Iron Age broch, Norse longhouses, a medieval farmhouse and a laird's house, all on top of each other."
+      },
+      {
+       "do": "say",
+       "who": "Archaeologist",
+       "text": "The name is a joke, in fact. Walter Scott invented it in a novel, 'The Pirate', in 1822. The place had a different name. We've forgotten it. One question, and I'll sign your sheet: who were the first inhabitants?"
+      },
+      {
+       "do": "choice",
+       "text": "Who lived here first?",
+       "options": [
+        "Prehistoric farmers",
+        "The Romans",
+        "Medieval monks"
+       ],
+       "set": "_jarl_ans"
+      },
+      {
+       "do": "if",
+       "flag": "_jarl_ans",
+       "then": [
+        {
+         "do": "say",
+         "who": "Archaeologist",
+         "text": "Prehistoric farmers, thousands of years before the Norse. The Bronze Age round houses are the oldest you can see, and the later folk built on top. Excellent. Your sheet is signed. On to Sumburgh Head!"
+        },
+        {
+         "do": "set",
+         "flag": "q_shetland_survey_1",
+         "value": true
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Archaeologist",
+         "text": "No, no. Think older. The Romans never came this far north. Try again; the pottery is certainly not in a hurry."
+        }
+       ],
+       "eq": 0
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Archaeologist",
+       "text": "Jarlshof! Four thousand years of people, one on top of the other, like a very old sandwich. Do look round. The museum in Lerwick has a survey if you're interested in helping out."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "sm_marshal": [
+  {
+   "do": "say",
+   "who": "Airport Marshal",
+   "text": "Yes, the road crosses the runway. Yes, they stop the traffic when a plane lands, with a barrier like a level crossing, red lights and all. It's one of the few places in Britain where you can be held up by a Saab."
+  },
+  {
+   "do": "say",
+   "who": "Airport Marshal",
+   "text": "Don't stand on the runway. It's not the planes I worry about. It's the paperwork."
+  }
+ ],
+ "sm_warden": [
+  {
+   "do": "if",
+   "flag": "q_shetland_survey_2",
+   "then": [
+    {
+     "do": "say",
+     "who": "Head Warden",
+     "text": "That's you in the log: 'one visitor, one Puffling, no incidents.' Away back up the road to the Museum. And thank you."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_shetland_survey_1",
+     "then": [
+      {
+       "do": "when",
+       "cond": "has_puffling",
+       "then": [
+        {
+         "do": "say",
+         "who": "Head Warden",
+         "text": "A Puffling! In the book it goes. They're on these cliffs from May to August, in burrows, with their little orange feet. Then in autumn they head out to sea, and nobody quite knows where, which I find very restful."
+        },
+        {
+         "do": "set",
+         "flag": "q_shetland_survey_2",
+         "value": true
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Head Warden",
+         "text": "Sumburgh Head, with the lighthouse of 1821 by Robert Stevenson, grandfather of the author. We need a Puffling for the log. They like the cliff tops and the grass. Catch one and show me."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Head Warden",
+       "text": "Sumburgh Head! The lighthouse, the cliffs, and the puffins in summer. If the museum sent you, you'll want the archaeologist at Jarlshof first."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
