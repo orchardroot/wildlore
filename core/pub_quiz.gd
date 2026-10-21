@@ -7,7 +7,7 @@ extends RefCounted
 
 const BANK_PATH := "res://data/quiz/questions.json"
 const ROUND_SIZE := 5
-const REGIONS := ["all", "england_north", "england_south", "london", "scotland", "wales", "ireland", "ni"]
+const REGIONS := ["all", "england_north", "england_south", "london", "scotland", "wales", "ireland", "ni", "overseas"]
 const HOME_WEIGHT := 4.0
 const NEAR_WEIGHT := 2.0
 const NORMAL_WEIGHT := 1.0

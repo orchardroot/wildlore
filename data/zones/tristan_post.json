@@ -1,0 +1,118 @@
+{
+ "id": "tristan_post",
+ "name": "Post Office",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "table",
+   "x": 6,
+   "y": 3
+  },
+  {
+   "type": "table",
+   "x": 6,
+   "y": 5
+  },
+  {
+   "type": "table",
+   "x": 8,
+   "y": 5
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 6
+  },
+  {
+   "type": "potted_plant",
+   "x": 9,
+   "y": 6
+  },
+  {
+   "type": "menu_board",
+   "x": 5,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "kitchen_dresser",
+   "x": 8,
+   "y": 1
+  },
+  {
+   "type": "clock",
+   "x": 6,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "wall_picture",
+   "x": 9,
+   "y": 1,
+   "walk": true,
+   "variant": 0
+  },
+  {
+   "type": "plant_stand",
+   "x": 1,
+   "y": 5,
+   "variant": 0
+  },
+  {
+   "type": "sofa",
+   "x": 9,
+   "y": 3,
+   "variant": 1,
+   "rot": 270
+  }
+ ],
+ "warps": [
+  {
+   "x": 5,
+   "y": 7,
+   "to": "tristan_da_cunha",
+   "tx": 14,
+   "ty": 27,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "tri_postmistress",
+   "sprite": "shopkeeper",
+   "x": 3,
+   "y": 1,
+   "facing": "down",
+   "move": "still",
+   "script": "tri_postmistress",
+   "name": "Postmistress"
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "x": 8,
+   "y": 3,
+   "text": "TRISTAN STAMPS. Penguins, albatrosses and boats. Collectors write from all over the world."
+  }
+ ],
+ "spawn": [
+  5,
+  6
+ ],
+ "rows": [
+  "xxxxxxxxxxx",
+  "x|||||||||x",
+  "x|CCCC||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x||||D||||x",
+  "xxxxxxxxxxx"
+ ]
+}

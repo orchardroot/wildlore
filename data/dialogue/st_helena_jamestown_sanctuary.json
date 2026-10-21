@@ -1,0 +1,63 @@
+{
+ "nurse": [
+  {
+   "do": "say",
+   "who": "Nurse",
+   "text": "Hello, my love. Jamestown Hospital, which here we call the Sanctuary for creatures. You're a long way from home, but they're not. Pop them down."
+  },
+  {
+   "do": "choice",
+   "text": "What can we do for you?",
+   "options": [
+    "Heal my team",
+    "Open the Ark",
+    "Just looking"
+   ],
+   "set": "_nurse_choice"
+  },
+  {
+   "do": "if",
+   "flag": "_nurse_choice",
+   "eq": 0,
+   "then": [
+    {
+     "do": "say",
+     "who": "Nurse",
+     "text": "A cup of tea and a sit, and a look at the sea over the rooftops. The whole of Jamestown has been doing that for three hundred years."
+    },
+    {
+     "do": "heal"
+    },
+    {
+     "do": "say",
+     "who": "Nurse",
+     "text": "All done. They're stronger than a wirebird at dawn."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "_nurse_choice",
+     "eq": 1,
+     "then": [
+      {
+       "do": "say",
+       "who": "Nurse",
+       "text": "The Ark's by the window, with a view of the wharf."
+      },
+      {
+       "do": "ark"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Nurse",
+       "text": "No trouble, love. Mind the steps on the way out."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

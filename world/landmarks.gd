@@ -41,7 +41,8 @@ const SPECIAL := ["edinburgh_tenement", "glasgow_tenement", "aberdeen_granite", 
 	"distillery", "mccaig", "paddle_steamer", "blackhouse", "croft_house", "granite_house", "harbour_white",
 	"lews_castle", "cotswold_house", "cotswold_cottage", "wool_church", "oxford_college", "oxford_tower",
 	"oxford_church", "radcliffe_camera", "raf_hangar", "control_tower", "raf_aircraft", "raf_block", "gib_house", "gib_rock",
-	"europa_lighthouse", "flat_house", "greek_theatre", "raf_terminal"]
+	"europa_lighthouse", "flat_house", "greek_theatre", "raf_terminal",
+	"sa_colonial", "jacobs_ladder", "radome", "tin_cottage", "whalebone_arch"]
 
 ## Doors: where each style's door sits on its tile (see _door and friends), for the swing as you go in.
 ## {x, w, y, h, z}: left edge and width across the door column, bottom and height, z of the door's face from
@@ -366,6 +367,16 @@ static func building(w: int, d: int, style: String, door_x: int, seed_value: int
 			ValleyStyles.steam_loco(st, wst, w, d, door_x)
 		"ironworks":
 			ValleyStyles.ironworks(st, wst, w, d, door_x)
+		"sa_colonial":
+			SouthAtlanticStyles.colonial(st, wst, w, d, door_x, rng)
+		"jacobs_ladder":
+			SouthAtlanticStyles.ladder(st, w, d)
+		"radome":
+			SouthAtlanticStyles.radome(st, wst, w, d, door_x, rng)
+		"tin_cottage":
+			SouthAtlanticStyles.tin_cottage(st, wst, w, d, door_x, rng)
+		"whalebone_arch":
+			SouthAtlanticStyles.whalebone_arch(st, w, d)
 		"blast_furnace":
 			_blast_furnace(st, wst, w, d, door_x)
 		"gault", "flint", "flint_gable", "thatch", "college", "kings_chapel", "portico", "ely_cathedral", "norwich_cathedral", "norman_keep", "football_stand":

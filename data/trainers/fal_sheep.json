@@ -1,0 +1,36 @@
+{
+ "id": "fal_sheep",
+ "name": "Sheep Shearer Kirsty",
+ "class": "Shearer",
+ "sprite": "farmer",
+ "party": [
+  {
+   "species": "herdlet",
+   "level": 96
+  },
+  {
+   "species": "herdwick",
+   "level": 96
+  },
+  {
+   "species": "loaghtan",
+   "level": 95
+  },
+  {
+   "species": "heilan",
+   "level": 96
+  }
+ ],
+ "ai": "trainer",
+ "money": 5600,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Sheep Shearer Kirsty",
+   "text": "Two hundred sheep a day, one at a time, the old way. Sore back, quick hands. Let's see how fast you shear a battle."
+  }
+ ],
+ "win": "A fast fight. You've the hands for the shed.",
+ "after": "A good shearer can shear a sheep in a couple of minutes. Shearing sheds ring with the sound of the clippers all summer.",
+ "scaled_floor": 95
+}

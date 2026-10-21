@@ -1,0 +1,125 @@
+{
+ "id": "falklands_post",
+ "name": "Post Office and Philatelic Bureau",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "table",
+   "x": 6,
+   "y": 3
+  },
+  {
+   "type": "table",
+   "x": 6,
+   "y": 5
+  },
+  {
+   "type": "table",
+   "x": 8,
+   "y": 5
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 6
+  },
+  {
+   "type": "potted_plant",
+   "x": 9,
+   "y": 6
+  },
+  {
+   "type": "menu_board",
+   "x": 5,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "kitchen_dresser",
+   "x": 9,
+   "y": 1
+  },
+  {
+   "type": "clock",
+   "x": 4,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "wall_picture",
+   "x": 8,
+   "y": 1,
+   "walk": true,
+   "variant": 2
+  },
+  {
+   "type": "wall_picture",
+   "x": 1,
+   "y": 1,
+   "walk": true,
+   "variant": 2
+  },
+  {
+   "type": "plant_stand",
+   "x": 1,
+   "y": 5,
+   "variant": 0
+  },
+  {
+   "type": "sofa",
+   "x": 9,
+   "y": 3,
+   "variant": 3,
+   "rot": 270
+  }
+ ],
+ "warps": [
+  {
+   "x": 5,
+   "y": 7,
+   "to": "falklands_stanley",
+   "tx": 18,
+   "ty": 23,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "fal_postmaster",
+   "sprite": "shopkeeper",
+   "x": 3,
+   "y": 1,
+   "facing": "down",
+   "move": "still",
+   "script": "fal_postmaster",
+   "name": "Postmaster"
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "x": 8,
+   "y": 3,
+   "text": "FALKLAND ISLANDS STAMPS. Penguins, ships and wildlife, sold to collectors on every continent."
+  }
+ ],
+ "spawn": [
+  5,
+  6
+ ],
+ "rows": [
+  "xxxxxxxxxxx",
+  "x|||||||||x",
+  "x|CCCC||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x||||D||||x",
+  "xxxxxxxxxxx"
+ ]
+}

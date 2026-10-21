@@ -1,0 +1,104 @@
+{
+ "id": "tristan_factory",
+ "name": "Fishing Factory",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "slate_heap",
+   "x": 1,
+   "y": 5
+  },
+  {
+   "type": "table",
+   "x": 11,
+   "y": 5
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 7
+  },
+  {
+   "type": "potted_plant",
+   "x": 11,
+   "y": 7
+  },
+  {
+   "type": "kitchen_dresser",
+   "x": 6,
+   "y": 1
+  },
+  {
+   "type": "clock",
+   "x": 7,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "wall_picture",
+   "x": 5,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  },
+  {
+   "type": "plant_stand",
+   "x": 1,
+   "y": 6
+  },
+  {
+   "type": "table",
+   "x": 3,
+   "y": 3
+  },
+  {
+   "type": "table",
+   "x": 9,
+   "y": 3
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 8,
+   "to": "tristan_da_cunha",
+   "tx": 49,
+   "ty": 18,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "tri_foreman",
+   "sprite": "steelworker",
+   "x": 6,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "tri_foreman",
+   "name": "Factory Foreman"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  6,
+  7
+ ],
+ "rows": [
+  "xxxxxxxxxxxxx",
+  "x|||||||||||x",
+  "x|CCCCCCCCC|x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||D|||||x",
+  "xxxxxxxxxxxxx"
+ ]
+}

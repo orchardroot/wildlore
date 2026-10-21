@@ -11,6 +11,8 @@ const REGIONS := {
 	"ireland_east": "The East of Ireland", "man": "Isle of Man",
 	"east_anglia": "East Anglia",
 	"south_east": "South East England",
+	"overseas_ascension": "Ascension Island", "overseas_st_helena": "St Helena", "overseas_tristan": "Tristan da Cunha",
+	"overseas_falklands": "Falkland Islands",
 }
 ## Zones whose region id doesn't name them well.
 const OVERRIDES := {

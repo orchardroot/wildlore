@@ -1,0 +1,39 @@
+[
+ {
+  "id": "tristan_potato",
+  "name": "Tristan Potato",
+  "kind": "heal",
+  "price": 240,
+  "battle": true,
+  "field": true,
+  "amount": 100,
+  "desc": "A potato from the Patches, boiled in its skin, split and buttered. Tristan potatoes are the staple of the island and are eaten at almost every meal. Restores 100 HP."
+ },
+ {
+  "id": "crawfish_tail",
+  "name": "Crawfish Tail",
+  "kind": "heal",
+  "price": 520,
+  "battle": true,
+  "field": true,
+  "amount": 170,
+  "desc": "The tail of a Tristan rock lobster, which the islanders call crawfish, steamed and served with a little butter. The fishery is the island's main income. Restores 170 HP."
+ },
+ {
+  "id": "tristan_hat",
+  "name": "Tristan Hat",
+  "kind": "charm",
+  "price": 0,
+  "battle": false,
+  "field": true,
+  "wild": false,
+  "desc": "A thick woollen hat knitted on Tristan from the wool of the island's own sheep. It has seen off gales that would have taken a lighthouse.",
+  "effect_text": "Frost moves hurt it 25% less.",
+  "charm": {
+   "effect": "resist",
+   "type": "frost",
+   "mult": 0.75
+  },
+  "msg": "{name} was kept snug by the Tristan Hat!"
+ }
+]

@@ -1,0 +1,240 @@
+{
+ "tri_glass": [
+  {
+   "do": "say",
+   "who": "Islander (Glass)",
+   "text": "I'm a Glass. My family has been here since William Glass, and he was from Kelso, in the Scottish Borders. He had his own flag, his own rules, and a wife who kept the rest of them in order."
+  },
+  {
+   "do": "say",
+   "who": "Islander (Glass)",
+   "text": "We say 'Yes' to everything here, because it's more polite. You can always change your mind later."
+  },
+  {
+   "do": "if",
+   "flag": "q_overseas_tristan_started",
+   "then": [
+    {
+     "do": "set",
+     "flag": "q_overseas_tristan_1",
+     "value": true
+    }
+   ]
+  }
+ ],
+ "tri_green": [
+  {
+   "do": "say",
+   "who": "Islander (Green)",
+   "text": "I'm a Green. Peter Green was a Dutch sailor who came ashore in the 1830s and stayed. Sailors have been doing that here since the first ship, and I think the potatoes are why."
+  },
+  {
+   "do": "say",
+   "who": "Islander (Green)",
+   "text": "The Greens, the Glasses and the rest got on, married and argued, and made a place that works. It's a very small place, and everyone has an opinion about it."
+  },
+  {
+   "do": "if",
+   "flag": "q_overseas_tristan_started",
+   "then": [
+    {
+     "do": "set",
+     "flag": "q_overseas_tristan_2",
+     "value": true
+    }
+   ]
+  }
+ ],
+ "tri_repetto": [
+  {
+   "do": "say",
+   "who": "Islander (Repetto)",
+   "text": "We're Repettos and Lavarellos. Two Italian sailors off the Italia, a barque wrecked on Tristan in 1892. They came from the little town of Camogli, near Genoa, and stayed."
+  },
+  {
+   "do": "say",
+   "who": "Islander (Repetto)",
+   "text": "Nobody's had a bad word to say about their cooking since. Tristan has a good deal of garlic."
+  },
+  {
+   "do": "if",
+   "flag": "q_overseas_tristan_started",
+   "then": [
+    {
+     "do": "set",
+     "flag": "q_overseas_tristan_3",
+     "value": true
+    }
+   ]
+  }
+ ],
+ "tri_rogers": [
+  {
+   "do": "say",
+   "who": "Islander (Rogers)",
+   "text": "I'm a Rogers. We started with an American whaler, Andrew Rogers, who came in the 1830s. Whaling ships used to put in at Tristan for water and potatoes, and he chose a different life."
+  },
+  {
+   "do": "say",
+   "who": "Islander (Rogers)",
+   "text": "I can tell you the whole story, but I'd rather you went up to the Patches and saw the potatoes yourself."
+  },
+  {
+   "do": "if",
+   "flag": "q_overseas_tristan_started",
+   "then": [
+    {
+     "do": "set",
+     "flag": "q_overseas_tristan_4",
+     "value": true
+    }
+   ]
+  }
+ ],
+ "tri_knitter": [
+  {
+   "do": "say",
+   "who": "Knitter",
+   "text": "We knit hats, gloves, jumpers, socks. The sheep's wool goes round and round the island a few times before it is a jumper. I'll tell you now: a Tristan hat will see you through a winter in the Atlantic."
+  },
+  {
+   "do": "say",
+   "who": "Knitter",
+   "text": "Every stitch is for somebody. If there's a gale coming and you've none to hand, you'll be offered one."
+  }
+ ],
+ "tri_birder": [
+  {
+   "do": "say",
+   "who": "Penguin Counter",
+   "text": "Rockhoppers. We count them from the cliff paths and the boats. In the last century their numbers have fallen by about nine in ten, which is a thing you say very gently."
+  },
+  {
+   "do": "say",
+   "who": "Penguin Counter",
+   "text": "A penguin will stare at you as though you've taken its seat. It's a good lesson. They've been there longer."
+  }
+ ],
+ "tristan_da_cunha_return": [
+  {
+   "do": "say",
+   "who": "Harbour Master",
+   "text": "The ship is in. Strictly, there is no flight from Tristan, because we've no airstrip. The RAF drops you at Cape Town and a fishing boat does the rest. You've done the rest. Shall we get you back?"
+  }
+ ],
+ "tri_legend_talk": [
+  {
+   "do": "if",
+   "flag": "q_overseas_tristan_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Chief Islander Mabel",
+     "text": "Our friend of the island! Come and have a cup of tea any time. And bring your own hat."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_overseas_tristan_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_overseas_tristan_1",
+       "then": [
+        {
+         "do": "if",
+         "flag": "q_overseas_tristan_2",
+         "then": [
+          {
+           "do": "if",
+           "flag": "q_overseas_tristan_3",
+           "then": [
+            {
+             "do": "if",
+             "flag": "q_overseas_tristan_4",
+             "then": [
+              {
+               "do": "say",
+               "who": "Chief Islander Mabel",
+               "text": "You've heard the names of the founders, from the ones who carry them. The Council is pleased. Now, a bit of island custom: a friendly fight, with no hard feelings and a lot of tea after."
+              },
+              {
+               "do": "battle",
+               "trainer": "tri_legend",
+               "intro": true
+              },
+              {
+               "do": "say",
+               "who": "Chief Islander Mabel",
+               "text": "Well fought. The island makes you an honorary Tristanian for a day. Here is a hat of our own wool, and a basket of our own potatoes."
+              },
+              {
+               "do": "give_item",
+               "item": "tristan_hat",
+               "n": 1
+              },
+              {
+               "do": "give_item",
+               "item": "tristan_potato",
+               "n": 3
+              },
+              {
+               "do": "set",
+               "flag": "q_overseas_tristan_done",
+               "value": true
+              }
+             ],
+             "else": [
+              {
+               "do": "say",
+               "who": "Chief Islander Mabel",
+               "text": "Four families will tell you where their names came from. A Glass, a Green, a Repetto and a Rogers. Talk to each of them, and come back."
+              }
+             ]
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Chief Islander Mabel",
+             "text": "Four families will tell you where their names came from. A Glass, a Green, a Repetto and a Rogers. Talk to each of them, and come back."
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Chief Islander Mabel",
+           "text": "Four families will tell you where their names came from. A Glass, a Green, a Repetto and a Rogers. Talk to each of them, and come back."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Chief Islander Mabel",
+         "text": "Four families will tell you where their names came from. A Glass, a Green, a Repetto and a Rogers. Talk to each of them, and come back."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Chief Islander Mabel",
+       "text": "Hello! You've come a long way. Would you like to hear where we all came from? Four families will tell you: a Glass, a Green, a Repetto and a Rogers. Find them in the Settlement, and then come back to me."
+      },
+      {
+       "do": "set",
+       "flag": "q_overseas_tristan_started",
+       "value": true
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,39 @@
+[
+ {
+  "id": "wahoo_steak",
+  "name": "Wahoo Steak",
+  "kind": "heal",
+  "price": 420,
+  "battle": true,
+  "field": true,
+  "amount": 150,
+  "desc": "A thick steak from a wahoo, a fast, striped fish that the Ascension anglers are famous for catching offshore. Grilled with lime. Restores 150 HP."
+ },
+ {
+  "id": "dampiers_drip",
+  "name": "Dampier's Drip",
+  "kind": "heal",
+  "price": 260,
+  "battle": true,
+  "field": true,
+  "amount": 90,
+  "desc": "Cool, clean water from the spring on Green Mountain that kept William Dampier's shipwrecked crew alive in 1701. Restores 90 HP."
+ },
+ {
+  "id": "turtle_tag",
+  "name": "Turtle Tag",
+  "kind": "charm",
+  "price": 0,
+  "battle": false,
+  "field": true,
+  "wild": false,
+  "desc": "A numbered flipper tag of the sort fitted to green turtles on Ascension's beaches. Conservation staff follow each tagged turtle for decades, long after it has swum 2,000 kilometres to Brazil and back.",
+  "effect_text": "Tide moves hit 20% harder.",
+  "charm": {
+   "effect": "boost",
+   "type": "tide",
+   "mult": 1.2
+  },
+  "msg": "{name}'s Turtle Tag shone in the surf!"
+ }
+]
