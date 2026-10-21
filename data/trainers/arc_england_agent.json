@@ -1,0 +1,32 @@
+{
+ "id": "arc_england_agent",
+ "name": "Enclosure Agent",
+ "class": "Agent",
+ "sprite": "villager_2",
+ "party": [
+  {
+   "species": "sphagnet",
+   "level": 90
+  },
+  {
+   "species": "snowhare",
+   "level": 90
+  },
+  {
+   "species": "peregrin",
+   "level": 91
+  }
+ ],
+ "ai": "trainer",
+ "money": 1200,
+ "scaled_floor": 88,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Enclosure Agent",
+   "text": "Private moor. Four thousand acres, a gate, and a clear conscience. Not that you'd know it. Come on, then."
+  }
+ ],
+ "win": "Well. I suppose a gate's only a suggestion, in the end.",
+ "after": "I'll be in the hut. With the kettle."
+}
