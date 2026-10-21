@@ -79,6 +79,7 @@ func load_zone(zone_id: String, pos: Vector2i, facing: String) -> void:
 	zone = ZoneData.load_id(zone_id)
 	FieldMoves.apply_cuts(Game.data, zone)
 	Rewild.apply(Game.data, zone)  # rewilding sites take their stage's shape
+	Leases.apply(Game.data, zone)  # unowned lease land is fenced off with the Enclosure's sign
 	deep_crates = DeepPlace.crates_start(zone)
 	DeepPlace.apply(Game.data, zone, deep_crates)  # Deep Places: gates, floods and crates as the flags say
 	if _zone_node:
@@ -273,13 +274,13 @@ func _spawn_npcs() -> void:
 	if not ResourceLoader.exists("res://world/npc.gd"):
 		return
 	var npc_script: Script = load("res://world/npc.gd")
-	set_meta("npc_phase", Game.phase())
+	set_meta("npc_phase", Game.phase() + Routines.stamp(Calendar.weekday_today(), Calendar.season_today(), Game.data.clock_minutes))
 	for def in zone.npcs + _side_npcs():  # plus a Keeper out in town with a side story (SideStories)
 		if not Npc.should_spawn(def, Game.data, Game.phase()):  # flag gating and hours ("times")
 			continue
 		var n: Node3D = npc_script.new()
 		add_child(n)
-		n.setup(def, self)
+		n.setup(Npc.placed(def), self)  # at their routine's spot for now, if they keep one
 		npcs.append(n)
 
 ## Keepers waiting in this zone with a side story, each on their spot or the nearest free tile to it.

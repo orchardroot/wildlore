@@ -2,6 +2,67 @@
  "rhn_conductor": [
   {
    "do": "if",
+   "flag": "q_arc_wales_6",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_arc_wales_7",
+     "then": [],
+     "else": [
+      {
+       "do": "say",
+       "who": "Elwyn",
+       "text": "A concert at the pithead, you say? Against a theme park? Bless you, that's the most sensible idea I've heard since they let the altos choose a hymn."
+      },
+      {
+       "do": "say",
+       "who": "Elwyn",
+       "text": "Bethania can fill a chapel. To fill a square we need the Swansea choir as well, and that means Gwenllian Pugh. She does not give her forty voices to just anybody."
+      },
+      {
+       "do": "when",
+       "cond": "regular_gwenllian_2",
+       "then": [
+        {
+         "do": "say",
+         "who": "Elwyn",
+         "text": "She's already written to me about you. 'The one with the Welsh cakes,' she says. That's a reference, that is. Gwenllian's choir will be there on the night, and mine."
+        },
+        {
+         "do": "set",
+         "flag": "q_arc_wales_7",
+         "value": true
+        },
+        {
+         "do": "sfx",
+         "id": "item"
+        },
+        {
+         "do": "say",
+         "who": "",
+         "text": "Two choirs are promised for the pithead."
+        },
+        {
+         "do": "end"
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Elwyn",
+         "text": "Have you met her? Swansea, usually, or Cardiff if she's after a statue to conduct. Get to know her. Welsh cakes, still warm. Then she'll sing."
+        },
+        {
+         "do": "end"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "do": "if",
    "flag": "q_valleys_choir_done",
    "then": [
     {

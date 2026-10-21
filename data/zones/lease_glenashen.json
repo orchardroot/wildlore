@@ -1,0 +1,359 @@
+{
+ "id": "lease_glenashen",
+ "name": "Glenashen",
+ "region": "ireland",
+ "kind": "route",
+ "music": "route_forest",
+ "weather": {
+  "drizzle": 35,
+  "clear": 22,
+  "fog": 14,
+  "sunshine": 14,
+  "downpour": 10,
+  "gale": 5
+ },
+ "props": [
+  {
+   "type": "building",
+   "style": "slate_cottage",
+   "x": 8,
+   "y": 26,
+   "w": 4,
+   "h": 3,
+   "label": "Ruined Cottage",
+   "kind": "cottage"
+  },
+  {
+   "type": "oak",
+   "x": 15,
+   "y": 21,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 3,
+   "y": 40,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 11,
+   "y": 25,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 7,
+   "y": 31,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 6,
+   "y": 32,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 4,
+   "y": 8,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 3,
+   "y": 35,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 14,
+   "y": 30,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 41,
+   "y": 7,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 43,
+   "y": 21,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 40,
+   "y": 25,
+   "variant": 1
+  },
+  {
+   "type": "rock",
+   "x": 37,
+   "y": 4,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 27,
+   "y": 31,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 31,
+   "y": 25,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 39,
+   "y": 24,
+   "variant": 2
+  },
+  {
+   "type": "rock",
+   "x": 41,
+   "y": 29,
+   "variant": 2
+  },
+  {
+   "type": "bench",
+   "x": 34,
+   "y": 33,
+   "variant": 0
+  }
+ ],
+ "warps": [],
+ "edges": {
+  "east": {
+   "to": "antrim_coast",
+   "offset": 0,
+   "lease": "glenashen"
+  }
+ },
+ "npcs": [
+  {
+   "id": "ga_ranger",
+   "sprite": "hillwalker",
+   "x": 35,
+   "y": 33,
+   "facing": "down",
+   "move": "still",
+   "script": "ga_ranger"
+  },
+  {
+   "id": "ga_farmer",
+   "sprite": "farmer",
+   "x": 14,
+   "y": 28,
+   "facing": "down",
+   "move": "still",
+   "script": "ga_farmer"
+  },
+  {
+   "id": "c_leveret_28_12",
+   "sprite": "creature:leveret",
+   "x": 28,
+   "y": 12,
+   "facing": "down",
+   "move": "wander",
+   "script": "c_leveret"
+  },
+  {
+   "id": "c_pixling_12_36",
+   "sprite": "creature:pixling",
+   "x": 12,
+   "y": 36,
+   "facing": "down",
+   "move": "still",
+   "script": "c_pixling"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "leveret",
+    "min": 64,
+    "max": 66,
+    "weight": 12
+   },
+   {
+    "species": "pipkin",
+    "min": 64,
+    "max": 66,
+    "weight": 10
+   },
+   {
+    "species": "stoatlet",
+    "min": 64,
+    "max": 66,
+    "weight": 8
+   },
+   {
+    "species": "pixling",
+    "min": 64,
+    "max": 66,
+    "weight": 8,
+    "time": [
+     "dusk",
+     "night"
+    ],
+    "requires_flag": "rewild_lease_glenashen",
+    "flag_at_least": 1
+   },
+   {
+    "species": "eaglet",
+    "min": 64,
+    "max": 66,
+    "weight": 6,
+    "requires_flag": "rewild_lease_glenashen",
+    "flag_at_least": 2
+   },
+   {
+    "species": "gealhare",
+    "min": 64,
+    "max": 66,
+    "weight": 8,
+    "requires_flag": "rewild_lease_glenashen",
+    "flag_at_least": 2
+   },
+   {
+    "species": "pixiedell",
+    "min": 64,
+    "max": 66,
+    "weight": 5,
+    "time": [
+     "dusk",
+     "night"
+    ],
+    "requires_flag": "rewild_lease_glenashen",
+    "flag_at_least": 3
+   },
+   {
+    "species": "finnmacool",
+    "min": 64,
+    "max": 66,
+    "weight": 4,
+    "requires_flag": "rewild_lease_glenashen",
+    "flag_at_least": 3
+   }
+  ],
+  "water": [
+   {
+    "species": "bradan",
+    "min": 64,
+    "max": 66,
+    "weight": 20
+   },
+   {
+    "species": "parrlet",
+    "min": 64,
+    "max": 66,
+    "weight": 14
+   },
+   {
+    "species": "rillotter",
+    "min": 64,
+    "max": 66,
+    "weight": 10,
+    "requires_flag": "rewild_lease_glenashen",
+    "flag_at_least": 2
+   },
+   {
+    "species": "ratty",
+    "min": 64,
+    "max": 66,
+    "weight": 8,
+    "requires_flag": "rewild_lease_glenashen",
+    "flag_at_least": 3
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 34,
+   "y": 35,
+   "text": "THE GLENS OF ANTRIM. The glens are traditionally counted as nine, running down from the Antrim plateau to the sea, each cut by its own river. Glenariff is known as the Queen of the Glens. For centuries they were hill farms, and for a time the isolation kept the Irish and Gaelic traditions alive in the glens.",
+   "plaque": "lease_glenashen_glens",
+   "title": "The Glens of Antrim"
+  },
+  {
+   "x": 38,
+   "y": 31,
+   "text": "THE IRISH HARE. Ireland has its own subspecies of the mountain hare, which has lived here since the last ice age and mostly stays brown in winter, unlike the Scottish ones that turn white. It is Ireland's only native hare, and it is protected.",
+   "plaque": "lease_glenashen_hare",
+   "title": "The Irish Hare"
+  },
+  {
+   "x": 33,
+   "y": 31,
+   "text": "RED SQUIRRELS. The grey squirrel was brought to Ireland in 1911, when a few were released at Castle Forbes in County Longford. Greys carry squirrelpox, which kills reds, and push them out. Reds hold on best in conifer woods where the greys are fewer, and in places such as the glens where people have worked to keep them.",
+   "plaque": "lease_glenashen_squirrel",
+   "title": "Red Squirrels"
+  }
+ ],
+ "spawn": [
+  36,
+  36
+ ],
+ "stage": "valley",
+ "rows": [
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkTT",
+  "TTkkkhWkkkkkkkkkkkkkw~wkkkkkkkWWWWWWWWWWWWWWkkkkTT",
+  "TTkhhhWhkkkkkkkkkkkkkw~wkkkkkkWkkkkkkkkkkkkkkkkkTT",
+  "TThhhhWhhkkkkkkkkkkkkw~wkkkkkkWkkkkhkkkkkkkkkkkkTT",
+  "TTkhhhWhkkkkkkkkkkkkkkw~wkkkkkWkkhhhhhkkkkkkkkkkTT",
+  "TTkkkhWkkkkkkkkkkkkkkkw~wkkkkkWkhhhhhhhkkkkkkkkkTT",
+  "TTkkkkWkkkkkkkkkkkkkkkw~wkkkkkWkhhhhhhkkkkkkkkkkTT",
+  "TTkkkkWkkkkkkkkkkkkkkkw~wkkkkkWhhhhhkkkkkkkkkkkkTT",
+  "TTkkkkWkkkkkkkkkkkkkkkw~wkkkkhWhhhhhkkkkkkkkkkkkTT",
+  "TTkkkkWkkkkkkkkkkkkkkkw~wkkkkkWhhhhkkkkkkkkkkkkkTT",
+  "TTkkkkWkkkkkkkkkkkkkkkw~wkkkkkWkhkkkkkkkkkkkkkkkTT",
+  "TTkkkkWkkkkkkkkkkhkkkw~wkkkkkkkkkkkkkkkkkkkkkkkkTT",
+  "TTkkkkWkkkkkkkkhhhhhkwwwkkkkkkkkkkkkkkkkkkkkkkkkTT",
+  "TTkkkkWWWWWWWWhhhhhhhwwwkkkkkkkkkkkkkkkkkkkkkkkkTT",
+  "TTkkkkkkkkkkkkhhhhhhw~wkkkkkkkkkkkkkkkkkkkkkkkkkTT",
+  "TTkkkkkkkkkkhhhhhhkkw~wkkkkkkkkkkkkkkkkkkkkkkkkkTT",
+  "TTkTkkkkkTkhhhhhhhkw~wkkkkkkkkkkkkkkkkkkkkkkhkkkTT",
+  "TTkkkkTTkkTkhhhhhkkw~wkkkkkkkkkkkkkkkkkkkkhhhhhkTT",
+  "TTkkkTkkkTkkkkhkkkw~wkkkkkkkkkkkkkkkkkkkkhhhhhhhTT",
+  "TTkkkTkkkkTTkkkkkkw~wkkkkkkkkkkkkkkkkkkkkhhhhhhkTT",
+  "TTkkTTkkTkkkkkkkkw~wkkkkkkkkkkkkkkkkkkkhhhhhhkkkTT",
+  "TTkkkTkTkTTkkkTkkw~wkkkkkkkkkkkkkkkkkkhhhhhhhkkkTT",
+  "TTkTkTTkkkkkTTkkkw~wkkkkkkkkkkkkkkkkkkkhhhhhkkkkTT",
+  "TTkTTkkkkkkkTkkkw~wkkkkkkkkkkkkkkkkkkkkkkhkkkkkkTT",
+  "TTkTkTkkBBBBTkkkw~wkkkkkkkhkkkkkkkkkkkkkkkkkkkkkTT",
+  "TTkkTkkkBBBBkkTkw~wkkkkkhhhhhkkkkkkkkkkkkkkkkkkkTT",
+  "TTkkTkTTBBBBTTkkw~wkkkkhhhhhhhkkkkkkkkkkkkkkkkkkTT",
+  "TTkTkkkkkkTTTkTkw~wkkkkhhhhhhkkkkkkkkkkkkkkkkkkkTT",
+  "TTkkkTTkTkkTkkkkwwwkkhhhhhhkkkkkkkkkkkkkkkkkkkkkTT",
+  "TTkkkkkkkkkTkkkkwwwkhhhhhhhkkkkkkkkkkkkkkkkkkkkkTT",
+  "TTkTkkkkkkkkTkkkkw~wkhhhhhkkkkkkkkkkkkkkkkkkkkkkTT",
+  "TTkkkTkkTkkkkkkkkw~wkkkhkkkkkkkkkkkkkkkkkkkkkkkkkk",
+  "TTkkkkkkhkkkkkTkkw~wkkkkkkkkkkkkkkkk############kk",
+  "TTkkkkhhhhhkkkTkkkw~wkkkkkkkkkkkkkkkkkkkkkkkkkkkkk",
+  "TTkkkhhhhhhhkkkkkkw~wkkkkkkkkkkkkkkkkkkkkkkkkkkkTT",
+  "TTkkTThhhhhTkkTkkkkw~wkkkkkkkkkkkkkkkkkkkkkkkkkkTT",
+  "TTkkkkkkhkkkkkkkkkkw~wkkkkkkkkkkkkkkkkkkkkkkkkkkTT",
+  "TTkkkkkkkkkkkkkkkkkkw~wkkkkkkkkkkkkkkkkkkkkkkkkkTT",
+  "TTkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkTT",
+  "TTkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT"
+ ],
+ "legend_extra": {
+  "k": {
+   "tile": "grass",
+   "colour": "#6f9248"
+  },
+  "h": {
+   "tile": "tall_grass",
+   "colour": "#7a6a52"
+  }
+ }
+}

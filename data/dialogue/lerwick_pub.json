@@ -23,5 +23,126 @@
    "who": "Session Fiddler",
    "text": "Shetland tunes have a lift to them, a swing. Strong and quick, and you can feel the Norse in them. The old tunes are called things like 'Da Slockit Light', which means 'the light that has gone out'. A famous slow air, and a cheerful one, all things considered."
   }
+ ],
+ "lerwick_pub_shanty": [
+  {
+   "do": "say",
+   "who": "Old Shantyman",
+   "text": "Shetland boats sailed to the whaling and the herring. The old hands here still know the songs that went with the rope. Care to join in? Pull when the line lights up."
+  },
+  {
+   "do": "sing",
+   "who": "Old Shantyman"
+  }
+ ],
+ "arc_skipper": [
+  {
+   "do": "if",
+   "flag": "q_arc_islands_4",
+   "then": [
+    {
+     "do": "say",
+     "who": "Ferry Crew Skipper",
+     "text": "The crew say you can pull. That is the highest praise on this boat, and we do not say it to the Kirkwall lot."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_arc_islands_started",
+     "then": [
+      {
+       "do": "say",
+       "who": "Ferry Crew Skipper",
+       "text": "Miss Quayle's Roll? Aye, I know it. We do not talk to folk who cannot keep time. Sing a shanty through with us, clean, and we will see."
+      },
+      {
+       "do": "sing",
+       "who": "Ferry Crew Skipper"
+      },
+      {
+       "do": "if",
+       "flag": "shanty_first_drunken_sailor",
+       "then": [
+        {
+         "do": "say",
+         "who": "Ferry Crew Skipper",
+         "text": "A Quayle sent you? Aye, I thought so, nobody else comes up here for an old ledger. The Shetland pages went to the galley shed with the binder in October. That is all I will say. The rest is for the shed to tell you."
+        },
+        {
+         "do": "set",
+         "flag": "q_arc_islands_4"
+        }
+       ],
+       "else": [
+        {
+         "do": "if",
+         "flag": "shanty_first_haul_away_joe",
+         "then": [
+          {
+           "do": "say",
+           "who": "Ferry Crew Skipper",
+           "text": "A Quayle sent you? Aye, I thought so, nobody else comes up here for an old ledger. The Shetland pages went to the galley shed with the binder in October. That is all I will say. The rest is for the shed to tell you."
+          },
+          {
+           "do": "set",
+           "flag": "q_arc_islands_4"
+          }
+         ],
+         "else": [
+          {
+           "do": "if",
+           "flag": "shanty_first_blow_the_man_down",
+           "then": [
+            {
+             "do": "say",
+             "who": "Ferry Crew Skipper",
+             "text": "A Quayle sent you? Aye, I thought so, nobody else comes up here for an old ledger. The Shetland pages went to the galley shed with the binder in October. That is all I will say. The rest is for the shed to tell you."
+            },
+            {
+             "do": "set",
+             "flag": "q_arc_islands_4"
+            }
+           ],
+           "else": [
+            {
+             "do": "if",
+             "flag": "shanty_first_leave_her_johnny",
+             "then": [
+              {
+               "do": "say",
+               "who": "Ferry Crew Skipper",
+               "text": "A Quayle sent you? Aye, I thought so, nobody else comes up here for an old ledger. The Shetland pages went to the galley shed with the binder in October. That is all I will say. The rest is for the shed to tell you."
+              },
+              {
+               "do": "set",
+               "flag": "q_arc_islands_4"
+              }
+             ],
+             "else": [
+              {
+               "do": "say",
+               "who": "Ferry Crew Skipper",
+               "text": "Not clean yet. Another go when you like. The crew will wait; it is Shetland, we are good at waiting."
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Ferry Crew Skipper",
+       "text": "We sing on the Friday, and the kettle goes on after. Mind the fiddler, he sulks."
+      }
+     ]
+    }
+   ]
+  }
  ]
 }

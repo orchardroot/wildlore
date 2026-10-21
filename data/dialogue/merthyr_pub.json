@@ -92,5 +92,261 @@
    "who": "Regular",
    "text": "There's a pub quiz on Thursdays. Tough one. The local history round has a question about every single ironmaster and a different one about what they did to their workers."
   }
+ ],
+ "arc_prys": [
+  {
+   "do": "if",
+   "flag": "q_arc_wales_9",
+   "then": [
+    {
+     "do": "say",
+     "who": "Prys",
+     "text": "Good luck at the vote. I've got a sandwich and a grudge, and I mean to enjoy both."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_arc_wales_8",
+     "then": [
+      {
+       "do": "say",
+       "who": "Prys",
+       "text": "The vote is on points. Five Welsh questions. Three right, or better, and I'll second your motion."
+      },
+      {
+       "do": "set",
+       "flag": "_arc_w_quiz",
+       "value": -1
+      },
+      {
+       "do": "quiz",
+       "pub": "merthyr_pub",
+       "region": "wales",
+       "who": "Prys",
+       "set": "_arc_w_quiz"
+      },
+      {
+       "do": "if",
+       "flag": "_arc_w_quiz",
+       "eq": -1,
+       "then": [
+        {
+         "do": "say",
+         "who": "Prys",
+         "text": "Walked off? Dear me."
+        }
+       ],
+       "else": [
+        {
+         "do": "if",
+         "flag": "_arc_w_quiz",
+         "eq": 3,
+         "then": [
+          {
+           "do": "say",
+           "who": "Prys",
+           "text": "Right. Right! Fair is fair, I'll second the motion, and I'll say so in the Trust newsletter in my own handwriting."
+          },
+          {
+           "do": "say",
+           "who": "Prys",
+           "text": "Tell Cerys at Big Pit I said that, and tell her I'm still annoyed about question four."
+          },
+          {
+           "do": "set",
+           "flag": "q_arc_wales_9",
+           "value": true
+          },
+          {
+           "do": "sfx",
+           "id": "item"
+          },
+          {
+           "do": "say",
+           "who": "",
+           "text": "Prys Gittins will second your motion at the Trust board."
+          }
+         ]
+        },
+        {
+         "do": "if",
+         "flag": "_arc_w_quiz",
+         "eq": 4,
+         "then": [
+          {
+           "do": "say",
+           "who": "Prys",
+           "text": "Right. Right! Fair is fair, I'll second the motion, and I'll say so in the Trust newsletter in my own handwriting."
+          },
+          {
+           "do": "say",
+           "who": "Prys",
+           "text": "Tell Cerys at Big Pit I said that, and tell her I'm still annoyed about question four."
+          },
+          {
+           "do": "set",
+           "flag": "q_arc_wales_9",
+           "value": true
+          },
+          {
+           "do": "sfx",
+           "id": "item"
+          },
+          {
+           "do": "say",
+           "who": "",
+           "text": "Prys Gittins will second your motion at the Trust board."
+          }
+         ]
+        },
+        {
+         "do": "if",
+         "flag": "_arc_w_quiz",
+         "eq": 5,
+         "then": [
+          {
+           "do": "say",
+           "who": "Prys",
+           "text": "Right. Right! Fair is fair, I'll second the motion, and I'll say so in the Trust newsletter in my own handwriting."
+          },
+          {
+           "do": "say",
+           "who": "Prys",
+           "text": "Tell Cerys at Big Pit I said that, and tell her I'm still annoyed about question four."
+          },
+          {
+           "do": "set",
+           "flag": "q_arc_wales_9",
+           "value": true
+          },
+          {
+           "do": "sfx",
+           "id": "item"
+          },
+          {
+           "do": "say",
+           "who": "",
+           "text": "Prys Gittins will second your motion at the Trust board."
+          }
+         ]
+        },
+        {
+         "do": "if",
+         "flag": "_arc_w_quiz",
+         "eq": 0,
+         "then": [
+          {
+           "do": "say",
+           "who": "Prys",
+           "text": "Not enough. Not by a country mile. Have another go whenever you like. The quiz is on the house, my pride isn't."
+          }
+         ]
+        },
+        {
+         "do": "if",
+         "flag": "_arc_w_quiz",
+         "eq": 1,
+         "then": [
+          {
+           "do": "say",
+           "who": "Prys",
+           "text": "Not enough. Not by a country mile. Have another go whenever you like. The quiz is on the house, my pride isn't."
+          }
+         ]
+        },
+        {
+         "do": "if",
+         "flag": "_arc_w_quiz",
+         "eq": 2,
+         "then": [
+          {
+           "do": "say",
+           "who": "Prys",
+           "text": "Not enough. Not by a country mile. Have another go whenever you like. The quiz is on the house, my pride isn't."
+          }
+         ]
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_arc_wales_7",
+       "then": [
+        {
+         "do": "when",
+         "cond": "guild_ramblers_1",
+         "then": [
+          {
+           "do": "say",
+           "who": "Prys",
+           "text": "Ramblers, eh? Fine. You've walked enough footpaths to have an opinion on them."
+          },
+          {
+           "do": "set",
+           "flag": "q_arc_wales_8",
+           "value": true
+          },
+          {
+           "do": "sfx",
+           "id": "item"
+          }
+         ],
+         "else": [
+          {
+           "do": "when",
+           "cond": "guild_trust_1",
+           "then": [
+            {
+             "do": "say",
+             "who": "Prys",
+             "text": "One of ours! A Heritage Trust member in good standing. You have a vote, and I'll be sorry to use it against you."
+            },
+            {
+             "do": "set",
+             "flag": "q_arc_wales_8",
+             "value": true
+            },
+            {
+             "do": "sfx",
+             "id": "item"
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Prys",
+             "text": "Prys Gittins, Trust treasurer. You can't move a motion at our board unless you belong to something. Join the Ramblers or the Heritage Trust and earn the first rank. Ten plaques read gets you the first Ramblers badge."
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "do": "if",
+         "flag": "q_arc_wales_8",
+         "then": [
+          {
+           "do": "say",
+           "who": "Prys",
+           "text": "Seat at the table sorted. Come and see me again when you're ready for the vote. On points, in the pub, because that's how we do business round here."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Prys",
+         "text": "Prys Gittins. Trust treasurer, pub quizmaster by nobody's appointment. Come back when you've got something to propose."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
  ]
 }

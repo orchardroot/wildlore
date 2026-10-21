@@ -20,7 +20,7 @@
   {
    "do": "say",
    "who": "Storr Guide",
-   "text": "The hills here have names in Gaelic: Sg\u00f9rr a' Mhadaidh Ruaidh, Bodach an St\u00f2rr. 'Bodach' means old man. Whoever named him didn't hang about."
+   "text": "The hills here have names in Gaelic: Sgùrr a' Mhadaidh Ruaidh, Bodach an Stòrr. 'Bodach' means old man. Whoever named him didn't hang about."
   }
  ],
  "pool_swimmer": [
@@ -45,6 +45,161 @@
    "do": "say",
    "who": "Wild Camper",
    "text": "I came for a night. That was three weeks ago. The midges are the real landlords. I pay in blood."
+  }
+ ],
+ "arc_scot_calum": [
+  {
+   "do": "if",
+   "flag": "game_complete",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_arc_scotland_done",
+     "then": [
+      {
+       "do": "say",
+       "who": "Old Calum",
+       "text": "The hall is open and the kettle is on. What more does a man want?"
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_arc_scotland_11",
+       "then": [
+        {
+         "do": "say",
+         "who": "",
+         "text": "The ballot was last night: the Braes folk, the Portree folk, the lad from the shinty and half of Fiona's cousins, all in one hall with the heating off."
+        },
+        {
+         "do": "say",
+         "who": "Old Calum",
+         "text": "The vote carried, and the Hall is ours. A hundred and forty years since the stones flew, and I still don't quite trust a rule that says yes to us."
+        },
+        {
+         "do": "say",
+         "who": "",
+         "text": "The padlock comes off the Braes Hall with a sound like a very old sigh. Somewhere down the road a piper tunes up, badly, and everybody forgives him."
+        },
+        {
+         "do": "set",
+         "flag": "q_arc_scotland_done"
+        },
+        {
+         "do": "give_item",
+         "item": "land_league_badge"
+        },
+        {
+         "do": "give_item",
+         "item": "ceilidh_shortbread",
+         "n": 5
+        },
+        {
+         "do": "give_creature",
+         "species": "heilan",
+         "level": 70,
+         "scaled_floor": 72
+        },
+        {
+         "do": "standing",
+         "nation": "scotland",
+         "amount": 15
+        },
+        {
+         "do": "say",
+         "who": "Old Calum",
+         "text": "Take a badge. And this heilan has been hanging around the hall since the vote. I think he wants to be on the committee."
+        }
+       ],
+       "else": [
+        {
+         "do": "if",
+         "flag": "q_arc_scotland_10",
+         "then": [
+          {
+           "do": "say",
+           "who": "Old Calum",
+           "text": "You found the old house on the slope. Aye. That's my great-grandfather's, though he never saw it fall."
+          },
+          {
+           "do": "say",
+           "who": "Old Calum",
+           "text": "Now the ballot. The Land Reform Act of 2003 says a community can register an interest and get first refusal when an estate comes up for sale, if the members vote for it. We have the proof, the traders' sums and a team that can win a match."
+          },
+          {
+           "do": "say",
+           "who": "Old Calum",
+           "text": "The Enclosure's liquidator is selling the Braes at auction. Come to the Hall tonight for the count."
+          },
+          {
+           "do": "set",
+           "flag": "q_arc_scotland_11"
+          }
+         ],
+         "else": [
+          {
+           "do": "if",
+           "flag": "q_arc_scotland_started",
+           "then": [
+            {
+             "do": "say",
+             "who": "Old Calum",
+             "text": "The trail has seven stops. The session book in Portree kirk, Seonag in town, the traders' desk in Edinburgh, the auction room, the old court in Inverness, a game of shinty at Fort William and the old house in the bracken above me."
+            },
+            {
+             "do": "say",
+             "who": "Old Calum",
+             "text": "Do them in any order you like but the first few go better in turn. Then come back and I'll tell you the news."
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Old Calum",
+             "text": "Welcome to the Braes. The sheep are not impressed by you either."
+            },
+            {
+             "do": "say",
+             "who": "Old Calum",
+             "text": "In 1882 my great-grandfather's township held the hill grazing on Ben Lee against the estate. Fifty Glasgow policemen came up the road and went home again with sore heads. It started something. The Commission came and the Crofters Act followed."
+            },
+            {
+             "do": "say",
+             "who": "Old Calum",
+             "text": "Now the estate is for sale again, and the sellers would like it kept quiet. We can buy it ourselves, the law says, but only with proof and a vote. Will you gather the proof?"
+            },
+            {
+             "do": "set",
+             "flag": "q_arc_scotland_started"
+            },
+            {
+             "do": "set",
+             "flag": "q_arc_scotland_1"
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Old Calum",
+     "text": "Come back when you've seen a bit more of the country. A story like this wants a listener with some miles in their boots."
+    }
+   ]
+  }
+ ],
+ "arc_scot_piper": [
+  {
+   "do": "say",
+   "who": "Piper",
+   "text": "The Hall opened tonight and I'm to play until somebody tells me to stop. Nobody has. It's been three hours. I'm fine. Carry on."
   }
  ]
 }

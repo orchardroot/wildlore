@@ -509,5 +509,76 @@
    "do": "rewild",
    "site": "douglas_broogh"
   }
+ ],
+ "arc_reader": [
+  {
+   "do": "if",
+   "flag": "q_arc_islands_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Roll Reader",
+     "text": "The Gathering is on every summer. Mann reads in Manx first, then Shetland sings, then Jersey rings. Nobody has ever got the order right, and it works."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_arc_islands_11",
+     "then": [
+      {
+       "do": "say",
+       "who": "Roll Reader",
+       "text": "The pages are home. Mr Halcrow has finished his sewing at last and sent them down on the boat himself, wrapped in sailcloth, with a note that says only: 'Sorry.'"
+      },
+      {
+       "do": "say",
+       "who": "Roll Reader",
+       "text": "So this is the first Gathering of the Isles. The Roll is read aloud at the prom: Tynwald in Manx and English, a verse from the Shetland squads, and the bells of St Helier on a recording, because ringers do not fit in a tram."
+      },
+      {
+       "do": "say",
+       "who": "Roll Reader",
+       "text": "You listened on all three islands. Take this."
+      },
+      {
+       "do": "give_item",
+       "item": "roll_ribbon"
+      },
+      {
+       "do": "standing",
+       "nation": "mann",
+       "amount": 6
+      },
+      {
+       "do": "standing",
+       "nation": "scotland",
+       "amount": 4
+      },
+      {
+       "do": "standing",
+       "nation": "channel_islands",
+       "amount": 4
+      },
+      {
+       "do": "set",
+       "flag": "q_arc_islands_done"
+      },
+      {
+       "do": "say",
+       "who": "Roll Reader",
+       "text": "And that is the Roll of the Isles. Read out once a year, in three languages and one very long tune."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Roll Reader",
+       "text": "A table on the prom, a banner, and no Roll yet. Miss Quayle at the Gaiety says it is coming. I am practising my Manx."
+      }
+     ]
+    }
+   ]
+  }
  ]
 }

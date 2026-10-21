@@ -1,0 +1,32 @@
+{
+ "id": "welsh_conifer_plantation",
+ "name": "Hendre Forest",
+ "nation": "wales",
+ "kind": "forestry",
+ "anchor": "dee_valley",
+ "side": "south",
+ "gap": {"at": 50, "width": 3, "offset": -28},
+ "zone": "welsh_conifer_plantation",
+ "reserve": 55000,
+ "upkeep": 350,
+ "unlock_flag": "game_complete",
+ "trust_wants": true,
+ "blurb": "Nine hundred acres of Sitka spruce in rows so straight you could use them to check a ruler. Under the needles, the ground is the colour of an old biscuit and the wildlife has been politely absent since the 1960s.",
+ "rewild": {
+  "biome": "rainforest",
+  "rect": [14, 5, 27, 30],
+  "encounters": [
+   [{"kind": "grass", "species": "fawnlet", "min": 86, "max": 88, "weight": 12}],
+   [{"kind": "grass", "species": "kitelet", "min": 87, "max": 89, "weight": 8, "time": ["day"]},
+    {"kind": "grass", "species": "martling", "min": 87, "max": 89, "weight": 6, "time": ["night", "dusk"]}],
+   [{"kind": "grass", "species": "pinewraith", "min": 89, "max": 91, "weight": 3, "time": ["night", "dusk"]},
+    {"kind": "grass", "species": "mistfrond", "min": 88, "max": 90, "weight": 8}]
+  ]
+ },
+ "ranger": [
+  "Welcome to your forest. Don't be alarmed by the silence. That's the spruce, it drinks all the light and shares none of it.",
+  "We've felled the first coupe and left the stumps for the beetles. Looks like a battlefield, I know. Give it a season and it will start to look like a plan.",
+  "Oak and birch coming up through the brash, and a kite hanging about over the ride. There's a light on in this wood that wasn't here in spring.",
+  "A pine marten, last week, at the top ride. It sat there like it was reading the planning permission. The Forestry would be proud, and slightly baffled."
+ ]
+}

@@ -564,8 +564,18 @@
    "facing": "left",
    "move": "still",
    "trainer": "mo_ranger"
-  }
- ],
+  },
+{
+ "id": "arcni_waller",
+ "sprite": "farmer",
+ "x": 45,
+ "y": 30,
+ "facing": "down",
+ "move": "still",
+ "script": "arcni_waller",
+ "show_if": "q_arc_ni_started"
+}
+],
  "encounters": {
   "grass": [
    {
@@ -702,8 +712,15 @@
    "plaque": "mournes_silent_valley",
    "title": "Silent Valley",
    "text": "The Mourne Wall was built to guard the water catchment for Belfast, and in 1933 the Silent Valley reservoir was finished. Water from these hills still runs to taps in Belfast. Have a cup of tea there and you are drinking a little bit of the Mournes."
-  }
- ],
+  },
+{
+ "x": 45,
+ "y": 33,
+ "plaque": "arc_ni_wall_builders",
+ "title": "The Wall Builders",
+ "text": "The Mourne Wall was built between 1904 and 1922 for the Belfast Water Commissioners to keep livestock off the land that drains to Silent Valley. Local men built it by hand from the granite on the hillside, with no mortar. It is about 22 miles long and crosses 15 summits, and the sheep still test it."
+}
+],
  "spawn": [
   36,
   50

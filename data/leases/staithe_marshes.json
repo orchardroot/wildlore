@@ -1,0 +1,53 @@
+{
+ "id": "staithe_marshes",
+ "name": "Staithe Marshes Estate",
+ "nation": "england",
+ "kind": "estate",
+ "anchor": "the_broads",
+ "side": "north",
+ "zone": "staithe_marshes",
+ "reserve": 45000,
+ "upkeep": 300,
+ "unlock_flag": "game_complete",
+ "trust_wants": true,
+ "blurb": "Drained grazing marsh in the Broads, kept for the shooting and the tax position. A dyke, a windpump and a lot of potential reed.",
+ "rewild": {
+  "biome": "river",
+  "flag": "rewild_lease_staithe_marshes",
+  "stages": [
+   "Fenced grazing, drained and dull.",
+   "Sluices open; shallow flood across the field.",
+   "Reedbed thickening; booming at dusk.",
+   "Wet fen; cranes on the pools."
+  ],
+  "returns": [
+   "volet",
+   "bittling",
+   "hushwing",
+   "levelcrane",
+   "minkshade"
+  ],
+  "rect": [
+   3,
+   3,
+   38,
+   22
+  ],
+  "encounters": [
+   [],
+   [],
+   []
+  ]
+ },
+ "gap": {
+  "at": 19,
+  "width": 3,
+  "offset": 0
+ },
+ "ranger": [
+  "Drained, ditched and fenced for grazing. The marsh is still under there, waiting.",
+  "Sluices open and a shallow flood across the field. The reeds are creeping back.",
+  "Reedbed's thickening. I heard a bittern boom at dusk, first time in my life.",
+  "Wet fen with cranes on the pools. Staithe marshes as they were before the drains."
+ ]
+}

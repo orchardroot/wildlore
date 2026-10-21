@@ -24,5 +24,77 @@
    "who": "Student",
    "text": "I came here not knowing a word, and now I can say 'can I go to the toilet' and 'where is the céilí'. Which is all you need, honestly."
   }
+ ],
+ "arc_ie_cailin": [
+  {
+   "do": "if",
+   "flag": "q_arc_ireland_4",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_arc_ireland_5",
+     "then": [
+      {
+       "do": "say",
+       "who": "Cailín",
+       "text": "Go n-éirí an bád leat! May the boat go well with you. That is our send-off for anything on the water."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Cailín",
+       "text": "Gweedore is a Gaeltacht, a district where Irish is still the everyday language. Students come here every summer to the coláiste, and teachers fine them for speaking English. Fada, a little line over a letter, matters."
+      },
+      {
+       "do": "say",
+       "who": "Cailín",
+       "text": "Rás na dTonnta? Our crews will row if you can show me the words. What does bád mean?"
+      },
+      {
+       "do": "choice",
+       "text": "Bád means...",
+       "options": [
+        "a boat",
+        "a bat",
+        "a book"
+       ],
+       "set": "arc_ie_irish_1"
+      },
+      {
+       "do": "if",
+       "flag": "arc_ie_irish_1",
+       "eq": 0,
+       "then": [
+        {
+         "do": "say",
+         "who": "Cailín",
+         "text": "Right! Farraige is the sea, tonn is a wave, rámha is an oar. You have the vocabulary of a crew now. Tell Tory I sent you."
+        },
+        {
+         "do": "set",
+         "flag": "q_arc_ireland_5",
+         "value": true
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Cailín",
+         "text": "Close, but not on the water. Ask me again when you have thought about it. Bád is a boat."
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Cailín",
+     "text": "Fáilte! The summer students are loud, the teachers louder. Are you here to learn Irish, or just to listen?"
+    }
+   ]
+  }
  ]
 }

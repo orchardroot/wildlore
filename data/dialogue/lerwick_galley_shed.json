@@ -22,5 +22,62 @@
    "who": "Jarl Squad Member",
    "text": "We march to the field with the galley on a trailer. At the field, the torches are thrown in, and then we sing 'The Norseman's Home'. If you've never heard a thousand people sing in the cold, with a ship on fire, you've missed a trick."
   }
+ ],
+ "arc_halcrow": [
+  {
+   "do": "if",
+   "flag": "arc_isl_ex_thread",
+   "then": [
+    {
+     "do": "set",
+     "flag": "q_arc_islands_5"
+    }
+   ]
+  },
+  {
+   "do": "if",
+   "flag": "q_arc_islands_6",
+   "then": [
+    {
+     "do": "say",
+     "who": "Halcrow the Binder",
+     "text": "Still here, still sewing. Do not look at that bolt of canvas. Nobody ever looks at that bolt of canvas, it is its best feature."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_arc_islands_started",
+     "then": [
+      {
+       "do": "say",
+       "who": "Halcrow the Binder",
+       "text": "Pages? Which pages? I bind in the winter and burn in January, ye'll find me a busy man."
+      },
+      {
+       "do": "say",
+       "who": "Halcrow the Binder",
+       "text": "Up Helly Aa is the last Tuesday of January. The squads march with torches, a thousand of them, and the galley goes up in about as long as it takes to say it. We start the next one in February. The torches sort themselves out, mind. The sewing does not."
+      },
+      {
+       "do": "say",
+       "who": "Halcrow the Binder",
+       "text": "There is nothing under that canvas, if that is what you are looking at. There is nothing, and I would thank you to stop looking at it."
+      },
+      {
+       "do": "set",
+       "flag": "q_arc_islands_6"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Halcrow the Binder",
+       "text": "Sail canvas, thread, bone folder. Honest tools. What brings ye?"
+      }
+     ]
+    }
+   ]
+  }
  ]
 }

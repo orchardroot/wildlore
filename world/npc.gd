@@ -4,6 +4,7 @@ extends Node3D
 ## `interact` and trainer challenges hand the actual conversation to ScriptRunner and return straight away:
 ## a whiteout rebuilds the zone and frees every NPC, so nothing here may wait on a run.
 ## Idle life: a still townsperson glances about now and then and turns to look at the player passing close by.
+## An optional `"routine"` (core/routines.gd) moves them between spots in the zone by weekday, hour and season.
 ## An optional `"times": ["dawn", "day", "dusk", "night"]` keeps hours: they are only out in those phases.
 
 const STEP_SPEED := 3.0      # tiles per second
@@ -88,6 +89,10 @@ static func should_spawn(d: Dictionary, data: GameStateData, phase: String) -> b
 		return false
 	return shown_at(d, phase)
 
+## The def with their routine's spot for now applied (the def itself for anyone without a routine).
+static func placed(d: Dictionary) -> Dictionary:
+	return Routines.placed(d, Calendar.weekday_today(), Calendar.season_today(), Game.data.clock_minutes)
+
 ## Close enough to catch a still NPC's eye.
 static func notices(at: Vector2i, player_pos: Vector2i) -> bool:
 	var d := player_pos - at
@@ -97,34 +102,39 @@ static func notices(at: Vector2i, player_pos: Vector2i) -> bool:
 ## away not to see them pop. Cheap; the overworld calls it now and then. Retries until everyone is settled.
 static func sync_schedule(ow: Node) -> void:
 	var phase := Game.phase()
-	if ow.zone == null or Router.busy or str(ow.get_meta("npc_phase", "")) == phase:
+	var stamp := phase + Routines.stamp(Calendar.weekday_today(), Calendar.season_today(), Game.data.clock_minutes)
+	if ow.zone == null or Router.busy or str(ow.get_meta("npc_phase", "")) == stamp:
 		return
 	var settled := true
 	for d in ow.zone.npcs:
-		if not d.has("times"):
+		if not d.has("times") and not d.has("routine"):
 			continue
 		var want := should_spawn(d, Game.data, phase)
 		var here: Node = null
 		for n in ow.npcs:
 			if is_instance_valid(n) and str(n.def.get("id", "")) == str(d.get("id", "")):
 				here = n
-		var p: Vector2i = here.grid_pos if here else Vector2i(int(d.get("x", 0)), int(d.get("y", 0)))
-		if want == (here != null):
+		var spot := placed(d)
+		var dest := Vector2i(int(spot.get("x", 0)), int(spot.get("y", 0)))
+		var moving: bool = want and here != null and here.grid_pos != dest  # a routine sends them elsewhere
+		if want == (here != null) and not moving:
 			continue
+		var p: Vector2i = here.grid_pos if here else dest
 		var gap: Vector2i = p - ow.player.grid_pos
-		if maxi(absi(gap.x), absi(gap.y)) < SCHEDULE_FAR or (here == null and ow.occupied(p)):
+		var gap2: Vector2i = dest - ow.player.grid_pos
+		if maxi(absi(gap.x), absi(gap.y)) < SCHEDULE_FAR or ((here == null or moving) and (ow.occupied(dest) or maxi(absi(gap2.x), absi(gap2.y)) < SCHEDULE_FAR)):
 			settled = false
 			continue
 		if here:
 			ow.npcs.erase(here)
 			here.queue_free()
-		else:
+		if want:
 			var n := Npc.new()
 			ow.add_child(n)
-			n.setup(d, ow)
+			n.setup(spot, ow)
 			ow.npcs.append(n)
 	if settled:
-		ow.set_meta("npc_phase", phase)
+		ow.set_meta("npc_phase", stamp)
 
 func face_toward(p: Vector2i) -> void:
 	if p != grid_pos:

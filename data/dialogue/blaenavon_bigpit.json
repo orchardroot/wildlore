@@ -2,6 +2,51 @@
  "bla_gwilym": [
   {
    "do": "if",
+   "flag": "q_arc_wales_1",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_arc_wales_2",
+     "then": [],
+     "else": [
+      {
+       "do": "say",
+       "who": "Gwilym",
+       "text": "A rollercoaster. Down my pit. Ninety metres of the real dark, and they want to improve it with a scream track."
+      },
+      {
+       "do": "say",
+       "who": "Gwilym",
+       "text": "Their draft is pinned on the board by the door. Read it. Then go and see the Fed's old lodge workings off the east face. There's a tram of timber you'll have to shift. Don't ask who stacked it. It was 1936 and he's long retired."
+      },
+      {
+       "do": "say",
+       "who": "Gwilym",
+       "text": "Mind, the roads round there haven't been walked since before the war. Take the lamp and go gently."
+      },
+      {
+       "do": "set",
+       "flag": "q_arc_wales_2",
+       "value": true
+      },
+      {
+       "do": "sfx",
+       "id": "item"
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "A way through to the old lodge workings is open at the east end of the coal face."
+      },
+      {
+       "do": "end"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "do": "if",
    "flag": "q_valleys_pit_done",
    "then": [
     {

@@ -142,6 +142,7 @@ static func from_dict(d: Dictionary) -> ZoneData:
 		for x in z.width:
 			hrow.append(int(src[x]) if x < src.length() and src[x].is_valid_int() else int(d.get("ground_height", 0)))
 		z.heights.append(hrow)
+	Leases.shape(z)  # an Enclosure lease anchored here: its gap in the border and the edge into the lease zone
 	return z
 
 func _tile_for_char(c: String) -> String:
@@ -443,6 +444,8 @@ func validate(all: Dictionary) -> Array:
 			e.append(tag + "unknown edge '%s'" % side)
 		elif not all.has(target):
 			e.append(tag + "%s edge goes to unknown zone '%s'" % [side, target])
+		elif edges[side].has("lease"):
+			pass  # a lease zone's way back: the anchor's edge only opens once the lease is owned (core/leases.gd)
 		elif not all[target].edges.has(OPPOSITE[side]) or all[target].edges[OPPOSITE[side]].get("to") != id:
 			e.append(tag + "%s edge to '%s' has no %s edge back" % [side, target, OPPOSITE[side]])
 		else:

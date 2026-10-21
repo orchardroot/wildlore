@@ -1,0 +1,109 @@
+{
+ "id": "island_roll",
+ "title": "The Missing Pages",
+ "nation": "mann",
+ "start_flag": "case_island_roll_start",
+ "evidence": [
+  {
+   "id": "torn_edge",
+   "name": "Torn Edge",
+   "text": "A strip of paper cut from a bound book, with stitching holes. Waxed linen thread, hand-sewn. Someone cut the pages out with care.",
+   "red_herring": false
+  },
+  {
+   "id": "ticket_stub",
+   "name": "Ferry Stub",
+   "text": "A Douglas to Liverpool ticket stub, used as a bookmark in the Gaiety's pantomime script. The sort of thing everybody on the island has in a pocket.",
+   "red_herring": true
+  },
+  {
+   "id": "waxed_thread",
+   "name": "Waxed Thread",
+   "text": "A reel of waxed linen thread and a binder's bone folder on a plank under the Up Helly Aa galley. The same thread as the holes in the torn strip.",
+   "red_herring": false
+  },
+  {
+   "id": "collector_card",
+   "name": "Collector's Card",
+   "text": "A card from a Manx collector who buys old ledgers, pinned in the Jersey tunnels' visitors' book. He gets around. He is also a dealer in postcards, which is a different kind of crime.",
+   "red_herring": true
+  },
+  {
+   "id": "repair_receipt",
+   "name": "Repair Receipt",
+   "text": "A Guernsey museum receipt: the Channel Islands sheets were posted to a binder in Lerwick 'for re-sewing'. They went on purpose, with permission.",
+   "red_herring": false
+  }
+ ],
+ "suspects": [
+  {
+   "id": "purser",
+   "name": "The Ferry Purser",
+   "zone": "douglas",
+   "wrong": "Missing pages? I check tickets, not footnotes. Liverpool to Douglas is four hours and a bacon roll, not a heist.",
+   "right": ""
+  },
+  {
+   "id": "collector",
+   "name": "The Ledger Collector",
+   "zone": "jersey_tunnels",
+   "wrong": "Me? I buy old ledgers, I do not borrow them. Besides, I would never take a ledger with only three pages in it. Where is the profit?",
+   "right": ""
+  },
+  {
+   "id": "halcrow",
+   "name": "Halcrow the Binder",
+   "zone": "lerwick_galley_shed",
+   "wrong": "",
+   "right": "Ach. Caught. The Shetland and Mann sheets came to me in October for re-sewing, the Guernsey ones followed by post, and then it was the galley and the torches and the Jarl's cloak, and they have been under that bolt of canvas ever since. I never took them anywhere. I just stopped looking. I will finish the sewing by Candlemas."
+  }
+ ],
+ "culprit": "halcrow",
+ "steps": [
+  {
+   "flag": "case_island_roll_briefed",
+   "text": "Take on Miss Quayle's case at the Gaiety, Douglas.",
+   "zone": "douglas_gaiety"
+  },
+  {
+   "flag": "case_island_roll_gaiety",
+   "text": "Search the prompt corner at the Gaiety.",
+   "zone": "douglas_gaiety"
+  },
+  {
+   "flag": "case_island_roll_thread",
+   "text": "Search the galley shed in Lerwick.",
+   "zone": "lerwick_galley_shed"
+  },
+  {
+   "flag": "case_island_roll_binder",
+   "text": "Question Halcrow the Binder in the galley shed.",
+   "zone": "lerwick_galley_shed"
+  },
+  {
+   "flag": "case_island_roll_receipt",
+   "text": "Read the repair receipt in the Guernsey Occupation Museum.",
+   "zone": "guernsey_occupation"
+  },
+  {
+   "flag": "case_island_roll_occupation",
+   "text": "Hear the Museum Volunteer in Guernsey.",
+   "zone": "guernsey_occupation"
+  },
+  {
+   "flag": "case_island_roll_tunnels",
+   "text": "Hear the Tunnel Historian at the Jersey War Tunnels.",
+   "zone": "jersey_tunnels"
+  }
+ ],
+ "done_flag": "case_island_roll_done",
+ "reward": {
+  "money": 2500,
+  "standing": 8,
+  "items": {
+   "tablet": 2
+  }
+ },
+ "accuse_hint": "Miss Quayle is waiting at the Gaiety Theatre in Douglas.",
+ "closed": "The pages are home, the Roll is whole, and the theatre ghost has been formally cleared."
+}

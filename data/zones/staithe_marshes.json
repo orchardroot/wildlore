@@ -1,0 +1,247 @@
+{
+ "id": "staithe_marshes",
+ "name": "Staithe Marshes",
+ "region": "east_anglia",
+ "kind": "route",
+ "music": "route_lakes",
+ "weather": {
+  "clear": 26,
+  "sunshine": 20,
+  "drizzle": 20,
+  "fog": 18,
+  "gale": 10,
+  "downpour": 4,
+  "frost": 2
+ },
+ "stage": "bog",
+ "scaled_floor": 90,
+ "spawn": [
+  19,
+  24
+ ],
+ "props": [
+  {
+   "type": "windpump",
+   "x": 30,
+   "y": 8
+  },
+  {
+   "type": "bench",
+   "x": 16,
+   "y": 9
+  },
+  {
+   "type": "noticeboard",
+   "x": 22,
+   "y": 24
+  },
+  {
+   "type": "bush",
+   "x": 8,
+   "y": 22
+  },
+  {
+   "type": "bush",
+   "x": 36,
+   "y": 21
+  }
+ ],
+ "warps": [],
+ "edges": {
+  "south": {
+   "to": "the_broads",
+   "offset": 0
+  }
+ },
+ "npcs": [
+  {
+   "id": "staithe_ranger",
+   "sprite": "farmer",
+   "x": 19,
+   "y": 23,
+   "facing": "down",
+   "move": "still",
+   "script": "staithe_ranger",
+   "name": "Marsh Warden"
+  },
+  {
+   "id": "staithe_reeder",
+   "sprite": "birdwatcher",
+   "x": 23,
+   "y": 8,
+   "facing": "left",
+   "move": "still",
+   "script": "staithe_reeder",
+   "name": "Reed Cutter"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "turvling",
+    "min": 90,
+    "max": 92,
+    "weight": 16
+   },
+   {
+    "species": "mustling",
+    "min": 90,
+    "max": 92,
+    "weight": 12
+   },
+   {
+    "species": "croakle",
+    "min": 90,
+    "max": 92,
+    "weight": 12
+   },
+   {
+    "species": "cranelet",
+    "min": 90,
+    "max": 92,
+    "weight": 8
+   },
+   {
+    "species": "volet",
+    "min": 91,
+    "max": 93,
+    "weight": 14,
+    "requires_flag": "rewild_lease_staithe_marshes",
+    "flag_at_least": 1
+   },
+   {
+    "species": "bittling",
+    "min": 91,
+    "max": 93,
+    "weight": 12,
+    "requires_flag": "rewild_lease_staithe_marshes",
+    "flag_at_least": 2
+   },
+   {
+    "species": "hushwing",
+    "min": 91,
+    "max": 93,
+    "weight": 8,
+    "requires_flag": "rewild_lease_staithe_marshes",
+    "flag_at_least": 2
+   },
+   {
+    "species": "levelcrane",
+    "min": 91,
+    "max": 93,
+    "weight": 6,
+    "requires_flag": "rewild_lease_staithe_marshes",
+    "flag_at_least": 3
+   },
+   {
+    "species": "minkshade",
+    "min": 91,
+    "max": 93,
+    "weight": 8,
+    "requires_flag": "rewild_lease_staithe_marshes",
+    "flag_at_least": 3
+   }
+  ],
+  "water": [
+   {
+    "species": "croakle",
+    "min": 90,
+    "max": 92,
+    "weight": 20
+   },
+   {
+    "species": "volet",
+    "min": 90,
+    "max": 92,
+    "weight": 14
+   },
+   {
+    "species": "minkshade",
+    "min": 91,
+    "max": 93,
+    "weight": 8,
+    "requires_flag": "rewild_lease_staithe_marshes",
+    "flag_at_least": 2
+   },
+   {
+    "species": "levelcrane",
+    "min": 91,
+    "max": 93,
+    "weight": 5,
+    "requires_flag": "rewild_lease_staithe_marshes",
+    "flag_at_least": 3
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 17,
+   "y": 22,
+   "plaque": "staithe_enclosure",
+   "title": "The Enclosure Acts",
+   "text": "ENCLOSURE. From the middle of the eighteenth century, thousands of Acts of Parliament fenced the common fields and grazing that villagers had shared for centuries, and gave the land to those who could afford the lawyers. England's hedges and walls are largely their handiwork. A great many of the people who lost their grazing did not get a vote on it."
+  },
+  {
+   "x": 22,
+   "y": 9,
+   "plaque": "staithe_broads_dug",
+   "title": "Made by Hand",
+   "text": "THE BROADS WERE DUG. For a long time they were thought to be natural lakes. In the 1950s and 60s the botanist Joyce Lambert showed that the Norfolk Broads are flooded medieval peat diggings, cut by hand for fuel and then drowned when the sea level rose. The 'natural' landscape is an old industrial site."
+  },
+  {
+   "x": 31,
+   "y": 10,
+   "plaque": "staithe_windpump",
+   "title": "The Drainage Mill",
+   "text": "THE DRAINAGE MILL. Windpumps like this lifted water from the low marshes into the rivers so cattle could graze them. Steam and then electric pumps replaced them, and many of the old mills were left to fall down. Now people pay to keep them standing, and the marsh pays back with wading birds."
+  },
+  {
+   "x": 35,
+   "y": 19,
+   "plaque": "staithe_bittern",
+   "title": "The Booming Bird",
+   "text": "THE BITTERN. A heron-sized, streaky brown bird that hides in reedbeds and makes a foghorn boom in spring. Drained marsh and cut reed nearly finished it in Britain in the twentieth century. Wetlands rebuilt for it in Norfolk and elsewhere have brought it back. You are far more likely to hear one than to see one."
+  }
+ ],
+ "legend_extra": {
+  "r": {
+   "tile": "tall_grass",
+   "colour": "#b0a060",
+   "prop": "reeds"
+  },
+  "e": {
+   "tile": "path",
+   "colour": "#6b5a44"
+  }
+ },
+ "rows": [
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TT.fT.............eee...............f.....TT",
+  "TT................eee.........rrrrrrrrrrT.TT",
+  "TT..rrrrrrrr......eee.........rrrrrrrrrr..TT",
+  "TT..rrrrrrrr......eee.........rrrrrrrrrr..TT",
+  "TT..rrrrrrrr......eeeeeeFeeeeeeeerrrrrrr..TT",
+  "TT..rrrrrrrr......eeeeeeFeeeeeeeerrrrrrr..TT",
+  "TT..rrrrrrrr......eee...F.f...rrrrrrrrrrT.TT",
+  "TT................eee...F.................TT",
+  "TT....f...........eeeT........f...T.......TT",
+  "TTwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwTT",
+  "TT~~~~~~~~~~~~~~~~wwww~~~~~~~~~~~~~~~~~~~~TT",
+  "TT~~~~~~~~~~~~~~~~wwww~~~~~~~~~~~~~~~~~~~~TT",
+  "TTwwwwwwwwwwwwwwwweeewwwwwwwwwwwwwwwwwwwwwTT",
+  "TT..........T..f..eee.....................TT",
+  "TT..............f.eee....T......rrrrrrrr..TT",
+  "TT...rrrrrrrrr....eee.........f.rrrrrrrr..TT",
+  "TT.f.rrrrrrrrr....eee...........rrrrrrrr..TT",
+  "TT...rrrrrrrrr....eee...........rrrrrrrr..TT",
+  "TT...rFFFFFFFFFFf.eee....FFFFFFFFFFFFFrr..TT",
+  "TT...rrrrrrrrr....eee........f..rrrrrrrr..TT",
+  "TT.f.rrrrrrrrr....eee...........rrrrrrrr..TT",
+  "TT................eee.....f............T..TT",
+  "TTf...............eee.....................TT",
+  "TT..........T.....eee......T..............TT",
+  "TTTTTTTTTTTTTTTTTTeeeTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTeeeTTTTTTTTTTTTTTTTTTTTTTT"
+ ]
+}

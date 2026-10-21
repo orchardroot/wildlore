@@ -15,7 +15,8 @@ func test_zones_join_dartmoor_as_a_cul_de_sac() -> void:
 	assert_eq(moor.edges["east"].to, "exe_estuary")
 	assert_eq(moor.edges["north"].to, "somerset_levels", "Dartmoor's old edges are untouched")
 	assert_eq(moor.edges["west"].to, "tintagel")
-	assert_eq(all["plymouth"].edges.keys(), ["north"], "Plymouth only leads back to the moor")
+	var plym_edges: Array = all["plymouth"].edges.keys().filter(func(k): return not all["plymouth"].edges[k].has("lease"))
+	assert_eq(plym_edges, ["north"], "Plymouth only leads back to the moor (bar a lease zone)")
 	assert_eq(all["exeter"].edges.keys(), ["south"], "Exeter only leads back to the estuary")
 	assert_eq(all["exe_estuary"].edges["north"].to, "exeter")
 	for zid in ZONES + ["dartmoor"]:

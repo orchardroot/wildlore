@@ -1,0 +1,73 @@
+{
+ "staithe_ranger": [
+  {
+   "do": "say",
+   "who": "Marsh Warden",
+   "text": "Hello. You're the one who bought the Staithe lease. Thank you. I've been the warden here since before it had a warden."
+  },
+  {
+   "do": "say",
+   "who": "Marsh Warden",
+   "text": "It was Enclosure Ltd's until the auction. They kept it for the shooting and the tax position, in that order."
+  },
+  {
+   "do": "if",
+   "flag": "rewild_lease_staithe_marshes",
+   "eq": 0,
+   "then": [
+    {
+     "do": "say",
+     "who": "Marsh Warden",
+     "text": "Sheep, a fence and a ditch that goes nowhere. Give it a season or two of you being cross at the drainage board and we'll see."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "rewild_lease_staithe_marshes",
+     "eq": 1,
+     "then": [
+      {
+       "do": "say",
+       "who": "Marsh Warden",
+       "text": "Sluices open. The water's coming back across the grazing and the frogs have already moved in without asking."
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "rewild_lease_staithe_marshes",
+       "eq": 2,
+       "then": [
+        {
+         "do": "say",
+         "who": "Marsh Warden",
+         "text": "Listen. Low, in the reeds, like someone blowing across a bottle. That's a bittern. I've waited twenty years to say that sentence."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Marsh Warden",
+         "text": "Cranes. Cranes, on a marsh somebody paid to drain. I shall be insufferable about this at the pub."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "staithe_reeder": [
+  {
+   "do": "say",
+   "who": "Reed Cutter",
+   "text": "Reed's cut in winter, when the birds have gone and the ground's hard. Thatch from Norfolk reed outlasts anything imported, and I'm not at all biased."
+  },
+  {
+   "do": "say",
+   "who": "Reed Cutter",
+   "text": "Cut the bed on rotation and everything lives in it. Leave it alone entirely and it turns to scrub. Even nature wants a rota."
+  }
+ ]
+}

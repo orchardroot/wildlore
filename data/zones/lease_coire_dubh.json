@@ -1,0 +1,358 @@
+{
+ "id": "lease_coire_dubh",
+ "name": "Coire Dubh Deer Forest",
+ "region": "scotland",
+ "kind": "route",
+ "music": "route_highlands",
+ "weather": {
+  "clear": 22,
+  "drizzle": 28,
+  "fog": 20,
+  "sunshine": 10,
+  "gale": 10,
+  "downpour": 10
+ },
+ "props": [
+  {
+   "type": "building",
+   "style": "slate_cottage",
+   "x": 39,
+   "y": 5,
+   "w": 5,
+   "h": 4,
+   "label": "Stalker's Lodge",
+   "kind": "cottage"
+  },
+  {
+   "type": "rock",
+   "x": 40,
+   "y": 11,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 41,
+   "y": 12,
+   "variant": 0
+  },
+  {
+   "type": "rock",
+   "x": 18,
+   "y": 8,
+   "variant": 0
+  },
+  {
+   "type": "pine",
+   "x": 8,
+   "y": 18,
+   "variant": 2
+  },
+  {
+   "type": "pine",
+   "x": 4,
+   "y": 3,
+   "variant": 1
+  },
+  {
+   "type": "pine",
+   "x": 7,
+   "y": 10,
+   "variant": 0
+  },
+  {
+   "type": "pine",
+   "x": 10,
+   "y": 18,
+   "variant": 1
+  },
+  {
+   "type": "pine",
+   "x": 5,
+   "y": 10,
+   "variant": 2
+  },
+  {
+   "type": "pine",
+   "x": 5,
+   "y": 15,
+   "variant": 2
+  },
+  {
+   "type": "pine",
+   "x": 3,
+   "y": 5,
+   "variant": 0
+  },
+  {
+   "type": "birch",
+   "x": 27,
+   "y": 3,
+   "variant": 0
+  },
+  {
+   "type": "birch",
+   "x": 30,
+   "y": 11,
+   "variant": 0
+  },
+  {
+   "type": "birch",
+   "x": 26,
+   "y": 3,
+   "variant": 0
+  },
+  {
+   "type": "birch",
+   "x": 26,
+   "y": 5,
+   "variant": 1
+  },
+  {
+   "type": "birch",
+   "x": 28,
+   "y": 3,
+   "variant": 1
+  },
+  {
+   "type": "birch",
+   "x": 28,
+   "y": 12,
+   "variant": 2
+  },
+  {
+   "type": "bench",
+   "x": 28,
+   "y": 14,
+   "variant": 0
+  }
+ ],
+ "warps": [],
+ "edges": {
+  "north": {
+   "to": "cairngorms",
+   "offset": 0,
+   "lease": "coire_dubh"
+  }
+ },
+ "npcs": [
+  {
+   "id": "cd_ranger",
+   "sprite": "ghillie",
+   "x": 31,
+   "y": 17,
+   "facing": "down",
+   "move": "still",
+   "script": "cd_ranger"
+  },
+  {
+   "id": "cd_walker",
+   "sprite": "hillwalker",
+   "x": 33,
+   "y": 21,
+   "facing": "down",
+   "move": "still",
+   "script": "cd_walker"
+  },
+  {
+   "id": "c_stagmor_14_12",
+   "sprite": "creature:stagmor",
+   "x": 14,
+   "y": 12,
+   "facing": "down",
+   "move": "wander",
+   "script": "c_stagmor"
+  },
+  {
+   "id": "c_caperling_9_30",
+   "sprite": "creature:caperling",
+   "x": 9,
+   "y": 30,
+   "facing": "down",
+   "move": "still",
+   "script": "c_caperling"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "fawnlet",
+    "min": 76,
+    "max": 77,
+    "weight": 12
+   },
+   {
+    "species": "ptarmlet",
+    "min": 76,
+    "max": 77,
+    "weight": 10,
+    "time": [
+     "day",
+     "dawn"
+    ]
+   },
+   {
+    "species": "stoatlet",
+    "min": 76,
+    "max": 77,
+    "weight": 10
+   },
+   {
+    "species": "buntling",
+    "min": 76,
+    "max": 77,
+    "weight": 8,
+    "season": [
+     "autumn",
+     "winter"
+    ]
+   },
+   {
+    "species": "caperling",
+    "min": 76,
+    "max": 77,
+    "weight": 8,
+    "requires_flag": "rewild_lease_coire_dubh",
+    "flag_at_least": 1
+   },
+   {
+    "species": "stagmor",
+    "min": 76,
+    "max": 77,
+    "weight": 6,
+    "time": [
+     "dawn",
+     "dusk"
+    ],
+    "requires_flag": "rewild_lease_coire_dubh",
+    "flag_at_least": 2
+   },
+   {
+    "species": "capercaillie",
+    "min": 76,
+    "max": 77,
+    "weight": 5,
+    "time": [
+     "dawn",
+     "dusk"
+    ],
+    "requires_flag": "rewild_lease_coire_dubh",
+    "flag_at_least": 3
+   },
+   {
+    "species": "highlynx",
+    "min": 76,
+    "max": 77,
+    "weight": 4,
+    "time": [
+     "dusk",
+     "night"
+    ],
+    "requires_flag": "rewild_lease_coire_dubh",
+    "flag_at_least": 3
+   }
+  ],
+  "water": [
+   {
+    "species": "rillotter",
+    "min": 76,
+    "max": 77,
+    "weight": 20
+   },
+   {
+    "species": "spatelord",
+    "min": 76,
+    "max": 77,
+    "weight": 14
+   },
+   {
+    "species": "bradan",
+    "min": 76,
+    "max": 77,
+    "weight": 12,
+    "requires_flag": "rewild_lease_coire_dubh",
+    "flag_at_least": 2
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 29,
+   "y": 19,
+   "text": "A DEER FOREST. The word is the old one for land kept for hunting, not a wood. Most of it is open hill with hardly a tree on it. Red deer are the largest wild land animal in Scotland, and where their numbers are kept high, young trees are eaten before they can grow.",
+   "plaque": "lease_coire_dubh_forest",
+   "title": "A Deer Forest"
+  },
+  {
+   "x": 33,
+   "y": 15,
+   "text": "THE CALEDONIAN PINEWOOD. Scots pine woods once covered much of the Highlands. Only scattered fragments of that forest survive. Where deer are fewer, or fenced out, pine, birch, rowan and juniper come back on their own, which is why people argue so hard about deer.",
+   "plaque": "lease_coire_dubh_pinewood",
+   "title": "The Caledonian Pinewood"
+  },
+  {
+   "x": 36,
+   "y": 20,
+   "text": "STALKING AND THE RAILWAY. Deer stalking became fashionable in the 1800s, helped by the railways and by Queen Victoria's Highland holidays at Balmoral. Whole glens were cleared of people and farming for sporting estates. Since 2003 the Land Reform (Scotland) Act has given everyone a right of responsible access to most land.",
+   "plaque": "lease_coire_dubh_stalking",
+   "title": "Stalking and the Railway"
+  }
+ ],
+ "spawn": [
+  30,
+  20
+ ],
+ "stage": "moor",
+ "rows": [
+  "PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPkkkPPPPPPPPPPP",
+  "PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPkkkPPPPPPPPPPP",
+  "PPkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk#kkkkkkkkkkPP",
+  "PPkkkkkkkkkkkkkkkkkkkkw~wkkkkkkkkkk#kkkkkkkkkkPP",
+  "PPkkkkhkkkkkkkkkkkkkkkw~wkkkkhkkkkk#kkkkkkkkkkPP",
+  "PPkkhhhhhkkkkkkkkkkkkkkw~wkhhhhhkkk#kkkBBBBBkkPP",
+  "PPkhhhhhhhkkkkkkkkkkkkkw~whhhhhhhkk#kkkBBBBBkkPP",
+  "PPkkhhhhhkkkkkkkkkkkkkkw~whhhhhhhhk#kkkBBBBBkkPP",
+  "PPkkkkhkkkkkkkkkkkkkkhkw~whhhhhhhkk#kkkBBBBBWkPP",
+  "PPkkkkkkkkkkkkkkkkhhhhhw~whhhhhhkkk#kkkkkkkkWkPP",
+  "PPkkkkkkkkkkkkkkkhhhhhhwwwhhkhkkkkk#kkkkkkkkWkPP",
+  "PPkkkkkkkkkkkkkhhhhhhhhwwwhhkkkkkkk#kkkkkkkkWkPP",
+  "PPkkkkkkkkkkkkhhhhhhhhw~whkkkkkkkkk#kkkkkkkkWkPP",
+  "PPkkkkkkkkkkkhhhhhhhhhw~wkkkkkkkkkk#kkkkkkkkWkPP",
+  "PPkkkkkkkkkkkkhhhhhhhhw~wkkkkkkkkkk#hkkkkkkkWkPP",
+  "PPkkkkkkkkkkkkkhhhhhkw~wkkkkkkkkkhh#hhhhkkkkWkPP",
+  "PPkkkkkkkkkkkkkkkhkkkw~wkkkkkkkkhhh#hhhhhkkkWkPP",
+  "PPkkkkkkkkkkkkkkkkkkw~wkkkkkkkhhhhh#hhhhkkkkWkPP",
+  "PPkkkkkkkkkkkkkkkkkkw~wkkkkkhh######hkkkkkkkWkPP",
+  "PPkkkkkkkkkkkkkkkkkkw~wkhhhhhhhhhhhkkkkkkkkkWkPP",
+  "PPkkkkkhkkkkkkkkkkkw~wkhhhhhhhhhhhkkkkkkkkkkWkPP",
+  "PPkkhhhhhhhkkkkkkkkw~wkkhhhhhhhhhkkkkkkkkkkkkkPP",
+  "PPkhhhhhhhhhkPkPPPkw~wkkkkkkhkkkkkkkkkkkkkkhkkPP",
+  "PPhhhhhhhhhhhkkkkPPw~wkkkkkkkkkkkkkkkkkkkhhhhhPP",
+  "PPkhhhhhhhhhPPPkkPkw~wkkkkkkkkkkkkkkkkkhhhhhhhPP",
+  "PPkkhhhhhhhkkPkkPkkw~wkkkkkkkkkkkkkkkhhhhhhhhhPP",
+  "PPkkkkPhPPkkkkkkkkPwwwkkkkkkkkkkkkkkkhhhhhhhhhPP",
+  "PPkkkkkPkkPkkkPkkPPwwwkkkkkkkkkkkkkkhhhhhhhhhhPP",
+  "PPkkkkPkPkkPkkkkPkhPw~wkkkkkkkkkkkkkkhhhhhkhkkPP",
+  "PPkkkPkPkPPkkkPkhhhhw~wkkkkkkkkkkkkkkhhhhhkkkkPP",
+  "PPkkkPkPPkkkkPhhhhhhw~wkkkFFFFFFFFFFFkkFFFFFFFPP",
+  "PPkkPPPPkPhhhhhhhhhhhw~wkkkkkkkkkkkkkkkkkkkkkkPP",
+  "PPkkkPkkkhhhhhhhhhhhkw~wkkkkkkkkkkkkkkkkkkkkkkPP",
+  "PPkkkkkhhhhhhhhhhhhPkkw~wkkkkkkkkkkkkkkkkkkkkkPP",
+  "PPkkkkhhhhhhhhhkkPkkkkw~wkkkkkkkkkkkkkkkkkkkkkPP",
+  "PPkkkkkhhhhhhhkkPPkPkkw~wkkkkkkkkkkkkkkkkkkkkkPP",
+  "PPkkkkkkkkhkkkkkkkkkkkkw~wkkkkkkkkkkkkkkkkkkkkPP",
+  "PPkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkPP",
+  "PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP",
+  "PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP"
+ ],
+ "legend_extra": {
+  "k": {
+   "tile": "grass",
+   "colour": "#76804c"
+  },
+  "h": {
+   "tile": "tall_grass",
+   "colour": "#7a5c6a",
+   "prop": "heather"
+  }
+ }
+}

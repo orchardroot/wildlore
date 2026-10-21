@@ -20,5 +20,78 @@
    "who": "Clerk",
    "text": "It is named after Abel Heywood, a former mayor. Mayors do like their names on things."
   }
+ ],
+ "arc_england_clerk": [
+  {
+   "do": "if",
+   "flag": "q_arc_england_map",
+   "then": [
+    {
+     "do": "say",
+     "who": "Footpaths Officer",
+     "text": "The Definitive Map and Statement is the legal record. If it isn't on the map, it isn't a path, however many boots have worn it. The Act of 1949 made councils keep one."
+    },
+    {
+     "do": "say",
+     "who": "Footpaths Officer",
+     "text": "Yours is on, as of this morning. I stamped it myself."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_arc_england_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_arc_england_minutes",
+       "then": [
+        {
+         "do": "if",
+         "flag": "q_arc_england_tin",
+         "then": [
+          {
+           "do": "say",
+           "who": "Footpaths Officer",
+           "text": "A tin box and a minute book. Well, well. Evidence of use, going back to before the war. That's what the Highways Act asks: twenty years of use, as of right, without being stopped."
+          },
+          {
+           "do": "say",
+           "who": "Footpaths Officer",
+           "text": "I'll lodge it as a modification order claim for the High Moor path. It will take a while. It always takes a while. But I can see no honest objection."
+          },
+          {
+           "do": "set",
+           "flag": "q_arc_england_map"
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Footpaths Officer",
+           "text": "Minutes are good. Is there anything else? Photographs, letters, anything saying people walked it before the war."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Footpaths Officer",
+         "text": "I'd need proof that people walked it. Minutes, diaries, photographs. Ezra Hollins in Goyt Valley says there are some somewhere."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Footpaths Officer",
+       "text": "A path claim? That's a long form. Come back when you've evidence of walking. Twenty years, as of right, without being stopped."
+      }
+     ]
+    }
+   ]
+  }
  ]
 }

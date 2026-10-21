@@ -15,5 +15,341 @@
    "who": "Stage Manager",
    "text": "Red velvet, gold plaster, and a ghost or two, depending who you ask."
   }
+ ],
+ "arc_quayle": [
+  {
+   "do": "if",
+   "flag": "arc_isl_ex_gaiety",
+   "then": [
+    {
+     "do": "set",
+     "flag": "q_arc_islands_2"
+    }
+   ]
+  },
+  {
+   "do": "if",
+   "flag": "q_arc_islands_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Miss Quayle",
+     "text": "The Gathering is on the prom every summer now. The Roll goes round the three islands and comes home to the Gaiety, where it lives in the prompt corner, behind a lock. Not the old drawer."
+    },
+    {
+     "do": "say",
+     "who": "Miss Quayle",
+     "text": "Tynwald, the torches and the bells, all in one ledger. I could not have asked for a better cast."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_arc_islands_11",
+     "then": [
+      {
+       "do": "say",
+       "who": "Miss Quayle",
+       "text": "The pages are on their way home. Go and see what the island has put up on the prom. The Reader will want a word. I will be along as soon as I have found my glasses."
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_arc_islands_10",
+       "then": [
+        {
+         "do": "say",
+         "who": "Miss Quayle",
+         "text": "You have been to all three islands and listened. Now the awkward bit: who had the pages? Be sure. The Casebook in your Fieldbook has the evidence."
+        },
+        {
+         "do": "if",
+         "flag": "q_arc_islands_2",
+         "then": [
+          {
+           "do": "set",
+           "flag": "case_island_roll_gaiety"
+          }
+         ]
+        },
+        {
+         "do": "if",
+         "flag": "q_arc_islands_5",
+         "then": [
+          {
+           "do": "set",
+           "flag": "case_island_roll_thread"
+          }
+         ]
+        },
+        {
+         "do": "if",
+         "flag": "q_arc_islands_6",
+         "then": [
+          {
+           "do": "set",
+           "flag": "case_island_roll_binder"
+          }
+         ]
+        },
+        {
+         "do": "if",
+         "flag": "q_arc_islands_7",
+         "then": [
+          {
+           "do": "set",
+           "flag": "case_island_roll_receipt"
+          }
+         ]
+        },
+        {
+         "do": "if",
+         "flag": "q_arc_islands_8",
+         "then": [
+          {
+           "do": "set",
+           "flag": "case_island_roll_occupation"
+          }
+         ]
+        },
+        {
+         "do": "if",
+         "flag": "q_arc_islands_9",
+         "then": [
+          {
+           "do": "set",
+           "flag": "case_island_roll_tunnels"
+          }
+         ]
+        },
+        {
+         "do": "set",
+         "flag": "case_island_roll_start"
+        },
+        {
+         "do": "casebook",
+         "id": "island_roll"
+        },
+        {
+         "do": "if",
+         "flag": "case_island_roll_done",
+         "then": [
+          {
+           "do": "set",
+           "flag": "q_arc_islands_11"
+          },
+          {
+           "do": "say",
+           "who": "Miss Quayle",
+           "text": "Mr Halcrow, of course. I shall write him a very polite letter. In pencil, so it can be rubbed out if the pages arrive."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "if",
+         "flag": "q_arc_islands_9",
+         "then": [
+          {
+           "do": "say",
+           "who": "Miss Quayle",
+           "text": "Ring something in St Helier. The Bell Captain at the church is expecting you. The Occupation and the Liberation want ringing out, and a Roll is no use if nobody can ring it."
+          }
+         ],
+         "else": [
+          {
+           "do": "if",
+           "flag": "q_arc_islands_8",
+           "then": [
+            {
+             "do": "say",
+             "who": "Miss Quayle",
+             "text": "Next the Jersey War Tunnels, out in the country above St Helier. Listen to the Historian there, properly. It is not a cheerful visit, and it should not be."
+            }
+           ],
+           "else": [
+            {
+             "do": "if",
+             "flag": "q_arc_islands_7",
+             "then": [
+              {
+               "do": "say",
+               "who": "Miss Quayle",
+               "text": "Now to the Guernsey Occupation Museum. The Volunteer there will tell it honestly. The Occupation was five years of ordinary people getting by, and sometimes not."
+              }
+             ],
+             "else": [
+              {
+               "do": "if",
+               "flag": "q_arc_islands_6",
+               "then": [
+                {
+                 "do": "say",
+                 "who": "Miss Quayle",
+                 "text": "Halcrow was shifty, you say? Everyone in Lerwick is shifty in January, it is the squad rehearsals. The next lead is the Guernsey Occupation Museum. Ferry to Poole, then across."
+                }
+               ],
+               "else": [
+                {
+                 "do": "if",
+                 "flag": "q_arc_islands_5",
+                 "then": [
+                  {
+                   "do": "say",
+                   "who": "Miss Quayle",
+                   "text": "Thread on the bench. The galley shed has a binder too, name of Halcrow, I am told. Ask him about the thread. Politely. A binder who is cross is a binder who stops."
+                  }
+                 ],
+                 "else": [
+                  {
+                   "do": "if",
+                   "flag": "q_arc_islands_4",
+                   "then": [
+                    {
+                     "do": "say",
+                     "who": "Miss Quayle",
+                     "text": "Search the galley shed in Lerwick. The thread on the torn page was waxed linen, and that is a shed full of sailmakers and ropes. Look at the benches."
+                    }
+                   ],
+                   "else": [
+                    {
+                     "do": "if",
+                     "flag": "q_arc_islands_3",
+                     "then": [
+                      {
+                       "do": "say",
+                       "who": "Miss Quayle",
+                       "text": "Lerwick next. The skipper of the crew in the Lounge will only talk to somebody who can pull on a rope in time. Sing with them. Ferry to Aberdeen, the Kirkwall boat, then the Lerwick boat. It is a long road. That is rather the point."
+                      }
+                     ],
+                     "else": [
+                      {
+                       "do": "if",
+                       "flag": "q_arc_islands_2",
+                       "then": [
+                        {
+                         "do": "say",
+                         "who": "Miss Quayle",
+                         "text": "A strip with stitching holes, and a ticket stub in a pantomime script. The strip is waxed linen thread, sewn by hand. The stub is half the island's bookmarks. Keep both in the Casebook, the stub in pencil."
+                        },
+                        {
+                         "do": "say",
+                         "who": "Miss Quayle",
+                         "text": "The Shetland section of the Roll went first. Go to Lerwick. Take the Liverpool boat, the Aberdeen boat, then north. Sing with the crew in the Lounge. They trust a voice."
+                        },
+                        {
+                         "do": "set",
+                         "flag": "case_island_roll_start"
+                        },
+                        {
+                         "do": "set",
+                         "flag": "case_island_roll_briefed"
+                        },
+                        {
+                         "do": "set",
+                         "flag": "q_arc_islands_3"
+                        }
+                       ],
+                       "else": [
+                        {
+                         "do": "if",
+                         "flag": "q_arc_islands_1",
+                         "then": [
+                          {
+                           "do": "say",
+                           "who": "Miss Quayle",
+                           "text": "Have a look round the prompt corner. Behind the prompt book. That is where the Roll lives. Lived."
+                          }
+                         ],
+                         "else": [
+                          {
+                           "do": "if",
+                           "flag": "q_arc_islands_started",
+                           "then": [
+                            {
+                             "do": "say",
+                             "who": "Miss Quayle",
+                             "text": "The Clerk at the Tram Depot will tell you about Tynwald. He will tell you about the horses too. Listen to the first half."
+                            }
+                           ],
+                           "else": [
+                            {
+                             "do": "say",
+                             "who": "Miss Quayle",
+                             "text": "Quayle. Archivist, Gaiety Theatre. Yes, the theatre keeps the archive. The island trusts actors to remember things and nobody else."
+                            },
+                            {
+                             "do": "say",
+                             "who": "Miss Quayle",
+                             "text": "I keep the Roll of the Isles: one ledger where Mann, Shetland and the Channel Islands each write down what they say aloud once a year, so it never goes quiet. Tynwald Day. Up Helly Aa. Liberation Day."
+                            },
+                            {
+                             "do": "say",
+                             "who": "Miss Quayle",
+                             "text": "Three sections of pages are missing from the bound Roll, one for each island. I would like them found, and I would like the Roll read out properly, at a Gathering, with all three islands in one room. That wants someone who will go and listen."
+                            },
+                            {
+                             "do": "choice",
+                             "text": "Will you go and listen for the Roll?",
+                             "options": [
+                              "Yes",
+                              "Not yet"
+                             ],
+                             "set": "arc_islands_pick"
+                            },
+                            {
+                             "do": "if",
+                             "flag": "arc_islands_pick",
+                             "then": [
+                              {
+                               "do": "say",
+                               "who": "Miss Quayle",
+                               "text": "Not yet is fine. The Roll has waited since the year it began. Come back when you have the boots on."
+                              }
+                             ],
+                             "else": [
+                              {
+                               "do": "set",
+                               "flag": "q_arc_islands_started"
+                              },
+                              {
+                               "do": "set",
+                               "flag": "case_island_roll_start"
+                              },
+                              {
+                               "do": "say",
+                               "who": "Miss Quayle",
+                               "text": "Splendid. First the Clerk at the Tram Depot: Tynwald, from the Clerk who has to say it out loud every year. Then the prompt corner here, where the Roll was kept. Look behind the book."
+                              }
+                             ]
+                            }
+                           ]
+                          }
+                         ]
+                        }
+                       ]
+                      }
+                     ]
+                    }
+                   ]
+                  }
+                 ]
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
  ]
 }

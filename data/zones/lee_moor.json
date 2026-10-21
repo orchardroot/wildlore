@@ -1,0 +1,255 @@
+{
+ "id": "lee_moor",
+ "name": "Lee Moor",
+ "region": "south_england",
+ "kind": "route",
+ "music": "route_moor_south",
+ "weather": {
+  "clear": 16,
+  "sunshine": 10,
+  "drizzle": 26,
+  "fog": 24,
+  "gale": 12,
+  "downpour": 10,
+  "frost": 2
+ },
+ "stage": "moor",
+ "scaled_floor": 90,
+ "spawn": [
+  4,
+  16
+ ],
+ "props": [
+  {
+   "type": "slate_heap",
+   "x": 8,
+   "y": 13
+  },
+  {
+   "type": "slate_heap",
+   "x": 12,
+   "y": 22
+  },
+  {
+   "type": "bollard",
+   "x": 14,
+   "y": 15
+  },
+  {
+   "type": "noticeboard",
+   "x": 4,
+   "y": 20
+  },
+  {
+   "type": "bench",
+   "x": 38,
+   "y": 3
+  },
+  {
+   "type": "rock",
+   "x": 30,
+   "y": 21
+  }
+ ],
+ "warps": [],
+ "edges": {
+  "west": {
+   "to": "plymouth",
+   "offset": 0
+  }
+ },
+ "npcs": [
+  {
+   "id": "leemoor_ranger",
+   "sprite": "hiker",
+   "x": 4,
+   "y": 17,
+   "facing": "right",
+   "move": "still",
+   "script": "leemoor_ranger",
+   "name": "Moor Ranger"
+  },
+  {
+   "id": "leemoor_digger",
+   "sprite": "steelworker",
+   "x": 26,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "leemoor_digger",
+   "name": "Retired Clay Worker"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "gritling",
+    "min": 90,
+    "max": 92,
+    "weight": 14
+   },
+   {
+    "species": "scuttlet",
+    "min": 90,
+    "max": 92,
+    "weight": 12
+   },
+   {
+    "species": "horselet",
+    "min": 90,
+    "max": 92,
+    "weight": 12
+   },
+   {
+    "species": "crumblet",
+    "min": 90,
+    "max": 92,
+    "weight": 10
+   },
+   {
+    "species": "pixling",
+    "min": 91,
+    "max": 93,
+    "weight": 12,
+    "requires_flag": "rewild_lease_lee_moor",
+    "flag_at_least": 1
+   },
+   {
+    "species": "pixiedell",
+    "min": 91,
+    "max": 93,
+    "weight": 10,
+    "requires_flag": "rewild_lease_lee_moor",
+    "flag_at_least": 2
+   },
+   {
+    "species": "foalmoor",
+    "min": 91,
+    "max": 93,
+    "weight": 8,
+    "requires_flag": "rewild_lease_lee_moor",
+    "flag_at_least": 2
+   },
+   {
+    "species": "peatmonarch",
+    "min": 91,
+    "max": 93,
+    "weight": 6,
+    "requires_flag": "rewild_lease_lee_moor",
+    "flag_at_least": 3
+   },
+   {
+    "species": "wishtling",
+    "min": 91,
+    "max": 93,
+    "weight": 8,
+    "requires_flag": "rewild_lease_lee_moor",
+    "flag_at_least": 3
+   }
+  ],
+  "water": [
+   {
+    "species": "croakle",
+    "min": 90,
+    "max": 92,
+    "weight": 16
+   },
+   {
+    "species": "ductling",
+    "min": 90,
+    "max": 92,
+    "weight": 12
+   },
+   {
+    "species": "elverlet",
+    "min": 91,
+    "max": 93,
+    "weight": 8,
+    "requires_flag": "rewild_lease_lee_moor",
+    "flag_at_least": 2
+   },
+   {
+    "species": "minkshade",
+    "min": 91,
+    "max": 93,
+    "weight": 6,
+    "requires_flag": "rewild_lease_lee_moor",
+    "flag_at_least": 3
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 5,
+   "y": 19,
+   "plaque": "leemoor_cookworthy",
+   "title": "White Gold",
+   "text": "CHINA CLAY. Kaolin is granite that has rotted in place. In the 1740s the Plymouth chemist William Cookworthy found it in Cornwall and worked out how to make true porcelain with it, which Europe had been trying to do for a long time. His Plymouth porcelain factory started in 1768. The clay is still dug on Dartmoor and in Cornwall and ends up in plates, paper and toothpaste."
+  },
+  {
+   "x": 14,
+   "y": 8,
+   "plaque": "leemoor_pit",
+   "title": "The Pit",
+   "text": "LEE MOOR. Clay has been dug on south-west Dartmoor since the nineteenth century. A jet of water washes the clay out of the pit wall as a slurry, and what is left is sand, mica waste and a very white landscape. When the pumps stop, the pits flood to a startling pale green. It looks like a holiday brochure for somewhere much worse."
+  },
+  {
+   "x": 36,
+   "y": 3,
+   "plaque": "leemoor_national_park",
+   "title": "Park Rules",
+   "text": "DARTMOOR NATIONAL PARK. Dartmoor was designated a national park in 1951. Clay working inside the park was already established, and it carried on, under planning rules about tipping and restoring the land afterwards. Nature, once the machines go quiet, restores it with considerably less paperwork."
+  },
+  {
+   "x": 31,
+   "y": 20,
+   "plaque": "leemoor_heath",
+   "title": "Spoil Heaps and Heather",
+   "text": "SPOIL. Bare clay waste is a surprisingly good place for plants that hate rich soil: heather, gorse, bell heather and the odd orchid. Old workings across Britain become some of the best wildlife sites in the county, by accident. The wildlife has never once complained about the lack of a plan."
+  }
+ ],
+ "legend_extra": {
+  "k": {
+   "tile": "grass",
+   "colour": "#8a8a4d"
+  },
+  "^": {
+   "tile": "cliff",
+   "colour": "#e4e2da"
+  },
+  "/": {
+   "tile": "scree",
+   "colour": "#d8d6cf"
+  }
+ },
+ "rows": [
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTkkfkkkkk,kkkkkk,,kk,kkkkkkkkkkkkf,kkkkkkTT",
+  "TTkkkkkkkkkkk,kkkkkkkkkkkkk,kkkkkkkkkkkkkkTT",
+  "TTkkk,kkkkkkk,k########################kkkTT",
+  "TTkkk^^^^^^^^k,########################kkkTT",
+  "TTkkk^^^^^^^^kk###///////////////////##/kkTT",
+  "TTkkk^^^^^^^^kk###///////////////////##/kkTT",
+  "TT,kk^^^^^^^^kk###/wwwwwwwwwwwwwwwwww##/kkTT",
+  "TTkkk^^^^^^^^kk###/w~~~~~~~~~~~~~~~~w##/kkTT",
+  "TTkfk^^^^^^^^kk###/w~~~~~~~~~~~~~~~~w##/k,TT",
+  "TTkkkkkkkkkk,kk###/w~~wwww~~~~~~~~~~w##/kkTT",
+  "TTkkkkkkkkk,kkk###/w~~wwww~~~~~~~~~~w##/kkTT",
+  "TTkkkkkkk,kkkkk###/w~~wwww~~~~~~~~~~w##/k,TT",
+  "TTkkkkkkkkkkkk,###/w~~~~~~~~~~~~~~~~w##/kkTT",
+  "TTkk,kkfkkkkkkk###/w~~~~~~~~~~~~~~~~w##/kkTT",
+  "##################/w~~~~~~~~~~~~~~~~w##/kkTT",
+  "##################/wwwwwwwwwwwwwwwwww##/kkTT",
+  "##################///////////////////##/kkTT",
+  "TTk,kk^^^^^^^^^########################/,kTT",
+  "TTkkfk^^^^^^^^^########################k,kTT",
+  "TT,kkk^^^^^^^^^kkkkkkkkkkkkkkkkkkkkkkkkkk,TT",
+  "TTkkkkkkkkkkkkfkkkkkkkkkkkFFFFFFFFkkkkfkkkTT",
+  "TTkkkkkkkkkfkkkkkkfkk,kkkkkkkkkkkkkk,kkkkfTT",
+  "TTkk,kkkkkkkkkkkkkk,kkkk,kkkkkkkkkkkkkkkkkTT",
+  "TTkkkkkkkkk,,kkkkkkkkkkkkkkkkkkkkkkkkkkkkkTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT"
+ ]
+}

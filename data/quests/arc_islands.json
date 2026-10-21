@@ -1,0 +1,77 @@
+{
+ "quests": [
+  {
+   "id": "arc_islands",
+   "title": "The Roll of the Isles",
+   "region": "arc_islands",
+   "town": "douglas_gaiety",
+   "giver": "Miss Quayle",
+   "summary": "Mann, Shetland and the Channel Islands each keep a yearly ritual in one ledger, and some pages have gone missing. Follow the Roll by ferry, from Tynwald to Up Helly Aa to Liberation Day.",
+   "start_flag": "q_arc_islands_started",
+   "steps": [
+    {
+     "flag": "q_arc_islands_1",
+     "text": "Hear about Tynwald from the Clerk at the Douglas tram depot.",
+     "zone": "douglas_tramdepot"
+    },
+    {
+     "flag": "q_arc_islands_2",
+     "text": "Search the prompt corner of the Gaiety Theatre.",
+     "zone": "douglas_gaiety"
+    },
+    {
+     "flag": "q_arc_islands_3",
+     "text": "Tell Miss Quayle what you found.",
+     "zone": "douglas_gaiety"
+    },
+    {
+     "flag": "q_arc_islands_4",
+     "text": "Sing a shanty clean with the Ferry Crew Skipper in the Lounge at Lerwick.",
+     "zone": "lerwick_pub"
+    },
+    {
+     "flag": "q_arc_islands_5",
+     "text": "Search the galley shed in Lerwick for the missing pages.",
+     "zone": "lerwick_galley_shed"
+    },
+    {
+     "flag": "q_arc_islands_6",
+     "text": "Question Halcrow the Binder in the galley shed.",
+     "zone": "lerwick_galley_shed"
+    },
+    {
+     "flag": "q_arc_islands_7",
+     "text": "Read the receipt in the Guernsey Occupation Museum.",
+     "zone": "guernsey_occupation"
+    },
+    {
+     "flag": "q_arc_islands_8",
+     "text": "Listen to the Museum Volunteer in Guernsey.",
+     "zone": "guernsey_occupation"
+    },
+    {
+     "flag": "q_arc_islands_9",
+     "text": "Listen to the Tunnel Historian at the Jersey War Tunnels.",
+     "zone": "jersey_tunnels"
+    },
+    {
+     "flag": "q_arc_islands_10",
+     "text": "Ring a touch with the Bell Captain at St Helier's church.",
+     "zone": "st_helier_church"
+    },
+    {
+     "flag": "q_arc_islands_11",
+     "text": "Name who held the pages, at the Gaiety in Douglas.",
+     "zone": "douglas_gaiety"
+    },
+    {
+     "flag": "q_arc_islands_done",
+     "text": "See the first Gathering of the Isles on the Douglas prom.",
+     "zone": "douglas"
+    }
+   ],
+   "done_flag": "q_arc_islands_done",
+   "reward": "The Roll of the Isles Ribbon (a charm: tide moves hit harder), the Casebook reward, and standing on Mann, in Scotland and in the Channel Islands. And a Gathering on the Douglas prom."
+  }
+ ]
+}

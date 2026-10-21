@@ -949,7 +949,9 @@ static func _bilerp(a: Vector3, b: Vector3, c: Vector3, d: Vector3, u: float, v:
 static func _glass_tower(st: SurfaceTool, wst: SurfaceTool, w: int, d: int, door_x: int) -> void:
 	var glass := Color("4a6e8c")
 	var frame := Color("2a3442")
-	var tiers := [[0.0, 4.0, 0.0], [4.0, 4.0, 0.35], [8.0, 3.5, 0.7]]  # [base y, height, inset]
+	# [base y, height, inset]. Only a deep footprint is a real tower (Vane's); museums and theatres in this style
+	# (the Royal Armouries, Aerospace Bristol...) are low, so the camera never ends up inside one behind it
+	var tiers := [[0.0, 4.0, 0.0], [4.0, 4.0, 0.35], [8.0, 3.5, 0.7]] if d >= 8 else [[0.0, 3.2, 0.0], [3.2, 1.8, 0.4]]
 	for t in tiers:
 		var y0: float = t[0]
 		var h: float = t[1]

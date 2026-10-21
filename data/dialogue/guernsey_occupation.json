@@ -10,5 +10,62 @@
    "who": "Curator",
    "text": "Thousands of children were evacuated before the occupation. Many families were parted for five years. The Germans built concrete fortifications round the island by forced labour. You'll still find the bunkers on every headland, and some are now holiday cottages."
   }
+ ],
+ "arc_volunteer": [
+  {
+   "do": "if",
+   "flag": "arc_isl_ex_receipt",
+   "then": [
+    {
+     "do": "set",
+     "flag": "q_arc_islands_7"
+    }
+   ]
+  },
+  {
+   "do": "if",
+   "flag": "q_arc_islands_8",
+   "then": [
+    {
+     "do": "say",
+     "who": "Museum Volunteer",
+     "text": "Most people just got by. We try to say so in here, and to leave the heroes to the films."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_arc_islands_started",
+     "then": [
+      {
+       "do": "say",
+       "who": "Museum Volunteer",
+       "text": "The Germans arrived on 30 June 1940, a few days after the bombing of the harbours. Before that, about seventeen thousand people left Guernsey for England, many of them children, with their schools."
+      },
+      {
+       "do": "say",
+       "who": "Museum Volunteer",
+       "text": "In 1942 the wireless sets were taken away. A few people hid crystal sets and typed up the BBC news on single sheets, which went from hand to hand. The Guernsey Underground News Service, they called it. People went to prison for it."
+      },
+      {
+       "do": "say",
+       "who": "Museum Volunteer",
+       "text": "The last winter was the worst. The shops were empty until the Red Cross ship Vega got through with parcels in December 1944. Liberation Day was 9 May 1945, and Sark followed a day later. Most of the island simply got through five years. We try to say that out loud."
+      },
+      {
+       "do": "set",
+       "flag": "q_arc_islands_8"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Museum Volunteer",
+       "text": "The museum is free to look round. The history is free to think about. Please do both."
+      }
+     ]
+    }
+   ]
+  }
  ]
 }

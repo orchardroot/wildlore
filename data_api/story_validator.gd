@@ -3,7 +3,7 @@ extends RefCounted
 ## Checks dialogue scripts, trainers and the NPCs that use them against the rest of the data.
 
 const COMMANDS := ["say", "choice", "if", "set", "give_item", "give_creature", "heal", "battle", "move", "face",
-	"face_player", "wait", "warp", "shop", "starter", "fade_out", "fade_in", "music", "sfx", "badge", "end", "whiteout", "ark", "rail", "ferry", "legend", "gauntlet", "credits", "daily", "when", "relearn", "sachet_worn", "quiz", "craft", "recipe", "fieldbook_news", "rewild", "standing", "overseas", "overseas_home", "tournament", "bureau", "exchange", "market", "crypto", "casino", "society", "deed", "regular", "darts", "crab_comp", "breed", "evidence", "casebook", "guild", "ring", "wall"]
+	"face_player", "wait", "warp", "shop", "starter", "fade_out", "fade_in", "music", "sfx", "badge", "end", "whiteout", "ark", "rail", "ferry", "legend", "gauntlet", "credits", "daily", "when", "relearn", "sachet_worn", "quiz", "craft", "recipe", "fieldbook_news", "rewild", "standing", "overseas", "overseas_home", "tournament", "bureau", "exchange", "market", "crypto", "casino", "society", "deed", "lease", "regular", "darts", "crab_comp", "breed", "evidence", "casebook", "guild", "ring", "wall", "crossword", "games", "sing", "conkers"]
 const CONDITIONS := ["dawn", "day", "dusk", "night", "rain", "fog", "gale", "frost", "sunshine", "caught_all",
 	"caught_25", "caught_50", "caught_100", "caught_150", "caught_200",
 	"spring", "summer", "autumn", "winter", "halloween", "bonfire_night", "christmas", "st_patricks", "st_davids", "burns_night"]
@@ -53,6 +53,9 @@ static func validate(dex: Dex, moves: MoveDB, items: ItemDB, zones: Dictionary) 
 			var tr := str(n.get("trainer", ""))
 			if tr != "" and not StoryData.trainer_exists(tr):
 				errors.append(tag + "trainer '%s' does not exist" % tr)
+			if n.has("routine"):
+				for e in routine_errors(n, StoryData.script(zid, sc) if sc != "" else [], targets, z, Routines.blocked_tiles_except(z, n)):
+					errors.append(tag + e)
 			if n.has("times"):
 				for e in times_errors(n, StoryData.script(zid, sc) if sc != "" else [], targets):
 					errors.append(tag + e)
@@ -78,6 +81,22 @@ static func times_errors(n: Dictionary, cmds: Array, npc_targets: Dictionary) ->
 	var story := _story_commands(cmds)
 	if not story.is_empty():
 		errors.append("story-critical script (%s) can't have times" % ", ".join(story))
+	return errors
+
+## A routine (core/routines.gd) has the same limits as `times`, a still NPC only, and slots on plain tiles clear of doors.
+static func routine_errors(n: Dictionary, cmds: Array, npc_targets: Dictionary, z: ZoneData, blocked: Dictionary) -> Array:
+	var errors := Routines.errors(n, z, blocked)
+	if str(n.get("move", "still")) != "still":
+		errors.append("a routine needs move still")
+	if str(n.get("trainer", "")) != "":
+		errors.append("a trainer can't keep a routine")
+	if str(n.get("sprite", "")) in ALWAYS_OUT_SPRITES:
+		errors.append("'%s' must always be at their post (no routine)" % n.get("sprite"))
+	if npc_targets.has(str(n.get("id", ""))):
+		errors.append("a story beat moves this NPC, so it can't keep a routine")
+	var story := _story_commands(cmds)
+	if not story.is_empty():
+		errors.append("story-critical script (%s) can't have a routine" % ", ".join(story))
 	return errors
 
 static func _story_commands(cmds: Array, out: Array = []) -> Array:
@@ -149,6 +168,8 @@ static func validate_commands(cmds: Array, tag: String, dex: Dex, items: ItemDB,
 						errors.append("%s: when has_ names an unknown species '%s'" % [tag, cond.substr(4)])
 				elif cond.begins_with("caught_") and dex.has(cond.substr(7)):
 					pass
+				elif (cond.begins_with("guild_") or cond.begins_with("regular_")) and cond.rsplit("_", true, 1)[1].is_valid_int():
+					pass
 				elif cond not in CONDITIONS and not Festivals.is_cond(cond):
 					errors.append("%s: when with unknown cond '%s'" % [tag, c.get("cond", "")])
 				errors.append_array(validate_commands(c.get("then", []), tag, dex, items, zones))
@@ -188,6 +209,9 @@ static func validate_commands(cmds: Array, tag: String, dex: Dex, items: ItemDB,
 			"deed":
 				if Deeds.get_deed(str(c.get("id", ""))).is_empty():
 					errors.append("%s: deed '%s' is not in data/deeds" % [tag, c.get("id", "")])
+			"lease":
+				if str(c.get("id", "")) != "" and Leases.get_lease(str(c.get("id", ""))).is_empty():
+					errors.append("%s: lease '%s' is not in data/leases" % [tag, c.get("id", "")])
 			"guild":
 				if not Guilds.IDS.has(str(c.get("id", ""))):
 					errors.append("%s: no guild '%s'" % [tag, c.get("id", "")])
@@ -205,6 +229,10 @@ static func validate_commands(cmds: Array, tag: String, dex: Dex, items: ItemDB,
 			"crab_comp":
 				if not Crabbing.is_spot(str(c.get("harbour", ""))):
 					errors.append("%s: crab_comp at '%s', which is not a crabbing spot" % [tag, c.get("harbour", "")])
+			"games":
+				for ev in c.get("events", []):
+					if Games.event(str(ev)).is_empty():
+						errors.append("%s: games with unknown event '%s'" % [tag, ev])
 			"wall":
 				if not Walling.SIZES.has(str(c.get("level", "normal"))):
 					errors.append("%s: wall with unknown level '%s'" % [tag, c.get("level", "")])

@@ -585,6 +585,16 @@
    "variant": "elder",
    "x": 20,
    "y": 27
+  },
+  {
+   "type": "building",
+   "style": "white_render",
+   "x": 68,
+   "y": 2,
+   "w": 5,
+   "h": 4,
+   "label": "Braes Hall",
+   "kind": "hall"
   }
  ],
  "warps": [
@@ -635,6 +645,18 @@
    "tx": 6,
    "ty": 6,
    "facing": "up"
+  },
+  {
+   "x": 70,
+   "y": 5,
+   "to": "skye_braes_hall",
+   "tx": 6,
+   "ty": 8,
+   "facing": "up",
+   "locked": {
+    "needs": "q_arc_scotland_done",
+    "line": "A padlock the size of a fist, and a notice: ESTATE PROPERTY. UNSAFE. KEEP OUT. The notice is older than the padlock, and the padlock is not young."
+   }
   }
  ],
  "edges": {
@@ -729,6 +751,26 @@
    "facing": "down",
    "move": "still",
    "trainer": "skye_ghillie"
+  },
+  {
+   "id": "arc_scot_calum",
+   "sprite": "farmer",
+   "x": 62,
+   "y": 5,
+   "facing": "down",
+   "move": "still",
+   "script": "arc_scot_calum",
+   "hide_if": "q_arc_scotland_done"
+  },
+  {
+   "id": "arc_scot_piper",
+   "sprite": "piper",
+   "x": 66,
+   "y": 6,
+   "facing": "down",
+   "move": "still",
+   "script": "arc_scot_piper",
+   "show_if": "q_arc_scotland_done"
   }
  ],
  "encounters": {
@@ -952,6 +994,13 @@
    "plaque": "skye_gavin_maxwell",
    "title": "Gavin Maxwell",
    "text": "Gavin Maxwell, whose 1960 book Ring of Bright Water told of life with his otters on this coast, bought the old lighthouse keepers' cottages on Eilean Bàn, 'white island', right under where the bridge now runs. He died in 1969 before he could settle there. Otters still fish around it."
+  },
+  {
+   "x": 66,
+   "y": 4,
+   "plaque": "skye_braes_1882",
+   "title": "The Battle of the Braes",
+   "text": "In April 1882 the crofters of the Braes, near Portree, held on to their grazing on Ben Lee after the estate withdrew it. About fifty police were sent up from Glasgow and were met with stones and sticks. Nobody died, but the news reached Parliament. The Napier Commission followed in 1883, and the Crofters Act of 1886 gave crofters security of tenure."
   }
  ],
  "spawn": [
@@ -962,10 +1011,10 @@
  "rows": [
   "$$$TTTTTTTTTTTTTTTTTTTTTTT===TTTTTTT$$$$$$$$$$$$$$$$TTTTTTTTTTTTTTTTTTTTTTTTTPTT",
   "$$$TTTTTTTTTTTTTTTTTTTTTTT===TTTTTTT$$$$$$$$$$$$$$$$TTTTTTTTTTTTTTTTTTTTTTTTTTTT",
-  "$$$kkkkkkkkkkkkkkkkkkkkkkk===kkkkkkk$$$$$$$$$$$$$$$$kkkkkkkkkkkkkkkkkkkkkkkkkkTT",
-  "$$$kkkkkkkkkkkkkkkkkkkkkkk===kkkkkkk$$$$$$$$$$$$$$$$kkkkkkkkkkkkkkkkkkkkkkkkkkTT",
-  "$$$wskkkkkkkkkkkkkkkkkkkkk===kkkkkkw$$$$$$$$$$$$$$$$wkkkkkkkkkkkkkkkkkkkkkkkkkTT",
-  "$$$wskkkhhhhhhhhhhhhhhkkkk===kkkkkkw$$$$$$$$$$$$$$$$wkkkkkkkkkkkkkkhkkkkkkkkkkTT",
+  "$$$kkkkkkkkkkkkkkkkkkkkkkk===kkkkkkk$$$$$$$$$$$$$$$$kkkkkkkkkkkkkkkkBBBBBkkkkkTT",
+  "$$$kkkkkkkkkkkkkkkkkkkkkkk===kkkkkkk$$$$$$$$$$$$$$$$kkkkkkkkkkkkkkkkBBBBBkkkkkTT",
+  "$$$wskkkkkkkkkkkkkkkkkkkkk===kkkkkkw$$$$$$$$$$$$$$$$wkkkkkkkkkkkkkkkBBBBBkkkkkTT",
+  "$$$wskkkhhhhhhhhhhhhhhkkkk===kkkkkkw$$$$$$$$$$$$$$$$wkkkkkkkkkkkkkkhBBDBBkkkkkTT",
   "$$$RRRRRhhhhhhhhhRhhhhkkkk===kkkkkkw$$$$$$$$$$$$$$$$wkkkkkkkkkkhhhhhhhkhkkkkkkTT",
   "$$$RfffRhhhRhhRhhhhhhhkkkk===kkkkkkw$$$$$$$$$$$$$$$$wkkkkkkkkhhhhhhhhhhhkkkkkkTT",
   "$$$RfffRhhhRhhRRhhhhhhkkkk===khkkkkw$$$$$$$$$$$$$$$$wkkkkkkkhhhhhhhhhhhhhhkkkkTT",
@@ -1073,5 +1122,17 @@
    "tile": "water",
    "colour": "#34c4d4"
   }
- }
+ },
+ "examine": [
+  {
+   "x": 65,
+   "y": 4,
+   "needs": "q_arc_scotland_started",
+   "flag": "q_arc_scotland_10",
+   "text": [
+    "A tumble of grey stones in the bracken, with a green rectangle of old lazy beds running down the slope behind it.",
+    "This was a house. The family left in the year of the notices, and the roof beams went for somebody else's byre. Ben Lee's grazing lies above, and the township's cattle were turned off it first."
+   ]
+  }
+ ]
 }

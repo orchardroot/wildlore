@@ -1,0 +1,73 @@
+{
+ "hafod_ranger": [
+  {
+   "do": "say",
+   "who": "Hill Farmer",
+   "text": "Diolch! The lease is yours? Then you'll want to know, the farm's been Enclosure Ltd's for years and the farmer's family is long gone to the town."
+  },
+  {
+   "do": "say",
+   "who": "Hill Farmer",
+   "text": "I'm the farmer they've kept on. I'll show you round, and I'll try not to say 'in my day'."
+  },
+  {
+   "do": "if",
+   "flag": "rewild_lease_hafod_hill_farm",
+   "eq": 0,
+   "then": [
+    {
+     "do": "say",
+     "who": "Hill Farmer",
+     "text": "Closely grazed, drained, sprayed and fenced, and it still doesn't pay. Nobody's ever fixed that by doing more of the same."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "rewild_lease_hafod_hill_farm",
+     "eq": 1,
+     "then": [
+      {
+       "do": "say",
+       "who": "Hill Farmer",
+       "text": "Fewer sheep, trees going in along the becks. The neighbours think I've gone soft. The neighbours may be right. It looks lovely, though."
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "rewild_lease_hafod_hill_farm",
+       "eq": 2,
+       "then": [
+        {
+         "do": "say",
+         "who": "Hill Farmer",
+         "text": "Hawthorn's coming up in the ffridd and the curlew's back on the rushy pasture. My father'd say I've lost my mind. Then he'd go and look."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Hill Farmer",
+         "text": "Kites over the cwm every morning. A farm and a nature reserve in the same field, and the books balance. Just. Tell nobody."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "hafod_shepherd": [
+  {
+   "do": "say",
+   "who": "Shepherd",
+   "text": "Every ewe knows her own bit of mountain. I don't know how, nobody does. I just know she'll go back to it if I drive her off the other side. Faster than the quad bike, too."
+  },
+  {
+   "do": "say",
+   "who": "Shepherd",
+   "text": "Wet again. It's always wet. I'd complain but I'd run out of day."
+  }
+ ]
+}

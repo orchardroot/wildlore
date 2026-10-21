@@ -86,5 +86,231 @@
    "site": "goyt_moss"
   }
  ],
- "goyt_waller": [{"do": "say", "who": "Waller", "text": "Hilda's rewilding the moss up the road, which is grand, but the sheep still want keeping off the new planting. Which means walls. Good ones."}, {"do": "wall", "who": "Waller", "level": "normal", "site": "goyt_moss"}]
+ "goyt_waller": [{"do": "say", "who": "Waller", "text": "Hilda's rewilding the moss up the road, which is grand, but the sheep still want keeping off the new planting. Which means walls. Good ones."}, {"do": "wall", "who": "Waller", "level": "normal", "site": "goyt_moss"}],
+ "arc_england_ezra": [
+  {
+   "do": "if",
+   "flag": "q_arc_england_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Ezra",
+     "text": "The High Moor's open, and it's a sight. Come and see it with me at the gate any time. Bring a flask."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_arc_england_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_arc_england_ramblers",
+       "then": [
+        {
+         "do": "if",
+         "flag": "q_arc_england_tin",
+         "then": [
+          {
+           "do": "if",
+           "flag": "q_arc_england_minutes",
+           "then": [
+            {
+             "do": "if",
+             "flag": "q_arc_england_map",
+             "then": [
+              {
+               "do": "if",
+               "flag": "q_arc_england_lease",
+               "then": [
+                {
+                 "do": "if",
+                 "flag": "q_arc_england_order",
+                 "then": [
+                  {
+                   "do": "say",
+                   "who": "Ezra",
+                   "text": "The gate's on the High Moor. Go and see it opened. I'll be along when my knees have finished arguing."
+                  }
+                 ],
+                 "else": [
+                  {
+                   "do": "if",
+                   "flag": "q_arc_england_dawn",
+                   "then": [
+                    {
+                     "do": "say",
+                     "who": "Ezra",
+                     "text": "Dawn, was it? And the moor was empty? That's how it should be, and how it never was. Right. There's an order to put before the council, and I shall put it with my best hat on."
+                    },
+                    {
+                     "do": "set",
+                     "flag": "q_arc_england_order"
+                    }
+                   ],
+                   "else": [
+                    {
+                     "do": "say",
+                     "who": "Ezra",
+                     "text": "Go up to the old gate on the High Moor and stand there at dawn, when the keepers used to come on shift. Then tell me what you saw. Do the wall and the hare and the agent first, though, if you've not."
+                    }
+                   ]
+                  }
+                 ]
+                }
+               ],
+               "else": [
+                {
+                 "do": "if",
+                 "flag": "lease_pennine_grouse_moor",
+                 "then": [
+                  {
+                   "do": "say",
+                   "who": "Ezra",
+                   "text": "You bought it. You actually bought it. Four thousand acres and not one of them for grouse. The gate is yours to open, then."
+                  },
+                  {
+                   "do": "set",
+                   "flag": "q_arc_england_lease"
+                  }
+                 ],
+                 "else": [
+                  {
+                   "do": "say",
+                   "who": "Ezra",
+                   "text": "The map is sorted, so the next bit is money, I'm afraid. The Enclosure lets the High Moor go at auction at the Exchange. You'll have to outbid them, and the Heritage Trust won't be doing you any favours."
+                  },
+                  {
+                   "do": "say",
+                   "who": "Ezra",
+                   "text": "It's not a gift. It's a loan from the future, to be repaid in curlews."
+                  }
+                 ]
+                }
+               ]
+              }
+             ],
+             "else": [
+              {
+               "do": "say",
+               "who": "Ezra",
+               "text": "Take the tin and Hilda's word to the Footpaths Officer at Manchester Town Hall. A path is only a right of way once it's on the Definitive Map, and not before. Councils love a form."
+              }
+             ]
+            }
+           ],
+           "else": [
+            {
+             "do": "if",
+             "flag": "reg_hilda",
+             "then": [
+              {
+               "do": "say",
+               "who": "Ezra",
+               "text": "Hilda Pickles has the Clarion minute book? Her gran kept it, and she keeps everything. Good. That's the proof of the others who walked up with Rothman's lot. Lovely."
+              },
+              {
+               "do": "set",
+               "flag": "q_arc_england_minutes"
+              }
+             ],
+             "else": [
+              {
+               "do": "say",
+               "who": "Ezra",
+               "text": "There's a woman called Hilda Pickles, in York, and in Leeds when she's visiting. Her family kept the minutes of the Clarion Ramblers. Buy her something decent to eat and ask nicely."
+              }
+             ]
+            }
+           ]
+          }
+         ],
+         "else": [
+          {"do": "if", "flag": "arc_england_tin_found", "then": [{"do": "say", "who": "Ezra", "text": "You found it! Still dry. I hid it in the Blue John caves in the sixties, and was half sure the damp had had it. Good. That's the first proof."}, {"do": "set", "flag": "q_arc_england_tin"}], "else": [{"do": "say", "who": "Ezra", "text": "There's a tin box in the Blue John caves at Castleton. I put it there in nineteen-sixty-something, thinking it would be safe from the Enclosure. Mind the stream. Mind the stalactites. Mind everything."}]}
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "if",
+         "flag": "guild_ramblers",
+         "then": [
+          {
+           "do": "say",
+           "who": "Ezra",
+           "text": "You've joined them! Good. Footpath Wardens are the only people who've ever got anything done to a hedge."
+          },
+          {
+           "do": "set",
+           "flag": "q_arc_england_ramblers"
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Ezra",
+           "text": "First, join the Ramblers. They've a hall in Keswick, at the guest house. A right of way's only as good as the people who walk it."
+          }
+         ]
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Ezra",
+       "text": "Sit down a minute, would you. I'm ninety-one, and I've spent every Sunday since 1951 telling people about a morning in April."
+      },
+      {
+       "do": "say",
+       "who": "Ezra",
+       "text": "The twenty-fourth of April 1932. Four hundred or so walkers set off from Bowden Bridge quarry at Hayfield to climb Kinder Scout, where you weren't allowed, because the grouse were. There was a scuffle with the keepers on the way up. Five men were jailed for it."
+      },
+      {
+       "do": "say",
+       "who": "Ezra",
+       "text": "It wasn't the whole story, mind. A national park in 1951, public access in 2000. It took nearly seventy years. And the next moor over has a gate on it again."
+      },
+      {
+       "do": "say",
+       "who": "Ezra",
+       "text": "Help me finish what they started. A proper right of way, written down, with the whole moor at the end of it. It will take you through the Ramblers, a tin box, a lot of paperwork and a rather good wall. Will you?"
+      },
+      {
+       "do": "choice",
+       "text": "Help Ezra?",
+       "options": [
+        "Yes, of course.",
+        "Not today."
+       ],
+       "set": "arc_england_pledge"
+      },
+      {
+       "do": "if",
+       "flag": "arc_england_pledge",
+       "then": [
+        {
+         "do": "say",
+         "who": "Ezra",
+         "text": "Not today, then. The moor will wait. It's had practice."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Ezra",
+         "text": "Good. First, join the Ramblers. They've a hall at the guest house in Keswick."
+        },
+        {
+         "do": "set",
+         "flag": "q_arc_england_started"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
 }

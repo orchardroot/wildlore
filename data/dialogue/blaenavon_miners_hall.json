@@ -1,0 +1,121 @@
+{
+ "arc_mair": [
+  {
+   "do": "if",
+   "flag": "q_arc_wales_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Mair",
+     "text": "The guides open at ten, the choir at seven, and I have the good sense to run the kettle all day between the two."
+    },
+    {
+     "do": "say",
+     "who": "Mair",
+     "text": "Every Tuesday somebody tries to book the stage for a tribute act. I say yes to the ones in tune."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_arc_wales_10",
+     "then": [
+      {
+       "do": "say",
+       "who": "Mair",
+       "text": "You're the one with the key. I've been Mair, hall keeper, for forty years, and in all that time nobody's opened that door without me. I shall allow it."
+      },
+      {
+       "do": "say",
+       "who": "Mair",
+       "text": "Look at it. The same hall, dusted. They'd have put a rollercoaster here. A rollercoaster! Sit down, if you want. The seats are original, and have opinions."
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "At the far end of the hall the Rhondda and Swansea choirs file on to the stage, together."
+      },
+      {
+       "do": "say",
+       "who": "Elwyn",
+       "text": "Gwenllian, you take the altos. I'll try not to look at them."
+      },
+      {
+       "do": "say",
+       "who": "Gwenllian",
+       "text": "Chin up, shoulders back. Calon Lan, from the top. 'Nid wy'n gofyn bywyd moethus': I do not ask for a life of luxury."
+      },
+      {
+       "do": "sfx",
+       "id": "badge"
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "A hundred voices fill the hall. In the second verse a fine, deep bass comes in from the doorway: Gwilym, still in his cap lamp."
+      },
+      {
+       "do": "say",
+       "who": "Mair",
+       "text": "That's the Miners' Hall, then. Back where it belongs. Take these, with the valley's thanks."
+      },
+      {
+       "do": "give_item",
+       "item": "cawl",
+       "n": 3
+      },
+      {
+       "do": "give_item",
+       "item": "blaenavon_cheddar",
+       "n": 5
+      },
+      {
+       "do": "give_item",
+       "item": "lodge_banner",
+       "n": 1
+      },
+      {
+       "do": "give_creature",
+       "species": "seamknocker",
+       "level": 40,
+       "scaled_floor": 36
+      },
+      {
+       "do": "standing",
+       "nation": "wales",
+       "amount": 40
+      },
+      {
+       "do": "set",
+       "flag": "q_arc_wales_done",
+       "value": true
+      },
+      {
+       "do": "sfx",
+       "id": "item"
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "Quest complete: Whose Pit Is It?"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Mair",
+       "text": "Mind the floor. Not that it needs minding, I do it myself every morning. The Hall's not open to the public yet. Are you with the Trust?"
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "arc_hall_choir": [
+  {
+   "do": "say",
+   "who": "Chorister",
+   "text": "Rehearsal. Do come in, but you'll be handed an alto part, and the altos are the problem. Don't tell the altos."
+  }
+ ]
+}

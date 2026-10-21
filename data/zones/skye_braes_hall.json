@@ -1,0 +1,134 @@
+{
+ "id": "skye_braes_hall",
+ "name": "Braes Hall",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "table",
+   "x": 3,
+   "y": 4
+  },
+  {
+   "type": "table",
+   "x": 8,
+   "y": 4
+  },
+  {
+   "type": "bench",
+   "x": 2,
+   "y": 4
+  },
+  {
+   "type": "bench",
+   "x": 9,
+   "y": 4
+  },
+  {
+   "type": "fireplace",
+   "x": 6,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 10,
+   "y": 1
+  },
+  {
+   "type": "kitchen_dresser",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "clock",
+   "x": 5,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "wall_picture",
+   "x": 8,
+   "y": 1,
+   "walk": true,
+   "variant": 0
+  },
+  {
+   "type": "rug",
+   "x": 4,
+   "y": 5,
+   "w": 4,
+   "h": 2,
+   "variant": 3,
+   "walk": true
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 8
+  },
+  {
+   "type": "potted_plant",
+   "x": 10,
+   "y": 8
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 9,
+   "to": "skye",
+   "tx": 70,
+   "ty": 6,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "arc_scot_fiddler",
+   "sprite": "piper",
+   "x": 6,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "arc_scot_fiddler"
+  },
+  {
+   "id": "arc_scot_treasurer",
+   "sprite": "villager_2",
+   "x": 3,
+   "y": 2,
+   "facing": "down",
+   "move": "still",
+   "script": "arc_scot_treasurer"
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "x": 9,
+   "y": 2,
+   "plaque": "arc_scot_community_buyouts",
+   "title": "Buying Back the Land",
+   "text": "In 1993 the Assynt Crofters' Trust bought the North Lochinver estate, and in 1997 the people of Eigg bought their island. The Land Reform (Scotland) Act 2003 then wrote a community right to buy into law: a registered community can get first refusal when an estate comes up for sale, if its members back it in a ballot."
+  }
+ ],
+ "spawn": [
+  6,
+  8
+ ],
+ "rows": [
+  "xxxxxxxxxxxx",
+  "x||||||||||x",
+  "x||||||||||x",
+  "x||||||||||x",
+  "x||||||||||x",
+  "x||||||||||x",
+  "x||||||||||x",
+  "x||||||||||x",
+  "x||||||||||x",
+  "xxxxxxDxxxxx"
+ ]
+}

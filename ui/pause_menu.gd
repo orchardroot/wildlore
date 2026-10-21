@@ -1,6 +1,6 @@
 extends MenuBase
 ## Pause menu: Team, Fieldbook, Bag, Ark (once you've met a Sanctuary nurse), Journal, Map, Stats, Save, Settings and Close,
-## with the trainer card, the time and weather, and "Where next?" beside it.
+## with the Keeper card, the time and weather, and "Where next?" beside it.
 
 const ROW_GAP := 6
 const ROW_MIN := 44  # a 32px label still sits comfortably in this
@@ -51,7 +51,7 @@ func _build() -> void:
 	_info.add_theme_constant_override("separation", 4)
 	card.add_child(_info)
 	var next_card := UIKit.panel(Color("1d2230f0"), 14)
-	next_card.size_flags_vertical = Control.SIZE_EXPAND_FILL  # takes what the trainer card leaves; its words shrink to fit
+	next_card.size_flags_vertical = Control.SIZE_EXPAND_FILL  # takes what the Keeper card leaves; its words shrink to fit
 	right.add_child(next_card)
 	_next = VBoxContainer.new()
 	_next.add_theme_constant_override("separation", 6)

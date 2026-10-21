@@ -1,0 +1,244 @@
+{
+ "id": "armboth_forest",
+ "name": "Armboth Forest",
+ "region": "cumbria",
+ "kind": "route",
+ "music": "route_forest",
+ "weather": {
+  "fog": 24,
+  "drizzle": 28,
+  "downpour": 14,
+  "clear": 14,
+  "gale": 8,
+  "frost": 4,
+  "sunshine": 8
+ },
+ "stage": "forest",
+ "scaled_floor": 90,
+ "spawn": [
+  38,
+  15
+ ],
+ "props": [
+  {
+   "type": "pine",
+   "x": 16,
+   "y": 9
+  },
+  {
+   "type": "pine",
+   "x": 34,
+   "y": 9
+  },
+  {
+   "type": "bench",
+   "x": 24,
+   "y": 10
+  },
+  {
+   "type": "noticeboard",
+   "x": 38,
+   "y": 13
+  },
+  {
+   "type": "slate_heap",
+   "x": 6,
+   "y": 9
+  },
+  {
+   "type": "rock",
+   "x": 20,
+   "y": 22
+  }
+ ],
+ "warps": [],
+ "edges": {
+  "east": {
+   "to": "lake_district",
+   "offset": 0
+  }
+ },
+ "npcs": [
+  {
+   "id": "armboth_ranger",
+   "sprite": "hillwalker",
+   "x": 37,
+   "y": 14,
+   "facing": "down",
+   "move": "still",
+   "script": "armboth_ranger",
+   "name": "Forest Ranger"
+  },
+  {
+   "id": "armboth_forester",
+   "sprite": "farmer",
+   "x": 20,
+   "y": 13,
+   "facing": "left",
+   "move": "still",
+   "script": "armboth_forester",
+   "name": "Forester"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "brockling",
+    "min": 90,
+    "max": 92,
+    "weight": 14
+   },
+   {
+    "species": "stoatlet",
+    "min": 90,
+    "max": 92,
+    "weight": 12
+   },
+   {
+    "species": "kidgruff",
+    "min": 90,
+    "max": 92,
+    "weight": 10
+   },
+   {
+    "species": "flittermouse",
+    "min": 90,
+    "max": 92,
+    "weight": 10
+   },
+   {
+    "species": "starlet",
+    "min": 91,
+    "max": 93,
+    "weight": 12,
+    "requires_flag": "rewild_lease_armboth_forest",
+    "flag_at_least": 1
+   },
+   {
+    "species": "kitelet",
+    "min": 91,
+    "max": 93,
+    "weight": 10,
+    "requires_flag": "rewild_lease_armboth_forest",
+    "flag_at_least": 2
+   },
+   {
+    "species": "slatelet",
+    "min": 91,
+    "max": 93,
+    "weight": 8,
+    "requires_flag": "rewild_lease_armboth_forest",
+    "flag_at_least": 2
+   },
+   {
+    "species": "ospret",
+    "min": 91,
+    "max": 93,
+    "weight": 8,
+    "requires_flag": "rewild_lease_armboth_forest",
+    "flag_at_least": 3
+   },
+   {
+    "species": "herdlet",
+    "min": 91,
+    "max": 93,
+    "weight": 8,
+    "requires_flag": "rewild_lease_armboth_forest",
+    "flag_at_least": 3
+   }
+  ],
+  "water": [
+   {
+    "species": "croakle",
+    "min": 90,
+    "max": 92,
+    "weight": 14
+   },
+   {
+    "species": "minkshade",
+    "min": 90,
+    "max": 92,
+    "weight": 10
+   },
+   {
+    "species": "ospret",
+    "min": 91,
+    "max": 93,
+    "weight": 6,
+    "requires_flag": "rewild_lease_armboth_forest",
+    "flag_at_least": 3
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 36,
+   "y": 17,
+   "plaque": "armboth_thirlmere",
+   "title": "A Lake for Manchester",
+   "text": "THIRLMERE. In 1879 Parliament let Manchester Corporation dam Thirlmere in the Lake District and send its water to the city by aqueduct, under the Manchester Waterworks Act. Two hamlets went under. The scheme was bitterly opposed, and the Thirlmere fight helped start the national fight for the Lakes and, in time, the National Trust."
+  },
+  {
+   "x": 24,
+   "y": 15,
+   "plaque": "armboth_sitka",
+   "title": "Sitka",
+   "text": "SITKA SPRUCE. Brought to Britain from the north-west coast of North America by the botanist David Douglas in the 1830s, Sitka grows fast, straight and wet, which is exactly what a timber crop needs. Britain's conifer plantations are mostly Sitka. It is excellent for wood and dreadful for dormice, adders and anything that likes light."
+  },
+  {
+   "x": 12,
+   "y": 21,
+   "plaque": "armboth_forestry",
+   "title": "The Forestry Commission",
+   "text": "THE FORESTRY COMMISSION. Britain was down to about five per cent woodland after the First World War, and the Commission was set up in 1919 to grow timber for the next war. Its fast-growing conifers cover whole fells. Woodland today still has a lot of those rows, and a growing number of mixed native trees among them."
+  },
+  {
+   "x": 30,
+   "y": 8,
+   "plaque": "armboth_osprey",
+   "title": "Fish Hawk",
+   "text": "OSPREYS. Persecuted out of England and wiped out in Britain by 1916, ospreys began returning to Scotland in the 1950s. In 2001 a pair nested in the Lake District for the first time in about two hundred years, at Bassenthwaite Lake. Wardens guard the nest, and the public watches through telescopes with enormous respect."
+  }
+ ],
+ "legend_extra": {
+  "f": {
+   "tile": "flowers",
+   "colour": "#a1865a"
+  },
+  ",": {
+   "tile": "tall_grass",
+   "colour": "#4a5b32",
+   "prop": "short"
+  }
+ },
+ "rows": [
+  "PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP",
+  "PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP",
+  "PPPPPPPP,,,PPPP,,,PPPPPPPPP,,,PPPP,,,PPPPPPP",
+  "PPPPPPPP,,,PPPP,,,PPPPPPPPP,,,~~~~~~~~PPPPPP",
+  "PPPPPPPP,,,PPPP,,,PPPPPPPPP,,,~~~~~~~~PPPPPP",
+  "PPPPPPPP,,,PPPP,,,PPPPPPPPP,,,~~~~~~~~PPPPPP",
+  "PP............................wwwwwwww....PP",
+  "PP........................................PP",
+  "PP........................................PP",
+  "PPPPPPPP,,,PPPP,,,PPPPPPPPP,,,PPPP,,,PPPPPPP",
+  "PPPPPPPP,,,PPPP,,,PPPPPPPPP,,,PPPP,,,PPPPPPP",
+  "PPPPPPPP,,,PPPP,,,PPPPPPPPP,,,PPPP,,,PPPPPPP",
+  "PP........................................PP",
+  "PP.............##########################.PP",
+  "PP.............#############################",
+  "PPPPPPPP,,,PPPP#############################",
+  "PPPPPPPP,,,PPPP,,,PPPPPPPPP###PPPP,,,P######",
+  "PPPPPPPP,,,PPPP,,,PPPPPPPPP###PPPP,,,PPPPPPP",
+  "PPPPPPPP,,,PPP..................PP,,,PPPPPPP",
+  "PP........................................PP",
+  "PP..fffffffff.............................PP",
+  "PP..fffffffff.............................PP",
+  "PPPPfffffffffP..................PP,,,PPPPPPP",
+  "PPPPfffffffffPP,,,PPPPPPPPP,,,PPPP,,,PPPPPPP",
+  "PPPPfffffffffPP,,,PPPPPPPPP,,,PPPP,,,PPPPPPP",
+  "PPPPPPPP,,,PPPP,,,PPPPPPPPP,,,PPPP,,,PPPPPPP",
+  "PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP",
+  "PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP"
+ ]
+}

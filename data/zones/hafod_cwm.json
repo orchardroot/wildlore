@@ -1,0 +1,244 @@
+{
+ "id": "hafod_cwm",
+ "name": "Hafod Cwm",
+ "region": "mid_wales",
+ "kind": "route",
+ "music": "route_mountain",
+ "weather": {
+  "downpour": 24,
+  "gale": 20,
+  "fog": 20,
+  "drizzle": 18,
+  "clear": 10,
+  "frost": 4,
+  "sunshine": 4
+ },
+ "stage": "mountain",
+ "scaled_floor": 90,
+ "spawn": [
+  19,
+  26
+ ],
+ "props": [
+  {
+   "type": "sheep",
+   "x": 8,
+   "y": 14
+  },
+  {
+   "type": "sheep",
+   "x": 14,
+   "y": 21
+  },
+  {
+   "type": "sheep",
+   "x": 30,
+   "y": 15
+  },
+  {
+   "type": "noticeboard",
+   "x": 22,
+   "y": 25
+  },
+  {
+   "type": "bench",
+   "x": 22,
+   "y": 22
+  },
+  {
+   "type": "rock",
+   "x": 34,
+   "y": 18
+  }
+ ],
+ "warps": [],
+ "edges": {
+  "south": {
+   "to": "beacons",
+   "offset": 0
+  }
+ },
+ "npcs": [
+  {
+   "id": "hafod_ranger",
+   "sprite": "farmer",
+   "x": 20,
+   "y": 23,
+   "facing": "up",
+   "move": "still",
+   "script": "hafod_ranger",
+   "name": "Hill Farmer"
+  },
+  {
+   "id": "hafod_shepherd",
+   "sprite": "hillwalker",
+   "x": 29,
+   "y": 13,
+   "facing": "left",
+   "move": "still",
+   "script": "hafod_shepherd",
+   "name": "Shepherd"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "kidgruff",
+    "min": 90,
+    "max": 92,
+    "weight": 14
+   },
+   {
+    "species": "herdlet",
+    "min": 90,
+    "max": 92,
+    "weight": 12
+   },
+   {
+    "species": "martling",
+    "min": 90,
+    "max": 92,
+    "weight": 8
+   },
+   {
+    "species": "hootlet",
+    "min": 90,
+    "max": 92,
+    "weight": 10
+   },
+   {
+    "species": "wispet",
+    "min": 91,
+    "max": 93,
+    "weight": 12,
+    "requires_flag": "rewild_lease_hafod_hill_farm",
+    "flag_at_least": 1
+   },
+   {
+    "species": "tylwyth",
+    "min": 91,
+    "max": 93,
+    "weight": 10,
+    "requires_flag": "rewild_lease_hafod_hill_farm",
+    "flag_at_least": 2
+   },
+   {
+    "species": "kitelet",
+    "min": 91,
+    "max": 93,
+    "weight": 12,
+    "requires_flag": "rewild_lease_hafod_hill_farm",
+    "flag_at_least": 2
+   },
+   {
+    "species": "gwyllgi",
+    "min": 91,
+    "max": 93,
+    "weight": 8,
+    "requires_flag": "rewild_lease_hafod_hill_farm",
+    "flag_at_least": 3
+   },
+   {
+    "species": "cragchough",
+    "min": 91,
+    "max": 93,
+    "weight": 8,
+    "requires_flag": "rewild_lease_hafod_hill_farm",
+    "flag_at_least": 3
+   }
+  ],
+  "water": [
+   {
+    "species": "croakle",
+    "min": 90,
+    "max": 92,
+    "weight": 14
+   },
+   {
+    "species": "elverlet",
+    "min": 90,
+    "max": 92,
+    "weight": 10
+   },
+   {
+    "species": "minkshade",
+    "min": 91,
+    "max": 93,
+    "weight": 8,
+    "requires_flag": "rewild_lease_hafod_hill_farm",
+    "flag_at_least": 2
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 17,
+   "y": 23,
+   "plaque": "hafod_elan",
+   "title": "The Drowned Valley",
+   "text": "THE ELAN VALLEY. Birmingham Corporation built a chain of dams on the Elan and Claerwen, opened in 1904, to bring clean water to a city of factories and cholera. Farms, a school and a mansion were drowned, and families moved out. The water still travels to Birmingham by gravity alone, without a pump. The valley has been quietly complicated about this ever since."
+  },
+  {
+   "x": 22,
+   "y": 12,
+   "plaque": "hafod_heft",
+   "title": "Hefted Flocks",
+   "text": "HEFTING. On open mountain, with no walls, hill ewes learn their own patch of ground and teach it to their lambs. The 'heft' goes with the farm, not the farmer, so a flock is sold with the hill. A hefted flock will not wander off and does not need a fence, which is an irony not lost on the old estates."
+  },
+  {
+   "x": 26,
+   "y": 6,
+   "plaque": "hafod_kite",
+   "title": "The Red Kite",
+   "text": "THE RED KITE. By the early twentieth century, the red kite in Britain had been reduced to a handful of birds in the hills of mid Wales, guarded by farmers, landowners and the odd egg collector's worst enemy. Protection since then, and re-introduced birds elsewhere, have given back a population of thousands. Wales still looks after the original."
+  },
+  {
+   "x": 13,
+   "y": 19,
+   "plaque": "hafod_ffridd",
+   "title": "Ffridd",
+   "text": "FFRIDD. The Welsh word for the zone between the walled fields and the open hill, where bracken, hawthorn, rowan and gorse grow in a mosaic. It's wonderful for birds, reptiles and butterflies. It's also what dies when a farm gives up grazing or sprays the lot, which is why people fight over it."
+  }
+ ],
+ "legend_extra": {
+  "h": {
+   "tile": "tall_grass",
+   "colour": "#7a6a5a",
+   "prop": "heather"
+  },
+  "k": {
+   "tile": "grass",
+   "colour": "#8a8a4d"
+  }
+ },
+ "rows": [
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TThhhhhhhhRhhhhhhRhhhhhhhhhhhhhhhhhRhhhhhhTT",
+  "TThhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhTT",
+  "TThhhhhhhhhhhhhhhhh###hhhhhhhhhhhhhhhhhhhhTT",
+  "TThhhhhhhhhhhhhhhhh###hhhhhhhh~~~~~~~~hhhhTT",
+  "TThhhhRhhhhhhhhhhhh###hhhhhhhh~~~~~~~~hhhhTT",
+  "TThhhRhhhhhhhhhhhhh###hhhhRhhh~~~~~~~~hhhhTT",
+  "TThhhhhhhhhhhhhhhhh###hhhhhhhhwwwwwwwwhhhhTT",
+  "TThhhhhhhhhhhhhhhhh###hhhhhhhhhRRhhhhhhhhhTT",
+  "TTWWWWWWWWWWWWWWWWW###WWWWWWWWWWWWWWWWWWWWTT",
+  "TT,kkkkkkkkkkkkk,,k###kkkkkkkkkkkkkkk,kkkkTT",
+  "TTkkkkkkkkkkkkkkkkk###kkkkkkkkkkkkkkkkk,,kTT",
+  "TTkkkkkkkkfkk,kkkkk###kkkkkkkkkkkkkk,kkkkkTT",
+  "TTkkkkkkkkkkkkkkkkk###kkkkkkkfkkkkkkkkkkkkTT",
+  "TTkkkkkkkkkkkk,kkkk###kkkkkkkkkkkkkkkkkkkkTT",
+  "TTkkkkkkkkkkkkkkkkk###kkkkkkkkkkkkkkkkfkkkTT",
+  "TTkkkkkkkkkkkkkkk,k###kkkkk,kkkkkkkkkfkkkkTT",
+  "TTkkkkkkkkWfWWWW,kk###kkkkWkkkkkkkkkkkkkkkTT",
+  "TTkkkkkkkkWkkkkkkkk###kkkkW,kkkkfkkkkkkkkkTT",
+  "TTkkkkkkkkWkkkkkkfk###kkkkWkkkkkkkkkkkkkkkTT",
+  "TTkkkkkkkkWkkkkkkkk###kkkfWkk,kkkkkkkkkkkkTT",
+  "TTkkkkkkkkWkkkkkkkk###kkkkWfkkk,fkkk,kkkkkTT",
+  "TTfkkkkkkkWkkkkkkkk###kkkkWkkkkkkkkkkkkkkkTT",
+  "TTkkkkkkkkWkkkfkkkk###kkkkWkkkkk,kkkkk,kkkTT",
+  "TTkkkkkk,kkkkkkkkkk###kkkkfkk,kkkkkkkkkkfkTT",
+  "TTTTTTTTTTTTTTTTTTT###TTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTT###TTTTTTTTTTTTTTTTTTTTTT"
+ ]
+}

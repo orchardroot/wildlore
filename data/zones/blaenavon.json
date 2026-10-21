@@ -317,6 +317,15 @@
    "type": "noticeboard",
    "x": 23,
    "y": 21
+  },
+  {
+   "type": "building",
+   "style": "red_brick",
+   "x": 4,
+   "y": 26,
+   "w": 7,
+   "h": 4,
+   "label": "Miners' Hall"
   }
  ],
  "warps": [
@@ -375,6 +384,18 @@
    "tx": 6,
    "ty": 7,
    "facing": "up"
+  },
+  {
+   "x": 7,
+   "y": 29,
+   "to": "blaenavon_miners_hall",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up",
+   "locked": {
+    "needs": "miners_hall_key",
+    "line": "The Miners' Hall is padlocked, its windows boarded since the eighties. A Heritage Trust notice says OPENING SOON, and has said so for a very long time."
+   }
   }
  ],
  "edges": {
@@ -446,6 +467,37 @@
    "facing": "up",
    "move": "still",
    "trainer": "bla_legend"
+  },
+  {
+   "id": "arc_cerys",
+   "sprite": "villager_2",
+   "x": 44,
+   "y": 19,
+   "facing": "right",
+   "move": "still",
+   "script": "arc_cerys",
+   "name": "Cerys, Heritage Trust",
+   "show_if": "game_complete"
+  },
+  {
+   "id": "arc_choir_0",
+   "sprite": "choir_singer",
+   "x": 49,
+   "y": 18,
+   "facing": "left",
+   "move": "still",
+   "script": "arc_choir",
+   "show_if": "q_arc_wales_10"
+  },
+  {
+   "id": "arc_choir_1",
+   "sprite": "choir_singer",
+   "x": 51,
+   "y": 19,
+   "facing": "left",
+   "move": "still",
+   "script": "arc_choir",
+   "show_if": "q_arc_wales_10"
   }
  ],
  "encounters": {
@@ -678,10 +730,10 @@
   "..============================================##ggggggTT",
   "..============================================##ggggggTT",
   "TT::::::::::::::::::::::::::::::::::::::::::::##ggggggTT",
-  "TTgggggggggggggggggg##gggggggggggggggggggggggg##ghhhhgTT",
-  "TTggghhhgggggggggggg##ggBBBBBBBBggBBBBBBBBgggg##hhhhhgTT",
-  "TTggghhhhggggggggggg##ggBBBBBBBBggBBBBBBBBgggg##hhhhhgTT",
-  "TTgghhhhhggggggggggg##ggBBBBBBBBggBBBBBBBBhggg##hhhhhgTT",
+  "TTggBBBBBBBggggggggg##gggggggggggggggggggggggg##ghhhhgTT",
+  "TTggBBBBBBBggggggggg##ggBBBBBBBBggBBBBBBBBgggg##hhhhhgTT",
+  "TTggBBBBBBBggggggggg##ggBBBBBBBBggBBBBBBBBgggg##hhhhhgTT",
+  "TTggBBBDBBBggggggggg##ggBBBBBBBBggBBBBBBBBhggg##hhhhhgTT",
   "TTgghhhhhhgggggggggg##gggggggggggggghhhhhhhhgg##hhhhhhTT",
   "TTgghhhhBBBBBBBBBBBg##gggggggggggggghhhhhhhhhg##hhhhhgTT",
   "TTgghhhhBBBBBBBBBBBg##gggggggggggggghhhhhhhhhg##hhhhhhTT",

@@ -21,6 +21,68 @@
    "do": "say",
    "who": "Hurling Fan",
    "text": "Rule one of hurling is that you duck. Rule two is that there is no rule two."
+  },
+  {
+   "do": "say",
+   "who": "Hurling Fan",
+   "text": "There's a net out the back and a sliotar in my bag. Five frees at the keeper, if you're brave."
+  },
+  {
+   "do": "games",
+   "who": "Hurling Fan",
+   "events": [
+    "hurling"
+   ]
+  }
+ ],
+ "arc_ie_captain": [
+  {
+   "do": "if",
+   "flag": "q_arc_ireland_6",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_arc_ireland_7",
+     "then": [
+      {
+       "do": "say",
+       "who": "Club Captain",
+       "text": "Kinsale is the end of the Wild Atlantic Way, and the crowd there will cheer anyone who finishes. They cheer louder if they have had soup."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Club Captain",
+       "text": "The Way ends in Kinsale, in this county, and the coast's clubs will sponsor any crew that has a hurler's nerve. Five frees against the keeper and the whole county is for you."
+      },
+      {
+       "do": "games",
+       "who": "Club Captain",
+       "events": [
+        "hurling"
+       ]
+      },
+      {
+       "do": "say",
+       "who": "Club Captain",
+       "text": "A few frees is all it takes. Kinsale's cheering for the Race of the Waves. Off you go to Dingle."
+      },
+      {
+       "do": "set",
+       "flag": "q_arc_ireland_7",
+       "value": true
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Club Captain",
+     "text": "Cork is a republic and has an opinion about it. Ask me about the race when you have been to Tory."
+    }
+   ]
   }
  ]
 }

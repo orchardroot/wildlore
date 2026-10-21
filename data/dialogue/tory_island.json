@@ -314,5 +314,48 @@
     }
    ]
   }
+ ],
+ "arc_ie_curach": [
+  {
+   "do": "if",
+   "flag": "q_arc_ireland_5",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_arc_ireland_6",
+     "then": [
+      {
+       "do": "say",
+       "who": "Tory Rower",
+       "text": "Aon, dó, trí, tarraing! One, two, three, pull! That is all the rowing Irish you need."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Tory Rower",
+       "text": "On Tory we row a curach, a thin lath boat, out to the rocks when the wind lets us, which is not often. The island is a Gaeltacht, and its rowers do not waste syllables."
+      },
+      {
+       "do": "say",
+       "who": "Tory Rower",
+       "text": "Race of the Waves, is it? Cailín sent you with her Irish and a good word for us? Then Tory will row. Tell Dingle the island is in, and that we will be sick on the way back."
+      },
+      {
+       "do": "set",
+       "flag": "q_arc_ireland_6",
+       "value": true
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Tory Rower",
+     "text": "Oh, you are one of those who waits for the ferry. We have all the time in the world, and Tory has none of the Wi-Fi."
+    }
+   ]
+  }
  ]
 }

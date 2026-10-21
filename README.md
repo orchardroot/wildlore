@@ -21,6 +21,27 @@ It started life as a monster-catching game. It's turned into something closer to
 
 Whatever's newest is below; older notes are further down.
 
+## What's new in 3.9: Long Roads (and 3.8: The Long Game)
+
+**A long road in every nation**, each pulling together the businesses, Regulars, mysteries, guilds, caves and minigames from the last few releases, and each ending with something in the world changed for good:
+- **England, The Right to Roam:** the 1932 Kinder trespass remembered, and a moor opened to everyone who wants to walk it.
+- **Wales, Whose Pit Is It?:** the Heritage Trust wants Big Pit as a theme park. Find out what the valley really wants.
+- **Scotland, The Braes Remembered:** a Skye township buys back its hill under the community right to buy.
+- **Ireland, Rás na dTonnta:** raise the crews of the Wild Atlantic Way, boat by boat, for a revived curach race at Dingle.
+- **Northern Ireland, Three Kinds of Hands:** the shipyard, the linen mill and the Mourne Wall builders, and a Belfast mill brought back to life.
+- **The islands, The Roll of the Isles:** Mann, Shetland and the Channel Islands, and the missing pages of their yearly rituals.
+
+**The Long Game** (after the story):
+- **Buy the land back.** The Enclosure's leases come up at auction at the Exchange, with the Heritage Trust bidding against you if you're a Rambler: ten of them, from a Saddleworth grouse moor and Lee Moor's clay works to a Highland deer forest and an Irish cutaway bog. Own one and it opens up, and it heals season by season as you rewild it.
+- **A pub quiz league** with a table in every nation, and **a daily crossword** in the paper.
+- **Highland games** (tossing the caber, tug of war), **hurling** and **shinty**.
+- **Sea shanties** in harbour pubs and **conkers** in autumn.
+- **Townsfolk keep hours**: market on market day, the pub of an evening, church on a Sunday morning.
+
+Also: Deep Places look like caves now, and a few things new players found confusing in the first hour are clearer.
+
+Saves from 3.7 carry straight over.
+
 ## What's new in 3.7: Behind Doors
 
 - **Rooms worth a second look.** Face almost anything indoors and press confirm: the clock, the dresser, the noticeboard in the vestry. Most just have something to say; a few hide a coin, a key or a clue.
@@ -139,7 +160,7 @@ All of it, start to finish, and then some. You leave home in Macclesfield with a
 - Your lead creature walks along behind you, and has opinions about the weather if you ask it
 - The seasons follow the real calendar: the trees turn in autumn and blossom in spring, there are pumpkins on doorsteps at Halloween, fireworks for Bonfire Night, and a tree in the square at Christmas
 - A wireless in the front room reads the Shipping Forecast, off the game's own weather, so it's actually useful. And a blue plaque in every town, because somebody famous lived everywhere
-- Pub quizzes in nine pubs, a hundred and fifty questions, and a prize once a day if you're sharp. Phones away
+- Pub quizzes in nine pubs, a hundred and fifty questions, and a prize once a day if you're sharp.  Each nation now has a quiz league table (six fixtures, a title, and a cup final in Dublin for two-time champions), and the paper on the bar has a daily crossword built from the Gazetteer. Phones away
 - Photo mode (P, or click the right stick) and a Stats page that counts your steps, your trains and your cups of tea
 - The Hedgerow Year: forage blackberries, sloes, mushrooms and seaweed along every route (what you find depends on the season and the weather), then cook them up in Mum's kitchen. Gran's recipe book gets you started, and folk all over the isles will teach you the rest
 - Folk charms to hold: a hag stone, a horseshoe, St Brigid's cross, a sprig of rowan and more, each with a small effect in battle. Craft them, find them, buy a few, or catch a creature that's already carrying one

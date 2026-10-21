@@ -15,5 +15,255 @@
    "who": "Librarian",
    "text": "The name comes from the White Linen Hall, where cloth merchants once traded. The library lived there for nearly a century."
   }
- ]
+ ],
+"arcni_nuala": [
+ {
+  "do": "if",
+  "flag": "q_arc_ni_done",
+  "then": [
+   {
+    "do": "say",
+    "who": "Nuala Orr",
+    "text": "The Mill's open and the kettle's on. Go and look at it. You earned the first cup."
+   }
+  ],
+  "else": [
+   {
+    "do": "if",
+    "flag": "q_arc_ni_11",
+    "then": [
+     {
+      "do": "say",
+      "who": "Nuala Orr",
+      "text": "Go and see the Mill. South side, past the sandwich bar. The door's open."
+     }
+    ],
+    "else": [
+     {
+      "do": "if",
+      "flag": "q_arc_ni_9",
+      "then": [
+       {
+        "do": "if",
+        "flag": "plaque_arc_ni_wall_builders",
+        "then": [
+         {
+          "do": "say",
+          "who": "Nuala Orr",
+          "text": "You've been to the yard, the mill and the Wall. And you came back. That's more than most committees manage."
+         },
+         {
+          "do": "say",
+          "who": "",
+          "text": "{player} tells Nuala about the heater boys, the half-timers and the men who built the Wall by hand."
+         },
+         {
+          "do": "say",
+          "who": "Nuala Orr",
+          "text": "That's the three testimonies. I'll write them up as they were told to you, and I'll put the names in. Heater boys, doffers and wallers all."
+         },
+         {
+          "do": "say",
+          "who": "Nuala Orr",
+          "text": "The old mill on the south side is open as of this morning. Mervyn cut the chain himself, with a bolt-cutter he says he 'found'. Go and see it."
+         },
+         {
+          "do": "set",
+          "flag": "q_arc_ni_11"
+         },
+         {
+          "do": "set",
+          "flag": "q_arc_ni_hands_open"
+         }
+        ],
+        "else": [
+         {
+          "do": "say",
+          "who": "Nuala Orr",
+          "text": "Read the plaque beside the gap, then come back to me. Three trades, three stories."
+         }
+        ]
+       }
+      ],
+      "else": [
+       {
+        "do": "if",
+        "flag": "q_arc_ni_started",
+        "then": [
+         {
+          "do": "if",
+          "flag": "q_arc_ni_9",
+          "then": [
+           {
+            "do": "say",
+            "who": "Nuala Orr",
+            "text": "Read the plaque beside the gap, then come back to me. Three trades, three stories."
+           }
+          ],
+          "else": [
+           {
+            "do": "if",
+            "flag": "q_arc_ni_8",
+            "then": [
+             {
+              "do": "say",
+              "who": "Nuala Orr",
+              "text": "The waller will have a gap for you to mend. Big stones low, joints covered."
+             }
+            ],
+            "else": [
+             {
+              "do": "if",
+              "flag": "q_arc_ni_7",
+              "then": [
+               {
+                "do": "say",
+                "who": "Nuala Orr",
+                "text": "Now the Mournes. There's a waller by the Wall who'll tell you how it went up."
+               }
+              ],
+              "else": [
+               {
+                "do": "if",
+                "flag": "q_arc_ni_6",
+                "then": [
+                 {
+                  "do": "say",
+                  "who": "Nuala Orr",
+                  "text": "The weaver at Lisburn Road Linens. Let her tell it her own way. It will take a while."
+                 }
+                ],
+                "else": [
+                 {
+                  "do": "if",
+                  "flag": "plaque_arc_ni_1907",
+                  "then": [
+                   {
+                    "do": "say",
+                    "who": "Nuala Orr",
+                    "text": "Lisburn Road Linens next. A bolt of linen on the table, and an old weaver who remembers the mills."
+                   }
+                  ],
+                  "else": [
+                   {
+                    "do": "if",
+                    "flag": "q_arc_ni_4",
+                    "then": [
+                     {
+                      "do": "say",
+                      "who": "Nuala Orr",
+                      "text": "The plaque by the yard door, then. The 1907 strike. It is the bit they leave off the tea towels."
+                     }
+                    ],
+                    "else": [
+                     {
+                      "do": "if",
+                      "flag": "q_arc_ni_3",
+                      "then": [
+                       {
+                        "do": "say",
+                        "who": "Nuala Orr",
+                        "text": "Sing with the yard singer, then read the 1907 plaque by the yard door. That's the yard done."
+                       }
+                      ],
+                      "else": [
+                       {
+                        "do": "if",
+                        "flag": "q_arc_ni_2",
+                        "then": [
+                         {
+                          "do": "say",
+                          "who": "Nuala Orr",
+                          "text": "Mervyn Hanna next. He is about the streets of Belfast, and he'll be at the yard before long. Bring him champ if you can. Tea won't do."
+                         }
+                        ],
+                        "else": [
+                         {
+                          "do": "say",
+                          "who": "Nuala Orr",
+                          "text": "Titanic Belfast has a board of the yard's records. Read it, then find Mervyn Hanna. He was forty-four years in the yard."
+                         }
+                        ]
+                       }
+                      ]
+                     }
+                    ]
+                   }
+                  ]
+                 }
+                ]
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ],
+        "else": [
+         {
+          "do": "say",
+          "who": "Nuala Orr",
+          "text": "Mind the tea. It's been there since Tuesday and it has opinions."
+         },
+         {
+          "do": "say",
+          "who": "Nuala Orr",
+          "text": "I'm Nuala Orr. I keep the Local Studies shelves. Belfast made three things the whole world wanted: ships, linen, and the water that comes out of the tap. Every one was made by hand, and nobody wrote the hands down."
+         },
+         {
+          "do": "say",
+          "who": "Nuala Orr",
+          "text": "There's an old mill on the south side, shut for decades. The Council will knock it down unless somebody shows them what it's worth. I want to open it as a workshop for the three trades: the yard, the mill and the Wall."
+         },
+         {
+          "do": "choice",
+          "text": "Help Nuala gather the three testimonies?",
+          "options": [
+           "Yes, I will",
+           "Not just now"
+          ],
+          "set": "arcni_nuala_pick"
+         },
+         {
+          "do": "if",
+          "flag": "arcni_nuala_pick",
+          "then": [
+           {
+            "do": "say",
+            "who": "Nuala Orr",
+            "text": "Sure that's grand. The offer will keep, the mill won't."
+           }
+          ],
+          "eq": 1,
+          "else": [
+           {
+            "do": "say",
+            "who": "Nuala Orr",
+            "text": "Start with the yard. Read the board at Titanic Belfast, then find Mervyn Hanna. Forty-four years in the yard and he'll tell you if I've got it wrong."
+           },
+           {
+            "do": "say",
+            "who": "Nuala Orr",
+            "text": "Then the mill, and then the Wall. Three trades, three stories. Don't let anyone give you a tea towel instead."
+           },
+           {
+            "do": "set",
+            "flag": "q_arc_ni_started"
+           },
+           {
+            "do": "set",
+            "flag": "q_arc_ni_1"
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ }
+]
 }

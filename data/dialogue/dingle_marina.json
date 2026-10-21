@@ -15,5 +15,70 @@
    "who": "Skipper",
    "text": "Look out for the Bayrunners. They race the boats for fun, and they win."
   }
+ ],
+ "arc_ie_marshal": [
+  {
+   "do": "if",
+   "flag": "q_arc_ireland_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Race Marshal",
+     "text": "The Race of the Waves has a course, a committee and, as of this year, a trophy. It is nearly a normal event, and I am deeply suspicious."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_arc_ireland_8",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_arc_ireland_9",
+       "then": [],
+       "else": [
+        {
+         "do": "say",
+         "who": "Race Marshal",
+         "text": "Entries in. Tory, Galway, Cork and Dingle are all here, and the only crew missing is Dún Chaoin, who are on the slip, glaring."
+        },
+        {
+         "do": "set",
+         "flag": "q_arc_ireland_9",
+         "value": true
+        }
+       ]
+      },
+      {
+       "do": "say",
+       "who": "Race Marshal",
+       "text": "The Dún Chaoin crew say they have rowed these waters since before the Famine, and that the race is theirs by right. Settle it."
+      },
+      {
+       "do": "battle",
+       "trainer": "arc_ie_crew",
+       "intro": true
+      },
+      {
+       "do": "set",
+       "flag": "q_arc_ireland_10",
+       "value": true
+      },
+      {
+       "do": "say",
+       "who": "Race Marshal",
+       "text": "The Dún Chaoin crew shake your hand and then, with great dignity, blame the weather. The race is yours, and the Way's. Go and tell Nóra."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Race Marshal",
+       "text": "Is this about the race? Nóra is still gathering crews, and a marshal does not blow the whistle on an empty slip."
+      }
+     ]
+    }
+   ]
+  }
  ]
 }

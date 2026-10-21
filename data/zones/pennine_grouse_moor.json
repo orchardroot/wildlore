@@ -1,0 +1,353 @@
+{
+ "id": "pennine_grouse_moor",
+ "name": "Saddleworth High Moor",
+ "region": "yorkshire",
+ "kind": "route",
+ "music": "route_moor",
+ "weather": {
+  "drizzle": 35,
+  "fog": 22,
+  "clear": 18,
+  "gale": 10,
+  "sunshine": 8,
+  "downpour": 7
+ },
+ "stage": "moor",
+ "legend_extra": {
+  ".": {
+   "tile": "grass",
+   "colour": "#7f7b49"
+  },
+  "m": {
+   "tile": "grass",
+   "colour": "#77804a"
+  },
+  "n": {
+   "tile": "grass",
+   "colour": "#8a7046"
+  },
+  "e": {
+   "tile": "grass",
+   "colour": "#7a7448",
+   "prop": "heather"
+  },
+  "h": {
+   "tile": "tall_grass",
+   "colour": "#655060",
+   "prop": "heather"
+  },
+  "R": {
+   "tile": "rock",
+   "colour": "#7d7a4a"
+  },
+  "G": {
+   "tile": "rock",
+   "colour": "#6f6852",
+   "prop": "gritstone"
+  },
+  "W": {
+   "tile": "drystone_wall",
+   "colour": "#76734a"
+  },
+  "r": {
+   "tile": "shallow",
+   "prop": "reeds"
+  }
+ },
+ "props": [
+  {
+   "type": "bench",
+   "x": 10,
+   "y": 5
+  },
+  {
+   "type": "rock",
+   "x": 6,
+   "y": 5
+  },
+  {
+   "type": "rock",
+   "x": 12,
+   "y": 4
+  },
+  {
+   "type": "sheep",
+   "x": 24,
+   "y": 22
+  },
+  {
+   "type": "sheep",
+   "x": 26,
+   "y": 23
+  },
+  {
+   "type": "sheep",
+   "x": 31,
+   "y": 20
+  },
+  {
+   "type": "bollard",
+   "x": 16,
+   "y": 30
+  },
+  {
+   "type": "bollard",
+   "x": 12,
+   "y": 30
+  }
+ ],
+ "warps": [],
+ "edges": {
+  "south": {
+   "to": "saddleworth_moor",
+   "offset": 15
+  }
+ },
+ "npcs": [
+  {
+   "id": "moor_ranger",
+   "sprite": "villager_2",
+   "x": 16,
+   "y": 28,
+   "facing": "left",
+   "move": "still",
+   "script": "moor_ranger",
+   "name": "Ranger"
+  },
+  {
+   "id": "arc_waller",
+   "sprite": "villager_4",
+   "x": 18,
+   "y": 29,
+   "facing": "right",
+   "move": "still",
+   "script": "arc_england_waller",
+   "name": "Waller",
+   "show_if": "game_complete"
+  },
+  {
+   "id": "arc_agent",
+   "sprite": "villager_2",
+   "x": 20,
+   "y": 27,
+   "facing": "down",
+   "move": "still",
+   "script": "arc_england_agent",
+   "name": "Enclosure Agent",
+   "show_if": "q_arc_england_wall",
+   "hide_if": "trainer_arc_england_agent"
+  },
+  {
+   "id": "arc_curlew",
+   "sprite": "birdwatcher",
+   "x": 24,
+   "y": 24,
+   "facing": "left",
+   "move": "still",
+   "script": "arc_england_hare",
+   "name": "Curlew Counter",
+   "show_if": "q_arc_england_agent"
+  },
+  {
+   "id": "arc_ghost",
+   "sprite": "hiker",
+   "x": 19,
+   "y": 31,
+   "facing": "up",
+   "move": "still",
+   "script": "arc_england_gate",
+   "name": "Walker in Plus-fours",
+   "show_if": "q_arc_england_hare"
+  },
+  {
+   "id": "arc_ezra",
+   "sprite": "hillwalker",
+   "x": 21,
+   "y": 31,
+   "facing": "left",
+   "move": "still",
+   "script": "arc_england_ezra_moor",
+   "name": "Ezra",
+   "show_if": "q_arc_england_order"
+  },
+  {
+   "id": "arc_walker1",
+   "sprite": "hiker",
+   "x": 22,
+   "y": 29,
+   "facing": "up",
+   "move": "still",
+   "script": "arc_england_walker",
+   "name": "Walker",
+   "show_if": "q_arc_england_done"
+  },
+  {
+   "id": "arc_walker2",
+   "sprite": "jogger",
+   "x": 25,
+   "y": 29,
+   "facing": "left",
+   "move": "still",
+   "script": "arc_england_walker",
+   "name": "Walker",
+   "show_if": "q_arc_england_done"
+  },
+  {
+   "id": "arc_walker3",
+   "sprite": "villager_1",
+   "x": 18,
+   "y": 26,
+   "facing": "right",
+   "move": "still",
+   "script": "arc_england_walker",
+   "name": "Walker",
+   "show_if": "q_arc_england_done"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "snowhare",
+    "min": 84,
+    "max": 86,
+    "weight": 14
+   },
+   {
+    "species": "sphagnet",
+    "min": 84,
+    "max": 86,
+    "weight": 14,
+    "weather": [
+     "drizzle",
+     "downpour",
+     "fog"
+    ]
+   },
+   {
+    "species": "scuttlet",
+    "min": 84,
+    "max": 85,
+    "weight": 14,
+    "time": [
+     "dawn",
+     "day",
+     "dusk"
+    ]
+   },
+   {
+    "species": "starlet",
+    "min": 84,
+    "max": 85,
+    "weight": 10,
+    "time": [
+     "day",
+     "dawn"
+    ]
+   },
+   {
+    "species": "kidgruff",
+    "min": 84,
+    "max": 86,
+    "weight": 10
+   },
+   {
+    "species": "hootlet",
+    "min": 85,
+    "max": 86,
+    "weight": 6,
+    "time": [
+     "night",
+     "dusk"
+    ]
+   }
+  ],
+  "water": [
+   {
+    "species": "volet",
+    "min": 84,
+    "max": 86,
+    "weight": 24
+   },
+   {
+    "species": "dipling",
+    "min": 84,
+    "max": 85,
+    "weight": 12
+   },
+   {
+    "species": "stalklet",
+    "min": 84,
+    "max": 85,
+    "weight": 10
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 13,
+   "y": 31,
+   "text": "SADDLEWORTH HIGH MOOR. Formerly Enclosure Ltd's shoot. The notice on the gate says KEEP OUT in four languages, none of them polite."
+  },
+  {
+   "x": 11,
+   "y": 6,
+   "plaque": "lease_kinder_trespass",
+   "title": "The Kinder Trespass, 1932",
+   "text": "On 24 April 1932 several hundred walkers set off from Hayfield to climb Kinder Scout, then closed to the public so that grouse could be shot. Benny Rothman was one of the organisers. Gamekeepers met them on the way up, and several walkers were jailed afterwards. The Peak District became Britain's first National Park in 1951, and the Countryside and Rights of Way Act of 2000 opened most open moor in England and Wales to walkers."
+  },
+  {
+   "x": 21,
+   "y": 8,
+   "plaque": "lease_grouse_moor",
+   "title": "The Glorious Twelfth",
+   "text": "A driven grouse moor is run for one day: the 12th of August, when the shooting of red grouse begins. Heather is cut and burned in patches to give the birds young shoots to eat and old heather to hide in, and the line of stone or turf butts is where the guns stand. Moorland drains, called grips, helped the heather but dried the peat, and dried peat loses its stored carbon."
+  },
+  {
+   "x": 6,
+   "y": 18,
+   "plaque": "lease_blocking_grips",
+   "title": "Blocking the Grips",
+   "text": "Peat restoration begins by blocking the drains with dams of peat, wood or stone so that the water stays on the hill. Sphagnum moss is then planted, a plant that can hold many times its own weight in water and, over thousands of years, makes peat. Wetter moors also slow the run-off that floods the towns below."
+  }
+ ],
+ "spawn": [
+  14,
+  31
+ ],
+ "rows": [
+  "RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR",
+  "RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR",
+  "RRmne..nmmme..eeem.em.emme.mememne.e..RR",
+  "RR.Gmmemm.mm.ne...hme..nm..eeeeemen.mmRR",
+  "RRmee.nmm.emnmehemhGhhmeeeem.ememmn.m.RR",
+  "RR.e..mmem..eehhhhhehhhemmme.emme.emm.RR",
+  "RRn.emm#################nnemhmnm.m.m.eRR",
+  "RRmem.me.ehem###eehmmmnmhhmhhhhmhennmeRR",
+  "RRmmermhhhhhh###n..ee.ehG.GhhmhhhG.enmRR",
+  "RRe.mrhehhhhh###eem.Gmhhhhh.hmhhmhhm.mRR",
+  "RRmmmrh.hhheh###memeem.hhhhhhhhhhhm.nmRR",
+  "RR.m.rhhehhhh###GmnmmeeehhhhhhhhhmGmmmRR",
+  "RRnnmr.hhhhhh###.e.enmmn.ee.h.mmmmm.mmRR",
+  "RRmmmrmm.WWW.###WWme.WWWmenWWWe..WWW.mRR",
+  "RRmmnrmeeWeWe###.We.mWmWmenWeWemeWmWmnRR",
+  "RRnemrmmeneee###mmnennn.m..nnee.n.ememRR",
+  "RRmemrG.m.e.m###e..eh.rrrrrrrrrrrr....RR",
+  "RR.n.ree.m.n.###nhhehhhheme.eemenememnRR",
+  "RRe.ereeemmm.###hhhmhnhhh.memmm...ee..RR",
+  "RRm.ere.mmemm###hhhhGhhhhh...een.Gme.mRR",
+  "RR.Gnrmnneemm###hhehhmhhhGmm.nnmmn.emmRR",
+  "RR.enrnmhme.m###mhh.hhhhmmGe.emmm.mmeeRR",
+  "RRmGmrehh.hmn###n..mhm...nGm.mh.mm.Ge.RR",
+  "RRemermhhmnGe###mn.mmGemeGnhhehnehnmn.RR",
+  "RReehrhhhhhmh###nmemnnne..hhhhhmehh.mmRR",
+  "RRmm.rhhhhhhm###mm.mme..mhhhhhhhhhhhe.RR",
+  "RR.e.rhmhmhme###...neGn.mmhhh.hhhhhnmeRR",
+  "RRnnmre.hm.n.###nm..nmmnemehhhhhhhmmmeRR",
+  "RRmmmrm.mme.G###m.em..m.eeeme.he.emmmmRR",
+  "RRm.menmm.e.m###e.mmnmne.mm..eemm.nnmmRR",
+  "RRe.em.emm.mn###m.mmmmneeeeem..nemmn..RR",
+  "RRmemeemee.ee###ememnmm..mmn.m.e.ee...RR",
+  "RR..mmm...mee###meemnmemme.mm.eeemmnn.RR",
+  "RRRRRRRRRRRRR###RRRRRRRRRRRRRRRRRRRRRRRR"
+ ]
+}
