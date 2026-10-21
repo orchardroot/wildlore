@@ -1,0 +1,99 @@
+{
+ "id": "paddock_wirral",
+ "kind": "paddock",
+ "name": "Thornlea Boarding Paddock",
+ "zone": "wirral_way",
+ "door": {
+  "x": 53,
+  "y": 23
+ },
+ "interior": "wirral_paddock",
+ "cost": [
+  1800,
+  3000,
+  5000
+ ],
+ "inputs": [
+  {
+   "item": "carrots",
+   "per_day": 2
+  }
+ ],
+ "output": {
+  "base": 30,
+  "per_input": 85
+ },
+ "rates": 0.06,
+ "tiers": [
+  {
+   "name": "A field and a gate",
+   "cost": 0,
+   "mult": 1.0
+  },
+  {
+   "name": "Water trough and a lambing pen",
+   "cost": 500,
+   "mult": 1.2
+  },
+  {
+   "name": "A proper barn with a roof that keeps its tiles",
+   "cost": 1400,
+   "mult": 1.45
+  },
+  {
+   "name": "Stud board, loose boxes and a vet on speed dial",
+   "cost": 3200,
+   "mult": 1.7
+  }
+ ],
+ "events": [
+  {
+   "id": "fox",
+   "chance": 0.06,
+   "mult": 0.6,
+   "line": "A fox got in the night before and the hens, the ducks and your afternoon all went with it. The fence was mended by teatime."
+  },
+  {
+   "id": "visiting_judge",
+   "chance": 0.06,
+   "mult": 1.5,
+   "season": "summer",
+   "line": "A visiting breed judge leant on the gate for an hour and said \"hm\" four times. Three owners booked a stall before she left."
+  },
+  {
+   "id": "heat_wave",
+   "chance": 0.05,
+   "mult": 0.7,
+   "season": "summer",
+   "line": "A heat wave. The stock stood under the one tree in a queue, and the water trough was drunk dry twice."
+  },
+  {
+   "id": "open_day",
+   "chance": 0.05,
+   "mult": 1.3,
+   "season": "spring",
+   "line": "Lambing open day. Half the parish came for the lambs and stayed for the tea urn."
+  },
+  {
+   "id": "wet_week",
+   "chance": 0.06,
+   "mult": 0.8,
+   "season": "autumn",
+   "line": "A wet week turned the gateway to soup. The boarders were unbothered and everyone else sulked."
+  },
+  {
+   "id": "vet_bill",
+   "chance": 0.04,
+   "mult": 0.75,
+   "line": "The vet came out for a limp that turned out to be a stone. The bill for the stone was not small."
+  },
+  {
+   "id": "cold_snap",
+   "chance": 0.04,
+   "mult": 0.7,
+   "season": "winter",
+   "line": "A hard frost split the trough. The ice came out in one piece and was admired for some time."
+  }
+ ],
+ "manager_slot": true
+}

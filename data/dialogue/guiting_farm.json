@@ -1,0 +1,409 @@
+{
+ "breed_dot": [
+  {
+   "do": "if",
+   "flag": "breed_met_dot",
+   "then": [],
+   "else": [
+    {
+     "do": "say",
+     "who": "Dot",
+     "text": "Dot Tallis. This is my yard, those are my animals, and that's my clipboard. Wipe your feet or don't, but don't touch the clipboard."
+    },
+    {
+     "do": "say",
+     "who": "Dot",
+     "text": "I keep the old breeds, the ones the supermarkets stopped asking for. If nobody keeps them they're gone in a generation, and no amount of sorry brings a breed back."
+    },
+    {
+     "do": "say",
+     "who": "Dot",
+     "text": "Here's how it works. Two of yours that like you, Fond or better, a male and a female of the same kind, or a cross I've got in the book. I put them together. One pair a day. And I won't have close kin. Not on my farm."
+    },
+    {
+     "do": "say",
+     "who": "Dot",
+     "text": "Then you walk. A basket takes a few thousand steps, and more out of season: spring for the furry and the feathered, summer for the scaly. The heat lamp isn't free either, and I charge for it."
+    },
+    {
+     "do": "say",
+     "who": "Dot",
+     "text": "Come back when you've walked it off and I'll hand them over. Nobody buys or sells them here. I keep animals, I don't sell them."
+    },
+    {
+     "do": "set",
+     "flag": "breed_met_dot",
+     "value": true
+    }
+   ]
+  },
+  {
+   "do": "choice",
+   "text": "What'll it be, then?",
+   "options": [
+    "Put a pair together",
+    "Collect from the baskets",
+    "How are the baskets coming?",
+    "The conservation lists",
+    "Just looking"
+   ],
+   "set": "tmp_breed_pick"
+  },
+  {
+   "do": "if",
+   "flag": "tmp_breed_pick",
+   "then": [
+    {
+     "do": "breed",
+     "act": "pair"
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "tmp_breed_pick",
+     "then": [
+      {
+       "do": "breed",
+       "act": "collect",
+       "who": "Dot"
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "tmp_breed_pick",
+       "then": [
+        {
+         "do": "breed",
+         "act": "status",
+         "who": "Dot"
+        }
+       ],
+       "else": [
+        {
+         "do": "if",
+         "flag": "tmp_breed_pick",
+         "then": [
+          {
+           "do": "choice",
+           "text": "Which list?",
+           "options": [
+            "A flock for Hirta (Soay)",
+            "The Kerry herd",
+            "Never mind"
+           ],
+           "set": "tmp_breed_list"
+          },
+          {
+           "do": "if",
+           "flag": "tmp_breed_list",
+           "then": [
+            {
+             "do": "if",
+             "flag": "q_breed_soay_done",
+             "then": [
+              {
+               "do": "say",
+               "who": "Dot",
+               "text": "Hirta's flock is in good order, and so is mine. Go and see something that isn't a sheep."
+              }
+             ],
+             "else": [
+              {
+               "do": "if",
+               "flag": "q_breed_soay_started",
+               "then": [
+                {
+                 "do": "if",
+                 "flag": "q_breed_soay_1",
+                 "then": [
+                  {
+                   "do": "breed",
+                   "act": "goal",
+                   "id": "soay",
+                   "who": "Dot",
+                   "set": "tmp_breed_paid"
+                  },
+                  {
+                   "do": "if",
+                   "flag": "tmp_breed_paid",
+                   "then": [
+                    {
+                     "do": "set",
+                     "flag": "q_breed_soay_2",
+                     "value": true
+                    },
+                    {
+                     "do": "set",
+                     "flag": "q_breed_soay_done",
+                     "value": true
+                    },
+                    {
+                     "do": "say",
+                     "who": "Dot",
+                     "text": "Four lambs, three different families. That's a flock, not a household. The society's grant is in your hand and I won't hear a word about it."
+                    },
+                    {
+                     "do": "say",
+                     "who": "Dot",
+                     "text": "And now you know why the Hirta sheep ride out a bad winter and a small flock of cousins doesn't. Dr Keir will want to hear."
+                    },
+                    {
+                     "do": "standing",
+                     "nation": "scotland",
+                     "amount": 5
+                    },
+                    {
+                     "do": "give_item",
+                     "item": "cream_tea",
+                     "n": 2
+                    }
+                   ],
+                   "else": []
+                  }
+                 ],
+                 "else": [
+                  {
+                   "do": "say",
+                   "who": "Dot",
+                   "text": "Have you been to see Dr Keir yet? Roslin, outside Edinburgh. She'll tell you why a flock needs founders. I only know it from the animals."
+                  }
+                 ]
+                }
+               ],
+               "else": [
+                {
+                 "do": "say",
+                 "who": "Dot",
+                 "text": "Soay sheep. St Kilda, out past the Hebrides. When the last islanders left in 1930 they put about a hundred of them on Hirta in 1932 and left them to it. They've been counted every year since the eighties, and the numbers swing wildly: up, then a hard winter, then down."
+                },
+                {
+                 "do": "say",
+                 "who": "Dot",
+                 "text": "I can't hand you a Soay, they stay where they are. But a Loaghtan is the same sort of animal, a small hardy primitive island sheep, so we'll do it with those."
+                },
+                {
+                 "do": "say",
+                 "who": "Dot",
+                 "text": "Raise four lambs of your own, and not all from the one pair. A flock isn't a family. Three different pairings, and I'll count no more than two from any one."
+                },
+                {
+                 "do": "say",
+                 "who": "Dot",
+                 "text": "Then go and ask Dr Keir at the Roslin Institute, outside Edinburgh, why I'm being so fussy. Come back when you've got your four."
+                },
+                {
+                 "do": "set",
+                 "flag": "q_breed_soay_started",
+                 "value": true
+                }
+               ]
+              }
+             ]
+            }
+           ],
+           "else": [
+            {
+             "do": "if",
+             "flag": "tmp_breed_list",
+             "then": [
+              {
+               "do": "if",
+               "flag": "q_breed_kerry_done",
+               "then": [
+                {
+                 "do": "say",
+                 "who": "Dot",
+                 "text": "Bríd's herd is thriving. She sent a photograph. Four black cows in the rain and not one of them looked pleased. It's perfect."
+                }
+               ],
+               "else": [
+                {
+                 "do": "if",
+                 "flag": "q_breed_soay_done",
+                 "then": [
+                  {
+                   "do": "if",
+                   "flag": "q_breed_kerry_started",
+                   "then": [
+                    {
+                     "do": "if",
+                     "flag": "q_breed_kerry_1",
+                     "then": [
+                      {
+                       "do": "breed",
+                       "act": "goal",
+                       "id": "kerry",
+                       "who": "Dot",
+                       "set": "tmp_breed_paid"
+                      },
+                      {
+                       "do": "if",
+                       "flag": "tmp_breed_paid",
+                       "then": [
+                        {
+                         "do": "set",
+                         "flag": "q_breed_kerry_2",
+                         "value": true
+                        },
+                        {
+                         "do": "set",
+                         "flag": "q_breed_kerry_done",
+                         "value": true
+                        },
+                        {
+                         "do": "say",
+                         "who": "Dot",
+                         "text": "Four young ones, from pairs with no parent in common. Not a cousin in the lot, as far as the book says. I'll send them over to Bríd on the Kerry yard."
+                        },
+                        {
+                         "do": "say",
+                         "who": "Dot",
+                         "text": "Grant's yours. Tell Dr Keir. She'll have another list; she always has another list."
+                        },
+                        {
+                         "do": "standing",
+                         "nation": "ireland",
+                         "amount": 5
+                        },
+                        {
+                         "do": "give_item",
+                         "item": "cream_tea",
+                         "n": 2
+                        }
+                       ],
+                       "else": []
+                      }
+                     ],
+                     "else": [
+                      {
+                       "do": "say",
+                       "who": "Dot",
+                       "text": "Dr Keir at Roslin will tell you how to tell cousins from strangers. I do it by looking at the way they stand, which is why I need her."
+                      }
+                     ]
+                    }
+                   ],
+                   "else": [
+                    {
+                     "do": "say",
+                     "who": "Dot",
+                     "text": "Kerry cattle. Small and black and hardy, bred for hill grass in the south-west of Ireland, and one of the oldest dairy breeds in Europe. The Dexter was made from them. They've been rare a long time."
+                    },
+                    {
+                     "do": "say",
+                     "who": "Dot",
+                     "text": "My cousin Bríd has a sister yard in Kerry and wants a herd that isn't one family. The Moolet is the nearest thing we've got to a Dexter, so we'll use those."
+                    },
+                    {
+                     "do": "say",
+                     "who": "Dot",
+                     "text": "Four young Moolets, from at least two pairings with no parent in common. Dr Keir can tell you how to read a pedigree. Mind it's a long game: it's no good if you pair siblings back together, because I'll refuse."
+                    },
+                    {
+                     "do": "set",
+                     "flag": "q_breed_kerry_started",
+                     "value": true
+                    }
+                   ]
+                  }
+                 ],
+                 "else": [
+                  {
+                   "do": "say",
+                   "who": "Dot",
+                   "text": "Another list? One at a time. Finish the flock for Hirta first. Then we'll talk Kerry."
+                  }
+                 ]
+                }
+               ]
+              }
+             ],
+             "else": [],
+             "eq": 1
+            }
+           ],
+           "eq": 0
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Dot",
+           "text": "Suit yourself. Mind the gate."
+          }
+         ],
+         "eq": 3
+        }
+       ],
+       "eq": 2
+      }
+     ],
+     "eq": 1
+    }
+   ],
+   "eq": 0
+  }
+ ],
+ "breed_loaghtan": [
+  {
+   "do": "say",
+   "who": "Loaghtan",
+   "text": "Four horns, mouse-brown fleece and the long, level stare of an animal that has outlived several governments. It belongs to the Isle of Man, and it's one of the primitive short-tailed sheep, like the Soay."
+  },
+  {
+   "do": "say",
+   "who": "Loaghtan",
+   "text": "Dot says a small flock needs careful pairing to keep what variety it has, and the Loaghtan is the proof. Don't ask the Loaghtan. The Loaghtan has opinions."
+  }
+ ],
+ "breed_herdwick": [
+  {
+   "do": "say",
+   "who": "Herdwick",
+   "text": "A Herdwick, from the Lake District fells. Grey-faced and sturdy, and the lambs are born dark and fade to grey as they grow up."
+  },
+  {
+   "do": "say",
+   "who": "Herdwick",
+   "text": "Beatrix Potter kept Herdwicks, and left her fell farms to the National Trust in 1943, with their flocks. They are the reason a lot of Lakeland still looks the way it does."
+  }
+ ],
+ "breed_dextera": [
+  {
+   "do": "say",
+   "who": "Dexter",
+   "text": "A Dexter: one of the smallest cattle breeds in the world, from the south-west of Ireland, and descended from the Kerry."
+  },
+  {
+   "do": "say",
+   "who": "Dexter",
+   "text": "It's a short-legged breed, and the shortness comes from a single gene. One copy gives the short legs of a Dexter. Two copies is a calf that doesn't survive, which is why breeders pay such close attention to pairings. A good lesson, if a sad one."
+  }
+ ],
+ "breed_donkey": [
+  {
+   "do": "say",
+   "who": "Donkey",
+   "text": "Dot keeps a donkey because nobody else will. Her view is that a donkey is the most sensible animal on the farm, and the only one that has never been wrong."
+  },
+  {
+   "do": "say",
+   "who": "Donkey",
+   "text": "A donkey and a horse can have a mule, which is strong and clever and has no foals of its own. The horse has 64 chromosomes and the donkey 62, so a mule has 63, and 63 won't pair up. Dr Keir will tell you more."
+  }
+ ],
+ "breed_visitor": [
+  {
+   "do": "say",
+   "who": "Visitor",
+   "text": "I came for the lambs and stayed for the clipboard. She asked my name and then wrote it down, and now I'm on a list."
+  },
+  {
+   "do": "say",
+   "who": "Visitor",
+   "text": "Don't ask for a pair Dot doesn't approve of. She will look at you. It is worse than being shouted at."
+  }
+ ]
+}

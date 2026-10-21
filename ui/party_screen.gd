@@ -148,7 +148,7 @@ func _show_preview(c: Creature) -> void:
 	var tr := UIKit.types_row(c.types())
 	tr.alignment = BoxContainer.ALIGNMENT_CENTER
 	_preview.add_child(tr)
-	var nat := UIKit.label("%s nature" % c.nature.capitalize(), 22, UIKit.MUTED)
+	var nat := UIKit.label("%s temper" % c.nature.capitalize(), 22, UIKit.MUTED)
 	nat.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	_preview.add_child(nat)
 

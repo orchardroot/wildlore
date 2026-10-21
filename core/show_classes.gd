@@ -2,15 +2,18 @@ class_name ShowClasses
 extends RefCounted
 ## The County Show's gentler classes (the battling class is Tournament): the produce class, where you enter any
 ## item of kind "produce" and the judges mark it for size and condition against four local growers, and the
-## sheepdog trials (see Sheepdog). Each class can be entered once per show day; a rosette (red, blue or yellow)
+## sheepdog trials (see Sheepdog) and the Breed Class (see Stud). Each class can be entered once per show day; a rosette (red, blue or yellow)
 ## and a small purse go with a top-three place. Pure logic: the Steward's menu is in story/tournament_run.gd.
 ## Money can't be printed here: one entry a class a day, a produce entry costs you the item, and the biggest
 ## day's purse (PRODUCE_PRIZE + DOG_PRIZE firsts) is a few pounds.
 
 const PRODUCE := "produce"
 const DOG := "sheepdog"
+const BREED := "breed"
 const PRODUCE_PRIZE := [30, 20, 10]   # sterling, first to third
 const DOG_PRIZE := [40, 25, 10]
+const BREED_PRIZE := [40, 25, 10]
+const SHOW_EVERY := 7             # the shows come round about weekly (the balance sims assume it)
 const COLOURS := ["red", "blue", "yellow"]
 const RIVALS := 4
 const FLAG_PREFIX := "show_class_"   # + class id: DailyKey stamp of the day it was last entered
@@ -55,7 +58,7 @@ static func place(score: int, rival_scores: Array) -> int:
 
 ## {colour, money} for a place, or {} past third.
 static func prize(cls: String, p: int) -> Dictionary:
-	var table: Array = PRODUCE_PRIZE if cls == PRODUCE else DOG_PRIZE
+	var table: Array = PRODUCE_PRIZE if cls == PRODUCE else (BREED_PRIZE if cls == BREED else DOG_PRIZE)
 	if p < 1 or p > table.size():
 		return {}
 	return {"colour": COLOURS[p - 1], "money": int(table[p - 1])}

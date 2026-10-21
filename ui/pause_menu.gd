@@ -91,6 +91,11 @@ func _refresh() -> void:
 		_info.add_child(_stat(str(line[0]), str(line[1])))
 	_info.add_child(_stat("Play time", MenuLogic.play_time(d.play_seconds)))
 	_info.add_child(_stat("Fieldbook", "%d seen, %d caught" % [d.seen.size(), d.caught.size()]))
+	var basket := PairingLogic.basket_line(d)  # a pairing in a basket or bundle, walking off its steps (see Breeding)
+	if basket != "":
+		var bl := UIKit.label(basket, 24, UIKit.GOLD)
+		bl.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+		_info.add_child(bl)
 	header_right.text = _now()  # the time of day and the weather, up in the corner
 	var badges := HBoxContainer.new()
 	badges.add_theme_constant_override("separation", 8)

@@ -43,6 +43,25 @@ static func hybrids() -> Dictionary:
 					_hybrids[str(h.id)] = h
 	return _hybrids
 
+## The Dex species for a hybrids.json entry: a complete species in its own one-stage line, flagged `hybrid`. Its
+## stand-in art is a copy of its body recipe (art/recipes/creatures/<id>.json); GeneArt blends the face in at runtime.
+static func hybrid_species(entry: Dictionary) -> Dictionary:
+	return {"id": str(entry.id), "line": str(entry.id), "name": str(entry.get("name", entry.id)), "hybrid": true,
+		"types": entry.get("types", []).duplicate(), "base": entry.get("base", {}).duplicate(),
+		"growth": str(entry.get("growth", "medium")), "catch_rate": int(entry.get("catch_rate", 0)),
+		"base_xp": int(entry.get("base_xp", 0)), "learnset": entry.get("learnset", []).duplicate(true),
+		"evolves": null, "habitat": [], "knack": str(entry.get("knack", "")), "fertile": entry.get("fertile", true) == true,
+		"dex": entry.get("dex", {}).duplicate(), "sprite": str(entry.id)}
+
+## The hybrids.json entry a sire and dam of different lines would produce, or {} if the pair is not listed.
+static func hybrid_for(sire: Creature, dam: Creature) -> Dictionary:
+	if line_of(sire) == line_of(dam):
+		return {}
+	for h in hybrids().values():
+		if line_of(sire) in h.get("sire_lines", []) and line_of(dam) in h.get("dam_lines", []):
+			return h
+	return {}
+
 static func line_of(c: Creature) -> String:
 	return str(c.species.get("line", c.species.get("id", "")))
 
@@ -146,6 +165,8 @@ static func cross(sire: Creature, dam: Creature, rng: Rng) -> Dictionary:
 	for l in INDEPENDENT + ["mark", "knack"]:
 		genome[l] = [gs[l], gd[l]]
 	var mode := sex_mode(kindred_of(sire))
+	if mode == "none":  # a sexless folklore parent (a selkie): the other parent's chromosomes decide
+		mode = sex_mode(kindred_of(dam))
 	var sex := _cross_sex(sg, dg, mode, genome, rng)
 	var sport := ""
 	if rng.roll() < 1.0 / float(genes().get("sport_one_in", 64)):
@@ -364,10 +385,13 @@ static func _lines_of(c: Creature) -> Array:
 ## May these two be paired? {ok, why, kind}: kind is "same_line", "hybrid" (a listed cross) or "". `why` is the
 ## farmer's reason when refused. Close kin are always refused ("not on my farm").
 static func can_pair(sire: Creature, dam: Creature, _dex = null) -> Dictionary:
-	if sire.sex != "m" or dam.sex != "f":
-		return {"ok": false, "why": "It takes a male and a female, and I'm not guessing which is which.", "kind": ""}
+	var listed := hybrid_for(sire, dam)  # a listed cross is allowed for its own reasons, folklore included
+	for pair in [[sire, "m"], [dam, "f"]]:
+		var p: Creature = pair[0]
+		if p.sex != pair[1] and not (p.sex == "" and not listed.is_empty()):
+			return {"ok": false, "why": "It takes a male and a female, and I'm not guessing which is which.", "kind": ""}
 	for p in [sire, dam]:
-		if not breeds(kindred_of(p)):
+		if listed.is_empty() and not breeds(kindred_of(p)):
 			return {"ok": false, "why": "That kind doesn't breed. Not the way you're thinking, anyway.", "kind": ""}
 		if p.hybrid != "" and hybrids().get(p.hybrid, {}).get("fertile", true) == false:
 			return {"ok": false, "why": "A cross like that can't have young of its own. Mules are famous for it.", "kind": ""}
@@ -379,11 +403,10 @@ static func can_pair(sire: Creature, dam: Creature, _dex = null) -> Dictionary:
 	for l in sl:
 		if l in dl:
 			return {"ok": true, "why": "", "kind": "same_line"}
+	if not listed.is_empty():
+		return {"ok": true, "why": "", "kind": "hybrid", "hybrid": str(listed.id), "odds": float(listed.get("odds", 1.0))}
 	if kindred_of(sire) != kindred_of(dam):
 		return {"ok": false, "why": "Those two aren't even the same kind of animal. It doesn't work, and the postcards lie.", "kind": ""}
-	for h in hybrids().values():
-		if line_of(sire) in h.get("sire_lines", []) and line_of(dam) in h.get("dam_lines", []):
-			return {"ok": true, "why": "", "kind": "hybrid"}
 	return {"ok": false, "why": "Different species, and nobody has got young out of that pair. I won't try it.", "kind": ""}
 
 ## Validator: genes.json agrees with LOCI, every evolution line has a known kindred, nothing stale.
@@ -411,7 +434,69 @@ static func check(dex: Dex) -> Array:
 			errors.append("genes.json: line '%s' has no kindred" % line)
 		elif not kindreds.has(lines[line]):
 			errors.append("genes.json: line '%s' has unknown kindred '%s'" % [line, lines[line]])
+	for id in dex.hybrid_ids():
+		seen[id] = true  # a hybrid is its own one-species line
 	for line in lines:
 		if not seen.has(line):
 			errors.append("genes.json: line '%s' is not in the Fieldbook" % line)
+	return errors
+
+const HYBRID_REAL := ["real", "folklore", "invented"]
+
+static func _total(base: Dictionary) -> int:
+	var n := 0
+	for s in Rules.STATS:
+		n += int(base.get(s, 0))
+	return n
+
+## Validator: data/hybrids.json. Parent lines exist, types come from the parents, the stat total stays under the
+## better parent's final stage, moves exist, the entry says what it is, and nothing uses an em-dash.
+static func check_hybrids(dex: Dex, moves: MoveDB) -> Array:
+	var errors := []
+	var g := genes()
+	for h in hybrids().values():
+		var id := str(h.id)
+		if dex.ids().has(id):
+			errors.append("hybrids.json: '%s' clashes with a species" % id)
+		if not HYBRID_REAL.has(str(h.get("real", ""))):
+			errors.append("hybrids.json: '%s' needs real: real|folklore|invented" % id)
+		if not g.get("lines", {}).has(id):
+			errors.append("hybrids.json: '%s' has no kindred in genes.json" % id)
+		var types := []
+		var best := 0
+		var kinds := {}
+		for key in ["sire_lines", "dam_lines"]:
+			if h.get(key, []).is_empty():
+				errors.append("hybrids.json: '%s' has no %s" % [id, key])
+			for l in h.get(key, []):
+				kinds[str(g.get("lines", {}).get(l, ""))] = true
+				var found := false
+				for sid in dex.ids():
+					var sp := dex.get_species(sid)
+					if str(sp.get("line", sid)) == l:
+						found = true
+						types.append_array(sp.get("types", []))
+						best = maxi(best, _total(sp.base))
+				if not found:
+					errors.append("hybrids.json: '%s' names unknown line '%s'" % [id, l])
+		if kinds.size() > 1 and h.get("real", "") == "real":
+			errors.append("hybrids.json: '%s' is tagged real but crosses kindreds" % id)
+		var ht: Array = h.get("types", [])
+		if ht.is_empty() or ht.size() > 2:
+			errors.append("hybrids.json: '%s' needs one or two types" % id)
+		for t in ht:
+			if not types.has(t):
+				errors.append("hybrids.json: '%s' type '%s' is not from a parent" % [id, t])
+		if _total(h.get("base", {})) >= best:
+			errors.append("hybrids.json: '%s' stat total is not under the better parent's final stage (%d)" % [id, best])
+		var spr: Dictionary = h.get("sprite", {})
+		for key in ["body", "face"]:
+			if not FileAccess.file_exists("res://art/recipes/creatures/%s.json" % str(spr.get(key, ""))):
+				errors.append("hybrids.json: '%s' sprite %s '%s' has no recipe" % [id, key, spr.get(key, "")])
+		for e in h.get("learnset", []):
+			if not moves.has(str(e[1])):
+				errors.append("hybrids.json: '%s' has unknown move '%s'" % [id, e[1]])
+		for txt in [h.get("name", ""), h.get("dex", {}).get("text", ""), h.get("dex", {}).get("fact", "")]:
+			if str(txt) == "" or "\u2014" in str(txt):
+				errors.append("hybrids.json: '%s' has empty text or an em-dash" % id)
 	return errors

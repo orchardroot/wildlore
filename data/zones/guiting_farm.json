@@ -1,0 +1,225 @@
+{
+ "id": "guiting_farm",
+ "name": "Guiting Rare Breeds Farm",
+ "region": "",
+ "kind": "interior",
+ "music": "route_forest",
+ "weather": {},
+ "props": [
+  {
+   "type": "building",
+   "style": "cotswold_cottage",
+   "x": 2,
+   "y": 1,
+   "w": 8,
+   "h": 3,
+   "label": "Lambing Shed",
+   "kind": "barn"
+  },
+  {
+   "type": "building",
+   "style": "cotswold_cottage",
+   "x": 17,
+   "y": 1,
+   "w": 7,
+   "h": 3,
+   "show_label": false
+  },
+  {
+   "type": "noticeboard",
+   "x": 11,
+   "y": 12
+  },
+  {
+   "type": "bench",
+   "x": 15,
+   "y": 12
+  },
+  {
+   "type": "bush",
+   "x": 1,
+   "y": 13
+  },
+  {
+   "type": "bush",
+   "x": 24,
+   "y": 13
+  },
+  {
+   "type": "oak",
+   "x": 24,
+   "y": 5
+  },
+  {
+   "type": "lamp_post",
+   "x": 12,
+   "y": 14
+  },
+  {
+   "type": "bird_table",
+   "x": 22,
+   "y": 13
+  },
+  {
+   "type": "flower_patch",
+   "x": 3,
+   "y": 13,
+   "w": 3,
+   "h": 2
+  },
+  {
+   "type": "bunting",
+   "x": 10,
+   "y": 4
+  },
+  {
+   "type": "bunting",
+   "x": 13,
+   "y": 4
+  }
+ ],
+ "warps": [
+  {
+   "x": 13,
+   "y": 15,
+   "to": "cotswolds",
+   "tx": 17,
+   "ty": 22,
+   "facing": "down"
+  },
+  {
+   "x": 5,
+   "y": 3,
+   "to": "guiting_barn",
+   "tx": 7,
+   "ty": 8,
+   "facing": "up"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "breed_dot",
+   "sprite": "farmer",
+   "x": 14,
+   "y": 13,
+   "facing": "down",
+   "move": "still",
+   "script": "breed_dot",
+   "name": "Dot Tallis"
+  },
+  {
+   "id": "breed_loaghtan",
+   "sprite": "creature:loaghtan",
+   "x": 4,
+   "y": 9,
+   "facing": "right",
+   "move": "still",
+   "script": "breed_loaghtan",
+   "name": "Loaghtan"
+  },
+  {
+   "id": "breed_herdwick",
+   "sprite": "creature:herdwick",
+   "x": 8,
+   "y": 9,
+   "facing": "left",
+   "move": "still",
+   "script": "breed_herdwick",
+   "name": "Herdwick"
+  },
+  {
+   "id": "breed_dextera",
+   "sprite": "creature:dextera",
+   "x": 18,
+   "y": 9,
+   "facing": "right",
+   "move": "still",
+   "script": "breed_dextera",
+   "name": "Dexter"
+  },
+  {
+   "id": "breed_donkey",
+   "sprite": "creature:donkey",
+   "x": 21,
+   "y": 9,
+   "facing": "left",
+   "move": "still",
+   "script": "breed_donkey",
+   "name": "Donkey"
+  },
+  {
+   "id": "breed_visitor",
+   "sprite": "hillwalker",
+   "x": 8,
+   "y": 13,
+   "facing": "up",
+   "move": "still",
+   "script": "breed_visitor",
+   "name": "Visitor"
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "x": 11,
+   "y": 12,
+   "text": "STUD BOARD. Pairings by arrangement with D. Tallis, and by Fond consent of both parties. One pairing a day. No close kin, no exceptions, and don't ask. Baskets collected at the gate once walked off."
+  },
+  {
+   "x": 4,
+   "y": 11,
+   "plaque": "breed_loaghtan",
+   "title": "The Manx Loaghtan",
+   "text": "The Manx Loaghtan is the Isle of Man's own sheep, a primitive northern short-tailed type, like the Soay. 'Loaghtan' is Manx for mouse-coloured, after the dark brown fleece. Many have four horns, and some have two or six. Rare breeds need careful pairing to keep what variety is left, and the Loaghtan is a good example of a small flock that breeders have had to plan."
+  },
+  {
+   "x": 8,
+   "y": 11,
+   "plaque": "breed_soay",
+   "title": "Soay Sheep",
+   "text": "Soay sheep live wild on St Kilda, the Atlantic archipelago west of the Outer Hebrides, and are among the most primitive sheep in Europe: small, agile, brown or tan, moulting their wool rather than waiting for shears. After the islanders left in 1930, about a hundred Soays were moved to Hirta in 1932 and have run wild there since. Their population has been studied since 1985, one of the best-known studies of a wild mammal: researchers know the sheep one by one, count them every year and watch numbers crash in a hard winter and recover."
+  },
+  {
+   "x": 18,
+   "y": 11,
+   "plaque": "breed_kerry",
+   "title": "Kerry Cattle",
+   "text": "The Kerry is Ireland's native cow: small, black, hardy, and a good milker on poor hill grass. It is among the oldest breeds of dairy cattle in Europe, and the Dexter, a smaller breed, was developed from it. Modern farming favoured bigger, heavier-milking cows, and the Kerry became rare. Careful breeders keep the herds going, and use pedigree records to avoid pairing close relatives."
+  },
+  {
+   "x": 22,
+   "y": 11,
+   "plaque": "breed_rare_breeds",
+   "title": "Rare Breeds",
+   "text": "Farm animals are bred for what the market wants, and the old breeds that do not fit are lost quietly. The Rare Breeds Survival Trust was founded in 1973 to stop that, and keeps a Watchlist of native breeds at risk. Its early supporters included the founder of the Cotswold Farm Park at Guiting Power, which opened in 1971 so that people could meet breeds they had never seen. A breed is a store of useful genes, for hardiness, mothering and disease resistance, and a lost breed cannot be rebuilt."
+  },
+  {
+   "x": 20,
+   "y": 3,
+   "text": "THE FARMHOUSE. Private. The kettle is on, but the invitation is not."
+  }
+ ],
+ "spawn": [
+  13,
+  14
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "x.BBBBBBBB.......BBBBBBB.x",
+  "x.BBBBBBBB.......BBBBBBB.x",
+  "x.BBBDBBBB.......BBBBBBB.x",
+  "x....#...................x",
+  "x########################x",
+  "x....#.......#...........x",
+  "x.FFFF.FFFF..#..FFF.FFFF.x",
+  "x.F.......F..#..F......F.x",
+  "x.F.......F..#..F......F.x",
+  "x.F.......F..#..F......F.x",
+  "x.FFFFFFFFF..#..FFFFFFFF.x",
+  "x............#...........x",
+  "x............#...........x",
+  "x............#...........x",
+  "xxxxxxxxxxxxxDxxxxxxxxxxxx"
+ ]
+}
