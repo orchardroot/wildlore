@@ -21,6 +21,17 @@ It started life as a monster-catching game. It's turned into something closer to
 
 Whatever's newest is below; older notes are further down.
 
+## What's new in 3.4: Market Day
+
+- **Prices depend on where you are.** Things are cheap where they're made and dear a long way off, so a pannier of Bakewell puddings bought in the Peak fetches more in Cardiff. Sell too much in one place and you'll flood the market; fresh things go off. The radio's Money Box tells you who's paying what, and there's a market report on Mondays.
+- **25 real market halls**, from Leeds Kirkgate and Cardiff Central to the Barras, Belfast's St George's and the English Market in Cork, each with a stall-holder who has opinions.
+- **The Building Society.** Borrow at honest compound interest (it explains APR in plain words), save a bit, and get a strongly worded letter if you fall behind. Mum will lend you a little once, interest free, guilt included.
+- **Trades.** You're getting better at things: Rambler, Trader, Cook, Angler, Naturalist and Local, each read off what you already do, with small perks along the way. See the Trades page on Stats.
+- **Fishing.** Get a rod, cast at the water and land one of 37 real fish, from brown trout to mackerel (and some only found overseas). A few creatures only turn up on a line. There's an easier-fishing option in Settings.
+- **Report a bug** from the pause menu, a Linux build alongside Mac and Windows, and a CONTRIBUTING guide for anyone who fancies helping.
+
+Saves from 3.3 carry straight over.
+
 ## What's new in 3.3: Overseas, and a new name
 
 The game is now **Wildlore: These Isles**, because that's what it's about. Your saves don't notice.

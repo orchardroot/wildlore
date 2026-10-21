@@ -1,0 +1,83 @@
+{
+ "_doc": "The Trade Ledger (core/trade.gd). Prices derive from an item's base price times a regional factor, a seasonal/festival demand and (selling only) a glut and a freshness factor. Anything not listed sits at 1.0, so every item has a price. `groups` maps zone regions to trade regions; a thing is cheap in its `home` groups and dear in its `wants` groups. Home Cheshire never gets dearer than today: no `wants` list names north_west for a Cheshire-made thing.",
+ "groups": {
+  "north_west": ["cheshire", "manchester", "merseyside", "lancashire", "cumbria"],
+  "north_east": ["yorkshire", "north_east"],
+  "midlands": ["midlands", "peak"],
+  "east": ["east_anglia"],
+  "south": ["south_england", "south_east", "cornwall"],
+  "wales": ["north_wales", "south_wales", "mid_wales"],
+  "scotland": ["scotland"],
+  "ireland": ["ireland", "ireland_east", "ireland_west"],
+  "isles": ["man", "channel_islands"]
+ },
+ "names": {
+  "north_west": "the North West", "north_east": "the North East", "midlands": "the Midlands", "east": "East Anglia",
+  "south": "the South", "wales": "Wales", "scotland": "Scotland", "ireland": "Ireland", "isles": "the Isles", "overseas": "overseas"
+ },
+ "home_factor": 0.6,
+ "wants_factor": 1.8,
+ "trade_kinds": ["meal", "fish", "material"],
+ "carry_cap": 30,
+ "pannier": "traders_pannier",
+ "keeps": {"meal": 8, "fish": 3},
+ "stale_factor": 0.25,
+ "glut_step": 0.92,
+ "glut_days": 3,
+ "demand_cap": 1.8,
+ "goods": {
+  "lancashire_hotpot": {"home": ["north_west"], "wants": ["south", "scotland"]},
+  "home_cumberland_sausage": {"home": ["north_west"], "wants": ["south", "wales"]},
+  "home_yorkshire_pudding": {"home": ["north_east"], "wants": ["south", "ireland"]},
+  "stottie_cake": {"home": ["north_east"], "wants": ["south", "wales"]},
+  "bakewell_pudding": {"home": ["midlands"], "wants": ["south", "scotland"]},
+  "home_cawl": {"home": ["wales"], "wants": ["south", "midlands"]},
+  "home_laverbread": {"home": ["wales"], "wants": ["midlands", "south"]},
+  "home_glamorgan_sausage": {"home": ["wales"], "wants": ["south", "ireland"]},
+  "welsh_cakes": {"home": ["wales"], "wants": ["south", "scotland"]},
+  "scotch_broth": {"home": ["scotland"], "wants": ["south", "wales"]},
+  "cullen_skink": {"home": ["scotland"], "wants": ["south", "ireland"]},
+  "haggis_neeps_tatties": {"home": ["scotland"], "wants": ["south", "ireland"]},
+  "arbroath_smokie": {"home": ["scotland"], "wants": ["wales", "ireland", "midlands"]},
+  "clootie_dumpling": {"home": ["scotland"], "wants": ["south", "ireland"]},
+  "stovies": {"home": ["scotland"], "wants": ["south", "wales"]},
+  "home_ulster_fry": {"home": ["ireland"], "wants": ["scotland", "south"]},
+  "champ": {"home": ["ireland"], "wants": ["south", "wales"]},
+  "home_boxty": {"home": ["ireland"], "wants": ["south", "scotland"]},
+  "colcannon": {"home": ["ireland"], "wants": ["wales", "south"]},
+  "irish_stew": {"home": ["ireland"], "wants": ["south", "wales"]},
+  "dublin_coddle": {"home": ["ireland"], "wants": ["scotland", "south"]},
+  "home_soda_bread": {"home": ["ireland"], "wants": ["south", "wales"]},
+  "queenie_scallops": {"home": ["isles"], "wants": ["midlands", "south", "ireland"]},
+  "limerick_lace": {"home": ["ireland"], "wants": ["south", "north_east"]},
+  "jute_fibre": {"home": ["scotland"], "wants": ["south", "east"]}
+ },
+ "kinds": {
+  "fish": {"home": ["scotland", "ireland", "south", "wales", "north_east", "east", "isles"], "wants": ["midlands"]}
+ },
+ "seasonal": [
+  {"season": "winter", "items": ["scotch_broth", "lancashire_hotpot", "irish_stew", "home_cawl", "cullen_skink", "stovies", "dublin_coddle", "clootie_dumpling"], "factor": 1.3, "note": "stews are wanted in the cold"},
+  {"season": "summer", "kinds": ["fish"], "factor": 1.2, "note": "everyone wants fish by the seaside"},
+  {"season": "autumn", "items": ["bakewell_pudding", "clootie_dumpling"], "factor": 1.15, "note": "harvest-time puddings"}
+ ],
+ "festivals": [
+  {"festival": "burns_night", "items": ["haggis_neeps_tatties", "stovies"], "factor": 1.8},
+  {"festival": "st_patricks", "items": ["irish_stew", "colcannon", "champ", "home_boxty", "dublin_coddle", "home_soda_bread"], "factor": 1.8},
+  {"festival": "st_davids", "items": ["home_cawl", "welsh_cakes", "home_laverbread", "home_glamorgan_sausage"], "factor": 1.8},
+  {"festival": "christmas", "items": ["clootie_dumpling"], "factor": 1.6},
+  {"event": "bonfire", "items": ["home_yorkshire_pudding"], "factor": 1.6},
+  {"event": "burns", "items": ["haggis_neeps_tatties", "stovies"], "factor": 1.8},
+  {"event": "hogmanay", "items": ["clootie_dumpling", "cullen_skink"], "factor": 1.6},
+  {"event": "stpatricks", "items": ["irish_stew", "colcannon", "champ", "dublin_coddle"], "factor": 1.8},
+  {"event": "stdavids", "items": ["home_cawl", "welsh_cakes"], "factor": 1.8},
+  {"event": "samhain", "items": ["home_boxty", "colcannon"], "factor": 1.6}
+ ],
+ "report": {
+  "intro": "And now, the Money Box.",
+  "monday": "It's Monday, so here is the weekly market report.",
+  "quiet": "Trading was quiet and the Money Box has nothing to say, which is the first time that has happened.",
+  "close": "That was the Money Box. Remember, a price is only what somebody will pay, and a bargain is only what you did with it.",
+  "tip": "%s is cheap in %s and keenly wanted in %s. Mind the train fare, and mind the glut.",
+  "season": "Seasonal note: %s."
+ }
+}

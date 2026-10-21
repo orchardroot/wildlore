@@ -159,6 +159,10 @@ func _exec(c: Dictionary) -> void:
 			await host.open_menu("bureau" + ((":" + str(c.currency)) if str(c.get("currency", "")) != "" else ""))
 		"exchange":
 			await host.open_menu("exchange:" + str(c.get("board", "london")))  # a Stock Exchange terminal (see Markets)
+		"market":
+			await host.open_menu("market:" + str(c.get("hall", "")))  # a Market Hall stall (see MarketHall)
+		"society":
+			await host.open_menu("society:" + host.zone_id())  # a Building Society branch (see BuildingSociety)
 		"crypto":
 			await host.open_menu("crypto")  # the Doggerel kiosk
 		"starter":

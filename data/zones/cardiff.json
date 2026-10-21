@@ -15,12 +15,7 @@
  },
  "encounters": {
   "grass": [
-   {
-    "max": 38.0,
-    "min": 36.0,
-    "species": "chipgull",
-    "weight": 100.0
-   }
+   {"max": 38.0, "min": 36.0, "species": "chipgull", "weight": 100.0}
   ]
  },
  "heights": [
@@ -104,10 +99,7 @@
    "sprite": "tour_guide",
    "x": 29.0,
    "y": 12.0,
-   "times": [
-    "day",
-    "dusk"
-   ]
+   "times": ["day", "dusk"]
   },
   {
    "facing": "left",
@@ -126,10 +118,7 @@
    "sprite": "student",
    "x": 20.0,
    "y": 19.0,
-   "times": [
-    "day",
-    "dusk"
-   ]
+   "times": ["day", "dusk"]
   },
   {
    "facing": "down",
@@ -201,9 +190,7 @@
    "move": "still",
    "script": "cardiff_night_nurse",
    "name": "Night Nurse",
-   "times": [
-    "night"
-   ]
+   "times": ["night"]
   },
   {
    "id": "cardiff_fox_watcher",
@@ -214,9 +201,7 @@
    "move": "still",
    "script": "cardiff_fox_watcher",
    "name": "Fox Watcher",
-   "times": [
-    "night"
-   ]
+   "times": ["night"]
   }
  ],
  "props": [
@@ -680,6 +665,16 @@
    "type": "noticeboard",
    "x": 29,
    "y": 15
+  },
+  {
+   "type": "building",
+   "style": "cardiff_polychrome",
+   "x": 12,
+   "y": 36,
+   "w": 5,
+   "h": 3,
+   "label": "Building Society",
+   "kind": "hall"
   }
  ],
  "region": "south_wales",
@@ -692,7 +687,7 @@
   "TTBBBBBBB.BBBBBB..WBBBB.BBBBBBBBBB...BBBBBW~.,,,,,T.T...T.T...TT",
   "TTBBBBBBB.BBBBBB..WBBBB.BBBBBBBBBB...BBBBBW~T,,,,,..#.T....T..TT",
   "TTBBBBBBB.BBBBBB..WBBBB.BBBBBBBBBB...BBBBBW~.,,,,,..#.........TT",
-  "TTBBBDBBB.BBDBBB..W.....BBBBBBBBBB...BBBBBW~.,,,,,..#.........TT",
+  "TTBBBDBBB.BBDBBB..W.....BBBBBBBBBB...BBDBBW~.,,,,,..#.........TT",
   "TT::::::::::::::..W.....BBBBBBBBBB........W~.,,,,,T.#.,,,,,,..TT",
   "TT........:.......W.....BBBBBBDBBB........W~.,,,,,..#.,,,,,,..TT",
   "TT........:.......W.ffffffff..###..ffffff.Ww############,,,,..TT",
@@ -720,9 +715,9 @@
   "TT.BBDBBBDBB::::::::::::::::::::::::::::::::::::::::BDBB::::::TT",
   "TT..........::::::::::::::::::::::::::::::::::::::::::::::::::TT",
   "TT.,,,,,,,,.::::::::::::::::::::::::::::::::::::::::::::::::::TT",
-  "TT.,,,,,,,,.......s~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
-  "TT.,,,,,,,,.......s~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
-  "TT................s~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
+  "TT.,,,,,,,,.BBBBB.s~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
+  "TT.,,,,,,,,.BBBBB.s~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
+  "TT..........BBDBB.s~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
   "TT................s~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
   "TT..,,,,,,........s~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
   "TT..,,,,,,........s~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~sss~~~~",
@@ -917,6 +912,22 @@
    "to": "cardiff_home_roath",
    "tx": 5,
    "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 39,
+   "y": 8,
+   "to": "cardiff_hall",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 14,
+   "y": 38,
+   "to": "cardiff_society",
+   "tx": 5,
+   "ty": 5,
    "facing": "up"
   }
  ],

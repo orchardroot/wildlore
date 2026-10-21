@@ -15,39 +15,28 @@
     "max": 49.0,
     "min": 47.0,
     "species": "cluricaun",
-    "time": [
-     "dusk",
-     "night"
-    ],
+    "time": ["dusk", "night"],
     "weight": 12.0
    },
    {
     "max": 48.0,
     "min": 47.0,
     "species": "chipgull",
-    "time": [
-     "day"
-    ],
+    "time": ["day"],
     "weight": 14.0
    },
    {
     "max": 49.0,
     "min": 48.0,
     "species": "pierlord",
-    "time": [
-     "day",
-     "dusk"
-    ],
+    "time": ["day", "dusk"],
     "weight": 10.0
    },
    {
     "max": 49.0,
     "min": 48.0,
     "species": "binfox",
-    "time": [
-     "night",
-     "dusk"
-    ],
+    "time": ["night", "dusk"],
     "weight": 8.0
    },
    {
@@ -60,68 +49,49 @@
     "max": 48.0,
     "min": 47.0,
     "species": "grizzlet",
-    "time": [
-     "dawn",
-     "day"
-    ],
+    "time": ["dawn", "day"],
     "weight": 5.0
    },
    {
     "max": 49.0,
     "min": 47.0,
     "species": "strutcoo",
-    "time": [
-     "day",
-     "dawn"
-    ],
+    "time": ["day", "dawn"],
     "weight": 10.0
    },
    {
     "max": 48.0,
     "min": 47.0,
     "species": "cooplet",
-    "weather": [
-     "drizzle",
-     "downpour"
-    ],
+    "weather": ["drizzle", "downpour"],
     "weight": 5.0
    },
    {
     "max": 49.0,
     "min": 48.0,
     "species": "flittermouse",
-    "time": [
-     "night"
-    ],
+    "time": ["night"],
     "weight": 8.0
    },
    {
     "max": 48.0,
     "min": 47.0,
     "species": "hushwing",
-    "time": [
-     "night"
-    ],
+    "time": ["night"],
     "weight": 6.0
    },
    {
     "max": 48.0,
     "min": 47.0,
     "species": "fawnlet",
-    "time": [
-     "dawn",
-     "dusk"
-    ],
+    "time": ["dawn", "dusk"],
     "weight": 8.0
    },
    {
     "max": 49.0,
     "min": 48.0,
     "species": "sootwing",
-    "weather": [
-     "fog",
-     "drizzle"
-    ],
+    "weather": ["fog", "drizzle"],
     "weight": 6.0
    }
   ],
@@ -148,10 +118,7 @@
     "max": 49.0,
     "min": 48.0,
     "species": "bradan",
-    "weather": [
-     "drizzle",
-     "downpour"
-    ],
+    "weather": ["drizzle", "downpour"],
     "weight": 10.0
    },
    {
@@ -921,6 +888,16 @@
    "type": "noticeboard",
    "x": 33,
    "y": 29
+  },
+  {
+   "type": "building",
+   "style": "dublin_georgian",
+   "x": 41,
+   "y": 9,
+   "w": 5,
+   "h": 3,
+   "label": "Credit Union",
+   "kind": "hall"
   }
  ],
  "region": "ireland",
@@ -934,9 +911,9 @@
   "TT..,,,,,,,,..#..,,,,,,,,..TT:===:::_________.::|||||||||::.$$$$$$$$$$$$",
   "TT..........fffff..........T.&&&&&!!!!!!!!!!!!:::::::::::::.$$$$$$$$$$$$",
   "TT.#########fffff##########TT:===:............:::::::::::::.$$$$$$$$$$$$",
-  "TT..........fffff............:===::::::::::::::::::::::::::.$$$$$$$$$$$$",
-  "TT..,,,,,,,...#...,,,,,,,,...:===::::::::::::::::::::::::::.$$$$$$$$$$$$",
-  "TT..,,,,,,,...#...,,,,,,,,...:===::::::::::::::::::::::::::.$$$$$$$$$$$$",
+  "TT..........fffff............:===::::::::BBBBB:::::::::::::.$$$$$$$$$$$$",
+  "TT..,,,,,,,...#...,,,,,,,,...:===::::::::BBBBB:::::::::::::.$$$$$$$$$$$$",
+  "TT..,,,,,,,...#...,,,,,,,,...:===::::::::BBDBB:::::::::::::.$$$$$$$$$$$$",
   "TT............#..............:===:..........................$$$$$$$$$$$$",
   "TT....BBBBBBBBBBBB...........:===:......BBBBBBBBBBBB........$$$$$$$$$$$$",
   "TT....BBBBBBBBBBBB...........:===:......BBBBBBBBBBBB.BBBBBB.$$$$$$$$$$$$",
@@ -944,7 +921,7 @@
   "TT....BBBBBBBBBBBBBBBBBBBBBB.:===:BBBBB.BBBBBBBBBBBB.BBBBBB.$$$$$$$$$$$$",
   "TT....BBBBBBBBBBBBBBBBBBBBBB.:===:BBBBB.BBBBBBBBBBBB.BBBBBB.$$$$$$$$$$$$",
   "TT....BBBBBBBBBBBBBBDBBBBBBB.:===:BBBBB.BBBBBBBBBBBB.BBBBBB.$$$$$$$$$$$$",
-  "TT....BBBBBBDBBBBB....BBBDBB.:===:BBDBB.BBBBBBDBBBBB.BBBDBB.$$$$$$$$$$$$",
+  "TT....BBBBBBDBBBBB....BBBDBB.:===:BBDBB.BDBBBBDBBBBB.BBBDBB.$$$$$$$$$$$$",
   "TT::::::::::::::::::::::::::::===:::::::::::::::::::::::::::$$$$$$$$$$$$",
   "TT===========================:===:==========================:::::::::$$$",
   "TT===========================:===:==========================:::::::::$$$",
@@ -1205,6 +1182,22 @@
    "to": "dublin_home_green",
    "tx": 6,
    "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 41,
+   "y": 19,
+   "to": "dublin_moorest",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  },
+  {
+   "x": 43,
+   "y": 11,
+   "to": "dublin_society",
+   "tx": 5,
+   "ty": 5,
    "facing": "up"
   }
  ],

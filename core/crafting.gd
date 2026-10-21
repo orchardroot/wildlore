@@ -100,6 +100,9 @@ static func craft(data: GameStateData, r: Dictionary, items: ItemDB) -> Dictiona
 		bag.remove(str(id), int(ins[id]))
 	Wallet.spend(data, cost(data, r), Wallet.local(data))
 	var n := int(r.get("n", 1))
+	if str(items.get_item(str(r.out)).get("kind", "")) == "meal":  # the Cook trade (see Trades)
+		TrainerStats.add(data, "dishes_cooked")
+		n += Trades.extra_portions(data)
 	bag.add(str(r.out), n)
 	return {"ok": true, "text": "You made %s%s." % [out_name, " x%d" % n if n > 1 else ""]}
 

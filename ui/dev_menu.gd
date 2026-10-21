@@ -131,6 +131,21 @@ static func boot(game: Node, menu: String) -> void:
 			d.set_flag(Postcards.flag_key(str(pc.id)), "2026-10-%02d" % (2 + Postcards.card_index(str(pc.id))))
 	if menu.begins_with("shop") and not menu.contains(":"):
 		menu = "shop:macc_corner_shop"
+	if menu.begins_with("society"):  # `--menu=society:<zone>[:loan]`: a few Stones in, Mum's sub paid out; `:loan` adds a loan, savings and a missed month
+		d.day_count = 120
+		d.money = 1840
+		for i in 3:
+			d.badges.append("b%d" % i)
+		BuildingSociety.settle(d)
+		BuildingSociety.collect_letters(d)
+		if menu.ends_with(":loan"):
+			BuildingSociety.borrow(d, "manchester_society", 2000, 12)
+			BuildingSociety.deposit(d, "gbp", 600)
+			d.day_count += BuildingSociety.MONTH
+			d.money = 0
+			BuildingSociety.settle(d)
+			d.money = 1840
+			menu = menu.trim_suffix(":loan")
 	if menu.begins_with("bureau") or menu.begins_with("exchange") or menu.begins_with("crypto") or menu == "pause:euros":
 		# a few weeks into a journey with both purses, some shares, a Doggerel punt and a Stone or two
 		d.day_count = 46

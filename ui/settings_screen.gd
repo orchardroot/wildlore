@@ -25,9 +25,9 @@ func _build() -> void:
 	v.add_theme_constant_override("separation", 2)
 	p.add_child(v)
 	var buttons := []
-	for def in [["text_speed", "Text speed"], ["battle_speed", "Battle speed"], ["travel_scenes", "Travel scenes"], ["quality", "Graphics quality"], ["music_volume", "Music volume"], ["sfx_volume", "Effects volume"], ["ambience_volume", "Ambience volume"], ["run_mode", "Run key"], ["follower", "Follower"], ["colour_blind", "Colour-blind friendly"], ["reduce_flashing", "Reduce flashing"], ["damage_numbers", "Damage numbers"]]:
+	for def in [["text_speed", "Text speed"], ["battle_speed", "Battle speed"], ["travel_scenes", "Travel scenes"], ["quality", "Graphics quality"], ["music_volume", "Music volume"], ["sfx_volume", "Effects volume"], ["ambience_volume", "Ambience volume"], ["run_mode", "Run key"], ["follower", "Follower"], ["colour_blind", "Colour-blind friendly"], ["reduce_flashing", "Reduce flashing"], ["damage_numbers", "Damage numbers"], ["easy_fishing", "Easier fishing"]]:
 		var b := Button.new()
-		b.custom_minimum_size = Vector2(0, 29)  # rows are tight: the preview panel must clear the hint line
+		b.custom_minimum_size = Vector2(0, 26)  # rows are tight: the preview panel must clear the hint line
 		UIKit.compact(b, 2)
 		var h := HBoxContainer.new()
 		h.set_anchors_preset(Control.PRESET_FULL_RECT)
@@ -70,18 +70,22 @@ func _build() -> void:
 	bottom.add_theme_constant_override("separation", 10)
 	v.add_child(bottom)
 	var controls := make_button("Controls...", func(): await open_child("controls"), 300)
+	var report := make_button("Report a bug...", func(): await open_child("report"), 300)
 	var back := make_button("Back", func(): close(null), 200)
-	for b in [controls, back]:
+	for b in [controls, report, back]:
 		UIKit.compact(b, 6)
 		b.custom_minimum_size.y = 40
 		b.add_theme_font_size_override("font_size", 25)
 		bottom.add_child(b)
 		buttons.append(b)
 	controls.focus_neighbor_left = NodePath(".")
-	controls.focus_neighbor_right = controls.get_path_to(back)
-	back.focus_neighbor_left = back.get_path_to(controls)
+	controls.focus_neighbor_right = controls.get_path_to(report)
+	report.focus_neighbor_left = report.get_path_to(controls)
+	report.focus_neighbor_right = report.get_path_to(back)
+	report.focus_neighbor_top = report.get_path_to(buttons[buttons.size() - 4])
+	back.focus_neighbor_left = back.get_path_to(report)
 	back.focus_neighbor_right = NodePath(".")
-	back.focus_neighbor_top = back.get_path_to(buttons[buttons.size() - 3])
+	back.focus_neighbor_top = back.get_path_to(buttons[buttons.size() - 4])
 	UIKit.wrap_focus(buttons)
 	controls.focus_neighbor_bottom = controls.get_path_to(buttons[0])
 	var pp := UIKit.panel(Color("14182199"), 14)
@@ -157,6 +161,8 @@ func _change(key: String, d: int) -> void:
 			Settings.reduce_flashing = not Settings.reduce_flashing
 		"damage_numbers":
 			Settings.damage_numbers = not Settings.damage_numbers
+		"easy_fishing":
+			Settings.easy_fishing = not Settings.easy_fishing
 	Settings.save_settings()
 	if key == "sfx_volume":
 		Audio.sfx("cursor")
@@ -195,6 +201,8 @@ func _paint_row(r: Dictionary) -> void:
 			l.text = "<  %s  >" % ("On" if Settings.reduce_flashing else "Off")
 		"damage_numbers":
 			l.text = "<  %s  >" % ("On" if Settings.damage_numbers else "Off")
+		"easy_fishing":
+			l.text = "<  %s  >" % ("On" if Settings.easy_fishing else "Off")
 
 func _pct(v: float) -> String:
 	return "<  %d%%  >" % (roundi(v * 10.0) * 10)

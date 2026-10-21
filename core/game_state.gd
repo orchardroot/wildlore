@@ -66,6 +66,7 @@ func _process(delta: float) -> void:
 			data.clock_minutes = GameClock.wrap(data.clock_minutes + 1)
 			if data.clock_minutes == 0:
 				data.day_count += 1
+				BuildingSociety.settle(data)  # instalments, savings interest, post from the Building Society
 	if args.get("fps", false):
 		_fps_acc += delta
 		if _fps_acc >= 1.0:
