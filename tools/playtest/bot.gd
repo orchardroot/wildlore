@@ -5,6 +5,7 @@ extends Node
 ##   godot --headless --path . -- --playtest=slice [--seed=N] [--seconds=N]
 ##   godot --headless --path . -- --playtest=fuzz --seconds=120 [--seed=N]
 ##   godot --headless --path . -- --playtest=full [--seed=N]   (the whole story, start to credits; see FULL_BEATS)
+##   godot --headless --path . -- --playtest=from:<zone>/<npc>[+N]   (full-mode play from a built save at that beat, for N beats, default 1)
 ## Exit code 0 on success, 1 on any failure. Prints "PLAYTEST PASS" or "PLAYTEST FAIL: <why>".
 
 const TIME_SCALE := 10.0
@@ -50,9 +51,22 @@ const FIGHT_ASSIST_AFTER := 8
 var _assist_fight := false
 var _assisted: Dictionary = {}   # beat -> in-battle top-ups
 var _beat_name := ""
+var _from := -1       # from mode: index into FULL_BEATS to start at
+var _from_count := 1  # from mode: how many beats to play
 
 func start(m: String) -> void:
 	mode = m
+	if m.begins_with("from:"):
+		var spec := m.substr(5).split("+")
+		_from_count = int(spec[1]) if spec.size() > 1 else 1
+		mode = "full"
+		for i in FULL_BEATS.size():
+			if "%s/%s" % [FULL_BEATS[i][0], FULL_BEATS[i][1]] == spec[0]:
+				_from = i
+		if _from < 0:
+			push_error("playtest from: unknown beat '%s'" % spec[0])
+			get_tree().quit(1)
+			return
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	Engine.set_meta("autopilot", self)
 	Engine.time_scale = TIME_SCALE
@@ -103,6 +117,11 @@ func _run() -> void:
 		return
 	if mode == "doors":
 		await _doors()
+		_finish()
+		return
+	if _from >= 0:
+		await _build_state_at(_from)
+		await _full()
 		_finish()
 		return
 	await _talk("macc_home", "mum")
@@ -210,15 +229,42 @@ const FULL_BEATS := [
 const KEY_FIGHTS := ["keeper_", "kit_", "pryce_", "ashcombe_", "kerrigan_", "strachan_", "vane_", "wind_", "champion_", "reunion_", "tor_druid"]
 const MAX_PARTY_FULL := 6
 
+## from mode: a save as if the story had reached beat `idx`. The flags and Stones of every earlier beat, a team of
+## five at the story's par level (core/par_level.gd), standing at the zone's spawn.
+func _build_state_at(idx: int) -> void:
+	var d: GameStateData = Game.data
+	d.set_flag("starter", "kindlet")
+	for i in idx:
+		var f := str(FULL_BEATS[i][2])
+		if f.begins_with("@"):
+			continue
+		d.set_flag(f)
+		if f.begins_with("badge_") and not d.badges.has(f.substr(6)):
+			d.badges.append(f.substr(6))
+	var lv := ParLevel.par(d.flags)
+	d.party.clear()
+	for sp in ["kindlet", "spikkin", "holtling", "binfox", "hootlet"]:
+		d.add_creature(Creature.create(Game.dex.get_species(sp), lv, Game.rng, Game.moves))
+	d.heal_party()
+	print("BOT: from beat %d (%s/%s), par L%d, badges %s" % [idx, FULL_BEATS[idx][0], FULL_BEATS[idx][1], lv, d.badges])
+	await Router.goto_zone(str(FULL_BEATS[idx][0]), Vector2i(-1, -1), "down")
+	await _settle()
+
 func _full() -> void:
 	_build_rail_guards()
-	for b in FULL_BEATS:
+	for bi in FULL_BEATS.size():
+		var b: Array = FULL_BEATS[bi]
 		if _done:
 			return
+		if _from >= 0 and (bi < _from or bi >= _from + _from_count):
+			continue
 		_chapter = b[3]
 		if not _grind_time.has(_chapter):
 			_grind_time[_chapter] = 0.0
 		await _story_beat(str(b[0]), str(b[1]), str(b[2]))
+	if _from >= 0:
+		_check(_softlocks.is_empty(), "%d possible soft-lock(s), see BOT: SOFTLOCK lines" % _softlocks.size())
+		return
 	_check(Game.data.flag("game_complete") == true, "game_complete not set after Vane")
 	_check(_softlocks.is_empty(), "%d possible soft-lock(s), see BOT: SOFTLOCK lines" % _softlocks.size())
 	if not _done:
