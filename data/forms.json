@@ -1,0 +1,494 @@
+{
+ "stoatlet": {
+  "irish": {
+   "name": "Stoatlet (Irish)",
+   "regions": [
+    "ireland",
+    "ireland_east",
+    "ireland_west"
+   ],
+   "stat_lean": {
+    "spd": 4,
+    "def": -4
+   },
+   "look": {
+    "palette": {
+     "stops": [
+      "#2b1d14",
+      "#6b4528",
+      "#a0703f",
+      "#e9d9b8"
+     ]
+    },
+    "features": [
+     "no_winter_white"
+    ]
+   },
+   "fact": "The Irish stoat is a subspecies of its own, and it hardly ever turns white in winter."
+  }
+ },
+ "leveret": {
+  "irish": {
+   "name": "Leveret (Irish)",
+   "regions": [
+    "ireland",
+    "ireland_east",
+    "ireland_west"
+   ],
+   "stat_lean": {
+    "def": 4,
+    "spd": -4
+   },
+   "look": {
+    "palette": {
+     "stops": [
+      "#2e2016",
+      "#74502d",
+      "#b07f4a",
+      "#efe0c0"
+     ]
+    }
+   },
+   "fact": "The Irish hare is a subspecies of the mountain hare, and it keeps its brown coat in winter instead of turning white."
+  }
+ },
+ "foalmoor": {
+  "shetland": {
+   "name": "Foalmoor (Shetland)",
+   "regions": [
+    "scotland"
+   ],
+   "zones": [
+    "lerwick",
+    "shetland_mainland"
+   ],
+   "stat_lean": {
+    "atk": 4,
+    "spd": -4
+   },
+   "look": {
+    "palette": {
+     "stops": [
+      "#1d1713",
+      "#4a392c",
+      "#7c6249",
+      "#d6c3a1"
+     ]
+    },
+    "features": [
+     "thick_mane",
+     "short_legs"
+    ]
+   },
+   "fact": "Shetland ponies are among the smallest horse breeds, and the breed standard keeps them to about 42 inches at the withers."
+  },
+  "welsh_mountain": {
+   "name": "Foalmoor (Welsh Mountain)",
+   "regions": [
+    "north_wales",
+    "mid_wales",
+    "south_wales"
+   ],
+   "stat_lean": {
+    "def": 4,
+    "spd": -4
+   },
+   "look": {
+    "palette": {
+     "stops": [
+      "#2b2a2c",
+      "#6d6a68",
+      "#a9a49d",
+      "#ece8de"
+     ]
+    },
+    "features": [
+     "dished_face"
+    ]
+   },
+   "fact": "Welsh Mountain ponies live semi-wild on hills such as the Carneddau, and the breed is among the oldest native pony types in Britain."
+  }
+ },
+ "herdlet": {
+  "hebridean": {
+   "name": "Herdlet (Hebridean)",
+   "regions": [
+    "scotland"
+   ],
+   "zones": [
+    "stornoway",
+    "harris",
+    "skye",
+    "tobermory"
+   ],
+   "stat_lean": {
+    "atk": 4,
+    "def": -4
+   },
+   "look": {
+    "palette": {
+     "stops": [
+      "#0e0d0f",
+      "#2a2527",
+      "#4e4547",
+      "#9a8e8a"
+     ]
+    },
+    "features": [
+     "extra_horns"
+    ]
+   },
+   "fact": "Hebridean sheep are black or dark brown, and many of them grow two or even four horns."
+  },
+  "soay": {
+   "name": "Herdlet (Soay)",
+   "regions": [
+    "scotland"
+   ],
+   "zones": [
+    "harris"
+   ],
+   "stat_lean": {
+    "spd": 4,
+    "def": -4
+   },
+   "look": {
+    "palette": {
+     "stops": [
+      "#2a1c12",
+      "#5f3f26",
+      "#936340",
+      "#d2b894"
+     ]
+    },
+    "features": [
+     "curled_horns",
+     "lean_build"
+    ]
+   },
+   "fact": "Soay sheep live wild on St Kilda, and they shed their wool each year rather than needing to be sheared."
+  },
+  "north_ronaldsay": {
+   "name": "Herdlet (North Ronaldsay)",
+   "regions": [
+    "scotland"
+   ],
+   "zones": [
+    "kirkwall"
+   ],
+   "types": [
+    "tide",
+    "stone"
+   ],
+   "stat_lean": {
+    "ward": 4,
+    "atk": -4
+   },
+   "look": {
+    "palette": {
+     "stops": [
+      "#1f1d1b",
+      "#514d49",
+      "#8d867e",
+      "#d8d2c6"
+     ]
+    },
+    "features": [
+     "seaweed_trailing"
+    ]
+   },
+   "fact": "North Ronaldsay sheep live mostly on seaweed, and a stone dyke around the island keeps them on the shore."
+  }
+ },
+ "moolet": {
+  "highland": {
+   "name": "Moolet (Highland)",
+   "regions": [
+    "scotland"
+   ],
+   "types": [
+    "kin",
+    "frost"
+   ],
+   "stat_lean": {
+    "def": 6,
+    "spd": -6
+   },
+   "knack": "thick_fleece",
+   "look": {
+    "palette": {
+     "stops": [
+      "#3a1b0e",
+      "#8a4a22",
+      "#c27a3a",
+      "#f0c98e"
+     ]
+    },
+    "features": [
+     "long_coat",
+     "long_horns",
+     "fringe"
+    ]
+   },
+   "fact": "Highland cattle have a long, shaggy outer coat over a soft woolly undercoat, which keeps the wet and cold out."
+  },
+  "kerry": {
+   "name": "Moolet (Kerry)",
+   "regions": [
+    "ireland_west"
+   ],
+   "zones": [
+    "ring_of_kerry"
+   ],
+   "stat_lean": {
+    "hp": 4,
+    "spd": -4
+   },
+   "look": {
+    "palette": {
+     "stops": [
+      "#08080a",
+      "#1f1e22",
+      "#3d3b41",
+      "#7b7882"
+     ]
+    },
+    "features": [
+     "upswept_horns"
+    ]
+   },
+   "fact": "Kerry cattle are a small black breed native to Ireland, and the Dexter was developed from similar small cattle in the south-west."
+  }
+ },
+ "moggle": {
+  "manx": {
+   "name": "Moggle (Manx)",
+   "regions": [
+    "man"
+   ],
+   "stat_lean": {
+    "spd": 4,
+    "def": -4
+   },
+   "look": {
+    "palette": {
+     "stops": [
+      "#1f1a15",
+      "#53463a",
+      "#8e7a62",
+      "#e0d3ba"
+     ]
+    },
+    "features": [
+     "tailless",
+     "round_rump"
+    ]
+   },
+   "fact": "The Manx cat's missing tail comes from a natural gene mutation, so some Manx kittens are born with no tail at all."
+  }
+ },
+ "rillotter": {
+  "shetland": {
+   "name": "Rillotter (Shetland)",
+   "regions": [
+    "scotland"
+   ],
+   "zones": [
+    "lerwick",
+    "shetland_mainland"
+   ],
+   "types": [
+    "tide",
+    "night"
+   ],
+   "stat_lean": {
+    "atk": -4,
+    "spd": 4
+   },
+   "look": {
+    "palette": {
+     "stops": [
+      "#1a1612",
+      "#3f3228",
+      "#6d5640",
+      "#c9b498"
+     ]
+    },
+    "features": [
+     "wet_sleek_coat"
+    ]
+   },
+   "fact": "Shetland has one of the densest otter populations in Britain, and the otters there hunt mostly along the sea shore rather than in rivers."
+  }
+ },
+ "dolphlet": {
+  "moray_firth": {
+   "name": "Dolphlet (Moray Firth)",
+   "regions": [
+    "scotland"
+   ],
+   "zones": [
+    "inverness"
+   ],
+   "stat_lean": {
+    "atk": 4,
+    "spd": -4
+   },
+   "look": {
+    "palette": {
+     "stops": [
+      "#2a3340",
+      "#566879",
+      "#8ea1b2",
+      "#dfe7ee"
+     ]
+    },
+    "features": [
+     "larger_build"
+    ]
+   },
+   "fact": "The bottlenose dolphins of the Moray Firth are among the largest bottlenose dolphins in the world."
+  }
+ },
+ "pooka": {
+  "pwca": {
+   "name": "Pooka (Pwca)",
+   "regions": [
+    "north_wales",
+    "mid_wales",
+    "south_wales"
+   ],
+   "stat_lean": {
+    "lore": 4,
+    "atk": -4
+   },
+   "look": {
+    "palette": {
+     "stops": [
+      "#10121a",
+      "#2b3140",
+      "#505b73",
+      "#9fb0cf"
+     ]
+    },
+    "features": [
+     "green_eyes"
+    ]
+   },
+   "fact": "The Welsh pwca is a mischief-making spirit, a cousin of the Irish púca and perhaps of Shakespeare's Puck."
+  }
+ },
+ "kelpie": {
+  "cabbyl_ushtey": {
+   "name": "Kelpie (Cabbyl-ushtey)",
+   "regions": [
+    "man"
+   ],
+   "stat_lean": {
+    "def": 4,
+    "ward": -4
+   },
+   "look": {
+    "palette": {
+     "stops": [
+      "#0f1c1a",
+      "#2c4a44",
+      "#5a8379",
+      "#b6d5c9"
+     ]
+    },
+    "features": [
+     "seaweed_mane"
+    ]
+   },
+   "fact": "On the Isle of Man the water horse is called the cabbyl-ushtey, and it is the Manx cousin of the Scottish kelpie."
+  }
+ },
+ "shuck": {
+  "moddey_dhoo": {
+   "name": "Black Shuck (Moddey Dhoo)",
+   "regions": [
+    "man"
+   ],
+   "stat_lean": {
+    "ward": 4,
+    "atk": -4
+   },
+   "look": {
+    "palette": {
+     "stops": [
+      "#050507",
+      "#17171d",
+      "#2e2e3a",
+      "#6b6b80"
+     ]
+    },
+    "features": [
+     "glowing_eyes",
+     "castle_chain"
+    ]
+   },
+   "fact": "The Moddey Dhoo is the black dog said to haunt Peel Castle on the Isle of Man."
+  }
+ },
+ "selkie": {
+  "orcadian": {
+   "name": "Selkie (Orcadian)",
+   "regions": [
+    "scotland"
+   ],
+   "zones": [
+    "kirkwall",
+    "lerwick",
+    "shetland_mainland"
+   ],
+   "stat_lean": {
+    "lore": 4,
+    "def": -4
+   },
+   "look": {
+    "palette": {
+     "stops": [
+      "#1a1a22",
+      "#3d3d4c",
+      "#6e6e82",
+      "#c4c4d2"
+     ]
+    },
+    "features": [
+     "sealskin_cloak"
+    ]
+   },
+   "fact": "Selkie stories are told most strongly in Orkney and Shetland, where the seal-folk were said to shed their skins on the shore."
+  }
+ },
+ "volet": {
+  "skomer": {
+   "name": "Volet (Skomer)",
+   "regions": [
+    "south_wales"
+   ],
+   "zones": [
+    "pembroke_coast"
+   ],
+   "stat_lean": {
+    "hp": 4,
+    "spd": -4
+   },
+   "look": {
+    "palette": {
+     "stops": [
+      "#3a2312",
+      "#7d4d25",
+      "#b8794a",
+      "#ecd2b0"
+     ]
+    },
+    "features": [
+     "larger_build"
+    ]
+   },
+   "fact": "The Skomer vole is a bank vole subspecies found only on Skomer island, and it is larger than the mainland animal."
+  }
+ }
+}
