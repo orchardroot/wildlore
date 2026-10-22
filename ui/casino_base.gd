@@ -54,6 +54,9 @@ func _ready() -> void:
 	_banner.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(_banner)
 	refresh_header()
+	var odds := Economist.odds_line(str(get_script().resource_path).get_file().get_basename())
+	if odds != "":
+		show_tip.call_deferred(odds)  # the real odds, every visit (the Economist's notebook has the sums)
 
 func refresh_header() -> void:
 	if header_right == null:
@@ -132,6 +135,8 @@ func take_stake(amount: int) -> bool:
 ## Pays a settled bet and saves straight away. Shows the result banner. Returns the net.
 func settle(staked: int, returned: int, label := "") -> int:
 	var r := Punt.settle(Game.data, staked, returned, with_chips)
+	if Economist.note(Game.data, "house_edge"):
+		econ_tip()
 	commit()
 	refresh_header()
 	var net := int(r.net)

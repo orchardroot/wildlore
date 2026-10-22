@@ -127,6 +127,12 @@ func show_tip(text: String) -> void:
 	_fit_hint()
 	get_tree().create_timer(TIP_SECONDS).timeout.connect(_end_tip.bind(stamp))
 
+## Shows anything just noted in the Economist's notebook (see Economist.take_fresh) as a tip.
+func econ_tip() -> void:
+	var t := Economist.take_fresh()
+	if t != "":
+		show_tip(t)
+
 func _end_tip(stamp: int) -> void:
 	if _tip_until == stamp:
 		_tip_until = 0

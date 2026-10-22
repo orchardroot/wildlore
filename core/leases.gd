@@ -271,6 +271,8 @@ static func _hammer(a: Dictionary, data: GameStateData, yours: bool) -> String:
 		return "You'd need %s to bid that." % Wallet.fmt(int(a.bid), str(a.cur))
 	a.price = int(a.bid)
 	var l := get_lease(id)
+	Economist.note(data, "winners_curse", {"text": str(l.get("name", id)),
+		"over": roundi(100.0 * (float(a.bid) / maxf(1.0, float(a.reserve)) - 1.0))})
 	data.set_flag(key_of(id), {"since": data.day_count, "paid": Wallet.in_sterling(int(a.bid), str(a.cur)),
 		"next": data.day_count + WEEK, "arrears": 0, "due": 0})
 	data.flags.erase(TRIES_PREFIX + id)

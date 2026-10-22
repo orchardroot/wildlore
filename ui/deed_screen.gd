@@ -114,6 +114,7 @@ func _buy() -> void:
 	var why := Deeds.buy(Game.data, _id)
 	_done_sfx(why == "")
 	_say.text = Deeds.talk("buy") if why == "" else why
+	econ_tip()
 	_refresh()
 
 func _collect() -> void:

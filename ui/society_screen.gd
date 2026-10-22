@@ -133,6 +133,9 @@ func _set_hint() -> void:
 
 func _explain(key: String) -> void:
 	_say.text = BuildingSociety.talk(key) + ("  " + BuildingSociety.talk("early") if key == "apr" else "")
+	if key == "apr":
+		Economist.note(Game.data, "apr")
+		econ_tip()
 
 func _open_qty(kind: String) -> void:
 	var d: GameStateData = Game.data
@@ -235,6 +238,7 @@ func _commit() -> void:
 			msg = ("Postal order sent. She'll mention it for years, but kindly." if BuildingSociety.mum_owed(d) <= 0 else "Posted. She'll say she wasn't counting.") if ok else "That didn't go through."
 	Audio.sfx("item" if ok else "bump")
 	_say.text = msg
+	econ_tip()
 	if ok:
 		_close_qty()
 		_refresh()
