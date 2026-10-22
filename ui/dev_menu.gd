@@ -47,6 +47,11 @@ static func boot(game: Node, menu: String) -> void:
 	c.held = "oak_acorn"
 	d.party = [a, b, c, e, f]
 	d.ark = [mk.call("croakle", 6), mk.call("pipkin", 4), mk.call("dipling", 9)]
+	if menu.begins_with("lang") or menu in ["pedia:words", "pause:words"]:  # two Welsh lessons learnt, in Cardiff, a day on
+		d.zone_id = "cardiff"
+		for l in ["cy_01", "cy_02"]:
+			LangLessons.learn(d, l)
+		d.day_count = 2
 	if menu.begins_with("ark"):  # a fuller Ark, so sorting shows
 		for sp in ["bramblehog", "emberdrey", "redbreast", "snowhare", "gritling", "wispet", "cooplet", "raidtail", "bran"]:
 			d.ark.append(mk.call(sp, 3 + d.ark.size() * 4 % 23))

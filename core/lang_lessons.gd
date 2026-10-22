@@ -283,7 +283,7 @@ static func review(d: GameStateData, code: String, wid: String, right: bool) -> 
 
 ## "in 4 days", "tomorrow", "today": when a word comes round again.
 static func due_text(d: GameStateData, code: String, wid: String) -> String:
-	var n := card(d, code, wid)[1] - d.day_count
+	var n: int = card(d, code, wid)[1] - d.day_count
 	return "due now" if n <= 0 else ("tomorrow" if n == 1 else "in %d days" % n)
 
 # --- questions -----------------------------------------------------------------------------
