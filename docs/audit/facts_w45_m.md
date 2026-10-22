@@ -22,3 +22,11 @@ In the game, worth a check:
 - "The Green Line was drawn in green pencil by a British officer" is given as "the story goes".
 - Turkish lira at about 55 to the pound (Forex walk mean 55, 46 to 66). Set from mid-2025 rates; the lira keeps
   falling, so a higher mean may suit 2026.
+- 1974 displacement: the plaque says "well over a hundred thousand Greek Cypriots fled south and tens of thousands of
+  Turkish Cypriots moved north" (figures usually given are about 160,000 to 200,000 and about 45,000 to 50,000).
+- Pilavuna/flaounes: the simit seller says pilavuna is the cheese pastry Greek Cypriots call flaounes and bake at
+  Easter. An earlier draft tied the Turkish Cypriot version to Bayram; that was cut as unsure.
+- Pyla's Turkish Cypriot coffee-house owner is written as a villager whose family has always been in Pyla (Pyla's
+  Turkish Cypriots largely stayed through 1974), not as someone who moved north.
+- Committee on Missing Persons: the plaque says "many hundreds" identified (the CMP's own count passed a thousand
+  some years ago; "many hundreds" is kept as the safe understatement).
