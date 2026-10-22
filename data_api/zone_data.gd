@@ -212,6 +212,15 @@ func reachable(from: Vector2i, abilities: Array = [], also_blocked: Dictionary =
 				queue.append(q)
 	return seen
 
+## A warp lands you on `p`: can you take even one step from there that isn't on to a warp? Stepping on to a
+## warp sends you straight back out, so a doorstep hemmed in by signs, props and walls makes the whole zone
+## unreachable (Galway Docks, 4.5.0: a plaque beside the arrival tile kept everyone out of the Tide Stone fight).
+func doorstep_boxed_in(p: Vector2i) -> bool:
+	var doors := {}
+	for w in warps:
+		doors[Vector2i(int(w.x), int(w.y))] = true
+	return reachable(p, GATE_ABILITIES, doors).size() <= 1
+
 ## Tiles held by NPCs that never move and are never hidden by a flag (they block for good).
 func _standing_npcs() -> Dictionary:
 	var out := {}
@@ -409,6 +418,9 @@ func validate(all: Dictionary) -> Array:
 		elif not all[target].warp_at(Vector2i(int(w.tx), int(w.ty))).is_empty():
 			# step out on to the doorstep, not into the doorway (a moved building leaves stale arrivals)
 			e.append(tag + "warp arrival %d,%d in '%s' lands on a warp" % [int(w.tx), int(w.ty), target])
+		elif all[target].doorstep_boxed_in(Vector2i(int(w.tx), int(w.ty))):
+			# a sign or prop added beside the doorstep later can leave the only way off it back through the door
+			e.append(tag + "warp arrival %d,%d in '%s' is boxed in: the only way off it is back through a door" % [int(w.tx), int(w.ty), target])
 	for w in warps:
 		for k in ["locked", "hidden"]:
 			if w.has(k) and not (w[k] is Dictionary):
