@@ -1,5 +1,5 @@
 {
- "_doc": "Festival events (see core/festivals.gd): a festival NPC in a town, only in its real-date window (Calendar, --date=MM-DD), with a quest (data/quests/festivals.json), a script in data/dialogue/festivals.json and a limited-time creature. window is [month, day, month, day] and may wrap the new year.",
+ "_doc": "Festival events (see core/festivals.gd): a festival NPC in a town, only in its real-date window (Calendar, --date=MM-DD), with a quest (data/quests/festivals.json), a script in data/dialogue/festivals.json and a limited-time creature. window is [month, day, month, day] and may wrap the new year. An event with a rule (Up Helly Aa, the last Tuesday of January) needs no window: core/festivals.gd works it out for the year.",
  "events": [
   {
    "id": "bonfire",
@@ -329,12 +329,6 @@
    "id": "uphellyaa",
    "name": "Up Helly Aa",
    "town": "lerwick",
-   "window": [
-    1,
-    24,
-    1,
-    28
-   ],
    "rule": {
     "nth": "last",
     "weekday": 2,
@@ -551,7 +545,7 @@
   {
    "id": "braemar",
    "name": "The Braemar Gathering",
-   "town": "dee_valley",
+   "town": "cairngorms",
    "window": [
     9,
     1,
@@ -562,8 +556,8 @@
    "whatson": "The Braemar Gathering, with the caber and the Royal Family",
    "who": "Caber Callum",
    "sprite": "ghillie",
-   "x": 60,
-   "y": 19,
+   "x": 62,
+   "y": 22,
    "facing": "down",
    "script": "fest_braemar",
    "quest": "festivals_braemar",

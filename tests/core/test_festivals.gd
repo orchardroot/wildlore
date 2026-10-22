@@ -104,6 +104,42 @@ func test_a_rule_window_moves_with_the_calendar() -> void:
 	assert_true(Festivals.in_window(rule, 1, 27, 2026))
 	assert_false(Festivals.in_window(rule, 1, 28, 2027))
 
+## Up Helly Aa is the last Tuesday of January, which falls anywhere from the 25th to the 31st. The real event's rule
+## must put that Tuesday inside the window every year, with the days around it, from 2026 to 2040.
+func test_up_helly_aa_hits_the_last_tuesday_of_january_every_year() -> void:
+	var e := Festivals.get_event("uphellyaa")
+	assert_true(e.get("rule") is Dictionary, "Up Helly Aa moves with the calendar")
+	assert_false(e.has("window"), "no fixed window to mislead anyone")
+	var last_tuesdays := {2026: 27, 2027: 26, 2028: 25, 2029: 30, 2030: 29, 2031: 28, 2032: 27, 2033: 25,
+		2034: 31, 2035: 30, 2036: 29, 2037: 27, 2038: 26, 2039: 25, 2040: 31}
+	for y in last_tuesdays:
+		var d: int = last_tuesdays[y]
+		var w: Array = Festivals.window_of(e, y)
+		assert_eq(w, [1, d - 3, 1, min(d + 1, 31)] if d < 31 else [1, 28, 2, 1], "window for %d" % y)
+		assert_true(Festivals.in_window(e, 1, d, y), "Tuesday %d January %d is on" % [d, y])
+		assert_true(Festivals.in_window(e, 1, d - 3, y), "the Saturday before is on in %d" % y)
+		assert_false(Festivals.in_window(e, 1, d - 4, y), "the Friday before is not, in %d" % y)
+		if d < 31:
+			assert_false(Festivals.in_window(e, 1, d + 2, y), "two days after is not, in %d" % y)
+		assert_eq(Festivals.run_year(e, Vector2i(1, d), y), y)
+		for day in [24, 25, 26, 27, 28, 29, 30, 31]:
+			if day < d - 3 or day > d + 1:
+				assert_false(Festivals.in_window(e, 1, day, y), "%d January %d is off" % [day, y])
+	# Late December looks ahead to the right January: 2029's is the 30th, not the 2028 window's 22nd.
+	assert_eq(Festivals.coming_window(e, Vector2i(12, 28), 2028), [1, 27, 1, 31])
+	assert_eq(Festivals.days_until(e, Vector2i(12, 28), 2028), 30)
+	assert_eq(Festivals.days_until(e, Vector2i(1, 20), 2029), 7)
+	assert_eq(Festivals.days_until(e, Vector2i(1, 30), 2029), 0)
+
+func test_braemar_is_on_the_scottish_dee() -> void:
+	var e := Festivals.get_event("braemar")
+	assert_eq(str(e.town), "cairngorms", "Braemar is in the Cairngorms National Park, on the Aberdeenshire Dee")
+	var q := Festivals.quest_of(e)
+	assert_eq(str(q.get("town", "")), "cairngorms")
+	for s in q.get("steps", []):
+		assert_eq(str(s.get("zone", "")), "cairngorms")
+	assert_true(Festivals.in_window(e, 9, 1) and Festivals.in_window(e, 9, 7), "the first Saturday of September always falls from the 1st to the 7th")
+
 func test_run_year_follows_the_year_a_new_year_window_opened() -> void:
 	var hog := Festivals.get_event("hogmanay")
 	assert_eq(Festivals.run_year(hog, Vector2i(12, 31), 2026), 2026)

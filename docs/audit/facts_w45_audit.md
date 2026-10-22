@@ -4,7 +4,7 @@ Accuracy audit of existing player-facing facts: zone plaques (`signs`, `examine`
 
 Texts checked: 4,091 strings (4,002 unique) extracted with python from 1470 zone files, 25 festivals, the quest files, the item files and 7 language files. Jokes and game fiction were skipped.
 
-Fixes made: 50. Open doubts: 52 (not edited; for the owner).
+Fixes made: 50 by session S, then 41 more by session V from the doubts below. Open doubts left: 6 (for the owner).
 
 ## Fixes made
 
@@ -258,63 +258,70 @@ Fixes made: 50. Open doubts: 52 (not edited; for the owner).
 - After: A Davy lamp from a Welsh pit. The miners swore by it, and swore at the coblynau.
 - Why: Tommyknockers are Cornish and Devon mine spirits; the Welsh pit spirits are the coblynau.
 
-## Open doubts (not edited)
+## Session V: open doubts worked through
 
-Each needs a source check or an owner decision before anything changes in the game.
+Session V (branch `claude/w45-v-fixes`) went through the 52 doubts below with a source check on each. 41 were settled and edited in the game (listed first, with the source that settled them), 4 were checked and kept as written, and 6 are kept open for the owner at the end. Where a figure could not be pinned down the line was reworded to say less, not more.
 
-- `data/zones/ascension_green_mountain.json#signs/4/text`: "A flat-bottomed crater on the south-east coast, down at Comfortless Cove". Devil's Riding School crater is inland in the west; Comfortless Cove is on the north-west coast, not south-east
-- `data/zones/ascension_green_mountain.json#signs/5/text`: "Nothing here is native except the ferns". Ascension has a few other native/endemic plants (e.g. endemic spurge, grasses, mosses); oversimplified
-- `data/zones/ascension_green_mountain.json#signs/6/text`: "Before the rats and cats were cleared the colonies were tiny". Sooty tern colony declined (to roughly a few hundred thousand) but was never tiny; cats cleared 2002-04, rats not eradicated
-- `data/zones/bath.json#signs/2/text`: "BATH ABBEY. Founded 757". A monastery was founded here in 675; 757 is a less standard date (Offa's grant)
-- `data/zones/bath_hall.json#signs/0/text`: "finished in 1775". Bath Guildhall is generally dated 1775 to 1778 (begun 1775, completed 1778)
-- `data/zones/birmingham.json#signs/7/text`: "Alfred Bird invented egg-free custard here in 1837". Bird invented it at his chemist's shop in Worcester Street; the Digbeth Custard Factory works was built decades later
-- `data/zones/belfast_titanic.json#examine/1/text/1`: "driven in squads of four: a heater boy, a catcher, a holder-on and a riveter". Harland and Wolff squads usually described as five, with two riveters (left- and right-handed)
-- `data/zones/borders_abbotsford.json#examine/0/text/0`: "Sir Walter Scott built Abbotsford from 1812". Scott bought the farm 1811 and moved in 1812; the present house was mostly built 1817 to 1825
-- `data/zones/beacons.json#signs/7/text`: "ST DAVIDS 40 miles". St Davids is about 90 miles from the Storey Arms by road (Cardiff 20 miles is also short, nearer 35); may be game geography
-- `data/zones/cambrian_coast.json#signs/8/text`: "ABERYSTWYTH 14 miles". Barmouth/Harlech to Aberystwyth is about 35 miles by road; may be game geography
-- `data/zones/canterbury.json#signs/1/text`: "Traffic squeezed through its arch until 2012". 2012 closure was a trial; traffic may have been restored through the Westgate afterwards
-- `data/zones/canterbury.json#signs/2/text`: "about a mile and a half of it". Full circuit was only ~1.7 miles; surviving half is nearer a mile
-- `data/zones/chester.json#signs/3/text`: "Deva Victrix, founded AD 79". Fortress usually dated c. AD 74-75
-- `data/zones/diego_garcia.json#signs/0/text`: "BRITISH INDIAN OCEAN TERRITORY". 2025 UK-Mauritius treaty transfers Chagos sovereignty (Diego Garcia leased back); status in 2026 setting may need a nod
-- `data/zones/dingle_boat_hut.json#signs/0/text`: "sheltered by the Slea Head peninsula". Dingle harbour is on the Dingle (Corca Dhuibhne) peninsula; Slea Head is its tip
-- `data/zones/donegal_castle.json#examine/0/text/0`: "burned it in 1601". Date of Red Hugh's slighting of the castle uncertain (often given as 1590s)
-- `data/zones/enniskillen_castle.json#signs/1/text`: "two Victoria Crosses' worth of stories". Inniskilling Fusiliers won many more VCs (8 in WWI alone)
-- `data/zones/enniskillen_portora.json#signs/0/text`: "left in 1871 with a gold medal for Classics". Wilde won the Carpenter Prize and a Royal School scholarship; 'gold medal' uncertain
-- `data/zones/enniskillen.json#signs/8/text`: "round tower stands about 30 metres tall". Devenish tower often given as about 25 m
-- `data/zones/galway.json#signs/0/text`: "Eight acres of green". Eyre Square seems smaller than eight acres; size not verified
-- `data/zones/galway_druid.json#examine/0/text/0`: "in a tiny space on Druid Lane". Druid first played at the Jesuit Hall in 1975; the Druid Lane (Chapel Lane) theatre came in 1979
-- `data/zones/gibraltar.json#signs/3/text`: "a barracks of vaulted rooms built by the British in the 1700s". Grand Casemates barracks usually dated to 1817
-- `data/zones/grytviken.json#signs/2/text`: "The last whale was processed in 1965". Grytviken station is usually said to have closed in December 1966; last season may be 1964-65, check
-- `data/zones/inverness.json#signs/4/text`: "Only about 10 km long". River Ness is often given as about 19 km (12 miles); check
-- `data/zones/gibraltar.json#signs/1/text`: "When a plane is landing the road is closed". Since the 2023 Kingsway tunnel only pedestrians and cyclists use the runway crossing; still broadly true for walkers
-- `data/zones/lease_clonbeg.json#signs/0/text`: "Burning peat for electricity ended in 2020". Lough Ree and West Offaly stations closed in 2020 and Bord na Mona stopped harvesting, but Edenderry kept co-firing peat until about 2023
-- `data/zones/norwich.json#signs/5/text`: "The Norwich Society saved it by one vote". The Norwich Society campaigned, but the one-vote decision was the city council's
-- `data/zones/poole.json#signs/0/text`: "The line reached Poole in 1847 ... the end of the railway". 1847 line reached Hamworthy (old Poole station); town station 1872; line continues to Weymouth (may be game-network fiction)
-- `data/zones/poole.json#signs/0/text`: "in summer, Cherbourg". Brittany Ferries Poole-Cherbourg runs most of the year, not only summer
-- `data/zones/rothera.json#signs/2/text`: "the Dash 7, flies in from Punta Arenas". BAS Dash 7 mainly flies Rothera to Stanley, Falklands (also Punta Arenas at times)
-- `data/zones/st_helena_jamestown.json#signs/0/text`: "3,300 from South America". commonly quoted as about 4,000 km east of Rio; nearest Brazilian coast maybe about 3,300 km, unsure
-- `data/zones/oxford.json#signs/13/text`: "The pub still serves a pint". Eagle and Child closed in 2020 for refurbishment; unsure whether reopened by 2026
-- `data/zones/penshaw.json#signs/3/text`: "has a National Glass Centre to prove it". University of Sunderland announced closure plans for the National Glass Centre; status in 2026 unclear
-- `data/zones/st_helena_plantation.json#signs/6/text`: "In 1900 and 1901 about five thousand Boer prisoners". prisoners held 1900 to 1902, roughly 5,000 to 6,000
-- `data/zones/st_peter_port.json#signs/10/text`: "killed 34 people". 28 June 1940 raid on Guernsey is usually given as 33 killed (34 in some counts)
-- `data/zones/st_peter_port.json#signs/11/text`: "a council of twelve elected parish officers". Douzaine size varies by parish (St Peter Port has 20, Vale 16); 'douze' is only the name's origin
-- `data/zones/staffa_columns.json#signs/0/text`: "sent it to his sister Fanny". The opening bars were sent in a letter home to his family (7 Aug 1829), written before he actually landed on Staffa
-- `data/zones/tobermory.json#signs/12/text`: "At Dervaig, a few miles from here, a professional theatre of about forty seats". Mull Theatre moved from the Dervaig barn to Druimfin near Tobermory in 2008; Dervaig is about 8 miles away
-- `data/zones/yorkshire_wolds.json#signs/2/text`: "Birds brought from Spain were released at Harewood". Harewood (1999-2003) kites are generally reported as young birds from the Chilterns population (itself founded from Spanish stock)
-- `data/zones/swansea.json#signs/16/text`: "Built by the Norman lords of Gower, the de Breoses, from the twelfth century". Oystermouth was founded c. 1106 by William de Londres; the de Braose stone castle is mainly 13th century
-- `data/zones/york_hall.json#signs/0/text`: "mentioned in the Domesday Book of 1086 as the Great Flesh Shambles". Shambles is popularly said to be in Domesday, but 'Great Flesh Shambles' is a later medieval name, not the Domesday wording
-- `data/zones/wookey_hole.json#signs/3/text`: "The monk, as the guide says, is never named". The legend usually names him Father Bernard of Glastonbury (wry line, may be intentional)
-- `data/quests/potteries.json#quests/3/steps/1/text`: "Find the detectorist in the fields below the Roaches.". The Staffordshire Hoard was found at Hammerwich near Lichfield, south Staffordshire, not near the Roaches (by Leek); may mislead if read as the find site
-- `data/quests/valleys.json#quests/2/summary`: "Replay the 1804 wager: Rhondda coal". Penydarren ironworks used local Merthyr coal; Rhondda steam coal was exploited later (1850s on). Gameplay framing, low priority
-- `data/items/borders.json#0/desc`: "baked in Carlisle since the 1850s". Carr's of Carlisle dates from 1831 and its table water biscuit is often dated to the 1830s/40s; unsure of the 1850s date
-- `data/items/overseas_anguilla.json#4/desc`: "It sticks out over the water to balance the sloop.". Not sure Anguillan racing sloops use a hiking plank; they are known for shifting sandbag ballast and crew weight
-- `data/zones/ascension_green_mountain.json#signs/6/text`: "Before the rats and cats were cleared the colonies were tiny. The numbers are climbing again". Feral cats were cleared in 2002-04 but rats were not eradicated, and sooty tern numbers are not clearly climbing. Needs rewording by someone with current RSPB/AIG figures.
-- `data/items/valleys.json#1/desc`: "Glamorgan sausage 'was invented when meat was short, and it outlived the shortage by a century'". Recorded by George Borrow in 1862 and popular in Second World War rationing; 'invented when meat was short' is doubtful.
-- `data/festivals.json#events/braemar`: "The Braemar Gathering is held in town 'dee_valley'". dee_valley is the Welsh Dee Valley (Llangollen, Pontcysyllte). Braemar is on the Aberdeenshire Dee. Needs moving to a Scottish zone (new coordinates on a free tile), so not edited here.
-- `data/festivals.json#events/uphellyaa`: "window 24 to 28 January for 'the last Tuesday of January'". The last Tuesday of January falls between the 25th and the 31st, so a fixed 24 to 28 January window misses it in some years (it is 30 January in 2029 and 29 January in 2030).
-- `data/lang/nrf_gg.json#places/st_peter_port`: "'Saint Pierre Port'; greeting 'Bonjour!'". Not sure of the Guernésiais forms. Sources give 'St Pierre Port' or 'Saint-Pierre-Port' for the town and 'Bouan jour' or similar for hello; 'Bonjour' is standard French. Owner or a Guernésiais speaker to confirm.
-- `data/lang/ga.json#places/glenveagh`: "'Gleann Bheatha agus An Earagail'". Correct words, but mid-phrase the article would normally be lower case: 'Gleann Bheatha agus an Earagail'.
+### Settled and edited
+
+- `data/zones/ascension_green_mountain.json#signs/4`: Devil's Riding School is an inland crater north-east of Wideawake airfield (NASA Earth Observatory). Now "A flat-bottomed crater inland, north-east of Wideawake airfield".
+- `data/zones/ascension_green_mountain.json#signs/5`: "Nothing here is native except the ferns" softened to "Almost nothing", since Ascension has a handful of other native plants (spurge, grasses).
+- `data/zones/ascension_green_mountain.json#signs/6`: rewritten. Feral cats (about 5,800 adult terns a year) were eradicated 2002 to 2004; rats and mynas still take eggs; the colony is a few hundred thousand against millions a century ago (Hughes et al., University of Birmingham 2019; Ratcliffe et al. 2008). No claim that numbers are climbing.
+- `data/zones/bath.json#signs/2`: "Founded 757" was a land grant year. Osric's charter of 675 founded the convent (Bath Abbey, Wessex Archaeology). Now "A monastery since 675".
+- `data/zones/bath_hall.json#signs/0`: Guildhall built 1775 to 1778 (Historic England list entry 1396021).
+- `data/zones/birmingham.json#signs/7`: Bird invented custard powder in 1837 as a Birmingham chemist; the Devonshire Works in Digbeth went up in 1902. Now says so.
+- `data/zones/belfast_titanic.json#examine/1/text/1`: riveting squads were five: heater boy, catcher, holder-up and two riveters (Encyclopedia Titanica, National Museums Liverpool).
+- `data/zones/borders_abbotsford.json#examine/0`: farm bought 1811, house built in phases 1816-18 and 1822-24 (Historic Environment Scotland LB15104). Now "bought a farm here in 1811, built Abbotsford in stages through the 1810s and 1820s".
+- `data/zones/canterbury.json#signs/1`: the Westgate closure was a trial from April 2012 to spring 2013 and the old layout was restored (Kent County Council, ITV Meridian). Now "Traffic still squeezes through its arch; a year's trial of closing it, in 2012, was not kept."
+- `data/zones/canterbury.json#signs/2`: circuit about two miles, over half surviving (Historic UK, Wikipedia). The mile-and-a-half figure is gone.
+- `data/zones/chester.json#signs/3`: fortress begun in the mid-70s AD by Legio II Adiutrix; sources give 74, 75 and 79. Now "founded in the AD 70s".
+- `data/zones/dingle_boat_hut.json#signs/0`: now "sheltered by the hills of the Dingle Peninsula" (Slea Head is the tip).
+- `data/zones/enniskillen_castle.json#signs/1`: "two Victoria Crosses' worth" is now "several" (the Inniskillings won eight in the First World War alone).
+- `data/zones/enniskillen_portora.json#signs/0`: no Portora gold medal is attested; the Berkeley Gold Medal was Trinity's, 1874. Now "left in 1871 with the school's prize for Classics and a scholarship to Trinity College Dublin" (the Royal School Scholarship, 1871).
+- `data/zones/enniskillen.json#signs/8`: Devenish tower measured at about 26.5 m (irishstones.org survey); some guides say 30. Now "over 25 metres".
+- `data/zones/galway.json#signs/0`: Eyre Square is about 3 acres (1.2 ha), not eight. Now "A few acres of green".
+- `data/zones/galway_druid.json#examine/0`: Druid has had its theatre on the lane (Chapel Lane, renamed Druid Lane in 1996) since 1979. Now says "since 1979 it has played in a tiny theatre on the lane now named after it".
+- `data/zones/gibraltar.json#signs/3`: Grand Casemates Barracks built 1817. Now "built by the British in 1817".
+- `data/zones/gibraltar.json#signs/1`: matches the audit's fix to signs/2: walkers and cyclists wait at the barriers, cars have used the Kingsway tunnel since 2023, and the "only road that gives way to a Hercules" is in the past tense.
+- `data/zones/grytviken.json#signs/2`: Grytviken ran to 1965 by the South Georgia government's account and closed December 1966 by Wikipedia's; the last whale is not dated anywhere. Now "Whaling here ended in the mid-1960s".
+- `data/zones/lease_clonbeg.json#signs/0`: ESB's Lough Ree and West Offaly closed in 2020; Edenderry burned its last peat on 23 December 2023 (Bord na Mona). Now says both.
+- `data/zones/norwich.json#signs/5`: the Norwich Society campaigned and the council decided; the one-vote (mayor's casting vote) detail is local tradition. Now "talked the council out of it, by the narrowest of votes, so the story goes".
+- `data/zones/poole.json#signs/0`: the 1847 line ended at Hamworthy; Poole's own station opened 1872; the line runs on to Weymouth; Poole to Cherbourg sails most of the year. Now "The railway reached the far side of the harbour in 1847 and the town itself in 1872" and plain "Cherbourg".
+- `data/zones/rothera.json#signs/2`: the Dash 7 flies from both Punta Arenas and the Falklands (BAS). Now says both.
+- `data/zones/oxford.json#signs/13`: the Eagle and Child closed in 2020 and is being restored by the Ellison Institute with no opening date set. Now "The pub closed in 2020 and is being restored to open again."
+- `data/zones/penshaw.json#signs/3`: the National Glass Centre's closure (31 July 2026) was announced in advance; the line now says Sunderland "in 1998 opened a National Glass Centre on the riverbank", true whatever happens to the building.
+- `data/zones/st_helena_plantation.json#signs/6`: 5,500 to 6,000 prisoners, 1900 to 1902, at Deadwood and Broadbottom (SA Military History Society). Now "From 1900 to 1902 nearly six thousand ... in camps here on Deadwood Plain and at Broadbottom".
+- `data/zones/st_peter_port.json#signs/11`: Douzaines are a dozen in most parishes, 20 in St Peter Port. Now "a dozen or more elected parish officers".
+- `data/zones/staffa_columns.json#signs/0`: the opening bars went in a letter home to the family (7 August 1829). Now "sent it home in a letter to his family".
+- `data/zones/tobermory.json#signs/12`: Mull Little Theatre was a converted byre at Dervaig (about 42 seats, once in the Guinness book as the world's smallest professional theatre); the company moved to Druimfin outside Tobermory in 2008. Rewritten in the past tense with the move.
+- `data/zones/yorkshire_wolds.json#signs/2`: the 69 Harewood kites (1999 on) all came from the Chilterns, whose own founders were Spanish (1990) (Yorkshire Red Kites, Natural England). Now says so.
+- `data/zones/swansea.json#signs/16`: Oystermouth founded by William de Londres about 1106, rebuilt in stone by the de Breoses in the 1200s. Now says so.
+- `data/zones/york_hall.json#signs/0`: Domesday records two butchers' stalls, not the street name; "Great Flesh Shambles" is attested by 1426 (York Civic Trust, History Hit). Rewritten accordingly.
+- `data/zones/wookey_hole.json#signs/3`: the attraction's own telling names the monk Father Bernard. Now "The guide calls the monk Father Bernard. Nobody ever asked the witch her name."
+- `data/zones/sherwood.json#signs/8`: double comma left by the audit's own edit ("Southwick,,") removed.
+- `data/items/borders.json#0`: Carr's was founded in Carlisle in 1831; the Table Water biscuit's own date is disputed (1832 or 1890). Now "from a Carlisle bakery founded in 1831".
+- `data/items/overseas_anguilla.json#4`: Anguillan race boats have no deck, a foot-wide rail and sandbag or lead ballast; no hiking plank. The Crew Plank's description now says the crew sit on the rail as ballast.
+- `data/items/valleys.json#1`: earliest record is George Borrow's Wild Wales (breakfast at Brynamman, published 1862); the meatless version came into its own under wartime rationing. Now says that instead of "invented when meat was short".
+- `data/lang/ga.json#places/glenveagh`: now "Gleann Bheatha agus an Earagail".
+- `data/festivals.json#events/braemar`: moved from the Welsh Dee Valley to the `cairngorms` zone (Braemar is inside the Cairngorms National Park, on the Aberdeenshire Dee), Caber Callum at a free tile (62, 22); the quest's town and step zones follow. `Festivals.validate` now checks every festival person stands on a free floor tile of their town.
+- `data/festivals.json#events/uphellyaa`: the event already carried a `rule` (last Tuesday of January, 3 days before to 1 after) that overrides the window; the misleading fixed 24 to 28 January window is removed and the file's `_doc` says so. `tests/core/test_festivals.gd` now checks the Tuesday is inside the window, and the days around it are right, for every year 2026 to 2040 (it falls on the 31st in 2034 and 2040, so the window runs into 1 February). A late-December "Coming up" line now looks at next January's dates rather than the one just gone (`Festivals.coming_window`).
+
+### Checked and kept as written
+
+- `data/zones/inverness.json#signs/4`: the River Ness is about 10 km (6.2 miles) in Wikipedia and the Gazetteer for Scotland; longer figures are outliers.
+- `data/zones/st_helena_jamestown.json#signs/0`: St Helena to Ponta do Seixas, Brazil's eastern tip, is about 3,310 km by great circle; 4,000 km is the distance to Rio. "3,300 from South America" stands.
+- `data/zones/st_peter_port.json#signs/10`: the Guernsey Press and Liberation Route give 34 killed in the 28 June 1940 raid (Visit Guernsey says 33). 34 stands.
+- `data/quests/potteries.json#quests/3/steps/1`: the detectorist's own line in `data/dialogue/the_roaches.json` puts the Hoard's field "near Lichfield"; the Roaches is only where he stands.
+
+### Still open (for the owner)
+
+- `data/zones/beacons.json#signs/7` and `data/zones/cambrian_coast.json#signs/8`: fingerpost mileages (St Davids 40 miles, Aberystwyth 14 miles) are game geography, not real distances (nearer 90 and 35 miles by road). Owner's call whether fingerposts should carry real figures.
+- `data/zones/diego_garcia.json#signs/0`: "BRITISH INDIAN OCEAN TERRITORY" was true through 2025; the UK-Mauritius treaty of May 2025 hands over sovereignty with Diego Garcia leased back, and its entry into force cannot be verified from here. The brief says not to describe 2025-26 developments we cannot verify, so left as is.
+- `data/zones/donegal_castle.json#examine/0`: sources conflict. The 1601 siege (and a fire) is well attested; Wikipedia's castle article instead has the departing O'Donnells wrecking it in 1607, and no source found has Red Hugh burning it himself "rather than see it taken". Needs a better source before editing.
+- `data/quests/valleys.json#quests/2/summary`: Trevithick's 1804 run hauled iron with local Merthyr coal; the quest's item is "Rhondda Steam Coal" (Rhondda steam coal came in the 1850s). Gameplay framing; renaming the item would touch saves, so left for the owner.
+- `data/lang/nrf_gg.json#places/st_peter_port` and its greeting: Guernésiais forms ("St Pierre Port", "Bouan jour" or similar) need a speaker to confirm; "Bonjour" is standard French.
+- `data/zones/ascension_green_mountain.json#signs/6`: reworded as above, but the current sooty tern count (no census found after 2019) is worth a check against RSPB or Ascension Island Government figures when someone has them.
 
 ## Language data checked and left as is
 
-All places, greetings and phrases in cy, ga, gd, gv, kw, jer and nrf_gg were read. Welsh, Irish, Scottish Gaelic, Manx, Cornish and Jèrriais entries look right (e.g. Bannau Brycheiniog, Dyffryn Dyfrdwy, Clochán an Aifir, Loch nEathach, Am Monadh Ruadh, Na Hearadh, Laksaa, Pennsans, Saint Hélyi). The two open language points are in the list above.
+All places, greetings and phrases in cy, ga, gd, gv, kw, jer and nrf_gg were read. Welsh, Irish, Scottish Gaelic, Manx, Cornish and Jèrriais entries look right (e.g. Bannau Brycheiniog, Dyffryn Dyfrdwy, Clochán an Aifir, Loch nEathach, Am Monadh Ruadh, Na Hearadh, Laksaa, Pennsans, Saint Hélyi). Session V fixed the Glenveagh article; the Guernésiais point is still open above.
