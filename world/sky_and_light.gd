@@ -341,7 +341,7 @@ static func blended_phase(minutes: int) -> Array:
 ## shadows turn through the day. Low keeps it fixed at -35.
 static func sun_yaw(minutes: int) -> float:
 	var h := GameClock.wrap(minutes) / 60.0
-	return clampf(-35.0 + (h - 12.0) * 7.0, -85.0, 15.0)
+	return clampf(-35.0 + (h - 12.0) * 4.5, -70.0, 0.0)
 
 ## How strongly cloud shadows drift over the ground (ground.gdshader `clouds`) in a weather and phase.
 static func cloud_shadows(w: String, ph: String) -> float:
@@ -389,6 +389,9 @@ func apply_time(minutes: int) -> void:
 	env.adjustment_saturation = grade[1]
 	env.adjustment_contrast = grade[2]
 	env.ambient_light_color = amb
+	# Medium/High indoors: no glow pass, which lifts a room's black surround to a murky blue in the Compatibility
+	# renderer (the hearth and lamps light the room for real instead, see InteriorLight). Battles (no zone) keep theirs.
+	env.glow_enabled = not _low and not (interior and _zone != null)
 	env.ambient_light_energy = amb_e
 	env.background_color = bg
 	env.fog_light_color = bg.lerp(amb, 0.5).darkened(0.25)
@@ -453,7 +456,7 @@ func apply_quality(q: String) -> void:
 	sun.directional_shadow_mode = DirectionalLight3D.SHADOW_PARALLEL_4_SPLITS if q == "high" else DirectionalLight3D.SHADOW_PARALLEL_2_SPLITS
 	sun.shadow_blur = 1.5 if q == "low" else (2.6 if q == "high" else 2.0)
 	RenderingServer.directional_soft_shadow_filter_set_quality(RenderingServer.SHADOW_QUALITY_SOFT_MEDIUM if q == "high" else RenderingServer.SHADOW_QUALITY_SOFT_LOW)
-	env.glow_enabled = q != "low"
+	env.glow_enabled = q != "low" and not (interior and _zone != null)
 	var was_low := _low
 	_low = q == "low"
 	if _low != was_low and _rain != null:

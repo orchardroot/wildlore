@@ -34,7 +34,7 @@ func test_blended_phase_is_continuous_and_keeps_lamp_hours() -> void:
 func test_sun_swings_east_to_west() -> void:
 	assert_near(SkyAndLight.sun_yaw(12 * 60), -35.0, 0.001, "noon matches the old fixed sun")
 	assert_true(SkyAndLight.sun_yaw(8 * 60) < SkyAndLight.sun_yaw(16 * 60))
-	assert_true(SkyAndLight.sun_yaw(3 * 60) >= -85.0 and SkyAndLight.sun_yaw(23 * 60) <= 15.0)
+	assert_true(SkyAndLight.sun_yaw(3 * 60) >= -70.0 and SkyAndLight.sun_yaw(23 * 60) <= 0.0)
 
 func test_cloud_shadows_by_weather() -> void:
 	assert_eq(SkyAndLight.cloud_shadows("clear", "night"), 0.0, "no cloud shadows by moonlight")

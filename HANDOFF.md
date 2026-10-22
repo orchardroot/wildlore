@@ -11,8 +11,12 @@
   (world/interior_light.gd), readable characters (art/shaders/char_sprite.gdshader, world/char_sprite.gd).
 - Tests: tests/world/test_world_graphics.gd.
 
+- After shots: docs/shots/w45b/*_after.png (medium), city_dusk_after.png (high, 18:05), city_low.png (Low = today).
+- Indoors on Medium/High the glow pass is off (it lifted the dark surround to murky blue; base code does this too).
+- FPS (this loaded iMac, Liverpool): base medium 79 -> 75, base high 63 -> 59; interior 186 -> 176; Low 147.
+
 ## Left
-- Run `tools/test.sh world_graphics`, after shots, tune, push, watch CI.
+- Push and watch CI (full suite runs there, not locally).
 
 ## Gotchas
 - zsh doesn't word-split "$S": pass shot args literally. Shot delay 25 under load (12 caught the title).

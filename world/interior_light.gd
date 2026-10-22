@@ -39,7 +39,7 @@ static func dress(z: ZoneData, root: Node3D, player: Node3D, quality: String) ->
 				il._windows.append(l)
 			"lantern":
 				if player:
-					l.position = Vector3(0, 1.1, 0.3)
+					l.position = Vector3(0.7, 1.5, -0.3)  # beside and behind you, so it lights the cave, not your face
 					player.add_child.call_deferred(l)
 					il.tree_exiting.connect(l.queue_free)  # the lantern goes when the cave does
 					il._lantern = l
@@ -65,7 +65,7 @@ static func plan(z: ZoneData) -> Array:
 				"at": Vector3(p.x + 0.5, 1.6, p.y + 1.4)})
 	var out := fires.slice(0, 2)
 	if cave:
-		out.push_front({"kind": "lantern", "colour": Color("ffb066"), "energy": 0.9, "range": 4.0, "at": Vector3.ZERO})
+		out.push_front({"kind": "lantern", "colour": Color("ffb066"), "energy": 0.6, "range": 4.0, "at": Vector3.ZERO})
 	else:
 		out.append({"kind": "room", "colour": ROOM, "energy": 0.45, "range": maxf(z.width, z.height) * 0.75,
 			"at": Vector3(z.width * 0.5, 2.6, z.height * 0.55)})
