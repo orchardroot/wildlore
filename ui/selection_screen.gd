@@ -1,5 +1,5 @@
 extends MenuBase
-## The moor model (SelectionSim): a population on its backdrop, a kestrel's share taken each step, and the dark share
+## The moor model (SelectionSim): a population on its backdrop, a predator's share taken each step, and the dark share
 ## drawn over time underneath. Step, Run, switch scenario, change the winters. Opened from Dr Keir's bench and the
 ## Almanac's Biology page. Watching for a while opens Biology pages (flags bio_sim_watched, bio_sim_manchester).
 ## setup("manchester") starts on Manchester; "manchester:1900" or "moor:12" runs that far first (screenshots).
@@ -39,8 +39,9 @@ func _build() -> void:
 	_sub = UIKit.label("", 19, UIKit.CREAM)
 	col.add_child(_sub)
 	_field = Control.new()
-	_field.custom_minimum_size = Vector2(0, 190)
+	_field.custom_minimum_size = Vector2(0, 120)
 	_field.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_field.size_flags_vertical = Control.SIZE_EXPAND_FILL  # takes what the text leaves, so the buttons always fit above the hints
 	_field.draw.connect(_draw_field)
 	col.add_child(_field)
 	col.add_child(UIKit.label("The gold line is the dark share over time; the strip beneath it is the backdrop.", 17, UIKit.MUTED))
@@ -142,7 +143,8 @@ func _refresh() -> void:
 	_head.text = "%s   %s   Dark: %d%%   Pale: %d%%" % [SelectionSim.SCENARIOS[sim.scenario].name, _when(), dark, 100 - dark]
 	var eaten := ""
 	if sim.t > 0:
-		eaten = "   Last %s the kestrels took %d dark and %d pale." % ["year" if sim.scenario == "manchester" else "season", sim.last_eaten.dark, sim.last_eaten.pale]
+		var who := "the birds" if sim.scenario == "manchester" else "the kestrels"  # moths off bark go to robins and tits, not hawks
+		eaten = "   Last %s %s took %d dark and %d pale." % ["year" if sim.scenario == "manchester" else "season", who, sim.last_eaten.dark, sim.last_eaten.pale]
 	_sub.text = str(b.text) + "." + eaten
 	_run_btn.text = "Pause" if _running else "Run"
 	_scen_btn.text = "Try Manchester" if sim.scenario == "moor" else "Back to the moor"
