@@ -117,10 +117,37 @@
    "move": "still",
    "script": "guildhall_steward"
   },
-  {"id": "guildhall_historian", "x": 9, "y": 4, "sprite": "poet", "script": "guildhall_historian", "facing": "down", "move": "still"}
+  {
+   "id": "guildhall_historian",
+   "x": 9,
+   "y": 4,
+   "sprite": "poet",
+   "script": "guildhall_historian",
+   "facing": "down",
+   "move": "still"
+  },
+  {
+   "id": "arts_stage_manager",
+   "name": "Stage Manager",
+   "sprite": "villager_5",
+   "x": 9,
+   "y": 3,
+   "facing": "left",
+   "move": "still",
+   "script": "arts_stage_manager"
+  }
  ],
  "encounters": {},
- "signs": [],
+ "signs": [
+  {
+   "x": 4,
+   "y": 1,
+   "plaque": "arts_field_day",
+   "theme": "arts",
+   "title": "Field Day",
+   "text": "On 23 September 1980 the Guildhall staged the first performance of Translations by Brian Friel, the opening production of the Field Day Theatre Company he had founded with the actor Stephen Rea. The play is set in a Donegal hedge school in 1833, as the Ordnance Survey maps Ireland and turns its place-names into English. Seamus Heaney, Seamus Deane, Tom Paulin and David Hammond joined the board, and Field Day toured plays and pamphlets round the whole island through the hardest years. The first night's audience had come to see a play about maps, and went home having seen one about themselves."
+  }
+ ],
  "spawn": [
   6,
   7
@@ -141,10 +168,7 @@
   {
    "x": 6,
    "y": 1,
-   "text": [
-    "The Guildhall's stained glass tells the city's story, and a fire in 1908 nearly ended the building.",
-    "It was rebuilt, and the clock tower keeps time again."
-   ]
+   "text": ["The Guildhall's stained glass tells the city's story, and a fire in 1908 nearly ended the building.", "It was rebuilt, and the clock tower keeps time again."]
   }
  ]
 }

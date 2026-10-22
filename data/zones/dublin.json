@@ -11,122 +11,25 @@
  },
  "encounters": {
   "grass": [
-   {
-    "max": 49.0,
-    "min": 47.0,
-    "species": "cluricaun",
-    "time": ["dusk", "night"],
-    "weight": 12.0
-   },
-   {
-    "max": 48.0,
-    "min": 47.0,
-    "species": "chipgull",
-    "time": ["day"],
-    "weight": 14.0
-   },
-   {
-    "max": 49.0,
-    "min": 48.0,
-    "species": "pierlord",
-    "time": ["day", "dusk"],
-    "weight": 10.0
-   },
-   {
-    "max": 49.0,
-    "min": 48.0,
-    "species": "binfox",
-    "time": ["night", "dusk"],
-    "weight": 8.0
-   },
-   {
-    "max": 49.0,
-    "min": 47.0,
-    "species": "raidtail",
-    "weight": 10.0
-   },
-   {
-    "max": 48.0,
-    "min": 47.0,
-    "species": "grizzlet",
-    "time": ["dawn", "day"],
-    "weight": 5.0
-   },
-   {
-    "max": 49.0,
-    "min": 47.0,
-    "species": "strutcoo",
-    "time": ["day", "dawn"],
-    "weight": 10.0
-   },
-   {
-    "max": 48.0,
-    "min": 47.0,
-    "species": "cooplet",
-    "weather": ["drizzle", "downpour"],
-    "weight": 5.0
-   },
-   {
-    "max": 49.0,
-    "min": 48.0,
-    "species": "flittermouse",
-    "time": ["night"],
-    "weight": 8.0
-   },
-   {
-    "max": 48.0,
-    "min": 47.0,
-    "species": "hushwing",
-    "time": ["night"],
-    "weight": 6.0
-   },
-   {
-    "max": 48.0,
-    "min": 47.0,
-    "species": "fawnlet",
-    "time": ["dawn", "dusk"],
-    "weight": 8.0
-   },
-   {
-    "max": 49.0,
-    "min": 48.0,
-    "species": "sootwing",
-    "weather": ["fog", "drizzle"],
-    "weight": 6.0
-   }
+   {"max": 49.0, "min": 47.0, "species": "cluricaun", "time": ["dusk", "night"], "weight": 12.0},
+   {"max": 48.0, "min": 47.0, "species": "chipgull", "time": ["day"], "weight": 14.0},
+   {"max": 49.0, "min": 48.0, "species": "pierlord", "time": ["day", "dusk"], "weight": 10.0},
+   {"max": 49.0, "min": 48.0, "species": "binfox", "time": ["night", "dusk"], "weight": 8.0},
+   {"max": 49.0, "min": 47.0, "species": "raidtail", "weight": 10.0},
+   {"max": 48.0, "min": 47.0, "species": "grizzlet", "time": ["dawn", "day"], "weight": 5.0},
+   {"max": 49.0, "min": 47.0, "species": "strutcoo", "time": ["day", "dawn"], "weight": 10.0},
+   {"max": 48.0, "min": 47.0, "species": "cooplet", "weather": ["drizzle", "downpour"], "weight": 5.0},
+   {"max": 49.0, "min": 48.0, "species": "flittermouse", "time": ["night"], "weight": 8.0},
+   {"max": 48.0, "min": 47.0, "species": "hushwing", "time": ["night"], "weight": 6.0},
+   {"max": 48.0, "min": 47.0, "species": "fawnlet", "time": ["dawn", "dusk"], "weight": 8.0},
+   {"max": 49.0, "min": 48.0, "species": "sootwing", "weather": ["fog", "drizzle"], "weight": 6.0}
   ],
   "water": [
-   {
-    "max": 49.0,
-    "min": 47.0,
-    "species": "pierlord",
-    "weight": 30.0
-   },
-   {
-    "max": 48.0,
-    "min": 47.0,
-    "species": "chipgull",
-    "weight": 25.0
-   },
-   {
-    "max": 49.0,
-    "min": 47.0,
-    "species": "dipling",
-    "weight": 20.0
-   },
-   {
-    "max": 49.0,
-    "min": 48.0,
-    "species": "bradan",
-    "weather": ["drizzle", "downpour"],
-    "weight": 10.0
-   },
-   {
-    "max": 48.0,
-    "min": 47.0,
-    "species": "stalklet",
-    "weight": 15.0
-   }
+   {"max": 49.0, "min": 47.0, "species": "pierlord", "weight": 30.0},
+   {"max": 48.0, "min": 47.0, "species": "chipgull", "weight": 25.0},
+   {"max": 49.0, "min": 47.0, "species": "dipling", "weight": 20.0},
+   {"max": 49.0, "min": 48.0, "species": "bradan", "weather": ["drizzle", "downpour"], "weight": 10.0},
+   {"max": 48.0, "min": 47.0, "species": "stalklet", "weight": 15.0}
   ]
  },
  "ferry": {
@@ -201,10 +104,7 @@
    "sprite": "tour_guide",
    "x": 13.0,
    "y": 39.0,
-   "times": [
-    "day",
-    "dusk"
-   ]
+   "times": ["day", "dusk"]
   },
   {
    "facing": "down",
@@ -214,10 +114,7 @@
    "sprite": "villager_2",
    "x": 45.0,
    "y": 44.0,
-   "times": [
-    "day",
-    "dusk"
-   ]
+   "times": ["day", "dusk"]
   },
   {
    "facing": "right",
@@ -227,10 +124,7 @@
    "sprite": "farmer",
    "x": 38.0,
    "y": 39.0,
-   "path": [
-    "left",
-    "left"
-   ]
+   "path": ["left", "left"]
   },
   {
    "facing": "down",
@@ -240,10 +134,7 @@
    "sprite": "hiker",
    "x": 22.0,
    "y": 5.0,
-   "times": [
-    "day",
-    "dusk"
-   ]
+   "times": ["day", "dusk"]
   },
   {
    "facing": "down",
@@ -356,9 +247,7 @@
    "move": "still",
    "script": "dublin_lamplighter",
    "name": "Lamplighter",
-   "times": [
-    "night"
-   ]
+   "times": ["night"]
   },
   {
    "id": "dublin_fox_watcher",
@@ -369,9 +258,37 @@
    "move": "still",
    "script": "dublin_fox_watcher",
    "name": "Fox Watcher",
-   "times": [
-    "night"
-   ]
+   "times": ["night"]
+  },
+  {
+   "id": "arts_joycean",
+   "name": "Joycean",
+   "sprite": "tour_guide",
+   "x": 54,
+   "y": 39,
+   "facing": "left",
+   "move": "still",
+   "script": "arts_joycean"
+  },
+  {
+   "id": "arts_chemist",
+   "name": "Chemist",
+   "sprite": "shopkeeper",
+   "x": 57,
+   "y": 39,
+   "facing": "down",
+   "move": "still",
+   "script": "arts_chemist"
+  },
+  {
+   "id": "arts_davy_byrnes",
+   "name": "Barman",
+   "sprite": "villager_3",
+   "x": 44,
+   "y": 40,
+   "facing": "up",
+   "move": "still",
+   "script": "arts_davy_byrnes"
   }
  ],
  "props": [
@@ -976,7 +893,16 @@
   "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT===TTTTTTTTTTTTTTTTTTTTTTTTTTT$$$$$$$$$$$$"
  ],
  "signs": [
-  {"x": 19, "y": 18, "text": "GREEN PLAQUE: The Irish Free State issued its own pound in 1928, worth exactly a pound sterling until the link was broken in 1979. Ireland joined the euro in 1999, and euro notes and coins arrived on 1 January 2002, at 0.787564 punts to the euro. The punt stopped being legal tender that February.", "kind": "plaque", "dx": 0.475, "plaque": "econ_punt_euro", "title": "The Punt and the Euro", "green": true},
+  {
+   "x": 19,
+   "y": 18,
+   "text": "GREEN PLAQUE: The Irish Free State issued its own pound in 1928, worth exactly a pound sterling until the link was broken in 1979. Ireland joined the euro in 1999, and euro notes and coins arrived on 1 January 2002, at 0.787564 punts to the euro. The punt stopped being legal tender that February.",
+   "kind": "plaque",
+   "dx": 0.475,
+   "plaque": "econ_punt_euro",
+   "title": "The Punt and the Euro",
+   "green": true
+  },
   {
    "x": 33,
    "y": 22,
@@ -1075,15 +1001,6 @@
    "y": 21.0
   },
   {
-   "x": 9,
-   "y": 37,
-   "text": "BLUE PLAQUE: Oscar Wilde, writer and wit, was born in Dublin in 1854 and studied at Trinity College from 1871 to 1874.",
-   "kind": "plaque",
-   "dx": -0.475,
-   "plaque": "dublin_oscar_wilde",
-   "title": "Oscar Wilde"
-  },
-  {
    "x": 34,
    "y": 14,
    "plaque": "dublin_gpo_1916",
@@ -1098,13 +1015,6 @@
    "text": "In 1759 Arthur Guinness took a lease on a small brewery at St James's Gate for 9,000 years, at 45 pounds a year. The brewery is still there, and the lease is on show. The black stuff with the white head is now poured all round the world, slowly."
   },
   {
-   "x": 40,
-   "y": 39,
-   "plaque": "dublin_messiah",
-   "title": "Handel's Messiah",
-   "text": "On 13 April 1742 Handel's Messiah was first performed at the Music Hall on Fishamble Street, near here. To fit in more people, ladies were asked not to wear hooped skirts and gentlemen to leave their swords at home."
-  },
-  {
    "x": 51,
    "y": 38,
    "plaque": "dublin_bloomsday",
@@ -1117,6 +1027,48 @@
    "plaque": "dublin_lonsdale",
    "title": "Kathleen Lonsdale",
    "text": "Kathleen Lonsdale was born in 1903 in Newbridge, County Kildare, the youngest of ten children. Using X-rays, she proved in 1929 that the benzene ring is flat, which chemists had argued over for decades. In 1945 she and Marjory Stephenson became the first women elected Fellows of the Royal Society. A Quaker and a pacifist, she spent a month in Holloway prison in 1943 for refusing to register for wartime duties."
+  },
+  {
+   "x": 9,
+   "y": 37,
+   "text": "BLUE PLAQUE: Oscar Wilde, writer and wit, was born in Dublin in 1854 and studied at Trinity College from 1871 to 1874.",
+   "kind": "plaque",
+   "dx": -0.475,
+   "plaque": "dublin_oscar_wilde",
+   "theme": "arts",
+   "title": "Oscar Wilde"
+  },
+  {
+   "x": 40,
+   "y": 39,
+   "plaque": "dublin_messiah",
+   "theme": "arts",
+   "title": "Handel's Messiah",
+   "text": "On 13 April 1742 Handel's Messiah was first performed at the Music Hall on Fishamble Street, near here. To fit in more people, ladies were asked not to wear hooped skirts and gentlemen to leave their swords at home."
+  },
+  {
+   "x": 55,
+   "y": 38,
+   "plaque": "arts_james_joyce",
+   "theme": "arts",
+   "title": "James Joyce",
+   "text": "James Joyce was born in Rathgar on 2 February 1882 and left Dublin in 1904 with Nora Barnacle, never to live here again and never to write about anywhere else. Dubliners came out in 1914, A Portrait of the Artist as a Young Man in 1916, and Ulysses on his fortieth birthday in 1922, printed in Paris by Sylvia Beach's bookshop because nobody else dared. It opens with 'Stately, plump Buck Mulligan' on a tower at Sandycove. He died in Zurich in 1941. He said that if Dublin were destroyed it could be rebuilt from his book. Planning permission would be a nightmare."
+  },
+  {
+   "x": 33,
+   "y": 20,
+   "plaque": "arts_abbey_theatre",
+   "theme": "arts",
+   "title": "The Abbey Theatre",
+   "text": "The Abbey opened on Abbey Street on 27 December 1904, founded by W. B. Yeats and Lady Gregory to give Ireland a theatre of its own. In January 1907 the audience rioted for a week at J. M. Synge's The Playboy of the Western World; Yeats called in the police and lectured the stalls. In 1925 the new Free State gave it a grant, the first state-funded theatre in the English-speaking world. The old building burned in 1951 and the present one opened in 1966. The riots have calmed down, mostly."
+  },
+  {
+   "x": 64,
+   "y": 21,
+   "plaque": "arts_riverdance",
+   "theme": "arts",
+   "title": "Riverdance",
+   "text": "On 30 April 1994, at the Point Theatre on these docks, the Eurovision Song Contest broke for the interval and seven minutes of Irish dancing to Bill Whelan's music, led by Michael Flatley and Jean Butler, stole the whole evening. Ireland won the contest too, for the third year running, but nobody remembers the song. Riverdance opened as a full show at the Point the next February and has toured the world ever since. Arms by your sides. Feet doing the impossible."
   }
  ],
  "spawn": [

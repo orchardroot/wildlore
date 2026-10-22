@@ -105,6 +105,11 @@ func _summary() -> PanelContainer:
 			next = next.trim_suffix(".") + ", and Kit will want to hear about it."
 	var nl := UIKit.fit_label(next, 900, 19, 15, UIKit.MUTED)
 	mid.add_child(nl)
+	# Poets' Corner (4.5): the plaques on writers, musicians and artists, counted again on their own
+	var pc := PoetsCorner.count(d)
+	if pc > 0:
+		var pt := PoetsCorner.title(d)
+		mid.add_child(UIKit.fit_label("Poets' Corner: %d of %d plaques on the arts read%s." % [pc, PoetsCorner.total(), (", " + pt) if pt != "" else ""], 900, 19, 15, UIKit.MUTED))
 	return p
 
 # --- the list of places -------------------------------------------------------------

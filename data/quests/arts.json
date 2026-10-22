@@ -1,0 +1,149 @@
+{
+ "quests": [
+  {
+   "id": "arts_england",
+   "title": "Poets' Corner",
+   "region": "arts",
+   "town": "london_westminster",
+   "giver": "Poets' Corner Guide, Westminster Abbey",
+   "summary": "Read the plaques of three English poets where they lived, for the Abbey's tour sheet.",
+   "start_flag": "q_arts_england_started",
+   "steps": [
+    {
+     "flag": "plaque_arts_wordsworth_daffodils",
+     "text": "Read the plaque about Wordsworth's daffodils by the water in the Lake District.",
+     "zone": "lake_district"
+    },
+    {
+     "flag": "plaque_arts_shakespeare",
+     "text": "Read Shakespeare's plaque inside the Globe in London.",
+     "zone": "london_globe"
+    },
+    {
+     "flag": "plaque_bath_austen",
+     "text": "Read Jane Austen's blue plaque in Bath.",
+     "zone": "bath"
+    },
+    {
+     "flag": "q_arts_england_done",
+     "text": "Report back to the guide in Poets' Corner at Westminster Abbey.",
+     "zone": "london_westminster"
+    }
+   ],
+   "done_flag": "q_arts_england_done",
+   "reward": "A Pocket Anthology, two flasks of tea and standing in England."
+  },
+  {
+   "id": "arts_wales",
+   "title": "Branwen's Starling",
+   "region": "arts",
+   "town": "cambrian_harlech",
+   "giver": "The Cyfarwydd, Harlech Castle",
+   "summary": "Carry a message like Branwen's starling: fetch a copied page of the White Book of Rhydderch from Aberystwyth.",
+   "start_flag": "q_arts_wales_started",
+   "steps": [
+    {
+     "flag": "plaque_arts_branwen",
+     "text": "Read the board about Branwen in the gatehouse at Harlech.",
+     "zone": "cambrian_harlech"
+    },
+    {
+     "flag": "q_arts_wales_page",
+     "text": "Ask the Mabinogi scholar at the National Library of Wales in Aberystwyth for a copy of the page.",
+     "zone": "aberystwyth_nlw"
+    },
+    {
+     "flag": "q_arts_wales_done",
+     "text": "Bring the page back to the cyfarwydd at Harlech.",
+     "zone": "cambrian_harlech"
+    }
+   ],
+   "done_flag": "q_arts_wales_done",
+   "reward": "The Mabinogion, bara brith and standing in Wales."
+  },
+  {
+   "id": "arts_scotland",
+   "title": "The Immortal Memory",
+   "region": "arts",
+   "town": "galloway",
+   "giver": "Burns Club Secretary, Galloway",
+   "summary": "Learn how Burns died in Dumfries and lived in Edinburgh, then earn the toast at the Burns Supper.",
+   "start_flag": "q_arts_scotland_started",
+   "steps": [
+    {
+     "flag": "plaque_arts_burns_dumfries",
+     "text": "Read the board about Burns in Dumfries, by the lochan in Galloway Forest Park.",
+     "zone": "galloway"
+    },
+    {
+     "flag": "plaque_arts_burns_edinburgh",
+     "text": "Read the board about Burns's winter in Edinburgh, near the Royal Mile.",
+     "zone": "edinburgh"
+    },
+    {
+     "flag": "q_arts_scotland_done",
+     "text": "Answer the secretary's question back in Galloway.",
+     "zone": "galloway"
+    }
+   ],
+   "done_flag": "q_arts_scotland_done",
+   "reward": "A facsimile of the Kilmarnock Edition, tablet and standing in Scotland."
+  },
+  {
+   "id": "arts_ni",
+   "title": "Field Day",
+   "region": "arts",
+   "town": "derry_guildhall",
+   "giver": "Stage Manager, the Guildhall",
+   "summary": "Gather the Field Day company for a revival of Translations: Heaney's blessing and a wandering actor.",
+   "start_flag": "q_arts_ni_started",
+   "steps": [
+    {
+     "flag": "plaque_arts_heaney_bellaghy",
+     "text": "Read Seamus Heaney's board on the Bellaghy side of Lough Neagh.",
+     "zone": "lough_neagh"
+    },
+    {
+     "flag": "q_arts_ni_actor",
+     "text": "Find the actor in the Craft Village in Derry and send him back.",
+     "zone": "derry_craftvillage"
+    },
+    {
+     "flag": "q_arts_ni_done",
+     "text": "Report to the stage manager in the Guildhall.",
+     "zone": "derry_guildhall"
+    }
+   ],
+   "done_flag": "q_arts_ni_done",
+   "reward": "A Field Day programme, soda farls and standing in Northern Ireland."
+  },
+  {
+   "id": "arts_ireland",
+   "title": "Bloomsday",
+   "region": "arts",
+   "town": "dublin",
+   "giver": "The Joycean, Dublin",
+   "summary": "Fetch Leopold Bloom's lemon soap and gorgonzola sandwich for a Bloomsday rehearsal.",
+   "start_flag": "q_arts_ireland_started",
+   "steps": [
+    {
+     "flag": "q_arts_ireland_soap",
+     "text": "Buy a cake of lemon soap from the chemist outside Sweny's.",
+     "zone": "dublin"
+    },
+    {
+     "flag": "q_arts_ireland_sandwich",
+     "text": "Get a gorgonzola sandwich from the barman at Davy Byrne's.",
+     "zone": "dublin"
+    },
+    {
+     "flag": "q_arts_ireland_done",
+     "text": "Bring both back to the Joycean in the boater.",
+     "zone": "dublin"
+    }
+   ],
+   "done_flag": "q_arts_ireland_done",
+   "reward": "A straw boater, gorgonzola sandwiches, the soap to keep, and standing in Ireland."
+  }
+ ]
+}

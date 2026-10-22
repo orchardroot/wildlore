@@ -15,5 +15,53 @@
    "who": "Potter",
    "text": "Some streets in the city had a shirt factory at every corner. Now we have pottery, and fewer collars."
   }
+ ],
+ "arts_field_day_actor": [
+  {
+   "do": "if",
+   "flag": "q_arts_ni_actor",
+   "then": [
+    {
+     "do": "say",
+     "who": "Actor",
+     "text": "I am going, I am going. Hugh the schoolmaster says it is not the facts of history that shape us but the images of the past that live on in the language. I am paraphrasing. The real line is better, and I am saving it for the stage."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_arts_ni_started",
+     "then": [
+      {
+       "do": "say",
+       "who": "Actor",
+       "text": "The stage manager sent you? Tell her I was researching. In 1833 the Ordnance Survey came to Ireland with chains and theodolites and wrote Baile Beag down as Ballybeg, and a thousand other places with it. I needed to feel that over a scone."
+      },
+      {
+       "do": "say",
+       "who": "Actor",
+       "text": "Friel's trick is that the Irish characters speak English on stage and the English soldiers cannot understand a word of it. The audience does the translating. It is the cleverest thing ever done in this city, and that includes the walls."
+      },
+      {
+       "do": "say",
+       "who": "Actor",
+       "text": "Right. Back to the Guildhall. Stephen Rea played Owen on the first night in 1980, you know. No pressure."
+      },
+      {
+       "do": "set",
+       "flag": "q_arts_ni_actor",
+       "value": true
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Actor",
+       "text": "{greeting} An actor, resting, which is our word for a scone. Field Day started in this city in 1980, with Translations in the Guildhall. The best play ever written about a map."
+      }
+     ]
+    }
+   ]
+  }
  ]
 }

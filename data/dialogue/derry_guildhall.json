@@ -21,47 +21,29 @@
    "do": "if",
    "flag": "isles_names",
    "then": [
-    {
-     "do": "say",
-     "who": "Local Historian",
-     "text": "Oak grove, Londonderry, Stroke City. Same walls, same rain."
-    }
+    {"do": "say", "who": "Local Historian", "text": "Oak grove, Londonderry, Stroke City. Same walls, same rain."}
    ],
    "else": [
-    {
-     "do": "say",
-     "who": "Local Historian",
-     "text": "{greeting} You'll have noticed the city has two names. Everybody notices. Some people notice loudly."
-    },
-    {
-     "do": "say",
-     "who": "Local Historian",
-     "text": "Derry is from the Irish Doire, an oak grove. A royal charter of 1613 made it Londonderry, after the London companies who paid for the walls."
-    },
-    {
-     "do": "say",
-     "who": "Local Historian",
-     "text": "Nationalists mostly say Derry, many unionists say Londonderry. The council is Derry City and Strabane, and the signs often give you both."
-    },
-    {
-     "do": "say",
-     "who": "Local Historian",
-     "text": "Write it with a slash and you get Stroke City, as a local radio man called it. The name stuck, which is more than most jokes manage."
-    },
-    {
-     "do": "say",
-     "who": "Local Historian",
-     "text": "And the full set: the old province of Ulster has nine counties, and three are in the Republic, Donegal among them. So the most northerly county in Ireland is in the South."
-    },
-    {
-     "do": "set",
-     "flag": "isles_names"
-    },
-    {
-     "do": "say",
-     "who": "",
-     "text": "Noted in the Gazetteer, under How these isles work."
-    }
+    {"do": "say", "who": "Local Historian", "text": "{greeting} You'll have noticed the city has two names. Everybody notices. Some people notice loudly."},
+    {"do": "say", "who": "Local Historian", "text": "Derry is from the Irish Doire, an oak grove. A royal charter of 1613 made it Londonderry, after the London companies who paid for the walls."},
+    {"do": "say", "who": "Local Historian", "text": "Nationalists mostly say Derry, many unionists say Londonderry. The council is Derry City and Strabane, and the signs often give you both."},
+    {"do": "say", "who": "Local Historian", "text": "Write it with a slash and you get Stroke City, as a local radio man called it. The name stuck, which is more than most jokes manage."},
+    {"do": "say", "who": "Local Historian", "text": "And the full set: the old province of Ulster has nine counties, and three are in the Republic, Donegal among them. So the most northerly county in Ireland is in the South."},
+    {"do": "set", "flag": "isles_names"},
+    {"do": "say", "who": "", "text": "Noted in the Gazetteer, under How these isles work."}
+   ]
+  }
+ ],
+ "arts_stage_manager": [
+  {
+   "do": "if",
+   "flag": "q_arts_ni_done",
+   "then": [
+    {"do": "say", "who": "Stage Manager", "text": "House is full, the Rea fella is word-perfect, and somebody has found a map of Baile Beag that was in the Guildhall attic all along. We are a go. Thank you, truly."},
+    {"do": "say", "who": "Stage Manager", "text": "If you want the real thing, Bellaghy has the HomePlace, and Friel's own country is over the border in Donegal. Both are closer than Broadway, and the tea is better."}
+   ],
+   "else": [
+    {"do": "if", "flag": "q_arts_ni_started", "then": [{"do": "if", "flag": "plaque_arts_heaney_bellaghy", "then": [{"do": "if", "flag": "q_arts_ni_actor", "then": [{"do": "set", "flag": "q_arts_ni_done", "value": true}, {"do": "say", "who": "Stage Manager", "text": "The actor is back and you have stood where Heaney grew up. That is the company, as near as we can get it in 2026. Translations goes up on the anniversary, 23 September, same stage."}, {"do": "say", "who": "Stage Manager", "text": "Here is a programme from the night in 1980, a reprint, with the cast list, and a seat for you at the dress rehearsal. Mind the Ordnance Survey; they are the villains, and they are also the reason you can find the place."}, {"do": "give_item", "item": "field_day_programme", "n": 1}, {"do": "give_item", "item": "soda_farl", "n": 3}, {"do": "standing", "nation": "northern_ireland", "amount": 5}], "else": [{"do": "say", "who": "Stage Manager", "text": "Heaney's board read. Good. Now the actor. He is in the Craft Village by the walls, 'getting into character', which is a theatre word for buying a scone. Send him back."}]}], "else": [{"do": "say", "who": "Stage Manager", "text": "Go and read Heaney's board at Lough Neagh first, on the Bellaghy side, west of here. The company was his as much as Friel's. Then the actor."}]}], "else": [{"do": "say", "who": "Stage Manager", "text": "{greeting} Stage manager for the Field Day revival. In 1980 Brian Friel and Stephen Rea put on Translations in this hall, a play about a Donegal hedge school in 1833 and the soldiers mapping the townlands into English."}, {"do": "say", "who": "Stage Manager", "text": "Seamus Heaney joined the company's board the next year, with Seamus Deane and others. So we are doing it again, here, on the anniversary, and I have lost an actor and I want the poet's blessing."}, {"do": "say", "who": "Stage Manager", "text": "Read Heaney's board by Lough Neagh, at Bellaghy, where he grew up. Then find my actor in the Craft Village and send him back. Do that and you have a seat at the dress rehearsal and a programme to keep."}, {"do": "set", "flag": "q_arts_ni_started", "value": true}]}
    ]
   }
  ]

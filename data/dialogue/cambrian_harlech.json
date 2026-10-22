@@ -22,5 +22,109 @@
    "who": "Harpist",
    "text": "I play Men of Harlech all day. It is the only tune the walls like. The rest, they have heard before."
   }
+ ],
+ "arts_cyfarwydd": [
+  {
+   "do": "if",
+   "flag": "q_arts_wales_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Cyfarwydd",
+     "text": "The copied page is on the wall by the fire. The visitors read Branwen now, and then they look out at Ireland and go quiet. Diolch."
+    },
+    {
+     "do": "say",
+     "who": "Cyfarwydd",
+     "text": "There are four branches: Pwyll, Branwen, Manawydan and Math. The third one is about a plague of mice, and I am not making that up."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_arts_wales_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_arts_wales_page",
+       "then": [
+        {
+         "do": "set",
+         "flag": "q_arts_wales_done",
+         "value": true
+        },
+        {
+         "do": "say",
+         "who": "Cyfarwydd",
+         "text": "You have it! A page of the White Book, in a copy, with the starling in the margin. Branwen's letter went from Ireland to Harlech; yours came the other way and took less time."
+        },
+        {
+         "do": "say",
+         "who": "Cyfarwydd",
+         "text": "A cyfarwydd is a storyteller, and a storyteller pays in stories. Here is the Mabinogion to keep, and bara brith for the road. Gwlad beirdd a chantorion: a land of poets and singers. You are one of us now, whether you like it or not."
+        },
+        {
+         "do": "give_item",
+         "item": "mabinogion_copy",
+         "n": 1
+        },
+        {
+         "do": "give_item",
+         "item": "bara_brith",
+         "n": 3
+        },
+        {
+         "do": "standing",
+         "nation": "wales",
+         "amount": 5
+        }
+       ],
+       "else": [
+        {
+         "do": "if",
+         "flag": "plaque_arts_branwen",
+         "then": [
+          {
+           "do": "say",
+           "who": "Cyfarwydd",
+           "text": "Now fly, starling. The scholar at the National Library in Aberystwyth, down the coast, will copy the page for us. Tell them Harlech sent you."
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Cyfarwydd",
+           "text": "Read the board by the wall first, the one about Branwen. A messenger should know the message."
+          }
+         ]
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Cyfarwydd",
+       "text": "{greeting} Shwmae. I am the cyfarwydd here, the storyteller, and this is where the second branch of the Mabinogi begins: Bendigeidfran on this rock, looking out to Ireland."
+      },
+      {
+       "do": "say",
+       "who": "Cyfarwydd",
+       "text": "Branwen, his sister, was married off to the king of Ireland and badly treated. She taught a starling to speak, tied a letter to its wing and sent it home to Harlech. The oldest airmail in Wales."
+      },
+      {
+       "do": "say",
+       "who": "Cyfarwydd",
+       "text": "I want a page of the real thing on the wall: the White Book of Rhydderch, from about 1350, at the National Library in Aberystwyth. Read Branwen's board here, then go south and ask the scholar there for a copy. You will be my starling."
+      },
+      {
+       "do": "set",
+       "flag": "q_arts_wales_started",
+       "value": true
+      }
+     ]
+    }
+   ]
+  }
  ]
 }

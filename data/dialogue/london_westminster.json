@@ -27,5 +27,122 @@
    "who": "Visitor",
    "text": "I am looking for Poets' Corner. Geoffrey Chaucer was buried here in 1400, and the poets followed him. A very good neighbourhood."
   }
+ ],
+ "arts_pc_guide": [
+  {
+   "do": "if",
+   "flag": "q_arts_england_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Guide",
+     "text": "My little tour sheet is the most borrowed thing in the Abbey after the umbrellas. Thank you."
+    },
+    {
+     "do": "say",
+     "who": "Guide",
+     "text": "Three more for your own corner: Burns is in Dumfries, Dylan Thomas has a stone here but his heart is in Laugharne, and Heaney never had a plaque here at all. He is at Bellaghy, with his own people."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_arts_england_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "plaque_arts_wordsworth_daffodils",
+       "then": [
+        {
+         "do": "if",
+         "flag": "plaque_arts_shakespeare",
+         "then": [
+          {
+           "do": "if",
+           "flag": "plaque_bath_austen",
+           "then": [
+            {
+             "do": "set",
+             "flag": "q_arts_england_done",
+             "value": true
+            },
+            {
+             "do": "say",
+             "who": "Guide",
+             "text": "Wordsworth, Shakespeare and Austen. All three. Austen has only had a memorial here since 1967, and she had to be very dead and very famous to get it."
+            },
+            {
+             "do": "say",
+             "who": "Guide",
+             "text": "Here, the first copy of the tour sheet, and a little anthology from the shop. Short poems. The Abbey prefers it if people finish things."
+            },
+            {
+             "do": "give_item",
+             "item": "pocket_anthology",
+             "n": 1
+            },
+            {
+             "do": "give_item",
+             "item": "flask_of_tea",
+             "n": 2
+            },
+            {
+             "do": "standing",
+             "nation": "england",
+             "amount": 5
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Guide",
+             "text": "Wordsworth and Shakespeare, lovely. Jane Austen is the last: a blue plaque on Sydney Place in Bath, where she lived from 1801. Read it for me."
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Guide",
+           "text": "Still two to go. Shakespeare has a board inside the Globe across the river, and Austen a plaque in Bath. The Abbey is patient. It has had the practice."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Guide",
+         "text": "The Lakes first, if you would. There is a lectern by the water in the Lake District about the daffodils. Wordsworth would have walked it. You can take the train."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Guide",
+       "text": "{greeting} Welcome to Poets' Corner. Chaucer was buried here in 1400, Spenser in 1599, and then everybody wanted the neighbours."
+      },
+      {
+       "do": "say",
+       "who": "Guide",
+       "text": "I am writing a one-page tour sheet, 'Three Poets, Three Places', and I need someone to go and read the plaques where the poets actually lived, so I get the wording right."
+      },
+      {
+       "do": "say",
+       "who": "Guide",
+       "text": "Wordsworth's daffodils in the Lake District, Shakespeare at the Globe, and Jane Austen in Bath. Read all three and come back. The Abbey can offer tea and a small book. Mostly tea."
+      },
+      {
+       "do": "set",
+       "flag": "q_arts_england_started",
+       "value": true
+      }
+     ]
+    }
+   ]
+  }
  ]
 }
