@@ -120,6 +120,7 @@ func _word_cell(w: Dictionary, small: bool) -> Control:
 	return p
 
 func _start_check() -> void:
+	set_title(LangLessons.lang_name(_code))  # the lesson's title moves into the question card, so the header fits
 	_questions = LangLessons.check_round(str(_lesson.id), _rng)
 	_index = 0
 	_score = 0
@@ -192,7 +193,10 @@ func _answer(i: int) -> void:
 	var last := _index + 1 >= _questions.size()
 	var next := make_button("See how you did" if last else "Next", _next, 280)
 	next.add_theme_font_size_override("font_size", 26)
-	_root.add_child(next)
+	var row := HBoxContainer.new()
+	row.add_child(UIKit.fill())
+	row.add_child(next)
+	_root.add_child(row)
 	set_hints([["confirm", "Carry on"], ["cancel", "Leave"]])
 	UIKit.focus_later(next)
 

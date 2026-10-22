@@ -31,7 +31,10 @@ static func show(id: String, detail: VBoxContainer) -> void:
 		var e := LangLessons.endonym(id)
 		detail.add_child(UIKit.label(str(g.language) + ((" · " + e) if e != "" else ""), 34, UIKit.GOLD))
 		var met: Array = g.rows
-		detail.add_child(UIKit.label("%d words met. Where there's a local name, you'll see it on the town banner and the signs." % met.size(), 20, UIKit.MUTED))
+		var intro := UIKit.label("%d words met. Where there's a local name, you'll see it on the town banner and the signs." % met.size(), 20, UIKit.MUTED)
+		intro.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART  # wraps rather than widen the panel
+		intro.custom_minimum_size = Vector2(300, 0)
+		detail.add_child(intro)
 		_lessons(id, detail)
 		detail.add_child(UIKit.spacer(4))
 		var rows := VBoxContainer.new()
@@ -70,6 +73,7 @@ static func _lessons(id: String, detail: VBoxContainer) -> void:
 	for a in LangLessons.about(id).slice(0, 2):
 		var l := UIKit.label(str(a), 18, Color("d8cfb4"))
 		l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		l.custom_minimum_size = Vector2(300, 0)
 		detail.add_child(l)
 
 ## Confirm on a language row: a revision round, once there are words learnt.

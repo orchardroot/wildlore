@@ -54,7 +54,7 @@ func test_leitner_boxes() -> void:
 	LangLessons.review(d, "zz", "dog", false)
 	assert_eq(LangLessons.card(d, "zz", "dog"), [1, 1], "a miss goes back to box 1, due now")
 	assert_eq(LangLessons.due_text(d, "zz", "cat"), "in 2 days")
-	var back := GameStateData.from_dict(JSON.parse_string(JSON.stringify(d.to_dict())))
+	var back := GameStateData.from_dict(JSON.parse_string(JSON.stringify(d.to_dict())), Fixtures.dex())
 	assert_eq(LangLessons.card(back, "zz", "cat"), [2, 3], "survives a save")
 
 func test_questions_both_ways() -> void:
@@ -101,10 +101,10 @@ func test_say_it_offer_is_rare_and_capped() -> void:
 	assert_true(LangLessons.say_it_offer(d, "zz", true, 0.0))
 
 func test_teacher_npcs_one_per_spot() -> void:
-	_fixture()
-	var n := LangLessons.npcs_for("cardiff_wmc").filter(func(x): return str(x.id).begins_with("lang_teacher_zz"))
-	assert_eq(n.size(), 1)
-	assert_eq(n[0].id, "lang_teacher_zz_01")
+	Langs.reset()
+	var n := LangLessons.npcs_for("cardiff_wmc").filter(func(x): return str(x.id).begins_with("lang_teacher_cy"))
+	assert_eq(n.size(), 1, "one teacher per spot, however many lessons")
+	assert_eq(n[0].id, "lang_teacher_cy_01")
 	assert_eq(n[0].script_file, "lang_lessons")
 
 func test_teacher_command_passes_and_certifies() -> void:
