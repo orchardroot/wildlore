@@ -312,9 +312,13 @@ static func _sorted(ls: Array) -> Array:
 
 # ---------------------------------------------------------------- words
 
+## "a" or "an" for a name (Estuarch, Heilan), by its first sound as spelt.
+static func article(name: String) -> String:
+	return "an" if fold(name).substr(0, 1) in ["a", "e", "i", "o", "u"] else "a"
+
 static func entry_text(sire_name: String, dam_name: String, tier: String) -> String:
 	if tier == "species":
-		return "A %s sire and a %s dam, and the calf of the pair has the best of both and the manners of neither. Bred at the farm, never found wild." % [sire_name, dam_name]
+		return "%s %s sire and %s %s dam, and the calf of the pair has the best of both and the manners of neither. Bred at the farm, never found wild." % [article(sire_name).capitalize(), sire_name, article(dam_name), dam_name]
 	return "%s's face on a %s's frame, and a temper all its own. Bred at the farm, never found wild." % [sire_name, dam_name]
 
 ## The one true thing its entry teaches: why this cross could happen at all, and whether it can breed.
