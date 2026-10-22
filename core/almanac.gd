@@ -6,9 +6,9 @@ extends RefCounted
 ## appears once its system has something to show, so old saves need nothing.
 
 ## The menus behind each page, in tab order. "ledger:<kind>" opens the Almanac's own read-only ledger.
-const ORDER := ["journal", "fieldbook", "gazetteer", "casebook", "studbook", "biology", "words", "invention", "rumours", "trades", "standing", "stats", "guilds", "deeds", "society", "worth"]
-const NAMES := {"journal": "Quest log", "fieldbook": "Fieldbook", "gazetteer": "Gazetteer", "casebook": "Casebook", "studbook": "Stud Book", "biology": "Biology", "words": "Words of the Isles", "invention": "Timeline of Invention", "rumours": "Rumours", "trades": "Trades", "standing": "Standing", "stats": "Tallies", "guilds": "Guilds", "deeds": "Deeds", "society": "Building Society", "worth": "Things worth knowing"}
-const MENUS := {"journal": "quests", "fieldbook": "pedia", "gazetteer": "quests:gazetteer", "casebook": "pedia:casebook", "studbook": "pedia:studbook", "biology": "biology", "words": "pedia:words", "invention": "invention", "rumours": "pedia:rumours", "trades": "stats:trades", "standing": "stats:standing", "stats": "stats", "guilds": "ledger:guilds", "deeds": "ledger:deeds", "society": "ledger:society", "worth": "ledger:worth"}
+const ORDER := ["journal", "fieldbook", "gazetteer", "casebook", "studbook", "biology", "words", "invention", "rumours", "trades", "standing", "stats", "guilds", "deeds", "society", "economist", "worth"]
+const NAMES := {"journal": "Quest log", "fieldbook": "Fieldbook", "gazetteer": "Gazetteer", "casebook": "Casebook", "studbook": "Stud Book", "biology": "Biology", "words": "Words of the Isles", "invention": "Timeline of Invention", "rumours": "Rumours", "trades": "Trades", "standing": "Standing", "stats": "Tallies", "guilds": "Guilds", "deeds": "Deeds", "society": "Building Society", "economist": "Economist's notebook", "worth": "Things worth knowing"}
+const MENUS := {"journal": "quests", "fieldbook": "pedia", "gazetteer": "quests:gazetteer", "casebook": "pedia:casebook", "studbook": "pedia:studbook", "biology": "biology", "words": "pedia:words", "invention": "invention", "rumours": "pedia:rumours", "trades": "stats:trades", "standing": "stats:standing", "stats": "stats", "guilds": "ledger:guilds", "deeds": "ledger:deeds", "society": "ledger:society", "economist": "economist", "worth": "ledger:worth"}
 
 static func sprouted(d: GameStateData, id: String) -> bool:
 	match id:
@@ -32,6 +32,8 @@ static func sprouted(d: GameStateData, id: String) -> bool:
 			return society_active(d)
 		"worth":
 			return LifeLessons.count(d) > 0
+		"economist":
+			return Economist.count(d) > 0
 	return true
 
 ## Local words met so far (the Words of the Isles tab, 4.1).
@@ -104,6 +106,8 @@ static func blurb(d: GameStateData, id: String) -> String:
 			return "Savings and statements"
 		"worth":
 			return "%d of %d lessons picked up" % [LifeLessons.count(d), LifeLessons.all().size()]
+		"economist":
+			return "%d of %d ideas met" % [Economist.count(d), Economist.total()]
 	return ""
 
 ## The rows [label, value] of a ledger page. Never empty: a page with nothing yet says so.

@@ -172,6 +172,7 @@ func _bid(extra: int) -> void:
 		Audio.sfx("badge")
 		_say.text = Leases.talk("won")
 		Bus.flag_changed.emit(Leases.key_of(_id), true)
+		econ_tip()
 	else:
 		Audio.sfx("cursor")
 		_say.text = Leases.talk("raised")

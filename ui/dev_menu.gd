@@ -209,6 +209,13 @@ static func boot(game: Node, menu: String) -> void:
 			d.day_count += 14
 			Deeds.tick(d, d.day_count)
 			menu = menu.trim_suffix(":owned")
+	if menu == "economist":  # `--menu=economist`: most of the notebook met, a Deed and a lease among them
+		d.money = 5000
+		for i in Economist.ideas():
+			if str(i.id) not in ["south_sea_1720", "ot_money"]:
+				Economist.note(d, str(i.id), {"text": "the Stag Inn", "gbp": 8000, "over": 23} if str(i.id) in ["opportunity_cost", "winners_curse"] else true)
+				if str(i.get("plaque", "")) != "":
+					d.set_flag(Gazetteer.flag_key(str(i.plaque)), true)
 	if menu.begins_with("almanac"):  # `--menu=almanac[:ledger:guilds|deeds|society]`: every page sprouted (a guild, a Deed with a till, a loan, a basket)
 		d.day_count = 120
 		d.money = 20000

@@ -222,6 +222,7 @@ static func borrow(data: GameStateData, zone_id: String, principal: int, term: i
 		"next": data.day_count + MONTH, "last": data.day_count, "missed": 0}
 	Wallet.earn(data, principal, cur)
 	_note(st, data, "Borrowed %s over %d months" % [Wallet.fmt(principal, cur), term])
+	Economist.note(data, "apr")
 	return {"ok": true}
 
 ## Pays `amount` off the loan (never more than clearing it costs). The days since the last instalment are charged first.
@@ -262,6 +263,7 @@ static func deposit(data: GameStateData, cur: String, amount: int) -> bool:
 	_roll_account(a, data.day_count)
 	Wallet.spend(data, amount, cur)
 	a.bal = _i(a, "bal") + amount
+	Economist.note(data, "compound")
 	return true
 
 static func withdraw(data: GameStateData, cur: String, amount: int) -> bool:

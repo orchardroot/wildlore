@@ -1,0 +1,167 @@
+{
+ "_doc": "The Economist's notebook (core/economist.gd, ui/economist_screen.gd, an Almanac page). Each idea is met once: by the flag econ_<id> (set by the system that teaches it, or by dialogue) or, for kind 'history', by reading the Gazetteer plaque named in 'plaque'. 'lines' are what the page says; 'how' is the hint while it is still blank; the code adds worked examples from the game's real numbers (Economist.example). Keep every line short, true and wry.",
+ "ideas": [
+  {
+   "id": "supply_demand",
+   "kind": "idea",
+   "title": "Supply and demand",
+   "how": "Sell a lot of one thing in one town and watch the price.",
+   "lines": [
+    "A price is where what people want meets how much of it is about.",
+    "Flood a town with something and each one is worth a bit less to the next buyer. That's a glut.",
+    "Leave it a few days and the shelves empty, and the price creeps back. Or take it somewhere that's short."
+   ],
+   "yours": "You glutted the market with %s."
+  },
+  {
+   "id": "comparative",
+   "kind": "idea",
+   "title": "Comparative advantage",
+   "how": "Someone at Leeds Kirkgate Market has a puzzle about two stalls.",
+   "lines": [
+    "David Ricardo's idea, from 1817: even if one place is better at making everything, both gain when each makes what it gives up least to make.",
+    "What counts is the cost in what else you could have made, not who is fastest.",
+    "It's why jute fibre is cheap in Dundee and dear down South, and why carrying it pays."
+   ]
+  },
+  {
+   "id": "opportunity_cost",
+   "kind": "idea",
+   "title": "Opportunity cost",
+   "how": "Buy a Deed and think about what else that money could have done.",
+   "lines": [
+    "The real price of anything is the best thing you gave up to get it.",
+    "Money spent on a business can't also sit in savings earning interest, or buy a lease, or a very large number of pasties.",
+    "A good choice beats the next best one, not just nothing."
+   ],
+   "yours": "You bought %s."
+  },
+  {
+   "id": "compound",
+   "kind": "idea",
+   "title": "Simple and compound interest",
+   "how": "Pay something into savings at the Building Society.",
+   "lines": [
+    "Simple interest is paid on what you put in. Compound interest is paid on that and on the interest already added.",
+    "On savings, compounding is a slow, kind snowball. On a debt you don't pay down, it's the same snowball coming the other way.",
+    "Time does most of the work, which is why starting early matters more than starting big."
+   ]
+  },
+  {
+   "id": "apr",
+   "kind": "idea",
+   "title": "APR",
+   "how": "Ask Pat at the Building Society what APR means, or take out a loan.",
+   "lines": [
+    "APR is the annual percentage rate: what a year of borrowing costs once interest is charged on interest.",
+    "UK lenders must show it, so you can compare one loan with another on the same footing.",
+    "A small monthly rate can be a big yearly one. Read the yearly one."
+   ]
+  },
+  {
+   "id": "inflation",
+   "kind": "idea",
+   "title": "Inflation",
+   "how": "An old regular at Whitelock's in Leeds remembers Decimal Day.",
+   "lines": [
+    "Inflation is prices rising across the board, which is the same thing as each pound buying less.",
+    "Britain went decimal on 15 February 1971: 240 old pence to the pound became 100 new ones.",
+    "Prices rose by about a quarter in 1975 alone. Today the Bank of England aims for 2% a year; in October 2022 it was 11.1%."
+   ]
+  },
+  {
+   "id": "winners_curse",
+   "kind": "idea",
+   "title": "Auctions and the winner's curse",
+   "how": "Win a lot at an Enclosure lease auction.",
+   "lines": [
+    "At an auction the winner is whoever valued the lot most, and that is often whoever guessed highest.",
+    "If everyone's guess is a bit off, the highest guess is the most likely to be too high. That's the winner's curse.",
+    "The cure is dull: decide your top price before the bidding, and stop there."
+   ],
+   "yours": "You won %s."
+  },
+  {
+   "id": "house_edge",
+   "kind": "idea",
+   "title": "Why the house always wins",
+   "how": "Have a go at the Palace casino or the races.",
+   "lines": [
+    "Every game pays a little less than the true odds. Over one night you might win. Over many, the sums win.",
+    "The gap is the house edge, or margin. It's the casino's rent, paid by everyone who plays, mostly the regulars.",
+    "If a bet costs you nothing to walk away from, walking away is the only one with no edge against you."
+   ]
+  },
+  {
+   "id": "boe_1694",
+   "kind": "history",
+   "title": "The Bank of England, 1694",
+   "plaque": "econ_bank_of_england",
+   "how": "A plaque in London.",
+   "lines": [
+    "Founded in 1694 to lend money to William III's government for its war with France. The idea came from a Scot, William Paterson.",
+    "It has been on Threadneedle Street since 1734, hence the Old Lady of Threadneedle Street.",
+    "Since 1997 it, not ministers, sets the interest rate that steers inflation."
+   ]
+  },
+  {
+   "id": "south_sea_1720",
+   "kind": "history",
+   "title": "The South Sea Bubble, 1720",
+   "plaque": "econ_south_sea",
+   "how": "A plaque in London.",
+   "lines": [
+    "The South Sea Company's shares soared past a thousand pounds in the summer of 1720, then fell to a fraction of that by the end of the year.",
+    "People bought because the price was rising, which made it rise, until it didn't. That is a bubble.",
+    "Isaac Newton is said to have lost a fortune in it."
+   ]
+  },
+  {
+   "id": "scottish_notes",
+   "kind": "history",
+   "title": "Scottish banknotes",
+   "plaque": "econ_scottish_notes",
+   "how": "A plaque in Edinburgh.",
+   "lines": [
+    "The Bank of Scotland was set up by an Act of the Scottish Parliament in 1695, a year after the Bank of England.",
+    "Three Scottish banks still print their own notes. They're sterling all the same, whatever the shop in Dover says."
+   ]
+  },
+  {
+   "id": "punt_euro",
+   "kind": "history",
+   "title": "From the punt to the euro, 2002",
+   "plaque": "econ_punt_euro",
+   "how": "A plaque in Dublin.",
+   "lines": [
+    "Ireland had its own pound, the punt, from 1928. It kept level with sterling until 1979, when the link was broken.",
+    "Ireland joined the euro in 1999, and euro notes and coins arrived on 1 January 2002. One euro was worth 0.787564 punts.",
+    "So the North and the Republic now spend different money on either side of an open border."
+   ]
+  },
+  {
+   "id": "crash_2008",
+   "kind": "history",
+   "title": "Northern Rock and the 2008 crash",
+   "plaque": "econ_northern_rock",
+   "how": "A plaque in Newcastle.",
+   "lines": [
+    "In September 2007 savers queued outside Northern Rock's branches to get their money out: a run on a British bank.",
+    "It was nationalised in February 2008. That September, Lehman Brothers collapsed in New York and the panic went worldwide.",
+    "Banks lend out most of what you pay in. That works as long as everyone doesn't want it back on the same day."
+   ]
+  },
+  {
+   "id": "ot_money",
+   "kind": "history",
+   "title": "The Territories' own money",
+   "plaque": "econ_ot_money",
+   "how": "A plaque in Stanley, in the Falklands.",
+   "lines": [
+    "The Falklands, Gibraltar and St Helena have their own pounds, fixed one for one with sterling.",
+    "Bermuda's dollar is fixed to the US dollar, the Caymans have their own dollar, the Virgin Islands and Turks and Caicos use the US dollar, and Pitcairn the New Zealand dollar.",
+    "Anguilla and Montserrat share the Eastern Caribbean dollar with their neighbours. Small places borrow a big currency's steadiness."
+   ]
+  }
+ ]
+}

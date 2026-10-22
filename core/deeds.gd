@@ -211,6 +211,7 @@ static func buy(data: GameStateData, id: String) -> String:
 	data.set_flag(FLAG_PREFIX + id, {"owned": true, "tier": 0, "store": {}, "till": 0, "rates_due": 0, "manager": "",
 		"last_day": data.day_count, "coll": data.day_count, "paid": price(data, id), "accrue": 0,
 		"bill": data.day_count + WEEK, "stmt": data.day_count + MONTH, "log": []})
+	Economist.note(data, "opportunity_cost", {"text": str(d.name), "gbp": price(data, id)})
 	return ""
 
 ## Moves up to n of an item from the bag into the Deed's store (never past a fortnight's stock). How many went in.

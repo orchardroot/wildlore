@@ -122,6 +122,15 @@ static func record_sale(data: GameStateData, item_id: String, zone_id: String, n
 			g.erase(k)
 	g[key] = [_glut_units(data, key) + n, data.day_count]
 	data.set_flag(GLUT_FLAG, g)
+	_teach(data, item_id, zone_id)
+
+## The Economist's notebook: a glut you made teaches supply and demand; selling where a thing is wanted, why trade pays.
+static func _teach(data: GameStateData, item_id: String, zone_id: String) -> void:
+	var nm := str(items().get_item(item_id).get("name", item_id)) if items() != null else item_id
+	if glut_factor(data, item_id, zone_id) < 0.85:
+		Economist.note(data, "supply_demand", "%s in %s" % [nm, town_of(zone_id).capitalize()])
+	if is_trade_good(item_id) and regional(item_id, group_of(zone_id)) > 1.2:
+		Economist.note(data, "comparative", nm)
 
 static func keeps_days(item_id: String) -> int:
 	var c := config()
