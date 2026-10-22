@@ -196,7 +196,7 @@ static func boot(game: Node, menu: String) -> void:
 			d.day_count += 14
 			Deeds.tick(d, d.day_count)
 			menu = menu.trim_suffix(":owned")
-	if menu == "economist":  # `--menu=economist`: most of the notebook met, a Deed and a lease among them
+	if menu.begins_with("economist"):  # `--menu=economist[:<idea>]`: most of the notebook met, a Deed and a lease among them
 		d.money = 5000
 		for i in Economist.ideas():
 			if str(i.id) not in ["south_sea_1720", "ot_money"]:

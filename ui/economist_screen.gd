@@ -56,6 +56,13 @@ func _build() -> void:
 		UIKit.focus_later(_buttons[first])
 		_show(str(_ids[first]))
 
+## "economist:<idea id>" opens on that idea (for screenshots).
+func setup(arg: String) -> void:
+	var k := _ids.find(arg)
+	if k >= 0:
+		UIKit.focus_later(_buttons[k])
+		_show(arg)
+
 func _show(id: String) -> void:
 	for c in _detail.get_children():
 		_detail.remove_child(c)
