@@ -1,4 +1,6 @@
 {
+ "name": "Scottish Gaelic",
+ "endonym": "Gàidhlig",
  "places": {
   "stornoway": "Steòrnabhagh",
   "portree": "Port Rìgh",
@@ -36,5 +38,493 @@
   "how_are_you": "Ciamar a tha thu?",
   "goodbye": "Mar sin leibh",
   "hundred_thousand_welcomes": "Ceud mìle fàilte"
- }
+ },
+ "about": [
+  "Gàidhlig (GAH-lik) is the Gaelic of Scotland, spoken most in the Western Isles, Skye and the west Highlands.",
+  "It grew from the same old Gaelic as Irish, but the two have long gone their own ways: cousins, not twins.",
+  "The 2022 census counted about 130,000 people in Scotland with some Gaelic, and it is still a home language in the islands.",
+  "The Gaelic Language (Scotland) Act 2005 made it an official language of Scotland. There is Gaelic in Nova Scotia, Canada, too."
+ ],
+ "lessons": [
+  {
+   "id": "gd_01",
+   "title": "Halò! Hello and thanks",
+   "level": 1,
+   "teacher": {
+    "zone": "stornoway_lanntair",
+    "x": 9,
+    "y": 6,
+    "name": "Ealasaid",
+    "sprite": "villager_5"
+   },
+   "intro": [
+    "Halò! You'll hear more Gaelic in the Western Isles than anywhere else in Scotland.",
+    "Ten words and you can get through a day here. Well, a morning."
+   ],
+   "words": [
+    {
+     "id": "halo",
+     "local": "Halò",
+     "english": "Hello",
+     "say": "HAH-loh"
+    },
+    {
+     "id": "madainn_mhath",
+     "local": "Madainn mhath",
+     "english": "Good morning",
+     "say": "MAT-in VAH"
+    },
+    {
+     "id": "feasgar_math",
+     "local": "Feasgar math",
+     "english": "Good afternoon, good evening",
+     "say": "FESS-kur MAH"
+    },
+    {
+     "id": "oidhche_mhath",
+     "local": "Oidhche mhath",
+     "english": "Good night",
+     "say": "OY-chuh VAH",
+     "note": "The ch is the one in 'loch', never the one in 'church'."
+    },
+    {
+     "id": "ciamar_a_tha_thu",
+     "local": "Ciamar a tha thu?",
+     "english": "How are you?",
+     "say": "KIM-er uh HA oo"
+    },
+    {
+     "id": "tha_gu_math",
+     "local": "Tha gu math",
+     "english": "I'm well",
+     "say": "HA goo MAH"
+    },
+    {
+     "id": "tapadh_leat",
+     "local": "Tapadh leat",
+     "english": "Thank you",
+     "say": "TAH-puh let",
+     "note": "To a friend. To an elder, a stranger or a crowd: tapadh leibh (TAH-puh layv)."
+    },
+    {
+     "id": "tha",
+     "local": "Tha",
+     "english": "Yes (it is)",
+     "say": "HA",
+     "note": "Gaelic has no single word for yes. You answer with the verb: is it? It is."
+    },
+    {
+     "id": "chan_eil",
+     "local": "Chan eil",
+     "english": "No (it isn't)",
+     "say": "chan YELL"
+    },
+    {
+     "id": "slainte_mhath",
+     "local": "Slàinte mhath!",
+     "english": "Good health! Cheers!",
+     "say": "SLAHN-chuh VAH"
+    }
+   ],
+   "tip": "Gaelic has two words for 'you': thu for one friend, sibh for an elder, a stranger or more than one. Leat and leibh follow the same rule."
+  },
+  {
+   "id": "gd_02",
+   "title": "A h-aon, a dhà: counting",
+   "level": 1,
+   "teacher": {
+    "zone": "stornoway_pub",
+    "x": 3,
+    "y": 4,
+    "name": "Murdo",
+    "sprite": "fisherman_north"
+   },
+   "intro": [
+    "Darts. You'll want to count. In Gaelic, or I'm not letting you near the board."
+   ],
+   "words": [
+    {
+     "id": "a_h_aon",
+     "local": "a h-aon",
+     "english": "one",
+     "say": "uh HOON"
+    },
+    {
+     "id": "a_dha",
+     "local": "a dhà",
+     "english": "two",
+     "say": "uh GHAH"
+    },
+    {
+     "id": "a_tri",
+     "local": "a trì",
+     "english": "three",
+     "say": "uh TREE"
+    },
+    {
+     "id": "a_ceithir",
+     "local": "a ceithir",
+     "english": "four",
+     "say": "uh KAY-hir"
+    },
+    {
+     "id": "a_coig",
+     "local": "a còig",
+     "english": "five",
+     "say": "uh KAW-ik"
+    },
+    {
+     "id": "a_sia",
+     "local": "a sia",
+     "english": "six",
+     "say": "uh SHEE-uh"
+    },
+    {
+     "id": "a_seachd",
+     "local": "a seachd",
+     "english": "seven",
+     "say": "uh SHACHK"
+    },
+    {
+     "id": "a_h_ochd",
+     "local": "a h-ochd",
+     "english": "eight",
+     "say": "uh HOCHK"
+    },
+    {
+     "id": "a_naoi",
+     "local": "a naoi",
+     "english": "nine",
+     "say": "uh NOO-ee"
+    },
+    {
+     "id": "a_deich",
+     "local": "a deich",
+     "english": "ten",
+     "say": "uh JAYCH"
+    }
+   ],
+   "tip": "Counting out loud, each number takes a little 'a' in front, and the vowel ones gain an h-: a h-aon, a h-ochd."
+  },
+  {
+   "id": "gd_03",
+   "title": "Beinn is tràigh: island places and weather",
+   "level": 2,
+   "teacher": {
+    "zone": "harris_blackhouse",
+    "x": 9,
+    "y": 4,
+    "name": "Peigi",
+    "sprite": "farmer"
+   },
+   "intro": [
+    "Half the map of Scotland is Gaelic once you can read it.",
+    "And the other half is weather. Let's do both."
+   ],
+   "words": [
+    {
+     "id": "baile",
+     "local": "baile",
+     "english": "town, township",
+     "say": "BAL-uh"
+    },
+    {
+     "id": "eilean",
+     "local": "eilean",
+     "english": "island",
+     "say": "AY-lan"
+    },
+    {
+     "id": "beinn",
+     "local": "beinn",
+     "english": "mountain",
+     "say": "BAYN",
+     "note": "Ben Nevis is Beinn Nibheis."
+    },
+    {
+     "id": "gleann",
+     "local": "gleann",
+     "english": "glen, valley",
+     "say": "GLYOWN"
+    },
+    {
+     "id": "traigh",
+     "local": "tràigh",
+     "english": "beach",
+     "say": "TRY"
+    },
+    {
+     "id": "moine",
+     "local": "mòine",
+     "english": "peat",
+     "say": "MAW-nyuh",
+     "note": "Cut in spring, dried on the moor, burnt all winter."
+    },
+    {
+     "id": "tha_i_fuar",
+     "local": "Tha i fuar",
+     "english": "It's cold",
+     "say": "HA ee FOO-ur",
+     "note": "Weather is 'she' in Gaelic: tha i, she is."
+    },
+    {
+     "id": "tha_an_t_uisge_ann",
+     "local": "Tha an t-uisge ann",
+     "english": "It's raining",
+     "say": "HA un TOOSH-kyuh OWN"
+    },
+    {
+     "id": "latha_breagha",
+     "local": "Latha brèagha",
+     "english": "A lovely day",
+     "say": "LAH-uh BREE-uh-uh",
+     "note": "Rarer than the word for rain. Use it while you can."
+    }
+   ]
+  },
+  {
+   "id": "gd_04",
+   "title": "Tì is aran: food and creatures",
+   "level": 2,
+   "teacher": {
+    "zone": "portree_royalhotel",
+    "x": 10,
+    "y": 4,
+    "name": "Seonag",
+    "sprite": "villager_4"
+   },
+   "intro": [
+    "A Gaelic menu and a Gaelic field guide are mostly the same list, if you're a seal."
+   ],
+   "words": [
+    {
+     "id": "aran",
+     "local": "aran",
+     "english": "bread",
+     "say": "AH-ran"
+    },
+    {
+     "id": "uisge",
+     "local": "uisge",
+     "english": "water",
+     "say": "OOSH-kyuh"
+    },
+    {
+     "id": "ti",
+     "local": "tì",
+     "english": "tea",
+     "say": "TEE"
+    },
+    {
+     "id": "bainne",
+     "local": "bainne",
+     "english": "milk",
+     "say": "BAN-yuh"
+    },
+    {
+     "id": "caise",
+     "local": "càise",
+     "english": "cheese",
+     "say": "KAH-shuh"
+    },
+    {
+     "id": "iasg",
+     "local": "iasg",
+     "english": "fish",
+     "say": "EE-usk"
+    },
+    {
+     "id": "ron",
+     "local": "ròn",
+     "english": "seal",
+     "say": "RAWN"
+    },
+    {
+     "id": "iolaire",
+     "local": "iolaire",
+     "english": "eagle",
+     "say": "YUL-er-uh"
+    },
+    {
+     "id": "caora",
+     "local": "caora",
+     "english": "sheep",
+     "say": "KUR-uh"
+    },
+    {
+     "id": "cu",
+     "local": "cù",
+     "english": "dog",
+     "say": "KOO"
+    }
+   ],
+   "tip": "'Is' between two words is short for agus, 'and': tì is aran, tea and bread."
+  },
+  {
+   "id": "gd_05",
+   "title": "Mo chù: lenition and liking",
+   "level": 3,
+   "teacher": {
+    "zone": "tobermory_mishnish",
+    "x": 11,
+    "y": 6,
+    "name": "Calum",
+    "sprite": "poet"
+   },
+   "intro": [
+    "Gaelic softens the start of a word after certain little words. It's called lenition.",
+    "You write it with an h after the first letter. Cù, a dog. Mo chù, my dog."
+   ],
+   "words": [
+    {
+     "id": "mo_chu",
+     "local": "mo chù",
+     "english": "my dog",
+     "say": "moh CHOO",
+     "note": "Cù gains an h after mo, 'my', and the c goes soft, like 'loch'."
+    },
+    {
+     "id": "mo_chat",
+     "local": "mo chat",
+     "english": "my cat",
+     "say": "moh CHAHT"
+    },
+    {
+     "id": "a_chu",
+     "local": "a chù",
+     "english": "his dog",
+     "say": "uh CHOO",
+     "note": "His softens the word."
+    },
+    {
+     "id": "a_cu",
+     "local": "a cù",
+     "english": "her dog",
+     "say": "uh KOO",
+     "note": "Her doesn't. The only clue to whose dog it is."
+    },
+    {
+     "id": "gle_mhath",
+     "local": "glè mhath",
+     "english": "very good",
+     "say": "glay VAH",
+     "note": "Glè, 'very', softens: math becomes mhath."
+    },
+    {
+     "id": "is_toil_leam",
+     "local": "Is toil leam...",
+     "english": "I like...",
+     "say": "iss TOL lum",
+     "note": "Is toil leam tì: I like tea."
+    },
+    {
+     "id": "cha_toil_leam",
+     "local": "Cha toil leam...",
+     "english": "I don't like...",
+     "say": "cha TOL lum"
+    },
+    {
+     "id": "cait_a_bheil",
+     "local": "Càit a bheil...?",
+     "english": "Where is...?",
+     "say": "KAATCH uh VAYL"
+    },
+    {
+     "id": "tha_gaidhlig_agam",
+     "local": "Tha Gàidhlig agam",
+     "english": "I speak Gaelic",
+     "say": "HA GAH-lik AH-kum",
+     "note": "Word for word: Gaelic is at me. Add 'beagan', a little, to be honest."
+    }
+   ],
+   "tip": "Lenition adds an h: c becomes ch, m becomes mh (said 'v'), b becomes bh (also 'v'). That's why it's madainn mhath, not madainn math."
+  },
+  {
+   "id": "gd_06",
+   "title": "Inbhir and srath: names and borrowings",
+   "level": 4,
+   "teacher": {
+    "zone": "skye_braes_hall",
+    "x": 8,
+    "y": 6,
+    "name": "Mòrag",
+    "sprite": "bard"
+   },
+   "intro": [
+    "You've been speaking Gaelic for years. Whisky, slogan, galore.",
+    "And every Inver and Strath on the map is Gaelic too."
+   ],
+   "words": [
+    {
+     "id": "inbhir",
+     "local": "inbhir",
+     "english": "river mouth (Inver-)",
+     "say": "IN-yer",
+     "note": "Inbhir Nis, Inverness: the mouth of the Ness."
+    },
+    {
+     "id": "srath",
+     "local": "srath",
+     "english": "wide valley (Strath-)",
+     "say": "STRAH",
+     "note": "Srath Spè, Strathspey, the valley of the Spey."
+    },
+    {
+     "id": "dun",
+     "local": "dùn",
+     "english": "fort (Dun-)",
+     "say": "DOON",
+     "note": "Dùn Èideann is Edinburgh."
+    },
+    {
+     "id": "ceann",
+     "local": "ceann",
+     "english": "head, end (Kin-)",
+     "say": "KYOWN",
+     "note": "Kinloch is Ceann Loch, the head of the loch."
+    },
+    {
+     "id": "aird",
+     "local": "àird",
+     "english": "point, height (Ard-)",
+     "say": "AHRJ",
+     "note": "Ardnamurchan is Àird nam Murchan."
+    },
+    {
+     "id": "uisge_beatha",
+     "local": "uisge-beatha",
+     "english": "whisky (water of life)",
+     "say": "OOSH-kyuh BEH-huh",
+     "note": "English kept the first word and wore it down to 'whisky'."
+    },
+    {
+     "id": "gu_leor",
+     "local": "gu leòr",
+     "english": "plenty (galore)",
+     "say": "goo LYOR"
+    },
+    {
+     "id": "sluagh_ghairm",
+     "local": "sluagh-ghairm",
+     "english": "battle cry (slogan)",
+     "say": "SLOO-uh GHAR-um",
+     "note": "A clan's rallying shout, before it sold toothpaste."
+    },
+    {
+     "id": "ceilidh",
+     "local": "cèilidh",
+     "english": "a visit, a night of songs (ceilidh)",
+     "say": "KAY-lee",
+     "note": "First a neighbourly visit with songs and stories; the dances came later."
+    },
+    {
+     "id": "a_nochd",
+     "local": "a-nochd",
+     "english": "tonight",
+     "say": "uh NOCHK"
+    }
+   ],
+   "tip": "Irish has the same borrowings from its side: galore comes from gu leòr in Gaelic and go leor in Irish. Cousins, again."
+  }
+ ]
 }
