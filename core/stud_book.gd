@@ -195,6 +195,37 @@ static func observe(data: GameStateData, sire: Creature, dam: Creature, child: C
 			unlock(data, "conservation")
 	return IDEAS.map(func(i): return i.id).filter(func(id): return unlocked(data, id) and not had.has(id))
 
+## The hatch's call (story/breed_talk.gd): `observe` for a basket just hatched. The parents are looked up by uid in the
+## party and the Ark; one that has gone (released, or never held) stands in as its recorded hands, which is all the
+## Stud Book reads. The child's pedigree carries the parents' uids, so kinship still comes out right.
+static func observe_hatch(data: GameStateData, basket: Dictionary, child: Creature, dex: Dex) -> Array:
+	var held := {}
+	for c in data.party + data.ark:
+		if c != null and c.uid != 0:
+			held[c.uid] = c
+	var ps := []
+	for side in [["sire", "m"], ["dam", "f"]]:
+		var uid := int(basket.get(side[0] + "_uid", 0))
+		var c: Creature = held.get(uid)
+		if c == null:
+			c = Creature.new()
+			var sid := str(basket.get(side[0] + "_species", basket.get("species", "")))
+			c.species = dex.get_species(sid) if dex.has(sid) else child.species
+			c.uid = uid
+			c.sex = side[1]
+			var node = child.pedigree.get(side[0], {})
+			c.pedigree = {"sire": node.get("sire", {}), "dam": node.get("dam", {})} if node is Dictionary else {}
+			var hands: Dictionary = basket.get("parents", {}).get(side[0], {})
+			for l in hands:
+				var hand := []
+				for ch in str(hands[l]):
+					hand.append(ch)
+				c.genome[l] = hand
+			if c.genome.size() < Genetics.LOCI.size():
+				c.genome = {}  # an old basket without hands: derive, as for any creature
+		ps.append(c)
+	return observe(data, ps[0], ps[1], child, str(basket.get("kind", "same_line")), bool(basket.get("sport", false)))
+
 static func _name(c: Creature) -> String:
 	return c.nickname if c.nickname != "" else str(c.species.get("name", "?"))
 

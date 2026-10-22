@@ -202,7 +202,7 @@ static func validate_commands(cmds: Array, tag: String, dex: Dex, items: ItemDB,
 				if MarketHall.hall(str(c.get("hall", ""))).is_empty():
 					errors.append("%s: market hall '%s' is not in data/market_halls.json" % [tag, c.get("hall", "")])
 			"breed":
-				if str(c.get("act", "")) not in ["pair", "collect", "status", "goal"]:
+				if str(c.get("act", "")) not in ["pair", "collect", "status", "goal", "challenge", "sim"]:
 					errors.append("%s: breed with unknown act '%s'" % [tag, c.get("act", "")])
 				if str(c.get("act", "")) == "goal" and Breeding.goal(str(c.get("id", ""))).is_empty():
 					errors.append("%s: breed goal '%s' is not in data/breeding.json" % [tag, c.get("id", "")])

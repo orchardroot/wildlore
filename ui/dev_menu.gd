@@ -70,6 +70,13 @@ static func boot(game: Node, menu: String) -> void:
 		d.set_flag("breed_basket_0", {"sire_uid": 101, "dam_uid": 102, "genome": {}, "species": "spikkin", "steps_due": 1240, "started_day": 0})
 		d.set_flag("book_ideas", {"dominance": true, "breed": true})
 		d.set_flag("book_loci", {"mark": true})
+	if menu.begins_with("biology") or menu == "pairing:predict":  # Dr Keir's lab under way: some pages, two challenges met, a record
+		for fl in ["breed_met_keir", "bio_lab_on", "bio_ch_marks", "bio_ch_daughter", "bio_dolly", "bio_since_dolly", "bio_sim_watched"]:
+			d.set_flag(fl, true)
+		d.set_flag("book_ideas", {"dominance": true, "breed": true, "vigour": true})
+		d.set_flag("bio_record", {"1 in 2": [5, 3], "1 in 4": [4, 1], "None to 1 in 4": [2, 0]})
+		d.set_flag("bio_preds", 11)
+		d.set_flag("bio_right", 8)
 	for sp in ["spikkin", "kindlet", "holtling", "binfox", "hootlet", "pipkin", "scuttlet", "croakle"]:
 		d.mark_caught(sp)
 	for sp in ["dipling", "wispet", "snowhare"]:
