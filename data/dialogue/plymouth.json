@@ -503,5 +503,52 @@
    "who": "Yard Guide",
    "text": "Over the gate there's a statue of King William IV. A whole yard of beautiful limestone and he's the one everybody photographs. Typical."
   }
+ ],
+ "ply_brittany_ferry": [
+  {
+   "do": "if",
+   "flag": "q_abroad_roscoff_johnny_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_abroad_roscoff_johnny_3",
+     "then": [],
+     "else": [
+      {
+       "do": "say",
+       "who": "Millbay Ferry Hand",
+       "text": "Is that a string of Roscoff onions? For me? My nan used to buy these off a Johnny on a bike every summer. Pink, sweet, lovely in a pasty. Thank you!"
+      },
+      {
+       "do": "set",
+       "flag": "q_abroad_roscoff_johnny_3",
+       "value": true
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "do": "if",
+   "flag": "badge_storm",
+   "then": [
+    {
+     "do": "say",
+     "who": "Millbay Ferry Hand",
+     "text": "The Roscoff boat. About six hours across the Channel to Brittany: Breizh, where they speak a cousin of Cornish and Welsh."
+    },
+    {
+     "do": "ferry",
+     "route": "plymouth_roscoff"
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Millbay Ferry Hand",
+     "text": "The Roscoff boat's not taking foot passengers with creatures till you've a few more badges, I'm afraid. Insurance. Come back when you've got the Storm badge."
+    }
+   ]
+  }
  ]
 }

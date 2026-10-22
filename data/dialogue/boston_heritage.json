@@ -1,0 +1,25 @@
+{
+ "bos_archivist": [
+  {
+   "do": "say",
+   "who": "Archivist",
+   "text": "This is the passenger list of a ship from Liverpool, April 1847: Sullivan, Murphy, Kelly, Walsh. Most Irish emigrants sailed from Liverpool, after a crossing of the Irish Sea, then six weeks or more on the Atlantic."
+  },
+  {
+   "do": "say",
+   "who": "Archivist",
+   "text": "And here, a Boston Pilot newspaper. Its 'Missing Friends' column ran for decades: notices from families trying to find each other. 'Information wanted of Mary Ryan, of Tipperary...' It's the saddest thing in the building."
+  },
+  {
+   "do": "if",
+   "flag": "q_abroad_boston_letter_started",
+   "then": [
+    {
+     "do": "set",
+     "flag": "q_abroad_boston_letter_2",
+     "value": true
+    }
+   ]
+  }
+ ]
+}

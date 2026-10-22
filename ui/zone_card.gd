@@ -16,6 +16,8 @@ const REGIONS := {
 	"overseas_falklands": "Falkland Islands",
 	"overseas_bermuda": "Bermuda", "overseas_cayman": "Cayman Islands", "overseas_turks_caicos": "Turks and Caicos Islands",
 	"overseas_bvi": "British Virgin Islands", "overseas_anguilla": "Anguilla", "overseas_montserrat": "Montserrat",
+	"abroad_patagonia": "Y Wladfa, Patagonia", "abroad_cape_breton": "Cape Breton, Nova Scotia", "abroad_boston": "Boston, Massachusetts",
+	"abroad_appalachia": "Appalachia", "abroad_brittany": "Brittany (Breizh)",
 }
 ## Zones whose region id doesn't name them well.
 const OVERRIDES := {

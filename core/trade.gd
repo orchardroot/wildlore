@@ -53,7 +53,7 @@ static func group_of(zone_id: String) -> String:
 	var region := str(zi.zones.get(zone_id, {}).get("region", ""))
 	if region == "":
 		region = zone_id
-	if region.begins_with("overseas"):
+	if region.begins_with("overseas") or region.begins_with("abroad_"):
 		return "overseas"
 	return str(_group_of_region.get(region, ""))
 
