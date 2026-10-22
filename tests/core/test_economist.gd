@@ -48,7 +48,7 @@ func test_a_glut_teaches_supply_and_demand() -> void:
 
 func test_selling_where_a_thing_is_wanted_teaches_comparative_advantage() -> void:
 	var d := _d()
-	Trade.record_sale(d, "jute_fibre", "london", 1)
+	Trade.record_sale(d, "jute_fibre", "bath", 1)
 	assert_true(Economist.met(d, "comparative"))
 
 func test_a_deed_teaches_opportunity_cost_with_the_real_price() -> void:
