@@ -158,17 +158,6 @@ counters. Session D also writes the Welsh (cy) lessons.
   north. No side-taking; people on both sides are warm, funny and specific. Creatures that fit the Mediterranean.
   Validator, tests, screenshots.
 
-- **M. Borders and neighbours (Opus).** Places where Britain meets its neighbours, with the same travel, currency
-  and time-zone wiring as session L (coordinate by keeping to your own zones and data files):
-  **La Línea de la Concepción** (Spain), across the frontier from Gibraltar (extend the existing Gibraltar zones with
-  a walkable border crossing and the runway road): frontier workers, the 1969 to 1985 closure, Spanish phrases, tapas,
-  the euro, the Bay of Gibraltar. **Cyprus**: the Sovereign Base Areas of Akrotiri and Dhekelia (British Overseas
-  Territory, the RAF at Akrotiri), British rule until independence in 1960, and **Nicosia, both sides**: the Greek
-  Cypriot south and the Turkish Cypriot north, the Green Line and the UN buffer zone, the Ledra Street crossing
-  (opened 2008), 1974 told even-handedly with both communities' experience, Greek and Turkish phrases (Cypriot
-  flavour only where you are sure), halloumi/hellim, the euro in the south and the Turkish lira in the north. No
-  side-taking; people on both sides are warm, funny and specific. Creatures that fit the Mediterranean. Validator,
-  tests, screenshots.
 - **N. Biology you can practise: breeding as a lab (Opus).** The 3.6 breeding system (core/genetics.gd, core/breeding.gd,
   core/stud_book.gd, data/genes.json, docs/design/2026-10-21-breeding.md) already teaches Mendel and Punnett squares.
   Deepen it so players hone real biology by doing: dominant and recessive, incomplete dominance and codominance
