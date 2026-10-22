@@ -81,6 +81,7 @@ static func build(z: ZoneData) -> Node3D:
 static func _ground(z: ZoneData, rng: RandomNumberGenerator) -> MeshInstance3D:
 	var st := SurfaceTool.new()
 	st.begin(Mesh.PRIMITIVE_TRIANGLES)
+	var occ := occluders(z)
 	for y in z.height:
 		for x in z.width:
 			var p := Vector2i(x, y)
@@ -96,8 +97,12 @@ static func _ground(z: ZoneData, rng: RandomNumberGenerator) -> MeshInstance3D:
 			var x0 := float(x)
 			var z0 := float(y)
 			var a := 0.0 if t in HARD else 1.0
-			Meshes.quad4(st, Vector3(x0, gy, z0), Vector3(x0 + 1, gy, z0), Vector3(x0 + 1, gy, z0 + 1), Vector3(x0, gy, z0 + 1),
-				_paint(col, x0, z0, a), _paint(col, x0 + 1, z0, a), _paint(col, x0 + 1, z0 + 1, a), _paint(col, x0, z0 + 1, a))
+			var soft := 0.0 if z.kind == "interior" else float(SOFT_GROUND.get(t, 0.0))
+			_ground_quad(st, Vector3(x0, gy, z0), Vector3(x0 + 1, gy, z0), Vector3(x0 + 1, gy, z0 + 1), Vector3(x0, gy, z0 + 1),
+				[_paint(col, x0, z0, a), _paint(col, x0 + 1, z0, a), _paint(col, x0 + 1, z0 + 1, a), _paint(col, x0, z0 + 1, a)],
+				[corner_ao(occ, z.width, p, Vector2i(0, 0), gy), corner_ao(occ, z.width, p, Vector2i(1, 0), gy),
+				corner_ao(occ, z.width, p, Vector2i(1, 1), gy), corner_ao(occ, z.width, p, Vector2i(0, 1), gy)], soft)
+			st.set_uv(Vector2.ZERO)  # sides, lines and ledges: no shade baked, no mottling
 			if ex.get("bridge", false):
 				continue  # a bridge deck: no earth under it, the bridge prop draws its own sides
 			# side faces wherever the neighbour is lower (or missing: the diorama skirt)
@@ -141,6 +146,61 @@ static func _ground(z: ZoneData, rng: RandomNumberGenerator) -> MeshInstance3D:
 	mi.material_override = Meshes.ground
 	mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_ON
 	return mi
+
+## Ground that the Medium and High graphics mottle (ground.gdshader `detail`): 1 grassland, 0.5 paths, sand and
+## scree. Paving, floors and water stay as painted.
+const SOFT_GROUND := {
+	"grass": 1.0, "tall_grass": 1.0, "flowers": 1.0, "ledge_south": 1.0, "tree_oak": 1.0, "tree_pine": 1.0,
+	"hedge": 1.0, "drystone_wall": 1.0, "fence": 1.0, "rock": 1.0, "bramble": 1.0,
+	"path": 0.5, "sand": 0.5, "scree": 0.5, "bog": 0.5,
+}
+## How much a tile shades the ground at its foot (fake ambient occlusion, ground.gdshader `ao`): walls and
+## buildings fully, hedges, trees and rocks a little. Indoors the void beyond the floor is the room's walls.
+const OCCLUDERS := {"building": 1.0, "drystone_wall": 0.7, "counter": 0.6, "hedge": 0.5, "tree_oak": 0.35,
+	"tree_pine": 0.35, "rock": 0.35, "bramble": 0.3}
+
+## Per tile, packed row by row: [how much it shades its neighbours, its ground height].
+static func occluders(z: ZoneData) -> PackedFloat32Array:
+	var out := PackedFloat32Array()
+	out.resize(z.width * z.height * 2)
+	for y in z.height:
+		for x in z.width:
+			var p := Vector2i(x, y)
+			var t := z.tile_at(p)
+			var w: float = OCCLUDERS.get(t, 0.0)
+			if t == "void":
+				w = 1.0 if z.kind == "interior" else 0.0
+			var i := (y * z.width + x) * 2
+			out[i] = w
+			out[i + 1] = -99.0 if t == "void" else ground_y(z, p)
+	return out
+
+## The baked shade (0 open .. 1 tucked in) at one corner of tile p (`c` is (0|1, 0|1)) for ground at height gy:
+## the three other tiles meeting at that corner each add their shade, and so does a bank rising above gy.
+static func corner_ao(occ: PackedFloat32Array, width: int, p: Vector2i, c: Vector2i, gy: float) -> float:
+	var height := occ.size() / 2 / maxi(1, width)
+	var sum := 0.0
+	for dy in [-1, 0]:
+		for dx in [-1, 0]:
+			var q := Vector2i(p.x + c.x + dx, p.y + c.y + dy)
+			if q == p or q.x < 0 or q.y < 0 or q.x >= width or q.y >= height:
+				continue
+			var i := (q.y * width + q.x) * 2
+			var w := occ[i]
+			if occ[i + 1] > gy + 0.2:
+				w = maxf(w, clampf((occ[i + 1] - gy) * 1.2, 0.0, 1.0))  # the foot of a bank or cliff
+			sum += w
+	return clampf(sum * 0.5, 0.0, 1.0)
+
+## A ground quad like Meshes.quad4, with the baked shade per corner in UV.x and the soft-ground mark in UV.y.
+static func _ground_quad(st: SurfaceTool, a: Vector3, b: Vector3, c: Vector3, d: Vector3, cols: Array, aos: Array, soft: float) -> void:
+	var n := (c - a).cross(b - a).normalized()
+	var v := [a, b, c, d]
+	for i in [0, 1, 2, 0, 2, 3]:
+		st.set_color(cols[i])
+		st.set_normal(n)
+		st.set_uv(Vector2(aos[i], soft))
+		st.add_vertex(v[i])
 
 static func _side(st: SurfaceTool, x0: float, z0: float, d: Vector2i, top: float, bottom: float, col: Color, lip: Color) -> void:
 	var a: Vector3
@@ -208,7 +268,13 @@ static func _water(z: ZoneData, kinds: Array, deep_col: Color, shallow_col: Colo
 				continue
 			any = true
 			var wy := water_y(z, p) if under < 0 else under * LEVEL - 0.1
-			Meshes._quad(st, Vector3(x, wy, y), Vector3(x + 1, wy, y), Vector3(x + 1, wy, y + 1), Vector3(x, wy, y + 1), Color.WHITE)
+			# green channel: 0 where the corner touches land (water.gdshader's shore foam), white for open water
+			var v := [Vector3(x, wy, y), Vector3(x + 1, wy, y), Vector3(x + 1, wy, y + 1), Vector3(x, wy, y + 1)]
+			var cs := [Vector2i(0, 0), Vector2i(1, 0), Vector2i(1, 1), Vector2i(0, 1)]
+			for i in [0, 1, 2, 0, 2, 3]:
+				st.set_color(Color(1, 1.0 - shore_at(z, p, cs[i]), 1))
+				st.set_normal(Vector3.UP)
+				st.add_vertex(v[i])
 	if not any:
 		return null
 	st.index()
@@ -221,7 +287,24 @@ static func _water(z: ZoneData, kinds: Array, deep_col: Color, shallow_col: Colo
 	mat.set_shader_parameter("shallow", shallow_col)
 	mi.material_override = mat
 	mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	mi.add_to_group(WATER_GROUP)  # SkyAndLight sets its detail and the sky's colour in it
 	return mi
+
+const WATER_GROUP := "zone_water"
+const WATERY := ["water", "shallow", "deep_water", "sea"]
+
+## 1 when any tile meeting at corner `c` of water tile p is dry land (a bridge deck counts as water: its river
+## runs on underneath). The zone's edge counts as more water.
+static func shore_at(z: ZoneData, p: Vector2i, c: Vector2i) -> float:
+	for dy in [-1, 0]:
+		for dx in [-1, 0]:
+			var q := Vector2i(p.x + c.x + dx, p.y + c.y + dy)
+			if not z.in_bounds(q):
+				continue
+			var t := z.tile_at(q)
+			if t not in WATERY and t != "void" and deck_under(z, q) < 0:
+				return 1.0
+	return 0.0
 
 # --- props ---------------------------------------------------------------------
 

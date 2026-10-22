@@ -52,6 +52,7 @@ func _ready() -> void:
 	mat.shader = load("res://art/shaders/tilt_shift.gdshader")
 	_tilt.material = mat
 	layer.add_child(_tilt)
+	sky.post = mat
 	_dark = ColorRect.new()
 	_dark.set_anchors_preset(Control.PRESET_FULL_RECT)
 	_dark.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -67,6 +68,9 @@ func _apply_quality() -> void:
 	_tilt.visible = Settings.quality != "low"
 	sky.apply_quality(Settings.quality)
 	get_viewport().msaa_3d = Viewport.MSAA_2X if Settings.quality == "high" else Viewport.MSAA_DISABLED
+	for il in get_tree().get_nodes_in_group(InteriorLight.GROUP):
+		il.apply(Settings.quality)
+	CharSprite.set_crisp_all(get_tree(), Settings.quality != "low")
 
 ## pos (-1, -1) means the zone's spawn point.
 func load_zone(zone_id: String, pos: Vector2i, facing: String) -> void:
@@ -223,6 +227,7 @@ func cut_bramble(p: Vector2i) -> void:
 func _build_zone_node() -> void:
 	_zone_node = ZoneBuilder.build(zone)
 	add_child(_zone_node)
+	InteriorLight.dress(zone, _zone_node, player, Settings.quality)  # rooms lit by their hearths and windows (Medium, High)
 	Seasonal.dress(zone, _zone_node, player)  # festivals and falling leaves from the real date
 	Viaduct.dress(zone, _zone_node)  # railway viaducts striding across (Castlefield)
 	OccluderFade.dress(zone, _zone_node, player)  # buildings between the camera and you go see-through

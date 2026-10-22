@@ -11,7 +11,7 @@ static func parse(args: PackedStringArray, is_debug := OS.is_debug_build()) -> D
 		args = PackedStringArray()
 	var out := {"shot": "", "shot_delay": 2.0, "boot_zone": "", "boot_pos": Vector2i(-1, -1),
 		"battle_species": "", "battle_level": 5, "seed": -1, "clock": -1, "weather": "", "fps": false, "playtest": "", "seconds": 0, "ride": "", "double": false, "train": -1.0,
-		"journey": "", "journey_at": 0.5, "intro": "", "intro_at": 0.5, "date": "", "coat": "", "home": ""}
+		"journey": "", "journey_at": 0.5, "intro": "", "intro_at": 0.5, "date": "", "coat": "", "home": "", "quality": ""}
 	for a in args:
 		var kv := a.split("=", true, 1)
 		var key: String = kv[0]
@@ -65,6 +65,8 @@ static func parse(args: PackedStringArray, is_debug := OS.is_debug_build()) -> D
 				out.home = val  # with --boot: the garden planted (seed|sprout|growing|ready|mixed) and the trophy shelf filled
 			"--seconds":
 				out.seconds = int(val)
+			"--quality":
+				out.quality = val  # low | medium | high: graphics quality for this run only (never saved)
 	return out
 
 ## True when any switch that boots straight into the game is present (screenshots, boots, menus, battles,

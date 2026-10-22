@@ -53,6 +53,8 @@ var _from := "clear"    # blending from this weather to `weather`
 var _blend := 1.0
 var _zone: ZoneData     # the overworld zone (null in battles): its weather can run out and change
 var _low := false
+## The overworld's full-screen pass (tilt_shift.gdshader): its haze and vignette follow the time of day.
+var post: ShaderMaterial
 var _rain: CPUParticles3D
 var _fog: CPUParticles3D
 var _leaves: CPUParticles3D
@@ -250,6 +252,15 @@ func _apply_fx() -> void:
 	if Meshes.foliage:
 		Meshes.foliage.set_shader_parameter("wind_strength", lerpf(0.035, 0.09, fx[FX_SLANT]))
 		Meshes.flutter.set_shader_parameter("wind", lerpf(1.0, 2.2, fx[FX_SLANT]))
+	apply_touches()
+
+## The quality's switches on the shared materials: shade at the foot of walls, mottled grass and gusts (all off on Low).
+func apply_touches() -> void:
+	if Meshes.ground:
+		Meshes.ground.set_shader_parameter("ao", 0.0 if _low else 1.0)
+		Meshes.ground.set_shader_parameter("detail", 0.0 if _low else 1.0)
+	if Meshes.foliage:
+		Meshes.foliage.set_shader_parameter("gust", 0.0 if _low else lerpf(0.6, 1.0, fx[FX_SLANT]))
 
 ## How far into the night it is, for windows going out: 0 until 22:00, 1 by 02:00, back to 0 at 05:00.
 static func lateness(minutes: int) -> float:
@@ -293,9 +304,55 @@ static func _look(p: Array, w: String) -> Array:
 			sun_col = sun_col.lerp(Color("ffe2a8"), 0.3)
 	return [sun_col, sun_e, amb, fog_d]
 
+## Medium and High: the light eases from one part of the day to the next over this many minutes either side of
+## each change (GameClock.phase), instead of switching on the minute.
+const EASE_MINUTES := 45
+const PHASE_ORDER := ["night", "dawn", "day", "dusk"]
+const PHASE_STARTS := [21 * 60, 5 * 60, 8 * 60, 18 * 60]
+
+## [phase before, phase after, 0..1 between them] for a time of day; away from a change both are the phase now.
+static func phase_mix(minutes: int) -> Array:
+	var m := GameClock.wrap(minutes)
+	for i in PHASE_STARTS.size():
+		var start: int = PHASE_STARTS[i]
+		var d := m - start
+		if d > GameClock.DAY / 2:
+			d -= GameClock.DAY
+		elif d < -GameClock.DAY / 2:
+			d += GameClock.DAY
+		if absi(d) < EASE_MINUTES:
+			var before: String = PHASE_ORDER[(i - 1 + PHASE_ORDER.size()) % PHASE_ORDER.size()]
+			var k := (d + EASE_MINUTES) / (2.0 * EASE_MINUTES)
+			return [before, PHASE_ORDER[i], k * k * (3.0 - 2.0 * k)]
+	var ph := GameClock.phase(m)
+	return [ph, ph, 0.0]
+
+## The phase's look, eased between neighbours (sun colour, energy and pitch, ambient, background). The window
+## glow (index 6) stays with the phase itself: lamps go on and off on the hour, as they always have.
+static func blended_phase(minutes: int) -> Array:
+	var mix := phase_mix(minutes)
+	var a: Array = PHASES[mix[0]]
+	var b: Array = PHASES[mix[1]]
+	var k: float = mix[2]
+	return [(a[0] as Color).lerp(b[0], k), lerpf(a[1], b[1], k), lerpf(a[2], b[2], k), (a[3] as Color).lerp(b[3], k),
+		lerpf(a[4], b[4], k), (a[5] as Color).lerp(b[5], k), PHASES[GameClock.phase(minutes)][6]]
+
+## Medium and High: the sun swings from the east in the morning to the west in the evening (degrees of yaw), so
+## shadows turn through the day. Low keeps it fixed at -35.
+static func sun_yaw(minutes: int) -> float:
+	var h := GameClock.wrap(minutes) / 60.0
+	return clampf(-35.0 + (h - 12.0) * 7.0, -85.0, 15.0)
+
+## How strongly cloud shadows drift over the ground (ground.gdshader `clouds`) in a weather and phase.
+static func cloud_shadows(w: String, ph: String) -> float:
+	if ph == "night":
+		return 0.0
+	var amt: float = {"clear": 0.75, "sunshine": 0.55, "drizzle": 0.5, "gale": 0.9, "frost": 0.4, "downpour": 0.2, "fog": 0.0}.get(w, 0.6)
+	return amt * (0.5 if ph != "day" else 1.0)
+
 func apply_time(minutes: int) -> void:
 	var ph := GameClock.phase(minutes)
-	var p: Array = PHASES[ph]
+	var p: Array = PHASES[ph] if _low else blended_phase(minutes)
 	var amb_e: float = p[4]
 	var bg: Color = p[5]
 	var to := _look(p, weather)
@@ -321,7 +378,13 @@ func apply_time(minutes: int) -> void:
 	sun.light_color = sun_col
 	sun.light_energy = sun_e
 	sun.rotation_degrees.x = p[2]
+	sun.rotation_degrees.y = -35.0 if _low or interior else sun_yaw(minutes)
 	var grade: Array = DEFAULT_GRADE if interior else PHASE_GRADE.get(ph, DEFAULT_GRADE)
+	if not _low and not interior:
+		var pm := phase_mix(minutes)  # ease the grade too, so 08:00 and 18:00 don't jump
+		var ga: Array = PHASE_GRADE.get(pm[0], DEFAULT_GRADE)
+		var gb: Array = PHASE_GRADE.get(pm[1], DEFAULT_GRADE)
+		grade = [lerpf(ga[0], gb[0], pm[2]), lerpf(ga[1], gb[1], pm[2]), lerpf(ga[2], gb[2], pm[2])]
 	env.tonemap_exposure = grade[0]
 	env.adjustment_saturation = grade[1]
 	env.adjustment_contrast = grade[2]
@@ -342,6 +405,29 @@ func apply_time(minutes: int) -> void:
 		Meshes.windows.set_shader_parameter("lateness", lateness(minutes))
 	_fx_now()
 	_apply_fx()
+	_apply_detail(ph, bg, amb)
+
+## The Medium and High touches that follow the clock and the weather: cloud shadows, the sky in the water, the
+## haze over the far side of the screen. Low sets them all to nothing.
+func _apply_detail(ph: String, bg: Color, amb: Color) -> void:
+	var on := 0.0 if _low else 1.0
+	if Meshes.ground:
+		Meshes.ground.set_shader_parameter("clouds", 0.0 if _low or interior else lerpf(cloud_shadows(_from, ph), cloud_shadows(weather, ph), _blend))
+	if is_inside_tree():
+		var sky_col := bg.lerp(Color("eef4f8"), 0.25) if ph == "day" else bg.lerp(amb, 0.3)
+		for w in get_tree().get_nodes_in_group(ZoneBuilder.WATER_GROUP):
+			var m := (w as MeshInstance3D).material_override as ShaderMaterial
+			if m:
+				m.set_shader_parameter("detail", 0.0 if interior else on)
+				m.set_shader_parameter("sky", sky_col)
+	if post:
+		# a pale band of air over the top of the screen (the far distance), warmer at dawn and dusk; a soft vignette
+		var haze: float = 0.0 if _low or interior else {"day": 0.22, "dawn": 0.3, "dusk": 0.3, "night": 0.18}.get(ph, 0.2)
+		if weather == "fog" or weather == "downpour":
+			haze += 0.15
+		post.set_shader_parameter("haze", haze)
+		post.set_shader_parameter("haze_colour", env.fog_light_color.lerp(bg, 0.6).lightened(0.15))
+		post.set_shader_parameter("vignette", 0.0 if _low else (0.32 if interior else 0.22))
 
 func _process(delta: float) -> void:
 	if follow:
@@ -358,11 +444,15 @@ func _process(delta: float) -> void:
 		_check_expiry()
 		apply_time(Game.local_minutes())
 
-## Low: no shadows or glow, half the rain, no leaves, flecks or splashes. Medium: 2-split shadows and glow.
-## High: 4-split shadows. Safe to call live.
+## Low: no shadows or glow, half the rain, no leaves, flecks or splashes, and none of the touches below (it looks
+## as the game always has). Medium: 2-split soft shadows and glow; the light eases between times of day and the sun
+## swings across the sky; cloud shadows, mottled grass, shade at the foot of walls, gusts in the trees, foam and sky
+## in the water, haze and a vignette. High: 4-split shadows, softer still. Safe to call live.
 func apply_quality(q: String) -> void:
 	sun.shadow_enabled = q != "low"
 	sun.directional_shadow_mode = DirectionalLight3D.SHADOW_PARALLEL_4_SPLITS if q == "high" else DirectionalLight3D.SHADOW_PARALLEL_2_SPLITS
+	sun.shadow_blur = 1.5 if q == "low" else (2.6 if q == "high" else 2.0)
+	RenderingServer.directional_soft_shadow_filter_set_quality(RenderingServer.SHADOW_QUALITY_SOFT_MEDIUM if q == "high" else RenderingServer.SHADOW_QUALITY_SOFT_LOW)
 	env.glow_enabled = q != "low"
 	var was_low := _low
 	_low = q == "low"
@@ -372,3 +462,5 @@ func apply_quality(q: String) -> void:
 		if want > 0:
 			_rain.amount = want
 		_apply_fx()
+	if is_inside_tree() and env != null:
+		apply_time(Game.local_minutes())

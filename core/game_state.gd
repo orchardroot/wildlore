@@ -34,6 +34,8 @@ func _ready() -> void:
 		items = load("res://data_api/item_db.gd").load_default()
 	args = DevArgs.parse(DevArgs.user_args())
 	Calendar.set_override(str(args.get("date", "")))  # --date=MM-DD or YYYY-MM-DD: screenshot any season, festival or day
+	if str(args.get("quality", "")) in ["low", "medium", "high"]:
+		Settings.quality = str(args.quality)  # --quality: before/after screenshots without touching the player's settings
 	var seed_value: int = args.seed if args.seed >= 0 else int(Time.get_unix_time_from_system())
 	rng = Rng.new(seed_value)
 	data.rng_seed = seed_value
