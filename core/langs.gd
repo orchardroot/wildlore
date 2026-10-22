@@ -193,7 +193,7 @@ static func check(zone_exists: Callable) -> Array:
 			errs.append("lang %s: not a JSON object" % code)
 			continue
 		for k in d:
-			if k not in ["places", "greetings", "phrases"]:
+			if k not in ["places", "greetings", "phrases", "name", "endonym", "about", "lessons"]:
 				errs.append("lang %s: unknown key '%s'" % [code, k])
 		for zid in d.get("places", {}):
 			if not zone_exists.call(str(zid)):
