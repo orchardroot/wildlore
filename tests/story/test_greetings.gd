@@ -27,6 +27,6 @@ func test_unknown_zone_is_plain_hello() -> void:
 
 func test_say_substitutes_greeting() -> void:
 	var h := FakeStoryHost.new()
-	h.data.zone_id = "belfast"
+	h.data.zone_id = "derry"  # no local language by default, so always the English hello (Belfast has Ulster Scots ones)
 	await Commands.new(h).run([{"do": "say", "who": "Taxi Driver", "text": "{greeting} Where to?"}])
 	assert_eq(h.said, [["Taxi Driver", "Bout ye? Where to?"]])

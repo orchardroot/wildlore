@@ -11,9 +11,8 @@ communities"; the Ulster-Scots Agency (Tha Boord o Ulstèr-Scotch) set up in 199
 Ballycarry, weaver poet, about 1800.
 
 ## Questions
-- "Bout ye" is Ulster English, used by everyone in Northern Ireland, not strictly Ulster Scots. It's one of the two
-  greetings because that's what you'd actually hear. Keep it?
-- "Fair faa ye" (a blessing, used as a welcome): happy with it as the second greeting?
+- The only Ulster-Scots greeting is "Fair faa ye" (a blessing, used as a welcome); half of Belfast's, Bushmills' and
+  the Causeway's {greeting} hellos now use it, the rest keep the English "Bout ye?". Happy with that?
 - No place names: is there an Ulster-Scots form of Belfast you'd like on the banner?
 - Should the Mournes (County Down, Kilkeel) get Ulster Scots too?
 - Census numbers on Ulster-Scots ability (2011, 2021) left out: I couldn't check them.
