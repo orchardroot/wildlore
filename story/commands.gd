@@ -272,6 +272,8 @@ func _exec(c: Dictionary) -> void:
 			await BreedTalk.run(self, c)  # the farm gate and the lab bench (story/breed_talk.gd)
 		"rewild":
 			await RewildTalk.run(self, c)  # a rewilding site's warden (story/rewild_talk.gd)
+		"science":
+			await InventionTalk.run(self, c)  # a science fair puzzle (story/invention_talk.gd)
 		_:
 			push_warning("Commands: unknown command '%s'" % c.get("do", ""))
 

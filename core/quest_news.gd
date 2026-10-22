@@ -38,6 +38,16 @@ func _on_flag(key: String, _value: Variant) -> void:
 		return  # no baseline for this save yet (a dev boot): nothing to compare with
 	for q in Quests.touched_by(key):
 		_dirty[str(q.id)] = true
+	_invention_news(key)
+
+## A find for the Timeline of Invention (see Invention), and the era's gadget when this find opens it.
+func _invention_news(key: String) -> void:
+	var n := Invention.news_for_flag(_data, key)
+	if n.is_empty():
+		return
+	_parish.news("Timeline of Invention", "%s (%s) added to your Timeline" % [str(n.entry.title), Invention.year_text(n.entry)])
+	if not n.gadget.is_empty():
+		_parish.news("New gadget", "%s: find it in the Almanac's Timeline" % str(n.gadget.name))
 
 func _process(_delta: float) -> void:
 	if _dirty.is_empty():

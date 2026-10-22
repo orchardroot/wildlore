@@ -1,0 +1,66 @@
+{
+ "bp_codebreaker": [
+  {
+   "do": "if",
+   "flag": "q_invention_isles_cipher",
+   "then": [
+    {
+     "do": "say",
+     "who": "Codebreaker",
+     "text": "Still cracked. Off you go and break something else. Legally."
+    },
+    {
+     "do": "choice",
+     "text": "Have another go at a cipher, just for fun?",
+     "options": [
+      "Go on then",
+      "No thanks"
+     ],
+     "set": "inv_hut8_again"
+    },
+    {
+     "do": "if",
+     "flag": "inv_hut8_again",
+     "then": [],
+     "eq": 1,
+     "else": [
+      {
+       "do": "science",
+       "kind": "cipher",
+       "who": "Codebreaker"
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Codebreaker",
+     "text": "Hut 8. Turing's team broke the German navy's Enigma in here. Today I've a practice message for you: a Caesar shift, the oldest cipher there is."
+    },
+    {
+     "do": "science",
+     "kind": "cipher",
+     "who": "Codebreaker",
+     "set": "q_invention_isles_cipher"
+    },
+    {
+     "do": "if",
+     "flag": "q_invention_isles_cipher",
+     "then": [
+      {
+       "do": "say",
+       "who": "Codebreaker",
+       "text": "Lovely. Enigma used the same idea, except the shift changed with every key pressed, and an army machine could be set up in about 159 million million million ways."
+      },
+      {
+       "do": "say",
+       "who": "Codebreaker",
+       "text": "That's why it took the Bombe, and thousands of people, and a lot of tea."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

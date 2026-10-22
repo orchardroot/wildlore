@@ -6,13 +6,13 @@ extends RefCounted
 ## appears once its system has something to show, so old saves need nothing.
 
 ## The menus behind each page, in tab order. "ledger:<kind>" opens the Almanac's own read-only ledger.
-const ORDER := ["journal", "fieldbook", "gazetteer", "casebook", "studbook", "words", "rumours", "trades", "standing", "stats",
+const ORDER := ["journal", "fieldbook", "gazetteer", "casebook", "studbook", "words", "invention", "rumours", "trades", "standing", "stats",
 	"guilds", "deeds", "society"]
 const NAMES := {"journal": "Quest log", "fieldbook": "Fieldbook", "gazetteer": "Gazetteer", "casebook": "Casebook",
-	"studbook": "Stud Book", "words": "Words of the Isles", "rumours": "Rumours", "trades": "Trades", "standing": "Standing", "stats": "Tallies",
+	"studbook": "Stud Book", "words": "Words of the Isles", "invention": "Timeline of Invention", "rumours": "Rumours", "trades": "Trades", "standing": "Standing", "stats": "Tallies",
 	"guilds": "Guilds", "deeds": "Deeds", "society": "Building Society"}
 const MENUS := {"journal": "quests", "fieldbook": "pedia", "gazetteer": "quests:gazetteer", "casebook": "pedia:casebook",
-	"studbook": "pedia:studbook", "words": "pedia:words", "rumours": "pedia:rumours", "trades": "stats:trades", "standing": "stats:standing",
+	"studbook": "pedia:studbook", "words": "pedia:words", "invention": "invention", "rumours": "pedia:rumours", "trades": "stats:trades", "standing": "stats:standing",
 	"stats": "stats", "guilds": "ledger:guilds", "deeds": "ledger:deeds", "society": "ledger:society"}
 
 static func sprouted(d: GameStateData, id: String) -> bool:
@@ -23,6 +23,8 @@ static func sprouted(d: GameStateData, id: String) -> bool:
 			return StudBook.idea_count(d) > 0 or not Breeding.baskets(d).is_empty()
 		"words":
 			return words_met(d) > 0
+		"invention":
+			return Invention.found_count(d) > 0
 		"rumours":
 			return not d.seen.is_empty()
 		"guilds":
@@ -68,6 +70,9 @@ static func blurb(d: GameStateData, id: String) -> String:
 		"words":
 			var w := words_met(d)
 			return "%d local word%s met" % [w, "" if w == 1 else "s"]
+		"invention":
+			var g := Invention.open_gadgets(d).size()
+			return "%d of %d found, %d gadget%s" % [Invention.found_count(d), Invention.entries().size(), g, "" if g == 1 else "s"]
 		"rumours":
 			return "Local gossip and region stamps"
 		"trades":

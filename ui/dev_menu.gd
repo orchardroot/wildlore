@@ -213,6 +213,12 @@ static func boot(game: Node, menu: String) -> void:
 		BuildingSociety.settle(d)
 		BuildingSociety.borrow(d, "manchester_society", 2000, 12)
 		BuildingSociety.deposit(d, "gbp", 600)
+	if menu.begins_with("invention") or menu.begins_with("almanac"):  # `--menu=invention[:gadget:<id>]`: a Timeline part filled, three gadgets open
+		for inv_flag in ["plaque_shropshire_iron_bridge", "plaque_chat_moss_rainhill", "plaque_penzance_davy", "plaque_london_faraday",
+				"plaque_london_telegraph", "plaque_kerry_valentia", "plaque_penzance_poldhu", "plaque_manchester_baby",
+				"plaque_bletchley_bombe", "invent_seen_colossus", "plaque_london_lovelace", "plaque_dover_chain_home"]:
+			d.set_flag(inv_flag, true)
+		d.seen["holtling"] = true
 	if menu.begins_with("bureau") or menu.begins_with("exchange") or menu.begins_with("crypto") or menu == "pause:euros":
 		# a few weeks into a journey with both purses, some shares, a Doggerel punt and a Stone or two
 		d.day_count = 46
