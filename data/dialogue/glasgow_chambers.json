@@ -15,5 +15,99 @@
    "who": "Usher",
    "text": "Mind your manners on the stairs. The councillors are used to being looked at. You, however, may gawp."
   }
+ ],
+ "life_rent_buy": [
+  {
+   "do": "if",
+   "flag": "lesson_rent_buy",
+   "then": [
+    {
+     "do": "say",
+     "who": "Housing Officer",
+     "text": "Count everything on both sides, and sleep on it. That's my whole career in a sentence."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Housing Officer",
+     "text": "I get this every week. 'My rent's £800 and a mortgage would be £900, so I should buy.' Shall we look at that?"
+    },
+    {
+     "do": "choice",
+     "text": "What's missing from 'it's only £100 more'?",
+     "options": [
+      "Nothing, buy it",
+      "The deposit, repairs, insurance and being tied down",
+      "The postcode"
+     ],
+     "set": "life_rent_buy_pick"
+    },
+    {
+     "do": "if",
+     "flag": "life_rent_buy_pick",
+     "eq": 0,
+     "then": [
+      {
+       "do": "say",
+       "who": "Housing Officer",
+       "text": "Hold on. A mortgage is not the whole bill."
+      }
+     ]
+    },
+    {
+     "do": "if",
+     "flag": "life_rent_buy_pick",
+     "eq": 1,
+     "then": [
+      {
+       "do": "say",
+       "who": "Housing Officer",
+       "text": "Right. You'd need a deposit (often 5 to 10 per cent of the price or more), fees, insurance and a repair fund, and you can't leave in a month."
+      }
+     ]
+    },
+    {
+     "do": "if",
+     "flag": "life_rent_buy_pick",
+     "eq": 2,
+     "then": [
+      {
+       "do": "say",
+       "who": "Housing Officer",
+       "text": "The postcode matters, but not for this sum."
+      }
+     ]
+    },
+    {
+     "do": "say",
+     "who": "Housing Officer",
+     "text": "Renting is flexible, and the landlord fixes the boiler. Buying builds equity, the part of the home that's yours, but you carry the risk, and interest rates move. A fixed deal holds yours for a few years, then you remortgage."
+    },
+    {
+     "do": "say",
+     "who": "Housing Officer",
+     "text": "Neither is simply right. It depends on how long you'll stay, what you can save, and whether the sums still work when rates rise."
+    },
+    {
+     "do": "say",
+     "who": "Housing Officer",
+     "text": "Oh, and in Scotland 'offers over' means the asking price is a floor, not a ceiling. People get caught out. Take some tablet. A grateful tenant left it."
+    },
+    {
+     "do": "set",
+     "flag": "lesson_rent_buy"
+    },
+    {
+     "do": "give_item",
+     "item": "tablet"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Noted in the Almanac under Things worth knowing."
+    }
+   ]
+  }
  ]
 }

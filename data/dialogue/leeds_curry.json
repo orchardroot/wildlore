@@ -10,5 +10,104 @@
    "who": "Chef",
    "text": "Now a curry's as Yorkshire as a pudding. Some say Bradford's the curry capital of Britain. Don't say that too loud in Leeds."
   }
+ ],
+ "life_cheap_cooking": [
+  {
+   "do": "if",
+   "flag": "lesson_cheap_cooking",
+   "then": [
+    {
+     "do": "say",
+     "who": "Nasreen",
+     "text": "Dal, rice, a frozen bag of spinach. That's dinner, and it's cheap."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Nasreen",
+     "text": "People think eating well costs a fortune. A big pot of dal costs pence a portion: red lentils, an onion, a tin of tomatoes, some spice, and rice on the side."
+    },
+    {
+     "do": "say",
+     "who": "Nasreen",
+     "text": "Cook once, eat three times. Freeze the rest. Frozen veg is as good as fresh, and it never goes soft in the drawer."
+    },
+    {
+     "do": "choice",
+     "text": "Which is the better buy?",
+     "options": [
+      "500g for £1.80",
+      "1kg for £2.80",
+      "Whichever has the nicer label"
+     ],
+     "set": "life_cheap_cooking_pick"
+    },
+    {
+     "do": "if",
+     "flag": "life_cheap_cooking_pick",
+     "eq": 0,
+     "then": [
+      {
+       "do": "say",
+       "who": "Nasreen",
+       "text": "Not quite. That's 36p per 100g. Check the unit price on the shelf label and compare."
+      }
+     ]
+    },
+    {
+     "do": "if",
+     "flag": "life_cheap_cooking_pick",
+     "eq": 1,
+     "then": [
+      {
+       "do": "say",
+       "who": "Nasreen",
+       "text": "Yes. That's 28p per 100g against 36p. The bigger pack isn't always cheaper, so check the unit price every time."
+      }
+     ]
+    },
+    {
+     "do": "if",
+     "flag": "life_cheap_cooking_pick",
+     "eq": 2,
+     "then": [
+      {
+       "do": "say",
+       "who": "Nasreen",
+       "text": "The marketing people love you. The unit price on the shelf label (per 100g or per kilo) is where the truth lives."
+      }
+     ]
+    },
+    {
+     "do": "say",
+     "who": "Nasreen",
+     "text": "Plan the week before you shop, and shop with a list. Look at the reduced shelf near closing time. Leftovers are tomorrow's lunch, not a failure."
+    },
+    {
+     "do": "say",
+     "who": "Nasreen",
+     "text": "Skip the fancy spice jars until you know what you use. A big bag from the corner shop costs a fraction of the price."
+    },
+    {
+     "do": "say",
+     "who": "Nasreen",
+     "text": "Take a pie for the road. Not mine, mine's the dal. Nobody argues with a pork pie."
+    },
+    {
+     "do": "set",
+     "flag": "lesson_cheap_cooking"
+    },
+    {
+     "do": "give_item",
+     "item": "pork_pie"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Noted in the Almanac under Things worth knowing."
+    }
+   ]
+  }
  ]
 }

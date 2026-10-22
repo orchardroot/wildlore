@@ -78,5 +78,104 @@
     }
    ]
   }
+ ],
+ "life_budget": [
+  {
+   "do": "if",
+   "flag": "lesson_budget",
+   "then": [
+    {
+     "do": "say",
+     "who": "Student",
+     "text": "Daily number: £6.40. I've stuck it on the fridge. The lunch deal and I are taking some time apart."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Student",
+     "text": "Don't look at my receipts. I have £140 a week. My share of rent is £70, and phone and bus pass come to £25."
+    },
+    {
+     "do": "say",
+     "who": "Student",
+     "text": "I've bought a £4.50 lunch deal every day since September, and I'm baffled about why I'm broke by Thursday."
+    },
+    {
+     "do": "choice",
+     "text": "What can she spend a day on everything else?",
+     "options": [
+      "About £20",
+      "About £6.40",
+      "About £14"
+     ],
+     "set": "life_budget_pick"
+    },
+    {
+     "do": "if",
+     "flag": "life_budget_pick",
+     "eq": 0,
+     "then": [
+      {
+       "do": "say",
+       "who": "Student",
+       "text": "I wish. £140 less £70 less £25 leaves £45, and that has to last seven days."
+      }
+     ]
+    },
+    {
+     "do": "if",
+     "flag": "life_budget_pick",
+     "eq": 1,
+     "then": [
+      {
+       "do": "say",
+       "who": "Student",
+       "text": "Yes. £45 over seven days is about £6.40 a day, and the lunch deal is already most of it. Oh no."
+      }
+     ]
+    },
+    {
+     "do": "if",
+     "flag": "life_budget_pick",
+     "eq": 2,
+     "then": [
+      {
+       "do": "say",
+       "who": "Student",
+       "text": "Not quite. £140 less £70 less £25 leaves £45 for the week. Divided by seven, it's far less than that."
+      }
+     ]
+    },
+    {
+     "do": "say",
+     "who": "Student",
+     "text": "So the method is: write down what comes in, take off what you can't dodge, divide the rest by seven, and that's your daily number."
+    },
+    {
+     "do": "say",
+     "who": "Student",
+     "text": "And put a little aside for the month the boiler goes. Even £5 a week is £260 a year. Future me will be thrilled."
+    },
+    {
+     "do": "say",
+     "who": "Student",
+     "text": "Here, a farl. Homemade lunch is about a quarter of the price and half as sad."
+    },
+    {
+     "do": "set",
+     "flag": "lesson_budget"
+    },
+    {
+     "do": "give_item",
+     "item": "soda_farl"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Noted in the Almanac under Things worth knowing."
+    }
+   ]
+  }
  ]
 }

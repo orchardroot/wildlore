@@ -18,5 +18,104 @@
    "who": "Regular",
    "text": "{greeting} Pull up a stool. Them mirrors are older than my granddad. So's the beer, if you believe the landlord."
   }
+ ],
+ "life_deed_scam": [
+  {
+   "do": "if",
+   "flag": "lesson_deed_scam",
+   "then": [
+    {
+     "do": "say",
+     "who": "Smooth Stranger",
+     "text": "Not you again. I've found a very exclusive clock tower. Enquire within. Or don't. I'll be more relaxed about it."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Smooth Stranger",
+     "text": "Psst. You look like a person of vision. I've the Deed to a lovely little lighthouse. Worth four grand easy. Yours for four hundred, cash, tonight."
+    },
+    {
+     "do": "say",
+     "who": "Smooth Stranger",
+     "text": "Tomorrow the price doubles. Others are interested. I can't say who. It's a very exclusive set of people, all of them me."
+    },
+    {
+     "do": "choice",
+     "text": "A lighthouse for a tenth of its value. What do you do?",
+     "options": [
+      "Hand over the cash before it doubles",
+      "Ask who the registered owner is",
+      "Walk away and finish your drink"
+     ],
+     "set": "life_deed_scam_pick"
+    },
+    {
+     "do": "if",
+     "flag": "life_deed_scam_pick",
+     "eq": 0,
+     "then": [
+      {
+       "do": "say",
+       "who": "Smooth Stranger",
+       "text": "He's thrilled. You are, in a way, the lesson: the deadline was there to stop you thinking."
+      }
+     ]
+    },
+    {
+     "do": "if",
+     "flag": "life_deed_scam_pick",
+     "eq": 1,
+     "then": [
+      {
+       "do": "say",
+       "who": "Smooth Stranger",
+       "text": "Smart. Anyone can look up who owns a property at the land registry for a few quid, and a real seller will have nothing to hide. He suddenly remembers a meeting."
+      }
+     ]
+    },
+    {
+     "do": "if",
+     "flag": "life_deed_scam_pick",
+     "eq": 2,
+     "then": [
+      {
+       "do": "say",
+       "who": "Smooth Stranger",
+       "text": "Also smart. The scam only works if you don't have time to think, so thinking time is the whole defence."
+      }
+     ]
+    },
+    {
+     "do": "say",
+     "who": "Smooth Stranger",
+     "text": "The warning lights: a price far too good, a deadline, cash only, a stranger, and no paperwork you can check."
+    },
+    {
+     "do": "say",
+     "who": "Smooth Stranger",
+     "text": "Real sales go through a solicitor or conveyancer, take weeks, and let you sleep on it. Anyone who won't let you sleep on it is selling you something else."
+    },
+    {
+     "do": "say",
+     "who": "Smooth Stranger",
+     "text": "(The landlord slides a Yorkshire pudding across the bar.) On the house. For listening, not for buying a lighthouse."
+    },
+    {
+     "do": "set",
+     "flag": "lesson_deed_scam"
+    },
+    {
+     "do": "give_item",
+     "item": "yorkshire_pudding"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Noted in the Almanac under Things worth knowing."
+    }
+   ]
+  }
  ]
 }

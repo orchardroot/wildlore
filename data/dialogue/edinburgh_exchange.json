@@ -112,5 +112,104 @@
    "do": "lease",
    "id": ""
   }
+ ],
+ "life_bank_call": [
+  {
+   "do": "if",
+   "flag": "lesson_bank_call",
+   "then": [
+    {
+     "do": "say",
+     "who": "Rattled Trader",
+     "text": "I rang 159 in the end. A very nice person confirmed it was nonsense and asked if I'd been sitting down. I had not."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Rattled Trader",
+     "text": "I've just had a call. 'The fraud team at your bank.' Knew my name and the last four digits of my card. They said my account was under attack and I should move my money to a safe account."
+    },
+    {
+     "do": "say",
+     "who": "Rattled Trader",
+     "text": "I nearly did. Then they asked me to read out the code they'd just texted me, and something went cold."
+    },
+    {
+     "do": "choice",
+     "text": "What should he have done?",
+     "options": [
+      "Read the code, it's only six digits",
+      "Hung up, then rung 159",
+      "Moved the money, they sounded very official"
+     ],
+     "set": "life_bank_call_pick"
+    },
+    {
+     "do": "if",
+     "flag": "life_bank_call_pick",
+     "eq": 0,
+     "then": [
+      {
+       "do": "say",
+       "who": "Rattled Trader",
+       "text": "Never. That code is the key to the door. Handing it over is handing over the money, and banks say so in every leaflet."
+      }
+     ]
+    },
+    {
+     "do": "if",
+     "flag": "life_bank_call_pick",
+     "eq": 1,
+     "then": [
+      {
+       "do": "say",
+       "who": "Rattled Trader",
+       "text": "Right. Hang up, give it a few minutes (some scammers keep the line open), then ring 159 or the number on your card. 159 puts you through to your own bank, and most of the big ones are on it."
+      }
+     ]
+    },
+    {
+     "do": "if",
+     "flag": "life_bank_call_pick",
+     "eq": 2,
+     "then": [
+      {
+       "do": "say",
+       "who": "Rattled Trader",
+       "text": "No bank in the world has a 'safe account' for you to move money to. That phrase is the scam."
+      }
+     ]
+    },
+    {
+     "do": "say",
+     "who": "Rattled Trader",
+     "text": "The caller knew his name and part of his card number. That proves nothing, because scammers buy leaked details. The number on screen proves nothing either, as it can be faked."
+    },
+    {
+     "do": "say",
+     "who": "Rattled Trader",
+     "text": "So the rule is simple. They called you, so you don't trust them. Hang up and call your bank back yourself."
+    },
+    {
+     "do": "say",
+     "who": "Rattled Trader",
+     "text": "I told the bank. They froze it before a penny moved. Take this. My nan swore by it for shock."
+    },
+    {
+     "do": "set",
+     "flag": "lesson_bank_call"
+    },
+    {
+     "do": "give_item",
+     "item": "tablet"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Noted in the Almanac under Things worth knowing."
+    }
+   ]
+  }
  ]
 }
