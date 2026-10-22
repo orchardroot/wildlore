@@ -32,6 +32,7 @@ func _initialize() -> void:
 	errors.append_array(Breeding.check(dex))  # data/breeding.json: the conservation goals name real breeding lines
 	errors.append_array(Genetics.check(dex))  # data/genes.json: loci match the code, every line has a kindred
 	errors.append_array(Genetics.check_hybrids(dex, MoveDB.load_default()))  # data/hybrids.json: parents, types, caps, sprites
+	errors.append_array(BiologyCheck.check())  # data/biology.json: the Biology page and Dr Keir's challenges
 	errors.append_array(Overseas.validate(func(zid): return zones.has(zid)))  # data/overseas: the departures board registry
 	var regions := {}
 	for zd in zones.values():

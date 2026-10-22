@@ -15,6 +15,8 @@ var _preview := false
 var _locus := 0
 var _goal := 0
 var _msg := ""
+var _ask := {}      # Dr Keir's question for the basket just started (Biology.prompt), {} when not asking
+var _ask_uid := 0
 
 func _build() -> void:
 	set_title("Pairing")
@@ -58,12 +60,17 @@ func _build() -> void:
 	_fill_list()
 	_refresh()
 
-## `pairing:pick` or `pairing:preview` start with the first two creatures chosen (screenshots).
+## `pairing:pick` or `pairing:preview` start with the first two creatures chosen (screenshots); `pairing:predict`
+## shows Dr Keir's question for them as if just paired.
 func setup(arg: String) -> void:
-	if arg in ["pick", "preview"] and _cands.size() > 1:
+	if arg in ["pick", "preview", "predict"] and _cands.size() > 1:
 		_a = _cands[0].c
 		_b = _cands[1].c
 		_preview = arg == "preview"
+		if arg == "predict":
+			var v := _verdict()
+			if v.get("sire") != null:
+				_ask = Biology.prompt(Game.data, v.sire, v.dam)
 		_refresh()
 
 func _fill_list() -> void:
@@ -137,6 +144,10 @@ func _refresh() -> void:
 	_preview_btn.disabled = v.get("sire") == null or not v.ok and v.kind == ""
 	_preview_btn.text = "Pairing" if _preview else "Preview"
 	UIKit.clear(_right)
+	_bar.visible = _ask.is_empty()
+	if not _ask.is_empty():
+		_show_ask()
+		return
 	if _preview and v.get("sire") != null:
 		var open := PunnettView.open_loci(Game.data)
 		_locus = clampi(_locus, 0, open.size() - 1)
@@ -171,6 +182,37 @@ func _refresh() -> void:
 	var basket := UIKit.label("Baskets: %d of %d" % [Breeding.baskets(Game.data).size(), Breeding.MAX_BASKETS], 20, UIKit.MUTED)
 	_right.add_child(basket)
 
+## Dr Keir's question and the answers to pick from; Back skips it.
+func _show_ask() -> void:
+	set_hints([["confirm", "Answer"], ["cancel", "Skip"]])
+	_right.add_child(UIKit.label(str(_ask.challenge.title), 30, UIKit.GOLD))
+	var q := UIKit.label(str(_ask.ask), 22, UIKit.CREAM)
+	q.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	_right.add_child(q)
+	var opts := []
+	for i in _ask.options.size():
+		var b := make_button(str(_ask.options[i].text), _answer.bind(i))
+		b.custom_minimum_size = Vector2(0, 34)
+		b.alignment = HORIZONTAL_ALIGNMENT_LEFT
+		b.add_theme_font_size_override("font_size", 22)
+		UIKit.compact(b, 2)
+		_right.add_child(b)
+		opts.append(b)
+	var n := UIKit.label("She scores the odds, not the luck. The hatchling tells you what chance did.", 18, UIKit.MUTED)
+	n.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	_right.add_child(n)
+	UIKit.wrap_focus(opts)
+	UIKit.focus_later(opts[0])
+
+func _answer(i: int) -> void:
+	if _ask_uid != 0:
+		Biology.predict(Game.data, _ask_uid, _ask, i)
+		_msg = "Noted for Dr Keir. Right, I'll ring you when it's due."
+	_ask = {}
+	_refresh()
+	if not _buttons.is_empty():
+		UIKit.focus_later(_buttons[0])
+
 func _toggle_preview() -> void:
 	_preview = not _preview
 	_refresh()
@@ -181,6 +223,10 @@ func _pair() -> void:
 		return
 	var r := Breeding.start(Game.data, v.sire, v.dam, Game.data.zone_id, Game.dex, Game.moves, Rng.new(int(Time.get_ticks_usec())), Calendar.season_today())
 	_msg = "Right, I'll ring you when it's due." if r.ok else str(r.why)
+	if r.ok:  # Dr Keir's challenge: the odds, before it hatches (Biology)
+		var b = Game.data.flag("breed_basket_%d" % int(r.slot))
+		_ask = Biology.prompt(Game.data, v.sire, v.dam)
+		_ask_uid = int(b.get("uid", 0)) if b is Dictionary else 0
 	_a = null
 	_b = null
 	_preview = false
@@ -211,6 +257,12 @@ func _input(event: InputEvent) -> void:
 	super._input(event)
 
 func _on_cancel() -> void:
+	if not _ask.is_empty():
+		_ask = {}
+		_refresh()
+		if not _buttons.is_empty():
+			UIKit.focus_later(_buttons[0])
+		return
 	if _preview:
 		_preview = false
 		_refresh()

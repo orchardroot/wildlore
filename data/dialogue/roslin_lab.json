@@ -37,6 +37,8 @@
     "Dolly, then?",
     "Mules and hybrids",
     "The conservation lists",
+    "Set me a challenge",
+    "The bigger picture",
     "Nothing, thanks"
    ],
    "set": "tmp_keir_pick"
@@ -59,6 +61,11 @@
      "do": "say",
      "who": "Dr Keir",
      "text": "Dot refuses a quarter and above, which is a good rule of thumb. The Florida panther had to be rescued in the nineties with a handful of Texas pumas, because it had run out of unrelated mates. Variety is a thing a population spends, and cannot easily buy back."
+    },
+    {
+     "do": "set",
+     "flag": "bio_inbreeding",
+     "value": true
     }
    ],
    "else": [
@@ -101,6 +108,11 @@
          "do": "say",
          "who": "Dr Keir",
          "text": "In your game, about one hatchling in sixty-four. In real animals it's far rarer, which is why the old stud books are so treasured."
+        },
+        {
+         "do": "set",
+         "flag": "bio_mutation",
+         "value": true
         }
        ],
        "else": [
@@ -122,6 +134,11 @@
            "do": "say",
            "who": "Dr Keir",
            "text": "She lived to six and had six lambs the ordinary way. She's in the National Museum of Scotland on Chambers Street, in Edinburgh, if you want to say hello. The Roslin Institute's day job is animal health and genetics, and the sheep was a spectacular side effect."
+          },
+          {
+           "do": "set",
+           "flag": "bio_dolly",
+           "value": true
           }
          ],
          "else": [
@@ -403,9 +420,153 @@
              ],
              "else": [
               {
-               "do": "say",
-               "who": "Dr Keir",
-               "text": "Come back whenever. The counting never stops."
+               "do": "if",
+               "flag": "tmp_keir_pick",
+               "eq": 6,
+               "then": [
+                {
+                 "do": "breed",
+                 "act": "challenge"
+                }
+               ],
+               "else": [
+                {
+                 "do": "if",
+                 "flag": "tmp_keir_pick",
+                 "eq": 7,
+                 "then": [
+                  {
+                   "do": "choice",
+                   "text": "Which bit?",
+                   "options": [
+                    "What is DNA, actually?",
+                    "What's happened since Dolly?",
+                    "Seed banks",
+                    "How does selection work?",
+                    "Never mind"
+                   ],
+                   "set": "tmp_keir_big"
+                  },
+                  {
+                   "do": "if",
+                   "flag": "tmp_keir_big",
+                   "eq": 0,
+                   "then": [
+                    {
+                     "do": "say",
+                     "who": "Dr Keir",
+                     "text": "DNA is a very long molecule, two strands twisted round each other, with four chemical letters along it: A, T, C and G."
+                    },
+                    {
+                     "do": "say",
+                     "who": "Dr Keir",
+                     "text": "A always pairs with T, and C with G. Unzip it and each half tells you how to rebuild the other. That's how a cell copies itself, and how you got half of yours from each parent."
+                    },
+                    {
+                     "do": "say",
+                     "who": "Dr Keir",
+                     "text": "A gene is a stretch of it that does one job. The versions a gene comes in are its alleles. Your Stud Book's makings are alleles, which Dot would call fancy talk for what she can see."
+                    },
+                    {
+                     "do": "set",
+                     "flag": "bio_dna",
+                     "value": true
+                    }
+                   ],
+                   "else": [
+                    {
+                     "do": "if",
+                     "flag": "tmp_keir_big",
+                     "eq": 1,
+                     "then": [
+                      {
+                       "do": "say",
+                       "who": "Dr Keir",
+                       "text": "The Human Genome Project read all three billion or so letters of a human genome by 2003. The Sanger Institute near Cambridge read nearly a third of it."
+                      },
+                      {
+                       "do": "say",
+                       "who": "Dr Keir",
+                       "text": "Then CRISPR: a way to cut DNA at one chosen spot, borrowed from bacteria. Emmanuelle Charpentier and Jennifer Doudna won the 2020 Nobel Prize in Chemistry for it."
+                      },
+                      {
+                       "do": "say",
+                       "who": "Dr Keir",
+                       "text": "In 2023 the UK became the first country to approve a CRISPR treatment, for sickle cell disease. Here at Roslin, gene editing has made pigs that resist a nasty pig virus. The tools changed. The questions are still Mendel's."
+                      },
+                      {
+                       "do": "set",
+                       "flag": "bio_since_dolly",
+                       "value": true
+                      }
+                     ],
+                     "else": [
+                      {
+                       "do": "if",
+                       "flag": "tmp_keir_big",
+                       "eq": 2,
+                       "then": [
+                        {
+                         "do": "say",
+                         "who": "Dr Keir",
+                         "text": "Kew runs the Millennium Seed Bank at Wakehurst, in West Sussex. Seeds of tens of thousands of wild plant species, dried and kept frozen."
+                        },
+                        {
+                         "do": "say",
+                         "who": "Dr Keir",
+                         "text": "Same idea as Dot's pedigrees: variety is the thing you can't buy back, so you keep it. Rare breed keepers freeze semen and embryos for the same reason."
+                        },
+                        {
+                         "do": "set",
+                         "flag": "bio_seedbank",
+                         "value": true
+                        }
+                       ],
+                       "else": [
+                        {
+                         "do": "if",
+                         "flag": "tmp_keir_big",
+                         "eq": 3,
+                         "then": [
+                          {
+                           "do": "say",
+                           "who": "Dr Keir",
+                           "text": "Selection is breeding with nobody choosing. Whatever survives to breed passes its alleles on. Whatever gets eaten doesn't."
+                          },
+                          {
+                           "do": "say",
+                           "who": "Dr Keir",
+                           "text": "I've a little model of a moor on the computer. Watch a few seasons: snow, heather, kestrels. Then try Manchester, where the moths have a story to tell."
+                          },
+                          {
+                           "do": "breed",
+                           "act": "sim"
+                          }
+                         ],
+                         "else": [
+                          {
+                           "do": "say",
+                           "who": "Dr Keir",
+                           "text": "Another time, then."
+                          }
+                         ]
+                        }
+                       ]
+                      }
+                     ]
+                    }
+                   ]
+                  }
+                 ],
+                 "else": [
+                  {
+                   "do": "say",
+                   "who": "Dr Keir",
+                   "text": "Come back whenever. The counting never stops."
+                  }
+                 ]
+                }
+               ]
               }
              ],
              "eq": 5

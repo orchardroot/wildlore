@@ -6,13 +6,13 @@ extends RefCounted
 ## appears once its system has something to show, so old saves need nothing.
 
 ## The menus behind each page, in tab order. "ledger:<kind>" opens the Almanac's own read-only ledger.
-const ORDER := ["journal", "fieldbook", "gazetteer", "casebook", "studbook", "words", "rumours", "trades", "standing", "stats",
+const ORDER := ["journal", "fieldbook", "gazetteer", "casebook", "studbook", "biology", "words", "rumours", "trades", "standing", "stats",
 	"guilds", "deeds", "society"]
 const NAMES := {"journal": "Quest log", "fieldbook": "Fieldbook", "gazetteer": "Gazetteer", "casebook": "Casebook",
-	"studbook": "Stud Book", "words": "Words of the Isles", "rumours": "Rumours", "trades": "Trades", "standing": "Standing", "stats": "Tallies",
+	"studbook": "Stud Book", "biology": "Biology", "words": "Words of the Isles", "rumours": "Rumours", "trades": "Trades", "standing": "Standing", "stats": "Tallies",
 	"guilds": "Guilds", "deeds": "Deeds", "society": "Building Society"}
 const MENUS := {"journal": "quests", "fieldbook": "pedia", "gazetteer": "quests:gazetteer", "casebook": "pedia:casebook",
-	"studbook": "pedia:studbook", "words": "pedia:words", "rumours": "pedia:rumours", "trades": "stats:trades", "standing": "stats:standing",
+	"studbook": "pedia:studbook", "biology": "biology", "words": "pedia:words", "rumours": "pedia:rumours", "trades": "stats:trades", "standing": "stats:standing",
 	"stats": "stats", "guilds": "ledger:guilds", "deeds": "ledger:deeds", "society": "ledger:society"}
 
 static func sprouted(d: GameStateData, id: String) -> bool:
@@ -21,6 +21,8 @@ static func sprouted(d: GameStateData, id: String) -> bool:
 			return Casebook.visible(d)
 		"studbook":
 			return StudBook.idea_count(d) > 0 or not Breeding.baskets(d).is_empty()
+		"biology":
+			return Biology.visible(d)
 		"words":
 			return words_met(d) > 0
 		"rumours":
@@ -65,6 +67,9 @@ static func blurb(d: GameStateData, id: String) -> String:
 			return "%d case%s open" % [open, "" if open == 1 else "s"]
 		"studbook":
 			return "%d idea%s noted%s" % [StudBook.idea_count(d), "" if StudBook.idea_count(d) == 1 else "s", ""]
+		"biology":
+			var ch := (", %d of %d of Dr Keir's challenges" % [Biology.done_count(d), Biology.challenges().size()]) if Biology.lab_on(d) else ""
+			return "%d of %d pages%s" % [Biology.open_count(d), Biology.pages().size(), ch]
 		"words":
 			var w := words_met(d)
 			return "%d local word%s met" % [w, "" if w == 1 else "s"]

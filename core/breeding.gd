@@ -316,8 +316,8 @@ static func logs(data: GameStateData) -> Array:
 			out.append(e)
 	return out
 
-## Hatches everything that is ready and sends the young to the party or the Ark. [{creature, where, sport, slot,
-## sire_name, dam_name}] for the scene to tell.
+## Hatches everything that is ready and sends the young to the party or the Ark. [{creature, where, sport,
+## sport_locus, basket (the emptied basket's record), slot, sire_name, dam_name}] for the scene to tell.
 static func collect(data: GameStateData, dex: Dex, moves: MoveDB = null) -> Array:
 	var out := []
 	for slot in ready(data):
@@ -326,6 +326,7 @@ static func collect(data: GameStateData, dex: Dex, moves: MoveDB = null) -> Arra
 		if c == null:
 			continue
 		out.append({"creature": c, "where": data.add_creature(c), "sport": bool(b.get("sport", false)),
+			"sport_locus": str(b.get("sport_locus", "")), "basket": b,
 			"slot": slot, "sire_name": str(b.get("sire_name", "")), "dam_name": str(b.get("dam_name", ""))})
 	return out
 
