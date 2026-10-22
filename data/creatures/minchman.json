@@ -77,7 +77,11 @@
           "stornoway_gale"
         ]
       ],
-      "evolves": null,
+      "evolves": {
+        "to": "bluechief",
+        "level": 34,
+        "weather": "gale"
+      },
       "habitat": [
         "portree"
       ],
@@ -86,6 +90,107 @@
         "fact": "The Minch is the stretch of sea between the Outer Hebrides and the north-west Highlands, and it is famous for rough water."
       },
       "sprite": "minchman"
+    },
+    {
+      "id": "bluechief",
+      "name": "Bluechief",
+      "types": [
+        "tide",
+        "storm"
+      ],
+      "base": {
+        "hp": 82,
+        "atk": 86,
+        "def": 84,
+        "lore": 97,
+        "ward": 88,
+        "spd": 77
+      },
+      "growth": "medium",
+      "catch_rate": 25,
+      "base_xp": 290,
+      "learnset": [
+        [
+          1,
+          "brine_spray"
+        ],
+        [
+          1,
+          "static_snap"
+        ],
+        [
+          6,
+          "crab_pinch"
+        ],
+        [
+          10,
+          "hail_pelt"
+        ],
+        [
+          14,
+          "tidal_surge"
+        ],
+        [
+          18,
+          "static_cling"
+        ],
+        [
+          23,
+          "minch_squall"
+        ],
+        [
+          28,
+          "wrack_bolt"
+        ],
+        [
+          32,
+          "proper_downpour"
+        ],
+        [
+          34,
+          "storm_front"
+        ],
+        [
+          40,
+          "thunderclap"
+        ],
+        [
+          40,
+          "thunder_plump"
+        ],
+        [
+          46,
+          "rip_current"
+        ],
+        [
+          54,
+          "stornoway_gale"
+        ],
+        [
+          34,
+          "wave_sweeper"
+        ],
+        [
+          38,
+          "spring_tide"
+        ],
+        [
+          42,
+          "seal_slap"
+        ],
+        [
+          49,
+          "moon_pull"
+        ]
+      ],
+      "evolves": null,
+      "habitat": [],
+      "appendix": true,
+      "dex": {
+        "text": "Leads the rest of the blue men up out of the Minch in a gale, and expects the skipper to finish his rhyme. You are not in a position to refuse.",
+        "fact": "Folklore says the Blue Men of the Minch rise from the water to challenge passing skippers to finish a rhyme, and boats that fail are lost."
+      },
+      "sprite": "bluechief"
     }
   ]
 }

@@ -49,13 +49,90 @@
      "spate_surge"
     ]
    ],
-   "evolves": null,
+   "evolves": {
+    "to": "rapidipper",
+    "level": 32,
+    "weather": "downpour"
+   },
    "habitat": [],
    "dex": {
     "text": "Bobs up and down on the boulders of the brook as if it has a spring in its knees, then walks straight under the water to see what is for lunch.",
     "fact": "Dippers can walk along the bottom of fast rivers to pick off insects, using their wings to hold themselves down against the current."
    },
    "sprite": "dipling"
+  },
+  {
+   "id": "rapidipper",
+   "name": "Rapidipper",
+   "types": [
+    "brook",
+    "gale"
+   ],
+   "base": {
+    "hp": 80,
+    "atk": 64,
+    "def": 72,
+    "lore": 80,
+    "ward": 89,
+    "spd": 97
+   },
+   "growth": "medium",
+   "catch_rate": 60,
+   "base_xp": 167,
+   "learnset": [
+    [
+     1,
+     "scrap"
+    ],
+    [
+     1,
+     "rill_shot"
+    ],
+    [
+     5,
+     "updraught"
+    ],
+    [
+     9,
+     "drench"
+    ],
+    [
+     9,
+     "call_the_clouds"
+    ],
+    [
+     13,
+     "bluster"
+    ],
+    [
+     18,
+     "spate_surge"
+    ],
+    [
+     32,
+     "undertow"
+    ],
+    [
+     36,
+     "swoop"
+    ],
+    [
+     40,
+     "flash_flood"
+    ],
+    [
+     47,
+     "beck_bounce"
+    ]
+   ],
+   "evolves": null,
+   "habitat": [],
+   "appendix": true,
+   "dex": {
+    "text": "Takes a river in spate as a personal invitation. Bobs on the boulder, bows to the flood, and walks into the torrent as if it had a train to catch.",
+    "fact": "Dippers need clean, fast water full of insects, so a dipper on a river is taken as a sign that the water is healthy."
+   },
+   "sprite": "rapidipper"
   }
  ]
 }

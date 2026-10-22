@@ -97,6 +97,14 @@ static func _check_species(sp: Dictionary, chart: TypeChart, dex: Dex, moves: Mo
 			e.append("species %s: evolution level must be 1..100" % id)
 		if not evo.has("level") and not evo.has("item") and not evo.has("friendship"):
 			e.append("species %s: evolution needs a level, an item or friendship" % id)
+		if evo.has("season") and str(evo.season) not in ["spring", "summer", "autumn", "winter"]:
+			e.append("species %s: evolution season '%s' is not a season" % [id, evo.season])
+		if evo.has("zone"):
+			for z in (evo.zone if evo.zone is Array else [evo.zone]):
+				if not FileAccess.file_exists("res://data/zones/%s.json" % str(z)):
+					e.append("species %s: evolution zone '%s' does not exist" % [id, z])
+		if evo.has("flag") and str(evo.flag) == "":
+			e.append("species %s: evolution flag is empty" % id)
 		for key in ["item", "early_item"]:
 			if evo.has(key) and items != null:
 				var it := items.get_item(str(evo[key]))

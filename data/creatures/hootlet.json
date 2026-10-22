@@ -53,13 +53,95 @@
      "moonlit_pounce"
     ]
    ],
-   "evolves": null,
+   "evolves": {
+    "to": "hootenanny",
+    "level": 30,
+    "season": "autumn",
+    "time": "night"
+   },
    "habitat": [],
    "dex": {
     "text": "Keeps very late hours and very firm views on who is allowed in the wood. Slow to move, slower to panic, and quite certain it is always the middle of the night.",
     "fact": "The classic twit-twoo of the tawny owl is usually a duet, with the female and male calling back and forth."
    },
    "sprite": "hootlet"
+  },
+  {
+   "id": "hootenanny",
+   "name": "Hootenanny",
+   "types": [
+    "night",
+    "gale"
+   ],
+   "base": {
+    "hp": 90,
+    "atk": 65,
+    "def": 73,
+    "lore": 130,
+    "ward": 98,
+    "spd": 32
+   },
+   "growth": "slow",
+   "catch_rate": 45,
+   "base_xp": 181,
+   "learnset": [
+    [
+     1,
+     "scrap"
+    ],
+    [
+     1,
+     "shadow_nip"
+    ],
+    [
+     5,
+     "updraught"
+    ],
+    [
+     9,
+     "hoot_lullaby"
+    ],
+    [
+     11,
+     "hill_fog"
+    ],
+    [
+     14,
+     "bluster"
+    ],
+    [
+     16,
+     "out_of_the_murk"
+    ],
+    [
+     19,
+     "moonlit_pounce"
+    ],
+    [
+     30,
+     "dark_of_the_moon"
+    ],
+    [
+     34,
+     "gale_force"
+    ],
+    [
+     38,
+     "owl_swoop"
+    ],
+    [
+     45,
+     "vixen_scream"
+    ]
+   ],
+   "evolves": null,
+   "habitat": [],
+   "appendix": true,
+   "dex": {
+    "text": "Calls across the wood all night and gets answered, so it counts that as a party. Brings its own perch and a very strong opinion on the guest list.",
+    "fact": "Tawny owls hold the same territory for life, and in autumn the young are driven out to find their own, which is why the woods get so noisy then."
+   },
+   "sprite": "hootenanny"
   }
  ]
 }

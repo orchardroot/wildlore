@@ -56,6 +56,11 @@ func test_evolution_text() -> void:
 	assert_eq(MenuLogic.evolution_text({"to": "jetwhitby", "item": "whitby_jet"}, "Jetwhitby", "Whitby Jet"), "Evolves into Jetwhitby with a Whitby Jet")
 	assert_eq(MenuLogic.evolution_text({"to": "x", "item": "oak_apple"}, "", "Oak Apple"), "Evolves with an Oak Apple")
 
+func test_evolution_text_w45_conditions() -> void:
+	assert_eq(MenuLogic.evolution_text({"to": "x", "level": 30, "season": "autumn", "time": "night"}, ""), "Evolves at Lv 30, at night and in autumn")
+	assert_eq(MenuLogic.evolution_text({"to": "x", "level": 34, "zone": ["bath", "cayman"]}, "", "", {"bath": "Bath"}), "Evolves at Lv 34, in Bath or Cayman")
+	assert_eq(MenuLogic.evolution_text({"to": "x", "level": 34, "flag": "lang_cert_cy_1", "flag_text": "once you have passed a Welsh lesson"}, ""), "Evolves at Lv 34, once you have passed a Welsh lesson")
+
 func test_now_text() -> void:
 	assert_eq(MenuLogic.now_text(19 * 60, "drizzle"), "Dusk, drizzle")
 	assert_eq(MenuLogic.now_text(12 * 60, "clear"), "Day, clear skies")

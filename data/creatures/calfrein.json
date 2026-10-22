@@ -150,13 +150,114 @@
           "strongmans_yell"
         ]
       ],
-      "evolves": null,
+      "evolves": {
+        "to": "sleighlord",
+        "level": 46,
+        "season": "winter"
+      },
       "habitat": [],
       "dex": {
         "text": "Hooves like snowshoes, a coat like a duvet, and firm views on the weather. Has never once been impressed by a car park.",
         "fact": "Female reindeer grow antlers too, which is unusual among deer."
       },
       "sprite": "reindeer"
+    },
+    {
+      "id": "sleighlord",
+      "name": "Sleighlord",
+      "types": [
+        "frost",
+        "brawn"
+      ],
+      "base": {
+        "hp": 106,
+        "atk": 117,
+        "def": 98,
+        "lore": 68,
+        "ward": 81,
+        "spd": 61
+      },
+      "growth": "medium",
+      "catch_rate": 37,
+      "base_xp": 258,
+      "learnset": [
+        [
+          1,
+          "shove"
+        ],
+        [
+          1,
+          "frozen_nip"
+        ],
+        [
+          5,
+          "scrum_push"
+        ],
+        [
+          9,
+          "cold_snap"
+        ],
+        [
+          13,
+          "flex"
+        ],
+        [
+          17,
+          "sleet_shower"
+        ],
+        [
+          21,
+          "haymaker"
+        ],
+        [
+          26,
+          "glower"
+        ],
+        [
+          28,
+          "beast_from_the_east"
+        ],
+        [
+          30,
+          "hoarfrost"
+        ],
+        [
+          36,
+          "reindeer_charge"
+        ],
+        [
+          42,
+          "cairngorm_blizzard"
+        ],
+        [
+          52,
+          "strongmans_yell"
+        ],
+        [
+          46,
+          "whiteout"
+        ],
+        [
+          50,
+          "caber_toss"
+        ],
+        [
+          54,
+          "haar_chill"
+        ],
+        [
+          61,
+          "frostbite_snap"
+        ]
+      ],
+      "evolves": null,
+      "habitat": [],
+      "appendix": true,
+      "dex": {
+        "text": "Pulls anything, anywhere, in any weather, and does not want to hear about December. Antlers like a bare winter wood.",
+        "fact": "The Cairngorm reindeer herd began in 1952, when the Sámi herder Mikel Utsi brought reindeer from Sweden to Scotland."
+      },
+      "sprite": "sleighlord"
     }
   ]
 }
