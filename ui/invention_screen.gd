@@ -8,6 +8,7 @@ const PANEL := Color("1d2230f0")
 const BRASS := Color("c9a25a")
 const ROW_H := 40
 
+var _scroll: ScrollContainer
 var _list_col: VBoxContainer
 var _detail: VBoxContainer
 var _buttons: Array = []
@@ -26,14 +27,14 @@ func _build() -> void:
 	var lp := UIKit.panel(PANEL, 12)
 	lp.custom_minimum_size = Vector2(520, 0)
 	row.add_child(lp)
-	var sc := ScrollContainer.new()
-	sc.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
-	sc.follow_focus = true
-	lp.add_child(sc)
+	_scroll = ScrollContainer.new()
+	_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	_scroll.follow_focus = true
+	lp.add_child(_scroll)
 	_list_col = VBoxContainer.new()
 	_list_col.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	_list_col.add_theme_constant_override("separation", 3)
-	sc.add_child(_list_col)
+	_scroll.add_child(_list_col)
 	var dp := UIKit.panel(PANEL, 18)
 	dp.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	row.add_child(dp)
@@ -51,7 +52,15 @@ func setup(arg: String) -> void:
 				_at = i
 		if _at < _buttons.size():
 			UIKit.focus_later(_buttons[_at])
+			_scroll_to_later(_buttons[_at])
 			_show(_at)
+
+## follow_focus can't scroll before the list has been laid out, so opening deep in the list scrolls once it has.
+func _scroll_to_later(b: Control) -> void:
+	await get_tree().process_frame
+	await get_tree().process_frame
+	if is_instance_valid(b) and b.is_inside_tree():
+		_scroll.ensure_control_visible(b)
 
 func _fill() -> void:
 	var d: GameStateData = Game.data
