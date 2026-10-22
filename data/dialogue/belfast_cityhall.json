@@ -15,5 +15,146 @@
    "who": "Guide",
    "text": "Look up at the dome from inside. Then lie down, if the steward allows it. Nobody has ever managed to look bored."
   }
+ ],
+ "bel_shipwright": [
+  {
+   "do": "if",
+   "flag": "isles_troubles",
+   "then": [
+    {
+     "do": "say",
+     "who": "Retired Shipwright",
+     "text": "Away and look at the dome. The yard built bigger, mind."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Retired Shipwright",
+     "text": "{greeting} Forty years at Harland and Wolff, man and boy. East Belfast born and bred."
+    },
+    {
+     "do": "say",
+     "who": "Retired Shipwright",
+     "text": "I'm British, and Northern Irish, and proud of both. The Union isn't a flag to me. It's family, the yard, my da's medals."
+    },
+    {
+     "do": "say",
+     "who": "Retired Shipwright",
+     "text": "The Troubles ran from the late sixties to '98. More than 3,500 dead. We lost a neighbour in the seventies, a good man. You don't forget."
+    },
+    {
+     "do": "say",
+     "who": "Retired Shipwright",
+     "text": "The Agreement says we stay in the UK for as long as most people here want to. That's consent. I voted for it, and my brother didn't. We still do Sunday dinner."
+    },
+    {
+     "do": "set",
+     "flag": "isles_troubles"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Noted in the Gazetteer, under How these isles work."
+    }
+   ]
+  }
+ ],
+ "bel_teacher": [
+  {
+   "do": "if",
+   "flag": "isles_heard_bel_teacher",
+   "then": [
+    {
+     "do": "say",
+     "who": "Teacher from the Falls",
+     "text": "Mind yourself. And read the plaques. Both sides wrote history here; the trick is reading all of it."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Teacher from the Falls",
+     "text": "{greeting} I teach history up the Falls Road. In this city that's a bit like teaching weather to fishermen."
+    },
+    {
+     "do": "say",
+     "who": "Teacher from the Falls",
+     "text": "My mammy marched for civil rights in 1968. Fair housing, fair jobs, one man one vote. Then it all went bad, for everyone."
+    },
+    {
+     "do": "say",
+     "who": "Teacher from the Falls",
+     "text": "I'm Irish, and I'd like a united Ireland one day. The Agreement says that can happen, but only if people vote for it, North and South."
+    },
+    {
+     "do": "say",
+     "who": "Teacher from the Falls",
+     "text": "It was reached on Good Friday, 10 April 1998. 71% voted yes up here and 94% in the South. My class find that the hardest bit to believe: people agreeing."
+    },
+    {
+     "do": "set",
+     "flag": "isles_heard_bel_teacher"
+    },
+    {
+     "do": "set",
+     "flag": "isles_troubles"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Noted in the Gazetteer, under How these isles work."
+    }
+   ]
+  }
+ ],
+ "bel_student": [
+  {
+   "do": "if",
+   "flag": "isles_stormont",
+   "then": [
+    {
+     "do": "say",
+     "who": "Politics Student",
+     "text": "Back to the library. The dissertation won't write itself. I've checked."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Politics Student",
+     "text": "{greeting} Politics at Queen's. Ask me anything. Except about my dissertation."
+    },
+    {
+     "do": "say",
+     "who": "Politics Student",
+     "text": "I was born after the Agreement. It says people born here can be British, Irish or both, so I've both passports. Belt and braces."
+    },
+    {
+     "do": "say",
+     "who": "Politics Student",
+     "text": "In the 2021 census about a third here said British only, nearly as many said Irish only, and about one in five just Northern Irish."
+    },
+    {
+     "do": "say",
+     "who": "Politics Student",
+     "text": "The Assembly sits up at Stormont, 90 members. The First Minister and deputy First Minister share one office with equal power. So far one unionist, one nationalist."
+    },
+    {
+     "do": "say",
+     "who": "Politics Student",
+     "text": "If the parties can't agree, it stops. It's been down more than once. When it works it's slow. Slow beats the alternative."
+    },
+    {
+     "do": "set",
+     "flag": "isles_stormont"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Noted in the Gazetteer, under How these isles work."
+    }
+   ]
+  }
  ]
 }

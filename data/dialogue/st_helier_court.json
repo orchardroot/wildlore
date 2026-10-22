@@ -10,5 +10,59 @@
    "who": "Court Clerk",
    "text": "Here's my favourite. If someone wrongs you, you can kneel and cry 'Haro! Haro! Haro! \u00c0 l'aide, mon Prince, on me fait tort!' That's 'Help, my Prince, I am being wronged!' It's the Clameur de Haro. It stops them in their tracks until the court has heard the case."
   }
+ ],
+ "sth_advocate": [
+  {
+   "do": "if",
+   "flag": "isles_crown_deps",
+   "then": [
+    {
+     "do": "say",
+     "who": "Advocate",
+     "text": "Haro, haro, haro. Only joking. Don't cry haro unless you mean it."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Advocate",
+     "text": "{greeting} An advocate of the Royal Court. Jersey's version of a barrister, with better views."
+    },
+    {
+     "do": "say",
+     "who": "Advocate",
+     "text": "Jersey isn't in the UK, and it was never in the EU. It's a Crown Dependency, like Guernsey and the Isle of Man."
+    },
+    {
+     "do": "say",
+     "who": "Advocate",
+     "text": "We make our own laws in the States Assembly and set our own taxes. The UK looks after defence and foreign relations. We send no MPs to Westminster."
+    },
+    {
+     "do": "say",
+     "who": "Advocate",
+     "text": "The King is our head of state. At dinners here he's toasted as Duke of Normandy. On Man he's Lord of Mann. He does collect titles."
+    },
+    {
+     "do": "say",
+     "who": "Advocate",
+     "text": "Guernsey has its States of Deliberation, with Alderney and Sark in its Bailiwick, and Man has Tynwald, which says it's the oldest continuous parliament in the world."
+    },
+    {
+     "do": "say",
+     "who": "Advocate",
+     "text": "Oh, and Man let some women vote in 1881, decades before Westminster did. They do mention it."
+    },
+    {
+     "do": "set",
+     "flag": "isles_crown_deps"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Noted in the Gazetteer, under How these isles work."
+    }
+   ]
+  }
  ]
 }

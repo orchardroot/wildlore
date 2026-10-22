@@ -15,5 +15,54 @@
    "who": "Steward",
    "text": "The stained glass windows are the best bit. Take your time. The kettle's on, but not for visitors."
   }
+ ],
+ "guildhall_historian": [
+  {
+   "do": "if",
+   "flag": "isles_names",
+   "then": [
+    {
+     "do": "say",
+     "who": "Local Historian",
+     "text": "Oak grove, Londonderry, Stroke City. Same walls, same rain."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Local Historian",
+     "text": "{greeting} You'll have noticed the city has two names. Everybody notices. Some people notice loudly."
+    },
+    {
+     "do": "say",
+     "who": "Local Historian",
+     "text": "Derry is from the Irish Doire, an oak grove. A royal charter of 1613 made it Londonderry, after the London companies who paid for the walls."
+    },
+    {
+     "do": "say",
+     "who": "Local Historian",
+     "text": "Nationalists mostly say Derry, many unionists say Londonderry. The council is Derry City and Strabane, and the signs often give you both."
+    },
+    {
+     "do": "say",
+     "who": "Local Historian",
+     "text": "Write it with a slash and you get Stroke City, as a local radio man called it. The name stuck, which is more than most jokes manage."
+    },
+    {
+     "do": "say",
+     "who": "Local Historian",
+     "text": "And the full set: the old province of Ulster has nine counties, and three are in the Republic, Donegal among them. So the most northerly county in Ireland is in the South."
+    },
+    {
+     "do": "set",
+     "flag": "isles_names"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Noted in the Gazetteer, under How these isles work."
+    }
+   ]
+  }
  ]
 }

@@ -388,5 +388,116 @@
    "who": "Jogger",
    "text": "Don't let the friendly faces fool you, this city is steeper than it looks."
   }
+ ],
+ "der_bernie": [
+  {
+   "do": "if",
+   "flag": "q_isles_border_run_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Bernie the Baker",
+     "text": "Áine says the cake was gone by teatime. Come back for a farl any time. Pounds or euros. Not both at once."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_isles_border_run_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "Bernie the Baker",
+       "text": "You're back! She liked it? She liked it. Oh, a card. I'm not crying. It's the flour."
+      },
+      {
+       "do": "say",
+       "who": "Bernie the Baker",
+       "text": "That's the open border for you. A cake goes out of the UK, into the EU, and nobody asks it for its passport."
+      },
+      {
+       "do": "give_item",
+       "item": "soda_farl",
+       "n": 3
+      },
+      {
+       "do": "standing",
+       "nation": "northern_ireland",
+       "amount": 4
+      },
+      {
+       "do": "standing",
+       "nation": "ireland",
+       "amount": 4
+      },
+      {
+       "do": "set",
+       "flag": "q_isles_border_run_3"
+      },
+      {
+       "do": "set",
+       "flag": "q_isles_border_run_done"
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_isles_border_run_started",
+       "then": [
+        {
+         "do": "say",
+         "who": "Bernie the Baker",
+         "text": "Áine's in Donegal Town, out the west road past Glenveagh, then south. You'll be in the Republic before the icing sets."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Bernie the Baker",
+         "text": "{greeting} Are you headed west? It's my sister Áine's birthday, her cake needs taking to Donegal Town, and my van's dead."
+        },
+        {
+         "do": "say",
+         "who": "Bernie the Baker",
+         "text": "Over the border, mind. Don't worry, there isn't one. Well, there is. You just can't see it."
+        },
+        {
+         "do": "choice",
+         "text": "Take Áine's birthday cake to Donegal Town?",
+         "options": [
+          "Go on then",
+          "Not today"
+         ],
+         "set": "_isles_border_choice"
+        },
+        {
+         "do": "if",
+         "flag": "_isles_border_choice",
+         "then": [
+          {
+           "do": "set",
+           "flag": "q_isles_border_run_started"
+          },
+          {
+           "do": "say",
+           "who": "Bernie the Baker",
+           "text": "You're a star. West road out of town, through Glenveagh, then south to Donegal Town. Say hello to the walker on the border road, he knows everyone."
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Bernie the Baker",
+           "text": "No bother. It's a lemon drizzle, it'll keep. Áine won't."
+          }
+         ],
+         "eq": 0
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
  ]
 }

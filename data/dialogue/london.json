@@ -567,5 +567,122 @@
    "who": "Diamond Paws",
    "text": "Last edition went to nothing overnight. The website sells garden furniture now. Lovely benches, to be fair."
   }
+ ],
+ "lon_civil_servant": [
+  {
+   "do": "if",
+   "flag": "isles_westminster",
+   "then": [
+    {
+     "do": "say",
+     "who": "Civil Servant",
+     "text": "Back to the office. There's a consultation on the font for consultations."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Civil Servant",
+     "text": "{greeting} Lunch break. Forty minutes, and I spend them explaining the country to visitors. Shall I? Good."
+    },
+    {
+     "do": "say",
+     "who": "Civil Servant",
+     "text": "Great Britain is the island: England, Scotland and Wales. The United Kingdom is the country: Great Britain plus Northern Ireland."
+    },
+    {
+     "do": "say",
+     "who": "Civil Servant",
+     "text": "The British Isles is the geography, Ireland and all. Say it in Dublin and someone will politely suggest 'these islands'. They have a point."
+    },
+    {
+     "do": "say",
+     "who": "Civil Servant",
+     "text": "Ireland is its own country, mind. And the Isle of Man and the Channel Islands belong to the Crown, not to the UK. Nobody gets this right first time."
+    },
+    {
+     "do": "set",
+     "flag": "isles_uk_gb_isles"
+    },
+    {
+     "do": "say",
+     "who": "Civil Servant",
+     "text": "That's Parliament behind me. The Commons has 650 MPs, all elected. The Lords aren't elected at all, which is a conversation for a longer lunch."
+    },
+    {
+     "do": "say",
+     "who": "Civil Servant",
+     "text": "The King is head of state, the politicians govern, and the Prime Minister is whoever the Commons will back. Usually the leader of the biggest party."
+    },
+    {
+     "do": "say",
+     "who": "Civil Servant",
+     "text": "And no, there's no single written constitution. It's laws, court rulings and habits. Ireland's is written down and only changes by referendum. Very tidy."
+    },
+    {
+     "do": "set",
+     "flag": "isles_westminster"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Noted in the Gazetteer, under How these isles work."
+    },
+    {
+     "do": "say",
+     "who": "Civil Servant",
+     "text": "Right. Meal deal."
+    }
+   ]
+  }
+ ],
+ "lon_commonwealth": [
+  {
+   "do": "if",
+   "flag": "isles_commonwealth",
+   "then": [
+    {
+     "do": "say",
+     "who": "Games Volunteer",
+     "text": "If you see a lost relay team, they're mine. Point them at Marlborough House."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Games Volunteer",
+     "text": "{greeting} I volunteer at the Commonwealth Games. Lanyard, clipboard, sore feet. The full kit."
+    },
+    {
+     "do": "say",
+     "who": "Games Volunteer",
+     "text": "The Commonwealth is 56 countries, most once ruled by Britain, about a third of everyone on Earth. Nobody has to stay. Ireland left in 1949."
+    },
+    {
+     "do": "say",
+     "who": "Games Volunteer",
+     "text": "Mozambique and Rwanda joined without ever being British colonies. It's a club people choose."
+    },
+    {
+     "do": "say",
+     "who": "Games Volunteer",
+     "text": "The King is its Head, but most members are republics. Fourteen countries besides the UK still have him as their King, Canada, Australia and Jamaica among them."
+    },
+    {
+     "do": "say",
+     "who": "Games Volunteer",
+     "text": "The office is at Marlborough House, just up the road. The Games come round every four years. Bring a cagoule."
+    },
+    {
+     "do": "set",
+     "flag": "isles_commonwealth"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Noted in the Gazetteer, under How these isles work."
+    }
+   ]
+  }
  ]
 }

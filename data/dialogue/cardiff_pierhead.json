@@ -15,5 +15,54 @@
    "who": "Visitor Guide",
    "text": "Next door is the Senedd, the Welsh Parliament building, all glass and slate, opened in 2006. It was made to be see-through on purpose."
   }
+ ],
+ "pierhead_senedd": [
+  {
+   "do": "if",
+   "flag": "isles_devolution",
+   "then": [
+    {
+     "do": "say",
+     "who": "Senedd Guide",
+     "text": "Pop next door to the Senedd some time. The public gallery is free, and the debates come in two languages."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Senedd Guide",
+     "text": "Shwmae! I do the tours next door at the Senedd, the Welsh Parliament. It's had a few names, so bear with me."
+    },
+    {
+     "do": "say",
+     "who": "Senedd Guide",
+     "text": "In 1997 Wales voted on having its own assembly. Yes won by 50.3%, fewer than seven thousand votes in it. My taid still says he swung it."
+    },
+    {
+     "do": "say",
+     "who": "Senedd Guide",
+     "text": "The National Assembly for Wales was first elected in May 1999. It won full law-making powers in a 2011 referendum, and since 2020 it's been the Senedd."
+    },
+    {
+     "do": "say",
+     "who": "Senedd Guide",
+     "text": "It makes the laws on health, schools, farming, transport and the Welsh language. Defence, foreign affairs and most taxes stay with Westminster."
+    },
+    {
+     "do": "say",
+     "who": "Senedd Guide",
+     "text": "Members speak Welsh or English, with live translation. So you can hear a row about bus timetables in two languages at once."
+    },
+    {
+     "do": "set",
+     "flag": "isles_devolution"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Noted in the Gazetteer, under How these isles work."
+    }
+   ]
+  }
  ]
 }

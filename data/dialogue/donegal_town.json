@@ -100,5 +100,80 @@
     }
    ]
   }
+ ],
+ "don_aine": [
+  {
+   "do": "if",
+   "flag": "q_isles_border_run_2",
+   "then": [
+    {
+     "do": "say",
+     "who": "Áine",
+     "text": "Tell Bernie I'll ring her. She'll be raging I've eaten it already."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_isles_border_run_started",
+     "then": [
+      {
+       "do": "say",
+       "who": "Áine",
+       "text": "Is that from Bernie? A cake! She remembered. She never remembers."
+      },
+      {
+       "do": "say",
+       "who": "Áine",
+       "text": "I live here and work in Derry three days a week. Over and back on the same road, no passport, no bother. That's the Common Travel Area."
+      },
+      {
+       "do": "say",
+       "who": "Áine",
+       "text": "It's been going since 1923: the UK, Ireland, Man and the Channel Islands. British and Irish citizens can live, work, study and see a doctor in either."
+      },
+      {
+       "do": "say",
+       "who": "Áine",
+       "text": "Irish citizens living in the UK can vote there, and my English neighbour votes for the Dáil here. Very seriously. He reads the leaflets."
+      },
+      {
+       "do": "say",
+       "who": "Áine",
+       "text": "Mind, I'm paid in pounds and I shop in euros. My purse has two pockets and a grudge."
+      },
+      {
+       "do": "set",
+       "flag": "isles_cta"
+      },
+      {
+       "do": "set",
+       "flag": "q_isles_border_run_1"
+      },
+      {
+       "do": "set",
+       "flag": "q_isles_border_run_2"
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "Noted in the Gazetteer, under How these isles work."
+      },
+      {
+       "do": "say",
+       "who": "Áine",
+       "text": "Take this card back to Bernie, would you? She'll cry. Then she'll deny it."
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Áine",
+       "text": "{greeting} Lovely day for it, whatever it is. My sister's a baker in Derry, if you're ever over that way."
+      }
+     ]
+    }
+   ]
+  }
  ]
 }

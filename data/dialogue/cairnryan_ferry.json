@@ -22,5 +22,63 @@
    "who": "Lorry Driver",
    "text": "I come through every Thursday. Four hours of road, two hours of sea, one enormous breakfast."
   }
+ ],
+ "cairnryan_haulier": [
+  {
+   "do": "if",
+   "flag": "isles_brexit",
+   "then": [
+    {
+     "do": "say",
+     "who": "Haulier",
+     "text": "Green lane today. Green lane is a good day."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Haulier",
+     "text": "{greeting} I run fridge lorries to Belfast and Larne. Cheese out, sausages back, paperwork both ways."
+    },
+    {
+     "do": "say",
+     "who": "Haulier",
+     "text": "June 2016, the UK voted to leave the EU, 52 to 48. England and Wales said leave, Scotland and Northern Ireland said remain. Then we all had to work out what it meant."
+    },
+    {
+     "do": "say",
+     "who": "Haulier",
+     "text": "The UK left on 31 January 2020. Ireland stayed in, so the Irish border turned into the UK's border with the EU."
+    },
+    {
+     "do": "say",
+     "who": "Haulier",
+     "text": "Nobody wanted checkpoints back there. So under the Protocol, Northern Ireland kept to EU rules for goods, and the checks moved to the ports. Belfast. Larne. Me."
+    },
+    {
+     "do": "say",
+     "who": "Haulier",
+     "text": "Plenty of unionists hated that, a border down the Irish Sea inside their own country. Others called it the price of an open land border. I've heard both over many a fry."
+    },
+    {
+     "do": "say",
+     "who": "Haulier",
+     "text": "Then in 2023, the Windsor Framework. A green lane for goods staying in Northern Ireland, a red lane for goods going on into the EU, and a 'Stormont brake' for the Assembly."
+    },
+    {
+     "do": "set",
+     "flag": "isles_brexit"
+    },
+    {
+     "do": "set",
+     "flag": "isles_windsor"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Noted in the Gazetteer, under How these isles work."
+    }
+   ]
+  }
  ]
 }

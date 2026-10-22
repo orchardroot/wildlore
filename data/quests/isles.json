@@ -1,0 +1,32 @@
+{
+ "quests": [
+  {
+   "id": "isles_border_run",
+   "title": "No Line on the Road",
+   "region": "isles",
+   "town": "derry",
+   "giver": "Bernie the Baker",
+   "summary": "Take Bernie's birthday cake from Derry~Londonderry over the border to her sister Áine in Donegal Town, and see how an open border works.",
+   "start_flag": "q_isles_border_run_started",
+   "steps": [
+    {
+     "flag": "q_isles_border_run_1",
+     "text": "Head west out of Derry~Londonderry and say hello to the walker on the border road in Glenveagh.",
+     "zone": "glenveagh"
+    },
+    {
+     "flag": "q_isles_border_run_2",
+     "text": "Carry on south and give the cake to Áine in Donegal Town.",
+     "zone": "donegal_town"
+    },
+    {
+     "flag": "q_isles_border_run_3",
+     "text": "Take Áine's card back to Bernie at the west end of Derry~Londonderry.",
+     "zone": "derry"
+    }
+   ],
+   "done_flag": "q_isles_border_run_done",
+   "reward": "Three soda farls, and standing in Northern Ireland and Ireland."
+  }
+ ]
+}

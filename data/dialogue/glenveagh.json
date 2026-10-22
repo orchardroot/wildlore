@@ -9,6 +9,59 @@
    "do": "say",
    "who": "Walker from Derry",
    "text": "Miles behind you, kilometres in front. My car does the sums. My legs refuse to."
+  },
+  {
+   "do": "if",
+   "flag": "q_isles_border_run_started",
+   "then": [
+    {
+     "do": "if",
+     "flag": "q_isles_border_run_1",
+     "then": [],
+     "else": [
+      {
+       "do": "say",
+       "who": "Walker from Derry",
+       "text": "Is that a cake for Áine in Donegal Town? Tell her the walker from Derry says happy birthday. Sure the whole road knows Áine."
+      },
+      {
+       "do": "set",
+       "flag": "q_isles_border_run_1"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "do": "if",
+   "flag": "isles_open_border",
+   "then": [],
+   "else": [
+    {
+     "do": "say",
+     "who": "Walker from Derry",
+     "text": "Thirty-odd years ago there'd have been soldiers and a checkpoint here, and half the wee country roads blocked off."
+    },
+    {
+     "do": "say",
+     "who": "Walker from Derry",
+     "text": "The border runs about 500 kilometres, through farms, rivers and the odd front room. Thousands cross it every day for work and school."
+    },
+    {
+     "do": "say",
+     "who": "Walker from Derry",
+     "text": "Since Brexit it's the only land border between the UK and the EU. Everybody agreed on one thing: no checkpoints back. Getting there was the hard bit."
+    },
+    {
+     "do": "set",
+     "flag": "isles_open_border"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Noted in the Gazetteer, under How these isles work."
+    }
+   ]
   }
  ],
  "gv_eagle_watcher": [
