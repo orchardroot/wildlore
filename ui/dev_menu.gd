@@ -101,7 +101,7 @@ static func boot(game: Node, menu: String) -> void:
 	d.set_flag("last_town", "buxton")
 	TodaysWalk.today(d, game.items)  # the pause menu's Today's Walk line
 	d.bag["rail_pass"] = 1
-	if menu.begins_with("pedia:") and (Dex.in_appendix(menu.substr(6)) or Dex.is_hybrid(menu.substr(6)) or game.dex.has(menu.substr(6))):  # `--menu=pedia:flyling` (any species or a hybrid): that entry, caught
+	if menu.begins_with("pedia:") and (Dex.in_appendix(menu.substr(6)) or Dex.is_hybrid(menu.substr(6)) or Crossbreeds.is_id(menu.substr(6)) or game.dex.has(menu.substr(6))):  # `--menu=pedia:flyling` (any species or a hybrid): that entry, caught
 		d.mark_caught(menu.substr(6))
 	if menu == "bag:first":  # `--menu=bag:first`: a first-hour bag (tea, snares, the map and the Fieldbook)
 		d.bag = {"cup_of_tea": 3, "wicker_snare": 5, "map": 1, "fieldbook": 1}

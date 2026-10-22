@@ -163,6 +163,9 @@ static func offspring_species(sire: Creature, dam: Creature, kind: String, dex: 
 			var h: Dictionary = Genetics.hybrids()[id]
 			if sl in h.get("sire_lines", []) and dl in h.get("dam_lines", []) and dex.has(str(id)):
 				return dex.get_species(str(id))
+	if kind == "crossbreed":  # derived, never stored: core/crossbreeds.gd
+		var xid := Crossbreeds.id_for(Genetics.line_of(sire), Genetics.line_of(dam))
+		return dex.get_species(xid) if dex.has(xid) else {}
 	return {}
 
 ## May Dot take this pair? {ok, why, kind}: `why` is her reason in her own words.
@@ -229,8 +232,13 @@ static func start(data: GameStateData, sire: Creature, dam: Creature, zone: Stri
 	var fee := LAMP_FEE if walk.late else 0
 	if fee > 0 and not Wallet.can_afford(data, fee, Wallet.GBP):
 		return {"ok": false, "why": "It's out of season, so the heat lamp's £%d and you haven't got it on you." % fee}
+	var crossed := str(can.kind) in ["hybrid", "crossbreed"]
+	if str(can.kind) == "crossbreed" and rng.roll() >= float(can.get("odds", 1.0)):
+		# kin that far apart rarely take: the day is spent, nothing is charged, and Dot says so
+		data.set_flag(paired_key(zone, data.day_count), true)
+		return {"ok": false, "why": "They went behind the barn and nothing came of it. Crosses that far apart mostly don't take. Try again another day."}
 	var sp := offspring_species(sire, dam, str(can.kind), dex)
-	var level := HYBRID_LEVEL if str(can.kind) == "hybrid" else HATCH_LEVEL
+	var level := HYBRID_LEVEL if crossed else HATCH_LEVEL
 	ensure_uid(data, sire)
 	ensure_uid(data, dam)
 	var kit := Genetics.cross(sire, dam, rng)
@@ -239,10 +247,10 @@ static func start(data: GameStateData, sire: Creature, dam: Creature, zone: Stri
 		"sire_uid": sire.uid, "dam_uid": dam.uid, "sire_name": sire.display_name(), "dam_name": dam.display_name(),
 		"sire_species": str(sire.species.id), "dam_species": str(dam.species.id),
 		"kind": str(can.kind), "kindred": kindred, "zone": zone, "species": str(sp.id),
-		"hybrid": str(sp.id) if str(can.kind) == "hybrid" else "", "level": level,
+		"hybrid": str(sp.id) if crossed else "", "level": level,
 		"genome": kit.genome, "sex": kit.sex, "ivs": kit.ivs, "temper": kit.temper, "pedigree": kit.pedigree,
 		"uid": _next_uid(data), "heirlooms": heirlooms(sire, dam, sp, moves, level),
-		"dam_form": dam.form if str(can.kind) != "hybrid" else "",
+		"dam_form": dam.form if not crossed else "",
 		"sport": kit.sport, "sport_locus": kit.sport_locus, "kinship": kit.kinship,
 		"parents": {"sire": _hands(sire), "dam": _hands(dam)},
 		"steps_due": steps_now(data) + int(walk.steps), "started_day": data.day_count,

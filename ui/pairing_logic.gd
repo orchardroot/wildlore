@@ -67,7 +67,10 @@ static func verdict(data: GameStateData, zone_id: String, a: Creature, b: Creatu
 
 ## Dot's line for a verdict that is fine.
 static func fine_line(v: Dictionary) -> String:
-	return "Fine pair." if v.kin <= 0.0 else "Fine pair, though they're %s." % str(v.kin_words).to_lower()
+	var line := "Fine pair." if v.kin <= 0.0 else "Fine pair, though they're %s." % str(v.kin_words).to_lower()
+	if str(v.get("kind", "")) == "crossbreed":  # a generated cross: how likely it is to take
+		line += " " + Crossbreeds.odds_line(str(v.get("tier", "")))
+	return line
 
 static func _name(c: Creature) -> String:
 	return c.nickname if c.nickname != "" else str(c.species.get("name", "They"))
@@ -78,7 +81,7 @@ static func notes_for(v: Dictionary) -> Array:
 	if v.get("sire") == null:
 		return out
 	for p in [v.sire, v.dam]:
-		if p.hybrid != "" and Genetics.hybrids().get(p.hybrid, {}).get("fertile", true) == false:
+		if (p.hybrid != "" and Genetics.hybrids().get(p.hybrid, {}).get("fertile", true) == false) or Crossbreeds.sterile(p):
 			out.append("sterile")
 	if v.kin >= 0.125:
 		out.append("close_kin")

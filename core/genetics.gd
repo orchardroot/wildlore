@@ -66,7 +66,8 @@ static func line_of(c: Creature) -> String:
 	return str(c.species.get("line", c.species.get("id", "")))
 
 static func kindred_of(c: Creature) -> String:
-	return str(genes().get("lines", {}).get(line_of(c), ""))
+	var k := str(genes().get("lines", {}).get(line_of(c), ""))
+	return k if k != "" else Crossbreeds.kindred(line_of(c))  # a crossbreed is of its parents' kindred
 
 static func sex_mode(kindred: String) -> String:
 	return str(genes().get("kindreds", {}).get(kindred, {}).get("sex", "none"))
@@ -405,6 +406,9 @@ static func can_pair(sire: Creature, dam: Creature, _dex = null) -> Dictionary:
 			return {"ok": true, "why": "", "kind": "same_line"}
 	if not listed.is_empty():
 		return {"ok": true, "why": "", "kind": "hybrid", "hybrid": str(listed.id), "odds": float(listed.get("odds", 1.0))}
+	var cross := Crossbreeds.verdict(sire, dam)  # close kin with no authored hybrid: a generated crossbreed
+	if not cross.is_empty():
+		return cross
 	if kindred_of(sire) != kindred_of(dam):
 		return {"ok": false, "why": "Those two aren't even the same kind of animal. It doesn't work, and the postcards lie.", "kind": ""}
 	return {"ok": false, "why": "Different species, and nobody has got young out of that pair. I won't try it.", "kind": ""}

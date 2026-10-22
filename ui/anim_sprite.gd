@@ -56,6 +56,10 @@ func _process(delta: float) -> void:
 
 ## The sprite sheet for a species, a placeholder file, or a runtime "?" if both are missing.
 static func load_sheet(id: String, kind: String) -> Texture2D:
+	if Crossbreeds.is_id(id):  # no file: blended from its parents (ui/crossbreed_art.gd)
+		var xt := CrossbreedArt.texture(Crossbreeds.lookup(id), kind)
+		if xt != null:
+			return xt
 	var path := "res://art/sprites/creatures/%s_%s.png" % [id, kind]
 	if id != "" and ResourceLoader.exists(path):
 		var t = load(path)
