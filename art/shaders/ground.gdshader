@@ -39,9 +39,9 @@ void fragment() {
 		float soft = UV.y * level;
 		float patches = vnoise(world_pos.xz * 0.55) * 0.65 + vnoise(world_pos.xz * 1.7) * 0.35;
 		float speck = vnoise(world_pos.xz * 9.0);
-		vec3 lush = c * vec3(0.86, 1.0, 0.84);
-		vec3 dry = c * vec3(1.12, 1.07, 0.86);
-		c = mix(c, mix(lush, dry, smoothstep(0.3, 0.75, patches)), soft * detail * 0.8);
+		vec3 lush = c * vec3(0.84, 0.95, 0.84);
+		vec3 dry = c * vec3(1.06, 1.02, 0.84);
+		c = mix(c, mix(lush, dry, smoothstep(0.3, 0.75, patches)), soft * detail * 0.45);
 		c *= 1.0 + (speck - 0.5) * 0.16 * soft * detail;
 	}
 	if (ao > 0.0) {
@@ -53,7 +53,7 @@ void fragment() {
 	if (clouds > 0.0) {
 		vec2 cp = world_pos.xz * 0.07 + TIME * cloud_drift * 0.07;
 		float cloud = smoothstep(0.52, 0.78, vnoise(cp) * 0.7 + vnoise(cp * 2.3 + 4.1) * 0.3);
-		c *= 1.0 - cloud * clouds * 0.22;
+		c *= 1.0 - cloud * clouds * 0.15;
 	}
 	ALBEDO = c;
 	ROUGHNESS = mix(1.0, 0.32, wet * hard);

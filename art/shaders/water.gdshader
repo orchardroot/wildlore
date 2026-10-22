@@ -39,7 +39,7 @@ void fragment() {
 	if (detail > 0.0) {
 		// the sky in the water, strongest at a glancing angle (towards the top of the screen)
 		float fres = pow(1.0 - clamp(dot(NORMAL, VIEW), 0.0, 1.0), 3.0);
-		col = mix(col, sky, clamp(fres * 1.6 + 0.08, 0.0, 0.55) * detail);
+		col = mix(col, sky, clamp(fres * 1.2 + 0.04, 0.0, 0.35) * detail);
 		// foam: a soft band at the shore that laps in and out, broken up so it never reads as a stripe
 		float n = vnoise(world_pos.xz * 3.0 + vec2(TIME * 0.25, -TIME * 0.18));
 		float lap = 0.55 + 0.45 * sin(TIME * 1.4 + world_pos.x * 0.9 + world_pos.z * 0.7);

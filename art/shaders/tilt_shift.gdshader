@@ -23,7 +23,7 @@ void fragment() {
 	c += texture(screen_tex, uv - px).rgb * 0.1;
 	c += texture(screen_tex, uv + vec2(px.x, -px.y)).rgb * 0.1;
 	c += texture(screen_tex, uv + vec2(-px.x, px.y)).rgb * 0.1;
-	c = mix(c, haze_colour, haze * smoothstep(0.42, 0.0, uv.y));
+	c = mix(c, haze_colour, haze * (1.0 - smoothstep(0.0, 0.42, uv.y)));
 	vec2 v = (uv - 0.5) * vec2(1.25, 1.0);
 	c *= 1.0 - vignette * smoothstep(0.35, 0.85, length(v));
 	COLOR = vec4(c, 1.0);
