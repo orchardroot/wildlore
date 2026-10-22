@@ -361,10 +361,10 @@ class PostcardBack extends Control:
 		draw_rect(panel, col)
 		draw_rect(Rect2(panel.position, Vector2(panel.size.x, panel.size.y * 0.45)), col.lightened(0.12))
 		if _stamp_tex:
-			var px := 96.0
+			var px := float(_stamp_tex.get_height())  # the first square frame of the sheet
 			var region := Rect2(0, 0, px, px)
 			var s := minf(panel.size.x, panel.size.y) * 0.98
-			RenderingServer.canvas_item_set_default_texture_filter(get_canvas_item(), RenderingServer.CANVAS_ITEM_TEXTURE_FILTER_NEAREST)
+			RenderingServer.canvas_item_set_default_texture_filter(get_canvas_item(), RenderingServer.CANVAS_ITEM_TEXTURE_FILTER_NEAREST if px <= 96.0 else RenderingServer.CANVAS_ITEM_TEXTURE_FILTER_LINEAR)
 			draw_texture_rect_region(_stamp_tex, Rect2(panel.get_center() - Vector2(s, s) / 2.0 + Vector2(0, -4), Vector2(s, s)), region)
 		var serif: Font = load("res://art/fonts/libre_baskerville/LibreBaskerville.ttf")
 		draw_string(serif, panel.position + Vector2(6, panel.size.y - 6), "1st", HORIZONTAL_ALIGNMENT_LEFT, -1, 17, Color("fbf7ee"))

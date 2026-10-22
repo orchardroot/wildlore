@@ -815,6 +815,15 @@ func _build_fly() -> void:
 	var sheet = load("res://art/sprites/creatures/bran_back.png") if ResourceLoader.exists("res://art/sprites/creatures/bran_back.png") else null
 	_raven = Sprite2D.new()
 	_raven.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	if sheet and sheet.get_height() > 96:  # a fine sheet (see tools/spritegen/creature.gd): brought to the 96 px the rider sits on
+		var img: Image = sheet.get_image()
+		if img != null and not img.is_empty():
+			img = img.duplicate()
+			if img.is_compressed():
+				img.decompress()
+			img.resize(192, 96, Image.INTERPOLATE_LANCZOS)
+			sheet = ImageTexture.create_from_image(img)
+			_raven.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
 	if sheet:
 		for i in 2:
 			var a := AtlasTexture.new()

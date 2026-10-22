@@ -3,6 +3,8 @@ extends TestCase
 
 const Creature = preload("res://tools/spritegen/creature.gd")
 const Character = preload("res://tools/spritegen/character.gd")
+const K := Creature.SCALE   # sheet pixels per art unit: coordinates below are art units times K
+const FP := 96 * K          # one frame, in pixels
 
 const TINY := {
 	"id": "tiny",
@@ -33,34 +35,34 @@ func _recipe_ids(dir_path: String) -> Array:
 
 func test_creature_sizes() -> void:
 	var r := Creature.render(TINY)
-	assert_eq(r.front.get_size(), Vector2i(192, 96), "front size")
-	assert_eq(r.back.get_size(), Vector2i(192, 96), "back size")
+	assert_eq(r.front.get_size(), Vector2i(FP * 2, FP), "front size")
+	assert_eq(r.back.get_size(), Vector2i(FP * 2, FP), "back size")
 	assert_eq(r.icon.get_size(), Vector2i(32, 32), "icon size")
 
 func test_transparent_background() -> void:
 	var r := Creature.render(TINY)
 	for img in [r.front, r.back]:
 		assert_near(img.get_pixel(0, 0).a, 0.0, 0.001, "corner a")
-		assert_near(img.get_pixel(95, 95).a, 0.0, 0.001, "corner b")
-		assert_near(img.get_pixel(96, 0).a, 0.0, 0.001, "second frame corner")
+		assert_near(img.get_pixel(FP - 1, FP - 1).a, 0.0, 0.001, "corner b")
+		assert_near(img.get_pixel(FP, 0).a, 0.0, 0.001, "second frame corner")
 	assert_near(r.icon.get_pixel(0, 0).a, 0.0, 0.001, "icon corner")
-	assert_near(r.front.get_pixel(48, 60).a, 1.0, 0.001, "body is opaque")
+	assert_near(r.front.get_pixel(48 * K, 60 * K).a, 1.0, 0.001, "body is opaque")
 
 func test_outline_at_silhouette_edge() -> void:
 	var r := Creature.render(TINY)
 	var img: Image = r.front
-	# the ellipse spans x 28..67 on row 60, so the outline sits at x 27
-	var outline := img.get_pixel(27, 60)
-	var edge := img.get_pixel(28, 60)
-	assert_near(outline.a, 1.0, 0.001, "outline pixel present")
-	assert_near(img.get_pixel(25, 60).a, 0.0, 0.001, "nothing beyond the outline")
+	# the ellipse spans art x 28..68 on row 60, so the outline sits in art unit 27
+	var outline := img.get_pixel(27 * K + K / 2, 60 * K)
+	var edge := img.get_pixel(29 * K, 60 * K)
+	assert_true(outline.a > 0.9, "outline pixel present")
+	assert_near(img.get_pixel(25 * K, 60 * K).a, 0.0, 0.001, "nothing beyond the outline")
 	assert_true(_luma(outline) < _luma(edge), "outline is darker than the body edge")
-	assert_near(img.get_pixel(48, 44).a, 1.0, 0.001, "top outline row")
+	assert_true(img.get_pixel(48 * K, 44 * K + K / 2).a > 0.9, "top outline row")
 
 func test_second_frame_differs_by_a_bob() -> void:
 	var r := Creature.render(TINY)
-	var a: Image = r.front.get_region(Rect2i(0, 0, 96, 96))
-	var b: Image = r.front.get_region(Rect2i(96, 0, 96, 96))
+	var a: Image = r.front.get_region(Rect2i(0, 0, FP, FP))
+	var b: Image = r.front.get_region(Rect2i(FP, 0, FP, FP))
 	assert_true(a.get_data() != b.get_data(), "frames differ")
 
 func test_creature_deterministic() -> void:
@@ -92,7 +94,7 @@ func test_every_recipe_has_sprites() -> void:
 	for id in creatures:
 		for suffix in ["front", "back"]:
 			var img := Image.load_from_file(ProjectSettings.globalize_path("res://art/sprites/creatures/%s_%s.png" % [id, suffix]))
-			assert_true(img != null and img.get_size() == Vector2i(192, 96), "%s_%s.png is 192x96" % [id, suffix])
+			assert_true(img != null and img.get_size() == Vector2i(FP * 2, FP), "%s_%s.png is %dx%d" % [id, suffix, FP * 2, FP])
 		var icon := Image.load_from_file(ProjectSettings.globalize_path("res://art/sprites/creatures/%s_icon.png" % id))
 		assert_true(icon != null and icon.get_size() == Vector2i(32, 32), "%s_icon.png is 32x32" % id)
 	for id in _recipe_ids("res://art/recipes/chars"):
@@ -128,48 +130,48 @@ func test_back_keeps_the_front_palette() -> void:
 	var rec: Dictionary = TINY.duplicate(true)
 	rec["back_auto"] = false
 	var r := Creature.render(rec)
-	var f: Color = r.front.get_pixel(48, 64)
-	var b: Color = r.back.get_pixel(48, 64)
+	var f: Color = r.front.get_pixel(48 * K, 64 * K)
+	var b: Color = r.back.get_pixel(48 * K, 64 * K)
 	assert_true(absf(_luma(f) - _luma(b)) < 0.06, "back body is not a dark silhouette (%.3f vs %.3f)" % [_luma(f), _luma(b)])
 
 func test_back_gets_a_darker_saddle() -> void:
 	var r := Creature.render(TINY)
-	var f: Color = r.front.get_pixel(48, 58)
-	var b: Color = r.back.get_pixel(48, 58)
+	var f: Color = r.front.get_pixel(48 * K, 58 * K)
+	var b: Color = r.back.get_pixel(48 * K, 58 * K)
 	assert_true(_luma(b) < _luma(f) - 0.05, "countershaded back (%.3f vs %.3f)" % [_luma(f), _luma(b)])
 
 func test_tail_behind_the_body_comes_forward_on_the_back() -> void:
 	var r := Creature.render(TAILED)
 	# front: the tail hides behind the body on the right, so none of it is inside the body
-	assert_false(_region_has(r.front, Rect2i(56, 50, 10, 20), _is_blue), "front tail behind body")
+	assert_false(_region_has(r.front, Rect2i(56 * K, 50 * K, 10 * K, 20 * K), _is_blue), "front tail behind body")
 	# back: seen from behind it swaps sides and sits over the body
-	assert_true(_region_has(r.back, Rect2i(26, 50, 14, 20), _is_blue), "back tail over the body, on the other side")
-	assert_false(_region_has(r.back, Rect2i(70, 40, 20, 40), _is_blue), "back tail not left on the front-view side")
+	assert_true(_region_has(r.back, Rect2i(26 * K, 50 * K, 14 * K, 20 * K), _is_blue), "back tail over the body, on the other side")
+	assert_false(_region_has(r.back, Rect2i(70 * K, 40 * K, 20 * K, 40 * K), _is_blue), "back tail not left on the front-view side")
 
 func test_back_over_can_be_turned_off() -> void:
 	var rec: Dictionary = TAILED.duplicate(true)
 	rec["back_over"] = []
 	var r := Creature.render(rec)
-	assert_false(_region_has(r.back, Rect2i(34, 50, 28, 20), _is_blue), "explicit empty back_over keeps the tail behind")
+	assert_false(_region_has(r.back, Rect2i(34 * K, 50 * K, 28 * K, 20 * K), _is_blue), "explicit empty back_over keeps the tail behind")
 
 func test_back_hide_drops_a_layer_even_with_json_float_indices() -> void:
 	var rec: Dictionary = JSON.parse_string(JSON.stringify(TAILED))
 	rec["back_hide"] = JSON.parse_string("[0]")
 	var r := Creature.render(rec)
-	assert_false(_region_has(r.back, Rect2i(0, 0, 96, 96), _is_blue), "hidden tail is gone from the back")
-	assert_true(_region_has(r.front, Rect2i(0, 0, 96, 96), _is_blue), "front keeps it")
+	assert_false(_region_has(r.back, Rect2i(0, 0, FP, FP), _is_blue), "hidden tail is gone from the back")
+	assert_true(_region_has(r.front, Rect2i(0, 0, FP, FP), _is_blue), "front keeps it")
 
 func test_back_marks_draw_over_the_body() -> void:
 	var rec: Dictionary = TINY.duplicate(true)
 	rec["palette"]["m"] = "#202020"
 	rec["back_marks"] = [{"shape": "rect", "at": [48, 60], "size": [4, 20], "colour": "m", "shade": false}]
 	var r := Creature.render(rec)
-	assert_true(_luma(r.back.get_pixel(48, 60)) < 0.2, "mark on the back")
-	assert_true(_luma(r.front.get_pixel(48, 60)) > 0.3, "mark not on the front")
+	assert_true(_luma(r.back.get_pixel(48 * K, 60 * K)) < 0.2, "mark on the back")
+	assert_true(_luma(r.front.get_pixel(48 * K, 60 * K)) > 0.3, "mark not on the front")
 
 func test_coats_recolour_back_sheets() -> void:
 	var r := Creature.render(TINY)
 	var img: Image = r.back.duplicate()
 	CoatArt.recolour(img, "winter")
-	assert_true(img.get_pixel(48, 64) != r.back.get_pixel(48, 64), "coat applies to the back sheet")
+	assert_true(img.get_pixel(48 * K, 64 * K) != r.back.get_pixel(48 * K, 64 * K), "coat applies to the back sheet")
 	assert_near(img.get_pixel(0, 0).a, 0.0, 0.001, "coat keeps transparency")

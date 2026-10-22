@@ -3,7 +3,7 @@ extends Node3D
 ## One creature on the diorama: a billboard Sprite3D with a gentle idle, a soft blob shadow and a few reaction tweens.
 
 const HEIGHT := 2.2
-const PX := HEIGHT / 96.0
+const PX := HEIGHT / 96.0   # per pixel of a 96 px frame; sheets drawn finer scale it down (see _fit_sheet)
 
 var sprite: Sprite3D
 var shadow: MeshInstance3D
@@ -61,12 +61,25 @@ static func _blob_texture() -> GradientTexture2D:
 func show_creature(c: Creature, is_back: bool) -> void:
 	var base_tex := FormArt.texture(CreatureArt.texture(c.species, is_back), "%s/%s" % [c.species.id, is_back], str(c.species.id), c.form)
 	sprite.texture = CoatArt.texture(base_tex, "%s/%s#%s" % [c.species.id, is_back, c.form], c.variant)
+	fit_sheet()
 	coat = c.variant
 	sprite.visible = true
 	sprite.modulate = Color(1.12, 1.12, 1.12)
 	_squash = Vector3.ONE
 	sprite.position = Vector3.ZERO
 	shadow.visible = true
+
+## Sizes the billboard to its sheet: the same height in the world whatever the sheet's resolution. A fine
+## (anti-aliased) sheet is filtered smoothly with soft alpha edges; an old 96 px one stays crisp.
+func fit_sheet() -> void:
+	if sprite == null or sprite.texture == null:
+		return
+	var fp := float(maxi(1, sprite.texture.get_height()))
+	sprite.pixel_size = HEIGHT / fp
+	sprite.offset = Vector2(0, fp * 0.5)
+	var fine := fp > 96.0
+	sprite.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR if fine else BaseMaterial3D.TEXTURE_FILTER_NEAREST
+	sprite.alpha_cut = SpriteBase3D.ALPHA_CUT_OPAQUE_PREPASS if fine else SpriteBase3D.ALPHA_CUT_DISCARD
 
 func _process(delta: float) -> void:
 	_t += delta

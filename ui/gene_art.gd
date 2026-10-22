@@ -7,7 +7,8 @@ extends RefCounted
 ## Rendered once per look and cached (the key is the whole look, so equal genomes share a texture), at preview and
 ## hatch rather than per frame. A creature whose showing is the stock look gets the stock texture, no rendering at all.
 ##
-## GeneArt.texture(c, kind) -> Texture2D, kind "front" (192x96, two frames), "back" (192x96) or "icon" (32x32).
+## GeneArt.texture(c, kind) -> Texture2D, kind "front" (two square frames side by side, 384x192 as rendered here),
+## "back" (the same) or "icon" (32x32). Consumers take the frame size from the sheet's height.
 
 const Creature = preload("res://tools/spritegen/creature.gd")
 const Blend = preload("res://tools/spritegen/blend.gd")
@@ -134,16 +135,17 @@ static func _finish(img: Image, kind: String, look: Dictionary) -> Image:
 		out = _scaled(out, s, kind)
 	return out
 
-## Each 96 px frame (or the 32 px icon) scaled about the feet and clipped to its own box, so it can never bleed.
+## Each square frame (or the 32 px icon) scaled about the feet and clipped to its own box, so it can never bleed.
+## A fine sheet is resampled smoothly; the icon and old 96 px art stay crisp.
 static func _scaled(img: Image, s: float, kind: String) -> Image:
-	var fw := 32 if kind == "icon" else Creature.SIZE
+	var fw := 32 if kind == "icon" else img.get_height()
 	var out := Image.create(img.get_width(), img.get_height(), false, Image.FORMAT_RGBA8)
 	var frames := img.get_width() / fw
 	var nw := maxi(1, int(round(fw * s)))
 	var nh := maxi(1, int(round(img.get_height() * s)))
 	for f in frames:
 		var part := img.get_region(Rect2i(f * fw, 0, fw, img.get_height()))
-		part.resize(nw, nh, Image.INTERPOLATE_NEAREST)
+		part.resize(nw, nh, Image.INTERPOLATE_BILINEAR if fw > Creature.SIZE else Image.INTERPOLATE_NEAREST)
 		var dx := (fw - nw) / 2
 		var dy := img.get_height() - nh
 		var src := Rect2i(maxi(0, -dx), maxi(0, -dy), mini(nw, fw), mini(nh, img.get_height()))

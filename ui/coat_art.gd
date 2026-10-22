@@ -45,7 +45,7 @@ static func parse(variant: String) -> Dictionary:
 			return {"valid": false, "coats": [], "tortie": false}
 	return {"valid": not coats.is_empty() or tortie, "coats": coats, "tortie": tortie}
 
-const FRAME_W := 96        # sheets are two 96 px frames: noise repeats per frame so the idle bob doesn't shimmer
+const FRAME_W := 96        # sheets are two square frames (96 art px each): noise repeats per frame so the bob doesn't shimmer
 const TORTIE := [Color("2a1410"), Color("9a4a1c"), Color("e08a3a"), Color("ffd9a0")]
 const TORTIE_STRENGTH := 0.8
 const PATCH := 7           # tortoiseshell patches, in pixels across
@@ -57,18 +57,23 @@ static func recolour(img: Image, variant: String) -> void:
 	var coats: Array = p.coats
 	var w := img.get_width()
 	var h := img.get_height()
+	# a fine sheet (frames taller than 96 px, see tools/spritegen/creature.gd) keeps its roan and patches on the
+	# 96 art-pixel grid, so they look the same at any resolution; icons and old sheets are 1:1
+	var fw := h if h >= FRAME_W and w % h == 0 else FRAME_W
+	var u := maxi(1, h / FRAME_W)
 	for y in h:
 		for x in w:
 			var c := img.get_pixel(x, y)
 			if c.a <= 0.01:
 				continue
-			var fx := x % FRAME_W
+			var fx := (x % fw) / u
+			var fy := y / u
 			if not coats.is_empty():
 				var v: String = coats[0]
-				if coats.size() > 1 and _hash(fx, y, 3) & 1 == 1:
+				if coats.size() > 1 and _hash(fx, fy, 3) & 1 == 1:
 					v = coats[1]
 				c = shade(c, Coats.PALETTES[v], STRENGTH.get(v, 0.8))
-			if p.tortie and _patch(fx, y):
+			if p.tortie and _patch(float(x % fw) / u, float(y) / u):
 				c = shade(c, TORTIE, TORTIE_STRENGTH)
 			img.set_pixel(x, y, c)
 
@@ -78,7 +83,7 @@ static func _hash(x: int, y: int, seed_v: int) -> int:
 	return (n ^ (n >> 16)) & 0x7fffffff
 
 ## Patches: value noise on a PATCH-pixel grid, smoothly blended, half the animal.
-static func _patch(x: int, y: int) -> bool:
+static func _patch(x: float, y: float) -> bool:
 	var gx := float(x) / PATCH
 	var gy := float(y) / PATCH
 	var ix := int(floor(gx))

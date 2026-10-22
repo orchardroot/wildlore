@@ -44,8 +44,8 @@ func test_stock_look_is_the_stock_texture() -> void:
 
 func test_every_kind_has_the_right_size() -> void:
 	var c := _hybrid()
-	assert_eq(GeneArt.texture(c, "front").get_size(), Vector2(192, 96))
-	assert_eq(GeneArt.texture(c, "back").get_size(), Vector2(192, 96))
+	assert_eq(GeneArt.texture(c, "front").get_size(), Vector2(SpriteCreature.SIZE * SpriteCreature.SCALE * 2, SpriteCreature.SIZE * SpriteCreature.SCALE))
+	assert_eq(GeneArt.texture(c, "back").get_size(), Vector2(SpriteCreature.SIZE * SpriteCreature.SCALE * 2, SpriteCreature.SIZE * SpriteCreature.SCALE))
 	assert_eq(GeneArt.texture(c, "icon").get_size(), Vector2(32, 32))
 
 func test_blend_is_deterministic_and_not_empty() -> void:
@@ -57,7 +57,7 @@ func test_blend_is_deterministic_and_not_empty() -> void:
 	assert_true(_opaque(a.front) > 400, "front has a body")
 	assert_true(_opaque(a.back) > 400, "back has a body")
 	assert_true(_opaque(a.icon) > 40, "icon is not empty")
-	assert_eq(a.front.get_size(), Vector2i(192, 96))
+	assert_eq(a.front.get_size(), Vector2i(SpriteCreature.SIZE * SpriteCreature.SCALE * 2, SpriteCreature.SIZE * SpriteCreature.SCALE))
 
 func test_blend_differs_from_both_parents() -> void:
 	var sire := GeneArt.recipe("coolet")
@@ -101,9 +101,10 @@ func test_frame_scales_the_sprite_inside_its_box() -> void:
 	var small := _mk("moolet", {"frame1": ["-", "-"], "frame2": ["-", "-"], "frame3": ["-", "-"], "frame4": ["-", "-"]})
 	var bi := GeneArt.texture(big, "front").get_image()
 	var si := GeneArt.texture(small, "front").get_image()
-	assert_eq(bi.get_size(), Vector2i(192, 96))
+	assert_eq(bi.get_size(), Vector2i(SpriteCreature.SIZE * SpriteCreature.SCALE * 2, SpriteCreature.SIZE * SpriteCreature.SCALE))
 	assert_true(_opaque(bi) > _opaque(si), "size 8 is bigger than size 0")
-	for x in [95, 191]:   # the right edge of each frame stays clear of the next one's content
+	var fp := bi.get_height()
+	for x in [fp - 1, fp * 2 - 1]:   # the right edge of each frame stays clear of the next one's content
 		assert_eq(si.get_pixel(x, 0).a, 0.0)
 
 func test_roan_mixes_both_coats() -> void:
