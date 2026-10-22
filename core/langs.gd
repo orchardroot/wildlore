@@ -7,17 +7,25 @@ extends RefCounted
 ## nobody was sure of is simply left out. Words met are flags (word_<code>_<kind>_<key>), listed in the Fieldbook's
 ## "Words of the Isles" page. Pure logic, no autoload names: callers pass `on` (Settings.local_languages != "off").
 
-const CODES := ["cy", "ga", "gd", "gv", "kw", "jer", "nrf_gg"]
-const NAMES := {"cy": "Welsh", "ga": "Irish", "gd": "Scottish Gaelic", "gv": "Manx", "kw": "Cornish", "jer": "Jerriais", "nrf_gg": "Guernesiais"}
+const CODES := ["cy", "ga", "gd", "gv", "kw", "jer", "nrf_gg", "sco", "sco_ulster"]
+const NAMES := {"cy": "Welsh", "ga": "Irish", "gd": "Scottish Gaelic", "gv": "Manx", "kw": "Cornish", "jer": "Jerriais", "nrf_gg": "Guernesiais",
+	"sco": "Scots", "sco_ulster": "Ulster Scots"}
 ## Region -> language (Wales: cy; Ireland and the Gaeltacht: ga; Highlands and Islands: gd; Mann; Cornwall).
 const REGION_LANG := {"north_wales": "cy", "mid_wales": "cy", "south_wales": "cy", "ireland": "ga", "ireland_west": "ga",
 	"ireland_east": "ga", "scotland": "gd", "man": "gv", "cornwall": "kw"}
 ## The Channel Islands share one region, so their zones are told apart by id (an interior borrows its town's).
 const ZONE_LANG := {"st_helier": "jer", "jersey_country": "jer", "st_peter_port": "nrf_gg", "guernsey_country": "nrf_gg"}
+## Scots and Ulster Scots (4.5): zones (and every zone or room under them, "edinburgh" covers "edinburgh_castle")
+## where they are the local tongue. Checked before the region, so the Lowlands, the North East's Doric, Orkney and
+## Shetland get Scots, and Antrim's Ulster-Scots heartland (Belfast, the Route, the Causeway coast) gets Ulster Scots.
+const PREFIX_LANG := {"sco": ["edinburgh", "glasgow", "aberdeen", "dundee", "st_andrews", "cairnryan", "scottish_borders",
+		"forth_bridges", "galloway", "central_belt", "kirkwall", "lerwick", "shetland_mainland"],
+	"sco_ulster": ["belfast", "bushmills", "antrim_coast", "antrim_ropehut", "causeway"]}
 ## Places in a language's region where it isn't the everyday local tongue, so no greeting or banner in it: Northern
 ## Ireland (its towns share the "ireland" region; Irish there is used sparingly, by choice, not by default) and the
 ## Scottish Lowlands and east coast (Gaelic is a Highlands and Islands language).
-const NOT_LOCAL := {"ga": ["belfast", "bushmills", "derry", "enniskillen", "lough_neagh", "mourne", "giants_causeway"],
+const NOT_LOCAL := {"ga": ["belfast", "bushmills", "derry", "enniskillen", "lough_neagh", "mourne", "giants_causeway", "mournes",
+		"causeway", "antrim_coast", "antrim_ropehut", "marblearch"],
 	"gd": ["edinburgh", "glasgow", "aberdeen", "dundee", "st_andrews", "cairnryan", "scottish_borders", "forth_bridges",
 		"galloway", "kirkwall", "lerwick", "shetland_mainland"]}
 ## Languages whose signs lead with the local language (Welsh and Irish signs show it first).
@@ -45,6 +53,10 @@ static func code_for(zone_id: String, index: Dictionary) -> String:
 		id = town
 	if ZONE_LANG.has(id):
 		return ZONE_LANG[id]
+	for alt in PREFIX_LANG:
+		for prefix in PREFIX_LANG[alt]:
+			if id == prefix or id.begins_with(prefix + "_"):
+				return alt
 	var region := str(index.get("zones", {}).get(id, {}).get("region", ""))
 	var code := str(REGION_LANG.get(region, ""))
 	for prefix in NOT_LOCAL.get(code, []):
