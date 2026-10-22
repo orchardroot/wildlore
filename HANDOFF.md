@@ -9,10 +9,12 @@
   gene_art _scaled. Tests updated for sizes (tests/art/test_spritegen.gd, tests/ui/test_gene_art.gd,
   tests/battle_ui/test_creature_art.gd).
 
+- All 402 creature sheets regenerated (icons and character sheets byte-identical). Before/after in docs/shots/w45a/
+  (sprites_before_after.png, battle_*.png, fieldbook_*.png, coat checks). Targeted tests green.
+- ui/dev_menu.gd: `--menu=pedia:<any species>` now marks it caught (for Fieldbook screenshots).
+
 ## Left
-- Regenerate all creature PNGs: `godot --headless --path . -s res://tools/spritegen.gd`, then `--import`.
-- Before/after screenshots into docs/shots/w45a/ (before = old PNGs, copies in /tmp/w45a/before).
-- Targeted tests: tools/test.sh spritegen / gene_art / creature_art / forms / coat; push; watch CI.
+- Watch CI on the branch; fix anything it finds.
 
 ## Gotchas
 - A GDScript parse error in a `-s` script makes Godot hang (no quit): wrap runs in `perl -e 'alarm N; exec @ARGV'`.

@@ -175,3 +175,23 @@ func test_coats_recolour_back_sheets() -> void:
 	CoatArt.recolour(img, "winter")
 	assert_true(img.get_pixel(48 * K, 64 * K) != r.back.get_pixel(48 * K, 64 * K), "coat applies to the back sheet")
 	assert_near(img.get_pixel(0, 0).a, 0.0, 0.001, "coat keeps transparency")
+
+# ---------- smooth sheets, crisp icons ----------
+
+func test_sheets_are_anti_aliased_and_icons_stay_crisp() -> void:
+	var r := Creature.render(TINY)
+	var soft := 0
+	for y in FP:
+		for x in FP:
+			var a: float = r.front.get_pixel(x, y).a
+			if a > 0.02 and a < 0.98:
+				soft += 1
+	assert_true(soft > 40, "the sheet's edges are soft (%d partly covered pixels)" % soft)
+	for y in 32:
+		for x in 32:
+			var a: float = r.icon.get_pixel(x, y).a
+			assert_true(a == 0.0 or a == 1.0, "icon pixels are fully on or off")
+
+func test_scale_one_gives_the_old_sheet_size() -> void:
+	var r := Creature.render(TINY, 1)
+	assert_eq(r.front.get_size(), Vector2i(192, 96))

@@ -152,8 +152,8 @@ func test_old_single_coats_are_unchanged() -> void:
 	var a: Image = r.front.duplicate()
 	CoatArt.recolour(a, "winter")
 	var b: Image = r.front.duplicate()
-	for y in 96:
-		for x in 192:
+	for y in b.get_height():
+		for x in b.get_width():
 			var c := b.get_pixel(x, y)
 			if c.a > 0.01:
 				b.set_pixel(x, y, CoatArt.shade(c, Coats.PALETTES["winter"], CoatArt.STRENGTH["winter"]))
