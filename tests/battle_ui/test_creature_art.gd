@@ -12,5 +12,5 @@ func test_missing_species_art_never_fails() -> void:
 	var sp := {"id": "no_such_creature_xyz", "sprite": "no_such_creature_xyz", "types": ["brook"]}
 	var t := CreatureArt.texture(sp, true)
 	assert_true(t != null)
-	assert_eq(t.get_width(), 192)
+	assert_eq(t.get_width(), t.get_height() * 2, "two square frames")
 	assert_true(CreatureArt.icon(sp) != null)
