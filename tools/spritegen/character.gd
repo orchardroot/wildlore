@@ -10,7 +10,7 @@ extends RefCounted
 ##     aran, oilskin, overalls, shawl, lanyard, pin, beard, moustache, grin, glitter, wellies,
 ##     lantern, hurley, umbrella, fiddle, notebook, waxed_jacket, bagpipes, curling_broom, shinty_stick, clipboard]}
 ## bottom_style also: kilt. Hats also: welding_visor, bobble_hat, deerstalker.
-## Extra hats: witch_hat, panama, hard_hat, flat_cap, helmet, flower_crown, holly_crown. Extra hair: windswept.
+## Extra hats: witch_hat, panama, hard_hat, flat_cap, helmet, flower_crown, holly_crown, headscarf, turban. Extra hair: windswept.
 ## Added in plan 6: hats top_hat, tudor_bonnet; accessories hi_vis (vest, accent + accent2 stripes), staff (prop colour).
 ## Optional palette keys: hat, beard, prop, pin, light (lamp / lantern glow), leaf.
 
@@ -820,6 +820,27 @@ static func _hat(cv, c: Dictionary, cx: float, cy: float, hw: float, hh: float, 
 					cv.px(int(round(ax)), int(round(ay)), blooms[k % blooms.size()])
 					if not holly:
 						cv.px(int(round(ax)) + 1, int(round(ay)), blooms[k % blooms.size()])
+		"headscarf":
+			# a scarf over the hair, framing the face and falling to the shoulders
+			if dir == "up":
+				_ell(cv, cx, cy + 0.5, hw + 2, hh + 2, col, true, true)
+				_ell(cv, cx, cy + hh * 0.5 + 2.5, hw + 3, 7, _tn(c, hk, 0.08), true, true)
+			elif side:
+				_ell(cv, cx + hw * 0.32, cy + 1, hw * 0.62, hh + 1.5, col, true, true)
+				_ell(cv, cx + 0.5, top + 2, hw + 1.5, 6.5, col, true, true)
+				_ell(cv, cx + hw * 0.1, cy + hh * 0.5 + 2.5, hw * 0.9, 6, _tn(c, hk, 0.08), true, true)
+			else:
+				_ell(cv, cx, top + 2, hw + 3, 6.5, col, true, true)
+				_rect(cv, cx - hw * 0.5 - 0.5, cy + 1.5, 3, hh * 0.85, col, 1, true)
+				_rect(cv, cx + hw * 0.5 + 0.5, cy + 1.5, 3, hh * 0.85, col, 1, true)
+				_ell(cv, cx, cy + hh * 0.5 + 2.5, hw + 3, 6, _tn(c, hk, 0.08), true, true)
+		"turban":
+			# a dastar: wrapped high and neat, the folds meeting in a point above the brow
+			var tx := cx + (1.0 if side else 0.0)
+			_ell(cv, tx, top + 0.5, hw + 2.5, 9, col, true, true)
+			if dir != "up":
+				_poly(cv, [Vector2(tx - 4.0, top + 4.0), Vector2(tx, top - 3.0), Vector2(tx + 4.0, top + 4.0)], _tn(c, hk, 0.15), true)
+				_rect(cv, tx, top + 4.5, hw + 1.5, 1.5, _tn(c, hk, 0.2), 0, false)
 		"headband":
 			_rect(cv, cx + (0.5 if side else 0.0), top + 4.5, hw + 1, 2, col, 0, true)
 			if side:

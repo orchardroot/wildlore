@@ -45,6 +45,7 @@ func _show_page() -> void:
 	rows.append(["Uncommon coats", Coats.stats_line(Game.data)])  # see Coats
 	rows.append(["Regional forms", Forms.stats_line(Game.data)])  # see Forms
 	rows.append(["Plaques read", Gazetteer.stats_line(Game.data)])  # see Gazetteer
+	rows.append(["These Isles", TheseIsles.stats_line(Game.data)])  # peoples of these isles: plaques, people, quests
 	var two := rows.size() > ONE_COLUMN
 	var split := DAFT_ONES if two else rows.size()
 	var cols := HBoxContainer.new()
