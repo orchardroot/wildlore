@@ -346,6 +346,15 @@
    "script": "knucker",
    "show_if": "q_southeast_knucker_3",
    "hide_if": "caught_knucker"
+  },
+  {
+   "id": "landsky_rewilder",
+   "sprite": "farmer",
+   "x": 34,
+   "y": 30,
+   "facing": "down",
+   "move": "still",
+   "script": "landsky_knepp"
   }
  ],
  "encounters": {
@@ -367,9 +376,7 @@
     "min": 94,
     "max": 96,
     "weight": 8,
-    "time": [
-     "day"
-    ]
+    "time": ["day"]
    },
    {
     "species": "peregrin",
@@ -388,10 +395,7 @@
     "min": 94,
     "max": 96,
     "weight": 6,
-    "weather": [
-     "sunshine",
-     "clear"
-    ]
+    "weather": ["sunshine", "clear"]
    },
    {
     "species": "rooklet",
@@ -416,37 +420,28 @@
     "min": 94,
     "max": 96,
     "weight": 5,
-    "season": [
-     "autumn"
-    ]
+    "season": ["autumn"]
    },
    {
     "species": "barnling",
     "min": 94,
     "max": 96,
     "weight": 6,
-    "time": [
-     "night"
-    ]
+    "time": ["night"]
    },
    {
     "species": "flittermouse",
     "min": 94,
     "max": 96,
     "weight": 6,
-    "time": [
-     "night",
-     "dusk"
-    ]
+    "time": ["night", "dusk"]
    },
    {
     "species": "longman",
     "min": 96,
     "max": 96,
     "weight": 2,
-    "weather": [
-     "fog"
-    ]
+    "weather": ["fog"]
    }
   ],
   "water": [
@@ -570,6 +565,13 @@
    "theme": "arts",
    "title": "Eric Ravilious",
    "text": "Eric Ravilious grew up in Eastbourne and painted the Downs as nobody had: pale, dry watercolours of chalk paths, the Long Man of Wilmington and the Westbury white horse, with weather you can feel. He designed china for Wedgwood too. In 1939 he became an official war artist, and on 2 September 1942 the aircraft he was in was lost off Iceland on a rescue flight. He was 39. The chalk paths are exactly where he left them."
+  },
+  {
+   "x": 36,
+   "y": 32,
+   "plaque": "landsky_knepp",
+   "title": "Knepp",
+   "text": "At Knepp, in the Sussex Weald a few miles north of here, a farm that had lost money for years was given over to nature from 2001. Longhorn cattle, Tamworth pigs, ponies and deer roam free and the land was left to see what came. Nightingales and turtle doves came, and purple emperor butterflies, and in 2020 white storks raised chicks in the wild in Britain for the first time in centuries. Isabella Tree told the story in Wilding, in 2018."
   }
  ],
  "spawn": [

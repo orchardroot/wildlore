@@ -316,5 +316,56 @@
     }
    ]
   }
+ ],
+ "landsky_atlantic": [
+  {
+   "do": "say",
+   "who": "Volcanologist",
+   "text": "{greeting} I study volcanoes, and this is one of my favourites, because it's finished. Sixty million years ago the crust tore between Europe and Greenland, the Atlantic began to open, and the lava poured up through the tear."
+  },
+  {
+   "do": "say",
+   "who": "Volcanologist",
+   "text": "The same flood of basalt made Mull and Skye and Staffa over the water. Fingal's Cave has the same columns, because it's the same rock cooling the same way. The red band in the cliffs is old soil, a warm wet pause between two flows: proper tropical weathering, in Antrim."
+  },
+  {
+   "do": "choice",
+   "text": "Pop quiz. Why six sides?",
+   "options": [
+    "Cooling lava shrinks and cracks at even angles",
+    "Giants carved them for the road",
+    "The sea rolled them round, then square"
+   ],
+   "set": "landsky_causeway_q"
+  },
+  {
+   "do": "if",
+   "flag": "landsky_causeway_q",
+   "then": [
+    {
+     "do": "say",
+     "who": "Volcanologist",
+     "text": "Spot on. Lava cools from the top down and shrinks. Cracks meet at about 120 degrees because that uses the least cracking for the most relief, and 120 three times round is a hexagon. The slower it cools, the bigger the columns."
+    }
+   ],
+   "eq": 0,
+   "else": [
+    {
+     "do": "say",
+     "who": "Volcanologist",
+     "text": "Good story, wrong rock. Lava cools and shrinks, and the cracks meet at about 120 degrees, which is the cheapest way to split: three of those round a point and you've a hexagon. Drying mud does the same, smaller."
+    }
+   ]
+  },
+  {
+   "do": "say",
+   "who": "Volcanologist",
+   "text": "The Earth's still doing it. The mid-Atlantic ridge is pulling Europe and America apart by about as much as your fingernails grow each year. Iceland sits right on the seam, and it's a lot less finished than this."
+  },
+  {
+   "do": "set",
+   "flag": "landsky_basalt",
+   "value": true
+  }
  ]
 }

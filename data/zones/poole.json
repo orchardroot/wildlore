@@ -524,6 +524,15 @@
    "facing": "left",
    "move": "still",
    "trainer": "poo_sandbanks"
+  },
+  {
+   "id": "landsky_fossil_hunter",
+   "sprite": "student",
+   "x": 30,
+   "y": 26,
+   "facing": "down",
+   "move": "still",
+   "script": "landsky_anning"
   }
  ],
  "encounters": {
@@ -545,11 +554,7 @@
     "min": 40,
     "max": 41,
     "weight": 10,
-    "time": [
-     "dawn",
-     "day",
-     "dusk"
-    ]
+    "time": ["dawn", "day", "dusk"]
    },
    {
     "species": "cooplet",
@@ -580,29 +585,21 @@
     "min": 41,
     "max": 42,
     "weight": 6,
-    "time": [
-     "dusk",
-     "night"
-    ]
+    "time": ["dusk", "night"]
    },
    {
     "species": "hootlet",
     "min": 41,
     "max": 42,
     "weight": 6,
-    "time": [
-     "night"
-    ]
+    "time": ["night"]
    },
    {
     "species": "gannetling",
     "min": 40,
     "max": 42,
     "weight": 6,
-    "weather": [
-     "gale",
-     "clear"
-    ]
+    "weather": ["gale", "clear"]
    }
   ],
   "water": [
@@ -635,10 +632,7 @@
     "min": 40,
     "max": 41,
     "weight": 10,
-    "season": [
-     "spring",
-     "summer"
-    ]
+    "season": ["spring", "summer"]
    },
    {
     "species": "pupplash",
@@ -742,6 +736,13 @@
    "theme": "arts",
    "title": "Thomas Hardy's Wessex",
    "text": "Thomas Hardy, born near Dorchester in 1840, turned Dorset and its neighbours into Wessex, a half-real country with its own map: Casterbridge for Dorchester, Havenpool for Poole. Far from the Madding Crowd came out in 1874 and Tess of the d'Urbervilles in 1891; after Jude the Obscure in 1895 he gave up novels for poetry. He died in 1928, and was buried twice: his heart at Stinsford, his ashes in Poets' Corner. Wessex is still on the maps. The tourist board saw to that."
+  },
+  {
+   "x": 26,
+   "y": 26,
+   "plaque": "channel_islands_landsky_old_harry",
+   "title": "Old Harry Rocks and the Jurassic Coast",
+   "text": "Across the harbour mouth at Studland stand Old Harry Rocks, chalk stacks cut from the headland by the sea: a cave becomes an arch, an arch falls and leaves a stack, a stack wears down to a stump. They are the eastern end of the Jurassic Coast, 95 miles of cliff to Exmouth that runs through 185 million years of rock, Triassic to Cretaceous, oldest in the west. In 2001 it became England's first natural World Heritage Site."
   }
  ],
  "spawn": [

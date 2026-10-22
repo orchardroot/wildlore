@@ -98,5 +98,42 @@
    "who": "Memorial Guide",
    "text": "Every name is on the walls. Families come and find theirs, and touch the letters."
   }
+ ],
+ "landsky_heat": [
+  {
+   "do": "say",
+   "who": "Weather Watcher",
+   "text": "{greeting} I keep a weather station in the garden. Rain gauge, thermometer in a little white box, the lot. Forty years of readings. My wife says it's an obsession. It's a hobby with a spreadsheet."
+  },
+  {
+   "do": "say",
+   "who": "Weather Watcher",
+   "text": "On 19 July 2022 I watched my thermometer pass 38 and thought it was broken. It wasn't. Down the road at RAF Coningsby they recorded 40.3C, the hottest ever in the United Kingdom. The old record, 38.7 at Cambridge, was only from 2019."
+  },
+  {
+   "do": "say",
+   "who": "Weather Watcher",
+   "text": "Wales got its record the day before, 37.1 at Hawarden, and Scotland's, 34.8, came the same day as ours. Northern Ireland's is 31.3 at Castlederg in 2021. All of them in the last five years. That's not weather. That's the climate shifting under it."
+  },
+  {
+   "do": "say",
+   "who": "Weather Watcher",
+   "text": "The sums aren't hard. Carbon dioxide in the air was about 280 parts per million before the factories. It's over 420 now, and Tyndall showed in 1859 what that gas does to heat. The ten warmest years on record are the last ten. My rain gauge agrees: wetter winters, hotter summers."
+  },
+  {
+   "do": "say",
+   "who": "Weather Watcher",
+   "text": "Mind, we've started. Britain burnt its last power-station coal in 2024, and our emissions are about half what they were in 1990. The Climate Change Act of 2008 set the target in law. The garden's still here, and so am I. Tell the forecaster I said hello."
+  },
+  {
+   "do": "set",
+   "flag": "landsky_climate",
+   "value": true
+  },
+  {
+   "do": "set",
+   "flag": "q_landsky_heat",
+   "value": true
+  }
  ]
 }

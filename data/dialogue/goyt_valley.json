@@ -86,7 +86,19 @@
    "site": "goyt_moss"
   }
  ],
- "goyt_waller": [{"do": "say", "who": "Waller", "text": "Hilda's rewilding the moss up the road, which is grand, but the sheep still want keeping off the new planting. Which means walls. Good ones."}, {"do": "wall", "who": "Waller", "level": "normal", "site": "goyt_moss"}],
+ "goyt_waller": [
+  {
+   "do": "say",
+   "who": "Waller",
+   "text": "Hilda's rewilding the moss up the road, which is grand, but the sheep still want keeping off the new planting. Which means walls. Good ones."
+  },
+  {
+   "do": "wall",
+   "who": "Waller",
+   "level": "normal",
+   "site": "goyt_moss"
+  }
+ ],
  "arc_england_ezra": [
   {
    "do": "if",
@@ -226,7 +238,28 @@
           }
          ],
          "else": [
-          {"do": "if", "flag": "arc_england_tin_found", "then": [{"do": "say", "who": "Ezra", "text": "You found it! Still dry. I hid it in the Blue John caves in the sixties, and was half sure the damp had had it. Good. That's the first proof."}, {"do": "set", "flag": "q_arc_england_tin"}], "else": [{"do": "say", "who": "Ezra", "text": "There's a tin box in the Blue John caves at Castleton. I put it there in nineteen-sixty-something, thinking it would be safe from the Enclosure. Mind the stream. Mind the stalactites. Mind everything."}]}
+          {
+           "do": "if",
+           "flag": "arc_england_tin_found",
+           "then": [
+            {
+             "do": "say",
+             "who": "Ezra",
+             "text": "You found it! Still dry. I hid it in the Blue John caves in the sixties, and was half sure the damp had had it. Good. That's the first proof."
+            },
+            {
+             "do": "set",
+             "flag": "q_arc_england_tin"
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Ezra",
+             "text": "There's a tin box in the Blue John caves at Castleton. I put it there in nineteen-sixty-something, thinking it would be safe from the Enclosure. Mind the stream. Mind the stalactites. Mind everything."
+            }
+           ]
+          }
          ]
         }
        ],
@@ -311,6 +344,55 @@
      ]
     }
    ]
+  }
+ ],
+ "landsky_carbon": [
+  {
+   "do": "say",
+   "who": "Carbon Counter",
+   "text": "Ey up. I'm from the university, measuring how much carbon the moss is sucking out of the air. The answer is: more when it's wet. Which, here, is a help."
+  },
+  {
+   "do": "if",
+   "flag": "rewild_goyt_moss",
+   "then": [
+    {
+     "do": "if",
+     "flag": "rewild_goyt_moss",
+     "then": [
+      {
+       "do": "say",
+       "who": "Carbon Counter",
+       "text": "Look at Goyt's Moss now. Pools, cotton grass, the sphagnum thick as a mattress. The gauges say it's taking in carbon again instead of leaking it. You and Hilda did that with plugs and wool bales. I'll put you in the acknowledgements."
+      }
+     ],
+     "eq": 3,
+     "else": [
+      {
+       "do": "say",
+       "who": "Carbon Counter",
+       "text": "The sphagnum's taking on the Moss, I see. Early days, but the readings have turned: once the peat's wet, it stops breathing out carbon dioxide and starts banking it again. Keep going with Hilda. The moss is on your side."
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Carbon Counter",
+     "text": "See the bare black peat on the Moss up there? Drained for grouse, dried out, and now it's breathing out carbon dioxide it spent eight thousand years collecting. Hilda's trying to put it back. If you've an hour and wellies, she'll have you."
+    }
+   ]
+  },
+  {
+   "do": "say",
+   "who": "Carbon Counter",
+   "text": "The sums: peat grows about a millimetre a year, and Britain's bogs hold around three billion tonnes of carbon, more than all our woods put together. Most of them are damaged. Rewetting a bog is the cheapest climate work there is. It needs a spade and a bit of patience, and the moss does the rest."
+  },
+  {
+   "do": "set",
+   "flag": "landsky_carbon",
+   "value": true
   }
  ]
 }

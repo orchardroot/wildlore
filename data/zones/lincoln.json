@@ -554,6 +554,15 @@
    "facing": "down",
    "move": "still",
    "trainer": "lin_nicola"
+  },
+  {
+   "id": "landsky_heat_watcher",
+   "sprite": "villager_3",
+   "x": 40,
+   "y": 15,
+   "facing": "down",
+   "move": "still",
+   "script": "landsky_heat"
   }
  ],
  "encounters": {
@@ -575,19 +584,14 @@
     "min": 88,
     "max": 88,
     "weight": 8,
-    "time": [
-     "day"
-    ]
+    "time": ["day"]
    },
    {
     "species": "binfox",
     "min": 88,
     "max": 88,
     "weight": 10,
-    "time": [
-     "night",
-     "dusk"
-    ]
+    "time": ["night", "dusk"]
    },
    {
     "species": "starlet",
@@ -600,28 +604,21 @@
     "min": 88,
     "max": 88,
     "weight": 8,
-    "time": [
-     "night",
-     "dusk"
-    ]
+    "time": ["night", "dusk"]
    },
    {
     "species": "glowmite",
     "min": 88,
     "max": 88,
     "weight": 8,
-    "time": [
-     "night"
-    ]
+    "time": ["night"]
    },
    {
     "species": "hootlet",
     "min": 88,
     "max": 88,
     "weight": 6,
-    "time": [
-     "night"
-    ]
+    "time": ["night"]
    },
    {
     "species": "spikkin",
@@ -672,10 +669,7 @@
     "min": 88,
     "max": 88,
     "weight": 8,
-    "time": [
-     "night",
-     "dusk"
-    ]
+    "time": ["night", "dusk"]
    }
   ]
  },
@@ -788,6 +782,13 @@
    "plaque": "lincoln_whittle",
    "title": "Frank Whittle",
    "text": "Frank Whittle, an RAF officer born in Coventry, patented a jet engine in 1930 when he was 22. Hardly anybody wanted it. His first engine ran on a test bed in Rugby in April 1937, and on 15 May 1941 the Gloster E.28/39 took off on jet power from RAF Cranwell, south of here, where Whittle had trained as a cadet."
+  },
+  {
+   "x": 44,
+   "y": 17,
+   "plaque": "landsky_coningsby",
+   "title": "40.3C at Coningsby",
+   "text": "On 19 July 2022 the thermometer at RAF Coningsby, south of here in Lincolnshire, reached 40.3C, the hottest temperature ever recorded in the United Kingdom and the first time it had passed 40. The old record, 38.7C at Cambridge in 2019, was three years old. The Met Office had issued its first ever red warning for extreme heat, and said such a day would have been all but impossible without the warming caused by burning coal, oil and gas."
   }
  ],
  "spawn": [

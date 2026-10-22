@@ -97,5 +97,137 @@
     }
    ]
   }
+ ],
+ "landsky_coastguard": [
+  {
+   "do": "if",
+   "flag": "landsky_areas",
+   "then": [
+    {
+     "do": "say",
+     "who": "Coastguard",
+     "text": "Dover, Wight, Portland, Plymouth. You've got it. Listen tonight at twelve minutes to one and you'll hear your own bit of sea read out."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Coastguard",
+     "text": "{greeting} Thirty-one sea areas round these isles, and the Shipping Forecast reads every one in the same order, several times a day on the wireless. Viking to start, up by Norway, then clockwise round the coast, and Southeast Iceland to finish."
+    },
+    {
+     "do": "say",
+     "who": "Coastguard",
+     "text": "Each area gets three things: the wind, the weather, the visibility. 'Dover: southwesterly 5 to 7, occasionally gale 8 later. Rain. Moderate or poor.' Direction and force, then what's falling, then how far you can see. Gale is force 8 on the Beaufort scale, which an Irishman from Meath drew up for the Navy in 1805."
+    },
+    {
+     "do": "say",
+     "who": "Coastguard",
+     "text": "Quick test, since you're standing on the beach. No prizes but the knowing."
+    },
+    {
+     "do": "choice",
+     "text": "Which sea area are you standing in right now?",
+     "options": [
+      "Dover",
+      "Wight",
+      "Thames"
+     ],
+     "set": "landsky_cg_q1"
+    },
+    {
+     "do": "if",
+     "flag": "landsky_cg_q1",
+     "then": [
+      {
+       "do": "say",
+       "who": "Coastguard",
+       "text": "Dover, of course. Thames is next door to the east, Wight to the west. The names run clockwise round the coast."
+      }
+     ],
+     "eq": 0,
+     "else": [
+      {
+       "do": "say",
+       "who": "Coastguard",
+       "text": "You're in Dover. The town, the strait and the sea area. Thames is the next one east, Wight the next one west."
+      }
+     ]
+    },
+    {
+     "do": "choice",
+     "text": "'Gale 8' in the forecast means what?",
+     "options": [
+      "Force 8 wind on the Beaufort scale",
+      "Waves eight metres high",
+      "Eight hours of rain"
+     ],
+     "set": "landsky_cg_q2"
+    },
+    {
+     "do": "if",
+     "flag": "landsky_cg_q2",
+     "then": [
+      {
+       "do": "say",
+       "who": "Coastguard",
+       "text": "Force 8, a gale: thirty-four knots and more. Twigs come off the trees and you can't walk straight. Force 12 is a hurricane."
+      }
+     ],
+     "eq": 0,
+     "else": [
+      {
+       "do": "say",
+       "who": "Coastguard",
+       "text": "It's the wind: force 8 on Beaufort's scale, a gale. Force 12 is a hurricane. The waves are somebody else's department."
+      }
+     ]
+    },
+    {
+     "do": "choice",
+     "text": "One sea area was renamed in 2002, after the man who started the Met Office. Which?",
+     "options": [
+      "Finisterre became FitzRoy",
+      "Biscay became Beaufort",
+      "Dogger became Darwin"
+     ],
+     "set": "landsky_cg_q3"
+    },
+    {
+     "do": "if",
+     "flag": "landsky_cg_q3",
+     "then": [
+      {
+       "do": "say",
+       "who": "Coastguard",
+       "text": "FitzRoy. He captained the Beagle, founded the Met Office, and sent the first gale warnings in 1861. Finisterre's off Spain, and the Spanish had an area of that name already."
+      }
+     ],
+     "eq": 0,
+     "else": [
+      {
+       "do": "say",
+       "who": "Coastguard",
+       "text": "It was Finisterre, off the corner of Spain, renamed FitzRoy after the Beagle's captain who founded the Met Office and sent the first gale warnings in 1861."
+      }
+     ]
+    },
+    {
+     "do": "say",
+     "who": "Coastguard",
+     "text": "That'll do. One more thing: 'imminent' means within six hours, 'soon' is six to twelve, 'later' is after that. People plan their lives round those words. Off you go, and mind the ferry."
+    },
+    {
+     "do": "set",
+     "flag": "landsky_areas",
+     "value": true
+    },
+    {
+     "do": "set",
+     "flag": "q_landsky_areas",
+     "value": true
+    }
+   ]
+  }
  ]
 }

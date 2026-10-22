@@ -269,6 +269,15 @@
    "script": "e2e_cornish",
    "name": "End to Ender",
    "show_if": "q_farnorth_e2e_started"
+  },
+  {
+   "id": "landsky_palm_gardener",
+   "sprite": "farmer",
+   "x": 12,
+   "y": 10,
+   "facing": "right",
+   "move": "still",
+   "script": "landsky_drift"
   }
  ],
  "props": [
@@ -1036,7 +1045,16 @@
    "title": "Mermaid of Zennor",
    "text": "Up the coast at Zennor, legend tells of a mermaid who fell for Mathew Trewella, the best singer in the church choir, and lured him into the sea. A carved mermaid still decorates an old bench end in the church. On calm evenings, they say, you can hear him singing."
   },
-  {"x": 40, "y": 24, "plaque": "penzance_kernewek_revival", "title": "Kernewek Reborn", "local": {"kw": "Kernewek"}, "text": "In 1904 Henry Jenner published his Handbook of the Cornish Language, and a revival began. Gorsedh Kernow, the Cornish bardic society, was founded in 1928. Cornish was recognised under the European Charter for Regional or Minority Languages in 2002, and UNESCO moved it from extinct to critically endangered in 2010. Dydh da means good day."},
+  {
+   "x": 40,
+   "y": 24,
+   "plaque": "penzance_kernewek_revival",
+   "title": "Kernewek Reborn",
+   "local": {
+    "kw": "Kernewek"
+   },
+   "text": "In 1904 Henry Jenner published his Handbook of the Cornish Language, and a revival began. Gorsedh Kernow, the Cornish bardic society, was founded in 1928. Cornish was recognised under the European Charter for Regional or Minority Languages in 2002, and UNESCO moved it from extinct to critically endangered in 2010. Dydh da means good day."
+  },
   {
    "x": 44,
    "y": 24,
@@ -1044,6 +1062,13 @@
    "theme": "arts",
    "title": "Barbara Hepworth",
    "text": "Barbara Hepworth, born in Wakefield in 1903, came to St Ives, just over the hill, in 1939, and stayed. From 1949 she carved and cast at Trewyn Studio, pierced stone and bronze forms with the sea in them; her Single Form stands outside the United Nations in New York. She died in a fire at the studio in 1975, and it opened as a museum the next year, with her garden kept as she left it. Tate St Ives followed in 1993. Do not touch the sculptures. They are allowed to touch you."
+  },
+  {
+   "x": 14,
+   "y": 10,
+   "plaque": "landsky_gulf_stream",
+   "title": "The warm water",
+   "text": "Penzance is as far north as the frozen coast of Labrador, yet frost is rare and palms grow on the promenade. The reason lies out at sea: the Gulf Stream carries warm water up from the Gulf of Mexico, and its continuation, the North Atlantic Drift, crosses the ocean to wash the west of these isles. It is why Edinburgh is milder in winter than Moscow, which lies at much the same latitude, and why gardens from Tresco in the Isles of Scilly to Inverewe in Wester Ross grow plants from the other side of the world."
   }
  ],
  "spawn": [

@@ -1,0 +1,42 @@
+{
+ "quests": [
+  {
+   "id": "landsky_reading_the_sky",
+   "title": "Reading the Sky",
+   "region": "landsky",
+   "town": "exeter",
+   "giver": "Forecaster Bethan",
+   "summary": "Forecaster Bethan at the Met Office in Exeter wants you to learn why the weather over these isles does what it does, then read a chart with her.",
+   "start_flag": "q_landsky_started",
+   "steps": [
+    {
+     "flag": "q_landsky_areas",
+     "text": "Ask the coastguard on Dover seafront about the Shipping Forecast's sea areas.",
+     "zone": "dover"
+    },
+    {
+     "flag": "q_landsky_drift",
+     "text": "Ask the gardener by the palms in Penzance why they grow in Cornwall.",
+     "zone": "penzance"
+    },
+    {
+     "flag": "q_landsky_heat",
+     "text": "Ask the weather watcher in Lincoln what happened on 19 July 2022.",
+     "zone": "lincoln"
+    },
+    {
+     "flag": "q_landsky_chart",
+     "text": "Read a chart with Forecaster Bethan in Exeter and pass her test.",
+     "zone": "exeter"
+    },
+    {
+     "flag": "q_landsky_done",
+     "text": "Hear Bethan out in Exeter.",
+     "zone": "exeter"
+    }
+   ],
+   "done_flag": "q_landsky_done",
+   "reward": "Three Flasks of Tea from the Met Office kitchen, standing in England, and the forecasters' daily sweepstake whenever you pass a chart."
+  }
+ ]
+}

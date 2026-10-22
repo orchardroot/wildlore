@@ -228,6 +228,8 @@ func _exec(c: Dictionary) -> void:
 			await ShantyRun.new(self).sing(c)
 		"conkers":
 			await ShantyRun.new(self).conkers(c)
+		"forecast":
+			await ForecastRun.new(self).run(c)  # the forecaster's chart challenge (Land and Sky)
 		"casino":
 			await _casino(c)
 		"legend":
