@@ -67,7 +67,8 @@ static func blurb(d: GameStateData, id: String) -> String:
 			return "%d idea%s noted%s" % [StudBook.idea_count(d), "" if StudBook.idea_count(d) == 1 else "s", ""]
 		"words":
 			var w := words_met(d)
-			return "%d local word%s met" % [w, "" if w == 1 else "s"]
+			var lessons := TrainerStats.get_count(d, "lessons_taken")  # language lessons (4.5, LangLessons)
+			return "%d local word%s met%s" % [w, "" if w == 1 else "s", (", %d lesson%s" % [lessons, "" if lessons == 1 else "s"]) if lessons > 0 else ""]
 		"rumours":
 			return "Local gossip and region stamps"
 		"trades":
