@@ -1,4 +1,153 @@
 {
+ "inv_howells": [
+  {
+   "do": "if",
+   "flag": "q_invention_isles_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Dr Howells",
+     "text": "Keep filling that Timeline, {player}. History's a relay race, and you're holding the baton now. Mind you don't drop it in the Irwell."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_invention_isles_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_invention_isles_binary",
+       "then": [
+        {
+         "do": "if",
+         "flag": "invent_seen_colossus",
+         "then": [
+          {
+           "do": "if",
+           "flag": "q_invention_isles_cipher",
+           "then": [
+            {
+             "do": "say",
+             "who": "Dr Howells",
+             "text": "You cracked a cipher in Hut 8 and stood next to Colossus? Tommy Flowers paid for some of its parts himself, you know, and then had to keep quiet about it for thirty years."
+            },
+            {
+             "do": "say",
+             "who": "Dr Howells",
+             "text": "And it all started a few streets from here, with the Baby. Now you know how a computer thinks: ones and noughts, very fast, built by people."
+            },
+            {
+             "do": "say",
+             "who": "Dr Howells",
+             "text": "Take these, with my thanks. And keep at the Timeline: it runs from the Iron Bridge to AlphaFold, and every era you fill in earns you a gadget."
+            },
+            {
+             "do": "give_item",
+             "item": "silver_snare",
+             "n": 3
+            },
+            {
+             "do": "give_item",
+             "item": "cream_tea"
+            },
+            {
+             "do": "set",
+             "flag": "q_invention_isles_done"
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Dr Howells",
+             "text": "You've seen Colossus, lovely. Now the cipher: the codebreaker in Hut 8 has a practice message for you."
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Dr Howells",
+           "text": "Bletchley Park next: head east out of Oxford. Crack a practice cipher in Hut 8, then find Colossus in Block H. Come back and tell me everything."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "if",
+         "flag": "plaque_manchester_baby",
+         "then": [
+          {
+           "do": "say",
+           "who": "Dr Howells",
+           "text": "You've read about the Baby. Now count like it. Every number it held was a row of dots, each one on or off."
+          },
+          {
+           "do": "science",
+           "kind": "binary",
+           "who": "Dr Howells",
+           "set": "q_invention_isles_binary"
+          },
+          {
+           "do": "if",
+           "flag": "q_invention_isles_binary",
+           "then": [
+            {
+             "do": "say",
+             "who": "Dr Howells",
+             "text": "Ones and noughts, all the way down. That's every photo, song and text message you've ever had."
+            },
+            {
+             "do": "say",
+             "who": "Dr Howells",
+             "text": "Now Bletchley Park, east out of Oxford. Crack a practice cipher in Hut 8, find Colossus in Block H, then come back to me."
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Dr Howells",
+           "text": "Read the plaque about the Baby first. It's just there, by the path."
+          }
+         ]
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Dr Howells",
+       "text": "Dr Bethan Howells, retired physics teacher, Aberystwyth born and bred. I'm making a Timeline of Invention, and my knees have retired too, so I need a pair of legs."
+      },
+      {
+       "do": "say",
+       "who": "Dr Howells",
+       "text": "Nearly eighty years ago, at the university down the road, a machine called the Baby ran the first program ever stored in a computer's own memory. Your phone is its great-great-grandchild."
+      },
+      {
+       "do": "say",
+       "who": "Dr Howells",
+       "text": "Read the plaque about it, just there, then come back and I'll show you how it counted. After that: Bletchley Park."
+      },
+      {
+       "do": "say",
+       "who": "Dr Howells",
+       "text": "Every plaque about an invention, every machine you see, goes on your Timeline. It's in the Almanac. Fill in an era and you get a little gadget for your trouble."
+      },
+      {
+       "do": "set",
+       "flag": "q_invention_isles_started"
+      }
+     ]
+    }
+   ]
+  }
+ ],
  "vane": [
   {
    "do": "if",
@@ -438,6 +587,27 @@
    "do": "say",
    "who": "Fox Watcher",
    "text": "Red torch, see? It doesn't scare them. A white one does, and so does shouting."
+  }
+ ],
+ "isles_kasia": [
+  {
+   "do": "set",
+   "flag": "isles_met_kasia"
+  },
+  {
+   "do": "say",
+   "who": "Kasia",
+   "text": "{greeting} Dzień dobry! That's good day, in Polish. Say JEN DOH-bri. Close enough and you get a pączek."
+  },
+  {
+   "do": "say",
+   "who": "Kasia",
+   "text": "My great-grandad flew Hurricanes with 303 Squadron in the Battle of Britain: Poles flying for Britain after they'd lost their own country. After the war many couldn't go home to a Poland under Soviet control, so they stayed. Parliament passed a law to resettle them, in 1947."
+  },
+  {
+   "do": "say",
+   "who": "Kasia",
+   "text": "Then in 2004 Poland joined the EU and lots more of us came, me included. Polish is the second most spoken language in England now. Pierogi next to pasties. Everybody wins."
   }
  ]
 }

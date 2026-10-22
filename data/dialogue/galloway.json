@@ -67,5 +67,138 @@
    "who": "Fawnlet",
    "text": "The fawnlet bounces, wobbles, and bounces again. Everything is a new idea."
   }
+ ],
+ "arts_burns_club": [
+  {
+   "do": "if",
+   "flag": "q_arts_scotland_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Secretary",
+     "text": "The Immortal Memory went down a treat, and nobody fell asleep in the second verse of 'Tam o' Shanter'. A first for the club."
+    },
+    {
+     "do": "say",
+     "who": "Secretary",
+     "text": "Dumfries is down the road: his house on Burns Street, the Globe Inn where he drank, and the mausoleum at St Michael's. Go when the daffodils are out. He would have."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_arts_scotland_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "plaque_arts_burns_dumfries",
+       "then": [
+        {
+         "do": "if",
+         "flag": "plaque_arts_burns_edinburgh",
+         "then": [
+          {
+           "do": "say",
+           "who": "Secretary",
+           "text": "Both read? Then one question, for the toast. Which of these did Burns write?"
+          },
+          {
+           "do": "choice",
+           "text": "Which line is Burns's own?",
+           "options": [
+            "O my Luve is like a red, red rose",
+            "Fifteen men on the dead man's chest",
+            "I wandered lonely as a cloud"
+           ],
+           "set": "q_arts_scotland_answer"
+          },
+          {
+           "do": "if",
+           "flag": "q_arts_scotland_answer",
+           "then": [
+            {
+             "do": "set",
+             "flag": "q_arts_scotland_done",
+             "value": true
+            },
+            {
+             "do": "say",
+             "who": "Secretary",
+             "text": "'O my Luve is like a red, red rose, that's newly sprung in June.' 1794, and he said he got the start of it from a country girl's song. The other two are Stevenson and Wordsworth, fine men, wrong country."
+            },
+            {
+             "do": "say",
+             "who": "Secretary",
+             "text": "The Immortal Memory is yours, then. Here: a facsimile of the Kilmarnock edition, the 1786 one, and a bit of tablet for the walk. Here's tae ye, and a guid New Year when it comes."
+            },
+            {
+             "do": "give_item",
+             "item": "kilmarnock_edition",
+             "n": 1
+            },
+            {
+             "do": "give_item",
+             "item": "tablet",
+             "n": 3
+            },
+            {
+             "do": "standing",
+             "nation": "scotland",
+             "amount": 5
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Secretary",
+             "text": "Och, no. That one's Stevenson or Wordsworth, and either of them would be mortified. Have another look at the boards and try me again."
+            }
+           ],
+           "eq": 0
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Secretary",
+           "text": "The Dumfries board is read. Now Edinburgh: there is a lectern near the Royal Mile about his winter there in 1786, when the capital made a lion of him and he found it tiring."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Secretary",
+         "text": "The board about Burns in Dumfries is along the path there, by the lochan. Read it first. The Supper is not till you have."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Secretary",
+       "text": "{greeting} Secretary of the Burns Club, for my sins. Burns Night is 25 January, his birthday, and every January I need a new speaker for the Immortal Memory, the toast to the man himself."
+      },
+      {
+       "do": "say",
+       "who": "Secretary",
+       "text": "The speaker must know two things: how he died, in Dumfries, down the road from here, in 1796, and how he lived, in Edinburgh, for one daft winter ten years before."
+      },
+      {
+       "do": "say",
+       "who": "Secretary",
+       "text": "There is a board about each. Read the one here in Galloway, then the one in Edinburgh, and come back. I will ask you one question. Get it right and the toast is yours."
+      },
+      {
+       "do": "set",
+       "flag": "q_arts_scotland_started",
+       "value": true
+      }
+     ]
+    }
+   ]
+  }
  ]
 }

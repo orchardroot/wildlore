@@ -3,7 +3,7 @@ extends RefCounted
 ## Checks dialogue scripts, trainers and the NPCs that use them against the rest of the data.
 
 const COMMANDS := ["say", "choice", "if", "set", "give_item", "give_creature", "heal", "battle", "move", "face",
-	"face_player", "wait", "warp", "shop", "starter", "fade_out", "fade_in", "music", "sfx", "badge", "end", "whiteout", "ark", "rail", "ferry", "legend", "gauntlet", "credits", "daily", "when", "relearn", "sachet_worn", "quiz", "craft", "recipe", "fieldbook_news", "rewild", "standing", "overseas", "overseas_home", "tournament", "bureau", "exchange", "market", "crypto", "casino", "society", "deed", "lease", "regular", "darts", "crab_comp", "breed", "evidence", "casebook", "guild", "ring", "wall", "crossword", "games", "sing", "conkers"]
+	"face_player", "wait", "warp", "shop", "starter", "fade_out", "fade_in", "music", "sfx", "badge", "end", "whiteout", "ark", "rail", "ferry", "legend", "gauntlet", "credits", "daily", "when", "relearn", "sachet_worn", "quiz", "craft", "recipe", "fieldbook_news", "rewild", "standing", "overseas", "overseas_home", "tournament", "bureau", "exchange", "market", "crypto", "casino", "society", "deed", "lease", "regular", "darts", "crab_comp", "breed", "evidence", "casebook", "guild", "ring", "wall", "crossword", "games", "sing", "conkers", "lesson", "say_it", "science", "forecast"]
 const CONDITIONS := ["dawn", "day", "dusk", "night", "rain", "fog", "gale", "frost", "sunshine", "caught_all",
 	"caught_25", "caught_50", "caught_100", "caught_150", "caught_200",
 	"spring", "summer", "autumn", "winter", "halloween", "bonfire_night", "christmas", "st_patricks", "st_davids", "burns_night"]
@@ -202,7 +202,7 @@ static func validate_commands(cmds: Array, tag: String, dex: Dex, items: ItemDB,
 				if MarketHall.hall(str(c.get("hall", ""))).is_empty():
 					errors.append("%s: market hall '%s' is not in data/market_halls.json" % [tag, c.get("hall", "")])
 			"breed":
-				if str(c.get("act", "")) not in ["pair", "collect", "status", "goal"]:
+				if str(c.get("act", "")) not in ["pair", "collect", "status", "goal", "challenge", "sim"]:
 					errors.append("%s: breed with unknown act '%s'" % [tag, c.get("act", "")])
 				if str(c.get("act", "")) == "goal" and Breeding.goal(str(c.get("id", ""))).is_empty():
 					errors.append("%s: breed goal '%s' is not in data/breeding.json" % [tag, c.get("id", "")])
@@ -275,6 +275,9 @@ static func validate_commands(cmds: Array, tag: String, dex: Dex, items: ItemDB,
 					errors.append("%s: casino with unknown game '%s'" % [tag, c.get("game", "")])
 				if str(c.get("game", "")) == "races" and str(c.get("venue", "")) not in Punt.RACE_VENUES:
 					errors.append("%s: races at unknown venue '%s'" % [tag, c.get("venue", "")])
+			"science":
+				if str(c.get("kind", "any")) not in ScienceFair.KINDS + ["any"]:
+					errors.append("%s: science with unknown kind '%s'" % [tag, c.get("kind", "")])
 			"tournament":
 				if str(c.get("id", "")) not in ["show", "show_menu", "moot", "trade"]:
 					errors.append("%s: tournament with unknown id '%s'" % [tag, c.get("id", "")])

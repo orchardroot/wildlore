@@ -1,0 +1,32 @@
+{
+ "id": "pyl_shepherd",
+ "name": "Goatherd",
+ "class": "Shepherd",
+ "sprite": "farmer",
+ "party": [
+  {
+   "species": "herdlet",
+   "level": 95
+  },
+  {
+   "species": "kidgruff",
+   "level": 95
+  },
+  {
+   "species": "billgruff",
+   "level": 95
+  }
+ ],
+ "ai": "trainer",
+ "money": 4200,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Goatherd",
+   "text": "My goats give the milk for the halloumi. They also eat my hat. Battle?"
+  }
+ ],
+ "win": "My goats are laughing at me. I can hear them.",
+ "after": "Real halloumi is made from goat's and sheep's milk. Cow's milk gets in these days, but don't tell my goats.",
+ "scaled_floor": 95
+}

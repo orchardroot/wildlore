@@ -19,6 +19,7 @@ var _no: Dictionary = {}       # id -> Dex number as shown: "045", or "A01" in t
 var _core := 0                 # how many are in the Fieldbook proper (the appendix is a bonus)
 var _extra := 0                # how many in the appendix
 var _hybrids := 0              # how many hybrids the book lists (none until you have met one)
+var _crosses := 0              # how many crossbreeds you have bred (core/crossbreeds.gd), C01 onwards
 var _ids: Array = []           # the ids the current filter shows
 var _cur := 0
 var _scroll: ScrollContainer
@@ -26,7 +27,9 @@ var _list_col: VBoxContainer
 var _detail: VBoxContainer
 var _buttons: Array = []
 var _rumours: Array = []       # the Rumours tab's rows, when it's showing
-const WORD_SIZES := [25, 23, 21, 19]  # the body text's size, biggest first, until the entry fits
+const WORD_SIZES := [25, 23, 21, 19, 17, 16, 15]  # the body text's size, biggest first, until the entry fits
+const WORD_SEP := 6  # between the lines below the picture: snug, so the longest entries fit at 1280x720
+const FACT_INK := Color("d8cfb4")  # the fact and the real-life note, a shade quieter than the entry's text
 
 func _build() -> void:
 	set_title("Fieldbook")
@@ -45,6 +48,10 @@ func _build() -> void:
 			_hybrids += 1
 			_no[id] = "H%02d" % _hybrids
 			_all.append(id)
+	for id in Crossbreeds.met(dd):  # the Crossbreeds section: only the ones you have bred, since they are derived
+		_crosses += 1
+		_no[id] = "C%02d" % _crosses
+		_all.append(id)
 	set_hints([["updown", "Browse"], ["shoulders", "Jump 10"], ["run", "Filter"], ["bike", "Cry"], ["confirm", "Map"], ["cancel", "Back"]])
 	var row := HBoxContainer.new()
 	row.set_anchors_preset(Control.PRESET_FULL_RECT)
@@ -91,6 +98,8 @@ func _fill_list() -> void:
 		header_right.text += "    Appendix %d / %d" % [d.caught.keys().filter(func(id): return Dex.in_appendix(id)).size(), _extra]
 	if _hybrids > 0:
 		header_right.text += "    Hybrids %d / %d" % [d.caught.keys().filter(func(id): return Dex.is_hybrid(id)).size(), _hybrids]
+	if _crosses > 0:
+		header_right.text += "    Crossbreeds %d" % _crosses
 	UIKit.clear(_list_col)
 	_buttons.clear()
 	for i in _ids.size():
@@ -243,6 +252,14 @@ func _book_button(i: int) -> Button:
 			WordsTab.show(id, _detail)
 		else:
 			StudBookTab.show(id, _detail))
+	if _filter == "words":
+		b.pressed.connect(func():  # revise the language (4.5)
+			if not WordsTab.can_revise(id):
+				return
+			Audio.sfx("confirm")
+			await open_child("lang:review:" + id)
+			WordsTab.show(id, _detail)
+			b.grab_focus())
 	var h := HBoxContainer.new()
 	h.set_anchors_preset(Control.PRESET_FULL_RECT)
 	h.offset_left = 10
@@ -307,7 +324,7 @@ func _show(id: String) -> void:
 	info.alignment = BoxContainer.ALIGNMENT_CENTER
 	info.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	top.add_child(info)
-	info.add_child(UIKit.label(("Hybrid %s" if Dex.is_hybrid(id) else "Appendix %s" if Dex.in_appendix(id) else "No. %s") % str(_no.get(id, "")), 22, UIKit.MUTED))
+	info.add_child(UIKit.label(("Hybrid %s" if Dex.is_hybrid(id) else "Crossbreed %s" if Crossbreeds.is_id(id) else "Appendix %s" if Dex.in_appendix(id) else "No. %s") % str(_no.get(id, "")), 22, UIKit.MUTED))
 	info.add_child(UIKit.label(str(sp.get("name", id)) if st != "unseen" else "???", 40))
 	if st != "unseen":
 		var type_row := HBoxContainer.new()  # the types, and the Cry button beside them (the Bike key does it too)
@@ -357,26 +374,55 @@ func _show(id: String) -> void:
 		el.custom_minimum_size = Vector2(300, 0)
 		info.add_child(el)
 	# The words below the picture shrink to fit, and scroll if even the smallest size can't (see UIKit.fit_block).
-	var wb := UIKit.words_box(WORD_SIZES)
+	var wb := UIKit.words_box(WORD_SIZES, WORD_SEP)
 	_detail.add_child(wb[0])
 	var words: VBoxContainer = wb[1]
-	var zones := MenuLogic.habitats(habitat_index(), id)
-	var where := ", ".join(zones.slice(0, MAX_PLACES))
-	if zones.size() > MAX_PLACES:
-		where += " and %d more" % (zones.size() - MAX_PLACES)
 	if Dex.is_hybrid(id):  # never found in the wild: what it is, and whether it can have young of its own
 		var h: Dictionary = Genetics.hybrids().get(id, {})
 		var how: String = {"real": "A real cross.", "folklore": "Folklore: they say.", "invented": "A game invention."}.get(str(h.get("real", "")), "")
-		UIKit.add_words(words, "Bred, never found. %s %s" % [how, "Fertile." if h.get("fertile", true) == true else "Cannot have young."], -4, Color("d8cfb4"))
+		UIKit.add_words(words, "Bred, never found. %s %s" % [how, "Fertile." if h.get("fertile", true) == true else "Cannot have young."], -4, FACT_INK)
+	elif Crossbreeds.is_id(id):  # each parent shown, and the biology of why it could happen
+		UIKit.add_words(words, Crossbreeds.parents_line(sp), -4, FACT_INK)
 	else:
-		UIKit.add_words(words, "Found in: " + (where if not zones.is_empty() else "somewhere secret"), -4, Color("d8cfb4"))
+		UIKit.add_words(words, found_in(MenuLogic.habitats(habitat_index(), id)), -4, FACT_INK)
 	var dex: Dictionary = sp.get("dex", {})
 	if st == "caught":
 		UIKit.add_words(words, str(dex.get("text", "")), 0)
 		UIKit.add_words(words, "Did you know?", -1, UIKit.GOLD)
-		UIKit.add_words(words, str(dex.get("fact", "")), -2, Color("d8cfb4"))
+		UIKit.add_words(words, str(dex.get("fact", "")), -2, FACT_INK)
+		add_real_life(words, sp)
+		if Crossbreeds.is_id(id):
+			UIKit.add_words(words, Crossbreeds.LESSON, -3, UIKit.MUTED)
 	else:
 		UIKit.add_words(words, "Spotted, but it didn't hang around. Catch one to fill in the rest of the entry.", 0, UIKit.MUTED)
+
+## The teaching lines under the fact, part of the reward for catching one (docs/design/fieldbook_teaching.md):
+## "In real life" and a true note about the animal, plant or legend behind the creature, then its name in Welsh,
+## Irish and Scottish Gaelic in the warm ink of signs and town banners. Either is left out when the species has
+## nothing to say, so a creature based on a place or a machine shows no empty slot. Returns the labels added.
+static func add_real_life(words: VBoxContainer, sp: Dictionary) -> Array:
+	var added := []
+	var real := str(sp.get("real", "")).strip_edges()
+	if real != "":
+		added.append(UIKit.add_words(words, "In real life", -1, UIKit.GOLD))
+		added.append(UIKit.add_words(words, real, -2, FACT_INK))
+	var names = sp.get("names", {})
+	var line := MenuLogic.fieldbook_names_line(names if names is Dictionary else {})
+	if line != "":
+		var nl := UIKit.add_words(words, line, -3, Langs.LOCAL_INK)
+		nl.tooltip_text = MenuLogic.NAMES_SEP.join(Langs.CREATURE_NAME_CODES.map(func(c): return str(Langs.NAMES.get(c, c))))
+		nl.mouse_filter = Control.MOUSE_FILTER_PASS
+		added.append(nl)
+	return added
+
+## "Found in: Dee Valley, Ogwen and 2 more": the first few of a species' habitat labels (the rest are on the map).
+static func found_in(zones: Array) -> String:
+	if zones.is_empty():
+		return "Found in: somewhere secret"
+	var where := ", ".join(zones.slice(0, MAX_PLACES))
+	if zones.size() > MAX_PLACES:
+		where += " and %d more" % (zones.size() - MAX_PLACES)
+	return "Found in: " + where
 
 ## "Evolves into X at Lv 20" for a species; the target's name stays hidden until you've seen one.
 static func evolution_line(sp: Dictionary) -> String:
@@ -390,7 +436,13 @@ static func evolution_line(sp: Dictionary) -> String:
 	var item := ""
 	if evo.has("item") and Game.items != null:
 		item = str(Game.items.get_item(str(evo.item)).get("name", ""))
-	return MenuLogic.evolution_text(evo, target, item)
+	var zone_names := {}
+	if evo.has("zone"):
+		for z in (evo.zone if evo.zone is Array else [evo.zone]):
+			var zd = JsonUtil.read("%s/%s.json" % [ZONE_DIR, str(z)])
+			if zd is Dictionary and zd.has("name"):
+				zone_names[str(z)] = str(zd.name)
+	return MenuLogic.evolution_text(evo, target, item, zone_names)
 
 ## species id -> "Zone (time, weather)" labels, scanned once from data/zones/*.json.
 static func habitat_index() -> Dictionary:

@@ -1,0 +1,25 @@
+{
+ "gai_curator": [
+  {
+   "do": "say",
+   "who": "Museum Keeper",
+   "text": "Croeso! Welcome. The Mimosa was a tea clipper, built for speed, not for families. Two months at sea, and some of the children didn't live to see land. They named the first town Trerawson, and then had to survive in it."
+  },
+  {
+   "do": "say",
+   "who": "Museum Keeper",
+   "text": "They had been told Patagonia was green like Wales. It was not. They lived in caves and huts on the shore that first winter. What saved them was stubbornness, and the Tehuelche."
+  },
+  {
+   "do": "if",
+   "flag": "q_abroad_patagonia_tea_started",
+   "then": [
+    {
+     "do": "set",
+     "flag": "q_abroad_patagonia_tea_1",
+     "value": true
+    }
+   ]
+  }
+ ]
+}

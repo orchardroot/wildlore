@@ -1237,6 +1237,15 @@
  },
  "npcs": [
   {
+   "facing": "down",
+   "id": "isles_kasia",
+   "move": "still",
+   "script": "isles_kasia",
+   "sprite": "isles_kasia",
+   "x": 12,
+   "y": 54
+  },
+  {
    "id": "vane",
    "sprite": "vane",
    "x": 38,
@@ -1359,6 +1368,16 @@
    "times": [
     "night"
    ]
+  },
+  {
+   "id": "inv_howells",
+   "sprite": "astronomer",
+   "x": 32,
+   "y": 47,
+   "facing": "up",
+   "move": "still",
+   "script": "inv_howells",
+   "name": "Dr Howells"
   }
  ],
  "encounters": {
@@ -1368,26 +1387,15 @@
     "min": 14,
     "max": 16,
     "weight": 22,
-    "time": [
-     "dawn",
-     "day",
-     "dusk"
-    ]
+    "time": ["dawn", "day", "dusk"]
    },
    {
     "species": "swiftlet",
     "min": 14,
     "max": 16,
     "weight": 16,
-    "time": [
-     "day",
-     "dusk"
-    ],
-    "weather": [
-     "clear",
-     "sunshine",
-     "gale"
-    ]
+    "time": ["day", "dusk"],
+    "weather": ["clear", "sunshine", "gale"]
    },
    {
     "species": "cooplet",
@@ -1400,107 +1408,72 @@
     "min": 14,
     "max": 16,
     "weight": 14,
-    "time": [
-     "dawn",
-     "dusk"
-    ]
+    "time": ["dawn", "dusk"]
    },
    {
     "species": "binfox",
     "min": 15,
     "max": 16,
     "weight": 16,
-    "time": [
-     "dusk",
-     "night"
-    ]
+    "time": ["dusk", "night"]
    },
    {
     "species": "pepperling",
     "min": 14,
     "max": 16,
     "weight": 14,
-    "time": [
-     "dusk",
-     "night"
-    ]
+    "time": ["dusk", "night"]
    },
    {
     "species": "flittermouse",
     "min": 14,
     "max": 16,
     "weight": 12,
-    "time": [
-     "night"
-    ],
-    "season": [
-     "spring",
-     "summer",
-     "autumn"
-    ]
+    "time": ["night"],
+    "season": ["spring", "summer", "autumn"]
    },
    {
     "species": "croakle",
     "min": 14,
     "max": 16,
     "weight": 10,
-    "weather": [
-     "drizzle",
-     "downpour"
-    ]
+    "weather": ["drizzle", "downpour"]
    },
    {
     "species": "graftling",
     "min": 14,
     "max": 16,
     "weight": 18,
-    "time": [
-     "dawn",
-     "day",
-     "dusk"
-    ]
+    "time": ["dawn", "day", "dusk"]
    },
    {
     "species": "bleeplet",
     "min": 14,
     "max": 16,
     "weight": 12,
-    "time": [
-     "dusk",
-     "night"
-    ]
+    "time": ["dusk", "night"]
    },
    {
     "species": "bogglet",
     "min": 14,
     "max": 16,
     "weight": 10,
-    "time": [
-     "night"
-    ]
+    "time": ["night"]
    },
    {
     "species": "fizzlet",
     "min": 15,
     "max": 16,
     "weight": 8,
-    "time": [
-     "dusk",
-     "night"
-    ]
+    "time": ["dusk", "night"]
    },
    {
     "species": "fizzlet",
     "min": 15,
     "max": 16,
     "weight": 14,
-    "time": [
-     "dusk",
-     "night"
-    ],
-    "season": [
-     "autumn"
-    ]
+    "time": ["dusk", "night"],
+    "season": ["autumn"]
    }
   ],
   "water": [
@@ -1525,6 +1498,14 @@
   ]
  },
  "signs": [
+  {
+   "x": 19,
+   "y": 34,
+   "plaque": "manchester_cheetham_hill",
+   "title": "Cheetham Hill",
+   "text": "Jewish families from Germany, Russia, Poland and Lithuania settled in Cheetham Hill from the 1800s, many working in tailoring and the raincoat trade. The Spanish and Portuguese Synagogue on Cheetham Hill Road, built in 1874 in a Moorish style, is now the Manchester Jewish Museum.",
+   "people": "jewish"
+  },
   {
    "x": 41,
    "y": 13,
@@ -1626,6 +1607,29 @@
    "x": 62,
    "y": 24,
    "text": "EAST: Oldham, Saddleworth Moor and over the Pennines to Leeds. Open at last. Mind the hills."
+  },
+  {
+   "x": 30,
+   "y": 45,
+   "plaque": "manchester_baby",
+   "title": "The Baby",
+   "text": "On 21 June 1948, at the University of Manchester, the Small-Scale Experimental Machine, known as the Baby, ran the first program ever held in a computer's own electronic memory. Built by Freddie Williams, Tom Kilburn and Geoff Tootill, it spent 52 minutes finding the highest factor of a number, and got it right. A working replica stands in the Science and Industry Museum."
+  },
+  {
+   "x": 47,
+   "y": 33,
+   "plaque": "arts_lowry",
+   "theme": "arts",
+   "title": "L. S. Lowry",
+   "text": "Laurence Stephen Lowry was born in Stretford in 1887 and spent his working life as a rent collector, painting in the evenings. His mill towns are white skies, red chimneys and crowds of thin dark figures, the matchstick men, hurrying to the football or the factory gate. He turned down five honours, including a knighthood, and died in 1976. The Lowry at Salford Quays, opened in 2000, holds the biggest collection of his work. He would have painted the queue."
+  },
+  {
+   "x": 36,
+   "y": 30,
+   "plaque": "arts_halle",
+   "theme": "arts",
+   "title": "The Hallé",
+   "text": "Charles Hallé, a pianist and conductor from Germany, gave the first concert of his orchestra at the Free Trade Hall on 30 January 1858, and the Hallé has played in Manchester every season since, one of the oldest professional orchestras in Britain. Since 1996 its home has been the Bridgewater Hall. Sir John Barbirolli conducted it for nearly thirty years from 1943. Please switch off your phone; the brass can hear it."
   }
  ],
  "spawn": [
@@ -1638,7 +1642,15 @@
   "x": 43,
   "y": 40
  },
- "viaducts": [{"y": 50, "piers_y": 50, "every": 6, "first": 1, "height": 3.6}],
+ "viaducts": [
+  {
+   "y": 50,
+   "piers_y": 50,
+   "every": 6,
+   "first": 1,
+   "height": 3.6
+  }
+ ],
  "rows": [
   "TTTTTTTTTTTTTTTTTTTTTTTTTTFFFTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
   "TTTTTTTTTTTTTTTTTTTTTTTTTT:=:TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",

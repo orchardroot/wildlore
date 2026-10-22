@@ -42,6 +42,16 @@ static func showing_words(c: Creature, row: String, tested := false) -> String:
 			return "small" if f <= 2 else ("big" if f >= 6 else "middling")
 	return ""
 
+## The row a hatchling's sport rewrote ("frame" for any Frame locus), "" if it had none. Read from the hatch log.
+static func sport_row(data: GameStateData, c: Creature) -> String:
+	if c.uid == 0 or c.pedigree.is_empty():
+		return ""
+	for e in Breeding.logs(data):
+		if int(e.get("child_uid", 0)) == c.uid and bool(e.get("sport", false)):
+			var l := str(e.get("sport_locus", ""))
+			return "frame" if l.begins_with("frame") else l
+	return ""
+
 static func build(data: GameStateData, c: Creature) -> Control:
 	var p := UIKit.panel(Color("1d2230f0"), 18)
 	p.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -52,6 +62,7 @@ static func build(data: GameStateData, c: Creature) -> Control:
 	head.add_child(UIKit.label("Makings", 26, UIKit.MUTED))
 	head.add_child(UIKit.fill())
 	var tested := PunnettView.tested(data, c)
+	var sport := sport_row(data, c)
 	if tested:
 		head.add_child(UIKit.chip("TESTED", UIKit.GOLD.darkened(0.25), UIKit.SLATE, 18))
 	var sx: String = {"m": "Male", "f": "Female"}.get(c.sex, "No sex")
@@ -80,6 +91,8 @@ static func build(data: GameStateData, c: Creature) -> Control:
 			for a in alleles(data, c, row):
 				chips.add_child(PunnettView.allele_chip(str(a), Color("2c3446") if a == "?" else Color("3a4560")))
 			h.add_child(chips)
+		if row == sport:  # a new mutation, shown as such
+			h.add_child(UIKit.chip("NEW", Color("8f5a7a"), UIKit.CREAM, 16))
 		var w := UIKit.label(showing_words(c, row, tested), 20, Color("d8cfb4"))
 		w.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		w.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
@@ -88,6 +101,8 @@ static func build(data: GameStateData, c: Creature) -> Control:
 		v.add_child(h)
 	var kind := Genetics.kindred_of(c)
 	var foot := "Wild-caught: no pedigree." if c.pedigree.is_empty() else "Bred: its pedigree is on record."
+	if sport != "":
+		foot += " NEW marks a mutation: an allele neither parent had."
 	if not Genetics.breeds(kind):
 		foot = "This kind doesn't breed."
 	var f := UIKit.label(foot, 18, UIKit.MUTED)

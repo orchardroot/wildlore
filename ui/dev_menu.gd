@@ -24,6 +24,10 @@ static func boot(game: Node, menu: String) -> void:
 		ColdOpen.then_morning(game.get_node("/root/Router"), game.data)
 		return
 	var d: GameStateData = game.data
+	for a in DevArgs.user_args():
+		if a.begins_with("--flag="):  # dev: story flags set before the menu opens (a filled Almanac page)
+			for f in a.substr(7).split(",", false):
+				d.set_flag(f, true)
 	var mk := func(id: String, lvl: int) -> Creature:
 		return Creature.create(game.dex.get_species(id), lvl, game.rng, game.moves)
 	var a: Creature = mk.call("spikkin", 12)
@@ -47,12 +51,18 @@ static func boot(game: Node, menu: String) -> void:
 	c.held = "oak_acorn"
 	d.party = [a, b, c, e, f]
 	d.ark = [mk.call("croakle", 6), mk.call("pipkin", 4), mk.call("dipling", 9)]
+	if menu.begins_with("lang") or menu in ["pedia:words", "pause:words"]:  # two Welsh lessons learnt, in Cardiff, a day on
+		d.zone_id = "cardiff"
+		for l in ["cy_01", "cy_02"]:
+			LangLessons.learn(d, l)
+		d.day_count = 2
 	if menu.begins_with("ark"):  # a fuller Ark, so sorting shows
 		for sp in ["bramblehog", "emberdrey", "redbreast", "snowhare", "gritling", "wispet", "cooplet", "raidtail", "bran"]:
 			d.ark.append(mk.call(sp, 3 + d.ark.size() * 4 % 23))
 	if menu.begins_with("pairing") or menu in ["pedia:studbook", "pause:basket"]:  # a fond pair of one line, a stranger and a basket under way
-		var m: Creature = mk.call("spikkin", 12)
-		var f2: Creature = mk.call("spikkin", 11)
+		var cross := menu == "pairing:cross"  # `--menu=pairing:cross`: a goat and a sheep, a long-shot crossbreed (core/crossbreeds.gd)
+		var m: Creature = mk.call("kidgruff" if cross else "spikkin", 12)
+		var f2: Creature = mk.call("herdlet" if cross else "spikkin", 11)
 		m.sex = "m"
 		m.uid = 101
 		f2.sex = "f"
@@ -65,6 +75,13 @@ static func boot(game: Node, menu: String) -> void:
 		d.set_flag("breed_basket_0", {"sire_uid": 101, "dam_uid": 102, "genome": {}, "species": "spikkin", "steps_due": 1240, "started_day": 0})
 		d.set_flag("book_ideas", {"dominance": true, "breed": true})
 		d.set_flag("book_loci", {"mark": true})
+	if menu.begins_with("biology") or menu == "pairing:predict":  # Dr Keir's lab under way: some pages, two challenges met, a record
+		for fl in ["breed_met_keir", "bio_lab_on", "bio_ch_marks", "bio_ch_daughter", "bio_dolly", "bio_since_dolly", "bio_sim_watched"]:
+			d.set_flag(fl, true)
+		d.set_flag("book_ideas", {"dominance": true, "breed": true, "vigour": true})
+		d.set_flag("bio_record", {"1 in 2": [5, 3], "1 in 4": [4, 1], "None to 1 in 4": [2, 0]})
+		d.set_flag("bio_preds", 11)
+		d.set_flag("bio_right", 8)
 	for sp in ["spikkin", "kindlet", "holtling", "binfox", "hootlet", "pipkin", "scuttlet", "croakle"]:
 		d.mark_caught(sp)
 	for sp in ["dipling", "wispet", "snowhare"]:
@@ -89,7 +106,7 @@ static func boot(game: Node, menu: String) -> void:
 	d.set_flag("last_town", "buxton")
 	TodaysWalk.today(d, game.items)  # the pause menu's Today's Walk line
 	d.bag["rail_pass"] = 1
-	if menu.begins_with("pedia:") and (Dex.in_appendix(menu.substr(6)) or Dex.is_hybrid(menu.substr(6))):  # `--menu=pedia:flyling` (or a hybrid): that entry, caught
+	if menu.begins_with("pedia:") and (Dex.in_appendix(menu.substr(6)) or Dex.is_hybrid(menu.substr(6)) or Crossbreeds.is_id(menu.substr(6)) or game.dex.has(menu.substr(6))):  # `--menu=pedia:flyling` (any species or a hybrid): that entry, caught
 		d.mark_caught(menu.substr(6))
 	if menu == "bag:first":  # `--menu=bag:first`: a first-hour bag (tea, snares, the map and the Fieldbook)
 		d.bag = {"cup_of_tea": 3, "wicker_snare": 5, "map": 1, "fieldbook": 1}
@@ -137,6 +154,12 @@ static func boot(game: Node, menu: String) -> void:
 			n += 1
 		for m in Gazetteer.MILESTONES.slice(0, 3):
 			d.set_flag(str(m.flag))
+		if ":isles_work" in menu:  # `--menu=quests:gazetteer:isles_work[:<topic>]`: How these isles work, two in three topics learnt (and that one)
+			var k := 0
+			for t in IslesWork.all():
+				if k % 3 != 2 or menu.ends_with(":" + str(t.id)):
+					d.set_flag(IslesWork.flag_key(str(t.id)))
+				k += 1
 	if "--stress" in DevArgs.user_args():  # dev: worst-case widths, a 12-letter name and nicknames and a full purse
 		stress(d)
 	if menu.begins_with("relearn"):
@@ -196,6 +219,13 @@ static func boot(game: Node, menu: String) -> void:
 			d.day_count += 14
 			Deeds.tick(d, d.day_count)
 			menu = menu.trim_suffix(":owned")
+	if menu == "economist":  # `--menu=economist`: most of the notebook met, a Deed and a lease among them
+		d.money = 5000
+		for i in Economist.ideas():
+			if str(i.id) not in ["south_sea_1720", "ot_money"]:
+				Economist.note(d, str(i.id), {"text": "the Stag Inn", "gbp": 8000, "over": 23} if str(i.id) in ["opportunity_cost", "winners_curse"] else true)
+				if str(i.get("plaque", "")) != "":
+					d.set_flag(Gazetteer.flag_key(str(i.plaque)), true)
 	if menu.begins_with("almanac"):  # `--menu=almanac[:ledger:guilds|deeds|society]`: every page sprouted (a guild, a Deed with a till, a loan, a basket)
 		d.day_count = 120
 		d.money = 20000
@@ -213,6 +243,15 @@ static func boot(game: Node, menu: String) -> void:
 		BuildingSociety.settle(d)
 		BuildingSociety.borrow(d, "manchester_society", 2000, 12)
 		BuildingSociety.deposit(d, "gbp", 600)
+	if menu.begins_with("invention") or menu.begins_with("almanac"):  # `--menu=invention[:gadget:<id>]`: a Timeline part filled, three gadgets open
+		for inv_flag in ["plaque_shropshire_iron_bridge", "plaque_chat_moss_rainhill", "plaque_penzance_davy", "plaque_london_faraday",
+				"plaque_london_telegraph", "plaque_kerry_valentia", "plaque_penzance_poldhu", "plaque_manchester_baby",
+				"plaque_bletchley_bombe", "invent_seen_colossus", "plaque_london_lovelace", "plaque_dover_chain_home"]:
+			d.set_flag(inv_flag, true)
+		d.seen["holtling"] = true
+	if menu.begins_with("almanac") or menu.begins_with("quests:gazetteer"):  # a dozen plaques on the arts read: Poets' Corner (4.5)
+		for p in PoetsCorner.all().slice(0, 12):
+			d.set_flag(Gazetteer.flag_key(str(p.id)), true)
 	if menu.begins_with("bureau") or menu.begins_with("exchange") or menu.begins_with("crypto") or menu == "pause:euros":
 		# a few weeks into a journey with both purses, some shares, a Doggerel punt and a Stone or two
 		d.day_count = 46
@@ -226,6 +265,8 @@ static func boot(game: Node, menu: String) -> void:
 		d.day_count = 52
 		if menu == "pause:euros":
 			menu = "pause"
+	if menu == "pairing:cross":
+		menu = "pairing:pick"
 	await game.get_tree().process_frame
 	var cur := game.get_tree().current_scene
 	if cur:

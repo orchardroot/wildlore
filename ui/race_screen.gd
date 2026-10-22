@@ -307,7 +307,8 @@ func _show_race() -> void:
 			for k in 2:
 				var a := AtlasTexture.new()
 				a.atlas = sheet
-				a.region = Rect2(k * 96 if sheet.get_width() >= 192 else 0, 0, 96, 96)
+				var fp := float(sheet.get_height())  # square frames, as wide as the sheet is tall
+				a.region = Rect2(k * fp if sheet.get_width() >= fp * 2.0 else 0.0, 0, fp, fp)
 				frames.append(a)
 			_sprites[r.species] = frames
 	var v := VBoxContainer.new()

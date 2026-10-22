@@ -79,12 +79,22 @@ static func active(id: String) -> bool:
 	var e := get_event(id)
 	return not e.is_empty() and is_active(e)
 
-## Days until the window opens (0 when it is open now).
-static func days_until(e: Dictionary, today := Vector2i(-1, -1)) -> int:
+## The next window to open from today: this year's, or next year's when this year's has already passed and the
+## event moves with the calendar (a `rule`), so a late-December "Coming up" names January's real dates.
+static func coming_window(e: Dictionary, today := Vector2i(-1, -1), year := -1) -> Array:
 	var t := today if today.x > 0 else Calendar.today()
-	if in_window(e, t.x, t.y):
+	var y := year if year > 0 else Calendar.year()
+	var w: Array = window_of(e, y)
+	if e.get("rule") is Dictionary and w.size() == 4 and not in_window(e, t.x, t.y, y) and _doy(int(w[0]), int(w[1])) < _doy(t.x, t.y):
+		return window_of(e, y + 1)
+	return w
+
+## Days until the window opens (0 when it is open now).
+static func days_until(e: Dictionary, today := Vector2i(-1, -1), year := -1) -> int:
+	var t := today if today.x > 0 else Calendar.today()
+	if in_window(e, t.x, t.y, year):
 		return 0
-	var w: Array = window_of(e)
+	var w: Array = coming_window(e, t, year)
 	return posmod(_doy(int(w[0]), int(w[1])) - _doy(t.x, t.y), 365)
 
 static func _date_text(m: int, d: int) -> String:
@@ -103,7 +113,7 @@ static func whats_on(today := Vector2i(-1, -1), limit := 4) -> Array:
 	for r in rows.slice(0, limit):
 		var e: Dictionary = r[1]
 		var town := Travel.town_name(str(e.town))
-		var w: Array = window_of(e)
+		var w: Array = coming_window(e, today)
 		if r[0] == 0:
 			out.append("On now: %s in %s, until %s." % [str(e.whatson), town, _date_text(int(w[2]), int(w[3]))])
 		else:
@@ -237,6 +247,11 @@ static func validate(zones: Dictionary, dex: Dex, quests: Array) -> Array:
 		ids[id] = true
 		if not zones.has(str(e.get("town", ""))):
 			errors.append(tag + ": unknown town")
+		else:
+			var z: Variant = zones[str(e.get("town", ""))]
+			var p := Vector2i(int(e.get("x", 0)), int(e.get("y", 0)))
+			if z is ZoneData and (not z.walkable(p) or z._standing_npcs().has(p) or not z.warp_at(p).is_empty()):
+				errors.append(tag + ": %s (%d, %d) is not a free floor tile" % [e.get("town", ""), p.x, p.y])
 		var w: Array = window_of(e)
 		if w.size() != 4 or int(w[0]) < 1 or int(w[0]) > 12 or int(w[2]) < 1 or int(w[2]) > 12:
 			errors.append(tag + ": bad window")

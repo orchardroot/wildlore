@@ -1,0 +1,225 @@
+{
+ "bad_fiddler": [
+  {
+   "do": "say",
+   "who": "Fiddler",
+   "text": "Ciamar a tha thu? How are you? I play the Cape Breton way: strathspeys and reels, driving, with the foot going. My great-great-grandparents brought the tunes from Moidart. We kept them, and we kept playing them for dancers."
+  },
+  {
+   "do": "say",
+   "who": "Fiddler",
+   "text": "Some folk say the old Scottish style survived better here than in Scotland. Don't say that in Scotland. Or here, if a piper's listening."
+  },
+  {
+   "do": "if",
+   "flag": "q_abroad_cape_breton_frolic_started",
+   "then": [
+    {
+     "do": "set",
+     "flag": "q_abroad_cape_breton_frolic_1",
+     "value": true
+    }
+   ]
+  }
+ ],
+ "bad_milling": [
+  {
+   "do": "say",
+   "who": "Milling Frolic Singer",
+   "text": "A milling frolic! Long ago, fresh-woven cloth had to be beaten to thicken it, so everyone sat round a table and thumped it in time to Gaelic songs. In Scotland it's called waulking. Here it's a frolic, because it is one."
+  },
+  {
+   "do": "say",
+   "who": "Milling Frolic Singer",
+   "text": "We still do it for the songs. The cloth is optional. The tea is not."
+  },
+  {
+   "do": "if",
+   "flag": "q_abroad_cape_breton_frolic_started",
+   "then": [
+    {
+     "do": "set",
+     "flag": "q_abroad_cape_breton_frolic_2",
+     "value": true
+    }
+   ]
+  }
+ ],
+ "bad_elder": [
+  {
+   "do": "say",
+   "who": "Gaelic Speaker",
+   "text": "My mother had no English when she started school. The teachers punished Gaelic in those days, and so people stopped passing it on. I'm learning it back from my granddaughter, which is a strange way round, but it works."
+  },
+  {
+   "do": "say",
+   "who": "Gaelic Speaker",
+   "text": "Ceud m\u00ecle f\u00e0ilte, we say: a hundred thousand welcomes. It's only polite to mean all of them."
+  },
+  {
+   "do": "if",
+   "flag": "q_abroad_cape_breton_frolic_started",
+   "then": [
+    {
+     "do": "set",
+     "flag": "q_abroad_cape_breton_frolic_3",
+     "value": true
+    }
+   ]
+  }
+ ],
+ "bad_eagle_watcher": [
+  {
+   "do": "say",
+   "who": "Eagle Watcher",
+   "text": "Bald eagles. Dozens nest round the Bras d'Or. They look magnificent and they steal fish off ospreys. Nature has no sense of dignity."
+  }
+ ],
+ "bad_lobster": [
+  {
+   "do": "say",
+   "who": "Lobster Fisher",
+   "text": "Lobster season's set by law here, with traps and licences counted. You learn to read a lobster's face. They mostly look annoyed, so it's not a hard read."
+  }
+ ],
+ "baddeck_bureau": [
+  {
+   "do": "say",
+   "who": "Bureau Clerk",
+   "text": "Bank counter, and we change money. Canadian dollars: the one dollar coin has a loon on it, so it's a loonie, and the two dollar coin is a toonie. Nobody voted on that. It just happened."
+  },
+  {
+   "do": "bureau"
+  }
+ ],
+ "bad_moose": [
+  {
+   "do": "say",
+   "who": "Mooslet",
+   "text": "A young moose looks up from the willow it is eating, chews thoughtfully, and goes back to it. It is the size of a horse and it is not yet finished growing."
+  }
+ ],
+ "baddeck_return": [
+  {
+   "do": "say",
+   "who": "Airport Shuttle",
+   "text": "Sydney for the little airport, named after J. A. D. McCurdy of the Silver Dart, then Halifax and the overnight to London. The RAF can't land a Voyager in Baddeck."
+  },
+  {
+   "do": "overseas_home",
+   "territory": "cape_breton"
+  }
+ ],
+ "bad_legend_talk": [
+  {
+   "do": "if",
+   "flag": "q_abroad_cape_breton_frolic_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Bard Catr\u00econa",
+     "text": "Ceud m\u00ecle f\u00e0ilte, always. Come back in October for Celtic Colours."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_abroad_cape_breton_frolic_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_abroad_cape_breton_frolic_1",
+       "then": [
+        {
+         "do": "if",
+         "flag": "q_abroad_cape_breton_frolic_2",
+         "then": [
+          {
+           "do": "if",
+           "flag": "q_abroad_cape_breton_frolic_3",
+           "then": [
+            {
+             "do": "say",
+             "who": "Bard Catr\u00econa",
+             "text": "Fiddle, songs and the Gaelic: we're set. One last thing. A bard tests every guest."
+            },
+            {
+             "do": "battle",
+             "trainer": "bad_legend",
+             "intro": true
+            },
+            {
+             "do": "say",
+             "who": "Bard Catr\u00econa",
+             "text": "Sit in, sit in. Here's a length of tweed off the table, some oatcakes and syrup, and a song for the road. Sl\u00e0inte mhath!"
+            },
+            {
+             "do": "give_item",
+             "item": "milled_tweed",
+             "n": 1
+            },
+            {
+             "do": "give_item",
+             "item": "oatcakes_cb",
+             "n": 3
+            },
+            {
+             "do": "give_item",
+             "item": "maple_syrup",
+             "n": 2
+            },
+            {
+             "do": "standing",
+             "nation": "abroad",
+             "amount": 3
+            },
+            {
+             "do": "set",
+             "flag": "q_abroad_cape_breton_frolic_done",
+             "value": true
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Bard Catr\u00econa",
+             "text": "For a milling frolic I need a fiddler, a singer who knows the songs, and someone who still has the Gaelic. Ask the fiddler on the main street, the milling singer by the inn, and the Gaelic speaker down by the class. Then come back."
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Bard Catr\u00econa",
+           "text": "For a milling frolic I need a fiddler, a singer who knows the songs, and someone who still has the Gaelic. Ask the fiddler on the main street, the milling singer by the inn, and the Gaelic speaker down by the class. Then come back."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Bard Catr\u00econa",
+         "text": "For a milling frolic I need a fiddler, a singer who knows the songs, and someone who still has the Gaelic. Ask the fiddler on the main street, the milling singer by the inn, and the Gaelic speaker down by the class. Then come back."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Bard Catr\u00econa",
+       "text": "Hal\u00f2! I'm getting up a milling frolic and I'm short of hands. Find me the fiddler, the milling singer and the Gaelic speaker. They're all in town."
+      },
+      {
+       "do": "set",
+       "flag": "q_abroad_cape_breton_frolic_started",
+       "value": true
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

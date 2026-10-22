@@ -21,6 +21,46 @@ It started life as a monster-catching game. It's turned into something closer to
 
 Whatever's newest is below; older notes are further down.
 
+## What's new in 4.5: Learn as You Go
+
+The big one. Wildlore has grown from "a Pokémon game set in Britain" into a creature-battling RPG of these isles that
+quietly teaches you things while you play. None of it is homework: it's in the people you meet, the places you go and
+the creatures you catch.
+
+- **Smoother creatures and a lovelier world.** Every creature is redrawn at twice the detail with soft edges and
+  shading. The world gets light that moves through the day, cloud shadows, shore foam, swaying trees, firelit rooms and
+  a lantern in caves (all off on Low, which looks as before).
+- **A little Welsh, Gaelic, Irish and Scots.** Teachers in their own countries offer short, optional lessons, a quick
+  "Say it" after some battles, a word of the day and certificates: Welsh in Wales, Scottish Gaelic in the Highlands and
+  Islands, Irish in the Gaeltacht, Scots in the Lowlands, Ulster Scots in Antrim, and a taste of Manx, Cornish,
+  Jèrriais and Guernésiais. Every Fieldbook entry now gives the real animal's name in Welsh, Irish and Scottish Gaelic,
+  and a true "In real life" fact.
+- **More creatures.** 33 new evolutions (some only in a season, a place, or once you hold a language certificate), and
+  crossbreeds generated when you pair two related creatures, following real biology: close relatives cross, most
+  crossbreeds can't have young, and Dot explains why.
+- **Biology you can practise.** Dr Keir's challenges ask you to predict the odds before an egg hatches; a Biology page
+  covers DNA, mutation, inbreeding and hybrid vigour; and a little moor shows natural selection at work.
+- **People of these isles.** A "These Isles" page and 37 new plaques, people and quests on the peoples who made these
+  islands: Celts, Romans, Norse, Huguenots, Jewish communities, Travellers, the Famine and emigration, Liverpool's
+  Chinese seamen, Tiger Bay, Windrush and more.
+- **How these isles work.** Fifteen plain-words topics on the UK versus Great Britain, devolution, Ireland, the Good
+  Friday Agreement, the open border, Brexit, the Crown Dependencies and the Overseas Territories, told even-handedly by
+  the people who live with them, and a cake to deliver from Derry to Donegal.
+- **Isles of Invention.** A Timeline of Invention from Boyle to AlphaFold that hands you working gadgets, science-fair
+  puzzles (binary, a cipher, DNA), Bletchley Park, and a quest on what AI is and isn't.
+- **Money, explained.** An Economist's notebook fills in as you trade: supply and demand, compound interest and APR,
+  the winner's curse at auctions, and the casino's real odds on every table.
+- **Things worth knowing.** Short, kind lessons from people you meet: spotting a scam text, reading a payslip,
+  budgeting, renting versus buying, gambling harms, a bad week, grief and asking for help (with real helpline numbers).
+- **Arts and letters, land and sky.** Poets' Corner (Dylan Thomas, Burns, Yeats, Heaney, the Brontës and more), and the
+  geology, weather and climate of these isles, with a forecasting challenge and the Shipping Forecast.
+- **Kin abroad and neighbours.** Fly to the Welsh of Patagonia, Gaelic Cape Breton, Irish Boston and Ulster-Scots
+  Appalachia, or take the ferry to Brittany. Walk from Gibraltar into La Línea, and visit Cyprus: the British bases,
+  Pyla in the buffer zone, and both sides of Nicosia, each with local money, time and words.
+- **50 facts corrected** across the game's plaques after a full accuracy audit.
+
+Saves from 4.4 carry straight over.
+
 ## What's new in 4.4: Settling In
 
 - **The Almanac.** One page in the pause menu that gathers everything the game has grown: your quest log, the Fieldbook, the Gazetteer, the Casebook, the Stud Book, Words of the Isles, Rumours, Trades, Standing, Guilds, Deeds and the Building Society, each with a one-line summary. Pages appear as you earn them.

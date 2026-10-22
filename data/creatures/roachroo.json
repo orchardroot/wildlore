@@ -1,13 +1,14 @@
 {
   "line": "roachroo",
   "species": [
-    {"id": "roachroo", "name": "Roachroo", "types": ["kin", "brawn"],
+    {"id": "roachroo", "real": "The Roaches wallabies came through several hard winters by eating heather and bracken, but the colony has now probably died out, though sightings still crop up.", "names": {}, "name": "Roachroo", "types": ["kin", "brawn"],
      "base": {"hp": 80, "atk": 95, "def": 75, "lore": 45, "ward": 70, "spd": 95},
      "growth": "fast", "catch_rate": 75, "base_xp": 140,
      "learnset": [[1, "scrap"], [1, "quick_nip"], [6, "shove"], [11, "barge"], [16, "flex"], [22, "haymaker"]],
-     "evolves": null, "habitat": ["the_roaches"],
+     "evolves": {"to": "peakaroo", "level": 30, "zone": ["the_roaches"]}, "habitat": ["the_roaches"],
      "dex": {"text": "Lolls about the Roaches as if it owns the place, which is fair, because in a sense it does. Nobody invited it, and nobody has yet managed to make it leave.",
              "fact": "Wallabies were let out of a private zoo near the Roaches around 1940, and a wild colony lived on there for decades."},
-     "sprite": "roachroo"}
+     "sprite": "roachroo"},
+    {"id": "peakaroo", "name": "Peakaroo", "types": ["kin", "brawn"], "base": {"hp": 88, "atk": 105, "def": 83, "lore": 50, "ward": 77, "spd": 105}, "growth": "fast", "catch_rate": 37, "base_xp": 203, "learnset": [[1, "scrap"], [1, "quick_nip"], [6, "shove"], [11, "barge"], [16, "flex"], [22, "haymaker"], [30, "scrum_push"], [34, "strongmans_yell"], [38, "mums_look"], [45, "sheepdog_herd"]], "evolves": null, "habitat": [], "appendix": true, "dex": {"text": "Bounds over the gritstone in a scarf and a bad mood. It has been told it is not from here and has decided to stay anyway.", "fact": "Bennett's wallaby, the kind that lived wild in the Peak District, comes from Tasmania, where it is used to cold, damp weather."}, "sprite": "peakaroo", "real": "A Bennett's wallaby joey stays in the pouch for roughly nine months, so it grows up pretty well pre-packed.", "names": {}}
   ]
 }

@@ -63,5 +63,20 @@ func test_priority_out_of_range() -> void:
 func test_evolution_level_out_of_range() -> void:
 	assert_true(_has_error_containing(_errors_for([_sp("a", {"evolves": {"to": "b", "level": 0}}), _sp("b")]), "evolution level"))
 
+# --- Fieldbook teaching: `real` and `names` (docs/design/fieldbook_teaching.md)
+
+func test_teaching_keys_are_optional_and_checked_when_present() -> void:
+	assert_eq(_errors_for([_sp("a", {"real": "A true thing.", "names": {"cy": "ci", "ga": "madra", "gd": "cù"}})]), [])
+	assert_eq(_errors_for([_sp("a", {"names": {}})]), [], "a place or a machine has no local names")
+	assert_true(_has_error_containing(_errors_for([_sp("a", {"real": ""})]), "non-empty sentence"))
+	assert_true(_has_error_containing(_errors_for([_sp("a", {"real": 3})]), "non-empty sentence"))
+	assert_true(_has_error_containing(_errors_for([_sp("a", {"real": "Hedgehogs " + char(0x2014) + " spiny."})]), "em-dash in real"))
+	assert_true(_has_error_containing(_errors_for([_sp("a", {"real": "f"})]), "repeats the fact"))
+	assert_true(_has_error_containing(_errors_for([_sp("a", {"names": ["ci"]})]), "names must be a dictionary"))
+	assert_true(_has_error_containing(_errors_for([_sp("a", {"names": {"en": "dog"}})]), "unknown language 'en'"))
+	assert_true(_has_error_containing(_errors_for([_sp("a", {"names": {"cy": ""}})]), "names.cy must be a non-empty string"))
+	assert_true(_has_error_containing(_errors_for([_sp("a", {"names": {"ga": 7}})]), "names.ga must be a non-empty string"))
+	assert_true(_has_error_containing(_errors_for([_sp("a", {"names": {"gd": "c" + char(0x2014)}})]), "em-dash in names.gd"))
+
 func test_malformed_learnset_is_reported_not_crashed() -> void:
 	assert_true(_has_error_containing(_errors_for([_sp("a", {"learnset": [[5], "x", [1, "scrap"]]})]), "malformed learnset"))

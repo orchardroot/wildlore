@@ -2,6 +2,7 @@
  "zones": {
   "uk": {"label": "UK", "std": 0, "dst": "eu"},
   "cet": {"label": "Gibraltar", "std": 60, "dst": "eu"},
+  "spain": {"label": "Spain", "std": 60, "dst": "eu"},
   "eet": {"label": "Cyprus", "std": 120, "dst": "eu"},
   "utc": {"label": "GMT", "std": 0, "dst": ""},
   "falklands": {"label": "Falklands", "std": -180, "dst": ""},
@@ -12,11 +13,18 @@
   "cayman": {"label": "Cayman", "std": -300, "dst": ""},
   "ast": {"label": "Eastern Caribbean", "std": -240, "dst": ""},
   "pitcairn": {"label": "Pitcairn", "std": -480, "dst": ""},
-  "biot": {"label": "Chagos", "std": 360, "dst": ""}
+  "biot": {"label": "Chagos", "std": 360, "dst": ""},
+  "argentina": {"label": "Argentina", "std": -180, "dst": ""},
+  "atlantic": {"label": "Nova Scotia", "std": -240, "dst": "us"},
+  "us_eastern": {"label": "US Eastern", "std": -300, "dst": "us"},
+  "france": {"label": "France", "std": 60, "dst": "eu"}
  },
  "regions": {
   "overseas_gibraltar": "cet",
   "overseas_akrotiri_dhekelia": "eet",
+  "overseas_la_linea": "spain",
+  "overseas_cyprus": "eet",
+  "overseas_north_cyprus": "eet",
   "overseas_ascension": "utc",
   "overseas_st_helena": "utc",
   "overseas_tristan": "utc",
@@ -30,12 +38,18 @@
   "overseas_anguilla": "ast",
   "overseas_montserrat": "ast",
   "overseas_pitcairn": "pitcairn",
-  "overseas_biot": "biot"
+  "overseas_biot": "biot",
+  "abroad_patagonia": "argentina",
+  "abroad_cape_breton": "atlantic",
+  "abroad_boston": "us_eastern",
+  "abroad_appalachia": "us_eastern",
+  "abroad_brittany": "france"
  },
  "flight_minutes": {
   "gibraltar": 195, "akrotiri_dhekelia": 345, "ascension": 510, "st_helena": 660, "tristan": 840,
   "falklands": 1080, "south_georgia": 1260, "antarctic": 1380, "bermuda": 480, "turks_caicos": 540,
   "cayman": 600, "bvi": 540, "anguilla": 570, "montserrat": 600, "pitcairn": 2100, "biot": 690,
-  "guernsey": 180, "jersey": 270
+  "guernsey": 180, "jersey": 270,
+  "patagonia": 1020, "cape_breton": 480, "boston": 450, "appalachia": 660, "brittany": 360
  }
 }

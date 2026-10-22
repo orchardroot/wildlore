@@ -62,6 +62,7 @@ const PILLAR_TROPHIES := {
 	"mann": ["Three Legs Badge", "The Manx Three Legs badge. Mum knocked it over and it landed standing up. She hasn't touched it since."],
 	"channel_islands": ["Gache Loaf", "A Guernsey gache, wrapped in a tea towel. Mum says it is a fruit loaf and Dad says it is a way of life, and they have not spoken since."],
 	"overseas": ["Airbridge Wings", "A pair of enamel RAF wings. Mum asked if you were safe. You said the Airbridge has a very good record. She put them next to the barometer anyway."],
+	"abroad": ["Well-Stamped Passport", "Your passport, stamped in Trelew, Halifax, Boston, Bristol (the one in Tennessee) and Roscoff. Mum keeps it in the biscuit tin, which is where the important things go."],
 }
 const PLAQUE_LINES := [
 	"A brass plaque: %s. Mum's put a doily under it.",

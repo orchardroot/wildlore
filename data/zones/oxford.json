@@ -723,6 +723,10 @@
   "west": {
    "to": "cotswolds",
    "offset": 0
+  },
+  "east": {
+   "to": "bletchley_park",
+   "offset": -19
   }
  },
  "npcs": [
@@ -1010,6 +1014,14 @@
  },
  "signs": [
   {
+   "x": 47,
+   "y": 40,
+   "plaque": "oxford_lhuyd",
+   "title": "Edward Lhuyd",
+   "text": "Edward Lhuyd, a Welshman who ran the Ashmolean Museum, travelled through Wales, Cornwall, Brittany, Ireland and Scotland collecting words. In 1707, in his Archaeologia Britannica, he showed that Welsh, Cornish, Breton, Irish and Scottish Gaelic were related: the family we now call the Celtic languages.",
+   "people": "celts"
+  },
+  {
    "x": 69,
    "y": 29,
    "text": "COWLEY ROAD: closed for resurfacing. Again. (The shark is that way, all the same.)"
@@ -1053,8 +1065,9 @@
    "x": 39,
    "y": 38,
    "plaque": "oxford_alice",
+   "theme": "arts",
    "title": "Alice and the Dean's Daughter",
-   "text": "Alice Liddell was the daughter of Henry Liddell, Dean of Christ Church, and in 1862 the college mathematics tutor Charles Dodgson, who wrote as Lewis Carroll, rowed her and her sisters up the river and told the story that became Alice's Adventures in Wonderland. The sweet shop across the road from the college is the one in the books, and the Dodo in the story is Dodgson himself, who stammered his own name as 'Do-Do-Dodgson'."
+   "text": "Alice Liddell was the daughter of Henry Liddell, Dean of Christ Church, and in 1862 the college mathematics tutor Charles Dodgson, who wrote as Lewis Carroll, rowed her and her sisters up the river and told the story that became Alice's Adventures in Wonderland. The sweet shop across the road from the college is said to be the one in the books, and the Dodo in the story is Dodgson himself, who stammered his own name as 'Do-Do-Dodgson'."
   },
   {
    "x": 58,
@@ -1102,15 +1115,16 @@
    "x": 31,
    "y": 13,
    "plaque": "oxford_inklings",
+   "theme": "arts",
    "title": "The Inklings",
-   "text": "The Eagle and Child, locally the Bird and Baby, is the pub where the Inklings, an informal group of writers, met in the back room from the 1930s to 1962. Two of them, J. R. R. Tolkien and C. S. Lewis, read chapters of their unfinished books aloud, got criticised by their friends and carried on drinking. The pub still serves a pint to anyone who looks as though they might be writing a book."
+   "text": "The Eagle and Child, locally the Bird and Baby, is the pub where the Inklings, an informal group of writers, met in the back room from the 1930s to 1962. Two of them, J. R. R. Tolkien and C. S. Lewis, read chapters of their unfinished books aloud, got criticised by their friends and carried on drinking. The pub closed in 2020 and is being restored to open again. The back room is waiting."
   },
   {
    "x": 24,
    "y": 22,
    "plaque": "oxford_oed",
    "title": "The Oxford English Dictionary",
-   "text": "The OED began in 1857 and was seventy years in the making. The first editor, James Murray, ran it from a corrugated-iron shed called the Scriptorium in his garden in north Oxford, and thousands of volunteers posted in quotations on paper slips. It records the history of more than 600,000 words, tracing each one back to its first known use."
+   "text": "The OED began in 1857 and was seventy years in the making. Its great editor, James Murray, ran it from a corrugated-iron shed called the Scriptorium in his garden in north Oxford, and thousands of volunteers posted in quotations on paper slips. It records the history of more than 600,000 words, tracing each one back to its first known use."
   },
   {
    "x": 37,
@@ -1123,6 +1137,7 @@
    "x": 24,
    "y": 29,
    "plaque": "oxford_dreaming_spires",
+   "theme": "arts",
    "title": "The City of Dreaming Spires",
    "text": "The poet Matthew Arnold called Oxford 'that sweet city with her dreaming spires' in a poem of 1866. The spires, towers and domes are all different, and the skyline from the hills is a tangle of stone. Oxford has been teaching since about 1096, which makes it the oldest university in the English-speaking world."
   }
@@ -1169,9 +1184,9 @@
   "TT.....................BBBBB.BBB:::.BBBBBBBB:::BBBBBBBBBBB..w~~~~w....TT",
   "TT.....................BBBBB.BBB:::.BBBBDBBB:::BBBBBBBB.....w~~~~w....TT",
   "TT......................::::::::::::::::::::::::::::::::::::w~~~~w....TT",
-  "========================:::::::::::::::::::::::::::::::::::bbbbbbb=====T",
-  "========================:::::::::::::::::::::::::::::::::::bbbbbbb=====T",
-  "========================:::::::::::::::::::::::::::::::::::bbbbbbb=====T",
+  "========================:::::::::::::::::::::::::::::::::::bbbbbbb======",
+  "========================:::::::::::::::::::::::::::::::::::bbbbbbb======",
+  "========================:::::::::::::::::::::::::::::::::::bbbbbbb======",
   "TT:::::::::::::::::::::::::::::.:::.........................w~~~~w#...TT",
   "TT::........::BBBBBB..BBBBBBBBB.:::.BBBBBBBBBBBBBBBBBBBB....w~~~~w#...TT",
   "TT::........::BBBBBB..BBBBBBBBB.:::.BBBBBBBBBBBBBBBBBBBB....w~~~~w#...PT",

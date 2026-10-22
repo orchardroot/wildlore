@@ -1,0 +1,102 @@
+{
+ "id": "la_linea_church",
+ "name": "Iglesia de la Inmaculada Concepción",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "candelabra",
+   "x": 3,
+   "y": 1
+  },
+  {
+   "type": "candelabra",
+   "x": 7,
+   "y": 1
+  },
+  {
+   "type": "bench",
+   "x": 2,
+   "y": 4
+  },
+  {
+   "type": "bench",
+   "x": 8,
+   "y": 4
+  },
+  {
+   "type": "bench",
+   "x": 2,
+   "y": 6
+  },
+  {
+   "type": "bench",
+   "x": 8,
+   "y": 6
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 8
+  },
+  {
+   "type": "potted_plant",
+   "x": 9,
+   "y": 8
+  }
+ ],
+ "warps": [
+  {
+   "x": 5,
+   "y": 9,
+   "to": "la_linea",
+   "tx": 28,
+   "ty": 20,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "lal_sacristan",
+   "sprite": "pilgrim",
+   "x": 5,
+   "y": 2,
+   "facing": "down",
+   "move": "still",
+   "script": "lal_sacristan",
+   "name": "Sacristan"
+  },
+  {
+   "id": "lal_bride",
+   "sprite": "festival_goer",
+   "x": 4,
+   "y": 7,
+   "facing": "up",
+   "move": "still",
+   "script": "lal_bride",
+   "name": "Visitor"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  5,
+  8
+ ],
+ "rows": [
+  "xxxxxxxxxxx",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x||||D||||x",
+  "xxxxxxxxxxx"
+ ]
+}

@@ -3,6 +3,8 @@
   "species": [
     {
       "id": "pincray",
+      "real": "Signal crayfish were brought to Britain in the 1970s to be farmed for the table. They escaped, and they can walk overland from one river to the next.",
+      "names": {"cy": "cimwch yr afon", "ga": "cráifisc"},
       "name": "Pincray",
       "types": [
         "brook",
@@ -65,7 +67,14 @@
           "flash_flood"
         ]
       ],
-      "evolves": null,
+      "evolves": {
+        "to": "signalclaw",
+        "level": 34,
+        "zone": [
+          "bath",
+          "somerset_levels"
+        ]
+      },
       "habitat": [
         "bath",
         "somerset_levels"
@@ -75,6 +84,97 @@
         "fact": "Signal crayfish come from North America and carry a plague that kills native crayfish."
       },
       "sprite": "pincray"
+    },
+    {
+      "id": "signalclaw",
+      "real": "Signal crayfish carry crayfish plague, a fungus-like disease that barely troubles them but is fatal to Britain's native white-clawed crayfish.",
+      "names": {"cy": "cimwch yr afon", "ga": "cráifisc"},
+      "name": "Signalclaw",
+      "types": [
+        "brook",
+        "iron"
+      ],
+      "base": {
+        "hp": 80,
+        "atk": 91,
+        "def": 97,
+        "lore": 69,
+        "ward": 75,
+        "spd": 88
+      },
+      "growth": "medium",
+      "catch_rate": 25,
+      "base_xp": 304,
+      "learnset": [
+        [
+          1,
+          "rill_shot"
+        ],
+        [
+          1,
+          "rivet"
+        ],
+        [
+          5,
+          "rust_bucket"
+        ],
+        [
+          9,
+          "paddle_poke"
+        ],
+        [
+          14,
+          "spark_shower"
+        ],
+        [
+          19,
+          "weir_shove"
+        ],
+        [
+          25,
+          "eddy_ripple"
+        ],
+        [
+          31,
+          "forge_hammer"
+        ],
+        [
+          37,
+          "spate_surge"
+        ],
+        [
+          43,
+          "molten_pour"
+        ],
+        [
+          49,
+          "flash_flood"
+        ],
+        [
+          34,
+          "hull_clang"
+        ],
+        [
+          38,
+          "beck_bounce"
+        ],
+        [
+          42,
+          "undertow"
+        ],
+        [
+          49,
+          "loch_deep"
+        ]
+      ],
+      "evolves": null,
+      "habitat": [],
+      "appendix": true,
+      "dex": {
+        "text": "Arrived small and in the wrong country. Now waves a huge claw at the old residents and expects them to move up.",
+        "fact": "Signal crayfish are named for the pale patch on the claw, and they have pushed out Britain's only native crayfish, the white-clawed."
+      },
+      "sprite": "signalclaw"
     }
   ]
 }

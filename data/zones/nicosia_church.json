@@ -1,0 +1,96 @@
+{
+ "id": "nicosia_church",
+ "name": "Orthodox Church",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "candelabra",
+   "x": 2,
+   "y": 2
+  },
+  {
+   "type": "candelabra",
+   "x": 8,
+   "y": 2
+  },
+  {
+   "type": "wall_picture",
+   "x": 4,
+   "y": 1,
+   "walk": true,
+   "variant": 3
+  },
+  {
+   "type": "wall_picture",
+   "x": 6,
+   "y": 1,
+   "walk": true,
+   "variant": 0
+  },
+  {
+   "type": "bench",
+   "x": 2,
+   "y": 6
+  },
+  {
+   "type": "bench",
+   "x": 8,
+   "y": 6
+  }
+ ],
+ "warps": [
+  {
+   "x": 5,
+   "y": 9,
+   "to": "nicosia_south",
+   "tx": 23,
+   "ty": 32,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "ns_priest",
+   "sprite": "pilgrim",
+   "x": 5,
+   "y": 2,
+   "facing": "down",
+   "move": "still",
+   "script": "ns_priest",
+   "name": "Priest"
+  },
+  {
+   "id": "ns_candles",
+   "sprite": "villager_3",
+   "x": 3,
+   "y": 7,
+   "facing": "up",
+   "move": "still",
+   "script": "ns_candles",
+   "name": "Churchgoer"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  5,
+  8
+ ],
+ "rows": [
+  "xxxxxxxxxxx",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x||||D||||x",
+  "xxxxxxxxxxx"
+ ]
+}

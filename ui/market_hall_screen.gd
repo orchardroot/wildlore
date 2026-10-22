@@ -178,6 +178,7 @@ func _commit() -> void:
 	TrainerStats.earned(Game.data, gbp)
 	TrainerStats.sold(Game.data, gbp)
 	_say.text = "Done. %s for the %s." % [UIKit.money_text(paid, _mc), _cur.name]
+	econ_tip()
 	Audio.sfx("confirm")
 	_money()
 	_close_qty()

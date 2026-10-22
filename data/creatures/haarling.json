@@ -3,6 +3,8 @@
   "species": [
     {
       "id": "haarling",
+      "real": "A haar forms when warm air drifts over the cold North Sea and is chilled until its moisture condenses, which is why Edinburgh can sit in cold grey murk while a few miles inland is sunny.",
+      "names": {},
       "name": "Haarling",
       "types": [
         "frost",
@@ -73,7 +75,11 @@
           "spring_tide"
         ]
       ],
-      "evolves": null,
+      "evolves": {
+        "to": "fretlord",
+        "level": 30,
+        "weather": "fog"
+      },
       "habitat": [
         "aberdeen",
         "forth_bridges",
@@ -84,6 +90,105 @@
         "fact": "A haar is a cold sea fog that rolls onto the east coast of Scotland, often in spring and early summer."
       },
       "sprite": "haarling"
+    },
+    {
+      "id": "fretlord",
+      "real": "On England's north-east coast the same sea fog is called a fret, while further north in Scotland it is a haar.",
+      "names": {},
+      "name": "Fretlord",
+      "types": [
+        "frost",
+        "spirit"
+      ],
+      "base": {
+        "hp": 88,
+        "atk": 73,
+        "def": 93,
+        "lore": 95,
+        "ward": 93,
+        "spd": 66
+      },
+      "growth": "medium",
+      "catch_rate": 25,
+      "base_xp": 290,
+      "learnset": [
+        [
+          1,
+          "sea_fret"
+        ],
+        [
+          1,
+          "haar_chill"
+        ],
+        [
+          6,
+          "frozen_nip"
+        ],
+        [
+          10,
+          "crab_pinch"
+        ],
+        [
+          14,
+          "brine_spray"
+        ],
+        [
+          18,
+          "hoarfrost"
+        ],
+        [
+          23,
+          "sleet_shower"
+        ],
+        [
+          26,
+          "the_haar"
+        ],
+        [
+          28,
+          "snowdrop_shiver"
+        ],
+        [
+          33,
+          "tidal_surge"
+        ],
+        [
+          39,
+          "whiteout"
+        ],
+        [
+          46,
+          "frozen_thames"
+        ],
+        [
+          53,
+          "spring_tide"
+        ],
+        [
+          30,
+          "barrow_chill"
+        ],
+        [
+          34,
+          "frostbite_snap"
+        ],
+        [
+          38,
+          "arctic_tern_dive"
+        ],
+        [
+          45,
+          "black_ice_skid"
+        ]
+      ],
+      "evolves": null,
+      "habitat": [],
+      "appendix": true,
+      "dex": {
+        "text": "The fog that swallows the front before breakfast, now with ambitions. It rolls in from the sea at its own pace and regards your plans as advisory.",
+        "fact": "A haar is a cold sea fog that rolls in from the North Sea when warm air passes over chilly water, mostly in spring and summer."
+      },
+      "sprite": "fretlord"
     }
   ]
 }

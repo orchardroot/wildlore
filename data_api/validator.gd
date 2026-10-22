@@ -97,6 +97,14 @@ static func _check_species(sp: Dictionary, chart: TypeChart, dex: Dex, moves: Mo
 			e.append("species %s: evolution level must be 1..100" % id)
 		if not evo.has("level") and not evo.has("item") and not evo.has("friendship"):
 			e.append("species %s: evolution needs a level, an item or friendship" % id)
+		if evo.has("season") and str(evo.season) not in ["spring", "summer", "autumn", "winter"]:
+			e.append("species %s: evolution season '%s' is not a season" % [id, evo.season])
+		if evo.has("zone"):
+			for z in (evo.zone if evo.zone is Array else [evo.zone]):
+				if not FileAccess.file_exists("res://data/zones/%s.json" % str(z)):
+					e.append("species %s: evolution zone '%s' does not exist" % [id, z])
+		if evo.has("flag") and str(evo.flag) == "":
+			e.append("species %s: evolution flag is empty" % id)
 		for key in ["item", "early_item"]:
 			if evo.has(key) and items != null:
 				var it := items.get_item(str(evo[key]))
@@ -107,7 +115,37 @@ static func _check_species(sp: Dictionary, chart: TypeChart, dex: Dex, moves: Mo
 	var d: Dictionary = sp.get("dex", {})
 	if str(d.get("text", "")) == "" or str(d.get("fact", "")) == "":
 		e.append("species %s: needs Creaturepedia text and a real-world fact" % id)
+	e.append_array(_check_teaching(sp))
 	return e
+
+## The Fieldbook teaching keys (docs/design/fieldbook_teaching.md), both optional: `real` is a non-empty sentence
+## with no em-dash that doesn't just repeat the fact; `names` holds only cy, ga and gd, each a non-empty string.
+static func _check_teaching(sp: Dictionary) -> Array:
+	var e := []
+	var id: String = sp.get("id", "?")
+	if sp.has("real"):
+		var real = sp.real
+		if not (real is String) or str(real).strip_edges() == "":
+			e.append("species %s: real, if present, is a non-empty sentence" % id)
+		elif EM_DASH in str(real):
+			e.append("species %s: em-dash in real" % id)
+		elif str(real) == str(sp.get("dex", {}).get("fact", "")):
+			e.append("species %s: real repeats the fact" % id)
+	if sp.has("names"):
+		var names = sp.names
+		if not (names is Dictionary):
+			e.append("species %s: names must be a dictionary of language code to name" % id)
+		else:
+			for code in names:
+				if str(code) not in Langs.CREATURE_NAME_CODES:
+					e.append("species %s: names has unknown language '%s' (cy, ga or gd)" % [id, code])
+				elif not (names[code] is String) or str(names[code]).strip_edges() == "":
+					e.append("species %s: names.%s must be a non-empty string" % [id, code])
+				elif EM_DASH in str(names[code]):
+					e.append("species %s: em-dash in names.%s" % [id, code])
+	return e
+
+const EM_DASH := char(0x2014)  # the em-dash: the house style has none, in data or in prose
 
 const ITEM_KINDS := ["heal", "meal", "cure", "revive", "pp", "snare", "evo", "charm", "repel", "key", "material", "fish", "produce"]
 const EXTRA_SNARES := ["night", "water", "fae", "hazel", "creel"]

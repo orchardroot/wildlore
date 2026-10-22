@@ -1,0 +1,105 @@
+{
+ "ns_police": [
+  {
+   "do": "say",
+   "who": "Police Officer",
+   "text": "Republic of Cyprus police. Crossing north? Passport or ID card, please. You'll show it again on the other side."
+  },
+  {
+   "do": "say",
+   "who": "Police Officer",
+   "text": "From here it's a few steps through the buffer zone. The UN has the bit in the middle. Nobody has the pigeons."
+  }
+ ],
+ "ns_cheese": [
+  {
+   "do": "if",
+   "flag": "q_overseas_cyprus_3",
+   "then": [
+    {
+     "do": "say",
+     "who": "Halloumi Seller",
+     "text": "Go on, over the line. The hellim seller in the Büyük Han will tell you the same, only louder."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_overseas_cyprus_2",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_overseas_cyprus_1",
+       "then": [
+        {
+         "do": "say",
+         "who": "Halloumi Seller",
+         "text": "Andreas and Hüseyin? Still? They've been at this since before you were born."
+        },
+        {
+         "do": "say",
+         "who": "Halloumi Seller",
+         "text": "Here's the truth. It's one cheese, made all over the island by both communities for centuries. In 2021 the EU protected it under two names at once: halloumi and hellim. One cheese, one register, two words."
+        },
+        {
+         "do": "say",
+         "who": "Halloumi Seller",
+         "text": "But don't take it from me. Cross at the top of Ledra Street and ask in the Büyük Han. A verdict needs both sides, or it isn't one."
+        },
+        {
+         "do": "set",
+         "flag": "q_overseas_cyprus_3"
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Halloumi Seller",
+         "text": "Taste both first, love. A judge with one mouthful is just a customer."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Halloumi Seller",
+       "text": "Halloumi! Fresh this morning. Grill it, fry it, eat it with watermelon in August, which sounds mad and isn't."
+      },
+      {
+       "do": "shop",
+       "id": "nicosia_periptero"
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "ns_yiayia": [
+  {
+   "do": "say",
+   "who": "Yiayia Androulla",
+   "text": "I was born in Kyrenia, on the north coast. In the summer of 1974 we left with what we could carry. For twenty-nine years I couldn't go back."
+  },
+  {
+   "do": "say",
+   "who": "Yiayia Androulla",
+   "text": "When the crossings opened in 2003 I went to see my house. A Turkish Cypriot family lives there. They had lost their own home, near Paphos, in the south. We had coffee. We both cried."
+  },
+  {
+   "do": "say",
+   "who": "Yiayia Androulla",
+   "text": "Then we argued about the coffee. We still visit. Her grandson fixed my television."
+  }
+ ],
+ "ns_bureau": [
+  {
+   "do": "say",
+   "who": "Bureau Clerk",
+   "text": "Euros on this side. If you're crossing north, they mostly use the Turkish lira, though plenty of places take euros at their own rate. Change some here, or there."
+  },
+  {
+   "do": "bureau"
+  }
+ ]
+}

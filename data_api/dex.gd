@@ -63,6 +63,9 @@ static func from_array(arr: Array) -> Dex:
 		dex._add(normalise(sp))
 	return dex
 
+## Numbers become ints and the learnset is tidied; every other key rides along as written. That includes the
+## Fieldbook teaching keys `real` and `names` (docs/design/fieldbook_teaching.md), which the validator checks the
+## shape of, so they are neither coerced nor filled in here: a species without them simply has none to show.
 static func normalise(sp: Dictionary) -> Dictionary:
 	var out := sp.duplicate(true)
 	var base := {}
@@ -102,10 +105,21 @@ func _add(sp: Dictionary) -> void:
 		_appendix[id] = true
 
 func get_species(id: String) -> Dictionary:
+	if not _species.has(id) and Crossbreeds.is_id(id):
+		_resolve_crossbreed(id)
 	return _species.get(id, {})
 
 func has(id: String) -> bool:
+	if not _species.has(id) and Crossbreeds.is_id(id):
+		_resolve_crossbreed(id)
 	return _species.has(id)
+
+## A crossbreed (core/crossbreeds.gd) is derived from its two parent lines on first ask, never stored: kept out of
+## ids(), the dex order and every count, like the hybrids.
+func _resolve_crossbreed(id: String) -> void:
+	var sp := Crossbreeds.species(id, self)
+	if not sp.is_empty():
+		_species[id] = normalise(sp)
 
 func ids() -> Array:
 	return _order.duplicate()
@@ -132,6 +146,6 @@ static func is_hybrid(id: String) -> bool:
 static func core_count(ids: Dictionary) -> int:
 	var n := 0
 	for id in ids:
-		if not _appendix.has(id) and not _hybrid.has(id):
+		if not _appendix.has(id) and not _hybrid.has(id) and not Crossbreeds.is_id(str(id)):
 			n += 1
 	return n

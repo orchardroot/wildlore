@@ -93,5 +93,27 @@
    "who": "Cave Guide",
    "text": "I do the tours. You wear a helmet. If you hear dripping, it's not a leak. It's a million years of progress."
   }
+ ],
+ "landsky_burren_karst": [
+  {
+   "do": "say",
+   "who": "Hydrologist",
+   "text": "{greeting} I'm chasing a river. It went underground about a mile back and I'd like to know where it comes out. That's the Burren for you: the water has its own ideas."
+  },
+  {
+   "do": "say",
+   "who": "Hydrologist",
+   "text": "It's karst, the word's from Slovenia. Rain picks up a bit of carbon dioxide and eats limestone, so streams sink, caves open, and the lakes come and go. A turlough fills from below in winter and drains in summer, and the cattle graze where the fish were."
+  },
+  {
+   "do": "say",
+   "who": "Hydrologist",
+   "text": "The rock was a warm sea floor 330 million years ago, when Ireland sat near the equator. Ice scraped it bare, rain carved it, and the grykes keep gentians and orchids warm. There's a thousand years of rain in every crack, and it's still coming down. Ah, there's my river, listen. Under your feet."
+  },
+  {
+   "do": "set",
+   "flag": "landsky_turlough",
+   "value": true
+  }
  ]
 }

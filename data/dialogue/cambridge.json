@@ -1,4 +1,50 @@
 {
+ "cam_science_fair": [
+  {
+   "do": "daily",
+   "key": "invent_fair_day",
+   "then": [
+    {
+     "do": "say",
+     "who": "Science Fair",
+     "text": "Roll up! Cambridge Science Fair. Light the right lamps, crack the code or zip up the DNA. One go a day, and a prize for a solve."
+    },
+    {
+     "do": "set",
+     "flag": "invent_fair_solved",
+     "value": 0
+    },
+    {
+     "do": "science",
+     "kind": "any",
+     "who": "Science Fair",
+     "set": "invent_fair_solved"
+    },
+    {
+     "do": "if",
+     "flag": "invent_fair_solved",
+     "then": [
+      {
+       "do": "say",
+       "who": "Science Fair",
+       "text": "Lovely work. Have a flask of tea, scientist's fuel."
+      },
+      {
+       "do": "give_item",
+       "item": "flask_of_tea"
+      }
+     ]
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Science Fair",
+     "text": "That's your go for today. The lamps need a rest, and so does the volunteer."
+    }
+   ]
+  }
+ ],
  "cam_puntcaptain": [
   {
    "do": "if",

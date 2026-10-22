@@ -131,6 +131,24 @@
  "name": "Galway",
  "npcs": [
   {
+   "facing": "down",
+   "id": "isles_bridget",
+   "move": "still",
+   "script": "isles_bridget",
+   "sprite": "isles_bridget",
+   "x": 43,
+   "y": 17
+  },
+  {
+   "facing": "down",
+   "id": "isles_rafael",
+   "move": "still",
+   "script": "isles_rafael",
+   "sprite": "isles_rafael",
+   "x": 37,
+   "y": 36
+  },
+  {
    "facing": "right",
    "id": "rail_guard",
    "move": "still",
@@ -1096,9 +1114,12 @@
  ],
  "signs": [
   {
-   "text": "EYRE SQUARE. Eight acres of green in the middle of Galway, given to the city in 1710 and now officially the John F. Kennedy Memorial Park. Kennedy visited in 1963 and the town's never stopped telling people.",
-   "x": 24.0,
-   "y": 10.0
+   "x": 66,
+   "y": 36,
+   "plaque": "galway_ballinasloe",
+   "title": "Ballinasloe Fair",
+   "text": "Every October Ballinasloe, east of here in County Galway, holds one of the oldest horse fairs in Europe, and Irish Travellers have long been at its heart. Travellers, who call themselves Mincéirí and have their own language, Cant, were recognised by the Irish State as an ethnic minority in 2017.",
+   "people": "travellers"
   },
   {
    "text": "BROWNE DOORWAY. A carved stone doorway of 1627 from the house of the Brownes, one of the Fourteen Tribes of Galway. It's been rehomed in a park, which is a very Galway thing to do.",
@@ -1132,6 +1153,7 @@
    "kind": "plaque",
    "dx": -0.475,
    "plaque": "galway_nora_barnacle",
+   "theme": "arts",
    "title": "Nora Barnacle"
   },
   {
@@ -1166,6 +1188,11 @@
    "text": "SOUTH TO CLARE, THE SHANNON AND LIMERICK. The old coast road. In real life it goes the long way round the bay by Oranmore and Ennis; the Wildlore causeway is a shortcut the Atlantic puts up with, mostly.",
    "x": 33,
    "y": 40
+  },
+  {
+   "text": "EYRE SQUARE. A few acres of green in the middle of Galway, given to the city in 1710 and now officially the John F. Kennedy Memorial Park. Kennedy visited in 1963 and the town's never stopped telling people.",
+   "x": 24.0,
+   "y": 10.0
   }
  ],
  "spawn": [

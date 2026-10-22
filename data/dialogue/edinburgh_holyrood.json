@@ -27,5 +27,53 @@
    "who": "Gardener",
    "text": "Arthur's Seat is just behind us, an extinct volcano with a view. The hedges here have more opinions than I do."
   }
+ ],
+ "holyrood_researcher": [
+  {
+   "do": "if",
+   "flag": "isles_heard_holyrood",
+   "then": [
+    {
+     "do": "say",
+     "who": "Parliament Researcher",
+     "text": "Back across the road for me. The Parliament's coffee is better than mine, and so are its arguments."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Parliament Researcher",
+     "text": "{greeting} I'm a researcher at the Scottish Parliament, across the road. I come over here for the quiet."
+    },
+    {
+     "do": "say",
+     "who": "Parliament Researcher",
+     "text": "Scotland's old parliament stopped sitting with the Union of 1707. In a 1997 referendum 74% voted for a new one, and it first met in 1999."
+    },
+    {
+     "do": "say",
+     "who": "Parliament Researcher",
+     "text": "There are 129 MSPs. They make the laws on health, schools, justice and more. Scots law and the courts were always Scotland's own, even before 1999."
+    },
+    {
+     "do": "say",
+     "who": "Parliament Researcher",
+     "text": "Wales got its Assembly and Northern Ireland its Assembly at much the same time. England's laws are still made at Westminster. That's devolution."
+    },
+    {
+     "do": "set",
+     "flag": "isles_heard_holyrood"
+    },
+    {
+     "do": "set",
+     "flag": "isles_devolution"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Noted in the Gazetteer, under How these isles work."
+    }
+   ]
+  }
  ]
 }

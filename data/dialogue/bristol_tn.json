@@ -1,0 +1,245 @@
+{
+ "btn_fiddler": [
+  {
+   "do": "say",
+   "who": "Old-Time Fiddler",
+   "text": "This tune came over from Ulster with somebody's great-great-great-grandpa. It's had a few name changes. Most of us play it a bit different. Nobody wrote it down for two hundred years, and it didn't seem to mind."
+  },
+  {
+   "do": "if",
+   "flag": "q_abroad_appalachia_tune_started",
+   "then": [
+    {
+     "do": "set",
+     "flag": "q_abroad_appalachia_tune_1",
+     "value": true
+    }
+   ]
+  }
+ ],
+ "btn_banjo": [
+  {
+   "do": "say",
+   "who": "Banjo Player",
+   "text": "Folks forget where the banjo came from. Enslaved Africans made the first ones from gourds. Black and white musicians in these hills learnt from each other, and the music we call old-time is what came out."
+  },
+  {
+   "do": "if",
+   "flag": "q_abroad_appalachia_tune_started",
+   "then": [
+    {
+     "do": "set",
+     "flag": "q_abroad_appalachia_tune_2",
+     "value": true
+    }
+   ]
+  }
+ ],
+ "btn_ballad": [
+  {
+   "do": "say",
+   "who": "Ballad Singer",
+   "text": "My granny sang 'Barbara Allen' to us. Turns out it was being sung in Scotland and England three hundred years ago. She had no idea. She just thought it was a sad song about a girl who should've been nicer."
+  },
+  {
+   "do": "if",
+   "flag": "q_abroad_appalachia_tune_started",
+   "then": [
+    {
+     "do": "set",
+     "flag": "q_abroad_appalachia_tune_3",
+     "value": true
+    }
+   ]
+  }
+ ],
+ "btn_ranger": [
+  {
+   "do": "say",
+   "who": "Park Volunteer",
+   "text": "Appalachia is the salamander capital of the world. More kinds of salamander here than anywhere else on Earth, and the biggest is the hellbender. Up to two feet long, flat as a pancake and lives under rocks in clean, fast streams. Bring me one, if you find one."
+  },
+  {
+   "do": "if",
+   "flag": "q_abroad_appalachia_tune_started",
+   "then": [
+    {
+     "do": "when",
+     "cond": "party_has_hellbendlet",
+     "then": [
+      {
+       "do": "say",
+       "who": "Park Volunteer",
+       "text": "A hellbender! Look at those wrinkly sides: that's how it breathes, through its skin. They need clean, cold, fast water, so finding one means the creek is healthy."
+      },
+      {
+       "do": "set",
+       "flag": "q_abroad_appalachia_tune_4",
+       "value": true
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "btn_porch": [
+  {
+   "do": "say",
+   "who": "Porch Sitter",
+   "text": "Redd up the porch, my mama'd say. Then we'd sit on it all evening. That's two Ulster habits right there: tidying, and not moving afterwards."
+  }
+ ],
+ "bristol_tn_bureau": [
+  {
+   "do": "say",
+   "who": "Bureau Clerk",
+   "text": "Bank counter. We'll change your pounds into dollars. Tennessee side or Virginia side, it's the same dollar, and the same sweet tea."
+  },
+  {
+   "do": "bureau"
+  }
+ ],
+ "btn_fireflies": [
+  {
+   "do": "say",
+   "who": "Glowmite",
+   "text": "On warm summer evenings in these mountains the fireflies flash. In parts of the Smokies one kind even flashes in time, all together, for a couple of weeks in June."
+  }
+ ],
+ "bristol_tn_return": [
+  {
+   "do": "say",
+   "who": "Shuttle Driver",
+   "text": "Tri-Cities Airport, then a hop to a big airport and the overnight to London. The RAF don't do the hop. I asked them for you."
+  },
+  {
+   "do": "overseas_home",
+   "territory": "appalachia"
+  }
+ ],
+ "btn_legend_talk": [
+  {
+   "do": "if",
+   "flag": "q_abroad_appalachia_tune_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Granny Opal",
+     "text": "Come back for the jam, honey. Thursday."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_abroad_appalachia_tune_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_abroad_appalachia_tune_1",
+       "then": [
+        {
+         "do": "if",
+         "flag": "q_abroad_appalachia_tune_2",
+         "then": [
+          {
+           "do": "if",
+           "flag": "q_abroad_appalachia_tune_3",
+           "then": [
+            {
+             "do": "if",
+             "flag": "q_abroad_appalachia_tune_4",
+             "then": [
+              {
+               "do": "say",
+               "who": "Granny Opal",
+               "text": "Ulster fiddle, African banjo, English and Scottish ballads, and a salamander for luck. That's Appalachia. Now let's play."
+              },
+              {
+               "do": "battle",
+               "trainer": "btn_legend",
+               "intro": true
+              },
+              {
+               "do": "say",
+               "who": "Granny Opal",
+               "text": "Here: a dulcimer pick, a pan of cornbread and a jug of sweet tea. And you play that tune the way you heard it. That's how it lives."
+              },
+              {
+               "do": "give_item",
+               "item": "dulcimer_pick",
+               "n": 1
+              },
+              {
+               "do": "give_item",
+               "item": "cornbread",
+               "n": 3
+              },
+              {
+               "do": "give_item",
+               "item": "sweet_tea",
+               "n": 2
+              },
+              {
+               "do": "standing",
+               "nation": "abroad",
+               "amount": 3
+              },
+              {
+               "do": "set",
+               "flag": "q_abroad_appalachia_tune_done",
+               "value": true
+              }
+             ],
+             "else": [
+              {
+               "do": "say",
+               "who": "Granny Opal",
+               "text": "Every tune has a family tree. Hear it from the old-time fiddler, the banjo player and the ballad singer on State Street. Then find a hellbender in the creek and show the park volunteer. Then come back."
+              }
+             ]
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Granny Opal",
+             "text": "Every tune has a family tree. Hear it from the old-time fiddler, the banjo player and the ballad singer on State Street. Then find a hellbender in the creek and show the park volunteer. Then come back."
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Granny Opal",
+           "text": "Every tune has a family tree. Hear it from the old-time fiddler, the banjo player and the ballad singer on State Street. Then find a hellbender in the creek and show the park volunteer. Then come back."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Granny Opal",
+         "text": "Every tune has a family tree. Hear it from the old-time fiddler, the banjo player and the ballad singer on State Street. Then find a hellbender in the creek and show the park volunteer. Then come back."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Granny Opal",
+       "text": "You came all the way from Ulster's side of the water? Then you'll want to hear where our music came from. Go ask the fiddler, the banjo player and the ballad singer, and find a hellbender in the creek for the park volunteer."
+      },
+      {
+       "do": "set",
+       "flag": "q_abroad_appalachia_tune_started",
+       "value": true
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

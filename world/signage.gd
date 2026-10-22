@@ -290,7 +290,7 @@ static func front(style: String, w: int, d: int, door_x: int) -> Dictionary:
 		"bookmaker":  # the shop's painted fascia
 			f.merge({"z": d + 0.085, "lo": 1.24, "hi": 1.62, "x0": 0.1, "x1": w - 0.1}, true)
 		_:
-			if StreetsEW.has_style(style) or CaribStyles.is_house(style):  # a house: the name sits above the ground-floor windows
+			if StreetsEW.has_style(style) or CaribStyles.is_house(style) or AbroadStyles.has_style(style):  # a house: the name sits above the ground-floor windows
 				f.merge({"lo": 1.1, "hi": 1.5, "hang": 2.3}, true)
 			elif style in Landmarks.SPECIAL or CaribStyles.has_style(style):
 				f.mode = "stand"

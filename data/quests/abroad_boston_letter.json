@@ -1,0 +1,32 @@
+{
+ "quests": [
+  {
+   "id": "abroad_boston_letter",
+   "title": "The American Letter",
+   "region": "abroad_boston",
+   "town": "boston",
+   "giver": "Councillor Bridget",
+   "summary": "Trace a famine emigrant through the records of Boston, then take on the councillor.",
+   "start_flag": "q_abroad_boston_letter_started",
+   "steps": [
+    {
+     "flag": "q_abroad_boston_letter_1",
+     "text": "Ask the Family Historian on Washington Street.",
+     "zone": "boston"
+    },
+    {
+     "flag": "q_abroad_boston_letter_2",
+     "text": "Read the passenger lists with the Archivist in the Irish Heritage Centre.",
+     "zone": "boston_heritage"
+    },
+    {
+     "flag": "q_abroad_boston_letter_3",
+     "text": "Ask the Parish Priest at St Stephen's, then return to the councillor.",
+     "zone": "boston_church"
+    }
+   ],
+   "done_flag": "q_abroad_boston_letter_done",
+   "reward": "An emigrant's claddagh ring (a Spirit charm), clam chowder and standing with Kin Abroad."
+  }
+ ]
+}

@@ -1,0 +1,32 @@
+{
+ "quests": [
+  {
+   "id": "abroad_baddeck_frolic",
+   "title": "The Milling Frolic",
+   "region": "abroad_cape_breton",
+   "town": "baddeck",
+   "giver": "Bard Catrìona",
+   "summary": "Gather a fiddler, a singer and a Gaelic speaker for a milling frolic, then face the bard.",
+   "start_flag": "q_abroad_cape_breton_frolic_started",
+   "steps": [
+    {
+     "flag": "q_abroad_cape_breton_frolic_1",
+     "text": "Ask the fiddler on Chebucto Street.",
+     "zone": "baddeck"
+    },
+    {
+     "flag": "q_abroad_cape_breton_frolic_2",
+     "text": "Ask the milling frolic singer by the inn.",
+     "zone": "baddeck"
+    },
+    {
+     "flag": "q_abroad_cape_breton_frolic_3",
+     "text": "Ask the Gaelic speaker by the Gaelic class, then return to the bard.",
+     "zone": "baddeck"
+    }
+   ],
+   "done_flag": "q_abroad_cape_breton_frolic_done",
+   "reward": "Milled tweed (a Frost charm), oatcakes, maple syrup and standing with Kin Abroad."
+  }
+ ]
+}

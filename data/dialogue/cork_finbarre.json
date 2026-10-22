@@ -15,5 +15,99 @@
    "who": "Verger",
    "text": "Look up for the gilded angel on the east end, and count the three spires. Burges never met a spire he did not like."
   }
+ ],
+ "life_mental_health": [
+  {
+   "do": "if",
+   "flag": "lesson_mental_health",
+   "then": [
+    {
+     "do": "say",
+     "who": "Quiet Man",
+     "text": "I rang them in the end. The Samaritans. Twenty minutes, and I slept. Keep the number, would you."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Quiet Man",
+     "text": "Sorry. I'm only sitting. It's been a bad week. Nothing dramatic. I'm not sleeping, I've the head down at work, and the whole thing feels very heavy."
+    },
+    {
+     "do": "choice",
+     "text": "What do you say?",
+     "options": [
+      "Cheer up, it could be worse",
+      "That sounds like a hard week. Do you want to talk?",
+      "Say nothing and back away slowly"
+     ],
+     "set": "life_mental_health_pick"
+    },
+    {
+     "do": "if",
+     "flag": "life_mental_health_pick",
+     "eq": 0,
+     "then": [
+      {
+       "do": "say",
+       "who": "Quiet Man",
+       "text": "He gives a small smile. 'It could. And that's no use to me, but thanks.' Telling someone to cheer up rarely helps."
+      }
+     ]
+    },
+    {
+     "do": "if",
+     "flag": "life_mental_health_pick",
+     "eq": 1,
+     "then": [
+      {
+       "do": "say",
+       "who": "Quiet Man",
+       "text": "He lets out a long breath. 'I would, yeah. Thanks for asking.' You sit. It's mostly him talking and you listening, and he looks lighter after."
+      }
+     ]
+    },
+    {
+     "do": "if",
+     "flag": "life_mental_health_pick",
+     "eq": 2,
+     "then": [
+      {
+       "do": "say",
+       "who": "Quiet Man",
+       "text": "He watches you go, kindly. Most of us freeze, because we're afraid of saying the wrong thing. Even a clumsy 'how are you, really?' beats silence."
+      }
+     ]
+    },
+    {
+     "do": "say",
+     "who": "Quiet Man",
+     "text": "You don't have to fix anything. Sitting with someone, and not pushing advice they didn't ask for, is most of the job."
+    },
+    {
+     "do": "say",
+     "who": "Quiet Man",
+     "text": "And if it's you having the bad week: tell someone you trust, or see your GP. Samaritans are on 116 123, free, any hour, from the UK or Ireland, and you don't have to be in crisis to ring."
+    },
+    {
+     "do": "say",
+     "who": "Quiet Man",
+     "text": "If someone is in danger right now, it's 999 in the UK, and 999 or 112 in Ireland. Here, take this. My sister baked far too many."
+    },
+    {
+     "do": "set",
+     "flag": "lesson_mental_health"
+    },
+    {
+     "do": "give_item",
+     "item": "barmbrack"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Noted in the Almanac under Things worth knowing."
+    }
+   ]
+  }
  ]
 }

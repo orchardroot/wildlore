@@ -404,6 +404,15 @@
    "move": "still",
    "script": "dv_tunnel_guide",
    "name": "Tunnel Guide"
+  },
+  {
+   "id": "landsky_coastguard",
+   "sprite": "sailor",
+   "x": 27,
+   "y": 40,
+   "facing": "down",
+   "move": "still",
+   "script": "landsky_coastguard"
   }
  ],
  "encounters": {
@@ -419,9 +428,7 @@
     "min": 96,
     "max": 96,
     "weight": 3,
-    "weather": [
-     "gale"
-    ]
+    "weather": ["gale"]
    },
    {
     "species": "peregrin",
@@ -446,19 +453,14 @@
     "min": 94,
     "max": 96,
     "weight": 8,
-    "weather": [
-     "gale",
-     "drizzle"
-    ]
+    "weather": ["gale", "drizzle"]
    },
    {
     "species": "kitelet",
     "min": 94,
     "max": 96,
     "weight": 6,
-    "time": [
-     "day"
-    ]
+    "time": ["day"]
    },
    {
     "species": "leveret",
@@ -489,9 +491,7 @@
     "min": 94,
     "max": 96,
     "weight": 6,
-    "time": [
-     "night"
-    ]
+    "time": ["night"]
    }
   ],
   "water": [
@@ -530,13 +530,19 @@
     "min": 94,
     "max": 96,
     "weight": 8,
-    "time": [
-     "day"
-    ]
+    "time": ["day"]
    }
   ]
  },
  "signs": [
+  {
+   "x": 52,
+   "y": 14,
+   "plaque": "dover_walter_tull",
+   "title": "Walter Tull",
+   "text": "Walter Tull was born in Folkestone, just along the coast, in 1888, the son of a carpenter from Barbados. Orphaned young, he became a professional footballer with Tottenham Hotspur and Northampton Town, joined the army in 1914 and became one of the first Black officers in the British Army. He was killed in France on 25 March 1918.",
+   "people": "black_britain"
+  },
   {
    "x": 22,
    "y": 22,
@@ -549,6 +555,7 @@
    "y": 26,
    "text": "Part of a Roman hotel for officials crossing the Channel, built about 200 AD and found in 1970. Its walls still carry painted plaster, the best preserved of their kind in Britain, and it has underfloor heating. The Romans would have hated to be cold in Kent too.",
    "plaque": "dover_painted_house",
+   "people": "romans",
    "title": "The Roman Painted House"
   },
   {
@@ -617,7 +624,7 @@
   {
    "x": 58,
    "y": 4,
-   "text": "On 25 July 1909 Louis Bleriot flew across the Channel from Calais in his little monoplane and crash-landed in a meadow just north of the castle: the first flight across the sea between two countries. A memorial in the grass is shaped like his aeroplane.",
+   "text": "On 25 July 1909 Louis Bleriot flew across the Channel from Calais in his little monoplane and crash-landed in a meadow just north of the castle: the first aeroplane flight across the Channel. A memorial in the grass is shaped like his aeroplane.",
    "plaque": "dover_bleriot",
    "title": "Bleriot's Landing"
   },
@@ -633,7 +640,29 @@
    "y": 27,
    "text": "In 1942 Vera Lynn sang that there would be bluebirds over the White Cliffs of Dover. It is a beautiful song, and there are no bluebirds in Britain at all: they are American birds, and the song was written by Americans. Swallows, perhaps.",
    "plaque": "dover_bluebirds",
+   "theme": "arts",
    "title": "Bluebirds over the White Cliffs?"
+  },
+  {
+   "x": 58,
+   "y": 14,
+   "plaque": "dover_chain_home",
+   "title": "Chain Home",
+   "text": "On 26 February 1935, near Daventry, Robert Watson-Watt and Arnold Wilkins showed that radio waves bouncing off an RAF bomber could be picked up on the ground. By 1939 a chain of radar stations, Chain Home, watched the coast. In the Battle of Britain in 1940 it told fighter pilots where to meet the raiders. Some of the tall masts of the Swingate station still stand on the cliffs above the town."
+  },
+  {
+   "x": 29,
+   "y": 40,
+   "plaque": "landsky_shipping_forecast",
+   "title": "The Shipping Forecast",
+   "text": "Thirty-one sea areas, read on BBC radio in a set order that starts with Viking and ends at Southeast Iceland, each with its wind, its weather and its visibility. You are standing in sea area Dover, between Thames and Wight. Gale means force 8 on the scale Francis Beaufort of County Meath drew up for the Royal Navy in 1805. The late broadcast, at twelve minutes to one, follows a tune called Sailing By, and a great many people who have never been to sea listen to it in bed."
+  },
+  {
+   "x": 40,
+   "y": 32,
+   "plaque": "landsky_chalk_channel",
+   "title": "How the Channel was cut",
+   "text": "Until a few hundred thousand years ago a ridge of chalk joined Kent to France and Britain was a corner of the continent. A vast lake of meltwater built up behind it in the North Sea basin and, about 450,000 years ago, burst through in a megaflood that carved the Strait of Dover; a second flood about 160,000 years ago finished the job. The scars of those floods still lie on the sea floor between here and Calais."
   }
  ],
  "spawn": [

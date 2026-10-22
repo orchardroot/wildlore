@@ -66,7 +66,8 @@ static func line_of(c: Creature) -> String:
 	return str(c.species.get("line", c.species.get("id", "")))
 
 static func kindred_of(c: Creature) -> String:
-	return str(genes().get("lines", {}).get(line_of(c), ""))
+	var k := str(genes().get("lines", {}).get(line_of(c), ""))
+	return k if k != "" else Crossbreeds.kindred(line_of(c))  # a crossbreed is of its parents' kindred
 
 static func sex_mode(kindred: String) -> String:
 	return str(genes().get("kindreds", {}).get(kindred, {}).get("sex", "none"))
@@ -380,6 +381,7 @@ static func _lines_of(c: Creature) -> Array:
 	if c.hybrid != "" and hybrids().has(c.hybrid):
 		out.append_array(hybrids()[c.hybrid].get("sire_lines", []))
 		out.append_array(hybrids()[c.hybrid].get("dam_lines", []))
+	out.append_array(Crossbreeds.parent_lines(line_of(c)))  # a fertile crossbred breeds back into either parent line
 	return out
 
 ## May these two be paired? {ok, why, kind}: kind is "same_line", "hybrid" (a listed cross) or "". `why` is the
@@ -393,7 +395,7 @@ static func can_pair(sire: Creature, dam: Creature, _dex = null) -> Dictionary:
 	for p in [sire, dam]:
 		if listed.is_empty() and not breeds(kindred_of(p)):
 			return {"ok": false, "why": "That kind doesn't breed. Not the way you're thinking, anyway.", "kind": ""}
-		if p.hybrid != "" and hybrids().get(p.hybrid, {}).get("fertile", true) == false:
+		if (p.hybrid != "" and hybrids().get(p.hybrid, {}).get("fertile", true) == false) or Crossbreeds.sterile(p):
 			return {"ok": false, "why": "A cross like that can't have young of its own. Mules are famous for it.", "kind": ""}
 	var inb: Dictionary = genes().get("inbreeding", {})
 	if kinship(sire, dam) >= float(inb.get("refuse_at", 0.25)):
@@ -405,6 +407,9 @@ static func can_pair(sire: Creature, dam: Creature, _dex = null) -> Dictionary:
 			return {"ok": true, "why": "", "kind": "same_line"}
 	if not listed.is_empty():
 		return {"ok": true, "why": "", "kind": "hybrid", "hybrid": str(listed.id), "odds": float(listed.get("odds", 1.0))}
+	var cross := Crossbreeds.verdict(sire, dam)  # close kin with no authored hybrid: a generated crossbreed
+	if not cross.is_empty():
+		return cross
 	if kindred_of(sire) != kindred_of(dam):
 		return {"ok": false, "why": "Those two aren't even the same kind of animal. It doesn't work, and the postcards lie.", "kind": ""}
 	return {"ok": false, "why": "Different species, and nobody has got young out of that pair. I won't try it.", "kind": ""}

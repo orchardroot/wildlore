@@ -3,6 +3,8 @@
   "species": [
     {
       "id": "bansheen",
+      "real": "In many tellings the banshee keens only for certain old Irish families, such as the O'Neills and O'Briens, so hearing her was grim news but a mark of good breeding.",
+      "names": {"ga": "bean sí", "gd": "bean-shìth"},
       "name": "Bansheen",
       "types": [
         "spirit",
@@ -69,7 +71,12 @@
           "barrow_chill"
         ]
       ],
-      "evolves": null,
+      "evolves": {
+        "to": "keenwife",
+        "level": 34,
+        "flag": "lang_cert_ga_1",
+        "flag_text": "once you have passed an Irish lesson"
+      },
       "habitat": [
         "connemara",
         "burren"
@@ -79,6 +86,101 @@
         "fact": "In Irish folklore a bean sí wails before a death in the family, which is where the word banshee comes from."
       },
       "sprite": "bansheen"
+    },
+    {
+      "id": "keenwife",
+      "real": "Folklore warns against picking up a comb found lying on the ground at night: it may be the banshee's, and she will want it back.",
+      "names": {"ga": "bean sí", "gd": "bean-shìth"},
+      "name": "Keenwife",
+      "types": [
+        "spirit",
+        "gale"
+      ],
+      "base": {
+        "hp": 73,
+        "atk": 64,
+        "def": 71,
+        "lore": 102,
+        "ward": 97,
+        "spd": 93
+      },
+      "growth": "medium",
+      "catch_rate": 25,
+      "base_xp": 304,
+      "learnset": [
+        [
+          1,
+          "whisper"
+        ],
+        [
+          1,
+          "gust_nudge"
+        ],
+        [
+          5,
+          "rap_on_pane"
+        ],
+        [
+          10,
+          "eerie_wail"
+        ],
+        [
+          14,
+          "updraught"
+        ],
+        [
+          19,
+          "keening"
+        ],
+        [
+          24,
+          "bluster"
+        ],
+        [
+          30,
+          "banshee_shriek"
+        ],
+        [
+          30,
+          "hill_fog"
+        ],
+        [
+          36,
+          "murmuration"
+        ],
+        [
+          42,
+          "ghost_light"
+        ],
+        [
+          48,
+          "barrow_chill"
+        ],
+        [
+          34,
+          "washer_at_the_ford"
+        ],
+        [
+          38,
+          "passing_bell"
+        ],
+        [
+          42,
+          "gale_force"
+        ],
+        [
+          49,
+          "headless_charge"
+        ]
+      ],
+      "evolves": null,
+      "habitat": [],
+      "appendix": true,
+      "dex": {
+        "text": "The old woman at the wake who knows every verse of the lament. Quieter than her cousin, and somehow worse for it.",
+        "fact": "Banshee comes from bean sí, 'woman of the fairy mound', and the keen was a real lament sung by women at Irish wakes."
+      },
+      "sprite": "keenwife"
     }
   ]
 }

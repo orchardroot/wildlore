@@ -1,0 +1,109 @@
+{
+ "id": "la_linea_tapas",
+ "name": "Bar Pilar",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "table",
+   "x": 6,
+   "y": 5
+  },
+  {
+   "type": "table",
+   "x": 8,
+   "y": 5
+  },
+  {
+   "type": "table",
+   "x": 2,
+   "y": 5
+  },
+  {
+   "type": "menu_board",
+   "x": 6,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "wall_picture",
+   "x": 2,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  },
+  {
+   "type": "barrel",
+   "x": 9,
+   "y": 1
+  },
+  {
+   "type": "clock",
+   "x": 8,
+   "y": 1,
+   "walk": true
+  }
+ ],
+ "warps": [
+  {
+   "x": 5,
+   "y": 7,
+   "to": "la_linea",
+   "tx": 15,
+   "ty": 41,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "lal_pilar",
+   "sprite": "shopkeeper",
+   "x": 4,
+   "y": 1,
+   "facing": "down",
+   "move": "still",
+   "script": "lal_pilar",
+   "name": "Pilar"
+  },
+  {
+   "id": "lal_waiter",
+   "sprite": "villager_2",
+   "x": 7,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "lal_waiter",
+   "name": "Camarero"
+  },
+  {
+   "id": "lal_regular",
+   "sprite": "villager_5",
+   "x": 3,
+   "y": 5,
+   "facing": "right",
+   "move": "still",
+   "script": "lal_regular",
+   "name": "Regular"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  5,
+  6
+ ],
+ "rows": [
+  "xxxxxxxxxxx",
+  "x|||||||||x",
+  "x|CCCCCC||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x||||D||||x",
+  "xxxxxxxxxxx"
+ ]
+}

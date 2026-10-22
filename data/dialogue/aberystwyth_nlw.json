@@ -22,5 +22,76 @@
    "who": "Reader",
    "text": "I am tracing my family tree. So far it leads to a farm, a chapel and a long argument about a gate."
   }
+ ],
+ "arts_mabinogi_scholar": [
+  {
+   "do": "if",
+   "flag": "q_arts_wales_page",
+   "then": [
+    {
+     "do": "say",
+     "who": "Scholar",
+     "text": "The page went north with you, and Harlech has its starling. Now, 'Culhwch ac Olwen'. Fifty pages, two hundred named warriors, one giant boar. Pull up a chair."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_arts_wales_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "plaque_arts_branwen",
+       "then": [
+        {
+         "do": "say",
+         "who": "Scholar",
+         "text": "From Harlech? Branwen's own country. The White Book is in the strongroom, so you will get a photograph, not the vellum; the vellum has had quite enough excitement since 1350."
+        },
+        {
+         "do": "say",
+         "who": "Scholar",
+         "text": "Here. The opening of the second branch, with Bendigeidfran in the first line. I have drawn a starling in the margin of the copy, which is allowed on a photograph and a hanging offence on the vellum."
+        },
+        {
+         "do": "give_item",
+         "item": "white_book_page",
+         "n": 1
+        },
+        {
+         "do": "set",
+         "flag": "q_arts_wales_page",
+         "value": true
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Scholar",
+         "text": "A copy of the Branwen page? Gladly, but the cyfarwydd will want you to have read her board at the castle first. Messengers should know their message, and he is strict about it."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Scholar",
+       "text": "{greeting} I read the Mabinogi for a living. Four branches, eleven tales, two medieval books: the White Book of Rhydderch, here, and the Red Book of Hergest, in Oxford."
+      },
+      {
+       "do": "say",
+       "who": "Scholar",
+       "text": "The stories are older than the books. Somebody told them in a hall for centuries before a scribe sat down with a quill, and you can still hear the telling in the sentences."
+      },
+      {
+       "do": "say",
+       "who": "Scholar",
+       "text": "The scribes charged by the page. The storytellers charged by the supper. Both were underpaid, in my view, and I say that as someone paid by the hour."
+      }
+     ]
+    }
+   ]
+  }
  ]
 }

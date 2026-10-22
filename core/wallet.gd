@@ -27,6 +27,10 @@ const CURRENCIES := {
 	"shp": {"symbol": "£", "name": "Saint Helena pounds", "list": 1.0, "tag": "St Helena"},
 	"jep": {"symbol": "£", "name": "Jersey pounds", "list": 1.0, "tag": "Jersey"},
 	"ggp": {"symbol": "£", "name": "Guernsey pounds", "list": 1.0, "tag": "Guernsey"},
+	# these isles abroad (wave 45 L): Argentine pesos in Y Wladfa, Canadian dollars in Cape Breton
+	"ars": {"symbol": "AR$", "name": "Argentine pesos", "list": 1600.0},
+	"cad": {"symbol": "C$", "name": "Canadian dollars", "list": 1.85},
+	"try": {"symbol": "TL ", "name": "Turkish lira", "list": 55.0},
 }
 ## Pounds at par with sterling: a fixed 1:1, a small fee at the bureau. Their shops take sterling at par, but the mainland won't take their notes.
 const PAR_POUNDS := ["gip", "fkp", "shp", "jep", "ggp"]
@@ -34,6 +38,7 @@ const PAR_POUNDS := ["gip", "fkp", "shp", "jep", "ggp"]
 ## `overseas_<territory>`; matching is by substring so every spelling of a territory id works. Tristan da Cunha,
 ## South Georgia and the British Antarctic Territory use sterling, so they are not listed.
 const REGION_RULES := [
+	["north_cyprus", "try"], ["la_linea", "eur"], ["cyprus", "eur"],  # 4.5: across the frontier from Gibraltar, and Nicosia both sides
 	["gibraltar", "gip"], ["akrotiri", "eur"], ["dhekelia", "eur"], ["sovereign_base", "eur"],
 	["falkland", "fkp"], ["stanley", "fkp"], ["helena", "shp"], ["ascension", "shp"], ["jamestown", "shp"],
 	["tristan", "gbp"], ["south_georgia", "gbp"], ["sandwich", "gbp"], ["antarctic", "gbp"], ["bat", "gbp"],
@@ -41,6 +46,8 @@ const REGION_RULES := [
 	["anguilla", "xcd"], ["montserrat", "xcd"], ["pitcairn", "nzd"], ["biot", "usd"], ["diego", "usd"],
 	["chagos", "usd"], ["indian_ocean", "usd"], ["jersey", "jep"], ["guernsey", "ggp"],
 ]
+## Places abroad where the peoples of these isles settled (region `abroad_<place>`), to their money.
+const ABROAD_RULES := [["patagonia", "ars"], ["cape_breton", "cad"], ["boston", "usd"], ["appalachia", "usd"], ["brittany", "eur"]]
 ## Channel Islands zones: Guernsey's bailiwick (Sark and Alderney use the Guernsey pound), else Jersey's.
 const GUERNSEY_BITS := ["guernsey", "peter_port", "cornet", "hauteville", "sark", "alderney", "little_chapel", "herm"]
 const HAD_EUROS_FLAG := "wallet_had_euros"
@@ -61,6 +68,11 @@ static func currency_for_region(region: String, zone := "") -> String:
 			if zone.contains(bit):
 				return "ggp"
 		return "jep"
+	if region.begins_with("abroad_"):
+		for rule in ABROAD_RULES:
+			if region.contains(rule[0]):
+				return rule[1]
+		return ""
 	if not region.begins_with("overseas"):
 		return ""
 	for rule in REGION_RULES:

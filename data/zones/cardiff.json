@@ -74,6 +74,24 @@
  "name": "Cardiff",
  "npcs": [
   {
+   "facing": "down",
+   "id": "isles_amina",
+   "move": "still",
+   "script": "isles_amina",
+   "sprite": "isles_amina",
+   "x": 38,
+   "y": 13
+  },
+  {
+   "facing": "down",
+   "id": "isles_saleh",
+   "move": "still",
+   "script": "isles_saleh",
+   "sprite": "isles_saleh",
+   "x": 33,
+   "y": 13
+  },
+  {
    "facing": "right",
    "id": "rail_guard",
    "move": "still",
@@ -730,6 +748,22 @@
  ],
  "signs": [
   {
+   "x": 18,
+   "y": 33,
+   "plaque": "cardiff_tiger_bay",
+   "title": "Tiger Bay",
+   "text": "Butetown, the docklands everyone called Tiger Bay, grew up round the busiest coal port in the world. From the late 1800s sailors from Somalia, Yemen, the Caribbean, West Africa, Norway and dozens of other places settled here, making it one of the oldest multi-ethnic communities in Britain and home to one of its oldest Muslim communities.",
+   "people": "tiger_bay"
+  },
+  {
+   "x": 47,
+   "y": 33,
+   "plaque": "cardiff_shirley_bassey",
+   "title": "Shirley Bassey",
+   "text": "Dame Shirley Bassey was born in Tiger Bay in 1937, the youngest of seven children of a Nigerian seaman and an English mother. She sang in local pubs and clubs as a teenager and went on to sing three James Bond themes, Goldfinger among them. Butetown still claims her, loudly.",
+   "people": "tiger_bay"
+  },
+  {
    "text": "THE VALLEYS. North: the Rhondda, then Merthyr Tydfil and Blaenavon. Coal, iron, chapels, choirs, and rain that goes sideways. Croeso!",
    "x": 44.0,
    "y": 2.0
@@ -781,6 +815,7 @@
    "kind": "plaque",
    "dx": -0.475,
    "plaque": "cardiff_roald_dahl",
+   "theme": "arts",
    "title": "Roald Dahl"
   },
   {
@@ -810,6 +845,14 @@
    "plaque": "cardiff_glamorgan_sausage",
    "title": "Glamorgan Sausage",
    "text": "Selsig Morgannwg, the Glamorgan sausage, contains no meat at all: it is cheese, leeks and breadcrumbs rolled into a sausage and fried. Caerphilly is the traditional cheese. The Victorian travel writer George Borrow praised them, and vegetarians have been smug ever since."
+  },
+  {
+   "x": 18,
+   "y": 31,
+   "plaque": "arts_hen_wlad",
+   "theme": "arts",
+   "title": "Hen Wlad Fy Nhadau",
+   "text": "'Land of my fathers': the words by Evan James and the tune by his son James James, written in Pontypridd in January 1856. On 16 December 1905, when the All Blacks performed the haka at Cardiff Arms Park, the Welsh team and the crowd answered with the anthem, the first time one was sung before an international match anywhere. Wales won 3-0. It has no official status and needs none; seventy thousand people singing 'Gwlad! Gwlad!' is a law of its own."
   }
  ],
  "spawn": [

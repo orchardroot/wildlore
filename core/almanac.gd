@@ -6,23 +6,24 @@ extends RefCounted
 ## appears once its system has something to show, so old saves need nothing.
 
 ## The menus behind each page, in tab order. "ledger:<kind>" opens the Almanac's own read-only ledger.
-const ORDER := ["journal", "fieldbook", "gazetteer", "casebook", "studbook", "words", "rumours", "trades", "standing", "stats",
-	"guilds", "deeds", "society"]
-const NAMES := {"journal": "Quest log", "fieldbook": "Fieldbook", "gazetteer": "Gazetteer", "casebook": "Casebook",
-	"studbook": "Stud Book", "words": "Words of the Isles", "rumours": "Rumours", "trades": "Trades", "standing": "Standing", "stats": "Tallies",
-	"guilds": "Guilds", "deeds": "Deeds", "society": "Building Society"}
-const MENUS := {"journal": "quests", "fieldbook": "pedia", "gazetteer": "quests:gazetteer", "casebook": "pedia:casebook",
-	"studbook": "pedia:studbook", "words": "pedia:words", "rumours": "pedia:rumours", "trades": "stats:trades", "standing": "stats:standing",
-	"stats": "stats", "guilds": "ledger:guilds", "deeds": "ledger:deeds", "society": "ledger:society"}
+const ORDER := ["journal", "fieldbook", "gazetteer", "poets", "casebook", "studbook", "biology", "words", "invention", "rumours", "trades", "standing", "stats", "guilds", "deeds", "society", "landsky", "economist", "worth"]
+const NAMES := {"journal": "Quest log", "fieldbook": "Fieldbook", "gazetteer": "Gazetteer", "poets": "Poets' Corner", "casebook": "Casebook", "studbook": "Stud Book", "biology": "Biology", "words": "Words of the Isles", "invention": "Timeline of Invention", "rumours": "Rumours", "trades": "Trades", "standing": "Standing", "stats": "Tallies", "guilds": "Guilds", "deeds": "Deeds", "society": "Building Society", "landsky": "Land and Sky", "economist": "Economist's notebook", "worth": "Things worth knowing"}
+const MENUS := {"journal": "quests", "fieldbook": "pedia", "gazetteer": "quests:gazetteer", "poets": "ledger:poets", "casebook": "pedia:casebook", "studbook": "pedia:studbook", "biology": "biology", "words": "pedia:words", "invention": "invention", "rumours": "pedia:rumours", "trades": "stats:trades", "standing": "stats:standing", "stats": "stats", "guilds": "ledger:guilds", "deeds": "ledger:deeds", "society": "ledger:society", "landsky": "ledger:landsky", "economist": "economist", "worth": "ledger:worth"}
 
 static func sprouted(d: GameStateData, id: String) -> bool:
 	match id:
+		"poets":
+			return PoetsCorner.count(d) > 0  # the first plaque on the arts read (4.5)
 		"casebook":
 			return Casebook.visible(d)
 		"studbook":
 			return StudBook.idea_count(d) > 0 or not Breeding.baskets(d).is_empty()
+		"biology":
+			return Biology.visible(d)
 		"words":
 			return words_met(d) > 0
+		"invention":
+			return Invention.found_count(d) > 0
 		"rumours":
 			return not d.seen.is_empty()
 		"guilds":
@@ -31,6 +32,12 @@ static func sprouted(d: GameStateData, id: String) -> bool:
 			return not Deeds.owned(d).is_empty()
 		"society":
 			return society_active(d)
+		"worth":
+			return LifeLessons.count(d) > 0
+		"economist":
+			return Economist.count(d) > 0
+		"landsky":
+			return LandSky.met_count(d) > 0  # the geology, weather and climate page (4.5)
 	return true
 
 ## Local words met so far (the Words of the Isles tab, 4.1).
@@ -60,14 +67,23 @@ static func blurb(d: GameStateData, id: String) -> String:
 			return "%d seen, %d caught" % [d.seen.size(), d.caught.size()]
 		"gazetteer":
 			return "Plaques read: " + Gazetteer.stats_line(d)
+		"poets":
+			return "Plaques on the arts read: " + PoetsCorner.stats_line(d)
 		"casebook":
 			var open := Casebook.open_cases(d).filter(func(c): return not Casebook.solved(d, c)).size()
 			return "%d case%s open" % [open, "" if open == 1 else "s"]
 		"studbook":
 			return "%d idea%s noted%s" % [StudBook.idea_count(d), "" if StudBook.idea_count(d) == 1 else "s", ""]
+		"biology":
+			var ch := (", %d of %d of Dr Keir's challenges" % [Biology.done_count(d), Biology.challenges().size()]) if Biology.lab_on(d) else ""
+			return "%d of %d pages%s" % [Biology.open_count(d), Biology.pages().size(), ch]
 		"words":
 			var w := words_met(d)
-			return "%d local word%s met" % [w, "" if w == 1 else "s"]
+			var lessons := TrainerStats.get_count(d, "lessons_taken")  # language lessons (4.5, LangLessons)
+			return "%d local word%s met%s" % [w, "" if w == 1 else "s", (", %d lesson%s" % [lessons, "" if lessons == 1 else "s"]) if lessons > 0 else ""]
+		"invention":
+			var g := Invention.open_gadgets(d).size()
+			return "%d of %d found, %d gadget%s" % [Invention.found_count(d), Invention.entries().size(), g, "" if g == 1 else "s"]
 		"rumours":
 			return "Local gossip and region stamps"
 		"trades":
@@ -94,12 +110,20 @@ static func blurb(d: GameStateData, id: String) -> String:
 			if BuildingSociety.has_loan(d):
 				return "A loan to clear"
 			return "Savings and statements"
+		"worth":
+			return "%d of %d lessons picked up" % [LifeLessons.count(d), LifeLessons.all().size()]
+		"economist":
+			return "%d of %d ideas met" % [Economist.count(d), Economist.total()]
+		"landsky":
+			return LandSky.blurb(d)
 	return ""
 
 ## The rows [label, value] of a ledger page. Never empty: a page with nothing yet says so.
 static func ledger(d: GameStateData, kind: String) -> Array:
 	var out := []
 	match kind:
+		"poets":
+			out = PoetsCorner.ledger(d)
 		"guilds":
 			for g in joined_guilds(d):
 				var r := Guilds.rank(d, g)
@@ -121,4 +145,8 @@ static func ledger(d: GameStateData, kind: String) -> Array:
 				out.append([s.left(i), s.substr(i + 2)] if i > 0 else [s, ""])
 			for line in BuildingSociety.recent(d).slice(0, 3):
 				out.append(["", str(line)])
+		"worth":
+			out = LifeLessons.rows(d)
+		"landsky":
+			out = LandSky.rows(d)
 	return out

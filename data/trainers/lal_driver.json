@@ -1,0 +1,37 @@
+{
+ "id": "lal_driver",
+ "name": "Van Driver",
+ "class": "Commuter",
+ "sprite": "rocker",
+ "party": [
+  {
+   "species": "binfox",
+   "level": 95
+  },
+  {
+   "species": "pierlord",
+   "level": 95
+  },
+  {
+   "species": "stoopfalcon",
+   "level": 95
+  }
+ ],
+ "ai": "trainer",
+ "money": 4200,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Van Driver",
+   "text": "You! Are you in the queue or not? I've been here since half six. I'll fight you for your place."
+  },
+  {
+   "do": "say",
+   "who": "Van Driver",
+   "text": "And don't tell me about the planes. I know about the planes."
+  }
+ ],
+ "win": "Fine. Fine! Have the place. I'll be here till Christmas anyway.",
+ "after": "The trick is to go at lunchtime. Nobody goes at lunchtime. Except everybody.",
+ "scaled_floor": 95
+}

@@ -16,7 +16,7 @@
   {
    "type": "building",
    "style": "raf_block",
-   "x": 24,
+   "x": 19,
    "y": 4,
    "w": 7,
    "h": 3,
@@ -410,6 +410,10 @@
   "east": {
    "to": "gibraltar_rock",
    "offset": 0
+  },
+  "north": {
+   "to": "la_linea",
+   "offset": 0
   }
  },
  "npcs": [
@@ -707,21 +711,21 @@
   {
    "x": 29,
    "y": 7,
-   "text": "RUNWAY CROSSING. When a plane is landing the road is closed, the barriers come down and you wait. It's the only road in the world, we're told, that has to give way to a Hercules."
+   "text": "RUNWAY CROSSING. When a plane is landing the barriers come down and walkers and cyclists wait; cars have taken a tunnel underneath since 2023. It was, we're told, the only main road in the world that had to give way to a Hercules."
   },
   {
    "x": 52,
    "y": 12,
    "plaque": "gibraltar_runway",
    "title": "The Runway and the Road",
-   "text": "Gibraltar's airfield is RAF Gibraltar and the civil airport together, with a runway that is only about 1,800 metres long and ends in the sea at both ends. The main road into town, Winston Churchill Avenue, crosses the runway on the level. When a plane lands or takes off the barriers go down, and the traffic waits for it."
+   "text": "Gibraltar's airfield is RAF Gibraltar and the civil airport together, with a runway that is only about 1,800 metres long and ends in the sea at both ends. Winston Churchill Avenue crosses the runway on the level. Since 2023 cars take a tunnel underneath, but walkers and cyclists still wait at the barriers for each plane."
   },
   {
    "x": 30,
    "y": 19,
    "plaque": "gibraltar_casemates",
    "title": "Casemates Square",
-   "text": "The square is named after the Grand Casemates, a barracks of vaulted rooms built by the British in the 1700s for the garrison. The old gate of the town stands at one end. It was once a place for parades, markets and a drum-beat at the end of the day. Today it is cafes, children and a very polite pigeon."
+   "text": "The square is named after the Grand Casemates, a barracks of vaulted rooms built by the British in 1817 for the garrison. The old gate of the town stands at one end. It was once a place for parades, markets and a drum-beat at the end of the day. Today it is cafes, children and a very polite pigeon."
   },
   {
    "x": 32,
@@ -784,7 +788,7 @@
    "y": 51,
    "plaque": "gibraltar_flora",
    "title": "The Gibraltar Candytuft",
-   "text": "The Rock has about 600 kinds of plant, and one of them grows nowhere else in the world: the Gibraltar candytuft, with clusters of pale-pink flowers on the cliffs. It is the national flower of Gibraltar. Barbary partridges and peregrines nest on the same cliffs."
+   "text": "The Rock has about 600 kinds of plant, and one of them grows wild nowhere else in Europe: the Gibraltar candytuft, with clusters of pale-pink flowers on the cliffs. It is the national flower of Gibraltar. Barbary partridges and peregrines nest on the same cliffs."
   },
   {
    "x": 51,
@@ -804,13 +808,13 @@
  "scaled_floor": 95,
  "stage": "coast",
  "rows": [
-  "HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH",
-  "HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH",
-  "HHggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggHH",
-  "HHggggggggggFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFggggggggggggggggggggggggggHH",
-  "HHgggggggggggsggggggggggBBBBBBBgggggggggggggggggggggggBBBBBBBBBBBBBBBBBBBBBBBBHH",
-  "HHgggggggggggsggggggggggBBBBBBBgggggggggggggggggggggggBBBBBBBBBBBBBBBBBBBBBBBBHH",
-  "HHgggggggggggsggggggggggBBBBBBBgggggggggggggggggggggggBBBBBBBBBBBBBBBBBBBBBBBBHH",
+  "HHHHHHHHHHHHHHHHHHHHHHHHHH===HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH",
+  "HHHHHHHHHHHHHHHHHHHHHHHHHH===HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH",
+  "HHgggggggggggggggggggggggg===gggggggggggggggggggggggggggggggggggggggggggggggggHH",
+  "HHggggggggggFFFFFFFFFFFFFF===FFFFFFFFFFFFFFFFFFFFFFFggggggggggggggggggggggggggHH",
+  "HHgggggggggggsgggggBBBBBBB===gggggggggggggggggggggggggBBBBBBBBBBBBBBBBBBBBBBBBHH",
+  "HHgggggggggggsgggggBBBBBBB===gggggggggggggggggggggggggBBBBBBBBBBBBBBBBBBBBBBBBHH",
+  "HHgggggggggggsgggggBBBBBBB===gggggggggggggggggggggggggBBBBBBBBBBBBBBBBBBBBBBBBHH",
   "HHgggggggggggsgggggggggggg===gggggggggggggggggggggggggBBBBBBBBBBBBBBBBBBBBBBBBHH",
   "HH$$$$$$$$$$w=======================================ggBBBBBBBBBBBBBBBBBBBBBBBBHH",
   "HH$$$$$$$$$$w=======================================ggBBBBBBBBBBBBBBBBBBBBBBBBHH",

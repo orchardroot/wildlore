@@ -1,0 +1,209 @@
+{
+ "ros_johnny": [
+  {
+   "do": "say",
+   "who": "Old Johnny",
+   "text": "Demat! Hello! My grandfather sold onions in Swansea and Cardiff every summer of his working life. He spoke Breton, French and enough Welsh to sell onions to a chapel. Onions are a universal language."
+  },
+  {
+   "do": "say",
+   "who": "Old Johnny",
+   "text": "Kenavo means goodbye. He'd say it at every door, and the Welsh ladies would say hwyl fawr, and they understood each other perfectly."
+  },
+  {
+   "do": "if",
+   "flag": "q_abroad_brittany_johnny_started",
+   "then": [
+    {
+     "do": "set",
+     "flag": "q_abroad_brittany_johnny_1",
+     "value": true
+    }
+   ]
+  }
+ ],
+ "ros_teacher": [
+  {
+   "do": "say",
+   "who": "Diwan Teacher",
+   "text": "I teach at the Diwan school. Here is a game for you: ti is house, like t\u0177 in Welsh. Penn is head, like pen. Aber is a river mouth, as in Aberystwyth. K\u00ear is a village, like caer. You know more Breton than you think."
+  },
+  {
+   "do": "say",
+   "who": "Diwan Teacher",
+   "text": "Trugarez, thank you. Say it to the cr\u00eape lady and she'll add extra butter."
+  },
+  {
+   "do": "if",
+   "flag": "q_abroad_brittany_johnny_started",
+   "then": [
+    {
+     "do": "set",
+     "flag": "q_abroad_brittany_johnny_2",
+     "value": true
+    }
+   ]
+  }
+ ],
+ "ros_fisher": [
+  {
+   "do": "say",
+   "who": "Seaweed Gatherer",
+   "text": "Go\u00e9mon, we call it, gwemon in Breton. My family raked it off the rocks for the fields for generations. Now I sell it to a laboratory and a sushi bar. My grandmother would not believe the price."
+  }
+ ],
+ "ros_dancer": [
+  {
+   "do": "say",
+   "who": "Fest-Noz Dancer",
+   "text": "Fest-noz tonight! A night festival: everyone in a line or a ring, holding little fingers, dancing for hours to singers and a bombard and a biniou. In 2012 UNESCO put it on its list of the world's living heritage."
+  }
+ ],
+ "ros_farmer": [
+  {
+   "do": "say",
+   "who": "Onion Grower",
+   "text": "The pink onion of Roscoff. Sweet, keeps all winter, lovely in a tart. The sea air does it, and the seaweed in the soil."
+  }
+ ],
+ "roscoff_bureau": [
+  {
+   "do": "say",
+   "who": "Bureau Clerk",
+   "text": "Bureau de change. Euros for pounds, pounds for euros, and a small commission. Brittany uses the euro like the rest of France. The onions are priced in euros too."
+  },
+  {
+   "do": "bureau"
+  }
+ ],
+ "ros_vraic": [
+  {
+   "do": "say",
+   "who": "Vraicling",
+   "text": "A heap of wet seaweed rearranges itself on the slipway and looks pleased about something, possibly the tide."
+  }
+ ],
+ "ros_ferry": [
+  {
+   "do": "say",
+   "who": "Ferry Hand",
+   "text": "The ferry for Plymouth! About six hours, if the Channel is in a good mood. Kenavo, Breizh."
+  },
+  {
+   "do": "ferry",
+   "route": "plymouth_roscoff"
+  }
+ ],
+ "ros_legend_talk": [
+  {
+   "do": "if",
+   "flag": "q_abroad_brittany_johnny_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Gwenola the Storyteller",
+     "text": "Come back on a foggy night and I'll tell you about the drowned city of Ys. If you hear bells under the sea, don't go looking."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_abroad_brittany_johnny_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_abroad_brittany_johnny_1",
+       "then": [
+        {
+         "do": "if",
+         "flag": "q_abroad_brittany_johnny_2",
+         "then": [
+          {
+           "do": "if",
+           "flag": "q_abroad_brittany_johnny_3",
+           "then": [
+            {
+             "do": "say",
+             "who": "Gwenola the Storyteller",
+             "text": "You've said demat and kenavo, and you've carried onions to Plymouth like a true Johnny. Now, the custom before a tale."
+            },
+            {
+             "do": "battle",
+             "trainer": "ros_legend",
+             "intro": true
+            },
+            {
+             "do": "say",
+             "who": "Gwenola the Storyteller",
+             "text": "Trugarez! Here is a triskell pin, the Breton three spirals, and a kouign-amann for the road. Now sit down. Once upon a time, there was a cart that creaked..."
+            },
+            {
+             "do": "give_item",
+             "item": "triskell_pin",
+             "n": 1
+            },
+            {
+             "do": "give_item",
+             "item": "kouign_amann",
+             "n": 2
+            },
+            {
+             "do": "standing",
+             "nation": "abroad",
+             "amount": 3
+            },
+            {
+             "do": "set",
+             "flag": "q_abroad_brittany_johnny_done",
+             "value": true
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Gwenola the Storyteller",
+             "text": "Before the tale, the words. Learn demat and kenavo from the Old Johnny by the museum, and trugarez from the Diwan teacher. Then take a string of onions over to Plymouth, as the Johnnies did, and give it to someone who'll appreciate it."
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Gwenola the Storyteller",
+           "text": "Before the tale, the words. Learn demat and kenavo from the Old Johnny by the museum, and trugarez from the Diwan teacher. Then take a string of onions over to Plymouth, as the Johnnies did, and give it to someone who'll appreciate it."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Gwenola the Storyteller",
+         "text": "Before the tale, the words. Learn demat and kenavo from the Old Johnny by the museum, and trugarez from the Diwan teacher. Then take a string of onions over to Plymouth, as the Johnnies did, and give it to someone who'll appreciate it."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Gwenola the Storyteller",
+       "text": "Demat! A visitor from over the water. The old Johnnies would've sold you an onion by now. Want a tale? Learn three Breton words first, and do a Johnny's job: carry a string of onions to Plymouth."
+      },
+      {
+       "do": "set",
+       "flag": "q_abroad_brittany_johnny_started",
+       "value": true
+      },
+      {
+       "do": "give_item",
+       "item": "onion_string",
+       "n": 1
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

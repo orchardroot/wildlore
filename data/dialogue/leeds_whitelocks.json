@@ -1,4 +1,5 @@
 {
+ "econ_derek": [{"do": "if", "flag": "q_pennines_econ_pint", "then": [{"do": "say", "who": "Derek", "text": "Same pint, smaller pound. Write that in your little book."}], "else": [{"do": "say", "who": "Derek", "text": "Decimal Day, 15 February 1971. I was a lad. Twelve pence to the shilling, twenty shillings to the pound, gone in a weekend."}, {"do": "say", "who": "Derek", "text": "Two hundred and forty old pence became a hundred new ones. Folk swore the shops rounded everything up."}, {"do": "say", "who": "Derek", "text": "Then the seventies. In 1975 prices went up by about a quarter in one year. Wages chased them. Nobody caught anything."}, {"do": "say", "who": "Derek", "text": "That's inflation. The pint's the same pint. It's the pound that shrinks."}, {"do": "choice", "text": "If prices rise 2% a year, what does a £5 pint cost in ten years?", "options": ["£5.10", "About £6.10", "£15"], "set": "_econ_pint_q"}, {"do": "if", "flag": "_econ_pint_q", "eq": 1, "then": [{"do": "say", "who": "Derek", "text": "Spot on. Two per cent on top of two per cent, ten times over. It compounds, like interest."}], "else": [{"do": "say", "who": "Derek", "text": "About £6.10. Two per cent on top of two per cent, ten times over. It compounds, like interest."}]}, {"do": "say", "who": "Derek", "text": "The Bank of England aims for 2% a year. In October 2022 it hit 11.1%. I noticed. My pint noticed."}, {"do": "set", "flag": "econ_inflation", "value": true}, {"do": "set", "flag": "q_pennines_econ_pint", "value": true}]}],
  "whitelocks_quiz": [
   {
    "do": "say",
@@ -17,6 +18,105 @@
    "do": "say",
    "who": "Regular",
    "text": "{greeting} Pull up a stool. Them mirrors are older than my granddad. So's the beer, if you believe the landlord."
+  }
+ ],
+ "life_deed_scam": [
+  {
+   "do": "if",
+   "flag": "lesson_deed_scam",
+   "then": [
+    {
+     "do": "say",
+     "who": "Smooth Stranger",
+     "text": "Not you again. I've found a very exclusive clock tower. Enquire within. Or don't. I'll be more relaxed about it."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Smooth Stranger",
+     "text": "Psst. You look like a person of vision. I've the Deed to a lovely little lighthouse. Worth four grand easy. Yours for four hundred, cash, tonight."
+    },
+    {
+     "do": "say",
+     "who": "Smooth Stranger",
+     "text": "Tomorrow the price doubles. Others are interested. I can't say who. It's a very exclusive set of people, all of them me."
+    },
+    {
+     "do": "choice",
+     "text": "A lighthouse for a tenth of its value. What do you do?",
+     "options": [
+      "Hand over the cash before it doubles",
+      "Ask who the registered owner is",
+      "Walk away and finish your drink"
+     ],
+     "set": "life_deed_scam_pick"
+    },
+    {
+     "do": "if",
+     "flag": "life_deed_scam_pick",
+     "eq": 0,
+     "then": [
+      {
+       "do": "say",
+       "who": "Smooth Stranger",
+       "text": "He's thrilled. You are, in a way, the lesson: the deadline was there to stop you thinking."
+      }
+     ]
+    },
+    {
+     "do": "if",
+     "flag": "life_deed_scam_pick",
+     "eq": 1,
+     "then": [
+      {
+       "do": "say",
+       "who": "Smooth Stranger",
+       "text": "Smart. Anyone can look up who owns a property at the land registry for a few quid, and a real seller will have nothing to hide. He suddenly remembers a meeting."
+      }
+     ]
+    },
+    {
+     "do": "if",
+     "flag": "life_deed_scam_pick",
+     "eq": 2,
+     "then": [
+      {
+       "do": "say",
+       "who": "Smooth Stranger",
+       "text": "Also smart. The scam only works if you don't have time to think, so thinking time is the whole defence."
+      }
+     ]
+    },
+    {
+     "do": "say",
+     "who": "Smooth Stranger",
+     "text": "The warning lights: a price far too good, a deadline, cash only, a stranger, and no paperwork you can check."
+    },
+    {
+     "do": "say",
+     "who": "Smooth Stranger",
+     "text": "Real sales go through a solicitor or conveyancer, take weeks, and let you sleep on it. Anyone who won't let you sleep on it is selling you something else."
+    },
+    {
+     "do": "say",
+     "who": "Smooth Stranger",
+     "text": "(The landlord slides a Yorkshire pudding across the bar.) On the house. For listening, not for buying a lighthouse."
+    },
+    {
+     "do": "set",
+     "flag": "lesson_deed_scam"
+    },
+    {
+     "do": "give_item",
+     "item": "yorkshire_pudding"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Noted in the Almanac under Things worth knowing."
+    }
+   ]
   }
  ]
 }

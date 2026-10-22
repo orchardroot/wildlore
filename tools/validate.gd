@@ -25,13 +25,20 @@ func _initialize() -> void:
 	errors.append_array(Quests.validate(Quests.all(), zones, Quests.all_settable()))  # data/quests: zones, flags set somewhere
 	errors.append_array(Festivals.validate(zones, dex, Quests.all()))  # data/festivals.json: towns, scripts, quests, creatures
 	errors.append_array(Gazetteer.validate(Gazetteer.all()))  # heritage plaques: unique ids, titles, no em-dashes
+	errors.append_array(TheseIsles.validate(TheseIsles.themes(), Gazetteer.all(), TheseIsles.people(), Quests.all(), Quests.all_settable(), func(zid): return zones.has(zid)))  # data/these_isles.json
+	errors.append_array(Invention.check(Quests.all_settable()))  # data/invention.json: the Timeline of Invention
+	errors.append_array(Economist.check(Gazetteer.all()))  # data/economist.json: the notebook's ideas and history plaques
+	errors.append_array(IslesWork.validate(IslesWork.all(), Quests.all_settable()))  # data/isles_work.json: How these isles work
 	errors.append_array(Langs.check(func(zid): return zones.has(zid)))  # data/lang: places are zones, shape, no em-dashes
+	errors.append_array(LangLessons.check(func(zid): return zones.get(zid), ZoneIndex.get_index()))  # data/lang lessons: shape, teachers on free tiles
 	errors.append_array(MarketHall.check_files())  # data/market_halls.json: rooms, stall-holders, plaques
 	errors.append_array(Knacks.check(dex))  # every line has a knack, legends their own
 	errors.append_array(Forms.check(dex, MoveDB.load_default(), _regions(zones), TypeChart.load_default()))  # data/forms.json: regional forms
 	errors.append_array(Breeding.check(dex))  # data/breeding.json: the conservation goals name real breeding lines
 	errors.append_array(Genetics.check(dex))  # data/genes.json: loci match the code, every line has a kindred
 	errors.append_array(Genetics.check_hybrids(dex, MoveDB.load_default()))  # data/hybrids.json: parents, types, caps, sprites
+	errors.append_array(BiologyCheck.check())  # data/biology.json: the Biology page and Dr Keir's challenges
+	errors.append_array(Crossbreeds.check(dex, MoveDB.load_default()))  # data/taxa.json and every generated crossbreed
 	errors.append_array(Overseas.validate(func(zid): return zones.has(zid)))  # data/overseas: the departures board registry
 	var regions := {}
 	for zd in zones.values():

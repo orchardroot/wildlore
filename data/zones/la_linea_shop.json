@@ -1,0 +1,59 @@
+{
+ "id": "la_linea_shop",
+ "name": "Ultramarinos",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "bookshelf",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "potted_plant",
+   "x": 7,
+   "y": 5
+  }
+ ],
+ "warps": [
+  {
+   "x": 4,
+   "y": 6,
+   "to": "la_linea",
+   "tx": 42,
+   "ty": 41,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "shopkeeper",
+   "sprite": "shopkeeper",
+   "x": 3,
+   "y": 1,
+   "facing": "down",
+   "move": "still",
+   "script": "shopkeeper",
+   "name": "Grocer"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  4,
+  5
+ ],
+ "rows": [
+  "xxxxxxxxx",
+  "x|||||||x",
+  "x|CCC|CCx",
+  "x|||||CCx",
+  "x|||||CCx",
+  "x|||||||x",
+  "x|||D|||x",
+  "xxxxxxxxx"
+ ]
+}

@@ -1,4 +1,41 @@
 {
+ "lon_ai_rao": [
+  {
+   "do": "if",
+   "flag": "q_invention_ai_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Dr Rao",
+     "text": "Patterns from examples, sometimes wrong, people deciding. That's the plain-words version. Now go outside: the grass is full of things no model has seen."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_invention_ai_started",
+     "then": [],
+     "else": [
+      {"do": "say", "who": "Dr Rao", "text": "Dr Rao. I teach computers by example, in a lab near King's Cross. Want AI in plain words? No hype, no doom."},
+      {"do": "say", "who": "Dr Rao", "text": "A model is a pattern-finder. Show it ten thousand photos marked heron or not heron, and it nudges millions of little dials until its guesses match the marks. That's the learning."},
+      {"do": "say", "who": "Dr Rao", "text": "It doesn't know what a heron is. It has never been wet. It's just very good at things that look like its examples. The chatty ones do the same trick with words: guess the next word, again and again."},
+      {"do": "set", "flag": "q_invention_ai_started"}
+     ]
+    },
+    {
+     "do": "if",
+     "flag": "plaque_london_deepmind",
+     "then": [
+      {"do": "choice", "text": "I train it on heron photos, all taken in summer. Then I show it a heron in the snow. What happens?", "options": ["It's bound to get it right", "It might get it wrong: it has never seen snow", "It phones a friend"], "set": "inv_ai_q1"},
+      {"do": "if", "flag": "inv_ai_q1", "then": [{"do": "say", "who": "Dr Rao", "text": "Exactly. It only knows what it was shown. Fill its examples with one kind of thing and it struggles with another, and that goes for faces and accents too."}, {"do": "choice", "text": "It says heron, 98 per cent sure. Is it right?", "options": ["Yes, 98 per cent is basically certain", "Not necessarily: a model can be sure and wrong"], "set": "inv_ai_q2"}, {"do": "if", "flag": "inv_ai_q2", "then": [{"do": "say", "who": "Dr Rao", "text": "Right. That number is how sure it sounds, not a promise. Some will make up a fact, a book or a quote with total confidence."}, {"do": "choice", "text": "Last one. A bank uses a model to turn down loans. Who should answer for that decision?", "options": ["The model, it's quicker", "People: they can check it, explain it and put it right"], "set": "inv_ai_q3"}, {"do": "if", "flag": "inv_ai_q3", "then": [{"do": "say", "who": "Dr Rao", "text": "That's it. A model can help, but it can't take the blame, and it doesn't care. People still matter: to choose the examples, check the answers and decide."}, {"do": "say", "who": "Dr Rao", "text": "Here, for your trouble. And remember: the most useful thing anyone can do with an AI is check it."}, {"do": "set", "flag": "q_invention_ai_1"}, {"do": "give_item", "item": "flask_of_tea", "n": 2}, {"do": "give_item", "item": "silver_snare", "n": 2}, {"do": "set", "flag": "q_invention_ai_done"}], "eq": 1, "else": [{"do": "say", "who": "Dr Rao", "text": "No. A model can't explain itself to you or be held to account. People have to. Have a think and come back."}]}], "eq": 1, "else": [{"do": "say", "who": "Dr Rao", "text": "Afraid not. It can be ninety-eight per cent sure and flat wrong. Confidence isn't truth. Have a think and come back."}]}], "eq": 1, "else": [{"do": "say", "who": "Dr Rao", "text": "Not quite. It never saw snow, so snow might throw it completely. Have a think and come back."}]}
+     ],
+     "else": [
+      {"do": "say", "who": "Dr Rao", "text": "Read the DeepMind plaque, just east of the station, then come and see if I can catch you out."}
+     ]
+    }
+   ]
+  }
+ ],
  "rail_guard": [
   {
    "do": "say",
@@ -56,11 +93,7 @@
      "cond": "winter",
      "chat": true,
      "then": [
-      {
-       "do": "say",
-       "who": "Ravenmaster",
-       "text": "Cold snap. The ravens fluff up like feather dusters and glare at me as if it's my fault."
-      }
+      {"do": "say", "who": "Ravenmaster", "text": "Cold snap. The ravens fluff up like feather dusters and glare at me as if it's my fault."}
      ]
     }
    ]
@@ -82,25 +115,10 @@
      "cond": "gale",
      "chat": true,
      "then": [
-      {
-       "do": "say",
-       "who": "Ravenmaster",
-       "text": "Windy one. The ravens are walking today, not flying. Very sensible birds."
-      }
+      {"do": "say", "who": "Ravenmaster", "text": "Windy one. The ravens are walking today, not flying. Very sensible birds."}
      ],
      "else": [
-      {
-       "do": "when",
-       "cond": "dawn",
-       "chat": true,
-       "then": [
-        {
-         "do": "say",
-         "who": "Ravenmaster",
-         "text": "Morning! Breakfast time for the ravens. Raw meat, biscuits, and a lot of opinions."
-        }
-       ]
-      }
+      {"do": "when", "cond": "dawn", "chat": true, "then": [{"do": "say", "who": "Ravenmaster", "text": "Morning! Breakfast time for the ravens. Raw meat, biscuits, and a lot of opinions."}]}
      ]
     }
    ]
@@ -134,39 +152,10 @@
      "cond": "bonfire_night",
      "chat": true,
      "then": [
-      {
-       "do": "say",
-       "who": "Cabbie",
-       "text": "Bonfire Night. Whole city goes off like a kettle. Parliament's still standing, mind. Some folk say that's a shame."
-      }
+      {"do": "say", "who": "Cabbie", "text": "Bonfire Night. Whole city goes off like a kettle. Parliament's still standing, mind. Some folk say that's a shame."}
      ],
      "else": [
-      {
-       "do": "when",
-       "cond": "christmas",
-       "chat": true,
-       "then": [
-        {
-         "do": "say",
-         "who": "Cabbie",
-         "text": "Oxford Street at Christmas? Not for any money. Well. For quite a lot of money."
-        }
-       ],
-       "else": [
-        {
-         "do": "when",
-         "cond": "autumn",
-         "chat": true,
-         "then": [
-          {
-           "do": "say",
-           "who": "Cabbie",
-           "text": "Autumn in London. Leaves on the pavement, conkers in the park and roadworks. Mostly roadworks."
-          }
-         ]
-        }
-       ]
-      }
+      {"do": "when", "cond": "christmas", "chat": true, "then": [{"do": "say", "who": "Cabbie", "text": "Oxford Street at Christmas? Not for any money. Well. For quite a lot of money."}], "else": [{"do": "when", "cond": "autumn", "chat": true, "then": [{"do": "say", "who": "Cabbie", "text": "Autumn in London. Leaves on the pavement, conkers in the park and roadworks. Mostly roadworks."}]}]}
      ]
     }
    ]
@@ -188,25 +177,10 @@
      "cond": "fog",
      "chat": true,
      "then": [
-      {
-       "do": "say",
-       "who": "Cabbie",
-       "text": "Bit of a pea-souper, innit? Don't worry, I could find Piccadilly with my eyes shut. I won't, mind."
-      }
+      {"do": "say", "who": "Cabbie", "text": "Bit of a pea-souper, innit? Don't worry, I could find Piccadilly with my eyes shut. I won't, mind."}
      ],
      "else": [
-      {
-       "do": "when",
-       "cond": "night",
-       "chat": true,
-       "then": [
-        {
-         "do": "say",
-         "who": "Cabbie",
-         "text": "Night shift, me. London's lovely after dark. No traffic on the Embankment and the bridges all lit up."
-        }
-       ]
-      }
+      {"do": "when", "cond": "night", "chat": true, "then": [{"do": "say", "who": "Cabbie", "text": "Night shift, me. London's lovely after dark. No traffic on the Embankment and the bridges all lit up."}]}
      ]
     }
    ]
@@ -240,11 +214,7 @@
      "cond": "dusk",
      "chat": true,
      "then": [
-      {
-       "do": "say",
-       "who": "Westminster Local",
-       "text": "Dusk on the river. The lights go on along the South Bank and even the pigeons look posh."
-      }
+      {"do": "say", "who": "Westminster Local", "text": "Dusk on the river. The lights go on along the South Bank and even the pigeons look posh."}
      ]
     }
    ]
@@ -278,25 +248,10 @@
      "cond": "rain",
      "chat": true,
      "then": [
-      {
-       "do": "say",
-       "who": "Tourist",
-       "text": "It's raining and nobody's even looking up. Londoners just carry on. I'm so impressed."
-      }
+      {"do": "say", "who": "Tourist", "text": "It's raining and nobody's even looking up. Londoners just carry on. I'm so impressed."}
      ],
      "else": [
-      {
-       "do": "when",
-       "cond": "dusk",
-       "chat": true,
-       "then": [
-        {
-         "do": "say",
-         "who": "Tourist",
-         "text": "Big Ben's lit up! I've taken forty photos. Thirty-nine of them are of my thumb."
-        }
-       ]
-      }
+      {"do": "when", "cond": "dusk", "chat": true, "then": [{"do": "say", "who": "Tourist", "text": "Big Ben's lit up! I've taken forty photos. Thirty-nine of them are of my thumb."}]}
      ]
     }
    ]
@@ -322,137 +277,12 @@
      "do": "if",
      "flag": "game_complete",
      "then": [
-      {
-       "do": "if",
-       "flag": "bran_met",
-       "then": [
-        {
-         "do": "say",
-         "who": "",
-         "text": "On the lawn, the great raven turns her head sideways and looks at you with one bright black eye. She has the air of a bird who has an opinion, and knows exactly where you can put it."
-        }
-       ],
-       "else": [
-        {
-         "do": "say",
-         "who": "",
-         "text": "The great raven is waiting on the lawn, in the grey light, as though she had been expecting you for a few hundred years and had just about stopped checking her watch."
-        },
-        {
-         "do": "music",
-         "id": "legend_crow"
-        },
-        {
-         "do": "say",
-         "who": "Bran's Raven",
-         "text": "Kraa. You came back. Good. Ravens do not say 'well done'. We say 'kraa' and then we stay."
-        },
-        {
-         "do": "say",
-         "who": "Bran's Raven",
-         "text": "They say if we leave the Tower, the kingdom falls. This is partly true. The kingdom has a good deal of falling in it, and it's the ravens who do the picking up."
-        },
-        {
-         "do": "say",
-         "who": "Bran's Raven",
-         "text": "Brân the Blessed was a giant who waded the Irish Sea, and when he died, they buried his head under this hill, to guard the isles. I am only his raven. But I have inherited the job."
-        },
-        {
-         "do": "say",
-         "who": "Bran's Raven",
-         "text": "The wardstones are broken. The old places are free. Come, then, Champion. One more thing to do. Show me you can keep what you are allowed to keep."
-        },
-        {
-         "do": "set",
-         "flag": "bran_met"
-        }
-       ]
-      },
-      {
-       "do": "legend",
-       "species": "bran",
-       "level": 92,
-       "flag": "caught_bran",
-       "music": "legend_crow"
-      },
-      {
-       "do": "if",
-       "flag": "caught_bran",
-       "then": [
-        {
-         "do": "say",
-         "who": "",
-         "text": "The great raven drops from the lawn onto your shoulder with all the delicacy of a shopping bag full of gravel, and settles."
-        },
-        {
-         "do": "say",
-         "who": "",
-         "text": "Across the Tower green, five ravens look at one another. The ravenmaster takes off his hat. Nobody says anything, which in a raven is the highest compliment."
-        },
-        {
-         "do": "warp",
-         "zone": "london",
-         "x": 70,
-         "y": 20,
-         "facing": "up"
-        },
-        {
-         "do": "end"
-        }
-       ],
-       "else": [
-        {
-         "do": "say",
-         "who": "",
-         "text": "Bran's Raven lifts off the lawn in one great beat, circles the White Tower once, and settles on the battlements, glaring. She is not leaving. She is making a point."
-        },
-        {
-         "do": "warp",
-         "zone": "london",
-         "x": 70,
-         "y": 20,
-         "facing": "up"
-        },
-        {
-         "do": "end"
-        }
-       ]
-      }
+      {"do": "if", "flag": "bran_met", "then": [{"do": "say", "who": "", "text": "On the lawn, the great raven turns her head sideways and looks at you with one bright black eye. She has the air of a bird who has an opinion, and knows exactly where you can put it."}], "else": [{"do": "say", "who": "", "text": "The great raven is waiting on the lawn, in the grey light, as though she had been expecting you for a few hundred years and had just about stopped checking her watch."}, {"do": "music", "id": "legend_crow"}, {"do": "say", "who": "Bran's Raven", "text": "Kraa. You came back. Good. Ravens do not say 'well done'. We say 'kraa' and then we stay."}, {"do": "say", "who": "Bran's Raven", "text": "They say if we leave the Tower, the kingdom falls. This is partly true. The kingdom has a good deal of falling in it, and it's the ravens who do the picking up."}, {"do": "say", "who": "Bran's Raven", "text": "Brân the Blessed was a giant who waded the Irish Sea, and when he died, they buried his head under this hill, to guard the isles. I am only his raven. But I have inherited the job."}, {"do": "say", "who": "Bran's Raven", "text": "The wardstones are broken. The old places are free. Come, then, Champion. One more thing to do. Show me you can keep what you are allowed to keep."}, {"do": "set", "flag": "bran_met"}]},
+      {"do": "legend", "species": "bran", "level": 92, "flag": "caught_bran", "music": "legend_crow"},
+      {"do": "if", "flag": "caught_bran", "then": [{"do": "say", "who": "", "text": "The great raven drops from the lawn onto your shoulder with all the delicacy of a shopping bag full of gravel, and settles."}, {"do": "say", "who": "", "text": "Across the Tower green, five ravens look at one another. The ravenmaster takes off his hat. Nobody says anything, which in a raven is the highest compliment."}, {"do": "warp", "zone": "london", "x": 70, "y": 20, "facing": "up"}, {"do": "end"}], "else": [{"do": "say", "who": "", "text": "Bran's Raven lifts off the lawn in one great beat, circles the White Tower once, and settles on the battlements, glaring. She is not leaving. She is making a point."}, {"do": "warp", "zone": "london", "x": 70, "y": 20, "facing": "up"}, {"do": "end"}]}
      ],
      "else": [
-      {
-       "do": "if",
-       "flag": "moot_won",
-       "then": [
-        {
-         "do": "say",
-         "who": "",
-         "text": "The great raven sits on the Tower lawn, with her back to you, looking at the glass tower upriver. She turns her head very slowly and gives you the look of someone saying 'after'."
-        },
-        {
-         "do": "say",
-         "who": "Bran's Raven",
-         "text": "Kraa. Later. The tower first."
-        }
-       ],
-       "else": [
-        {
-         "do": "say",
-         "who": "",
-         "text": "A huge raven watches you from the lawn. She is twice the size of any of the others, and a good deal less polite."
-        },
-        {
-         "do": "say",
-         "who": "Bran's Raven",
-         "text": "Kraa."
-        },
-        {
-         "do": "say",
-         "who": "",
-         "text": "She turns her head to the glass tower across the river, then back to you, then to the tower again, with the long-suffering patience of a bird who has seen what happens to rooftops and has views on glass."
-        }
-       ]
-      }
+      {"do": "if", "flag": "moot_won", "then": [{"do": "say", "who": "", "text": "The great raven sits on the Tower lawn, with her back to you, looking at the glass tower upriver. She turns her head very slowly and gives you the look of someone saying 'after'."}, {"do": "say", "who": "Bran's Raven", "text": "Kraa. Later. The tower first."}], "else": [{"do": "say", "who": "", "text": "A huge raven watches you from the lawn. She is twice the size of any of the others, and a good deal less polite."}, {"do": "say", "who": "Bran's Raven", "text": "Kraa."}, {"do": "say", "who": "", "text": "She turns her head to the glass tower across the river, then back to you, then to the tower again, with the long-suffering patience of a bird who has seen what happens to rooftops and has views on glass."}]}
      ]
     }
    ]
@@ -566,6 +396,182 @@
    "do": "say",
    "who": "Diamond Paws",
    "text": "Last edition went to nothing overnight. The website sells garden furniture now. Lovely benches, to be fair."
+  }
+ ],
+ "isles_marcia": [
+  {
+   "do": "set",
+   "flag": "isles_met_marcia"
+  },
+  {
+   "do": "if",
+   "flag": "q_isles_windrush_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Marcia",
+     "text": "Grandad used to say the cold was the easy part. The signs in the boarding-house windows were harder. He outlived every one of those signs, and he made sure to tell us so."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_isles_windrush_started",
+     "then": [
+      {"do": "if", "flag": "plaque_london_windrush", "then": [{"do": "if", "flag": "plaque_london_claudia_jones", "then": [{"do": "say", "who": "Marcia", "text": "You read them both? Then you know more than my nephew, and he's thirty."}, {"do": "say", "who": "Marcia", "text": "Here. A whistle from my first Notting Hill Carnival, in 1979. Blow it gently; the neighbours have opinions."}, {"do": "give_item", "item": "isles_carnival_whistle"}, {"do": "standing", "nation": "england", "amount": 2}, {"do": "set", "flag": "q_isles_windrush_done"}], "else": [{"do": "say", "who": "Marcia", "text": "Two plaques: the Windrush, and Claudia Jones. They're both in town. I'll put the kettle on."}]}], "else": [{"do": "say", "who": "Marcia", "text": "Two plaques: the Windrush, and Claudia Jones. They're both in town. I'll put the kettle on."}]}
+     ],
+     "else": [
+      {"do": "say", "who": "Marcia", "text": "{greeting} I'm Marcia. My grandad came over on the Windrush in 1948, a carpenter from Kingston with one suitcase and a good coat. The coat was not good enough for a London February."},
+      {"do": "say", "who": "Marcia", "text": "People forget the invitation. Britain needed hands after the war, for the buses, the hospitals and the railways, and the Caribbean answered."},
+      {"do": "say", "who": "Marcia", "text": "In 2018 it came out that some of the Windrush generation were being told they had no right to be here, after a lifetime of work. Some lost their jobs; some were even deported. That's the Windrush scandal, and part of why we mark Windrush Day."},
+      {"do": "choice", "text": "Help Marcia mark Windrush Day?", "options": ["Yes, of course", "Maybe later"], "set": "_t_isles_windrush"},
+      {"do": "if", "flag": "_t_isles_windrush", "eq": 0, "then": [{"do": "say", "who": "Marcia", "text": "Lovely. Read the Windrush plaque, and the one for Claudia Jones, the woman who gave London its carnival. Then come and tell me."}, {"do": "set", "flag": "q_isles_windrush_started"}], "else": [{"do": "say", "who": "Marcia", "text": "No bother. I'll be here."}]}
+     ]
+    }
+   ]
+  }
+ ],
+ "isles_rahima": [
+  {
+   "do": "set",
+   "flag": "isles_met_rahima"
+  },
+  {
+   "do": "say",
+   "who": "Rahima",
+   "text": "{greeting} I'm Rahima. My family's from Sylhet, in Bangladesh. Most British Bangladeshis are; walk down Brick Lane and you'll hear more Sylheti than anything."
+  },
+  {
+   "do": "say",
+   "who": "Rahima",
+   "text": "Sylheti seamen were cooking and stoking on British ships long before the 1950s. Some came ashore in London and opened cafes. That's the curry house's family tree, more or less."
+  },
+  {
+   "do": "say",
+   "who": "Rahima",
+   "text": "In 1978 a young garment worker called Altab Ali was murdered on his way home from work, for nothing but who he was. Thousands marched. The park near where he died is Altab Ali Park now."
+  },
+  {
+   "do": "say",
+   "who": "Rahima",
+   "text": "Brick Lane has had Huguenots, Jews and us. Every lot got told they'd never fit in, and every lot made the street better. Have a samosa."
+  }
+ ],
+ "lon_civil_servant": [
+  {
+   "do": "if",
+   "flag": "isles_westminster",
+   "then": [
+    {
+     "do": "say",
+     "who": "Civil Servant",
+     "text": "Back to the office. There's a consultation on the font for consultations."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Civil Servant",
+     "text": "{greeting} Lunch break. Forty minutes, and I spend them explaining the country to visitors. Shall I? Good."
+    },
+    {
+     "do": "say",
+     "who": "Civil Servant",
+     "text": "Great Britain is the island: England, Scotland and Wales. The United Kingdom is the country: Great Britain plus Northern Ireland."
+    },
+    {
+     "do": "say",
+     "who": "Civil Servant",
+     "text": "The British Isles is the geography, Ireland and all. Say it in Dublin and someone will politely suggest 'these islands'. They have a point."
+    },
+    {
+     "do": "say",
+     "who": "Civil Servant",
+     "text": "Ireland is its own country, mind. And the Isle of Man and the Channel Islands belong to the Crown, not to the UK. Nobody gets this right first time."
+    },
+    {
+     "do": "set",
+     "flag": "isles_uk_gb_isles"
+    },
+    {
+     "do": "say",
+     "who": "Civil Servant",
+     "text": "That's Parliament behind me. The Commons has 650 MPs, all elected. The Lords aren't elected at all, which is a conversation for a longer lunch."
+    },
+    {
+     "do": "say",
+     "who": "Civil Servant",
+     "text": "The King is head of state, the politicians govern, and the Prime Minister is whoever the Commons will back. Usually the leader of the biggest party."
+    },
+    {
+     "do": "say",
+     "who": "Civil Servant",
+     "text": "And no, there's no single written constitution. It's laws, court rulings and habits. Ireland's is written down and only changes by referendum. Very tidy."
+    },
+    {
+     "do": "set",
+     "flag": "isles_westminster"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Noted in the Gazetteer, under How these isles work."
+    },
+    {
+     "do": "say",
+     "who": "Civil Servant",
+     "text": "Right. Meal deal."
+    }
+   ]
+  }
+ ],
+ "lon_commonwealth": [
+  {
+   "do": "if",
+   "flag": "isles_commonwealth",
+   "then": [
+    {
+     "do": "say",
+     "who": "Games Volunteer",
+     "text": "If you see a lost relay team, they're mine. Point them at Marlborough House."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Games Volunteer",
+     "text": "{greeting} I volunteer at the Commonwealth Games. Lanyard, clipboard, sore feet. The full kit."
+    },
+    {
+     "do": "say",
+     "who": "Games Volunteer",
+     "text": "The Commonwealth is 56 countries, most once ruled by Britain, about a third of everyone on Earth. Nobody has to stay. Ireland left in 1949."
+    },
+    {
+     "do": "say",
+     "who": "Games Volunteer",
+     "text": "Mozambique and Rwanda joined without ever being British colonies. It's a club people choose."
+    },
+    {
+     "do": "say",
+     "who": "Games Volunteer",
+     "text": "The King is its Head, but most members are republics. Fourteen countries besides the UK still have him as their King, Canada, Australia and Jamaica among them."
+    },
+    {
+     "do": "say",
+     "who": "Games Volunteer",
+     "text": "The office is at Marlborough House, just up the road. The Games come round every four years. Bring a cagoule."
+    },
+    {
+     "do": "set",
+     "flag": "isles_commonwealth"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Noted in the Gazetteer, under How these isles work."
+    }
+   ]
   }
  ]
 }

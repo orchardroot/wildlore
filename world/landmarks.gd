@@ -44,7 +44,9 @@ const SPECIAL := ["edinburgh_tenement", "glasgow_tenement", "aberdeen_granite", 
 	"europa_lighthouse", "flat_house", "greek_theatre", "raf_terminal",
 	"sa_colonial", "jacobs_ladder", "radome", "tin_cottage", "whalebone_arch",
 	"pitcairn_house", "boat_shed", "base_hangar", "base_tower", "base_block", "plantation_ruin", "island_church",
-	"jersey_granite", "guernsey_granite", "jersey_tower", "little_chapel"]
+	"jersey_granite", "guernsey_granite", "jersey_tower", "little_chapel",
+	"andaluz_house", "andaluz_church", "frontier_post", "fort_ruin", "venetian_gate", "venetian_wall", "selimiye", "han",
+	"kioski_house", "orthodox_church", "checkpoint_booth", "un_tower"]
 
 ## Doors: where each style's door sits on its tile (see _door and friends), for the swing as you go in.
 ## {x, w, y, h, z}: left edge and width across the door column, bottom and height, z of the door's face from
@@ -403,6 +405,8 @@ static func building(w: int, d: int, style: String, door_x: int, seed_value: int
 			IslandStyles.jersey_tower(st, wst, w, d, door_x)
 		"little_chapel":
 			IslandStyles.little_chapel(st, wst, w, d, door_x, rng)
+		"andaluz_house", "andaluz_church", "frontier_post", "fort_ruin", "venetian_gate", "venetian_wall", "selimiye", "han", "kioski_house", "orthodox_church", "checkpoint_booth", "un_tower":
+			BordersStyles.build(st, wst, w, d, door_x, rng, style)
 		"blast_furnace":
 			_blast_furnace(st, wst, w, d, door_x)
 		"gault", "flint", "flint_gable", "thatch", "college", "kings_chapel", "portico", "ely_cathedral", "norwich_cathedral", "norman_keep", "football_stand":

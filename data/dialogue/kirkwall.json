@@ -470,5 +470,27 @@
    "do": "ferry",
    "route": "kirkwall_lerwick"
   }
+ ],
+ "landsky_hoy": [
+  {
+   "do": "say",
+   "who": "Climber",
+   "text": "{greeting} Just off the Hoy boat. I went to look at the Old Man, not to climb him. Not this year. My rope's older than I am."
+  },
+  {
+   "do": "say",
+   "who": "Climber",
+   "text": "He's 137 metres, Old Red Sandstone on a foot of basalt, and he isn't old at all. The 1750 maps show a headland. In 1817 a drawing shows him with two legs, an arch. A storm took one. Cave, arch, stack, stump: the sea works through the list, and he's at stack."
+  },
+  {
+   "do": "say",
+   "who": "Climber",
+   "text": "Chris Bonington, Tom Patey and Rusty Baillie got up him first in 1966, and the next summer the BBC broadcast a climb live. Millions watched a man dangle off the side of Orkney with a pipe in his mouth. My dad never forgot it."
+  },
+  {
+   "do": "set",
+   "flag": "landsky_hoy",
+   "value": true
+  }
  ]
 }

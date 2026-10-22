@@ -1,0 +1,36 @@
+{
+ "id": "pyl_farmer",
+ "name": "Barley Farmer",
+ "class": "Farmer",
+ "sprite": "farmer",
+ "party": [
+  {
+   "species": "scuttlet",
+   "level": 95
+  },
+  {
+   "species": "kitelet",
+   "level": 95
+  },
+  {
+   "species": "duneskink",
+   "level": 95
+  },
+  {
+   "species": "chamelet",
+   "level": 95
+  }
+ ],
+ "ai": "trainer",
+ "money": 4200,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Barley Farmer",
+   "text": "The barley's in, the sun's out and I've got an hour before the next job. Come on, then."
+  }
+ ],
+ "win": "Good harvest, that. For you.",
+ "after": "The Mesaoria was the island's granary under the Romans, under the Venetians, and under my grandad. It's still dry as a biscuit in August.",
+ "scaled_floor": 95
+}

@@ -1,0 +1,32 @@
+{
+ "id": "lal_angler",
+ "name": "Beach Angler",
+ "class": "Angler",
+ "sprite": "angler",
+ "party": [
+  {
+   "species": "gannetling",
+   "level": 95
+  },
+  {
+   "species": "bayrunner",
+   "level": 95
+  },
+  {
+   "species": "plungebeak",
+   "level": 95
+  }
+ ],
+ "ai": "trainer",
+ "money": 4200,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Beach Angler",
+   "text": "Nothing's biting. You'll do instead."
+  }
+ ],
+ "win": "That's the most action I've had all day.",
+ "after": "Sea bream in the morning, nothing in the afternoon, and at night a very confident cat who thinks my bucket is his.",
+ "scaled_floor": 95
+}

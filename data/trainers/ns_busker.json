@@ -1,0 +1,32 @@
+{
+ "id": "ns_busker",
+ "name": "Bouzouki Busker",
+ "class": "Busker",
+ "sprite": "bard",
+ "party": [
+  {
+   "species": "swiftlet",
+   "level": 95
+  },
+  {
+   "species": "tesserite",
+   "level": 95
+  },
+  {
+   "species": "parakit",
+   "level": 95
+  }
+ ],
+ "ai": "trainer",
+ "money": 4200,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Bouzouki Busker",
+   "text": "The bouzouki has eight strings and I know four of them very well. Battle for a tip?"
+  }
+ ],
+ "win": "You've a good ear. Bad hat, good ear.",
+ "after": "Cyprus has its own folk songs, older than the bouzouki. The old ones have the violin and the laouto, a kind of lute. Mine has a tin for coins.",
+ "scaled_floor": 95
+}

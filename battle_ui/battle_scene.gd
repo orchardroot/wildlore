@@ -445,6 +445,7 @@ func evolve_anim(c: Creature, to_sp: Dictionary) -> bool:
 		delay = 0.6
 	for i in (6 if gentle else 14):
 		a.sprite.texture = new_tex if i % 2 == 0 else old_tex
+		a.fit_sheet()
 		a.sprite.modulate = glow if i % 2 == 0 else Color(1.12, 1.12, 1.12)
 		fx.burst(a.global_position + Vector3(0, 1.1, 0), Color("fff6c0"), 6, 2.0, 0.12, 0.5, 0.5)
 		await _wait(delay)
@@ -457,6 +458,7 @@ func evolve_anim(c: Creature, to_sp: Dictionary) -> bool:
 		dio.swoop_home()
 		return false
 	a.sprite.texture = new_tex
+	a.fit_sheet()
 	a.sprite.modulate = glow
 	fx.burst(a.global_position + Vector3(0, 1.1, 0), Color("ffe9a0"), 40, 5.0, 0.2, 1.0, -2.0)
 	create_tween().tween_property(a.sprite, "modulate", Color(1.12, 1.12, 1.12), 0.5)

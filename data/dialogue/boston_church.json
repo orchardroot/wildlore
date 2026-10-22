@@ -1,0 +1,25 @@
+{
+ "bos_priest": [
+  {
+   "do": "say",
+   "who": "Parish Priest",
+   "text": "The Irish built their churches out of pennies, a few a week, for years. The parish was more than the Mass: it was the school, the club, the job board and the marriage bureau."
+  },
+  {
+   "do": "say",
+   "who": "Parish Priest",
+   "text": "Not everyone was welcoming. In the 1850s there was a whole political party, the Know Nothings, against Catholic immigrants. The Irish outlasted it. It's a lesson worth remembering when the next people arrive."
+  },
+  {
+   "do": "if",
+   "flag": "q_abroad_boston_letter_started",
+   "then": [
+    {
+     "do": "set",
+     "flag": "q_abroad_boston_letter_3",
+     "value": true
+    }
+   ]
+  }
+ ]
+}

@@ -3,6 +3,8 @@
   "species": [
     {
       "id": "fawnlet",
+      "real": "A red deer hind leaves her calf lying flat and silent in the bracken for its first week or so, and it gives off almost no scent; walkers who 'rescue' a lone calf are usually kidnapping it.",
+      "names": {"cy": "carw coch", "ga": "fia rua", "gd": "fiadh ruadh"},
       "name": "Fawnlet",
       "types": [
         "kin",
@@ -69,6 +71,8 @@
     },
     {
       "id": "stagmor",
+      "real": "Killarney's red deer are Ireland's only herd with an unbroken line going back thousands of years; DNA suggests their ancestors were brought over by Stone Age farmers.",
+      "names": {"cy": "carw coch", "ga": "fia rua", "gd": "fiadh ruadh"},
       "name": "Stagmor",
       "types": [
         "kin",
@@ -135,13 +139,112 @@
           "bouncers_verdict"
         ]
       ],
-      "evolves": null,
+      "evolves": {
+        "to": "glenmonarch",
+        "level": 48,
+        "season": "autumn"
+      },
       "habitat": [],
       "dex": {
         "text": "Grows a magnificent set of antlers, then drops them in spring with the calm of a stag who knows they will be back. Killarney is home.",
         "fact": "Male red deer grow a new set of antlers every year and shed the old ones in the spring."
       },
       "sprite": "stagmor"
+    },
+    {
+      "id": "glenmonarch",
+      "real": "Red deer stags barely eat during the autumn rut and can lose a sizeable share of their body weight, which makes all that roaring an expensive hobby.",
+      "names": {"cy": "carw coch", "ga": "fia rua", "gd": "fiadh ruadh"},
+      "name": "Glenmonarch",
+      "types": [
+        "kin",
+        "brawn"
+      ],
+      "base": {
+        "hp": 98,
+        "atk": 106,
+        "def": 94,
+        "lore": 66,
+        "ward": 86,
+        "spd": 86
+      },
+      "growth": "medium",
+      "catch_rate": 30,
+      "base_xp": 218,
+      "learnset": [
+        [
+          1,
+          "scrap"
+        ],
+        [
+          1,
+          "glare"
+        ],
+        [
+          5,
+          "shove"
+        ],
+        [
+          9,
+          "quick_nip"
+        ],
+        [
+          13,
+          "flex"
+        ],
+        [
+          18,
+          "ceilidh_stomp"
+        ],
+        [
+          23,
+          "barge"
+        ],
+        [
+          29,
+          "scrum_push"
+        ],
+        [
+          35,
+          "haymaker"
+        ],
+        [
+          41,
+          "terrace_roar"
+        ],
+        [
+          48,
+          "strongmans_yell"
+        ],
+        [
+          54,
+          "bouncers_verdict"
+        ],
+        [
+          48,
+          "caber_toss"
+        ],
+        [
+          52,
+          "mums_look"
+        ],
+        [
+          56,
+          "sheepdog_herd"
+        ],
+        [
+          63,
+          "pantomime_horse"
+        ]
+      ],
+      "evolves": null,
+      "habitat": [],
+      "appendix": true,
+      "dex": {
+        "text": "The king of the glen, and it has seen the painting. Roars in October, stands in the mist in the posture of a biscuit tin lid.",
+        "fact": "Red deer stags roar and fight in the autumn rut, and Landseer's 1851 painting The Monarch of the Glen made the Highland stag a national icon."
+      },
+      "sprite": "glenmonarch"
     }
   ]
 }

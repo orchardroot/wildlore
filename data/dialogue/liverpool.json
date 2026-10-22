@@ -449,5 +449,149 @@
    "who": "Astronomer",
    "text": "Look, see that bright one over the river? That's not a star. That's a plane to Dublin."
   }
+ ],
+ "isles_lily": [
+  {
+   "do": "set",
+   "flag": "isles_met_lily"
+  },
+  {
+   "do": "if",
+   "flag": "q_isles_chinatown_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Lily",
+     "text": "Come back for Chinese New Year. Lion dancers, firecrackers, and half of Liverpool pretending they've always liked dim sum."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_isles_chinatown_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "plaque_liverpool_chinese_seamen",
+       "then": [
+        {
+         "do": "if",
+         "flag": "plaque_liverpool_chinese_arch",
+         "then": [
+          {
+           "do": "say",
+           "who": "Lily",
+           "text": "Thank you. That memorial took sixty years to go up. Sixty years."
+          },
+          {
+           "do": "say",
+           "who": "Lily",
+           "text": "Here, a red envelope, a lai see. We give them at New Year for luck. By rights there'd be money in it, but the luck's the important bit."
+          },
+          {
+           "do": "give_item",
+           "item": "isles_lai_see"
+          },
+          {
+           "do": "standing",
+           "nation": "england",
+           "amount": 2
+          },
+          {
+           "do": "set",
+           "flag": "q_isles_chinatown_done"
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Lily",
+           "text": "The seamen's plaque and the arch, love. Both in town."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Lily",
+         "text": "The seamen's plaque and the arch, love. Both in town."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Lily",
+       "text": "{greeting} I'm Lily. My grandad sailed out of Liverpool for the Blue Funnel Line. In 1946 he was put on a ship back to China, and my nan was told nothing. Nothing at all."
+      },
+      {
+       "do": "say",
+       "who": "Lily",
+       "text": "She thought he'd left her. For years. It was only much later that families found out the government had sent the men away."
+      },
+      {
+       "do": "choice",
+       "text": "Help Lily remember the seamen?",
+       "options": [
+        "Yes, of course",
+        "Maybe later"
+       ],
+       "set": "_t_isles_chinatown"
+      },
+      {
+       "do": "if",
+       "flag": "_t_isles_chinatown",
+       "eq": 0,
+       "then": [
+        {
+         "do": "say",
+         "who": "Lily",
+         "text": "Would you read the plaque about the seamen for me, and the one about the arch on your way? I like knowing someone else has read them."
+        },
+        {
+         "do": "set",
+         "flag": "q_isles_chinatown_started"
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Lily",
+         "text": "No bother. I'll be here."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "isles_dot": [
+  {
+   "do": "set",
+   "flag": "isles_met_dot"
+  },
+  {
+   "do": "say",
+   "who": "Dot",
+   "text": "{greeting} Dot. Liverpool-born Black Scouser, like my mam, and her dad, and his dad. People ask where I'm really from. Toxteth, love. Next question."
+  },
+  {
+   "do": "say",
+   "who": "Dot",
+   "text": "Liverpool's Black community is one of the oldest in Britain. Sailors from West Africa and the Caribbean settled near the docks long before Windrush."
+  },
+  {
+   "do": "say",
+   "who": "Dot",
+   "text": "My mam always talked about Lilian Bader, a Liverpool girl who joined the WAAF in the war and fixed aircraft instruments. There's a plaque. Give it some footfall."
+  },
+  {
+   "do": "say",
+   "who": "Dot",
+   "text": "The residents of Granby Four Streets did their own houses up when the council had given up on them. Won the Turner Prize, that, in 2015. A street, winning art's biggest prize. Only in Liverpool."
+  }
  ]
 }

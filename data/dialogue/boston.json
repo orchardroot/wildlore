@@ -1,0 +1,181 @@
+{
+ "bos_genealogist": [
+  {
+   "do": "say",
+   "who": "Family Historian",
+   "text": "Half the people who come in here want to know where their great-great-grandmother came from. We start with ship lists, church registers and census records. Spelling was optional in those days."
+  },
+  {
+   "do": "say",
+   "who": "Family Historian",
+   "text": "The Irish came with nothing but each other. They built Boston's streets, canals and railways, and the women went into service in the big houses. Within two generations they were running the city."
+  },
+  {
+   "do": "if",
+   "flag": "q_abroad_boston_letter_started",
+   "then": [
+    {
+     "do": "set",
+     "flag": "q_abroad_boston_letter_1",
+     "value": true
+    }
+   ]
+  }
+ ],
+ "bos_cop": [
+  {
+   "do": "say",
+   "who": "Police Officer",
+   "text": "My great-grandfather joined the Boston police in the 1890s. The Irish took to the police and the fire service. My captain's a Murphy. So is his captain. It's a whole thing."
+  }
+ ],
+ "bos_fan": [
+  {
+   "do": "say",
+   "who": "Celtics Fan",
+   "text": "Boston Celtics, founded 1946, named for the city's Irish. Green shirts, a shamrock, and a leprechaun on the badge. Don't get me started. Too late, you got me started."
+  }
+ ],
+ "bos_newcomer": [
+  {
+   "do": "say",
+   "who": "Newcomer",
+   "text": "I came over from Galway on a work visa. My great-great-grandmother came the hard way, in 1847. I did it with a phone and a flat share. I still rang my mam from the airport crying."
+  }
+ ],
+ "bos_dock": [
+  {
+   "do": "say",
+   "who": "Harbour Worker",
+   "text": "They came in right here, off the ships. Some went straight to the hospital on Deer Island, some to a cellar in the North End, ten to a room. And they made something of it."
+  }
+ ],
+ "boston_bureau": [
+  {
+   "do": "say",
+   "who": "Bureau Clerk",
+   "text": "Currency exchange. Dollars for pounds, pounds for dollars. Every note's the same size and nearly the same colour, so read them twice before you tip."
+  },
+  {
+   "do": "bureau"
+  }
+ ],
+ "boston_return": [
+  {
+   "do": "say",
+   "who": "Airport Cab",
+   "text": "Logan Airport? Seven hours to London overnight, if the wind's behind you. That's a lot quicker than the way your lot came over."
+  },
+  {
+   "do": "overseas_home",
+   "territory": "boston"
+  }
+ ],
+ "bos_legend_talk": [
+  {
+   "do": "if",
+   "flag": "q_abroad_boston_letter_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Councillor Bridget",
+     "text": "You know where to find me. Everyone does. It's Boston."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_abroad_boston_letter_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_abroad_boston_letter_1",
+       "then": [
+        {
+         "do": "if",
+         "flag": "q_abroad_boston_letter_2",
+         "then": [
+          {
+           "do": "if",
+           "flag": "q_abroad_boston_letter_3",
+           "then": [
+            {
+             "do": "say",
+             "who": "Councillor Bridget",
+             "text": "Tipperary, 1847, a coffin ship from Liverpool, a quarantine hospital, and floors on Beacon Hill. And she sent half her wages home, every month, for thirty years. Thank you. Now, my family never did anything without a fight first."
+            },
+            {
+             "do": "battle",
+             "trainer": "bos_legend",
+             "intro": true
+            },
+            {
+             "do": "say",
+             "who": "Councillor Bridget",
+             "text": "Ha! Here: a claddagh ring, my grandmother's chowder recipe in a pot, and the thanks of the Ward. You'll do."
+            },
+            {
+             "do": "give_item",
+             "item": "emigrant_claddagh",
+             "n": 1
+            },
+            {
+             "do": "give_item",
+             "item": "clam_chowder",
+             "n": 3
+            },
+            {
+             "do": "standing",
+             "nation": "abroad",
+             "amount": 3
+            },
+            {
+             "do": "set",
+             "flag": "q_abroad_boston_letter_done",
+             "value": true
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Councillor Bridget",
+             "text": "Find out where my Bridget came from. Ask the Family Historian on Washington Street, then the Archivist in the Heritage Centre, then the priest at St Stephen's. Then come back."
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Councillor Bridget",
+           "text": "Find out where my Bridget came from. Ask the Family Historian on Washington Street, then the Archivist in the Heritage Centre, then the priest at St Stephen's. Then come back."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Councillor Bridget",
+         "text": "Find out where my Bridget came from. Ask the Family Historian on Washington Street, then the Archivist in the Heritage Centre, then the priest at St Stephen's. Then come back."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Councillor Bridget",
+       "text": "You're the one asking about the Famine ships? My great-great-grandmother Bridget came over in 1847. All we have is her name and a letter she sent home. Help me find the rest?"
+      },
+      {
+       "do": "set",
+       "flag": "q_abroad_boston_letter_started",
+       "value": true
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

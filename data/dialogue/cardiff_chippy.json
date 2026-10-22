@@ -15,5 +15,104 @@
    "who": "Chippy Cook",
    "text": "In Cardiff, if something is good you say it is tidy. Do not ask me why. A really good portion of chips is tidy."
   }
+ ],
+ "life_asking_help": [
+  {
+   "do": "if",
+   "flag": "lesson_asking_help",
+   "then": [
+    {
+     "do": "say",
+     "who": "Gwyn",
+     "text": "Open the post, bach. Even the brown ones. Especially the brown ones."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Gwyn",
+     "text": "There was a drawer. For a year, every brown envelope went into the drawer. I told myself I'd look at them when I had the money to fix it."
+    },
+    {
+     "do": "say",
+     "who": "Gwyn",
+     "text": "Then a man came to the door. That was the day I learnt a drawer is not a plan."
+    },
+    {
+     "do": "choice",
+     "text": "What would you tell Gwyn a year ago?",
+     "options": [
+      "Open the post and ask for help early",
+      "Keep the drawer shut, it'll sort itself",
+      "Borrow from someone to cover it"
+     ],
+     "set": "life_asking_help_pick"
+    },
+    {
+     "do": "if",
+     "flag": "life_asking_help_pick",
+     "eq": 0,
+     "then": [
+      {
+       "do": "say",
+       "who": "Gwyn",
+       "text": "Yes. Debts grow when ignored, and the people who can help are glad to hear early, not late."
+      }
+     ]
+    },
+    {
+     "do": "if",
+     "flag": "life_asking_help_pick",
+     "eq": 1,
+     "then": [
+      {
+       "do": "say",
+       "who": "Gwyn",
+       "text": "I wish someone had told me. It never sorts itself, it gets interest."
+      }
+     ]
+    },
+    {
+     "do": "if",
+     "flag": "life_asking_help_pick",
+     "eq": 2,
+     "then": [
+      {
+       "do": "say",
+       "who": "Gwyn",
+       "text": "Borrowing to cover borrowing is how a small hole becomes a big one. Slow down and talk to someone first."
+      }
+     ]
+    },
+    {
+     "do": "say",
+     "who": "Gwyn",
+     "text": "There's free, confidential debt advice from Citizens Advice, StepChange and MoneyHelper. Nobody there is going to tut. They've seen drawers far worse than mine."
+    },
+    {
+     "do": "say",
+     "who": "Gwyn",
+     "text": "Asking for help isn't weakness. It's the quickest way out. I should know. I paid for all those lost months."
+    },
+    {
+     "do": "say",
+     "who": "Gwyn",
+     "text": "Take these. Welsh cakes, still warm."
+    },
+    {
+     "do": "set",
+     "flag": "lesson_asking_help"
+    },
+    {
+     "do": "give_item",
+     "item": "welsh_cakes_tin"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Noted in the Almanac under Things worth knowing."
+    }
+   ]
+  }
  ]
 }

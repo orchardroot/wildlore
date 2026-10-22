@@ -259,5 +259,37 @@
    "who": "Harbour Master",
    "text": "The Scillonian ferry leaves from this quay for the Isles of Scilly. There's a lot of sea to cross, and a lot of sandwiches to eat."
   }
+ ],
+ "landsky_drift": [
+  {
+   "do": "say",
+   "who": "Gardener",
+   "text": "Dydh da! Mind the palms. They're not palms, strictly, they're cabbage trees from New Zealand, but everybody calls them Cornish palms and the palms don't mind."
+  },
+  {
+   "do": "say",
+   "who": "Gardener",
+   "text": "People ask how they survive. We're as far north as Labrador, where the sea freezes. The answer's out there: the Gulf Stream brings warm water up from the Gulf of Mexico, and the North Atlantic Drift carries it across to wash our coast. The sea round here never gets properly cold, so neither does the air."
+  },
+  {
+   "do": "say",
+   "who": "Gardener",
+   "text": "It's why Edinburgh is milder in winter than Moscow at the same latitude, and why Tresco over on Scilly has a garden full of plants from South Africa and Australia. Inverewe, way up in Wester Ross, grows them too. Same warm water, further on."
+  },
+  {
+   "do": "say",
+   "who": "Gardener",
+   "text": "The scientists watch that current closely. As the world warms the whole Atlantic circulation is expected to weaken, and if it did much, a lot of us would be buying coats. Tell the forecaster at Exeter the palms are fine. For now."
+  },
+  {
+   "do": "set",
+   "flag": "landsky_drift",
+   "value": true
+  },
+  {
+   "do": "set",
+   "flag": "q_landsky_drift",
+   "value": true
+  }
  ]
 }

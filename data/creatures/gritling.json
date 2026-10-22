@@ -1,13 +1,14 @@
 {
   "line": "gritling",
   "species": [
-    {"id": "gritling", "name": "Gritling", "types": ["stone"],
+    {"id": "gritling", "real": "Unused millstones still lie scattered under Stanage Edge, and a millstone is the emblem of the Peak District, which in 1951 became Britain's first national park.", "names": {}, "name": "Gritling", "types": ["stone"],
      "base": {"hp": 80, "atk": 90, "def": 120, "lore": 45, "ward": 70, "spd": 55},
      "growth": "slow", "catch_rate": 60, "base_xp": 150,
      "learnset": [[1, "scrap"], [1, "pebble_flick"], [6, "hunker"], [11, "grit_in_eye"], [17, "barge"], [20, "dry_stone_wall"], [23, "millstone_drop"]],
-     "evolves": null, "habitat": [],
+     "evolves": {"to": "edgelord", "level": 34, "zone": ["the_roaches"]}, "habitat": [],
      "dex": {"text": "A lump of gritstone with a temper and a fondness for the edges of the moor. Grinds its teeth when it is thinking, which is why nobody asks it to think for long.",
              "fact": "Millstone grit, the coarse rock that forms the Peak District's edges, was quarried for millstones for centuries."},
-     "sprite": "gritling"}
+     "sprite": "gritling"},
+    {"id": "edgelord", "name": "Edgelord", "types": ["stone", "brawn"], "base": {"hp": 88, "atk": 99, "def": 133, "lore": 50, "ward": 77, "spd": 61}, "growth": "slow", "catch_rate": 30, "base_xp": 218, "learnset": [[1, "scrap"], [1, "pebble_flick"], [6, "hunker"], [11, "grit_in_eye"], [17, "barge"], [20, "dry_stone_wall"], [23, "millstone_drop"], [34, "caber_toss"], [38, "boulder_bump"], [42, "haymaker"], [49, "slate_slide"]], "evolves": null, "habitat": [], "appendix": true, "dex": {"text": "Lives on the edge, quite literally. Rock-hard, slow to impress, and covered in the chalk of a hundred climbers who failed to get past it.", "fact": "The Peak District's gritstone edges, like Stanage, are some of the most famous climbing crags in Britain."}, "sprite": "edgelord", "real": "Millstone grit is a coarse sandstone laid down by great rivers in a delta some 320 million years ago, and its rough grain is what climbers love.", "names": {}}
   ]
 }

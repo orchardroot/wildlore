@@ -38,6 +38,16 @@ func _on_flag(key: String, _value: Variant) -> void:
 		return  # no baseline for this save yet (a dev boot): nothing to compare with
 	for q in Quests.touched_by(key):
 		_dirty[str(q.id)] = true
+	_invention_news(key)
+
+## A find for the Timeline of Invention (see Invention), and the era's gadget when this find opens it.
+func _invention_news(key: String) -> void:
+	var n := Invention.news_for_flag(_data, key)
+	if n.is_empty():
+		return
+	_parish.news("Timeline of Invention", "%s (%s) added to your Timeline" % [str(n.entry.title), Invention.year_text(n.entry)])
+	if not n.gadget.is_empty():
+		_parish.news("New gadget", "%s: find it in the Almanac's Timeline" % str(n.gadget.name))
 
 func _process(_delta: float) -> void:
 	if _dirty.is_empty():
@@ -55,6 +65,12 @@ func _process(_delta: float) -> void:
 		if not n.is_empty():
 			_parish.news(n[0], n[1])
 	_dirty.clear()
+
+## Poets' Corner milestones paid by an arts plaque (PoetsCorner.record), one toast each.
+func poets_corner(paid: Array) -> void:
+	for m in paid:
+		var gift := Gazetteer.reward_text(m, _game.items)
+		_parish.news("Poets' Corner", "%s! %s" % [str(m.title), gift] if gift != "" else str(m.title) + "!")
 
 ## A plaque read for the first time: the Gazetteer toast, any milestone paid, and anything a quest wanted from it.
 func plaque_read(res: Dictionary, title: String) -> void:

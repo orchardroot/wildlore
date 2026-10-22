@@ -1,6 +1,9 @@
 extends RefCounted
-## Creature renderer: recipe dictionary -> front/back sheets (192x96) and icon (32x32).
+## Creature renderer: recipe dictionary -> front/back sheets (two square frames side by side, each 96 art units
+## drawn at SCALE pixels per unit, so 384x192) and icon (32x32). Recipes are in art units on a 96 grid.
 ## Recipe layers are drawn in order with light from the top-left. See art/recipes/creatures/*.json.
+## The sheets use the smooth canvas (anti-aliased, soft shading, see smooth_canvas.gd); the icon keeps the crisp
+## pixel canvas, so it stays sharp at 32 px.
 ##
 ## Layer fields: shape (ellipse|circle|rect|poly|tri|line), at [x,y] (centre), size [w,h], r,
 ## points [[x,y]..], width (line), angle (deg), round (rect corner radius), colour (palette name
@@ -12,12 +15,15 @@ extends RefCounted
 ## back_hide, back_marks and back_auto.
 
 const Canvas = preload("res://tools/spritegen/canvas.gd")
-const SIZE := 96
+const SmoothCanvas = preload("res://tools/spritegen/smooth_canvas.gd")
+const SIZE := 96      # art units per frame
+const SCALE := 2      # pixels per art unit on the battle sheets (displayed at the old size, filtered)
 const AXIS := 96.0
 
-static func render(recipe: Dictionary) -> Dictionary:
-	var front := _sheet(recipe, false)
-	var back := _sheet(recipe, true)
+## `scale`: pixels per art unit for the sheets (1 gives the old 192x96 size, still smooth).
+static func render(recipe: Dictionary, scale := SCALE) -> Dictionary:
+	var front := _sheet(recipe, false, scale)
+	var back := _sheet(recipe, true, scale)
 	var icon := _icon(recipe)
 	return {"front": front, "back": back, "icon": icon}
 
@@ -33,19 +39,20 @@ static func _tones_for(name, pal: Dictionary, darken: float) -> Array:
 		return pal[s]
 	return Canvas.tones_from(s, darken)
 
-static func _sheet(recipe: Dictionary, is_back: bool) -> Image:
-	var out := Image.create(SIZE * 2, SIZE, false, Image.FORMAT_RGBA8)
+static func _sheet(recipe: Dictionary, is_back: bool, scale := SCALE) -> Image:
+	var px := SIZE * scale
+	var out := Image.create(px * 2, px, false, Image.FORMAT_RGBA8)
 	out.fill(Color(0, 0, 0, 0))
 	var layers: Array = recipe.get("layers", [])
 	if is_back:
 		layers = back_layers(recipe)
-	var base = _draw_all(recipe, layers, is_back, null, true)
+	var base = _draw_all(recipe, layers, is_back, null, true, scale)
 	var bounds: Rect2i = base.content_bounds()
-	out.blit_rect(base.img, Rect2i(0, 0, SIZE, SIZE), Vector2i(0, 0))
+	out.blit_rect(base.img, Rect2i(0, 0, px, px), Vector2i(0, 0))
 	var xf := {"mode": str(recipe.get("anim", "squash")), "bob": float(recipe.get("bob", 2.0)),
 		"bottom": float(bounds.end.y - 1), "height": float(bounds.size.y)}
-	var f2 = _draw_all(recipe, layers, is_back, xf, true)
-	out.blit_rect(f2.img, Rect2i(0, 0, SIZE, SIZE), Vector2i(SIZE, 0))
+	var f2 = _draw_all(recipe, layers, is_back, xf, true, scale)
+	out.blit_rect(f2.img, Rect2i(0, 0, px, px), Vector2i(px, 0))
 	return out
 
 ## The rear view, derived from the front recipe: everything is seen from the other side, so the
@@ -328,10 +335,11 @@ static func _draw_list(cv, layers: Array, pal: Dictionary, darken: float, xf, is
 		if layer.get("mirror", false):
 			_draw_layer(cv, _mirror_layer(layer), pal, darken, xf)
 
-static func _draw_all(recipe: Dictionary, layers: Array, is_back: bool, xf, with_outline: bool):
+## scale 0: the crisp pixel canvas (the icon); otherwise the smooth canvas at that many pixels per art unit.
+static func _draw_all(recipe: Dictionary, layers: Array, is_back: bool, xf, with_outline: bool, scale := 0):
 	var darken := 0.04 if is_back else 0.0
 	var pal := _palette(recipe, darken)
-	var cv = Canvas.new(SIZE, SIZE)
+	var cv = Canvas.new(SIZE, SIZE) if scale <= 0 else SmoothCanvas.new(SIZE, SIZE, scale)
 	_draw_list(cv, layers, pal, darken, xf, is_back)
 	if with_outline:
 		var oc = recipe.get("outline", null)

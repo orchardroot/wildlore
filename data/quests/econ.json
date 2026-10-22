@@ -1,0 +1,32 @@
+{
+ "quests": [
+  {
+   "id": "econ_notebook",
+   "title": "The Economist's Notebook",
+   "region": "pennines",
+   "town": "leeds",
+   "giver": "Dr Akhtar, Kirkgate Market",
+   "summary": "An economist in Kirkgate Market has a puzzle about two stalls, and a pub regular to send you to.",
+   "start_flag": "q_pennines_econ_started",
+   "steps": [
+    {
+     "flag": "q_pennines_econ_ricardo",
+     "text": "Solve Dr Akhtar's puzzle about two market stalls in Kirkgate Market.",
+     "zone": "leeds_kirkgate"
+    },
+    {
+     "flag": "q_pennines_econ_pint",
+     "text": "Ask Derek at Whitelock's what a pint has to do with inflation.",
+     "zone": "leeds_whitelocks"
+    },
+    {
+     "flag": "q_pennines_econ_done",
+     "text": "Tell Dr Akhtar what Derek said.",
+     "zone": "leeds_kirkgate"
+    }
+   ],
+   "done_flag": "q_pennines_econ_done",
+   "reward": "Two cream teas and an Economist's notebook that fills as you play."
+  }
+ ]
+}

@@ -50,5 +50,59 @@
    "do": "lease",
    "id": ""
   }
+ ],
+ "dub_lecturer": [
+  {
+   "do": "if",
+   "flag": "isles_ireland",
+   "then": [
+    {
+     "do": "say",
+     "who": "History Lecturer",
+     "text": "Off to mark essays. Somebody has dated the Treaty to 1066 again."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "History Lecturer",
+     "text": "{greeting} I lecture in history across the river. I come here because this building has been through it."
+    },
+    {
+     "do": "say",
+     "who": "History Lecturer",
+     "text": "It was burned in May 1921, in the War of Independence. That war came after the 1916 Rising, and ended with the Anglo-Irish Treaty that December."
+    },
+    {
+     "do": "say",
+     "who": "History Lecturer",
+     "text": "The Irish Free State began on 6 December 1922. Six northern counties stayed in the UK as Northern Ireland. The Treaty split the country, and a civil war followed."
+    },
+    {
+     "do": "say",
+     "who": "History Lecturer",
+     "text": "The 1937 constitution named the state Éire, or Ireland in English. In 1949 it became a republic and left the Commonwealth."
+    },
+    {
+     "do": "say",
+     "who": "History Lecturer",
+     "text": "People say 'the Republic of Ireland' to tell the state from the island. Officially it's just Ireland. We're not fussy. Well, a bit."
+    },
+    {
+     "do": "say",
+     "who": "History Lecturer",
+     "text": "And now? Neighbours. We joined the EEC on the same day as the UK, 1 January 1973. Then they left and we stayed. It's been a lot of meetings."
+    },
+    {
+     "do": "set",
+     "flag": "isles_ireland"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Noted in the Gazetteer, under How these isles work."
+    }
+   ]
+  }
  ]
 }

@@ -7,21 +7,34 @@ extends RefCounted
 ## nobody was sure of is simply left out. Words met are flags (word_<code>_<kind>_<key>), listed in the Fieldbook's
 ## "Words of the Isles" page. Pure logic, no autoload names: callers pass `on` (Settings.local_languages != "off").
 
-const CODES := ["cy", "ga", "gd", "gv", "kw", "jer", "nrf_gg"]
-const NAMES := {"cy": "Welsh", "ga": "Irish", "gd": "Scottish Gaelic", "gv": "Manx", "kw": "Cornish", "jer": "Jerriais", "nrf_gg": "Guernesiais"}
+const CODES := ["cy", "ga", "gd", "gv", "kw", "jer", "nrf_gg", "sco", "sco_ulster", "br", "es", "el", "tr"]
+const NAMES := {"cy": "Welsh", "ga": "Irish", "gd": "Scottish Gaelic", "gv": "Manx", "kw": "Cornish", "jer": "Jerriais", "nrf_gg": "Guernesiais",
+	"sco": "Scots", "sco_ulster": "Ulster Scots", "br": "Breton", "es": "Spanish", "el": "Greek", "tr": "Turkish"}
 ## Region -> language (Wales: cy; Ireland and the Gaeltacht: ga; Highlands and Islands: gd; Mann; Cornwall).
 const REGION_LANG := {"north_wales": "cy", "mid_wales": "cy", "south_wales": "cy", "ireland": "ga", "ireland_west": "ga",
 	"ireland_east": "ga", "scotland": "gd", "man": "gv", "cornwall": "kw"}
 ## The Channel Islands share one region, so their zones are told apart by id (an interior borrows its town's).
-const ZONE_LANG := {"st_helier": "jer", "jersey_country": "jer", "st_peter_port": "nrf_gg", "guernsey_country": "nrf_gg"}
+## Scots and Ulster Scots (4.5): zones (and every zone or room under them, "edinburgh" covers "edinburgh_castle")
+## where they are the local tongue. Checked before the region, so the Lowlands, the North East's Doric, Orkney and
+## Shetland get Scots, and Antrim's Ulster-Scots heartland (Belfast, the Route, the Causeway coast) gets Ulster Scots.
+const PREFIX_LANG := {"sco": ["edinburgh", "glasgow", "aberdeen", "dundee", "st_andrews", "cairnryan", "scottish_borders",
+		"forth_bridges", "galloway", "central_belt", "kirkwall", "lerwick", "shetland_mainland"],
+	"sco_ulster": ["belfast", "bushmills", "antrim_coast", "antrim_ropehut", "causeway"]}
+const ZONE_LANG := {"st_helier": "jer", "jersey_country": "jer", "st_peter_port": "nrf_gg", "guernsey_country": "nrf_gg",
+	"gaiman": "cy", "baddeck": "gd", "roscoff": "br",  # these isles abroad: Y Wladfa, Cape Breton, Brittany
+	"la_linea": "es", "la_linea_levante": "es", "nicosia_south": "el", "nicosia_north": "tr"}  # 4.5: the neighbours across the borders
 ## Places in a language's region where it isn't the everyday local tongue, so no greeting or banner in it: Northern
 ## Ireland (its towns share the "ireland" region; Irish there is used sparingly, by choice, not by default) and the
 ## Scottish Lowlands and east coast (Gaelic is a Highlands and Islands language).
-const NOT_LOCAL := {"ga": ["belfast", "bushmills", "derry", "enniskillen", "lough_neagh", "mourne", "giants_causeway"],
+const NOT_LOCAL := {"ga": ["belfast", "bushmills", "derry", "enniskillen", "lough_neagh", "mourne", "giants_causeway", "mournes",
+		"causeway", "antrim_coast", "antrim_ropehut", "marblearch"],
 	"gd": ["edinburgh", "glasgow", "aberdeen", "dundee", "st_andrews", "cairnryan", "scottish_borders", "forth_bridges",
 		"galloway", "kirkwall", "lerwick", "shetland_mainland"]}
 ## Languages whose signs lead with the local language (Welsh and Irish signs show it first).
 const LOCAL_FIRST := ["cy", "ga"]
+## The languages a creature's real-life basis is named in (its `names`, see docs/design/fieldbook_teaching.md),
+## in the order the Fieldbook shows them.
+const CREATURE_NAME_CODES := ["cy", "ga", "gd"]
 const LOCAL_INK := Color("e8c872")  # a touch warmer than the English text, on a sign or the town banner
 const FLAG_PREFIX := "word_"
 const SEP := " / "
@@ -42,6 +55,10 @@ static func code_for(zone_id: String, index: Dictionary) -> String:
 		id = town
 	if ZONE_LANG.has(id):
 		return ZONE_LANG[id]
+	for alt in PREFIX_LANG:
+		for prefix in PREFIX_LANG[alt]:
+			if id == prefix or id.begins_with(prefix + "_"):
+				return alt
 	var region := str(index.get("zones", {}).get(id, {}).get("region", ""))
 	var code := str(REGION_LANG.get(region, ""))
 	for prefix in NOT_LOCAL.get(code, []):
@@ -60,6 +77,7 @@ static func data(code: String) -> Dictionary:
 
 static func reset() -> void:
 	_cache = {}
+	LangLessons.reset()  # and the extra lesson files (data/lang/lessons)
 
 ## The local name of a zone's town or route ("" when the language has none, or it is the same as English).
 static func place(code: String, zone_id: String, english: String, index: Dictionary) -> String:
@@ -177,8 +195,12 @@ static func glossary(d: GameStateData, zone_names: Dictionary) -> Array:
 					if _plain(str(phrases[k])) == _plain(str(g[i])):
 						meaning = str(k).replace("_", " ")
 				rows.append({"word": str(g[i]), "meaning": meaning})
+		var have := rows.map(func(r): return _plain(str(r.word)))
+		for r in LangLessons.glossary_rows(d, code):  # words learnt from a teacher (4.5), unless already listed
+			if _plain(str(r.word)) not in have:
+				rows.append(r)
 		if not rows.is_empty():
-			out.append({"code": code, "language": NAMES[code], "rows": rows})
+			out.append({"code": code, "language": str(NAMES.get(code, dd.get("name", code))), "rows": rows})
 	return out
 
 ## Problems with data/lang files for the validator: shape, no em-dashes, known zones.
@@ -193,7 +215,7 @@ static func check(zone_exists: Callable) -> Array:
 			errs.append("lang %s: not a JSON object" % code)
 			continue
 		for k in d:
-			if k not in ["places", "greetings", "phrases"]:
+			if k not in ["places", "greetings", "phrases", "name", "endonym", "about", "lessons"]:  # 4.5 lessons: see LangLessons
 				errs.append("lang %s: unknown key '%s'" % [code, k])
 		for zid in d.get("places", {}):
 			if not zone_exists.call(str(zid)):

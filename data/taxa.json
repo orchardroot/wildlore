@@ -1,0 +1,569 @@
+{
+ "_doc": "Crossbreeds (core/crossbreeds.gd, docs/design/2026-10-21-breeding.md, section 10). The real animal behind each breeding line: species, genus and family, the closeness rule's only input. Lines with no single real animal (folklore, machines, a line named after a place or a people) are left out and never cross. Same species: always crosses, fertile. Same genus: crosses about half the time unless 'genera' says it never does; sterile unless the genus is marked fertile. Same family: only the genus pairs 'families' lists, rarely, always sterile. Further apart: never. In 'families', 'why' is the farmer's refusal for that family and 'fact' the entry's note for a listed pair. 'restricted' lists [sire, dam] line pairs held back because the blended sprite does not read as a creature.",
+ "lines": {
+  "barkdeer": {
+   "species": "Muntiacus reevesi",
+   "genus": "Muntiacus",
+   "family": "Cervidae",
+   "what": "Reeves's muntjac"
+  },
+  "barnling": {
+   "species": "Tyto alba",
+   "genus": "Tyto",
+   "family": "Tytonidae",
+   "what": "barn owl"
+  },
+  "baskling": {
+   "species": "Cetorhinus maximus",
+   "genus": "Cetorhinus",
+   "family": "Cetorhinidae",
+   "what": "basking shark"
+  },
+  "binfox": {
+   "species": "Vulpes vulpes",
+   "genus": "Vulpes",
+   "family": "Canidae",
+   "what": "red fox"
+  },
+  "bittling": {
+   "species": "Botaurus stellaris",
+   "genus": "Botaurus",
+   "family": "Ardeidae",
+   "what": "bittern"
+  },
+  "brockling": {
+   "species": "Meles meles",
+   "genus": "Meles",
+   "family": "Mustelidae",
+   "what": "badger"
+  },
+  "buntling": {
+   "species": "Plectrophenax nivalis",
+   "genus": "Plectrophenax",
+   "family": "Calcariidae",
+   "what": "snow bunting"
+  },
+  "cahowl": {
+   "species": "Pterodroma cahow",
+   "genus": "Pterodroma",
+   "family": "Procellariidae",
+   "what": "Bermuda petrel"
+  },
+  "calfrein": {
+   "species": "Rangifer tarandus",
+   "genus": "Rangifer",
+   "family": "Cervidae",
+   "what": "reindeer"
+  },
+  "caperling": {
+   "species": "Tetrao urogallus",
+   "genus": "Tetrao",
+   "family": "Phasianidae",
+   "what": "capercaillie"
+  },
+  "chipgull": {
+   "species": "Larus argentatus",
+   "genus": "Larus",
+   "family": "Laridae",
+   "what": "herring gull"
+  },
+  "churrjar": {
+   "species": "Caprimulgus europaeus",
+   "genus": "Caprimulgus",
+   "family": "Caprimulgidae",
+   "what": "nightjar"
+  },
+  "cindershell": {
+   "species": "Chelonia mydas",
+   "genus": "Chelonia",
+   "family": "Cheloniidae",
+   "what": "green turtle"
+  },
+  "connie": {
+   "species": "Equus caballus",
+   "genus": "Equus",
+   "family": "Equidae",
+   "what": "Connemara pony"
+  },
+  "coolet": {
+   "species": "Bos taurus",
+   "genus": "Bos",
+   "family": "Bovidae",
+   "what": "Highland cattle"
+  },
+  "cooplet": {
+   "species": "Columba livia",
+   "genus": "Columba",
+   "family": "Columbidae",
+   "what": "feral pigeon"
+  },
+  "cragchough": {
+   "species": "Pyrrhocorax pyrrhocorax",
+   "genus": "Pyrrhocorax",
+   "family": "Corvidae",
+   "what": "chough"
+  },
+  "crakeling": {
+   "species": "Zapornia atra",
+   "genus": "Zapornia",
+   "family": "Rallidae",
+   "what": "Henderson crake"
+  },
+  "cranelet": {
+   "species": "Grus grus",
+   "genus": "Grus",
+   "family": "Gruidae",
+   "what": "common crane"
+  },
+  "crawfisher": {
+   "species": "Jasus tristani",
+   "genus": "Jasus",
+   "family": "Palinuridae",
+   "what": "Tristan rock lobster"
+  },
+  "crexling": {
+   "species": "Crex crex",
+   "genus": "Crex",
+   "family": "Rallidae",
+   "what": "corncrake"
+  },
+  "croakle": {
+   "species": "Bufo bufo",
+   "genus": "Bufo",
+   "family": "Bufonidae",
+   "what": "common toad"
+  },
+  "dipling": {
+   "species": "Cinclus cinclus",
+   "genus": "Cinclus",
+   "family": "Cinclidae",
+   "what": "dipper"
+  },
+  "dodo": {
+   "species": "Raphus cucullatus",
+   "genus": "Raphus",
+   "family": "Columbidae",
+   "what": "dodo"
+  },
+  "dolfeen": {
+   "species": "Tursiops truncatus",
+   "genus": "Tursiops",
+   "family": "Delphinidae",
+   "what": "Shannon bottlenose dolphin"
+  },
+  "dolphlet": {
+   "species": "Tursiops truncatus",
+   "genus": "Tursiops",
+   "family": "Delphinidae",
+   "what": "bottlenose dolphin"
+  },
+  "donkey": {
+   "species": "Equus asinus",
+   "genus": "Equus",
+   "family": "Equidae",
+   "what": "donkey"
+  },
+  "dozelet": {
+   "species": "Muscardinus avellanarius",
+   "genus": "Muscardinus",
+   "family": "Gliridae",
+   "what": "hazel dormouse"
+  },
+  "duneskink": {
+   "species": "Lacerta agilis",
+   "genus": "Lacerta",
+   "family": "Lacertidae",
+   "what": "sand lizard"
+  },
+  "eaglet": {
+   "species": "Aquila chrysaetos",
+   "genus": "Aquila",
+   "family": "Accipitridae",
+   "what": "golden eagle"
+  },
+  "elverlet": {
+   "species": "Anguilla anguilla",
+   "genus": "Anguilla",
+   "family": "Anguillidae",
+   "what": "European eel"
+  },
+  "fawnlet": {
+   "species": "Cervus elaphus",
+   "genus": "Cervus",
+   "family": "Cervidae",
+   "what": "red deer"
+  },
+  "flittermouse": {
+   "species": "Pipistrellus pipistrellus",
+   "genus": "Pipistrellus",
+   "family": "Vespertilionidae",
+   "what": "common pipistrelle"
+  },
+  "foalmoor": {
+   "species": "Equus caballus",
+   "genus": "Equus",
+   "family": "Equidae",
+   "what": "Dartmoor pony"
+  },
+  "gannetling": {
+   "species": "Morus bassanus",
+   "genus": "Morus",
+   "family": "Sulidae",
+   "what": "northern gannet"
+  },
+  "glisglis": {
+   "species": "Glis glis",
+   "genus": "Glis",
+   "family": "Gliridae",
+   "what": "edible dormouse"
+  },
+  "grizzlet": {
+   "species": "Sciurus carolinensis",
+   "genus": "Sciurus",
+   "family": "Sciuridae",
+   "what": "grey squirrel"
+  },
+  "herdlet": {
+   "species": "Ovis aries",
+   "genus": "Ovis",
+   "family": "Bovidae",
+   "what": "Herdwick sheep"
+  },
+  "holtling": {
+   "species": "Lutra lutra",
+   "genus": "Lutra",
+   "family": "Mustelidae",
+   "what": "otter"
+  },
+  "hootlet": {
+   "species": "Strix aluco",
+   "genus": "Strix",
+   "family": "Strigidae",
+   "what": "tawny owl"
+  },
+  "hopperlet": {
+   "species": "Eudyptes moseleyi",
+   "genus": "Eudyptes",
+   "family": "Spheniscidae",
+   "what": "northern rockhopper penguin"
+  },
+  "horselet": {
+   "species": "Rhinolophus hipposideros",
+   "genus": "Rhinolophus",
+   "family": "Rhinolophidae",
+   "what": "lesser horseshoe bat"
+  },
+  "johnnyrook": {
+   "species": "Phalcoboenus australis",
+   "genus": "Phalcoboenus",
+   "family": "Falconidae",
+   "what": "striated caracara"
+  },
+  "kerryspot": {
+   "species": "Geomalacus maculosus",
+   "genus": "Geomalacus",
+   "family": "Arionidae",
+   "what": "Kerry slug"
+  },
+  "kidgruff": {
+   "species": "Capra hircus",
+   "genus": "Capra",
+   "family": "Bovidae",
+   "what": "goat"
+  },
+  "kindlet": {
+   "species": "Sciurus vulgaris",
+   "genus": "Sciurus",
+   "family": "Sciuridae",
+   "what": "red squirrel"
+  },
+  "kitelet": {
+   "species": "Milvus milvus",
+   "genus": "Milvus",
+   "family": "Accipitridae",
+   "what": "red kite"
+  },
+  "lekling": {
+   "species": "Tetrao urogallus",
+   "genus": "Tetrao",
+   "family": "Phasianidae",
+   "what": "capercaillie"
+  },
+  "leveret": {
+   "species": "Lepus europaeus",
+   "genus": "Lepus",
+   "family": "Leporidae",
+   "what": "brown hare"
+  },
+  "loaghtan": {
+   "species": "Ovis aries",
+   "genus": "Ovis",
+   "family": "Bovidae",
+   "what": "Manx Loaghtan sheep"
+  },
+  "macaquet": {
+   "species": "Macaca sylvanus",
+   "genus": "Macaca",
+   "family": "Cercopithecidae",
+   "what": "Barbary macaque"
+  },
+  "martling": {
+   "species": "Martes martes",
+   "genus": "Martes",
+   "family": "Mustelidae",
+   "what": "pine marten"
+  },
+  "midgie": {
+   "species": "Culicoides impunctatus",
+   "genus": "Culicoides",
+   "family": "Ceratopogonidae",
+   "what": "Highland midge"
+  },
+  "minkshade": {
+   "species": "Neogale vison",
+   "genus": "Neogale",
+   "family": "Mustelidae",
+   "what": "American mink"
+  },
+  "moggle": {
+   "species": "Felis catus",
+   "genus": "Felis",
+   "family": "Felidae",
+   "what": "domestic cat"
+  },
+  "moldiwarp": {
+   "species": "Talpa europaea",
+   "genus": "Talpa",
+   "family": "Talpidae",
+   "what": "mole"
+  },
+  "moolet": {
+   "species": "Bos taurus",
+   "genus": "Bos",
+   "family": "Bovidae",
+   "what": "Dexter cattle"
+  },
+  "natterjack": {
+   "species": "Epidalea calamita",
+   "genus": "Epidalea",
+   "family": "Bufonidae",
+   "what": "natterjack toad"
+  },
+  "orcalet": {
+   "species": "Orcinus orca",
+   "genus": "Orcinus",
+   "family": "Delphinidae",
+   "what": "orca"
+  },
+  "oriolet": {
+   "species": "Icterus oberi",
+   "genus": "Icterus",
+   "family": "Icteridae",
+   "what": "Montserrat oriole"
+  },
+  "ospret": {
+   "species": "Pandion haliaetus",
+   "genus": "Pandion",
+   "family": "Pandionidae",
+   "what": "osprey"
+  },
+  "parakit": {
+   "species": "Psittacula krameri",
+   "genus": "Psittacula",
+   "family": "Psittaculidae",
+   "what": "ring-necked parakeet"
+  },
+  "parrlet": {
+   "species": "Salmo salar",
+   "genus": "Salmo",
+   "family": "Salmonidae",
+   "what": "Atlantic salmon"
+  },
+  "pepperling": {
+   "species": "Biston betularia",
+   "genus": "Biston",
+   "family": "Geometridae",
+   "what": "peppered moth"
+  },
+  "peregrin": {
+   "species": "Falco peregrinus",
+   "genus": "Falco",
+   "family": "Falconidae",
+   "what": "peregrine"
+  },
+  "petrelash": {
+   "species": "Hydrobates pelagicus",
+   "genus": "Hydrobates",
+   "family": "Hydrobatidae",
+   "what": "storm petrel"
+  },
+  "pinchkin": {
+   "species": "Carcinus maenas",
+   "genus": "Carcinus",
+   "family": "Carcinidae",
+   "what": "shore crab"
+  },
+  "pincray": {
+   "species": "Pacifastacus leniusculus",
+   "genus": "Pacifastacus",
+   "family": "Astacidae",
+   "what": "signal crayfish"
+  },
+  "pipkin": {
+   "species": "Erithacus rubecula",
+   "genus": "Erithacus",
+   "family": "Muscicapidae",
+   "what": "robin"
+  },
+  "pollanet": {
+   "species": "",
+   "genus": "Coregonus",
+   "family": "Salmonidae",
+   "what": "pollan"
+  },
+  "ptarmlet": {
+   "species": "Lagopus muta",
+   "genus": "Lagopus",
+   "family": "Phasianidae",
+   "what": "ptarmigan"
+  },
+  "puffling": {
+   "species": "Fratercula arctica",
+   "genus": "Fratercula",
+   "family": "Alcidae",
+   "what": "Atlantic puffin"
+  },
+  "pupplash": {
+   "species": "Halichoerus grypus",
+   "genus": "Halichoerus",
+   "family": "Phocidae",
+   "what": "grey seal"
+  },
+  "rooklet": {
+   "species": "Corvus frugilegus",
+   "genus": "Corvus",
+   "family": "Corvidae",
+   "what": "rook"
+  },
+  "scuttlet": {
+   "species": "Oryctolagus cuniculus",
+   "genus": "Oryctolagus",
+   "family": "Leporidae",
+   "what": "rabbit"
+  },
+  "sikawhistle": {
+   "species": "Cervus nippon",
+   "genus": "Cervus",
+   "family": "Cervidae",
+   "what": "sika deer"
+  },
+  "slabpup": {
+   "species": "Mirounga leonina",
+   "genus": "Mirounga",
+   "family": "Phocidae",
+   "what": "southern elephant seal"
+  },
+  "snowhare": {
+   "species": "Lepus timidus",
+   "genus": "Lepus",
+   "family": "Leporidae",
+   "what": "mountain hare"
+  },
+  "stagbeet": {
+   "species": "Lucanus cervus",
+   "genus": "Lucanus",
+   "family": "Lucanidae",
+   "what": "stag beetle"
+  },
+  "stalklet": {
+   "species": "Ardea cinerea",
+   "genus": "Ardea",
+   "family": "Ardeidae",
+   "what": "grey heron"
+  },
+  "starlet": {
+   "species": "Sturnus vulgaris",
+   "genus": "Sturnus",
+   "family": "Sturnidae",
+   "what": "starling"
+  },
+  "stoatlet": {
+   "species": "Mustela erminea",
+   "genus": "Mustela",
+   "family": "Mustelidae",
+   "what": "stoat"
+  },
+  "swiftlet": {
+   "species": "Apus apus",
+   "genus": "Apus",
+   "family": "Apodidae",
+   "what": "swift"
+  },
+  "ternlet": {
+   "species": "Sterna paradisaea",
+   "genus": "Sterna",
+   "family": "Laridae",
+   "what": "Arctic tern"
+  },
+  "volet": {
+   "species": "Arvicola amphibius",
+   "genus": "Arvicola",
+   "family": "Cricetidae",
+   "what": "water vole"
+  },
+  "warrah": {
+   "species": "Dusicyon australis",
+   "genus": "Dusicyon",
+   "family": "Canidae",
+   "what": "Falkland Islands wolf"
+  },
+  "wildkit": {
+   "species": "Felis silvestris",
+   "genus": "Felis",
+   "family": "Felidae",
+   "what": "Scottish wildcat"
+  },
+  "zigzlet": {
+   "species": "Vipera berus",
+   "genus": "Vipera",
+   "family": "Viperidae",
+   "what": "adder"
+  }
+ },
+ "genera": {
+  "Equus": {
+   "fertile": false
+  },
+  "Felis": {
+   "fertile": true
+  },
+  "Cervus": {
+   "fertile": true
+  },
+  "Lepus": {
+   "fertile": true
+  },
+  "Sciurus": {
+   "crosses": false,
+   "why": "Red and grey squirrels share a genus and still have never been known to interbreed. The grey wins by appetite and by squirrelpox instead."
+  }
+ },
+ "families": {
+  "Bovidae": {
+   "pairs": [
+    [
+     "Capra",
+     "Ovis"
+    ]
+   ],
+   "fact": "Sheep have 54 chromosomes and goats 60. A live sheep and goat cross is on record only a handful of times."
+  },
+  "Leporidae": {
+   "why": "A hare and a rabbit look like cousins, but they are different genera, 48 chromosomes against 44, and nobody has ever had young from them."
+  },
+  "Mustelidae": {
+   "why": "Stoats, martens, mink, otters and badgers are all one family, but different genera, and they don't cross."
+  }
+ },
+ "restricted": []
+}

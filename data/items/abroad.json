@@ -1,0 +1,254 @@
+[
+ {
+  "id": "torta_negra",
+  "name": "Torta Negra",
+  "kind": "heal",
+  "price": 420,
+  "battle": true,
+  "field": true,
+  "amount": 160,
+  "desc": "Black cake: the dark, rich fruit cake of the Welsh in Patagonia, made to keep through a winter and a long journey. Teisen ddu, the old recipe says. Restores 160 HP."
+ },
+ {
+  "id": "patagonia_lamb",
+  "name": "Cordero Patagónico",
+  "kind": "heal",
+  "price": 560,
+  "battle": true,
+  "field": true,
+  "amount": 200,
+  "desc": "Patagonian lamb, slow roasted over an open fire on an iron cross, the way the gauchos do it. It takes all afternoon. Restores 200 HP."
+ },
+ {
+  "id": "mate_gourd",
+  "name": "Mate Gourd",
+  "kind": "key",
+  "price": 0,
+  "battle": false,
+  "field": true,
+  "desc": "A hollowed gourd and a metal straw, the bombilla, for mate, the bitter herb tea Argentines pass round a circle. Welsh Patagonians drink it in the morning and tea in the afternoon."
+ },
+ {
+  "id": "gaiman_shawl",
+  "name": "Gaiman Shawl",
+  "kind": "charm",
+  "price": 0,
+  "battle": false,
+  "field": true,
+  "wild": false,
+  "desc": "A woollen shawl woven in the Chubut valley, warm enough for a wind that has come all the way from the Andes.",
+  "effect_text": "Gale moves hurt it 25% less.",
+  "charm": {
+   "effect": "resist",
+   "type": "gale",
+   "mult": 0.75
+  },
+  "msg": "{name} held fast in the Gaiman Shawl!"
+ },
+ {
+  "id": "maple_syrup",
+  "name": "Maple Syrup",
+  "kind": "heal",
+  "price": 300,
+  "battle": true,
+  "field": true,
+  "amount": 120,
+  "desc": "A tin of Canadian maple syrup, tapped from sugar maples in spring and boiled down: about forty litres of sap for one of syrup. Restores 120 HP."
+ },
+ {
+  "id": "oatcakes_cb",
+  "name": "Cape Breton Oatcakes",
+  "kind": "heal",
+  "price": 240,
+  "battle": true,
+  "field": true,
+  "amount": 100,
+  "desc": "Thick, crumbly oatcakes, a little sweeter than the Scottish kind, from a recipe that came over with the Gaels. Restores 100 HP."
+ },
+ {
+  "id": "lobster_roll",
+  "name": "Lobster Roll",
+  "kind": "heal",
+  "price": 520,
+  "battle": true,
+  "field": true,
+  "amount": 190,
+  "desc": "Fresh lobster in a buttered bun, a summer treat all along the coast of Atlantic Canada. Restores 190 HP."
+ },
+ {
+  "id": "milled_tweed",
+  "name": "Milled Tweed",
+  "kind": "charm",
+  "price": 0,
+  "battle": false,
+  "field": true,
+  "wild": false,
+  "desc": "A length of tweed thickened at a milling frolic, thumped on a table to the beat of Gaelic songs. Warm as a ceilidh.",
+  "effect_text": "Frost moves hurt it 25% less.",
+  "charm": {
+   "effect": "resist",
+   "type": "frost",
+   "mult": 0.75
+  },
+  "msg": "{name} was kept warm by the Milled Tweed!"
+ },
+ {
+  "id": "clam_chowder",
+  "name": "Clam Chowder",
+  "kind": "heal",
+  "price": 420,
+  "battle": true,
+  "field": true,
+  "amount": 160,
+  "desc": "New England clam chowder: clams, potatoes, onion and cream, thick enough to stand a spoon in. Boston says Manhattan's red version isn't chowder. Restores 160 HP."
+ },
+ {
+  "id": "boston_soda_bread",
+  "name": "Irish Soda Bread",
+  "kind": "heal",
+  "price": 240,
+  "battle": true,
+  "field": true,
+  "amount": 100,
+  "desc": "Soda bread from a Boston bakery, made the way Irish grandmothers made it, with buttermilk and a cross cut on top. Restores 100 HP."
+ },
+ {
+  "id": "boston_cream_pie",
+  "name": "Boston Cream Pie",
+  "kind": "heal",
+  "price": 360,
+  "battle": true,
+  "field": true,
+  "amount": 140,
+  "desc": "Which is a cake, not a pie: sponge, custard and chocolate on top. Massachusetts made it the state dessert in 1996. Restores 140 HP."
+ },
+ {
+  "id": "emigrant_claddagh",
+  "name": "Emigrant's Claddagh",
+  "kind": "charm",
+  "price": 0,
+  "battle": false,
+  "field": true,
+  "wild": false,
+  "desc": "A claddagh ring, two hands holding a crowned heart, carried from Ireland by an emigrant and handed down. Love, loyalty and friendship.",
+  "effect_text": "Spirit moves hurt it 25% less.",
+  "charm": {
+   "effect": "resist",
+   "type": "spirit",
+   "mult": 0.75
+  },
+  "msg": "{name} was steadied by the Emigrant's Claddagh!"
+ },
+ {
+  "id": "biscuits_gravy",
+  "name": "Biscuits and Gravy",
+  "kind": "heal",
+  "price": 360,
+  "battle": true,
+  "field": true,
+  "amount": 140,
+  "desc": "Southern biscuits, which are soft scone-like rolls, under a thick white sausage gravy. Breakfast in the mountains. Restores 140 HP."
+ },
+ {
+  "id": "cornbread",
+  "name": "Cornbread",
+  "kind": "heal",
+  "price": 240,
+  "battle": true,
+  "field": true,
+  "amount": 100,
+  "desc": "A wedge of cornbread from a cast-iron skillet. Maize was a Native American crop that every settler family learnt to grow. Restores 100 HP."
+ },
+ {
+  "id": "sweet_tea",
+  "name": "Sweet Tea",
+  "kind": "heal",
+  "price": 200,
+  "battle": true,
+  "field": true,
+  "amount": 80,
+  "desc": "Iced tea with a great deal of sugar in it, the house drink of the American South. A British visitor's soul leaves their body. Restores 80 HP."
+ },
+ {
+  "id": "dulcimer_pick",
+  "name": "Dulcimer Pick",
+  "kind": "charm",
+  "price": 0,
+  "battle": false,
+  "field": true,
+  "wild": false,
+  "desc": "A goose-quill pick for a mountain dulcimer, the zither the Appalachian settlers made for themselves.",
+  "effect_text": "Storm moves hurt it 25% less.",
+  "charm": {
+   "effect": "resist",
+   "type": "storm",
+   "mult": 0.75
+  },
+  "msg": "{name} kept time with the Dulcimer Pick!"
+ },
+ {
+  "id": "roscoff_onions",
+  "name": "Roscoff Onions",
+  "kind": "heal",
+  "price": 260,
+  "battle": true,
+  "field": true,
+  "amount": 100,
+  "desc": "Pink onions from Roscoff, sweet and long-keeping, the ones the Onion Johnnies sold door to door in Britain. Roasted, they restore 100 HP."
+ },
+ {
+  "id": "kouign_amann",
+  "name": "Kouign-Amann",
+  "kind": "heal",
+  "price": 380,
+  "battle": true,
+  "field": true,
+  "amount": 150,
+  "desc": "Butter cake from Douarnenez: bread dough folded with butter and sugar until it caramelises. Kouign is cake and amann is butter. Restores 150 HP."
+ },
+ {
+  "id": "breton_cider",
+  "name": "Breton Cider",
+  "kind": "heal",
+  "price": 300,
+  "battle": true,
+  "field": true,
+  "amount": 120,
+  "desc": "Dry Breton cider, served in a bowl. Yec'hed mat: good health. Restores 120 HP."
+ },
+ {
+  "id": "onion_string",
+  "name": "String of Onions",
+  "kind": "key",
+  "price": 0,
+  "battle": false,
+  "field": true,
+  "desc": "A string of pink Roscoff onions, plaited by the stalks, the way the Onion Johnnies carried them to Britain. For somebody in Plymouth."
+ },
+ {
+  "id": "triskell_pin",
+  "name": "Triskell Pin",
+  "kind": "charm",
+  "price": 0,
+  "battle": false,
+  "field": true,
+  "wild": false,
+  "desc": "A pin with the triskell, three spirals joined in the middle, an old Celtic pattern that Bretons wear as a sign of Brittany.",
+  "effect_text": "Fae moves hurt it 25% less.",
+  "charm": {
+   "effect": "resist",
+   "type": "fae",
+   "mult": 0.75
+  },
+  "msg": "{name} was guarded by the Triskell Pin!"
+ },
+ {
+  "id": "parish_passport",
+  "name": "Well-Stamped Passport",
+  "kind": "key",
+  "price": 0,
+  "battle": false,
+  "field": true,
+  "desc": "Your passport, stamped in Trelew, Sydney (Nova Scotia), Boston, Tri-Cities and Roscoff, and signed in the back by a bard, an archdruid, a councillor, a fiddler and a storyteller. The kin of these isles abroad count you as one of their own."
+ }
+]

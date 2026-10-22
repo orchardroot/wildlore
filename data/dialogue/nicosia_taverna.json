@@ -1,0 +1,115 @@
+{
+ "ns_taverna": [
+  {
+   "do": "say",
+   "who": "Taverna Owner",
+   "text": "Meze tonight? Don't order anything else. We bring you dips, then salad, then halloumi, then sheftalia, then lamb, then you beg us to stop, then the fruit."
+  },
+  {
+   "do": "say",
+   "who": "Taverna Owner",
+   "text": "Kopiaste! That's Cypriot: 'come and join us'. You say it to anyone passing while you're eating. And then they sit down. That's the risk."
+  }
+ ],
+ "ns_teacher_el": [
+  {
+   "do": "say",
+   "who": "Greek Teacher",
+   "text": "Yiá sou! Hello, to one person; 'yiá sas' to more than one, or to be polite. 'Kaliméra' is good morning, 'efcharistó' is thank you."
+  },
+  {
+   "do": "say",
+   "who": "Greek Teacher",
+   "text": "'Parakaló' is please, and also 'you're welcome', and also what the shopkeeper says when you walk in. One word, three jobs. Very efficient people, the Greeks."
+  },
+  {
+   "do": "say",
+   "who": "Greek Teacher",
+   "text": "Cypriot Greek has its own sound: Cypriots often say 'éla', come on, and they tend to soften a 'k' into a 'ch' sound. Mainland Greeks can tell a Cypriot in one word."
+  }
+ ],
+ "ns_ranger": [
+  {
+   "do": "if",
+   "flag": "q_overseas_cyprus_agrino_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Forest Ranger",
+     "text": "Look after that agrino. The real ones are still up in the Paphos forest, wild and wary, and counting on all of us."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_overseas_cyprus_agrino_started",
+     "then": [
+      {
+       "do": "when",
+       "cond": "caught_chamelet",
+       "then": [
+        {
+         "do": "say",
+         "who": "Forest Ranger",
+         "text": "You found a Chamelet? People walk past those for years without seeing one. You've got the patience for the hills."
+        },
+        {
+         "do": "say",
+         "who": "Forest Ranger",
+         "text": "Then take this one. A young agrino, the mouflon of Cyprus, raised at a forest station and too used to people to go back up the mountain. It needs someone who'll walk it."
+        },
+        {
+         "do": "give_creature",
+         "species": "agrino",
+         "level": 95,
+         "scaled_floor": 95
+        },
+        {
+         "do": "set",
+         "flag": "q_overseas_cyprus_agrino_1"
+        },
+        {
+         "do": "set",
+         "flag": "q_overseas_cyprus_agrino_done"
+        },
+        {
+         "do": "standing",
+         "nation": "overseas",
+         "amount": 5
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Forest Ranger",
+         "text": "Catch a Chamelet. They're in the fields round Pyla and the dunes over in Spain, if you ever go. Look twice at every leaf."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Forest Ranger",
+       "text": "I'm with the Forestry Department, down from the Paphos forest for a meeting and a decent lunch."
+      },
+      {
+       "do": "say",
+       "who": "Forest Ranger",
+       "text": "Up there we look after the agrino, the Cypriot mouflon, a wild sheep found nowhere else. It was hunted almost to nothing a hundred years ago. Protected since, it's come back to the thousands. It's on your one, two and five cent coins."
+      },
+      {
+       "do": "say",
+       "who": "Forest Ranger",
+       "text": "I've a young one that needs a keeper. But you'd need a good eye. Show me you can find a Chamelet, the shyest creature on this island, and we'll talk."
+      },
+      {
+       "do": "set",
+       "flag": "q_overseas_cyprus_agrino_started"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

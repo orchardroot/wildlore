@@ -766,6 +766,16 @@
    "facing": "right",
    "move": "still",
    "trainer": "cam_rower"
+  },
+  {
+   "id": "cam_science_fair",
+   "sprite": "villager_5",
+   "x": 62,
+   "y": 28,
+   "facing": "down",
+   "move": "still",
+   "script": "cam_science_fair",
+   "name": "Science Fair"
   }
  ],
  "encounters": {
@@ -787,38 +797,28 @@
     "min": 94,
     "max": 95,
     "weight": 10,
-    "time": [
-     "dusk",
-     "dawn"
-    ]
+    "time": ["dusk", "dawn"]
    },
    {
     "species": "swiftlet",
     "min": 94,
     "max": 95,
     "weight": 8,
-    "time": [
-     "day"
-    ]
+    "time": ["day"]
    },
    {
     "species": "binfox",
     "min": 94,
     "max": 95,
     "weight": 8,
-    "time": [
-     "night",
-     "dusk"
-    ]
+    "time": ["night", "dusk"]
    },
    {
     "species": "hootlet",
     "min": 94,
     "max": 96,
     "weight": 6,
-    "time": [
-     "night"
-    ]
+    "time": ["night"]
    },
    {
     "species": "volet",
@@ -837,9 +837,7 @@
     "min": 94,
     "max": 95,
     "weight": 6,
-    "time": [
-     "night"
-    ]
+    "time": ["night"]
    },
    {
     "species": "rooklet",
@@ -858,18 +856,14 @@
     "min": 94,
     "max": 95,
     "weight": 4,
-    "time": [
-     "dawn"
-    ]
+    "time": ["dawn"]
    },
    {
     "species": "chronophage",
     "min": 95,
     "max": 96,
     "weight": 3,
-    "time": [
-     "night"
-    ]
+    "time": ["night"]
    }
   ],
   "water": [
@@ -890,10 +884,7 @@
     "min": 94,
     "max": 96,
     "weight": 15,
-    "time": [
-     "night",
-     "dusk"
-    ]
+    "time": ["night", "dusk"]
    },
    {
     "species": "stalklet",
@@ -912,9 +903,7 @@
     "min": 94,
     "max": 96,
     "weight": 10,
-    "time": [
-     "night"
-    ]
+    "time": ["night"]
    },
    {
     "species": "cranelet",
@@ -925,6 +914,14 @@
   ]
  },
  "signs": [
+  {
+   "x": 17,
+   "y": 36,
+   "plaque": "cambridge_equiano",
+   "title": "Olaudah Equiano",
+   "text": "Olaudah Equiano was kidnapped as a child in what is now Nigeria and enslaved. He bought his freedom in 1766 and in 1789 published his life story, The Interesting Narrative, a bestseller and a weapon in the campaign against the slave trade. In 1792 he married Susannah Cullen at Soham, up the road in Cambridgeshire.",
+   "people": "black_britain"
+  },
   {
    "x": 38,
    "y": 53,
@@ -1008,6 +1005,27 @@
    "text": "THE UNIVERSITY. Founded in 1209 by scholars who left Oxford after a row with the townsfolk. It's now 31 colleges, and has taught Newton, Darwin, Turing, Milton and more Nobel prizewinners than most countries.",
    "plaque": "eastanglia_university",
    "title": "The University of Cambridge"
+  },
+  {
+   "x": 60,
+   "y": 24,
+   "plaque": "eastanglia_arm",
+   "title": "The ARM Chip",
+   "text": "In 1985, at Acorn Computers in Cambridge, Sophie Wilson and Steve Furber's new processor, the Acorn RISC Machine, ran for the first time. It was simple and sipped power so gently that, the story goes, the first one worked before its power supply was even connected. That frugality took it into phones. ARM designs are now in nearly every mobile phone in the world."
+  },
+  {
+   "x": 64,
+   "y": 24,
+   "plaque": "eastanglia_raspberry_pi",
+   "title": "Raspberry Pi",
+   "text": "The Raspberry Pi Foundation, a Cambridge charity, worried that fewer young people knew how a computer worked inside. Its answer was a bare circuit board the size of a credit card, launched on 29 February 2012 for 35 US dollars. Millions have been sold since, to classrooms, bedrooms, robots and garden weather stations."
+  },
+  {
+   "x": 68,
+   "y": 24,
+   "plaque": "eastanglia_alphafold",
+   "title": "AlphaFold",
+   "text": "Proteins are the busy little machines in every living cell, and their shape decides what they do. Working out one shape could take a lab years. DeepMind's AlphaFold learnt from about 170,000 shapes scientists had already found, and by 2020 could predict new ones, often nearly as well as the lab. With the European Bioinformatics Institute at Hinxton, just south of here, it has shared predictions for over 200 million proteins, free. Demis Hassabis and John Jumper shared in the 2024 Nobel Prize in Chemistry for it."
   }
  ],
  "spawn": [

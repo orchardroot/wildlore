@@ -52,6 +52,7 @@ func _ready() -> void:
 	mat.shader = load("res://art/shaders/tilt_shift.gdshader")
 	_tilt.material = mat
 	layer.add_child(_tilt)
+	sky.post = mat
 	_dark = ColorRect.new()
 	_dark.set_anchors_preset(Control.PRESET_FULL_RECT)
 	_dark.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -67,6 +68,9 @@ func _apply_quality() -> void:
 	_tilt.visible = Settings.quality != "low"
 	sky.apply_quality(Settings.quality)
 	get_viewport().msaa_3d = Viewport.MSAA_2X if Settings.quality == "high" else Viewport.MSAA_DISABLED
+	for il in get_tree().get_nodes_in_group(InteriorLight.GROUP):
+		il.apply(Settings.quality)
+	CharSprite.set_crisp_all(get_tree(), Settings.quality != "low")
 
 ## pos (-1, -1) means the zone's spawn point.
 func load_zone(zone_id: String, pos: Vector2i, facing: String) -> void:
@@ -223,6 +227,7 @@ func cut_bramble(p: Vector2i) -> void:
 func _build_zone_node() -> void:
 	_zone_node = ZoneBuilder.build(zone)
 	add_child(_zone_node)
+	InteriorLight.dress(zone, _zone_node, player, Settings.quality)  # rooms lit by their hearths and windows (Medium, High)
 	Seasonal.dress(zone, _zone_node, player)  # festivals and falling leaves from the real date
 	Viaduct.dress(zone, _zone_node)  # railway viaducts striding across (Castlefield)
 	OccluderFade.dress(zone, _zone_node, player)  # buildings between the camera and you go see-through
@@ -287,6 +292,7 @@ func _spawn_npcs() -> void:
 func _side_npcs() -> Array:
 	Festivals.rollover(Game.data)  # a festival that has come round again starts its quest afresh
 	var out := SideStories.npcs_for(zone.id, Game.data) + Festivals.npcs_for(zone.id) + Regulars.npcs_for(zone.id, Game.data)  # plus whoever's festival is on, and the Regulars
+	out.append_array(LangLessons.npcs_for(zone.id))  # language teachers (4.5)
 	var taken := {}
 	for d in out:
 		var p := SideStories.nearest_free(zone, Vector2i(int(d.x), int(d.y)), taken)
@@ -446,6 +452,8 @@ func _after_battle(result: Dictionary) -> void:
 		await ScriptRunner.start(self, [{"do": "whiteout"}])  # one whiteout, shared with trainer battles
 	elif Encounters.autosave_after(result):
 		Game.autosave()  # the catch is done and nothing is half-played: bank it
+	if str(result.get("result", "")) == "win" and LangLessons.say_it_offer(Game.data, Langs.code_for(str(zone.id), ZoneIndex.get_index()), Settings.languages_on(), Game.rng.roll()):
+		await ScriptRunner.start(self, [{"do": "say_it"}])  # "Say it": one quick word, never required
 
 func interact(p: Vector2i) -> void:
 	Audio.interaction(self, p)
@@ -481,6 +489,8 @@ func interact(p: Vector2i) -> void:
 			var res := Gazetteer.record(Game.data, str(s.plaque))
 			Bus.flag_changed.emit(Gazetteer.flag_key(str(s.plaque)), true)  # a quest step may have wanted it read
 			Game.quest_news.plaque_read(res, str(s.get("title", "")))
+			if str(s.get("theme", "")) == PoetsCorner.THEME:  # a plaque on the arts counts for Poets' Corner too (4.5)
+				Game.quest_news.poets_corner(PoetsCorner.record(Game.data, str(s.plaque)))
 		else:
 			await say(_sign_lines(s))
 		return
@@ -498,6 +508,9 @@ func _sign_lines(s: Dictionary) -> Array:
 	var r := Langs.sign_lines(s, str(zone.id), Settings.languages_on(), idx)
 	if str(r[1]) != "":
 		Langs.note_text(Game.data, Langs.code_for(str(zone.id), idx), str(r[1]))
+		var gloss := LangLessons.sign_gloss(Game.data, Langs.code_for(str(zone.id), idx), str(r[1]))
+		if gloss != "":  # words you've learnt from a teacher, picked out on the sign
+			return r[0] + [gloss]
 	return r[0]
 
 func _sign_title(s: Dictionary) -> String:

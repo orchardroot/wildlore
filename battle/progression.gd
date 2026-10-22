@@ -54,8 +54,8 @@ static func relearn(c: Creature, id: String, slot: int, move_db: MoveDB) -> void
 	else:
 		replace_move(c, slot, id, move_db)
 
-## Level-up evolutions. ctx = {weather, time} from the battle: an evolution with "weather" or "time"
-## also needs that weather or time of day; one with "friendship" needs that much friendship.
+## Level-up evolutions. ctx = {weather, time, season, zone, flags} from the battle: an evolution with "weather", "time",
+## "season", "zone" or "flag" also needs that weather, time of day, season, place or flag; one with "friendship" needs that much friendship.
 static func evolution_target(c: Creature, ctx := {}) -> String:
 	var evo = c.species.get("evolves")
 	if not (evo is Dictionary) or evo.has("item"):
@@ -68,6 +68,15 @@ static func evolution_target(c: Creature, ctx := {}) -> String:
 	if evo.has("weather") and str(ctx.get("weather", "")) != str(evo.weather):
 		return ""
 	if evo.has("time") and str(ctx.get("time", "")) != str(evo.time):
+		return ""
+	# wave 45: a season, a place (zone id or a list of them) or a flag (e.g. a language certificate) can gate it too
+	if evo.has("season") and str(ctx.get("season", "")) != str(evo.season):
+		return ""
+	if evo.has("zone"):
+		var zones: Array = evo.zone if evo.zone is Array else [evo.zone]
+		if str(ctx.get("zone", "")) not in zones:
+			return ""
+	if evo.has("flag") and not (ctx.get("flags", {}) as Dictionary).get(str(evo.flag), false):
 		return ""
 	if not (evo.has("level") or evo.has("friendship")):
 		return ""

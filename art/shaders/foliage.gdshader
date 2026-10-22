@@ -3,6 +3,9 @@ render_mode cull_disabled, specular_disabled;
 // Vertex-coloured foliage that sways in the wind. Higher vertices move more.
 uniform float wind_strength = 0.035;
 uniform float wind_speed = 1.3;
+// Medium and High graphics: the wind comes in gusts that roll across the zone, and leaves shiver as one passes
+// (0 on Low: a steady sway as before).
+uniform float gust = 0.0;
 // The season from the real date (Seasonal.tint), each 0..1. Only leafy canopy changes: trunks, bark and low
 // tufts keep their paint, and conifers (cool greens) stay evergreen apart from the frost.
 uniform float spring = 0.0;  // blossom on some trees
@@ -30,6 +33,13 @@ void vertex() {
 	float w = max(VERTEX.y, 0.0);
 	float sway = sin(TIME * wind_speed + world.x * 0.7 + world.z * 0.45) * wind_strength * w;
 	sway += sin(TIME * wind_speed * 2.3 + world.z * 1.3) * wind_strength * 0.35 * w;
+	if (gust > 0.0) {
+		// a slow front of wind travelling west to east, then a quick flutter on top while it passes
+		float front = smoothstep(0.2, 1.0, sin(TIME * 0.45 - world.x * 0.16 - world.z * 0.05) * 0.5 + 0.5);
+		float shiver = sin(TIME * 7.0 + world.x * 3.1 + world.z * 2.7 + VERTEX.y * 5.0);
+		sway *= 1.0 + front * gust * 0.9;
+		sway += shiver * wind_strength * 0.18 * w * front * gust;
+	}
 	VERTEX.x += sway;
 	VERTEX.z += sway * 0.5;
 }

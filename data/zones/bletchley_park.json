@@ -1,0 +1,221 @@
+{
+ "id": "bletchley_park",
+ "name": "Bletchley Park",
+ "region": "south_east",
+ "kind": "route",
+ "music": "route_forest",
+ "weather": {
+  "clear": 28,
+  "sunshine": 20,
+  "drizzle": 24,
+  "fog": 14,
+  "gale": 4,
+  "downpour": 6,
+  "frost": 4
+ },
+ "props": [
+  {
+   "type": "building",
+   "style": "red_brick",
+   "x": 16,
+   "y": 3,
+   "w": 12,
+   "h": 5,
+   "label": "The Mansion",
+   "kind": "museum"
+  },
+  {
+   "type": "building",
+   "style": "field_barn",
+   "x": 30,
+   "y": 3,
+   "w": 5,
+   "h": 3,
+   "label": "Hut 8"
+  },
+  {
+   "type": "building",
+   "style": "raf_block",
+   "x": 32,
+   "y": 16,
+   "w": 8,
+   "h": 4,
+   "label": "Block H: National Museum of Computing",
+   "kind": "museum"
+  },
+  {
+   "type": "oak",
+   "x": 4,
+   "y": 4,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 8,
+   "y": 3,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 12,
+   "y": 5,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 38,
+   "y": 4,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 40,
+   "y": 8,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 26,
+   "y": 17,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 22,
+   "y": 20,
+   "variant": 2
+  },
+  {
+   "type": "oak",
+   "x": 18,
+   "y": 16,
+   "variant": 0
+  },
+  {
+   "type": "oak",
+   "x": 3,
+   "y": 8,
+   "variant": 1
+  },
+  {
+   "type": "oak",
+   "x": 12,
+   "y": 9,
+   "variant": 2
+  },
+  {
+   "type": "bench",
+   "x": 19,
+   "y": 9
+  },
+  {
+   "type": "bench",
+   "x": 24,
+   "y": 9
+  },
+  {
+   "type": "bench",
+   "x": 10,
+   "y": 21
+  },
+  {
+   "type": "bench",
+   "x": 6,
+   "y": 21
+  },
+  {
+   "type": "lamp_post",
+   "x": 28,
+   "y": 10
+  },
+  {
+   "type": "lamp_post",
+   "x": 14,
+   "y": 10
+  }
+ ],
+ "warps": [
+  {
+   "x": 32,
+   "y": 5,
+   "to": "bletchley_hut8",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 35,
+   "y": 19,
+   "to": "bletchley_block_h",
+   "tx": 6,
+   "ty": 7,
+   "facing": "up"
+  }
+ ],
+ "edges": {
+  "west": {
+   "to": "oxford",
+   "offset": 19
+  }
+ },
+ "npcs": [
+  {
+   "id": "bp_guide",
+   "sprite": "tour_guide",
+   "x": 12,
+   "y": 10,
+   "facing": "down",
+   "move": "still",
+   "script": "bp_guide",
+   "name": "Guide"
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "x": 23,
+   "y": 9,
+   "plaque": "bletchley_park",
+   "title": "Bletchley Park",
+   "text": "During the Second World War this country house in Buckinghamshire was Station X, the home of the Government Code and Cypher School. By 1945 nearly 10,000 people worked here, about three quarters of them women, reading the enemy's secret messages. They were not allowed to say a word about it for some thirty years."
+  },
+  {
+   "x": 34,
+   "y": 8,
+   "plaque": "bletchley_bombe",
+   "title": "The Bombe",
+   "text": "The German forces scrambled their messages with Enigma machines, whose settings changed every day. Building on the work of Polish codebreakers, who had broken Enigma before the war, Alan Turing and Gordon Welchman designed the Bombe, an electro-mechanical machine that raced through possible settings to find the day's key. The first went to work in 1940."
+  }
+ ],
+ "spawn": [
+  1,
+  12
+ ],
+ "stage": "town",
+ "rows": [
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TT........................................TT",
+  "TT..............BBBBBBBBBBBB..BBBBB.......TT",
+  "TT..............BBBBBBBBBBBB..BBBBB.......TT",
+  "TT..............BBBBBBBBBBBB..BBDBB.......TT",
+  "TT..............BBBBBBBBBBBB....#.........TT",
+  "TT..............BBBBBBBBBBBB....#.........TT",
+  "TT...................#..........#.........TT",
+  "TT...................#..........#.........TT",
+  "TT...................#..........#.........TT",
+  "==========================================TT",
+  "==========================================TT",
+  "==========================================TT",
+  "TT...wwwwwwwwww...............#...........TT",
+  "TT..w~~~~~~~~~~w..............#...........TT",
+  "TT..w~~~~~~~~~~w..............#.BBBBBBBB..TT",
+  "TT..w~~~~~~~~~~w..............#.BBBBBBBB..TT",
+  "TT..w~~~~~~~~~~w..............#.BBBBBBBB..TT",
+  "TT..w~~~~~~~~~~w..............#.BBBDBBBB..TT",
+  "TT...wwwwwwwwww...............######......TT",
+  "TT........................................TT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+  "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT"
+ ]
+}

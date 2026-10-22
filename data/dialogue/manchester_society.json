@@ -23,5 +23,109 @@
    "who": "Customer",
    "text": "I've put a fiver in every Friday since I started work. It's not much. It's mine, and it's here."
   }
+ ],
+ "life_text_scam": [
+  {
+   "do": "if",
+   "flag": "lesson_text_scam",
+   "then": [
+    {
+     "do": "say",
+     "who": "Customer",
+     "text": "I've deleted it. Forwarded it, too. Feels oddly satisfying."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Customer",
+     "text": "Look at this, would you. 'Pat's Building Society: your account is LOCKED. Confirm your details within 2 hours at pats-secure-login.link or lose access.'"
+    },
+    {
+     "do": "say",
+     "who": "Customer",
+     "text": "It's from a number I don't know. I've two hours. Is it real?"
+    },
+    {
+     "do": "choice",
+     "text": "What should she do?",
+     "options": [
+      "Tap the link, quick",
+      "Delete it and forward it to 7726",
+      "Ring the number it came from"
+     ],
+     "set": "life_text_scam_pick"
+    },
+    {
+     "do": "if",
+     "flag": "life_text_scam_pick",
+     "eq": 0,
+     "then": [
+      {
+       "do": "say",
+       "who": "Customer",
+       "text": "Oh no. That is exactly what they hoped for. If you ever do, ring your bank on the number on your card straight away, and change the password."
+      }
+     ]
+    },
+    {
+     "do": "if",
+     "flag": "life_text_scam_pick",
+     "eq": 1,
+     "then": [
+      {
+       "do": "say",
+       "who": "Customer",
+       "text": "Good. 7726 spells SPAM on the keypad, if that helps you remember. It's free, and your mobile provider looks into the sender."
+      }
+     ]
+    },
+    {
+     "do": "if",
+     "flag": "life_text_scam_pick",
+     "eq": 2,
+     "then": [
+      {
+       "do": "say",
+       "who": "Customer",
+       "text": "Ringing the number in the message only gets you the scammer. Always use a number you already trust."
+      }
+     ]
+    },
+    {
+     "do": "say",
+     "who": "Customer",
+     "text": "Three giveaways. It rushes you, it comes from a number that isn't the society's, and the link isn't their real address."
+    },
+    {
+     "do": "say",
+     "who": "Customer",
+     "text": "A real society won't text you a login link, and nobody genuine will ever ask for the code they send you. Not staff, not the police, not 'the fraud team'."
+    },
+    {
+     "do": "say",
+     "who": "Customer",
+     "text": "Emails work the same way. Forward the dodgy ones to report@phishing.gov.uk and don't click anything. If in doubt, ring the number on the back of your card."
+    },
+    {
+     "do": "say",
+     "who": "Customer",
+     "text": "Here, have this. My daughter makes them and I can't be trusted with the tin."
+    },
+    {
+     "do": "set",
+     "flag": "lesson_text_scam"
+    },
+    {
+     "do": "give_item",
+     "item": "eccles_cake"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Noted in the Almanac under Things worth knowing."
+    }
+   ]
+  }
  ]
 }

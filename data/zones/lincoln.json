@@ -554,6 +554,15 @@
    "facing": "down",
    "move": "still",
    "trainer": "lin_nicola"
+  },
+  {
+   "id": "landsky_heat_watcher",
+   "sprite": "villager_3",
+   "x": 40,
+   "y": 15,
+   "facing": "down",
+   "move": "still",
+   "script": "landsky_heat"
   }
  ],
  "encounters": {
@@ -575,19 +584,14 @@
     "min": 88,
     "max": 88,
     "weight": 8,
-    "time": [
-     "day"
-    ]
+    "time": ["day"]
    },
    {
     "species": "binfox",
     "min": 88,
     "max": 88,
     "weight": 10,
-    "time": [
-     "night",
-     "dusk"
-    ]
+    "time": ["night", "dusk"]
    },
    {
     "species": "starlet",
@@ -600,28 +604,21 @@
     "min": 88,
     "max": 88,
     "weight": 8,
-    "time": [
-     "night",
-     "dusk"
-    ]
+    "time": ["night", "dusk"]
    },
    {
     "species": "glowmite",
     "min": 88,
     "max": 88,
     "weight": 8,
-    "time": [
-     "night"
-    ]
+    "time": ["night"]
    },
    {
     "species": "hootlet",
     "min": 88,
     "max": 88,
     "weight": 6,
-    "time": [
-     "night"
-    ]
+    "time": ["night"]
    },
    {
     "species": "spikkin",
@@ -672,14 +669,19 @@
     "min": 88,
     "max": 88,
     "weight": 8,
-    "time": [
-     "night",
-     "dusk"
-    ]
+    "time": ["night", "dusk"]
    }
   ]
  },
  "signs": [
+  {
+   "x": 50,
+   "y": 12,
+   "plaque": "lincoln_pig_and_pork",
+   "title": "Pig and Pork",
+   "text": "After 1066 the Normans ruled in French while the English farmed in English, and you can still taste it. The animal in the field kept its Old English name: cow, pig, sheep. The meat on the Norman table took a French one: beef from boeuf, pork from porc, mutton from mouton. Lincoln's castle, begun in 1068, is where the new lords ate it.",
+   "people": "normans"
+  },
   {
    "x": 45,
    "y": 11,
@@ -734,6 +736,7 @@
    "y": 20,
    "text": "BLUE PLAQUE: The Jew's House, built around 1160, is one of the oldest houses in England still lived in. Lincoln had a large medieval Jewish community; Aaron of Lincoln was the richest man in England in his day. In 1290 Edward I expelled every Jew from the kingdom.",
    "plaque": "lincoln_jews_house",
+   "people": "jewish",
    "title": "The Jew's House",
    "kind": "plaque",
    "dx": 0.475
@@ -772,6 +775,20 @@
    "text": "THE ARBORETUM. A Victorian park opened in 1872 for the people of Lincoln, with a maze, a bandstand and a lion statue that has seen generations of children climb on it.",
    "plaque": "lincoln_arboretum",
    "title": "Lincoln Arboretum"
+  },
+  {
+   "x": 66,
+   "y": 40,
+   "plaque": "lincoln_whittle",
+   "title": "Frank Whittle",
+   "text": "Frank Whittle, an RAF officer born in Coventry, patented a jet engine in 1930 when he was 22. Hardly anybody wanted it. His first engine ran on a test bed in Rugby in April 1937, and on 15 May 1941 the Gloster E.28/39 took off on jet power from RAF Cranwell, south of here, where Whittle had trained as a cadet."
+  },
+  {
+   "x": 44,
+   "y": 17,
+   "plaque": "landsky_coningsby",
+   "title": "40.3C at Coningsby",
+   "text": "On 19 July 2022 the thermometer at RAF Coningsby, south of here in Lincolnshire, reached 40.3C, the hottest temperature ever recorded in the United Kingdom and the first time it had passed 40. The old record, 38.7C at Cambridge in 2019, was three years old. The Met Office had issued its first ever red warning for extreme heat, and said such a day would have been all but impossible without the warming caused by burning coal, oil and gas."
   }
  ],
  "spawn": [

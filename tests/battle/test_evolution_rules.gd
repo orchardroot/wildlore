@@ -49,3 +49,31 @@ func test_real_lines_use_rules() -> void:
 	var dex := Dex.load_default()
 	assert_eq(str(dex.get_species("croakle").evolves.get("weather", "")), "downpour")
 	assert_eq(str(dex.get_species("pepperling").evolves.get("time", "")), "night")
+
+func test_season_evolution() -> void:
+	var c := _c({"to": "b", "level": 30, "season": "autumn"})
+	assert_eq(Progression.evolution_target(c, {"season": "summer"}), "")
+	assert_eq(Progression.evolution_target(c, {"season": "autumn"}), "b")
+	assert_eq(Progression.evolution_target(c), "", "no context, no season evolution")
+
+func test_zone_evolution() -> void:
+	var c := _c({"to": "b", "level": 30, "zone": ["bath", "somerset_levels"]})
+	assert_eq(Progression.evolution_target(c, {"zone": "york"}), "")
+	assert_eq(Progression.evolution_target(c, {"zone": "bath"}), "b")
+	assert_eq(Progression.evolution_target(c, {"zone": "somerset_levels"}), "b", "any listed zone will do")
+	var one := _c({"to": "b", "level": 30, "zone": "cayman"})
+	assert_eq(Progression.evolution_target(one, {"zone": "cayman"}), "b", "a single zone id works too")
+
+func test_flag_evolution() -> void:
+	var c := _c({"to": "b", "level": 30, "flag": "lang_cert_cy_1"})
+	assert_eq(Progression.evolution_target(c, {"flags": {}}), "")
+	assert_eq(Progression.evolution_target(c, {"flags": {"lang_cert_cy_1": true}}), "b")
+	assert_eq(Progression.evolution_target(c), "", "no flags, no flag evolution")
+	c.level = 29
+	assert_eq(Progression.evolution_target(c, {"flags": {"lang_cert_cy_1": true}}), "", "still needs the level")
+
+func test_conditions_combine() -> void:
+	var c := _c({"to": "b", "level": 30, "season": "winter", "zone": ["bermuda"]})
+	assert_eq(Progression.evolution_target(c, {"season": "winter", "zone": "york"}), "")
+	assert_eq(Progression.evolution_target(c, {"season": "summer", "zone": "bermuda"}), "")
+	assert_eq(Progression.evolution_target(c, {"season": "winter", "zone": "bermuda"}), "b")

@@ -3,6 +3,8 @@
  "species": [
   {
    "id": "prismite",
+   "real": "Its metallic stripes are not pigment but structural colour: thin layers in its shell bounce light back, like the sheen on a soap bubble.",
+   "names": {"cy": "chwilen", "ga": "ciaróg", "gd": "daol"},
    "name": "Prismite",
    "types": [
     "fae",
@@ -73,7 +75,14 @@
      "hollow_hill_hammer"
     ]
    ],
-   "evolves": null,
+   "evolves": {
+    "to": "spectrumite",
+    "level": 28,
+    "zone": [
+     "yr_wyddfa",
+     "llanberis"
+    ]
+   },
    "habitat": [
     "llanberis",
     "yr_wyddfa"
@@ -83,6 +92,105 @@
     "fact": "The rainbow leaf beetle lives in Britain only on a few mountain slopes in Snowdonia, where it feeds on wild thyme."
    },
    "sprite": "prismite"
+  },
+  {
+   "id": "spectrumite",
+   "real": "Roughly one in four described animal species is a beetle, so if you are going to be a beetle you need a good paint job to stand out.",
+   "names": {"cy": "chwilen", "ga": "ciaróg", "gd": "daol"},
+   "name": "Spectrumite",
+   "types": [
+    "fae",
+    "hedgerow"
+   ],
+   "base": {
+    "hp": 66,
+    "atk": 80,
+    "def": 89,
+    "lore": 93,
+    "ward": 82,
+    "spd": 89
+   },
+   "growth": "medium",
+   "catch_rate": 25,
+   "base_xp": 276,
+   "learnset": [
+    [
+     1,
+     "fairy_pinch"
+    ],
+    [
+     1,
+     "spore_puff"
+    ],
+    [
+     4,
+     "pixie_prick"
+    ],
+    [
+     8,
+     "ivy_tangle"
+    ],
+    [
+     12,
+     "glamour"
+    ],
+    [
+     16,
+     "nettle_sting"
+    ],
+    [
+     20,
+     "fog_lure"
+    ],
+    [
+     24,
+     "bad_luck_bump"
+    ],
+    [
+     28,
+     "lavender_bag"
+    ],
+    [
+     29,
+     "sloe_splash"
+    ],
+    [
+     34,
+     "changeling_charm"
+    ],
+    [
+     39,
+     "thorn_volley"
+    ],
+    [
+     44,
+     "hollow_hill_hammer"
+    ],
+    [
+     28,
+     "thistledown_trick"
+    ],
+    [
+     32,
+     "sun_dappled_strike"
+    ],
+    [
+     36,
+     "bewitching_hour"
+    ],
+    [
+     43,
+     "bramble_lash"
+    ]
+   ],
+   "evolves": null,
+   "habitat": [],
+   "appendix": true,
+   "dex": {
+    "text": "A beetle that has worked out the whole spectrum, and shows it off at noon. Smells of wild thyme, and very much on purpose.",
+    "fact": "In Britain the rainbow leaf beetle lives only on a few Snowdonia slopes, where it feeds on wild thyme."
+   },
+   "sprite": "spectrumite"
   }
  ]
 }

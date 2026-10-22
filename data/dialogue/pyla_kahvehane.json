@@ -1,0 +1,69 @@
+{
+ "pyl_huseyin": [
+  {
+   "do": "if",
+   "flag": "q_overseas_cyprus_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Hüseyin",
+     "text": "Same cheese, two names. Andreas says his squeaks louder. Let him. Afiyet olsun: enjoy your meal."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_overseas_cyprus_2",
+     "then": [
+      {
+       "do": "say",
+       "who": "Hüseyin",
+       "text": "You've tasted mine. Now you know. Go and tell the experts, and take your time, they'll agree with me."
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_overseas_cyprus_started",
+       "then": [
+        {
+         "do": "say",
+         "who": "Hüseyin",
+         "text": "Hoş geldiniz, welcome, judge. Hellim: sheep and goat, a little mint, kept in salty whey in a jar, the way my grandmother did in this village, and hers before her."
+        },
+        {
+         "do": "say",
+         "who": "Hüseyin",
+         "text": "Fry it in a pan with tomato and a bit of bread. Andreas puts his on the grill. He is wrong, but he is my neighbour."
+        },
+        {
+         "do": "set",
+         "flag": "q_overseas_cyprus_2"
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Hüseyin",
+         "text": "Merhaba! Hello. Turkish coffee? Say 'orta' for medium sweet, 'sade' for plain. Leave the grounds."
+        },
+        {
+         "do": "say",
+         "who": "Hüseyin",
+         "text": "Andreas over the square calls it Cypriot coffee. He's been wrong since we were boys, and I've told him every morning."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "pyl_cards": [
+  {
+   "do": "say",
+   "who": "Card Player",
+   "text": "We play pişti here, a card game. Andreas's men play prefa. Different games, same complaint about the cards."
+  }
+ ]
+}

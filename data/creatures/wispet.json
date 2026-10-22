@@ -1,13 +1,14 @@
 {
   "line": "wispet",
   "species": [
-    {"id": "wispet", "name": "Wispet", "types": ["fae", "spirit"],
+    {"id": "wispet", "real": "The wisp has a cast of local names, from jack-o'-lantern to hob-lantern, and a Latin one too: ignis fatuus, 'foolish fire'.", "names": {}, "name": "Wispet", "types": ["fae", "spirit"],
      "base": {"hp": 50, "atk": 35, "def": 45, "lore": 130, "ward": 105, "spd": 95},
      "growth": "medium", "catch_rate": 45, "base_xp": 150,
      "learnset": [[1, "scrap"], [1, "pixie_prick"], [5, "eerie_wail"], [9, "glamour"], [11, "mizzle"], [14, "rap_on_pane"], [17, "hill_fog"], [20, "poltergeist"], [26, "changeling_charm"]],
-     "evolves": null, "habitat": [],
+     "evolves": {"to": "corpsecandle", "level": 34, "weather": "fog", "time": "night"}, "habitat": [],
      "dex": {"text": "Drifts over the bog at dusk and offers to show you the way home. It has no intention whatsoever of showing you the way home.",
              "fact": "Will-o'-the-wisp lights were traditionally linked to marsh gas, which can sometimes catch fire."},
-     "sprite": "wispet"}
+     "sprite": "wispet"},
+    {"id": "corpsecandle", "name": "Corpsecandle", "types": ["spirit", "fae"], "base": {"hp": 55, "atk": 39, "def": 50, "lore": 144, "ward": 116, "spd": 105}, "growth": "medium", "catch_rate": 25, "base_xp": 218, "learnset": [[1, "scrap"], [1, "pixie_prick"], [5, "eerie_wail"], [9, "glamour"], [11, "mizzle"], [14, "rap_on_pane"], [17, "hill_fog"], [20, "poltergeist"], [26, "changeling_charm"], [34, "will_o_wisp"], [38, "bewitching_hour"], [42, "passing_bell"], [49, "barrow_chill"]], "evolves": null, "habitat": [], "appendix": true, "dex": {"text": "A pale light that goes ahead of you down the lane, taking the route a funeral would. Polite, tidy, and not at all comforting.", "fact": "In Welsh folklore a corpse candle was a pale light seen travelling the road a funeral would later take."}, "sprite": "corpsecandle", "real": "Welsh tradition said the size of a canwyll corff told you who was coming: a small light for a child, a large one for an adult.", "names": {"cy": "canwyll corff"}}
   ]
 }

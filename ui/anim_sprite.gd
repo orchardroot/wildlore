@@ -1,6 +1,8 @@
 class_name AnimSprite
 extends TextureRect
-## A creature front sprite (two idle frames) or icon, shown crisp at an integer scale. Never crashes on missing art.
+## A creature front sprite (two idle frames) or icon at an integer scale of its 96 (or 32) px size. Never crashes on
+## missing art. Front sheets are drawn at a higher resolution than they show (see tools/spritegen/creature.gd), so
+## they are filtered smoothly; icons stay crisp.
 
 const PLACEHOLDER_FRONT := "res://art/sprites/creatures/_placeholder_front.png"
 const PLACEHOLDER_ICON := "res://art/sprites/creatures/_placeholder_icon.png"
@@ -17,7 +19,6 @@ var _px := 96
 func show_species(id: String, kind := "front", scale_factor := 2, as_silhouette := false, variant := "", form := "") -> void:
 	species_id = id
 	silhouette = as_silhouette
-	texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	_px = 96 if kind == "front" else 32
@@ -29,12 +30,16 @@ func show_species(id: String, kind := "front", scale_factor := 2, as_silhouette 
 	if form != "" and not as_silhouette:  # a regional form first (see FormArt), then any coat over it
 		base_sheet = FormArt.texture(base_sheet, id + "_" + kind, id, form)
 	var sheet := CoatArt.texture(base_sheet, id + "_" + kind + "#" + form, "" if as_silhouette else variant)
+	texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	if kind == "front":
-		var n := maxi(1, sheet.get_width() / _px)
+		var fp := maxi(1, sheet.get_height())  # frames are square: as wide as the sheet is tall
+		if fp > _px:
+			texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
+		var n := maxi(1, sheet.get_width() / fp)
 		for i in mini(n, 2):
 			var a := AtlasTexture.new()
 			a.atlas = sheet
-			a.region = Rect2(i * _px, 0, _px, _px)
+			a.region = Rect2(i * fp, 0, fp, fp)
 			_frames.append(a)
 	else:
 		_frames.append(sheet)
@@ -51,6 +56,10 @@ func _process(delta: float) -> void:
 
 ## The sprite sheet for a species, a placeholder file, or a runtime "?" if both are missing.
 static func load_sheet(id: String, kind: String) -> Texture2D:
+	if Crossbreeds.is_id(id):  # no file: blended from its parents (ui/crossbreed_art.gd)
+		var xt := CrossbreedArt.texture(Crossbreeds.lookup(id), kind)
+		if xt != null:
+			return xt
 	var path := "res://art/sprites/creatures/%s_%s.png" % [id, kind]
 	if id != "" and ResourceLoader.exists(path):
 		var t = load(path)
