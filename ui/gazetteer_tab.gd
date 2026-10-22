@@ -19,6 +19,7 @@ var _town: Dictionary = {}    # the place opened, {} for the list of places
 var _place_at := 0            # the place to come back to
 var _isles := false           # the These Isles page is open (see TheseIsles)
 var _themes: Array = []
+var _dsc: ScrollContainer     # the detail panel's scroller (a long topic reads on with Confirm)
 
 func _init(menu: MenuBase) -> void:
 	_menu = menu
@@ -51,6 +52,7 @@ func build(parent: Control) -> void:
 	var dsc := ScrollContainer.new()
 	dsc.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	dp.add_child(dsc)
+	_dsc = dsc
 	_detail = VBoxContainer.new()
 	_detail.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	_detail.add_theme_constant_override("separation", 10)
@@ -118,6 +120,8 @@ func _places() -> void:
 		return
 	_rows.append({"isles": true})
 	_list_col.add_child(_isles_button(0))
+	_rows.append(ISLES_ROW)  # the How these isles work page heads the list (IslesWorkView)
+	_list_col.add_child(_place_button(0))
 	for g in _groups:
 		var head := HBoxContainer.new()
 		var hl := UIKit.label(str(g.name), 19, UIKit.MUTED)
@@ -165,6 +169,9 @@ func _place_button(i: int) -> Button:
 		_place_at = k
 		_show_row(_rows[k]), func(k: int): _open(k))
 	var h := _inner(b)
+	if t.has("isles_work"):
+		_isles_row(h)
+		return b
 	var full := int(t.read) == int(t.total)
 	var nm := UIKit.label(str(t.name), 24, UIKit.GOLD if full else (UIKit.CREAM if int(t.read) > 0 else UIKit.MUTED))
 	nm.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
@@ -201,6 +208,9 @@ func _show_row(t: Dictionary) -> void:
 
 func _show_place(t: Dictionary) -> void:
 	UIKit.clear(_detail)
+	if t.has("isles_work"):
+		IslesWorkView.summary(_detail, Game.data)
+		return
 	var name := UIKit.label(str(t.name), 34)
 	name.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	_detail.add_child(name)
@@ -229,6 +239,7 @@ func _show_place(t: Dictionary) -> void:
 func _open(i: int) -> void:
 	_place_at = i
 	if _rows[i].has("isles"):
+	if _rows[i].has("isles_work"):
 		_open_isles()
 		return
 	_town = _rows[i]
@@ -312,6 +323,8 @@ func open_town(town: String) -> void:
 			if str(_themes[k].id) == th:
 				UIKit.focus_later(_buttons[k])
 				_show_theme(_themes[k])
+	if town.begins_with("isles_work"):  # "isles_work[:<topic id>]"
+		_open_isles(town.get_slice(":", 1))
 		return
 	for i in _rows.size():
 		if str(_rows[i].town) == town:
@@ -422,3 +435,67 @@ func _show_theme(t: Dictionary) -> void:
 		l.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		h.add_child(l)
 		_detail.add_child(h)
+# --- How these isles work (IslesWork, IslesWorkView) ----------------------------------
+
+const ISLES_ROW := {"isles_work": true}
+
+func _isles_row(h: HBoxContainer) -> void:
+	var nm := UIKit.label(IslesWorkView.NAME, 24, UIKit.GOLD)
+	nm.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	nm.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	h.add_child(nm)
+	var n := UIKit.label("%d / %d" % [IslesWork.count(Game.data), IslesWork.all().size()], 20, UIKit.MUTED)
+	n.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	n.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	h.add_child(n)
+
+## The page opened: its topics down the list, the one focused on the right.
+func _open_isles(focus_id := "") -> void:
+	_place_at = 0
+	_town = {"isles_work": true, "name": IslesWorkView.NAME}
+	UIKit.clear(_list_col)
+	_buttons.clear()
+	_rows = IslesWork.all().duplicate()
+	_list_col.add_child(UIKit.label("< " + IslesWorkView.NAME, 22, UIKit.GOLD))
+	var first := -1
+	for k in _rows.size():
+		var t: Dictionary = _rows[k]
+		var known := IslesWork.is_learnt(Game.data, t)
+		if known and first < 0:
+			first = k
+		var b := _row_button(k, func(j: int): IslesWorkView.topic(_cleared(), Game.data, _rows[j]), func(_j: int): _read_on())
+		var h := _inner(b)
+		var mk := ColorRect.new()
+		mk.custom_minimum_size = Vector2(10, 30)
+		mk.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+		mk.color = IslesWorkView.EDGE if known else Color("454d63")
+		mk.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		h.add_child(mk)
+		var l := UIKit.label(str(t.title), 21, UIKit.CREAM if known else UIKit.MUTED)
+		l.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+		l.clip_text = true
+		l.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		l.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		h.add_child(l)
+		_list_col.add_child(b)
+	Audio.sfx("confirm")
+	UIKit.wrap_focus(_buttons)
+	for k in _rows.size():
+		if str(_rows[k].id) == focus_id:
+			first = k
+	first = maxi(first, 0)
+	UIKit.focus_later(_buttons[first])
+	IslesWorkView.topic(_cleared(), Game.data, _rows[first])
+	_menu.set_hints([["updown", "Topics"], ["confirm", "Read on"], ["cancel", "All places"]])
+
+func _cleared() -> VBoxContainer:
+	UIKit.clear(_detail)
+	_dsc.scroll_vertical = 0
+	return _detail
+
+## Confirm on a topic: down the card a panel at a time, then back to the top.
+func _read_on() -> void:
+	var bar := _dsc.get_v_scroll_bar()
+	var step := int(_dsc.size.y * 0.8)
+	_dsc.scroll_vertical = 0 if _dsc.scroll_vertical + int(_dsc.size.y) >= int(bar.max_value) - 2 else _dsc.scroll_vertical + step
+	Audio.sfx("cursor")

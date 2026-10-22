@@ -150,6 +150,12 @@ static func boot(game: Node, menu: String) -> void:
 			n += 1
 		for m in Gazetteer.MILESTONES.slice(0, 3):
 			d.set_flag(str(m.flag))
+		if ":isles_work" in menu:  # `--menu=quests:gazetteer:isles_work[:<topic>]`: How these isles work, two in three topics learnt (and that one)
+			var k := 0
+			for t in IslesWork.all():
+				if k % 3 != 2 or menu.ends_with(":" + str(t.id)):
+					d.set_flag(IslesWork.flag_key(str(t.id)))
+				k += 1
 	if "--stress" in DevArgs.user_args():  # dev: worst-case widths, a 12-letter name and nicknames and a full purse
 		stress(d)
 	if menu.begins_with("relearn"):

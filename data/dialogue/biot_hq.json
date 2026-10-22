@@ -46,5 +46,54 @@
     }
    ]
   }
+ ],
+ "biot_heritage_visitor": [
+  {
+   "do": "if",
+   "flag": "isles_chagos",
+   "then": [
+    {
+     "do": "say",
+     "who": "Heritage Visitor",
+     "text": "My grandmother's island is out there somewhere past the lagoon. I'm going to sit and look at it for a bit."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Heritage Visitor",
+     "text": "{greeting} I'm here on a heritage visit. My grandmother was born on Peros Banhos. I was born in Crawley. Life is strange."
+    },
+    {
+     "do": "say",
+     "who": "Heritage Visitor",
+     "text": "Britain split Chagos from Mauritius in 1965 to make this Territory, and Mauritius became independent in 1968. Between 1967 and 1973 all of our people were sent away."
+    },
+    {
+     "do": "say",
+     "who": "Heritage Visitor",
+     "text": "Mauritius has always claimed the islands. In 2019 the International Court of Justice said Britain should end its administration here. Britain said that opinion wasn't binding."
+    },
+    {
+     "do": "say",
+     "who": "Heritage Visitor",
+     "text": "In October 2024 the two governments announced a deal in principle: sovereignty to Mauritius, with the base on Diego Garcia staying."
+    },
+    {
+     "do": "say",
+     "who": "Heritage Visitor",
+     "text": "Some of us want to come home, some want a say, some trust Mauritius and some don't. What we all want is to be asked. That's not much, is it?"
+    },
+    {
+     "do": "set",
+     "flag": "isles_chagos"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Noted in the Gazetteer, under How these isles work."
+    }
+   ]
+  }
  ]
 }

@@ -57,5 +57,54 @@
    "who": "Attendant",
    "text": "The arches are horseshoe-shaped. If you're going to look at one thing, look at the roof. It has little star-shaped holes for the steam to escape."
   }
+ ],
+ "gib_volunteer": [
+  {
+   "do": "if",
+   "flag": "isles_overseas",
+   "then": [
+    {
+     "do": "say",
+     "who": "Museum Volunteer",
+     "text": "Mind the apes on the way up. They're not Overseas Territory citizens. They're management."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Museum Volunteer",
+     "text": "{greeting} I volunteer here on Tuesdays. The rest of the week I explain to visitors that we're not in Spain, and not quite in the UK either."
+    },
+    {
+     "do": "say",
+     "who": "Museum Volunteer",
+     "text": "Gibraltar is a British Overseas Territory. There are 14 of us, from Bermuda to the Falklands to St Helena, and a bit of Antarctica with more penguins than voters."
+    },
+    {
+     "do": "say",
+     "who": "Museum Volunteer",
+     "text": "We elect our own government. The Governor represents the King, and the UK does defence and foreign policy. Since 2002 most people in the Territories have been full British citizens."
+    },
+    {
+     "do": "say",
+     "who": "Museum Volunteer",
+     "text": "Spain still claims the Rock, as Argentina claims the Falklands. In 1967 we voted 12,138 to 44 to stay British. Forty-four. I'd love to know who they were."
+    },
+    {
+     "do": "say",
+     "who": "Museum Volunteer",
+     "text": "We were in the EU along with the UK, and we voted 96% to remain. Out we came anyway. The frontier with Spain has been the big question ever since."
+    },
+    {
+     "do": "set",
+     "flag": "isles_overseas"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Noted in the Gazetteer, under How these isles work."
+    }
+   ]
+  }
  ]
 }
