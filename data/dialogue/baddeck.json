@@ -12,11 +12,11 @@
   },
   {
    "do": "if",
-   "flag": "q_abroad_baddeck_frolic_started",
+   "flag": "q_abroad_cape_breton_frolic_started",
    "then": [
     {
      "do": "set",
-     "flag": "q_abroad_baddeck_frolic_1",
+     "flag": "q_abroad_cape_breton_frolic_1",
      "value": true
     }
    ]
@@ -35,11 +35,11 @@
   },
   {
    "do": "if",
-   "flag": "q_abroad_baddeck_frolic_started",
+   "flag": "q_abroad_cape_breton_frolic_started",
    "then": [
     {
      "do": "set",
-     "flag": "q_abroad_baddeck_frolic_2",
+     "flag": "q_abroad_cape_breton_frolic_2",
      "value": true
     }
    ]
@@ -58,11 +58,11 @@
   },
   {
    "do": "if",
-   "flag": "q_abroad_baddeck_frolic_started",
+   "flag": "q_abroad_cape_breton_frolic_started",
    "then": [
     {
      "do": "set",
-     "flag": "q_abroad_baddeck_frolic_3",
+     "flag": "q_abroad_cape_breton_frolic_3",
      "value": true
     }
    ]
@@ -80,6 +80,16 @@
    "do": "say",
    "who": "Lobster Fisher",
    "text": "Lobster season's set by law here, with traps and licences counted. You learn to read a lobster's face. They mostly look annoyed, so it's not a hard read."
+  }
+ ],
+ "baddeck_bureau": [
+  {
+   "do": "say",
+   "who": "Bureau Clerk",
+   "text": "Bank counter, and we change money. Canadian dollars: the one dollar coin has a loon on it, so it's a loonie, and the two dollar coin is a toonie. Nobody voted on that. It just happened."
+  },
+  {
+   "do": "bureau"
   }
  ],
  "bad_moose": [
@@ -103,7 +113,7 @@
  "bad_legend_talk": [
   {
    "do": "if",
-   "flag": "q_abroad_baddeck_frolic_done",
+   "flag": "q_abroad_cape_breton_frolic_done",
    "then": [
     {
      "do": "say",
@@ -114,19 +124,19 @@
    "else": [
     {
      "do": "if",
-     "flag": "q_abroad_baddeck_frolic_started",
+     "flag": "q_abroad_cape_breton_frolic_started",
      "then": [
       {
        "do": "if",
-       "flag": "q_abroad_baddeck_frolic_1",
+       "flag": "q_abroad_cape_breton_frolic_1",
        "then": [
         {
          "do": "if",
-         "flag": "q_abroad_baddeck_frolic_2",
+         "flag": "q_abroad_cape_breton_frolic_2",
          "then": [
           {
            "do": "if",
-           "flag": "q_abroad_baddeck_frolic_3",
+           "flag": "q_abroad_cape_breton_frolic_3",
            "then": [
             {
              "do": "say",
@@ -165,7 +175,7 @@
             },
             {
              "do": "set",
-             "flag": "q_abroad_baddeck_frolic_done",
+             "flag": "q_abroad_cape_breton_frolic_done",
              "value": true
             }
            ],
@@ -204,7 +214,7 @@
       },
       {
        "do": "set",
-       "flag": "q_abroad_baddeck_frolic_started",
+       "flag": "q_abroad_cape_breton_frolic_started",
        "value": true
       }
      ]

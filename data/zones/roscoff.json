@@ -370,6 +370,16 @@
    "script": "ros_farmer"
   },
   {
+   "id": "roscoff_bureau",
+   "sprite": "commuter",
+   "x": 44,
+   "y": 26,
+   "facing": "down",
+   "move": "still",
+   "script": "roscoff_bureau",
+   "name": "Bureau Clerk"
+  },
+  {
    "id": "ros_vraic",
    "sprite": "creature:vraicling",
    "x": 32,
@@ -449,6 +459,9 @@
     "min": 43,
     "max": 44,
     "weight": 8,
+    "season": [
+     "autumn"
+    ],
     "weather": [
      "drizzle",
      "fog"
@@ -461,7 +474,7 @@
     "weight": 10
    },
    {
-    "species": "spikkin",
+    "species": "flittermouse",
     "min": 43,
     "max": 44,
     "weight": 10,
