@@ -10,5 +10,5 @@ Done (pushed on claude/w45-d-language):
   TrainerStats counters. Welsh cy_01, cy_02 in data/lang/cy.json; review questions docs/lang_review/cy.md.
 - tests/core/test_lang_lessons.gd. Screens in docs/shots/w45d (dev: --menu=lang:..., pedia:words, pause:words).
 
-Left: check CI; re-shoot lesson check + words tab after layout fixes.
+Status: CI green on 8ad80197 (run 39712039831). Nothing left for D; the rest of the Welsh lessons come from data/lang/lessons/cy.json (another agent).
 Gotchas: teachers must stand in a zone where Langs.code_for == their code (validator). Machine is slow: no full local test.sh.
