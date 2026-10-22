@@ -21,6 +21,10 @@ It started life as a monster-catching game. It's turned into something closer to
 
 Whatever's newest is below; older notes are further down.
 
+## What's new in 4.5.1
+
+- Fixed two places you could get stuck: a new plaque blocked the only path to Yr Wyddfa's summit, and arriving at Galway Docks could box you in beside the door.
+
 ## What's new in 4.5: Learn as You Go
 
 The big one. Wildlore has grown from "a Pokémon game set in Britain" into a creature-battling RPG of these isles that
