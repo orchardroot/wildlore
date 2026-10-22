@@ -6,13 +6,13 @@ extends RefCounted
 ## appears once its system has something to show, so old saves need nothing.
 
 ## The menus behind each page, in tab order. "ledger:<kind>" opens the Almanac's own read-only ledger.
-const ORDER := ["journal", "fieldbook", "gazetteer", "casebook", "studbook", "rumours", "trades", "standing", "stats",
+const ORDER := ["journal", "fieldbook", "gazetteer", "casebook", "studbook", "words", "rumours", "trades", "standing", "stats",
 	"guilds", "deeds", "society"]
 const NAMES := {"journal": "Quest log", "fieldbook": "Fieldbook", "gazetteer": "Gazetteer", "casebook": "Casebook",
-	"studbook": "Stud Book", "rumours": "Rumours", "trades": "Trades", "standing": "Standing", "stats": "Tallies",
+	"studbook": "Stud Book", "words": "Words of the Isles", "rumours": "Rumours", "trades": "Trades", "standing": "Standing", "stats": "Tallies",
 	"guilds": "Guilds", "deeds": "Deeds", "society": "Building Society"}
 const MENUS := {"journal": "quests", "fieldbook": "pedia", "gazetteer": "quests:gazetteer", "casebook": "pedia:casebook",
-	"studbook": "pedia:studbook", "rumours": "pedia:rumours", "trades": "stats:trades", "standing": "stats:standing",
+	"studbook": "pedia:studbook", "words": "pedia:words", "rumours": "pedia:rumours", "trades": "stats:trades", "standing": "stats:standing",
 	"stats": "stats", "guilds": "ledger:guilds", "deeds": "ledger:deeds", "society": "ledger:society"}
 
 static func sprouted(d: GameStateData, id: String) -> bool:
@@ -21,6 +21,8 @@ static func sprouted(d: GameStateData, id: String) -> bool:
 			return Casebook.visible(d)
 		"studbook":
 			return StudBook.idea_count(d) > 0 or not Breeding.baskets(d).is_empty()
+		"words":
+			return words_met(d) > 0
 		"rumours":
 			return not d.seen.is_empty()
 		"guilds":
@@ -30,6 +32,10 @@ static func sprouted(d: GameStateData, id: String) -> bool:
 		"society":
 			return society_active(d)
 	return true
+
+## Local words met so far (the Words of the Isles tab, 4.1).
+static func words_met(d: GameStateData) -> int:
+	return d.flags.keys().filter(func(k): return str(k).begins_with(Langs.FLAG_PREFIX)).size()
 
 static func joined_guilds(d: GameStateData) -> Array:
 	return Guilds.IDS.filter(func(g): return Guilds.is_member(d, g))
@@ -59,6 +65,9 @@ static func blurb(d: GameStateData, id: String) -> String:
 			return "%d case%s open" % [open, "" if open == 1 else "s"]
 		"studbook":
 			return "%d idea%s noted%s" % [StudBook.idea_count(d), "" if StudBook.idea_count(d) == 1 else "s", ""]
+		"words":
+			var w := words_met(d)
+			return "%d local word%s met" % [w, "" if w == 1 else "s"]
 		"rumours":
 			return "Local gossip and region stamps"
 		"trades":

@@ -4,7 +4,7 @@ extends MenuBase
 
 const SAMPLE := "Oi. That's my sandwich. Also, welcome to Cheshire."
 const NOTES := [
-	"Colour-blind friendly and Reduce flashing are on the Settings page; every type also has its own shape.",
+	"Colour-blind friendly is on the Settings page; every type also has its own shape.",
 	"Easier fishing and Easier pub games make every timing game kinder: fishing, sheepdogs, darts, crabbing, bells, shanties, walling and conkers.",
 	"Every key and gamepad button can be changed under Controls.",
 ]
@@ -25,7 +25,8 @@ func _build() -> void:
 	v.add_theme_constant_override("separation", 2)
 	p.add_child(v)
 	var buttons := []
-	for def in [["text_size", "Text size"], ["readable_font", "Readable font"]]:
+	for def in [["text_size", "Text size"], ["readable_font", "Readable font"], ["reduce_flashing", "Reduce flashing"],
+			["easy_fishing", "Easier fishing and sheepdogs"], ["easy_darts", "Easier pub games and crafts"]]:
 		var b := Button.new()
 		b.custom_minimum_size = Vector2(0, 30)
 		UIKit.compact(b, 2)
@@ -96,8 +97,10 @@ func _change(key: String, d: int) -> void:
 	if key == "text_size":
 		var sizes := Access.TEXT_SIZES.keys()
 		Settings.text_size = sizes[MenuLogic.wrap_index(maxi(0, sizes.find(Settings.text_size)), d, sizes.size())]
-	else:
+	elif key == "readable_font":
 		Settings.readable_font = not Settings.readable_font
+	else:  # the plain on/off toggles
+		Settings.set(key, not bool(Settings.get(key)))
 	Settings.apply_access()
 	Settings.save_settings()
 	_sample.add_theme_font_size_override("font_size", Access.scaled(20, Settings.text_size))
@@ -109,4 +112,4 @@ func _paint(r: Dictionary) -> void:
 	if r.key == "text_size":
 		l.text = "<  %s  >" % Settings.text_size.capitalize()
 	else:
-		l.text = "<  %s  >" % ("On" if Settings.readable_font else "Off")
+		l.text = "<  %s  >" % ("On" if bool(Settings.get(r.key)) else "Off")
