@@ -1,0 +1,85 @@
+{
+ "nn_cheese": [
+  {
+   "do": "if",
+   "flag": "q_overseas_cyprus_4",
+   "then": [
+    {
+     "do": "say",
+     "who": "Hellim Seller",
+     "text": "Off you go to Pyla. Tell Hüseyin I said he's right. Tell Andreas I said he's right. That's diplomacy."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_overseas_cyprus_3",
+     "then": [
+      {
+       "do": "if",
+       "flag": "trainer_nn_critic",
+       "then": [
+        {
+         "do": "say",
+         "who": "Hellim Seller",
+         "text": "You beat the critic? Then you're a judge worth listening to. My verdict: same cheese, two names, one island. My mother made it, your Andreas's mother made it. The EU wrote both names on one form in 2021, so it's official."
+        },
+        {
+         "do": "say",
+         "who": "Hellim Seller",
+         "text": "Go and tell them in Pyla. And tell them the best one is mine."
+        },
+        {
+         "do": "set",
+         "flag": "q_overseas_cyprus_4"
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Hellim Seller",
+         "text": "The south sent you? Good. But first, that critic by the fountain says hellim is 'squeaky rubber'. In front of my stall. Settle it, and I'll give you my verdict."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Hellim Seller",
+       "text": "Hellim, fresh and in brine! Fry it with tomatoes, or eat it in a sandwich with a slice of watermelon in summer."
+      },
+      {
+       "do": "shop",
+       "id": "nicosia_bakkal"
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "nn_weaver": [
+  {
+   "do": "say",
+   "who": "Weaver",
+   "text": "Lefkara lace is from a village in the south, hand-stitched. My weaving is from the north. We sell at the same craft fairs and admire each other's work very loudly, so the customers hear."
+  }
+ ],
+ "nn_teacher_tr": [
+  {
+   "do": "say",
+   "who": "Turkish Teacher",
+   "text": "Merhaba! That's hello. 'Günaydın' is good morning, 'teşekkür ederim' is thank you, and 'sağ ol' is the quick, friendly thanks."
+  },
+  {
+   "do": "say",
+   "who": "Turkish Teacher",
+   "text": "Before a meal, say 'afiyet olsun', enjoy it. To someone at work, say 'kolay gelsin', may it come easy. There's a phrase for everything. It's a very sociable language."
+  },
+  {
+   "do": "say",
+   "who": "Turkish Teacher",
+   "text": "Turkish letters to watch: ş is 'sh', ç is 'ch', and ı without a dot is a sound English hasn't got, somewhere between the 'a' in 'about' and a grunt."
+  }
+ ]
+}

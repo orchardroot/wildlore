@@ -17,7 +17,7 @@ const REGIONS := {
 	"overseas_bermuda": "Bermuda", "overseas_cayman": "Cayman Islands", "overseas_turks_caicos": "Turks and Caicos Islands",
 	"overseas_bvi": "British Virgin Islands", "overseas_anguilla": "Anguilla", "overseas_montserrat": "Montserrat",
 	"abroad_patagonia": "Y Wladfa, Patagonia", "abroad_cape_breton": "Cape Breton, Nova Scotia", "abroad_boston": "Boston, Massachusetts",
-	"abroad_appalachia": "Appalachia", "abroad_brittany": "Brittany (Breizh)",
+	"abroad_appalachia": "Appalachia", "abroad_brittany": "Brittany (Breizh)", "overseas_la_linea": "Andalusia, Spain", "overseas_cyprus": "Republic of Cyprus", "overseas_north_cyprus": "Northern Cyprus",
 }
 ## Zones whose region id doesn't name them well.
 const OVERRIDES := {
@@ -26,6 +26,7 @@ const OVERRIDES := {
 	"antrim_coast": "Northern Ireland", "causeway": "Northern Ireland", "mournes": "Northern Ireland",
 	"lough_neagh": "Northern Ireland", "enniskillen": "County Fermanagh",
 	"brize_norton": "Oxfordshire", "akrotiri": "Akrotiri Sovereign Base Area", "dhekelia": "Dhekelia Sovereign Base Area",
+	"pyla": "The UN buffer zone, Cyprus",
 }
 const FADE_IN := 0.5
 const HOLD := 2.4

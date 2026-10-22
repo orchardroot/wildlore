@@ -1,0 +1,69 @@
+{
+ "pyl_andreas": [
+  {
+   "do": "if",
+   "flag": "q_overseas_cyprus_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Andreas",
+     "text": "The same cheese with two names. Fine. Fine! But mine squeaks louder. Kopiaste: come and join us, sit, eat."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_overseas_cyprus_1",
+     "then": [
+      {
+       "do": "say",
+       "who": "Andreas",
+       "text": "You've had mine. Now go and have his, so you can tell him how much better mine is."
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_overseas_cyprus_started",
+       "then": [
+        {
+         "do": "say",
+         "who": "Andreas",
+         "text": "Ah, the judge! Taste. Sheep's and goat's milk, warmed, curdled, the curds cooked in the hot whey and folded over with dried mint, like my mother did."
+        },
+        {
+         "do": "say",
+         "who": "Andreas",
+         "text": "Grill it, and it doesn't melt. It squeaks on your teeth. That's how you know it's honest."
+        },
+        {
+         "do": "set",
+         "flag": "q_overseas_cyprus_1"
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Andreas",
+         "text": "Kaliméra! Good morning. Coffee? A Cypriot coffee: you say 'métrios' for medium sweet, 'skétos' for none. The grounds stay in the cup. Don't drink those."
+        },
+        {
+         "do": "say",
+         "who": "Andreas",
+         "text": "Hüseyin across the square calls it Turkish coffee. It's the same pot, the same coffee, the same argument for fifty years."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "pyl_tavli": [
+  {
+   "do": "say",
+   "who": "Tavli Player",
+   "text": "Tavli, backgammon. Hüseyin's lot call it tavla. We play each other on Thursdays. Nobody has ever admitted to losing."
+  }
+ ]
+}

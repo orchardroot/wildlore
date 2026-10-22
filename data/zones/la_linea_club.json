@@ -1,0 +1,97 @@
+{
+ "id": "la_linea_club",
+ "name": "Frontier Workers' Club",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "card_table",
+   "x": 2,
+   "y": 4
+  },
+  {
+   "type": "card_table",
+   "x": 7,
+   "y": 4
+  },
+  {
+   "type": "noticeboard",
+   "x": 2,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "tea_urn",
+   "x": 8,
+   "y": 1
+  },
+  {
+   "type": "wall_map",
+   "x": 5,
+   "y": 1,
+   "walk": true
+  }
+ ],
+ "warps": [
+  {
+   "x": 5,
+   "y": 7,
+   "to": "la_linea",
+   "tx": 50,
+   "ty": 25,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "lal_pensioner",
+   "sprite": "villager_5",
+   "x": 3,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "lal_pensioner",
+   "name": "Retired Bricklayer"
+  },
+  {
+   "id": "lal_moroccan",
+   "sprite": "villager_2",
+   "x": 7,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "lal_moroccan",
+   "name": "Visitor from the Rock"
+  },
+  {
+   "id": "lal_teacher_es",
+   "sprite": "student",
+   "x": 4,
+   "y": 6,
+   "facing": "right",
+   "move": "still",
+   "script": "lal_teacher_es",
+   "name": "Spanish Teacher"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  5,
+  6
+ ],
+ "rows": [
+  "xxxxxxxxxxx",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x||||D||||x",
+  "xxxxxxxxxxx"
+ ]
+}

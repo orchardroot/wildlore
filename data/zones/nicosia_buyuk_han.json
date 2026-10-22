@@ -1,0 +1,118 @@
+{
+ "id": "nicosia_buyuk_han",
+ "name": "Büyük Han",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "cascade",
+   "x": 6,
+   "y": 4
+  },
+  {
+   "type": "table",
+   "x": 2,
+   "y": 6
+  },
+  {
+   "type": "table",
+   "x": 10,
+   "y": 6
+  },
+  {
+   "type": "market_stall",
+   "x": 2,
+   "y": 2,
+   "variant": 2
+  },
+  {
+   "type": "market_stall",
+   "x": 10,
+   "y": 2,
+   "variant": 4
+  },
+  {
+   "type": "loom",
+   "x": 1,
+   "y": 8
+  },
+  {
+   "type": "potted_plant",
+   "x": 11,
+   "y": 8
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 9,
+   "to": "nicosia_north",
+   "tx": 9,
+   "ty": 26,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "nn_cheese",
+   "sprite": "shopkeeper",
+   "x": 3,
+   "y": 2,
+   "facing": "down",
+   "move": "still",
+   "script": "nn_cheese",
+   "name": "Hellim Seller"
+  },
+  {
+   "id": "nn_critic",
+   "sprite": "gown_student",
+   "x": 9,
+   "y": 4,
+   "facing": "down",
+   "move": "still",
+   "trainer": "nn_critic"
+  },
+  {
+   "id": "nn_weaver",
+   "sprite": "villager_4",
+   "x": 2,
+   "y": 8,
+   "facing": "right",
+   "move": "still",
+   "script": "nn_weaver",
+   "name": "Weaver"
+  },
+  {
+   "id": "nn_teacher_tr",
+   "sprite": "student",
+   "x": 9,
+   "y": 7,
+   "facing": "left",
+   "move": "still",
+   "script": "nn_teacher_tr",
+   "name": "Turkish Teacher"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  6,
+  8
+ ],
+ "rows": [
+  "xxxxxxxxxxxxx",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||D|||||x",
+  "xxxxxxxxxxxxx"
+ ]
+}

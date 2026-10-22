@@ -1,0 +1,177 @@
+{
+ "lal_carmen": [
+  {
+   "do": "if",
+   "flag": "q_overseas_la_linea_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Carmen",
+     "text": "Thank you again. Mamá says you're welcome at the bar any time, and she means it, which is rare."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_overseas_la_linea_2",
+     "then": [
+      {
+       "do": "if",
+       "flag": "trainer_lal_driver",
+       "then": [
+        {
+         "do": "say",
+         "who": "Carmen",
+         "text": "My tortilla! Still warm, too. You're a saint. And the man in the van behind me has stopped shouting, so I think that was you as well."
+        },
+        {
+         "do": "say",
+         "who": "Carmen",
+         "text": "Here, from Mamá's kitchen and from me. Off I go: I'll be on the Rock in ten minutes, if the planes behave."
+        },
+        {
+         "do": "set",
+         "flag": "q_overseas_la_linea_3"
+        },
+        {
+         "do": "set",
+         "flag": "q_overseas_la_linea_done"
+        },
+        {
+         "do": "give_item",
+         "item": "tortillitas_camarones",
+         "n": 3
+        },
+        {
+         "do": "give_item",
+         "item": "churros_chocolate",
+         "n": 2
+        },
+        {
+         "do": "standing",
+         "nation": "overseas",
+         "amount": 10
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Carmen",
+         "text": "You've got it! But the van driver behind me says nobody's passing anything up this queue without going through him. He's the man in the leather jacket. Please, settle it, or I'll be late."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_overseas_la_linea_1",
+       "then": [
+        {
+         "do": "say",
+         "who": "Carmen",
+         "text": "The bar's on the street, Bar Pilar, by the market. Ask for my mother, and say Carmen forgot her lunch again. She'll roll her eyes. That's normal."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Carmen",
+         "text": "¡Ay, no! I've left my lunch at my mother's bar. If I step out of the queue I lose my place, and my shift at the care home starts at eight."
+        },
+        {
+         "do": "say",
+         "who": "Carmen",
+         "text": "I've crossed this frontier every working day for nineteen years. Would you run to Bar Pilar for me? It's just up the avenue, next to the market."
+        },
+        {
+         "do": "set",
+         "flag": "q_overseas_la_linea_started"
+        },
+        {
+         "do": "set",
+         "flag": "q_overseas_la_linea_1"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "lal_guard": [
+  {
+   "do": "say",
+   "who": "Frontier Officer",
+   "text": "Buenos días. Pasaporte, por favor. That's 'passport, please', and it's the most useful Spanish you'll learn today."
+  },
+  {
+   "do": "say",
+   "who": "Frontier Officer",
+   "text": "Since Brexit, British passports get a closer look on this side. Gibraltar checks you on its side and we check you on ours. It's very thorough, and very slow."
+  }
+ ],
+ "lal_abuela": [
+  {
+   "do": "say",
+   "who": "Abuela",
+   "text": "In 1969 I was nineteen and my novio worked on the Rock. One morning they shut the gate, and that was that."
+  },
+  {
+   "do": "say",
+   "who": "Abuela",
+   "text": "We used to stand at the fence on a Sunday and shout across. You learn to shout very clearly. When the gate opened in 'eighty-two I cried, and then I went shopping, like everybody else."
+  },
+  {
+   "do": "say",
+   "who": "Abuela",
+   "text": "Did I marry him? No. I married a man from Algeciras. But I still shout very clearly."
+  }
+ ],
+ "lal_llanito": [
+  {
+   "do": "say",
+   "who": "Gibraltarian Neighbour",
+   "text": "I'm from Gib, but flats over there cost a fortune, so I live here and cross to work. Lots of us do. It's the frontier in reverse."
+  },
+  {
+   "do": "say",
+   "who": "Gibraltarian Neighbour",
+   "text": "At home we speak Llanito. Like, 'Oye, I'm going to Morrisons, ¿quieres algo?' English, Spanish, whatever word gets there first."
+  }
+ ],
+ "lal_kid": [
+  {
+   "do": "say",
+   "who": "Kid with a Ball",
+   "text": "My team is La Balona, Real Balompédica Linense. My cousin in Gibraltar supports a team in England he's never seen."
+  },
+  {
+   "do": "say",
+   "who": "Kid with a Ball",
+   "text": "I told him that's mad. He said at least his team wins. I don't talk to him now."
+  }
+ ],
+ "lal_cambio": [
+  {
+   "do": "say",
+   "who": "Bureau Clerk",
+   "text": "Euros this side of the line. I'll change your pounds at the day's rate, less my bit. Don't change Gibraltar notes on the mainland: nobody here wants them back."
+  },
+  {
+   "do": "bureau"
+  }
+ ],
+ "lal_macaque": [
+  {
+   "do": "say",
+   "who": "Tour Guide",
+   "text": "Everyone asks me where the monkeys are. They're Barbary macaques, they live on the Upper Rock, and they don't come through the frontier. They don't need a passport. They just don't fancy it."
+  },
+  {
+   "do": "say",
+   "who": "Tour Guide",
+   "text": "The ones on the Rock are Europe's only wild monkeys. On this side we have to make do with pigeons and men selling sunglasses."
+  }
+ ]
+}

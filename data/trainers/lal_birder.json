@@ -1,0 +1,36 @@
+{
+ "id": "lal_birder",
+ "name": "Birder",
+ "class": "Birdwatcher",
+ "sprite": "birdwatcher",
+ "party": [
+  {
+   "species": "kitelet",
+   "level": 95
+  },
+  {
+   "species": "stoopfalcon",
+   "level": 95
+  },
+  {
+   "species": "swiftlet",
+   "level": 95
+  },
+  {
+   "species": "forkwing",
+   "level": 95
+  }
+ ],
+ "ai": "trainer",
+ "money": 4200,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Birder",
+   "text": "Shh! Storks, coming over from Africa. Don't move. Actually, do move. Battle me while we wait."
+  }
+ ],
+ "win": "Two hundred storks just went over and I missed them. Worth it.",
+ "after": "Raptors cross the Strait at its narrowest, on warm days, when the thermals rise. A hawk on a cold wet morning stays put. So do I.",
+ "scaled_floor": 95
+}

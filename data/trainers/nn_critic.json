@@ -1,0 +1,41 @@
+{
+ "id": "nn_critic",
+ "name": "Food Critic",
+ "class": "Critic",
+ "sprite": "gown_student",
+ "party": [
+  {
+   "species": "stencilette",
+   "level": 95
+  },
+  {
+   "species": "pierlord",
+   "level": 95
+  },
+  {
+   "species": "rhymerick",
+   "level": 95
+  },
+  {
+   "species": "marmalord",
+   "level": 95
+  }
+ ],
+ "ai": "trainer",
+ "money": 4200,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Food Critic",
+   "text": "Hellim. Halloumi. Whatever you call it, it's squeaky rubber that tastes of salt. I've written three columns saying so."
+  },
+  {
+   "do": "say",
+   "who": "Food Critic",
+   "text": "Defend it, if you can."
+  }
+ ],
+ "win": "All right. All right! Squeaky, yes. Rubber, no. I'll write a fourth column.",
+ "after": "I ate some hellim fried with tomatoes just now. Don't tell my editor.",
+ "scaled_floor": 95
+}

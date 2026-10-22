@@ -12,6 +12,8 @@ const NAMES := {"cy": "Welsh", "ga": "Irish", "gd": "Scottish Gaelic", "gv": "Ma
 	"sco": "Scots", "sco_ulster": "Ulster Scots"}
 const CODES := ["cy", "ga", "gd", "gv", "kw", "jer", "nrf_gg", "br"]
 const NAMES := {"cy": "Welsh", "ga": "Irish", "gd": "Scottish Gaelic", "gv": "Manx", "kw": "Cornish", "jer": "Jerriais", "nrf_gg": "Guernesiais", "br": "Breton"}
+const CODES := ["cy", "ga", "gd", "gv", "kw", "jer", "nrf_gg", "es", "el", "tr"]
+const NAMES := {"cy": "Welsh", "ga": "Irish", "gd": "Scottish Gaelic", "gv": "Manx", "kw": "Cornish", "jer": "Jerriais", "nrf_gg": "Guernesiais", "es": "Spanish", "el": "Greek", "tr": "Turkish"}
 ## Region -> language (Wales: cy; Ireland and the Gaeltacht: ga; Highlands and Islands: gd; Mann; Cornwall).
 const REGION_LANG := {"north_wales": "cy", "mid_wales": "cy", "south_wales": "cy", "ireland": "ga", "ireland_west": "ga",
 	"ireland_east": "ga", "scotland": "gd", "man": "gv", "cornwall": "kw"}
@@ -25,6 +27,8 @@ const PREFIX_LANG := {"sco": ["edinburgh", "glasgow", "aberdeen", "dundee", "st_
 	"sco_ulster": ["belfast", "bushmills", "antrim_coast", "antrim_ropehut", "causeway"]}
 const ZONE_LANG := {"st_helier": "jer", "jersey_country": "jer", "st_peter_port": "nrf_gg", "guernsey_country": "nrf_gg",
 	"gaiman": "cy", "baddeck": "gd", "roscoff": "br"}  # these isles abroad: Y Wladfa, Cape Breton, Brittany
+const ZONE_LANG := {"st_helier": "jer", "jersey_country": "jer", "st_peter_port": "nrf_gg", "guernsey_country": "nrf_gg",
+	"la_linea": "es", "la_linea_levante": "es", "nicosia_south": "el", "nicosia_north": "tr"}  # 4.5: the neighbours across the borders
 ## Places in a language's region where it isn't the everyday local tongue, so no greeting or banner in it: Northern
 ## Ireland (its towns share the "ireland" region; Irish there is used sparingly, by choice, not by default) and the
 ## Scottish Lowlands and east coast (Gaelic is a Highlands and Islands language).

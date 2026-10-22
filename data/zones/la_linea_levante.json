@@ -1,0 +1,296 @@
+{
+ "id": "la_linea_levante",
+ "name": "Playa de Levante",
+ "region": "overseas_la_linea",
+ "kind": "route",
+ "music": "route_coast",
+ "weather": {
+  "clear": 36,
+  "sunshine": 38,
+  "fog": 6,
+  "drizzle": 6,
+  "gale": 10,
+  "downpour": 4
+ },
+ "props": [
+  {
+   "type": "building",
+   "style": "fort_ruin",
+   "x": 10,
+   "y": 20,
+   "w": 9,
+   "h": 3,
+   "label": "Fuerte de Santa Bárbara"
+  },
+  {
+   "type": "boat",
+   "x": 30,
+   "y": 22
+  },
+  {
+   "type": "boat",
+   "x": 32,
+   "y": 27
+  },
+  {
+   "type": "boat",
+   "x": 31,
+   "y": 31
+  },
+  {
+   "type": "lobster_pots",
+   "x": 29,
+   "y": 25
+  },
+  {
+   "type": "palm",
+   "x": 26,
+   "y": 15
+  },
+  {
+   "type": "palm",
+   "x": 26,
+   "y": 21
+  }
+ ],
+ "warps": [],
+ "edges": {
+  "west": {
+   "to": "la_linea",
+   "offset": 16
+  }
+ },
+ "npcs": [
+  {
+   "id": "lal_fisher",
+   "sprite": "fisherman_north",
+   "x": 31,
+   "y": 24,
+   "facing": "left",
+   "move": "still",
+   "script": "lal_fisher",
+   "name": "Atunara Fisherman"
+  },
+  {
+   "id": "lal_birder",
+   "sprite": "birdwatcher",
+   "x": 20,
+   "y": 10,
+   "facing": "down",
+   "move": "still",
+   "trainer": "lal_birder"
+  },
+  {
+   "id": "lal_angler",
+   "sprite": "angler",
+   "x": 33,
+   "y": 14,
+   "facing": "right",
+   "move": "still",
+   "trainer": "lal_angler"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "chamelet",
+    "min": 95,
+    "max": 97,
+    "weight": 10
+   },
+   {
+    "species": "duneskink",
+    "min": 95,
+    "max": 97,
+    "weight": 12
+   },
+   {
+    "species": "scuttlet",
+    "min": 95,
+    "max": 97,
+    "weight": 10
+   },
+   {
+    "species": "kitelet",
+    "min": 95,
+    "max": 97,
+    "weight": 8,
+    "time": [
+     "dawn",
+     "day"
+    ]
+   },
+   {
+    "species": "swiftlet",
+    "min": 95,
+    "max": 97,
+    "weight": 8
+   },
+   {
+    "species": "stoopfalcon",
+    "min": 95,
+    "max": 97,
+    "weight": 6
+   },
+   {
+    "species": "hootlet",
+    "min": 95,
+    "max": 97,
+    "weight": 4,
+    "time": [
+     "night"
+    ]
+   },
+   {
+    "species": "levanter",
+    "min": 95,
+    "max": 97,
+    "weight": 4,
+    "weather": [
+     "fog",
+     "gale"
+    ]
+   },
+   {
+    "species": "chameleer",
+    "min": 95,
+    "max": 97,
+    "weight": 2
+   }
+  ],
+  "water": [
+   {
+    "species": "dolphlet",
+    "min": 95,
+    "max": 97,
+    "weight": 14
+   },
+   {
+    "species": "bayrunner",
+    "min": 95,
+    "max": 97,
+    "weight": 8
+   },
+   {
+    "species": "gannetling",
+    "min": 95,
+    "max": 97,
+    "weight": 10
+   },
+   {
+    "species": "pinchkin",
+    "min": 95,
+    "max": 97,
+    "weight": 8
+   },
+   {
+    "species": "plungebeak",
+    "min": 95,
+    "max": 97,
+    "weight": 6
+   },
+   {
+    "species": "glimmerjaw",
+    "min": 95,
+    "max": 97,
+    "weight": 3
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 19,
+   "y": 21,
+   "plaque": "la_linea_santa_barbara",
+   "title": "Fort Santa Bárbara",
+   "text": "These sandstone stubs are what's left of Fort Santa Bárbara, the eastern end of the Spanish line across the isthmus, built in the 1730s. In 1810, with Napoleon's armies marching south, the forts were blown up so the French could not turn them on Gibraltar. Spain and Britain were allies that year, which doesn't happen every century."
+  },
+  {
+   "x": 26,
+   "y": 16,
+   "plaque": "la_linea_levante_wind",
+   "title": "The Levante",
+   "text": "The levante is the east wind that funnels through the Strait. When it blows, damp air piles up against the Rock and pours over the top as a long white cloud, the Levanter, while the town underneath sits in a grey, sticky gloom. The west wind, the poniente, brings the clear days."
+  },
+  {
+   "x": 29,
+   "y": 20,
+   "plaque": "la_linea_atunara",
+   "title": "La Atunara",
+   "text": "La Atunara is La Línea's old fishing quarter on the Mediterranean shore, and takes its name, people say, from the tuna. Small boats still go out from the beach for sardines, mackerel and whatever the sea is in the mood to give."
+  },
+  {
+   "x": 30,
+   "y": 34,
+   "plaque": "la_linea_strait",
+   "title": "Fourteen Kilometres to Africa",
+   "text": "Just south of here the Strait of Gibraltar narrows to about fourteen kilometres between Europe and Africa. Every spring and autumn white storks, eagles and kites ride the warm air across it in their tens of thousands, because a soaring bird hates flapping over open sea."
+  }
+ ],
+ "spawn": [
+  2,
+  18
+ ],
+ "scaled_floor": 95,
+ "stage": "coast",
+ "rows": [
+  "PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPw$$$$$$$$",
+  "PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPw$$$$$$$$",
+  "PPggggggggggggggggggggggggggsssssssw$$$$$$$$",
+  "PPggkkkkkkkkkgggggggggggggggsssssssw$$$$$$$$",
+  "PPggkkkkkkkkkggkkkkkkkkkkgggsssssssw$$$$$$$$",
+  "PPggkkkkkkkkkggkkkkkkkkkkgggsssssssw$$$$$$$$",
+  "PPggkkkkkkkkkggkkkkkkkkkkgggsssssssw$$$$$$$$",
+  "PPggkkkkkkkkkggkkkkkkkkkkgggsssssssw$$$$$$$$",
+  "PPggkkkkkkkkkggkkkkkkkkkkgggsssssssw$$$$$$$$",
+  "PPgggggggggggggkkkkkkkkkkgggsssssssw$$$$$$$$",
+  "PPgggkkkkkkkgggkkkkkkkkkkgggsssssssw$$$$$$$$",
+  "PPgggkkkkkkkgggkkkkkkkkkkgggsssssssw$$$$$$$$",
+  "PPgggkkkkkkkgggkkkkkkkkkkgggsssssssw$$$$$$$$",
+  "PPgggkkkkkkkggggggggggggggggsssssssw$$$$$$$$",
+  "PPgggkkkkkkkggggggggggggggggsssssssw$$$$$$$$",
+  "PPggggggggggggggggggggggggggsssssssw$$$$$$$$",
+  "PPggggggggggggggggggggggggggsssssssw$$$$$$$$",
+  "aaaaaaaaaaaaaaaaaaaaaaaaaaaasssssssw$$$$$$$$",
+  "aaaaaaaaaaaaaaaaaaaaaaaaaaaasssssssw$$$$$$$$",
+  "aaaaaaaaaaaaaaaaaaaaaaaaaaaasssssssw$$$$$$$$",
+  "PPggggggggBBBBBBBBBgggggggggsssssssw$$$$$$$$",
+  "PPggggggggBBBBBBBBBgggggggggsssssssw$$$$$$$$",
+  "PPggggggggBBBBBBBBBgggggggggsssssssw$$$$$$$$",
+  "PPggggggggggggggggggkkkkkkggsssssssw$$$$$$$$",
+  "PPggggggggggggggggggkkkkkkggsssssssw$$$$$$$$",
+  "PPggggkkkkkkkkkkkkggkkkkkkggsssssssw$$$$$$$$",
+  "PPggggkkkkkkkkkkkkggkkkkkkggsssssssw$$$$$$$$",
+  "PPggggkkkkkkkkkkkkggkkkkkkggsssssssw$$$$$$$$",
+  "PPggggkkkkkkkkkkkkggkkkkkkggsssssssw$$$$$$$$",
+  "PPggggkkkkkkkkkkkkggkkkkkkggsssssssw$$$$$$$$",
+  "PPggggkkkkkkkkkkkkggkkkkkkggsssssssw$$$$$$$$",
+  "PPggggkkkkkkkkkkkkggkkkkkkggsssssssw$$$$$$$$",
+  "PPggggkkkkkkkkkkkkggkkkkkkggsssssssw$$$$$$$$",
+  "PPggggkkkkkkkkkkkkggkkkkkkggsssssssw$$$$$$$$",
+  "PPggggkkkkkkkkkkkkggkkkkkkggsssssssw$$$$$$$$",
+  "PPggggggggggggggggggggggggggsssssssw$$$$$$$$",
+  "PPggggggggggggggggggggggggggsssssssw$$$$$$$$",
+  "PPggggggggggggggggggggggggggsssssssw$$$$$$$$",
+  "PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPw$$$$$$$$",
+  "PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPw$$$$$$$$"
+ ],
+ "legend_extra": {
+  "g": {
+   "tile": "grass",
+   "colour": "#b9ad6a"
+  },
+  "k": {
+   "tile": "tall_grass",
+   "colour": "#9c9452"
+  },
+  "c": {
+   "tile": "cobbles",
+   "colour": "#e4d9bd"
+  },
+  "a": {
+   "tile": "path",
+   "colour": "#eadfc2"
+  }
+ }
+}

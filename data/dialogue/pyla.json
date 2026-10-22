@@ -1,0 +1,112 @@
+{
+ "pyl_un": [
+  {
+   "do": "if",
+   "flag": "q_overseas_cyprus_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "UN Peacekeeper",
+     "text": "The cheese summit was a triumph. Two old men agreeing on something. I've put it in my report. My commander thinks it's a code."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_overseas_cyprus_4",
+     "then": [
+      {
+       "do": "say",
+       "who": "UN Peacekeeper",
+       "text": "You've been to both sides of Nicosia and back? And the verdict is... the same cheese with two names. Registered by the EU under both of them."
+      },
+      {
+       "do": "say",
+       "who": "UN Peacekeeper",
+       "text": "Andreas! Hüseyin! You heard that? You both win. No, you can't both have won more. Sit down."
+      },
+      {
+       "do": "say",
+       "who": "UN Peacekeeper",
+       "text": "They've sent you a basket from both kitchens. I'm told that's the first joint venture on this square since the pear tree."
+      },
+      {
+       "do": "set",
+       "flag": "q_overseas_cyprus_5"
+      },
+      {
+       "do": "set",
+       "flag": "q_overseas_cyprus_done"
+      },
+      {
+       "do": "give_item",
+       "item": "halloumi",
+       "n": 3
+      },
+      {
+       "do": "give_item",
+       "item": "loukoumades",
+       "n": 2
+      },
+      {
+       "do": "give_item",
+       "item": "sheftali_kebab",
+       "n": 2
+      },
+      {
+       "do": "standing",
+       "nation": "overseas",
+       "amount": 10
+      }
+     ],
+     "else": [
+      {
+       "do": "if",
+       "flag": "q_overseas_cyprus_started",
+       "then": [
+        {
+         "do": "say",
+         "who": "UN Peacekeeper",
+         "text": "Taste both, then take it to the experts in Nicosia: the halloumi seller on the south side and the hellim seller in the Büyük Han, on the north. Come back with a verdict. I'll be here. I'm always here."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "UN Peacekeeper",
+         "text": "Afternoon. I'm with UNFICYP, the peacekeepers. Today's crisis is a cheese."
+        },
+        {
+         "do": "say",
+         "who": "UN Peacekeeper",
+         "text": "Andreas in the kafeneio and Hüseyin in the kahvehane each say his is the best halloumi on the island. Or hellim. That's half the argument. They've asked the UN to rule on it."
+        },
+        {
+         "do": "say",
+         "who": "UN Peacekeeper",
+         "text": "The UN does not do cheese. You, however, are a civilian with an appetite. Taste them both, then ask the experts in Nicosia, on both sides of the line."
+        },
+        {
+         "do": "set",
+         "flag": "q_overseas_cyprus_started"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "pyl_kids": [
+  {
+   "do": "say",
+   "who": "Two Kids",
+   "text": "He's Mehmet and I'm Giorgos. We go to different schools and play on the same square."
+  },
+  {
+   "do": "say",
+   "who": "Two Kids",
+   "text": "He's teaching me Turkish swear words and I'm teaching him Greek ones. Our mums think we're doing homework."
+  }
+ ]
+}

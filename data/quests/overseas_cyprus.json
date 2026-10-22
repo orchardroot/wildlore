@@ -1,0 +1,60 @@
+{
+ "quests": [
+  {
+   "id": "overseas_cyprus_halloumi",
+   "title": "Halloumi or Hellim?",
+   "region": "overseas_cyprus",
+   "town": "pyla",
+   "giver": "UN Peacekeeper",
+   "summary": "Pyla's two coffee-house owners each say his is the best halloumi on the island. The UN doesn't do cheese, so you'll have to.",
+   "start_flag": "q_overseas_cyprus_started",
+   "steps": [
+    {
+     "flag": "q_overseas_cyprus_1",
+     "text": "Taste Andreas's halloumi in Pyla's kafeneio.",
+     "zone": "pyla_kafeneio"
+    },
+    {
+     "flag": "q_overseas_cyprus_2",
+     "text": "Taste Hüseyin's hellim in Pyla's kahvehane.",
+     "zone": "pyla_kahvehane"
+    },
+    {
+     "flag": "q_overseas_cyprus_3",
+     "text": "Ask the halloumi seller in the square of south Nicosia.",
+     "zone": "nicosia_south"
+    },
+    {
+     "flag": "q_overseas_cyprus_4",
+     "text": "Cross at Ledra Street and ask the hellim seller in the Büyük Han. A food critic may need persuading.",
+     "zone": "nicosia_buyuk_han"
+    },
+    {
+     "flag": "q_overseas_cyprus_5",
+     "text": "Take the verdict back to the UN peacekeeper in Pyla.",
+     "zone": "pyla"
+    }
+   ],
+   "done_flag": "q_overseas_cyprus_done",
+   "reward": "Halloumi, Loukoumades, Şeftali Kebab and standing with the Overseas Territories."
+  },
+  {
+   "id": "overseas_cyprus_agrino",
+   "title": "A Good Eye",
+   "region": "overseas_cyprus",
+   "town": "nicosia_south",
+   "giver": "Forest Ranger",
+   "summary": "A Forestry Department ranger has a young agrino, the Cypriot mouflon, that needs a keeper with patience.",
+   "start_flag": "q_overseas_cyprus_agrino_started",
+   "steps": [
+    {
+     "flag": "q_overseas_cyprus_agrino_1",
+     "text": "Catch a Chamelet (the fields round Pyla are a good start) and show the ranger in the taverna in south Nicosia.",
+     "zone": "nicosia_taverna"
+    }
+   ],
+   "done_flag": "q_overseas_cyprus_agrino_done",
+   "reward": "An Agrino, the mouflon of Cyprus, and standing with the Overseas Territories."
+  }
+ ]
+}

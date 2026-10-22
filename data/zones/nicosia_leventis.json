@@ -1,0 +1,96 @@
+{
+ "id": "nicosia_leventis",
+ "name": "Leventis Museum",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "display_case",
+   "x": 2,
+   "y": 2
+  },
+  {
+   "type": "display_case",
+   "x": 5,
+   "y": 2
+  },
+  {
+   "type": "display_case",
+   "x": 8,
+   "y": 2
+  },
+  {
+   "type": "display_case",
+   "x": 2,
+   "y": 5
+  },
+  {
+   "type": "display_case",
+   "x": 10,
+   "y": 5
+  },
+  {
+   "type": "wall_map",
+   "x": 10,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "velvet_rope",
+   "x": 6,
+   "y": 5
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 7,
+   "to": "nicosia_south",
+   "tx": 37,
+   "ty": 19,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "ns_curator",
+   "sprite": "tour_guide",
+   "x": 6,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "ns_curator",
+   "name": "Curator"
+  },
+  {
+   "id": "ns_visitor",
+   "sprite": "villager_4",
+   "x": 9,
+   "y": 6,
+   "facing": "up",
+   "move": "still",
+   "script": "ns_visitor",
+   "name": "Visitor"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  6,
+  6
+ ],
+ "rows": [
+  "xxxxxxxxxxxxx",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||D|||||x",
+  "xxxxxxxxxxxxx"
+ ]
+}

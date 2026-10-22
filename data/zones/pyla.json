@@ -1,0 +1,374 @@
+{
+ "id": "pyla",
+ "name": "Pyla",
+ "region": "overseas_cyprus",
+ "kind": "route",
+ "music": "route_coast",
+ "weather": {
+  "clear": 40,
+  "sunshine": 40,
+  "fog": 2,
+  "drizzle": 6,
+  "gale": 6,
+  "downpour": 6
+ },
+ "props": [
+  {
+   "type": "building",
+   "style": "flat_house",
+   "x": 15,
+   "y": 13,
+   "w": 6,
+   "h": 5,
+   "label": "Kafeneio"
+  },
+  {
+   "type": "building",
+   "style": "flat_house",
+   "x": 31,
+   "y": 13,
+   "w": 6,
+   "h": 5,
+   "label": "Kahvehane"
+  },
+  {
+   "type": "building",
+   "style": "un_tower",
+   "x": 44,
+   "y": 19,
+   "w": 3,
+   "h": 3,
+   "label": "UN Observation Post"
+  },
+  {
+   "type": "building",
+   "style": "flat_house",
+   "x": 8,
+   "y": 13,
+   "w": 5,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "flat_house",
+   "x": 39,
+   "y": 13,
+   "w": 5,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "flat_house",
+   "x": 14,
+   "y": 27,
+   "w": 6,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "flat_house",
+   "x": 33,
+   "y": 27,
+   "w": 6,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "flat_house",
+   "x": 46,
+   "y": 27,
+   "w": 5,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "flat_house",
+   "x": 6,
+   "y": 27,
+   "w": 5,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "bench",
+   "x": 21,
+   "y": 19
+  },
+  {
+   "type": "bench",
+   "x": 35,
+   "y": 19
+  },
+  {
+   "type": "table",
+   "x": 18,
+   "y": 21
+  },
+  {
+   "type": "table",
+   "x": 34,
+   "y": 21
+  }
+ ],
+ "warps": [
+  {
+   "x": 18,
+   "y": 17,
+   "to": "pyla_kafeneio",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 34,
+   "y": 17,
+   "to": "pyla_kahvehane",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  }
+ ],
+ "edges": {
+  "south": {
+   "to": "dhekelia",
+   "offset": 4
+  },
+  "north": {
+   "to": "nicosia_south",
+   "offset": 0
+  }
+ },
+ "npcs": [
+  {
+   "id": "pyl_un",
+   "sprite": "rail_guard",
+   "x": 42,
+   "y": 22,
+   "facing": "left",
+   "move": "still",
+   "script": "pyl_un",
+   "name": "UN Peacekeeper"
+  },
+  {
+   "id": "pyl_choir",
+   "sprite": "choir_singer",
+   "x": 22,
+   "y": 22,
+   "facing": "right",
+   "move": "still",
+   "trainer": "pyl_choir"
+  },
+  {
+   "id": "pyl_shepherd",
+   "sprite": "farmer",
+   "x": 12,
+   "y": 36,
+   "facing": "right",
+   "move": "still",
+   "trainer": "pyl_shepherd"
+  },
+  {
+   "id": "pyl_farmer",
+   "sprite": "farmer",
+   "x": 40,
+   "y": 6,
+   "facing": "down",
+   "move": "still",
+   "trainer": "pyl_farmer"
+  },
+  {
+   "id": "pyl_kids",
+   "sprite": "villager_6",
+   "x": 30,
+   "y": 24,
+   "facing": "left",
+   "move": "still",
+   "script": "pyl_kids",
+   "name": "Two Kids"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "chamelet",
+    "min": 95,
+    "max": 97,
+    "weight": 10
+   },
+   {
+    "species": "duneskink",
+    "min": 95,
+    "max": 97,
+    "weight": 12
+   },
+   {
+    "species": "scuttlet",
+    "min": 95,
+    "max": 97,
+    "weight": 10
+   },
+   {
+    "species": "kitelet",
+    "min": 95,
+    "max": 97,
+    "weight": 8,
+    "time": [
+     "dawn",
+     "day"
+    ]
+   },
+   {
+    "species": "stoopfalcon",
+    "min": 95,
+    "max": 97,
+    "weight": 6
+   },
+   {
+    "species": "hootlet",
+    "min": 95,
+    "max": 97,
+    "weight": 5,
+    "time": [
+     "night"
+    ]
+   },
+   {
+    "species": "swiftlet",
+    "min": 95,
+    "max": 97,
+    "weight": 8
+   },
+   {
+    "species": "moggle",
+    "min": 95,
+    "max": 97,
+    "weight": 6
+   },
+   {
+    "species": "flittermouse",
+    "min": 95,
+    "max": 97,
+    "weight": 4,
+    "time": [
+     "night"
+    ]
+   },
+   {
+    "species": "chameleer",
+    "min": 95,
+    "max": 97,
+    "weight": 2
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 24,
+   "y": 19,
+   "plaque": "cyprus_pyla",
+   "title": "Pyla",
+   "text": "Pyla sits inside the UN buffer zone, on the edge of the Dhekelia Sovereign Base Area, and is one of very few places on the island where Greek Cypriots and Turkish Cypriots still live side by side, as many villages did before the 1960s. The UN keeps a post on the hill. The children mostly ignore it."
+  },
+  {
+   "x": 25,
+   "y": 23,
+   "plaque": "cyprus_pyla_coffee",
+   "title": "Two Coffee Houses",
+   "text": "On the square, two coffee houses stand a few steps apart, one Greek Cypriot and one Turkish Cypriot. The coffee is the same coffee: finely ground, boiled in a small long-handled pot and served with the grounds settling in the cup. What you call it depends on which door you went in."
+  },
+  {
+   "x": 43,
+   "y": 23,
+   "plaque": "cyprus_unficyp",
+   "title": "Blue Berets",
+   "text": "UNFICYP, the United Nations Peacekeeping Force in Cyprus, arrived in 1964 after fighting between the island's two communities, and has stayed ever since: one of the oldest UN missions anywhere. Its soldiers and police come from many countries, Britain among them, and they patrol a buffer zone that runs right across the island."
+  },
+  {
+   "x": 25,
+   "y": 10,
+   "plaque": "cyprus_mesaoria",
+   "title": "The Mesaoria",
+   "text": "The road north crosses the Mesaoria, whose name means 'between the mountains': the wide plain between the Troodos range in the south-west and the Kyrenia range in the north. It is Cyprus's breadbasket, wheat and barley gold in May and baked brown by August."
+  },
+  {
+   "x": 29,
+   "y": 3,
+   "text": "NICOSIA, north. DHEKELIA, south. Mind the tractors."
+  }
+ ],
+ "spawn": [
+  27,
+  40
+ ],
+ "scaled_floor": 95,
+ "stage": "grass",
+ "rows": [
+  "PPPPPPPPPPPPPPPPPPPPPPPPPP===PPPPPPPPPPPPPPPPPPPPPPPPPPP",
+  "PPPPPPPPPPPPPPPPPPPPPPPPPP===PPPPPPPPPPPPPPPPPPPPPPPPPPP",
+  "PPgggggggggggggggggggggggg===gggggggggggggggggggggggggPP",
+  "PPgkkkkkkkkkkkkkkkkkkkkkkg===gkkkkkkkkkkkkkkkkkkkkkkkgPP",
+  "PPgkkkkkkkkkkkkkkkkkkkkkkg===gkkkkkkkkkkkkkkkkkkkkkkkgPP",
+  "PPgkkkkkkkkkkkkkkkkkkkkkkg===gkkkkkkkkkkkkkkkkkkkkkkkgPP",
+  "PPgkkkkkkkkkkkkkkkkkkkkkkg===gkkkkkkkkkkkkkkkkkkkkkkkgPP",
+  "PPgkkkkkkkkkkkkkkkkkkkkkkg===gkkkkkkkkkkkkkkkkkkkkkkkgPP",
+  "PPgkkkkkkkkkkkkkkkkkkkkkkg===gkkkkkkkkkkkkkkkkkkkkkkkgPP",
+  "PPgkkkkkkkkkkkkkkkkkkkkkkg===gkkkkkkkkkkkkkkkkkkkkkkkgPP",
+  "PPgkkkkkkkkkkkkkkkkkkkkkkg===gkkkkkkkkkkkkkkkkkkkkkkkgPP",
+  "PPgkkkkkkkkkkkkkkkkkkkkkkg===gkkkkkkkkkkkkkkkkkkkkkkkgPP",
+  "PPgggggggggggggggggggggggg===gggggggggggggggggggggggggPP",
+  "PPggggggBBBBBggBBBBBBggggg===ggBBBBBBggBBBBBggggggggggPP",
+  "PPggggggBBBBBggBBBBBBggggg===ggBBBBBBggBBBBBggggggggggPP",
+  "PPggggggBBBBBggBBBBBBggggg===ggBBBBBBggBBBBBggggggggggPP",
+  "PPggggggBBBBBggBBBBBBggggg===ggBBBBBBggBBBBBggggggggggPP",
+  "PPgggggggggggggBBBDBBggggg===ggBBBDBBgggggggggggggggggPP",
+  "PPggggggggggggcccccccccccccccccccccccccccccgggggggggggPP",
+  "PPggggggggggggcccccccccccccccccccccccccccccgBBBgggggggPP",
+  "PPggggggggggggcccccccccccccccccccccccccccccgBBBgggggggPP",
+  "PPggggggggggggcccccccccccccccccccccccccccccgBBBgggggggPP",
+  "PPggggggTgggggcccccccccccccccccccccccccccccgggggggggggPP",
+  "PPggggggggggggcccccccccccccccccccccccccccccgggggggggggPP",
+  "PPggggggggggTgcccccccccccccccccccccccccccccgggggggTgggPP",
+  "PPggggggggggggcccccccccccccccccccccccccccccgggggggggggPP",
+  "PPgggggggggggggggggggggggg===gggggggggggggggggggggggggPP",
+  "PPggggBBBBBgggBBBBBBgggggg===ggggBBBBBBgggggggBBBBBgggPP",
+  "PPggggBBBBBgggBBBBBBgggggg===ggggBBBBBBgggggggBBBBBgggPP",
+  "PPggggBBBBBgggBBBBBBgggggg===ggggBBBBBBgggggggBBBBBgggPP",
+  "PPggggBBBBBgggBBBBBBgggggg===ggggBBBBBBgggggggBBBBBgggPP",
+  "PPggggggggggggggggggggTggg===gggggggggggggggggggggggggPP",
+  "PPggggggggTggggggggggggggg===gggggggggggggggTgggggggggPP",
+  "PPgkkkkkkkkkkkkkkkkkkkkkkg===ggkkkkkkkkkkkkkkkkkkkkkkgPP",
+  "PPgkkkkkkkkkkkkkkkkkkkkkkg===ggkkkkkkkkkkkkkkkkkkkkkkgPP",
+  "PPgkkkkkkkkkkkkkkkkkkkkkkg===ggkkkkkkkkkkkkkkkkkkkkkkgPP",
+  "PPgkkkkkkkkkkkkkkkkkkkkkkg===ggkkkkkkkkkkkkkkkkkkkkkkgPP",
+  "PPgkkkkkkkkkkkkkkkkkkkkkkg===ggkkkkkkkkkkkkkkkkkkkkkkgPP",
+  "PPgkkkkkkkkkkkkkkkkkkkkkkg===ggkkkkkkkkkkkkkkkkkkkkkkgPP",
+  "PPgkkkkkkkkkkkkkkkkkkkkkkg===ggkkkkkkkkkkkkkkkkkkkkkkgPP",
+  "PPgkkkkkkkkkkkkkkkkkkkkkkg===ggkkkkkkkkkkkkkkkkkkkkkkgPP",
+  "PPgggggggggggggggggggggggg===gggggggggggggggggggggggggPP",
+  "PPPPPPPPPPPPPPPPPPPPPPPPPP===PPPPPPPPPPPPPPPPPPPPPPPPPPP",
+  "PPPPPPPPPPPPPPPPPPPPPPPPPP===PPPPPPPPPPPPPPPPPPPPPPPPPPP"
+ ],
+ "legend_extra": {
+  "g": {
+   "tile": "grass",
+   "colour": "#cbb870"
+  },
+  "k": {
+   "tile": "tall_grass",
+   "colour": "#b8a256"
+  },
+  "c": {
+   "tile": "cobbles",
+   "colour": "#dcd0b4"
+  },
+  "a": {
+   "tile": "path",
+   "colour": "#e8dcbc"
+  }
+ }
+}

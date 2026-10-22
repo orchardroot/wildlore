@@ -20,7 +20,7 @@ const REGION_NAMES := {
 	"overseas_bermuda": "Bermuda", "overseas_cayman": "The Cayman Islands", "overseas_turks_caicos": "Turks and Caicos",
 	"overseas_bvi": "The British Virgin Islands", "overseas_anguilla": "Anguilla", "overseas_montserrat": "Montserrat",
 	"abroad_patagonia": "Y Wladfa, Patagonia", "abroad_cape_breton": "Cape Breton, Nova Scotia", "abroad_boston": "Boston, Massachusetts",
-	"abroad_appalachia": "Appalachia", "abroad_brittany": "Brittany (Breizh)",
+	"abroad_appalachia": "Appalachia", "abroad_brittany": "Brittany (Breizh)", "overseas_la_linea": "La Línea", "overseas_cyprus": "Cyprus", "overseas_north_cyprus": "Northern Cyprus",
 }
 
 static func region_name(r: String) -> String:
