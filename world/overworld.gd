@@ -274,7 +274,7 @@ func _spawn_npcs() -> void:
 	if not ResourceLoader.exists("res://world/npc.gd"):
 		return
 	var npc_script: Script = load("res://world/npc.gd")
-	set_meta("npc_phase", Game.phase() + Routines.stamp(Calendar.weekday_today(), Calendar.season_today(), Game.data.clock_minutes))
+	set_meta("npc_phase", Game.phase() + Routines.stamp(Calendar.weekday_today(), Calendar.season_today(), Game.local_minutes()))
 	for def in zone.npcs + _side_npcs():  # plus a Keeper out in town with a side story (SideStories)
 		if not Npc.should_spawn(def, Game.data, Game.phase()):  # flag gating and hours ("times")
 			continue
@@ -363,6 +363,7 @@ func _on_step(p: Vector2i) -> void:
 			enc.species = ParLevel.stage(Game.dex, str(enc.species), int(enc.level))
 		var foe := Creature.create(Game.dex.get_species(enc.species), enc.level, Game.rng, Game.moves)
 		Charms.maybe_wild(foe, Game.rng)  # now and then one is carrying a charm
+		Forms.assign_wild(foe, zone.region, str(zone.id), Game.moves)  # the regional form of where it was met
 		foe.variant = Coats.roll(Game.rng, Calendar.today().x, weather, Game.phase())  # about 1 in 96: an uncommon coat
 		Game.data.mark_seen(enc.species)
 		var result: Dictionary = await Router.battle([foe], {"kind": "wild", "weather": weather, "time": Game.phase(), "stage": _stage()})

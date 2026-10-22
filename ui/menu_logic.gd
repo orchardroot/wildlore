@@ -159,8 +159,10 @@ static func evolution_text(evo, target_name: String, item_name := "") -> String:
 const WEATHER_NAMES := {"clear": "clear skies"}
 
 ## The pause card's "Now" line: "Dusk, drizzle". Indoors there's no weather; "" weather shows the time only.
-static func now_text(minutes: int, weather: String, indoors := false) -> String:
+static func now_text(minutes: int, weather: String, indoors := false, clock := "") -> String:
 	var t := GameClock.phase(minutes).capitalize()
+	if clock != "":
+		t = clock + ", " + t.to_lower()
 	if indoors:
 		return t + ", indoors"
 	if weather == "":

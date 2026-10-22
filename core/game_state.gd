@@ -91,8 +91,12 @@ func new_game() -> void:
 	data.zone_id = start
 	data.last_sanctuary = GameStateData.default_sanctuary() if start != "testbed" else {"zone": start, "pos": [-1, -1]}
 
+## Minutes since midnight where you are: the UK clock at home, local time in an Overseas Territory.
+func local_minutes() -> int:
+	return Timezones.local_minutes(data, data.tz_zone)
+
 func phase() -> String:
-	return GameClock.phase(data.clock_minutes)
+	return GameClock.phase(local_minutes())
 
 func save(slot := "auto") -> Error:
 	return SaveSystem.save(slot, data.to_dict(), save_dir)
@@ -118,7 +122,10 @@ func _on_battle_started(_kind: String) -> void:
 func _on_battle_ended(_result: Dictionary) -> void:
 	_in_battle = false
 
-func _on_zone_entered(_zone_id: String) -> void:
+func _on_zone_entered(zone_id: String) -> void:
+	var region := ZoneData.load_id(zone_id).region
+	if region != "":  # interiors have none: they keep the clock of the street outside
+		data.tz_zone = Timezones.zone_for_region(region)
 	TodaysWalk.today(data, items)  # a new real day picks Today's Walk (behind the zone fade, not mid-walk)
 	if skip_next_autosave:
 		skip_next_autosave = false

@@ -113,7 +113,7 @@ func _refresh() -> void:
 	team.add_theme_constant_override("separation", 6)
 	for c in d.party:
 		var s := AnimSprite.new()
-		s.show_species(c.species.id, "icon", 2, false, c.variant)
+		s.show_species(c.species.id, "icon", 2, false, c.variant, c.form)
 		if c.is_fainted():
 			s.modulate = Color(0.5, 0.5, 0.5)
 		team.add_child(s)
@@ -160,7 +160,8 @@ func _now() -> String:
 		indoors = ow.zone.kind == "interior"
 	elif Game.args.get("weather", "") != "":
 		weather = str(Game.args.weather)
-	return MenuLogic.now_text(Game.data.clock_minutes, weather, indoors)
+	var clock := Timezones.clock_text(Game.data, Game.data.tz_zone) if Timezones.is_abroad(Game.data.tz_zone) else ""
+	return MenuLogic.now_text(Game.local_minutes(), weather, indoors, clock)
 
 func _stat(k: String, v: String) -> HBoxContainer:
 	var h := HBoxContainer.new()

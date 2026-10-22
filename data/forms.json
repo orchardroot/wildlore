@@ -1,0 +1,476 @@
+{
+ "_doc": "Regional forms (wave 42). {species id: {form id: {name (the suffix: 'Spikkin (Shetland)'), regions [zone regions], zones [optional zone ids that narrow the regions], types [optional replacement types, one change at most], stat_lean {stat: delta, net zero, +/-6}, knack (optional knack id), move (optional signature move id), look {palette {hue, sat, val, tint, tint_amount}, features [crest, ears, speckle, belly, stripe]}, fact}}}. Contract and rules: core/forms.gd. A form of an evolving line should be authored for each stage that spawns it (and the baby stage, so breeding can pass it down) under the same form id.",
+ "snowhare": {
+  "irish": {
+   "name": "Irish",
+   "regions": [
+    "ireland",
+    "ireland_east",
+    "ireland_west"
+   ],
+   "types": [
+    "kin"
+   ],
+   "stat_lean": {
+    "spd": 4,
+    "def": -4
+   },
+   "look": {
+    "palette": {
+     "hue": 14,
+     "sat": -0.25,
+     "val": -0.05,
+     "tint": "#a8703c",
+     "tint_amount": 0.45
+    },
+    "features": [
+     "belly"
+    ]
+   },
+   "fact": "The Irish hare is a subspecies of the mountain hare found nowhere else, and unlike its Scottish cousin it mostly keeps a brown coat through the winter."
+  }
+ },
+ "stoatlet": {
+  "irish": {
+   "name": "Irish",
+   "regions": [
+    "ireland",
+    "ireland_east",
+    "ireland_west"
+   ],
+   "types": [
+    "kin",
+    "hedgerow"
+   ],
+   "stat_lean": {
+    "def": 0,
+    "atk": -4,
+    "spd": 4
+   },
+   "look": {
+    "palette": {
+     "hue": 8,
+     "sat": -0.1,
+     "val": -0.08,
+     "tint": "#a0703f",
+     "tint_amount": 0.4
+    },
+    "features": [
+     "belly"
+    ]
+   },
+   "fact": "The Irish stoat is its own subspecies, and its winter coat seldom turns fully white."
+  }
+ },
+ "herdlet": {
+  "shetland": {
+   "name": "Shetland",
+   "regions": [
+    "scotland"
+   ],
+   "zones": [
+    "lerwick",
+    "shetland_mainland"
+   ],
+   "stat_lean": {
+    "spd": 4,
+    "def": -4
+   },
+   "look": {
+    "palette": {
+     "hue": -10,
+     "sat": -0.3,
+     "val": -0.1,
+     "tint": "#6b5a4a",
+     "tint_amount": 0.35
+    },
+    "features": [
+     "speckle"
+    ]
+   },
+   "fact": "Shetland sheep are a small, hardy breed that come in a wide range of natural colours and markings."
+  },
+  "hebridean": {
+   "name": "Hebridean",
+   "regions": [
+    "scotland"
+   ],
+   "zones": [
+    "harris",
+    "stornoway",
+    "skye",
+    "tobermory"
+   ],
+   "stat_lean": {
+    "atk": 4,
+    "spd": 0,
+    "def": -4
+   },
+   "look": {
+    "palette": {
+     "hue": 0,
+     "sat": -0.4,
+     "val": -0.3,
+     "tint": "#4e4547",
+     "tint_amount": 0.5
+    },
+    "features": [
+     "crest"
+    ]
+   },
+   "fact": "Hebridean sheep are a small, dark, hardy breed, and many carry two or four horns."
+  },
+  "north_ronaldsay": {
+   "name": "Herdlet (North Ronaldsay)",
+   "regions": [
+    "scotland"
+   ],
+   "zones": [
+    "kirkwall"
+   ],
+   "types": [
+    "tide",
+    "stone"
+   ],
+   "stat_lean": {
+    "ward": 4,
+    "atk": -4
+   },
+   "look": {
+    "palette": {
+     "tint": "#8d867e",
+     "tint_amount": 0.45
+    },
+    "features": [
+     "stripe"
+    ]
+   },
+   "fact": "North Ronaldsay sheep live mostly on seaweed, and a stone dyke around the island keeps them on the shore."
+  }
+ },
+ "moolet": {
+  "guernsey": {
+   "name": "Guernsey",
+   "regions": [
+    "channel_islands"
+   ],
+   "stat_lean": {
+    "hp": 4,
+    "spd": -4
+   },
+   "look": {
+    "palette": {
+     "hue": 10,
+     "sat": 0.15,
+     "val": 0.05,
+     "tint": "#d9a14a",
+     "tint_amount": 0.5
+    },
+    "features": [
+     "belly"
+    ]
+   },
+   "fact": "Guernsey cattle are golden-fawn, and their milk is a rich golden colour too, thanks to the carotene in the grass."
+  },
+  "highland": {
+   "name": "Moolet (Highland)",
+   "regions": [
+    "scotland"
+   ],
+   "stat_lean": {
+    "def": 6,
+    "spd": -6
+   },
+   "knack": "thick_fleece",
+   "look": {
+    "palette": {
+     "tint": "#c27a3a",
+     "tint_amount": 0.45
+    },
+    "features": [
+     "stripe",
+     "crest"
+    ]
+   },
+   "fact": "Highland cattle have a long, shaggy outer coat over a soft woolly undercoat, which keeps the wet and cold out."
+  },
+  "kerry": {
+   "name": "Moolet (Kerry)",
+   "regions": [
+    "ireland_west"
+   ],
+   "zones": [
+    "ring_of_kerry"
+   ],
+   "stat_lean": {
+    "hp": 4,
+    "spd": -4
+   },
+   "look": {
+    "palette": {
+     "tint": "#3d3b41",
+     "tint_amount": 0.45
+    },
+    "features": [
+     "crest"
+    ]
+   },
+   "fact": "Kerry cattle are a small black breed native to Ireland, and the Dexter was developed from similar small cattle in the south-west."
+  }
+ },
+ "duneskink": {
+  "bermuda": {
+   "name": "Bermuda",
+   "regions": [
+    "overseas_bermuda"
+   ],
+   "stat_lean": {
+    "def": 4,
+    "spd": -4
+   },
+   "look": {
+    "palette": {
+     "hue": -8,
+     "sat": -0.1,
+     "val": -0.1,
+     "tint": "#5a4a32",
+     "tint_amount": 0.4
+    },
+    "features": [
+     "stripe"
+    ]
+   },
+   "fact": "Bermuda's only native land reptile is the Bermuda skink, which lives nowhere else on Earth."
+  }
+ },
+ "leveret": {
+  "irish": {
+   "name": "Leveret (Irish)",
+   "regions": [
+    "ireland",
+    "ireland_east",
+    "ireland_west"
+   ],
+   "stat_lean": {
+    "def": 4,
+    "spd": -4
+   },
+   "look": {
+    "palette": {
+     "tint": "#b07f4a",
+     "tint_amount": 0.45
+    }
+   },
+   "fact": "The Irish hare is a subspecies of the mountain hare, and it keeps its brown coat in winter instead of turning white."
+  }
+ },
+ "foalmoor": {
+  "shetland": {
+   "name": "Foalmoor (Shetland)",
+   "regions": [
+    "scotland"
+   ],
+   "zones": [
+    "lerwick",
+    "shetland_mainland"
+   ],
+   "stat_lean": {
+    "atk": 4,
+    "spd": -4
+   },
+   "look": {
+    "palette": {
+     "tint": "#7c6249",
+     "tint_amount": 0.45
+    },
+    "features": [
+     "stripe"
+    ]
+   },
+   "fact": "Shetland ponies are among the smallest horse breeds, and the breed standard keeps them to about 42 inches at the withers."
+  },
+  "welsh_mountain": {
+   "name": "Foalmoor (Welsh Mountain)",
+   "regions": [
+    "north_wales",
+    "mid_wales",
+    "south_wales"
+   ],
+   "stat_lean": {
+    "def": 4,
+    "spd": -4
+   },
+   "look": {
+    "palette": {
+     "tint": "#a9a49d",
+     "tint_amount": 0.45
+    },
+    "features": []
+   },
+   "fact": "Welsh Mountain ponies live semi-wild on hills such as the Carneddau, and the breed is among the oldest native pony types in Britain."
+  }
+ },
+ "moggle": {
+  "manx": {
+   "name": "Moggle (Manx)",
+   "regions": [
+    "man"
+   ],
+   "stat_lean": {
+    "spd": 4,
+    "def": -4
+   },
+   "look": {
+    "palette": {
+     "tint": "#8e7a62",
+     "tint_amount": 0.45
+    },
+    "features": []
+   },
+   "fact": "The Manx cat's missing tail comes from a natural gene mutation, so some Manx kittens are born with no tail at all."
+  }
+ },
+ "rillotter": {
+  "shetland": {
+   "name": "Rillotter (Shetland)",
+   "regions": [
+    "scotland"
+   ],
+   "zones": [
+    "lerwick",
+    "shetland_mainland"
+   ],
+   "types": [
+    "tide",
+    "night"
+   ],
+   "stat_lean": {
+    "atk": -4,
+    "spd": 4
+   },
+   "look": {
+    "palette": {
+     "tint": "#6d5640",
+     "tint_amount": 0.45
+    },
+    "features": []
+   },
+   "fact": "Shetland has one of the densest otter populations in Britain, and the otters there hunt mostly along the sea shore rather than in rivers."
+  }
+ },
+ "dolphlet": {
+  "moray_firth": {
+   "name": "Dolphlet (Moray Firth)",
+   "regions": [
+    "scotland"
+   ],
+   "zones": [
+    "inverness"
+   ],
+   "stat_lean": {
+    "atk": 4,
+    "spd": -4
+   },
+   "look": {
+    "palette": {
+     "tint": "#8ea1b2",
+     "tint_amount": 0.45
+    },
+    "features": []
+   },
+   "fact": "The bottlenose dolphins of the Moray Firth are among the largest bottlenose dolphins in the world."
+  }
+ },
+ "pooka": {
+  "pwca": {
+   "name": "Pooka (Pwca)",
+   "regions": [
+    "north_wales",
+    "mid_wales",
+    "south_wales"
+   ],
+   "stat_lean": {
+    "lore": 4,
+    "atk": -4
+   },
+   "look": {
+    "palette": {
+     "tint": "#505b73",
+     "tint_amount": 0.45
+    },
+    "features": []
+   },
+   "fact": "The Welsh pwca is a mischief-making spirit, a cousin of the Irish púca and perhaps of Shakespeare's Puck."
+  }
+ },
+ "kelpie": {
+  "cabbyl_ushtey": {
+   "name": "Kelpie (Cabbyl-ushtey)",
+   "regions": [
+    "man"
+   ],
+   "stat_lean": {
+    "def": 4,
+    "ward": -4
+   },
+   "look": {
+    "palette": {
+     "tint": "#5a8379",
+     "tint_amount": 0.45
+    },
+    "features": [
+     "stripe"
+    ]
+   },
+   "fact": "On the Isle of Man the water horse is called the cabbyl-ushtey, and it is the Manx cousin of the Scottish kelpie."
+  }
+ },
+ "selkie": {
+  "orcadian": {
+   "name": "Selkie (Orcadian)",
+   "regions": [
+    "scotland"
+   ],
+   "zones": [
+    "kirkwall",
+    "lerwick",
+    "shetland_mainland"
+   ],
+   "stat_lean": {
+    "lore": 4,
+    "def": -4
+   },
+   "look": {
+    "palette": {
+     "tint": "#6e6e82",
+     "tint_amount": 0.45
+    },
+    "features": []
+   },
+   "fact": "Selkie stories are told most strongly in Orkney and Shetland, where the seal-folk were said to shed their skins on the shore."
+  }
+ },
+ "volet": {
+  "skomer": {
+   "name": "Volet (Skomer)",
+   "regions": [
+    "south_wales"
+   ],
+   "zones": [
+    "pembroke_coast"
+   ],
+   "stat_lean": {
+    "hp": 4,
+    "spd": -4
+   },
+   "look": {
+    "palette": {
+     "tint": "#b8794a",
+     "tint_amount": 0.45
+    },
+    "features": []
+   },
+   "fact": "The Skomer vole is a bank vole subspecies found only on Skomer island, and it is larger than the mainland animal."
+  }
+ }
+}

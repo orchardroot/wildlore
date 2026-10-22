@@ -276,6 +276,7 @@ static func interact(ow: Node, p: Vector2i) -> bool:
 		var enc := startled_encounter(ow.zone, Game.phase(), str(ow.weather), Game.rng)
 		if not enc.is_empty() and Game.dex.has(str(enc.species)):
 			var foe := Creature.create(Game.dex.get_species(str(enc.species)), int(enc.level), Game.rng, Game.moves)
+			Forms.assign_wild(foe, ow.zone.region, str(ow.zone.id), Game.moves)
 			await ow.say(["Something bursts out of the %s!" % NAMES.get(str(pr.get("variant", "")), "undergrowth")])
 			Game.data.mark_seen(str(enc.species))
 			var result: Dictionary = await Router.battle([foe], {"kind": "wild", "weather": ow.weather, "time": Game.phase(), "stage": ow._stage()})

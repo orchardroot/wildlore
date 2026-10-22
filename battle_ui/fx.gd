@@ -446,7 +446,7 @@ func _weather_sky(w: String, called: bool) -> void:
 				_sky_tween.kill()
 			_sky_tween = create_tween()
 			_sky_tween.tween_property(sky, "_blend", 1.0, 1.5)
-			_sky_tween.tween_callback(func(): sky.apply_time(Game.data.clock_minutes))
+			_sky_tween.tween_callback(func(): sky.apply_time(Game.local_minutes()))
 		else:
 			sky.set_weather(w, dio.is_interior())
 	var back := dio.get("_backdrop") as MeshInstance3D

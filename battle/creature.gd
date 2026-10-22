@@ -22,6 +22,7 @@ var sex := ""          # "m", "f" or "" (kindreds that do not breed)
 var uid := 0           # 0 until it needs an identity (kinship); not yet assigned anywhere
 var pedigree := {}     # {sire: node, dam: node}, a node being {uid, sire, dam}
 var hybrid := ""       # the Hybrid id if it is one (data/hybrids.json), else ""
+var form := ""         # a regional form (see Forms), "" for the usual one
 
 static func create(sp: Dictionary, lvl: int, rng: Rng, move_db: MoveDB) -> Creature:
 	var c := Creature.new()
@@ -72,6 +73,7 @@ static func from_dict(d: Dictionary, dex: Dex) -> Creature:
 	c.uid = int(d.get("uid", 0))
 	c.pedigree = d.get("pedigree", {}).duplicate(true)
 	c.hybrid = str(d.get("hybrid", ""))
+	c.form = str(d.get("form", ""))
 	if c.genome.is_empty() and not c.species.is_empty():
 		var made := Genetics.derive(c)
 		c.genome = made.genome
@@ -85,7 +87,7 @@ func to_dict() -> Dictionary:
 	return {"species": species.id, "nickname": nickname, "level": level, "xp": xp, "nature": nature,
 		"ivs": ivs.duplicate(), "training": training.duplicate(), "hp": hp,
 		"moves": moves.duplicate(true), "status": status, "status_turns": status_turns, "friendship": friendship, "held": held, "variant": variant,
-		"genome": genome.duplicate(true), "sex": sex, "uid": uid, "pedigree": pedigree.duplicate(true), "hybrid": hybrid}
+		"genome": genome.duplicate(true), "sex": sex, "uid": uid, "pedigree": pedigree.duplicate(true), "hybrid": hybrid, "form": form}
 
 func make_move_slot(id: String, move_db: MoveDB) -> Dictionary:
 	var pp := int(move_db.get_move(id).get("pp", 10))
@@ -101,13 +103,13 @@ func display_name() -> String:
 	return nickname if nickname != "" else species.name
 
 func types() -> Array:
-	return species.types
+	return Forms.types_for(species, form) if form != "" else species.types
 
 func max_hp() -> int:
 	return calc_stat("hp")
 
 func calc_stat(s: String) -> int:
-	var core: int = (2 * species.base[s] + 2 * ivs.get(s, 0) + training.get(s, 0) / 4) * level / 100
+	var core: int = (2 * (species.base[s] + (Forms.lean(str(species.id), form, s) if form != "" else 0)) + 2 * ivs.get(s, 0) + training.get(s, 0) / 4) * level / 100
 	if s == "hp":
 		return core + level + 10
 	return int((core + 5) * nature_mod(s))

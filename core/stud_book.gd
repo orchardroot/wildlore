@@ -93,6 +93,12 @@ const IDEAS := [
 			"Pedigree records are the tool. A herd book is the Stud Book written by someone else.",
 			"Nothing is bred here to be sold."],
 		"square": "", "story": "Soay sheep on Hirta, in the St Kilda group, have been studied since 1985 and are one of the best-known wild population genetics projects."},
+	{"id": "regional_forms", "title": "Regional forms", "hint": "Hatch a creature in a regional form.",
+		"text": ["Creatures cut off in one place for long enough drift apart from their cousins elsewhere. Islands are the classic case.",
+			"The differences are slight: a darker coat, a heavier build, a shade of colour. They are still the same kind, and can still be paired.",
+			"Here that is a simplification. A hatchling takes its dam's form, as if the form came down the female line; real inheritance is messier and runs through both parents.",
+			"Hybrids never carry a form, because a form belongs to a population in a place, and a hybrid belongs to none."],
+		"square": "", "story": "The St Kilda wren is a larger, paler subspecies of the wren found only on Hirta."},
 ]
 
 static func idea(id: String) -> Dictionary:
@@ -170,6 +176,7 @@ static func observe(data: GameStateData, sire: Creature, dam: Creature, child: C
 		"breed": kind == "same_line",
 		"hybrids": kind == "hybrid",
 		"vigour": Genetics.kinship(sire, dam) > 0.0,
+		"regional_forms": child.form != "",
 	}
 	for id in checks:
 		if checks[id]:

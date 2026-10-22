@@ -333,6 +333,16 @@ func _show(id: String) -> void:
 			info.add_child(knack_row)
 		else:
 			knack_row.free()
+		for fm in Forms.listing(Game.data, id):  # regional forms: where each is found, and its fact once met
+			var where := Forms.where(id, fm.form, FieldbookGoals.region_name)
+			var mark := "caught" if fm.status == "caught" else ("seen" if fm.status == "seen" else "not yet met")
+			var fl := UIKit.label("Form: %s, found in %s (%s)" % [fm.name, where, mark], 19, UIKit.GOLD if fm.status == "caught" else UIKit.MUTED)
+			fl.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+			fl.custom_minimum_size = Vector2(300, 0)
+			if fm.status != "":
+				fl.tooltip_text = Forms.fact_of(id, fm.form)
+				fl.mouse_filter = Control.MOUSE_FILTER_PASS
+			info.add_child(fl)
 	else:
 		var u := UIKit.label("Not met yet. Out there somewhere, being elusive.", 22, UIKit.MUTED)
 		u.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART

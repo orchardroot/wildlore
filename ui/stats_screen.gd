@@ -43,6 +43,7 @@ func _show_page() -> void:
 	# the journey on the left, the daft ones and the rest on the right
 	var rows := TrainerStats.lines(Game.data)
 	rows.append(["Uncommon coats", Coats.stats_line(Game.data)])  # see Coats
+	rows.append(["Regional forms", Forms.stats_line(Game.data)])  # see Forms
 	rows.append(["Plaques read", Gazetteer.stats_line(Game.data)])  # see Gazetteer
 	var two := rows.size() > ONE_COLUMN
 	var split := DAFT_ONES if two else rows.size()
