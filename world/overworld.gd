@@ -481,6 +481,8 @@ func interact(p: Vector2i) -> void:
 			var res := Gazetteer.record(Game.data, str(s.plaque))
 			Bus.flag_changed.emit(Gazetteer.flag_key(str(s.plaque)), true)  # a quest step may have wanted it read
 			Game.quest_news.plaque_read(res, str(s.get("title", "")))
+			if str(s.get("theme", "")) == PoetsCorner.THEME:  # a plaque on the arts counts for Poets' Corner too (4.5)
+				Game.quest_news.poets_corner(PoetsCorner.record(Game.data, str(s.plaque)))
 		else:
 			await say(_sign_lines(s))
 		return

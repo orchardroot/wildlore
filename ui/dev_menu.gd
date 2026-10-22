@@ -213,6 +213,9 @@ static func boot(game: Node, menu: String) -> void:
 		BuildingSociety.settle(d)
 		BuildingSociety.borrow(d, "manchester_society", 2000, 12)
 		BuildingSociety.deposit(d, "gbp", 600)
+	if menu.begins_with("almanac") or menu.begins_with("quests:gazetteer"):  # a dozen plaques on the arts read: Poets' Corner (4.5)
+		for p in PoetsCorner.all().slice(0, 12):
+			d.set_flag(Gazetteer.flag_key(str(p.id)), true)
 	if menu.begins_with("bureau") or menu.begins_with("exchange") or menu.begins_with("crypto") or menu == "pause:euros":
 		# a few weeks into a journey with both purses, some shares, a Doggerel punt and a Stone or two
 		d.day_count = 46

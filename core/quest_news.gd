@@ -56,6 +56,12 @@ func _process(_delta: float) -> void:
 			_parish.news(n[0], n[1])
 	_dirty.clear()
 
+## Poets' Corner milestones paid by an arts plaque (PoetsCorner.record), one toast each.
+func poets_corner(paid: Array) -> void:
+	for m in paid:
+		var gift := Gazetteer.reward_text(m, _game.items)
+		_parish.news("Poets' Corner", "%s! %s" % [str(m.title), gift] if gift != "" else str(m.title) + "!")
+
 ## A plaque read for the first time: the Gazetteer toast, any milestone paid, and anything a quest wanted from it.
 func plaque_read(res: Dictionary, title: String) -> void:
 	if not bool(res.get("new", false)):

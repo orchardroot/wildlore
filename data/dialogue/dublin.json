@@ -433,5 +433,205 @@
    "who": "Fox Watcher",
    "text": "Saw one trot over O'Connell Bridge last week like he was late for a bus."
   }
+ ],
+ "arts_joycean": [
+  {
+   "do": "if",
+   "flag": "q_arts_ireland_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Joycean",
+     "text": "The soap is on the mantelpiece and the sandwich, I regret to say, is gone. Happy Bloomsday, whenever it is. In this house it is always 16 June."
+    },
+    {
+     "do": "say",
+     "who": "Joycean",
+     "text": "The Martello tower at Sandycove, where the book begins, is a Joyce museum now. The stairhead is still there. So is the plump, in a sense, in all of us."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_arts_ireland_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_arts_ireland_soap",
+       "then": [
+        {
+         "do": "if",
+         "flag": "q_arts_ireland_sandwich",
+         "then": [
+          {
+           "do": "set",
+           "flag": "q_arts_ireland_done",
+           "value": true
+          },
+          {
+           "do": "say",
+           "who": "Joycean",
+           "text": "Lemon soap and a gorgonzola sandwich! Sweny's and Davy Byrne's, the two holiest shops in literature. Bloom bought the soap in the morning and the sandwich at one; you have done it in better time and with less to carry in your head."
+          },
+          {
+           "do": "say",
+           "who": "Joycean",
+           "text": "The boater is yours, and keep the soap; it will see you through to Finnegans Wake. Yes, I said yes, I will, yes."
+          },
+          {
+           "do": "give_item",
+           "item": "straw_boater",
+           "n": 1
+          },
+          {
+           "do": "give_item",
+           "item": "gorgonzola_sandwich",
+           "n": 2
+          },
+          {
+           "do": "standing",
+           "nation": "ireland",
+           "amount": 5
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Joycean",
+           "text": "The soap, grand. Now the sandwich. Davy Byrne's is on Duke Street, by the Green; the barman knows what to do. Gorgonzola, mustard, a glass of burgundy. Leave the burgundy."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Joycean",
+         "text": "The chemist first. Sweny's, Lincoln Place, lemon soap, fourpence in 1904. The chemist is outside the shop there; the inside is mostly books now."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Joycean",
+       "text": "{greeting} Bloomsday! Or it will be, on 16 June, and I am rehearsing. Leopold Bloom walks Dublin for eighteen hours in Ulysses and I follow him every year in this boater, which was my father's, and his father's, and is beginning to show it."
+      },
+      {
+       "do": "say",
+       "who": "Joycean",
+       "text": "Two errands make a Bloomsday. Bloom buys a cake of lemon soap at Sweny's chemist and carries it in his pocket all day, and at lunch he has a gorgonzola sandwich and a glass of burgundy at Davy Byrne's, because the other pub was full of men eating like animals."
+      },
+      {
+       "do": "say",
+       "who": "Joycean",
+       "text": "Fetch me both, the soap and the sandwich, and I will give you a boater of your own. The first Bloomsday was 1954, fifty years on, and the pilgrims got drunk by the second stop. Try to do better."
+      },
+      {
+       "do": "set",
+       "flag": "q_arts_ireland_started",
+       "value": true
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "arts_chemist": [
+  {
+   "do": "if",
+   "flag": "q_arts_ireland_soap",
+   "then": [
+    {
+     "do": "say",
+     "who": "Chemist",
+     "text": "Lemon soap, sweet and waxy, as Bloom says. We still sell it and people still sniff it in the doorway. The shop is run by volunteers; the prescriptions stopped in 2009 and the readings never did."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_arts_ireland_started",
+     "then": [
+      {
+       "do": "say",
+       "who": "Chemist",
+       "text": "Sweny's, Lincoln Place, chemist since 1847 and never once redecorated. Bloom came in on page whatever for a cake of lemon soap, fourpence, and we have been selling it ever since."
+      },
+      {
+       "do": "say",
+       "who": "Chemist",
+       "text": "For the Joycean in the boater? Of course. One cake of lemon soap. Smell it. Go on. That is 1904, that is."
+      },
+      {
+       "do": "give_item",
+       "item": "lemon_soap",
+       "n": 1
+      },
+      {
+       "do": "set",
+       "flag": "q_arts_ireland_soap",
+       "value": true
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Chemist",
+       "text": "{greeting} Sweny's. The chemist shop from Ulysses, kept just as it was, mahogany, bottles and all. Mostly we sell lemon soap and read the book aloud, a page at a time, to whoever comes in."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "arts_davy_byrnes": [
+  {
+   "do": "if",
+   "flag": "q_arts_ireland_sandwich",
+   "then": [
+    {
+     "do": "say",
+     "who": "Barman",
+     "text": "Gorgonzola and burgundy at one o'clock on 16 June. You would be amazed how many we do. You would be amazed how many we do in January."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_arts_ireland_started",
+     "then": [
+      {
+       "do": "say",
+       "who": "Barman",
+       "text": "Davy Byrne's, Duke Street, 'the moral pub', Bloom calls it, because the landlord did not let the talk get rough. Bloom has a gorgonzola sandwich and a glass of burgundy here and watches the flies on the window."
+      },
+      {
+       "do": "say",
+       "who": "Barman",
+       "text": "For the man in the boater? Gorgonzola, mustard, a bit of bread you could stand a plate on. The burgundy stays here. Rules."
+      },
+      {
+       "do": "give_item",
+       "item": "gorgonzola_sandwich",
+       "n": 1
+      },
+      {
+       "do": "set",
+       "flag": "q_arts_ireland_sandwich",
+       "value": true
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Barman",
+       "text": "{greeting} Davy Byrne's. We have been serving the same sandwich since 1904, or since 1922, depending on how literal you are feeling."
+      }
+     ]
+    }
+   ]
+  }
  ]
 }

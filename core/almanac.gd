@@ -6,17 +6,19 @@ extends RefCounted
 ## appears once its system has something to show, so old saves need nothing.
 
 ## The menus behind each page, in tab order. "ledger:<kind>" opens the Almanac's own read-only ledger.
-const ORDER := ["journal", "fieldbook", "gazetteer", "casebook", "studbook", "words", "rumours", "trades", "standing", "stats",
+const ORDER := ["journal", "fieldbook", "gazetteer", "poets", "casebook", "studbook", "words", "rumours", "trades", "standing", "stats",
 	"guilds", "deeds", "society"]
-const NAMES := {"journal": "Quest log", "fieldbook": "Fieldbook", "gazetteer": "Gazetteer", "casebook": "Casebook",
+const NAMES := {"journal": "Quest log", "fieldbook": "Fieldbook", "gazetteer": "Gazetteer", "poets": "Poets' Corner", "casebook": "Casebook",
 	"studbook": "Stud Book", "words": "Words of the Isles", "rumours": "Rumours", "trades": "Trades", "standing": "Standing", "stats": "Tallies",
 	"guilds": "Guilds", "deeds": "Deeds", "society": "Building Society"}
-const MENUS := {"journal": "quests", "fieldbook": "pedia", "gazetteer": "quests:gazetteer", "casebook": "pedia:casebook",
+const MENUS := {"journal": "quests", "fieldbook": "pedia", "gazetteer": "quests:gazetteer", "poets": "ledger:poets", "casebook": "pedia:casebook",
 	"studbook": "pedia:studbook", "words": "pedia:words", "rumours": "pedia:rumours", "trades": "stats:trades", "standing": "stats:standing",
 	"stats": "stats", "guilds": "ledger:guilds", "deeds": "ledger:deeds", "society": "ledger:society"}
 
 static func sprouted(d: GameStateData, id: String) -> bool:
 	match id:
+		"poets":
+			return PoetsCorner.count(d) > 0  # the first plaque on the arts read (4.5)
 		"casebook":
 			return Casebook.visible(d)
 		"studbook":
@@ -60,6 +62,8 @@ static func blurb(d: GameStateData, id: String) -> String:
 			return "%d seen, %d caught" % [d.seen.size(), d.caught.size()]
 		"gazetteer":
 			return "Plaques read: " + Gazetteer.stats_line(d)
+		"poets":
+			return "Plaques on the arts read: " + PoetsCorner.stats_line(d)
 		"casebook":
 			var open := Casebook.open_cases(d).filter(func(c): return not Casebook.solved(d, c)).size()
 			return "%d case%s open" % [open, "" if open == 1 else "s"]
@@ -100,6 +104,8 @@ static func blurb(d: GameStateData, id: String) -> String:
 static func ledger(d: GameStateData, kind: String) -> Array:
 	var out := []
 	match kind:
+		"poets":
+			out = PoetsCorner.ledger(d)
 		"guilds":
 			for g in joined_guilds(d):
 				var r := Guilds.rank(d, g)
