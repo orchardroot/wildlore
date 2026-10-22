@@ -243,6 +243,14 @@ func _book_button(i: int) -> Button:
 			WordsTab.show(id, _detail)
 		else:
 			StudBookTab.show(id, _detail))
+	if _filter == "words":
+		b.pressed.connect(func():  # revise the language (4.5)
+			if not WordsTab.can_revise(id):
+				return
+			Audio.sfx("confirm")
+			await open_child("lang:review:" + id)
+			WordsTab.show(id, _detail)
+			b.grab_focus())
 	var h := HBoxContainer.new()
 	h.set_anchors_preset(Control.PRESET_FULL_RECT)
 	h.offset_left = 10

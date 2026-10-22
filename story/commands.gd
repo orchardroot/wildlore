@@ -272,6 +272,10 @@ func _exec(c: Dictionary) -> void:
 			await BreedTalk.run(self, c)  # the farm gate and the lab bench (story/breed_talk.gd)
 		"rewild":
 			await RewildTalk.run(self, c)  # a rewilding site's warden (story/rewild_talk.gd)
+		"lesson":
+			await LessonTalk.run(self, c)  # a language teacher (story/lesson_talk.gd)
+		"say_it":
+			await LessonTalk.say_it(self, c)  # one quick word after a won battle
 		_:
 			push_warning("Commands: unknown command '%s'" % c.get("do", ""))
 
@@ -772,6 +776,9 @@ func _greeting() -> String:
 	var g := StoryData.greeting(host.data.zone_id, host.data.clock_minutes)
 	var idx := ZoneIndex.get_index()
 	var local := Langs.greeting(host.data.zone_id, host.data.clock_minutes / 30, Langs.enabled, idx)
+	var learnt := LangLessons.time_greeting(host.data, Langs.code_for(host.data.zone_id, idx), host.data.clock_minutes) if local != "" else ""
+	if learnt != "":  # once you've learnt "good morning" from a teacher, that's the local hello in the morning
+		local = learnt
 	if local != "" and (host.data.clock_minutes / 30) % 2 == 0:  # half the hellos are the local language's
 		g = local
 		Langs.note_text(host.data, Langs.code_for(host.data.zone_id, idx), local)

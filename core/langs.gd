@@ -60,6 +60,7 @@ static func data(code: String) -> Dictionary:
 
 static func reset() -> void:
 	_cache = {}
+	LangLessons.reset()  # and the extra lesson files (data/lang/lessons)
 
 ## The local name of a zone's town or route ("" when the language has none, or it is the same as English).
 static func place(code: String, zone_id: String, english: String, index: Dictionary) -> String:
@@ -177,8 +178,12 @@ static func glossary(d: GameStateData, zone_names: Dictionary) -> Array:
 					if _plain(str(phrases[k])) == _plain(str(g[i])):
 						meaning = str(k).replace("_", " ")
 				rows.append({"word": str(g[i]), "meaning": meaning})
+		var have := rows.map(func(r): return _plain(str(r.word)))
+		for r in LangLessons.glossary_rows(d, code):  # words learnt from a teacher (4.5), unless already listed
+			if _plain(str(r.word)) not in have:
+				rows.append(r)
 		if not rows.is_empty():
-			out.append({"code": code, "language": NAMES[code], "rows": rows})
+			out.append({"code": code, "language": str(NAMES.get(code, dd.get("name", code))), "rows": rows})
 	return out
 
 ## Problems with data/lang files for the validator: shape, no em-dashes, known zones.
@@ -193,7 +198,7 @@ static func check(zone_exists: Callable) -> Array:
 			errs.append("lang %s: not a JSON object" % code)
 			continue
 		for k in d:
-			if k not in ["places", "greetings", "phrases"]:
+			if k not in ["places", "greetings", "phrases", "name", "endonym", "about", "lessons"]:  # 4.5 lessons: see LangLessons
 				errs.append("lang %s: unknown key '%s'" % [code, k])
 		for zid in d.get("places", {}):
 			if not zone_exists.call(str(zid)):

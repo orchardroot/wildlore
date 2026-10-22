@@ -91,6 +91,12 @@ func _refresh() -> void:
 		_info.add_child(_stat(str(line[0]), str(line[1])))
 	_info.add_child(_stat("Play time", MenuLogic.play_time(d.play_seconds)))
 	_info.add_child(_stat("Fieldbook", "%d seen, %d caught" % [d.seen.size(), d.caught.size()]))
+	var wod := LangLessons.word_of_day(d, Langs.code_for(d.zone_id, ZoneIndex.get_index()), d.day_count) if Settings.languages_on() else {}
+	if not wod.is_empty():  # the word of the day (4.5): from what you've learnt, or a taster of the local language
+		var wl := UIKit.fit_label("%s word of the day: %s (%s), %s" % [LangLessons.lang_name(str(wod.code)), str(wod.word.local),
+			str(wod.word.say), str(wod.word.english)], 640, 22, 16, Langs.LOCAL_INK)
+		wl.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+		_info.add_child(wl)
 	var basket := PairingLogic.basket_line(d)  # a pairing in a basket or bundle, walking off its steps (see Breeding)
 	if basket != "":
 		var bl := UIKit.label(basket, 24, UIKit.GOLD)

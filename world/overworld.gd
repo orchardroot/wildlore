@@ -287,6 +287,7 @@ func _spawn_npcs() -> void:
 func _side_npcs() -> Array:
 	Festivals.rollover(Game.data)  # a festival that has come round again starts its quest afresh
 	var out := SideStories.npcs_for(zone.id, Game.data) + Festivals.npcs_for(zone.id) + Regulars.npcs_for(zone.id, Game.data)  # plus whoever's festival is on, and the Regulars
+	out.append_array(LangLessons.npcs_for(zone.id))  # language teachers (4.5)
 	var taken := {}
 	for d in out:
 		var p := SideStories.nearest_free(zone, Vector2i(int(d.x), int(d.y)), taken)
@@ -446,6 +447,8 @@ func _after_battle(result: Dictionary) -> void:
 		await ScriptRunner.start(self, [{"do": "whiteout"}])  # one whiteout, shared with trainer battles
 	elif Encounters.autosave_after(result):
 		Game.autosave()  # the catch is done and nothing is half-played: bank it
+	if str(result.get("result", "")) == "win" and LangLessons.say_it_offer(Game.data, Langs.code_for(str(zone.id), ZoneIndex.get_index()), Settings.languages_on(), Game.rng.roll()):
+		await ScriptRunner.start(self, [{"do": "say_it"}])  # "Say it": one quick word, never required
 
 func interact(p: Vector2i) -> void:
 	Audio.interaction(self, p)
@@ -498,6 +501,9 @@ func _sign_lines(s: Dictionary) -> Array:
 	var r := Langs.sign_lines(s, str(zone.id), Settings.languages_on(), idx)
 	if str(r[1]) != "":
 		Langs.note_text(Game.data, Langs.code_for(str(zone.id), idx), str(r[1]))
+		var gloss := LangLessons.sign_gloss(Game.data, Langs.code_for(str(zone.id), idx), str(r[1]))
+		if gloss != "":  # words you've learnt from a teacher, picked out on the sign
+			return r[0] + [gloss]
 	return r[0]
 
 func _sign_title(s: Dictionary) -> String:

@@ -5,7 +5,8 @@ extends RefCounted
 
 const COUNTERS := ["steps", "wins_wild", "wins_trainer", "caught", "train_trips", "ferry_trips", "flights",
 	"rail_miles", "money_earned", "teas", "rained_on", "fish_caught",
-	"goods_sold", "dishes_cooked", "darts_won", "crabs_caught", "show_rosettes", "sheepdog_trials", "rows_rung", "walls_built", "games_won", "pulls_sung", "conkers_won"]
+	"goods_sold", "dishes_cooked", "darts_won", "crabs_caught", "show_rosettes", "sheepdog_trials", "rows_rung", "walls_built", "games_won", "pulls_sung", "conkers_won",
+	"lessons_taken", "words_reviewed", "say_it_right", "lang_certs"]
 const TEA_ITEMS := ["cup_of_tea", "flask_of_tea", "cream_tea"]
 const MILES_PER_MAP_UNIT := 0.45   # the world map is 1000 x 1300 for roughly 450 x 600 miles of Britain
 
@@ -105,6 +106,11 @@ static func lines(data: GameStateData) -> Array:
 		out.append(["Shanty pulls in time", _n(c.call("pulls_sung"))])
 	if c.call("conkers_won") > 0:
 		out.append(["Conker matches won", _n(c.call("conkers_won"))])
+	if c.call("lessons_taken") > 0:
+		out.append(["Language lessons taken", "%s (%s certificate%s)" % [_n(c.call("lessons_taken")), _n(c.call("lang_certs")), "" if c.call("lang_certs") == 1 else "s"]])
+		out.append(["Words reviewed", _n(c.call("words_reviewed"))])
+	if c.call("say_it_right") > 0:
+		out.append(["Said it right after a battle", _n(c.call("say_it_right"))])
 	out.append_array(Tournament.stat_lines(data))  # County Shows and the Open Moot
 	out.append_array(Punt.stat_lines(data))  # the Palace and the bookies, once you've had a flutter
 	return out
