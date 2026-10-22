@@ -64,9 +64,22 @@ def chain(flag_steps, fight, hint):
     return body
 
 
-def add_step(zid, nid, qid, step):
-    """an NPC's lines also tick a quest step once the quest has started."""
-    DLG[zid][nid] = DLG[zid][nid] + [cmd_if(Q + qid + "_started", [setf(Q + qid + "_" + step)])]
+def add_step(zid, nid, q, step):
+    """an NPC's lines also tick a quest step once the quest has started. q is the flag base, q_abroad_<region>_<quest>:
+    core/quests.gd wants a quest's own flags in its region's namespace."""
+    DLG[zid][nid] = DLG[zid][nid] + [cmd_if(q + "_started", [setf(q + "_" + step)])]
+
+
+def adult_row(sp, floor, weight=3):
+    """a rare row for a line's final form, a level or two above the floor, so the Fieldbook can be filled where it lives."""
+    return (sp, floor + 1, floor + 2, weight, {})
+
+
+def bureau(z, zid, x, y, text, who="Bureau Clerk", sprite="commuter", facing="down"):
+    """a bureau de change in every town whose money is not sterling (tests/world/test_overseas_smoke.gd)."""
+    _stand(z, x, y)
+    z.npc(id=zid + "_bureau", sprite=sprite, x=x, y=y, facing=facing, move="still", script=zid + "_bureau", name=who)
+    script(zid, zid + "_bureau", say(who, text) + [{"do": "bureau"}])
 
 
 def flight_home(z, zid, terr, x, y, sprite, who, text, facing="down"):
@@ -169,12 +182,14 @@ def gaiman(OUT):
           "People like to tell it as a friendship, and it was, for a while. Then the army came south in the 1870s and 1880s and our people lost their land. Remember both stories. They're both true."], "down")
     chat(z, "gai_kid", "student", 42, 18, "Schoolboy",
          ["Hola! Shwmae! I learn Welsh at school. My nain says if I learn enough Welsh I can go to Wales and nobody there will understand my accent. I can't wait."], "down")
+    bureau(z, zid, 24, 26, "Casa de cambio. Pesos for pounds, pounds for pesos. The rate changes most days, so don't ask me to promise one. Bienvenidos a la Argentina.")
     creature_npc(z, "gai_rhea", "choiquet", 47, 8, "A young rhea eyes you from the scrub, decides you are not a threat, and runs off at an angle that suggests it has somewhere very important to be.")
     flight_home(z, zid, "patagonia", 56, 20, "commuter", "Remis Driver",
                 "A remis is a minicab. I'll run you to Trelew for the airport: Buenos Aires, then the long flight to London. Not the RAF, no. The RAF doesn't fly to Argentina, for reasons you can read about in any history book.")
     # ---- wild ----
     wild_at(z, F, [("choiquet", 12, {}), ("leveret", 10, {}), ("duneskink", 10, {"weather": ["clear", "sunshine"]}), ("kitelet", 10, {}),
                    ("flittermouse", 8, {"time": ["dusk", "night"]}), ("croakle", 8, {}), ("hootlet", 6, {"time": ["night"]}), ("swiftlet", 8, {})])
+    wild(z, [adult_row("choique", F)], "grass")
     wild_at(z, F, [("parrlet", 14, {}), ("bradan", 6, {}), ("croakle", 8, {}), ("stalklet", 8, {})], "water")
     trainer(z, "gai_choir", "Côr Leader Mair", "Choir Leader", "choir_singer",
             [("tapknock", 95), ("kitelet", 95), ("starlet", 96), ("murmurant", 96)], 20, 18, "down",
@@ -232,12 +247,12 @@ def gaiman(OUT):
         ("Buenas tardes! Prynhawn da! Prices in pesos, I'm afraid. They change faster than the weather, and the weather here changes a lot.",
          "Diolch! Gracias! Mind the wind."),
         ["cup_of_tea", "flask_of_tea", "smelling_salts", "wicker_snare", "iron_snare", "water_snare", "night_snare",
-         "torta_negra", "mate_gourd", "patagonia_lamb"])
+         "torta_negra", "patagonia_lamb"])
 
 
 def gaiman_quest():
-    zid, qid = "gaiman", "gaiman_tea"
-    q = Q + qid
+    zid = "gaiman"
+    q = Q + "patagonia_tea"
     hint = say("Prifardd Eluned", "Gwen at the tea house wants the whole story before she'll cut her best torta negra for you: the Mimosa from the Museum Keeper, the Tehuelche side from the weaver by the fields, and diolch from the teacher. Then a rhea, to show me you've been out on the steppe.")
     show = [when("party_has_choiquet",
                  say("Prifardd Eluned", "A choiquet! They're quicker than they look, and they look very quick. Now then. The chair goes to whoever earns it.") +
@@ -250,15 +265,15 @@ def gaiman_quest():
         [cmd_if(q + "_started", chain([q + "_1", q + "_2", q + "_3"], show, hint),
                 say("Prifardd Eluned", "Shwmae! You've come a long way to a little bit of Wales. Want to understand Y Wladfa? Hear three people: the Museum Keeper on the Mimosa, the Tehuelche weaver by the fields, and the Welsh teacher. Then come back to me.") + [setf(q + "_started")])])]
     DLG["gaiman_museum"]["gai_curator"] += [cmd_if(q + "_started", [setf(q + "_1")])]
-    add_step(zid, "gai_craftswoman", qid, "2")
-    add_step(zid, "gai_teacher", qid, "3")
+    add_step(zid, "gai_craftswoman", q, "2")
+    add_step(zid, "gai_teacher", q, "3")
     return {"id": "abroad_gaiman_tea", "title": "Te Bach in Patagonia", "region": "abroad_patagonia", "town": zid, "giver": "Prifardd Eluned",
-            "summary": "Hear how the Welsh came to Patagonia, from three people who know, then show the Archdruid a rhea.",
+            "summary": "Hear how the Welsh came to Patagonia, from three people who know, then show the Chief Bard a rhea.",
             "start_flag": q + "_started",
             "steps": [{"flag": q + "_1", "text": "Hear about the Mimosa from the Museum Keeper in the old station.", "zone": "gaiman_museum"},
                       {"flag": q + "_2", "text": "Hear the Tehuelche side from the weaver by the fields.", "zone": zid},
                       {"flag": q + "_3", "text": "Learn a Welsh word from the teacher by the school.", "zone": zid},
-                      {"flag": q + "_4", "text": "Catch a choiquet on the steppe and show the Archdruid, then take her challenge.", "zone": zid}],
+                      {"flag": q + "_4", "text": "Catch a choiquet on the steppe and show the Chief Bard, then take her challenge.", "zone": zid}],
             "done_flag": q + "_done", "reward": "Torta negra, a mate gourd, a Gaiman shawl (a Gale charm) and standing with Kin Abroad."}
 
 
@@ -332,11 +347,13 @@ def baddeck(OUT):
          ["Bald eagles. Dozens nest round the Bras d'Or. They look magnificent and they steal fish off ospreys. Nature has no sense of dignity."], "down")
     chat(z, "bad_lobster", "fisherman_north", 33, 30, "Lobster Fisher",
          ["Lobster season's set by law here, with traps and licences counted. You learn to read a lobster's face. They mostly look annoyed, so it's not a hard read."], "down")
+    bureau(z, zid, 38, 26, "Bank counter, and we change money. Canadian dollars: the one dollar coin has a loon on it, so it's a loonie, and the two dollar coin is a toonie. Nobody voted on that. It just happened.")
     creature_npc(z, "bad_moose", "mooslet", 10, 9, "A young moose looks up from the willow it is eating, chews thoughtfully, and goes back to it. It is the size of a horse and it is not yet finished growing.")
     flight_home(z, zid, "cape_breton", 57, 20, "commuter", "Airport Shuttle",
                 "Sydney for the little airport, named after J. A. D. McCurdy of the Silver Dart, then Halifax and the overnight to London. The RAF can't land a Voyager in Baddeck.")
     wild_at(z, F, [("mooslet", 10, {}), ("fawnlet", 10, {}), ("snowhare", 10, {}), ("stoatlet", 8, {}), ("ospret", 8, {}),
                    ("buntling", 6, {"weather": ["frost", "fog"]}), ("hootlet", 6, {"time": ["night"]}), ("grizzlet", 10, {}), ("eaglet", 6, {})])
+    wild(z, [adult_row("bullmoose", F)], "grass")
     wild_at(z, F, [("pinchkin", 12, {}), ("clawcastle", 4, {}), ("pupplash", 10, {}), ("greyhaul", 6, {}), ("bradan", 8, {}), ("gannetling", 8, {})], "water")
     trainer(z, "bad_piper", "Piper Calum", "Piper", "piper",
             [("caperling", 95), ("capercaillie", 96), ("stagmor", 96), ("snowbunting", 95)], 34, 18, "down",
@@ -372,7 +389,7 @@ def baddeck(OUT):
              [npc("bad_caller", "ceilidh_caller", 6, 2, "bad_caller", name="Ceilidh Host")],
              props=[("piano", 2, 1, {})])
     script("baddeck_hall", "bad_caller", say("Ceilidh Host",
-           "Céilidh tonight! In Gaelic a cèilidh was just a visit: neighbours dropping in for songs and stories. Now it's a fiddler, a piano player and the whole parish on the floor.",
+           "Ceilidh tonight! In Gaelic a cèilidh was just a visit: neighbours dropping in for songs and stories. Now it's a fiddler, a piano player and the whole parish on the floor.",
            "Square sets, step dancing, and a cup of tea at the interval. If you don't know the steps, stand near someone's granny. She'll steer."))
     interior(OUT, "baddeck_class", "Gaelic Class", zid, r_class, "school",
              [npc("bad_tutor", "poet", 6, 2, "bad_tutor", name="Gaelic Tutor")])
@@ -391,8 +408,8 @@ def baddeck(OUT):
 
 
 def baddeck_quest():
-    zid, qid = "baddeck", "baddeck_frolic"
-    q = Q + qid
+    zid = "baddeck"
+    q = Q + "cape_breton_frolic"
     hint = say("Bard Catrìona", "For a milling frolic I need a fiddler, a singer who knows the songs, and someone who still has the Gaelic. Ask the fiddler on the main street, the milling singer by the inn, and the Gaelic speaker down by the class. Then come back.")
     fight = say("Bard Catrìona", "Fiddle, songs and the Gaelic: we're set. One last thing. A bard tests every guest.") + [battle("bad_legend")] + \
         say("Bard Catrìona", "Sit in, sit in. Here's a length of tweed off the table, some oatcakes and syrup, and a song for the road. Slàinte mhath!") + \
@@ -401,9 +418,9 @@ def baddeck_quest():
         say("Bard Catrìona", "Ceud mìle fàilte, always. Come back in October for Celtic Colours."),
         [cmd_if(q + "_started", chain([q + "_1", q + "_2", q + "_3"], fight, hint),
                 say("Bard Catrìona", "Halò! I'm getting up a milling frolic and I'm short of hands. Find me the fiddler, the milling singer and the Gaelic speaker. They're all in town.") + [setf(q + "_started")])])]
-    add_step(zid, "bad_fiddler", qid, "1")
-    add_step(zid, "bad_milling", qid, "2")
-    add_step(zid, "bad_elder", qid, "3")
+    add_step(zid, "bad_fiddler", q, "1")
+    add_step(zid, "bad_milling", q, "2")
+    add_step(zid, "bad_elder", q, "3")
     return {"id": "abroad_baddeck_frolic", "title": "The Milling Frolic", "region": "abroad_cape_breton", "town": zid, "giver": "Bard Catrìona",
             "summary": "Gather a fiddler, a singer and a Gaelic speaker for a milling frolic, then face the bard.",
             "start_flag": q + "_started",
@@ -485,6 +502,7 @@ def boston(OUT):
          ["I came over from Galway on a work visa. My great-great-grandmother came the hard way, in 1847. I did it with a phone and a flat share. I still rang my mam from the airport crying."], "down")
     chat(z, "bos_dock", "steelworker", 46, 33, "Harbour Worker",
          ["They came in right here, off the ships. Some went straight to the hospital on Deer Island, some to a cellar in the North End, ten to a room. And they made something of it."], "left")
+    bureau(z, zid, 32, 26, "Currency exchange. Dollars for pounds, pounds for dollars. Every note's the same size and nearly the same colour, so read them twice before you tip.")
     flight_home(z, zid, "boston", 46, 20, "commuter", "Airport Cab",
                 "Logan Airport? Seven hours to London overnight, if the wind's behind you. That's a lot quicker than the way your lot came over.", facing="left")
     wild_at(z, F, [("grizzlet", 12, {}), ("raidtail", 6, {}), ("cooplet", 10, {}), ("strutcoo", 6, {}), ("starlet", 10, {}),
@@ -543,8 +561,8 @@ def boston(OUT):
 
 
 def boston_quest():
-    zid, qid = "boston", "boston_letter"
-    q = Q + qid
+    zid = "boston"
+    q = Q + "boston_letter"
     hint = say("Councillor Bridget", "Find out where my Bridget came from. Ask the Family Historian on Washington Street, then the Archivist in the Heritage Centre, then the priest at St Stephen's. Then come back.")
     fight = say("Councillor Bridget", "Tipperary, 1847, a coffin ship from Liverpool, a quarantine hospital, and floors on Beacon Hill. And she sent half her wages home, every month, for thirty years. Thank you. Now, my family never did anything without a fight first.") + \
         [battle("bos_legend")] + \
@@ -554,7 +572,7 @@ def boston_quest():
         say("Councillor Bridget", "You know where to find me. Everyone does. It's Boston."),
         [cmd_if(q + "_started", chain([q + "_1", q + "_2", q + "_3"], fight, hint),
                 say("Councillor Bridget", "You're the one asking about the Famine ships? My great-great-grandmother Bridget came over in 1847. All we have is her name and a letter she sent home. Help me find the rest?") + [setf(q + "_started")])])]
-    add_step(zid, "bos_genealogist", qid, "1")
+    add_step(zid, "bos_genealogist", q, "1")
     DLG["boston_heritage"]["bos_archivist"] += [cmd_if(q + "_started", [setf(q + "_2")])]
     DLG["boston_church"]["bos_priest"] += [cmd_if(q + "_started", [setf(q + "_3")])]
     return {"id": "abroad_boston_letter", "title": "The American Letter", "region": "abroad_boston", "town": zid, "giver": "Councillor Bridget",
@@ -632,6 +650,7 @@ def bristol_tn(OUT):
          ["Appalachia is the salamander capital of the world. More kinds of salamander here than anywhere else on Earth, and the biggest is the hellbender. Up to two feet long, flat as a pancake and lives under rocks in clean, fast streams. Bring me one, if you find one."], "down")
     chat(z, "btn_porch", "villager_5", 54, 26, "Porch Sitter",
          ["Redd up the porch, my mama'd say. Then we'd sit on it all evening. That's two Ulster habits right there: tidying, and not moving afterwards."], "down")
+    bureau(z, zid, 40, 26, "Bank counter. We'll change your pounds into dollars. Tennessee side or Virginia side, it's the same dollar, and the same sweet tea.")
     creature_npc(z, "btn_fireflies", "glowmite", 12, 11, "On warm summer evenings in these mountains the fireflies flash. In parts of the Smokies one kind even flashes in time, all together, for a couple of weeks in June.")
     flight_home(z, zid, "appalachia", 57, 20, "commuter", "Shuttle Driver",
                 "Tri-Cities Airport, then a hop to a big airport and the overnight to London. The RAF don't do the hop. I asked them for you.")
@@ -639,6 +658,7 @@ def bristol_tn(OUT):
                    ("glowmite", 8, {"time": ["dusk", "night"]}), ("croakle", 8, {}), ("hootlet", 6, {"time": ["night"]}), ("flittermouse", 8, {"time": ["dusk", "night"]}),
                    ("pipkin", 8, {})])
     wild_at(z, F, [("hellbendlet", 14, {}), ("pincray", 12, {}), ("croakle", 8, {}), ("parrlet", 8, {})], "water")
+    wild(z, [adult_row("hellbender", F)], "water")
     trainer(z, "btn_picker", "Picker Earl", "Guitar Picker", "rocker",
             [("tootlet", 95), ("bombardon", 96), ("starlet", 95), ("murmurant", 96)], 26, 18, "down",
             ["I play guitar the way Maybelle Carter did: thumb on the melody, fingers on the rhythm. You got a minute?"],
@@ -691,8 +711,8 @@ def bristol_tn(OUT):
 
 
 def bristol_quest():
-    zid, qid = "bristol_tn", "bristol_tune"
-    q = Q + qid
+    zid = "bristol_tn"
+    q = Q + "appalachia_tune"
     hint = say("Granny Opal", "Every tune has a family tree. Hear it from the old-time fiddler, the banjo player and the ballad singer on State Street. Then find a hellbender in the creek and show the park volunteer. Then come back.")
     fight = say("Granny Opal", "Ulster fiddle, African banjo, English and Scottish ballads, and a salamander for luck. That's Appalachia. Now let's play.") + [battle("btn_legend")] + \
         say("Granny Opal", "Here: a dulcimer pick, a pan of cornbread and a jug of sweet tea. And you play that tune the way you heard it. That's how it lives.") + \
@@ -701,9 +721,9 @@ def bristol_quest():
         say("Granny Opal", "Come back for the jam, honey. Thursday."),
         [cmd_if(q + "_started", chain([q + "_1", q + "_2", q + "_3", q + "_4"], fight, hint),
                 say("Granny Opal", "You came all the way from Ulster's side of the water? Then you'll want to hear where our music came from. Go ask the fiddler, the banjo player and the ballad singer, and find a hellbender in the creek for the park volunteer.") + [setf(q + "_started")])])]
-    add_step(zid, "btn_fiddler", qid, "1")
-    add_step(zid, "btn_banjo", qid, "2")
-    add_step(zid, "btn_ballad", qid, "3")
+    add_step(zid, "btn_fiddler", q, "1")
+    add_step(zid, "btn_banjo", q, "2")
+    add_step(zid, "btn_ballad", q, "3")
     DLG[zid]["btn_ranger"] += [cmd_if(q + "_started", [when("party_has_hellbendlet",
         say("Park Volunteer", "A hellbender! Look at those wrinkly sides: that's how it breathes, through its skin. They need clean, cold, fast water, so finding one means the creek is healthy.") + [setf(q + "_4")])])]
     return {"id": "abroad_bristol_tune", "title": "Where the Tune Came From", "region": "abroad_appalachia", "town": zid, "giver": "Granny Opal",
@@ -795,12 +815,13 @@ def roscoff(OUT):
          ["Fest-noz tonight! A night festival: everyone in a line or a ring, holding little fingers, dancing for hours to singers and a bombard and a biniou. In 2012 UNESCO put it on its list of the world's living heritage."], "down")
     chat(z, "ros_farmer", "farmer", 20, 30, "Onion Grower",
          ["The pink onion of Roscoff. Sweet, keeps all winter, lovely in a tart. The sea air does it, and the seaweed in the soil."], "down")
+    bureau(z, zid, 44, 26, "Bureau de change. Euros for pounds, pounds for euros, and a small commission. Brittany uses the euro like the rest of France. The onions are priced in euros too.")
     creature_npc(z, "ros_vraic", "vraicling", 32, 12, "A heap of wet seaweed rearranges itself on the slipway and looks pleased about something, possibly the tide.")
     _stand(z, 48, 12)
     z.npc(id="ros_ferry", sprite="sailor", x=48, y=12, facing="down", move="still", script="ros_ferry", name="Ferry Hand")
     script(zid, "ros_ferry", say("Ferry Hand", "The ferry for Plymouth! About six hours, if the Channel is in a good mood. Kenavo, Breizh.") + [{"do": "ferry", "route": "plymouth_roscoff"}])
-    wild_at(z, F, [("vraicling", 10, {}), ("pixling", 8, {"time": ["dusk", "night"]}), ("flyling", 8, {"weather": ["drizzle", "fog"]}), ("leveret", 10, {}),
-                   ("spikkin", 10, {"time": ["dusk", "night"]}), ("kitelet", 8, {}), ("ankou", 2, {"time": ["night"], "weather": ["fog"]}), ("starlet", 10, {}),
+    wild_at(z, F, [("vraicling", 10, {}), ("pixling", 8, {"time": ["dusk", "night"]}), ("flyling", 8, {"season": ["autumn"], "weather": ["drizzle", "fog"]}), ("leveret", 10, {}),
+                   ("flittermouse", 10, {"time": ["dusk", "night"]}), ("kitelet", 8, {}), ("ankou", 2, {"time": ["night"], "weather": ["fog"]}), ("starlet", 10, {}),
                    ("scuttlet", 10, {})])
     wild_at(z, F, [("gannetling", 10, {}), ("pupplash", 8, {}), ("greyhaul", 6, {}), ("pinchkin", 10, {}), ("chipgull", 10, {}), ("vraicling", 8, {}), ("ternlet", 8, {})], "water")
     trainer(z, "ros_bombard", "Piper Yann", "Sonneur", "piper",
@@ -856,8 +877,8 @@ def roscoff(OUT):
 
 
 def roscoff_quest():
-    zid, qid = "roscoff", "roscoff_johnny"
-    q = Q + qid
+    zid = "roscoff"
+    q = Q + "brittany_johnny"
     hint = say("Gwenola the Storyteller", "Before the tale, the words. Learn demat and kenavo from the Old Johnny by the museum, and trugarez from the Diwan teacher. Then take a string of onions over to Plymouth, as the Johnnies did, and give it to someone who'll appreciate it.")
     fight = say("Gwenola the Storyteller", "You've said demat and kenavo, and you've carried onions to Plymouth like a true Johnny. Now, the custom before a tale.") + [battle("ros_legend")] + \
         say("Gwenola the Storyteller", "Trugarez! Here is a triskell pin, the Breton three spirals, and a kouign-amann for the road. Now sit down. Once upon a time, there was a cart that creaked...") + \
@@ -867,8 +888,8 @@ def roscoff_quest():
         [cmd_if(q + "_started", chain([q + "_1", q + "_2", q + "_3"], fight, hint),
                 say("Gwenola the Storyteller", "Demat! A visitor from over the water. The old Johnnies would've sold you an onion by now. Want a tale? Learn three Breton words first, and do a Johnny's job: carry a string of onions to Plymouth.") +
                 [setf(q + "_started"), give("onion_string")])])]
-    add_step(zid, "ros_johnny", qid, "1")
-    add_step(zid, "ros_teacher", qid, "2")
+    add_step(zid, "ros_johnny", q, "1")
+    add_step(zid, "ros_teacher", q, "2")
     return {"id": "abroad_roscoff_johnny", "title": "Onion Johnny", "region": "abroad_brittany", "town": zid, "giver": "Gwenola the Storyteller",
             "summary": "Learn three Breton words and carry a string of Roscoff onions to Plymouth, as the Johnnies did.",
             "start_flag": q + "_started",
@@ -886,11 +907,12 @@ def plymouth_hand(OUT):
     d["npcs"] = [n for n in d["npcs"] if n["id"] != "ply_brittany_ferry"]
     d["npcs"].append({"id": "ply_brittany_ferry", "sprite": "sailor", "x": 6, "y": 31, "facing": "left", "move": "still",
                       "script": "ply_brittany_ferry", "name": "Millbay Ferry Hand"})
-    d["signs"] = [s for s in d["signs"] if s.get("plaque") != "abroad_plymouth_millbay"]
-    d["signs"].append({"x": 5, "y": 33, "plaque": "abroad_plymouth_millbay", "title": "Millbay",
+    d["signs"] = [s for s in d["signs"] if s.get("plaque") not in ("abroad_plymouth_millbay", "devon_millbay")]
+    # Plymouth's plaques keep Devon's prefix (tests/world/test_devon.gd)
+    d["signs"].append({"x": 5, "y": 33, "plaque": "devon_millbay", "title": "Millbay",
                        "text": "MILLBAY. Ferries to Roscoff, Brittany. Plymouth has had a ferry to Roscoff since January 1973, when Brittany Ferries' first sailing brought lorries of Breton cauliflowers. The Onion Johnnies used the same crossing long before, in sailing boats."})
     json.dump(d, open(p, "w"), indent=1, ensure_ascii=False)
-    q = Q + "roscoff_johnny"
+    q = Q + "brittany_johnny"
     deliver = cmd_if(q + "_started", [cmd_if(q + "_3", [], [
         {"do": "say", "who": "Millbay Ferry Hand", "text": "Is that a string of Roscoff onions? For me? My nan used to buy these off a Johnny on a bike every summer. Pink, sweet, lovely in a pasty. Thank you!"},
         setf(q + "_3")])])
@@ -968,7 +990,7 @@ def creatures():
                [[1, "shove"], [1, "gust_nudge"], [5, "glower"], [9, "fell_run"], [14, "scrum_push"], [19, "updraught"], [25, "kestrel_dive"], [32, "pit_pony_charge"], [38, "swoop"], [44, "haymaker"]],
                None, ["gaiman"],
                "Runs the steppe as if it owns it, which, frankly, it did first. The father raises the chicks and will chase you off for looking.",
-               "In rheas the male builds the nest, sits on eggs laid by several females and raises the chicks alone. Charles Darwin found the smaller species in Patagonia in 1833."),
+               "In rheas the male builds the nest, sits on eggs laid by several females and raises the chicks alone. The smaller Patagonian species is named after Charles Darwin, who collected it on the Beagle voyage in the 1830s, after the crew had eaten most of one."),
         ],
         "mooslet": [
             sp("mooslet", "Mooslet", ["kin", "frost"], [62, 58, 52, 36, 44, 38], 150, 66,
@@ -1029,6 +1051,52 @@ def write_creatures():
         open(p, "w").write(body[:-1].rstrip() + ", " + ", ".join('"%s"' % i for i in add) + "]\n")
 
 
+KNACKS = {"choiquet": "gale_rider", "choique": "gale_rider",          # runs the Patagonian wind
+          "mooslet": "frost_hardy", "bullmoose": "frost_hardy",       # a Cape Breton winter
+          "hellbendlet": "bog_standard", "hellbender": "bog_standard",  # breathes through wet skin
+          "ankou": "night_owl"}                                      # drives the cart by night
+KINDREDS = {"choiquet": "fowl", "mooslet": "beast", "hellbendlet": "scale", "ankou": "uncanny"}
+
+
+def _append_map(path, key, entries, indent):
+    """add missing entries to the last map in a shared JSON file by text insertion, so nothing else is reformatted."""
+    p = ROOT + "/" + path
+    txt = open(p).read()
+    start = txt.find('"%s"' % key)
+    assert start > 0, (path, key)
+    add = [(k, v) for (k, v) in entries.items() if '"%s"' % k not in txt[start:]]
+    if not add:
+        return
+    body = txt.rstrip()
+    assert body.endswith("}")
+    close = body.rfind("}", 0, len(body) - 1)          # the map's own closing brace
+    tail = body[body.rfind("\n", 0, close):]           # "\n  }\n}" with the file's own indentation
+    head = body[:close].rstrip()                        # ends with the last entry
+    lines = "".join(',\n%s"%s": "%s"' % (" " * indent, k, v) for (k, v) in add)
+    open(p, "w").write(head + lines + tail + "\n")
+    json.loads(open(p).read())                          # still valid
+
+
+def knacks_and_kindreds():
+    _append_map("data/knacks.json", "species", KNACKS, 4)
+    _append_map("data/genes.json", "lines", KINDREDS, 2)
+
+
+def habitat_add(line_file, species, zone):
+    """an existing creature met abroad gets the zone in its Fieldbook habitat (the Fieldbook lists where it is met;
+    tests/core/test_dex.gd checks the fungi). Text insertion, so the shared file keeps its one-line-per-species layout."""
+    p = ROOT + "/data/creatures/%s.json" % line_file
+    txt = open(p).read()
+    i = txt.find('"id": "%s"' % species)
+    j = txt.find('"habitat": [', i)
+    k = txt.find("]", j)
+    assert i >= 0 and j > i and k > j, (line_file, species)
+    if '"%s"' % zone in txt[j:k]:
+        return
+    open(p, "w").write(txt[:k] + ', "%s"' % zone + txt[k:])
+    json.loads(open(p).read())
+
+
 def registry():
     write_registry("patagonia", "Y Wladfa (Patagonia)", "gaiman", 56, 21, "raf",
                    "The Welsh in Patagonia since 1865: chapels, tea houses and Welsh spoken in Gaiman. Airliners via Buenos Aires.",
@@ -1086,6 +1154,8 @@ def main(OUT):
         sa_write_json("data/quests/%s.json" % qd["id"], {"quests": [qd]})
     write_items("abroad", items())
     write_creatures()
+    knacks_and_kindreds()
+    habitat_add("flyling", "flyling", "roscoff")      # fly agaric under the Breton pines, in autumn
     registry()
     lang_br()
     quiz()

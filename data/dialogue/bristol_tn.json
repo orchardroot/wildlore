@@ -7,11 +7,11 @@
   },
   {
    "do": "if",
-   "flag": "q_abroad_bristol_tune_started",
+   "flag": "q_abroad_appalachia_tune_started",
    "then": [
     {
      "do": "set",
-     "flag": "q_abroad_bristol_tune_1",
+     "flag": "q_abroad_appalachia_tune_1",
      "value": true
     }
    ]
@@ -25,11 +25,11 @@
   },
   {
    "do": "if",
-   "flag": "q_abroad_bristol_tune_started",
+   "flag": "q_abroad_appalachia_tune_started",
    "then": [
     {
      "do": "set",
-     "flag": "q_abroad_bristol_tune_2",
+     "flag": "q_abroad_appalachia_tune_2",
      "value": true
     }
    ]
@@ -43,11 +43,11 @@
   },
   {
    "do": "if",
-   "flag": "q_abroad_bristol_tune_started",
+   "flag": "q_abroad_appalachia_tune_started",
    "then": [
     {
      "do": "set",
-     "flag": "q_abroad_bristol_tune_3",
+     "flag": "q_abroad_appalachia_tune_3",
      "value": true
     }
    ]
@@ -61,7 +61,7 @@
   },
   {
    "do": "if",
-   "flag": "q_abroad_bristol_tune_started",
+   "flag": "q_abroad_appalachia_tune_started",
    "then": [
     {
      "do": "when",
@@ -74,7 +74,7 @@
       },
       {
        "do": "set",
-       "flag": "q_abroad_bristol_tune_4",
+       "flag": "q_abroad_appalachia_tune_4",
        "value": true
       }
      ]
@@ -87,6 +87,16 @@
    "do": "say",
    "who": "Porch Sitter",
    "text": "Redd up the porch, my mama'd say. Then we'd sit on it all evening. That's two Ulster habits right there: tidying, and not moving afterwards."
+  }
+ ],
+ "bristol_tn_bureau": [
+  {
+   "do": "say",
+   "who": "Bureau Clerk",
+   "text": "Bank counter. We'll change your pounds into dollars. Tennessee side or Virginia side, it's the same dollar, and the same sweet tea."
+  },
+  {
+   "do": "bureau"
   }
  ],
  "btn_fireflies": [
@@ -110,7 +120,7 @@
  "btn_legend_talk": [
   {
    "do": "if",
-   "flag": "q_abroad_bristol_tune_done",
+   "flag": "q_abroad_appalachia_tune_done",
    "then": [
     {
      "do": "say",
@@ -121,23 +131,23 @@
    "else": [
     {
      "do": "if",
-     "flag": "q_abroad_bristol_tune_started",
+     "flag": "q_abroad_appalachia_tune_started",
      "then": [
       {
        "do": "if",
-       "flag": "q_abroad_bristol_tune_1",
+       "flag": "q_abroad_appalachia_tune_1",
        "then": [
         {
          "do": "if",
-         "flag": "q_abroad_bristol_tune_2",
+         "flag": "q_abroad_appalachia_tune_2",
          "then": [
           {
            "do": "if",
-           "flag": "q_abroad_bristol_tune_3",
+           "flag": "q_abroad_appalachia_tune_3",
            "then": [
             {
              "do": "if",
-             "flag": "q_abroad_bristol_tune_4",
+             "flag": "q_abroad_appalachia_tune_4",
              "then": [
               {
                "do": "say",
@@ -176,7 +186,7 @@
               },
               {
                "do": "set",
-               "flag": "q_abroad_bristol_tune_done",
+               "flag": "q_abroad_appalachia_tune_done",
                "value": true
               }
              ],
@@ -224,7 +234,7 @@
       },
       {
        "do": "set",
-       "flag": "q_abroad_bristol_tune_started",
+       "flag": "q_abroad_appalachia_tune_started",
        "value": true
       }
      ]

@@ -12,11 +12,11 @@
   },
   {
    "do": "if",
-   "flag": "q_abroad_roscoff_johnny_started",
+   "flag": "q_abroad_brittany_johnny_started",
    "then": [
     {
      "do": "set",
-     "flag": "q_abroad_roscoff_johnny_1",
+     "flag": "q_abroad_brittany_johnny_1",
      "value": true
     }
    ]
@@ -35,11 +35,11 @@
   },
   {
    "do": "if",
-   "flag": "q_abroad_roscoff_johnny_started",
+   "flag": "q_abroad_brittany_johnny_started",
    "then": [
     {
      "do": "set",
-     "flag": "q_abroad_roscoff_johnny_2",
+     "flag": "q_abroad_brittany_johnny_2",
      "value": true
     }
    ]
@@ -66,6 +66,16 @@
    "text": "The pink onion of Roscoff. Sweet, keeps all winter, lovely in a tart. The sea air does it, and the seaweed in the soil."
   }
  ],
+ "roscoff_bureau": [
+  {
+   "do": "say",
+   "who": "Bureau Clerk",
+   "text": "Bureau de change. Euros for pounds, pounds for euros, and a small commission. Brittany uses the euro like the rest of France. The onions are priced in euros too."
+  },
+  {
+   "do": "bureau"
+  }
+ ],
  "ros_vraic": [
   {
    "do": "say",
@@ -87,7 +97,7 @@
  "ros_legend_talk": [
   {
    "do": "if",
-   "flag": "q_abroad_roscoff_johnny_done",
+   "flag": "q_abroad_brittany_johnny_done",
    "then": [
     {
      "do": "say",
@@ -98,19 +108,19 @@
    "else": [
     {
      "do": "if",
-     "flag": "q_abroad_roscoff_johnny_started",
+     "flag": "q_abroad_brittany_johnny_started",
      "then": [
       {
        "do": "if",
-       "flag": "q_abroad_roscoff_johnny_1",
+       "flag": "q_abroad_brittany_johnny_1",
        "then": [
         {
          "do": "if",
-         "flag": "q_abroad_roscoff_johnny_2",
+         "flag": "q_abroad_brittany_johnny_2",
          "then": [
           {
            "do": "if",
-           "flag": "q_abroad_roscoff_johnny_3",
+           "flag": "q_abroad_brittany_johnny_3",
            "then": [
             {
              "do": "say",
@@ -144,7 +154,7 @@
             },
             {
              "do": "set",
-             "flag": "q_abroad_roscoff_johnny_done",
+             "flag": "q_abroad_brittany_johnny_done",
              "value": true
             }
            ],
@@ -183,7 +193,7 @@
       },
       {
        "do": "set",
-       "flag": "q_abroad_roscoff_johnny_started",
+       "flag": "q_abroad_brittany_johnny_started",
        "value": true
       },
       {
