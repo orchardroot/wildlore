@@ -363,3 +363,13 @@ These use the everyday word for the kind of animal, not the species. Fine for th
 - Orca: `ga cráin dhubh` given; Welsh and Gaelic left out.
 - Morrígan: Irish spelling left out because modern forms vary (Mórrígan, Mór-Ríon).
 - Stoat: `gd` left out because sources differ on whether `neas` is the stoat or the weasel.
+
+## 5. Wave 45 teaching keys: gaps and doubts
+
+- Gruagach, Brownie lines, Agrino, Chamelet, Chameleer, Tuskbark, Azurex, Hellbender line, Peakaroo, Glaciefin, Abyssjaw, Fretlord, Pongifex, Tinderhulk, Edgelord, Choiquet, Choique: `names` left `{}` (place, fungus, weather or species with no word I am certain of in all three).
+- Mooslet, Bullmoose: `cy elc` and `ga eilc` given from memory; `gd` left out. Worth a native check.
+- Ankou: `cy angau` is the Welsh cognate (death personified), not the Breton figure itself.
+- Annwnhound: `cy cŵn Annwn` is the hounds of Annwn; Irish and Gaelic left out.
+- Spectrumite: the beetle words are the general ones copied from Prismite.
+- Noctulord: general bat words, not the noctule specifically.
+- Facts to double-check with a source before release: Agrino (Cyprus Airways tail fin), Azurex (nest guarding), Glaciefin (notothenioid share), Mouser (hearing range), Sandtrot (bray distance).
