@@ -10,5 +10,104 @@
    "game": "races",
    "venue": "glasgow"
   }
+ ],
+ "life_gambling": [
+  {
+   "do": "if",
+   "flag": "lesson_gambling",
+   "then": [
+    {
+     "do": "say",
+     "who": "Old Hand",
+     "text": "Keep the limit and keep your head. And keep that number somewhere you'll find it."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Old Hand",
+     "text": "Forty years of Saturdays, son. I'll tell you what the board never shows. What it costs."
+    },
+    {
+     "do": "say",
+     "who": "Old Hand",
+     "text": "Bookies shade every price so the house wins over time. And down at the casino, the roulette wheel has 37 pockets but pays as if there were 36. That green zero is the house's cut: about 2.7p in every pound, for good."
+    },
+    {
+     "do": "choice",
+     "text": "Which of these is a warning sign?",
+     "options": [
+      "Setting a limit before you go in",
+      "Chasing your losses to win it back",
+      "Leaving when you hit the limit"
+     ],
+     "set": "life_gambling_pick"
+    },
+    {
+     "do": "if",
+     "flag": "life_gambling_pick",
+     "eq": 0,
+     "then": [
+      {
+       "do": "say",
+       "who": "Old Hand",
+       "text": "Not that one. That's the sensible one. Keep going."
+      }
+     ]
+    },
+    {
+     "do": "if",
+     "flag": "life_gambling_pick",
+     "eq": 1,
+     "then": [
+      {
+       "do": "say",
+       "who": "Old Hand",
+       "text": "Aye. That's the big one. The next bet that 'puts it right' is how a bad night becomes a bad year."
+      }
+     ]
+    },
+    {
+     "do": "if",
+     "flag": "life_gambling_pick",
+     "eq": 2,
+     "then": [
+      {
+       "do": "say",
+       "who": "Old Hand",
+       "text": "That's the good habit, not the warning sign. Well done for hearing it though."
+      }
+     ]
+    },
+    {
+     "do": "say",
+     "who": "Old Hand",
+     "text": "Other signs: hiding it, borrowing to play, spending more than you meant, or it stopping being fun. Treat what you bring as the price of a night out and not an investment."
+    },
+    {
+     "do": "say",
+     "who": "Old Hand",
+     "text": "If it's getting on top of you, or someone you love, in Great Britain the National Gambling Helpline is 0808 8020 133. Free, confidential, all hours, and no judgement. For online sites, there's a free scheme called GAMSTOP that blocks you from them."
+    },
+    {
+     "do": "say",
+     "who": "Old Hand",
+     "text": "Saying it out loud is the hard bit. It gets a lot easier after that. Here, have a wee pudding. My wife made it."
+    },
+    {
+     "do": "set",
+     "flag": "lesson_gambling"
+    },
+    {
+     "do": "give_item",
+     "item": "cranachan"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Noted in the Almanac under Things worth knowing."
+    }
+   ]
+  }
  ]
 }

@@ -27,5 +27,99 @@
    "who": "Visitor",
    "text": "The Necropolis is next door, a hill of Victorian graves and statues. Spooky? Not really. Mostly it has very good views."
   }
+ ],
+ "life_grief": [
+  {
+   "do": "if",
+   "flag": "lesson_grief",
+   "then": [
+    {
+     "do": "say",
+     "who": "Woman by the Window",
+     "text": "Thank you for asking about him. Hardly anyone says his name now. I like it when they do."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Woman by the Window",
+     "text": "My husband used to bring me here on Sundays. It's eight months now. People keep telling me it gets easier. It doesn't, quite. It gets different."
+    },
+    {
+     "do": "choice",
+     "text": "What do you say?",
+     "options": [
+      "I'm sorry. Tell me about him",
+      "He's in a better place",
+      "Have you tried a hobby?"
+     ],
+     "set": "life_grief_pick"
+    },
+    {
+     "do": "if",
+     "flag": "life_grief_pick",
+     "eq": 0,
+     "then": [
+      {
+       "do": "say",
+       "who": "Woman by the Window",
+       "text": "She smiles properly for the first time. 'Duncan. He whistled out of tune all through the Hallelujah Chorus.' You listen to a whole marriage in ten minutes."
+      }
+     ]
+    },
+    {
+     "do": "if",
+     "flag": "life_grief_pick",
+     "eq": 1,
+     "then": [
+      {
+       "do": "say",
+       "who": "Woman by the Window",
+       "text": "She nods politely. People mean well. Lines like that tend to close the conversation, where a name opens it."
+      }
+     ]
+    },
+    {
+     "do": "if",
+     "flag": "life_grief_pick",
+     "eq": 2,
+     "then": [
+      {
+       "do": "say",
+       "who": "Woman by the Window",
+       "text": "She laughs, to her own surprise. 'I took up the oboe. The neighbours have views.'"
+      }
+     ]
+    },
+    {
+     "do": "say",
+     "who": "Woman by the Window",
+     "text": "There's no timetable for grief, and no tidy stages you pass through in order. Some days are fine, and then a song in a shop undoes you."
+    },
+    {
+     "do": "say",
+     "who": "Woman by the Window",
+     "text": "Saying their name helps. It's usually the silence that hurts, not the mention."
+    },
+    {
+     "do": "say",
+     "who": "Woman by the Window",
+     "text": "If it feels too heavy, your GP can help, and Cruse Bereavement Support has a free helpline on 0808 808 1677. Now sit a minute. Have a cuppa."
+    },
+    {
+     "do": "set",
+     "flag": "lesson_grief"
+    },
+    {
+     "do": "give_item",
+     "item": "cup_of_tea"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Noted in the Almanac under Things worth knowing."
+    }
+   ]
+  }
  ]
 }

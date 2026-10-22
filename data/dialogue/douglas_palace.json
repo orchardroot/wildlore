@@ -93,5 +93,53 @@
    "do": "casino",
    "game": "hilo"
   }
+ ],
+ "life_pit_boss": [
+  {
+   "do": "if",
+   "flag": "lesson_gambling",
+   "then": [
+    {
+     "do": "say",
+     "who": "Pit Boss",
+     "text": "Set the limit, and keep the number. That's all I'll say."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Pit Boss",
+     "text": "Between us, the roulette wheel has 37 pockets and pays as if there were 36. That green zero is the house's cut: about 2.7p in every pound, and the longer you play the surer it gets."
+    },
+    {
+     "do": "say",
+     "who": "Pit Boss",
+     "text": "The fruit machines are the same sum in a flashier coat. Set your limit at the door, and leave when you reach it."
+    },
+    {
+     "do": "say",
+     "who": "Pit Boss",
+     "text": "If it stops being fun, we have leaflets by the cage. On the mainland, in Great Britain, the National Gambling Helpline is 0808 8020 133. Free, confidential, any hour."
+    },
+    {
+     "do": "say",
+     "who": "Pit Boss",
+     "text": "I'd rather lose your custom than see you lose the rent. Here, have a pie. The Island's finest."
+    },
+    {
+     "do": "set",
+     "flag": "lesson_gambling"
+    },
+    {
+     "do": "give_item",
+     "item": "manx_queenie_pie"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Noted in the Almanac under Things worth knowing."
+    }
+   ]
+  }
  ]
 }

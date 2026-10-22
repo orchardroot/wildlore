@@ -22,5 +22,104 @@
    "who": "Harpist",
    "text": "The acoustics here are famous, so please hush while I tune. It takes me longer than the show."
   }
+ ],
+ "life_payslip": [
+  {
+   "do": "if",
+   "flag": "lesson_payslip",
+   "then": [
+    {
+     "do": "say",
+     "who": "Retired Treasurer",
+     "text": "Gross, net, tax code. Say it three times, then go and look at your payslip."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Retired Treasurer",
+     "text": "Forty years doing the club's books, and the young ones still don't read their payslips. Come here. Gross is what you're paid. Net, or take-home, is what lands in the bank."
+    },
+    {
+     "do": "say",
+     "who": "Retired Treasurer",
+     "text": "In between come income tax, National Insurance and, if you've a workplace pension, that too."
+    },
+    {
+     "do": "choice",
+     "text": "What is National Insurance for?",
+     "options": [
+      "A second tax for no good reason",
+      "It builds your state pension record and some benefits",
+      "A tip for the Chancellor"
+     ],
+     "set": "life_payslip_pick"
+    },
+    {
+     "do": "if",
+     "flag": "life_payslip_pick",
+     "eq": 0,
+     "then": [
+      {
+       "do": "say",
+       "who": "Retired Treasurer",
+       "text": "It feels like it, bach. But no."
+      }
+     ]
+    },
+    {
+     "do": "if",
+     "flag": "life_payslip_pick",
+     "eq": 1,
+     "then": [
+      {
+       "do": "say",
+       "who": "Retired Treasurer",
+       "text": "Exactly. You need 35 qualifying years for the full new state pension, and NI is how the years get counted."
+      }
+     ]
+    },
+    {
+     "do": "if",
+     "flag": "life_payslip_pick",
+     "eq": 2,
+     "then": [
+      {
+       "do": "say",
+       "who": "Retired Treasurer",
+       "text": "Ha. If only. The Chancellor can't even claim it on expenses."
+      }
+     ]
+    },
+    {
+     "do": "say",
+     "who": "Retired Treasurer",
+     "text": "Check the tax code. The usual one is 1257L, which means your first £12,570 a year is tax-free. If yours looks odd, ring HMRC. Wrong codes happen, and they can cost you hundreds. Scotland sets its own income tax bands, mind."
+    },
+    {
+     "do": "say",
+     "who": "Retired Treasurer",
+     "text": "On £2,000 a month with that code, you'd see roughly £190 in tax and £76 in NI. That's before pension."
+    },
+    {
+     "do": "say",
+     "who": "Retired Treasurer",
+     "text": "Auto-enrolment puts most workers aged 22 and over into a pension, and your employer must pay in too, at least 3%. Opting out means turning down part of your pay. Have a slice of bara brith."
+    },
+    {
+     "do": "set",
+     "flag": "lesson_payslip"
+    },
+    {
+     "do": "give_item",
+     "item": "bara_brith"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Noted in the Almanac under Things worth knowing."
+    }
+   ]
+  }
  ]
 }

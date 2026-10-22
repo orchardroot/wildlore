@@ -23,5 +23,99 @@
    "who": "Customer",
    "text": "I keep a wee account for the holidays. It's still the same holiday. I've been going to Portrush for thirty years."
   }
+ ],
+ "life_credit_score": [
+  {
+   "do": "if",
+   "flag": "lesson_credit_score",
+   "then": [
+    {
+     "do": "say",
+     "who": "Society Adviser",
+     "text": "Pay on time, look at your own file once a year, and don't pay for either. That's it."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Society Adviser",
+     "text": "People ask about their 'credit score' as if it were a single number handed down by a judge. It isn't. Credit reference agencies, such as Experian, Equifax and TransUnion, each keep a file on how you handle borrowing, and lenders score you themselves."
+    },
+    {
+     "do": "choice",
+     "text": "Which helps a credit record most?",
+     "options": [
+      "Paying on time, every time",
+      "Applying for five cards in a week",
+      "Never having an address"
+     ],
+     "set": "life_credit_score_pick"
+    },
+    {
+     "do": "if",
+     "flag": "life_credit_score_pick",
+     "eq": 0,
+     "then": [
+      {
+       "do": "say",
+       "who": "Society Adviser",
+       "text": "Yes. Late payments stay on a file for years, and a steady record is the biggest thing you control."
+      }
+     ]
+    },
+    {
+     "do": "if",
+     "flag": "life_credit_score_pick",
+     "eq": 1,
+     "then": [
+      {
+       "do": "say",
+       "who": "Society Adviser",
+       "text": "That one hurts. Lots of applications in a short time look like someone desperate, and each leaves a mark."
+      }
+     ]
+    },
+    {
+     "do": "if",
+     "flag": "life_credit_score_pick",
+     "eq": 2,
+     "then": [
+      {
+       "do": "say",
+       "who": "Society Adviser",
+       "text": "Ha. Lenders do like to know where you live. Being on the electoral register helps them confirm it."
+      }
+     ]
+    },
+    {
+     "do": "say",
+     "who": "Society Adviser",
+     "text": "You can see your own report for free. Look for mistakes, and for accounts you don't recognise, because that can be a sign of fraud."
+    },
+    {
+     "do": "say",
+     "who": "Society Adviser",
+     "text": "Beware anyone who charges you to 'fix' your credit. Nobody can wipe out true information, and the free route is the same route."
+    },
+    {
+     "do": "say",
+     "who": "Society Adviser",
+     "text": "Have a farl. Thank you for letting me be interesting for a minute."
+    },
+    {
+     "do": "set",
+     "flag": "lesson_credit_score"
+    },
+    {
+     "do": "give_item",
+     "item": "soda_farl"
+    },
+    {
+     "do": "say",
+     "who": "",
+     "text": "Noted in the Almanac under Things worth knowing."
+    }
+   ]
+  }
  ]
 }
