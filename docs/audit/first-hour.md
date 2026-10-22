@@ -13,3 +13,10 @@ macc_home, macc_fieldstation and macclesfield dialogue. The bot cannot judge con
 - Catching is explained in one line ("weaken, then throw"); no in-battle prompt shows the Snare option the first time.
 - Kit's "Fire beats hedgerow" is the only type-matchup teaching; a first-battle hint would help.
 - Mum's flask/tea gift is mentioned repeatedly with no visible purpose for a new player.
+
+## Wave 40 E (gentle introductions)
+- Added the Hints setting (Settings, on by default) and `Intros`: one short line in the hint bar the first time you open the
+  Fieldbook, Bag, Team, Ark, Map, Journal, Stats, Almanac, a shop, a noticeboard, crafting, the Building Society, a Deed, a
+  Market Hall or a pairing, plus a line at the first wild battle (weaken, then Snare) and the first Keeper battle (cannot be
+  caught). Fixes the "no first-battle catching prompt" item above. Saves already past half an hour of play are treated as veterans.
+- Still open: Stone/Wardstone wording, the noticeboard not marked on the map, Mum's flask.

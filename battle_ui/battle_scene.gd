@@ -262,6 +262,10 @@ func choose_action(f: BattleFlow) -> Dictionary:
 		return Engine.get_meta("autopilot").choose_action(f)
 	var b := f.battle
 	var me := b.current_at(Battle.PLAYER, f.acting_pos)
+	if not auto:  # the first battle of each kind says what it is about, once (the Hints setting)
+		var tip := Intros.take(Game.data, "battle_wild" if b.kind == "wild" else "battle_keeper", Settings.hints)
+		if tip != "":
+			await msg.say(tip, 1.5)
 	while true:
 		msg.prompt("What will %s do?" % me.display_name())
 		if auto:

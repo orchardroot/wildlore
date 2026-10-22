@@ -21,6 +21,17 @@ It started life as a monster-catching game. It's turned into something closer to
 
 Whatever's newest is below; older notes are further down.
 
+## What's new in 4.4: Settling In
+
+- **The Almanac.** One page in the pause menu that gathers everything the game has grown: your quest log, the Fieldbook, the Gazetteer, the Casebook, the Stud Book, Words of the Isles, Rumours, Trades, Standing, Guilds, Deeds and the Building Society, each with a one-line summary. Pages appear as you earn them.
+- **Where next?** The pause screen now suggests up to three things to do: the story first, then a quest, something nearby, a festival on today, a Deed's till to empty or an egg about to hatch.
+- **Gentle hints.** The first time you open each screen, a single line explains it. Turn them off in Settings (and they stay off for saves already well under way).
+- **Fairer money.** Market Halls now pay less as you flood them with the same thing, like every other market, and wicker snares no longer turn cheap jute into a fortune.
+- **Tidier settings.** The easier-minigame options and Reduce flashing now sit under Accessibility, alongside text size and the readable font.
+- Saves from every version back to 2.0 are now tested to load, and two small breeding bugs after a reload are fixed.
+
+Saves from 4.3 carry straight over.
+
 ## What's new in 4.3: Deeper
 
 - **Four more Deep Places**, each a multi-floor cave with puzzles, creatures that belong there, plaques and something worth finding at the bottom: Wookey Hole in Somerset (the River Axe and the Witch of Wookey), Dan yr Ogof in the Brecon Beacons (found by the Morgan brothers in 1912), Aillwee Cave in the Burren (with the bones of long-gone bears), and Fingal's Cave on Staffa, by boat, with its basalt columns, puffins and Mendelssohn. The Marble Arch Caves near Enniskillen go deeper too, with a new river passage and lower chamber.
