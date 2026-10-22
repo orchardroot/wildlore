@@ -14,6 +14,11 @@ static func texture(species: Dictionary, back: bool) -> Texture2D:
 	if _cache.has(key):
 		return _cache[key]
 	var side := "back" if back else "front"
+	if Crossbreeds.is_id(id):  # blended at runtime from its parents (ui/crossbreed_art.gd)
+		var xt := CrossbreedArt.texture(species if species.has("crossbreed") else Crossbreeds.lookup(id), side)
+		if xt != null:
+			_cache[key] = xt
+			return xt
 	var tex: Texture2D = _load("%s%s_%s.png" % [DIR, id, side])
 	if tex == null:
 		tex = _load("%s_placeholder_%s.png" % [DIR, side])
@@ -25,6 +30,10 @@ static func texture(species: Dictionary, back: bool) -> Texture2D:
 
 static func icon(species: Dictionary) -> Texture2D:
 	var id := str(species.get("sprite", species.get("id", "")))
+	if Crossbreeds.is_id(id):
+		var xt := CrossbreedArt.texture(species if species.has("crossbreed") else Crossbreeds.lookup(id), "icon")
+		if xt != null:
+			return xt
 	var tex: Texture2D = _load("%s%s_icon.png" % [DIR, id])
 	if tex == null:
 		tex = _load("%s_placeholder_icon.png" % DIR)
