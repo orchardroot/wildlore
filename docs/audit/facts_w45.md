@@ -13,7 +13,9 @@ Everything below is in the game, worded cautiously; these are the claims I'd mos
   Garden at St Andrew's Cathedral, Glasgow (2011). Figures range from about 446 to 470.
 - **Noor Inayat Khan (london_noor_inayat_khan)**: "the first woman sent in that role" (first female wireless operator
   flown into occupied France). Standard, but worth confirming.
-- **Lilian Bader (liverpool_lilian_bader)**: made "an acting corporal".
+- **Lilian Bader (liverpool_lilian_bader)**: made "an acting corporal". Her father Marcus Bailey was from Barbados
+  (an earlier draft said Sierra Leone; corrected). Sources split on whether he was Royal Navy or a merchant seaman in
+  the First World War, so the plaque says only that he served.
 - **Ivory Bangle Lady (york_ivory_bangle_lady)**: the 2010 Reading study "probably had North African ancestry" is
   how the Yorkshire Museum puts it; the jug is described as blue glass.
 - **Wojtek (edinburgh_wojtek)**: "is said to have carried ammunition at Monte Cassino" is kept as a "said to".

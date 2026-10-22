@@ -73,7 +73,7 @@ PLAQUES = [
      "Liverpool. Charles Wootton, a young ship's fireman who had served in the Royal Navy, was chased into Queens Dock "
      "and drowned. A centre for adult education in the city was later named after him."),
     ('liverpool_lilian_bader', 'liverpool', None, 'Lilian Bader', 'black_britain',
-     "Lilian Bader was born in Liverpool in 1918, the daughter of a seaman from Sierra Leone who had served in the "
+     "Lilian Bader was born in Liverpool in 1918, the daughter of a seaman from Barbados who had served in the "
      "First World War. In 1941 she joined the Women's Auxiliary Air Force, one of the first Black women in the British "
      "armed forces, trained as an instrument repairer and was made an acting corporal."),
     ('liverpool_1847', 'liverpool', None, "Black '47", 'irish',
