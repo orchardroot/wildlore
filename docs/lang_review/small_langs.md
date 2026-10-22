@@ -4,7 +4,7 @@ Two lessons each, on your steer. Each file also gains `name`, `endonym` and `abo
 phrases are kept as they were. The `say` guides are rough approximations and would be worth a speaker's check.
 
 - Manx (gv): Gaiety Theatre and the kipper shop, Douglas. Ned Maddrell died 1974; Bunscoill Ghaelgagh, St John's.
-  "Traa dy liooar" is in the OED. The numbers (nane, jees, tree, kiare, queig, shey, shiaght, hoght, nuy, jeih) were
+  "Traa dy liooar" is in the OED (one of 22 Manx entries added in the same update, per Manx Radio and IoM Today). The numbers (nane, jees, tree, kiare, queig, shey, shiaght, hoght, nuy, jeih) were
   left out to keep it to two lessons.
 - Cornish (kw): Admiral Benbow and Chapel Street Books, Penzance. Dolly Pentreath d. 1777; UNESCO reclassified it in
   2010. Spellings are SWF as I know it. Question: SWF "onan" or "onen" for one, if a numbers lesson is ever wanted.
