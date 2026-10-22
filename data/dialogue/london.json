@@ -1,4 +1,166 @@
 {
+ "lon_ai_rao": [
+  {
+   "do": "if",
+   "flag": "q_invention_ai_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Dr Rao",
+     "text": "Patterns from examples, sometimes wrong, people deciding. That's the plain-words version. Now go outside: the grass is full of things no model has seen."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_invention_ai_started",
+     "then": [],
+     "else": [
+      {
+       "do": "say",
+       "who": "Dr Rao",
+       "text": "Dr Rao. I teach computers by example, in a lab near King's Cross. Want AI in plain words? No hype, no doom."
+      },
+      {
+       "do": "say",
+       "who": "Dr Rao",
+       "text": "A model is a pattern-finder. Show it ten thousand photos marked heron or not heron, and it nudges millions of little dials until its guesses match the marks. That's the learning."
+      },
+      {
+       "do": "say",
+       "who": "Dr Rao",
+       "text": "It doesn't know what a heron is. It has never been wet. It's just very good at things that look like its examples. The chatty ones do the same trick with words: guess the next word, again and again."
+      },
+      {
+       "do": "set",
+       "flag": "q_invention_ai_started"
+      }
+     ]
+    },
+    {
+     "do": "if",
+     "flag": "plaque_london_deepmind",
+     "then": [
+      {
+       "do": "choice",
+       "text": "I train it on heron photos, all taken in summer. Then I show it a heron in the snow. What happens?",
+       "options": [
+        "It's bound to get it right",
+        "It might get it wrong: it has never seen snow",
+        "It phones a friend"
+       ],
+       "set": "inv_ai_q1"
+      },
+      {
+       "do": "if",
+       "flag": "inv_ai_q1",
+       "then": [
+        {
+         "do": "say",
+         "who": "Dr Rao",
+         "text": "Exactly. It only knows what it was shown. Fill its examples with one kind of thing and it struggles with another, and that goes for faces and accents too."
+        },
+        {
+         "do": "choice",
+         "text": "It says heron, 98 per cent sure. Is it right?",
+         "options": [
+          "Yes, 98 per cent is basically certain",
+          "Not necessarily: a model can be sure and wrong"
+         ],
+         "set": "inv_ai_q2"
+        },
+        {
+         "do": "if",
+         "flag": "inv_ai_q2",
+         "then": [
+          {
+           "do": "say",
+           "who": "Dr Rao",
+           "text": "Right. That number is how sure it sounds, not a promise. Some will make up a fact, a book or a quote with total confidence."
+          },
+          {
+           "do": "choice",
+           "text": "Last one. A bank uses a model to turn down loans. Who should answer for that decision?",
+           "options": [
+            "The model, it's quicker",
+            "People: they can check it, explain it and put it right"
+           ],
+           "set": "inv_ai_q3"
+          },
+          {
+           "do": "if",
+           "flag": "inv_ai_q3",
+           "then": [
+            {
+             "do": "say",
+             "who": "Dr Rao",
+             "text": "That's it. A model can help, but it can't take the blame, and it doesn't care. People still matter: to choose the examples, check the answers and decide."
+            },
+            {
+             "do": "say",
+             "who": "Dr Rao",
+             "text": "Here, for your trouble. And remember: the most useful thing anyone can do with an AI is check it."
+            },
+            {
+             "do": "set",
+             "flag": "q_invention_ai_1"
+            },
+            {
+             "do": "give_item",
+             "item": "flask_of_tea",
+             "n": 2
+            },
+            {
+             "do": "give_item",
+             "item": "silver_snare",
+             "n": 2
+            },
+            {
+             "do": "set",
+             "flag": "q_invention_ai_done"
+            }
+           ],
+           "eq": 1,
+           "else": [
+            {
+             "do": "say",
+             "who": "Dr Rao",
+             "text": "No. A model can't explain itself to you or be held to account. People have to. Have a think and come back."
+            }
+           ]
+          }
+         ],
+         "eq": 1,
+         "else": [
+          {
+           "do": "say",
+           "who": "Dr Rao",
+           "text": "Afraid not. It can be ninety-eight per cent sure and flat wrong. Confidence isn't truth. Have a think and come back."
+          }
+         ]
+        }
+       ],
+       "eq": 1,
+       "else": [
+        {
+         "do": "say",
+         "who": "Dr Rao",
+         "text": "Not quite. It never saw snow, so snow might throw it completely. Have a think and come back."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Dr Rao",
+       "text": "Read the DeepMind plaque, just east of the station, then come and see if I can catch you out."
+      }
+     ]
+    }
+   ]
+  }
+ ],
  "rail_guard": [
   {
    "do": "say",

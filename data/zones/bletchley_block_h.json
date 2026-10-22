@@ -1,0 +1,123 @@
+{
+ "id": "bletchley_block_h",
+ "name": "Block H: National Museum of Computing",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "display_case",
+   "x": 6,
+   "y": 2,
+   "variant": 2
+  },
+  {
+   "type": "display_case",
+   "x": 2,
+   "y": 5,
+   "variant": 0
+  },
+  {
+   "type": "display_case",
+   "x": 10,
+   "y": 5,
+   "variant": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "bookshelf",
+   "x": 11,
+   "y": 1
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 7
+  },
+  {
+   "type": "potted_plant",
+   "x": 11,
+   "y": 7
+  },
+  {
+   "type": "wall_picture",
+   "x": 4,
+   "y": 1,
+   "walk": true,
+   "variant": 0
+  },
+  {
+   "type": "wall_picture",
+   "x": 8,
+   "y": 1,
+   "walk": true,
+   "variant": 2
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 8,
+   "to": "bletchley_park",
+   "tx": 35,
+   "ty": 20,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "bp_volunteer",
+   "sprite": "villager_3",
+   "x": 9,
+   "y": 3,
+   "facing": "left",
+   "move": "still",
+   "script": "bp_volunteer",
+   "name": "Volunteer"
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "x": 3,
+   "y": 2,
+   "plaque": "bletchley_colossus",
+   "title": "Colossus",
+   "text": "The German high command sent its most secret messages on the Lorenz cipher machine. To read them, Tommy Flowers, a Post Office engineer from the East End of London, built Colossus, with about 1,600 valves in the first one. It was at work here by early 1944, and there were ten by the end of the war. It was the world's first programmable electronic digital computer, and it stayed secret until the 1970s."
+  }
+ ],
+ "examine": [
+  {
+   "x": 6,
+   "y": 2,
+   "flag": "invent_seen_colossus",
+   "text": [
+    "Racks of glowing valves, clattering relays and a loop of paper tape whizzing round a frame of wheels.",
+    "It reads the tape at 5,000 characters a second, hunting for the pattern in the noise.",
+    "Colossus goes on your Timeline of Invention."
+   ]
+  }
+ ],
+ "spawn": [
+  6,
+  7
+ ],
+ "rows": [
+  "xxxxxxxxxxxxx",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++++++++x",
+  "x+++++D+++++x",
+  "xxxxxxxxxxxxx"
+ ]
+}

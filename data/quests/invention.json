@@ -1,0 +1,108 @@
+{
+ "quests": [
+  {
+   "id": "invention_isles",
+   "title": "Isles of Invention",
+   "region": "invention",
+   "town": "manchester",
+   "giver": "Dr Howells",
+   "summary": "Dr Bethan Howells is making a Timeline of Invention and needs legs: from the Manchester Baby to the codebreakers of Bletchley Park.",
+   "start_flag": "q_invention_isles_started",
+   "steps": [
+    {
+     "flag": "plaque_manchester_baby",
+     "text": "Read the plaque about the Manchester Baby, by Dr Howells.",
+     "zone": "manchester"
+    },
+    {
+     "flag": "q_invention_isles_binary",
+     "text": "Show Dr Howells you can count like the Baby: light the right binary lamps.",
+     "zone": "manchester"
+    },
+    {
+     "flag": "plaque_bletchley_park",
+     "text": "Go to Bletchley Park, east out of Oxford, and read its plaque.",
+     "zone": "bletchley_park"
+    },
+    {
+     "flag": "q_invention_isles_cipher",
+     "text": "Crack the practice cipher in Hut 8.",
+     "zone": "bletchley_hut8"
+    },
+    {
+     "flag": "invent_seen_colossus",
+     "text": "Take a proper look at Colossus in Block H.",
+     "zone": "bletchley_block_h"
+    },
+    {
+     "flag": "q_invention_isles_done",
+     "text": "Tell Dr Howells in Manchester what you saw.",
+     "zone": "manchester"
+    }
+   ],
+   "done_flag": "q_invention_isles_done",
+   "reward": "Three Silver Snares, a Cream Tea, and a Timeline of Invention that keeps on giving."
+  },
+  {
+   "id": "invention_ai",
+   "title": "Plain Words",
+   "region": "invention",
+   "town": "london",
+   "giver": "Dr Rao",
+   "summary": "Dr Rao, who teaches computers by example near King's Cross, wants to see if you can tell what AI is from what it isn't.",
+   "start_flag": "q_invention_ai_started",
+   "steps": [
+    {
+     "flag": "plaque_london_deepmind",
+     "text": "Read the DeepMind plaque by King's Cross Station.",
+     "zone": "london"
+    },
+    {
+     "flag": "q_invention_ai_1",
+     "text": "Answer Dr Rao's three questions about what a model can and can't do.",
+     "zone": "london"
+    }
+   ],
+   "done_flag": "q_invention_ai_done",
+   "reward": "Two Flasks of Tea, two Silver Snares, and AI in plain words on your Timeline."
+  },
+  {
+   "id": "invention_irish",
+   "title": "Four Irish Scientists",
+   "region": "invention",
+   "town": "dublin",
+   "giver": "Prof. Brennan",
+   "summary": "Professor Brennan at Trinity College Dublin wants four Irish scientists the world forgot to mention found on their plaques.",
+   "start_flag": "q_invention_irish_started",
+   "steps": [
+    {
+     "flag": "plaque_comeraghs_boyle",
+     "text": "Find Robert Boyle's plaque in the Comeraghs, County Waterford.",
+     "zone": "comeraghs"
+    },
+    {
+     "flag": "plaque_comeraghs_walton",
+     "text": "Find Ernest Walton's plaque in the Comeraghs.",
+     "zone": "comeraghs"
+    },
+    {
+     "flag": "plaque_ln_bell_burnell",
+     "text": "Find Jocelyn Bell Burnell's plaque by Lough Neagh.",
+     "zone": "lough_neagh"
+    },
+    {
+     "flag": "plaque_dublin_lonsdale",
+     "text": "Find Kathleen Lonsdale's plaque in Dublin.",
+     "zone": "dublin"
+    },
+    {
+     "flag": "q_invention_irish_done",
+     "text": "Go back to Professor Brennan at Trinity College.",
+     "zone": "dublin_trinity"
+    }
+   ],
+   "done_flag": "q_invention_irish_done",
+   "reward": "Two Kendal Mint Cakes and two Silver Snares."
+  }
+ ]
+}

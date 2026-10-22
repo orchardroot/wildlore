@@ -1,4 +1,117 @@
 {
+ "dub_trinity_physicist": [
+  {
+   "do": "if",
+   "flag": "q_invention_irish_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Prof. Brennan",
+     "text": "Walton split the atom and then spent forty years teaching undergraduates to do sums. Both are hard. I know which I find harder."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_invention_irish_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "plaque_comeraghs_boyle",
+       "then": [
+        {
+         "do": "if",
+         "flag": "plaque_comeraghs_walton",
+         "then": [
+          {
+           "do": "if",
+           "flag": "plaque_ln_bell_burnell",
+           "then": [
+            {
+             "do": "if",
+             "flag": "plaque_dublin_lonsdale",
+             "then": [
+              {
+               "do": "say",
+               "who": "Prof. Brennan",
+               "text": "All four! Boyle's gas, Walton's atom, Lonsdale's flat ring and Bell Burnell's pulsar. And mostly they had to leave Ireland to do it."
+              },
+              {
+               "do": "say",
+               "who": "Prof. Brennan",
+               "text": "Walton came home, mind, and taught here for decades. Have these, and tell people about them. That's the whole job of a plaque."
+              },
+              {
+               "do": "give_item",
+               "item": "kendal_mint_cake",
+               "n": 2
+              },
+              {
+               "do": "give_item",
+               "item": "silver_snare",
+               "n": 2
+              },
+              {
+               "do": "set",
+               "flag": "q_invention_irish_done"
+              }
+             ],
+             "else": [
+              {
+               "do": "say",
+               "who": "Prof. Brennan",
+               "text": "How's the hunt? Boyle and Walton are on plaques in the Comeraghs, County Waterford. Bell Burnell's by Lough Neagh, and Lonsdale's here in Dublin."
+              }
+             ]
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Prof. Brennan",
+             "text": "How's the hunt? Boyle and Walton are on plaques in the Comeraghs, County Waterford. Bell Burnell's by Lough Neagh, and Lonsdale's here in Dublin."
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Prof. Brennan",
+           "text": "How's the hunt? Boyle and Walton are on plaques in the Comeraghs, County Waterford. Bell Burnell's by Lough Neagh, and Lonsdale's here in Dublin."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Prof. Brennan",
+         "text": "How's the hunt? Boyle and Walton are on plaques in the Comeraghs, County Waterford. Bell Burnell's by Lough Neagh, and Lonsdale's here in Dublin."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Prof. Brennan",
+       "text": "Professor Brennan, physics. Ernest Walton taught in this college for decades, and half of Dublin walks past without knowing he split the atom."
+      },
+      {
+       "do": "say",
+       "who": "Prof. Brennan",
+       "text": "Ireland has a few scientists the world forgot to mention. Find me four: Boyle and Walton on plaques in the Comeraghs, Jocelyn Bell Burnell by Lough Neagh, and Kathleen Lonsdale on a plaque here in Dublin."
+      },
+      {
+       "do": "set",
+       "flag": "q_invention_irish_started"
+      }
+     ]
+    }
+   ]
+  }
+ ],
  "dub_trinity_librarian": [
   {
    "do": "say",

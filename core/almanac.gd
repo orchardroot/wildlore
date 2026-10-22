@@ -6,9 +6,9 @@ extends RefCounted
 ## appears once its system has something to show, so old saves need nothing.
 
 ## The menus behind each page, in tab order. "ledger:<kind>" opens the Almanac's own read-only ledger.
-const ORDER := ["journal", "fieldbook", "gazetteer", "casebook", "studbook", "biology", "words", "rumours", "trades", "standing", "stats", "guilds", "deeds", "society", "worth"]
-const NAMES := {"journal": "Quest log", "fieldbook": "Fieldbook", "gazetteer": "Gazetteer", "casebook": "Casebook", "studbook": "Stud Book", "biology": "Biology", "words": "Words of the Isles", "rumours": "Rumours", "trades": "Trades", "standing": "Standing", "stats": "Tallies", "guilds": "Guilds", "deeds": "Deeds", "society": "Building Society", "worth": "Things worth knowing"}
-const MENUS := {"journal": "quests", "fieldbook": "pedia", "gazetteer": "quests:gazetteer", "casebook": "pedia:casebook", "studbook": "pedia:studbook", "biology": "biology", "words": "pedia:words", "rumours": "pedia:rumours", "trades": "stats:trades", "standing": "stats:standing", "stats": "stats", "guilds": "ledger:guilds", "deeds": "ledger:deeds", "society": "ledger:society", "worth": "ledger:worth"}
+const ORDER := ["journal", "fieldbook", "gazetteer", "casebook", "studbook", "biology", "words", "invention", "rumours", "trades", "standing", "stats", "guilds", "deeds", "society", "worth"]
+const NAMES := {"journal": "Quest log", "fieldbook": "Fieldbook", "gazetteer": "Gazetteer", "casebook": "Casebook", "studbook": "Stud Book", "biology": "Biology", "words": "Words of the Isles", "invention": "Timeline of Invention", "rumours": "Rumours", "trades": "Trades", "standing": "Standing", "stats": "Tallies", "guilds": "Guilds", "deeds": "Deeds", "society": "Building Society", "worth": "Things worth knowing"}
+const MENUS := {"journal": "quests", "fieldbook": "pedia", "gazetteer": "quests:gazetteer", "casebook": "pedia:casebook", "studbook": "pedia:studbook", "biology": "biology", "words": "pedia:words", "invention": "invention", "rumours": "pedia:rumours", "trades": "stats:trades", "standing": "stats:standing", "stats": "stats", "guilds": "ledger:guilds", "deeds": "ledger:deeds", "society": "ledger:society", "worth": "ledger:worth"}
 
 static func sprouted(d: GameStateData, id: String) -> bool:
 	match id:
@@ -20,6 +20,8 @@ static func sprouted(d: GameStateData, id: String) -> bool:
 			return Biology.visible(d)
 		"words":
 			return words_met(d) > 0
+		"invention":
+			return Invention.found_count(d) > 0
 		"rumours":
 			return not d.seen.is_empty()
 		"guilds":
@@ -71,6 +73,9 @@ static func blurb(d: GameStateData, id: String) -> String:
 			var w := words_met(d)
 			var lessons := TrainerStats.get_count(d, "lessons_taken")  # language lessons (4.5, LangLessons)
 			return "%d local word%s met%s" % [w, "" if w == 1 else "s", (", %d lesson%s" % [lessons, "" if lessons == 1 else "s"]) if lessons > 0 else ""]
+		"invention":
+			var g := Invention.open_gadgets(d).size()
+			return "%d of %d found, %d gadget%s" % [Invention.found_count(d), Invention.entries().size(), g, "" if g == 1 else "s"]
 		"rumours":
 			return "Local gossip and region stamps"
 		"trades":

@@ -1368,6 +1368,16 @@
    "times": [
     "night"
    ]
+  },
+  {
+   "id": "inv_howells",
+   "sprite": "astronomer",
+   "x": 32,
+   "y": 47,
+   "facing": "up",
+   "move": "still",
+   "script": "inv_howells",
+   "name": "Dr Howells"
   }
  ],
  "encounters": {
@@ -1377,26 +1387,15 @@
     "min": 14,
     "max": 16,
     "weight": 22,
-    "time": [
-     "dawn",
-     "day",
-     "dusk"
-    ]
+    "time": ["dawn", "day", "dusk"]
    },
    {
     "species": "swiftlet",
     "min": 14,
     "max": 16,
     "weight": 16,
-    "time": [
-     "day",
-     "dusk"
-    ],
-    "weather": [
-     "clear",
-     "sunshine",
-     "gale"
-    ]
+    "time": ["day", "dusk"],
+    "weather": ["clear", "sunshine", "gale"]
    },
    {
     "species": "cooplet",
@@ -1409,107 +1408,72 @@
     "min": 14,
     "max": 16,
     "weight": 14,
-    "time": [
-     "dawn",
-     "dusk"
-    ]
+    "time": ["dawn", "dusk"]
    },
    {
     "species": "binfox",
     "min": 15,
     "max": 16,
     "weight": 16,
-    "time": [
-     "dusk",
-     "night"
-    ]
+    "time": ["dusk", "night"]
    },
    {
     "species": "pepperling",
     "min": 14,
     "max": 16,
     "weight": 14,
-    "time": [
-     "dusk",
-     "night"
-    ]
+    "time": ["dusk", "night"]
    },
    {
     "species": "flittermouse",
     "min": 14,
     "max": 16,
     "weight": 12,
-    "time": [
-     "night"
-    ],
-    "season": [
-     "spring",
-     "summer",
-     "autumn"
-    ]
+    "time": ["night"],
+    "season": ["spring", "summer", "autumn"]
    },
    {
     "species": "croakle",
     "min": 14,
     "max": 16,
     "weight": 10,
-    "weather": [
-     "drizzle",
-     "downpour"
-    ]
+    "weather": ["drizzle", "downpour"]
    },
    {
     "species": "graftling",
     "min": 14,
     "max": 16,
     "weight": 18,
-    "time": [
-     "dawn",
-     "day",
-     "dusk"
-    ]
+    "time": ["dawn", "day", "dusk"]
    },
    {
     "species": "bleeplet",
     "min": 14,
     "max": 16,
     "weight": 12,
-    "time": [
-     "dusk",
-     "night"
-    ]
+    "time": ["dusk", "night"]
    },
    {
     "species": "bogglet",
     "min": 14,
     "max": 16,
     "weight": 10,
-    "time": [
-     "night"
-    ]
+    "time": ["night"]
    },
    {
     "species": "fizzlet",
     "min": 15,
     "max": 16,
     "weight": 8,
-    "time": [
-     "dusk",
-     "night"
-    ]
+    "time": ["dusk", "night"]
    },
    {
     "species": "fizzlet",
     "min": 15,
     "max": 16,
     "weight": 14,
-    "time": [
-     "dusk",
-     "night"
-    ],
-    "season": [
-     "autumn"
-    ]
+    "time": ["dusk", "night"],
+    "season": ["autumn"]
    }
   ],
   "water": [
@@ -1643,6 +1607,13 @@
    "x": 62,
    "y": 24,
    "text": "EAST: Oldham, Saddleworth Moor and over the Pennines to Leeds. Open at last. Mind the hills."
+  },
+  {
+   "x": 30,
+   "y": 45,
+   "plaque": "manchester_baby",
+   "title": "The Baby",
+   "text": "On 21 June 1948, at the University of Manchester, the Small-Scale Experimental Machine, known as the Baby, ran the first program ever held in a computer's own electronic memory. Built by Freddie Williams, Tom Kilburn and Geoff Tootill, it spent 52 minutes finding the highest factor of a number, and got it right. A working replica stands in the Science and Industry Museum."
   }
  ],
  "spawn": [
@@ -1655,7 +1626,15 @@
   "x": 43,
   "y": 40
  },
- "viaducts": [{"y": 50, "piers_y": 50, "every": 6, "first": 1, "height": 3.6}],
+ "viaducts": [
+  {
+   "y": 50,
+   "piers_y": 50,
+   "every": 6,
+   "first": 1,
+   "height": 3.6
+  }
+ ],
  "rows": [
   "TTTTTTTTTTTTTTTTTTTTTTTTTTFFFTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
   "TTTTTTTTTTTTTTTTTTTTTTTTTT:=:TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",

@@ -1,0 +1,107 @@
+{
+ "id": "bletchley_hut8",
+ "name": "Hut 8",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "table",
+   "x": 2,
+   "y": 2
+  },
+  {
+   "type": "table",
+   "x": 8,
+   "y": 2
+  },
+  {
+   "type": "bookshelf",
+   "x": 1,
+   "y": 1
+  },
+  {
+   "type": "clock",
+   "x": 5,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "wall_map",
+   "x": 3,
+   "y": 1,
+   "walk": true
+  },
+  {
+   "type": "kettle_table",
+   "x": 9,
+   "y": 5
+  },
+  {
+   "type": "wall_picture",
+   "x": 7,
+   "y": 1,
+   "walk": true,
+   "variant": 1
+  }
+ ],
+ "warps": [
+  {
+   "x": 5,
+   "y": 7,
+   "to": "bletchley_park",
+   "tx": 32,
+   "ty": 6,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "bp_codebreaker",
+   "sprite": "commuter",
+   "x": 5,
+   "y": 3,
+   "facing": "down",
+   "move": "still",
+   "script": "bp_codebreaker",
+   "name": "Codebreaker"
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "x": 1,
+   "y": 4,
+   "plaque": "bletchley_hut8",
+   "title": "Hut 8",
+   "text": "Hut 8 is where Alan Turing's team broke the German navy's Enigma, which helped steer the Atlantic convoys away from the U-boats. Turing's office has been set up again as it might have looked, down to his tea mug chained to the radiator so nobody would pinch it."
+  }
+ ],
+ "examine": [
+  {
+   "x": 8,
+   "y": 2,
+   "text": [
+    "Pencils, squared paper and a page of letters that make no sense at all.",
+    "Somebody has written TEA? in the margin, which makes perfect sense."
+   ]
+  }
+ ],
+ "spawn": [
+  5,
+  6
+ ],
+ "rows": [
+  "xxxxxxxxxxx",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x|||||||||x",
+  "x||||D||||x",
+  "xxxxxxxxxxx"
+ ]
+}
