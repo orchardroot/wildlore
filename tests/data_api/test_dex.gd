@@ -29,6 +29,19 @@ func test_missing_stat_becomes_zero_for_the_validator_to_catch() -> void:
 	var sp := Dex.normalise({"id": "x", "base": {"hp": 10}})
 	assert_eq(sp.base.atk, 0)
 
+## Fieldbook teaching (docs/design/fieldbook_teaching.md): the real-life note and the cy/ga/gd names ride along.
+func test_teaching_keys_survive_loading() -> void:
+	var sp := dex.get_species("afanc")
+	assert_true(sp.real.begins_with("A beaver's front teeth are orange"), sp.get("real", ""))
+	assert_eq(sp.names, {"cy": "afanc / llostlydan", "ga": "béabhar", "gd": "biobhair"})
+	var n := Dex.normalise({"id": "x", "real": "Note.", "names": {"gd": "cù"}})
+	assert_eq(n.real, "Note.")
+	assert_eq(n.names, {"gd": "cù"})
+	assert_false(Dex.normalise({"id": "x"}).has("real"), "never filled in: a species without one has nothing to show")
+	assert_false(Dex.normalise({"id": "x"}).has("names"))
+	for id in dex.hybrid_ids():
+		assert_false(dex.get_species(id).has("real"), "%s: a hybrid's real/folklore/invented flag is not a note" % id)
+
 func test_dex_follows_dex_order_file() -> void:
 	var ids := Dex.load_default().ids()
 	assert_eq(ids[0], "spikkin")

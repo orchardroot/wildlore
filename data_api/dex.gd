@@ -63,6 +63,9 @@ static func from_array(arr: Array) -> Dex:
 		dex._add(normalise(sp))
 	return dex
 
+## Numbers become ints and the learnset is tidied; every other key rides along as written. That includes the
+## Fieldbook teaching keys `real` and `names` (docs/design/fieldbook_teaching.md), which the validator checks the
+## shape of, so they are neither coerced nor filled in here: a species without them simply has none to show.
 static func normalise(sp: Dictionary) -> Dictionary:
 	var out := sp.duplicate(true)
 	var base := {}

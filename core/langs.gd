@@ -22,6 +22,9 @@ const NOT_LOCAL := {"ga": ["belfast", "bushmills", "derry", "enniskillen", "loug
 		"galloway", "kirkwall", "lerwick", "shetland_mainland"]}
 ## Languages whose signs lead with the local language (Welsh and Irish signs show it first).
 const LOCAL_FIRST := ["cy", "ga"]
+## The languages a creature's real-life basis is named in (its `names`, see docs/design/fieldbook_teaching.md),
+## in the order the Fieldbook shows them.
+const CREATURE_NAME_CODES := ["cy", "ga", "gd"]
 const LOCAL_INK := Color("e8c872")  # a touch warmer than the English text, on a sign or the town banner
 const FLAG_PREFIX := "word_"
 const SEP := " / "

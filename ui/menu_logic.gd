@@ -128,6 +128,19 @@ static func fieldbook_filter(ids: Array, seen: Dictionary, caught: Dictionary, f
 			return ids.filter(func(id): return seen.has(id) or caught.has(id))
 	return ids.duplicate()
 
+const NAMES_SEP := " · "
+
+## The Fieldbook's one-line local names for a creature's real-life basis: "cy llwynog · ga sionnach · gd sionnach",
+## always in cy, ga, gd order from whichever keys `names` has (see docs/design/fieldbook_teaching.md). "" when it
+## has none, so a creature based on a place or a machine shows no empty slot.
+static func fieldbook_names_line(names: Dictionary) -> String:
+	var parts := []
+	for code in Langs.CREATURE_NAME_CODES:
+		var word := str(names.get(code, "")).strip_edges()
+		if word != "":
+			parts.append("%s %s" % [code, word])
+	return NAMES_SEP.join(parts)
+
 const TIME_WORDS := {"dawn": "at dawn", "day": "by day", "dusk": "at dusk", "night": "at night"}
 const WEATHER_WORDS := {"clear": "under clear skies", "sunshine": "in sunshine", "drizzle": "in drizzle", "downpour": "in a downpour",
 	"fog": "in fog", "gale": "in a gale", "frost": "in a frost"}
