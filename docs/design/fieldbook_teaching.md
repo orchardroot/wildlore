@@ -32,9 +32,18 @@ In `_show_detail()`, inside the `if st == "caught":` block, after the "Did you k
 
 Only show these once caught, like the fact: they are part of the reward for catching it.
 
+## Wired in
+
+`PediaScreen.add_real_life()` adds both, called from `_show()` after the fact; `MenuLogic.fieldbook_names_line()`
+builds the names line and `Langs.CREATURE_NAME_CODES` fixes the order. Three more lines under the picture meant the
+words box needed more give: its line separation is 6 (`WORD_SEP`) and the body sizes step down to 15
+(`WORD_SIZES`), at which every entry, Macaquet's long fact included, fits the 682x296 box at 1280x720 without
+scrolling (`tests/ui/test_fieldbook_teaching.gd` measures all of them). Most entries settle at 16 or 17.
+`--menu=pedia:<id>` now opens any species caught, for screenshots.
+
 ## Nice extras (later, optional)
 
-- Tooltip on the names line: "Welsh · Irish · Scottish Gaelic".
+- Tooltip on the names line: "Welsh · Irish · Scottish Gaelic" (done, plain text).
 - If session D's "Say it" system wants animal words, `names` is a ready word list (the `say` guide is not included).
 - A Fieldbook goal: "Read the real-life note for 25 creatures" could use the existing seen/caught counters.
 

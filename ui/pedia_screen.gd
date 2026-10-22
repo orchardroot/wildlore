@@ -26,7 +26,9 @@ var _list_col: VBoxContainer
 var _detail: VBoxContainer
 var _buttons: Array = []
 var _rumours: Array = []       # the Rumours tab's rows, when it's showing
-const WORD_SIZES := [25, 23, 21, 19]  # the body text's size, biggest first, until the entry fits
+const WORD_SIZES := [25, 23, 21, 19, 17, 16, 15]  # the body text's size, biggest first, until the entry fits
+const WORD_SEP := 6  # between the lines below the picture: snug, so the longest entries fit at 1280x720
+const FACT_INK := Color("d8cfb4")  # the fact and the real-life note, a shade quieter than the entry's text
 
 func _build() -> void:
 	set_title("Fieldbook")
@@ -365,26 +367,51 @@ func _show(id: String) -> void:
 		el.custom_minimum_size = Vector2(300, 0)
 		info.add_child(el)
 	# The words below the picture shrink to fit, and scroll if even the smallest size can't (see UIKit.fit_block).
-	var wb := UIKit.words_box(WORD_SIZES)
+	var wb := UIKit.words_box(WORD_SIZES, WORD_SEP)
 	_detail.add_child(wb[0])
 	var words: VBoxContainer = wb[1]
-	var zones := MenuLogic.habitats(habitat_index(), id)
-	var where := ", ".join(zones.slice(0, MAX_PLACES))
-	if zones.size() > MAX_PLACES:
-		where += " and %d more" % (zones.size() - MAX_PLACES)
 	if Dex.is_hybrid(id):  # never found in the wild: what it is, and whether it can have young of its own
 		var h: Dictionary = Genetics.hybrids().get(id, {})
 		var how: String = {"real": "A real cross.", "folklore": "Folklore: they say.", "invented": "A game invention."}.get(str(h.get("real", "")), "")
-		UIKit.add_words(words, "Bred, never found. %s %s" % [how, "Fertile." if h.get("fertile", true) == true else "Cannot have young."], -4, Color("d8cfb4"))
+		UIKit.add_words(words, "Bred, never found. %s %s" % [how, "Fertile." if h.get("fertile", true) == true else "Cannot have young."], -4, FACT_INK)
 	else:
-		UIKit.add_words(words, "Found in: " + (where if not zones.is_empty() else "somewhere secret"), -4, Color("d8cfb4"))
+		UIKit.add_words(words, found_in(MenuLogic.habitats(habitat_index(), id)), -4, FACT_INK)
 	var dex: Dictionary = sp.get("dex", {})
 	if st == "caught":
 		UIKit.add_words(words, str(dex.get("text", "")), 0)
 		UIKit.add_words(words, "Did you know?", -1, UIKit.GOLD)
-		UIKit.add_words(words, str(dex.get("fact", "")), -2, Color("d8cfb4"))
+		UIKit.add_words(words, str(dex.get("fact", "")), -2, FACT_INK)
+		add_real_life(words, sp)
 	else:
 		UIKit.add_words(words, "Spotted, but it didn't hang around. Catch one to fill in the rest of the entry.", 0, UIKit.MUTED)
+
+## The teaching lines under the fact, part of the reward for catching one (docs/design/fieldbook_teaching.md):
+## "In real life" and a true note about the animal, plant or legend behind the creature, then its name in Welsh,
+## Irish and Scottish Gaelic in the warm ink of signs and town banners. Either is left out when the species has
+## nothing to say, so a creature based on a place or a machine shows no empty slot. Returns the labels added.
+static func add_real_life(words: VBoxContainer, sp: Dictionary) -> Array:
+	var added := []
+	var real := str(sp.get("real", "")).strip_edges()
+	if real != "":
+		added.append(UIKit.add_words(words, "In real life", -1, UIKit.GOLD))
+		added.append(UIKit.add_words(words, real, -2, FACT_INK))
+	var names = sp.get("names", {})
+	var line := MenuLogic.fieldbook_names_line(names if names is Dictionary else {})
+	if line != "":
+		var nl := UIKit.add_words(words, line, -3, Langs.LOCAL_INK)
+		nl.tooltip_text = MenuLogic.NAMES_SEP.join(Langs.CREATURE_NAME_CODES.map(func(c): return str(Langs.NAMES.get(c, c))))
+		nl.mouse_filter = Control.MOUSE_FILTER_PASS
+		added.append(nl)
+	return added
+
+## "Found in: Dee Valley, Ogwen and 2 more": the first few of a species' habitat labels (the rest are on the map).
+static func found_in(zones: Array) -> String:
+	if zones.is_empty():
+		return "Found in: somewhere secret"
+	var where := ", ".join(zones.slice(0, MAX_PLACES))
+	if zones.size() > MAX_PLACES:
+		where += " and %d more" % (zones.size() - MAX_PLACES)
+	return "Found in: " + where
 
 ## "Evolves into X at Lv 20" for a species; the target's name stays hidden until you've seen one.
 static func evolution_line(sp: Dictionary) -> String:

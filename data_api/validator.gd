@@ -115,7 +115,37 @@ static func _check_species(sp: Dictionary, chart: TypeChart, dex: Dex, moves: Mo
 	var d: Dictionary = sp.get("dex", {})
 	if str(d.get("text", "")) == "" or str(d.get("fact", "")) == "":
 		e.append("species %s: needs Creaturepedia text and a real-world fact" % id)
+	e.append_array(_check_teaching(sp))
 	return e
+
+## The Fieldbook teaching keys (docs/design/fieldbook_teaching.md), both optional: `real` is a non-empty sentence
+## with no em-dash that doesn't just repeat the fact; `names` holds only cy, ga and gd, each a non-empty string.
+static func _check_teaching(sp: Dictionary) -> Array:
+	var e := []
+	var id: String = sp.get("id", "?")
+	if sp.has("real"):
+		var real = sp.real
+		if not (real is String) or str(real).strip_edges() == "":
+			e.append("species %s: real, if present, is a non-empty sentence" % id)
+		elif EM_DASH in str(real):
+			e.append("species %s: em-dash in real" % id)
+		elif str(real) == str(sp.get("dex", {}).get("fact", "")):
+			e.append("species %s: real repeats the fact" % id)
+	if sp.has("names"):
+		var names = sp.names
+		if not (names is Dictionary):
+			e.append("species %s: names must be a dictionary of language code to name" % id)
+		else:
+			for code in names:
+				if str(code) not in Langs.CREATURE_NAME_CODES:
+					e.append("species %s: names has unknown language '%s' (cy, ga or gd)" % [id, code])
+				elif not (names[code] is String) or str(names[code]).strip_edges() == "":
+					e.append("species %s: names.%s must be a non-empty string" % [id, code])
+				elif EM_DASH in str(names[code]):
+					e.append("species %s: em-dash in names.%s" % [id, code])
+	return e
+
+const EM_DASH := char(0x2014)  # the em-dash: the house style has none, in data or in prose
 
 const ITEM_KINDS := ["heal", "meal", "cure", "revive", "pp", "snare", "evo", "charm", "repel", "key", "material", "fish", "produce"]
 const EXTRA_SNARES := ["night", "water", "fae", "hazel", "creel"]
