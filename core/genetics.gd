@@ -381,6 +381,7 @@ static func _lines_of(c: Creature) -> Array:
 	if c.hybrid != "" and hybrids().has(c.hybrid):
 		out.append_array(hybrids()[c.hybrid].get("sire_lines", []))
 		out.append_array(hybrids()[c.hybrid].get("dam_lines", []))
+	out.append_array(Crossbreeds.parent_lines(line_of(c)))  # a fertile crossbred breeds back into either parent line
 	return out
 
 ## May these two be paired? {ok, why, kind}: kind is "same_line", "hybrid" (a listed cross) or "". `why` is the
@@ -394,7 +395,7 @@ static func can_pair(sire: Creature, dam: Creature, _dex = null) -> Dictionary:
 	for p in [sire, dam]:
 		if listed.is_empty() and not breeds(kindred_of(p)):
 			return {"ok": false, "why": "That kind doesn't breed. Not the way you're thinking, anyway.", "kind": ""}
-		if p.hybrid != "" and hybrids().get(p.hybrid, {}).get("fertile", true) == false:
+		if (p.hybrid != "" and hybrids().get(p.hybrid, {}).get("fertile", true) == false) or Crossbreeds.sterile(p):
 			return {"ok": false, "why": "A cross like that can't have young of its own. Mules are famous for it.", "kind": ""}
 	var inb: Dictionary = genes().get("inbreeding", {})
 	if kinship(sire, dam) >= float(inb.get("refuse_at", 0.25)):

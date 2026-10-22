@@ -130,7 +130,8 @@ func test_the_deny_list_bites() -> void:
 	for bad in ["Twatling", "Bumble", "Shitake", "Arsenal", "Cockle"]:
 		assert_true(Crossbreeds.name_fault(bad).begins_with("deny"), bad)
 	assert_eq(Crossbreeds.name_fault("Dexlan"), "")
-	assert_eq(Crossbreeds.name_fault("Xkrtpl"), "shape")
+	assert_eq(Crossbreeds.name_fault("Brrkstan"), "shape")
+	assert_eq(Crossbreeds.name_fault("Xkrtpl"), "no vowel")
 
 func test_stats_types_and_moves_are_capped_and_from_the_parents() -> void:
 	var dex := Fixtures.dex()
@@ -244,3 +245,5 @@ func test_the_fieldbook_lesson_teaches_ligers_and_mules() -> void:
 	assert_false(Crossbreeds.LESSON.contains("—"))
 	var line := Crossbreeds.parents_line(Fixtures.dex().get_species("x_moolet_coolet"))
 	assert_true(line.contains("Dexter cattle") and line.contains("Highland cattle"), line)
+	assert_true(Crossbreeds.entry_text("Estuarch", "Bayrunner", "species").begins_with("An Estuarch sire and a Bayrunner dam"))
+	assert_true(Crossbreeds.entry_text("Heilan", "Estuarch", "species").begins_with("A Heilan sire and an Estuarch dam"))

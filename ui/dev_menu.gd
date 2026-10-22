@@ -56,8 +56,9 @@ static func boot(game: Node, menu: String) -> void:
 		for sp in ["bramblehog", "emberdrey", "redbreast", "snowhare", "gritling", "wispet", "cooplet", "raidtail", "bran"]:
 			d.ark.append(mk.call(sp, 3 + d.ark.size() * 4 % 23))
 	if menu.begins_with("pairing") or menu in ["pedia:studbook", "pause:basket"]:  # a fond pair of one line, a stranger and a basket under way
-		var m: Creature = mk.call("spikkin", 12)
-		var f2: Creature = mk.call("spikkin", 11)
+		var cross := menu == "pairing:cross"  # `--menu=pairing:cross`: a goat and a sheep, a long-shot crossbreed (core/crossbreeds.gd)
+		var m: Creature = mk.call("kidgruff" if cross else "spikkin", 12)
+		var f2: Creature = mk.call("herdlet" if cross else "spikkin", 11)
 		m.sex = "m"
 		m.uid = 101
 		f2.sex = "f"
@@ -238,6 +239,8 @@ static func boot(game: Node, menu: String) -> void:
 		d.day_count = 52
 		if menu == "pause:euros":
 			menu = "pause"
+	if menu == "pairing:cross":
+		menu = "pairing:pick"
 	await game.get_tree().process_frame
 	var cur := game.get_tree().current_scene
 	if cur:
