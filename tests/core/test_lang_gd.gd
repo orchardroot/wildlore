@@ -29,7 +29,7 @@ func test_gaelic_keeps_its_old_keys_and_names_itself() -> void:
 
 func test_lessons_follow_the_contract() -> void:
 	var lessons: Array = _gd().get("lessons", [])
-	assert_true(lessons.size() >= 6, "about six lessons")
+	assert_true(lessons.size() >= 12, "twelve or more lessons")
 	var seen_words := {}
 	var seen_lessons := {}
 	var levels := {}
@@ -55,6 +55,19 @@ func test_lessons_follow_the_contract() -> void:
 			assert_true(say != say.to_lower(), "%s/%s: stressed syllable in capitals" % [id, wid])
 	for lv in LEVELS:
 		assert_true(levels.has(lv), "a lesson at level %d" % lv)
+	assert_true(lessons.filter(func(l): return int(l.level) == 1).size() >= 3, "three survival lessons")
+
+func test_a_teacher_may_give_several_lessons_from_one_spot() -> void:
+	# The same zone, tile and name is one teacher (session D's loader groups by the spot): Ealasaid in An Lanntair.
+	var by_spot := {}
+	for l in _gd().get("lessons", []):
+		var t: Dictionary = l.get("teacher", {})
+		var key := "%s@%d,%d" % [t.get("zone", ""), int(t.get("x", 0)), int(t.get("y", 0))]
+		if by_spot.has(key):
+			assert_eq(str(by_spot[key]), str(t.get("name", "")), "%s: one name per spot" % key)
+		by_spot[key] = str(t.get("name", ""))
+	assert_eq(str(by_spot.get("stornoway_lanntair@9,6", "")), "Ealasaid", "Ealasaid gives gd_01 and gd_07")
+	assert_true(by_spot.size() >= 10, "teachers across the Highlands and Islands, not one classroom")
 
 func test_no_em_dashes_in_gaelic_text() -> void:
 	var raw := FileAccess.get_file_as_string(PATH)
@@ -75,15 +88,17 @@ func test_every_teacher_stands_indoors_in_gaelic_country() -> void:
 		assert_eq(Langs.code_for(z.id, idx), "gd", "%s: a town where Gaelic is local" % tag)
 		var p := Vector2i(int(t.x), int(t.y))
 		var key := "%s@%d,%d" % [z.id, p.x, p.y]
-		assert_false(spots.has(key), "%s: a tile of their own" % tag)
-		spots[key] = true
+		if spots.has(key):  # the same teacher, another lesson
+			assert_eq(str(spots[key]), str(t.get("name", "")), "%s: shares the tile only with themself" % tag)
+			continue
+		spots[key] = str(t.get("name", ""))
 		assert_true(SideStories.free_tile(z, p), "%s: (%d, %d) is a free floor tile" % [tag, p.x, p.y])
 		assert_true(_neighbour_reachable(z, p), "%s: you can walk up to them" % tag)
 		assert_true(FileAccess.file_exists("res://art/sprites/chars/%s.png" % t.get("sprite", "")), "%s: sprite has art" % tag)
 
 func test_gaelic_signs_use_taught_words() -> void:
 	var taught := _words()
-	for zid in ["skye_braes_hall", "stornoway_cafe", "tobermory_mishnish"]:
+	for zid in ["skye_braes_hall", "stornoway_cafe", "tobermory_mishnish", "portree_aros", "skye_kylecafe", "inverness_market", "oban_inn"]:
 		var z := ZoneData.load_id(zid)
 		var found := false
 		for s in z.signs:
@@ -91,11 +106,27 @@ func test_gaelic_signs_use_taught_words() -> void:
 			if not (loc is Dictionary) or not loc.has("gd"):
 				continue
 			found = true
+			assert_true(SideStories.free_tile(z, Vector2i(int(s.x), int(s.y)) + Vector2i(0, 1)) or SideStories.free_tile(z, Vector2i(int(s.x), int(s.y)) + Vector2i(-1, 0)) \
+				or SideStories.free_tile(z, Vector2i(int(s.x), int(s.y)) + Vector2i(1, 0)), "%s sign at (%d, %d): you can stand next to it" % [zid, s.x, s.y])
 			for part in str(loc.gd).to_lower().replace(",", "").split(" "):
 				if part in ["is"]:
 					continue
-				assert_true(_taught_has(taught, part), "%s sign: '%s' is a lesson word" % [zid, part])
+				assert_true(_taught_has(taught, part.rstrip("!?.")), "%s sign: '%s' is a lesson word" % [zid, part])
 		assert_true(found, "%s: has a Gaelic sign" % zid)
+
+func test_npc_lines_use_taught_words() -> void:
+	# A line of Gaelic in a mouth is a lesson word, so a player who has met the teacher recognises it.
+	var taught := _words()
+	# [what the NPC says, the lesson word it rests on] (mo theaghlach is teaghlach softened; Druim na Drochaid is druim)
+	var lines := {"portree_aros": [["mo theaghlach", "teaghlach"], ["seanmhair", "seanmhair"]],
+		"harris_callanish": [["glas", "glas"], ["donn", "donn"]], "skye_kylecafe": [["tha an t-acras orm", "t-acras"]],
+		"inverness_market": [["druim na drochaid", "druim"], ["inbhir nis", "inbhir"]], "oban_inn": [["beannachd leat", "beannachd"], ["mòd", "mòd"]],
+		"tobermory_mishnish": [["is toil leam", "toil"]], "harris_blackhouse": [["mòine", "mòine"], ["tha i fuar", "fuar"]]}
+	for zid in lines:
+		var raw := FileAccess.get_file_as_string("res://data/dialogue/%s.json" % zid).to_lower()
+		for pair in lines[zid]:
+			assert_true(str(pair[0]) in raw, "%s: an NPC says '%s'" % [zid, pair[0]])
+			assert_true(_taught_has(taught, str(pair[1])), "%s: '%s' is taught" % [zid, pair[1]])
 
 func _taught_has(taught: Dictionary, part: String) -> bool:
 	for k in taught:
