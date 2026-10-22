@@ -158,6 +158,34 @@ counters. Session D also writes the Welsh (cy) lessons.
   north. No side-taking; people on both sides are warm, funny and specific. Creatures that fit the Mediterranean.
   Validator, tests, screenshots.
 
+- **M. Borders and neighbours (Opus).** Places where Britain meets its neighbours, with the same travel, currency
+  and time-zone wiring as session L (coordinate by keeping to your own zones and data files):
+  **La Línea de la Concepción** (Spain), across the frontier from Gibraltar (extend the existing Gibraltar zones with
+  a walkable border crossing and the runway road): frontier workers, the 1969 to 1985 closure, Spanish phrases, tapas,
+  the euro, the Bay of Gibraltar. **Cyprus**: the Sovereign Base Areas of Akrotiri and Dhekelia (British Overseas
+  Territory, the RAF at Akrotiri), British rule until independence in 1960, and **Nicosia, both sides**: the Greek
+  Cypriot south and the Turkish Cypriot north, the Green Line and the UN buffer zone, the Ledra Street crossing
+  (opened 2008), 1974 told even-handedly with both communities' experience, Greek and Turkish phrases (Cypriot
+  flavour only where you are sure), halloumi/hellim, the euro in the south and the Turkish lira in the north. No
+  side-taking; people on both sides are warm, funny and specific. Creatures that fit the Mediterranean. Validator,
+  tests, screenshots.
+- **N. Biology you can practise: breeding as a lab (Opus).** The 3.6 breeding system (core/genetics.gd, core/breeding.gd,
+  core/stud_book.gd, data/genes.json, docs/design/2026-10-21-breeding.md) already teaches Mendel and Punnett squares.
+  Deepen it so players hone real biology by doing: dominant and recessive, incomplete dominance and codominance
+  (roan), sex-linked traits (tortie), polygenic traits, new mutations (rare, shown as such), inbreeding depression
+  and why rare-breed and wildcat conservation programmes track pedigrees, hybrid vigour and hybrid sterility (the
+  mule), natural selection (a moor's colour pressure on a population over seasons, a small simulation you can watch),
+  and plain-words explainers of DNA, genes and alleles, and of modern genetics (Dolly 1996, the Human Genome Project
+  completed 2003, CRISPR's 2020 Nobel Prize, gene banks such as Kew's Millennium Seed Bank). Breeding challenges from
+  Dr Keir at Roslin with predictions you make before the eggs hatch, scored against the outcome, and a "Biology"
+  Almanac page. Balance: nothing bred may overpower the story (see the design's section 9).
+- **H addendum, technological advancement:** besides the plaques and quest, give technology a felt arc: a "Timeline of
+  invention" the player fills by finding real objects and meeting people (the Iron Bridge 1779, Stephenson's Rocket
+  1829, the telegraph, Marconi's first transatlantic signal from Poldhu, Cornwall in 1901, Baird's television 1926,
+  radar, the jet engine (Whittle), the Manchester Baby, the world wide web, mobile phones, the Raspberry Pi, modern
+  AI), with each era unlocking a small useful gadget for the player (e.g. a telegraph office that sends money between
+  towns, a radio that tells you the weather ahead). Show progress and its costs (pollution, jobs lost and made).
+
 ## Finish (each session)
 Full tools/test.sh green, screenshots of every new or changed screen read back and fitting 1280x720, a short report
 (under 200 words): what you built, open questions for the owner, test line, branch and commit.
