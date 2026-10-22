@@ -433,5 +433,157 @@
    "who": "Fox Watcher",
    "text": "Saw one trot over O'Connell Bridge last week like he was late for a bus."
   }
+ ],
+ "isles_anju": [
+  {
+   "do": "set",
+   "flag": "isles_met_anju"
+  },
+  {
+   "do": "say",
+   "who": "Anju",
+   "text": "{greeting} Namaskaram! I'm Anju, a nurse, from Kerala in the south of India. There are thousands of Indian nurses in Irish hospitals. Without us the night shift would be a very quiet place."
+  },
+  {
+   "do": "say",
+   "who": "Anju",
+   "text": "Ireland was always the country people left. Since the 1990s people come here instead: from Poland, Brazil, Nigeria, China, India, and since 2022 many from Ukraine."
+  },
+  {
+   "do": "say",
+   "who": "Anju",
+   "text": "My daughter has a Dublin accent, does Irish dancing and corrects my Irish. I am very proud and a little annoyed."
+  }
+ ],
+ "isles_maura": [
+  {
+   "do": "set",
+   "flag": "isles_met_maura"
+  },
+  {
+   "do": "if",
+   "flag": "q_isles_famine_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Maura",
+     "text": "There are far more people of Irish descent outside Ireland than in it. Seventy million, by some counts. She's in there somewhere."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_isles_famine_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "plaque_dublin_famine_figures",
+       "then": [
+        {
+         "do": "if",
+         "flag": "plaque_liverpool_1847",
+         "then": [
+          {
+           "do": "if",
+           "flag": "plaque_cork_annie_moore",
+           "then": [
+            {
+             "do": "say",
+             "who": "Maura",
+             "text": "You went all that way? Then you've done more than most of my cousins."
+            },
+            {
+             "do": "say",
+             "who": "Maura",
+             "text": "Here. A copy of a steerage ticket, Liverpool to New York, from a museum shop. Not hers. But it could have been."
+            },
+            {
+             "do": "give_item",
+             "item": "isles_steerage_ticket"
+            },
+            {
+             "do": "standing",
+             "nation": "ireland",
+             "amount": 3
+            },
+            {
+             "do": "set",
+             "flag": "q_isles_famine_done"
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Maura",
+             "text": "The Famine Figures here, Black '47 in Liverpool, and Annie Moore in Cork. Take your time. She did."
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Maura",
+           "text": "The Famine Figures here, Black '47 in Liverpool, and Annie Moore in Cork. Take your time. She did."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Maura",
+         "text": "The Famine Figures here, Black '47 in Liverpool, and Annie Moore in Cork. Take your time. She did."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Maura",
+       "text": "{greeting} I'm Maura. My great-great-grandmother walked out of Mayo in 1847 with two children, took the boat from Dublin to Liverpool and never came home. Her sister went on to New York."
+      },
+      {
+       "do": "say",
+       "who": "Maura",
+       "text": "Nobody wrote it down. You learn it from the gaps in the family, the names that stop."
+      },
+      {
+       "do": "choice",
+       "text": "Walk the emigrants' road for Maura?",
+       "options": [
+        "Yes, of course",
+        "Maybe later"
+       ],
+       "set": "_t_isles_famine"
+      },
+      {
+       "do": "if",
+       "flag": "_t_isles_famine",
+       "eq": 0,
+       "then": [
+        {
+         "do": "say",
+         "who": "Maura",
+         "text": "Read the Famine Figures on the quay here, then the plaque in Liverpool for the year she landed. And in Cork they remember Annie Moore, the first through Ellis Island. Then come back and tell me."
+        },
+        {
+         "do": "set",
+         "flag": "q_isles_famine_started"
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Maura",
+         "text": "No bother. I'll be here."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
  ]
 }

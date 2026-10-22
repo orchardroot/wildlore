@@ -484,5 +484,155 @@
    "who": "Fox Watcher",
    "text": "Red torch, see. Foxes don't mind it. They just sit there looking at me like I'm the odd one."
   }
+ ],
+ "isles_amina": [
+  {
+   "do": "set",
+   "flag": "isles_met_amina"
+  },
+  {
+   "do": "if",
+   "flag": "q_isles_tiger_bay_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Amina",
+     "text": "Diolch, and mahadsanid. That's thank you in Welsh and in Somali. In Butetown you get both."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_isles_tiger_bay_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "plaque_cardiff_tiger_bay",
+       "then": [
+        {
+         "do": "if",
+         "flag": "isles_met_saleh",
+         "then": [
+          {
+           "do": "say",
+           "who": "Amina",
+           "text": "He gave you the biscuits? He likes you, then."
+          },
+          {
+           "do": "say",
+           "who": "Amina",
+           "text": "Here. A lump of Welsh steam coal, polished. It's what brought everyone here, in the end. Keep it in your pocket and remember the stokers."
+          },
+          {
+           "do": "give_item",
+           "item": "isles_steam_coal"
+          },
+          {
+           "do": "standing",
+           "nation": "wales",
+           "amount": 2
+          },
+          {
+           "do": "set",
+           "flag": "q_isles_tiger_bay_done"
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Amina",
+           "text": "The Tiger Bay plaque, then Mr Saleh. He'll be the one with the flat cap and the opinions."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Amina",
+         "text": "The Tiger Bay plaque, then Mr Saleh. He'll be the one with the flat cap and the opinions."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Amina",
+       "text": "{greeting} Shwmae! I'm Amina. My great-grandad came to Cardiff from Somaliland as a ship's fireman, shovelling coal in the stokehold. Hottest job at sea, he said, and he'd know."
+      },
+      {
+       "do": "say",
+       "who": "Amina",
+       "text": "Butetown has had Somali and Yemeni families for more than a hundred years. We're as Cardiff as the castle. Older than some of it, actually."
+      },
+      {
+       "do": "choice",
+       "text": "Learn about Tiger Bay with Amina?",
+       "options": [
+        "Yes, of course",
+        "Maybe later"
+       ],
+       "set": "_t_isles_tiger_bay"
+      },
+      {
+       "do": "if",
+       "flag": "_t_isles_tiger_bay",
+       "eq": 0,
+       "then": [
+        {
+         "do": "say",
+         "who": "Amina",
+         "text": "Go and read the Tiger Bay plaque, then find Mr Saleh. Everyone calls him Grandad. He'll tell you about the Yemeni side, at length, with biscuits."
+        },
+        {
+         "do": "set",
+         "flag": "q_isles_tiger_bay_started"
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Amina",
+         "text": "No bother. I'll be here."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "isles_saleh": [
+  {
+   "do": "set",
+   "flag": "isles_met_saleh"
+  },
+  {
+   "do": "say",
+   "who": "Mr Saleh",
+   "text": "{greeting} Saleh. My father came from Aden, in Yemen, on the coal boats in the 1930s, and married a girl from Splott. Her mam nearly fainted. Then she learnt to make his coffee and wouldn't let anyone else touch the pot."
+  },
+  {
+   "do": "say",
+   "who": "Mr Saleh",
+   "text": "Yemeni sailors opened boarding houses here, and cafes, and a place to pray. Our lot have been part of this city since before your grandparents were born."
+  },
+  {
+   "do": "say",
+   "who": "Mr Saleh",
+   "text": "We kept Ramadan, we cheered for Wales, and we argued about Cardiff City. Faith is one thing. Football is serious."
+  },
+  {
+   "do": "if",
+   "flag": "q_isles_tiger_bay_started",
+   "then": [
+    {
+     "do": "say",
+     "who": "Mr Saleh",
+     "text": "Amina sent you? Tell her the biscuits are better at mine. Here, have one. Have two."
+    }
+   ]
+  }
  ]
 }

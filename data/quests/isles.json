@@ -1,0 +1,125 @@
+{
+ "quests": [
+  {
+   "id": "isles_windrush",
+   "title": "Windrush Day",
+   "region": "isles",
+   "town": "london",
+   "giver": "Marcia",
+   "people": "windrush",
+   "summary": "Read the plaques to the Empire Windrush and to Claudia Jones, and tell Marcia.",
+   "start_flag": "q_isles_windrush_started",
+   "steps": [
+    {
+     "flag": "plaque_london_windrush",
+     "text": "Read the Empire Windrush plaque in London.",
+     "zone": "london"
+    },
+    {
+     "flag": "plaque_london_claudia_jones",
+     "text": "Read the plaque to Claudia Jones.",
+     "zone": "london"
+    },
+    {
+     "flag": "q_isles_windrush_done",
+     "text": "Tell Marcia what you learnt.",
+     "zone": "london"
+    }
+   ],
+   "done_flag": "q_isles_windrush_done",
+   "reward": "A Carnival Whistle and standing with England."
+  },
+  {
+   "id": "isles_chinatown",
+   "title": "The Seamen's Wives",
+   "region": "isles",
+   "town": "liverpool",
+   "giver": "Lily",
+   "people": "chinese",
+   "summary": "Read the plaques to Liverpool's Chinese seamen and the Chinatown arch for Lily.",
+   "start_flag": "q_isles_chinatown_started",
+   "steps": [
+    {
+     "flag": "plaque_liverpool_chinese_seamen",
+     "text": "Read the plaque to the Chinese seamen.",
+     "zone": "liverpool"
+    },
+    {
+     "flag": "plaque_liverpool_chinese_arch",
+     "text": "Read the plaque about the Chinatown arch.",
+     "zone": "liverpool"
+    },
+    {
+     "flag": "q_isles_chinatown_done",
+     "text": "Go back to Lily.",
+     "zone": "liverpool"
+    }
+   ],
+   "done_flag": "q_isles_chinatown_done",
+   "reward": "A lai see envelope and standing with England."
+  },
+  {
+   "id": "isles_tiger_bay",
+   "title": "Stokers and Sailors",
+   "region": "isles",
+   "town": "cardiff",
+   "giver": "Amina",
+   "people": "tiger_bay",
+   "summary": "Read the Tiger Bay plaque and hear Mr Saleh out, for Amina.",
+   "start_flag": "q_isles_tiger_bay_started",
+   "steps": [
+    {
+     "flag": "plaque_cardiff_tiger_bay",
+     "text": "Read the Tiger Bay plaque in Cardiff.",
+     "zone": "cardiff"
+    },
+    {
+     "flag": "isles_met_saleh",
+     "text": "Find Mr Saleh and hear about the Yemeni sailors.",
+     "zone": "cardiff"
+    },
+    {
+     "flag": "q_isles_tiger_bay_done",
+     "text": "Go back to Amina.",
+     "zone": "cardiff"
+    }
+   ],
+   "done_flag": "q_isles_tiger_bay_done",
+   "reward": "A lump of Welsh steam coal and standing with Wales."
+  },
+  {
+   "id": "isles_famine",
+   "title": "The Emigrants' Road",
+   "region": "isles",
+   "town": "dublin",
+   "giver": "Maura",
+   "people": "irish",
+   "summary": "Follow the Famine emigrants from Dublin to Liverpool and Cork, for Maura.",
+   "start_flag": "q_isles_famine_started",
+   "steps": [
+    {
+     "flag": "plaque_dublin_famine_figures",
+     "text": "Read the Famine Figures on Custom House Quay.",
+     "zone": "dublin"
+    },
+    {
+     "flag": "plaque_liverpool_1847",
+     "text": "Read the plaque to Black '47 in Liverpool.",
+     "zone": "liverpool"
+    },
+    {
+     "flag": "plaque_cork_annie_moore",
+     "text": "Read the plaque to Annie Moore in Cork.",
+     "zone": "cork"
+    },
+    {
+     "flag": "q_isles_famine_done",
+     "text": "Go back to Maura in Dublin.",
+     "zone": "dublin"
+    }
+   ],
+   "done_flag": "q_isles_famine_done",
+   "reward": "A Steerage Ticket and standing with Ireland."
+  }
+ ]
+}

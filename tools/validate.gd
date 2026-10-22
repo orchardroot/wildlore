@@ -25,6 +25,7 @@ func _initialize() -> void:
 	errors.append_array(Quests.validate(Quests.all(), zones, Quests.all_settable()))  # data/quests: zones, flags set somewhere
 	errors.append_array(Festivals.validate(zones, dex, Quests.all()))  # data/festivals.json: towns, scripts, quests, creatures
 	errors.append_array(Gazetteer.validate(Gazetteer.all()))  # heritage plaques: unique ids, titles, no em-dashes
+	errors.append_array(TheseIsles.validate(TheseIsles.themes(), Gazetteer.all(), TheseIsles.people(), Quests.all(), Quests.all_settable(), func(zid): return zones.has(zid)))  # data/these_isles.json
 	errors.append_array(Langs.check(func(zid): return zones.has(zid)))  # data/lang: places are zones, shape, no em-dashes
 	errors.append_array(LangLessons.check(func(zid): return zones.get(zid), ZoneIndex.get_index()))  # data/lang lessons: shape, teachers on free tiles
 	errors.append_array(MarketHall.check_files())  # data/market_halls.json: rooms, stall-holders, plaques
