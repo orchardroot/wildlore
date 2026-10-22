@@ -1,0 +1,25 @@
+name: Full story run
+# The whole story end to end, plus the full tests, on any branch, on demand (too slow for every PR).
+on:
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: Branch or commit to run
+        required: true
+        default: main
+jobs:
+  story:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref }}
+      - uses: actions/cache@v4
+        with:
+          path: .godot-bin
+          key: godot-${{ hashFiles('tools/get_godot.sh') }}
+      - name: Tests
+        run: tools/test.sh
+      - name: Full story
+        run: tools/playtest.sh full 2
