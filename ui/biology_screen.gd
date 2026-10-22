@@ -110,7 +110,7 @@ func _show(id: String) -> void:
 			_words("Good odds come true about as often as they say: being well calibrated.", 17, Color("d8cfb4"))
 		"sim":
 			_detail.add_child(UIKit.label("The moor model", 32, UIKit.GOLD))
-			_words("Natural selection you can watch: kestrels take the creatures that stand out, the survivors breed, and the colours shift.", 21)
+			_words("Natural selection you can watch: predators take the creatures that stand out, the survivors breed, and the colours shift.", 21)
 			for id2 in SelectionSim.SCENARIOS:
 				_words("%s. %s" % [SelectionSim.SCENARIOS[id2].name, SelectionSim.SCENARIOS[id2].blurb], 19, UIKit.MUTED)
 			_words("Press confirm to open it.", 19, Color("d8cfb4"))
