@@ -1,0 +1,98 @@
+{
+ "id": "la_linea_market",
+ "name": "Mercado",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "market_stall",
+   "x": 2,
+   "y": 1,
+   "variant": 0
+  },
+  {
+   "type": "market_stall",
+   "x": 6,
+   "y": 1,
+   "variant": 1
+  },
+  {
+   "type": "market_stall",
+   "x": 10,
+   "y": 1,
+   "variant": 3
+  },
+  {
+   "type": "barrel",
+   "x": 1,
+   "y": 6
+  },
+  {
+   "type": "barrel",
+   "x": 11,
+   "y": 6
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 7,
+   "to": "la_linea",
+   "tx": 13,
+   "ty": 26,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "lal_fishmonger",
+   "sprite": "fisherman_north",
+   "x": 3,
+   "y": 2,
+   "facing": "down",
+   "move": "still",
+   "script": "lal_fishmonger",
+   "name": "Fishmonger"
+  },
+  {
+   "id": "lal_jamon",
+   "sprite": "shopkeeper",
+   "x": 8,
+   "y": 2,
+   "facing": "down",
+   "move": "still",
+   "script": "lal_jamon",
+   "name": "Ham Seller"
+  },
+  {
+   "id": "lal_shopper",
+   "sprite": "villager_4",
+   "x": 9,
+   "y": 5,
+   "facing": "left",
+   "move": "still",
+   "script": "lal_shopper",
+   "name": "Shopper"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  6,
+  6
+ ],
+ "rows": [
+  "xxxxxxxxxxxxx",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|CCCCCCCCC|x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||||||||x",
+  "x|||||D|||||x",
+  "xxxxxxxxxxxxx"
+ ]
+}

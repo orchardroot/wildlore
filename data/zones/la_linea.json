@@ -1,0 +1,666 @@
+{
+ "id": "la_linea",
+ "name": "La Línea de la Concepción",
+ "region": "overseas_la_linea",
+ "kind": "town",
+ "music": "town_city",
+ "weather": {
+  "clear": 36,
+  "sunshine": 38,
+  "fog": 6,
+  "drizzle": 6,
+  "gale": 10,
+  "downpour": 4
+ },
+ "props": [
+  {
+   "type": "building",
+   "style": "andaluz_church",
+   "x": 23,
+   "y": 12,
+   "w": 11,
+   "h": 8,
+   "label": "Iglesia de la Inmaculada"
+  },
+  {
+   "type": "building",
+   "style": "andaluz_house",
+   "x": 37,
+   "y": 14,
+   "w": 6,
+   "h": 4,
+   "label": "Peña Flamenca"
+  },
+  {
+   "type": "building",
+   "style": "andaluz_house",
+   "x": 46,
+   "y": 21,
+   "w": 8,
+   "h": 4,
+   "label": "Frontier Workers' Club"
+  },
+  {
+   "type": "building",
+   "style": "andaluz_house",
+   "x": 10,
+   "y": 21,
+   "w": 6,
+   "h": 5,
+   "label": "Mercado"
+  },
+  {
+   "type": "building",
+   "style": "andaluz_house",
+   "x": 12,
+   "y": 37,
+   "w": 7,
+   "h": 4,
+   "label": "Bar Pilar"
+  },
+  {
+   "type": "building",
+   "style": "andaluz_house",
+   "x": 31,
+   "y": 37,
+   "w": 6,
+   "h": 4,
+   "label": "Sanctuary"
+  },
+  {
+   "type": "building",
+   "style": "andaluz_house",
+   "x": 39,
+   "y": 37,
+   "w": 6,
+   "h": 4,
+   "label": "Ultramarinos"
+  },
+  {
+   "type": "building",
+   "style": "andaluz_house",
+   "x": 10,
+   "y": 13,
+   "w": 6,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "andaluz_house",
+   "x": 46,
+   "y": 13,
+   "w": 6,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "andaluz_house",
+   "x": 54,
+   "y": 13,
+   "w": 6,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "andaluz_house",
+   "x": 55,
+   "y": 21,
+   "w": 6,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "andaluz_house",
+   "x": 20,
+   "y": 37,
+   "w": 5,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "andaluz_house",
+   "x": 47,
+   "y": 37,
+   "w": 6,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "andaluz_house",
+   "x": 54,
+   "y": 37,
+   "w": 6,
+   "h": 4,
+   "show_label": false
+  },
+  {
+   "type": "building",
+   "style": "frontier_post",
+   "x": 30,
+   "y": 44,
+   "w": 6,
+   "h": 3,
+   "label": "Spanish Frontier Post"
+  },
+  {
+   "type": "palm",
+   "x": 17,
+   "y": 21
+  },
+  {
+   "type": "palm",
+   "x": 43,
+   "y": 21
+  },
+  {
+   "type": "palm",
+   "x": 17,
+   "y": 28
+  },
+  {
+   "type": "palm",
+   "x": 43,
+   "y": 28
+  },
+  {
+   "type": "palm",
+   "x": 30,
+   "y": 31
+  },
+  {
+   "type": "palm",
+   "x": 24,
+   "y": 31
+  },
+  {
+   "type": "bench",
+   "x": 20,
+   "y": 24
+  },
+  {
+   "type": "bench",
+   "x": 38,
+   "y": 24
+  },
+  {
+   "type": "lamp_post",
+   "x": 12,
+   "y": 32
+  },
+  {
+   "type": "lamp_post",
+   "x": 22,
+   "y": 32
+  },
+  {
+   "type": "lamp_post",
+   "x": 36,
+   "y": 32
+  },
+  {
+   "type": "lamp_post",
+   "x": 48,
+   "y": 32
+  },
+  {
+   "type": "lamp_post",
+   "x": 58,
+   "y": 32
+  },
+  {
+   "type": "market_stall",
+   "x": 34,
+   "y": 27,
+   "variant": 2
+  },
+  {
+   "type": "market_stall",
+   "x": 36,
+   "y": 27,
+   "variant": 4
+  },
+  {
+   "type": "planter",
+   "x": 22,
+   "y": 21
+  },
+  {
+   "type": "planter",
+   "x": 34,
+   "y": 21
+  }
+ ],
+ "warps": [
+  {
+   "x": 34,
+   "y": 40,
+   "to": "la_linea_sanctuary",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 42,
+   "y": 40,
+   "to": "la_linea_shop",
+   "tx": 4,
+   "ty": 5,
+   "facing": "up"
+  },
+  {
+   "x": 15,
+   "y": 40,
+   "to": "la_linea_tapas",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 13,
+   "y": 25,
+   "to": "la_linea_market",
+   "tx": 6,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 28,
+   "y": 19,
+   "to": "la_linea_church",
+   "tx": 5,
+   "ty": 8,
+   "facing": "up"
+  },
+  {
+   "x": 40,
+   "y": 17,
+   "to": "la_linea_pena",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  },
+  {
+   "x": 50,
+   "y": 24,
+   "to": "la_linea_club",
+   "tx": 5,
+   "ty": 6,
+   "facing": "up"
+  }
+ ],
+ "edges": {
+  "east": {
+   "to": "la_linea_levante",
+   "offset": -16
+  },
+  "south": {
+   "to": "gibraltar",
+   "offset": 0
+  }
+ },
+ "npcs": [
+  {
+   "id": "lal_carmen",
+   "sprite": "commuter",
+   "x": 25,
+   "y": 45,
+   "facing": "right",
+   "move": "still",
+   "script": "lal_carmen",
+   "name": "Carmen"
+  },
+  {
+   "id": "lal_guard",
+   "sprite": "rail_guard",
+   "x": 29,
+   "y": 47,
+   "facing": "left",
+   "move": "still",
+   "script": "lal_guard",
+   "name": "Frontier Officer"
+  },
+  {
+   "id": "lal_driver",
+   "sprite": "rocker",
+   "x": 24,
+   "y": 48,
+   "facing": "right",
+   "move": "still",
+   "trainer": "lal_driver"
+  },
+  {
+   "id": "lal_paco",
+   "sprite": "commuter",
+   "x": 20,
+   "y": 46,
+   "facing": "right",
+   "move": "still",
+   "trainer": "lal_paco"
+  },
+  {
+   "id": "lal_abuela",
+   "sprite": "villager_3",
+   "x": 21,
+   "y": 23,
+   "facing": "down",
+   "move": "still",
+   "script": "lal_abuela",
+   "name": "Abuela"
+  },
+  {
+   "id": "lal_llanito",
+   "sprite": "villager_1",
+   "x": 40,
+   "y": 34,
+   "facing": "down",
+   "move": "still",
+   "script": "lal_llanito",
+   "name": "Gibraltarian Neighbour"
+  },
+  {
+   "id": "lal_fan",
+   "sprite": "jogger",
+   "x": 35,
+   "y": 30,
+   "facing": "left",
+   "move": "still",
+   "trainer": "lal_fan"
+  },
+  {
+   "id": "lal_kid",
+   "sprite": "villager_6",
+   "x": 31,
+   "y": 26,
+   "facing": "down",
+   "move": "still",
+   "script": "lal_kid",
+   "name": "Kid with a Ball"
+  },
+  {
+   "id": "lal_cambio",
+   "sprite": "commuter",
+   "x": 37,
+   "y": 42,
+   "facing": "down",
+   "move": "still",
+   "script": "lal_cambio",
+   "name": "Bureau Clerk"
+  },
+  {
+   "id": "lal_macaque",
+   "sprite": "tour_guide",
+   "x": 18,
+   "y": 31,
+   "facing": "right",
+   "move": "still",
+   "script": "lal_macaque",
+   "name": "Tour Guide"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "chamelet",
+    "min": 95,
+    "max": 97,
+    "weight": 7
+   },
+   {
+    "species": "duneskink",
+    "min": 95,
+    "max": 97,
+    "weight": 10
+   },
+   {
+    "species": "chipgull",
+    "min": 95,
+    "max": 97,
+    "weight": 12
+   },
+   {
+    "species": "kitelet",
+    "min": 95,
+    "max": 97,
+    "weight": 8,
+    "time": [
+     "dawn",
+     "day"
+    ]
+   },
+   {
+    "species": "parakit",
+    "min": 95,
+    "max": 97,
+    "weight": 6
+   },
+   {
+    "species": "binfox",
+    "min": 95,
+    "max": 97,
+    "weight": 6,
+    "time": [
+     "dusk",
+     "night"
+    ]
+   },
+   {
+    "species": "moggle",
+    "min": 95,
+    "max": 97,
+    "weight": 8
+   },
+   {
+    "species": "swiftlet",
+    "min": 95,
+    "max": 97,
+    "weight": 8
+   },
+   {
+    "species": "stoopfalcon",
+    "min": 95,
+    "max": 97,
+    "weight": 4
+   }
+  ],
+  "water": [
+   {
+    "species": "dolphlet",
+    "min": 95,
+    "max": 97,
+    "weight": 14
+   },
+   {
+    "species": "dolfeen",
+    "min": 95,
+    "max": 97,
+    "weight": 10
+   },
+   {
+    "species": "bayrunner",
+    "min": 95,
+    "max": 97,
+    "weight": 8
+   },
+   {
+    "species": "gannetling",
+    "min": 95,
+    "max": 97,
+    "weight": 10
+   },
+   {
+    "species": "pinchkin",
+    "min": 95,
+    "max": 97,
+    "weight": 8
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 29,
+   "y": 36,
+   "text": "GIBRALTAR, straight on through the frontier. PLAYA DE LEVANTE, east along the street. The Rock is the big grey thing you can't miss."
+  },
+  {
+   "x": 31,
+   "y": 21,
+   "plaque": "la_linea_name",
+   "title": "Why 'the Line'",
+   "text": "La Línea takes its name from a line: the Línea de Contravalación, a row of Spanish forts and walls built across the isthmus in the 1730s to hem in British Gibraltar. 'De la Concepción' is for the Immaculate Conception, the town's patron. The forts were blown up in 1810, during the war against Napoleon, so the French could not use them against the Rock."
+  },
+  {
+   "x": 24,
+   "y": 46,
+   "plaque": "la_linea_closure",
+   "title": "The Closed Frontier",
+   "text": "In June 1969 General Franco's government shut the frontier. For thirteen years families on either side could only wave and shout across the fence, and the way to Gibraltar was a ferry to Tangier, in Morocco, and another one back. The gate opened to people on foot in December 1982, and to everything in February 1985."
+  },
+  {
+   "x": 22,
+   "y": 43,
+   "plaque": "la_linea_two_views",
+   "title": "Two Views of the Rock",
+   "text": "Spain ceded Gibraltar to Britain in the Treaty of Utrecht in 1713 and has asked for it back ever since. Gibraltarians voted 12,138 to 44 to stay British in 1967, and turned down shared sovereignty in 2002. Feelings run deep on both sides of the fence. Most people in the queue just want it to move."
+  },
+  {
+   "x": 37,
+   "y": 47,
+   "plaque": "la_linea_workers",
+   "title": "The Frontier Workers",
+   "text": "Every working day, thousands of people walk, ride or drive from La Línea and the towns round the bay to jobs on the Rock: shops, building sites, hotels, care homes and the port. Gibraltar leans on their work, and La Línea's high street leans on their wages. The queue is the town's tide: out at dawn, back at dusk."
+  },
+  {
+   "x": 30,
+   "y": 41,
+   "plaque": "la_linea_money",
+   "title": "Two Moneys, One Queue",
+   "text": "Step over the line and the money changes. Gibraltar runs on its own pounds and sterling, at par; Spain has used the euro since 2002, when it replaced the peseta. Plenty of shops near the frontier will take either, at a rate that suits the shop. Change your money at a bureau and you'll see the difference."
+  },
+  {
+   "x": 36,
+   "y": 48,
+   "plaque": "la_linea_clock",
+   "title": "The Same Clock as the Rock",
+   "text": "Gibraltar keeps Central European Time, like Spain, an hour ahead of London. So the clocks don't change at the frontier. They change at the airport, which confuses everyone who flew in."
+  },
+  {
+   "x": 17,
+   "y": 41,
+   "plaque": "la_linea_tapas",
+   "title": "A Tapa",
+   "text": "In Andalusia a tapa is a small plate that comes with, or next to, a drink. Round the bay look for pescaíto frito, little fried fish, and tortillitas de camarones, crisp fritters full of tiny shrimp, a Cádiz speciality. Tapa means 'lid', and one story says the first ones were slices of bread laid over a glass to keep out the flies."
+  },
+  {
+   "x": 9,
+   "y": 30,
+   "plaque": "la_linea_bay",
+   "title": "One Bay, Two Names",
+   "text": "The Spanish call it the Bahía de Algeciras and the British the Bay of Gibraltar: the same water, two names. Dolphins feed in it all year, and big ships wait at anchor to take on fuel. On a clear day you can see Africa past the end of the Rock."
+  },
+  {
+   "x": 45,
+   "y": 26,
+   "plaque": "la_linea_llanito",
+   "title": "Llanito",
+   "text": "Listen in the queue and you'll hear Llanito, the everyday talk of Gibraltar: Andalusian Spanish and English swapped mid-sentence, with words picked up from the many peoples who settled on the Rock. 'Oye, I'll see you later, ¿vale?' is a perfectly good Llanito goodbye."
+  },
+  {
+   "x": 43,
+   "y": 18,
+   "plaque": "la_linea_flamenco",
+   "title": "Flamenco",
+   "text": "Flamenco is Andalusian: song (cante), guitar (toque) and dance (baile), with handclaps (palmas) keeping the rhythm. Gitano families, the Roma of Spain, shaped it over centuries. UNESCO added it to its list of the world's intangible cultural heritage in 2010. A peña is a club where people who love it meet to listen."
+  },
+  {
+   "x": 23,
+   "y": 49,
+   "plaque": "la_linea_brexit",
+   "title": "After Brexit",
+   "text": "In the 2016 referendum Gibraltar voted 96 per cent to stay in the European Union, more than anywhere else that voted. The UK left anyway, in 2020, and since then Britain, Spain and the EU have had to work out how this frontier should run. Ask anyone in the queue for their view. Then allow an hour."
+  }
+ ],
+ "spawn": [
+  27,
+  48
+ ],
+ "scaled_floor": 95,
+ "stage": "town",
+ "rows": [
+  "PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP",
+  "PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP",
+  "$$$$$$$wssggggggggggggggggggggggggggggggggggggggggggggggggggggPP",
+  "$$$$$$$wssggkkkkkkkkkkkgggggggggggggggggkkkkkkkkkkkkkkkkkkkgggPP",
+  "$$$$$$$wssggkkkkkkkkkkkgggggggggggggggggkkkkkkkkkkkkkkkkkkkgggPP",
+  "$$$$$$$wssggkkkkkkkkkkkgggggggggggggggggkkkkkkkkkkkkkkkkkkkgggPP",
+  "$$$$$$$wssggkkkkkkkkkkkgggggggggggggggggkkkkkkkkkkkkkkkkkkkgggPP",
+  "$$$$$$$wssggkkkkkkkkkkkgggggggggggggggggkkkkkkkkkkkkkkkkkkkgggPP",
+  "$$$$$$$wssggkkkkkkkkkkkgggggggggggggggggkkkkkkkkkkkkkkkkkkkgggPP",
+  "$$$$$$$wssggkkkkkkkkkkkgggggggggggggggggkkkkkkkkkkkkkkkkkkkgggPP",
+  "$$$$$$$wssggkkkkkkkkkkkgggggggggggggggggggggggggggggggggggggggPP",
+  "$$$$$$$wssggggggggggggggggggggggggggggggggggggggggggggggggggggPP",
+  "$$$$$$$wssgggggggggggggBBBBBBBBBBBggggggggggggggggggggggggggggPP",
+  "$$$$$$$wssBBBBBBgggggggBBBBBBBBBBBggggggggggggBBBBBBggBBBBBBggPP",
+  "$$$$$$$wssBBBBBBgggggggBBBBBBBBBBBgggBBBBBBgggBBBBBBggBBBBBBggPP",
+  "$$$$$$$wssBBBBBBgggggggBBBBBBBBBBBgggBBBBBBgggBBBBBBggBBBBBBggPP",
+  "$$$$$$$wssBBBBBBgggggggBBBBBBBBBBBgggBBBBBBgggBBBBBBggBBBBBBggPP",
+  "$$$$$$$wssgggggggggggggBBBBBBBBBBBgggBBBDBBgggggggggggggggggggPP",
+  "$$$$$$$wssgggggggggggggBBBBBBBBBBBggggggggggggggggggggggggggggPP",
+  "$$$$$$$wssgggggggggggggBBBBBDBBBBBggggggggggggggggggggggggggggPP",
+  "$$$$$$$wssggggggcccccccccccccccccccccccccccccgggggggggggggggggPP",
+  "$$$$$$$wssBBBBBBcccccccccccccccccccccccccccccgBBBBBBBBgBBBBBBgPP",
+  "$$$$$$$wssBBBBBBcccccccccccccccccccccccccccccgBBBBBBBBgBBBBBBgPP",
+  "$$$$$$$wssBBBBBBcccccccccccccccccccccccccccccgBBBBBBBBgBBBBBBgPP",
+  "$$$$$$$wssBBBBBBcccccccccccccccccccccccccccccgBBBBDBBBgBBBBBBgPP",
+  "$$$$$$$wssBBBDBBcccccccccccccccccccccccccccccgggggggggggggggggPP",
+  "$$$$$$$wssggggggcccccccccccccccccccccccccccccgggggggggggggggggPP",
+  "$$$$$$$wssggggggcccccccccccccccccccccccccccccgggggggggggggggggPP",
+  "$$$$$$$wssggggggcccccccccccccccccccccccccccccgggggggggggggggggPP",
+  "$$$$$$$wssggggggcccccccccccccccccccccccccccccgggggggggggggggggPP",
+  "$$$$$$$wssgggggggggggggggg===gggggggggggggggggggggggggggggggggPP",
+  "$$$$$$$wssgggggggggggggggg===gggggggggggggggggggggggggggggggggPP",
+  "$$$$$$$wssgggggggggggggggg===gggggggggggggggggggggggggggggggggPP",
+  "$$$$$$$wssaaaaaaaaaaaaaaaa===aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "$$$$$$$wssaaaaaaaaaaaaaaaa===aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "$$$$$$$wssaaaaaaaaaaaaaaaa===aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "$$$$$$$wssgggggggggggggggg===gggggggggggggggggggggggggggggggggPP",
+  "$$$$$$$wssggBBBBBBBgBBBBBg===ggBBBBBBggBBBBBBggBBBBBBgBBBBBBggPP",
+  "$$$$$$$wssggBBBBBBBgBBBBBg===ggBBBBBBggBBBBBBggBBBBBBgBBBBBBggPP",
+  "$$$$$$$wssggBBBBBBBgBBBBBg===ggBBBBBBggBBBBBBggBBBBBBgBBBBBBggPP",
+  "$$$$$$$wssggBBBDBBBgBBBBBg===ggBBBDBBggBBBDBBggBBBBBBgBBBBBBggPP",
+  "$$$$$$$wssgggggggggggggggg===gggggggggggggggggggggggggggggggggPP",
+  "$$$$$$$wssggggggggcccccccc===gggggggggggggggggggggggggggggggggPP",
+  "$$$$$$$wssggggggggcccccccc===gggggggggggggggkkkkkkkkkkkkkkkkggPP",
+  "$$$$$$$wssgkkkkkkgcccccccc===gBBBBBBggggggggkkkkkkkkkkkkkkkkggPP",
+  "$$$$$$$wssgkkkkkkgcccccccc===gBBBBBBggggggggkkkkkkkkkkkkkkkkggPP",
+  "$$$$$$$wssgkkkkkkgcccccccc===gBBBBBBggggggggkkkkkkkkkkkkkkkkggPP",
+  "$$$$$$$wssgkkkkkkgcccccccc===gggggggggggggggkkkkkkkkkkkkkkkkggPP",
+  "$$$$$$$wssgkkkkkkggggggggg===gggggggggggggggkkkkkkkkkkkkkkkkggPP",
+  "$$$$$$$wssgggggggggggggggg===gggggggggggggggggggggggggggggggggPP",
+  "$$$$$$$FFFFFFFFFFFFFFFFFFF===FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFPP",
+  "$$$$$$$FFFFFFFFFFFFFFFFFFF===FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFPP"
+ ],
+ "legend_extra": {
+  "g": {
+   "tile": "grass",
+   "colour": "#b9ad6a"
+  },
+  "k": {
+   "tile": "tall_grass",
+   "colour": "#9c9452"
+  },
+  "c": {
+   "tile": "cobbles",
+   "colour": "#e4d9bd"
+  },
+  "a": {
+   "tile": "path",
+   "colour": "#eadfc2"
+  }
+ }
+}

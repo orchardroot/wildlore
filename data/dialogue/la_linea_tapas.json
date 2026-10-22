@@ -1,0 +1,91 @@
+{
+ "lal_pilar": [
+  {
+   "do": "if",
+   "flag": "q_overseas_la_linea_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Pilar",
+     "text": "Carmen rang. She says you're a treasure. I say she should write her lunch on her hand."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_overseas_la_linea_1",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_overseas_la_linea_2",
+       "then": [
+        {
+         "do": "say",
+         "who": "Pilar",
+         "text": "Go on, before it gets cold! And if that van man is still shouting, you have my permission to shout back."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Pilar",
+         "text": "Carmen forgot her lunch again? Of course she did. Here: tortilla, bread and an orange. She's thirty-eight and I still pack it."
+        },
+        {
+         "do": "say",
+         "who": "Pilar",
+         "text": "When they shut the frontier in 1969 my mother lost her job on the Rock overnight. Thousands did. So when it opened again, I said: my children will cross it every day, and they'll have a good lunch doing it."
+        },
+        {
+         "do": "say",
+         "who": "Pilar",
+         "text": "Mind the van driver at the back of the queue. He's been there since dawn and he's in a mood. You may have to settle it the usual way."
+        },
+        {
+         "do": "set",
+         "flag": "q_overseas_la_linea_2"
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Pilar",
+       "text": "Buenas. Sit down, have a caña. That's a small beer, the small one, because it's hot and you're not on holiday. Or you are. Either way."
+      },
+      {
+       "do": "say",
+       "who": "Pilar",
+       "text": "The tortillitas are from my grandmother's recipe. Chickpea flour, shrimp, a little onion and parsley. And a fryer older than me."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "lal_waiter": [
+  {
+   "do": "say",
+   "who": "Camarero",
+   "text": "If you want to order like a local: 'Una caña, por favor', a small beer, please. 'La cuenta, por favor', the bill, please. 'Gracias', thanks."
+  },
+  {
+   "do": "say",
+   "who": "Camarero",
+   "text": "And 'buenas'. Round here we drop the rest of 'buenos días' and just say 'buenas'. It saves energy for the important things, like lunch."
+  }
+ ],
+ "lal_regular": [
+  {
+   "do": "say",
+   "who": "Regular",
+   "text": "Lunch here is at three. Dinner is at ten. Tea is at nobody-knows. You'll adjust."
+  },
+  {
+   "do": "say",
+   "who": "Regular",
+   "text": "In summer the whole town comes out after dark, when it's cool. Children on the plaza at midnight, grandmothers on chairs in the street. It's the best part of the day."
+  }
+ ]
+}

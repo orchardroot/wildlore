@@ -27,6 +27,7 @@ const CURRENCIES := {
 	"shp": {"symbol": "£", "name": "Saint Helena pounds", "list": 1.0, "tag": "St Helena"},
 	"jep": {"symbol": "£", "name": "Jersey pounds", "list": 1.0, "tag": "Jersey"},
 	"ggp": {"symbol": "£", "name": "Guernsey pounds", "list": 1.0, "tag": "Guernsey"},
+	"try": {"symbol": "TL ", "name": "Turkish lira", "list": 55.0},
 }
 ## Pounds at par with sterling: a fixed 1:1, a small fee at the bureau. Their shops take sterling at par, but the mainland won't take their notes.
 const PAR_POUNDS := ["gip", "fkp", "shp", "jep", "ggp"]
@@ -34,6 +35,7 @@ const PAR_POUNDS := ["gip", "fkp", "shp", "jep", "ggp"]
 ## `overseas_<territory>`; matching is by substring so every spelling of a territory id works. Tristan da Cunha,
 ## South Georgia and the British Antarctic Territory use sterling, so they are not listed.
 const REGION_RULES := [
+	["north_cyprus", "try"], ["la_linea", "eur"], ["cyprus", "eur"],  # 4.5: across the frontier from Gibraltar, and Nicosia both sides
 	["gibraltar", "gip"], ["akrotiri", "eur"], ["dhekelia", "eur"], ["sovereign_base", "eur"],
 	["falkland", "fkp"], ["stanley", "fkp"], ["helena", "shp"], ["ascension", "shp"], ["jamestown", "shp"],
 	["tristan", "gbp"], ["south_georgia", "gbp"], ["sandwich", "gbp"], ["antarctic", "gbp"], ["bat", "gbp"],

@@ -1,0 +1,96 @@
+{
+ "id": "nicosia_selimiye",
+ "name": "Selimiye Mosque",
+ "region": "",
+ "kind": "interior",
+ "music": "",
+ "weather": {},
+ "props": [
+  {
+   "type": "rug",
+   "x": 4,
+   "y": 4,
+   "variant": 2
+  },
+  {
+   "type": "rug",
+   "x": 8,
+   "y": 4,
+   "variant": 2
+  },
+  {
+   "type": "rug",
+   "x": 4,
+   "y": 6,
+   "variant": 1
+  },
+  {
+   "type": "rug",
+   "x": 8,
+   "y": 6,
+   "variant": 1
+  },
+  {
+   "type": "candelabra",
+   "x": 2,
+   "y": 2
+  },
+  {
+   "type": "candelabra",
+   "x": 12,
+   "y": 2
+  }
+ ],
+ "warps": [
+  {
+   "x": 7,
+   "y": 9,
+   "to": "nicosia_north",
+   "tx": 30,
+   "ty": 12,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "nn_caretaker",
+   "sprite": "pilgrim",
+   "x": 7,
+   "y": 2,
+   "facing": "down",
+   "move": "still",
+   "script": "nn_caretaker",
+   "name": "Caretaker"
+  },
+  {
+   "id": "nn_tourist",
+   "sprite": "festival_goer",
+   "x": 11,
+   "y": 7,
+   "facing": "up",
+   "move": "still",
+   "script": "nn_tourist",
+   "name": "Visitor"
+  }
+ ],
+ "encounters": {},
+ "signs": [],
+ "spawn": [
+  7,
+  8
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxxx",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x|||||||||||||x",
+  "x||||||D||||||x",
+  "xxxxxxxxxxxxxxx"
+ ]
+}

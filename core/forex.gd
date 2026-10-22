@@ -25,6 +25,7 @@ const STORY := {"visited_dublin": -0.012, "badge_kin": -0.01, "ch8_vane": -0.02,
 const WALKS := {
 	"usd": {"mean": 1.33, "sd": 0.0048, "low": 1.16, "high": 1.49},
 	"nzd": {"mean": 2.25, "sd": 0.0058, "low": 2.02, "high": 2.52},
+	"try": {"mean": 55.0, "sd": 0.008, "low": 46.0, "high": 66.0},  # the Turkish lira, in the north of Cyprus
 }
 ## Pegged currencies: units of the anchor per unit of this currency's own, as units per anchor
 ## (1 KYD = 1.20 USD; 2.70 XCD to the USD; BMD 1:1). Pounds at par are 1.0 per sterling.

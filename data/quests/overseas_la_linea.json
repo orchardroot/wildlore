@@ -1,0 +1,32 @@
+{
+ "quests": [
+  {
+   "id": "overseas_la_linea_lunch",
+   "title": "Lunch at the Frontier",
+   "region": "overseas_la_linea",
+   "town": "la_linea",
+   "giver": "Carmen",
+   "summary": "Carmen has crossed to work on the Rock for nineteen years, and today she's left her lunch at her mother's bar.",
+   "start_flag": "q_overseas_la_linea_started",
+   "steps": [
+    {
+     "flag": "q_overseas_la_linea_1",
+     "text": "Fetch Carmen's lunch from her mother, Pilar, at Bar Pilar in La Línea.",
+     "zone": "la_linea_tapas"
+    },
+    {
+     "flag": "q_overseas_la_linea_2",
+     "text": "Take it back to Carmen in the frontier queue, and deal with the van driver who's in a mood.",
+     "zone": "la_linea"
+    },
+    {
+     "flag": "q_overseas_la_linea_3",
+     "text": "Hand Carmen her lunch.",
+     "zone": "la_linea"
+    }
+   ],
+   "done_flag": "q_overseas_la_linea_done",
+   "reward": "Tortillitas de Camarones, Churros con Chocolate and standing with the Overseas Territories."
+  }
+ ]
+}

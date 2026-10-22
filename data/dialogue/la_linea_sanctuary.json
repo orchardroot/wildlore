@@ -1,0 +1,63 @@
+{
+ "nurse": [
+  {
+   "do": "say",
+   "who": "Nurse",
+   "text": "Hola, buenas. La Línea Sanctuary. If it's the sun, sit in the shade first; if it's the queue, there's no cure."
+  },
+  {
+   "do": "choice",
+   "text": "What can we do for you?",
+   "options": [
+    "Heal my team",
+    "Open the Ark",
+    "Just looking"
+   ],
+   "set": "_nurse_choice"
+  },
+  {
+   "do": "if",
+   "flag": "_nurse_choice",
+   "eq": 0,
+   "then": [
+    {
+     "do": "say",
+     "who": "Nurse",
+     "text": "Pop them down here. We get the whole bay: Gibraltar, Algeciras, the odd lost tourist from Marbella."
+    },
+    {
+     "do": "heal"
+    },
+    {
+     "do": "say",
+     "who": "Nurse",
+     "text": "Todo bien, all done. Drink water, wear a hat, and don't eat churros on an empty stomach. Actually, do."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "_nurse_choice",
+     "eq": 1,
+     "then": [
+      {
+       "do": "say",
+       "who": "Nurse",
+       "text": "The Ark's through the back. It's cooler there, which is why the doctor is always in it."
+      },
+      {
+       "do": "ark"
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Nurse",
+       "text": "Tranquilo. No rush. Nothing in Andalusia happens before the coffee."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
