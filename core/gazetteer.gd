@@ -53,8 +53,8 @@ static func build(zones: Array, index: Dictionary) -> Array:
 				town = zid
 			out.append({"id": id, "title": str(s.get("title", "")), "text": str(s.get("text", "")), "zone": zid,
 				"x": int(s.get("x", 0)), "y": int(s.get("y", 0)), "town": town, "town_name": str(names.get(town, town.capitalize())),
-				"nation": Standing.nation_for_zone(town), "people": str(s.get("people", ""))})  # people: a These Isles theme
-				"nation": Standing.nation_for_zone(town), "theme": str(s.get("theme", ""))})  # "arts": Poets' Corner (4.5)
+				"nation": Standing.nation_for_zone(town), "people": str(s.get("people", "")),  # people: a These Isles theme
+				"theme": str(s.get("theme", ""))})  # "arts": Poets' Corner (4.5)
 	return out
 
 static func flag_key(id: String) -> String:
