@@ -244,8 +244,10 @@ func _show_place(t: Dictionary) -> void:
 func _open(i: int) -> void:
 	_place_at = i
 	if _rows[i].has("isles"):
-	if _rows[i].has("isles_work"):
 		_open_isles()
+		return
+	if _rows[i].has("isles_work"):
+		_open_isles_work()
 		return
 	_town = _rows[i]
 	UIKit.clear(_list_col)
@@ -328,8 +330,9 @@ func open_town(town: String) -> void:
 			if str(_themes[k].id) == th:
 				UIKit.focus_later(_buttons[k])
 				_show_theme(_themes[k])
+		return
 	if town.begins_with("isles_work"):  # "isles_work[:<topic id>]"
-		_open_isles(town.get_slice(":", 1))
+		_open_isles_work(town.get_slice(":", 1))
 		return
 	for i in _rows.size():
 		if str(_rows[i].town) == town:
@@ -455,7 +458,7 @@ func _isles_row(h: HBoxContainer) -> void:
 	h.add_child(n)
 
 ## The page opened: its topics down the list, the one focused on the right.
-func _open_isles(focus_id := "") -> void:
+func _open_isles_work(focus_id := "") -> void:
 	_place_at = 0
 	_town = {"isles_work": true, "name": IslesWorkView.NAME}
 	UIKit.clear(_list_col)
