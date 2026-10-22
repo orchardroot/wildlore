@@ -1,5 +1,8 @@
 # Wildlore: These Isles 4.5, wave 45: "Learn as you go"
 
+Adding new locations and features is welcome wherever they teach something, including places outside Britain and
+Ireland (session L).
+
 The owner's direction (2026-10-22): the game has grown from "a Pokémon clone" into a Pokémon-battle-inspired RPG of
 Britain, Ireland and the Overseas Territories. Pokémon-style play draws people in; they should leave having learnt
 about the diversity of the people of these isles, their history, their languages (above all **Welsh** and **Gaelic**,
@@ -130,6 +133,18 @@ counters. Session D also writes the Welsh (cy) lessons.
   mental health (a quiet NPC who talks about a bad week; Samaritans 116 123 across the UK and Ireland), grief handled
   gently, asking for help, cooking on a budget. Each one earns a small reward and a line in a "Things worth knowing"
   Almanac page.
+
+- **L. These isles abroad (Opus).** The owner welcomes new places, including outside Britain and Ireland, where they
+  teach. Using the 3.3 Overseas travel system (flights from the RAF base, ferries; data/overseas, core/overseas.gd,
+  data/timezones.json), add 4 to 6 compact destinations, each a small town plus one route or interior, with
+  creatures, NPCs, plaques and a short quest, chosen for what they teach about the peoples of these isles:
+  **Y Wladfa** (the Welsh in Patagonia, Argentina, since the Mimosa in 1865; Welsh still spoken in Gaiman and
+  Trelew), **Cape Breton, Nova Scotia** (Scottish Gaelic in Canada, the Highland Clearances), **Boston or Ellis
+  Island, New York** (Irish emigration and the Famine), **Appalachia** (the Scots-Irish/Ulster Scots in America,
+  fiddle music), **Brittany** (Breton, a Celtic cousin of Welsh and Cornish), and optionally **Kingston, Jamaica**
+  (the Windrush generation's home, coordinate with session G). Local time zones, local currency (the Wallet's
+  currency system), and the right language hooks (Welsh in Gaiman uses session D's `cy` data). Validator, tests,
+  screenshots of each.
 
 ## Finish (each session)
 Full tools/test.sh green, screenshots of every new or changed screen read back and fitting 1280x720, a short report
