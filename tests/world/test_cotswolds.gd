@@ -20,7 +20,8 @@ func test_joins_birmingham_east_and_edges_mirror() -> void:
 	assert_eq(str(cw.edges.south.to), "brize_norton")
 	var ox := ZoneData.load_id("oxford")
 	assert_eq(str(ox.edges.west.to), "cotswolds")
-	assert_eq(ox.edges.size(), 1)
+	assert_eq(str(ox.edges.east.to), "bletchley_park", "4.5: the east road out of Oxford leads to Bletchley Park")
+	assert_eq(ox.edges.size(), 2)
 	for y in [25, 26, 27]:
 		assert_true(brum.walkable(Vector2i(brum.width - 1, y)), "Birmingham's east gate row %d is open" % y)
 		assert_true(cw.walkable(Vector2i(0, y)), "the Cotswold road starts at row %d" % y)

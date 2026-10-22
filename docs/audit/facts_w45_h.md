@@ -20,3 +20,7 @@ Nothing here is invented; these are the lines I'd most like checked against a so
    because Newbridge, Lismore and Dungarvan are not in the game.
 8. **Dr Bethan Howells, Dr Rao, Prof. Brennan** are fictional; none is presented as working for DeepMind or any real
    lab.
+9. **Jocelyn Bell Burnell's birthplace** (plaque `ln_bell_burnell`): sources differ between Lurgan and Belfast, so the
+   plaque says she "grew up in Lurgan" (certain) rather than naming a birthplace. The Timeline says "from Lurgan".
+10. **Darwin on the Timeline** (entry `origin_of_species`, found by the existing Shrewsbury statue plaque): On the
+    Origin of Species was published on 24 November 1859; the line says "November 1859".
