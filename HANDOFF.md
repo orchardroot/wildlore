@@ -16,7 +16,7 @@
 - FPS (this loaded iMac, Liverpool): base medium 79 -> 75, base high 63 -> 59; interior 186 -> 176; Low 147.
 
 ## Left
-- Push and watch CI (full suite runs there, not locally).
+- Nothing: CI green on 61c1b9dd (2425 passed, 0 failed, validate 0 errors). Open questions in the final report.
 
 ## Gotchas
 - zsh doesn't word-split "$S": pass shot args literally. Shot delay 25 under load (12 caught the title).
