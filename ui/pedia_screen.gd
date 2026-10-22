@@ -390,7 +390,13 @@ static func evolution_line(sp: Dictionary) -> String:
 	var item := ""
 	if evo.has("item") and Game.items != null:
 		item = str(Game.items.get_item(str(evo.item)).get("name", ""))
-	return MenuLogic.evolution_text(evo, target, item)
+	var zone_names := {}
+	if evo.has("zone"):
+		for z in (evo.zone if evo.zone is Array else [evo.zone]):
+			var zd = JsonUtil.read("%s/%s.json" % [ZONE_DIR, str(z)])
+			if zd is Dictionary and zd.has("name"):
+				zone_names[str(z)] = str(zd.name)
+	return MenuLogic.evolution_text(evo, target, item, zone_names)
 
 ## species id -> "Zone (time, weather)" labels, scanned once from data/zones/*.json.
 static func habitat_index() -> Dictionary:

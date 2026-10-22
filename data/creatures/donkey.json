@@ -61,7 +61,11 @@
           "bank_holiday_sun"
         ]
       ],
-      "evolves": null,
+      "evolves": {
+        "to": "sandtrot",
+        "level": 25,
+        "bond": 220
+      },
       "habitat": [],
       "appendix": true,
       "dex": {
@@ -69,6 +73,91 @@
         "fact": "Donkeys have 62 chromosomes and horses 64, so a mule gets 63, an odd number that stops its chromosomes pairing properly. That is why mules are almost always sterile."
       },
       "sprite": "donkey"
+    },
+    {
+      "id": "sandtrot",
+      "name": "Sandtrot",
+      "types": [
+        "kin",
+        "hearth"
+      ],
+      "base": {
+        "hp": 86,
+        "atk": 76,
+        "def": 84,
+        "lore": 52,
+        "ward": 73,
+        "spd": 73
+      },
+      "growth": "medium",
+      "catch_rate": 75,
+      "base_xp": 145,
+      "learnset": [
+        [
+          1,
+          "scrap"
+        ],
+        [
+          1,
+          "glare"
+        ],
+        [
+          5,
+          "hunker"
+        ],
+        [
+          9,
+          "kindle"
+        ],
+        [
+          14,
+          "barge"
+        ],
+        [
+          19,
+          "put_the_kettle_on"
+        ],
+        [
+          24,
+          "pantomime_horse"
+        ],
+        [
+          30,
+          "hob_sizzle"
+        ],
+        [
+          36,
+          "mums_look"
+        ],
+        [
+          42,
+          "bank_holiday_sun"
+        ],
+        [
+          25,
+          "scrum_push"
+        ],
+        [
+          29,
+          "aga_roast"
+        ],
+        [
+          33,
+          "sheepdog_herd"
+        ],
+        [
+          40,
+          "gaelic_puck_out"
+        ]
+      ],
+      "evolves": null,
+      "habitat": [],
+      "appendix": true,
+      "dex": {
+        "text": "Has done twenty summers on the sand and knows every child by weight. Walks at exactly one speed, which is its own.",
+        "fact": "Seaside donkey rides go back to Victorian times, and the Donkey Sanctuary in Sidmouth, Devon, was founded in 1969 to care for donkeys in need."
+      },
+      "sprite": "sandtrot"
     }
   ]
 }

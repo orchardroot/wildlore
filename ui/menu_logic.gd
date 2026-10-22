@@ -134,7 +134,7 @@ const WEATHER_WORDS := {"clear": "under clear skies", "sunshine": "in sunshine",
 
 ## "Evolves into Sootwing at Lv 20, at night" from a species' `evolves`. An empty target_name (not seen yet)
 ## leaves the name out; item_name is the evolution item's display name.
-static func evolution_text(evo, target_name: String, item_name := "") -> String:
+static func evolution_text(evo, target_name: String, item_name := "", zone_names = null) -> String:
 	if not (evo is Dictionary) or not evo.has("to"):
 		return ""
 	var s := "Evolves" + (" into " + target_name if target_name != "" else "")
@@ -148,6 +148,16 @@ static func evolution_text(evo, target_name: String, item_name := "") -> String:
 		extra.append(TIME_WORDS.get(str(evo.time), "at " + str(evo.time)))
 	if evo.has("weather"):
 		extra.append(WEATHER_WORDS.get(str(evo.weather), "in " + str(evo.weather)))
+	if evo.has("season"):
+		extra.append("in " + str(evo.season))
+	if evo.has("zone"):
+		var zs: Array = evo.zone if evo.zone is Array else [evo.zone]
+		var names := []
+		for z in zs:
+			names.append(zone_names.get(str(z), str(z).capitalize().replace("_", " ")) if zone_names != null else str(z).capitalize().replace("_", " "))
+		extra.append("in " + " or ".join(names))
+	if evo.has("flag"):
+		extra.append(str(evo.get("flag_text", "once you have earned it")))
 	if evo.has("friendship"):
 		extra.append("once it trusts you")
 	if not extra.is_empty():

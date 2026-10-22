@@ -61,7 +61,11 @@
           "rush_hour"
         ]
       ],
-      "evolves": null,
+      "evolves": {
+        "to": "mouser",
+        "level": 22,
+        "bond": 220
+      },
       "habitat": [],
       "appendix": true,
       "dex": {
@@ -69,6 +73,91 @@
         "fact": "The domestic cat and the European wildcat are close enough to interbreed, and decades of crossing with pet and feral cats have left few Scottish wildcats that are genetically pure."
       },
       "sprite": "moggle"
+    },
+    {
+      "id": "mouser",
+      "name": "Mouser",
+      "types": [
+        "urban",
+        "kin"
+      ],
+      "base": {
+        "hp": 78,
+        "atk": 81,
+        "def": 70,
+        "lore": 63,
+        "ward": 68,
+        "spd": 91
+      },
+      "growth": "medium",
+      "catch_rate": 75,
+      "base_xp": 139,
+      "learnset": [
+        [
+          1,
+          "scrap"
+        ],
+        [
+          1,
+          "quick_nip"
+        ],
+        [
+          5,
+          "glare"
+        ],
+        [
+          9,
+          "bin_lid_bash"
+        ],
+        [
+          14,
+          "shadow_nip"
+        ],
+        [
+          19,
+          "chip_shop_sizzle"
+        ],
+        [
+          24,
+          "mums_look"
+        ],
+        [
+          30,
+          "kerb_crunch"
+        ],
+        [
+          36,
+          "moonlit_pounce"
+        ],
+        [
+          42,
+          "rush_hour"
+        ],
+        [
+          22,
+          "tube_rush"
+        ],
+        [
+          26,
+          "gridlock"
+        ],
+        [
+          30,
+          "barge"
+        ],
+        [
+          37,
+          "sheepdog_herd"
+        ]
+      ],
+      "evolves": null,
+      "habitat": [],
+      "appendix": true,
+      "dex": {
+        "text": "Has been promoted from the bins to the building. Now keeps the office clear of mice, and the sofa clear of everyone else.",
+        "fact": "Chief Mouser to the Cabinet Office is a real post at 10 Downing Street, and Larry the cat has held it since 2011."
+      },
+      "sprite": "mouser"
     }
   ]
 }

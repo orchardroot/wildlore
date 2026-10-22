@@ -73,7 +73,12 @@
           "tylwyth_teg_tease"
         ]
       ],
-      "evolves": null,
+      "evolves": {
+        "to": "gruagach",
+        "level": 32,
+        "flag": "lang_cert_gd_1",
+        "flag_text": "once you have passed a Gaelic lesson"
+      },
       "habitat": [
         "inverness"
       ],
@@ -82,6 +87,103 @@
         "fact": "In Scottish folklore, a brownie is a helpful house spirit that does chores at night, and gifts of clothing are said to drive it off."
       },
       "sprite": "brownie"
+    },
+    {
+      "id": "gruagach",
+      "name": "Gruagach",
+      "types": [
+        "fae",
+        "kin"
+      ],
+      "base": {
+        "hp": 88,
+        "atk": 66,
+        "def": 86,
+        "lore": 93,
+        "ward": 97,
+        "spd": 73
+      },
+      "growth": "medium",
+      "catch_rate": 25,
+      "base_xp": 290,
+      "learnset": [
+        [
+          1,
+          "brownies_helping_hand"
+        ],
+        [
+          1,
+          "sidhe_shimmer"
+        ],
+        [
+          5,
+          "hobs_mischief"
+        ],
+        [
+          9,
+          "snug_as_a_bug"
+        ],
+        [
+          17,
+          "glamour"
+        ],
+        [
+          20,
+          "put_the_kettle_on"
+        ],
+        [
+          21,
+          "changeling_swap"
+        ],
+        [
+          26,
+          "bewitching_hour"
+        ],
+        [
+          31,
+          "morris_caper"
+        ],
+        [
+          37,
+          "ceilidh_stomp"
+        ],
+        [
+          43,
+          "fairy_ring"
+        ],
+        [
+          50,
+          "pucks_prank"
+        ],
+        [
+          58,
+          "tylwyth_teg_tease"
+        ],
+        [
+          32,
+          "changeling_charm"
+        ],
+        [
+          36,
+          "barge"
+        ],
+        [
+          40,
+          "bad_luck_bump"
+        ],
+        [
+          47,
+          "fog_lure"
+        ]
+      ],
+      "evolves": null,
+      "habitat": [],
+      "appendix": true,
+      "dex": {
+        "text": "Long hair, longer memory, and a saucer of milk expected on the stone every evening. The cows thrive. Nobody asks how.",
+        "fact": "In the Highlands and Islands a gruagach was a household spirit given milk, poured over a flat stone, in return for looking after the cattle."
+      },
+      "sprite": "gruagach"
     }
   ]
 }

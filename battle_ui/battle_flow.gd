@@ -50,7 +50,8 @@ func _init(p_data: GameStateData, p_dex: Dex, p_moves: MoveDB, p_chart: TypeChar
 	_no_run = bool(opts.get("no_run", false))
 	_exhibition = bool(opts.get("exhibition", false))
 	_no_items = bool(opts.get("no_items", false))
-	_evo_ctx = {"weather": str(opts.get("weather", "clear")), "time": str(opts.get("time", "day"))}
+	_evo_ctx = {"weather": str(opts.get("weather", "clear")), "time": str(opts.get("time", "day")),
+		"season": Calendar.season_today(), "zone": data.zone_id, "flags": data.flags}
 	ai_tier = str(opts.get("ai", "wild"))
 	bag = Bag.new(data.bag)
 	_known = data.seen.duplicate()
