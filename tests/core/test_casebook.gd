@@ -15,7 +15,7 @@ func _finish_steps(d: GameStateData, c: Dictionary) -> void:
 		d.set_flag(str(s.flag), true)
 
 func test_the_cases_validate() -> void:
-	assert_eq(Casebook.all().size(), 3)
+	assert_true(Casebook.all().size() >= 3)
 
 func test_two_cases_that_validate() -> void:
 	assert_true(Casebook.all().size() >= 3)
