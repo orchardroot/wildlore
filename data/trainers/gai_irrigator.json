@@ -1,0 +1,36 @@
+{
+ "id": "gai_irrigator",
+ "name": "Canal Keeper Dafydd",
+ "class": "Irrigator",
+ "sprite": "fisher",
+ "party": [
+  {
+   "species": "parrlet",
+   "level": 95
+  },
+  {
+   "species": "bradan",
+   "level": 96
+  },
+  {
+   "species": "stalklet",
+   "level": 95
+  },
+  {
+   "species": "heronarch",
+   "level": 96
+  }
+ ],
+ "ai": "trainer",
+ "money": 5600,
+ "intro": [
+  {
+   "do": "say",
+   "who": "Canal Keeper Dafydd",
+   "text": "Every gate on this canal has a family's name on it. I open them in turn and listen to everyone complain about the order."
+  }
+ ],
+ "win": "Fair enough. Mind the canal on your way past.",
+ "after": "The canals still water the lower Chubut valley. The river is fed by snowmelt from the Andes, hundreds of kilometres to the west.",
+ "scaled_floor": 95
+}

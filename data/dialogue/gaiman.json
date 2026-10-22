@@ -1,0 +1,227 @@
+{
+ "gai_abuela": [
+  {
+   "do": "say",
+   "who": "Nain Elena",
+   "text": "Bore da! Good morning. My great-grandfather came out on the Mimosa. My mother spoke Welsh at home, Spanish at school, and both at the dinner table, loudly."
+  },
+  {
+   "do": "say",
+   "who": "Nain Elena",
+   "text": "Nain, we say, for grandmother, like in the north of Wales. My grandchildren call me abuela, and I answer to both."
+  }
+ ],
+ "gai_gaucho": [
+  {
+   "do": "say",
+   "who": "Rhys the Farmer",
+   "text": "Rhys Hughes, cattle and alfalfa. The Welsh brought the plough, the gauchos brought the horse, and we kept the lot. I drink mate in the morning and tea in the afternoon. Both are traditions, and both are very serious."
+  },
+  {
+   "do": "say",
+   "who": "Rhys the Farmer",
+   "text": "Mate is a bitter herb tea drunk from a gourd through a metal straw, passed round. You don't say thank you until you've had enough, or they'll keep filling it."
+  }
+ ],
+ "gai_teacher": [
+  {
+   "do": "say",
+   "who": "Welsh Teacher",
+   "text": "Shwmae! I'm out from Aberystwyth for the year, teaching Welsh. My pupils' Welsh is better than my Spanish. Their questions are harder too: why does cath become gath? Because it does, cariad."
+  },
+  {
+   "do": "say",
+   "who": "Welsh Teacher",
+   "text": "Here's one to take home: diolch means thanks. Diolch yn fawr, thanks very much. You'll hear it in every tea house in town, usually followed by more cake."
+  },
+  {
+   "do": "if",
+   "flag": "q_abroad_gaiman_tea_started",
+   "then": [
+    {
+     "do": "set",
+     "flag": "q_abroad_gaiman_tea_3",
+     "value": true
+    }
+   ]
+  }
+ ],
+ "gai_craftswoman": [
+  {
+   "do": "say",
+   "who": "Tehuelche Weaver",
+   "text": "My family is Tehuelche. Our people lived here long before the ships came. When the Welsh arrived, my ancestors traded with them, guanaco skins for bread, and showed them how to hunt."
+  },
+  {
+   "do": "say",
+   "who": "Tehuelche Weaver",
+   "text": "People like to tell it as a friendship, and it was, for a while. Then the army came south in the 1870s and 1880s and our people lost their land. Remember both stories. They're both true."
+  },
+  {
+   "do": "if",
+   "flag": "q_abroad_gaiman_tea_started",
+   "then": [
+    {
+     "do": "set",
+     "flag": "q_abroad_gaiman_tea_2",
+     "value": true
+    }
+   ]
+  }
+ ],
+ "gai_kid": [
+  {
+   "do": "say",
+   "who": "Schoolboy",
+   "text": "Hola! Shwmae! I learn Welsh at school. My nain says if I learn enough Welsh I can go to Wales and nobody there will understand my accent. I can't wait."
+  }
+ ],
+ "gai_rhea": [
+  {
+   "do": "say",
+   "who": "Choiquet",
+   "text": "A young rhea eyes you from the scrub, decides you are not a threat, and runs off at an angle that suggests it has somewhere very important to be."
+  }
+ ],
+ "gaiman_return": [
+  {
+   "do": "say",
+   "who": "Remis Driver",
+   "text": "A remis is a minicab. I'll run you to Trelew for the airport: Buenos Aires, then the long flight to London. Not the RAF, no. The RAF doesn't fly to Argentina, for reasons you can read about in any history book."
+  },
+  {
+   "do": "overseas_home",
+   "territory": "patagonia"
+  }
+ ],
+ "gai_legend_talk": [
+  {
+   "do": "if",
+   "flag": "q_abroad_gaiman_tea_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Prifardd Eluned",
+     "text": "Our friend from the old country! Come back for the eisteddfod. Bring a choir."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_abroad_gaiman_tea_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_abroad_gaiman_tea_1",
+       "then": [
+        {
+         "do": "if",
+         "flag": "q_abroad_gaiman_tea_2",
+         "then": [
+          {
+           "do": "if",
+           "flag": "q_abroad_gaiman_tea_3",
+           "then": [
+            {
+             "do": "when",
+             "cond": "party_has_choiquet",
+             "then": [
+              {
+               "do": "say",
+               "who": "Prifardd Eluned",
+               "text": "A choiquet! They're quicker than they look, and they look very quick. Now then. The chair goes to whoever earns it."
+              },
+              {
+               "do": "set",
+               "flag": "q_abroad_gaiman_tea_4",
+               "value": true
+              },
+              {
+               "do": "battle",
+               "trainer": "gai_legend",
+               "intro": true
+              },
+              {
+               "do": "say",
+               "who": "Prifardd Eluned",
+               "text": "Well sung, as it were. Here: torta negra from Gwen, a mate gourd from Rhys, and the valley's thanks. Diolch yn fawr."
+              },
+              {
+               "do": "give_item",
+               "item": "torta_negra",
+               "n": 3
+              },
+              {
+               "do": "give_item",
+               "item": "mate_gourd",
+               "n": 1
+              },
+              {
+               "do": "give_item",
+               "item": "gaiman_shawl",
+               "n": 1
+              },
+              {
+               "do": "standing",
+               "nation": "abroad",
+               "amount": 3
+              },
+              {
+               "do": "set",
+               "flag": "q_abroad_gaiman_tea_done",
+               "value": true
+              }
+             ],
+             "else": [
+              {
+               "do": "say",
+               "who": "Prifardd Eluned",
+               "text": "Now catch a choiquet, a young rhea, out on the steppe north of town, and bring it to show me."
+              }
+             ]
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Prifardd Eluned",
+             "text": "Gwen at the tea house wants the whole story before she'll cut her best torta negra for you: the Mimosa from the Museum Keeper, the Tehuelche side from the weaver by the fields, and diolch from the teacher. Then a rhea, to show me you've been out on the steppe."
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Prifardd Eluned",
+           "text": "Gwen at the tea house wants the whole story before she'll cut her best torta negra for you: the Mimosa from the Museum Keeper, the Tehuelche side from the weaver by the fields, and diolch from the teacher. Then a rhea, to show me you've been out on the steppe."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Prifardd Eluned",
+         "text": "Gwen at the tea house wants the whole story before she'll cut her best torta negra for you: the Mimosa from the Museum Keeper, the Tehuelche side from the weaver by the fields, and diolch from the teacher. Then a rhea, to show me you've been out on the steppe."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Prifardd Eluned",
+       "text": "Shwmae! You've come a long way to a little bit of Wales. Want to understand Y Wladfa? Hear three people: the Museum Keeper on the Mimosa, the Tehuelche weaver by the fields, and the Welsh teacher. Then come back to me."
+      },
+      {
+       "do": "set",
+       "flag": "q_abroad_gaiman_tea_started",
+       "value": true
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

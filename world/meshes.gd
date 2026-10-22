@@ -448,6 +448,8 @@ static func building(w: int, d: int, style: String, door_x := -1, seed_value := 
 		return StreetsEW.building(w, d, style, door_x, seed_value)
 	if CaribStyles.has_style(style):  # British Overseas Territories street styles (world/landmarks_caribbean.gd)
 		return CaribStyles.building(w, d, style, door_x, seed_value)
+	if AbroadStyles.has_style(style):  # these isles abroad (world/landmarks_abroad.gd)
+		return AbroadStyles.building(w, d, style, door_x, seed_value)
 	var rng := _rng(seed_value)
 	var st := _st()
 	var wall: Color = WALLS.get(style, WALLS.red_brick)

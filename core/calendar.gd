@@ -53,6 +53,8 @@ static func nation_for_region(region: String) -> String:
 static func festival_here(festival: String, region: String) -> bool:
 	if festival == "":
 		return false
+	if festival == "bonfire_night" and region.begins_with("abroad_"):  # Guy Fawkes stayed at home
+		return false
 	return not FESTIVAL_NATION.has(festival) or FESTIVAL_NATION[festival] == nation_for_region(region)
 
 ## "MM-DD" or "YYYY-MM-DD" pins the date (the --date dev switch); "" or anything unreadable goes back to the real date.
