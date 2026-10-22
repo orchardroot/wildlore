@@ -120,5 +120,152 @@
    "who": "Shopkeeper's Daughter",
    "text": "It took days. Not one window broke. You couldn't get a sofa through our front door without breaking three."
   }
+ ],
+ "landsky_forecaster": [
+  {
+   "do": "if",
+   "flag": "q_landsky_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Forecaster Bethan",
+     "text": "Shwmae! Back for more charts? The sweepstake's open every day, and the weather never runs out."
+    },
+    {
+     "do": "forecast",
+     "who": "Forecaster Bethan",
+     "set": "q_landsky_chart"
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "q_landsky_started",
+     "then": [
+      {
+       "do": "if",
+       "flag": "q_landsky_chart",
+       "then": [
+        {
+         "do": "say",
+         "who": "Forecaster Bethan",
+         "text": "You've done the lot: the sea areas, the warm water, the hot day, and you read a chart. Here, these are from the office kitchen, and don't tell the Chief Forecaster."
+        },
+        {
+         "do": "give_item",
+         "item": "flask_of_tea",
+         "n": 3
+        },
+        {
+         "do": "standing",
+         "nation": "england",
+         "amount": 5
+        },
+        {
+         "do": "set",
+         "flag": "q_landsky_done",
+         "value": true
+        },
+        {
+         "do": "say",
+         "who": "Forecaster Bethan",
+         "text": "One last thing to take home. The weather is what happens today; the climate is what you expect. We've been changing what to expect. That's the job now, and it's everyone's."
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Forecaster Bethan",
+         "text": "How's the reading of the sky going? The coastguard at Dover for the sea areas, the gardener at Penzance for the warm water, the weather watcher in Lincoln for the hot day. Then come back and read a chart with me."
+        },
+        {
+         "do": "if",
+         "flag": "q_landsky_areas",
+         "then": [
+          {
+           "do": "if",
+           "flag": "q_landsky_drift",
+           "then": [
+            {
+             "do": "if",
+             "flag": "q_landsky_heat",
+             "then": [
+              {
+               "do": "say",
+               "who": "Forecaster Bethan",
+               "text": "You've met them all. Right then. The charts."
+              },
+              {
+               "do": "forecast",
+               "who": "Forecaster Bethan",
+               "set": "q_landsky_chart"
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Forecaster Bethan",
+       "text": "Shwmae! Bethan, forecaster. Met Office, the big building on the edge of town. Yes, we're the ones who get shouted at when it rains on the barbecue."
+      },
+      {
+       "do": "say",
+       "who": "Forecaster Bethan",
+       "text": "People think our weather is random. It isn't. Britain sits where warm wet Atlantic air meets cold Arctic air, with a jet stream overhead steering the lows at us like a bowler. The jet wobbles, so we get four seasons in a day, and everyone gets to talk about it."
+      },
+      {
+       "do": "set",
+       "flag": "landsky_jet",
+       "value": true
+      },
+      {
+       "do": "choice",
+       "text": "Bethan taps the chart on the wall. Fancy learning to read the sky properly? There's a sweepstake in it.",
+       "options": [
+        "Teach me",
+        "Another time"
+       ],
+       "set": "landsky_forecaster_choice"
+      },
+      {
+       "do": "if",
+       "flag": "landsky_forecaster_choice",
+       "then": [
+        {
+         "do": "say",
+         "who": "Forecaster Bethan",
+         "text": "Grand. Three errands first, so the chart means something. Ask the coastguard at Dover about the sea areas. Ask the gardener in Penzance why palms grow in Cornwall. And ask the weather watcher in Lincoln what happened on 19 July 2022."
+        },
+        {
+         "do": "say",
+         "who": "Forecaster Bethan",
+         "text": "Then come back, and we'll read a chart together. Back to the wind, low on your left. Say it on the train."
+        },
+        {
+         "do": "set",
+         "flag": "q_landsky_started",
+         "value": true
+        }
+       ],
+       "eq": 0,
+       "else": [
+        {
+         "do": "say",
+         "who": "Forecaster Bethan",
+         "text": "No rush. The weather will still be here. It's the one thing we can promise."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
  ]
 }

@@ -24,6 +24,10 @@ static func boot(game: Node, menu: String) -> void:
 		ColdOpen.then_morning(game.get_node("/root/Router"), game.data)
 		return
 	var d: GameStateData = game.data
+	for a in DevArgs.user_args():
+		if a.begins_with("--flag="):  # dev: story flags set before the menu opens (a filled Almanac page)
+			for f in a.substr(7).split(",", false):
+				d.set_flag(f, true)
 	var mk := func(id: String, lvl: int) -> Creature:
 		return Creature.create(game.dex.get_species(id), lvl, game.rng, game.moves)
 	var a: Creature = mk.call("spikkin", 12)

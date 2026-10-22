@@ -235,5 +235,56 @@
    "who": "{rival}",
    "text": "Don't tell Mum I said the Enclosure were wrong. She likes the pens."
   }
+ ],
+ "landsky_wyddfa_geo": [
+  {
+   "do": "say",
+   "who": "Geology Student",
+   "text": "Sut mae! I'm up here for the rocks, not the view, though the view's thrown in. Do you know what you're standing on? Volcanic ash. Yr Wyddfa is a volcano's leftovers."
+  },
+  {
+   "do": "say",
+   "who": "Geology Student",
+   "text": "About 450 million years ago Wales was under a sea south of the equator, and volcanoes blew ash and lava into it. Between eruptions, sea shells settled on the bottom. So there are fossil shells near the summit of the highest mountain in Wales. Sea floor, a thousand metres up."
+  },
+  {
+   "do": "choice",
+   "text": "Quick one. What carved the great hollows with the lakes in them, Glaslyn and Llyn Llydaw?",
+   "options": [
+    "Glaciers in the ice ages",
+    "The volcano blowing its top",
+    "The sea, when it was higher"
+   ],
+   "set": "landsky_wyddfa_q"
+  },
+  {
+   "do": "if",
+   "flag": "landsky_wyddfa_q",
+   "then": [
+    {
+     "do": "say",
+     "who": "Geology Student",
+     "text": "Glaciers. Ice sat in the hollows for thousands of years, grinding them deeper, and left the lakes when it melted. A cwm, we call it; the Scots say corrie. The last ice went about 11,700 years ago."
+    }
+   ],
+   "eq": 0,
+   "else": [
+    {
+     "do": "say",
+     "who": "Geology Student",
+     "text": "It was ice. Glaciers sat in those hollows in the ice ages, grinding them out like a spoon in a pudding, and left the lakes behind. A cwm, we call it. The last of the ice went about 11,700 years ago."
+    }
+   ]
+  },
+  {
+   "do": "say",
+   "who": "Geology Student",
+   "text": "Volcano first, then the sea shells, then the ice, then the railway. In that order. Hwyl!"
+  },
+  {
+   "do": "set",
+   "flag": "landsky_volcano",
+   "value": true
+  }
  ]
 }
