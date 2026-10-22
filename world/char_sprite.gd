@@ -11,6 +11,12 @@ const BREATHE_AFTER := 3.0   # seconds standing before the breathing starts
 const BREATHE_PERIOD := 2.6  # seconds per breath
 
 const ROWS := {"down": 0, "left": 1, "right": 2, "up": 3}
+const GROUP := "char_sprite"
+
+## Medium and High graphics: characters drawn with char_sprite.gdshader (never lost in shadow, a faint rim) and a
+## firmer shadow at their feet. Set by the overworld from the quality setting; Low leaves the plain sprite.
+static var crisp := false
+static var _shader: Shader
 
 var facing := "down"
 var _walk_t := 0.0
@@ -19,6 +25,7 @@ var walk_rate := WALK_RATE
 var _idle_t := 0.0
 var _base_offset := Vector2.ZERO
 var _single := false   # "creature:<id>": a wild creature standing in the world, drawn from its 2-frame icon
+var _blob: MeshInstance3D
 
 func setup(sprite_id: String) -> void:
 	var path := "res://art/sprites/chars/%s.png" % sprite_id
@@ -59,11 +66,40 @@ func setup(sprite_id: String) -> void:
 	blob.position = Vector3(0, 0.02, 0)
 	blob.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	add_child(blob)
+	_blob = blob
+	add_to_group(GROUP)
+	set_crisp(crisp)
+
+## Every character in the tree switches to (or from) the readable look at once: the quality setting changed.
+static func set_crisp_all(tree: SceneTree, on: bool) -> void:
+	crisp = on
+	if tree:
+		for s in tree.get_nodes_in_group(GROUP):
+			(s as CharSprite).set_crisp(on)
+
+func set_crisp(on: bool) -> void:
+	if on and texture != null:
+		if _shader == null:
+			_shader = load("res://art/shaders/char_sprite.gdshader")
+		var m := material_override as ShaderMaterial
+		if m == null:
+			m = ShaderMaterial.new()
+			m.shader = _shader
+			material_override = m
+		m.set_shader_parameter("tex", texture)
+	else:
+		material_override = null
+	if _blob:
+		var bm := _blob.material_override as StandardMaterial3D
+		bm.albedo_color = Color(0, 0, 0, 0.55 if on else 0.45)
+		_blob.scale = Vector3(0.9, 1, 0.9) if on else Vector3.ONE
 
 ## An uncommon coat on a creature standing in the world (follower, garden visitors); "" leaves it as it is.
 func set_coat(variant: String) -> void:
 	if _single and variant != "":
 		texture = CoatArt.texture(texture, texture.resource_path, variant)
+		if material_override:
+			set_crisp(true)  # the shader draws its own copy of the texture
 
 func set_facing(dir: String) -> void:
 	facing = dir
