@@ -1,0 +1,135 @@
+{
+ "id": "dyo_bone",
+ "name": "Dan yr Ogof: The Bone Cave",
+ "region": "",
+ "kind": "interior",
+ "music": "dungeon_underground",
+ "weather": {},
+ "props": [],
+ "legend_extra": {
+  "e": {
+   "tile": "path",
+   "colour": "#5a5648"
+  },
+  "m": {
+   "tile": "tall_grass",
+   "colour": "#3f565a",
+   "prop": "none"
+  },
+  "g": {
+   "tile": "path",
+   "colour": "#6b6f7a"
+  }
+ },
+ "warps": [
+  {
+   "x": 1,
+   "y": 2,
+   "to": "dyo_cathedral",
+   "tx": 19,
+   "ty": 3,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "dyo_keeper",
+   "sprite": "student",
+   "x": 12,
+   "y": 2,
+   "facing": "down",
+   "move": "still",
+   "script": "dyo_keeper",
+   "name": "Dr Elin, cave scientist"
+  }
+ ],
+ "encounters": {
+  "grass": [
+   {
+    "species": "flittermouse",
+    "min": 34,
+    "max": 36,
+    "weight": 18
+   },
+   {
+    "species": "crumblet",
+    "min": 34,
+    "max": 37,
+    "weight": 16
+   },
+   {
+    "species": "scuttlet",
+    "min": 34,
+    "max": 36,
+    "weight": 14
+   },
+   {
+    "species": "gritling",
+    "min": 35,
+    "max": 37,
+    "weight": 12
+   },
+   {
+    "species": "dripkin",
+    "min": 35,
+    "max": 37,
+    "weight": 12
+   },
+   {
+    "species": "lanternis",
+    "min": 35,
+    "max": 37,
+    "weight": 6,
+    "time": [
+     "night",
+     "dusk"
+    ]
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 8,
+   "y": 3,
+   "plaque": "dyo_bone_cave",
+   "title": "The Bone Cave",
+   "text": "THE BONE CAVE. Archaeologists found human remains here, from the Bronze Age, around three thousand years old, along with the bones of animals that used the cave long before. The cave kept them dry and quiet and asked for nothing in return."
+  },
+  {
+   "x": 13,
+   "y": 4,
+   "text": "Caves hold time well. They stay at roughly the same temperature all year, they are dark and they are dry in places, so things left in them last. The cave also holds the cold fact that most visitors are only here for the fudge."
+  }
+ ],
+ "spawn": [
+  2,
+  3
+ ],
+ "stage": "cave",
+ "dark": true,
+ "rows": [
+  "xxxxxxxxxxxxxxxxxx",
+  "xxxxxxxxxxxxxxxxxx",
+  "xDeeeeeeeeeeeexxxx",
+  "xeeeeeeeeeeeeeexxx",
+  "xeemmeeeeeeeeeeexx",
+  "xeeeeeeeeeeeeeeexx",
+  "xxxxxxxxxxxxxxxxxx"
+ ],
+ "examine": [
+  {
+   "x": 14,
+   "y": 3,
+   "text": [
+    "A little hollow in the flowstone, with a few pale beads sitting in it like eggs.",
+    "They are cave pearls: stones grown round in a drip, turned over and over by the water for years. You take one. The rest are staying."
+   ],
+   "find": {
+    "item": "cave_pearl"
+   },
+   "money": 1200,
+   "flag": "dyo_reward"
+  }
+ ]
+}

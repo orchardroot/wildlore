@@ -211,5 +211,38 @@
    "do": "rewild",
    "site": "river_bush"
   }
+ ],
+ "case_gerard": [
+  {
+   "do": "if",
+   "flag": "case_causeway_stone_briefed",
+   "then": [
+    {
+     "do": "say",
+     "who": "Gerard Mullan",
+     "text": "Right, I asked the ranger for a column back in March. For a doorstep. A man can dream. She said no, and she said it twice, in case I was thinking of a second go."
+    },
+    {
+     "do": "say",
+     "who": "Gerard Mullan",
+     "text": "Tuesday night I had a couple from Stuttgart. They complained about my snoring at two in the morning. It's in the guest book. First time I've been grateful for it."
+    },
+    {
+     "do": "evidence",
+     "id": "doorstep_letter"
+    },
+    {
+     "do": "set",
+     "flag": "case_causeway_stone_gerard"
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Gerard Mullan",
+     "text": "The Giant's Rest, bed and breakfast. Full Ulster fry, soda bread, two kinds of potato bread. Don't ask me about stones."
+    }
+   ]
+  }
  ]
 }

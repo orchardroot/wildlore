@@ -70,8 +70,8 @@
       },
       {
        "do": "say",
-       "who": "Manann\u00e1n's Horse",
-       "text": "N\u00e1 b\u00ed buartha. Don't be anxious. I carried a god over a thousand miles of grey water. I can carry a walker a few fields. If you are worth the crossing."
+       "who": "Manannán's Horse",
+       "text": "Ná bí buartha. Don't be anxious. I carried a god over a thousand miles of grey water. I can carry a walker a few fields. If you are worth the crossing."
       },
       {
        "do": "legend",
@@ -104,7 +104,7 @@
         {
          "do": "say",
          "who": "",
-         "text": "Manann\u00e1n's Horse folds into the surf and is gone, leaving only a long curl of foam along the rocks. She will be back on the next high tide, if you want to try again."
+         "text": "Manannán's Horse folds into the surf and is gone, leaving only a long curl of foam along the rocks. She will be back on the next high tide, if you want to try again."
         },
         {
          "do": "warp",
@@ -207,7 +207,7 @@
     {
      "do": "say",
      "who": "",
-     "text": "Out of the surf rears a pale horse, made of sea-foam and light, with a mane like breaking waves and hooves that ring on the water like a bell. Manann\u00e1n's Horse. In the old stories it ran over land and sea alike without wetting a hoof."
+     "text": "Out of the surf rears a pale horse, made of sea-foam and light, with a mane like breaking waves and hooves that ring on the water like a bell. Manannán's Horse. In the old stories it ran over land and sea alike without wetting a hoof."
     },
     {
      "do": "say",
@@ -247,6 +247,72 @@
     },
     {
      "do": "end"
+    }
+   ]
+  }
+ ],
+ "case_corky": [
+  {
+   "do": "if",
+   "flag": "case_causeway_stone_briefed",
+   "then": [
+    {
+     "do": "say",
+     "who": "Corky Dunlop",
+     "text": "Me? I sell keyrings! Look at them! They're round! Does that look like a hexagon to you?"
+    },
+    {
+     "do": "say",
+     "who": "Corky Dunlop",
+     "text": "Tuesday I was unloading two hundred stones from Ballymoney. My back's still not forgiven me. Ask anyone. Well, don't ask the seagulls, they're no use."
+    },
+    {
+     "do": "evidence",
+     "id": "stall_receipts"
+    },
+    {
+     "do": "set",
+     "flag": "case_causeway_stone_corky"
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Corky Dunlop",
+     "text": "Genuine Causeway stones, three pound! Well. Genuine Ballymoney stones. It's the same sea, give or take a county."
+    }
+   ]
+  }
+ ],
+ "case_hilary": [
+  {
+   "do": "if",
+   "flag": "case_causeway_stone_briefed",
+   "then": [
+    {
+     "do": "say",
+     "who": "Dr Gault",
+     "text": "Hilary Gault, retired lecturer, enthusiast. Yes, I measured the Stone of Fionn last week. With a tape. No more than that. Basalt cools and shrinks, and the cracks meet at about 120 degrees, so you get six sides. Lovely."
+    },
+    {
+     "do": "say",
+     "who": "Dr Gault",
+     "text": "On Tuesday night I was at Coleraine library paying a 40p fine. I have the slip. I keep all my slips. It is a failing."
+    },
+    {
+     "do": "evidence",
+     "id": "library_slip"
+    },
+    {
+     "do": "set",
+     "flag": "case_causeway_stone_hilary"
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Dr Gault",
+     "text": "Columnar jointing: the crack pattern you get when something cools evenly. Sorry. I do go on."
     }
    ]
   }

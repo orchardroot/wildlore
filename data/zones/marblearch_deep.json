@@ -1,0 +1,169 @@
+{
+ "id": "marblearch_deep",
+ "name": "Marble Arch Caves: The Hall Below",
+ "region": "ireland",
+ "kind": "interior",
+ "music": "dungeon_underground",
+ "weather": {},
+ "rows": [
+  "xxxxxxxxxxxxxxxxxxxxxx",
+  "xxxxxxxxxxxxxxxxxxxxxx",
+  "xxxxxxxxxxxxxxxxxxxxxx",
+  "xDeeeeeeeeeeeexeemmeex",
+  "xeeeeeeeeeeeeexeeeeeex",
+  "xeeeeeeeeeeeeegeeeeeex",
+  "xeeeeeeeeeeeeexeeeeeex",
+  "xxxxxxxxxxxxxxxeeeeexx",
+  "xxxxxxxxxxxxxxxxxxxxxx"
+ ],
+ "stage": "cave",
+ "dark": true,
+ "scaled_floor": 65,
+ "legend_extra": {
+  "e": {
+   "tile": "path",
+   "colour": "#8a8676"
+  },
+  "m": {
+   "tile": "tall_grass",
+   "colour": "#6b6a5c",
+   "prop": "none"
+  },
+  "g": {
+   "tile": "path",
+   "colour": "#7d796a"
+  },
+  "o": {
+   "tile": "deep_water",
+   "colour": "#2b3a40"
+  }
+ },
+ "props": [],
+ "warps": [
+  {
+   "x": 1,
+   "y": 3,
+   "to": "marblearch_cladagh",
+   "tx": 19,
+   "ty": 7,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [],
+ "encounters": {
+  "grass": [
+   {
+    "species": "dripkin",
+    "min": 66,
+    "max": 68,
+    "weight": 22
+   },
+   {
+    "species": "flittermouse",
+    "min": 66,
+    "max": 67,
+    "weight": 14
+   },
+   {
+    "species": "glowmite",
+    "min": 66,
+    "max": 67,
+    "weight": 12
+   },
+   {
+    "species": "gritling",
+    "min": 66,
+    "max": 67,
+    "weight": 10
+   },
+   {
+    "species": "stalaghast",
+    "min": 68,
+    "max": 68,
+    "weight": 3
+   }
+  ],
+  "water": [
+   {
+    "species": "pincray",
+    "min": 66,
+    "max": 68,
+    "weight": 20
+   },
+   {
+    "species": "neagheen",
+    "min": 66,
+    "max": 67,
+    "weight": 10
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 5,
+   "y": 3,
+   "text": "A slab on a rail, and a plate set into the floor. Whoever laid the survey line here had a sense of humour, and a bad back."
+  },
+  {
+   "x": 16,
+   "y": 6,
+   "plaque": "mac_pearls",
+   "title": "Cave Pearls",
+   "text": "Cave pearls form where water drips into a shallow pool. Calcite coats a grain of sand and the drops keep it rolling, so it grows round and smooth like an oyster pearl, though it is only stone."
+  },
+  {
+   "x": 20,
+   "y": 4,
+   "plaque": "mac_geopark",
+   "title": "A Geopark Across the Border",
+   "text": "The Marble Arch Caves are the heart of a UNESCO Global Geopark that spans Fermanagh and County Cavan. Cuilcagh mountain above, the cave river below and the people between make one landscape. Despite the name, there is no marble here: it is limestone."
+  }
+ ],
+ "spawn": [
+  2,
+  3
+ ],
+ "examine": [
+  {
+   "x": 18,
+   "y": 4,
+   "flag": "mac_hall_hoard",
+   "text": [
+    "A hollow in the flowstone holds a scatter of cave pearls, left to roll about in the drip for longer than anyone has been counting.",
+    "You take a few. The cave does not seem to mind. It has a lot of them."
+   ],
+   "find": {
+    "item": "cave_pearl",
+    "n": 3
+   },
+   "money": 40
+  }
+ ],
+ "deep": {
+  "plates": [
+   {
+    "id": "plate",
+    "x": 10,
+    "y": 5
+   }
+  ],
+  "crates": [
+   {
+    "id": "slab",
+    "x": 3,
+    "y": 5
+   }
+  ],
+  "gates": [
+   {
+    "x": 14,
+    "y": 5,
+    "by": [
+     "plate:plate"
+    ],
+    "line": "A slab of flowstone seals the way. A square plate in the floor before it looks as if it wants something heavy."
+   }
+  ]
+ }
+}

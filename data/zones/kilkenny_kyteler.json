@@ -101,6 +101,15 @@
    "facing": "down",
    "move": "still",
    "script": "kyteler_host"
+  },
+  {
+   "id": "kyteler_nuala",
+   "sprite": "villager_2",
+   "x": 3,
+   "y": 4,
+   "facing": "down",
+   "move": "still",
+   "script": "case_nuala"
   }
  ],
  "encounters": {},
@@ -128,6 +137,26 @@
     "In 1324 Dame Alice Kyteler was accused of witchcraft, the first such case in Ireland. She fled to England.",
     "Her maid Petronilla was not so lucky. The pub has a ghost and a sense of humour."
    ]
+  },
+  {
+   "x": 9,
+   "y": 1,
+   "text": [
+    "The hook over the hearth is empty and a plinth sits underneath. Slipped under it is a torn sheet of order pad."
+   ],
+   "flag": "case_kilkenny_hex_plinth",
+   "evidence": "pad_sheet",
+   "needs": "case_kilkenny_hex_start"
+  },
+  {
+   "x": 1,
+   "y": 3,
+   "text": [
+    "The back door. Thin wheel tracks run out of it, and a squeak of grease marks the step."
+   ],
+   "flag": "case_kilkenny_hex_trolley",
+   "evidence": "trolley",
+   "needs": "case_kilkenny_hex_start"
   }
  ]
 }

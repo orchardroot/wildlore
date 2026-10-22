@@ -111,6 +111,16 @@
    "facing": "down",
    "move": "still",
    "script": "stationterrace_fan"
+  },
+  {
+   "id": "case_emrys",
+   "sprite": "villager_1",
+   "x": 8,
+   "y": 5,
+   "facing": "down",
+   "move": "still",
+   "script": "case_emrys",
+   "name": "Emrys Bowen"
   }
  ],
  "encounters": {},
@@ -129,5 +139,18 @@
   "x|||||||||||x",
   "x|||||D|||||x",
   "xxxxxxxxxxxxx"
+ ],
+ "examine": [
+  {
+   "x": 8,
+   "y": 1,
+   "text": [
+    "A joiner's bench. A pot of animal glue still warm on a ring, a clamp, a plane, and a short offcut shaped like a chair leg.",
+    "It matches the back left leg of a certain chair that the Eisteddfod is missing. The chair itself sits under a dust sheet, looking sheepish."
+   ],
+   "flag": "case_eisteddfod_chair_workshop",
+   "evidence": "glue",
+   "needs": "case_eisteddfod_chair_emrys"
+  }
  ]
 }

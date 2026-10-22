@@ -1,0 +1,22 @@
+{
+ "mac_surveyor": [
+  {
+   "do": "if",
+   "flag": "dp_marblearch_cladagh_weir",
+   "then": [
+    {
+     "do": "say",
+     "who": "Surveyor",
+     "text": "Ah, you've drained the stretch. Lovely. Mind the winch up in the side alcove: it opens the grille. Do not ask how long I've been down here."
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Surveyor",
+     "text": "Water's up. There's a weir board in the first chamber that lets it drain. I'd do it myself but I've a clipboard and a sense of self-preservation."
+    }
+   ]
+  }
+ ]
+}

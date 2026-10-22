@@ -15,42 +15,58 @@
     "max": 25.0,
     "min": 25.0,
     "species": "tylwyth",
-    "time": ["dawn", "dusk"],
+    "time": [
+     "dawn",
+     "dusk"
+    ],
     "weight": 25.0
    },
    {
     "max": 26.0,
     "min": 25.0,
     "species": "gwyllgi",
-    "time": ["dusk", "night"],
+    "time": [
+     "dusk",
+     "night"
+    ],
     "weight": 18.0
    },
    {
     "max": 25.0,
     "min": 25.0,
     "species": "martling",
-    "time": ["night"],
+    "time": [
+     "night"
+    ],
     "weight": 20.0
    },
    {
     "max": 25.0,
     "min": 25.0,
     "species": "brockling",
-    "time": ["dawn", "day"],
+    "time": [
+     "dawn",
+     "day"
+    ],
     "weight": 20.0
    },
    {
     "max": 25.0,
     "min": 25.0,
     "species": "elverlet",
-    "weather": ["drizzle", "downpour"],
+    "weather": [
+     "drizzle",
+     "downpour"
+    ],
     "weight": 15.0
    },
    {
     "max": 26.0,
     "min": 25.0,
     "species": "wispet",
-    "weather": ["fog"],
+    "weather": [
+     "fog"
+    ],
     "weight": 10.0
    }
   ],
@@ -1099,5 +1115,17 @@
   "drizzle": 40.0,
   "fog": 8.0,
   "sunshine": 20.0
- }
+ },
+ "examine": [
+  {
+   "x": 36,
+   "y": 11,
+   "text": [
+    "The towpath. A narrow barrow rut runs along it, deep and even, as if hauling something heavy and treating it kindly.",
+    "It heads east, towards the railway houses. It does not wobble. Whoever pushed it has done this before."
+   ],
+   "flag": "case_eisteddfod_chair_towpath",
+   "evidence": "barrow"
+  }
+ ]
 }

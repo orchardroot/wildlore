@@ -21,6 +21,14 @@ It started life as a monster-catching game. It's turned into something closer to
 
 Whatever's newest is below; older notes are further down.
 
+## What's new in 4.3: Deeper
+
+- **Four more Deep Places**, each a multi-floor cave with puzzles, creatures that belong there, plaques and something worth finding at the bottom: Wookey Hole in Somerset (the River Axe and the Witch of Wookey), Dan yr Ogof in the Brecon Beacons (found by the Morgan brothers in 1912), Aillwee Cave in the Burren (with the bones of long-gone bears), and Fingal's Cave on Staffa, by boat, with its basalt columns, puffins and Mendelssohn. The Marble Arch Caves near Enniskillen go deeper too, with a new river passage and lower chamber.
+- **Four new Casebook mysteries**: The Stolen Eisteddfod Chair (Wales), The Missing Chart (Scotland), The Kilkenny Hex (Ireland) and The Stone That Walked (Northern Ireland). Evidence, red herrings and a fair solve; wrong accusations cost you.
+- **Nine more festivals on their real dates**: Whitby's Goth Weekend, the Llangollen International Eisteddfod, Tynwald Day on Mann, Liberation Day in Jersey, in Guernsey and in the Falklands, Bermuda's Cup Match, the Braemar Gathering and the Galway Oyster Festival.
+
+Saves from 4.2 carry straight over.
+
 ## What's new in 4.2: Far and Wide
 
 - **Local time abroad.** Fly out to the Overseas Territories and the sky follows their clock, not Britain's: it can be night in the Falklands while it's afternoon in Cheshire, and Bermuda keeps American summer time. The departures board tells you what time you'll land, the pause menu shows local time while you're away, and a big jump in hours brings on jet lag (a nap sorts it out).

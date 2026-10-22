@@ -402,6 +402,26 @@
    "facing": "down",
    "move": "still",
    "trainer": "cw_hiker"
+  },
+  {
+   "id": "case_corky",
+   "sprite": "villager_4",
+   "x": 35,
+   "y": 33,
+   "facing": "left",
+   "move": "still",
+   "script": "case_corky",
+   "name": "Corky Dunlop"
+  },
+  {
+   "id": "case_hilary",
+   "sprite": "student",
+   "x": 17,
+   "y": 23,
+   "facing": "down",
+   "move": "still",
+   "script": "case_hilary",
+   "name": "Dr Gault"
   }
  ],
  "encounters": {
@@ -640,5 +660,17 @@
    "tile": "cobbles",
    "colour": "#34363e"
   }
- }
+ },
+ "examine": [
+  {
+   "x": 35,
+   "y": 31,
+   "text": [
+    "Narrow rubber wheel marks, pressed deep by something heavy, run along the path towards the marquee.",
+    "Nobody makes marks like that with a pushchair. Nobody sensible, anyway."
+   ],
+   "flag": "case_causeway_stone_track",
+   "evidence": "trolley_track"
+  }
+ ]
 }

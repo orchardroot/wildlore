@@ -110,6 +110,35 @@
  ],
  "ls_boatman": [
   {
+   "do": "if",
+   "flag": "case_fair_isle_builder",
+   "then": [],
+   "else": [
+    {
+     "do": "if",
+     "flag": "case_fair_isle_briefed",
+     "then": [
+      {
+       "do": "say",
+       "who": "Boat Builder",
+       "text": "The chart? I heard. Terrible business. I was in the hall all afternoon with a plank and a flask. The shavings by the case? That's me. I'm shedding wood constantly. It's a trade hazard."
+      },
+      {
+       "do": "evidence",
+       "id": "sawdust"
+      },
+      {
+       "do": "set",
+       "flag": "case_fair_isle_builder"
+      },
+      {
+       "do": "end"
+      }
+     ]
+    }
+   ]
+  },
+  {
    "do": "say",
    "who": "Boat Builder",
    "text": "Shetland boats are built clinker, with overlapping planks, the way the Norse did, and the old shape is still the best. Hulls like a gull in flight. These are the boats that went out to the haaf, the deep-sea fishery, and the men were out for days. Hard folk."
@@ -118,6 +147,201 @@
    "do": "say",
    "who": "Boat Builder",
    "text": "I build them to the old pattern. It takes a few months, and the paint is applied with great ceremony and a flask of tea. If you build a boat in Shetland you must not leave a nail to hold the wind out. I forget why, but it's an old rule."
+  }
+ ],
+ "cfi_registrar": [
+  {
+   "do": "if",
+   "flag": "case_fair_isle_done",
+   "then": [
+    {
+     "do": "say",
+     "who": "Registrar Elsie",
+     "text": "The chart is home, and so is its copy. People are queuing to see the copy, which Marjory finds deeply unfair, and the chart finds deeply relaxing."
+    },
+    {
+     "do": "say",
+     "who": "Registrar Elsie",
+     "text": "Edward, Prince of Wales, wore a Fair Isle pullover in public in 1921, and the fashion took off. Imagine what he'd have made of the squared paper."
+    }
+   ],
+   "else": [
+    {
+     "do": "if",
+     "flag": "case_fair_isle_briefed",
+     "then": [
+      {
+       "do": "if",
+       "flag": "case_fair_isle_book",
+       "then": [
+        {
+         "do": "if",
+         "flag": "case_fair_isle_case",
+         "then": [
+          {
+           "do": "if",
+           "flag": "case_fair_isle_builder",
+           "then": [
+            {
+             "do": "if",
+             "flag": "case_fair_isle_dyer",
+             "then": [
+              {
+               "do": "if",
+               "flag": "case_fair_isle_fiddler",
+               "then": [
+                {
+                 "do": "if",
+                 "flag": "case_fair_isle_paper",
+                 "then": [
+                  {
+                   "do": "if",
+                   "flag": "case_fair_isle_tea",
+                   "then": [
+                    {
+                     "do": "say",
+                     "who": "Registrar Elsie",
+                     "text": "That's every lead. Right. The chart was in the case at four o'clock, and by five the case was a very handsome empty box. Who took it?"
+                    },
+                    {
+                     "do": "set",
+                     "flag": "case_fair_isle_report"
+                    },
+                    {
+                     "do": "casebook",
+                     "id": "fair_isle"
+                    }
+                   ],
+                   "else": [
+                    {
+                     "do": "say",
+                     "who": "Registrar Elsie",
+                     "text": "Still on the trail? Take your time. The chart has waited eighty years to be stolen, it can wait a bit longer."
+                    },
+                    {
+                     "do": "say",
+                     "who": "Registrar Elsie",
+                     "text": "Your Casebook in the Fieldbook has the next lead (Run cycles the tabs)."
+                    }
+                   ]
+                  }
+                 ],
+                 "else": [
+                  {
+                   "do": "say",
+                   "who": "Registrar Elsie",
+                   "text": "Still on the trail? Take your time. The chart has waited eighty years to be stolen, it can wait a bit longer."
+                  },
+                  {
+                   "do": "say",
+                   "who": "Registrar Elsie",
+                   "text": "Your Casebook in the Fieldbook has the next lead (Run cycles the tabs)."
+                  }
+                 ]
+                }
+               ],
+               "else": [
+                {
+                 "do": "say",
+                 "who": "Registrar Elsie",
+                 "text": "Still on the trail? Take your time. The chart has waited eighty years to be stolen, it can wait a bit longer."
+                },
+                {
+                 "do": "say",
+                 "who": "Registrar Elsie",
+                 "text": "Your Casebook in the Fieldbook has the next lead (Run cycles the tabs)."
+                }
+               ]
+              }
+             ],
+             "else": [
+              {
+               "do": "say",
+               "who": "Registrar Elsie",
+               "text": "Still on the trail? Take your time. The chart has waited eighty years to be stolen, it can wait a bit longer."
+              },
+              {
+               "do": "say",
+               "who": "Registrar Elsie",
+               "text": "Your Casebook in the Fieldbook has the next lead (Run cycles the tabs)."
+              }
+             ]
+            }
+           ],
+           "else": [
+            {
+             "do": "say",
+             "who": "Registrar Elsie",
+             "text": "Still on the trail? Take your time. The chart has waited eighty years to be stolen, it can wait a bit longer."
+            },
+            {
+             "do": "say",
+             "who": "Registrar Elsie",
+             "text": "Your Casebook in the Fieldbook has the next lead (Run cycles the tabs)."
+            }
+           ]
+          }
+         ],
+         "else": [
+          {
+           "do": "say",
+           "who": "Registrar Elsie",
+           "text": "Still on the trail? Take your time. The chart has waited eighty years to be stolen, it can wait a bit longer."
+          },
+          {
+           "do": "say",
+           "who": "Registrar Elsie",
+           "text": "Your Casebook in the Fieldbook has the next lead (Run cycles the tabs)."
+          }
+         ]
+        }
+       ],
+       "else": [
+        {
+         "do": "say",
+         "who": "Registrar Elsie",
+         "text": "Still on the trail? Take your time. The chart has waited eighty years to be stolen, it can wait a bit longer."
+        },
+        {
+         "do": "say",
+         "who": "Registrar Elsie",
+         "text": "Your Casebook in the Fieldbook has the next lead (Run cycles the tabs)."
+        }
+       ]
+      }
+     ],
+     "else": [
+      {
+       "do": "say",
+       "who": "Registrar Elsie",
+       "text": "Elsie Nicolson, registrar. I look after the labels, the lists and my blood pressure."
+      },
+      {
+       "do": "say",
+       "who": "Registrar Elsie",
+       "text": "A hand-painted Fair Isle chart from the 1920s has vanished from its case: borders, stars, snowflakes, the lot. No forced lock, no broken glass. Whoever took it simply walked off with it, thoroughly."
+      },
+      {
+       "do": "say",
+       "who": "Registrar Elsie",
+       "text": "Fair Isle knitting never uses more than two colours in a row. Whoever took the chart knew that, or wanted to learn. Have a look about. Your Casebook in the Fieldbook will keep track, and a wrong accusation costs you standing."
+      },
+      {
+       "do": "set",
+       "flag": "case_fair_isle_start"
+      },
+      {
+       "do": "set",
+       "flag": "case_fair_isle_briefed"
+      },
+      {
+       "do": "say",
+       "who": "",
+       "text": "Case opened: The Missing Chart."
+      }
+     ]
+    }
+   ]
   }
  ]
 }

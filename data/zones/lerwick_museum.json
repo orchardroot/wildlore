@@ -150,6 +150,16 @@
    "move": "still",
    "script": "ls_boatman",
    "name": "Boat Builder"
+  },
+  {
+   "id": "cfi_registrar",
+   "sprite": "student",
+   "x": 8,
+   "y": 6,
+   "facing": "left",
+   "move": "still",
+   "script": "cfi_registrar",
+   "name": "Registrar Elsie"
   }
  ],
  "encounters": {},
@@ -191,6 +201,28 @@
     "The real hoard is in Edinburgh. The replicas are here. Both are better than a pocket full of coins."
    ],
    "money": 2
+  },
+  {
+   "x": 12,
+   "y": 5,
+   "text": [
+    "The display case where the chart lay. The velvet has a faint damp ring on it and a crumb of shortbread.",
+    "The museum has a firm no-food, no-drink rule, so someone brought their tea in with them. In their head, at least."
+   ],
+   "flag": "case_fair_isle_case",
+   "evidence": "tea_ring",
+   "needs": "case_fair_isle_briefed"
+  },
+  {
+   "x": 3,
+   "y": 5,
+   "text": [
+    "The visitors' book. Names, towns, and one entry that reads only 'Lovely. Cold.' from a man in Stoke.",
+    "The last name before closing is 'M. Tulloch, Lerwick. Just looking.' with an OXO doodled beside it."
+   ],
+   "flag": "case_fair_isle_book",
+   "evidence": "visitors_book",
+   "needs": "case_fair_isle_briefed"
   }
  ]
 }

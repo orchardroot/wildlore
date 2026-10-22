@@ -42,5 +42,47 @@
     }
    ]
   }
+ ],
+ "case_nia": [
+  {
+   "do": "if",
+   "flag": "case_eisteddfod_chair_briefed",
+   "then": [
+    {
+     "do": "say",
+     "who": "Nia Vaughan",
+     "text": "Nia Vaughan. Plas Newydd Tearooms. Welsh cakes, bara brith and a very short temper before eight."
+    },
+    {
+     "do": "say",
+     "who": "Nia Vaughan",
+     "text": "If this is about my trays this morning, they were four dozen Welsh cakes for the choir. Under a tea towel to keep the steam in. I am not a chair thief."
+    },
+    {
+     "do": "say",
+     "who": "Nia Vaughan",
+     "text": "But I'll tell you what I did see. Three in the morning, up with the dough, and a lamp lit in a workshop window along Station Terrace. Tapping, sawing, and a man humming 'Calon Lân' flat as a pancake. Same fella hums it at every Eisteddfod."
+    },
+    {
+     "do": "evidence",
+     "id": "cloths"
+    },
+    {
+     "do": "evidence",
+     "id": "hymn"
+    },
+    {
+     "do": "set",
+     "flag": "case_eisteddfod_chair_nia"
+    }
+   ],
+   "else": [
+    {
+     "do": "say",
+     "who": "Nia Vaughan",
+     "text": "Lovely cakes, mind the steam."
+    }
+   ]
+  }
  ]
 }

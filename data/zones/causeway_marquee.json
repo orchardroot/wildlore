@@ -116,6 +116,26 @@
    "facing": "down",
    "move": "still",
    "script": "cw_marquee_intern"
+  },
+  {
+   "id": "case_caterer",
+   "sprite": "shopkeeper",
+   "x": 2,
+   "y": 4,
+   "facing": "right",
+   "move": "still",
+   "script": "case_caterer",
+   "name": "Seamus the Caterer"
+  },
+  {
+   "id": "case_fidelma",
+   "sprite": "commuter",
+   "x": 7,
+   "y": 5,
+   "facing": "left",
+   "move": "still",
+   "script": "case_fidelma",
+   "name": "Fidelma Crozier"
   }
  ],
  "encounters": {},
@@ -134,5 +154,28 @@
   "x+++++++++x",
   "x++++D++++x",
   "xxxxxxxxxxx"
+ ],
+ "examine": [
+  {
+   "x": 4,
+   "y": 3,
+   "text": [
+    "A run sheet is pinned to a clipboard on the table. 'SATURDAY: 3pm, Item 4. Bride and groom touch the Stone of Fionn for luck, photographs. PROVIDE STONE.'",
+    "It's signed F. Crozier, Events. 'Provide stone' has been underlined twice, and then once more in a different pen."
+   ],
+   "flag": "case_causeway_stone_runsheet",
+   "evidence": "run_sheet"
+  },
+  {
+   "x": 6,
+   "y": 3,
+   "text": [
+    "The bride's table, under a long white cloth with an oddly knee-high lump beneath it.",
+    "You lift the cloth. A hexagonal basalt column, with a luggage label: 'TABLE 1. DO NOT USE AS A CHAIR.'"
+   ],
+   "flag": "case_causeway_stone_cloth",
+   "needs": "case_causeway_stone_runsheet",
+   "evidence": "table_one"
+  }
  ]
 }

@@ -1,0 +1,174 @@
+{
+ "id": "dyo_river",
+ "name": "Dan yr Ogof: The River Llynfell",
+ "region": "",
+ "kind": "interior",
+ "music": "dungeon_underground",
+ "weather": {},
+ "props": [],
+ "legend_extra": {
+  "e": {
+   "tile": "path",
+   "colour": "#5a5648"
+  },
+  "m": {
+   "tile": "tall_grass",
+   "colour": "#3f565a",
+   "prop": "none"
+  },
+  "g": {
+   "tile": "path",
+   "colour": "#6b6f7a"
+  }
+ },
+ "warps": [
+  {
+   "x": 2,
+   "y": 1,
+   "to": "dyo_entry",
+   "tx": 10,
+   "ty": 1,
+   "facing": "down"
+  },
+  {
+   "x": 18,
+   "y": 8,
+   "to": "dyo_cathedral",
+   "tx": 3,
+   "ty": 3,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [],
+ "encounters": {
+  "grass": [
+   {
+    "species": "flittermouse",
+    "min": 34,
+    "max": 36,
+    "weight": 18
+   },
+   {
+    "species": "crumblet",
+    "min": 34,
+    "max": 37,
+    "weight": 16
+   },
+   {
+    "species": "scuttlet",
+    "min": 34,
+    "max": 36,
+    "weight": 14
+   },
+   {
+    "species": "gritling",
+    "min": 35,
+    "max": 37,
+    "weight": 12
+   },
+   {
+    "species": "dripkin",
+    "min": 35,
+    "max": 37,
+    "weight": 12
+   },
+   {
+    "species": "lanternis",
+    "min": 35,
+    "max": 37,
+    "weight": 6,
+    "time": [
+     "night",
+     "dusk"
+    ]
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 4,
+   "y": 2,
+   "plaque": "dyo_llynfell",
+   "title": "The River Llynfell",
+   "text": "The River Llynfell sinks into the hill here and works its way out below. A river and its cave are the same thing seen at different times: the water cuts, the passage stays, and the next river moves in on top."
+  },
+  {
+   "x": 7,
+   "y": 2,
+   "plaque": "dyo_morgan_brothers",
+   "title": "The Morgan Brothers",
+   "text": "In 1912 the brothers Tommy and Jeff Morgan, from Abercrave, followed the river into the hill in a coracle with only candles for light. They found the cave that is now a show cave. Nobody had thought to take a torch, and nobody wrote down whose idea the coracle was."
+  }
+ ],
+ "spawn": [
+  3,
+  2
+ ],
+ "stage": "cave",
+ "dark": true,
+ "rows": [
+  "xxxxxxxxxxxxxxxxxxxxxx",
+  "xxDeeeexxxxxxxxxxxxxxx",
+  "xxeeeeeeexxxxxxxxxxxxx",
+  "xxeemmeeeexxxxxxxxxxxx",
+  "xxxeeeeeeeeeeexxxxxxxx",
+  "xxxxxxxxxxxwwwwweeeexx",
+  "xxxxxxxxxxxxxxxxeemmex",
+  "xxxxxxxxxxxxxxxxeeeeex",
+  "xxxxxxxxxxxxxxxxeeDexx",
+  "xxxxxxxxxxxxxxxxxxxxxx"
+ ],
+ "deep": {
+  "levers": [
+   {
+    "id": "weir",
+    "x": 13,
+    "y": 4,
+    "on": "You haul on the old weir board. The water chuckles away down a side channel and the riverbed shows through.",
+    "off": "You drop the board. The river creeps back across the passage."
+   },
+   {
+    "id": "pocket",
+    "x": 9,
+    "y": 3,
+    "needs_light": true,
+    "on": "Your lantern picks out a pale bead in a crack in the wall. A little pool behind it holds a handful of round, glossy stones.",
+    "off": "The pool is empty now.",
+    "find": {
+     "item": "cave_pearl"
+    }
+   }
+  ],
+  "floods": [
+   {
+    "id": "river",
+    "by": [
+     "lever:weir"
+    ],
+    "tiles": [
+     [
+      11,
+      5
+     ],
+     [
+      12,
+      5
+     ],
+     [
+      13,
+      5
+     ],
+     [
+      14,
+      5
+     ],
+     [
+      15,
+      5
+     ]
+    ]
+   }
+  ]
+ }
+}

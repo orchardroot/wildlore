@@ -84,6 +84,14 @@
    "tx": 62,
    "ty": 39,
    "facing": "up"
+  },
+  {
+   "x": 3,
+   "y": 17,
+   "to": "wookey_river",
+   "tx": 2,
+   "ty": 2,
+   "facing": "down"
   }
  ],
  "edges": {},
@@ -201,6 +209,37 @@
    "x": 14,
    "y": 19,
    "text": "THE RIVER AXE. Rain that fell on the Mendips seeps for days through limestone before emerging here, at a constant 11 degrees. Paper mills used the water from 1610."
+  },
+  {
+   "x": 13,
+   "y": 19,
+   "plaque": "wookey_mendip_water",
+   "title": "Mendip Water",
+   "text": "Rain that falls on the Mendip plateau sinks into the limestone and spends days underground before it comes out here as the River Axe. Wookey is a cave the river made, and the river is still at it."
+  },
+  {
+   "x": 18,
+   "y": 3,
+   "plaque": "wookey_witch",
+   "title": "The Witch of Wookey",
+   "text": "THE WITCH OF WOOKEY. The legend says a witch lived in the cave until a monk from Glastonbury sprinkled holy water on her and turned her to stone. The stalagmite called the Witch is the evidence. The monk, as the guide says, is never named."
+  },
+  {
+   "x": 3,
+   "y": 14,
+   "plaque": "wookey_hyena_den",
+   "title": "Ice Age Hyenas",
+   "text": "HYENA DEN. Bones of hyenas and other Ice Age animals were dug out of Mendip caves like this one by Victorian scholars. Hyenas denned in the hills when the climate was far colder, and dragged their dinners home."
+  },
+  {
+   "x": 10,
+   "y": 19,
+   "text": "A brass lever set into the rock by the water's edge. Someone has stencilled 'HATCH' on it in 1950s paint."
+  },
+  {
+   "x": 4,
+   "y": 18,
+   "text": "A narrow stair behind an iron gate, with a handwritten card: 'Staff and Brave Visitors Only.'"
   }
  ],
  "spawn": [
@@ -226,7 +265,7 @@
   "xxkkkkkkkkwwwkkkkkkwwwkkkkkkkkxx",
   "xxkkggggggggkkkkkkkkggggggggxxxx",
   "xxxxggggggggkkkkkkkkggggggggxxxx",
-  "xxxxggggggggkkkkkkkkggggggggxxxx",
+  "xxxDggggggggkkkkkkkkggggggggxxxx",
   "xxxxggggggggkkkkkkkkggggggggxxxx",
   "xxxxggggggggkkkkkkkkggggggggxxxx",
   "xxxxkkkkkkkkkkkkkkkkkkkkkkkkxxxx",
@@ -244,5 +283,26 @@
    "colour": "#4f6a45",
    "prop": "none"
   }
+ },
+ "deep": {
+  "levers": [
+   {
+    "id": "hatch",
+    "x": 11,
+    "y": 19,
+    "on": "You haul the brass lever. Somewhere across the grass, an iron gate groans open.",
+    "off": "You haul the lever back. The gate clangs shut."
+   }
+  ],
+  "gates": [
+   {
+    "x": 4,
+    "y": 17,
+    "by": [
+     "lever:hatch"
+    ],
+    "line": "An iron gate across the top of a stair. There must be a lever somewhere near the water."
+   }
+  ]
  }
 }

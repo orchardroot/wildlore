@@ -1,23 +1,324 @@
 [
-	{"id": "cup_of_tea", "name": "Cup of Tea", "kind": "heal", "price": 100, "battle": true, "field": true, "amount": 20, "desc": "Hot, sweet and strangely effective. Restores 20 HP."},
-	{"id": "flask_of_tea", "name": "Flask of Tea", "kind": "heal", "price": 300, "battle": true, "field": true, "amount": 60, "desc": "Somebody's gran packed this. Restores 60 HP and a sense of calm."},
-	{"id": "bakewell_tart", "name": "Bakewell Tart", "kind": "pp", "price": 400, "battle": true, "field": true, "amount": 10, "desc": "It's a tart, not a pudding. Restores 10 PP to every move."},
-	{"id": "buxton_water", "name": "Buxton Water", "kind": "cure", "price": 150, "battle": true, "field": true, "cures": ["soaked", "chilled", "muddled", "hexed", "stung", "asleep"], "desc": "Filtered through miles of limestone. Cures every status."},
-	{"id": "smelling_salts", "name": "Smelling Salts", "kind": "cure", "price": 80, "battle": true, "field": true, "cures": ["asleep", "muddled"], "desc": "One sniff and you're wide awake and fully aware of your surroundings."},
-	{"id": "kendal_mint_cake", "name": "Kendal Mint Cake", "kind": "revive", "price": 1200, "battle": true, "field": true, "amount": 50, "desc": "Fuel for fell walkers. Revives a fainted creature at half HP."},
-	{"id": "bara_brith", "name": "Bara Brith", "kind": "heal", "price": 250, "battle": true, "field": true, "amount": 60, "desc": "Tea-soaked fruit loaf, butter optional, opinions compulsory. Restores 60 HP."},
-	{"id": "scouse", "name": "Scouse", "kind": "heal", "price": 400, "battle": true, "field": true, "amount": 80, "desc": "Lamb stew, bread and a healthy dose of Liverpool attitude. Restores 80 HP."},
-	{"id": "eccles_cake", "name": "Eccles Cake", "kind": "cure", "price": 220, "battle": true, "field": true, "cures": ["chilled", "muddled", "stung", "asleep"], "desc": "Flaky pastry, currants and a bit of Lancashire smugness. Cures chills, muddles, stings and sleep."},
-	{"id": "soda_bread", "name": "Soda Bread", "kind": "heal", "price": 120, "battle": true, "field": true, "amount": 70, "desc": "No yeast, no fuss, and a cross cut in the top to let the fairies out. Restores 70 HP."},
-	{"id": "barmbrack", "name": "Barmbrack", "kind": "heal", "price": 350, "battle": true, "field": true, "amount": 120, "desc": "Fruit loaf with a ring hidden inside. Whoever finds the ring gets a year of luck. Restores 120 HP."},
-	{"id": "pasty", "name": "Pasty", "kind": "heal", "price": 280, "battle": true, "field": true, "amount": 100, "desc": "Crimped on the side, never on the top, and only ever eaten on a windy cliff. Restores 100 HP."},
-	{"id": "cream_tea", "name": "Cream Tea", "kind": "heal", "price": 900, "battle": true, "field": true, "amount": 999, "desc": "Scone, jam, clotted cream and a fierce argument about whether the jam goes on first. Restores all HP."},
-  {"id": "tablet", "name": "Tablet", "kind": "heal", "price": 180, "battle": true, "field": true, "amount": 90, "desc": "A crumbly Scottish bar of sugar, butter and condensed milk, so sweet your teeth will want a word. Restores 90 HP."},
-  {"id": "cranachan", "name": "Cranachan", "kind": "heal", "price": 500, "battle": true, "field": true, "amount": 150, "desc": "Cream, oats, honey, raspberries and a good splash of whisky, layered in a glass and worth the trip north. Restores 150 HP."},
-  {"id": "soda_farl", "name": "Soda Farl", "kind": "heal", "price": 130, "battle": true, "field": true, "amount": 75, "desc": "A quarter of soda bread griddled flat, the only correct way to eat it according to every Ulster grandmother. Restores 75 HP."},
-  {"id": "ulster_fry", "name": "Ulster Fry", "kind": "heal", "price": 1500, "battle": true, "field": true, "amount": 999, "desc": "Rashers, sausage, egg, soda farl and a potato bread nobody has the heart to refuse. Restores all HP, and you will need a lie down after."},
-  {"id": "irn_tonic", "name": "Irn Tonic", "kind": "cure", "price": 200, "battle": true, "field": true, "cures": ["soaked", "chilled", "muddled", "hexed", "stung", "asleep"], "desc": "A fizzy tonic of questionable origin that cures every status and would like you to know it has had a good year."},
-  {"id": "yorkshire_pudding", "name": "Yorkshire Pudding", "kind": "heal", "price": 260, "battle": true, "field": true, "amount": 130, "desc": "Batter, hot fat and a tin that should have been hotter. Restores 130 HP. Gravy is not included, and you will have to argue for it."},
-  {"id": "parkin", "name": "Parkin", "kind": "heal", "price": 240, "battle": true, "field": true, "amount": 110, "desc": "Sticky ginger cake made with oats and treacle, for Bonfire Night, best eaten a few days after baking. Restores 110 HP. Keeps for a week, which is more restraint than it deserves."},
-  {"id": "pork_pie", "name": "Pork Pie", "kind": "heal", "price": 330, "battle": true, "field": true, "amount": 140, "desc": "Hot water crust, a jelly nobody asked about and a pastry you could use as a doorstop. Restores 140 HP. Melton Mowbray has never once stopped arguing about the jelly."}
+ {
+  "id": "cup_of_tea",
+  "name": "Cup of Tea",
+  "kind": "heal",
+  "price": 100,
+  "battle": true,
+  "field": true,
+  "amount": 20,
+  "desc": "Hot, sweet and strangely effective. Restores 20 HP."
+ },
+ {
+  "id": "flask_of_tea",
+  "name": "Flask of Tea",
+  "kind": "heal",
+  "price": 300,
+  "battle": true,
+  "field": true,
+  "amount": 60,
+  "desc": "Somebody's gran packed this. Restores 60 HP and a sense of calm."
+ },
+ {
+  "id": "bakewell_tart",
+  "name": "Bakewell Tart",
+  "kind": "pp",
+  "price": 400,
+  "battle": true,
+  "field": true,
+  "amount": 10,
+  "desc": "It's a tart, not a pudding. Restores 10 PP to every move."
+ },
+ {
+  "id": "buxton_water",
+  "name": "Buxton Water",
+  "kind": "cure",
+  "price": 150,
+  "battle": true,
+  "field": true,
+  "cures": [
+   "soaked",
+   "chilled",
+   "muddled",
+   "hexed",
+   "stung",
+   "asleep"
+  ],
+  "desc": "Filtered through miles of limestone. Cures every status."
+ },
+ {
+  "id": "smelling_salts",
+  "name": "Smelling Salts",
+  "kind": "cure",
+  "price": 80,
+  "battle": true,
+  "field": true,
+  "cures": [
+   "asleep",
+   "muddled"
+  ],
+  "desc": "One sniff and you're wide awake and fully aware of your surroundings."
+ },
+ {
+  "id": "kendal_mint_cake",
+  "name": "Kendal Mint Cake",
+  "kind": "revive",
+  "price": 1200,
+  "battle": true,
+  "field": true,
+  "amount": 50,
+  "desc": "Fuel for fell walkers. Revives a fainted creature at half HP."
+ },
+ {
+  "id": "bara_brith",
+  "name": "Bara Brith",
+  "kind": "heal",
+  "price": 250,
+  "battle": true,
+  "field": true,
+  "amount": 60,
+  "desc": "Tea-soaked fruit loaf, butter optional, opinions compulsory. Restores 60 HP."
+ },
+ {
+  "id": "scouse",
+  "name": "Scouse",
+  "kind": "heal",
+  "price": 400,
+  "battle": true,
+  "field": true,
+  "amount": 80,
+  "desc": "Lamb stew, bread and a healthy dose of Liverpool attitude. Restores 80 HP."
+ },
+ {
+  "id": "eccles_cake",
+  "name": "Eccles Cake",
+  "kind": "cure",
+  "price": 220,
+  "battle": true,
+  "field": true,
+  "cures": [
+   "chilled",
+   "muddled",
+   "stung",
+   "asleep"
+  ],
+  "desc": "Flaky pastry, currants and a bit of Lancashire smugness. Cures chills, muddles, stings and sleep."
+ },
+ {
+  "id": "soda_bread",
+  "name": "Soda Bread",
+  "kind": "heal",
+  "price": 120,
+  "battle": true,
+  "field": true,
+  "amount": 70,
+  "desc": "No yeast, no fuss, and a cross cut in the top to let the fairies out. Restores 70 HP."
+ },
+ {
+  "id": "barmbrack",
+  "name": "Barmbrack",
+  "kind": "heal",
+  "price": 350,
+  "battle": true,
+  "field": true,
+  "amount": 120,
+  "desc": "Fruit loaf with a ring hidden inside. Whoever finds the ring gets a year of luck. Restores 120 HP."
+ },
+ {
+  "id": "pasty",
+  "name": "Pasty",
+  "kind": "heal",
+  "price": 280,
+  "battle": true,
+  "field": true,
+  "amount": 100,
+  "desc": "Crimped on the side, never on the top, and only ever eaten on a windy cliff. Restores 100 HP."
+ },
+ {
+  "id": "cream_tea",
+  "name": "Cream Tea",
+  "kind": "heal",
+  "price": 900,
+  "battle": true,
+  "field": true,
+  "amount": 999,
+  "desc": "Scone, jam, clotted cream and a fierce argument about whether the jam goes on first. Restores all HP."
+ },
+ {
+  "id": "tablet",
+  "name": "Tablet",
+  "kind": "heal",
+  "price": 180,
+  "battle": true,
+  "field": true,
+  "amount": 90,
+  "desc": "A crumbly Scottish bar of sugar, butter and condensed milk, so sweet your teeth will want a word. Restores 90 HP."
+ },
+ {
+  "id": "cranachan",
+  "name": "Cranachan",
+  "kind": "heal",
+  "price": 500,
+  "battle": true,
+  "field": true,
+  "amount": 150,
+  "desc": "Cream, oats, honey, raspberries and a good splash of whisky, layered in a glass and worth the trip north. Restores 150 HP."
+ },
+ {
+  "id": "soda_farl",
+  "name": "Soda Farl",
+  "kind": "heal",
+  "price": 130,
+  "battle": true,
+  "field": true,
+  "amount": 75,
+  "desc": "A quarter of soda bread griddled flat, the only correct way to eat it according to every Ulster grandmother. Restores 75 HP."
+ },
+ {
+  "id": "ulster_fry",
+  "name": "Ulster Fry",
+  "kind": "heal",
+  "price": 1500,
+  "battle": true,
+  "field": true,
+  "amount": 999,
+  "desc": "Rashers, sausage, egg, soda farl and a potato bread nobody has the heart to refuse. Restores all HP, and you will need a lie down after."
+ },
+ {
+  "id": "irn_tonic",
+  "name": "Irn Tonic",
+  "kind": "cure",
+  "price": 200,
+  "battle": true,
+  "field": true,
+  "cures": [
+   "soaked",
+   "chilled",
+   "muddled",
+   "hexed",
+   "stung",
+   "asleep"
+  ],
+  "desc": "A fizzy tonic of questionable origin that cures every status and would like you to know it has had a good year."
+ },
+ {
+  "id": "yorkshire_pudding",
+  "name": "Yorkshire Pudding",
+  "kind": "heal",
+  "price": 260,
+  "battle": true,
+  "field": true,
+  "amount": 130,
+  "desc": "Batter, hot fat and a tin that should have been hotter. Restores 130 HP. Gravy is not included, and you will have to argue for it."
+ },
+ {
+  "id": "parkin",
+  "name": "Parkin",
+  "kind": "heal",
+  "price": 240,
+  "battle": true,
+  "field": true,
+  "amount": 110,
+  "desc": "Sticky ginger cake made with oats and treacle, for Bonfire Night, best eaten a few days after baking. Restores 110 HP. Keeps for a week, which is more restraint than it deserves."
+ },
+ {
+  "id": "pork_pie",
+  "name": "Pork Pie",
+  "kind": "heal",
+  "price": 330,
+  "battle": true,
+  "field": true,
+  "amount": 140,
+  "desc": "Hot water crust, a jelly nobody asked about and a pastry you could use as a doorstop. Restores 140 HP. Melton Mowbray has never once stopped arguing about the jelly."
+ },
+ {
+  "id": "whitby_kipper_roll",
+  "name": "Whitby Kipper Roll",
+  "kind": "heal",
+  "price": 260,
+  "battle": true,
+  "field": true,
+  "amount": 100,
+  "desc": "A smoked kipper in a soft bap with a squeeze of lemon, eaten on the harbour in a long black coat. Restores 100 HP. Keeps for a week."
+ },
+ {
+  "id": "welsh_cakes_tin",
+  "name": "Tin of Welsh Cakes",
+  "kind": "heal",
+  "price": 240,
+  "battle": true,
+  "field": true,
+  "amount": 100,
+  "desc": "Griddle cakes with currants and a dusting of sugar, still faintly warm from the bakestone. Restores 100 HP. Keeps for a week."
+ },
+ {
+  "id": "manx_queenie_pie",
+  "name": "Manx Queenie Pie",
+  "kind": "heal",
+  "price": 300,
+  "battle": true,
+  "field": true,
+  "amount": 105,
+  "desc": "A pie of queenies, the small Manx scallops, in a creamy sauce under pastry, one of the best things you can do to the Irish Sea. Restores 105 HP. Keeps for a week."
+ },
+ {
+  "id": "jersey_bean_crock",
+  "name": "Jersey Bean Crock",
+  "kind": "heal",
+  "price": 320,
+  "battle": true,
+  "field": true,
+  "amount": 110,
+  "desc": "A slow pot of beans, pork and beef, stewed for hours in a crock and traditionally put in the baker's oven overnight. Restores 110 HP. Keeps for a week."
+ },
+ {
+  "id": "guernsey_gache_loaf",
+  "name": "Guernsey Gache Loaf",
+  "kind": "heal",
+  "price": 260,
+  "battle": true,
+  "field": true,
+  "amount": 100,
+  "desc": "A dense fruit loaf, sliced and buttered, a Guernsey tea-time staple that keeps well on a boat. Restores 100 HP. Keeps for a week."
+ },
+ {
+  "id": "falklands_diddle_dee_jam",
+  "name": "Diddle-dee Jam",
+  "kind": "heal",
+  "price": 230,
+  "battle": true,
+  "field": true,
+  "amount": 100,
+  "desc": "A tart, dark red jam made from diddle-dee berries, a Falklands favourite spread on thick bread. Restores 100 HP. Keeps for a week."
+ },
+ {
+  "id": "bermuda_fish_chowder_cup",
+  "name": "Bermuda Fish Chowder",
+  "kind": "heal",
+  "price": 340,
+  "battle": true,
+  "field": true,
+  "amount": 115,
+  "desc": "A dark, peppery fish chowder with sherry peppers and a splash of black rum, the thing Bermudians eat on every holiday. Restores 115 HP. Keeps for a week."
+ },
+ {
+  "id": "deeside_shortbread",
+  "name": "Deeside Shortbread",
+  "kind": "heal",
+  "price": 250,
+  "battle": true,
+  "field": true,
+  "amount": 100,
+  "desc": "A rich, buttery shortbread made in a tin, hard enough to put a dent in a saucer. Restores 100 HP. Keeps for a week."
+ },
+ {
+  "id": "galway_oysters",
+  "name": "Galway Oysters",
+  "kind": "heal",
+  "price": 360,
+  "battle": true,
+  "field": true,
+  "amount": 115,
+  "desc": "A dozen Galway Bay oysters on ice with a wedge of lemon and a glass of stout alongside. Restores 115 HP. Keeps for a week."
+ }
 ]

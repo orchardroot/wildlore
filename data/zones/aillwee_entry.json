@@ -1,0 +1,125 @@
+{
+ "id": "aillwee_entry",
+ "name": "Aillwee Cave: Entrance",
+ "region": "",
+ "kind": "interior",
+ "music": "dungeon_underground",
+ "weather": {},
+ "props": [
+  {
+   "type": "table",
+   "x": 9,
+   "y": 6
+  },
+  {
+   "type": "potted_plant",
+   "x": 1,
+   "y": 5
+  },
+  {
+   "type": "brazier",
+   "x": 3,
+   "y": 1,
+   "walk": false
+  },
+  {
+   "type": "brazier",
+   "x": 10,
+   "y": 3,
+   "walk": false
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 8,
+   "to": "burren",
+   "tx": 6,
+   "ty": 31,
+   "facing": "down"
+  },
+  {
+   "x": 11,
+   "y": 1,
+   "to": "aillwee_gallery",
+   "tx": 3,
+   "ty": 2,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [
+  {
+   "id": "aillwee_guide",
+   "sprite": "tour_guide",
+   "x": 4,
+   "y": 6,
+   "facing": "right",
+   "move": "still",
+   "script": "aillwee_guide",
+   "name": "Maeve, cave guide"
+  }
+ ],
+ "encounters": {},
+ "signs": [
+  {
+   "x": 8,
+   "y": 2,
+   "plaque": "aillwee_cave",
+   "title": "Aillwee Cave",
+   "text": "AILLWEE CAVE. Under the limestone hill of Aillwee in the Burren, County Clare. A local farmer, Jack McGann, found it in 1944 when his dog disappeared down a hole in the rock. It opened to visitors in 1976, and today the tour is about a kilometre of passage."
+  },
+  {
+   "x": 2,
+   "y": 2,
+   "plaque": "aillwee_burren",
+   "title": "Cave Country",
+   "text": "The Burren is bare limestone, and rain falls through its cracks instead of running over it. Over a very long time that water carved caves, swallow holes and underground rivers beneath the fields. Much of the Burren's drainage is out of sight."
+  }
+ ],
+ "spawn": [
+  6,
+  7
+ ],
+ "rows": [
+  "xxxxxxxxxxxxxx",
+  "x++++++++++D+x",
+  "x++++++++++++x",
+  "x++++++++++++x",
+  "xxxxxx++xxxxxx",
+  "x++++++++++++x",
+  "x++++++++++++x",
+  "x++++++++++++x",
+  "x+++++D++++++x",
+  "xxxxxxxxxxxxxx"
+ ],
+ "deep": {
+  "levers": [
+   {
+    "id": "gate",
+    "x": 11,
+    "y": 7,
+    "on": "You heave the old iron lever. Somewhere above the steps, a gate swings open.",
+    "off": "You haul the lever back. The gate clanks shut."
+   }
+  ],
+  "gates": [
+   {
+    "x": 6,
+    "y": 4,
+    "by": [
+     "lever:gate"
+    ],
+    "line": "A cave gate, locked from the guide's side. There is a big lever by the table."
+   },
+   {
+    "x": 7,
+    "y": 4,
+    "by": [
+     "lever:gate"
+    ],
+    "line": "The gate is shut."
+   }
+  ]
+ }
+}

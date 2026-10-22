@@ -1,0 +1,152 @@
+{
+ "id": "dyo_cathedral",
+ "name": "Dan yr Ogof: Cathedral Cave",
+ "region": "",
+ "kind": "interior",
+ "music": "dungeon_underground",
+ "weather": {},
+ "props": [],
+ "legend_extra": {
+  "e": {
+   "tile": "path",
+   "colour": "#5a5648"
+  },
+  "m": {
+   "tile": "tall_grass",
+   "colour": "#3f565a",
+   "prop": "none"
+  },
+  "g": {
+   "tile": "path",
+   "colour": "#6b6f7a"
+  }
+ },
+ "warps": [
+  {
+   "x": 1,
+   "y": 3,
+   "to": "dyo_river",
+   "tx": 17,
+   "ty": 8,
+   "facing": "down"
+  },
+  {
+   "x": 20,
+   "y": 3,
+   "to": "dyo_bone",
+   "tx": 3,
+   "ty": 3,
+   "facing": "down"
+  }
+ ],
+ "edges": {},
+ "npcs": [],
+ "encounters": {
+  "grass": [
+   {
+    "species": "flittermouse",
+    "min": 34,
+    "max": 36,
+    "weight": 18
+   },
+   {
+    "species": "crumblet",
+    "min": 34,
+    "max": 37,
+    "weight": 16
+   },
+   {
+    "species": "scuttlet",
+    "min": 34,
+    "max": 36,
+    "weight": 14
+   },
+   {
+    "species": "gritling",
+    "min": 35,
+    "max": 37,
+    "weight": 12
+   },
+   {
+    "species": "dripkin",
+    "min": 35,
+    "max": 37,
+    "weight": 12
+   },
+   {
+    "species": "lanternis",
+    "min": 35,
+    "max": 37,
+    "weight": 6,
+    "time": [
+     "night",
+     "dusk"
+    ]
+   }
+  ]
+ },
+ "signs": [
+  {
+   "x": 6,
+   "y": 3,
+   "text": "A block, a groove and a plate set in the floor. Past the plate there is a slab across the way. The plate looks like it wants something heavy."
+  },
+  {
+   "x": 12,
+   "y": 3,
+   "plaque": "dyo_cathedral",
+   "title": "Cathedral Cave",
+   "text": "CATHEDRAL CAVE. A huge chamber in the limestone with a waterfall pouring in at one end. It is large enough that the guides are asked about weddings most weeks. The echo is excellent and the congregation is bats."
+  },
+  {
+   "x": 17,
+   "y": 6,
+   "plaque": "dyo_limestone",
+   "title": "Limestone and Dripstone",
+   "text": "Limestone is mostly calcium carbonate, laid down in warm shallow seas in the Carboniferous. Rain is slightly acid, so it dissolves the stone along cracks. The calcite drips back out as stalactites and stalagmites, at a speed measured in lifetimes."
+  }
+ ],
+ "spawn": [
+  2,
+  3
+ ],
+ "stage": "cave",
+ "dark": true,
+ "rows": [
+  "xxxxxxxxxxxxxxxxxxxxxx",
+  "xxxxxxxxxxxxxxxxxxxxxx",
+  "xxxxxxxxxxxxxxxxxxxxxx",
+  "xDeeeeeeeeeeeexxeeeeDx",
+  "xeeeeeeeeeeeeegeeeeexx",
+  "xeeeeeeeeeeeeexeeeeexx",
+  "xeeeeeeeeeeeeexeeeeexx",
+  "xeeeeeeeeeeeeexxeeexxx",
+  "xxxxxxxxxxxxxxxxxxxxxx"
+ ],
+ "deep": {
+  "plates": [
+   {
+    "id": "plate",
+    "x": 9,
+    "y": 4
+   }
+  ],
+  "crates": [
+   {
+    "id": "block",
+    "x": 4,
+    "y": 6
+   }
+  ],
+  "gates": [
+   {
+    "x": 14,
+    "y": 4,
+    "by": [
+     "plate:plate"
+    ],
+    "line": "A slab of rock blocks the way, and in the floor in front of it is a plate."
+   }
+  ]
+ }
+}
